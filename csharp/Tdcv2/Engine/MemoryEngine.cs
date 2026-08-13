@@ -7,6 +7,7 @@ using Tdcv2.Expr;
 // named statistical distributions. Both names are right where they are; the alias keeps the two
 // apart at this one call site rather than renaming either to avoid a collision.
 using Distributions = Tdcv2.Stats.Distribution;
+using DistParams = Tdcv2.Stats.DistParams;
 using Tdcv2.Format;
 using Tdcv2.Generators;
 using Tdcv2.Model;
@@ -49,7 +50,15 @@ public static class MemoryEngine
         Dictionary<string, RowLinkPlan> RowLinks,
         // The columns built so far. A `<switch>` inside a `<case>` is not a column itself and
         // never reaches the registry, so it reads its subject through this instead.
-        Dictionary<string, string[]>? Columns = null)
+        Dictionary<string, string[]>? Columns = null,
+        // Where a per-row expression reads the columns beside it. One seam, two fillings: the
+        // in-memory engine answers from the columns it has already built, the streaming engine
+        // from its lazy registry. It is the same split the reference makes with `ctx.valueAt`,
+        // and it is what lets a distribution parameter be an expression without either engine
+        // learning about the other. `Has` is separate from the value because an ABSENT name is
+        // not an empty one — an unresolved bare word evaluates to the WORD.
+        Func<string, bool>? HasSibling = null,
+        Func<string, int, string?>? SiblingAt = null)
     {
         internal int RegexMax => Config.RegexMaxLength;
 
@@ -231,6 +240,35 @@ public static class MemoryEngine
     /// Reads its source out of the columns rather than drawing anything, exactly as a running
     /// total does — which is why adding one leaves every other column where it was.
     /// </remarks>
+    /// <summary><c>&lt;gen type="formula"&gt;</c> — arithmetic over the columns beside it.</summary>
+    /// <remarks>
+    /// Resolved here for the same reason <c>running</c> and <c>stat</c> are: it reads columns
+    /// that already exist, so every name in <c>expr=</c> has to be declared above. Unlike them it
+    /// needs only its OWN row, which is why it also streams.
+    /// </remarks>
+    private static void FormulaColumn(
+        SequenceSpec spec, Dictionary<string, string?[]> columns, int count)
+    {
+        IReadOnlyDictionary<string, string> attrs = spec.Gen!.Attrs;
+        string source = Formula.ExpressionOf(attrs);
+        int? decimals = Formula.DecimalsOf(attrs);
+        var values = new string?[count];
+        for (int row = 0; row < count; row++)
+        {
+            int here = row;
+            values[row] = Formula.ValueAtRow(
+                source,
+                decimals,
+                here,
+                columns.ContainsKey,
+                name => columns.TryGetValue(name, out string?[]? column) && here < column.Length
+                    ? column[here]
+                    : null);
+        }
+
+        columns[spec.Name] = values;
+    }
+
     private static void StatColumn(
         SequenceSpec spec, Dictionary<string, string?[]> columns, int count)
     {
@@ -517,7 +555,18 @@ public static class MemoryEngine
         // Handed to every builder below, so a nested <switch> can look its subject up. The
         // dictionary is filled as the loop runs and read only when a row is resolved, by which
         // time the subject — declared earlier, as the validator insists — is in it.
-        ctx = ctx with { Columns = columns };
+        // The same dictionary answers the sibling seam: a parameter expression may only name a
+        // column DECLARED ABOVE it (TDC240), so whatever it reads is already in here by the time
+        // the column that reads it is built.
+        ctx = ctx with
+        {
+            Columns = columns,
+            HasSibling = columns.ContainsKey,
+            SiblingAt = (name, row) =>
+                columns.TryGetValue(name, out string[]? column) && row < column.Length
+                    ? column[row]
+                    : null,
+        };
 
         // Built-ins first. They are positional, consume no randomness, and are therefore
         // identical for a given count no matter what else the config does.
@@ -574,6 +623,16 @@ public static class MemoryEngine
             if (spec.Gen is not null && spec.Gen.Type == "running")
             {
                 RunningColumn(spec, columns, count);
+                continue;
+            }
+
+            // Arithmetic over the columns beside it. Resolved here for the same reason as the
+            // two below: it reads columns that already exist, so every name in `expr=` has to be
+            // declared above. Unlike them it needs only its OWN row, which is why it also
+            // streams.
+            if (spec.Gen is not null && spec.Gen.Type == "formula")
+            {
+                FormulaColumn(spec, columns, count);
                 continue;
             }
 
@@ -946,8 +1005,14 @@ public static class MemoryEngine
     /// out of that is a guess. The column that produced it keeps what it generated, and an offset
     /// measures from THAT.
     /// </remarks>
+    /// <param name="rowAt">
+    /// The absolute row behind each position, for the one generator that reads a sibling column:
+    /// a distribution whose parameter is an expression. <c>null</c> means the positions ARE the
+    /// rows — the whole-column build of an unfiltered sequence.
+    /// </param>
     internal static IReadOnlyList<string> Generate(
-        Gen gen, int count, Sfc32 prng, Ctx ctx, List<long?>? instants)
+        Gen gen, int count, Sfc32 prng, Ctx ctx, List<long?>? instants,
+        Func<int, int>? rowAt = null)
     {
         switch (gen.Type)
         {
@@ -986,7 +1051,7 @@ public static class MemoryEngine
 
             case "number":
                 return gen.Attrs.ContainsKey("distribution")
-                    ? Distribute(gen.Attrs, count, prng)
+                    ? Distribute(gen.Attrs, count, prng, ctx, rowAt)
                     : NumberGen.Generate(gen.Attrs, count, prng);
             case "pattern":
                 return Pattern.PatternGen.Generate(
@@ -2875,12 +2940,45 @@ public static class MemoryEngine
     /// before it, and the streaming engines could not then compute row nine million on its own.
     /// </remarks>
     private static IReadOnlyList<string> Distribute(
-        IReadOnlyDictionary<string, string> attrs, int count, Sfc32 prng)
+        IReadOnlyDictionary<string, string> attrs, int count, Sfc32 prng, Ctx ctx,
+        Func<int, int>? rowAt)
     {
-        Distributions.Spec spec = Distributions.Parse(attrs);
+        IReadOnlyList<string> dynamic = DistParams.ExpressionParams(attrs);
+        Distributions.Spec? fixedSpec = dynamic.Count == 0 ? Distributions.Parse(attrs) : null;
         var result = new List<string>(count);
         for (int i = 0; i < count; i++)
         {
+            DistParams.Resolved? resolved = null;
+            if (fixedSpec is null)
+            {
+                int row = rowAt is null ? i : rowAt(i);
+                resolved = DistParams.Resolve(
+                    attrs,
+                    dynamic,
+                    row,
+                    name => ctx.HasSibling is not null && ctx.HasSibling(name),
+                    name => ctx.SiblingAt?.Invoke(name, row));
+            }
+
+            // Nothing to draw from, so nothing is drawn: the row comes out empty, which is what
+            // `<gen type="formula">` does with the same input. One rule for "the source said
+            // nothing", wherever the source is read.
+            if (resolved is { Empty: true })
+            {
+                // The uniforms are spent anyway. Otherwise blanking one cell would slide every
+                // value after it, and a `parent=` filter would quietly rewrite the rest of the
+                // column.
+                for (int d = 0; d < DistParams.Draws(attrs); d++)
+                {
+                    prng.Next();
+                }
+
+                result.Add("");
+                continue;
+            }
+
+            Distributions.Spec spec =
+                fixedSpec ?? Distributions.Parse(resolved?.Attrs ?? attrs);
             var uniforms = new double[spec.Draws];
             for (int d = 0; d < spec.Draws; d++)
             {
@@ -2988,8 +3086,10 @@ public static class MemoryEngine
                 // One row's instant lands in its own scratch: the inner call knows nothing of
                 // `i`, and a later `missing=` pass has to line up with the values it blanked.
                 List<long?>? scratch = instants is null ? null : new List<long?>(1);
+                int here = stream.RowAt(i);
                 IReadOnlyList<string> done = Finish(
-                    Generate(gen, 1, rowPrng, ctx, scratch), gen.Attrs, rowPrng, one, scratch);
+                    Generate(gen, 1, rowPrng, ctx, scratch, _ => here),
+                    gen.Attrs, rowPrng, one, scratch);
                 built.Add(done.Count > 0 ? done[0] : "");
                 if (anomalyFlags is not null)
                 {
@@ -3003,7 +3103,7 @@ public static class MemoryEngine
         }
 
         return FinishKeyed(
-            Generate(gen, count, prng, ctx), gen, prng, anomalyFlags, stream);
+            Generate(gen, count, prng, ctx, null, stream.RowAt), gen, prng, anomalyFlags, stream);
     }
 
     /// <summary>

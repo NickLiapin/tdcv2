@@ -2168,6 +2168,7 @@ public sealed class Validator
                     {
                         members++;
                         CheckEnvGroupMember(wrapped, tag);
+                        CheckGroupDerivedMember(wrapped, tag);
                         result.Add(wrapped);
                     }
                 }
@@ -2245,6 +2246,232 @@ public sealed class Validator
                 $"A <{tag}> around sequences uses one value per sequence. Use a simple <gen> or a "
                 + "<switch> sequence, not a compound (multi-field) one.",
                 Line(sequence), Column(sequence));
+        }
+    }
+
+    /// <summary>A DERIVED column inside a <c>&lt;uniq&gt;</c> or <c>&lt;distinct&gt;</c> group.</summary>
+    /// <remarks>
+    /// <para>A group is a rearrangement: it keeps every member's multiset of values and permutes
+    /// the columns until each record is unique. Sound for drawn columns — a draw means the same
+    /// wherever it lands — and destructive for a derived one, whose value is a statement ABOUT the
+    /// row it was computed for. Measured on the reference, <c>&lt;uniq&gt;</c> over <c>A</c> (1..5)
+    /// and <c>F = A * 10</c> gave <c>2|20  3|20  3|30  2|30  5|50</c>: two rows of five saying that
+    /// ten times three is twenty, with <c>check</c> calling the config valid.</para>
+    ///
+    /// <para>A <c>&lt;compute&gt;</c> is the same case from the other side — <c>f(x)</c> is
+    /// <c>f(x)</c>, so it has no pool to draw from and no column of its own to rearrange.</para>
+    /// </remarks>
+    private void CheckGroupDerivedMember(TDCParser.OpenCloseElementContext sequence, string tag)
+    {
+        string name = Attributes(sequence.attr()).GetValueOrDefault("name") ?? "?";
+        foreach (TDCParser.ElementContext child in sequence.content().element())
+        {
+            TDCParser.OpenCloseElementContext open = child.openCloseElement();
+            if (open is not null && open.name.Text == "compute")
+            {
+                Error(
+                    "TDC296",
+                    $"<sequence name=\"{name}\"> holds a <compute>, which cannot be a member of "
+                    + $"<{tag}>: it derives its value from other columns, so it has nothing of its "
+                    + "own to rearrange and cannot keep the group's promise",
+                    $"Put the <{tag}> around the <gen> sequences the <compute> READS. Its value "
+                    + "follows them, so arranging the inputs arranges the result.",
+                    Line(open), Column(open));
+                return;
+            }
+
+            TDCParser.SelfClosingElementContext gen = child.selfClosingElement();
+            if (gen is null || gen.name.Text != "gen")
+            {
+                continue;
+            }
+
+            IReadOnlyDictionary<string, string> attrs = Attributes(gen.attr());
+            string? type = attrs.GetValueOrDefault("type");
+            if (!IsDerived(type, attrs))
+            {
+                continue;
+            }
+
+            string described = type == "date"
+                ? "a date measured from another column (of=)"
+                : $"a type=\"{type}\" column";
+            Error(
+                "TDC296",
+                $"<sequence name=\"{name}\"> holds {described}, which cannot be a member of "
+                + $"<{tag}>: the group rearranges finished columns, and a computed value moved to "
+                + "another row no longer describes that row",
+                $"Put the {tag} group around the columns this one READS, and leave the computed "
+                + "column outside it. It follows whatever the group arranges, so it stays true row "
+                + "by row.",
+                Line(gen), Column(gen));
+            return;
+        }
+    }
+
+    /// <summary>A <c>&lt;gen&gt;</c> whose whole COLUMN is read from other columns rather than drawn.</summary>
+    /// <remarks>
+    /// A date is on the list only when <c>of=</c> makes it one: without it a date draws like
+    /// anything else.
+    /// </remarks>
+    private static bool IsDerived(string? type, IReadOnlyDictionary<string, string> attrs) =>
+        type switch
+        {
+            "formula" or "running" or "stat" => true,
+            "date" => (attrs.GetValueOrDefault("of") ?? "").Trim().Length > 0,
+            _ => false,
+        };
+
+    /// <summary><c>expr=</c> is what a formula IS, and every name in it must be declared above.</summary>
+    private void CheckFormula(
+        TDCParser.SelfClosingElementContext gen,
+        IReadOnlyDictionary<string, string> attrs,
+        string? type)
+    {
+        if (type != "formula")
+        {
+            return;
+        }
+
+        string source = (attrs.GetValueOrDefault("expr") ?? "").Trim();
+        if (source.Length == 0)
+        {
+            (int line, int column) = At(gen, "type");
+            Error(
+                "TDC294", "<gen type=\"formula\"> needs expr=\"\u2026\"",
+                "The expression is what the column IS: expr=\"Weight / (Height * Height)\".",
+                line, column);
+            return;
+        }
+
+        CheckParamNames(gen, "expr", source);
+    }
+
+    /// <summary>A derived column cannot be ONE BRANCH of a per-row choice.</summary>
+    /// <remarks>
+    /// <c>running</c>, <c>stat</c>, a date offset and <c>formula</c> are built once, for the whole
+    /// column, in declaration order. An <c>if=</c> asks for something else entirely: a value chosen
+    /// row by row. The two cannot both be true, and the run used to die with a message that read
+    /// like an unfinished engine rather than a config that cannot mean anything.
+    /// </remarks>
+    private void CheckDerivedNotConditional(
+        TDCParser.SelfClosingElementContext gen,
+        IReadOnlyDictionary<string, string> attrs,
+        string? type)
+    {
+        if (!IsDerived(type, attrs)
+            || (attrs.GetValueOrDefault("if") ?? "").Trim().Length == 0)
+        {
+            return;
+        }
+
+        (int line, int column) = At(gen, "if");
+        Error(
+            "TDC295",
+            $"a type=\"{type}\" column is built for the whole run, so it cannot carry if=",
+            "It reads other columns in declaration order and produces one column, not a value "
+            + "chosen per row. Put the condition where the value is USED \u2014 `<data "
+            + "if=\"\u2026\">` \u2014 or compute the column unconditionally and branch on it "
+            + "afterwards.",
+            line, column);
+    }
+
+    /// <summary><c>read="quantile"</c> — the file as a sorted sample rather than a bag of values.</summary>
+    /// <remarks>
+    /// Everything refused here asks for TWO readings of one file at once. <c>weight=</c> says the
+    /// shares live in a second column; <c>read="quantile"</c> says the values ARE the distribution.
+    /// <c>row=</c> links several columns to one LINE, and a quantile answer is a point between two
+    /// of them. <c>order="sequential"</c> walks the list in order, which a distribution has no
+    /// notion of.
+    /// </remarks>
+    private void CheckQuantileRead(
+        TDCParser.SelfClosingElementContext gen,
+        IReadOnlyDictionary<string, string> attrs,
+        string? type)
+    {
+        if (type != "file")
+        {
+            return;
+        }
+
+        string read = (attrs.GetValueOrDefault("read") ?? "").Trim();
+        string sample = (attrs.GetValueOrDefault("sample") ?? "").Trim();
+
+        if (attrs.ContainsKey("read") && read != "quantile")
+        {
+            (int line, int column) = At(gen, "read");
+            Error(
+                "TDC297",
+                $"read=\"{read}\" is not a way of reading a file \u2014 the only one is "
+                + "\"quantile\"",
+                "Leave read= off to pick one of the file's values at random, or write "
+                + "read=\"quantile\" to read the file as a sorted sample and land anywhere on it.",
+                line, column);
+            return;
+        }
+
+        if (attrs.ContainsKey("sample") && sample != "exact")
+        {
+            (int line, int column) = At(gen, "sample");
+            Error(
+                "TDC297",
+                $"sample=\"{sample}\" is not a sampling mode \u2014 the only one is \"exact\"",
+                "Leave sample= off to draw from the distribution row by row, or write "
+                + "sample=\"exact\" to sweep it evenly so the run reproduces the sample with no "
+                + "sampling noise.",
+                line, column);
+        }
+
+        if (attrs.ContainsKey("sample") && read != "quantile")
+        {
+            (int line, int column) = At(gen, "sample");
+            Error(
+                "TDC297", "sample= only means something beside read=\"quantile\"",
+                "It chooses between drawing from the distribution and sweeping it evenly, and a "
+                + "file read as a plain list of values has no distribution to sweep.",
+                line, column);
+        }
+
+        if (read != "quantile")
+        {
+            return;
+        }
+
+        foreach ((string name, string why, string hint) in new[]
+        {
+            ("weight",
+                "weight= puts the shares in a COLUMN beside the values, and read=\"quantile\" "
+                + "says the values are the distribution themselves \u2014 how often one appears "
+                + "in the file IS its share",
+                "Keep one of the two readings. A countable value wants weight= and its exact "
+                + "quota; a measured one wants the quantile read, which also fills in the values "
+                + "between the observations."),
+            ("row",
+                "row= links several columns to one LINE of the file, and a quantile answer is not "
+                + "a line: it is a point between two of them",
+                "To keep a record together, read the file as lines with row= and leave read= off."),
+        })
+        {
+            if ((attrs.GetValueOrDefault(name) ?? "").Trim().Length == 0)
+            {
+                continue;
+            }
+
+            (int line, int column) = At(gen, name);
+            Error(
+                "TDC297", $"{name}= cannot be combined with read=\"quantile\": {why}", hint,
+                line, column);
+        }
+
+        if ((attrs.GetValueOrDefault("order") ?? "").Trim() == "sequential")
+        {
+            (int line, int column) = At(gen, "order");
+            Error(
+                "TDC297", "order=\"sequential\" cannot be combined with read=\"quantile\"",
+                "Walking a list in order and sampling a distribution are different jobs: one hands "
+                + "out the file's lines one after another, the other says where on the sorted "
+                + "sample a row lands.",
+                line, column);
         }
     }
 
@@ -2935,10 +3162,16 @@ public sealed class Validator
         CheckGenAttributes(gen, attrs, type);
 
         CheckWeight(gen, attrs, type);
+        // Before the source path is resolved: a file read the wrong way is a mistake about the
+        // READING, and hearing "no such file" first would send the reader looking in the wrong
+        // place.
+        CheckQuantileRead(gen, attrs, type);
         CheckSource(gen, attrs, type);
         CheckHttp(gen, attrs, type);
         CheckRunning(gen, attrs, type);
         CheckStat(gen, attrs, type);
+        CheckFormula(gen, attrs, type);
+        CheckDerivedNotConditional(gen, attrs, type);
         CheckMask(gen, attrs);
         CheckCounter(gen, attrs, type);
         CheckDateTemplates(gen, attrs, type);
@@ -3761,11 +3994,33 @@ public sealed class Validator
                 }
             }
 
+            // A parameter written as an EXPRESSION is resolved per row against the other columns,
+            // so its VALUE is not knowable here. Stand a plausible number in its place and check
+            // everything else — the distribution's name, the parameters it requires, the
+            // attributes it refuses — so writing `lambda="Traffic * 0.5"` does not buy silence
+            // about the rest of the generator.
+            //
+            // `1` is the stand-in because every parameter of every distribution accepts it: the
+            // positive ones are happy, the unbounded ones do not care. A parameter that resolves
+            // to something the distribution rejects — a negative `sd` — is caught by the run,
+            // where the value finally exists, with this same message.
+            IReadOnlyList<string> dynamic = Stats.DistParams.ExpressionParams(attrs);
+            foreach (string param in dynamic)
+            {
+                CheckParamNames(gen, param, attrs.GetValueOrDefault(param) ?? "");
+            }
+
+            var forCheck = new Dictionary<string, string>(attrs, StringComparer.Ordinal);
+            foreach (string param in dynamic)
+            {
+                forCheck[param] = "1";
+            }
+
             // The distribution's own parameters: a shape nobody can draw from is an error before the
             // run, not a surprise on the first row.
             try
             {
-                Stats.Distribution.Parse(attrs);
+                Stats.Distribution.Parse(forCheck);
             }
             catch (ArgumentException e)
             {
@@ -4674,6 +4929,96 @@ public sealed class Validator
     }
 
     /// <summary><c>accumulate=</c> needs a list, and its op is one of a short closed set.</summary>
+    /// <summary>
+    /// Every column an expression-valued parameter names must be declared ABOVE it.
+    /// </summary>
+    /// <remarks>
+    /// The same rule <c>formula</c>, <c>running</c> and <c>of=</c> follow, and for a sharper
+    /// reason than a typo: a FORWARD reference makes the two engines disagree — the streaming
+    /// registry answers it and the in-memory one does not — so one config would mean two
+    /// datasets. TDC240 is shared with them on purpose; it is the same complaint about the same
+    /// thing.
+    /// </remarks>
+    private void CheckParamNames(
+        TDCParser.SelfClosingElementContext gen, string param, string source)
+    {
+        Expr.Expr parsed;
+        try
+        {
+            parsed = Expr.Expr.Parse(source);
+        }
+        catch (Exception)
+        {
+            return; // Not an expression at all — TDC089 reports it.
+        }
+
+        var names = new SortedSet<string>(StringComparer.Ordinal);
+        CollectIdentifiers(parsed, names);
+        foreach (string name in names)
+        {
+            if (Checks.IsBuiltin(name) || _declaredOrder.Contains(name, StringComparer.Ordinal))
+            {
+                continue;
+            }
+
+            (int line, int column) = At(gen, param);
+            Error(
+                "TDC240", $"\"{name}\" in {param}= is not a sequence declared above this one",
+                _declaredOrder.Count == 0
+                    ? "A parameter reads a column that already exists, so the column it reads "
+                      + "has to come first."
+                    : "Declared above: " + string.Join(", ", _declaredOrder) + ".",
+                line, column);
+        }
+    }
+
+    /// <summary>Every bare name an expression mentions, the root of a dotted path included.</summary>
+    /// <remarks>
+    /// A distribution parameter is a NUMBER, so every identifier in one has to be a column —
+    /// unlike <c>if=</c>, where an unknown name is a legitimate bare word. That is what makes
+    /// checking them all correct here and wrong there.
+    /// </remarks>
+    private static void CollectIdentifiers(Expr.Expr node, ISet<string> found)
+    {
+        switch (node)
+        {
+            case Expr.Expr.Name n:
+                found.Add(n.Value);
+                break;
+            case Expr.Expr.Member m:
+                found.Add(m.Dotted.Split('.')[0]);
+                break;
+            case Expr.Expr.Unary u:
+                CollectIdentifiers(u.Operand, found);
+                break;
+            case Expr.Expr.Binary b:
+                CollectIdentifiers(b.Left, found);
+                CollectIdentifiers(b.Right, found);
+                break;
+            case Expr.Expr.Conditional t:
+                CollectIdentifiers(t.Test, found);
+                CollectIdentifiers(t.Consequent, found);
+                CollectIdentifiers(t.Alternate, found);
+                break;
+            case Expr.Expr.Call c:
+                foreach (Expr.Expr arg in c.Args)
+                {
+                    CollectIdentifiers(arg, found);
+                }
+
+                break;
+            case Expr.Expr.Arr a:
+                foreach (Expr.Expr item in a.Items)
+                {
+                    CollectIdentifiers(item, found);
+                }
+
+                break;
+            default:
+                break;
+        }
+    }
+
     /// <summary>
     /// Everything a running total cannot do without.
     ///

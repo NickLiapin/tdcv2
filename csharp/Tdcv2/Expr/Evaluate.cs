@@ -30,6 +30,35 @@ public static class Evaluate
     public static bool AsCondition(string source, IScope scope) =>
         ToBoolean(Eval(Cache.GetOrAdd(source, Expr.Parse), scope));
 
+    /// <summary>The expression's VALUE rather than its truth.</summary>
+    /// <remarks>
+    /// The same evaluator an <c>if=</c> uses — a formula and a distribution parameter are the
+    /// same language asking for the answer instead of the verdict, which is what keeps a
+    /// condition and a computed column from coming to mean different things by the same words.
+    /// </remarks>
+    public static object? AsValue(string source, IScope scope) =>
+        Eval(Cache.GetOrAdd(source, Expr.Parse), scope);
+
+    /// <summary>The same, for a caller that has two closures rather than a scope object.</summary>
+    public static object? AsValue(string source, Func<string, bool> has, Func<string, string> value)
+        => AsValue(source, new FuncScope(has, value));
+
+    private sealed class FuncScope : IScope
+    {
+        private readonly Func<string, bool> _has;
+        private readonly Func<string, string> _value;
+
+        internal FuncScope(Func<string, bool> has, Func<string, string> value)
+        {
+            _has = has;
+            _value = value;
+        }
+
+        public bool Has(string name) => _has(name);
+
+        public string Value(string name) => _value(name);
+    }
+
     private static object? Eval(Expr node, IScope scope) => node switch
     {
         Expr.Num n => n.Value,

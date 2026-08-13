@@ -432,6 +432,24 @@ public sealed class StreamEngine
                     + "handles it (run without a forced streaming engine)");
             }
 
+            // Arithmetic over the columns beside it. Unlike the two refusals around it, a
+            // formula reads only its OWN row, so the streaming engine answers it lazily exactly
+            // as it answers a `<compute>`.
+            if (spec.Gen is not null && spec.Gen.Type == "formula")
+            {
+                string formulaSource = Formula.ExpressionOf(spec.Gen.Attrs);
+                int? formulaDecimals = Formula.DecimalsOf(spec.Gen.Attrs);
+                Put(
+                    spec.Name,
+                    row => Formula.ValueAtRow(
+                        formulaSource,
+                        formulaDecimals,
+                        row,
+                        _columns.ContainsKey,
+                        name => ValueAt(name, row)));
+                continue;
+            }
+
             // A statistic over the whole run is the stronger form of the same thing: it is not
             // knowable from the rows SO FAR either, because the rows after this one are part of
             // the answer. Refused by name, and the router hands the config to memory.
@@ -617,7 +635,7 @@ public sealed class StreamEngine
                     value = First(
                         GenValues(
                             genByName[name],
-                            Seekable.Generator(_seed, name + "#ed" + attempt, row), null));
+                            Seekable.Generator(_seed, name + "#ed" + attempt, row), null, row));
                 }
 
                 values[name] = value;
@@ -1053,7 +1071,7 @@ public sealed class StreamEngine
                 NumberGen.LengthChoice group =
                     lengthChoices[RunFor(cumHi, Permute.Apply(r.Value, domain.Size, key))];
                 var pinned = new Gen(type, NumberGen.PinLength(attrs, group));
-                return First(GenValues(pinned, Seekable.Generator(_seed, streamId, row), null));
+                return First(GenValues(pinned, Seekable.Generator(_seed, streamId, row), null, row));
             }));
         }
 
@@ -1084,7 +1102,7 @@ public sealed class StreamEngine
                             GenValues(
                                 single,
                                 Seekable.Generator(_seed, streamId + "#e" + at + suffix, row),
-                                null));
+                                null, row));
 
                     parts.Add(
                         r2.Distinct ? Repeat.RedrawUntilFresh(parts, type, DrawAt) : DrawAt(""));
@@ -1126,7 +1144,7 @@ public sealed class StreamEngine
                                 GenValues(
                                     single,
                                     Seekable.Generator(_seed, streamId + "#e" + at + s2, row),
-                                    null));
+                                    null, row));
 
                         (string won, string winning) =
                             Repeat.RedrawUntilFreshAt(seen, type, DrawAt);
@@ -1137,7 +1155,7 @@ public sealed class StreamEngine
                     var spiked = new bool[1];
                     GenValues(
                         single, Seekable.Generator(_seed, streamId + "#e" + k + suffix, row),
-                        spiked);
+                        spiked, row);
                     flags.Add(spiked[0] ? "true" : "false");
                 }
 
@@ -1152,7 +1170,7 @@ public sealed class StreamEngine
             int? r = domain.PopIndexAt(row);
             return r is null
                 ? null
-                : First(GenValues(gen, Seekable.Generator(_seed, streamId, row), null));
+                : First(GenValues(gen, Seekable.Generator(_seed, streamId, row), null, row));
         };
         return new Built(plain, null, AnomalyFlagName(attrs), AnomalyFlagColumn(streamId, gen, domain));
     }
@@ -1196,7 +1214,7 @@ public sealed class StreamEngine
             }
 
             var spiked = new bool[1];
-            GenValues(gen, Seekable.Generator(_seed, streamId, row), spiked);
+            GenValues(gen, Seekable.Generator(_seed, streamId, row), spiked, row);
             return spiked[0] ? "true" : "false";
         };
     }
@@ -1209,24 +1227,38 @@ public sealed class StreamEngine
     /// order the in-memory engine takes them in. Splitting them across two streams would give a
     /// different column for the same seed, which is the one thing neither engine may do.
     /// </remarks>
-    private IReadOnlyList<string> GenValues(Gen gen, Sfc32 prng, bool[]? flagsOut)
+    /// <param name="row">
+    /// The row this value belongs to, so a distribution parameter written as an expression can
+    /// read the columns beside it. Nothing else looks at it, and a generator without one costs no
+    /// lookup.
+    /// </param>
+    private IReadOnlyList<string> GenValues(Gen gen, Sfc32 prng, bool[]? flagsOut, int row = 0)
     {
         var ctx = new MemoryEngine.Ctx(
             _config, _packs, _nowMillis, _baseDir,
-            new Dictionary<string, MemoryEngine.RowLinkPlan>(StringComparer.Ordinal));
+            new Dictionary<string, MemoryEngine.RowLinkPlan>(StringComparer.Ordinal),
+            null,
+            // The streaming half of the sibling seam: a column is asked for a value at a row, and
+            // the lazy registry computes exactly that row of exactly that column. A forward
+            // reference cannot arrive here — TDC240 refuses a parameter naming a column declared
+            // below it — so this never asks the registry to build a column that is asking for
+            // this one.
+            _columns.ContainsKey,
+            (name, at) => ValueAt(name, at));
 
         Repeat.Spec? repeat = Repeat.Parse(gen.Attrs);
         if (repeat is null)
         {
             return MemoryEngine.Finish(
-                MemoryEngine.Generate(gen, 1, prng, ctx), gen.Attrs, prng,
+                MemoryEngine.Generate(gen, 1, prng, ctx, null, _ => row), gen.Attrs, prng,
                 flagsOut ?? new bool[1]);
         }
 
         return Repeat.Build(
             repeat.Value, 1, prng,
             slots => MemoryEngine.Finish(
-                MemoryEngine.Generate(gen, slots, prng, ctx), gen.Attrs, prng, new bool[slots]));
+                MemoryEngine.Generate(gen, slots, prng, ctx, null, _ => row),
+                gen.Attrs, prng, new bool[slots]));
     }
 
     /// <summary>A <c>&lt;gen type="template"&gt;</c> pointing at a pack that carries its own shares.</summary>
@@ -1859,7 +1891,7 @@ public sealed class StreamEngine
                         }
 
                         string key = spec.Name + "." + fieldName + "#d" + attempt;
-                        value = First(GenValues(gen, Seekable.Generator(_seed, key, row), null));
+                        value = First(GenValues(gen, Seekable.Generator(_seed, key, row), null, row));
                     }
 
                     values[fieldName] = value;
