@@ -137,10 +137,10 @@ pub fn config_of(case: &Case) -> Result<Config, EngineError> {
     let base_dir = base_dir_of(case);
     let refusals: Vec<String> =
         tdcv2::validator::validate_in(&parsed.tree, None, base_dir.as_deref())
-        .into_iter()
-        .filter(|d| d.severity == Severity::Error)
-        .map(|d| format!("{} {}", d.code, d.message))
-        .collect();
+            .into_iter()
+            .filter(|d| d.severity == Severity::Error)
+            .map(|d| format!("{} {}", d.code, d.message))
+            .collect();
     if !refusals.is_empty() {
         return Err(EngineError::Invalid(format!(
             "the validator refuses a shared case: {}",
@@ -167,7 +167,11 @@ pub fn now_of(case: &Case) -> Result<i64, EngineError> {
 
 /// What a case renders, or why it could not.
 pub fn render(case: &Case) -> Result<String, EngineError> {
-    engine::render_in(&config_of(case)?, now_of(case)?, base_dir_of(case).as_deref())
+    engine::render_in(
+        &config_of(case)?,
+        now_of(case)?,
+        base_dir_of(case).as_deref(),
+    )
 }
 
 /// Every case a scoreboard let through as "not ported yet", by name.

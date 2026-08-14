@@ -148,7 +148,6 @@ impl<'a> Env<'a> {
             .and_then(|column| column.get(row).cloned())
             .flatten()
     }
-
 }
 
 impl Siblings for Env<'_> {
@@ -329,7 +328,12 @@ fn formula_column(
             decimals,
             row,
             &|name| columns.contains_key(name),
-            &|name| columns.get(name).and_then(|c| c.get(row).cloned()).flatten(),
+            &|name| {
+                columns
+                    .get(name)
+                    .and_then(|c| c.get(row).cloned())
+                    .flatten()
+            },
         )?);
     }
     columns.insert(spec.name.clone(), values);
@@ -1945,7 +1949,8 @@ pub(super) fn column_values(
 /// columns they have just finished.
 fn expression_reads(config: &Config, name: &str) -> bool {
     fn mentions(source: &str, name: &str) -> bool {
-        source.split(|c: char| !c.is_alphanumeric() && c != '_' && c != '.')
+        source
+            .split(|c: char| !c.is_alphanumeric() && c != '_' && c != '.')
             .any(|word| word == name || word.split('.').next() == Some(name))
     }
     fn gen_reads(gen: &Gen, name: &str) -> bool {
@@ -1969,8 +1974,14 @@ fn expression_reads(config: &Config, name: &str) -> bool {
         })
     }
     fn switch_reads(switch: &Switch, name: &str) -> bool {
-        switch.entries.iter().any(|entry| case_reads(&entry.value, name))
-            || switch.fallback.as_ref().is_some_and(|c| case_reads(c, name))
+        switch
+            .entries
+            .iter()
+            .any(|entry| case_reads(&entry.value, name))
+            || switch
+                .fallback
+                .as_ref()
+                .is_some_and(|c| case_reads(c, name))
     }
     config.sequences.iter().any(|spec| match &spec.source {
         Source::Gen(gen) => gen_reads(gen, name),
@@ -2027,7 +2038,13 @@ pub(super) fn column_values_into(
                 // The POSITION inside this column, not the absolute row: the sweep spreads
                 // `count` points over the rows this column actually has, and a filtered
                 // column has fewer of them than the run does.
-                quantile::exact_at(&source, decimals, count as i32, key, i32::try_from(i).unwrap_or(0))
+                quantile::exact_at(
+                    &source,
+                    decimals,
+                    count as i32,
+                    key,
+                    i32::try_from(i).unwrap_or(0),
+                )
             })
             .collect();
         return finish_keyed(swept, gen, prng, anomaly_flags, Some(stream));
@@ -2468,7 +2485,12 @@ fn quantile_values(
     let decimals = quantile::decimals_for(attrs, &source);
 
     Ok((0..count)
-        .map(|_| quantile::render(quantile::at(&source.sorted, seekable::open_unit(prng.next())), decimals))
+        .map(|_| {
+            quantile::render(
+                quantile::at(&source.sorted, seekable::open_unit(prng.next())),
+                decimals,
+            )
+        })
         .collect())
 }
 
@@ -3761,10 +3783,7 @@ pub(super) fn each_info(config: &Config) -> EngineResult<Vec<(String, repeat::Sp
 }
 
 /// The spec for one repeating sequence, or `None` when the name is not a list.
-fn each_spec<'a>(
-    each_info: &'a [(String, repeat::Spec)],
-    name: &str,
-) -> Option<&'a repeat::Spec> {
+fn each_spec<'a>(each_info: &'a [(String, repeat::Spec)], name: &str) -> Option<&'a repeat::Spec> {
     each_info.iter().find(|(n, _)| n == name).map(|(_, s)| s)
 }
 

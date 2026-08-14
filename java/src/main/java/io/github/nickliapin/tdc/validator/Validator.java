@@ -3866,6 +3866,18 @@ public final class Validator {
           at(gen, name)[0], at(gen, name)[1]);
     }
 
+    // A repeat= source is a LIST in one cell, and an offset measures from a DATE. The run said so
+    // in the worst possible words — it quoted the joined text and blamed the format, sending the
+    // reader to look for a format= mistake that was never there. The cause is the repetition, so
+    // name it.
+    if (!of.isEmpty() && repeatingNames.contains(of)) {
+      error("TDC240",
+          "of=\"" + of + "\" repeats, so each cell holds a LIST of dates rather than one date",
+          "An offset measures from a single date. Drop repeat= on that column, or measure from "
+              + "one that does not repeat.",
+          at(gen, "of")[0], at(gen, "of")[1]);
+    }
+
     if (!of.isEmpty() && !declaredOrder.contains(of)) {
       error("TDC240", "of=\"" + of + "\" is not a sequence declared above this one",
           declaredOrder.isEmpty()

@@ -11,6 +11,7 @@
  * Diagnostic codes: TDC180–TDC189.
  */
 
+import { applyMask } from '../format/transforms.js';
 import { formatCandidates, type Diagnostic, nodeRange } from '../errors/index.js';
 import type {
   ElementContext,
@@ -184,6 +185,28 @@ export function checkCompute(
         'TDC189',
         '<compute> has more than one <result>',
         'Only the last one would be used and the earlier ones silently dropped. Keep a single <result>.',
+      );
+    }
+  }
+
+  // `<result>` is documented as the single exit of a `<compute>`, and it was not
+  // authoritative: the block kept the LAST value-producing child whatever its tag, so
+  // a stray sibling written after `<result>` silently overrode it — the very fault
+  // TDC189 exists to prevent between two `<result>`s. A compute tree is exactly where
+  // a half-edited tag survives an edit.
+  //
+  // A `<compute>` with NO `<result>` is left alone on purpose: a body that is simply
+  // the value-producing tree is a shape the docs teach and the shared cases use.
+  if (results.length > 0) {
+    for (const child of contentElements(computeEl.content()).map(cnode)) {
+      if (!child || child.name === 'result' || child.name === 'let') continue;
+      report(
+        diagnostics,
+        child.node,
+        'TDC189',
+        `<${child.name}> sits beside <result> in the same <compute>`,
+        'The value comes from <result>, and a sibling written after it used to override that ' +
+          'in silence. Move this inside <result>, bind it with <let>, or delete it.',
       );
     }
   }
@@ -524,6 +547,23 @@ function walkExpr(el: ElementContext, scope: VScope, diags: Diagnostic[]): void 
           'TDC256',
           '<mask> needs a pattern= — without one it returns the empty string',
         );
+      } else {
+        // And the pattern itself. `mask=` on a gen and the `mask:` filter are both
+        // pre-checked; this route was not, so the documented easy typo — `x[1-2]`,
+        // a hyphen where the range wants `..` — passed `check` and aborted the run
+        // with no code, no file and no line. The empty input is enough: parsing
+        // happens before anything is consumed.
+        try {
+          applyMask(pattern, '');
+        } catch (err) {
+          report(
+            diags,
+            n.node,
+            'TDC199',
+            err instanceof Error ? err.message : String(err),
+            'Indices are 0-based; ranges use "..", e.g. pattern="x[0..3]" or pattern="w[-1], w[0]".',
+          );
+        }
       }
       walkSlot(n.children, scope, diags);
       return;

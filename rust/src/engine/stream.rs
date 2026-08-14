@@ -1223,10 +1223,7 @@ impl StreamEngine<'_> {
         // for a given row, and a different one per row. The in-memory engine
         // plans that for the whole column; here the index is re-derived from a
         // stream keyed by the LINK, so the fields agree without one.
-        if gen_type == "file"
-            && quantile::is_quantile(attrs)
-            && quantile::is_exact_sample(attrs)
-        {
+        if gen_type == "file" && quantile::is_quantile(attrs) && quantile::is_exact_sample(attrs) {
             let values = file::load(attrs, self.env.base_dir, self.env.packs.data_roots())?;
             let src = attrs.get("src").map(|s| s.trim()).unwrap_or_default();
             let source = quantile::source(&values, src)?;

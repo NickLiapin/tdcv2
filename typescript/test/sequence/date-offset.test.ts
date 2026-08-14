@@ -169,7 +169,10 @@ describe('date offset — the value, not its spelling', () => {
       '<sequence name="Visits"><gen type="date" from="2026-01-01" to="2026-03-01" format="YYYY-MM-DD" repeat="2"/></sequence>' +
       '<sequence name="Follow"><gen type="date" of="Visits" plus="7d" format="YYYY-MM-DD"/></sequence>' +
       '</env><block><line><data>${{Follow}}</data></line></block></tdc>';
-    expect(() => new TDC({ configString: config, now: NOW }).toString()).toThrow(/is not a date/);
+    // Refused by `check`, which is where a config that cannot mean anything belongs:
+    // the run used to quote the joined text and blame the FORMAT, sending the reader
+    // after a `format=` mistake that was never there.
+    expect(() => new TDC({ configString: config, now: NOW }).toString()).toThrow(/repeats/);
   });
 
   it('a source cell "missing" blanked measures nothing, rather than a wrong date', () => {

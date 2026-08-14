@@ -35,16 +35,13 @@ fn every_pinned_file_is_written_byte_for_byte() {
         let name = case.get("name").and_then(Value::as_str).unwrap_or("?");
         // A case with `dataPath` reads sample files from a folder under `cases/`,
         // the same field and the same place the shared cases already use.
-        let base_dir = case
-            .get("dataPath")
-            .and_then(Value::as_str)
-            .map(|rel| {
-                common::fixtures_dir()
-                    .join("cases")
-                    .join(rel)
-                    .display()
-                    .to_string()
-            });
+        let base_dir = case.get("dataPath").and_then(Value::as_str).map(|rel| {
+            common::fixtures_dir()
+                .join("cases")
+                .join(rel)
+                .display()
+                .to_string()
+        });
         let source = case
             .get("config")
             .and_then(Value::as_str)

@@ -14,7 +14,9 @@ pub fn generate(
     count: usize,
     ascending: bool,
 ) -> EngineResult<Vec<String>> {
-    (0..count).map(|i| value_at(attrs, i as i64, ascending)).collect()
+    (0..count)
+        .map(|i| value_at(attrs, i as i64, ascending))
+        .collect()
 }
 
 /// One row's value, for the engines that build a counter a row at a time.
@@ -40,13 +42,21 @@ pub fn value_at(
         let start = whole(raw_start, 0)?;
         let step = whole(raw_step, 1)?;
         let offset = step * index;
-        let value = if ascending { start + offset } else { start - offset };
+        let value = if ascending {
+            start + offset
+        } else {
+            start - offset
+        };
         return Ok(value.to_string());
     }
     let start = fraction(raw_start, 0.0)?;
     let step = fraction(raw_step, 1.0)?;
     let offset = step * index as f64;
-    let value = if ascending { start + offset } else { start - offset };
+    let value = if ascending {
+        start + offset
+    } else {
+        start - offset
+    };
     Ok(numbers::to_text(value))
 }
 

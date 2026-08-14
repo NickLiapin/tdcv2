@@ -44,6 +44,8 @@ export type GenTypeCtx = FileValidationContext &
   HttpCheckContext & {
     readonly diagnostics: Diagnostic[];
     readonly declaredSequences: readonly string[];
+    /** Of those, the ones whose `<gen>` repeats — a LIST in one cell. */
+    readonly repeatingSequences: readonly string[];
     readonly locale: string;
   };
 
@@ -131,7 +133,7 @@ export function checkGenByType(
       checkGenSymbol(gen, ctx.diagnostics);
       break;
     case 'date':
-      checkGenDate(gen, ctx.declaredSequences, ctx.diagnostics, ctx.locale);
+      checkGenDate(gen, ctx.declaredSequences, ctx.diagnostics, ctx.locale, ctx.repeatingSequences);
       break;
     case 'timeseries':
       checkGenTimeseries(gen, ctx.diagnostics);

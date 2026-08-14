@@ -13,6 +13,7 @@
 use std::collections::BTreeSet;
 
 use crate::errors::Diagnostic;
+use crate::format::mask;
 use crate::parser::ast::{Element, Kind};
 
 const ENCODINGS: [&str; 6] = ["base36", "ascii", "unicode", "hex", "binary", "octal"];
@@ -163,6 +164,32 @@ impl<'a> ComputeCheck<'a> {
                 );
             }
             seen_result = true;
+        }
+
+        // `<result>` is documented as the single exit of a `<compute>`, and it
+        // was not authoritative: the block kept the LAST value-producing child
+        // whatever its tag, so a stray sibling written after `<result>` silently
+        // overrode it — the very fault TDC189 exists to prevent between two
+        // `<result>`s.
+        //
+        // A `<compute>` with NO `<result>` is left alone on purpose: a body that
+        // is simply the value-producing tree is a shape the docs teach and the
+        // shared cases use.
+        if seen_result {
+            for child in nodes(compute_el) {
+                if child.name == "result" || child.name == "let" {
+                    continue;
+                }
+                let name = child.name.clone();
+                self.report(
+                    child,
+                    "TDC189",
+                    format!("<{name}> sits beside <result> in the same <compute>"),
+                    "The value comes from <result>, and a sibling written after it used to \
+                     override that in silence. Move this inside <result>, bind it with <let>, or \
+                     delete it.",
+                );
+            }
         }
 
         self.walk_slot(&compute_el.children, &scope);
@@ -406,13 +433,27 @@ impl<'a> ComputeCheck<'a> {
                 // The filter form of the same fault is TDC256 in mod.rs. A mask
                 // with no pattern has nothing to keep, and the engine answered
                 // that literally: it returned the empty string.
-                if node.attr_value("pattern").unwrap_or("").trim().is_empty() {
+                let pattern = node.attr_value("pattern").unwrap_or("").trim().to_string();
+                if pattern.is_empty() {
                     self.report(
                         node,
                         "TDC256",
                         "<mask> needs a pattern= — without one it returns the empty string"
                             .to_string(),
                         "",
+                    );
+                } else if let Err(e) = mask::check(&pattern) {
+                    // And the pattern itself. `mask=` on a gen and the `mask:`
+                    // filter are both pre-checked; this route was not, so the
+                    // documented easy typo — `x[1-2]`, a hyphen where the range
+                    // wants `..` — passed `check` and aborted the run with no
+                    // code, no file and no line.
+                    self.report(
+                        node,
+                        "TDC199",
+                        e.message().to_string(),
+                        "Indices are 0-based; ranges use \"..\", e.g. pattern=\"x[0..3]\" or \
+                         pattern=\"w[-1], w[0]\".",
                     );
                 }
                 self.walk_slot(&node.children, scope);

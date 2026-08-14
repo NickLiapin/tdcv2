@@ -139,6 +139,25 @@ final class ComputeCheck {
       seenResult = true;
     }
 
+    // <result> is documented as the single exit of a <compute>, and it was not authoritative: the
+    // block kept the LAST value-producing child whatever its tag, so a stray sibling written after
+    // <result> silently overrode it — the very fault TDC189 exists to prevent between two
+    // <result>s.
+    //
+    // A <compute> with NO <result> is left alone on purpose: a body that is simply the
+    // value-producing tree is a shape the docs teach and the shared cases use.
+    if (seenResult) {
+      for (TDCParser.ElementContext child : computeEl.content().element()) {
+        Node node = node(child);
+        if (node == null || "result".equals(node.name()) || "let".equals(node.name())) {
+          continue;
+        }
+        report(node, "TDC189", "<" + node.name() + "> sits beside <result> in the same <compute>",
+            "The value comes from <result>, and a sibling written after it used to override that "
+                + "in silence. Move this inside <result>, bind it with <let>, or delete it.");
+      }
+    }
+
     walkSlot(computeEl.content().element(), scope);
   }
 
@@ -304,9 +323,21 @@ final class ComputeCheck {
       case "mask" -> {
         // The filter form of the same fault is TDC256 in Validator. A mask with no pattern has
         // nothing to keep, and the engine answered that literally: it returned the empty string.
-        if (node.attrs().getOrDefault("pattern", "").trim().isEmpty()) {
+        String pattern = node.attrs().getOrDefault("pattern", "").trim();
+        if (pattern.isEmpty()) {
           report(node, "TDC256",
               "<mask> needs a pattern= — without one it returns the empty string", null);
+        } else {
+          // And the pattern itself. mask= on a gen and the mask: filter are both pre-checked; this
+          // route was not, so the documented easy typo — x[1-2], a hyphen where the range wants
+          // ".." — passed check and aborted the run with no code, no file and no line.
+          try {
+            io.github.nickliapin.tdc.format.Mask.check(pattern);
+          } catch (RuntimeException e) {
+            report(node, "TDC199", e.getMessage(),
+                "Indices are 0-based; ranges use \"..\", e.g. pattern=\"x[0..3]\" or "
+                    + "pattern=\"w[-1], w[0]\".");
+          }
         }
         walkSlot(node.children(), scope);
       }

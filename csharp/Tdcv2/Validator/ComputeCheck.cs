@@ -1,5 +1,6 @@
 using System.Text.RegularExpressions;
 using Tdcv2.Errors;
+using Tdcv2.Format;
 using Tdcv2.Parser;
 
 namespace Tdcv2.Validation;
@@ -162,6 +163,32 @@ internal sealed class ComputeCheck
             }
 
             seenResult = true;
+        }
+
+        // <result> is documented as the single exit of a <compute>, and it was not authoritative:
+        // the block kept the LAST value-producing child whatever its tag, so a stray sibling
+        // written after <result> silently overrode it — the very fault TDC189 exists to prevent
+        // between two <result>s.
+        //
+        // A <compute> with NO <result> is left alone on purpose: a body that is simply the
+        // value-producing tree is a shape the docs teach and the shared cases use.
+        if (seenResult)
+        {
+            foreach (TDCParser.ElementContext child in computeEl.content().element())
+            {
+                Node? node = ToNode(child);
+                if (node is null || node.Name == "result" || node.Name == "let")
+                {
+                    continue;
+                }
+
+                Report(
+                    node, "TDC189",
+                    $"<{node.Name}> sits beside <result> in the same <compute>",
+                    "The value comes from <result>, and a sibling written after it used to "
+                    + "override that in silence. Move this inside <result>, bind it with <let>, "
+                    + "or delete it.");
+            }
         }
 
         WalkSlot(computeEl.content().element(), scope);
@@ -427,11 +454,30 @@ internal sealed class ComputeCheck
                 // The filter form of the same fault is TDC256 in Validator. A mask with no
                 // pattern has nothing to keep, and the engine answered that literally: it
                 // returned the empty string.
-                if (node.Attrs.GetValueOrDefault("pattern", "").Trim().Length == 0)
+                string pattern = node.Attrs.GetValueOrDefault("pattern", "").Trim();
+                if (pattern.Length == 0)
                 {
                     Report(
                         node, "TDC256",
                         "<mask> needs a pattern= — without one it returns the empty string", null);
+                }
+                else
+                {
+                    // And the pattern itself. mask= on a gen and the mask: filter are both
+                    // pre-checked; this route was not, so the documented easy typo — x[1-2], a
+                    // hyphen where the range wants ".." — passed check and aborted the run with
+                    // no code, no file and no line.
+                    try
+                    {
+                        Mask.Check(pattern);
+                    }
+                    catch (ArgumentException e)
+                    {
+                        Report(
+                            node, "TDC199", e.Message,
+                            "Indices are 0-based; ranges use \"..\", e.g. pattern=\"x[0..3]\" or "
+                            + "pattern=\"w[-1], w[0]\".");
+                    }
                 }
 
                 WalkSlot(node.Children, scope);

@@ -33,6 +33,7 @@ export function checkGenDateOffset(
   gen: OpenCloseElementContext | SelfClosingElementContext,
   declaredAbove: readonly string[],
   diagnostics: Diagnostic[],
+  repeating: readonly string[] = [],
 ): void {
   const attrs = extractAttrs(gen.attr());
   if (attrs['type'] !== 'date') return;
@@ -89,6 +90,23 @@ export function checkGenDateOffset(
         `An offset lands wherever ${of} plus the offset lands — ${name}= would have to ` +
         `contradict that to mean anything. Drop it, or drop of= and bound the draw itself.`,
       code: 'TDC264',
+    });
+  }
+
+  // A `repeat=` source is a LIST in one cell, and an offset measures from a DATE.
+  // The run said so in the worst possible words — it quoted the joined text and
+  // blamed the format, sending the reader to look for a `format=` mistake that was
+  // never there. The cause is the repetition, so name it.
+  if (repeating.includes(of)) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...rangeOf('of'),
+      message: `of="${of}" repeats, so each cell holds a LIST of dates rather than one date`,
+      hint:
+        'An offset measures from a single date. Drop repeat= on that column, or measure from ' +
+        'one that does not repeat.',
+      code: 'TDC240',
     });
   }
 

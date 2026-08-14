@@ -15,6 +15,7 @@ import re
 from dataclasses import dataclass
 
 from ..errors import Diagnostic
+from ..format.mask import apply_mask
 
 _ENCODINGS = frozenset({"base36", "ascii", "unicode", "hex", "binary", "octal"})
 
@@ -134,6 +135,27 @@ class ComputeCheck:
                     "Keep a single <result>.",
                 )
             seen_result = True
+
+        # ``<result>`` is documented as the single exit of a ``<compute>``, and it was not
+        # authoritative: the block kept the LAST value-producing child whatever its tag, so a
+        # stray sibling written after ``<result>`` silently overrode it — the very fault TDC189
+        # exists to prevent between two ``<result>``s.
+        #
+        # A ``<compute>`` with NO ``<result>`` is left alone on purpose: a body that is simply
+        # the value-producing tree is a shape the docs teach and the shared cases use.
+        if seen_result:
+            for child in _children(compute_element):
+                node = _node(child)
+                if node is None or node.name in ("result", "let"):
+                    continue
+                self._report(
+                    node,
+                    "TDC189",
+                    f"<{node.name}> sits beside <result> in the same <compute>",
+                    "The value comes from <result>, and a sibling written after it used to "
+                    "override that in silence. Move this inside <result>, bind it with <let>, "
+                    "or delete it.",
+                )
 
         self._slot(_children(compute_element), scope)
 
@@ -294,13 +316,30 @@ class ComputeCheck:
             # The filter form of the same fault is TDC256 in validate.py. A mask with no pattern
             # has nothing to keep, and the engine answered that literally: it returned the empty
             # string, so the column came out blank.
-            if not (node.attrs.get("pattern") or "").strip():
+            pattern = (node.attrs.get("pattern") or "").strip()
+            if not pattern:
                 self._report(
                     node,
                     "TDC256",
                     "<mask> needs a pattern= — without one it returns the empty string",
                     None,
                 )
+            else:
+                # And the pattern itself. ``mask=`` on a gen and the ``mask:`` filter are both
+                # pre-checked; this route was not, so the documented easy typo — ``x[1-2]``, a
+                # hyphen where the range wants ``..`` — passed ``check`` and aborted the run with
+                # no code, no file and no line. The empty input is enough: parsing happens before
+                # anything is consumed.
+                try:
+                    apply_mask(pattern, "")
+                except ValueError as err:
+                    self._report(
+                        node,
+                        "TDC199",
+                        str(err),
+                        'Indices are 0-based; ranges use "..", e.g. pattern="x[0..3]" or '
+                        'pattern="w[-1], w[0]".',
+                    )
             self._slot(node.children, scope)
         elif name == "choose":
             self._choose(node, scope)

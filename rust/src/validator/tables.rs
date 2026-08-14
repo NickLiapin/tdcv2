@@ -289,12 +289,18 @@ pub const ATTRIBUTE_OWNERS: [(&str, &[&str]); 49] = [
     // number they may have to round; the rest produce text, which has none.
     // `file` is on the list only because `read="quantile"` makes it produce a number — an
     // interpolated point between two observations, written to the source's precision.
-    ("decimals", &["number", "timeseries", "pattern", "stat", "formula", "file"]),
+    (
+        "decimals",
+        &["number", "timeseries", "pattern", "stat", "formula", "file"],
+    ),
     // How a source file is READ, and whether the quantile read draws or sweeps.
     ("read", &["file"]),
     ("sample", &["file"]),
     ("expr", &["formula"]),
-    ("lengths", &["number", "text", "template", "file", "symbol", "regex"]),
+    (
+        "lengths",
+        &["number", "text", "template", "file", "symbol", "regex"],
+    ),
     ("distribution", &["number"]),
     // The ceiling on what an unbounded pattern may expand to.
     ("regex_max_length", &["regex", "advanced_regex"]),

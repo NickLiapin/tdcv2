@@ -161,6 +161,20 @@
       "description": "<var> was renamed to <use>. Without a dedicated refusal the tag falls through to \"unknown compute tag\", which tells a reader their spelling is wrong and not what the right one is — and every config written before the rename hits this, including the 174 shipped pack files that had to be rewritten.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\" mode=\"memory\"><sequence name=\"V\"><compute><result><let name=\"s\"><int v=\"7\"/></let><add><var name=\"s\"/><int v=\"10\"/></add></result></compute></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": ["error TDC288 1:127"]
+    },
+    {
+      "name": "compute-mask-pattern-is-broken",
+      "demonstrates": "TDC199",
+      "description": "A <mask> pattern the mask language cannot parse — caught at check time, not left to the run",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"C\"><compute><result><mask pattern=\"x[1-2]\"><field name=\"A\"/></mask></result></compute></sequence></env><block><line><data>${{C}}</data></line></block></tdc>",
+      "expected": ["error TDC199 1:128"]
+    },
+    {
+      "name": "compute-stray-sibling-beside-result",
+      "demonstrates": "TDC189",
+      "description": "A second value-producing tag beside <result> — one of the two would be discarded in silence",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"C\"><compute><result><field name=\"A\"/></result><str v=\"x\"/></compute></sequence></env><block><line><data>${{C}}</data></line></block></tdc>",
+      "expected": ["error TDC189 1:154"]
     }
   ]
 }

@@ -36,6 +36,7 @@ export function checkGenDate(
   declaredAbove: readonly string[],
   diagnostics: Diagnostic[],
   envLocale = '',
+  repeating: readonly string[] = [],
 ): void {
   const attrs = gen.attr();
   const attrMap = extractAttrs(attrs);
@@ -46,7 +47,7 @@ export function checkGenDate(
   // how a draw is bounded, so it would be a second complaint about the same
   // attribute, naming a rule that no longer applies to it.
   if ((attrMap['of'] ?? '').trim() !== '') {
-    checkGenDateOffset(gen, declaredAbove, diagnostics);
+    checkGenDateOffset(gen, declaredAbove, diagnostics, repeating);
     return;
   }
   checkDateCommonAttrs(attrs, diagnostics);

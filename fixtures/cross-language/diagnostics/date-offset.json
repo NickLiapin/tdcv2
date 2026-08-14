@@ -42,6 +42,13 @@
       "description": "plus= belongs to the offset and nothing else reads it, so a lone plus=\"3d\" was dropped in silence and the column came out as ordinary drawn dates. \"Shift this column by three days\" is the natural misreading of it, and step= and weekdays= are already refused on a drawn date for exactly this reason.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"D\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-02-01\" plus=\"3d\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
       "expected": ["error TDC264 1:116"]
+    },
+    {
+      "name": "date-offset-of-a-repeating-column",
+      "demonstrates": "TDC240",
+      "description": "of= names a column that repeats, so each cell holds a list of dates rather than one date",
+      "config": "<tdc><env count=\"2\" seed=\"s\"><sequence name=\"A\"><gen type=\"date\" from=\"2020-01-01\" to=\"2020-12-31\" repeat=\"2\" separator=\"|\"/></sequence><sequence name=\"B\"><gen type=\"date\" of=\"A\" plus=\"3d\"/></sequence></env><block><line><data>${{B}}</data></line></block></tdc>",
+      "expected": ["error TDC240 1:176"]
     }
   ]
 }

@@ -181,12 +181,14 @@ fn derive_gen(gen: &Gen, config: &Config) -> Option<ColumnType> {
         // opens the file. `decimals="0"` is the one declaration that promises
         // whole values; without it the precision comes from the source and may be
         // fractional, so the safe numeric answer is a double.
-        "file" if gen.attr_or("read", "").trim() == "quantile" => {
-            with_nullable(
-                if declared_decimals(gen) == Some(0) { "int64" } else { "double" },
-                nullable,
-            )
-        }
+        "file" if gen.attr_or("read", "").trim() == "quantile" => with_nullable(
+            if declared_decimals(gen) == Some(0) {
+                "int64"
+            } else {
+                "double"
+            },
+            nullable,
+        ),
         // The default rendering is locale-shaped (05/25/1996), not ISO, so a
         // date column is only safe to infer when the config asked for ISO.
         // Otherwise it stays text, and the author can still say type="date" if
@@ -333,7 +335,10 @@ fn declared_decimals(gen: &Gen) -> Option<i32> {
     if text.is_empty() {
         return None;
     }
-    text.parse::<f64>().ok().filter(|v| v.is_finite()).map(|v| v as i32)
+    text.parse::<f64>()
+        .ok()
+        .filter(|v| v.is_finite())
+        .map(|v| v as i32)
 }
 
 /// The type of the column `of=` names, when it is a number.

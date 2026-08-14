@@ -4510,6 +4510,21 @@ class _Validator:
                 at_column,
             )
 
+        # A ``repeat=`` source is a LIST in one cell, and an offset measures from a DATE. The run
+        # said so in the worst possible words — it quoted the joined text and blamed the format,
+        # sending the reader to look for a ``format=`` mistake that was never there. The cause is
+        # the repetition, so name it.
+        if of and of in self.repeating_names:
+            at_line, at_column = _at(gen, "of")
+            self._error(
+                "TDC240",
+                f'of="{of}" repeats, so each cell holds a LIST of dates rather than one date',
+                "An offset measures from a single date. Drop repeat= on that column, or measure "
+                "from one that does not repeat.",
+                at_line,
+                at_column,
+            )
+
         if of and of not in self.declared_order:
             at_line, at_column = _at(gen, "of")
             near = _nearest(of, self.declared_order)

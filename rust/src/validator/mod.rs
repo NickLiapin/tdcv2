@@ -2559,6 +2559,22 @@ impl Validator {
             );
         }
 
+        // A `repeat=` source is a LIST in one cell, and an offset measures from a
+        // DATE. The run said so in the worst possible words — it quoted the joined
+        // text and blamed the format, sending the reader to look for a `format=`
+        // mistake that was never there. The cause is the repetition, so name it.
+        if !of.is_empty() && self.repeating_names.contains(&of) {
+            self.error(
+                "TDC240",
+                format!(
+                    "of=\"{of}\" repeats, so each cell holds a LIST of dates rather than one date"
+                ),
+                "An offset measures from a single date. Drop repeat= on that column, or measure \
+                 from one that does not repeat.",
+                gen.at("of"),
+            );
+        }
+
         if !of.is_empty() && !self.declared_order.contains(&of) {
             let hint = if self.declared_order.is_empty() {
                 "A date is measured from a column that already exists, so the column it reads \
@@ -2828,11 +2844,21 @@ impl Validator {
         if gen_type == Some("pattern") {
             // The three that carry a DRAWING go through the same reader the run uses, so a
             // `;` that becomes one curve and points with no width are caught before the run.
-            for name in ["points", "upper", "lower", "mode", "interp", "spread", "decimals"] {
+            for name in [
+                "points", "upper", "lower", "mode", "interp", "spread", "decimals",
+            ] {
                 let Some(raw) = attrs.get(name) else { continue };
                 let problem = match name {
                     "points" | "upper" | "lower" => crate::pattern::points(raw)
-                        .and_then(|pts| crate::pattern::curve::Curve::of(&pts, None, 0, None, crate::pattern::curve::Interp::Linear))
+                        .and_then(|pts| {
+                            crate::pattern::curve::Curve::of(
+                                &pts,
+                                None,
+                                0,
+                                None,
+                                crate::pattern::curve::Interp::Linear,
+                            )
+                        })
                         .err(),
                     "mode" => crate::pattern::read_mode(raw).err(),
                     "interp" => crate::pattern::read_interp(raw).err(),
@@ -3334,8 +3360,16 @@ impl Validator {
     fn check_param_names(&mut self, gen: &Element, param: &str, source: &str) {
         // The little language itself. The name loop below is about which COLUMNS a parameter
         // reads and says nothing about whether the expression is one the evaluator can run.
-        let article = if param.starts_with(['a', 'e', 'i', 'o', 'u']) { "an" } else { "a" };
-        let kind = if param == "expr" { "expression" } else { "parameter" };
+        let article = if param.starts_with(['a', 'e', 'i', 'o', 'u']) {
+            "an"
+        } else {
+            "a"
+        };
+        let kind = if param == "expr" {
+            "expression"
+        } else {
+            "parameter"
+        };
         self.check_expression_at(source, gen.at(param), &format!("{param}= {kind}"), article);
 
         let Ok(parsed) = expr::parse(source) else {

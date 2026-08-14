@@ -5305,6 +5305,21 @@ public sealed class Validator
                 line, column);
         }
 
+        // A repeat= source is a LIST in one cell, and an offset measures from a DATE. The run said
+        // so in the worst possible words — it quoted the joined text and blamed the format, sending
+        // the reader to look for a format= mistake that was never there. The cause is the
+        // repetition, so name it.
+        if (of.Length != 0 && _repeatingNames.Contains(of))
+        {
+            (int line, int column) = At(gen, "of");
+            Error(
+                "TDC240",
+                $"of=\"{of}\" repeats, so each cell holds a LIST of dates rather than one date",
+                "An offset measures from a single date. Drop repeat= on that column, or measure "
+                + "from one that does not repeat.",
+                line, column);
+        }
+
         if (of.Length != 0 && !_declaredOrder.Contains(of, StringComparer.Ordinal))
         {
             (int line, int column) = At(gen, "of");
