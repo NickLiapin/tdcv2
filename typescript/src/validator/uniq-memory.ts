@@ -89,6 +89,6 @@ export function checkUniqMemory(
       'Drawing without replacement means remembering what has been drawn, so this cannot stream: ' +
       'the config runs on the in-memory engine whatever mode= asks for. Measured at about 250 bytes ' +
       'a value. It works — it is worth being deliberate about at this size.',
-    code: 'TDC236',
+    code: 'TDC299',
   });
 }

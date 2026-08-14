@@ -39,7 +39,7 @@
     {
       "name": "expression-nesting-past-the-ceiling",
       "demonstrates": "TDC100",
-      "description": "40 nested parentheses in if= — expression parsers recurse per level, so a runaway expression is refused at 32, not parsed until the stack gives out",
+      "description": "40 nested parentheses in if= \u2014 expression parsers recurse per level, so a runaway expression is refused at 32, not parsed until the stack gives out",
       "config": "<tdc><env count=\"1\" seed=\"s\"><sequence name=\"G\"><gen type=\"text\" value=\"a\"/></sequence></env><block><line if=\"((((((((((((((((((((((((((((((((((((((((G))))))))))))))))))))))))))))))))))))))))\"><data>x</data></line></block></tdc>",
       "expected": ["error TDC100 1:110"]
     },
@@ -52,10 +52,10 @@
     },
     {
       "name": "uniq-memory-at-scale",
-      "demonstrates": "TDC236",
+      "demonstrates": "TDC299",
       "description": "uniq over a large run holds the whole column in memory. A <pool> has warned since TDC234; uniq costs the same and used to say nothing, and the run gave no clue why it needed half a gigabyte. The 250 bytes a value in the message is MEASURED, not guessed.",
       "config": "<tdc><env count=\"2000000\" seed=\"s\"><sequence name=\"Id\" uniq=\"true\"><gen type=\"number\" value=\"1..2000000000\"/></sequence></env><block><line><data>${{Id}}</data></line></block></tdc>",
-      "expected": ["warning TDC236 1:35"]
+      "expected": ["warning TDC299 1:35"]
     },
     {
       "name": "unknown-function-in-an-if",
@@ -67,7 +67,7 @@
     {
       "name": "a-planned-function-is-not-a-typo",
       "demonstrates": "TDC257",
-      "description": "besselj is refused with the reason rather than a suggestion: edit distance would have offered \"beta\", an unrelated function. What is left on that list is the mathematics a data generator has no business carrying — Bessel, Airy, elliptic integrals, polygamma — each a project rather than a function. Everything a row predicate plausibly needs, including digamma, zeta and beta itself, IS implemented.",
+      "description": "besselj is refused with the reason rather than a suggestion: edit distance would have offered \"beta\", an unrelated function. What is left on that list is the mathematics a data generator has no business carrying \u2014 Bessel, Airy, elliptic integrals, polygamma \u2014 each a project rather than a function. Everything a row predicate plausibly needs, including digamma, zeta and beta itself, IS implemented.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"text\" value=\"5\"/></sequence><sequence name=\"R\"><gen if=\"besselj(N) > 1\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
       "expected": ["error TDC257 1:126"]
     },
@@ -95,7 +95,7 @@
     {
       "name": "an-index-that-is-not-an-index",
       "demonstrates": "TDC261",
-      "description": "An index is a whole number, zero or more. Past the end of a list IS empty text, deliberately, because repeat=\"1..4\" makes rows of different lengths — but -1 is a mistake in the config, not a shape the data can take, and it used to answer with that same empty string.",
+      "description": "An index is a whole number, zero or more. Past the end of a list IS empty text, deliberately, because repeat=\"1..4\" makes rows of different lengths \u2014 but -1 is a mistake in the config, not a shape the data can take, and it used to answer with that same empty string.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Items\"><gen type=\"text\" value=\"5\" repeat=\"3\" separator=\",\"/></sequence><sequence name=\"R\"><gen if=\"at(split(Items, ','), -1) == 5\" type=\"text\" value=\"Y\"/><gen type=\"text\" value=\"N\"/></sequence></env><block><line><data>${{R}}</data></line></block></tdc>",
       "expected": ["error TDC261 1:155"]
     }

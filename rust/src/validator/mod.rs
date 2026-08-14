@@ -440,7 +440,7 @@ impl Validator {
             format!("{} MB", Self::grouped(mb.round() as i64))
         };
         self.warn(
-            "TDC236",
+            "TDC299",
             format!(
                 "uniq on \"{}\" holds all {} values in memory for the whole run — about {}",
                 named.unwrap_or("?"),

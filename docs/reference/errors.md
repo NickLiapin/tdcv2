@@ -45,7 +45,7 @@ puts it at no address), `TDC200` (a memory estimate that is large but still fits
 `TDC216` (an expression that is always true or always false), `TDC221` (a `<uniq>` or
 `<distinct>` group with one member, which constrains nothing), `TDC231` (a `<pool>` nothing
 reads), `TDC234` (a pool over
-100,000 members), `TDC236` (a `uniq` column past 100,000 rows, which cannot stream — its
+100,000 members), `TDC299` (a `uniq` column past 100,000 rows, which cannot stream — its
 second meaning, a pool declared out of order, is an error) `TDC251` (a `percent` share
 that asks for less than one row), `TDC272` (a locale that is a fine source of names and
 ships no month names, so the dates come out English) and `TDC284` (a `secret=` written into
@@ -164,7 +164,6 @@ See [Coherent records](../pools/overview.md#top).
 | `TDC232` | A name in `filter=` that is both a field of the pool and a sequence     | Rename one of them. Qualifying one side does not help — the other name still reads as the member's field, so the test compares a value with itself                                                                                                        |
 | `TDC234` | _(warning)_ Over 100,000 members                                        | A pool stays in memory for the whole run — about 320 bytes a member with four fields. If you meant the number of ROWS, that is `count` on `<env>`                                                                                                         |
 | `TDC235` | Over 1,000,000 members                                                  | Same cause, past the point where it is worth running. Reduce the pool, or move the number to `<env count="…">`                                                                                                                                            |
-| `TDC236` | _(warning)_ `uniq="true"` over 100,000 rows                          | Drawing without replacement means remembering what has been drawn, so the whole column stays in memory and the run cannot stream. Measured at about 250 bytes a value — 2,000,000 rows cost about 477 MB. It works; it is worth being deliberate about                                                     |
 | `TDC236` | A pool reads a pool declared below it, or itself                        | Pools are built in declaration order, so a pool can only read the pools above it. Move the one it reads up. That order is also why a cycle between pools cannot be written down                                                                           |
 | `TDC241` | Two pools declared under one name                                       | A pool is reached by name, so two cannot share one. The second used to replace the first in silence, and the only sign was a `TDC193` in the block about a field that "does not exist"                                                                    |
 
@@ -344,6 +343,7 @@ but the combination it asks for can't be carried out.
 | `TDC296` | A `running`, `stat`, `formula` or date-offset column, or a `<compute>`, inside `<uniq>` or `<distinct>` | A group REARRANGES finished columns until each record is unique. A drawn value means the same wherever it lands; a computed one describes the row it was computed for, so moving it makes the arithmetic wrong. Put the group around the columns this one READS and leave the computed column outside it — it follows whatever the group arranges |
 | `TDC297` | Two readings of one file at once — `read="quantile"` beside `weight=`, `row=` or `order="sequential"`; a misspelled `read=`; `sample=` without it | `weight=` puts the shares in a second column, `row=` links several columns to one LINE, `order="sequential"` walks the list in order, and `read="quantile"` says the values ARE the distribution and a row lands anywhere on the sorted sample. Keep one reading: a countable value wants `weight=` and its exact quota, a measured one wants the quantile read |
 | `TDC298` | One `row=` key over two different files | A link is one LINE of one file, so there is no line that belongs to both. Point every member of the link at the same `src=`, or give this one its own `row=` key |
+| `TDC299` | _(warning)_ `uniq="true"` over 100,000 rows                          | Drawing without replacement means remembering what has been drawn, so the whole column stays in memory and the run cannot stream. Measured at about 250 bytes a value — 2,000,000 rows cost about 477 MB. It works; it is worth being deliberate about                                                     |
 
 ## See also
 

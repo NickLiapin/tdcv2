@@ -2606,7 +2606,7 @@ public sealed class Validator
             ? $"{mb / 1024:F1} GB"
             : $"{Math.Round(mb):N0} MB";
         Warn(
-            "TDC236",
+            "TDC299",
             $"uniq on \"{name ?? "?"}\" holds all {_envCount:N0} values in memory for the whole "
             + $"run — about {size}",
             "Drawing without replacement means remembering what has been drawn, so this cannot "

@@ -2017,7 +2017,7 @@ class _Validator:
         if self.env_count < _UNIQ_WARN_ROWS:
             return
         self._warn(
-            "TDC236",
+            "TDC299",
             f'uniq on "{name or "?"}" holds all {self.env_count:,} values in memory '
             f"for the whole run — about {_megabytes(self.env_count * _UNIQ_BYTES_PER_VALUE)}",
             "Drawing without replacement means remembering what has been drawn, so this "

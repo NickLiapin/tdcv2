@@ -108,6 +108,19 @@ _count"` is a sensor that grows noisier as the run goes on.
   an `INT64`; without it the precision comes from the source and may be fractional, so the
   answer is a `DOUBLE`, which holds every value such a column can produce.
 
+### Changed
+
+<!-- covers: TDC299 TDC236 -->
+
+- **The `uniq` memory warning is `TDC299`, not `TDC236`.** One code was doing two unrelated
+  jobs: a pool that reads a pool declared below it (an **error**, since 0.1.x) and a `uniq`
+  column past 100,000 rows (a **warning**, added later onto the same number). The errors
+  reference carried two rows under one code, and a CI rule filtering on `TDC236` could not
+  tell "this config is refused" from "this run will hold the column in RAM" — nor could it
+  silence the second without silencing the first. The warning moved, because the pool error
+  had the number first. A filter that named `TDC236` for the memory note needs updating; a
+  filter that named it for the pool error is unaffected.
+
 ### Fixed
 
 - **Only one of the expression language's four homes was checked.** The expressions page opens

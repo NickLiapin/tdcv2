@@ -2276,7 +2276,7 @@ public final class Validator {
     String size = mb >= 1024
         ? String.format(java.util.Locale.ROOT, "%.1f GB", mb / 1024)
         : grouped((long) Math.round(mb)) + " MB";
-    warn("TDC236",
+    warn("TDC299",
         "uniq on \"" + (name == null ? "?" : name) + "\" holds all " + grouped(envCount)
             + " values in memory for the whole run — about " + size,
         "Drawing without replacement means remembering what has been drawn, so this cannot "
