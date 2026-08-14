@@ -349,6 +349,12 @@ techo. Eso es una convención declarada, no una conjetura: no inventa informaci�
 | archivo **vectorial** | el dibujo mismo | llena el `y_range` | sus extremos caen en la banda |
 | un **PNG** | el marco de la imagen | el marco llena el `y_range` | el marco cae en la banda |
 
+Con `mode="density"` sigue el mismo eje que `y_range`. Allí el eje de valores es el
+**ancho** del dibujo, no su altura, así que `fit` coloca su borde izquierdo y su borde
+derecho en vez de su punto más bajo y el más alto. `fit` es simplemente un `y_range` más
+estrecho para un dibujo leído de `src`: cambia de eje exactamente donde `y_range` cambia
+de eje, y nunca por separado.
+
 Junto a `points` / `upper` / `lower` el atributo **se rechaza**
 ([`TDC300`](../reference/errors.mdx)). Un punto escrito a mano ya es un porcentaje del
 tablero 0..100 — `80` significa el 80% de `y_range` —, así que no queda nada que colocar,

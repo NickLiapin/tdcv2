@@ -320,6 +320,11 @@ ceiling. That is a stated convention rather than a guess — it invents no infor
 | a **vector** file | the drawing itself | it fills `y_range` | its ends land on the band |
 | a **PNG** | the image frame | the frame fills `y_range` | the frame lands on the band |
 
+Under `mode="density"` it follows the same axis `y_range` does. There the value axis is
+the drawing's **width**, not its height, so `fit` places its left and right edge instead
+of its lowest and highest point. `fit` is simply a narrower `y_range` for a drawing read
+from `src` — it changes axis exactly where `y_range` changes axis, and never separately.
+
 `fit` is **refused beside `points` / `upper` / `lower`** ([`TDC300`](../reference/errors.md#top)).
 A typed point is already a percentage of the 0..100 board — `80` means 80% of `y_range` —
 so there is nothing left to place, and writing both would be a config saying two things
