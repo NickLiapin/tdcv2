@@ -8,8 +8,21 @@ name: Documentation
 # reference missing a row for a name the engine implements, should not reach
 # the public site.
 
+# The checks run on a PULL REQUEST too, and that is the point of the second
+# trigger. They used to run only after a merge, so `docs:check` — the export
+# drift guard, translation parity, the anchors, the reference rows — reported a
+# broken doc when it was already on main and already being published. A PR
+# builds and checks; only a push to main goes on to deploy.
 on:
   push:
+    branches: [main]
+    paths:
+      - "webdoc/**"
+      - "docs/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/docs.yml"
+  pull_request:
     branches: [main]
     paths:
       - "webdoc/**"
@@ -20,10 +33,13 @@ on:
   workflow_dispatch:
 
 # One deployment at a time; a newer commit supersedes an older one in flight,
-# but never cancels a deployment that is already writing.
+# but never cancels a deployment that is already writing. A pull request is not
+# a deployment, so it gets its own group per branch and a newer push to that
+# branch cancels the older run — otherwise every PR would queue behind `pages`
+# and behind each other.
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: ${{ github.event_name == 'pull_request' && format('docs-{0}', github.ref) || 'pages' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
   contents: read
@@ -62,15 +78,20 @@ jobs:
       - name: Build the site
         run: npm --prefix webdoc run build
 
+      # Publishing steps only. A pull request stops after the build above, which
+      # is where every check it could fail already ran.
       - uses: actions/configure-pages@v5
+        if: github.event_name != 'pull_request'
 
       - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
         with:
           path: webdoc/build
 
   deploy:
     name: Deploy
     needs: build
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment:

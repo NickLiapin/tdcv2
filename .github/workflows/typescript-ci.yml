@@ -89,6 +89,20 @@ jobs:
         if: matrix.node-version == '20.x'
         run: npm run check --workspace=typescript
 
+      # The root `npm run check` has four steps the workspace one does not, and
+      # two of them ran in no workflow at all. The other two do have a home:
+      # `ports:build` is what five-ways.yml exists for, and `docs:check` runs in
+      # docs.yml. These two had none, so a name the engine implements could lose
+      # its last shared case, or a generated pack could drift from its source,
+      # and every workflow stayed green. Together they take under a second.
+      - name: Every engine name still has a shared case
+        if: matrix.node-version == '20.x'
+        run: npm run audit:fixtures
+
+      - name: Generated packs still match their sources
+        if: matrix.node-version == '20.x'
+        run: npm run packs:generated
+
       - name: Docs cover the engine
         if: matrix.node-version == '20.x'
         run: node webdoc/scripts/audit-doc-coverage.mjs
