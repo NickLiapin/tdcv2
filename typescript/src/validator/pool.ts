@@ -33,6 +33,7 @@ import {
 import { attrValueRange, nodeRange } from '../errors/source-map.js';
 import { closestMatch } from '../errors/suggestions.js';
 import { matchKey } from '../expr/match-key.js';
+import { checkIfExpression, exprSite } from './expr-check.js';
 
 /**
  * The field names each pool declares, collected before the members are walked.
@@ -325,6 +326,15 @@ export function checkFilterAmbiguity(
   const poolName = (attrs['value'] ?? '').trim();
   const columns = new Set(declaredColumns);
   const seen = new Set<string>();
+
+  // The little language itself — its operators, its functions, its constructs.
+  // The name checks below are about THIS pool's fields; they say nothing about
+  // whether the expression is one the evaluator can run, so a misspelled
+  // function used to pass `check` and kill the run with a bare
+  // `unknown function "…"`. `if=` has been handing its expression to this
+  // checker all along.
+  const filterAttr = gen.attr().find((a) => a._attrName?.text === 'filter');
+  if (filterAttr) checkIfExpression(filterAttr, expr, { diagnostics }, exprSite('filter'));
 
   // A name written `Pool.field` says exactly what it means, so a field the pool
   // does not have is a certain mistake. An UNQUALIFIED unknown name is not:

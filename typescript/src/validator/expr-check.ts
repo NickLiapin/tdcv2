@@ -105,10 +105,32 @@ export function xmlEntity(expr: string): { found: string; means: string } | unde
   return undefined;
 }
 
+/**
+ * What to call the site in a message. `if=` is the oldest home and its wording is
+ * quoted in the docs, so it stays the default and nothing about it moves.
+ */
+export interface ExprSite {
+  /** The noun phrase — "if expression", "expr= expression", "mean= parameter". */
+  readonly label: string;
+  /** Its article, for the two messages that need one. */
+  readonly article: string;
+}
+
+const IF_SITE: ExprSite = { label: 'if expression', article: 'an' };
+
+/** The site's noun phrase, for an attribute that holds an expression. */
+export function exprSite(attribute: string, kind = 'expression'): ExprSite {
+  return {
+    label: `${attribute}= ${kind}`,
+    article: /^[aeiou]/i.test(attribute) ? 'an' : 'a',
+  };
+}
+
 export function checkIfExpression(
   attr: AttrContext,
   expr: string,
   sink: { diagnostics: Diagnostic[] },
+  site: ExprSite = IF_SITE,
 ): void {
   const valRange: Range = attrValueRange(attr);
   if (parenDepth(expr) > MAX_EXPR_NESTING) {
@@ -117,7 +139,7 @@ export function checkIfExpression(
       source: 'validator',
       ...valRange,
       message:
-        `invalid if expression "${clip(expr)}": nests deeper than ` +
+        `invalid ${site.label} "${clip(expr)}": nests deeper than ` +
         `${String(MAX_EXPR_NESTING)} levels`,
       hint: 'A real condition nests a handful of parentheses; this looks generated.',
       code: 'TDC100',
@@ -139,8 +161,8 @@ export function checkIfExpression(
       // it: "Unexpected = at character 10" is true and useless.
       message:
         entity === undefined
-          ? `invalid if expression "${clip(expr)}": ${msg}`
-          : `invalid if expression "${clip(expr)}": TDC does not expand XML entities, ` +
+          ? `invalid ${site.label} "${clip(expr)}": ${msg}`
+          : `invalid ${site.label} "${clip(expr)}": TDC does not expand XML entities, ` +
             `so "${entity.found}" is ${String(entity.found.length)} literal characters, not "${entity.means}"`,
       hint:
         entity === undefined
@@ -169,7 +191,7 @@ export function checkIfExpression(
             severity: 'error',
             source: 'validator',
             ...valRange,
-            message: `unsupported operator "${bin.operator}" in if expression`,
+            message: `unsupported operator "${bin.operator}" in ${site.article} ${site.label}`,
             ...(suggestion && suggestion !== bin.operator
               ? { suggestion: `did you mean "${suggestion}"?` }
               : {}),
@@ -193,7 +215,7 @@ export function checkIfExpression(
             severity: 'error',
             source: 'validator',
             ...valRange,
-            message: `unsupported unary operator "${un.operator}" in if expression`,
+            message: `unsupported unary operator "${un.operator}" in ${site.article} ${site.label}`,
             hint: `Supported unary operators: ${SUPPORTED_UNARY_OPERATORS.join(' ')}.`,
             code: 'TDC102',
           });
@@ -238,7 +260,7 @@ export function checkIfExpression(
             severity: 'error',
             source: 'validator',
             ...valRange,
-            message: 'computed member access is not supported in if expression',
+            message: `computed member access is not supported in ${site.article} ${site.label}`,
             hint: 'Use plain dotted access like Gender.Male or Person.FirstName.',
             code: 'TDC103',
           });
@@ -254,7 +276,7 @@ export function checkIfExpression(
             severity: 'error',
             source: 'validator',
             ...valRange,
-            message: 'only a plain function name can be called in an if expression',
+            message: `only a plain function name can be called in ${site.article} ${site.label}`,
             hint: `Write abs(x), not an expression that produces a function. Available: ${EXPR_FUNCTION_NAMES.join(', ')}.`,
             code: 'TDC257',
           });
@@ -270,8 +292,8 @@ export function checkIfExpression(
             source: 'validator',
             ...valRange,
             message: planned
-              ? `${name}() is not available yet in an if expression`
-              : `unknown function "${name}" in if expression`,
+              ? `${name}() is not available yet in ${site.article} ${site.label}`
+              : `unknown function "${name}" in ${site.article} ${site.label}`,
             ...(suggestion ? { suggestion: `did you mean "${suggestion}"?` } : {}),
             hint: planned
               ? `TDC computes its own mathematics rather than calling each language's, because the libms disagree in the last bit and a comparison turns that bit into a different row. So ${name} arrives once it has been built and pinned to its bits in all five implementations, not before. Available today: ${EXPR_FUNCTION_NAMES.join(', ')}.`
@@ -305,7 +327,7 @@ export function checkIfExpression(
           severity: 'error',
           source: 'validator',
           ...valRange,
-          message: `unsupported expression construct "${node.type}" in if expression`,
+          message: `unsupported expression construct "${node.type}" in ${site.article} ${site.label}`,
           hint: 'Only comparisons, logical connectives, arithmetic, function calls, member access, identifiers and literals are allowed.',
           code: 'TDC103',
         });

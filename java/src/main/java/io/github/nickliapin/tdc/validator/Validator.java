@@ -1686,7 +1686,9 @@ public final class Validator {
             line, column);
         continue;
       }
-      checkPoolFilter(attrs, poolName, fields, line, column);
+      checkPoolFilter(
+          attrs, poolName, fields, line, column,
+          self != null ? self.attr() : open.attr());
       for (String field : fields) {
         declaredNames.add(name + "." + field);
       }
@@ -1704,11 +1706,22 @@ public final class Validator {
    * a bare word as a string literal, which is how {@code filter="c == North"} says "northern only".
    */
   private void checkPoolFilter(
-      Map<String, String> attrs, String poolName, List<String> fields, int line, int column) {
+      Map<String, String> attrs,
+      String poolName,
+      List<String> fields,
+      int line,
+      int column,
+      List<TDCParser.AttrContext> attrNodes) {
     String expression = attrs.get("filter");
     if (expression == null || expression.isBlank()) {
       return;
     }
+
+    // The little language itself. The name checks below are about THIS pool's fields and say
+    // nothing about whether the expression is runnable at all.
+    int[] site = at(attrNodes, "filter", line, column);
+    checkExpressionAt(expression, site[0], site[1], "filter= expression", "a");
+
     java.util.regex.Matcher dotted = QUALIFIED_NAME.matcher(expression);
     while (dotted.find()) {
       if (!dotted.group(1).equals(poolName) || fields.contains(dotted.group(2))) {
@@ -1971,6 +1984,13 @@ public final class Validator {
    */
   private void checkParamNames(
       TDCParser.SelfClosingElementContext gen, String param, String source) {
+    // The little language itself. The name loop below is about which COLUMNS a parameter reads
+    // and says nothing about whether the expression is one the evaluator can run.
+    int[] site = at(gen, param);
+    String kind = "expr".equals(param) ? "expression" : "parameter";
+    String article = "aeiou".indexOf(Character.toLowerCase(param.charAt(0))) >= 0 ? "an" : "a";
+    checkExpressionAt(source, site[0], site[1], param + "= " + kind, article);
+
     io.github.nickliapin.tdc.expr.Expr parsed;
     try {
       parsed = io.github.nickliapin.tdc.expr.Expr.parse(source);
@@ -5399,18 +5419,32 @@ public final class Validator {
     return null;
   }
 
+  /**
+   * The little language, wherever it is written.
+   *
+   * <p>{@code if=} is the oldest home and its wording is quoted in the docs, so it keeps the
+   * default. {@code expr=}, {@code filter=} and a distribution parameter reach the same
+   * evaluator and so have to be refused by the same list — until they were wired in here, a
+   * misspelled function passed {@code check} and killed the run with a bare
+   * {@code unknown function}.
+   */
   private void checkIfExpression(String expression, int line, int column) {
+    checkExpressionAt(expression, line, column, "if expression", "an");
+  }
+
+  private void checkExpressionAt(
+      String expression, int line, int column, String label, String article) {
     io.github.nickliapin.tdc.expr.Expr parsed;
     try {
       parsed = io.github.nickliapin.tdc.expr.Expr.parse(expression);
     } catch (RuntimeException e) {
       String[] entity = xmlEntity(expression);
       if (entity == null) {
-        error("TDC100", "invalid if expression \"" + clip(expression) + "\": " + e.getMessage(),
+        error("TDC100", "invalid " + label + " \"" + clip(expression) + "\": " + e.getMessage(),
             "Supported: comparison, && || !, and arithmetic.", line, column);
       } else {
         error("TDC100",
-            "invalid if expression \"" + clip(expression) + "\": TDC does not expand XML entities,"
+            "invalid " + label + " \"" + clip(expression) + "\": TDC does not expand XML entities,"
                 + " so \"" + entity[0] + "\" is " + entity[0].length()
                 + " literal characters, not \"" + entity[1] + "\"",
             "write " + entity[1] + " directly — the config is XML-shaped but it is not XML,"
@@ -5419,7 +5453,7 @@ public final class Validator {
       }
       return;
     }
-    checkExprNode(parsed, line, column);
+    checkExprNode(parsed, line, column, label, article);
   }
 
   /**
@@ -5428,35 +5462,35 @@ public final class Validator {
    * <p>A parser that is more permissive than the evaluator is a trap: the config is accepted, and
    * the operator it asked for is quietly not the operator it gets.
    */
-  private void checkExprNode(io.github.nickliapin.tdc.expr.Expr node, int line, int column) {
+  private void checkExprNode(io.github.nickliapin.tdc.expr.Expr node, int line, int column, String label, String article) {
     if (node instanceof io.github.nickliapin.tdc.expr.Expr.Arr array) {
       // Reached only when nothing marked it as an `in` right-hand side: the Binary branch
       // checks its own right operand before recursing.
       error("TDC259", "a [list] is only allowed on the right of \"in\"",
           "Write Country in [US, CA, MX]. A list has no meaning on its own.", line, column);
       for (io.github.nickliapin.tdc.expr.Expr item : array.items()) {
-        checkExprNode(item, line, column);
+        checkExprNode(item, line, column, label, article);
       }
       return;
     }
     if (node instanceof io.github.nickliapin.tdc.expr.Expr.Conditional ternary) {
-      checkExprNode(ternary.test(), line, column);
-      checkExprNode(ternary.consequent(), line, column);
-      checkExprNode(ternary.alternate(), line, column);
+      checkExprNode(ternary.test(), line, column, label, article);
+      checkExprNode(ternary.consequent(), line, column, label, article);
+      checkExprNode(ternary.alternate(), line, column, label, article);
       return;
     }
     if (node instanceof io.github.nickliapin.tdc.expr.Expr.Binary binary) {
       if (binary.op().equals("in")
           && binary.right() instanceof io.github.nickliapin.tdc.expr.Expr.Arr members) {
         // The one place a list belongs: check its items, not the list itself.
-        checkExprNode(binary.left(), line, column);
+        checkExprNode(binary.left(), line, column, label, article);
         for (io.github.nickliapin.tdc.expr.Expr item : members.items()) {
-          checkExprNode(item, line, column);
+          checkExprNode(item, line, column, label, article);
         }
         return;
       }
       if (!SUPPORTED_BINARY_OPERATORS.contains(binary.op())) {
-        error("TDC101", "unsupported operator \"" + binary.op() + "\" in if expression",
+        error("TDC101", "unsupported operator \"" + binary.op() + "\" in " + article + " " + label,
             "Supported binary operators: " + String.join(" ", SUPPORTED_BINARY_OPERATORS)
                 + ". Functions: " + String.join(", ", EXPR_FUNCTION_NAMES)
                 + ". Anything an expression cannot say, a <compute> sequence can — it has integer "
@@ -5464,8 +5498,8 @@ public final class Validator {
                 + "produces is what if= then compares.",
             line, column);
       }
-      checkExprNode(binary.left(), line, column);
-      checkExprNode(binary.right(), line, column);
+      checkExprNode(binary.left(), line, column, label, article);
+      checkExprNode(binary.right(), line, column, label, article);
       return;
     }
     if (node instanceof io.github.nickliapin.tdc.expr.Expr.Call call) {
@@ -5474,8 +5508,8 @@ public final class Validator {
         boolean planned = PLANNED_EXPR_FUNCTIONS.contains(call.callee());
         error("TDC257",
             planned
-                ? call.callee() + "() is not available yet in an if expression"
-                : "unknown function \"" + call.callee() + "\" in if expression",
+                ? call.callee() + "() is not available yet in " + article + " " + label
+                : "unknown function \"" + call.callee() + "\" in " + article + " " + label,
             planned
                 ? "TDC computes its own mathematics rather than calling each language's, because "
                     + "the libms disagree in the last bit and a comparison turns that bit into a "
@@ -5501,23 +5535,23 @@ public final class Validator {
         checkAtCall(call, line, column);
       }
       for (io.github.nickliapin.tdc.expr.Expr arg : call.args()) {
-        checkExprNode(arg, line, column);
+        checkExprNode(arg, line, column, label, article);
       }
       return;
     }
     if (node instanceof io.github.nickliapin.tdc.expr.Expr.Computed computed) {
-      error("TDC103", "computed member access is not supported in if expression",
+      error("TDC103", "computed member access is not supported in " + article + " " + label,
           "Use plain dotted access like Gender.Male or Person.FirstName.", line, column);
-      checkExprNode(computed.object(), line, column);
+      checkExprNode(computed.object(), line, column, label, article);
       return;
     }
     if (node instanceof io.github.nickliapin.tdc.expr.Expr.Unary unary) {
       if (!SUPPORTED_UNARY_OPERATORS.contains(unary.op())) {
-        error("TDC102", "unsupported unary operator \"" + unary.op() + "\" in if expression",
+        error("TDC102", "unsupported unary operator \"" + unary.op() + "\" in " + article + " " + label,
             "Supported unary operators: " + String.join(" ", SUPPORTED_UNARY_OPERATORS) + ".",
             line, column);
       }
-      checkExprNode(unary.operand(), line, column);
+      checkExprNode(unary.operand(), line, column, label, article);
     }
   }
 

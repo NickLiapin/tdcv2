@@ -110,6 +110,17 @@ _count"` is a sensor that grows noisier as the run goes on.
 
 ### Fixed
 
+- **Only one of the expression language's four homes was checked.** The expressions page opens
+  with "four homes, all reading the same way" — `if=`, `filter=`, `expr=` and a distribution
+  parameter — and promises that a written-out mistake is caught by `tdcv2 check` before a row
+  exists. Only `if=` was ever handed to the checker. The same misspelled function passed a
+  green `check` in the other three and killed the run with a bare `unknown function "…"`: no
+  code, no line, the exact string the function list exists to prevent.
+
+  All four now go through one checker, which names the site it is complaining about — `in an
+expr= expression`, `in a mean= parameter`. The `if=` wording is untouched, because the docs
+  quote it. Fixed in all five, with three shared diagnostic cases.
+
 - **Pinning a pack parameter a `<valid>` guard reads threw the pin away.** A caller parameter
   replaces a local sequence with a constant — the documented way to drive a pack — but the
   reject-and-retry loop redrew it anyway in Python, Rust, C# and Java. A config asking for a

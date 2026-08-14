@@ -1877,7 +1877,9 @@ public sealed class Validator
                 continue;
             }
 
-            this.CheckPoolFilter(attrs, poolName, fields, line, column);
+            this.CheckPoolFilter(
+                attrs, poolName, fields, line, column,
+                self is not null ? self.attr() : open!.attr());
             foreach (string field in fields)
             {
                 _declaredNames.Add($"{name}.{field}");
@@ -1902,13 +1904,19 @@ public sealed class Validator
         string poolName,
         List<string> fields,
         int line,
-        int column)
+        int column,
+        TDCParser.AttrContext[] attrNodes)
     {
         string? expression = attrs.GetValueOrDefault("filter");
         if (string.IsNullOrWhiteSpace(expression))
         {
             return;
         }
+
+        // The little language itself. The name checks below are about THIS pool's fields and
+        // say nothing about whether the expression is runnable at all.
+        (int fl, int fc) = At(attrNodes, "filter", line, column);
+        CheckIfExpression(expression, fl, fc, "filter= expression", "a");
 
         foreach (Match m in Regex.Matches(expression, @"([A-Za-z_][A-Za-z0-9_]*)\.([A-Za-z_][A-Za-z0-9_]*)"))
         {
@@ -4968,6 +4976,13 @@ public sealed class Validator
     private void CheckParamNames(
         TDCParser.SelfClosingElementContext gen, string param, string source)
     {
+        // The little language itself. The name loop below is about which COLUMNS a parameter
+        // reads and says nothing about whether the expression is one the evaluator can run.
+        (int pl, int pc) = At(gen, param);
+        string kind = param == "expr" ? "expression" : "parameter";
+        string article = "aeiou".Contains(char.ToLowerInvariant(param[0])) ? "an" : "a";
+        CheckIfExpression(source, pl, pc, $"{param}= {kind}", article);
+
         Expr.Expr parsed;
         try
         {
@@ -6499,7 +6514,17 @@ public sealed class Validator
         }
     }
 
-    private void CheckIfExpression(string expression, int line, int column)
+    /// <summary>The little language, wherever it is written.</summary>
+    /// <remarks>
+    /// <c>if=</c> is the oldest home and its wording is quoted in the docs, so it keeps the
+    /// default. <c>expr=</c>, <c>filter=</c> and a distribution parameter reach the same
+    /// evaluator and so have to be refused by the same list — until they were wired in here, a
+    /// misspelled function passed <c>check</c> and killed the run with a bare
+    /// <c>unknown function</c>.
+    /// </remarks>
+    private void CheckIfExpression(
+        string expression, int line, int column,
+        string label = "if expression", string article = "an")
     {
         Expr.Expr parsed;
         try
@@ -6512,14 +6537,14 @@ public sealed class Validator
             if (entity is null)
             {
                 Error(
-                    "TDC100", $"invalid if expression \"{Clip(expression)}\": {e.Message}",
+                    "TDC100", $"invalid {label} \"{Clip(expression)}\": {e.Message}",
                     "Supported: comparison, && || !, and arithmetic.", line, column);
             }
             else
             {
                 Error(
                     "TDC100",
-                    $"invalid if expression \"{Clip(expression)}\": TDC does not expand XML entities, "
+                    $"invalid {label} \"{Clip(expression)}\": TDC does not expand XML entities, "
                         + $"so \"{entity.Value.Found}\" is {entity.Value.Found.Length} literal characters, "
                         + $"not \"{entity.Value.Means}\"",
                     $"write {entity.Value.Means} directly — the config is XML-shaped but it is not XML, "
@@ -6529,7 +6554,7 @@ public sealed class Validator
             return;
         }
 
-        CheckExprNode(parsed, line, column);
+        CheckExprNode(parsed, line, column, label, article);
     }
 
     /// <summary>
@@ -6539,7 +6564,7 @@ public sealed class Validator
     /// A parser that is more permissive than the evaluator is a trap: the config is accepted, and
     /// the operator it asked for is quietly not the operator it gets.
     /// </remarks>
-    private void CheckExprNode(Expr.Expr node, int line, int column)
+    private void CheckExprNode(Expr.Expr node, int line, int column, string label, string article)
     {
         switch (node)
         {
@@ -6552,25 +6577,25 @@ public sealed class Validator
                     line, column);
                 foreach (Expr.Expr item in array.Items)
                 {
-                    CheckExprNode(item, line, column);
+                    CheckExprNode(item, line, column, label, article);
                 }
 
                 return;
 
             case Expr.Expr.Conditional ternary:
-                CheckExprNode(ternary.Test, line, column);
-                CheckExprNode(ternary.Consequent, line, column);
-                CheckExprNode(ternary.Alternate, line, column);
+                CheckExprNode(ternary.Test, line, column, label, article);
+                CheckExprNode(ternary.Consequent, line, column, label, article);
+                CheckExprNode(ternary.Alternate, line, column, label, article);
                 return;
 
             case Expr.Expr.Binary binary:
                 if (binary.Op == "in" && binary.Right is Expr.Expr.Arr members)
                 {
                     // The one place a list belongs: check its items, not the list.
-                    CheckExprNode(binary.Left, line, column);
+                    CheckExprNode(binary.Left, line, column, label, article);
                     foreach (Expr.Expr item in members.Items)
                     {
-                        CheckExprNode(item, line, column);
+                        CheckExprNode(item, line, column, label, article);
                     }
 
                     return;
@@ -6579,7 +6604,7 @@ public sealed class Validator
                 if (!SupportedBinaryOperators.Contains(binary.Op))
                 {
                     Error(
-                        "TDC101", $"unsupported operator \"{binary.Op}\" in if expression",
+                        "TDC101", $"unsupported operator \"{binary.Op}\" in {article} {label}",
                         "Supported binary operators: "
                         + string.Join(" ", SupportedBinaryOperators)
                         + ". Functions: " + string.Join(", ", ExprFunctionNames)
@@ -6589,8 +6614,8 @@ public sealed class Validator
                         line, column);
                 }
 
-                CheckExprNode(binary.Left, line, column);
-                CheckExprNode(binary.Right, line, column);
+                CheckExprNode(binary.Left, line, column, label, article);
+                CheckExprNode(binary.Right, line, column, label, article);
                 return;
 
             case Expr.Expr.Call call:
@@ -6603,8 +6628,8 @@ public sealed class Validator
                     Error(
                         "TDC257",
                         planned
-                            ? $"{call.Callee}() is not available yet in an if expression"
-                            : $"unknown function \"{call.Callee}\" in if expression",
+                            ? $"{call.Callee}() is not available yet in {article} {label}"
+                            : $"unknown function \"{call.Callee}\" in {article} {label}",
                         planned
                             ? "TDC computes its own mathematics rather than calling each "
                               + "language's, because the libms disagree in the last bit and a "
@@ -6639,29 +6664,29 @@ public sealed class Validator
 
                 foreach (Expr.Expr arg in call.Args)
                 {
-                    CheckExprNode(arg, line, column);
+                    CheckExprNode(arg, line, column, label, article);
                 }
 
                 return;
 
             case Expr.Expr.Computed computed:
                 Error(
-                    "TDC103", "computed member access is not supported in if expression",
+                    "TDC103", "computed member access is not supported in {article} {label}",
                     "Use plain dotted access like Gender.Male or Person.FirstName.", line, column);
-                CheckExprNode(computed.Object, line, column);
+                CheckExprNode(computed.Object, line, column, label, article);
                 return;
 
             case Expr.Expr.Unary unary:
                 if (!SupportedUnaryOperators.Contains(unary.Op))
                 {
                     Error(
-                        "TDC102", $"unsupported unary operator \"{unary.Op}\" in if expression",
+                        "TDC102", $"unsupported unary operator \"{unary.Op}\" in {article} {label}",
                         "Supported unary operators: "
                         + string.Join(" ", SupportedUnaryOperators) + ".",
                         line, column);
                 }
 
-                CheckExprNode(unary.Operand, line, column);
+                CheckExprNode(unary.Operand, line, column, label, article);
                 return;
         }
     }

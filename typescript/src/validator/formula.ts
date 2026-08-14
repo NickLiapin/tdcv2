@@ -29,7 +29,7 @@ import { attrValueRange, closestMatch, formatCandidates, nodeRange } from '../er
 import { extractAttrs } from '../processor/walk.js';
 import { FormulaError, formulaDecimals } from '../sequence/formula.js';
 import { BUILTIN_SEQUENCES } from './known.js';
-import { xmlEntity } from './expr-check.js';
+import { checkIfExpression, exprSite, xmlEntity } from './expr-check.js';
 
 /** Everything a formula cannot do without, and the names it is allowed to read. */
 export function checkGenFormula(
@@ -103,6 +103,14 @@ export function checkGenFormula(
       code: 'TDC294',
     });
   }
+
+  // The rest of the little language — the operators it allows, the functions it
+  // knows, the constructs it can evaluate. `if=` has been handing its expression
+  // to this checker all along; `expr=` parsed its own and stopped there, so a
+  // misspelled function sailed through a green `check` and killed the run with a
+  // bare `unknown function "…"` — no code, no line, on a page that promises the
+  // four homes read the same way.
+  if (exprAttr) checkIfExpression(exprAttr, expr, { diagnostics }, exprSite('expr'));
 
   for (const name of identifiersOf(ast)) {
     if (BUILTIN_SEQUENCES.includes(name)) continue;

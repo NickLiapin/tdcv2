@@ -1312,6 +1312,11 @@ impl Validator {
         if expression.trim().is_empty() {
             return;
         }
+
+        // The little language itself. The name checks below are about THIS pool's fields and
+        // say nothing about whether the expression is runnable at all.
+        self.check_expression_at(expression, gen.at("filter"), "filter= expression", "a");
+
         for (qualifier, field) in dotted_names(expression) {
             if qualifier != pool_name || fields.iter().any(|f| f == &field) {
                 continue;
@@ -3327,6 +3332,12 @@ impl Validator {
     /// TDC240 is shared with them on purpose; it is the same complaint about the same
     /// thing.
     fn check_param_names(&mut self, gen: &Element, param: &str, source: &str) {
+        // The little language itself. The name loop below is about which COLUMNS a parameter
+        // reads and says nothing about whether the expression is one the evaluator can run.
+        let article = if param.starts_with(['a', 'e', 'i', 'o', 'u']) { "an" } else { "a" };
+        let kind = if param == "expr" { "expression" } else { "parameter" };
+        self.check_expression_at(source, gen.at(param), &format!("{param}= {kind}"), article);
+
         let Ok(parsed) = expr::parse(source) else {
             return; // Not an expression at all — TDC089 reports it.
         };
@@ -5408,14 +5419,25 @@ impl Validator {
         ));
     }
 
+    /// The little language, wherever it is written.
+    ///
+    /// `if=` is the oldest home and its wording is quoted in the docs, so it keeps the
+    /// default. `expr=`, `filter=` and a distribution parameter reach the same evaluator and
+    /// so have to be refused by the same list — until they were wired in here, a misspelled
+    /// function passed `check` and killed the run with a bare `unknown function`.
     fn check_if_expression(&mut self, expression: &str, at: Pos) {
+        self.check_expression_at(expression, at, "if expression", "an");
+    }
+
+    fn check_expression_at(&mut self, expression: &str, at: Pos, label: &str, article: &str) {
         match expr::parse(expression) {
-            Ok(parsed) => self.check_expr_node(&parsed, at),
+            Ok(parsed) => self.check_expr_node(&parsed, at, label, article),
             Err(e) => match xml_entity(expression) {
                 None => self.error(
                     "TDC100",
                     format!(
-                        "invalid if expression \"{}\": {}",
+                        "invalid {} \"{}\": {}",
+                        label,
                         clip(expression),
                         e.message()
                     ),
@@ -5425,8 +5447,9 @@ impl Validator {
                 Some((found, means)) => self.error(
                     "TDC100",
                     format!(
-                        "invalid if expression \"{}\": TDC does not expand XML entities, \
+                        "invalid {} \"{}\": TDC does not expand XML entities, \
                          so \"{}\" is {} literal characters, not \"{}\"",
+                        label,
                         clip(expression),
                         found,
                         found.len(),
@@ -5448,7 +5471,7 @@ impl Validator {
     /// A parser that is more permissive than the evaluator is a trap: the config
     /// is accepted, and the operator it asked for is quietly not the operator it
     /// gets.
-    fn check_expr_node(&mut self, node: &expr::Expr, at: Pos) {
+    fn check_expr_node(&mut self, node: &expr::Expr, at: Pos, label: &str, article: &str) {
         match node {
             expr::Expr::Array(items) => {
                 // Reached only when nothing marked it as an `in` right-hand
@@ -5460,21 +5483,21 @@ impl Validator {
                     at,
                 );
                 for item in items {
-                    self.check_expr_node(item, at);
+                    self.check_expr_node(item, at, label, article);
                 }
             }
             expr::Expr::Conditional(test, consequent, alternate) => {
-                self.check_expr_node(test, at);
-                self.check_expr_node(consequent, at);
-                self.check_expr_node(alternate, at);
+                self.check_expr_node(test, at, label, article);
+                self.check_expr_node(consequent, at, label, article);
+                self.check_expr_node(alternate, at, label, article);
             }
             expr::Expr::Binary(op, left, right) => {
                 if op == "in" {
                     if let expr::Expr::Array(items) = right.as_ref() {
                         // The one place a list belongs: check its items, not it.
-                        self.check_expr_node(left, at);
+                        self.check_expr_node(left, at, label, article);
                         for item in items {
-                            self.check_expr_node(item, at);
+                            self.check_expr_node(item, at, label, article);
                         }
                         return;
                     }
@@ -5482,7 +5505,7 @@ impl Validator {
                 if !tables::SUPPORTED_BINARY_OPERATORS.contains(&op.as_str()) {
                     self.error(
                         "TDC101",
-                        format!("unsupported operator \"{op}\" in if expression"),
+                        format!("unsupported operator \"{op}\" in {article} {label}"),
                         &format!(
                             "Supported binary operators: {}. Functions: {}. Anything an \
                              expression cannot say, a <compute> sequence can — it has integer \
@@ -5494,8 +5517,8 @@ impl Validator {
                         at,
                     );
                 }
-                self.check_expr_node(left, at);
-                self.check_expr_node(right, at);
+                self.check_expr_node(left, at, label, article);
+                self.check_expr_node(right, at, label, article);
             }
             expr::Expr::Call(name, args) => {
                 match tables::EXPR_FUNCTIONS.iter().find(|(n, _, _)| n == name) {
@@ -5504,9 +5527,9 @@ impl Validator {
                         self.error(
                             "TDC257",
                             if planned {
-                                format!("{name}() is not available yet in an if expression")
+                                format!("{name}() is not available yet in {article} {label}")
                             } else {
-                                format!("unknown function \"{name}\" in if expression")
+                                format!("unknown function \"{name}\" in {article} {label}")
                             },
                             &if planned {
                                 format!(
@@ -5548,23 +5571,23 @@ impl Validator {
                     self.check_at_call(args, at);
                 }
                 for arg in args {
-                    self.check_expr_node(arg, at);
+                    self.check_expr_node(arg, at, label, article);
                 }
             }
             expr::Expr::Computed(inner) => {
                 self.error(
                     "TDC103",
-                    "computed member access is not supported in if expression".to_string(),
+                    "computed member access is not supported in {article} {label}".to_string(),
                     "Use plain dotted access like Gender.Male or Person.FirstName.",
                     at,
                 );
-                self.check_expr_node(inner, at);
+                self.check_expr_node(inner, at, label, article);
             }
             expr::Expr::Unary(op, operand) => {
                 if !tables::SUPPORTED_UNARY_OPERATORS.contains(&op.as_str()) {
                     self.error(
                         "TDC102",
-                        format!("unsupported unary operator \"{op}\" in if expression"),
+                        format!("unsupported unary operator \"{op}\" in {article} {label}"),
                         &format!(
                             "Supported unary operators: {}.",
                             tables::SUPPORTED_UNARY_OPERATORS.join(" ")
@@ -5572,7 +5595,7 @@ impl Validator {
                         at,
                     );
                 }
-                self.check_expr_node(operand, at);
+                self.check_expr_node(operand, at, label, article);
             }
             _ => {}
         }

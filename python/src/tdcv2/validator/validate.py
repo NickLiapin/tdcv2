@@ -1312,6 +1312,14 @@ class _Validator:
         expression = attrs.get("filter")
         if expression is None or not expression.strip():
             return
+
+        # The little language itself — its operators, its functions, its constructs. The name
+        # checks below are about THIS pool's fields and say nothing about whether the expression
+        # is runnable at all, so a misspelled function used to pass `check` and kill the run with
+        # a bare `unknown function`.
+        line, column = _at(gen, "filter")
+        self._check_if_expression(expression, line, column, "filter= expression", "a")
+
         for match in re.finditer(r"([A-Za-z_][A-Za-z0-9_]*)\.([A-Za-z_][A-Za-z0-9_]*)", expression):
             if match.group(1) != pool_name or match.group(2) in fields:
                 continue
@@ -4218,6 +4226,15 @@ class _Validator:
         does not — so one config would mean two datasets. TDC240 is shared with `running` on
         purpose; it is the same complaint about the same thing.
         """
+        # The little language itself — its operators, its functions, its constructs. The name
+        # loop below is about which COLUMNS the expression reads and says nothing about whether
+        # it is one the evaluator can run, so a misspelled function used to pass `check` and kill
+        # the run with a bare `unknown function`.
+        line, column = _at(gen, attribute)
+        kind = "expression" if attribute == "expr" else "parameter"
+        article = "an" if attribute[0].lower() in "aeiou" else "a"
+        self._check_if_expression(source, line, column, f"{attribute}= {kind}", article)
+
         try:
             parsed = expr_parse(source)
         except ValueError:
@@ -5267,18 +5284,33 @@ class _Validator:
             column,
         )
 
-    def _check_if_expression(self, expression: str, line: int, column: int) -> None:
+    def _check_if_expression(
+        self,
+        expression: str,
+        line: int,
+        column: int,
+        label: str = "if expression",
+        article: str = "an",
+    ) -> None:
+        """The little language, wherever it is written.
+
+        ``if=`` is the oldest home and its wording is quoted in the docs, so it stays the
+        default. ``expr=``, ``filter=`` and a distribution parameter reach the same evaluator
+        and so have to be refused by the same list — until they were wired in here, a
+        misspelled function passed ``check`` and killed the run with a bare
+        ``unknown function``.
+        """
         try:
             parsed = expr_parse(expression)
         except ValueError as e:
             entity = _xml_entity(expression)
             if entity is None:
-                message = f'invalid if expression "{_clip(expression)}": {e}'
+                message = f'invalid {label} "{_clip(expression)}": {e}'
                 hint = "Supported: comparison, && || !, and arithmetic."
             else:
                 found, means = entity
                 message = (
-                    f'invalid if expression "{_clip(expression)}": TDC does not expand '
+                    f'invalid {label} "{_clip(expression)}": TDC does not expand '
                     f'XML entities, so "{found}" is {len(found)} literal characters, '
                     f'not "{means}"'
                 )
@@ -5288,9 +5320,11 @@ class _Validator:
                 )
             self._error("TDC100", message, hint, line, column)
             return
-        self._check_expr_node(parsed, line, column)
+        self._check_expr_node(parsed, line, column, label, article)
 
-    def _check_expr_node(self, node, line: int, column: int) -> None:
+    def _check_expr_node(
+        self, node, line: int, column: int, label: str, article: str
+    ) -> None:
         """Every operator in a parsed condition, checked against the ones the engine implements.
 
         A parser that is more permissive than the evaluator is a trap: the config is accepted, and
@@ -5307,24 +5341,24 @@ class _Validator:
                 column,
             )
             for item in node.items:
-                self._check_expr_node(item, line, column)
+                self._check_expr_node(item, line, column, label, article)
             return
         if isinstance(node, Conditional):
-            self._check_expr_node(node.test, line, column)
-            self._check_expr_node(node.consequent, line, column)
-            self._check_expr_node(node.alternate, line, column)
+            self._check_expr_node(node.test, line, column, label, article)
+            self._check_expr_node(node.consequent, line, column, label, article)
+            self._check_expr_node(node.alternate, line, column, label, article)
             return
         if isinstance(node, Binary):
             if node.op == "in" and isinstance(node.right, Array):
                 # The one place a list belongs; check its items, not the list itself.
-                self._check_expr_node(node.left, line, column)
+                self._check_expr_node(node.left, line, column, label, article)
                 for item in node.right.items:
-                    self._check_expr_node(item, line, column)
+                    self._check_expr_node(item, line, column, label, article)
                 return
             if node.op not in SUPPORTED_BINARY:
                 self._error(
                     "TDC101",
-                    f'unsupported operator "{node.op}" in if expression',
+                    f'unsupported operator "{node.op}" in {article} {label}',
                     f"Supported binary operators: {' '.join(SUPPORTED_BINARY)}. "
                     f"Functions: {', '.join(EXPR_FUNCTION_NAMES)}. "
                     "Anything an expression cannot say, a <compute> sequence can — it has "
@@ -5333,8 +5367,8 @@ class _Validator:
                     line,
                     column,
                 )
-            self._check_expr_node(node.left, line, column)
-            self._check_expr_node(node.right, line, column)
+            self._check_expr_node(node.left, line, column, label, article)
+            self._check_expr_node(node.right, line, column, label, article)
             return
         if isinstance(node, Call):
             spec = EXPR_FUNCTIONS.get(node.name)
@@ -5344,9 +5378,9 @@ class _Validator:
                 self._error(
                     "TDC257",
                     (
-                        f"{node.name}() is not available yet in an if expression"
+                        f"{node.name}() is not available yet in {article} {label}"
                         if planned
-                        else f'unknown function "{node.name}" in if expression'
+                        else f'unknown function "{node.name}" in {article} {label}'
                     ),
                     (
                         "TDC computes its own mathematics rather than calling each language's, "
@@ -5380,28 +5414,28 @@ class _Validator:
             if node.name == "at":
                 self._check_at_call(node, line, column)
             for arg in node.args:
-                self._check_expr_node(arg, line, column)
+                self._check_expr_node(arg, line, column, label, article)
             return
         if isinstance(node, Computed):
             self._error(
                 "TDC103",
-                "computed member access is not supported in if expression",
+                f"computed member access is not supported in {article} {label}",
                 "Use plain dotted access like Gender.Male or Person.FirstName.",
                 line,
                 column,
             )
-            self._check_expr_node(node.obj, line, column)
+            self._check_expr_node(node.obj, line, column, label, article)
             return
         if isinstance(node, Unary):
             if node.op not in SUPPORTED_UNARY:
                 self._error(
                     "TDC102",
-                    f'unsupported unary operator "{node.op}" in if expression',
+                    f'unsupported unary operator "{node.op}" in {article} {label}',
                     f"Supported unary operators: {' '.join(SUPPORTED_UNARY)}.",
                     line,
                     column,
                 )
-            self._check_expr_node(node.operand, line, column)
+            self._check_expr_node(node.operand, line, column, label, article)
 
     def _check_at_call(self, node, line: int, column: int) -> None:
         """``at(subject, index)``, checked before the run rather than during it.

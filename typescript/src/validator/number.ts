@@ -6,6 +6,7 @@ import { PercentMaskError, expandPercentMask } from '../distribution/index.js';
 import jsep from 'jsep';
 
 import { expressionParams, parseDistribution } from '../generators/distribution.js';
+import { checkIfExpression, exprSite } from './expr-check.js';
 import { identifiersOf } from './formula.js';
 import { BUILTIN_SEQUENCES } from './known.js';
 import {
@@ -347,6 +348,16 @@ function checkParamNames(
     return; // not an expression at all — parseDistribution reports it
   }
   const attr = findAttr(attrs, param);
+
+  // The little language itself — its operators, its functions, its constructs.
+  // The name loop below is about which COLUMNS a parameter reads; it says
+  // nothing about whether the expression is one the evaluator can run, so a
+  // misspelled function used to pass `check` and kill the run with a bare
+  // `unknown function "…"`. `if=` has been handing its expression to this
+  // checker all along, and the expressions page promises all four homes read
+  // the same way.
+  if (attr) checkIfExpression(attr, raw, { diagnostics }, exprSite(param, 'parameter'));
+
   for (const name of identifiersOf(ast)) {
     if (BUILTIN_SEQUENCES.includes(name) || declaredAbove.includes(name)) continue;
     const suggestion = closestMatch(name, [...declaredAbove]);

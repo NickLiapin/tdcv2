@@ -35,6 +35,27 @@
       "description": "The other side of the same boundary. Both operands are inside the domain and only the RESULT is not, so `check` cannot see it: this config validates and the run refuses it with `integer overflow: 9223372036854775808 is outside the signed 64-bit range`. Recorded here so the silence at validation time is deliberate rather than discovered.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"x\" if=\"9223372036854775807 + 1 > 0\"/></sequence></env><block><line><data>[${{V}}]</data></line></block></tdc>",
       "expected": []
+    },
+    {
+      "name": "a-misspelled-function-in-expr",
+      "demonstrates": "TDC257",
+      "description": "expr= is the same little language as if=, and the expressions page promises all four homes read the same way. Until this case existed only if= was handed to the checker, so a misspelled function passed check and killed the run with a bare unknown function — no code, no line.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"B\"><gen type=\"formula\" expr=\"besselj(A)\"/></sequence></env><block><line><data>${{B}}</data></line></block></tdc>",
+      "expected": ["error TDC257 1:148"]
+    },
+    {
+      "name": "a-misspelled-function-in-a-distribution-parameter",
+      "demonstrates": "TDC257",
+      "description": "The fourth home. A parameter written as an expression reaches the same evaluator, so it has to be refused by the same list.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"number\" value=\"1..9\"/></sequence><sequence name=\"B\"><gen type=\"number\" distribution=\"normal\" mean=\"besselj(A)\" sd=\"1\"/></sequence></env><block><line><data>${{B}}</data></line></block></tdc>",
+      "expected": ["error TDC257 1:169"]
+    },
+    {
+      "name": "a-misspelled-function-in-a-pool-filter",
+      "demonstrates": "TDC257",
+      "description": "The third home. The pool checks knew which FIELDS a filter reads and nothing about whether the expression was runnable at all.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><pool name=\"P\" count=\"3\"><sequence name=\"price\"><gen type=\"number\" value=\"1..9\"/></sequence></pool><sequence name=\"R\"><gen type=\"pool\" value=\"P\" filter=\"besselj(price) > 0\"/></sequence></env><block><line><data>${{R.price}}</data></line></block></tdc>",
+      "expected": ["error TDC257 1:193"]
     }
   ]
 }
