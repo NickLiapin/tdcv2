@@ -38,7 +38,8 @@ Two engines run under "disk", and TDC picks between them **from your config**:
 - **The exact on-disk engine** — for a promise about the **finished** column rather than
   the current row: an env-level [`<uniq>`](../constructs/unique-values.md#top) group,
   [`uniq="true"`](../constructs/unique-values.md#top) on a compound sequence or on a counter,
-  and a [`parent`](hierarchical-dependencies.md#top) whose parent is not a text sequence.
+  a [`parent`](hierarchical-dependencies.md#top) whose parent is not a text sequence, and a
+  weighted [`advanced_regex`](../generators/advanced-regex.md#top) — `(?%{…})`.
   It guarantees the result exactly, and it pays for that by checking the data with an
   external sort and a repair pass — a check that **gets dramatically slower as the row
   count grows** (see the warning below).
@@ -418,6 +419,13 @@ npx tdcv2 customers.tdc -o customers.csv
 The result is **byte-identical regardless of core count** (same seed): each core computes
 a contiguous range of rows into a temp file, and the temp files are then concatenated
 strictly in order. Thread count is only about speed — it never affects the data.
+
+The automatic count is also cut to fit memory, and this is the usual answer to "why is
+this not faster?". Each worker is charged 120 MB plus **50×** the on-disk size of every
+`src=` file it will parse, and the total may not exceed half of physical RAM — so a
+config reading a large CSV gets far fewer workers than there are cores. The reduction is
+announced only when `--jobs` was passed explicitly; an automatic run makes it in
+silence.
 
 A benchmark — 1,000,000 rows, six fields (a counter, two template names, a `percent`
 column, a normal distribution, a date), a 74 MB file, on a 12-core machine:

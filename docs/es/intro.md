@@ -98,7 +98,8 @@ Lo que se espera de XML y **no** hay aquí:
 | espacios de nombres, `xmlns:` | no existe tal concepto |
 | un DTD o un XSD contra el que validar | valida el propio motor, con sus reglas |
 | `<![CDATA[…]]>` | no hace falta: `<data>` ya guarda texto crudo |
-| `<?xml …?>`, `<!DOCTYPE …>` | no se aceptan |
+| `<?xml …?>` | se tolera y se ignora |
+| `<!DOCTYPE …>` | un error de análisis |
 | el valor de un atributo es solo texto | el valor de un atributo es una **expresión TDC**: `if="Age >= 18"` se analiza y se evalúa |
 
 Los `<` y `>` que escriba dentro de `<data>` son caracteres corrientes y así se quedan,

@@ -75,6 +75,23 @@ With `configFile`, relative `src` paths inside the `.tdc` are resolved against t
 file's folder. With `configString` there's no file to resolve against, so set
 `baseDir` yourself.
 
+The rest of the constructor's options are less common but no less real:
+
+| Option          | What it does                                                                        |
+| :-------------- | :---------------------------------------------------------------------------------- |
+| `locale`        | **Overrides** `<env local=…>` — the config loses                                     |
+| `defaultLocale` | Only fills in when `<env>` declares no locale at all. The `locale` key in `tdcv2.config.json` becomes **this**, not the override |
+| `mode`          | `"memory"` or `"disk"` — the same choice as [`--mode`](../reference/cli.mdx)         |
+| `engine`        | `1`, `2` or `3` — forces one engine, and fails rather than falling back              |
+| `stream`        | Legacy alias for `engine: 2`                                                          |
+
+That `locale` / `defaultLocale` split is worth a second look: a `"locale": "ru"` in the
+project config does **not** beat a `local="en"` in the config file, and nothing reports
+it. Only the constructor's own `locale` and the CLI's `--locale` override.
+
+`preflight(opts?)` takes one option of its own: `output`, either `"materialized"` (the
+default — the whole run held at once, what `toArray()` does) or `"streaming"`.
+
 ## Terminal methods
 
 | Method             | Returns                               | For                            |

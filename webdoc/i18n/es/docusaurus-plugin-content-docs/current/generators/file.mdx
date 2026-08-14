@@ -46,6 +46,7 @@ pueden cambiar según la versión del core; lo que importa es la forma y las can
 | `src="names.txt"`                  | Junto al archivo de configuración `.tdc`           |
 | `src="@data/names.txt"`            | Se busca en las carpetas pasadas con `--data-path` |
 | `src="/absolute/path/names.txt"`   | Una ruta absoluta                                  |
+| `src="file:///absolute/path/names.txt"` | El mismo archivo, escrito como URL                 |
 
 El archivo se lee como UTF-8. Si la ruta no se puede resolver, la generación se detiene
 con un error en vez de producir nada en silencio.
@@ -177,6 +178,7 @@ Dé un índice que empieza en 1 en lugar de un nombre. `column="2"` es la **segu
 columna (`last_name`) — la numeración arranca en uno, así que la primera columna es
 `column="1"`, nunca `column="0"`. Al direccionar por número, TDC no tiene nombres de
 columna que reconocer, así que agregue [`header="true"`](../reference/attributes.mdx)
+(también se aceptan `"1"` y `"0"`)
 para omitir la línea de encabezado:
 
 ```xml

@@ -46,6 +46,7 @@ by core version; only the shape and the counts are the point.
 | `src="names.txt"`                  | Next to the `.tdc` config file                   |
 | `src="@data/names.txt"`            | Searched in the folders passed via `--data-path` |
 | `src="/absolute/path/names.txt"`   | An absolute path                                 |
+| `src="file:///absolute/path/names.txt"` | The same file, written as a URL           |
 
 The file is read as UTF-8. If the path can't be resolved, rendering stops with an
 error instead of silently producing nothing.
@@ -183,7 +184,8 @@ john.smith@example.com
 Give a 1-based index instead of a name. `column="2"` is the **second** column
 (`last_name`) — numbering starts at one, so the first column is `column="1"`, never
 `column="0"`. When you address by number, TDC has no header names to recognize, so
-add [`header="true"`](../reference/attributes.md#top) to skip the header line:
+add [`header="true"`](../reference/attributes.md#top) to skip the header line (`"1"` and
+`"0"` are accepted for it too):
 
 ```xml
 <gen type="file" src="@data/users.csv" column="2" header="true"/>

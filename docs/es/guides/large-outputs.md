@@ -40,8 +40,9 @@ configuración**:
 - **El motor exacto en disco** — para una promesa sobre la columna **terminada** y no sobre
   la fila actual: un grupo [`<uniq>`](../constructs/unique-values.md#top) a nivel de env,
   [`uniq="true"`](../constructs/unique-values.md#top) en una secuencia compuesta o en un
-  contador, y un [`parent`](hierarchical-dependencies.md#top) cuyo padre no es una secuencia
-  de texto. Garantiza el resultado de forma exacta y lo paga revisando los datos con un
+  contador, un [`parent`](hierarchical-dependencies.md#top) cuyo padre no es una secuencia
+  de texto, y un [`advanced_regex`](../generators/advanced-regex.md#top) con pesos —
+  `(?%{…})`. Garantiza el resultado de forma exacta y lo paga revisando los datos con un
   ordenamiento externo y una pasada de reparación — una revisión que **se vuelve
   drásticamente más lenta a medida que crece el número de filas** (vea la advertencia
   abajo).
@@ -434,6 +435,13 @@ El resultado es **idéntico byte por byte sin importar la cantidad de núcleos**
 misma semilla): cada núcleo calcula un rango contiguo de filas hacia un archivo temporal, y
 luego se concatenan estrictamente en orden. La cantidad de hilos es solo cuestión de
 velocidad — nunca afecta los datos.
+
+La cantidad automática también se recorta para caber en memoria, y esa suele ser la
+respuesta a «¿por qué no va más rápido?». A cada worker se le cobran 120 MB más **50×** el
+tamaño en disco de cada archivo `src=` que vaya a analizar, y el total no puede pasar de
+la mitad de la RAM física — así que una configuración que lee un CSV grande recibe muchos
+menos workers que núcleos hay. El recorte se anuncia solo cuando `--jobs` se pasó de forma
+explícita; una corrida automática lo hace en silencio.
 
 Una medición — 1 000 000 de filas, seis campos (un contador, dos nombres de plantilla, una
 columna con `percent`, una distribución normal y una fecha), un archivo de 74 MB, en una

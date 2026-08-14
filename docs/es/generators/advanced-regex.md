@@ -116,7 +116,9 @@ DE   10
 > salida), [`<mix percent>`](../reference/tags.md#distribuciones-y-selección) y
 > [`<gen type="text" percent="…">`](text.md#proporciones-exactas-con-percent) dan
 > proporciones exactas en un flujo, sin retener la columna completa. Y si _a mano_ se
-> fuerza el motor de streaming puro (`mode="stream"` o `--engine 2`), TDC no va a
+> fuerza el motor de streaming puro (`mode="stream"` en `<env>`, un alias heredado que solo
+> existe como atributo, o `--engine 2` en la línea de comandos; `--mode stream` no existe),
+> TDC no va a
 > arruinar los porcentajes en silencio: como no puede contarlos fila por fila, se niega
 > con un error claro. Quite la anulación y vuelve a ser exacto.
 

@@ -97,7 +97,8 @@ What people expect from XML and do **not** get here:
 | namespaces, `xmlns:` | no such concept |
 | a DTD or an XSD to validate against | the engine validates, against its own rules |
 | `<![CDATA[…]]>` | not a thing; `<data>` already holds raw text |
-| `<?xml …?>`, `<!DOCTYPE …>` | not accepted |
+| `<?xml …?>` | tolerated and ignored |
+| `<!DOCTYPE …>` | a parse error |
 | attribute values are just text | attribute values are **TDC expressions** — `if="Age >= 18"` is parsed and evaluated |
 
 The `<` and `>` you write inside `<data>` are plain characters and stay plain, which is

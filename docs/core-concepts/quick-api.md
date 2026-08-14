@@ -448,6 +448,17 @@ tdc.gen("number", &[("value", "18..80")])?;            // 66
 tdc.gen("regex", &[("value", "[A-Z]{2}-[0-9]{4}")])?;  // FZ-3994
 ```
 
+The string is shorthand for `value=`. Pass an **object** to reach every other attribute,
+and `.many(n, …)` works on generators exactly as it does on addresses:
+
+```typescript
+tdc.gen.date({ from: '2020-01-01', to: '2020-12-31', format: 'DD.MM.YYYY' }); // 12.07.2020
+tdc.gen.number({ distribution: 'normal', mean: '170', sd: '10' }); // 163
+tdc.gen.number.many(5, '1..9'); // [ '5', '4', '8', '2', '6' ]
+```
+
+An address takes parameters the same way — `tdc.usa.docs.ssn({ dashes: 'false' })`.
+
 Every generator and its attributes are in [the generators
 reference](../generators/number.md#top).
 

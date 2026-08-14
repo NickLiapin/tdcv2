@@ -448,6 +448,17 @@ tdc.gen("number", &[("value", "18..80")])?;            // 66
 tdc.gen("regex", &[("value", "[A-Z]{2}-[0-9]{4}")])?;  // FZ-3994
 ```
 
+La cadena es una forma corta de `value=`. Pase un **objeto** para llegar a todos los demás
+atributos, y `.many(n, …)` funciona en generadores igual que en direcciones:
+
+```typescript
+tdc.gen.date({ from: '2020-01-01', to: '2020-12-31', format: 'DD.MM.YYYY' }); // 12.07.2020
+tdc.gen.number({ distribution: 'normal', mean: '170', sd: '10' }); // 163
+tdc.gen.number.many(5, '1..9'); // [ '5', '4', '8', '2', '6' ]
+```
+
+Una dirección toma parámetros de la misma forma — `tdc.usa.docs.ssn({ dashes: 'false' })`.
+
 Cada generador y sus atributos están en [la referencia de
 generadores](../generators/number.md#top).
 

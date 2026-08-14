@@ -74,6 +74,24 @@ const tdc = new TDC({
 Con `configFile`, las rutas `src` relativas dentro del `.tdc` se resuelven desde la
 carpeta de ese archivo; con `configString`, fije `baseDir` usted mismo.
 
+El resto de las opciones del constructor son menos comunes, pero no menos reales:
+
+| Opción          | Qué hace                                                                            |
+| :-------------- | :----------------------------------------------------------------------------------- |
+| `locale`        | **Anula** `<env local=…>` — la configuración pierde                                   |
+| `defaultLocale` | Solo se aplica cuando `<env>` no declara ningún locale. La clave `locale` de `tdcv2.config.json` va a **esta**, no a la anulación |
+| `mode`          | `"memory"` o `"disk"` — la misma elección que [`--mode`](../reference/cli.mdx)         |
+| `engine`        | `1`, `2` o `3` — fuerza un motor, y falla en vez de caer a otro                        |
+| `stream`        | Alias heredado de `engine: 2`                                                          |
+
+Esa división entre `locale` y `defaultLocale` merece una segunda mirada: un
+`"locale": "ru"` en la configuración del proyecto **no** le gana a un `local="en"` del
+archivo de configuración, y nada lo reporta. Solo anulan el `locale` del propio
+constructor y el `--locale` de la CLI.
+
+`preflight(opts?)` tiene una opción propia: `output`, que es `"materialized"` (por
+omisión — toda la corrida sostenida a la vez, lo que hace `toArray()`) o `"streaming"`.
+
 ## Métodos terminales
 
 | Método             | Devuelve                                     | Para                                     |

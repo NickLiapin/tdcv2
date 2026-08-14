@@ -606,7 +606,8 @@ same rule [`running`](./running.md#top) and [`stat`](./stat.md#top) follow.
 
 An offset reads a sibling column as the row is built, which the streaming path
 cannot do yet, so a config using one is built [in memory](../guides/large-outputs.md#top).
-TDC routes it there on its own; you only notice if you force `mode="disk"`.
+TDC routes it there on its own; you only notice if you force the streaming engine with
+`--engine 2`, which refuses it by name rather than approximating.
 
 ## Formatting the output
 

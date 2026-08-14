@@ -617,7 +617,8 @@ La columna nombrada en `of` debe estar declarada **encima** del desplazamiento
 Un desplazamiento lee una columna hermana mientras se construye la fila, algo que
 la vía de streaming aún no sabe hacer, así que una configuración que lo use se
 construye [en memoria](../guides/large-outputs.md#top). TDC la encamina allí por su
-cuenta; solo se nota si se fuerza `mode="disk"`.
+cuenta; solo se nota si se fuerza el motor de flujo con `--engine 2`, que lo rechaza por
+nombre en vez de aproximarlo.
 
 ## Formato de la salida
 

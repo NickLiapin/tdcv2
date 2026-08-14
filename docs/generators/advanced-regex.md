@@ -111,7 +111,8 @@ DE   10
 > memory, any output size), [`<mix percent>`](../reference/tags.md#distributions-and-choice)
 > and [`<gen type="text" percent="…">`](text.md#exact-proportions-with-percent) give
 > exact proportions in a stream, without holding the whole column. And if you
-> _manually_ force the pure streaming engine (`mode="stream"` or `--engine 2`), TDC
+> _manually_ force the pure streaming engine (`mode="stream"` on `<env>`, an attribute-only
+> legacy alias, or `--engine 2` on the command line — `--mode stream` is not a thing), TDC
 > won't silently ruin the percentages — it can't count them one row at a time, so it
 > refuses with a clear error. Drop the override and it's exact again.
 
