@@ -70,6 +70,13 @@
       "description": "order=\"sequential\" hands out the file's lines one after another; the quantile read says where on the sorted sample a row lands. Different jobs, and only one of them can be done.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"A\"><gen type=\"file\" src=\"x.txt\" read=\"quantile\" order=\"sequential\"/></sequence></env><block><line><data>${{A}}</data></line></block></tdc>",
       "expected": ["error TDC297 1:111", "error TDC061 1:81"]
+    },
+    {
+      "name": "formula-without-expr",
+      "demonstrates": "TDC294",
+      "description": "A formula column that never says what to compute — the attribute that IS the column is missing",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"H\"><gen type=\"number\" value=\"150..200\"/></sequence><sequence name=\"W\"><gen type=\"formula\"/></sequence></env><block><line><data>${{W}}</data></line></block></tdc>",
+      "expected": ["error TDC294 1:126"]
     }
   ]
 }

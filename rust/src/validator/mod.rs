@@ -1546,7 +1546,10 @@ impl Validator {
                 "TDC294",
                 "<gen type=\"formula\"> needs expr=\"\u{2026}\"".to_string(),
                 "The expression is what the column IS: expr=\"Weight / (Height * Height)\".",
-                gen.at("type"),
+                // An ABSENT attribute has no value to underline, so the tag is the
+                // target — as for every other missing-attribute refusal. Pointing at
+                // type= put the caret on the one thing written correctly.
+                gen.pos,
             );
             return;
         }

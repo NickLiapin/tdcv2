@@ -2066,7 +2066,10 @@ public final class Validator {
     }
     String source = attrs.getOrDefault("expr", "").trim();
     if (source.isEmpty()) {
-      int[] at = at(gen, "type");
+      // An ABSENT attribute has no value to underline, so the tag is the target — as for
+      // every other missing-attribute refusal. Pointing at type= put the caret on the one
+      // thing written correctly.
+      int[] at = {line(gen), column(gen)};
       error(
           "TDC294", "<gen type=\"formula\"> needs expr=\"\u2026\"",
           "The expression is what the column IS: expr=\"Weight / (Height * Height)\".",

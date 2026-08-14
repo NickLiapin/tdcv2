@@ -2354,7 +2354,10 @@ public sealed class Validator
         string source = (attrs.GetValueOrDefault("expr") ?? "").Trim();
         if (source.Length == 0)
         {
-            (int line, int column) = At(gen, "type");
+            // An ABSENT attribute has no value to underline, so the tag is the target —
+            // as for every other missing-attribute refusal. Pointing at type= put the
+            // caret on the one thing written correctly.
+            (int line, int column) = (Line(gen), Column(gen));
             Error(
                 "TDC294", "<gen type=\"formula\"> needs expr=\"\u2026\"",
                 "The expression is what the column IS: expr=\"Weight / (Height * Height)\".",

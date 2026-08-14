@@ -4310,7 +4310,11 @@ class _Validator:
             return
         source = (attrs.get("expr") or "").strip()
         if not source:
-            line, column = _at(gen, "type")
+            # The fault is an ABSENT attribute, so there is no value to underline —
+            # the tag itself is the target, as it is for every other missing-attribute
+            # refusal. The reference does this; pointing at type= put the caret on the
+            # one thing that was written correctly.
+            line, column = _line(gen), _column(gen)
             self._error(
                 "TDC294",
                 '<gen type="formula"> needs expr="…"',
