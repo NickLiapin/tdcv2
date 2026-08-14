@@ -140,6 +140,37 @@ export function parseYRange(raw: string | undefined): [number, number] {
 }
 
 /**
+ * `fit="A..B"` — where a drawing read from a FILE lands on the value axis.
+ *
+ * A file carries a shape and nothing else: not units, not an origin, not even
+ * which way is up. So its own lowest and highest point are the only two things
+ * that can be measured, and `fit=` says what they become. Absent, they become
+ * the ends of `y_range` — the drawing fills the axis.
+ *
+ * Returns the TARGET band, so the caller passes it where `y_range` used to go and
+ * the mapping in `signalValueAt` needs no knowledge of any of this.
+ */
+export function parseFit(
+  raw: string | undefined,
+  yRange: readonly [number, number],
+): [number, number] {
+  if (raw === undefined || raw.trim() === '') return [yRange[0], yRange[1]];
+  const parts = raw.split('..');
+  const a = Number(parts[0]);
+  const b = Number(parts[1]);
+  if (parts.length !== 2 || !Number.isFinite(a) || !Number.isFinite(b)) {
+    throw new Error(`pattern: fit "${raw}" must be "low..high" with two numbers`);
+  }
+  // A backwards band would have to mean "flip the drawing", which is a second
+  // thing wearing one attribute's name. Refusing is reversible; the reading is
+  // not, once configs depend on it.
+  if (a > b) {
+    throw new Error(`pattern: fit "${raw}" counts down — write the lower number first`);
+  }
+  return [a, b];
+}
+
+/**
  * The default height of a drawn canvas — a percentage board, the same one the
  * Studio draws on.
  *
@@ -693,8 +724,11 @@ export function rasterPatternGen(
     throw new Error('pattern: the image has too little ink to read a curve from');
   }
 
-  const ext: [number, number] = [0, height - 1]; // the frame is the value scale
-  return patternFromEnvelope(top, bottom, attrs, ext);
+  // A raster DOES carry a frame: the image is exactly as tall as it says, and a
+  // stroke in its upper third means the upper third. That frame is the canvas,
+  // as it has always been. Only a vector file has no trustworthy frame — an
+  // editor crops the viewBox to the artwork — so only there is the ink measured.
+  return patternFromEnvelope(top, bottom, attrs, [0, height - 1]);
 }
 
 /**
@@ -712,9 +746,12 @@ export function patternFromEnvelope(
   top: readonly (readonly [number, number])[],
   bottom: readonly (readonly [number, number])[],
   attrs: Record<string, string | undefined>,
-  normExtent?: readonly [number, number],
+  frame?: readonly [number, number],
 ): PatternGen {
   const yRange = parseYRange(attrs['y_range']);
+  // `fit=` is the target the drawing's ends land on; without it the drawing
+  // spans the whole `y_range`.
+  const target = parseFit(attrs['fit'], yRange);
   const decimals = decimalsFromAttrs(attrs);
   const n = Math.min(top.length, bottom.length);
   let banded = false;
@@ -728,25 +765,35 @@ export function patternFromEnvelope(
   }
   const interp = parseInterp(attrs['interp']);
   const spread = spreadFromAttrs(attrs);
+  // A raster hands us its frame and that is the canvas. A vector file has none
+  // worth trusting, so the canvas is the drawing's own extent — measured across
+  // BOTH strokes, banded or not, because the two edges of a corridor are one
+  // drawing and measuring them apart would let a narrow band and a wide one come
+  // out the same width. That single rule replaces the two the vector path had:
+  // the 0..100 board for one stroke, the ink for two, so adding a second stroke
+  // moved the first from the floor of the range to the ceiling.
+  let ext = frame;
+  if (ext === undefined) {
+    let lo = Infinity;
+    let hi = -Infinity;
+    for (const [, y] of [...top, ...bottom]) {
+      if (y < lo) lo = y;
+      if (y > hi) hi = y;
+    }
+    ext = [lo, hi];
+  }
   if (!banded) {
     return {
       kind: 'signal',
-      curve: buildSignalCurve(top, yRange, decimals, normExtent, interp),
+      curve: buildSignalCurve(top, target, decimals, ext, interp),
       spread,
     };
   }
-  let lo = Infinity;
-  let hi = -Infinity;
-  for (const [, y] of [...top, ...bottom]) {
-    if (y < lo) lo = y;
-    if (y > hi) hi = y;
-  }
-  const ext = normExtent ?? ([lo, hi] as const);
   return {
     kind: 'corridor',
     corridor: {
-      upper: buildSignalCurve(top, yRange, decimals, ext, interp),
-      lower: buildSignalCurve(bottom, yRange, decimals, ext, interp),
+      upper: buildSignalCurve(top, target, decimals, ext, interp),
+      lower: buildSignalCurve(bottom, target, decimals, ext, interp),
       decimals,
     },
     spread,

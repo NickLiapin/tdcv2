@@ -18,15 +18,100 @@
  * exists to close.
  */
 
-import { type Diagnostic, nodeRange } from '../errors/index.js';
-import type { OpenCloseElementContext, SelfClosingElementContext } from '../generated/TDCParser.js';
+import { type Diagnostic, attrValueRange, nodeRange } from '../errors/index.js';
+import type {
+  AttrContext,
+  OpenCloseElementContext,
+  SelfClosingElementContext,
+} from '../generated/TDCParser.js';
 import { extractAttrs } from '../processor/walk.js';
+
+/** Underline the offending value where there is one, the whole tag otherwise. */
+function rangeOf(
+  gen: OpenCloseElementContext | SelfClosingElementContext,
+  name: string,
+): ReturnType<typeof nodeRange> {
+  const attr: AttrContext | undefined = gen.attr().find((a) => a._attrName?.text === name);
+  return attr ? attrValueRange(attr) : nodeRange(gen);
+}
+
+/**
+ * `fit="low..high"` — where a drawing read from a FILE lands on the value axis.
+ *
+ * The drawing's own lowest and highest point become the two ends of this band.
+ * Absent, they become the ends of `y_range` and the picture fills the axis.
+ *
+ * Two ways to write it wrong, both caught here rather than at the first row:
+ * a band that is not two numbers, and a band that counts down. The second is
+ * refused rather than read as "flip the drawing", because one attribute meaning
+ * two things is the fault this whole area was straightened out to remove.
+ *
+ * It is a FILE attribute. `points=` / `upper=` / `lower=` already carry a board —
+ * their 0..100 is percent of `y_range` — so a `fit=` beside them is a second
+ * answer to a question already answered, and the config has to say which it
+ * meant.
+ */
+function checkFit(
+  gen: OpenCloseElementContext | SelfClosingElementContext,
+  attrMap: Record<string, string | undefined>,
+  diagnostics: Diagnostic[],
+): void {
+  const raw = (attrMap['fit'] ?? '').trim();
+  if (raw === '') return;
+
+  const drawn = ['points', 'upper', 'lower'].filter((n) => (attrMap[n] ?? '').trim() !== '');
+  if (drawn.length > 0) {
+    const listed = drawn.map((n) => `${n}=`).join(' and ');
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...rangeOf(gen, 'fit'),
+      message: `fit= is not read beside ${listed} — those points already carry a board`,
+      hint:
+        'A typed point is a percentage of the 0..100 board, so 80 already means 80% of ' +
+        'y_range and there is nothing left for fit= to place. fit= is for a drawing read ' +
+        "from src=, whose numbers are in some other tool's units. Drop one of the two.",
+      code: 'TDC300',
+    });
+    return;
+  }
+
+  const parts = raw.split('..');
+  const a = Number(parts[0]);
+  const b = Number(parts[1]);
+  if (parts.length !== 2 || !Number.isFinite(a) || !Number.isFinite(b)) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...rangeOf(gen, 'fit'),
+      message: `fit="${raw}" is not a band`,
+      hint:
+        'Write fit="low..high" with two numbers — the values the drawing\'s lowest and ' +
+        'highest point become. Omit it entirely to have the drawing fill y_range.',
+      code: 'TDC300',
+    });
+    return;
+  }
+  if (a > b) {
+    diagnostics.push({
+      severity: 'error',
+      source: 'validator',
+      ...rangeOf(gen, 'fit'),
+      message: `fit="${raw}" counts down — the low bound is above the high one`,
+      hint:
+        'Write the smaller number first. Turning the drawing upside down is a different ' +
+        'request, and it is not what this attribute does.',
+      code: 'TDC300',
+    });
+  }
+}
 
 export function checkGenPattern(
   gen: OpenCloseElementContext | SelfClosingElementContext,
   diagnostics: Diagnostic[],
 ): void {
   const attrMap = extractAttrs(gen.attr());
+  checkFit(gen, attrMap, diagnostics);
   if ((attrMap['y_range'] ?? '').trim() !== '') return;
 
   diagnostics.push({

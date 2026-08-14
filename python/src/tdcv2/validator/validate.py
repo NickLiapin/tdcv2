@@ -357,7 +357,7 @@ GEN_ATTRS = frozenset(
         "to", "oldest", "youngest", "precision", "range", "step", "weekdays", "src",
         "column", "header",
         "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
-        "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
+        "lower", "y_range", "fit", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
         "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
         "shape", "scale",
         "lambda", "n", "s", "beta", "min", "max", "filter", "peak_at",
@@ -434,6 +434,7 @@ ATTRIBUTE_OWNERS: dict[str, frozenset[str]] = {
     "upper": frozenset({"pattern"}),
     "lower": frozenset({"pattern"}),
     "y_range": frozenset({"pattern"}),
+    "fit": frozenset({"pattern"}),
     "interp": frozenset({"pattern"}),
     "spread": frozenset({"pattern"}),
     "ink_threshold": frozenset({"pattern"}),
@@ -2905,6 +2906,54 @@ class _Validator:
                 column,
             )
 
+    def _check_fit(self, gen, attrs: dict[str, str]) -> None:
+        """``fit="low..high"`` — where a drawing read from a FILE lands on the value axis.
+
+        A file carries a shape and nothing else, so its own lowest and highest point are the only
+        two things that can be measured; ``fit=`` says what they become. Typed points already
+        carry a board, so the two spellings cannot both be right about the same drawing.
+        """
+        raw = (attrs.get("fit") or "").strip()
+        if not raw:
+            return
+
+        line, column = _at(gen, "fit")
+        drawn = [name for name in ("points", "upper", "lower") if (attrs.get(name) or "").strip()]
+        if drawn:
+            listed = " and ".join(f"{name}=" for name in drawn)
+            self._error(
+                "TDC300",
+                f"fit= is not read beside {listed} — those points already carry a board",
+                "A typed point is a percentage of the 0..100 board, so 80 already means 80% of "
+                "y_range and there is nothing left for fit= to place. fit= is for a drawing read "
+                "from src=, whose numbers are in some other tool's units. Drop one of the two.",
+                line,
+                column,
+            )
+            return
+
+        parts = raw.split("..")
+        values = [numbers.parse(part) for part in parts] if len(parts) == 2 else []
+        if len(parts) != 2 or any(v != v or v in (float("inf"), float("-inf")) for v in values):
+            self._error(
+                "TDC300",
+                f'fit="{raw}" is not a band',
+                'Write fit="low..high" with two numbers — the values the drawing\'s lowest and '
+                "highest point become. Omit it entirely to have the drawing fill y_range.",
+                line,
+                column,
+            )
+            return
+        if values[0] > values[1]:
+            self._error(
+                "TDC300",
+                f'fit="{raw}" counts down — the low bound is above the high one',
+                "Write the smaller number first. Turning the drawing upside down is a different "
+                "request, and it is not what this attribute does.",
+                line,
+                column,
+            )
+
     def _check_source(self, gen, attrs: dict[str, str], type_: str | None) -> None:
         """A ``src=`` that names a file nobody can read.
 
@@ -2913,6 +2962,9 @@ class _Validator:
         """
         if type_ not in ("file", "pattern"):
             return
+
+        if type_ == "pattern":
+            self._check_fit(gen, attrs)
 
         # `y_range=` is the value axis a drawing is brought into, and a drawing has no scale of
         # its own. The generator refuses without it, but a refusal at run time is not enough: a
@@ -5391,9 +5443,7 @@ class _Validator:
             return
         self._check_expr_node(parsed, line, column, label, article)
 
-    def _check_expr_node(
-        self, node, line: int, column: int, label: str, article: str
-    ) -> None:
+    def _check_expr_node(self, node, line: int, column: int, label: str, article: str) -> None:
         """Every operator in a parsed condition, checked against the ones the engine implements.
 
         A parser that is more permissive than the evaluator is a trap: the config is accepted, and

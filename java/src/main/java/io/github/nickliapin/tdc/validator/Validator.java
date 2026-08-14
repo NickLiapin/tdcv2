@@ -160,6 +160,7 @@ public final class Validator {
           Map.entry("upper", java.util.Set.of("pattern")),
           Map.entry("lower", java.util.Set.of("pattern")),
           Map.entry("y_range", java.util.Set.of("pattern")),
+          Map.entry("fit", java.util.Set.of("pattern")),
           Map.entry("interp", java.util.Set.of("pattern")),
           Map.entry("spread", java.util.Set.of("pattern")),
           Map.entry("ink_threshold", java.util.Set.of("pattern")),
@@ -423,7 +424,7 @@ public final class Validator {
           "column",
           "header",
           "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
-          "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
+          "lower", "y_range", "fit", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
           "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
           "shape", "scale",
           "lambda", "n", "s", "beta", "min", "max", "filter", "read", "sample", "expr",
@@ -2969,10 +2970,76 @@ public final class Validator {
    * <p>Checked before the run rather than during it: a missing file discovered on row one of a
    * million-row job has already cost whatever the job cost.
    */
+  /**
+   * {@code fit="low..high"} — where a drawing read from a FILE lands on the value axis.
+   *
+   * <p>A file carries a shape and nothing else, so its own lowest and highest point are the only
+   * two things that can be measured; {@code fit=} says what they become. Typed points already
+   * carry a board, so the two spellings cannot both be right about the same drawing.
+   */
+  private void checkFit(TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    String raw = attrs.get("fit");
+    if (raw == null || raw.isBlank()) {
+      return;
+    }
+    raw = raw.trim();
+    int[] at = at(gen, "fit");
+
+    List<String> drawn = new ArrayList<>();
+    for (String name : List.of("points", "upper", "lower")) {
+      String value = attrs.get(name);
+      if (value != null && !value.isBlank()) {
+        drawn.add(name + "=");
+      }
+    }
+    if (!drawn.isEmpty()) {
+      error("TDC300",
+          "fit= is not read beside " + String.join(" and ", drawn)
+              + " — those points already carry a board",
+          "A typed point is a percentage of the 0..100 board, so 80 already means 80% of y_range "
+              + "and there is nothing left for fit= to place. fit= is for a drawing read from "
+              + "src=, whose numbers are in some other tool's units. Drop one of the two.",
+          at[0], at[1]);
+      return;
+    }
+
+    String[] parts = raw.split("\\.\\.", -1);
+    double low = 0;
+    double high = 0;
+    boolean band = parts.length == 2;
+    if (band) {
+      try {
+        low = Double.parseDouble(parts[0].trim());
+        high = Double.parseDouble(parts[1].trim());
+        band = Double.isFinite(low) && Double.isFinite(high);
+      } catch (NumberFormatException e) {
+        band = false;
+      }
+    }
+    if (!band) {
+      error("TDC300",
+          "fit=\"" + raw + "\" is not a band",
+          "Write fit=\"low..high\" with two numbers — the values the drawing's lowest and "
+              + "highest point become. Omit it entirely to have the drawing fill y_range.",
+          at[0], at[1]);
+      return;
+    }
+    if (low > high) {
+      error("TDC300",
+          "fit=\"" + raw + "\" counts down — the low bound is above the high one",
+          "Write the smaller number first. Turning the drawing upside down is a different "
+              + "request, and it is not what this attribute does.",
+          at[0], at[1]);
+    }
+  }
+
   private void checkSource(
       TDCParser.SelfClosingElementContext gen, Map<String, String> attrs, String type) {
     if (!"file".equals(type) && !"pattern".equals(type)) {
       return;
+    }
+    if ("pattern".equals(type)) {
+      checkFit(gen, attrs);
     }
     // `y_range=` is the value axis a drawing is brought into, and a drawing has no scale of its
     // own. The generator refuses without it, but a refusal at run time is not enough: a config

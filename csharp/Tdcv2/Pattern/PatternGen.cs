@@ -117,7 +117,11 @@ public sealed class PatternGen
                         "pattern: needs \"points\"/\"src\", or \"upper\"[/\"lower\"]");
                 }
 
-                gen = FromFile(src.Trim(), baseDir, roots, attrs, yRange, decimals, interp, spread);
+                // A drawing from a file carries a shape and no placement, so fit= is the band
+                // its own ends land on; absent, the whole y_range. Typed points already carry the
+                // 0..100 board, which is why fit= is refused beside them (TDC300).
+                double[]? target = Fit(attrs.GetValueOrDefault("fit"), yRange);
+                gen = FromFile(src.Trim(), baseDir, roots, attrs, target, decimals, interp, spread);
             }
             else
             {
@@ -178,6 +182,10 @@ public sealed class PatternGen
             Png.Image image = Png.Decode(bytes);
             SvgPath.Envelope traced = Png.Trace(image, InkThreshold(attrs));
             // The frame is the value scale: the picture's own height is what 0..max means.
+            // A raster DOES carry a frame: the image is exactly as tall as it says, and a stroke
+            // in its upper third means the upper third. Only a vector file has no trustworthy
+            // frame — an editor crops the viewBox to the artwork — so only there is the ink
+            // measured.
             return FromEnvelope(
                 traced, yRange, decimals, interp, spread, new double[] { 0, image.Height - 1 });
         }
@@ -192,10 +200,30 @@ public sealed class PatternGen
     /// </summary>
     private static PatternGen FromEnvelope(
         SvgPath.Envelope envelope, double[]? yRange, int decimals, Interp interp, double spread,
-        double[]? normExtent)
+        double[]? frame)
     {
         IReadOnlyList<double[]> top = envelope.Top;
         IReadOnlyList<double[]> bottom = envelope.Bottom;
+
+        // A raster hands us its frame and that is the canvas. A vector file has none worth
+        // trusting, so the canvas is the drawing's own extent — measured across BOTH strokes,
+        // banded or not, because the two edges of a corridor are one drawing and measuring them
+        // apart would let a narrow band and a wide one come out the same width.
+        double lo = double.PositiveInfinity;
+        double hi = double.NegativeInfinity;
+        foreach (double[] p in top)
+        {
+            lo = Math.Min(lo, p[1]);
+            hi = Math.Max(hi, p[1]);
+        }
+
+        foreach (double[] p in bottom)
+        {
+            lo = Math.Min(lo, p[1]);
+            hi = Math.Max(hi, p[1]);
+        }
+
+        double[] extent = frame ?? new[] { lo, hi };
 
         bool banded = false;
         int n = Math.Min(top.Count, bottom.Count);
@@ -211,25 +239,10 @@ public sealed class PatternGen
         if (!banded)
         {
             return new PatternGen(
-                Kind.Signal, Curve.Of(top, yRange, decimals, normExtent, interp), null, null, null,
+                Kind.Signal, Curve.Of(top, yRange, decimals, extent, interp), null, null, null,
                 spread, decimals);
         }
 
-        double lo = double.PositiveInfinity;
-        double hi = double.NegativeInfinity;
-        foreach (double[] p in top)
-        {
-            lo = Math.Min(lo, p[1]);
-            hi = Math.Max(hi, p[1]);
-        }
-
-        foreach (double[] p in bottom)
-        {
-            lo = Math.Min(lo, p[1]);
-            hi = Math.Max(hi, p[1]);
-        }
-
-        double[] extent = normExtent ?? new[] { lo, hi };
         return new PatternGen(
             Kind.Corridor,
             null,
@@ -291,9 +304,10 @@ public sealed class PatternGen
             heights.Add(0.0);
         }
 
-        double lo = heights.Count == 0 ? 0 : heights.Min();
-        double hi = heights.Count == 0 ? 0 : heights.Max();
-        var extent = new[] { lo, hi };
+        double rawLo = heights.Count == 0 ? 0 : heights.Min();
+        double rawHi = heights.Count == 0 ? 0 : heights.Max();
+        double[] extent = Curve.VectorCanvas(rawLo, rawHi);
+        double lo = extent[0];
 
         Curve upper = Curve.Of(upperPts, yRange, decimals, extent, interp);
         Curve lower;
@@ -380,6 +394,44 @@ public sealed class PatternGen
     /// its own: a curve exported from one tool runs 0..100, from another 0..10002345345. Without
     /// it every answer would be a guess about somebody's export settings.
     /// </summary>
+    /// <summary>
+    /// <c>fit="A..B"</c> — where a drawing read from a FILE lands on the value axis.
+    /// </summary>
+    /// <remarks>
+    /// A file carries a shape and nothing else: not units, not an origin, not even which way is
+    /// up. So its own lowest and highest point are the only two things that can be measured, and
+    /// <c>fit=</c> says what they become. Absent, they become the ends of <c>y_range</c> — the
+    /// drawing fills the axis.
+    /// </remarks>
+    internal static double[]? Fit(string? raw, double[]? yRange)
+    {
+        if (string.IsNullOrWhiteSpace(raw))
+        {
+            return yRange;
+        }
+
+        string[] parts = raw.Split("..");
+        if (parts.Length != 2
+            || !double.TryParse(parts[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double a)
+            || !double.TryParse(parts[1].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double b)
+            || !double.IsFinite(a) || !double.IsFinite(b))
+        {
+            throw new ArgumentException(
+                $"pattern: fit \"{raw}\" must be \"low..high\" with two numbers");
+        }
+
+        // A backwards band would have to mean "flip the drawing", which is a second thing wearing
+        // one attribute's name. Refusing is reversible; the reading is not, once configs depend
+        // on it.
+        if (a > b)
+        {
+            throw new ArgumentException(
+                $"pattern: fit \"{raw}\" counts down — write the lower number first");
+        }
+
+        return new[] { a, b };
+    }
+
     internal static double[]? YRange(string? raw)
     {
         if (string.IsNullOrWhiteSpace(raw))

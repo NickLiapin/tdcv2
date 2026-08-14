@@ -91,6 +91,7 @@ export const ATTR_DOCS: Record<string, string> = {
   upper: 'The upper boundary curve of a corridor (`type="pattern"`).',
   lower: 'The lower boundary curve of a corridor (`type="pattern"`).',
   y_range: 'The vertical scale, `min..max` (`type="pattern"`).',
+  fit: 'Where a drawing read from `src=` lands on the value axis (`type="pattern"`): `low..high`, the values its own lowest and highest point become. Omit it and the drawing fills `y_range`. Not read beside `points=`/`upper=`/`lower=`, which already carry the 0..100 board.',
   interp:
     'How the line behaves between points (`type="pattern"`): `linear` (default), `smooth` or `step`.',
   spread:

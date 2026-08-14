@@ -2864,9 +2864,81 @@ impl Validator {
         );
     }
 
+    /// `fit="low..high"` — where a drawing read from a FILE lands on the value
+    /// axis.
+    ///
+    /// A file carries a shape and nothing else, so its own lowest and highest
+    /// point are the only two things that can be measured; `fit=` says what they
+    /// become. Typed points already carry a board, so the two spellings cannot
+    /// both be right about the same drawing.
+    fn check_fit(&mut self, gen: &Element, attrs: &Attrs) {
+        let Some(raw) = trim_to_none(attrs.get("fit")) else {
+            return;
+        };
+        let at = gen.at("fit");
+
+        let drawn: Vec<&str> = ["points", "upper", "lower"]
+            .into_iter()
+            .filter(|name| trim_to_none(attrs.get(*name)).is_some())
+            .collect();
+        if !drawn.is_empty() {
+            let listed = drawn
+                .iter()
+                .map(|name| format!("{name}="))
+                .collect::<Vec<_>>()
+                .join(" and ");
+            self.error(
+                "TDC300",
+                format!(
+                    "fit= is not read beside {listed} — those points already carry a board"
+                ),
+                "A typed point is a percentage of the 0..100 board, so 80 already means 80% of \
+                 y_range and there is nothing left for fit= to place. fit= is for a drawing read \
+                 from src=, whose numbers are in some other tool's units. Drop one of the two.",
+                at,
+            );
+            return;
+        }
+
+        let parts: Vec<&str> = raw.split("..").collect();
+        let bounds = if parts.len() == 2 {
+            match (
+                parts[0].trim().parse::<f64>(),
+                parts[1].trim().parse::<f64>(),
+            ) {
+                (Ok(a), Ok(b)) if a.is_finite() && b.is_finite() => Some((a, b)),
+                _ => None,
+            }
+        } else {
+            None
+        };
+        let Some((low, high)) = bounds else {
+            self.error(
+                "TDC300",
+                format!("fit=\"{raw}\" is not a band"),
+                "Write fit=\"low..high\" with two numbers — the values the drawing's lowest and \
+                 highest point become. Omit it entirely to have the drawing fill y_range.",
+                at,
+            );
+            return;
+        };
+        if low > high {
+            self.error(
+                "TDC300",
+                format!("fit=\"{raw}\" counts down — the low bound is above the high one"),
+                "Write the smaller number first. Turning the drawing upside down is a different \
+                 request, and it is not what this attribute does.",
+                at,
+            );
+        }
+    }
+
     fn check_source(&mut self, gen: &Element, attrs: &Attrs, gen_type: Option<&str>) {
         if gen_type != Some("file") && gen_type != Some("pattern") {
             return;
+        }
+        if gen_type == Some("pattern") {
+            self.check_fit(gen, attrs);
         }
         // `y_range=` is the value axis a drawing is brought into, and a drawing
         // has no scale of its own. The generator refuses without it, but a

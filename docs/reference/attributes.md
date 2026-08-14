@@ -116,6 +116,7 @@ and `max`. Each is explained, with a histogram, on the
 | `upper` / `lower` | Two boundary curves — a corridor                     | [Pattern](../generators/pattern.md#top) |
 | `mode`            | `signal` (a trajectory) / `density` (a distribution) | [Pattern](../generators/pattern.md#top) |
 | `y_range`         | `min..max` — the vertical scale (**required**)       | [Pattern](../generators/pattern.md#top) |
+| `fit`             | `low..high` — where a drawing from `src` lands       | [Pattern](../generators/pattern.md#top) |
 | `interp`          | `linear` / `smooth` / `step` between points          | [Pattern](../generators/pattern.md#top) |
 | `spread`          | Widen the line into a band of ±N                     | [Pattern](../generators/pattern.md#top) |
 | `ink_threshold`   | How dark a PNG pixel has to be to count as ink       | [Pattern](../generators/pattern.md#top) |

@@ -132,6 +132,85 @@
         "100.0",
         "100.0"
       ]
+    },
+    {
+      "name": "pattern-src-svg-one-stroke-spans-the-range",
+      "description": "A single stroke read from a vector file. The file carries a shape and no units, so its own lowest and highest point become the ends of y_range. This used to be measured with the 0..100 board against raw SVG user units, which made a stroke drawn at y=20 come out flat on the floor.",
+      "config": "<tdc><env count=\"8\" seed=\"fit\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" src=\"pattern-curve.svg\" y_range=\"0..100\" decimals=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "83.3",
+        "45.2",
+        "28.6",
+        "76.2",
+        "71.4",
+        "14.3",
+        "28.6",
+        "66.7"
+      ],
+      "dataPath": "data"
+    },
+    {
+      "name": "pattern-src-svg-fit-places-the-drawing",
+      "description": "The same drawing, told where to land. fit= maps the drawing's own extent onto 255..297, so no value can leave that band even though y_range is wider. This is the only way a curve from a foreign editor gets a position: the file does not carry one.",
+      "config": "<tdc><env count=\"8\" seed=\"fit\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" src=\"pattern-curve.svg\" y_range=\"200..300\" fit=\"255..297\" decimals=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "290.0",
+        "274.0",
+        "267.0",
+        "287.0",
+        "285.0",
+        "261.0",
+        "267.0",
+        "283.0"
+      ],
+      "dataPath": "data"
+    },
+    {
+      "name": "pattern-src-svg-band-without-fit-fills-the-range",
+      "description": "Two strokes are a corridor, and a band measured against itself is always the full band. Without fit= the drawing's lowest and highest point ARE the two edges, so they become the ends of y_range. Not a defect — the stated meaning of an absent fit=.",
+      "config": "<tdc><env count=\"8\" seed=\"fit\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" src=\"pattern-band.svg\" y_range=\"0..100\" decimals=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "11.5",
+        "12.3",
+        "66.8",
+        "80.1",
+        "58.4",
+        "74.9",
+        "6.5",
+        "21.7"
+      ],
+      "dataPath": "data"
+    },
+    {
+      "name": "pattern-src-svg-band-with-fit-equals-the-typed-corridor",
+      "description": "The same corridor drawn in a file and typed as attributes must produce the same data. fit=\"60..80\" carries in the config what upper=/lower= carry in their numbers. Before fit= existed the file spelling smeared over the whole range and nothing caught it, because no shared case covered a banded FILE.",
+      "config": "<tdc><env count=\"8\" seed=\"fit\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" src=\"pattern-band.svg\" y_range=\"0..100\" fit=\"60..80\" decimals=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "62.3",
+        "62.5",
+        "73.4",
+        "76.0",
+        "71.7",
+        "75.0",
+        "61.3",
+        "64.3"
+      ],
+      "dataPath": "data"
+    },
+    {
+      "name": "pattern-typed-corridor-matching-the-file",
+      "description": "The other half of the pair above, typed. A point is a percentage of the 0..100 board, so 80 means 80% of y_range. Its output must match the file spelling digit for digit.",
+      "config": "<tdc><env count=\"8\" seed=\"fit\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" upper=\"0,80 100,80\" lower=\"0,60 100,60\" y_range=\"0..100\" decimals=\"1\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "62.3",
+        "62.5",
+        "73.4",
+        "76.0",
+        "71.7",
+        "75.0",
+        "61.3",
+        "64.3"
+      ]
     }
   ]
 }

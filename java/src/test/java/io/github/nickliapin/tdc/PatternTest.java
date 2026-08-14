@@ -81,13 +81,18 @@ class PatternTest {
   @Test
   @DisplayName("a corridor picks a value between two lines")
   void corridor() {
+    // The band sits at 10 on the 0..100 board, so it lands in the bottom tenth of y_range —
+    // 80 means 80% of the axis whether it was typed as a point or drawn in the Studio. This
+    // used to normalise the two lines against their own ink, which stretched a band drawn low
+    // on the board across the whole range and disagreed with the reference.
     assertEquals(
-        List.of("69.2", "80.0", "56.5", "84.7", "14.3", "95.0", "36.5", "2.7"),
+        List.of("6.9", "8.0", "5.6", "8.5", "1.4", "9.5", "3.7", "0.3"),
         gen(attrs("upper", "0,10 10,10", "lower", "0,0 10,0", "y_range", "0..100", "decimals", "1"), 8));
-    // With no lower line the floor is flat at zero, and it counts towards the shared extent
-    // both lines are normalized against.
+    // With no lower line the floor is flat at zero, and it counts towards the shared board both
+    // lines are normalized against — which is the 0..100 one, so a line drawn at 10 stays in the
+    // bottom tenth of y_range instead of being stretched across it.
     assertEquals(
-        List.of("34.62", "34.30", "20.16", "24.21", "3.06", "13.57", "2.61", "0.00"),
+        List.of("3.46", "3.43", "2.02", "2.42", "0.31", "1.36", "0.26", "0.00"),
         gen(attrs("upper", "0,10 10,0", "y_range", "0..50", "decimals", "2"), 8));
   }
 

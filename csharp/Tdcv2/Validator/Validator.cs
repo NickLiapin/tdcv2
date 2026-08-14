@@ -168,6 +168,7 @@ public sealed class Validator
             ["upper"] = Set("pattern"),
             ["lower"] = Set("pattern"),
             ["y_range"] = Set("pattern"),
+            ["fit"] = Set("pattern"),
             ["interp"] = Set("pattern"),
             ["spread"] = Set("pattern"),
             ["ink_threshold"] = Set("pattern"),
@@ -410,7 +411,7 @@ public sealed class Validator
         "src", "column",
         "header",
         "delimiter", "row", "base", "trend", "period", "amplitude", "noise", "points", "upper",
-        "lower", "y_range", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
+        "lower", "y_range", "fit", "interp", "spread", "ink_threshold", "mode", "in", "on_error",
         "timeout", "secret", "mean", "sd", "meanlog", "sdlog", "rate", "alpha", "xmin",
         "shape", "scale",
         "lambda", "n", "s", "beta", "min", "max", "filter", "read", "sample", "expr", "lengths");
@@ -3477,6 +3478,70 @@ public sealed class Validator
         return double.IsFinite(p) && p >= 0.0 && p <= 1.0;
     }
 
+    /// <summary>
+    /// <c>fit="low..high"</c> — where a drawing read from a FILE lands on the value axis.
+    /// </summary>
+    /// <remarks>
+    /// A file carries a shape and nothing else, so its own lowest and highest point are the only
+    /// two things that can be measured; <c>fit=</c> says what they become. Typed points already
+    /// carry a board, so the two spellings cannot both be right about the same drawing.
+    /// </remarks>
+    private void CheckFit(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        string? value = attrs.GetValueOrDefault("fit");
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return;
+        }
+
+        string raw = value.Trim();
+        (int line, int column) = At(gen, "fit");
+
+        string[] drawn = new[] { "points", "upper", "lower" }
+            .Where(name => !string.IsNullOrWhiteSpace(attrs.GetValueOrDefault(name)))
+            .Select(name => name + "=")
+            .ToArray();
+        if (drawn.Length > 0)
+        {
+            Error(
+                "TDC300",
+                $"fit= is not read beside {string.Join(" and ", drawn)} — those points already "
+                + "carry a board",
+                "A typed point is a percentage of the 0..100 board, so 80 already means 80% of "
+                + "y_range and there is nothing left for fit= to place. fit= is for a drawing "
+                + "read from src=, whose numbers are in some other tool's units. Drop one of the "
+                + "two.",
+                line, column);
+            return;
+        }
+
+        string[] parts = raw.Split("..");
+        if (parts.Length != 2
+            || !double.TryParse(parts[0].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double low)
+            || !double.TryParse(parts[1].Trim(), NumberStyles.Float, CultureInfo.InvariantCulture, out double high)
+            || !double.IsFinite(low) || !double.IsFinite(high))
+        {
+            Error(
+                "TDC300",
+                $"fit=\"{raw}\" is not a band",
+                "Write fit=\"low..high\" with two numbers — the values the drawing's lowest and "
+                + "highest point become. Omit it entirely to have the drawing fill y_range.",
+                line, column);
+            return;
+        }
+
+        if (low > high)
+        {
+            Error(
+                "TDC300",
+                $"fit=\"{raw}\" counts down — the low bound is above the high one",
+                "Write the smaller number first. Turning the drawing upside down is a different "
+                + "request, and it is not what this attribute does.",
+                line, column);
+        }
+    }
+
     private void CheckSource(
         TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs,
         string? type)
@@ -3484,6 +3549,11 @@ public sealed class Validator
         if (type is not ("file" or "pattern"))
         {
             return;
+        }
+
+        if (type == "pattern")
+        {
+            CheckFit(gen, attrs);
         }
 
         // `y_range=` is the value axis a drawing is brought into, and a drawing has no scale of

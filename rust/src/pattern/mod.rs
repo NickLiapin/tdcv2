@@ -106,12 +106,17 @@ impl PatternGen {
                 if src.is_empty() {
                     return invalid("pattern: needs \"points\"/\"src\", or \"upper\"[/\"lower\"]");
                 }
+                // A drawing from a file carries a shape and no placement, so
+                // `fit=` is the band its own ends land on; absent, the whole
+                // `y_range`. Typed points already carry the 0..100 board, which
+                // is why `fit=` is refused beside them (TDC300).
+                let target = read_fit(get("fit"), y_range)?;
                 from_file(
                     src,
                     base_dir,
                     roots,
                     get("ink_threshold"),
-                    y_range,
+                    target,
                     decimals,
                     interp,
                     spread,
@@ -213,10 +218,12 @@ fn from_file(
     if png::is_png(&bytes) {
         let image = png::decode(&bytes)?;
         let traced = png::trace(&image, read_ink_threshold(ink_threshold)?)?;
-        // The frame is the value scale: the picture's own height is what 0..max
-        // means.
-        let extent = [0.0, (image.height as f64) - 1.0];
-        return from_envelope(&traced, y_range, decimals, interp, spread, Some(extent));
+        // A raster DOES carry a frame: the image is exactly as tall as it says,
+        // and a stroke in its upper third means the upper third. Only a vector
+        // file has no trustworthy frame — an editor crops the viewBox to the
+        // artwork — so only there is the ink measured.
+        let frame = [0.0, (image.height as f64) - 1.0];
+        return from_envelope(&traced, y_range, decimals, interp, spread, Some(frame));
     }
 
     let text = String::from_utf8_lossy(&bytes);
@@ -232,10 +239,24 @@ fn from_envelope(
     decimals: usize,
     interp: Interp,
     spread: f64,
-    norm_extent: Option<[f64; 2]>,
+    frame: Option<[f64; 2]>,
 ) -> EngineResult<PatternGen> {
     let top = &envelope.top;
     let bottom = &envelope.bottom;
+
+    // A raster hands us its frame and that is the canvas. A vector file has none
+    // worth trusting, so the canvas is the drawing's own extent — measured
+    // across BOTH strokes, banded or not, because the two edges of a corridor
+    // are one drawing and measuring them apart would let a narrow band and a
+    // wide one come out the same width.
+    let extent = frame.unwrap_or_else(|| {
+        let (mut lo, mut hi) = (f64::INFINITY, f64::NEG_INFINITY);
+        for p in top.iter().chain(bottom) {
+            lo = lo.min(p[1]);
+            hi = hi.max(p[1]);
+        }
+        [lo, hi]
+    });
 
     let banded = top
         .iter()
@@ -243,24 +264,11 @@ fn from_envelope(
         .any(|(a, b)| (a[1] - b[1]).abs() > 1e-9);
     if !banded {
         return Ok(PatternGen {
-            kind: Kind::Signal(Curve::of(top, y_range, decimals, norm_extent, interp)?),
+            kind: Kind::Signal(Curve::of(top, y_range, decimals, Some(extent), interp)?),
             spread,
             decimals,
         });
     }
-
-    let heights = top.iter().chain(bottom).map(|p| p[1]);
-    // ONE canvas for both curves. Measuring them separately would let each fill
-    // the range on its own, so a narrow band and a wide one would come out the
-    // same width and the corridor would stop meaning anything.
-    let extent = norm_extent.unwrap_or_else(|| {
-        let (mut lo, mut hi) = (f64::INFINITY, f64::NEG_INFINITY);
-        for y in heights {
-            lo = lo.min(y);
-            hi = hi.max(y);
-        }
-        [lo, hi]
-    });
 
     Ok(PatternGen {
         kind: Kind::Corridor {
@@ -304,8 +312,9 @@ fn corridor(
         None => heights.push(0.0),
     }
 
-    let lo = heights.iter().copied().fold(f64::INFINITY, f64::min);
-    let hi = heights.iter().copied().fold(f64::NEG_INFINITY, f64::max);
+    let raw_lo = heights.iter().copied().fold(f64::INFINITY, f64::min);
+    let raw_hi = heights.iter().copied().fold(f64::NEG_INFINITY, f64::max);
+    let (lo, hi) = curve::vector_canvas(raw_lo, raw_hi);
     let extent = [lo, hi];
 
     let upper = Curve::of(upper_pts, y_range, decimals, Some(extent), interp)?;
@@ -414,6 +423,39 @@ fn numbers_in(raw: &str) -> Vec<f64> {
 /// 0..100, from another 0..480, from a third 0..10002345345. `y_range` is what
 /// those coordinates mean, so without it there is nothing to bring the picture
 /// into and every answer would be a guess about somebody's export settings.
+/// `fit="A..B"` — where a drawing read from a FILE lands on the value axis.
+///
+/// A file carries a shape and nothing else: not units, not an origin, not even
+/// which way is up. So its own lowest and highest point are the only two things
+/// that can be measured, and `fit=` says what they become. Absent, they become
+/// the ends of `y_range` — the drawing fills the axis.
+pub fn read_fit(raw: &str, y_range: Option<[f64; 2]>) -> EngineResult<Option<[f64; 2]>> {
+    if raw.trim().is_empty() {
+        return Ok(y_range);
+    }
+    let parts: Vec<&str> = raw.split("..").collect();
+    if parts.len() != 2 {
+        return invalid(&format!(
+            "pattern: fit \"{raw}\" must be \"low..high\" with two numbers"
+        ));
+    }
+    match (
+        parts[0].trim().parse::<f64>(),
+        parts[1].trim().parse::<f64>(),
+    ) {
+        // A backwards band would have to mean "flip the drawing", which is a
+        // second thing wearing one attribute's name. Refusing is reversible;
+        // the reading is not, once configs depend on it.
+        (Ok(a), Ok(b)) if a.is_finite() && b.is_finite() && a > b => invalid(&format!(
+            "pattern: fit \"{raw}\" counts down — write the lower number first"
+        )),
+        (Ok(a), Ok(b)) if a.is_finite() && b.is_finite() => Ok(Some([a, b])),
+        _ => invalid(&format!(
+            "pattern: fit \"{raw}\" must be \"low..high\" with two numbers"
+        )),
+    }
+}
+
 pub fn read_y_range(raw: &str) -> EngineResult<Option<[f64; 2]>> {
     if raw.trim().is_empty() {
         return invalid(

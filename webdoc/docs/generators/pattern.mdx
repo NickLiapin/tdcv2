@@ -56,6 +56,7 @@ single line with `points`, or a band with `upper` / `lower`:
 | `upper` / `lower` | Two boundary curves typed inline — a [corridor](#a-drawing-is-read-column-by-column)                            |
 | `mode`            | `signal` (default) — a trajectory; `density` — a [distribution](#mode--the-two-questions-you-can-ask-a-drawing) |
 | `y_range`         | **Required.** `min..max` — what the drawing's canvas floor and ceiling become                                   |
+| `fit`             | `low..high` — where a drawing read from `src` lands ([below](#fit--where-a-drawing-from-a-file-lands))          |
 | `interp`          | `linear` (default) / `smooth` / `step` — how the line behaves between points                                    |
 | `spread`          | Randomize every row by ±N in `y_range` units (default `0` — an exact line)                                      |
 | `ink_threshold`   | `0..1` — how dark a PNG pixel must be to count as ink (default `0.5`)                                           |
@@ -270,13 +271,21 @@ What it scales is the **canvas**, not the ink:
 
 | the drawing came from | canvas floor | canvas ceiling |
 | :-------------------- | :----------- | :------------- |
-| a PNG or SVG image     | bottom of the image | top of the image |
+| a **PNG** | bottom of the image | top of the image |
+| a **vector** file (SVG) | the drawing's own lowest point | the drawing's own highest point |
 | `points` / `upper` / `lower` | `0`, grown down if you drew below it | `100`, grown up if you drew above it |
 
 For a typed-in drawing the canvas is a **percentage board**: 0..100 by default, and it
 only ever grows to hold what you drew outside it — it never shrinks. That is what makes
 a flat line at 50 the *middle* of whatever range you ask for. Measured against the ink
 instead, that same line would be the highest thing present, and so the top.
+
+The three rows differ because the three inputs carry different things. A PNG is exactly
+as tall as it says it is, so its frame is a real canvas and whitespace above a stroke
+genuinely lowers that stroke's values. A vector file carries no frame worth trusting —
+most editors crop the `viewBox` to the artwork on export, and a cropped one cannot be
+told apart from a deliberately tight one — so the drawing itself is measured, and
+[`fit`](#fit--where-a-drawing-from-a-file-lands) is how you place it.
 
 ```xml
 <gen type="pattern" points="0,0 50,100 100,0" y_range="0..40" decimals="1"/>
@@ -305,6 +314,61 @@ Nothing leaves the range, whatever coordinates you drew in. Combine `y_range` wi
 value axis is the drawing's width rather than its height, so there the range is
 stretched across the picture from left to right — the attribute keeps its meaning
 even though the axis changes.
+
+## `fit` — where a drawing from a file lands
+
+A drawing carries a **shape**. It carries a **position** only if it also carries a
+board — and a file exported from someone else's editor does not. Not the units, not the
+origin, not even which way is up. So there are only two things about it that can be
+measured: its own lowest point and its own highest point.
+
+`fit="low..high"` says what those two become.
+
+```xml
+<gen type="pattern" src="foreign.svg" y_range="200..300" fit="255..297"/>
+```
+
+The lowest point of the drawing comes out as `255`, the highest as `297`, and nothing
+in between can leave that band — whatever coordinates the file was drawn in, `0..1000`
+or `-5..3e6`. The shape survives; the placement is what you declared.
+
+Leave `fit` out and the drawing **fills `y_range`**: lowest to the floor, highest to the
+ceiling. That is a stated convention rather than a guess — it invents no information.
+
+| | canvas (what gets mapped) | `fit` absent | `fit` present |
+| :-- | :-- | :-- | :-- |
+| a **vector** file | the drawing itself | it fills `y_range` | its ends land on the band |
+| a **PNG** | the image frame | the frame fills `y_range` | the frame lands on the band |
+
+`fit` is **refused beside `points` / `upper` / `lower`** ([`TDC300`](../reference/errors.mdx)).
+A typed point is already a percentage of the 0..100 board — `80` means 80% of `y_range` —
+so there is nothing left to place, and writing both would be a config saying two things
+at once.
+
+### A corridor drawn in a file needs it
+
+Two strokes in one file are a corridor, and a band measured against itself is always the
+whole band. So without `fit` a banded SVG fills `y_range` — correct by the rule above,
+and rarely what you wanted. `fit` carries in the config exactly what the typed spelling
+carries in its numbers:
+
+```xml
+<gen type="pattern" upper="0,80 100,80" lower="0,60 100,60" y_range="0..100" decimals="1"/>
+<gen type="pattern" src="band.svg" y_range="0..100" fit="60..80" decimals="1"/>
+```
+
+<Terminal title='./run fit.tdc (the same corridor, typed and drawn, seed="fit", 8 rows)'>
+{`typed   62.3  62.5  73.4  76.0  71.7  75.0  61.3  64.3
+drawn   62.3  62.5  73.4  76.0  71.7  75.0  61.3  64.3`}
+</Terminal>
+
+Digit for digit, and the same in all five implementations — the pair is a shared fixture.
+
+:::note[Higher on the picture means larger in value]
+SVG counts `y` **downward** — the top of the file is `y=0`. The engine flips it, so what
+looks higher in your editor comes out larger in the data. You never write this down; it
+is worth knowing when a drawing comes out upside down and you are checking the file.
+:::
 
 ## `decimals` — digits after the point
 

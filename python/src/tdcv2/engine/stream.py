@@ -890,7 +890,8 @@ class StreamEngine:
                 # left exactly as it was. ``raw_at`` is the value BEFORE the modifiers ran — it
                 # has to be the raw one, because once ``missing=`` has blanked a cell a word and
                 # a spiked number look alike.
-                return str(drawn < p and _is_number(None if raw_at is None else raw_at(row))).lower()
+                raw = None if raw_at is None else raw_at(row)
+                return str(drawn < p and _is_number(raw)).lower()
             spiked = [False]
             self._gen_values(gen, seekable.generator(self.seed, stream_id, row), spiked)
             return str(spiked[0]).lower()

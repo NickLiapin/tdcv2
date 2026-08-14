@@ -202,7 +202,7 @@ class ComputeCheck:
             self._report(
                 node,
                 "TDC180",
-                f'<{name}> is a predicate, not a value — it is valid only inside <test>',
+                f"<{name}> is a predicate, not a value — it is valid only inside <test>",
                 "A predicate answers true or false, and this position wants something to "
                 f"print. Wrap it: <choose><when><test><{name}>…</{name}></test></when>"
                 "<then>…</then></choose>.",
@@ -439,8 +439,7 @@ class ComputeCheck:
             self._report(
                 inner,
                 "TDC287",
-                f"<{node.name}> compares numbers, and "
-                f'<str v="{raw}"> is not one',
+                f'<{node.name}> compares numbers, and <str v="{raw}"> is not one',
                 'A <str> holding digits is read as the number it spells, so <str v="7"/> is '
                 "fine. This one is not a number, so the run would stop on the first row. Use "
                 "<int>, or <to_number> around the value you meant to compare.",
@@ -473,8 +472,7 @@ class ComputeCheck:
             self._report(
                 inner,
                 "TDC286",
-                f"<{tag}> asks about one character of text, and "
-                f'<field name="{named}"> is a number',
+                f'<{tag}> asks about one character of text, and <field name="{named}"> is a number',
                 hint,
             )
 

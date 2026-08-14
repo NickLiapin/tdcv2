@@ -104,7 +104,11 @@ public final class PatternGen {
           throw new IllegalArgumentException(
               "pattern: needs \"points\"/\"src\", or \"upper\"[/\"lower\"]");
         }
-        gen = fromFile(src.trim(), baseDir, roots, attrs, yRange, decimals, interp, spread);
+        // A drawing from a file carries a shape and no placement, so fit= is the band its own
+        // ends land on; absent, the whole y_range. Typed points already carry the 0..100 board,
+        // which is why fit= is refused beside them (TDC300).
+        double[] target = fit(attrs.get("fit"), yRange);
+        gen = fromFile(src.trim(), baseDir, roots, attrs, target, decimals, interp, spread);
       } else {
         Curve c = Curve.of(points(pointsRaw), yRange, decimals, null, interp);
         gen = new PatternGen(Kind.SIGNAL, c, null, null, null, spread, decimals);
@@ -153,6 +157,9 @@ public final class PatternGen {
       Png.Image image = Png.decode(bytes);
       SvgPath.Envelope traced = Png.trace(image, inkThreshold(attrs));
       // The frame is the value scale: the picture's own height is what 0..max means.
+      // A raster DOES carry a frame: the image is exactly as tall as it says, and a stroke in
+      // its upper third means the upper third. Only a vector file has no trustworthy frame — an
+      // editor crops the viewBox to the artwork — so only there is the ink measured.
       return fromEnvelope(
           traced, yRange, decimals, interp, spread, new double[] {0, image.height() - 1});
     }
@@ -169,9 +176,25 @@ public final class PatternGen {
       int decimals,
       Curve.Interp interp,
       double spread,
-      double[] normExtent) {
+      double[] frame) {
     List<double[]> top = envelope.top();
     List<double[]> bottom = envelope.bottom();
+
+    // A raster hands us its frame and that is the canvas. A vector file has none worth trusting,
+    // so the canvas is the drawing's own extent — measured across BOTH strokes, banded or not,
+    // because the two edges of a corridor are one drawing and measuring them apart would let a
+    // narrow band and a wide one come out the same width.
+    double lo = Double.POSITIVE_INFINITY;
+    double hi = Double.NEGATIVE_INFINITY;
+    for (double[] p : top) {
+      lo = Math.min(lo, p[1]);
+      hi = Math.max(hi, p[1]);
+    }
+    for (double[] p : bottom) {
+      lo = Math.min(lo, p[1]);
+      hi = Math.max(hi, p[1]);
+    }
+    double[] extent = frame != null ? frame : new double[] {lo, hi};
 
     boolean banded = false;
     int n = Math.min(top.size(), bottom.size());
@@ -183,21 +206,10 @@ public final class PatternGen {
     }
     if (!banded) {
       return new PatternGen(
-          Kind.SIGNAL, Curve.of(top, yRange, decimals, normExtent, interp), null, null, null,
+          Kind.SIGNAL, Curve.of(top, yRange, decimals, extent, interp), null, null, null,
           spread, decimals);
     }
 
-    double lo = Double.POSITIVE_INFINITY;
-    double hi = Double.NEGATIVE_INFINITY;
-    for (double[] p : top) {
-      lo = Math.min(lo, p[1]);
-      hi = Math.max(hi, p[1]);
-    }
-    for (double[] p : bottom) {
-      lo = Math.min(lo, p[1]);
-      hi = Math.max(hi, p[1]);
-    }
-    double[] extent = normExtent != null ? normExtent : new double[] {lo, hi};
     return new PatternGen(
         Kind.CORRIDOR, null,
         Curve.of(bottom, yRange, decimals, extent, interp),
@@ -249,9 +261,10 @@ public final class PatternGen {
       // No lower line means a flat floor at zero, which belongs in the shared extent.
       heights.add(0.0);
     }
-    double lo = heights.stream().mapToDouble(Double::doubleValue).min().orElse(0);
-    double hi = heights.stream().mapToDouble(Double::doubleValue).max().orElse(0);
-    double[] extent = {lo, hi};
+    double rawLo = heights.stream().mapToDouble(Double::doubleValue).min().orElse(0);
+    double rawHi = heights.stream().mapToDouble(Double::doubleValue).max().orElse(0);
+    double[] extent = Curve.vectorCanvas(rawLo, rawHi);
+    double lo = extent[0];
 
     Curve upper = Curve.of(upperPts, yRange, decimals, extent, interp);
     Curve lower;
@@ -316,6 +329,44 @@ public final class PatternGen {
       points.add(new double[] {nums.get(i), nums.get(i + 1)});
     }
     return points;
+  }
+
+  /**
+   * {@code fit="A..B"} — where a drawing read from a FILE lands on the value axis.
+   *
+   * <p>A file carries a shape and nothing else: not units, not an origin, not even which way is
+   * up. So its own lowest and highest point are the only two things that can be measured, and
+   * {@code fit=} says what they become. Absent, they become the ends of {@code y_range} — the
+   * drawing fills the axis.
+   */
+  static double[] fit(String raw, double[] yRange) {
+    if (raw == null || raw.isBlank()) {
+      return yRange;
+    }
+    String[] parts = raw.split("\\.\\.", -1);
+    if (parts.length != 2) {
+      throw new IllegalArgumentException(
+          "pattern: fit \"" + raw + "\" must be \"low..high\" with two numbers");
+    }
+    double a;
+    double b;
+    try {
+      a = Double.parseDouble(parts[0].trim());
+      b = Double.parseDouble(parts[1].trim());
+      if (!Double.isFinite(a) || !Double.isFinite(b)) {
+        throw new NumberFormatException();
+      }
+    } catch (NumberFormatException e) {
+      throw new IllegalArgumentException(
+          "pattern: fit \"" + raw + "\" must be \"low..high\" with two numbers");
+    }
+    // A backwards band would have to mean "flip the drawing", which is a second thing wearing one
+    // attribute's name. Refusing is reversible; the reading is not, once configs depend on it.
+    if (a > b) {
+      throw new IllegalArgumentException(
+          "pattern: fit \"" + raw + "\" counts down — write the lower number first");
+    }
+    return new double[] {a, b};
   }
 
   static double[] yRange(String raw) {

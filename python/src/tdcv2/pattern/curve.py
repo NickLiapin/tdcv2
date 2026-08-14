@@ -127,6 +127,31 @@ def parse_y_range(raw: str | None) -> tuple[float, float]:
     return a, b
 
 
+def parse_fit(raw: str | None, y_range: tuple[float, float]) -> tuple[float, float]:
+    """``fit="A..B"`` — where a drawing read from a FILE lands on the value axis.
+
+    A file carries a shape and nothing else: not units, not an origin, not even which way is up.
+    So its own lowest and highest point are the only two things that can be measured, and ``fit=``
+    says what they become. Absent, they become the ends of ``y_range`` — the drawing fills the axis.
+
+    Returns the TARGET band, so the caller passes it where ``y_range`` used to go and the mapping
+    needs no knowledge of any of this.
+    """
+    if raw is None or not raw.strip():
+        return y_range
+    parts = raw.split("..")
+    if len(parts) != 2:
+        raise ValueError(f'pattern: fit "{raw}" must be "low..high" with two numbers')
+    a, b = numbers.parse(parts[0]), numbers.parse(parts[1])
+    if a != a or b != b or a in (float("inf"), float("-inf")) or b in (float("inf"), float("-inf")):
+        raise ValueError(f'pattern: fit "{raw}" must be "low..high" with two numbers')
+    # A backwards band would have to mean "flip the drawing", which is a second thing wearing one
+    # attribute's name. Refusing is reversible; the reading is not, once configs depend on it.
+    if a > b:
+        raise ValueError(f'pattern: fit "{raw}" counts down — write the lower number first')
+    return a, b
+
+
 #: The default height of a drawn canvas — a percentage board, the same one the Studio draws on.
 #:
 #: It is a CONSTANT rather than a measurement, and that is the whole point: a horizontal line at
@@ -220,7 +245,7 @@ def build_corridor(
     heights = [p[1] for p in upper_points] + [p[1] for p in (lower_points or [])]
     if lower_points is None:
         heights.append(0.0)
-    extent = (min(heights), max(heights))
+    extent = vector_canvas(min(heights), max(heights))
 
     upper = build(upper_points, y_range, decimals, extent, interp)
     if lower_points is not None:

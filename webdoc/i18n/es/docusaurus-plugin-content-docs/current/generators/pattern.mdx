@@ -58,6 +58,7 @@ puntos en línea: una sola línea con `points`, o una banda con `upper` / `lower
 | `upper` / `lower` | Dos curvas de borde tecleadas en el config — un [corredor](#el-dibujo-se-lee-columna-por-columna)                                     |
 | `mode`            | `signal` (por omisión) — una trayectoria; `density` — una [distribución](#mode--las-dos-preguntas-que-se-le-pueden-hacer-a-un-dibujo) |
 | `y_range`         | **Obligatorio.** `min..max` — en qué se convierten el piso y el techo del lienzo del dibujo                                           |
+| `fit`             | `bajo..alto` — dónde cae un dibujo leído de `src` ([abajo](#fit--dónde-cae-un-dibujo-venido-de-un-archivo))                           |
 | `interp`          | `linear` (por omisión) / `smooth` / `step` — el comportamiento de la línea entre puntos                                               |
 | `spread`          | Dispersa cada fila en ±N, en unidades de `y_range` (por omisión `0` — línea exacta)                                                   |
 | `ink_threshold`   | `0..1` — qué tan oscuro debe ser un píxel del PNG para contar como tinta (por omisión `0.5`)                                          |
@@ -278,13 +279,22 @@ Lo que se escala es el **lienzo**, no la tinta:
 
 | de dónde viene el dibujo | piso del lienzo | techo del lienzo |
 | :----------------------- | :-------------- | :--------------- |
-| una imagen PNG o SVG | la base de la imagen | el tope de la imagen |
+| un **PNG** | la base de la imagen | el tope de la imagen |
+| un archivo **vectorial** (SVG) | el punto más bajo del propio dibujo | el punto más alto del propio dibujo |
 | `points` / `upper` / `lower` | `0`, crece hacia abajo si dibujó más abajo | `100`, crece hacia arriba si dibujó más arriba |
 
 Para un dibujo escrito a mano el lienzo es un **tablero porcentual**: 0..100 por
 omisión, y sólo crece para contener lo que usted dibujó fuera de él — nunca se encoge.
 Eso es lo que hace que una línea plana en 50 sea el *medio* del rango que pida. Medida
 contra la tinta, esa misma línea sería lo más alto que hay, y por tanto el techo.
+
+Las tres filas difieren porque las tres entradas traen cosas distintas. Un PNG mide
+exactamente lo que dice medir, así que su marco es un lienzo real y el espacio en blanco
+sobre un trazo baja de verdad sus valores. Un archivo vectorial no trae un marco en el
+que valga la pena confiar: casi todos los editores recortan el `viewBox` al dibujo al
+exportar, y uno recortado no se distingue de uno ajustado a propósito. Por eso se mide el
+dibujo mismo, y colocarlo es tarea de
+[`fit`](#fit--dónde-cae-un-dibujo-venido-de-un-archivo).
 
 ```xml
 <gen type="pattern" points="0,0 50,100 100,0" y_range="0..40" decimals="1"/>
@@ -313,6 +323,62 @@ Nada sale del rango, sin importar en qué coordenadas haya dibujado. Combínelo 
 `mode="density"` el eje de los valores es el ancho del dibujo y no su altura, así que
 ahí el rango se estira sobre la figura de izquierda a derecha — el atributo conserva su
 significado aunque cambie el eje.
+
+## `fit` — dónde cae un dibujo venido de un archivo
+
+Un dibujo trae una **forma**. Trae una **posición** sólo si trae también un tablero — y
+un archivo exportado desde el editor de otra persona no lo trae. Ni las unidades, ni el
+origen, ni siquiera hacia dónde está arriba. Así que sólo hay dos cosas suyas que se
+pueden medir: su punto más bajo y su punto más alto.
+
+`fit="bajo..alto"` dice en qué se convierten esos dos.
+
+```xml
+<gen type="pattern" src="foreign.svg" y_range="200..300" fit="255..297"/>
+```
+
+El punto más bajo del dibujo sale como `255`, el más alto como `297`, y nada intermedio
+puede salirse de esa banda, en las coordenadas que fuera dibujado el archivo — `0..1000`
+o `-5..3e6`. La forma sobrevive; la colocación es la que usted declaró.
+
+Omita `fit` y el dibujo **llena el `y_range`**: lo más bajo al piso, lo más alto al
+techo. Eso es una convención declarada, no una conjetura: no inventa información.
+
+| | lienzo (lo que se mapea) | sin `fit` | con `fit` |
+| :-- | :-- | :-- | :-- |
+| archivo **vectorial** | el dibujo mismo | llena el `y_range` | sus extremos caen en la banda |
+| un **PNG** | el marco de la imagen | el marco llena el `y_range` | el marco cae en la banda |
+
+Junto a `points` / `upper` / `lower` el atributo **se rechaza**
+([`TDC300`](../reference/errors.mdx)). Un punto escrito a mano ya es un porcentaje del
+tablero 0..100 — `80` significa el 80% de `y_range` —, así que no queda nada que colocar,
+y escribir ambos sería un config diciendo dos cosas a la vez.
+
+### Un corredor dibujado en un archivo lo necesita
+
+Dos trazos en un archivo son un corredor, y una banda medida contra sí misma es siempre
+la banda entera. Por eso, sin `fit`, un SVG con banda llena el `y_range` — correcto según
+la regla de arriba, y rara vez lo que se quería. `fit` lleva en el config exactamente lo
+que la forma escrita a mano lleva en sus números:
+
+```xml
+<gen type="pattern" upper="0,80 100,80" lower="0,60 100,60" y_range="0..100" decimals="1"/>
+<gen type="pattern" src="band.svg" y_range="0..100" fit="60..80" decimals="1"/>
+```
+
+<Terminal title='./run fit.tdc (el mismo corredor, escrito y dibujado, seed="fit", 8 filas)'>
+{`escrito   62.3  62.5  73.4  76.0  71.7  75.0  61.3  64.3
+dibujado  62.3  62.5  73.4  76.0  71.7  75.0  61.3  64.3`}
+</Terminal>
+
+Dígito por dígito, y lo mismo en las cinco implementaciones: el par es un fixture
+compartido.
+
+:::note[Más alto en la imagen significa mayor en valor]
+SVG cuenta la `y` **hacia abajo**: el tope del archivo es `y=0`. El motor la invierte, así
+que lo que se ve más alto en su editor sale mayor en los datos. Nunca hay que escribirlo;
+conviene saberlo cuando un dibujo sale al revés y usted va a mirar el archivo.
+:::
 
 ## `decimals` — dígitos después del punto
 

@@ -52,7 +52,12 @@ public class DrawingSourceTest : IDisposable
         File.WriteAllText(Path.Combine(_dir, "curve.svg"), CurveSvg);
         // A cubic and a smooth-curve shorthand, flattened. Dropping either would give a shape that
         // still looks like a curve and is the wrong one.
-        Assert.Equal(new[] { "0.0", "6.6", "20.0", "20.0", "6.6", "0.0" }, Read("curve.svg"));
+        //
+        // A VECTOR file is read against its own ink: its lowest and highest point become the ends
+        // of y_range, or of the fit= band when one is given. Reading it against the 0..100 board,
+        // as this test used to, applied our board to another tool's user units and left this curve
+        // squashed into 0..20. Measured against the reference on this very file.
+        Assert.Equal(new[] { "0.0", "30.9", "93.5", "93.5", "30.9", "0.0" }, Read("curve.svg"));
     }
 
     [Fact]

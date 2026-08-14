@@ -427,6 +427,27 @@
       "description": "A `;` looks like it separates two curves and does not: every number in the string is read in order, so this silently becomes ONE curve of four points. Somebody writing it meant a band and got a shape they never drew. The refusal names the spelling that works — upper= and lower= — because the mistake is a guess at syntax, not a typo.",
       "config": "<tdc><env count=\"3\" seed=\"unit-test\" local=\"en\"><sequence name=\"V\"><gen type=\"pattern\" points=\"0,20 100,20; 0,80 100,80\" y_range=\"0..100\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": ["error TDC285 1:95"]
+    },
+    {
+      "name": "a-fit-band-written-largest-first",
+      "demonstrates": "TDC300",
+      "description": "fit= names what the drawing's lowest and highest point become, so the low bound cannot be the larger number. Swapping them silently would hide the typo, and reading it as \"flip the drawing\" would be a second feature nobody asked for.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"pattern\" src=\"nope.svg\" y_range=\"0..100\" fit=\"297..255\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC300 1:116", "error TDC061 1:84"]
+    },
+    {
+      "name": "a-fit-band-spelled-with-a-comma",
+      "demonstrates": "TDC300",
+      "description": "A comma is a LIST everywhere else in the language (percent=\"60,40\", value=\"a,b\"), and a range is always A..B. Accepting the comma here would make one punctuation mark mean two things.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"pattern\" src=\"nope.svg\" y_range=\"0..100\" fit=\"255,297\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC300 1:116", "error TDC061 1:84"]
+    },
+    {
+      "name": "fit-beside-points-that-already-carry-a-board",
+      "demonstrates": "TDC300",
+      "description": "A typed point is a percentage of the 0..100 board, so 90 already means 90% of y_range. fit= places a drawing that arrived WITHOUT a board, from src=. Written together the two contradict each other, and picking one silently is how a config comes to say something it does not do.",
+      "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"pattern\" points=\"0,10 100,90\" y_range=\"0..100\" fit=\"255..297\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
+      "expected": ["error TDC300 1:122"]
     }
   ]
 }

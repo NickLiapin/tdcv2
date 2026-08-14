@@ -52,9 +52,12 @@ fn an_svg_path_curves_and_all_matches_the_reference() {
     assert_eq!(
         read(&dir, "curve.svg").expect("the drawing reads"),
         // Verified against the TypeScript reference on this very file: a row reads
-        // where its line crosses the drawing, and the curve is read against the
-        // 0..100 board rather than its own ink.
-        ["0.0", "6.6", "20.0", "20.0", "6.6", "0.0"]
+        // where its line crosses the drawing, and a VECTOR file is read against
+        // its own ink — its lowest and highest point become the ends of y_range,
+        // or of the `fit=` band when one is given. Reading it against the 0..100
+        // board, as this test used to, applied our board to another tool's user
+        // units and left this curve squashed into 0..20.
+        ["0.0", "30.9", "93.5", "93.5", "30.9", "0.0"]
     );
 }
 

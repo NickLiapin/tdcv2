@@ -70,7 +70,7 @@ def from_envelope(
     top: list[tuple[float, float]],
     bottom: list[tuple[float, float]],
     attrs: dict[str, str],
-    norm_extent: tuple[float, float] | None = None,
+    frame: tuple[float, float] | None = None,
 ) -> Pattern:
     """A per-position highest/lowest measurement turned into a pattern.
 
@@ -79,31 +79,32 @@ def from_envelope(
     their exact value, because a zero-width band ignores the draw.
     """
     y_range = curves.parse_y_range(attrs.get("y_range"))
+    # ``fit=`` is the target the drawing's ends land on; without it the drawing spans y_range.
+    target = curves.parse_fit(attrs.get("fit"), y_range)
     decimals = curves.parse_decimals(attrs)
     interp = curves.parse_interp(attrs.get("interp"))
     spread = curves.parse_spread(attrs)
+
+    # A raster hands us its frame and that is the canvas. A vector file has none worth trusting,
+    # so the canvas is the drawing's own extent — measured across BOTH strokes, banded or not,
+    # because the two edges of a corridor are one drawing and measuring them apart would let a
+    # narrow band and a wide one come out the same width.
+    heights = [p[1] for p in top] + [p[1] for p in bottom]
+    extent = frame if frame is not None else (min(heights), max(heights))
 
     banded = any(abs(a[1] - b[1]) > 1e-9 for a, b in zip(top, bottom, strict=False))
     if not banded:
         return Pattern(
             "signal",
-            curve=curves.build(top, y_range, decimals, norm_extent, interp),
+            curve=curves.build(top, target, decimals, extent, interp),
             spread=spread,
         )
 
-    heights = [p[1] for p in top] + [p[1] for p in bottom]
-    # ONE canvas for both curves. Measuring them separately would let each fill the range on
-    # its own, so a narrow band and a wide one would come out the same width.
-    extent = (
-        norm_extent
-        if norm_extent is not None
-        else curves.vector_canvas(min(heights), max(heights))
-    )
     return Pattern(
         "corridor",
         corridor=curves.Corridor(
-            lower=curves.build(bottom, y_range, decimals, extent, interp),
-            upper=curves.build(top, y_range, decimals, extent, interp),
+            lower=curves.build(bottom, target, decimals, extent, interp),
+            upper=curves.build(top, target, decimals, extent, interp),
             decimals=decimals,
         ),
         spread=spread,
