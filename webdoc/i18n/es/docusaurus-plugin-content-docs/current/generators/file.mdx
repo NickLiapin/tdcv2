@@ -363,7 +363,9 @@ nombre de una línea, el apellido de otra, la ciudad de una tercera.
 `row` acepta cualquier clave no vacía, por ejemplo `row="user"`. Todo generador
 `type="file"` que comparta el mismo `row` — con el mismo `src`, `delimiter` y modo de
 encabezado — lee la **misma línea** para cada registro. Se elige una línea por registro,
-y distintos valores de `column` leen distintas celdas de esa línea.
+y distintos valores de `column` leen distintas celdas de esa línea. Una clave sobre dos
+archivos distintos la rechaza `check`: un enlace es una línea de UN archivo, así que no hay
+línea que pertenezca a ambos.
 
 **Sin `row`** — tres generadores independientes, así que los registros no cuadran (María
 con el apellido de Juan, Lucía en la ciudad de otro):

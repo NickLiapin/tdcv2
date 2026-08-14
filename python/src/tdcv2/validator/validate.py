@@ -674,6 +674,7 @@ class _Validator:
         "pool_references",
         "pools_read",
         "repeating_names",
+        "row_link_gens",
         "valueless_names",
     )
 
@@ -704,6 +705,10 @@ class _Validator:
         self.pool_member_nodes: set[int] = set()
         # Those of them that produce a list, which is what each= may walk.
         self.repeating_names: set[str] = set()
+        #: Every ``<gen>`` carrying a ``row=``, wherever it sits. A link is checked once the
+        #: whole ``<env>`` has been walked because its members are free to live in different
+        #: sequences — which is exactly the case a per-sequence check misses.
+        self.row_link_gens: list[tuple[dict[str, str], object]] = []
         # The compounds: every <gen> named, so the sequence is a group of fields
         # and produces no value of its own — which is what parent= filters on.
         self.valueless_names: set[str] = set()
@@ -1269,6 +1274,9 @@ class _Validator:
                     value = attrs.get(key)
                     if value is not None and value.strip():
                         self.declared_names.add(value)
+        # Once, at the end: a row= link is free to span sequences, so its members are only all in
+        # view now.
+        self._row_link_source()
         self.expr_scope = None
 
     def _register_pool_reference(self, sequence, name: str) -> None:
@@ -2064,6 +2072,10 @@ class _Validator:
                         gens.append(_attrs(gen.attr()))
                         gen_nodes.append(gen)
 
+        for gen_attrs, gen_node in zip(gens, gen_nodes, strict=True):
+            if (gen_attrs.get("row") or "").strip():
+                self.row_link_gens.append((gen_attrs, gen_node))
+
         # A <sequence> holds only <gen> (optionally wrapped in <distinct>). A construct that
         # belongs at env level is a placement mistake — saying so beats letting it fall through
         # to a confusing "no <gen>", which names a symptom rather than the cause.
@@ -2319,6 +2331,44 @@ class _Validator:
                 line,
                 column,
             )
+
+    def _row_link_source(self) -> None:
+        """Members of one ``row=`` link that read DIFFERENT files.
+
+        One line of one file is what a link is, so two files under one key is not a request the
+        engine can grant — and the two engines did not agree on how to fail it. The in-memory
+        engine threw ``row link "k" cannot mix different file sources``: no code, no line, no file.
+        The streaming engine granted it, pairing the two files by proportion, which for a 3-row
+        file and a 2-row file gave ann/10, ann/10, ann/10, cal/20 — a join nobody asked for,
+        printed as data.
+
+        One config, two answers, and the wrong one is the silent one. Only ``src`` is compared:
+        two members legitimately read different columns of one file, and a link is exactly what
+        makes that a record.
+        """
+        links: dict[str, list[tuple[dict[str, str], object]]] = {}
+        for gen_attrs, gen_node in self.row_link_gens:
+            key = (gen_attrs.get("row") or "").strip()
+            links.setdefault(key, []).append((gen_attrs, gen_node))
+        for key, members in links.items():
+            if len(members) < 2:
+                continue
+            first_src = (members[0][0].get("src") or "").strip()
+            for gen_attrs, gen_node in members[1:]:
+                src = (gen_attrs.get("src") or "").strip()
+                if src == first_src:
+                    continue
+                line, column = _at(gen_node, "src")
+                self._error(
+                    "TDC298",
+                    f'row="{key}" links two different files: this one reads "{src}" and another '
+                    f'member reads "{first_src}"',
+                    "A link is one LINE of one file, so there is no line that belongs to both. "
+                    "Point every member of the link at the same src=, or give this one its own "
+                    "row= key.",
+                    line,
+                    column,
+                )
 
     def _uniq_with_distinct(self, open_el, label: str) -> None:
         """``<distinct>`` inside a ``uniq="true"`` sequence.

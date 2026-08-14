@@ -483,6 +483,13 @@ public sealed class Validator
     private readonly HashSet<string> _repeatingNames = new(StringComparer.Ordinal);
 
     /// <summary>
+    /// Every <c>&lt;gen&gt;</c> carrying a <c>row=</c>, wherever it sits. A link is checked once
+    /// the whole <c>&lt;env&gt;</c> has been walked because its members are free to live in
+    /// different sequences — which is exactly the case a per-sequence check misses.
+    /// </summary>
+    private readonly List<(string Key, string Src, GenNode Node)> _rowLinkGens = new();
+
+    /// <summary>
     /// Of the declared names, the compounds: every <c>&lt;gen&gt;</c> named, so the sequence is a
     /// group of fields and produces no value of its own — which is what <c>parent=</c> filters on.
     /// </summary>
@@ -1385,6 +1392,9 @@ public sealed class Validator
             }
         }
 
+        // Once, at the end: a row= link is free to span sequences, so its members are only all in
+        // view now.
+        RowLinkSource();
         _exprScope = null;
     }
 
@@ -2665,6 +2675,17 @@ public sealed class Validator
                         genNodes.Add(gen);
                     }
                 }
+            }
+        }
+
+        for (int i = 0; i < gens.Count; i++)
+        {
+            string rowKey = (gens[i].GetValueOrDefault("row") ?? string.Empty).Trim();
+            if (rowKey.Length != 0)
+            {
+                _rowLinkGens.Add(
+                    (rowKey, (gens[i].GetValueOrDefault("src") ?? string.Empty).Trim(),
+                     genNodes[i]));
             }
         }
 
@@ -7100,6 +7121,60 @@ public sealed class Validator
                     + "of the link order=\"sequential\", so they walk in step, or drop it from "
                     + "this one.",
                 line, column);
+        }
+    }
+
+    /// <summary>Members of one <c>row=</c> link that read DIFFERENT files.</summary>
+    /// <remarks>
+    /// One line of one file is what a link is, so two files under one key is not a request the
+    /// engine can grant — and the two engines did not agree on how to fail it. The in-memory
+    /// engine threw <c>row link "k" cannot mix different file sources</c>: no code, no line, no
+    /// file. The streaming engine granted it, pairing the two files by proportion, which for a
+    /// 3-row file and a 2-row file gave ann/10, ann/10, ann/10, cal/20 — a join nobody asked for,
+    /// printed as data. Only <c>src</c> is compared: two members legitimately read different
+    /// columns of one file, and a link is exactly what makes that a record.
+    /// </remarks>
+    private void RowLinkSource()
+    {
+        var links = new Dictionary<string, List<(string Key, string Src, GenNode Node)>>(
+            StringComparer.Ordinal);
+        foreach ((string Key, string Src, GenNode Node) member in _rowLinkGens)
+        {
+            if (!links.TryGetValue(member.Key, out var group))
+            {
+                group = new List<(string, string, GenNode)>();
+                links[member.Key] = group;
+            }
+
+            group.Add(member);
+        }
+
+        foreach ((string key, var group) in links)
+        {
+            if (group.Count < 2)
+            {
+                continue;
+            }
+
+            string firstSrc = group[0].Src;
+            for (int i = 1; i < group.Count; i++)
+            {
+                if (string.Equals(group[i].Src, firstSrc, StringComparison.Ordinal))
+                {
+                    continue;
+                }
+
+                GenNode node = group[i].Node;
+                (int line, int column) = At(node.Attrs, "src", node.Line, node.Column);
+                Error(
+                    "TDC298",
+                    $"row=\"{key}\" links two different files: this one reads "
+                        + $"\"{group[i].Src}\" and another member reads \"{firstSrc}\"",
+                    "A link is one LINE of one file, so there is no line that belongs to both. "
+                        + "Point every member of the link at the same src=, or give this one its "
+                        + "own row= key.",
+                    line, column);
+            }
         }
     }
 

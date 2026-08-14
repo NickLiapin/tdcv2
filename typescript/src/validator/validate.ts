@@ -71,7 +71,7 @@ import {
 import { checkGenByType } from './gen-type.js';
 import { checkIfExpression, type PendingExpression, runPendingExpressions } from './expr-check.js';
 import { checkSwitchCaseAttrs, checkSwitchMap } from './switch-body.js';
-import { checkRowLinkOrder } from './row-link-order.js';
+import { checkRowLinkOrder, checkRowLinkSource } from './row-link-order.js';
 import { checkSequentialRepeat } from './sequential-repeat.js';
 import { checkCompute } from './compute.js';
 import { checkGroupDerivedMember, checkGroupSize } from './group-size.js';
@@ -272,6 +272,13 @@ class Ctx {
 
   /** Of those, the ones whose `<gen>` repeats — the only ones `each=` can walk. */
   public readonly repeatingSequences: string[] = [];
+
+  /**
+   * Every `<gen>` carrying a `row=`, wherever it sits. A link is checked once
+   * the whole `<env>` has been walked because its members are free to live in
+   * different sequences — which is exactly the case a per-sequence check misses.
+   */
+  public readonly rowLinkGens: (OpenCloseElementContext | SelfClosingElementContext)[] = [];
 
   /**
    * Field names declared by each `<pool>`, so a `<gen type="pool">` reference
@@ -520,6 +527,10 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
       code: 'TDC010',
     });
   }
+
+  // Once, at the end: a `row=` link is free to span sequences, so its members
+  // are only all in view now.
+  checkRowLinkSource(ctx.rowLinkGens, ctx.diagnostics);
 }
 
 /** The top-level member checks, handed to whatever walks a container of them. */
@@ -690,6 +701,9 @@ function checkSequence(seqEl: OpenCloseElementContext, ctx: Ctx): void {
   const gens: (OpenCloseElementContext | SelfClosingElementContext)[] = [
     ...collectSequenceGens(seqEl).nodes,
   ];
+  for (const g of gens) {
+    if ((extractAttrs(g.attr())['row'] ?? '').trim() !== '') ctx.rowLinkGens.push(g);
+  }
 
   // A <sequence> holds only <gen> (optionally wrapped in <distinct>). A <mix>,
   // <switch>, <case>, <map> here is a placement mistake — say so clearly rather

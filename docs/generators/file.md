@@ -380,7 +380,8 @@ from one line, the last name from another, the city from a third.
 `row` takes any non-empty key, e.g. `row="user"`. Every `type="file"` generator that
 shares the same `row` — with the same `src`, `delimiter`, and header mode — reads the
 **same line** for each record. One line is chosen per record, and different `column`
-values read different cells from it.
+values read different cells from it. A key over two different files is refused by `check`:
+a link is one line of ONE file, so there is no line that belongs to both.
 
 **Without `row`** — three independent generators, so the records don't line up
 (Mary with Smith's last name, James in the wrong city):

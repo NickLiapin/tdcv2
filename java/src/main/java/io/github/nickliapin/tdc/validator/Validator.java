@@ -464,6 +464,13 @@ public final class Validator {
   private final Set<String> repeatingNames = new LinkedHashSet<>();
 
   /**
+   * Every {@code <gen>} carrying a {@code row=}, as (key, src, node). A link is checked once the
+   * whole {@code <env>} has been walked because its members are free to live in different
+   * sequences — which is exactly the case a per-sequence check misses.
+   */
+  private final java.util.List<Object[]> rowLinkGens = new java.util.ArrayList<>();
+
+  /**
    * Of the declared names, the compounds: every {@code <gen>} named, so the sequence is a group of
    * fields and produces no value of its own — which is what {@code parent=} filters on.
    */
@@ -1201,6 +1208,9 @@ public final class Validator {
         }
       }
     }
+    // Once, at the end: a row= link is free to span sequences, so its members are only all in view
+    // now.
+    rowLinkSource();
     exprScope = null;
   }
 
@@ -2324,6 +2334,14 @@ public final class Validator {
       }
     }
 
+    for (int i = 0; i < gens.size(); i++) {
+      String rowKey = gens.get(i).getOrDefault("row", "").trim();
+      if (!rowKey.isEmpty()) {
+        rowLinkGens.add(
+            new Object[] {rowKey, gens.get(i).getOrDefault("src", "").trim(), genNodes.get(i)});
+      }
+    }
+
     // A <sequence> holds only <gen> (optionally wrapped in <distinct>). A construct that belongs
     // at env level is a placement mistake — saying so beats letting it fall through to a
     // confusing "no <gen>", which names a symptom rather than the cause.
@@ -3344,6 +3362,46 @@ public final class Validator {
           "row= exists to keep the fields of one record together. Either give every member of the "
               + "link order=\"sequential\", so they walk in step, or drop it from this one.",
           pos[0], pos[1]);
+    }
+  }
+
+  /**
+   * Members of one {@code row=} link that read DIFFERENT files.
+   *
+   * <p>One line of one file is what a link is, so two files under one key is not a request the
+   * engine can grant — and the two engines did not agree on how to fail it. The in-memory engine
+   * threw {@code row link "k" cannot mix different file sources}: no code, no line, no file. The
+   * streaming engine granted it, pairing the two files by proportion, which for a 3-row file and
+   * a 2-row file gave ann/10, ann/10, ann/10, cal/20 — a join nobody asked for, printed as data.
+   *
+   * <p>Only {@code src} is compared: two members legitimately read different columns of one file,
+   * and a link is exactly what makes that a record.
+   */
+  private void rowLinkSource() {
+    java.util.Map<String, java.util.List<Object[]>> links = new java.util.LinkedHashMap<>();
+    for (Object[] member : rowLinkGens) {
+      links.computeIfAbsent((String) member[0], k -> new java.util.ArrayList<>()).add(member);
+    }
+    for (java.util.Map.Entry<String, java.util.List<Object[]>> entry : links.entrySet()) {
+      java.util.List<Object[]> group = entry.getValue();
+      if (group.size() < 2) {
+        continue;
+      }
+      String firstSrc = (String) group.get(0)[1];
+      for (int i = 1; i < group.size(); i++) {
+        String src = (String) group.get(i)[1];
+        if (src.equals(firstSrc)) {
+          continue;
+        }
+        GenNode node = (GenNode) group.get(i)[2];
+        int[] pos = at(node.attrs(), "src", node.line(), node.column());
+        error("TDC298",
+            "row=\"" + entry.getKey() + "\" links two different files: this one reads \"" + src
+                + "\" and another member reads \"" + firstSrc + "\"",
+            "A link is one LINE of one file, so there is no line that belongs to both. Point every "
+                + "member of the link at the same src=, or give this one its own row= key.",
+            pos[0], pos[1]);
+      }
     }
   }
 

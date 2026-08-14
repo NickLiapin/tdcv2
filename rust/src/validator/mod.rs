@@ -139,6 +139,10 @@ struct Validator {
     pending_pool_filters: Vec<(usize, String, String, String, String, Pos)>,
     /// Those of them that produce a list, which is what `each=` may walk.
     repeating_names: BTreeSet<String>,
+    /// Every `<gen>` carrying a `row=`, as `(key, src, pos)`. A link is checked
+    /// once the whole `<env>` has been walked because its members are free to
+    /// live in different sequences — the case a per-sequence check misses.
+    row_link_gens: Vec<(String, String, Pos)>,
 }
 
 impl Validator {
@@ -903,6 +907,9 @@ impl Validator {
                 }
             }
         }
+        // Once, at the end: a `row=` link is free to span sequences, so its
+        // members are only all in view now.
+        self.row_link_source();
         self.expr_scope = None;
     }
 
@@ -1844,6 +1851,15 @@ impl Validator {
         self.uniq_drops_gen_attrs(open, name, &gens);
         self.uniq_with_distinct(open, name);
         self.row_link_order(&gens);
+        for gen in &gens {
+            let key = gen.attr("row").map(|a| a.value().trim()).unwrap_or("");
+            if key.is_empty() {
+                continue;
+            }
+            let src = gen.attr("src").map(|a| a.value().trim()).unwrap_or("");
+            self.row_link_gens
+                .push((key.to_string(), src.to_string(), gen.at("src")));
+        }
 
         // Three readings, and the body says which: every gen named is a compound
         // (several columns, no value of its own), one unnamed gen alone is a
@@ -2014,6 +2030,55 @@ impl Validator {
                 "row= exists to keep the fields of one record together. Either give every member \
                  of the link order=\"sequential\", so they walk in step, or drop it from this one.",
                 offender.at("order"),
+            );
+        }
+    }
+
+    /// Members of one `row=` link that read DIFFERENT files.
+    ///
+    /// One line of one file is what a link is, so two files under one key is not
+    /// a request the engine can grant — and the two engines did not agree on how
+    /// to fail it. The in-memory engine threw `row link "k" cannot mix different
+    /// file sources`: no code, no line, no file. The streaming engine granted it,
+    /// pairing the two files by proportion, which for a 3-row file and a 2-row
+    /// file gave ann/10, ann/10, ann/10, cal/20 — a join nobody asked for,
+    /// printed as data.
+    ///
+    /// Only `src` is compared: two members legitimately read different columns of
+    /// one file, and a link is exactly what makes that a record.
+    fn row_link_source(&mut self) {
+        let members = std::mem::take(&mut self.row_link_gens);
+        let mut keys: Vec<&str> = Vec::new();
+        for (key, _, _) in &members {
+            if !keys.contains(&key.as_str()) {
+                keys.push(key);
+            }
+        }
+        let mut complaints: Vec<(String, String, String, Pos)> = Vec::new();
+        for key in keys {
+            let group: Vec<&(String, String, Pos)> =
+                members.iter().filter(|(k, _, _)| k == key).collect();
+            if group.len() < 2 {
+                continue;
+            }
+            let first_src = group[0].1.clone();
+            for (_, src, pos) in group.iter().skip(1) {
+                if *src == first_src {
+                    continue;
+                }
+                complaints.push((key.to_string(), src.clone(), first_src.clone(), *pos));
+            }
+        }
+        for (key, src, first_src, pos) in complaints {
+            self.error(
+                "TDC298",
+                format!(
+                    "row=\"{key}\" links two different files: this one reads \"{src}\" and \
+                     another member reads \"{first_src}\""
+                ),
+                "A link is one LINE of one file, so there is no line that belongs to both. Point \
+                 every member of the link at the same src=, or give this one its own row= key.",
+                pos,
             );
         }
     }

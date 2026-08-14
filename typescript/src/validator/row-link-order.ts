@@ -1,4 +1,7 @@
 /**
+ * Two ways a `row=` link stops linking anything: a mixed `order=`, and members
+ * reading different files.
+ *
  * `order="sequential"` on SOME members of a `row=` link.
  *
  * `row="k"` exists to keep a record together: every generator carrying the key
@@ -39,7 +42,8 @@ function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | un
   return undefined;
 }
 
-export function checkRowLinkOrder(gens: readonly GenElement[], diagnostics: Diagnostic[]): void {
+/** Group the `row=` carriers by their key; a link is a key with more than one member. */
+function rowLinks(gens: readonly GenElement[]): Map<string, GenElement[]> {
   const links = new Map<string, GenElement[]>();
   for (const gen of gens) {
     const key = (extractAttrs(gen.attr())['row'] ?? '').trim();
@@ -48,6 +52,52 @@ export function checkRowLinkOrder(gens: readonly GenElement[], diagnostics: Diag
     if (group) group.push(gen);
     else links.set(key, [gen]);
   }
+  return links;
+}
+
+/**
+ * Members of one `row=` link that read DIFFERENT files.
+ *
+ * One line of one file is what a link is, so two files under one key is not a
+ * request the engine can grant — and the two engines did not agree on how to
+ * fail it. The in-memory engine threw `row link "k" cannot mix different file
+ * sources`: no code, no line, no file. The streaming engine granted it, pairing
+ * the two files by proportion, which for a 3-row file and a 2-row file gave
+ * ann/10, ann/10, ann/10, cal/20 — a join nobody asked for, printed as data.
+ *
+ * One config, two answers, and the wrong one is the silent one. Only `src` is
+ * compared: two members legitimately read different columns of one file, and a
+ * link is exactly what makes that a record.
+ */
+export function checkRowLinkSource(gens: readonly GenElement[], diagnostics: Diagnostic[]): void {
+  for (const [key, group] of rowLinks(gens)) {
+    if (group.length < 2) continue;
+    const first = group[0];
+    if (!first) continue;
+    const firstSrc = (extractAttrs(first.attr())['src'] ?? '').trim();
+    for (const gen of group.slice(1)) {
+      const src = (extractAttrs(gen.attr())['src'] ?? '').trim();
+      if (src === firstSrc) continue;
+      const attr = findAttr(gen.attr(), 'src');
+      if (!attr) continue;
+      diagnostics.push({
+        severity: 'error',
+        source: 'validator',
+        ...attrValueRange(attr),
+        message:
+          `row="${key}" links two different files: this one reads "${src}" and another member ` +
+          `reads "${firstSrc}"`,
+        hint:
+          'A link is one LINE of one file, so there is no line that belongs to both. Point every ' +
+          'member of the link at the same src=, or give this one its own row= key.',
+        code: 'TDC298',
+      });
+    }
+  }
+}
+
+export function checkRowLinkOrder(gens: readonly GenElement[], diagnostics: Diagnostic[]): void {
+  const links = rowLinks(gens);
 
   for (const [key, group] of links) {
     if (group.length < 2) continue;

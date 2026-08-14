@@ -110,9 +110,9 @@ class RowLinkTest {
   void oneKeyOneSource(@TempDir Path dir) throws IOException {
     places(dir);
     Files.writeString(dir.resolve("other.csv"), "city,zip\nKazan,420000\n");
-    IllegalStateException e =
+    TdcDiagnosticException e =
         assertThrows(
-            IllegalStateException.class,
+            TdcDiagnosticException.class,
             () ->
                 TDC.options()
                     .configString(
@@ -123,7 +123,11 @@ class RowLinkTest {
                     .baseDir(dir)
                     .build()
                     .toString());
-    assertTrue(e.getMessage().contains("cannot mix different file sources"), e.getMessage());
+    // Caught by the validator now, before a single row is read — and with a code, which the
+    // engine's own refusal never carried. The streaming engine did not refuse it at all.
+    assertTrue(
+        e.diagnostics().stream().anyMatch(d -> "TDC298".equals(d.code())), e.getMessage());
+    assertTrue(e.getMessage().contains("links two different files"), e.getMessage());
   }
 
   @Test

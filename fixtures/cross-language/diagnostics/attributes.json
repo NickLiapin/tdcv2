@@ -263,6 +263,17 @@
       "description": "The other side of the same boundary: every member of the link walks in step, so both rules pick by position and the records hold. Only the missing file is reported.",
       "config": "<tdc><env count=\"6\" seed=\"s\" local=\"en\"><sequence name=\"U\"><gen name=\"F\" type=\"file\" src=\"users.csv\" column=\"first_name\" row=\"u\" order=\"sequential\"/><gen name=\"L\" type=\"file\" src=\"users.csv\" column=\"last_name\" row=\"u\" order=\"sequential\"/></sequence></env><block><line><data>${{U.F}} ${{U.L}}</data></line></block></tdc>",
       "expected": ["error TDC061 1:90", "error TDC061 1:180"]
+    },
+    {
+      "name": "row-link-across-two-files",
+      "demonstrates": "TDC298",
+      "description": "One row= key over two different files — the members live in different sequences, which is where a per-sequence check cannot see them",
+      "config": "<tdc><env count=\"4\" seed=\"s\" local=\"en\"><sequence name=\"N\"><gen type=\"file\" src=\"a.csv\" column=\"name\" row=\"k\"/></sequence><sequence name=\"P\"><gen type=\"file\" src=\"b.csv\" column=\"price\" row=\"k\"/></sequence></env><block><line><data>${{N}},${{P}}</data></line></block></tdc>",
+      "expected": [
+        "error TDC061 1:81",
+        "error TDC061 1:163",
+        "error TDC298 1:163"
+      ]
     }
   ]
 }
