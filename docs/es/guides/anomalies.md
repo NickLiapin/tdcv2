@@ -390,9 +390,11 @@ salida](output-formats.md#top)**.
 - **Solo números, y decide el valor — no el `type=`.** En los ejemplos de arriba la
   lista está escrita como `type="text"`, pero los valores _son_ números, así que
   `anomaly` los multiplica. Póngalo en una columna de nombres y los valores pasan sin
-  cambios, y además **en silencio**: `tdcv2 check` no dice nada, porque una lista de
-  texto bien puede contener números y TDC no sabe qué quiso usted. Si una columna que
-  debería tener picos sale limpia, esto es lo primero que hay que mirar.
+  cambios. `check` lo señala cuando la lista entera está escrita en la configuración
+  (`TDC243`): allí ve todos los candidatos. Cuando los valores vienen de un **pack, un
+  archivo o una regex** no puede verlos, así que ahí `anomaly=` sobre una columna de
+  nombres pasa en silencio. Si una columna que debería tener picos sale limpia, esto es lo
+  primero que hay que mirar.
 - **`anomaly="0"`** significa que no hay valores atípicos.
 
 ## Vea también

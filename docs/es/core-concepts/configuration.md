@@ -365,10 +365,11 @@ encabezado— y no solo los registros pelados.
 ```
 
 El `[` y el `]` se imprimieron una sola vez cada uno, y la coma quedó **entre** registros
-pero no después del último: JSON válido. Una advertencia: **la interpolación no se ejecuta
-en las fixtures**, porque quedan fuera de la iteración por registro, así que un `${{...}}`
-dentro de una fixture no se sustituye. Los detalles del lado del registro están en
-[Salida y formato](output-formatting.md#top).
+pero no después del último: JSON válido. La interpolación **sí** se ejecuta dentro de una
+fixture: un `${{...}}` allí lee el registro junto al que está la fixture — `<before>` el
+primero, `<after>` el último, un delimitador el anterior a él. Los detalles del lado del
+registro están en
+[Salida y formato](output-formatting.md#fixtures--texto-alrededor-de-los-registros).
 
 ### El orden de declaración importa
 

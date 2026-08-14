@@ -382,10 +382,11 @@ TDC never guesses a type it isn't sure of. See **[Output formats](output-formats
   on-disk runs agree exactly.
 - **Numbers only, and it's the value that decides — not the `type=`.** In the examples
   above the list is written as `type="text"`, but the values _are_ numbers, so `anomaly`
-  multiplies them. Put it on a column of names and the values pass through unchanged —
-  **silently**: `tdcv2 check` reports nothing, because a text list may hold numbers and
-  TDC cannot know which you meant. If a column that should have spikes comes out clean,
-  this is the first thing to check.
+  multiplies them. Put it on a column of names and the values pass through unchanged.
+  `check` names that when the whole list is written in the config (`TDC243`) — it can read
+  every candidate there. When the values come from a **pack, a file or a regex** it cannot,
+  so `anomaly=` on a column of names from those passes through silently. If a column that
+  should have spikes comes out clean, this is the first thing to check.
 - **`anomaly="0"`** means no outliers.
 
 ## See also

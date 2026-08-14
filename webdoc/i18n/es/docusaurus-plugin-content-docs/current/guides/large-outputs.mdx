@@ -59,7 +59,7 @@ configuración**:
   que la pide: un worker sólo ve su propio rango de filas, y no distinguiría un duplicado
   fuera de ese rango de un valor que nunca ha visto.
 
-El modo disco tiene un tercer destino, y es el que conviene conocer: seis formas de
+El modo disco tiene un tercer destino, y es el que conviene conocer: ocho formas de
 configuración mandan la corrida de vuelta al motor pequeño en memoria, donde la memoria
 crece con `count`. Una de ellas es la manera más común de escribir `uniq`. [Qué motor corre
 su configuración](#qué-motor-corre-su-configuración) lista las cinco.
@@ -71,7 +71,7 @@ entre máquinas es una garantía central de TDC).
 ## Qué motor corre su configuración
 
 `mode="disk"` pide memoria acotada. No siempre la consigue. TDC lee primero la
-configuración, y seis formas rutean la corrida al **motor pequeño en memoria**, cuya
+configuración, y ocho formas rutean la corrida al **motor pequeño en memoria**, cuya
 memoria crece con la cantidad de filas. Se revisan en este orden.
 
 | Forma                                                                                                                                                                                              | Por qué no puede correr en streaming                                                                                                                             |
@@ -82,6 +82,8 @@ memoria crece con la cantidad de filas. Se revisan en este orden.
 | `uniq="true"` sobre una sola columna sorteada, sola o junto a texto literal                                                                                                                        | El sorteo corre **sin reemplazo**, así que tanto la bolsa como el conjunto de lo ya tomado abarcan la columna entera.                                            |
 | [`type="http"`](../generators/http.mdx) — una llamada de red                                                                                                                                       | No es reproducible ni síncrona, y se resuelve en una pasada asíncrona después de que se arma el resto del registro.                                              |
 | Un `percent=` dentro de una rama de [`<switch>`](../constructs/switch.mdx#una-proporción-dentro-de-una-rama) con varias claves — `is="US\|CA\|MX"` — o dentro de `<default>`                        | La proporción es una cuota sobre las filas propias de la rama, y esas filas son una unión de subconjuntos, o lo que dejaron las demás ramas. Ninguna de las dos se puede numerar fila a fila. |
+| Una columna **derivada de otra columna** — un [total acumulado](../generators/running.mdx), un [estadístico](../generators/stat.mdx), una [fecha medida desde otra columna](../generators/date.mdx), una fórmula | Cada una lee una columna que tiene que existir antes, y el constructor de flujo la rechaza por nombre. |
+| Un [`parent="Nombre"`](../guides/hierarchical-dependencies.mdx) pelado sin valor | Reduce la columna a las filas donde el padre produjo algo, y eso no se sabe sin la columna entera del padre. |
 
 Todo lo demás que pregunte por la columna terminada va al motor exacto en disco, y el
 resto corre en streaming.
@@ -108,21 +110,19 @@ Normalmente usted nunca ve un mensaje así. El ruteo elige el motor por su cuent
 rechazo solo sale a la luz cuando una configuración _nombra_ un motor de streaming y con
 eso pidió que se le dijera.
 
-Una bajada de motor no es un error. Cada una de las seis formas es una promesa sobre una
+Una bajada de motor no es un error. Cada una de las ocho formas es una promesa sobre una
 columna entera, y un motor que la respondiera desde una sola fila emitiría datos que se
 ven bien y no lo son. Lo que cuesta es memoria: en el motor en memoria se retiene la
 columna entera, así que una corrida con una de estas formas queda acotada por la RAM y no
 por el disco. [`preflight()`](#preflight--una-estimación-del-riesgo-de-memoria) lo estima
 antes de la corrida.
 
-Existe una ruta más, para lo que la lista no puede ver de antemano. Si el motor de
-streaming termina rechazando una configuración de todos modos — un [total
-acumulado](../generators/running.mdx#qué-motor-lo-ejecuta), un
-[estadístico](../generators/stat.mdx), una [fecha medida desde otra
-columna](../generators/date.mdx), un `parent="Nombre"` pelado sin valor, una referencia a
-un [pool](../pools/overview.mdx) — una corrida a disco ruteada automáticamente cae de
-vuelta al motor en memoria en lugar de fallar. Un `--engine 2` **forzado** igual falla,
-que es justamente el punto de forzarlo:
+La lista de arriba se decide **antes** de la corrida, y eso importa para `--jobs`: una
+corrida paralela le da a cada worker un motor de flujo forzado, y un worker no tiene
+adónde caer. Queda igual una red de último recurso, para un caso límite raro de
+`uniq`/`distinct`/`parent` que la lista no ve: una corrida a disco ruteada automáticamente
+cae de vuelta al motor en memoria en lugar de fallar. Un `--engine 2` **forzado** igual
+falla, que es justamente el punto de forzarlo:
 
 <Terminal title="./run report.tdc --engine 2">
 {`tdcv2: a statistic ("Avg") is computed over every row of the run, including the ones after this one, so it cannot be computed one row at a time; the in-memory engine handles it (run without a forced streaming engine)`}
@@ -611,7 +611,7 @@ const diagnostic = tdc.preflight({ output: "streaming" });
 Los dos motores de disco no guardan nada extra en memoria. La materialización ocurre en el
 **motor pequeño en RAM** — al que se llega por la API de objetos
 (`toArray`/`iterate`/`getAt`), por un `mode="memory"` explícito y por cualquiera de las
-[seis formas de configuración que rutean una corrida a disco de vuelta a
+[ocho formas de configuración que rutean una corrida a disco de vuelta a
 él](#qué-motor-corre-su-configuración). Ahí retiene, de entrada:
 
 - los integrados `_count`, `_first`, `_last`, `_total`;
@@ -644,7 +644,7 @@ ocupa dos ranuras de secuencia: `Person.FirstName` y `Person.LastName`.
 
 - Para un archivo de cualquier tamaño, simplemente use `writeFile()` o la CLI — a disco por
   omisión, y la memoria no crece con las filas.
-- Antes de una corrida muy grande, revise la configuración contra [las seis formas que la
+- Antes de una corrida muy grande, revise la configuración contra [las ocho formas que la
   rutean de vuelta a memoria](#qué-motor-corre-su-configuración). El `uniq="true"` simple
   es la que hay que vigilar.
 - Para acelerar muchas filas, agregue [`--jobs N`](../reference/cli.mdx) (en el motor

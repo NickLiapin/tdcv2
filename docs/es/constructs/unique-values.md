@@ -21,8 +21,10 @@ herramienta separada para cada una:
 Conviene verlas como gemelas sobre dos ejes. `<distinct>` trabaja en **horizontal** —
 dentro de una sola fila, de modo que nunca sale `José José` ni «nació en París, vive en
 París». `uniq` trabaja en **vertical** — a lo largo de todo el dataset, de modo que el
-mismo par `(nombre, apellido)` nunca aparece dos veces. Son totalmente independientes:
-use cualquiera de las dos, o ambas a la vez.
+mismo par `(nombre, apellido)` nunca aparece dos veces. Use cualquiera de las dos, o
+ambas en una misma configuración sobre campos **distintos**. Sobre los mismos campos la
+combinación se rechaza (`TDC267`): `uniq` reordena las columnas ya terminadas y no sabe
+qué pares descartó la reparación de `<distinct>`, así que la desharía.
 
 > [!NOTE]
 > **Las salidas de ejemplo son ilustrativas**

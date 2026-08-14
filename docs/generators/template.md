@@ -17,7 +17,8 @@ invent by hand. `type="template"` pulls the value from a built-in source; the
 which one, and many templates respect the
 [locale](../core-concepts/configuration.md#top).
 
-An unknown path is a render error: `unknown template path "..."`.
+An unknown path is `TDC071`, reported by `tdcv2 check` before a single row is generated —
+with the offending value underlined and the nearest real path suggested.
 
 > [!NOTE]
 > **Outputs are illustrative**

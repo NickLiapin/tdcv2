@@ -359,10 +359,10 @@ per-line wrappers. They let a single config emit a complete file — a JSON arra
 ```
 
 The `[` and `]` each printed once, and the comma landed **between** records but not
-after the last one — valid JSON. One caveat: **interpolation doesn't run in fixtures**.
-They sit outside the per-record loop, so a `${{...}}` inside a fixture is never
-substituted. The record-side details are on
-[Output & formatting](output-formatting.md#top).
+after the last one — valid JSON. Interpolation **does** run inside a fixture: a `${{...}}`
+there reads the record the fixture stands beside — `<before>` the first, `<after>` the
+last, a delimiter the one before it. The record-side details are on
+[Output & formatting](output-formatting.md#fixtures--text-around-the-records).
 
 ### Declaration order matters
 

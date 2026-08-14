@@ -18,8 +18,8 @@ row._
 
 This is a **horizontal** rule — it looks across the fields of a single row. Its
 vertical twin is [`uniq`](../constructs/unique-values.md#top), which keeps the **whole row**
-from repeating anywhere in the dataset. The two are completely independent; use either
-one, or both at once.
+from repeating anywhere in the dataset. Use either one, or both in one config on
+**different** fields — on the same fields the combination is refused (`TDC267`).
 
 > [!NOTE]
 > **Example outputs are illustrative**
@@ -265,9 +265,10 @@ each grouped sequence down to a single value.
 | `<distinct>` | horizontal | one row  | fields **don't equal each other** within a row |
 | `uniq`       | vertical   | all rows | the **combination of fields** never repeats    |
 
-They solve different problems and compose freely — a row can require its two name
-fields to differ _and_ the whole `(first, last)` pair to be unique across the dataset.
-For the vertical rule, see [Unique values](../constructs/unique-values.md#top).
+They solve different problems, and one config may use both — on **different** fields.
+Put them on the same fields and `check` refuses it with `TDC267`: `uniq` rearranges the
+finished columns without knowing which pairings the repair ruled out, so the repair is
+undone. For the vertical rule, see [Unique values](../constructs/unique-values.md#top).
 
 ## May contain
 

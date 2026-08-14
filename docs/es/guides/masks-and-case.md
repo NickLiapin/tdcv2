@@ -422,8 +422,10 @@ La columna del medio es después de la máscara; la de la derecha es después de
 
 ## Más filtros: slice, replace, trim, group
 
-Las mismas tres rutas (filtro / atributo de `<gen>` / etiqueta de
-[`<compute>`](../compute/strings.md#top)). Cada uno de abajo sigue el camino crudo →
+Aquí funcionan **dos** de las tres rutas: el filtro y la etiqueta de
+[`<compute>`](../compute/strings.md#top). De esta familia solo `mask` y `case` existen como
+atributos de `<gen>`; escribir `slice=` o `trim=` en un `<gen>` es `TDC015`, así que el
+resto se formatea donde se imprime el valor. Cada uno de abajo sigue el camino crudo →
 herramienta → resultado, con una variación.
 
 ### `slice` — cortar una parte por índice

@@ -71,7 +71,7 @@ void-black
 ```
 
 TDC then uses `address:` instead of the path. The first segment must still be a locale
-code or `common`. Use this when the address and the on-disk layout can't be the same —
+code, a country name, `common` or `user`. Use this when the address and the on-disk layout can't be the same —
 a single shared file, a vendored third-party list, a generated pack.
 
 ### Header fields

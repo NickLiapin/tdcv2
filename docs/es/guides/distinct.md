@@ -18,8 +18,9 @@ entre sí._
 
 Esta es una regla **horizontal** — mira a lo ancho de los campos de una sola fila. Su
 gemela vertical es [`uniq`](../constructs/unique-values.md#top), que evita que la **fila completa** se
-repita en cualquier parte del dataset. Las dos son totalmente independientes: use
-cualquiera, o ambas a la vez.
+repita en cualquier parte del dataset. Use cualquiera, o ambas en una misma
+configuración sobre campos **distintos**: sobre los mismos campos la combinación se
+rechaza (`TDC267`).
 
 > [!NOTE]
 > **Las salidas de ejemplo son ilustrativas**
@@ -265,9 +266,10 @@ arriba); en el nivel `<env>`, mantenga cada secuencia agrupada en un solo valor.
 | `<distinct>` | horizontal | una fila        | los campos **no son iguales entre sí** dentro de la fila |
 | `uniq`       | vertical   | todas las filas | la **combinación de campos** nunca se repite             |
 
-Resuelven problemas distintos y se combinan sin problema — una fila puede exigir que sus
-dos campos de nombre difieran _y_ que el par completo `(first, last)` sea único en todo
-el dataset. Para la regla vertical, vea [Valores únicos](../constructs/unique-values.md#top).
+Resuelven problemas distintos, y una misma configuración puede usar ambas — sobre
+campos **distintos**. Sobre los mismos campos `check` lo rechaza con `TDC267`: `uniq`
+reordena las columnas terminadas sin saber qué pares descartó la reparación, así que la
+deshace. Para la regla vertical, vea [Valores únicos](../constructs/unique-values.md#top).
 
 ## Puede contener
 

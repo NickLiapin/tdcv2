@@ -410,7 +410,7 @@ international    30`}
 </Terminal>
 
 Noventa registros coinciden con `US|CA|MX`, y `27 + 63 = 90` — el 30% de la rama, al
-registro. Estas dos formas le cuestan el motor de flujo; vea
+registro. Una proporción dentro de una rama le cuesta el motor de flujo en dos casos; vea
 [Determinista en todos los motores](#determinista-en-todos-los-motores).
 
 ## Un `<switch>` dentro de un `<case>`
@@ -544,13 +544,20 @@ Una rama que **genera** su valor lo sortea como cualquier otro generador. El res
 sigue fijado por el `seed`, y los tres motores (memoria / flujo / disco) producen las
 mismas filas, pero el valor ya no lo decide el sujeto por sí solo.
 
-Una forma le cuesta el motor de flujo: una **proporción** dentro de una rama con más de
-una clave (`is="US|CA|MX"`), o dentro de `<default>`. Esas filas son una unión de
-subconjuntos, o lo que queda tras todas las demás ramas, y el motor de flujo no puede
-numerarlas fila a fila — que es justo lo que necesita una proporción exacta. TDC dirige
-esa configuración al motor en memoria por su cuenta: obtiene la proporción exacta y paga
-con la memoria que exige mantener la ejecución. Una rama con una **sola** clave sigue en
-flujo con normalidad.
+Dos formas le cuestan el motor de flujo, y ambas son sobre una **proporción** dentro de
+una rama:
+
+- la rama tiene más de una clave (`is="US|CA|MX"`), o es `<default>`;
+- o el **sujeto** del `<switch>` no es una lista `value=` simple: un pack, un archivo,
+  una columna con `order="sequential"` o con `repeat=`. Entonces hasta una rama con una
+  sola clave lo pierde, porque el motor no puede enumerar los valores del sujeto antes
+  que las filas.
+
+En ambos casos esas filas son un subconjunto que el motor de flujo no puede numerar fila
+a fila — que es justo lo que necesita una proporción exacta. TDC dirige esa configuración
+al motor en memoria por su cuenta: obtiene la proporción exacta y paga con la memoria que
+exige mantener la ejecución. Una rama con una **sola** clave sobre una lista `value=`
+simple sigue en flujo con normalidad.
 
 Forzar el motor de flujo en una de esas configuraciones lo dice en vez de aproximar:
 

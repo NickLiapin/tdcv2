@@ -152,8 +152,9 @@ itself whether to parallelize. In short:
 - **`--jobs N`** — set the worker count by hand. This is **only about speed**: the output
   is byte-identical to a single-threaded run.
 - **`--mode memory`** — the small in-RAM engine, an escape hatch for small datasets and
-  the object API. It produces its **own** sequence of values: a different engine means a
-  different result, not the same one.
+  the object API. It produces the **same values** as the other engines
+  ([determinism](../core-concepts/determinism.md#top)); it simply holds every column in RAM
+  instead of streaming it.
 - **`--engine 1|2|3`** — force a specific engine; `--stream` is a legacy alias for
   `--engine 2`.
 

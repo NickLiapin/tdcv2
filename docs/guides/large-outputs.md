@@ -54,10 +54,10 @@ Two engines run under "disk", and TDC picks between them **from your config**:
   for it: a worker sees only its own range of rows, and could not tell a duplicate outside
   that range from a value it has never seen.
 
-Disk mode has a third destination, and it is the one worth knowing about: six config
+Disk mode has a third destination, and it is the one worth knowing about: eight config
 shapes send the run back to the small in-memory engine, where memory grows with `count`.
 One of them is the commonest way of writing `uniq`. [Which engine runs your
-config](#which-engine-runs-your-config) lists all six.
+config](#which-engine-runs-your-config) lists all eight.
 
 The choice is **deterministic — based on the config, not the hardware** — so the same
 config gives the same result on every machine (reproducibility across machines is a core
@@ -66,7 +66,7 @@ TDC guarantee).
 ## Which engine runs your config
 
 `mode="disk"` asks for bounded memory. It does not always get it. TDC reads the config
-first, and six shapes route the run to the **small in-memory engine**, whose memory grows
+first, and eight shapes route the run to the **small in-memory engine**, whose memory grows
 with the row count. They are checked in this order.
 
 | Shape                                                                                                                                                                | Why it cannot stream                                                                                                                           |
@@ -77,6 +77,8 @@ with the row count. They are checked in this order.
 | `uniq="true"` on a single drawn column, alone or beside literal text                                                                                                 | The draw is **without replacement**, so the pool and the set already taken both span the whole column.                                         |
 | [`type="http"`](../generators/http.md#top) — a network call                                                                                                             | It is neither reproducible nor synchronous, and resolves in an async pass after the rest of the registry is built.                             |
 | A `percent=` inside a [`<switch>`](../constructs/switch.md#a-share-inside-a-branch) branch keyed on several values — `is="US\|CA\|MX"` — or inside `<default>`      | The share is a quota over the branch's own rows, and those rows are a union of subsets, or what every other branch left behind. Neither can be numbered one row at a time. |
+| A column **derived from another column** — a [running total](../generators/running.md#top), a [statistic](../generators/stat.md#top), a [date measured from another column](../generators/date.md#top), a formula | Each reads a column that has to exist first, which the streaming builder refuses by name. |
+| A bare [`parent="Name"`](../guides/hierarchical-dependencies.md#top) with no value                                                                                       | It narrows a column to the rows where the parent produced anything, and that is not knowable without the parent's whole column. |
 
 Whatever is left that asks about the finished column goes to the exact on-disk engine, and
 everything else streams.
@@ -103,20 +105,18 @@ tdcv2: stream mode: uniq (a whole-column rearrangement) ("K") is not supported y
 You normally never see a message like that. The router picks the engine itself, and a
 refusal only surfaces when a config _names_ a streaming engine and so has asked to be told.
 
-A downgrade is not a bug. Each of the six shapes is a promise about a whole column, and an
+A downgrade is not a bug. Each of the eight shapes is a promise about a whole column, and an
 engine that answered it from one row would emit data that looks right and is not. What it
 costs is memory: on the in-memory engine the whole column is held, so a run using one of
 these shapes is bounded by RAM rather than by disk. [`preflight()`](#preflight--a-memory-risk-estimate)
 estimates that before the run.
 
-One more route exists for what the list cannot see in advance. If the streaming engine
-turns out to refuse a config anyway — a [running
-total](../generators/running.md#which-engine-runs-it), a
-[statistic](../generators/stat.md#top), a [date measured from another
-column](../generators/date.md#top), a bare `parent="Name"` with no value, a
-[pool](../pools/overview.md#top) reference — an automatically routed disk run falls
-back to the in-memory engine rather than failing. A **forced** `--engine 2` still fails,
-which is the point of forcing it:
+The list above is decided **before** the run, which matters for `--jobs`: a parallel run
+hands each worker a forced streaming engine, and a worker has nowhere to fall back to. A
+last-resort net is still there for a rare `uniq`/`distinct`/`parent` edge case the list
+cannot see — an automatically routed disk run that the streaming engine refuses anyway
+falls back to the in-memory engine rather than failing. A **forced** `--engine 2` still
+fails, which is the point of forcing it:
 
 `./run report.tdc --engine 2`
 

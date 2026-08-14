@@ -416,9 +416,11 @@ The middle column is the value after the mask; the right one is after the mask *
 
 ## More filters: slice, replace, trim, group
 
-These use the same three routes (filter / `<gen>` attribute /
-[`<compute>`](../compute/strings.md#top) tag). Each one below follows raw → tool → result,
-with a variation.
+These use **two** of the three routes — the filter and the
+[`<compute>`](../compute/strings.md#top) tag. `mask` and `case` are the only two of the
+family that exist as `<gen>` attributes; writing `slice=` or `trim=` on a `<gen>` is
+`TDC015`, so for the rest, format where the value is printed. Each one below follows
+raw → tool → result, with a variation.
 
 ### `slice` — cut a part by index
 

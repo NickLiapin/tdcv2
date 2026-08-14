@@ -147,8 +147,9 @@ por su cuenta si paralelizar. En resumen:
 - **`--jobs N`** — fija a mano la cantidad de hilos de trabajo. Esto es **solo cuestión
   de velocidad**: la salida es byte por byte idéntica a la de una corrida de un solo hilo.
 - **`--mode memory`** — el motor pequeño en RAM (una salida de emergencia para datos
-  chicos y para la API de objetos). Da **su propia** secuencia de valores: es otro motor,
-  no el mismo resultado.
+  chicos y para la API de objetos). Da **los mismos valores** que los demás motores
+  ([determinismo](../core-concepts/determinism.mdx)); simplemente mantiene cada columna en
+  RAM en vez de transmitirla.
 - **`--engine 1|2|3`** — fuerza un motor específico; `--stream` es un alias heredado de
   `--engine 2`.
 

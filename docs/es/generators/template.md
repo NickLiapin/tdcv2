@@ -17,7 +17,8 @@ fuente integrada; el atributo [`value`](../reference/attributes.md#top) es una *
 puntos** que selecciona cuál, y muchas plantillas respetan el
 [locale](../core-concepts/configuration.md#top).
 
-Una ruta desconocida es un error de render: `unknown template path "..."`.
+Una ruta desconocida es `TDC071`: `tdcv2 check` la reporta antes de generar una sola
+fila, con el valor ofensivo subrayado y la ruta real más cercana como sugerencia.
 
 > [!NOTE]
 > **Las salidas son ilustrativas**

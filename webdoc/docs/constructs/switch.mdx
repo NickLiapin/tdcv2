@@ -395,7 +395,7 @@ international    30`}
 </Terminal>
 
 Ninety records match `US|CA|MX`, and `27 + 63 = 90` — 30% of the branch, to the record.
-These two shapes cost you the streaming engine; see
+A share inside a branch costs you the streaming engine in two cases; see
 [Deterministic across engines](#deterministic-across-engines).
 
 ## A `<switch>` inside a `<case>`
@@ -528,12 +528,17 @@ A branch that **generates** its value draws like any other generator. The result
 fixed by the `seed`, and all three engines (memory / stream / disk) produce the same rows,
 but the value is no longer decided by the subject alone.
 
-One shape gives up the streaming engine: a **share** inside a branch keyed on more than
-one value (`is="US|CA|MX"`), or inside `<default>`. Those rows are a union of subsets, or
-what is left after every other branch has taken its own, and the streaming engine cannot
-number them one row at a time — which is what an exact share needs. TDC routes such a
-config to the in-memory engine on its own: you get the exact share, and the memory cost of
-holding the run. A branch keyed on a **single** value streams normally.
+Two shapes give up the streaming engine, and both are about a **share** inside a branch:
+
+- the branch is keyed on more than one value (`is="US|CA|MX"`), or it is `<default>`;
+- or the `<switch>` **subject** is not a plain `value=` list — a pack, a file, a
+  `order="sequential"` or a `repeat=` column. Then even a branch keyed on a single value
+  loses it, because the engine cannot enumerate the subject's values ahead of the rows.
+
+Either way those rows are a subset the streaming engine cannot number one row at a time,
+which is what an exact share needs. TDC routes such a config to the in-memory engine on
+its own: you get the exact share, and the memory cost of holding the run. A branch keyed
+on a **single** value over a plain `value=` list streams normally.
 
 Forcing the streaming engine on one of those configs says so rather than approximating:
 

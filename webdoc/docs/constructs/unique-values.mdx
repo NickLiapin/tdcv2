@@ -21,8 +21,10 @@ tool for each:
 Think of them as the same idea on two axes. `<distinct>` works **horizontally** —
 inside a single row, so you never get `John John` or "born in Paris, lives in Paris".
 `uniq` works **vertically** — down the whole dataset, so the same
-`(first, last)` pair never appears twice. They're fully independent; use either,
-or both at once.
+`(first, last)` pair never appears twice. Use either, or both in one config on
+**different** fields. On the same fields they are refused (`TDC267`): `uniq` rearranges
+the finished columns and knows nothing about which pairings the `<distinct>` repair
+ruled out, so it would undo the repair.
 
 :::note[Example outputs are illustrative]
 The values below are what a typical run produces. Exact draws can differ by core
