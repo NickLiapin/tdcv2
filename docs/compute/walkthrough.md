@@ -169,8 +169,8 @@ that needs it.
 <result><concat><use name="base"/><use name="check"/></concat></result>
 ```
 
-Eight digits and the ninth, joined. `<result>` is where a `<compute>` ends; there is
-exactly one, and its value is what `${{Routing}}` prints.
+Eight digits and the ninth, joined. `<result>` is where a `<compute>` ends, and its value
+is what `${{Routing}}` prints. A block ends once, so nothing may sit beside `<result>`.
 
 ## What to copy from this
 

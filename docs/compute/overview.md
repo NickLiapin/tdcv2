@@ -67,8 +67,10 @@ Read a `<compute>` as a pipe with three parts.
 2. **Work.** Operations nest inside one another, innermost first.
 3. **Output.** `<result>` holds the finished value, one per record.
 
-`<result>` is required and there is exactly one of it. Everything else in the block is
-either a `<let>` binding or the tree inside that `<result>`.
+A `<compute>` produces exactly one value. `<result>` is how you say which tree that value
+comes from, and everything else in the block is a `<let>` binding or part of that tree.
+When the block is a single expression you may leave `<result>` off — the expression is
+the value. What is refused is two trees side by side, because only one of them can win.
 
 ![](../img/compute/pipe.svg)
 

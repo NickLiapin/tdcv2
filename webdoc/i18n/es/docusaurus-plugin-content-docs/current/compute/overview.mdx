@@ -67,8 +67,10 @@ Lea un `<compute>` como una tubería de tres partes.
 2. **Trabajo.** Las operaciones se anidan unas dentro de otras, de adentro hacia afuera.
 3. **Salida.** `<result>` sostiene el valor terminado, uno por registro.
 
-`<result>` es obligatorio y hay exactamente uno. Todo lo demás en el bloque es una
-ligadura `<let>` o el árbol que vive dentro de ese `<result>`.
+Un `<compute>` produce exactamente un valor. `<result>` es la forma de decir de qué árbol
+sale ese valor; todo lo demás en el bloque es una ligadura `<let>` o parte de ese árbol.
+Cuando el bloque es una sola expresión puede omitir `<result>`: la expresión es el valor.
+Lo que se rechaza son dos árboles lado a lado, porque solo uno de ellos puede ganar.
 
 <Figure
   src="/img/compute/pipe.svg"

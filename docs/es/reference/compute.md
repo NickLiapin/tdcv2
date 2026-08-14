@@ -103,7 +103,7 @@ A fondo: [Condicionales](../compute/conditionals.md#top)
 | [`<init>`](../compute/lists.md#reduce--plegar-a-un-solo-valor)       | 1 → `int\|str\|list` | El valor inicial del acumulador para `<reduce>`      |
 | [`<in>`](../compute/lists.md#at--indexar-una-lista)                  | 1 → `list`           | La lista para `<at>`                                 |
 | [`<index>`](../compute/lists.md#at--indexar-una-lista)               | 1 → `int`            | El índice del elemento para `<at>`                   |
-| [`<result>`](../compute/overview.md#top)                                 | 1 → `int\|str\|list` | El valor final de un `<compute>`                     |
+| [`<result>`](../compute/overview.md#top)                                 | 1 → `int\|str`       | El valor final de un `<compute>`                     |
 | [`<valid>`](../compute/conditionals.md#valid--rechazar-y-reintentar) | 1 → `—`              | Rechaza y reintenta hasta obtener algo válido        |
 
 Vea la sección [Lenguaje de cálculo](../compute/overview.md#top) para ejemplos resueltos.

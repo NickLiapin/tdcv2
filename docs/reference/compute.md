@@ -104,7 +104,7 @@ In depth: [Conditionals](../compute/conditionals.md#top)
 | [`<init>`](../compute/lists.md#reduce--fold-to-one-value)       | 1 → `int\|str\|list` | The accumulator's starting value for `<reduce>` |
 | [`<in>`](../compute/lists.md#at--index-into-a-list)             | 1 → `list`           | The list for `<at>`                             |
 | [`<index>`](../compute/lists.md#at--index-into-a-list)          | 1 → `int`            | The item index for `<at>`                       |
-| [`<result>`](../compute/overview.md#top)                            | 1 → `int\|str\|list` | The final value of a `<compute>`                |
+| [`<result>`](../compute/overview.md#top)                            | 1 → `int\|str`       | The final value of a `<compute>`                |
 | [`<valid>`](../compute/conditionals.md#valid--reject-and-retry) | 1 → `—`              | Reject and retry until the value is valid       |
 
 See the [Compute Language](../compute/overview.md#top) section for worked examples.

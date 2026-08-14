@@ -193,9 +193,9 @@ Las formas con índice son las mismas que toma el filtro `mask:` — `x[0..2]` p
 `x[-1]` contando desde el final — y la [guía de máscaras](../guides/masks-and-case.md#mover-piezas--x0-w0-y-rangos)
 las recorre una por una. `pattern="x[2]x[1]x[0]"` sobre `ABC` da `CBA`.
 
-`pattern` es el único atributo (y es obligatorio). Una máscara es **tolerante y nunca
-falla**: si `x` / `w` se pasan del final de la entrada no imprimen nada, y cualquier cola
-sobrante se descarta a menos que un `*` la recoja.
+`pattern` es el único atributo (y es obligatorio); `check` lo lee y rechaza un patrón que
+no pueda analizar. Lo tolerante es la **entrada**: si `x` / `w` se pasan de su final no
+imprimen nada, y cualquier cola sobrante se descarta a menos que un `*` la recoja.
 
 **Úselo cuando** un valor llegue como un solo string pegado y usted necesite grupos y
 separadores — un número de seguro social, un número de tarjeta, un teléfono. Los mismos

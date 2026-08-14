@@ -180,9 +180,9 @@ The indexed forms are the same ones the `mask:` filter takes — `x[0..2]` for a
 `x[-1]` counting from the end — and the [masks guide](../guides/masks-and-case.mdx#moving-pieces--x0-w0-and-ranges)
 works through them. `pattern="x[2]x[1]x[0]"` over `ABC` gives `CBA`.
 
-`pattern` is the only attribute, and it's required. A mask is **lenient and never fails**: if
-`x` / `w` run past the end of the input they print nothing, and any leftover tail is
-dropped unless a `*` picks it up.
+`pattern` is the only attribute, and it's required; `check` reads it and refuses a pattern it
+cannot parse. What is lenient is the **input**: if `x` / `w` run past the end of it they print
+nothing, and any leftover tail is dropped unless a `*` picks it up.
 
 **Use it when** a value arrives as one glued-together string and you need groups and
 separators — an SSN, a card number, a phone. The same digits under one pattern:

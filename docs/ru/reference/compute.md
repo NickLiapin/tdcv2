@@ -103,7 +103,7 @@
 | [`<init>`](../compute/lists.md#reduce--свёртка-в-одно-значение)      | 1 → `int\|str\|list` | Начальное значение накопителя для `<reduce>`        |
 | [`<in>`](../compute/lists.md#at--доступ-по-индексу)                  | 1 → `list`           | Список для `<at>`                                   |
 | [`<index>`](../compute/lists.md#at--доступ-по-индексу)               | 1 → `int`            | Номер элемента для `<at>`                           |
-| [`<result>`](../compute/overview.md#top)                                 | 1 → `int\|str\|list` | Итоговое значение `<compute>`                       |
+| [`<result>`](../compute/overview.md#top)                                 | 1 → `int\|str`       | Итоговое значение `<compute>`                       |
 | [`<valid>`](../compute/conditionals.md#valid--отбросить-и-повторить) | 1 → `—`              | Reject-and-retry: перегенерировать, пока не валидно |
 
 Проработанные примеры — в разделе [Язык вычислений](../compute/overview.md#top).
