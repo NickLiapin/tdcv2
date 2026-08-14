@@ -24,6 +24,7 @@ import Terminal from '@site/src/components/Terminal';
 | `first_zero` | нет          | `true` / `false` — разрешён ли ведущий ноль                           |
 | `include`    | нет          | Добавить числа или диапазоны к `value`                                |
 | `exclude`    | нет          | Убрать числа или диапазоны из `value`                                 |
+| `decimals`   | нет          | Цифр после запятой, `0`–`10` — делает колонку дробной                 |
 
 Без `value` и без `length` генератор `number` выдаёт одну случайную цифру
 `0`–`9`.
@@ -150,6 +151,38 @@ import Terminal from '@site/src/components/Terminal';
 
 Числа не изменились — их просто дополнили до четырёх цифр. В этом режиме паддинга
 ведущий ноль по умолчанию разрешён (чтобы короткое значение могло добрать ширину).
+
+## `decimals` — дробная колонка
+
+**Задача.** Цена, ставка, измерение. `value="1..999"` даёт целые числа; `decimals="2"`
+даёт тот же диапазон с двумя цифрами после точки.
+
+```xml
+<gen type="number" value="1..999" decimals="2"/>
+```
+
+<Terminal title="./run price.tdc">
+{`767.76
+177.73
+239.10`}
+</Terminal>
+
+`decimals` принимает целое от **0 до 10**. Всё остальное останавливает прогон:
+
+<Terminal title="./run price.tdc (decimals=&quot;11&quot;)">
+{`tdcv2: number decimals must be an integer 0..10, got "11"`}
+</Terminal>
+
+Он **заменяет** `length`, а не дополняет его: у дробного значения нет целой ширины,
+которую можно добить, поэтому пара — это `TDC278`:
+
+<Terminal title="tdcv2 check price.tdc">
+{`error[TDC278]: length="8" is not read beside decimals="2" — a fractional value has no integer width to pad`}
+</Terminal>
+
+С [`include` / `exclude`](#добавить-и-убрать-числа-include--exclude) он тоже не
+сочетается. Дробная колонка не из плоского диапазона, а по **форме** распределения —
+в [статистических распределениях](../guides/statistical-distributions.mdx).
 
 ## Режим цифровой строки
 

@@ -27,6 +27,7 @@ se le dé. Esta página recorre cada uno.
 | `first_zero` | no          | `true` / `false` — si se permite un cero inicial                                    |
 | `include`    | no          | Agrega números o rangos a `value`                                                   |
 | `exclude`    | no          | Quita números o rangos de `value`                                                   |
+| `decimals`   | no          | Dígitos después del punto decimal, `0`–`10` — vuelve fraccionaria la columna        |
 
 **Sin** `value` y **sin** `length`, `number` emite un solo dígito aleatorio del `0`
 al `9`.
@@ -171,6 +172,45 @@ raw    length="4"
 Los números no cambiaron — nada más se rellenaron a cuatro dígitos. En este modo de
 relleno se permite un cero inicial por omisión (para que un valor corto pueda
 alcanzar el ancho).
+
+## `decimals` — una columna fraccionaria
+
+**Problema.** Un precio, una tasa, una medición. `value="1..999"` da números enteros;
+`decimals="2"` da el mismo rango con dos dígitos después del punto.
+
+```xml
+<gen type="number" value="1..999" decimals="2"/>
+```
+
+`./run price.tdc`
+
+```
+767.76
+177.73
+239.10
+```
+
+`decimals` toma un entero de **0 a 10**. Cualquier otra cosa detiene la corrida:
+
+`./run price.tdc (decimals=&quot;11&quot;)`
+
+```
+tdcv2: number decimals must be an integer 0..10, got "11"
+```
+
+**Reemplaza** a `length` en vez de sumarse a él — un valor fraccionario no tiene ancho
+entero que rellenar, así que el par es `TDC278`:
+
+`tdcv2 check price.tdc`
+
+```
+error[TDC278]: length="8" is not read beside decimals="2" — a fractional value has no integer width to pad
+```
+
+Tampoco se combina con
+[`include` / `exclude`](#agregar-y-quitar-números-include--exclude). Para una columna
+fraccionaria sacada de una **forma** y no de un rango plano, vea
+[Distribuciones estadísticas](../guides/statistical-distributions.md#top).
 
 ## Modo cadena de dígitos
 

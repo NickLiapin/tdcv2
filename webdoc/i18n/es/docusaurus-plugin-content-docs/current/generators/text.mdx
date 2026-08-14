@@ -81,7 +81,9 @@ patrón. Mismo atributo, gramática distinta — esta página cubre solo la lect
 Esto es lo que distingue a `text` de un simple selector aleatorio. Agregue `percent`
 y TDC acomoda los valores en cantidades **exactas** usando el método de Hamilton (del
 resto mayor): el número de veces que aparece cada valor coincide, garantizado, con
-los porcentajes. Lo aleatorio es solo el _orden_.
+los porcentajes. Lo aleatorio es solo el _orden_ — por eso `percent` y
+`order="sequential"` se excluyen (`TDC271`): recorrer la lista en orden ya fija qué valor
+recibe cada fila, y no queda proporción que repartir.
 
 ```xml
 <sequence name="Gender">

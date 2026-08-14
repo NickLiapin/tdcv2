@@ -56,6 +56,10 @@ Los nombres de las carpetas se convierten en los segmentos separados por puntos.
 nada que declarar: la ubicación **es** la dirección. Use esto para todo lo que quepa en
 un árbol de carpetas ordenado; para la mayoría de los paquetes no hace falta más.
 
+Un nombre de carpeta es la excepción: `countries/` nunca se vuelve un segmento. Un archivo
+en `countries/usa/docs/ssn.txt` se direcciona `usa.docs.ssn` — los packs de país se
+direccionan por el país, y la carpeta solo existe para mantener el almacén ordenado.
+
 ### A partir de un encabezado (anulación)
 
 Si un archivo queda suelto, o necesita una dirección que no coincide con su carpeta,

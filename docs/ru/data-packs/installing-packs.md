@@ -79,6 +79,10 @@ tdcv2: no pack store configured — run `tdcv2 init` first
 какая локаль по умолчанию). В скрипте или CI передавайте флаги, чтобы ничего не зависало на
 вопросе.
 
+**Проектный** `init` вдобавок кладёт три готовых примера в новую папку `tdcv2-examples/` —
+это стоит знать до запуска внутри существующего репозитория.
+[`--global`](#--global---g--один-конфиг-на-все-проекты) не пишет ни одного.
+
 ```bash
 tdcv2 init            # спросит и запишет
 ```
@@ -89,8 +93,13 @@ tdcv2 init            # спросит и запишет
 Wrote project config: /path/to/project/tdcv2.config.json
   data packs → /path/to/project/tdcv2-packs
   locale     → en
+  examples   → tdcv2-examples/01-starter.tdc, tdcv2-examples/02-any-format.tdc, tdcv2-examples/03-coherent-records.tdc
 
-Next: run `tdcv2 pack` to download data packs into that folder.
+Next: run it.
+    tdcv2 tdcv2-examples/01-starter.tdc
+
+The common, en and USA packs are already inside this install, so the
+examples run with nothing downloaded. `tdcv2 pack` adds more locales.
 ```
 
 Используйте один раз на проект, перед первым `tdcv2 pack add`. Каждый флаг ниже покрывает
@@ -111,8 +120,13 @@ tdcv2 init --yes
 Wrote project config: /path/to/project/tdcv2.config.json
   data packs → /path/to/project/tdcv2-packs
   locale     → en
+  examples   → tdcv2-examples/01-starter.tdc, tdcv2-examples/02-any-format.tdc, tdcv2-examples/03-coherent-records.tdc
 
-Next: run `tdcv2 pack` to download data packs into that folder.
+Next: run it.
+    tdcv2 tdcv2-examples/01-starter.tdc
+
+The common, en and USA packs are already inside this install, so the
+examples run with nothing downloaded. `tdcv2 pack` adds more locales.
 ```
 
 ### `--global` / `-g` — один конфиг на все проекты

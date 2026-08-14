@@ -665,7 +665,11 @@ a tax rate).
 - `<in>` must be a **list** ([`<list>`](#list--a-literal-list-of-values) or the result of
   [`<each>`](#each--map-over-a-list)).
 - **Out of range:** if the `default` attribute is set, it's returned; without `default`,
-  it's an error. That's how a table gets a fallback value.
+  it's an error. That's how a table gets a fallback value — but `default` is always read as
+  an **integer**, including over a list of [`<str>`](strings.mdx). `default="Unknown"` passes
+  `check` and then stops the run mid-way complaining about `<to_number>`, a tag the config
+  never wrote. For a string fallback, wrap the `<at>` in a
+  [`<choose>`](conditionals.mdx#choose--pick-the-first-matching-branch) that tests the index instead.
 
 | Attribute | Required | Default | What it sets                                        |
 | :-------- | :------- | :------ | :-------------------------------------------------- |

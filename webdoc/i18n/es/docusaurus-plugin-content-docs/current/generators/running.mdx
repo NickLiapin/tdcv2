@@ -80,6 +80,9 @@ C  72.74  129.41
 C  94.78  224.19`}
 </Terminal>
 
+`base=` es el valor inicial de **cada tramo**, no de la corrida: con `reset=`, cada grupo
+vuelve a arrancar desde él — que es justo lo que quiere un saldo inicial por cuenta.
+
 Un tramo termina donde el valor de `reset=` **cambia respecto de la fila anterior**, así
 que los grupos tienen que venir juntos. `order="sequential"` arriba es una manera de
 lograrlo; ordenar es otra, aunque [de ordenar suele encargarse la base de

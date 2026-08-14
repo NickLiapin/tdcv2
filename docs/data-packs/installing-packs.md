@@ -78,6 +78,10 @@ terminal it runs a short wizard: where to store the config, where to download pa
 which locale is the default. In a script or in CI, pass flags instead so nothing blocks
 on a prompt.
 
+A **project** init also writes three runnable examples into a new `tdcv2-examples/`
+folder — worth knowing before running it inside an existing repository.
+[`--global`](#--global---g--one-config-for-every-project) writes none.
+
 ```bash
 tdcv2 init            # ask, then write
 ```
@@ -88,8 +92,13 @@ tdcv2 init            # ask, then write
 Wrote project config: /path/to/project/tdcv2.config.json
   data packs → /path/to/project/tdcv2-packs
   locale     → en
+  examples   → tdcv2-examples/01-starter.tdc, tdcv2-examples/02-any-format.tdc, tdcv2-examples/03-coherent-records.tdc
 
-Next: run `tdcv2 pack` to download data packs into that folder.
+Next: run it.
+    tdcv2 tdcv2-examples/01-starter.tdc
+
+The common, en and USA packs are already inside this install, so the
+examples run with nothing downloaded. `tdcv2 pack` adds more locales.
 ```
 
 Use it once per project, before your first `tdcv2 pack add`. Each flag below covers a
@@ -111,8 +120,13 @@ tdcv2 init --yes
 Wrote project config: /path/to/project/tdcv2.config.json
   data packs → /path/to/project/tdcv2-packs
   locale     → en
+  examples   → tdcv2-examples/01-starter.tdc, tdcv2-examples/02-any-format.tdc, tdcv2-examples/03-coherent-records.tdc
 
-Next: run `tdcv2 pack` to download data packs into that folder.
+Next: run it.
+    tdcv2 tdcv2-examples/01-starter.tdc
+
+The common, en and USA packs are already inside this install, so the
+examples run with nothing downloaded. `tdcv2 pack` adds more locales.
 ```
 
 ### `--global` / `-g` — one config for every project

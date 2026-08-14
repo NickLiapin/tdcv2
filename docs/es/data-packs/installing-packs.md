@@ -83,6 +83,11 @@ En una terminal interactiva corre un asistente breve (dónde guardar la configur
 dónde descargar los paquetes, cuál es el locale por omisión). En un script o en CI, pase
 banderas para que nada se quede esperando una respuesta.
 
+Un `init` de **proyecto** además escribe tres ejemplos ejecutables en una carpeta nueva
+`tdcv2-examples/` — conviene saberlo antes de correrlo dentro de un repositorio existente.
+[`--global`](#--global---g--una-sola-configuración-para-todos-los-proyectos) no escribe
+ninguno.
+
 ```bash
 tdcv2 init            # pregunta y luego escribe
 ```
@@ -93,8 +98,13 @@ tdcv2 init            # pregunta y luego escribe
 Wrote project config: /path/to/project/tdcv2.config.json
   data packs → /path/to/project/tdcv2-packs
   locale     → en
+  examples   → tdcv2-examples/01-starter.tdc, tdcv2-examples/02-any-format.tdc, tdcv2-examples/03-coherent-records.tdc
 
-Next: run `tdcv2 pack` to download data packs into that folder.
+Next: run it.
+    tdcv2 tdcv2-examples/01-starter.tdc
+
+The common, en and USA packs are already inside this install, so the
+examples run with nothing downloaded. `tdcv2 pack` adds more locales.
 ```
 
 Úselo una vez por proyecto, antes de su primer `tdcv2 pack add`. Cada bandera de abajo
@@ -116,8 +126,13 @@ tdcv2 init --yes
 Wrote project config: /path/to/project/tdcv2.config.json
   data packs → /path/to/project/tdcv2-packs
   locale     → en
+  examples   → tdcv2-examples/01-starter.tdc, tdcv2-examples/02-any-format.tdc, tdcv2-examples/03-coherent-records.tdc
 
-Next: run `tdcv2 pack` to download data packs into that folder.
+Next: run it.
+    tdcv2 tdcv2-examples/01-starter.tdc
+
+The common, en and USA packs are already inside this install, so the
+examples run with nothing downloaded. `tdcv2 pack` adds more locales.
 ```
 
 ### `--global` / `-g` — una sola configuración para todos los proyectos

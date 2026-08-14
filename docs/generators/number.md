@@ -27,6 +27,7 @@ you provide. This page walks through each one.
 | `first_zero` | no       | `true` / `false` — whether a leading zero is allowed                |
 | `include`    | no       | Add numbers or ranges to `value`                                    |
 | `exclude`    | no       | Remove numbers or ranges from `value`                               |
+| `decimals`   | no       | Digits after the decimal point, `0`–`10` — makes the column fractional |
 
 With **no** `value` and **no** `length`, `number` emits a single random digit
 `0`–`9`.
@@ -168,6 +169,44 @@ raw    length="4"
 
 The numbers didn't change — they were just padded to four digits. In this padding
 mode a leading zero is allowed by default (so a short value can reach the width).
+
+## `decimals` — a fractional column
+
+**Problem.** A price, a rate, a measurement. `value="1..999"` gives you whole numbers;
+`decimals="2"` gives you the same range with two digits after the point.
+
+```xml
+<gen type="number" value="1..999" decimals="2"/>
+```
+
+`./run price.tdc`
+
+```
+767.76
+177.73
+239.10
+```
+
+`decimals` takes an integer **0 to 10**. Anything else stops the run:
+
+`./run price.tdc (decimals=&quot;11&quot;)`
+
+```
+tdcv2: number decimals must be an integer 0..10, got "11"
+```
+
+It **replaces** `length` rather than joining it — a fractional value has no integer
+width to pad, so the pair is `TDC278`:
+
+`tdcv2 check price.tdc`
+
+```
+error[TDC278]: length="8" is not read beside decimals="2" — a fractional value has no integer width to pad
+```
+
+It does not combine with [`include` / `exclude`](#add-and-remove-numbers-include--exclude)
+either. For a fractional column drawn from a **shape** rather than a flat range, see
+[Statistical distributions](../guides/statistical-distributions.md#top).
 
 ## Digit-string mode
 

@@ -89,6 +89,9 @@ C  72.74  129.41
 C  94.78  224.19
 ```
 
+`base=` is the opening value of **each segment**, not of the run: with `reset=`, every
+group starts from it again — which is what a per-account opening balance wants.
+
 A segment ends when `reset=`'s value **changes from the previous row**, so the groups have
 to be contiguous. `order="sequential"` above is one way to get that; sorting is another —
 though [the database usually does the sorting](../constructs/overview.md#top), so the common

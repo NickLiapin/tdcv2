@@ -675,7 +675,12 @@ nombre de una región, una tasa de impuesto).
 - `<in>` debe ser una **lista** ([`<list>`](#list--una-lista-literal-de-valores) o el
   resultado de [`<each>`](#each--mapear-sobre-una-lista)).
 - **Fuera de rango:** si el atributo `default` está definido, se devuelve ese valor; sin
-  `default`, es un error. Así es como una tabla obtiene un valor de respaldo.
+  `default`, es un error. Así es como una tabla obtiene un valor de respaldo — pero
+  `default` siempre se lee como un **entero**, incluso sobre una lista de
+  [`<str>`](strings.mdx). `default="Unknown"` pasa `check` y luego detiene la corrida a
+  mitad de camino quejándose de `<to_number>`, una etiqueta que la configuración nunca
+  escribió. Para un respaldo de texto, envuelva el `<at>` en un
+  [`<choose>`](conditionals.mdx#choose--elegir-la-primera-rama-que-coincida) que pruebe el índice.
 
 | Atributo  | Obligatorio | Por omisión | Qué define                                                      |
 | :-------- | :---------- | :---------- | :-------------------------------------------------------------- |

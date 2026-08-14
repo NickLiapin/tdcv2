@@ -87,7 +87,9 @@ For strict list order instead of random picks, add
 This is what sets `text` apart from a plain random picker. Add `percent` and TDC
 lays the values out to **exact** counts using the Hamilton (largest-remainder)
 method — the number of times each value appears is guaranteed to match the
-percentages. The randomness is only in the _order_.
+percentages. The randomness is only in the _order_ — which is why `percent` and
+`order="sequential"` exclude each other (`TDC271`): walking the list in order already
+fixes which value each row gets, leaving no share to apportion.
 
 ```xml
 <sequence name="Gender">

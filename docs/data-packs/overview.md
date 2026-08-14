@@ -55,6 +55,10 @@ Folder names become the dotted segments. Nothing to declare — the location **i
 address. Use this for anything that fits a tidy folder tree; it's the whole story for
 most packs.
 
+One folder name is the exception: `countries/` never becomes a segment. A file at
+`countries/usa/docs/ssn.txt` is addressed `usa.docs.ssn` — country packs are addressed by
+the country, and the folder is only there to keep the store tidy.
+
 ### From a header (override)
 
 If a file sits off on its own, or needs an address that doesn't match its folder, put
