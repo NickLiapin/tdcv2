@@ -413,6 +413,11 @@ sí mismo antes de recurrir a él:
 - **Local o volúmenes modestos.** Por internet, una corrida grande es una gran cantidad
   de llamadas salientes; esto es para un servicio en su propia máquina, o una corrida que
   usted dimensionó a propósito. No para mil millones de filas contra un endpoint público.
+- **Desde la biblioteca, solo el camino asíncrono.** Una llamada de red no puede salir de
+  una función síncrona, así que `toString()` y `writeFile()` **lanzan** sobre una
+  configuración con `http`. Use
+  [`toStringAsync()` / `writeFileAsync()`](../bindings/typescript.md#métodos-terminales)
+  — la CLI ya lo hace. Desde la línea de comandos no hay nada que hacer.
 
 ## Vea también
 

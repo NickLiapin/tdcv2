@@ -1,0 +1,131 @@
+---
+title: Editor support
+sidebar_position: 3
+---
+
+import Terminal from '@site/src/components/Terminal';
+
+# Editor support
+
+The npm package ships **two** executables. `tdcv2` generates data; `tdcv2-lsp` is a
+language server that gives any LSP-speaking editor live error checking, completion,
+hover, go-to-definition, find-references, rename and formatting for `.tdc` files.
+
+It is the same parser and the same validator the CLI uses. A diagnostic you see
+underlined in the editor is the one `tdcv2 check` would print — there is no second
+implementation to drift.
+
+## What you get
+
+| Feature                | What it does                                                                     |
+| :--------------------- | :------------------------------------------------------------------------------- |
+| **Live errors**        | Red underlines as you type, at the exact position, with the same `TDC…` codes and "did you mean…" suggestions as [`check`](../reference/cli.mdx) |
+| **Completion**         | Tags, attributes and values — generator types, sequence names for `parent=`, compute tags inside a `<compute>`, and **pack addresses with their `description:` text** |
+| **Hover**              | A short description on a tag or an attribute; on `${{Name}}`, which sequence it is and whether it is declared |
+| **Go to definition**   | Ctrl/Cmd-click `${{Name}}` or `parent="Name"` and land on `<sequence name="Name">` |
+| **Find references**    | Every use of a sequence in the file                                               |
+| **Rename**             | Rename a sequence and every reference follows                                      |
+| **Format**             | The same pretty-printer as [`tdcv2 format`](../reference/cli.mdx)                  |
+
+Completion triggers on `<`, a space, `"` and `.` — so typing a dot inside
+`value="person."` offers what is actually installed.
+
+Syntax highlighting is a **separate** artefact and needs no server: a TextMate grammar
+in the repository's `editor/` folder, which IntelliJ, VS Code and Sublime all read.
+
+## Install
+
+The LSP libraries are **optional peer dependencies**. A plain `npm i tdcv2` for
+generating data does not pull them in — they cost nothing until you run the server:
+
+```bash
+npm i -g tdcv2
+npm i -g vscode-languageserver vscode-languageserver-textdocument
+```
+
+Run without them and the server says so rather than throwing a module-resolution stack:
+
+<Terminal title="tdcv2-lsp --stdio">
+{`tdcv2-lsp: the TDC language server needs its optional packages, which are not
+installed by default. Install them to use the LSP:
+  npm i vscode-languageserver vscode-languageserver-textdocument`}
+</Terminal>
+
+Every editor below points at the same launch line:
+
+```bash
+tdcv2-lsp --stdio
+```
+
+## Which packs it completes
+
+The server offers the addresses it can actually see: the packs bundled with the install,
+plus `data/packs/` or `packs/` under any open workspace folder. Install a locale with
+[`tdcv2 pack add`](../data-packs/installing-packs.mdx) and restart the server to have its
+addresses appear in completion, each with the `description:` line from its file header.
+
+## IntelliJ IDEA and other JetBrains IDEs
+
+**Highlighting** — no server needed:
+
+1. Settings → Editor → **TextMate Bundles** → **+** → point it at the repository's
+   `editor/` folder.
+2. Settings → Editor → File Types → check that `*.tdc` is associated.
+
+**The language server:**
+
+1. Install the free **LSP4IJ** plugin (Red Hat) from the Marketplace.
+2. LSP4IJ → New Language Server:
+   - Name: `TDC`
+   - Command: `tdcv2-lsp --stdio`
+   - File name patterns: `*.tdc`, language id `tdc`
+3. Open a `.tdc` file — errors are underlined as you type.
+
+## VS Code
+
+A wrapper extension in the repository's `editor/vscode/` folder wires up both pieces and
+installs **locally, without the marketplace**:
+
+```bash
+cd editor/vscode && npm install && npm run build
+```
+
+Then either open that folder in VS Code and press **F5** to try it in a second window, or
+run `npx @vscode/vsce package` and install the resulting `.vsix` through
+**Install from VSIX…**.
+
+## Neovim
+
+With `nvim-lspconfig`, as a custom server:
+
+```lua
+local configs = require('lspconfig.configs')
+local lspconfig = require('lspconfig')
+if not configs.tdc then
+  configs.tdc = {
+    default_config = {
+      cmd = { 'tdcv2-lsp', '--stdio' },
+      filetypes = { 'tdc' },
+      root_dir = lspconfig.util.root_pattern('.git', 'data'),
+    },
+  }
+end
+lspconfig.tdc.setup({})
+```
+
+Highlighting comes from a TextMate-compatible plugin, or from a Tree-sitter grammar if
+one is added later.
+
+## Any other editor
+
+Anything that speaks LSP works: point it at `tdcv2-lsp --stdio` for files matching
+`*.tdc`. The server holds no editor-specific code — `server.ts` is a thin wrapper over
+the protocol, and the parts that do the thinking are pure functions shared with the
+library and the CLI.
+
+## See also
+
+- **[CLI reference](../reference/cli.mdx)** — `tdcv2 check` and `tdcv2 format`, the same
+  two engines behind the underlines and the formatter.
+- **[Error codes](../reference/errors.mdx)** — every code the editor can show you.
+- **[Installing packs](../data-packs/installing-packs.mdx)** — what completion will offer.

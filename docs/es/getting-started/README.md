@@ -12,6 +12,7 @@
 
 - [Instalación](./installation.md#top)
 - [Su primer conjunto de datos](./first-data.md#top)
+- [Soporte del editor](./editor-support.md#top)
 
 ---
 

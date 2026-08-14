@@ -346,10 +346,12 @@ TDC071: unknown template path 'person.male.firstNam'
 Los archivos ocultos (los que empiezan con `.`), y `README` / `LICENSE` / `CHANGELOG`,
 son ignorados por el escáner.
 
+El autocompletado de direcciones en el editor funciona con esos mismos encabezados
+`description:` y ya se distribuye — vea
+[Soporte del editor](../getting-started/editor-support.md#top).
+
 ## Lo que aún no existe
 
-- **Autocompletado de direcciones** en el editor (impulsado por los encabezados
-  `description:`) — es lo siguiente.
 - Un **manifiesto por lote** para una carpeta entera (licencia, autor, versión) — más
   adelante.
 

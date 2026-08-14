@@ -12,6 +12,7 @@
 
 - [Установка](./installation.md#top)
 - [Первый датасет](./first-data.md#top)
+- [Поддержка в редакторе](./editor-support.md#top)
 
 ---
 

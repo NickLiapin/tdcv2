@@ -12,6 +12,7 @@
 
 - [Installation](./installation.md#top)
 - [Your first dataset](./first-data.md#top)
+- [Editor support](./editor-support.md#top)
 
 ---
 

@@ -14,6 +14,7 @@
 
 - [Installation](./getting-started/installation.md#top)
 - [Your first dataset](./getting-started/first-data.md#top)
+- [Editor support](./getting-started/editor-support.md#top)
 
 ## Core Concepts
 

@@ -111,8 +111,12 @@ una capa de escapado.
 >
 >
 > Los bloques de código de este sitio llevan la etiqueta `xml` para que el navegador
-> coloree etiquetas y atributos. Ese coloreado es todo el alcance del asunto: es la
-> conjetura de un resaltador de sintaxis, no una afirmación sobre el formato.
+> coloree etiquetas y atributos: es la conjetura de un resaltador de sintaxis, no una
+> afirmación sobre el formato.
+>
+> En su propio editor tiene lo de verdad: una gramática de TDC y un servidor de lenguaje con
+> revisión de errores en vivo, autocompletado y navegación. Vea
+> [Soporte del editor](getting-started/editor-support.md#top).
 >
 
 ## Un ejemplo básico

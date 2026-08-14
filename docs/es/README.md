@@ -14,6 +14,7 @@
 
 - [Instalación](./getting-started/installation.md#top)
 - [Su primer conjunto de datos](./getting-started/first-data.md#top)
+- [Soporte del editor](./getting-started/editor-support.md#top)
 
 ## Conceptos básicos
 

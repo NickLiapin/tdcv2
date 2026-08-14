@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/core-concepts/configuration)**
 
-← Previous: [Your first dataset](../getting-started/first-data.md#top) · **[Contents](../README.md#top)** · Next: [Sequences](./sequences.md#top) →
+← Previous: [Editor support](../getting-started/editor-support.md#top) · **[Contents](../README.md#top)** · Next: [Sequences](./sequences.md#top) →
 
 ---
 
@@ -393,6 +393,6 @@ random seed instead. Always write the full `<env> … </env>` form.
 
 ---
 
-← Previous: [Your first dataset](../getting-started/first-data.md#top) · **[Contents](../README.md#top)** · Next: [Sequences](./sequences.md#top) →
+← Previous: [Editor support](../getting-started/editor-support.md#top) · **[Contents](../README.md#top)** · Next: [Sequences](./sequences.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/core-concepts/configuration)**

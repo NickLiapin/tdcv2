@@ -410,6 +410,10 @@ to yourself before reaching for it:
 - **Local or modest volumes.** Over the internet, a large run is a large number of
   outbound calls — this is for a service on your own machine, or a run you have sized on
   purpose. Not for a billion rows against a public endpoint.
+- **From the library, only the async path.** A network call cannot come out of a
+  synchronous function, so `toString()` and `writeFile()` **throw** on an `http` config.
+  Use [`toStringAsync()` / `writeFileAsync()`](../bindings/typescript.md#terminal-methods)
+  — the CLI already does. Nothing to do if you run it from the command line.
 
 ## See also
 

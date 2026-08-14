@@ -334,10 +334,11 @@ TDC071: unknown template path 'person.male.firstNam'
 Hidden files (anything starting with `.`) and `README` / `LICENSE` / `CHANGELOG` are
 ignored by the scanner.
 
+Address autocomplete in the editor is driven by those same `description:` headers, and
+it ships — see [Editor support](../getting-started/editor-support.md#top).
+
 ## Not yet built
 
-- **Address autocomplete** in the editor, driven by the `description:` headers — next
-  up.
 - A **batch manifest** for a whole folder (license, author, version) — later.
 
 ## See also

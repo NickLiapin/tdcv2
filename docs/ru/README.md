@@ -14,6 +14,7 @@
 
 - [Установка](./getting-started/installation.md#top)
 - [Первый датасет](./getting-started/first-data.md#top)
+- [Поддержка в редакторе](./getting-started/editor-support.md#top)
 
 ## Основы
 

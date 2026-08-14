@@ -109,8 +109,11 @@ exactly what lets a config emit JSON, SQL or HTML without fighting an escaping l
 >
 >
 > The code blocks on this site are tagged `xml` so your browser colours the tags and
-> attributes. That colouring is the entire extent of it. It is a syntax highlighter's
-> best guess, not a statement about the format.
+> attributes — a syntax highlighter's best guess, not a statement about the format.
+>
+> In your own editor you get the real thing: a TDC grammar and a language server with live
+> error checking, completion and navigation. See
+> [Editor support](getting-started/editor-support.md#top).
 >
 
 ## A basic example

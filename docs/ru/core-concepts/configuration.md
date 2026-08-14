@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/configuration)**
 
-← Назад: [Первый датасет](../getting-started/first-data.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Последовательности](./sequences.md#top) →
+← Назад: [Поддержка в редакторе](../getting-started/editor-support.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Последовательности](./sequences.md#top) →
 
 ---
 
@@ -398,6 +398,6 @@ error[TDC014]: <env/> cannot be self-closing — its attributes and children wou
 
 ---
 
-← Назад: [Первый датасет](../getting-started/first-data.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Последовательности](./sequences.md#top) →
+← Назад: [Поддержка в редакторе](../getting-started/editor-support.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Последовательности](./sequences.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/core-concepts/configuration)**

@@ -110,10 +110,28 @@ default — the whole run held at once, what `toArray()` does) or `"streaming"`.
 | `getAt(index)`     | one row object by index               | point access                   |
 | `preflight(opts?)` | a memory diagnostic, or `undefined`   | a check before a big run       |
 | `seedInfo()`       | `{ seed, generated }`                 | read / log the seed            |
+| `toStringAsync()`  | the whole output, as a promise        | a config with `type="http"`    |
+| `writeFileAsync(path)` | writes the output, as a promise   | a config with `type="http"`    |
+| `usesHttp()`       | `true` when the config makes a call   | choosing between the two pairs |
 
 `toString`, `writeFile`, `toIterator`, and `toStream` all produce text through the
 disk-backed engine, and their memory use is O(number of fields). See **[Large
 outputs](../guides/large-outputs.md#top)** for measurements.
+
+One rule about the async pair: a config holding an
+[`<gen type="http">`](../generators/http.md#top) **must** use it. A network call cannot be
+made from a synchronous function, so `toString()` on such a config throws rather than
+returning half a dataset:
+
+```ts
+const tdc = new TDC({ configFile: "./enriched.tdc" });
+const text = tdc.usesHttp() ? await tdc.toStringAsync() : tdc.toString();
+```
+
+`usesHttp()` answers that question without running anything, which is exactly what the
+CLI does. Everything else behaves identically on both paths — for a config with no `http`
+generator, `toStringAsync()` is `toString()` wrapped in a promise. What does change is
+reproducibility: a run that calls a service is only as repeatable as the service is.
 
 ## Object output
 
