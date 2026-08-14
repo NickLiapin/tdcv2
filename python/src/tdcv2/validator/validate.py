@@ -1106,22 +1106,42 @@ class _Validator:
         # BOTH sides. Counting the `%` alone let "%%" and "%x" through: they have one, they
         # cannot be split, and the renderer quietly stopped interpolating.
         inject = env_attrs.get("inject")
-        if inject is not None and re.search(r"(.+)%(.+)", inject) is None:
+        if inject is not None:
+            # A `%` is a hole only where it has text on BOTH sides, which is what the renderer's
+            # `(.+)%(.+)` asks for. None and the pattern can never split; several and only the
+            # rightmost is the hole, so the others survive as a literal `%` in the wrapper and the
+            # text would have to carry one to match — `inject="[%]-[%]"` with `<data>[Id]-[Id]`
+            # came out as `[Id]-[Id]` in five implementations and was refused by none.
+            holes = sum(1 for i in range(1, len(inject) - 1) if inject[i] == "%")
             line, column = _at(env, "inject")
-            self._error(
-                "TDC021",
-                (
-                    f'inject pattern "{inject}" has nothing on both sides of its "%" — '
-                    "interpolation will never match"
-                    if "%" in inject
-                    else f'inject pattern "{inject}" has no "%" placeholder — interpolation '
-                    "will never match"
-                ),
-                "The `%` is where the sequence name goes, and it needs an opening and a closing "
-                'part around it: inject="${{%}}", inject="[%]", inject="%{%}%".',
-                line,
-                column,
-            )
+            if holes == 0:
+                self._error(
+                    "TDC021",
+                    (
+                        f'inject pattern "{inject}" has nothing on both sides of its "%" — '
+                        "interpolation will never match"
+                        if "%" in inject
+                        else f'inject pattern "{inject}" has no "%" placeholder — interpolation '
+                        "will never match"
+                    ),
+                    "The `%` is where the sequence name goes, and it needs an opening and a "
+                    'closing part around it: inject="${{%}}", inject="[%]", inject="%{%}%".',
+                    line,
+                    column,
+                )
+            elif holes > 1:
+                self._error(
+                    "TDC021",
+                    f'inject pattern "{inject}" marks {holes} holes — one marker has room for one',
+                    "A `%` is the hole where the sequence name goes, and there is one of them. "
+                    "The engine reads the rightmost, so the others stay as a literal `%` in the "
+                    "wrapper and your text would have to contain one to match. Write a single "
+                    'hole — inject="[%]" — and repeat the name in the <data> instead: '
+                    '<data>[Id]-[Id]</data>. inject="%{%}%" is fine, because only its middle `%` '
+                    "has text on both sides.",
+                    line,
+                    column,
+                )
 
         # A share below one whole row: its own pass, because the denominator of a <mix> in a
         # switch branch belongs to the switch and not to the walk that follows.

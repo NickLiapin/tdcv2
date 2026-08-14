@@ -405,7 +405,12 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
   if (injectAttr) {
     ctx.inject = attrMap['inject'] ?? '${{%}}';
     const pattern = attrMap['inject'] ?? '';
-    if (!/(.+)%(.+)/.test(pattern)) {
+    // A `%` is a hole only where it has text on BOTH sides, which is what the
+    // renderer's `(.+)%(.+)` asks for. Count them: none and the pattern can
+    // never split, several and only the rightmost is the hole.
+    let holes = 0;
+    for (let i = 1; i < pattern.length - 1; i++) if (pattern[i] === '%') holes += 1;
+    if (holes === 0) {
       const hasPct = pattern.includes('%');
       ctx.diagnostics.push({
         severity: 'error',
@@ -417,6 +422,25 @@ function checkEnv(envEl: OpenCloseElementContext, ctx: Ctx): void {
         hint:
           'The `%` is where the sequence name goes, and it needs an opening and a closing part ' +
           'around it: inject="${{%}}", inject="[%]", inject="%{%}%".',
+        code: 'TDC021',
+      });
+    } else if (holes > 1) {
+      // The renderer takes the RIGHTMOST hole, so the others survive as literal
+      // `%` inside the wrapper — and the text would then have to carry a `%` of
+      // its own to match. `inject="[%]-[%]"` with `<data>[Id]-[Id]</data>` came
+      // out as `[Id]-[Id]`, accepted by five implementations and substituted by
+      // none of them.
+      ctx.diagnostics.push({
+        severity: 'error',
+        source: 'validator',
+        ...attrValueRange(injectAttr),
+        message: `inject pattern "${pattern}" marks ${String(holes)} holes — one marker has room for one`,
+        hint:
+          'A `%` is the hole where the sequence name goes, and there is one of them. The engine ' +
+          'reads the rightmost, so the others stay as a literal `%` in the wrapper and your text ' +
+          'would have to contain one to match. Write a single hole — inject="[%]" — and repeat ' +
+          'the name in the <data> instead: <data>[Id]-[Id]</data>. inject="%{%}%" is fine, ' +
+          'because only its middle `%` has text on both sides.',
         code: 'TDC021',
       });
     }

@@ -662,10 +662,16 @@ impl Validator {
             // Exactly what `(.+)%(.+)` asks: SOME `%` with at least one
             // character on each side. Testing only the first one would refuse
             // the documented `%{%}%`, whose usable `%` is the middle one.
-            let splittable = inject
+            // Several holes is the other half of the same defect: the renderer
+            // takes the RIGHTMOST, so the rest survive as a literal `%` in the
+            // wrapper and the text would have to carry one to match.
+            // `inject="[%]-[%]"` with `<data>[Id]-[Id]</data>` came out as
+            // `[Id]-[Id]` in five implementations and was refused by none.
+            let holes = inject
                 .char_indices()
-                .any(|(i, c)| c == '%' && i > 0 && i + c.len_utf8() < inject.len());
-            if !splittable {
+                .filter(|&(i, c)| c == '%' && i > 0 && i + c.len_utf8() < inject.len())
+                .count();
+            if holes == 0 {
                 let message = if inject.contains('%') {
                     format!(
                         "inject pattern \"{inject}\" has nothing on both sides of its \"%\" \
@@ -683,6 +689,21 @@ impl Validator {
                     "The `%` is where the sequence name goes, and it needs an opening and a \
                      closing part around it: inject=\"${{{{%}}}}\", inject=\"[%]\", \
                      inject=\"%{{%}}%\".",
+                    env.at("inject"),
+                );
+            } else if holes > 1 {
+                self.error(
+                    "TDC021",
+                    format!(
+                        "inject pattern \"{inject}\" marks {holes} holes — one marker has room \
+                         for one"
+                    ),
+                    "A `%` is the hole where the sequence name goes, and there is one of them. \
+                     The engine reads the rightmost, so the others stay as a literal `%` in the \
+                     wrapper and your text would have to contain one to match. Write a single \
+                     hole — inject=\"[%]\" — and repeat the name in the <data> instead: \
+                     <data>[Id]-[Id]</data>. inject=\"%{{%}}%\" is fine, because only its \
+                     middle `%` has text on both sides.",
                     env.at("inject"),
                 );
             }

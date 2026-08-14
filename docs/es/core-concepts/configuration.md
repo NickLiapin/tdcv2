@@ -286,9 +286,14 @@ Define el token que marca una sustitución de valor dentro de
 [`<data>`](output-formatting.md#top). Por omisión es `${{%}}`, donde `%` representa el nombre
 de la secuencia. Conviene cambiarlo cuando la salida debe contener un `${{...}}` literal
 —al generar una configuración de CI, una plantilla de Handlebars u otro archivo TDC— para
-que sus marcadores no choquen con los del destino. El `%` necesita texto a ambos lados, y
-cuando la cadena trae varios el hueco es **el más a la derecha que todavía lo tiene**: en
-`inject="%{%}%"` el nombre va entre `%{` y `}%`, y los dos exteriores son literales.
+que sus marcadores no choquen con los del destino.
+
+Un `%` es el hueco sólo donde tiene **texto a ambos lados**, y un marcador tiene exactamente un
+hueco. Por eso `inject="%{%}%"` es válido: sólo su `%` central cumple, el nombre va entre `%{` y
+`}%` y los dos exteriores son literales. Y por eso `inject="[%]-[%]"` se rechaza
+([`TDC021`](../reference/errors.md#top)): allí cumplen dos, el motor leería el de la derecha y el
+otro quedaría como un `%` literal que su texto no contiene — no se sustituiría nada y nadie lo
+diría. Repita el nombre dentro del propio `<data>`.
 
 ```xml
 <env count="2" seed="demo" inject="[%]">

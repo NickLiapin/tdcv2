@@ -72,7 +72,7 @@ identificador, no una clasificación. Guíese por los grupos de abajo.
 | `TDC014` | Una etiqueta que necesita hijos se escribió autocerrada      | Escriba `<env …></env>`, no `<env …/>` — sus hijos se perderían en silencio                                                           |
 | `TDC015` | Una etiqueta lleva un atributo que el motor no lee           | La corrida se detiene: el config pidió algo que no iba a obtener. Revise la escritura — el mensaje sugiere el nombre real más cercano |
 | `TDC020` | `count` no es un entero no negativo                          | `count="1000"`                                                                                                                        |
-| `TDC021` | Un patrón `inject` no tiene hueco `%`                        | El marcador necesita `%` para el nombre, p. ej. `inject="[[%]]"`                                                                      |
+| `TDC021` | Un patrón `inject` sin hueco, o con más de uno               | Un `%` es el hueco sólo donde tiene texto a AMBOS lados, y un marcador tiene exactamente uno: `inject="[[%]]"`. Ninguno (`"%%"`, `"%x"`, sin `%`) y no se sustituye nada; varios (`"[%]-[%]"`) y sólo se lee el de la derecha, quedando los otros como un `%` literal que su texto no contiene. `inject="%{%}%"` es válido: sólo cumple su `%` central |
 
 ## Secuencias
 

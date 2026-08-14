@@ -1047,17 +1047,40 @@ public final class Validator {
     // The renderer splits on `(.+)%(.+)`, so the pattern needs a `%` with something on BOTH
     // sides. Counting the `%` alone let "%%" and "%x" through: they have one, they cannot be
     // split, and the renderer quietly stopped interpolating.
+    // Several holes is the other half of the same defect: the renderer takes the RIGHTMOST,
+    // so the rest survive as a literal `%` in the wrapper and the text would have to carry one
+    // to match. inject="[%]-[%]" with <data>[Id]-[Id]</data> came out as [Id]-[Id] in five
+    // implementations and was refused by none.
     String inject = envAttrs.get("inject");
-    if (inject != null && !java.util.regex.Pattern.compile("(.+)%(.+)").matcher(inject).find()) {
-      error("TDC021",
-          inject.contains("%")
-              ? "inject pattern \"" + inject
-                  + "\" has nothing on both sides of its \"%\" — interpolation will never match"
-              : "inject pattern \"" + inject
-                  + "\" has no \"%\" placeholder — interpolation will never match",
-          "The `%` is where the sequence name goes, and it needs an opening and a closing part "
-              + "around it: inject=\"${{%}}\", inject=\"[%]\", inject=\"%{%}%\".",
-          at(env, "inject")[0], at(env, "inject")[1]);
+    if (inject != null) {
+      int holes = 0;
+      for (int i = 1; i + 1 < inject.length(); i++) {
+        if (inject.charAt(i) == '%') {
+          holes++;
+        }
+      }
+      if (holes == 0) {
+        error("TDC021",
+            inject.contains("%")
+                ? "inject pattern \"" + inject
+                    + "\" has nothing on both sides of its \"%\" — interpolation will never match"
+                : "inject pattern \"" + inject
+                    + "\" has no \"%\" placeholder — interpolation will never match",
+            "The `%` is where the sequence name goes, and it needs an opening and a closing part "
+                + "around it: inject=\"${{%}}\", inject=\"[%]\", inject=\"%{%}%\".",
+            at(env, "inject")[0], at(env, "inject")[1]);
+      } else if (holes > 1) {
+        error("TDC021",
+            "inject pattern \"" + inject + "\" marks " + holes
+                + " holes — one marker has room for one",
+            "A `%` is the hole where the sequence name goes, and there is one of them. The engine "
+                + "reads the rightmost, so the others stay as a literal `%` in the wrapper and "
+                + "your text would have to contain one to match. Write a single hole — "
+                + "inject=\"[%]\" — and repeat the name in the <data> instead: "
+                + "<data>[Id]-[Id]</data>. inject=\"%{%}%\" is fine, because only its middle `%` "
+                + "has text on both sides.",
+            at(env, "inject")[0], at(env, "inject")[1]);
+      }
     }
 
     // A share below one whole row: its own pass, because the denominator of a <mix> in a

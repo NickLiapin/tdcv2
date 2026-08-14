@@ -70,7 +70,7 @@ classification. Use the groups below.
 | `TDC014` | A tag that has to hold children is written self-closing           | Write `<env …></env>`, not `<env …/>` — its children would be silently dropped                                                         |
 | `TDC015` | A tag carries an attribute the engine doesn't read                | The run stops, because the config asked for something it wouldn't get. Check the spelling — the message suggests the nearest real name |
 | `TDC020` | `count` isn't a non-negative integer                              | `count="1000"`                                                                                                                         |
-| `TDC021` | An `inject` pattern has no `%` placeholder                        | The marker needs a `%` for the name, e.g. `inject="[[%]]"`                                                                             |
+| `TDC021` | An `inject` pattern with no hole, or with more than one           | A `%` is the hole only where it has text on BOTH sides, and a marker has exactly one — `inject="[[%]]"`. None (`"%%"`, `"%x"`, no `%` at all) and nothing is ever substituted; several (`"[%]-[%]"`) and only the rightmost is read, the others turning into literal `%` your text does not contain. `inject="%{%}%"` is legal: only its middle `%` qualifies |
 
 ## Sequences
 
