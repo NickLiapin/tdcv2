@@ -35,13 +35,13 @@ Besides generating, the CLI has `tdcv2 init` and `tdcv2 pack` for setup and data
 
 | Option                  | What it does                                        |
 | :---------------------- | :-------------------------------------------------- |
-| `-o, --output <path>`   | Write to a file. Without it, output goes to stdout  |
+| `-o, --output <path>`   | Write to a file. Without it, output goes to stdout. A path ending in `.parquet` selects the [Parquet](../guides/typed-output-parquet.md#top) writer — the only way to get it |
 | `--seed <seed>`         | Override the `seed` from `<env>`                    |
-| `--count <n>`           | Override the `count` from `<env>`                   |
+| `--count <n>`           | Override the `count` from `<env>` — a non-negative integer |
 | `--locale <loc>`        | Override the locale (default `en`)                  |
 | `--now <date>`          | Pin the clock that `today`, `now` and `b_day` read  |
 | `--data-path <dir>`     | Add a data folder for `@data/…` (repeatable)        |
-| `--jobs <n>`            | Number of worker threads (TDC picks one by default) |
+| `--jobs <n>`            | Number of worker threads, a positive integer (TDC picks one by default) |
 | `--mode <memory\|disk>` | Engine: `disk` (default) or `memory`                |
 | `--engine <1\|2\|3>`    | Force a specific engine (advanced)                  |
 | `--disk`                | Shortcut for `--mode disk` — already the default    |
@@ -185,6 +185,16 @@ Warnings do not fail the check — they are printed and the exit code stays `0`,
 warning describes something that works but probably is not what you meant. Only an error
 exits `1`.
 
+`--brief` is the only flag `check` takes. It prints one line per diagnostic — code,
+position, message, hint — with no source excerpt, for editors, CI and anything else that
+reads the output rather than looking at it:
+
+`tdcv2 check --brief demo.tdc`
+
+```
+TDC041 1:70 unknown gen type "nosuch" :: Allowed types: text, file, template, number, regex, advanced_regex, … (11 more).
+```
+
 ## `tdcv2 format`
 
 Tidies up a `.tdc` file — indentation, attribute spacing, aligned `<map>` tables. It's
@@ -204,7 +214,7 @@ the formatter reports it and leaves the file untouched (exit code 1).
 | ---: | :---------------------------------------------- |
 |  `0` | Successful generation, `--help`, or `--version` |
 |  `1` | A read, parse, validation, or runtime error     |
-|  `2` | Bad CLI arguments                               |
+|  `2` | Bad CLI arguments — and any `pack` or `init` failure (a download, a checksum, an existing config) |
 
 ## See also
 

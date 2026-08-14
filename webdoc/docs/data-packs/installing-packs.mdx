@@ -122,8 +122,14 @@ examples run with nothing downloaded. \`tdcv2 pack\` adds more locales.`}
 
 ### `--global` / `-g` — one config for every project
 
-Writes the config into your home directory (`~/.config/tdcv2`) instead of the current
-folder. Use it when you want one shared data store that every project on the machine
+Writes the config into your user config directory instead of the current folder:
+
+| Platform                    | Where it goes                                          |
+| :-------------------------- | :----------------------------------------------------- |
+| Windows                     | `%APPDATA%\tdcv2\config.json` (`~/AppData/Roaming/…` if `%APPDATA%` is unset) |
+| POSIX, `XDG_CONFIG_HOME` set | `$XDG_CONFIG_HOME/tdcv2/config.json`                   |
+| POSIX, default              | `~/.config/tdcv2/config.json`                          |
+ Use it when you want one shared data store that every project on the machine
 reads from, rather than a separate `tdcv2-packs` folder in each repo.
 
 ```bash
@@ -183,8 +189,10 @@ tdcv2 init --yes --data-path ../shared-tdc-packs
   store in there for you, and you can add your own folders here to point the engine at
   [packs you wrote yourself](writing-your-own.mdx).
 
-The config is found by walking **up** from the current folder, the same way tools locate
-`tsconfig.json`. When several sources define the same setting, priority runs low to high:
+A run finds its config by walking **up from the `.tdc` file's own folder**, the same way
+tools locate `tsconfig.json` — so `tdcv2 sub/users.tdc` picks up `sub/`'s project config,
+not the shell's. `tdcv2 pack` and `tdcv2 init` have no `.tdc` file to start from, so those
+two walk up from the current folder instead. When several sources define the same setting, priority runs low to high:
 
 ```
 built-in packs  <  global config (~/.config/tdcv2)  <  project tdcv2.config.json  <  --data-path flag
@@ -442,6 +450,15 @@ TDCV2_PACKS=/srv/shared-packs tdcv2 users.tdc
 
 Whatever `tdcv2.config.json` and `--data-path` name is layered **on top** of the answer,
 never instead of it.
+
+Two more variables shape the `pack` command rather than the search:
+
+- **`TDCV2_NO_PICKER`** — set to anything, and `tdcv2 pack` with no subcommand prints the
+  list instead of opening the full-screen picker. This is the way to get the printed list
+  on a terminal; a script or a pipe gets it anyway.
+- **`TDCV2_ASCII`** — set to anything, and the picker draws with ASCII glyphs and one map
+  row per line. It is the manual override for when the Unicode auto-detection guesses
+  wrong; `NO_COLOR` is separate and turns off colour only.
 
 ## See also
 

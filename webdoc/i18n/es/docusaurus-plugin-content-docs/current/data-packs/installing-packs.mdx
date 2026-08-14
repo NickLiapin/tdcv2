@@ -128,8 +128,14 @@ examples run with nothing downloaded. \`tdcv2 pack\` adds more locales.`}
 
 ### `--global` / `-g` — una sola configuración para todos los proyectos
 
-Escribe la configuración en su carpeta personal (`~/.config/tdcv2`) en vez de la carpeta
-actual. Úselo cuando quiera un único almacén de datos compartido, del que lea cada
+Escribe la configuración en su carpeta de configuración de usuario en vez de la actual:
+
+| Plataforma                     | Adónde va                                              |
+| :----------------------------- | :------------------------------------------------------ |
+| Windows                        | `%APPDATA%\tdcv2\config.json` (o `~/AppData/Roaming/…` si `%APPDATA%` no está definido) |
+| POSIX, con `XDG_CONFIG_HOME`   | `$XDG_CONFIG_HOME/tdcv2/config.json`                    |
+| POSIX, por omisión             | `~/.config/tdcv2/config.json`                           |
+ Úselo cuando quiera un único almacén de datos compartido, del que lea cada
 proyecto de la máquina, en lugar de una carpeta `tdcv2-packs` por repositorio.
 
 ```bash
@@ -192,8 +198,10 @@ tdcv2 init --yes --data-path ../shared-tdc-packs
   pone ahí el almacén por usted, y usted puede agregar aquí sus propias carpetas para
   apuntar el motor a [paquetes que escribió usted mismo](writing-your-own.mdx).
 
-La configuración se busca subiendo **hacia arriba** desde la carpeta actual (igual que
-las herramientas localizan `tsconfig.json`). Cuando varias fuentes definen lo mismo, la
+Una corrida busca su configuración subiendo **desde la carpeta del propio archivo `.tdc`**
+(igual que las herramientas localizan `tsconfig.json`) — así que `tdcv2 sub/users.tdc` toma
+la configuración de proyecto de `sub/`, no la de la shell. `tdcv2 pack` y `tdcv2 init` no
+tienen un `.tdc` del que partir, así que esas dos suben desde la carpeta actual. Cuando varias fuentes definen lo mismo, la
 prioridad va de menor a mayor:
 
 ```
@@ -459,6 +467,15 @@ TDCV2_PACKS=/srv/shared-packs tdcv2 users.tdc
 
 Todo lo que nombren `tdcv2.config.json` y `--data-path` se coloca **encima** de esa
 respuesta, nunca en su lugar.
+
+Otras dos variables afectan al comando `pack`, no a la búsqueda:
+
+- **`TDCV2_NO_PICKER`** — definida con cualquier valor, `tdcv2 pack` sin subcomando imprime
+  la lista en vez de abrir el selector de pantalla completa. Es la manera de obtener la
+  lista impresa en una terminal; en un script o una tubería sale así de todos modos.
+- **`TDCV2_ASCII`** — definida con cualquier valor, el selector dibuja con glifos ASCII y
+  una fila de mapa por línea. Es la anulación manual para cuando la detección automática de
+  Unicode se equivoca; `NO_COLOR` es aparte y solo apaga el color.
 
 ## Vea también
 

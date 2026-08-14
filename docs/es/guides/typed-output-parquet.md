@@ -112,7 +112,7 @@ poner a prueba un detector de anomalías.
 | `string`         | texto UTF-8             | tal cual                                  |
 | `date`           | fecha de calendario     | `2020-05-14`                              |
 | `timestamp`      | instante en el tiempo   | ISO-8601                                  |
-| `decimal(p,s)`   | decimal exacto (dinero) | `123.45` — **sin redondeo**               |
+| `decimal(p,s)`   | decimal exacto (dinero) | `123.45` — **sin redondeo**. Precisión `1`–`18`, escala `0`–precisión: los valores viajan en un INT64, así que 18 dígitos es el techo (`TDC194`) |
 | `uuid`           | UUID como 16 bytes      | forma canónica                            |
 | `json`           | JSON                    | tal cual                                  |
 | `float`          | flotante de 4 bytes     | `3.14` — la mitad de espacio que `double` |
@@ -185,7 +185,8 @@ flag   BOOLEAN              REQUIRED
 Las reglas son simples: un [`number`](../generators/number.md#top) sin `decimals` → entero;
 con `decimals` → flotante; un contador [`increment`](../generators/counters.md#top) →
 entero; `common.id.uuid` → UUID; una columna marcadora de
-[`anomaly_flag`](../reference/attributes.md#top) → booleano. Y muy convenientemente,
+[`anomaly_flag`](../reference/attributes.md#top) → booleano, y también una columna
+[`<mix flag=>`](../constructs/mix.md#top). Y muy convenientemente,
 [`missing`](../reference/attributes.md#top) **hace la columna nullable por sí solo** (`qty`
 quedó como `OPTIONAL`).
 
@@ -200,6 +201,7 @@ producir se sabe antes de que exista una sola fila.
 | [`formula`](../generators/formula.md#top) | entero o decimal **cuando se da `decimals=`**, texto en caso contrario |
 | [`file` con `read="quantile"`](../generators/file.md#top) | decimal, o entero con `decimals="0"` |
 | [`increment` / `decrement`](../generators/counters.md#top) | entero, o decimal cuando `value=` o `step=` es fraccionario |
+| [`<mix>`](../constructs/mix.md#top) | el tipo compartido cuando **cada** rama es un solo `<gen>` que deriva a él; `string` ante cualquier desacuerdo, o cuando una rama tiene texto literal. Una columna `<mix flag=>` es booleana |
 
 La fila de la fórmula se sale a propósito. `expr="A + 1"` es un número entero,
 `expr="A / 2"` ya no lo es, y `expr="A > 5 ? over : under"` es una PALABRA — así que
@@ -281,8 +283,9 @@ idéntica **byte por byte** con cualquier número de hilos. Sobre un millón de 
 --jobs 8    2.18 s      <- los archivos de las tres corridas son idénticos
 ```
 
-Una condición: hace falta un archivo real ([`-o`](../reference/cli.md#top)). Hacia la salida
-estándar, Parquet se escribe en un solo hilo — el coordinador tiene que saber dónde
+Una condición: hace falta un archivo real ([`-o`](../reference/cli.md#top)) — es la extensión
+`.parquet` de esa ruta la que selecciona el escritor, y sin `-o` la corrida imprime texto.
+Escribir en paralelo también necesita el archivo: el coordinador tiene que saber dónde
 aterrizó cada grupo. Fije el número de hilos con [`--jobs`](../reference/cli.md#top) si
 quiere; los bytes son los mismos de cualquier forma.
 

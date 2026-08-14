@@ -30,13 +30,13 @@ y los datos — vea [Instalar packs](../data-packs/installing-packs.mdx) — má
 
 | Opción                  | Qué hace                                                 |
 | :---------------------- | :------------------------------------------------------- |
-| `-o, --output <path>`   | Escribe en un archivo. Sin ella, imprime en stdout       |
+| `-o, --output <path>`   | Escribe en un archivo. Sin ella, imprime en stdout. Una ruta terminada en `.parquet` selecciona el escritor [Parquet](../guides/typed-output-parquet.mdx) — es la única forma de obtenerlo |
 | `--seed <seed>`         | Sobrescribe el `seed` de `<env>`                         |
-| `--count <n>`           | Sobrescribe el `count` de `<env>`                        |
+| `--count <n>`           | Sobrescribe el `count` de `<env>` — un entero no negativo |
 | `--locale <loc>`        | Sobrescribe el locale (por omisión `en`)                 |
 | `--now <date>`          | Fija el reloj que leen `today`, `now` y `b_day`          |
 | `--data-path <dir>`     | Agrega una carpeta de datos para `@data/…` (repetible)   |
-| `--jobs <n>`            | Cantidad de hilos de trabajo (por omisión lo decide TDC) |
+| `--jobs <n>`            | Cantidad de hilos de trabajo, un entero positivo (por omisión lo decide TDC) |
 | `--mode <memory\|disk>` | Motor: `disk` (por omisión) o `memory`                   |
 | `--engine <1\|2\|3>`    | Forzar un motor específico (avanzado)                    |
 | `--disk`                | Atajo de `--mode disk` — ya es el valor por omisión      |
@@ -179,6 +179,14 @@ Las advertencias no hacen fallar la comprobación — se imprimen y el código d
 siendo `0`, porque una advertencia describe algo que funciona pero probablemente no es lo
 que usted quería. Solo un error sale con `1`.
 
+`--brief` es la única bandera que acepta `check`. Imprime una línea por diagnóstico —
+código, posición, mensaje, pista — sin el extracto del fuente, para editores, CI y
+cualquier otra cosa que lea la salida en vez de mirarla:
+
+<Terminal title="tdcv2 check --brief demo.tdc">
+{`TDC041 1:70 unknown gen type "nosuch" :: Allowed types: text, file, template, number, regex, advanced_regex, … (11 more).`}
+</Terminal>
+
 ## `tdcv2 format`
 
 Deja ordenado un `.tdc` — sangría, espaciado de los atributos, tablas `<map>` alineadas —
@@ -198,7 +206,7 @@ archivo queda intacto (código de salida 1).
 | -----: | :----------------------------------------------- |
 |    `0` | Generación exitosa, `--help` o `--version`       |
 |    `1` | Error de lectura, parseo, validación o ejecución |
-|    `2` | Argumentos de CLI incorrectos                    |
+|    `2` | Argumentos de CLI incorrectos — y cualquier fallo de `pack` o `init` (una descarga, una suma de verificación, una configuración ya existente) |
 
 ## Vea también
 

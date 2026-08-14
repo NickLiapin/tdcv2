@@ -109,7 +109,7 @@ ready to test an anomaly detector against.
 | `string`         | UTF-8 text            | as-is                               |
 | `date`           | calendar date         | `2020-05-14`                        |
 | `timestamp`      | instant in time       | ISO-8601                            |
-| `decimal(p,s)`   | exact decimal (money) | `123.45` — **no rounding**          |
+| `decimal(p,s)`   | exact decimal (money) | `123.45` — **no rounding**. Precision `1`–`18`, scale `0`–precision: the values are carried in an INT64, so 18 digits is the ceiling (`TDC194`) |
 | `uuid`           | UUID as 16 bytes      | canonical form                      |
 | `json`           | JSON                  | as-is                               |
 | `float`          | 4-byte float          | `3.14` — half the space of `double` |
@@ -181,7 +181,8 @@ flag   BOOLEAN              REQUIRED
 The rules are simple: a [`number`](../generators/number.md#top) without `decimals` → integer,
 with `decimals` → float; an [`increment`](../generators/counters.md#top) counter → integer;
 `common.id.uuid` → UUID; an [`anomaly_flag`](../reference/attributes.md#top) marker column →
-boolean. And handily, [`missing`](../reference/attributes.md#top) **makes the column nullable
+boolean, and so is a [`<mix flag=>`](../constructs/mix.md#top) column. And handily,
+[`missing`](../reference/attributes.md#top) **makes the column nullable
 on its own** (`qty` came out `OPTIONAL`).
 
 **Computed columns are typed too**, by the same reasoning — what they can produce is
@@ -195,6 +196,7 @@ known before a single row exists:
 | [`formula`](../generators/formula.md#top) | integer or float **when `decimals=` is given**, text otherwise |
 | [`file` with `read="quantile"`](../generators/file.md#top) | float, or integer with `decimals="0"` |
 | [`increment` / `decrement`](../generators/counters.md#top) | integer, or float when `value=` or `step=` is fractional |
+| [`<mix>`](../constructs/mix.md#top) | the shared type when **every** branch is a single `<gen>` that derives to it; `string` on any disagreement, or when a branch holds literal text. A `<mix flag=>` column is boolean |
 
 The formula row is the odd one out on purpose. `expr="A + 1"` is a whole number,
 `expr="A / 2"` is not, and `expr="A > 5 ? over : under"` is a WORD — so `decimals=` is
@@ -272,8 +274,10 @@ thread count. On a million rows:
 --jobs 8    2.18 s      <- files of all three runs are identical
 ```
 
-One condition: it needs a real file ([`-o`](../reference/cli.md#top)). Parquet written to
-standard output is single-threaded — the coordinator has to know where each group landed.
+One condition: it needs a real file ([`-o`](../reference/cli.md#top)) — the `.parquet`
+extension on that path is what selects the writer, and without `-o` the run prints text
+instead. Parallel writing needs the file too: the coordinator has to know where each group
+landed.
 Set the thread count with [`--jobs`](../reference/cli.md#top) if you like; the bytes are the
 same either way.
 

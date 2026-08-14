@@ -110,7 +110,7 @@ amount      INT64       OPTIONAL
 | `string`         | текст UTF-8                | как есть                        |
 | `date`           | календарная дата           | `2020-05-14`                    |
 | `timestamp`      | момент времени             | ISO-8601                        |
-| `decimal(p,s)`   | точное десятичное (деньги) | `123.45` — **без округления**   |
+| `decimal(p,s)`   | точное десятичное (деньги) | `123.45` — **без округления**. Точность `1`–`18`, масштаб `0`–точность: значения хранятся в INT64, поэтому 18 цифр — потолок (`TDC194`) |
 | `uuid`           | UUID как 16 байт           | канонический вид                |
 | `json`           | JSON                       | как есть                        |
 | `float`          | дробное 4 байта            | `3.14` — вдвое меньше `double`  |
@@ -181,7 +181,8 @@ flag   BOOLEAN              REQUIRED
 
 Правила простые: [`number`](../generators/number.md#top) без `decimals` → целое, с `decimals`
 → дробное; счётчик [`increment`](../generators/counters.md#top) → целое; `common.id.uuid` →
-UUID; колонка-метка [`anomaly_flag`](../reference/attributes.md#top) → булево. И, что удобно,
+UUID; колонка-метка [`anomaly_flag`](../reference/attributes.md#top) → булево, как и колонка
+[`<mix flag=>`](../constructs/mix.md#top). И, что удобно,
 [`missing`](../reference/attributes.md#top) **сам делает колонку nullable** (`qty` стала
 `OPTIONAL`).
 
@@ -196,6 +197,7 @@ UUID; колонка-метка [`anomaly_flag`](../reference/attributes.md#top)
 | [`formula`](../generators/formula.md#top) | целое или дробное, **если задан `decimals=`**, иначе текст |
 | [`file` с `read="quantile"`](../generators/file.md#top) | дробное, с `decimals="0"` — целое |
 | [`increment` / `decrement`](../generators/counters.md#top) | целое, а если `value=` или `step=` дробные — дробное |
+| [`<mix>`](../constructs/mix.md#top) | общий тип, если **каждая** ветка — это один `<gen>`, выводящий этот тип; при любом расхождении, а также если в ветке есть буквальный текст — `string`. Колонка `<mix flag=>` — булева |
 
 Строка про формулу выбивается намеренно. `expr="A + 1"` — целое, `expr="A / 2"` — уже нет,
 а `expr="A > 5 ? over : under"` — вообще СЛОВО. Поэтому `decimals=` — единственный честный
@@ -271,8 +273,10 @@ tdc: column "n", row 1: "abc" is not an integer (int64)
 --jobs 8    2.18 s      <- файлы всех трёх запусков идентичны
 ```
 
-Одно условие: нужен настоящий файл ([`-o`](../reference/cli.md#top)). В стандартный вывод
-Parquet пишется в один поток — координатору надо знать, куда легла каждая группа. Число
+Одно условие: нужен настоящий файл ([`-o`](../reference/cli.md#top)) — писателя включает
+именно расширение `.parquet` в этом пути, а без `-o` прогон напечатает текст. Запись в
+несколько потоков тоже требует файла: координатору надо знать, куда легла каждая
+группа. Число
 потоков задаётся флагом [`--jobs`](../reference/cli.md#top), если хотите; байты в любом случае
 одни и те же.
 
