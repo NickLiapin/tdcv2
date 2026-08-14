@@ -194,6 +194,7 @@ known before a single row exists:
 | [`stat`](../generators/stat.md#top) | `count` → integer; `mean`, `median`, `stddev` → float; `sum`, `min`, `max` → the source's type |
 | [`formula`](../generators/formula.md#top) | integer or float **when `decimals=` is given**, text otherwise |
 | [`file` with `read="quantile"`](../generators/file.md#top) | float, or integer with `decimals="0"` |
+| [`increment` / `decrement`](../generators/counters.md#top) | integer, or float when `value=` or `step=` is fractional |
 
 The formula row is the odd one out on purpose. `expr="A + 1"` is a whole number,
 `expr="A / 2"` is not, and `expr="A > 5 ? over : under"` is a WORD — so `decimals=` is

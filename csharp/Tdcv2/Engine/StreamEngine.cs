@@ -914,16 +914,11 @@ public sealed class StreamEngine
 
         if (type is "increment" or "decrement")
         {
-            long start = LongAttr(attrs.GetValueOrDefault("value"), 0);
-            long step = LongAttr(attrs.GetValueOrDefault("step"), 1);
             bool up = type == "increment";
             return InlineBuilt(mod, row =>
             {
                 int? r = domain.PopIndexAt(row);
-                return r is null
-                    ? null
-                    : (up ? start + (step * r.Value) : start - (step * r.Value))
-                        .ToString(CultureInfo.InvariantCulture);
+                return r is null ? null : Counter.ValueAt(attrs, r.Value, up);
             }, streamId, gen, domain);
         }
 

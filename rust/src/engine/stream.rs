@@ -234,8 +234,9 @@ enum Column {
     },
     Counter {
         domain: Domain,
-        start: i64,
-        step: i64,
+        /// The generator's own attributes, so the streaming answer comes from the same
+        /// code the in-memory one does — including a fractional `value=`/`step=`.
+        attrs: BTreeMap<String, String>,
         up: bool,
         modifier: Option<Modifier>,
     },
@@ -1150,21 +1151,17 @@ impl StreamEngine<'_> {
         }
 
         if gen_type == "increment" || gen_type == "decrement" {
-            let start = long_attr(attrs.get("value"), 0)?;
-            let step = long_attr(attrs.get("step"), 1)?;
             let up = gen_type == "increment";
             let raw = Column::Counter {
                 domain: domain.clone(),
-                start,
-                step,
+                attrs: attrs.clone(),
                 up,
                 modifier: None,
             };
             return self.inline_built(
                 Column::Counter {
                     domain: domain.clone(),
-                    start,
-                    step,
+                    attrs: attrs.clone(),
                     up,
                     modifier,
                 },
@@ -2197,20 +2194,15 @@ impl StreamEngine<'_> {
 
             Column::Counter {
                 domain,
-                start,
-                step,
+                attrs,
                 up,
                 modifier,
             } => {
                 let Some(r) = self.pop_index_at(domain, row)? else {
                     return Ok(None);
                 };
-                let value = if *up {
-                    start + step * i64::from(r)
-                } else {
-                    start - step * i64::from(r)
-                };
-                self.modify(modifier, row, Some(value.to_string()), 0)
+                let value = crate::generators::counter::value_at(attrs, i64::from(r), *up)?;
+                self.modify(modifier, row, Some(value), 0)
             }
 
             Column::Timeseries {

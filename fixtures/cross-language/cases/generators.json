@@ -181,6 +181,18 @@
         "1000,true",
         "30,false"
       ]
+    },
+    {
+      "name": "a-counter-may-count-in-fractions",
+      "description": "value=\"9.99\" step=\"0.50\" is the shape the counters page teaches. A whole counter stays on integer arithmetic, exact however far it runs; a fractional one moves to the floating point the reference uses and is written the same way. The four ports refused it outright until this case existed, and the value is the start plus step*i rather than i additions, so the error cannot accumulate.",
+      "config": "<tdc><env count=\"5\" seed=\"ctr\" local=\"en\"><sequence name=\"Whole\"><gen type=\"increment\" value=\"10\" step=\"3\"/></sequence><sequence name=\"Money\"><gen type=\"decrement\" value=\"9.99\" step=\"0.50\"/></sequence><sequence name=\"Tenth\"><gen type=\"increment\" value=\"0\" step=\"0.1\"/></sequence></env><block><line><data>${{Whole}} ${{Money}} ${{Tenth}}</data></line></block></tdc>",
+      "expected": [
+        "10 9.99 0",
+        "13 9.49 0.1",
+        "16 8.99 0.2",
+        "19 8.49 0.30000000000000004",
+        "22 7.99 0.4"
+      ]
     }
   ]
 }

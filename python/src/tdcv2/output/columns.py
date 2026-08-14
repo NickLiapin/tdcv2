@@ -113,7 +113,12 @@ def _derive_gen(gen: Gen, config: Config) -> ColumnType | None:
     if gen.type in ("number", "timeseries", "pattern"):
         return _with_nullable("double" if _decimals(gen) > 0 else "int64", nullable)
     if gen.type in ("increment", "decrement"):
-        return _with_nullable("int64", nullable)
+        # A counter is whole until the config says otherwise. ``value="9.99"`` or ``step="0.50"``
+        # — the fractional steps the counters page teaches — make every cell fractional, and
+        # calling that an int64 does not merely mislabel it: the Parquet writer refuses the first
+        # row and the run dies, on a config that prints perfectly well as text.
+        fractional = _is_fractional(gen.attrs.get("value")) or _is_fractional(gen.attrs.get("step"))
+        return _with_nullable("double" if fractional else "int64", nullable)
     if gen.type == "running":
         # A running total is the arithmetic of the column it reads, so its type is that column's
         # — recursively, since ``of=`` may name another derived one. ``decimals=`` on the running
@@ -241,6 +246,18 @@ def _gens_of(spec: SequenceSpec) -> list[Gen]:
     if spec.is_compound and spec.fields:
         out.extend(f.gen for f in spec.fields if f.gen is not None)
     return out
+
+
+def _is_fractional(text: str | None) -> bool:
+    """A written number with a fractional part — ``9.99`` and ``0.50``, but not ``10`` or ``""``."""
+    body = (text or "").strip()
+    if not body:
+        return False
+    try:
+        value = float(body)
+    except ValueError:
+        return False
+    return value == value and value not in (float("inf"), float("-inf")) and value != int(value)
 
 
 def _with_nullable(name: str, nullable: bool) -> ColumnType:

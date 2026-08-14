@@ -110,6 +110,20 @@ _count"` is a sensor that grows noisier as the run goes on.
 
 ### Fixed
 
+- **A fractional counter worked only in the reference, and even there it could not be written
+  as Parquet.** `<gen type="decrement" value="9.99" step="0.50"/>` — the example on the
+  counters page — printed `9.99 / 9.49 / 8.99` from TypeScript and was refused outright by all
+  four ports, each insisting on a whole number. And in the reference the column was still
+  inferred `int64`, so the same config that printed perfectly as text died on the first row
+  with `"9.99" is not an integer (int64)`.
+
+  A whole counter still runs on integer arithmetic, exact however far it goes; a fractional
+  one now uses the floating point the reference uses and is written the same way, so all five
+  agree digit for digit — including `0.30000000000000004`, which the new shared case pins
+  deliberately. The value is the start plus `step * i` rather than `i` additions, so the error
+  cannot accumulate down the column. Parquet infers `double` when either `value=` or `step=`
+  is fractional.
+
 - **An inline generator's `anomaly_flag` column did not exist on the streaming engines in any
   of the four ports.** `<gen type="timeseries" … anomaly_flag="IsOut"/>` on engine 2 or 3 left
   `${{IsOut}}` in the output as its own literal text: the column was never built. The types

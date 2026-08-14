@@ -195,6 +195,7 @@ UUID; колонка-метка [`anomaly_flag`](../reference/attributes.md#top)
 | [`stat`](../generators/stat.md#top) | `count` → целое; `mean`, `median`, `stddev` → дробное; `sum`, `min`, `max` → тип источника |
 | [`formula`](../generators/formula.md#top) | целое или дробное, **если задан `decimals=`**, иначе текст |
 | [`file` с `read="quantile"`](../generators/file.md#top) | дробное, с `decimals="0"` — целое |
+| [`increment` / `decrement`](../generators/counters.md#top) | целое, а если `value=` или `step=` дробные — дробное |
 
 Строка про формулу выбивается намеренно. `expr="A + 1"` — целое, `expr="A / 2"` — уже нет,
 а `expr="A > 5 ? over : under"` — вообще СЛОВО. Поэтому `decimals=` — единственный честный

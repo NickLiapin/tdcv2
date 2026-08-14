@@ -129,7 +129,15 @@ fn derive_gen(gen: &Gen, config: &Config) -> Option<ColumnType> {
         "number" | "timeseries" | "pattern" => {
             with_nullable(if decimals(gen) > 0 { "double" } else { "int64" }, nullable)
         }
-        "increment" | "decrement" => with_nullable("int64", nullable),
+        "increment" | "decrement" => {
+            // A counter is whole until the config says otherwise. `value="9.99"` or
+            // `step="0.50"` — the fractional steps the counters page teaches — make every
+            // cell fractional, and calling that an int64 does not merely mislabel it: the
+            // Parquet writer refuses the first row and the run dies, on a config that
+            // prints perfectly well as text.
+            let fractional = is_fractional(gen.attr("value")) || is_fractional(gen.attr("step"));
+            with_nullable(if fractional { "double" } else { "int64" }, nullable)
+        }
         // A running total is the arithmetic of the column it reads, so its type
         // is that column's — recursively, since `of=` may name another derived
         // one. `decimals=` on the running gen itself makes it fractional
@@ -347,4 +355,16 @@ fn numeric_source(of: &str, config: &Config, nullable: bool) -> Option<ColumnTyp
 
 fn positive(raw: &str) -> bool {
     raw.trim().parse::<f64>().is_ok_and(|v| v > 0.0)
+}
+
+/// A written number with a fractional part — `9.99` and `0.50`, but not `10` or an
+/// attribute that was never given.
+fn is_fractional(text: Option<&str>) -> bool {
+    let Some(body) = text.map(str::trim) else {
+        return false;
+    };
+    if body.is_empty() {
+        return false;
+    }
+    matches!(body.parse::<f64>(), Ok(v) if v.is_finite() && v.fract() != 0.0)
 }

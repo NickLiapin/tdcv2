@@ -199,6 +199,7 @@ producir se sabe antes de que exista una sola fila.
 | [`stat`](../generators/stat.md#top) | `count` → entero; `mean`, `median`, `stddev` → decimal; `sum`, `min`, `max` → el tipo del origen |
 | [`formula`](../generators/formula.md#top) | entero o decimal **cuando se da `decimals=`**, texto en caso contrario |
 | [`file` con `read="quantile"`](../generators/file.md#top) | decimal, o entero con `decimals="0"` |
+| [`increment` / `decrement`](../generators/counters.md#top) | entero, o decimal cuando `value=` o `step=` es fraccionario |
 
 La fila de la fórmula se sale a propósito. `expr="A + 1"` es un número entero,
 `expr="A / 2"` ya no lo es, y `expr="A > 5 ? over : under"` es una PALABRA — así que

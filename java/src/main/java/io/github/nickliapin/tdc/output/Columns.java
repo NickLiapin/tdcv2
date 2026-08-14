@@ -126,8 +126,15 @@ public final class Columns {
       case "number":
         return withNullable(decimals(gen) > 0 ? "double" : "int64", nullable);
       case "increment":
-      case "decrement":
-        return withNullable("int64", nullable);
+      case "decrement": {
+        // A counter is whole until the config says otherwise. `value="9.99"` or `step="0.50"` —
+        // the fractional steps the counters page teaches — make every cell fractional, and
+        // calling that an int64 does not merely mislabel it: the Parquet writer refuses the first
+        // row and the run dies, on a config that prints perfectly well as text.
+        boolean fractional =
+            isFractional(gen.attrs().get("value")) || isFractional(gen.attrs().get("step"));
+        return withNullable(fractional ? "double" : "int64", nullable);
+      }
       case "timeseries":
       // A pattern draws a NUMBER from a shape — `y_range="1..30"` is a range of numbers whatever
       // the curve looks like — so it types exactly like a timeseries.
@@ -290,6 +297,23 @@ public final class Columns {
       }
     }
     return out;
+  }
+
+  /**
+   * A written number with a fractional part — {@code 9.99} and {@code 0.50}, but not {@code 10}
+   * or an attribute that was never given.
+   */
+  private static boolean isFractional(String text) {
+    String body = text == null ? "" : text.trim();
+    if (body.isEmpty()) {
+      return false;
+    }
+    try {
+      double value = Double.parseDouble(body);
+      return !Double.isNaN(value) && !Double.isInfinite(value) && value != Math.rint(value);
+    } catch (NumberFormatException e) {
+      return false;
+    }
   }
 
   private static ColumnType withNullable(String type, boolean nullable) {

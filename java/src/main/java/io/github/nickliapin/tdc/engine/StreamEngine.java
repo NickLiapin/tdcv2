@@ -8,6 +8,7 @@ import io.github.nickliapin.tdc.expr.Evaluate;
 import io.github.nickliapin.tdc.format.Interpolate;
 import io.github.nickliapin.tdc.format.Mask;
 import io.github.nickliapin.tdc.format.Transforms;
+import io.github.nickliapin.tdc.generators.Counter;
 import io.github.nickliapin.tdc.generators.DateOffset;
 import io.github.nickliapin.tdc.generators.AdvancedRegexGen;
 import io.github.nickliapin.tdc.generators.FileGen;
@@ -840,14 +841,12 @@ public final class StreamEngine {
     }
 
     if ("increment".equals(type) || "decrement".equals(type)) {
-      long start = longAttr(attrs.get("value"), 0);
-      long step = longAttr(attrs.get("step"), 1);
       boolean up = "increment".equals(type);
       return inlineBuilt(
           mod,
               row -> {
                 Integer r = domain.popIndexAt().apply(row);
-                return r == null ? null : String.valueOf(up ? start + step * r : start - step * r);
+                return r == null ? null : Counter.valueAt(attrs, r, up);
               },
           streamId,
           gen,

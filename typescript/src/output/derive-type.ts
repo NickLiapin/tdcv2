@@ -35,6 +35,13 @@ function withNullable(type: string, nullable: boolean): ColumnType {
   return parseColumnType(nullable ? `${type}|null` : type);
 }
 
+/** A written number with a fractional part — `9.99` and `0.50`, but not `10` or ``. */
+function isFractional(text: string): boolean {
+  if (text === '') return false;
+  const value = Number(text);
+  return Number.isFinite(value) && !Number.isInteger(value);
+}
+
 /**
  * A `<mix>` column's type, when every branch agrees on one.
  *
@@ -99,8 +106,16 @@ export function deriveColumnType(
       return withNullable(Number.isFinite(decimals) && decimals > 0 ? 'double' : 'int64', nullable);
     }
     case 'increment':
-    case 'decrement':
-      return withNullable('int64', nullable);
+    case 'decrement': {
+      // A counter is whole until the config says otherwise. `value="9.99"` or
+      // `step="0.50"` — the fractional steps the counters page teaches — make
+      // every cell fractional, and calling that an int64 does not merely
+      // mislabel it: the Parquet writer refuses the first row and the run dies,
+      // on a config that prints perfectly well as text.
+      const start = (gen.attrs['value'] ?? '').trim();
+      const step = (gen.attrs['step'] ?? '').trim();
+      return withNullable(isFractional(start) || isFractional(step) ? 'double' : 'int64', nullable);
+    }
     case 'timeseries':
     case 'pattern':
       // A pattern draws a NUMBER from a shape — `y_range="1..30"` is a range of

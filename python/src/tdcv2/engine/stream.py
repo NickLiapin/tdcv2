@@ -33,6 +33,7 @@ from ..format import interpolate
 from ..format.mask import apply_mask
 from ..format.transforms import apply_case, is_case_transform
 from ..generators import advanced_regex, imperfections, number, quantile
+from ..generators import counter as counter_gen
 from ..generators import date_offset as date_offset_gen
 from ..generators import file as file_gen
 from ..generators import formula as formula_gen
@@ -601,15 +602,13 @@ class StreamEngine:
             return self._inline_built(mod, walked, stream_id, gen, domain)
 
         if type_ in ("increment", "decrement"):
-            start = _long_attr(attrs.get("value"), 0)
-            step = _long_attr(attrs.get("step"), 1)
             up = type_ == "increment"
 
             def counted(row: int) -> str | None:
                 r = domain.pop_index_at(row)
                 if r is None:
                     return None
-                return str(start + step * r if up else start - step * r)
+                return counter_gen.value_at(attrs, r, up)
 
             return self._inline_built(mod, counted, stream_id, gen, domain)
 

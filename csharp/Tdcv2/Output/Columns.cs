@@ -157,7 +157,16 @@ public static class Columns
                 return WithNullable(Decimals(gen) > 0 ? "double" : "int64", nullable);
             case "increment":
             case "decrement":
-                return WithNullable("int64", nullable);
+            {
+                // A counter is whole until the config says otherwise. `value="9.99"` or
+                // `step="0.50"` — the fractional steps the counters page teaches — make every
+                // cell fractional, and calling that an int64 does not merely mislabel it: the
+                // Parquet writer refuses the first row and the run dies, on a config that
+                // prints perfectly well as text.
+                bool fractional = IsFractional(gen.Attrs.GetValueOrDefault("value"))
+                    || IsFractional(gen.Attrs.GetValueOrDefault("step"));
+                return WithNullable(fractional ? "double" : "int64", nullable);
+            }
             case "running":
                 // A running total is the arithmetic of the column it reads, so its type is that
                 // column's — recursively, since `of=` may name another derived one. `decimals=` on
@@ -332,6 +341,20 @@ public static class Columns
                 yield return field.Gen;
             }
         }
+    }
+
+    /// <summary>
+    /// A written number with a fractional part — <c>9.99</c> and <c>0.50</c>, but not <c>10</c>
+    /// or an attribute that was never given.
+    /// </summary>
+    private static bool IsFractional(string? text)
+    {
+        string body = (text ?? "").Trim();
+        return body.Length > 0
+            && double.TryParse(
+                body, NumberStyles.Float, CultureInfo.InvariantCulture, out double value)
+            && !double.IsNaN(value) && !double.IsInfinity(value)
+            && value != Math.Truncate(value);
     }
 
     private static ColumnType WithNullable(string type, bool nullable) =>
