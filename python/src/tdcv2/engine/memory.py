@@ -2169,7 +2169,7 @@ def _run_pack_generator(
         local.update(_materialize_local(spec, count, run, local))
 
     if body.validate is not None:
-        _enforce_valid(body, local, count, run)
+        _enforce_valid(body, local, count, run, overrides)
 
     return [
         interpolate.apply(body.output, run.config.inject, _row_lookup(local, row))
@@ -2208,16 +2208,32 @@ def _materialize_local(
     return {name: list(_finish(produced_values, spec.gen.attrs, run.prng, [False] * count))}
 
 
-def _enforce_valid(pack, local, count: int, run: _Run) -> None:
+def _enforce_valid(pack, local, count: int, run: _Run, overrides: dict[str, str]) -> None:
     """Reject and redraw until the pack's ``<valid>`` predicate holds.
 
     Some identifiers have combinations that were never issued — a region code that does not exist,
     a date inside a national ID that never happened. Redrawing appends to the stream, so the
     result stays deterministic; the fuse is there because a constraint no draw can satisfy would
     otherwise hang the run rather than report itself.
+
+    A PINNED sequence is never redrawn. A caller parameter replaces a local sequence with a
+    constant, and redrawing it threw that constant away: a config asking for a particular base
+    got values with nothing to do with it and no word of complaint. When the pin is all the guard
+    reads there is nothing left to re-roll either, so the answer is fixed before the first attempt
+    and saying so at once beats a hundred no-ops per row.
     """
+    pinned = [s.name for s in pack.sequences if not s.is_computed and s.name in overrides]
+    redrawable = any(not s.is_computed and s.name not in overrides for s in pack.sequences)
+
     for row in range(count):
         attempts = 0
+        if not redrawable and not evaluate_predicate(pack.validate, _row_lookup(local, row)):
+            named = ", ".join(f'{n}="{overrides[n]}"' for n in pinned) or "the pinned parameters"
+            raise EngineError(
+                f"pack generator <valid> rejects the value built from {named}, and every "
+                "sequence the guard reads is pinned, so there is nothing left to redraw. Pass a "
+                "value the pack accepts, or drop the parameter and let the pack draw its own."
+            )
         while not evaluate_predicate(pack.validate, _row_lookup(local, row)):
             if attempts >= VALID_FUSE:
                 raise EngineError(
@@ -2226,7 +2242,7 @@ def _enforce_valid(pack, local, count: int, run: _Run) -> None:
                 )
             attempts += 1
             for spec in pack.sequences:
-                if spec.is_computed:
+                if spec.is_computed or spec.name in overrides:
                     continue
                 if spec.gen is None:
                     raise EngineError(

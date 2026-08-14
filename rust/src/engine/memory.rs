@@ -3322,6 +3322,7 @@ fn pack_generator(
     let pack =
         config_builder::parse_pack_body(body).map_err(|e| EngineError::Invalid(e.message))?;
     let mut local: BTreeMap<String, Vec<Option<String>>> = BTreeMap::new();
+    let mut pinned: BTreeMap<String, String> = BTreeMap::new();
     for spec in &pack.sequences {
         // A caller attribute whose name matches this local sequence replaces it
         // with a constant column: `<gen type="template"
@@ -3333,7 +3334,8 @@ fn pack_generator(
             .and_then(|g| g.attr(&spec.name))
             .map(str::to_string);
         if let Some(value) = overridden {
-            local.insert(spec.name.clone(), vec![Some(value); count]);
+            local.insert(spec.name.clone(), vec![Some(value.clone()); count]);
+            pinned.insert(spec.name.clone(), value);
             continue;
         }
         for (name, values) in materialize_local(spec, count, prng, env, &local)? {
@@ -3342,7 +3344,7 @@ fn pack_generator(
     }
 
     if let Some(valid) = &pack.validate {
-        enforce_valid(&pack, valid, &mut local, count, prng, env)?;
+        enforce_valid(&pack, valid, &mut local, count, prng, env, &pinned)?;
     }
 
     let mut rendered = Vec::with_capacity(count);
@@ -3448,9 +3450,39 @@ fn enforce_valid(
     count: usize,
     prng: &mut Sfc32,
     env: &Env,
+    pinned: &BTreeMap<String, String>,
 ) -> EngineResult<()> {
+    // A PINNED sequence is never redrawn. A caller parameter replaces a local sequence
+    // with a constant, and redrawing it threw that constant away: a config asking for a
+    // particular base got values with nothing to do with it and no word of complaint.
+    // When the pin is all the guard reads there is nothing left to re-roll either, so
+    // the answer is fixed before the first attempt and saying so at once beats a
+    // hundred no-ops per row.
+    let redrawable = pack
+        .sequences
+        .iter()
+        .any(|s| !s.is_computed() && !pinned.contains_key(&s.name));
+
     for row in 0..count {
         let mut attempts = 0usize;
+        if !redrawable && !holds(valid, local, row)? {
+            let named = pinned
+                .iter()
+                .map(|(name, value)| format!("{name}=\"{value}\""))
+                .collect::<Vec<_>>()
+                .join(", ");
+            let named = if named.is_empty() {
+                "the pinned parameters".to_string()
+            } else {
+                named
+            };
+            return invalid(&format!(
+                "pack generator <valid> rejects the value built from {named}, and every \
+                 sequence the guard reads is pinned, so there is nothing left to redraw. \
+                 Pass a value the pack accepts, or drop the parameter and let the pack \
+                 draw its own."
+            ));
+        }
         while !holds(valid, local, row)? {
             attempts += 1;
             if attempts > VALID_FUSE {
@@ -3460,6 +3492,11 @@ fn enforce_valid(
                 ));
             }
             for spec in &pack.sequences {
+                // A pinned sequence keeps its constant; a COMPUTED one still runs, because
+                // that is what recomputes a check digit from the base just redrawn.
+                if pinned.contains_key(&spec.name) {
+                    continue;
+                }
                 for (name, mut values) in materialize_local(spec, 1, prng, env, local)? {
                     let replacement = values.remove(0);
                     if let Some(column) = local.get_mut(&name) {

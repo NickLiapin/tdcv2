@@ -66,9 +66,7 @@ export { patternGenForGen } from './pattern-source.js';
 import { patternGenForGen } from './pattern-source.js';
 import { evaluateIf } from '../expr/evaluate.js';
 
-import { evaluateCompute, evaluateComputePredicate } from '../compute/index.js';
 import { genFormatter } from '../format/transforms.js';
-import type { OpenCloseElementContext } from '../generated/TDCParser.js';
 import type { AttrMap } from '../processor/attrs.js';
 
 import type {
@@ -102,6 +100,7 @@ import { registerPoolRef } from './pool-ref.js';
 import { isDateOffset, offsetOf } from './date-offset.js';
 import { registerDerivedColumn } from './derived.js';
 import { distributionColumn } from './dist-params.js';
+import { enforceValid } from './pack-valid.js';
 
 export interface SequenceBuildOptions {
   readonly regexMaxLength?: number | undefined;
@@ -238,78 +237,6 @@ export function runGenerator(
     out[i] = interpolate(body.output, body.inject, i, registry);
   }
   return out;
-}
-
-/** Fuse for reject-and-retry redraws before a generator is declared infeasible. */
-const VALID_FUSE = 100;
-
-/**
- * Reject-and-retry (migration spec §4.2). For each row whose `<valid>` predicate
- * is false, redraw the base sequences (simple `<gen>` producers) from the PRNG
- * and re-evaluate the compute sequences, up to `VALID_FUSE` attempts. Redraws
- * append to the PRNG stream, so the result stays deterministic. Overridden
- * (constant) sequences are never redrawn.
- */
-function enforceValid(
-  validEl: OpenCloseElementContext,
-  specs: readonly SequenceSpec[],
-  registry: Record<string, Sequence>,
-  count: number,
-  prng: () => number,
-  locale: string,
-  now: number,
-  options: SequenceBuildOptions,
-): void {
-  const ctx = streamCtx(options);
-  const holds = (i: number): boolean =>
-    evaluateComputePredicate(validEl, (name) => {
-      const seq = registry[name];
-      return seq ? sequenceValueAt(seq, i) : undefined;
-    });
-
-  for (let i = 0; i < count; i++) {
-    let attempts = 0;
-    while (!holds(i)) {
-      if (attempts >= VALID_FUSE) {
-        throw new Error(
-          `pack generator <valid> constraint could not be satisfied for row ${String(i)} after ` +
-            `${String(VALID_FUSE)} attempts — the base cannot produce a valid value`,
-        );
-      }
-      attempts += 1;
-      // Redraw base sequences (skip overrides and compute — recomputed below).
-      for (const spec of specs) {
-        if (options.overrides?.[spec.name] !== undefined || spec.compute) continue;
-        if (!spec.gen) {
-          throw new Error(
-            `pack generator <valid> requires simple <gen> base sequences; ` +
-              `sequence "${spec.name}" is not supported`,
-          );
-        }
-        const seq = registry[spec.name];
-        if (seq)
-          (seq.values as (string | undefined)[])[i] = buildGenValues(
-            spec.gen,
-            1,
-            prng,
-            locale,
-            now,
-            ctx,
-          )[0];
-      }
-      // Recompute derived sequences for this row, in declaration order.
-      for (const spec of specs) {
-        if (!spec.compute) continue;
-        const seq = registry[spec.name];
-        if (seq) {
-          (seq.values as (string | undefined)[])[i] = evaluateCompute(spec.compute.node, (name) => {
-            const s = registry[name];
-            return s ? sequenceValueAt(s, i) : undefined;
-          });
-        }
-      }
-    }
-  }
 }
 
 /**

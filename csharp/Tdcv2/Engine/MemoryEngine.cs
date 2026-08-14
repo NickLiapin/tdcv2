@@ -2198,6 +2198,7 @@ public static class MemoryEngine
 
         var pack = (ConfigBuilder.PackGenerator)body;
         var local = new Dictionary<string, string[]>(StringComparer.Ordinal);
+        var pinned = new Dictionary<string, string>(StringComparer.Ordinal);
         foreach (SequenceSpec spec in pack.Sequences)
         {
             // A caller attribute whose name matches this local sequence replaces it with a
@@ -2211,6 +2212,7 @@ public static class MemoryEngine
                 var constant = new string[count];
                 Array.Fill(constant, overridden);
                 local[spec.Name] = constant;
+                pinned[spec.Name] = overridden;
                 continue;
             }
 
@@ -2222,7 +2224,7 @@ public static class MemoryEngine
 
         if (pack.Validate is not null)
         {
-            EnforceValid(pack, local, count, prng, ctx);
+            EnforceValid(pack, local, count, prng, ctx, pinned);
         }
 
         var rendered = new List<string>(count);
@@ -2305,11 +2307,30 @@ public static class MemoryEngine
     /// </remarks>
     private static void EnforceValid(
         ConfigBuilder.PackGenerator pack, Dictionary<string, string[]> local, int count,
-        Sfc32 prng, Ctx ctx)
+        Sfc32 prng, Ctx ctx, IReadOnlyDictionary<string, string> pinned)
     {
+        // A PINNED sequence is never redrawn. A caller parameter replaces a local sequence with
+        // a constant, and redrawing it threw that constant away: a config asking for a particular
+        // base got values with nothing to do with it and no word of complaint. When the pin is
+        // all the guard reads there is nothing left to re-roll either, so the answer is fixed
+        // before the first attempt and saying so at once beats a hundred no-ops per row.
+        bool redrawable = pack.Sequences.Any(s => !s.IsComputed && !pinned.ContainsKey(s.Name));
+
         for (int row = 0; row < count; row++)
         {
             int attempts = 0;
+            if (!redrawable && !Holds(pack, local, row))
+            {
+                string named = pinned.Count == 0
+                    ? "the pinned parameters"
+                    : string.Join(", ", pinned.Select(p => $"{p.Key}=\"{p.Value}\""));
+                throw new InvalidOperationException(
+                    $"pack generator <valid> rejects the value built from {named}, and every "
+                    + "sequence the guard reads is pinned, so there is nothing left to redraw. "
+                    + "Pass a value the pack accepts, or drop the parameter and let the pack "
+                    + "draw its own.");
+            }
+
             while (!Holds(pack, local, row))
             {
                 if (++attempts > ValidFuse)
@@ -2324,6 +2345,12 @@ public static class MemoryEngine
                     if (spec.IsComputed)
                     {
                         local[spec.Name][row] = ComputeRow(spec, local, row);
+                        continue;
+                    }
+
+                    // A pinned sequence keeps its constant.
+                    if (pinned.ContainsKey(spec.Name))
+                    {
                         continue;
                     }
 

@@ -110,6 +110,17 @@ _count"` is a sensor that grows noisier as the run goes on.
 
 ### Fixed
 
+- **Pinning a pack parameter a `<valid>` guard reads threw the pin away.** A caller parameter
+  replaces a local sequence with a constant — the documented way to drive a pack — but the
+  reject-and-retry loop redrew it anyway in Python, Rust, C# and Java. A config asking for a
+  particular base got values with nothing to do with it and no word of complaint: the pinned
+  run and the unpinned run produced the same numbers. The pin is now honoured everywhere.
+
+  With the pin honoured, a value the guard rejects can never be redrawn into a valid one, so
+  the answer is fixed before the first attempt. Where it used to be 100 futile redraws per row
+  followed by an error naming no parameter and no value, it is now immediate and says which
+  parameter, which value, and what to do about it.
+
 - **`plus=` on a date with no `of=` was accepted and dropped.** `plus=` belongs to the offset
   and nothing else reads it, so `<gen type="date" from="…" to="…" plus="3d"/>` passed `check`
   and produced ordinary drawn dates. "Shift this column by three days" is the natural

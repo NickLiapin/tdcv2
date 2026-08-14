@@ -2833,6 +2833,7 @@ public final class MemoryEngine {
 
     ConfigBuilder.PackGenerator pack = (ConfigBuilder.PackGenerator) body;
     Map<String, String[]> local = new LinkedHashMap<>();
+    Map<String, String> pinned = new LinkedHashMap<>();
     for (Config.SequenceSpec spec : pack.sequences()) {
       // A caller attribute whose name matches this local sequence replaces it with a constant
       // column: `<gen type="template" value="common.internet.email" domain="example.test"/>` is
@@ -2846,6 +2847,7 @@ public final class MemoryEngine {
         String[] constant = new String[count];
         java.util.Arrays.fill(constant, overridden);
         local.put(spec.name(), constant);
+        pinned.put(spec.name(), overridden);
         continue;
       }
       local.putAll(
@@ -2853,7 +2855,8 @@ public final class MemoryEngine {
     }
 
     if (pack.validate() != null) {
-      enforceValid(pack, local, count, prng, packs, config, nowMillis, baseDir, rowLinks);
+      enforceValid(
+          pack, local, count, prng, packs, config, nowMillis, baseDir, rowLinks, pinned);
     }
 
     List<String> out = new ArrayList<>(count);
@@ -2947,9 +2950,34 @@ public final class MemoryEngine {
       Config config,
       long nowMillis,
       Path baseDir,
-      Map<String, RowLinkPlan> rowLinks) {
+      Map<String, RowLinkPlan> rowLinks,
+      Map<String, String> pinned) {
+    // A PINNED sequence is never redrawn. A caller parameter replaces a local sequence with a
+    // constant, and redrawing it threw that constant away: a config asking for a particular base
+    // got values with nothing to do with it and no word of complaint. When the pin is all the
+    // guard reads there is nothing left to re-roll either, so the answer is fixed before the
+    // first attempt and saying so at once beats a hundred no-ops per row.
+    boolean redrawable =
+        pack.sequences().stream()
+            .anyMatch(s -> !s.isComputed() && !pinned.containsKey(s.name()));
+
     for (int row = 0; row < count; row++) {
       int attempts = 0;
+      if (!redrawable && !holds(pack, local, row)) {
+        StringBuilder named = new StringBuilder();
+        for (Map.Entry<String, String> e : pinned.entrySet()) {
+          if (named.length() > 0) {
+            named.append(", ");
+          }
+          named.append(e.getKey()).append("=\"").append(e.getValue()).append('"');
+        }
+        throw new IllegalStateException(
+            "pack generator <valid> rejects the value built from "
+                + (named.length() == 0 ? "the pinned parameters" : named)
+                + ", and every sequence the guard reads is pinned, so there is nothing left to"
+                + " redraw. Pass a value the pack accepts, or drop the parameter and let the pack"
+                + " draw its own.");
+      }
       while (!holds(pack, local, row)) {
         if (attempts >= VALID_FUSE) {
           throw new IllegalStateException(
@@ -2961,7 +2989,8 @@ public final class MemoryEngine {
         }
         attempts++;
         for (Config.SequenceSpec spec : pack.sequences()) {
-          if (spec.isComputed()) {
+          // A pinned sequence keeps its constant.
+          if (spec.isComputed() || pinned.containsKey(spec.name())) {
             continue;
           }
           if (spec.gen() == null) {
