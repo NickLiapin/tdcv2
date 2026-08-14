@@ -3856,6 +3856,30 @@ public final class Validator {
     }
   }
 
+  /**
+   * {@code plus=} on a date that is not measured from anything.
+   *
+   * <p>{@code plus=} belongs to the offset and nothing else reads it, so a lone {@code plus="3d"}
+   * was dropped in silence and the column came out as ordinary drawn dates. "Shift this column by
+   * three days" is the natural misreading of it — and this generator already refuses {@code step=}
+   * and {@code weekdays=} on a drawn date for exactly that reason.
+   */
+  private void checkDatePlusWithoutOf(
+      TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
+    if (attrs.get("plus") == null) {
+      return;
+    }
+    int[] where = at(gen, "plus");
+    error(
+        "TDC264",
+        "<gen type=\"date\" plus=\"…\"> does not say what it is measured from",
+        "Add of=\"Name\" to measure from another date column — plus= is how far from it, and on"
+            + " its own there is nothing to be far from. To move every drawn date, move the"
+            + " range.",
+        where[0],
+        where[1]);
+  }
+
   private void checkDateStep(
       TDCParser.SelfClosingElementContext gen, Map<String, String> attrs) {
     if (attrs.get("step") == null) {
@@ -4063,6 +4087,7 @@ public final class Validator {
           "Use from=\"2020-01-01\" to=\"2025-12-31\", or value=\"2020-01-01..2025-12-31\".",
           line(gen), column(gen));
     }
+    checkDatePlusWithoutOf(gen, attrs);
     checkDateStep(gen, attrs);
     checkDateWeekdays(gen, attrs);
     String local = attrs.get("local");

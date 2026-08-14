@@ -4303,6 +4303,31 @@ public sealed class Validator
     }
 
     /// <summary><c>step=</c> on a walked date axis: what it may say, and that anything reads it.</summary>
+    /// <summary>`plus=` on a date that is not measured from anything.</summary>
+    /// <remarks>
+    /// <c>plus=</c> belongs to the offset and nothing else reads it, so a lone
+    /// <c>plus="3d"</c> was dropped in silence and the column came out as ordinary drawn dates.
+    /// "Shift this column by three days" is the natural misreading of it — and this generator
+    /// already refuses <c>step=</c> and <c>weekdays=</c> on a drawn date for exactly that reason.
+    /// </remarks>
+    private void CheckDatePlusWithoutOf(
+        TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
+    {
+        if (!attrs.ContainsKey("plus"))
+        {
+            return;
+        }
+
+        (int line, int column) = At(gen, "plus");
+        Error(
+            "TDC264",
+            "<gen type=\"date\" plus=\"…\"> does not say what it is measured from",
+            "Add of=\"Name\" to measure from another date column — plus= is how far from it, "
+            + "and on its own there is nothing to be far from. To move every drawn date, move "
+            + "the range.",
+            line, column);
+    }
+
     private void CheckDateStep(
         TDCParser.SelfClosingElementContext gen, IReadOnlyDictionary<string, string> attrs)
     {
@@ -4536,6 +4561,7 @@ public sealed class Validator
                 Line(gen), Column(gen));
         }
 
+        CheckDatePlusWithoutOf(gen, attrs);
         CheckDateStep(gen, attrs);
         CheckDateWeekdays(gen, attrs);
 

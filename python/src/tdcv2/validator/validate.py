@@ -3638,6 +3638,7 @@ class _Validator:
                 column,
             )
         self._check_env_locale_has_dates(gen, attrs)
+        self._check_date_plus_without_of(gen, attrs)
         self._check_date_step(gen, attrs)
         self._check_date_weekdays(gen, attrs)
         self._check_date_common(gen, attrs)
@@ -3749,6 +3750,27 @@ class _Validator:
             "every language, or accept the English month names.",
             _line(gen),
             _column(gen),
+        )
+
+    def _check_date_plus_without_of(self, gen, attrs: dict[str, str]) -> None:
+        """``plus=`` on a date that is not measured from anything.
+
+        ``plus=`` belongs to the offset and nothing else reads it, so a lone ``plus="3d"`` was
+        dropped in silence and the column came out as ordinary drawn dates. "Shift this column by
+        three days" is the natural misreading of it — and this generator already refuses ``step=``
+        and ``weekdays=`` on a drawn date for exactly that reason.
+        """
+        if attrs.get("plus") is None:
+            return
+        line, column = _at(gen, "plus")
+        self._error(
+            "TDC264",
+            '<gen type="date" plus="…"> does not say what it is measured from',
+            'Add of="Name" to measure from another date column — plus= is how far from it, and '
+            "on its own there is nothing to be far from. To move every drawn date, move the "
+            "range.",
+            line,
+            column,
         )
 
     def _check_date_step(self, gen, attrs: dict[str, str]) -> None:

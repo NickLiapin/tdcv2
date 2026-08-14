@@ -3670,6 +3670,26 @@ impl Validator {
     }
 
     /// `step=` on a walked date axis: what it may say, and that anything reads it.
+    /// `plus=` on a date that is not measured from anything.
+    ///
+    /// `plus=` belongs to the offset and nothing else reads it, so a lone `plus="3d"`
+    /// was dropped in silence and the column came out as ordinary drawn dates. "Shift
+    /// this column by three days" is the natural misreading of it — and this generator
+    /// already refuses `step=` and `weekdays=` on a drawn date for exactly that reason.
+    fn check_date_plus_without_of(&mut self, gen: &Element, attrs: &Attrs) {
+        if attrs.get("plus").is_none() {
+            return;
+        }
+        self.error(
+            "TDC264",
+            "<gen type=\"date\" plus=\"…\"> does not say what it is measured from".to_string(),
+            "Add of=\"Name\" to measure from another date column — plus= is how far from it, \
+             and on its own there is nothing to be far from. To move every drawn date, move \
+             the range.",
+            gen.at("plus"),
+        );
+    }
+
     fn check_date_step(&mut self, gen: &Element, attrs: &Attrs) {
         let Some(raw) = attrs.get("step") else {
             return;
@@ -3906,6 +3926,7 @@ impl Validator {
             );
         }
 
+        self.check_date_plus_without_of(gen, attrs);
         self.check_date_step(gen, attrs);
         self.check_date_weekdays(gen, attrs);
 

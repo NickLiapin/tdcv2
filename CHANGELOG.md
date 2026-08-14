@@ -110,6 +110,13 @@ _count"` is a sensor that grows noisier as the run goes on.
 
 ### Fixed
 
+- **`plus=` on a date with no `of=` was accepted and dropped.** `plus=` belongs to the offset
+  and nothing else reads it, so `<gen type="date" from="…" to="…" plus="3d"/>` passed `check`
+  and produced ordinary drawn dates. "Shift this column by three days" is the natural
+  misreading of it, and the date generator already refuses `step=` and `weekdays=` on a drawn
+  date for exactly that reason. It is now TDC264, the mirror of the `of=` without `plus=`
+  refusal, in all five.
+
 - **A fractional counter worked only in the reference, and even there it could not be written
   as Parquet.** `<gen type="decrement" value="9.99" step="0.50"/>` — the example on the
   counters page — printed `9.99 / 9.49 / 8.99` from TypeScript and was refused outright by all

@@ -35,6 +35,13 @@
       "description": "An offset is built in declaration order out of a column that already exists, so of= takes the same rule parent=, a running total and a statistic take. The code is shared with those deliberately — the same rule with the same fix.",
       "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"Out\"><gen type=\"date\" of=\"In\" plus=\"7d\"/></sequence><sequence name=\"In\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-02-01\"/></sequence></env><block><line><data>${{Out}}</data></line></block></tdc>",
       "expected": ["error TDC240 1:82"]
+    },
+    {
+      "name": "a-distance-with-nothing-to-measure-from",
+      "demonstrates": "TDC264",
+      "description": "plus= belongs to the offset and nothing else reads it, so a lone plus=\"3d\" was dropped in silence and the column came out as ordinary drawn dates. \"Shift this column by three days\" is the natural misreading of it, and step= and weekdays= are already refused on a drawn date for exactly this reason.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"D\"><gen type=\"date\" from=\"2026-01-01\" to=\"2026-02-01\" plus=\"3d\"/></sequence></env><block><line><data>${{D}}</data></line></block></tdc>",
+      "expected": ["error TDC264 1:116"]
     }
   ]
 }

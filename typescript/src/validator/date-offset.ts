@@ -37,7 +37,7 @@ export function checkGenDateOffset(
   const attrs = extractAttrs(gen.attr());
   if (attrs['type'] !== 'date') return;
   const of = (attrs['of'] ?? '').trim();
-  if (of === '') return; // a plain date draw — validated elsewhere
+  if (of === '') return; // a plain date draw — validated in `date.ts`
 
   /** Underline the offending value where there is one, the whole tag otherwise. */
   const rangeOf = (name: string): ReturnType<typeof nodeRange> => {

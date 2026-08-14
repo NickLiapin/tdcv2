@@ -50,6 +50,7 @@ export function checkGenDate(
     return;
   }
   checkDateCommonAttrs(attrs, diagnostics);
+  checkDatePlusWithoutOf(attrs, diagnostics);
   checkDateStep(attrs, attrMap, diagnostics);
   checkDateWeekdays(attrs, attrMap, diagnostics);
 
@@ -243,6 +244,31 @@ function findAttr(attrs: readonly AttrContext[], name: string): AttrContext | un
     if (attr._attrName?.text === name) return attr;
   }
   return undefined;
+}
+
+/**
+ * `plus=` on a date that is not measured from anything.
+ *
+ * `plus=` belongs to the offset and nothing else reads it, so a lone `plus="3d"` was
+ * dropped in silence and the column came out as ordinary drawn dates. "Shift this
+ * column by three days" is the natural misreading of it — and this generator's whole
+ * design is that `step` and `weekdays` are refused rather than ignored for exactly
+ * this reason. `plus` now joins them, with the mirror of the `of=` without `plus=`
+ * message and the same code.
+ */
+function checkDatePlusWithoutOf(attrs: readonly AttrContext[], diagnostics: Diagnostic[]): void {
+  const plusAttr = findAttr(attrs, 'plus');
+  if (!plusAttr) return;
+  diagnostics.push({
+    severity: 'error',
+    source: 'validator',
+    ...attrValueRange(plusAttr),
+    message: '<gen type="date" plus="…"> does not say what it is measured from',
+    hint:
+      'Add of="Name" to measure from another date column — plus= is how far from it, and on ' +
+      'its own there is nothing to be far from. To move every drawn date, move the range.',
+    code: 'TDC264',
+  });
 }
 
 /**
