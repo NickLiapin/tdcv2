@@ -682,14 +682,14 @@
       "locale": "fr",
       "address": "person.lastName",
       "count": 3,
-      "expected": ["Leroux", "Dufour", "Aubert"]
+      "expected": ["Metivier", "Fauchon", "Pouget"]
     },
     {
       "seed": "demo",
       "locale": "ar",
       "address": "person.lastName",
       "count": 3,
-      "expected": ["المصري", "حمدان", "القرشي"]
+      "expected": ["بوعزيزي", "لطفي", "نصيري"]
     },
     {
       "seed": "demo",
