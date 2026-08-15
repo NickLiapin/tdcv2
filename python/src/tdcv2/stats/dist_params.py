@@ -39,8 +39,8 @@ PARAMS = (
     "max",
 )
 
-_PLAIN_NUMBER = re.compile(r"^\s*[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?\s*$")
-_NUMERIC = re.compile(r"^\s*[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?\s*$")
+_PLAIN_NUMBER = re.compile(r"^\s*[+-]?(\d+(?:\.\d*)?|\.\d+)([eE][+-]?\d+)?\s*$")
+_NUMERIC = re.compile(r"^\s*[+-]?(\d+(?:\.\d*)?|\.\d+)([eE][+-]?\d+)?\s*$")
 
 #: The two distributions sampled from a PAIR of uniforms (Box-Muller); every other reads one.
 _TWO_DRAW = frozenset({"normal", "lognormal"})

@@ -123,7 +123,7 @@ fn parse_integer(text: &str, what: &str) -> Result<i128, ConvertError> {
         .map_err(|_| ConvertError(format!("\"{text}\" is out of range for {what}")))
 }
 
-/// `^[+-]?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?$`, by hand.
+/// `^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$`, by hand.
 ///
 /// Rust's own parser accepts `inf`, `NaN` and `1_000`; JavaScript's `Number()`
 /// does not, and the implementations have to refuse the same strings.
@@ -144,7 +144,7 @@ fn looks_numeric(text: &str) -> bool {
         Some(at) => (&body[..at], Some(&body[at + 1..])),
     };
 
-    // `\d+\.?\d*` or `\.\d+`
+    // `\d+(?:\.\d*)?` or `\.\d+`
     let digits_ok = match mantissa.split_once('.') {
         None => !mantissa.is_empty() && mantissa.bytes().all(|b| b.is_ascii_digit()),
         Some((whole, fraction)) => {

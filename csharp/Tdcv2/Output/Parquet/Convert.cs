@@ -36,7 +36,7 @@ public static class Convert
     private static readonly Regex DecimalPattern = new(@"^([+-]?)(\d+)(?:\.(\d*))?$", RegexOptions.Compiled);
     private static readonly Regex Hex32 = new("^[0-9a-f]{32}$", RegexOptions.Compiled);
     private static readonly Regex NumberText =
-        new(@"^[+-]?(?:\d+\.?\d*|\.\d+)(?:[eE][+-]?\d+)?$", RegexOptions.Compiled);
+        new(@"^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$", RegexOptions.Compiled);
 
     /// <summary>
     /// Convert one rendered cell.

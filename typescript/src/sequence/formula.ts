@@ -41,7 +41,7 @@ import type { Sequence, SequenceSpec } from './types.js';
 
 /** A value that reads as a number: the expression language's own idea of one. */
 /** A cell that reads as a number. Shared with the distribution parameters. */
-export const NUMERIC = /^\s*[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?\s*$/;
+export const NUMERIC = /^\s*[+-]?(\d+(?:\.\d*)?|\.\d+)([eE][+-]?\d+)?\s*$/;
 
 /** Raised when a formula cannot produce a value; surfaced as a run refusal. */
 export class FormulaError extends Error {

@@ -190,7 +190,18 @@ function wrapFragment(body, expected, locale, title) {
   // or an error message, with a column of numbers and called it an update.
   if (!/^\s*\.\/run\s+[\w.-]+\.tdc\s*$/.test(titleOf(title))) return undefined;
   // A comment above the gen is part of the teaching, not part of the config.
-  const bare = body.replace(/<!--[\s\S]*?-->/g, "").trim();
+  //
+  // Until it is stable, not once: one pass over `<!--<!-- x -->` leaves a `<!--`
+  // behind, and here that does not read as a leftover — it reads as "this is not
+  // a bare <gen>", so the example is quietly dropped from the gate instead of
+  // being checked. Silently generating nothing is the failure this repository
+  // keeps finding, and a sanitiser that half-works is one more way to get it.
+  let bare = body;
+  for (let previous = ""; bare !== previous; ) {
+    previous = bare;
+    bare = bare.replace(/<!--[\s\S]*?-->/g, "");
+  }
+  bare = bare.trim();
   if (!/^<gen\b[\s\S]*?(?:\/>|<\/gen>)$/.test(bare)) return undefined;
   // One generator, not several: `<gen/><gen/>` is a compound, and what a
   // compound prints depends on a layout this cannot know.

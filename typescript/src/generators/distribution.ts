@@ -347,7 +347,7 @@ export const DISTRIBUTION_PARAMS: readonly string[] = [
 ];
 
 /** Digits, a point, a sign, an exponent — anything a plain number can be. */
-const PLAIN_NUMBER = /^\s*[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?\s*$/;
+const PLAIN_NUMBER = /^\s*[+-]?(\d+(?:\.\d*)?|\.\d+)([eE][+-]?\d+)?\s*$/;
 
 /**
  * The parameters this generator wrote as an EXPRESSION rather than a number.

@@ -21,7 +21,7 @@ from dataclasses import dataclass, field
 from ..expr import as_value
 from ..lib import numbers
 
-_NUMERIC = re.compile(r"^\s*[+-]?(\d+\.?\d*|\.\d+)([eE][+-]?\d+)?\s*$")
+_NUMERIC = re.compile(r"^\s*[+-]?(\d+(?:\.\d*)?|\.\d+)([eE][+-]?\d+)?\s*$")
 
 
 class FormulaError(ValueError):

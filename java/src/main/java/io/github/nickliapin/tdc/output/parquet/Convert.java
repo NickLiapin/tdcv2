@@ -141,7 +141,7 @@ public final class Convert {
   private static double number(String text, String raw) {
     // Java accepts "1d", "0x1p3" and a leading "+"; JavaScript's Number() does not, and the two
     // implementations have to refuse the same strings.
-    if (!text.matches("^[+-]?(?:\\d+\\.?\\d*|\\.\\d+)(?:[eE][+-]?\\d+)?$")) {
+    if (!text.matches("^[+-]?(?:\\d+(?:\\.\\d*)?|\\.\\d+)(?:[eE][+-]?\\d+)?$")) {
       throw new IllegalArgumentException("\"" + raw + "\" is not a number");
     }
     double v = Double.parseDouble(text);
