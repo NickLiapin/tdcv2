@@ -1,0 +1,20 @@
+---
+description: Horse breed (Vietnamese)
+locale: vi
+---
+ngựa bản địa
+ngựa bạch
+ngựa Cao Bằng
+ngựa Hà Giang
+ngựa Ả Rập
+ngựa thuần chủng Anh
+ngựa Hanover
+ngựa Holstein
+ngựa Friesian
+ngựa Andalusia
+ngựa Akhal-Teke
+ngựa Shire
+ngựa Percheron
+ngựa Appaloosa
+ngựa lùn Shetland
+ngựa Mông Cổ

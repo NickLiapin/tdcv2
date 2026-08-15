@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Vietnamese. A prevalence signal, not an exclusive one.
+locale: vi
+---
+Bệnh Tay-Sachs
+Bệnh Gaucher
+Rối loạn thần kinh thực vật gia đình
+Bệnh Canavan
+Hội chứng Bloom
+Thiếu máu Fanconi type C
+Xơ nang
+Đột biến BRCA1 và BRCA2
+Thiếu yếu tố XI
+Bệnh Niemann-Pick type A
+Bệnh dự trữ glycogen type I
+Thiếu dihydrolipoamide dehydrogenase

@@ -618,7 +618,64 @@ static ID: DateLocale = DateLocale {
     ],
 };
 
-static BY_NAME: [(&str, &DateLocale); 27] = [
+// Vietnamese names months by number — "tháng 10", not a word of its own — and a full date
+// reads "ngày 9 tháng 10 năm 2026", so the long formats carry those three words as literals.
+static VI: DateLocale = DateLocale {
+    months: [
+        "tháng 1",
+        "tháng 2",
+        "tháng 3",
+        "tháng 4",
+        "tháng 5",
+        "tháng 6",
+        "tháng 7",
+        "tháng 8",
+        "tháng 9",
+        "tháng 10",
+        "tháng 11",
+        "tháng 12",
+    ],
+    months_short: [
+        "Th1",
+        "Th2",
+        "Th3",
+        "Th4",
+        "Th5",
+        "Th6",
+        "Th7",
+        "Th8",
+        "Th9",
+        "Th10",
+        "Th11",
+        "Th12",
+    ],
+    weekdays: [
+        "Chủ Nhật",
+        "Thứ Hai",
+        "Thứ Ba",
+        "Thứ Tư",
+        "Thứ Năm",
+        "Thứ Sáu",
+        "Thứ Bảy",
+    ],
+    weekdays_short: [
+        "CN",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+    ],
+    formats: [
+        "DD/MM/YYYY",
+        "[ngày] D MMMM [năm] YYYY",
+        "[ngày] D MMMM [năm] YYYY HH:mm",
+        "dddd, [ngày] D MMMM [năm] YYYY HH:mm",
+    ],
+};
+
+static BY_NAME: [(&str, &DateLocale); 29] = [
     ("en", &EN),
     ("eng", &EN),
     ("ru", &RU),
@@ -646,11 +703,13 @@ static BY_NAME: [(&str, &DateLocale); 27] = [
     ("tur", &TR),
     ("id", &ID),
     ("ind", &ID),
+    ("vi", &VI),
+    ("vie", &VI),
 ];
 
 /// The advertised names, for the validator's "did you mean" list.
-pub static NAMES: [&str; 14] = [
-    "ar", "de", "el", "en", "es", "fr", "id", "it", "pl", "pt", "ru", "tr", "uk", "zh-cn",
+pub static NAMES: [&str; 15] = [
+    "ar", "de", "el", "en", "es", "fr", "id", "it", "pl", "pt", "ru", "tr", "uk", "vi", "zh-cn",
 ];
 
 /// The named locale, falling back to English.

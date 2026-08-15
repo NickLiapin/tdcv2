@@ -1,0 +1,20 @@
+---
+description: Court type (Vietnamese judiciary)
+locale: vi
+---
+Tòa án nhân dân cấp huyện
+Tòa án nhân dân cấp tỉnh
+Tòa án nhân dân cấp cao
+Tòa án nhân dân tối cao
+Tòa hình sự
+Tòa dân sự
+Tòa kinh tế
+Tòa lao động
+Tòa hành chính
+Tòa gia đình và người chưa thành niên
+Tòa án quân sự khu vực
+Tòa án quân sự quân khu
+Tòa án quân sự trung ương
+Viện kiểm sát nhân dân
+Trọng tài thương mại
+Trung tâm hòa giải

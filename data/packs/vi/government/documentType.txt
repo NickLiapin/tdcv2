@@ -1,0 +1,21 @@
+---
+description: Official document type (Vietnamese)
+locale: vi
+---
+căn cước công dân
+chứng minh nhân dân
+hộ chiếu
+giấy khai sinh
+giấy đăng ký kết hôn
+quyết định ly hôn
+giấy chứng tử
+mã số thuế cá nhân
+giấy phép lái xe
+giấy đăng ký xe
+sổ đỏ
+giấy xác nhận cư trú
+giấy xác nhận thu nhập
+sổ bảo hiểm xã hội
+phiếu lý lịch tư pháp
+giấy phép kinh doanh
+bằng tốt nghiệp

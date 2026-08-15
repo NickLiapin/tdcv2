@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Vietnamese)
+locale: vi
+---
+hậu vệ dẫn bóng
+hậu vệ ghi điểm
+tiền phong phụ
+tiền phong chính
+trung phong

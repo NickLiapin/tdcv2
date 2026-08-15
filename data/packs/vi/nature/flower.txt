@@ -1,0 +1,32 @@
+---
+description: Flower (Vietnamese)
+locale: vi
+---
+hoa_sen
+hoa_đào
+hoa_mai
+hoa_hồng
+hoa_cúc
+hoa_lan
+hoa_huệ
+hoa_ly
+hoa_nhài
+hoa_sứ
+hoa_gạo
+hoa_phượng
+hoa_bằng_lăng
+hoa_sữa
+hoa_giấy
+hoa_dâm_bụt
+hoa_thược_dược
+hoa_lay_ơn
+hoa_cẩm_chướng
+hoa_tulip
+hoa_hướng_dương
+hoa_súng
+hoa_ngọc_lan
+hoa_móng_rồng
+hoa_tigôn
+hoa_bìm_bịp
+hoa_mười_giờ
+hoa_dạ_hương

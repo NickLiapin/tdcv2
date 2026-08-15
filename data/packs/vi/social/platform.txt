@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Vietnam
+locale: vi
+---
+Facebook
+Zalo
+TikTok
+YouTube
+Instagram
+Messenger
+Telegram
+X
+LinkedIn
+Viber
+Discord
+Twitch
+Pinterest
+Reddit
+Threads
+Lotus
+VNeID

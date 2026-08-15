@@ -1,0 +1,24 @@
+---
+description: Parcel carriers commonly used in Vietnam
+locale: vi
+---
+Giao Hàng Nhanh
+Giao Hàng Tiết Kiệm
+Viettel Post
+VNPost
+J&T Express
+Ninja Van
+Best Express
+SPX Express
+Lazada Express
+GrabExpress
+Ahamove
+Be Delivery
+Nhất Tín
+Kerry Express
+Vietnam Post
+EMS
+DHL
+FedEx
+UPS
+TNT

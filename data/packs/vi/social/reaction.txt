@@ -1,0 +1,15 @@
+---
+description: Social reaction (Vietnamese)
+locale: vi
+---
+thích
+yêu thích
+haha
+wow
+buồn
+phẫn nộ
+ủng hộ
+cảm ơn
+chúc mừng
+thú vị
+không thích

@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Vietnamese)
+locale: vi
+---
+sấm
+chớp
+sét
+cầu vồng
+sương mù
+sương muối
+băng giá
+bão
+áp thấp nhiệt đới
+lốc xoáy
+vòi rồng
+gió mùa
+hạn hán
+lũ quét
+ngập lụt

@@ -1,0 +1,24 @@
+---
+description: Legal term (Vietnamese)
+locale: vi
+---
+khởi kiện
+đơn khởi kiện
+bị đơn
+nguyên đơn
+người có quyền lợi liên quan
+quyết định
+bản án
+phán quyết
+kháng cáo
+kháng nghị
+giám đốc thẩm
+quyết định thi hành án
+điều tra
+cáo trạng
+biện pháp ngăn chặn
+thời hiệu khởi kiện
+thỏa thuận hòa giải
+giấy ủy quyền
+công chứng
+án phí

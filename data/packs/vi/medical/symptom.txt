@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Vietnamese)
+locale: vi
+---
+sốt
+ớn lạnh
+đau đầu
+chóng mặt
+mệt mỏi
+nhanh mệt
+buồn nôn
+nôn
+tiêu chảy
+táo bón
+đau bụng
+ợ nóng
+ợ hơi
+chán ăn
+ho
+ho khan
+ho có đờm
+khó thở
+đau ngực
+hồi hộp
+phù chân
+đau lưng
+đau khớp
+đau cơ
+tê tay chân
+chuột rút
+phát ban
+ngứa
+đỏ da
+chảy nước mắt
+nghẹt mũi
+sổ mũi
+đau họng
+khàn tiếng
+mất ngủ
+bồn chồn
+buồn bã
+nhìn mờ

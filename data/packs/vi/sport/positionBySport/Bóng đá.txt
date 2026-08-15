@@ -1,0 +1,15 @@
+---
+description: Positions in association football (Vietnamese)
+locale: vi
+---
+thủ môn
+hậu vệ phải
+hậu vệ trái
+trung vệ
+tiền vệ phòng ngự
+tiền vệ trung tâm
+tiền vệ tấn công
+tiền vệ cánh phải
+tiền vệ cánh trái
+tiền đạo
+trung phong

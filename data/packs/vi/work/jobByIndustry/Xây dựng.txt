@@ -1,0 +1,16 @@
+---
+description: Jobs in Construction (Vietnamese)
+locale: vi
+---
+kỹ sư xây dựng
+kiến trúc sư
+chỉ huy trưởng công trình
+thợ nề
+thợ trát
+thợ sơn
+thợ điện
+thợ nước
+thợ hàn
+thợ lợp mái
+lái cẩu
+chuyên viên dự toán

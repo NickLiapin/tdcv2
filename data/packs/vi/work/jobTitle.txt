@@ -1,0 +1,251 @@
+---
+description: Vietnamese job titles across sectors (tech, healthcare, trades, transport, business, service, public)
+locale: vi
+---
+lập trình viên
+lập trình viên front-end
+lập trình viên back-end
+lập trình viên di động
+kỹ sư kiểm thử
+quản trị hệ thống
+kỹ sư mạng
+quản trị cơ sở dữ liệu
+kỹ sư DevOps
+kiến trúc sư hệ thống
+chuyên viên phân tích dữ liệu
+nhà khoa học dữ liệu
+chuyên gia an ninh mạng
+nhà thiết kế giao diện
+nhà thiết kế đồ họa
+quản lý sản phẩm
+quản lý dự án
+scrum master
+giám đốc công nghệ
+kỹ sư hỗ trợ kỹ thuật
+bác sĩ nội khoa
+bác sĩ gia đình
+bác sĩ phẫu thuật
+bác sĩ tim mạch
+bác sĩ thần kinh
+bác sĩ nội tiết
+bác sĩ mắt
+bác sĩ tai mũi họng
+bác sĩ da liễu
+bác sĩ tâm thần
+bác sĩ gây mê
+bác sĩ sản phụ khoa
+bác sĩ nhi khoa
+bác sĩ chấn thương chỉnh hình
+bác sĩ tiết niệu
+bác sĩ ung bướu
+nha sĩ
+bác sĩ chỉnh nha
+điều dưỡng
+điều dưỡng trưởng
+hộ sinh
+dược sĩ
+kỹ thuật viên xét nghiệm
+kỹ thuật viên X-quang
+kỹ thuật viên vật lý trị liệu
+kỹ thuật viên xoa bóp
+chuyên gia dinh dưỡng
+bác sĩ thú y
+giáo viên tiểu học
+giáo viên toán
+giáo viên vật lý
+giáo viên hóa học
+giáo viên sinh học
+giáo viên lịch sử
+giáo viên ngữ văn
+giáo viên tiếng Anh
+giáo viên tin học
+giáo viên thể dục
+giáo viên mầm non
+giảng viên đại học
+phó giáo sư
+giáo sư
+nghiên cứu viên
+chuyên viên phương pháp
+hiệu trưởng
+hiệu phó
+giáo viên chủ nhiệm
+chuyên viên tâm lý học đường
+kế toán
+kế toán trưởng
+kiểm toán viên
+chuyên viên phân tích tài chính
+chuyên viên kinh tế
+giao dịch viên ngân hàng
+chuyên viên tín dụng
+chuyên viên phân tích đầu tư
+đại lý bảo hiểm
+tư vấn thuế
+chuyên viên thẩm định giá
+kiểm soát nội bộ
+giám đốc tài chính
+cử nhân luật
+luật sư
+công chứng viên
+thẩm phán
+kiểm sát viên
+điều tra viên
+chuyên viên pháp chế
+đại diện sở hữu trí tuệ
+hòa giải viên
+quản tài viên
+kỹ sư xây dựng
+kiến trúc sư
+kiến trúc sư cảnh quan
+nhà thiết kế công trình
+chỉ huy trưởng công trình
+chuyên viên dự toán
+thợ nề
+thợ trát
+thợ sơn
+thợ ốp lát
+thợ lợp mái
+thợ mộc
+thợ đóng đồ gỗ
+thợ điện
+thợ nước
+thợ hàn
+thợ lắp ráp
+lái cẩu
+lái máy ủi
+lái máy xúc
+thợ tiện
+thợ phay
+thợ nguội
+kỹ thuật viên bảo trì
+vận hành máy CNC
+thợ điều chỉnh thiết bị
+kỹ sư công nghệ
+kỹ sư cơ khí
+kỹ sư thiết kế
+nhân viên kiểm tra chất lượng
+tổ trưởng sản xuất
+trưởng ca
+công nhân đóng gói
+nhân viên kho
+công nhân bốc xếp
+lái xe tải
+lái xe buýt
+lái xe khách
+lái taxi
+lái tàu hỏa
+lái tàu điện
+nhân viên soát vé
+điều độ viên
+chuyên viên logistics
+nhân viên giao nhận
+đại lý hải quan
+kỹ thuật viên hàng không
+phi công
+tiếp viên hàng không
+nhân viên sân bay
+thuyền trưởng
+thợ máy tàu
+công nhân cảng
+nhân viên giao hàng
+lái xe cứu hộ
+nhân viên bán hàng
+thu ngân
+nhân viên trưng bày
+quản lý cửa hàng
+chuyên viên thu mua
+chuyên viên ngành hàng
+trưởng phòng kinh doanh
+nhân viên kinh doanh thị trường
+nhân viên kho
+nhân viên soạn đơn
+giám đốc cửa hàng
+lễ tân khách sạn
+nhân viên đặt phòng
+nhân viên buồng phòng
+nhân viên đón khách
+quản gia
+đầu bếp
+bếp phó
+bếp trưởng
+thợ làm bánh ngọt
+thợ làm bánh mì
+thợ pha chế
+phục vụ bàn
+bartender
+barista
+chuyên gia rượu vang
+quản lý nhà hàng
+nhân viên hoạt náo
+hướng dẫn viên du lịch
+nhân viên đại lý du lịch
+người tổ chức sự kiện
+nhân viên marketing
+chuyên viên mạng xã hội
+biên tập nội dung
+copywriter
+biên tập viên
+người hiệu đính
+nhà báo
+nhiếp ảnh gia
+quay phim
+dựng phim
+kỹ sư âm thanh
+phát thanh viên
+người dẫn chương trình
+đạo diễn
+biên kịch
+phiên dịch viên
+biên dịch viên
+chuyên viên nhân sự
+chuyên viên tuyển dụng
+chuyên viên đào tạo
+quản lý văn phòng
+thư ký
+nhân viên văn thư
+nhân viên lưu trữ
+trợ lý giám đốc
+nhân viên tổng đài
+chuyên viên chăm sóc khách hàng
+công an
+cảnh sát khu vực
+nhân viên cứu hộ
+lính cứu hỏa
+quân nhân
+bộ đội biên phòng
+cán bộ hải quan
+nhân viên bảo vệ
+chuyên viên an toàn lao động
+công chức
+nhân viên công tác xã hội
+thủ thư
+nhân viên bảo tàng
+kiến trúc sư phục chế
+kỹ sư nông nghiệp
+kỹ sư chăn nuôi
+lái máy cày
+lái máy gặt
+nông dân
+người nuôi ong
+kiểm lâm
+ngư dân
+người làm vườn
+người bán hoa
+công nhân cây xanh
+lao công
+công nhân vệ sinh
+nhân viên tòa nhà
+thợ sửa thang máy
+thợ cắt tóc
+thợ cạo
+thợ làm móng
+chuyên viên thẩm mỹ
+chuyên viên trang điểm
+thợ may
+thợ khâu
+thợ sửa giày
+thợ sửa đồng hồ
+thợ kim hoàn
+thợ gốm
+thợ đóng đồ gỗ
+chuyên gia phục chế
+thợ chỉnh dây đàn piano

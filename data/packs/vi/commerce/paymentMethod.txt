@@ -1,0 +1,19 @@
+---
+description: Payment method (Vietnamese)
+locale: vi
+---
+Thẻ Visa
+Thẻ Mastercard
+Thẻ ATM nội địa
+Tiền mặt
+Thanh toán khi nhận hàng
+Chuyển khoản ngân hàng
+VietQR
+Momo
+ZaloPay
+ViettelPay
+VNPay
+ShopeePay
+Apple Pay
+Trả góp
+Thẻ quà tặng

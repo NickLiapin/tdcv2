@@ -1,0 +1,16 @@
+---
+description: Leave type (Vietnamese)
+locale: vi
+---
+nghỉ phép năm
+nghỉ phép bổ sung
+nghỉ không lương
+nghỉ ốm
+nghỉ thai sản
+nghỉ chăm con
+nghỉ cho con bú
+nghỉ học tập
+nghỉ việc riêng
+nghỉ lễ
+nghỉ nghĩa vụ quân sự
+tạm ngừng việc

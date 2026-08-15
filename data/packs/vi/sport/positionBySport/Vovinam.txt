@@ -1,0 +1,9 @@
+---
+description: Positions in Vovinam, the Vietnamese martial art, by competition form (Vietnamese)
+locale: vi
+---
+đối kháng
+quyền
+đa luyện
+song luyện
+biểu diễn

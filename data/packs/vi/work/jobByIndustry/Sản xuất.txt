@@ -1,0 +1,16 @@
+---
+description: Jobs in Manufacturing (Vietnamese)
+locale: vi
+---
+công nhân vận hành máy
+kỹ sư công nghệ
+tổ trưởng sản xuất
+nhân viên kiểm tra chất lượng
+thợ điều chỉnh thiết bị
+thợ nguội
+thợ tiện
+thợ phay
+công nhân đóng gói
+nhân viên kho
+kỹ sư cơ khí
+trưởng ca

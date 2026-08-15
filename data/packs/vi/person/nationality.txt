@@ -1,0 +1,70 @@
+---
+description: Nationality / demonym (Vietnamese). Vietnamese forms these as "người" plus the country name; the bare country name below is what a form field carries.
+locale: vi
+---
+Việt Nam
+Lào
+Campuchia
+Thái Lan
+Myanmar
+Malaysia
+Singapore
+Indonesia
+Philippines
+Brunei
+Đông Timor
+Trung Quốc
+Đài Loan
+Hồng Kông
+Nhật Bản
+Hàn Quốc
+Triều Tiên
+Mông Cổ
+Ấn Độ
+Pakistan
+Bangladesh
+Sri Lanka
+Nepal
+Nga
+Ukraina
+Ba Lan
+Séc
+Đức
+Pháp
+Anh
+Ireland
+Hà Lan
+Bỉ
+Tây Ban Nha
+Bồ Đào Nha
+Ý
+Hy Lạp
+Thụy Điển
+Na Uy
+Đan Mạch
+Phần Lan
+Thụy Sĩ
+Áo
+Hungary
+Romania
+Bulgaria
+Thổ Nhĩ Kỳ
+Israel
+Ả Rập Xê Út
+Iran
+Iraq
+Ai Cập
+Maroc
+Nigeria
+Kenya
+Nam Phi
+Hoa Kỳ
+Canada
+Mexico
+Brazil
+Argentina
+Chile
+Peru
+Colombia
+Úc
+New Zealand

@@ -1,0 +1,58 @@
+---
+description: Human-readable colour name (Vietnamese)
+locale: vi
+---
+trắng
+đen
+xám
+đỏ
+xanh dương
+xanh nhạt
+xanh lá
+vàng
+cam
+hồng
+tím
+nâu
+be
+vàng kim
+bạc
+đỏ rượu vang
+đỏ anh đào
+đỏ tía
+san hô
+đào
+cá hồi
+đất nung
+vàng mù tạt
+vàng chanh
+ô liu
+xanh nõn chuối
+ngọc lục bảo
+xanh bạc hà
+ngọc lam
+xanh nước biển
+xanh da trời
+xanh navy
+chàm
+oải hương
+tử đinh hương
+đỏ tươi
+mận
+sô cô la
+cà phê
+caramel
+cát
+kem
+ngà
+ngọc trai
+tro
+than chì
+than
+gỉ sét
+đồng
+xanh rêu
+đỏ gạch
+tím than
+trong suốt
+nhiều màu

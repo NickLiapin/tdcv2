@@ -1,0 +1,10 @@
+---
+description: Season (Vietnamese). The north of Vietnam has four seasons, the south two — the two-season pair follows the four.
+locale: vi
+---
+mùa xuân
+mùa hè
+mùa thu
+mùa đông
+mùa mưa
+mùa khô

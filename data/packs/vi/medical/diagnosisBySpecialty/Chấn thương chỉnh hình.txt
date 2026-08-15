@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Vietnamese)
+locale: vi
+---
+Thoái hóa khớp gối
+Thoái hóa khớp háng
+Thoái hóa cột sống
+Thoát vị đĩa đệm
+Gãy xương quay
+Gãy cổ xương đùi
+Rách sụn chêm
+Viêm quanh khớp vai
+Vẹo cột sống
+Bàn chân bẹt

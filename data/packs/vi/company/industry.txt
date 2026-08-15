@@ -1,0 +1,59 @@
+---
+description: Industry sector (Vietnamese)
+locale: vi
+---
+Công nghệ thông tin
+Viễn thông
+Phần mềm
+An ninh mạng
+Thương mại điện tử
+Bán lẻ
+Bán buôn
+Logistics
+Vận tải
+Hàng không
+Đường sắt
+Hàng hải
+Ngân hàng
+Bảo hiểm
+Đầu tư
+Dịch vụ tài chính
+Dịch vụ kế toán
+Dịch vụ pháp lý
+Tư vấn
+Kiểm toán
+Bất động sản
+Xây dựng
+Kiến trúc
+Phát triển dự án
+Sản xuất
+Cơ khí chế tạo
+Luyện kim
+Công nghiệp hóa chất
+Dược phẩm
+Y tế
+Dịch vụ y tế
+Công nghệ sinh học
+Nông nghiệp
+Công nghiệp thực phẩm
+Đồ uống
+Chăn nuôi
+Lâm nghiệp
+Thủy sản
+Năng lượng
+Năng lượng tái tạo
+Dầu khí
+Khai khoáng
+Dịch vụ công ích
+Giáo dục
+Khoa học
+Truyền thông
+Xuất bản
+Quảng cáo
+Giải trí
+Du lịch
+Khách sạn
+Nhà hàng
+Thể thao
+Dệt may
+Tổ chức phi lợi nhuận

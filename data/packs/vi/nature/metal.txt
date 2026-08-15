@@ -1,0 +1,26 @@
+---
+description: Metal (Vietnamese)
+locale: vi
+---
+sắt
+thép
+gang
+đồng
+đồng_thau
+đồng_thanh
+nhôm
+titan
+kẽm
+thiếc
+chì
+niken
+crôm
+coban
+magiê
+vonfram
+molypden
+bạc
+vàng
+bạch_kim
+paladi
+thủy_ngân

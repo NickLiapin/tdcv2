@@ -1,0 +1,16 @@
+---
+description: Jobs in Healthcare (Vietnamese)
+locale: vi
+---
+bác sĩ nội khoa
+bác sĩ phẫu thuật
+bác sĩ gây mê
+bác sĩ nhi khoa
+bác sĩ tim mạch
+điều dưỡng
+hộ sinh
+dược sĩ
+kỹ thuật viên xét nghiệm
+kỹ thuật viên X-quang
+nha sĩ
+kỹ thuật viên vật lý trị liệu

@@ -1,0 +1,14 @@
+---
+description: Fuel type (Vietnamese)
+locale: vi
+---
+xăng
+dầu diesel
+LPG
+xăng/LPG
+CNG
+điện
+hybrid
+hybrid sạc điện
+hydro
+ethanol

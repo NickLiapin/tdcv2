@@ -1,0 +1,12 @@
+---
+description: Dishes of Trung Hoa cuisine (Vietnamese)
+locale: vi
+---
+vịt quay Bắc Kinh
+mì xào
+dim sum
+thịt heo chua ngọt
+súp hoành thánh
+cơm chiên
+đậu phụ Tứ Xuyên
+bánh bao

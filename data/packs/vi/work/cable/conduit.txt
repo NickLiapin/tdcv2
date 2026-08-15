@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Vietnamese)
+locale: vi
+---
+máng cáp
+ống ruột gà
+ống ruột gà kim loại
+khay cáp
+tuyến treo
+cống ngầm
+chôn trực tiếp dưới đất

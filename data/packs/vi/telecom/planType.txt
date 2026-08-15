@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Vietnamese)
+locale: vi
+---
+trả trước
+trả sau
+không giới hạn
+gói gia đình
+gói doanh nghiệp
+gói sinh viên
+gói du lịch
+gói data
+gói thoại
+gói thiết bị
+gói chuyển vùng quốc tế
+gói bổ sung

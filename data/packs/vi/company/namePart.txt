@@ -1,0 +1,151 @@
+---
+description: Evocative noun for a Vietnamese company name (compose with a legalSuffix or adjective)
+locale: vi
+---
+Việt
+Việt Nam
+Đại Việt
+Âu Lạc
+Văn Lang
+Hồng Bàng
+Lạc Việt
+Thăng Long
+Đông Đô
+Hà Nội
+Sài Gòn
+Gia Định
+Phú Xuân
+Hoa Lư
+Cổ Loa
+Bạch Đằng
+Chi Lăng
+Điện Biên
+Trường Sơn
+Hoàng Sa
+Trường Sa
+Biển Đông
+Thái Bình
+Hồng Hà
+Cửu Long
+Mê Kông
+Đồng Nai
+Hương Giang
+Đà Giang
+Lam Sơn
+Ba Vì
+Tam Đảo
+Yên Tử
+Fansipan
+Bà Nà
+Sơn Trà
+Hạ Long
+Cát Bà
+Côn Đảo
+Phú Quốc
+Nha Trang
+Đà Lạt
+Sa Pa
+Rồng
+Lạc Long
+Âu Cơ
+Phượng Hoàng
+Kim Quy
+Bạch Mã
+Hổ
+Kỳ Lân
+Đại Bàng
+Hải Âu
+Chim Én
+Sếu
+Hạc
+Công
+Sen
+Mai
+Đào
+Cúc
+Trúc
+Tùng
+Bách
+Lan
+Huệ
+Ngọc Lan
+Hướng Dương
+Phù Sa
+Lúa Vàng
+Mùa Vàng
+Bội Thu
+Nắng
+Bình Minh
+Rạng Đông
+Ánh Dương
+Hoàng Hôn
+Sao Mai
+Sao Khuê
+Ngân Hà
+Thiên Long
+Vạn Xuân
+Trường Xuân
+Vĩnh Cửu
+Trường Tồn
+Bền Vững
+Kim Cương
+Ngọc Trai
+Hổ Phách
+San Hô
+Thạch Anh
+Vàng
+Bạc
+Đồng
+Thép
+Kim Loại
+Đá Quý
+Hòn Ngọc
+Bảo Tín
+Tín Nghĩa
+Tín Thành
+An Bình
+An Phát
+An Khang
+Thịnh Vượng
+Phát Đạt
+Phú Quý
+Hưng Thịnh
+Hưng Phát
+Đại Phát
+Toàn Thắng
+Vạn Thắng
+Vạn Lộc
+Tài Lộc
+Phúc Lộc
+Phúc An
+Tâm Đức
+Nhân Hòa
+Hòa Bình
+Đoàn Kết
+Đồng Tâm
+Chí Thành
+Quyết Thắng
+Tiên Phong
+Tiến Bộ
+Đổi Mới
+Sáng Tạo
+Trí Tuệ
+Tri Thức
+Nhân Tài
+Ước Mơ
+Khát Vọng
+Niềm Tin
+Hy Vọng
+Tương Lai
+Chân Trời
+Đỉnh Cao
+Cột Mốc
+Nền Móng
+Trụ Cột
+Nhịp Cầu
+Kết Nối
+Đồng Hành
+Sức Sống
+Sức Mạnh
+Nội Lực
+Động Lực

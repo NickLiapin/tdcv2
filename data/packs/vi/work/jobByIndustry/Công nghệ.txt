@@ -1,0 +1,16 @@
+---
+description: Jobs in Technology (Vietnamese)
+locale: vi
+---
+lập trình viên
+quản trị hệ thống
+kỹ sư kiểm thử
+kiến trúc sư hệ thống
+chuyên viên phân tích dữ liệu
+chuyên gia an ninh mạng
+quản trị cơ sở dữ liệu
+kỹ sư DevOps
+nhà thiết kế giao diện
+quản lý sản phẩm
+giám đốc công nghệ
+kỹ sư hỗ trợ

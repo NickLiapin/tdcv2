@@ -736,6 +736,58 @@ public final class DateLocales {
               "LLL", "D MMMM YYYY HH:mm",
               "LLLL", "dddd, D MMMM YYYY HH:mm"));
 
+  // Vietnamese names months by number — "tháng 10", not a word of its own — and a full date
+  // reads "ngày 9 tháng 10 năm 2026", so the long formats carry those three words as literals.
+  static final DateFormatter.DateLocale VI =
+      new DateFormatter.DateLocale(
+          List.of(
+              "tháng 1",
+              "tháng 2",
+              "tháng 3",
+              "tháng 4",
+              "tháng 5",
+              "tháng 6",
+              "tháng 7",
+              "tháng 8",
+              "tháng 9",
+              "tháng 10",
+              "tháng 11",
+              "tháng 12"),
+          List.of(
+              "Th1",
+              "Th2",
+              "Th3",
+              "Th4",
+              "Th5",
+              "Th6",
+              "Th7",
+              "Th8",
+              "Th9",
+              "Th10",
+              "Th11",
+              "Th12"),
+          List.of(
+              "Chủ Nhật",
+              "Thứ Hai",
+              "Thứ Ba",
+              "Thứ Tư",
+              "Thứ Năm",
+              "Thứ Sáu",
+              "Thứ Bảy"),
+          List.of(
+              "CN",
+              "T2",
+              "T3",
+              "T4",
+              "T5",
+              "T6",
+              "T7"),
+          Map.of(
+              "L", "DD/MM/YYYY",
+              "LL", "[ngày] D MMMM [năm] YYYY",
+              "LLL", "[ngày] D MMMM [năm] YYYY HH:mm",
+              "LLLL", "dddd, [ngày] D MMMM [năm] YYYY HH:mm"));
+
   private static final Map<String, DateFormatter.DateLocale> BY_NAME =
       Map.ofEntries(
           Map.entry("en", EN),
@@ -764,7 +816,9 @@ public final class DateLocales {
           Map.entry("tr", TR),
           Map.entry("tur", TR),
           Map.entry("id", ID),
-          Map.entry("ind", ID)
+          Map.entry("ind", ID),
+          Map.entry("vi", VI),
+          Map.entry("vie", VI)
       );
 
   /** The advertised names, for the validator's "did you mean" list. */

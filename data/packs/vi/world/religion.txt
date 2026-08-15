@@ -1,0 +1,25 @@
+---
+description: World religion (Vietnamese)
+locale: vi
+---
+Phật giáo
+Phật giáo Đại thừa
+Phật giáo Nguyên thủy
+Công giáo
+Tin Lành
+Chính Thống giáo
+Cao Đài
+Phật giáo Hòa Hảo
+Đạo Mẫu
+thờ cúng tổ tiên
+Nho giáo
+Đạo giáo
+Hồi giáo
+Bà La Môn
+Ấn Độ giáo
+Do Thái giáo
+đạo Sikh
+Kỳ Na giáo
+Thần đạo
+Baha'i
+không tôn giáo

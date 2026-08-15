@@ -1,0 +1,39 @@
+---
+description: Building type (Vietnamese)
+locale: vi
+---
+nhà riêng
+nhà phố
+nhà mặt tiền
+nhà trong hẻm
+biệt thự
+biệt thự liền kề
+nhà cấp bốn
+chung cư
+chung cư mini
+khu tập thể
+nhà trọ
+ký túc xá
+khách sạn
+nhà nghỉ
+homestay
+tòa nhà văn phòng
+cao ốc
+trung tâm thương mại
+cửa hàng
+chợ
+kho
+nhà xưởng
+nhà máy
+gara
+tiệm rửa xe
+trường học
+trường mầm non
+bệnh viện
+trạm y tế
+chùa
+nhà thờ
+đình
+đền
+bảo tàng
+sân vận động

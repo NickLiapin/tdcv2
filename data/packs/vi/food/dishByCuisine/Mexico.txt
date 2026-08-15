@@ -1,0 +1,12 @@
+---
+description: Dishes of Mexico cuisine (Vietnamese)
+locale: vi
+---
+taco
+burrito
+quesadilla
+guacamole
+nachos
+enchilada
+fajita
+chili con carne

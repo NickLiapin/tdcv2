@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Vietnamese)
+locale: vi
+---
+bảo hiểm y tế
+bảo hiểm sức khỏe tư nhân
+bảo hiểm nhân thọ
+nghỉ phép có lương
+ngày phép bổ sung
+nghỉ ốm có lương
+giờ làm linh hoạt
+làm việc từ xa
+hỗ trợ học phí
+khóa tiếng Anh
+thẻ phòng gym
+bữa trưa tại công ty
+phụ cấp ăn trưa
+phụ cấp đi lại
+xe công ty
+điện thoại công ty
+thưởng theo hiệu quả
+lương tháng 13

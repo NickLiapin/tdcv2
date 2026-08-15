@@ -1,0 +1,22 @@
+---
+description: Cat breed (Vietnamese)
+locale: vi
+---
+mèo ta
+mèo mướp
+mèo tam thể
+mèo Ba Tư
+mèo Xiêm
+mèo Anh lông ngắn
+Maine Coon
+mèo Sphynx
+mèo Bengal
+Scottish Fold
+mèo Abyssinian
+mèo rừng Na Uy
+mèo xanh Nga
+mèo Siberia
+Ragdoll
+mèo Miến Điện
+Cornish Rex
+mèo Phương Đông

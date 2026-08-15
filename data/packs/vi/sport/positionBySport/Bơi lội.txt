@@ -1,0 +1,9 @@
+---
+description: Positions in swimming, by stroke (Vietnamese)
+locale: vi
+---
+tự do
+ếch
+ngửa
+bướm
+hỗn hợp

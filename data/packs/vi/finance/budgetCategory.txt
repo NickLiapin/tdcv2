@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Vietnamese)
+locale: vi
+---
+thực phẩm
+ăn ngoài
+nhà ở
+tiền thuê nhà
+điện nước
+viễn thông và internet
+đi lại
+xăng xe
+ô tô
+sức khỏe
+thuốc men
+giáo dục
+con cái
+quần áo giày dép
+làm đẹp
+giải trí
+du lịch
+quà tặng
+từ thiện
+tiết kiệm

@@ -1,0 +1,20 @@
+---
+description: Room type (Vietnamese)
+locale: vi
+---
+phòng khách
+phòng sinh hoạt chung
+phòng ngủ
+phòng ngủ chính
+phòng trẻ em
+phòng làm việc
+bếp
+bếp mở
+phòng ăn
+phòng tắm
+nhà vệ sinh
+phòng tắm khép kín
+phòng giặt
+kho
+ban công
+sân thượng

@@ -1,0 +1,20 @@
+---
+description: Cuisine (Vietnamese). Each value has a dishByCuisine child file.
+locale: vi
+---
+Việt Nam
+Miền Bắc
+Miền Trung
+Miền Nam
+Trung Hoa
+Nhật Bản
+Hàn Quốc
+Thái Lan
+Ấn Độ
+Pháp
+Ý
+Mexico
+Mỹ
+Trung Đông
+Hàn Quốc chay
+Chay

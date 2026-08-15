@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Vietnamese)
+locale: vi
+---
+Viêm da cơ địa
+Vảy nến
+Chàm
+Viêm da tiếp xúc
+Mày đay
+Trứng cá
+Trứng cá đỏ
+Zona
+Nấm da chân
+Viêm da tiết bã

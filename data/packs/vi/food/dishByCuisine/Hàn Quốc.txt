@@ -1,0 +1,12 @@
+---
+description: Dishes of Hàn Quốc cuisine (Vietnamese)
+locale: vi
+---
+kimchi
+bibimbap
+bulgogi
+tteokbokki
+kimbap
+thịt ba chỉ nướng
+japchae
+canh kimchi

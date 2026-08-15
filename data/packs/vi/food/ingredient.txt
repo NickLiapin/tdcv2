@@ -1,0 +1,45 @@
+---
+description: Cooking ingredient (Vietnamese)
+locale: vi
+---
+bột mì
+bột gạo
+bột năng
+đường
+đường thốt nốt
+muối
+dầu ăn
+dầu mè
+mỡ lợn
+bơ
+trứng
+sữa
+sữa đặc
+nước cốt dừa
+phô mai
+sữa chua
+men
+bột nở
+tinh bột
+gạo
+gạo nếp
+bún
+miến
+bánh phở
+bánh tráng
+bánh mì
+vừng
+mật ong
+nước mắm
+nước tương
+mắm tôm
+tương ớt
+dấm
+tương cà
+mayonnaise
+nước dùng
+gelatin
+ca cao
+vani
+đậu phộng
+nho khô

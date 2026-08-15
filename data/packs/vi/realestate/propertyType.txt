@@ -1,0 +1,23 @@
+---
+description: Property type (Vietnamese)
+locale: vi
+---
+căn hộ studio
+căn hộ 1 phòng ngủ
+căn hộ 2 phòng ngủ
+căn hộ 3 phòng ngủ
+căn hộ duplex
+penthouse
+officetel
+nhà phố
+nhà mặt tiền
+nhà trong hẻm
+nhà cấp bốn
+biệt thự
+biệt thự liền kề
+shophouse
+nhà trọ
+đất nền
+đất nông nghiệp
+kho xưởng
+văn phòng

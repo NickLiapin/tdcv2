@@ -1,0 +1,30 @@
+---
+description: Garment type (Vietnamese)
+locale: vi
+---
+áo phông
+áo sơ mi
+áo blouse
+áo len
+áo cardigan
+áo hoodie
+áo khoác
+áo gile
+váy liền
+chân váy
+quần dài
+quần jean
+quần short
+áo liền quần
+bộ vest
+áo măng tô
+áo mưa
+áo dài
+áo bà ba
+áo tứ thân
+áo choàng tắm
+đồ ngủ
+đồ lót
+tất
+quần tất
+khăn quàng

@@ -1,0 +1,26 @@
+---
+description: Common allergies (Vietnamese)
+locale: vi
+---
+phấn hoa cỏ
+phấn hoa cây
+bụi nhà
+mạt bụi nhà
+lông mèo
+lông chó
+nấm mốc
+penicillin
+sulfonamide
+aspirin
+thuốc tê
+đậu phộng
+hạt cây
+sữa bò
+trứng
+cá
+tôm
+cua
+đậu nành
+gluten
+nọc ong
+mủ cao su

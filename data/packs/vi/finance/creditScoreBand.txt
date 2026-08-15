@@ -1,0 +1,9 @@
+---
+description: Credit score band (Vietnamese)
+locale: vi
+---
+rất thấp
+thấp
+trung bình
+tốt
+rất tốt

@@ -1,0 +1,30 @@
+---
+description: Product review title (Vietnamese)
+locale: vi
+---
+Rất hài lòng với sản phẩm
+Đúng như mô tả
+Chất lượng tốt
+Giá tốt so với chất lượng
+Rất đáng mua
+Không nên mua
+Kỳ vọng nhiều hơn thế
+Hàng về bị hỏng
+Giao hàng rất nhanh
+Giao hàng chậm
+Mọi thứ đều tuyệt
+Sản phẩm tuyệt vời
+Đáng đồng tiền
+Mua lần thứ hai
+Mua làm quà, người nhận rất thích
+Dễ sử dụng
+Dễ vệ sinh
+Chất liệu rẻ tiền
+Có mùi nhựa
+Size nhỏ hơn mong đợi
+Màu khác so với ảnh
+Hoạt động tốt không lỗi
+Hỏng sau một tuần
+Người bán nhiệt tình
+Tôi đã trả hàng
+Sản phẩm ổn trong tầm giá

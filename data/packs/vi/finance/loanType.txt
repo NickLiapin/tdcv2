@@ -1,0 +1,14 @@
+---
+description: Loan type (Vietnamese)
+locale: vi
+---
+vay tín chấp
+vay mua nhà
+vay mua ô tô
+thẻ tín dụng
+thấu chi
+hạn mức tín dụng
+vay tiêu dùng
+vay thế chấp
+tái cấp vốn
+vay du học

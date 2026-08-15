@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Vietnamese. A prevalence signal, not an exclusive one.
+locale: vi
+---
+Thalassemia alpha
+Hemoglobin E
+Thiếu men G6PD
+Bất dung nạp lactose
+Hội chứng Brugada
+Ung thư vòm họng
+Thalassemia thể trung gian

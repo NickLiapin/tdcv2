@@ -1,0 +1,45 @@
+---
+description: Common generic drug names (Vietnamese INN)
+locale: vi
+---
+paracetamol
+ibuprofen
+nimesulide
+diclofenac
+ketorolac
+acid acetylsalicylic
+metamizole
+drotaverin
+omeprazol
+pantoprazol
+ranitidin
+domperidon
+loperamid
+smecta
+acid ursodeoxycholic
+amoxicillin
+azithromycin
+ceftriaxon
+ciprofloxacin
+doxycyclin
+metronidazol
+fluconazol
+acyclovir
+loratadin
+cetirizin
+desloratadin
+salbutamol
+budesonid
+prednisolon
+dexamethason
+enalapril
+lisinopril
+amlodipin
+bisoprolol
+metoprolol
+furosemid
+atorvastatin
+metformin
+glimepirid
+levothyroxin
+warfarin

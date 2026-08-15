@@ -1,0 +1,34 @@
+---
+description: Bird (Vietnamese)
+locale: vi
+---
+chim_sẻ
+chim_sâu
+chim_én
+chim_sáo
+chim_gõ_kiến
+chim_cu
+chim_họa_mi
+chim_khướu
+chim_chích
+chim_chào_mào
+chim_bồ_câu
+chim_cút
+chim_yến
+chim_công
+chim_trĩ
+chim_cò
+chim_vạc
+chim_sếu
+chim_diệc
+chim_hạc
+vịt_trời
+ngỗng_trời
+thiên_nga
+hải_âu
+đại_bàng
+diều_hâu
+chim_ưng
+cắt
+cú
+vọ

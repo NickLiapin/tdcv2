@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Vietnamese)
+locale: vi
+---
+tiêu
+ớt
+ớt_bột
+nghệ
+gừng
+riềng
+sả
+hồi
+quế
+đinh_hương
+thảo_quả
+hạt_ngò
+thì_là
+rau_mùi
+húng_quế
+húng_lủi
+tía_tô
+kinh_giới
+lá_lốt
+lá_chanh
+lá_dứa
+rau_răm
+ngò_gai
+mắc_khén
+hạt_dổi
+vỏ_quế
+đậu_khấu
+nhục_đậu_khấu
+bột_ngũ_vị
+nghệ_tươi

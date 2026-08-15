@@ -1,0 +1,74 @@
+---
+description: Sport (Vietnamese)
+locale: vi
+---
+bóng đá
+futsal
+bóng rổ
+bóng chuyền
+bóng chuyền bãi biển
+bóng ném
+cầu lông
+quần vợt
+bóng bàn
+đá cầu
+cầu mây
+bi sắt
+điền kinh
+chạy bộ
+marathon
+đi bộ thể thao
+nhảy cao
+nhảy xa
+ném lao
+đẩy tạ
+bơi lội
+nhảy cầu
+bóng nước
+bơi nghệ thuật
+đua thuyền
+canoeing
+thuyền buồm
+lướt sóng
+lặn
+đua xe đạp
+xe đạp địa hình
+BMX
+đua mô tô
+đua ô tô
+cưỡi ngựa
+thể dục dụng cụ
+thể dục nghệ thuật
+nhào lộn
+bạt nhún
+cử tạ
+powerlifting
+thể hình
+quyền anh
+kickboxing
+karate
+judo
+taekwondo
+vovinam
+võ cổ truyền
+pencak silat
+wushu
+vật
+đấu kiếm
+bắn súng
+bắn cung
+cờ vua
+cờ tướng
+leo núi thể thao
+leo núi
+định hướng
+trượt tuyết
+trượt băng nghệ thuật
+golf
+bi-a
+bowling
+trượt ván
+patin
+thể thao điện tử
+kéo co
+đua thuyền rồng

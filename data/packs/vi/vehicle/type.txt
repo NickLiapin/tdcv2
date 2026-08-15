@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Vietnamese)
+locale: vi
+---
+sedan
+hatchback
+liftback
+station wagon
+coupe
+mui trần
+roadster
+MPV
+xe khách nhỏ
+crossover
+SUV
+bán tải
+xe van
+xe tải
+xe ben
+đầu kéo
+xe buýt
+xe điện
+tàu điện
+xe máy
+xe tay ga
+xe địa hình

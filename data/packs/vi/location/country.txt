@@ -1,0 +1,196 @@
+---
+description: Country and territory names (Vietnamese)
+locale: vi
+---
+Afghanistan
+Ai Cập
+Albania
+Algeria
+Andorra
+Angola
+Anh
+Antigua và Barbuda
+Áo
+Argentina
+Armenia
+Azerbaijan
+Ả Rập Xê Út
+Ấn Độ
+Ba Lan
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belarus
+Bỉ
+Belize
+Benin
+Bhutan
+Bồ Đào Nha
+Bolivia
+Bosnia và Herzegovina
+Botswana
+Brazil
+Brunei
+Bulgaria
+Burkina Faso
+Burundi
+Cameroon
+Campuchia
+Canada
+Chad
+Chile
+Colombia
+Comoros
+Congo
+Cộng hòa Dân chủ Congo
+Cộng hòa Trung Phi
+Costa Rica
+Croatia
+Cuba
+Đài Loan
+Đan Mạch
+Đông Timor
+Dominica
+Cộng hòa Dominica
+Đức
+Ecuador
+El Salvador
+Eritrea
+Estonia
+Eswatini
+Ethiopia
+Fiji
+Phần Lan
+Pháp
+Gabon
+Gambia
+Georgia
+Ghana
+Grenada
+Guatemala
+Guinea
+Guinea Xích Đạo
+Guinea-Bissau
+Guyana
+Haiti
+Hà Lan
+Hàn Quốc
+Hoa Kỳ
+Honduras
+Hungary
+Hy Lạp
+Iceland
+Indonesia
+Iran
+Iraq
+Ireland
+Israel
+Jamaica
+Jordan
+Kazakhstan
+Kenya
+Kiribati
+Kuwait
+Kyrgyzstan
+Lào
+Latvia
+Lebanon
+Lesotho
+Liberia
+Libya
+Liechtenstein
+Litva
+Luxembourg
+Madagascar
+Malawi
+Malaysia
+Maldives
+Mali
+Malta
+Maroc
+Quần đảo Marshall
+Mauritania
+Mauritius
+Mexico
+Micronesia
+Moldova
+Monaco
+Mông Cổ
+Montenegro
+Mozambique
+Myanmar
+Na Uy
+Nam Phi
+Nam Sudan
+Namibia
+Nauru
+Nepal
+New Zealand
+Nga
+Nhật Bản
+Nicaragua
+Niger
+Nigeria
+Bắc Macedonia
+Oman
+Pakistan
+Palau
+Palestine
+Panama
+Papua New Guinea
+Paraguay
+Peru
+Philippines
+Qatar
+Romania
+Rwanda
+Saint Kitts và Nevis
+Saint Lucia
+Saint Vincent và Grenadines
+Samoa
+San Marino
+Sao Tome và Principe
+Senegal
+Serbia
+Seychelles
+Sierra Leone
+Singapore
+Síp
+Slovakia
+Slovenia
+Solomon
+Somalia
+Sri Lanka
+Sudan
+Suriname
+Syria
+Tajikistan
+Tanzania
+Tây Ban Nha
+Thái Lan
+Thổ Nhĩ Kỳ
+Thụy Điển
+Thụy Sĩ
+Togo
+Tonga
+Triều Tiên
+Trinidad và Tobago
+Trung Quốc
+Tunisia
+Turkmenistan
+Tuvalu
+Uganda
+Ukraina
+Các Tiểu vương quốc Ả Rập Thống nhất
+Uruguay
+Úc
+Uzbekistan
+Vanuatu
+Vatican
+Venezuela
+Việt Nam
+Yemen
+Zambia
+Zimbabwe
+Ý

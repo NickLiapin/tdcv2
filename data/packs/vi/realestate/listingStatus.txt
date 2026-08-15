@@ -1,0 +1,16 @@
+---
+description: Listing status (Vietnamese)
+locale: vi
+---
+đang bán
+tin mới
+đã cập nhật
+đã đặt cọc
+đang thương lượng
+đang xác minh
+đã gỡ tin
+đã bán
+đã cho thuê
+hết hạn
+lưu trữ
+bản nháp

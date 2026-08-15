@@ -1,0 +1,24 @@
+---
+description: School subject (Vietnamese)
+locale: vi
+---
+Ngữ văn
+Toán
+Vật lý
+Hóa học
+Sinh học
+Lịch sử
+Địa lý
+Giáo dục công dân
+Tiếng Anh
+Tiếng Pháp
+Tin học
+Công nghệ
+Âm nhạc
+Mỹ thuật
+Thể dục
+Giáo dục quốc phòng
+Hoạt động trải nghiệm
+Giáo dục địa phương
+Kỹ năng sống
+Hướng nghiệp

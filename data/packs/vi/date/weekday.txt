@@ -1,0 +1,11 @@
+---
+description: Weekday name (Vietnamese). Vietnamese counts weekdays: Monday is "thứ hai" (the second day), and Sunday is the exception with its own name.
+locale: vi
+---
+Chủ Nhật
+Thứ Hai
+Thứ Ba
+Thứ Tư
+Thứ Năm
+Thứ Sáu
+Thứ Bảy

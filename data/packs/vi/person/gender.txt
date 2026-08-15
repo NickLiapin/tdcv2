@@ -1,0 +1,8 @@
+---
+description: Gender label (Vietnamese)
+locale: vi
+---
+Nam
+Nữ
+Khác
+Không nêu

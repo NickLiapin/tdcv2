@@ -1,0 +1,32 @@
+---
+description: Field of study / major (Vietnamese)
+locale: vi
+---
+Công nghệ thông tin
+Kỹ thuật phần mềm
+An toàn thông tin
+Kỹ thuật công nghiệp
+Toán học
+Vật lý
+Hóa học
+Sinh học
+Kỹ thuật môi trường
+Địa lý
+Địa chất
+Nông học
+Thú y
+Y khoa
+Răng hàm mặt
+Dược học
+Tâm lý học
+Xã hội học
+Chính trị học
+Luật
+Quan hệ quốc tế
+Kinh tế học
+Tài chính ngân hàng
+Quản trị kinh doanh
+Marketing
+Báo chí
+Ngữ văn
+Lịch sử

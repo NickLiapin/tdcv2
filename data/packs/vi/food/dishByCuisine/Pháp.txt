@@ -1,0 +1,12 @@
+---
+description: Dishes of Pháp cuisine (Vietnamese)
+locale: vi
+---
+súp hành
+ratatouille
+coq au vin
+quiche lorraine
+creme brulee
+bánh su kem
+bouillabaisse
+bánh macaron

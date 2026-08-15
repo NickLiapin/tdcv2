@@ -1,0 +1,9 @@
+---
+description: Work shift (Vietnamese)
+locale: vi
+---
+ca một
+ca hai
+ca đêm
+ca cuối tuần
+ca bảo dưỡng

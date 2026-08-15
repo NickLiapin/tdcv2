@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Vietnamese; brand names kept as-is)
+locale: vi
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+điện thoại
+Android
+iOS
+trình duyệt

@@ -1,0 +1,12 @@
+---
+description: Dishes of Mỹ cuisine (Vietnamese)
+locale: vi
+---
+bánh mì kẹp thịt
+bít tết
+sườn nướng BBQ
+xúc xích kẹp
+mac and cheese
+bánh kếp
+bánh phô mai
+bánh táo

@@ -1,0 +1,12 @@
+---
+description: Dishes of Trung Đông cuisine (Vietnamese)
+locale: vi
+---
+hummus
+falafel
+tabouleh
+kibbeh
+fattoush
+shawarma
+baba ganoush
+manakish

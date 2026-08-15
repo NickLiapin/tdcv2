@@ -1,0 +1,34 @@
+---
+description: Vegetable (Vietnamese)
+locale: vi
+---
+rau_muống
+rau_cải
+cải_thảo
+cải_ngọt
+bắp_cải
+súp_lơ
+su_hào
+cà_rốt
+khoai_tây
+khoai_lang
+củ_cải
+hành_tây
+hành_lá
+tỏi
+gừng
+cà_chua
+dưa_chuột
+ớt
+cà_tím
+bí_đao
+bí_đỏ
+mướp
+mướp_đắng
+đậu_bắp
+đậu_đũa
+giá_đỗ
+nấm
+măng
+ngó_sen
+rau_thơm

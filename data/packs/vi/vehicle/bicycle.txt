@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Vietnamese)
+locale: vi
+---
+xe đạp phố
+xe đạp touring
+xe đạp đua
+xe đạp địa hình
+xe đạp gravel
+xe đạp hybrid
+xe đạp trekking
+xe đạp gấp
+xe đạp điện
+xe đạp trẻ em
+xe đạp thiếu niên
+BMX
+xe ba bánh
+xe đạp đôi
+xe đạp nằm
+xe đạp chở hàng
+xe đạp bánh béo

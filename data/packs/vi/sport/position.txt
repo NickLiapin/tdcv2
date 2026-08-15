@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Vietnamese)
+locale: vi
+---
+thủ môn
+hậu vệ
+trung vệ
+hậu vệ cánh
+tiền vệ
+tiền vệ phòng ngự
+tiền vệ tấn công
+tiền đạo
+trung phong
+cầu thủ chạy cánh
+hậu vệ dẫn bóng
+hậu vệ ghi điểm
+tiền phong phụ
+tiền phong chính
+trung phong bóng rổ
+chuyền hai
+đối chuyền
+phụ công
+chủ công
+libero
+trụ
+cánh trái
+cánh phải
+đơn nam
+đơn nữ
+đôi nam
+đôi nữ
+đôi nam nữ
+tự do
+ếch
+ngửa
+bướm
+hỗn hợp
+đối kháng
+quyền

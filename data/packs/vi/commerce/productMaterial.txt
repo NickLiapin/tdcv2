@@ -1,0 +1,62 @@
+---
+description: Product material (Vietnamese), as a noun — compose with "bằng" ("bàn bằng gỗ sồi")
+locale: vi
+---
+gỗ sồi
+gỗ dẻ gai
+gỗ tần bì
+gỗ thông
+gỗ óc chó
+gỗ lim
+gỗ gụ
+gỗ tràm
+tre
+mây
+gỗ dán
+gỗ công nghiệp
+MDF
+gỗ tự nhiên
+thép
+thép không gỉ
+thép cacbon
+gang
+nhôm
+titan
+đồng
+đồng thau
+đồng thanh
+kẽm
+thiếc
+bạc
+vàng
+nhựa
+polycarbonate
+polypropylene
+polyethylene
+acrylic
+silicone
+cao su
+xốp
+mút
+thủy tinh
+kính cường lực
+gốm
+sứ
+gạch men
+đá
+đá granit
+đá cẩm thạch
+bê tông
+thạch cao
+da
+da tổng hợp
+da lộn
+vải cotton
+vải lanh
+len
+lụa
+cashmere
+vải visco
+polyester
+nylon
+vải jean

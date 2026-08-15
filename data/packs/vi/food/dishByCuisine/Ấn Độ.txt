@@ -1,0 +1,12 @@
+---
+description: Dishes of Ấn Độ cuisine (Vietnamese)
+locale: vi
+---
+cà ri
+tikka masala
+biryani
+samosa
+dal
+naan
+paneer tikka
+trà masala

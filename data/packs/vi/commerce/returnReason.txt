@@ -1,0 +1,19 @@
+---
+description: Order return reason (Vietnamese)
+locale: vi
+---
+Không vừa kích cỡ
+Không đúng màu
+Hàng không đúng mô tả
+Hàng bị hỏng
+Lỗi sản xuất
+Không hoạt động
+Giao nhầm hàng
+Thiếu phụ kiện
+Đổi ý
+Tìm được giá rẻ hơn
+Giao hàng chậm
+Đặt nhầm
+Chất lượng không như mong đợi
+Đặt trùng đơn
+Lý do khác

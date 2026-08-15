@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Vietnamese)
+locale: vi
+---
+nội thành
+liên tỉnh cự ly ngắn
+tuyến vùng
+liên tỉnh
+xuyên Việt
+quốc tế
+tuyến con thoi

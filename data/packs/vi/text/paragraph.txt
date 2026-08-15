@@ -1,0 +1,24 @@
+---
+description: vi filler paragraphs. Handwritten: Project Gutenberg holds no Vietnamese book at all, so unlike fr/de/it/es/pt/pl these are not extracted from a public-domain corpus.
+locale: vi
+---
+Buổi sáng lúc nào cũng bắt đầu như nhau. Cô mở cửa sổ, để cái lạnh tràn vào phòng, rồi lắng nghe chuyến xe buýt đầu tiên chạy qua phía dưới. Sau đó cô đặt ấm nước lên bếp và ngồi chờ nó sôi, mắt nhìn sang mái nhà bên cạnh, nơi lũ chim bồ câu vẫn thường đậu.
+Đường về làng dài và nhiều ổ gà. Xe khách xóc nảy trên từng chỗ lõm, ngoài cửa kính là ruộng, rồi một dải cây, rồi lại ruộng. Mọi người im lặng, ai cũng nghĩ chuyện của mình, chỉ có bác tài thỉnh thoảng bật đài, mà đài thì lúc nào cũng bắt sóng rất kém.
+Ngôi nhà nằm ở cuối đường, căn cuối cùng trước dốc xuống sông. Hàng rào đã nghiêng từ lâu và cái cổng thì không đóng được, ai cũng biết vậy. Nhưng chính ở đây hàng xóm vẫn tụ lại mỗi khi có chuyện cần bàn chung.
+Anh thích thư viện vì sự yên tĩnh. Không hẳn vì sách, mà vì ở đó có mùi giấy cũ và vì tiếng bước chân tan đi giữa những giá sách cao. Có thể ngồi cả nửa ngày mà không nói với ai một lời nào.
+Cơn giông kéo đến chậm rãi. Đầu tiên bầu trời phía tây tối lại, rồi gió lặng đi, và im đến mức nghe rõ tiếng chó sủa đâu đó rất xa. Sau đó những giọt mưa to đầu tiên rơi xuống, và chỉ một phút sau cả thành phố chìm trong mưa.
+Bà ngoại nấu canh chua chẳng theo công thức nào. Bà không bao giờ đong bằng thìa, chỉ ước chừng rồi nếm thử. Bà không giải thích được là làm thế nào, và bảo rằng cái đó đến theo năm tháng, khi đôi tay tự biết phải làm gì.
+Gác xép thoảng mùi gỗ khô và bụi. Ở góc có chiếc rương khóa đã hai mươi năm, và chìa khóa thì mất từ hồi ông còn sống. Hè nào lũ trẻ cũng định mở nó ra, nhưng lần nào cũng tìm được việc thú vị hơn.
+Tàu đến muộn bốn mươi phút. Sân ga dần đông người với va li và túi xách, có người ra một góc hút thuốc, có người gọi điện giải thích rằng mình bị trễ. Thông báo được nhắc lại ba lần, và lần nào giọng đọc cũng dửng dưng như nhau.
+Chợ có nhịp sống riêng của nó. Từ sáng sớm ở đó đã thơm mùi bánh mới, mùi rau và mùi bê tông vừa được tưới nước. Người bán gọi nhau í ới giữa các dãy hàng, cân đo, thối tiền, và vẫn kịp kể hết mọi tin tức của cả khu.
+Anh quyết định đi bộ. Thành phố buổi tối trông khác hẳn: các cửa hàng sáng đèn, trong ô cửa sổ là thứ ánh sáng ấm áp, còn những con phố anh đi qua mỗi ngày lại thành hơi xa lạ. Đường về nhà hóa ra dài gấp đôi bình thường.
+Trường học được hứa sửa từ hai năm trước. Một đoàn về, đi dọc các hành lang, ghi chép gì đó, rồi tất cả giải tán và chẳng có gì thay đổi. Thầy cô đã quen, lũ trẻ cũng quen, chỉ có phụ huynh là thỉnh thoảng còn nhắc lại lời hứa ấy.
+Năm ấy nước sông dâng rất rộng. Nước lên gần tới mặt đường, ngập hết vườn tược và xói mòn cây cầu cũ. Người ta khuân đồ lên gác và chờ nước rút, như họ vẫn làm mỗi mùa lũ, từ khi họ còn nhớ được.
+Anh làm ở xưởng từ sáng đến tối. Công việc đơn điệu, nhưng đôi tay đã thuộc từng động tác, và đầu óc thì có thể nghĩ về bất cứ điều gì. Nghĩ hay nhất là lúc máy chạy ù ù và không ai làm phiền.
+Mùa hè ở làng trôi qua chậm rãi. Ngày dài và nóng, trong vườn xoài chín dần, và về chiều không khí trở nên đặc và ngọt. Lũ trẻ chỉ về nhà khi trời đã tối hẳn và mẹ gọi từ ngoài hiên.
+Lá thư nằm trên bàn mấy ngày. Không ai dám mở, dù ai cũng đoán được bên trong có gì. Cuối cùng cô cầm dao, rạch mép phong bì và đọc to tất cả, thật chậm, từ dòng đầu đến dòng cuối.
+Năm ấy mùa mưa đến muộn. Đất nứt nẻ, giếng cạn dần, và nhà nông lo cho vụ sau. Mưa chỉ đổ xuống vào cuối tháng, đổ một lần thật nhiều, và chỉ sau một đêm mọi thứ lại xanh trở lại.
+Anh đến đây định ở hai tuần, rồi ở lại mười hai năm. Ban đầu thuê một phòng gần ga, sau chuyển vào gần trung tâm hơn, rồi mua được căn hộ nhỏ trong con hẻm. Và chưa một lần nào anh thấy tiếc.
+Ngoài sân lúc nào cũng có người. Buổi sáng là các cụ với tờ báo và câu chuyện lương hưu, ban ngày là lũ trẻ ngoài khu vui chơi, buổi tối là đám thanh niên trên mấy chiếc ghế dưới gốc cây. Cái sân ấy chưa bao giờ vắng, trừ những hôm mưa to nhất.
+Anh thuộc lòng giờ tàu ngoại ô. Không phải vì hay đi, mà vì thích biết: sáu giờ bốn mươi có một chuyến, bảy giờ mười lăm có chuyến nữa. Trong cái danh sách ấy có một sự bình yên rất lạ.
+Ngày cuối cùng cũng bình thường như mọi ngày. Họ ăn sáng như thường lệ, nói với nhau vài chuyện vặt, hẹn tối gặp nhau bên gốc đa già. Không ai nói điều gì đặc biệt, vì không ai biết rằng ngày hôm ấy khác với những ngày còn lại.

@@ -1,0 +1,12 @@
+---
+description: Marital status in Vietnamese
+locale: vi
+---
+Độc thân
+Đã kết hôn
+Ly hôn
+Góa
+Ly thân
+Đính hôn
+Sống chung
+Không nêu

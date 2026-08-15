@@ -1,0 +1,24 @@
+---
+description: Movie genre (Vietnamese)
+locale: vi
+---
+hành động
+phiêu lưu
+hài
+chính kịch
+lãng mạn
+giật gân
+kinh dị
+khoa học viễn tưởng
+giả tưởng
+trinh thám
+tội phạm
+cao bồi
+lịch sử
+chiến tranh
+tiểu sử
+tài liệu
+nhạc kịch
+hoạt hình
+gia đình
+thể thao

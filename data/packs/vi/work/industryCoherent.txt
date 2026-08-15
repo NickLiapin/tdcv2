@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: vi
+---
+Công nghệ
+Y tế
+Giáo dục
+Tài chính
+Xây dựng
+Sản xuất
+Vận tải
+Bán lẻ
+Khách sạn
+Pháp lý

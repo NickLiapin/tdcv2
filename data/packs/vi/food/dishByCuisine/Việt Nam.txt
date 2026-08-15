@@ -1,0 +1,18 @@
+---
+description: Dishes of Việt Nam cuisine (Vietnamese)
+locale: vi
+---
+phở bò
+phở gà
+bún chả
+bún bò Huế
+bún riêu
+bánh mì
+bánh xèo
+bánh cuốn
+gỏi cuốn
+cơm tấm
+cao lầu
+mì Quảng
+hủ tiếu
+chả cá

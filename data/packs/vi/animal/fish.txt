@@ -1,0 +1,29 @@
+---
+description: Fish (Vietnamese)
+locale: vi
+---
+cá chép
+cá rô phi
+cá trê
+cá lóc
+cá basa
+cá tra
+cá mè
+cá trắm
+cá diêu hồng
+cá bống
+cá thu
+cá ngừ
+cá nục
+cá cơm
+cá trích
+cá hồi
+cá mú
+cá chim
+cá hố
+cá đuối
+cá mập
+cá kiếm
+cá chuồn
+lươn
+cá chình

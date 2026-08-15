@@ -1,0 +1,57 @@
+---
+description: Colour as written on a Vietnamese product listing
+locale: vi
+---
+trắng
+đen
+xám
+xám nhạt
+xám đậm
+than chì
+bạc
+vàng kim
+đồng
+đồng đỏ
+be
+kem
+ngà
+cát
+nâu
+nâu sô cô la
+caramel
+hạt dẻ
+đỏ
+đỏ rượu vang
+đỏ anh đào
+hồng sen
+hồng
+hồng phấn
+san hô
+cam
+cam đào
+đỏ gạch
+vàng
+vàng chanh
+vàng mù tạt
+xanh lá
+xanh ô liu
+xanh cốm
+xanh ngọc lục bảo
+xanh bạc hà
+xanh rêu
+xanh ngọc
+xanh da trời
+xanh biển
+xanh dương
+xanh navy
+xanh cô ban
+chàm
+tím
+tím lilac
+tím oải hương
+tím than
+tím mận
+trong suốt
+nhiều màu
+vân gỗ
+vân đá

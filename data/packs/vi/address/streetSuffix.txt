@@ -1,0 +1,45 @@
+---
+description: Vietnamese thoroughfare type — Vietnamese puts it BEFORE the name (Đường Lê Lợi, Phố Hàng Bạc, Ngõ 12)
+locale: vi
+---
+Đường
+Phố
+Ngõ
+Hẻm
+Ngách
+Kiệt
+Đại lộ
+Quảng trường
+Cầu
+Bến
+Bến xe
+Ga
+Cảng
+Sân bay
+Khu phố
+Khu dân cư
+Khu đô thị
+Khu công nghiệp
+Cụm công nghiệp
+Chung cư
+Tòa nhà
+Khu tập thể
+Thôn
+Ấp
+Xóm
+Bản
+Buôn
+Làng
+Xã
+Phường
+Thị trấn
+Thị xã
+Quận
+Huyện
+Thành phố
+Tỉnh
+Chợ
+Công viên
+Hồ
+Núi
+Đèo

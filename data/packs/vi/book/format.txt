@@ -1,0 +1,12 @@
+---
+description: Book format (Vietnamese)
+locale: vi
+---
+bìa cứng
+bìa mềm
+khổ bỏ túi
+bản đặc biệt
+bản có minh họa
+sách điện tử
+sách nói
+tờ rơi

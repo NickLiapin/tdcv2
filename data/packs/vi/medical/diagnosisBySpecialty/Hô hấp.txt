@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Vietnamese)
+locale: vi
+---
+Hen phế quản
+Bệnh phổi tắc nghẽn mạn tính
+Viêm phổi
+Viêm phế quản mạn
+Giãn phế quản
+Viêm màng phổi
+Lao phổi
+Sarcoidosis
+Ngưng thở khi ngủ
+Thuyên tắc phổi

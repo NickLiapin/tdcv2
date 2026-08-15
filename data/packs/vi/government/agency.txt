@@ -1,0 +1,28 @@
+---
+description: Government body (Vietnamese ministries and public offices)
+locale: vi
+---
+Chính phủ
+Quốc hội
+Văn phòng Chủ tịch nước
+Bộ Tài chính
+Bộ Tư pháp
+Bộ Công an
+Bộ Quốc phòng
+Bộ Ngoại giao
+Bộ Y tế
+Bộ Giáo dục và Đào tạo
+Bộ Công Thương
+Bộ Xây dựng
+Bộ Giao thông vận tải
+Bộ Nông nghiệp và Phát triển nông thôn
+Bộ Lao động - Thương binh và Xã hội
+Bộ Văn hóa, Thể thao và Du lịch
+Tổng cục Thuế
+Tổng cục Hải quan
+Kho bạc Nhà nước
+Bảo hiểm xã hội Việt Nam
+Ngân hàng Nhà nước
+Tổng cục Thống kê
+Cục Quản lý xuất nhập cảnh
+Ủy ban nhân dân tỉnh

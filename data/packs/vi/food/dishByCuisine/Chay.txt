@@ -1,0 +1,12 @@
+---
+description: Dishes of Chay cuisine (Vietnamese)
+locale: vi
+---
+đậu phụ sốt cà
+nấm kho tiêu
+canh rau củ
+gỏi ngó sen
+nem chay
+mì xào chay
+cơm chiên chay
+bún riêu chay

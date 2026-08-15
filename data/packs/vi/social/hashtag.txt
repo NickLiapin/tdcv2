@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Vietnamese (prefix with # in a template)
+locale: vi
+---
+vietnam
+hanoi
+saigon
+danang
+hue
+hoian
+dalat
+phuquoc
+halong
+sapa
+dulich
+thiennhien
+bien
+nui
+anh
+nhiepanh
+nghethuat
+amnhac
+phim
+sach
+doc
+amthuc
+nauan
+caphe
+thethao
+chaybo
+suckhoe
+giadinh
+congviec
+dongluc

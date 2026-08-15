@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Vietnamese)
+locale: vi
+---
+Bóng đá
+Bóng rổ
+Bóng chuyền
+Cầu lông
+Bóng bàn
+Bóng ném
+Bơi lội
+Vovinam

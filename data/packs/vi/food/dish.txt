@@ -1,0 +1,72 @@
+---
+description: Dish (Vietnamese)
+locale: vi
+---
+phở bò
+phở gà
+bún chả
+bún bò Huế
+bún riêu
+bún thang
+bún đậu mắm tôm
+bún mắm
+bún cá
+miến gà
+mì Quảng
+hủ tiếu
+cao lầu
+bánh canh
+bánh mì
+bánh xèo
+bánh khọt
+bánh cuốn
+bánh bèo
+bánh nậm
+bánh bột lọc
+bánh giò
+bánh chưng
+bánh tét
+bánh gai
+xôi xéo
+xôi gấc
+cơm tấm
+cơm gà
+cơm rang
+cơm hến
+cơm niêu
+gỏi cuốn
+nem rán
+nem lụi
+chả cá
+chả giò
+chả lụa
+nộm hoa chuối
+gỏi ngó sen
+canh chua cá lóc
+canh cua rau đay
+canh bí đao
+cá kho tộ
+thịt kho tàu
+thịt luộc
+gà luộc
+gà nướng
+vịt quay
+lẩu thái
+lẩu mắm
+lẩu riêu cua
+ốc luộc
+ốc xào
+tôm rang
+mực nướng
+đậu phụ sốt cà
+rau muống xào tỏi
+dưa cà muối
+chè đậu xanh
+chè trôi nước
+chè ba màu
+sữa chua nếp cẩm
+bánh flan
+tào phớ
+kem xôi
+trà đá
+cà phê sữa đá

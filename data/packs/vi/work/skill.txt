@@ -1,0 +1,46 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Vietnamese)
+locale: vi
+---
+lập trình
+quản trị cơ sở dữ liệu
+quản trị hệ thống
+cấu hình mạng
+an ninh mạng
+phân tích dữ liệu
+thống kê
+quản lý dự án
+lập kế hoạch
+lập dự toán
+kế toán
+kế toán thuế
+phân tích tài chính
+đàm phán
+bán hàng
+chăm sóc khách hàng
+marketing
+viết nội dung
+biên tập
+biên dịch
+nói trước đám đông
+làm việc nhóm
+lãnh đạo
+đào tạo
+quản lý thời gian
+giải quyết xung đột
+tư duy phản biện
+chú ý chi tiết
+lái xe
+sử dụng dụng cụ điện
+hàn
+lắp đặt điện
+lắp đặt nước
+mộc
+đọc bản vẽ kỹ thuật
+vận hành máy
+kiểm soát chất lượng
+sơ cứu
+chăm sóc bệnh nhân
+sử dụng máy tính tiền
+quản lý kho
+văn thư lưu trữ

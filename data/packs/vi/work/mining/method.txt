@@ -1,0 +1,12 @@
+---
+description: Mining method (Vietnamese)
+locale: vi
+---
+khai thác lộ thiên
+khai thác hầm lò
+khai thác mỏ đá
+khai thác lò bằng
+khai thác bằng khoan
+phương pháp thủy lực
+tàu cuốc
+hệ thống buồng cột

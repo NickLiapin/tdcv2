@@ -1,0 +1,12 @@
+---
+description: Dishes of Hàn Quốc chay cuisine (Vietnamese)
+locale: vi
+---
+bibimbap chay
+đậu phụ kho
+rong biển cuộn cơm
+canh rong biển
+bánh xèo kim chi chay
+miến trộn chay
+cải thảo muối
+nấm xào

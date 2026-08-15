@@ -1,0 +1,41 @@
+---
+description: Tech noun (Vietnamese)
+locale: vi
+---
+máy chủ
+máy khách
+cơ sở dữ liệu
+bảng
+truy vấn
+chỉ mục
+bộ nhớ đệm
+hàng đợi
+luồng
+tiến trình
+nhân hệ điều hành
+bộ nhớ
+ổ đĩa
+mảng
+tệp
+thư mục
+giao thức
+gói tin
+cổng
+cổng vào ra
+bộ định tuyến
+tường lửa
+chứng chỉ
+khóa
+mã thông báo
+phiên
+cookie
+kịch bản
+thư viện
+mô đun
+gói
+vùng chứa
+ảnh máy
+cụm máy
+nút
+sổ đăng ký
+nhật ký

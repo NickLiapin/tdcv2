@@ -473,6 +473,17 @@ ID = DateLocale(
     {"L": "DD/MM/YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd, D MMMM YYYY HH:mm"},
 )
 
+# Vietnamese names months by number — "tháng 10", not a word of its own — and a full date
+# reads "ngày 9 tháng 10 năm 2026", so the long formats carry those three words as literals.
+VI = DateLocale(
+    "vi",
+    ("tháng 1", "tháng 2", "tháng 3", "tháng 4", "tháng 5", "tháng 6", "tháng 7", "tháng 8", "tháng 9", "tháng 10", "tháng 11", "tháng 12"),
+    ("Th1", "Th2", "Th3", "Th4", "Th5", "Th6", "Th7", "Th8", "Th9", "Th10", "Th11", "Th12"),
+    ("Chủ Nhật", "Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy"),
+    ("CN", "T2", "T3", "T4", "T5", "T6", "T7"),
+    {"L": "DD/MM/YYYY", "LL": "[ngày] D MMMM [năm] YYYY", "LLL": "[ngày] D MMMM [năm] YYYY HH:mm", "LLLL": "dddd, [ngày] D MMMM [năm] YYYY HH:mm"},
+)
+
 _BY_NAME: dict[str, DateLocale] = {
     "en": EN,
     "eng": EN,
@@ -501,9 +512,11 @@ _BY_NAME: dict[str, DateLocale] = {
     "tur": TR,
     "id": ID,
     "ind": ID,
+    "vi": VI,
+    "vie": VI,
 }
 
-NAMES = ("ar", "de", "el", "en", "es", "fr", "id", "it", "pl", "pt", "ru", "tr", "uk", "zh-cn")
+NAMES = ("ar", "de", "el", "en", "es", "fr", "id", "it", "pl", "pt", "ru", "tr", "uk", "vi", "zh-cn")
 
 
 def resolve(name: str | None) -> DateLocale:

@@ -1,0 +1,44 @@
+---
+description: Language name (Vietnamese)
+locale: vi
+---
+tiếng Việt
+tiếng Anh
+tiếng Pháp
+tiếng Đức
+tiếng Tây Ban Nha
+tiếng Bồ Đào Nha
+tiếng Ý
+tiếng Nga
+tiếng Ukraina
+tiếng Ba Lan
+tiếng Séc
+tiếng Hungary
+tiếng Romania
+tiếng Bulgaria
+tiếng Hy Lạp
+tiếng Thổ Nhĩ Kỳ
+tiếng Ả Rập
+tiếng Ba Tư
+tiếng Hebrew
+tiếng Trung
+tiếng Quảng Đông
+tiếng Nhật
+tiếng Hàn
+tiếng Thái
+tiếng Lào
+tiếng Khmer
+tiếng Miến Điện
+tiếng Indonesia
+tiếng Malaysia
+tiếng Tagalog
+tiếng Hindi
+tiếng Urdu
+tiếng Bengal
+tiếng Tamil
+tiếng Hà Lan
+tiếng Thụy Điển
+tiếng Na Uy
+tiếng Đan Mạch
+tiếng Phần Lan
+tiếng Latinh

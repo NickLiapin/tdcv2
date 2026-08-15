@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Vietnamese)
+locale: vi
+---
+Wi-Fi miễn phí
+điều hòa
+sưởi
+bao gồm bữa sáng
+nhà hàng
+quầy bar
+minibar
+tủ lạnh
+ấm đun nước
+két an toàn
+tivi
+máy sấy tóc
+bàn là
+máy giặt
+dọn phòng hằng ngày
+lễ tân 24 giờ
+đưa đón sân bay
+bãi đỗ xe
+hầm để xe
+hồ bơi
+phòng xông hơi
+massage
+spa
+phòng tập gym
+khu vui chơi trẻ em
+trông trẻ
+phòng họp
+cho phép mang thú cưng
+phòng không hút thuốc
+dịch vụ giặt là

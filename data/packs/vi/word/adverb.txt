@@ -1,0 +1,37 @@
+---
+description: Common adverb (Vietnamese)
+locale: vi
+---
+rất
+ít
+hơi
+quá
+luôn
+không_bao_giờ
+thường
+hiếm_khi
+bây_giờ
+sau
+trước
+muộn
+sớm
+nhanh
+chậm
+tốt
+tệ
+cùng_nhau
+riêng
+ở_đây
+ở_đó
+khắp_nơi
+không_đâu
+lên
+xuống
+tới
+lui
+trái
+phải
+đầu_tiên
+cuối_cùng
+gần_như
+hoàn_toàn

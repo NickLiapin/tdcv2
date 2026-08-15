@@ -1,0 +1,54 @@
+---
+description: Airline (Vietnamese carriers and major international ones)
+locale: vi
+---
+Vietnam Airlines
+VietJet Air
+Bamboo Airways
+Pacific Airlines
+Vietravel Airlines
+VASCO
+Sun PhuQuoc Airways
+Singapore Airlines
+Thai Airways
+Malaysia Airlines
+Garuda Indonesia
+Philippine Airlines
+Cathay Pacific
+China Airlines
+EVA Air
+Japan Airlines
+All Nippon Airways
+Korean Air
+Asiana Airlines
+China Southern
+China Eastern
+Air China
+Emirates
+Qatar Airways
+Etihad Airways
+Turkish Airlines
+Air India
+IndiGo
+Qantas
+Jetstar
+Air New Zealand
+KLM
+Lufthansa
+Air France
+British Airways
+Swiss
+Aeroflot
+Scoot
+AirAsia
+Cebu Pacific
+Nok Air
+Lion Air
+Thai Smile
+Hong Kong Airlines
+Xiamen Air
+Shenzhen Airlines
+Sichuan Airlines
+Juneyao Air
+Spring Airlines
+Hainan Airlines

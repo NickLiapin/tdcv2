@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Vietnamese)
+locale: vi
+---
+Đau nửa đầu
+Động kinh
+Đột quỵ
+Cơn thiếu máu não thoáng qua
+Xơ cứng rải rác
+Bệnh Parkinson
+Bệnh thần kinh ngoại biên
+Bệnh rễ thần kinh
+Đau dây thần kinh sinh ba
+Sa sút trí tuệ

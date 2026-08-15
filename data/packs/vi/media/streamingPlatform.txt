@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Vietnamese market
+locale: vi
+---
+Netflix
+FPT Play
+VieON
+Galaxy Play
+K+
+TV360
+MyTV
+Danet
+POPS
+YouTube Premium
+Spotify
+Apple TV+

@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Vietnamese)
+locale: vi
+---
+cái
+chiếc
+gói
+bộ
+đôi
+tá
+g
+kg
+mg
+tấn
+ml
+lít
+cm
+mm
+m
+km
+m2
+m3
+mét dài
+cuộn
+hộp
+thùng
+bao
+chai
+lọ
+tuýp
+gói nhỏ
+tờ
+tấm
+pallet

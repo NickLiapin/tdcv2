@@ -1,0 +1,43 @@
+---
+description: Trailing qualifier of a Vietnamese place name (Hà Đông, Sơn Tây, Thủ Đức)
+locale: vi
+---
+Đông
+Tây
+Nam
+Bắc
+Trung
+Thượng
+Hạ
+Nội
+Ngoại
+Thượng Lưu
+Hạ Lưu
+An
+Bình
+Phú
+Thịnh
+Vượng
+Hưng
+Thành
+Thanh
+Minh
+Xuân
+Hà
+Sơn
+Hải
+Giang
+Thủy
+Điền
+Trạch
+Lâm
+Khê
+Đình
+Xá
+Trang
+Thôn
+Ấp
+Bản
+Buôn
+Mới
+Cũ

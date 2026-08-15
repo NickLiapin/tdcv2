@@ -1,0 +1,17 @@
+---
+description: Legal case type (Vietnamese)
+locale: vi
+---
+vụ án dân sự
+vụ án hình sự
+vụ án hành chính
+tranh chấp thương mại
+vi phạm hành chính
+tranh chấp lao động
+tranh chấp hôn nhân gia đình
+tranh chấp thừa kế
+tranh chấp đất đai
+tranh chấp quyền sở hữu
+tranh chấp thuế
+vụ việc phá sản
+yêu cầu bồi thường thiệt hại

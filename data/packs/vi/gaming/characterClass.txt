@@ -1,0 +1,28 @@
+---
+description: RPG character class (Vietnamese)
+locale: vi
+---
+chiến binh
+hiệp sĩ
+thánh kỵ sĩ
+man tộc
+cuồng chiến
+đạo tặc
+sát thủ
+thợ săn
+trinh sát
+cung thủ
+pháp sư
+phù thủy
+tà thuật sư
+thuật sĩ tử linh
+đức đồ
+pháp sư tự nhiên
+tăng lữ
+võ tăng
+thi nhân
+kỹ sư
+luyện kim thuật sĩ
+ngự thú sư
+đỡ đòn
+hồi máu

@@ -1,0 +1,145 @@
+---
+description: Product noun (Vietnamese)
+locale: vi
+---
+bàn
+ghế
+ghế bành
+sofa
+tủ
+kệ
+giường
+đệm
+tủ đầu giường
+tủ ngăn kéo
+gương
+thảm
+rèm
+gối
+chăn
+ga trải giường
+khăn tắm
+khăn trải bàn
+cốc
+đĩa
+ly
+ly rượu
+dao
+nĩa
+thìa
+nồi
+chảo
+ấm
+rây lọc
+thớt
+máy xay
+máy trộn
+máy nướng bánh mì
+nồi cơm điện
+nồi áp suất
+lò vi sóng
+tủ lạnh
+tủ đông
+máy giặt
+máy rửa bát
+máy hút bụi
+bàn là
+máy sấy tóc
+bình nóng lạnh
+quạt
+điều hòa
+máy tạo ẩm
+tivi
+màn hình
+laptop
+máy tính
+máy tính bảng
+điện thoại
+tai nghe
+loa
+chuột
+bàn phím
+router
+máy in
+máy quét
+usb
+ổ cứng
+sạc dự phòng
+củ sạc
+dây cáp
+bộ chuyển đổi
+đèn
+đèn chùm
+đèn pin
+đồng hồ treo tường
+đồng hồ báo thức
+cân
+nhiệt kế
+ba lô
+túi xách
+vali
+ví
+thắt lưng
+ô
+kính
+mũ
+khăn quàng
+găng tay
+áo len
+áo phông
+áo sơ mi
+áo blouse
+váy
+chân váy
+quần dài
+quần jean
+quần short
+áo khoác
+áo măng tô
+áo mưa
+vest
+áo choàng tắm
+đồ ngủ
+tất
+giày thể thao
+bốt
+giày da
+dép
+dép lê
+bóng
+xe đạp
+xe scooter
+giày trượt
+tạ tay
+thảm yoga
+lều
+túi ngủ
+bình giữ nhiệt
+bình nước
+cần câu
+bếp nướng
+máy cắt cỏ
+xẻng
+cào
+kéo cắt cành
+vòi nước
+máy khoan
+máy vặn vít
+búa
+tua vít
+cưa
+thước dây
+thước thủy
+sơn
+cọ sơn
+con lăn sơn
+đinh
+vít
+keo dán
+băng dính điện
+ổ khóa
+tay nắm cửa
+bản lề
+ổ cắm
+công tắc
+dây nối dài

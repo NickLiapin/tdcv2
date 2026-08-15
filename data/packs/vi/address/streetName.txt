@@ -1,0 +1,164 @@
+---
+description: Street names common across Vietnam (national figures, dates, values). Compose after a streetSuffix; city-specific streets belong in a country pack.
+locale: vi
+---
+Lê Lợi
+Lê Duẩn
+Lê Thánh Tông
+Lê Lai
+Lê Văn Sỹ
+Trần Hưng Đạo
+Trần Phú
+Trần Quốc Toản
+Trần Nhân Tông
+Trần Quang Khải
+Lý Thường Kiệt
+Lý Thái Tổ
+Lý Tự Trọng
+Nguyễn Huệ
+Nguyễn Trãi
+Nguyễn Du
+Nguyễn Thái Học
+Nguyễn Đình Chiểu
+Nguyễn Thị Minh Khai
+Nguyễn Văn Cừ
+Nguyễn Công Trứ
+Nguyễn Khuyến
+Nguyễn Bỉnh Khiêm
+Phan Bội Châu
+Phan Chu Trinh
+Phan Đình Phùng
+Phan Văn Trị
+Hai Bà Trưng
+Bà Triệu
+Võ Thị Sáu
+Nguyễn Thị Định
+Hoàng Diệu
+Hoàng Văn Thụ
+Hoàng Hoa Thám
+Đinh Tiên Hoàng
+Đinh Bộ Lĩnh
+Ngô Quyền
+Ngô Gia Tự
+Quang Trung
+Đội Cấn
+Điện Biên Phủ
+Cách Mạng Tháng Tám
+Nam Kỳ Khởi Nghĩa
+Ba Tháng Hai
+Hai Tháng Chín
+Ba Mươi Tháng Tư
+Giải Phóng
+Độc Lập
+Thống Nhất
+Hòa Bình
+Hữu Nghị
+Đoàn Kết
+Dân Chủ
+Tự Do
+Công Lý
+Chiến Thắng
+Anh Dũng
+Quyết Thắng
+Bạch Đằng
+Chi Lăng
+Đống Đa
+Lam Sơn
+Chương Dương
+Vạn Kiếp
+Trường Chinh
+Trường Sa
+Hoàng Sa
+Hùng Vương
+Âu Cơ
+Lạc Long Quân
+Văn Lang
+Thăng Long
+Đông Đô
+Kinh Dương Vương
+Trưng Nữ Vương
+Hàng Bạc
+Hàng Đào
+Hàng Bông
+Hàng Mã
+Hàng Gai
+Hàng Trống
+Hàng Buồm
+Cầu Giấy
+Kim Mã
+Láng Hạ
+Xuân Thủy
+Giảng Võ
+Thái Hà
+Tây Sơn
+Nguyễn Trung Trực
+Bến Nghé
+Bến Thành
+Chợ Lớn
+Tân Sơn Nhất
+Tân Bình
+Phú Nhuận
+Bình Thạnh
+Gò Vấp
+Thủ Đức
+An Dương Vương
+Sư Vạn Hạnh
+Cộng Hòa
+Trường Sơn
+Hồng Hà
+Cửu Long
+Mê Kông
+Sông Hàn
+Bạch Mai
+Bạch Mã
+Yên Tử
+Ba Vì
+Tam Đảo
+Sa Pa
+Đà Lạt
+Hạ Long
+Cát Bà
+Côn Đảo
+Phú Quốc
+Trúc Bạch
+Hồ Tây
+Hồ Gươm
+Trần Đăng Ninh
+Hoa Sữa
+Hoa Mai
+Hoa Đào
+Hoa Sen
+Hoa Cúc
+Hoa Lan
+Bằng Lăng
+Phượng Vỹ
+Cây Đa
+Cây Đề
+Đa Kao
+Vườn Chuối
+Vườn Lài
+Ruộng Lúa
+Đồng Xoài
+Đồng Khởi
+Bình Minh
+Rạng Đông
+Ánh Sáng
+Sao Mai
+Ngôi Sao
+Mặt Trời
+Trăng Non
+Mùa Xuân
+Mùa Thu
+Số 1
+Số 2
+Số 3
+Số 5
+Số 7
+Số 10
+D1
+D2
+N1
+N2
+A1
+B1
+C1

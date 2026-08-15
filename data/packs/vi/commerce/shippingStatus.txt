@@ -1,0 +1,15 @@
+---
+description: Shipping status (Vietnamese)
+locale: vi
+---
+Chờ lấy hàng
+Đã lấy hàng
+Đang vận chuyển
+Tại kho phân loại
+Đã đến thành phố nhận
+Đã đến bưu cục
+Đang giao
+Giao thành công
+Giao không thành công
+Đang hoàn về
+Thất lạc

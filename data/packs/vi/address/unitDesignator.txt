@@ -1,0 +1,27 @@
+---
+description: Vietnamese address unit / interior designator
+locale: vi
+---
+Số
+Căn
+Phòng
+P.
+Tầng
+T.
+Lầu
+Tòa
+Block
+Lô
+Ô
+Kiot
+Gian hàng
+Khu
+Tổ
+Đơn nguyên
+Cửa
+Hầm
+Trệt
+Lửng
+Sân thượng
+Hòm thư
+Hộp thư

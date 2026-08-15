@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Vietnamese)
+locale: vi
+---
+Viêm dạ dày
+Loét dạ dày
+Trào ngược dạ dày thực quản
+Hội chứng ruột kích thích
+Bệnh Crohn
+Viêm loét đại tràng
+Viêm tụy mạn
+Sỏi mật
+Xơ gan
+Bệnh Celiac

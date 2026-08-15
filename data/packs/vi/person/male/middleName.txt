@@ -1,0 +1,34 @@
+---
+description: Vietnamese male middle name (tên đệm). A Vietnamese full name is family + middle + given; "Văn" is the classic male middle name, the counterpart of the female "Thị".
+weighted: true
+---
+Văn,1000000
+Đức,933032
+Hữu,895958
+Minh,870550
+Quang,851339
+Xuân,835958
+Thanh,823171
+Công,812252
+Đình,802741
+Ngọc,794328
+Tuấn,786793
+Bá,779977
+Duy,773758
+Gia,768045
+Hồng,762765
+Khắc,757858
+Mạnh,753277
+Nhật,748984
+Phú,744945
+Quốc,741134
+Sỹ,737527
+Tấn,734104
+Thành,730848
+Trọng,727744
+Trung,724779
+Việt,721942
+Vinh,719223
+Anh,716612
+Bảo,714101
+Chí,711685

@@ -1,0 +1,43 @@
+---
+description: Music genre (Vietnamese, including Vietnamese genres)
+locale: vi
+---
+nhạc pop
+rock
+hard rock
+punk
+metal
+alternative
+indie
+hip hop
+rap
+R&B
+soul
+jazz
+blues
+funk
+disco
+nhạc điện tử
+house
+techno
+trance
+drum and bass
+dubstep
+ambient
+nhạc cổ điển
+opera
+giao hưởng
+thính phòng
+hợp xướng
+dân ca
+nhạc trữ tình
+nhạc vàng
+bolero
+cải lương
+chèo
+tuồng
+quan họ
+ca trù
+hát xẩm
+nhã nhạc
+đờn ca tài tử

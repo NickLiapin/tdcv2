@@ -1,0 +1,29 @@
+---
+description: Gemstone (Vietnamese)
+locale: vi
+---
+kim_cương
+hồng_ngọc
+lam_ngọc
+ngọc_lục_bảo
+thạch_anh_tím
+hoàng_ngọc
+ngọc_hồng_lựu
+ngọc_mắt_mèo
+lam_bảo_thạch
+đá_malachite
+ngọc_bích
+ngọc_thạch
+mã_não
+hắc_mã_não
+carnelian
+peridot
+citrine
+lapis_lazuli
+obsidian
+tourmaline
+spinel
+zircon
+hổ_phách
+ngọc_trai
+san_hô

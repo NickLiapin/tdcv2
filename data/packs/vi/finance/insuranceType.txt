@@ -1,0 +1,18 @@
+---
+description: Insurance type (Vietnamese)
+locale: vi
+---
+bảo hiểm y tế
+bảo hiểm sức khỏe
+bảo hiểm nhân thọ
+bảo hiểm tai nạn
+bảo hiểm trách nhiệm dân sự xe cơ giới
+bảo hiểm vật chất xe
+bảo hiểm cháy nổ
+bảo hiểm nhà
+bảo hiểm hàng hóa
+bảo hiểm du lịch
+bảo hiểm trách nhiệm
+bảo hiểm hưu trí
+bảo hiểm nông nghiệp
+bảo hiểm tiền gửi

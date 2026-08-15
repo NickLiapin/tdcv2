@@ -1,0 +1,17 @@
+---
+description: Social content type (Vietnamese)
+locale: vi
+---
+bài đăng
+ảnh
+video
+video ngắn
+story
+phát trực tiếp
+chia sẻ lại
+bình luận
+khảo sát
+tổng hợp
+đánh giá
+thông báo
+gợi ý

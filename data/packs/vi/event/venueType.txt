@@ -1,0 +1,20 @@
+---
+description: Venue type (Vietnamese)
+locale: vi
+---
+phòng hội nghị
+hội trường
+trung tâm hội nghị
+trung tâm triển lãm
+nhà hát
+rạp chiếu phim
+phòng hòa nhạc
+trung tâm văn hóa
+câu lạc bộ
+nhà hàng
+trung tâm tiệc cưới
+khách sạn
+sân vận động
+nhà thi đấu
+công viên
+ngoài trời

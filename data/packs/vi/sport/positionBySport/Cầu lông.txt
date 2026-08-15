@@ -1,0 +1,9 @@
+---
+description: Positions in badminton, where the "positions" are the five competition categories (Vietnamese)
+locale: vi
+---
+đơn nam
+đơn nữ
+đôi nam
+đôi nữ
+đôi nam nữ

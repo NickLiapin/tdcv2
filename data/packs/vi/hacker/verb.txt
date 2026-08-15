@@ -1,0 +1,32 @@
+---
+description: Tech verb (Vietnamese)
+locale: vi
+---
+biên dịch
+triển khai
+cấu hình
+khởi động lại
+kết nối
+đăng nhập
+mã hóa
+giải mã
+nén
+giải nén
+lập chỉ mục
+lưu đệm
+đồng bộ
+nhân bản
+mở rộng quy mô
+định tuyến
+chặn bắt
+vượt qua
+bẻ khóa
+vá lỗi
+khôi phục
+cập nhật
+xóa
+tạo
+sao chép
+di chuyển
+gắn kết
+định dạng

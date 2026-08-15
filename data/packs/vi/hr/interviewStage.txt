@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Vietnamese)
+locale: vi
+---
+nộp hồ sơ
+sàng lọc hồ sơ
+phỏng vấn qua điện thoại
+phỏng vấn nhân sự
+bài kiểm tra
+phỏng vấn chuyên môn
+phỏng vấn với quản lý
+phỏng vấn cuối
+kiểm tra người tham chiếu
+đề nghị nhận việc
+nhận việc

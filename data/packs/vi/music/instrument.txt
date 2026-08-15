@@ -1,0 +1,47 @@
+---
+description: Musical instrument (Vietnamese)
+locale: vi
+---
+đàn bầu
+đàn tranh
+đàn nguyệt
+đàn tỳ bà
+đàn nhị
+đàn đáy
+đàn t'rưng
+đàn đá
+sáo trúc
+tiêu
+khèn
+kèn bầu
+trống cơm
+trống chầu
+trống đế
+cồng
+chiêng
+mõ
+sênh tiền
+song loan
+đàn violin
+viola
+cello
+contrabass
+guitar
+guitar bass
+ukulele
+đàn hạc
+piano
+đại dương cầm
+organ
+accordion
+sáo flute
+clarinet
+oboe
+bassoon
+saxophone
+trumpet
+trombone
+kèn cor
+tuba
+trống jazz
+mộc cầm

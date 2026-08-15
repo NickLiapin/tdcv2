@@ -1,0 +1,14 @@
+---
+description: Payment status (Vietnamese)
+locale: vi
+---
+Chờ thanh toán
+Đã thanh toán
+Thanh toán một phần
+Đã tạm giữ
+Bị từ chối
+Thanh toán lỗi
+Đã hoàn tiền
+Hoàn tiền một phần
+Quá hạn
+Đã hủy

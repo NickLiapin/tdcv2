@@ -4,7 +4,7 @@
  * Every bundled address, as a property. Regenerate after changing the packs:
  * `npm run quick:types`. `npm run check` fails if the two disagree.
  *
- * 4634 addresses.
+ * 4857 addresses.
  */
 
 import type { QuickAddress, QuickParams } from './types.js';
@@ -3143,6 +3143,7 @@ export type QuickAddressTree = {
       readonly Arjantin: QuickAddress;
       readonly Bali: QuickAddress;
       readonly Brasileira: QuickAddress;
+      readonly Chay: QuickAddress;
       readonly China: QuickAddress;
       readonly Chinesa: QuickAddress;
       readonly Chinese: QuickAddress;
@@ -3174,6 +3175,8 @@ export type QuickAddressTree = {
       readonly Griega: QuickAddress;
       readonly Hint: QuickAddress;
       readonly 'Hiszpańska': QuickAddress;
+      readonly 'Hàn Quốc': QuickAddress;
+      readonly 'Hàn Quốc chay': QuickAddress;
       readonly India: QuickAddress;
       readonly Indian: QuickAddress;
       readonly Indiana: QuickAddress;
@@ -3213,7 +3216,13 @@ export type QuickAddressTree = {
       readonly Mexicaine: QuickAddress;
       readonly Mexican: QuickAddress;
       readonly Mexicana: QuickAddress;
+      readonly Mexico: QuickAddress;
       readonly Mexikanisch: QuickAddress;
+      readonly 'Miền Bắc': QuickAddress;
+      readonly 'Miền Nam': QuickAddress;
+      readonly 'Miền Trung': QuickAddress;
+      readonly 'Mỹ': QuickAddress;
+      readonly 'Nhật Bản': QuickAddress;
       readonly 'Osmanlı': QuickAddress;
       readonly Padang: QuickAddress;
       readonly Peru: QuickAddress;
@@ -3221,6 +3230,7 @@ export type QuickAddressTree = {
       readonly Peruanisch: QuickAddress;
       readonly Peruviana: QuickAddress;
       readonly 'Peruwiańska': QuickAddress;
+      readonly 'Pháp': QuickAddress;
       readonly Polska: QuickAddress;
       readonly Portuguesa: QuickAddress;
       readonly Prancis: QuickAddress;
@@ -3237,8 +3247,11 @@ export type QuickAddressTree = {
       readonly Thailandese: QuickAddress;
       readonly 'Thailändisch': QuickAddress;
       readonly 'Thaïlandaise': QuickAddress;
+      readonly 'Thái Lan': QuickAddress;
       readonly 'Timur Tengah': QuickAddress;
       readonly Tionghoa: QuickAddress;
+      readonly 'Trung Hoa': QuickAddress;
+      readonly 'Trung Đông': QuickAddress;
       readonly Turca: QuickAddress;
       readonly Turecka: QuickAddress;
       readonly Turkish: QuickAddress;
@@ -3250,10 +3263,12 @@ export type QuickAddressTree = {
       readonly Vietnamesisch: QuickAddress;
       readonly Vietnamienne: QuickAddress;
       readonly Vietnamita: QuickAddress;
+      readonly 'Việt Nam': QuickAddress;
       readonly Wietnamska: QuickAddress;
       readonly 'Włoska': QuickAddress;
       readonly Yunan: QuickAddress;
       readonly 'Çin': QuickAddress;
+      readonly 'Ý': QuickAddress;
       readonly 'İspanyol': QuickAddress;
       readonly 'İtalyan': QuickAddress;
       readonly 'Αμερικανική': QuickAddress;
@@ -3319,6 +3334,7 @@ export type QuickAddressTree = {
       readonly 'الهندية': QuickAddress;
       readonly 'اليابانية': QuickAddress;
       readonly 'اليونانية': QuickAddress;
+      readonly 'Ấn Độ': QuickAddress;
     };
     readonly fruit: QuickAddress;
     readonly ingredient: QuickAddress;
@@ -7950,6 +7966,321 @@ export type QuickAddressTree = {
         readonly writingSystem: QuickAddress;
       };
     };
+    readonly vi: {
+      readonly address: {
+        readonly buildingType: QuickAddress;
+        readonly cityPrefix: QuickAddress;
+        readonly citySuffix: QuickAddress;
+        readonly direction: QuickAddress;
+        readonly streetName: QuickAddress;
+        readonly streetSuffix: QuickAddress;
+        readonly unitDesignator: QuickAddress;
+      };
+      readonly airline: {
+        readonly aircraftType: QuickAddress;
+        readonly name: QuickAddress;
+      };
+      readonly animal: {
+        readonly bird: QuickAddress;
+        readonly cat: QuickAddress;
+        readonly dog: QuickAddress;
+        readonly fish: QuickAddress;
+        readonly horse: QuickAddress;
+        readonly insect: QuickAddress;
+        readonly type: QuickAddress;
+      };
+      readonly book: {
+        readonly format: QuickAddress;
+        readonly genre: QuickAddress;
+      };
+      readonly clothing: {
+        readonly shoeSizeEu: QuickAddress;
+        readonly size: QuickAddress;
+        readonly type: QuickAddress;
+      };
+      readonly color: {
+        readonly name: QuickAddress;
+      };
+      readonly commerce: {
+        readonly carrier: QuickAddress;
+        readonly department: QuickAddress;
+        readonly orderStatus: QuickAddress;
+        readonly paymentMethod: QuickAddress;
+        readonly paymentStatus: QuickAddress;
+        readonly productAdjective: QuickAddress;
+        readonly productColor: QuickAddress;
+        readonly productMaterial: QuickAddress;
+        readonly productNoun: QuickAddress;
+        readonly returnReason: QuickAddress;
+        readonly reviewTitle: QuickAddress;
+        readonly shippingStatus: QuickAddress;
+        readonly unitOfMeasure: QuickAddress;
+      };
+      readonly company: {
+        readonly buzzAdjective: QuickAddress;
+        readonly buzzNoun: QuickAddress;
+        readonly buzzVerb: QuickAddress;
+        readonly industry: QuickAddress;
+        readonly legalSuffix: QuickAddress;
+        readonly namePart: QuickAddress;
+      };
+      readonly date: {
+        readonly month: QuickAddress;
+        readonly monthAbbr: QuickAddress;
+        readonly quarter: QuickAddress;
+        readonly season: QuickAddress;
+        readonly timeOfDay: QuickAddress;
+        readonly weekday: QuickAddress;
+        readonly weekdayAbbr: QuickAddress;
+      };
+      readonly education: {
+        readonly courseSubject: QuickAddress;
+        readonly degree: QuickAddress;
+        readonly grade: QuickAddress;
+        readonly major: QuickAddress;
+      };
+      readonly event: {
+        readonly type: QuickAddress;
+        readonly venueType: QuickAddress;
+      };
+      readonly finance: {
+        readonly budgetCategory: QuickAddress;
+        readonly creditScoreBand: QuickAddress;
+        readonly insuranceType: QuickAddress;
+        readonly loanType: QuickAddress;
+      };
+      readonly food: {
+        readonly cuisine: QuickAddress;
+        readonly dish: QuickAddress;
+        readonly dishByCuisine: {
+          readonly Chay: QuickAddress;
+          readonly 'Hàn Quốc': QuickAddress;
+          readonly 'Hàn Quốc chay': QuickAddress;
+          readonly Mexico: QuickAddress;
+          readonly 'Miền Bắc': QuickAddress;
+          readonly 'Miền Nam': QuickAddress;
+          readonly 'Miền Trung': QuickAddress;
+          readonly 'Mỹ': QuickAddress;
+          readonly 'Nhật Bản': QuickAddress;
+          readonly 'Pháp': QuickAddress;
+          readonly 'Thái Lan': QuickAddress;
+          readonly 'Trung Hoa': QuickAddress;
+          readonly 'Trung Đông': QuickAddress;
+          readonly 'Việt Nam': QuickAddress;
+          readonly 'Ý': QuickAddress;
+          readonly 'Ấn Độ': QuickAddress;
+        };
+        readonly fruit: QuickAddress;
+        readonly ingredient: QuickAddress;
+        readonly spice: QuickAddress;
+        readonly vegetable: QuickAddress;
+      };
+      readonly gaming: {
+        readonly characterClass: QuickAddress;
+        readonly platform: QuickAddress;
+        readonly rank: QuickAddress;
+      };
+      readonly government: {
+        readonly agency: QuickAddress;
+        readonly documentType: QuickAddress;
+      };
+      readonly hacker: {
+        readonly abbreviation: QuickAddress;
+        readonly adjective: QuickAddress;
+        readonly ingverb: QuickAddress;
+        readonly noun: QuickAddress;
+        readonly verb: QuickAddress;
+      };
+      readonly hr: {
+        readonly benefit: QuickAddress;
+        readonly interviewStage: QuickAddress;
+        readonly leaveType: QuickAddress;
+        readonly meetingType: QuickAddress;
+      };
+      readonly legal: {
+        readonly caseType: QuickAddress;
+        readonly court: QuickAddress;
+        readonly term: QuickAddress;
+      };
+      readonly location: {
+        readonly country: QuickAddress;
+      };
+      readonly media: {
+        readonly gameGenre: QuickAddress;
+        readonly movieGenre: QuickAddress;
+        readonly streamingPlatform: QuickAddress;
+        readonly tvRating: QuickAddress;
+      };
+      readonly medical: {
+        readonly allergy: QuickAddress;
+        readonly ancestry: QuickAddress;
+        readonly bloodType: QuickAddress;
+        readonly diagnosis: QuickAddress;
+        readonly diagnosisByAncestry: {
+          readonly 'Bắc Phi': QuickAddress;
+          readonly 'Bắc Âu': QuickAddress;
+          readonly 'Châu Phi hạ Sahara': QuickAddress;
+          readonly 'Do Thái Ashkenazi': QuickAddress;
+          readonly 'Nam Á': QuickAddress;
+          readonly 'Thổ dân châu Mỹ': QuickAddress;
+          readonly 'Trung Đông': QuickAddress;
+          readonly 'Đông Nam Á': QuickAddress;
+          readonly 'Đông Á': QuickAddress;
+          readonly 'Đông Âu': QuickAddress;
+          readonly 'Đảo Thái Bình Dương': QuickAddress;
+          readonly 'Địa Trung Hải': QuickAddress;
+        };
+        readonly diagnosisBySpecialty: {
+          readonly 'Chấn thương chỉnh hình': QuickAddress;
+          readonly 'Da liễu': QuickAddress;
+          readonly 'Hô hấp': QuickAddress;
+          readonly 'Nội tiết': QuickAddress;
+          readonly 'Thần kinh': QuickAddress;
+          readonly 'Thận': QuickAddress;
+          readonly 'Tim mạch': QuickAddress;
+          readonly 'Tiêu hóa': QuickAddress;
+          readonly 'Tâm thần': QuickAddress;
+          readonly 'Ung bướu': QuickAddress;
+        };
+        readonly diagnosisFemale: QuickAddress;
+        readonly diagnosisMale: QuickAddress;
+        readonly drugGeneric: QuickAddress;
+        readonly specialty: QuickAddress;
+        readonly specialtyCoherent: QuickAddress;
+        readonly symptom: QuickAddress;
+      };
+      readonly music: {
+        readonly genre: QuickAddress;
+        readonly instrument: QuickAddress;
+      };
+      readonly nature: {
+        readonly flower: QuickAddress;
+        readonly gemstone: QuickAddress;
+        readonly metal: QuickAddress;
+        readonly tree: QuickAddress;
+      };
+      readonly person: {
+        readonly female: {
+          readonly diagnosis: QuickAddress;
+          readonly firstName: QuickAddress;
+          readonly middleName: QuickAddress;
+        };
+        readonly gender: QuickAddress;
+        readonly hobby: QuickAddress;
+        readonly householdSize: QuickAddress;
+        readonly incomeBracket: QuickAddress;
+        readonly language: QuickAddress;
+        readonly lastName: QuickAddress;
+        readonly male: {
+          readonly diagnosis: QuickAddress;
+          readonly firstName: QuickAddress;
+          readonly middleName: QuickAddress;
+        };
+        readonly maritalStatus: QuickAddress;
+        readonly nationality: QuickAddress;
+        readonly nickname: QuickAddress;
+        readonly prefix: QuickAddress;
+        readonly pronoun: QuickAddress;
+        readonly suffix: QuickAddress;
+        readonly zodiac: QuickAddress;
+      };
+      readonly realestate: {
+        readonly amenity: QuickAddress;
+        readonly listingStatus: QuickAddress;
+        readonly propertyType: QuickAddress;
+        readonly roomType: QuickAddress;
+      };
+      readonly social: {
+        readonly contentType: QuickAddress;
+        readonly hashtag: QuickAddress;
+        readonly platform: QuickAddress;
+        readonly reaction: QuickAddress;
+      };
+      readonly sport: {
+        readonly name: QuickAddress;
+        readonly position: QuickAddress;
+        readonly positionBySport: {
+          readonly 'Bóng bàn': QuickAddress;
+          readonly 'Bóng chuyền': QuickAddress;
+          readonly 'Bóng ném': QuickAddress;
+          readonly 'Bóng rổ': QuickAddress;
+          readonly 'Bóng đá': QuickAddress;
+          readonly 'Bơi lội': QuickAddress;
+          readonly 'Cầu lông': QuickAddress;
+          readonly Vovinam: QuickAddress;
+        };
+        readonly sportCoherent: QuickAddress;
+      };
+      readonly telecom: {
+        readonly carrier: QuickAddress;
+        readonly planType: QuickAddress;
+      };
+      readonly text: {
+        readonly paragraph: QuickAddress;
+        readonly sentence: QuickAddress;
+        readonly word: QuickAddress;
+      };
+      readonly travel: {
+        readonly bookingStatus: QuickAddress;
+        readonly hotelAmenity: QuickAddress;
+        readonly roomType: QuickAddress;
+        readonly starRating: QuickAddress;
+        readonly tripType: QuickAddress;
+      };
+      readonly vehicle: {
+        readonly bicycle: QuickAddress;
+        readonly fuel: QuickAddress;
+        readonly type: QuickAddress;
+      };
+      readonly weather: {
+        readonly condition: QuickAddress;
+        readonly phenomenon: QuickAddress;
+      };
+      readonly word: {
+        readonly adjective: QuickAddress;
+        readonly adverb: QuickAddress;
+        readonly noun: QuickAddress;
+        readonly verb: QuickAddress;
+      };
+      readonly work: {
+        readonly cable: {
+          readonly conduit: QuickAddress;
+          readonly type: QuickAddress;
+        };
+        readonly department: QuickAddress;
+        readonly employmentType: QuickAddress;
+        readonly industryCoherent: QuickAddress;
+        readonly jobByIndustry: {
+          readonly 'Bán lẻ': QuickAddress;
+          readonly 'Công nghệ': QuickAddress;
+          readonly 'Giáo dục': QuickAddress;
+          readonly 'Khách sạn': QuickAddress;
+          readonly 'Pháp lý': QuickAddress;
+          readonly 'Sản xuất': QuickAddress;
+          readonly 'Tài chính': QuickAddress;
+          readonly 'Vận tải': QuickAddress;
+          readonly 'Xây dựng': QuickAddress;
+          readonly 'Y tế': QuickAddress;
+        };
+        readonly jobTitle: QuickAddress;
+        readonly mining: {
+          readonly method: QuickAddress;
+          readonly mineral: QuickAddress;
+          readonly shift: QuickAddress;
+        };
+        readonly seniority: QuickAddress;
+        readonly skill: QuickAddress;
+        readonly trucking: {
+          readonly cargoType: QuickAddress;
+          readonly licenceClass: QuickAddress;
+          readonly routeType: QuickAddress;
+        };
+      };
+      readonly world: {
+        readonly religion: QuickAddress;
+        readonly writingSystem: QuickAddress;
+      };
+    };
     readonly 'zh-cn': {
       readonly location: {
         readonly country: QuickAddress;
@@ -8008,6 +8339,10 @@ export type QuickAddressTree = {
       readonly 'Aşkenaz': QuickAddress;
       readonly 'Bassin méditerranéen': QuickAddress;
       readonly Bliskowschodnia: QuickAddress;
+      readonly 'Bắc Phi': QuickAddress;
+      readonly 'Bắc Âu': QuickAddress;
+      readonly 'Châu Phi hạ Sahara': QuickAddress;
+      readonly 'Do Thái Ashkenazi': QuickAddress;
       readonly 'Doğu Asya': QuickAddress;
       readonly 'Doğu Avrupa': QuickAddress;
       readonly 'East Asian': QuickAddress;
@@ -8049,6 +8384,7 @@ export type QuickAddressTree = {
       readonly 'Moyen-Orient': QuickAddress;
       readonly 'Médio-oriental': QuickAddress;
       readonly 'Nahöstlich': QuickAddress;
+      readonly 'Nam Á': QuickAddress;
       readonly Nordafricana: QuickAddress;
       readonly Nordafrikanisch: QuickAddress;
       readonly Nordeuropea: QuickAddress;
@@ -8082,13 +8418,20 @@ export type QuickAddressTree = {
       readonly 'Sur de Asia': QuickAddress;
       readonly 'Südasiatisch': QuickAddress;
       readonly 'Südostasiatisch': QuickAddress;
+      readonly 'Thổ dân châu Mỹ': QuickAddress;
       readonly 'Timur Tengah': QuickAddress;
+      readonly 'Trung Đông': QuickAddress;
       readonly Wschodnioazjatycka: QuickAddress;
       readonly Wschodnioeuropejska: QuickAddress;
       readonly 'Wysp Pacyfiku': QuickAddress;
       readonly 'Yahudi Ashkenazi': QuickAddress;
       readonly 'Yerli Amerika': QuickAddress;
       readonly 'Îles du Pacifique': QuickAddress;
+      readonly 'Đông Nam Á': QuickAddress;
+      readonly 'Đông Á': QuickAddress;
+      readonly 'Đông Âu': QuickAddress;
+      readonly 'Đảo Thái Bình Dương': QuickAddress;
+      readonly 'Địa Trung Hải': QuickAddress;
       readonly 'Śródziemnomorska': QuickAddress;
       readonly 'Ανατολική Ασία': QuickAddress;
       readonly 'Ανατολική Ευρώπη': QuickAddress;
@@ -8144,6 +8487,8 @@ export type QuickAddressTree = {
       readonly Cardiologie: QuickAddress;
       readonly Cardiology: QuickAddress;
       readonly 'Cardiología': QuickAddress;
+      readonly 'Chấn thương chỉnh hình': QuickAddress;
+      readonly 'Da liễu': QuickAddress;
       readonly Dermatologi: QuickAddress;
       readonly Dermatologia: QuickAddress;
       readonly Dermatologie: QuickAddress;
@@ -8166,6 +8511,7 @@ export type QuickAddressTree = {
       readonly Gastroenteroloji: QuickAddress;
       readonly 'Gastroentérologie': QuickAddress;
       readonly 'Göğüs hastalıkları': QuickAddress;
+      readonly 'Hô hấp': QuickAddress;
       readonly Kardiologi: QuickAddress;
       readonly Kardiologia: QuickAddress;
       readonly Kardiologie: QuickAddress;
@@ -8184,6 +8530,7 @@ export type QuickAddressTree = {
       readonly 'Neurología': QuickAddress;
       readonly 'Néphrologie': QuickAddress;
       readonly 'Nöroloji': QuickAddress;
+      readonly 'Nội tiết': QuickAddress;
       readonly Oncologia: QuickAddress;
       readonly Oncologie: QuickAddress;
       readonly Oncology: QuickAddress;
@@ -8210,6 +8557,12 @@ export type QuickAddressTree = {
       readonly Pulmonologi: QuickAddress;
       readonly Pulmonologia: QuickAddress;
       readonly Pulmonology: QuickAddress;
+      readonly 'Thần kinh': QuickAddress;
+      readonly 'Thận': QuickAddress;
+      readonly 'Tim mạch': QuickAddress;
+      readonly 'Tiêu hóa': QuickAddress;
+      readonly 'Tâm thần': QuickAddress;
+      readonly 'Ung bướu': QuickAddress;
       readonly 'Γαστρεντερολογία': QuickAddress;
       readonly 'Δερματολογία': QuickAddress;
       readonly 'Ενδοκρινολογία': QuickAddress;
@@ -8274,6 +8627,7 @@ export type QuickAddressTree = {
       readonly firstName: QuickAddress;
       readonly fullName: QuickAddress;
       readonly lastName: QuickAddress;
+      readonly middleName: QuickAddress;
       readonly patronymic: QuickAddress;
     };
     readonly gender: QuickAddress;
@@ -8287,6 +8641,7 @@ export type QuickAddressTree = {
       readonly firstName: QuickAddress;
       readonly fullName: QuickAddress;
       readonly lastName: QuickAddress;
+      readonly middleName: QuickAddress;
       readonly patronymic: QuickAddress;
     };
     readonly maritalStatus: QuickAddress;
@@ -8331,8 +8686,15 @@ export type QuickAddressTree = {
       readonly 'Bulu tangkis': QuickAddress;
       readonly 'Buz hokeyi': QuickAddress;
       readonly 'Béisbol': QuickAddress;
+      readonly 'Bóng bàn': QuickAddress;
+      readonly 'Bóng chuyền': QuickAddress;
+      readonly 'Bóng ném': QuickAddress;
+      readonly 'Bóng rổ': QuickAddress;
+      readonly 'Bóng đá': QuickAddress;
+      readonly 'Bơi lội': QuickAddress;
       readonly Calcio: QuickAddress;
       readonly Cricket: QuickAddress;
+      readonly 'Cầu lông': QuickAddress;
       readonly Eishockey: QuickAddress;
       readonly Football: QuickAddress;
       readonly 'Football americano': QuickAddress;
@@ -8371,6 +8733,7 @@ export type QuickAddressTree = {
       readonly Voleybol: QuickAddress;
       readonly 'Volley-ball': QuickAddress;
       readonly Volleyball: QuickAddress;
+      readonly Vovinam: QuickAddress;
       readonly 'Vôlei': QuickAddress;
       readonly 'Αμερικανικό ποδόσφαιρο': QuickAddress;
       readonly 'Καλαθοσφαίριση': QuickAddress;
@@ -8446,6 +8809,7 @@ export type QuickAddressTree = {
       readonly Bauwesen: QuickAddress;
       readonly Bildung: QuickAddress;
       readonly Budownictwo: QuickAddress;
+      readonly 'Bán lẻ': QuickAddress;
       readonly 'Comercio Minorista': QuickAddress;
       readonly 'Commerce de détail': QuickAddress;
       readonly 'Commercio al dettaglio': QuickAddress;
@@ -8453,6 +8817,7 @@ export type QuickAddressTree = {
       readonly 'Construcción': QuickAddress;
       readonly Construction: QuickAddress;
       readonly 'Construção': QuickAddress;
+      readonly 'Công nghệ': QuickAddress;
       readonly Edilizia: QuickAddress;
       readonly 'Educación': QuickAddress;
       readonly Education: QuickAddress;
@@ -8469,6 +8834,7 @@ export type QuickAddressTree = {
       readonly 'Finanças': QuickAddress;
       readonly Gastgewerbe: QuickAddress;
       readonly Gesundheitswesen: QuickAddress;
+      readonly 'Giáo dục': QuickAddress;
       readonly 'Handel detaliczny': QuickAddress;
       readonly Healthcare: QuickAddress;
       readonly Hospitality: QuickAddress;
@@ -8486,6 +8852,7 @@ export type QuickAddressTree = {
       readonly 'Jurídico': QuickAddress;
       readonly Kesehatan: QuickAddress;
       readonly Keuangan: QuickAddress;
+      readonly 'Khách sạn': QuickAddress;
       readonly Konstruksi: QuickAddress;
       readonly Legal: QuickAddress;
       readonly Legale: QuickAddress;
@@ -8497,6 +8864,7 @@ export type QuickAddressTree = {
       readonly Pendidikan: QuickAddress;
       readonly Perakende: QuickAddress;
       readonly Perhotelan: QuickAddress;
+      readonly 'Pháp lý': QuickAddress;
       readonly Prawo: QuickAddress;
       readonly 'Przemysł': QuickAddress;
       readonly Recht: QuickAddress;
@@ -8507,6 +8875,7 @@ export type QuickAddressTree = {
       readonly 'Santé': QuickAddress;
       readonly 'Saúde': QuickAddress;
       readonly 'Sağlık': QuickAddress;
+      readonly 'Sản xuất': QuickAddress;
       readonly Technologia: QuickAddress;
       readonly Technologie: QuickAddress;
       readonly Technology: QuickAddress;
@@ -8520,7 +8889,11 @@ export type QuickAddressTree = {
       readonly Transporte: QuickAddress;
       readonly Trasporti: QuickAddress;
       readonly Turizm: QuickAddress;
+      readonly 'Tài chính': QuickAddress;
       readonly 'Ulaştırma': QuickAddress;
+      readonly 'Vận tải': QuickAddress;
+      readonly 'Xây dựng': QuickAddress;
+      readonly 'Y tế': QuickAddress;
       readonly 'Éducation': QuickAddress;
       readonly 'Üretim': QuickAddress;
       readonly 'İnşaat': QuickAddress;

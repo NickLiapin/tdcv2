@@ -1,0 +1,16 @@
+---
+description: Meeting type (Vietnamese)
+locale: vi
+---
+họp giao ban
+họp tuần
+họp phòng ban
+đại hội
+họp một-một
+họp rút kinh nghiệm
+họp lập kế hoạch sprint
+buổi demo
+họp động não
+gặp khách hàng
+buổi đào tạo
+họp tổng kết

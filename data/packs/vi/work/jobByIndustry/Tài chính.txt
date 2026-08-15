@@ -1,0 +1,16 @@
+---
+description: Jobs in Finance (Vietnamese)
+locale: vi
+---
+kế toán
+kế toán trưởng
+kiểm toán viên
+chuyên viên phân tích tài chính
+giao dịch viên ngân hàng
+chuyên viên tín dụng
+chuyên viên kinh tế
+kiểm soát nội bộ
+chuyên viên phân tích đầu tư
+đại lý bảo hiểm
+tư vấn thuế
+giám đốc tài chính

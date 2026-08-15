@@ -1,0 +1,22 @@
+---
+description: Event type (Vietnamese)
+locale: vi
+---
+hội nghị
+hội thảo
+webinar
+khóa đào tạo
+workshop
+buổi thuyết trình
+diễn đàn
+triển lãm
+hội chợ
+lễ ra mắt
+buổi hòa nhạc
+lễ hội
+vở kịch
+buổi chiếu phim
+cuộc thi
+giải đấu
+đám cưới
+lễ kỷ niệm

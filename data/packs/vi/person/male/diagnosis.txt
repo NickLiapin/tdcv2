@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Vietnamese (male-specific + common)
+locale: vi
+---
+Giãn tĩnh mạch thừng tinh
+Tinh hoàn ẩn
+Hẹp bao quy đầu
+Phì đại tuyến tiền liệt
+Viêm tuyến tiền liệt
+Viêm tụy mạn
+Nhiễm Chlamydia
+Viêm khớp mạn
+Tăng huyết áp
+Bệnh mạch vành
+Nhồi máu cơ tim
+Loét dạ dày
+Đái tháo đường type 2
+Bệnh gút
+Hen phế quản
+Viêm phế quản mạn
+Sỏi thận
+Thoát vị bẹn
+Thoái hóa cột sống
+Viêm gan B
+Thiếu máu
+Viêm dạ dày
+Viêm túi mật
+Viêm phổi
+Đau nửa đầu
+Giai đoạn trầm cảm

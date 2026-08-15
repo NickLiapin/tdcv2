@@ -1,0 +1,64 @@
+---
+description: vi filler sentences. Handwritten: Project Gutenberg holds no Vietnamese book at all, so unlike fr/de/it/es/pt/pl these are not extracted from a public-domain corpus.
+locale: vi
+---
+Cô mở cửa sổ và hít một hơi không khí mát lành của ngày mới.
+Con đường trải dài về phía xa, khuất dần giữa những ngọn đồi.
+Đã lâu anh không về đây, nhưng mọi thứ vẫn thân quen lạ thường.
+Mặt trời nhô lên trên những mái nhà và thành phố từ từ thức giấc.
+Trên bàn có một lá thư mà không ai dám mở ra.
+Mưa rơi suốt đêm rồi tạnh hẳn khi trời vừa hửng sáng.
+Đứa trẻ vẽ gì đó lên mặt kính mờ hơi nước rồi khẽ mỉm cười.
+Chiếc đồng hồ cũ ngoài phòng khách đếm từng phút quá to.
+Trên đường về nhà cô dừng lại bên gốc đa già.
+Không ai còn nhớ cây cầu này được dựng lên từ bao giờ.
+Trong phòng thoảng mùi bánh mới và mùi lá khô.
+Anh đặt cuốn sách lên bệ cửa sổ và nhìn ra sân rất lâu.
+Gió giật tấm biển trước cửa quán nhỏ.
+Bên kia sông là khu rừng nơi lũ trẻ thường đi hái nấm.
+Cô thuộc từng lối mòn trong làng này từ thuở nhỏ.
+Tàu đến muộn và sân ga dần đông người.
+Ngoài chợ người ta bán xoài, mật ong và những đôi tất đan tay.
+Anh tắt đèn nhưng mãi vẫn không ngủ được.
+Câu chuyện dừng lại giữa chừng và căn phòng chợt lặng đi.
+Máy bay lấy độ cao, những đám mây ở lại phía dưới.
+Cà phê đã nguội khi anh tìm được trang cần tìm.
+Cánh cửa kêu kẽt và con chó nhà hàng xóm hiện ra trước thềm.
+Cô viết lại lá thư ba lần rồi xé đi.
+Sương xuống dày và những ngọn đèn đường thành các quầng vàng.
+Trên tường treo tấm ảnh chụp từ trước chiến tranh.
+Anh thuộc lòng giờ tàu của tất cả các chuyến ngoại ô.
+Cô giáo phát vở và bảo mở trang mười bảy.
+Mẹ gọi chúng từ ngoài hiên nhưng chúng giả vờ không nghe.
+Trong vườn xoài đang chín và không khí đặc quánh vị ngọt.
+Anh đếm tiền hai lần, và con số vẫn không khớp.
+Thang máy dừng giữa hai tầng và đèn tắt trong chốc lát.
+Cô đặt ấm nước lên bếp rồi ngồi xuống chờ.
+Sáng nào anh cũng đi qua quảng trường ấy theo đúng một lối.
+Giông kéo đến từ phía tây và bầu trời chuyển màu chì.
+Con chó nằm bên bậc cửa, mắt không rời con đường.
+Ai đó bỏ quên chiếc ô ở góc nhà, và nó đứng đó đã ba ngày.
+Anh mở ngăn kéo và tìm thấy tấm vé xem hòa nhạc cũ.
+Thằng bé đếm toa tàu cho đến khi đoàn tàu đi khuất.
+Trong bếp chiếc tủ lạnh cũ kêu ù ù.
+Cô nói sẽ về trước tối, rồi không về.
+Trong làng có tin đồn rằng trường học rồi sẽ được sửa.
+Anh làm đến tận khuya, và sáng ra không nhớ được gì.
+Năm ấy nước sông dâng lên tận mặt đường.
+Trên bệ cửa sổ có chậu cây đã khô từ lâu.
+Họ hẹn gặp nhau ở chỗ vẫn thường gặp.
+Xe khách xóc nảy trên ổ gà và ai nấy đều im lặng.
+Cô áp lòng bàn tay lên tấm kính lạnh và nhắm mắt lại.
+Thư viện thoảng mùi bụi và mùi giấy cũ.
+Anh chưa bao giờ thực sự học được cách nói lời chia tay.
+Thành phố về đêm trông khác hẳn, gần như xa lạ.
+Trên gác xép người ta tìm thấy chiếc rương đựng đồ nghề của ông.
+Hàng xóm nói chuyện với nhau qua hàng rào về mùa màng và thời tiết.
+Bà nấu canh chua theo cách bà ngoại dạy, không cần công thức nào.
+Lũ trẻ đá bóng ngoài bãi cho đến khi trời tối hẳn.
+Anh ký tên rồi đẩy tập giấy sang mép bàn.
+Điện thoại đổ chuông rất lâu, nhưng không ai nhấc máy.
+Ở bến xe có một người phụ nữ với chiếc túi kẻ ô to.
+Gió giật những chiếc lá vàng cuối cùng trên cây.
+Anh dừng lại buộc dây giày và lỡ chuyến xe của mình.
+Căn phòng trống không, chỉ có một chiếc ghế ở góc.

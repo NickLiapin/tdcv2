@@ -1,0 +1,16 @@
+---
+description: Jobs in Transportation (Vietnamese)
+locale: vi
+---
+lái xe tải
+lái xe buýt
+lái tàu
+điều độ viên
+chuyên viên logistics
+nhân viên giao nhận
+thợ sửa xe
+kỹ thuật viên hàng không
+thuyền trưởng
+phi công
+lái cẩu cảng
+kiểm soát viên vận tải

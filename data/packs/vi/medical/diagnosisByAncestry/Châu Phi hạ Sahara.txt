@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, in Vietnamese. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: vi
+---
+Thiếu máu hồng cầu hình liềm
+Mang gen hồng cầu hình liềm
+Thiếu men G6PD
+Thalassemia alpha
+Tăng huyết áp
+Đái tháo đường type 2
+Bệnh thận mạn
+Sarcoidosis
+U xơ tử cung
+Sẹo lồi
+Giảm bạch cầu trung tính lành tính
+Bất dung nạp lactose

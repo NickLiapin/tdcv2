@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Vietnamese)
+locale: vi
+---
+cáp UTP
+cáp FTP
+cáp STP có chống nhiễu
+cáp đồng trục
+cáp quang single-mode
+cáp quang multi-mode
+cáp điện lực
+cáp điện thoại
+dây patch

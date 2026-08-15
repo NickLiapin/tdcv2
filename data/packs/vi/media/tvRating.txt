@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, descriptive Vietnamese (country rating codes are country data)
+locale: vi
+---
+dành cho mọi lứa tuổi
+phù hợp gia đình
+dành cho trẻ em
+cần có người lớn đi kèm
+dành cho thanh thiếu niên
+từ 13 tuổi
+từ 16 tuổi
+từ 18 tuổi
+không giới hạn độ tuổi

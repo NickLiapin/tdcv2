@@ -1,0 +1,44 @@
+---
+description: Company legal / name suffix used in Vietnam (Công ty TNHH, Công ty Cổ phần)
+locale: vi
+---
+Công ty TNHH
+Công ty TNHH MTV
+Công ty Cổ phần
+CTCP
+Công ty Hợp danh
+Doanh nghiệp tư nhân
+Tổng Công ty
+Tập đoàn
+Hợp tác xã
+Liên hiệp Hợp tác xã
+Chi nhánh
+Văn phòng đại diện
+Quỹ
+Hiệp hội
+Hội
+Trung tâm
+Viện
+Học viện
+Ban
+Cục
+Nhà máy
+Xí nghiệp
+Xưởng
+Nông trường
+Lâm trường
+Group
+Holdings
+Corporation
+Land
+Invest
+Capital
+Logistics
+Technology
+Software
+Solutions
+Consulting
+Energy
+Agro
+Foods
+Textile

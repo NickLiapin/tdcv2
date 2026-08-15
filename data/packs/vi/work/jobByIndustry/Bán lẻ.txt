@@ -1,0 +1,16 @@
+---
+description: Jobs in Retail (Vietnamese)
+locale: vi
+---
+nhân viên bán hàng
+thu ngân
+nhân viên trưng bày
+quản lý cửa hàng
+trưởng phòng kinh doanh
+chuyên viên thu mua
+chuyên viên ngành hàng
+nhân viên kho
+nhân viên soạn đơn
+nhân viên marketing
+giám sát bán hàng
+giám đốc cửa hàng

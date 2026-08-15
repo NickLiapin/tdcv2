@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Vietnamese)
+locale: vi
+---
+tân thủ
+đồng
+bạc
+vàng
+bạch kim
+kim cương
+cao thủ
+đại cao thủ
+thách đấu
+huyền thoại

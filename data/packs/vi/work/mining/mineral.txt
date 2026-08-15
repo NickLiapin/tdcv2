@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Vietnamese)
+locale: vi
+---
+than đá
+than antraxit
+bô xít
+quặng sắt
+titan
+đất hiếm
+đồng
+thiếc
+kẽm
+chì
+vàng
+apatit
+đá vôi
+cát trắng
+cao lanh
+đá granit
+đá hoa
+thạch cao
+muối

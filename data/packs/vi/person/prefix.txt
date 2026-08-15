@@ -1,0 +1,36 @@
+---
+description: Vietnamese honorific / form of address. Vietnamese address depends on relative age: anh / chị for someone slightly older, em for someone younger, ông / bà for the elderly.
+locale: vi
+---
+Ông
+Bà
+Anh
+Chị
+Em
+Cô
+Chú
+Bác
+Thầy
+Cô giáo
+Ngài
+Quý ông
+Quý bà
+TS.
+PGS.TS.
+GS.TS.
+ThS.
+BS.
+BSCKI.
+KS.
+CN.
+LS.
+NSND
+NSƯT
+Đại tá
+Trung tá
+Thiếu tá
+Đại úy
+Trung úy
+Thượng sĩ
+Giám đốc
+Chủ tịch

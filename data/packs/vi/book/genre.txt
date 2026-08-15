@@ -1,0 +1,30 @@
+---
+description: Book genre (Vietnamese)
+locale: vi
+---
+tiểu thuyết
+truyện vừa
+truyện ngắn
+tập truyện
+tản văn
+tùy bút
+hồi ký
+thơ
+kịch bản sân khấu
+giả tưởng
+khoa học viễn tưởng
+trinh thám
+giật gân
+kinh dị
+ngôn tình
+tiểu thuyết lịch sử
+tiểu thuyết phiêu lưu
+tiểu sử
+tự truyện
+du ký
+khoa học thường thức
+sách giáo khoa
+sách tham khảo
+từ điển
+sách nấu ăn
+sách thiếu nhi

@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Vietnamese that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: vi
+---
+Lạc nội mạc tử cung
+U xơ tử cung
+Lạc tuyến trong cơ tử cung
+U nang buồng trứng
+Hội chứng buồng trứng đa nang
+Thống kinh
+Vô kinh
+Hội chứng tiền kinh nguyệt
+Hội chứng mãn kinh
+Viêm âm đạo
+Viêm âm đạo do vi khuẩn
+Nhiễm nấm âm đạo
+Viêm cổ tử cung
+Lộ tuyến cổ tử cung
+Loạn sản cổ tử cung
+Ung thư cổ tử cung
+Ung thư buồng trứng
+Ung thư nội mạc tử cung
+Bệnh xơ nang tuyến vú
+Viêm tuyến vú
+Ung thư vú
+Vô sinh nữ
+Thai ngoài tử cung
+Tiền sản giật
+Đái tháo đường thai kỳ
+Trầm cảm sau sinh

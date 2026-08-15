@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Vietnamese)
+locale: vi
+---
+phòng đơn
+phòng đôi
+phòng hai giường đơn
+phòng ba người
+phòng bốn người
+phòng gia đình
+phòng tiêu chuẩn
+phòng superior
+phòng deluxe
+junior suite
+phòng suite
+phòng tổng thống
+phòng studio
+căn hộ
+biệt thự
+bungalow
+phòng hướng biển
+phòng có ban công

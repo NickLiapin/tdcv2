@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Vietnamese)
+locale: vi
+---
+Ung thư vú
+Ung thư phổi
+Ung thư đại trực tràng
+Ung thư dạ dày
+Ung thư tuyến tiền liệt
+Ung thư tuyến giáp
+U hắc tố
+U lympho Hodgkin
+Bạch cầu cấp
+Ung thư cổ tử cung

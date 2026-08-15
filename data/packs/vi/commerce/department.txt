@@ -1,0 +1,54 @@
+---
+description: Store department / category (Vietnamese)
+locale: vi
+---
+Thực phẩm
+Rau củ quả
+Thịt và cá
+Sản phẩm từ sữa
+Bánh mì
+Đồ khô
+Thực phẩm đông lạnh
+Đồ uống
+Rượu bia
+Bánh kẹo
+Đồ ăn dặm
+Đồ dùng cho bé
+Hóa phẩm tẩy rửa
+Mỹ phẩm
+Nước hoa
+Chăm sóc cá nhân
+Nhà thuốc
+Quần áo
+Thời trang nữ
+Thời trang nam
+Thời trang trẻ em
+Giày dép
+Phụ kiện
+Túi xách
+Trang sức
+Đồng hồ
+Điện tử
+Điện thoại
+Máy tính
+Laptop
+Máy tính bảng
+Tivi
+Âm thanh
+Máy ảnh
+Điện máy
+Đồ gia dụng
+Nội thất
+Trang trí nhà cửa
+Chăn ga gối đệm
+Đồ bếp
+Đèn chiếu sáng
+Sân vườn
+Vật liệu xây dựng
+Dụng cụ
+Phụ kiện ô tô
+Thể thao
+Dã ngoại
+Đồ chơi
+Sách
+Văn phòng phẩm

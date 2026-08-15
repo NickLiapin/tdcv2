@@ -1,0 +1,26 @@
+---
+description: Property amenity (Vietnamese)
+locale: vi
+---
+điều hòa
+bình nóng lạnh
+đầy đủ nội thất
+nội thất cơ bản
+nhà bếp có sẵn
+tủ bếp
+sàn gỗ
+cửa nhôm kính
+thang máy
+thang máy chở hàng
+bảo vệ 24/7
+camera an ninh
+khu compound khép kín
+sân chơi trẻ em
+chỗ để xe
+hầm để xe
+hồ bơi
+phòng gym
+gần trường học
+gần chợ
+gần bệnh viện
+gần metro

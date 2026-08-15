@@ -1,0 +1,16 @@
+---
+description: Jobs in Hospitality (Vietnamese)
+locale: vi
+---
+lễ tân khách sạn
+nhân viên buồng phòng
+đầu bếp
+bếp phó
+bếp trưởng
+phục vụ bàn
+pha chế
+barista
+thợ làm bánh
+quản lý nhà hàng
+nhân viên đặt phòng
+nhân viên đón khách

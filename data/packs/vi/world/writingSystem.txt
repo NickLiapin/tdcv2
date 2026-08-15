@@ -1,0 +1,24 @@
+---
+description: Writing system (Vietnamese). Vietnamese itself switched from chữ Nôm to the Latin-based chữ Quốc ngữ.
+locale: vi
+---
+chữ Quốc ngữ
+chữ Nôm
+chữ Hán
+chữ Latinh
+chữ Kirin
+chữ Hy Lạp
+chữ Ả Rập
+chữ Hebrew
+chữ Armenia
+chữ Gruzia
+Devanagari
+chữ Bengal
+chữ Tamil
+chữ Thái
+chữ Lào
+chữ Khmer
+chữ Miến Điện
+Hiragana
+Katakana
+Hangul

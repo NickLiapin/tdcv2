@@ -1,0 +1,12 @@
+---
+description: Dishes of Thái Lan cuisine (Vietnamese)
+locale: vi
+---
+tom yum
+pad thai
+cà ri xanh
+tom kha gai
+som tam
+cà ri massaman
+xôi xoài
+mì xào húng quế

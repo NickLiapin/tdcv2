@@ -1,0 +1,18 @@
+---
+description: Order status (Vietnamese)
+locale: vi
+---
+Mới
+Đã tiếp nhận
+Đã xác nhận
+Đang xử lý
+Đang đóng gói
+Sẵn sàng giao
+Đã giao cho vận chuyển
+Đang vận chuyển
+Đã đến kho tỉnh
+Đã giao hàng
+Đã nhận hàng
+Đã hủy
+Đã hoàn trả
+Chờ thanh toán

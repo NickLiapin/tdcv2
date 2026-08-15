@@ -1,0 +1,83 @@
+---
+description: Hobby / interest (Vietnamese)
+locale: vi
+---
+đọc sách
+viết lách
+vẽ tranh
+nhiếp ảnh
+xem phim
+sân khấu
+nghe nhạc
+chơi guitar
+chơi piano
+chơi đàn bầu
+hát
+nhảy múa
+múa dân gian
+nấu ăn
+làm bánh
+pha cà phê
+làm vườn
+trồng hoa
+trồng cây cảnh
+câu cá
+cắm trại
+đi bộ đường dài
+leo núi
+đạp xe
+chạy bộ
+bơi lội
+lặn biển
+lướt sóng
+chèo thuyền
+trượt tuyết
+bóng đá
+bóng chuyền
+bóng rổ
+cầu lông
+quần vợt
+bóng bàn
+đá cầu
+võ thuật
+vovinam
+karate
+taekwondo
+judo
+yoga
+thiền
+thể hình
+cờ vua
+cờ tướng
+giải ô chữ
+lắp mô hình
+làm đồ thủ công
+làm gốm
+thư pháp
+thêu thùa
+đan len
+may vá
+làm trang sức
+mộc
+sửa chữa đồ đạc
+sửa xe
+xe máy
+sưu tầm
+sưu tầm tem
+sưu tầm tiền xu
+đồ cổ
+thiên văn
+ngắm chim
+nuôi cá cảnh
+nuôi thú cưng
+du lịch
+đi phượt
+khám phá ẩm thực
+tìm hiểu lịch sử
+khảo cổ
+học ngoại ngữ
+lập trình
+chơi game
+dựng video
+nghe podcast
+làm tình nguyện

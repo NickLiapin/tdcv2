@@ -1,0 +1,12 @@
+---
+description: Dishes of Miền Trung cuisine (Vietnamese)
+locale: vi
+---
+bún bò Huế
+cơm hến
+bánh bèo
+bánh nậm
+bánh bột lọc
+mì Quảng
+cao lầu
+nem lụi

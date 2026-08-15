@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Vietnamese)
+locale: vi
+---
+Toàn thời gian
+Bán thời gian
+Hợp đồng xác định thời hạn
+Hợp đồng không xác định thời hạn
+Hợp đồng dịch vụ
+Hợp đồng khoán việc
+Hộ kinh doanh
+Thực tập
+Làm thêm
+Thời vụ
+Làm theo ca

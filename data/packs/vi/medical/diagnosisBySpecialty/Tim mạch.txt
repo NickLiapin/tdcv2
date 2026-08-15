@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Vietnamese)
+locale: vi
+---
+Tăng huyết áp
+Bệnh mạch vành
+Cơn đau thắt ngực
+Nhồi máu cơ tim
+Rung nhĩ
+Suy tim
+Bệnh cơ tim
+Viêm cơ tim
+Bệnh van hai lá
+Xơ vữa động mạch vành

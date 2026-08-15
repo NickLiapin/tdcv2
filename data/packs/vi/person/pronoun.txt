@@ -1,0 +1,16 @@
+---
+description: Personal pronoun set (Vietnamese). Vietnamese pronouns encode relative age and closeness rather than gender alone.
+locale: vi
+---
+tôi
+tớ
+mình
+bạn
+anh
+chị
+em
+ông
+bà
+chúng tôi
+chúng ta
+họ

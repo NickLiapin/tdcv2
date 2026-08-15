@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Vietnamese)
+locale: vi
+---
+số
+nhị phân
+phân tán
+song song
+bất đồng bộ
+đồng bộ
+an toàn
+đã mã hóa
+mở
+đóng
+từ xa
+cục bộ
+trên đám mây
+ảo
+đóng gói vùng chứa
+mở rộng được
+chịu lỗi
+dự phòng
+có bộ đệm
+có chỉ mục
+đã nén
+tối ưu
+lỗi thời
+tương thích
+đa nền tảng
+đa luồng
+mức thấp
+mức cao

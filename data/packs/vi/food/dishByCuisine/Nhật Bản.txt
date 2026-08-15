@@ -1,0 +1,13 @@
+---
+description: Dishes of Nhật Bản cuisine (Vietnamese)
+locale: vi
+---
+sushi
+maki
+sashimi
+ramen
+tempura
+súp miso
+udon
+gyoza
+yakitori

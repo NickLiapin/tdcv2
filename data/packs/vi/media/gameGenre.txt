@@ -1,0 +1,22 @@
+---
+description: Video game genre (Vietnamese)
+locale: vi
+---
+hành động
+phiêu lưu
+nhập vai
+chiến thuật
+chiến thuật theo lượt
+mô phỏng
+bắn súng
+bắn súng góc nhìn thứ nhất
+đi cảnh
+giải đố
+phiêu lưu giải đố
+đua xe
+thể thao
+đối kháng
+sinh tồn
+thế giới mở
+kinh dị
+âm nhạc

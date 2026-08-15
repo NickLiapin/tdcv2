@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Vietnamese)
+locale: vi
+---
+Bệnh thận mạn
+Viêm thận bể thận cấp
+Viêm cầu thận
+Sỏi thận
+Hội chứng thận hư
+Thận đa nang
+Bệnh thận đái tháo đường
+Tổn thương thận cấp
+Nhiễm khuẩn đường tiết niệu
+Suy thận

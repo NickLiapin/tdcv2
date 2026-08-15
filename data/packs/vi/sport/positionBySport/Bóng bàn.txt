@@ -1,0 +1,9 @@
+---
+description: Positions in table tennis, by competition category (Vietnamese)
+locale: vi
+---
+đơn nam
+đơn nữ
+đôi nam
+đôi nữ
+đồng đội

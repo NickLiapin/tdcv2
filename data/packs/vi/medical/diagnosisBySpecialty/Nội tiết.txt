@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Vietnamese)
+locale: vi
+---
+Đái tháo đường type 1
+Đái tháo đường type 2
+Suy giáp
+Cường giáp
+Viêm giáp Hashimoto
+Bướu giáp nhân
+Béo phì
+Hội chứng chuyển hóa
+Loãng xương
+Suy thượng thận

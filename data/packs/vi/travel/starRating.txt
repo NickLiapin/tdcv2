@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Vietnamese)
+locale: vi
+---
+1 sao
+2 sao
+3 sao
+4 sao
+5 sao

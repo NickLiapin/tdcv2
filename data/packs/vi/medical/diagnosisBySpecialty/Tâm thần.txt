@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Vietnamese)
+locale: vi
+---
+Giai đoạn trầm cảm
+Rối loạn lo âu lan tỏa
+Rối loạn hoảng sợ
+Rối loạn lưỡng cực
+Tâm thần phân liệt
+Rối loạn ám ảnh cưỡng chế
+Rối loạn stress sau sang chấn
+Rối loạn ăn uống
+Rối loạn tăng động giảm chú ý
+Rối loạn giấc ngủ

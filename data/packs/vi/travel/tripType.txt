@@ -1,0 +1,24 @@
+---
+description: Trip type (Vietnamese)
+locale: vi
+---
+nghỉ dưỡng
+đi chơi cuối tuần
+du lịch biển
+du lịch núi
+tour văn hóa
+tour ẩm thực
+tour xe khách
+du thuyền
+đi phượt
+trekking
+chèo thuyền vượt thác
+tour xe đạp
+đi bằng ô tô
+đi tàu hỏa
+hành hương
+du lịch tâm linh
+tour mua sắm
+du lịch chữa bệnh
+công tác
+hội nghị

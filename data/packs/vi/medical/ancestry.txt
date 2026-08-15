@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Vietnamese, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: vi
+---
+Bắc Âu
+Đông Âu
+Địa Trung Hải
+Do Thái Ashkenazi
+Trung Đông
+Bắc Phi
+Châu Phi hạ Sahara
+Đông Á
+Nam Á
+Đông Nam Á
+Thổ dân châu Mỹ
+Đảo Thái Bình Dương

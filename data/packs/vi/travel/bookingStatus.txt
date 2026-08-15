@@ -1,0 +1,15 @@
+---
+description: Booking status (Vietnamese)
+locale: vi
+---
+đã tạo
+chờ xác nhận
+đã xác nhận
+đã thanh toán
+thanh toán một phần
+đã thay đổi
+đã hủy
+không đến
+đã hoàn tất
+đã hoàn tiền
+hết hạn

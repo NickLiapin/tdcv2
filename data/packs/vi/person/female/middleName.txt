@@ -1,0 +1,34 @@
+---
+description: Vietnamese female middle name (tên đệm). "Thị" is the classic female middle name and still by far the most common, though younger generations increasingly use others.
+weighted: true
+---
+Thị,1000000
+Ngọc,933032
+Thu,895958
+Thanh,870550
+Kim,851339
+Minh,835958
+Diệu,823171
+Hồng,812252
+Bích,802741
+Cẩm,794328
+Gia,786793
+Hà,779977
+Khánh,773758
+Lan,768045
+Mai,762765
+Mỹ,757858
+Như,753277
+Phương,748984
+Quỳnh,744945
+Thúy,741134
+Tuyết,737527
+Vân,734104
+Xuân,730848
+Yến,727744
+Ánh,724779
+Bảo,721942
+Hoài,719223
+Huyền,716612
+Lệ,714101
+Nhã,711685

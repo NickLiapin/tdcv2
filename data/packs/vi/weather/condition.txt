@@ -1,0 +1,20 @@
+---
+description: Weather condition (Vietnamese)
+locale: vi
+---
+nắng
+nắng nhẹ
+có mây
+nhiều mây
+âm u
+mưa
+mưa rào
+mưa phùn
+mưa đá
+sương mù
+giông
+nhiều gió
+nắng nóng
+rét
+rét đậm
+nồm ẩm

@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (Vietnamese operators and international brands)
+locale: vi
+---
+Viettel
+VinaPhone
+MobiFone
+Vietnamobile
+Gmobile
+Wintel
+iTel
+Local
+FPT Telecom
+VNPT
+SCTV
+Viettel Telecom
+Singtel
+AIS
+TrueMove
+DTAC
+Maxis
+Celcom
+Digi
+Globe
+Smart
+Telkomsel
+XL Axiata
+China Mobile
+China Unicom
+SK Telecom

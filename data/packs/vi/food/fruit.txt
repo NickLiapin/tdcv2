@@ -1,0 +1,37 @@
+---
+description: Fruit (Vietnamese)
+locale: vi
+---
+xoài
+chuối
+cam
+quýt
+bưởi
+chanh
+dừa
+dứa
+đu_đủ
+mít
+nhãn
+vải
+chôm_chôm
+măng_cụt
+sầu_riêng
+thanh_long
+ổi
+mận
+đào
+lê
+táo
+nho
+dâu_tây
+dưa_hấu
+dưa_lưới
+khế
+me
+sấu
+roi
+vú_sữa
+na
+hồng_xiêm
+bơ

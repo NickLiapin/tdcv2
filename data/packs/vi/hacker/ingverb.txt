@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Vietnamese)
+locale: vi
+---
+việc biên dịch
+việc triển khai
+việc cấu hình
+việc khởi động lại
+việc kết nối
+việc xác thực
+việc mã hóa
+việc giải mã
+việc nén
+việc giải nén
+việc lập chỉ mục
+việc lưu đệm
+việc đồng bộ
+việc nhân bản
+việc mở rộng
+việc định tuyến
+việc chặn bắt
+việc vượt qua
+việc bẻ khóa
+việc vá lỗi
+việc khôi phục
+việc cập nhật
+việc xóa
+việc tạo
+việc sao chép
+việc di chuyển
+việc gắn kết
+việc định dạng

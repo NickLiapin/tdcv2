@@ -1,0 +1,12 @@
+---
+description: Time of day (Vietnamese)
+locale: vi
+---
+sáng
+trưa
+chiều
+tối
+đêm
+nửa đêm
+rạng sáng
+hoàng hôn

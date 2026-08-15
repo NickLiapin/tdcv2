@@ -1,0 +1,87 @@
+---
+description: Medical diagnosis in Vietnamese that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: vi
+---
+Tăng huyết áp
+Bệnh mạch vành
+Cơn đau thắt ngực
+Nhồi máu cơ tim
+Rung nhĩ
+Suy tim
+Bệnh cơ tim
+Viêm cơ tim
+Xơ vữa động mạch
+Suy giãn tĩnh mạch
+Huyết khối tĩnh mạch sâu
+Thuyên tắc phổi
+Đột quỵ
+Cơn thiếu máu não thoáng qua
+Đau nửa đầu
+Động kinh
+Xơ cứng rải rác
+Bệnh Parkinson
+Sa sút trí tuệ
+Bệnh thần kinh ngoại biên
+Bệnh rễ thần kinh
+Thoái hóa cột sống
+Thoát vị đĩa đệm
+Thoái hóa khớp
+Viêm khớp dạng thấp
+Bệnh gút
+Loãng xương
+Vẹo cột sống
+Hen phế quản
+Bệnh phổi tắc nghẽn mạn tính
+Viêm phế quản mạn
+Viêm phổi
+Viêm màng phổi
+Lao phổi
+Sarcoidosis
+Ngưng thở khi ngủ
+Viêm xoang cấp
+Viêm amidan mạn
+Viêm tai giữa
+Viêm thanh quản
+Viêm dạ dày
+Loét dạ dày
+Trào ngược dạ dày thực quản
+Hội chứng ruột kích thích
+Bệnh Crohn
+Viêm loét đại tràng
+Bệnh Celiac
+Viêm tụy mạn
+Sỏi mật
+Viêm túi mật
+Viêm gan A
+Viêm gan B
+Viêm gan C
+Xơ gan
+Gan nhiễm mỡ
+Bệnh thận mạn
+Viêm thận bể thận
+Viêm cầu thận
+Sỏi thận
+Nhiễm khuẩn đường tiết niệu
+Đái tháo đường type 1
+Đái tháo đường type 2
+Suy giáp
+Cường giáp
+Béo phì
+Hội chứng chuyển hóa
+Thiếu máu thiếu sắt
+Thiếu máu thiếu B12
+Sốt xuất huyết
+Sốt rét
+Thương hàn
+Tay chân miệng
+Viêm da cơ địa
+Vảy nến
+Chàm
+Mày đay
+Trứng cá
+Viêm mũi dị ứng
+Viêm kết mạc
+Đục thủy tinh thể
+Glôcôm
+Giai đoạn trầm cảm
+Rối loạn lo âu lan tỏa

@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Vietnamese street, district or estate name (Quận 1 phía Nam, Khu Đông)
+locale: vi
+---
+Bắc
+Nam
+Đông
+Tây
+Đông Bắc
+Tây Bắc
+Đông Nam
+Tây Nam
+Trung tâm
+Nội thành
+Ngoại thành
+Trên
+Dưới
+Trong
+Ngoài

@@ -1,0 +1,14 @@
+---
+description: Medical specialty (has a coherent diagnosis list)
+locale: vi
+---
+Tim mạch
+Thần kinh
+Tiêu hóa
+Hô hấp
+Nội tiết
+Thận
+Chấn thương chỉnh hình
+Da liễu
+Ung bướu
+Tâm thần

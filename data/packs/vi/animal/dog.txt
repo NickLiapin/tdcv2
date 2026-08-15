@@ -1,0 +1,29 @@
+---
+description: Dog breed (Vietnamese)
+locale: vi
+---
+chó ta
+chó Phú Quốc
+chó H'Mông cộc đuôi
+chó Bắc Hà
+chó Lài
+béc giê Đức
+Labrador retriever
+Golden retriever
+chó Poodle
+chó lạp xưởng
+Beagle
+Rottweiler
+Doberman
+Boxer
+Bulldog
+Pug
+Chihuahua
+Yorkshire terrier
+Jack Russell terrier
+Saint Bernard
+Husky
+Alaskan Malamute
+Samoyed
+Border collie
+Dalmatian

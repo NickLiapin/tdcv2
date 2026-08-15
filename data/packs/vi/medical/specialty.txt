@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Vietnamese)
+locale: vi
+---
+Nội khoa
+Y học gia đình
+Nhi khoa
+Tim mạch
+Thần kinh
+Tiêu hóa
+Hô hấp
+Nội tiết
+Thận
+Tiết niệu
+Phụ khoa
+Sản khoa
+Ngoại tổng quát
+Ngoại lồng ngực mạch máu
+Ngoại thần kinh
+Phẫu thuật tim
+Chấn thương
+Chỉnh hình
+Ung bướu
+Huyết học
+Cơ xương khớp
+Da liễu
+Dị ứng
+Miễn dịch
+Truyền nhiễm
+Nhãn khoa
+Tai mũi họng
+Răng hàm mặt
+Tâm thần
+Cai nghiện
+Gây mê hồi sức
+Hồi sức tích cực
+Chẩn đoán hình ảnh
+Giải phẫu bệnh
+Xét nghiệm
+Phục hồi chức năng

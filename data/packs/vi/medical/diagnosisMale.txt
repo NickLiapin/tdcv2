@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Vietnamese that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: vi
+---
+Phì đại tuyến tiền liệt lành tính
+Viêm tuyến tiền liệt
+Ung thư tuyến tiền liệt
+Giãn tĩnh mạch thừng tinh
+Tràn dịch màng tinh hoàn
+Tinh hoàn ẩn
+Hẹp bao quy đầu
+Nghẹt bao quy đầu
+Viêm quy đầu
+Viêm tinh hoàn
+Viêm mào tinh hoàn
+Xoắn tinh hoàn
+Ung thư tinh hoàn
+Rối loạn cương dương
+Bệnh Peyronie
+Vô sinh nam
+Suy sinh dục
+Thoát vị bẹn
+Không có tinh trùng
+Vú to ở nam giới

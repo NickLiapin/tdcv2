@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Vietnamese)
+locale: vi
+---
+xe thùng bạt
+xe đông lạnh
+xe thùng cách nhiệt
+xe thùng lửng
+xe chở container
+xe bồn
+xe chở ô tô
+xe chở ngũ cốc
+xe ben
+xe chở gỗ
+sơ mi rơ moóc sàn thấp
+xe chở tấm panel
+xe tải van

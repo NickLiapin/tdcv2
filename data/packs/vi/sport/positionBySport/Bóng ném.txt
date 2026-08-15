@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Vietnamese)
+locale: vi
+---
+thủ môn
+cánh trái
+trung vệ trái
+tiền vệ tổ chức
+trung vệ phải
+cánh phải
+trụ

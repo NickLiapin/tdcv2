@@ -1,0 +1,16 @@
+---
+description: Jobs in Legal (Vietnamese)
+locale: vi
+---
+cử nhân luật
+luật sư
+công chứng viên
+thẩm phán
+kiểm sát viên
+điều tra viên
+chuyên viên pháp chế
+trợ lý luật sư
+đại diện sở hữu trí tuệ
+quản tài viên
+hòa giải viên
+thư ký tòa án

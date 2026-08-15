@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Vietnamese (female-specific + common)
+locale: vi
+---
+Lạc nội mạc tử cung
+U xơ tử cung
+U nang buồng trứng
+Bệnh xơ nang tuyến vú
+Hội chứng buồng trứng đa nang
+Viêm bàng quang
+Thiếu máu thiếu sắt
+Loãng xương
+Suy giáp
+Tăng huyết áp
+Bệnh mạch vành
+Suy giãn tĩnh mạch
+Đái tháo đường type 2
+Hen phế quản
+Viêm phế quản mạn
+Loét dạ dày
+Sỏi mật
+Viêm dạ dày
+Viêm túi mật
+Viêm thận bể thận
+Viêm khớp dạng thấp
+Thoái hóa cột sống
+Đau nửa đầu
+Viêm phổi
+Viêm gan B
+Giai đoạn trầm cảm
+Rối loạn lo âu

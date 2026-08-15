@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Vietnam
+locale: vi
+---
+tiểu học
+trung học cơ sở
+trung học phổ thông
+trung cấp nghề
+sơ cấp nghề
+cao đẳng
+cử nhân
+kỹ sư
+bác sĩ
+thạc sĩ
+tiến sĩ
+tiến sĩ khoa học
+phó giáo sư
+giáo sư
+chứng chỉ nghề
+bằng nghề

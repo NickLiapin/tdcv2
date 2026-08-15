@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Vietnamese. Amounts are in VND, the currency of Vietnam.
+locale: vi
+---
+Dưới 100 triệu đồng
+100–200 triệu đồng
+200–350 triệu đồng
+350–500 triệu đồng
+500–800 triệu đồng
+800 triệu–1,2 tỷ đồng
+1,2–2 tỷ đồng
+Trên 2 tỷ đồng

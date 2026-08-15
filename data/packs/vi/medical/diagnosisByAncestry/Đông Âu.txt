@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Vietnamese. A prevalence signal, not an exclusive one.
+locale: vi
+---
+Nhiễm sắt di truyền
+Bệnh Celiac
+Phenylketon niệu
+Bệnh Wilson
+Thiếu men G6PD
+Bệnh huyết khối di truyền

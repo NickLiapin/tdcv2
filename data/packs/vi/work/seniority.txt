@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Vietnamese)
+locale: vi
+---
+Thực tập sinh
+Trợ lý
+Junior
+Chuyên viên
+Trung cấp
+Senior
+Chuyên viên chính
+Chuyên viên cao cấp
+Trưởng nhóm
+Phụ trách bộ phận
+Trưởng phòng
+Phó giám đốc
+Giám đốc
+Giám đốc điều hành
+Tổng giám đốc
+Thành viên góp vốn

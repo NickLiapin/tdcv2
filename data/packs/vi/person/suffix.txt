@@ -1,0 +1,28 @@
+---
+description: Name / academic suffix (Vietnamese). Vietnamese normally puts degrees BEFORE the name, so these read as trailing qualifiers.
+locale: vi
+---
+Jr.
+Sr.
+MBA
+MSc
+BSc
+PhD
+LL.M.
+Cử nhân
+Thạc sĩ
+Tiến sĩ
+Kỹ sư
+Bác sĩ
+Luật sư
+Nghỉ hưu
+Danh dự
+Chuyên viên
+Chuyên gia
+Cố vấn
+Thực tập sinh
+Trưởng nhóm
+Phụ trách
+Đối tác
+Sáng lập
+Phó

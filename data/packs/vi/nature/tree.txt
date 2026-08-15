@@ -1,0 +1,32 @@
+---
+description: Tree (Vietnamese)
+locale: vi
+---
+cây_đa
+cây_si
+cây_bàng
+cây_phượng
+cây_xoan
+cây_lim
+cây_gụ
+cây_trắc
+cây_hương
+cây_thông
+cây_tre
+cây_trúc
+cây_nứa
+cây_cau
+cây_dừa
+cây_cọ
+cây_chuối
+cây_xoài
+cây_mít
+cây_nhãn
+cây_vải
+cây_sầu_riêng
+cây_măng_cụt
+cây_ổi
+cây_khế
+cây_bưởi
+cây_cam
+cây_chanh

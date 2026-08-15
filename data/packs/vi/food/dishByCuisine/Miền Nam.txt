@@ -1,0 +1,12 @@
+---
+description: Dishes of Miền Nam cuisine (Vietnamese)
+locale: vi
+---
+cơm tấm
+hủ tiếu Nam Vang
+bánh xèo
+canh chua cá lóc
+cá kho tộ
+lẩu mắm
+bún mắm
+gỏi cuốn

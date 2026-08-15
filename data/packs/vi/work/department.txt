@@ -1,0 +1,26 @@
+---
+description: Company department / function (Vietnamese)
+locale: vi
+---
+Ban giám đốc
+Tài chính
+Kế toán
+Pháp chế
+Nhân sự
+Marketing
+Kinh doanh
+Thu mua
+Logistics
+Kho vận
+Sản xuất
+Kỹ thuật
+Công nghệ thông tin
+Phát triển phần mềm
+Kiểm thử
+Hỗ trợ kỹ thuật
+Chất lượng
+Nghiên cứu và phát triển
+Chăm sóc khách hàng
+An ninh
+Hành chính
+Truyền thông

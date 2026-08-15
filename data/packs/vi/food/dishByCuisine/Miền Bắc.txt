@@ -1,0 +1,12 @@
+---
+description: Dishes of Miền Bắc cuisine (Vietnamese)
+locale: vi
+---
+phở bò
+bún thang
+bún đậu mắm tôm
+chả cá Lã Vọng
+bánh cuốn Thanh Trì
+xôi xéo
+nem rán
+canh cua rau đay
