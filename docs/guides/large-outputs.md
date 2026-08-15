@@ -99,8 +99,9 @@ is the external sort's chunk; it is not a ceiling on the run. Measured single-th
 resident:
 
 ```
-uniq on a counter     200 k  168 MB    4 M  822 MB    10 M  1.9 GB    20 M  3.0 GB
-uniq on a compound    100 k  160 MB  400 k  990 MB   800 k  1.4 GB and still climbing
+uniq on a counter       200 k  168 MB    4 M  822 MB   10 M  1.9 GB   20 M  3.0 GB
+uniq on a compound      100 k  160 MB  400 k  990 MB  800 k  1.4 GB and still climbing
+env-level <uniq> group  100 k  495 MB  400 k  1.0 GB  800 k  1.7 GB
 ```
 
 These are the rows people size a machine from, so they are worth being exact about.
