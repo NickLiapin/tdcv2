@@ -90,6 +90,48 @@ function trimEnd(line) {
 }
 
 /**
+ * A `<Terminal>` body is not text — it is JAVASCRIPT, a template literal inside
+ * an MDX expression, so three characters in it mean something other than
+ * themselves. Reading one without undoing that is how a correct page came to be
+ * reported as wrong, and writing one without redoing it is how the fix broke the
+ * site:
+ *
+ *   the page said     {`.+()[]{}\\`}      a template literal holding one backslash
+ *   this read         .+()[]{}\\          two characters, so it never matched
+ *   --update wrote    {`.+()[]{}\`}       the backslash now escapes the CLOSING
+ *                                         backtick, the literal never ends, and
+ *                                         MDX fails to parse the file at all
+ *
+ * `npm run check` did not see it because it never builds the site; the docs
+ * workflow did, half an hour later. So the pair below is the fix, and
+ * `terminalParses` is the cheap gate that keeps the next one from reaching a
+ * workflow.
+ */
+function unescapeTerminal(body) {
+  return body.replace(/\\([\\`$])/g, "$1");
+}
+
+/** The inverse: what has to happen to text before it goes back into a body. */
+export function escapeTerminal(text) {
+  return text.replace(/([\\`$])/g, "\\$1");
+}
+
+/**
+ * Does this body still parse as the template literal it is written inside?
+ *
+ * `new Function` compiles without running, so an interpolation the page really
+ * wanted — `${{V}}` shows up in output examples — is parsed and left alone.
+ */
+export function terminalParses(body) {
+  try {
+    new Function("return `" + body + "`");
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
  * The runnable text of an example, or `undefined` when it is only a fragment.
  *
  * Two shapes count. A full `<tdc>…</tdc>` is obvious. The second is the house
@@ -205,7 +247,8 @@ export function extractExamples(markdown, locale = "en") {
     blocks.push({
       lang: "",
       attrs: m[1],
-      body: m[2],
+      body: unescapeTerminal(m[2]),
+      terminal: true,
       start: m.index,
       end: terminal.lastIndex,
       bodySpan: [bodyStart, bodyStart + m[2].length],
@@ -246,6 +289,9 @@ export function extractExamples(markdown, locale = "en") {
       wrapped: whole === undefined,
       expected: next.body.replace(/\s+$/, ""),
       expectedSpan: next.bodySpan,
+      // A <Terminal> body is JavaScript source, so writing a refreshed claim
+      // back into one means escaping it again — see `escapeTerminal`.
+      terminal: next.terminal === true,
       skip: skip ? skip[1] : undefined,
     });
   }

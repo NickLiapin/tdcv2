@@ -297,7 +297,7 @@ Turn a regex metacharacter into an ordinary literal with `\`:
 The generated string is constant here (there are no random slots):
 
 <Terminal title="./run demo.tdc">
-{`.+()[]{}\`}
+{`.+()[]{}\\`}
 </Terminal>
 
 Inside a character class, a dash is a literal when it's first or last — then it's

@@ -29,9 +29,11 @@ import {
   DOC_NOW,
   DOC_ROOTS,
   docFiles,
+  escapeTerminal,
   extractExamples,
   localeOf,
   matches,
+  terminalParses,
 } from '../../scripts/doc-examples.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -60,9 +62,31 @@ let skipped = 0;
 let abridged = 0;
 let notSelfContained = 0;
 
+/** Every <Terminal> body in the three trees, whether or not it follows a config. */
+const TERMINAL = /<Terminal[^>]*>\s*\{`([\s\S]*?)`\}\s*<\/Terminal>/g;
+
 for (const file of DOC_ROOTS.flatMap(docFiles)) {
   const name = file.slice(REPO.length + 1);
   let source = readFileSync(file, 'utf8');
+
+  // Before anything is compared: does the page still compile? A body that is no
+  // longer a valid template literal makes MDX refuse the whole file, and the
+  // site build is half an hour away in a workflow nobody watches. Every
+  // Terminal is read, not only the ones an example points at, because a broken
+  // one anywhere costs the same page.
+  for (const m of source.matchAll(TERMINAL)) {
+    if (terminalParses(m[1])) continue;
+    const line = source.slice(0, m.index).split('\n').length;
+    failures.push({
+      name,
+      line,
+      expected: '<Terminal> body that MDX can parse',
+      actual: `RUN FAILED: the template literal does not close — a lone \\ or \` in ${JSON.stringify(
+        m[1].slice(0, 60),
+      )}`,
+    });
+  }
+
   const examples = extractExamples(source, localeOf(file));
   // Splices go tail-first so earlier spans stay valid.
   const splices = [];
@@ -104,12 +128,16 @@ for (const file of DOC_ROOTS.flatMap(docFiles)) {
         // on the way into a commit, so leaving them in would make the very next run
         // of this check disagree with the file it had just corrected. `matches` reads
         // both forms as the same, so nothing is lost.
-        const replacement =
+        const shownText =
           actual
             .split('\n')
             .slice(0, shown)
             .map((line) => line.replace(/[ \t]+$/, ''))
             .join('\n') + trailer;
+        // A <Terminal> body is JavaScript. Writing a backslash, a backtick or a
+        // `${` into one raw is not a wrong VALUE, it is a file the site cannot
+        // parse — which is exactly what a refreshed regex transcript did.
+        const replacement = ex.terminal ? escapeTerminal(shownText) : shownText;
         splices.push([ex.expectedSpan, replacement]);
         updated++;
         continue;
