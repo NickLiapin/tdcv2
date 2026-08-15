@@ -2771,6 +2771,7 @@ class _Validator:
                 line,
                 column,
             )
+            self._warn_inferred_zeros(attrs["percent"], attrs.get("value", ""), line, column)
         if type_ == "number" and attrs.get("percent") is not None and attrs.get("length"):
             line, column = _at(gen, "percent")
             self._check_percent_mask(
@@ -4876,6 +4877,32 @@ class _Validator:
                 _line(open_el),
                 _column(open_el),
             )
+
+    def _warn_inferred_zeros(self, mask: str, value: str, line: int, column: int) -> None:
+        """A value that is declared and can never be drawn.
+
+        A warning rather than a refusal: the run is well defined and somebody may want exactly
+        this. What is not acceptable is saying it in silence.
+        """
+        values = [s.strip() for s in value.split(",")]
+        try:
+            zeros = percent_mask.inferred_zeros(mask, len(values))
+        except percent_mask.MaskError:
+            return  # already reported by the check above
+        if not zeros:
+            return
+        named = ", ".join(f'"{values[i]}"' for i in zeros)
+        plural = "a value that is" if len(zeros) == 1 else "values that are"
+        self._warn(
+            "TDC301",
+            f"percent leaves {named} at 0% — {plural} declared and never drawn",
+            "A percent shorter than the list is fine: what is left over goes to the positions "
+            "you did not write. Here the ones you did write already total 100, so there is "
+            "nothing left. Give it the share you meant, drop it from value=, or write the 0 "
+            "yourself to say you meant it.",
+            line,
+            column,
+        )
 
     def _check_percent_mask(
         self,

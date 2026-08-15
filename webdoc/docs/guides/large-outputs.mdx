@@ -91,9 +91,20 @@ So `uniq` lands on two different engines depending on how it is written:
 | :----------------------------------------------------------------------- | :------------ | :----------------- |
 | `uniq="true"` on one drawn column — `text`, `number`, `date`, `template` | in-memory     | grows with `count` |
 | `uniq="true"` on a column composed of a drawn part and `<data>` literals | in-memory     | grows with `count` |
-| `uniq="true"` on a [counter](../generators/counters.mdx)                 | exact on-disk | bounded at ~1 GB   |
+| `uniq="true"` on a [counter](../generators/counters.mdx)                 | exact on-disk | grows with `count` |
 | `uniq="true"` on a compound sequence (named `<gen>` fields)              | exact on-disk | bounded at ~1 GB   |
-| An env-level [`<uniq>`](../constructs/unique-values.mdx) group           | exact on-disk | bounded at ~1 GB   |
+| An env-level [`<uniq>`](../constructs/unique-values.mdx) group           | exact on-disk | grows with `count` |
+
+Only the compound form is bounded, and this table used to promise all three were. Measured
+on a counter, single-threaded, peak resident:
+
+```
+200 k rows  168 MB      4 M rows   822 MB      20 M rows  3.0 GB
+  1 M rows  308 MB     10 M rows   1.9 GB
+```
+
+It is the row people plan hardware on, so it is worth being exact: the ~1 GB is the
+external sort's chunk, and only the compound form stays inside it.
 
 **No form of `uniq` runs on the fast streaming engine.** It refuses `uniq` by name, so a
 config that asked for streaming is told rather than handed data that quietly repeats:

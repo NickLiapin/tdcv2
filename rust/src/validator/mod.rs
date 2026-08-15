@@ -2425,13 +2425,15 @@ impl Validator {
 
         if gen_type == Some("text") {
             if let Some(percent) = attrs.get("percent") {
-                let count = split_count(attrs.get("value").map(String::as_str).unwrap_or(""));
+                let raw = attrs.get("value").map(String::as_str).unwrap_or("");
+                let count = split_count(raw);
                 self.check_percent_mask(
                     percent,
                     count,
                     ["TDC051", "TDC052", "TDC053"],
                     gen.at("percent"),
                 );
+                self.warn_inferred_zeros(percent, raw, gen.at("percent"));
             }
         }
 
@@ -4621,6 +4623,37 @@ impl Validator {
                 gen.at("weight"),
             );
         }
+    }
+
+    /// A value that is declared and can never be drawn.
+    ///
+    /// A warning rather than a refusal: the run is well defined and somebody may
+    /// want exactly this. What is not acceptable is saying it in silence.
+    fn warn_inferred_zeros(&mut self, mask: &str, value: &str, at: Pos) {
+        let values: Vec<&str> = value.split(',').map(str::trim).collect();
+        let zeros = percent_mask::inferred_zeros(mask, values.len());
+        if zeros.is_empty() {
+            return;
+        }
+        let named = zeros
+            .iter()
+            .map(|&i| format!("\"{}\"", values.get(i).copied().unwrap_or("")))
+            .collect::<Vec<_>>()
+            .join(", ");
+        let plural = if zeros.len() == 1 {
+            "a value that is"
+        } else {
+            "values that are"
+        };
+        self.warn(
+            "TDC301",
+            format!("percent leaves {named} at 0% — {plural} declared and never drawn"),
+            "A percent shorter than the list is fine: what is left over goes to the positions \
+             you did not write. Here the ones you did write already total 100, so there is \
+             nothing left. Give it the share you meant, drop it from value=, or write the 0 \
+             yourself to say you meant it.",
+            at,
+        );
     }
 
     fn check_percent_mask(&mut self, mask: &str, value_count: usize, codes: [&str; 3], at: Pos) {

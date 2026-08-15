@@ -94,6 +94,45 @@ public final class PercentMask {
     return fixed;
   }
 
+  /**
+   * The positions the mask left for the engine to fill that came out at ZERO — values that are
+   * declared and can never be drawn.
+   *
+   * <p>A mask shorter than the list is legal on purpose: what is left over goes to the positions
+   * nobody wrote. {@code value="a,b,c" percent="30,40"} gives {@code c} the remaining 30, which
+   * is the whole point. But when the written shares already total 100 there is nothing left, and
+   * {@code c} silently stops existing — measured over 300 rows: 150 {@code a}, 150 {@code b}, no
+   * {@code c}. A zero the author WROTE is not reported: {@code percent="50,0,50"} says "never
+   * this one" in as many words. Call it after {@code expand} has succeeded.
+   */
+  public static List<Integer> inferredZeros(String mask, int valueCount) {
+    List<String> parts;
+    try {
+      parts = normalize(mask, valueCount);
+    } catch (MaskException e) {
+      return List.of();
+    }
+
+    List<Integer> blanks = new ArrayList<>();
+    double written = 0;
+    for (int i = 0; i < parts.size(); i++) {
+      if (parts.get(i).isEmpty()) {
+        blanks.add(i);
+      } else {
+        try {
+          written += Double.parseDouble(parts.get(i));
+        } catch (NumberFormatException ignored) {
+          // Reported by expand; nothing to add here.
+        }
+      }
+    }
+
+    if (blanks.isEmpty()) {
+      return List.of();
+    }
+    return (100 - written) / blanks.size() > TOLERANCE ? List.of() : blanks;
+  }
+
   private static List<String> normalize(String mask, int valueCount) {
     List<String> parts = new ArrayList<>();
     for (String s : mask.split(",", -1)) {

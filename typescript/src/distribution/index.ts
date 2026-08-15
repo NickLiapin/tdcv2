@@ -4,4 +4,4 @@
 
 export { distributeByPercent, computeCountsPerValue } from './hamilton.js';
 export type { DistributeOptions } from './hamilton.js';
-export { PercentMaskError, expandPercentMask } from './percent-mask.js';
+export { PercentMaskError, expandPercentMask, inferredZeros } from './percent-mask.js';

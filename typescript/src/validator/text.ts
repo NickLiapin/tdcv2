@@ -11,7 +11,7 @@ import type { Diagnostic } from '../errors/index.js';
 import type { OpenCloseElementContext, SelfClosingElementContext } from '../generated/TDCParser.js';
 import { attrValueRange, nodeRange } from '../errors/index.js';
 import { extractAttrs } from '../processor/walk.js';
-import { PercentMaskError, expandPercentMask } from '../distribution/index.js';
+import { PercentMaskError, expandPercentMask, inferredZeros } from '../distribution/index.js';
 import { findAttr, isBlank } from './blank-value.js';
 
 export function checkGenText(
@@ -45,6 +45,7 @@ export function checkGenText(
   if (!percentAttr) return;
   try {
     expandPercentMask(attrMap['percent'] ?? '', values.length);
+    warnOnInferredZeros(attrMap['percent'] ?? '', values, percentAttr, diagnostics);
   } catch (err) {
     if (!(err instanceof PercentMaskError)) throw err;
     const code = err.kind === 'length' ? 'TDC051' : err.kind === 'number' ? 'TDC052' : 'TDC053';
@@ -60,6 +61,40 @@ export function checkGenText(
       code,
     });
   }
+}
+
+/**
+ * A value that is declared and can never be drawn, because the shares written
+ * beside it already add up to 100 and it was left to take what remains.
+ *
+ * A warning rather than a refusal: the run is well defined and somebody may want
+ * exactly this — `percent="100"` is a legitimate way to say "only the first for
+ * now". What is not acceptable is saying it in silence, which is what the
+ * config did until this existed.
+ */
+export function warnOnInferredZeros(
+  mask: string,
+  values: readonly string[],
+  percentAttr: Parameters<typeof attrValueRange>[0],
+  diagnostics: Diagnostic[],
+): void {
+  const zeros = inferredZeros(mask, values.length);
+  if (zeros.length === 0) return;
+  const named = zeros.map((i: number) => `"${values[i] ?? ''}"`).join(', ');
+  diagnostics.push({
+    severity: 'warning',
+    source: 'validator',
+    ...attrValueRange(percentAttr),
+    message:
+      `percent leaves ${named} at 0% — ` +
+      `${zeros.length === 1 ? 'a value that is' : 'values that are'} declared and never drawn`,
+    hint:
+      'A percent shorter than the list is fine: what is left over goes to the positions you ' +
+      'did not write. Here the ones you did write already total 100, so there is nothing left. ' +
+      'Give it the share you meant, drop it from value=, or write the 0 yourself to say you ' +
+      'meant it.',
+    code: 'TDC301',
+  });
 }
 
 /**

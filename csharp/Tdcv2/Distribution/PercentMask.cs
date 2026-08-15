@@ -101,6 +101,53 @@ public static class PercentMask
         return fixedShares;
     }
 
+    /// <summary>
+    /// The positions the mask left for the engine to fill that came out at ZERO — values that
+    /// are declared and can never be drawn.
+    /// </summary>
+    /// <remarks>
+    /// A mask shorter than the list is legal on purpose: what is left over goes to the positions
+    /// nobody wrote. <c>value="a,b,c" percent="30,40"</c> gives <c>c</c> the remaining 30, which
+    /// is the whole point. But when the written shares already total 100 there is nothing left,
+    /// and <c>c</c> silently stops existing — measured over 300 rows: 150 <c>a</c>, 150 <c>b</c>,
+    /// no <c>c</c>. A zero the author WROTE is not reported: <c>percent="50,0,50"</c> says "never
+    /// this one" in as many words. Call it after <c>Expand</c> has succeeded.
+    /// </remarks>
+    public static IReadOnlyList<int> InferredZeros(string mask, int valueCount)
+    {
+        IReadOnlyList<string> parts;
+        try
+        {
+            parts = Normalize(mask, valueCount);
+        }
+        catch (MaskException)
+        {
+            return Array.Empty<int>();
+        }
+
+        var blanks = new List<int>();
+        double written = 0;
+        for (int i = 0; i < parts.Count; i++)
+        {
+            if (parts[i].Length == 0)
+            {
+                blanks.Add(i);
+            }
+            else if (double.TryParse(
+                parts[i], NumberStyles.Float, CultureInfo.InvariantCulture, out double n))
+            {
+                written += n;
+            }
+        }
+
+        if (blanks.Count == 0)
+        {
+            return Array.Empty<int>();
+        }
+
+        return (100 - written) / blanks.Count > Tolerance ? Array.Empty<int>() : blanks;
+    }
+
     private static IReadOnlyList<string> Normalize(string mask, int valueCount)
     {
         var parts = mask.Split(',').Select(s => s.Trim()).ToList();

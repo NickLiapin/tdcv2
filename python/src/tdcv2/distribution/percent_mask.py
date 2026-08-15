@@ -73,6 +73,27 @@ def expand(mask: str, value_count: int) -> list[float]:
     return fixed
 
 
+def inferred_zeros(mask: str, value_count: int) -> list[int]:
+    """The positions the mask left for the engine to fill that came out at ZERO.
+
+    A mask shorter than the list is legal on purpose: what is left over goes to the positions
+    nobody wrote. ``value="a,b,c" percent="30,40"`` gives ``c`` the remaining 30, which is the
+    whole point. But when the written shares already total 100 there is nothing left, and ``c``
+    silently stops existing — measured over 300 rows: 150 ``a``, 150 ``b``, no ``c``.
+
+    A zero the author WROTE is not reported: ``percent="50,0,50"`` says "never this one" in as
+    many words. Only an inferred zero is a surprise.
+
+    Call it after :func:`expand` has succeeded — it assumes the parts parse.
+    """
+    parts = _normalize(mask, value_count)
+    blanks = [i for i, part in enumerate(parts) if part == ""]
+    if not blanks:
+        return []
+    written = sum(float(part) for part in parts if part != "")
+    return [] if (100 - written) / len(blanks) > _TOLERANCE else blanks
+
+
 def _normalize(mask: str, value_count: int) -> list[str]:
     """Pad a short mask out to one entry per value."""
     parts = [s.strip() for s in mask.split(",")]

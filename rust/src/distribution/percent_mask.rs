@@ -96,6 +96,44 @@ pub fn expand(mask: &str, value_count: usize) -> Result<Vec<f64>, MaskError> {
     Ok(shares)
 }
 
+/// The positions the mask left for the engine to fill that came out at ZERO —
+/// values that are declared and can never be drawn.
+///
+/// A mask shorter than the list is legal on purpose: what is left over goes to
+/// the positions nobody wrote. `value="a,b,c" percent="30,40"` gives `c` the
+/// remaining 30, which is the whole point. But when the written shares already
+/// total 100 there is nothing left, and `c` silently stops existing — measured
+/// over 300 rows: 150 `a`, 150 `b`, no `c`.
+///
+/// A zero the author WROTE is not reported: `percent="50,0,50"` says "never this
+/// one" in as many words. Only an inferred zero is a surprise.
+///
+/// Call it after `expand` has succeeded — it assumes the parts parse.
+pub fn inferred_zeros(mask: &str, value_count: usize) -> Vec<usize> {
+    let Ok(parts) = normalize(mask, value_count) else {
+        return Vec::new();
+    };
+    let blanks: Vec<usize> = parts
+        .iter()
+        .enumerate()
+        .filter(|(_, part)| part.is_empty())
+        .map(|(i, _)| i)
+        .collect();
+    if blanks.is_empty() {
+        return Vec::new();
+    }
+    let written: f64 = parts
+        .iter()
+        .filter(|part| !part.is_empty())
+        .filter_map(|part| part.parse::<f64>().ok())
+        .sum();
+    if (100.0 - written) / blanks.len() as f64 > TOLERANCE {
+        Vec::new()
+    } else {
+        blanks
+    }
+}
+
 fn normalize(mask: &str, value_count: usize) -> Result<Vec<String>, MaskError> {
     let parts: Vec<String> = mask.split(',').map(|s| s.trim().to_string()).collect();
     if parts.len() > value_count {

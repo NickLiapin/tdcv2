@@ -3266,6 +3266,8 @@ public sealed class Validator
             CheckPercentMask(
                 attrs["percent"], SplitCount(attrs.GetValueOrDefault("value", "")),
                 new[] { "TDC051", "TDC052", "TDC053" }, line, column);
+            WarnInferredZeros(
+                attrs["percent"], attrs.GetValueOrDefault("value", ""), line, column);
         }
 
         if (type == "number" && attrs.ContainsKey("percent") && attrs.ContainsKey("length"))
@@ -6993,6 +6995,32 @@ public sealed class Validator
         _diagnostics.Add(Diagnostic.Error(code, message, hint, line, column));
 
     /// <summary>Worth saying, not worth stopping for: the run still produces usable data.</summary>
+    /// <summary>A value that is declared and can never be drawn.</summary>
+    /// <remarks>
+    /// A warning rather than a refusal: the run is well defined and somebody may want exactly
+    /// this. What is not acceptable is saying it in silence.
+    /// </remarks>
+    private void WarnInferredZeros(string mask, string value, int line, int column)
+    {
+        string[] values = value.Split(',').Select(v => v.Trim()).ToArray();
+        IReadOnlyList<int> zeros = PercentMask.InferredZeros(mask, values.Length);
+        if (zeros.Count == 0)
+        {
+            return;
+        }
+
+        string named = string.Join(", ", zeros.Select(i => $"\"{values[i]}\""));
+        string plural = zeros.Count == 1 ? "a value that is" : "values that are";
+        Warn(
+            "TDC301",
+            $"percent leaves {named} at 0% — {plural} declared and never drawn",
+            "A percent shorter than the list is fine: what is left over goes to the positions "
+            + "you did not write. Here the ones you did write already total 100, so there is "
+            + "nothing left. Give it the share you meant, drop it from value=, or write the 0 "
+            + "yourself to say you meant it.",
+            line, column);
+    }
+
     private void Warn(string code, string message, string hint, int line, int column) =>
         _diagnostics.Add(Diagnostic.Warning(code, message, hint, line, column));
 

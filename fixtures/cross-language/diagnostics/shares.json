@@ -84,6 +84,20 @@
       "description": "The other side of the same count: two options and three shares is a real mismatch, and counting the empty options must not soften it.",
       "config": "<tdc><env count=\"300\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"a,b\" percent=\"30,40,30\"/></sequence></env><block><line><data>[${{V}}]</data></line></block></tdc>",
       "expected": ["error TDC051 1:99"]
+    },
+    {
+      "name": "a-share-list-that-leaves-a-value-at-zero",
+      "demonstrates": "TDC301",
+      "description": "A percent shorter than the list is legal on purpose: what is left over goes to the positions nobody wrote. Here the written shares already total 100, so \"c\" is declared and can never be drawn — measured over 300 rows: 150 a, 150 b, no c, and check called it valid. A warning rather than a refusal, because the run is well defined and somebody may mean it.",
+      "config": "<tdc><env count=\"6\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"a,b,c\" percent=\"50,50\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["warning TDC301 1:99"]
+    },
+    {
+      "name": "a-zero-share-written-out-is-not-warned-about",
+      "demonstrates": "",
+      "description": "The counter-case that keeps the warning worth reading: percent=\"50,0,50\" says \"never this one\" in as many words. Answering a clear statement with a warning is how a gate teaches people to ignore it, so only an INFERRED zero is reported.",
+      "config": "<tdc><env count=\"6\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"text\" value=\"a,b,c\" percent=\"50,0,50\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": []
     }
   ]
 }

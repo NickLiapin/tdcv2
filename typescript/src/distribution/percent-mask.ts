@@ -48,6 +48,36 @@ export function expandPercentMask(mask: string, valueCount: number): number[] {
   return fixed;
 }
 
+/**
+ * The positions the mask left for the engine to fill that came out at ZERO —
+ * values that are declared and can never be drawn.
+ *
+ * A mask shorter than the list is legal on purpose: what is left over goes to
+ * the positions nobody wrote. `value="a,b,c" percent="30,40"` gives `c` the
+ * remaining 30, which is the whole point. But when the written shares already
+ * total 100 there is nothing left, and `c` silently stops existing —
+ * `percent="50,50"` over 300 rows came out 150 `a`, 150 `b`, no `c`, and
+ * `check` called the config valid.
+ *
+ * A zero the author WROTE is not reported: `percent="50,0,50"` says "never this
+ * one" in as many words, and answering a clear statement with a warning is how
+ * a gate teaches people to ignore it. Only an inferred zero is a surprise.
+ *
+ * Call it after `expandPercentMask` has succeeded — it assumes the parts parse.
+ */
+export function inferredZeros(mask: string, valueCount: number): number[] {
+  const parts = normalizeMaskParts(mask, valueCount);
+  const empty: number[] = [];
+  let written = 0;
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i] ?? '';
+    if (part === '') empty.push(i);
+    else written += Number(part);
+  }
+  if (empty.length === 0) return [];
+  return (100 - written) / empty.length > 0.0001 ? [] : empty;
+}
+
 function normalizeMaskParts(mask: string, valueCount: number): string[] {
   const parts = mask.split(',').map((s) => s.trim());
   if (parts.length > valueCount) {

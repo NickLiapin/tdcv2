@@ -2794,6 +2794,8 @@ public final class Validator {
       checkPercentMask(attrs.get("percent"), values,
           new String[] {"TDC051", "TDC052", "TDC053"},
           at(gen, "percent")[0], at(gen, "percent")[1]);
+      warnInferredZeros(attrs.get("percent"), attrs.getOrDefault("value", ""),
+          at(gen, "percent")[0], at(gen, "percent")[1]);
     }
     if ("number".equals(type) && attrs.get("percent") != null && attrs.get("length") != null) {
       int groups = splitCount(attrs.get("length"));
@@ -5928,6 +5930,39 @@ public final class Validator {
   }
 
   /** Worth saying, not worth stopping for: the run still produces usable data. */
+  /**
+   * A value that is declared and can never be drawn.
+   *
+   * <p>A warning rather than a refusal: the run is well defined and somebody may want exactly
+   * this. What is not acceptable is saying it in silence.
+   */
+  private void warnInferredZeros(String mask, String value, int line, int column) {
+    String[] values = value.split(",", -1);
+    for (int i = 0; i < values.length; i++) {
+      values[i] = values[i].trim();
+    }
+    List<Integer> zeros = PercentMask.inferredZeros(mask, values.length);
+    if (zeros.isEmpty()) {
+      return;
+    }
+
+    StringBuilder named = new StringBuilder();
+    for (int i = 0; i < zeros.size(); i++) {
+      if (i > 0) {
+        named.append(", ");
+      }
+      named.append('"').append(values[zeros.get(i)]).append('"');
+    }
+    String plural = zeros.size() == 1 ? "a value that is" : "values that are";
+    warn("TDC301",
+        "percent leaves " + named + " at 0% — " + plural + " declared and never drawn",
+        "A percent shorter than the list is fine: what is left over goes to the positions you "
+            + "did not write. Here the ones you did write already total 100, so there is nothing "
+            + "left. Give it the share you meant, drop it from value=, or write the 0 yourself "
+            + "to say you meant it.",
+        line, column);
+  }
+
   private void warn(String code, String message, String hint, int line, int column) {
     diagnostics.add(Diagnostic.warning(code, message, hint, line, column));
   }
