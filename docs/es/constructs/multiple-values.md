@@ -237,9 +237,9 @@ sesión. `accumulate=` reemplaza la lista por su total acumulado.
 `./run cart.tdc`
 
 ```
-256.45, 547.39, 550.80   →   256.45, 803.84, 1354.64
-552.06, 217.75, 644.52   →   552.06, 769.81, 1414.33
-208.40, 667.75, 485.14   →   208.40, 876.15, 1361.29
+239.10, 568.84, 809.63
+791.92, 1059.68, 1593.11
+473.43, 785.34, 1006.51
 ```
 
 A la izquierda, el mismo generador sin `accumulate=`; a la derecha, con él. El último

@@ -166,9 +166,9 @@ Call it exactly like a list-backed template:
 `./run plates.tdc`
 
 ```
-KLM-8042
-QRT-1195
-BHD-6203
+FZY9944
+YHZ8189
+LRG8608
 ```
 
 It runs on the same engine as your config, so every guarantee holds — determinism, and

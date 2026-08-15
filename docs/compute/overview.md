@@ -386,9 +386,9 @@ still apply to the rest — the group and serial are drawn as usual.
 `./run area.tdc`
 
 ```
-078090293
-078050204
-078014168
+078772009
+078599501
+078844442
 ```
 
 **Use it when** one preset has to cover many concrete variants — a single SSN pack that

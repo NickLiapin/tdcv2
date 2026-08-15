@@ -162,7 +162,7 @@ appear. If the set ends up empty after the modifiers, that's error `TDC099`.
 `./run demo.tdc`
 
 ```
-value="[a-z]" include="2,4" exclude="4" → t2qmboad   (no 4 anywhere)
+uf2zkz2m
 ```
 
 ## Named alphabets with `alphabet`

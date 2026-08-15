@@ -163,11 +163,11 @@ character freely — the shape is fixed, the shares are not:
 `./run plain.tdc`
 
 ```
-SA701363
-RV926087
-GG609313
-GS428409
-DQ957920
+FZ399441
+YH481897
+LR586083
+YA900972
+WT831899
 ```
 
 `advanced_regex` keeps the same kind of code but pins the prefix shares — 70% `RU`,
@@ -208,13 +208,13 @@ plain Latin codes:
 `./run mixed.tdc`
 
 ```
-WJ-0170
-FJ-7879
-QN-6827
-ABX-2477
-WJ-1020
-QNP-2747
-FJ-8026
+QY-3500
+ZT-3381
+GSK-1914
+VO-5921
+DW-7570
+SO-1660
+MSE-2247
 ```
 
 **Unicode demo.** Because the branches accept
@@ -326,11 +326,11 @@ plain [`regex`](regex.md#top) — the first three digits are echoed at the end:
 `./run backref.tdc`
 
 ```
-702-BC-702
-682-FR-682
-220-BY-220
-277-FW-277
-165-NS-165
+299-YZ-299
+929-UE-929
+462-VR-462
+905-BC-905
+876-JF-876
 ```
 
 **A weighted branch can be captured** and repeated with `\1` — the captured part is
@@ -380,10 +380,10 @@ QG-QG
 `./run optional-capture.tdc`
 
 ```
-A8-A8
+A2-A2
 B-
-A5-A5
 B-
+A1-A1
 B-
 A8-A8
 B-

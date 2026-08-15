@@ -25,7 +25,13 @@ import { tmpdir } from 'node:os';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { DOC_ROOTS, docFiles, extractExamples, matches } from '../../scripts/doc-examples.mjs';
+import {
+  DOC_ROOTS,
+  docFiles,
+  extractExamples,
+  localeOf,
+  matches,
+} from '../../scripts/doc-examples.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = resolve(HERE, '../..');
@@ -51,11 +57,12 @@ let updated = 0;
 let checked = 0;
 let skipped = 0;
 let abridged = 0;
+let notSelfContained = 0;
 
 for (const file of DOC_ROOTS.flatMap(docFiles)) {
   const name = file.slice(REPO.length + 1);
   let source = readFileSync(file, 'utf8');
-  const examples = extractExamples(source);
+  const examples = extractExamples(source, localeOf(file));
   // Splices go tail-first so earlier spans stay valid.
   const splices = [];
   for (const [i, ex] of examples.entries()) {
@@ -69,6 +76,14 @@ for (const file of DOC_ROOTS.flatMap(docFiles)) {
     try {
       actual = run(ex.config, dir, i);
     } catch (err) {
+      if (ex.wrapped) {
+        // The fragment needed something the page keeps in its prose — a sibling
+        // column, a file, a parent. Completing it was a guess, and the guess did
+        // not run, so this is not an example after all.
+        notSelfContained++;
+        checked--;
+        continue;
+      }
       failures.push({
         name,
         line: ex.line,
@@ -118,6 +133,7 @@ for (const file of DOC_ROOTS.flatMap(docFiles)) {
 console.log(
   `\n${String(checked)} examples checked (${String(abridged)} abridged), ` +
     `${String(skipped)} skipped, ` +
+    `${String(notSelfContained)} fragments that need their page, ` +
     (update ? `${String(updated)} refreshed` : `${String(failures.length)} failing`),
 );
 

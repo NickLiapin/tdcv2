@@ -429,12 +429,12 @@ ventana `youngest` / `oldest` mantiene a todos dentro de una franja de edad cre�
 `./run bday.tdc`
 
 ```
-1999-11-18
-1973-02-22
-1999-04-15
-1971-04-30
-1986-06-17
-1988-09-17
+1998-02-15
+1989-06-06
+2001-04-27
+1988-03-20
+1973-06-01
+1985-01-21
 ```
 
 #### Nombres de mes localizados con `LL`
@@ -478,12 +478,12 @@ explícitos.
 `./run event.tdc`
 
 ```
-08.12.2023
-05.11.2020
-23.02.2023
-30.10.2024
-03.08.2024
-16.05.2020
+29.08.2024
+20.07.2023
+25.01.2025
+25.05.2023
+04.07.2021
+29.12.2022
 ```
 
 La misma localización con `LL` aplica también aquí — cambie a `format="LL"` y el mes
@@ -706,11 +706,11 @@ del correo:
 `./run email.tdc`
 
 ```
-uak1benwm6@example.test
-j3k8iya414@example.test
-p7m2nqx8v0@example.test
-z0k4hya3c1@example.test
-r5t9bd6l2e@example.test
+u99o89qpeo@example.test
+pk9p3g482c@example.test
+vyjs5yc5n2@example.test
+oau8cd92kv@example.test
+g2z4nh4999@example.test
 ```
 
 Los generadores de país toman sus propios parámetros —un código de oficina fiscal, un

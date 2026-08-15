@@ -161,7 +161,7 @@ value="[a-z]" exclude="y" length="8"        → tqmboade
 `./run demo.tdc`
 
 ```
-value="[a-z]" include="2,4" exclude="4" → t2qmboad   (4 нет нигде)
+uf2zkz2m
 ```
 
 ## Именованные алфавиты через `alphabet`
@@ -270,9 +270,9 @@ value="あア[0-9][A-F]" length="6" → アB4あ7ア
 `./run demo.tdc`
 
 ```
-まぃすめい
-ほゆすを
-さしぃぷ
+げゔんぢを
+をじゔづゆ
+でべしぬら
 ```
 
 Обычные BMP-диапазоны вроде `[а-я]{8}` тоже работают внутри `regex`, но

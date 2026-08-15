@@ -91,11 +91,11 @@ For example, pin the area part of every US Social Security number:
 `./run ssn.tdc`
 
 ```
-555700070
-555073260
-555030016
-555375840
-555020557
+555772009
+555599501
+555844442
+555579578
+555258469
 ```
 
 Every value starts with `555`, and each one is still a well-formed SSN. **Use a parameter

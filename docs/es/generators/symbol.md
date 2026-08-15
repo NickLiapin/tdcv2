@@ -163,7 +163,7 @@ Si el conjunto queda vacío después de los modificadores, eso es el error `TDC0
 `./run demo.tdc`
 
 ```
-value="[a-z]" include="2,4" exclude="4" → t2qmboad   (no 4 anywhere)
+uf2zkz2m
 ```
 
 ## Alfabetos con nombre mediante `alphabet`

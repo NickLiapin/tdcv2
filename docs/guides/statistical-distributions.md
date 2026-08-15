@@ -98,12 +98,12 @@ goes on, and [`_count`](../reference/builtins.md#top) is the row number:
 `./run sensor.tdc`
 
 ```
-19.88
-21.22
-19.75
-19.04
-22.47
-22.12
+20.13
+20.97
+19.24
+21.85
+22.09
+22.79
 ```
 
 > [!NOTE]

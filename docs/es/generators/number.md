@@ -54,7 +54,7 @@ al `9`.
 
 ```
 1
-0
+1
 1
 1
 0
@@ -72,11 +72,11 @@ aleatorio dentro de él.
 `./run demo.tdc`
 
 ```
-7931
-2608
-4415
-8842
-1307
+7990
+6325
+8602
+6092
+3258
 ```
 
 Dos reglas sobre la sintaxis:
@@ -92,11 +92,11 @@ Dos reglas sobre la sintaxis:
 `./run demo.tdc`
 
 ```
--269
--451
--312
--208
--377
+-267
+-322
+-246
+-330
+-425
 ```
 
 ### Los ceros a la izquierda se conservan
@@ -111,11 +111,11 @@ para códigos de ancho fijo:
 `./run demo.tdc`
 
 ```
-0770
-0034
-0983
-7702
-0208
+7767
+5916
+8446
+5658
+2509
 ```
 
 ## Varios rangos a la vez
@@ -130,11 +130,11 @@ rango al azar, y luego un número dentro de él.
 `./run demo.tdc`
 
 ```
-73
-512
-1998
-41
-2007
+1952
+662
+1975
+664
+85
 ```
 
 > [!NOTE]
@@ -185,9 +185,9 @@ alcanzar el ancho).
 `./run price.tdc`
 
 ```
-767.76
-177.73
-239.10
+776.15
+591.50
+843.99
 ```
 
 `decimals` toma un entero de **0 a 10**. Cualquier otra cosa detiene la corrida:
@@ -226,11 +226,11 @@ miles de dígitos.
 `./run demo.tdc`
 
 ```
-7702701363
-3682926087
-0220609313
-9277428409
-2165957920
+7299399441
+5929481897
+8462586083
+5905900972
+2876831899
 ```
 
 Aquí `first_zero="true"` permite un cero inicial (vea la tercera línea,

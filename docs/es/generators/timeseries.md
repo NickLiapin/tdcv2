@@ -249,13 +249,13 @@ la diferencia entre una curva de libro de texto y una medición real.
 `./run noise-layer.tdc`
 
 ```
-985
-1087
-1192
-1107
-936
-966
-1031
+1048
+1152
+1210
+1093
+1017
+978
+991
 ```
 
 Compare con la onda limpia de arriba: la forma es la misma, pero cada punto tiembla un
@@ -274,11 +274,11 @@ de dígitos después del punto — para temperaturas, precios o cualquier magnit
 `./run decimals.tdc`
 
 ```
-20.0
-20.4
+20.5
+20.6
 21.2
-21.4
-22.1
+21.2
+22.0
 ```
 
 ## Ármelo capa por capa

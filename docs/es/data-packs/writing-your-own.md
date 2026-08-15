@@ -173,9 +173,9 @@ Se llama exactamente igual que una plantilla respaldada por una lista:
 `./run plates.tdc`
 
 ```
-IJJ-75-04
-YPM-79-21
-THY-15-04
+993-ZLK
+294-EVY
+625-RBW
 ```
 
 Corre sobre el mismo motor que su configuración, así que se mantienen todas las garantías

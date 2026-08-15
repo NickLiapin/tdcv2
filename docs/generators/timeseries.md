@@ -246,13 +246,13 @@ difference between a textbook curve and a real measurement.
 `./run noise-layer.tdc`
 
 ```
-985
-1087
-1192
-1107
-936
-966
-1031
+1048
+1152
+1210
+1093
+1017
+978
+991
 ```
 
 Compare with the clean wave above: the shape is the same, but each point jitters a
@@ -271,11 +271,11 @@ digits after the point — for temperatures, prices, or any measured quantity.
 `./run decimals.tdc`
 
 ```
-20.0
-20.4
+20.5
+20.6
 21.2
-21.4
-22.1
+21.2
+22.0
 ```
 
 ## Build it up one layer at a time

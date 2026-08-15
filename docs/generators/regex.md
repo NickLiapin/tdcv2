@@ -38,11 +38,11 @@ A US-format phone number:
 `./run phone.tdc`
 
 ```
-+1 (701) 632-4696
-+1 (892) 687-0522
-+1 (609) 136-8927
-+1 (428) 096-4165
-+1 (957) 201-8377
++1 (299) 994-1396
++1 (929) 818-7014
++1 (462) 860-3781
++1 (905) 009-2500
++1 (876) 318-9991
 ```
 
 The parentheses, spaces, and dashes are literals (the backslash before `(` and `)`
@@ -78,11 +78,11 @@ That same SKU, rendered in full:
 `./run sku.tdc`
 
 ```
-SAH-0136
-RVH-2608
-GGA-0931
-GSU-2840
-DQN-5792
+FZY-9944
+YHZ-8189
+LRG-8608
+YAO-0097
+WTR-3189
 ```
 
 ## When plain `regex` is the right tool
@@ -176,6 +176,8 @@ or tab.
 `\s` is invisible in the output, so spaces and tabs are shown here as `<SP>` and
 `<TAB>` (in real output they're ordinary whitespace):
 
+<!-- doc-check: skip the whitespace is written out as <SP>/<TAB> so a reader can see it -->
+
 ```xml
 <gen type="regex" value="A\sB\sC"/>
 ```
@@ -221,10 +223,10 @@ The dot is one printable ASCII character (the same set as `\D`, with no exclusio
 `./run demo.tdc`
 
 ```
-c";g#*CZ
-pl:y4_!m
-69#&y=*Q
-+ZO|Qdv7
+3|{Dy{JH
+z9{Gl0mx
+J^9Pp_%r
+z!Tx'){i
 ```
 
 ## Quantifiers — how many times
@@ -306,9 +308,9 @@ nothing to the output. `^[A-Z]{3}$` produces the same three letters as `[A-Z]{3}
 `./run demo.tdc`
 
 ```
-SAH
-RVH
-GGA
+FZY
+YHZ
+LRG
 ```
 
 ## Escaping
@@ -360,9 +362,9 @@ Western European accented letters directly:
 `./run demo.tdc`
 
 ```
-sàhtâbcé
-rvïhyfrë
-ggaçbÿnu
+lþýwüýzy
+ýpþyôkõü
+zìpãöídø
 ```
 
 The examples below are a deliberate **Unicode/localization demonstration** —
@@ -410,9 +412,9 @@ of them:
 `./run demo.tdc`
 
 ```
-חآشיؤב
-הםشקدה
-رسأבإק
+خררػקר
+קسרؾםح
+ؿדسلנה
 ```
 
 The escape `\a{name}` is one character from that alphabet, and it behaves like any
@@ -436,10 +438,10 @@ A backreference ties parts of a string together: `\1` repeats what the first gro
 `./run demo.tdc`
 
 ```
-702-BC-702
-682-FR-682
-220-BY-220
-277-FW-277
+299-YZ-299
+929-UE-929
+462-VR-462
+905-BC-905
 ```
 
 The first and last three digits **always match** — that's the captured block. This
@@ -469,9 +471,9 @@ that group generated:
 `./run demo.tdc`
 
 ```
-SAH-H
-RVH-H
-GGA-A
+FZY-Y
+YHZ-Z
+LRG-G
 ```
 
 Here `([A-Z]){3}` runs the group three times, and `\1` echoes only the third letter
@@ -526,9 +528,9 @@ exception and you don't want to loosen the ceiling everywhere else:
 `./run token.tdc`
 
 ```
-MURI40FXS16A2ABROOBQFGMSDBLWP3TCDTA16VVK
-NPJ3PVSU1NGARTRDQHT92IHGWJZVUST4531IOEAW
-66WWVKTAA2XWUQJBJA8P0SNZ6W3Q75R3CP12JIXW
+H88N88QPEO7XQU8Y3HSZVUVHBRNYDL22R5UYULFK
+8J8P2G372CFQ09IGKO4DBWVJ7OX20A24XAGFOCA2
+PXJS4YC5M13GUWUS7BVTYLT6Y3YFXOC04TLQUFZF
 ```
 
 `regex_max_length` does **not** make an infinite regex finite — it only allows an

@@ -92,6 +92,69 @@ function wholeConfig(body) {
   return undefined;
 }
 
+/** The seed a wrapped fragment runs under. Named after the `./run demo.tdc` in every title. */
+const FRAGMENT_SEED = 'demo';
+
+/**
+ * The third shape, and on the generator pages the only one: a bare `<gen …/>`
+ * with the column it prints underneath.
+ *
+ * 109 of the 149 examples on the English generator pages are exactly this, and
+ * not one of them was checkable — a `<gen>` alone is not a config, so the engine
+ * could never be asked whether the numbers below it were still true. They were
+ * kept by hand, which is another way of saying they were kept until somebody
+ * forgot.
+ *
+ * Everything the wrapper needs is either on the page or fixed:
+ *
+ *   count   the number of lines the page already shows, so `--update` rewrites
+ *           the VALUES and never the shape
+ *   local   the tree the file lives in — the ru pages print Russian data
+ *   seed    `demo`, the one in every `./run demo.tdc` title
+ *
+ * A `<gen>` that needs more than that carries it itself: `local=` is a generator
+ * attribute, and a fragment that cannot run alone (one reading a parent, or a
+ * file that is not there) fails and is reported, which is the honest answer
+ * rather than a guess at what its author meant.
+ */
+function wrapFragment(body, expected, locale, title) {
+  // The title has to say, exactly, "this is a plain run of a config file".
+  // Anything else is the page telling us the block below is NOT the fragment's
+  // own output, and three real examples proved how badly a guess reads there:
+  //
+  //   ./run uniform.tdc (300 rows)            300 heights sorted into BINS
+  //   ./run density.tdc --count 6000 | ...    piped through a histogram
+  //   tdcv2 check corridor.tdc                a DIAGNOSTIC, not data
+  //
+  // Completing the fragment under any of those would have replaced a histogram,
+  // or an error message, with a column of numbers and called it an update.
+  if (!/^\s*\.\/run\s+[\w.-]+\.tdc\s*$/.test(titleOf(title))) return undefined;
+  // A comment above the gen is part of the teaching, not part of the config.
+  const bare = body.replace(/<!--[\s\S]*?-->/g, '').trim();
+  if (!/^<gen\b[\s\S]*?(?:\/>|<\/gen>)$/.test(bare)) return undefined;
+  // One generator, not several: `<gen/><gen/>` is a compound, and what a
+  // compound prints depends on a layout this cannot know.
+  if (bare.slice(1).includes('<gen')) return undefined;
+  const count = expected.replace(/\s+$/, '').split('\n').length;
+  return (
+    `<tdc><env count="${String(count)}" seed="${FRAGMENT_SEED}" local="${locale}">` +
+    `<sequence name="V">${bare}</sequence></env>` +
+    '<block><line><data>${{V}}</data></line></block></tdc>'
+  );
+}
+
+/** The `title="…"` of a <Terminal>, or '' when it has none. */
+function titleOf(attrs) {
+  const m = /\btitle=(?:"([^"]*)"|'([^']*)')/.exec(attrs ?? '');
+  return m ? (m[1] ?? m[2] ?? '') : '';
+}
+
+/** Which doc tree a file belongs to, which is the locale its examples print in. */
+export function localeOf(path) {
+  const m = /\/i18n\/([a-z-]+)\//.exec(path);
+  return m ? m[1] : 'en';
+}
+
 /**
  * Pull out (config, claimed output) pairs.
  *
@@ -99,7 +162,7 @@ function wholeConfig(body) {
  * separates them — a second `xml` block means the first example was showing
  * config, not results.
  */
-export function extractExamples(markdown) {
+export function extractExamples(markdown, locale = 'en') {
   // `(\w*)` then anything up to the newline: a fence may carry attributes —
   // ```xml title="users.tdc" — and those are the examples a reader copies, so
   // skipping them silently was the worst possible thing for this to do.
@@ -118,15 +181,16 @@ export function extractExamples(markdown) {
   }
   // The site shows program output through the <Terminal> component rather than a
   // bare fence; its template-literal body is the expected text.
-  const terminal = /<Terminal[^>]*>\s*\{`([\s\S]*?)`\}\s*<\/Terminal>/g;
+  const terminal = /<Terminal([^>]*)>\s*\{`([\s\S]*?)`\}\s*<\/Terminal>/g;
   while ((m = terminal.exec(markdown)) !== null) {
     const bodyStart = m.index + m[0].indexOf('{`') + 2;
     blocks.push({
       lang: '',
-      body: m[1],
+      attrs: m[1],
+      body: m[2],
       start: m.index,
       end: terminal.lastIndex,
-      bodySpan: [bodyStart, bodyStart + m[1].length],
+      bodySpan: [bodyStart, bodyStart + m[2].length],
     });
   }
   blocks.sort((a, b) => a.start - b.start);
@@ -135,12 +199,17 @@ export function extractExamples(markdown) {
   for (let i = 0; i < blocks.length; i++) {
     const block = blocks[i];
     if (block.lang !== 'xml') continue;
-    const runnable = wholeConfig(block.body);
-    if (runnable === undefined) continue; // fragments stay a reader's job
 
     const next = blocks[i + 1];
     if (!next || next.lang !== '') continue;
     if (looksLikeCommand(next.body)) continue;
+
+    // A whole config runs as written. A bare `<gen>` is completed from what the
+    // page already shows — see `wrapFragment`. Anything else stays a reader's
+    // job, because finishing it would mean inventing the part that was left out.
+    const whole = wholeConfig(block.body);
+    const runnable = whole ?? wrapFragment(block.body, next.body, locale, next.attrs);
+    if (runnable === undefined) continue;
 
     // Anything other than prose between them means these are not a pair.
     const between = markdown.slice(block.end, next.start);
@@ -152,6 +221,10 @@ export function extractExamples(markdown) {
     examples.push({
       line: before.split('\n').length,
       config: runnable,
+      // A completed fragment is an inference, so a run that fails means the
+      // fragment was not self-contained — not that the page is wrong. A whole
+      // config that fails is a real failure and stays one.
+      wrapped: whole === undefined,
       expected: next.body.replace(/\s+$/, ''),
       expectedSpan: next.bodySpan,
       skip: skip ? skip[1] : undefined,

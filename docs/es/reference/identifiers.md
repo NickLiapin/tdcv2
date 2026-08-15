@@ -95,11 +95,11 @@ Por ejemplo, clave la parte de área de todos los números de seguro social de E
 `./run ssn.tdc`
 
 ```
-555700070
-555073260
-555030016
-555375840
-555020557
+555772009
+555599501
+555844442
+555579578
+555258469
 ```
 
 Todos los valores empiezan con `555`, y cada uno sigue siendo un SSN bien formado. **Use

@@ -54,7 +54,7 @@ With **no** `value` and **no** `length`, `number` emits a single random digit
 
 ```
 1
-0
+1
 1
 1
 0
@@ -72,11 +72,11 @@ it.
 `./run demo.tdc`
 
 ```
-7931
-2608
-4415
-8842
-1307
+7990
+6325
+8602
+6092
+3258
 ```
 
 Two rules about the syntax:
@@ -92,11 +92,11 @@ Two rules about the syntax:
 `./run demo.tdc`
 
 ```
--269
--451
--312
--208
--377
+-267
+-322
+-246
+-330
+-425
 ```
 
 ### Leading zeros are kept
@@ -111,11 +111,11 @@ fixed-width codes need:
 `./run demo.tdc`
 
 ```
-0770
-0034
-0983
-7702
-0208
+7767
+5916
+8446
+5658
+2509
 ```
 
 ## Several ranges at once
@@ -130,11 +130,11 @@ random, then a number inside it.
 `./run demo.tdc`
 
 ```
-73
-512
-1998
-41
-2007
+1952
+662
+1975
+664
+85
 ```
 
 > [!NOTE]
@@ -182,9 +182,9 @@ mode a leading zero is allowed by default (so a short value can reach the width)
 `./run price.tdc`
 
 ```
-767.76
-177.73
-239.10
+776.15
+591.50
+843.99
 ```
 
 `decimals` takes an integer **0 to 10**. Anything else stops the run:
@@ -222,11 +222,11 @@ or thousands of digits long.
 `./run demo.tdc`
 
 ```
-7702701363
-3682926087
-0220609313
-9277428409
-2165957920
+7299399441
+5929481897
+8462586083
+5905900972
+2876831899
 ```
 
 Here `first_zero="true"` allows a leading zero (see the third line, `0220609313`).

@@ -38,11 +38,11 @@
 `./run phone.tdc`
 
 ```
-+7 (970) 701-63-46
-+7 (968) 926-87-05
-+7 (922) 609-13-68
-+7 (927) 428-09-64
-+7 (916) 957-20-83
++7 (929) 399-41-96
++7 (992) 481-97-14
++7 (946) 586-83-81
++7 (990) 900-72-00
++7 (987) 831-99-91
 ```
 
 Скобки, пробелы и дефисы — это литералы (обратный слеш перед `(` и `)` делает их
@@ -78,11 +78,11 @@
 `./run sku.tdc`
 
 ```
-SAH-0136
-RVH-2608
-GGA-0931
-GSU-2840
-DQN-5792
+FZY-9944
+YHZ-8189
+LRG-8608
+YAO-0097
+WTR-3189
 ```
 
 ## Когда обычный `regex` — правильный инструмент
@@ -176,6 +176,8 @@ AAABAC        ggaqby        IJBWC8
 `\s` невидим в выводе, поэтому здесь пробелы и табы показаны как `<SP>` и `<TAB>`
 (в реальном выводе это обычные пробел/таб):
 
+<!-- doc-check: skip пробелы записаны как <SP>/<TAB>, чтобы читатель их видел -->
+
 ```xml
 <gen type="regex" value="A\sB\sC"/>
 ```
@@ -223,10 +225,10 @@ cnAz<b       cnAz<b
 `./run demo.tdc`
 
 ```
-c";g#*CZ
-pl:y4_!m
-69#&y=*Q
-+ZO|Qdv7
+3|{Dy{JH
+z9{Gl0mx
+J^9Pp_%r
+z!Tx'){i
 ```
 
 ## Квантификаторы — сколько раз
@@ -311,9 +313,9 @@ dog        dog-77               dog2
 `./run demo.tdc`
 
 ```
-SAH
-RVH
-GGA
+FZY
+YHZ
+LRG
 ```
 
 ## Экранирование
@@ -366,9 +368,9 @@ Unicode-диапазон BMP и любой встроенный **именова
 `./run demo.tdc`
 
 ```
-sàhtâbcé
-rvïhyfrë
-ggaçbÿnu
+lþýwüýzy
+ýpþyôkõü
+zìpãöídø
 ```
 
 Примеры ниже — намеренная **демонстрация Unicode и локализации**: нелатинские
@@ -416,9 +418,9 @@ ggaçbÿnu
 `./run demo.tdc`
 
 ```
-חآشיؤב
-הםشקدה
-رسأבإק
+خררػקר
+קسרؾםح
+ؿדسلנה
 ```
 
 Escape `\a{name}` — это один символ из указанного алфавита; он ведёт себя как
@@ -443,10 +445,10 @@ Backreference связывает части строки между собой: 
 `./run demo.tdc`
 
 ```
-702-BC-702
-682-FR-682
-220-BY-220
-277-FW-277
+299-YZ-299
+929-UE-929
+462-VR-462
+905-BC-905
 ```
 
 Первые и последние три цифры **всегда совпадают** — это тот самый захваченный
@@ -476,9 +478,9 @@ a group that is not generated yet
 `./run demo.tdc`
 
 ```
-SAH-H
-RVH-H
-GGA-A
+FZY-Y
+YHZ-Z
+LRG-G
 ```
 
 Здесь `([A-Z]){3}` прогоняет группу три раза, а `\1` повторяет только третью
@@ -533,9 +535,9 @@ NPJ3PVSU1NGARTRDQHT92IHGWJZVUST4531IOEAW
 `./run token.tdc`
 
 ```
-MURI40FXS16A2ABROOBQFGMSDBLWP3TCDTA16VVK
-NPJ3PVSU1NGARTRDQHT92IHGWJZVUST4531IOEAW
-66WWVKTAA2XWUQJBJA8P0SNZ6W3Q75R3CP12JIXW
+H88N88QPEO7XQU8Y3HSZVUVHBRNYDL22R5UYULFK
+8J8P2G372CFQ09IGKO4DBWVJ7OX20A24XAGFOCA2
+PXJS4YC5M13GUWUS7BVTYLT6Y3YFXOC04TLQUFZF
 ```
 
 `regex_max_length` **не** делает бесконечный regex конечным — он лишь разрешает

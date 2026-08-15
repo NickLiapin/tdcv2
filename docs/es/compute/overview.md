@@ -388,9 +388,9 @@ siguen aplicándose al resto — el grupo y el serial se generan como siempre.
 `./run area.tdc`
 
 ```
-078090293
-078050204
-078014168
+078772009
+078599501
+078844442
 ```
 
 **Úselo cuando** un solo preset deba cubrir muchas variantes concretas: un único pack de
