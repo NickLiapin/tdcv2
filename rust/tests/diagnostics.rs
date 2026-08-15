@@ -26,6 +26,10 @@ struct Case {
     demonstrates: String,
     config: String,
     expected: Vec<String>,
+    /// A folder beside the fixtures holding files the config reads. TDC062 is
+    /// about a CSV column that is not in the header, which cannot be said
+    /// without a header for it to be absent from.
+    data_path: Option<String>,
 }
 
 fn all_cases() -> Vec<Case> {
@@ -72,6 +76,10 @@ fn all_cases() -> Vec<Case> {
                     .iter()
                     .filter_map(|v| v.as_str().map(str::to_string))
                     .collect(),
+                data_path: node
+                    .get("dataPath")
+                    .and_then(Value::as_str)
+                    .map(str::to_string),
             });
         }
     }
@@ -93,7 +101,14 @@ fn report(case: &Case) -> Vec<String> {
     // With the packs, as the reference runs it: a template address is checked
     // against the registry, and without one the check cannot be made at all.
     let packs = tdcv2::packs::DataPacks::discover().ok();
-    validator::validate_with(&parsed.tree, packs)
+    let base_dir = case.data_path.as_ref().map(|p| {
+        common::fixtures_dir()
+            .join("diagnostics")
+            .join(p)
+            .to_string_lossy()
+            .to_string()
+    });
+    validator::validate_in(&parsed.tree, packs, base_dir.as_deref())
         .iter()
         .map(tdcv2::errors::Diagnostic::signature)
         .collect()

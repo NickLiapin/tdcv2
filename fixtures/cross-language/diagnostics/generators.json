@@ -448,6 +448,14 @@
       "description": "A typed point is a percentage of the 0..100 board, so 90 already means 90% of y_range. fit= places a drawing that arrived WITHOUT a board, from src=. Written together the two contradict each other, and picking one silently is how a config comes to say something it does not do.",
       "config": "<tdc><env count=\"3\" seed=\"s\" local=\"en\"><sequence name=\"X\"><gen type=\"pattern\" points=\"0,10 100,90\" y_range=\"0..100\" fit=\"255..297\"/></sequence></env><block><line><data>${{X}}</data></line></block></tdc>",
       "expected": ["error TDC300 1:122"]
+    },
+    {
+      "name": "a-csv-column-that-is-not-in-the-header",
+      "demonstrates": "TDC062",
+      "description": "The file has a header row and no column called \"phone\". Caught by loading the file at check time, which is the only way to know — and cheap next to discovering it a million rows into a run. Two doc pages quote this message; until now nothing verified it against the engine.",
+      "config": "<tdc><env count=\"2\" seed=\"s\" local=\"en\"><sequence name=\"V\"><gen type=\"file\" src=\"people.csv\" column=\"phone\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": ["error TDC062 1:101"],
+      "dataPath": "data"
     }
   ]
 }

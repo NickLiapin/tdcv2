@@ -60,8 +60,16 @@ public class DiagnosticsTest
                 .ToArray();
         }
 
+        // A case may need a real file on disk — TDC062 is about a CSV column that is not in
+        // the header, and there is no way to say that without a header for it to be absent
+        // from. `dataPath` names a folder beside the fixtures, spelled as the rendering cases
+        // spell it; without one the validator keeps the fixtures root it always had.
+        string baseDir = root.TryGetProperty("dataPath", out JsonElement dataPath)
+            ? Path.Combine(PrngVectorsTest.FixturesDir(), "diagnostics", dataPath.GetString()!)
+            : PrngVectorsTest.FixturesDir();
+
         return Validator
-            .Validate(parsed.Tree, PrngVectorsTest.FixturesDir(), DataPacks.Discover())
+            .Validate(parsed.Tree, baseDir, DataPacks.Discover())
             .Select(d => d.Signature())
             .ToArray();
     }

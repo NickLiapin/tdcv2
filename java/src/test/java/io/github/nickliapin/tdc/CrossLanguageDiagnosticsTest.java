@@ -75,7 +75,14 @@ class CrossLanguageDiagnosticsTest {
         got.add("error PARSE " + problem.line() + ":" + problem.column());
       }
     } else {
-      for (Diagnostic d : Validator.validate(parsed.tree(), null, io.github.nickliapin.tdc.packs.DataPacks.bundled())) {
+      // A case may need a real file on disk — TDC062 is about a CSV column that is not in
+      // the header, and there is no way to say that without a header for it to be absent
+      // from. `dataPath` names a folder beside the fixtures, spelled as the rendering cases
+      // spell it.
+      Path baseDir =
+          node.hasNonNull("dataPath") ? dir().resolve(node.get("dataPath").asText()) : null;
+      for (Diagnostic d : Validator.validate(
+          parsed.tree(), baseDir, io.github.nickliapin.tdc.packs.DataPacks.bundled())) {
         got.add(d.signature());
       }
     }

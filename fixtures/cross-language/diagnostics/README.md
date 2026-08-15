@@ -24,13 +24,19 @@ and pointing at the first character inside the attribute's quotes.
 
 ## Fields
 
-| field          | meaning                                         |
-| :------------- | :---------------------------------------------- |
-| `name`         | unique within the file                          |
-| `demonstrates` | the code this case exists to pin                |
-| `description`  | what is wrong with the config, in one line      |
-| `config`       | the `.tdc` source                               |
-| `expected`     | `severity code` per diagnostic, in report order |
+| field          | meaning                                                            |
+| :------------- | :----------------------------------------------------------------- |
+| `name`         | unique within the file                                             |
+| `demonstrates` | the code this case exists to pin                                   |
+| `description`  | what is wrong with the config, in one line                         |
+| `config`       | the `.tdc` source                                                  |
+| `expected`     | `severity code` per diagnostic, in report order                    |
+| `dataPath`     | optional — a folder beside this one holding files the config reads |
+
+`dataPath` exists because some diagnostics cannot be stated without a file. TDC062 is "this
+CSV column is not in the header", and there is no header for it to be absent from until one
+is on disk. It names a folder relative to this directory (`"data"`), exactly as the rendering
+cases spell it, so the two harnesses cannot drift apart on it.
 
 `demonstrates` is a guard, not decoration. A case named after TDC062 whose config
 actually produces TDC050 would otherwise be recorded as correct and then held

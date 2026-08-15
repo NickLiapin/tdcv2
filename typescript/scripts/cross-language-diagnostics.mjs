@@ -44,7 +44,7 @@ const PACK_PARAM_WIDTHS = packParameterWidths(PACKS);
  * A parse error stops the run: there is no tree to validate, and the parser's own complaint is
  * the only honest thing to report.
  */
-function diagnose(source) {
+function diagnose(source, dataPath) {
   const parsed = parse(source);
   if (parsed.diagnostics.length > 0) {
     // A parser diagnostic carries no severity of its own — refusing to parse is never
@@ -57,6 +57,11 @@ function diagnose(source) {
     packAddresses: PACK_ADDRESSES,
     packParams: PACK_PARAMS,
     packParamWidths: PACK_PARAM_WIDTHS,
+    // A case may need a real file on disk — TDC062 is about a CSV column that
+    // is not in the header, and there is no way to say that without a header to
+    // be absent from. `dataPath` names a folder beside these fixtures, exactly
+    // as it does for the rendering cases, so both harnesses spell it one way.
+    ...(dataPath ? { dataSources: { baseDir: join(DIR, dataPath) } } : {}),
   }).diagnostics.map((d) => `${d.severity} ${d.code ?? '?'} ${d.line}:${d.column}`);
 }
 
@@ -75,7 +80,7 @@ for (const file of readdirSync(DIR)
     checked += 1;
     let actual;
     try {
-      actual = diagnose(testCase.config);
+      actual = diagnose(testCase.config, testCase.dataPath);
     } catch (error) {
       failures.push(`${file} / ${testCase.name}: ${error.message}`);
       continue;

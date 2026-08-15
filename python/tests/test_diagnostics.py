@@ -42,5 +42,11 @@ def test_a_config_earns_the_diagnostics_the_reference_gives_it(case: dict) -> No
         # complaint is the only honest thing to report.
         produced = [f"error PARSE {p.line}:{p.column}" for p in parsed.problems]
     else:
-        produced = [d.signature() for d in validate(parsed.tree, None, _PACKS)]
+        # A case may need a real file on disk — TDC062 is about a CSV column that is not in
+        # the header, and there is no way to say that without a header for it to be absent
+        # from. `dataPath` names a folder beside the fixtures, spelled as the rendering cases
+        # spell it.
+        data_path = case.get("dataPath")
+        base_dir = DIAGNOSTICS / data_path if data_path else None
+        produced = [d.signature() for d in validate(parsed.tree, base_dir, _PACKS)]
     assert produced == case["expected"], case["description"]
