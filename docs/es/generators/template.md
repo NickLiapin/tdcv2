@@ -429,12 +429,12 @@ ventana `youngest` / `oldest` mantiene a todos dentro de una franja de edad cre√
 `./run bday.tdc`
 
 ```
-1998-02-15
-1989-06-06
-2001-04-27
-1988-03-20
-1973-06-01
-1985-01-21
+1997-07-03
+1988-10-22
+2000-09-12
+1987-08-06
+1972-10-18
+1984-06-09
 ```
 
 #### Nombres de mes localizados con `LL`

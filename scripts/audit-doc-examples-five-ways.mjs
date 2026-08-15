@@ -28,12 +28,19 @@
  *   node scripts/audit-doc-examples-five-ways.mjs --json report.json
  */
 
-import { execFileSync } from 'node:child_process';
-import { existsSync, mkdtempSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { execFileSync } from "node:child_process";
+import {
+  existsSync,
+  mkdtempSync,
+  readFileSync,
+  readdirSync,
+  statSync,
+  writeFileSync,
+} from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 
-import { REPO, allExamples, matches } from './doc-examples.mjs';
+import { DOC_NOW, REPO, allExamples, matches } from "./doc-examples.mjs";
 
 /**
  * How each implementation is invoked, and the artefact whose absence means it
@@ -42,46 +49,50 @@ import { REPO, allExamples, matches } from './doc-examples.mjs';
  */
 const IMPLEMENTATIONS = [
   {
-    id: 'typescript',
-    label: 'TypeScript (reference)',
-    artefact: 'typescript/dist/cli/main.js',
-    sources: 'typescript/src',
-    command: [process.execPath, [join(REPO, 'typescript/dist/cli/main.js')]],
-    build: 'npm --prefix typescript run build',
+    id: "typescript",
+    label: "TypeScript (reference)",
+    artefact: "typescript/dist/cli/main.js",
+    sources: "typescript/src",
+    command: [process.execPath, [join(REPO, "typescript/dist/cli/main.js")]],
+    build: "npm --prefix typescript run build",
   },
   {
-    id: 'python',
-    label: 'Python',
-    artefact: 'python/.venv/bin/tdcv2',
-    sources: 'python/src',
-    command: [join(REPO, 'python/.venv/bin/tdcv2'), []],
-    build: 'python3 -m venv python/.venv && python/.venv/bin/pip install -e "python[dev]"',
+    id: "python",
+    label: "Python",
+    artefact: "python/.venv/bin/tdcv2",
+    sources: "python/src",
+    command: [join(REPO, "python/.venv/bin/tdcv2"), []],
+    build:
+      'python3 -m venv python/.venv && python/.venv/bin/pip install -e "python[dev]"',
   },
   {
-    id: 'rust',
-    label: 'Rust',
-    artefact: 'rust/target/release/tdcv2',
-    sources: 'rust/src',
-    command: [join(REPO, 'rust/target/release/tdcv2'), []],
-    build: 'cargo build --release --manifest-path rust/Cargo.toml',
+    id: "rust",
+    label: "Rust",
+    artefact: "rust/target/release/tdcv2",
+    sources: "rust/src",
+    command: [join(REPO, "rust/target/release/tdcv2"), []],
+    build: "cargo build --release --manifest-path rust/Cargo.toml",
   },
   {
-    id: 'csharp',
-    label: 'C#',
-    artefact: 'csharp/Tdcv2.Cli.Tool/bin/Release/net6.0/Tdcv2.Cli.dll',
-    sources: 'csharp/Tdcv2',
-    command: ['dotnet', [join(REPO, 'csharp/Tdcv2.Cli.Tool/bin/Release/net6.0/Tdcv2.Cli.dll')]],
-    build: 'dotnet build csharp/Tdcv2.Cli.Tool -c Release',
+    id: "csharp",
+    label: "C#",
+    artefact: "csharp/Tdcv2.Cli.Tool/bin/Release/net6.0/Tdcv2.Cli.dll",
+    sources: "csharp/Tdcv2",
+    command: [
+      "dotnet",
+      [join(REPO, "csharp/Tdcv2.Cli.Tool/bin/Release/net6.0/Tdcv2.Cli.dll")],
+    ],
+    build: "dotnet build csharp/Tdcv2.Cli.Tool -c Release",
   },
   {
-    id: 'java',
-    label: 'Java',
+    id: "java",
+    label: "Java",
     // The jar carries the version in its name, so naming one pins the audit to a release
     // that will stop existing at the next bump. Found by the file itself instead.
     artefact: javaCliJar(),
-    sources: 'java/src/main',
-    command: ['java', ['-jar', join(REPO, javaCliJar() ?? '')]],
-    build: 'cd java && ./gradlew cliJar',
+    sources: "java/src/main",
+    command: ["java", ["-jar", join(REPO, javaCliJar() ?? "")]],
+    build: "cd java && ./gradlew cliJar",
   },
 ];
 
@@ -99,20 +110,26 @@ const IMPLEMENTATIONS = [
  * running an old one.
  */
 function javaCliJar() {
-  const version = JSON.parse(readFileSync(join(REPO, 'typescript/package.json'), 'utf8')).version;
+  const version = JSON.parse(
+    readFileSync(join(REPO, "typescript/package.json"), "utf8"),
+  ).version;
   return `java/build/libs/tdcv2-${version}-cli.jar`;
 }
 
 const args = process.argv.slice(2);
-const onlyAt = args.indexOf('--only');
-const only = onlyAt === -1 ? null : new Set(args[onlyAt + 1].split(','));
-const jsonAt = args.indexOf('--json');
+const onlyAt = args.indexOf("--only");
+const only = onlyAt === -1 ? null : new Set(args[onlyAt + 1].split(","));
+const jsonAt = args.indexOf("--json");
 const jsonPath = jsonAt === -1 ? null : args[jsonAt + 1];
 
 const chosen = IMPLEMENTATIONS.filter((i) => !only || only.has(i.id));
-const missing = chosen.filter((i) => !i.artefact || !existsSync(join(REPO, i.artefact)));
+const missing = chosen.filter(
+  (i) => !i.artefact || !existsSync(join(REPO, i.artefact)),
+);
 if (missing.length > 0) {
-  console.error('These implementations are not built, so the audit would be a lie:\n');
+  console.error(
+    "These implementations are not built, so the audit would be a lie:\n",
+  );
   for (const i of missing) console.error(`  ${i.label}\n    ${i.build}\n`);
   process.exit(2);
 }
@@ -138,30 +155,37 @@ function newestUnder(dir) {
 // binary was a day old, and this audit blamed the engine for a bug that had been
 // fixed hours earlier.
 const stale = chosen.filter(
-  (i) => i.sources && newestUnder(join(REPO, i.sources)) > statSync(join(REPO, i.artefact)).mtimeMs,
+  (i) =>
+    i.sources &&
+    newestUnder(join(REPO, i.sources)) >
+      statSync(join(REPO, i.artefact)).mtimeMs,
 );
 if (stale.length > 0) {
-  console.error('These builds are older than their own sources, so the audit would be a lie:\n');
+  console.error(
+    "These builds are older than their own sources, so the audit would be a lie:\n",
+  );
   for (const i of stale) console.error(`  ${i.label}\n    ${i.build}\n`);
   process.exit(2);
 }
 
-const dir = mkdtempSync(join(tmpdir(), 'tdc-doc-five-'));
+const dir = mkdtempSync(join(tmpdir(), "tdc-doc-five-"));
 
 /** Run one config, returning its output or the reason it produced none. */
 function run(impl, file) {
   const [command, prefix] = impl.command;
   try {
     return {
-      output: execFileSync(command, [...prefix, file], {
-        encoding: 'utf8',
-        stdio: ['ignore', 'pipe', 'pipe'],
+      output: execFileSync(command, [...prefix, file, "--now", DOC_NOW], {
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "pipe"],
         maxBuffer: 512 * 1024 * 1024,
-      }).replace(/\s+$/, ''),
+      }).replace(/\s+$/, ""),
     };
   } catch (err) {
-    const detail = (err.stderr || err.stdout || String(err.message)).toString().trim();
-    return { crashed: detail.split('\n').slice(0, 4).join('\n') };
+    const detail = (err.stderr || err.stdout || String(err.message))
+      .toString()
+      .trim();
+    return { crashed: detail.split("\n").slice(0, 4).join("\n") };
   }
 }
 
@@ -186,17 +210,20 @@ for (const [n, ex] of examples.entries()) {
 
   for (const impl of chosen) {
     const r = results.get(impl.id);
-    if (r.crashed !== undefined) crashes.push({ where, impl: impl.label, detail: r.crashed });
+    if (r.crashed !== undefined)
+      crashes.push({ where, impl: impl.label, detail: r.crashed });
   }
 
   const alive = chosen.filter((i) => results.get(i.id).output !== undefined);
   if (alive.length === 0) continue;
 
   // The reference is the yardstick when it ran; otherwise the first that did.
-  const base = alive.find((i) => i.id === 'typescript') ?? alive[0];
+  const base = alive.find((i) => i.id === "typescript") ?? alive[0];
   const baseOutput = results.get(base.id).output;
 
-  const differing = alive.filter((i) => results.get(i.id).output !== baseOutput);
+  const differing = alive.filter(
+    (i) => results.get(i.id).output !== baseOutput,
+  );
   const claimHeld = matches(ex.expected, baseOutput).ok;
 
   if (differing.length > 0) {
@@ -217,41 +244,53 @@ for (const [n, ex] of examples.entries()) {
     agreed++;
   }
 
-  if ((n + 1) % 20 === 0) console.log(`  … ${String(n + 1)}/${String(examples.length)}`);
+  if ((n + 1) % 20 === 0)
+    console.log(`  … ${String(n + 1)}/${String(examples.length)}`);
 }
 
-console.log(`\n${'='.repeat(72)}`);
-console.log(`  ${String(agreed)} examples: all implementations agree AND match the page`);
-console.log(`  ${String(portDrift.length)} PORT drift — implementations disagree with each other`);
-console.log(`  ${String(docDrift.length)} DOC drift  — all agree, page is stale`);
+console.log(`\n${"=".repeat(72)}`);
+console.log(
+  `  ${String(agreed)} examples: all implementations agree AND match the page`,
+);
+console.log(
+  `  ${String(portDrift.length)} PORT drift — implementations disagree with each other`,
+);
+console.log(
+  `  ${String(docDrift.length)} DOC drift  — all agree, page is stale`,
+);
 console.log(`  ${String(crashes.length)} runs failed outright`);
-console.log('='.repeat(72));
+console.log("=".repeat(72));
 
 for (const c of crashes) {
   console.log(`\n[CRASH] ${c.where} — ${c.impl}`);
-  for (const l of c.detail.split('\n')) console.log(`    ${l}`);
+  for (const l of c.detail.split("\n")) console.log(`    ${l}`);
 }
 
 for (const d of portDrift) {
-  console.log(`\n[PORT] ${d.where}${d.claimHeld ? '' : ' (and the page is stale too)'}`);
+  console.log(
+    `\n[PORT] ${d.where}${d.claimHeld ? "" : " (and the page is stale too)"}`,
+  );
   console.log(`  ${d.base} (baseline):`);
-  for (const l of d.baseOutput.split('\n').slice(0, 6)) console.log(`    ${l}`);
+  for (const l of d.baseOutput.split("\n").slice(0, 6)) console.log(`    ${l}`);
   for (const o of d.others) {
     console.log(`  ${o.impl}:`);
-    for (const l of o.output.split('\n').slice(0, 6)) console.log(`    ${l}`);
+    for (const l of o.output.split("\n").slice(0, 6)) console.log(`    ${l}`);
   }
 }
 
 for (const d of docDrift) {
   console.log(`\n[DOC] ${d.where}`);
-  console.log('  page claims:');
-  for (const l of d.expected.split('\n').slice(0, 6)) console.log(`    ${l}`);
-  console.log('  every implementation prints:');
-  for (const l of d.actual.split('\n').slice(0, 6)) console.log(`    ${l}`);
+  console.log("  page claims:");
+  for (const l of d.expected.split("\n").slice(0, 6)) console.log(`    ${l}`);
+  console.log("  every implementation prints:");
+  for (const l of d.actual.split("\n").slice(0, 6)) console.log(`    ${l}`);
 }
 
 if (jsonPath) {
-  writeFileSync(jsonPath, `${JSON.stringify({ agreed, portDrift, docDrift, crashes }, null, 2)}\n`);
+  writeFileSync(
+    jsonPath,
+    `${JSON.stringify({ agreed, portDrift, docDrift, crashes }, null, 2)}\n`,
+  );
   console.log(`\nwrote ${jsonPath}`);
 }
 

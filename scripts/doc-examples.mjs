@@ -13,19 +13,35 @@
  * claims, which is the one thing neither could then detect.
  */
 
-import { readFileSync, readdirSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { readFileSync, readdirSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-export const REPO = resolve(HERE, '..');
+export const REPO = resolve(HERE, "..");
 
 /** The three doc trees, in the order a report should list them. */
 export const DOC_ROOTS = [
-  join(REPO, 'webdoc/docs'),
-  join(REPO, 'webdoc/i18n/ru/docusaurus-plugin-content-docs/current'),
-  join(REPO, 'webdoc/i18n/es/docusaurus-plugin-content-docs/current'),
+  join(REPO, "webdoc/docs"),
+  join(REPO, "webdoc/i18n/ru/docusaurus-plugin-content-docs/current"),
+  join(REPO, "webdoc/i18n/es/docusaurus-plugin-content-docs/current"),
 ];
+
+/**
+ * The clock every doc example runs under, passed as `--now`.
+ *
+ * Three transcripts on the template page came apart by ONE DAY between the
+ * morning that wrote them and the afternoon that checked them: `person.b_day`
+ * measures an age window backwards from the wall clock, so the same config and
+ * the same seed print a different birthday tomorrow. Refreshing the pages would
+ * have hidden it until the next time the calendar moved — a gate that fails on
+ * a date nobody chose is a gate people learn to re-run rather than read.
+ *
+ * All five command lines take `--now`, which is what makes this pinnable at all,
+ * and both passes import it from here so the reference and the four ports are
+ * never asked about different days.
+ */
+export const DOC_NOW = "2026-01-01";
 
 /**
  * An example opts out with a comment on the line before it, carrying a reason.
@@ -34,7 +50,8 @@ export const DOC_ROOTS = [
  * other, and this reads either. The reason is required, so a skip is a decision
  * on record rather than a shrug.
  */
-export const SKIP_MARK = /(?:<!--|\{\/\*)\s*doc-check:\s*skip\s+(.+?)\s*(?:-->|\*\/\})/;
+export const SKIP_MARK =
+  /(?:<!--|\{\/\*)\s*doc-check:\s*skip\s+(.+?)\s*(?:-->|\*\/\})/;
 
 /**
  * A fenced block right after a config is not always its output — it is often the
@@ -42,7 +59,7 @@ export const SKIP_MARK = /(?:<!--|\{\/\*)\s*doc-check:\s*skip\s+(.+?)\s*(?:-->|\
  * example, not a claim about what it prints.
  */
 function looksLikeCommand(body) {
-  const first = body.split('\n').find((l) => l.trim() !== '') ?? '';
+  const first = body.split("\n").find((l) => l.trim() !== "") ?? "";
   return /^\s*(\$|#|tdcv2\b|npx\b|node\b|pnpm\b|yarn\b)/.test(first);
 }
 
@@ -58,8 +75,8 @@ export function matches(expected, actual) {
   // page really does say `US` — because prettier strips trailing whitespace from
   // markdown on the way into a commit. Neither is wrong and no reader can tell
   // them apart, so pinning them would make the gate fail every time it passed.
-  const want = expected.split('\n').map(trimEnd);
-  const got = actual.split('\n').map(trimEnd);
+  const want = expected.split("\n").map(trimEnd);
+  const got = actual.split("\n").map(trimEnd);
   if (want.length === got.length && want.every((line, i) => line === got[i])) {
     return { ok: true, abridged: false };
   }
@@ -69,7 +86,7 @@ export function matches(expected, actual) {
 }
 
 function trimEnd(line) {
-  return line.replace(/[ \t]+$/, '');
+  return line.replace(/[ \t]+$/, "");
 }
 
 /**
@@ -87,13 +104,14 @@ function trimEnd(line) {
  * finding stale numbers the check had already declared clean.
  */
 function wholeConfig(body) {
-  if (body.includes('<tdc') && body.includes('</tdc>')) return body;
-  if (body.includes('<env') && body.includes('</block>')) return `<tdc>\n${body}\n</tdc>`;
+  if (body.includes("<tdc") && body.includes("</tdc>")) return body;
+  if (body.includes("<env") && body.includes("</block>"))
+    return `<tdc>\n${body}\n</tdc>`;
   return undefined;
 }
 
 /** The seed a wrapped fragment runs under. Named after the `./run demo.tdc` in every title. */
-const FRAGMENT_SEED = 'demo';
+const FRAGMENT_SEED = "demo";
 
 /**
  * The third shape, and on the generator pages the only one: a bare `<gen …/>`
@@ -130,29 +148,29 @@ function wrapFragment(body, expected, locale, title) {
   // or an error message, with a column of numbers and called it an update.
   if (!/^\s*\.\/run\s+[\w.-]+\.tdc\s*$/.test(titleOf(title))) return undefined;
   // A comment above the gen is part of the teaching, not part of the config.
-  const bare = body.replace(/<!--[\s\S]*?-->/g, '').trim();
+  const bare = body.replace(/<!--[\s\S]*?-->/g, "").trim();
   if (!/^<gen\b[\s\S]*?(?:\/>|<\/gen>)$/.test(bare)) return undefined;
   // One generator, not several: `<gen/><gen/>` is a compound, and what a
   // compound prints depends on a layout this cannot know.
-  if (bare.slice(1).includes('<gen')) return undefined;
-  const count = expected.replace(/\s+$/, '').split('\n').length;
+  if (bare.slice(1).includes("<gen")) return undefined;
+  const count = expected.replace(/\s+$/, "").split("\n").length;
   return (
     `<tdc><env count="${String(count)}" seed="${FRAGMENT_SEED}" local="${locale}">` +
     `<sequence name="V">${bare}</sequence></env>` +
-    '<block><line><data>${{V}}</data></line></block></tdc>'
+    "<block><line><data>${{V}}</data></line></block></tdc>"
   );
 }
 
 /** The `title="…"` of a <Terminal>, or '' when it has none. */
 function titleOf(attrs) {
-  const m = /\btitle=(?:"([^"]*)"|'([^']*)')/.exec(attrs ?? '');
-  return m ? (m[1] ?? m[2] ?? '') : '';
+  const m = /\btitle=(?:"([^"]*)"|'([^']*)')/.exec(attrs ?? "");
+  return m ? (m[1] ?? m[2] ?? "") : "";
 }
 
 /** Which doc tree a file belongs to, which is the locale its examples print in. */
 export function localeOf(path) {
   const m = /\/i18n\/([a-z-]+)\//.exec(path);
-  return m ? m[1] : 'en';
+  return m ? m[1] : "en";
 }
 
 /**
@@ -162,7 +180,7 @@ export function localeOf(path) {
  * separates them — a second `xml` block means the first example was showing
  * config, not results.
  */
-export function extractExamples(markdown, locale = 'en') {
+export function extractExamples(markdown, locale = "en") {
   // `(\w*)` then anything up to the newline: a fence may carry attributes —
   // ```xml title="users.tdc" — and those are the examples a reader copies, so
   // skipping them silently was the worst possible thing for this to do.
@@ -170,7 +188,7 @@ export function extractExamples(markdown, locale = 'en') {
   const blocks = [];
   let m;
   while ((m = fence.exec(markdown)) !== null) {
-    const bodyStart = m.index + m[0].indexOf('\n') + 1;
+    const bodyStart = m.index + m[0].indexOf("\n") + 1;
     blocks.push({
       lang: m[1],
       body: m[2],
@@ -183,9 +201,9 @@ export function extractExamples(markdown, locale = 'en') {
   // bare fence; its template-literal body is the expected text.
   const terminal = /<Terminal([^>]*)>\s*\{`([\s\S]*?)`\}\s*<\/Terminal>/g;
   while ((m = terminal.exec(markdown)) !== null) {
-    const bodyStart = m.index + m[0].indexOf('{`') + 2;
+    const bodyStart = m.index + m[0].indexOf("{`") + 2;
     blocks.push({
-      lang: '',
+      lang: "",
       attrs: m[1],
       body: m[2],
       start: m.index,
@@ -198,34 +216,35 @@ export function extractExamples(markdown, locale = 'en') {
   const examples = [];
   for (let i = 0; i < blocks.length; i++) {
     const block = blocks[i];
-    if (block.lang !== 'xml') continue;
+    if (block.lang !== "xml") continue;
 
     const next = blocks[i + 1];
-    if (!next || next.lang !== '') continue;
+    if (!next || next.lang !== "") continue;
     if (looksLikeCommand(next.body)) continue;
 
     // A whole config runs as written. A bare `<gen>` is completed from what the
     // page already shows — see `wrapFragment`. Anything else stays a reader's
     // job, because finishing it would mean inventing the part that was left out.
     const whole = wholeConfig(block.body);
-    const runnable = whole ?? wrapFragment(block.body, next.body, locale, next.attrs);
+    const runnable =
+      whole ?? wrapFragment(block.body, next.body, locale, next.attrs);
     if (runnable === undefined) continue;
 
     // Anything other than prose between them means these are not a pair.
     const between = markdown.slice(block.end, next.start);
-    if (between.includes('```')) continue;
+    if (between.includes("```")) continue;
 
     const before = markdown.slice(0, block.start);
     const skip = SKIP_MARK.exec(before.slice(-300));
 
     examples.push({
-      line: before.split('\n').length,
+      line: before.split("\n").length,
       config: runnable,
       // A completed fragment is an inference, so a run that fails means the
       // fragment was not self-contained — not that the page is wrong. A whole
       // config that fails is a real failure and stays one.
       wrapped: whole === undefined,
-      expected: next.body.replace(/\s+$/, ''),
+      expected: next.body.replace(/\s+$/, ""),
       expectedSpan: next.bodySpan,
       skip: skip ? skip[1] : undefined,
     });
@@ -252,7 +271,9 @@ export function allExamples() {
   const out = [];
   for (const file of DOC_ROOTS.flatMap(docFiles)) {
     const name = file.slice(REPO.length + 1);
-    for (const [index, example] of extractExamples(readFileSync(file, 'utf8')).entries()) {
+    for (const [index, example] of extractExamples(
+      readFileSync(file, "utf8"),
+    ).entries()) {
       out.push({ ...example, file, name, index });
     }
   }

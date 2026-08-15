@@ -26,6 +26,7 @@ import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
+  DOC_NOW,
   DOC_ROOTS,
   docFiles,
   extractExamples,
@@ -40,7 +41,7 @@ const CLI = join(REPO, 'typescript/dist/cli/main.js');
 function run(config, dir, index) {
   const file = join(dir, `example-${String(index)}.tdc`);
   writeFileSync(file, config);
-  return execFileSync(process.execPath, [CLI, file], {
+  return execFileSync(process.execPath, [CLI, file, '--now', DOC_NOW], {
     encoding: 'utf8',
     stdio: ['ignore', 'pipe', 'pipe'],
     // A doc may legitimately show a config with a large count; we only compare
