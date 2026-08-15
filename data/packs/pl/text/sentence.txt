@@ -1,34 +1,504 @@
 ---
-description: Filler sentence (original neutral Polish prose, no country-specific vocabulary)
+description: pl filler sentences from public-domain books (Project Gutenberg); see data/sources/pl/text/README.md
 locale: pl
 ---
-Poranek był cichy, a miasto wciąż spało pod lekką mgłą.
-Otworzył okno i odetchnął chłodnym powietrzem zaczynającego się dnia.
-Droga ginęła w oddali, wśród wzgórz i pól pszenicy.
-Dawno tu nie wracał, ale wszystko wydawało mu się znajome.
-Na stole leżała otwarta książka i stała już zimna filiżanka herbaty.
-W oddali słychać było szum rzeki i śpiew ptaków.
-Przez dłuższą chwilę nikt nic nie mówił i milczenie nikomu nie przeszkadzało.
-Dom stał na końcu ulicy, za niskim kamiennym murem.
-Schował klucze do kieszeni i bez hałasu zamknął drzwi.
-Popołudniowe słońce wpadało przez okno i grzało drewnianą podłogę.
-Poszli razem aż na plac, wcale nie umawiając się co do celu.
-Odpowiedź przyszła tydzień później, gdy prawie już o niej zapomniał.
-Drzewa w parku bardzo urosły od ostatniego razu.
-Usiadł na ławce i przez pół godziny patrzył na przechodzących ludzi.
-Zima przyszła tamtego roku wcześnie i wszystkich zaskoczyła.
-Zapalił małą lampę i pracował do późna.
-Z balkonu widać było morze, ledwie niebieską kreskę między budynkami.
-Zapytał o drogę i wskazano mu wąską uliczkę pod górę.
-Wszystko było na swoim miejscu, choć od lat nikt tam nie mieszkał.
-Pociąg zatrzymał się na kilka minut, a potem ruszył dalej.
-Zapach kuchni pamiętał lepiej niż słowa tamtej nocy.
-List był krótki i prawie nic nie wyjaśniał.
-Wstał wcześnie, żeby wykorzystać poranne światło.
-Pies szedł za nimi aż do końca ścieżki i tam został.
-Opowiadał tę historię powoli, jakby przypominał ją sobie pierwszy raz.
-Miasto zmieniało wygląd, gdy nadchodziły pierwsze deszcze.
-Zostawił pracę w połowie i wyszedł się przejść.
-Zegar na wieży wskazywał godzinę, która już nie była właściwa.
-Nauczył się czekać bez zniecierpliwienia, co było najtrudniejsze.
-Następnego dnia wszystko wydało się prostsze, niż sobie wyobrażał.
+Pan Sherlock Holmes zwykł był wstawać późno, o ile nie czuwał przez całą noc, a zdarzało mu się to nieraz.
+-- Bo laska, choć pierwotnie ładna, jest tak zniszczona, że żaden lekarz miejski nie chciałby jej używać.
+-- rzekł, wracając na swoje ulubione miejsce przy kominku.
+Ten dar został wręczony w chwili, gdy doktor Mortimer opuszczał szpital, aby rozpocząć praktykę na własną rękę.
+1882), "Czy idziemy z biegiem postępu?" ("Dziennik Psychologiczny" 1883).
+Jego powierzchowność zdziwiła mnie bardzo.
+-- Szkoda, że pan rozproszył moje wnioski -- brzmiała odpowiedź.
+-- Nie, panie, choć rad jestem, że zdarza mi się sposobność ku temu.
+-- Z pańskiej kieszeni wychodzi pół cala papieru.
+Spojrzałem przez ramię na papier, pożółkły ze starości.
+Słysząc ich pijackie wrzaski, dziewczyna truchlała, lecz była z natury dzielną, więc opanowała strach i postanowiła ratować się.
+Księżyc świecił tak jasno, że można było szpilki zbierać.
+Doktor Mortimer wyjął z kieszeni gazetę.
+Oboje zeznają, że zdrowie sir Karola w ostatnich czasach było nietęgie, że rozwijała się w nim choroba serca, objawiająca się bladością, brakiem tchu i częstemi omdleniami.
+Chciałem się przysłużyć Papieżowi i straciłem z oczu to, co się jednocześnie działo w Anglii.
+Stapleton, w pobliżu niema ludzi inteligentnych.
+Sądziłem, że parę miesięcy, spędzonych na rozrywkach, uwolni go od tych mar i przywidzeń.
+-- Pozostały o jakie dwa łokcie od trupa; nie zwrócono na nie uwagi i jabym ich nie zauważył, gdybym nie był znał tej legendy.
+-- Żadnych, któreby mogły zwrócić uwagę.
+-- Chcesz pan powiedzieć, że wchodzi to w zakres rzeczy nadprzyrodzonych?
+Ale zechciej mi powiedzieć jeszcze jedno, doktorze Mortimer.
+Drugi brat, zmarły przedwcześnie, był właśnie ojcem owego Henryka.
+Boję się, aby dobro tej okolicy nie skłoniło mnie do nielojalnego postąpienia z sir Henrykiem i dlatego proszę pana o radę.
+Poproszę cię, doktorze Mortimer, abyś mnie odwiedził jutro rano o dziesiątej.
+Wśród kłębów ujrzałem Holmesa w szlafroku.
+Dokoła i pośrodku -- łąki i trzęsawiska.
+-- Doktor Mortimer wyjaśnił to w ten sposób, że sir Karol szedł potem na palcach.
+-- Wszak sir Karol wychodził co wieczór?
+Czyżby od pańskiego przybycia do Londynu zdarzyłoby się panu coś niezwykłego?
+-- Cóż pan o tem myślisz, doktorze Mortimer?
+-- Czy nie znajdujesz, że wyrażone poglądy są bardzo głębokie?
+-- Nie dość, że pan poznałeś odrazu, iż słowa zostały wycięte z dziennika, ale domyśliłeś się, z którego.
+To świadczy o niedbałości lub o wzruszeniu.
+Sądzę, że badając kałamarze w hotelach w pobliżu Charing Cross, znajdziemy wycięty numer Timesa i zdołamy odszukać osobę, która ten list przesłała.
+-- Jeżeli ich pan nie nosiłeś, czemu je dawałeś do czyszczenia?
+Otrzymawszy taką zachętę, lekarz wyjął papiery z kieszeni i przedstawił całą sprawę nowemu baronetowi.
+-- I to jest możliwem, i wdzięczny jestem panu, doktorze Mortimer, że mnie tę myśl poddałeś.
+Wybiegł z pokoju w szlafroku; w minutę potem ukazał się w surducie.
+Popędził pieszo, ale dorożka jechała tak szybko, że niepodobna było jej dogonić.
+Nasz przeciwnik nie omieszkał z niego skorzystać.
+W sieni ukazał się chłopak czternastoletni, zwinny, wesoły i rozgarnięty.
+2104, potem wstąpimy do galeryi obrazów przy Bond Street, dla zapełnienia sobie czasu do godziny drugiej.
+Daruj mi ciekawość, ale chciałbym wiedzieć, czy to moja znajoma.
+-- Słuchaj: jeżeli ten but nie znajdzie się przed wieczorem, powiem zarządzającemu i wyprowadzę się z hotelu.
+-- Na nieszczęście, nie potrafię tego powiedzieć.
+-- Czy Barrymore został wymieniony w testamencie sir Karola?
+Przypuściwszy, że jakie nieszczęście spotka naszego przyjaciela -- daruj mi pan tę smutną hypotezę -- kto wówczas odziedziczy majątek?
+Ale, bądź co bądź, uważam, że pieniądze powinny iść razem z majątkiem ziemskim.
+-- Jeżeli mój przyjaciel zechce panu towarzyszyć -- rzekł -- to nikomu nie mógłbyś pan tak zaufać, jak jemu.
+-- A więc spotkamy się o godzinie 10-ej minut 30 na dworcu Waterloo -- rzekł sir Henryk.
+-- Nic mnie tak nie podnieca, jak niepowodzenie.
+-- A teraz, Clayton, powiedz mi wszystko, co wiesz, o panu, który stał pod tym domem o dziesiątej rano, a potem kazał ci jechać za dwoma gentlemanami przez Regent-Street.
+Powiedz mi teraz, w którem miejscu wsiadł do dorożki i co było potem?
+Miał może lat czterdzieści, był średniego wzrostu, ze dwa cale niższy od pana, ubrany był porządnie, miał dużą, czarną brodę, przyciętą spiczasto, i był bardzo blady.
+Jedno wydaje mi się pewnem, a mianowicie, że pan Jerzy Desmond, najbliższy spadkobierca, jest człowiekiem bezinteresownym i że nie on był sprawcą morderstwa.
+-- Nie mamy żadnych wieści -- odparł doktor Mortimer w odpowiedzi na pytanie Holmesa.
+Młody Baskerville przyglądał się krajobrazowi z widoczną przyjemnością, zwłaszcza, gdyśmy wjechali w jego rodzinne Devonshire.
+Doktor Mortimer wskazywał nam przez szybę rozległą pustą przestrzeń.
+Minęliśmy lasek dębowy; zeschłe liście uściełały drogę nowemu dziedzicowi.
+Nawet sir Henryk przestał się zachwycać krajobrazem.
+Środkowy korpus ozdobiony był wspaniałym portykiem; po bokach wznosiły się wieże, średniowieczne, zębate, ze strzelnicami.
+-- Tak sobie właśnie wyobrażałem tę siedzibę -- mówił sir Henryk.
+-- I nam będzie przykro -- odparł -- ale byliśmy oboje bardzo przywiązani do sir Karola; jego śmierć wstrząsnęła nas do głębi.
+Nic dziwnego, że mój stryj stał się dziwakiem.
+W świetle promieni słonecznych, ślizgających się po starych zbrojach, sala jadalna wydała nam się weselszą, gdyśmy zasiedli do śniadania.
+-- W domu są tylko dwie kobiety -- odparł.
+Przedewszystkiem należało dowiedzieć się od pocztmistrza w Grimpen, czy telegram został oddany do własnych rąk Barrymora.
+Jeżeli zaszła pomyłka, niech sam Barrymore wniesie skargę.
+Tok moich myśli został przerwany odgłosem kroków.
+Spełnia ofiarę, zagrzebując się w takiem ustroniu; ale okolica na tem zyska i powinna mu być wdzięczna.
+-- Zatem sądzisz pan, że jakiś pies ścigał sir Karola i że biedak zmarł skutkiem strachu?
+Gdybyś pan potrzebował wskazówek, gotów jestem służyć.
+Sądzę, że nikt tutaj nie zna jej lepiej odemnie.
+-- Co panu zależało na przebyciu tych błot?
+-- Czyś pan kiedy słyszał wabienie błotnego ptaka, zwanego bąkiem?
+Stapleton urwał nagle i podążył za jakimś rzadkim okazem motyla.
+Oczy jej biegły niespokojnie za bratem, przyśpieszyła kroku i zrównała się ze mną.
+Mówił to lekko, ale patrzał na siostrę badawczo i groźnie.
+Patrząc przez okno na te bagna, usiane kamieniami, zastanawiałem się, co mogło skłonić tak wykształconego mężczyznę i tak piękną kobietę do obrania tutaj siedziby.
+Doktor Mortimer jest człowiekiem uczonym w swoim zakresie, biedny sir Karol był miłym towarzyszem.
+Chcę pana prosić, abyś zapomniał moje słowa.
+Na twarzy miss Stapleton odbiło się wahanie, ale trwało krótko.
+Jeżeli w słowach pani nie było ukrytego znaczenia, to dlaczego nie chciałaś, aby je brat usłyszał?
+Przypuszczam, że to był szczep tchórzliwy, stroniący od wojowniczych sąsiadów, a trzęsawisko było najpewniejszą przeciw nim warownią.
+Mieszkają na zupełnem pustkowiu, o parę mil od ludzkich siedzib, trzymają tylko służącego i kucharkę.
+Jest to daleka, kilkomilowa wycieczka przez łąkę i trzęsawiska, a miejsce samo tak ponure, że mogło natchnąć pomysłem do krwawej legendy.
+Przy wykopaliskach w Long-Dawn udało mu się znaleźć czaszkę przedhistorycznego człowieka.
+Może blady Barrymore wie o tem zdarzeniu daleko więcej, niż mówi?
+czaszki z epoki neolitycznej, odgrzebanej w Long-Dawn.
+Czasami zastanawiam się, czy jej nie trapią wyrzuty sumienia, a chwilami posądzam Barrymora, iż jest tyranem.
+Zajrzałem do tego pokoju przez drzwi uchylone.
+Miałem dziś rano długą rozmowę z sir Henrykiem i obmyśliliśmy plan kampanii.
+Dlatego zakradał się boso, dlatego był niespokojny.
+-- Boję się tylko, aby Barrymore nie usłyszał naszych kroków.
+Po naszej rozmowie o Barrymorze, wziął czapkę i wyszedł.
+Ukrywszy się za skałą, śledziłem jego kroki.
+Wtem sir Henryk objął wpół miss Stapleton; zdawało mi się, że ona broni się od uścisku.
+-- Od pierwszej chwili wydał mi się nienormalnym, a teraz gotów jestem przypuścić, że mnie, albo jemu braknie piątej klepki.
+Dziś po raz pierwszy zdarzyła mi się sposobność widzieć ją sam na sam.
+Wytłómacz mi, co to znaczy, a będę ci wdzięczny do śmierci.
+-- Mówił, że siostra jest mu wszystkiem na świecie.
+Powinszuj mi, Holmes, i przyznaj, że nie zawiodłem twego zaufania.
+Podsunęliśmy się cichutko, stąpając ostrożnie, w obawie, aby nas nie zdradziło skrzypnięcie podłogi.
+Gdyby chodziło tylko o mnie, wyznałbym panu całą prawdę.
+-- W takim razie wynoś się zaraz z mego domu!
+-- To prawda -- przytwierdził Barrymore.
+Upadał coraz niżej, wreszcie spełnił tę ostatnią zbrodnię...
+Daleko na bagnie, płonęło blade światełko.
+Łotr może lada chwila zgasić światło i nie odszukamy go po nocy.
+-- Na miłość Boską, co to takiego, Watson?
+-- Po raz pierwszy słyszałem ten głos, idąc ze Stapletonem.
+Chwilami zdawało nam się, że jest blizkiem, to znów że bardzo odległem.
+Może Barrymore zwykł był dawać mu sygnał, o którym nie wiedzieliśmy, a może złoczyńca miał inny powód do obawy, bądź co bądź strach malował się na jego dzikiej twarzy.
+Biegliśmy do zupełnego braku tchu, ale przestrzeń pomiędzy nami a uciekającym Seldonem zwiększała się ustawicznie.
+Na tle księżycowej tarczy odrzynały się skały, lecz żywy posąg nie stał już na ich szczycie.
+Może w następnym liście zdołam rzucić na nie światło.
+Lecz fakty są faktami, a na własne uszy dwa razy słyszałem szczekanie na bagnie.
+Całą moją energię wytężę, aby tego celu dopiąć.
+Ale co prawda, byłem zdziwiony, że panowie chcieli schwytać Seldona.
+-- Ale czy można być pewnym, że przed wyjazdem nie wyrządzi krzywdy nikomu?
+-- Jaśnie pan był dla mnie tak dobry -- szepnął -- że chciałbym się mu odwdzięczyć wedle możności.
+-- Czy sir Karol otrzymywał poprzednie listy, pisane takim charakterem?
+Jak uważasz: co nam teraz uczynić należy?
+Dotarłem do skały Black-Tor, na której szczycie stał wówczas nieznajomy.
+-- Jest tu wprawdzie kilka rodzin cygańskich, o których nic nie wiem, lecz znam wszystkich farmerów i obywateli okolicznych z imienia i nazwiska.
+Nie darmo tyle lat przebywam w towarzystwie Sherlocka Holmes.
+Tamten ukrywa się także, ale, o ile mogę zmiarkować, nie jest więźniem.
+W pierwszej chwili mój szwagier miał go za szpiega, ale niebawem przekonał się, że to gentleman i że działa na własną rękę w jakimś celu tajemniczym.
+Znając te dwa fakty, miałem w ręku oręż, który mógł mi pomódz do wyjaśnienia tej krwawej zagadki.
+Byłem zachwycony jej urodą, lecz przyjrzawszy się bliżej, dostrzegłem ostry wyraz ust i oczu, psujący ogólną harmonię.
+Lepiej, że ja dowiem się prawdy, niż żeby została ujawniona wobec świata...
+-- Czy pani kiedy pisała do sir Baskervilla, prosząc go o widzenie się na cztery oczy?
+Były powody, dla których nie mogłam przybyć tam wcześniej.
+Gdybyś pani była niewinną, to w pierwszej chwili nie zaprzeczyłabyś, żeś pisała tego dnia do sir Karola.
+Przed napisaniem owego listu do sir Karola, dowiedziałam się właśnie, że jest sposób odzyskania wolności, lecz że wymaga to znacznych kosztów.
+Więc znowu rozbijałem się o mur, zagradzający dalszą drogę odkryć!
+Wyśliznął się pomiędzy palcami wielkiego Holmesa.
+Nie miałem tak miłego dnia od chwili, gdym pozwał sir Johna Morland o bezprawne polowanie w jego własnym lesie.
+Jego następne słowa zdjęły mi kamień z serca.
+Sterczy na nagim pagórku, wśród dzikiej, kamienistej płaszczyzny.
+-- Chodź pan, chodź -- zawołał Frankland, biegnąc na górę.
+Trzymałem się gościńca, dopóki mógł mnie widzieć, następnie skręciłem w bok i dążyłem w stronę góry, po której przeszedł chłopak.
+Przez chwilę stałem z kartką w ręku, nie rozumiejąc, co znaczy to uwiadomienie.
+Nareszcie doszedł mnie odgłos jego kroków.
+-- Nie spodziewałem się, że odnajdziesz moją kryjówkę, a tem mniej, że cię tu zastanę.
+-- Nie; dostrzeżono twojego chłopaka i to mi posłużyło za drogowskaz.
+-- Mój drogi, jesteś poprostu nieoszacowany; w wielu razach oddałeś mi znakomite usługi, jestem ci wdzięczny i mam nadzieję, że mi przebaczysz ten fortel.
+Serdeczne słowa Holmesa rozproszyły mój żal do niego, tembardziej, iż czułem, że lepiej się stało, żem nie wiedział o jego przebywaniu na bagnie.
+Gdyby tylko udało się zniechęcić do Stapletona jego żonę!...
+-- A ostrzeżenie wyszło zapewne od niej?
+-- Twoja rozmowa z tą damę rzuciła właśnie światło na ten punkt ciemny.
+Oplątuję go w sieci, tak, jak on -- sir Henryka.
+A ty, jak mogłeś wypuścić z opieki sir Henryka!...
+Jest to największy cios, jaki mnie kiedykolwiek spotkał w moim fachu!...
+Staliśmy nad zwłokami, bezradni wobec katastrofy, która obróciła w niwecz wszystkie nasze zabiegi.
+Cóż się stało mojemu przyjacielowi, tak poważnemu zazwyczaj?...
+-- Oczywiście przyuczano psa poznawać sir Henryka po odzieży.
+W blasku księżyca widziałem wyraźnie drobną postać naturalisty.
+-- Myślałem o legendach, krążących wśród wieśniaków...
+-- Mam nadzieję, że wyjaśnienie mojego przyjaciela zostanie uznane jako jedynie możliwe.
+-- Jak sądzisz: czy świadomość, że jesteś tutaj, wpłynie na jego plany?
+-- Znaleziono go martwym bez żadnych śladów gwałtu, bez ran i skaleczeń.
+-- Ma się rozumieć; dalsze ukrywanie się jest zbyteczne.
+-- Po wyjściu Watsona -- mówił baronet -- snułem się z kąta w kąt, wierny mojej obietnicy: nie zapuszczania się samemu na bagno po zachodzie słońca.
+My z Watsonem tyle wiemy dziś, co na początku.
+Rysy jego były chłodne, jak zwykle, w oczach jednak płonął dziwny ogień.
+-- Któż jest ów gentleman z teleskopom w ręku?
+Na odwrotnej stronie płótna jest imię i data -- rok 1647.
+-- Moje oczy są przyzwyczajone do badania samych twarzy, bez akcesoryj toaletowych.
+-- Mamy cały dzień swobodny -- mówił, zacierając ręce z radości.
+Oni są bardzo gościnni i ręczę, że przyjmą was z otwartemi rękoma.
+-- Mam ochotę jechać z wami -- rzekł baronet.
+Pożegnaliśmy naszego przyjaciela i w parę godzin potem byliśmy na dworcu w Coombe-Tracey.
+Sherlock Holmes przystąpił do rzeczy wprost ze szczerością, która ją wprowadziła w kłopot.
+-- Nie dokończyła, głos zamarł w jej piersi.
+Nie potrzebuję dochowywać mu tajemnicy, skoro on nie dochował mi wiary!...
+-- Mówił, że śmierć jest tajemniczą i że mogliby mnie podejrzewać o zabójstwo.
+Kuryer londyński wbiegł na peron z sykiem i gwizdem.
+Zresztą ta skrytość płynie może i z ostrożności, która nie pozwala mu wypowiadać się przed nikim.
+-- mówił Lestrade, oglądając się dokoła.
+Po chwili Stapleton wstał i wyszedł z pokoju.
+Nad trzęsawiskiem unosiły się białe opary; księżyc, świecący jasno na niebie, nie zdołał ich rozproszyć.
+Kroki stawały się coraz głośniejsze i wyraźniejsze, dochodziły do nas przez mgłę, jak przez zasłonę, i oto nagle pojawił się ten, na którego czekaliśmy.
+Byliśmy tak przerażeni tem zjawiskiem, że nie wystrzeliliśmy w porę.
+Czworonożny prześladowca rodu Baskervillów już nie żył...
+A teraz podtrzymajcie mnie chwilkę, bo jeszcze drżą mi nogi.
+Swoją drogą, przetrząśniemy dom od strychu do piwnic.
+Jeden ręcznik ściskał jej gardło i okręcony był naokoło słupa, drugi zakrywał dolną część twarzy.
+-- Nie masz pani powodu go oszczędzać -- rzekł Holmes.
+Ze spokojem przyjął wiadomość, że ta, którą pokochał, była żoną, nie siostrą owego łotra.
+Wewnątrz, na podeszwie, była wypisana firma: "Meyers, Toronto".
+Natomiast znaleźliśmy dużo śladów po nim na wyspie, gdzie psa ukrywał.
+Mój przyjaciel był w wybornym humorze i skorzystałem z tego, aby go wybadać o nieznane mi dotychczas szczegóły sprawy Baskerville.
+Jako Stapleton, z resztkami ukradzionych pieniędzy, z pięknymi zbiorami entomologicznymi przesiedlił się do Anglii południowej.
+Przywiódł go do stacyi North Devon, odległej od Baskerville-Hall i nadłożył ogromny kawał drogi, idąc łąką i moczarami, aby go nikt nie spostrzegł.
+Następnie odradził jej stawić się na miejscu umówionem.
+Stapleton wiedziała nawet o złych zamiarach męża względem sir Karola, a także o istnieniu psa.
+Gdyby list wpadł w ręce Stapletona, jej własne życie byłoby w niebezpieczeństwie.
+Mógłbym ręczyć, że był nim Stapleton, który w ten sposób zasilał swe fundusze.
+Ów służący, również jak i pani Stapleton, mówił po angielsku płynnie, lecz z akcentem miękkim, południowym.
+Zwiodłem wszystkich, nie wyłączając ciebie, i zjawiłem się potajemnie, wówczas, gdy sądziliście wszyscy, że bawię w Londynie.
+W chwili, gdyś mnie odnalazł na moczarach, miałem już w ręku wszystkie nici spisku, lecz nie posiadałem materyału dowodowego, z którym mógłbym stanąć przed sądem.
+To brutalne wyznanie zerwało ostatnie pęta, łączące ją z nędznikiem, i wznieciło w jej sercu nienawiść i pragnienie zemsty.
+Poprawiono natomiast omyłki, które wyglądały na błędy drukarskie.
+Ciekawie do wnętrza facyatki wśliznął się brzask smętny.
+Szedł on, pogwizdując z cicha, z rękami w kieszeniach, zamyślony, a po wyminięciu kilku przechodniów, skręciwszy w uliczkę wązką i głuchą, znalazł się na niej sam zupełnie.
+- wyszeptały z ulgą usta przybyłego i ruchem nerwowym, zamknąwszy cicho drzwi za sobą, przekręcił klucz w zamku.
+Ręce jego jednak, dotknąwszy się tylko pobieżnie wypełnionych kryjówek, zatrzymały się chwilę bezczynnie, a na nerwowej twarzy odbiło zdumienie, połączone jakby z przestrachem.
+Młodzieniec zerwał się z kanapki i przebiegł pokój kilka razy.
+Z cichym brzękiem rozsypało się ono w strumyk błyszczący, a nim do głębi ponownie wstrząsnął dreszcz.
+Powtarzając się bezustanku, w głowie jego huczała i wracała myśl jedna, a dziesiątki innych ginęły, topiły się tylko w niej, jak w chaosie, zanikały - milkły...
+Los, odbierając może naumyślnie drugiemu, co miał zanadto w swym trzosie, pragnie dobrotliwy, obdarzyć ciebie, nie chcesz-li?
+Przy wspomnieniu tem ostatniem, młody mieszkaniec poddasza zmarszczył brwi i zamyślił się jeszcze głębiej, niż przedtem.
+Wówczas to, po owym pierwszym balu, przestąpił on zaczarowany dlań dotąd próg salonów i zapamiętale bawić się począł.
+To muzyka ustała była, a oni walcowali jeszcze, ciągle przytuleni do siebie - zrośli skrytem jakby pragnieniem.
+- zawirowała mu w głowie myśl uporczywa.
+Później spojrzenie jego, wewnętrznej pracy myśli jakby posłuszne, wracało powtórnie do lubego wizerunku.
+Wpływ to rozprzężonych wrażeń i myśli, skutkiem wysiłku, szumiącego jak potok, nawałem zwątpień i pytań mózgu.
+I ostateczna, przełomowa walka odbywać się w tej chwili zdaje w duszy mężczyzny.
+Znowu poczyna biegać po pokoju wzdłuż i wszerz...
+Odruchem nagłym zbliżył się do stołu i obie dłonie położył na plikach banknotów i złocie.
+- Zaręczam ci, iż przed chwilą paliła się wewnątrz pokoju lampa, przez szpary u drzwi ślizgało się światło!
+A więc najprzód zdało się śpiącemu, iż leci on w przestrzeń bez końca, ciemną i mroczną, unoszony niewidzialną jakąś siłą...
+Mrok szary pokrywa płaszczem swym wszystko dokoła, a w cieniach tych tajemniczych, cichych, szeptać i ruszać się coś poczyna.
+A jednocześnie tańczą oto w krąg, z szelestem widziane niedawno w portfelu zwitki storublówek i innych banknotów.
+Wytęża wzrok coraz bardziej, ale niebawem nic wokoło, nawet prześladujących go mar, rozpoznać nie jest w stanie.
+Usta jego, wyniosłe i dumne, rozchylają się szerzej, i miast zwykłego uśmiechu zagadki, sardoniczny, szyderczy, wstrząsa przestrzeniami śmiech.
+Do drugiej ojczyzny swej poniekąd rzeczywiście dążył tak lat trzydzieści zaledwie mający młody człowiek.
+Równocześnie pociąg, pozostawiwszy morze za sobą, wpadł w jakieś gaje, brzęczące rojem owadów.
+- rzekł Roman, wysuwając się delikatnie z objęć młodej żony uniósłszy ją w ramionach, postawił na równe nogi.
+- zawyrokowała głośno Ola, wyciągnąwszy się na miękkiem, czarną skórą obitem, siedzeniu.
+Gondola, kołysząc się z lekka, unosząc co chwila swe przednie i tylne dzioby, płynęła spokojnie, z jednostajnym pluskiem wioseł i szmerem rozstępującej się pod nią fali.
+Gdzieniegdzie tylko lśniła zółtawo mdłym światłem latarnia - żywego ducha zaś nigdzie dopatrzeć się nie można było.
+- A, rzeczywiście - odparł - przecież choć jeden jakiś znak życia...
+Zatrzymały zda się dłużej przy jednem oknie i pomknęły znowu obojętne w dal...
+Musiała wyjechać z miasta na parę godzin, znaglona interesem ważnym...
+I marszałkowa Warnicka niżej jeszcze pochyliła na piersi głowę swą siwą, a czoło jej poorały zmarszczki, znacząc jakby ślad męczących ścigających się myśli.
+- odpowiadało coś skrycie na dnie jej duszy.
+- szyderczo odpowiedział z kolei rozum!...
+pierwszy rzut oka, nader wrażliwego i uczuciowego może nad miarę.
+- Zmęczonym pewnie jesteś i głodnym - przerwała bratu Melania - może kazać dać ci herbaty, przekąski?...
+- Może tu przejdziesz, będzie nam wygodniej rozmawiać...
+Mów prędzej, błagam - cóż z Olą się stało?..
+- Nic jeszcze nie wiesz dokładnie, a już obwiniasz innych na chybił-trafił.
+Marszałkowa spoglądała wzruszona na brata.
+Powoli, miękko, opowiadać mu ona poczęła stopniowo wszystko.
+Jakież jednak było zdumienie domowników, gdy zamiast spożyć wieczerzę, oboje rozeszli się do swoich komnat, nie tknąwszy jej wcale.
+Na zegarach ich przeznaczeń teraz właśnie biła może zgodnie aksamitnymi cichymi tony, ziemska ułudna szczęścia godzina...
+Gowartowski ścisnął głowę rękami, zdawało mu się bowiem, iż ona pęknie od myśli, cisnących się, jak nieproszone tłumy...
+On szanował sędziwy wiek, przywiązania starych nie tratował; choć kochał i szalał, jednak zawsze godził jedno z drugiem.
+To koła rydwanu przemknęły po nim zwycięsko!...
+Cóż stało się powodem tego ukojenia, działającego łagodnie, jak balsam, na znękaną cierpieniami duszę stroskanego ojca?
+Otulone już mgłami zmierzchu morze marzyło jakby zadumane.
+- Myślisz może, że teraz, dotykając się już pieniędzy innych, wytłumaczonym przez to jesteś?
+Na ubogiem poddaszu, ujrzał zatem siebie budzącym się po śnie strasznym!
+Każda drobnostka żywo, jawnie staje mu przed wzrokiem.
+Przyszła chwila rozwagi; oddał dług milionerowi zza oceanu i wyjechał.
+Niezaprzeczenie przytem należał do niego ten pieniądz, ślepą igraszką losu nabyty; podwaliną zaś, przeszłością tylko fortunki tej było przywłaszczenie.
+By bezużytecznie odgrzebywać minione chwile?
+Okno komnaty tej właśnie otwartem było szeroko.
+Gdzie oni teraz, ci wszyscy, tak dotychczas sercu drodzy?..
+Wszak tak niedługo trwa ich szczęście...
+Na Riva degli Schiavoni, spacerowem miejscu Wenecyi, roiło się od publiczności.
+- Skądsiś od Wielkiego Kanału, w pewnych od siebie, odstępach, dolatywało właśnie echo silnego męskiego głosu, przy akompaniamencie chóru innych.
+Od czasu do czasu komunikując sobie przyciszoną uwagę, Roman i Ola słuchali również uważnie włoskich pieśni, nastrój zaś dzisiejszego wieczora rozmarzająco działał na nich.
+nic ciekawego - odparł pośpiesznie Roman, i jakby pragnąc, by powtórnie nie pytano go o to samo, odwrócił się szybko do gondoliera, informując go, dokąd ma ich zawieźć.
+Wkrótce, zaleciała jeszcze ostatnia zwrotka ,znanej Moniuszkowskiej melodyi: Oj, Halino, oj, je - dy - no, dzie - wczy - no mooo - ja!...
+A z prawej znów strony grobowca, jakby z ziemi, ze świata, wolno suną jakieś postacie, zmierzając do otwartych na ścieżaj wrót sarkofagu...
+- Co za świetną doprawdy miałeś myśl, Romciu, zestawić to obejrzenie Wenecyi z wyżyn na zakończenie!
+przytem wahająco spojrzał z pod oka na Olę, uważnie, jakby zbadać pragnąc, do jakiego stopnia odczuwa ona to wspomnienie.
+Więc on nie mylił się, będąc częstokroć niespokojnym, gdy widział przychodzącą na czoło żony nagłą zadumę, na pozór niewytłumaczoną zgoła niczem.
+Dzierżymirscy zbliżyli się do balustrady, obrzuciwszy spojrzeniem cały widok, u stóp ich i henhen, daleko!...
+Tymczasem zaś platforma dzwonnicy opustoszała stopniowo.
+Głos jego tubalny, huczący, zmieszał się z ogólną aryą dzwonów, napełniając echami grzmotów, trzęsąc platformą wieżycy.
+Z ekstazy pierwsza zbudziła się kobieta.
+Jej, Oli, stanęła przed oczami, jak żywa, marsowa twarz ojca, i jego spojrzenie smutne, wyrzutów pełne.
+W milczącą senną zadumę, we wspomnienia przebrzmiałe, zapadała powoli Campanile.
+Pomimo to, nikt nie wiedział nic jeszcze dokładnie.
+Vous savez, ona wychodzi za tego księcia Ryszarda S.
+- Wyszedłszy stąd temu godzin parę, byłem na jour fixe u Leliwów, hr.
+- mówił, całując z wdziękiem rękę staruszki - nie żegnam się więc, będę na dworcu, może wypadnie coś ułatwić, dopomóc...
+Dziś zatem również wybierał się na raut artystyczno-wokalno-literacki, punktualnie rozpoczynający się już o dziesiątej.
+Młodzieniec, lat dwudziestu ośmiu, ciemny brunet, ogorzały i przystojny, z dziarsko do góry podkręconym wąsem, stanął na progu.
+- Ależ naturalnie, panie Bolesławie, naturalnie!
+Z pod oka, przelotnie, spojrzał Krasnostawski na marszałkową.
+- Ale już po wszystkiem, wszak wieczór nadchodzi...
+Nie kochał się w niej jednak bynajmniej, za trzeźwym był na to; choć z upokorzeniem dumy własnej, stanowisko swe podrzędne oceniać potrafił, a jednak...
+- Ale, zaiste, pysznie pan wyglądasz, jak rydz w maśle, powinszować!
+- Pieścili dziewczynę - ciągnął w tym samym tonie Ładyżyński - upodobała sobie Dzierżymirskiego - wara!
+Czy zaś ono Januarciowi się spodoba - grubo wątpię..
+Co zaś przeważnie czytał w owych czarnych, szarawych, fijołkowych i modrych oczach, z natury już swej, zalotnych, bynajmniej nie zrażało go do tej; czynności.
+W oddali zachęcająco zieleniał ogród śródmiejski, jakby zapraszając gościnnie.
+- zapytał go Krasnostawski, pamiętając, iż zegarek zostawił przez roztargnienie w hotelu.
+- Nie, to nie ona - myślał - tamta, smukła gazella, piękniejszą była, lecz ta znów...
+- Pan się dziwi, zapewne - dygnęła już śmiało, lecz z tym samym nieokreślonym nieco twarzy wyrazem, - że ja, nie znając pana, ośmielam się, pomimo to, trudzić go...
+W pałacu wszyscy po cichu niepomiernie ubolewali nad panem, dziwiąc się stanowi jego, kontrast bowiem dzisiejszego pana na Gowartowie był iście rażącym.
+Jedne po drugich wypełniały się jego drobnem pismem arkusiki papieru, rozrzucone na biurku, zgrzyt zaś stalki w milczeniu głuchem donośnie rozbrzmiewał po pokoju.
+Gowartowski spojrzał mimo woli na swój ubiór.
+Stąpając ostrożnie i cicho po zroszonej trawie, szedł wzdłuż stawu, nad jego brzegiem, rozglądając się bystro dokoła.
+Powoli, stopniowo, rozjaśniało się tymczasem..
+W pobliżu, nieco dalej, oddzielony od pierwszego stawu pasmem błotnistych moczarów, widniał taki sam prawie drugi, mniejszy tylko i sitowiem zarośnięty cały.
+Zamykały one łańcuchem swym cały widnokrąg naprzeciw miasta, po drugiej stronie jeziora, i ramowały na prawo krętą szyję wód jego, płynących cicho w dal...
+Spotkamy się później w alei nadbrzeżnej, będę czekał na ciebie...
+Po krótkiej atoli chwilce Dzierżymirski otworzył oczy i roześmiał się głośno.
+- Że też te kobiety bez wabienia mężczyzny po prostu żyć nie mogą!..
+Roman chwycił go śpiesznie i wybiegł na ulicę.
+Podarowałby on ją śmiałkowi temu, a biedakowi zapewne, z pewnością!...
+- akcentując przeciągle ostatnią sylabę u wyrazu: pan, odparł zadowolony Szwajcar, skłonił się, bez uniżoności jednak, i odszedł.
+Pieśń włoska, namiętna, jak krew i miłość dzieci południa, drżąca uczuciem, pomknęła po drżącej fali jeziora, ponad głowy przechadzających się gości, odbiła się o echo gór...
+Widząc, iż Ola pragnie poinformować Francuza, Roman rzekł śpiesznie.
+Pozbędziemy się tego kulfona!- odrzekł po polsku Roman.
+I analizując fakt ten, po raz nie wiadomo już który, Krasnostawski ziewnął przeciągle i roztworzył oczy, przymknięte dotąd, usiłował bowiem zdrzemnąć się w powozie.
+- rozkazał, zwracając się do furmana, zaciekawiony naraz, kto może jechać z Gowartowa o tak późnej porze?
+Z pod czapki spojrzała uważnie na Krasnostawskiego zdziwiona twarz doktora, okolona długą brodą.
+- zaniepokojonym znów głosem zapytał Krasnostawski.
+W milczeniu nocy, pełnem zagadek i szeptów tajemniczych, wszystko dokoła zapadło w sen twardy i cichy.
+To nie był gniew, opryskliwość, jak to nazwałaś, dziwactwo!
+Pośpieszyłam na twe wołanie, pobiegłam za tobą, w twe objęcia, podeptałam wszystko...
+- z zachwytem szepnęła Ola - nie zapomnę jej chyba nigdy.
+- Zostaniemy dłużej w Vevey; tu tak cicho, samotnie, tak z dala od ludzi, od świata i jego pogwarów - zostaniemy, Oluniu, cóż ty na to?
+Smutno nieco, widząc bowiem na twarzy żony tak pogodną radość, poczuł, iż o odebranym już liście wspomnieć nie mógł.
+W pokoju okna były otwarte, i panowało w nim powietrze rzeźkie, świeże, od gór płynące.
+- ciągnął dalej, z uśmiechem - wyobraź sobie, Oluniu...
+- rozległ się po chwili za ścianą gardłowy, świszczący glos, pełen nienawiści i jadu.
+A tam, w dole, zadumane, ciche usypiało miasto...
+- posłyszał w tejże samej chwili prośbę Oli.
+Tam, gdzieś w oddali, poza wierzchołkami gór, zaróżowiało się coś niewyraźnie, płoniło...
+- Oby tylko ten zacny pan January dożył błogosławionej chwili i mógł pojednać się z Bogiem!..
+- A ot, tylko co patrzeć, jak odjechał..
+Od tego ostatniego bowiem odebrał list iście enigmatyczny, w którym proszono go usilnie, by doniósł szczegółowo o wszystkiem, co się dzieje w Gowartowie.
+- I mnie to kiedyś przecie spotka, wszak i ja umrę!..
+Każ zaprzęgać, jeśli łaska, a ja tymczasem w ogrodzie poczekam i modlitwy swe przedwieczorne odmówię.
+Nagle Krasnostawski, z przymkniętymi oczyma w fotelu swym zagłębiony, ocknął się, drgnąwszy na całem ciele nerwowo.
+Znów przestał, i zaczerpnąwszy powietrza, ciągnął dalej, uczyniwszy jednocześnie prawą ręką ruch zniechęcenia pełny.
+- Ale nie o tem mówić chciałem, nie o tem!
+Na jego widok pan January gorączkowo, o własnych siłach, uniósł się na posłaniu i wyciągnął rękę po testament.
+W sąsiednich komnatach pusto było całkiem i szaro już zupełnie.
+I w jednem również zaszła, zmiana nagła.
+Tymczasem minęło minut dziesięć zaledwie, gdy młody pan plenipotent spał już na dobre, pochrapując nawet z lekka czasami.
+śmierć idzie już, przybliża się, okropna, bezzębna, oto jej szkielet sunie obok, mija go!..
+Skupione milczenie komnaty, zamagnetyzowane wyczekiwaniem, trwogą, przerwał szelest, dla ucha prawie niedosłyszalny.
+I on, przygnany straszną wieścią choroby groźnej, podążył do przyjaciela lat młodych, przybywszy jednak - za późno.
+- Panią marszałkowę - tu zniża głos jeszcze bardziej - fatygować nie wypada...
+I cisza pokrytego kirem, tonącego w słońcu i gromnic świetle, zakątka, sfinksowy, dumny majestat śmierci brutalnie przerywanym zostaje.
+Powstała z klęczek marszałkowa Warnicka podtrzymuje wijącą się w bólu kobietę z jednej strony - z drugiej opiekuńczo podpiera ją Ładyżyński.
+Przepotężne w swej sile, nie lubiące, by zapominano o niem, odrywało w tej chwili despotycznie od nieboszczyka, w skupieniu otaczających go dotąd ludzi.
+Tu Dzierżymirski uśmiechnął się szydersko.
+- I cóż mogą o mnie złego powiedzieć ludzie, świat cały?
+Samowiedza powyższa pokryła chmurą na chwilę piękne rysy Dzierżymirskiego.
+- rzucił Roman gościowi swemu - pan pozwoli, nieprawdaż?
+- Wobec tego - zatrzymał się znowu Roman - nie wiem doprawdy - mówił zwolna - czy przyjąć mogę tak zaszczytny wybór panów...
+Błysk zadowolenia miłości własnej przemknął w tej chwili po licach Dzierżymirskiego.
+- Proszę wyrazić tymczasowo moje podziękowanie panom z Rady Zarządzającej,- odparł uprzejmie Dzierżymirski.
+Lokaj wyszedł, a Dzierżymirski zbliżył się z wolna do swego biurka i usiadł przed niem, spojrzawszy przy tem mimo woli na leżące tam porozrzucane papiery.
+W pokoju zaległo milczenie, przerywane li tylko zgrzytem pióra po papierze.
+- Przepraszam panią - spytał grzecznie - jak godność i imię męża pani?
+- tu urwała swe przemówienie pani Wygrzywalska, śledząc na twarzy Romana wrażenie słów swoich.
+Ale, przynaglona materyalnem położeniem bez wyjścia, ufając w przyjaźń, którą żywił mój mąż nieboszczyk do pana prezesa, chciałam prosić o drobną pożyczkę...
+Zniecierpliwiony bowiem dotąd obecnością jej Roman, i zdecydowany już prawie wyprosić za drzwi kniaziównę "de domo", zamyślił się nagle.
+W rzeczywistości zaś potrzebował czasu, by ochłonąć z doznanego przed chwilą wrażenia.
+Poznaliśmy się przed laty siedmiu; ja, pan i Jasio Zboiński stanowiliśmy przez czas jakiś nierozerwalną nawet trójkę.
+- dorzucił Roman łaskawie i swobodnie, teraz bowiem panował już całkiem nad sobą.
+Pan - nie ma co mówić o tem ; całe miasto godzi się jednogłośnie, że o zdolniejszego i bardziej wpływowego zarazem człowieka u nas trudno...
+- Posiadam hart, wolę, rozum, rzutkość, dar oryentowania się trafnego, i spryt - to wiele; a on?
+- Zresztą, panie prezesie, mówiąc szczerze całkiem, przekonywam się teraz coraz bardziej, iż szkoły nie dały mi zgoła żadnej nauki życiowej i praktycznej.
+Jak się pan zaś wprawisz w owem przepisywaniu, wyrobię, iż dadzą panu polisy do kopjowania w domu, w ten sposób zarobisz pan więcej.
+- Przeproś tych panów i powiedz, że dziś za późno!..
+I teraz po twarzy jego odgadnąć to również łatwe było.
+Przeznaczone dla zagadkowego właściciela - czekały one nań tam daremnie.
+- sofizmat, niezmiennie ten sam, powracał w umyśle Romana.
+Poznał sposób stukania żony, co dzień bowiem, o tej porze, Ola zwykła była odwiedzać go po pracy.
+- przekomarzał się wesoło Dzierżymirski.- Gdy ja do domu wpadnę, nigdy pani mej nie ma...
+Tego myśleć się nie ośmielam - roześmiała się Ola.
+To ty za mnie nieodzownie zrobić musisz, kochanie...
+Dojeżdżali do wspaniałego gmachu Związku Kredytowego.
+W końcu jednak i ten czasowy posterunek ich okazał się wprost niemożliwym...
+- Eh bien, chèr comte - zagadnął, z uśmiechem pierwszy pan Emil - jakież wrażenie z rautu "koroniarzy?.." Trudno się dostać, co?
+- Widzę Romana, jak peroruje, cà va sans dire, o społecznych sprawach...
+- Czy widzisz, Romanie, - ciągnął Ładyżyński - tego młodzieńca w monoklu, z takiem znawstwem dyskretnem oglądającego w tej chwili tors hrabiny P ?
+Połknę "comte", ale jeśli mnie ten dudek wyzwie na pojedynek, to musisz być sekundantem!
+- mówiła Dzierżymirska - więc to pan odziedziczył majątek w naszych stronach...
+- Pozna pan zatem Ukrainę, - ciągnęła dalej swobodnie młoda kobieta, - kraj to cudny, śliczny, zobaczy pan...
+Z wdziękiem, Topolski podał natychmiast Oli swe ramię, rozpływając się jednocześnie w podziękowaniach, grzecznościach i zasypując zręcznymi komplementami młodą kobietę...
+Trzeba było powracać do obowiązków niestrudzonego gospodarza domu.
+I od chwili tej nie znał już pragnień innych...
+Jakaś pełna zgrzytów, piekąca ironia roześmiała się na glos w duszy Romana.
+Naprędce załatwić musiałem korespondencyę...
+Przed domem, oraz na asfalcie obszernego dziedzińca zatętniały liczne uderzenia kopyt końskich, zamajaczyły ogniki u latarń dziesiątek powozów i karet.
+- Wierz mi, zwlekać nie mogę, muszę jechać natychmiast...
+- żachnął się Dzierżymirski, ale tym razem zupełnie szczerze.
+Zapaliwszy cygaro i rozparłszy się wygodnie, z przyjemnością przypatrywał się on teraz od bardzo już dawna nie widzianej nadsekwańskiej stolicy.
+- A jutro o której godzinie zastać go będzie można?
+Rozglądając się, przystając co chwila, poszedł dalej!..
+U stóp tych dwóch postaci kobiecych - poniżej, leżało wdzięcznie uśpione dzieciątko, śniło, osypane całe, obrzucone puchem białych róż śnieżnych, w rozkwicie...
+- krzyczano mu nad uchem na wszystkie strony; w restauracyach, na platformach, spożywano już posiłek, popijano wino, absynt i inne wyskokowe napoje - cały Paryż obiadował.
+Poczciwy człowiek jakiś - pomyślał - i choć, zdaje się, blagier nieco, lecz szczery i z gatunku nieszkodliwych.
+- Czytał pan list stryja, pana Hugona, wszak prawda?..
+Mam niepłonną nadzieję, iż razem z panem damy sobie z tem wszystkiem radę...
+- Kłamie, jak z nut - pomyślał Dzierżymirski, i uśmiech dyskretny ponownie przemknął po ustach jego.
+Czyżby pan nie był rad powrócić do kraju..
+Mam poza tem stałe zajęcie, przynoszące mi dochód pewny...
+- To szkoda jednak - przemówił z wolna - że panowie mieszkają tak od siebie z daleka...
+Roman tymczasem powstał również z miejsca, i oddawszy serdecznie uścisk Orlęckiemu, po przyjacielsku ujął go za ramię.
+- Dziękuję, palę jeszcze - uśmiechnął się niedostrzegalnie Roman, i spojrzał z pod oka na gospodarza.
+Szarzyzną ono dla mnie dzisiaj - trudno!
+- Fachowych ściśle żadnych - przerwał niezadowolonym trochę głosem Orlęcki.
+- Pensya znaczna - ciągnął dalej całkiem obojętnie, - ile, nie wiem jeszcze na pewno...
+- zawahał się - i słucham..: - dokończył.
+Więc ponownie oto rozprysła mu się w palcach mydlana bańka!..
+- pomyślał Roman, i zdenerwowany, stuknął palcami w powietrzu.
+- mówiła, ściskając dłoń jego, pani Orlęcka.
+Kiedy czynić coś, to czynić zupełnie i wszechstronnie, - pomyślał, a sięgnąwszy do kieszeni, dyskretnie począł długo szukać czegoś w portfelu...
+Z sympatyą, spojrzał Roman na dziewczę, i skłoniwszy się raz jeszcze, zwrócił się z kolei do Orlęckiego.
+Nastąpiły w ślad za tem ponowne podziękowania, wykrzykniki...
+- Więc to tu - mówił sobie Roman - leży zwycięzca z pod Marengo, Ulm, Austerlitz, i.t.d., i.t.d.
+Ustawieni w szyku, gotowi do walki, stoją oto niezliczeni wokoło grobu wodza swego...
+- myślał i zatopiwszy raz jeszcze, milcząc, badawcze spojrzenie w mętnych źrenicach starca, bez słowa, skierował się ku wyjściu z tumu.
+Znów tu więc fałsz mimowolny - życia ironia!..
+I niebawem Romana znowu zajął marmurowy posąg z wyspy Paros...
+Minąwszy salę pierwszą, zatrzymał się w drugiej, maleńkiej.
+Obrazy te, w ogólnym zarysie, również zlewały się ze sobą.
+W otaczające go, tętniące ruchem i pracą pola zapatrzony, na ciemnem tle parku nieposzlakowanie biały milcząco wsłuchiwał się dwór gowartowski w odgłosy, idące z łanów dalekich.
+A tu tymczasem straciłeś pan coup de maître, cug iścię wspaniały...
+- ciągnął dalej.- Dziękuję panu za partyę!
+- dorzucił uprzejmie i powstawszy, wyciągnął rękę do Ładyżyńskiego.
+- odparł pan Emil i uśmiechnął się swoim zwyczajem.
+- Wracając jednak do poprzedniej prozy życia, i jego wypadków - ciągnął wolno - ciekawym, czemu ten Roman nie wraca?..
+- Piękna kobieta - wygłosił z patosem pan Emil - to częstokroć wcielenie ślepego trafu igraszki!..
+O, co do tego, to zapewnić mogę, że nos mam wyborny!..
+W kole płci pięknej czuł się zawsze panem...
+On wspominał i opowiadał barwnie wrażenia licznych podróży, dowcipkował, śmiał się, przytomny bezustannie gry swojej; Ola słuchała mówiła, opowiadała z kolei wiele sama...
+- Cóż bowiem wspólnego ma wschód słońca...
+Zresztą - uśmiechnął się złośliwie - użyła pani czasu przeszłego...
+Topolski i Ola w ślad zatem ruszyli powoli miejsca, rozmawiając znów żywo ze sobą, jeździec zaś, na wskos przeciąwszy łączkę, wspinać się zaczął po pochyłości jaru.
+Potem znów następowała dlań długa przerwa; - gospodarstwo, samotność, nuda i wyczekiwanie z upragnieniem chwili przyjazdu Dzierżymirskich!
+Zazdrość, ta miłości siostrzyca, pochwyciła go w swe szpony krogulcze, dręcząc bez litości...
+Prychając nozdrzami, czując stajnie blisko, pomknął kasztan ochoczo.
+- Ja bym cię ozłocił, klęczał przed tobą - zmiatał proch u stóp twoich!..
+Ładyżyński zatem tak samo zawsze szyderczy z marszałkową się sprzeczał i rozmyślnie przeszkadzał flirtowi Oli z Topolskim...
+Ola, Topolski i nieodstępny ich satelita, pan Emil, używali przejażdżki łódką po stawie, w tą stronę więc skierowała kroki marszałkowa.
+- Cioteczka zaziębi się, jak ją pozostawimy tu dłużej, a sama do domu tak rychło nie pójdzie...
+- Ale kiedy mówię panu - broniła się, śmiejąc, młoda kobieta, - że teraz właśnie czuje się niemożliwie usposobioną do muzyki...
+- Ale czynię to tylko dla niej; avis au lecteur...
+- Cóż to pan, jak widzę, prócz ptaków tylko o sobie nie zapomina, a nas z panią marszałkową z żyjących wykreśla!
+- zerwawszy się z krzesła uściskała marszałkowę Dzierżymirska; poczem pani Melania skierowała się wolno do swych pokojów.
+dzisiaj: od rana nie pozwolił nam być chwilki nawet sam na sam...
+Śmiech szczery Oli rozległ się w tej chwili.
+- Jednak, jak ona, niecnota, zna mnie, dobrze!
+- Silence à mon approche - quelle galanterie, madame, de votre part!..
+Jeden Ładyżyński tylko po swojemu broni ją przed "nim" i przed nią samą...
+W ciszy uśpionego już domu, gdzieś, w dali, wydzwania tymczasem po chwili godzina dwunasta..
+Meble pękają od gorąca - dym, żar, napełniają pokój cały, kobierzec już płonie - posadzka pod nim trzeszczeć zaczyna!..
+Włosy jeżą mu się na głowie, zapala świece, i widzi siebie w obłokach dymu.
+Odblask ich oświeca jaskrawo białe drzwi, prowadzące doń...
+Topolski, widząc i słysząc to wszystko, szybko otwiera na ścieżaj okno i rzuca się ku Oli...
+On, wstrząsnąwszy się pod tem dotknięciem, porywa się nagle z miejsca, jak szalony, i mknie chyżo w ogród...
+W kilka minut później, dopada cienistej altany i niknie, ginie w jej głębiach...
+Lewe podłużne i największe pałacowe skrzydło pali się jeszcze, płomień nadal zwycięsko sieje tam zniszczenie, prawą stronę jednak domu ugaszono już zupełnie.
+Poza dziedziną przeczuć bowiem, ów niepokój Krasnostawskiego miał również źródło i w następującym, konkretnym fakcie.
+Pot kroplisty wystąpił mu na czoło, usta zacisnęły się boleśnie, oczy zamigotały dzikim ogniem.
+- szepnęły w oddechu cichutko, jak skarga, usta jego i omdlały runął u stóp kobiety, zdeptany jej postępkiem...
+Obok niego stała szklanka z herbatą i leżały porzucone na ziemi, niedopałki od papierosów...
+Tu, u siebie, przemęczył się, jak nieprzytomny, w bólu - do rana.
+Wreszcie wyczerpany skończył przed chwilą...
+Prawdy nie domyślił się nikt, widocznie...
+- zapytał nagle, furmana zdziwiony Krasnostawski, wskazując spicrutą, na całe stosy czegoś, ponakrywanego płachtami.
+Grozą i bolesnym smutkiem wiało od tego zakątka - ruina zwycięsko szczerzyła trupią paszczękę - śmiałą się jakby szyderczo...
+Wykonywając rozkaz, nadjeżdżały już wozy.
+Puściwszy konia luzem, zamyślony, znalazł się w kwadrans później w lesie, gdzie, znużony, zsiadł z konia i rozłożył się swobodnie na murawie.
+Rozciągnięty na ławie, spał snem sprawiedliwego mężczyzna, w sile wieku, barczysty, ubrany w kurtę myśliwską; dubeltówka leżała opodal, w kącie drzemał pies legawy.
+W końcu listu, Krasnostawski przepraszał pana Emila za trud i dodawał sucho, że pensyi nic mu się nie należy, bo czyni niespodziany zawód swym dotychczasowym chlebodawcom.
+Prawda, jednak, że i o nią tu chodzi, najdroż...
+W domu pakowano na gwałt rzeczy, daleko bowiem było do kolei, a Krasnostawski - koniecznie chciał zdążyć jeszcze na wieczorny pociąg.
+Krasnostawski wydał okrzyk zdziwienia, taki sam drugi podpowiedział mu z zewnątrz powozu i odemknąwszy z hałasem drzwiczki, wyskoczył z niego zapylony Ładyżyński.
+W Gowartowie nie doszedłbyś nigdy do niczego, a szkoda młodość swoją zamykać tu i tracić!..
+Popołudniowa, przedobiednia godzina - cisza...
+- wykrzyknął Krasnostawski, szczerze zdziwiony.
+Pozwolisz pan, że mu zadam dwa pytania: czy masz pan dobrą pamięć i dokąd pan jedziesz?
+Otóż pewnego wieczora, zaprzysięgając sobie w duszy uroczyście, że puści w trąbę swoją magnifikę, idzie Topolski do niej na ostatnie randez vous...
+- Dziękuję panu za opowiadanie - pośpieszył z odpowiedzią, Krasnostawski.
+- krzyknął, zwracając się energicznie do furmana...
+Następny pociąg miał przyjść już wkrótce, poszedł więc do kasy, kupił bilet, a wróciwszy na platformę, usiadł na ławeczce samotny.
+Gwizd donośny przeszył powietrze, na dworzec z hukiem, szumem, w kłębach pary wpadł pociąg kuryerski.
+Przyjemnym chłodem w przeciwstawieniu do panującego na dworze upału; powiało nań z wnętrza tumu i milczeniem skupionem, powagi i - majestatu pełnem...
+Za progiem świątyni, rzeczywiście cudem po prostu jakimś, powróciła mu samowiedza i względna równowaga umysłowa..
+A potem niezrozumiałego już coś coś tylko, niedosłyszalnego poczynają naraz szeptać cicho do siebie Dzierżymirskiego usta.
+Krocząc zaś tak powoli, myśli: Nareszcie...
+Słońce, zniżające się już stopniowo coraz bardziej, złoci teraz rzęsiście rój białych postaci...
+Życie całe dotąd opromieniała mu Ola miłością swą, bez granic...
+Z bólem jutra, łączy się w nim zarazem jakiś bunt niewytłumaczony do świata, do ludzi - do życia!...
+- Wszak tam wszyscy czekają teraz ode mnie wyjaśnienia o pieniężnej zgubie, którego dać im, niestety, nie potrafię.
+A mleczno-białe, ciche i zadumane dotąd sennie posągi pomników ocknęły się po prostu jakby ożyły...
+Ja tam, do nich wrócić nie mogę, to przechodzi siły moje!..
+A wkoło niego tymczasem gaśnie już całkiem łuna zachodu...
+Cienie pochylają się ciekawie nad nią, dotykają jej ciała, zaglądają w twarz, dziwnie bladą.
+Wreszcie z wieżyc jednego z pobliskich kościołów odezwały się poważnie i rzewnie żałobne dzwony i smutne - zabrzmiały donośnie.
+Na pierwszorzędnej ulicy w mieście przywrócono ruch natychmiast.
+- skarżył się głośno żebrak stary, wyciągając dłoń kościstą do przechodzących właśnie aleją trzech ładniutkich podlotków, rozmawiających wesoło.
+Jarzący się tylko blask lampek czerwonych, któremi ozdobiono grób sąsiedni, rzucał nań niepewne, dalekie światło.
+Młody głosik dziewczęcy pierwszy przerwał nieśmiało milczenie cmentarnego zakątka.

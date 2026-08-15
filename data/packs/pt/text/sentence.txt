@@ -1,34 +1,504 @@
 ---
-description: Filler sentence (original neutral Portuguese prose, no country-specific vocabulary)
+description: pt filler sentences from public-domain books (Project Gutenberg); see data/sources/pt/text/README.md
 locale: pt
 ---
-A manhã foi tranquila e a cidade ainda dormia sob uma neblina ligeira.
-Abriu a janela e respirou o ar frio do dia que começava.
-O caminho perdia-se ao longe, entre colinas e campos de trigo.
-Havia muito que não voltava, mas tudo lhe parecia familiar.
-Sobre a mesa estava um livro aberto e uma chávena de chá já frio.
-Ao longe ouvia-se o rumor do rio e o canto dos pássaros.
-Ninguém disse nada durante um longo momento e o silêncio não incomodou ninguém.
-A casa ficava ao fundo da rua, atrás de um muro baixo de pedra.
-Guardou as chaves no bolso e fechou a porta sem fazer barulho.
-O sol da tarde entrava pela janela e aquecia o chão de madeira.
-Caminharam juntos até à praça sem combinarem o destino.
-A resposta chegou uma semana depois, quando já quase a esquecera.
-As árvores do parque tinham crescido muito desde a última vez.
-Sentou-se no banco e viu passar as pessoas durante meia hora.
-O inverno chegou cedo naquele ano e surpreendeu toda a gente.
-Acendeu a pequena lâmpada e continuou a trabalhar até muito tarde.
-Da varanda via-se o mar, apenas uma linha azul entre os edifícios.
-Perguntou pelo caminho e apontaram-lhe uma rua estreita a subir.
-Tudo estava no seu lugar, embora ninguém ali vivesse há anos.
-O comboio parou uns minutos e depois continuou a sua marcha.
-Lembrava-se do cheiro da cozinha melhor do que das palavras daquela noite.
-A carta era curta e não explicava quase nada.
-Levantou-se cedo para aproveitar a luz da manhã.
-O cão seguiu-os até ao fim do trilho e ali ficou.
-Contou a história devagar, como se a recordasse pela primeira vez.
-A cidade mudava de aspeto quando chegavam as primeiras chuvas.
-Deixou o trabalho a meio e saiu para dar uma volta.
-O relógio da torre marcava uma hora que já não era a certa.
-Aprendeu a esperar sem impaciência, o que era o mais difícil.
-No dia seguinte tudo pareceu mais simples do que imaginara.
+Uma noite destas, vindo da cidade para o Engenho Novo, encontrei no trem da Central um rapaz aqui do bairro, que eu conheço de vista e de chapéo.
+No dia seguinte entrou a dizer de mim nomes feios, e acabou alcunhando-me Dom Casmurro.
+O meu poeta do trem ficará sabendo que não lhe guardo rancor.
+A casa em que moro é propria; fil-a construir de proposito, levado de um desejo tão particular que me vexa imprimil-o, mas vá lá.
+Quando fomos para a casa de Matacavallos, já ella estava assim decorada; vinha do decennio anterior.
+Pois, senhor, não consegui recompor o que foi nem o que fui.
+Duas ou tres fariam crer nella aos outros, mas a lingua que falam obriga muita vez a consultar os diccionarios, e tal frequencia é cançativa.
+Quiz variar, e lembrou-me escrever um livro.
+Eia, comecemos a evocação por uma celebre tarde de Novembro, que nunca me esqueceu.
+--Ha algum tempo estou para lhe dizer isto, mas não me atrevia.
+Capitú fez quatorze á semana passada; são dous creançolas.
+Bentinho ha de satisfazer os desejos de sua mãe.
+O que eu quero é dizer que o clero ainda tem grande papel no Brasil.
+Comtudo, uma promessa de tantos annos...
+Levantou-se para ir buscar o gamão, que estava no interior da casa.
+O rodaque de chita, veste caseira o leve, parecia nelle uma casaca de cerimonia.
+Um dia appareceu alli vendendo-se por medico homeopatha; levava um Manual e uma botica.
+Voltou dalli a duas semanas, acceitou casa e comida sem outro estipendio, salvo o que quizessem dar por festas.
+--Creio que sim; o mais acertado, porém, é dizer que foram os remedios indicados nos livros.
+Minha mãe ficou-lhe muito grata, e não consentiu que elle deixasse o quarto da chacara; ao setimo dia, depois da missa, elle foi despedir-se della.
+Ao cabo, era amigo, não direi optimo, mas nem tudo é optimo neste mundo.
+E minha mãe, que era religiosa, gostou de ver que elle punha Deus no devido logar, e sorriu approvando.
+Formado para as serenas funccões do capitalismo, tio Cosme não enriquecia no fòro: ia comendo.
+Era gordo e pesado, tinha a respiração curta e os olhos dorminhocos.
+Raramente a besta deixava de mostrar por um gesto que acabava de receber o mundo.
+--Mana Gloria, pois um tamanhão destes tem medo de besta mansa?
+Quando lhe morreu o marido, Pedro de Albuquerque Santiago, contava trinta e um annos de edade, e podia voltar para Itaguahy.
+Era ainda bonita e moça, mas teimava em esconder os saldos da juventude, por mais que a natureza quizesse preserval-a da acção do tempo.
+O pescoço sae de uma gravata preta de muitas voltas, a cara é toda rapada, salvo um trechosinho pegado ás orelhas.
+Nenhum premiado as accusou ainda de immoraes, como ninguem tachou de má a boceta de Pandora, por lhe ter tirado a esperança no fundo; em alguma parte ha de ella ficar.
+Mas é tempo de tomar áquella tarde de Novembro, uma tarde clara e fresca, socegada como a nossa casa e o trecho da rua em que moravamos.
+Já não tinha voz, mas teimava em dizer que a tinha.
+Vinha aqui jantar commigo algumas vezes.
+Póde ser tambem que a musica em demasia doce e mystica daquelles outros condiscipulos fosse aborrecivel ao seu genio essencialmente tragico.
+--Senhor, não desapprendi as licções recebidas, disse-lhe.
+Basta-me haver composto o libretto; estou prompto a dividir comtigo os direitos de autor.
+Certos motivos cançam á força de repetição.
+Este ponto é contestado pelos satanistas com alguma apparencia de razão.
+Um dia, quando todos os livros forem queimados por inuteis, ha de haver alguem, póde ser que tenor, e talvez italiano, que ensine esta verdade aos homens.
+Cantei um duo ternissimo, depois um trio, depois um quatuor...
+Os projectos vinham do tempo em que fui concebido.
+Minha mãe esperou que os annos viessem vindo.
+Voltava com ella, arranjavamos o altar, engrolavamos o latim e precipitavamos as cerimonias.
+Minha mãe ficava muita vez a olhar para mim, como alma perdida, ou pegava-me na mão, a pretexto de nada, para apertal-a muito.
+Passaros, borboletas, uma cigarra que ensaiava o estio, toda a gente viva do ar era da mesma opinião.
+E comecei a recordar esses e outros gestos e palavras, o prazer que sentia quando ella me passava a mão pelos cabellos, dizendo que os achava lindissimos.
+Pois, francamente, só agora entendia a emoção que me davam essas e outras confidencias.
+E as minhas pernas andavam, desandavam, estacavam, tremulas e crentes de abarcar o mundo.
+Havia alli uma porta de communicação mandada rasgar por minha mãe, quando Capitú e eu éramos pequenos.
+--Deixa de estar esburacando o muro; vem cá.
+O rumor da porta fel-a olhar para traz; ao dar commigo, encostou-se ao muro, como se quizesse esconder alguma cousa.
+Morena, olhos claros e grandes, nariz recto e comprido, tinha a bocca fina e o queixo largo.
+Mas todo esse calculo foi obscuro e rapido; senti que não poderia falar claramente, tinha agora a vista não sei como...
+Foi o mesmo que accender em mim o desejo de ler o que era.
+Confissão de creanças, tu valias bem duas ou tres paginas, mas quero ser poupado.
+Os olhos fitavam-se e desfitavam-se, e depois de vagarem ao perto, tornavam a metter-se uns pelos outros...
+As mãos, unindo os nervos, faziam das duas creaturas uma só, mas uma só creatura seraphica.
+Capitú riscava sobre o riscado, para apagar bem o escripto.
+--Estavamos, sim, senhor, mas Bentinho ri logo, não aguenta.
+E melhor é naturalmente cedo que artificialmente tarde.
+Meu desejo era ir atraz de Capitú e falar-lhe agora do mal que nos esperava, mas o pae era o pae, e demais amava particularmente os passarinhos.
+Padua era empregado em repartição dependente do ministerio da guerra.
+Nem foi só nessa occasião que minha mãe lhes valeu; um dia chegou a salvar a vida ao Padua.
+Uma tarde entrou em nossa casa, afflicto e desvairado, ia perder o logar, porque chegara o effectivo naquella manhã.
+Lembre-se que sua mulher não tem outra pessoa...
+Não, senhor, devia ser homem, pae de familia, imitar a mulher e a filha...
+Padua começou a interessar-se pelos negocios domesticos, a cuidar dos passarinhos, a dormir tranquillo as noites e as tardes, a conversar e dar noticias da rua.
+A administração ficou sendo a hegyra, donde elle contava para deante e para traz.
+--Justamente; havia já seis mezes que eu administrava...
+Pae nem mãe foram ter comnosco, quando Capitú e eu, na sala de visitas, falavamos do seminario.
+Então eu, para dar forca ás affirmações, comecei a jurar que não seria padre.
+Capitú gostava tanto de minha mãe, e minha mãe della, que eu não podia entender tamanha explosão.
+Eu, assustado, não sabia que fizesse; repetia os juramentos, promettia ir naquella mesma noite declarar em casa que, por nada neste mundo, entraria no seminario.
+--Acho que nenhum; foi só para fazer mal.
+Elle chegou a mostrar-se arrependido, e saiu; eu então, para não ser apanhado, deixei o canto e corri para a varanda.
+A reflexão não era cousa rara nella, e conheciam-se as occasiões pelo apertado dos olhos.
+Fiquei tão satisfeito de ver que assim espontaneamente reparava as injurias que lhe sairam do peito, pouco antes, que peguei da mão della e apertei-a muito.
+Dito isto, espreitou-me os olhos, mas creio que elles não lhe disseram nada, ou só agradeceram a boa intenção.
+--Não importa, continuou Capitú; dirá agora outra cousa.
+Você não se lembra como é que foi ao theatro pela primeira vez, ha dous mezes?
+Paulo era um fragil biombo, destinado a ser arredado um dia, em vez da grossa parede espiritual e eterna.
+Formulei o pedido de cabeça, escolhendo as palavras que diria e o tom dellas, entre secco e benevolo.
+Era ao outro ceu que eu erguia a minha alma; era ao meu refugio, ao meu amigo.
+Desde pequenino acostumara-me a pedir ao ceu os seus favores, mediante orações que diria, se elles viessem.
+O ceu fazia-me o favor, eu adiava a paga.
+Cogitei muito no modo de resgatar a divida espiritual.
+Veiu ao patamar e perguntou-me onde estivera.
+Quiz saber se eu não esquecera os projectos ecclesiasticos de minha mãe, e dizendo-lhe eu que não, inquiriu-me sobre o gosto que eu tinha á vida de padre.
+Prima Justina completou a noticia dizendo que ainda naquella tarde José Dias lembrára a minha mãe a promessa antiga.
+perguntei, a ver se ella contava a denuncia do meu namoro com a visinha.
+Você ainda era pequenino, já ella contava isto a todas as pessoas da nossa amizade, ou só conhecidas.
+Não disse mal della; ao contrario insinuou-me que podia vir a ser uma moça bonita.
+Ciumes não podiam ser; entre um pirralho da minha edade e uma viuva quarentona não havia logar para ciumes.
+Os castellos e os parques saíam maiores da bocca delle, os lagos tinham mais agua e a "abobada celeste" contava alguns milhares mais de estrellas centelhantes.
+--Não importa, disse-me José Dias; podemos apear-nos á porta do Passeio Publico.
+Ajudava assim o mestre de primeiras lettras.
+--Quando era mais joven; em creança, era natural, elle podia passar por creado.
+Padua tem uma tendencia para gente réles.
+--Vejo que o senhor não quer senão o meu beneficio, disse eu depois de alguns instantes.
+Estou por tudo o que ella quizer; mamãe sabe que eu faço tudo o que ella manda; estou prompto a ser o que fôr do seu agrado, até cocheiro de omnibus.
+Toda a cara delle era pouca para a estupefacção.
+Tio Cosme diz que o senhor é pessoa de talento...
+O talento que seu tio acha em mim confesso que o tenho, mas é só um,--é o talento de saber o que é bom e digno de admiração e de apreço.
+--Não é tarde, ainda é tempo, se o senhor quizer.
+--É tarde, disse elle; mas, para lhe provar que não ha falta de vontade, irei falar a sua mãe.
+Gloria, mas não conte só commigo; fale tambem a seu tio.
+Peça-lhe a sua felicidade, que eu não faço outra cousa...
+Podemos ir juntos; veremos as terras estranjeiras, ouviremos inglez, francez, italiano, hespanhol, russo e até sueco.
+Não contava com esta possibilidade de ir commigo, e lá ficar durante a eternidade dos meus estudos.
+José Dias ia tão contente que trocou o homem dos momentos graves, como era á rua, pelo homem dobradiço e inquieto.
+Não vi que a mudança era natural; temi que houvesse mudado a resolução assentada, e entrei a tratal-o com palavras e gestos carinhosos, até entrarmos no omnibus.
+Vi então o imperador escutando-me, reflectindo e acabando por dizer que sim, que iria falar a minha mãe; eu beijava-lhe a mão, com lagrimas.
+--Mande ensinar-lhe medicina; é uma bonita carreira, e nós temos aqui bons professores.
+É uma bonita carreira; mande-o para a nossa Escola.
+Era muito longe, muito mar e muito tempo.
+Quando o sacristão começou a distribuir as opas, entrou um sujeito esbaforido; era o meu visinho Padua, que tambem ia acompanhar o Santissimo.
+--Mas eu tinha pedido primeiro, aventurou Padua.
+Não, uma vez que tinhamos outra vara disponivel, pedia-a para mim, "joven seminarista", a quem esta distincção cabia mais direitamente.
+Foi elle mesmo que me contou e explicou isto, cheio de uma gloria pia e risonha.
+É uma metaphora, não acho outra fórma mais viva de dizer a dôr e a humilhação do meu visinho.
+O vigário confessou a doente, deu-lhe a communhão e os santos oleos.
+Apesar de substituido por mim, não acabava de se consolar da tocha, da miseravel tocha.
+--Não marcou dia; prometteu que ia ver, que falaria logo que pudesse, e que me pegasse com Deus.
+Capitú era Capitú, isto é, uma creatura mui particular, mais mulher do que eu era homem.
+Capitú confessou-me um dia que esta razão accendeu nella o desejo de o saber.
+Perfeição não era; ao contrario, os olhos sairam esbogalhados, e os cabellos eram pequenos circulos uns sobre outros.
+José Dias dava-lhe essas noticias com certo orgulho de erudito.
+Um homem que dava a uma senhora uma perola do valor de seis milhões de sestercios!
+Tudo era materia ás curiosidades de Capitú.
+Fui devagar, mas ou o pé ou o espelho traiu-me.
+Eu já nem sei se José Dias poderá influir tanto; acho que fará tudo, se sentir que você realmente não quer ser padre, mas poderá alcançar...?
+A eternidade tem as suas pendulas nem por não acabar nunca deixa de querer saber a duração das felicidades e dos supplicios.
+Peguei-lhe dos cabellos, colhi-os todos e entrei a alisal-os com o pente, desde a testa até ás ultimas pontas, que lhe desciam á cintura.
+O trabalho era atrapálhado, ás vezes por desaso, outras de proposito, para desfazer o feito e refazel-o.
+Em cima da mesa, um triste pedaço de fita enxovalhada.
+Pedi-lhe que levantasse a cabeça, podia ficar tonta, machucar o pescoço.
+Preso, atordoado, não achava gesto nem impeto que me descolasse da parede e me atirasse a ella com mil palavras callidas e mimosas...
+acudiu a mãe, transbordando de benevolencia.
+Vendo-me calado, enfiado, cosido á parede, achou talvez que houvera entre nós algo mais que penteado, e sorriu por dissimulação...
+Andando, ouvi que a mãe censurava as maneiras da filha, mas a filha não dizia nada.
+Suppuz que me tivessem ouvido, porque a palavra saiu em voz alta, e corri á porta da alcova.
+As proprias mãos tocadas, apertadas, como que fundidas, não podiam dizer tudo.
+Não corri precisamente; a meio caminho parei, advertindo que devia ser muito tarde, e podiam ler-me no semblante alguma cousa.
+O padre Cabral recebera na vespera um recado do internuncio; foi ter com elle, e soube que, por decreto pontificio, acabava de ser nomeado protonotario apostolico.
+Estava em pé, dava alguns passos, sorria ou tamborilava na tampa da boceta.
+Eu, voltando a mim do receio, entendi que devia comprimental-o tambem, e este applauso não lhe foi menos ao coração que os outros.
+--O protonotario Santiago, accentuou Cabral.
+Deixei-os, a pretexto de brincar, e fui-me outra vez a pensar na aventura da manhã.
+Quando alli cheguei, dei com ella na sala, na mesma sala, sentada na marqueza, almofada no regaço, cosendo em paz.
+Fui ter com ella, e perguntei se a mãe havia dito alguma cousa; respondeu-me que não.
+II: "A sua mão esquerda se pôz já debaixo da minha cabeça, e a sua mão direita me abraçará depois." Vedes ahi a chronologia dos gestos.
+Eu não, que já sou meia moça, concluiu rindo.
+Não imitava ninguem; não vivia com rapazes, que me ensinassem anecdotas de amor.
+Ficámos naquelle luta, sem estrepito, porque apesar do ataque e da defesa, não perdiamos a cautela necessaria para não sermos ouvidos lá de dentro; a alma é cheia de mysterios.
+Era o pae de Capitú, que voltava da repartição um pouco mais cedo, como usava ás vezes.
+--Mas, Bentinho, que ó protonotario apostolico?
+Capitú repeliu-lhe o que ouvira de mim, e opinou logo que o pae devia ir comprimentar o padre em casa delle; ella iria á minha.
+A voce não se pergunta; essa cara é mesmo de quem vende saude.
+Não havendo vocação, falo de vocação sincera e real, um joven póde muito bem estudar as lettras humanas, que tambem são uteis e honradas.
+exclamou José Dias triumphalmente, olhando em volta de si.
+Mas, supponha que não acontecia assim, e que eu não mudava de vocação, o que é que acontecia?
+Duas vezes fui á janella, esperando que ella fosse tambem, e ficassemos á vontade, sósinhos, até acabar o mundo, se acabasse, mas Capitú não me appareceu.
+Falava baixinho; pegou-me na mão, e poz o dedo na bocca.
+Creio haver lido em Tacito que as eguas iberas concebiam pelo vento; se não foi nelle, foi n'outro autor antigo, que entendeu guardar essa crendice nos seus livros.
+Toda assustada, quiz saber o que é que me doia, se a cabeça, se o peito, se o estomago, e apalpava-me a testa para ver se tinha febre.
+Nem por isso permittiu adiar a confidencia, pegou em mim, levou-me ao quarto della, accendeu vela, e ordenou-me que lhe dissesse tudo.
+Ella afagou-me, depois quiz reprehender-me, mas creio que a voz lhe tremia, e pareceu-me que tinha os olhos humidos.
+Quantas intenções viciosas ha assim que embarcam, a meio caminho, n'uma phrase innocente e pura!
+Em casa, quando José Dias te chamava Reverendissimo, tu rias com tanto gosto!
+Molleza é o que queria dizer, que me deixasse de molleza, que me fizesse homem e obedecesse ao que cumpria, em beneficio della e para bem da minha alma.
+Está entendido: no primeiro ou no segundo mez do anno que vem, irás para o seminario.
+Quizera um modo de pagar a divida contrahida, outra moeda, que valesse tanto ou mais, e não achava nenhuma.
+Capitú ouvia-me com attenção sofrega, depois sombria; quando acabei, respirava a custo, como prestes a estalar de colera, mas conteve-se.
+Era pouco, mas distraía-me da afflicção.
+De repente, cessando a reflexão, fitou em mim os olhos de ressaca, e perguntou-me se tinha medo.
+Sem saber de mim, e, não querendo interrogal-a novamente, entrei a cogitar d'onde me viriam pancadas, e porque, e tambem porque é que seria preso, e quem é que me havia de prender.
+Desculpe que eu hoje estou meia maluca; quero brincar, e...
+Em seguida, acompanhou-me ao quintal para se despedir de mim; mas, ainda ahi nos detivemos por alguns minutos, sentados sobre a borda do poço.
+Capitú olhou para mim, mas de um modo que me fez lembrar a definição de José Dias, obliquo e dissimulado; levantou o olhar, sem levantar os olhos.
+--Você deixa seminario, deixa sua mãe, deixa tudo, para me ver morrer?
+Fortunata chegara uma vez á porta da casa, mas entrou logo depois.
+Como desforço, era pueril; mas eu sentia a secreta esperança de vel-a atirar-se a mim lavada em lagrimas.
+Mas talvez nesse tempo a moda seja outra.
+--Pois, sim, Capitú, você ouvirá a minha missa nova, mas com uma condição.
+Promette-me que seja eu o padre que case você?
+Mas, se o não fez antes e só agora, fio que torne a pegar do livro e que o abra na mesma pagina, sem crer por isso na veracidade do autor.
+As pazes fizeram-se como a guerra, depressa.
+Fortunata appareceu á porta da casa; não sei para quê, se nem me deixou tempo de puxar o braço; desappareceu logo.
+--Está bom, acabou, disso eu finalmente; mas, explique-me só uma cousa, porque é que você me perguntou se eu tinha medo de apanhar?
+As andorinhas vinham agora em sentido contrario, ou não seriam as mesmas.
+Capitú não hesitou em jurar, e até lhe vi as faces vermelhas de prazer.
+Mas juremos por outro modo; juremos que nos havemos de casar um com outro, haja o que houver.
+Esta formula era melhor, e tinha a vantagem de me fortalecer o coração contra a investidura ecclesiastica.
+Ao contrario, qualquer resistencia ao seminario confirmaria a denuncia de José Dias.
+Se fosse em arrabalde, seria longe, onde ninguem nos fosse aborrecer.
+Ha nisto alguma exageração; mas é bom ser emphatico, uma ou outra vez, para compensar este escrupulo de exactidão que me afflige.
+Dava a minha mãe um perdão antecipado, fazendo vir do credor a relevação da divida.
+--Minha filha, você vae perder o seu companheiro de creança...
+Entrou a achar em Capitú uma porção de graças novas, de dotes finos e raros; deu-lhe um anel dos seus e algumas galanterias.
+Jurámos novamente que haviamos de casar um com outro, e não foi só o aperto de mão que sellou o contracto, como no quintal, foi a conjuncção das nossas boccas amorosas...
+Quanto ao sello, Deus, como fez os mãos limpas, assim fez os labios limpos, e a malicia está antes na tua cabeça perversa que na daquelle casal de adolescentes...
+Minha mãe disse-lhe que fosse falar-me ao quarto.
+Se algum dia perder sua mãe e seu tio,--cousa que eu, por esta luz que me allumia, não desejo, porque são boas pessoas, excedentes pessoas, e eu sou grato ás finezas recebidas...
+Quero só que me não esqueça; não esqueça o velho Padua...
+Vou dai-o á velha, para guardal-o, ou á pequena, que é mais cuidadosa que a mãe.
+Como eu achasse muito breve, explicou-se.
+Se lhe disserem que póde apprender na Escola de Medicina aquella parte da sciencia commum a todos os systemas, é verdade; a allopathia é erro na therapeutica.
+Ordenou-se: annos depois encontrei-o no còro de S.
+Contrario a isso foi um seminarista que não seguiu a carreira.
+Como eu precisasse de algumas informações, fui pedir-lh'as, e seria impossivel achar melhor nem mais prompta vontade; deu-me tudo, claro, certo, copioso.
+Não me lembrou logo, mas a explicação devia bastar; e depois de alguns instantes de pesquiza mental, respondi que por muito tempo o conservára, mas as mudanças, as viagens...
+Os annos passam, os acontecimentos vêm uns sobre outros, e as sensações tambem, e vieram amizades novas, que tambem se foram depois, como é lei da vida...
+A insonmia, musa de olhos arregalados, não me deixou dormir uma longa hora ou duas; as cocegas pediam-me unhas, e eu coçava-me com alma.
+Capitú, naturalmente; mas podia ser a virtude, a poesia, a religião, qualquer outro conceito a que coubesse a metaphora da flòr, e flòr do ceu.
+Recitei uma e muitas vezes a chave de ouro; depois repeti os dous versos seguidamente, e dispuz-me a ligal-os pelos doze centraes.
+A sensação que tive é que ia sair um soneto perfeito.
+Não tinha janella; se tivesse, é possivel que fosse pedir uma ideia á noite.
+Tudo é dar-lhe uma ideia e encher o centro que falta.
+Era um rapaz esbelto, olhos claros, um pouco fugitivos, como as mãos, como os pés, como a fala, como tudo.
+Uma cousa não seria tão fugitiva, como o resto, a reflexão; iamos dar com elle, muita vez, olhos enfiados em si, cogitando.
+Este era homem de fortes sentimentos catholicos.
+De facto, eram simples e affectuosas, cheias de caricias e conselhos.
+A alma da gente, como sabes, e uma casa assim disposta, não raro com janellas para todos os lados, muita luz e ar puro.
+Não é que a materia não ache termos honestos em nossa lingua, que é casta para os castos, como póde ser torpe para os torpes.
+as proporções dos acontecimentos e a copia delles, fica robusto e disposto, e o mal é menor mal.
+--Este gosto de imitar as francezas da rua do Ouvidor, dizia-me José Dias andando e commentando a queda, é evidentemente um erro.
+Creio que foi "manha" que elle disse; eu fiquei "nos joelhos arranhados".
+As batinas traziam ar de saias, e lembravam-me a quéda da senhora.
+Vindo o mal pela manha adeante, tentei vencel-o, mas por um modo que o não perdesse de todo.
+Um antigo dizia arrenegar de conviva que tem boa memoria.
+Juro só que não eram amarellas porque execro essa côr; mas isso mesmo póde ser olvido e confusão.
+É que tudo se acha fóra de um livro falho, leitor amigo.
+Querido opusculo, tu não prestavas para nada, mas que mais presta um velho par de chinellas?
+Para que não aconteça o mesmo aos outros profissionaes que por ventura me lerem, melhor é poupar ao editor do livro o trabalho e a despeza da gravura.
+Gloria enxugou furtivamente uma lagrima.
+Não lhe perguntei o que é que tinha, já por acanhamento, já porque dous lentes, um delles de theologia, vinham caminhando na nossa direcção.
+Para a viagem da existencia, concluiu demorando mais as palavras, irá ungido com os santos oleos da theologia...
+--Já, meu anjo, não póde ser; mas póde succeder que muito antes do que imaginamos.
+Tenho agora um plano, que me parece melhor que outro qualquer.
+--Mostrar a verdade, porque, francamente, Bentinho, eu ha mezes que desconfio do seu peito.
+--Bem, mas em saindo daqui não ha de ser para embarcar logo; saio primeiro, depois cuidaremos do embarque; o embarque é que póde ficar para o anno.
+Comprehendi isto depois que falei; quiz emendar-me, mas nem soube como, nem elle me deu tempo.
+Ha alguma exageração nisto; mas o discurso humano é assim mesmo, um composto de partes excessivas e partes diminutas, que se compensam, ajustando-se.
+Tal foi o que me mordeu, ao repetir commigo as palavras de José Dias: " Algum peralta da visinhança." Em verdade, nunca pensara em tal desastre.
+Quando tornei a mim, José Dias concluía uma phrase, cujo principio não ouvi, e o mesmo fim era vago: "A conta que dará de si." Que conta e quem?
+Tudo isto é obscuro, dona leitora, mas a culpa é do vosso sexo, que perturbava assim a adolescencia de um pobre seminarista.
+Disse-me que esta symetria de algarismos era mysteriosa e bella, e provavelmente a roda andára mal; era impossivel que não devesse ter a sorte grande.
+Peguei-lhe nas mãos, resmunguei não sei que palavras, e accordei sósinho no dormitorio.
+Não sonhei mais aquella noite, e dei mal as licções daquelle dia.
+Outrosim, como te disse no capitulo II, o meu fim em imitar a outra foi ligar as duas pontas da vida, o que aliás não alcancei.
+Quando elles moravam na ilha que Luciano lhes deu, onde ella tinha o seu palacio, e donde os fazia sair com as suas caras de varia feição, dar-me-hia explicações possiveis.
+Chegou o sabbado, chegaram outros sabbados, e eu acabei affeiçoando-me á vida nova.
+Outra cousa em que obedeci ás suas reflexões foi, logo no primeiro sabbado, quando eu fui á casa della, e, após alguns minutos de conversa, me aconselhou a ir embora.
+--E você, Capitú, interrompeu minha mãe voltando-se para a filha do Padua que estava na sala, com ella,--você não acha que o nosso Bentinho dará um bom padre?
+Para mim, basta o nosso juramento de que nos havemos de casar um com outro.
+Capitú ia agora entrando na alma de minha mãe.
+Tambem gostaria de minha mãe, ou se algum mal pensou della foi entre si e o travesseiro.
+Comtudo, a intimidade de Capitú fel-o mais aborrecivel á minha parenta.
+Como minha mãe adoecesse de uma febre, que a pòz ás portas da morte, quiz que Capitú lhe servisse de enfermeira.
+Posso morrer, e a minha alma não se salva, se Bentinho não estiver ao pé de mim.
+O coração batia-me com força, as pernas bambeavam-me, mais de uma vez cuidei cair...
+A casa não era logo alli, mas muito além da dos Invalidos, perto da do Senado.
+Mas a pena trazia tanto amor, que não podia ser pezar do meu peccado; mas então era sempre a morte de minha mãe...
+Enxuguei os olhos, posto que de todas as palavras de José Dias uma só me ficasse no coração; foi aquelle gravissimo.
+Padre que me lês, perdoa este recurso; foi a ultima vez que o empreguei.
+Eu confessarei tudo o que importar á minha historia.
+Nem perderás em esperar, meu amigo; ao contrario, acóde-me agora que...
+O aggregado quiz ir commigo, e principiou a vestir-se, mas era tão lento nos suspensorios e nas presilhas, que não pude esperar por elle.
+Rezei ainda, persignei-me, fechei o livro de missa e caminhei para a porta.
+Vi então uma moça e um homem, que saíam da egreja e pararam; e a moça olhava para mim falando ao homem, e o homem olhava para mim, ouvindo a moça.
+--Manda-se lá um preto dizer que o senhor fica almoçando, e irá mais tarde.
+Emfim, despedi-me, veiu ao patamar da escada; a filha deu-me rocommendações para Capitú e para minha mãe.
+Escobar reflectiu um instante e acabou dizendo que o correspondente do pae esperava por elle.
+Mostrei-lhe os poucos livros que possuia.
+Em casa, ficaram querendo bem a Escobar; a mesma prima Justina achou que era um moço muito apreciavel, apesar...
+Conservei-me á porta, a ver se, ao longe, ainda olharia para traz, mas não olhou.
+Elles chegam a seu tempo, até que o panno cae, apagam-se as luzes, e os espectadores vão dormir.
+Ashaverus, envergonhado, repetiu a palavra, agora mais alto, para advertir o contra-regra, mas ainda nada.
+Ora, o dandy do cavallo baio não passou como os outros; era a trombeta do juizo final e soou a tempo; assim faz o Destino, que é o seu proprio contra-regra.
+Na sala de visitas, tio Cosme e José Dias conversavam, um sentado, outro andando e parando.
+Escapei ao aggregado, escapei a minha mãe não indo ao quarto della, mas não escapei a mim mesmo.
+Duas vezes dei por mim mordendo os dentes, como se a tivesse entre elles.
+Ergui-me de golpe, mas não saí do quarto.
+Quiz resolver tudo, ouvil-a e julgal-a; podia ser que tivesse defesa e explicação.
+--E que poderia haver, se elle vae casar?
+Não é claro isto, mas nem tudo é claro na vida ou nos livros.
+Perguntava-me com interesse o que é que tivera, e se estava bom de todo.
+Mas a verdade é que não tenho aqui relações com ninguem, você é o primeiro e creio que já notaram; mas eu não me importo com isso.
+--Se precisa de absolvição, está absolvido.
+Nem cuides que pasmou de me ver namorado; achou até natural e espetou-me outra vez os olhos.
+Deus protegia os sinceros; uma vez que eu só podia servil-o no mundo, ahi me cumpria ficar.
+Que voltámos ao assumpto, não é preciso dizel-o.
+--Tambem eu fiquei gostando de todos, mas se é possivel fazer distincção, confesso-lhe que sua mãe é uma senhora adoravel.
+Uma só bastava a penetrar-lhe a essencia intima; sim, sim, minha mãe era adoravel.
+Basta de prefacio ao capitulo; vamos ao capitulo.
+Penso que lhe senti o sabor da felicidade no leite que me deu a mamar.
+O credor era archi-millionario, não dependia daquella quantia para comer, e consentiu nas transferencias de pagamento, sem sequer aggravar a taxa do juro.
+A vontade divina podia ser a minha vida, sem necessidade de lh'a dedicar ab ovo.
+Succedeu que a minha ausencia foi logo temperada pela assiduidade de Capitú.
+Has de ter tido conflictos parecidos com esse, e, se és religioso, haverás buscado alguma vez conciliar o ceu e a terra, por modo identico ou analogo.
+A verdade é que minha mãe não podia tel-a agora longe de si.
+Agora se entenderá que ella me dissesse, no primeiro sabbado, quando eu cheguei a casa, e soube que Capitú estava na rua dos Invalidos, com Sinhásinha Gurgel.
+Um dos erros da Providencia foi deixar ao homem unicamente os braços e os dentes, como armas de ataque, e as pernas como armas de fuga ou de defesa.
+Eis aqui um capitulo funebre como um cemiterio, mortes, suicidios e assassinatos.
+Falou-me, quiz que lhe falasse, e effectivamente conversámos por alguns minutos, mas tão baixo e abafado que nem as paredes ouviram, ellas que tèm ouvidos.
+Tambem me lembra, vagamente, que lhe expliquei a minha visita á rua dos Invalidos, com a pura verdade, isto é, a conselho de minha mãe.
+Ao contrario, Capitú ergueu-se naturalmente e perguntou-lhe se a febre augmentára.
+Gurgel, voltando-se para a parede da sala, onde pendia um retrato de moça, perguntou-me se Capitú era parecida com o retrato.
+Quanto ao genio, era um; pareciam irmãs.
+A casa era uma loja de louça, escassa e pobre; tinha as portas meio-cerradas, e a pessoa que me chamava era um pobre homem grisalho e mal vestido.
+Custa-me dizer isto, mas antes peque por excessivo que por diminuto.
+A simples noticia era já uma turvação grande.
+Se eu passasse antes ou depois, ou se o Manduca esperasse algumas horas para morrer, nenhuma nota aborrecida viria interromper as melodias da minha alma.
+Suspendamos a penna e vamos á janella espairecer a memoria.
+Diga-se tudo; Manduca padecia de uma cruel enfermidade, nada menos que a lepra.
+O pae perguntou-me se lhe faria o favor de ir ao enterro; respondi com a verdade, que não sabia, faria o que minha mãe quizesse.
+Chegara ao ultimo degrau, e uma ideia me entrou no cerebro, como se estivesse a esperar por mim, entre as grades da cancella.
+Era uma velha sege de meu pae, que ella conservou o mais que poude.
+Tudo incommodo, as botas, o chicote e as mulas, mas elle gostava e eu tambem.
+Mas o uso, esse era filho tambem do carrancismo que ella confessava aos amigos.
+Voltaria á rua dos Invalidos, a pretexto de saber de Sinházinha Gurgel.
+Uma vez que não ia ao enterro, antes longe que proximo.
+Manduca vivia no interior da casa, deitado na cama, lendo por desfastio.
+Naturalmente, iamos com o que nos diziam os jornaes da cidade, transcrevendo os de fóra, mas póde ser tambem que cada um de nós tivesse a opinião do seu temperamento.
+Ou gosto da polemica ou qualquer outra causa que não alcanço, não me deixou sentir toda a repugnancia que saía da cama e do doente, e o prazer com que lhe dei o papel foi sincero.
+Naturalmente a mim sobravam mil cousas que distrahiam, o estudo, os recreios, a familia, e a propria saude, que me chamava a outros exercicios.
+--Não imagina como elle anda agora, depois que o senhor lhe escreve aquelles papeis, dizia-me o dono da loja, uma vez, á porta da rua.
+O proprio Manduca, para entrar na sepultura, gastou tres annos de dissolução, tão certo é que a natureza, como a historia, não se faz brincando.
+É alguma cousa na liquidação da minha vida.
+Quero dizer que o meu visinho de Matacavallos, temperando o mal com a opinião anti-russa, dava á podridão das suas carnes um reflexo espiritual que as consolava.
+Já viste que não era assim, a palavra obedecia-lhe, mas o homem não é sempre o mesmo em todos os instantes.
+--São olhos reflectidos, opinou tio Cosme.
+Agradeceu, dizendo que eram bondades, e elogiou tambem minha mãe, senhora grave, distincta e moça, muito moça...
+Escobar escutava attento, perguntando mais, pedindo explicação das passagens omissas ou só escuras.
+--Todas as lettras do alphabeto, interrompeu Escobar.
+Algumas são bem grandes, como a da rua da Quitanda...
+A minha alegria accordava a delle, e o ceu estava tão azul, e o ar tão claro, que a natureza parecia rir tambem comnosco.
+Veja os algarismos: não ha dous que façam o mesmo officio; 4 é 4, e 7 é 7.
+Um 5 sósinho é um 5; ponha-lhe dous 00, é 500.
+olhe, dê-me o numero das casas de sua mãe e os alugueis de cada uma, e se eu não disser a somma total em dous, em um minuto, enforque-me!
+Olhava-me triumphalmente, e perguntava se não era exacto.
+--A modestia, disse-nos, não consente esses gestos excessivos; pódem estimar-se com moderação.
+É illusão, de certo, se não é effeito das longas horas que tenho estado a escrever sem parar.
+Ao primeiro aspecto, confesso que fiquei deslumbrado.
+--Parece-me bem, respondi depois de alguns segundos de reflexão.
+Não era natural que lhe confiasse tal assumpto.
+Paulo, que vivia do officio emquanto ia prégando a palavra divina.
+Falou a todos os meus sentimentos de catholico e de namorado.
+Capitú não achava outra ideia, nem acabava de adoptar esta.
+Capitú metteu o negocio á bulha, rindo e chamando-me disfarçado.
+Ha melhor,--não digo melhor, porque o Santo Padre vale sempre mais que tudo,--mas ha cousa que produz o mesmo effeito.
+--Sim, parece que é isso; realmente, a promessa cumpre-se, não se perdendo o padre.
+Escobar sorriu, parecendo gostar da resposta.
+Aqui devia ser o meio do livro, mas a inexperiencia fez-me ir atraz da penna, e chego quasi ao fim do papel, com o melhor da narração por dizer.
+Eu era um curiosissimo, diria o meu aggregado José Dias, e não diria mal.
+A prima Justina apenas estava mais edosa.
+Elle foi o terceiro na troca das cartas entre mim e Capitú.
+Nem depois de casado suspendeu elle o obsequio...
+E diga-me agora, mana Gloria, não foi melhor que elle não teimasse em ser padre?
+Sempre achei que te parecias com elle, agora é muito mais.
+Via o casamento e a carreira illustre, emquanto José Dias me ajudava calado e zeloso.
+Esta, por exemplo, muita vez a ouvi clara e distincta.
+você não confiou tudo ao velho José Dias!
+Temos falado sobre isso, e ella fez-me o favor de pedir a minha opinião.
+Padua, agora que se aposentou, não faz mais que receber o ordenado e entregal-o á filha.
+--Mamãe sempre que me escrevia, falava de Capitú.
+Foi em 1865, uma tarde do março, por signal que chovia.
+Ao cabo, póde ser que tudo fosse um sonho; nada mais natural a um ex-seminarista que ouvir por toda a parte latim e Escriptura.
+O pendulo iria de um lado para outro, mas nenhum signal externo mostraria a marcha do tempo.
+Perguntei-lhe se já estava aborrecida de mim.
+Não lhe bastava ser casada entre quatro paredes e algumas arvores; precisava do resto do mundo tambem.
+Imagina o resto, as aves emplumando as azas e surtindo ao ceu, e o ceu agora mais largo para poder contel-as tambem.
+Eu era advogado de algumas casas ricas, e os processos vinham chegando.
+Iamos sempre muito cedo, logo depois do almoço, para gozarmos o dia compridamente, e só nos separavamos ás nove, dez e onze horas, quando não podia ser mais.
+Deus os dará quando quizer, e se não der nenhum é que os quer para si, e melhor será que fiquem no ceu.
+Na Gloria era uma das nossas recreações; tambem cantava, mas pouco e raro, por não ter voz; um dia chegou a entender que era melhor não cantar nada e cumpriu o alvitre.
+--Sanchinha tambem não vae, ou irá de mangas compridas; o contrario parece-me indecente.
+Quanto ás puras economias de dinheiro, direi um caso, e basta.
+falava de Marte, emendou ella apressada.
+--Não é muito, dez libras só; é o que a avarenta de sua mulher poude arranjar, em alguns mezes, concluiu fazendo tinir o ouro na mão.
+Escobar sorriu e disse-me que estava para ir ao meu escriptorio contar-me tudo.
+É sabido que as distracções de uma pessoa pódem ser culpadas, metade culpadas, um terço, um quinto, um decimo de culpadas, pois que em materia de culpa a graduação é infinita.
+Os meus ciumes eram intensos, mas curtos; com pouco derrubaria tudo, mas com o mesmo pouco ou menos reconstruiria o ceu, a terra e as estrellas.
+A pequena era graciosa e gorducha, faladeira e curiosa.
+Tambem não caía, porque ha um deus para os paes novos.
+Assim que, não é preciso contar a dedicação de minha mãe e de Sancha, que tambem foi passar com Capitú os primeiros dias e noites.
+Escobar cumpriu o que disse; jantava comnosco, e ia-se á noite.
+Escobar acompanhava muita vez as minhas creancices; tambem interrogava o futuro.
+--Anda, toma o benção a teu padrinho, velhaco.
+Não houve remedio senão levar o menino á pia, onde se lhe deu o nome de Ezequiel; era o de Escobar, e eu quiz supprir deste modo a falta de compadrio.
+Vadio é aqui posto no bom sentido, no sentido de homem que pensa e cala; mettia-se ás vezes comsigo, e nisto fazia lembrar a mãe, desde pequena.
+Fiz, porém, o que ella não esperava; corri aos meus papeis velhos.
+Nunca lhe dei oratorios; mas cavallos de pau e espada á cinta eram com elle.
+--Mas, papae, porque é que elle não deixa cair a espada de uma vez?
+Ezequiel não disse nada, deteve-se, acocorou-se, e ficou olhando.
+Effectivamente, era um gato e um rato, lance banal, sem interesse nem graça.
+Os outros nem tiveram tempo de atalhar-me, Ezequiel ficou abatido.
+Foi quando nasceu Ezequiel; a mãe estava com febre, Sancha vivia ao pé della, e tres cães na rua latiam toda a noite.
+Fui-me a elle, assobiando e dando estalinhos com os dedos.
+O que faria com certeza era ir atraz dos cães, a pedrada, até onde lhe dessem as pernas.
+Capitú deixou-se estar pensando e olhando para mim, e disse afinal que era preciso emendal-o.
+Quando uma pessoa ou um grupo saem bem, ninguem quer saber de modelo, mas da obra, e a obra é que fica.
+Um visinho, um par de valsa, qualquer homem, moço ou maduro, me enchia de terror ou desconfiança.
+Era tarde para mandar o camarote a Escobar; saí, mas voltei no fim do primeiro acto.
+Confessou-me que apenas tivera uma dor de cabeça de nada, mas aggravára o padecimento para que eu fosse divertir-me.
+Em si, a materia é chocha, e não vale a pena de um capitulo, quanto mais dous; mas ha materias taes que trazem ensinamentos interessantes, senão agradaveis.
+Mas has de crer que, quando corri aos papeis velhos, naquelle noite da Gloria, tambem me não lembrava já da toada nem do texto?
+Purgatorio é uma casa de penhores, que empresta sobre todas as virtudes, a juro alto e prazo curto.
+Quando elle saiu, referi as minhas duvidas a Capitú; ella as desfez com a arte fina que possuia, um geito, uma graça toda sua, capaz de dissipar as mesmas tristezas de Olympio.
+Pois aqui mesmo valeu a arte fina de Capitú!
+Mas nada de melancolias; não quer falar dos olhos molhados, á entrada e á saida.
+Ezequiel ás vezes estava com ella; nós o havíamos acostumado a ver o osculo da chegada e da saida, e elle enchia-me a cara de beijos.
+O pae é que nos separou um pouco, em quanto não nos conheciamos, mas tudo acabou em bem.
+José Dias pediu para ver o nosso "prophetasinho" (assim chamava a Ezequiel) e fez-lhe as festas do costume.
+Gloria, tão bom que ella lhe deu um beijo em paga.
+Emfim, passei, accendi um charuto, e dei por mim no Cattete; tinha subido pela rua da Princeza, uma rua antiga...
+Não é que Escobar ainda lá more nem sequer viva; morreu pouco depois, por um modo que hei de contar.
+Agora que a comparação seja verdadeira é que não.
+Os dous pequenos passavam dias, ora no Flamengo, ora na Gloria.
+Tudo acaba, leitor; é um velho truismo, a que se póde accrescentar que nem tudo o que dura dura muito tempo.
+Sancha não tirava os olhos de nós durante a conversa, ao canto da janella.
+Pararam os quatro e ficaram deante uns dos outros, uns esperando que os outros passassem, mas nenhuns passavam.
+--O mar amanhã está de desafiar a gente, disse-me a voz de Escobar, ao pé de mim.
+Nem só os apalpei com essa ideia, mas ainda senti outra cousa: achei-os mais grossos e fortes que os meus, e tive-lhes inveja; accresce que sabiam nadar.
+Foi um instante de vertigem e de peccado.
+Ouvia-se o mar forte,--como já se ouvia de casa,--a ressaca era grande, e, a distancia, viam-se crescer as ondas.
+Eu recolhi-me ao meu gabinete, onde me demorei mais que de costume.
+Sancha e Capitú eram tão amigas que seria um prazer mais para ellas irem juntas.
+Entretanto, como a timidez vem do ceu, que nos dá a compleição, a virtude, filha della é, genealogicamente, o mesmo sangue celestial.
+Não faça isso, querida; eu mudo de rumo.
+Era uma bella photographia tirada um anno antes.
+Vesti-me, deixei recado a Capitú e corri ao Flamengo.
+--Vão fazer companhia a pobre Sanchinha; eu vou cuidar do enterro.
+Um ou outro discutia o recente gabinete Rio Branco; estavamos em Março de 1871.
+Chegando a casa, deitei aquellas emoções ao papel; tal seria o discurso.
+No meio della, Capitú olhou alguns instantes para o cadaver tão fixa, tão apaixonadamente fixa, que não admira lhe saltassem algumas lagrimas poucas e caladas...
+No carro disse a José Dias que se calasse.
+Um homem, que me pareceu jornalista, pediu-me licença para levar o manuscripto e imprimil-o.
+E impossivel que algum Homero não tirasse da minha situação muito melhor effeito, ou quando menos, egual.
+O que scismei foi tão escuro e confuso que não me deixou tomar pé.
+Assim se desvaneceu de todo a illusão da minha vaidade.
+Eram as duvidas que me affligiam ou a necessidade de affligir Capitú com a minha grande demora?
+Não attendeu a um freguez, e logo a outro, que alli foram, a despeito da hora e de ser domingo, confiar-lhe as caras á navalha.
+Se me não engano, chegou a dizel-o com os olhos.
+Suppõe agora que este, em vez de ir-se embora, como eu fui, ficava á porta a ouvil-o e a namorar-lhe a mulher; então é que elle, todo arco, todo rabeca, tocaria desesperadamente.
+Perguntei-lhe por que não ficára com Sancha aquella noite.
+Quando tornou trazia os olhos vermelhos; disse-nos que, ao mirar o filho dormindo pensára na filhinha de Sancha, e na afflicção da viuva.
+Pensei em recompôl-o, mas só achei phrases soltas, que uma vez juntas não tinham sentido.
+Na terça-feira foi aberto o testamento, que me nomeava segundo testamenteiro; o primeiro logar cabia á mulher.
+Sancha, peço-lhe que não leia este livro; ou, se o houver lido até aqui, abandone o resto.
+E propoz-me a Europa, Minas, Petropolis, uma serie de bailes, mil desses remedios aconselhados aos melancolicos.
+A ternura com que me disse isto era de commover as pedras.
+Olha, Ezequiel; olha firme, assim, vira para o lado de papae, não precisa revirar os olhos, assim, assim...
+Nem só os olhos, mas as restantes feições, a cara, o corpo, a pessoa inteira, iam-se apurando com o tempo.
+Mas o que pudesse dissimular ao mundo, não podia fazel-o a mim, que vivia mais perto de mim que ninguem.
+Cheiram tambem aos olhos de ressaca de Capitú.
+Levei-o a pé, pela mão, como levára o ataúde do outro.
+Ezequiel entrava turbulento, expansivo, cheio de riso e de amor, porque o demo do pequeno cada vez morria mais por mim.
+A vida é tão bella que a mesma ideia da morte precisa de vir primeiro a ella, antes de se ver cumprida.
+Sai, suppondo deixar a ideia em casa; ella veiu commigo.
+Ou de verdade ou por illusão, tudo alli me pareceu melhor nesse dia, minha mãe menos triste, tio Cosme esquecido do coração, prima Justina da lingua.
+Nos intervallos não me levantava da cadeira; não queria expôr-me a encontrar algum conhecido.
+Ceei, é verdade, um quasi nada, mas o bastante para ir até á manhã.
+Tirei o veneno do bolso, fiquei em mangas de camisa, e escrevi ainda uma carta, a ultima, dirigida a Capitú.
+O meu plano foi esperar o café, dissolver nelle a droga e ingeril-a.
+Ergui-me, guardei o livro, e fui para a mesa onde ficára a chicara.
+Assim disposto, entrei a passear no gabinete.
+Chamem-me embora assassino; não serei eu que os desdiga ou contradiga; o meu segundo impulso foi criminoso.
+Eis ahi outro lance, que parecerá de theatro, e é tão natural como o primeiro, uma vez que a mãe e o filho iam á missa, e Capitú não saía sem falar-me.
+--Ha tudo; não entendo as tuas lagrimas nem as de Ezequiel.
+Mas, haja ou não testemunhas alugadas, a minha era verdadeira; a propria natureza jurava por si, e eu não queria duvidar della.
+--Que se não dizem só metade; mas já que disse metade, diga tudo.
+--A separação é cousa decidida, redargui pegando-lhe na proposta.
+É natural; apesar do seminario, não acredita em Deus; eu creio...
+De bocca, porém, não confessou nada; repetiu as ultimas palavras, puxou do filho e sairam para a missa.
+Qualquer que fosse a razão do acto, rejeitei a morte, e esperei o regresso de Capitú.
+Acaso haveria em mim um homem novo, um que apparecia agora, desde que impressões novas e fortes o descobriam?
+Has de lembrar-te dellas; se não, relê o capitulo, cujo numero não ponho aqui, por não me lembrar já qual seja, mas não fica longe.
+Dentro, as minhas outras andorinhas estavam trepadas no ar, os olhos enfiados nos olhos, mas tão cautelosos que se desenfiaram logo, dizendo-me uma palavra amiga e alegre.
+As della eram submissas, sem odio, acaso affectuosas, e para o fim saudosas; pedia-me que a fosse ver.
+Não foi logo; minha mãe embarcou primeiro.
+A minha ideia é dar com tal palavra uma definição terrena de todas as virtudes que a finada possuiu na vida.
+O protonotario Cabral, se fosse vivo, confirmaria aqui o que lhe digo.
+José Dias assistiu a estas diligencias, com grande melancolia.
+Já então morava commigo; posto que minha mãe lhe deixasse uma pequena lembrança, veiu dizer-me que, com legado ou sem elle, não se separaria de mim.
+Pouco antes ouviu que o ceu estava lindo, e pediu que abrissemos a janella.
+Não é que haja effectivamente ligado as duas pontas da vida.
+No quintal a aroeira e a pitangueira, o poço, a caçamba velha e o lavadouro, nada sabia de mim.
+Deixei que demolissem a casa, e, mais tarde, quando vim para o Engenho Novo, lembrou-me fazer esta reproducção por explicações que dei ao architecto segundo contei em tempo.
+Ao entrar na sala, dei com um rapaz, de costas, mirando o busto de Massinissa, pintado na parede.
+Era o proprio, o exacto, o verdadeiro Escobar.
+Expliquei-lhe que realmente pouco diferia do que era, e comecei um interrogatorio para ter menos que falar e dominar assim a minha emoção.
+Teve seus minutos de aborrecimento, é verdade; a principio doeu-me que Ezequiel não fosse realmente meu filho, que me não completasse e continuasse.
+Contou-me a vida na Europa, os estudos, particularmente os de archeologia, que era a sua paixão.
+A ideia de que pudesse ter visto alguma photographia de Escobar, que Capitú por descuido levasse comsigo, não me acudiu, nem, se acudisse, persistiria.
+Não fomos; a morte levou-a dentro de poucos dias.
+Admirava-se que muitas destas fossem as mesmas que elle deixára, como se as casas morressem meninas.
+Não houve lepra, mas ha febres por todas essas terras humanas, sejam velhas ou novas.
+Ellas é que me deixavam como pessoas que assistem a uma exposição retrospectiva, e, ou se fartam de vel-a, ou a luz da sala esmorece.
+Mas não é este propriamente o resto do livro.

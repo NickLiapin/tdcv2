@@ -1,34 +1,504 @@
 ---
-description: Filler sentence (original neutral Italian prose, no country-specific vocabulary)
+description: it filler sentences from public-domain books (Project Gutenberg); see data/sources/it/text/README.md
 locale: it
 ---
-La mattina fu tranquilla e la città dormiva ancora sotto una nebbia leggera.
-Aprì la finestra e respirò l'aria fredda del giorno che cominciava.
-La strada si perdeva lontano, tra le colline e i campi di grano.
-Era passato molto tempo dall'ultima volta, eppure tutto gli sembrava familiare.
-Sul tavolo c'era un libro aperto e una tazza di tè ormai fredda.
-In lontananza si sentiva il rumore del fiume e il canto degli uccelli.
-Nessuno disse nulla per un lungo momento e il silenzio non diede fastidio a nessuno.
-La casa era in fondo alla via, dietro un basso muro di pietra.
-Mise le chiavi in tasca e chiuse la porta senza fare rumore.
-Il sole del pomeriggio entrava dalla finestra e scaldava il pavimento di legno.
-Camminarono insieme fino alla piazza senza mettersi d'accordo sulla meta.
-La risposta arrivò una settimana dopo, quando ormai l'aveva quasi dimenticata.
-Gli alberi del parco erano cresciuti molto dall'ultima volta.
-Si sedette sulla panchina e guardò passare la gente per mezz'ora.
-L'inverno arrivò presto quell'anno e colse tutti di sorpresa.
-Accese la piccola lampada e continuò a lavorare fino a tardi.
-Dal balcone si vedeva il mare, appena una linea azzurra tra i palazzi.
-Chiese la strada e gli indicarono un vicolo stretto in salita.
-Tutto era al suo posto, anche se nessuno ci viveva da anni.
-Il treno si fermò per qualche minuto e poi riprese la marcia.
-Ricordava l'odore della cucina meglio delle parole di quella sera.
-La lettera era breve e non spiegava quasi niente.
-Si alzò presto per approfittare della luce del mattino.
-Il cane li seguì fino in fondo al sentiero e lì si fermò.
-Raccontò la storia lentamente, come se la stesse ricordando per la prima volta.
-La città cambiava aspetto quando arrivavano le prime piogge.
-Lasciò il lavoro a metà e uscì a fare due passi.
-L'orologio della torre segnava un'ora che non era più quella giusta.
-Imparò ad aspettare senza impazienza, che era la cosa più difficile.
-Il giorno dopo tutto sembrò più semplice di quanto avesse immaginato.
+Io non li vidi que' giorni così pieni di vita; ma ben so quel che ci hanno fruttato.
+Stavano alla destra del letto, inginocchiate sul nudo terreno, alcune donne.
+almanco, di qui a poco, Vittore potrà forse rivederlo.
+Solo, ti torno a dire che sarei morto più contento, se avessi potuto darvi uno stato, a voi altri due poveretti: e quest'è la mia spina.
+diceva nel cuore, quanto è grande il carico che mi volete dare!
+--Oh sì, lo vedo ancora quel giorno; e parmi d'essere là....
+Allora, lo confesso, non potei a meno di guardarmi indietro, e rasciugarmi col rovescio della mostra una lagrima.
+In un corpo men logoro dall'età e dai duri e lunghi travagli della povertà, quella subitana revulsione avrebbe forse potuto prolungare al buon Vittore le ore contate.
+Bada che non mi sia tolta quando mi metteranno via; e anche la mia spada, se lo puoi, la poni a canto a me....
+Teresa cadde svenuta, e la Stella diede un grido.
+Quelle anime oneste e nuove alle dure lezioni della vita non guardavano ancora nell'avvenire.
+Ma poichè tocca a me, a me che n'ho vedute già tante, l'ajutarvi in questa trista ora, abbiate pazienza, se vi parlo senza complimenti, ma da galantuomo.
+Contro il suo costume, il vecchio tenente cercava con le molte parole di far men doloroso agli amici suoi l'annunzio della povertà; e abbandonavasi così alle memorie del passato.
+Ha fatto una fortuna, a quel che mi dicono, ed ha anche casa sua, qui in Milano.
+Uno che per tanto tempo non volle sapere se fossimo vivi, potrà sentire a un tratto il consiglio della compassione, il bisogno di far del bene?...
+--Cercheremo casa, seguì Damiano, verso il centro della città: le pigioni sono un po' più care, è vero, ma s'è più alla portata per trovar lavoro.
+--Ricordatevi sopra tutto del vostro compare, figliuoli: non è più che un vecchio ronzone condannato a tirar la barca; ma finchè avrà fiato, sarà sempre il vostro compare.
+Poi si pentì, entrandogli il pensiero non avessero con quel pretesto a tornare; ond'è che di tal modo conchiuse:--Aspettino: ho appunto il caso loro.
+Pertanto, innamorato com'era di quest'arte, il pittore prese ad iniziar Damiano nel disegno.
+Alla svolta della via di Quadronno, tornavangli in cuore padre, madre e sorella; ma non gli tornava il coraggio.
+Le due donne stavano sempre in casa, lavoravano sino a notte, e di solito non vedevano anima viva.
+--L'aveva detto io, rispose colui a mezza voce, con uno sghigno che il rese più brutto; l'aveva detto che certe cose costan care a lor signori, come a noi poveri diavoli, eh!
+--Passiamo a cose più importanti, più solide.
+Via, datemi queste carte, e vediamo di che si tratta.
+se non si mette insieme una dozzina di costoro, vi gridan la croce addosso.
+somiglia un pochino a quell'antica mia....
+Vada pure innanzi; io vengo fra cinque minuti.
+Ma io non ho tempo da perdere; tenete le vostre carte.
+Non è giusto pretendere d'aver tocco il sommo della grandezza civile, quando si disprezza il lamento di una moltitudine la quale non ha la coscienza della propria forza.
+--Non vo' scuse; ti sgranchirò fuori io, per dinci!
+saltò a dire un altro: rispetto a Bernardone ch'è il nostro capo, il fior degli amici!
+I giovani ballavano senza posa; ciascuno s'era scelta la prediletta, e quanto durava la lena dei suonatori, quella de' ballerini durava.
+nessuno il sapeva, fuor di Bernardone, al quale gli arrivati susurraron, passando, una parola all'orecchio; ed egli rispose con un Viva rimbombante, che passò il tetto della casa.
+bevete questo bicchiero, fra noi, da buoni amici.
+io vedo, che sebben m'abbia a costar caro, pure bisogna ch'io soffochi in cuore queste illusioni.
+Ma il giovine d'improvviso si riscosse, si alzò, e parve, al modo con che guardava all'intorno, avesse perduta la memoria e la conoscenza.
+--È un matto che non sa il proprio interesse, uno che non ha da vivere fino a domani, e vuol far del grande e dello schifo, con me?...
+--Non occorr'altro, come volete; intanto, state bene.
+Pure, da qualche settimane, non usciva più.
+diceva l'uno, camminando lungo la muraglia, come seguisse a dispetto l'amico: Ma, caro Lodovico!
+rispondeva il conte, sganasciando dalle risa.
+Il mio mi vuol troppo bene, nè pensa di lasciarmi così presto.
+E doveva essere appunto in quel dì d'una religiosa e tremenda ricordanza!
+vogliam vederla; e tu, caro conte, mi terrai parola.
+non mi stimo più del giusto; i miei cinquantanove anni, se non altro, m'hanno insegnata questa verità.
+--Così, così forse avranno parlato, un dì, que' tali, al cui nome bisogna adesso cavare il cappello e abbassare il capo.
+Pure, il momento decisivo di tutta la sua vita poteva esser quello.
+Spesso, seduta al telajo, cantava con limpida voce qualche canzone; la canzone d'una gioja che non era nel suo animo.
+Chinò il capo e tacque; e da quel dì il nome della pegnataria più non venne sulle sue labbra.
+ma ci vuol altro: con un po' di stizza repressa, aggiunse il padre.
+rispondeva il padre Apollinare: dica del suo, signora contessa!
+Ma noi non ci stancheremo nell'opera buona, noi veglieremo nell'ora che il leone rugge; non è vero, signora contessa?...
+Già si tratta di parlare con una gran dama...
+--Ma chi gl'insegna la creanza di farsi aspettare?
+Il giovine, vedendolo diventar pallido, e sbuffar per la rabbia, lo guardò un'altra volta in faccia, e:--Non ho altro a dire!
+E la sposina arrossiva; nè osando riguardare il suo chiomato adoratore, mordeva co' labbruzzi gli orli dorati del ventaglio.
+Ascolta; tu sei giovine e padrone della tua vita.
+Se puoi piangere dinanzi a que' miracoli degli uomini, se il cuore ti batte più forte e la mano non ti trema, segui pure la via: potrà esser lunga e difficile, ma è certa.
+Tutti gli altri del quartiere solevano invece chiamarlo Rocco il matto, o anche il Matto di piazza Fontana.
+Finalmente, quando a Dio piacque, risanò: e parve che a poco a poco, col ridestarsi della vita, andasse morendo in lui tutta la memoria del passato.
+Era il primo in tanti anni che si fosse accorto della miseria di Rocco, che a lui chiedesse la sua storia, a lui che l'aveva da così lungo tempo dimenticata.
+La buona famiglia, da un solo affetto raccolta intorno al quadro, in quel momento sentiva una gioja ineffabile e santa, che brillava nel volto sereno di ciascuno.
+--Sì: ma il ben che ti voglio non mi benda gli occhi, e posso dichiararti tondo che la tua Erminia vale lei sola tutte l'altre insieme che stanno qui attorno....
+è impossibile che quando si ha quel cuore e quel pensare che tu hai, non si riesca a tutto quel che si vuole.
+Io non dimenticherò mai, che ho potuto stringere questa mano, come la mano d'un amico....
+Il signor Omobono, un di coloro che non accattan brighe colla coscienza, speditamente infilzò alle due donne una corona di bugie.
+--Sarebbe a dire che, se le cose vanno, ella potrà, Illustrissimo, fare un miracolo, trasportare il quarto al secondo piano.
+È vero che il chierico c'è ancora, a quel che ho sentito, e di benefizj da imbonire abatini non c'è penuria in casa....
+Al Rocco bastò il nome della casa; e senz'altro dire la diede a gambe.
+Arrossì a tale insolente interrogazione il veterano, e mordendosi le labbra, contento che colui gli desse appicco a parlare:--Quest'uomo?...
+Ed io avrò paura di chi, per portare un nome scritto in carta pecora e contar gli scudi a migliaja, si crede lecito tutto?
+--Ringrazio il cielo, susurrava intanto, che ho potuto venire a tempo....
+se volesse vendicarsi in qualche maniera?
+I lembi ne caddero sparsi a terra; ma egli, non pago ancora, calpestò con gioja selvaggia lo scassinato telajo e i pochi avanzi del dipinto che ancor v'erano attaccati.
+Gli occhi di Damiano s'incontrarono un'altra volta con quei di Stella.
+Son contento che ti ritrovo molto meglio, mamma, della settimana passata.
+Due dì prima che fosse chiuso il concorso, fu portato un quadro migliore del mio.
+--Quietati, mamma; lo sai pure il bene che ti vogliamo: aggiunse Celso.
+--È impossibile, ti dico, è impossibile; sono le tue solite malinconie; casa nostra ha un nome onorato, e vostro padre era cavaliere.
+Non voi, non voi partirete di qui, madre mia!
+Lasciate ch'io la porti con me quest'idea che potrà darmi un po' di gioja, farmi dimenticare anni e anni di solitudine e di schiavitù!
+Vide la Stella che inginocchiata a piedi del letto di sua madre, abbandonato il capo e le braccia sulle coltri, dormiva.
+Una gioja schietta gli sfolgorava dagli occhi di quando in quando; ma un misto di tenerezza e di non so qual vergogna lo faceva arrossire, gli troncava a mezzo le parole.
+I giorni operosi e alternati dalle cure diverse del novello stato fuggivano lieti e uguali al buon Damiano.
+Forse più non pensava a quella insipida avventura.
+Costoro, argomentando forse di che si trattasse, ruppero in una risata, al vedere colui che se n'andava così sbaldanzito, come il cane del pagliajo colla coda fra le gambe.
+E poi, vi dico io che colui non ha cuor di piccione, e morde chi l'addenta.
+--E siam tornati al sicutera, corpo del diavolo!--E qui battè sul deschetto tale un pugno, che turò la bocca al compagno.
+E di solito non tornava più a casa fino ad una cert'ora, senza che si riuscisse a sapere nè dove, nè che mai avesse a fare.
+ripete più risentita la vecchia, mettendo un pugno sull'anca.
+--Che cosa dunque siete venuta a fare in casa mia?...
+--Un po' di rispetto, quella giovine; lasciatemi dire, e pensate ch'io vi posso far del bene.
+Dico la verità, che vostra signoria, in questi trent'anni, non mi ha mai comandato cosa simile.
+Come si rimanesse Celso, mentre gli ferivano il cuore, l'una dopo l'altra, queste implacabili parole, lo si può appena pensare.
+accipigliato lo interruppe il superiore.
+E alzatosi dal seggiolone, egli congedava con un gesto grave l'abate, il quale mutolo e confuso salì al suo freddo stanzino.
+allora si potrebbe far qualcosa di meglio che non vuotar fiaschi, o cantar vespero, in onore e gloria del santo dal buon viaggio!
+Ma, chi svigna, o sta a covar l'uova, come si dice da noi, appena venga un buffo di traverso, cosa volete che faccia?...
+L'uomo che da una finestra della cucina aguzzava gli occhi per vedere come andasse a finire la cosa, era lui.
+E così dicendo, l'insolente Martigny pigliò per l'abito Damiano e fece con una strappata per torselo d'innanzi.
+giù il bastone!--E viva!--Addosso da capo?--Dagli al vecchio!
+fu come un tocco di magica verga, e mutò a un tratto la faccia delle cose.
+S'udì battere un colpo violento alla porta; e Stella, prima di correre ad aprire, si rivolse alla madre:--È il Giovanni, un de' compagni di Damiano; certo c'è qualche cosa.
+e fa per difendersi; io aveva ad aggiustar i conti con un camerata del forestiero....
+Aveva promesso di tornare; e tornò la mattina del martedì.
+Notate bene che, pur troppo, siam noi che li abbiam guasti e sbrigliati costoro.
+e poi questa non è che opera buffa; il serio è dietro le scene.
+Però, tutto quel che fanno è per fin di bene; e prima di tutto, per fin di bene, vogliono comandar loro.
+--Abbiate però giudizio, se vi piace di godere qualch'altra volta le grazie dell'Illustrissimo.
+Ma la nuova di quell'accidente non era tale da occupar troppo a lungo la lieta adunanza; se ne rise ancora un poco, e la cosa finì.
+Ella camminava rapida e confusa di via in via, quasi che temesse di esser veduta; le sembrava come se gli occhi di tutti la spiassero, e come se andasse a far del male.
+Quel mio vicino di casa, Gaspare il calzolajo, al quale tu hai parlato, diceva che l'era una bella tosa, così e così, con un far buono e la faccia un po' malinconica...
+disse il vecchio soldato, inquietandosi.
+Partito lui, la Stella, senza parlare, gettava le braccia al collo di sua madre, prorompendo in un largo pianto.
+Per la prima volta, un orribile dubbio le sorse in mente, il dubbio d'esser cieca per sempre.
+La dama, superba di codesta edificante parlata, guardava attenta or la madre Eleuteria, or la fanciulla, e pensava di leggere ne' loro composti visi il trionfo della sua clemenza.
+per altro; ma ragioni gravi, e che mi è impossibile comunicarle, richiedono che questa fanciulla sia, senza perdere un'ora, ricoverata qui....
+--Si quieti, Illustrissimo, si quieti; badi che non sentendosi troppo bene....
+Ma, levandosi sul gomito:--Versatemi nella tazza la solita pozione....
+e un'alzata di spalle, girando sulle calcagna, se n'andò, e rinchiavossi dietro con ira i catenacci.
+com'è ch'io mi pento d'aver loro augurata la disgrazia, e vorrei compiangerli....
+Penso che il signor Lorenzo, quell'uomo che non ha paura di nessuno, non le avrà abbandonate...
+t'ho dato parola, e ti lascio fare; ma quasi, quasi son pentito....
+Intanto, è stata la Provvidenza che mi fa capitar qui adesso...
+Come ti diceva dunque, ho parlato con la Margherita, quella vostra vicina; e fu lei che mi disse che....
+Ho fatto una vita dannata abbastanza, là, in que' paesi luterani: eravamo sul confin de' Turchi, e non c'era poco da fare a tenerli indietro que' maledetti del turbante.
+ma adesso bisogna ch'io ti lasci qui e dia la volta.
+A' figliuoli di nessuno ci pensa la Provvidenza!...
+non rifiuti almeno di ascoltare forse le ultime mie parole.
+Non lo sanno gli uomini, ma Dio lo sa chi sia il padre del mio povero figliuolo!...
+dopo alcune settimane, quel brav'uomo non era più!
+Dopo quel lungo colloquio, dopo quello scambio di ricordanze e di forti affetti a cui s'erano invano frapposte le porte del carcere, rivedevansi finalmente.
+E perchè avrebbe dovuto andar via così presto?...
+Teneva però ancora in serbo un dieci lire, l'ultima sua ricchezza; e pensò che l'ora di farle esser buone a qualche cosa era quella.
+Questo mio braccio non è più che un mozzicone; ma darei l'altro, per vedervi fuor del letto.
+Si avvicinò a lei, e toccandole il polso, s'accorse che la vita tornava a poco a poco, e che la sincope non poteva essere che conseguenza d'una forte e subitanea commozione.
+--Lei si maraviglia; ma, se io le dicessi che c'è chi fruga dentro in quella storia....
+e anche questa non la voglio nominare...
+Sta piluccando un po' di grazia di Dio, in compagnia di due buoni cristiani, e vuota un bicchiero alla salute del prossimo....
+--Questo è quello che le consiglio di dire; per suo bene, per sua quiete.
+galantuomini meglio di lei, e manco impostori...
+non vedo nessuno; non so di chi voglia parlare, signor soldato; rispondeva, con tuono patetico, il prete.
+--Lei capisce tutto, e verrà con me.--Ciò detto, pigliando forte don Aquilino per un braccio, se lo trasse dietro a forza.
+Ma io l'ho indovinato, alla bella prima, subito che l'ho visto mettersi giù...
+Ecco qui: negli ultimi tre giorni, egli ripeteva a ogni poco il nome di Damiano...
+miei signori, mi meraviglio di loro; vedo che m'han preso in iscambio, non c'è che dire.
+Non capisce chi son io che le parlo?....
+In questo momento, essa è là in un ritiro, e ve l'han trascinata per forza, nell'ora ch'essa doveva stare al letto di sua madre....
+Orsù, corran pure le mie lettere al loro destino.--E suonò un campanello che teneva sullo scrittojo.
+Io ho già scritto questa mane al consigliere Alberico, al reverendo Padre, e a qualcun altro de' zelanti nostri promotori.
+--Sì, sì, dice benissimo; ma non parliam del panegirico adesso....
+I primi sospetti mi posero facilmente in cammino.
+--Peccato, se non altro, ch'io non me ne sia avvista mai!
+Quante volte, senza sapere il perchè, cerchi di fuggire chi ostinato s'attacchi a' tuoi passi, o appena lasci cadere una volta sopra di te una gelida parola, un sarcasmo!
+Per mettersi al coperto d'ogni conseguenza, studiò il modo più acconcio d'indur la fanciulla a fuggire dal ricovero; e credè d'averlo trovato.
+basteranno per vivere tre mesi; e poi....
+E se, in cambio, con que' tali che volevano fargli fare una così ladra figura, egli avesse vuotato il sacco?...
+Se un di lor due è suo fratello, potrà saperne più di me....
+--Aspettava qui don Teodoro che mi conducesse a lei.
+andiamo insieme, dalla tua povera mamma.
+gridò la tradita fanciulla: ma dov'è la mamma?
+Disse che non voleva nulla, che non voleva nessuno, e che, venuta appena la mattina, sarebbe partita da quella casa.
+--Dite ch'è l'abate Teodoro, e che viene per cosa di certa importanza: soggiunse il prete.
+E traendo un foglio, glielo pose sott'occhio.
+Dopo lunghe ricerche, dopo anni e anni d'incertezza, il caso mi poneva sulle sue traccie; io credo d'averlo ritrovato.
+Così passa l'infamia d'una in altra generazione.
+In quanto all'essere a tempo, non so che dirle.
+Al mattino, la fanciulla, dopo un'intera notte di pianto e di terrore, non aveva più sentito al di fuori della sua prigione nè voce, nè movimento.
+Ripeteva il nome di sua madre, de' suoi fratelli; e poi piangeva, raccomandavasi alla Beata Vergine, e sperava ancora.
+--Lasciatemi andare, lasciatemi andare!...
+mi consoli, non mi lasci pensare che voglia prendersi spasso di me!--E sollevandosi dal terreno, la fanciulla fece per uscire.
+Quell'uomo vendicativo era là che la riguardava, agitato nello stesso tempo dalla rabbia e dal terrore.
+La giustizia di Dio aveva punito l'insidiatore dell'innocenza.
+Intanto, per pochi dì, l'abate era venuto nel villaggio presso la sua famiglia.
+Essa un giorno riusciva a leggermi nel cuore dubbj e speranze....
+Il tuo cuore è così buono, così generoso....
+--Fatti animo, mio Rocco; ascolta pur l'inspirazione del tuo cuore.
+Sì, Damiano, dimmi anche tu se non è giusto ch'io conosca la mia famiglia, ch'io ritrovi il mio nome!
+E sentiva d'aver ragione, pensando così.
+--E vuole, soggiunse Damiano, lasciar libera voi e Stella nella vostra decisione.
+Convenne però lasciar passare ancora parecchi mesi, prima che i due giovani fossero marito e moglie.
+Fino a oggi, ho fatto il poco che ho potuto, per nostra madre e per te: ora ho un'altra madre, a cui devo il mio cuore e la mia vita....
+--Dopo tutto quel ch'è stato, ripigliò, e che Rocco ha fatta anche lui la parte sua, l'unica consolazione che gli rimane è di stringer la destra d'un fratello.
+-- Ed avreste torto, -- ella rispose tranquillamente.
+Era l'unico libro suo che non avessi ancor letto.
+che m'impadronisca troppo della vostra libertà?
+E, nel fissarmi, qualcosa di crudele attraversò la sua ferma bellezza.
+e di porte che si aprono ve ne son tante al mondo!
+Le cose più futili mi richiamavano a questo pensiero; talvolta un profumo, un suono, una inflessione di voce, un oggetto qualsiasi da lei toccato, ammirato, desiderato.
+Era un cappello larghissimo di tesa, con una grande piuma da un lato, alla Rembrandt, semplice, di una eleganza squisita.
+-- Povero Guelfo, -- continuò; -- io vi conosco bene, perciò vedo che state passando una crisi.
+-- Voi, Guelfo, -- mi disse, rannicchiandosi nella pelliccia -- voi siete fra que' rari uomini che una donna non dimentica mai.
+Certo non hai avuta mai un'attitudine vera per il canto, ma in altri tempi amavo immensamente udirti accennare qualche bella canzone sottovoce.
+Costui non amava e non rispettava la vita, ma neanche la temeva, sapendo contrapporre a tutte le sue minacce lo scudo inflessibile della propria indifferenza.
+Si vede che io, con le Vergini, son proprio destinato a non aver fortuna.
+-- Non bestemmiare, per l'amor del cielo!
+-- fece il marchese Della Pergola, cantilenando con angelica noia.
+-- Oh, Dio, queste sciocchezze si raccontano poi, vi pare?
+Si china maggiormente sui lilla, senza rispondere: alcuni rami s'impigliano tra i suoi capelli.
+Siamo entrambi con le spalle rivolte contro il caminetto; il suo dito scorre su la pagina sottolineando le righe di una calligrafia malsicura che appare manifestamente simulata.
+-- Io v'aiuterò, -- ella disse gravemente, dopo una pausa.
+E le confessai la mia colpa, nel modo più naturale, come se parlassi d'un altro e raccontassi una storia udita per caso.
+Quella immobilità di statua fu scossa come da un brivido; vidi che una lotta veemente si dibatteva in lei; pensò a lungo, in silenzio, poi repentinamente levò la faccia.
+Tutte queste domande volgevo confusamente nel mio spirito, e rimanevano senz'alcuna risposta.
+Quando mi vide, balzò diritto e mi corse incontro saltellando, abbaiando forte.
+-- Sono già due giorni, -- ella disse, guardando a terra.
+-- Eh, davvero, voi siete una grande vittima, povero Germano!
+Finalmente il domestico annunziò la colazione, dove la vecchia signora non era mai di cattivo umore, sebbene prima s'inghiottisse tutta una spezieria di medicine.
+-- Tu non sai come soffro nel vederti così...
+Whisky ci seguiva saltellando e scodinzolando.
+Quel pomeriggio, in sul morir dell'inverno, era quasi tepido come una primavera; il giardino inverdiva di là dalla corte.
+-- E come le piccole cose, anche le grandi, -- ella rispose.
+Finora non mi avevi mai fatto così male come oggi.
+Ecco: è un'antica amante, una forestiera conosciuta in viaggio, prima di te.
+Il suo volto era passato per un'alternativa continua di sentimenti; ora mi fissava, quasi per scrutarmi nel più recondito pensiero.
+-- Povero amore, -- sospirò, -- vorrei tanto poterti guarire!
+-- Al più presto possibile; non appena compiuto il rinnovo.
+-- No, caro Capponi, questa volta non si tratta di dame, nè di picche nè d'altro colore.
+-- Io direi che sono le tenaglie del mestiere, mio bravo Capponi!
+-- Sai, mio caro, -- prese a dire con risolutezza -- che ho inteso parlare di te in modo assai poco lusinghiero.
+Hai molti nemici, e nessuno ti risparmia.
+Fabio diede una scrollata di spalle e si levò in piedi, senza nascondere il suo malumore.
+questa fanciulla di cui distruggi la vita con una tranquillità così gelida?
+Io risposi di sì col capo, senza guardarlo.
+Sopra la pettiniera, fra molti oggetti femminili, un telegramma lacerato a metà, l'altra metà a terra.
+Ero fermo sull'angolo di una strada, e l'avrei veduta giungere, così da un lato come dall'altro, senza tuttavia lasciarmi scorgere da lei.
+-- Verso le cinque son uscita per prendere una boccata d'aria, -- ella spiegò.
+Ma ho pianto tutto il giorno: ero triste.
+-- Insomma, -- le dissi quasi ruvidamente, -- una volta o l'altra ti risolverai a spiegarmi questi continui misteri!
+-- Invece, se tu le conoscessi davvero, forse non parleresti così, -- rispose con tristezza, camminando a passi lenti per la camera.
+-- Però, -- soggiunse con una voce dura, levandosi, -- io non avrei fatto questo nella tua casa.
+Volevo non dirti nulla, per non sembrarti ridicolo, poi non ho potuto.
+-- esclamò con veemenza, quasi gridando.
+Sua madre la condusse a baciare il cadavere, poi mise un abito nero, e da quel giorno, per lunghi mesi, non parlò quasi mai, divenendo malata.
+Ma vennero i tempi tristi; la madre ammalò, fors'anche di stanchezza; il lavoro le divenne impossibile, il denaro mancò.
+Elena vide ch'egli barcollava, quel giorno.
+Ma egli la rimandò con una lettera squisita, in cui vagamente, per la prima volta, le confessava la sua passione.
+Per lei tutto nel mondo era un pericolo, tranne le parole di Mathias, che la vegliava di lontano scrivendole alcune lettere sublimi.
+Ma poi, quando lo rivide, così pallido e serio, così turbato davanti a lei, quasi le spiacque di avergli fatto male e gli usò molte piccole cortesie.
+Elena ebbe quasi vergogna di ritrovarsi così piena di forze, accanto a quel giovine che pareva estremamente sfiorito.
+Egli era forse un po' invecchiato, ma conservava sempre una grande vivacità nella fisionomia, nei gesti, ed un sorriso leggermente sardonico su l'orlo della bocca fine.
+Quando avrò denaro, tornerò a Parigi per studiare.
+Veniva spesso a visitarla un uomo di mezza età, un sottufficiale in congedo, ch'era il suo amante.
+Di tutto questo ella non fe' cenno a Mathias, perchè ne avrebbe sentita troppa vergogna davanti a quell'anima così lontana dalla vita.
+Dopo aver molto meditato, Elena gli confessò che la sua speranza era quella di essere un giorno attrice.
+Dopo alcune settimane l'Hohenfels le annunziò che l'amico parigino, un certo Ernest Duvally, era giunto, ch'era informato già d'ogni cosa e desiderava solamente conoscerla.
+I pittori, qui, amano la stoffa; noi amiamo il nudo.
+Diceva di non conoscere il vostro nuovo indirizzo, ed anzi me lo domandò.
+-- Non so, -- egli disse, turbandosi; -- la vita, forse, per essere come voi.
+Era giovine, bella, desiderosa di vivere, l'avvenire poteva serbare per lei molte fortune imprevedibili.
+Erano per un grande viale deserto e nelle oscure lontananze del parco si udiva cantare una voce solitaria.
+E v'era in quella tristezza un piccolo rancore contro Mathias, che l'aveva costretta, pur senza chiederlo, a ricadere sotto il giogo della perpetua mediocrità.
+Di fronte, nella casa di fronte, una ragazza cuciva i panni alla finestra, e cantava.
+Poi guardò in alto: gli occhi del giovine s'illuminarono; sorrise.
+La baronessa aveva ora presa l'abitudine di tenerla sempre sotto braccio, la trovava bella e glielo diceva, con una voce strana, carezzandola.
+Ma vorrei, se mi fosse lecito, portare con me il quadro dove ti ho dipinta.
+La baronessa era deperita molto; le crisi al cuore in pochi mesi l'avevano sensibilmente invecchiata.
+Di quella lettera tutto mi affliggeva: la forma, la scrittura, lo stile, il senso, la monotona tristezza.
+Il gesto è meno ruvido, e il rimanente verrà da sè.
+Un ponte di legno rustico varcava un torrentello sotto l'arco d'un padiglione arboreo, ed il giardino continuava di là, perdendosi nella sùbita foresta.
+E tutto, per una zona intorno al melo, era invaso da quella esuberanza di fiori.
+Ma i vostri cavalli hanno sempre una certa educazione; i nostri sono più rustici e qualche volta prendono la mano.
+Passavano via le campagne vedute a volo; i pioppi equidistanti parevano inseguirsi l'un l'altro in una fuga opposta, come sbarre di un enorme cancello.
+-- Che grande storia possiedono tutte le pietre del tuo paese!
+Alcuni d'essi mi salutarono, guardandoci maravigliati.
+Immaginavo le parole ch'essi dicevano fra quello strepito di risa grossolane, mi pareva di udirli ragionare de' miei dissesti e della donna ch'era meco.
+-- egli fece traendo un gran sospiro, -- come sono triste qui!
+Parlava un dolcissimo fiorentino, per quanto fosse padovana; quando non discuteva di belle arti era una donna incantevole.
+Camminava per la camera, qua e là, facendo mille cose minute; ogni volta, nel passarmi accanto, mi dava un bacio su la bocca.
+Domani poi rimarranno su la piazza solo i giardinieri ed i mercanti per vendere i fiori fini, le pianticelle di serra e le semenze nuove.
+-- Non devi badare alle idee che mi frullano per il capo, senza, in fondo, una causa ben definita.
+-- Non è mai troppo tardi: basta volere.
+-- Mi parve inutile, com'era inutile in fondo che te lo dicessi ora.
+Sono stato a trovarla pochi giorni or sono...
+-- gli risposi; -- la mia volontà non può mutare; il resto non mi spaventa affatto.
+Eppure, dimmi: se l'amore vero è quello che sa compiere un vero sacrifizio, perchè mai Edoarda non avrebbe questo coraggio per me?
+-- E più crudele, secondo me, quest'analisi che ora tu fai, -- rispose Fabio.
+Le campane della gotica Santa Maria di Fondi squillavano a distesa per l'aria solatìa, cantando il mistico inno che celebrava la Festa dei Fiori.
+Ma ecco, entrando nella piazza grande, mutata in improvviso anfiteatro, fummo sorpresi da una magnificenza impreveduta.
+E sollevava il vassoio di fiori davanti al tabernacolo scintillante.
+Tu, che sei un uomo ragionevole, dimmi: perchè vi sono cose al mondo che non si possono dimenticare?
+Ho sognato questa notte ch'ella fosse teco a Torre Guelfa.
+Ma chi di loro conosce veramente cosa sia questa orribile disperazione, l'amore?...
+Tu hai bisogno del denaro, io ne possiedo molto e non so che farne.
+-- Dunque, signor conte, bisognerà intenderci una buona volta!
+Perchè ormai siamo vicini alla scadenza e non si tratta più che di pochi giorni.
+Ma io, vede, non la penso a questo modo.
+-- Meno male che le chiamate reti anche voi!
+Ecco perchè vi dicevo che siete un egoista.
+Non le vorrei far torto, mi creda, ma noi ci teniamo al corrente per forza...
+Ditemi per lo meno da che parte giunse fino a voi questa notizia sorprendente.
+Sentite: non fra un mese o due, ma domani se volessi!
+-- Ma io non ho promesso neanche un giorno!
+Vi ricordate la somma che ho avuta per quelle cambiali?
+Una lettera di Fabio mi giunse alcuni giorni dopo, in termini brevi, senza un qualsiasi accenno intorno all'accaduto.
+Edoarda invece mi appariva come una immagine del tutto lontana, perduta fra le memorie di un'altra vita, pressochè scomparsa.
+L'inverno, tra quelle fosche mura, sarebbe stato pieno di malinconia.
+A Parigi, dopo alcune settimane trascorse all'albergo, affittammo nel quartiere dell'"Etoile" un grazioso appartamento, che si apriva su la via dell'"Arc de Triomphe".
+Ogni giorno, vedendola uscire, mi pareva ch'ella se ne andasse a portar lontano, fra estranei, una parte di sè stessa, una parte che non mi avrebbe restituita mai più.
+-- Non darti pensiero, Elena; oggi o domani comincerò.
+Mi sento invecchiare con delizia e guardo gli altri vivere.
+Sapete: la Francia democratica è il vero paese dove si può dire che la luce venga dal basso.
+Invece non si accorge ch'essa è ciecamente vittima delle stesse fatalità, degli stessi pregiudizi e delle stesse ciurmerie di una volta.
+Poi, sentite: le vie di mezzo sono sempre le peggiori; al mondo non vi sono che due maniere di vivere: onestamente o disonestamente.
+Nondimeno Elena provò subito contro il d'Hermòs un'antipatia così piena di sospetto che mi parve persino ingiusta.
+E la musica, senz'esser nuova, -- non c'è mai nulla di nuovo a Parigi -- è però squisita.
+Un odore di carta bruciata nella stanza vicina mi lasciò comprendere che aveva distrutte le lettere durante la mia assenza.
+Quando fummo nella vettura, lato a lato, non tardai a cercare il mezzo di sapere da lui quello che m'interessava.
+-- Sì, lo è stata per lo meno: ora è vedova.
+-- Tanto più, -- soggiunsi con un ridere gaio, -- che avete potuto soddisfarvene!
+Ma bisognava lottare contro una resistenza troppo lunga e troppo ardua per un uomo della mia specie, che nell'amore, come negli affari, cerca sempre la via più breve.
+Ebbene, ho concluso che nell'amore c'è sempre una vittima necessaria: bisogna cercare di non esser quella.
+Ora un solo desiderio dominava il mio spirito: quello di apparecchiarmi una sottile vendetta, mostrandole che non m'ero del tutto lasciato ingannare dalle sue menzogne.
+-- Sì, ridi, ma non come gli altri giorni.
+-- Vedo che prepari le mie cose con una cura tutta particolare.
+-- Non ancora, ma sono certa che riuscirò.
+Diedi una scrollata di spalle e mi posi davanti allo specchio per fare il nodo della cravatta.
+-- Occhio per occhio, dente per dente...
+-- Forse ho avuto un torto solo: quello di volerti collocar più in alto che non lo permettesse la tua anima di avventuriera.
+-- Non so; preferisco non rimanere a casa.
+Siete un maestro sommo in quell'arte che si chiama il vivere.
+Egli aveva sorriso di queste mie parole con un'aria d'intendimento.
+Insomma, ciò che avviene press'a poco al Faubourg Saint-Germain, con la sola differenza che nessuno in anticamera vi domanda il passaporto.
+Qui c'è un turbine, un vortice che prende tutti, e bisogna fare in modo ch'esso non vi travolga, non si rovesci come un peso morto.
+-- Venite con me allora; vedo che avete la fronte buia; forse vi divertirete.
+-- Ed è qui allora che si mettono all'incanto?
+-- Ricordatevi sempre quello che vi dico io.
+-- Ma sarà poi vero quello ch'egli dice?
+Sapete: il grosso Aranda, un italiano come voi.
+Credevo che in Italia fossero più serii.
+In piedi, presso di lei, stavo considerando la mia compagna.
+Fu perduto: ella fece un piccolo gesto d'ira.
+Poi trasse un respiro, mi fece un piccolo cenno: il colpo era vinto.
+-- Non è possibile vincervi un colpo questa sera!
+Abbiamo giuocato insieme, come fra uomini; se si avesse perduto, voi avreste pagata la vostra parte; abbiamo vinto e, se non volete offendermi, vi prego di non insistere più.
+Aveva in sè una forza irresistibile di seduzione, pareva un fiore bello e velenoso.
+Si riceve sino a quest'ora in quella casa?
+Ella mi tese una mano, piegando la faccia sul petto.
+Non sono che la tua amante, e come tale, cosa puoi rimproverarmi?
+Potrai forse immaginare che t'abbia mentito in ogni cosa e che mi proponga di mentirti ancora, quindi non val la pena di parlarne: dimentica e perdonami, se puoi.
+Lo sono andato a cercare apposta per sapere la verità.
+Andammo nella sua camera; da un baule chiuso ella trasse una scatola di pelle a rilievi, ch'era piena di lettere e di fotografie.
+-- domandò un'altra volta, quando già le mie braccia la serravano.
+Pensai ad un ripiego elegante: un gran cesto d'orchidee, che potesse costare mille lire almeno...
+-- Credevo, -- mi disse con una indolenza studiata, -- credevo che non sareste venuto.
+-- Gli avete parlato già di questa visita?
+La nostra sensibilità è come un'arpa, estesa e delicata: non si può con una mano sola farne vibrare tutte le corde...
+-- Ma sì, ne avete un altro, un altro senza nome, indefinibile...
+Incrociò le braccia sul petto, quasi per vietarlo alla mia tentazione, piegò il mento e non rispose.
+Per aver così a lungo taciuto, penserai forse che l'amico tuo di tanti anni abbia mutato affetti mutando paese.
+Così attendo; e l'attendere, come sai, vuol dire starsene con le mani in mano alla mercè del caso.
+-- Ebbene lo fui per una volta, se proprio t'interessa.
+-- Io vado a Trouville, poi a Biarritz, come tutti gli anni: vieni con me.
+Tornando verso casa, tutte le vie di Parigi mi sembravano belle come non mai.
+Questa volta uscii, triste, umiliato, con il pensiero di aver commessa una cattiva azione.
+-- No, amore: questo no: -- E mi sentii due lacrime scendere giù dalle ciglia, caderle sul braccio nudo.
+-- Senti, lasciamo i soliti aforismi e dimmi perchè mi hai chiamato.
+Ma, se desideri che si parli con maggior chiarezza, lo farò volentieri.
+-- Volentieri, ma un'istantanea, ti prego, perchè odio la posa.
+Il Padre Eterno, raccontano, con la parola creò la luce.
+Oh, comodo, breve, nei treni direttissimi...
+Un conte di Materdomini la può vendere meglio di chicchessia.
+-- Fra qualche mese diverrò attrice: è stato il sogno maggiore della mia vita, ed ora che sta per compiersi non mi dà più alcuna gioia.
+Poco male, non ti raccontavo nulla che valesse la pena d'esser letto.
+Ed ora insorgono contr'esso, come contro tutte le poesie, quelle infinite inezie, quelle innumerevoli angustie, che sono il pane quotidiano delle umili famiglie borghesi.
+Dimmi, e sii però sincero: in questo lungo tempo non ti è venuto mai una volta il rammarico di non averla sposata?
+Questa lettera mi lasciò indifferente; pensai che il Capuano fosse un maniaco e giudicai del tutto sprecata questa caparbia insistenza.
+Insomma, ragazzo mio, tu non sai vivere.
+-- Io te ne parlo per la prima volta e sarà forse l'ultima.
+C'è quindi tutta una umanità la quale per me non conta.
+Fa dunque a tuo modo; ma cerca di non pentirtene.
+una quantità di piccoli oggetti che tu regalasti, o che ti appartennero.
+Verso le dieci si usciva in "charrette", per fare una trottata.
+Ella sollevò la testa dal ricamo, per guardarmi nello specchio, e rise.
+Edoarda può parlare di te senza piangerne: per un'anima che ha amato e sofferto come la sua, questo è già molto.
+La donna è nata per la famiglia ed è solo colpevole quando rifiuta di averne una.
+Vedi un po', ti prego, se ti riesce di mandarmene due o tre scatole.
+Pensavo dunque di rinunziare a lei con una tranquillità così freddamente priva di rimorso?
+Negli occhi ebbi la visione di quel grande palazzo, con tutte le sale adorne di fiori e di canestre, come una volta nel giorno anniversario...
+V'erano intorno i rossetti, le ciprie, le forcelle, i pettini, le fibbie, tutte le cose minute che abbisognano all'attrice.
+Forse amandola meno, di lei più forte mi mordeva gelosia.
+-- Sei buona, Elena: ma non devi nemmeno pensare a queste cose.
+Ma ora non posso fare altrimenti; è l'arte che vuole così.
+Dopo di te, che importa s'io divenga una donna di strada?...
+Sappi anzi che vi penso già da lungo tempo.
+Tutto questo fa male; poi è profondamente assurdo!
+È umano, in fondo; ma sai benissimo che non è vero.
+Sentivo il suo respiro scorrermi su le falangi.
+Ella rise, tra le lacrime, con la gola riversa, un po' turgida, il seno inquieto.
+Poi, voglio confessarti anche una mia piccola indelicatezza...
+-- Ascoltami bene, -- le dissi, prendendole i due polsi, come per non perdere un solo battito delle sue vene, ma insieme per stringerla nel dominio della mia volontà.
+-- Ma non sempre la vita lascia una libera scelta fra i mezzi opportuni.
+Il rossore, il turbamento, il rimorso, fecero di me in quel momento una creatura bassa ed umiliata.
+Tuttavia compresi di dovere a lui solo questo generoso favore, e poichè sapevo ch'egli non era un uomo ricco, la sua bontà mi commosse tristemente.
+Era tempo di freschi amori, di nozze nuove, di cortesi galanterie, d'allegrezze primaverili.
+E guardandole mi rammentai quel giardino di Torre Guelfa, dove c'era una pergola tutta di rose, un piccolo bosco tutto di viole.
+Portare con sè un grave peso di desiderii non estinti, e sapere che la vita dovrà necessariamente continuare per entrambi, arida, squallida, come una terra devastata.
+A un certo momento ella mi venne presso, per cercar qualcosa, lì, sul letto, fra le biancherie.
+-- Domani sera mi condurrai alla stazione, e sarà l'ultimo bacio...
+La tua natura d'istrione ti soverchia l'anima.
+-- Che male ti ho fatto perchè tu mi debba odiare?
+-- Mettiti un cappello e vieni con me: qui si muore!
+Clara ci aveva seguiti, ma non osava parlare.
+Le cinsi con un braccio le spalle, delicatamente, come se il mio amore potesse guarirla.
+Nel sollevarle il volto, sentii ch'era intriso di lacrime.
+Ogni tanto rideva, di un riso atono, ed una contrazione interiore le metteva un sussulto alla sommità del petto.
+Quando giunsero al mio, la strinsi fra le braccia ancora, fin ch'ebbi fiato, poi salii nel treno, chiusero, e m'affacciai.
+Mi sorprese il linguaggio che la gente parlava, mi sorpresero i lor gesti e l'aspetto delle contrade note.
+Adesso mi ricordavo e bene sapevo intendere tutto quanto mi era sembrato incomprensibile nell'anima sua.
+-- A proposito, Ludovico, sei stato a casa prima di venire qui?
+Egli mi toccò la mano, senza stringere, come fanno per rispetto i domestici, quando ci voglion bene.
+Perdonami, sai, se ti ricevo male, ma stamattina riceverei male anche la Divina Provvidenza.
+-- Ti par credibile ch'Edoarda sposi un De Luca?
+Sapeva che vivevi a Parigi con l'altra, e le donne, anche le migliori, sono sempre donne.
+Tale mi ritrovai, leggendo la lettera di Elena; e, sotto la tempesta che passava, mi sentii cadere come un uomo esausto, condannato a non levarsi più.
+Evitavo le strade frequentate, i ritrovi d'amici; gli sguardi altrui mi ferivano come scherni muti.
+Per venti giorni trascinai nella mia casa una orribile vita.
+Venne a curarmi Ludovico, e Fabio venne pure; mi assistette per circa un mese, fu amorevole, intuì meglio di chiunque altro l'origine del mio male.
+Di questo amore, ch'era pur stato così grande, non rimaneva più nessuna visibile traccia; le cose, la distanza, il tempo, scorrevano sovr'esso con una indifferenza crudele.
+Dopo varie settimane mi trovai possessore di una somma notevole, e, non volendo riperderla, mi recai a Parigi per attendere il ritorno di Elena.
+Il vento faceva turbinare i fiocchi larghi e fitti intorno alle chiostre dei lampioni, che ad intervalli uguali accendevano di chiarori abbacinanti la neve uniforme.
+Domattina le darete questo mio biglietto da visita.
+Quando fu trascorsa un'altra mezz'ora, entrai di nuovo nell'albergo e lasciai un altro biglietto, scrivendole semplicemente che sarei tornato verso l'ora del pranzo, alle sette.
+Egli mi condusse nella sala di lettura, mi preparò carta e penna.
+Io, macchinalmente, osservavo i disegni tracciati dalla mia penna, e quando non avevo più inchiostro la intingevo nel calamaio con un movimento nervoso.
+-- Ora invece non puoi essere che mia, -- le dissi -- e la mia vita non fu che un lungo desiderio di te.
+Aveva su le labbra un sorriso calmo, e da' suoi limpidi occhi mi guardava pensierosamente.
+Ella sorrise, come una volta, quando la baciavo.
+-- Io non sono di quelle che ritornano...
+-- È quasi passato un anno, -- ella disse, intrecciando le dita sul piatto vuoto e facendovi battere gli anelli.
+-- Vuoi forse dire come ho trovato il denaro per vivere?
+Quand'ebbero servite le frutte, mi levai rapidamente, afferrandole un polso con un gesto febbrile.
+-- l'interruppi con ardore, come per cancellare la sua risposta.
+Le caddero due lacrime dagli occhi, ed ansava.
+tu, che ne parli tanto, sai cosa vuol dire...
+Se è possibile amare al di là dell'amore, in quel momento l'amai.
+Qua e là, torvo e sfrenato, corsi allora in cerca d'oblìo.
+-- Si tratta, mio buon Mariani, di questo.
+-- Vero, verissimo, -- egli annuì senza convinzione.
+-- Intimo no, -- egli fece con una certa confusione, -- ma insomma lo conosco molto bene, lavoro per lui...
+Se non riuscissi, non sarebbe colpa mia.
+Mi diceva di ricordarsi ancora, dal tempo in cui era fanciulla e andava con sua madre al Pincio, di avermi veduto guidare "i più bei cavalli di Roma".
+Ella sorrideva nell'ascoltarmi, allettata e sorpresa.
+-- Temo che il Wendel sia rimasto un po' male, -- mi disse Claudia sottovoce, nascondendo la faccia dietro il ventaglio di piume.
+Mi posi con le spalle contro una colonna ed aspettai.
+Durante l'inverno mi si eran offerte varie occasioni di veder Edoarda, in istrada o nei teatri, ma raramente sola.
+Era il secondo abbandono che faceva di lei, forse il più doloroso.
+-- Sì, qualche volta, in principio; ma ora, da che sei tornato, evita manifestamente questo discorso.
+Ed allora, ogni mattina, per andare in Piazza di Spagna, ne misi una: conoscevo la sua memoria tenace, forse le avrebbe riconosciute.
+Fabio mi disse che il barone De Luca non amava la musica da camera.
+Mi trovai puerilmente perverso; non l'amavo, e, sopra tutto, non la volevo amare.
+La sua faccia strabiliata, quando ci vide, per poco non fece ridere anche me.
+-- Insomma: ti manda lei, per caso, a farmi questa ambasceria?
+Sapevo che con questi occhi avrei vedute ancora le cose più stravaganti, più inverosimili che possano accadere al mondo; ma di vederti un'altra volta innamorato d'Edoarda...
+Guidavano il gruppo Giorgio Sannìzzaro ed un capitano di cavalleria.
+Attesi che le due signore passassero, e mi posi dietro loro, ad un galoppo misurato.
+Ella bruscamente scosse il pugno, e la cavalla molestata fece un piccolo salto.
+Allora, tirando insieme la mia briglia e quella della baietta, li rimisi di passo.
+Ella rise di un piccolo riso, breve, sarcastico.
+-- Volevo dire una diversità di espressione; avete l'aria più cattiva; sembrate un uomo che viva in uno stato anormale, ruminando chissà mai quale idea pericolosa.
+Ma ho bisogno di parlarvi, od almeno di sapere una cosa, una sola, se pur mi vorrete rispondere.
+Ella si chiuse un poco nelle spalle, guardò altrove, senza rispondere.
+-- Sei cambiata e sei la stessa, -- ripetei.
+I nostri, oggi, lo sanno qualche volta, ma non sorprendono quasi mai.
+per slacciarle una scarpina senza che se n'avveda o insinuar le dita fra gli uncini della camicetta, che vela, senza nasconderla, una soave nudità...
+Evelyn si chiamava la bimba: io sapevo il suo nome, non ella il mio.
+-- M'ha dato il suo biglietto da visita.
+Ho avuto un periodo favorevole, ma ora il vento si è messo a fortunale.
+Non con tutti gli amici si può essere sinceri come con te, gentile e mansueta canaglia!
+Fu venduta circa un mese fa per centodiecimila lire; ne valeva un buon terzo di più, ma non si è potuto far meglio.
+Ti consigliavo anche di ammogliarti; era la cosa più ragionevole che tu potessi fare.
+-- Bene: ancora un momento e te n'andrai.
+Una buona doccia, e mi ritroverai fresco, nonostante l'orribile viaggio.
+-- Sai: quel tuo buon amico di Parigi mi ha l'aria d'un birbante matricolato.
+Credo avere un'età, nella quale posso finalmente far a meno del precettore!
+-- Allora ti dirò che gli amici li ho sempre coltivati ed amati; ma tu -- inutile nasconderlo!
+Va dal marito, mettigli questa idea nel capo e sarai soddisfatto!
+Infatti le cose illogiche paion sempre naturalissime al mondo.
+Aveva le maniche della camicetta corte fino al gomito ed un paio di guanti che le calzavan alto, inverditi nel palmo dall'umor vegetale dei fiori strappati.
+Oh, amori nella calda estate, mentre il sole avvampa l'arsa campagna e le cortine fan buia la camera, in un decrepito letto, con un'amante giovine!...
+-- Prima di tutto -- risposi, -- questi non sono regali che si possono accettare.
+E sono certa che se domani, per esempio, tu avessi un fastidio qualsiasi, andresti chissà da chi piuttosto che dirlo a me.
+Tu, vedi, non arrivi a pensare come penso io, a volermi bene come te ne voglio io.
+Le cose meno importanti son quelle che più mi fanno sentire questa mancanza di libertà.
+Lo trovai difatti che m'aspettava su la terrazza, fumando.
+-- Era necessario che tu me ne avvertissi perchè le avrei detto proprio il contrario, e cioè che impieghi molto bene il tuo tempo, -- esclamò con intendimento.
+-- Volentieri; purchè non si tratti d'una commissione, come direi?
+Ma sì, ne parlavamo poco fa, di sopra...
+-- Ma, sai, la cosa ha dell'inverosimile...
+All'ultima altezza del muro gli si rifiutò tre volte.
+-- Fa dunque una cosa: trovati alla stazione.
+Grotteschi ed effimeri passiamo: con noi mille altri passano; dopo noi vengon altri mille, a perpetuare la nostra mediocrità...
+C'era troppa gente; le persone di casa parevano impazzite.
+Intanto che trovo splendido quell'antico palazzo...
+-- ella rispose con una voce priva d'accento, senza quasi muovere le labbra.
+Io rimasi finchè il treno fischiò, e non ebbi l'ardire di seguirli dentro la stazione.
+Anzi, più lottavo, e più, con uno sguardo solo, annullavi tutta la mia volontà.
+Noi dobbiamo avere un'anima sola; e così, tutto quello ch'io sento, ch'io penso, quand'anche fosse una colpa, resta come suggellato in me.
+Dunque non ti conosco, eppure so come sei: un uomo robusto e ruvido, qualcosa tra il facchino in livrea ed il sacerdote in abito civile.
+Sì, becchino, queste orgogliose parole non ti faccian sorridere.

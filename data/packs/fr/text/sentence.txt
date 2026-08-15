@@ -1,14 +1,504 @@
 ---
-description: Filler sentence (original neutral French prose, no country-specific vocabulary)
+description: fr filler sentences from public-domain books (Project Gutenberg); see data/sources/fr/text/README.md
 locale: fr
 ---
-Le matin était calme et la ville dormait encore sous une brume légère.
-Il ouvrit la fenêtre et respira l'air froid du jour qui commençait.
-Le chemin se perdait au loin, entre les collines et les champs de blé.
-Elle posa son livre sur la table et regarda la pluie tomber.
-La lumière du soir glissait doucement sur les toits du quartier.
-Personne ne savait encore ce que cette journée allait apporter.
-Le train quitta la gare sans se presser et prit peu à peu de la vitesse.
-Un vieux chien traversa la rue vide avant de disparaître dans une cour.
-Les mots restaient là, suspendus, comme s'ils attendaient une réponse.
-Au bout du sentier, la mer apparut soudain, immense et grise.
+Anglais, à coup sûr, Phileas Fogg n'était peut-être pas Londonner.
+Fogg était le dernier auquel il convînt de s'adresser pour l'apprendre.
+Phileas Fogg vivait seul dans sa maison de Saville-row, où personne ne pénétrait.
+Je crois être un honnête garçon, monsieur, mais, pour être franc, j'ai fait plusieurs métiers.
+Il paraissait posséder au plus haut degré ce que les physionomistes appellent "le repos dans l'action", faculté commune à tous ceux qui font plus de besogne que de bruit.
+Ayant entendu vanter le méthodisme anglais et la froideur proverbiale des gentlemen, il vint chercher fortune en Angleterre.
+Des timbres électriques et des tuyaux acoustiques la mettaient en communication avec les appartements de l'entresol et du premier étage.
+Point d'armes dans la maison, aucun ustensile de chasse ou de guerre.
+--J'espère, au contraire, dit Gauthier Ralph, que nous mettrons la main sur l'auteur du vol.
+Or, précisément, ainsi que le disait le Morning Chronicle, on avait lieu de supposer que l'auteur du vol ne faisait partie d'aucune des sociétés de voleurs d'Angleterre.
+Est-ce que la terre a diminué, par hasard?
+s'écria, Andrew Stuart, qui par inattention, coupa une carte maîtresse, mais non compris le mauvais temps, les vents contraires, les naufrages, les déraillements, etc.
+--L'imprévu n'existe pas, répondit simplement Phileas Fogg.
+Passepartout, qui avait consciencieusement étudié son programme, fut assez surpris en voyant Mr.
+Et, machinalement, il fit ses préparatifs de départ.
+À huit heures vingt, le cab s'arrêta devant la grille de la gare.
+À huit heures quarante-cinq, un coup de sifflet retentit, et le train se mit en marche.
+Seul, le Daily Telegraph le soutint dans une certaine mesure.
+Or, il suffisait d'un retard, un seul, pour que la chaîne de communications fût irréparablement brisée.
+et il paria cinq mille livres (100 000 F) en faveur de Phileas Fogg.
+C'était celui de ce personnage distingué et bien mis que l'on avait observé dans la salle des paiements de la Banque.
+--Je le souhaite, monsieur Fix, car il s'agit d'un vol important.
+Quelques minarets se dessinaient au-dessus de la ville sous les pâles rayons du soleil.
+Fix ne fut pas longtemps livré à ses réflexions.
+--Mais, reprit l'agent, il faut qu'il se présente en personne aux bureaux du consulat afin d'établir son identité.
+--Cependant, monsieur le consul, il faut bien que je retienne ici cet homme jusqu'à ce que j'aie reçu de Londres un mandat d'arrestation.
+--J'en aurai le coeur net, répondit Fix.
+c'est vous, monsieur, répondit le Français.
+Et le brave garçon remit sa montre dans son gousset avec un geste superbe.
+Fix laissa son compagnon y faire ses emplettes, il lui recommanda de ne pas manquer le départ du Mongolia, et il revint en toute hâte aux bureaux de l'agent consulaire.
+On faisait de la musique, on dansait même, quand la mer le permettait.
+D'abord il faisait ses quatre repas par jour, sans que jamais ni roulis ni tangage pussent détraquer une machine si merveilleusement organisée.
+Des mosquées, des minarets, des temples, des fakirs, des pagodes, des tigres, des serpents, des bayadères!
+Grave et importante affaire que cette alimentation du foyer des paquebots à de telles distances des centres de production.
+Du reste, cette mer indienne lui fut favorable.
+Le gouvernement britannique exerce une domination réelle sur une certaine partie de cet immense pays.
+--Et ce lapin-là n'a pas miaulé quand on l'a tué?
+Et il commença à se demander si ce pari de Mr.
+Un délit commis sur le territoire indien...
+Il était donc fondé à se demander si un coeur humain battait sous cette froide enveloppe, si Phileas Fogg avait une âme sensible aux beautés de la nature, aux aspirations morales.
+--Eh bien, s'il eût été pris, Sir Francis, répondit Mr.
+Déjà même, il s'inquiétait des retards possibles, des accidents qui pouvaient survenir en route.
+Le brigadier général descendit aussitôt de wagon.
+Il y a un steamer qui part de Calcutta pour Hong-Kong le 25 à midi.
+Ce traitement peut paraître impropre à donner un tel résultat, mais il n'en est pas moins employé avec succès par les éleveurs.
+Peut-être le drôle flairait-il une magnifique affaire.
+Phileas Fogg paya l'Indien en bank-notes qui furent extraites du fameux sac.
+Le brave garçon, tantôt lancé sur le cou de l'éléphant, tantôt rejeté sur la croupe, faisait de la voltige, comme un clown sur un tremplin.
+On vit peu d'animaux pendant cette journée, à peine quelques singes, qui fuyaient avec mille contorsions et grimaces dont s'amusait fort Passepartout.
+La conversation, qui commença par quelques phrases entrecoupées, se termina bientôt par des ronflements sonores.
+Il évitait toujours les lieux habités, se sentant plus en sûreté dans ces campagnes désertes, qui marquent les premières dépressions du bassin du grand fleuve.
+Lui-même se tint prêt à enfourcher rapidement sa monture, si la fuite devenait nécessaire.
+Derrière eux, quelques brahmanes, dans toute la somptuosité de leur costume oriental, traînaient une femme qui se soutenait à peine.
+reprit Phileas Fogg, sans que sa voix trahît la moindre émotion, ces barbares coutumes subsistent encore dans l'Inde, et les Anglais n'ont pu les détruire?
+Après cette réponse, le guide fit sortir l'éléphant de l'épais fourré et se hissa sur le cou de l'animal.
+Ce brave Indou donna alors quelques détails sur la victime.
+Fogg et ses compagnons attendirent la nuit.
+Hommes, femmes, enfants, tout était confondu.
+L'ivresse du "hang" leur avait été probablement épargnée.
+La première brique une fois enlevée, les autres viendraient facilement.
+L'impassible Fogg attendait sans manifester ses sentiments.
+Les heures s'écoulaient, et bientôt quelques nuances moins sombres annoncèrent l'approche du jour.
+Deux minutes après, ils arrivaient sur le bord de la rivière et s'arrêtaient à moins de cinquante pas du bûcher, sur lequel était couché le corps du rajah.
+C'était Passepartout qui, profitant de l'obscurité profonde encore, avait arraché la jeune femme à la mort!
+Quant à la jeune Indienne, elle n'avait pas eu conscience de ce qui s'était passé.
+À son avis, la jeune femme ne serait véritablement en sûreté qu'après avoir quitté l'Inde.
+Puis, tout triomphant, il retourna à la gare.
+J'ai payé ton service, mais non ton dévouement.
+Aouda remercia ses sauveurs avec effusion, par ses larmes plus que par ses paroles.
+Tout ému, il se demanda où et quand il pourrait bien se dévouer pour lui.
+Fogg ne fit pas un mouvement qui pût marquer en lui une surprise quelconque.
+Aouda et Passepartout s'assirent sur un banc en face des sièges réservés au magistrat et au greffier.
+Il ne s'agit pas de la pagode de Pillaji, mais de la pagode de Malebar-Hill, à Bombay.
+s'écria Passepartout, qui n'était véritablement sensible qu'à l'amende.
+Fix espérait encore que son voleur ne se déciderait jamais à abandonner cette somme de deux mille livres et qu'il ferait ses huit jours de prison.
+En toute occasion, elle lui témoignait la plus vive reconnaissance.
+Aouda était parente de ce riche personnage qui habitait Bombay.
+Le développement panoramique de ces îles était superbe.
+J'ai échoué à Bombay, j'ai échoué à Calcutta!
+Fix l'avait bien vu dans la salle d'audience du tribunal de Calcutta.
+répondit Passepartout, absolument surpris, en reconnaissant son compagnon de traversée du Mongolia.
+Fogg, qui restait volontiers dans le grand salon du Rangoon, soit qu'il tînt compagnie à Mrs.
+C'est un espion que ces gentlemen ont mis à nos trousses!
+Un joli équipage, attelé de ces chevaux élégants qui ont été importés de la Nouvelle-Hollande, transporta Mrs.
+Quand il était maniable, le capitaine faisait établir la voilure.
+Peut-être aussi la pensée de ce bec de gaz qui continuait de brûler à son compte dans la maison de Saville-row entrait-elle pour beaucoup dans son impatience.
+Il y a de bonnes et de mauvaises affaires.
+Quant aux préoccupations que les chances de ce voyage pouvaient faire naître en lui, il n'y en avait pas trace.
+Mais cet homme sans nerfs ne ressentait ni impatience ni ennui.
+Passepartout, comme si les vingt mille livres du pari eussent dû sortir de sa bourse, ne vivait plus.
+Les huniers et les basses voiles purent être établis, et le Rangoon reprit sa route avec une merveilleuse vitesse.
+Fogg, après avoir consulté son Bradshaw, demanda de son air tranquille audit pilote s'il savait quand il partirait un bateau de Hong-Kong pour Yokohama.
+Fogg avait devant lui seize heures pour s'occuper de ses affaires, c'est-à-dire de celles qui concernaient Mrs.
+--C'est très simple, répondit le gentleman.
+Mais l'inspecteur de police laissait voir sur son visage les marques d'un vif désappointement.
+Sur ce lit étaient rangés un certain nombre de dormeurs.
+On demanda deux bouteilles de porto, auxquelles le Français fit largement honneur, tandis que Fix, plus réservé, observait son compagnon avec une extrême attention.
+reprit Fix, en serrant la main du Français.
+Sachez, monsieur Fix, que mon maître est un honnête homme, et que, quand il a fait un pari, c'est loyalement qu'il prétend le gagner.
+Je ne suis pas ce que vous croyez, c'est-à-dire un agent des membres du Reform-Club...
+Passepartout avait pris sa tête à deux mains.
+--Mettons que je n'ai rien dit, répondit Fix, et buvons.
+Aouda, un peu fatiguée, remonta dans son appartement, après avoir "à l'anglaise" serré la main de son imperturbable sauveur.
+Fogg, qui comptait trouver, à la fois, et le paquebot et son domestique, en était réduit à se passer de l'un et de l'autre.
+Aouda, se dirigea vers les docks à la recherche d'un navire en partance.
+Le pilote s'était de nouveau avancé vers le gentleman, et tournait son chapeau entre ses mains.
+Monsieur, ajouta Phileas Fogg en se retournant vers Fix, si vous voulez profiter...
+L'équipage de la Tankadère se composait du patron John Bunsby et de quatre hommes.
+Enfin, le patron John Bunsby passa au large, et la Tankadère, prenant le vent sous sa brigantine, sa misaine et ses focs, s'élança en bondissant sur les flots.
+La lune entrait dans son premier quartier, et son insuffisante lumière devait s'éteindre bientôt dans les brumes de l'horizon.
+Aouda, qui regrettait profondément cet honnête serviteur, auquel elle devait tant.
+Elle l'avait à cinq milles au plus par sa hanche de bâbord, et cette côte, irrégulièrement profilée, apparaissait parfois à travers quelques éclaircies.
+Fogg qu'on arriverait en temps voulu à Shangaï.
+Du reste, le baromètre annonçait un changement prochain de l'atmosphère; sa marche diurne était irrégulière, et le mercure oscillait capricieusement.
+Aouda, ni Fix lui-même ne consentirent à quitter le pont.
+En voyant l'obscurité se faire, et avec l'obscurité s'accroître la tourmente, John Bunsby ressentit de vives inquiétudes.
+Toutefois, le vent retomba dans le sud-est.
+Sans cette tempête, pendant laquelle il perdit plusieurs heures, il n'eût pas été en ce moment à trente milles du port.
+À ce moment aussi, un long fuseau noir, couronné d'un panache de fumée, apparut au ras de l'eau.
+Quelques instants après que Fix eut quitté la tabagie, deux garçons avaient enlevé Passepartout profondément endormi, et l'avaient couché sur le lit réservé aux fumeurs.
+Ne ferait-il pas mieux d'attendre son arrivée à Londres, pour lui dire qu'un agent de la police métropolitaine l'avait filé autour du monde, et pour en rire avec lui?
+Passepartout avait eu un instant cette crainte de s'être trompé de navire!
+Toutefois, son passage et sa nourriture à bord étaient payés d'avance.
+Puis il revit la rade, émaillée des feux de pêcheurs, qui attiraient le poisson à la lueur de résines enflammées.
+Passepartout songea alors à visiter les paquebots en partance pour l'Amérique.
+--Ainsi, je ne puis vous être bon à rien?
+C'était peu flatteur, mais avant huit jours il serait en route pour San Francisco.
+Mais le principal attrait de la représentation était l'exhibition de ces "Longs-Nez", étonnants équilibristes que l'Europe ne connaît pas encore.
+Aouda, qui l'accompagnait, Passepartout s'étaient précipités par les couloirs au-dehors de la case.
+Il n'eût certes point reconnu son serviteur sous cet excentrique accoutrement de héraut; mais celui-ci, dans sa position renversée, aperçut son maître à la galerie.
+Le General-Grant était gréé en trois-mâts goélette, et il possédait une grande surface de voilure, qui aidait puissamment la vapeur.
+Sur quatre-vingts jours mis à sa disposition, Mr.
+En effet, en arrivant à Yokohama, l'agent, abandonnant Mr.
+Passepartout, comme subjugué par ce sang-froid, suivit l'inspecteur de police, et tous deux s'assirent à l'avant du steamer.
+Il était sept heures du matin, quand Phileas Fogg, Mrs.
+Lorsque Passepartout arriva à l'International-Hotel, il ne lui semblait pas qu'il eût quitté l'Angleterre.
+Phileas Fogg n'avait pas fait deux cents pas que, "par le plus grand des hasards", il rencontrait Fix.
+S'agissait-il de la nomination d'un haut fonctionnaire militaire ou civil, d'un gouverneur d'État ou d'un membre du Congrès?
+La cohue se rapprocha de l'escalier et reflua sur les premières marches.
+Fogg, en lançant à son adversaire un regard de profond mépris.
+Le dîner terminé, un coach fut amené, qui devait conduire à la gare les voyageurs et leurs colis.
+Autrefois, dans les circonstances les plus favorables, on employait six mois pour aller de New York à San Francisco.
+Passepartout se trouvait placé auprès de l'inspecteur de police, mais il ne lui parlait pas.
+Une heure après, le dortoir était redevenu un wagon ordinaire et les voyageurs pouvaient à travers les vitres entrevoir les points de vue pittoresques de ce montagneux pays.
+Vers trois heures du soir, un troupeau de dix à douze mille têtes barra le rail-road.
+Le mécanicien n'avait point tenté de renverser l'obstacle, et il avait prudemment agi.
+Personne ne se hasarda à contredire le missionnaire, dont l'exaltation contrastait avec sa physionomie naturellement calme.
+De là, on pouvait embrasser, sur un vaste périmètre, l'aspect de cette mer intérieure, qui porte aussi le nom de mer Morte et dans laquelle se jette un Jourdain d'Amérique.
+Les rues étaient presque désertes,--sauf toutefois la partie du Temple, qu'ils n'atteignirent qu'après avoir traversé plusieurs quartiers entourés de palissades.
+Il s'élança donc sur la voie, sauta sur le marchepied de la dernière voiture, et tomba essoufflé sur une des banquettes du wagon.
+Aouda éprouvait des craintes plus vives, qui provenaient d'une tout autre cause.
+Il me semble que, dans tout ceci, c'est encore moi qui ai reçu les plus graves insultes!
+Et maintenant, y avait-il un moyen quelconque de retenir Mr.
+Passepartout fut dépêché à la recherche du steward, et il revint bientôt avec deux jeux complets, des fiches, des jetons et une tablette recouverte de drap.
+C'était le désert dans son immense nudité.
+Et d'ailleurs, avec les habitudes d'insouciance des Américains, on peut dire que, quand ils se mettent à être prudents, il y aurait folie à ne pas l'être.
+Mais un certain nombre de voyageurs avaient été immédiatement séduits par la proposition.
+Le pauvre garçon ne savait plus de qui se faire entendre.
+En cet endroit, le rail-road atteignait le plus haut point du parcours, soit huit mille quatre-vingt-onze pieds au-dessus du niveau de l'océan.
+Le sifflet de la locomotive, plus puissant que la lyre d'Amphion, allait bientôt les faire surgir du sol américain.
+--Peut-être serai-je plus habile à un autre, dit Phileas Fogg, qui se leva.
+Fogg, et il rentra dans son wagon, aussi froid que d'habitude.
+La cloche sonnait, en effet, et le train se remit en route.
+Fogg et le colonel Proctor, munis chacun de deux revolvers à six coups, entrèrent dans le wagon.
+De là les détonations auxquelles les voyageurs, presque tous armés, ripostaient par des coups de revolver.
+Le conducteur se battait aux côtés de Mr.
+Fix était blessé au bras, blessure sans importance.
+Un seul jour de retard lui faisait manquer le paquebot à New York.
+mais puis-je risquer la vie de cinquante pour en sauver trois?
+Le laisser s'aventurer ainsi dans ce désert!
+Ainsi raisonnait l'inspecteur de police, tandis que les heures s'écoulaient si lentement à son gré.
+Les secours réclamés par le télégraphe ne pouvaient arriver sitôt, et le train d'Omaha à San Francisco ne devait passer que le lendemain.--On fut bientôt fixé.
+Si vous voulez partir, montez en voiture.
+La nuit vint, la neige tomba moins abondamment, mais l'intensité du froid s'accrut.
+Le capitaine, extrêmement soucieux, ne savait quel parti prendre.
+Phileas Fogg se trouvait en retard de vingt heures.
+Au tiers du châssis, sur l'avant, se dressait un mât très élevé, sur lequel s'enverguait une immense brigantine.
+L'honnête garçon se chargerait de ramener la jeune femme en Europe par une route meilleure et dans des conditions plus acceptables.
+Les voyageurs, pressés les uns contre les autres, ne pouvaient se parler.
+Le traîneau, abrégeant cette route, prenait la corde de l'arc décrit par le chemin de fer.
+Il n'oubliait pas que c'était l'inspecteur lui-même qui avait procuré le traîneau à voiles, et, par conséquent, le seul moyen qu'il y eût de gagner Omaha en temps utile.
+Parfois aussi, quelques loups de prairies, en troupes nombreuses, maigres, affamés, poussés par un besoin féroce, luttaient de vitesse avec le traîneau.
+Phileas Fogg et ses compagnons n'eurent que le temps de se précipiter dans un wagon.
+Ils employaient à cette traversée de New York à l'Angleterre plus de temps qu'il n'en restait à Mr.
+Le capitaine de l'Henrietta était à bord.
+Le capitaine Speedy commença à se gratter le front, comme s'il eût voulu en arracher l'épiderme.
+Phileas Fogg voulait aller à Liverpool, le capitaine ne voulait pas l'y conduire.
+Il faisait mille amitiés aux matelots et les étonnait par ses tours de voltige.
+Fogg, lui, n'avait plus même l'air de se douter qu'il y eût un capitaine à bord.
+L'Henrietta, quand elle ne pouvait s'élever à la lame, passait au travers, et son pont était balayé en grand, mais elle passait.
+Sans savoir pourquoi--par un pressentiment sans doute--, Passepartout éprouva comme une vague inquiétude.
+--C'est que je vais être obligé de le brûler.
+Quant à Fix, il faillit avoir un coup de sang.
+Le lendemain, 20, les bastingages, les pavois, les oeuvres-mortes, la plus grande partie du pont, furent dévorés.
+Ces douze heures que gagnait ainsi le courrier d'Amérique, Phileas Fogg prétendait les gagner aussi.
+Quand Fix avait révélé et sa qualité d'inspecteur de police et la mission dont il était chargé, pourquoi avait-il pris sur lui de ne point avertir son maître?
+Croyait-il encore au succès, quand la porte de cette prison était fermée sur lui?
+À deux heures trente-trois minutes, un bruit retentit au-dehors, un vacarme de portes qui s'ouvraient.
+Il fallait franchir en cinq heures et demie la distance qui sépare Liverpool de Londres--, chose très faisable, quand la voie est libre sur tout le parcours.
+Fogg, elle avait compris que celui-ci méditait quelque projet funeste.
+Aouda la permission de l'entretenir pendant quelques instants.
+Vous dites qu'il a manifesté l'intention de me parler ce soir?
+Il n'en voulait plus à l'inspecteur de police.
+Votre existence eût été heureuse et libre.
+Aouda, qui se leva et tendit sa main au gentleman, voulez-vous à la fois d'une parente et d'une amie?
+Tous les engagements revivaient, et, il faut le dire, les paris reprirent avec une nouvelle énergie.
+On ne le cotait plus à cent, mais à vingt, mais à dix, mais à cinq, et le vieux paralytique, Lord Albermale, le prenait, lui, à égalité.
+--Et moi, dit Andrew Stuart, qui était, comme toujours, très nerveux, je le verrais je n'y croirais pas.
+Mais ils n'en voulaient rien laisser paraître, car, sur la proposition de Samuel Fallentin, ils prirent place à une table de jeu.
+À la cinquante-cinquième, on entendit comme un tonnerre au-dehors, des applaudissements, des hurrahs, et même des imprécations, qui se propagèrent dans un roulement continu.
+Comment se croyait-il au samedi soir, 21 décembre, quand il débarqua à Londres, alors qu'il n'était qu'au vendredi, 20 décembre, soixante dix neuf jours seulement après son départ?
+--Cher monsieur Fogg..., dit la jeune femme.
+Rien, soit, si ce n'est une charmante femme, qui--quelque invraisemblable que cela puisse paraître--le rendit le plus heureux des hommes!
+Mais, soit qu'il n'eût pas remarqué cette manœuvre ou qu'il n'eut osé s'y soumettre, la prière était finie que le nouveau tenait encore sa casquette sur ses deux genoux.
+Mais il s'essuyait avec la main, et demeurait immobile, les yeux baissés.
+Mais, naturellement paisible, le petit répondait mal à ses efforts.
+On montait dans sa chambre, on s'installait: les moucherons et les papillons de nuit tournoyaient autour de la chandelle.
+Il travaillait pourtant, il avait des cahiers reliés, il suivait tous les cours; il ne perdait pas une seule visite.
+Il prit l'habitude du cabaret, avec la passion des dominos.
+Pour arriver à ses fins, la mère Bovary fut obligée de les évincer tous, et elle déjoua même fort habilement les intrigues d'un charcutier qui était soutenu par les prêtres.
+Il tira de dedans son bonnet de laine à houppes grises, une lettre enveloppée dans un chiffon, et la présenta délicatement à Charles, qui s'accouda sur l'oreiller pour la lire.
+L'odeur chaude des cataplasmes se mêlait dans sa tête à la verte odeur de la rosée; il entendait rouler sur leur tringle les anneaux de fer des lits et sa femme dormir...
+La bergerie était longue, la grange était haute, à murs lisses comme la main.
+Charles fut surpris de la blancheur de ses ongles.
+Mademoiselle Rouault ne s'amusait guère à la campagne, maintenant surtout qu'elle était chargée presque à elle seule des soins de la ferme.
+Y eût-il songé, qu'il aurait sans doute attribué son zèle à la gravité du cas, ou peut-être au profit qu'il en espérait.
+Rouault était guéri et que ces gens-là n'avaient pas encore payé?
+Quand tout fut fini au cimetière, Charles rentra chez lui.
+L'agrément nouveau de l'indépendance lui rendit bientôt la solitude plus supportable.
+Elle lui fit voir ses anciens cahiers de musique, les petits livres qu'on lui avait donnés en prix et les couronnes en feuilles de chêne, abandonnées dans un bas d'armoire.
+Le père Rouault lui fit la conduite; ils marchaient dans un chemin creux, ils s'allaient quitter; c'était le moment.
+Le lendemain, dès neuf heures, il était à la ferme.
+Et les chemises sur les poitrines bombaient comme des cuirasses!
+Ceux qui restèrent aux Bertaux passèrent la nuit à boire dans la cuisine.
+Le père Rouault les fit reconduire dans sa carriole et les accompagna lui-même jusqu'à Vassonville.
+De l'autre côté du corridor était le cabinet de Charles, petite pièce de six pas de large environ, avec une table, trois chaises et un fauteuil de bureau.
+Mais, à présent, il possédait pour la vie cette jolie femme qu'il adorait.
+Le soir, avant la prière, on faisait dans l'étude une lecture religieuse.
+Quelques-unes de ses camarades apportaient au couvent les keepsakes qu'elles avaient reçus en étrennes.
+Quand Charles vint aux Bertaux pour la première fois, elle se considérait comme fort désillusionnée, n'ayant plus rien à apprendre, ne devant plus rien sentir.
+Quant au piano, plus les doigts y couraient vite, plus il s'émerveillait.
+Cependant, d'après des théories qu'elle croyait bonnes, elle voulut se donner de l'amour.
+Les joncs sifflaient à ras de terre, et les feuilles des hêtres bruissaient en un frisson rapide, tandis que les cimes, se balançant toujours, continuaient leur grand murmure.
+Le boc de Charles s'arrêta devant le perron du milieu; des domestiques parurent; le Marquis s'avança, et, offrant son bras à la femme du médecin, l'introduisit dans le vestibule.
+Emma frissonna de toute sa peau en sentant ce froid dans sa bouche.
+Elle avait une robe de safran pâle, relevée par trois bouquets de roses pompon mêlées de verdure.
+Ils vantaient la grosseur des piliers de Saint-Pierre, Tivoli, le Vésuve, Castellamare et les Cassines, les roses de Gênes, le Colisée au clair de lune.
+En écartant du coin le rideau de mousseline, on voyait glisser dans l'ombre la lumière de leurs lanternes.
+Il avait passé cinq heures de suite, tout debout devant les tables, à regarder jouer au whist sans y rien comprendre.
+Le plancher de la sellerie luisait à l'œil comme le parquet d'un salon.
+Quand ils arrivèrent chez eux, le dîner n'était point prêt.
+Son voyage à la Vaubyessard avait fait un trou dans sa vie, à la manière de ces grandes crevasses qu'un orage, en une seule nuit, creuse quelquefois dans les montagnes.
+Elle s'acheta un plan de Paris, et, du bout de son doigt, sur la carte, elle faisait des courses dans la capitale.
+Il y avait là des robes à queue, de grands mystères, des angoisses dissimulées sous des sourires.
+Madame se tenait en haut, dans son appartement.
+Les campagnards le chérissaient parce qu'il n'était pas fier.
+Elle se sentait, d'ailleurs, plus irritée de lui.
+L'avenir était un corridor tout noir, et qui avait au fond sa porte bien fermée.
+Les jours qu'il faisait beau, elle descendait dans le jardin.
+Elle, en effet, si soigneuse autrefois et délicate, elle restait à présent des journées entières sans s'habiller, portait des bas de coton gris, s'éclairait à la chandelle.
+Dès lors, elle but du vinaigre pour se faire maigrir, contracta une petite toux sèche et perdit complètement l'appétit.
+On est ici sur les confins de la Normandie, de la Picardie et de l'Île-de-France, contrée bâtarde où le langage est sans accentuation, comme le paysage sans caractère.
+Il n'y a plus ensuite rien à voir dans Yonville.
+les commis du déménagement recommencent leur tintamarre dans le billard!
+monsieur Homais, tant que le Lion d'or vivra, on y viendra.
+- On dit pourtant qu'il a des moyens, objecta l'hôtesse.
+Envoyez donc vos filles en confesse à des gaillards d'un tempérament pareil!
+Quelques bourgeois d'Yonville arrivèrent sur la place; ils parlaient tous à la fois, demandant des nouvelles, des explications et des bourriches; Hivert ne savait auquel répondre.
+Comme il s'ennuyait beaucoup à Yonville, où il était clerc chez maître Guillaumin, souvent M.
+Il y a un endroit que l'on nomme la Pâture, sur le haut de la côte, à la lisière de la forêt.
+Il rougit à ce compliment de son propriétaire, qui déjà s'était tourné vers le médecin et lui énumérait les uns après les autres les principaux habitants d'Yonville.
+dit-elle, en fixant sur lui ses grands yeux noirs tout ouverts.
+Sans qu'il s'en aperçût, tout en causant, Léon avait posé son pied sur un des barreaux de la chaise où madame Bovary était assise.
+On entrevoyait des cimes d'arbres, et plus loin la prairie, à demi noyée dans le brouillard, qui fumait au clair de la lune, selon le cours de la rivière.
+Homais que l'on avait pris dans la maison par charité, et qui servait en même temps de domestique.
+Mais les affaires d'argent le préoccupaient.
+Elle accoucha un dimanche, vers six heures, au soleil levant.
+Léon chanta une barcarolle, et madame Bovary mère, qui était la marraine, une romance du temps de l'Empire; enfin M.
+Par le trou des haies, on apercevait, dans les masures, quelque pourceau sur un fumier, ou des vaches embricolées, frottant leurs cornes contre le tronc des arbres.
+- Elle m'en fait bien d'autres, disait-elle, et je ne suis occupée qu'à la rincer continuellement!
+C'était une des grandes occupations du clerc que de les entretenir; et il gardait, à cet usage, un canif tout particulier dans son écritoire.
+Il se trouvait à plaindre de vivre dans ce village, avec Homais pour ami et M.
+- Mon gaillard, disait-il, commence à avoir des idées, et je crois, diable m'emporte, qu'il est amoureux de votre bonne!
+Elle avait apporté son journal de modes.
+Binet penché sur son tour, dont le ronflement monotone s'entendait jusqu'au Lion d'or.
+Binet en possédait une pour son usage particulier.
+C'était un homme habile que ce boutiquier.
+-Une misère, répondit-il, une misère; mais rien ne presse; quand vous voudrez; nous ne sommes pas des juifs!
+- C'est le temps, sans doute, dit-il en regardant les carreaux avec une figure rechignée, qui est la cause de ces maladies-là!
+Et, pinçant ses lèvres, elle tira lentement une longue aiguillée de fil gris.
+Mais, par ce renoncement, il la plaçait en des conditions extraordinaires.
+Mais plus Emma s'apercevait de son amour, plus elle le refoulait, afin qu'il ne parût pas, et pour le diminuer.
+- D'ailleurs, il ne m'aime plus, pensait-elle; que devenir?
+Au loin, des bestiaux marchaient; on n'entendait ni leurs pas, ni leurs mugissements; et la cloche, sonnant toujours, continuait dans les airs sa lamentation pacifique.
+Un long rayon de soleil traversait toute la nef et rendait plus sombres encore les bas-côtés et les angles.
+Mais le curé, de temps à autre, regardait dans l'église, où tous les gamins agenouillés se poussaient de l'épaule, et tombaient comme des capucins de cartes.
+Et, d'un bond, il s'élança dans l'église.
+Et son regard, qu'elle promenait autour d'elle, s'abaissa lentement sur le vieillard à soutane.
+Le jour blanchâtre des carreaux s'abaissait doucement avec des ondulations.
+- Puisque je t'assure que ce ne sera rien, dit-il en la baisant au front; ne te tourmente pas, pauvre chérie, tu te rendras malade!
+Il avait des battements de cœur et se perdait en conjectures.
+Cette appréhension se tourna vite en impatience, et Paris alors agita pour lui, dans le lointain, la fanfare de ses bals masqués avec le rire de ses grisettes.
+Elle restait debout, s'appuyant de l'épaule contre la boiserie.
+Léon la sentit entre ses doigts, et la substance même de tout son être lui semblait descendre dans cette paume humide.
+Et l'on aurait tort de se révolter là contre, puisque leur organisation nerveuse est beaucoup plus malléable que la nôtre.
+les mets de restaurateurs, toutes ces nourritures épicées finissent par vous échauffer le sang et ne valent pas, quoi qu'on en dise, un bon pot-au-feu.
+La rivière coulait toujours, et poussait lentement ses petits flots le long de la berge glissante.
+Une femme qui s'était imposé de si grands sacrifices pouvait bien se passer des fantaisies.
+Ce seraient des occupations forcées, des ouvrages manuels!
+Ils le regardaient comme un plus grand médecin que tous les médecins.
+disait le paysan, on jurerait une petite fontaine qui coule!
+- Il faudrait, dit Charles, lui cacher cela.
+Ainsi j'ai vu, dans une rencontre, un témoin perdre connaissance rien qu'au bruit des pistolets que l'on chargeait.
+on voudrait habiter la ville, danser la polka tous les soirs!
+Au haut de la côte d'Argueil, sa résolution était prise.
+La foule arrivait dans la grande rue par les deux bouts du village.
+Mais qu'est-ce que la culture vous regarde?
+Je m'empresse d'aller lui offrir mes hommages.
+Quelques marguerites étaient repoussées.
+Il s'en aperçut, et alors se mit à faire des plaisanteries sur les dames d'Yonville, à propos de leur toilette; puis il s'excusa lui-même du négligé de la sienne.
+comme j'aurais dépensé toute l'énergie dont je suis capable, j'aurais surmonté tout, brisé tout!
+Les dames de la société se tenaient derrière, sous le vestibule, entre les colonnes, tandis que le commun de la foule était en face, debout, ou bien assis sur des chaises.
+Il leur faut tour à tour le rêve et l'action, les passions les plus pures, les jouissances les plus furieuses, et l'on se jette ainsi dans toutes sortes de fantaisies, de folies.
+le devoir, c'est de sentir ce qui est grand, de chérir ce qui est beau, et non pas d'accepter toutes les conventions de la société, avec les ignominies qu'elle nous impose.
+Tuvache, à côté de lui, l'écoutait en écarquillant les yeux; M.
+C'était dans cette voiture jaune que Léon, si souvent, était revenu vers elle; et par cette route là-bas qu'il était parti pour toujours!
+Était-ce un bien, et n'y avait-il pas dans cette découverte plus d'inconvénients que d'avantages?
+non, n'est-ce pas, je serai quelque chose dans votre pensée, dans votre vie?
+le Conseiller, qui avait pris des mains du président la liste des lauréats.
+D'ailleurs, sous le rapport de la statistique, on aurait là comme des annales patentes qu'on irait au besoin...
+Le père embrassait son fils, le frère le frère, l'époux l'épouse.
+Rodolphe resta debout; et à peine si Emma répondit à ses premières phrases de politesse.
+du moins j'ai bien contemplé ce qui vous entoure.
+Elle prit un air boudeur, chercha mille excuses, et déclara finalement que cela peut-être semblerait drôle.
+La figure un peu baissée, la main haute et le bras droit déployé, elle s'abandonnait à la cadence du mouvement qui la berçait sur la selle.
+Rodolphe, tout en allant, se penchait et il les retirait à mesure.
+Et il redevint aussitôt respectueux, caressant, timide.
+Çà et là, tout autour d'elle, dans les feuilles ou par terre, des taches lumineuses tremblaient, comme si des colibris, en volant, eussent éparpillé leurs plumes.
+Mais, en s'apercevant dans la glace, elle s'étonna de son visage.
+À partir de ce jour-là, ils s'écrivirent régulièrement tous les soirs.
+Puis elle prenait à travers des champs en labour, où elle enfonçait, trébuchait et empêtrait ses bottines minces.
+Peu à peu, ces craintes de Rodolphe la gagnèrent.
+Aussi croyait-il à chaque minute entendre arriver le garde-champêtre.
+- Justin, cria l'apothicaire, apporte-nous l'acide sulfurique.
+exclama son mari, qui écrivait des chiffres sur le cahier de brouillons.
+- Viens donc, Emma, disait-il, il est temps.
+Rodolphe réfléchit beaucoup à cette histoire de pistolets.
+Ce n'était pas de l'attachement, c'était comme une séduction permanente.
+Je t'embrasse, ma fille; vous aussi, mon gendre, et la petite, sur les deux joues.
+dit sa mère se précipitant pour l'embrasser.
+Charles, sollicité par l'apothicaire et par elle, se laissa convaincre.
+Emma avait eu l'idée de cette générosité; et Charles y consentit, se disant au fond du cœur que sa femme était un ange.
+Puis Charles, ayant bouclé son malade dans le moteur mécanique, s'en retourna chez lui, où Emma, tout anxieuse, l'attendait sur la porte.
+Charles se précipita vers le Lion d'or, et le pharmacien qui l'aperçut passant sur la place, sans chapeau, abandonna la pharmacie.
+disaient-ils en lui frappant sur l'épaule.
+Son zèle parut réussir; car bientôt le stréphopode témoigna l'envie d'aller en pèlerinage à Bon-Secours, s'il se guérissait: à quoi M.
+c'est comme si l'on voulait, par exemple, rendre droit un bossu!
+Il le considérait comme un sacerdoce, bien que les officiers de santé le déshonorassent.
+Une polémique s'ensuivrait, il faudrait répondre dans les journaux.
+Elle se repentait, comme d'un crime, de sa vertu passée, et ce qui en restait encore s'écroulait sous les coups furieux de son orgueil.
+Ce qu'il ne comprenait pas, c'était tout ce trouble dans une chose aussi simple que l'amour.
+disait-elle en déplaçant son pot d'empois.
+Il causait avec elle des nouveaux déballages de paris, de mille curiosités féminines, se montrait fort complaisant, et jamais ne réclamait d'argent.
+Il en refusa plusieurs; elle insista, et Rodolphe finit par obéir, la trouvant tyrannique et trop envahissante.
+dit la bru, avec un regard tellement impertinent que madame Bovary lui demanda si elle ne défendait point sa propre cause.
+Et elle se précipita sur sa bouche, comme pour y saisir le consentement inattendu qui s'en exhalait dans un baiser.
+Il croyait entendre l'haleine légère de son enfant.
+- J'aurais besoin d'un manteau, un grand manteau, à long collet, doublé.
+Enfin le samedi, l'avant-veille, arriva.
+Pourquoi ai-je le cœur triste, cependant?
+- Car enfin, exclamait-il en gesticulant, je ne peux pas m'expatrier, avoir la charge d'une enfant.
+À propos d'un mot, il se rappelait des visages, de certains gestes, un son de voix; quelquefois pourtant il ne se rappelait rien.
+Pourquoi faut-il que je vous aie connue?
+Elle va me croire plus insensible qu'un roc; il eût fallu quelques larmes là-dessus; mais, moi, je ne peux pas pleurer; ce n'est pas ma faute.
+En face, par-dessus les toits, la pleine campagne s'étalait à perte de vue.
+Puis elle était devenue lâche; elle avait peur de Charles; il savait tout, c'était sûr!
+Charles, pour obéir, s'était rassis, et il crachait dans sa main les noyaux des abricots, qu'il déposait ensuite dans son assiette.
+- Rassurez-vous, dit-il en lui poussant le coude, je crois que le paroxysme est passé.
+Croirait-on qu'un simple sternutatoire pût exercer de tels ravages dans l'organisme d'un quadrupède?
+Il envoyait Justin jusqu'à Neufchâtel chercher de la glace; la glace se fondait en route; il le renvoyait.
+Charles ordonna par la suite de les renvoyer à son magasin; Félicité oublia; il avait d'autres soucis; on n'y pensa plus; M.
+Et Emma quotidiennement attendait, avec une sorte d'anxiété, l'infaillible retour d'événements minimes, qui pourtant ne lui importaient guère.
+Il y avait le Pensez-y bien; l'Homme du monde aux pieds de Marie, par M.
+Les petits Homais aussi venaient la voir; Justin les accompagnait.
+Le théâtre, prétendait-il, servait à fronder les préjugés, et, sous le masque du plaisir, enseignait la vertu.
+La conversation semblait finie, quand le pharmacien jugea convenable de pousser une dernière botte.
+il mène avec lui trois maîtresses et son cuisinier!
+C'était l'exhalaison de la rue des Charrettes, pleine de grands magasins noirs où l'on roule des barriques.
+Elle resta seule, et alors on entendit une flûte qui faisait comme un murmure de fontaine ou comme des gazouillements d'oiseau.
+- Pourquoi donc, demanda Bovary, ce seigneur est-il à la persécuter?
+Son grand chapeau à l'espagnole tomba dans un geste qu'il fit; et aussitôt les instruments et les chanteurs entonnèrent le sextuor.
+Mais, vite, se rappelant à la convenance de la situation, elle secoua dans un effort cette torpeur de ses souvenirs et se mit à balbutier des phrases rapides.
+Des gens qui sortaient du spectacle passèrent sur le trottoir, tout fredonnant ou braillant à plein gosier: O bel ange, ma Lucie!
+- C'est que..., balbutia-t-elle avec un singulier sourire, je ne sais pas trop...
+Le lendemain donc, vers cinq heures, il entra dans la cuisine de l'auberge, la gorge serrée, les joues pâles, et avec cette résolution des poltrons que rien n'arrête.
+Mais ils s'arrêtaient quelquefois devant l'exposition complète de leur idée, et cherchaient alors à imaginer une phrase qui pût la traduire cependant.
+J'ai cru vous reconnaître au coin des rues; et je courais après tous les fiacres où flottait à la portière un châle, un voile pareil au vôtre...
+Alors, ils se racontèrent les petits événements de cette existence lointaine, dont ils venaient de résumer, par un seul mot, les plaisirs et les mélancolies.
+- D'où vient que personne, jusqu'à présent, ne m'a jamais exprimé des sentiments pareils?
+Lormeaux, de la rue Grand-Pont, devait m'y conduire avec sa femme.
+Elle répondit par un signe de tête, et disparut comme un oiseau dans la pièce à côté.
+Mais le reflet des peintures, se brisant au bord du marbre, continuait plus loin, sur les dalles, comme un tapis bariolé.
+Madame désire voir les curiosités de l'église?
+- Elle décorait autrefois, dit-il avec un long gémissement, la tombe de Richard Cœur de Lion, roi d'Angleterre et duc de Normandie.
+Et cette parole, comme un irrésistible argument, la détermina.
+Elle revint; et alors, sans parti pris ni direction, au hasard, elle vagabonda.
+Au coin des rues, il y avait de petits tas roses qui fumaient l'air, c'était le moment des confitures, et tout le monde à Yonville, confectionnait sa provision le même jour.
+C'est comme si on découpait une poularde avec un scalpel, comme si un magistrat...
+Qui te fournit la nourriture, l'éducation, l'habillement, et tous les moyens de figurer un jour, avec honneur dans les rangs de la société!
+dit-il en séparant lentement ces deux mots.
+Mais, au contact de ses lèvres, le souvenir de l'autre la saisit, et elle se passa la main sur son visage en frissonnant.
+se disait-elle en regardant le pauvre diable, dont la grosse chevelure rouge dégouttait de sueur.
+Mais la présence de la belle-mère et du mari la gênait.
+C'est un brave garçon, quoique nous ayons eu ensemble des difficultés.
+Il vous en faut une autre pour les visites.
+Et ils vivaient là, volets fermés, portes closes, avec des fleurs par terre et des sirops à la glace, qu'on leur apportait dès le matin.
+Elle avait la tête levée, les mains jointes, et les deux yeux vers le ciel.
+Il l'évoquait de toute la force de son désir et de ses souvenirs.
+Elle ne pouvait plus se passer de ses services.
+il ne faut jamais laisser en friche les facultés de la nature.
+Ensuite elle marchait de long en large; elle se mettait devant les fenêtres, elle regardait la Place.
+Parfois un coup de vent emportait les nuages vers la côte Sainte-Catherine, comme des flots aériens qui se brisaient en silence contre une falaise.
+Léon, sur le trottoir, continuait à marcher.
+Il savourait pour la première fois l'inexprimable délicatesse des élégances féminines.
+La nuit tombait; on allumait le gaz dans la boutique.
+Quelquefois, il apparaissait tout à coup derrière Emma, tête nue.
+- Allons, disait-elle, c'est bien, va-t'en!
+- C'est mademoiselle Lempereur, n'est-ce pas, qui te donne des leçons?
+L'hôtelière répondit qu'elle fréquentait fort peu son établissement.
+Elle objecta la difficulté d'un acquéreur; il donna l'espoir d'en trouver; mais elle demanda comment faire pour qu'elle pût vendre.
+- Mais, si je vous donne le surplus, répondit effrontément M.
+Le lendemain, au point du jour, Emma courut chez M.
+Emma disparut, puis rentra vite en lui tendant majestueusement une grosse feuille de papier.
+Elle rit, pleura, chanta, dansa, fit monter des sorbets, voulut fumer des cigarettes, lui parut extravagante, mais adorable, superbe.
+Charles donna de grands coups de poing contre les auvents.
+Ce fut un grand bonheur les premières fois; mais bientôt il ne cacha plus la vérité, à savoir: que son patron se plaignait fort de ces dérangements.
+Voilà, du reste, le caractère des femmes: elles sont jalouses de la Science, puis s'opposent à ce que l'on prenne les plus légitimes distractions.
+- Vous devez être, dit-il tout à coup, bien privé à Rouen.
+pouvait-elle croire qu'il préférât sa compagnie?
+Nous irons au Fanal de Rouen, voir ces messieurs.
+Il s'efforçait même à ne pas la chérir; puis, au craquement de ses bottines, il se sentait lâche, comme les ivrognes à la vue des liqueurs fortes.
+Un râle métallique se traîna dans les airs et quatre coups se firent entendre à la cloche du couvent.
+c'est bien simple: un jugement du tribunal, et puis la saisie...; bernique!
+Et, en apprenant que Langlois n'avait pas encore payé, il parut fort surpris.
+Alors Madame expédia des factures chez deux ou trois clients, et bientôt usa largement de ce moyen, qui lui réussissait.
+Après le dîner, il se promenait seul dans le jardin; il prenait la petite Berthe sur ses genoux, et, déployant son journal de médecine, essayait de lui apprendre à lire.
+Une telle intrigue nuirait plus tard à son établissement.
+Souvent même, Emma recevait des assignations, du papier timbré qu'elle regardait à peine.
+Elle s'évanouissait; on la porta devant la fenêtre.
+C'était dans vingt-quatre heures; demain!
+Et Lheureux tira de son coffre-fort le reçu de dix-huit cents francs, qu'elle lui avait donné lors de l'escompte Vinçart.
+Elle fut stoïque, le lendemain, lorsque maître Hareng, l'huissier, avec deux témoins, se présenta chez elle pour faire le procès-verbal de la saisie.
+Il y eut un moment où le gardien, sans doute s'ennuyant dans sa cachette, fit un peu de bruit.
+D'ailleurs, Léon pouvait s'engager à sa place.
+On sortait des vêpres; la foule s'écoulait par les trois portails, comme un fleuve par les trois arches d'un pont, et, au milieu, plus immobile qu'un roc, se tenait le suisse.
+On devrait enfermer ces malheureux, que l'on forcerait à quelque travail!
+Emma, prise de dégoût, lui envoya, par-dessus l'épaule, une pièce de cinq francs.
+Emma lut d'un clin d'œil que tout son mobilier était à vendre.
+et, sans s'interrompre de manger, il s'était tourné vers elle complètement, si bien qu'il frôlait du genou sa bottine, dont la semelle se recourbait tout en fumant contre le poêle.
+se disait-elle, en fuyant d'un pied nerveux sous les trembles de la route.
+C'était lui, il ouvrait la barrière, il était plus blême que le mur de plâtre.
+Puis, comme elle ne répondait pas, la bonne femme s'éloigna, prit son rouet et se mit à filer du lin.
+Tout à coup elle se frappa le front, poussa un cri, car le souvenir de Rodolphe, comme un grand éclair dans une nuit sombre, lui avait passé dans l'âme.
+Elle se recueillit une minute, et, retrempant son courage au sentiment de la nécessité présente, elle entra.
+- Comment voulais-tu que je vécusse sans toi?
+pensa Rodolphe, qui devint très pâle tout à coup, c'est pour cela qu'elle est venue!
+Tu m'y as fait croire: tu m'as pendant deux ans, traînée dans le rêve le plus magnifique et le plus suave!...
+La nuit tombait, des corneilles volaient.
+Il y avait contre la muraille une clef étiquetée capharnaüm.
+Elle s'épiait curieusement, pour discerner si elle ne souffrait pas.
+Un grand frisson lui secouait les épaules, et elle devenait plus pâle que le drap où s'enfonçaient ses doigts crispés.
+Charles voulut feuilleter son dictionnaire de médecine; il n'y voyait pas, les lignes dansaient.
+Berthe, cependant, restait posée sur le lit.
+Bovary leva les mains, Canivet s'arrêta court, et Homais retira son bonnet grec bien avant que le docteur fût entré.
+Larivière de lui faire cet insigne honneur d'accepter à déjeuner.
+- Et même j'ai lu que différentes personnes s'étaient trouvées intoxiquées, docteur, et comme foudroyées par des boudins qui avaient subi une trop véhémente fumigation!
+En finissant ses exhortations, il essaya de lui mettre dans la main un cierge bénit, symbole des gloires célestes dont elle allait tout à l'heure être environnée.
+Pour amasser diligemment Les épis que la faux moissonne, Ma Nanette va s'inclinant Vers le sillon qui nous les donne.
+Canivet venait de partir), assis dans le fauteuil, près de la fenêtre, et contemplant d'un regard idiot les pavés de la salle.
+- Ce velours me paraît une superfétation.
+Il a d'abord affranchi les esclaves, introduit dans le monde une morale...
+Il remontait continuellement l'escalier.
+Puis elles se penchèrent, pour lui mettre sa couronne.
+Puis, comme il étouffait un peu dans l'atmosphère trop lourde de la chambre, il ouvrit la fenêtre, ce qui réveilla le pharmacien.
+Il fut longtemps à se rappeler ainsi toutes les félicités disparues, ses attitudes, ses gestes, le timbre de sa voix.
+- Ma foi, je me sustenterais avec plaisir!
+Alors il promit à la sainte Vierge trois chasubles pour l'église, et qu'il irait pieds nus depuis le cimetière des Bertaux jusqu'à la chapelle de Vassonville.
+- Eh bien, s'écria le bonhomme, j'en aurai, nom d'un tonnerre de Dieu!
+C'était Hippolyte, le garçon du Lion d'or.
+Les six hommes, trois de chaque côté, marchaient au petit pas et en haletant un peu.
+L'ecclésiastique passa le goupillon à son voisin.
+Et puis, jamais je n'oublierai ça, dit-il en se frappant la cuisse; n'ayez peur!
+Charles, le lendemain, fit revenir la petite.
+Enfin, il découvrit un petit R au bas de la seconde page.
+Une chandelle brûlait dans un des flambeaux dorés.
+Il en vint à rougir d'être un bourgeois.
+Chaque nuit pourtant, il la rêvait; c'était toujours le même rêve: il s'approchait d'elle; mais, quand il venait à l'étreindre, elle tombait en pourriture dans ses bras.
+une ambition sourde le rongeait: Homais désirait la croix.
+Le portrait de Rodolphe lui sauta en plein visage, au milieu des billets doux bouleversés.
+Rodolphe, qui avait conduit cette fatalité, le trouva bien débonnaire pour un homme dans sa situation, comique même, et un peu vil.

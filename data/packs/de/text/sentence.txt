@@ -1,34 +1,504 @@
 ---
-description: Filler sentence (original neutral German prose, no country-specific vocabulary)
+description: de filler sentences from public-domain books (Project Gutenberg); see data/sources/de/text/README.md
 locale: de
 ---
-Der Morgen war still und die Stadt lag noch unter einem leichten Nebel.
-Er öffnete das Fenster und atmete die kalte Luft des beginnenden Tages ein.
-Der Weg verlor sich in der Ferne zwischen Hügeln und Weizenfeldern.
-Es war lange her, dass sie zurückgekehrt war, doch alles kam ihr vertraut vor.
-Auf dem Tisch lagen ein aufgeschlagenes Buch und eine längst kalt gewordene Tasse Tee.
-Von weitem hörte man das Rauschen des Flusses und den Gesang der Vögel.
-Eine ganze Weile sagte niemand etwas, und die Stille störte keinen von beiden.
-Das Haus stand am Ende der Straße, hinter einer niedrigen Mauer aus Stein.
-Er steckte die Schlüssel in die Tasche und schloss die Tür ohne ein Geräusch.
-Die Nachmittagssonne fiel durch das Fenster und wärmte den Holzboden.
-Sie gingen gemeinsam bis zum Platz, ohne sich auf ein Ziel geeinigt zu haben.
-Die Antwort kam eine Woche später, als sie sie fast schon vergessen hatte.
-Die Bäume im Park waren seit dem letzten Mal deutlich gewachsen.
-Er setzte sich auf die Bank und sah eine halbe Stunde lang den Leuten zu.
-Der Winter kam in jenem Jahr früh und überraschte alle.
-Sie schaltete die kleine Lampe ein und arbeitete bis spät in die Nacht weiter.
-Vom Balkon aus sah man das Meer, kaum mehr als eine blaue Linie zwischen den Häusern.
-Er fragte nach dem Weg, und man wies ihn eine schmale Gasse bergauf.
-Alles stand an seinem Platz, obwohl dort seit Jahren niemand mehr wohnte.
-Der Zug hielt einige Minuten und setzte danach seine Fahrt fort.
-Sie erinnerte sich an den Geruch der Küche besser als an die Worte jener Nacht.
-Der Brief war kurz und erklärte fast nichts.
-Er stand früh auf, um das Licht des Morgens zu nutzen.
-Der Hund folgte ihnen bis zum Ende des Pfades und blieb dort zurück.
-Sie erzählte die Geschichte langsam, als erinnerte sie sich zum ersten Mal daran.
-Die Stadt veränderte ihr Gesicht, sobald die ersten Regenfälle kamen.
-Er ließ die Arbeit liegen und ging eine Runde um den Block.
-Die Uhr am Turm zeigte eine Zeit, die längst nicht mehr stimmte.
-Sie lernte zu warten, ohne ungeduldig zu werden, und das war das Schwerste.
-Am nächsten Tag schien alles einfacher, als sie es sich vorgestellt hatte.
+So hatte er bald nach dem Tee das Freie gesucht, in der Hoffnung, daß Luft und Bewegung ihn wieder herstellen und ihm zu einem ersprießlichen Abend verhelfen würden.
+Aschenbach, ohne sich sonderlich in die Frage zu vertiefen, neigte zur ersteren Annahme.
+Auch wurde denn, was ihn da eben so spät und plötzlich angewandelt, sehr bald durch Vernunft und von jung auf geübte Selbstzucht gemäßigt und richtig gestellt.
+Und so tat denn eine Einschaltung not, etwas Stegreifdasein, Tagdieberei, Fernluft und Zufuhr neuen Blutes, damit der Sommer erträglich und ergiebig werde.
+Doch wurde ihm dessen Verbleib nicht deutlich, da er weder an seinem vorherigen Standort, noch auf dem weiteren Halteplatz, noch auch im Wagen ausfindig zu machen war.
+Der Vierziger hatte, ermattet von den Strapazen und Wechselfällen der eigentlichen Arbeit, alltäglich eine Post zu bewältigen, die Wertzeichen aus aller Herren Ländern trug.
+Welches Heldentum aber jedenfalls wäre zeitgemäßer als dieses?
+Eine Tochter, schon Gattin, war ihm geblieben.
+Der Mund war groß, oft schlaff, oft plötzlich schmal und gespannt; die Wangenpartie mager und gefurcht, das wohlausgebildete Kinn weich gespalten.
+Er säumte nicht, den irrigen Aufenthalt zu kündigen.
+"Gute Unterhaltung, mein Herr!" sagte er mit schauspielerischer Verbeugung.
+Kaum aber hatte Aschenbach ihn genauer ins Auge gefaßt, als er mit einer Art von Entsetzen erkannte, daß der Jüngling falsch war.
+Aschenbach ging nach der Steuerbordseite hinüber, wo der Bucklige ihm einen Liegestuhl aufgeschlagen hatte und ein Steward in fleckigem Frack nach seinen Befehlen fragte.
+Es hatte zu regnen aufgehört; man entfernte das leinene Dach.
+Man war angekommen und war es nicht; man hatte keine Eile und fühlte sich doch von Ungeduld getrieben.
+Man billigt sein Vorhaben, man schreit seinen Wunsch zur Wasserfläche hinab, wo die Gondelführer im Dialekt mit einander zanken.
+Die Ruderer zankten immer noch, rauh, unverständlich, mit drohenden Gebärden.
+Aschenbach blickte auf, und mit leichter Befremdung gewahrte er, daß um ihn her die Lagune sich weitete und seine Fahrt dem offenen Meere zugekehrt war.
+Ein paarmal zog er vor Anstrengung die Lippen zurück und entblößte seine weißen Zähne.
+Aber die schroffe, überhebliche, einem Fremden gegenüber so wenig landesübliche Art des Menschen schien unleidlich.
+Hatte er nicht gewünscht, daß die Fahrt lange, daß sie immer dauern möge?
+Es stand fest, was hierauf zurückzugeben war.
+Und das Flüstern des Gondoliers war wieder wahrnehmbar, der stoßweise und abgerissen mit sich selber sprach.
+Ein schlechter Mann, ein Mann ohne Konzession, gnädiger Herr.
+Einsamkeit zeitigt das Originale, das gewagt und befremdend Schöne, das Gedicht.
+Gedämpft, vermischten sich die Laute der großen Sprachen.
+Mit Erstaunen bemerkte Aschenbach, daß der Knabe vollkommen schön war.
+Man hatte sich gehütet, die Schere an sein schönes Haar zu legen; wie beim Dornauszieher lockte es sich in die Stirn, über die Ohren und tiefer noch in den Nacken.
+Allmählich verlor sich die Gesellschaft durch die Glastür in den Speisesaal.
+Die Geschwister waren rasch aufgestanden.
+Das Wetter ließ sich am folgenden Tage nicht günstiger an.
+Er packte zur Sicherheit nicht völlig aus.
+In einem Winkel, schräg gegenüber der Tür und zwei Tische von seinem entfernt, bemerkte Aschenbach die polnischen Mädchen mit ihrer Erzieherin.
+Gut, gut, dachte Aschenbach mit jener fachmännisch kühlen Billigung, in welche Künstler zuweilen einem Meisterwerk gegenüber ihr Entzücken, ihre Hingerissenheit kleiden.
+Vorn auf dem feuchten und festen Sande lustwandelten Einzelne in weißen Bademänteln, in weiten, starkfarbigen Hemdgewändern.
+Kaum aber hatte er die russische Familie bemerkt, die dort in dankbarer Eintracht ihr Wesen trieb, als ein Unwetter zorniger Verachtung sein Gesicht überzog.
+Aber nach einer Viertelstunde schon fand er es schade, die Situation, die genießenswerteste, die er kannte, so im Geist zu verlassen und durch gleichgültige Tätigkeit zu versäumen.
+Sie gingen, als für diesmal die Arbeit am Sandbau beendigt war, umschlungen den Strand entlang, und der, welcher "Jaschu" gerufen wurde, küßte den Schönen.
+Und mit Hilfe einiger polnischer Erinnerungen stellte er fest, daß "Tadzio" gemeint sein müsse, die Abkürzung von "Tadeusz" und im Anrufe "Tadziu" lautend.
+Als er nach beendeter Mahlzeit den Lift bestieg, drängte junges Volk, das gleichfalls vom Frühstück kam, ihm nach in das schwebende Kämmerchen, und auch Tadzio trat ein.
+Er verbrachte zwei Stunden auf seinem Zimmer und fuhr am Nachmittag mit dem Vaporetto über die faulriechende Lagune nach Venedig.
+Die Augen versagten den Dienst, die Brust war beklommen, er fieberte, das Blut pochte im Kopf.
+Weder Sommer-noch Winterquartier war bereit, ihn aufzunehmen.
+Ins Hotel zurückgekehrt, gab er noch vor dem Diner im Bureau die Erklärung ab, daß unvorhergesehene Umstände ihn nötigten, morgen früh abzureisen.
+Als er am Morgen die Fenster öffnete, war der Himmel bezogen nach wie vor, aber die Luft schien frischer, und--es begann auch schon seine Reue.
+Einzelne kamen, während er saß und das Bestellte erwartete.
+Der Mann zog sich zögernd zurück, um nach fünf Minuten wieder aufzutreten.
+Es fügte sich, daß im selben Augenblick Tadzio durch die Glastür hereinkam.
+War es möglich, daß er nicht gewußt, nicht bedacht hatte, wie sehr sein Herz an dem allen hing?
+Es ist sehr spät, er hat keinen Augenblick zu verlieren, wenn er den Zug erreichen will.
+Da erklärte denn Aschenbach, daß er ohne sein Gepäck nicht zu reisen wünsche, sondern umzukehren und das Wiedereintreffen des Stückes im Bäderhotel zu erwarten entschlossen sei.
+Die Wellen schlugen gegen die betonierten Wände des schmalen Kanals, der durch die Insel zum Hotel "Excelsior" gelegt ist.
+Und so wurde der Flüchtling wieder einquartiert, in einem Zimmer, das dem vorigen nach Lage und Einrichtung fast vollkommen glich.
+Um Mittag erblickte er Tadzio, der in gestreiftem Leinenanzug mit roter Masche, vom Meere her, durch die Strandsperre und die Bretterwege entlang zum Hotel zurückkehrte.
+Der Gast, den ein so gefügiges Mißgeschick hier festgehalten, war weit entfernt, in der Rückgewinnung seiner Habe einen Grund zu erneutem Aufbruch zu sehen.
+Hauptsächlich aber und mit der glücklichsten Regelmäßigkeit bot ihm der Vormittag am Strande ausgedehnte Gelegenheit, der holden Erscheinung Andacht und Studium zu widmen.
+Das war der Rausch; und unbedenklich, ja gierig, hieß der alternde Künstler ihn willkommen.
+Ganz klar fiel der Bach zu Füßen des breitgeästeten Baums über glatte Kiesel; die Grillen geigten.
+So ist die Schönheit der Weg des Fühlenden zum Geiste,--nur der Weg, ein Mittel nur, kleiner Phaidros...
+Seltsam zeugender Verkehr des Geistes mit einem Körper!
+Wer enträtselt Wesen und Gepräge des Künstlertums!
+Schon überwachte er nicht mehr den Ablauf der Mußezeit, die er sich selber gewährt; der Gedanke an Heimkehr berührte ihn nicht einmal.
+Noch lagen Himmel, Erde und Meer in geisterhaft glasiger Dämmerblässe; noch schwamm ein vergehender Stern im Wesenlosen.
+Weiße Federwölkchen standen in verbreiteten Scharen am Himmel, gleich weidenden Herden der Götter.
+Wirkte so die Anziehung, die Faszination eines überlegenen Gefühls auf seinen zarten und gedankenlosen Gegenstand?
+Die polnischen Geschwister hatten nebst ihrer Gouvernante bei der Hauptmahlzeit im großen Saale gefehlt,--mit Besorgnis hatte Aschenbach es wahrgenommen.
+Er war der teuren Erscheinung nicht gewärtig gewesen, sie kam unverhofft, er hatte nicht Zeit gehabt, seine Miene zu Ruhe und Würde zu befestigen.
+Er prüfte und erkannte ihn nachdenklich, beendete seinen Imbiß und verließ den Platz auf der dem Tempel gegenüberliegenden Seite.
+"Eine vorbeugende Maßregel, mein Herr!" antwortete er mit Gebärdenspiel.
+So erklärte sich der Abzug des deutschen und österreichischen Elementes.
+Neuerdings begnügte er sich nicht damit, Nähe und Anblick des Schönen der Tagesregel und dem Glücke zu danken; er verfolgte ihn, er stellte ihm nach.
+Zuweilen entschwand sie ihm: dann fühlte er Kummer und Unruhe.
+Arabische Fensterumrahmungen bildeten sich im Trüben ab.
+Warnende Bedenken, Proteste gegen das gefährliche Spiel der welschen Behörden waren eingestreut.
+Mandoline, Guitarre, Harmonika und eine quinkelierende Geige waren unter den Händen der Bettelvirtuosen in Tätigkeit.
+Er fand nicht dessen Augen, denn eine schmähliche Besorgnis zwang den Verwirrten, seine Blicke ängstlich im Zaum zu halten.
+Nach geendigtem Couplet begann er, Geld einzuziehen.
+"Höre!" sagte der Einsame gedämpft und fast mechanisch.
+Er zuckte die Achseln, er gab Beteuerungen, er schwor, verschwiegen gewesen zu sein; man sah es.
+Diese kindliche und beziehungsvolle Folgsamkeit hatte etwas so Entwaffnendes, Überwältigendes, daß der Grauhaarige sich mit Mühe enthielt, sein Gesicht in den Händen zu verbergen.
+Als die Seinen schon draußen waren, tat er noch, als renne er rückwärts empfindlich gegen einen Lampenmast und schlich scheinbar krumm vor Schmerzen zur Pforte.
+Lautlos und fein rann der rostrot gefärbte Sand durch die gläserne Enge, und da er in der oberen Höhlung zur Neige ging, hatte sich dort ein kleiner, reißender Strudel gebildet.
+Venedigs Obrigkeit ließ antworten, daß die Gesundheitsverhältnisse der Stadt nie besser gewesen seien und traf die notwendigsten Maßregeln zur Bekämpfung.
+Wohl ihm, wenn, was zuweilen geschah, der Ausbruch nach leichtem Übelbefinden in Gestalt einer tiefen Ohnmacht erfolgte, aus der er nicht mehr oder kaum noch erwachte.
+Aber er fühlte zugleich, daß er unendlich weit entfernt war, einen solchen Schritt im Ernste zu wollen.
+Was galt ihm noch Kunst und Tugend gegenüber den Vorteilen des Chaos?
+Groß war sein Abscheu, groß seine Furcht, redlich sein Wille, bis zuletzt das Seine zu schützen gegen den Fremden, den Feind des gefaßten und würdigen Geistes.
+Und seine Seele kostete Unzucht und Raserei des Unterganges.
+Wie irgend ein Liebender wünschte er, zu gefallen und empfand bittere Angst, daß es nicht möglich sein möchte.
+Da wusch der Beredte das Haar des Gastes mit zweierlei Wasser, einem klaren und einem dunklen, und es war schwarz wie in jungen Jahren.
+"Nun kann der Herr sich unbedenklich verlieben." Der Berückte ging, traumglücklich, verwirrt und furchtsam.
+Die Polen hatten eine kurz gewölbte Brücke überschritten, die Höhe des Bogens verbarg sie dem Nachfolgenden, und seinerseits hinaufgelangt, entdeckte er sie nicht mehr.
+Auf den Stufen der Zisterne, inmitten des Ortes, ließ er sich niedersinken und lehnte den Kopf an das steinerne Rund.
+nur die Schönheit ist göttlich und sichtbar zugleich, und so ist sie denn also des Sinnlichen Weg, ist, kleiner Phaidros, der Weg des Künstlers zum Geiste.
+Wir möchten ihn wohl verleugnen und Würde gewinnen, aber wie wir uns auch wenden mögen, er zieht uns an.
+Das Spiel, das unbeaufsichtigt war, denn die Frauen mochten mit Reisevorbereitungen beschäftigt sein, schien regellos und artete aus.
+Man rief ihn, anfänglich munter, dann bänglich und bittend; er hörte nicht.
+Minuten vergingen, bis man dem seitlich im Stuhle Hinabgesunkenen zur Hilfe eilte.
+Man nannte sie die "Kleine", was sie sich nur gefallen lassen mußte, weil die schöne, schlanke Mama noch um eine Handbreit höher war.
+"Nein." Und dabei lief sie auf die Mama zu und umarmte sie stürmisch und küßte sie.
+Aber ehe Hertha nicht von den Stachelbeeren genommen, eher kann ich nicht anfangen - sie läßt ja kein Auge davon.
+Aber davon versteht ihr nichts, was ihr mir nicht übelnehmen dürft.
+"Kann schon sein", unterbrach hierauf Hertha.
+Aber er mochte doch nicht länger hier in der Nähe bleiben, und das ganze Soldatenleben überhaupt muß ihm damals wie verleidet gewesen sein.
+Übrigens, Midshipman oder Schiffsjunge, Papa hat mir erst neulich wieder einen Mastbaum versprochen, hier dicht neben der Schaukel, mit Rahen und einer Strickleiter.
+Ich werde mich aber hüten, dir nachzuklettern, ich bin nicht so waghalsig.
+Hulda wollte noch ein paar Einschränkungen machen, aber Effi war schon den nächsten Kiesweg hinauf, links hin, rechts hin, bis sie mit einem Male verschwunden war.
+Ich muß dir nämlich sagen, meine süße Effi ...", und sie nahm ihres Kindes beide Hände, "...
+Aber nicht auf lange; sie hatte es nicht sein können, nun war es statt ihrer die Tochter - alles in allem ebensogut oder vielleicht noch besser.
+Gleich nach Aufhebung der Tafel beurlaubte sich Effi, um einen Besuch drüben bei Pastors zu machen.
+Briest sprach von dem Schwierigen einer landrätlichen Stellung; sie sei ihm verschiedentlich angetragen worden, aber er habe jedesmal gedankt.
+"Ja, das mußt du", hatte Effi gesagt, ein Wort, das ihr von Herzen kam, da sie seit Jahren nichts Schöneres kannte als beispielsweise den Empfang vieler Geburtstagsbriefe.
+Und diesen ihren heiteren Phantasien entsprach denn auch ihre Haltung, als die große Berliner Woche nun wirklich da war.
+Das alles war auch richtig, aber doch nur halb.
+Denn nach den Aufführungen (aber kommt mir nicht mit Dienstmann oder Mausefallenhändler) ist Ball.
+Statt dessen erging er sich in Mitteilung dessen, was er inzwischen erlebt.
+Frau von Briest machte eine Handbewegung, wie wenn sie sagen wollte: "Unverbesserlich", und überließ ihn im übrigen seiner eigenen Beschämung, die aber nicht groß war.
+Da müßte denn doch Innstetten wenigstens ein verkappter Hohenzoller sein, es gibt ja dergleichen.
+Wenn du aber noch kleine Wünsche hegst, so mußt du sie jetzt aussprechen, womöglich in dieser Stunde noch.
+Auf dem Wege dahin bist du; aber was heißt das?
+Effi winkte mit dem Taschentuch, und der Begrüßte versäumte nicht, mit seinem blanken Kugelstock zu salutieren.
+Und vor deiner Mutter nun schon gewiß nicht.
+Aber meine liebe Effi, wir müssen vorsichtig im Leben sein, und zumal wir Frauen.
+Ach, wie werd ich mich nach euch sehnen, vielleicht auf der Reise schon und dann in Kessin ganz gewiß.
+Aber jedenfalls ist es an der Zeit, endlich zu wissen, was er schreibt ...
+Das sind so Stimmungen, die über einen kommen, wenn man so jung ist wie du und vor der Hochzeit steht und vor dem Ungewissen.
+Im Hause sind jetzt die Handwerker, die die Zimmer, freilich nur wenige, für Dein Kommen herrichten sollen.
+Denn sie fürchteten einen Schlaganfall, was dann das Bad in Mißkredit bringt, als ob die Wellen hier schlimmer wären als woanders.
+Und daß ich euch liebe, davon spreche ich gar nicht erst.
+Ich klettere lieber, und ich schaukle mich lieber, und am liebsten immer in der Furcht, daß es irgendwo reißen oder brechen und ich niederstürzen könnte.
+Und ich glaube, Niemeyer sagte nachher sogar, er sei auch ein Mann von Grundsätzen.
+Ja, alles war gut und glatt verlaufen, fast über Erwarten.
+Wenn ich bedenke, daß dieser Niemeyer, ein alter Dorfpastor, der anfangs aussah wie ein Hospitalit ...
+Der Tag nach der Hochzeit war ein heller Oktobertag.
+Im übrigen, was wollen wir von uns sprechen, die wir nicht einmal eine Hochzeitsreise gemacht haben.
+Unter allen Umständen aber, was gewesen ist, ist gewesen.
+Solche Generalbeichte, so alles von der Seele herunter, das liegt nicht in ihr.
+Der Vetter sei doch eigentlich nur ein großer Kadett in Leutnantsuniform.
+Und was das Schlimmste ist, er wird sich nicht einmal recht mit der Frage beschäftigen, wie das wohl anzufangen sei.
+Überhaupt alles sehr schön, aber anstrengend.
+Mit Entzücken spricht er von Euch, namentlich von Mama.
+Und vor allem ist er engelsgut gegen mich und gar nicht überheblich und auch gar nicht alt.
+Wobei mir denn auch die Jahnkeschen Mädchen einfallen.
+Mitte November - sie waren bis Capri und Sorrent gekommen - lief Innstettens Urlaub ab, und es entsprach seinem Charakter und seinen Gewohnheiten, genau Zeit und Stunde zu halten.
+Denn an ebendieser Stelle gabelte der Weg und zweigte, wie rechts nach Kessin, so links nach Varzin hin ab.
+Eigentlich ein ganz unsicherer Passagier, dem ich nicht über den Weg traue und der wohl viel auf dem Gewissen hat.
+Aber das ist auch das Beste, was man von ihnen sagen kann.
+Es klingt erst spießbürgerlich und ist doch hinterher ganz apart.
+Kupferfarben stand die große Scheibe hinter einem Erlengehölz und warf ihr Licht auf eine breite Wasserfläche, die die Kessine hier bildete.
+Dies hier ist mein alter Friedrich, der schon mit mir auf der Universität war ...
+In der vorderen Flurhälfte brannten vier, fünf Wandleuchter, die Leuchten selbst sehr primitiv, von bloßem Weißblech, was aber den Glanz und die Helle nur noch steigerte.
+Friedrich und Johanna haben es, so gut es ging, nach meinen Anordnungen herrichten müssen.
+Aber lassen wir das alles und setzen uns und nehmen unsern Tee.
+Richtig, in Kessin, im Hause des Landrats von Innstetten, und sie war seine Frau, Baronin Innstetten.
+Immer früh auf, das war auch Regel in meiner Eltern Haus.
+Der Saal ist etwas multrig und stockig, und deshalb stehen immer die Fenster auf, wenn nicht gerade Sturm ist.
+Oder nehmen Sie lieber den Rafraichisseur aus meiner Reisetasche ...
+Es ist wahr, ich bin nicht sehr pünktlich, aber ich bin keine Langschläferin.
+erinnerst du dich noch, in Florenz, mit dem Blick auf den Dom.
+Du hast mir unterwegs allerlei Sonderbares von Stadt und Land erzählt, aber wie wir selber hier leben werden, davon kein Wort.
+Aber ich, für meine kleine Person, muß dir gestehen, daß ich dies alles entzückend finde und daß unsere havelländischen Städte daneben verschwinden.
+Innstetten sah in einer kleinen Verlegenheit vor sich hin und schien schwankend, ob er auf all das antworten solle.
+Das ist nämlich die Sprache, drin er sich ergeht.
+Über dieser, in einem Verschlag, waren die Hühner einlogiert, und eine Dachklappe über dem Pferdestall bildete den Aus- und Einschlupf für die Tauben.
+Es befanden sich hier vier einfenstrige Zimmer, alle gelb getüncht, gerade wie der Saal und ebenfalls ganz leer.
+Aber das konnte Gieshübler wohl nicht gewesen sein!
+Aber ich empfange Sie hier in meines Mannes Zimmer ...
+Persönlich kann ich in dieser Frage freilich nicht mitsprechen, vom Alter wohl, aber von der Jugend nicht, denn ich bin eigentlich nie jung gewesen.
+Vielleicht ist es auch der Name, der in Ihrem Falle mitwirkt.
+Gieshübler hätte nun am liebsten gleich eine Liebeserklärung gemacht und gebeten, daß er als Cid oder irgend sonst ein Campeador für sie kämpfen und sterben könne.
+Man merke doch an allem die Berliner Schule: Sinn für Äußerliches und eine merkwürdige Verlegenheit und Unsicherheit bei Berührung großer Fragen.
+Es ist ihm aber auch heimgezahlt worden.
+Die beiden Mädchen im Hause waren schon zu Bett, denn es war nah an Mitternacht.
+Haben die Borckes die Grasenabbs geschlagen oder umgekehrt, oder hältst du's mit dem alten Güldenklee?
+"Hätte ich sonst dich?" sagte Effi und hängte sich an seinen Arm.
+Früh zu Bett, das war gefährlich, dann wachte sie auf und konnte nicht wieder einschlafen und horchte auf alles.
+Als sie sich wieder umsah, bemerkte sie, daß Friedrich still und geräuschlos ein Kuvert gelegt und ein Kabarett auf den Sofatisch gestellt hatte.
+Das erste, was ihr zu Händen kam, war ein dickes rotes Reisehandbuch, alter Jahrgang, vielleicht schon aus Innstettens Leutnantstagen her.
+Der Kaiser, entsetzt auffahrend, habe nach seinem Adjutanten gerufen und bis an sein Lebensende mit Entrüstung von diesem "maudit château" gesprochen.
+ich bin ein Kind und werd es auch wohl bleiben.
+Als er Effi kommen sah, erhob er sich, um den Platz freizugeben, und strich mit seinem Behang an ihrer Hand hin.
+Während dieses Ganges drüben nach dem Amt hinüber war wohl eine Viertelstunde vergangen, und als Johanna wieder zurück war, saß Effi schon vor dem Trumeau und wartete.
+Aber die, die blond sind, die haben auch immer einen weißen Teint, Sie auch, Johanna, und ich möchte mich wohl verwetten, daß Sie viel Nachstellung haben.
+Und wenn die gnäd'ge Frau wirklich solche Angst haben, so kann ich mir ja ein Lager hier machen.
+Johanna nickte zu jedem Wort und zündete dann das Licht an, das auf Effis Nachttisch stand.
+Ihr war, als ob ihr das Herz stillstände; sie konnte nicht rufen, und in diesem Augenblick huschte was an ihr vorbei, und die nach dem Flur hinausführende Tür sprang auf.
+Ach, wenn ich doch wen hier hätte, bei dem ich weinen könnte.
+Stoßen Sie sie auf, recht laut, daß ich einen Ton höre, einen menschlichen Ton ...
+Sie hatte denselben rosigen Teint wie immer, schien sich also die Vorgänge der Nacht nicht sonderlich zu Gemüte genommen zu haben.
+Man kann sich gesund schlafen, aber auch krank.
+Und dabei liefen ihr die Tränen übers Gesicht.
+Es gibt so hübsche Häuser am Bollwerk, eins zwischen Konsul Martens und Konsul Grützmacher und eins am Markt, gerade gegenüber von Gieshübler; warum können wir da nicht wohnen?
+Es ist damit ganz wie mit einer Absage nach Varzin hin.
+Das ist ja, wie wenn du aus einem kleinen Bürgerhause stammtest.
+Und wenn du von Familien sprichst, denen ihr Spuk soviel wert sei wie ihr Wappen, so ist das Geschmackssache: Mir gilt mein Wappen mehr.
+Gestatten Sie mir, meinem respektvollsten Vormittagsgruß eine ganz gehorsamste Bitte hinzufügen zu dürfen.
+Anwesend nur Pastor Lindequist (der begleitet) und natürlich die verwitwete Frau Pastorin Trippel.
+Ich habe dich eigentlich bloß aus Ehrgeiz geheiratet.
+Die Leute werden sich wundern, aber es schadet nichts.
+Auf dem Gemeindekirchhof war er natürlich nicht unterzubringen, und da hat denn Kapitän Thomsen, der so was wie sein Freund war, diese Stelle gekauft und ihn hier begraben lassen.
+Ich weiß nicht, ob er hier geboren war oder ob er andere Beziehungen hier hatte.
+Ich merke das auch; sie sind hier so streng und selbstgerecht.
+Es ist ja himmlisch, so hinzufliegen, und ich fühle ordentlich, wie mir so frei wird und wie alle Angst von mir abfällt.
+Am Abend aber war Tanz, und die Braut tanzte mit jedem und zuletzt auch mit dem Chinesen.
+Daß sie in Kessin geboren, schrieb ja schon Gieshübler; aber ich dachte, sie sei die Tochter von einem italienischen Konsul.
+Was dir so verlockend erscheint - und ich rechne auch ein Leben dahin, wie's die Trippelli führt -, das bezahlt man in der Regel mit seinem Glück.
+Der Bahnwärter stand schon da, die Fahne in der Hand.
+So gut es ihr ging, sie fühlte sich trotzdem wie in einer fremden Welt.
+Und diese Feinheit war gerade das, was er persönlich kultivierte.
+Außerdem - und ich weiß, Sie sind ein Mann der ausgesuchten Küche, ja Gourmand -, außerdem schmeckt es besser, wenn man die Sache hinter sich hat.
+Überhaupt, mein gnädiges Fräulein, wenn ich mir die Bemerkung erlauben darf, ich bin überrascht zu hören, daß Sie lediglich Konzertsängerin sind.
+Und hier Loewesche Balladen; auch nicht gerade das Neueste.
+Denn so gewiß ich mich persönlich gegen seine Versuchungen gefeit fühle - es verdirbt den Ruf, also das Beste, was man hat.
+In diesem Augenblick trat Gieshübler heran und bot Effi den Arm, Innstetten führte Marietta, dann folgten Pastor Lindequist und die verwitwete Trippel.
+Es muß die Luft machen oder das späte Diner oder weil man so verwöhnt wird.
+Es lautete: Madame la Baronne d'Innstetten, née de Briest.
+Hulda schrieb nur wenige Zeilen, weil sie, wie sie sich entschuldigte, für X noch eine Reisedecke zu stricken habe.
+Denn jeder steckt noch so nebenher in allerhand dummem Zeuge drin.
+Dann mußt Du kommen, oder noch besser, sobald ich einigermaßen wieder bei Wege bin, komme ich, nehme hier Urlaub und mache mich auf nach Hohen-Cremmen.
+Ich bin neulich da vorübergefahren, wandte mich aber rasch ab und sah nach der andern Seite, weil ich glaube, ich hätte ihn sonst auf dem Grabe sitzen sehen.
+Das kann ich aber nicht und will es auch nicht.
+Es sind so viele Gründe, warum ich es wünsche.
+Innstetten war lieb und gut, aber ein Liebhaber war er nicht.
+Zuletzt sprach er von den Wahlen, und daß es ein Glück sei, einem Kreis vorzustehen, in dem es noch Respekt gäbe.
+Und in derselben Woche war es auch, daß die Störche kamen, und einer schwebte langsam über ihr Haus hin und ließ sich dann auf einer Scheune nieder, die neben Utpatels Mühle stand.
+Crampas ist verheiratet, zwei Kinder von zehn und acht Jahren, die Frau ein Jahr älter als er, also sagen wir fünfundvierzig.
+Vollkommener Kavalier, ungewöhnlich gewandt.
+Sie kommt immer mit viel Gepäck, unendlich viel mehr, als sie gebraucht, und scheint überhaupt eine ganz eigene Frau, wunderlich, kränklich und namentlich schwach auf den Füßen.
+Effi stand am Fenster und sah neugierig auf die sonderbar feierliche Szene, die sich drüben abspielte.
+Aber wenn sie saß und von ihrem bequemen Platz aus die Wagen und die Damen in Toilette beobachtete, die da hinausfuhren, so belebte sie sich wieder.
+Und der Wagen und die zwei Kutschen, die halten dann nicht drüben vor dem Hause, die halten dann bei uns ...
+Alles blühte hier, Schmetterlinge flogen über die Gräber hin, und hoch in den Lüften standen ein paar Möwen.
+Und ich habe mit der Alten immer von Ihnen gesprochen.
+gezankt haben sie sich bis in die sinkende Nacht ...
+Und nun ist es wieder nichts und soll mich wieder rumstoßen lassen.
+Das is ja 'ne Kreatur, die mich leiden kann, die mich freundlich ansieht und ihren Kopf auf meine Knie legt.
+Viele wollen keine Kattolsche, weil sie so viel in die Kirche rennen.
+Sind Sie, was man so 'kinderlieb' nennt?
+Roswitha war aufgesprungen und hatte die Hand der jungen Frau ergriffen und küßte sie mit Ungestüm.
+Und dann gingen sie den schattigen Gang hinunter und wieder auf das Kirchhofstor zu.
+Er wird wohl mit allem einverstanden sein, aber ich muß doch erst seine Zustimmung haben.
+Roswitha lachte, was auf ihre junge Herrin einen besonders guten Eindruck machte.
+Selbst Innstetten wußte nichts dagegen zu sagen, und so wurde von Klein Annie gesprochen, lange bevor der Tauftag da war.
+Aber solange wir noch Männer haben, und ich darf hinzusetzen, Frauen und Mütter (und hier verbeugte er sich mit einer eleganten Handbewegung gegen Effi) ...
+Als man von Tisch aufgestanden war, kam der Spätnachmittagsdampfer die Kessine herunter und legte an der Landungsbrücke, gegenüber dem Hotel, an.
+Unser Haus liegt an einem Wäldchen, das sie die Plantage nennen.
+Mich wundert nur, daß er nicht mal Urlaub genommen hat und rübergeflitzt ist.
+Effi war bei diesem Gespräch sehr ausgelassen, fühlte sich ganz als junge Frau und war froh, die nach der Gesindestube hin ausquartierte Roswitha auf unbestimmte Zeit los zu sein.
+Weißt du was, Effi, du kommst mir ganz anders vor.
+Derweilen war Crampas bis in nächste Nähe gekommen und grüßte.
+Aber unsereins mit seiner Million Unterbilanz, gestatten Sie mir diese kleine Renommage, unsereins kann sich so was ohne Furcht vor der Götter Eifersucht erlauben.
+Es steht mir nämlich fest, daß ich einen richtigen und hoffentlich ehrlichen Soldatentod sterben werde.
+Innstetten braucht ihn nicht zu lesen, der hat keinen Sinn für dergleichen ...
+"Wenn es glückliche Ehen gibt, die meinige ausgenommen ...", und sie reichte Innstetten die Hand.
+Hab ich doch inzwischen aus dem Brief meines alchimistischen Geheimkorrespondenten erfahren, daß Sie neben vielem anderen gelegentlich auch Dichter sind.
+Die Majorin war und blieb menschenscheu.
+Die drei Behörden, die wir hier haben, werden doch wohl untereinander die Augen zudrücken können.
+Innstetten hielt nur einen seiner kleinen moralischen Vorträge, zu denen er überhaupt hinneigte.
+Dann sahen beide, von dem Stein weg, auf das Meer und warteten, ob die "Seejungfrau" noch einmal sichtbar werden würde.
+Ich möchte nicht hinter seinem Rücken etwas sagen, was falsch ausgelegt werden könnte.
+Und kurz und gut, einmal kam es, daß ich ihm auf den Kopf zusagte: 'Ach was, Innstetten, das ist ja alles bloß Komödie.
+Aber da tun Sie mir trotz alledem Unrecht.
+Ich bin zu jung, um eine große Menschenkennerin zu sein; aber ich müßte noch vor der Einsegnung und beinah vor der Taufe stehen, um Sie für einen einfachen Mann zu halten.
+Crampas verabschiedete sich und ritt in die Stadt hinein, bis er vor seiner am Marktplatz gelegenen Wohnung hielt.
+Wer bürgt mir denn dafür, daß Crampas recht hat!
+Einem Freunde helfen und fünf Minuten später ihn betrügen, das waren Dinge, die sich mit seinem Ehrbegriff sehr wohl vertrugen.
+Und dann ist doch immer noch ein Unterschied zwischen Gedanken und Wünschen.
+Übrigens hat Heine dem Gedicht einen anderen Namen gegeben, ich glaube 'Seegespenst' oder so ähnlich.
+Über das von den Sturmtagen her noch bewegte Meer goß die schon halb winterliche Novembersonne ihr fahles Licht aus, und die Brandung ging hoch.
+Und dabei hätten Sie hören sollen, wie sie die Namen aussprach, namentlich den von der Mutter der Elisabeth - so schrecklich verlegen, als wäre sie nun an der Reihe ...
+Effi, die dies mit angehört hatte, schüttelte den Kopf.
+Nur das muß ich Ihnen doch sagen dürfen, die Rolle, die Sie mir dabei zudiktieren, ist mir zu wenig schmeichelhaft.
+Überlegte sie, was während all dieser Wochen und Tage gesprochen, berührt und angedeutet war, so fand sie nichts, um dessentwillen sie sich direkte Vorwürfe zu machen gehabt hätte.
+Wir dürfen uns endlich einen hübschen Winter in der Ressource versprechen.
+Crampas hatte sich wirklich mit der Regie begnügt, und so streng er gegen alle anderen war, so wenig hatte er auf den Proben in Effis Spiel hineingeredet.
+Ich habe mich amüsiert über das hübsche Stück.
+"Ach, Geert, ich ängstige mich wirklich." Und sie richtete sich im Bett in die Höh und sah ihn starr an.
+Was doch ganz unnatürlich ist; denn erstens ist er überhaupt ein Damenmann, und nun gar Damen wie du, das ist seine besondere Passion.
+Übrigens hat Crampas ein Talent, die arme Frau zu eskamotieren.
+Weißt du, mir ist, als hörte ich oben das Tanzen.
+Auch Effi sprach viel und lachte viel, es kam ihr aber nicht aus innerster Seele.
+Hannemann war nämlich in seiner Jugend Schiffschirurgus auf einem Grönlandfahrer gewesen.
+Die Fahrt ging rasch - auch die herrschaftlichen Kutscher strengten sich an und wollten sich nicht überholen lassen -, so daß man schon um drei vor der Oberförsterei hielt.
+Der Kaffee war bald genommen, und man stand auf, um noch einen halbstündigen Spaziergang in den umliegenden Wald zu machen, zunächst auf ein Gehege zu, drin Wild eingezäunt war.
+Man war zu Haus zu gütig gegen mich, man liebte mich zu sehr.
+Sie sind so belesen, Major, aber mit einem Gedicht - freilich keinem Heineschen, keinem 'Seegespenst' und keinem 'Vitzliputzli' - bin ich Ihnen, wie mir scheint, doch voraus.
+Kloster Olivia war zweimal da, einmal in Öl und einmal in Kork geschnitzt.
+Und dazu die Blicke von Ihrem Freund Crampas!
+Und so wird nur allzuleicht vergessen, daß das uns anvertraute Gut auch mal von uns zurückgefordert wird.
+"Unerhört", raunte Sidonie dem Pastor zu.
+Crampas und Lindequist folgten unmittelbar.
+Sie wußte recht gut, daß das mit der "stickigen Kutsche" bloß ein Vorwand gewesen und daß sich Sidonie nur zu ihr gesetzt hatte, um ihr etwas Unangenehmes zu sagen.
+"Das sind Sinnestäuschungen", sagte Sidonie, die jetzt den richtigen Einsetzmoment gekommen glaubte.
+Ich wette, daß er sich einbilden würde, das tue ihm der Himmel zu Gefallen, um sein Fest noch festlicher zu machen.
+"Bei manchem, sag ich, ist es ganz leicht", wiederholte Sidonie, die ihren Zweck erreicht hatte und deshalb ruhig lächelnd fortfuhr.
+Denn was der Schloon sei, das war nicht so mit drei Worten zu sagen.
+Da wird es ein Sog, und am stärksten immer dann, wenn der Wind nach dem Lande hin steht.
+Knut, so meldete er, wolle die Durchfahrt riskieren, aber Knut sei dumm und verstehe nichts von der Sache; nur solche, die hier zu Hause seien, müßten die Entscheidung treffen.
+Also genau das, was Sidonie gleich anfangs in Sicht gestellt hatte.
+Und so ging es denn im Fluge den beiden anderen Schlitten nach, immer dicht an dem Wasserlauf hin, an dessen anderem Ufer dunkle Waldmassen aufragten.
+Dann nahm er ihre Hand und löste die Finger, die sie noch immer geschlossen hielt, und überdeckte sie mit heißen Küssen.
+"Du hast gut geschlafen?" sagte er, als Effi zum Frühstück kam.
+"Ja", fuhr Innstetten fort, und seine Stimme wurde freundlicher, trotzdem ein leiser Spott noch darin nachklang.
+Aber auch du, wenn ich dir raten darf, sei auf deiner Hut.
+Sie sind sozusagen nicht von gleichem Karat; nach Karat berechnet man nämlich den reinen Goldeswert, unter Umständen auch der Menschen.
+Effi saß zwischen der alten Ritterschaftsrätin von Padden und einer etwas jüngeren Frau von Titzewitz.
+Denn worauf es ankommt, meine liebe junge Frau, das ist das Kämpfen.
+In diesem Augenblick trat Major Crampas an Effi heran und bat, sich nach ihrem Befinden erkundigen zu dürfen.
+Alle wurden gerettet, und Effi hätte sich, als sie nach einer halben Stunde mit ihrem Manne wieder heimging, in die Dünen werfen und sich ausweinen mögen.
+Aber es beglückt mich so, daß ich vor Freude nichts sagen kann.
+Sie litt schwer darunter und wollte sich befreien.
+Mitunter erschrak sie, wie leicht es ihr wurde.
+Das ist das Vorgebliche; das Eigentliche heißt: du willst nicht." "Nein, es ist doch mehr Ehrlichkeit dabei, als du zugeben willst.
+Und so wirst du dich doch zu deiner Effi nicht stellen wollen.
+Doktor Hannemann sagt mir jeden Tag, Bewegung sei alles, Bewegung und frische Luft.
+Und wenn sie nicht schläft, so schicke Johanna.
+Aber er sah nichts, und sein Verdacht beruhigte sich wieder.
+Und allerhand Widerstreitendes, Gutes und Böses, ging ihr durch den Kopf.
+Es war am Tage vor Innstettens Rückkehr von Berlin, daß Effi das sagte.
+Und wenn es dann morgen nebelt oder naß fällt, dann schadet es nichts mehr.
+Un am Ende, wovon soll es auch Eier legen?
+Denn ob Johanna da war, das war die Frage.
+Aber ich sah ja deutlich, wie du mit dem Kruse schwatztest und vertraulich tatst, und ich glaube sogar, du wolltest ihm einen Schnurrbart anmalen.
+Wem es so gegangen ist wie mir, der hat genug davon und paßt auf.
+Und dann, wie das Kind kommen sollte, ging ich in eine Scheune nebenan, weil ich mir's bei uns nicht getraute.
+Und nimm dich nur in acht mit dem Kruse.
+Johanna ärgert sich immer, daß sie so was nicht haben kann.
+Rollo strich an seinem Herrn vorbei und wedelte.
+Gradeso wie die jetzige gnäd'ge Frau." "Meinst du?
+Wissen Sie, Innstetten, daß ich Sie am liebsten fordern und totschießen möchte?
+Und ich kann von Glück sagen, daß ich von so was, das wie Zusammennehmen aussieht oder wenigstens ein Zusammennehmen in Zukunft fordert, so gut wie direkt herkomme ...
+Und nun rufst du 'Gott sei Dank', als ob dir hier alles nur ein Schrecknis gewesen wäre.
+Es ist ein Spukhaus, und ich hab es auch glauben sollen, das mit dem Spuk -denn du bist ein Erzieher.
+Ich bin immer zu sehr mit mir beschäftigt gewesen.
+Ich kann doch nicht Vetter Briest auf die Suche schicken.
+Aber noch eins, Roswitha und Annie müssen mit.
+Die Mama wird in Berlin sein und hat ihrem Liebling von ihrem Hotel aus einen Brief geschrieben." "Ja", sagte Effi, "so wird es sein.
+Ich habe es übrigens immer gewußt (schon als 1.
+Ich habe eine Privatwohnung in der Schadowstraße genommen; neben dem meinigen sind noch Zimmer frei.
+Was sie zu tun habe, das stand bei ihr fest; aber sie wollte es nicht selber aussprechen.
+Aber wir sind alle so eitel, und ich will es glauben.
+In drei Tagen kannst du's nicht zwingen.
+Und immer bloß die Dünen und draußen die See.
+Das war am Donnerstag, am Tag vor der Abreise.
+Aber auch wirklich nur einen Augenblick.
+Denn Sie waren das Beste hier; natürlich, weil Sie der Beste waren.
+Gieshübler begleitete sie bis auf den Platz hinaus.
+Es wäre das beste gewesen, ich hätte dies Stück Erde nie gesehen.
+Vergessen Sie das Geschehene, vergessen Sie mich.
+Das Schiff, ein leichtes Segelschiff (die Dampfboote gingen nur sommers), fuhr um zwölf.
+Dann ging sie rasch auf die Kajüte zu, wo sich Roswitha mit Annie schon eingerichtet hatte.
+So fuhr man die Wasserstraße hinauf und war um zwei an der Station oder doch ganz in Nähe derselben.
+Noch ein Händedruck, ein Wehen mit dem Tuch, und der Zug setzte sich wieder in Bewegung.
+Aber nun sage mir, Mama, was ist es damit?
+Und willst du von alten Zeiten sprechen?
+Ich will auch nicht leugnen, daß das das Beste von der Sache ist und mich über die mutmaßlich lange Kurdauer schon vorweg tröstet.
+Aber nun lange zu, Dagobert, und wenn es sein kann, erzähle uns was Hübsches.
+Und ich möchte sogar hinzusetzen dürfen, du triffst es besonders gut.
+Dagobert, kaum aus der Schlinge heraus, versuchte über Effis Feierlichkeit zu spötteln, ließ aber ab davon, als er sah, daß es sie verdroß.
+So waren schon beinahe vierzehn Tage vergangen.
+Diese Worte der Mama kamen Effi sehr zupaß.
+Wenn ich Schweigger sehe, werde ich ihn fragen, was du tun sollst." "Nein, nicht Schweigger.
+Die Leihbibliothek ist ja gleich hier nebenan.
+Und damals war er nah an Fünfzig und hatte schönes graues Haar, ganz kraus.
+In diesem Augenblick ist es wie weggeflogen.
+Effi hatte sich wundervoll gehalten, ihre Rolle gut durchgespielt.
+Ich schiebe es nicht auf die Arznei; das schöne Wetter, die hellen, frischen Märztage, da fällt die Krankheit ab.
+Eben war Rummschüttel hier und hat mich aus der Kur entlassen.
+Übrigens ein sehr liebenswürdiger alter Herr.
+An die Familien auf dem Lande schicke ich Karten; Güldenklees, wie Du mir schreibst, sind in Italien (was sie da wollen, weiß ich nicht), und so bleiben nur die drei andern.
+Sie zitterte vor Erregung und atmete hoch auf.
+"Hier muß es stehen", so habe es unerbittlich geheißen, und immer habe sie's getroffen, wodurch natürlich viel Zeit gespart und die gute Laune nie gestört worden sei.
+Unser guter Doktor Hannemann war auch kein Licht und traf es doch immer.
+Nicht einmal das schwarze Huhn hätten wir unterbringen können.
+Innstetten war entzückt und von einer Dankbarkeit, als ob Effi ihm das alles persönlich herangezaubert habe.
+Man traf sich, wie verabredet, bei Helms, gegenüber dem Roten Schloß, besuchte verschiedene Läden, aß bei Hiller und war bei guter Zeit wieder zu Haus.
+Auch im Hause gestaltete sich alles zum Guten.
+In jeglichem, was sie tat, lag etwas Wehmütiges, wie eine Abbitte, und es hätte sie glücklich gemacht, dies alles noch deutlicher zeigen zu können.
+Ah, ich verstehe schon, ich ahne, was du vorhast.
+Über dem Gasthaus stand "Hotel Fahrenheit".
+"Crampas", wiederholte sie mit Anstrengung.
+Er sah so wichtig und feierlich aus, als ob er mindestens ein Adjunkt bei dem alten Herthadienst gewesen wäre.
+"Gut dann, Effi", sagte Innstetten und reichte ihr die Hand.
+Und so warteten sie denn das Stettiner Schiff ab und trafen am dritten Tag in aller Frühe in Kopenhagen ein, wo sie auf Kongens Nytorv Wohnung nahmen.
+Annie war in der Landluft prächtig gediehen, und was Roswitha geplant hatte, daß sie der Mama in Stiefelchen entgegenlaufen sollte, das gelang auch vollkommen.
+Und ist auch ungerecht gegen Innstetten.
+Aber schrauben wir uns nicht weiter, Luise.
+Übrigens glaube ich, daß sich vieles gebessert hat.
+Er sei der beste Mensch, etwas zu alt für sie und zu gut für sie, aber sie sei nun über den Berg.
+Zumal im Schulhaus stand alles halb leer.
+Alles schimmerte silbern, und neben den Schattenstreifen lagen weiße Lichtstreifen, so weiß, als läge Leinwand auf der Bleiche.
+Und morgen um diese Stunde bin ich in Berlin.
+Was da lastet, das ist etwas ganz anderes - Angst, Todesangst und die ewige Furcht: Es kommt doch am Ende noch an den Tag.
+Als sie sich wieder aufrichtete, war sie ruhiger geworden und sah wieder in den Garten hinaus.
+Er hatte seinen Kopf auch voll anderer Dinge, die sich auf sein Amt und seine gesellschaftliche Stellung bezogen.
+Mitunter wurde musiziert, kurze Zeit sogar ein Whist versucht; man gab es aber wieder auf, weil man fand, daß eine Plauderei gemütlicher wäre.
+Bei der Emser Kur kann aber der Geheimrat zugegen sein.
+Aber ich war es ja nicht, das waren ja die anderen ...
+"Wenn man sich besser hält, so kann dergleichen nicht vorkommen." Das alles dachte sie, sprach's aber nicht aus.
+Es war an einem Mittwoch, daß die Mädchen und Annie das vorstehende Gespräch geführt und den Streit um die bemängelte Zeile beigelegt hatten.
+"Und nun wollen wir sie verbinden", sagte schließlich Roswitha.
+Lene kann ja gehen, die wird jetzt Zeit haben.
+Annie antwortete auch, aber ohne rechte Lust, weil sie fühlte, daß Innstetten wenig bei der Sache war.
+Von deutlichem Erkennen konnte keine Rede sein, aber es kam ihm doch so vor, als habe er die Schriftzüge schon irgendwo gesehen.
+Innstetten antwortete auch, aber dabei blieb es; sonst alles still.
+Die Sonne war schon unter, und nur ein roter Widerschein lag noch über den Dächern drüben, als Innstetten wieder zurückkam.
+Diese las er jetzt noch einmal mit halblauter Stimme.
+Es geht nicht, und wir müssen es leicht nehmen, sonst sind wir arm und verloren.
+Ich störe niemand gern in seiner Abendruhe, am wenigsten einen geplagten Ministerialrat.
+Wir sind doch über die Jahre weg, Sie, um die Pistole in die Hand zu nehmen, und ich, um dabei mitzumachen.
+Fühlen Sie sich so verletzt, beleidigt, empört, daß einer weg muß, er oder Sie?
+Man ist nicht bloß ein einzelner Mensch, man gehört einem Ganzen an, und auf das Ganze haben wir beständig Rücksicht zu nehmen, wir sind durchaus abhängig von ihm.
+Vor sechs Stunden, diese Konzession will ich Ihnen vorweg machen, hatt' ich das Spiel noch in der Hand, konnt' ich noch das eine und noch das andere, da war noch ein Ausweg.
+"Ich weiß doch nicht", wiederholte Wüllersdorf.
+Am andern Abend, wie verabredet, reiste Innstetten.
+"Ich habe mich gestern früh hier einquartiert", sagte Wüllersdorf, der nicht gleich mit den Sachlichkeiten beginnen wollte.
+Als ich Ihren Namen nannte, wurde er totenblaß und rang nach Fassung, und um seine Mundwinkel sah ich ein Zittern.
+Und der ist auch gekommen, famoser Mann, schneidig und doch zugleich wie ein Kind.
+Und gleich danach hielt der Wagen vor dem Hotel, und Innstetten und Wüllersdorf erhoben sich.
+Bald danach hatte man die Plantage passiert, und der Kutscher wollte jetzt rechts einbiegen auf die Mole zu.
+Es lief darauf hinaus, daß man à tempo avancieren und auf zehn Schritt Distanz feuern solle.
+Wüllersdorf beugte sich zu ihm nieder, nickte zustimmend zu den paar Worten, die kaum hörbar von des Sterbenden Lippen kamen, und ging dann auf Innstetten zu.
+Aber im selben Augenblick, wo dies für ihn feststand, warf er's auch wieder um.
+Sie konnten es mir ersparen und sich selber auch.' Und er hatte vielleicht recht.
+Und wenn sie dann kam, ahnungslos, so mußte ich ihr sagen: 'Da ist dein Platz', und mußte mich innerlich von ihr scheiden.
+Und wenn sie's nicht mit Bestimmtheit wissen, so haben sie sich's zurechtgelegt und wissen es doch.
+Der liebenswürdigste Bucklige, den ich je gesehen.
+Innstetten war ganz erschüttert, als er gelesen.
+Annie darf nichts wissen, wenigstens jetzt nicht.
+Es ist bloß das Fremdenblatt; aber Lene ist schon hin und holt das Kleine Journal.
+"Was solche Blätter auch alles schreiben", sagte Johanna, die verstimmt war, ihre Neuigkeit überholt zu sehen.
+aber das haben Sie nicht, Roswitha, das fehlt Ihnen eben ...
+Ich habe doch recht verstanden, daß er Lene danach geschickt hat?
+Wissen Sie, liebe Baronin, daß mich diese Afra...
+Innstetten hat sich auch dergleichen angewöhnt, lacht aber immer, wenn ich ihn daraufhin ansehe, und entschuldigt sich hinterher wegen der Aktenausdrücke.
+Ich kann Ihnen nur sagen, wenn ich das Wort höre, gibt es mir noch jetzt einen Stich ins Herz.
+Aber natürlich sind das gerade die Plätze, die bevorzugt werden.
+Poststempel: "Hohen-Cremmen", und die Adresse von der Handschrift der Mutter.
+Aber sie kam nicht weit, die Zeilen entfielen ihr, und aus ihrem Gesicht war alles Blut fort.
+Das Gefühl des Alleinseins in der Welt überkam sie mit seiner ganzen Schwere.
+Der, um den all dies kam, ist tot, eine Rückkehr in mein Haus gibt es nicht, in ein paar Wochen wird die Scheidung ausgesprochen sein, und das Kind wird man dem Vater lassen.
+Du wirst Dich auf Dich selbst stellen müssen und darfst dabei, soweit äußere Mittel mitsprechen, unserer Unterstützung sicher sein.
+Die Geheimrätin setzte sich so, daß der Tisch, mit einer Blumenschale darauf, zwischen ihr und Effi war.
+Die Zwicker überschlug sofort, ob es sich verlohnen würde, bis dahin zu bleiben, kam zu einem entschiedenen "Ja" und ging dann, um Effis Ausbleiben beim Lunch zu entschuldigen.
+Sie freute sich auf den Brief, der einer befreundeten, zur Zeit in Reichenhall weilenden Berliner Dame zugute kommen sollte.
+Nun verzeih, wenn ich diese Stelle erst lese ...
+Übrigens bin ich voll Mitleid mit der jungen Baronin und finde, eitel wie man nun mal ist, meinen einzigen Trost darin, mich in der Sache selbst nicht getäuscht zu haben.
+und nun verschwindet der Zug da wieder hinter einer Baumgruppe.
+Aber er trat noch einmal an das Fenster heran.
+Es war ihr damit auch leidlich geglückt.
+Ein so gutes altes Gesicht kann nur was Gutes bringen.
+Ach, Spuk ist lange nicht das Schlimmste!
+Effi hatte sich in die Sofaecke zurückgelehnt und die Augen geschlossen.
+Ich bin nicht mehr wie damals; ich habe jetzt eine ganz kleine Wohnung genommen, und der Portier wird sich wohl nicht sehr um dich und um mich bemühen.
+Für Roswitha ist alles gut, was sie mit der gnädigen Frau teilen muß, und am liebsten, wenn es was Trauriges ist.
+Aber als ich da auf dem Kirchhof saß, so ganz arm und verlassen, das war doch noch schlimmer.
+Es war nicht kalt, nur grau und regnerisch, und wenn die Tage kurz waren, so waren die Abende desto länger.
+Überhaupt all das Zuhören; es ist nicht das Rechte.
+Und das ist das schrecklichste, daß einem die Welt so zu ist und daß es sich einem sogar verbietet, bei Gutem mit dabeizusein.
+Aber auch das sollte sich eines Tages ändern.
+Noch in großer Erregung kam Effi nach Hause.
+Es quälte sie bis zur Beschämung, und das Verlangen nach einer Begegnung mit Annie steigerte sich bis zum Krankhaften.
+Alles andere war fortgelassen, auch die Baronin.
+Keine Spur von Überheblichkeit oder Vorwurf, nur menschlich schöne Teilnahme.
+"Unter Wissen und Zustimmung aller Beteiligten", wiederholte die Ministerin Effis Worte.
+Denn wir Frauen, wenn wir's klug einleiten und den Bogen nicht überspannen, wissen mancherlei durchzusetzen.
+Endlich wurde geklingelt, schüchtern, und Roswitha ging, um durch das Guckloch zu sehen.
+Und das ist die Narbe da; Roswitha hat mir davon erzählt.
+Das ist recht; ich war auch so ehrgeizig, aber ich hatte nicht solche gute Schule.
+Roswitha, die schon im Nebenzimmer war, trat gleich ein.
+Aber nein, nein, ich war kein Kind, ich war alt genug, um zu wissen, was ich tat.
+'0 gewiß, wenn ich darf.' Du brauchst nicht zu dürfen; ich will euch nicht mehr, ich hasse euch, auch mein eigen Kind.
+Rummschüttel, als er gerufen wurde, fand Effis Zustand nicht unbedenklich.
+Dem Einhalt zu tun, ist ein Luftwechsel nötig.
+Und doch auch wieder nicht, denn es ist schließlich auch der Arzt, der hier spricht und seiner Pflicht nach, verzeihen Sie dies Wort, Forderungen stellt ...
+Aber das ist nun schon wieder eine halbe Ewigkeit her; soll ich hier bis an mein Lebensende den Großinquisitor spielen?
+Und wenn ich das Kind erst wieder im Hause habe, dann schmeckt er mir noch besser ...
+Aber so schön das alles war, auf Effis Gesundheit hin angesehen, war es doch alles nur Schein, in Wahrheit ging die Krankheit weiter und zehrte still das Leben auf.
+Besuch blieb nicht ganz aus, nicht alle stellten sich gegen sie; ihren Hauptverkehr aber hatte sie doch in Schulhaus und Pfarre.
+Das ging so den ganzen Winter durch, sehr zu Effis Leidwesen.
+Dann ließ sie die Schaukel wieder langsam gehen und sprang herab und nahm wieder Niemeyers Arm.
+Wiesike wiegte den Kopf langsam hin und her.
+Aber Effi selbst wollte nichts davon wissen.
+Wenn ich mir die süffisanten Gesichter bloß vorstelle, so wird mir schon ganz heiß.
+Aber weißt du, Roswitha, wenn ich einen Hund hätte, der mich begleitete.
+Johanna brachte das Frühstückstablett, auf dem neben der Kreuzzeitung und der Norddeutschen Allgemeinen auch noch zwei Briefe lagen.
+Er maß seitdem mit anderem Maß, sah alles anders an.
+Sie aber, Sie finden sich darin zurecht.
+Anniechen hat uns schon voriges Jahr gesagt: Rollo wäre jetzt so faul; aber das tut hier nichts, er kann hier so faul sein, wie er will, je fauler, je besser.
+Den Mann im Büßerhemd bring ich nicht mehr heraus und den Derwisch oder Fakir, der unter Selbstanklagen sich zu Tode tanzt, erst recht nicht.
+Wollen Sie mit einem roten Fes einem Palaver präsidieren oder mit einem Schwiegersohn von König Mtesa Blutfreundschaft schließen?
+In der Bresche stehen und aushalten, bis man fällt, das ist das beste.
+Erst noch eine Stunde Spaziergang am Kanal hin bis an die Charlottenburger Schleuse und dann wieder zurück.
+Mit seinen Zärtlichkeiten blieb er sparsam, wie er beim Wiedersehen sparsam mit seinen Freudenbezeugungen gewesen war, aber in seiner Treue war er womöglich noch gewachsen.
+In Nähe der Station, hart an der Chaussee, lag eine Chausseewalze.
+Und dann das blaue Meer und weiße Segel und die Felsen ganz mit rotem Kaktus überwachsen - ich habe es noch nicht gesehen, aber ich denke es mir so.
+Das Fenster stand offen, und sie lag auf einer Chaiselongue, die neben dem Fenster stand.
+Laß ihn das wissen, daß ich in dieser Überzeugung gestorben bin.
+Die Sterne flimmerten, und im Park regte sich kein Blatt.
+Frau von Briest hatte mittlerweile den Kaffee eingeschenkt und sah nach dem Rondell und seinem Blumenbeet.
