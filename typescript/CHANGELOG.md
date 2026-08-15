@@ -9,6 +9,17 @@ the npm package: its API surface, its command line, its landing page.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.2] — 2026-08-15
+
+### Changed
+
+- **The npm tarball is now checked the way a stranger receives it.** It was the one
+  artefact this repository had never packed, installed and run — it kept working on the
+  strength of a single `prepack` hook, which is luck holding rather than a check passing.
+  `typescript/scripts/verify-tarball.mjs` builds from a clean clone, runs `npm pack`,
+  installs the tarball into a directory of its own and uses both the library and the
+  command line. Nothing about the package itself changed.
+
 ## [0.2.1] — 2026-08-11
 
 Nothing changed in the npm package itself: no API was added, removed or renamed, the

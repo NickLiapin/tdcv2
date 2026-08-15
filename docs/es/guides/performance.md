@@ -69,7 +69,7 @@ Entre ambas versiones el motor cambió en una recuperación de enrutado y tres m
 diagnóstico — nada de eso afecta a la velocidad de una fila ni a la memoria que retiene una
 ejecución.
 
-**Estas cifras no se han vuelto a medir desde entonces.** El motor va por 0.2.1 y
+**Estas cifras no se han vuelto a medir desde entonces.** El motor va por 0.2.2 y
 el trabajo intermedio fue de corrección y diagnósticos, no de rendimiento, así que lo que
 conviene creer es la forma: qué motor gana dónde y cómo se comporta la memoria. Tome los
 segundos absolutos como una medición de la 0.1.5 en una máquina, no como una promesa sobre

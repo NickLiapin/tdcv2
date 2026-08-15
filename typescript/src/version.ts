@@ -7,7 +7,7 @@
  * rejected so older binaries do not silently process newer DSL dialects.
  */
 
-export const VERSION = '0.2.1';
+export const VERSION = '0.2.2';
 
 /**
  * The newest DSL dialect this runtime understands — deliberately NOT `VERSION`.

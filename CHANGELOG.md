@@ -13,7 +13,7 @@ page — is tracked in that implementation's own changelog:
 [TypeScript](typescript/CHANGELOG.md) · [Python](python/CHANGELOG.md) ·
 [Java](java/CHANGELOG.md) · [C#](csharp/CHANGELOG.md) · [Rust](rust/CHANGELOG.md).
 
-## [Unreleased]
+## [0.2.2] — 2026-08-15
 
 ### Added
 
@@ -108,6 +108,37 @@ _count"` is a sensor that grows noisier as the run goes on.
   an `INT64`; without it the precision comes from the source and may be fractional, so the
   answer is a `DOUBLE`, which holds every value such a column can produce.
 
+<!-- covers: fit TDC300 -->
+
+- **`fit="low..high"` on `<gen type="pattern">` — where a drawing read from `src=` lands
+  on the value axis.** A file carries a shape and nothing else: not its units, not its
+  origin, not even which way is up, and `viewBox` cannot rescue that because an editor
+  crops it to the artwork on export. So the placement is declared in the config, where
+  `check` can see it: the drawing's own lowest and highest point become the two numbers
+  you write. Absent, the drawing fills `y_range`. Refused beside `points=`/`upper=`/
+  `lower=` (`TDC300`), whose numbers already carry the 0..100 board. Under
+  `mode="density"` it follows the axis `y_range` follows — the drawing's width — because
+  it substitutes for `y_range` in the mapping and cannot drift from it.
+
+  Two defects fell out of it, both in the vector path. A single-stroke SVG had been
+  measured with the 0..100 board against another tool's raw user units, so a stroke at
+  `y=20` in a 4000-unit drawing came out flat on the floor, and adding a second stroke
+  moved it to the ceiling. And a typed corridor normalised against its own ink in all
+  four ports while the reference used the board, so a band drawn low came out stretched
+  across the whole range; every shared corridor case happened to touch 0 and 100, so
+  nothing caught it. A case that does not now pins all five.
+
+<!-- covers: TDC301 percent -->
+
+- **`TDC301` — a share list that leaves a declared value at 0%.** A `percent=` shorter
+  than `value=` is legal on purpose: what is left over goes to the positions nobody
+  wrote, so `value="a,b,c" percent="30,40"` gives `c` the remaining 30. When the written
+  shares already total 100 there is nothing left, and a value the config names can never
+  be drawn — `percent="50,50"` over 300 rows came out 150 `a`, 150 `b`, no `c`, and
+  `check` called it valid. A warning rather than a refusal, because the run is well
+  defined and `percent="100"` is a fair way to say "only the first for now". A zero
+  written out — `percent="50,0,50"` — is taken at its word and reported by nothing.
+
 ### Changed
 
 <!-- covers: TDC299 TDC236 -->
@@ -122,6 +153,16 @@ _count"` is a sensor that grows noisier as the run goes on.
   filter that named it for the pool error is unaffected.
 
 ### Fixed
+
+<!-- covers: TDC021 inject -->
+
+- **`inject=` with two holes substituted nothing, and said nothing.** `<env
+inject="[%]-[%]">` with `<data>[Id]-[Id]</data>` printed `[Id]-[Id]` — accepted by five
+  implementations, substituted by none. A `%` is a hole only where it has text on BOTH
+  sides, which is what the renderer's own `(.+)%(.+)` asks for; there is one of them, and
+  `TDC021` now counts. Several, and the renderer reads the rightmost while the others
+  survive as a literal `%` the text does not contain. `inject="%{%}%"` stays legal, and
+  that is the point of counting holes rather than per-cent signs: three `%`, one hole.
 
 - **Only one of the expression language's four homes was checked.** The expressions page opens
   with "four homes, all reading the same way" — `if=`, `filter=`, `expr=` and a distribution

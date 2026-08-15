@@ -22,15 +22,23 @@ Una sola dependencia, desde Maven Central:
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.2.1</version>
+  <version>0.2.2</version>
 </dependency>
 ```
 
 Con Gradle, en `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.2.1")
+implementation("io.github.nickliapin:tdcv2:0.2.2")
 ```
+
+> [!NOTE]
+> **Maven Central puede ir una versión por detrás**
+>
+> Maven Central limita cuántas publicaciones acepta de un proyecto al mes. Cuando se
+> alcanza ese límite, la coordenada de arriba todavía no resuelve y el jar más reciente
+> de allí es la versión anterior; los otros cuatro registros ya están al día. Se pone al
+> corriente cuando el límite se renueva.
 
 Los paquetes de datos iniciales viajan dentro del jar, así que esto funciona sin
 instalar nada más.

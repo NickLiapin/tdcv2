@@ -9,6 +9,23 @@ the Python package: its API surface, its command line, its landing page.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.2] — 2026-08-15
+
+### Fixed
+
+- **The published wheel could not be imported at all.** 0.1.7, 0.2.0 and 0.2.1 each
+  shipped without the generated ANTLR parser, so `import tdcv2` raised
+  `ModuleNotFoundError: No module named 'tdcv2.parser.generated'` — and without the
+  starter data packs, so `type="template"` would have had nothing to draw from even had
+  it imported. Both directories are produced by scripts and ignored by git; the publish
+  job checked out clean and built immediately, carrying neither. The recipe now runs in
+  the job, and `python/scripts/verify-wheel.mjs` proves it end to end from `git archive
+HEAD` — build the wheel, install it into a fresh virtualenv, import it, generate from
+  a pack address — so a wheel that cannot be used cannot be uploaded. It is part of
+  `scripts/verify-artefacts.mjs`, which every release runs.
+
+  If you installed 0.1.7, 0.2.0 or 0.2.1, upgrade. 0.1.4 was the last working release.
+
 ## [0.2.1] — 2026-08-11
 
 Nothing changed in the PyPI package itself: no API was added, removed or renamed, the

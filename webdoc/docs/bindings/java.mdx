@@ -27,6 +27,13 @@ Gradle, in `build.gradle.kts`:
 implementation("io.github.nickliapin:tdcv2:%%TDC_VERSION%%")
 ```
 
+:::note[Maven Central can lag a release]
+Maven Central caps how many releases it accepts from a project in a month. When this
+project reaches that cap the coordinate above will not resolve yet, and the newest jar
+there is the previous release — the other four registries are already current. It
+catches up when the window resets.
+:::
+
 The starter data packs travel inside the jar, so this runs with nothing else installed.
 
 See [Installation](../getting-started/installation.mdx) for the whole picture, including

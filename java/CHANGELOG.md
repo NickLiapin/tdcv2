@@ -9,6 +9,13 @@ this package: the jar and the library API.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.2] — not published
+
+The Java artefact carries this version and its Maven Central deployment was held back:
+the monthly allowance for the account was spent. The bundle is built and signed by the
+release, so the version goes out on its own `java-v0.2.2` tag once the allowance resets.
+Nothing about the Java code differs from the other four at this version.
+
 ## [0.2.1] — 2026-08-11
 
 ### Fixed

@@ -22,15 +22,23 @@ Java-пакет читает **тот же `.tdc`-конфиг** и при од�
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.2.1</version>
+  <version>0.2.2</version>
 </dependency>
 ```
 
 Gradle, в `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.2.1")
+implementation("io.github.nickliapin:tdcv2:0.2.2")
 ```
+
+> [!NOTE]
+> **Maven Central может отставать на релиз**
+>
+> Maven Central ограничивает, сколько релизов принимает от проекта за месяц. Когда лимит
+> исчерпан, координата выше ещё не разрешается, и самый свежий jar там — предыдущий
+> релиз; остальные четыре реестра при этом уже обновлены. Догоняет, когда лимит
+> обновится.
 
 Стартовые паки едут внутри jar, так что это работает без всякой доустановки.
 

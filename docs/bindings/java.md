@@ -22,15 +22,23 @@ One dependency, from Maven Central:
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.2.1</version>
+  <version>0.2.2</version>
 </dependency>
 ```
 
 Gradle, in `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.2.1")
+implementation("io.github.nickliapin:tdcv2:0.2.2")
 ```
+
+> [!NOTE]
+> **Maven Central can lag a release**
+>
+> Maven Central caps how many releases it accepts from a project in a month. When this
+> project reaches that cap the coordinate above will not resolve yet, and the newest jar
+> there is the previous release — the other four registries are already current. It
+> catches up when the window resets.
 
 The starter data packs travel inside the jar, so this runs with nothing else installed.
 

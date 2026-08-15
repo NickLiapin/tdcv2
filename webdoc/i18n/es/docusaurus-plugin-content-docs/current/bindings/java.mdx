@@ -27,6 +27,13 @@ Con Gradle, en `build.gradle.kts`:
 implementation("io.github.nickliapin:tdcv2:%%TDC_VERSION%%")
 ```
 
+:::note[Maven Central puede ir una versión por detrás]
+Maven Central limita cuántas publicaciones acepta de un proyecto al mes. Cuando se
+alcanza ese límite, la coordenada de arriba todavía no resuelve y el jar más reciente
+de allí es la versión anterior; los otros cuatro registros ya están al día. Se pone al
+corriente cuando el límite se renueva.
+:::
+
 Los paquetes de datos iniciales viajan dentro del jar, así que esto funciona sin
 instalar nada más.
 
