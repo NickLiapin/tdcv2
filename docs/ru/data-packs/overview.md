@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/data-packs/overview)**
 
-← Назад: [Производительность](../guides/performance.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Установка пакетов данных](./installing-packs.md#top) →
+← Назад: [Сигналы из формул](../guides/signals-from-formulas.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Установка пакетов данных](./installing-packs.md#top) →
 
 ---
 
@@ -353,6 +353,6 @@ TDC071: unknown template path 'person.male.firstNam'
 
 ---
 
-← Назад: [Производительность](../guides/performance.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Установка пакетов данных](./installing-packs.md#top) →
+← Назад: [Сигналы из формул](../guides/signals-from-formulas.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Установка пакетов данных](./installing-packs.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/data-packs/overview)**

@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/data-packs/overview)**
 
-← Previous: [Performance](../guides/performance.md#top) · **[Contents](../README.md#top)** · Next: [Installing packs](./installing-packs.md#top) →
+← Previous: [Signals from formulas](../guides/signals-from-formulas.md#top) · **[Contents](../README.md#top)** · Next: [Installing packs](./installing-packs.md#top) →
 
 ---
 
@@ -350,6 +350,6 @@ it ships — see [Editor support](../getting-started/editor-support.md#top).
 
 ---
 
-← Previous: [Performance](../guides/performance.md#top) · **[Contents](../README.md#top)** · Next: [Installing packs](./installing-packs.md#top) →
+← Previous: [Signals from formulas](../guides/signals-from-formulas.md#top) · **[Contents](../README.md#top)** · Next: [Installing packs](./installing-packs.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/data-packs/overview)**

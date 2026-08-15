@@ -23,6 +23,7 @@
 - [Salidas grandes y streaming](./large-outputs.md#top)
 - [Escribir un generador de servicio](./writing-a-service.md#top)
 - [Rendimiento](./performance.md#top)
+- [Señales a partir de fórmulas](./signals-from-formulas.md#top)
 
 ---
 

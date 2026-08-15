@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/data-packs/overview)**
 
-← Anterior: [Rendimiento](../guides/performance.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Instalar paquetes de datos](./installing-packs.md#top) →
+← Anterior: [Señales a partir de fórmulas](../guides/signals-from-formulas.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Instalar paquetes de datos](./installing-packs.md#top) →
 
 ---
 
@@ -365,6 +365,6 @@ El autocompletado de direcciones en el editor funciona con esos mismos encabezad
 
 ---
 
-← Anterior: [Rendimiento](../guides/performance.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Instalar paquetes de datos](./installing-packs.md#top) →
+← Anterior: [Señales a partir de fórmulas](../guides/signals-from-formulas.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Instalar paquetes de datos](./installing-packs.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/data-packs/overview)**

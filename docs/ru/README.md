@@ -84,6 +84,7 @@
 - [Большие объёмы](./guides/large-outputs.md#top)
 - [Как написать сервис-генератор](./guides/writing-a-service.md#top)
 - [Производительность](./guides/performance.md#top)
+- [Сигналы из формул](./guides/signals-from-formulas.md#top)
 
 ## Пакеты данных
 

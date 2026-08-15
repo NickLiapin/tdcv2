@@ -23,6 +23,7 @@
 - [Large outputs & streaming](./large-outputs.md#top)
 - [Writing a service generator](./writing-a-service.md#top)
 - [Performance](./performance.md#top)
+- [Signals from formulas](./signals-from-formulas.md#top)
 
 ---
 

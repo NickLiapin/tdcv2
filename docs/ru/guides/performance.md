@@ -4,7 +4,7 @@
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/performance)**
 
-← Назад: [Как написать сервис-генератор](./writing-a-service.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../data-packs/overview.md#top) →
+← Назад: [Как написать сервис-генератор](./writing-a-service.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Сигналы из формул](./signals-from-formulas.md#top) →
 
 ---
 
@@ -258,6 +258,6 @@ every implementation produced identical bytes, on every engine it ran
 
 ---
 
-← Назад: [Как написать сервис-генератор](./writing-a-service.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Обзор](../data-packs/overview.md#top) →
+← Назад: [Как написать сервис-генератор](./writing-a-service.md#top) · **[Оглавление](../README.md#top)** · Вперёд: [Сигналы из формул](./signals-from-formulas.md#top) →
 
 📖 **[Открыть на сайте документации →](https://nickliapin.github.io/tdcv2/ru/docs/guides/performance)**

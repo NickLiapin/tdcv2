@@ -84,6 +84,7 @@
 - [Salidas grandes y streaming](./guides/large-outputs.md#top)
 - [Escribir un generador de servicio](./guides/writing-a-service.md#top)
 - [Rendimiento](./guides/performance.md#top)
+- [Señales a partir de fórmulas](./guides/signals-from-formulas.md#top)
 
 ## Paquetes de datos
 

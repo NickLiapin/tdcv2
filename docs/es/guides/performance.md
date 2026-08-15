@@ -4,7 +4,7 @@
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/performance)**
 
-← Anterior: [Escribir un generador de servicio](./writing-a-service.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../data-packs/overview.md#top) →
+← Anterior: [Escribir un generador de servicio](./writing-a-service.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Señales a partir de fórmulas](./signals-from-formulas.md#top) →
 
 ---
 
@@ -267,6 +267,6 @@ son comparables porque el trabajo lo era.
 
 ---
 
-← Anterior: [Escribir un generador de servicio](./writing-a-service.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Descripción general](../data-packs/overview.md#top) →
+← Anterior: [Escribir un generador de servicio](./writing-a-service.md#top) · **[Contenido](../README.md#top)** · Siguiente: [Señales a partir de fórmulas](./signals-from-formulas.md#top) →
 
 📖 **[Abrir en el sitio de documentación →](https://nickliapin.github.io/tdcv2/es/docs/guides/performance)**

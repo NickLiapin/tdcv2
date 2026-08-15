@@ -23,6 +23,7 @@
 - [Большие объёмы](./large-outputs.md#top)
 - [Как написать сервис-генератор](./writing-a-service.md#top)
 - [Производительность](./performance.md#top)
+- [Сигналы из формул](./signals-from-formulas.md#top)
 
 ---
 

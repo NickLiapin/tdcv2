@@ -4,7 +4,7 @@
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/performance)**
 
-← Previous: [Writing a service generator](./writing-a-service.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../data-packs/overview.md#top) →
+← Previous: [Writing a service generator](./writing-a-service.md#top) · **[Contents](../README.md#top)** · Next: [Signals from formulas](./signals-from-formulas.md#top) →
 
 ---
 
@@ -264,6 +264,6 @@ timings are comparable because the work was.
 
 ---
 
-← Previous: [Writing a service generator](./writing-a-service.md#top) · **[Contents](../README.md#top)** · Next: [Overview](../data-packs/overview.md#top) →
+← Previous: [Writing a service generator](./writing-a-service.md#top) · **[Contents](../README.md#top)** · Next: [Signals from formulas](./signals-from-formulas.md#top) →
 
 📖 **[Read this on the documentation site →](https://nickliapin.github.io/tdcv2/docs/guides/performance)**

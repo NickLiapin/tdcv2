@@ -84,6 +84,7 @@
 - [Large outputs & streaming](./guides/large-outputs.md#top)
 - [Writing a service generator](./guides/writing-a-service.md#top)
 - [Performance](./guides/performance.md#top)
+- [Signals from formulas](./guides/signals-from-formulas.md#top)
 
 ## Data Packs
 
