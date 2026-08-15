@@ -1,0 +1,26 @@
+---
+description: Common allergies (Turkish)
+locale: tr
+---
+huş poleni
+ambrosia poleni
+pelin poleni
+çayır poleni
+ev tozu
+ev tozu akarı
+kedi tüyü
+köpek tüyü
+küf mantarı
+penisilin
+sülfonamid
+aspirin
+lokal anestezik
+yer fıstığı
+kuruyemiş
+süt
+yumurta
+balık
+deniz ürünleri
+soya
+gluten
+arı sokması

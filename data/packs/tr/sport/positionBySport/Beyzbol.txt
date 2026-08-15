@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (Turkish)
+locale: tr
+---
+atıcı
+yakalayıcı
+birinci kale
+ikinci kale
+üçüncü kale
+shortstop
+sol dış saha
+merkez dış saha
+sağ dış saha
+vurucu

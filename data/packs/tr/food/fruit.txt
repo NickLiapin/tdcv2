@@ -1,0 +1,37 @@
+---
+description: Fruit (Turkish)
+locale: tr
+---
+elma
+armut
+erik
+kiraz
+vişne
+kayısı
+şeftali
+nektarin
+ayva
+üzüm
+çilek
+ahududu
+böğürtlen
+frenküzümü
+bektaşiüzümü
+kızılcık
+yabanmersini
+nar
+incir
+dut
+karpuz
+kavun
+muz
+portakal
+mandalina
+limon
+misket_limonu
+greyfurt
+ananas
+mango
+kivi
+avokado
+hurma

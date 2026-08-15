@@ -1,0 +1,15 @@
+---
+description: Shipping status (Turkish)
+locale: tr
+---
+Kargo bekleniyor
+Kargoya teslim edildi
+Yolda
+Transfer merkezinde
+Dağıtım şehrinde
+Şubeye ulaştı
+Kuryede
+Teslim edildi
+Teslim edilemedi
+İade sürecinde
+Kayıp

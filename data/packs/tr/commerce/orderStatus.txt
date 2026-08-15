@@ -1,0 +1,18 @@
+---
+description: Order status (Turkish)
+locale: tr
+---
+Yeni
+Alındı
+Onaylandı
+Hazırlanıyor
+Paketleniyor
+Kargoya hazır
+Kargoya verildi
+Yolda
+Şubede
+Teslim edildi
+Teslim alındı
+İptal edildi
+İade edildi
+Ödeme bekleniyor

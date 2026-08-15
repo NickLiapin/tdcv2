@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Turkish)
+locale: tr
+---
+market
+kafe ve restoran
+konut
+kira
+faturalar
+iletişim ve internet
+ulaşım
+yakıt
+araç
+sağlık
+ilaç
+eğitim
+çocuk
+giyim ve ayakkabı
+kişisel bakım
+eğlence
+seyahat
+hediye
+bağış
+birikim

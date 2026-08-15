@@ -1,0 +1,13 @@
+---
+description: Dishes of İtalyan cuisine (Turkish)
+locale: tr
+---
+carbonara makarna
+margarita pizza
+lazanya
+risotto
+minestrone
+osso buco
+bruschetta
+tiramisu
+panna cotta

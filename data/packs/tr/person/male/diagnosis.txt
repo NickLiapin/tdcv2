@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Turkish (male-specific + common)
+locale: tr
+---
+Varikosel
+İnmemiş testis
+Fimozis
+Prostat büyümesi
+Prostatit
+Kronik pankreatit
+Klamidya enfeksiyonu
+Kronik artrit
+Hipertansiyon
+Koroner arter hastalığı
+Miyokard enfarktüsü
+Mide ülseri
+Tip 2 diyabet
+Gut hastalığı
+Astım
+Kronik bronşit
+Böbrek taşı
+Kasık fıtığı
+Bel fıtığı
+Hepatit B
+Anemi
+Gastrit
+Safra kesesi iltihabı
+Zatürre
+Migren
+Depresif atak

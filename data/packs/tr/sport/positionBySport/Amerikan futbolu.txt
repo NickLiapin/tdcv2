@@ -1,0 +1,15 @@
+---
+description: Positions in American football (Turkish)
+locale: tr
+---
+oyun kurucu
+koşucu
+geniş alıcı
+sıkı uç
+merkez
+gard
+tekl
+defans ucu
+linebacker
+cornerback
+safety

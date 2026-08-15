@@ -1,0 +1,36 @@
+---
+description: Turkish honorific / form of address. Turkish puts Bey and Hanım AFTER the given name (Ahmet Bey, Ayşe Hanım); the academic and professional titles below go before it.
+locale: tr
+---
+Sayın
+Bay
+Bayan
+Dr.
+Doç. Dr.
+Prof. Dr.
+Öğr. Gör.
+Arş. Gör.
+Av.
+Op. Dr.
+Uzm. Dr.
+Dt.
+Ecz.
+Vet. Hek.
+Müh.
+Mim.
+Yrd. Doç. Dr.
+Hâkim
+Savcı
+Müfettiş
+Albay
+Yarbay
+Binbaşı
+Yüzbaşı
+Teğmen
+Onbaşı
+Çavuş
+Komiser
+Başkomiser
+Müdür
+Genel Müdür
+Başkan

@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, descriptive Turkish (country rating codes are country data)
+locale: tr
+---
+genel izleyici
+aile ile izlenebilir
+çocuklar için
+ebeveyn eşliğinde
+gençler için
+16 yaş ve üzeri
+18 yaş ve üzeri
+yetişkinler için
+yaş sınırı yok

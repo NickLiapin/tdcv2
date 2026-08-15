@@ -1,0 +1,9 @@
+---
+description: Positions in ice hockey (Turkish)
+locale: tr
+---
+kaleci
+sol defans
+sağ defans
+merkez forvet
+kanat forvet

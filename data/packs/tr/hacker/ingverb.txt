@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Turkish)
+locale: tr
+---
+derleme
+dağıtım
+yapılandırma
+yeniden başlatma
+bağlantı
+kimlik doğrulama
+şifreleme
+şifre çözme
+sıkıştırma
+arşivden çıkarma
+indeksleme
+önbellekleme
+eşitleme
+çoğaltma
+ölçeklendirme
+yönlendirme
+yakalama
+atlatma
+kırma
+yamalama
+geri alma
+güncelleme
+silme
+oluşturma
+kopyalama
+taşıma
+bağlama
+biçimlendirme

@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Turkish. A prevalence signal, not an exclusive one.
+locale: tr
+---
+Tay-Sachs hastalığı
+Gaucher hastalığı
+Ailevi disotonomi
+Canavan hastalığı
+Bloom sendromu
+Fanconi anemisi tip C
+Kistik fibroz
+BRCA1 ve BRCA2 mutasyonları
+Faktör XI eksikliği
+Niemann-Pick hastalığı tip A
+Glikojen depo hastalığı tip I
+Dihidrolipoamid dehidrogenaz eksikliği

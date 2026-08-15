@@ -1,0 +1,16 @@
+---
+description: Leave type (Turkish)
+locale: tr
+---
+yıllık izin
+ek izin
+ücretsiz izin
+hastalık izni
+doğum izni
+babalık izni
+süt izni
+eğitim izni
+mazeret izni
+idari izin
+askerlik
+iş durdurma

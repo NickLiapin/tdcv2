@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Turkish. A prevalence signal, not an exclusive one.
+locale: tr
+---
+Beta talasemi
+G6PD eksikliği
+Ailevi Akdeniz ateşi
+Orak hücreli anemi
+Kalıtsal işitme kaybı
+Kseroderma pigmentozum

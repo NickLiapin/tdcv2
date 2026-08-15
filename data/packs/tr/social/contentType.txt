@@ -1,0 +1,17 @@
+---
+description: Social content type (Turkish)
+locale: tr
+---
+gönderi
+fotoğraf
+video
+kısa video
+hikâye
+canlı yayın
+paylaşım
+yorum
+anket
+derleme
+inceleme
+duyuru
+tavsiye

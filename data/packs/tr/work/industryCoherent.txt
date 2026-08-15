@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: tr
+---
+Teknoloji
+Sağlık
+Eğitim
+Finans
+İnşaat
+Üretim
+Ulaştırma
+Perakende
+Turizm
+Hukuk

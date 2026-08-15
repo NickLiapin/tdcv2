@@ -1,0 +1,58 @@
+---
+description: Business buzz adjective (Turkish)
+locale: tr
+---
+stratejik
+kapsamlı
+sistemli
+entegre
+ölçeklenebilir
+esnek
+uyarlanabilir
+verimli
+etkili
+üretken
+optimal
+dengeli
+sürdürülebilir
+güvenilir
+şeffaf
+hesap verebilir
+ölçülebilir
+yönetilebilir
+öngörülebilir
+yenilikçi
+çığır açan
+öncü
+modern
+dijital
+bulut tabanlı
+mobil
+kişiselleştirilmiş
+müşteri odaklı
+pazar odaklı
+rekabetçi
+kârlı
+getirili
+maliyet etkin
+uzun vadeli
+kısa vadeli
+öncelikli
+kilit
+kritik
+temel
+sektörel
+çapraz fonksiyonlu
+çok katmanlı
+uçtan uca
+bütünsel
+tutarlı
+uyumlu
+birleşik
+standartlaştırılmış
+sertifikalı
+lisanslı
+profesyonel
+uzman
+deneyimli
+nitelikli

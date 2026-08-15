@@ -1,0 +1,9 @@
+---
+description: Work shift (Turkish)
+locale: tr
+---
+birinci vardiya
+ikinci vardiya
+gece vardiyası
+hafta sonu vardiyası
+bakım vardiyası

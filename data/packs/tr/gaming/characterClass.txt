@@ -1,0 +1,28 @@
+---
+description: RPG character class (Turkish)
+locale: tr
+---
+savaşçı
+şövalye
+paladin
+barbar
+berserker
+haydut
+suikastçı
+avcı
+izci
+okçu
+büyücü
+sihirbaz
+kara büyücü
+nekromansır
+druid
+şaman
+rahip
+keşiş
+ozan
+mühendis
+simyacı
+terbiyeci
+tank
+şifacı

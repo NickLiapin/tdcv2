@@ -1,0 +1,46 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Turkish)
+locale: tr
+---
+programlama
+veritabanı yönetimi
+sistem yönetimi
+ağ kurulumu
+siber güvenlik
+veri analizi
+istatistik
+proje yönetimi
+planlama
+maliyet hesaplama
+muhasebe
+vergi mevzuatı
+finansal analiz
+müzakere
+satış
+müşteri ilişkileri
+pazarlama
+metin yazarlığı
+editörlük
+çeviri
+topluluk önünde konuşma
+takım çalışması
+liderlik
+mentorluk
+zaman yönetimi
+çatışma yönetimi
+eleştirel düşünme
+detaylara dikkat
+araç kullanma
+elektrikli alet kullanımı
+kaynak
+elektrik tesisatı
+sıhhi tesisat
+marangozluk
+teknik çizim
+tezgâh kullanımı
+kalite kontrol
+ilk yardım
+hasta bakımı
+yazarkasa kullanımı
+depo takibi
+evrak yönetimi

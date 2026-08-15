@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Turkish. A prevalence signal, not an exclusive one.
+locale: tr
+---
+Kistik fibroz
+Kalıtsal hemokromatoz
+Alfa-1 antitripsin eksikliği
+Çölyak hastalığı
+Fenilketonüri
+Multipl skleroz
+Dupuytren kontraktürü
+Melanom
+Erişkin laktoz intoleransı
+Faktör V Leiden mutasyonu

@@ -1,0 +1,26 @@
+---
+description: Metal (Turkish)
+locale: tr
+---
+demir
+çelik
+dökme
+alüminyum
+bakır
+pirinç
+bronz
+titanyum
+çinko
+kalay
+kurşun
+nikel
+krom
+kobalt
+magnezyum
+tungsten
+molibden
+gümüş
+altın
+platin
+paladyum
+cıva

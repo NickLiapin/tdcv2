@@ -1,0 +1,23 @@
+---
+description: Legal term (Turkish)
+locale: tr
+---
+dava
+dava dilekçesi
+davalı
+davacı
+müdahil
+ara karar
+mahkeme kararı
+hüküm
+istinaf başvurusu
+temyiz başvurusu
+icra emri
+soruşturma
+iddianame
+tutuklama tedbiri
+zamanaşımı
+sulh anlaşması
+vekâletname
+noter onayı
+harç

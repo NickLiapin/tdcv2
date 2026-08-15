@@ -1,0 +1,18 @@
+---
+description: Insurance type (Turkish)
+locale: tr
+---
+tamamlayıcı sağlık sigortası
+özel sağlık sigortası
+hayat sigortası
+ferdi kaza sigortası
+zorunlu trafik sigortası
+kasko
+yeşil kart
+konut sigortası
+DASK zorunlu deprem sigortası
+nakliyat sigortası
+seyahat sigortası
+sorumluluk sigortası
+bireysel emeklilik
+tarım sigortası

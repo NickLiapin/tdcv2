@@ -1,0 +1,20 @@
+---
+description: Court type (Turkish judiciary)
+locale: tr
+---
+sulh hukuk mahkemesi
+asliye hukuk mahkemesi
+asliye ceza mahkemesi
+ağır ceza mahkemesi
+sulh ceza hâkimliği
+icra mahkemesi
+aile mahkemesi
+iş mahkemesi
+tüketici mahkemesi
+ticaret mahkemesi
+idare mahkemesi
+vergi mahkemesi
+bölge adliye mahkemesi
+Yargıtay
+Danıştay
+Anayasa Mahkemesi

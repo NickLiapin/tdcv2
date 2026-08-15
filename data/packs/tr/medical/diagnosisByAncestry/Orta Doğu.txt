@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Turkish. A prevalence signal, not an exclusive one.
+locale: tr
+---
+Ailevi Akdeniz ateşi
+Beta talasemi
+G6PD eksikliği
+Kalıtsal işitme kaybı
+Spinal musküler atrofi
+Kalıtsal sferositoz

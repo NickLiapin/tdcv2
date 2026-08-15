@@ -1,0 +1,22 @@
+---
+description: Event type (Turkish)
+locale: tr
+---
+konferans
+seminer
+webinar
+eğitim
+atölye
+ders
+forum
+sergi
+fuar
+sunum
+konser
+festival
+tiyatro oyunu
+film gösterimi
+yarışma
+turnuva
+düğün
+yıl dönümü

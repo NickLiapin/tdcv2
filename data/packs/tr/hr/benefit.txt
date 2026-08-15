@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Turkish)
+locale: tr
+---
+özel sağlık sigortası
+hayat sigortası
+ücretli izin
+ek izin günleri
+ücretli hastalık izni
+esnek çalışma saatleri
+uzaktan çalışma
+eğitim desteği
+İngilizce kursu
+spor salonu üyeliği
+yemekhane
+yemek kartı
+yol yardımı
+şirket aracı
+kurumsal hat
+performans primi
+13. maaş
+maddi yardım

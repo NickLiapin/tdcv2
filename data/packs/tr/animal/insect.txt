@@ -1,0 +1,24 @@
+---
+description: Insect (Turkish)
+locale: tr
+---
+arı
+eşekarısı
+bombus
+karınca
+kelebek
+güve
+sinek
+sivrisinek
+atsineği
+uğurböceği
+geyikböceği
+mayısböceği
+çekirge
+cırcırböceği
+çayır_çekirgesi
+yusufçuk
+peygamberdevesi
+pire
+hamamböceği
+tahtakurusu

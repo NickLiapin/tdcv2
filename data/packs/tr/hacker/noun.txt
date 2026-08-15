@@ -1,0 +1,41 @@
+---
+description: Tech noun (Turkish)
+locale: tr
+---
+sunucu
+istemci
+veritabanı
+tablo
+sorgu
+dizin
+önbellek
+kuyruk
+iş parçacığı
+süreç
+çekirdek
+bellek
+disk
+dizi
+dosya
+klasör
+protokol
+paket
+port
+ağ geçidi
+yönlendirici
+güvenlik duvarı
+sertifika
+anahtar
+belirteç
+oturum
+çerez
+betik
+kütüphane
+modül
+paket
+konteyner
+imaj
+küme
+düğüm
+kayıt defteri
+günlük

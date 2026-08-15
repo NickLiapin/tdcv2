@@ -1,0 +1,20 @@
+---
+description: Room type (Turkish)
+locale: tr
+---
+salon
+oturma odası
+yatak odası
+çocuk odası
+çalışma odası
+mutfak
+amerikan mutfak
+yemek odası
+banyo
+tuvalet
+ebeveyn banyosu
+antre
+koridor
+giyinme odası
+kiler
+balkon

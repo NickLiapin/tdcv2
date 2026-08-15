@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Turkish)
+locale: tr
+---
+şehir içi
+şehirlerarası kısa
+bölgesel
+iller arası
+uluslararası
+mekik sefer
+ring sefer

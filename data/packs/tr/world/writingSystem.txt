@@ -1,0 +1,24 @@
+---
+description: Writing system (Turkish)
+locale: tr
+---
+Latin alfabesi
+Kiril alfabesi
+Arap alfabesi
+Osmanlı Türkçesi
+Yunan alfabesi
+Ermeni alfabesi
+Gürcü alfabesi
+İbrani alfabesi
+Devanagari
+Bengal yazısı
+Tamil yazısı
+Tay yazısı
+Khmer yazısı
+Çin karakterleri
+Kana
+Hiragana
+Katakana
+Hangul
+Göktürk alfabesi
+Çivi yazısı

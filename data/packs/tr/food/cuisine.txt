@@ -1,0 +1,21 @@
+---
+description: Cuisine (Turkish). Each value has a dishByCuisine child file.
+locale: tr
+---
+Türk
+Osmanlı
+İtalyan
+Fransız
+İspanyol
+Yunan
+Lübnan
+Çin
+Japon
+Kore
+Tayland
+Vietnam
+Hint
+Meksika
+Arjantin
+Peru
+Amerikan

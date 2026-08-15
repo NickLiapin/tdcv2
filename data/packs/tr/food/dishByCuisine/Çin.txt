@@ -1,0 +1,12 @@
+---
+description: Dishes of Çin cuisine (Turkish)
+locale: tr
+---
+Pekin ördeği
+wok eriştesi
+dim sum
+ekşi tatlı domuz
+wonton çorbası
+kızarmış pirinç
+mapo tofu
+baozi

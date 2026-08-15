@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Turkish)
+locale: tr
+---
+adet
+paket
+takım
+set
+çift
+g
+kg
+mg
+ton
+ml
+L
+cm
+mm
+m
+km
+m²
+m³
+metretül
+rulo
+kutu
+koli
+çuval
+şişe
+kavanoz
+tüp
+flakon
+yaprak
+blok
+kaset
+palet

@@ -1,0 +1,13 @@
+---
+description: Dishes of Meksika cuisine (Turkish)
+locale: tr
+---
+tako
+burrito
+quesadilla
+guacamole
+nachos
+enchilada
+fajita
+chili con carne
+tamale

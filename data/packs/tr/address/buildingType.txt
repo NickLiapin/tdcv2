@@ -1,0 +1,39 @@
+---
+description: Building type (Turkish)
+locale: tr
+---
+apartman
+site
+rezidans
+müstakil ev
+villa
+yazlık
+dubleks
+tripleks
+bahçe katı
+gecekondu
+yurt
+otel
+pansiyon
+hostel
+iş merkezi
+plaza
+ofis binası
+alışveriş merkezi
+dükkân
+pazar yeri
+depo
+hangar
+fabrika
+atölye
+imalathane
+garaj
+oto yıkama
+okul
+anaokulu
+hastane
+poliklinik
+cami
+müze
+tiyatro
+stadyum

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Turkish)
+locale: tr
+---
+Kronik böbrek hastalığı
+Akut piyelonefrit
+Glomerülonefrit
+Böbrek taşı
+Nefrotik sendrom
+Polikistik böbrek
+Diyabetik nefropati
+Akut böbrek hasarı
+İdrar yolu enfeksiyonu
+Böbrek yetmezliği

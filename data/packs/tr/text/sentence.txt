@@ -1,0 +1,64 @@
+---
+description: tr filler sentences. Handwritten: Project Gutenberg holds no Turkish book at all, so unlike fr/de/it/es/pt/pl these are not extracted from a public-domain corpus.
+locale: tr
+---
+Pencereyi açtı ve yeni günün serin havasını içine çekti.
+Yol uzaklara doğru uzanıyor, tepelerin arasında kayboluyordu.
+Buraya geleli çok olmuştu ama her şey ona tanıdık geldi.
+Güneş damların üzerinden yükseldi ve şehir ağır ağır uyandı.
+Masanın üzerinde kimsenin açmaya cesaret edemediği bir mektup duruyordu.
+Yağmur bütün gece yağdı, şafak sökerken birden dindi.
+Çocuk buğulanmış cama bir şeyler çiziyor ve sessizce gülümsüyordu.
+Antredeki eski saat dakikaları fazla yüksek sesle sayıyordu.
+Eve dönerken yaşlı ıhlamurun yanında durdu.
+Bu köprünün buraya ne zaman yapıldığını kimse hatırlamıyordu.
+Odada taze ekmek ve kuru ot kokusu vardı.
+Kitabı pencere kenarına bıraktı ve uzun uzun avluya baktı.
+Rüzgâr küçük dükkânın tabelasını sarsıyordu.
+Nehrin ötesinde çocukların mantar toplamaya gittiği orman başlıyordu.
+Bu köydeki her patikayı çocukluğundan beri biliyordu.
+Tren gecikmişti ve peron yavaş yavaş insanla doluyordu.
+Pazarda elma, bal ve el örgüsü çorap satılıyordu.
+Işığı söndürdü ama bir türlü uyuyamadı.
+Konuşma yarıda kesildi ve odaya sessizlik çöktü.
+Uçak yükseldi, bulutlar aşağıda kaldı.
+O doğru sayfayı ararken kahve soğumuştu.
+Kapı gıcırdadı ve eşikte komşunun köpeği belirdi.
+Mektubu üç kez yazdı, sonra yırttı.
+Kar iri taneler hâlinde doğrudan su birikintilerine düşüyordu.
+Duvarda savaştan önce çekilmiş bir fotoğraf asılıydı.
+Bütün banliyö trenlerinin saatini ezbere biliyordu.
+Öğretmen defterleri dağıttı ve on yedinci sayfayı açmalarını istedi.
+Annesi sofadan onlara sesleniyordu ama duymazdan geldiler.
+Bahçede kayısılar olgunlaşıyor, hava ağır ve tatlıydı.
+Parayı iki kez saydı, tutar yine denk gelmedi.
+Asansör katların arasında durdu ve ışık bir an söndü.
+Çaydanlığı ocağa koydu ve beklemeye oturdu.
+Her sabah bu meydandan aynı yoldan geçiyordu.
+Fırtına batıdan yaklaşıyordu, gökyüzü kurşun rengine döndü.
+Köpek eşiğin yanında yatıyor, gözünü yoldan ayırmıyordu.
+Biri köşede şemsiyesini unutmuştu, üçüncü gündür orada duruyordu.
+Çekmeceyi açtı ve eski bir konser bileti buldu.
+Çocuk tren geçip gidene kadar vagonları saydı.
+Mutfakta eski buzdolabı uğulduyordu.
+Akşama döneceğini söylemişti, dönmedi.
+Köyde okulun nihayet onarılacağı söyleniyordu.
+Gece geç saatlere kadar çalıştı, sabah hiçbir şey hatırlamıyordu.
+O yıl nehir yolun ta kendisine kadar taştı.
+Pencere kenarında kurumuş bir sardunya saksısı duruyordu.
+Her zamanki yerde buluşmak üzere sözleştiler.
+Otobüs çukurlarda sarsılıyordu ve herkes susuyordu.
+Avucunu soğuk cama koydu ve gözlerini kapattı.
+Kütüphane toz ve eski kâğıt kokuyordu.
+Gerçekten vedalaşmayı hiçbir zaman öğrenemedi.
+Şehir geceleri bambaşka, neredeyse yabancı görünüyordu.
+Çatı katında dedesinin aletlerinin durduğu bir sandık bulundu.
+Komşular çitin üzerinden hasattan ve havadan konuşuyordu.
+Çorbayı ninesinin öğrettiği gibi, tarifsiz pişirdi.
+Çocuklar hava kararana kadar boş arsada top koşturdu.
+İmzayı attı ve kâğıtları masanın kenarına itti.
+Telefon uzun uzun çaldı ama kimse açmadı.
+Durakta büyük kareli bir çantası olan bir kadın duruyordu.
+Rüzgâr ağaçlardan son sarı yaprakları koparıyordu.
+Ayakkabısını bağlamak için durdu ve tramvayını kaçırdı.
+Oda boştu, yalnızca köşede bir sandalye duruyordu.

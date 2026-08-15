@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Turkish)
+locale: tr
+---
+Dahiliye
+Aile hekimliği
+Çocuk sağlığı
+Kardiyoloji
+Nöroloji
+Gastroenteroloji
+Göğüs hastalıkları
+Endokrinoloji
+Nefroloji
+Üroloji
+Kadın hastalıkları
+Doğum
+Genel cerrahi
+Damar cerrahisi
+Beyin cerrahisi
+Kalp cerrahisi
+Travmatoloji
+Ortopedi
+Onkoloji
+Hematoloji
+Romatoloji
+Dermatoloji
+Alerji
+İmmünoloji
+Enfeksiyon hastalıkları
+Göz hastalıkları
+Kulak burun boğaz
+Diş hekimliği
+Psikiyatri
+Bağımlılık
+Anesteziyoloji
+Yoğun bakım
+Radyoloji
+Patoloji
+Tıbbi biyokimya
+Fiziksel tıp ve rehabilitasyon

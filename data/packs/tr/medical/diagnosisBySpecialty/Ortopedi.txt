@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Turkish)
+locale: tr
+---
+Diz osteoartriti
+Kalça osteoartriti
+Omurga dejenerasyonu
+Disk hernisi
+Radius kırığı
+Kalça kırığı
+Menisküs yırtığı
+Donuk omuz
+Skolyoz
+Düztabanlık

@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Turkish (female-specific + common)
+locale: tr
+---
+Endometriozis
+Rahim miyomu
+Yumurtalık kisti
+Meme fibrokistik hastalığı
+Polikistik over sendromu
+Sistit
+Demir eksikliği anemisi
+Osteoporoz
+Hipotiroidi
+Hipertansiyon
+Koroner arter hastalığı
+Varis
+Tip 2 diyabet
+Astım
+Kronik bronşit
+Mide ülseri
+Safra taşı
+Gastrit
+Safra kesesi iltihabı
+Piyelonefrit
+Romatoid artrit
+Bel fıtığı
+Migren
+Zatürre
+Hepatit B
+Depresif atak
+Anksiyete bozukluğu

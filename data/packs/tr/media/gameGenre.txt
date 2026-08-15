@@ -1,0 +1,22 @@
+---
+description: Video game genre (Turkish)
+locale: tr
+---
+aksiyon
+macera
+rol yapma
+strateji
+sıra tabanlı strateji
+simülasyon
+nişancı
+birinci şahıs nişancı
+platform
+bulmaca
+macera-bulmaca
+yarış
+spor
+dövüş
+hayatta kalma
+açık dünya
+korku
+müzik

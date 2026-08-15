@@ -1,0 +1,87 @@
+---
+description: Hobby / interest (Turkish)
+locale: tr
+---
+kitap okumak
+yazı yazmak
+resim yapmak
+fotoğrafçılık
+sinema
+tiyatro
+müzik dinlemek
+gitar çalmak
+piyano çalmak
+bağlama çalmak
+şarkı söylemek
+dans etmek
+halk oyunları
+yemek yapmak
+pasta yapmak
+kahve demlemek
+bahçecilik
+çiçek yetiştirmek
+balık tutmak
+avcılık
+kamp yapmak
+doğa yürüyüşü
+dağcılık
+bisiklet sürmek
+koşu
+yüzme
+dalış
+sörf
+yelken
+kayak
+snowboard
+paten
+futbol
+basketbol
+voleybol
+tenis
+masa tenisi
+badminton
+güreş
+boks
+karate
+tekvando
+judo
+yoga
+pilates
+fitness
+satranç
+tavla
+okey
+bulmaca çözmek
+model uçak
+maket yapmak
+ahşap işleri
+seramik
+ebru
+hat sanatı
+tezhip
+nakış
+örgü
+dikiş
+takı yapmak
+marangozluk
+tamir işleri
+araba tamiri
+motosiklet
+koleksiyonculuk
+pul biriktirmek
+sikke biriktirmek
+antikacılık
+astronomi
+kuş gözlemi
+akvaryum
+evcil hayvan bakımı
+seyahat
+şehir gezileri
+tarih araştırmak
+arkeoloji
+dil öğrenmek
+programlama
+oyun oynamak
+video düzenleme
+podcast dinlemek
+gönüllülük

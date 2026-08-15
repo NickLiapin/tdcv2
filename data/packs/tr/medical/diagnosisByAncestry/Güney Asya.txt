@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Turkish. A prevalence signal, not an exclusive one.
+locale: tr
+---
+Beta talasemi
+G6PD eksikliği
+Tip 2 diyabet
+Koroner arter hastalığı
+Metabolik sendrom
+Laktoz intoleransı
+Kalıtsal işitme kaybı
+Doğuştan kalp hastalıkları

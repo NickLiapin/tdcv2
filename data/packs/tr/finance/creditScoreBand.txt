@@ -1,0 +1,9 @@
+---
+description: Credit score band (Turkish)
+locale: tr
+---
+çok düşük
+düşük
+orta
+iyi
+çok iyi

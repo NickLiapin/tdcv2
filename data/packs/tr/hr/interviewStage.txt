@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Turkish)
+locale: tr
+---
+başvuru
+özgeçmiş taraması
+telefon görüşmesi
+İK görüşmesi
+örnek görev
+teknik mülakat
+yönetici mülakatı
+final görüşmesi
+referans kontrolü
+iş teklifi
+işe başlama

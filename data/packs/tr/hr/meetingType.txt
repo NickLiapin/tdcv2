@@ -1,0 +1,16 @@
+---
+description: Meeting type (Turkish)
+locale: tr
+---
+günlük toplantı
+haftalık toplantı
+departman toplantısı
+genel kurul
+birebir görüşme
+retrospektif
+sprint planlama
+demo sunumu
+beyin fırtınası
+müşteri görüşmesi
+eğitim semineri
+değerlendirme toplantısı

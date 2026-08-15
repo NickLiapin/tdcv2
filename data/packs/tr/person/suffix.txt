@@ -1,0 +1,28 @@
+---
+description: Name / academic suffix (Turkish). Turkish normally puts titles before the name, so these read as trailing qualifiers.
+locale: tr
+---
+Jr.
+Sr.
+MBA
+MSc
+BSc
+PhD
+LL.M.
+Ph.D.
+Em.
+Emekli
+Uzman
+Kıdemli
+Stajyer
+Yönetici
+Danışman
+Ortak
+Kurucu
+Onursal
+Fahri
+Vekil
+Yardımcısı
+Sorumlusu
+Şefi
+Başkanı

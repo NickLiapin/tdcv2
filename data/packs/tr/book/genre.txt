@@ -1,0 +1,30 @@
+---
+description: Book genre (Turkish)
+locale: tr
+---
+roman
+uzun hikâye
+öykü
+novella
+deneme
+anı
+şiir
+tiyatro oyunu
+fantastik
+bilim kurgu
+polisiye
+gerilim
+korku
+aşk romanı
+tarihî roman
+macera romanı
+biyografi
+otobiyografi
+gezi yazısı
+popüler bilim
+ders kitabı
+başvuru kitabı
+sözlük
+yemek kitabı
+çocuk kitabı
+masal

@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Turkish)
+locale: tr
+---
+şehir bisikleti
+tur bisikleti
+yol bisikleti
+dağ bisikleti
+gravel bisiklet
+hibrit bisiklet
+trekking bisikleti
+katlanır bisiklet
+elektrikli bisiklet
+çocuk bisikleti
+genç bisikleti
+BMX
+üç tekerlekli
+tandem
+yatar bisiklet
+kargo bisikleti
+fatbike

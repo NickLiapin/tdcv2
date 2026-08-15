@@ -1,0 +1,27 @@
+---
+description: Government body (Turkish ministries and public offices)
+locale: tr
+---
+Cumhurbaşkanlığı
+Türkiye Büyük Millet Meclisi
+Hazine ve Maliye Bakanlığı
+Adalet Bakanlığı
+İçişleri Bakanlığı
+Millî Savunma Bakanlığı
+Dışişleri Bakanlığı
+Sağlık Bakanlığı
+Millî Eğitim Bakanlığı
+Ticaret Bakanlığı
+Sanayi ve Teknoloji Bakanlığı
+Ulaştırma ve Altyapı Bakanlığı
+Enerji ve Tabii Kaynaklar Bakanlığı
+Tarım ve Orman Bakanlığı
+Çalışma ve Sosyal Güvenlik Bakanlığı
+Kültür ve Turizm Bakanlığı
+Gelir İdaresi Başkanlığı
+Ticaret Bakanlığı Gümrükler Genel Müdürlüğü
+Sosyal Güvenlik Kurumu
+Emniyet Genel Müdürlüğü
+AFAD
+Göç İdaresi Başkanlığı
+Nüfus ve Vatandaşlık İşleri

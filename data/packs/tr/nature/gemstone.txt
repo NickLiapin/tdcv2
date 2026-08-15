@@ -1,0 +1,29 @@
+---
+description: Gemstone (Turkish)
+locale: tr
+---
+elmas
+yakut
+safir
+zümrüt
+ametist
+topaz
+garnet
+opal
+turkuaz
+malakit
+yeşim
+yeşimtaşı
+akik
+oniks
+kızılakik
+krizolit
+sitrin
+lapis
+obsidiyen
+peridot
+turmalin
+spinel
+zirkon
+kehribar
+inci

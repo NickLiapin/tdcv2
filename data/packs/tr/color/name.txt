@@ -1,0 +1,58 @@
+---
+description: Human-readable colour name (Turkish)
+locale: tr
+---
+beyaz
+siyah
+gri
+kırmızı
+mavi
+açık mavi
+yeşil
+sarı
+turuncu
+pembe
+mor
+kahverengi
+bej
+altın
+gümüş
+bordo
+vişne
+kızıl
+mercan
+şeftali
+somon
+kiremit
+hardal
+limon
+zeytin
+fıstık yeşili
+zümrüt
+nane yeşili
+turkuaz
+akuamarin
+peygamber çiçeği
+gök mavisi
+lacivert
+çivit
+lavanta
+leylak
+eflatun
+erguvan
+erik
+çikolata
+kahve
+karamel
+kum
+krem
+fildişi
+inci
+kül rengi
+antrasit
+grafit
+kömür
+pas
+bakır
+haki
+vizon

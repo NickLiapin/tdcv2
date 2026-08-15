@@ -1,0 +1,24 @@
+---
+description: Parcel carriers commonly used in Türkiye
+locale: tr
+---
+Yurtiçi Kargo
+MNG Kargo
+Aras Kargo
+PTT Kargo
+Sürat Kargo
+UPS Kargo
+Sendeo
+Hepsijet
+Trendyol Express
+Kolay Gelsin
+Horoz Lojistik
+Ekol Lojistik
+Netlog
+DHL
+FedEx
+TNT
+GLS
+DPD
+Aramex
+Scotty

@@ -1,0 +1,32 @@
+---
+description: Field of study / major (Turkish)
+locale: tr
+---
+bilgisayar mühendisliği
+yazılım mühendisliği
+siber güvenlik
+endüstri mühendisliği
+matematik
+fizik
+kimya
+biyoloji
+çevre mühendisliği
+coğrafya
+jeoloji
+ziraat
+veterinerlik
+tıp
+diş hekimliği
+eczacılık
+psikoloji
+sosyoloji
+siyaset bilimi
+hukuk
+uluslararası ilişkiler
+iktisat
+maliye
+işletme
+pazarlama
+gazetecilik
+Türk dili ve edebiyatı
+tarih

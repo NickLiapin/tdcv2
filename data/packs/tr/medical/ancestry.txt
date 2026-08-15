@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Turkish, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: tr
+---
+Kuzey Avrupa
+Doğu Avrupa
+Akdeniz
+Aşkenaz
+Orta Doğu
+Kuzey Afrika
+Sahra altı Afrika
+Doğu Asya
+Güney Asya
+Güneydoğu Asya
+Yerli Amerika
+Pasifik Adaları

@@ -1,0 +1,82 @@
+---
+description: Medical diagnosis in Turkish that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: tr
+---
+Hipertansiyon
+Koroner arter hastalığı
+Efor anjini
+Miyokard enfarktüsü
+Atriyal fibrilasyon
+Kalp yetmezliği
+Kardiyomiyopati
+Miyokardit
+Ateroskleroz
+Varis
+Derin ven trombozu
+Pulmoner emboli
+İnme
+Geçici iskemik atak
+Migren
+Epilepsi
+Multipl skleroz
+Parkinson hastalığı
+Demans
+Periferik nöropati
+Radikülopati
+Omurga dejenerasyonu
+Disk hernisi
+Osteoartrit
+Romatoid artrit
+Gut hastalığı
+Osteoporoz
+Skolyoz
+Astım
+KOAH
+Kronik bronşit
+Zatürre
+Plörezi
+Akciğer tüberkülozu
+Sarkoidoz
+Uyku apnesi
+Akut sinüzit
+Kronik tonsillit
+Otit
+Larenjit
+Gastrit
+Mide ülseri
+Reflü hastalığı
+İrritabl bağırsak sendromu
+Crohn hastalığı
+Ülseratif kolit
+Çölyak hastalığı
+Kronik pankreatit
+Safra taşı
+Kolesistit
+Hepatit B
+Hepatit C
+Karaciğer sirozu
+Karaciğer yağlanması
+Kronik böbrek hastalığı
+Piyelonefrit
+Glomerülonefrit
+Böbrek taşı
+İdrar yolu enfeksiyonu
+Tip 1 diyabet
+Tip 2 diyabet
+Hipotiroidi
+Hipertiroidi
+Obezite
+Metabolik sendrom
+Demir eksikliği anemisi
+B12 eksikliği anemisi
+Atopik dermatit
+Sedef hastalığı
+Egzama
+Ürtiker
+Akne
+Alerjik rinit
+Konjonktivit
+Katarakt
+Glokom
+Depresif atak
+Yaygın anksiyete bozukluğu

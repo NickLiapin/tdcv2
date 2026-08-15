@@ -1,0 +1,30 @@
+---
+description: Product review title (Turkish)
+locale: tr
+---
+Aldığıma çok memnunum
+Açıklamaya uygun
+Kalitesi çok iyi
+Fiyatına göre gayet iyi
+Tavsiye ederim
+Tavsiye etmem
+Daha fazlasını bekliyordum
+Hasarlı geldi
+Kargo çok hızlıydı
+Kargo gecikti
+Her şey mükemmel
+Harika bir ürün
+Parasını hak ediyor
+İkinci kez aldım
+Hediye olarak aldım, beğenildi
+Kullanımı çok kolay
+Bakımı basit
+Malzemesi kalitesiz
+Plastik kokuyor
+Beden küçük geldi
+Rengi fotoğraftan farklı
+Sorunsuz çalışıyor
+Bir haftada bozuldu
+Satıcı çok ilgili
+Ürünü iade ettim
+Fiyat performans ürünü

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Turkish)
+locale: tr
+---
+Atopik dermatit
+Sedef hastalığı
+Egzama
+Kontakt dermatit
+Ürtiker
+Akne
+Rozasea
+Zona
+Ayak mantarı
+Seboreik dermatit

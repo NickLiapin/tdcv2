@@ -1,0 +1,16 @@
+---
+description: Jobs in Manufacturing (Turkish)
+locale: tr
+---
+tezgâh operatörü
+üretim teknoloğu
+atölye ustabaşı
+kalite kontrolcü
+makine ayarcısı
+çilingir
+tornacı
+frezeci
+paketleme elemanı
+depo görevlisi
+makine mühendisi
+vardiya amiri

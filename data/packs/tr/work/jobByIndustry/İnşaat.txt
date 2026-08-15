@@ -1,0 +1,16 @@
+---
+description: Jobs in Construction (Turkish)
+locale: tr
+---
+inşaat mühendisi
+mimar
+şantiye şefi
+duvarcı
+sıvacı
+boyacı
+elektrikçi
+tesisatçı
+kaynakçı
+çatı ustası
+vinç operatörü
+metraj uzmanı

@@ -1,0 +1,62 @@
+---
+description: Product material (Turkish), as a noun — compose with the ablative ("meşeden masa") or with an adjective suffix ("meşe masa")
+locale: tr
+---
+meşe
+kayın
+dişbudak
+çam
+huş
+ceviz
+kızılağaç
+bambu
+rattan
+kontrplak
+sunta
+MDF
+masif ahşap
+çelik
+paslanmaz çelik
+karbon çeliği
+döküm
+alüminyum
+titanyum
+bakır
+pirinç
+bronz
+çinko
+kalay
+gümüş
+altın
+plastik
+polikarbonat
+polipropilen
+polietilen
+akrilik
+silikon
+kauçuk
+lastik
+strafor
+sünger
+cam
+temperli cam
+seramik
+porselen
+fayans
+taş
+granit
+mermer
+beton
+alçı
+deri
+suni deri
+süet
+nubuk
+pamuk
+keten
+yün
+ipek
+kaşmir
+viskon
+polyester
+naylon

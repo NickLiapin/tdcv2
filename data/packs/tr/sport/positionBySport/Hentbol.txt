@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Turkish)
+locale: tr
+---
+kaleci
+sol kanat
+sol back
+oyun kurucu
+sağ back
+sağ kanat
+pivot

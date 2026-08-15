@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Turkish)
+locale: tr
+---
+Paz
+Pzt
+Sal
+Çar
+Per
+Cum
+Cmt

@@ -1,0 +1,58 @@
+---
+description: Business buzz verb (Turkish, infinitive)
+locale: tr
+---
+optimize etmek
+ölçeklendirmek
+entegre etmek
+otomatikleştirmek
+dijitalleştirmek
+dönüştürmek
+modernize etmek
+standartlaştırmak
+sistematikleştirmek
+yapılandırmak
+önceliklendirmek
+odaklanmak
+hizalamak
+senkronize etmek
+devretmek
+genişletmek
+güçlendirmek
+hızlandırmak
+basitleştirmek
+birleştirmek
+konsolide etmek
+çeşitlendirmek
+gelir elde etmek
+sermayeleştirmek
+yatırım yapmak
+kazanmak
+elde tutmak
+dönüştürmek
+segmentlere ayırmak
+konumlandırmak
+farklılaştırmak
+ölçmek
+analiz etmek
+tahmin etmek
+modellemek
+test etmek
+doğrulamak
+uygulamaya almak
+yaygınlaştırmak
+devreye almak
+uyarlamak
+yapılandırmak
+güncellemek
+gözden geçirmek
+yeniden düşünmek
+güçlendirmek
+kurmak
+dengelemek
+maliyeti düşürmek
+artırmak
+azaltmak
+sağlamak
+garanti etmek
+desteklemek

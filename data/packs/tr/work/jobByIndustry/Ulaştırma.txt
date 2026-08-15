@@ -1,0 +1,16 @@
+---
+description: Jobs in Transportation (Turkish)
+locale: tr
+---
+kamyon şoförü
+otobüs şoförü
+makinist
+operasyon sorumlusu
+lojistik uzmanı
+sevkiyat görevlisi
+tamirci
+uçak teknisyeni
+gemi kaptanı
+pilot
+liman vinç operatörü
+sefer denetçisi

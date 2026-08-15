@@ -1,0 +1,13 @@
+---
+description: Dishes of Japon cuisine (Turkish)
+locale: tr
+---
+suşi
+maki
+sashimi
+ramen
+tempura
+miso çorbası
+udon
+gyoza
+yakitori

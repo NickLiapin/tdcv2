@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Turkish)
+locale: tr
+---
+karabiber
+pulbiber
+kırmızıbiber
+kimyon
+kişniş
+dereotu
+maydanoz
+fesleğen
+kekik
+biberiye
+mercanköşk
+defne
+tarhun
+nane
+melisa
+adaçayı
+karanfil
+tarçın
+muskat
+zencefil
+zerdeçal
+kakule
+anason
+vanilya
+safran
+hardal
+sumak
+yenibahar
+çemen
+zahter

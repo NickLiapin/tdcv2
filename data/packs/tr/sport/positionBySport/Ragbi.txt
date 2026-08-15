@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Turkish)
+locale: tr
+---
+direk
+kancacı
+kilit
+flanker
+sekiz numara
+scrum-half
+fly-half
+merkez
+kanat
+fullback

@@ -1,0 +1,19 @@
+---
+description: Payment method (Turkish)
+locale: tr
+---
+Visa kredi kartı
+Mastercard
+Troy kart
+Banka kartı
+Nakit
+Kapıda nakit
+Kapıda kredi kartı
+Havale/EFT
+Apple Pay
+Google Pay
+Papara
+İninal
+Taksitli ödeme
+Alışveriş kredisi
+Hediye çeki

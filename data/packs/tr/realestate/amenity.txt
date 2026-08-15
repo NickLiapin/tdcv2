@@ -1,0 +1,26 @@
+---
+description: Property amenity (Turkish)
+locale: tr
+---
+kombi
+doğalgaz
+merkezi ısıtma
+yerden ısıtma
+ısı yalıtımı
+çift cam
+yeni yapı
+lüks tadilat
+eşyalı
+beyaz eşya dahil
+klima
+şofben
+asansör
+yük asansörü
+kapıcı
+güvenlik kamerası
+site güvenliği
+kapalı site
+çocuk oyun alanı
+otopark
+kapalı otopark
+metroya yakın

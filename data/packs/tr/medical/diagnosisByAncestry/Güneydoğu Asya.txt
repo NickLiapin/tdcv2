@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Turkish. A prevalence signal, not an exclusive one.
+locale: tr
+---
+Alfa talasemi
+Hemoglobin E
+G6PD eksikliği
+Laktoz intoleransı
+Brugada sendromu
+Nazofarenks kanseri
+Talasemi intermedia

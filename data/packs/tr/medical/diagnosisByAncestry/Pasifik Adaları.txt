@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Turkish. A prevalence signal, not an exclusive one.
+locale: tr
+---
+Tip 2 diyabet
+Obezite
+Gut hastalığı
+Hipertansiyon
+Kronik böbrek hastalığı
+Romatizmal kalp hastalığı
+Laktoz intoleransı

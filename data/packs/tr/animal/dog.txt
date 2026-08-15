@@ -1,0 +1,29 @@
+---
+description: Dog breed (Turkish)
+locale: tr
+---
+Kangal
+Akbaş
+Malaklı
+Kars çoban köpeği
+Alman kurdu
+Labrador retriever
+Golden retriever
+Kaniş
+Dakhund
+Beagle
+Rottweiler
+Doberman
+Boksör
+Buldog
+Pug
+Chihuahua
+Yorkshire terrier
+Jack Russell terrier
+Saint Bernard
+Husky
+Malamut
+Samoyed
+Border collie
+Cocker spaniel
+Dalmaçyalı

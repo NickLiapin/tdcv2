@@ -1,0 +1,64 @@
+---
+description: Business buzz noun (Turkish)
+locale: tr
+---
+sinerji
+strateji
+ekosistem
+platform
+çözüm
+değer
+verimlilik
+optimizasyon
+dönüşüm
+inovasyon
+ölçeklenebilirlik
+entegrasyon
+otomasyon
+dijitalleşme
+analitik
+metrik
+gösterge
+performans
+öncelik
+odak
+girişim
+yol haritası
+vizyon
+misyon
+kültür
+bağlılık
+sadakat
+elde tutma
+dönüşüm oranı
+huni
+segment
+niş
+konumlandırma
+farklılaşma
+rekabet avantajı
+pazar payı
+büyüme
+kârlılık
+getiri
+geri dönüş
+yatırım
+değerleme
+portföy
+risk
+uyum
+şeffaflık
+hesap verebilirlik
+sürdürülebilirlik
+esneklik
+uyarlanabilirlik
+hız
+kalite
+müşteri deneyimi
+müşteri yolculuğu
+geri bildirim
+ortaklık
+iş birliği
+uzmanlık
+yetkinlik
+potansiyel

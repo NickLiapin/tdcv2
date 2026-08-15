@@ -1,0 +1,12 @@
+---
+description: Book format (Turkish)
+locale: tr
+---
+ciltli
+karton kapak
+cep boy
+özel baskı
+resimli baskı
+e-kitap
+sesli kitap
+broşür

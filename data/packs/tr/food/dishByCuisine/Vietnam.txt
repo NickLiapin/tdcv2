@@ -1,0 +1,12 @@
+---
+description: Dishes of Vietnam cuisine (Turkish)
+locale: tr
+---
+pho bo
+nem
+banh mi
+bun cha
+goi cuon
+buzlu Vietnam kahvesi
+pho ga
+biftekli erişte

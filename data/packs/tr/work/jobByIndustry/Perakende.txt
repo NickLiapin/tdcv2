@@ -1,0 +1,16 @@
+---
+description: Jobs in Retail (Turkish)
+locale: tr
+---
+satış danışmanı
+kasiyer
+reyon görevlisi
+mağaza müdürü
+satış müdürü
+satın alma uzmanı
+ürün sorumlusu
+depo operatörü
+kurye
+pazarlama uzmanı
+kategori müdürü
+mağaza direktörü

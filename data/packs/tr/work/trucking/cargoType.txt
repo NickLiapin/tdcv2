@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Turkish)
+locale: tr
+---
+tenteli
+frigorifik
+izoterm
+açık kasa
+konteyner taşıyıcı
+tanker
+oto taşıyıcı
+tahıl taşıyıcı
+damperli
+kereste taşıyıcı
+lowbed
+panel taşıyıcı
+panelvan

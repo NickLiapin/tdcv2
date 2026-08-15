@@ -1,0 +1,32 @@
+---
+description: Flower (Turkish)
+locale: tr
+---
+gül
+lale
+karanfil
+papatya
+menekşe
+zambak
+orkide
+sümbül
+nergis
+şakayık
+kasımpatı
+glayöl
+süsen
+kardelen
+çiğdem
+gelincik
+ayçiçeği
+ortanca
+yasemin
+leylak
+begonya
+kaktüs
+açelya
+manolya
+mimoza
+fulya
+zakkum
+lotus

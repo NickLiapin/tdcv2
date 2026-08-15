@@ -1,0 +1,9 @@
+---
+description: Positions in wrestling, including the Turkish oil-wrestling ranks (Turkish)
+locale: tr
+---
+minder hakemi
+serbest güreşçi
+grekoromen güreşçi
+başpehlivan
+pehlivan

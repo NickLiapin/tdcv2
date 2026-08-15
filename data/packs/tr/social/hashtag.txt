@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Turkish (prefix with # in a template)
+locale: tr
+---
+türkiye
+istanbul
+ankara
+izmir
+antalya
+seyahat
+doğa
+dağ
+deniz
+kapadokya
+fotoğraf
+fotoğrafçılık
+sanat
+müzik
+sinema
+kitap
+okuyorum
+yemek
+mutfak
+kahve
+spor
+koşu
+fitness
+sağlık
+aile
+arkadaşlar
+iş
+eğitim
+motivasyon
+ilham

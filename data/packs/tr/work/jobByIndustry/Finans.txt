@@ -1,0 +1,16 @@
+---
+description: Jobs in Finance (Turkish)
+locale: tr
+---
+muhasebeci
+mali müşavir
+denetçi
+finansal analist
+veznedar
+kredi uzmanı
+ekonomist
+iç denetçi
+yatırım analisti
+sigorta acentesi
+vergi danışmanı
+hazine uzmanı

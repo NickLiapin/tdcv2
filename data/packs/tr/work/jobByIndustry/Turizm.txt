@@ -1,0 +1,16 @@
+---
+description: Jobs in Hospitality (Turkish)
+locale: tr
+---
+otel resepsiyonisti
+kat görevlisi
+aşçı
+aşçıbaşı yardımcısı
+şef
+garson
+barmen
+barista
+pastacı
+maitre d
+rezervasyon sorumlusu
+kapı görevlisi

@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Türkiye
+locale: tr
+---
+ilkokul
+ortaokul
+lise
+meslek lisesi
+çıraklık belgesi
+ustalık belgesi
+ön lisans
+lisans
+yüksek lisans
+tezli yüksek lisans
+tezsiz yüksek lisans
+doktora
+sanatta yeterlik
+doçent
+profesör
+uzmanlık

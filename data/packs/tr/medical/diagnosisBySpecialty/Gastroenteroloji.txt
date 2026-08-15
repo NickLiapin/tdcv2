@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Turkish)
+locale: tr
+---
+Gastrit
+Mide ülseri
+Reflü hastalığı
+İrritabl bağırsak sendromu
+Crohn hastalığı
+Ülseratif kolit
+Kronik pankreatit
+Safra taşı
+Karaciğer sirozu
+Çölyak hastalığı

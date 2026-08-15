@@ -1,0 +1,16 @@
+---
+description: Jobs in Legal (Turkish)
+locale: tr
+---
+hukukçu
+avukat
+noter
+hâkim
+savcı
+müfettiş
+hukuk müşaviri
+avukat yardımcısı
+patent vekili
+iflas idaresi memuru
+arabulucu
+zabıt kâtibi

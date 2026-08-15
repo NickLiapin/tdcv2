@@ -1,0 +1,73 @@
+---
+description: Sport (Turkish)
+locale: tr
+---
+futbol
+basketbol
+voleybol
+hentbol
+buz hokeyi
+çim hokeyi
+ragbi
+Amerikan futbolu
+beyzbol
+tenis
+masa tenisi
+badminton
+squash
+golf
+atletizm
+koşu
+maraton
+yürüyüş
+yüksek atlama
+uzun atlama
+cirit atma
+gülle atma
+yüzme
+atlama
+sutopu
+senkronize yüzme
+kürek
+kano
+yelken
+sörf
+bisiklet
+dağ bisikleti
+BMX
+motosiklet sporu
+otomobil sporu
+binicilik
+cimnastik
+ritmik cimnastik
+akrobasi
+trampolin
+halter
+powerlifting
+vücut geliştirme
+boks
+kickboks
+karate
+judo
+sambo
+serbest güreş
+grekoromen güreş
+yağlı güreş
+tekvando
+eskrim
+atıcılık
+okçuluk
+satranç
+dama
+okey
+kayak
+biatlon
+kayaklı koşu
+snowboard
+artistik patinaj
+sürat pateni
+curling
+dağcılık
+tırmanış
+oryantiring
+yamaç paraşütü

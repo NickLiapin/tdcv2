@@ -1,0 +1,16 @@
+---
+description: Grade / mark on the Turkish scale (5-point school scale plus the AA-FF university letters)
+locale: tr
+---
+5
+4
+3
+2
+1
+AA
+BA
+BB
+CB
+CC
+DC
+FF

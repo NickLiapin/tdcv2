@@ -1,0 +1,14 @@
+---
+description: Dishes of İspanyol cuisine (Turkish)
+locale: tr
+---
+paella
+gazpacho
+patatesli tortilla
+jamón
+patatas bravas
+fabada
+churros
+sangria
+crema catalana
+pintxos

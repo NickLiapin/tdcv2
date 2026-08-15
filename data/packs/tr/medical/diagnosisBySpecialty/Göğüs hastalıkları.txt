@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Turkish)
+locale: tr
+---
+Astım
+KOAH
+Zatürre
+Kronik bronşit
+Bronşektazi
+Plörezi
+Akciğer tüberkülozu
+Sarkoidoz
+Uyku apnesi
+Pulmoner emboli

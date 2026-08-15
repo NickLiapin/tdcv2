@@ -461,6 +461,80 @@ const EL: DateLocale = {
   },
 };
 
+// Ukrainian, like Russian and Polish, inflects the month name inside a date: the
+// standalone nominative is "січень" but a date reads "18 січня 2026". These are
+// the genitive forms the formatter needs; the nominative list lives in the data
+// pack at uk/date/month.txt. Month and weekday names are lowercase in Ukrainian.
+const UK: DateLocale = {
+  name: 'uk',
+  months: [
+    'січня',
+    'лютого',
+    'березня',
+    'квітня',
+    'травня',
+    'червня',
+    'липня',
+    'серпня',
+    'вересня',
+    'жовтня',
+    'листопада',
+    'грудня',
+  ],
+  monthsShort: [
+    'січ',
+    'лют',
+    'бер',
+    'квіт',
+    'трав',
+    'черв',
+    'лип',
+    'серп',
+    'вер',
+    'жовт',
+    'лист',
+    'груд',
+  ],
+  weekdays: ['неділя', 'понеділок', 'вівторок', 'середа', 'четвер', "п'ятниця", 'субота'],
+  weekdaysShort: ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'],
+  formats: {
+    L: 'DD.MM.YYYY',
+    LL: 'D MMMM YYYY',
+    LLL: 'D MMMM YYYY HH:mm',
+    LLLL: 'dddd, D MMMM YYYY HH:mm',
+  },
+};
+
+// Turkish month names do not inflect, so the pack list and this one are the same
+// twelve words. They are capitalised: Turkish writes month and weekday names as
+// proper nouns.
+const TR: DateLocale = {
+  name: 'tr',
+  months: [
+    'Ocak',
+    'Şubat',
+    'Mart',
+    'Nisan',
+    'Mayıs',
+    'Haziran',
+    'Temmuz',
+    'Ağustos',
+    'Eylül',
+    'Ekim',
+    'Kasım',
+    'Aralık',
+  ],
+  monthsShort: ['Oca', 'Şub', 'Mar', 'Nis', 'May', 'Haz', 'Tem', 'Ağu', 'Eyl', 'Eki', 'Kas', 'Ara'],
+  weekdays: ['Pazar', 'Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi'],
+  weekdaysShort: ['Paz', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt'],
+  formats: {
+    L: 'DD.MM.YYYY',
+    LL: 'D MMMM YYYY',
+    LLL: 'D MMMM YYYY HH:mm',
+    LLLL: 'dddd, D MMMM YYYY HH:mm',
+  },
+};
+
 const LOCALES = new Map<string, DateLocale>([
   ['en', EN],
   ['eng', EN],
@@ -483,6 +557,10 @@ const LOCALES = new Map<string, DateLocale>([
   ['pol', PL],
   ['el', EL],
   ['ell', EL],
+  ['uk', UK],
+  ['ukr', UK],
+  ['tr', TR],
+  ['tur', TR],
 ]);
 
 export const DATE_LOCALE_NAMES: readonly string[] = [
@@ -496,6 +574,8 @@ export const DATE_LOCALE_NAMES: readonly string[] = [
   'pl',
   'pt',
   'ru',
+  'tr',
+  'uk',
   'zh-cn',
 ];
 

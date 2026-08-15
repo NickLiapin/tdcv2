@@ -1,0 +1,14 @@
+---
+description: Loan type (Turkish)
+locale: tr
+---
+ihtiyaç kredisi
+konut kredisi
+taşıt kredisi
+kredi kartı
+kredili mevduat hesabı
+esnek hesap
+mikro kredi
+teminatlı kredi
+kredi yapılandırma
+öğrenim kredisi

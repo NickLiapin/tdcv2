@@ -1,0 +1,20 @@
+---
+description: Horse breed (Turkish)
+locale: tr
+---
+Arap atı
+İngiliz atı
+Anadolu yerli atı
+Uzunyayla
+Malakan
+Canik
+Rahvan
+Akhal-Teke
+Haflinger
+Frizyalı
+Endülüs
+Shire
+Percheron
+Hannover
+Holstein
+Shetland midillisi

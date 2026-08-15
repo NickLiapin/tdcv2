@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Turkish)
+locale: tr
+---
+tek kişilik
+çift kişilik
+iki ayrı yataklı
+üç kişilik
+dört kişilik
+aile odası
+standart
+üst kat standart
+junior suit
+suit
+kral dairesi
+stüdyo
+apart
+villa
+bungalov
+deniz manzaralı oda
+balkonlu oda
+engelli odası

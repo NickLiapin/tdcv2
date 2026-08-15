@@ -1,0 +1,44 @@
+---
+description: Turkish thoroughfare type — Turkish puts it AFTER the name (Atatürk Caddesi, Gül Sokak, Cumhuriyet Meydanı)
+locale: tr
+---
+Caddesi
+Cad.
+Sokak
+Sok.
+Sokağı
+Bulvarı
+Blv.
+Meydanı
+Çıkmazı
+Yolu
+Geçidi
+Şosesi
+Mahallesi
+Mah.
+Sitesi
+Apartmanı
+Apt.
+Blok
+Küme Evler
+Köyü
+Beldesi
+Kasabası
+Mevkii
+Yokuşu
+İniş
+Rıhtımı
+Sahili
+Köprüsü
+Kavşağı
+Parkı
+Bahçesi
+Korusu
+Pasajı
+Çarşısı
+Han
+Plaza
+Rezidans
+Konakları
+Evleri
+Vadisi

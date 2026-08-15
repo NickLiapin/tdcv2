@@ -447,7 +447,122 @@ static ZH_CN: DateLocale = DateLocale {
 };
 
 /// Every name a config may write, including the three-letter aliases.
-static BY_NAME: [(&str, &DateLocale); 21] = [
+// Ukrainian, like Russian and Polish, inflects the month name inside a date: the
+// standalone nominative is "січень" but a date reads "18 січня 2026". These are
+// the genitive forms the formatter needs; the nominative list lives in the data
+// pack at uk/date/month.txt.
+static UK: DateLocale = DateLocale {
+    months: [
+        "січня",
+        "лютого",
+        "березня",
+        "квітня",
+        "травня",
+        "червня",
+        "липня",
+        "серпня",
+        "вересня",
+        "жовтня",
+        "листопада",
+        "грудня",
+    ],
+    months_short: [
+        "січ",
+        "лют",
+        "бер",
+        "квіт",
+        "трав",
+        "черв",
+        "лип",
+        "серп",
+        "вер",
+        "жовт",
+        "лист",
+        "груд",
+    ],
+    weekdays: [
+        "неділя",
+        "понеділок",
+        "вівторок",
+        "середа",
+        "четвер",
+        "п'ятниця",
+        "субота",
+    ],
+    weekdays_short: [
+        "нд",
+        "пн",
+        "вт",
+        "ср",
+        "чт",
+        "пт",
+        "сб",
+    ],
+    formats: [
+        "DD.MM.YYYY",
+        "D MMMM YYYY",
+        "D MMMM YYYY HH:mm",
+        "dddd, D MMMM YYYY HH:mm",
+    ],
+};
+
+// Turkish month names do not inflect, and are capitalised as proper nouns.
+static TR: DateLocale = DateLocale {
+    months: [
+        "Ocak",
+        "Şubat",
+        "Mart",
+        "Nisan",
+        "Mayıs",
+        "Haziran",
+        "Temmuz",
+        "Ağustos",
+        "Eylül",
+        "Ekim",
+        "Kasım",
+        "Aralık",
+    ],
+    months_short: [
+        "Oca",
+        "Şub",
+        "Mar",
+        "Nis",
+        "May",
+        "Haz",
+        "Tem",
+        "Ağu",
+        "Eyl",
+        "Eki",
+        "Kas",
+        "Ara",
+    ],
+    weekdays: [
+        "Pazar",
+        "Pazartesi",
+        "Salı",
+        "Çarşamba",
+        "Perşembe",
+        "Cuma",
+        "Cumartesi",
+    ],
+    weekdays_short: [
+        "Paz",
+        "Pzt",
+        "Sal",
+        "Çar",
+        "Per",
+        "Cum",
+        "Cmt",
+    ],
+    formats: [
+        "DD.MM.YYYY",
+        "D MMMM YYYY",
+        "D MMMM YYYY HH:mm",
+        "dddd, D MMMM YYYY HH:mm",
+    ],
+};
+
+static BY_NAME: [(&str, &DateLocale); 25] = [
     ("en", &EN),
     ("eng", &EN),
     ("ru", &RU),
@@ -469,11 +584,15 @@ static BY_NAME: [(&str, &DateLocale); 21] = [
     ("pol", &PL),
     ("el", &EL),
     ("ell", &EL),
+    ("uk", &UK),
+    ("ukr", &UK),
+    ("tr", &TR),
+    ("tur", &TR),
 ];
 
 /// The advertised names, for the validator's "did you mean" list.
-pub static NAMES: [&str; 11] = [
-    "ar", "de", "el", "en", "es", "fr", "it", "pl", "pt", "ru", "zh-cn",
+pub static NAMES: [&str; 13] = [
+    "ar", "de", "el", "en", "es", "fr", "it", "pl", "pt", "ru", "tr", "uk", "zh-cn",
 ];
 
 /// The named locale, falling back to English.

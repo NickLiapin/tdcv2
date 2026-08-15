@@ -1,0 +1,12 @@
+---
+description: Time of day (Turkish)
+locale: tr
+---
+sabah
+öğle
+öğleden sonra
+akşam
+gece
+gece yarısı
+şafak
+alacakaranlık

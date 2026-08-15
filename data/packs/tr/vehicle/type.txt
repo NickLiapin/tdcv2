@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Turkish)
+locale: tr
+---
+sedan
+hatchback
+liftback
+station wagon
+coupe
+cabrio
+roadster
+minivan
+minibüs
+crossover
+SUV
+pikap
+panelvan
+kamyon
+damperli kamyon
+çekici
+otobüs
+troleybüs
+tramvay
+motosiklet
+scooter
+ATV

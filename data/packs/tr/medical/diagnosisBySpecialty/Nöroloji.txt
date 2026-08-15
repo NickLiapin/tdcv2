@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Turkish)
+locale: tr
+---
+Migren
+Epilepsi
+İnme
+Geçici iskemik atak
+Multipl skleroz
+Parkinson hastalığı
+Periferik nöropati
+Radikülopati
+Trigeminal nevralji
+Demans

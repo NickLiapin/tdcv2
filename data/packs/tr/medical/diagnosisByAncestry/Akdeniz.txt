@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Turkish. A prevalence signal, not an exclusive one.
+locale: tr
+---
+Beta talasemi
+Orak hücreli anemi
+G6PD eksikliği
+Ailevi Akdeniz ateşi
+Kalıtsal hemokromatoz
+Behçet hastalığı
+Kalıtsal sferositoz

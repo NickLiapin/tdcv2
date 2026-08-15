@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Turkish)
+locale: tr
+---
+UTP kablo
+FTP kablo
+STP ekranlı kablo
+koaksiyel kablo
+tek modlu fiber
+çok modlu fiber
+enerji kablosu
+telefon kablosu
+patch kablo

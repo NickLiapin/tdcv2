@@ -1,0 +1,16 @@
+---
+description: Jobs in Education (Turkish)
+locale: tr
+---
+sınıf öğretmeni
+matematik öğretmeni
+Türkçe öğretmeni
+üniversite öğretim üyesi
+okul öncesi öğretmeni
+eğitim uzmanı
+okul müdürü
+müdür yardımcısı
+rehber öğretmen
+psikolojik danışman
+antrenör
+laboratuvar sorumlusu

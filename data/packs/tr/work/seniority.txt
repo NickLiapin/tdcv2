@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Turkish)
+locale: tr
+---
+Stajyer
+Yardımcı
+Junior
+Uzman
+Orta düzey
+Kıdemli
+Lider
+Baş
+Takım lideri
+Birim sorumlusu
+Departman müdürü
+Genel müdür yardımcısı
+Direktör
+İcra direktörü
+Genel müdür
+Ortak

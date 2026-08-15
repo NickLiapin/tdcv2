@@ -1,0 +1,12 @@
+---
+description: Dishes of Lübnan cuisine (Turkish)
+locale: tr
+---
+humus
+falafel
+tabule
+içli köfte
+fattoush
+şavarma
+babagannuş
+manakiş

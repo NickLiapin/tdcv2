@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Turkish)
+locale: tr
+---
+Meme kanseri
+Akciğer kanseri
+Kolorektal kanser
+Mide kanseri
+Prostat kanseri
+Tiroid kanseri
+Melanom
+Hodgkin lenfoma
+Lösemi
+Rahim ağzı kanseri

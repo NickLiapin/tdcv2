@@ -1,0 +1,34 @@
+---
+description: Bird (Turkish)
+locale: tr
+---
+serçe
+baştankara
+kırlangıç
+sığırcık
+ağaçkakan
+guguk
+bülbül
+şakrak
+saksağan
+karga
+küçük_karga
+kuzgun
+güvercin
+tarlakuşu
+sarıasma
+ardıçkuşu
+ispinoz
+balıkçıl
+leylek
+turna
+ördek
+kaz
+kuğu
+martı
+şahin
+atmaca
+kartal
+çaylak
+baykuş
+puhu

@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (Turkish operators and international brands)
+locale: tr
+---
+Turkcell
+Vodafone Türkiye
+Türk Telekom
+Turkcell Superonline
+TTNET
+Millenicom
+Netgsm
+BiP Mobil
+Pttcell
+Turkcell Lifecell
+MTS
+Beeline
+T-Mobile
+Orange
+Vodafone
+O2
+Play
+Plus
+Telekom
+A1
+Telenor
+Telia
+Yettel
+Kyivstar
+lifecell
+Zain

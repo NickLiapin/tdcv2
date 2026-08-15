@@ -1,0 +1,15 @@
+---
+description: Positions in association football (Turkish)
+locale: tr
+---
+kaleci
+sağ bek
+sol bek
+stoper
+ön libero
+orta saha
+ofansif orta saha
+sağ kanat
+sol kanat
+forvet
+santrfor

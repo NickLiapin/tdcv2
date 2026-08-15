@@ -1,0 +1,45 @@
+---
+description: Company legal / name suffix used in Türkiye (A.Ş., Ltd. Şti., Koll. Şti.)
+locale: tr
+---
+A.Ş.
+Ltd. Şti.
+San. ve Tic. A.Ş.
+San. ve Tic. Ltd. Şti.
+Tic. Ltd. Şti.
+İnş. Ltd. Şti.
+Koll. Şti.
+Kom. Şti.
+Adi Ortaklık
+Şahıs Şirketi
+Kooperatif
+Holding
+Grup
+Şirketler Grubu
+Vakfı
+Derneği
+Birliği
+Odası
+Federasyonu
+Konfederasyonu
+Enstitüsü
+Merkezi
+Ajansı
+Bürosu
+Fabrikası
+Tesisleri
+İşletmeleri
+Sanayi
+Ticaret
+Lojistik
+Danışmanlık
+Mühendislik
+Teknoloji
+Yazılım
+Bilişim
+Yatırım
+Gayrimenkul
+Turizm
+Gıda
+Tekstil
+Enerji

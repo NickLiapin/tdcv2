@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Turkish that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: tr
+---
+Endometriozis
+Rahim miyomu
+Adenomiyozis
+Yumurtalık kisti
+Polikistik over sendromu
+Dismenore
+Amenore
+Premenstrüel sendrom
+Menopoz sendromu
+Vajinit
+Bakteriyel vajinozis
+Mantar enfeksiyonu
+Servisit
+Rahim ağzı erozyonu
+Servikal displazi
+Rahim ağzı kanseri
+Yumurtalık kanseri
+Endometriyum kanseri
+Meme fibrokistik hastalığı
+Mastit
+Meme kanseri
+Kadın kısırlığı
+Dış gebelik
+Preeklampsi
+Gebelik diyabeti
+Doğum sonrası depresyon

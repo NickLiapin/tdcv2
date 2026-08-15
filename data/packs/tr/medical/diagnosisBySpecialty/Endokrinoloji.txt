@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Turkish)
+locale: tr
+---
+Tip 1 diyabet
+Tip 2 diyabet
+Hipotiroidi
+Hipertiroidi
+Hashimoto tiroiditi
+Nodüler guatr
+Obezite
+Metabolik sendrom
+Osteoporoz
+Adrenal yetmezlik

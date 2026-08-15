@@ -1,0 +1,8 @@
+---
+description: Gender label (Turkish). Two values, matching en and ru.
+locale: tr
+---
+Erkek
+Kadın
+Diğer
+Belirtilmemiş

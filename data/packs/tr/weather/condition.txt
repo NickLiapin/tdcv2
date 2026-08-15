@@ -1,0 +1,20 @@
+---
+description: Weather condition (Turkish)
+locale: tr
+---
+açık
+parçalı bulutlu
+çok bulutlu
+kapalı
+yağmurlu
+sağanak yağışlı
+çiseleyen
+karlı
+karla karışık yağmur
+dolu
+sisli
+buzlanma
+gök gürültülü fırtına
+rüzgârlı
+sıcak
+ayaz

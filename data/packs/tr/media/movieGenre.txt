@@ -1,0 +1,24 @@
+---
+description: Movie genre (Turkish)
+locale: tr
+---
+aksiyon
+macera
+komedi
+dram
+romantik
+gerilim
+korku
+bilim kurgu
+fantastik
+polisiye
+suç
+western
+tarihî
+savaş
+biyografi
+belgesel
+müzikal
+animasyon
+aile
+spor

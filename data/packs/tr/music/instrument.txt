@@ -1,0 +1,46 @@
+---
+description: Musical instrument (Turkish)
+locale: tr
+---
+bağlama
+saz
+cura
+divan sazı
+tanbur
+ud
+kanun
+kemençe
+rebap
+ney
+zurna
+kaval
+sipsi
+mey
+duduk
+davul
+darbuka
+bendir
+def
+kudüm
+keman
+viyola
+viyolonsel
+kontrbas
+gitar
+bas gitar
+ukulele
+arp
+piyano
+kuyruklu piyano
+org
+akordeon
+flüt
+klarnet
+obua
+fagot
+saksofon
+trompet
+trombon
+korno
+tuba
+ksilofon

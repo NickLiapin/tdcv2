@@ -1,0 +1,16 @@
+---
+description: Month name (Turkish, capitalised as Turkish writes them)
+locale: tr
+---
+Ocak
+Şubat
+Mart
+Nisan
+Mayıs
+Haziran
+Temmuz
+Ağustos
+Eylül
+Ekim
+Kasım
+Aralık

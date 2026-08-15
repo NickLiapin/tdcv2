@@ -1,0 +1,15 @@
+---
+description: Social reaction (Turkish)
+locale: tr
+---
+beğendim
+çok sevdim
+güldüm
+şaşırdım
+üzüldüm
+kızdım
+destekliyorum
+teşekkürler
+tebrikler
+ilginç
+beğenmedim

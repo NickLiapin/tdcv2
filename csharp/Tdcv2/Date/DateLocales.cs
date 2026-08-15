@@ -668,6 +668,129 @@ public static class DateLocales
             ["LLLL"] = "dddd, D MMMM YYYY HH:mm",
         });
 
+    // Ukrainian, like Russian and Polish, inflects the month name inside a date: the
+    // standalone nominative is "січень" but a date reads "18 січня 2026". These are
+    // the genitive forms the formatter needs; the nominative list lives in the data
+    // pack at uk/date/month.txt.
+    internal static readonly DateLocale UK = new(
+        new[]
+        {
+            "січня",
+            "лютого",
+            "березня",
+            "квітня",
+            "травня",
+            "червня",
+            "липня",
+            "серпня",
+            "вересня",
+            "жовтня",
+            "листопада",
+            "грудня",
+        },
+        new[]
+        {
+            "січ",
+            "лют",
+            "бер",
+            "квіт",
+            "трав",
+            "черв",
+            "лип",
+            "серп",
+            "вер",
+            "жовт",
+            "лист",
+            "груд",
+        },
+        new[]
+        {
+            "неділя",
+            "понеділок",
+            "вівторок",
+            "середа",
+            "четвер",
+            "п'ятниця",
+            "субота",
+        },
+        new[]
+        {
+            "нд",
+            "пн",
+            "вт",
+            "ср",
+            "чт",
+            "пт",
+            "сб",
+        },
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["L"] = "DD.MM.YYYY",
+            ["LL"] = "D MMMM YYYY",
+            ["LLL"] = "D MMMM YYYY HH:mm",
+            ["LLLL"] = "dddd, D MMMM YYYY HH:mm",
+        });
+
+    // Turkish month names do not inflect, and are capitalised as proper nouns.
+    internal static readonly DateLocale TR = new(
+        new[]
+        {
+            "Ocak",
+            "Şubat",
+            "Mart",
+            "Nisan",
+            "Mayıs",
+            "Haziran",
+            "Temmuz",
+            "Ağustos",
+            "Eylül",
+            "Ekim",
+            "Kasım",
+            "Aralık",
+        },
+        new[]
+        {
+            "Oca",
+            "Şub",
+            "Mar",
+            "Nis",
+            "May",
+            "Haz",
+            "Tem",
+            "Ağu",
+            "Eyl",
+            "Eki",
+            "Kas",
+            "Ara",
+        },
+        new[]
+        {
+            "Pazar",
+            "Pazartesi",
+            "Salı",
+            "Çarşamba",
+            "Perşembe",
+            "Cuma",
+            "Cumartesi",
+        },
+        new[]
+        {
+            "Paz",
+            "Pzt",
+            "Sal",
+            "Çar",
+            "Per",
+            "Cum",
+            "Cmt",
+        },
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["L"] = "DD.MM.YYYY",
+            ["LL"] = "D MMMM YYYY",
+            ["LLL"] = "D MMMM YYYY HH:mm",
+            ["LLLL"] = "dddd, D MMMM YYYY HH:mm",
+        });
+
     private static readonly Dictionary<string, DateLocale> ByName =
         new(StringComparer.Ordinal)
         {
@@ -692,6 +815,10 @@ public static class DateLocales
             ["pol"] = PL,
             ["el"] = EL,
             ["ell"] = EL,
+            ["uk"] = UK,
+            ["ukr"] = UK,
+            ["tr"] = TR,
+            ["tur"] = TR,
         };
 
     /// <summary>The advertised names, for the validator's "did you mean" list.</summary>
@@ -707,6 +834,8 @@ public static class DateLocales
         "pl",
         "pt",
         "ru",
+        "tr",
+        "uk",
         "zh-cn",
     };
 

@@ -1,0 +1,24 @@
+---
+description: tr filler paragraphs. Handwritten: Project Gutenberg holds no Turkish book at all, so unlike fr/de/it/es/pt/pl these are not extracted from a public-domain corpus.
+locale: tr
+---
+Sabah hep aynı başlıyordu. Pencereyi açar, odaya soğuk havayı doldurur ve aşağıda ilk tramvayın gürültüyle geçişini dinlerdi. Sonra çaydanlığı ocağa koyar, kaynamasını beklerken karşı binanın çatısına, güvercinlerin hep oturduğu yere bakardı.
+Köye giden yol uzun ve bozuktu. Otobüs çukurlarda sarsılıyor, pencerenin ardından önce tarlalar, sonra ağaçlık bir şerit, sonra yine tarlalar geçiyordu. İnsanlar susuyor, herkes kendi derdini düşünüyordu; yalnızca şoför ara sıra radyoyu açıyor, radyo da hep kötü çekiyordu.
+Ev sokağın sonunda, nehre inen yokuştan önceki son evdi. Bahçe duvarı çoktan yana yatmıştı, kapı da kapanmıyordu ve bunu herkes bilirdi. Ama bir şeyi hep birlikte karara bağlamak gerektiğinde komşular tam da burada toplanırdı.
+Kütüphaneyi sessizliği için severdi. Kitaplar için bile değil, orada eski kâğıdın nasıl koktuğu ve ayak seslerinin yüksek raflar arasında nasıl kaybolduğu için. Yarım gün oturup kimseye tek kelime etmeden çıkabilirdi.
+Fırtına yavaş yaklaşıyordu. Önce batıda gökyüzü karardı, sonra rüzgâr dindi ve ortalık öyle sessizleşti ki uzaklarda bir köpeğin havladığı duyuldu. Sonra ilk iri damlalar düştü ve bir dakika içinde sağanak bütün şehri örttü.
+Ninesi çorbayı tarifsiz pişirirdi. Hiçbir şeyi kaşıkla ölçmez, göz kararı atar ve tadına bakardı. Nasıl yaptığını anlatamaz, bunun yıllarla geldiğini, ellerin ne yapacağını kendiliğinden bildiğini söylerdi.
+Çatı katı kuru ahşap ve toz kokardı. Köşede yirmi yıldır kilitli bir sandık duruyordu ve anahtarı daha dede hayattayken kaybolmuştu. Çocuklar her yaz onu açmaya niyetlenir, ama her seferinde daha ilginç işler bulurlardı.
+Tren kırk dakika gecikmişti. Peron valizli, paketli insanlarla yavaş yavaş doluyordu; kimi kenarda sigara içiyor, kimi telefonda geciktiğini anlatıyordu. Anons üç kez tekrarlandı ve her seferinde aynı kayıtsızlıkla okundu.
+Pazarın kendi ritmi vardı. Sabahın erken saatlerinden itibaren taze ekmek, yeşillik ve sulanmış beton kokardı. Satıcılar sıralar arasında birbirine seslenir, tartar, para üstü verir ve mahallenin bütün haberlerini yetiştirirdi.
+Yürüyerek gitmeye karar verdi. Şehir akşamları başka türlü görünüyordu: vitrinler aydınlanmış, pencerelerde sıcak bir ışık yanıyor, her gün yürüdüğü sokaklar biraz yabancılaşmıştı. Eve giden yol her zamankinin iki katı sürdü.
+Okulun onarılacağı daha önceki yıl söylenmişti. Bir komisyon geldi, koridorlarda dolaştı, bir şeyler not aldı, sonra herkes dağıldı ve hiçbir şey değişmedi. Öğretmenler alıştı, çocuklar da; yalnızca veliler ara sıra o sözü hatırlıyordu.
+O yıl nehir geniş taştı. Su neredeyse yolun kendisine kadar geldi, bahçeleri bastı ve eski köprüyü oydu. İnsanlar eşyalarını üst kata taşıdı ve suyun çekilmesini bekledi; kendilerini bildikleri bütün baharlarda yaptıkları gibi.
+Atölyede sabahtan akşama kadar çalışırdı. İş tekdüzeydi ama eller her hareketi kendiliğinden biliyordu ve akla ne gelirse gelsin düşünülebilirdi. En iyi düşünme, tezgâhın uğultusu altında, kimse rahatsız etmezken olurdu.
+Köyde yaz ağır ağır geçerdi. Günler uzun ve sıcaktı, bahçede kayısılar olgunlaşır, akşama doğru hava ağırlaşır ve tatlanırdı. Çocuklar ancak iyice karardığında, annesi sofadan seslendiğinde eve dönerdi.
+Mektup birkaç gün masada durdu. İçinde ne olduğunu herkes tahmin ediyordu ama kimse açmaya cesaret edemedi. Sonunda bir bıçak aldı, zarfı kenarından kesti ve hepsini yüksek sesle, yavaşça, ilk satırdan sonuncusuna kadar okudu.
+Kış karsız geçti. Ayaz sertti, toprak çatladı, kar bir türlü yağmadı ve bahçeciler güzlük ekin için endişelendi. Kar ancak ocak sonunda, bir gecede ve bol bol yağdı; sabaha her yer bembeyazdı.
+Buraya iki haftalığına gelmişti, on iki yıl kaldı. Önce garın yanında bir oda tuttu, sonra merkeze yakın taşındı, sonra asansörsüz bir binanın dördüncü katında küçük bir daire aldı. Bir kez bile pişman olmadı.
+Avluda hep biri olurdu. Sabahları yaşlılar, gazeteler ve emeklilik muhabbetiyle; gündüz çocuklar oyun alanında; akşam gençler kavak altındaki banklarda. Avlu hiç boş kalmazdı, olsa olsa en şiddetli yağmurda.
+Banliyö trenlerinin saatini ezberlemişti. Sık seyahat ettiği için değil, bilmeyi sevdiği için: altı kırkta bir tane, yedi on beşte bir tane daha. Bu listede tuhaf bir huzur vardı.
+Son gün sıradan bir gündü. Her zamanki gibi kahvaltı ettiler, ufak tefek şeylerden konuştular, akşam yaşlı ıhlamurun yanında buluşmak üzere sözleştiler. Kimse özel bir şey söylemedi, çünkü kimse o günün diğerlerinden farklı olduğunu bilmiyordu.

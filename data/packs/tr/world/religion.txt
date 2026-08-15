@@ -1,0 +1,25 @@
+---
+description: World religion (Turkish)
+locale: tr
+---
+İslam
+Sünnilik
+Alevilik
+Şiilik
+Hristiyanlık
+Katoliklik
+Ortodoksluk
+Protestanlık
+Ermeni Apostolik Kilisesi
+Süryani Ortodoksluğu
+Yahudilik
+Budizm
+Hinduizm
+Sihizm
+Caynizm
+Şintoizm
+Tengricilik
+Zerdüştlük
+Yezidilik
+Bahailik
+Ateizm

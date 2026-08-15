@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, in Turkish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: tr
+---
+Orak hücreli anemi
+Orak hücre taşıyıcılığı
+G6PD eksikliği
+Alfa talasemi
+Hipertansiyon
+Tip 2 diyabet
+Kronik böbrek hastalığı
+Sarkoidoz
+Rahim miyomu
+Keloid skar
+İyi huylu etnik nötropeni
+Laktoz intoleransı

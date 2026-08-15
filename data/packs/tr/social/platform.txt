@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Türkiye
+locale: tr
+---
+Instagram
+WhatsApp
+YouTube
+TikTok
+Facebook
+X
+Telegram
+Snapchat
+LinkedIn
+Pinterest
+Reddit
+Twitch
+Discord
+Threads
+BiP
+Ekşi Sözlük
+e-Devlet

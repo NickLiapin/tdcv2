@@ -1,0 +1,21 @@
+---
+description: Official document type (Turkish)
+locale: tr
+---
+Türkiye Cumhuriyeti kimlik kartı
+pasaport
+nüfus cüzdanı
+doğum belgesi
+evlenme cüzdanı
+boşanma ilamı
+ölüm belgesi
+vergi kimlik numarası
+sürücü belgesi
+araç ruhsatı
+tapu senedi
+ikametgâh belgesi
+gelir belgesi
+sigorta hizmet dökümü
+askerlik durum belgesi
+adli sicil kaydı
+diploma

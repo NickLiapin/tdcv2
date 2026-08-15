@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Turkish market
+locale: tr
+---
+Netflix
+BluTV
+Exxen
+GAİN
+TOD
+beIN CONNECT
+TRT İzle
+puhutv
+YouTube Premium
+Amazon Prime Video
+Disney+
+Spotify

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Turkish)
+locale: tr
+---
+Depresif atak
+Yaygın anksiyete bozukluğu
+Panik bozukluğu
+Bipolar bozukluk
+Şizofreni
+Obsesif kompulsif bozukluk
+Travma sonrası stres bozukluğu
+Yeme bozukluğu
+Dikkat eksikliği
+Uyku bozukluğu

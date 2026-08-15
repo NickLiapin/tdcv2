@@ -1,0 +1,8 @@
+---
+description: Season (Turkish)
+locale: tr
+---
+ilkbahar
+yaz
+sonbahar
+kış

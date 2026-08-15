@@ -1,0 +1,14 @@
+---
+description: Payment status (Turkish)
+locale: tr
+---
+Ödeme bekleniyor
+Ödendi
+Kısmi ödendi
+Provizyon alındı
+Reddedildi
+Ödeme hatası
+İade edildi
+Kısmi iade
+Vadesi geçti
+İptal edildi

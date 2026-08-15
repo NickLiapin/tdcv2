@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Turkish)
+locale: tr
+---
+Koç
+Boğa
+İkizler
+Yengeç
+Aslan
+Başak
+Terazi
+Akrep
+Yay
+Oğlak
+Kova
+Balık

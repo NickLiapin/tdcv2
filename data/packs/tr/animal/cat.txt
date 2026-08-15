@@ -1,0 +1,22 @@
+---
+description: Cat breed (Turkish)
+locale: tr
+---
+Van kedisi
+Ankara kedisi
+İran kedisi
+Siyam
+British Shorthair
+Maine Coon
+Sfenks
+Bengal
+Scottish Fold
+Habeş
+Norveç orman kedisi
+Rus mavisi
+Sibirya
+Ragdoll
+Birman
+Cornish Rex
+Oryantal
+Ekzotik

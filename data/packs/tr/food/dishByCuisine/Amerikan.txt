@@ -1,0 +1,12 @@
+---
+description: Dishes of Amerikan cuisine (Turkish)
+locale: tr
+---
+hamburger
+biftek
+barbekü kaburga
+sosisli sandviç
+mac and cheese
+krep
+cheesecake
+elmalı turta

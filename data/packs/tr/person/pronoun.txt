@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Turkish). Turkish has no grammatical gender: "o" covers he, she and it.
+locale: tr
+---
+ben
+sen
+o
+biz
+siz
+onlar
+kendi
+kendisi

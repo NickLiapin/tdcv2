@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Turkish. A prevalence signal, not an exclusive one.
+locale: tr
+---
+Kalıtsal hemokromatoz
+Çölyak hastalığı
+Fenilketonüri
+Wilson hastalığı
+G6PD eksikliği
+Kalıtsal trombofili

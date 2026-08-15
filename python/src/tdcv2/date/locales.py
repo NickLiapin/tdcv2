@@ -440,6 +440,29 @@ EL = DateLocale(
     },
 )
 
+# Ukrainian, like Russian and Polish, inflects the month name inside a date: the
+# standalone nominative is "січень" but a date reads "18 січня 2026". These are
+# the genitive forms the formatter needs; the nominative list lives in the data
+# pack at uk/date/month.txt.
+UK = DateLocale(
+    "uk",
+    ("січня", "лютого", "березня", "квітня", "травня", "червня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"),
+    ("січ", "лют", "бер", "квіт", "трав", "черв", "лип", "серп", "вер", "жовт", "лист", "груд"),
+    ("неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота"),
+    ("нд", "пн", "вт", "ср", "чт", "пт", "сб"),
+    {"L": "DD.MM.YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd, D MMMM YYYY HH:mm"},
+)
+
+# Turkish month names do not inflect, and are capitalised as proper nouns.
+TR = DateLocale(
+    "tr",
+    ("Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"),
+    ("Oca", "Şub", "Mar", "Nis", "May", "Haz", "Tem", "Ağu", "Eyl", "Eki", "Kas", "Ara"),
+    ("Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"),
+    ("Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"),
+    {"L": "DD.MM.YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd, D MMMM YYYY HH:mm"},
+)
+
 _BY_NAME: dict[str, DateLocale] = {
     "en": EN,
     "eng": EN,
@@ -462,9 +485,13 @@ _BY_NAME: dict[str, DateLocale] = {
     "pol": PL,
     "el": EL,
     "ell": EL,
+    "uk": UK,
+    "ukr": UK,
+    "tr": TR,
+    "tur": TR,
 }
 
-NAMES = ("ar", "de", "el", "en", "es", "fr", "it", "pl", "pt", "ru", "zh-cn")
+NAMES = ("ar", "de", "el", "en", "es", "fr", "it", "pl", "pt", "ru", "tr", "uk", "zh-cn")
 
 
 def resolve(name: str | None) -> DateLocale:

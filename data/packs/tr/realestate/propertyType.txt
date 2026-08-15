@@ -1,0 +1,23 @@
+---
+description: Property type (Turkish)
+locale: tr
+---
+1+1 daire
+2+1 daire
+3+1 daire
+4+1 daire
+stüdyo daire
+rezidans
+dubleks
+tripleks
+çatı katı
+bahçe katı
+müstakil ev
+villa
+yazlık
+apart
+yalı
+arsa
+tarla
+dükkân
+ofis

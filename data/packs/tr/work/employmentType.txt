@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Turkish)
+locale: tr
+---
+Tam zamanlı
+Yarı zamanlı
+Belirli süreli sözleşme
+Belirsiz süreli sözleşme
+Hizmet sözleşmesi
+Serbest çalışma
+Şahıs şirketi
+Staj
+Ek iş
+Mevsimlik
+Vardiyalı

@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Turkish)
+locale: tr
+---
+kaleci
+defans
+stoper
+bek
+sağ bek
+sol bek
+orta saha
+ön libero
+ofansif orta saha
+forvet
+santrfor
+kanat
+oyun kurucu
+şutör guard
+küçük forvet
+power forvet
+pivot
+pasör
+pasör çaprazı
+orta oyuncu
+smaçör
+libero
+sol kanat
+sağ kanat
+atıcı
+yakalayıcı
+shortstop
+dış saha oyuncusu
+koşucu
+geniş alıcı
+linebacker
+direk
+kancacı
+kilit
+flanker

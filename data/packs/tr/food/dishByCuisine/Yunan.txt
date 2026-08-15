@@ -1,0 +1,12 @@
+---
+description: Dishes of Yunan cuisine (Turkish)
+locale: tr
+---
+musakka
+souvlaki
+gyros
+Yunan salatası
+cacık
+yaprak sarma
+ıspanaklı börek
+baklava

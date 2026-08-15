@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Turkish product listing
+locale: tr
+---
+beyaz
+siyah
+gri
+açık gri
+koyu gri
+antrasit
+gümüş
+altın
+bronz
+bakır
+bej
+krem
+ekru
+kum
+kahverengi
+çikolata
+karamel
+fındık
+kırmızı
+bordo
+vişne
+fuşya
+pembe
+pudra
+mercan
+turuncu
+şeftali
+kiremit
+sarı
+limon
+hardal
+yeşil
+zeytin
+fıstık yeşili
+zümrüt
+nane
+haki
+turkuaz
+açık mavi
+gök mavisi
+mavi
+lacivert
+peygamber mavisi
+çivit
+mor
+leylak
+lila
+lavanta
+erguvan
+erik
+şeffaf
+çok renkli
+ahşap desenli
+mermer desenli

@@ -1,0 +1,32 @@
+---
+description: Tree (Turkish)
+locale: tr
+---
+meşe
+dişbudak
+akçaağaç
+ıhlamur
+huş
+kavak
+söğüt
+kızılağaç
+titrek
+kayın
+gürgen
+karaağaç
+ceviz
+kestane
+akasya
+çam
+ladin
+göknar
+melez
+sedir
+ardıç
+porsuk
+elma
+armut
+kiraz
+erik
+kayısı
+zeytin

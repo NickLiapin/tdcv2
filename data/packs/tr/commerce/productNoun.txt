@@ -1,0 +1,148 @@
+---
+description: Product noun (Turkish)
+locale: tr
+---
+masa
+sandalye
+koltuk
+kanepe
+dolap
+raf
+yatak
+şilte
+komodin
+şifonyer
+ayna
+halı
+perde
+yastık
+yorgan
+çarşaf
+havlu
+masa örtüsü
+fincan
+tabak
+bardak
+kadeh
+bıçak
+çatal
+kaşık
+tencere
+tava
+çaydanlık
+süzgeç
+kesme tahtası
+rende
+blender
+mikser
+tost makinesi
+düdüklü tencere
+mikrodalga fırın
+buzdolabı
+derin dondurucu
+çamaşır makinesi
+bulaşık makinesi
+elektrikli süpürge
+ütü
+saç kurutma makinesi
+ısıtıcı
+vantilatör
+klima
+nemlendirici
+televizyon
+monitör
+dizüstü bilgisayar
+bilgisayar
+tablet
+akıllı telefon
+kulaklık
+hoparlör
+fare
+klavye
+modem
+yazıcı
+tarayıcı
+bellek
+harici disk
+powerbank
+şarj cihazı
+kablo
+adaptör
+lamba
+avize
+aplik
+el feneri
+saat
+çalar saat
+tartı
+termometre
+sırt çantası
+çanta
+valiz
+cüzdan
+kemer
+şemsiye
+gözlük
+şapka
+atkı
+eldiven
+kazak
+tişört
+gömlek
+bluz
+elbise
+etek
+pantolon
+kot pantolon
+şort
+mont
+palto
+yağmurluk
+ceket
+takım elbise
+bornoz
+pijama
+çorap
+spor ayakkabı
+bot
+çizme
+ayakkabı
+sandalet
+terlik
+top
+bisiklet
+scooter
+paten
+dambıl
+yoga matı
+çadır
+uyku tulumu
+termos
+matara
+olta
+mangal
+çim biçme makinesi
+kürek
+tırmık
+budama makası
+hortum
+matkap
+vidalama
+çekiç
+tornavida
+testere
+şerit metre
+su terazisi
+boya
+fırça
+rulo
+çivi
+vida
+yapıştırıcı
+izole bant
+kilit
+kapı kolu
+menteşe
+priz
+anahtar
+uzatma kablosu

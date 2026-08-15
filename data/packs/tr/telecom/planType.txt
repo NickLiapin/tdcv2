@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Turkish)
+locale: tr
+---
+ön ödemeli
+faturalı
+sınırsız
+aile paketi
+kurumsal
+gençlik paketi
+turist paketi
+internet paketi
+konuşma paketi
+cihaz paketi
+yurt dışı paketi
+ek paket

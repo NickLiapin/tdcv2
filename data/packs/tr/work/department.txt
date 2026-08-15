@@ -1,0 +1,26 @@
+---
+description: Company department / function (Turkish)
+locale: tr
+---
+Yönetim
+Finans
+Muhasebe
+Hukuk
+İnsan kaynakları
+Pazarlama
+Satış
+Satın alma
+Lojistik
+Depo
+Üretim
+Teknik
+Bilgi işlem
+Yazılım geliştirme
+Test
+Teknik destek
+Kalite
+Ar-Ge
+Müşteri hizmetleri
+Güvenlik
+İdari işler
+Kurumsal iletişim

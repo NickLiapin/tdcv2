@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Turkish street, district or estate name (Güney Mahallesi, Doğu Sitesi)
+locale: tr
+---
+Kuzey
+Güney
+Doğu
+Batı
+Kuzeydoğu
+Kuzeybatı
+Güneydoğu
+Güneybatı
+Merkez
+Yukarı
+Aşağı
+Orta
+İç
+Dış
+Yakın

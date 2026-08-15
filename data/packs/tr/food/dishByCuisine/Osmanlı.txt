@@ -1,0 +1,12 @@
+---
+description: Dishes of Osmanlı cuisine (Turkish)
+locale: tr
+---
+hünkârbeğendi
+kuzu tandır
+ali nazik
+çerkez tavuğu
+zeytinyağlı enginar
+şehzade köftesi
+aşure
+güllaç

@@ -580,6 +580,111 @@ public final class DateLocales {
               "LLLL", "dddd, D MMMM YYYY HH:mm"
           ));
 
+  // Ukrainian, like Russian and Polish, inflects the month name inside a date: the
+  // standalone nominative is "січень" but a date reads "18 січня 2026". These are
+  // the genitive forms the formatter needs; the nominative list lives in the data
+  // pack at uk/date/month.txt.
+  static final DateFormatter.DateLocale UK =
+      new DateFormatter.DateLocale(
+          List.of(
+              "січня",
+              "лютого",
+              "березня",
+              "квітня",
+              "травня",
+              "червня",
+              "липня",
+              "серпня",
+              "вересня",
+              "жовтня",
+              "листопада",
+              "грудня"),
+          List.of(
+              "січ",
+              "лют",
+              "бер",
+              "квіт",
+              "трав",
+              "черв",
+              "лип",
+              "серп",
+              "вер",
+              "жовт",
+              "лист",
+              "груд"),
+          List.of(
+              "неділя",
+              "понеділок",
+              "вівторок",
+              "середа",
+              "четвер",
+              "п'ятниця",
+              "субота"),
+          List.of(
+              "нд",
+              "пн",
+              "вт",
+              "ср",
+              "чт",
+              "пт",
+              "сб"),
+          Map.of(
+              "L", "DD.MM.YYYY",
+              "LL", "D MMMM YYYY",
+              "LLL", "D MMMM YYYY HH:mm",
+              "LLLL", "dddd, D MMMM YYYY HH:mm"));
+
+  // Turkish month names do not inflect, and are capitalised as proper nouns.
+  static final DateFormatter.DateLocale TR =
+      new DateFormatter.DateLocale(
+          List.of(
+              "Ocak",
+              "Şubat",
+              "Mart",
+              "Nisan",
+              "Mayıs",
+              "Haziran",
+              "Temmuz",
+              "Ağustos",
+              "Eylül",
+              "Ekim",
+              "Kasım",
+              "Aralık"),
+          List.of(
+              "Oca",
+              "Şub",
+              "Mar",
+              "Nis",
+              "May",
+              "Haz",
+              "Tem",
+              "Ağu",
+              "Eyl",
+              "Eki",
+              "Kas",
+              "Ara"),
+          List.of(
+              "Pazar",
+              "Pazartesi",
+              "Salı",
+              "Çarşamba",
+              "Perşembe",
+              "Cuma",
+              "Cumartesi"),
+          List.of(
+              "Paz",
+              "Pzt",
+              "Sal",
+              "Çar",
+              "Per",
+              "Cum",
+              "Cmt"),
+          Map.of(
+              "L", "DD.MM.YYYY",
+              "LL", "D MMMM YYYY",
+              "LLL", "D MMMM YYYY HH:mm",
+              "LLLL", "dddd, D MMMM YYYY HH:mm"));
+
   private static final Map<String, DateFormatter.DateLocale> BY_NAME =
       Map.ofEntries(
           Map.entry("en", EN),
@@ -602,7 +707,11 @@ public final class DateLocales {
           Map.entry("pl", PL),
           Map.entry("pol", PL),
           Map.entry("el", EL),
-          Map.entry("ell", EL)
+          Map.entry("ell", EL),
+          Map.entry("uk", UK),
+          Map.entry("ukr", UK),
+          Map.entry("tr", TR),
+          Map.entry("tur", TR)
       );
 
   /** The advertised names, for the validator's "did you mean" list. */
@@ -618,6 +727,8 @@ public final class DateLocales {
           "pl",
           "pt",
           "ru",
+          "tr",
+          "uk",
           "zh-cn");
 
   /**

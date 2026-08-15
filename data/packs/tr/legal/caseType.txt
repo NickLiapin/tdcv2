@@ -1,0 +1,17 @@
+---
+description: Legal case type (Turkish)
+locale: tr
+---
+hukuk davası
+ceza davası
+idari dava
+ticari uyuşmazlık
+kabahat işlemi
+iş davası
+aile hukuku davası
+miras davası
+tapu iptal davası
+mülkiyet davası
+vergi davası
+iflas davası
+tazminat davası

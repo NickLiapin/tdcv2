@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Turkish)
+locale: tr
+---
+ateş
+üşüme
+baş ağrısı
+baş dönmesi
+halsizlik
+çabuk yorulma
+bulantı
+kusma
+ishal
+kabızlık
+karın ağrısı
+mide yanması
+geğirme
+iştahsızlık
+öksürük
+kuru öksürük
+balgamlı öksürük
+nefes darlığı
+göğüs ağrısı
+çarpıntı
+bacaklarda şişlik
+bel ağrısı
+eklem ağrısı
+kas ağrısı
+ellerde uyuşma
+kramp
+döküntü
+kaşıntı
+ciltte kızarıklık
+gözlerde sulanma
+burun tıkanıklığı
+burun akıntısı
+boğaz ağrısı
+ses kısıklığı
+uyku bozukluğu
+huzursuzluk
+çökkün ruh hâli
+görme bozukluğu

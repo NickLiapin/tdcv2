@@ -1,0 +1,12 @@
+---
+description: Dishes of Kore cuisine (Turkish)
+locale: tr
+---
+kimchi
+bibimbap
+bulgogi
+tteokbokki
+kimbap
+samgyeopsal
+japchae
+kimchi jjigae

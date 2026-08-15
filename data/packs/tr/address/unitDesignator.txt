@@ -1,0 +1,27 @@
+---
+description: Turkish address unit / interior designator
+locale: tr
+---
+Daire
+D.
+No
+No.
+Kat
+K.
+Blok
+Apt.
+Kapı No
+Oda
+Ofis
+Bağımsız Bölüm
+B.B.
+Giriş
+Bodrum
+Zemin
+Asma Kat
+Çatı Katı
+Dükkân
+Depo
+Garaj
+Posta Kutusu
+P.K.

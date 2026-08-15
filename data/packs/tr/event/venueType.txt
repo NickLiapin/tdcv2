@@ -1,0 +1,20 @@
+---
+description: Venue type (Turkish)
+locale: tr
+---
+konferans salonu
+toplantı salonu
+kongre merkezi
+fuar merkezi
+tiyatro
+sinema
+konser salonu
+kültür merkezi
+kulüp
+restoran
+düğün salonu
+otel
+stadyum
+spor kompleksi
+park
+açık hava

@@ -1,0 +1,254 @@
+---
+description: Turkish job titles across sectors (tech, healthcare, trades, transport, business, service, public)
+locale: tr
+---
+yazılım geliştirici
+önyüz geliştirici
+arkayüz geliştirici
+mobil geliştirici
+test mühendisi
+sistem yöneticisi
+ağ mühendisi
+veritabanı yöneticisi
+DevOps mühendisi
+sistem mimarı
+veri analisti
+veri bilimci
+siber güvenlik uzmanı
+arayüz tasarımcısı
+grafik tasarımcı
+ürün müdürü
+proje müdürü
+scrum master
+teknoloji direktörü
+teknik destek uzmanı
+dahiliye uzmanı
+aile hekimi
+cerrah
+kardiyolog
+nörolog
+endokrinolog
+göz doktoru
+kulak burun boğaz uzmanı
+dermatolog
+psikiyatrist
+anestezi uzmanı
+kadın doğum uzmanı
+çocuk doktoru
+ortopedist
+üroloji uzmanı
+onkolog
+diş hekimi
+ortodontist
+hemşire
+başhemşire
+sağlık teknisyeni
+ebe
+eczacı
+laborant
+radyoloji teknisyeni
+fizyoterapist
+masör
+diyetisyen
+veteriner hekim
+sınıf öğretmeni
+matematik öğretmeni
+fizik öğretmeni
+kimya öğretmeni
+biyoloji öğretmeni
+tarih öğretmeni
+Türkçe öğretmeni
+İngilizce öğretmeni
+bilişim öğretmeni
+beden eğitimi öğretmeni
+okul öncesi öğretmeni
+öğretim üyesi
+doçent
+profesör
+araştırma görevlisi
+eğitim uzmanı
+okul müdürü
+müdür yardımcısı
+rehber öğretmen
+okul psikoloğu
+muhasebeci
+mali müşavir
+denetçi
+finansal analist
+ekonomist
+banka veznedarı
+kredi uzmanı
+yatırım analisti
+sigorta acentesi
+vergi danışmanı
+gayrimenkul değerleme uzmanı
+iç denetçi
+hazine uzmanı
+finans direktörü
+hukukçu
+avukat
+noter
+hâkim
+savcı
+müfettiş
+hukuk müşaviri
+patent vekili
+arabulucu
+iflas idaresi memuru
+inşaat mühendisi
+mimar
+peyzaj mimarı
+proje tasarımcısı
+şantiye şefi
+metraj uzmanı
+duvarcı
+sıvacı
+boyacı
+fayansçı
+çatı ustası
+marangoz
+doğramacı
+elektrikçi
+tesisatçı
+kaynakçı
+montajcı
+vinç operatörü
+dozer operatörü
+ekskavatör operatörü
+tornacı
+frezeci
+çilingir
+bakım teknisyeni
+CNC operatörü
+makine ayarcısı
+üretim teknoloğu
+makine mühendisi
+tasarım mühendisi
+kalite kontrolcü
+atölye ustabaşı
+vardiya amiri
+paketleme elemanı
+depo görevlisi
+yükleme elemanı
+kamyon şoförü
+otobüs şoförü
+tramvay vatmanı
+taksici
+tren makinisti
+metro makinisti
+kondüktör
+operasyon sorumlusu
+lojistik uzmanı
+sevkiyat görevlisi
+gümrük müşaviri
+uçak teknisyeni
+pilot
+kabin memuru
+havalimanı görevlisi
+gemi kaptanı
+makinist
+liman işçisi
+kurye
+çekici şoförü
+satış danışmanı
+kasiyer
+reyon görevlisi
+mağaza müdürü
+ürün sorumlusu
+satın alma uzmanı
+kategori müdürü
+satış müdürü
+saha satış temsilcisi
+depo operatörü
+sipariş toplayıcı
+mağaza direktörü
+otel resepsiyonisti
+rezervasyon sorumlusu
+kat görevlisi
+kapı görevlisi
+konsiyerj
+aşçı
+aşçıbaşı yardımcısı
+şef
+pastacı
+fırıncı
+kasap
+garson
+barmen
+barista
+somelye
+maitre d
+animatör
+rehber
+tur operatörü
+organizasyon sorumlusu
+pazarlama uzmanı
+sosyal medya uzmanı
+içerik editörü
+metin yazarı
+editör
+düzeltmen
+gazeteci
+fotoğrafçı
+kameraman
+kurgu operatörü
+ses mühendisi
+spiker
+sunucu
+yönetmen
+senarist
+çevirmen
+mihmandar
+insan kaynakları uzmanı
+işe alım uzmanı
+eğitim sorumlusu
+ofis müdürü
+sekreter
+evrak sorumlusu
+arşivci
+yönetici asistanı
+çağrı merkezi operatörü
+müşteri hizmetleri uzmanı
+polis memuru
+bölge sorumlusu
+arama kurtarma görevlisi
+itfaiyeci
+asker
+sınır muhafızı
+gümrük memuru
+güvenlik görevlisi
+iş güvenliği uzmanı
+memur
+sosyal hizmet uzmanı
+kütüphaneci
+müze görevlisi
+restorasyon mimarı
+ziraat mühendisi
+zooteknist
+traktör operatörü
+biçerdöver operatörü
+çiftçi
+arıcı
+ormancı
+balıkçı
+bahçıvan
+çiçekçi
+peyzaj işçisi
+temizlik görevlisi
+çöp toplama işçisi
+apartman görevlisi
+asansörcü
+kuaför
+berber
+manikürcü
+kozmetolog
+makyöz
+terzi
+dikişçi
+ayakkabı tamircisi
+saat ustası
+kuyumcu
+çömlekçi
+mobilya ustası
+restoratör
+piyano akortçusu

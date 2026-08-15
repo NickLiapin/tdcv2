@@ -1,0 +1,11 @@
+---
+description: Driving licence category for trucks (Turkish categories: B / C / D series)
+locale: tr
+---
+B
+C1
+C
+C1E
+CE
+D1
+DE

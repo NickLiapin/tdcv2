@@ -1,0 +1,14 @@
+---
+description: Medical specialty (has a coherent diagnosis list)
+locale: tr
+---
+Kardiyoloji
+Nöroloji
+Gastroenteroloji
+Göğüs hastalıkları
+Endokrinoloji
+Nefroloji
+Ortopedi
+Dermatoloji
+Onkoloji
+Psikiyatri

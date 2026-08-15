@@ -1,0 +1,15 @@
+---
+description: Booking status (Turkish)
+locale: tr
+---
+oluşturuldu
+onay bekliyor
+onaylandı
+ödendi
+kısmen ödendi
+değiştirildi
+iptal edildi
+gelmedi
+tamamlandı
+iade edildi
+süresi doldu

@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Turkish)
+locale: tr
+---
+gök gürültüsü
+şimşek
+yıldırım
+gökkuşağı
+sis
+kırağı
+buzlanma
+tipi
+kar fırtınası
+hortum
+bora
+poyraz
+lodos
+kuraklık
+çiy

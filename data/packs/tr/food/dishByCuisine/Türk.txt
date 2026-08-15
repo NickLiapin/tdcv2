@@ -1,0 +1,20 @@
+---
+description: Dishes of Türk cuisine (Turkish)
+locale: tr
+---
+kebap
+Adana kebap
+İskender
+lahmacun
+pide
+mantı
+içli köfte
+karnıyarık
+imambayıldı
+menemen
+kuru fasulye
+mercimek çorbası
+döner
+pilav üstü tavuk
+baklava
+künefe

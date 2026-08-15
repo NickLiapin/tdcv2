@@ -1,0 +1,45 @@
+---
+description: Common generic drug names (Turkish INN)
+locale: tr
+---
+parasetamol
+ibuprofen
+nimesulid
+diklofenak
+ketorolak
+asetilsalisilik asit
+metamizol
+drotaverin
+omeprazol
+pantoprazol
+ranitidin
+domperidon
+loperamid
+simetikon
+ursodeoksikolik asit
+amoksisilin
+azitromisin
+seftriakson
+siprofloksasin
+doksisiklin
+metronidazol
+flukonazol
+asiklovir
+loratadin
+setirizin
+desloratadin
+salbutamol
+budesonid
+prednizolon
+deksametazon
+enalapril
+lisinopril
+amlodipin
+bisoprolol
+metoprolol
+furosemid
+atorvastatin
+metformin
+glimepirid
+levotiroksin
+varfarin

@@ -1,0 +1,59 @@
+---
+description: Industry sector (Turkish)
+locale: tr
+---
+Bilişim teknolojileri
+Telekomünikasyon
+Yazılım
+Siber güvenlik
+E-ticaret
+Perakende
+Toptan ticaret
+Lojistik
+Ulaştırma
+Havacılık
+Demiryolu taşımacılığı
+Denizcilik
+Bankacılık
+Sigortacılık
+Yatırım
+Finansal hizmetler
+Muhasebe hizmetleri
+Hukuk hizmetleri
+Danışmanlık
+Denetim
+Gayrimenkul
+İnşaat
+Mimarlık
+Proje geliştirme
+Üretim
+Makine imalatı
+Metalurji
+Kimya sanayi
+İlaç sanayi
+Sağlık
+Sağlık hizmetleri
+Biyoteknoloji
+Tarım
+Gıda sanayi
+İçecek
+Hayvancılık
+Ormancılık
+Balıkçılık
+Enerji
+Yenilenebilir enerji
+Petrol ve gaz
+Madencilik
+Kamu hizmetleri
+Eğitim
+Bilim
+Medya
+Yayıncılık
+Reklamcılık
+Eğlence
+Turizm
+Otelcilik
+Restoran işletmeciliği
+Spor
+Tekstil
+Sivil toplum

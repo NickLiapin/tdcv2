@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Turkish)
+locale: tr
+---
+pasör
+pasör çaprazı
+orta oyuncu
+smaçör
+libero

@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Turkish)
+locale: tr
+---
+un
+şeker
+tuz
+sıvı yağ
+zeytinyağı
+tereyağı
+yumurta
+süt
+yoğurt
+ayran
+peynir
+beyaz peynir
+kaşar
+lor
+maya
+karbonat
+kabartma tozu
+nişasta
+irmik
+bulgur
+pirinç
+arpa şehriye
+yulaf
+makarna
+ekmek
+galeta unu
+bal
+pekmez
+sirke
+salça
+mayonez
+hardal
+tahin
+et suyu
+jelatin
+kakao
+vanilin
+haşhaş
+ceviz
+kuru üzüm

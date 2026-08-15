@@ -1,0 +1,13 @@
+---
+description: Sport that has a coherent position list (Turkish)
+locale: tr
+---
+Futbol
+Basketbol
+Voleybol
+Hentbol
+Buz hokeyi
+Ragbi
+Beyzbol
+Amerikan futbolu
+Güreş

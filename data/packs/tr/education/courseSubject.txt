@@ -1,0 +1,24 @@
+---
+description: School subject (Turkish)
+locale: tr
+---
+Türkçe
+Türk dili ve edebiyatı
+matematik
+geometri
+fizik
+kimya
+biyoloji
+coğrafya
+tarih
+T.C. inkılap tarihi
+felsefe
+din kültürü
+İngilizce
+Almanca
+bilişim teknolojileri
+müzik
+görsel sanatlar
+teknoloji ve tasarım
+beden eğitimi
+hayat bilgisi

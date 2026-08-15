@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Turkish)
+locale: tr
+---
+1 yıldız
+2 yıldız
+3 yıldız
+4 yıldız
+5 yıldız

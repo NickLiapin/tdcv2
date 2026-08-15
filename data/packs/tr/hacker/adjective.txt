@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Turkish)
+locale: tr
+---
+dijital
+ikili
+dağıtık
+paralel
+eşzamansız
+eşzamanlı
+güvenli
+şifreli
+açık
+kapalı
+uzak
+yerel
+bulut tabanlı
+sanal
+konteynerli
+ölçeklenebilir
+hataya dayanıklı
+yedekli
+önbellekli
+indeksli
+sıkıştırılmış
+optimize
+eski
+uyumlu
+çapraz platform
+çok iş parçacıklı
+düşük seviyeli
+yüksek seviyeli

@@ -1,0 +1,14 @@
+---
+description: Fuel type (Turkish)
+locale: tr
+---
+benzin
+dizel
+LPG
+benzin/LPG
+CNG
+elektrik
+hibrit
+şarj edilebilir hibrit
+hidrojen
+etanol

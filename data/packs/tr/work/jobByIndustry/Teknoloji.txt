@@ -1,0 +1,16 @@
+---
+description: Jobs in Technology (Turkish)
+locale: tr
+---
+yazılım geliştirici
+sistem yöneticisi
+test mühendisi
+sistem mimarı
+veri analisti
+siber güvenlik uzmanı
+veritabanı yöneticisi
+DevOps mühendisi
+arayüz tasarımcısı
+ürün müdürü
+teknoloji direktörü
+destek mühendisi

@@ -1,0 +1,16 @@
+---
+description: Listing status (Turkish)
+locale: tr
+---
+aktif
+yeni
+güncellendi
+rezerve
+kapora alındı
+doğrulanıyor
+satıştan kaldırıldı
+satıldı
+kiralandı
+süresi doldu
+arşiv
+taslak

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Turkish)
+locale: tr
+---
+Hipertansiyon
+Koroner arter hastalığı
+Efor anjini
+Miyokard enfarktüsü
+Atriyal fibrilasyon
+Kalp yetmezliği
+Kardiyomiyopati
+Miyokardit
+Mitral kapak hastalığı
+Koroner ateroskleroz

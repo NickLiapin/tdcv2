@@ -1,0 +1,190 @@
+---
+description: Street names common across Türkiye (national figures, values, nature, dates). Compose before a streetSuffix; city-specific streets belong in a country pack.
+locale: tr
+---
+Atatürk
+Cumhuriyet
+İstiklal
+İnönü
+Gazi
+Gazi Mustafa Kemal
+Fevzi Çakmak
+Kâzım Karabekir
+Fatih
+Fatih Sultan Mehmet
+Yavuz Sultan Selim
+Kanuni
+Osmangazi
+Orhangazi
+Alparslan
+Barbaros
+Piri Reis
+Mimar Sinan
+Yunus Emre
+Mevlana
+Hacı Bektaş Veli
+Nasreddin Hoca
+Karacaoğlan
+Pir Sultan Abdal
+Âşık Veysel
+Namık Kemal
+Ziya Gökalp
+Mehmet Akif Ersoy
+Yahya Kemal
+Ahmet Haşim
+Nâzım Hikmet
+Orhan Veli
+Cahit Sıtkı
+Sait Faik
+Halide Edip
+Reşat Nuri
+Peyami Safa
+Necip Fazıl
+Cemal Süreya
+Aziz Sancar
+Cahit Arf
+Hulusi Behçet
+Şehit
+Şehitler
+Gaziler
+Kahramanlar
+Mehmetçik
+Zafer
+Barış
+Hürriyet
+Özgürlük
+Adalet
+Dostluk
+Kardeşlik
+Birlik
+Dayanışma
+Emek
+Sanayi
+Ticaret
+Tren
+İstasyon
+Garaj
+Liman
+Havalimanı
+Fabrika
+Organize Sanayi
+Küçük Sanayi
+Belediye
+Hükümet
+Vilayet
+Kaymakamlık
+Hastane
+Sağlık
+Poliklinik
+Okul
+Lise
+Üniversite
+Kampüs
+Kütüphane
+Müze
+Kültür
+Sanat
+Tiyatro
+Sinema
+Stadyum
+Spor
+Yüzme
+Park
+Bahçe
+Çamlık
+Fidanlık
+Ormanlık
+Yeşil
+Çınar
+Zeytin
+Nar
+İncir
+Kavak
+Söğüt
+Çam
+Meşe
+Ihlamur
+Manolya
+Gül
+Lale
+Menekşe
+Papatya
+Karanfil
+Sümbül
+Nilüfer
+Yasemin
+Fulya
+Begonya
+Mimoza
+Akasya
+Defne
+Fesleğen
+Kekik
+Lavanta
+Bağ
+Bostan
+Harman
+Değirmen
+Pınar
+Çeşme
+Kuyu
+Dere
+Irmak
+Göl
+Deniz
+Sahil
+Kordon
+Marina
+Kayalık
+Yamaç
+Tepe
+Zirve
+Yayla
+Ova
+Vadi
+Boğaz
+Ada
+Fener
+Kale
+Sur
+Kule
+Han
+Kervansaray
+Bedesten
+Çarşı
+Pazar
+Cami
+Külliye
+Medrese
+Türbe
+Şadırvan
+Saat Kulesi
+Meydan
+Belediye Meydanı
+Ulu
+Yeni
+Eski
+Büyük
+Küçük
+Uzun
+Kısa
+Geniş
+Dar
+Yukarı
+Aşağı
+Orta
+Kuzey
+Güney
+Doğu
+Batı
+Güneş
+Ay
+Yıldız
+Şafak
+Seher
+Umut
+Sevgi
+Neşe
+Huzur
+Bereket
+Bolluk

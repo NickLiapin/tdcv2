@@ -1,0 +1,54 @@
+---
+description: Store department / category (Turkish)
+locale: tr
+---
+Gıda
+Meyve ve sebze
+Et ve balık
+Şarküteri
+Süt ürünleri
+Fırın
+Bakliyat
+Donuk ürünler
+İçecek
+Alkollü içecek
+Şekerleme
+Bebek maması
+Temizlik
+Kozmetik
+Parfümeri
+Kişisel bakım
+Eczane
+Giyim
+Kadın giyim
+Erkek giyim
+Çocuk giyim
+Ayakkabı
+Aksesuar
+Çanta
+Takı
+Saat
+Elektronik
+Cep telefonu
+Bilgisayar
+Dizüstü bilgisayar
+Tablet
+Televizyon
+Ses sistemleri
+Fotoğraf
+Beyaz eşya
+Küçük ev aletleri
+Mobilya
+Ev tekstili
+Mutfak gereçleri
+Aydınlatma
+Bahçe
+Yapı market
+Hırdavat
+Oto aksesuar
+Spor
+Outdoor
+Oyuncak
+Kitap
+Kırtasiye
+Evcil hayvan

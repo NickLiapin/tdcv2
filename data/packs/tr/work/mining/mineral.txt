@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Turkish)
+locale: tr
+---
+taş kömürü
+linyit
+demir cevheri
+krom cevheri
+bor
+bakır cevheri
+kurşun-çinko
+altın
+gümüş
+manyezit
+mermer
+traverten
+feldspat
+kaolin
+ateş kili
+tuz
+alçıtaşı
+kalker
+perlit

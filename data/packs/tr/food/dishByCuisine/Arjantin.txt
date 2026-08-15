@@ -1,0 +1,12 @@
+---
+description: Dishes of Arjantin cuisine (Turkish)
+locale: tr
+---
+asado
+empanada
+chimichurri
+milanesa
+locro
+provoleta
+dulce de leche
+alfajor

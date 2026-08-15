@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Turkish)
+locale: tr
+---
+acemi
+bronz
+gümüş
+altın
+platin
+elmas
+usta
+büyük usta
+şampiyon
+efsane

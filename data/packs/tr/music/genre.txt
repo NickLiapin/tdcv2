@@ -1,0 +1,39 @@
+---
+description: Music genre (Turkish, including Turkish genres)
+locale: tr
+---
+pop
+rock
+hard rock
+punk
+metal
+alternatif
+indie
+hip hop
+rap
+R&B
+soul
+caz
+blues
+funk
+disko
+elektronik
+house
+tekno
+trance
+drum and bass
+dubstep
+ambient
+klasik
+opera
+senfonik
+oda müziği
+koro
+halk müziği
+Türk halk müziği
+Türk sanat müziği
+arabesk
+fantezi
+özgün müzik
+tasavvuf müziği
+mehter

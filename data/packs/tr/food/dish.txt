@@ -1,0 +1,71 @@
+---
+description: Dish (Turkish)
+locale: tr
+---
+mercimek çorbası
+ezogelin çorbası
+yayla çorbası
+işkembe çorbası
+tarhana çorbası
+kuru fasulye
+nohut yemeği
+etli bezelye
+türlü
+karnıyarık
+imambayıldı
+musakka
+güveç
+kuzu tandır
+kuzu incik
+etli pilav
+iç pilav
+bulgur pilavı
+mantı
+erişte
+makarna
+menemen
+sucuklu yumurta
+omlet
+çılbır
+kısır
+çoban salata
+gavurdağ salatası
+piyaz
+haydari
+cacık
+sigara böreği
+su böreği
+ıspanaklı börek
+poğaça
+simit
+gözleme
+lahmacun
+pide
+pizza
+döner
+tavuk şiş
+Adana kebap
+Urfa kebap
+beyti
+İskender
+köfte
+içli köfte
+çiğ köfte
+midye dolma
+hamsi tava
+levrek ızgara
+balık ekmek
+zeytinyağlı yaprak sarma
+zeytinyağlı fasulye
+enginar
+kuru dolma
+aşure
+sütlaç
+kazandibi
+baklava
+künefe
+kadayıf
+revani
+irmik helvası
+lokma
+tulumba

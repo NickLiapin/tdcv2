@@ -1,0 +1,19 @@
+---
+description: Order return reason (Turkish)
+locale: tr
+---
+Beden uymadı
+Renk uymadı
+Ürün açıklamaya uymuyor
+Ürün hasarlı geldi
+Üretim hatası
+Çalışmıyor
+Yanlış ürün gönderildi
+Set eksik
+Fikrimi değiştirdim
+Daha ucuzunu buldum
+Geç teslim edildi
+Yanlışlıkla sipariş verdim
+Kalitesi beğenilmedi
+Mükerrer sipariş
+Diğer

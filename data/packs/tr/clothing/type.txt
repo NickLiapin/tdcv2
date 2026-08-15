@@ -1,0 +1,30 @@
+---
+description: Garment type (Turkish)
+locale: tr
+---
+tişört
+gömlek
+bluz
+kazak
+süveter
+hırka
+sweatshirt
+kapüşonlu
+ceket
+yelek
+elbise
+etek
+pantolon
+kot pantolon
+şort
+tulum
+takım elbise
+mont
+palto
+yağmurluk
+şişme mont
+bornoz
+pijama
+iç çamaşırı
+çorap
+külotlu çorap

@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Turkish)
+locale: tr
+---
+oyun kurucu
+şutör guard
+küçük forvet
+power forvet
+pivot

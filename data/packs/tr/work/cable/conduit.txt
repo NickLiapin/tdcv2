@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Turkish)
+locale: tr
+---
+kablo kanalı
+spiral boru
+çelik spiral
+kablo tavası
+askılı hat
+yeraltı kanalizasyonu
+doğrudan toprağa gömme

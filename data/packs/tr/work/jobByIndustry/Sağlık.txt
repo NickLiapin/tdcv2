@@ -1,0 +1,16 @@
+---
+description: Jobs in Healthcare (Turkish)
+locale: tr
+---
+dahiliye uzmanı
+cerrah
+anestezi uzmanı
+çocuk doktoru
+kardiyolog
+hemşire
+sağlık teknisyeni
+eczacı
+laborant
+radyolog
+diş hekimi
+fizyoterapist

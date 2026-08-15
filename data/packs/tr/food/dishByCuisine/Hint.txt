@@ -1,0 +1,12 @@
+---
+description: Dishes of Hint cuisine (Turkish)
+locale: tr
+---
+köri
+tikka masala
+biryani
+samosa
+dal
+naan
+paneer tikka
+masala chai

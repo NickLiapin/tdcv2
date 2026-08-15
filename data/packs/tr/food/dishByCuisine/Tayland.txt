@@ -1,0 +1,12 @@
+---
+description: Dishes of Tayland cuisine (Turkish)
+locale: tr
+---
+tom yum
+pad thai
+yeşil köri
+tom kha gai
+som tam
+massaman köri
+yapışkan pirinçli mango
+fesleğenli erişte

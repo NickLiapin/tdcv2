@@ -1,0 +1,24 @@
+---
+description: Trip type (Turkish)
+locale: tr
+---
+tatil
+hafta sonu kaçamağı
+deniz tatili
+kayak turu
+kültür turu
+otobüs turu
+gemi turu
+doğa yürüyüşü
+rafting
+bisiklet turu
+karayolu yolculuğu
+tren yolculuğu
+hac
+umre
+gastronomi turu
+alışveriş turu
+sağlık turizmi
+termal tatil
+iş seyahati
+kongre

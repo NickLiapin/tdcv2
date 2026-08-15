@@ -1,0 +1,29 @@
+---
+description: Fish (Turkish)
+locale: tr
+---
+sazan
+kadife balığı
+turna
+levrek
+sudak
+çapak
+tatlısu kefali
+yayın
+kızılkanat
+gümüş
+alabalık
+somon
+hamsi
+uskumru
+ton balığı
+morina
+pisi balığı
+kalkan
+mezgit
+berlam
+istavrit
+kaya balığı
+mersin
+lüfer
+palamut

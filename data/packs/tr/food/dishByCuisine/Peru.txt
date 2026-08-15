@@ -1,0 +1,12 @@
+---
+description: Dishes of Peru cuisine (Turkish)
+locale: tr
+---
+ceviche
+lomo saltado
+ají de gallina
+papa a la huancaína
+anticucho
+causa limeña
+karidesli chupe
+picarones

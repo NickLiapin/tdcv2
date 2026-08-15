@@ -1,0 +1,54 @@
+---
+description: Airline (Turkish carriers and major international ones)
+locale: tr
+---
+Türk Hava Yolları
+AnadoluJet
+Pegasus Hava Yolları
+SunExpress
+Corendon Airlines
+Onur Air
+Freebird Airlines
+AtlasGlobal
+MNG Airlines
+ULS Airlines Cargo
+Lufthansa
+Austrian Airlines
+Swiss
+KLM
+Air France
+British Airways
+Iberia
+ITA Airways
+LOT Polish Airlines
+Czech Airlines
+Wizz Air
+Ryanair
+easyJet
+Aegean Airlines
+Air Baltic
+Finnair
+SAS
+Norwegian
+TAP Air Portugal
+Brussels Airlines
+Eurowings
+Vueling
+Aer Lingus
+Croatia Airlines
+Air Serbia
+Tarom
+Bulgaria Air
+Georgian Airways
+Azerbaijan Airlines
+Air Astana
+Uzbekistan Airways
+Emirates
+Qatar Airways
+Etihad Airways
+flydubai
+Air Arabia
+El Al
+Middle East Airlines
+American Airlines
+Delta Air Lines

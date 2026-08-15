@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (Turkish)
+locale: tr
+---
+derlemek
+dağıtmak
+yapılandırmak
+yeniden başlatmak
+bağlanmak
+oturum açmak
+şifrelemek
+şifresini çözmek
+sıkıştırmak
+arşivden çıkarmak
+indekslemek
+önbelleğe almak
+eşitlemek
+çoğaltmak
+ölçeklendirmek
+yönlendirmek
+yakalamak
+atlatmak
+kırmak
+yamalamak
+geri almak
+güncellemek
+silmek
+oluşturmak
+kopyalamak
+taşımak
+bağlamak
+biçimlendirmek

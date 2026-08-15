@@ -1,0 +1,34 @@
+---
+description: Vegetable (Turkish)
+locale: tr
+---
+patates
+havuç
+pancar
+lahana
+soğan
+sarımsak
+domates
+salatalık
+biber
+patlıcan
+kabak
+balkabağı
+turp
+şalgam
+kereviz
+maydanoz
+dereotu
+kuzukulağı
+ıspanak
+marul
+mısır
+bezelye
+fasulye
+mercimek
+brokoli
+karnabahar
+pırasa
+yerelması
+bamya
+enginar

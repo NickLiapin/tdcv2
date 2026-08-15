@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Turkish)
+locale: tr
+---
+ücretsiz Wi-Fi
+klima
+ısıtma
+kahvaltı dahil
+restoran
+bar
+minibar
+buzdolabı
+su ısıtıcısı
+kasa
+televizyon
+saç kurutma makinesi
+ütü
+çamaşır makinesi
+günlük temizlik
+24 saat resepsiyon
+havalimanı transferi
+otopark
+kapalı otopark
+havuz
+sauna
+hamam
+spa merkezi
+fitness salonu
+masaj
+çocuk oyun alanı
+bebek bakıcısı
+toplantı salonu
+evcil hayvan kabul edilir
+sigara içilmeyen oda

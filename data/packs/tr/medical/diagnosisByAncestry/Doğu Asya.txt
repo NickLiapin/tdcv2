@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, in Turkish. A prevalence signal, not an exclusive one.
+locale: tr
+---
+Alfa talasemi
+Aldehit dehidrogenaz 2 eksikliği
+Laktoz intoleransı
+Nazofarenks kanseri
+Mide kanseri
+Kawasaki hastalığı
+Primer açık açılı glokom
+Hiperürisemi
+Tirotoksik periyodik paralizi
+Kalıtsal işitme kaybı
