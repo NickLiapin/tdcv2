@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Indonesia
+locale: id
+---
+WhatsApp
+Instagram
+TikTok
+YouTube
+Facebook
+X
+Telegram
+Line
+Snapchat
+LinkedIn
+Pinterest
+Reddit
+Twitch
+Discord
+Threads
+Kaskus
+Tokopedia

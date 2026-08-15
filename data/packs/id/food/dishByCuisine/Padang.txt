@@ -1,0 +1,12 @@
+---
+description: Dishes of Padang cuisine (Indonesian)
+locale: id
+---
+rendang
+gulai ayam
+dendeng balado
+ayam pop
+sate padang
+gulai tunjang
+perkedel kentang
+sambal ijo

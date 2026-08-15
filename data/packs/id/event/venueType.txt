@@ -1,0 +1,20 @@
+---
+description: Venue type (Indonesian)
+locale: id
+---
+ruang konferensi
+aula
+pusat konvensi
+pusat pameran
+teater
+bioskop
+gedung konser
+pusat kebudayaan
+klub
+restoran
+gedung resepsi
+hotel
+stadion
+gelanggang olahraga
+taman
+ruang terbuka

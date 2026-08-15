@@ -1,0 +1,12 @@
+---
+description: Dishes of Sunda cuisine (Indonesian)
+locale: id
+---
+nasi timbel
+karedok
+lalapan
+pepes ikan
+soto bandung
+sayur asem
+tahu sumedang
+empal gentong

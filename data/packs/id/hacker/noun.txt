@@ -1,0 +1,41 @@
+---
+description: Tech noun (Indonesian)
+locale: id
+---
+peladen
+klien
+basis data
+tabel
+kueri
+indeks
+tembolok
+antrean
+utas
+proses
+inti
+memori
+cakram
+larik
+berkas
+folder
+protokol
+paket
+porta
+gerbang
+perute
+tembok api
+sertifikat
+kunci
+token
+sesi
+kuki
+skrip
+pustaka
+modul
+paket
+kontainer
+citra
+klaster
+simpul
+registri
+log

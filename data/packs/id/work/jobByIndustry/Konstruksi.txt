@@ -1,0 +1,16 @@
+---
+description: Jobs in Construction (Indonesian)
+locale: id
+---
+insinyur sipil
+arsitek
+mandor proyek
+tukang batu
+tukang plester
+tukang cat
+tukang listrik
+tukang pipa
+juru las
+tukang atap
+operator derek
+estimator biaya

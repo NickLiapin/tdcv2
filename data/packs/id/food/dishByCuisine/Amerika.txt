@@ -1,0 +1,12 @@
+---
+description: Dishes of Amerika cuisine (Indonesian)
+locale: id
+---
+burger
+steik
+iga bakar
+hot dog
+mac and cheese
+panekuk
+kue keju
+pai apel

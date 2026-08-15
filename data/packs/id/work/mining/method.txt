@@ -1,0 +1,12 @@
+---
+description: Mining method (Indonesian)
+locale: id
+---
+tambang terbuka
+tambang bawah tanah
+penggalian kuari
+tambang semprot
+tambang sumur bor
+metode hidrolik
+kapal keruk
+sistem kamar dan pilar

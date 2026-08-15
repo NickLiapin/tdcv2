@@ -1,0 +1,16 @@
+---
+description: Jobs in Education (Indonesian)
+locale: id
+---
+guru sekolah dasar
+guru matematika
+guru bahasa Indonesia
+dosen
+guru taman kanak-kanak
+pengawas sekolah
+kepala sekolah
+wakil kepala sekolah
+guru bimbingan konseling
+psikolog sekolah
+pelatih
+laboran

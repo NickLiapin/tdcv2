@@ -1,0 +1,17 @@
+---
+description: Legal case type (Indonesian)
+locale: id
+---
+perkara perdata
+perkara pidana
+perkara tata usaha negara
+sengketa niaga
+pelanggaran
+sengketa ketenagakerjaan
+perkara keluarga
+perkara waris
+sengketa tanah
+sengketa hak milik
+sengketa pajak
+perkara kepailitan
+gugatan ganti rugi

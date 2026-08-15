@@ -1,0 +1,12 @@
+---
+description: Dishes of Meksiko cuisine (Indonesian)
+locale: id
+---
+taco
+burrito
+quesadilla
+guacamole
+nachos
+enchilada
+fajita
+chili con carne

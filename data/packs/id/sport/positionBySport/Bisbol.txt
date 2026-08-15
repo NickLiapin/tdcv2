@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (Indonesian)
+locale: id
+---
+pitcher
+catcher
+base pertama
+base kedua
+base ketiga
+shortstop
+outfielder kiri
+outfielder tengah
+outfielder kanan
+pemukul pengganti

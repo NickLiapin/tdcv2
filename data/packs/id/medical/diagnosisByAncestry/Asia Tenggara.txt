@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Indonesian. A prevalence signal, not an exclusive one.
+locale: id
+---
+Talasemia alfa
+Hemoglobin E
+Defisiensi G6PD
+Intoleransi laktosa
+Sindrom Brugada
+Karsinoma nasofaring
+Talasemia intermedia

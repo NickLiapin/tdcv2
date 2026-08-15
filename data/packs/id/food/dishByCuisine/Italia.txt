@@ -1,0 +1,12 @@
+---
+description: Dishes of Italia cuisine (Indonesian)
+locale: id
+---
+pasta carbonara
+pizza margherita
+lasagna
+risotto
+minestrone
+osso buco
+bruschetta
+tiramisu

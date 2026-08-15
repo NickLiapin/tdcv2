@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Indonesian. A prevalence signal, not an exclusive one.
+locale: id
+---
+Hemokromatosis herediter
+Penyakit celiac
+Fenilketonuria
+Penyakit Wilson
+Defisiensi G6PD
+Trombofilia herediter

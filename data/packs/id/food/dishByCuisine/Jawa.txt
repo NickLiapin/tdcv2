@@ -1,0 +1,13 @@
+---
+description: Dishes of Jawa cuisine (Indonesian)
+locale: id
+---
+gudeg
+rawon
+soto lamongan
+pecel
+tahu campur
+nasi liwet
+tempe mendoan
+sate klathak
+lodeh

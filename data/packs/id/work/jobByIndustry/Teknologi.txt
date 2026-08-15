@@ -1,0 +1,16 @@
+---
+description: Jobs in Technology (Indonesian)
+locale: id
+---
+pengembang perangkat lunak
+administrator sistem
+insinyur pengujian
+arsitek sistem
+analis data
+spesialis keamanan siber
+administrator basis data
+insinyur DevOps
+desainer antarmuka
+manajer produk
+direktur teknologi
+insinyur dukungan

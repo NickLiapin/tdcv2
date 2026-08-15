@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Indonesian that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: id
+---
+Endometriosis
+Mioma uteri
+Adenomiosis
+Kista ovarium
+Sindrom ovarium polikistik
+Dismenore
+Amenore
+Sindrom pramenstruasi
+Sindrom menopause
+Vaginitis
+Vaginosis bakterial
+Kandidiasis vulvovaginal
+Servisitis
+Erosi serviks
+Displasia serviks
+Kanker serviks
+Kanker ovarium
+Kanker endometrium
+Fibrokistik payudara
+Mastitis
+Kanker payudara
+Infertilitas wanita
+Kehamilan ektopik
+Preeklampsia
+Diabetes gestasional
+Depresi pascapersalinan

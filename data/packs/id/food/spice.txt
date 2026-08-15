@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Indonesian)
+locale: id
+---
+lada
+merica
+cabai
+paprika
+ketumbar
+jintan
+kemiri
+kunyit
+jahe
+lengkuas
+kencur
+serai
+daun_salam
+daun_jeruk
+daun_kunyit
+kayu_manis
+cengkeh
+pala
+kapulaga
+bunga_lawang
+vanili
+asam_jawa
+kemangi
+daun_bawang
+seledri
+bawang_merah
+bawang_putih
+jinten
+adas
+temulawak

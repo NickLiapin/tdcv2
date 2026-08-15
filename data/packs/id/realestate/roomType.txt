@@ -1,0 +1,20 @@
+---
+description: Room type (Indonesian)
+locale: id
+---
+ruang tamu
+ruang keluarga
+kamar tidur
+kamar tidur utama
+kamar anak
+ruang kerja
+dapur
+dapur kotor
+ruang makan
+kamar mandi
+toilet
+kamar mandi dalam
+ruang cuci
+gudang
+teras
+balkon

@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Indonesian)
+locale: id
+---
+demam
+menggigil
+sakit kepala
+pusing
+lemas
+cepat lelah
+mual
+muntah
+diare
+sembelit
+nyeri perut
+nyeri ulu hati
+sendawa
+nafsu makan menurun
+batuk
+batuk kering
+batuk berdahak
+sesak napas
+nyeri dada
+jantung berdebar
+kaki bengkak
+nyeri punggung
+nyeri sendi
+nyeri otot
+kesemutan
+kram
+ruam
+gatal
+kulit kemerahan
+mata berair
+hidung tersumbat
+pilek
+nyeri tenggorokan
+suara serak
+sulit tidur
+gelisah
+murung
+gangguan penglihatan

@@ -1,0 +1,16 @@
+---
+description: Jobs in Hospitality (Indonesian)
+locale: id
+---
+resepsionis hotel
+petugas kamar
+juru masak
+asisten chef
+chef
+pelayan
+bartender
+barista
+pastry chef
+kapten pelayan
+staf reservasi
+doorman

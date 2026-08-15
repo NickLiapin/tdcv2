@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Indonesian)
+locale: id
+---
+kanal kabel
+pipa fleksibel
+pipa logam fleksibel
+tray kabel
+jalur gantung
+saluran bawah tanah
+ditanam langsung di tanah

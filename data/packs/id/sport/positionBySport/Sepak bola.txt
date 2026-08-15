@@ -1,0 +1,15 @@
+---
+description: Positions in association football (Indonesian)
+locale: id
+---
+penjaga gawang
+bek kanan
+bek kiri
+bek tengah
+gelandang bertahan
+gelandang tengah
+gelandang serang
+sayap kanan
+sayap kiri
+penyerang
+penyerang tengah

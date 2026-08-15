@@ -1,0 +1,213 @@
+---
+description: Street names common across Indonesia (national figures, values, nature). Compose after a streetSuffix; city-specific streets belong in a country pack.
+locale: id
+---
+Sudirman
+Thamrin
+Gatot Subroto
+Diponegoro
+Imam Bonjol
+Ahmad Yani
+Sisingamangaraja
+Pattimura
+Hasanuddin
+Cut Nyak Dien
+Teuku Umar
+Kartini
+Dewi Sartika
+Ki Hajar Dewantara
+Cokroaminoto
+Wahid Hasyim
+Hasyim Asyari
+Agus Salim
+Sam Ratulangi
+Juanda
+Otista
+Fatmawati
+Gajah Mada
+Hayam Wuruk
+Majapahit
+Sriwijaya
+Airlangga
+Ken Arok
+Pangeran Antasari
+Sultan Agung
+Pakubuwono
+Mangkubumi
+Hangtuah
+Malahayati
+Martha Tiahahu
+Yos Sudarso
+Sutomo
+Wahidin
+Kesehatan
+Pendidikan
+Merdeka
+Kemerdekaan
+Pahlawan
+Veteran
+Perjuangan
+Proklamasi
+Pancasila
+Persatuan
+Kesatuan
+Bhinneka
+Gotong Royong
+Kebangsaan
+Kebangkitan
+Kejaksaan
+Pemuda
+Pelajar
+Mahasiswa
+Guru
+Kampus
+Universitas
+Sekolah
+Perpustakaan
+Museum
+Budaya
+Seni
+Teater
+Bioskop
+Stadion
+Olahraga
+Renang
+Industri
+Perdagangan
+Niaga
+Pasar
+Terminal
+Stasiun
+Pelabuhan
+Bandara
+Pabrik
+Gudang
+Kawasan Industri
+Balai Kota
+Pemerintahan
+Gubernur
+Bupati
+Camat
+Lurah
+Rumah Sakit
+Puskesmas
+Apotek
+Masjid
+Gereja
+Pura
+Vihara
+Klenteng
+Pesantren
+Makam
+Taman
+Kebun
+Kebun Raya
+Hutan
+Cemara
+Beringin
+Jati
+Mahoni
+Kelapa
+Kelapa Gading
+Pinang
+Bambu
+Melati
+Mawar
+Anggrek
+Kamboja
+Cempaka
+Kenanga
+Teratai
+Flamboyan
+Bougenville
+Dahlia
+Seruni
+Kenari
+Rambutan
+Durian
+Manggis
+Nangka
+Mangga
+Pisang
+Jambu
+Belimbing
+Sawo
+Duku
+Salak
+Padi
+Jagung
+Tebu
+Kopi
+Lada
+Pala
+Cengkeh
+Merpati
+Rajawali
+Garuda
+Elang
+Nuri
+Merak
+Cendrawasih
+Kutilang
+Bangau
+Camar
+Samudra
+Bahari
+Laut
+Pantai
+Karang
+Mutiara
+Intan
+Berlian
+Zamrud
+Permata
+Emas
+Perak
+Matahari
+Bulan
+Bintang
+Fajar
+Senja
+Pelangi
+Cahaya
+Sinar
+Nusantara
+Merapi
+Semeru
+Rinjani
+Bromo
+Krakatau
+Kerinci
+Sindoro
+Sumbing
+Ciliwung
+Brantas
+Bengawan
+Kapuas
+Musi
+Mahakam
+Toba
+Maninjau
+Singkarak
+Baru
+Lama
+Besar
+Kecil
+Panjang
+Pendek
+Utara
+Selatan
+Timur
+Barat
+Tengah
+Raya
+Utama
+Damai
+Sejahtera
+Makmur
+Bahagia
+Harapan
+Asri
+Indah
+Sentosa
+Mulia

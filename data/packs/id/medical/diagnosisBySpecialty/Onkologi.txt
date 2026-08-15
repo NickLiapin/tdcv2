@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Indonesian)
+locale: id
+---
+Kanker payudara
+Kanker paru
+Kanker kolorektal
+Kanker lambung
+Kanker prostat
+Kanker tiroid
+Melanoma
+Limfoma Hodgkin
+Leukemia
+Kanker serviks

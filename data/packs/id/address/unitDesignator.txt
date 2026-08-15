@@ -1,0 +1,27 @@
+---
+description: Indonesian address unit / interior designator
+locale: id
+---
+No.
+Nomor
+Blok
+Lantai
+Lt.
+Unit
+Kamar
+Ruang
+Kios
+Los
+RT
+RW
+Gedung
+Menara
+Tower
+Sayap
+Basement
+Lobi
+Mezanin
+Rooftop
+PO Box
+Kotak Pos
+Kavling

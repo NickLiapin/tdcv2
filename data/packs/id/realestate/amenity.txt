@@ -1,0 +1,26 @@
+---
+description: Property amenity (Indonesian)
+locale: id
+---
+AC
+pemanas air
+listrik 2200 VA
+PDAM
+sumur bor
+carport
+garasi
+taman
+kanopi
+pagar
+teralis
+dapur set
+kitchen set
+perabotan lengkap
+semi furnished
+lift
+keamanan 24 jam
+CCTV
+one gate system
+kolam renang
+area bermain anak
+dekat stasiun

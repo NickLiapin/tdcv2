@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, descriptive Indonesian (country rating codes are country data)
+locale: id
+---
+untuk semua umur
+untuk keluarga
+untuk anak-anak
+bimbingan orang tua
+untuk remaja
+13 tahun ke atas
+17 tahun ke atas
+21 tahun ke atas
+tanpa batasan usia

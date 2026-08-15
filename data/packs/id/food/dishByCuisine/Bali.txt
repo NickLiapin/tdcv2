@@ -1,0 +1,12 @@
+---
+description: Dishes of Bali cuisine (Indonesian)
+locale: id
+---
+babi guling
+ayam betutu
+lawar
+sate lilit
+nasi jinggo
+bebek betutu
+serombotan
+tipat cantok

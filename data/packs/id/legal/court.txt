@@ -1,0 +1,20 @@
+---
+description: Court type (Indonesian judiciary)
+locale: id
+---
+pengadilan negeri
+pengadilan tinggi
+pengadilan agama
+pengadilan tinggi agama
+pengadilan tata usaha negara
+pengadilan tinggi tata usaha negara
+pengadilan militer
+pengadilan niaga
+pengadilan hubungan industrial
+pengadilan tindak pidana korupsi
+pengadilan perikanan
+pengadilan pajak
+pengadilan anak
+Mahkamah Agung
+Mahkamah Konstitusi
+Komisi Yudisial

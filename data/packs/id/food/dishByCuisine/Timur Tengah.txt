@@ -1,0 +1,12 @@
+---
+description: Dishes of Timur Tengah cuisine (Indonesian)
+locale: id
+---
+hummus
+falafel
+tabouleh
+kibbeh
+fattoush
+syawarma
+baba ganoush
+manakish

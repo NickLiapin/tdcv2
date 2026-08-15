@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Indonesian)
+locale: id
+---
+batu bara
+nikel
+tembaga
+emas
+perak
+timah
+bauksit
+bijih besi
+mangan
+seng
+kobalt
+pasir besi
+pasir silika
+kaolin
+batu kapur
+marmer
+granit
+gipsum
+belerang

@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Indonesian)
+locale: id
+---
+pcs
+buah
+paket
+set
+pasang
+lusin
+kodi
+g
+kg
+mg
+ton
+ml
+liter
+cm
+mm
+m
+km
+m2
+m3
+meter lari
+rol
+kotak
+dus
+karung
+botol
+toples
+tube
+sachet
+lembar
+palet

@@ -1,0 +1,36 @@
+---
+description: Fruit (Indonesian)
+locale: id
+---
+mangga
+rambutan
+durian
+manggis
+nangka
+cempedak
+jambu
+belimbing
+sawo
+kelengkeng
+duku
+salak
+pisang
+nanas
+pepaya
+semangka
+melon
+jeruk
+jeruk_nipis
+lemon
+anggur
+apel
+pir
+stroberi
+kelapa
+alpukat
+markisa
+sirsak
+jambu_biji
+buah_naga
+sukun
+kedondong

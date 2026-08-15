@@ -1,0 +1,58 @@
+---
+description: Human-readable colour name (Indonesian)
+locale: id
+---
+putih
+hitam
+abu-abu
+merah
+biru
+biru muda
+hijau
+kuning
+oranye
+merah muda
+ungu
+cokelat
+krem
+emas
+perak
+merah marun
+merah ceri
+merah delima
+koral
+persik
+salmon
+terakota
+mustar
+lemon
+zaitun
+hijau muda
+zamrud
+mint
+tosca
+biru laut
+biru langit
+biru tua
+nila
+lavender
+lilac
+magenta
+plum
+cokelat tua
+kopi
+karamel
+pasir
+krem susu
+gading
+mutiara
+abu terang
+grafit
+arang
+karat
+tembaga
+kuning kunyit
+hijau lumut
+biru dongker
+merah bata
+ungu terong

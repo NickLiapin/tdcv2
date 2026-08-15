@@ -1,0 +1,26 @@
+---
+description: Company department / function (Indonesian)
+locale: id
+---
+Direksi
+Keuangan
+Akuntansi
+Hukum
+Sumber daya manusia
+Pemasaran
+Penjualan
+Pembelian
+Logistik
+Gudang
+Produksi
+Teknik
+Teknologi informasi
+Pengembangan perangkat lunak
+Pengujian
+Dukungan teknis
+Mutu
+Riset dan pengembangan
+Layanan pelanggan
+Keamanan
+Umum
+Hubungan masyarakat

@@ -1,0 +1,18 @@
+---
+description: Dishes of Indonesia cuisine (Indonesian)
+locale: id
+---
+nasi goreng
+rendang
+sate ayam
+soto ayam
+gado-gado
+bakso
+mie goreng
+gudeg
+rawon
+pempek
+nasi uduk
+ayam betutu
+coto makassar
+papeda

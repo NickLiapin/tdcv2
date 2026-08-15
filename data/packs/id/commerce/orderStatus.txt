@@ -1,0 +1,18 @@
+---
+description: Order status (Indonesian)
+locale: id
+---
+Baru
+Diterima
+Dikonfirmasi
+Diproses
+Dikemas
+Siap dikirim
+Dikirim
+Dalam perjalanan
+Tiba di kota tujuan
+Terkirim
+Diterima pembeli
+Dibatalkan
+Dikembalikan
+Menunggu pembayaran

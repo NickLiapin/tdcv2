@@ -1,0 +1,57 @@
+---
+description: Colour as written on an Indonesian product listing
+locale: id
+---
+putih
+hitam
+abu-abu
+abu muda
+abu tua
+grafit
+perak
+emas
+perunggu
+tembaga
+krem
+gading
+beige
+pasir
+cokelat
+cokelat tua
+karamel
+hazelnut
+merah
+merah marun
+merah ceri
+fuchsia
+merah muda
+pink pudar
+koral
+oranye
+persik
+terakota
+kuning
+lemon
+mustar
+hijau
+zaitun
+hijau pistachio
+zamrud
+mint
+army
+tosca
+biru muda
+biru langit
+biru
+biru dongker
+biru laut
+nila
+ungu
+lilac
+lavender
+magenta
+plum
+transparan
+warna-warni
+motif kayu
+motif marmer

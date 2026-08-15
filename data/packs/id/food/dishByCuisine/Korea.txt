@@ -1,0 +1,12 @@
+---
+description: Dishes of Korea cuisine (Indonesian)
+locale: id
+---
+kimchi
+bibimbap
+bulgogi
+tteokbokki
+kimbap
+samgyeopsal
+japchae
+sup kimchi

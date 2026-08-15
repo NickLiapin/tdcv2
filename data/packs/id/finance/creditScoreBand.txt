@@ -1,0 +1,9 @@
+---
+description: Credit score band (Indonesian)
+locale: id
+---
+sangat rendah
+rendah
+sedang
+baik
+sangat baik

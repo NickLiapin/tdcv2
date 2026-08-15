@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Indonesian)
+locale: id
+---
+Osteoartritis lutut
+Osteoartritis panggul
+Degenerasi tulang belakang
+Hernia nukleus pulposus
+Fraktur radius
+Fraktur leher femur
+Robekan meniskus
+Frozen shoulder
+Skoliosis
+Kaki datar

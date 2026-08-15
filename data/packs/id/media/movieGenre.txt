@@ -1,0 +1,24 @@
+---
+description: Movie genre (Indonesian)
+locale: id
+---
+laga
+petualangan
+komedi
+drama
+romantis
+thriller
+horor
+fiksi ilmiah
+fantasi
+misteri
+kriminal
+koboi
+sejarah
+perang
+biografi
+dokumenter
+musikal
+animasi
+keluarga
+olahraga

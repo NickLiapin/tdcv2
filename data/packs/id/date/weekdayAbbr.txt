@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Indonesian)
+locale: id
+---
+Min
+Sen
+Sel
+Rab
+Kam
+Jum
+Sab

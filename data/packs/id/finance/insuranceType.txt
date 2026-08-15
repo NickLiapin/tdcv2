@@ -1,0 +1,18 @@
+---
+description: Insurance type (Indonesian)
+locale: id
+---
+BPJS Kesehatan
+asuransi kesehatan swasta
+asuransi jiwa
+asuransi kecelakaan diri
+asuransi kendaraan
+asuransi all risk
+asuransi TLO
+asuransi properti
+asuransi rumah
+asuransi pengangkutan
+asuransi perjalanan
+asuransi tanggung gugat
+asuransi pensiun
+asuransi pertanian

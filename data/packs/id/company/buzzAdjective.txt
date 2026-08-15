@@ -1,0 +1,58 @@
+---
+description: Business buzz adjective (Indonesian)
+locale: id
+---
+strategis
+komprehensif
+sistematis
+terintegrasi
+terskala
+fleksibel
+adaptif
+efisien
+efektif
+produktif
+optimal
+seimbang
+berkelanjutan
+andal
+transparan
+akuntabel
+terukur
+terkelola
+terprediksi
+inovatif
+terobosan
+terdepan
+modern
+digital
+berbasis cloud
+mobile
+dipersonalisasi
+berorientasi pelanggan
+berorientasi pasar
+kompetitif
+menguntungkan
+berimbal hasil
+hemat biaya
+jangka panjang
+jangka pendek
+prioritas
+kunci
+kritis
+fundamental
+dasar
+sektoral
+lintas fungsi
+berlapis
+ujung ke ujung
+menyeluruh
+konsisten
+selaras
+terpadu
+terstandar
+tersertifikasi
+berlisensi
+profesional
+ahli
+berpengalaman

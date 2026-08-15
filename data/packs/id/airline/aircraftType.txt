@@ -1,0 +1,30 @@
+---
+description: Aircraft type (manufacturer designations, used unchanged in Indonesian)
+locale: id
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330-200
+Airbus A330-300
+Airbus A330-900neo
+Airbus A350-900
+Airbus A380
+Boeing 737-500
+Boeing 737-800
+Boeing 737-900ER
+Boeing 737 MAX 8
+Boeing 747-400
+Boeing 767-300
+Boeing 777-200
+Boeing 777-300ER
+Boeing 787-8
+Boeing 787-9
+Embraer E175
+Embraer E190
+Bombardier CRJ1000
+ATR 72-500
+ATR 72-600
+Cessna 208 Caravan
+N219 Nurtanio

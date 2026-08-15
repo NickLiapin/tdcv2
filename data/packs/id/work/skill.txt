@@ -1,0 +1,46 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Indonesian)
+locale: id
+---
+pemrograman
+pengelolaan basis data
+administrasi sistem
+konfigurasi jaringan
+keamanan siber
+analisis data
+statistika
+manajemen proyek
+perencanaan
+penyusunan anggaran
+akuntansi
+perpajakan
+analisis keuangan
+negosiasi
+penjualan
+hubungan pelanggan
+pemasaran
+penulisan naskah
+penyuntingan
+penerjemahan
+berbicara di depan umum
+kerja tim
+kepemimpinan
+pembimbingan
+manajemen waktu
+penyelesaian konflik
+berpikir kritis
+ketelitian
+mengemudi
+penggunaan perkakas listrik
+pengelasan
+instalasi listrik
+instalasi pipa
+pertukangan kayu
+gambar teknik
+pengoperasian mesin
+pengendalian mutu
+pertolongan pertama
+perawatan pasien
+pengoperasian kasir
+pencatatan gudang
+pengelolaan dokumen

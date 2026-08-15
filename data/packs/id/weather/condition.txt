@@ -1,0 +1,20 @@
+---
+description: Weather condition (Indonesian)
+locale: id
+---
+cerah
+cerah berawan
+berawan
+mendung
+hujan
+hujan lebat
+gerimis
+hujan es
+berkabut
+hujan petir
+berangin
+panas terik
+sejuk
+lembap
+asap
+udara kering

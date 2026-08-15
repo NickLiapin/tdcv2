@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Indonesian)
+locale: id
+---
+BPJS Kesehatan
+asuransi kesehatan swasta
+asuransi jiwa
+cuti berbayar
+tambahan hari cuti
+cuti sakit berbayar
+jam kerja fleksibel
+kerja jarak jauh
+bantuan biaya pendidikan
+kursus bahasa Inggris
+keanggotaan pusat kebugaran
+makan siang di kantor
+tunjangan makan
+tunjangan transportasi
+mobil dinas
+pulsa kantor
+bonus kinerja
+tunjangan hari raya

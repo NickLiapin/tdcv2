@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Indonesian)
+locale: id
+---
+penjaga gawang
+sayap kiri
+back kiri
+playmaker
+back kanan
+sayap kanan
+pivot

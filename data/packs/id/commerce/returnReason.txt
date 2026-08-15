@@ -1,0 +1,19 @@
+---
+description: Order return reason (Indonesian)
+locale: id
+---
+Ukuran tidak sesuai
+Warna tidak sesuai
+Barang tidak sesuai deskripsi
+Barang rusak
+Cacat produksi
+Tidak berfungsi
+Salah kirim
+Kelengkapan kurang
+Berubah pikiran
+Menemukan yang lebih murah
+Pengiriman terlambat
+Salah pesan
+Kualitas mengecewakan
+Pesanan ganda
+Alasan lain

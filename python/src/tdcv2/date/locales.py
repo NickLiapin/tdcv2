@@ -463,6 +463,16 @@ TR = DateLocale(
     {"L": "DD.MM.YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd, D MMMM YYYY HH:mm"},
 )
 
+# Indonesian month and weekday names do not inflect, and are capitalised.
+ID = DateLocale(
+    "id",
+    ("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"),
+    ("Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"),
+    ("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"),
+    ("Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"),
+    {"L": "DD/MM/YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd, D MMMM YYYY HH:mm"},
+)
+
 _BY_NAME: dict[str, DateLocale] = {
     "en": EN,
     "eng": EN,
@@ -489,9 +499,11 @@ _BY_NAME: dict[str, DateLocale] = {
     "ukr": UK,
     "tr": TR,
     "tur": TR,
+    "id": ID,
+    "ind": ID,
 }
 
-NAMES = ("ar", "de", "el", "en", "es", "fr", "it", "pl", "pt", "ru", "tr", "uk", "zh-cn")
+NAMES = ("ar", "de", "el", "en", "es", "fr", "id", "it", "pl", "pt", "ru", "tr", "uk", "zh-cn")
 
 
 def resolve(name: str | None) -> DateLocale:

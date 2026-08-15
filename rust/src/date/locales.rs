@@ -562,7 +562,63 @@ static TR: DateLocale = DateLocale {
     ],
 };
 
-static BY_NAME: [(&str, &DateLocale); 25] = [
+// Indonesian month and weekday names do not inflect, and are capitalised.
+static ID: DateLocale = DateLocale {
+    months: [
+        "Januari",
+        "Februari",
+        "Maret",
+        "April",
+        "Mei",
+        "Juni",
+        "Juli",
+        "Agustus",
+        "September",
+        "Oktober",
+        "November",
+        "Desember",
+    ],
+    months_short: [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "Mei",
+        "Jun",
+        "Jul",
+        "Agu",
+        "Sep",
+        "Okt",
+        "Nov",
+        "Des",
+    ],
+    weekdays: [
+        "Minggu",
+        "Senin",
+        "Selasa",
+        "Rabu",
+        "Kamis",
+        "Jumat",
+        "Sabtu",
+    ],
+    weekdays_short: [
+        "Min",
+        "Sen",
+        "Sel",
+        "Rab",
+        "Kam",
+        "Jum",
+        "Sab",
+    ],
+    formats: [
+        "DD/MM/YYYY",
+        "D MMMM YYYY",
+        "D MMMM YYYY HH:mm",
+        "dddd, D MMMM YYYY HH:mm",
+    ],
+};
+
+static BY_NAME: [(&str, &DateLocale); 27] = [
     ("en", &EN),
     ("eng", &EN),
     ("ru", &RU),
@@ -588,11 +644,13 @@ static BY_NAME: [(&str, &DateLocale); 25] = [
     ("ukr", &UK),
     ("tr", &TR),
     ("tur", &TR),
+    ("id", &ID),
+    ("ind", &ID),
 ];
 
 /// The advertised names, for the validator's "did you mean" list.
-pub static NAMES: [&str; 13] = [
-    "ar", "de", "el", "en", "es", "fr", "it", "pl", "pt", "ru", "tr", "uk", "zh-cn",
+pub static NAMES: [&str; 14] = [
+    "ar", "de", "el", "en", "es", "fr", "id", "it", "pl", "pt", "ru", "tr", "uk", "zh-cn",
 ];
 
 /// The named locale, falling back to English.

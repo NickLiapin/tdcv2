@@ -1,0 +1,21 @@
+---
+description: Official document type (Indonesian)
+locale: id
+---
+Kartu Tanda Penduduk
+Kartu Keluarga
+paspor
+akta kelahiran
+buku nikah
+akta cerai
+akta kematian
+Nomor Pokok Wajib Pajak
+Surat Izin Mengemudi
+Surat Tanda Nomor Kendaraan
+sertifikat tanah
+surat keterangan domisili
+slip gaji
+kartu BPJS
+surat keterangan catatan kepolisian
+Nomor Induk Berusaha
+ijazah

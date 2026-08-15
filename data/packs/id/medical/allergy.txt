@@ -1,0 +1,26 @@
+---
+description: Common allergies (Indonesian)
+locale: id
+---
+serbuk sari rumput
+serbuk sari pohon
+debu rumah
+tungau debu
+bulu kucing
+bulu anjing
+jamur
+penisilin
+sulfonamida
+aspirin
+anestesi lokal
+kacang tanah
+kacang pohon
+susu sapi
+telur
+ikan
+udang
+kepiting
+kedelai
+gluten
+sengatan lebah
+lateks

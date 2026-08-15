@@ -1,0 +1,24 @@
+---
+description: Trip type (Indonesian)
+locale: id
+---
+liburan
+akhir pekan
+wisata pantai
+wisata gunung
+wisata budaya
+wisata kuliner
+tur bus
+pelayaran
+mendaki
+arung jeram
+tur sepeda
+perjalanan darat
+perjalanan kereta
+ziarah
+umrah
+haji
+wisata belanja
+wisata kesehatan
+perjalanan dinas
+konferensi

@@ -1,0 +1,12 @@
+---
+description: Dishes of Thailand cuisine (Indonesian)
+locale: id
+---
+tom yum
+pad thai
+kari hijau
+tom kha gai
+som tam
+kari massaman
+ketan mangga
+mie goreng basil

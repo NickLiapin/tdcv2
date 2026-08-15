@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Indonesian. A prevalence signal, not an exclusive one.
+locale: id
+---
+Fibrosis kistik
+Hemokromatosis herediter
+Defisiensi alfa-1 antitripsin
+Penyakit celiac
+Fenilketonuria
+Multipel sklerosis
+Kontraktur Dupuytren
+Melanoma
+Intoleransi laktosa dewasa
+Mutasi Faktor V Leiden

@@ -1,0 +1,29 @@
+---
+description: Fish (Indonesian)
+locale: id
+---
+ikan mas
+ikan nila
+lele
+gurame
+patin
+bawal
+mujair
+gabus
+belida
+tawes
+tuna
+cakalang
+tongkol
+kembung
+tenggiri
+kakap
+kerapu
+baronang
+bandeng
+teri
+sarden
+layur
+pari
+hiu
+belut

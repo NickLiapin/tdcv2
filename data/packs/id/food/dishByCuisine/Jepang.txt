@@ -1,0 +1,13 @@
+---
+description: Dishes of Jepang cuisine (Indonesian)
+locale: id
+---
+sushi
+maki
+sashimi
+ramen
+tempura
+sup miso
+udon
+gyoza
+yakitori

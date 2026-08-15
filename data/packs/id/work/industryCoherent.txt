@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: id
+---
+Teknologi
+Kesehatan
+Pendidikan
+Keuangan
+Konstruksi
+Manufaktur
+Transportasi
+Ritel
+Perhotelan
+Hukum

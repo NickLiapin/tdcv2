@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Indonesian market
+locale: id
+---
+Netflix
+Vidio
+Disney+ Hotstar
+Prime Video
+Viu
+WeTV
+iQIYI
+Catchplay+
+Mola
+RCTI+
+YouTube Premium
+Spotify

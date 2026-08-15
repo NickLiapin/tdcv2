@@ -1,0 +1,14 @@
+---
+description: Personal pronoun set (Indonesian). Indonesian has no grammatical gender: "dia" covers he and she.
+locale: id
+---
+saya
+aku
+kamu
+anda
+dia
+beliau
+kami
+kita
+kalian
+mereka

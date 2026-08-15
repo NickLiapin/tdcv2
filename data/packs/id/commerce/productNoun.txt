@@ -1,0 +1,140 @@
+---
+description: Product noun (Indonesian)
+locale: id
+---
+meja
+kursi
+sofa
+lemari
+rak
+tempat tidur
+kasur
+nakas
+cermin
+karpet
+gorden
+bantal
+selimut
+sprei
+handuk
+taplak meja
+cangkir
+piring
+gelas
+pisau
+garpu
+sendok
+panci
+wajan
+teko
+saringan
+talenan
+blender
+mikser
+pemanggang roti
+rice cooker
+panci presto
+oven microwave
+kulkas
+freezer
+mesin cuci
+mesin pencuci piring
+penyedot debu
+setrika
+pengering rambut
+pemanas air
+kipas angin
+AC
+pelembap udara
+televisi
+monitor
+laptop
+komputer
+tablet
+ponsel
+headphone
+speaker
+mouse
+keyboard
+router
+printer
+pemindai
+flash disk
+hard disk
+power bank
+pengisi daya
+kabel
+adaptor
+lampu
+lampu gantung
+senter
+jam dinding
+jam weker
+timbangan
+termometer
+ransel
+tas
+koper
+dompet
+ikat pinggang
+payung
+kacamata
+topi
+syal
+sarung tangan
+sweter
+kaus
+kemeja
+blus
+gaun
+rok
+celana
+celana jeans
+celana pendek
+jaket
+mantel
+jas hujan
+jas
+piyama
+kaus kaki
+sepatu olahraga
+sepatu bot
+sepatu
+sandal
+bola
+sepeda
+skuter
+sepatu roda
+dumbel
+matras yoga
+tenda
+kantong tidur
+termos
+botol minum
+joran
+panggangan
+mesin potong rumput
+sekop
+garu
+gunting tanaman
+selang
+bor
+obeng listrik
+palu
+obeng
+gergaji
+meteran
+waterpas
+cat
+kuas
+rol cat
+paku
+sekrup
+lem
+isolasi
+gembok
+gagang pintu
+engsel
+stopkontak
+sakelar
+kabel roll

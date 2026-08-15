@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Indonesian)
+locale: id
+---
+Penyakit ginjal kronis
+Pielonefritis akut
+Glomerulonefritis
+Batu ginjal
+Sindrom nefrotik
+Ginjal polikistik
+Nefropati diabetik
+Cedera ginjal akut
+Infeksi saluran kemih
+Gagal ginjal

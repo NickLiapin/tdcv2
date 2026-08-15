@@ -1,0 +1,28 @@
+---
+description: RPG character class (Indonesian)
+locale: id
+---
+prajurit
+ksatria
+paladin
+barbar
+berserker
+perampok
+pembunuh bayaran
+pemburu
+penjejak
+pemanah
+penyihir
+ahli sihir
+dukun
+nekromanser
+druid
+shaman
+pendeta
+biksu
+pujangga
+insinyur
+ahli alkimia
+penjinak
+tank
+penyembuh

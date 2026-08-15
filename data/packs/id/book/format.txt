@@ -1,0 +1,12 @@
+---
+description: Book format (Indonesian)
+locale: id
+---
+sampul keras
+sampul lunak
+ukuran saku
+edisi khusus
+edisi bergambar
+e-book
+buku audio
+brosur

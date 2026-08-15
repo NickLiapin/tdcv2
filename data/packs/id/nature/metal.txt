@@ -1,0 +1,26 @@
+---
+description: Metal (Indonesian)
+locale: id
+---
+besi
+baja
+besi_tuang
+tembaga
+kuningan
+perunggu
+aluminium
+titanium
+seng
+timah
+timbal
+nikel
+krom
+kobalt
+magnesium
+tungsten
+molibdenum
+perak
+emas
+platina
+paladium
+raksa

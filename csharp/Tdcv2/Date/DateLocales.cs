@@ -791,6 +791,66 @@ public static class DateLocales
             ["LLLL"] = "dddd, D MMMM YYYY HH:mm",
         });
 
+    // Indonesian month and weekday names do not inflect, and are capitalised.
+    internal static readonly DateLocale ID = new(
+        new[]
+        {
+            "Januari",
+            "Februari",
+            "Maret",
+            "April",
+            "Mei",
+            "Juni",
+            "Juli",
+            "Agustus",
+            "September",
+            "Oktober",
+            "November",
+            "Desember",
+        },
+        new[]
+        {
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "Mei",
+            "Jun",
+            "Jul",
+            "Agu",
+            "Sep",
+            "Okt",
+            "Nov",
+            "Des",
+        },
+        new[]
+        {
+            "Minggu",
+            "Senin",
+            "Selasa",
+            "Rabu",
+            "Kamis",
+            "Jumat",
+            "Sabtu",
+        },
+        new[]
+        {
+            "Min",
+            "Sen",
+            "Sel",
+            "Rab",
+            "Kam",
+            "Jum",
+            "Sab",
+        },
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["L"] = "DD/MM/YYYY",
+            ["LL"] = "D MMMM YYYY",
+            ["LLL"] = "D MMMM YYYY HH:mm",
+            ["LLLL"] = "dddd, D MMMM YYYY HH:mm",
+        });
+
     private static readonly Dictionary<string, DateLocale> ByName =
         new(StringComparer.Ordinal)
         {
@@ -819,6 +879,8 @@ public static class DateLocales
             ["ukr"] = UK,
             ["tr"] = TR,
             ["tur"] = TR,
+            ["id"] = ID,
+            ["ind"] = ID,
         };
 
     /// <summary>The advertised names, for the validator's "did you mean" list.</summary>
@@ -830,6 +892,7 @@ public static class DateLocales
         "en",
         "es",
         "fr",
+        "id",
         "it",
         "pl",
         "pt",

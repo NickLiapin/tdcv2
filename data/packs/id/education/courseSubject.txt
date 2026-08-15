@@ -1,0 +1,24 @@
+---
+description: School subject (Indonesian)
+locale: id
+---
+Bahasa Indonesia
+Bahasa Inggris
+Matematika
+Fisika
+Kimia
+Biologi
+Geografi
+Sejarah
+Sosiologi
+Ekonomi
+Pendidikan Pancasila
+Pendidikan Kewarganegaraan
+Pendidikan Agama
+Informatika
+Seni Budaya
+Seni Musik
+Seni Rupa
+Prakarya
+Pendidikan Jasmani
+Bimbingan Konseling

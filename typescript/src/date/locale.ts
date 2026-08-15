@@ -535,6 +535,34 @@ const TR: DateLocale = {
   },
 };
 
+// Indonesian month and weekday names do not inflect, and are capitalised.
+const ID: DateLocale = {
+  name: 'id',
+  months: [
+    'Januari',
+    'Februari',
+    'Maret',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Agustus',
+    'September',
+    'Oktober',
+    'November',
+    'Desember',
+  ],
+  monthsShort: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
+  weekdays: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+  weekdaysShort: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+  formats: {
+    L: 'DD/MM/YYYY',
+    LL: 'D MMMM YYYY',
+    LLL: 'D MMMM YYYY HH:mm',
+    LLLL: 'dddd, D MMMM YYYY HH:mm',
+  },
+};
+
 const LOCALES = new Map<string, DateLocale>([
   ['en', EN],
   ['eng', EN],
@@ -561,6 +589,8 @@ const LOCALES = new Map<string, DateLocale>([
   ['ukr', UK],
   ['tr', TR],
   ['tur', TR],
+  ['id', ID],
+  ['ind', ID],
 ]);
 
 export const DATE_LOCALE_NAMES: readonly string[] = [
@@ -570,6 +600,7 @@ export const DATE_LOCALE_NAMES: readonly string[] = [
   'en',
   'es',
   'fr',
+  'id',
   'it',
   'pl',
   'pt',

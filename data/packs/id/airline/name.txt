@@ -1,0 +1,54 @@
+---
+description: Airline (Indonesian carriers and major international ones)
+locale: id
+---
+Garuda Indonesia
+Lion Air
+Batik Air
+Citilink
+Sriwijaya Air
+NAM Air
+Wings Air
+Super Air Jet
+TransNusa
+Pelita Air
+Susi Air
+Indonesia AirAsia
+Singapore Airlines
+Malaysia Airlines
+Thai Airways
+Vietnam Airlines
+Philippine Airlines
+Cathay Pacific
+China Airlines
+EVA Air
+Japan Airlines
+All Nippon Airways
+Korean Air
+Asiana Airlines
+China Southern
+China Eastern
+Air China
+Emirates
+Qatar Airways
+Etihad Airways
+Turkish Airlines
+Saudia
+Air India
+IndiGo
+Sri Lankan Airlines
+Qantas
+Jetstar
+Virgin Australia
+Air New Zealand
+KLM
+Lufthansa
+Air France
+British Airways
+Swiss
+Scoot
+Jetstar Asia
+AirAsia
+VietJet Air
+Cebu Pacific
+Nok Air

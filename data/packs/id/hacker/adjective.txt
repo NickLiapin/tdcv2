@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Indonesian)
+locale: id
+---
+digital
+biner
+terdistribusi
+paralel
+asinkron
+sinkron
+aman
+terenkripsi
+terbuka
+tertutup
+jarak jauh
+lokal
+berbasis awan
+virtual
+terkontainerisasi
+terskala
+tahan gagal
+redundan
+tersimpan sementara
+terindeks
+terkompresi
+teroptimasi
+usang
+kompatibel
+lintas platform
+multiutas
+tingkat rendah
+tingkat tinggi

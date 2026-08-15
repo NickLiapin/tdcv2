@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Indonesian)
+locale: id
+---
+bintang 1
+bintang 2
+bintang 3
+bintang 4
+bintang 5

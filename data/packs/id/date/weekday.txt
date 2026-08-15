@@ -1,0 +1,11 @@
+---
+description: Weekday name (Indonesian)
+locale: id
+---
+Minggu
+Senin
+Selasa
+Rabu
+Kamis
+Jumat
+Sabtu

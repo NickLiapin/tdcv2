@@ -1,0 +1,42 @@
+---
+description: Music genre (Indonesian, including Indonesian genres)
+locale: id
+---
+pop
+rock
+hard rock
+punk
+metal
+alternatif
+indie
+hip hop
+rap
+R&B
+soul
+jazz
+blues
+funk
+disko
+elektronik
+house
+techno
+trance
+drum and bass
+dubstep
+ambient
+klasik
+opera
+simfoni
+musik kamar
+paduan suara
+musik daerah
+dangdut
+dangdut koplo
+keroncong
+campursari
+gambus
+qasidah
+gamelan
+jaipong
+tembang
+langgam

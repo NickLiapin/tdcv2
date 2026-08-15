@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Indonesian)
+locale: id
+---
+kabel UTP
+kabel FTP
+kabel STP berpelindung
+kabel koaksial
+serat optik single-mode
+serat optik multi-mode
+kabel listrik
+kabel telepon
+kabel patch

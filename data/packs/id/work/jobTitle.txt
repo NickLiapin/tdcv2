@@ -1,0 +1,253 @@
+---
+description: Indonesian job titles across sectors (tech, healthcare, trades, transport, business, service, public)
+locale: id
+---
+pengembang perangkat lunak
+pengembang front-end
+pengembang back-end
+pengembang mobile
+insinyur pengujian
+administrator sistem
+insinyur jaringan
+administrator basis data
+insinyur DevOps
+arsitek sistem
+analis data
+ilmuwan data
+spesialis keamanan siber
+desainer antarmuka
+desainer grafis
+manajer produk
+manajer proyek
+scrum master
+direktur teknologi
+staf dukungan teknis
+dokter umum
+dokter keluarga
+dokter bedah
+dokter jantung
+dokter saraf
+dokter endokrin
+dokter mata
+dokter THT
+dokter kulit
+psikiater
+dokter anestesi
+dokter kandungan
+dokter anak
+dokter ortopedi
+dokter urologi
+dokter onkologi
+dokter gigi
+ortodontis
+perawat
+kepala perawat
+bidan
+apoteker
+asisten apoteker
+analis laboratorium
+radiografer
+fisioterapis
+terapis pijat
+ahli gizi
+dokter hewan
+guru sekolah dasar
+guru matematika
+guru fisika
+guru kimia
+guru biologi
+guru sejarah
+guru bahasa Indonesia
+guru bahasa Inggris
+guru informatika
+guru olahraga
+guru taman kanak-kanak
+dosen
+lektor
+profesor
+peneliti
+pengawas sekolah
+kepala sekolah
+wakil kepala sekolah
+guru bimbingan konseling
+psikolog sekolah
+akuntan
+akuntan publik
+auditor
+analis keuangan
+ekonom
+teller bank
+analis kredit
+analis investasi
+agen asuransi
+konsultan pajak
+penilai properti
+auditor internal
+manajer keuangan
+direktur keuangan
+sarjana hukum
+pengacara
+notaris
+hakim
+jaksa
+penyidik
+konsultan hukum
+konsultan paten
+mediator
+kurator kepailitan
+insinyur sipil
+arsitek
+arsitek lanskap
+perancang proyek
+mandor proyek
+estimator biaya
+tukang batu
+tukang plester
+tukang cat
+tukang keramik
+tukang atap
+tukang kayu
+tukang mebel
+tukang listrik
+tukang pipa
+juru las
+pemasang rangka
+operator derek
+operator buldoser
+operator ekskavator
+operator bubut
+operator frais
+montir
+teknisi pemeliharaan
+operator CNC
+teknisi setter
+teknolog produksi
+insinyur mesin
+insinyur perancang
+pengawas mutu
+kepala regu
+kepala shift
+petugas pengemasan
+petugas gudang
+buruh angkut
+sopir truk
+sopir bus
+sopir angkot
+sopir taksi
+masinis kereta
+masinis MRT
+kondektur
+petugas operasional
+staf logistik
+ekspeditur
+pengurus bea cukai
+teknisi pesawat
+pilot
+pramugari
+petugas bandara
+nakhoda kapal
+juru mesin kapal
+buruh pelabuhan
+kurir
+sopir derek
+pramuniaga
+kasir
+penata barang
+manajer toko
+staf pembelian
+manajer kategori
+manajer penjualan
+sales lapangan
+staf gudang
+pengambil pesanan
+direktur toko
+resepsionis hotel
+staf reservasi
+petugas kamar
+doorman
+concierge
+juru masak
+asisten chef
+chef
+pastry chef
+tukang roti
+tukang daging
+pelayan
+bartender
+barista
+sommelier
+kapten pelayan
+pemandu acara
+pemandu wisata
+staf biro perjalanan
+penyelenggara acara
+staf pemasaran
+spesialis media sosial
+editor konten
+penulis naskah
+editor
+korektor
+wartawan
+fotografer
+juru kamera
+editor video
+penata suara
+penyiar
+pembawa acara
+sutradara
+penulis skenario
+penerjemah
+pemandu penerjemah
+staf SDM
+perekrut
+staf pelatihan
+manajer kantor
+sekretaris
+staf administrasi
+arsiparis
+asisten direksi
+operator pusat panggilan
+staf layanan pelanggan
+polisi
+babinsa
+petugas SAR
+pemadam kebakaran
+tentara
+petugas imigrasi
+petugas bea cukai
+satpam
+ahli K3
+pegawai negeri
+pekerja sosial
+pustakawan
+staf museum
+arsitek restorasi
+insinyur pertanian
+ahli peternakan
+operator traktor
+operator panen
+petani
+peternak lebah
+petugas kehutanan
+nelayan
+tukang kebun
+perangkai bunga
+petugas pertamanan
+petugas kebersihan
+petugas sampah
+petugas gedung
+teknisi lift
+penata rambut
+tukang cukur
+manikuris
+ahli kecantikan
+penata rias
+penjahit
+tukang jahit
+tukang sepatu
+tukang jam
+pengrajin perak
+pengrajin gerabah
+pengrajin mebel
+restorator
+penyetel piano

@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Indonesian, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: id
+---
+Eropa Utara
+Eropa Timur
+Mediterania
+Yahudi Ashkenazi
+Timur Tengah
+Afrika Utara
+Afrika Sub-Sahara
+Asia Timur
+Asia Selatan
+Asia Tenggara
+Pribumi Amerika
+Kepulauan Pasifik

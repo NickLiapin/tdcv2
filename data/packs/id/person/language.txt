@@ -1,0 +1,44 @@
+---
+description: Language name (Indonesian)
+locale: id
+---
+bahasa Indonesia
+bahasa Jawa
+bahasa Sunda
+bahasa Madura
+bahasa Minangkabau
+bahasa Bugis
+bahasa Banjar
+bahasa Bali
+bahasa Aceh
+bahasa Batak
+bahasa Betawi
+bahasa Sasak
+bahasa Makassar
+bahasa Melayu
+bahasa Inggris
+bahasa Mandarin
+bahasa Arab
+bahasa Jepang
+bahasa Korea
+bahasa Belanda
+bahasa Jerman
+bahasa Prancis
+bahasa Spanyol
+bahasa Portugis
+bahasa Italia
+bahasa Rusia
+bahasa Ukraina
+bahasa Polandia
+bahasa Turki
+bahasa Persia
+bahasa Hindi
+bahasa Urdu
+bahasa Bengali
+bahasa Tamil
+bahasa Thai
+bahasa Vietnam
+bahasa Khmer
+bahasa Filipino
+bahasa Swahili
+bahasa Ibrani

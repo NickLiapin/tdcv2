@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Indonesian)
+locale: id
+---
+penjaga gawang
+bek
+bek tengah
+bek sayap
+gelandang
+gelandang bertahan
+gelandang serang
+penyerang
+penyerang tengah
+sayap
+point guard
+shooting guard
+small forward
+power forward
+center
+tosser
+opposite
+blocker tengah
+open spiker
+libero
+pivot
+sayap kiri
+sayap kanan
+pitcher
+catcher
+shortstop
+outfielder
+prop
+hooker
+lock
+flanker
+tunggal putra
+tunggal putri
+ganda campuran
+pesilat

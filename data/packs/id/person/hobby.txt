@@ -1,0 +1,83 @@
+---
+description: Hobby / interest (Indonesian)
+locale: id
+---
+membaca buku
+menulis
+melukis
+menggambar
+fotografi
+menonton film
+teater
+mendengarkan musik
+bermain gitar
+bermain piano
+bermain gamelan
+menyanyi
+menari
+tari tradisional
+memasak
+membuat kue
+menyeduh kopi
+berkebun
+menanam bunga
+memancing
+berburu
+berkemah
+mendaki gunung
+panjat tebing
+bersepeda
+lari
+berenang
+menyelam
+selancar
+berlayar
+arung jeram
+sepak bola
+bulu tangkis
+bola voli
+bola basket
+tenis
+tenis meja
+pencak silat
+karate
+taekwondo
+judo
+yoga
+pilates
+senam
+angkat beban
+catur
+teka-teki silang
+merakit model
+kerajinan tangan
+membatik
+menenun
+mengukir kayu
+membuat keramik
+kaligrafi
+menyulam
+merajut
+menjahit
+membuat perhiasan
+pertukangan
+memperbaiki barang
+otomotif
+sepeda motor
+mengoleksi
+filateli
+numismatik
+astronomi
+mengamati burung
+akuarium
+memelihara hewan
+bertamasya
+wisata kuliner
+wisata sejarah
+arkeologi
+belajar bahasa
+pemrograman
+bermain gim
+menyunting video
+mendengarkan podcast
+kegiatan sukarela

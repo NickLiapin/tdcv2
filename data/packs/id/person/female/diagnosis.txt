@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Indonesian (female-specific + common)
+locale: id
+---
+Endometriosis
+Mioma uteri
+Kista ovarium
+Fibrokistik payudara
+Sindrom ovarium polikistik
+Sistitis
+Anemia defisiensi besi
+Osteoporosis
+Hipotiroidisme
+Hipertensi
+Penyakit jantung koroner
+Varises
+Diabetes melitus tipe 2
+Asma
+Bronkitis kronis
+Tukak lambung
+Batu empedu
+Gastritis
+Kolesistitis
+Pielonefritis
+Artritis reumatoid
+Nyeri pinggang bawah
+Migrain
+Pneumonia
+Hepatitis B
+Episode depresi
+Gangguan kecemasan

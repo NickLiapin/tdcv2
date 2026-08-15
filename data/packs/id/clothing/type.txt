@@ -1,0 +1,30 @@
+---
+description: Garment type (Indonesian)
+locale: id
+---
+kaus
+kemeja
+blus
+sweter
+kardigan
+hoodie
+jaket
+rompi
+gaun
+rok
+celana panjang
+celana jeans
+celana pendek
+terusan
+setelan jas
+mantel
+jas hujan
+batik
+kebaya
+sarung
+koko
+jilbab
+piyama
+pakaian dalam
+kaus kaki
+stoking

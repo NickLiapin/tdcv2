@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Indonesian)
+locale: id
+---
+Magang
+Asisten
+Junior
+Staf
+Menengah
+Senior
+Lead
+Kepala
+Ketua tim
+Penanggung jawab unit
+Manajer departemen
+Wakil direktur
+Direktur
+Direktur eksekutif
+Direktur utama
+Mitra

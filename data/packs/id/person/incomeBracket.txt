@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Indonesian. Amounts are in IDR, the currency of Indonesia.
+locale: id
+---
+Di bawah Rp 50 juta
+Rp 50–100 juta
+Rp 100–150 juta
+Rp 150–250 juta
+Rp 250–400 juta
+Rp 400–600 juta
+Rp 600 juta–1 miliar
+Di atas Rp 1 miliar

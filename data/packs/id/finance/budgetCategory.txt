@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Indonesian)
+locale: id
+---
+belanja bulanan
+makan di luar
+tempat tinggal
+sewa
+tagihan listrik dan air
+pulsa dan internet
+transportasi
+bahan bakar
+kendaraan
+kesehatan
+obat
+pendidikan
+anak
+pakaian dan sepatu
+perawatan diri
+hiburan
+liburan
+hadiah
+sedekah
+tabungan

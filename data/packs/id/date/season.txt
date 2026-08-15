@@ -1,0 +1,10 @@
+---
+description: Season (Indonesian). Indonesia is equatorial and has two seasons, not four; the four-season names below are the ones used when writing about other countries.
+locale: id
+---
+musim hujan
+musim kemarau
+musim semi
+musim panas
+musim gugur
+musim dingin

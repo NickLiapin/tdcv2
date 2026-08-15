@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Indonesian (prefix with # in a template)
+locale: id
+---
+indonesia
+jakarta
+bandung
+surabaya
+yogyakarta
+bali
+jalanjalan
+wisata
+alam
+gunung
+pantai
+laut
+foto
+fotografi
+seni
+musik
+film
+buku
+baca
+kuliner
+masak
+kopi
+olahraga
+lari
+kebugaran
+kesehatan
+keluarga
+teman
+kerja
+motivasi

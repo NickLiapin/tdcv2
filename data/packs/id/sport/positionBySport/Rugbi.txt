@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Indonesian)
+locale: id
+---
+prop
+hooker
+lock
+flanker
+nomor delapan
+scrum-half
+fly-half
+center
+sayap
+fullback

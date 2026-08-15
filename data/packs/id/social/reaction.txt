@@ -1,0 +1,15 @@
+---
+description: Social reaction (Indonesian)
+locale: id
+---
+suka
+cinta
+tertawa
+kaget
+sedih
+marah
+dukung
+terima kasih
+selamat
+menarik
+tidak suka

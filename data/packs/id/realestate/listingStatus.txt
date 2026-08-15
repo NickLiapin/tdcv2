@@ -1,0 +1,16 @@
+---
+description: Listing status (Indonesian)
+locale: id
+---
+aktif
+baru
+diperbarui
+dipesan
+sudah DP
+sedang diverifikasi
+ditarik dari pasar
+terjual
+tersewa
+kedaluwarsa
+arsip
+draf

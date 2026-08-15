@@ -1,0 +1,34 @@
+---
+description: Vegetable (Indonesian)
+locale: id
+---
+kentang
+wortel
+bit
+kubis
+bawang_merah
+bawang_putih
+tomat
+mentimun
+cabai
+terong
+labu
+labu_siam
+lobak
+seledri
+daun_bawang
+bayam
+kangkung
+sawi
+selada
+jagung
+kacang_polong
+buncis
+kacang_panjang
+brokoli
+kembang_kol
+pare
+rebung
+jamur
+tauge
+daun_singkong

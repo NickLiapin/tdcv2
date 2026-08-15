@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, in Indonesian. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: id
+---
+Anemia sel sabit
+Sifat sel sabit
+Defisiensi G6PD
+Talasemia alfa
+Hipertensi
+Diabetes melitus tipe 2
+Penyakit ginjal kronis
+Sarkoidosis
+Mioma uteri
+Bekas luka keloid
+Neutropenia etnik jinak
+Intoleransi laktosa

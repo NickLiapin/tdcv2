@@ -1,0 +1,48 @@
+---
+description: Musical instrument (Indonesian)
+locale: id
+---
+gamelan
+gong
+kendang
+saron
+bonang
+gender
+slenthem
+kenong
+angklung
+calung
+sasando
+kolintang
+talempong
+rebana
+gambus
+siter
+suling
+seruling
+serunai
+tifa
+gendang melayu
+kecapi
+rebab
+biola
+viola
+cello
+kontrabas
+gitar
+gitar bas
+ukulele
+harpa
+piano
+grand piano
+organ
+akordeon
+flute
+klarinet
+obo
+fagot
+saksofon
+terompet
+trombon
+tuba
+drum

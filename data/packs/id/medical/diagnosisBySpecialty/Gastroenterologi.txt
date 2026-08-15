@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Indonesian)
+locale: id
+---
+Gastritis
+Tukak lambung
+Penyakit refluks gastroesofageal
+Sindrom iritasi usus
+Penyakit Crohn
+Kolitis ulseratif
+Pankreatitis kronis
+Batu empedu
+Sirosis hati
+Penyakit celiac

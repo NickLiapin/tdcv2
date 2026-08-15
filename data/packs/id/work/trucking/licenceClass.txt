@@ -1,0 +1,11 @@
+---
+description: Driving licence category for trucks (Indonesian SIM categories)
+locale: id
+---
+SIM A
+SIM A Umum
+SIM B1
+SIM B1 Umum
+SIM B2
+SIM B2 Umum
+SIM D

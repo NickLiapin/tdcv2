@@ -685,6 +685,57 @@ public final class DateLocales {
               "LLL", "D MMMM YYYY HH:mm",
               "LLLL", "dddd, D MMMM YYYY HH:mm"));
 
+  // Indonesian month and weekday names do not inflect, and are capitalised.
+  static final DateFormatter.DateLocale ID =
+      new DateFormatter.DateLocale(
+          List.of(
+              "Januari",
+              "Februari",
+              "Maret",
+              "April",
+              "Mei",
+              "Juni",
+              "Juli",
+              "Agustus",
+              "September",
+              "Oktober",
+              "November",
+              "Desember"),
+          List.of(
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "Mei",
+              "Jun",
+              "Jul",
+              "Agu",
+              "Sep",
+              "Okt",
+              "Nov",
+              "Des"),
+          List.of(
+              "Minggu",
+              "Senin",
+              "Selasa",
+              "Rabu",
+              "Kamis",
+              "Jumat",
+              "Sabtu"),
+          List.of(
+              "Min",
+              "Sen",
+              "Sel",
+              "Rab",
+              "Kam",
+              "Jum",
+              "Sab"),
+          Map.of(
+              "L", "DD/MM/YYYY",
+              "LL", "D MMMM YYYY",
+              "LLL", "D MMMM YYYY HH:mm",
+              "LLLL", "dddd, D MMMM YYYY HH:mm"));
+
   private static final Map<String, DateFormatter.DateLocale> BY_NAME =
       Map.ofEntries(
           Map.entry("en", EN),
@@ -711,7 +762,9 @@ public final class DateLocales {
           Map.entry("uk", UK),
           Map.entry("ukr", UK),
           Map.entry("tr", TR),
-          Map.entry("tur", TR)
+          Map.entry("tur", TR),
+          Map.entry("id", ID),
+          Map.entry("ind", ID)
       );
 
   /** The advertised names, for the validator's "did you mean" list. */
@@ -723,6 +776,7 @@ public final class DateLocales {
           "en",
           "es",
           "fr",
+          "id",
           "it",
           "pl",
           "pt",

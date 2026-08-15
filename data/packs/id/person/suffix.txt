@@ -1,0 +1,29 @@
+---
+description: Name / academic suffix (Indonesian). Indonesian degrees are written AFTER the name, separated by a comma: "Budi Santoso, S.T."
+locale: id
+---
+S.T.
+S.Kom.
+S.H.
+S.E.
+S.Pd.
+S.Si.
+S.Sos.
+S.Psi.
+S.Ked.
+S.Farm.
+S.Kep.
+S.Ag.
+M.T.
+M.M.
+M.Kom.
+M.H.
+M.Si.
+M.Pd.
+M.Sc.
+Ph.D.
+Sp.A.
+Sp.PD.
+Sp.OG.
+Sp.B.
+A.Md.

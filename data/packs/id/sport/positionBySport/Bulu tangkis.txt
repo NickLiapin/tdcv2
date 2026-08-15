@@ -1,0 +1,9 @@
+---
+description: Positions in badminton, where the "positions" are the five competition categories (Indonesian)
+locale: id
+---
+tunggal putra
+tunggal putri
+ganda putra
+ganda putri
+ganda campuran

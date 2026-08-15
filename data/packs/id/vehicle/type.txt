@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Indonesian)
+locale: id
+---
+sedan
+hatchback
+liftback
+station wagon
+coupe
+cabriolet
+roadster
+MPV
+minibus
+crossover
+SUV
+pikap
+van
+truk
+truk jungkit
+truk trailer
+bus
+angkot
+bajaj
+sepeda motor
+skuter
+ATV

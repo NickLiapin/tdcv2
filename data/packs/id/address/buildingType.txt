@@ -1,0 +1,39 @@
+---
+description: Building type (Indonesian)
+locale: id
+---
+rumah tinggal
+rumah kontrakan
+rumah susun
+apartemen
+kondominium
+vila
+bungalow
+ruko
+rukan
+kos-kosan
+asrama
+hotel
+penginapan
+losmen
+gedung perkantoran
+plaza
+pusat perbelanjaan
+pasar
+toko
+kios
+gudang
+hanggar
+pabrik
+bengkel
+garasi
+tempat cuci mobil
+sekolah
+taman kanak-kanak
+rumah sakit
+puskesmas
+masjid
+gereja
+pura
+museum
+stadion

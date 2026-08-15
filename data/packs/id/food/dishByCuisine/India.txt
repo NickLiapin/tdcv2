@@ -1,0 +1,12 @@
+---
+description: Dishes of India cuisine (Indonesian)
+locale: id
+---
+kari
+tikka masala
+biryani
+samosa
+dal
+naan
+paneer tikka
+teh masala

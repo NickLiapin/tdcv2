@@ -1,0 +1,14 @@
+---
+description: Medical specialty (has a coherent diagnosis list)
+locale: id
+---
+Kardiologi
+Neurologi
+Gastroenterologi
+Pulmonologi
+Endokrinologi
+Nefrologi
+Ortopedi
+Dermatologi
+Onkologi
+Psikiatri

@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Indonesian)
+locale: id
+---
+dalam kota
+antarkota jarak dekat
+regional
+antarprovinsi
+antarpulau
+internasional
+rute pulang pergi

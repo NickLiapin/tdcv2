@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Indonesian (male-specific + common)
+locale: id
+---
+Varikokel
+Kriptorkismus
+Fimosis
+Pembesaran prostat jinak
+Prostatitis
+Pankreatitis kronis
+Infeksi klamidia
+Artritis kronis
+Hipertensi
+Penyakit jantung koroner
+Infark miokard
+Tukak lambung
+Diabetes melitus tipe 2
+Asam urat
+Asma
+Bronkitis kronis
+Batu ginjal
+Hernia inguinalis
+Nyeri pinggang bawah
+Hepatitis B
+Anemia
+Gastritis
+Kolesistitis
+Pneumonia
+Migrain
+Episode depresi

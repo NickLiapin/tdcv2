@@ -1,0 +1,87 @@
+---
+description: Medical diagnosis in Indonesian that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: id
+---
+Hipertensi
+Penyakit jantung koroner
+Angina pektoris
+Infark miokard
+Fibrilasi atrium
+Gagal jantung
+Kardiomiopati
+Miokarditis
+Aterosklerosis
+Varises
+Trombosis vena dalam
+Emboli paru
+Stroke
+Serangan iskemik sementara
+Migrain
+Epilepsi
+Multipel sklerosis
+Penyakit Parkinson
+Demensia
+Neuropati perifer
+Radikulopati
+Degenerasi tulang belakang
+Hernia nukleus pulposus
+Osteoartritis
+Artritis reumatoid
+Asam urat
+Osteoporosis
+Skoliosis
+Asma
+Penyakit paru obstruktif kronis
+Bronkitis kronis
+Pneumonia
+Pleuritis
+Tuberkulosis paru
+Sarkoidosis
+Apnea tidur
+Sinusitis akut
+Tonsilitis kronis
+Otitis
+Laringitis
+Gastritis
+Tukak lambung
+Penyakit refluks gastroesofageal
+Sindrom iritasi usus
+Penyakit Crohn
+Kolitis ulseratif
+Penyakit celiac
+Pankreatitis kronis
+Batu empedu
+Kolesistitis
+Hepatitis A
+Hepatitis B
+Hepatitis C
+Sirosis hati
+Perlemakan hati
+Penyakit ginjal kronis
+Pielonefritis
+Glomerulonefritis
+Batu ginjal
+Infeksi saluran kemih
+Diabetes melitus tipe 1
+Diabetes melitus tipe 2
+Hipotiroidisme
+Hipertiroidisme
+Obesitas
+Sindrom metabolik
+Anemia defisiensi besi
+Anemia defisiensi B12
+Demam berdarah dengue
+Malaria
+Tifus
+Leptospirosis
+Dermatitis atopik
+Psoriasis
+Eksim
+Urtikaria
+Akne
+Rinitis alergi
+Konjungtivitis
+Katarak
+Glaukoma
+Episode depresi
+Gangguan cemas menyeluruh

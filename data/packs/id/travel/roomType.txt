@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Indonesian)
+locale: id
+---
+kamar single
+kamar double
+kamar twin
+kamar triple
+kamar quad
+kamar keluarga
+standar
+superior
+deluxe
+junior suite
+suite
+presidential suite
+studio
+apartemen
+vila
+bungalow
+kamar pemandangan laut
+kamar dengan balkon

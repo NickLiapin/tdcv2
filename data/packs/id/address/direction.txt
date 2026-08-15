@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with an Indonesian street, district or estate name (Jakarta Selatan, Blok Timur)
+locale: id
+---
+Utara
+Selatan
+Timur
+Barat
+Timur Laut
+Barat Laut
+Tenggara
+Barat Daya
+Pusat
+Tengah
+Atas
+Bawah
+Dalam
+Luar
+Dekat

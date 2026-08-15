@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Indonesian)
+locale: id
+---
+Asma
+Penyakit paru obstruktif kronis
+Pneumonia
+Bronkitis kronis
+Bronkiektasis
+Pleuritis
+Tuberkulosis paru
+Sarkoidosis
+Apnea tidur
+Emboli paru

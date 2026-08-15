@@ -1,0 +1,23 @@
+---
+description: Property type (Indonesian)
+locale: id
+---
+rumah tapak
+rumah cluster
+rumah tumbuh
+rumah kontrakan
+rumah susun
+apartemen studio
+apartemen 1 kamar
+apartemen 2 kamar
+apartemen 3 kamar
+kondominium
+penthouse
+vila
+townhouse
+kos-kosan
+ruko
+rukan
+kantor
+tanah kavling
+gudang

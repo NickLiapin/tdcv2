@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Indonesian)
+locale: id
+---
+sepeda kota
+sepeda turing
+sepeda balap
+sepeda gunung
+sepeda gravel
+sepeda hibrida
+sepeda trekking
+sepeda lipat
+sepeda listrik
+sepeda anak
+sepeda remaja
+BMX
+sepeda roda tiga
+tandem
+sepeda rebah
+sepeda kargo
+fatbike

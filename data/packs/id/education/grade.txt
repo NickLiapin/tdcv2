@@ -1,0 +1,16 @@
+---
+description: Grade / mark on the Indonesian scale (0-100 school scale plus the university letters)
+locale: id
+---
+A
+A-
+B+
+B
+B-
+C+
+C
+C-
+D
+E
+Lulus
+Tidak lulus

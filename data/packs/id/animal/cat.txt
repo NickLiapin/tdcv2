@@ -1,0 +1,22 @@
+---
+description: Cat breed (Indonesian)
+locale: id
+---
+kucing kampung
+kucing anggora
+kucing persia
+siam
+british shorthair
+maine coon
+sphynx
+bengal
+scottish fold
+abyssinian
+hutan norwegia
+biru rusia
+siberia
+ragdoll
+birman
+cornish rex
+oriental
+eksotik

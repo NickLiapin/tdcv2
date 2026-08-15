@@ -1,0 +1,28 @@
+---
+description: Government body (Indonesian ministries and public offices)
+locale: id
+---
+Kementerian Keuangan
+Kementerian Dalam Negeri
+Kementerian Luar Negeri
+Kementerian Pertahanan
+Kementerian Hukum dan HAM
+Kementerian Kesehatan
+Kementerian Pendidikan
+Kementerian Perdagangan
+Kementerian Perindustrian
+Kementerian Perhubungan
+Kementerian ESDM
+Kementerian Pertanian
+Kementerian Ketenagakerjaan
+Kementerian Sosial
+Kementerian Pariwisata
+Kementerian Agama
+Direktorat Jenderal Pajak
+Direktorat Jenderal Bea dan Cukai
+Badan Pusat Statistik
+BPJS Ketenagakerjaan
+Kepolisian Negara Republik Indonesia
+BNPB
+Direktorat Jenderal Imigrasi
+Dinas Kependudukan dan Pencatatan Sipil

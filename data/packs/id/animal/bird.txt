@@ -1,0 +1,34 @@
+---
+description: Bird (Indonesian)
+locale: id
+---
+pipit
+gelatik
+walet
+layang-layang
+jalak
+pelatuk
+kutilang
+murai
+perkutut
+merpati
+tekukur
+cendrawasih
+beo
+nuri
+kakatua
+rangkong
+enggang
+bangau
+kuntul
+jalak_bali
+elang
+alap-alap
+rajawali
+burung_hantu
+celepuk
+camar
+pelikan
+angsa
+itik
+ayam_hutan

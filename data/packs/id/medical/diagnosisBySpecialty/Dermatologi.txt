@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Indonesian)
+locale: id
+---
+Dermatitis atopik
+Psoriasis
+Eksim
+Dermatitis kontak
+Urtikaria
+Akne
+Rosasea
+Herpes zoster
+Kutu air
+Dermatitis seboroik

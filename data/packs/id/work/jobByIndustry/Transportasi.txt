@@ -1,0 +1,16 @@
+---
+description: Jobs in Transportation (Indonesian)
+locale: id
+---
+sopir truk
+sopir bus
+masinis
+petugas operasional
+staf logistik
+ekspeditur
+montir
+teknisi pesawat
+nakhoda kapal
+pilot
+operator derek pelabuhan
+pengawas perjalanan

@@ -1,0 +1,15 @@
+---
+description: Booking status (Indonesian)
+locale: id
+---
+dibuat
+menunggu konfirmasi
+dikonfirmasi
+lunas
+dibayar sebagian
+diubah
+dibatalkan
+tidak hadir
+selesai
+dikembalikan
+kedaluwarsa

@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (Indonesian)
+locale: id
+---
+mengompilasi
+menggelar
+mengonfigurasi
+memulai ulang
+menyambung
+masuk
+mengenkripsi
+mendekripsi
+memampatkan
+mengekstrak
+mengindeks
+menyimpan sementara
+menyinkronkan
+mereplikasi
+menskalakan
+merutekan
+menyadap
+melewati
+meretas
+menambal
+mengembalikan
+memperbarui
+menghapus
+membuat
+menyalin
+memindahkan
+memasang
+memformat

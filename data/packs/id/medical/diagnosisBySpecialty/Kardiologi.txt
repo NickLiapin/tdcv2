@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Indonesian)
+locale: id
+---
+Hipertensi
+Penyakit jantung koroner
+Angina pektoris
+Infark miokard
+Fibrilasi atrium
+Gagal jantung
+Kardiomiopati
+Miokarditis
+Penyakit katup mitral
+Aterosklerosis koroner

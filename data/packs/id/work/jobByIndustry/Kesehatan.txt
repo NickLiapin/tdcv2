@@ -1,0 +1,16 @@
+---
+description: Jobs in Healthcare (Indonesian)
+locale: id
+---
+dokter umum
+dokter bedah
+dokter anestesi
+dokter anak
+dokter jantung
+perawat
+bidan
+apoteker
+analis laboratorium
+radiografer
+dokter gigi
+fisioterapis

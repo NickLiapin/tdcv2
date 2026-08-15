@@ -1,0 +1,16 @@
+---
+description: Meeting type (Indonesian)
+locale: id
+---
+rapat harian
+rapat mingguan
+rapat departemen
+rapat umum
+pertemuan satu lawan satu
+retrospektif
+perencanaan sprint
+demo hasil kerja
+curah gagasan
+pertemuan dengan klien
+seminar pelatihan
+rapat evaluasi

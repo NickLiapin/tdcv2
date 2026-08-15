@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Indonesian)
+locale: id
+---
+Episode depresi
+Gangguan cemas menyeluruh
+Gangguan panik
+Gangguan bipolar
+Skizofrenia
+Gangguan obsesif kompulsif
+Gangguan stres pascatrauma
+Gangguan makan
+Gangguan pemusatan perhatian
+Gangguan tidur

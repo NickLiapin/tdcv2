@@ -1,0 +1,12 @@
+---
+description: Time of day (Indonesian)
+locale: id
+---
+pagi
+siang
+sore
+petang
+malam
+tengah malam
+dini hari
+subuh

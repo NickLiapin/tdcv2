@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Indonesian)
+locale: id
+---
+Diabetes melitus tipe 1
+Diabetes melitus tipe 2
+Hipotiroidisme
+Hipertiroidisme
+Tiroiditis Hashimoto
+Gondok nodular
+Obesitas
+Sindrom metabolik
+Osteoporosis
+Insufisiensi adrenal

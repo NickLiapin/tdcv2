@@ -1,0 +1,54 @@
+---
+description: Store department / category (Indonesian)
+locale: id
+---
+Makanan
+Buah dan sayur
+Daging dan ikan
+Produk susu
+Roti
+Sembako
+Makanan beku
+Minuman
+Minuman beralkohol
+Makanan ringan
+Makanan bayi
+Perlengkapan bayi
+Kebersihan rumah
+Kosmetik
+Parfum
+Perawatan diri
+Apotek
+Pakaian
+Pakaian wanita
+Pakaian pria
+Pakaian anak
+Sepatu
+Aksesori
+Tas
+Perhiasan
+Jam tangan
+Elektronik
+Ponsel
+Komputer
+Laptop
+Tablet
+Televisi
+Audio
+Kamera
+Peralatan rumah tangga
+Peralatan dapur
+Furnitur
+Dekorasi rumah
+Tekstil rumah
+Pencahayaan
+Taman
+Bahan bangunan
+Perkakas
+Aksesori mobil
+Olahraga
+Alam bebas
+Mainan
+Buku
+Alat tulis
+Perlengkapan hewan

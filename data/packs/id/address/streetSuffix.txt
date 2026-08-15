@@ -1,0 +1,47 @@
+---
+description: Indonesian thoroughfare type — Indonesian puts it BEFORE the name (Jalan Sudirman, Gang Mawar, Komplek Griya Asri)
+locale: id
+---
+Jalan
+Jl.
+Jalan Raya
+Gang
+Gg.
+Lorong
+Simpang
+Bundaran
+Komplek
+Kompleks
+Perumahan
+Perum
+Griya
+Taman
+Blok
+Dusun
+Kampung
+Desa
+Kelurahan
+Kecamatan
+Kabupaten
+Kota
+RT
+RW
+Pasar
+Terminal
+Stasiun
+Pelabuhan
+Bandara
+Jembatan
+Tanjakan
+Turunan
+Pantai
+Bukit
+Lembah
+Sungai
+Danau
+Alun-alun
+Lapangan
+Menara
+Ruko
+Plaza
+Apartemen

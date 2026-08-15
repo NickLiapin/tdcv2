@@ -1,0 +1,32 @@
+---
+description: Field of study / major (Indonesian)
+locale: id
+---
+Teknik Informatika
+Rekayasa Perangkat Lunak
+Keamanan Siber
+Teknik Industri
+Matematika
+Fisika
+Kimia
+Biologi
+Teknik Lingkungan
+Geografi
+Geologi
+Agroteknologi
+Kedokteran Hewan
+Kedokteran
+Kedokteran Gigi
+Farmasi
+Psikologi
+Sosiologi
+Ilmu Politik
+Ilmu Hukum
+Hubungan Internasional
+Ilmu Ekonomi
+Akuntansi
+Manajemen
+Pemasaran
+Ilmu Komunikasi
+Sastra Indonesia
+Sejarah

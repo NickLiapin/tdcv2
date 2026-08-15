@@ -1,0 +1,32 @@
+---
+description: Flower (Indonesian)
+locale: id
+---
+melati
+mawar
+anggrek
+kamboja
+kenanga
+cempaka
+teratai
+bougenville
+kembang_sepatu
+alamanda
+anyelir
+tulip
+krisan
+dahlia
+gladiol
+seruni
+bakung
+lily
+edelweis
+flamboyan
+matahari
+kertas
+asoka
+soka
+pacar_air
+kamboja_jepang
+wijayakusuma
+sedap_malam

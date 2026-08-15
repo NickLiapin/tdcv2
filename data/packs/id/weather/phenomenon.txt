@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Indonesian)
+locale: id
+---
+petir
+kilat
+guruh
+pelangi
+kabut
+embun
+embun beku
+angin puting beliung
+badai
+angin kencang
+topan
+banjir
+banjir bandang
+kekeringan
+gelombang panas

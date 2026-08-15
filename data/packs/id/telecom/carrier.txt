@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (Indonesian operators and international brands)
+locale: id
+---
+Telkomsel
+Indosat Ooredoo Hutchison
+XL Axiata
+Smartfren
+by.U
+Tri
+Axis
+IM3
+Telkom IndiHome
+First Media
+Biznet
+MyRepublic
+MNC Play
+CBN
+Singtel
+Maxis
+Celcom
+Digi
+AIS
+TrueMove
+Viettel
+Globe
+Smart
+SoftBank
+Docomo
+KT

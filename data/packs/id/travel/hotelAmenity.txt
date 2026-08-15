@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Indonesian)
+locale: id
+---
+Wi-Fi gratis
+AC
+pemanas ruangan
+termasuk sarapan
+restoran
+bar
+minibar
+kulkas
+pemanas air
+brankas
+televisi
+pengering rambut
+setrika
+mesin cuci
+pembersihan harian
+resepsionis 24 jam
+antar-jemput bandara
+tempat parkir
+parkir bawah tanah
+kolam renang
+sauna
+spa
+pusat kebugaran
+pijat
+area bermain anak
+penitipan anak
+ruang rapat
+boleh membawa hewan
+kamar bebas rokok
+musala

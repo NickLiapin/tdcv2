@@ -1,0 +1,23 @@
+---
+description: Legal term (Indonesian)
+locale: id
+---
+gugatan
+surat gugatan
+tergugat
+penggugat
+pihak ketiga
+penetapan
+putusan
+vonis
+banding
+kasasi
+surat eksekusi
+penyidikan
+surat dakwaan
+penahanan
+daluwarsa
+perdamaian
+surat kuasa
+akta notaris
+biaya perkara

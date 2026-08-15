@@ -1,0 +1,9 @@
+---
+description: Work shift (Indonesian)
+locale: id
+---
+shift pertama
+shift kedua
+shift malam
+shift akhir pekan
+shift pemeliharaan

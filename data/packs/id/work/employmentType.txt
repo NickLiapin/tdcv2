@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Indonesian)
+locale: id
+---
+Karyawan tetap
+Karyawan kontrak
+PKWT
+PKWTT
+Paruh waktu
+Harian lepas
+Borongan
+Magang
+Pekerja lepas
+Musiman
+Sistem shift

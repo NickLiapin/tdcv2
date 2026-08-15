@@ -1,0 +1,45 @@
+---
+description: Common generic drug names (Indonesian INN)
+locale: id
+---
+parasetamol
+ibuprofen
+asam mefenamat
+natrium diklofenak
+ketorolak
+asam asetilsalisilat
+metamizol
+hiosin butilbromida
+omeprazol
+pantoprazol
+ranitidin
+domperidon
+loperamid
+attapulgit
+asam ursodeoksikolat
+amoksisilin
+azitromisin
+seftriakson
+siprofloksasin
+doksisiklin
+metronidazol
+flukonazol
+asiklovir
+loratadin
+setirizin
+desloratadin
+salbutamol
+budesonid
+prednison
+deksametason
+enalapril
+lisinopril
+amlodipin
+bisoprolol
+metoprolol
+furosemid
+atorvastatin
+metformin
+glimepirid
+levotiroksin
+warfarin

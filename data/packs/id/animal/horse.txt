@@ -1,0 +1,20 @@
+---
+description: Horse breed (Indonesian)
+locale: id
+---
+kuda sumba
+kuda sandel
+kuda batak
+kuda bima
+kuda minahasa
+kuda gayo
+kuda arab
+kuda inggris
+hanoverian
+holstein
+friesian
+andalusia
+shire
+percheron
+poni shetland
+appaloosa

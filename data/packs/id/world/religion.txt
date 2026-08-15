@@ -1,0 +1,25 @@
+---
+description: World religion (Indonesian). The first six are the religions recognised by the Indonesian state.
+locale: id
+---
+Islam
+Kristen Protestan
+Katolik
+Hindu
+Buddha
+Konghucu
+Sunni
+Syiah
+Ortodoks
+Anglikan
+Baptis
+Pantekosta
+Advent
+Saksi Yehuwa
+Yahudi
+Sikh
+Jainisme
+Shinto
+Tao
+Kepercayaan
+Aliran kepercayaan

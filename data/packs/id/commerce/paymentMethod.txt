@@ -1,0 +1,19 @@
+---
+description: Payment method (Indonesian)
+locale: id
+---
+Kartu kredit Visa
+Kartu kredit Mastercard
+Kartu debit
+Tunai
+Bayar di tempat
+Transfer bank
+Virtual account
+GoPay
+OVO
+DANA
+ShopeePay
+LinkAja
+QRIS
+Cicilan
+Voucher hadiah

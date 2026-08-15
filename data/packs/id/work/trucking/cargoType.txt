@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Indonesian)
+locale: id
+---
+bak terpal
+berpendingin
+box isotermal
+bak terbuka
+pengangkut kontainer
+tangki
+pengangkut mobil
+pengangkut biji-bijian
+dump truck
+pengangkut kayu
+lowbed
+pengangkut panel
+panel van

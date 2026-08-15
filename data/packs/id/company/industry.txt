@@ -1,0 +1,59 @@
+---
+description: Industry sector (Indonesian)
+locale: id
+---
+Teknologi informasi
+Telekomunikasi
+Perangkat lunak
+Keamanan siber
+Perdagangan elektronik
+Ritel
+Perdagangan besar
+Logistik
+Transportasi
+Penerbangan
+Perkeretaapian
+Pelayaran
+Perbankan
+Asuransi
+Investasi
+Jasa keuangan
+Jasa akuntansi
+Jasa hukum
+Konsultan
+Audit
+Properti
+Konstruksi
+Arsitektur
+Pengembangan kawasan
+Manufaktur
+Permesinan
+Metalurgi
+Industri kimia
+Farmasi
+Kesehatan
+Layanan kesehatan
+Bioteknologi
+Pertanian
+Industri makanan
+Minuman
+Peternakan
+Kehutanan
+Perikanan
+Energi
+Energi terbarukan
+Minyak dan gas
+Pertambangan
+Utilitas
+Pendidikan
+Riset
+Media
+Penerbitan
+Periklanan
+Hiburan
+Pariwisata
+Perhotelan
+Restoran
+Olahraga
+Tekstil
+Organisasi nirlaba

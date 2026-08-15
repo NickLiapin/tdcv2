@@ -1,0 +1,32 @@
+---
+description: Tree (Indonesian)
+locale: id
+---
+jati
+mahoni
+meranti
+ulin
+sengon
+akasia
+trembesi
+beringin
+kelapa
+aren
+pinang
+sagu
+bambu
+pisang
+mangga
+rambutan
+durian
+manggis
+nangka
+cempedak
+jambu
+belimbing
+sawo
+kelengkeng
+duku
+salak
+pala
+cengkeh

@@ -1,0 +1,22 @@
+---
+description: Event type (Indonesian)
+locale: id
+---
+konferensi
+seminar
+webinar
+pelatihan
+lokakarya
+kuliah umum
+forum
+pameran
+bazar
+presentasi
+konser
+festival
+pertunjukan teater
+pemutaran film
+lomba
+turnamen
+pernikahan
+ulang tahun

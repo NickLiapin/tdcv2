@@ -1,0 +1,8 @@
+---
+description: Gender label (Indonesian)
+locale: id
+---
+Laki-laki
+Perempuan
+Lainnya
+Tidak disebutkan

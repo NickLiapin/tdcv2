@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Indonesian. A prevalence signal, not an exclusive one.
+locale: id
+---
+Demam Mediterania familial
+Talasemia beta
+Defisiensi G6PD
+Tuli herediter
+Atrofi otot spinal
+Sferositosis herediter

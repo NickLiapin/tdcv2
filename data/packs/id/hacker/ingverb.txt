@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Indonesian)
+locale: id
+---
+kompilasi
+penggelaran
+konfigurasi
+mulai ulang
+penyambungan
+autentikasi
+enkripsi
+dekripsi
+pemampatan
+ekstraksi
+pengindeksan
+penyimpanan sementara
+sinkronisasi
+replikasi
+penskalaan
+perutean
+penyadapan
+pelewatan
+peretasan
+penambalan
+pengembalian
+pembaruan
+penghapusan
+pembuatan
+penyalinan
+pemindahan
+pemasangan
+pemformatan

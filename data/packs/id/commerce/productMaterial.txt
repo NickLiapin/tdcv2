@@ -1,0 +1,61 @@
+---
+description: Product material (Indonesian), as a noun — compose with "dari" ("meja dari kayu jati")
+locale: id
+---
+kayu jati
+kayu mahoni
+kayu pinus
+kayu sungkai
+kayu mindi
+kayu ulin
+bambu
+rotan
+tripleks
+partikel board
+MDF
+kayu solid
+baja
+baja tahan karat
+baja karbon
+besi cor
+aluminium
+titanium
+tembaga
+kuningan
+perunggu
+seng
+timah
+perak
+emas
+plastik
+polikarbonat
+polipropilena
+polietilena
+akrilik
+silikon
+karet
+busa
+styrofoam
+kaca
+kaca tempered
+keramik
+porselen
+ubin
+batu
+granit
+marmer
+beton
+gipsum
+kulit
+kulit sintetis
+suede
+nubuk
+katun
+linen
+wol
+sutra
+kasmir
+viskosa
+poliester
+nilon
+denim

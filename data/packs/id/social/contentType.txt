@@ -1,0 +1,17 @@
+---
+description: Social content type (Indonesian)
+locale: id
+---
+unggahan
+foto
+video
+video pendek
+story
+siaran langsung
+bagikan ulang
+komentar
+jajak pendapat
+kompilasi
+ulasan
+pengumuman
+rekomendasi

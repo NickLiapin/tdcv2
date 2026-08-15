@@ -1,0 +1,14 @@
+---
+description: Fuel type (Indonesian)
+locale: id
+---
+bensin
+solar
+LPG
+bensin/LPG
+CNG
+listrik
+hibrida
+hibrida colok
+hidrogen
+etanol

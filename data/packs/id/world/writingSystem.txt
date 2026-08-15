@@ -1,0 +1,24 @@
+---
+description: Writing system (Indonesian)
+locale: id
+---
+aksara Latin
+aksara Jawa
+aksara Bali
+aksara Sunda
+aksara Batak
+aksara Lontara
+aksara Rejang
+aksara Pegon
+aksara Jawi
+aksara Arab
+aksara Kiril
+aksara Yunani
+aksara Ibrani
+Devanagari
+aksara Bengali
+aksara Tamil
+aksara Thai
+aksara Khmer
+aksara Han
+Hangul

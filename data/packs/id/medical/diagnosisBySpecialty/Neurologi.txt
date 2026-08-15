@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Indonesian)
+locale: id
+---
+Migrain
+Epilepsi
+Stroke
+Serangan iskemik sementara
+Multipel sklerosis
+Penyakit Parkinson
+Neuropati perifer
+Radikulopati
+Neuralgia trigeminal
+Demensia

@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Indonesian. A prevalence signal, not an exclusive one.
+locale: id
+---
+Talasemia beta
+Anemia sel sabit
+Defisiensi G6PD
+Demam Mediterania familial
+Hemokromatosis herediter
+Penyakit Behcet
+Sferositosis herediter

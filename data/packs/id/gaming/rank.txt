@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Indonesian)
+locale: id
+---
+pemula
+perunggu
+perak
+emas
+platinum
+berlian
+master
+grandmaster
+juara
+legenda

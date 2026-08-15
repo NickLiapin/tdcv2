@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Indonesian)
+locale: id
+---
+lamaran masuk
+seleksi berkas
+wawancara telepon
+wawancara HRD
+tes tertulis
+wawancara teknis
+wawancara dengan atasan
+wawancara akhir
+pengecekan referensi
+penawaran kerja
+mulai bekerja

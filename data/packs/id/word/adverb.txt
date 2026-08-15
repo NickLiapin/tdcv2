@@ -1,0 +1,36 @@
+---
+description: Common adverb (Indonesian)
+locale: id
+---
+sangat
+sedikit
+agak
+terlalu
+selalu
+tidak_pernah
+sering
+jarang
+sekarang
+nanti
+sebelum
+terlambat
+awal
+cepat
+pelan
+baik
+buruk
+bersama
+terpisah
+di_sini
+di_sana
+di_mana-mana
+ke_atas
+ke_bawah
+ke_depan
+ke_belakang
+ke_kiri
+ke_kanan
+mula-mula
+akhirnya
+hampir
+sepenuhnya

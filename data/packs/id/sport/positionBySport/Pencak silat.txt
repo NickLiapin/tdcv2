@@ -1,0 +1,10 @@
+---
+description: Positions in pencak silat, the Indonesian martial art (Indonesian)
+locale: id
+---
+pesilat tunggal
+pesilat ganda
+pesilat regu
+pesilat tanding
+wasit
+juri

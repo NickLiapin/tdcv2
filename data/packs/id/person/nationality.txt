@@ -1,0 +1,72 @@
+---
+description: Nationality / demonym (Indonesian). Indonesian forms most of these with "orang" plus the country name; the bare adjective below is what a form field carries.
+locale: id
+---
+Indonesia
+Malaysia
+Singapura
+Brunei
+Thailand
+Filipina
+Vietnam
+Kamboja
+Laos
+Myanmar
+Timor Leste
+Papua Nugini
+Australia
+Selandia Baru
+Tiongkok
+Jepang
+Korea Selatan
+Korea Utara
+Taiwan
+Hong Kong
+India
+Pakistan
+Bangladesh
+Sri Lanka
+Nepal
+Arab Saudi
+Uni Emirat Arab
+Qatar
+Kuwait
+Yaman
+Oman
+Irak
+Iran
+Turki
+Mesir
+Maroko
+Aljazair
+Tunisia
+Libya
+Sudan
+Nigeria
+Kenya
+Afrika Selatan
+Rusia
+Ukraina
+Polandia
+Jerman
+Prancis
+Inggris
+Irlandia
+Belanda
+Belgia
+Spanyol
+Portugal
+Italia
+Yunani
+Swedia
+Norwegia
+Denmark
+Finlandia
+Amerika Serikat
+Kanada
+Meksiko
+Brasil
+Argentina
+Chili
+Peru
+Kolombia

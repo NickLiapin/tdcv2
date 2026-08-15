@@ -1,0 +1,16 @@
+---
+description: Jobs in Manufacturing (Indonesian)
+locale: id
+---
+operator mesin
+teknolog produksi
+kepala regu
+pengawas mutu
+teknisi setter
+montir
+operator bubut
+operator frais
+petugas pengemasan
+petugas gudang
+insinyur mesin
+kepala shift

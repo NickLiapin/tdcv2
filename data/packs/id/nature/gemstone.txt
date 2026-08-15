@@ -1,0 +1,29 @@
+---
+description: Gemstone (Indonesian)
+locale: id
+---
+berlian
+intan
+rubi
+safir
+zamrud
+kecubung
+topaz
+garnet
+opal
+pirus
+malasit
+giok
+yasper
+akik
+oniks
+kalsedon
+peridot
+sitrin
+lazuardi
+obsidian
+turmalin
+spinel
+zirkon
+amber
+mutiara

@@ -1,0 +1,16 @@
+---
+description: Jobs in Legal (Indonesian)
+locale: id
+---
+sarjana hukum
+pengacara
+notaris
+hakim
+jaksa
+penyidik
+konsultan hukum
+asisten pengacara
+konsultan paten
+kurator kepailitan
+mediator
+panitera

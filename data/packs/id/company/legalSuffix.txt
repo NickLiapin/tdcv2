@@ -1,0 +1,44 @@
+---
+description: Company legal / name suffix used in Indonesia (PT, CV, Tbk)
+locale: id
+---
+PT
+PT (Persero)
+Tbk
+CV
+UD
+Firma
+Perum
+Koperasi
+Yayasan
+Perkumpulan
+Asosiasi
+Lembaga
+Badan
+Group
+Holding
+Grup
+Sejahtera
+Makmur
+Jaya
+Abadi
+Mandiri
+Sentosa
+Utama
+Perkasa
+Persada
+Nusantara
+Indonesia
+Internasional
+Industri
+Manufaktur
+Konstruksi
+Properti
+Logistik
+Teknologi
+Digital
+Solusi
+Konsultan
+Energi
+Agro
+Pangan

@@ -1,0 +1,22 @@
+---
+description: Video game genre (Indonesian)
+locale: id
+---
+aksi
+petualangan
+peran
+strategi
+strategi giliran
+simulasi
+tembak-menembak
+tembak orang pertama
+platform
+teka-teki
+petualangan teka-teki
+balapan
+olahraga
+pertarungan
+bertahan hidup
+dunia terbuka
+horor
+musik

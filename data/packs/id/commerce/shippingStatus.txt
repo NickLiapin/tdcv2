@@ -1,0 +1,15 @@
+---
+description: Shipping status (Indonesian)
+locale: id
+---
+Menunggu penjemputan
+Diserahkan ke kurir
+Dalam perjalanan
+Di gudang sortir
+Tiba di kota tujuan
+Tiba di gerai
+Diantar kurir
+Terkirim
+Gagal diantar
+Dalam proses retur
+Hilang

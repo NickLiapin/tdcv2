@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Indonesian)
+locale: id
+---
+tosser
+opposite
+blocker tengah
+open spiker
+libero

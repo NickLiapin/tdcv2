@@ -1,0 +1,29 @@
+---
+description: Dog breed (Indonesian)
+locale: id
+---
+anjing kampung
+kintamani
+gembala jerman
+labrador retriever
+golden retriever
+pudel
+dachshund
+beagle
+rottweiler
+doberman
+boxer
+bulldog
+pug
+chihuahua
+yorkshire terrier
+jack russell terrier
+saint bernard
+husky
+malamute
+samoyed
+border collie
+cocker spaniel
+dalmatian
+shih tzu
+pomeranian

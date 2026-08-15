@@ -1,0 +1,12 @@
+---
+description: Dishes of Tionghoa cuisine (Indonesian)
+locale: id
+---
+bebek peking
+mie goreng
+dim sum
+babi asam manis
+sup wonton
+nasi goreng
+tahu mapo
+bakpao

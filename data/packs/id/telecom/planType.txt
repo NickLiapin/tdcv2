@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Indonesian)
+locale: id
+---
+prabayar
+pascabayar
+unlimited
+paket keluarga
+korporat
+paket pelajar
+paket turis
+paket internet
+paket telepon
+paket perangkat
+paket roaming
+paket tambahan

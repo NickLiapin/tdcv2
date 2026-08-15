@@ -1,0 +1,16 @@
+---
+description: Jobs in Finance (Indonesian)
+locale: id
+---
+akuntan
+akuntan publik
+auditor
+analis keuangan
+teller bank
+analis kredit
+ekonom
+auditor internal
+analis investasi
+agen asuransi
+konsultan pajak
+manajer keuangan

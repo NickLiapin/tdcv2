@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Indonesian)
+locale: id
+---
+Sepak bola
+Bola basket
+Bola voli
+Bulu tangkis
+Bola tangan
+Rugbi
+Bisbol
+Pencak silat

@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Indonesian)
+locale: id
+---
+tepung terigu
+tepung beras
+tepung tapioka
+gula pasir
+gula merah
+gula aren
+garam
+minyak goreng
+minyak kelapa
+mentega
+margarin
+telur
+susu
+santan
+keju
+yoghurt
+ragi
+soda kue
+baking powder
+beras
+beras ketan
+mie
+bihun
+kwetiau
+roti
+tepung panir
+madu
+kecap manis
+kecap asin
+saus tiram
+cuka
+pasta tomat
+mayones
+sambal
+terasi
+petis
+tempe
+tahu
+kaldu
+agar-agar

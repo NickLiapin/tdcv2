@@ -1,0 +1,12 @@
+---
+description: Dishes of Prancis cuisine (Indonesian)
+locale: id
+---
+sup bawang
+ratatouille
+coq au vin
+quiche lorraine
+creme brulee
+profiterol
+bouillabaisse
+macaron

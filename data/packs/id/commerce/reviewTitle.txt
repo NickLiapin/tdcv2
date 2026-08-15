@@ -1,0 +1,30 @@
+---
+description: Product review title (Indonesian)
+locale: id
+---
+Sangat puas dengan pembelian ini
+Sesuai deskripsi
+Kualitasnya bagus
+Harga sepadan dengan kualitas
+Sangat direkomendasikan
+Tidak direkomendasikan
+Ekspektasi saya lebih tinggi
+Barang datang rusak
+Pengiriman sangat cepat
+Pengiriman terlambat
+Semuanya sempurna
+Barang bagus sekali
+Worth it
+Beli untuk kedua kalinya
+Dibeli untuk hadiah, disukai
+Mudah digunakan
+Perawatannya gampang
+Bahannya murahan
+Bau plastik
+Ukuran kekecilan
+Warna beda dari foto
+Berfungsi tanpa masalah
+Rusak dalam seminggu
+Penjual responsif
+Barang saya kembalikan
+Produk hemat dan berguna

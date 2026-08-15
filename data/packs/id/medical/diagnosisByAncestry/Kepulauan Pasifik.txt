@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Indonesian. A prevalence signal, not an exclusive one.
+locale: id
+---
+Diabetes melitus tipe 2
+Obesitas
+Asam urat
+Hipertensi
+Penyakit ginjal kronis
+Penyakit jantung reumatik
+Intoleransi laktosa

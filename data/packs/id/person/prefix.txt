@@ -1,0 +1,36 @@
+---
+description: Indonesian honorific / form of address. Bapak and Ibu are the everyday ones; the rest are academic, professional and religious titles.
+locale: id
+---
+Bapak
+Bpk.
+Ibu
+Saudara
+Saudari
+Tuan
+Nyonya
+Nona
+Dr.
+dr.
+drg.
+Prof.
+Prof. Dr.
+Ir.
+Drs.
+Dra.
+S.T.
+S.Kom.
+S.H.
+S.E.
+S.Pd.
+S.Si.
+M.T.
+M.M.
+M.Kom.
+Haji
+Hajjah
+H.
+Hj.
+Kyai
+Ustadz
+Ustadzah

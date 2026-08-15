@@ -1,0 +1,30 @@
+---
+description: Book genre (Indonesian)
+locale: id
+---
+novel
+novela
+cerita pendek
+kumpulan cerpen
+esai
+memoar
+puisi
+naskah drama
+fantasi
+fiksi ilmiah
+misteri
+thriller
+horor
+roman
+novel sejarah
+novel petualangan
+biografi
+autobiografi
+catatan perjalanan
+sains populer
+buku pelajaran
+buku referensi
+kamus
+buku masak
+buku anak
+dongeng

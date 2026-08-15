@@ -1,0 +1,73 @@
+---
+description: Dish (Indonesian)
+locale: id
+---
+nasi goreng
+nasi uduk
+nasi kuning
+nasi liwet
+nasi campur
+nasi padang
+nasi pecel
+bubur ayam
+lontong sayur
+ketupat
+rendang
+gulai
+opor ayam
+ayam goreng
+ayam bakar
+ayam betutu
+ayam penyet
+bebek goreng
+sate ayam
+sate kambing
+sate padang
+sate lilit
+soto ayam
+soto betawi
+soto lamongan
+coto makassar
+rawon
+sop buntut
+bakso
+mie ayam
+mie goreng
+kwetiau goreng
+bihun goreng
+capcay
+gado-gado
+karedok
+pecel
+lotek
+ketoprak
+asinan
+urap
+lalapan
+tumis kangkung
+sayur asem
+sayur lodeh
+tahu isi
+tempe goreng
+tempe mendoan
+perkedel
+martabak telur
+martabak manis
+pempek
+otak-otak
+siomay
+batagor
+pangsit
+lumpia
+risoles
+pastel
+klepon
+onde-onde
+dadar gulung
+kue lapis
+bika ambon
+serabi
+pisang goreng
+es cendol
+es teler
+kolak

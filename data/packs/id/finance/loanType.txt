@@ -1,0 +1,14 @@
+---
+description: Loan type (Indonesian)
+locale: id
+---
+kredit tanpa agunan
+kredit pemilikan rumah
+kredit kendaraan bermotor
+kartu kredit
+kredit modal kerja
+kredit usaha rakyat
+pinjaman online
+kredit multiguna
+refinancing
+kredit pendidikan

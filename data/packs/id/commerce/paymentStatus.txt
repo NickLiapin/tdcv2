@@ -1,0 +1,14 @@
+---
+description: Payment status (Indonesian)
+locale: id
+---
+Menunggu pembayaran
+Lunas
+Dibayar sebagian
+Terotorisasi
+Ditolak
+Gagal
+Dikembalikan
+Pengembalian sebagian
+Kedaluwarsa
+Dibatalkan

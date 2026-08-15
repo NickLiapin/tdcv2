@@ -1,0 +1,70 @@
+---
+description: Sport (Indonesian)
+locale: id
+---
+sepak bola
+futsal
+bola basket
+bola voli
+bola tangan
+bulu tangkis
+tenis
+tenis meja
+sepak takraw
+rugbi
+bisbol
+sofbol
+atletik
+lari
+maraton
+jalan cepat
+lompat tinggi
+lompat jauh
+lempar lembing
+tolak peluru
+renang
+loncat indah
+polo air
+renang indah
+dayung
+kano
+layar
+selancar
+selam
+bersepeda
+sepeda gunung
+BMX
+balap motor
+balap mobil
+berkuda
+senam
+senam ritmik
+akrobatik
+trampolin
+angkat besi
+angkat berat
+binaraga
+tinju
+kickboxing
+karate
+judo
+taekwondo
+pencak silat
+gulat
+wushu
+anggar
+menembak
+panahan
+catur
+panjat tebing
+pendakian
+arung jeram
+paralayang
+golf
+biliar
+bowling
+skateboard
+sepatu roda
+e-sports
+tarung derajat
+tarik tambang

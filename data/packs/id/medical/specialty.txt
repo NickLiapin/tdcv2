@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Indonesian)
+locale: id
+---
+Penyakit dalam
+Kedokteran keluarga
+Anak
+Kardiologi
+Neurologi
+Gastroenterologi
+Pulmonologi
+Endokrinologi
+Nefrologi
+Urologi
+Kandungan
+Kebidanan
+Bedah umum
+Bedah vaskular
+Bedah saraf
+Bedah jantung
+Traumatologi
+Ortopedi
+Onkologi
+Hematologi
+Reumatologi
+Dermatologi
+Alergi
+Imunologi
+Penyakit infeksi
+Mata
+THT
+Kedokteran gigi
+Psikiatri
+Adiksi
+Anestesiologi
+Perawatan intensif
+Radiologi
+Patologi
+Patologi klinik
+Rehabilitasi medik

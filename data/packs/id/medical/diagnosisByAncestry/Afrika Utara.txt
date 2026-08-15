@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Indonesian. A prevalence signal, not an exclusive one.
+locale: id
+---
+Talasemia beta
+Defisiensi G6PD
+Demam Mediterania familial
+Anemia sel sabit
+Tuli herediter
+Xeroderma pigmentosum

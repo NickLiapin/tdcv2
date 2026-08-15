@@ -1,0 +1,16 @@
+---
+description: Jobs in Retail (Indonesian)
+locale: id
+---
+pramuniaga
+kasir
+penata barang
+manajer toko
+manajer penjualan
+staf pembelian
+staf gudang
+pengambil pesanan
+kurir
+staf pemasaran
+manajer kategori
+direktur toko

@@ -1,0 +1,24 @@
+---
+description: Insect (Indonesian)
+locale: id
+---
+lebah
+tawon
+lebah_madu
+semut
+kupu-kupu
+ngengat
+lalat
+nyamuk
+pijat-pijat
+kepik
+kumbang
+kumbang_tanduk
+belalang
+jangkrik
+walang_sangit
+capung
+belalang_sembah
+kutu
+kecoa
+kepinding

@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Indonesian. A prevalence signal, not an exclusive one.
+locale: id
+---
+Penyakit Tay-Sachs
+Penyakit Gaucher
+Disotonomia familial
+Penyakit Canavan
+Sindrom Bloom
+Anemia Fanconi tipe C
+Fibrosis kistik
+Mutasi BRCA1 dan BRCA2
+Defisiensi faktor XI
+Penyakit Niemann-Pick tipe A
+Penyakit penyimpanan glikogen tipe I
+Defisiensi dihidrolipoamid dehidrogenase

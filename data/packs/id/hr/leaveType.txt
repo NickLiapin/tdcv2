@@ -1,0 +1,16 @@
+---
+description: Leave type (Indonesian)
+locale: id
+---
+cuti tahunan
+cuti tambahan
+cuti di luar tanggungan
+cuti sakit
+cuti melahirkan
+cuti ayah
+cuti menyusui
+cuti belajar
+izin keperluan pribadi
+cuti besar
+cuti haji
+dirumahkan
