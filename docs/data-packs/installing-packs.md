@@ -49,7 +49,7 @@ tdcv2: no pack store configured — run `tdcv2 init` first
 > | Python        | `pip install tdcv2`                                    | `tdcv2 pack add ru`               |
 > | Rust          | `cargo install tdcv2`                                  | `tdcv2 pack add ru`               |
 > | C#            | `dotnet tool install --global Tdcv2.Cli`               | `tdcv2 pack add ru`               |
-> | Java          | download `tdcv2-0.2.2-cli.jar` from Maven Central      | `java -jar tdcv2-0.2.2-cli.jar pack add ru` |
+> | Java          | download `tdcv2-0.2.1-cli.jar` from Maven Central      | `java -jar tdcv2-0.2.1-cli.jar pack add ru` |
 >
 > Three of them put a `tdcv2` command on your PATH and read the same from there on. Node
 > needs no install at all — `npx` downloads and runs in one step. Java is the odd one out
@@ -57,11 +57,11 @@ tdcv2: no pack store configured — run `tdcv2 init` first
 > a command on your PATH, so the command line is a jar you run yourself:
 >
 > ```bash
-> curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.2.2/tdcv2-0.2.2-cli.jar
-> java -jar tdcv2-0.2.2-cli.jar pack add ru
+> curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.2.1/tdcv2-0.2.1-cli.jar
+> java -jar tdcv2-0.2.1-cli.jar pack add ru
 > ```
 >
-> Worth an alias — `alias tdcv2='java -jar /path/to/tdcv2-0.2.2-cli.jar'` — after which every
+> Worth an alias — `alias tdcv2='java -jar /path/to/tdcv2-0.2.1-cli.jar'` — after which every
 > command on this page reads the same as it does everywhere else.
 >
 > A project set up by one of them is ready for the other four — same config file, same

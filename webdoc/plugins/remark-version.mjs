@@ -40,6 +40,42 @@ export const VERSION = JSON.parse(
 
 export const TOKEN = '%%TDC_VERSION%%';
 
+/** The token for the one registry that can be behind. */
+export const JAVA_TOKEN = '%%TDC_JAVA_VERSION%%';
+
+/**
+ * What is actually ON MAVEN CENTRAL, which is not always what this tree builds.
+ *
+ * Central caps how many releases it accepts from a project per month, and this
+ * project reaches that cap. When it does, the jar stays where it was while the
+ * other four registries move on — for one release or for several, until the
+ * allowance resets and everything that piled up goes out at once. Meanwhile the
+ * Maven coordinate on the install page is the one instruction on this site that
+ * a reader cannot work around: a `<version>` that is not there does not resolve,
+ * and the build fails in their project, not ours.
+ *
+ * So Java gets its own token, and its value is not written down anywhere new.
+ * `java/CHANGELOG.md` already records the difference, because a changelog has to:
+ *
+ *   ## [0.2.2] — not published      built, signed, waiting for the allowance
+ *   ## [0.2.1] — 2026-08-11         on Central, and what the page must say
+ *
+ * The newest heading carrying a DATE is the newest version a reader can install.
+ * Publishing the backlog means changing "not published" to a date, and this
+ * follows on the next build — one edit, in the file that had to be edited anyway.
+ */
+function javaOnCentral() {
+  const changelog = readFileSync(join(HERE, '..', '..', 'java', 'CHANGELOG.md'), 'utf8');
+  for (const m of changelog.matchAll(/^##\s*\[(\d+\.\d+\.\d+)\]\s*—\s*(.+)$/gm)) {
+    if (/^\d{4}-\d{2}-\d{2}$/.test(m[2].trim())) return m[1];
+  }
+  // No dated release at all: a fresh checkout of a package that has never
+  // shipped. Saying the built version is the honest answer there.
+  return VERSION;
+}
+
+export const JAVA_VERSION = javaOnCentral();
+
 /**
  * The catalogue's own arithmetic, read from the manifest the bundles are built
  * from.
@@ -144,6 +180,7 @@ export const ISO_UPDATED = lastUpdated();
 /** Every token the build substitutes, resolved once. */
 export const TOKENS = {
   [TOKEN]: VERSION,
+  [JAVA_TOKEN]: JAVA_VERSION,
   '%%TDC_UPDATED%%': spellDate(ISO_UPDATED, 'en'),
   ...packCounts(),
 };

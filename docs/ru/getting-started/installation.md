@@ -93,14 +93,14 @@ DSL и поведение идентичны npm-версии: тот же `.tdc
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.2.2</version>
+  <version>0.2.1</version>
 </dependency>
 ```
 
 Gradle, в `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.2.2")
+implementation("io.github.nickliapin:tdcv2:0.2.1")
 ```
 
 Стартовый набор паков едет внутри jar, так что пример выше работает без всякой
@@ -112,8 +112,8 @@ implementation("io.github.nickliapin:tdcv2:0.2.2")
 Лежит он по тем же координатам, что и библиотека, и отличается классификатором `cli`:
 
 ```bash
-curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.2.2/tdcv2-0.2.2-cli.jar
-java -jar tdcv2-0.2.2-cli.jar init
+curl -LO https://repo1.maven.org/maven2/io/github/nickliapin/tdcv2/0.2.1/tdcv2-0.2.1-cli.jar
+java -jar tdcv2-0.2.1-cli.jar init
 ```
 
 Стоит завести алиас: `alias tdcv2='java -jar /path/to/tdcv2-cli.jar'` — после этого
@@ -220,7 +220,7 @@ PATH из того же пакета, что несёт библиотеку; у
 | Python  | `tdcv2 tdcv2-examples/01-starter.tdc`                                                                                                |
 | Rust    | `tdcv2 tdcv2-examples/01-starter.tdc`, после `cargo install tdcv2`                                                                   |
 | C#      | `tdcv2 tdcv2-examples/01-starter.tdc`, после `dotnet tool install --global Tdcv2.Cli`                                                |
-| Java    | `java -jar tdcv2-0.2.2-cli.jar tdcv2-examples/01-starter.tdc` — классификатор `cli` у координат самой библиотеки                     |
+| Java    | `java -jar tdcv2-0.2.1-cli.jar tdcv2-examples/01-starter.tdc` — классификатор `cli` у координат самой библиотеки                     |
 
 Из корня репозитория короче всех — `./run demo.tdc`.
 

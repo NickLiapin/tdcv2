@@ -11,10 +11,19 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [0.2.2] — not published
 
-The Java artefact carries this version and its Maven Central deployment was held back:
-the monthly allowance for the account was spent. The bundle is built and signed by the
-release, so the version goes out on its own `java-v0.2.2` tag once the allowance resets.
-Nothing about the Java code differs from the other four at this version.
+The Java artefact carries this version, but Maven Central did not take it: the monthly
+allowance for the account was spent. Nothing about the Java code differs from the other
+four at this version — the bundle is built, signed and tested by the release like any
+other; only the upload waits.
+
+Central's cap is per month, so more than one version can pile up here before the
+allowance resets; they then go out together, each on its own `java-v<version>` tag.
+
+**This heading has no date, and that is load-bearing.** The documentation site reads
+this file for the newest DATED entry and puts THAT number in every Maven coordinate,
+Gradle line and jar URL it prints — so a reader is always told a version that exists.
+Publishing means replacing `not published` with the date it went out; the pages follow
+on the next build, and nothing else needs editing.
 
 ## [0.2.1] — 2026-08-11
 
