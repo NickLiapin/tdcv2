@@ -45,11 +45,11 @@ Two engines run under "disk", and TDC picks between them **from your config**:
   external sort and a repair pass — a check that **gets dramatically slower as the row
   count grows** (see the warning below).
 
-  Bounded memory is the narrower claim. Measured, single-threaded, over 3.2 M rows: a
-  compound `uniq` holds ~1 GB and stops climbing, which is the external sort's chunk. The
-  other three shapes fall back to the in-memory engine when the streaming builder refuses
-  them, so their memory tracks the row count like engine 1 — an env-level `<uniq>` reached
-  1.9 GB at 800 k rows, and nothing warned about it.
+  Bounded memory is a claim this guide used to make and no longer does. Re-measured
+  single-threaded: a compound `uniq` passed 1 GB at 400 k rows and was over 1.4 GB at 800 k,
+  still climbing, twenty-three minutes in. The ~1 GB is the size of the external sort's
+  chunk, not a ceiling on the run. See the table below for the numbers; every shape here
+  grows with the row count, and nothing warns about it.
 
   Uniqueness is a promise about the **finished dataset**, not about any one row, so it
   cannot be settled a row at a time. That is also why `--jobs` refuses a config that asks
@@ -92,19 +92,23 @@ So `uniq` lands on two different engines depending on how it is written:
 | `uniq="true"` on one drawn column — `text`, `number`, `date`, `template` | in-memory     | grows with `count` |
 | `uniq="true"` on a column composed of a drawn part and `<data>` literals | in-memory     | grows with `count` |
 | `uniq="true"` on a [counter](../generators/counters.mdx)                 | exact on-disk | grows with `count` |
-| `uniq="true"` on a compound sequence (named `<gen>` fields)              | exact on-disk | bounded at ~1 GB   |
+| `uniq="true"` on a compound sequence (named `<gen>` fields)              | exact on-disk | grows with `count` |
 | An env-level [`<uniq>`](../constructs/unique-values.mdx) group           | exact on-disk | grows with `count` |
 
-Only the compound form is bounded, and this table used to promise all three were. Measured
-on a counter, single-threaded, peak resident:
+**None of the three is bounded**, and this table used to promise all three were. The ~1 GB
+is the external sort's chunk; it is not a ceiling on the run. Measured single-threaded, peak
+resident:
 
 ```
-200 k rows  168 MB      4 M rows   822 MB      20 M rows  3.0 GB
-  1 M rows  308 MB     10 M rows   1.9 GB
+uniq on a counter     200 k  168 MB    4 M  822 MB    10 M  1.9 GB    20 M  3.0 GB
+uniq on a compound    100 k  160 MB  400 k  990 MB   800 k  1.4 GB and still climbing
 ```
 
-It is the row people plan hardware on, so it is worth being exact: the ~1 GB is the
-external sort's chunk, and only the compound form stays inside it.
+These are the rows people size a machine from, so they are worth being exact about.
+
+The compound form is also where the slowness warning above bites hardest: that 800 k run
+took over 23 minutes on one core and had not finished when it was stopped. Reach for it
+when you need the exactness, not when you need the rows.
 
 **No form of `uniq` runs on the fast streaming engine.** It refuses `uniq` by name, so a
 config that asked for streaming is told rather than handed data that quietly repeats:

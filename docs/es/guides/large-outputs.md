@@ -47,12 +47,11 @@ configuración**:
   drásticamente más lenta a medida que crece el número de filas** (vea la advertencia
   abajo).
 
-  La memoria acotada es la promesa más estrecha. Medido, en un solo hilo, sobre 3,2 M de
-  filas: un `uniq` compuesto ocupa ~1 GB y deja de crecer — ese es el bloque del
-  ordenamiento externo. Las otras tres formas caen al motor en memoria cuando el
-  constructor de streaming las rechaza, así que su memoria sigue el número de filas como
-  en el motor 1: un grupo `<uniq>` a nivel de env llegó a 1,9 GB con 800 k filas, y nada
-  lo advirtió.
+  La memoria acotada es una promesa que esta guía hacía y ya no hace. Vuelto a medir, en un
+  solo hilo: un `uniq` compuesto pasó de 1 GB con 400 k filas y estaba por encima de 1,4 GB
+  con 800 k, aún subiendo, veintitrés minutos después. El ~1 GB es el tamaño del bloque del
+  ordenamiento externo, no un techo de la corrida. Los números están en la tabla de abajo;
+  aquí la memoria crece con el número de filas en todas las formas, y nada lo advierte.
 
   La unicidad es una promesa sobre el **conjunto terminado**, no sobre una fila, y no se
   puede resolver fila a fila. Por eso mismo `--jobs` se niega a repartir una configuración
@@ -95,19 +94,23 @@ Así que `uniq` cae en dos motores distintos según cómo esté escrito:
 | `uniq="true"` sobre una sola columna sorteada — `text`, `number`, `date`, `template` | en memoria      | crece con `count` |
 | `uniq="true"` sobre una columna hecha de una parte sorteada y literales `<data>`     | en memoria      | crece con `count` |
 | `uniq="true"` sobre un [contador](../generators/counters.md#top)                        | exacto en disco | crece con `count` |
-| `uniq="true"` sobre una secuencia compuesta (campos `<gen>` con nombre)              | exacto en disco | acotada en ~1 GB  |
+| `uniq="true"` sobre una secuencia compuesta (campos `<gen>` con nombre)              | exacto en disco | crece con `count` |
 | Un grupo [`<uniq>`](../constructs/unique-values.md#top) a nivel de env                  | exacto en disco | crece con `count` |
 
-Sólo la forma compuesta está acotada, y esta tabla se lo prometía a las tres. Medido sobre
-un contador, en un solo hilo, memoria residente máxima:
+**Ninguna de las tres está acotada**, y esta tabla se lo prometía a todas. El ~1 GB es el
+trozo del ordenamiento externo, no un techo de la corrida. Medido en un solo hilo, memoria
+residente máxima:
 
 ```
-200 k filas  168 MB      4 M filas   822 MB      20 M filas  3,0 GB
-  1 M filas  308 MB     10 M filas   1,9 GB
+uniq sobre contador    200 k  168 MB    4 M  822 MB   10 M  1,9 GB   20 M  3,0 GB
+uniq sobre compuesta   100 k  160 MB  400 k  990 MB  800 k  1,4 GB y sigue subiendo
 ```
 
-Es la fila con la que se planifica el hardware, así que conviene ser exactos: el ~1 GB es
-el trozo del ordenamiento externo, y sólo la forma compuesta cabe en él.
+Son las filas con las que se dimensiona una máquina, así que conviene ser exactos.
+
+En la forma compuesta es donde más pega el aviso de lentitud de arriba: esa corrida de
+800 k tardó más de 23 minutos en un núcleo y no había terminado cuando se detuvo. Úsela
+cuando necesite la exactitud, no cuando necesite las filas.
 
 **Ninguna forma de `uniq` corre en el motor rápido de streaming.** Rechaza `uniq` por su
 nombre, así que a una configuración que pidió streaming se le dice, en vez de entregarle
