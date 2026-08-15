@@ -280,10 +280,10 @@ delimiter: ,
 `./run es-people.tdc (4 строки)`
 
 ```
-Anselmo León Muñoz
-Simón Redondo Casas
-Félix Muñiz Ramos
-Isaías Zurita Rendón
+Evaristo León Muñoz
+Cristóbal Redondo Casas
+Sabino Muñiz Ramos
+Baltasar Zurita Rendón
 ```
 
 Последняя строка тянет **одну и ту же** фамилию дважды (`Rodriguez Rodriguez`):

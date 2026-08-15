@@ -90,7 +90,7 @@ const document = {
     'Streaming-engine output for every shared case, from the reference implementation. ' +
     'It MATCHES the `expected` in the cases themselves — all three engines agree, and this ' +
     'file is where that is checked. What it adds is which cases an engine refuses. ' +
-    'Regenerate with: npm run fixtures:engines -- --update',
+    'Regenerate with: npm run engines:update',
   engines: ENGINES,
   cases: results,
 };
@@ -121,7 +121,7 @@ let current;
 try {
   current = JSON.parse(readFileSync(OUT, 'utf8'));
 } catch {
-  console.error(`${OUT} is missing or unreadable — run: npm run fixtures:engines -- --update`);
+  console.error(`${OUT} is missing or unreadable — run: npm run engines:update`);
   process.exit(1);
 }
 // Compared as data, not as text: the repo's formatter owns the whitespace in this file, and a
@@ -129,7 +129,7 @@ try {
 if (JSON.stringify(current) !== JSON.stringify(document)) {
   console.error(
     'engines.json no longer matches what the streaming engines do.\n' +
-      'If the change was intended, run: npm run fixtures:engines -- --update',
+      'If the change was intended, run: npm run engines:update',
   );
   process.exit(1);
 }

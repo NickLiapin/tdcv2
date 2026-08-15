@@ -129,12 +129,12 @@
       "description": "A pack whose value a generator body builds ships as a .tdc file, not a .txt list",
       "config": "<tdc><env count=\"6\" seed=\"packs\" local=\"pl\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"pl.person.male.fullName\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
-        "Lubomir Pawłowski",
-        "Teofil Mroczek",
-        "Hubert Wierzbicki",
-        "Rudolf Kasprzak",
-        "Ambroży Przybysz",
-        "Melchior Marzec"
+        "Niemir Walczak",
+        "Onufry Kędzierski",
+        "Gerard Trzciński",
+        "Strzeżymir Turek",
+        "Sergiusz Małolepszy",
+        "Przybysław Jankowiak"
       ]
     },
     {
@@ -142,14 +142,14 @@
       "description": "A .tdc pack whose body pairs <distinct> fields; the repair draws off the body's own prng",
       "config": "<tdc><env count=\"8\" seed=\"b\" local=\"es\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"es.person.female.fullName\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
       "expected": [
-        "Filomena Mariana Bustamante Rueda",
-        "Modesta Pamela Prada Chacón",
-        "Jacinta Florencia Jáuregui Morán",
-        "Araceli Bibiana Cruz Alba",
-        "Alicia Sara Cuevas Conde",
-        "Rosa Vanesa Toledano Gaviria",
-        "Raquel Marcia Anaya Tovar",
-        "Rocío Luisa Guerrero Ovalle"
+        "Lucrecia Constanza Bustamante Rueda",
+        "Eusebia Aída Prada Chacón",
+        "Piedad Maite Jáuregui Morán",
+        "Estela Felipa Cruz Alba",
+        "Matilde Margarita Cuevas Conde",
+        "Antonia Bibiana Toledano Gaviria",
+        "Gabriela Basilisa Anaya Tovar",
+        "Alicia Angelines Guerrero Ovalle"
       ]
     },
     {

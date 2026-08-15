@@ -277,10 +277,10 @@ arrangements of the same kind of pack:
 `./run es-people.tdc (4 rows)`
 
 ```
-Anselmo León Muñoz
-Simón Redondo Casas
-Félix Muñiz Ramos
-Isaías Zurita Rendón
+Evaristo León Muñoz
+Cristóbal Redondo Casas
+Sabino Muñiz Ramos
+Baltasar Zurita Rendón
 ```
 
 The last row draws the **same** surname twice (`Rodriguez Rodriguez`): `Last1` and

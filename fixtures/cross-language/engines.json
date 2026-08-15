@@ -1,5 +1,5 @@
 {
-  "comment": "Streaming-engine output for every shared case, from the reference implementation. It MATCHES the `expected` in the cases themselves — all three engines agree, and this file is where that is checked. What it adds is which cases an engine refuses. Regenerate with: npm run fixtures:engines -- --update",
+  "comment": "Streaming-engine output for every shared case, from the reference implementation. It MATCHES the `expected` in the cases themselves — all three engines agree, and this file is where that is checked. What it adds is which cases an engine refuses. Regenerate with: npm run engines:update",
   "engines": [2, 3],
   "cases": {
     "accumulate/a-running-total-inside-one-record": {
@@ -1953,48 +1953,48 @@
     "generators/template-composed-tdc-pack": {
       "engine2": {
         "lines": [
-          "Lubomir Pawłowski",
-          "Teofil Mroczek",
-          "Hubert Wierzbicki",
-          "Rudolf Kasprzak",
-          "Ambroży Przybysz",
-          "Melchior Marzec"
+          "Niemir Walczak",
+          "Onufry Kędzierski",
+          "Gerard Trzciński",
+          "Strzeżymir Turek",
+          "Sergiusz Małolepszy",
+          "Przybysław Jankowiak"
         ]
       },
       "engine3": {
         "lines": [
-          "Lubomir Pawłowski",
-          "Teofil Mroczek",
-          "Hubert Wierzbicki",
-          "Rudolf Kasprzak",
-          "Ambroży Przybysz",
-          "Melchior Marzec"
+          "Niemir Walczak",
+          "Onufry Kędzierski",
+          "Gerard Trzciński",
+          "Strzeżymir Turek",
+          "Sergiusz Małolepszy",
+          "Przybysław Jankowiak"
         ]
       }
     },
     "generators/template-composed-tdc-pack-distinct": {
       "engine2": {
         "lines": [
-          "Filomena Mariana Bustamante Rueda",
-          "Modesta Pamela Prada Chacón",
-          "Jacinta Florencia Jáuregui Morán",
-          "Araceli Bibiana Cruz Alba",
-          "Alicia Sara Cuevas Conde",
-          "Rosa Vanesa Toledano Gaviria",
-          "Raquel Marcia Anaya Tovar",
-          "Rocío Luisa Guerrero Ovalle"
+          "Lucrecia Constanza Bustamante Rueda",
+          "Eusebia Aída Prada Chacón",
+          "Piedad Maite Jáuregui Morán",
+          "Estela Felipa Cruz Alba",
+          "Matilde Margarita Cuevas Conde",
+          "Antonia Bibiana Toledano Gaviria",
+          "Gabriela Basilisa Anaya Tovar",
+          "Alicia Angelines Guerrero Ovalle"
         ]
       },
       "engine3": {
         "lines": [
-          "Filomena Mariana Bustamante Rueda",
-          "Modesta Pamela Prada Chacón",
-          "Jacinta Florencia Jáuregui Morán",
-          "Araceli Bibiana Cruz Alba",
-          "Alicia Sara Cuevas Conde",
-          "Rosa Vanesa Toledano Gaviria",
-          "Raquel Marcia Anaya Tovar",
-          "Rocío Luisa Guerrero Ovalle"
+          "Lucrecia Constanza Bustamante Rueda",
+          "Eusebia Aída Prada Chacón",
+          "Piedad Maite Jáuregui Morán",
+          "Estela Felipa Cruz Alba",
+          "Matilde Margarita Cuevas Conde",
+          "Antonia Bibiana Toledano Gaviria",
+          "Gabriela Basilisa Anaya Tovar",
+          "Alicia Angelines Guerrero Ovalle"
         ]
       }
     },
