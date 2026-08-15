@@ -22,14 +22,14 @@ Una sola dependencia, desde Maven Central:
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.2.1</version>
+  <version>0.2.2</version>
 </dependency>
 ```
 
 Con Gradle, en `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.2.1")
+implementation("io.github.nickliapin:tdcv2:0.2.2")
 ```
 
 > [!NOTE]
@@ -37,14 +37,13 @@ implementation("io.github.nickliapin:tdcv2:0.2.1")
 >
 > Maven Central limita cuántas publicaciones acepta de un proyecto al mes, y este proyecto
 > alcanza ese límite. Cuando ocurre, el jar se queda donde está mientras npm, PyPI, NuGet
-> y crates.io avanzan — a veces durante varias versiones, hasta que el límite se renueva y
-> todo lo acumulado sale junto.
+> y crates.io avanzan, hasta que el límite se renueva y todo lo acumulado sale junto.
 >
 > La coordenada de arriba es siempre **el jar más reciente que está realmente en Central**,
-> así que resuelve. Simplemente no siempre es el TDC más reciente. La diferencia son los
-> cambios del motor hechos desde entonces: el lenguaje de configuración, los diagnósticos y
-> la salida de todo lo anterior no cambian, así que una configuración escrita para este jar
-> sigue funcionando.
+> así que resuelve; simplemente no siempre es el TDC más reciente. Cuando va por detrás, lo
+> único que falta son los cambios del motor hechos desde entonces: el lenguaje de
+> configuración, los diagnósticos y la salida de todo lo anterior no cambian, así que una
+> configuración escrita para este jar sigue funcionando.
 
 Los paquetes de datos iniciales viajan dentro del jar, así que esto funciona sin
 instalar nada más.

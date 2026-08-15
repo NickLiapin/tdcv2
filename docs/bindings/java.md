@@ -22,28 +22,29 @@ One dependency, from Maven Central:
 <dependency>
   <groupId>io.github.nickliapin</groupId>
   <artifactId>tdcv2</artifactId>
-  <version>0.2.1</version>
+  <version>0.2.2</version>
 </dependency>
 ```
 
 Gradle, in `build.gradle.kts`:
 
 ```kotlin
-implementation("io.github.nickliapin:tdcv2:0.2.1")
+implementation("io.github.nickliapin:tdcv2:0.2.2")
 ```
 
 > [!NOTE]
 > **Why this version can differ from the other four**
 >
-> Maven Central caps how many releases it accepts from a project in a month, and this
+> Maven Central caps how many releases it accepts from a project each month, and this
 > project reaches that cap. When it does, the jar stays where it is while npm, PyPI,
-> NuGet and crates.io move on — sometimes for several releases, until the allowance
-> resets and the backlog goes out together.
+> NuGet and crates.io move on, until the allowance resets and the backlog goes out
+> together.
 >
 > The coordinate above is always **the newest jar that is actually on Central**, so it
-> resolves. It is simply not always the newest TDC. What that costs you is the engine
-> changes made since: the config language, the diagnostics and the output of anything
-> older are unchanged, so a config written for this jar keeps working.
+> resolves — it is simply not always the newest TDC. When it is behind, what you are
+> missing is the engine changes made since; the config language, the diagnostics and
+> the output of everything older are unchanged, so a config written for this jar keeps
+> working.
 
 The starter data packs travel inside the jar, so this runs with nothing else installed.
 

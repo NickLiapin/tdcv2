@@ -169,12 +169,13 @@ with its own build, tests, and publishing pipeline (`npm`, `PyPI`, `Maven Centra
 
 ### Current phase
 
-**Phase 1 / v1.0:** five implementations of one contract. npm, PyPI, NuGet and
-crates.io are at **0.2.2**; Maven Central is at **0.2.1**, because it caps how
-many releases it accepts from a project each month and the jar waits for the next
-allowance — sometimes for several versions, which then go out together. Equal
-version numbers are not a coincidence: where they match, the same config and seed
-produce the same bytes whichever registry the package came from.
+**Phase 1 / v1.0:** five implementations of one contract, all published at
+**0.2.2** — npm, PyPI, Maven Central, NuGet and crates.io. Equal version numbers
+are not a coincidence: they mean the same engine, so the same config and seed
+produce the same bytes whichever registry the package came from. Maven Central
+caps how many releases it accepts from a project each month, so the jar there can
+fall a version behind; the documentation prints whichever version is actually on
+Central rather than assuming the five agree.
 
 - Parser from the shared grammar, with lexer modes for raw-text `<data>`
 - Sequence engine with parent-child dependencies, on three engines: in memory,

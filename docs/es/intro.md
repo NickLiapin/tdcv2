@@ -354,7 +354,7 @@ misma configuración y la misma semilla.
 | **[Python](bindings/python.md#top)**         | PyPI          | `pip install tdcv2`          | 0.2.2   |
 | **[Rust](bindings/rust.md#top)**             | crates.io     | `cargo add tdcv2`            | 0.2.2   |
 | **[C#](bindings/csharp.md#top)**             | NuGet         | `dotnet add package Tdcv2`   | 0.2.2   |
-| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.2.1   |
+| **[Java](bindings/java.md#top)**             | Maven Central | `io.github.nickliapin:tdcv2` | 0.2.2   |
 
 Cada paquete publicado lleva un juego inicial de paquetes de datos, así que funciona sin
 instalar nada más; los otros diez idiomas y noventa y tantos paquetes de país están

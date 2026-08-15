@@ -9,21 +9,20 @@ this package: the jar and the library API.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [0.2.2] — not published
+**A heading's date is load-bearing here, unlike in the other four changelogs.** Maven
+Central caps how many releases it accepts from a project each month, so this jar is the
+one artefact that can be built and signed at a version Central has not taken yet. Such
+an entry is written `## [x.y.z] — not published`, and the documentation site reads this
+file for the newest DATED heading and puts THAT number in every Maven coordinate, Gradle
+line and jar URL it prints — so a reader is never handed a version that will not resolve.
+Publishing means replacing `not published` with the date it went out; the pages follow on
+the next build, and nothing else is edited.
 
-The Java artefact carries this version, but Maven Central did not take it: the monthly
-allowance for the account was spent. Nothing about the Java code differs from the other
-four at this version — the bundle is built, signed and tested by the release like any
-other; only the upload waits.
+## [0.2.2] — 2026-08-15
 
-Central's cap is per month, so more than one version can pile up here before the
-allowance resets; they then go out together, each on its own `java-v<version>` tag.
-
-**This heading has no date, and that is load-bearing.** The documentation site reads
-this file for the newest DATED entry and puts THAT number in every Maven coordinate,
-Gradle line and jar URL it prints — so a reader is always told a version that exists.
-Publishing means replacing `not published` with the date it went out; the pages follow
-on the next build, and nothing else needs editing.
+Held back at first — the account was over Central's monthly release count — then
+published the same day: until 1 October 2026 that limit is a notice rather than a block.
+Nothing about the Java code differs from the other four at this version.
 
 ## [0.2.1] — 2026-08-11
 
