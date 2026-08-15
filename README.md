@@ -173,8 +173,8 @@ with its own build, tests, and publishing pipeline (`npm`, `PyPI`, `Maven Centra
 **0.2.2** — npm, PyPI, NuGet and crates.io. Equal version numbers are not a
 coincidence: they mean the same engine, so the same config and seed produce the
 same bytes whichever registry the package came from. Maven Central caps how many
-releases it accepts from a project in a month, and this release reached the cap,
-so the newest jar there is the previous release until the window resets.
+releases it accepts from a project in a month, so the jar there can be one
+release behind the other four until that window resets.
 
 - Parser from the shared grammar, with lexer modes for raw-text `<data>`
 - Sequence engine with parent-child dependencies, on three engines: in memory,
