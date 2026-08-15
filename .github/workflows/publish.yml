@@ -116,6 +116,18 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.11" }
+      # A clean checkout carries neither the ANTLR parser nor the starter packs:
+      # both are generated, and both are ignored by git. Without the first the
+      # wheel cannot be imported at all; without the second `type="template"`
+      # has nothing to draw from. 0.1.7, 0.2.0 and 0.2.1 shipped without either,
+      # and `python/scripts/verify-wheel.mjs` now proves the whole recipe from a
+      # clean clone before anything is uploaded.
+      - name: Generate the parser a clean clone does not carry
+        run: node scripts/generate-parsers.mjs --only python
+      - name: Put the starter packs inside the wheel
+        run: |
+          python -m pip install --quiet 'antlr4-python3-runtime==4.13.2'
+          cd python && python scripts/bundle_packs.py
       - name: Build the distributions
         run: |
           python -m pip install --quiet build
@@ -186,8 +198,20 @@ jobs:
         with:
           name: maven-central-bundle
           path: java/build/bundle.zip
+      # Central meters deployments per month, and the allowance can run out while
+      # the other four registries are still free to take a release. The variable
+      # lets a release skip Java without editing this file, and without touching
+      # the four Trusted Publishing identities that are keyed to its NAME.
+      #
+      # Set `MAVEN_PUBLISH` to `off` in Settings -> Secrets and variables ->
+      # Actions -> Variables to hold Java back; unset it, or set anything else,
+      # to publish normally. The bundle above is still BUILT and SIGNED either
+      # way, so the gate keeps proving the Java artefact runs — only the upload
+      # is skipped, and the kept bundle can be sent by hand later. A held-back
+      # version goes out afterwards with its own `java-v<version>` tag, which
+      # `publish-maven.yml` answers.
       - name: Upload to the Central Portal
-        if: github.ref_type == 'tag'
+        if: github.ref_type == 'tag' && vars.MAVEN_PUBLISH != 'off'
         env:
           # The names the repository has actually held since the Java-only workflow: see
           # publish-maven.yml. When the five registries were merged into this file the secrets

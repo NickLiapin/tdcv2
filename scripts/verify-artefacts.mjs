@@ -31,12 +31,12 @@
  * releasing.
  */
 
-import { spawnSync } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { spawnSync } from "node:child_process";
+import { existsSync, readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 /**
  * `prepare` runs before the check and `cleanup` after it, whatever the verdict —
@@ -46,65 +46,95 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
  */
 const ARTEFACTS = [
   {
-    id: 'rust',
-    label: 'Rust crate (crates.io)',
-    cwd: 'rust',
-    prepare: ['node', ['scripts/bundle-packs.mjs', 'add']],
-    check: ['node', ['scripts/verify-crate.mjs']],
-    cleanup: ['node', ['scripts/bundle-packs.mjs', 'remove']],
+    // Not in this list until 0.2.2, and three releases went out unimportable
+    // while it was missing — see the header of `python/scripts/verify-wheel.mjs`.
+    // It builds from `git archive HEAD`, so a developer's working tree cannot
+    // stand in for what a clean clone carries.
+    id: "python",
+    label: "Python wheel (PyPI)",
+    cwd: ".",
+    check: ["node", ["python/scripts/verify-wheel.mjs"]],
   },
   {
-    id: 'java',
-    label: 'Java jar (Maven Central)',
-    cwd: 'java',
-    prepare: ['./gradlew', ['jar', 'cliJar', '-q', '--console=plain']],
-    check: ['node', ['scripts/verify-jar.mjs']],
+    // npm survived where Python did not, on the strength of one `prepack` hook.
+    // That is luck holding, not a check passing.
+    id: "npm",
+    label: "npm tarball (npmjs.com)",
+    cwd: ".",
+    check: ["node", ["typescript/scripts/verify-tarball.mjs"]],
   },
   {
-    id: 'csharp-lib',
-    label: 'C# library (NuGet)',
-    cwd: 'csharp',
-    check: ['node', ['scripts/verify-package.mjs']],
+    id: "rust",
+    label: "Rust crate (crates.io)",
+    cwd: "rust",
+    prepare: ["node", ["scripts/bundle-packs.mjs", "add"]],
+    check: ["node", ["scripts/verify-crate.mjs"]],
+    cleanup: ["node", ["scripts/bundle-packs.mjs", "remove"]],
   },
   {
-    id: 'csharp-cli',
-    label: 'C# command line (NuGet)',
-    cwd: 'csharp',
-    check: ['node', ['scripts/verify-tool.mjs']],
+    id: "java",
+    label: "Java jar (Maven Central)",
+    cwd: "java",
+    prepare: ["./gradlew", ["jar", "cliJar", "-q", "--console=plain"]],
+    check: ["node", ["scripts/verify-jar.mjs"]],
+  },
+  {
+    id: "csharp-lib",
+    label: "C# library (NuGet)",
+    cwd: "csharp",
+    check: ["node", ["scripts/verify-package.mjs"]],
+  },
+  {
+    id: "csharp-cli",
+    label: "C# command line (NuGet)",
+    cwd: "csharp",
+    check: ["node", ["scripts/verify-tool.mjs"]],
   },
 ];
 
 /** Every declared version, so a release cannot go out with them disagreeing. */
 function declaredVersions() {
-  const read = (p) => readFileSync(join(ROOT, p), 'utf8');
+  const read = (p) => readFileSync(join(ROOT, p), "utf8");
   const one = (text, re) => re.exec(text)?.[1];
   return {
-    npm: one(read('typescript/package.json'), /"version":\s*"([^"]+)"/),
-    'npm (VERSION)': one(read('typescript/src/version.ts'), /VERSION = '([^']+)'/),
-    crates: one(read('rust/Cargo.toml'), /^version = "([^"]+)"/m),
-    pypi: one(read('python/pyproject.toml'), /^version = "([^"]+)"/m),
-    maven: one(read('java/build.gradle.kts'), /^version = "([^"]+)"/m),
-    'nuget (lib)': one(read('csharp/Tdcv2/Tdcv2.csproj'), /<Version>([^<]+)</),
-    'nuget (cli)': one(read('csharp/Tdcv2.Cli.Tool/Tdcv2.Cli.Tool.csproj'), /<Version>([^<]+)</),
+    npm: one(read("typescript/package.json"), /"version":\s*"([^"]+)"/),
+    "npm (VERSION)": one(
+      read("typescript/src/version.ts"),
+      /VERSION = '([^']+)'/,
+    ),
+    crates: one(read("rust/Cargo.toml"), /^version = "([^"]+)"/m),
+    pypi: one(read("python/pyproject.toml"), /^version = "([^"]+)"/m),
+    maven: one(read("java/build.gradle.kts"), /^version = "([^"]+)"/m),
+    "nuget (lib)": one(read("csharp/Tdcv2/Tdcv2.csproj"), /<Version>([^<]+)</),
+    "nuget (cli)": one(
+      read("csharp/Tdcv2.Cli.Tool/Tdcv2.Cli.Tool.csproj"),
+      /<Version>([^<]+)</,
+    ),
   };
 }
 
-const only = process.argv.includes('--only')
-  ? process.argv[process.argv.indexOf('--only') + 1].split(',')
+const only = process.argv.includes("--only")
+  ? process.argv[process.argv.indexOf("--only") + 1].split(",")
   : null;
 
 const versions = declaredVersions();
 const distinct = [...new Set(Object.values(versions))];
-console.log('Declared versions:');
-for (const [k, v] of Object.entries(versions)) console.log(`  ${k.padEnd(15)} ${v ?? '??'}`);
+console.log("Declared versions:");
+for (const [k, v] of Object.entries(versions))
+  console.log(`  ${k.padEnd(15)} ${v ?? "??"}`);
 if (distinct.length !== 1) {
-  console.error(`\nThey disagree: ${distinct.join(', ')}. One number, or the release is a lie.`);
+  console.error(
+    `\nThey disagree: ${distinct.join(", ")}. One number, or the release is a lie.`,
+  );
   process.exit(1);
 }
-console.log(`\nAll ${String(Object.keys(versions).length)} agree on ${distinct[0]}.\n`);
+console.log(
+  `\nAll ${String(Object.keys(versions).length)} agree on ${distinct[0]}.\n`,
+);
 
 const run = ([command, args], cwd) =>
-  spawnSync(command, args, { cwd: join(ROOT, cwd), stdio: 'inherit' }).status ?? 1;
+  spawnSync(command, args, { cwd: join(ROOT, cwd), stdio: "inherit" }).status ??
+  1;
 
 const failed = [];
 let ran = 0;
@@ -122,19 +152,21 @@ for (const a of ARTEFACTS.filter((x) => !only || only.includes(x.id))) {
   // tree carrying a copy of the data packs.
   if (a.cleanup) run(a.cleanup, a.cwd);
   if (code !== 0) failed.push(a.label);
-  console.log('');
+  console.log("");
 }
 
 if (failed.length > 0) {
-  console.error(`\n${String(failed.length)} artefact(s) are not what they claim:`);
+  console.error(
+    `\n${String(failed.length)} artefact(s) are not what they claim:`,
+  );
   for (const f of failed) console.error(`  ${f}`);
-  console.error('\nDo not publish.');
+  console.error("\nDo not publish.");
   process.exit(1);
 }
 // Say what was actually done. Claiming "every artefact was verified" after
 // verifying none is the shape of lie this whole file exists to stop.
 console.log(
   ran === 0
-    ? 'Versions agree. No artefact was selected, so none was verified.'
+    ? "Versions agree. No artefact was selected, so none was verified."
     : `${String(ran)} artefact(s) built the way a stranger receives them, and ran.`,
 );
