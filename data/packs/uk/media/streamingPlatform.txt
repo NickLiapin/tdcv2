@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Ukrainian market
+locale: uk
+---
+Netflix
+Megogo
+Sweet.tv
+Київстар ТБ
+Volia TV
+Oll.tv
+YouTube Premium
+Apple TV+
+Amazon Prime Video
+HBO Max
+Disney+
+Spotify

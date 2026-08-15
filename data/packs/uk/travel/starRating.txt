@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Ukrainian)
+locale: uk
+---
+1 зірка
+2 зірки
+3 зірки
+4 зірки
+5 зірок

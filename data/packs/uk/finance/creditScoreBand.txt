@@ -1,0 +1,9 @@
+---
+description: Credit score band (Ukrainian)
+locale: uk
+---
+дуже низький
+низький
+середній
+високий
+дуже високий

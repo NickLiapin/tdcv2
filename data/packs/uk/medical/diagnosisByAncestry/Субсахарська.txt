@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, in Ukrainian. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: uk
+---
+Серпоподібноклітинна анемія
+Носійство серпоподібноклітинного гена
+Дефіцит глюкозо-6-фосфатдегідрогенази
+Альфа-таласемія
+Гіпертонічна хвороба
+Цукровий діабет 2 типу
+Хронічна хвороба нирок
+Саркоїдоз
+Міома матки
+Келоїдні рубці
+Доброякісна етнічна нейтропенія
+Непереносимість лактози

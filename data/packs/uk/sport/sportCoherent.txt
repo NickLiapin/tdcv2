@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Ukrainian)
+locale: uk
+---
+Футбол
+Баскетбол
+Волейбол
+Гандбол
+Хокей із шайбою
+Регбі
+Бейсбол
+Американський футбол

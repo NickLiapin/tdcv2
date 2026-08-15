@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry, in Ukrainian. A prevalence signal, not an exclusive one.
+locale: uk
+---
+Цукровий діабет 2 типу
+Жовчнокам'яна хвороба
+Ожиріння
+Ревматоїдний артрит
+Непереносимість лактози
+Хронічна хвороба нирок
+Вроджена глухота

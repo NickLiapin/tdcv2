@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Ukrainian)
+locale: uk
+---
+зв'язуючий
+діагональний
+центральний блокуючий
+дошгравальник
+ліберо

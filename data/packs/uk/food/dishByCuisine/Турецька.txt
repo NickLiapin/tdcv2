@@ -1,0 +1,12 @@
+---
+description: Dishes of Турецька cuisine (Ukrainian)
+locale: uk
+---
+кебаб
+лахмаджун
+піде
+долма
+менемен
+чорба
+баклава
+локум

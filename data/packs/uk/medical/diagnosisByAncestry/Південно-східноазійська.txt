@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Ukrainian. A prevalence signal, not an exclusive one.
+locale: uk
+---
+Альфа-таласемія
+Гемоглобін E
+Дефіцит глюкозо-6-фосфатдегідрогенази
+Непереносимість лактози
+Синдром Бругада
+Рак носоглотки
+Таласемія проміжна

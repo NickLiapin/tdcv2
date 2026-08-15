@@ -1,0 +1,54 @@
+---
+description: Airline (Ukrainian carriers and major international ones)
+locale: uk
+---
+Міжнародні авіалінії України
+Windrose
+SkyUp
+Azur Air Ukraine
+Bees Airline
+Українські вертольоти
+Motor Sich Airlines
+Constanta Airline
+Lufthansa
+Austrian Airlines
+Swiss
+KLM
+Air France
+British Airways
+Iberia
+Alitalia
+ITA Airways
+LOT Polish Airlines
+Czech Airlines
+Wizz Air
+Ryanair
+easyJet
+Turkish Airlines
+Pegasus Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Air Arabia
+flydubai
+El Al
+Aegean Airlines
+Air Baltic
+Finnair
+SAS
+Norwegian
+TAP Air Portugal
+Brussels Airlines
+Eurowings
+Vueling
+Aer Lingus
+Croatia Airlines
+Air Serbia
+Tarom
+Bulgaria Air
+Georgian Airways
+Azerbaijan Airlines
+Air Astana
+Uzbekistan Airways
+American Airlines
+Delta Air Lines

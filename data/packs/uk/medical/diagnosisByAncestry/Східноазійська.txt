@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, in Ukrainian. A prevalence signal, not an exclusive one.
+locale: uk
+---
+Альфа-таласемія
+Дефіцит альдегіддегідрогенази 2
+Непереносимість лактози
+Рак носоглотки
+Рак шлунка
+Хвороба Кавасакі
+Первинна відкритокутова глаукома
+Гіперурикемія
+Тиреотоксичний періодичний параліч
+Спадкова тугоухість

@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Ukrainian)
+locale: uk
+---
+розігрувальний
+атакувальний захисник
+легкий форвард
+важкий форвард
+центровий

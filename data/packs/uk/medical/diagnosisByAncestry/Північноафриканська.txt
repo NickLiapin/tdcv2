@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Ukrainian. A prevalence signal, not an exclusive one.
+locale: uk
+---
+Бета-таласемія
+Дефіцит глюкозо-6-фосфатдегідрогенази
+Сімейна середземноморська гарячка
+Серпоподібноклітинна анемія
+Спадкова тугоухість
+Пігментна ксеродерма

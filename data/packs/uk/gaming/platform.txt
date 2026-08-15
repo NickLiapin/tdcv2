@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Ukrainian; brand names kept as-is)
+locale: uk
+---
+ПК
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+мобільні пристрої
+Android
+iOS
+браузер

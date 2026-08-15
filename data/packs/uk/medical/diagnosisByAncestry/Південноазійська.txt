@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Ukrainian. A prevalence signal, not an exclusive one.
+locale: uk
+---
+Бета-таласемія
+Дефіцит глюкозо-6-фосфатдегідрогенази
+Цукровий діабет 2 типу
+Ішемічна хвороба серця
+Метаболічний синдром
+Непереносимість лактози
+Спадкова тугоухість
+Вроджені вади серця

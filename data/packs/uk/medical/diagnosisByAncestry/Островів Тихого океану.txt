@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Ukrainian. A prevalence signal, not an exclusive one.
+locale: uk
+---
+Цукровий діабет 2 типу
+Ожиріння
+Подагра
+Гіпертонічна хвороба
+Хронічна хвороба нирок
+Ревматична хвороба серця
+Непереносимість лактози

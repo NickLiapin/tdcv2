@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Ukrainian. A prevalence signal, not an exclusive one.
+locale: uk
+---
+Сімейна середземноморська гарячка
+Бета-таласемія
+Дефіцит глюкозо-6-фосфатдегідрогенази
+Спадкова глухота
+Спінальна м'язова атрофія
+Спадковий сфероцитоз

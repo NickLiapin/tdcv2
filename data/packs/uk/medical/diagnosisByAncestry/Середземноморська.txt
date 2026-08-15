@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Ukrainian. A prevalence signal, not an exclusive one.
+locale: uk
+---
+Бета-таласемія
+Серпоподібноклітинна анемія
+Дефіцит глюкозо-6-фосфатдегідрогенази
+Сімейна середземноморська гарячка
+Спадковий гемохроматоз
+Хвороба Бехчета
+Спадковий сфероцитоз

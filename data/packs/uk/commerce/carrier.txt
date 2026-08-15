@@ -1,0 +1,24 @@
+---
+description: Parcel carriers commonly used in Ukraine
+locale: uk
+---
+Нова пошта
+Укрпошта
+Міст Експрес
+Делівері
+Justin
+САТ
+Ін-Тайм
+Автолюкс
+Нічний Експрес
+Гюнсел
+Rozetka Доставка
+Meest Express
+DHL
+UPS
+FedEx
+TNT
+GLS
+DPD
+Європошта
+Пошта Кур'єр

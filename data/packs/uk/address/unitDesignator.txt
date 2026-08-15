@@ -1,0 +1,27 @@
+---
+description: Ukrainian address unit / interior designator (abbreviated forms used before a number)
+locale: uk
+---
+кв.
+квартира
+оф.
+офіс
+к.
+кімната
+корп.
+корпус
+буд.
+будинок
+під'їзд
+пов.
+поверх
+секція
+блок
+літера
+приміщення
+прим.
+бокс
+гараж
+комора
+а/с
+абонентська скринька

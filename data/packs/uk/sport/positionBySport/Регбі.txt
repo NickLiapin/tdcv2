@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Ukrainian)
+locale: uk
+---
+стовп
+хукер
+замок
+фланкер
+номер вісім
+скрам-хав
+флай-хав
+центр
+крило
+фулбек

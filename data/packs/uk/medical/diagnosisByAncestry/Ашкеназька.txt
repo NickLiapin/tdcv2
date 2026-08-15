@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Ukrainian. A prevalence signal, not an exclusive one.
+locale: uk
+---
+Хвороба Тея-Сакса
+Хвороба Гоше
+Сімейна дизавтономія
+Хвороба Канавана
+Синдром Блума
+Анемія Фанконі типу C
+Муковісцидоз
+Мутації BRCA1 і BRCA2
+Спадкова недостатність фактора XI
+Хвороба Німана-Піка типу A
+Глікогеноз типу I
+Дефіцит дигідроліпоамід-дегідрогенази

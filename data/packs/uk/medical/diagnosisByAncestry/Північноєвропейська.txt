@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Ukrainian. A prevalence signal, not an exclusive one.
+locale: uk
+---
+Муковісцидоз
+Спадковий гемохроматоз
+Дефіцит альфа-1-антитрипсину
+Целіакія
+Фенілкетонурія
+Розсіяний склероз
+Хвороба Дюпюїтрена
+Меланома
+Дефіцит лактази у дорослих
+Спадкова недостатність фактора V Лейден

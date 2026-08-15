@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Ukrainian)
+locale: uk
+---
+кабельний канал
+гофрована труба
+металорукав
+лоток
+підвісна траса
+підземна каналізація
+пряме прокладання у ґрунт

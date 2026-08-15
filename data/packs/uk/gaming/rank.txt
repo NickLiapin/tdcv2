@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Ukrainian)
+locale: uk
+---
+новачок
+бронза
+срібло
+золото
+платина
+діамант
+майстер
+гросмайстер
+чемпіон
+легенда

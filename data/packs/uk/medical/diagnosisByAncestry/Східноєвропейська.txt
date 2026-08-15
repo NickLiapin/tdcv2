@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Ukrainian. A prevalence signal, not an exclusive one.
+locale: uk
+---
+Спадковий гемохроматоз
+Целіакія
+Фенілкетонурія
+Хвороба Вільсона
+Дефіцит глюкозо-6-фосфатдегідрогенази
+Спадкова тромбофілія

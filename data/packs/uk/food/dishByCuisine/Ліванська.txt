@@ -1,0 +1,12 @@
+---
+description: Dishes of Ліванська cuisine (Ukrainian)
+locale: uk
+---
+хумус
+фалафель
+табуле
+кіббе
+фатуш
+шаурма
+баба гануш
+манакіш

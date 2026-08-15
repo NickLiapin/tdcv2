@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Ukraine
+locale: uk
+---
+Facebook
+Instagram
+TikTok
+YouTube
+Telegram
+Viber
+WhatsApp
+Signal
+X
+LinkedIn
+Pinterest
+Reddit
+Twitch
+Discord
+Snapchat
+Threads
+Diia

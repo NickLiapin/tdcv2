@@ -1,0 +1,15 @@
+---
+description: Positions in American football (Ukrainian)
+locale: uk
+---
+квотербек
+раннінгбек
+вайд-ресивер
+тайт-енд
+центр
+гард
+такл
+дефенсив-енд
+лайнбекер
+корнербек
+сейфті

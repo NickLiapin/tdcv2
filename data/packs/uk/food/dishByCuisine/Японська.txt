@@ -1,0 +1,13 @@
+---
+description: Dishes of Японська cuisine (Ukrainian)
+locale: uk
+---
+суші
+роли
+сашимі
+рамен
+темпура
+місо-суп
+удон
+гьоза
+якіторі

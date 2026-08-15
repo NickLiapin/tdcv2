@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Ukrainian that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: uk
+---
+Доброякісна гіперплазія передміхурової залози
+Простатит
+Рак передміхурової залози
+Варикоцеле
+Гідроцеле
+Крипторхізм
+Фімоз
+Парафімоз
+Баланопостит
+Орхіт
+Епідидиміт
+Перекрут яєчка
+Рак яєчка
+Еректильна дисфункція
+Хвороба Пейроні
+Чоловіче безпліддя
+Гіпогонадизм
+Пахова грижа
+Азооспермія
+Гінекомастія

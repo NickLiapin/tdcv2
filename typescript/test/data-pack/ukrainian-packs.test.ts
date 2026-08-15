@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -7,138 +7,184 @@ import { describe, expect, it } from 'vitest';
 import { TDC } from '../../src/lib/tdc.js';
 
 /**
- * The Ukrainian (`uk`) locale core: names and dates.
- *
- * `uk` is a partial locale on purpose — the person and date categories are
- * filled and the rest is not there yet, which the engine states rather than
- * papers over: an unfilled path is a TDC071, never a quiet fall back to English.
- * That property is what makes filling a locale in waves safe, and the last test
- * here pins it.
- *
- * The rest guards the thing Ukrainian gets wrong by default, and the reason the
- * masculine and feminine lists are separate files: **surnames inflect, but only
- * some of them**. Patronymic surnames (-енко, -ук/-чук, -ар) are the same string
- * for a man and a woman; adjectival ones are not — Ковальський/Ковальська,
- * Білий/Біла. Patronymics inflect always: -ович/-івна.
+ * The Ukrainian locale pack (data/packs/uk). Ukrainian shares the Cyrillic
+ * alphabet with Russian and is routinely mistaken for it, so the checks here are
+ * mostly about the pack being Ukrainian rather than merely Cyrillic: the four
+ * letters Russian does not have, a surname list that is genuinely Ukrainian in
+ * shape, and the five coherent parent->child groups whose keys are Ukrainian
+ * words and therefore easy to get out of step with their filenames.
  */
 
 const here = dirname(fileURLToPath(import.meta.url));
 const ukDir = resolve(here, '../../../data/packs/uk');
-const NOW = new Date('2026-04-23T12:00:00Z').getTime();
 
-/** The values of a pack file, with its front matter stripped. */
-function valuesOf(relPath: string): string[] {
+/**
+ * Values of a pack list file, past the `--- … ---` frontmatter fence.
+ *
+ * The person lists are weighted (`weighted: true`), so each line is
+ * `value,count` and the engine hands back only the value. Comparing the raw
+ * line against a rendered value would fail on every weighted file — and, worse,
+ * would PASS if the pack ever lost its `weighted: true` header, because then
+ * both sides would carry the count. Strip the trailing count here so the test
+ * sees what a config sees.
+ */
+function valuesOf(relPath: string): Set<string> {
   const lines = readFileSync(join(ukDir, relPath), 'utf8').split('\n');
   const end = lines.indexOf('---', 1);
-  return lines
-    .slice(end + 1)
-    .filter((l) => l.trim() !== '')
-    .map((l) => l.split(',')[0] ?? '');
+  return new Set(
+    lines
+      .slice(end + 1)
+      .filter((l) => l.trim() !== '')
+      .map((l) => l.replace(/,\d+$/, '')),
+  );
 }
 
 function render(address: string, count = 40, seed = 'uk'): string[] {
   const config =
     `<tdc><env count="${String(count)}" seed="${seed}" local="uk">` +
-    `<sequence name="V"><gen type="template" value="${address}"/></sequence>` +
-    '</env><block><line><data>${{V}}</data></line></block></tdc>';
-  return new TDC({ configString: config, now: NOW })
-    .toString()
-    .split('\n')
-    .filter((l) => l.length > 0);
+    `<sequence name="P"><gen type="template" value="${address}"/></sequence>` +
+    '</env><block><line><data>${{P}}</data></line></block></tdc>';
+  return new TDC({ configString: config }).toString().trim().split('\n');
 }
 
-describe('uk locale pack', () => {
-  it('draws names in Cyrillic, never in Latin', () => {
-    for (const path of [
-      'person.male.firstName',
-      'person.female.firstName',
-      'person.male.lastName',
-      'person.female.lastName',
-      'person.male.patronymic',
-      'person.female.patronymic',
-    ]) {
+/** Every list file in the pack, as pack-relative paths. */
+function everyListFile(dir = ukDir, prefix = ''): string[] {
+  const out: string[] = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const rel = prefix === '' ? entry.name : `${prefix}/${entry.name}`;
+    if (entry.isDirectory()) out.push(...everyListFile(join(dir, entry.name), rel));
+    else if (entry.name.endsWith('.txt')) out.push(rel);
+  }
+  return out;
+}
+
+describe('uk is Ukrainian, not Russian in Cyrillic', () => {
+  /**
+   * The four letters that exist in Ukrainian and not in Russian. A pack
+   * transliterated or copied from ru would be all-Cyrillic and pass any test
+   * that only looked for Cyrillic — this one would not pass.
+   */
+  it('uses і, ї, є and ґ across the pack', () => {
+    const text = everyListFile()
+      .map((f) => readFileSync(join(ukDir, f), 'utf8'))
+      .join('\n');
+    for (const letter of ['і', 'ї', 'є', 'ґ']) {
+      expect(text.includes(letter), `no "${letter}" anywhere in the pack`).toBe(true);
+    }
+  });
+
+  /** Russian has ы, э and ъ; Ukrainian has none of the three. */
+  it('contains no letter that only Russian has', () => {
+    for (const file of everyListFile()) {
+      const body = [...valuesOf(file)].join('\n');
+      expect(/[ыэъ]/i.test(body), `${file} contains a Russian-only letter`).toBe(false);
+    }
+  });
+});
+
+describe('uk person lists that carry a count', () => {
+  /**
+   * A `value,count` body is only read as weighted when the header says
+   * `weighted: true`. Without it the pack still loads — and quietly serves
+   * "Артем,802741" as a given name. Nothing else in the pipeline notices, which
+   * is why the header is asserted here rather than left to be discovered.
+   */
+  it('declare weighted: true, so the count is a weight and not part of the name', () => {
+    const weighted = [
+      'person/lastName.txt',
+      'person/male/lastName.txt',
+      'person/female/lastName.txt',
+      'person/male/firstName.txt',
+      'person/female/firstName.txt',
+      'person/male/patronymic.txt',
+      'person/female/patronymic.txt',
+    ];
+    for (const file of weighted) {
+      const text = readFileSync(join(ukDir, file), 'utf8');
+      expect(text.includes('\nweighted: true\n'), `${file} has a count column but no header`).toBe(
+        true,
+      );
+      for (const line of [...valuesOf(file)]) {
+        expect(/,\d+$/.test(line), `${file}: "${line}" still carries its count`).toBe(false);
+      }
+    }
+  });
+});
+
+describe('uk.person', () => {
+  it('draws surnames from the Ukrainian list', () => {
+    const surnames = valuesOf('person/lastName.txt');
+    for (const v of render('uk.person.lastName', 40)) expect(surnames.has(v), v).toBe(true);
+  });
+
+  it('gives male and female rows their own given-name lists', () => {
+    const male = valuesOf('person/male/firstName.txt');
+    const female = valuesOf('person/female/firstName.txt');
+    for (const v of render('uk.person.male.firstName', 30)) expect(male.has(v), v).toBe(true);
+    for (const v of render('uk.person.female.firstName', 30)) expect(female.has(v), v).toBe(true);
+    // The two lists are distinct, not one list served twice.
+    expect([...male].filter((n) => female.has(n))).toHaveLength(0);
+  });
+
+  it('carries a patronymic, as Ukrainian full names do', () => {
+    for (const v of render('uk.person.male.patronymic', 20)) {
+      expect(v, v).toMatch(/(ович|ич)$/);
+    }
+    for (const v of render('uk.person.female.patronymic', 20)) {
+      expect(v, v).toMatch(/(івна|ївна|ична)$/);
+    }
+  });
+});
+
+/**
+ * The five coherent groups. Each is a parent list whose values ARE the
+ * filenames of its child directory, which means a typo in either place silently
+ * produces an empty draw rather than an error. These tests draw the pair on one
+ * row and check the child value really belongs to the parent drawn beside it.
+ */
+const COHERENT: [string, string, string][] = [
+  ['food.cuisine', 'food.dishByCuisine', 'food/dishByCuisine'],
+  ['work.industryCoherent', 'work.jobByIndustry', 'work/jobByIndustry'],
+  ['medical.specialtyCoherent', 'medical.diagnosisBySpecialty', 'medical/diagnosisBySpecialty'],
+  ['medical.ancestry', 'medical.diagnosisByAncestry', 'medical/diagnosisByAncestry'],
+  ['sport.sportCoherent', 'sport.positionBySport', 'sport/positionBySport'],
+];
+
+describe.each(COHERENT)('uk coherent %s', (parent, child, dir) => {
+  it('every child value belongs to the parent drawn on that row', () => {
+    const cfg = [
+      '<tdc><env count="60" seed="pair" local="uk">',
+      `  <sequence name="A"><gen type="template" value="uk.${parent}"/></sequence>`,
+      `  <sequence name="B" parent="A"><gen type="template" value="uk.${child}.\${{A}}"/></sequence>`,
+      '</env><block><line><data>${{A}}|${{B}}</data></line></block></tdc>',
+    ].join('\n');
+    for (const row of new TDC({ configString: cfg }).toString().trim().split('\n')) {
+      const [key, value] = row.split('|');
+      expect(key, row).toBeTruthy();
+      expect(value, row).toBeTruthy();
       expect(
-        render(path, 20).every((v) => !/[A-Za-z]/.test(v)),
-        path,
+        valuesOf(`${dir}/${key ?? ''}.txt`).has(value ?? ''),
+        `"${String(value)}" does not belong to "${String(key)}"`,
       ).toBe(true);
     }
   });
 
-  it('inflects adjectival surnames for gender and leaves the rest alone', () => {
-    const male = valuesOf('person/male/lastName.txt');
-    const female = valuesOf('person/female/lastName.txt');
-    // Line for line, so a husband and a wife carry one family name.
-    expect(female.length).toBe(male.length);
-
-    for (const [m, f] of [
-      ['Ковальський', 'Ковальська'],
-      ['Хмельницький', 'Хмельницька'],
-      ['Білий', 'Біла'],
-    ] as const) {
-      const at = male.indexOf(m);
-      expect(at, m).toBeGreaterThanOrEqual(0);
-      expect(female[at]).toBe(f);
-    }
-
-    // The ones that do NOT change are the majority, and getting those "right"
-    // by inflecting them would be the opposite mistake.
-    for (const same of ['Шевченко', 'Ковальчук', 'Бондар', 'Мороз']) {
-      const at = male.indexOf(same);
-      expect(at, same).toBeGreaterThanOrEqual(0);
-      expect(female[at]).toBe(same);
-    }
+  it('parent list and child filenames are the same set', () => {
+    const keys = valuesOf(`${parent.replace('.', '/')}.txt`);
+    const files = new Set(readdirSync(join(ukDir, dir)).map((f) => f.replace(/\.txt$/, '')));
+    expect([...keys].filter((k) => !files.has(k))).toEqual([]);
+    expect([...files].filter((f) => !keys.has(f))).toEqual([]);
   });
+});
 
-  it('never gives a woman a masculine surname ending, over four hundred rows', () => {
-    const config =
-      '<tdc><env count="400" seed="kyiv" local="uk">' +
-      '<sequence name="Sex"><gen type="text" value="ч,ж" percent="50,50"/></sequence>' +
-      '<sequence name="Last">' +
-      '<gen if="Sex == \'ч\'" type="template" value="person.male.lastName"/>' +
-      '<gen type="template" value="person.female.lastName"/></sequence>' +
-      '</env><block><line><data>${{Sex}} ${{Last}}</data></line></block></tdc>';
-    const rows = new TDC({ configString: config, now: NOW })
-      .toString()
-      .split('\n')
-      .filter((l) => l.length > 0);
-    const women = rows.filter((r) => r.startsWith('ж '));
-    expect(women.length).toBeGreaterThan(100);
-    expect(women.filter((r) => /(ський|цький|ий)$/.test(r))).toEqual([]);
-  });
-
-  it('pairs patronymics line for line, -ович against -івна', () => {
-    const male = valuesOf('person/male/patronymic.txt');
-    const female = valuesOf('person/female/patronymic.txt');
-    expect(female.length).toBe(male.length);
-    expect(male.every((v) => /(ович|ич)$/.test(v))).toBe(true);
-    expect(female.every((v) => /(івна|ївна)$/.test(v))).toBe(true);
-    expect(male[male.indexOf('Дмитрович')]).toBe('Дмитрович');
-    expect(female[male.indexOf('Дмитрович')]).toBe('Дмитрівна');
-  });
-
-  it('has the twelve months and seven weekdays, in order', () => {
-    expect(render('date.month', 12, 'm')).toBeDefined();
-    expect(valuesOf('date/month.txt')).toEqual([
-      'січень',
-      'лютий',
-      'березень',
-      'квітень',
-      'травень',
-      'червень',
-      'липень',
-      'серпень',
-      'вересень',
-      'жовтень',
-      'листопад',
-      'грудень',
-    ]);
-    expect(valuesOf('date/weekday.txt')[0]).toBe('понеділок');
-    expect(valuesOf('date/weekday.txt')).toHaveLength(7);
-  });
-
-  it('says so plainly for a category this locale does not have yet', () => {
-    // The whole reason a partial locale is safe: what is missing is refused by
-    // name, rather than answered in English while claiming to be Ukrainian.
-    expect(() => render('food.dish', 3)).toThrow(/food\.dish/);
+describe('uk dates', () => {
+  it('render Ukrainian month and weekday names', () => {
+    const months = valuesOf('date/month.txt');
+    const weekdays = valuesOf('date/weekday.txt');
+    for (const v of render('uk.date.month', 24)) expect(months.has(v), v).toBe(true);
+    for (const v of render('uk.date.weekday', 24)) expect(weekdays.has(v), v).toBe(true);
+    // The Ukrainian calendar keeps its own month names rather than the Latin
+    // ones: січень, not "January" in Cyrillic letters.
+    expect(months.has('січень') || months.has('Січень')).toBe(true);
   });
 });

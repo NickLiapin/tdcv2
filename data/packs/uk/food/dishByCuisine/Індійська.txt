@@ -1,0 +1,12 @@
+---
+description: Dishes of Індійська cuisine (Ukrainian)
+locale: uk
+---
+карі
+тікка масала
+біріані
+самоса
+дал
+наан
+панір тікка
+масала чай

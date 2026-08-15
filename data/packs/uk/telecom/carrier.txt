@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (Ukrainian operators and international brands)
+locale: uk
+---
+Київстар
+Vodafone Україна
+lifecell
+Інтертелеком
+Тримоб
+Укртелеком
+Датагруп
+Воля
+Ланет
+Фрінет
+Мегого Мобайл
+Lycamobile
+MTS
+Beeline
+T-Mobile
+Orange
+Vodafone
+O2
+Play
+Plus
+Telekom
+A1
+Telenor
+Telia
+Yettel
+Turkcell

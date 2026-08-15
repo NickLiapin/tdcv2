@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Ukrainian, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: uk
+---
+Північноєвропейська
+Східноєвропейська
+Середземноморська
+Ашкеназька
+Близькосхідна
+Північноафриканська
+Субсахарська
+Східноазійська
+Південноазійська
+Південно-східноазійська
+Корінна американська
+Островів Тихого океану

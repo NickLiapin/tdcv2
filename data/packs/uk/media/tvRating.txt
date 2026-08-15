@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, descriptive Ukrainian (country rating codes are country data)
+locale: uk
+---
+для загального перегляду
+для сімейного перегляду
+для дітей
+рекомендовано з батьками
+для підлітків
+з 16 років
+з 18 років
+для дорослих
+без вікових обмежень

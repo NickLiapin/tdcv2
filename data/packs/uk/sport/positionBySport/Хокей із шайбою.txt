@@ -1,0 +1,9 @@
+---
+description: Positions in ice hockey (Ukrainian)
+locale: uk
+---
+воротар
+лівий захисник
+правий захисник
+центральний нападник
+крайній нападник
