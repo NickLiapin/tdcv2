@@ -1,0 +1,36 @@
+---
+description: Japanese honorific / form of address. Japanese puts these AFTER the name — 山田さん, not さん山田 — which is the opposite of every European locale in this pack.
+locale: ja
+---
+さん
+様
+君
+ちゃん
+殿
+先生
+博士
+教授
+准教授
+講師
+医師
+弁護士
+会長
+社長
+副社長
+専務
+常務
+部長
+次長
+課長
+係長
+主任
+店長
+所長
+館長
+監督
+主将
+師範
+親方
+陛下
+殿下
+閣下

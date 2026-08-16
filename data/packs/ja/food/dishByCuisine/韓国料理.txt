@@ -1,0 +1,12 @@
+---
+description: Dishes of 韓国料理 cuisine (Japanese)
+locale: ja
+---
+キムチ
+ビビンバ
+プルコギ
+トッポギ
+キンパ
+サムギョプサル
+チャプチェ
+スンドゥブチゲ

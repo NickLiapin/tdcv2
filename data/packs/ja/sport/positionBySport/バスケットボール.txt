@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Japanese)
+locale: ja
+---
+ポイントガード
+シューティングガード
+スモールフォワード
+パワーフォワード
+センター

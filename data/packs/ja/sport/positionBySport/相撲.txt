@@ -1,0 +1,12 @@
+---
+description: Positions in sumo — these are the ranks of the banzuke, not field positions (Japanese)
+locale: ja
+---
+横綱
+大関
+関脇
+小結
+前頭
+十両
+幕下
+行司

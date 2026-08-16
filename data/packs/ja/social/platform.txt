@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Japan
+locale: ja
+---
+LINE
+X
+Instagram
+YouTube
+TikTok
+Facebook
+note
+はてなブックマーク
+pixiv
+ニコニコ動画
+Threads
+Discord
+Twitch
+Pinterest
+mixi
+Slack
+Mastodon

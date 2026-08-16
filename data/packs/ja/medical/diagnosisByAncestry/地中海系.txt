@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Japanese. A prevalence signal, not an exclusive one.
+locale: ja
+---
+βサラセミア
+鎌状赤血球症
+G6PD欠損症
+家族性地中海熱
+遺伝性ヘモクロマトーシス
+ベーチェット病
+遺伝性球状赤血球症

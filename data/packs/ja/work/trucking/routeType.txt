@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Japanese)
+locale: ja
+---
+市内配送
+近距離
+地域内
+都道府県間
+長距離
+国際輸送
+ルート配送

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Japanese)
+locale: ja
+---
+うつ病エピソード
+全般性不安障害
+パニック障害
+双極性障害
+統合失調症
+強迫性障害
+心的外傷後ストレス障害
+摂食障害
+注意欠如多動症
+睡眠障害

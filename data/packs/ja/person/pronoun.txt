@@ -1,0 +1,16 @@
+---
+description: Personal pronoun set (Japanese). The first-person pronoun encodes formality and, often, gender: 僕 and 俺 are male, あたし female, 私 neutral.
+locale: ja
+---
+私
+わたし
+僕
+俺
+あたし
+自分
+あなた
+君
+お前
+彼
+彼女
+彼ら

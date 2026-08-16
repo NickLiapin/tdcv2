@@ -1,0 +1,27 @@
+---
+description: Japanese address unit / interior designator
+locale: ja
+---
+号室
+部屋
+階
+F
+棟
+号棟
+区画
+ブロック
+ビル
+館
+別館
+本館
+地下
+屋上
+ロビー
+受付
+私書箱
+局留め
+方
+様方
+気付
+内
+番

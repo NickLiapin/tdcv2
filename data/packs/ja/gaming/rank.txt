@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Japanese)
+locale: ja
+---
+ビギナー
+ブロンズ
+シルバー
+ゴールド
+プラチナ
+ダイヤモンド
+マスター
+グランドマスター
+チャンピオン
+レジェンド

@@ -1,0 +1,10 @@
+---
+description: Positions in kendo, by position in the five-member team (Japanese)
+locale: ja
+---
+先鋒
+次鋒
+中堅
+副将
+大将
+審判

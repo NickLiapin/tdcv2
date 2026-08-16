@@ -1,0 +1,28 @@
+---
+description: Name / academic suffix (Japanese). Degrees are written after the name in parentheses: 山田太郎（工学博士）.
+locale: ja
+---
+工学博士
+理学博士
+医学博士
+農学博士
+文学博士
+法学博士
+経済学博士
+博士
+修士
+学士
+技術士
+一級建築士
+公認会計士
+税理士
+司法書士
+行政書士
+社会保険労務士
+中小企業診断士
+看護師
+薬剤師
+保育士
+介護福祉士
+調理師
+美容師

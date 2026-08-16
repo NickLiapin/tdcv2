@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, descriptive Japanese (country rating codes are country data)
+locale: ja
+---
+全年齢向け
+家族向け
+子供向け
+保護者同伴推奨
+中学生以上
+15歳以上
+18歳以上
+成人向け
+年齢制限なし

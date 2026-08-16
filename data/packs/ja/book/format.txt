@@ -1,0 +1,14 @@
+---
+description: Book format (Japanese). 文庫本 and 新書 are Japanese trim sizes with no European equivalent.
+locale: ja
+---
+ハードカバー
+ソフトカバー
+文庫本
+新書
+単行本
+愛蔵版
+図録
+電子書籍
+オーディオブック
+パンフレット

@@ -1,0 +1,16 @@
+---
+description: Jobs in Education (Japanese)
+locale: ja
+---
+小学校教諭
+数学教諭
+国語教諭
+大学教授
+保育士
+指導主事
+校長
+教頭
+スクールカウンセラー
+養護教諭
+部活動顧問
+実験助手

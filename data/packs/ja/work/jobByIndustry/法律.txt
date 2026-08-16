@@ -1,0 +1,16 @@
+---
+description: Jobs in Legal (Japanese)
+locale: ja
+---
+法務担当
+弁護士
+司法書士
+裁判官
+検察官
+捜査官
+企業法務
+パラリーガル
+弁理士
+破産管財人
+調停委員
+裁判所書記官

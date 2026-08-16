@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Japanese market
+locale: ja
+---
+Netflix
+Amazon Prime Video
+U-NEXT
+Hulu
+ABEMA
+TVer
+dアニメストア
+DMM TV
+Disney+
+WOWOWオンデマンド
+YouTube Premium
+Spotify

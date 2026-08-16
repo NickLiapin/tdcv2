@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Japanese. A prevalence signal, not an exclusive one.
+locale: ja
+---
+家族性地中海熱
+βサラセミア
+G6PD欠損症
+遺伝性難聴
+脊髄性筋萎縮症
+遺伝性球状赤血球症

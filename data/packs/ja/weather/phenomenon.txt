@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Japanese)
+locale: ja
+---
+雷
+稲妻
+雷鳴
+虹
+霧
+霜
+樹氷
+吹雪
+地吹雪
+竜巻
+暴風
+台風
+干ばつ
+露
+梅雨

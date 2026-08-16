@@ -1,0 +1,12 @@
+---
+description: Dishes of イタリアン cuisine (Japanese)
+locale: ja
+---
+カルボナーラ
+マルゲリータピザ
+ラザニア
+リゾット
+ミネストローネ
+オッソブーコ
+ブルスケッタ
+ティラミス

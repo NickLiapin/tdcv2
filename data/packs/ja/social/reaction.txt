@@ -1,0 +1,15 @@
+---
+description: Social reaction (Japanese)
+locale: ja
+---
+いいね
+大好き
+笑い
+びっくり
+悲しい
+ひどいね
+応援
+ありがとう
+おめでとう
+なるほど
+よくないね

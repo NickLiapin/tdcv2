@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Japanese)
+locale: ja
+---
+幌車
+冷凍車
+保冷車
+平ボディ
+コンテナ車
+タンクローリー
+キャリアカー
+穀物運搬車
+ダンプカー
+木材運搬車
+低床トレーラー
+パネル運搬車
+バン型

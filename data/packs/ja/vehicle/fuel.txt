@@ -1,0 +1,14 @@
+---
+description: Fuel type (Japanese)
+locale: ja
+---
+ガソリン
+軽油
+LPG
+ハイエタノール
+CNG
+電気
+ハイブリッド
+プラグインハイブリッド
+水素
+燃料電池

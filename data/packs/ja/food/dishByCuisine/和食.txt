@@ -1,0 +1,18 @@
+---
+description: Dishes of 和食 cuisine (Japanese)
+locale: ja
+---
+寿司
+刺身
+天ぷら
+すき焼き
+しゃぶしゃぶ
+親子丼
+牛丼
+うな重
+茶碗蒸し
+味噌汁
+おでん
+とんかつ
+焼き鳥
+お好み焼き

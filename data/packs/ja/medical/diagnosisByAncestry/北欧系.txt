@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Japanese. A prevalence signal, not an exclusive one.
+locale: ja
+---
+嚢胞性線維症
+遺伝性ヘモクロマトーシス
+α1-アンチトリプシン欠乏症
+セリアック病
+フェニルケトン尿症
+多発性硬化症
+デュピュイトラン拘縮
+悪性黒色腫
+成人型乳糖不耐症
+第V因子ライデン変異

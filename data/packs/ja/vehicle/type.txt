@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Japanese). 軽自動車 — the sub-660cc kei car — is a Japanese category with no equivalent elsewhere.
+locale: ja
+---
+セダン
+ハッチバック
+リフトバック
+ステーションワゴン
+クーペ
+カブリオレ
+ロードスター
+ミニバン
+ワンボックス
+クロスオーバー
+SUV
+ピックアップ
+バン
+軽自動車
+軽トラック
+トラック
+ダンプカー
+トラクターヘッド
+バス
+マイクロバス
+オートバイ
+原動機付自転車

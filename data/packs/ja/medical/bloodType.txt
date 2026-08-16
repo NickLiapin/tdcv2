@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type. Blood type is unusually salient in Japan — it appears on forms and in popular personality lore — so the plain A/B/O/AB labels below are what a Japanese record actually carries.
+locale: ja
+---
+O型 Rh+
+O型 Rh-
+A型 Rh+
+A型 Rh-
+B型 Rh+
+B型 Rh-
+AB型 Rh+
+AB型 Rh-

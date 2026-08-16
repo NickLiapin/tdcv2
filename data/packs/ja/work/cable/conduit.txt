@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Japanese)
+locale: ja
+---
+ケーブルダクト
+可とう電線管
+金属可とう管
+ケーブルラック
+架空配線
+地中管路
+直接埋設

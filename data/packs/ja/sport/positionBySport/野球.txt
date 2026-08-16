@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (Japanese)
+locale: ja
+---
+投手
+捕手
+一塁手
+二塁手
+三塁手
+遊撃手
+左翼手
+中堅手
+右翼手
+指名打者

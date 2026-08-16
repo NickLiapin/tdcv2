@@ -1,0 +1,16 @@
+---
+description: Jobs in Construction (Japanese)
+locale: ja
+---
+土木技術者
+建築士
+現場監督
+左官
+塗装工
+電気工事士
+配管工
+溶接工
+屋根職人
+クレーン運転士
+積算担当
+鳶職

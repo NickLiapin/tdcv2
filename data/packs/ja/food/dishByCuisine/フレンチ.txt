@@ -1,0 +1,12 @@
+---
+description: Dishes of フレンチ cuisine (Japanese)
+locale: ja
+---
+オニオンスープ
+ラタトゥイユ
+コックオーヴァン
+キッシュロレーヌ
+クレームブリュレ
+シュークリーム
+ブイヤベース
+マカロン

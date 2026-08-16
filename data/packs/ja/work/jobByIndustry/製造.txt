@@ -1,0 +1,16 @@
+---
+description: Jobs in Manufacturing (Japanese)
+locale: ja
+---
+機械オペレーター
+生産技術者
+工場長
+品質管理担当
+設備保全担当
+旋盤工
+フライス工
+梱包作業員
+倉庫作業員
+機械設計技術者
+工程管理担当
+班長

@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Japanese. A prevalence signal, not an exclusive one.
+locale: ja
+---
+テイ・サックス病
+ゴーシェ病
+家族性自律神経失調症
+カナバン病
+ブルーム症候群
+ファンコニ貧血C型
+嚢胞性線維症
+BRCA1およびBRCA2変異
+第XI因子欠乏症
+ニーマン・ピック病A型
+糖原病I型
+ジヒドロリポアミド脱水素酵素欠損症

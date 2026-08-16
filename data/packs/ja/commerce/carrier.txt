@@ -1,0 +1,24 @@
+---
+description: Parcel carriers commonly used in Japan
+locale: ja
+---
+ヤマト運輸
+佐川急便
+日本郵便
+ゆうパック
+ゆうパケット
+西濃運輸
+福山通運
+トナミ運輸
+名鉄運輸
+第一貨物
+新潟運輸
+岡山県貨物運送
+エコ配
+SBS即配サポート
+札幌通運
+日本通運
+近鉄エクスプレス
+DHL
+FedEx
+UPS

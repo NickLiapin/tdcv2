@@ -1,0 +1,12 @@
+---
+description: Dishes of 精進料理 cuisine (Japanese)
+locale: ja
+---
+胡麻豆腐
+煮物
+けんちん汁
+高野豆腐
+がんもどき
+おから
+山菜天ぷら
+湯葉

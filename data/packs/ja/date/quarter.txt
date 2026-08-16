@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Japanese, 四半期). Japan's fiscal year starts in April, so 第1四半期 is April to June.
+locale: ja
+---
+第1四半期
+第2四半期
+第3四半期
+第4四半期

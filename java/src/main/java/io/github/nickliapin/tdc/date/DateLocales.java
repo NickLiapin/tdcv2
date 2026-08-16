@@ -788,6 +788,57 @@ public final class DateLocales {
               "LLL", "[ngày] D MMMM [năm] YYYY HH:mm",
               "LLLL", "dddd, [ngày] D MMMM [năm] YYYY HH:mm"));
 
+  // Japanese names months by number, so MMMM is already "10月" and the long formats use the numeric M with 年/月/日 as literals.
+  static final DateFormatter.DateLocale JA =
+      new DateFormatter.DateLocale(
+          List.of(
+              "1月",
+              "2月",
+              "3月",
+              "4月",
+              "5月",
+              "6月",
+              "7月",
+              "8月",
+              "9月",
+              "10月",
+              "11月",
+              "12月"),
+          List.of(
+              "1月",
+              "2月",
+              "3月",
+              "4月",
+              "5月",
+              "6月",
+              "7月",
+              "8月",
+              "9月",
+              "10月",
+              "11月",
+              "12月"),
+          List.of(
+              "日曜日",
+              "月曜日",
+              "火曜日",
+              "水曜日",
+              "木曜日",
+              "金曜日",
+              "土曜日"),
+          List.of(
+              "日",
+              "月",
+              "火",
+              "水",
+              "木",
+              "金",
+              "土"),
+          Map.of(
+              "L", "YYYY/MM/DD",
+              "LL", "YYYY[年]M[月]D[日]",
+              "LLL", "YYYY[年]M[月]D[日] HH:mm",
+              "LLLL", "YYYY[年]M[月]D[日] dddd HH:mm"));
+
   private static final Map<String, DateFormatter.DateLocale> BY_NAME =
       Map.ofEntries(
           Map.entry("en", EN),
@@ -818,7 +869,9 @@ public final class DateLocales {
           Map.entry("id", ID),
           Map.entry("ind", ID),
           Map.entry("vi", VI),
-          Map.entry("vie", VI)
+          Map.entry("vie", VI),
+          Map.entry("ja", JA),
+          Map.entry("jpn", JA)
       );
 
   /** The advertised names, for the validator's "did you mean" list. */
@@ -832,6 +885,7 @@ public final class DateLocales {
           "fr",
           "id",
           "it",
+          "ja",
           "pl",
           "pt",
           "ru",

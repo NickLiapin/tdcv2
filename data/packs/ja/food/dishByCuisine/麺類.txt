@@ -1,0 +1,13 @@
+---
+description: Dishes of 麺類 cuisine (Japanese)
+locale: ja
+---
+ラーメン
+味噌ラーメン
+とんこつラーメン
+醤油ラーメン
+つけ麺
+そば
+うどん
+素麺
+冷やし中華

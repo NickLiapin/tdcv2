@@ -484,6 +484,16 @@ VI = DateLocale(
     {"L": "DD/MM/YYYY", "LL": "[ngày] D MMMM [năm] YYYY", "LLL": "[ngày] D MMMM [năm] YYYY HH:mm", "LLLL": "dddd, [ngày] D MMMM [năm] YYYY HH:mm"},
 )
 
+# Japanese names months by number, so MMMM is already "10月" and the long formats use the numeric M with 年/月/日 as literals.
+JA = DateLocale(
+    "ja",
+    ("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"),
+    ("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"),
+    ("日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"),
+    ("日", "月", "火", "水", "木", "金", "土"),
+    {"L": "YYYY/MM/DD", "LL": "YYYY[年]M[月]D[日]", "LLL": "YYYY[年]M[月]D[日] HH:mm", "LLLL": "YYYY[年]M[月]D[日] dddd HH:mm"},
+)
+
 _BY_NAME: dict[str, DateLocale] = {
     "en": EN,
     "eng": EN,
@@ -514,9 +524,11 @@ _BY_NAME: dict[str, DateLocale] = {
     "ind": ID,
     "vi": VI,
     "vie": VI,
+    "ja": JA,
+    "jpn": JA,
 }
 
-NAMES = ("ar", "de", "el", "en", "es", "fr", "id", "it", "pl", "pt", "ru", "tr", "uk", "vi", "zh-cn")
+NAMES = ("ar", "de", "el", "en", "es", "fr", "id", "it", "ja", "pl", "pt", "ru", "tr", "uk", "vi", "zh-cn")
 
 
 def resolve(name: str | None) -> DateLocale:

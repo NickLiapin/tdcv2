@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Japan
+locale: ja
+---
+小学校卒
+中学校卒
+高等学校卒
+高等専門学校卒
+専門学校卒
+短期大学士
+学士
+修士
+博士
+専門職学位
+法務博士
+教職大学院修了
+准教授
+教授
+技能士
+職業訓練修了

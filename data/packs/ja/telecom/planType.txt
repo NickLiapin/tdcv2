@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Japanese)
+locale: ja
+---
+プリペイド
+後払い
+使い放題
+家族割
+法人契約
+学割
+旅行者向け
+データ専用
+通話定額
+端末セット
+国際ローミング
+オプション

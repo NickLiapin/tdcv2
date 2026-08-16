@@ -1,0 +1,16 @@
+---
+description: Gaming platform (Japanese; brand names kept as-is)
+locale: ja
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Nintendo Switch 2
+Steam Deck
+スマートフォン
+Android
+iOS
+ブラウザ

@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Japanese). ママチャリ — the everyday step-through shopping bike — is the one most Japanese households own.
+locale: ja
+---
+ママチャリ
+シティサイクル
+ツーリング車
+ロードバイク
+マウンテンバイク
+グラベルロード
+クロスバイク
+ミニベロ
+折りたたみ自転車
+電動アシスト自転車
+子供用自転車
+ジュニア車
+BMX
+三輪車
+タンデム自転車
+リカンベント
+カーゴバイク

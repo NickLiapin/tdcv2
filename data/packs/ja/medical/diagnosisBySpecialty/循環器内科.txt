@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Japanese)
+locale: ja
+---
+高血圧症
+冠動脈疾患
+狭心症
+心筋梗塞
+心房細動
+心不全
+心筋症
+心筋炎
+僧帽弁疾患
+冠動脈硬化症

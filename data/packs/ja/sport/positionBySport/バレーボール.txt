@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Japanese)
+locale: ja
+---
+セッター
+オポジット
+ミドルブロッカー
+アウトサイドヒッター
+リベロ

@@ -1,0 +1,16 @@
+---
+description: Grade / mark on the Japanese scale (the 5-point school scale plus the university letters)
+locale: ja
+---
+5
+4
+3
+2
+1
+秀
+優
+良
+可
+不可
+認定
+未修得

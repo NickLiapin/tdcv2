@@ -1,0 +1,8 @@
+---
+description: Gender label (Japanese)
+locale: ja
+---
+男性
+女性
+その他
+未回答

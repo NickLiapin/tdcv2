@@ -1,0 +1,24 @@
+---
+description: Writing system (Japanese). Japanese itself uses three at once — kanji, hiragana and katakana — often within a single sentence.
+locale: ja
+---
+漢字
+ひらがな
+カタカナ
+ローマ字
+キリル文字
+ギリシャ文字
+アラビア文字
+ヘブライ文字
+アルメニア文字
+グルジア文字
+デーヴァナーガリー
+ベンガル文字
+タミル文字
+タイ文字
+クメール文字
+ビルマ文字
+ハングル
+注音符号
+楔形文字
+ヒエログリフ

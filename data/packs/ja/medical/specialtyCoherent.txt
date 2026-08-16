@@ -1,0 +1,14 @@
+---
+description: Medical specialty (has a coherent diagnosis list)
+locale: ja
+---
+循環器内科
+神経内科
+消化器内科
+呼吸器内科
+内分泌内科
+腎臓内科
+整形外科
+皮膚科
+腫瘍内科
+精神科

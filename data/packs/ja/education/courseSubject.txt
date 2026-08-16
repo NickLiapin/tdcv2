@@ -1,0 +1,24 @@
+---
+description: School subject (Japanese)
+locale: ja
+---
+国語
+現代文
+古典
+数学
+算数
+理科
+物理
+化学
+生物
+地学
+社会
+日本史
+世界史
+地理
+公民
+英語
+情報
+音楽
+美術
+保健体育

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Japanese)
+locale: ja
+---
+胃炎
+胃潰瘍
+逆流性食道炎
+過敏性腸症候群
+クローン病
+潰瘍性大腸炎
+慢性膵炎
+胆石症
+肝硬変
+セリアック病

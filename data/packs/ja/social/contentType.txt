@@ -1,0 +1,17 @@
+---
+description: Social content type (Japanese)
+locale: ja
+---
+投稿
+写真
+動画
+ショート動画
+ストーリー
+ライブ配信
+リポスト
+コメント
+アンケート
+まとめ
+レビュー
+お知らせ
+おすすめ

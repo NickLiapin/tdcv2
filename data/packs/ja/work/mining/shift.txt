@@ -1,0 +1,9 @@
+---
+description: Work shift (Japanese)
+locale: ja
+---
+一番方
+二番方
+三番方
+夜勤
+保守勤務

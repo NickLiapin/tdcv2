@@ -1,0 +1,16 @@
+---
+description: Jobs in Healthcare (Japanese)
+locale: ja
+---
+内科医
+外科医
+麻酔科医
+小児科医
+循環器内科医
+看護師
+助産師
+薬剤師
+臨床検査技師
+診療放射線技師
+歯科医師
+理学療法士

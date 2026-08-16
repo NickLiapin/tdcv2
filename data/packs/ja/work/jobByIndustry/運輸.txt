@@ -1,0 +1,16 @@
+---
+description: Jobs in Transportation (Japanese)
+locale: ja
+---
+トラック運転手
+バス運転士
+電車運転士
+運行管理者
+物流担当
+配送ドライバー
+整備士
+航空整備士
+船長
+パイロット
+港湾クレーン運転士
+検査員

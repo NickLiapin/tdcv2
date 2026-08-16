@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Japanese)
+locale: ja
+---
+インターン
+アシスタント
+ジュニア
+担当
+中堅
+シニア
+リード
+主任
+係長
+課長代理
+課長
+次長
+部長
+本部長
+執行役員
+取締役

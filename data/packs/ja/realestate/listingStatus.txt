@@ -1,0 +1,16 @@
+---
+description: Listing status (Japanese)
+locale: ja
+---
+公開中
+新着
+情報更新
+商談中
+申込あり
+審査中
+掲載終了
+成約済み
+賃貸中
+期限切れ
+アーカイブ
+下書き

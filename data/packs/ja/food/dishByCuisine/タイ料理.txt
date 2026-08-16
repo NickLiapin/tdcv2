@@ -1,0 +1,12 @@
+---
+description: Dishes of タイ料理 cuisine (Japanese)
+locale: ja
+---
+トムヤムクン
+パッタイ
+グリーンカレー
+トムカーガイ
+ソムタム
+マッサマンカレー
+カオニャオマムアン
+ガパオライス

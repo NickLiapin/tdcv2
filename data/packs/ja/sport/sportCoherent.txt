@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Japanese)
+locale: ja
+---
+サッカー
+野球
+バスケットボール
+バレーボール
+ラグビー
+相撲
+柔道
+剣道

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Japanese)
+locale: ja
+---
+乳がん
+肺がん
+大腸がん
+胃がん
+前立腺がん
+甲状腺がん
+悪性黒色腫
+ホジキンリンパ腫
+白血病
+子宮頸がん

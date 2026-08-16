@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Japanese. Amounts are in JPY, the currency of Japan.
+locale: ja
+---
+300万円未満
+300〜400万円
+400〜500万円
+500〜700万円
+700〜900万円
+900〜1200万円
+1200〜2000万円
+2000万円以上

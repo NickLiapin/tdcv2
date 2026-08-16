@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Japanese)
+locale: ja
+---
+応募
+書類選考
+電話面談
+人事面接
+適性検査
+技術面接
+部門長面接
+最終面接
+リファレンスチェック
+内定
+入社

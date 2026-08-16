@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Japanese. A prevalence signal, not an exclusive one.
+locale: ja
+---
+2型糖尿病
+肥満症
+痛風
+高血圧症
+慢性腎臓病
+リウマチ性心疾患
+乳糖不耐症

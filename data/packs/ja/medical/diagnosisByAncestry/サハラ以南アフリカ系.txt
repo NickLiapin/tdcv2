@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, in Japanese. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: ja
+---
+鎌状赤血球症
+鎌状赤血球形質
+G6PD欠損症
+αサラセミア
+高血圧症
+2型糖尿病
+慢性腎臓病
+サルコイドーシス
+子宮筋腫
+ケロイド
+良性民族性好中球減少症
+乳糖不耐症

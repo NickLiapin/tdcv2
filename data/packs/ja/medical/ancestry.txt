@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Japanese, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: ja
+---
+北欧系
+東欧系
+地中海系
+アシュケナジムユダヤ系
+中東系
+北アフリカ系
+サハラ以南アフリカ系
+東アジア系
+南アジア系
+東南アジア系
+先住アメリカ系
+太平洋諸島系

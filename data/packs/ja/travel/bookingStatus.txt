@@ -1,0 +1,15 @@
+---
+description: Booking status (Japanese)
+locale: ja
+---
+作成済み
+確認待ち
+確定
+支払い済み
+一部支払い済み
+変更済み
+キャンセル
+無断不泊
+完了
+返金済み
+期限切れ

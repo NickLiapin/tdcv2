@@ -1,0 +1,23 @@
+---
+description: Property type (Japanese). 1LDK / 2DK are the Japanese floor-plan codes: the number is bedrooms, the letters are living / dining / kitchen.
+locale: ja
+---
+ワンルーム
+1K
+1DK
+1LDK
+2DK
+2LDK
+3LDK
+4LDK
+メゾネット
+ペントハウス
+一戸建て
+二世帯住宅
+テラスハウス
+別荘
+町家
+古民家
+店舗付き住宅
+土地
+倉庫

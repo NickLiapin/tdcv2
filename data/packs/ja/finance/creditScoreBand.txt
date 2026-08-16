@@ -1,0 +1,9 @@
+---
+description: Credit score band (Japanese)
+locale: ja
+---
+非常に低い
+低い
+普通
+良好
+非常に良好

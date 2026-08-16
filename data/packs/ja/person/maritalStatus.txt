@@ -1,0 +1,12 @@
+---
+description: Marital status in Japanese
+locale: ja
+---
+独身
+既婚
+離婚
+死別
+別居
+婚約中
+事実婚
+未回答

@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Japanese). Japanese hotels distinguish 和室 from 洋室, which no European locale needs.
+locale: ja
+---
+シングル
+ダブル
+ツイン
+トリプル
+フォース
+ファミリールーム
+スタンダード
+スーペリア
+デラックス
+ジュニアスイート
+スイート
+和室
+洋室
+和洋室
+コテージ
+離れ
+オーシャンビュー
+バルコニー付き

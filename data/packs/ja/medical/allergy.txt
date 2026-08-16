@@ -1,0 +1,26 @@
+---
+description: Common allergies (Japanese). スギ花粉症 — cedar pollen — is the one most Japanese records carry.
+locale: ja
+---
+スギ花粉
+ヒノキ花粉
+ブタクサ花粉
+イネ科花粉
+ハウスダスト
+ダニ
+猫の毛
+犬の毛
+カビ
+ペニシリン
+サルファ剤
+アスピリン
+局所麻酔薬
+落花生
+ナッツ類
+牛乳
+卵
+小麦
+そば
+えび
+かに
+ハチ毒

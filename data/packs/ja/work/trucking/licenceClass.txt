@@ -1,0 +1,11 @@
+---
+description: Driving licence category for trucks (Japanese categories)
+locale: ja
+---
+普通免許
+準中型免許
+中型免許
+大型免許
+大型特殊免許
+けん引免許
+第二種免許

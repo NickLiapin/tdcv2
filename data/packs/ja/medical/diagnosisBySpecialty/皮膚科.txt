@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Japanese)
+locale: ja
+---
+アトピー性皮膚炎
+乾癬
+湿疹
+接触性皮膚炎
+蕁麻疹
+尋常性ざ瘡
+酒さ
+帯状疱疹
+足白癬
+脂漏性皮膚炎

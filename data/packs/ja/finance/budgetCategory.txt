@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Japanese)
+locale: ja
+---
+食費
+外食費
+住居費
+家賃
+水道光熱費
+通信費
+交通費
+ガソリン代
+車両費
+医療費
+薬代
+教育費
+子育て費
+衣料費
+美容費
+娯楽費
+旅行費
+交際費
+寄付
+貯蓄

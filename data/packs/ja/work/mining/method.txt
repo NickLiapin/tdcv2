@@ -1,0 +1,12 @@
+---
+description: Mining method (Japanese)
+locale: ja
+---
+露天掘り
+坑内掘り
+採石
+斜坑採掘
+立坑採掘
+水力採掘
+浚渫採掘
+柱房式採掘

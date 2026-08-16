@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: ja
+---
+技術
+医療
+教育
+金融
+建設
+製造
+運輸
+小売
+飲食・宿泊
+法律

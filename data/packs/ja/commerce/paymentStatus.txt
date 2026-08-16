@@ -1,0 +1,14 @@
+---
+description: Payment status (Japanese)
+locale: ja
+---
+支払い待ち
+支払い済み
+一部支払い済み
+与信確保済み
+拒否
+決済エラー
+返金済み
+一部返金
+期限切れ
+キャンセル

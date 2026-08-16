@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Japanese). Japanese counts with classifiers — 個 for objects, 本 for long things, 枚 for flat things, 台 for machines.
+locale: ja
+---
+個
+本
+枚
+台
+着
+足
+組
+セット
+袋
+箱
+ケース
+g
+kg
+mg
+t
+ml
+L
+cm
+mm
+m
+km
+m2
+m3
+巻
+缶
+瓶
+本入り
+パック
+ダース
+パレット

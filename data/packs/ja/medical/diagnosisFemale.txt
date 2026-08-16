@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Japanese that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: ja
+---
+子宮内膜症
+子宮筋腫
+子宮腺筋症
+卵巣嚢腫
+多嚢胞性卵巣症候群
+月経困難症
+無月経
+月経前症候群
+更年期障害
+腟炎
+細菌性腟症
+カンジダ腟炎
+子宮頸管炎
+子宮頸部びらん
+子宮頸部異形成
+子宮頸がん
+卵巣がん
+子宮体がん
+乳腺症
+乳腺炎
+乳がん
+女性不妊症
+子宮外妊娠
+妊娠高血圧症候群
+妊娠糖尿病
+産後うつ

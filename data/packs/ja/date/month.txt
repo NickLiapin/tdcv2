@@ -1,0 +1,16 @@
+---
+description: Month name (Japanese). Japanese names months by number — 1月 through 12月 — and has no month words of its own. The old poetic names (睦月, 如月 …) survive only in literary use.
+locale: ja
+---
+1月
+2月
+3月
+4月
+5月
+6月
+7月
+8月
+9月
+10月
+11月
+12月

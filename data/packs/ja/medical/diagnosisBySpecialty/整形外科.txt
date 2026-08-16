@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Japanese)
+locale: ja
+---
+変形性膝関節症
+変形性股関節症
+脊椎症
+椎間板ヘルニア
+橈骨遠位端骨折
+大腿骨頸部骨折
+半月板損傷
+五十肩
+側弯症
+扁平足

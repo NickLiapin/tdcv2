@@ -1,0 +1,13 @@
+---
+description: Dishes of 中華 cuisine (Japanese)
+locale: ja
+---
+餃子
+麻婆豆腐
+青椒肉絲
+酢豚
+回鍋肉
+エビチリ
+担々麺
+炒飯
+小籠包

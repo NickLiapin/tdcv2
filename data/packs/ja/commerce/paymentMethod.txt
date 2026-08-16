@@ -1,0 +1,19 @@
+---
+description: Payment method (Japanese)
+locale: ja
+---
+クレジットカード
+デビットカード
+現金
+代金引換
+銀行振込
+コンビニ払い
+PayPay
+楽天ペイ
+LINE Pay
+d払い
+au PAY
+Suica
+Apple Pay
+分割払い
+ギフト券

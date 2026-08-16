@@ -1,0 +1,15 @@
+---
+description: Positions in association football (Japanese)
+locale: ja
+---
+ゴールキーパー
+右サイドバック
+左サイドバック
+センターバック
+守備的ミッドフィールダー
+セントラルミッドフィールダー
+攻撃的ミッドフィールダー
+右ウイング
+左ウイング
+フォワード
+センターフォワード

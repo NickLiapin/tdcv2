@@ -1,0 +1,10 @@
+---
+description: Positions in judo, by weight class and role (Japanese)
+locale: ja
+---
+軽量級
+中量級
+重量級
+無差別級
+審判
+主将

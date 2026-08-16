@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Japanese. A prevalence signal, not an exclusive one.
+locale: ja
+---
+遺伝性ヘモクロマトーシス
+セリアック病
+フェニルケトン尿症
+ウィルソン病
+G6PD欠損症
+遺伝性血栓性素因

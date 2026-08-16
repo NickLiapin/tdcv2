@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Japanese)
+locale: ja
+---
+気管支喘息
+慢性閉塞性肺疾患
+肺炎
+慢性気管支炎
+気管支拡張症
+胸膜炎
+肺結核
+サルコイドーシス
+睡眠時無呼吸症候群
+肺塞栓症

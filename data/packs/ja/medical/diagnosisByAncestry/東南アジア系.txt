@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Japanese. A prevalence signal, not an exclusive one.
+locale: ja
+---
+αサラセミア
+ヘモグロビンE
+G6PD欠損症
+乳糖不耐症
+ブルガダ症候群
+上咽頭がん
+中間型サラセミア

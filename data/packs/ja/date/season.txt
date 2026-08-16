@@ -1,0 +1,12 @@
+---
+description: Season (Japanese)
+locale: ja
+---
+春
+夏
+秋
+冬
+梅雨
+初夏
+晩秋
+初春

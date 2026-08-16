@@ -1,0 +1,12 @@
+---
+description: Dishes of 郷土料理 cuisine (Japanese)
+locale: ja
+---
+ちゃんこ鍋
+ほうとう
+いももち
+きりたんぽ
+せんべい汁
+ソーキそば
+ジンギスカン
+明石焼き

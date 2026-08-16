@@ -1,0 +1,12 @@
+---
+description: Dishes of 居酒屋 cuisine (Japanese)
+locale: ja
+---
+枝豆
+冷奴
+唐揚げ
+焼き鳥
+だし巻き卵
+もつ煮
+刺身盛り合わせ
+ポテトサラダ

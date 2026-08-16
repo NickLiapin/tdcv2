@@ -1,0 +1,28 @@
+---
+description: Government body (Japanese ministries and public offices)
+locale: ja
+---
+内閣府
+国会
+財務省
+法務省
+総務省
+防衛省
+外務省
+厚生労働省
+文部科学省
+経済産業省
+国土交通省
+農林水産省
+環境省
+デジタル庁
+こども家庭庁
+復興庁
+国税庁
+税関
+日本銀行
+日本年金機構
+警察庁
+消防庁
+出入国在留管理庁
+市区町村役場

@@ -1,0 +1,16 @@
+---
+description: Jobs in Hospitality (Japanese)
+locale: ja
+---
+ホテルフロント
+客室係
+調理師
+副料理長
+料理長
+ホールスタッフ
+バーテンダー
+バリスタ
+パティシエ
+支配人
+予約担当
+ドアマン

@@ -1,0 +1,16 @@
+---
+description: Meeting type (Japanese)
+locale: ja
+---
+朝礼
+週次会議
+部門会議
+全体会議
+1on1
+振り返り
+スプリント計画
+成果発表
+ブレインストーミング
+顧客打ち合わせ
+研修
+報告会

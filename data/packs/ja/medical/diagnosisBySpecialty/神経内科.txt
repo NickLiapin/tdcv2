@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Japanese)
+locale: ja
+---
+片頭痛
+てんかん
+脳梗塞
+一過性脳虚血発作
+多発性硬化症
+パーキンソン病
+末梢神経障害
+神経根症
+三叉神経痛
+認知症

@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Japanese)
+locale: ja
+---
+プロップ
+フッカー
+ロック
+フランカー
+ナンバーエイト
+スクラムハーフ
+スタンドオフ
+センター
+ウイング
+フルバック

@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Japanese)
+locale: ja
+---
+石炭
+亜炭
+鉄鉱石
+マンガン鉱
+銅鉱
+鉛鉱
+亜鉛鉱
+金
+銀
+硫黄
+石灰石
+珪石
+長石
+滑石
+ドロマイト
+珪藻土
+ベントナイト
+大理石
+花崗岩

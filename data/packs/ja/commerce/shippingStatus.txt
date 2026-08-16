@@ -1,0 +1,15 @@
+---
+description: Shipping status (Japanese)
+locale: ja
+---
+集荷待ち
+集荷済み
+輸送中
+仕分け中
+配達店到着
+配達中
+配達完了
+不在
+持ち戻り
+返送中
+紛失

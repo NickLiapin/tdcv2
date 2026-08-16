@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Japanese)
+locale: ja
+---
+慢性腎臓病
+急性腎盂腎炎
+糸球体腎炎
+尿路結石
+ネフローゼ症候群
+多発性嚢胞腎
+糖尿病性腎症
+急性腎障害
+尿路感染症
+腎不全

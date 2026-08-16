@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Japanese)
+locale: ja
+---
+1つ星
+2つ星
+3つ星
+4つ星
+5つ星

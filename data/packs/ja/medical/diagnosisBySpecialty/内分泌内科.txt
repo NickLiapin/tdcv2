@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Japanese)
+locale: ja
+---
+1型糖尿病
+2型糖尿病
+甲状腺機能低下症
+甲状腺機能亢進症
+橋本病
+結節性甲状腺腫
+肥満症
+メタボリックシンドローム
+骨粗鬆症
+副腎不全

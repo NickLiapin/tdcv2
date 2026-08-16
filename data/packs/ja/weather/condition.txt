@@ -1,0 +1,20 @@
+---
+description: Weather condition (Japanese)
+locale: ja
+---
+晴れ
+快晴
+曇り
+薄曇り
+雨
+大雨
+小雨
+霧雨
+雪
+みぞれ
+雹
+霧
+凍結
+雷雨
+強風
+猛暑

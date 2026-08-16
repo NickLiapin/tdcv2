@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Japanese)
+locale: ja
+---
+正社員
+契約社員
+嘱託社員
+パートタイム
+アルバイト
+派遣社員
+業務委託
+個人事業主
+インターン
+季節雇用
+シフト勤務

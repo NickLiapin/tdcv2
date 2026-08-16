@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Japanese that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: ja
+---
+前立腺肥大症
+前立腺炎
+前立腺がん
+精索静脈瘤
+陰嚢水腫
+停留精巣
+包茎
+嵌頓包茎
+亀頭包皮炎
+精巣炎
+精巣上体炎
+精巣捻転
+精巣腫瘍
+勃起不全
+ペイロニー病
+男性不妊症
+性腺機能低下症
+鼠径ヘルニア
+無精子症
+女性化乳房

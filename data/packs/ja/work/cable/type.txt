@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Japanese)
+locale: ja
+---
+UTPケーブル
+FTPケーブル
+STPシールドケーブル
+同軸ケーブル
+シングルモード光ファイバー
+マルチモード光ファイバー
+電力ケーブル
+電話ケーブル
+パッチケーブル

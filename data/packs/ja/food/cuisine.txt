@@ -1,0 +1,20 @@
+---
+description: Cuisine (Japanese). Each value has a dishByCuisine child file.
+locale: ja
+---
+和食
+郷土料理
+麺類
+中華
+韓国料理
+タイ料理
+ベトナム料理
+インド料理
+イタリアン
+フレンチ
+スペイン料理
+メキシコ料理
+アメリカ料理
+洋食
+精進料理
+居酒屋

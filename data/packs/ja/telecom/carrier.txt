@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (Japanese operators and international brands)
+locale: ja
+---
+NTTドコモ
+au
+ソフトバンク
+楽天モバイル
+ワイモバイル
+UQモバイル
+ahamo
+povo
+LINEMO
+mineo
+IIJmio
+OCNモバイルONE
+BIGLOBEモバイル
+イオンモバイル
+日本通信
+NURO Mobile
+J:COM MOBILE
+NTT東日本
+NTT西日本
+KDDI
+Verizon
+AT&T
+Vodafone
+Orange
+China Mobile
+SK Telecom

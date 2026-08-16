@@ -1,0 +1,12 @@
+---
+description: Dishes of スペイン料理 cuisine (Japanese)
+locale: ja
+---
+パエリア
+ガスパチョ
+トルティージャ
+生ハム
+パタタスブラバス
+アヒージョ
+チュロス
+サングリア

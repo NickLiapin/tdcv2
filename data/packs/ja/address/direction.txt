@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Japanese district or estate name (東口, 北区, 中央)
+locale: ja
+---
+東
+西
+南
+北
+中央
+北東
+北西
+南東
+南西
+上
+下
+奥
+手前
+内
+外

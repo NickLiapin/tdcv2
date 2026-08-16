@@ -1,0 +1,12 @@
+---
+description: Time of day (Japanese)
+locale: ja
+---
+朝
+昼
+午後
+夕方
+夜
+深夜
+未明
+明け方

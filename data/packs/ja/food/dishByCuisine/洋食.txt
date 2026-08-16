@@ -1,0 +1,12 @@
+---
+description: Dishes of 洋食 cuisine (Japanese)
+locale: ja
+---
+オムライス
+ハンバーグ
+エビフライ
+ナポリタン
+コロッケ
+ビーフシチュー
+グラタン
+カレーライス
