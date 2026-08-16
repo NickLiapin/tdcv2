@@ -1,0 +1,27 @@
+---
+description: Mined mineral or commodity (Norwegian). These are Norway's: ilmenitt from Tellnes and olivin from Åheim are each among the largest deposits of their kind worked anywhere, nefelinsyenitt comes from Stjernøy in Finnmark, larvikitt is quarried at Larvik as building stone, and kull was mined on Svalbard.
+locale: nb
+---
+ilmenitt
+rutil
+olivin
+nefelinsyenitt
+larvikitt
+kvarts
+kvartsitt
+kalkstein
+dolomitt
+skifer
+grafitt
+jernmalm
+kobber
+nikkel
+sink
+bly
+titan
+molybden
+apatitt
+feltspat
+talk
+gull
+kull

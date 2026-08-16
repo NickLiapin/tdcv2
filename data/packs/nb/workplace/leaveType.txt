@@ -1,0 +1,16 @@
+---
+description: Leave type (Norwegian). Three are statutory Norwegian arrangements with no English counterpart. Egenmelding lets an employee declare himself sick without a doctor, up to three days at a time and a set number of times a year. Fedrekvote and mødrekvote are the ring-fenced weeks of shared parental leave reserved for each parent — reserved, so they are lost if that parent does not take them, which is the point. Avspasering is taking accrued overtime as time off instead of pay.
+locale: nb
+---
+ferie
+egenmelding
+sykmelding
+foreldrepermisjon
+fedrekvote
+mødrekvote
+omsorgspermisjon
+velferdspermisjon
+permisjon uten lønn
+utdanningspermisjon
+avspasering
+militærtjeneste

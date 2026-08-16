@@ -1,0 +1,11 @@
+---
+description: Tilstander som er klart hyppigere hos personer med opphav i afrika sør for sahara — conditions markedly more frequent in people of this ancestry. The list is a prevalence signal, not an exclusive one.
+locale: nb
+---
+sigdcelleanemi
+sigdcelletrekk
+glukose-6-fosfatdehydrogenasemangel
+alfatalassemi
+APOL1-assosiert nyresykdom
+keloiddannelse
+sarkoidose

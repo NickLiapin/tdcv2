@@ -1,0 +1,5 @@
+---
+description: Currency of Argentina, named in Norwegian
+locale: nb
+---
+argentinsk peso

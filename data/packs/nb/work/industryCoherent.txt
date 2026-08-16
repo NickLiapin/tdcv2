@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list. Capitalised because these are category labels; company/industry holds the same fields in ordinary lowercase Norwegian and is longer.
+locale: nb
+---
+Teknologi
+Helse og omsorg
+Finans
+Bygg og anlegg
+Utdanning
+Reiseliv
+Industri
+Varehandel
+Transport
+Juss

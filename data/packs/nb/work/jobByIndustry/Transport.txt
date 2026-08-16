@@ -1,0 +1,10 @@
+---
+description: Yrker innen transport — jobs in this industry
+locale: nb
+---
+yrkessjåfør
+bussjåfør
+lokfører
+matros
+flygeleder
+logistikkoordinator

@@ -1,0 +1,9 @@
+---
+description: Posisjoner i basketball — playing positions in this sport
+locale: nb
+---
+playmaker
+shooting guard
+small forward
+power forward
+senter

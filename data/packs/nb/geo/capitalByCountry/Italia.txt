@@ -1,0 +1,5 @@
+---
+description: Capital of Italia, as Norwegian writes it
+locale: nb
+---
+Roma

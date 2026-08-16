@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses for a female patient — the female-only conditions plus common ones, as one drawable list.
+locale: nb
+---
+celleforandringer i livmorhalsen
+myomer i livmoren
+soppinfeksjon i skjeden
+fibroadenom i bryst
+polycystisk ovariesyndrom
+endometriose
+ovarialcyste
+cervicitt
+endometritt
+brystbetennelse
+kraftige menstruasjonsblødninger
+overgangsplager
+kronisk pankreatitt
+klamydia
+artrose
+hypertensjon
+diabetes type 2
+astma
+migrene
+jernmangelanemi
+hypotyreose
+urinveisinfeksjon
+benskjørhet
+fibromyalgi
+depresjon
+brystkreft
+tinnitus

@@ -1,0 +1,10 @@
+---
+description: Diagnoser som stilles i endokrinologi — diagnoses seen in this specialty
+locale: nb
+---
+diabetes type 2
+hypotyreose
+hypertyreose
+benskjørhet
+Cushings syndrom
+polycystisk ovariesyndrom

@@ -1,0 +1,14 @@
+---
+description: Payment status (Norwegian).
+locale: nb
+---
+venter
+autorisert
+betalt
+delbetalt
+mislyktes
+avvist
+refundert
+delvis refundert
+tilbakeført
+annullert

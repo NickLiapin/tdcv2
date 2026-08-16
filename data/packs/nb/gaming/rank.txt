@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Norwegian).
+locale: nb
+---
+jern
+bronse
+sølv
+gull
+platina
+diamant
+mester
+stormester
+utfordrer
+legende

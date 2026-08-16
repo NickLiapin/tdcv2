@@ -1,0 +1,22 @@
+---
+description: Cat breed (Norwegian). Norsk skogkatt — the Norwegian Forest Cat — is Norway's national breed and is first for that reason. International breed names keep their registered spelling.
+locale: nb
+---
+norsk skogkatt
+perser
+maine coon
+siameser
+ragdoll
+bengal
+sphynx
+britisk korthår
+europeisk korthår
+abyssiner
+scottish fold
+russian blue
+hellig birma
+devon rex
+cornish rex
+burmeser
+sibirkatt
+orientaler

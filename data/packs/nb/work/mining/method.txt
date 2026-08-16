@@ -1,0 +1,12 @@
+---
+description: Mining method (Norwegian).
+locale: nb
+---
+dagbrudd
+underjordsdrift
+pallsprengning
+strossing
+sjaktdrift
+stolldrift
+langveggdrift
+skjerping

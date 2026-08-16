@@ -1,0 +1,10 @@
+---
+description: Dishes of argentinsk cuisine, named as Norwegian names them
+locale: nb
+---
+asado
+empanadas
+chimichurri
+milanesa
+provoleta
+dulce de leche

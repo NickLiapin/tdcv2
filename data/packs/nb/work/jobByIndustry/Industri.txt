@@ -1,0 +1,10 @@
+---
+description: Yrker innen industri — jobs in this industry
+locale: nb
+---
+industrimekaniker
+sveiser
+prosessoperatør
+automatiker
+kvalitetskontrollør
+produksjonsleder

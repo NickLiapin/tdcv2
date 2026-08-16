@@ -1,0 +1,5 @@
+---
+description: Currency of Spania, named in Norwegian
+locale: nb
+---
+euro

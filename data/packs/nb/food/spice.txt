@@ -1,0 +1,35 @@
+---
+description: Spice or herb (Norwegian). Karve is caraway and is the defining flavour of Norwegian aquavit and of flatbrød; einebær, juniper berries, come off a shrub that grows on every Norwegian hillside and go into game.
+locale: nb
+---
+kanel
+karve
+dill
+persille
+gressløk
+timian
+rosmarin
+basilikum
+oregano
+laurbærblad
+einebær
+ingefær
+gurkemeie
+spisskummen
+koriander
+kardemomme
+muskat
+nellik
+safran
+paprikapulver
+chilipulver
+karri
+sennep
+sennepsfrø
+pepperrot
+salvie
+estragon
+mynte
+stjerneanis
+fennikel
+vanilje

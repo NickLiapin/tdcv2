@@ -1,0 +1,5 @@
+---
+description: Capital of Norge, as Norwegian writes it
+locale: nb
+---
+Oslo

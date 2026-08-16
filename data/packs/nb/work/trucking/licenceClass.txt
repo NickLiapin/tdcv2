@@ -1,0 +1,14 @@
+---
+description: Driving licence class as issued in Norway. These are the EU/EEA classes, NOT the American CDL Class A/B/C: C is a rigid lorry, CE the same with a trailer, D a bus, and BE a car with a heavy trailer. A config that maps this list onto "Class A" will produce a licence class that does not exist in Norway.
+locale: nb
+---
+B
+BE
+C1
+C1E
+C
+CE
+D1
+D1E
+D
+DE

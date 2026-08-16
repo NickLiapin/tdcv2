@@ -1,0 +1,18 @@
+---
+description: Marital status (Norwegian). The first nine are the categories the Folkeregister actually records; samboer is not one of them and has no legal registration at all, which matters because roughly a quarter of Norwegian couples living together are samboere rather than married. Norwegian also splits the English "widowed" by the bereaved person's gender: enke is a woman, enkemann a man.
+locale: nb
+---
+ugift
+gift
+separert
+skilt
+enke
+enkemann
+registrert partner
+separert partner
+skilt partner
+gjenlevende partner
+samboer
+forlovet
+singel
+uoppgitt

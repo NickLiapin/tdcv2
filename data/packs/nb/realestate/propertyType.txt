@@ -1,0 +1,22 @@
+---
+description: Property type (Norwegian). Norway has THREE distinct ownership forms for a flat and they are not interchangeable: selveier means owning the flat outright, borettslag means owning a share in a housing cooperative that owns the building and gives you the right to live in one flat, and aksjeleilighet means the same through shares in a company. The form changes the price, the tax, the paperwork and what the buyer may do with it, so a listing always states which.
+locale: nb
+---
+enebolig
+tomannsbolig
+rekkehus
+leilighet
+selveierleilighet
+borettslagsleilighet
+aksjeleilighet
+hybel
+sokkelleilighet
+loftsleilighet
+penthouse
+tomt
+hytte
+fritidsbolig
+gårdsbruk
+småbruk
+næringslokale
+garasje

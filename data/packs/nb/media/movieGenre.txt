@@ -1,0 +1,23 @@
+---
+description: Film genre (Norwegian).
+locale: nb
+---
+action
+komedie
+drama
+skrekk
+thriller
+romantikk
+science fiction
+fantasy
+dokumentar
+animasjon
+eventyr
+krim
+mysterium
+western
+musikal
+krigsfilm
+biografi
+familiefilm
+kortfilm

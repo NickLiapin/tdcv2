@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Norwegian). Elsykkel is first because electric assistance is what makes a bicycle usable in cities built on hills; spark, the kick sled, is a runner-mounted push sledge used on ice in the north and is transport rather than a toy.
+locale: nb
+---
+elsykkel
+landeveissykkel
+terrengsykkel
+elektrisk terrengsykkel
+hybridsykkel
+grussykkel
+bysykkel
+tursykkel
+foldesykkel
+lastesykkel
+barnesykkel
+tandemsykkel
+fatbike
+BMX-sykkel
+sykkelkross
+sparkesykkel
+spark

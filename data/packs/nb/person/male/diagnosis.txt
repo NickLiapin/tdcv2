@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses for a male patient — the male-only conditions plus common ones, as one drawable list.
+locale: nb
+---
+varikocele
+ikke-descendert testikkel
+forhudsforsnevring
+godartet prostataforstørrelse
+prostatitt
+testikkeltorsjon
+bitestikkelbetennelse
+gynekomasti
+ereksjonssvikt
+testosteronmangel
+kronisk pankreatitt
+klamydia
+artrose
+hypertensjon
+diabetes type 2
+astma
+migrene
+urinsyregikt
+nyrestein
+magesår
+lungebetennelse
+atrieflimmer
+tinnitus
+tykktarmskreft
+depresjon
+kols

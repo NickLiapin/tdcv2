@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Model designations are brand names and keep their real international spelling in any locale. The Dash 8 is here because Widerøe flies the largest fleet of them in Europe onto Norway's short runways.
+locale: nb
+---
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 737-700
+Boeing 747-400
+Boeing 767-300
+Boeing 777-300ER
+Boeing 787-9 Dreamliner
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321neo
+Airbus A330-300
+Airbus A350-900
+Airbus A380
+Airbus A220-300
+Embraer E190
+Embraer E195-E2
+Bombardier CRJ900
+De Havilland Dash 8-100
+De Havilland Dash 8-400
+ATR 72-600
+Cessna 172
+DHC-6 Twin Otter
+Pilatus PC-12
+Sikorsky S-92
+Airbus H225

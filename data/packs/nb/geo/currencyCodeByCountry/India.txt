@@ -1,0 +1,5 @@
+---
+description: Currency code of India
+locale: nb
+---
+INR

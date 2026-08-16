@@ -1,0 +1,10 @@
+---
+description: Diagnoser som stilles i ortopedi — diagnoses seen in this specialty
+locale: nb
+---
+artrose
+leddgikt
+skiveprolaps
+karpaltunnelsyndrom
+isjias
+rotatorcuffruptur

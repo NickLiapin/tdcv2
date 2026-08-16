@@ -1,0 +1,15 @@
+---
+description: Loan type (Norwegian). Rammelån is a mortgage-secured credit line drawn down at will, common in Norway and not the same as a home-equity loan; mellomfinansiering is the bridging loan between selling one home and buying the next, a standard product because Norwegian house sales settle on fixed dates.
+locale: nb
+---
+boliglån
+rammelån
+billån
+forbrukslån
+studielån
+byggelån
+mellomfinansiering
+kredittkortgjeld
+refinansiering
+bedriftslån
+hyttelån

@@ -1,0 +1,26 @@
+---
+description: Event type (Norwegian). Three of these are Norwegian institutions with no English equivalent. Julebord is the compulsory-feeling company Christmas dinner, held any time from mid-November. Dugnad is unpaid collective work the members of a housing block, a sports club or a school do together, summoned rather than hired — the word carries a social obligation that "volunteering" does not. Konfirmasjon is a rite of passage at fifteen that half the country now holds in a secular version.
+locale: nb
+---
+konferanse
+seminar
+kurs
+workshop
+webinar
+messe
+bryllup
+konfirmasjon
+dåp
+bursdag
+jubileum
+konsert
+festival
+julebord
+sommerfest
+dugnad
+lansering
+innsamlingsaksjon
+nettverkstreff
+generalforsamling
+årsmøte
+begravelse

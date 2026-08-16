@@ -1,0 +1,10 @@
+---
+description: Yrker innen utdanning — jobs in this industry
+locale: nb
+---
+lærer
+adjunkt
+lektor
+barnehagelærer
+rektor
+bibliotekar

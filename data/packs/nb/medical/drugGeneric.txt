@@ -1,0 +1,45 @@
+---
+description: Generic drug name in Norwegian spelling — Norwegian writes the INN with k for c and s for z (ciprofloksacin, escitalopram, klopidogrel), so these are not the English strings respelled by accident. Fenoksymetylpenicillin heads the antibiotics because Norway prescribes narrow-spectrum penicillin V first by national guideline, which is unusual internationally and is why Norwegian antibiotic resistance is among Europe's lowest.
+locale: nb
+---
+paracetamol
+ibuprofen
+acetylsalisylsyre
+fenoksymetylpenicillin
+amoksicillin
+azitromycin
+ciprofloksacin
+doksysyklin
+lisinopril
+metformin
+atorvastatin
+simvastatin
+amlodipin
+omeprazol
+pantoprazol
+levotyroksin
+salbutamol
+metoprolol
+losartan
+gabapentin
+hydroklortiazid
+furosemid
+sertralin
+escitalopram
+citalopram
+fluoksetin
+duloksetin
+prednisolon
+warfarin
+apiksaban
+klopidogrel
+montelukast
+tramadol
+kodein
+morfin
+naproksen
+diklofenak
+cetirizin
+loratadin
+nitroglyserin
+insulin glargin

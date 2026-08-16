@@ -1,0 +1,46 @@
+---
+description: Job skill (Norwegian) — technical, trade and soft, for skill lists and profiles. Four are Norwegian certificates rather than abilities and are what a Norwegian CV actually lists: HMS-kurs (the statutory health, safety and environment course), varme arbeider (the hot-work certificate needed to weld or cut on site), truckførerbevis (the forklift licence) and HLR (cardiopulmonary resuscitation).
+locale: nb
+---
+Python
+JavaScript
+SQL
+Java
+C++
+skytjenester
+maskinlæring
+dataanalyse
+prosjektledelse
+smidig metodikk
+presentasjonsteknikk
+teknisk skriving
+kundeservice
+salg
+regnskap
+økonomistyring
+CAD
+3D-modellering
+grafisk design
+tekstforfatting
+sveising
+elektrisk installasjon
+rørlegging
+tømrerarbeid
+tegningslesing
+maskinering
+lodding
+truckførerbevis
+anleggsmaskinkjøring
+tungbilsertifikat
+varme arbeider
+HMS-kurs
+førstehjelp
+HLR
+næringsmiddelhygiene
+norsk
+engelsk
+samisk
+forhandlingsteknikk
+teamledelse
+tidsstyring
+problemløsning

@@ -1,0 +1,5 @@
+---
+description: Currency of India, named in Norwegian
+locale: nb
+---
+indisk rupi

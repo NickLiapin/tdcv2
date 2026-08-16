@@ -1,0 +1,30 @@
+---
+description: Book genre (Norwegian). Sakprosa is a single word covering everything that is not fiction and is a category Norwegian publishing, criticism and state purchasing schemes all use as one thing.
+locale: nb
+---
+skjønnlitteratur
+sakprosa
+krim
+spenning
+thriller
+romantikk
+science fiction
+fantasy
+grøsser
+biografi
+selvbiografi
+memoarer
+historie
+selvhjelp
+poesi
+lyrikk
+ungdomsbok
+barnebok
+historisk roman
+eventyr
+reiseskildring
+kokebok
+tegneserie
+dystopi
+essay
+novellesamling

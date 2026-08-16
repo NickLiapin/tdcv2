@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list. Note which of Norway's biggest sports are NOT here: langrenn, skiskyting, hopp and alpint are the sports the country is known for, and none of them has playing positions at all — inventing some would have been a fabrication, so they live in sport/name.txt and are deliberately absent from this parent.
+locale: nb
+---
+Fotball
+Håndball
+Ishockey
+Bandy
+Innebandy
+Volleyball
+Basketball
+Amerikansk fotball

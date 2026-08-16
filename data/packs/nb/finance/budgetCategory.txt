@@ -1,0 +1,26 @@
+---
+description: Household budget category (Norwegian). Felleskostnader is the monthly charge a borettslag or sameie levies for shared costs and is a fixed line in most Norwegian budgets; kommunale avgifter covers water, sewage and refuse and is billed by the municipality; SFO is paid-for after-school care; studielån is the state loan from Lånekassen that almost every Norwegian graduate carries.
+locale: nb
+---
+husleie
+boliglån
+felleskostnader
+kommunale avgifter
+strøm
+mat og dagligvarer
+transport
+drivstoff
+kollektivtransport
+bil
+forsikring
+helse
+barnehage
+SFO
+klær
+fritid
+ferie
+sparing
+abonnementer
+gaver
+studielån
+annen gjeld

@@ -1,0 +1,32 @@
+---
+description: Tree (Norwegian). Gran, furu and bjørk are the three that make up almost all Norwegian forest; rogn, hegg and osp are the trio a Norwegian rhyme lists together. Barlind and kristtorn are protected species.
+locale: nb
+---
+gran
+furu
+bjørk
+dunbjørk
+hengebjørk
+osp
+selje
+rogn
+hegg
+or
+svartor
+gråor
+eik
+bøk
+ask
+alm
+lønn
+lind
+hassel
+barlind
+einer
+kristtorn
+vier
+poppel
+hestekastanje
+lerk
+edelgran
+sitkagran

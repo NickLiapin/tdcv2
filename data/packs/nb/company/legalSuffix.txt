@@ -1,0 +1,43 @@
+---
+description: Company legal form or name suffix used in Norway. AS (aksjeselskap) is the ordinary limited company and covers the overwhelming majority of Norwegian firms; ASA is its listed form. NUF is the Norwegian branch of a foreign company, ENK a sole proprietorship, IKS a company owned jointly by municipalities, HF a state health trust, and BRL a housing cooperative — none of which map onto Inc/LLC/Ltd. The trailing words after the legal forms are name elements, not legal forms.
+locale: nb
+---
+AS
+ASA
+ANS
+DA
+NUF
+ENK
+SA
+KS
+IKS
+KF
+SF
+HF
+FKF
+BRL
+BA
+Sameie
+Stiftelsen
+Foreningen
+Samvirkelaget
+Gruppen
+Konsern
+Holding
+Invest
+Eiendom
+Industrier
+Verksted
+Bruk
+Verk
+Teknologi
+Systemer
+Løsninger
+Tjenester
+Rådgivning
+Partners
+& Sønner
+& Co
+Norge
+Nordic
+Group

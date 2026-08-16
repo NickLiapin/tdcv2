@@ -1,0 +1,22 @@
+---
+description: Accommodation type on a Norwegian booking (Norwegian). Rorbu is a fisherman's cabin on stilts over the water, originally seasonal lodging for cod fishermen in Lofoten and now the standard tourist accommodation there; koie is a simple forest or mountain hut, often unlocked and unstaffed.
+locale: nb
+---
+enkeltrom
+dobbeltrom
+tomannsrom
+trippelrom
+familierom
+standardrom
+superiorrom
+deluxerom
+panoramarom
+suite
+junior suite
+leilighet
+studio
+hytte
+koie
+rorbu
+sengeplass i sovesal
+tilgjengelig rom

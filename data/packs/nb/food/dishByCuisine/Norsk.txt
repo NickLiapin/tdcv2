@@ -1,0 +1,20 @@
+---
+description: Dishes of norsk cuisine, named as Norwegian names them
+locale: nb
+---
+fårikål
+kjøttkaker i brun saus
+lapskaus
+raspeballer
+pinnekjøtt
+ribbe
+rømmegrøt
+fiskesuppe
+plukkfisk
+gravlaks
+lutefisk
+smalahove
+rakfisk
+svele
+lefse
+kransekake

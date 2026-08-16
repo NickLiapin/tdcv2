@@ -1,0 +1,5 @@
+---
+description: Currency of Pakistan, named in Norwegian
+locale: nb
+---
+pakistansk rupi

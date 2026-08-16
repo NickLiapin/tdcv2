@@ -1,0 +1,11 @@
+---
+description: Dishes of spansk cuisine, named as Norwegian names them
+locale: nb
+---
+paella
+tapas
+gazpacho
+tortilla española
+churros
+patatas bravas
+jamón ibérico

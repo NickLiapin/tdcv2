@@ -1,0 +1,10 @@
+---
+description: Diagnoser som stilles i onkologi — diagnoses seen in this specialty
+locale: nb
+---
+brystkreft
+lungekreft
+tykktarmskreft
+leukemi
+lymfom
+føflekkreft

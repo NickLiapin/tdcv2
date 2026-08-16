@@ -1,0 +1,11 @@
+---
+description: Tilstander som er klart hyppigere hos personer med opphav i askenasiske jøder — conditions markedly more frequent in people of this ancestry. A prevalence signal, not an exclusive one.
+locale: nb
+---
+Tay-Sachs sykdom
+Gauchers sykdom type 1
+familiær dysautonomi
+Canavans sykdom
+BRCA1-mutasjon
+BRCA2-mutasjon
+Bloom syndrom

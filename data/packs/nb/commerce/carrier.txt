@@ -1,0 +1,24 @@
+---
+description: Parcel carrier used in Norway. Posten is the state postal service; Bring is its business arm and the name on most parcels. Helthjem is owned by the newspaper groups and delivers parcels overnight using the newspaper distribution network, which is a solution to Norwegian geography rather than a courier brand.
+locale: nb
+---
+Posten
+Bring
+PostNord
+Helthjem
+Porterbuddy
+Instabee
+Budbee
+DHL Express
+DHL Freight
+UPS
+FedEx
+TNT
+GLS
+DSV
+DB Schenker
+Kuehne + Nagel
+Jetpak
+CargoNet
+Nor-Cargo
+Cargobil

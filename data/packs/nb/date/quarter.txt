@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Norwegian). Written with an ordinal number and a full stop, not as Q1.
+locale: nb
+---
+1. kvartal
+2. kvartal
+3. kvartal
+4. kvartal

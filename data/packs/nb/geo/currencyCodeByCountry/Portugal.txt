@@ -1,0 +1,5 @@
+---
+description: Currency code of Portugal
+locale: nb
+---
+EUR

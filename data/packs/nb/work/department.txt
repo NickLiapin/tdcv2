@@ -1,0 +1,26 @@
+---
+description: Company department or function (Norwegian). Two notes. HMS — helse, miljø og sikkerhet — is a statutory function every Norwegian employer must have, with an internkontroll system behind it, so it is a department and not a policy. Personal is what Norwegian calls the human-resources function; the two-letter English abbreviation is avoided here for the same reason the category itself is called workplace and not hr, since hr is the language code for Croatian.
+locale: nb
+---
+utvikling
+produkt
+design
+salg
+marked
+økonomi
+regnskap
+personal
+drift
+juridisk
+kundeservice
+IT
+forskning og utvikling
+innkjøp
+kvalitet
+logistikk
+administrasjon
+eiendom og drift
+sikkerhet
+etterlevelse
+kommunikasjon
+HMS

@@ -1,0 +1,18 @@
+---
+description: Grade or mark, on BOTH Norwegian scales, because Norway uses two. Compulsory and upper-secondary school marks on a numeric scale where 6 is best and 1 is a fail; universities mark A to F, where F is a fail and E still passes. Bestått / ikke bestått is the pass-fail alternative used for many courses. Nothing here maps onto an American letter grade — a Norwegian A and an American A are different scales that happen to share a letter.
+locale: nb
+---
+6
+5
+4
+3
+2
+1
+A
+B
+C
+D
+E
+F
+bestått
+ikke bestått

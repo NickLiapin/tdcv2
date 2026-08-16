@@ -1,0 +1,11 @@
+---
+description: Age rating for film and television. These are NORWAY'S, set by Medietilsynet: an age in years, not a letter code. Nothing here corresponds to G, PG-13 or R — a config that maps this list onto the American scale will produce ratings that do not exist. "Tillatt for alle" is the unrestricted rating.
+locale: nb
+---
+Tillatt for alle
+6 år
+9 år
+12 år
+15 år
+18 år
+Ikke vurdert

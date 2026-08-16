@@ -1,0 +1,10 @@
+---
+description: Dishes of vietnamesisk cuisine, named as Norwegian names them
+locale: nb
+---
+pho
+banh mi
+vårruller
+bun cha
+com tam
+vietnamesisk kaffe

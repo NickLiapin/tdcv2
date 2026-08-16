@@ -1,0 +1,10 @@
+---
+description: Diagnoser som stilles i kardiologi — diagnoses seen in this specialty
+locale: nb
+---
+hypertensjon
+koronarsykdom
+atrieflimmer
+hjertesvikt
+hjerteinfarkt
+hyperlipidemi

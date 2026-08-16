@@ -1,0 +1,5 @@
+---
+description: Currency of Hellas, named in Norwegian
+locale: nb
+---
+euro

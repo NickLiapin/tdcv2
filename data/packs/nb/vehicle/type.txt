@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Norwegian). Stasjonsvogn — the estate — is the Norwegian family car; bobil and campingvogn are the motorhome and the caravan; snøscooter and beltebil are tracked vehicles that are ordinary transport in the north and regulated as such.
+locale: nb
+---
+sedan
+kombi
+stasjonsvogn
+kupé
+kabriolet
+SUV
+crossover
+flerbruksbil
+varebil
+pickup
+kassebil
+minibuss
+buss
+lastebil
+trekkvogn
+bobil
+campingvogn
+traktor
+ATV
+snøscooter
+beltebil
+veteranbil

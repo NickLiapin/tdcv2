@@ -1,0 +1,32 @@
+---
+description: Technical verb, present participle (Norwegian). Norwegian has no productive -ing participle for this: where English says "compressing", Norwegian uses the finite present (komprimerer) in exactly the places a progress bar or a log line needs, so that is the form shipped.
+locale: nb
+---
+sikkerhetskopierer
+omgår
+hacker
+overstyrer
+komprimerer
+kopierer
+navigerer
+indekserer
+kobler til
+genererer
+kvantifiserer
+beregner
+syntetiserer
+overfører
+programmerer
+starter på nytt
+tolker
+krypterer
+dekrypterer
+ruller ut
+overvåker
+analyserer
+optimaliserer
+kompilerer
+laster ned
+laster opp
+synkroniserer
+konfigurerer

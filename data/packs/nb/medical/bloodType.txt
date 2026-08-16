@@ -1,0 +1,12 @@
+---
+description: ABO and Rh blood type. O+ and A+ together cover roughly four Norwegians in five, and Norway has one of Europe's highest shares of A.
+locale: nb
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

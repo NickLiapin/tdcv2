@@ -1,0 +1,5 @@
+---
+description: Capital of Australia, as Norwegian writes it
+locale: nb
+---
+Canberra

@@ -1,0 +1,26 @@
+---
+description: Legal term (Norwegian). Meddommer is a lay judge: Norwegian courts of first and second instance sit with lay judges beside the professional one in most cases, so the word appears in ordinary case reports. Verneting is the venue rule, and foreldelse the limitation period.
+locale: nb
+---
+saksøker
+saksøkte
+tiltalt
+fornærmet
+vitne
+stevning
+forkynnelse
+forklaring
+kjennelse
+dom
+forlik
+anke
+rettskraft
+jurisdiksjon
+verneting
+påtalemyndighet
+forsvarer
+aktor
+meddommer
+bevisbyrde
+foreldelse
+midlertidig forføyning

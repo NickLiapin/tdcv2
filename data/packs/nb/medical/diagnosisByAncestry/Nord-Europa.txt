@@ -1,0 +1,11 @@
+---
+description: Tilstander som er klart hyppigere hos personer med opphav i nord-europa — conditions markedly more frequent in people of this ancestry. A prevalence signal, not an exclusive one.
+locale: nb
+---
+cystisk fibrose
+arvelig hemokromatose
+cøliaki
+laktosetoleranse i voksen alder
+alfa-1-antitrypsinmangel
+fenylketonuri
+føflekkreft

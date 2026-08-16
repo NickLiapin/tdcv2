@@ -1,0 +1,21 @@
+---
+description: Seniority label for a role (Norwegian). Rådgiver and seniorrådgiver are formal grades in the Norwegian civil service pay structure, not vague adjectives, and a large share of Norwegian job titles are exactly one of those two words.
+locale: nb
+---
+praktikant
+lærling
+trainee
+nyutdannet
+junior
+konsulent
+rådgiver
+seniorrådgiver
+senior
+spesialist
+fagansvarlig
+teamleder
+prosjektleder
+avdelingsleder
+seksjonsleder
+direktør
+administrerende direktør

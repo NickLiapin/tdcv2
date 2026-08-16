@@ -1,0 +1,5 @@
+---
+description: Capital of India, as Norwegian writes it
+locale: nb
+---
+New Delhi

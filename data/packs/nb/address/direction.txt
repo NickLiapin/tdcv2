@@ -1,0 +1,19 @@
+---
+description: Directional or positional qualifier attached to a Norwegian district, estate or road name (Oslo sentrum, Bergen nord, Romsås øvre).
+locale: nb
+---
+nord
+sør
+øst
+vest
+nordøst
+nordvest
+sørøst
+sørvest
+sentrum
+sentral
+indre
+ytre
+øvre
+nedre
+midtre

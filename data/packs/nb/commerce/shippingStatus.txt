@@ -1,0 +1,15 @@
+---
+description: Shipping status (Norwegian).
+locale: nb
+---
+etikett opprettet
+hentet
+underveis
+på terminal
+ut for levering
+levert
+klar for henting
+hentet av mottaker
+avvik
+returnert til avsender
+forsinket

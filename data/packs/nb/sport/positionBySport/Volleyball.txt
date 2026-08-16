@@ -1,0 +1,9 @@
+---
+description: Posisjoner i volleyball — playing positions in this sport
+locale: nb
+---
+opplegger
+kantspiller
+midtblokker
+libero
+diagonalspiller

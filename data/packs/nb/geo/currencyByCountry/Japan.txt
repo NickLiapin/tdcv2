@@ -1,0 +1,5 @@
+---
+description: Currency of Japan, named in Norwegian
+locale: nb
+---
+japansk yen

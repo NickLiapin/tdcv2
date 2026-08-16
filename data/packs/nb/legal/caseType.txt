@@ -1,0 +1,20 @@
+---
+description: Kind of legal case (Norwegian). Barnefordeling — how custody is divided — and gjeldsordning, a court-administered debt settlement available to private individuals under its own act, are Norwegian categories rather than translations.
+locale: nb
+---
+sivil sak
+straffesak
+familiesak
+barnefordeling
+barnevernssak
+arvesak
+konkurs
+gjeldsordning
+erstatningssak
+arbeidsrettssak
+kontraktstvist
+immaterialrett
+eiendomstvist
+nabotvist
+utlendingssak
+skattesak

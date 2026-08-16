@@ -1,0 +1,10 @@
+---
+description: Yrker innen juss — jobs in this industry
+locale: nb
+---
+advokat
+advokatfullmektig
+jurist
+dommer
+saksbehandler
+namsfullmektig

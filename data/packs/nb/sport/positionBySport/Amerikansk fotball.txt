@@ -1,0 +1,10 @@
+---
+description: Posisjoner i amerikansk fotball — playing positions in this sport
+locale: nb
+---
+quarterback
+running back
+wide receiver
+linebacker
+cornerback
+kicker

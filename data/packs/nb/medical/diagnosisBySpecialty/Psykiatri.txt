@@ -1,0 +1,10 @@
+---
+description: Diagnoser som stilles i psykiatri — diagnoses seen in this specialty
+locale: nb
+---
+depresjon
+generalisert angstlidelse
+bipolar lidelse
+schizofreni
+posttraumatisk stresslidelse
+ADHD

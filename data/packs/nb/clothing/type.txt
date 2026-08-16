@@ -1,0 +1,36 @@
+---
+description: Garment type (Norwegian). Ullundertøy is not thermal underwear as an option but as a default: wool next to the skin is the organising principle of dressing in Norway, and the proverb ("det finnes ikke dårlig vær, bare dårlige klær") is about this list.
+locale: nb
+---
+t-skjorte
+skjorte
+bluse
+genser
+ullgenser
+hettegenser
+jakke
+boblejakke
+regnjakke
+skalljakke
+anorakk
+kåpe
+frakk
+dressjakke
+dress
+bukse
+olabukse
+shorts
+skjørt
+kjole
+strømpebukse
+ullundertøy
+sokker
+ullsokker
+lue
+votter
+hansker
+skjerf
+belte
+joggesko
+fjellstøvler
+gummistøvler

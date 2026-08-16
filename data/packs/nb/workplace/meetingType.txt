@@ -1,0 +1,16 @@
+---
+description: Meeting type (Norwegian). Medarbeidersamtale is the annual one-to-one between employee and manager, a fixture of Norwegian working life and expected rather than optional; allmøte is the whole-organisation meeting; idédugnad borrows the word dugnad — collective voluntary effort — for brainstorming.
+locale: nb
+---
+daglig standup
+en-til-en
+medarbeidersamtale
+allmøte
+avdelingsmøte
+personalmøte
+styremøte
+statusmøte
+oppstartsmøte
+retrospektiv
+sprintplanlegging
+idédugnad

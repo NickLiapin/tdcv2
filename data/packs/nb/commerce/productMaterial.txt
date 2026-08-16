@@ -1,0 +1,51 @@
+---
+description: Product material (Norwegian). Skinn and lær both mean leather and are not interchangeable in use: skinn is the everyday word and also means fur or hide, lær is the tanned material.
+locale: nb
+---
+stål
+rustfritt stål
+jern
+støpejern
+aluminium
+messing
+kobber
+sink
+tre
+furu
+gran
+eik
+bjørk
+ask
+teak
+bambus
+kryssfiner
+sponplate
+plast
+akryl
+silikon
+gummi
+glass
+herdet glass
+keramikk
+porselen
+betong
+granitt
+marmor
+skifer
+lær
+skinn
+semsket skinn
+ull
+merinoull
+bomull
+lin
+silke
+polyester
+nylon
+fleece
+dun
+filt
+kork
+papp
+resirkulert plast
+karbonfiber

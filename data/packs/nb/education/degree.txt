@@ -1,0 +1,23 @@
+---
+description: Level of education or qualification as awarded in Norway. Fagbrev, svennebrev and mesterbrev are the vocational ladder — trade certificate, journeyman's certificate, master craftsman — and roughly half of Norwegian upper-secondary pupils take that route rather than the academic one, so they are qualifications and not consolation prizes. Sivilingeniør and siviløkonom are protected titles attached to a five-year master's, not separate degrees.
+locale: nb
+---
+grunnskole
+videregående skole
+studiespesialisering
+yrkesfag
+fagbrev
+svennebrev
+mesterbrev
+fagskole
+årsstudium
+høgskolekandidat
+bachelor
+master
+sivilingeniør
+siviløkonom
+cand.med.
+cand.jur.
+cand.psychol.
+ph.d.
+dr.philos.

@@ -1,0 +1,12 @@
+---
+description: Book format (Norwegian). Innbundet and heftet — bound and stitched — are the two categories a Norwegian bookshop actually sorts by.
+locale: nb
+---
+innbundet
+heftet
+pocketbok
+storpocket
+kartonert
+e-bok
+lydbok
+spiralinnbundet

@@ -1,0 +1,27 @@
+---
+description: Norwegian address unit designator. A Norwegian flat is identified by a bruksenhetsnummer written H0101 — H for a dwelling floor, then the storey, then the flat on that storey — which is a code rather than a word, so the words below are what appears beside it on a door, a form or a deed. gnr./bnr./snr. are the cadastral triple (holding, plot, section) that identifies any Norwegian property.
+locale: nb
+---
+etg.
+etasje
+oppgang
+inngang
+leil.
+leilighet
+hybel
+rom
+kontor
+seksjon
+bygg
+blokk
+hus
+gnr.
+bnr.
+snr.
+fnr.
+postboks
+boks
+kjeller
+loft
+sokkel
+bod

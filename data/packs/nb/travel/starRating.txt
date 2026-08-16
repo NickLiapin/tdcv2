@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Norwegian). Note the plural: Norwegian inflects the noun after the number, so it is 1 stjerne but 2 stjerner.
+locale: nb
+---
+1 stjerne
+2 stjerner
+3 stjerner
+4 stjerner
+5 stjerner

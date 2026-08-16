@@ -1,0 +1,48 @@
+---
+description: Industry sector (Norwegian). The order is not the European default: olje og gass, havbruk, sjøfart, kraftproduksjon and fiske are the sectors Norway is built on, and havbruk (salmon farming) is a larger export than anything on the reference list.
+locale: nb
+---
+jordbruk
+skogbruk
+fiske
+havbruk
+oppdrett
+reindrift
+bergverk
+olje og gass
+kraftproduksjon
+fornybar energi
+bygg og anlegg
+industri
+verftsindustri
+næringsmiddelindustri
+prosessindustri
+varehandel
+engroshandel
+detaljhandel
+transport
+sjøfart
+luftfart
+logistikk
+informasjonsteknologi
+telekommunikasjon
+finans
+bank
+forsikring
+eiendom
+helse og omsorg
+farmasi
+bioteknologi
+utdanning
+forskning
+offentlig forvaltning
+forsvar
+reiseliv
+hotell og restaurant
+kultur
+media
+underholdning
+konsulentvirksomhet
+juridiske tjenester
+rekruttering
+frivillig sektor

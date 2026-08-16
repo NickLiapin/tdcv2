@@ -1,0 +1,25 @@
+---
+description: Kind of official document (Norwegian). Politiattest is a criminal-record certificate that Norwegian law requires before working with children, and is an ordinary document an ordinary person obtains. Skatteoppgjøret is the finished tax settlement the state sends back, distinct from skattemeldingen that the taxpayer submits.
+locale: nb
+---
+pass
+nasjonalt ID-kort
+fødselsattest
+vigselsattest
+skilsmissebevilling
+førerkort
+oppholdstillatelse
+vitnemål
+fagbrev
+attest
+politiattest
+skattemelding
+skatteoppgjør
+byggetillatelse
+ferdigattest
+serveringsbevilling
+testament
+skjøte
+helsetrygdekort
+legeerklæring
+arbeidsavtale

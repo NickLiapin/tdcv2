@@ -1,0 +1,16 @@
+---
+description: Streaming service. Brand names, kept as they are. NRK TV is the licence-funded public broadcaster's service and is free; TV 2 Play and Viaplay are the two large Norwegian commercial services, and Viaplay is where Norwegian sport lives.
+locale: nb
+---
+NRK TV
+TV 2 Play
+Viaplay
+Netflix
+HBO Max
+Disney+
+Amazon Prime Video
+Apple TV+
+SkyShowtime
+Allente
+YouTube
+Spotify

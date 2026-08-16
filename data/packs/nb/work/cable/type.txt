@@ -1,0 +1,13 @@
+---
+description: Cable type (Norwegian). Sjøkabel is on the list because Norway runs power and data under fjords and across the North Sea as a matter of routine — the interconnectors to Denmark, the Netherlands, Germany and the UK are all Norwegian sea cable projects.
+locale: nb
+---
+fiberoptisk
+koaksial
+parkabel
+Cat5e
+Cat6
+Cat6a
+jordkabel
+luftkabel
+sjøkabel

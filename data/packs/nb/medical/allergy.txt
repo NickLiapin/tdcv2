@@ -1,0 +1,30 @@
+---
+description: Common allergy (Norwegian). Bjørkepollen leads a Norwegian list: birch is the dominant spring allergen across the country, and the season runs north up the coast for weeks. Melkeproteinallergi and laktoseintoleranse are different things and Norwegian keeps them apart.
+locale: nb
+---
+penicillin
+nøtter
+peanøtter
+hasselnøtt
+mandler
+skalldyr
+reker
+egg
+melk
+laktose
+soya
+hvete
+gluten
+fisk
+sesam
+lateks
+bjørkepollen
+gresspollen
+burotpollen
+husstøvmidd
+katt
+hund
+vepsestikk
+nikkel
+acetylsalisylsyre
+jod

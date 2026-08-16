@@ -1,0 +1,11 @@
+---
+description: Dishes of gresk cuisine, named as Norwegian names them
+locale: nb
+---
+moussaka
+souvlaki
+gyros
+gresk salat
+spanakopita
+baklava
+tzatziki

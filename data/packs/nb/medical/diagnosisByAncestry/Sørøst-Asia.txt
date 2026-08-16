@@ -1,0 +1,9 @@
+---
+description: Tilstander som er klart hyppigere hos personer med opphav i sørøst-asia — conditions markedly more frequent in people of this ancestry. A prevalence signal, not an exclusive one.
+locale: nb
+---
+alfatalassemi
+hemoglobin E-sykdom
+glukose-6-fosfatdehydrogenasemangel
+laktoseintoleranse
+nasofarynxkreft

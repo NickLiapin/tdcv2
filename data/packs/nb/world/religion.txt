@@ -1,0 +1,27 @@
+---
+description: Religion or life stance (Norwegian). Livssyn — "life stance" — is the Norwegian legal category, and a non-religious one counts: Human-Etisk Forbund is a registered life-stance community with state funding on the same terms as a church, holds humanistisk konfirmasjon for around a sixth of Norwegian fifteen-year-olds, and is the largest such organisation in the world per head of population. Den norske kirke was the constitutionally established state church until 2012 and still holds a majority of the population as members. Åsatru is a registered religious community in Norway, not a historical footnote.
+locale: nb
+---
+kristendom
+Den norske kirke
+luthersk kristendom
+katolisisme
+ortodoks kristendom
+pinsebevegelsen
+baptisme
+metodisme
+Jehovas vitner
+islam
+jødedom
+hinduisme
+buddhisme
+sikhisme
+bahá’í
+jainisme
+shinto
+taoisme
+åsatru
+livssynshumanisme
+ateisme
+agnostisisme
+ikke religiøs

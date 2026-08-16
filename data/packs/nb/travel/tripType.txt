@@ -1,0 +1,26 @@
+---
+description: Trip type (Norwegian). The school-holiday trips are named as their own categories because Norway schedules them nationally: vinterferie in week 8 or 9 and høstferie in week 40 or 41 empty the towns, and påskeferie sends a large part of the country to the mountains for a week — påskefjellet is a word for it.
+locale: nb
+---
+forretningsreise
+ferie
+familieferie
+bryllupsreise
+eventyrreise
+bilferie
+cruise
+ryggsekktur
+storbyferie
+strandferie
+gruppereise
+alenereise
+hyttetur
+fjelltur
+skiferie
+påskeferie
+sommerferie
+høstferie
+vinterferie
+helgetur
+charterreise
+campingtur

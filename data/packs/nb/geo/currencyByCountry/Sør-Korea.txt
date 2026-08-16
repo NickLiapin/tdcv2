@@ -1,0 +1,5 @@
+---
+description: Currency of Sør-Korea, named in Norwegian
+locale: nb
+---
+sørkoreansk won

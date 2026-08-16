@@ -1,0 +1,12 @@
+---
+description: Clothing size (international letter sizing, as used in Norway).
+locale: nb
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

@@ -1,0 +1,20 @@
+---
+description: Compass direction (Norwegian). Norwegian compounds these without a hyphen and without a space — nordøst, sørvest — and only inserts a hyphen at the sixteen-point level (nord-nordøst).
+locale: nb
+---
+nord
+sør
+øst
+vest
+nordøst
+nordvest
+sørøst
+sørvest
+nord-nordøst
+øst-nordøst
+øst-sørøst
+sør-sørøst
+sør-sørvest
+vest-sørvest
+vest-nordvest
+nord-nordvest

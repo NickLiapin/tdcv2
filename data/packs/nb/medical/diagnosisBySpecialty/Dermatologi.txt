@@ -1,0 +1,10 @@
+---
+description: Diagnoser som stilles i dermatologi — diagnoses seen in this specialty
+locale: nb
+---
+psoriasis
+atopisk eksem
+akne
+føflekkreft
+rosacea
+kontakteksem

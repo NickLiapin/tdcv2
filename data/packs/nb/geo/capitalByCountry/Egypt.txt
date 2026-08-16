@@ -1,0 +1,5 @@
+---
+description: Capital of Egypt, as Norwegian writes it
+locale: nb
+---
+Kairo

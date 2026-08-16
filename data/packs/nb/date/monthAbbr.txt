@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Norwegian). The abbreviation carries a full stop; mars, mai, juni and juli are short enough that they are not abbreviated at all.
+locale: nb
+---
+jan.
+feb.
+mars
+apr.
+mai
+juni
+juli
+aug.
+sep.
+okt.
+nov.
+des.

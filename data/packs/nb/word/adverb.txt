@@ -1,0 +1,36 @@
+---
+description: Adverb (Norwegian). Most are the neuter form of an adjective doing adverbial duty — raskt from rask — which is how Norwegian builds them; it has no separate -ly ending.
+locale: nb
+---
+raskt
+sakte
+forsiktig
+lett
+stille
+høyt
+alltid
+aldri
+ofte
+av og til
+sjelden
+plutselig
+mildt
+tydelig
+enkelt
+nesten
+helt
+knapt
+mest
+virkelig
+dypt
+vidt
+fritt
+modig
+rolig
+ivrig
+fast
+gjerne
+vennlig
+snart
+straks
+endelig

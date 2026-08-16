@@ -1,0 +1,5 @@
+---
+description: Capital of Sverige, as Norwegian writes it
+locale: nb
+---
+Stockholm

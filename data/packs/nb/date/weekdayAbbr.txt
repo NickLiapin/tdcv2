@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Norwegian), three letters and a full stop.
+locale: nb
+---
+man.
+tir.
+ons.
+tor.
+fre.
+lør.
+søn.

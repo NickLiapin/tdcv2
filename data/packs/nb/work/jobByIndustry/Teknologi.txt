@@ -1,0 +1,10 @@
+---
+description: Yrker innen teknologi — jobs in this industry
+locale: nb
+---
+programvareutvikler
+systemutvikler
+dataingeniør
+produkteier
+UX-designer
+testleder

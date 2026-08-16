@@ -1,0 +1,5 @@
+---
+description: Capital of Polen, as Norwegian writes it
+locale: nb
+---
+Warszawa

@@ -1,0 +1,15 @@
+---
+description: Social reaction (Norwegian).
+locale: nb
+---
+liker
+elsker
+ha ha
+wow
+trist
+sint
+bryr meg
+feirer
+støtter
+innsiktsfullt
+nysgjerrig

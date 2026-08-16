@@ -1,0 +1,39 @@
+---
+description: Music genre (Norwegian). Four are Norwegian institutions rather than translations: danseband is a whole industry of accordion-led dance music with its own charts and festivals, korpsmusikk is the brass band that every school has and that the whole country hears on 17 May, joik is the Sami vocal form and is not a song about something but a musical portrait of it, and black metal is a Norwegian export — the genre was formed in Oslo and Bergen in the early 1990s.
+locale: nb
+---
+rock
+pop
+jazz
+klassisk
+hiphop
+country
+elektronika
+blues
+reggae
+black metal
+death metal
+heavy metal
+punk
+folkemusikk
+visesang
+danseband
+korpsmusikk
+kirkemusikk
+salmer
+joik
+samisk musikk
+R&B
+soul
+funk
+disco
+house
+techno
+indie
+gospel
+ambient
+ska
+bluegrass
+latin
+opera
+musikal

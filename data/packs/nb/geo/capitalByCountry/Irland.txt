@@ -1,0 +1,5 @@
+---
+description: Capital of Irland, as Norwegian writes it
+locale: nb
+---
+Dublin

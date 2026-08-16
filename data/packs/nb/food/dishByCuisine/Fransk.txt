@@ -1,0 +1,12 @@
+---
+description: Dishes of fransk cuisine, named as Norwegian names them
+locale: nb
+---
+coq au vin
+boeuf bourguignon
+ratatouille
+croissant
+quiche lorraine
+bouillabaisse
+crêpes
+cassoulet

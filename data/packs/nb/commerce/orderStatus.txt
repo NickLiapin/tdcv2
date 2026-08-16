@@ -1,0 +1,18 @@
+---
+description: Order status (Norwegian).
+locale: nb
+---
+venter
+under behandling
+bekreftet
+betalt
+plukkes
+pakkes
+sendt
+underveis
+klar for henting
+levert
+kansellert
+returnert
+refundert
+restordre

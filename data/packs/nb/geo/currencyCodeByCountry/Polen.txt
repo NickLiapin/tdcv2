@@ -1,0 +1,5 @@
+---
+description: Currency code of Polen
+locale: nb
+---
+PLN

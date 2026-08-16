@@ -1,0 +1,34 @@
+---
+description: Flower (Norwegian). Røsslyng, heather, is Norway's national flower; blåveis and hvitveis are the blue and white anemones that mark the start of spring and are named as a pair; geitrams is fireweed, the first plant back on burnt ground; reinrose grows on the high fell and is on the Norwegian conservation lists.
+locale: nb
+---
+rose
+tulipan
+tusenfryd
+solsikke
+lilje
+orkidé
+påskelilje
+ringblomst
+lavendel
+iris
+peon
+nellik
+krysantemum
+valmue
+fiol
+blåveis
+hvitveis
+liljekonvall
+prestekrage
+løvetann
+marikåpe
+blåklokke
+engsoleie
+gullris
+mjødurt
+revebjelle
+røsslyng
+reinrose
+myrull
+geitrams

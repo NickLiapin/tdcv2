@@ -1,0 +1,21 @@
+---
+description: Video game genre (Norwegian).
+locale: nb
+---
+action
+eventyr
+rollespill
+strategi
+simulator
+sport
+puslespill
+skytespill
+plattformspill
+racing
+kampspill
+overlevelse
+sandkasse
+MMORPG
+roguelike
+skrekk
+byggespill

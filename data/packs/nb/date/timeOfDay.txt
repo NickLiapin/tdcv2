@@ -1,0 +1,12 @@
+---
+description: Time of day (Norwegian). formiddag is a slot English has no word for — the stretch between morning and midday — and Norwegian uses it constantly; the clock is read against it (klokka ti om formiddagen).
+locale: nb
+---
+morgen
+formiddag
+ettermiddag
+kveld
+natt
+gry
+skumring
+midnatt

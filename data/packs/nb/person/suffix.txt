@@ -1,0 +1,28 @@
+---
+description: Suffix after a Norwegian name. Norwegian marks the elder and the younger generation with d.e. (den eldre) and d.y. (den yngre) rather than with Sr. and Jr., which is the form used in reference works and on gravestones; jr. and sr. also occur, mostly in sport. The rest are Norwegian academic degrees, which are written after the name and abbreviated with full stops.
+locale: nb
+---
+d.e.
+d.y.
+jr.
+sr.
+II
+III
+IV
+V
+ph.d.
+dr.philos.
+dr.med.
+dr.juris
+dr.theol.
+cand.mag.
+cand.jur.
+cand.med.
+cand.psychol.
+cand.polit.
+cand.scient.
+siv.ing.
+siv.øk.
+MBA
+M.Sc.
+em.

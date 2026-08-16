@@ -1,0 +1,50 @@
+---
+description: Sport (Norwegian). The order is Norway's, not the world's: langrenn, skiskyting, hopp and kombinert are the sports the country measures itself by, and håndball is a sport Norway wins at rather than a minor one. Orientering — running cross-country with a map and compass — is a mass participation sport here.
+locale: nb
+---
+fotball
+håndball
+langrenn
+skiskyting
+alpint
+hopp
+kombinert
+freestyle
+snowboard
+ishockey
+bandy
+innebandy
+curling
+skøyter
+hurtigløp på skøyter
+friidrett
+orientering
+sykling
+svømming
+roing
+padling
+seiling
+golf
+tennis
+badminton
+bordtennis
+basketball
+volleyball
+amerikansk fotball
+rugby
+baseball
+boksing
+bryting
+judo
+karate
+taekwondo
+turn
+skyting
+bueskyting
+ridning
+motorsport
+rallycross
+klatring
+triatlon
+terrengløp
+e-sport

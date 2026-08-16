@@ -1,0 +1,30 @@
+---
+description: Gemstone and ornamental stone (Norwegian). Two are Norway's own: thulitt, a pink zoisite named after Thule and Norway's national stone, and larvikitt, the blue-shimmering monzonite quarried around Larvik that is Norway's national rock and is exported worldwide as a facing stone.
+locale: nb
+---
+diamant
+rubin
+safir
+smaragd
+ametyst
+topas
+opal
+granat
+akvamarin
+peridot
+turkis
+jade
+onyks
+perle
+sitrin
+tanzanitt
+turmalin
+månestein
+zirkon
+lapis lazuli
+thulitt
+larvikitt
+bergkrystall
+rosenkvarts
+jaspis
+agat

@@ -1,0 +1,20 @@
+---
+description: Room in a Norwegian home. Entré is the entrance room where outdoor clothes and shoes come off — a room, not a hallway, and it is on the floor plan. Vaskerom (a utility room) and bod (a storeroom) are likewise standard rooms rather than optional extras.
+locale: nb
+---
+stue
+kjøkken
+soverom
+bad
+vaskerom
+entré
+gang
+gjesterom
+kontor
+kjeller
+loft
+bod
+spisestue
+garderobe
+vinterhage
+badstue

@@ -1,0 +1,36 @@
+---
+description: Musical instrument (Norwegian). The last five are Norwegian folk instruments and have no English names: hardingfele is the Hardanger fiddle, with four or five sympathetic strings under the played ones and the national instrument of Norway; langeleik is a fretted zither; lur and bukkehorn are herding horns; seljefløyte is an overtone flute cut from willow bark.
+locale: nb
+---
+gitar
+elgitar
+bassgitar
+piano
+flygel
+fiolin
+bratsj
+cello
+kontrabass
+trommer
+saksofon
+trompet
+trombone
+tuba
+valthorn
+tverrfløyte
+klarinett
+obo
+fagott
+harpe
+ukulele
+banjo
+trekkspill
+munnspill
+orgel
+keyboard
+synthesizer
+hardingfele
+langeleik
+lur
+bukkehorn
+seljefløyte

@@ -1,0 +1,34 @@
+---
+description: Dog breed (Norwegian). The first six are Norway's own recognised breeds: two elkhounds, the buhund farm dog, the lundehund bred to climb sea cliffs for puffins (it has six toes on each foot and can fold its head back onto its spine), and two hare-hunting hounds. The rest are the breeds actually kept in Norway.
+locale: nb
+---
+norsk elghund grå
+norsk elghund sort
+norsk buhund
+norsk lundehund
+dunker
+haldenstøver
+hygenhund
+labrador retriever
+golden retriever
+flat coated retriever
+schäferhund
+border collie
+engelsk setter
+gordonsetter
+irsk setter
+korthåret vorstehhund
+cocker spaniel
+jack russell terrier
+chihuahua
+puddel
+dachshund
+rottweiler
+boxer
+siberian husky
+alaskan malamute
+samojedhund
+berner sennenhund
+fransk bulldog
+cavalier king charles spaniel
+beagle

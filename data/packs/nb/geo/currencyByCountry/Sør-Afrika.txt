@@ -1,0 +1,5 @@
+---
+description: Currency of Sør-Afrika, named in Norwegian
+locale: nb
+---
+sørafrikansk rand

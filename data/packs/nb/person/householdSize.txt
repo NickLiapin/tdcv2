@@ -1,0 +1,11 @@
+---
+description: Household size (number of people). Norway has one of the highest shares of single-person households in Europe, so 1 is not a rare value here.
+locale: nb
+---
+1
+2
+3
+4
+5
+6
+7+

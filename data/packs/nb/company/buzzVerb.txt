@@ -1,0 +1,44 @@
+---
+description: Business buzz verb (Norwegian), infinitive without the å.
+locale: nb
+---
+utnytte
+forenkle
+optimalisere
+orkestrere
+myndiggjøre
+muliggjøre
+skalere
+transformere
+forstyrre
+innovere
+iterere
+integrere
+rulle ut
+høste
+låse opp
+akselerere
+forsterke
+utforme
+måle
+dyrke
+drive
+utvikle
+framskynde
+tilrettelegge
+generere
+insentivere
+operasjonalisere
+produktifisere
+redefinere
+gjenskape
+revolusjonere
+lede an
+standardisere
+omstille
+samle
+digitalisere
+effektivisere
+videreutvikle
+forankre
+løfte

@@ -1,0 +1,42 @@
+---
+description: Symptom or presenting complaint (Norwegian), as a patient would put it.
+locale: nb
+---
+feber
+hodepine
+tretthet
+kvalme
+oppkast
+diaré
+forstoppelse
+magesmerter
+brystsmerter
+tungpust
+hoste
+sår hals
+rennende nese
+tett nese
+svimmelhet
+tåkesyn
+muskelsmerter
+leddsmerter
+korsryggsmerter
+utslett
+kløe
+hevelse
+nummenhet
+prikking
+hjertebank
+nedsatt appetitt
+utilsiktet vekttap
+nattesvette
+frysninger
+nysing
+halsbrann
+oppblåsthet
+kramper
+kraftløshet
+forvirring
+øresus
+søvnvansker
+besvimelse

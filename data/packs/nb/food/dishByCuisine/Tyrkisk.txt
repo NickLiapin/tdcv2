@@ -1,0 +1,11 @@
+---
+description: Dishes of tyrkisk cuisine, named as Norwegian names them
+locale: nb
+---
+kebab
+baklava
+meze
+lahmacun
+dolma
+köfte
+pide

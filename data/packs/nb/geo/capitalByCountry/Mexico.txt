@@ -1,0 +1,5 @@
+---
+description: Capital of Mexico, as Norwegian writes it
+locale: nb
+---
+Mexico by

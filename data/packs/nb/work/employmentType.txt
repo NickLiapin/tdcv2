@@ -1,0 +1,17 @@
+---
+description: Employment or contract type (Norwegian). Fast ansettelse — a permanent post — is the legal default in Norway and everything else is an exception the employer must justify; vikariat is standing in for a named absent employee, tilkallingsvakt is on-call, and lærling is a paid apprentice on a two-year contract at the end of a vocational programme.
+locale: nb
+---
+fast ansettelse
+midlertidig ansettelse
+heltid
+deltid
+vikariat
+engasjement
+tilkallingsvakt
+lærling
+praktikant
+konsulent
+frilanser
+sesongarbeid
+innleid

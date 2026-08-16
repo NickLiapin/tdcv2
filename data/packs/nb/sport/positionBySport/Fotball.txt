@@ -1,0 +1,11 @@
+---
+description: Posisjoner i fotball — playing positions in this sport
+locale: nb
+---
+keeper
+midtstopper
+back
+defensiv midtbane
+offensiv midtbane
+kantspiller
+spiss

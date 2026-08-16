@@ -1,0 +1,32 @@
+---
+description: Technical verb (Norwegian), infinitive without the å.
+locale: nb
+---
+sikkerhetskopiere
+omgå
+hacke
+overstyre
+komprimere
+kopiere
+navigere
+indeksere
+koble til
+generere
+kvantifisere
+beregne
+syntetisere
+overføre
+programmere
+starte på nytt
+tolke
+kryptere
+dekryptere
+rulle ut
+overvåke
+analysere
+optimalisere
+kompilere
+laste ned
+laste opp
+synkronisere
+konfigurere

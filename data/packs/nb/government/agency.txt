@@ -1,0 +1,34 @@
+---
+description: KIND of public body, in the Norwegian words for it — not the names of individual agencies. That boundary is deliberate and it is not the one en and pl draw: the Norway country pack already ships the named Norwegian agencies at norway.government.agency, verified entry by entry against the Enhetsregisteret, so naming them again here would be a second copy of a country pack's data inside a language pack, drifting apart at the first rename. Norwegian government is directorate-shaped, and these words are how it is described: a departement sets policy, a direktorat or etat does the work with its own budget and organisation number, a tilsyn inspects, and a statsforvalter represents the state in a county. Note two live renames — fylkesmann became statsforvalter in 2021, and the pair kommune / fylkeskommune are elected local government rather than state bodies.
+locale: nb
+---
+departement
+direktorat
+etat
+tilsyn
+ombud
+ombudsmann
+statsforvalter
+fylkesmann
+kommune
+fylkeskommune
+bydel
+statlig virksomhet
+forvaltningsorgan
+nemnd
+klagenemnd
+råd
+utvalg
+kommisjon
+register
+institutt
+kontor
+politidistrikt
+lensmannskontor
+helseforetak
+regionalt helseforetak
+statsforetak
+offentlig stiftelse
+ambassade
+konsulat
+sekretariat

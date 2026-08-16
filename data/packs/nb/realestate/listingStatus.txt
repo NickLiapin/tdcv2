@@ -1,0 +1,16 @@
+---
+description: Property listing status (Norwegian). Budrunde is not a translation of "bidding" but a named stage: Norwegian homes are sold by an open bidding round in which every bid is legally binding, bids are disclosed to all parties, and the whole thing is usually over within a day of the viewing. Prisantydning is an indicated price, not an asking price — the final price routinely lands above it.
+locale: nb
+---
+til salgs
+kommer for salg
+visning
+budrunde
+solgt
+solgt før visning
+til leie
+utleid
+midlertidig tatt av markedet
+prisantydning justert
+nybygg
+under oppføring

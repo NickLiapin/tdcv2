@@ -1,0 +1,9 @@
+---
+description: Posisjoner i innebandy — playing positions in this sport
+locale: nb
+---
+målvakt
+back
+senter
+ving
+forward

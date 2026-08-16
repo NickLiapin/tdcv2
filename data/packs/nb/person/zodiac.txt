@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Norwegian). Every name here is in the DEFINITE form, with the article suffixed to the noun — vær becomes væren, løve becomes løven, fisk becomes fiskene. That suffixed definite article is the single most visible thing about Norwegian noun morphology and the reason the noun lists in this pack ship the indefinite form instead: bok is the citation form, boka and boken are both correct definites of it, and a config that wants "the book" builds it from the noun, not from a second list.
+locale: nb
+---
+Væren
+Tyren
+Tvillingene
+Krepsen
+Løven
+Jomfruen
+Vekten
+Skorpionen
+Skytten
+Steinbukken
+Vannmannen
+Fiskene

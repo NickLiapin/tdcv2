@@ -1,0 +1,5 @@
+---
+description: Currency code of Tyskland
+locale: nb
+---
+EUR

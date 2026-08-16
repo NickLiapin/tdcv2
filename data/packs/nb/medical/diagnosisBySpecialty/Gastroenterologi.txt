@@ -1,0 +1,10 @@
+---
+description: Diagnoser som stilles i gastroenterologi — diagnoses seen in this specialty
+locale: nb
+---
+gastroøsofageal refluks
+Crohns sykdom
+ulcerøs kolitt
+magesår
+irritabel tarm
+levercirrhose

@@ -1,0 +1,17 @@
+---
+description: Truck cargo or trailer type (Norwegian). Tømmertransport is a category of its own in Norway, with its own vehicle rules and a road network classified by which timber rigs may use it.
+locale: nb
+---
+tørrlast
+kjølegods
+frysegods
+planbil
+tank
+dyretransport
+farlig gods
+container
+biltransport
+tømmer
+bulk
+kranbil
+avfall

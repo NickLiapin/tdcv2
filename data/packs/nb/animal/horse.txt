@@ -1,0 +1,20 @@
+---
+description: Horse breed (Norwegian). The first three are Norway's native breeds — fjordhest, dølahest and nordlandshest/lyngshest — and all three are on conservation programmes; the fjord horse is the one with the dun coat and the two-tone upright mane. Kaldblodstraver is a Norwegian-Swedish cold-blooded trotter raced only in the two countries.
+locale: nb
+---
+fjordhest
+dølahest
+nordlandshest
+norsk kaldblodstraver
+varmblods traver
+engelsk fullblod
+arabisk fullblod
+islandshest
+shetlandsponni
+welshponni
+new forest ponni
+connemara
+hannoveraner
+holsteiner
+frieser
+haflinger

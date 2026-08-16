@@ -1,0 +1,11 @@
+---
+description: Dishes of libanesisk cuisine, named as Norwegian names them
+locale: nb
+---
+hummus
+falafel
+shawarma
+tabbouleh
+kibbeh
+fattoush
+manakish

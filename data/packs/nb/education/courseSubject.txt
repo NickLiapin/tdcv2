@@ -1,0 +1,26 @@
+---
+description: School subject (Norwegian), as named on a Norwegian timetable. KRLE — kristendom, religion, livssyn og etikk — is one compulsory subject covering religion and secular ethics together, and has no equivalent elsewhere. Mat og helse (food and health) and kroppsøving (physical education) are likewise the official names.
+locale: nb
+---
+matematikk
+fysikk
+kjemi
+biologi
+naturfag
+informasjonsteknologi
+historie
+geografi
+samfunnsfag
+samfunnskunnskap
+norsk
+engelsk
+fremmedspråk
+KRLE
+kunst og håndverk
+musikk
+kroppsøving
+mat og helse
+samfunnsøkonomi
+psykologi
+filosofi
+statistikk

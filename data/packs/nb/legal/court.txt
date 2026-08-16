@@ -1,0 +1,19 @@
+---
+description: Court (Norwegian). This is NORWAY'S judiciary, named because the words mean these courts. It is a three-tier system — tingrett, lagmannsrett, Høyesterett — with two additions no other country has in the same shape: forliksrådet, a lay conciliation board that most civil claims must pass through first and that can give a binding judgment, and jordskifteretten, a court that redraws property boundaries and shared rights over land.
+locale: nb
+---
+Høyesterett
+Høyesteretts ankeutvalg
+lagmannsrett
+tingrett
+forliksråd
+jordskifterett
+Arbeidsretten
+Trygderetten
+Riksrett
+Utmarksdomstolen
+konfliktråd
+voldgiftsrett
+namsretten
+Finansklagenemnda
+Forbrukerklageutvalget

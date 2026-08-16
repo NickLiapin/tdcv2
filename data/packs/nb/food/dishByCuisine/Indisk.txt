@@ -1,0 +1,12 @@
+---
+description: Dishes of indisk cuisine, named as Norwegian names them
+locale: nb
+---
+butter chicken
+biryani
+tikka masala
+samosa
+dal makhani
+naan
+palak paneer
+rogan josh

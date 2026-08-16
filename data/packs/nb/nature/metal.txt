@@ -1,0 +1,27 @@
+---
+description: Metal (Norwegian).
+locale: nb
+---
+gull
+sølv
+platina
+kobber
+jern
+aluminium
+titan
+sink
+nikkel
+bly
+tinn
+bronse
+messing
+stål
+palladium
+kobolt
+krom
+wolfram
+magnesium
+molybden
+kvikksølv
+vanadium
+mangan

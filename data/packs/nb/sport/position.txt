@@ -1,0 +1,37 @@
+---
+description: Playing position across sports (Norwegian). The handball terms are the ones to notice — strekspiller (the pivot, who plays with his back to the goal on the six-metre line), bakspiller and kantspiller — because handball is a first-rank sport in Norway and these words are ordinary sports-page vocabulary.
+locale: nb
+---
+keeper
+målvakt
+midtstopper
+back
+høyreback
+venstreback
+midtbanespiller
+defensiv midtbane
+offensiv midtbane
+kantspiller
+høyreving
+venstreving
+spiss
+angriper
+strekspiller
+bakspiller
+playmaker
+senter
+libero
+opplegger
+midtblokker
+diagonalspiller
+halvback
+forward
+quarterback
+running back
+wide receiver
+linebacker
+cornerback
+kicker
+shooting guard
+small forward
+power forward

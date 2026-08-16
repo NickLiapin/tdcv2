@@ -1,0 +1,21 @@
+---
+description: Cuisine (Norwegian). The adjectives are capitalised here because they head a category, but in running Norwegian text they are lowercase — norsk mat, italiensk mat — unlike English. Note the spellings that separate Norwegian from its closest neighbour: Gresk where Danish writes Græsk, Meksikansk where Danish writes Mexicansk.
+locale: nb
+---
+Norsk
+Italiensk
+Japansk
+Meksikansk
+Kinesisk
+Indisk
+Fransk
+Thailandsk
+Gresk
+Spansk
+Amerikansk
+Koreansk
+Vietnamesisk
+Tyrkisk
+Libanesisk
+Peruansk
+Argentinsk

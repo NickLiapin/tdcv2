@@ -1,0 +1,16 @@
+---
+description: Month name (Norwegian). Lowercase — Norwegian does not capitalise month names, weekday names, language names or nationality adjectives, which is the opposite of German and of English.
+locale: nb
+---
+januar
+februar
+mars
+april
+mai
+juni
+juli
+august
+september
+oktober
+november
+desember

@@ -1,0 +1,37 @@
+---
+description: Vegetable (Norwegian). Kålrot — the swede — is the Norwegian root vegetable, mashed as kålrotstappe beside pinnekjøtt; kantarell and steinsopp are picked in the forest, and Norway has a state-run mushroom inspection service every autumn to check what people bring home.
+locale: nb
+---
+potet
+gulrot
+kålrot
+nepe
+rødbete
+løk
+purre
+hvitløk
+kål
+rødkål
+grønnkål
+blomkål
+brokkoli
+rosenkål
+salat
+agurk
+tomat
+paprika
+squash
+aubergine
+mais
+erter
+sukkererter
+bønner
+spinat
+sjampinjong
+kantarell
+steinsopp
+sellerirot
+stangselleri
+asparges
+reddik
+pastinakk

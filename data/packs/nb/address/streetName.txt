@@ -1,0 +1,172 @@
+---
+description: Complete Norwegian street names, of kinds found in nearly every municipality. These are WHOLE names, not stems to compose: Norwegian glues the thoroughfare word onto the name as one word (Storgata, Kirkeveien, Solbakken), so there is no separate suffix to append the way ulica or Street is appended in other locales — that is what address/streetSuffix.txt is for, and the two are alternatives, not a pair. Names honouring a person keep the genitive -s and a separate gate/vei (Karl Johans gate, Nansens vei). Street names specific to one city belong in a Norway country pack.
+locale: nb
+---
+Storgata
+Kirkegata
+Skolegata
+Jernbanegata
+Strandgata
+Torggata
+Nygata
+Havnegata
+Bakkegata
+Sjøgata
+Elvegata
+Møllergata
+Bakergata
+Smedgata
+Skomakergata
+Apotekergata
+Fiskergata
+Markedsgata
+Rådhusgata
+Slottsgata
+Festningsgata
+Borgergata
+Brogata
+Vollgata
+Parkgata
+Prinsens gate
+Kongens gate
+Dronningens gate
+Kronprinsens gate
+Karl Johans gate
+Haakon VIIs gate
+Olav Vs gate
+Harald Hårfagres gate
+Olav Kyrres gate
+Sverres gate
+Oscars gate
+Wergelands vei
+Bjørnsons gate
+Ibsens gate
+Holbergs gate
+Welhavens gate
+Kiellands gate
+Hamsuns vei
+Undsets vei
+Asbjørnsens gate
+Moes vei
+Vinjes gate
+Aasens vei
+Colletts gate
+Nansens vei
+Amundsens vei
+Munchs gate
+Griegs vei
+Bulls gate
+Sverdrups gate
+Michelsens gate
+Nordahl Bruns gate
+Christian Krohgs gate
+Parkveien
+Skogveien
+Fjellveien
+Sjøveien
+Elveveien
+Dalveien
+Åsveien
+Liveien
+Myrveien
+Engveien
+Hageveien
+Blomsterveien
+Solveien
+Solbakken
+Soltoppen
+Utsikten
+Panoramaveien
+Bjørkeveien
+Furuveien
+Granveien
+Lindeveien
+Rogneveien
+Eikeveien
+Hasselveien
+Seljeveien
+Ospeveien
+Lønneveien
+Almeveien
+Askeveien
+Heggeveien
+Vierveien
+Einerveien
+Lyngveien
+Kløverveien
+Fiolveien
+Roseveien
+Liljeveien
+Tulipanveien
+Blåklokkeveien
+Hvitveisveien
+Blåveisveien
+Løvetannveien
+Prestekrageveien
+Snøklokkeveien
+Blåbærstien
+Tyttebærveien
+Molteveien
+Bringebærveien
+Jordbærveien
+Nypeveien
+Bjørnstien
+Revefaret
+Elgstien
+Hareveien
+Ekornveien
+Måkeveien
+Ørneveien
+Falkeveien
+Svaneveien
+Traneveien
+Gaupeveien
+Ulveveien
+Kirkeveien
+Prestegårdsveien
+Kapellveien
+Klosterveien
+Sentrumsveien
+Byveien
+Bygdeveien
+Grendeveien
+Skoleveien
+Barnehageveien
+Sykehusveien
+Idrettsveien
+Stadionveien
+Industriveien
+Verkstedveien
+Fabrikkveien
+Havneveien
+Kaiveien
+Bryggeveien
+Sjøbodveien
+Fiskerveien
+Bondeveien
+Gårdsveien
+Seterveien
+Løkkeveien
+Jordeveien
+Skrenten
+Kroken
+Svingen
+Faret
+Holtet
+Gløttet
+Tråkket
+Stubben
+Smuget
+Terrassen
+Ringen
+Bakken
+Brinken
+Kollen
+Toppen
+Marka
+Enga
+Jordet
+Tunet
+Brygga
+Kaia
+Promenaden

@@ -1,0 +1,32 @@
+---
+description: Technical adjective (Norwegian).
+locale: nb
+---
+digital
+virtuell
+trådløs
+optisk
+nevral
+mobil
+redundant
+primær
+sekundær
+kryptert
+distribuert
+skybasert
+åpen kildekode
+plattformuavhengig
+sanntids
+høyhastighets
+haptisk
+flerkjernet
+tilkoblet
+autonom
+biometrisk
+syntetisk
+adaptiv
+modulær
+innebygd
+kvantebasert
+toveis
+asynkron

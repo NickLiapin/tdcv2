@@ -1,0 +1,17 @@
+---
+description: Social media content type (Norwegian).
+locale: nb
+---
+innlegg
+kommentar
+svar
+historie
+reel
+avstemning
+direktesending
+deling
+tråd
+omtale
+direktemelding
+videoklipp
+bilde

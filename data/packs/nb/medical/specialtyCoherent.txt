@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list. Capitalised because these are category labels; medical/specialty holds the same words in ordinary lowercase Norwegian.
+locale: nb
+---
+Kardiologi
+Nevrologi
+Onkologi
+Dermatologi
+Gastroenterologi
+Endokrinologi
+Lungemedisin
+Ortopedi
+Psykiatri
+Nyremedisin

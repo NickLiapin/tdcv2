@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Product names, kept as they are sold.
+locale: nb
+---
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+Nintendo Switch 2
+PC
+Steam Deck
+mobil
+nettleser
+PlayStation 4
+Xbox One
+Meta Quest

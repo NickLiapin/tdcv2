@@ -1,0 +1,14 @@
+---
+description: Fuel type (Norwegian). Elektrisitet is not an exotic option here: more than nine in ten new passenger cars registered in Norway are fully electric, so a generated Norwegian vehicle fleet weighted like a European one will be wrong.
+locale: nb
+---
+elektrisitet
+bensin
+diesel
+hybrid
+ladbar hybrid
+hydrogen
+biodiesel
+bioetanol
+naturgass
+biogass

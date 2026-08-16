@@ -1,0 +1,24 @@
+---
+description: Mobile operator in Norway. Telenor, Telia and Ice are the three that own network; everything after them rides on one of those three as a virtual operator, which is why the list is long for a country of five million.
+locale: nb
+---
+Telenor
+Telia
+Ice
+OneCall
+Talkmore
+Chilimobil
+MyCall
+Release
+Happybytes
+PlussMobil
+Saga Mobil
+Phonero
+Com4
+Fjordkraft Mobil
+Lycamobile
+Lebara
+NextGenTel
+Altibox
+GlobalConnect
+Telio

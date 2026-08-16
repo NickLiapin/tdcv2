@@ -1,0 +1,12 @@
+---
+description: Dishes of kinesisk cuisine, named as Norwegian names them
+locale: nb
+---
+kung pao-kylling
+stekt ris
+dumplings
+chow mein
+sursøt svinekjøtt
+mapo tofu
+pekingand
+wonton-suppe

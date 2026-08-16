@@ -1,0 +1,5 @@
+---
+description: Currency of Sverige, named in Norwegian
+locale: nb
+---
+svensk krone

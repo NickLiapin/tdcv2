@@ -1,0 +1,10 @@
+---
+description: Diagnoser som stilles i lungemedisin — diagnoses seen in this specialty
+locale: nb
+---
+astma
+kols
+lungebetennelse
+lungeemboli
+tuberkulose
+søvnapné

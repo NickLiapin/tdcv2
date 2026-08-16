@@ -1,0 +1,9 @@
+---
+description: Work shift (Norwegian). Norwegian offshore and process industry runs helkontinuerlig — round the clock, seven days — on rotating shifts, and the offshore rotation is counted in weeks on and weeks off rather than in days.
+locale: nb
+---
+dagskift
+kveldsskift
+nattskift
+rotasjon
+helkontinuerlig

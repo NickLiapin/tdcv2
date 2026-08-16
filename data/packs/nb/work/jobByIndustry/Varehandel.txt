@@ -1,0 +1,10 @@
+---
+description: Yrker innen varehandel — jobs in this industry
+locale: nb
+---
+butikkmedarbeider
+butikksjef
+innkjøper
+varepåfyller
+kundebehandler
+visualmerchandiser

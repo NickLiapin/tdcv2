@@ -1,0 +1,41 @@
+---
+description: Field of study (Norwegian). Petroleumsteknologi, marin teknikk and marinbiologi are on the list because they are large Norwegian degree programmes, not because they are large anywhere.
+locale: nb
+---
+informatikk
+datateknologi
+ingeniørfag
+bygg og anlegg
+maskin
+elektro
+marin teknikk
+petroleumsteknologi
+fornybar energi
+økonomi og administrasjon
+siviløkonomi
+rettsvitenskap
+medisin
+sykepleie
+odontologi
+farmasi
+psykologi
+pedagogikk
+lærerutdanning
+barnehagelærer
+sosialt arbeid
+statsvitenskap
+sosiologi
+historie
+nordisk språk og litteratur
+matematikk
+fysikk
+kjemi
+biologi
+geologi
+marinbiologi
+arkitektur
+industridesign
+journalistikk
+medievitenskap
+musikkvitenskap
+idrettsvitenskap

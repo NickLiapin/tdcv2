@@ -1,0 +1,5 @@
+---
+description: Capital of Kina, as Norwegian writes it
+locale: nb
+---
+Beijing

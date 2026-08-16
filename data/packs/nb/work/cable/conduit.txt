@@ -1,0 +1,11 @@
+---
+description: Conduit or installation method for a cable run (Norwegian).
+locale: nb
+---
+trekkerør
+PVC-rør
+PE-rør
+stålrør
+direkte i grøft
+kabelbru
+luftspenn

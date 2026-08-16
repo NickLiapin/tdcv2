@@ -1,0 +1,9 @@
+---
+description: Tilstander som er klart hyppigere hos personer med opphav i urfolk i amerika — conditions markedly more frequent in people of this ancestry. A prevalence signal, not an exclusive one.
+locale: nb
+---
+diabetes type 2
+gallesteinssykdom
+alkoholisk leversykdom
+revmatoid artritt
+laktoseintoleranse

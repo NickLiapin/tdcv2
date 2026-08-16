@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Norwegian). Kontantkort is prepaid; delt datapott is a shared data allowance across a household's SIMs, which is how most Norwegian family plans are sold; rullerende data carries unused gigabytes into the next month.
+locale: nb
+---
+kontantkort
+fastprisabonnement
+fri data
+familieabonnement
+bedriftsabonnement
+dataabonnement
+mobilt bredbånd
+ungdomsabonnement
+seniorabonnement
+delt datapott
+rullerende data
+utenlandspakke

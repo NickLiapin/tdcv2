@@ -1,0 +1,10 @@
+---
+description: Yrker innen helse og omsorg — jobs in this industry
+locale: nb
+---
+sykepleier
+lege
+helsefagarbeider
+vernepleier
+fysioterapeut
+bioingeniør

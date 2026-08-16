@@ -1,0 +1,19 @@
+---
+description: Payment method (Norwegian). Vipps is first because it is not one option among many: it is used by roughly four Norwegians in five, for shop checkouts, splitting a bill and paying a neighbour alike. BankAxept is the domestic debit scheme that sits on almost every Norwegian bank card. Faktura — being sent an invoice with 14 days to pay, no card at all — is a normal consumer checkout choice in Norway and has no US equivalent.
+locale: nb
+---
+Vipps
+BankAxept
+bankkort
+kredittkort
+Visa
+Mastercard
+Apple Pay
+Google Pay
+PayPal
+Klarna
+faktura
+delbetaling
+bankoverføring
+avtalegiro
+gavekort

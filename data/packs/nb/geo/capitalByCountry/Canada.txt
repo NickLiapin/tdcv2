@@ -1,0 +1,5 @@
+---
+description: Capital of Canada, as Norwegian writes it
+locale: nb
+---
+Ottawa

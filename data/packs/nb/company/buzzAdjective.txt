@@ -1,0 +1,46 @@
+---
+description: Business buzz adjective (Norwegian), for catch-phrases.
+locale: nb
+---
+skalerbar
+smidig
+sømløs
+robust
+integrert
+strømlinjeformet
+distribuert
+skybasert
+datadrevet
+kundeorientert
+ende-til-ende
+neste generasjons
+sanntids
+plattformuavhengig
+bedriftsklar
+modulær
+friksjonsfri
+nøkkelferdig
+fremtidsrettet
+helhetlig
+dynamisk
+proaktiv
+tilpasningsdyktig
+optimalisert
+sikker
+intelligent
+automatisert
+samlet
+samhandlende
+innovativ
+disruptiv
+slank
+skreddersydd
+sammensettbar
+motstandsdyktig
+elastisk
+utvidbar
+handlingsrettet
+verdiskapende
+bærekraftig
+digital
+grønn

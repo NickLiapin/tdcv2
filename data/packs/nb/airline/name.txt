@@ -1,0 +1,54 @@
+---
+description: Airline name. Brand names keep their real spelling. SAS, Norwegian, Widerøe and Norse Atlantic Airways are the carriers a Norwegian passenger actually meets; Widerøe flies the domestic short-runway network that reaches places no other airline serves.
+locale: nb
+---
+SAS
+Norwegian
+Widerøe
+Norse Atlantic Airways
+Finnair
+Icelandair
+Lufthansa
+KLM
+Air France
+British Airways
+Swiss
+Austrian Airlines
+Brussels Airlines
+Iberia
+TAP Air Portugal
+Aegean Airlines
+LOT Polish Airlines
+airBaltic
+Ryanair
+Wizz Air
+easyJet
+Vueling
+Eurowings
+Condor
+TUI fly
+Turkish Airlines
+Pegasus Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Cathay Pacific
+Thai Airways
+Vietnam Airlines
+Air India
+IndiGo
+ANA
+Japan Airlines
+Korean Air
+China Southern
+Qantas
+Air Canada
+United Airlines
+Delta Air Lines
+American Airlines
+LATAM
+Avianca
+Ethiopian Airlines
+Kenya Airways
+El Al

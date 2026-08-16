@@ -1,0 +1,11 @@
+---
+description: Dishes of amerikansk cuisine, named as Norwegian names them
+locale: nb
+---
+cheeseburger
+grillribbe
+mac and cheese
+buffalo wings
+clam chowder
+eplepai
+maisbrød

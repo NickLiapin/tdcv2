@@ -1,0 +1,9 @@
+---
+description: Posisjoner i ishockey — playing positions in this sport
+locale: nb
+---
+målvakt
+back
+senter
+høyreving
+venstreving

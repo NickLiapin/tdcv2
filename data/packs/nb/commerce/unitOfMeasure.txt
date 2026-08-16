@@ -1,0 +1,36 @@
+---
+description: Unit of measure for products (Norwegian). Read mil carefully: a Norwegian mil is TEN KILOMETRES, not 1.609 km, and it is the unit Norwegians actually use for road distance in speech ("det er tre mil dit"). A config that maps mil to mile is off by a factor of six.
+locale: nb
+---
+stk
+pakke
+eske
+kartong
+kasse
+sekk
+pose
+rull
+bunt
+sett
+par
+dusin
+brett
+boks
+flaske
+glass
+tube
+kilo
+hektogram
+gram
+tonn
+liter
+desiliter
+centiliter
+milliliter
+meter
+centimeter
+millimeter
+kvadratmeter
+kubikkmeter
+mil
+favn

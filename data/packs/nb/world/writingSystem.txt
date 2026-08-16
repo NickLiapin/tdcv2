@@ -1,0 +1,24 @@
+---
+description: Writing system (Norwegian). Read this description before assuming anything else in the pack. Norwegian is one language with TWO official written standards, bokmål and nynorsk, both used by the state and both taught in school; this pack is BOKMÅL, which is what the code nb means, and it descends from the written Danish used in Norway until the 19th century. Nynorsk is the nn pack — a separate pack, not a spelling variant to fold in here, because it is a different written norm with its own forms (ikkje for ikke, eg for jeg, kjem for kommer) and around one Norwegian in eight uses it. There is no spoken standard for either: Norwegians speak dialect and write one of the two norms. The Norwegian alphabet is the 26 Latin letters plus æ, ø and å, in that order, sorted AFTER z — see location/country.txt for what that does to a sorted list. Runer is the futhark, the script Norway wrote in before Latin.
+locale: nb
+---
+latinsk alfabet
+det norske alfabetet
+kyrillisk
+gresk
+arabisk
+hebraisk
+armensk
+georgisk
+kinesiske tegn
+hiragana
+katakana
+hangul
+devanagari
+thai
+tamil
+bengalsk
+ge’ez
+tifinagh
+runer
+punktskrift

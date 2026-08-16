@@ -1,0 +1,50 @@
+---
+description: Dish (Norwegian). Most of these are Norwegian and several are seasonal rather than everyday: pinnekjøtt and ribbe are eaten on Christmas Eve and almost never otherwise, fårikål has an official national day in September, and lutefisk, smalahove and rakfisk are preserved foods that a fair share of Norwegians will not eat. Fredagstaco is not a joke entry — taco on Friday is the single most eaten Norwegian dinner of the week.
+locale: nb
+---
+fårikål
+kjøttkaker i brun saus
+lapskaus
+betasuppe
+ertesuppe
+raspeballer
+sodd
+pinnekjøtt
+ribbe
+medisterkaker
+svinestek
+elggryte
+reinsdyrstek
+ovnsbakt laks
+gravlaks
+røykelaks
+fiskeboller i hvit saus
+fiskekaker
+fiskesuppe
+plukkfisk
+bacalao
+lutefisk
+torsk med eggesmør
+sursild
+spekemat
+rakfisk
+smalahove
+brødskive med brunost
+vafler
+lefse
+pølse med lompe
+svele
+riskrem
+multekrem
+tilslørte bondepiker
+kransekake
+bløtkake
+skolebrød
+skillingsbolle
+fyrstekake
+krumkake
+rømmegrøt
+risgrøt
+blåbærsuppe
+fredagstaco
+frossenpizza

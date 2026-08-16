@@ -1,0 +1,9 @@
+---
+description: Diagnoser som stilles i nyremedisin — diagnoses seen in this specialty
+locale: nb
+---
+kronisk nyresykdom
+nyrestein
+glomerulonefritt
+akutt nyreskade
+polycystisk nyresykdom

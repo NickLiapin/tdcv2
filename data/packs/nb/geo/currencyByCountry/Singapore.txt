@@ -1,0 +1,5 @@
+---
+description: Currency of Singapore, named in Norwegian
+locale: nb
+---
+singaporsk dollar

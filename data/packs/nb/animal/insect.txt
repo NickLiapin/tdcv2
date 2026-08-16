@@ -1,0 +1,29 @@
+---
+description: Insect (Norwegian). Knott and klegg are separate biting flies that English lumps under midge and horsefly, and both are summer facts of Norwegian life. Granbarkbille is the spruce bark beetle, the pest the Norwegian forestry service watches most closely.
+locale: nb
+---
+maur
+skogsmaur
+honningbie
+humle
+veps
+geithams
+sommerfugl
+admiral
+neslesommerfugl
+kålsommerfugl
+marihøne
+gullbasse
+granbarkbille
+øyenstikker
+gresshoppe
+siriss
+mygg
+knott
+klegg
+husflue
+blomsterflue
+nattsvermer
+skogflått
+døgnflue
+vårflue

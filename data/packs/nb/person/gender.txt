@@ -1,0 +1,8 @@
+---
+description: Gender label (Norwegian). The Folkeregister knows only mann and kvinne; the other two are what a form offers.
+locale: nb
+---
+mann
+kvinne
+ikke-binær
+ikke oppgitt

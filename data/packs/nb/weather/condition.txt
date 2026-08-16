@@ -1,0 +1,29 @@
+---
+description: Weather condition (Norwegian). Two things a config cannot infer. Yr is drizzle, and it is also the name of the national weather service — met.no and NRK's forecast is called Yr and is the most used website in Norway. Wind is not described by speed but by the Norwegian scale of named strengths, which is what a forecast says: bris, then kuling, then storm, then orkan, each with a weaker and stronger grade.
+locale: nb
+---
+sol
+klarvær
+delvis skyet
+skyet
+overskyet
+regn
+yr
+regnbyger
+tordenvær
+snø
+snøbyger
+sludd
+tåke
+dis
+lett bris
+frisk bris
+liten kuling
+stiv kuling
+sterk kuling
+liten storm
+full storm
+orkan
+frost
+rim
+glatt føre

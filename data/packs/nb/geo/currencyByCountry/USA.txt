@@ -1,0 +1,5 @@
+---
+description: Currency of USA, named in Norwegian
+locale: nb
+---
+amerikansk dollar

@@ -1,0 +1,15 @@
+---
+description: Hiring or interview stage (Norwegian).
+locale: nb
+---
+søknad mottatt
+søknadsgjennomgang
+telefonintervju
+førstegangsintervju
+andregangsintervju
+caseoppgave
+evnetest
+referansesjekk
+tilbud
+avslag
+ansatt

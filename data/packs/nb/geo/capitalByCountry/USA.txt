@@ -1,0 +1,5 @@
+---
+description: Capital of USA, as Norwegian writes it
+locale: nb
+---
+Washington D.C.

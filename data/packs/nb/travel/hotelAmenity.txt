@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Norwegian). Three are Norwegian expectations rather than luxuries: badstue, a sauna, which a Norwegian hotel is expected to have; tørkerom, a heated drying room for wet outdoor clothes; and skibod, lockable ski storage. Ladepunkt for elbil is on the list for the same reason it is on realestate/amenity.
+locale: nb
+---
+gratis wi-fi
+frokost inkludert
+badstue
+boblebad
+svømmebasseng
+treningsrom
+spa
+restaurant
+bar
+romservice
+flyplasstransport
+parkering
+ladepunkt for elbil
+kjæledyr tillatt
+konferanserom
+resepsjon døgnet rundt
+bagasjeoppbevaring
+vaskeritjeneste
+minibar
+kaffetrakter på rommet
+balkong
+sjøutsikt
+fjellutsikt
+peis
+skibod
+tørkerom
+sykkelutleie
+barnepass
+heis
+rullestolvennlig

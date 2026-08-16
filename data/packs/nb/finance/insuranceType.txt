@@ -1,0 +1,19 @@
+---
+description: Insurance type (Norwegian). Innboforsikring (contents) and hytteforsikring (a second home) are separate standard products in Norway, and yrkesskadeforsikring — occupational injury cover — is compulsory for every employer by law.
+locale: nb
+---
+innboforsikring
+husforsikring
+hytteforsikring
+bilforsikring
+ansvarsforsikring
+kaskoforsikring
+reiseforsikring
+helseforsikring
+livsforsikring
+uføreforsikring
+barneforsikring
+dyreforsikring
+båtforsikring
+yrkesskadeforsikring
+ulykkesforsikring

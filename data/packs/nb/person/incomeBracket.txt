@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Norwegian. Amounts are in NOK (kroner), the currency of Norway, which is the only country where Norwegian is an official language. The digits are also where Bokmål parts company with Danish out loud: a Norwegian reads 500 000 as "fem hundre tusen" and 50 as "femti", while Danish counts the tens above forty in twenties — halvtreds (50) is "half the third score", tres (60) "three score", halvfjerds (70), firs (80), halvfems (90). Same digits, different words, so a spelled-out amount cannot be shared between the two locales even though the written languages are otherwise close.
+locale: nb
+---
+Under 300 000 kr
+300 000–450 000 kr
+450 000–600 000 kr
+600 000–800 000 kr
+800 000–1 000 000 kr
+1 000 000–1 500 000 kr
+1 500 000–2 000 000 kr
+Over 2 000 000 kr

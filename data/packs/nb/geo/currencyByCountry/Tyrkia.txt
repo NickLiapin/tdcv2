@@ -1,0 +1,5 @@
+---
+description: Currency of Tyrkia, named in Norwegian
+locale: nb
+---
+tyrkisk lira

@@ -1,0 +1,5 @@
+---
+description: Currency of Sveits, named in Norwegian
+locale: nb
+---
+sveitsisk franc

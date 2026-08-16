@@ -1,0 +1,10 @@
+---
+description: Yrker innen bygg og anlegg — jobs in this industry
+locale: nb
+---
+elektriker
+rørlegger
+tømrer
+murer
+anleggsmaskinfører
+byggeleder

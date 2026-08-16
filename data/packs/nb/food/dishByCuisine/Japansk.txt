@@ -1,0 +1,12 @@
+---
+description: Dishes of japansk cuisine, named as Norwegian names them
+locale: nb
+---
+sushi
+ramen
+tempura
+udon
+teriyakikylling
+misosuppe
+katsucurry
+onigiri

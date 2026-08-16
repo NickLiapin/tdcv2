@@ -1,0 +1,8 @@
+---
+description: Season (Norwegian). Four, but the north of the country has two more that matter more than these: mørketid, the weeks the sun never rises, and midnattssol, the weeks it never sets — both are in weather/phenomenon.
+locale: nb
+---
+vår
+sommer
+høst
+vinter

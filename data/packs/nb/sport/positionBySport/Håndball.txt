@@ -1,0 +1,10 @@
+---
+description: Posisjoner i håndball — playing positions in this sport
+locale: nb
+---
+målvakt
+strekspiller
+bakspiller
+kantspiller
+playmaker
+forsvarsspiller

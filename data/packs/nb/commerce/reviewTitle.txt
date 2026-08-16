@@ -1,0 +1,30 @@
+---
+description: Product review headline (Norwegian), written the way a review headline actually reads.
+locale: nb
+---
+Veldig fornøyd!
+Anbefales på det sterkeste
+Ikke verdt pengene
+Over all forventning
+Helt greit
+Kjøper igjen
+Skuffet
+Utmerket kvalitet
+Gikk i stykker altfor fort
+Perfekt til prisen
+Bedre enn ventet
+Kan ikke anbefales
+Elsker den!
+Litt dyr
+Akkurat som beskrevet
+Rask levering
+Solid og stabil
+Fungerer som den skal
+Litt skuffende
+Verdt hver krone
+Nydelig design
+Enkel å bruke
+Passet ikke
+God kvalitet til prisen
+Ville ikke kjøpt igjen
+Topp!

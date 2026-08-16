@@ -1,0 +1,14 @@
+---
+description: Personal pronoun set (Norwegian, subject/object). Bokmål has han/ham for a man and hun/henne for a woman; the object form ham is increasingly written han in ordinary Bokmål and both are correct. Hen is the gender-neutral third person, borrowed from Swedish and entered into Bokmålsordboka in 2022 — Norwegian had no such pronoun before that and still has no settled object form, which is why hen/hen is listed. De/dem is plural only and is NOT used as a singular they.
+locale: nb
+---
+han/ham
+han/han
+hun/henne
+hen/hen
+de/dem
+han/hen
+hun/hen
+den/den
+det/det
+vedkommende

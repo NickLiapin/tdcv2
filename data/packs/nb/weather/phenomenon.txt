@@ -1,0 +1,23 @@
+---
+description: Weather and natural phenomenon (Norwegian). The first four are latitude, not weather: nordlys is the aurora, midnattssol the weeks north of the Arctic Circle when the sun never sets, and mørketid the weeks when it never rises — mørketid is a fact of ordinary life in Tromsø, not an event. Snøskred (avalanche) kills more people in Norway most years than any other natural hazard, and isgang is the spring break-up of river ice.
+locale: nb
+---
+nordlys
+midnattssol
+mørketid
+polarnatt
+snøskred
+jordskred
+flom
+isgang
+springflo
+snøfokk
+snøstorm
+storm
+orkan
+hetebølge
+kuldebølge
+tørke
+hagl
+lyn
+tåkebanke

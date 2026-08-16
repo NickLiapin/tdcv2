@@ -1,0 +1,17 @@
+---
+description: Shoe size on the European scale (Paris point), which is what is printed on a shoebox in Norway. Not a US or UK number, and not the Japanese foot length in centimetres — a Norwegian reads 42 and means this scale.
+locale: nb
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47

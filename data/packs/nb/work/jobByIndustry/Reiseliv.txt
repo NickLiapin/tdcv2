@@ -1,0 +1,10 @@
+---
+description: Yrker innen reiseliv — jobs in this industry
+locale: nb
+---
+kokk
+servitør
+resepsjonist
+hotellsjef
+guide
+bartender

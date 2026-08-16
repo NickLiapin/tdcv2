@@ -1,0 +1,12 @@
+---
+description: Dishes of italiensk cuisine, named as Norwegian names them
+locale: nb
+---
+margheritapizza
+spaghetti carbonara
+lasagne
+risotto
+ossobuco
+tiramisu
+gnocchi
+minestrone

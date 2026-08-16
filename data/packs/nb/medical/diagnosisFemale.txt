@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis that requires female anatomy — it cannot occur in a male patient. Draw from this only for female rows; general conditions are in medical/diagnosis.
+locale: nb
+---
+endometriose
+polycystisk ovariesyndrom
+myomer i livmoren
+ovarialcyste
+eggstokkreft
+livmorhalskreft
+celleforandringer i livmorhalsen
+cervicitt
+endometritt
+livmorkreft
+bekkeninfeksjon
+bakteriell vaginose
+soppinfeksjon i skjeden
+kraftige menstruasjonsblødninger
+menstruasjonssmerter
+uteblitt menstruasjon
+svangerskapsforgiftning
+svangerskapsdiabetes
+alvorlig svangerskapskvalme
+svangerskap utenfor livmoren
+blødning etter fødsel
+brystbetennelse
+fibroadenom i bryst
+overgangsplager
+premenstruell dysforisk lidelse
+livmorframfall

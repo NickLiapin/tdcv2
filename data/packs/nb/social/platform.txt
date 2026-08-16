@@ -1,0 +1,21 @@
+---
+description: Social media platform. Brand names, kept as they are. Jodel is here because it is genuinely large in Norway among students and barely exists in most other markets.
+locale: nb
+---
+Facebook
+Instagram
+TikTok
+Snapchat
+X
+LinkedIn
+YouTube
+Reddit
+Pinterest
+Discord
+Twitch
+WhatsApp
+Messenger
+Telegram
+Signal
+Threads
+Jodel

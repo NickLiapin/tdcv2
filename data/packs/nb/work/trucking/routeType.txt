@@ -1,0 +1,12 @@
+---
+description: Trucking route type (Norwegian). Fjelloverganger is a route type here and nowhere else: the mountain passes between east and west close in winter, run in convoy behind a plough when they are marginal, and a haulier plans around them.
+locale: nb
+---
+langtransport
+internasjonal transport
+distribusjon
+lokalkjøring
+fjelloverganger
+nattkjøring
+faste ruter
+siste mil

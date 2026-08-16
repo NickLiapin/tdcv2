@@ -1,0 +1,20 @@
+---
+description: Venue type (Norwegian). Samfunnshus and grendehus — the village hall and the smaller hamlet hall — are where most events outside the cities actually happen, and a låve (a barn) is a normal wedding venue in rural Norway rather than a rustic novelty.
+locale: nb
+---
+hotell
+konferansesenter
+festsal
+kulturhus
+samfunnshus
+grendehus
+idrettshall
+stadion
+teater
+kino
+aula
+gymsal
+restaurant
+møterom
+låve
+takterrasse

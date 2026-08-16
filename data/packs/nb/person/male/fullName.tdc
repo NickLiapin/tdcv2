@@ -1,0 +1,10 @@
+---
+description: Norwegian full male name — one given name and one surname (Lars Haugen). Norwegian carries a single surname, and the surname does not change for the bearer's gender.
+generator: tdc
+locale: nb
+---
+<sequence name="p">
+  <gen name="f" type="template" value="nb.person.male.firstName"/>
+  <gen name="l" type="template" value="nb.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

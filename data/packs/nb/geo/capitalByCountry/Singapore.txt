@@ -1,0 +1,5 @@
+---
+description: Capital of Singapore, as Norwegian writes it
+locale: nb
+---
+Singapore

@@ -1,0 +1,9 @@
+---
+description: Credit risk band (Norwegian). Norway has NO consumer credit score of the FICO kind, and this list does not pretend otherwise: the credit bureaus return a score on a 0-100 scale that lenders bucket into risk classes, and the single fact that decides most applications is binary — whether the person has a betalingsanmerkning, a registered payment default. The bands below are those risk classes, not a translated FICO range.
+locale: nb
+---
+svært lav risiko
+lav risiko
+middels risiko
+høy risiko
+svært høy risiko

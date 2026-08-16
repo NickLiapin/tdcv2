@@ -1,0 +1,38 @@
+---
+description: Honorific or title placed before a Norwegian name, in the abbreviated form actually written. Read this list knowing that Norway hardly uses it: the polite second person De died out in ordinary speech in the 1970s, du is used to strangers, ministers and the king alike, and a Norwegian is addressed by first name in almost every setting a Briton would use Mr or Dr. These forms survive on envelopes, in court, in church and on academic mastheads.
+locale: nb
+---
+hr.
+fru
+frøken
+dr.
+dr.med.
+dr.philos.
+prof.
+professor
+førsteamanuensis
+siv.ing.
+ing.
+cand.jur.
+cand.med.
+adv.
+advokat
+dommer
+lagdommer
+pastor
+sokneprest
+prost
+biskop
+rektor
+ordfører
+statsminister
+statsråd
+fylkesmann
+direktør
+daglig leder
+kaptein
+løytnant
+oberst
+general
+kommandør
+sersjant

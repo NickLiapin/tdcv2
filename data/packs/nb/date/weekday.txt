@@ -1,0 +1,11 @@
+---
+description: Weekday name (Norwegian), Monday first as the Norwegian week begins. Lowercase, as Norwegian writes them.
+locale: nb
+---
+mandag
+tirsdag
+onsdag
+torsdag
+fredag
+lørdag
+søndag

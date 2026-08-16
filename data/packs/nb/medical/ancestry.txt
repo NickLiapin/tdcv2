@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: nb
+---
+Afrika sør for Sahara
+Nord-Afrika
+Middelhavsområdet
+Midtøsten
+Nord-Europa
+Øst-Europa
+Askenasiske jøder
+Sør-Asia
+Øst-Asia
+Sørøst-Asia
+Urfolk i Amerika
+Stillehavsøyene

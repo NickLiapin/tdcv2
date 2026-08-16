@@ -1,0 +1,11 @@
+---
+description: Dishes of koreansk cuisine, named as Norwegian names them
+locale: nb
+---
+bibimbap
+bulgogi
+kimchigryte
+japchae
+tteokbokki
+koreansk friturekylling
+galbi

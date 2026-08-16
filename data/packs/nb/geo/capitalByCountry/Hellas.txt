@@ -1,0 +1,5 @@
+---
+description: Capital of Hellas, as Norwegian writes it
+locale: nb
+---
+Athen

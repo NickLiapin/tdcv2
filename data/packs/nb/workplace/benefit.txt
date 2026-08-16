@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Norwegian). Feriepenger is not a benefit an employer chooses: Norwegian law replaces paid holiday with a statutory holiday payment of at least 10.2 per cent of the previous year's salary, paid out in June, and it is on every payslip. Innskuddspensjon is the occupational pension every employer must provide (OTP). Fri telefon and firmabil are taxable benefits with their own fixed valuations in the tax rules.
+locale: nb
+---
+feriepenger
+innskuddspensjon
+behandlingsforsikring
+helseforsikring
+tannforsikring
+livsforsikring
+fri telefon
+firmabil
+hjemmekontor
+fleksitid
+aksjeprogram
+bonusordning
+treningsstøtte
+bedriftsidrettslag
+kantine
+etterutdanning
+personalrabatt
+barnehageplass

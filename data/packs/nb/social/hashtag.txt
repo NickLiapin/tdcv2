@@ -1,0 +1,34 @@
+---
+description: Hashtag word (Norwegian; prefix with # in a template). Several of these are untranslatable and are exactly why the list is not the English one respelled: utepils is the first beer drunk outdoors when spring arrives and is a national event; hyttekos is the specific contentment of being at a cabin; fredagstaco is Friday, matpakke is the packed lunch of open sandwiches every Norwegian child carries; allemannsretten is the right to roam; russetid is the month-long leaving celebration in red overalls before the exams.
+locale: nb
+---
+norge
+oslo
+bergen
+trondheim
+tromsø
+lofoten
+nordlys
+midnattssol
+friluftsliv
+fjelltur
+påskefjellet
+hyttekos
+hyttetur
+utepils
+fredagstaco
+kosekveld
+matpakke
+brunost
+kanelbolle
+strikkedilla
+ski
+langrenn
+dugnad
+allemannsretten
+russetid
+syttendemai
+sommerferie
+vinterferie
+bålkos
+godtur

@@ -1,0 +1,31 @@
+---
+description: Property feature (Norwegian). Badstue — a sauna — is an ordinary amenity in Norway, not a luxury; varmekabler, electric underfloor heating, is near-universal in bathrooms; ladepunkt for elbil belongs on the list because Norway has the highest share of electric cars in the world and a charging point is a normal thing to advertise. Sportsbod is a storage room for skis and bicycles that Norwegian flats are built with.
+locale: nb
+---
+balkong
+terrasse
+hage
+garasje
+carport
+parkeringsplass
+heis
+peis
+vedovn
+badstue
+boblebad
+kjeller
+loft
+bod
+sportsbod
+oppvaskmaskin
+vaskemaskin
+felles vaskerom
+varmekabler
+vannbåren varme
+solcellepanel
+ladepunkt for elbil
+utsikt
+sjøutsikt
+lekeplass
+dyr tillatt
+møblert

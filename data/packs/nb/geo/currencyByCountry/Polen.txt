@@ -1,0 +1,5 @@
+---
+description: Currency of Polen, named in Norwegian
+locale: nb
+---
+polsk zloty

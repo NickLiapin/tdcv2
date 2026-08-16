@@ -1,0 +1,28 @@
+---
+description: RPG character class (Norwegian). Berserk, skald and runemester are Old Norse words that came into fantasy gaming from Norse sources and are read in Norwegian as the originals rather than as loans.
+locale: nb
+---
+kriger
+magiker
+trollmann
+tyv
+snikmorder
+paladin
+jeger
+bueskytter
+prest
+helbreder
+druide
+munk
+barbar
+nekromantiker
+bard
+ridder
+skjoldbærer
+alkymist
+ingeniør
+sjaman
+berserk
+skald
+runemester
+beistetemmer

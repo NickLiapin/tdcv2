@@ -1,0 +1,5 @@
+---
+description: Currency of Thailand, named in Norwegian
+locale: nb
+---
+thailandsk baht

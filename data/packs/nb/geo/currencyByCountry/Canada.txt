@@ -1,0 +1,5 @@
+---
+description: Currency of Canada, named in Norwegian
+locale: nb
+---
+kanadisk dollar

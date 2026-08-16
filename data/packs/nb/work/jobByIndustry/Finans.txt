@@ -1,0 +1,10 @@
+---
+description: Yrker innen finans — jobs in this industry
+locale: nb
+---
+finansanalytiker
+regnskapsfører
+revisor
+controller
+bankrådgiver
+forsikringsrådgiver

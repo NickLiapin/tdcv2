@@ -1,0 +1,10 @@
+---
+description: Posisjoner i bandy — playing positions in this sport
+locale: nb
+---
+målvakt
+back
+halvback
+midtbanespiller
+ving
+senter

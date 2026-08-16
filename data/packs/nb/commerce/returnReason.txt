@@ -1,0 +1,19 @@
+---
+description: Reason an order was returned (Norwegian). Angrerett is a named statutory right in Norway — 14 days to withdraw from a distance purchase for no reason at all — so it is a return reason in its own right rather than a shop policy.
+locale: nb
+---
+kom skadet fram
+feil vare sendt
+varen stemmer ikke med beskrivelsen
+feil størrelse
+passet ikke
+ombestemte meg
+fant bedre pris et annet sted
+defekt ved mottak
+deler mangler
+forsinket levering
+trenger den ikke lenger
+bestilte ved en feil
+dårligere kvalitet enn ventet
+angrerett benyttet
+fikk dobbelt opp

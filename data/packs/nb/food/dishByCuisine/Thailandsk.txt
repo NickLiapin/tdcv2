@@ -1,0 +1,11 @@
+---
+description: Dishes of thailandsk cuisine, named as Norwegian names them
+locale: nb
+---
+pad thai
+grønn karri
+tom yum
+massaman-karri
+papayasalat
+mango med klebrig ris
+satay

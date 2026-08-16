@@ -1,0 +1,10 @@
+---
+description: Diagnoser som stilles i nevrologi — diagnoses seen in this specialty
+locale: nb
+---
+migrene
+epilepsi
+Parkinsons sykdom
+multippel sklerose
+hjerneinfarkt
+perifer nevropati

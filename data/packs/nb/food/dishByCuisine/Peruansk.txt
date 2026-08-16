@@ -1,0 +1,10 @@
+---
+description: Dishes of peruansk cuisine, named as Norwegian names them
+locale: nb
+---
+ceviche
+lomo saltado
+ají de gallina
+causa
+anticuchos
+papa a la huancaína

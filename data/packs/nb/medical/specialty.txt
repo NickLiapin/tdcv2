@@ -1,0 +1,40 @@
+---
+description: Medical specialty (Norwegian). Several are plain Norwegian rather than Latin: øyesykdommer for ophthalmology, øre-nese-hals for otolaryngology, nyremedisin for nephrology, lungemedisin for pulmonology. Samfunnsmedisin — public health medicine — is a full clinical specialty in Norway.
+locale: nb
+---
+kardiologi
+dermatologi
+endokrinologi
+gastroenterologi
+nevrologi
+onkologi
+øyesykdommer
+ortopedi
+pediatri
+psykiatri
+lungemedisin
+radiologi
+revmatologi
+urologi
+nyremedisin
+blodsykdommer
+immunologi
+anestesiologi
+akuttmedisin
+allmennmedisin
+indremedisin
+fødselshjelp og kvinnesykdommer
+øre-nese-hals
+patologi
+plastikkirurgi
+generell kirurgi
+karkirurgi
+infeksjonsmedisin
+geriatri
+nyfødtmedisin
+fysikalsk medisin og rehabilitering
+arbeidsmedisin
+samfunnsmedisin
+klinisk farmakologi
+nukleærmedisin
+medisinsk genetikk
