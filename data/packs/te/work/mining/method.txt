@@ -1,0 +1,12 @@
+---
+description: Mining method (Telugu). Both Singareni longwall workings and open-cast quarrying are in use in Telangana, which is why the list carries both.
+locale: te
+---
+ఓపెన్ కాస్ట్
+భూగర్భ గనుల తవ్వకం
+లాంగ్‌వాల్
+బోర్డ్ అండ్ పిల్లర్
+క్వారీయింగ్
+డ్రిల్ అండ్ బ్లాస్ట్
+ప్లేసర్ మైనింగ్
+డ్రెడ్జింగ్

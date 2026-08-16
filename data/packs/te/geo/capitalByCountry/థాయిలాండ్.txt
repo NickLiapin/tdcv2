@@ -1,0 +1,5 @@
+---
+description: Capital of థాయిలాండ్, in Telugu.
+locale: te
+---
+బ్యాంకాక్

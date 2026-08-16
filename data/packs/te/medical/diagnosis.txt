@@ -1,0 +1,85 @@
+---
+description: Medical diagnosis that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale / diagnosisFemale. The ordering reflects the actual disease burden of Andhra Pradesh and Telangana rather than a European one: type 2 diabetes and hypertension lead by a wide margin, anaemia is near-universal in some groups, and tuberculosis, dengue, chikungunya, typhoid and snakebite are ordinary hospital diagnoses here rather than travel-medicine curiosities. ఫ్లోరోసిస్ is included because it is a genuine, geographically concentrated public-health problem in Nalgonda and parts of Prakasam and Anantapur, where the groundwater carries high fluoride and it disables people; a European diagnosis list has no reason to contain it and a Telugu one that omits it is wrong.
+locale: te
+---
+టైప్ 2 మధుమేహం
+టైప్ 1 మధుమేహం
+అధిక రక్తపోటు
+రక్తహీనత
+థైరాయిడ్ లోపం
+ఊబకాయం
+అధిక కొలెస్ట్రాల్
+విటమిన్ డి లోపం
+విటమిన్ బి12 లోపం
+కరోనరీ ధమని వ్యాధి
+గుండెపోటు
+గుండె వైఫల్యం
+పక్షవాతం
+కర్ణిక కంపనం
+రుమాటిక్ గుండె వ్యాధి
+వెరికోస్ వెయిన్స్
+ఉబ్బసం
+దీర్ఘకాలిక అడ్డంకి ఊపిరితిత్తుల వ్యాధి
+క్షయ
+న్యుమోనియా
+బ్రాంకైటిస్
+సైనసైటిస్
+టాన్సిలైటిస్
+అలర్జిక్ రినైటిస్
+డెంగ్యూ
+చికున్‌గున్యా
+మలేరియా
+టైఫాయిడ్
+కామెర్లు
+హెపటైటిస్ ఎ
+హెపటైటిస్ బి
+లెప్టోస్పైరోసిస్
+గ్యాస్ట్రైటిస్
+పెప్టిక్ అల్సర్
+ఆమ్ల రిఫ్లక్స్
+ప్రకోప ప్రేగు సిండ్రోమ్
+పైల్స్
+ఫిషర్
+అపెండిసైటిస్
+పిత్తాశయ రాళ్లు
+కొవ్వు కాలేయం
+కాలేయ సిర్రోసిస్
+దీర్ఘకాలిక మూత్రపిండ వ్యాధి
+మూత్రపిండాల్లో రాళ్లు
+మూత్రనాళ ఇన్ఫెక్షన్
+ఆర్థరైటిస్
+రుమటాయిడ్ ఆర్థరైటిస్
+గౌట్
+ఎముక క్షీణత
+నడుము నొప్పి
+డిస్క్ జారడం
+మెడ నొప్పి
+ఎముక విరుగుడు
+మైగ్రేన్
+మూర్ఛ
+పార్కిన్సన్ వ్యాధి
+అల్జీమర్స్ వ్యాధి
+నిద్రలేమి
+కుంగుబాటు
+ఆందోళన రుగ్మత
+ఒత్తిడి రుగ్మత
+మద్యం వ్యసనం
+పొగాకు వ్యసనం
+తామర
+సొరియాసిస్
+బొల్లి
+ఫంగల్ ఇన్ఫెక్షన్
+మొటిమలు
+కంటిశుక్లం
+గ్లకోమా
+వక్రదృష్టి
+చెవి ఇన్ఫెక్షన్
+దంత క్షయం
+చిగుళ్ల వ్యాధి
+నోటి క్యాన్సర్
+ఫ్లోరోసిస్
+పాముకాటు
+కుక్కకాటు
+పురుగుమందుల విషప్రయోగం
+వడదెబ్బ
+పోషకాహార లోపం

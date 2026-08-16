@@ -1,0 +1,15 @@
+---
+description: Booking status (Telugu). వెయిటింగ్ లిస్ట్ and ఆర్.ఏ.సి. are Indian railway reservation states — RAC means a confirmed seat but a shared berth — and they are what a Telugu traveller's ticket actually says.
+locale: te
+---
+ధ్రువీకరించబడింది
+వెయిటింగ్ లిస్ట్
+ఆర్.ఏ.సి.
+తాత్కాలిక బుకింగ్
+చెల్లింపు పెండింగ్
+చెక్ ఇన్ అయ్యింది
+చెక్ అవుట్ అయ్యింది
+రద్దు చేయబడింది
+రీఫండ్ ప్రాసెస్‌లో ఉంది
+నో షో
+గడువు ముగిసింది

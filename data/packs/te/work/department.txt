@@ -1,0 +1,26 @@
+---
+description: Company department or function (Telugu). Note that the human-resources department is written మానవ వనరుల విభాగం here — the category directory in this pack is called workplace, not hr, because the two-letter code hr is also the language code for Croatian and the resolver would read it as a locale.
+locale: te
+---
+పరిపాలన
+మానవ వనరుల విభాగం
+ఆర్థిక విభాగం
+లెక్కల విభాగం
+అమ్మకాల విభాగం
+మార్కెటింగ్
+ఉత్పత్తి
+నాణ్యత నియంత్రణ
+పరిశోధన అభివృద్ధి
+ఇంజినీరింగ్
+సమాచార సాంకేతికత
+కొనుగోళ్ల విభాగం
+గోదాము
+రవాణా విభాగం
+కస్టమర్ సేవ
+న్యాయ విభాగం
+భద్రతా విభాగం
+నిర్వహణ విభాగం
+శిక్షణ విభాగం
+ప్రజా సంబంధాలు
+ఆడిట్ విభాగం
+ప్రణాళిక విభాగం

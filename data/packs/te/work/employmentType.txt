@@ -1,0 +1,15 @@
+---
+description: Employment or contract type (Telugu). Two Indian categories have no European counterpart and are in constant use here: ఔట్‌సోర్సింగ్ describes a worker employed through an agency but working full time in a government office, and దినసరి కూలీ is the daily-wage worker paid by the day with no contract at all — together they are a very large share of the real labour market in Andhra Pradesh and Telangana.
+locale: te
+---
+శాశ్వత ఉద్యోగం
+రెగ్యులర్
+ప్రొబేషన్
+ఒప్పంద ఉద్యోగం
+ఔట్‌సోర్సింగ్
+తాత్కాలిక ఉద్యోగం
+పార్ట్ టైమ్
+దినసరి కూలీ
+ఇంటర్న్‌షిప్
+అప్రెంటిస్‌షిప్
+స్వయం ఉపాధి

@@ -1,0 +1,17 @@
+---
+description: Truck cargo or trailer type (Telugu), as an Indian freight consignment note names it.
+locale: te
+---
+సాధారణ సరుకు
+ధాన్యం
+సిమెంట్
+ఉక్కు
+కలప
+బొగ్గు
+ఇసుక
+కంటైనర్
+శీతల సరుకు
+ద్రవ ట్యాంకర్
+గ్యాస్ ట్యాంకర్
+ప్రమాదకర రసాయనాలు
+పశువులు

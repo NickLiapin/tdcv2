@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Telugu). The first entry is the plain roadster that is still the commonest bicycle in Telugu villages and towns.
+locale: te
+---
+సాధారణ సైకిల్
+రోడ్ బైక్
+మౌంటెన్ బైక్
+హైబ్రిడ్ సైకిల్
+గేర్ సైకిల్
+ఫోల్డింగ్ సైకిల్
+ఎలక్ట్రిక్ సైకిల్
+పిల్లల సైకిల్
+బి.ఎం.ఎక్స్.
+టూరింగ్ సైకిల్
+ట్రైసైకిల్
+కార్గో సైకిల్
+రిక్షా
+టాండం సైకిల్
+ఫ్యాట్ బైక్
+సింగిల్ స్పీడ్
+రేసింగ్ సైకిల్

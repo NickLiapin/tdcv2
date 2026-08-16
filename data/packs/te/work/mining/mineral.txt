@@ -1,0 +1,23 @@
+---
+description: Mined mineral or commodity (Telugu). This is not a generic list: it is what the two Telugu states actually mine. బొగ్గు comes first because the Singareni coalfields of Telangana are the oldest and largest coal operation in south India. బరైట్ is here because the Mangampet deposit in Kadapa district is the largest single barytes deposit in the world. గ్రానైట్ from Khammam and Karimnagar, సున్నపురాయి for the cement belt around Nalgonda and Guntur, బాక్సైట్ from the Visakhapatnam agency hills, and the diamonds of the Krishna river gravels that made Golconda famous are all real workings, past or present.
+locale: te
+---
+బొగ్గు
+సున్నపురాయి
+బరైట్
+గ్రానైట్
+ఇనుప ఖనిజం
+బాక్సైట్
+మాంగనీస్
+డోలమైట్
+క్వార్ట్జ్
+ఫెల్డ్‌స్పార్
+అభ్రకం
+లేటరైట్
+సిలికా ఇసుక
+కయనైట్
+స్టీటైట్
+కాల్సైట్
+వజ్రాలు
+బంగారం
+ఇసుక

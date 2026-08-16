@@ -1,0 +1,5 @@
+---
+description: Currency of ఐర్లాండ్, in Telugu.
+locale: te
+---
+యూరో

@@ -1,0 +1,5 @@
+---
+description: Currency of అమెరికా సంయుక్త రాష్ట్రాలు, in Telugu.
+locale: te
+---
+అమెరికన్ డాలర్

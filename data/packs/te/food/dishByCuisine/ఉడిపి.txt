@@ -1,0 +1,12 @@
+---
+description: Dishes of ఉడిపి cuisine, in Telugu.
+locale: te
+---
+ఇడ్లీ
+దోసె
+మసాలా దోసె
+రవ్వ దోసె
+వడ
+ఉప్మా
+పొంగల్
+సాంబార్

@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Telugu). The pulses are listed individually because a Telugu kitchen treats them as different foods with different dishes — కందిపప్పు for everyday పప్పు, మినపప్పు for the dosa and vada batter, పెసరపప్పు for pongal — and lumping them as "lentils" loses the distinction. బెల్లం (jaggery) and చింతపండు (tamarind) are the two ingredients most responsible for the sweet-sour axis of Andhra cooking, and నెయ్యి (ghee) is both a cooking fat and a ritual substance.
+locale: te
+---
+బియ్యం
+సన్న బియ్యం
+జొన్నలు
+రాగులు
+సజ్జలు
+గోధుమలు
+మైదా
+రవ్వ
+కందిపప్పు
+మినపప్పు
+పెసరపప్పు
+శనగపప్పు
+బొబ్బర్లు
+ఉలవలు
+అలసందలు
+పల్లీలు
+నువ్వులు
+కొబ్బరి
+కొబ్బరి పాలు
+నెయ్యి
+వెన్న
+నూనె
+వేరుశనగ నూనె
+కొబ్బరి నూనె
+పొద్దుతిరుగుడు నూనె
+పాలు
+పెరుగు
+మజ్జిగ
+పనీర్
+కోడిగుడ్డు
+చికెన్
+మటన్
+చేప
+రొయ్యలు
+పీత
+బెల్లం
+పంచదార
+చింతపండు
+ఉప్పు
+నిమ్మరసం

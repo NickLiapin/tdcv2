@@ -1,0 +1,32 @@
+---
+description: Field of study or major (Telugu). The Intermediate stream names (ఎం.పి.సి., బై.పి.సి., సి.ఇ.సి., ఎం.ఇ.సి.) are a genuinely Telugu-states institution: a student picks one at sixteen and it determines every course open to them afterwards, so it functions as a field of study long before university does.
+locale: te
+---
+ఎం.పి.సి.
+బై.పి.సి.
+సి.ఇ.సి.
+ఎం.ఇ.సి.
+కంప్యూటర్ సైన్స్
+ఇన్ఫర్మేషన్ టెక్నాలజీ
+ఎలక్ట్రానిక్స్
+ఎలక్ట్రికల్ ఇంజినీరింగ్
+మెకానికల్ ఇంజినీరింగ్
+సివిల్ ఇంజినీరింగ్
+కెమికల్ ఇంజినీరింగ్
+వైద్య శాస్త్రం
+దంత వైద్యం
+ఫార్మసీ
+నర్సింగ్
+వ్యవసాయ శాస్త్రం
+ఉద్యానవన శాస్త్రం
+మత్స్య శాస్త్రం
+పశు వైద్య శాస్త్రం
+భౌతిక శాస్త్రం
+రసాయన శాస్త్రం
+గణితం
+జీవ శాస్త్రం
+వాణిజ్యం
+అర్థ శాస్త్రం
+న్యాయ శాస్త్రం
+తెలుగు సాహిత్యం
+పాత్రికేయం

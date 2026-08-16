@@ -1,0 +1,34 @@
+---
+description: Unit of measure (Telugu). India is metric and the metric units lead, but two older systems are genuinely live in Telugu trade and both are here. తులం (about 11.66 g) is still how gold is quoted in a Telugu jeweller's shop and in a wedding negotiation. ఎకరం, గుంట and సెంటు are the land units used in every Andhra and Telangana property transaction — a plot is advertised in సెంట్లు or in గుంటలు, almost never in square metres — and కుంచం and సోలెడు survive for measuring grain in villages. A config generating land or gold data for this locale that uses only SI units will not look like anything a Telugu reader has seen.
+locale: te
+---
+కిలో
+గ్రాము
+మిల్లీగ్రాము
+టన్ను
+క్వింటాలు
+లీటరు
+మిల్లీలీటరు
+మీటరు
+సెంటీమీటరు
+మిల్లీమీటరు
+కిలోమీటరు
+గజం
+అడుగు
+అంగుళం
+చదరపు అడుగు
+చదరపు గజం
+చదరపు మీటరు
+ఎకరం
+గుంట
+సెంటు
+హెక్టారు
+తులం
+కారెట్
+డజను
+జత
+ముక్క
+ప్యాకెట్
+బాక్సు
+కట్ట
+బస్తా

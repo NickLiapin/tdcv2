@@ -1,0 +1,29 @@
+---
+description: Fish (Telugu). Andhra Pradesh produces the largest share of India's inland fish and farmed shrimp, so this is a working commercial list rather than a natural-history one: బొచ్చె (rohu), కొర్రమేను (murrel) and పండుగప్ప (barramundi) are what a Telugu fish market sells by name, and వనామి (Pacific white shrimp) is the single species behind the aquaculture boom of the Krishna and Godavari districts.
+locale: te
+---
+బొచ్చె
+రవ్వ
+కొర్రమేను
+పండుగప్ప
+చందువా
+వంజరం
+కొయ్యింగ
+బంగారుతీగ
+పులస
+ఇలస
+కాట్ల
+మృగాల
+బొమ్మిడాయి
+జెల్ల
+మట్ట గిడస
+నెత్తళ్లు
+సొరచేప
+తిమింగలం
+డాల్ఫిన్
+రొయ్యలు
+వనామి రొయ్యలు
+టైగర్ రొయ్యలు
+పీత
+ఎండ్రకాయ
+కటిక చేప

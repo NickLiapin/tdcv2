@@ -1,0 +1,24 @@
+---
+description: Insect (Telugu). దోమ leads honestly: mosquito-borne disease is a real seasonal burden in both Telugu states. తేనెటీగ, పట్టుపురుగు and లక్క పురుగు are worked insects — honey, silk and lac are village industries here — and మిడత names the locust swarm that Telugu agricultural records have tracked for centuries.
+locale: te
+---
+దోమ
+ఈగ
+చీమ
+నల్లి
+బొద్దింక
+తేనెటీగ
+కందిరీగ
+సీతాకోకచిలుక
+మిడత
+కీటకం
+పట్టుపురుగు
+లక్క పురుగు
+మిణుగురు పురుగు
+తూనీగ
+గొల్లభామ
+పేను
+పురుగు
+జెర్రి
+తేలు
+సాలెపురుగు

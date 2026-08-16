@@ -1,0 +1,38 @@
+---
+description: Event type (Telugu). The life-cycle ceremonies at the head are the events a Telugu family actually organises and each is a distinct occasion with its own guest list: బారసాల is the eleventh-day naming, అన్నప్రాశన the first solid food, అక్షరాభ్యాసం the first writing lesson, ఉపనయనం the thread ceremony, and పెళ్లిచూపులు the formal meeting that precedes a match. The festival entries are here as event types because a Telugu venue or catering dataset is dominated by them: ఉగాది opens the Telugu year, సంక్రాంతి is the three-day harvest festival that empties the cities of coastal Andhra as everyone goes home, and బతుకమ్మ is the nine-day flower festival of Telangana, danced by women around a stacked floral arrangement, which is the state's own festival and has no equivalent in Andhra.
+locale: te
+---
+పెళ్లి
+పెళ్లిచూపులు
+నిశ్చితార్థం
+రిసెప్షన్
+బారసాల
+నామకరణం
+అన్నప్రాశన
+అక్షరాభ్యాసం
+ఉపనయనం
+పుట్టినరోజు
+గృహప్రవేశం
+షష్టిపూర్తి
+ఉగాది
+సంక్రాంతి
+బతుకమ్మ
+బోనాలు
+దసరా
+దీపావళి
+వినాయక చవితి
+శ్రీరామనవమి
+జాతర
+తిరునాళ్ల
+సభ
+సమావేశం
+సదస్సు
+కార్యశాల
+ప్రదర్శన
+సంగీత కచేరి
+నాటక ప్రదర్శన
+క్రీడా పోటీ
+పోటీ పరీక్ష
+స్నాతకోత్సవం
+ప్రారంభోత్సవం
+సంతాప సభ

@@ -1,0 +1,16 @@
+---
+description: Streaming platform. Aha is the Telugu-language service and leads for that reason; the rest are the international and national platforms available here. Brand names keep their real spelling.
+locale: te
+---
+Aha
+ETV Win
+Sun NXT
+Netflix
+Amazon Prime Video
+Disney+ Hotstar
+ZEE5
+JioCinema
+SonyLIV
+YouTube
+MX Player
+Spotify

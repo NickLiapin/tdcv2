@@ -1,0 +1,23 @@
+---
+description: Movie genre (Telugu). Three of these are genres of TELUGU cinema specifically and do not translate. పౌరాణికం is the mythological film — Telugu cinema built itself on it, and N. T. Rama Rao played Krishna and Rama so often that it carried him to the chief ministership. జానపదం is the folklore-fantasy adventure. ఫ్యాక్షన్ names a whole cycle of films about the clan feuds of Rayalaseema, a genre with no counterpart in any other cinema. Worth knowing about this list at all: the Telugu film industry regularly produces more feature films a year than any other Indian language industry including Hindi, so cinema is not a minority interest in this culture but a mass one, and a Telugu media dataset that treats it as a translated Bollywood category will be describing the wrong industry.
+locale: te
+---
+పౌరాణికం
+జానపదం
+చారిత్రకం
+సాంఘికం
+ఫ్యాక్షన్
+మాస్ మసాలా
+యాక్షన్
+కుటుంబ కథా చిత్రం
+ప్రేమకథ
+హాస్యం
+థ్రిల్లర్
+సస్పెన్స్
+హారర్
+నేర కథ
+యుద్ధ చిత్రం
+క్రీడా చిత్రం
+జీవిత చరిత్ర
+డాక్యుమెంటరీ
+పిల్లల చిత్రం

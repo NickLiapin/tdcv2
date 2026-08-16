@@ -1,0 +1,5 @@
+---
+description: Capital of అమెరికా సంయుక్త రాష్ట్రాలు, in Telugu.
+locale: te
+---
+వాషింగ్టన్ డి.సి.

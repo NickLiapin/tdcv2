@@ -1,0 +1,5 @@
+---
+description: Currency code of నైజీరియా. ISO 4217 codes are Latin letters in every locale.
+locale: te
+---
+NGN

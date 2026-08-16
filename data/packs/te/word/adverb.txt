@@ -1,0 +1,36 @@
+---
+description: Common Telugu adverb. Many are formed by adding -గా to an adjective (వేగంగా "quickly" from వేగం "speed"), which is the regular and highly productive pattern.
+locale: te
+---
+వేగంగా
+నెమ్మదిగా
+బాగా
+చెడ్డగా
+త్వరగా
+ఆలస్యంగా
+ఎప్పుడూ
+ఎప్పుడూ లేదు
+తరచుగా
+అప్పుడప్పుడు
+ఇప్పుడు
+తరువాత
+ముందు
+నిన్న
+ఈరోజు
+రేపు
+ఇక్కడ
+అక్కడ
+ఎక్కడైనా
+ఎక్కడా లేదు
+పైన
+కింద
+లోపల
+బయట
+కలిసి
+విడిగా
+జాగ్రత్తగా
+నిజంగా
+బహుశా
+ఖచ్చితంగా
+దాదాపు
+మళ్లీ

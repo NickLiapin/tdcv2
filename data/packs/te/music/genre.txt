@@ -1,0 +1,39 @@
+---
+description: Music genre (Telugu). కర్ణాటక సంగీతం leads for a reason worth stating: Carnatic music is South India's classical tradition, and TELUGU is the language most of its repertoire is actually sung in — Tyagaraja, Annamacharya and Ramadasu composed in Telugu, and Tamil and Kannada singers learn Telugu texts to perform them. The folk forms are living performance traditions with named practitioners, not archive categories: బుర్రకథ and ఒగ్గు కథ are narrative ballad forms, హరికథ is sung religious storytelling, and ధూం ధాం is the political song-and-dance form that carried the Telangana statehood movement through the 2000s.
+locale: te
+---
+కర్ణాటక సంగీతం
+హిందుస్తానీ సంగీతం
+భక్తి సంగీతం
+అన్నమయ్య కీర్తనలు
+త్యాగరాజ కృతులు
+రామదాసు కీర్తనలు
+తిల్లానా
+జావళి
+పద్యం
+శ్లోకం
+జానపద గీతాలు
+బుర్రకథ
+హరికథ
+ఒగ్గు కథ
+తోలుబొమ్మలాట పాటలు
+ధూం ధాం
+పల్లె పాటలు
+పెళ్లి పాటలు
+లాలిపాటలు
+బతుకమ్మ పాటలు
+సినిమా సంగీతం
+మాస్ సాంగ్
+మెలోడీ
+ఐటమ్ సాంగ్
+పాప్
+రాక్
+హిప్ హాప్
+ర్యాప్
+ఇండీ
+ఫ్యూజన్
+జాజ్
+బ్లూస్
+క్లాసికల్ పాశ్చాత్య సంగీతం
+ఇలెక్ట్రానిక్
+రీమిక్స్

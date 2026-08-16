@@ -1,0 +1,20 @@
+---
+description: Horse breed (Telugu). The Indian breeds lead: మార్వాడీ and కథియావాడీ are the desert horses of the north-west, and దక్కనీ is the Deccan horse of this region. Horses are not a working animal in Telugu agriculture — the ox and the buffalo are — so the vocabulary here is small and largely borrowed.
+locale: te
+---
+దక్కనీ
+మార్వాడీ
+కథియావాడీ
+మణిపురి
+జాన్‌స్కారి
+సింధీ
+అరేబియన్
+థరోబ్రెడ్
+ముస్టాంగ్
+అప్పలూసా
+క్లైడ్స్‌డేల్
+షైర్
+పోనీ
+షెట్‌ల్యాండ్ పోనీ
+ఆండలూసియన్
+ఫ్రీసియన్

@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows. Two regional notes: PCOS is now the commonest reason a young urban Telugu woman is referred to a gynaecologist, and anaemia in pregnancy is the most frequent single finding in an antenatal record in both states.
+locale: te
+---
+పి.సి.ఓ.ఎస్.
+రుతుక్రమ లోపాలు
+అధిక రుతుస్రావం
+ఋతునొప్పి
+రుతుక్రమం ఆగిపోవడం
+గర్భాశయ ఫైబ్రాయిడ్లు
+ఎండోమెట్రియోసిస్
+అండాశయ తిత్తులు
+అండాశయ క్యాన్సర్
+గర్భాశయ ముఖద్వార క్యాన్సర్
+గర్భాశయ క్యాన్సర్
+రొమ్ము క్యాన్సర్
+రొమ్ము గడ్డ
+మాస్టైటిస్
+స్త్రీ వంధ్యత్వం
+గర్భధారణ మధుమేహం
+గర్భధారణ అధిక రక్తపోటు
+ప్రీ-ఎక్లాంప్సియా
+గర్భస్రావం
+గర్భాశయేతర గర్భం
+ప్రసవానంతర రక్తస్రావం
+ప్రసవానంతర కుంగుబాటు
+గర్భాశయ జారుడు
+యోని ఇన్ఫెక్షన్
+మెనోపాజ్ లక్షణాలు
+గర్భధారణ రక్తహీనత

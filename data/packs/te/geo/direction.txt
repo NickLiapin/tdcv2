@@ -1,0 +1,20 @@
+---
+description: Compass direction (Telugu), the full sixteen-point rose. The four intercardinals — ఈశాన్యం, ఆగ్నేయం, నైరుతి, వాయవ్యం — are inherited Sanskrit names, each belonging to a guardian deity of that quarter, and they are in daily non-navigational use in this culture: వాస్తు assigns a purpose to every corner of a house, so a Telugu builder, estate agent and homeowner all name directions constantly. The sixteen-point names are built by compounding, as in English, and are the ones a Telugu weather bulletin uses for wind direction.
+locale: te
+---
+ఉత్తరం
+దక్షిణం
+తూర్పు
+పడమర
+ఈశాన్యం
+ఆగ్నేయం
+నైరుతి
+వాయవ్యం
+ఉత్తర-ఈశాన్యం
+తూర్పు-ఈశాన్యం
+తూర్పు-ఆగ్నేయం
+దక్షిణ-ఆగ్నేయం
+దక్షిణ-నైరుతి
+పడమర-నైరుతి
+పడమర-వాయవ్యం
+ఉత్తర-వాయవ్యం

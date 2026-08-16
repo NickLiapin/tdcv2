@@ -1,0 +1,5 @@
+---
+description: Currency of ఈజిప్ట్, in Telugu.
+locale: te
+---
+ఈజిప్షియన్ పౌండ్

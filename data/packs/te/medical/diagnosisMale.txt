@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.txt.
+locale: te
+---
+ప్రోస్టేట్ పెరుగుదల
+ప్రోస్టేట్ క్యాన్సర్
+ప్రోస్టేటైటిస్
+వృషణ క్యాన్సర్
+వృషణ వాపు
+వృషణ మెలిక
+హైడ్రోసీల్
+వరికోసీల్
+ఫైమోసిస్
+పారాఫైమోసిస్
+బాలనైటిస్
+పురుష వంధ్యత్వం
+అంగస్తంభన లోపం
+శీఘ్ర స్ఖలనం
+తక్కువ టెస్టోస్టెరాన్
+గైనకోమాస్టియా
+ఇంగ్వినల్ హెర్నియా
+పెరోనీస్ వ్యాధి
+ఎపిడిడైమిటిస్
+పురుషాంగ క్యాన్సర్

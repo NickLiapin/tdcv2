@@ -1,0 +1,5 @@
+---
+description: Currency of స్విట్జర్లాండ్, in Telugu.
+locale: te
+---
+స్విస్ ఫ్రాంక్

@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking), in Telugu. Names of standards keep their real spelling.
+locale: te
+---
+ఆప్టికల్ ఫైబర్
+కోఆక్సియల్ కేబుల్
+ట్విస్టెడ్ పెయిర్
+Cat 5e
+Cat 6
+Cat 6a
+రిబ్బన్ కేబుల్
+ఆర్మర్డ్ కేబుల్
+డ్రాప్ వైర్

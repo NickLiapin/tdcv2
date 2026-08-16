@@ -1,0 +1,5 @@
+---
+description: Capital of అర్జెంటీనా, in Telugu.
+locale: te
+---
+బ్యూనస్ ఎయిర్స్

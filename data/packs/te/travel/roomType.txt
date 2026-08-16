@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Telugu). Note that Indian hotels advertise ఏ.సి. and నాన్ ఏ.సి. rooms as different products at different prices, which is a primary distinction here and not a footnote.
+locale: te
+---
+సింగిల్ రూమ్
+డబుల్ రూమ్
+ట్విన్ రూమ్
+ట్రిపుల్ రూమ్
+ఫ్యామిలీ రూమ్
+ఏ.సి. రూమ్
+నాన్ ఏ.సి. రూమ్
+డీలక్స్ రూమ్
+సూపర్ డీలక్స్
+ఎగ్జిక్యూటివ్ రూమ్
+సూట్
+ప్రెసిడెన్షియల్ సూట్
+కాటేజ్
+డార్మిటరీ
+డబుల్ బెడ్ రూమ్
+ఎక్స్‌ట్రా బెడ్
+కనెక్టింగ్ రూమ్
+యాత్రికుల గది

@@ -1,0 +1,21 @@
+---
+description: Official document type named in Telugu. Telugu is spoken in essentially one country, so these are the documents an INDIAN citizen holds. Two things a config cannot infer. First, India has no single identity document: ఆధార్ is the biometric number, పాన్ the tax number, ఓటరు గుర్తింపు కార్డు the electoral ID and రేషన్ కార్డు the household food-subsidy card, and a person routinely produces two or three of them together because none alone proves everything. Second, కుల ధ్రువీకరణ పత్రం, ఆదాయ ధ్రువీకరణ పత్రం and నివాస ధ్రువీకరణ పత్రం — caste, income and residence certificates issued by the tahsildar — are among the most-requested documents in the Telugu states because admissions, scholarships and reservations depend on them, and they have no European counterpart at all. The India COUNTRY pack holds the number formats; this list holds only the names.
+locale: te
+---
+ఆధార్ కార్డు
+పాన్ కార్డు
+ఓటరు గుర్తింపు కార్డు
+రేషన్ కార్డు
+పాస్‌పోర్ట్
+డ్రైవింగ్ లైసెన్స్
+జనన ధ్రువీకరణ పత్రం
+మరణ ధ్రువీకరణ పత్రం
+వివాహ నమోదు పత్రం
+కుల ధ్రువీకరణ పత్రం
+ఆదాయ ధ్రువీకరణ పత్రం
+నివాస ధ్రువీకరణ పత్రం
+పట్టాదారు పాసుపుస్తకం
+భూమి రిజిస్ట్రేషన్ పత్రం
+వాహన రిజిస్ట్రేషన్ పత్రం
+విద్యార్హత ధ్రువీకరణ పత్రం
+ఉద్యోగ అనుభవ పత్రం

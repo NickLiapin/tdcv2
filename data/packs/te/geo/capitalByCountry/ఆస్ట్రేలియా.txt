@@ -1,0 +1,5 @@
+---
+description: Capital of ఆస్ట్రేలియా, in Telugu.
+locale: te
+---
+కాన్‌బెర్రా

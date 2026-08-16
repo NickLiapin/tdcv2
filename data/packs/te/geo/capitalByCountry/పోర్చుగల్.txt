@@ -1,0 +1,5 @@
+---
+description: Capital of పోర్చుగల్, in Telugu.
+locale: te
+---
+లిస్బన్

@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (work/jobByIndustry child), in Telugu. Two departures from the European default are deliberate. వ్యవసాయం leads because agriculture is still the largest single employer in both Telugu states, and ఆక్వా కల్చర్ is here as an industry in its own right rather than folded into farming: Andhra Pradesh produces the largest share of India's farmed shrimp and inland fish, the shrimp ponds of the Krishna, West Godavari and Nellore districts employ hundreds of thousands of people, and a Telugu employment dataset without it is not describing Andhra Pradesh. ఫార్మాస్యూటికల్స్ is separated from general manufacturing for the same reason: Hyderabad is India's bulk-drug centre and pharma is a distinct labour market here.
+locale: te
+---
+వ్యవసాయం
+ఆక్వా కల్చర్
+సమాచార సాంకేతికత
+ఫార్మాస్యూటికల్స్
+ఆరోగ్య సంరక్షణ
+విద్య
+నిర్మాణం
+బ్యాంకింగ్
+రవాణా
+రిటైల్

@@ -1,0 +1,18 @@
+---
+description: Marital status (Telugu). Several of these inflect for the subject's gender and the list carries both forms where they differ — వితంతువు is a widow and భార్యను కోల్పోయినవాడు a widower, అవివాహితుడు is masculine and అవివాహిత feminine. A config that already knows the row's gender should filter rather than draw blind. నిశ్చితార్థమైన (formally betrothed) is a status that carries real social and legal weight here and is not the same as a Western "engaged".
+locale: te
+---
+అవివాహితుడు
+అవివాహిత
+వివాహితుడు
+వివాహిత
+నిశ్చితార్థమైన
+విడాకులు తీసుకున్నవారు
+వితంతువు
+భార్యను కోల్పోయినవాడు
+వేరుగా ఉంటున్నవారు
+పునర్వివాహం చేసుకున్నవారు
+సహజీవనం
+ఒంటరి
+పరిత్యక్త
+తెలియదు

@@ -1,0 +1,5 @@
+---
+description: Capital of రష్యా, in Telugu.
+locale: te
+---
+మాస్కో

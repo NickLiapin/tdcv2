@@ -1,0 +1,26 @@
+---
+description: Common allergy (Telugu). The food entries reflect what is actually eaten: groundnut and sesame are everyday cooking ingredients here rather than occasional ones, and prawn and crab allergy is common along the Andhra coast. దుమ్ము and పుప్పొడి allergies peak with the pre-monsoon dust and the Sankranti-season pollen.
+locale: te
+---
+దుమ్ము
+పుప్పొడి
+బూజు
+పెంపుడు జంతువుల వెంట్రుకలు
+దోమకాటు
+తేనెటీగ కుట్టు
+పల్లీలు
+నువ్వులు
+రొయ్యలు
+పీత
+చేపలు
+కోడిగుడ్డు
+ఆవు పాలు
+సోయా
+గోధుమ గ్లూటెన్
+జీడిపప్పు
+వంకాయ
+పెన్సిలిన్
+సల్ఫా ఔషధాలు
+ఆస్పిరిన్
+లాటెక్స్
+రంగులు

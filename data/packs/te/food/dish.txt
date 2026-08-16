@@ -1,0 +1,52 @@
+---
+description: Dish (Telugu) — what is actually eaten in Andhra Pradesh and Telangana. Two structural facts a config cannot infer. First, a Telugu meal is a SEQUENCE served onto rice in order — పప్పు, then కూర, then పులుసు or చారు, then పెరుగు — so several of these are courses rather than standalone dishes, and a "favourite dish" field means something slightly different here. Second, పచ్చడి and ఊరగాయ are not condiments in the European sense: ఆవకాయ, the mustard-and-chilli mango pickle, is made once a year in bulk by the household and is a defining Telugu food, and గోంగూర, the sorrel leaf, is the single item most identified with Andhra cooking anywhere in India.
+locale: te
+---
+పులిహోర
+పప్పు
+పప్పు చారు
+సాంబార్
+రసం
+చారు
+మజ్జిగ పులుసు
+పులుసు
+ఆవకాయ
+గోంగూర పచ్చడి
+టమాటా పచ్చడి
+వంకాయ పచ్చడి
+దోసకాయ పచ్చడి
+కొబ్బరి పచ్చడి
+పల్లీ చట్నీ
+కారం పొడి
+గుత్తి వంకాయ కూర
+బెండకాయ వేపుడు
+దొండకాయ ఫ్రై
+ఆలూ కూర
+కంద కూర
+తోటకూర పప్పు
+పాలకూర పప్పు
+బీరకాయ కూర
+నాటుకోడి పులుసు
+చికెన్ కర్రీ
+మటన్ కర్రీ
+చేపల పులుసు
+రొయ్యల ఇగురు
+కోడిగుడ్డు కూర
+హైదరాబాదీ బిర్యానీ
+పులావ్
+ఇడ్లీ
+దోసె
+ఊతప్పం
+పెసరట్టు
+ఉప్మా
+వడ
+బజ్జి
+పునుగులు
+గారెలు
+బొబ్బట్లు
+పూతరేకులు
+అరిసెలు
+సున్నుండలు
+లడ్డూ
+పాయసం
+రాగి సంగటి

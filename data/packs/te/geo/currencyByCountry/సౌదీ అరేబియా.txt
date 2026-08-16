@@ -1,0 +1,5 @@
+---
+description: Currency of సౌదీ అరేబియా, in Telugu.
+locale: te
+---
+సౌదీ రియాల్

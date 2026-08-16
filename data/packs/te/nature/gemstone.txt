@@ -1,0 +1,29 @@
+---
+description: Gemstone (Telugu). The nine at the head are the నవరత్నాలు, the set that Indian astrology assigns to the nine planets — a Telugu jeweller sells them as a set and a stone is chosen by birth chart as often as by looks, which is why వజ్రం, కెంపు and నీలం carry meanings beyond their colour here. Golconda, near Hyderabad, was the source of the world's named diamonds for centuries, so the diamond vocabulary in Telugu is old and precise.
+locale: te
+---
+వజ్రం
+కెంపు
+ముత్యం
+పగడం
+పచ్చ
+పుష్యరాగం
+నీలం
+గోమేధికం
+వైడూర్యం
+మాణిక్యం
+స్ఫటికం
+రుద్రాక్ష
+ఇంద్రనీలం
+చంద్రకాంతం
+సూర్యకాంతం
+ఎరుపు రాయి
+ఆకుపచ్చ రాయి
+నీలిమణి
+గులాబీ స్ఫటికం
+పులిరాయి
+అంబర్
+జేడ్
+ఒపల్
+టర్కోయిస్
+గార్నెట్

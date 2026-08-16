@@ -1,0 +1,20 @@
+---
+description: Venue type (Telugu). కళ్యాణ మండపం is the single most-booked venue type in the Telugu states — a purpose-built wedding hall, often attached to a temple — and ఫంక్షన్ హాల్ is its everyday name. దేవాలయం appears as a venue because temple premises genuinely host weddings and ceremonies here.
+locale: te
+---
+కళ్యాణ మండపం
+ఫంక్షన్ హాల్
+సమావేశ మందిరం
+ఆడిటోరియం
+హోటల్ బాంక్వెట్ హాల్
+కన్వెన్షన్ సెంటర్
+దేవాలయం
+కమ్యూనిటీ హాల్
+పాఠశాల ఆవరణ
+కళాశాల ఆవరణ
+క్రీడా మైదానం
+స్టేడియం
+ప్రదర్శనశాల
+ఉద్యానవనం
+రిసార్ట్
+బహిరంగ వేదిక

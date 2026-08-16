@@ -1,0 +1,5 @@
+---
+description: Capital of దక్షిణ కొరియా, in Telugu.
+locale: te
+---
+సియోల్

@@ -1,0 +1,5 @@
+---
+description: Currency code of అమెరికా సంయుక్త రాష్ట్రాలు. ISO 4217 codes are Latin letters in every locale.
+locale: te
+---
+USD

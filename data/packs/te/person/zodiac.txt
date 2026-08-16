@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Telugu) — the twelve రాశులు. Two things a config cannot infer. First, Indian astrology is SIDEREAL, not tropical: the Telugu రాశి of a given birth date is normally one sign behind the Western one, so mapping a birth date to a sign with a Western table and then printing the Telugu name produces a wrong answer for about three weeks in twelve. Second, in Telugu practice the రాశి is less used than the నక్షత్రం, the birth star — there are 27 of those, a child's formal name is chosen from the syllable the నక్షత్రం dictates, and a matrimonial advertisement quotes the star, not the sign.
+locale: te
+---
+మేషం
+వృషభం
+మిథునం
+కర్కాటకం
+సింహం
+కన్య
+తుల
+వృశ్చికం
+ధనుస్సు
+మకరం
+కుంభం
+మీనం

@@ -1,0 +1,5 @@
+---
+description: Capital of నార్వే, in Telugu.
+locale: te
+---
+ఓస్లో

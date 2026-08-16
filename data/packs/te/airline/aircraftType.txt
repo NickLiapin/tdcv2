@@ -1,0 +1,28 @@
+---
+description: Aircraft type. Model designations keep their real spelling in any locale — an A320 is an A320 on a Telugu boarding pass too. The narrow-body Airbus and Boeing families lead because they are what actually flies the Indian domestic network.
+locale: te
+---
+A319
+A320
+A320neo
+A321
+A321neo
+A330-200
+A330-300
+A350-900
+A380-800
+B737-700
+B737-800
+B737 MAX 8
+B777-200LR
+B777-300ER
+B787-8
+B787-9
+ATR 42-600
+ATR 72-600
+Q400
+Embraer E175
+Embraer E190
+CRJ900
+Cessna 208 Caravan
+Do 228

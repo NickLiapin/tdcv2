@@ -1,0 +1,44 @@
+---
+description: Telugu thoroughfare or locality type. Unlike the European locales this element goes AFTER the name, not before it — గాంధీ రోడ్, స్టేషన్ రోడ్, ఎన్.టి.ఆర్. మార్గం — which is the reverse of Polish ulica Długa. Two things a config cannot infer. First, a Telugu urban address locates a building by COLONY at least as often as by street: కాలనీ, నగర్, ఎన్‌క్లేవ్, లేఅవుట్, టౌన్‌షిప్, ఫేజ్ and సెక్టార్ are here alongside the road words, and a Hyderabad address is routinely written as door number, colony, area with no road name at all. Second, రోడ్, లేన్, సర్కిల్ and క్రాస్ రోడ్ are English loans written in Telugu script and are what real signboards say; రహదారి, వీధి and మార్గం are the Telugu words and appear on official ones. Both registers are correct and both occur in real addresses.
+locale: te
+---
+రోడ్
+రహదారి
+వీధి
+మార్గం
+బాట
+సందు
+గల్లీ
+లేన్
+బైలేన్
+క్రాస్ రోడ్
+మెయిన్ రోడ్
+రింగ్ రోడ్
+ఔటర్ రింగ్ రోడ్
+బైపాస్
+హైవే
+జాతీయ రహదారి
+రాష్ట్ర రహదారి
+సర్వీస్ రోడ్
+ఫ్లైఓవర్
+సర్కిల్
+చౌరస్తా
+కూడలి
+జంక్షన్
+సెంటర్
+మలుపు
+బజార్
+పేట
+కాలనీ
+నగర్
+ఎన్‌క్లేవ్
+టౌన్‌షిప్
+హౌసింగ్ బోర్డు
+లేఅవుట్
+సెక్టార్
+బ్లాక్
+ఫేజ్
+అవెన్యూ
+ప్లాజా
+ఘాట్ రోడ్
+కట్ట

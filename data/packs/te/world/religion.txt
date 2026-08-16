@@ -1,0 +1,25 @@
+---
+description: World religion (Telugu). The Telugu-speaking states are majority Hindu with a large Muslim population, particularly in Hyderabad and old Telangana, and a Christian population that is substantial in coastal Andhra and among Dalit communities — all three are ordinary rather than minority-footnote categories here.
+locale: te
+---
+హిందూ మతం
+ఇస్లాం
+క్రైస్తవ మతం
+కాథలిక్
+ప్రొటెస్టెంట్
+బాప్టిస్ట్
+సున్నీ
+షియా
+సిక్కు మతం
+బౌద్ధ మతం
+జైన మతం
+పార్సీ మతం
+యూదు మతం
+లింగాయత
+వైష్ణవం
+శైవం
+శాక్తేయం
+ఆర్య సమాజం
+గిరిజన మతాచారాలు
+నాస్తికత్వం
+హేతువాదం

@@ -1,0 +1,6 @@
+---
+description: Gender label (Telugu). Two values, matching en, hi and bn — this list is what a parent filter such as parent="Gender.పురుషుడు" selects on, so a longer list silently leaves most rows without a name. India recognises a third gender (తృతీయ లింగం / ట్రాన్స్‌జెండర్) on Aadhaar and on state forms, and Telangana and Andhra Pradesh both issue transgender identity cards, so a config modelling identity rather than the male/female name directories should carry it in a list of its own. Note for anyone writing Telugu sentences from these values: the grammar does not follow the label. Telugu verb agreement splits masculine against everything else in the SINGULAR and human against non-human in the PLURAL — see person/pronoun.txt, where the consequence is spelled out.
+locale: te
+---
+పురుషుడు
+స్త్రీ

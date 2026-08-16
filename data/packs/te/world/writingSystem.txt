@@ -1,0 +1,24 @@
+---
+description: Writing system (Telugu). తెలుగు లిపి is listed first and the entry carries the fact this whole pack rests on: the Telugu script occupies Unicode U+0C00–U+0C7F, it is an ABUGIDA — each consonant carries an inherent vowel that a diacritic changes, so it is neither an alphabet nor a syllabary — and it is written left to right. It is NOT Devanagari, and no Devanagari codepoint appears anywhere in this pack. Its closest relative is the Kannada script, which shares the same Bhattiprolu-Kadamba ancestor and looks so similar that a reader of one can partly decipher the other; the two separated only around the 15th century. It is also distinct from Tamil, which is a different script with far fewer consonant letters. The rounded shapes of both Telugu and Kannada come from writing on palm leaf, where a straight stroke splits the leaf along its grain.
+locale: te
+---
+తెలుగు లిపి
+కన్నడ లిపి
+తమిళ లిపి
+మలయాళ లిపి
+దేవనాగరి లిపి
+బెంగాలీ లిపి
+గురుముఖి లిపి
+గుజరాతీ లిపి
+ఒడియా లిపి
+బ్రాహ్మీ లిపి
+లాటిన్ లిపి
+అరబిక్ లిపి
+సిరిలిక్ లిపి
+గ్రీక్ లిపి
+హీబ్రూ లిపి
+చైనీస్ అక్షరాలు
+జపనీస్ కానా
+కొరియన్ హంగుల్
+థాయ్ లిపి
+ఇథియోపిక్ లిపి

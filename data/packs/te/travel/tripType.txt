@@ -1,0 +1,24 @@
+---
+description: Trip type (Telugu). తీర్థయాత్ర (pilgrimage) is not a niche category here: Tirumala alone receives tens of millions of visitors a year and pilgrimage is the single commonest reason a Telugu family travels, ahead of holidays. పుణ్యక్షేత్ర దర్శనం and పండుగ ప్రయాణం (going home for a festival, which empties the cities at Sankranti) are likewise ordinary trip types that a European list has no reason to carry.
+locale: te
+---
+తీర్థయాత్ర
+పుణ్యక్షేత్ర దర్శనం
+పండుగ ప్రయాణం
+కుటుంబ విహారయాత్ర
+హనీమూన్
+విద్యార్థుల విహారయాత్ర
+వ్యాపార ప్రయాణం
+సమావేశ ప్రయాణం
+వైద్య ప్రయాణం
+పెళ్లి ప్రయాణం
+బంధువుల ఇంటికి
+సొంతూరు ప్రయాణం
+సాహస యాత్ర
+ట్రెక్కింగ్
+బీచ్ విహారం
+కొండ ప్రాంత విహారం
+అడవి సఫారీ
+నగర పర్యటన
+విదేశీ ప్రయాణం
+ఒంటరి ప్రయాణం

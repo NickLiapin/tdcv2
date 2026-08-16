@@ -1,0 +1,5 @@
+---
+description: Capital of గ్రీస్, in Telugu.
+locale: te
+---
+ఏథెన్స్

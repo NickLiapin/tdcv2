@@ -1,0 +1,34 @@
+---
+description: Vegetable (Telugu). The greens matter more here than in a European list and several have no everyday English name: గోంగూర is roselle or sorrel leaf and is the defining Andhra green, తోటకూర is amaranth, గోకర కాయ? — no; the gourds (బీరకాయ, పొట్లకాయ, సొరకాయ, కాకరకాయ, దోసకాయ) are a whole family that European cooking barely distinguishes, and each is a different dish.
+locale: te
+---
+వంకాయ
+బెండకాయ
+దొండకాయ
+బీరకాయ
+పొట్లకాయ
+సొరకాయ
+కాకరకాయ
+దోసకాయ
+గుమ్మడికాయ
+బూడిద గుమ్మడి
+చిక్కుడుకాయ
+గోరుచిక్కుడు
+బీన్స్
+క్యాబేజీ
+కాలీఫ్లవర్
+క్యారెట్
+బీట్‌రూట్
+ఆలూ
+చిలగడదుంప
+కంద
+ములక్కాడ
+టమాటా
+ఉల్లిపాయ
+వెల్లుల్లి
+పచ్చిమిర్చి
+అల్లం
+గోంగూర
+తోటకూర
+పాలకూర
+మెంతికూర

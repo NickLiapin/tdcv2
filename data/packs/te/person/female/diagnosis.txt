@@ -1,0 +1,31 @@
+---
+description: Medical diagnosis for a FEMALE patient — female-specific conditions together with the common ones. Two regional facts: anaemia in women is very widespread across both Telugu states and is the commonest single finding in an antenatal record, and PCOS is now the commonest reason a young urban woman is referred to a gynaecologist here. Osteoporosis and thyroid disease also fall disproportionately on women in this population.
+locale: te
+---
+రక్తహీనత
+పి.సి.ఓ.ఎస్.
+థైరాయిడ్ లోపం
+గర్భధారణ మధుమేహం
+రుతుక్రమ లోపాలు
+అధిక రుతుస్రావం
+ఋతునొప్పి
+గర్భాశయ ఫైబ్రాయిడ్లు
+ఎండోమెట్రియోసిస్
+గర్భాశయ ముఖద్వార క్యాన్సర్
+రొమ్ము క్యాన్సర్
+అండాశయ తిత్తులు
+స్త్రీ వంధ్యత్వం
+గర్భస్రావం
+ప్రసవానంతర రక్తస్రావం
+ప్రసవానంతర కుంగుబాటు
+మెనోపాజ్ లక్షణాలు
+ఎముక క్షీణత
+మూత్రనాళ ఇన్ఫెక్షన్
+మధుమేహం
+అధిక రక్తపోటు
+కీళ్ల నొప్పులు
+మైగ్రేన్
+పిత్తాశయ రాళ్లు
+విటమిన్ డి లోపం
+ఆందోళన రుగ్మత
+కుంగుబాటు

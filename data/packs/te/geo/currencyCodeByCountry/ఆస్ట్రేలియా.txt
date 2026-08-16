@@ -1,0 +1,5 @@
+---
+description: Currency code of ఆస్ట్రేలియా. ISO 4217 codes are Latin letters in every locale.
+locale: te
+---
+AUD

@@ -1,0 +1,5 @@
+---
+description: Currency of వియత్నాం, in Telugu.
+locale: te
+---
+వియత్నామీస్ డాంగ్

@@ -1,0 +1,13 @@
+---
+description: Time of day (Telugu). బ్రహ్మ ముహూర్తం, roughly 96 minutes before sunrise, is a named and widely observed part of the day here — it is when temples open, when students are told to study and when rituals begin — and it has no European counterpart. సంధ్య (twilight, both dawn and dusk) is likewise a ritual time rather than merely a light condition. Worth knowing alongside this list: రాహుకాలం, an inauspicious 90-minute window that falls at a different hour on each weekday, is consulted daily by a large share of Telugu households before starting anything new, so "time of day" in this culture carries information a timestamp does not.
+locale: te
+---
+బ్రహ్మ ముహూర్తం
+తెల్లవారుజాము
+ఉదయం
+మధ్యాహ్నం
+అపరాహ్ణం
+సాయంత్రం
+సంధ్య
+రాత్రి
+అర్ధరాత్రి

@@ -1,0 +1,5 @@
+---
+description: Currency of రష్యా, in Telugu.
+locale: te
+---
+రష్యన్ రూబుల్

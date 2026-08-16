@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type. The frequencies here are NOT the European ones and a config that models the distribution should know it: in India, and in the Telugu states specifically, B positive is the commonest group at roughly a third of donors, followed by O positive — the reverse of the European picture, where O positive dominates and B is uncommon. Rh negative is also rarer here, around 5% against 15% in Europe, which is why negative blood is genuinely scarce in Telugu blood banks and why the state blood-donor registries are organised around it.
+locale: te
+---
+B+
+O+
+A+
+AB+
+B-
+O-
+A-
+AB-

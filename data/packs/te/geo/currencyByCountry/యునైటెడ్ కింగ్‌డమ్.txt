@@ -1,0 +1,5 @@
+---
+description: Currency of యునైటెడ్ కింగ్‌డమ్, in Telugu.
+locale: te
+---
+బ్రిటిష్ పౌండ్

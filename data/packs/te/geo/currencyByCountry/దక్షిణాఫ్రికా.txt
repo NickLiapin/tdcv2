@@ -1,0 +1,5 @@
+---
+description: Currency of దక్షిణాఫ్రికా, in Telugu.
+locale: te
+---
+దక్షిణాఫ్రికా ర్యాండ్

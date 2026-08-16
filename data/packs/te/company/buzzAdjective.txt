@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective for a Telugu catch-phrase or tagline. Note the register: Telugu corporate copy is heavily code-mixed, so a real tagline mixes Sanskritic Telugu words (సమగ్ర, సమర్థ, విశ్వసనీయ) with English loans written in Telugu script (డిజిటల్, గ్లోబల్, స్మార్ట్), and a line written purely in one register reads either archaic or foreign. Both are in the list on purpose.
+locale: te
+---
+సమగ్ర
+సమర్థ
+విశ్వసనీయ
+నమ్మకమైన
+నాణ్యమైన
+ఉత్తమ
+శ్రేష్ఠ
+అగ్రగామి
+ఆధునిక
+నవీన
+వినూత్న
+సృజనాత్మక
+వేగవంతమైన
+సులభమైన
+సురక్షిత
+పారదర్శక
+లాభదాయక
+పొదుపైన
+సుస్థిర
+పర్యావరణ హిత
+హరిత
+స్వదేశీ
+అంతర్జాతీయ
+జాతీయ
+ప్రాంతీయ
+స్థానిక
+వ్యక్తిగత
+కుటుంబ
+వృత్తిపరమైన
+అనుభవజ్ఞ
+నైపుణ్యవంతమైన
+బలమైన
+సౌకర్యవంతమైన
+అందుబాటులో ఉన్న
+సమయపాలన గల
+నిరంతర
+సంపూర్ణ
+బహుళ
+ఏకీకృత
+డిజిటల్
+స్మార్ట్
+గ్లోబల్
+ప్రీమియం
+ఎక్స్‌క్లూజివ్
+అల్ట్రా
+హైటెక్
+ఆటోమేటెడ్
+క్లౌడ్ ఆధారిత
+డేటా ఆధారిత
+కస్టమర్ కేంద్రిత
+ఎండ్-టు-ఎండ్
+రియల్ టైమ్
+నెక్స్ట్ జెన్
+స్కేలబుల్
+ఫ్లెక్సిబుల్

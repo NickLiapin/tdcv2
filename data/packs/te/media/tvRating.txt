@@ -1,0 +1,13 @@
+---
+description: Film or television content rating. These are the INDIAN certificates issued by the Central Board of Film Certification, not the American or European ones: U is unrestricted, U/A carries an age qualifier, A is adults only and S is restricted to a specialised audience such as doctors. A config that maps a US rating onto these will be wrong at every step.
+locale: te
+---
+U
+U/A 7+
+U/A 13+
+U/A 16+
+A
+S
+G (టీవీ)
+PG (టీవీ)
+R (టీవీ)

@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Telugu). ఇ.పి.ఎఫ్. (provident fund), గ్రాట్యుటీ and ఇ.ఎస్.ఐ. are statutory in India rather than discretionary perks, and కుటుంబ ఆరోగ్య బీమా here normally means a group policy covering parents as well as spouse and children, which a European benefit list would not assume.
+locale: te
+---
+ఇ.పి.ఎఫ్.
+గ్రాట్యుటీ
+ఇ.ఎస్.ఐ.
+కుటుంబ ఆరోగ్య బీమా
+ప్రమాద బీమా
+జీవిత బీమా
+పెన్షన్ పథకం
+వార్షిక బోనస్
+పండుగ బోనస్
+ప్రయాణ భత్యం
+ఇంటి అద్దె భత్యం
+కరువు భత్యం
+భోజన సదుపాయం
+రవాణా సదుపాయం
+వసతి సదుపాయం
+పిల్లల విద్యా భత్యం
+శిక్షణ అవకాశాలు
+ఇంటి నుంచి పని

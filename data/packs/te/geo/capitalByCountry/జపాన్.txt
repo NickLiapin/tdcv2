@@ -1,0 +1,5 @@
+---
+description: Capital of జపాన్, in Telugu.
+locale: te
+---
+టోక్యో

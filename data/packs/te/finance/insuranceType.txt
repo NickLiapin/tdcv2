@@ -1,0 +1,18 @@
+---
+description: Insurance type (Telugu). పంట బీమా (crop insurance) is a national scheme and a real product for a large share of Telugu households, which a European list would not carry.
+locale: te
+---
+జీవిత బీమా
+టర్మ్ బీమా
+ఎండోమెంట్ పాలసీ
+ఆరోగ్య బీమా
+కుటుంబ ఆరోగ్య బీమా
+ప్రమాద బీమా
+వాహన బీమా
+థర్డ్ పార్టీ బీమా
+గృహ బీమా
+పంట బీమా
+పశువుల బీమా
+ప్రయాణ బీమా
+వ్యాపార బీమా
+అగ్ని ప్రమాద బీమా

@@ -1,0 +1,21 @@
+---
+description: Cuisine (Telugu). Each value has a food/dishByCuisine child file. Six of the seventeen are REGIONS inside the Telugu-speaking area rather than countries, because that is how food is actually named here and the differences are large. రాయలసీమ is the hottest cooking in India by most accounts and is built on ragi, groundnut and country chicken, not rice. తెలంగాణ cooks jowar and millet rather than rice and has its own repertoire (సర్వ పిండి, సకినాలు) that a coastal Andhra kitchen does not make. కోనసీమ and ఉత్తరాంధ్ర are coconut-and-seafood cooking of the Godavari delta and the northern coast. హైదరాబాదీ is listed separately from తెలంగాణ on purpose — it is the Deccani Muslim court cuisine of one city, and its biryani, haleem and Irani chai are a different tradition from the Telangana village kitchen that surrounds it. ఉడిపి means the South Indian tiffin idiom served in the restaurants of that name, which is a genuinely distinct category on every Telugu high street and not the food of one household. చైనీస్ here means the Indian-Chinese restaurant idiom (గోబీ మంచూరియా, chilli chicken), which was largely invented in India and is not the food of China. This list is deliberately NOT a translation of a Hindi one: north Indian cooking appears as a single foreign entry, which is its actual share of a Telugu menu.
+locale: te
+---
+ఆంధ్రా
+తెలంగాణ
+రాయలసీమ
+ఉత్తరాంధ్ర
+కోనసీమ
+హైదరాబాదీ
+ఉడిపి
+తమిళ
+కేరళ
+కన్నడ
+ఉత్తర భారత
+ముఘలాయి
+చైనీస్
+అరబిక్
+ఇటాలియన్
+కాంటినెంటల్
+థాయ్

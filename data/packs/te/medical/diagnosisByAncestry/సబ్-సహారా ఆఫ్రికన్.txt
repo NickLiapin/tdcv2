@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of సబ్-సహారా ఆఫ్రికన్ ancestry, in Telugu. This list is a prevalence signal, not an exclusive one: every condition in it occurs in other populations too, and no diagnosis here may be read as belonging to this group alone.
+locale: te
+---
+సికిల్ సెల్ వ్యాధి
+జి6పిడి లోపం
+హైపర్‌టెన్షన్
+ప్రొస్టేట్ క్యాన్సర్
+కీలాయిడ్ మచ్చలు
+లాక్టోస్ అసహనం
+సార్కోయిడోసిస్

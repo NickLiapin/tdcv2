@@ -1,0 +1,5 @@
+---
+description: Currency of టర్కీ, in Telugu.
+locale: te
+---
+టర్కిష్ లిరా

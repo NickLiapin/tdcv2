@@ -1,0 +1,23 @@
+---
+description: Legal term (Telugu). Telugu legal vocabulary is largely Sanskritic and is what a Telugu court order actually prints, though advocates argue in a mixture of Telugu and English.
+locale: te
+---
+వాది
+ప్రతివాది
+ఫిర్యాదుదారు
+నిందితుడు
+సాక్షి
+సాక్ష్యం
+అఫిడవిట్
+సమన్లు
+వారెంట్
+బెయిల్
+తీర్పు
+డిక్రీ
+అప్పీలు
+స్టే ఉత్తర్వు
+మధ్యంతర ఉత్తర్వు
+జరిమానా
+శిక్ష
+ఖరారు
+రాజీ

@@ -1,0 +1,34 @@
+---
+description: Spice or herb (Telugu). Guntur is the chilli capital of India and its market is the largest chilli yard in Asia, so మిరపకాయలు are not one spice among many here but the base of the cooking; ఆవాలు (mustard), మెంతులు (fenugreek) and ఇంగువ (asafoetida) are the tempering trio that starts almost every dish; and the whole-spice list runs long because a Telugu kitchen grinds its own కారం పొడి and సాంబార్ పొడి rather than buying blends.
+locale: te
+---
+మిరపకాయలు
+ఎండుమిర్చి
+కారం
+పసుపు
+ధనియాలు
+జీలకర్ర
+ఆవాలు
+మెంతులు
+ఇంగువ
+కరివేపాకు
+కొత్తిమీర
+పుదీనా
+తులసి
+యాలకులు
+లవంగాలు
+దాల్చిన చెక్క
+జాజికాయ
+జాపత్రి
+మిరియాలు
+శొంఠి
+వాము
+నల్ల జీలకర్ర
+సోంపు
+మారేడు ఆకు
+బిర్యానీ ఆకు
+అనాసపువ్వు
+కుంకుమపువ్వు
+నువ్వులు
+గసగసాలు
+కొబ్బరి కారం

@@ -1,0 +1,38 @@
+---
+description: Fruit (Telugu). The list leads with what actually grows and sells here: Andhra Pradesh is India's largest producer of mango and of banana, the బంగినపల్లి mango of Kurnool has a Geographical Indication, and the sweet lime (బత్తాయి) of Nalgonda and the guava of the Krishna delta are ordinary daily fruit rather than imports. తాటిముంజలు (ice-apple, the tender kernel of the palmyra) and ఈత పండ్లు are seasonal fruits with no English name in common use.
+locale: te
+---
+మామిడి
+బంగినపల్లి మామిడి
+అరటి
+బొప్పాయి
+జామ
+సపోటా
+బత్తాయి
+నారింజ
+నిమ్మ
+ద్రాక్ష
+దానిమ్మ
+సీతాఫలం
+రామాఫలం
+పనస
+కొబ్బరి
+తాటిముంజలు
+ఈత పండ్లు
+రేగుపండ్లు
+నేరేడు
+వెలగపండు
+ఉసిరికాయ
+చింతపండు
+బిల్వ ఫలం
+కమలా
+పుచ్చకాయ
+కర్బూజ
+ఖర్జూరం
+అంజీర
+ఆపిల్
+బేరి
+స్ట్రాబెర్రీ
+కివి
+డ్రాగన్ ఫ్రూట్
+లిచీ

@@ -1,0 +1,18 @@
+---
+description: Personal pronoun (Telugu). This is where Telugu differs from European languages most sharply, and the difference bites any config that builds a sentence rather than a bare name. SINGULAR: three genders — అతను (he), ఆమె (she), అది (it) — but the VERB only distinguishes two of them. Masculine takes its own ending and feminine collapses with neuter: అతను వచ్చాడు "he came" against ఆమె వచ్చింది "she came" and అది వచ్చింది "it came", the last two identical. PLURAL: the split changes completely, to HUMAN against NON-HUMAN. Men and women now take the same form — వాళ్ళు వచ్చారు covers a group of men, of women, or of both — while things take another, అవి వచ్చాయి. So a woman patterns with objects in the singular and with men in the plural, and no single "gender" column can drive both. Telugu also makes a distinction English lacks: మనం is "we including you", మేము is "we excluding you", and choosing wrong is a real error, not a stylistic one. మీరు is both the plural "you" and the polite singular, and ఆయన / ఆవిడ are the honorific he and she used for elders, teachers and strangers — వాడు and అది applied to an adult person are insulting.
+locale: te
+---
+నేను
+మేము
+మనం
+నువ్వు
+మీరు
+అతను
+ఆమె
+అది
+ఆయన
+ఆవిడ
+వాళ్ళు
+అవి
+వారు
+వాడు

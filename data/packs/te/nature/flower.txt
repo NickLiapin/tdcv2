@@ -1,0 +1,32 @@
+---
+description: Flower (Telugu). The order is not botanical but ritual: మల్లె (jasmine), కనకాంబరం (firecracker flower), బంతి (marigold), చామంతి (chrysanthemum) and పారిజాతం lead because they are the flowers actually bought — strung into a మాల for the hair or the deity — and a Telugu flower market sells by the మూర (arm-length of strung flowers), not by the stem. తామర (lotus) and మందారం (hibiscus) carry temple associations that a config generating decorative data may want to know about.
+locale: te
+---
+మల్లె
+కనకాంబరం
+బంతి
+చామంతి
+పారిజాతం
+సంపంగి
+మందారం
+తామర
+కలువ
+గులాబీ
+నందివర్ధనం
+మొగలి
+జాజి
+విరజాజి
+సన్నజాజి
+కాగడా మల్లి
+తురాయి
+గన్నేరు
+ఎర్ర గన్నేరు
+మోదుగ
+తంగేడు
+గునుగు
+పొగడ
+నిత్యమల్లి
+బూరుగు
+కేతకి
+డాలియా
+సూర్యకాంతం

@@ -1,0 +1,32 @@
+---
+description: Airline name. THIS LIST IS DELIBERATELY SHORTER than the European packs' fifty. India has only a handful of scheduled passenger airlines and adding invented ones to reach a target number would be adding companies that do not exist; the list therefore holds the Indian carriers plus the international airlines that actually serve Hyderabad and Visakhapatnam, most of them Gulf carriers because the Gulf is where the Telugu diaspora works. Brand names keep their real spelling.
+locale: te
+---
+IndiGo
+Air India
+Air India Express
+Akasa Air
+SpiceJet
+Alliance Air
+Star Air
+FLY91
+Emirates
+Qatar Airways
+Etihad Airways
+Saudia
+Oman Air
+Kuwait Airways
+Gulf Air
+flydubai
+Air Arabia
+Singapore Airlines
+Thai Airways
+Malaysia Airlines
+AirAsia
+Cathay Pacific
+British Airways
+Lufthansa
+Air France
+KLM
+Turkish Airlines
+United Airlines

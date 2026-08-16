@@ -1,0 +1,5 @@
+---
+description: Capital of ఇండోనేషియా, in Telugu.
+locale: te
+---
+జకార్తా

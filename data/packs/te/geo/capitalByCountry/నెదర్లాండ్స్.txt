@@ -1,0 +1,5 @@
+---
+description: Capital of నెదర్లాండ్స్, in Telugu.
+locale: te
+---
+ఆమ్‌స్టర్‌డామ్

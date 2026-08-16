@@ -1,0 +1,48 @@
+---
+description: Common Telugu verb, given in the infinitive. Telugu verbs agglutinate: tense, person, gender and number are all suffixed onto the stem, so వెళ్ళు becomes వెళ్ళాడు (he went), వెళ్ళింది (she went), వెళ్ళారు (they went) — one word where English needs three.
+locale: te
+---
+చేయు
+చెప్పు
+చూడు
+విను
+తిను
+తాగు
+పోవు
+రావు
+వెళ్ళు
+నిలబడు
+కూర్చొను
+పడుకొను
+నిద్రపోవు
+లేచు
+నడువు
+పరుగెత్తు
+ఆడు
+పాడు
+రాయు
+చదువు
+నేర్చుకొను
+నేర్పు
+ఇచ్చు
+తీసుకొను
+కొను
+అమ్ము
+ఇష్టపడు
+ప్రేమించు
+నవ్వు
+ఏడ్చు
+మాట్లాడు
+అడుగు
+జవాబు చెప్పు
+తెరచు
+మూయు
+కట్టు
+విప్పు
+పట్టుకొను
+వదులు
+మొదలుపెట్టు
+ముగించు
+ఆగు
+వేచి ఉండు
+గెలుచు

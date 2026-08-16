@@ -1,0 +1,5 @@
+---
+description: Capital of పాకిస్తాన్, in Telugu.
+locale: te
+---
+ఇస్లామాబాద్

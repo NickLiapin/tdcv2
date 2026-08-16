@@ -1,0 +1,20 @@
+---
+description: Seniority or level label for a role (Telugu). The government-service ladder (ఔట్‌సోర్సింగ్, కాంట్రాక్ట్, రెగ్యులర్, గెజిటెడ్) is a separate axis from the corporate one and both are in real use in the Telugu states.
+locale: te
+---
+ఇంటర్న్
+ట్రైనీ
+అప్రెంటిస్
+జూనియర్
+అసోసియేట్
+ఎగ్జిక్యూటివ్
+సీనియర్ ఎగ్జిక్యూటివ్
+సీనియర్
+లీడ్
+సూపర్‌వైజర్
+మేనేజర్
+సీనియర్ మేనేజర్
+ఏ.జి.ఎం.
+జనరల్ మేనేజర్
+డైరెక్టర్
+గెజిటెడ్ అధికారి

@@ -1,0 +1,5 @@
+---
+description: Capital of చైనా, in Telugu.
+locale: te
+---
+బీజింగ్

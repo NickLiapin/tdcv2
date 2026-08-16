@@ -1,0 +1,20 @@
+---
+description: Room type (Telugu). పూజ గది is a dedicated prayer room and is a standard, advertised feature of a Telugu house rather than a luxury; హాలు is the main living room; and వరండా and పెరడు (the back yard) are the semi-outdoor spaces an older Telugu house is organised around.
+locale: te
+---
+హాలు
+పడక గది
+మాస్టర్ బెడ్‌రూమ్
+వంట గది
+భోజన గది
+పూజ గది
+స్నానపు గది
+మరుగుదొడ్డి
+వరండా
+బాల్కనీ
+పెరడు
+డాబా
+స్టోర్ రూమ్
+చదువుకునే గది
+సర్వెంట్ రూమ్
+కార్ పార్కింగ్

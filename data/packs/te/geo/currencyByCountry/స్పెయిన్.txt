@@ -1,0 +1,5 @@
+---
+description: Currency of స్పెయిన్, in Telugu.
+locale: te
+---
+యూరో

@@ -1,0 +1,11 @@
+---
+description: Commercial driving licence class. These are the INDIAN classes issued under the Motor Vehicles Act by a state transport authority, not the US CDL classes: LMV is a light motor vehicle, MGV a medium goods vehicle, HGMV a heavy goods motor vehicle, HPMV a heavy passenger motor vehicle, and a separate trailer and hazardous-goods endorsement is required on top. A Telugu driver quotes these letters exactly as written here, in Latin script, because that is how they are printed on the licence.
+locale: te
+---
+LMV
+LMV-TR
+MGV
+HGMV
+HPMV
+ట్రెయిలర్
+ప్రమాదకర సరుకు అనుమతి

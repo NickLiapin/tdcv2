@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Telugu). The order is the Telugu road, not a European one: the two-wheeler is the default family vehicle here, the ఆటో రిక్షా is public transport rather than a curiosity, and ట్రాక్టర్ appears because it doubles as a goods and passenger vehicle in rural Andhra and Telangana. RTC బస్సు is the state road-transport bus that most intercity travel here still runs on.
+locale: te
+---
+బైక్
+స్కూటర్
+మోపెడ్
+ఎలక్ట్రిక్ స్కూటర్
+సైకిల్
+ఆటో రిక్షా
+ఇ-రిక్షా
+కారు
+హ్యాచ్‌బ్యాక్
+సెడాన్
+ఎస్.యు.వి.
+ఎం.పి.వి.
+జీపు
+వ్యాన్
+మినీ బస్సు
+RTC బస్సు
+లారీ
+మినీ ట్రక్
+టిప్పర్
+ట్రాక్టర్
+ట్రెయిలర్
+అంబులెన్స్

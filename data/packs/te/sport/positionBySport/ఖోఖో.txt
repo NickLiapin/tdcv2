@@ -1,0 +1,10 @@
+---
+description: Positions in ఖోఖో, in Telugu.
+locale: te
+---
+ఛేజర్
+రన్నర్
+పోల్ డైవర్
+ఆక్టివ్ ఛేజర్
+డిఫెండర్
+కెప్టెన్

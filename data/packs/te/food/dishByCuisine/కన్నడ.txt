@@ -1,0 +1,10 @@
+---
+description: Dishes of కన్నడ cuisine, in Telugu.
+locale: te
+---
+బిసి బేళె బాత్
+మైసూర్ పాక్
+ఒబ్బట్టు
+నీర్ దోసె
+ఖారా బాత్
+రాగి రొట్టి

@@ -1,0 +1,5 @@
+---
+description: Capital of భారతదేశం, in Telugu.
+locale: te
+---
+న్యూఢిల్లీ

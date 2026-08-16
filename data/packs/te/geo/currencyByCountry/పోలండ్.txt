@@ -1,0 +1,5 @@
+---
+description: Currency of పోలండ్, in Telugu.
+locale: te
+---
+పోలిష్ జ్లోటీ

@@ -1,0 +1,45 @@
+---
+description: Company legal or trading suffix as it appears on a Telugu signboard or letterhead. The legal forms themselves are English and stay English even in fully Telugu text — ప్రైవేట్ లిమిటెడ్ is the transliteration of "Private Limited", which is the form Indian company law actually registers, and no Telugu word replaces it. The genuinely Telugu ones are the trading and institutional words: భవన్, నిలయం and సదన్ name a shop-house, సంఘం and సహకార సంఘం name a society and a co-operative (the co-operative is a very live business form in rural Andhra, not a historical curiosity), and అండ్ సన్స్ / అండ్ బ్రదర్స్ are what a family firm still writes above its door.
+locale: te
+---
+ప్రైవేట్ లిమిటెడ్
+లిమిటెడ్
+పబ్లిక్ లిమిటెడ్
+ఎల్‌.ఎల్‌.పి.
+అండ్ కంపెనీ
+అండ్ సన్స్
+అండ్ బ్రదర్స్
+అండ్ కో.
+ఇండస్ట్రీస్
+ఎంటర్‌ప్రైజెస్
+ట్రేడర్స్
+ట్రేడింగ్ కంపెనీ
+గ్రూప్
+హోల్డింగ్స్
+వెంచర్స్
+సొల్యూషన్స్
+టెక్నాలజీస్
+సిస్టమ్స్
+సర్వీసెస్
+కన్సల్టెన్సీ
+అసోసియేట్స్
+ఏజెన్సీస్
+డిస్ట్రిబ్యూటర్స్
+సప్లయర్స్
+మార్ట్
+స్టోర్స్
+ఎంపోరియం
+భవన్
+నిలయం
+సదన్
+సంస్థ
+సంఘం
+సహకార సంఘం
+ట్రస్ట్
+ఫౌండేషన్
+సొసైటీ
+కార్పొరేషన్
+నిగమం
+ఆగ్రో
+ఫార్మా
+ఇన్‌ఫ్రా

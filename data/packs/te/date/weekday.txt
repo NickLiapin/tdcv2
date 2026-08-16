@@ -1,0 +1,11 @@
+---
+description: Weekday name (Telugu). The week starts on ఆదివారం (Sunday), as it does throughout India. Each day is named for its planet exactly as in Sanskrit, and the association is live rather than etymological: మంగళవారం and శనివారం carry real restrictions in a Telugu household — many people do not begin a journey, buy property or eat meat on particular days, and shops in some trades still close on a fixed weekday other than Sunday.
+locale: te
+---
+ఆదివారం
+సోమవారం
+మంగళవారం
+బుధవారం
+గురువారం
+శుక్రవారం
+శనివారం

@@ -1,0 +1,24 @@
+---
+description: Budget or spending category (Telugu). Two entries would not appear in a European budget and are ordinary here: చిట్టీ is the chit fund, a regulated rotating savings-and-credit scheme that a very large number of Telugu households contribute to monthly, and పెళ్లి ఖర్చులు (wedding expenses) is treated as its own long-running savings line rather than a one-off, because a Telugu wedding is commonly the largest single expenditure of a family's life.
+locale: te
+---
+ఇంటి అద్దె
+ఇంటి రుణ వాయిదా
+కిరాణా సామాన్లు
+కూరగాయలు
+పాలు
+గ్యాస్ సిలిండర్
+విద్యుత్ బిల్లు
+నీటి బిల్లు
+మొబైల్ రీఛార్జ్
+ఇంటర్నెట్
+రవాణా
+పెట్రోల్
+పిల్లల ఫీజులు
+ట్యూషన్ ఫీజు
+వైద్య ఖర్చులు
+బీమా ప్రీమియం
+చిట్టీ
+పొదుపు
+పెళ్లి ఖర్చులు
+పండుగ ఖర్చులు

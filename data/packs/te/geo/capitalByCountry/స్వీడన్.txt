@@ -1,0 +1,5 @@
+---
+description: Capital of స్వీడన్, in Telugu.
+locale: te
+---
+స్టాక్‌హోమ్

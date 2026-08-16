@@ -1,0 +1,16 @@
+---
+description: Month name (Telugu), Gregorian. These are the months a Telugu newspaper, payslip or school calendar prints, and they match data/packs/te/DATE_LOCALE.json. Telugu ALSO has a full lunisolar calendar whose months are చైత్రం, వైశాఖం, జ్యేష్ఠం, ఆషాఢం, శ్రావణం, భాద్రపదం, ఆశ్వయుజం, కార్తీకం, మార్గశిరం, పుష్యం, మాఘం and ఫాల్గుణం, and that calendar is not folklore: the Telugu new year ఉగాది falls on the first day of చైత్రం, every festival and every wedding date is fixed by it, and a Telugu household consults a పంచాంగం for it. A config generating a festival, a wedding or a religious date from a Gregorian month here will be wrong, because the mapping between the two systems moves every year.
+locale: te
+---
+జనవరి
+ఫిబ్రవరి
+మార్చి
+ఏప్రిల్
+మే
+జూన్
+జూలై
+ఆగస్టు
+సెప్టెంబర్
+అక్టోబర్
+నవంబర్
+డిసెంబర్

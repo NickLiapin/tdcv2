@@ -1,0 +1,16 @@
+---
+description: Grade or mark band (Telugu). Indian schooling does NOT use an A-to-F letter scale. The Telugu state boards report a percentage and a CGPA-linked grade running A1, A2, B1, B2, C1, C2, D, E, and higher education reports డిస్టింక్షన్ / ఫస్ట్ క్లాస్ / సెకండ్ క్లాస్ / పాస్ against percentage thresholds — 60% is a first class and 75% a distinction, so a mark that would be mediocre on a European scale is a strong result here and a config comparing the two will misread both.
+locale: te
+---
+A1
+A2
+B1
+B2
+C1
+C2
+D
+E
+డిస్టింక్షన్
+ఫస్ట్ క్లాస్
+సెకండ్ క్లాస్
+పాస్

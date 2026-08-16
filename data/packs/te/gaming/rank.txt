@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Telugu). The metal tiers are translated; the top tiers keep the English names players actually use.
+locale: te
+---
+కాంస్యం
+రజతం
+స్వర్ణం
+ప్లాటినం
+వజ్రం
+మాస్టర్
+గ్రాండ్ మాస్టర్
+ఛాలెంజర్
+లెజెండ్
+కాన్‌క్వెరర్

@@ -1,0 +1,28 @@
+---
+description: RPG character class (Telugu). Class names are largely translated rather than borrowed, because Telugu has a full vocabulary for warrior and sage archetypes from its own epic literature.
+locale: te
+---
+యోధుడు
+వీరుడు
+ధనుర్ధారి
+ఖడ్గధారి
+రక్షకుడు
+గూఢచారి
+దొంగ
+హంతకుడు
+మాంత్రికుడు
+ఇంద్రజాలికుడు
+తాంత్రికుడు
+ఋషి
+పూజారి
+వైద్యుడు
+నేచర్ డ్రూయిడ్
+మృగరాజు
+బార్బేరియన్
+పాలడిన్
+నెక్రోమాన్సర్
+సమన్
+బెర్సర్కర్
+మాంక్
+బార్డ్
+రేంజర్

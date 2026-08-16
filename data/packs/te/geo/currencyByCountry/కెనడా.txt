@@ -1,0 +1,5 @@
+---
+description: Currency of కెనడా, in Telugu.
+locale: te
+---
+కెనడియన్ డాలర్

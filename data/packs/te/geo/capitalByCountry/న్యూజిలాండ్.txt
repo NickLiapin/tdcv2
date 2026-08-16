@@ -1,0 +1,5 @@
+---
+description: Capital of న్యూజిలాండ్, in Telugu.
+locale: te
+---
+వెల్లింగ్టన్

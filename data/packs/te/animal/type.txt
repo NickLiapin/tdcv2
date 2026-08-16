@@ -1,0 +1,42 @@
+---
+description: Animal (Telugu). The domestic and field animals come first because that is their weight in Telugu life and language — the buffalo (గేదె) is the main dairy animal here rather than the cow, and the ox (ఎద్దు) still names a festival day at Sankranti. ఏనుగు, పులి and చిరుత are the large wild animals of the Eastern Ghats and Nallamala forests, and కృష్ణజింక (blackbuck) is the state animal of Andhra Pradesh.
+locale: te
+---
+ఆవు
+ఎద్దు
+గేదె
+దున్నపోతు
+మేక
+గొర్రె
+కుక్క
+పిల్లి
+గుర్రం
+గాడిద
+ఒంటె
+ఏనుగు
+పులి
+సింహం
+చిరుత
+ఎలుగుబంటి
+తోడేలు
+నక్క
+కుందేలు
+ఉడుత
+ఎలుక
+మంగూస్
+కోతి
+లంగూర్
+జింక
+కృష్ణజింక
+దుప్పి
+అడవి పంది
+నీలుగాయి
+పాము
+నాగుపాము
+తాచుపాము
+కొండచిలువ
+బల్లి
+ఉడుము
+తాబేలు
+మొసలి
+కప్ప

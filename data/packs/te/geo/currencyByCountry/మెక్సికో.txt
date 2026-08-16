@@ -1,0 +1,5 @@
+---
+description: Currency of మెక్సికో, in Telugu.
+locale: te
+---
+మెక్సికన్ పెసో

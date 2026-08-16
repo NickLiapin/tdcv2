@@ -1,0 +1,5 @@
+---
+description: Capital of ఐర్లాండ్, in Telugu.
+locale: te
+---
+డబ్లిన్

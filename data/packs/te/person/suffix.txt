@@ -1,0 +1,28 @@
+---
+description: Telugu name suffix. The first value, గారు, is the one no European locale has: it is the universal Telugu particle of respect and it attaches to a name, a title or a kinship term alike (రామారావు గారు, డాక్టర్ గారు, నాన్న గారు). It is not optional politeness — leaving it off an elder's or a stranger's name is rude, and Telugu speakers carry the habit into English ("Sir garu"). వారు is the still more formal plural-of-respect form. Academic degrees follow the name as they do in English, and the civil-service cadre abbreviations (ఐ.ఏ.ఎస్., ఐ.పి.ఎస్., ఐ.ఎఫ్.ఎస్.) are printed after the name on letterheads and nameplates. స్వర్గీయ marks a deceased person and విశ్రాంత a retired officer.
+locale: te
+---
+గారు
+వారు
+జూనియర్
+సీనియర్
+ద్వితీయ
+తృతీయ
+బి.ఏ.
+ఎం.ఏ.
+బి.ఎస్సీ.
+ఎం.ఎస్సీ.
+బి.కామ్.
+ఎం.కామ్.
+బి.టెక్.
+ఎం.టెక్.
+ఎం.బి.ఏ.
+ఎం.బి.బి.ఎస్.
+ఎం.డి.
+ఎల్‌.ఎల్‌.బి.
+పి.హెచ్.డి.
+ఐ.ఏ.ఎస్.
+ఐ.పి.ఎస్.
+ఐ.ఎఫ్.ఎస్.
+విశ్రాంత
+స్వర్గీయ

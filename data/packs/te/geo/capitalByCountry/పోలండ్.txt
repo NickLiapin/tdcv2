@@ -1,0 +1,5 @@
+---
+description: Capital of పోలండ్, in Telugu.
+locale: te
+---
+వార్సా

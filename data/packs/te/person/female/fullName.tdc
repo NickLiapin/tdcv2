@@ -1,0 +1,10 @@
+---
+description: Telugu full female name. THE FAMILY NAME COMES FIRST — house name then given name (అక్కినేని సావిత్రి), the reverse of the English and Hindi order. The family name is drawn from person/lastName.txt, the same list a male row uses, because Telugu family names do NOT inflect for gender; there is deliberately no person/female/lastName.txt to draw from.
+generator: tdc
+locale: te
+---
+<sequence name="p">
+  <gen name="l" type="template" value="te.person.lastName"/>
+  <gen name="f" type="template" value="te.person.female.firstName"/>
+</sequence>
+<data>${{p.l}} ${{p.f}}</data>

@@ -1,0 +1,34 @@
+---
+description: Hashtag word (Telugu), to be prefixed with # in a template. Telugu hashtags mix Telugu and Latin script freely and both forms trend; the cinema, festival and state-identity tags are the ones that actually dominate Telugu social media.
+locale: te
+---
+తెలుగు
+తెలంగాణ
+ఆంధ్రప్రదేశ్
+హైదరాబాద్
+విశాఖపట్నం
+విజయవాడ
+టాలీవుడ్
+తెలుగుసినిమా
+సంక్రాంతి
+ఉగాది
+బతుకమ్మ
+బోనాలు
+వినాయకచవితి
+దసరా
+దీపావళి
+పండుగ
+మనతెలుగు
+తెలుగుభాష
+సాహిత్యం
+కవిత
+పాట
+సంగీతం
+నృత్యం
+వంటలు
+ఆవకాయ
+బిర్యానీ
+ప్రయాణం
+ఆరోగ్యం
+విద్య
+ఉద్యోగం

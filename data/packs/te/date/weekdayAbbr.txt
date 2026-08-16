@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Telugu) — the first element of the day name, which is what a Telugu calendar grid prints.
+locale: te
+---
+ఆది
+సోమ
+మంగళ
+బుధ
+గురు
+శుక్ర
+శని

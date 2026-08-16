@@ -1,0 +1,5 @@
+---
+description: Capital of సింగపూర్, in Telugu.
+locale: te
+---
+సింగపూర్

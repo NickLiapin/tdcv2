@@ -1,0 +1,5 @@
+---
+description: Capital of బ్రెజిల్, in Telugu.
+locale: te
+---
+బ్రసీలియా

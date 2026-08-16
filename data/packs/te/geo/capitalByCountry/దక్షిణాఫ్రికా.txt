@@ -1,0 +1,5 @@
+---
+description: Capital of దక్షిణాఫ్రికా, in Telugu.
+locale: te
+---
+ప్రిటోరియా

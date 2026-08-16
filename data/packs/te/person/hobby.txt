@@ -1,0 +1,81 @@
+---
+description: Hobby or pastime (Telugu). The list is Telugu rather than translated: కర్ణాటక సంగీతం (Carnatic music, whose composers Tyagaraja and Annamayya wrote in Telugu, which is why Telugu is the language most Carnatic songs are actually sung in), కూచిపూడి (the classical dance form of a village of that name in Krishna district), అవధానం (a public feat of literary improvisation that is a genuinely Telugu institution and has no counterpart elsewhere), ముగ్గు (the rice-flour floor drawing done at dawn, at its most elaborate during సంక్రాంతి), and కోడిపందేలు (cockfighting, illegal but a very live Sankranti practice in coastal Andhra) are all specific to this culture. Cricket and film-watching lead because they honestly do.
+locale: te
+---
+క్రికెట్ ఆడటం
+సినిమాలు చూడటం
+పుస్తకాలు చదవటం
+సంగీతం వినటం
+కర్ణాటక సంగీతం
+పాటలు పాడటం
+వీణ వాయించటం
+మృదంగం వాయించటం
+కూచిపూడి నృత్యం
+శాస్త్రీయ నృత్యం
+ముగ్గులు వేయటం
+చిత్రలేఖనం
+ఫోటోగ్రఫీ
+కవిత్వం రాయటం
+కథలు రాయటం
+అవధానం
+పద్యాలు నేర్చుకోవటం
+తోట పెంపకం
+వంట చేయటం
+పిండి వంటలు చేయటం
+కుట్టు పని
+ఎంబ్రాయిడరీ
+బొమ్మలు తయారుచేయటం
+మట్టి పని
+ట్రెక్కింగ్
+యాత్రలు చేయటం
+దేవాలయ దర్శనం
+ధ్యానం
+యోగా
+నడక
+పరుగు
+ఈత
+సైక్లింగ్
+బ్యాడ్మింటన్ ఆడటం
+కబడ్డీ ఆడటం
+ఖోఖో ఆడటం
+వాలీబాల్ ఆడటం
+చెస్ ఆడటం
+కేరమ్ ఆడటం
+పేకాట
+వీడియో గేమ్స్
+మొబైల్ గేమ్స్
+యూట్యూబ్ చూడటం
+రీల్స్ చేయటం
+బ్లాగింగ్
+పాడ్‌కాస్ట్ వినటం
+రేడియో వినటం
+వార్తాపత్రిక చదవటం
+పజిల్స్ పరిష్కరించటం
+సుడోకు
+నాణేల సేకరణ
+స్టాంపుల సేకరణ
+పుస్తక సేకరణ
+పక్షుల పరిశీలన
+ఆక్వేరియం పెంపకం
+పెంపుడు జంతువుల సంరక్షణ
+కోడిపందేలు
+ఎద్దుల పందేలు
+గాలిపటాలు ఎగరవేయటం
+జానపద కళలు
+హరికథ
+బుర్రకథ
+నాటకాలు
+రంగస్థల నటన
+డబ్బింగ్
+మిమిక్రీ
+వక్తృత్వం
+చర్చావేదికలు
+స్వచ్ఛంద సేవ
+రక్తదానం
+పర్యావరణ సేవ
+జ్యోతిష్యం
+పంచాంగ పఠనం
+వేదాధ్యయనం
+భగవద్గీత పఠనం
+సినిమా సంగీతం
+డి.జె. మిక్సింగ్

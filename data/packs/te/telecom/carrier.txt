@@ -1,0 +1,20 @@
+---
+description: Telecom carrier available in the Telugu states. THIS LIST IS DELIBERATELY SHORT and shorter than the equivalent in the European packs, because India has only four mobile network operators — Jio, Airtel, Vi and the state-owned BSNL — and inventing more would be inventing companies. The rest of the list is the broadband, fibre and DTH providers a Telugu household actually subscribes to, which are carriers in the same everyday sense. Brand names keep their real spelling.
+locale: te
+---
+Jio
+Airtel
+Vi
+BSNL
+JioFiber
+Airtel Xstream Fiber
+BSNL Bharat Fiber
+ACT Fibernet
+Hathway
+Excitel
+Tata Play
+Tata Play Fiber
+Dish TV
+Sun Direct
+Airtel Digital TV
+d2h

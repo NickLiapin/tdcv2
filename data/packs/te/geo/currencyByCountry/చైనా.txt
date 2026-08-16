@@ -1,0 +1,5 @@
+---
+description: Currency of చైనా, in Telugu.
+locale: te
+---
+చైనీస్ యువాన్

@@ -1,0 +1,12 @@
+---
+description: Clothing size. Indian retail uses the international letter sizes and Telugu shops label them in Latin letters even on Telugu signage. ఫ్రీ సైజ్ is a genuine and very common local label on ready-made kurtis and nighties — one cut meant to fit a range — and is not a placeholder. Note that the garment most Telugu women buy is not sized at all: a చీర is six or nine yards of cloth, and the size that matters is the separately stitched blouse.
+locale: te
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+ఫ్రీ సైజ్

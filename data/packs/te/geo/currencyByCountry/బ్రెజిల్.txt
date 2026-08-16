@@ -1,0 +1,5 @@
+---
+description: Currency of బ్రెజిల్, in Telugu.
+locale: te
+---
+బ్రెజిలియన్ రియల్

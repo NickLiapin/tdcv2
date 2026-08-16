@@ -1,0 +1,19 @@
+---
+description: Payment method (Telugu). యు.పి.ఐ. leads because it genuinely dominates: UPI is how most everyday payments in Andhra Pradesh and Telangana are now made, down to a five-rupee tea, and a Telugu vegetable seller displays a QR code. చెల్లింపు తర్వాత డెలివరీ (cash on delivery) remains a real and large share of e-commerce here, which is not the case in most European locales. చిట్టీ (chit fund) is a genuine, regulated, heavily used instalment-savings and credit instrument in the Telugu states and has no European counterpart.
+locale: te
+---
+యు.పి.ఐ.
+ఫోన్‌పే
+గూగుల్ పే
+పేటీఎం
+డెబిట్ కార్డు
+క్రెడిట్ కార్డు
+నెట్ బ్యాంకింగ్
+ఐ.ఎం.పి.ఎస్.
+ఎన్.ఇ.ఎఫ్.టి.
+ఆర్.టి.జి.ఎస్.
+నగదు
+చెల్లింపు తర్వాత డెలివరీ
+చెక్కు
+డిమాండ్ డ్రాఫ్ట్
+ఈ.ఎం.ఐ.

@@ -1,0 +1,5 @@
+---
+description: Capital of ఇటలీ, in Telugu.
+locale: te
+---
+రోమ్

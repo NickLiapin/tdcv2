@@ -1,0 +1,47 @@
+---
+description: Common generic drug name (Telugu script). Indian prescribing is generic-name based by regulation and the National List of Essential Medicines is what a government hospital dispenses, so these are the names that actually appear on a Telugu prescription slip — written, in practice, in Latin script even on an otherwise Telugu form, which is worth knowing before rendering them. పారాసిటమాల్ (not "acetaminophen"), ఒ.ఆర్.ఎస్. and యాంటీ-స్నేక్ వెనమ్ reflect Indian rather than American usage.
+locale: te
+---
+పారాసిటమాల్
+ఇబుప్రొఫెన్
+డైక్లోఫెనాక్
+ఆస్పిరిన్
+ట్రామడాల్
+అమాక్సిసిలిన్
+అజిత్రోమైసిన్
+సెఫిక్సిమ్
+సిప్రోఫ్లాక్సాసిన్
+డాక్సీసైక్లిన్
+మెట్రోనిడాజోల్
+రిఫాంపిసిన్
+ఐసోనియాజిడ్
+ఇథాంబుటాల్
+పైరజినమైడ్
+ఫ్లూకోనజోల్
+అల్బెండజోల్
+క్లోరోక్విన్
+ఆర్టిమెథర్
+మెట్‌ఫార్మిన్
+గ్లిమెపిరైడ్
+ఇన్సులిన్
+టెల్మిసార్టన్
+అమ్లోడిపిన్
+ఎనలాప్రిల్
+అటెనోలాల్
+మెటోప్రొలాల్
+ఫ్యూరోసెమైడ్
+అటోర్వాస్టాటిన్
+క్లోపిడోగ్రెల్
+పాంటోప్రజోల్
+ఒమెప్రజోల్
+రానిటిడిన్
+ఆండాన్సెట్రాన్
+డోంపెరిడోన్
+సెటిరిజిన్
+మాంటెలుకాస్ట్
+సాల్బుటమాల్
+ప్రెడ్నిసోలోన్
+లెవోథైరాక్సిన్
+ఒ.ఆర్.ఎస్.
+ఐరన్ ఫోలిక్ యాసిడ్
+యాంటీ-స్నేక్ వెనమ్

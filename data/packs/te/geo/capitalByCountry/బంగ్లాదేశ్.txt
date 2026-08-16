@@ -1,0 +1,5 @@
+---
+description: Capital of బంగ్లాదేశ్, in Telugu.
+locale: te
+---
+ఢాకా

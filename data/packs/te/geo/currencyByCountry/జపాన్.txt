@@ -1,0 +1,5 @@
+---
+description: Currency of జపాన్, in Telugu.
+locale: te
+---
+జపనీస్ యెన్

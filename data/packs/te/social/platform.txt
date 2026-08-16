@@ -1,0 +1,21 @@
+---
+description: Social media platform. ShareChat and Moj are here because they are Indian-language-first platforms on which Telugu is one of the largest communities, which an internationally derived list would miss. Brand names keep their real spelling.
+locale: te
+---
+WhatsApp
+YouTube
+Instagram
+Facebook
+ShareChat
+Moj
+Josh
+X
+Telegram
+Snapchat
+LinkedIn
+Pinterest
+Reddit
+Threads
+Koo
+Clubhouse
+Discord

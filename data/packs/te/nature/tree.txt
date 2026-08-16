@@ -1,0 +1,32 @@
+---
+description: Tree (Telugu). వేప, రావి and మర్రి lead because they are the three trees a Telugu village is organised around — the neem at the house, the peepal and the banyan at the temple and the meeting place — and all three carry religious protection, which is why they survive in fields that have been cleared of everything else. ఎర్ర చందనం (red sanders) grows wild ONLY in the Seshachalam hills of Rayalaseema and nowhere else on earth, which is why it is both a protected species and a smuggling problem.
+locale: te
+---
+వేప
+రావి
+మర్రి
+జువ్వి
+మేడి
+తాడి
+కొబ్బరి
+ఈత
+మామిడి
+చింత
+పనస
+జామ
+నేరేడు
+ఉసిరి
+వెలగ
+బాదం
+టేకు
+ఎర్ర చందనం
+శ్రీ గంధం
+కానుగ
+తుమ్మ
+సరుగుడు
+యూకలిప్టస్
+వెదురు
+మద్ది
+బూరుగ
+పొగడ
+గన్నేరు

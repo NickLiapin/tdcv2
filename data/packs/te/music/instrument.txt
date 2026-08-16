@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Telugu). వీణ comes first because the Saraswati veena is the instrument of this region — Andhra has its own school of it — and it is the instrument Telugu iconography puts in the goddess of learning's hands. డప్పు and తప్పెట are the frame drums of Telangana and coastal Andhra respectively and are played at every procession; నాదస్వరం with డోలు is the temple and wedding pair that no South Indian ceremony happens without; and గరగ and కోలాటం sticks belong to the festival dances.
+locale: te
+---
+వీణ
+మృదంగం
+ఘటం
+కంజీర
+మోర్సింగ్
+నాదస్వరం
+డోలు
+వేణువు
+వయోలిన్
+తంబూరా
+గోటు వాద్యం
+సితార్
+సరోద్
+సంతూర్
+తబలా
+హార్మోనియం
+శ్రుతి పెట్టె
+డప్పు
+తప్పెట
+డోలక్
+ఢమరుకం
+జేగంట
+తాళాలు
+చిడతలు
+కోలాటం కర్రలు
+గరగ
+శంఖం
+కీబోర్డ్
+గిటార్
+డ్రమ్స్
+సాక్సోఫోన్

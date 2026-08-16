@@ -1,0 +1,30 @@
+---
+description: Book genre (Telugu). Several are Telugu literary categories rather than translations: పద్య కావ్యం is the classical verse epic that Telugu literature is founded on, శతకం is a hundred-verse moral poem addressed to a deity and is the form every Telugu schoolchild memorises, అవధాన సాహిత్యం records the improvisation contests, and దిన సీరియల్ names the serialised novel that Telugu weeklies carried for decades and that shaped modern popular fiction here.
+locale: te
+---
+నవల
+కథా సంకలనం
+పద్య కావ్యం
+శతకం
+వచన కవిత్వం
+నాటకం
+ఏకాంకిక
+జీవిత చరిత్ర
+ఆత్మకథ
+చరిత్ర
+యాత్రా కథనం
+వ్యాస సంపుటి
+విమర్శ
+అవధాన సాహిత్యం
+జానపద సాహిత్యం
+బాల సాహిత్యం
+పౌరాణిక సాహిత్యం
+ఆధ్యాత్మిక గ్రంథం
+తత్త్వ శాస్త్రం
+డిటెక్టివ్ నవల
+సాంఘిక నవల
+చారిత్రక నవల
+హాస్య రచన
+సైన్స్ ఫిక్షన్
+స్వీయ అభివృద్ధి
+పాఠ్య గ్రంథం

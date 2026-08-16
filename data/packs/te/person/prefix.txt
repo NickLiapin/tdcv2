@@ -1,0 +1,37 @@
+---
+description: Telugu honorific or form of address placed BEFORE a name — and since the family name already comes first, these stand at the very head of the line (శ్రీ నందమూరి తారక రామారావు). చిరంజీవి and సౌభాగ్యవతి have no European counterpart: they are the address forms used to a younger man and to a married younger woman in a letter or on a wedding invitation, and they are still live usage rather than archaism. బ్రహ్మశ్రీ and వేదమూర్తి address a Vedic scholar; జనాబ్, హాజీ and మౌలానా are the Muslim forms in ordinary Telugu use. Note that the everyday Telugu marker of respect is not a prefix at all but the suffix గారు — see person/suffix.txt.
+locale: te
+---
+శ్రీ
+శ్రీమతి
+కుమారి
+చిరంజీవి
+సౌభాగ్యవతి
+డా.
+డాక్టర్
+ప్రొ.
+ప్రొఫెసర్
+ఇంజినీర్
+ఆచార్య
+పండిత
+బ్రహ్మశ్రీ
+వేదమూర్తి
+స్వామి
+మహర్షి
+గురువు
+మాన్యశ్రీ
+శ్రీయుత
+గౌరవనీయ
+పూజ్యనీయ
+అయ్యగారు
+అమ్మగారు
+మేస్టారు
+సార్
+మేడం
+జనాబ్
+హాజీ
+మౌలానా
+రెవరెండ్
+పాస్టర్
+ఫాదర్
+సిస్టర్

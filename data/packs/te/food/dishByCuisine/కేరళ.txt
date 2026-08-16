@@ -1,0 +1,11 @@
+---
+description: Dishes of కేరళ cuisine, in Telugu.
+locale: te
+---
+అప్పం
+పుట్టు
+కడల కర్రీ
+మీన్ కర్రీ
+అవియల్
+పాల్ పాయసం
+మలబార్ పరోటా

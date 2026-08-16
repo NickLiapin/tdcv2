@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Telugu). ప్రీపెయిడ్ leads because prepaid is overwhelmingly the norm in India, the reverse of most European markets, and అపరిమిత కాల్స్ (unlimited voice) bundled with a daily data allowance is the standard shape of an Indian tariff.
+locale: te
+---
+ప్రీపెయిడ్
+పోస్ట్‌పెయిడ్
+రోజువారీ డేటా ప్లాన్
+అపరిమిత కాల్స్
+డేటా మాత్రమే
+టాక్‌టైమ్ రీఛార్జ్
+నెలవారీ ప్లాన్
+త్రైమాసిక ప్లాన్
+వార్షిక ప్లాన్
+కుటుంబ ప్లాన్
+అంతర్జాతీయ రోమింగ్
+బ్రాడ్‌బ్యాండ్ ప్లాన్

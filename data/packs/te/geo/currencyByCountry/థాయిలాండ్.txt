@@ -1,0 +1,5 @@
+---
+description: Currency of థాయిలాండ్, in Telugu.
+locale: te
+---
+థాయ్ బాట్

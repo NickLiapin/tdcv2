@@ -1,0 +1,5 @@
+---
+description: Capital of స్పెయిన్, in Telugu.
+locale: te
+---
+మాడ్రిడ్

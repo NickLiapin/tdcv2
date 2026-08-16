@@ -1,0 +1,22 @@
+---
+description: Cat breed (Telugu). Breed names are international and are written in Telugu script; the ordinary Indian street cat has no breed name and is simply నాటు పిల్లి, which is what most Telugu households actually keep.
+locale: te
+---
+నాటు పిల్లి
+పర్షియన్
+సియామీస్
+హిమాలయన్
+బెంగాల్
+మెయిన్ కూన్
+రాగ్‌డాల్
+బ్రిటిష్ షార్ట్‌హెయిర్
+అమెరికన్ షార్ట్‌హెయిర్
+రష్యన్ బ్లూ
+అబిస్సీనియన్
+బర్మీస్
+స్ఫింక్స్
+స్కాటిష్ ఫోల్డ్
+నార్వేజియన్ ఫారెస్ట్
+బాంబే
+టర్కిష్ అంగోరా
+ఎక్సోటిక్ షార్ట్‌హెయిర్

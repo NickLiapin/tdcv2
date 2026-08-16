@@ -1,0 +1,20 @@
+---
+description: Weather condition (Telugu). The two-monsoon pattern matters here: coastal Andhra takes its heaviest rain from the NORTH-EAST monsoon in October and November, not from the south-west monsoon, so "rainy season" means different months on the coast than inland.
+locale: te
+---
+ఎండగా ఉంది
+మబ్బులు పట్టాయి
+పాక్షిక మేఘావృతం
+వర్షం
+జల్లులు
+భారీ వర్షం
+తుఫాను
+ఉరుములు మెరుపులు
+పొగమంచు
+మంచు
+ఉక్కపోత
+పొడి వాతావరణం
+చల్లగా ఉంది
+వేడిగా ఉంది
+గాలులు
+ఆహ్లాదకరం

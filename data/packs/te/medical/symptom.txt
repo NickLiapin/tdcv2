@@ -1,0 +1,42 @@
+---
+description: Common symptom or presenting complaint (Telugu). Note the register: a Telugu patient describes symptoms in body-part terms — కడుపునొప్పి, తలనొప్పి, ఒళ్లు నొప్పులు — and నీరసం (a general weakness or lassitude) is the single most frequent opening complaint in an outpatient clinic here, with no exact English equivalent.
+locale: te
+---
+జ్వరం
+చలిజ్వరం
+తలనొప్పి
+కడుపునొప్పి
+ఛాతీ నొప్పి
+నడుము నొప్పి
+కీళ్ల నొప్పులు
+ఒళ్లు నొప్పులు
+నీరసం
+అలసట
+నిస్సత్తువ
+తల తిరగడం
+కళ్లు తిరగడం
+స్పృహ తప్పడం
+దగ్గు
+కఫం
+ఊపిరి ఆడకపోవడం
+పిల్లికూతలు
+ముక్కు కారడం
+ముక్కు దిబ్బడ
+గొంతునొప్పి
+వాంతులు
+వికారం
+విరేచనాలు
+మలబద్ధకం
+ఆకలి లేకపోవడం
+బరువు తగ్గడం
+బరువు పెరగడం
+దాహం ఎక్కువ కావడం
+తరచూ మూత్రవిసర్జన
+మంట
+దురద
+చర్మంపై దద్దుర్లు
+వాపు
+కాళ్ల వాపు
+రక్తస్రావం
+నిద్రలేమి
+గుండె దడ

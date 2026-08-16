@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Telugu, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. దక్షిణ ఆసియా is the group that describes Telugu speakers themselves, and it is not a small consideration here: South Asian populations carry a markedly higher risk of type 2 diabetes and of coronary artery disease at a lower body-mass index than European ones, which is why a Telugu clinical dataset that applies European BMI thresholds will under-count both.
+locale: te
+---
+సబ్-సహారా ఆఫ్రికన్
+ఉత్తర ఆఫ్రికన్
+మధ్యధరా
+మధ్యప్రాచ్య
+ఉత్తర ఐరోపా
+తూర్పు ఐరోపా
+అష్కెనాజీ యూదు
+దక్షిణ ఆసియా
+తూర్పు ఆసియా
+ఆగ్నేయాసియా
+స్థానిక అమెరికన్
+పసిఫిక్ దీవుల

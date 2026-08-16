@@ -1,0 +1,5 @@
+---
+description: Currency of ఆస్ట్రేలియా, in Telugu.
+locale: te
+---
+ఆస్ట్రేలియన్ డాలర్

@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Telugu); each value is the file name of a list under sport/positionBySport. క్రికెట్ leads because it is what the Telugu states follow, play and argue about. కబడ్డీ and ఖోఖో sit above football because they are genuinely played — kabaddi in every village in Telangana and coastal Andhra, kho-kho in every school — and not because of tradition alone. Only sports with genuinely named playing positions are listed, which is why బ్యాడ్మింటన్ is absent despite being the discipline the Telugu states are actually best at in the world: Pullela Gopichand, Saina Nehwal and P. V. Sindhu all trained in Hyderabad, and badminton is the sport a Telugu sports dataset most needs — but a singles player holds no position, so it has no child list here.
+locale: te
+---
+క్రికెట్
+కబడ్డీ
+ఫుట్‌బాల్
+వాలీబాల్
+ఖోఖో
+హాకీ
+బాస్కెట్‌బాల్
+హ్యాండ్‌బాల్

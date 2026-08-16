@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis for a MALE patient — male-specific conditions together with the common ones that dominate the Telugu-speaking states. Andhra Pradesh and Telangana carry a genuinely high diabetes and hypertension burden, and alcohol-related liver disease is the single most conspicuous male-specific pattern in the region's hospital data, which is why those sit near the top rather than being an afterthought.
+locale: te
+---
+మధుమేహం
+అధిక రక్తపోటు
+ప్రోస్టేట్ పెరుగుదల
+ప్రోస్టేట్ క్యాన్సర్
+వృషణ వాపు
+హైడ్రోసీల్
+వరికోసీల్
+ఫైమోసిస్
+పురుష వంధ్యత్వం
+అంగస్తంభన లోపం
+మద్యపాన సంబంధ కాలేయ వ్యాధి
+కొవ్వు కాలేయం
+గుండెపోటు
+కరోనరీ ధమని వ్యాధి
+పక్షవాతం
+దీర్ఘకాలిక మూత్రపిండ వ్యాధి
+మూత్రపిండాల్లో రాళ్లు
+క్షయ
+దీర్ఘకాలిక అడ్డంకి ఊపిరితిత్తుల వ్యాధి
+ఉబ్బసం
+నోటి క్యాన్సర్
+రక్తహీనత
+థైరాయిడ్ లోపం
+గౌట్
+నడుము నొప్పి
+ఆందోళన రుగ్మత

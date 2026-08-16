@@ -1,0 +1,15 @@
+---
+description: Hiring or interview stage (Telugu). వ్రాత పరీక్ష leads because a written test is the normal first filter for both government and campus recruitment here, not an occasional extra.
+locale: te
+---
+దరఖాస్తు
+ప్రాథమిక ఎంపిక
+వ్రాత పరీక్ష
+ఆన్‌లైన్ పరీక్ష
+టెలిఫోన్ ఇంటర్వ్యూ
+సాంకేతిక ఇంటర్వ్యూ
+గ్రూప్ డిస్కషన్
+హెచ్.ఆర్. ఇంటర్వ్యూ
+ధ్రువపత్రాల పరిశీలన
+ఉద్యోగ ప్రతిపాదన
+నియామక పత్రం

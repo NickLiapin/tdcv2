@@ -1,0 +1,62 @@
+---
+description: Product material (Telugu). The textile entries are more finely divided than a European list because the distinction matters in the market here: పట్టు (silk), కంచి పట్టు, ఇక్కత్, జంధాని and కలంకారీ are separate goods at separate prices, several with a Geographical Indication tag. మట్టి (terracotta) and ఇత్తడి / కంచు (brass and bell-metal) are live household materials, not craft curiosities.
+locale: te
+---
+పత్తి
+ఖాదీ
+పట్టు
+కంచి పట్టు
+తుస్సార్ పట్టు
+ఇక్కత్
+కలంకారీ
+జంధాని
+జార్జెట్
+చిఫాన్
+క్రేప్
+శాటిన్
+వెల్వెట్
+ఉన్ని
+నార
+జనపనార
+పాలిస్టర్
+నైలాన్
+రేయాన్
+లైక్రా
+డెనిమ్
+కాన్వాస్
+తోలు
+కృత్రిమ తోలు
+రబ్బరు
+ప్లాస్టిక్
+పి.వి.సి.
+ఫైబర్
+ఫైబర్ గ్లాస్
+అక్రిలిక్
+థర్మాకోల్
+కాగితం
+కార్డ్‌బోర్డు
+కలప
+టేకు
+ఎర్ర చందనం
+వెదురు
+తాటి ఆకు
+కొబ్బరి పీచు
+చెరకు పిప్పి
+మట్టి
+టెర్రకోట
+పింగాణీ
+సెరామిక్
+గాజు
+రాయి
+గ్రానైట్
+పాలరాయి
+సిమెంట్
+ఇనుము
+ఉక్కు
+స్టెయిన్‌లెస్ స్టీల్
+అల్యూమినియం
+ఇత్తడి
+కంచు
+రాగి
+వెండి
+బంగారం

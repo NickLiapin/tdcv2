@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Telugu. Amounts are in INDIAN RUPEES (₹, INR). The bands are written in the Indian numbering system, which groups by లక్ష (1 lakh = 100,000) and కోటి (1 crore = 10,000,000 = 100 lakh) rather than by thousands and millions — a Telugu salary is quoted as ₹12 లక్షలు, never as ₹1.2 million. A config formatting a raw number for a Telugu reader must also use the 2,2,3 digit grouping (₹12,00,000), not the Western 3,3,3. Note that Telugu inflects the counted noun: ₹1 లక్ష singular against ₹2 లక్షలు plural, and ₹1 కోటి against ₹2 కోట్లు — a template that appends a fixed word will get half its rows wrong.
+locale: te
+---
+₹2 లక్షల కంటే తక్కువ
+₹2–5 లక్షలు
+₹5–10 లక్షలు
+₹10–15 లక్షలు
+₹15–25 లక్షలు
+₹25–50 లక్షలు
+₹50 లక్షలు–1 కోటి
+₹1 కోటి కంటే ఎక్కువ

@@ -1,0 +1,16 @@
+---
+description: Leave type (Telugu). The Indian leave categories are statutory and distinct in a way the European ones are not: సాధారణ సెలవు (casual leave) is a small annual allowance taken a day or two at a time, ఆర్జిత సెలవు (earned leave) accumulates and can be encashed on retirement, and ఐచ్ఛిక సెలవు (optional holiday) is a fixed number of days an employee chooses from a published list of festivals — which is how a workplace serving Hindu, Muslim and Christian staff handles a calendar with far more festivals than working days can absorb. That last category has no European counterpart at all.
+locale: te
+---
+సాధారణ సెలవు
+ఆర్జిత సెలవు
+వైద్య సెలవు
+ప్రసూతి సెలవు
+పితృత్వ సెలవు
+ఐచ్ఛిక సెలవు
+పరిహార సెలవు
+జీతంతో కూడిన సెలవు
+జీతం లేని సెలవు
+అధ్యయన సెలవు
+సంతాప సెలవు
+దీర్ఘకాలిక సెలవు

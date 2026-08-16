@@ -1,0 +1,5 @@
+---
+description: Currency of నైజీరియా, in Telugu.
+locale: te
+---
+నైజీరియన్ నైరా

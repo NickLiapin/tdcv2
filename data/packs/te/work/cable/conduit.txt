@@ -1,0 +1,11 @@
+---
+description: Conduit or installation method for a cable run (Telugu).
+locale: te
+---
+భూగర్భ డక్ట్
+ఓవర్‌హెడ్ లైన్
+పి.వి.సి. పైపు
+హెచ్.డి.పి.ఇ. పైపు
+కేబుల్ ట్రే
+గోడలో
+డైరెక్ట్ బరీడ్

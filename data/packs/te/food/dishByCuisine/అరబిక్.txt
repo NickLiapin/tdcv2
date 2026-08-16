@@ -1,0 +1,11 @@
+---
+description: Dishes of అరబిక్ cuisine, in Telugu.
+locale: te
+---
+షవర్మా
+మండి
+కుబూస్
+హమ్మస్
+ఫలాఫెల్
+గ్రిల్డ్ చికెన్
+తబూలా

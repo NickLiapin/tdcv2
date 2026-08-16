@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Telugu). తుఫాను (cyclone) is not an exotic entry: the Bay of Bengal coast of Andhra Pradesh is one of the most cyclone-exposed coastlines in the world, and అగ్నిగుండం-like heatwaves and వడగాలులు cause real seasonal mortality in Telangana.
+locale: te
+---
+నైరుతి రుతుపవనాలు
+ఈశాన్య రుతుపవనాలు
+తుఫాను
+అల్పపీడనం
+వాయుగుండం
+వరదలు
+కరువు
+వడగాలులు
+వడగళ్ల వాన
+పిడుగులు
+సుడిగాలి
+ఇసుక తుఫాను
+హిమపాతం
+భూకంపం
+సునామీ

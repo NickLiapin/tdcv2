@@ -1,0 +1,29 @@
+---
+description: Dog breed (Telugu). The first three are INDIAN breeds and belong at the head of a Telugu list: రాజపాళయం and చిప్పిపరై are southern sighthounds, and నాటు కుక్క — the Indian pariah dog — is by a wide margin the commonest dog in the Telugu states and is a genuine landrace, not a stray without a type.
+locale: te
+---
+నాటు కుక్క
+రాజపాళయం
+చిప్పిపరై
+ముధోల్ హౌండ్
+కరవాన్ హౌండ్
+జర్మన్ షెపర్డ్
+లాబ్రడార్
+గోల్డెన్ రిట్రీవర్
+రాట్‌వీలర్
+డాబర్‌మ్యాన్
+బాక్సర్
+గ్రేట్ డేన్
+పామెరేనియన్
+పగ్
+బీగల్
+డాచ్‌షండ్
+కాకర్ స్పానియల్
+డాల్మేషియన్
+సెయింట్ బెర్నార్డ్
+హస్కీ
+షిట్జు
+లాసా అప్సో
+బుల్‌డాగ్
+పిట్‌బుల్
+చిహువావా

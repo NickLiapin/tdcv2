@@ -1,0 +1,14 @@
+---
+description: Fuel type (Telugu). డీజిల్ leads for commercial vehicles and సి.ఎన్.జి. is growing fast in Hyderabad; electric two-wheelers are now an ordinary category rather than a novelty.
+locale: te
+---
+పెట్రోల్
+డీజిల్
+సి.ఎన్.జి.
+ఎల్.పి.జి.
+ఎలక్ట్రిక్
+హైబ్రిడ్
+ఇథనాల్ మిశ్రమం
+బయో డీజిల్
+సోలార్
+కిరోసిన్

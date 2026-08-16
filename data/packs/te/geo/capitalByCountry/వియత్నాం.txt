@@ -1,0 +1,5 @@
+---
+description: Capital of వియత్నాం, in Telugu.
+locale: te
+---
+హనోయి

@@ -1,0 +1,19 @@
+---
+description: Court or tribunal in the Indian judicial hierarchy, named in Telugu. Telugu is spoken in essentially one country, so this is India's judiciary — but note that it is TWO high courts, not one: Andhra Pradesh and Telangana were a single state until 2014 and shared a High Court until 2019, and they now have separate ones, so a config generating a court for a Telugu row cannot assume a single jurisdiction. లోక్ అదాలత్ (a settlement forum whose award is binding as a civil decree) and గ్రామ న్యాయాలయం (a mobile village court) are statutory Indian institutions with no European counterpart.
+locale: te
+---
+సుప్రీంకోర్టు
+హైకోర్టు
+జిల్లా న్యాయస్థానం
+సెషన్స్ కోర్టు
+మెజిస్ట్రేట్ కోర్టు
+జూనియర్ సివిల్ జడ్జి కోర్టు
+కుటుంబ న్యాయస్థానం
+బాలల న్యాయ మండలి
+వినియోగదారుల ఫోరం
+కార్మిక న్యాయస్థానం
+లోక్ అదాలత్
+గ్రామ న్యాయాలయం
+ఆదాయపు పన్ను అప్పీలేట్ ట్రిబ్యునల్
+జాతీయ కంపెనీ లా ట్రిబ్యునల్
+జాతీయ హరిత ట్రిబ్యునల్

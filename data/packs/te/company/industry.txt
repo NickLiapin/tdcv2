@@ -1,0 +1,60 @@
+---
+description: Industry sector (Telugu), as a Telugu business register actually names them. The list leads with the sectors that dominate the two Telugu states rather than with a translated European ordering: వ్యవసాయం and ఆక్వా కల్చర్ (Andhra Pradesh produces the largest share of India's farmed shrimp and fish), ఫార్మాస్యూటికల్స్ (Hyderabad is the country's bulk-drug centre), సమాచార సాంకేతికత, నిర్మాణం and సినిమా — the Telugu film industry is a genuine economic sector here and produces more films a year than any other Indian language.
+locale: te
+---
+వ్యవసాయం
+ఉద్యానవన పంటలు
+ఆక్వా కల్చర్
+మత్స్య పరిశ్రమ
+పాడి పరిశ్రమ
+పౌల్ట్రీ
+ఆహార శుద్ధి
+చక్కెర పరిశ్రమ
+ఫార్మాస్యూటికల్స్
+బల్క్ డ్రగ్స్
+బయోటెక్నాలజీ
+రసాయనాలు
+ఎరువులు
+పురుగుమందులు
+సమాచార సాంకేతికత
+సాఫ్ట్‌వేర్ సేవలు
+బి.పి.ఓ.
+టెలికాం
+ఎలక్ట్రానిక్స్
+సెమీకండక్టర్లు
+రక్షణ రంగం
+అంతరిక్ష పరిశోధన
+నిర్మాణం
+రియల్ ఎస్టేట్
+సిమెంట్
+ఉక్కు
+గ్రానైట్
+మైనింగ్
+బొగ్గు
+విద్యుత్
+సౌర విద్యుత్
+పవన విద్యుత్
+పెట్రోలియం
+ఓడరేవులు
+రవాణా
+లాజిస్టిక్స్
+ఆటోమొబైల్
+ఇంజినీరింగ్
+యంత్ర పరిశ్రమ
+జౌళి పరిశ్రమ
+చేనేత
+హస్తకళలు
+తోలు పరిశ్రమ
+ఆభరణాలు
+బ్యాంకింగ్
+బీమా
+ఆర్థిక సేవలు
+రిటైల్
+ఇ-కామర్స్
+ఆతిథ్యం
+పర్యాటకం
+ఆరోగ్య సంరక్షణ
+విద్య
+సినిమా
+మీడియా
+ప్రకటనలు

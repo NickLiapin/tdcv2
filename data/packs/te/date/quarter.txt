@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Telugu). India's financial year runs 1 APRIL to 31 MARCH, so Q1 is April-June and Q4 is January-March. A config that maps a Telugu fiscal quarter onto a calendar quarter will be one quarter out for the whole year, and the difference is not cosmetic: tax filing, budget statements and company results here are all anchored to the April start.
+locale: te
+---
+మొదటి త్రైమాసికం
+రెండో త్రైమాసికం
+మూడో త్రైమాసికం
+నాలుగో త్రైమాసికం

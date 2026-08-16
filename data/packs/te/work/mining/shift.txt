@@ -1,0 +1,9 @@
+---
+description: Work shift (Telugu). Indian industrial shifts are conventionally lettered A, B and C, which is what a Singareni or a factory attendance register uses.
+locale: te
+---
+ఎ షిఫ్ట్
+బి షిఫ్ట్
+సి షిఫ్ట్
+జనరల్ షిఫ్ట్
+నైట్ షిఫ్ట్

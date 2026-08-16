@@ -1,0 +1,34 @@
+---
+description: Bird (Telugu). నెమలి is the national bird and a live presence in Rayalaseema fields, రామచిలుక (rose-ringed parakeet) is the parrot of every Telugu proverb, and కొంగ, పెద్ద కొంగ and కంకణాలు are the waterbirds of the Kolleru and Pulicat wetlands. పాలపిట్ట, the Indian roller, is the state bird of both Telugu states and is deliberately sighted on Dasara day for luck.
+locale: te
+---
+కాకి
+పిచ్చుక
+రామచిలుక
+నెమలి
+కోడి
+పుంజు
+కోకిల
+పాలపిట్ట
+గోరింక
+పావురం
+గద్ద
+డేగ
+రాబందు
+గుడ్లగూబ
+కొంగ
+పెద్ద కొంగ
+బాతు
+హంస
+కంకణాలు
+నీటికాకి
+కింగ్‌ఫిషర్
+లకుముకి పిట్ట
+వడ్రంగిపిట్ట
+పికిలిపిట్ట
+కంచరగాడిద
+ఉష్ట్రపక్షి
+పెంగ్విన్
+ఫ్లెమింగో
+కాకిగుంపు పిట్ట
+బుల్‌బుల్

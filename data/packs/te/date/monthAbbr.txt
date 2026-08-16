@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Telugu). Telugu abbreviates by clipping the first syllable and adding a full stop; మార్చి, ఏప్రిల్, మే and జూన్ are short enough that they are not abbreviated at all, which is the same pattern English uses.
+locale: te
+---
+జన.
+ఫిబ్ర.
+మార్చి
+ఏప్రిల్
+మే
+జూన్
+జూలై
+ఆగ.
+సెప్.
+అక్టో.
+నవం.
+డిసెం.

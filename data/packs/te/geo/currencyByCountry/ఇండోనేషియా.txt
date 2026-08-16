@@ -1,0 +1,5 @@
+---
+description: Currency of ఇండోనేషియా, in Telugu.
+locale: te
+---
+ఇండోనేషియన్ రూపయా

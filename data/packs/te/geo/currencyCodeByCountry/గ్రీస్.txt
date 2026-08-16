@@ -1,0 +1,5 @@
+---
+description: Currency code of గ్రీస్. ISO 4217 codes are Latin letters in every locale.
+locale: te
+---
+EUR

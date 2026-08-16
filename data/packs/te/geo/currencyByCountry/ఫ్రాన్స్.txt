@@ -1,0 +1,5 @@
+---
+description: Currency of ఫ్రాన్స్, in Telugu.
+locale: te
+---
+యూరో

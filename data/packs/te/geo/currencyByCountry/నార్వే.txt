@@ -1,0 +1,5 @@
+---
+description: Currency of నార్వే, in Telugu.
+locale: te
+---
+నార్వేజియన్ క్రోన్

@@ -1,0 +1,41 @@
+---
+description: Country name in Telugu, weighted by population. This is the coherent-group parent: geo/capitalByCountry, geo/currencyByCountry and geo/currencyCodeByCountry are all keyed on exactly these Telugu strings. The names are the ones Telugu media use — mostly the country's own name adapted into Telugu phonology and script, with the few genuine Telugu translations kept (భారతదేశం, అమెరికా సంయుక్త రాష్ట్రాలు, దక్షిణాఫ్రికా). Weights are population in millions, so భారతదేశం and చైనా dominate a draw, which is the honest shape of the world and not a bias in the data.
+locale: te
+weighted: true
+---
+చైనా,1410
+భారతదేశం,1400
+అమెరికా సంయుక్త రాష్ట్రాలు,335
+ఇండోనేషియా,275
+పాకిస్తాన్,240
+నైజీరియా,220
+బ్రెజిల్,215
+బంగ్లాదేశ్,170
+రష్యా,144
+మెక్సికో,128
+జపాన్,125
+ఈజిప్ట్,110
+వియత్నాం,98
+టర్కీ,85
+జర్మనీ,84
+థాయిలాండ్,72
+ఫ్రాన్స్,68
+యునైటెడ్ కింగ్‌డమ్,67
+దక్షిణాఫ్రికా,60
+ఇటలీ,59
+దక్షిణ కొరియా,52
+స్పెయిన్,47
+అర్జెంటీనా,46
+కెనడా,39
+పోలండ్,38
+సౌదీ అరేబియా,36
+ఆస్ట్రేలియా,26
+నెదర్లాండ్స్,18
+స్వీడన్,10
+గ్రీస్,10
+పోర్చుగల్,10
+స్విట్జర్లాండ్,9
+సింగపూర్,6
+నార్వే,5
+ఐర్లాండ్,5
+న్యూజిలాండ్,5

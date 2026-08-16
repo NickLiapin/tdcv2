@@ -1,0 +1,5 @@
+---
+description: Capital of యునైటెడ్ కింగ్‌డమ్, in Telugu.
+locale: te
+---
+లండన్

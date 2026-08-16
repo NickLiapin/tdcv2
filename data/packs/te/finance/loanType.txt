@@ -1,0 +1,14 @@
+---
+description: Loan type (Telugu). బంగారంపై రుణం — the gold loan — is listed high on purpose: pledging household gold for a short-term loan is a mainstream, regulated and very large credit market in the Telugu states, offered by banks and by dedicated gold-loan companies, and it has no European counterpart. పంట రుణం (crop loan) and స్వయం సహాయక సంఘ రుణం (self-help group loan) are likewise ordinary rural credit products here; the SHG movement in Andhra Pradesh is one of the largest in the world.
+locale: te
+---
+గృహ రుణం
+వాహన రుణం
+వ్యక్తిగత రుణం
+విద్యా రుణం
+బంగారంపై రుణం
+వ్యవసాయ రుణం
+పంట రుణం
+స్వయం సహాయక సంఘ రుణం
+వ్యాపార రుణం
+ఆస్తిపై రుణం

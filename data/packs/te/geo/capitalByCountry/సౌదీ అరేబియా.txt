@@ -1,0 +1,5 @@
+---
+description: Capital of సౌదీ అరేబియా, in Telugu.
+locale: te
+---
+రియాద్

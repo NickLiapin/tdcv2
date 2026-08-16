@@ -1,0 +1,14 @@
+---
+description: Medical specialty (Telugu) that has a coherent diagnosis list; each value is the file name of a list under medical/diagnosisBySpecialty. These are the Telugu department names as they appear on the signage of a government hospital in Andhra Pradesh or Telangana. Telugu clinicians also write and speak the transliterated English forms — కార్డియాలజీ, న్యూరాలజీ, ఆంకాలజీ, డెర్మటాలజీ — and a prescription or a discharge summary will normally carry those, in Latin script, even on an otherwise Telugu form. Both registers are correct; this pack uses the Telugu one throughout.
+locale: te
+---
+గుండె వైద్యం
+నాడీ వైద్యం
+క్యాన్సర్ వైద్యం
+చర్మ వైద్యం
+జీర్ణకోశ వైద్యం
+హార్మోన్ల వైద్యం
+ఊపిరితిత్తుల వైద్యం
+ఎముకల వైద్యం
+మానసిక వైద్యం
+మూత్రపిండాల వైద్యం

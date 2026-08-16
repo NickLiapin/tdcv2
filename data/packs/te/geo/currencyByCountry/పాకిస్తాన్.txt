@@ -1,0 +1,5 @@
+---
+description: Currency of పాకిస్తాన్, in Telugu.
+locale: te
+---
+పాకిస్తానీ రూపాయి

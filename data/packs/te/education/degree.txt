@@ -1,0 +1,24 @@
+---
+description: Academic degree (Telugu). These are INDIAN degree abbreviations and they do not map onto the European set: బి.టెక్. and బి.ఇ. are both four-year engineering bachelor's degrees awarded by different universities, ఎం.బి.బి.ఎస్. is the medical first degree (not a postgraduate one as in the United States), and బి.ఏ.ఎం.ఎస్. and బి.హెచ్.ఎం.ఎస్. are the full Ayurvedic and homoeopathic medical degrees, whose holders practise as registered doctors. Telugu speakers write these in Latin script as often as in Telugu.
+locale: te
+---
+బి.ఏ.
+బి.కామ్.
+బి.ఎస్సీ.
+బి.టెక్.
+బి.ఇ.
+బి.ఫార్మా
+బి.ఎడ్.
+ఎల్‌.ఎల్‌.బి.
+ఎం.బి.బి.ఎస్.
+బి.డి.ఎస్.
+బి.ఏ.ఎం.ఎస్.
+బి.హెచ్.ఎం.ఎస్.
+ఎం.ఏ.
+ఎం.ఎస్సీ.
+ఎం.టెక్.
+ఎం.బి.ఏ.
+ఎం.సి.ఏ.
+ఎం.డి.
+ఎం.ఎస్.
+పి.హెచ్.డి.

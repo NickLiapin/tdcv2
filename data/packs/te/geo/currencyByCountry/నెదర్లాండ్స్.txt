@@ -1,0 +1,5 @@
+---
+description: Currency of నెదర్లాండ్స్, in Telugu.
+locale: te
+---
+యూరో

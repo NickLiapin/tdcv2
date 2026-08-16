@@ -1,0 +1,40 @@
+---
+description: Medical specialty (Telugu). These are the department names on a Telugu hospital board. Note ఆయుష్ at the end: ఆయుర్వేదం, యోగా, యునాని, సిద్ధ and హోమియోపతి are recognised systems with their own government-registered practitioners, their own degrees (బి.ఎ.ఎం.ఎస్., బి.హెచ్.ఎం.ఎస్.) and their own state hospitals in Andhra Pradesh and Telangana, so a Telugu healthcare dataset that offers only allopathic specialties is describing a smaller system than the real one.
+locale: te
+---
+సాధారణ వైద్యం
+సాధారణ శస్త్రచికిత్స
+గుండె వైద్యం
+గుండె శస్త్రచికిత్స
+నాడీ వైద్యం
+నాడీ శస్త్రచికిత్స
+ఎముకల వైద్యం
+ఊపిరితిత్తుల వైద్యం
+జీర్ణకోశ వైద్యం
+మూత్రపిండాల వైద్యం
+మూత్ర వ్యవస్థ వైద్యం
+హార్మోన్ల వైద్యం
+క్యాన్సర్ వైద్యం
+రక్త వైద్యం
+చర్మ వైద్యం
+మానసిక వైద్యం
+పిల్లల వైద్యం
+నవజాత శిశు వైద్యం
+ప్రసూతి వైద్యం
+స్త్రీ వ్యాధుల వైద్యం
+కంటి వైద్యం
+చెవి ముక్కు గొంతు
+దంత వైద్యం
+ముఖ శస్త్రచికిత్స
+ప్లాస్టిక్ సర్జరీ
+అనస్థీషియా
+రేడియాలజీ
+పాథాలజీ
+మైక్రోబయాలజీ
+ఫోరెన్సిక్ వైద్యం
+అత్యవసర వైద్యం
+ఐ.సి.యు. వైద్యం
+ఫిజియోథెరపీ
+పునరావాస వైద్యం
+ప్రజారోగ్యం
+ఆయుష్

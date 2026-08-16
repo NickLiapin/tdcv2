@@ -1,0 +1,54 @@
+---
+description: Store department or product category (Telugu). The list is a Telugu shop's own division of goods rather than a translated Western one: కిరాణా is the dry-goods grocery that is still the default shop, పప్పు ధాన్యాలు (pulses) and నూనెలు (oils) are counted as separate departments because they are bought by weight at separate counters, and పూజా సామాగ్రి — camphor, incense, turmeric, kumkum, lamp wicks — is a real and busy department in every general store here, with no European counterpart.
+locale: te
+---
+కిరాణా
+బియ్యం
+పప్పు ధాన్యాలు
+నూనెలు
+మసాలా దినుసులు
+పిండి పదార్థాలు
+ఉప్పు పంచదార
+పచ్చళ్లు
+కూరగాయలు
+పండ్లు
+ఆకుకూరలు
+పాల ఉత్పత్తులు
+మాంసం
+చేపలు
+గుడ్లు
+బేకరీ
+స్వీట్లు
+హాట్ ఐటమ్స్
+శీతల పానీయాలు
+డ్రై ఫ్రూట్స్
+ప్యాక్ చేసిన ఆహారం
+ఘనీభవించిన ఆహారం
+శిశు ఆహారం
+పెంపుడు జంతువుల ఆహారం
+పూజా సామాగ్రి
+అగరబత్తీలు
+సబ్బులు
+సౌందర్య సాధనాలు
+వ్యక్తిగత సంరక్షణ
+ఇంటి శుభ్రత
+కాగితం ఉత్పత్తులు
+ఔషధాలు
+దుస్తులు
+చీరలు
+పురుషుల దుస్తులు
+పిల్లల దుస్తులు
+పాదరక్షలు
+ఆభరణాలు
+బ్యాగులు
+గృహోపకరణాలు
+వంట సామాన్లు
+ఫర్నిచర్
+ఎలక్ట్రానిక్స్
+గృహ విద్యుత్ ఉపకరణాలు
+మొబైల్ ఫోన్లు
+కంప్యూటర్లు
+పుస్తకాలు
+స్టేషనరీ
+బొమ్మలు
+క్రీడా సామాగ్రి

@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Mobile leads by a very wide margin in the Telugu states; console gaming is a small urban niche. Brand names keep their real spelling.
+locale: te
+---
+మొబైల్
+ఆండ్రాయిడ్
+iOS
+PC
+Windows
+PlayStation
+Xbox
+Nintendo Switch
+బ్రౌజర్
+క్లౌడ్ గేమింగ్
+స్మార్ట్ టీవీ

@@ -1,0 +1,9 @@
+---
+description: Credit score band. India does NOT use the FICO range: the score that matters here is CIBIL, which runs from 300 to 900, and a lender treats 750 and above as good. A config that generates a European or American score for a Telugu row and labels it with these bands will be describing a different scale entirely.
+locale: te
+---
+300–549 (చాలా తక్కువ)
+550–649 (తక్కువ)
+650–699 (సగటు)
+700–749 (మంచిది)
+750–900 (అత్యుత్తమం)

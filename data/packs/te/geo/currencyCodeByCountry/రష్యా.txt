@@ -1,0 +1,5 @@
+---
+description: Currency code of రష్యా. ISO 4217 codes are Latin letters in every locale.
+locale: te
+---
+RUB

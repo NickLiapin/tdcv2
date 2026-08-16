@@ -1,0 +1,16 @@
+---
+description: Shoe size. India sizes footwear on the UK scale, NOT the European one — a shoebox in Hyderabad or Vijayawada reads 8, meaning UK 8, which is roughly EU 42. Half sizes appear mainly on sports footwear. This file is deliberately named clothing/shoeSize rather than shoeSizeEu, because the values in it are not European sizes and the address must say what the file holds.
+locale: te
+---
+3
+4
+5
+6
+6.5
+7
+7.5
+8
+8.5
+9
+10
+11

@@ -1,0 +1,19 @@
+---
+description: Direction word used inside a Telugu address or a set of directions. The four intercardinals — ఈశాన్యం, ఆగ్నేయం, నైరుతి, వాయవ్యం — are the Sanskrit corner names, and they are not merely compass points here: they are the corners of వాస్తు, so a Telugu property listing states which corner a plot faces and an east-facing (తూర్పు ముఖం) plot commands a real price premium over a south-facing one. A config generating property data for this locale that treats the four directions as interchangeable is throwing away the single most-quoted attribute of a Telugu land advertisement.
+locale: te
+---
+ఉత్తరం
+దక్షిణం
+తూర్పు
+పడమర
+ఈశాన్యం
+ఆగ్నేయం
+నైరుతి
+వాయవ్యం
+మధ్య
+ఎగువ
+దిగువ
+కుడి
+ఎడమ
+ముందు
+వెనుక

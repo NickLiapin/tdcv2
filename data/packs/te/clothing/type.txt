@@ -1,0 +1,38 @@
+---
+description: Garment type (Telugu). The list is what a Telugu wardrobe actually contains, not a translated Western one. చీర is the six-yard sari and లంగా ఓణి the half-sari a girl wears between childhood and marriage — a distinct garment with its own coming-of-age ceremony. పంచె is the men's unstitched lower cloth, worn కట్టు (tucked) for temple and formal occasions. The wedding-specific items (పట్టు చీర, లాంఛనాలు) are separate goods, and the modern Western garments at the end are equally real in urban wardrobes.
+locale: te
+---
+చీర
+పట్టు చీర
+లంగా ఓణి
+లంగా
+బ్లౌజ్
+జాకెట్టు
+చుడీదార్
+సల్వార్ కమీజ్
+కుర్తీ
+పలాజో
+దుపట్టా
+ఓణి
+నైటీ
+గౌను
+పంచె
+ధోతీ
+లుంగీ
+కండువా
+ఉత్తరీయం
+కుర్తా
+పైజామా
+షేర్వాణి
+షర్టు
+టీ షర్టు
+ప్యాంటు
+జీన్స్
+నిక్కరు
+బనీను
+లోదుస్తులు
+కోటు
+బ్లేజర్
+స్వెటర్
+జాకెట్
+రెయిన్‌కోటు

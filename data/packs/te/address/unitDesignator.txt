@@ -1,0 +1,27 @@
+---
+description: Secondary address unit designator (Telugu). Two facts a config cannot infer. First, the door number LEADS a Telugu address rather than trailing it: an envelope starts డోర్ నం. 8-3-214/A and the street, colony and town follow, so a config that appends the unit in the European position produces something no Telugu postman would read comfortably. Second, those door numbers are genuinely hierarchical in the older Hyderabad system — 8-3-214/A means ward, block, plot and sub-plot — which is why slashes and multiple hyphens are normal and not a formatting error. పోర్షన్ and వాటా again have no Western equivalent: they identify one separately-let part of an ordinary house.
+locale: te
+---
+డోర్ నం.
+ఇంటి నం.
+ఫ్లాట్ నం.
+ప్లాట్ నం.
+సర్వే నం.
+గది నం.
+షాప్ నం.
+స్టాల్ నం.
+యూనిట్
+బ్లాక్
+టవర్
+వింగ్
+ఫేజ్
+అంతస్తు
+గ్రౌండ్ ఫ్లోర్
+మొదటి అంతస్తు
+రెండో అంతస్తు
+మూడో అంతస్తు
+పైఅంతస్తు
+సెల్లార్
+పోర్షన్
+వాటా
+అవుట్‌హౌస్

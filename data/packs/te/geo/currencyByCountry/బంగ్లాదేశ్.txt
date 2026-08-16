@@ -1,0 +1,5 @@
+---
+description: Currency of బంగ్లాదేశ్, in Telugu.
+locale: te
+---
+బంగ్లాదేశీ టాకా

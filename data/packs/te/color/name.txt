@@ -1,0 +1,58 @@
+---
+description: Human-readable colour name (Telugu). Telugu colour vocabulary is largely built on the thing itself, and that is visible in the list: పసుపు is turmeric, నీలం is the indigo plant, కాషాయం the ochre of a renunciate's robe, ఆకుపచ్చ literally "leaf-green" and గోధుమ "wheat". Note that Telugu marks light and dark with లేత and ముదురు placed BEFORE the colour word (లేత గులాబీ, ముదురు నీలం), and that the three ritual colours — పసుపు, కుంకుమ and ఆకుపచ్చ — carry meaning beyond the hue in any Telugu context involving a wedding or a temple.
+locale: te
+---
+తెలుపు
+నలుపు
+ఎరుపు
+ఆకుపచ్చ
+నీలం
+పసుపు
+నారింజ
+గులాబీ
+ఊదా
+గోధుమ
+బూడిద
+వెండి
+బంగారు
+కాంస్య
+రాగి
+క్రీమ్
+లేత గులాబీ
+ముదురు గులాబీ
+లేత నీలం
+ముదురు నీలం
+ఆకాశ నీలం
+నెమలి నీలం
+సముద్ర నీలం
+లేత ఆకుపచ్చ
+ముదురు ఆకుపచ్చ
+చిలుక ఆకుపచ్చ
+ఆలివ్
+పచ్చిక ఆకుపచ్చ
+ఎర్ర గోధుమ
+ఇటుక ఎరుపు
+రక్త వర్ణం
+కుంకుమ
+కాషాయం
+మెరూన్
+వంకాయ రంగు
+మల్లె తెలుపు
+ముత్యపు తెలుపు
+ఏనుగు దంతం
+ఇసుక
+ఖాకీ
+బీజ్
+చాక్లెట్
+కాఫీ
+తేనె రంగు
+నిమ్మ పసుపు
+ఆవ పసుపు
+కుంకుమపువ్వు
+పగడపు రంగు
+పీచు
+లావెండర్
+మెజెంటా
+ఫిరోజా
+నేవీ
+బొగ్గు నలుపు

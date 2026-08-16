@@ -1,0 +1,26 @@
+---
+description: Metal (Telugu). బంగారం leads for a reason a config should know: gold is not a luxury category in Telugu households but a savings instrument and a fixed part of a wedding settlement, quoted in తులాలు, and a Telugu financial dataset without it is missing a real asset class. ఇత్తడి and కంచు (brass and bell-metal) are still working kitchen materials here rather than antiques.
+locale: te
+---
+బంగారం
+వెండి
+రాగి
+ఇత్తడి
+కంచు
+ఇనుము
+ఉక్కు
+స్టెయిన్‌లెస్ స్టీల్
+తగరం
+సీసం
+జింక్
+అల్యూమినియం
+నికెల్
+క్రోమియం
+టైటానియం
+ప్లాటినం
+మాంగనీస్
+పాదరసం
+కోబాల్ట్
+యురేనియం
+తుత్తునాగం
+పంచలోహం

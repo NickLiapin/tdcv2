@@ -1,0 +1,14 @@
+---
+description: Household size. The list runs past the European stop-at-7 on purpose: the Telugu joint family (ఉమ్మడి కుటుంబం) is a live arrangement in both Andhra Pradesh and Telangana, so households of eight or more are ordinary rather than exceptional, though the state averages are now close to four. Values are Western digits so they can be compared and summed; Telugu has its own digits ౦-౯ but they are effectively out of daily use, unlike the Bengali or Devanagari ones, and a Telugu newspaper prints 2025 not ౨౦౨౫.
+locale: te
+---
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 కంటే ఎక్కువ

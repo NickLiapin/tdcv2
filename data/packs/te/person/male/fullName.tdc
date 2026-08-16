@@ -1,0 +1,10 @@
+---
+description: Telugu full male name. THE FAMILY NAME COMES FIRST — the ఇంటిపేరు (house name) is placed before the given name, which is the reverse of the English, Hindi and European order: ఘట్టమనేని మహేష్ బాబు, not మహేష్ బాబు ఘట్టమనేని. This generator is the reason the rule is written down: any config that joins person.lastName and person.male.firstName itself must join them in this order, or every row of the dataset is a name no Telugu reader would accept. Real Telugu paperwork usually abbreviates the house name to its initial (ఎన్. టి. రామారావు), so the full form written out here is the more explicit of the two conventions.
+generator: tdc
+locale: te
+---
+<sequence name="p">
+  <gen name="l" type="template" value="te.person.lastName"/>
+  <gen name="f" type="template" value="te.person.male.firstName"/>
+</sequence>
+<data>${{p.l}} ${{p.f}}</data>

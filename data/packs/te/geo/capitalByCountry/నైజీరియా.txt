@@ -1,0 +1,5 @@
+---
+description: Capital of నైజీరియా, in Telugu.
+locale: te
+---
+అబుజా

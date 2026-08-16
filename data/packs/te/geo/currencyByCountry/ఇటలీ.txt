@@ -1,0 +1,5 @@
+---
+description: Currency of ఇటలీ, in Telugu.
+locale: te
+---
+యూరో

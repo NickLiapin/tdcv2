@@ -1,0 +1,10 @@
+---
+description: Season (Telugu). Telugu counts SIX seasons, not four — the ఆరు ఋతువులు, each spanning two lunar months: వసంతం (spring, చైత్రం-వైశాఖం), గ్రీష్మం (summer), వర్షం (the monsoon), శరత్ (early autumn), హేమంతం (late autumn) and శిశిరం (the cool, dry season before spring). This is not ornamental: the six are taught in school, name the poetry, and set the agricultural calendar. In everyday speech Telugu speakers compress them to three — ఎండాకాలం (the hot season, roughly March to June), వానాకాలం (the rains) and చలికాలం (the cool months) — and a config needing the colloquial set should use those three, not a four-season European one, which does not describe this climate at all. Note also that the two Telugu states have TWO monsoons: the south-west monsoon from June and the north-east monsoon that brings coastal Andhra its heaviest rain in October and November, when most of Europe is already in autumn.
+locale: te
+---
+వసంతం
+గ్రీష్మం
+వర్షం
+శరత్
+హేమంతం
+శిశిరం

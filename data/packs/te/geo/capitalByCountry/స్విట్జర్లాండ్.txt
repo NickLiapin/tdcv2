@@ -1,0 +1,5 @@
+---
+description: Capital of స్విట్జర్లాండ్, in Telugu.
+locale: te
+---
+బెర్న్

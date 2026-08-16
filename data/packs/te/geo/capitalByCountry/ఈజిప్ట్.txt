@@ -1,0 +1,5 @@
+---
+description: Capital of ఈజిప్ట్, in Telugu.
+locale: te
+---
+కైరో

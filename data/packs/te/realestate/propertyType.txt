@@ -1,0 +1,23 @@
+---
+description: Property type (Telugu). Two categories dominate Telugu property advertising and have no clean European equivalent: ఓపెన్ ప్లాట్ is a bare residential plot bought as a long-term investment and is probably the single most-traded property class in the Telugu states, and వ్యవసాయ భూమి is quoted and sold in ఎకరాలు and సెంట్లు rather than square metres. వెంచర్ names a newly laid-out plotted development, which is how most peri-urban land here reaches the market.
+locale: te
+---
+ఇండిపెండెంట్ హౌస్
+అపార్ట్‌మెంట్
+ఫ్లాట్
+విల్లా
+డూప్లెక్స్
+పెంట్‌హౌస్
+స్టూడియో అపార్ట్‌మెంట్
+పోర్షన్
+ఓపెన్ ప్లాట్
+వెంచర్
+వ్యవసాయ భూమి
+తోట
+ఫామ్ హౌస్
+వాణిజ్య స్థలం
+దుకాణం
+కార్యాలయ స్థలం
+గోదాము
+పారిశ్రామిక స్థలం
+గేటెడ్ కమ్యూనిటీ ఇల్లు

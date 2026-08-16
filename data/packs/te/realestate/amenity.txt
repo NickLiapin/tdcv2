@@ -1,0 +1,26 @@
+---
+description: Property amenity (Telugu). బోరు బావి (borewell) and నీటి ట్యాంకు are advertised amenities here because municipal supply is intermittent in much of both states, and వాస్తు ప్రకారం — "built to Vastu" — is one of the most common single claims in a Telugu property listing.
+locale: te
+---
+లిఫ్ట్
+కారు పార్కింగ్
+బోరు బావి
+నీటి ట్యాంకు
+మున్సిపల్ నీటి సరఫరా
+ఇన్వర్టర్ బ్యాకప్
+జనరేటర్
+సోలార్ ప్యానెల్
+భద్రతా సిబ్బంది
+సి.సి. కెమెరాలు
+కాంపౌండ్ గోడ
+గేటెడ్ కమ్యూనిటీ
+పార్క్
+పిల్లల ఆట స్థలం
+వ్యాయామశాల
+ఈత కొలను
+కమ్యూనిటీ హాల్
+వాస్తు ప్రకారం
+తూర్పు ముఖం
+మాడ్యులర్ కిచెన్
+ఫర్నిష్డ్
+ఇంటర్నెట్ కనెక్షన్

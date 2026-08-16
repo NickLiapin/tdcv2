@@ -1,0 +1,27 @@
+---
+description: Government body, regulator or public office named in Telugu. Telugu is spoken in essentially one country, so these are INDIA's institutions, and every entry is a real, currently existing body. Note the two-level structure a Telugu form assumes: a citizen deals with a కేంద్ర (Union) body and a రాష్ట్ర (state) one for the same matter, and the state entries here are the generic office names (రెవెన్యూ శాఖ, రవాణా శాఖ, గ్రామ సచివాలయం) rather than either state's specific department, because Telugu is the official language of two separate states. The India COUNTRY pack holds the identifier formats these bodies issue; this list holds only their names.
+locale: te
+---
+భారత రిజర్వ్ బ్యాంక్
+భారత ఎన్నికల సంఘం
+భారత విశిష్ట గుర్తింపు ప్రాధికార సంస్థ
+కేంద్ర దర్యాప్తు సంస్థ
+ఆదాయపు పన్ను శాఖ
+వస్తు సేవల పన్ను మండలి
+సెబీ
+ట్రాయ్
+భారత అంతరిక్ష పరిశోధనా సంస్థ
+రక్షణ పరిశోధన అభివృద్ధి సంస్థ
+భారత వాతావరణ శాఖ
+కేంద్ర జల సంఘం
+జాతీయ విపత్తు నిర్వహణ సంస్థ
+భారత ఆహార భద్రత ప్రమాణాల సంస్థ
+కేంద్ర కాలుష్య నియంత్రణ మండలి
+జాతీయ మానవ హక్కుల సంఘం
+రెవెన్యూ శాఖ
+రవాణా శాఖ
+పురపాలక శాఖ
+పంచాయతీ రాజ్ శాఖ
+గ్రామ సచివాలయం
+జిల్లా కలెక్టరేట్
+రిజిస్ట్రేషన్ శాఖ

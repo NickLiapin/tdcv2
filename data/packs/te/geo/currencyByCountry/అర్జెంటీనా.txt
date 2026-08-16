@@ -1,0 +1,5 @@
+---
+description: Currency of అర్జెంటీనా, in Telugu.
+locale: te
+---
+అర్జెంటీనా పెసో

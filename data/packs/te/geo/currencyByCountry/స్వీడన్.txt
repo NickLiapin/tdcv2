@@ -1,0 +1,5 @@
+---
+description: Currency of స్వీడన్, in Telugu.
+locale: te
+---
+స్వీడిష్ క్రోనా

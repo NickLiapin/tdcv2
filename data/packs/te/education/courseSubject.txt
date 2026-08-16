@@ -1,0 +1,24 @@
+---
+description: School subject (Telugu). The three-language formula of Indian schooling is visible here: a Telugu state school pupil studies తెలుగు, ఇంగ్లీష్ and హిందీ as three separate subjects, which is why all three are on the list.
+locale: te
+---
+తెలుగు
+ఇంగ్లీష్
+హిందీ
+సంస్కృతం
+గణితం
+సాధారణ విజ్ఞానం
+భౌతిక శాస్త్రం
+రసాయన శాస్త్రం
+జీవ శాస్త్రం
+సాంఘిక శాస్త్రం
+చరిత్ర
+భూగోళ శాస్త్రం
+పౌర శాస్త్రం
+అర్థ శాస్త్రం
+కంప్యూటర్ విద్య
+వాణిజ్య శాస్త్రం
+చిత్రలేఖనం
+సంగీతం
+శారీరక విద్య
+నైతిక విద్య

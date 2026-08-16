@@ -1,0 +1,36 @@
+---
+description: Building type (Telugu). Two entries have no European counterpart and are the commonest rental units in Hyderabad, Vijayawada and Visakhapatnam: a పోర్షన్ (also called a వాటా) is one floor or one wing of an ordinary family house let separately, with its own door number, and it is what most urban Telugu tenants actually rent — not a purpose-built flat. పెంకుటిల్లు (tiled roof), డాబా ఇల్లు (flat concrete roof) and రేకుల షెడ్డు (corrugated sheet) name a house by its ROOF, which is how rural Telugu classifies housing and how the census counted it for decades.
+locale: te
+---
+ఇల్లు
+స్వతంత్ర గృహం
+అపార్ట్‌మెంట్
+ఫ్లాట్
+పోర్షన్
+వాటా
+విల్లా
+డూప్లెక్స్
+పెంట్‌హౌస్
+గేటెడ్ కమ్యూనిటీ
+పెంకుటిల్లు
+డాబా ఇల్లు
+మిద్దె
+గుడిసె
+రేకుల షెడ్డు
+పూరిల్లు
+హాస్టల్
+వసతి గృహం
+అతిథి గృహం
+సత్రం
+లాడ్జి
+భవనం
+కార్యాలయ భవనం
+వాణిజ్య సముదాయం
+షాపింగ్ మాల్
+గోదాము
+కర్మాగారం
+పాఠశాల భవనం
+ఆసుపత్రి
+దేవాలయం
+మసీదు
+చర్చి

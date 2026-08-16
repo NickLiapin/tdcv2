@@ -1,0 +1,5 @@
+---
+description: Capital of కెనడా, in Telugu.
+locale: te
+---
+ఒట్టావా
