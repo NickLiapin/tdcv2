@@ -103,6 +103,33 @@ describe('only .txt and .tdc are pack files', () => {
     expect(addresses(root)).toStrictEqual(['hu.person.v2.lastName']);
   });
 
+  // Separate defect, same file, found the same afternoon: a DECLARED address
+  // that lands nowhere used to be rewritten by prefixing the header `locale:`.
+  // Turkey's pack files each said `address: turkey.geo.city` and carried
+  // `locale: tr` because their values are Turkish; with `turkey` missing from
+  // CANONICAL_COUNTRIES they all loaded as `tr.turkey.geo.city` — country data
+  // inside the Turkish LANGUAGE namespace, silently. The better a file was
+  // labelled, the quieter it broke.
+  it('never rewrites an address the author declared', () => {
+    const root = packDir({
+      'hu/_locale.json': MANIFEST,
+      'hu/person/lastName.txt': 'Kovács\n',
+      // `atlantis` is no country; the declared address must NOT become
+      // `hu.atlantis.geo.city` just because the values are Hungarian.
+      'hu/geo/city.txt': '---\naddress: atlantis.geo.city\nlocale: hu\n---\nBudapest\n',
+    });
+    const { registry, diagnostics } = scanPacks([root]);
+    expect([...registry.keys()].sort()).toStrictEqual(['hu.person.lastName']);
+    expect(diagnostics.map((d) => d.message).join(' ')).toContain('atlantis.geo.city');
+  });
+
+  it('still prefixes a PATH-derived address from the header locale', () => {
+    const root = packDir({
+      'loose/lastName.txt': '---\nlocale: hu\n---\nKovács\n',
+    });
+    expect(addresses(root)).toStrictEqual(['hu.loose.lastName']);
+  });
+
   it('the shipped packs carry no DATE_LOCALE address', () => {
     clearPackCache();
     const { registry } = scanPacks([join(import.meta.dirname, '../../../data/packs')]);

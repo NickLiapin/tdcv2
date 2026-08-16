@@ -341,7 +341,8 @@ function loadOne(
   // Lazy import avoids a cycle (parse has no deps on this module).
   const parsed = parseContent(content);
 
-  let address = parsed.header['address'] ?? pathToAddress(root, file);
+  const declaredAddress = parsed.header['address'];
+  let address = declaredAddress ?? pathToAddress(root, file);
   if (address.length === 0) {
     diagnostics.push(packError(`data-pack file "${file}" resolves to an empty address`, file));
     return;
@@ -357,11 +358,27 @@ function loadOne(
   };
 
   if (!placed(address)) {
-    // The path put it nowhere addressable. A header `locale:` is the file's own
+    // The PATH put it nowhere addressable. A header `locale:` is the file's own
     // answer to that — it is how someone keeps a flat folder of their own lists
     // instead of rebuilding the locale tree to hold three files.
+    //
+    // It is not a licence to rewrite an address the author wrote down. When
+    // `turkey` was missing from CANONICAL_COUNTRIES, every Turkey pack file
+    // said `address: turkey.geo.city` and carried `locale: tr` — because its
+    // VALUES are Turkish — and the fallback silently re-homed them to
+    // `tr.turkey.geo.city`: country data inside the Turkish LANGUAGE namespace,
+    // at an address nothing asks for and nobody wrote. The files that failed
+    // loudly were the ones with no `locale:` at all, so the better a pack was
+    // labelled, the quieter it broke.
+    //
+    // So the fallback now applies only to a path-derived address. A declared
+    // one that lands nowhere is a mistake to report, not to paper over.
     const declaredLocale = (parsed.header['locale'] ?? '').trim();
-    if (declaredLocale.length > 0 && placed(`${declaredLocale}.${address}`)) {
+    if (
+      declaredAddress === undefined &&
+      declaredLocale.length > 0 &&
+      placed(`${declaredLocale}.${address}`)
+    ) {
       address = `${declaredLocale}.${address}`;
     } else if (parsed.hasHeader) {
       // It carries pack metadata, so it was meant as a pack — saying nothing
