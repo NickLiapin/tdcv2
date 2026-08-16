@@ -1,0 +1,26 @@
+---
+address: cambodia.finance.amountUsd
+description: A sum of money in US dollars written the way it is written in Cambodia — leading $, groups of three separated by a comma, two decimals: $1,250.00. THE DOLLAR IS NOT A FOREIGN CURRENCY HERE. Cambodia is one of the most dollarised economies in the world: rent, salaries, hotel rooms, vehicles, school fees, property and the large majority of bank deposits are denominated and settled in dollars, so a Cambodian financial record is more likely to be in USD than in the national currency, and a config that models Cambodia with a riel-only money column has modelled a country that does not exist. The dollar circulates in cash and is quoted in dollars-and-cents, but the CENTS ARE NOT PAID IN DOLLARS: since the National Bank asked banks in June 2020 to stop issuing $1, $2 and $5 notes, the smallest US note in ordinary circulation is $10 and anything below a dollar comes back in riel at 4,000 to the dollar — so a printed price of $2.50 is settled as $2 plus 2,000៛ (see cambodia.finance.priceDual). ONE FORMATTING NOTE, because it disagrees with the locale data. CLDR's Khmer currency pattern puts the symbol AFTER the figure (#,##0.00¤), which is right for the riel and is what cambodia.finance.amountRiel does; the dollar in Cambodian commercial use is written with the symbol in FRONT, as here, following the American convention along with the currency itself. Both forms occur — "25$" is common in handwriting and on market signage — so a Cambodian price string cannot be parsed by assuming the symbol is on one side. The magnitude is spread across three decades rather than drawn uniformly and runs from $1 to $50,000, and the cents land on quarters because Cambodian dollar prices in practice do.
+generator: tdc
+locale: en
+---
+<sequence name="raw"><gen type="number" value="100..50000"/></sequence>
+<sequence name="shift"><gen type="number" value="0..2"/></sequence>
+<sequence name="q"><gen type="number" value="0..3"/></sequence>
+<sequence name="amount"><compute>
+  <!-- Three decades, $1 to $50,000; the draw starts at 100 so the division never floors to zero. -->
+  <let name="scale"><at>
+    <in><list v="1,10,100"/></in>
+    <index><to_number><field name="shift"/></to_number></index>
+  </at></let>
+  <let name="whole"><divide><to_number><field name="raw"/></to_number><use name="scale"/></divide></let>
+  <!-- Cambodian dollar prices land on quarters far more often than on random cents. -->
+  <let name="cents"><at>
+    <in><list v="0,25,50,75"/></in>
+    <index><to_number><field name="q"/></to_number></index>
+  </at></let>
+  <let name="centsText"><pad width="2" fill="0"><use name="cents"/></pad></let>
+  <let name="grouped"><group size="3" sep=","><use name="whole"/></group></let>
+  <result><concat><str v="$"/><use name="grouped"/><str v="."/><use name="centsText"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

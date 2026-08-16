@@ -1,0 +1,33 @@
+---
+address: cambodia.geo.city
+description: Cambodian cities in Khmer, WEIGHTED by their population at the General Population Census of 3 March 2019, the last full census, as tabulated for Cambodia by citypopulation.de from National Institute of Statistics figures. THE SHAPE OF THE DISTRIBUTION IS THE POINT AND A UNIFORM DRAW DESTROYS IT: ភ្នំពេញ held 2.19 million of a 15.5-million country, nearly ten times សៀមរាប the second city and more than every other town in the list put together, so an unweighted sample over Cambodian towns produces a population that lives nowhere like Cambodians do and any per-city aggregate computed from it is wrong by an order of magnitude at the top. The tail is genuinely tiny — កែប is 5,470 people and សែនមនោរម្យ 7,268, which are villages by the standards of most countries' city lists and are here because each is the seat of a province. WHAT THE LIST IS, exactly: the 25 provincial and capital seats plus the two other ក្រុង (municipalities) the census table carries a figure for — ប៉ោយប៉ែត, the Thai border crossing that is much larger than its own provincial seat's neighbours would suggest, and សំពៅពូន in កណ្ដាល. A ក្រុង is a legal rank, not a size, which is why this is a defensible set: every value is a municipality that exists and every weight is a real census count. WHAT IT IS NOT: the census table also lists urban communes bigger than several of these towns — the Kandal settlements ringing Phnom Penh, ថ្មគោល in បាត់ដំបង, អន្លង់វែង — and they are absent because they are not municipalities, not because they are small. Also absent are the municipalities created too recently to have their own census figure (ក្រុងបាវិត, ក្រុងកំពង់សោម, ក្រុងឧដុង្គម៉ែជ័យ, ក្រុងបូកគោ, ក្រុងអរិយក្សត្រ, ក្រុងកោះរ៉ុង, ក្រុងរុនតាឯក): inventing a weight for them would corrupt every other weight in the file. Method note, stated because it is the one soft join here — the census table romanises names in the BGN system while the Khmer forms come from the Cambodian municipality list, and the two were matched province by province rather than by string equality, because no Cambodian romanisation is stable enough to join on (see cambodia.geo.provinceEnglish). Most seats share their province's name, so a value drawn here will often equal a value from cambodia.geo.province, and that is correct rather than a duplication bug; the ones that do not are the trap — កំពង់ធំ's seat is ស្ទឹងសែន, កំពង់ស្ពឺ's is ច្បារមន, តាកែវ's is ដូនកែវ, កោះកុង's is ខេមរភូមិន្ទ, បន្ទាយមានជ័យ's is សិរីសោភ័ណ, រតនគិរី's is បានលុង, មណ្ឌលគិរី's is សែនមនោរម្យ and ត្បូងឃ្មុំ's is សួង, so joining a city column to a province column on the string silently drops eight provinces.
+locale: km
+weighted: true
+---
+ភ្នំពេញ,2189460
+សៀមរាប,225607
+បាត់ដំបង,151827
+តាខ្មៅ,91344
+ប៉ោយប៉ែត,79475
+សិរីសោភ័ណ,78839
+ព្រះសីហនុ,71082
+ពោធិ៍សាត់,62469
+កំពង់ចាម,54475
+កំពង់ឆ្នាំង,53737
+ស្ទឹងសែន,53118
+ច្បារមន,50359
+កំពត,41192
+ព្រៃវែង,36254
+ដូនកែវ,31477
+បានលុង,30399
+ខេមរភូមិន្ទ,28836
+ស្ទឹងត្រែង,28736
+ស្វាយរៀង,27822
+ក្រចេះ,27278
+សំរោង,22805
+សួង,22289
+ប៉ៃលិន,21660
+សំពៅពូន,20424
+ព្រះវិហារ,12575
+សែនមនោរម្យ,7268
+កែប,5470

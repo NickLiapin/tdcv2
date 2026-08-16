@@ -1,0 +1,40 @@
+---
+address: cambodia.finance.bankEnglish
+description: The same banks as cambodia.finance.bank in their Latin trading names, IN THE SAME ORDER, so the two files line up row for row and a Khmer name can be read against its English one. Cambodian banks operate bilingually — the statement, the branch sign and the app are in Khmer, the SWIFT record, the annual report and the AFC-facing paperwork are in Latin — so both forms are in daily use and neither is a translation of the other. Where a bank's Latin name is an initialism its Khmer name is a phonetic spelling of that initialism rather than a translation (ABA is ធនាគារ វឌ្ឍនៈអាស៊ី, from Advanced Bank of Asia), and where a bank's name is a Khmer word the Latin form is a romanisation of the Khmer (ស្ថាបនា is Sathapana, "to establish"). Two warnings. This file and cambodia.finance.bank are two separate addresses: drawing both gives you two independent banks, not one bank in two scripts — for a coherent pair, draw cambodia.finance.bankWithBic once and slice it. And this order is maintained by hand against the sliced files, so it is the one place in this pack where a row could silently fall out of step; the BIC pairing in cambodia.finance.bankWithBic is the one the engine enforces.
+locale: en
+---
+ACLEDA Bank
+ABA Bank
+Canadia Bank
+Wing Bank
+Vattanac Bank
+Cambodian Public Bank
+Foreign Trade Bank of Cambodia
+Sathapana Bank
+Hattha Bank
+Prince Bank
+Chip Mong Commercial Bank
+Phillip Bank
+KB PRASAC Bank
+J Trust Royal Bank
+Maybank (Cambodia)
+Shinhan Bank (Cambodia)
+Woori Bank (Cambodia)
+Bank of China (Hong Kong), Phnom Penh Branch
+ICBC, Phnom Penh Branch
+CIMB Bank
+RHB Bank (Cambodia)
+Cambodia Post Bank
+Cambodia Asia Bank
+Union Commercial Bank
+Phnom Penh Commercial Bank
+Bank for Investment and Development of Cambodia
+Oriental Bank
+SBI LY HOUR Bank
+BRED Bank (Cambodia)
+Bangkok Bank, Cambodia Branch
+Agricultural and Rural Development Bank
+DGB Bank
+Bridge Bank
+Cambodian Commercial Bank
+Cathay United Bank (Cambodia)

@@ -1,0 +1,40 @@
+---
+address: cambodia.finance.bankWithBic
+description: The paired table behind cambodia.finance.bank and cambodia.finance.swiftBic — the bank's eight-character SWIFT/BIC code, a space, then its Khmer name. Kept as one file so a name and its code can never drift apart. The names are the licensed commercial banks as the National Bank of Cambodia lists them; the codes are the head-office BICs in the SWIFT directory, all eight characters and none of them a branch code. THE BIC IS THE ROUTING IDENTIFIER FOR CAMBODIA, because there is no IBAN — see cambodia.finance.swiftBic, which says why at length. Read the fifth and sixth characters: they are the ISO country code, so every one of these carries KH in positions 5-6 and any "Cambodian" BIC that does not is not Cambodian. The last two are the location, and PP for Phnom Penh is on almost every line because Cambodian banking is run from one city. Two names in this list are one letter apart in Khmer and are DIFFERENT BANKS: ធនាគារ វឌ្ឍនៈអាស៊ី is ABA, the largest retail bank by customer count, and ធនាគារ វឌ្ឍនៈ is Vattanac, a much smaller domestic bank — ABAAKHPP and VBLCKHPP, and a fuzzy string match on the Khmer will merge them. The list is a selection, not the register: the NBC licensed 58 commercial banks as of 2023, and the ones here are the banks a Cambodian retail or corporate customer actually holds an account with, plus the largest foreign branches. Deliberately absent are the microfinance deposit-taking institutions, which have BICs of their own but are not commercial banks, and NCAMKHPP, which is the National Bank of Cambodia itself — the central bank and regulator, which holds no retail customers and would otherwise look like an ordinary row.
+locale: km
+---
+ACLBKHPP ធនាគារ អេស៊ីលីដា
+ABAAKHPP ធនាគារ វឌ្ឍនៈអាស៊ី
+CADIKHPP ធនាគារ កាណាឌីយ៉ា
+WIGCKHPP ធនាគារ វីង
+VBLCKHPP ធនាគារ វឌ្ឍនៈ
+CPBLKHPP ធនាគារ កម្ពុជាសាធារណៈ
+FTCCKHPP ធនាគារ ពាណិជ្ជកម្មក្រៅប្រទេស នៃកម្ពុជា
+SBPLKHPP ធនាគារ ស្ថាបនា
+HATHKHPP ធនាគារ ហត្ថា
+PINCKHPP ធនាគារ ព្រីនស៍
+CHNOKHPP ធនាគារ ជីប ម៉ុង
+HDSBKHPP ធនាគារ ហ្វីលីព
+CZNBKHPP ធនាគារ ខេប៊ីប្រាសាក់
+TCABKHPP ធនាគារ ជេ ត្រាស់ រ៉ូយ៉ាល់
+MBBEKHPP ធនាគារ មេយប៊ែង
+SHBKKHPP ធនាគារ ស៊ីនហាន
+HVBKKHPP ធនាគារ អ៊ូរី
+BKCHKHPP ធនាគារ ចិន សាខាភ្នំពេញ
+ICBKKHPP ធនាគារ អាយ ស៊ី ប៊ី ស៊ី សាខាភ្នំពេញ
+CIBBKHPP ធនាគារ ស៊ីអាយអិមប៊ី
+OSKIKHPP ធនាគារ អ អេច ប៊ី
+CPBPKHP2 ធនាគារ ប្រៃសណីយ៍កម្ពុជា
+CABCKHPP ធនាគារ កម្ពុជាអាស៊ី
+UCBPKHPP ធនាគារ សហពាណិជ្ជ
+PPCBKHPP ធនាគារ ភ្នំពេញ ពាណិជ្ជ
+IDBCKHPP ធនាគារ វិនិយោគ និងអភិវឌ្ឍន៍កម្ពុជា
+ORENKHPP ធនាគារ អូរៀនថល
+SBHRKHPP ធនាគារ អេស ប៊ី អាយ លី ហួរ
+BREDKHP2 ធនាគារ ប្រេដ ប៊ែង
+BKKBKHPP ធនាគារ បាងកក សាខាកម្ពុជា
+ARDMKHPP ធនាគារ អភិវឌ្ឍន៍ជនបទ និងកសិកម្ម
+DAEBKHPP ធនាគារ ឌីជីប៊ី
+BIDGKHPP ធនាគារ ប៊្រីដ
+SICOKHPP ធនាគារ កម្ពុជាពាណិជ្ជ
+CSBCKHPP ធនាគារ កាថេយូណៃធីត

@@ -1,0 +1,20 @@
+---
+address: cambodia.vehicle.plate
+description: Cambodian vehicle registration plate in the series in force since 1 April 2004, written as it reads — the province of registration in Khmer, then a class digit, one or two LATIN letters, a hyphen and four digits: ភ្នំពេញ 2D-0888. THE PLATE IS BILINGUAL AND THIS FILE EMITS THE TOP LINE. The physical plate carries the province in Khmer script above the number and the same province in Latin capitals below it (ភ្នំពេញ … PHNOM PENH), which makes a Cambodian plate one of the few strings in this pack that exists in two scripts at once and cannot be transcribed into ASCII without losing half of it. Where the Khmer name is too long for the plate the province is ABBREVIATED with a full stop — Banteay Meanchey appears as ប.មានជ័យ — and no abbreviation table is published, so this file always writes the province out in full and never abbreviates. THE FIRST DIGIT IS THE VEHICLE CLASS, not a serial: 1 is a motorcycle, 2 a private car of one to seven seats, 3 a vehicle of more than seven seats, 4 agricultural, 5 engineering plant, 7 a truck trailer, 9 special. The classes are drawn weighted towards 1 and 2 because Cambodia is a motorcycle country — motorbikes outnumber cars several times over in the registration figures — so a uniform draw over classes builds a fleet Cambodia does not have. The colours encode the class too and are not modelled: white plate with blue text for classes 1 and 2, blue with white for class 3, green with yellow for 4, orange with black for 5. Not modelled either: the separate series for state, military, police and diplomatic vehicles, and the four-digit range excludes 0000, so 0001 to 9999 is the whole span and leading zeros are kept — store the number as text. The published description of the series does not say which Latin letters are skipped, so none are skipped here.
+generator: tdc
+locale: km
+---
+<sequence name="province"><gen type="template" value="cambodia.geo.province"/></sequence>
+<sequence name="class"><gen type="text" value="1,2,3,4,5,7,9" percent="52,32,7,3,2,3,1"/></sequence>
+<sequence name="one"><gen type="regex" value="[A-Z]"/></sequence>
+<sequence name="two"><gen type="regex" value="[A-Z]{2}"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<!-- 1 = the older single-letter series, 2 = the two-letter series that replaced it. -->
+<sequence name="shape"><gen type="text" value="1,2" percent="35,65"/></sequence>
+<sequence name="letters"><compute>
+  <result><choose>
+    <when><test><equals><field name="shape"/><int v="1"/></equals></test><then><field name="one"/></then></when>
+    <otherwise><field name="two"/></otherwise>
+  </choose></result>
+</compute></sequence>
+<data>${{province}} ${{class}}${{letters}}-${{serial}}</data>

@@ -1,0 +1,30 @@
+---
+address: cambodia.geo.provinceWithCode
+description: The paired table behind cambodia.geo.province, cambodia.geo.provinceCode and cambodia.geo.postalCode — the two-digit province code, a space, then the first-level division written in Khmer. Kept as one file so a province can never drift away from its own number. TWENTY-FIVE LINES AND THEY ARE NOT TWENTY-FIVE PROVINCES. Cambodia has 24 ខេត្ត (khaet, provinces) plus រាជធានីភ្នំពេញ, which is not one of them — Phnom Penh is the capital, a រាជធានី governed under its own arrangement and subdivided into 14 ខណ្ឌ (khan) where a province is subdivided into ស្រុក (srok) and ក្រុង (krong). It is administered at provincial rank and every government form that says ខេត្ត expects it in the box, which is why it sits at code 12 in the middle of this list rather than at the end. THE CODE DOES THREE JOBS AT ONCE, which is unusual and worth exploiting: it is the numeric part of the ISO 3166-2:KH code, it is the administrative province number, and it is the FIRST TWO DIGITS OF EVERY CAMBODIAN POSTCODE. Thailand next door keeps two different two-digit province schemes that disagree across ten provinces; Cambodia keeps one, so unlike its neighbour a Cambodian postcode prefix and a Cambodian province code are the same number and deriving one from the other is correct. The numbering is alphabetical by the ROMANISED name (Banteay Meanchey 01, Battambang 02, Kampong Cham 03 …) rather than by the Khmer alphabet, an artefact of the French protectorate's administration, so the sequence looks arbitrary when read in Khmer. Codes 01-24 were fixed long ago and 25 was added in December 2013 when ត្បូងឃ្មុំ was split off the eastern half of កំពង់ចាម — a data set with 24 first-level divisions is pre-2014, not wrong, and joining it to this one silently drops a province of nearly 900,000 people.
+locale: km
+---
+01 បន្ទាយមានជ័យ
+02 បាត់ដំបង
+03 កំពង់ចាម
+04 កំពង់ឆ្នាំង
+05 កំពង់ស្ពឺ
+06 កំពង់ធំ
+07 កំពត
+08 កណ្ដាល
+09 កោះកុង
+10 ក្រចេះ
+11 មណ្ឌលគិរី
+12 ភ្នំពេញ
+13 ព្រះវិហារ
+14 ព្រៃវែង
+15 ពោធិ៍សាត់
+16 រតនគិរី
+17 សៀមរាប
+18 ព្រះសីហនុ
+19 ស្ទឹងត្រែង
+20 ស្វាយរៀង
+21 តាកែវ
+22 ឧត្តរមានជ័យ
+23 កែប
+24 ប៉ៃលិន
+25 ត្បូងឃ្មុំ

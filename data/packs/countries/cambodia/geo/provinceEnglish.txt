@@ -1,0 +1,30 @@
+---
+address: cambodia.geo.provinceEnglish
+description: The same 25 first-level divisions as cambodia.geo.province, in the Latin spellings the Cambodian state itself prints, IN THE SAME ORDER, so the two files can be drawn as a pair and read as one place. This file is not a convenience for foreigners: Cambodia prints Khmer and Latin together on the documents where a name has to be read by a machine or across a border, and a vehicle plate literally carries the province in Khmer on the top line and in Latin on the bottom (see cambodia.vehicle.plate). THE ROMANISATION IS NOT STABLE and that is the thing to design around. Cambodia has never settled on one transliteration: the geographic standard renders ព្រះសីហនុ as Preah Sihanouk while the town on the same bay is written Sihanoukville and the older French maps say Kompong Som; កោះកុង is Koh Kong here and Kaoh Kong in the UN romanisation used by census tables; កំពង់ is Kampong in Cambodian usage and Kâmpóng in the BGN/PCGN system that citypopulation.de and most gazetteers use, and ត្បូងឃ្មុំ appears as Tboung Khmum, Tbong Khmum and Thbong Khmum in three different ministries' own publications. So a Latin province name is NOT a safe join key between two Cambodian data sets — the Khmer string or the two-digit code is. The spellings here are the ones used by the Ministry of Interior and on the English line of number plates.
+locale: en
+---
+Banteay Meanchey
+Battambang
+Kampong Cham
+Kampong Chhnang
+Kampong Speu
+Kampong Thom
+Kampot
+Kandal
+Koh Kong
+Kratie
+Mondulkiri
+Phnom Penh
+Preah Vihear
+Prey Veng
+Pursat
+Ratanakiri
+Siem Reap
+Preah Sihanouk
+Stung Treng
+Svay Rieng
+Takeo
+Oddar Meanchey
+Kep
+Pailin
+Tboung Khmum

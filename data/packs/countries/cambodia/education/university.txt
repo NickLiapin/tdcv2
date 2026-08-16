@@ -1,0 +1,37 @@
+---
+address: cambodia.education.university
+description: Higher-education institutions of Cambodia recognised by ក្រសួងអប់រំ យុវជន និងកីឡា, in Khmer, the public ones first. Read the naming before splitting on it. ភូមិន្ទ in a Cambodian institution's name means ROYAL and marks a state university founded under the monarchy — សាកលវិទ្យាល័យភូមិន្ទភ្នំពេញ, សាកលវិទ្យាល័យភូមិន្ទកសិកម្ម, សាកលវិទ្យាល័យភូមិន្ទវិចិត្រសិល្បៈ — so its absence is a rough marker of a private or a later-founded institution, and the tail of this list is mostly private. Two generic words alternate at the head of a name and are not interchangeable: សាកលវិទ្យាល័យ is a university and វិទ្យាស្ថាន is an institute, and several of Cambodia's strongest technical schools are វិទ្យាស្ថាន rather than សាកលវិទ្យាល័យ — វិទ្យាស្ថានបច្ចេកវិទ្យាកម្ពុជា, founded 1964 with Soviet assistance, is the country's leading engineering school and outranks most of the universities. THE HISTORY IS THE THING A FOREIGN READER WILL MISS. Cambodia's universities were not merely closed under the Khmer Rouge between 1975 and 1979 — the educated were a target, teaching staff were killed or fled, records were destroyed, and higher education restarted in 1980 from almost nothing. So a Cambodian institution's founding date and its continuous operation are different facts, most academic careers in the country are shorter than the institution is old, and the private sector that supplies the tail of this list only appeared in the mid-1990s. សាកលវិទ្យាល័យភូមិន្ទភ្នំពេញ dates from 1960 and is the oldest and largest. Khmer script: no spaces between words and no capitals, so សាកលវិទ្យាល័យភូមិន្ទនីតិសាស្ត្រនិងវិទ្យាសាស្ត្រសេដ្ឋកិច្ច is one unbroken token to anything that splits on whitespace, and it is long — a Cambodian institution name will routinely exceed 60 codepoints, well over 150 bytes in UTF-8. The generic words សាកលវិទ្យាល័យ and វិទ្យាស្ថាន belong to the language pack; the institutions are Cambodia's.
+locale: km
+---
+សាកលវិទ្យាល័យភូមិន្ទភ្នំពេញ
+វិទ្យាស្ថានបច្ចេកវិទ្យាកម្ពុជា
+សាកលវិទ្យាល័យភូមិន្ទនីតិសាស្ត្រនិងវិទ្យាសាស្ត្រសេដ្ឋកិច្ច
+សាកលវិទ្យាល័យវិទ្យាសាស្ត្រសុខាភិបាល
+សាកលវិទ្យាល័យជាតិគ្រប់គ្រង
+សាកលវិទ្យាល័យភូមិន្ទកសិកម្ម
+សាកលវិទ្យាល័យភូមិន្ទវិចិត្រសិល្បៈ
+សាកលវិទ្យាល័យមានជ័យ
+សាកលវិទ្យាល័យស្វាយរៀង
+សាកលវិទ្យាល័យបាត់ដំបង
+សាកលវិទ្យាល័យជាស៊ីមកំចាយមារ
+វិទ្យាស្ថានជាតិអប់រំ
+វិទ្យាស្ថានជាតិពាណិជ្ជសាស្រ្ត
+វិទ្យាស្ថានសេដ្ឋកិច្ច និងហិរញ្ញវត្ថុ
+វិទ្យាស្ថានជាតិពហុបច្ចេកទេសកម្ពុជា
+វិទ្យាស្ថានពហុបច្ចេកទេសព្រះកុសុមៈ
+វិទ្យាស្ថានបច្ចេកវិទ្យាកំពង់ស្ពឺ
+វិទ្យាស្ថានបច្ចេកវិទ្យាកំពង់ឈើទាល
+សាកលវិទ្យាល័យកម្ពុជា
+សាកលវិទ្យាល័យបញ្ញាសាស្ត្រកម្ពុជា
+សាកលវិទ្យាល័យន័រតុន
+សាកលវិទ្យាល័យបៀលប្រាយ
+សាកលវិទ្យាល័យមេគង្គកម្ពុជា
+សាកលវិទ្យាល័យពុទ្ធិសាស្រ្ត
+សាកលវិទ្យាល័យអាស៊ី អឺរ៉ុប
+សាកលវិទ្យាល័យវេស្ទើន
+សាកលវិទ្យាល័យអង្គរ
+សាកលវិទ្យាល័យខេមរៈ
+សាកលវិទ្យាល័យបច្ចេកវិទ្យា និងគ្រប់គ្រង
+សាកលវិទ្យាល័យភ្នំពេញអន្តរជាតិ
+វិទ្យាស្ថានអន្តរជាតិនៃកម្ពុជា
+វិទ្យាស្ថានវ៉ាន់ដាគណនេយ្យ

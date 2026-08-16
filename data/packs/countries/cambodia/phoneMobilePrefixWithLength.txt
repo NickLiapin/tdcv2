@@ -1,0 +1,38 @@
+---
+address: cambodia.phoneMobilePrefixWithLength
+description: The paired table behind cambodia.phoneMobilePrefix and cambodia.phone — the number of SUBSCRIBER digits that follow the prefix, a space, then the three-digit mobile prefix in its national form with the trunk 0. Kept as one file because Cambodian mobile numbers come in TWO LENGTHS and the length is a property of the prefix, so a generator that picks a prefix and then guesses a length produces numbers that do not exist. Eight national digits is the older and commoner shape (012 345 678); nine is the newer one issued when the six-digit blocks filled up (097 1234 567). The split here follows Google's libphonenumber metadata for KH, which is the published specification most validators actually enforce: the nine-digit ranges are 031, 071, 076, 088, 096 and 097, and everything else is eight. Two honest gaps in that. libphonenumber also admits nine-digit numbers on 012 and 018, so those two prefixes carry BOTH lengths in the plan and only the eight-digit form — their classic and much commoner one — is generated here. And 038 is in the published pattern but is not in this file: it was Cootel (Xinwei), which has ceased operations, so numbers on it would validate and never ring. Prefixes are as allocated by the Telecommunication Regulator of Cambodia: 011, 012, 014, 017, 061, 076, 077, 078, 085, 089, 092, 095 and 099 to Cellcard; 010, 015, 016, 069, 070, 081, 086, 087, 093, 096 and 098 to Smart Axiata; 031, 060, 066, 067, 068, 071, 088, 090 and 097 to Metfone; 018 to Seatel. THE PREFIX DOES NOT IDENTIFY THE OPERATOR any more — Cambodia has had mobile number portability since 2017 — and it never identified a place; there are no mobile area codes. Carrier NAMES belong to the language pack and are at km.telecom.carrier; this is numbering-plan data, which would survive Cambodia changing its language.
+---
+6 010
+6 011
+6 012
+6 014
+6 015
+6 016
+6 017
+6 018
+7 031
+6 060
+6 061
+6 066
+6 067
+6 068
+6 069
+6 070
+7 071
+7 076
+6 077
+6 078
+6 081
+6 085
+6 086
+6 087
+7 088
+6 089
+6 090
+6 092
+6 093
+6 095
+7 096
+7 097
+6 098
+6 099

@@ -1,0 +1,29 @@
+---
+address: cambodia.phoneAreaCode
+description: Geographic area codes of Cambodia's fixed-line numbering plan, in national form with the trunk 0. Unusually tidy: there are exactly 25 of them and exactly 25 first-level divisions, one code per province and the capital, all three digits, all beginning 0 — no two-digit exception for the capital of the kind Thailand and Georgia both have. The blocks are regional: 02x is the centre (023 ភ្នំពេញ, 024 កណ្ដាល, 025 កំពង់ស្ពឺ, 026 កំពង់ឆ្នាំង), 03x the south coast (032 តាកែវ, 033 កំពត, 034 ព្រះសីហនុ, 035 កោះកុង, 036 កែប), 04x the east (042 កំពង់ចាម, 043 ព្រៃវែង, 044 ស្វាយរៀង, 045 ត្បូងឃ្មុំ), 05x the west (052 ពោធិ៍សាត់, 053 បាត់ដំបង, 054 បន្ទាយមានជ័យ, 055 ប៉ៃលិន), 06x the north (062 កំពង់ធំ, 063 សៀមរាប, 064 ព្រះវិហារ, 065 ឧត្តរមានជ័យ) and 07x the north-east (072 ក្រចេះ, 073 មណ្ឌលគិរី, 074 ស្ទឹងត្រែង, 075 រតនគិរី). ONE OF THESE WILL FAIL A VALIDATOR AND IT IS NOT A MISTAKE IN THIS FILE: 045 was allocated to ត្បូងឃ្មុំ when the province was created in 2013, and Google's libphonenumber fixed-line pattern for KH still admits only 042-044 in that block, so a real Tboung Khmum landline is rejected by the library most systems validate with. That is a gap in the library rather than in the plan, it is worth knowing before you treat a validator's verdict as ground truth, and it is why this file lists 045 anyway. These are NOT mobile prefixes — Cambodian mobile numbers have no geography at all (see cambodia.phoneMobilePrefix) — and the code is compulsory even for a local call.
+---
+023
+024
+025
+026
+032
+033
+034
+035
+036
+042
+043
+044
+045
+052
+053
+054
+055
+062
+063
+064
+065
+072
+073
+074
+075

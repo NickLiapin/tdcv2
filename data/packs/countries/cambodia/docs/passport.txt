@@ -1,0 +1,6 @@
+---
+address: cambodia.docs.passport
+description: Cambodian passport number — one Latin letter followed by seven digits, e.g. N1234567. Latin, not Khmer, and that is the point worth knowing about it: the passport is an ICAO 9303 travel document with a machine-readable zone, so the one document a Cambodian carries whose number is written in the Latin alphabet is this one, while the identity card, the family book and the vehicle registration are all in Khmer script and Khmer numerals. The letter marks the class of book — N is the ordinary passport, which is all that is generated here; diplomatic and official passports use their own letters and are not modelled. NO CHECK DIGIT EXISTS INSIDE THE NUMBER. The check digits people associate with a passport are the ICAO 9303 7-3-1 weighted digits computed over the machine-readable zone — over the document number field, the date fields and the composite — and they are a property of the PRINTED MRZ, not of the number, so nothing here is verifiable by arithmetic and nothing is claimed. The passport number is not derived from and does not contain the identity-card number at cambodia.docs.nationalId. Cambodia has issued biometric e-passports since 2014 and the pre-2014 books, whose numbers were shorter, are all expired by now; only the current form is generated.
+generator: tdc
+---
+<gen type="regex" value="N[0-9]{7}"/>

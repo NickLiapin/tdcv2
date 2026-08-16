@@ -1,0 +1,19 @@
+---
+address: cambodia.geo.phnomPenhKhan
+description: The 14 ខណ្ឌ (khan, urban districts) of រាជធានីភ្នំពេញ. This list exists because Phnom Penh does not divide like a province and an address form that offers a Phnom Penh resident the wrong word has got it wrong in law, not just in style. A ខេត្ត is divided into ស្រុក (srok, rural district) and ក្រុង (krong, municipality), and those into ឃុំ (khum, rural commune); the capital is divided into ខណ្ឌ and those into សង្កាត់ (sangkat, urban quarter). ខណ្ឌ and សង្កាត់ are what a Phnom Penh address actually contains, and they are the two levels the six-digit postcode encodes for the capital. Written BARE, without the ខណ្ឌ in front — that word is ordinary Khmer and lives at km.address.streetSuffix. The first seven are the old core: ចំការមន, ដូនពេញ, ប្រាំពីរមករា, ទួលគោក, ដង្កោ, មានជ័យ and ឫស្សីកែវ were the whole city, and ប្រាំពីរមករា is not a place name at all but a DATE — "7 January", the day Phnom Penh fell to the Vietnamese army in 1979 and the Khmer Rouge regime ended, which is also the public holiday ទិវាជ័យជម្នះលើរបបប្រល័យពូជសាសន៍ in cambodia.holiday. The other seven were carved out of them as the city sprawled: សែនសុខ and ពោធិ៍សែនជ័យ in 2010, ជ្រោយចង្វារ, ព្រែកព្នៅ and ច្បារអំពៅ in 2013, បឹងកេងកង and កំបូល in 2019. So a Phnom Penh address from before 2019 may name a ខណ្ឌ that no longer covers it, and a district-level population series for the capital is not comparable across those splits.
+locale: km
+---
+ចំការមន
+ដូនពេញ
+ប្រាំពីរមករា
+ទួលគោក
+ដង្កោ
+មានជ័យ
+ឫស្សីកែវ
+សែនសុខ
+ពោធិ៍សែនជ័យ
+ជ្រោយចង្វារ
+ព្រែកព្នៅ
+ច្បារអំពៅ
+បឹងកេងកង
+កំបូល

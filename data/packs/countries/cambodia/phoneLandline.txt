@@ -1,0 +1,13 @@
+---
+address: cambodia.phoneLandline
+description: Cambodian fixed line in E.164 form — +855, a real geographic area code from cambodia.phoneAreaCode with its trunk 0 removed, and a six-digit subscriber block, giving eight national digits for every province including the capital. Cambodia's plan is uniform in a way its neighbours' are not: every area code is three digits and every subscriber block is six, so a fixed-width parse of Cambodian landlines works, where the same parse mis-splits half of Thailand and half of Georgia. The subscriber block is generated starting with 2, 3, 7, 8 or 9, which is the opening set libphonenumber's KH fixed-line pattern admits; the regulator does not publish its per-block allocations, so the range is a published constraint rather than a real exchange list. READ THIS BEFORE PUTTING A LANDLINE ON A CAMBODIAN PERSON RECORD. Cambodia effectively skipped fixed-line telephony: the network was destroyed between 1975 and 1979 along with most other infrastructure and was never rebuilt to a mass-market scale, mobile arrived in the early 1990s and went straight past it, and today fixed lines are a rounding error against tens of millions of SIMs. A landline in Cambodian data means an office, a hotel, a ministry or a bank — almost never a household — so a person table where most rows carry one is not modelling Cambodia. See cambodia.phone for what a Cambodian number normally is.
+generator: tdc
+---
+<sequence name="code"><gen type="template" value="cambodia.phoneAreaCode"/></sequence>
+<sequence name="sub"><gen type="regex" value="[23789][0-9]{5}"/></sequence>
+<sequence name="number"><compute>
+  <!-- Drop the national trunk 0: 023 -> 23. -->
+  <let name="nat"><slice from="1"><field name="code"/></slice></let>
+  <result><concat><str v="+855"/><use name="nat"/><field name="sub"/></concat></result>
+</compute></sequence>
+<data>${{number}}</data>

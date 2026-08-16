@@ -1,0 +1,24 @@
+---
+address: cambodia.finance.amountRiel
+description: A sum of money in riel written the way Cambodia writes it — groups of three separated by a COMMA, no decimal part, and the riel sign attached directly after the figure with no space: 45,000៛. Three things about that are decisions rather than accidents. THE SYMBOL GOES AFTER THE NUMBER. That is the CLDR km currency pattern, #,##0.00¤, and it is the opposite of the English habit of a leading $; a Cambodian price list with the symbol in front has been formatted by a program that assumed English. THERE ARE NO DECIMALS. ISO 4217 assigns KHR two minor units and the សេន is nominally a hundredth of a riel, but the sen has not circulated since the 1980s and the smallest note in issue is 100៛, so a riel amount with a fractional part is a conversion artefact — usually a dollar figure multiplied by 4,000 and left with its cents attached. Amounts here are multiples of 100 for the same reason. THE SEPARATORS ARE THE LATIN-DIGIT ONES. CLDR gives Khmer two numbering systems and they disagree: with Latin digits (the default, and what shop signs and invoices use) the group separator is "," and the decimal ".", but with Khmer digits ០១២៣៤៥៦៧៨៩ the group separator is "." and the decimal "," — the continental European convention, inherited from the French protectorate. So the SAME amount printed in Khmer numerals swaps both marks, and a parser that meets 4.000 in a Khmer-numeral document and reads it as four is out by a factor of a thousand. This file emits the Latin-digit form. The magnitude is spread across three decades rather than drawn uniformly, and the range runs from 100៛ to 4,000,000៛ (one US dollar to a thousand), because a uniform draw over a seven-digit range puts nearly every value in the millions while a Cambodian riel price is usually four or five figures — a bowl of noodles is 6,000៛, a litre of petrol about 4,500៛, and 4,000៛ is one US dollar. Nothing here is a number the engine can do arithmetic on: it is the PRINTED form. For an amount to compute with, generate a plain number and format it at the point of output — and carry a currency flag beside it, because Cambodia also runs on dollars (see cambodia.finance.currency).
+generator: tdc
+locale: km
+---
+<sequence name="raw"><gen type="number" value="100..40000"/></sequence>
+<sequence name="shift"><gen type="number" value="0..2"/></sequence>
+<sequence name="amount"><compute>
+  <!-- Spread the magnitude across three decades: divide the draw by 1, 10 or 100.
+       The draw starts at 100 so the division never floors to zero. -->
+  <let name="scale"><at>
+    <in><list v="1,10,100"/></in>
+    <index><to_number><field name="shift"/></to_number></index>
+  </at></let>
+  <!-- x100 so every value is a whole number of 100-riel units; 100៛ is the smallest note. -->
+  <let name="riel"><multiply>
+    <divide><to_number><field name="raw"/></to_number><use name="scale"/></divide>
+    <int v="100"/>
+  </multiply></let>
+  <let name="grouped"><group size="3" sep=","><use name="riel"/></group></let>
+  <result><concat><use name="grouped"/><str v="៛"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

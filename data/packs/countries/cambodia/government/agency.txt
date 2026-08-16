@@ -1,0 +1,12 @@
+---
+address: cambodia.government.agency
+description: The Cambodian bodies that ISSUE the identifiers in this pack, plus the regulators a company or a citizen deals with directly. Deliberately NARROW and deliberately not a ministry list: km.government.agency already carries the ministries and the largest agencies in Khmer — Khmer is essentially the language of one country, so the locale's list is already Cambodia's — and repeating them here would create two lists that drift apart. What is here is what is missing there: the operational departments underneath the ministries, which is where an identifier actually comes from. អគ្គនាយកដ្ឋានអត្តសញ្ញាណកម្ម issues the identity card that carries cambodia.docs.nationalId and its nested នាយកដ្ឋានអត្តសញ្ញាណប័ណ្ណសញ្ជាតិខ្មែរ runs the card itself; អគ្គនាយកដ្ឋានអន្តោប្រវេសន៍ handles cambodia.docs.passport and the border; និយ័តករទូរគមនាគមន៍កម្ពុជា allocates the mobile prefixes in cambodia.phoneMobilePrefix and ran the SIM-registration campaign that tied every Cambodian number to an identity card; វិទ្យាស្ថានជាតិស្ថិតិ ran the 2019 census that weights cambodia.geo.city. Note that all of the identity and policing bodies sit under ក្រសួងមហាផ្ទៃ, the Interior Ministry — Cambodia concentrates civil registration, identity documents, immigration and the police under one ministry, so "the Interior Ministry" in Cambodian data covers a range a European reader would expect to be split across three or four. NOT IN THIS LIST, AND SAID PLAINLY RATHER THAN GUESSED: the road-transport directorate under ក្រសួងសាធារណការនិងដឹកជញ្ជូន that issues number plates and driving licences, the securities regulator, the non-bank financial services authority and Cambodia Post are all real bodies whose exact Khmer legal names could not be confirmed from a Cambodian source, and an invented Khmer spelling in a data pack is undetectable afterwards, so they were left out rather than transliterated on the spot. The tax and customs departments, the central bank, the national police and the election committee are omitted for the opposite reason — they are already at km.government.agency.
+locale: km
+---
+អគ្គនាយកដ្ឋានអត្តសញ្ញាណកម្ម
+នាយកដ្ឋានអត្តសញ្ញាណប័ណ្ណសញ្ជាតិខ្មែរ
+អគ្គនាយកដ្ឋានអន្តោប្រវេសន៍
+និយ័តករទូរគមនាគមន៍កម្ពុជា
+វិទ្យាស្ថានជាតិស្ថិតិ
+អង្គភាពប្រឆាំងអំពើពុករលួយ
+រដ្ឋបាលរាជធានីភ្នំពេញ

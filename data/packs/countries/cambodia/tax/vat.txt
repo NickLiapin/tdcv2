@@ -1,0 +1,7 @@
+---
+address: cambodia.tax.vat
+description: CAMBODIA ISSUES NO SEPARATE VAT NUMBER, and this file exists to say so rather than to invent one. Cambodia does levy VAT — អាករលើតម្លៃបន្ថែម, 10% flat, with registration compulsory above a turnover threshold set per business category — but a registrant is identified on the invoice by the taxpayer identification number it already has, so the value drawn here is deliberately identical in shape to cambodia.tax.tin. That IS the VAT number, and a schema carrying taxId and vatId as separate columns for a Cambodian party will find them equal in every row, which is the correct answer and not a bug. DO NOT BUILD IT LIKE AN EU VAT NUMBER: there is no "KH" country prefix, no separate VAT serial and no check digit, because Cambodia is not in the EU and its numbers are not part of the VIES scheme — a string beginning KH followed by digits is an invention with nothing to validate it against. Two consequences worth designing around. Registration is a threshold and a status, not something readable off the identifier, so whether a given Cambodian company charges VAT has to be modelled as its own flag. And the non-resident e-commerce regime introduced in 2021 registers foreign suppliers of digital services to Cambodian consumers under a simplified procedure of its own — those rows are a different population and do not belong in this file.
+generator: tdc
+---
+<sequence name="s"><gen type="template" value="cambodia.tax.tin"/></sequence>
+<data>${{s}}</data>

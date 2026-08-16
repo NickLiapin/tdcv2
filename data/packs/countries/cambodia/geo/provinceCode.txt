@@ -1,0 +1,8 @@
+---
+address: cambodia.geo.provinceCode
+description: The two-digit Cambodian province code, ALWAYS with its leading zero (01 បន្ទាយមានជ័យ, 08 កណ្ដាល, 12 ភ្នំពេញ). Sliced out of cambodia.geo.provinceWithCode so every value names a division that exists. Store it as text and never as an integer: 01 becomes 1 the moment anything parses it as a number, and at two digits that mistake is easy to miss right up until it breaks a join or a postcode. One code does three jobs in Cambodia — it is the numeric part of the ISO 3166-2:KH code, it is the administrative province number, and it is the leading pair of every six-digit postcode — so unlike Thailand, where the postal prefix and the administrative code disagree for ten provinces, here the two are the same number. The range is 01 to 25 with no gaps and no unassigned values.
+generator: tdc
+---
+<sequence name="entry"><gen type="template" value="cambodia.geo.provinceWithCode"/></sequence>
+<sequence name="code"><compute><result><slice to="2"><field name="entry"/></slice></result></compute></sequence>
+<data>${{code}}</data>

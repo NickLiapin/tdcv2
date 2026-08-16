@@ -1,0 +1,8 @@
+---
+address: cambodia.phoneMobilePrefix
+description: A Cambodian mobile prefix in its NATIONAL form, with the trunk 0 — 012, 077, 097. Sliced out of cambodia.phoneMobilePrefixWithLength so the set is exactly the set of prefixes that are allocated. This is the form a Cambodian writes and speaks; the international form drops the 0, so 012 345 678 becomes +855 12 345 678 and never +855 012 345 678, and that leading zero is the commonest single error in Cambodian phone data. Store as text: 010 becomes 10 the moment something reads it as a number. Cambodia has no geographic mobile codes and, since portability arrived in 2017, no carrier meaning either — a 012 number is not necessarily on Cellcard. What the prefix DOES still determine is the length of the number behind it (six subscriber digits or seven), which is why the paired file exists. Worth knowing for any config that models Cambodian people: mobile penetration is well over one SIM per person and carrying two or three SIMs to stay on-net is ordinary, so a Cambodian person record with several mobile numbers and no landline is the normal case rather than the exception — Cambodia skipped fixed-line telephony almost entirely (see cambodia.phoneLandline).
+generator: tdc
+---
+<sequence name="entry"><gen type="template" value="cambodia.phoneMobilePrefixWithLength"/></sequence>
+<sequence name="prefix"><compute><result><slice from="2"><field name="entry"/></slice></result></compute></sequence>
+<data>${{prefix}}</data>

@@ -1,0 +1,38 @@
+---
+address: cambodia.legal.court
+description: NAMED courts of Cambodia — the individual institutions a case is actually filed in, as distinct from the KINDS of court, which are ordinary Khmer vocabulary and live at km.legal.court. Three tiers and two outsiders. First instance is the សាលាដំបូង, one per province and one for the capital, named សាលាដំបូងខេត្ត + the province or សាលាដំបូងរាជធានីភ្នំពេញ — 25 of them, one for each first-level division, so unlike Georgia (where courts have been merged and most municipalities have none) the Cambodian map of courts and the map of provinces are the same map. Second instance was until recently a single building: THERE WAS ONE COURT OF APPEAL FOR THE WHOLE COUNTRY, in Phnom Penh, and every appeal from Ratanakiri to Koh Kong went to it. Three regional appeal courts were created and opened in 2020 to break that queue — សាលាឧទ្ធរណ៍តំបន់បាត់ដំបង for the west and north-west, សាលាឧទ្ធរណ៍តំបន់ព្រះសីហនុ for the south coast, សាលាឧទ្ធរណ៍តំបន់ត្បូងឃ្មុំ for the east and north-east — leaving សាលាឧទ្ធរណ៍ភ្នំពេញ with only ភ្នំពេញ and កណ្ដាល. That is a four-year-old arrangement, so an appellate history that routes every Cambodian appeal through Phnom Penh is correct for cases before 2020 and wrong after it. Third is តុលាការកំពូល, the Supreme Court, which is also the court of cassation. THE TWO OUTSIDERS. ក្រុមប្រឹក្សាធម្មនុញ្ញ, the Constitutional Council, is not part of the court system at all: it rules on the constitutionality of laws and on electoral disputes and cannot be appealed to by a litigant. And អង្គជំនុំជម្រះវិសាមញ្ញក្នុងតុលាការកម្ពុជា — the Extraordinary Chambers, the Khmer Rouge tribunal — was a hybrid Cambodian-UN court sitting inside the Cambodian system with international judges beside Cambodian ones, operating from 2006 until it closed its judicial work in 2022 with three convictions. It is in this list because Cambodian legal records refer to it, not because a new case can be filed there. There is no jury in Cambodia and no small-claims court; a config that generates either for a Cambodian row is generating something that does not exist.
+locale: km
+---
+តុលាការកំពូល
+ក្រុមប្រឹក្សាធម្មនុញ្ញ
+អង្គជំនុំជម្រះវិសាមញ្ញក្នុងតុលាការកម្ពុជា
+តុលាការយោធា
+សាលាឧទ្ធរណ៍ភ្នំពេញ
+សាលាឧទ្ធរណ៍តំបន់បាត់ដំបង
+សាលាឧទ្ធរណ៍តំបន់ព្រះសីហនុ
+សាលាឧទ្ធរណ៍តំបន់ត្បូងឃ្មុំ
+សាលាដំបូងរាជធានីភ្នំពេញ
+សាលាដំបូងខេត្តបន្ទាយមានជ័យ
+សាលាដំបូងខេត្តបាត់ដំបង
+សាលាដំបូងខេត្តកំពង់ចាម
+សាលាដំបូងខេត្តកំពង់ឆ្នាំង
+សាលាដំបូងខេត្តកំពង់ស្ពឺ
+សាលាដំបូងខេត្តកំពង់ធំ
+សាលាដំបូងខេត្តកំពត
+សាលាដំបូងខេត្តកណ្ដាល
+សាលាដំបូងខេត្តកោះកុង
+សាលាដំបូងខេត្តក្រចេះ
+សាលាដំបូងខេត្តមណ្ឌលគិរី
+សាលាដំបូងខេត្តព្រះវិហារ
+សាលាដំបូងខេត្តព្រៃវែង
+សាលាដំបូងខេត្តពោធិ៍សាត់
+សាលាដំបូងខេត្តរតនគិរី
+សាលាដំបូងខេត្តសៀមរាប
+សាលាដំបូងខេត្តព្រះសីហនុ
+សាលាដំបូងខេត្តស្ទឹងត្រែង
+សាលាដំបូងខេត្តស្វាយរៀង
+សាលាដំបូងខេត្តតាកែវ
+សាលាដំបូងខេត្តឧត្តរមានជ័យ
+សាលាដំបូងខេត្តកែប
+សាលាដំបូងខេត្តប៉ៃលិន
+សាលាដំបូងខេត្តត្បូងឃ្មុំ

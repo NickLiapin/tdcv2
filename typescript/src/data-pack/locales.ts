@@ -196,6 +196,7 @@ export const CANONICAL_COUNTRIES: ReadonlySet<string> = new Set([
   'bulgaria',
   'burkina_faso',
   'cameroon',
+  'cambodia',
   'canada',
   'cape_verde',
   'chad',

@@ -1,0 +1,10 @@
+---
+address: cambodia.finance.bank
+description: Banks licensed in Cambodia, Khmer names, sliced out of cambodia.finance.bankWithBic so a bank can never drift away from its own SWIFT code. Ordered roughly by how likely a Cambodian is to hold an account there: ធនាគារ អេស៊ីលីដា grew out of an NGO microcredit programme in the 1990s and has the deepest rural branch network, ធនាគារ វឌ្ឍនៈអាស៊ី (ABA) is the digital-first bank most urban customers use, ធនាគារ វីង started as a mobile money service and only became a bank later — which is why a Cambodian "bank account" is often a phone-based wallet with no passbook behind it. CAMBODIA HAS NO IBAN, so if you are looking for one, stop: the routing identifier is the BIC at cambodia.finance.swiftBic. VALUES ARE KHMER SCRIPT. Khmer normally puts no space between words, but these names DO contain spaces, because the space in Khmer marks a phrase boundary and a transliterated foreign name is a phrase — ធនាគារ ជេ ត្រាស់ រ៉ូយ៉ាល់ is "J Trust Royal" spelled out phonetically with a space between each borrowed word. That makes bank names one of the few Khmer lists with internal spaces, the opposite of the problem the geography files have. The names are written without the legal-form suffix that appears in the register (ភីអិលស៊ី, ម.ក, ក.អ — plc, limited company, public limited); those are ordinary Khmer commercial vocabulary and live at km.company.legalSuffix. Note that ធនាគារ វឌ្ឍនៈអាស៊ី and ធនាគារ វឌ្ឍនៈ are two unrelated banks whose Khmer names differ by one word.
+generator: tdc
+locale: km
+---
+<!-- Slice off the 8-character BIC and the space after it; the rest is the name. -->
+<sequence name="entry"><gen type="template" value="cambodia.finance.bankWithBic"/></sequence>
+<sequence name="bare"><compute><result><slice from="9"><field name="entry"/></slice></result></compute></sequence>
+<data>${{bare}}</data>

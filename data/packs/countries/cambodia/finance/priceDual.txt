@@ -1,0 +1,27 @@
+---
+address: cambodia.finance.priceDual
+description: A price as a Cambodian till receipt, menu or utility bill actually prints it: the figure in US dollars and the SAME figure in riel beside it, converted at the working rate of 4,000៛ to the dollar — $12.50 (50,000៛). This is the file that makes the dual-currency economy visible in a data set instead of leaving it as a note. Cambodia quotes in dollars above roughly a dollar and settles the fraction in riel, so a shop that prints only one of these numbers is unusual and a point-of-sale system that stores only one has thrown away the half its customer paid with. THE RATE IS 4,000 AND IT IS NOT A LEGAL PEG. The riel floats officially; the National Bank manages it, the market rate has sat between 4,000 and 4,100 for decades, and 4,000 is the number every shopkeeper, taxi driver and cashier in the country computes with because it divides. So the riel figure here is exact arithmetic on a conventional rate, not a market conversion: one cent is exactly 40 riel, a quarter is 1,000៛, a dollar is 4,000៛. Do not use this address to model foreign-exchange data — for that the rate moves and this one does not. WHAT A CONSUMER OF THIS SHOULD KNOW: the riel half is always a multiple of 1,000 here because the dollar half always lands on a quarter, which is how Cambodian retail prices really behave (a $0.75 iced coffee is 3,000៛) but is not universal — a metered bill produces riel figures that are multiples of 40 and dollar figures with arbitrary cents. Both halves are PRINTED forms, not numbers: parse them apart before doing arithmetic, and note that the two symbols sit on opposite sides of their figures, $ in front and ៛ behind, which is correct for Cambodia and will defeat a single regex written for one of them.
+generator: tdc
+locale: km
+---
+<sequence name="dollars"><gen type="number" value="1..2000"/></sequence>
+<sequence name="q"><gen type="number" value="0..3"/></sequence>
+<sequence name="price"><compute>
+  <let name="cents"><at>
+    <in><list v="0,25,50,75"/></in>
+    <index><to_number><field name="q"/></to_number></index>
+  </at></let>
+  <let name="centsText"><pad width="2" fill="0"><use name="cents"/></pad></let>
+  <!-- 1 USD = 4,000 riel, so 1 cent = 40 riel exactly. -->
+  <let name="riel"><multiply>
+    <add><multiply><to_number><field name="dollars"/></to_number><int v="100"/></multiply><use name="cents"/></add>
+    <int v="40"/>
+  </multiply></let>
+  <let name="usdGrouped"><group size="3" sep=","><field name="dollars"/></group></let>
+  <let name="rielGrouped"><group size="3" sep=","><use name="riel"/></group></let>
+  <result><concat>
+    <str v="$"/><use name="usdGrouped"/><str v="."/><use name="centsText"/>
+    <str v=" ("/><use name="rielGrouped"/><str v="៛)"/>
+  </concat></result>
+</compute></sequence>
+<data>${{price}}</data>

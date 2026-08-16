@@ -1,0 +1,24 @@
+---
+address: cambodia.holiday
+description: Public holidays of Cambodia, Khmer names. Two things make this calendar unlike a European one, and both change how a working-day model has to be built. FIRST, THE BIG ONES ARE LUNAR AND MOVE. ចូលឆ្នាំថ្មីខ្មែរ, the Khmer new year, is the one time the country genuinely stops — three days in mid-April, usually 13-16, set by the traditional lunisolar calendar and not by a fixed date; ភ្ជុំបិណ្ឌ, fifteen days of offerings to the ancestors ending in a three-day national holiday, falls in September or October; អុំទូក, the water festival that marks the Tonle Sap reversing its flow, is three days at the November full moon; and មាឃបូជា, វិសាខបូជា and ច្រត់ព្រះនង្គ័ល move likewise. None of them can be computed from a Gregorian rule; the government publishes the dates by sub-decree each year, and a holiday calendar copied from a previous year will be wrong in a way that looks plausible. ភ្ជុំបិណ្ឌ and អុំទូក also empty Phnom Penh — a very large share of the city's workforce travels to a home province — so the economic effect is not confined to the gazetted days. SECOND, THE LIST ITSELF IS NOT STABLE. Cambodia cut its public holidays from 28 to 22 in 2020 and to 21 in 2021, which is a large enough change that a Cambodian working-day count from 2019 is materially wrong for 2022; ទិវាសិទ្ធិមនុស្សអន្តរជាតិ (10 December) and ទិវាកុមារអន្តរជាតិ were among those removed, and ទិវាសន្តិភាព (29 December) was added in 2018. ៧ មករា is the most politically loaded date in the calendar — the fall of Phnom Penh to the Vietnamese army in 1979 and the end of the Khmer Rouge regime, which the government marks as a victory and part of the opposition has never accepted as one — and it is also where the ខណ្ឌប្រាំពីរមករា of Phnom Penh gets its name. Where a holiday falls at a weekend Cambodian practice is generally to substitute a weekday, unlike Georgia, so the number of non-working days is steadier than the dates are. This file lists the days; it does not carry their dates, and nothing in this pack converts between the Gregorian calendar and the Cambodian Buddhist Era.
+locale: km
+---
+ទិវាចូលឆ្នាំសកល
+ទិវាជ័យជម្នះលើរបបប្រល័យពូជសាសន៍
+ពិធីបុណ្យមាឃបូជា
+ទិវានារីអន្តរជាតិ
+ពិធីបុណ្យចូលឆ្នាំថ្មីខ្មែរ
+ទិវាពលកម្មអន្តរជាតិ
+ព្រះរាជពិធីបុណ្យចម្រើនព្រះជន្មព្រះមហាក្សត្រ
+ពិធីបុណ្យវិសាខបូជា
+ព្រះរាជពិធីច្រត់ព្រះនង្គ័ល
+ទិវាកុមារអន្តរជាតិ
+ព្រះរាជពិធីបុណ្យចម្រើនព្រះជន្មព្រះមហាក្សត្រី
+ពិធីបុណ្យភ្ជុំបិណ្ឌ
+ទិវាប្រកាសរដ្ឋធម្មនុញ្ញ
+ព្រះរាជពិធីគោរពព្រះវិញ្ញាណក្ខន្ធព្រះករុណាព្រះបាទសម្ដេចព្រះ នរោត្ដម សីហនុ
+ព្រះរាជពិធីគ្រងព្រះបរមរាជសម្បត្តិ
+ទិវាបុណ្យឯករាជ្យជាតិ
+ពិធីបុណ្យអុំទូក បណ្ដែតប្រទីប អកអំបុក និងសំពះព្រះខែ
+ទិវាសិទ្ធិមនុស្សអន្តរជាតិ
+ទិវាសន្តិភាព

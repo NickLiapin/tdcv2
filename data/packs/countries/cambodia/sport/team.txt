@@ -1,0 +1,15 @@
+---
+address: cambodia.sport.team
+description: Football clubs of the Cambodian Premier League, Khmer names. A short list because the league is short — Cambodia's top division has run with eight to eleven clubs, so this is close to the whole competition rather than a sample of it, and treating it as a sample will overstate how many professional clubs the country has. Read the names for two Cambodian habits. Khmer club names are written in Khmer script but the English part of the name is TRANSLITERATED rather than translated, and a space IS used between the transliterated words — ភ្នំពេញក្រោន is "Phnom Penh Crown" spelled out phonetically, ព្រះខ័នរាជ ស្វាយរៀង pairs a Khmer name with a province. That makes club names one of the few Khmer lists with internal spaces, the opposite of the problem the geography files in this pack have. And Cambodian media writes the suffix "F.C." in LATIN letters after the Khmer name, so a real Cambodian league table is a mixed-script line; the suffix is dropped here because it is not part of the club's identity and belongs to whatever renders the table. INSTITUTIONAL OWNERSHIP IS THE OTHER THING TO KNOW. Several of these clubs are arms of the state rather than of a city: នគរបាលជាតិ is the National Police, កម្ពុជាអាមី is the armed forces, and the Ministry of Interior fields a side too — a pattern common across South-East Asia and unlike a European league, where a club is a private company with a town behind it. Two entries are historical rather than current: ណាហ្គាវើល was the NagaWorld casino's club, dissolved in 2021, and បៀលប្រាយយូណាយធីត was Build Bright University's, long defunct — they are here because Cambodian football records refer to them and because a league table without them is wrong for the years they played. Clubs that could not be given a verified Khmer spelling were left out rather than transliterated on the spot, which is why several current sides are absent.
+locale: km
+---
+ភ្នំពេញក្រោន
+ព្រះខ័នរាជ ស្វាយរៀង
+វិសាខា
+បឹងកេត
+អង្គរថាយហ្គឺ
+គិរីវង់ សុខសែនជ័យ
+នគរបាលជាតិ
+កម្ពុជាអាមី
+ណាហ្គាវើល
+បៀលប្រាយយូណាយធីត
