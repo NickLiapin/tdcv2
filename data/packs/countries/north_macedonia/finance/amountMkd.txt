@@ -1,0 +1,27 @@
+---
+address: north_macedonia.finance.amountMkd
+description: A denar amount written the way North Macedonia writes one — 1.234.567,89 and not 1,234,567.89. The country uses the continental European convention, a FULL STOP for thousands and a COMMA for the decimal, which is the exact reverse of the English-language default and the single most common way a Macedonian money column is silently corrupted: read 1.234 as an English number and 1,234 denars becomes 1.234 denars, a thousandfold error that passes every type check because both strings parse. The currency is the ДЕНАР, ISO code MKD, subdivided into 100 дени — a subdivision that survives on invoices and has effectively vanished from cash, since the smallest coin in real circulation is 1 денар and the 50-дени coin is a curiosity. THE PEG IS THE FACT THAT MATTERS FOR ANY FINANCIAL DATA: the Народна банка has held the denar at roughly 61.5 to the euro since 2002, and to the Deutsche Mark at the equivalent rate from 1995, through a de facto peg maintained by intervention rather than a currency board. So an MKD figure is a euro figure times about 61.5 and moves against the dollar only as the euro does; North Macedonia is not in the euro area, is not in the EU, and unlike Croatia (euro 2023) and Slovenia (euro 2007) has no conversion date. Denar amounts therefore run large in ordinary life — a monthly wage is a five-digit number and a modest car a six- or seven-digit one — which is why the values here start at four digits rather than at one, and why a Macedonian invoice line looks alarming to anyone reading it as euros. The symbol is written ден. after the number (1.234,56 ден.) and is left OFF here so the value drops straight into a numeric column; prefix or suffix it in the config. The name changed in 2019 and the currency did not: it is the денар of the Republic of North Macedonia, still MKD, still the same notes.
+generator: tdc
+locale: mk
+---
+<sequence name="digits"><gen type="regex" value="[1-9][0-9]{3,7}"/></sequence>
+<sequence name="deni"><gen type="text" value="00,50,25,75" percent="88,4,4,4"/></sequence>
+<sequence name="amount"><compute>
+  <let name="len"><length><field name="digits"/></length></let>
+  <let name="grouped"><join><each>
+    <over><field name="digits"/></over>
+    <do>
+      <!-- Digits still to come, counting this one. A separator goes before any
+           digit that opens a group of three and is not the first character. -->
+      <let name="rem"><subtract><use name="len"/><current_index/></subtract></let>
+      <choose>
+        <when><test><equals><current_index/><int v="0"/></equals></test><then><current/></then></when>
+        <when><test><equals><mod><use name="rem"/><int v="3"/></mod><int v="0"/></equals></test>
+          <then><concat><str v="."/><current/></concat></then></when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </do>
+  </each></join></let>
+  <result><concat><use name="grouped"/><str v=","/><field name="deni"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

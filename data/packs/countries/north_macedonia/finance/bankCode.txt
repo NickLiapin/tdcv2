@@ -1,0 +1,14 @@
+---
+address: north_macedonia.finance.bankCode
+description: Macedonian bank leading number (водечки број) — the three digits the Народна банка на Република Северна Македонија assigns each bank, and the first block of every domestic account number and every MK IBAN. Three digits, where Slovenia takes two and Croatia seven. EVERY CODE IN THIS LIST WAS READ OFF A REAL PUBLISHED ACCOUNT and then checked: each of the twenty-one account numbers used to source them verifies ISO 7064 MOD 97-10, which is as close to a primary source as this gets without the central bank's own register, whose page and spreadsheet both refuse non-browser requests. The codes: 200 Стопанска банка АД - Скопје, 210 НЛБ Банка АД Скопје, 240 УНИ Банка АД Скопје, 250 Шпаркасе Банка АД Скопје, 270 Халкбанк АД Скопје, 290 ТТК Банка АД Скопје, 300 Комерцијална банка АД Скопје, 320 Централна кооперативна банка АД Скопје, 380 ПроКредит Банка АД Скопје, 500 Алта банка АД Битола. ONE CODE IS DELIBERATELY ABSENT FROM THIS LIST although it is real and although its accounts do verify: 100 is the Народна банка itself, which holds the Trezor accounts of every budget-funded body in the country — the Faculty of Electrical Engineering of the Skopje university banks at 100000000063095 — and drawing it would produce private customers of the central bank, which do not exist. That is the same reason Serbia's pack leaves out 840 and 908. A related trap sits beside it: a Macedonian public body's payment slip carries TWO numbers, the bank account above and a сметка на буџетски корисник beginning 160, and the second one is a Treasury sub-ledger reference, not an account — 160010428678814 does NOT satisfy MOD 97-10 and never will, because it was never a BBAN. Codes travel with the licence and not with the brand: 500 was Стопанска банка АД Битола, a separate bank from the much larger Стопанска банка АД - Скопје on 200, and now trades as Алта банка on the same 500. Two licensed banks are known to be missing from this list — Силк Роуд Банка АД Скопје and Развојна банка на Северна Македонија АД Скопје — because no published account of theirs could be sourced to confirm their codes, and a guessed leading number would have been worse than a short list.
+---
+200
+210
+240
+250
+270
+290
+300
+320
+380
+500

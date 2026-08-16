@@ -1,0 +1,13 @@
+---
+address: north_macedonia.geo.region
+description: The eight statistical regions (статистички региони) of North Macedonia. READ THE WARNING BEFORE USING THIS AS AN ADMINISTRATIVE FIELD: these are NUTS-3 planning units created for statistics and EU funding, with a Council for Development but no elected assembly, no mayor and no ordinary powers over anyone. They are not a tier of government, they never appear in a postal address, and no identity document carries one. That is the difference between this file and poland/geo/voivodeship.txt or croatia/geo/county.txt, which name units that genuinely govern: North Macedonia went straight from the state to the municipality in 1996 and has stayed there. What the regions ARE good for is aggregation — the Државен завод за статистика publishes almost everything by these eight, so a Macedonian dataset with a region column is usually a statistical roll-up and not an address component. Скопски is the odd one out: it is the only region built around a single city, and it holds a third of the country. Полошки is the Tetovo-Gostivar valley and is the most heavily Albanian-speaking; Пелагониски is the Bitola-Prilep plain; Вардарски follows the river down the middle; Југозападен is Ohrid, Struga and Debar; Југоисточен is Strumica and Gevgelija; Источен is Štip, Kočani and the Bregalnica; Североисточен is Kumanovo and the Kriva Palanka corner.
+locale: mk
+---
+Скопски
+Полошки
+Пелагониски
+Вардарски
+Југозападен
+Југоисточен
+Источен
+Североисточен

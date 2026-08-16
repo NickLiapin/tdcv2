@@ -1,0 +1,17 @@
+---
+address: north_macedonia.finance.bank
+description: The licensed banks of North Macedonia, in their Macedonian register names. A small system — around a dozen banks for 1.8 million people — and a concentrated one: Комерцијална банка and Стопанска банка АД - Скопје together hold roughly a third of the country's assets, the five largest hold most of the rest, and the tail is genuinely small, with Централна кооперативна банка leading a group of five whose balance sheets are in the low hundreds of millions of euro. Foreign ownership runs deep and shows in the names: НЛБ is Slovenian, Шпаркасе Austrian, Халкбанк Turkish, ПроКредит German, Централна кооперативна банка Bulgarian, and Стопанска банка АД - Скопје has been majority-owned by the National Bank of Greece since 2000 — so a list of "Macedonian banks" is mostly a list of the region's banks trading here. TWO NAMES NEED CARE. Стопанска банка АД - Скопје and Алта банка АД Битола are different institutions with different licences and different leading numbers (200 and 500); Алта was Стопанска банка АД Битола until it rebranded, and the two Стопанска banks were never the same bank, so software matching Macedonian counterparties on the string "Стопанска банка" merges two of them. And Развојна банка на Северна Македонија is not a commercial bank at all: it is the wholly state-owned development bank, it takes no retail deposits, and its name is one of the visible traces of the 2019 renaming — it was Развојна банка на Македонија until the Prespa Agreement. The central bank is not in this list because it is not a bank one holds an account with, with one exception worth knowing: budget-funded institutions do bank at the Народна банка на Република Северна Македонија under leading number 100, which is why a Macedonian university's payment details name the central bank. See north_macedonia.finance.bankCode for the leading numbers and the evidence behind them.
+locale: mk
+---
+Комерцијална банка АД Скопје
+Стопанска банка АД - Скопје
+НЛБ Банка АД Скопје
+Шпаркасе Банка АД Скопје
+Халкбанк АД Скопје
+УНИ Банка АД Скопје
+ПроКредит Банка АД Скопје
+Централна кооперативна банка АД Скопје
+ТТК Банка АД Скопје
+Силк Роуд Банка АД Скопје
+Алта банка АД Битола
+Развојна банка на Северна Македонија АД Скопје

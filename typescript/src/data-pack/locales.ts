@@ -176,6 +176,7 @@ export const RTL_LOCALES: ReadonlySet<string> = new Set([
 export const CANONICAL_COUNTRIES: ReadonlySet<string> = new Set([
   'albania',
   'bosnia_and_herzegovina',
+  'north_macedonia',
   'algeria',
   'angola',
   'argentina',

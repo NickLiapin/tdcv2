@@ -1,0 +1,39 @@
+---
+address: north_macedonia.vehicle.plateCode
+description: The 34 two-letter registration-area codes on a North Macedonian number plate, in LATIN, which is how they are stamped. BE Берово, BT Битола, DB Дебар, DE Делчево, DH Демир Хисар, DK Демир Капија, GE Гевгелија, GV Гостивар, KA Кавадарци, KI Кичево, KO Кочани, KP Крива Паланка, KR Кратово, KS Крушево, KU Куманово, MB Македонски Брод, MK Македонска Каменица, NE Неготино, OH Охрид, PE Пехчево, PP Прилеп, PS Пробиштип, RA Радовиш, RE Ресен, SK Скопје, SN Свети Николе, SR Струмица, ST Штип, SU Струга, TE Тетово, VA Валандово, VE Велес, VI Виница, VV Вевчани. TWO OF THEM WILL BITE A PARSER. MK is Македонска Каменица, a town of 4,368 people — and it is also the country's own ISO code and the old international vehicle code the Prespa Agreement replaced, so an MK plate is a Macedonian Kamenica plate and MK on the blue band was the country until February 2019. And SR is Струмица, not Serbia. From 1993 until 20 February 2012 there were only TEN areas — BT, GV, KU, OH, PP, SK, SR, ST, TE and VE — and the 2012 reform split them into these 34, so an older Macedonian plate carries one of ten codes and a newer one any of 34; a lookup table built before 2012 silently maps a Кратово car to Куманово. Codes are unaccented Latin throughout, unlike Serbia's ČA and ŠA and Croatia's ŽU: the Macedonian scheme transliterates rather than carrying diacritics, so Штип is ST and Крушево KS. The area code is stamped in Latin beside the shield and REPEATED IN CYRILLIC in the small rectangular field, so a Macedonian plate physically carries both scripts and a generator can only carry one of them; it carries the Latin, because that is what a camera, a database or a person reads off the mark.
+locale: en
+---
+BE
+BT
+DB
+DE
+DH
+DK
+GE
+GV
+KA
+KI
+KO
+KP
+KR
+KS
+KU
+MB
+MK
+NE
+OH
+PE
+PP
+PS
+RA
+RE
+SK
+SN
+SR
+ST
+SU
+TE
+VA
+VE
+VI
+VV

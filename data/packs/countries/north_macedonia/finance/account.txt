@@ -1,0 +1,19 @@
+---
+address: north_macedonia.finance.account
+description: A Macedonian domestic transaction account (трансакциска сметка), the fifteen digits printed in three groups as 300-0000019022-06 — a three-digit bank leading number, a ten-digit account, and two national control digits that are ISO 7064 MOD 97-10 over the thirteen in front of them. This is the number on a Macedonian invoice, a PP30 or PP50 payment slip and the back of a utility bill; the IBAN at north_macedonia.finance.iban is the same fifteen digits with MK07 in front, which is why a Macedonian who is asked for an IBAN abroad often just adds the prefix. THE HYPHENS ARE HOW IT IS WRITTEN AND NOT DECORATION a formatter may drop: published account details in this country almost always show the three groups, and 3000000190 2206 read as an unbroken string is the same value but not the same convention. This generator writes the hyphenated form, because a bare fifteen-digit run is already reachable as the tail of the IBAN. The control digits are computed, so every value here verifies — the published accounts this pattern was checked against include Комерцијална банка's 300-0000019022-06 and Стопанска банка's 200-0009095303-86 (both from Винер осигурување), 200000810380672 and 300000004130296 (Централен регистар), and 320-0000000421-04 at Централна кооперативна банка. What this file does NOT generate: a сметка на буџетски корисник, the parallel Treasury reference beginning 160 that a Macedonian public body quotes beside its bank account. That number is fifteen digits too and looks identical, and it does NOT satisfy MOD 97-10 — 160010428678814 is a real one and fails — because it is a sub-ledger key inside the single Treasury account, not a payment account. A validator that runs the account check over a whole Macedonian payments file will reject every budget-user line unless it knows the difference.
+generator: tdc
+---
+<sequence name="bank"><gen type="template" value="north_macedonia.finance.bankCode"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{10}"/></sequence>
+<sequence name="control"><compute>
+  <let name="n13"><concat><field name="bank"/><field name="account"/></concat></let>
+  <let name="r13"><reduce>
+    <over><use name="n13"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <result><pad width="2" fill="0">
+    <mod><subtract><int v="98"/><mod><multiply><use name="r13"/><int v="3"/></multiply><int v="97"/></mod></subtract><int v="97"/></mod>
+  </pad></result>
+</compute></sequence>
+<data>${{bank}}-${{account}}-${{control}}</data>

@@ -1,0 +1,40 @@
+---
+address: north_macedonia.geo.city
+description: The 34 cities (градови) of North Macedonia, weighted by their 2021 census population. The country is small and top-heavy: Скопје alone holds about a third of it, and the figure used here — 526,502 — is the Град Скопје unit, the ten municipalities that make up the capital, because that is what "Skopje" means to a postal address, a bank branch list or a person. The next four (Куманово, Битола, Прилеп, Тетово) sit between 63,000 and 76,000 and then the curve falls away fast; the smallest four cities in the country — Демир Капија, Пехчево, Демир Хисар, Македонски Брод — are each under 3,700, which is village size elsewhere in Europe and is still legally a град here. Weighting matters more than usual for that reason: an unweighted draw over 34 names puts Демир Хисар and Скопје on the same footing and produces a country where 3% of people live in the capital. The 2021 census is the first since 2002 — the 2011 attempt was abandoned mid-count — and it recorded 1,836,713 resident people, 9.2% fewer than in 2002, so every figure here is a real decline and not a rounding. Cities OUTSIDE the 34 do not exist as a category: North Macedonia has 1,700-odd settlements and everything that is not one of these 34 is a село, which is why north_macedonia.geo.village is a separate address rather than a tail on this one. Note that a city and its municipality are different units with different populations — Штип the city is smaller than Општина Штип — and that north_macedonia.geo.municipality carries the other number.
+locale: mk
+weighted: true
+---
+Скопје,526502
+Куманово,75051
+Битола,71808
+Прилеп,63308
+Тетово,63176
+Штип,42000
+Велес,40664
+Охрид,38818
+Струмица,33825
+Гостивар,32814
+Кавадарци,32038
+Кочани,24632
+Кичево,23428
+Гевгелија,15156
+Струга,15009
+Радовиш,14460
+Крива Паланка,13481
+Неготино,12488
+Дебар,11735
+Свети Николе,11728
+Пробиштип,9760
+Делчево,9644
+Виница,8584
+Ресен,7904
+Берово,5850
+Кратово,5791
+Богданци,5244
+Македонска Каменица,4368
+Крушево,4104
+Валандово,3671
+Македонски Брод,3643
+Демир Капија,2643
+Пехчево,2471
+Демир Хисар,2431

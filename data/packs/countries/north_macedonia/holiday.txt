@@ -1,0 +1,16 @@
+---
+address: north_macedonia.holiday
+description: The public holidays of North Macedonia under the Закон за празниците на Република Македонија (Сл. весник бр. 21/98, 18/07), in Macedonian Cyrillic. The law separates ДРЖАВНИ ПРАЗНИЦИ — the six that commemorate the state — from ПРАЗНИЦИ, the five that are simply days off, and every one of the eleven is non-working. The state holidays: 24 May, Св. Кирил и Методиј, Ден на сесловенските просветители; 2 August, Ден на Републиката, which is Илинден, the 1903 uprising and the 1944 ASNOM assembly on the same date and the closest thing the country has to a national day; 8 September, Ден на независноста, the 1991 referendum; 11 October, Ден на народното востание, 1941; 23 October, Ден на македонската револуционерна борба, the founding of VMRO in 1893; and 8 December, Св. Климент Охридски. The ordinary holidays: Нова година on 1 January; Божиќ on 7 January, Orthodox, because the Macedonian Orthodox Church keeps the Julian calendar for the fixed feasts and Christmas therefore falls thirteen days after the Western one; Велигден, the SECOND day of Orthodox Easter — the Monday, not the Sunday, which is what the law names; Ден на трудот on 1 May; and РАМАЗАН БАЈРАМ, the first day of Eid al-Fitr, WHICH IS A NON-WORKING DAY FOR EVERY CITIZEN AND NOT ONLY FOR MUSLIMS. That last one is the thing this calendar has and its Orthodox neighbours do not: about a third of the country is Muslim, the Ohrid settlement is written into the holiday law as much as into the language law, and a Macedonian working year therefore contains one MOVING ISLAMIC date alongside one moving Orthodox one — so a business-day calculator for this country needs both the Julian Paschalion and the Hijri calendar, and neither can be derived from the Gregorian year alone. Beyond these eleven the law grants each community its own further days off, taken only by its members: Kurban Bajram and 8 September (Turkish), Christmas and Easter on the Gregorian dates and All Saints (Catholic), Yom Kippur (Jewish), 22 November Ден на албанската азбука, 21 December Ден на турскиот јазик, 8 April International Roma Day, 23 May Ден на Влаховите, 27 January Свети Сава (Serbian), 28 September (Bosniak). When a holiday falls on a Sunday, the following Monday is non-working.
+locale: mk
+---
+Нова година
+Божиќ
+Велигден
+Ден на трудот
+Рамазан Бајрам
+Св. Кирил и Методиј – Ден на сесловенските просветители
+Ден на Републиката
+Ден на независноста
+Ден на народното востание
+Ден на македонската револуционерна борба
+Св. Климент Охридски

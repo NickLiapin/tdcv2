@@ -1,0 +1,55 @@
+---
+address: north_macedonia.docs.embg
+description: The ЕМБГ (единствен матичен број на граѓанинот) — 13 digits, North Macedonia's personal number, governed by the Закон за матичен број на граѓанинот, Службен весник на Р Македонија бр. 36/92 of 8 June 1992. Член 2 sets the structure in six groups: day of birth (2), month of birth (2), the YEAR IN THREE DIGITS (1968 is 968, 2004 is 004), the register number (2), a combined sex-and-sequence group (3) in which МАЖИ ОД 000 ДО 499, ЖЕНИ ОД 500 ДО 999, and the control digit (1). It is the Yugoslav federal number of 1976 kept unchanged, which is why the shape matches Serbia's JMBG and Bosnia's exactly and why a Macedonian number leaks birth date, sex and birth region the same way. Член 4 lists NINE registration areas, and this is the part that is Macedonia's alone — the Yugoslav plan gave the republic the 41-49 block and the law names them individually: 41 Битола, for Битола, Ресен and Демир Хисар; 42 Куманово, for Куманово, Кратово and Крива Паланка; 43 Охрид, for Охрид, Дебар, Кичево and Струга; 44 Прилеп, for Прилеп, Крушево and Брод; 45 Скопје; 46 Струмица, for Струмица, Валандово and Радовиш; 47 Тетово, for Тетово and Гостивар; 48 Велес, for Велес, Гевгелија, Кавадарци and Неготино; 49 Штип, for Штип, Берово, Виница, Делчево, Кочани, Пробиштип and Свети Николе. All nine are drawn here. Foreigners get a separate number under Член 7 and are not generated. THE CHECK DIGIT IS NOT IN THE LAW: Член 3 says only that it "се определува со електронски сметач" and Член 11 leaves the method to a ministerial by-law. The method is the shared Yugoslav "Modul 11" — weights 2,3,4,5,6,7 repeating from the RIGHT, which read left to right over the twelve base digits is 7,6,5,4,3,2,7,6,5,4,3,2; sum, take mod 11, and the digit is 11 minus the remainder. Remainder 0 gives 0; remainder 1 would give 10, which cannot be written in one digit, so the register never issues that serial and this generator redraws. VERIFIED against the published worked example 0403982455003 — 4 March 1982, register 45 Скопје, serial 500, control 3 — whose arithmetic (7·(0+2)+6·(4+4)+5·(0+5)+4·(3+5)+3·(9+0)+2·(8+0) = 162, 162 mod 11 = 8, 11−8 = 3) this file reproduces exactly. Change one digit of it and the check no longer matches; the transcript is in the pack report. THE ЕМБГ IS ALSO THE TAX NUMBER of a Macedonian citizen: Член 2 став 4 of the Правилник за доделување на единствен даночен број says so outright, so a private individual here has no separate ЕДБ, and north_macedonia.tax.edb is for entities and registered traders only.
+generator: tdc
+---
+<sequence name="dob"><gen type="date" from="1940-01-01" to="2010-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="reg"><gen type="text" value="41,42,43,44,45,46,47,48,49"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="check"><compute>
+  <!-- The drawn date arrives as YYYYMMDD; the ЕМБГ wants DD MM GGG. -->
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <let name="body"><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <field name="reg"/>
+    <field name="serial"/>
+  </concat></let>
+  <let name="sum"><reduce>
+    <over><use name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,6,5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
+  <result>
+    <choose>
+      <when><test><equals><use name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<!-- Remainder 1 would make the control digit 10; the register skips that serial. -->
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<sequence name="embg"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <result><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <field name="reg"/>
+    <field name="serial"/>
+    <field name="check"/>
+  </concat></result>
+</compute></sequence>
+<data>${{embg}}</data>

@@ -1,0 +1,17 @@
+---
+address: north_macedonia.phoneAreaCode
+description: The geographic area codes (повикувачки броеви) of North Macedonia, written with the national trunk zero. Twelve codes for a country of 1.8 million, one per regional centre, and the shape of the list is the thing to notice: 02 for Скопје is a SINGLE digit after the trunk zero and every other code is two, which means the national significant number is nine digits in Skopje (2 + seven subscriber digits) and eight everywhere else (XX + six). Software that assumes a fixed-length geographic number, or a fixed-width area-code column, gets Skopje wrong — the same trap Croatia sets with Zagreb's 01 and Slovenia sets with its single-digit codes, and the reason all three plans look like this is that they were carved out of one Yugoslav grid where the leading digit belonged to a republic. In international form the zero is dropped: +389 2 for Skopje, +389 47 for Bitola. The codes do NOT line up with the postal grid the way Serbia's do — Битола is 047 by phone and 7000 by post, Куманово is 031 and 1300 — because the phone plan was numbered outward from Skopje and the postal plan was numbered down from the federal 9xxxx block, so the two disagree across the whole country and neither can be derived from the other. Mobile numbers are not in this list; they are 070-079 and live at north_macedonia.phone.
+locale: mk
+---
+02
+031
+032
+033
+034
+042
+043
+044
+045
+046
+047
+048

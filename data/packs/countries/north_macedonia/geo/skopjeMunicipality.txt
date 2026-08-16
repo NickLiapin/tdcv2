@@ -1,0 +1,16 @@
+---
+address: north_macedonia.geo.skopjeMunicipality
+description: The ten municipalities that make up the City of Skopje (Град Скопје), weighted by 2021 census population. Skopje is the one place in the country with a two-tier local government: the Град Скопје is a unit of local self-government in its own right, with its own mayor and council, laid over ten municipalities that each have their own mayor and council as well — so a Skopje resident votes in two local elections and a Skopje address names two authorities. That is why this address exists beside north_macedonia.geo.municipality rather than inside it: a form asking "which municipality" of someone in Skopje wants one of these ten, and a form asking the same of someone in Битола wants Битола. Ѓорче Петров is named after the Ilinden-era revolutionary and carries the ѓ; Шуто Оризари is the only municipality in the world with Romani as an official language and a Roma mayor, which is a fact about this place and not a statistic to be smoothed away; Центар is the old town core and Чаир the largely Albanian-speaking Old Bazaar side of the Vardar. The ten sum to 526,502, the figure north_macedonia.geo.city uses for Скопје. Beware the older name Ѓорче Петров was Ново Село before 1952, and that Скопје itself is Üsküp in Turkish and Shkupi in Albanian — neither form appears in this pack, for the reason set out in north_macedonia.language.
+locale: mk
+weighted: true
+---
+Аеродром,77735
+Гази Баба,69626
+Карпош,63760
+Чаир,62586
+Кисела Вода,61965
+Ѓорче Петров,44844
+Центар,43893
+Сарај,38399
+Бутел,37968
+Шуто Оризари,25726

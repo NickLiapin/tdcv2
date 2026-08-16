@@ -1,0 +1,86 @@
+---
+address: north_macedonia.geo.municipality
+description: All 80 municipalities (општини) of North Macedonia, weighted by 2021 census population. THE MUNICIPALITY IS THE ONLY LEVEL OF LOCAL GOVERNMENT — there is no province, no county, no oblast and no region with a council between the municipality and the state, which is why this file sits where poland/geo/voivodeship.txt or serbia/geo/district.txt sits and yet describes a much smaller unit. North Macedonia's eight "regions" (north_macedonia.geo.region) are statistical planning units with no elected body, so a Macedonian address has two administrative parts and not three. The count is 80 municipalities PLUS the City of Skopje, which is a separate unit of local self-government layered over ten of them; those ten (Аеродром, Бутел, Гази Баба, Ѓорче Петров, Карпош, Кисела Вода, Сарај, Центар, Чаир, Шуто Оризари) are in this list AND in north_macedonia.geo.skopjeMunicipality, because they really are both — a Skopje municipality is a municipality of the Republic and a constituent of the capital at the same time. The number has moved twice: 123 municipalities in 1996, cut to 84 in 2004 under the Ohrid Framework Agreement, cut to 80 in 2013 when Другово, Зајас, Осломеј and Вранештица were merged into Кичево. Anything mapping Macedonian municipality codes should be checked against a date for that reason. The distribution is extreme — Куманово has 98,104 people and Зрновци 2,086, a factor of 47 — so an unweighted draw badly misrepresents the country. Names are the official Macedonian register forms: Ѓорче Петров carries the ѓ that separates Macedonian from Serbian Cyrillic, Боговиње the њ, and Маврово и Ростуше is a two-place name that is one municipality and takes no hyphen, unlike Чешиново-Облешево and Чучер-Сандево, which do.
+locale: mk
+weighted: true
+---
+Куманово,98104
+Битола,85164
+Тетово,84770
+Аеродром,77735
+Гази Баба,69626
+Прилеп,69025
+Карпош,63760
+Чаир,62586
+Кисела Вода,61965
+Гостивар,59770
+Охрид,51428
+Струга,50980
+Струмица,49995
+Велес,48463
+Штип,44866
+Ѓорче Петров,44844
+Центар,43893
+Кичево,39669
+Сарај,38399
+Бутел,37968
+Кавадарци,35733
+Кочани,31602
+Шуто Оризари,25726
+Радовиш,24122
+Боговиње,22906
+Липково,22308
+Студеничани,21970
+Гевгелија,21582
+Врапчиште,19842
+Желино,18988
+Неготино,18194
+Крива Паланка,18059
+Теарце,17694
+Илинден,17435
+Дебар,15412
+Свети Николе,15320
+Виница,14475
+Ресен,14373
+Брвеница,13645
+Делчево,13585
+Пробиштип,13417
+Долнени,13126
+Арачиново,12676
+Босилово,11508
+Берово,10890
+Василево,10552
+Валандово,10508
+Чучер-Сандево,9200
+Петровец,9150
+Јегуновце,8895
+Крушево,8385
+Чашка,7942
+Кратово,7545
+Богданци,7339
+Демир Хисар,7260
+Ново Село,6972
+Сопиште,6713
+Македонска Каменица,6439
+Македонски Брод,5889
+Чешиново-Облешево,5471
+Могила,5283
+Кривогаштани,5167
+Маврово и Ростуше,5042
+Пласница,4222
+Пехчево,3983
+Росоман,3796
+Демир Капија,3777
+Центар Жупа,3720
+Дебарца,3719
+Старо Нагоричане,3501
+Ранковце,3465
+Карбинци,3420
+Зелениково,3361
+Градско,3233
+Дојран,3084
+Конче,2725
+Новаци,2648
+Вевчани,2359
+Лозово,2264
+Зрновци,2086

@@ -1,0 +1,16 @@
+---
+address: north_macedonia.education.university
+description: Universities of North Macedonia, state ones first. Six are public: Универзитет „Св. Кирил и Методиј“ во Скопје, founded 1949 and for thirty years the only one in the republic, still by far the largest; Универзитет „Св. Климент Охридски“ – Битола, 1979; Државен универзитет во Тетово, 2004, created after the Ohrid Framework Agreement and teaching primarily in ALBANIAN, which makes it the one Macedonian university whose working language is not the state language and the reason the Albanian-language question in this country reaches into higher education and not only into signage; Универзитет „Гоце Делчев“ – Штип, 2007; Универзитет за информатички науки и технологии „Св. Апостол Павле“ – Охрид, 2008; and Универзитет „Мајка Тереза“ во Скопје, 2016, also teaching largely in Albanian. The private and joint ones include Универзитет на Југоисточна Европа – Тетово, set up in 2001 under an OSCE-brokered international arrangement precisely to teach in Albanian, Macedonian and English at once; Меѓународен балкански универзитет – Скопје and Меѓународен универзитет Визион – Гостивар, both Turkish-founded; Универзитет Американ Колеџ Скопје; and Меѓународен славјански универзитет „Гаврило Романович Державин“ – Свети Николе. TWO NAMING POINTS. Скопје's university is named for Cyril and Methodius and Битола's for Clement of Ohrid, and all three are the Slavic apostles whose script this pack is written in — Св. Кирил и Методиј is also a public holiday on 24 May and Св. Климент Охридски one on 8 December, so the same names appear in north_macedonia.holiday. And the low quotation marks „ “ are the Macedonian convention and are part of the official name, not decoration: a system that normalises them to " " has changed the registered title. The Македонска академија на науките и уметностите (МАНУ) is not in this list because it is an academy and not a university, but it is worth knowing as a place where the pre-2019 name legitimately survives.
+locale: mk
+---
+Универзитет „Св. Кирил и Методиј“ во Скопје
+Универзитет „Св. Климент Охридски“ – Битола
+Државен универзитет во Тетово
+Универзитет „Гоце Делчев“ – Штип
+Универзитет за информатички науки и технологии „Св. Апостол Павле“ – Охрид
+Универзитет „Мајка Тереза“ во Скопје
+Универзитет на Југоисточна Европа – Тетово
+Меѓународен балкански универзитет – Скопје
+Универзитет Американ Колеџ Скопје
+Меѓународен универзитет Визион – Гостивар
+Меѓународен славјански универзитет „Гаврило Романович Державин“ – Свети Николе

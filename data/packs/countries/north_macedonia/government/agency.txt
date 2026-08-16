@@ -1,0 +1,30 @@
+---
+address: north_macedonia.government.agency
+description: State bodies of North Macedonia — the ministries, agencies, funds and registers a Macedonian record actually names. THIS LIST IS WHERE THE 2019 RENAMING IS MOST VISIBLE and where copying a pre-2019 source silently produces a body that no longer exists under that name: the central bank is Народна банка на Република Северна Македонија (it was Народна банка на Република Македонија), the employment service is Агенција за вработување на Република Северна Македонија, the company register is Централен регистар на Република Северна Македонија. The Prespa Agreement required exactly this, and it is why a Macedonian dataset assembled across 2018 and 2020 contains two names for one institution. Four of these are what a data pipeline for this country will meet first. УПРАВА ЗА ЈАВНИ ПРИХОДИ issues the ЕДБ (north_macedonia.tax.edb) and runs the tax register. ЦЕНТРАЛЕН РЕГИСТАР issues the seven-digit ЕМБС that every company carries beside its ЕДБ, and runs the one-stop shop through which a company is founded in a day. УПРАВА ЗА ВОДЕЊЕ НА МАТИЧНИТЕ КНИГИ keeps the civil registers from which the ЕМБГ is derived, and МИНИСТЕРСТВО ЗА ВНАТРЕШНИ РАБОТИ assigns the ЕМБГ itself under Член 5 of the 1992 law and issues identity cards, passports and the vehicle plates at north_macedonia.vehicle.plate. The two social funds are separate institutions with separate contributions and separate numbers — Фонд за пензиското и инвалидското осигурување and Фонд за здравственото осигурување — which is the Yugoslav split and not the single social-insurance body a Western European template expects. Note the spelling of the verbal nouns: вработување, осигурување, водење and планирање all end in -ње and carry the letter њ, which is a small structural fact about Macedonian rather than a typographical accident, and a transliteration that renders њ as н has changed the words.
+locale: mk
+---
+Министерство за внатрешни работи
+Министерство за финансии
+Министерство за правда
+Министерство за образование и наука
+Министерство за здравство
+Министерство за труд и социјална политика
+Министерство за надворешни работи
+Министерство за животна средина и просторно планирање
+Министерство за земјоделство, шумарство и водостопанство
+Народна банка на Република Северна Македонија
+Управа за јавни приходи
+Царинска управа на Република Северна Македонија
+Централен регистар на Република Северна Македонија
+Управа за водење на матичните книги
+Агенција за катастар на недвижности
+Агенција за вработување на Република Северна Македонија
+Фонд за пензиското и инвалидското осигурување на Северна Македонија
+Фонд за здравственото осигурување на Македонија
+Државен завод за статистика
+Агенција за електронски комуникации
+Агенција за лекови и медицински средства
+Агенција за храна и ветеринарство
+Агенција за заштита на личните податоци
+Државен завод за индустриска сопственост
+Собрание на Република Северна Македонија

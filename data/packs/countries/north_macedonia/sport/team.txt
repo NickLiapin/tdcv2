@@ -1,0 +1,26 @@
+---
+address: north_macedonia.sport.team
+description: Sports clubs of North Macedonia — the twelve clubs of the Прва МФЛ in the 2025/26 season as registered with the Фудбалска федерација на Македонија, followed by well-known clubs from the lower divisions and from handball and basketball. THE LEAGUE TABLE IS A MAP OF THE COUNTRY'S TWO COMMUNITIES and this is the clearest place in the pack to see it: ФК Вардар, ФК Работнички, ФК Пелистер, ФК Македонија Ѓорче Петров, ФК Силекс and ГФК Тиквеш are Macedonian-community clubs with Macedonian names, while ФК Шкендија (Tetovo), ФК Шкупи (Skopje), ФК Аресими (Kičevo) and ФК Башкими (Kumanovo) are Albanian-community clubs whose names are Albanian words — Shkëndija "the spark", Shkupi the Albanian name of Skopje, Bashkimi "the union" — registered and printed in Macedonian Cyrillic, which is exactly how the bilingual arrangement described in north_macedonia.language works in practice. ФК Ренова plays in Џепчиште, a village outside Tetovo, and is one of the few top-flight European clubs whose home is a village of a few thousand people. ФК Македонија Ѓорче Петров carries the ѓ that separates Macedonian Cyrillic from Serbian; ФК Ренова's home village carries the џ. Two clubs to know beyond football: РК Вардар won the EHF Champions League in 2017 and 2019, which is the biggest thing any Macedonian club has ever won in any sport, and КК МЗТ Скопје is the basketball equivalent. The league is being cut from twelve clubs to ten from the following season, so a fixture list built on twelve has a shelf life. Federation and club names are among the places where "Македонија" without "Северна" survives legitimately: ФФМ did not rename itself out of existence in 2019, and ФК Македонија Ѓорче Петров was founded in 1932.
+locale: mk
+---
+ФК Вардар
+ФК Шкендија
+ФК Работнички
+ФК Шкупи
+ФК Пелистер
+ФК Македонија Ѓорче Петров
+ФК Силекс
+ГФК Тиквеш 1930
+ФК Струга Трим Лум
+ФК АП Брера Струмица
+ФК Аресими 1973
+ФК Башкими 1947
+ФК Ренова
+ФК Брегалница Штип
+ФК Беласица Струмица
+ФК Победа Прилеп
+ФК Тетекс Тетово
+РК Вардар
+РК Металург Скопје
+КК МЗТ Скопје
+КК Работнички

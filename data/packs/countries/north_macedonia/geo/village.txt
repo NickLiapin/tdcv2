@@ -1,0 +1,31 @@
+---
+address: north_macedonia.geo.village
+description: Real villages (села) of North Macedonia. The country has about 1,700 settlements and only 34 of them are cities, so most Macedonian addresses outside the four big towns name a village, and a pack that stops at north_macedonia.geo.city cannot write the majority of them. This list is deliberately the place where the MACEDONIAN-SPECIFIC CYRILLIC LETTERS show up in actual data rather than in prose: Ѕвегор in Општина Делчево carries ѕ, the letter no other living Slavic Cyrillic alphabet has; Синѓелиќ in Гази Баба carries ѓ AND ќ in one name; Џепчиште near Тетово carries џ; Љубанци and Љубојно carry љ; Камењане carries њ. All six of the letters that separate Macedonian from Russian appear here in place names that exist, which is the point — a Macedonian dataset that never produces one of them is not Macedonian. The largest entries are peri-urban and would be suburbs anywhere else: Драчево, Волково, Радишани and Синѓелиќ are inside the Skopje built-up area and each has more people than eight of the country's cities, but they are legally villages because the settlement categories were fixed before the city grew over them. Several names are settlements in Albanian-speaking municipalities (Џепчиште, Чегране, Камењане, Пирок, Слупчане, Матејче, Арачиново) and each has an Albanian form this file does not carry — Xhepçishtë, Çegran, Kamjan, Pirok, Sllupçan, Matejçë, Haraçinë — for the reason set out in north_macedonia.language. This is a selection, not the register: it is not weighted, because population figures were available for some of these settlements and not others, and inventing the rest would have been worse than drawing them evenly.
+locale: mk
+---
+Драчево
+Студеничани
+Арачиново
+Синѓелиќ
+Батинци
+Лабуништа
+Волково
+Радишани
+Марино
+Челопек
+Чегране
+Врапчиште
+Пирок
+Камењане
+Велешта
+Добри Дол
+Џепчиште
+Ѕвегор
+Љубанци
+Љубојно
+Кучевиште
+Лешок
+Вратница
+Матејче
+Слупчане
+Куклиш

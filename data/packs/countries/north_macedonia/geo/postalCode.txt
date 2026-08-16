@@ -1,0 +1,30 @@
+---
+address: north_macedonia.geo.postalCode
+description: Macedonian postal code (поштенски број) — FOUR digits, and the reason it is four is the same reason Slovenia's is four and Serbia's is five. All three came out of the Yugoslav federal plan of 1971, in which the leading digit was the republic and Macedonia was 9: Skopje was 91000, Bitola 97000, Ohrid 96000. Macedonia sat entirely inside the 9xxxx block, so at independence it dropped the leading 9 and shortened to four digits, exactly as Slovenia dropped its 6 — while Serbia, spread across 11000 to 38xxx, could drop nothing and kept five. That history is why the codes cluster in four leading digits (1, 2, 6, 7) and why 3, 4, 5, 8, 9 and 0 are unused: they were other republics. The four in use are the regional distribution centres — 1 Скопје, Тетово, Гостивар, Дебар, Куманово, Кратово, Крива Паланка, Велес, Кавадарци, Неготино, Гевгелија; 2 Штип, Свети Николе, Пробиштип, Кочани, Виница, Делчево, Берово, Пехчево, Струмица, Радовиш, Валандово; 6 Охрид, Струга, Кичево, Македонски Брод; 7 Битола, Демир Хисар, Ресен, Прилеп, Крушево. THIS GENERATOR DOES NOT DRAW 1000..7999 AND DOES NOT DRAW A LEADING DIGIT PLUS THREE FREE ONES, because most of that space is not issued: there is no 3xxx or 5xxx at all, and inside the used leading digits the gaps are large — nothing between 1143 and 1199, nothing between 1258 and 1299, nothing between 1362 and 1399, nothing between 1444 and 1479 or 1493 and 1999, nothing between 2228 and 2299 or 2465 and 5999, nothing between 6347 and 6529 or 6540 and 6999, nothing between 7322 and 7499 or 7551 and 9999. Instead it draws one uniform integer across the twelve real blocks joined end to end (1000-1142, 1200-1257, 1300-1361, 1400-1443, 1480-1492, 2000-2227, 2300-2333, 2400-2464, 6000-6346, 6530-6539, 7000-7321, 7500-7550 — 1,377 codes in all) and maps it back, so every value falls inside a block the post actually uses AND the blocks are represented in proportion to their size rather than one-twelfth each. A regional seat ends 000 (1000 Скопје, 2000 Штип, 6000 Охрид, 7000 Битола) and smaller offices do not; the code is in the right block and the right shape but is not looked up against a named post office. Written on an envelope it goes on the last line, code first, then a space, then the delivery office spelled out in full — 1000 Скопје — per Пошта на Северна Македонија's addressing guide, and it carries no country prefix, unlike Moldova's MD- or Poland's hyphen.
+generator: tdc
+locale: mk
+---
+<sequence name="idx"><gen type="number" value="0..1376"/></sequence>
+<sequence name="code"><compute>
+  <let name="i"><to_number><field name="idx"/></to_number></let>
+  <!-- The twelve issued blocks laid end to end; the offset lifts a flat index
+       back onto the real code. Thresholds are the running block sizes. -->
+  <let name="offset">
+    <choose>
+      <when><test><less_than><use name="i"/><int v="143"/></less_than></test><then><int v="1000"/></then></when>
+      <when><test><less_than><use name="i"/><int v="201"/></less_than></test><then><int v="1057"/></then></when>
+      <when><test><less_than><use name="i"/><int v="263"/></less_than></test><then><int v="1099"/></then></when>
+      <when><test><less_than><use name="i"/><int v="307"/></less_than></test><then><int v="1137"/></then></when>
+      <when><test><less_than><use name="i"/><int v="320"/></less_than></test><then><int v="1173"/></then></when>
+      <when><test><less_than><use name="i"/><int v="548"/></less_than></test><then><int v="1680"/></then></when>
+      <when><test><less_than><use name="i"/><int v="582"/></less_than></test><then><int v="1752"/></then></when>
+      <when><test><less_than><use name="i"/><int v="647"/></less_than></test><then><int v="1818"/></then></when>
+      <when><test><less_than><use name="i"/><int v="994"/></less_than></test><then><int v="5353"/></then></when>
+      <when><test><less_than><use name="i"/><int v="1004"/></less_than></test><then><int v="5536"/></then></when>
+      <when><test><less_than><use name="i"/><int v="1326"/></less_than></test><then><int v="5996"/></then></when>
+      <otherwise><int v="6174"/></otherwise>
+    </choose>
+  </let>
+  <result><add><use name="i"/><use name="offset"/></add></result>
+</compute></sequence>
+<data>${{code}}</data>

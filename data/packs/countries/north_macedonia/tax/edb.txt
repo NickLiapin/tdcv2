@@ -1,0 +1,34 @@
+---
+address: north_macedonia.tax.edb
+description: The ЕДБ (единствен даночен број) — the 13-digit tax number the Управа за јавни приходи assigns, and the number on every Macedonian invoice, payment slip and court filing. WHO GETS ONE IS THE FIRST THING TO GET RIGHT: not everybody. Член 2 став 4 of the Правилник за постапката, начинот и роковите за доделување на единствен даночен број (Сл. весник на РМ бр. 161/2009) says that a citizen's ЕМБГ IS his tax number, so an ordinary Macedonian has no ЕДБ at all and north_macedonia.docs.embg is what an invoice to a private person carries. The ЕДБ proper belongs to legal entities, to natural persons carrying on a registered activity, to projects without legal personality and to foreign taxpayers. It never travels alone: a Macedonian company is identified by its ЕДБ together with its ЕМБС, a seven-digit number from a different register (the Централен регистар) with a different check, so the two are not interchangeable and neither derives from the other. THE FIRST TWO DIGITS ARE THE TYPE — 40 for a legal entity, 41 for a natural person carrying on a registered activity — and this generator writes 40. The two digits after that are a registering-office group and the three after THAT are the last three digits of the year of registration, the same convention the ЕМБГ uses for the year and Moldova's IDNO uses for its allocation year: Алкалоид АД Скопје is 4030946257762 and was registered in 1946, Македонски Телеком 4030997339640 in 1997, Комерцијална банка 4030989254937 in 1989, Стопанска банка АД - Скопје 4030996116744 in 1996, and the Скопје faculty ФЕИТ 4057009100101 in 2009. That reading is OBSERVED FROM PUBLISHED NUMBERS, NOT SOURCED: the Правилник describes the procedure for allocating an ЕДБ and says nothing whatever about its internal structure, so only the office groups 30 and 57 are drawn here — the two that appear in numbers this pack could actually verify — rather than a made-up table of offices. THE CHECK DIGIT IS THE HONEST PART OF THIS FILE AND THE PART TO READ BEFORE TRUSTING IT. No published specification of the ЕДБ check could be found; the Правилник has none. What the arithmetic shows is that the ЕДБ carries the SAME Yugoslav "Modul 11" as the ЕМБГ — weights 7,6,5,4,3,2,7,6,5,4,3,2 over the first twelve digits, 11 minus the remainder mod 11 — and that is what this file implements. Five of the six real published ЕДБ numbers listed above satisfy it exactly. The sixth, Македонски Телеком's 4030997339640, has weighted sum 232, remainder 1, which under the strict ЕМБГ rule is an unissuable number and yet is printed with a control digit of 0 — so either the ЕДБ additionally maps the impossible 10 to 0, or that widely repeated transcription is wrong, and this pack could not resolve which. It therefore REDRAWS on remainder 1, exactly as the ЕМБГ does, so every number it produces is valid under both readings and none is produced that depends on the unresolved case. That is a narrower generator than a guess would have been, and deliberately so.
+generator: tdc
+---
+<sequence name="office"><gen type="text" value="30,57"/></sequence>
+<sequence name="year"><gen type="number" value="1946..2026"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="check"><compute>
+  <!-- 40 = legal entity; the year group is the last three digits of the year. -->
+  <let name="yyy"><pad width="3" fill="0"><mod><to_number><field name="year"/></to_number><int v="1000"/></mod></pad></let>
+  <let name="base"><concat><str v="40"/><field name="office"/><use name="yyy"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,6,5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
+  <result>
+    <choose>
+      <when><test><equals><use name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<!-- Remainder 1 gives 10, which no single digit can hold; redraw rather than guess. -->
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<sequence name="edb"><compute>
+  <let name="yyy"><pad width="3" fill="0"><mod><to_number><field name="year"/></to_number><int v="1000"/></mod></pad></let>
+  <result><concat><str v="40"/><field name="office"/><use name="yyy"/><field name="serial"/><field name="check"/></concat></result>
+</compute></sequence>
+<data>${{edb}}</data>

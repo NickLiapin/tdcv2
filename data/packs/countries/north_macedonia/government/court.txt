@@ -1,0 +1,41 @@
+---
+address: north_macedonia.government.court
+description: The courts of North Macedonia. Three ordinary instances under the Закон за судовите — basic courts, four appellate courts and the Врховен суд на Република Северна Македонија — plus two specialised administrative courts and, standing outside the judiciary altogether, the Уставен суд. THE BASIC COURTS COME IN TWO KINDS and the distinction is the one a filing depends on: fourteen have ПРОШИРЕНА НАДЛЕЖНОСТ (extended jurisdiction) and hear serious crime and commercial matters over a wide area, while the rest have основна надлежност only and hear small civil and misdemeanour cases for their own municipality. Скопје is the exception to both: it has no single basic court but two, Основен кривичен суд Скопје and Основен граѓански суд Скопје, split by subject rather than by territory, which no other Macedonian city does — so "the basic court in Skopje" is an ambiguous phrase and half the country's caseload sits behind it. The four appellate seats are Скопје, Битола, Гостивар and Штип, and Гостивар's is the youngest, carved out to serve the Albanian-speaking north-west (Гостивар, Тетово, Кичево, Дебар). The Уставен суд is NOT part of the court system: it sits under its own chapter of the Constitution with nine judges, reviews laws rather than cases, and its rulings have repeatedly decided things the ordinary courts could not. NAMES CHANGED IN 2019 AND THE OLD ONES ARE NOT INTERCHANGEABLE: the supreme court was Врховен суд на Република Македонија until the Prespa Agreement and is Врховен суд на Република Северна Македонија now, so judgments before and after February 2019 are issued by bodies whose names differ, which matters to anyone matching citations. The Судски совет appoints and dismisses judges and is listed here because it is where a Macedonian judicial record points, not because it decides cases.
+locale: mk
+---
+Уставен суд на Република Северна Македонија
+Врховен суд на Република Северна Македонија
+Виш управен суд
+Управен суд
+Апелационен суд Скопје
+Апелационен суд Битола
+Апелационен суд Гостивар
+Апелационен суд Штип
+Основен кривичен суд Скопје
+Основен граѓански суд Скопје
+Основен суд Битола
+Основен суд Велес
+Основен суд Гевгелија
+Основен суд Гостивар
+Основен суд Кавадарци
+Основен суд Кичево
+Основен суд Кочани
+Основен суд Куманово
+Основен суд Охрид
+Основен суд Прилеп
+Основен суд Струга
+Основен суд Струмица
+Основен суд Тетово
+Основен суд Штип
+Основен суд Берово
+Основен суд Виница
+Основен суд Дебар
+Основен суд Делчево
+Основен суд Кратово
+Основен суд Крива Паланка
+Основен суд Крушево
+Основен суд Неготино
+Основен суд Радовиш
+Основен суд Ресен
+Основен суд Свети Николе
+Судски совет на Република Северна Македонија

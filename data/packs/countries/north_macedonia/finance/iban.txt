@@ -1,0 +1,35 @@
+---
+address: north_macedonia.finance.iban
+description: North Macedonian IBAN — 19 characters, one of the shortest in Europe: MK + 2 ISO 7064 MOD-97 check digits + a 3-digit bank leading number + a 10-digit account + 2 national control digits. Those last two are themselves ISO 7064 MOD 97-10 over the 13 digits in front of them, so a correctly formed Macedonian BBAN always leaves remainder 1 mod 97 — the same double check Serbia and Slovenia build into theirs. THAT HAS A CONSEQUENCE WORTH KNOWING: with the BBAN pinned at remainder 1, the outer check can only come out one way, and EVERY VALID MACEDONIAN IBAN BEGINS MK07, exactly as every Serbian one begins RS35 and every Slovenian one SI56. The 07 is still COMPUTED here rather than written in, so a wrong national control would show up immediately as a different pair. The 15-digit BBAN is not an IBAN-only construct: it is the ordinary domestic account a Macedonian reads off a bill, printed 300-0000019022-06, which is why north_macedonia.finance.account exists beside this file. Accounts are denominated in DENARS: North Macedonia is not in the euro area and not in the EU, and the денар has been held at about 61.5 to the euro since 2002 (and to the Deutsche Mark before that) by a central-bank peg that is policy rather than a currency board — see north_macedonia.finance.amountMkd. VERIFIED BOTH WAYS against published Macedonian IBANs and domestic accounts. MK07250120000058984 (the reference example in the ECBS/SWIFT IBAN registry entry for MK) and MK07300000000042425 both fold to remainder 1 under the arithmetic in this file, as does MK07210701000980772, the IBAN Telekabel publishes for incoming payments beside SWIFT TUTNMK22. Nineteen more real 15-digit BBANs published by Macedonian companies and institutions — 300080000064731 and 250004000411837 and 270052336230286 (Telekabel), 300000000915910 and 200000092050567 and 210046911300124 (Триглав Осигурување), 300000001349112 and 500000000301988 and 290100000183279 and 240010000304948 (Централен депозитар за хартии од вредност), 320000000042104 (Централна кооперативна банка), 100000000063095 (ФЕИТ at the central bank) among them — every one verifies. Change any single digit in any of them and the fold no longer lands on 1; the transcript of that test is in the pack report.
+generator: tdc
+---
+<sequence name="bank"><gen type="template" value="north_macedonia.finance.bankCode"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{10}"/></sequence>
+<sequence name="iban"><compute>
+  <let name="n13"><concat><field name="bank"/><field name="account"/></concat></let>
+  <!-- National control: ISO 7064 MOD 97-10 over the 13 digits, so BBAN mod 97 == 1. -->
+  <let name="r13"><reduce>
+    <over><use name="n13"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="nat"><pad width="2" fill="0">
+    <mod><subtract><int v="98"/><mod><multiply><use name="r13"/><int v="3"/></multiply><int v="97"/></mod></subtract><int v="97"/></mod>
+  </pad></let>
+  <let name="bban"><concat><use name="n13"/><use name="nat"/></concat></let>
+  <!-- ISO 13616: move the country code and a "00" placeholder to the end. -->
+  <let name="rearranged"><concat><use name="bban"/><str v="MK"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <!-- Horner fold, so the 21-digit value never has to exist as one number. -->
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="MK"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>
