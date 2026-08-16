@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for Украина. Child of geo/country.txt.
+locale: mk
+---
+UAH

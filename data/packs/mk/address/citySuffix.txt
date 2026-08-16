@@ -1,0 +1,41 @@
+---
+description: Trailing element of a Macedonian place name — the noun a qualifier attaches to (Ново Село, Долно Оризари, Горна Бањица, Крива Паланка). Бањица carries њ and Соње carries њ, both ordinary in Macedonian toponymy. Each of these is the second word of a real Macedonian settlement, but the pairs this file builds are generic; the actual 1,700-odd Macedonian settlements are the country pack's business, not the language's.
+locale: mk
+---
+Село
+Оризари
+Речица
+Нагоричане
+Бањица
+Дисан
+Поле
+Брод
+Дол
+Бара
+Извор
+Чифлик
+Планина
+Ливада
+Гора
+Град
+Мост
+Камен
+Клисура
+Долина
+Ораовица
+Лакавица
+Соње
+Маало
+Паланка
+Чаршија
+Бања
+Врв
+Рид
+Чешма
+Круша
+Дабје
+Ново Село
+Трн
+Лозје
+Градец
+Езеро

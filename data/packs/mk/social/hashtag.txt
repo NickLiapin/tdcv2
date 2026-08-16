@@ -1,0 +1,34 @@
+---
+description: Hashtag (Macedonian), without the # so a config can add it. Written in Cyrillic, which is what Macedonian users really post — a hashtag is one of the few places Latin transliteration competes, but Cyrillic is the default. Љубов carries љ, среќа and ноќ carry ќ.
+locale: mk
+---
+македонија
+скопје
+охрид
+битола
+лето
+патување
+храна
+природа
+планина
+фотографија
+љубов
+среќа
+пријатели
+семејство
+работа
+мотивација
+фитнес
+стил
+мода
+убавина
+ден
+ноќ
+зајдисонце
+изгрејсонце
+море
+езеро
+кафе
+викенд
+музика
+ора

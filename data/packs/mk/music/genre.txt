@@ -1,0 +1,39 @@
+---
+description: Music genre (Macedonian). THE LAST GROUP IS WHAT A MACEDONIAN RADIO STATION ACTUALLY PROGRAMMES and has no English equivalent. Чалгија is the urban ensemble music of Ohrid, Bitola and Skopje, played on kanun, clarinet, violin and darbuka in irregular metres. Изворна народна музика is unaccompanied village song, kept separate from the arranged новокомпонирана. Дувачки оркестар is the brass band of the south-east, and ора are the circle dances the whole repertoire exists for. Џез carries џ.
+locale: mk
+---
+Рок
+Поп
+Џез
+Класична
+Хип хоп
+Кантри
+Електронска
+Блуз
+Реге
+Хеви метал
+Фолк
+R&B
+Соул
+Фанк
+Панк
+Диско
+Хаус
+Техно
+Инди
+Госпел
+Амбиент
+Ска
+Блуграс
+Латино
+Чалгија
+Изворна народна музика
+Новокомпонирана народна
+Староградска песна
+Дувачки оркестар
+Ора
+Македонска народна
+Етно
+Духовна музика
+Хорска музика
+Забавна музика

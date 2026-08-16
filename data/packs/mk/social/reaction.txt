@@ -1,0 +1,15 @@
+---
+description: Reaction to a post, as the Macedonian interface labels it. МИ СЕ ДОПАЃА IS THE "LIKE" BUTTON and it carries ѓ — it is not an adjective or a verb in the English sense but a whole clause, "it is pleasing to me", with the thing liked as the grammatical subject. A config that treats it as a one-word label will size its column wrong. Љубопитно carries љ.
+locale: mk
+---
+Ми се допаѓа
+Сакам
+Хаха
+Леле
+Тажно
+Лутито
+Грижа
+Честитки
+Поддршка
+Инспиративно
+Љубопитно

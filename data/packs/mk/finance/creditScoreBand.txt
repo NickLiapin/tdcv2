@@ -1,0 +1,9 @@
+---
+description: Creditworthiness band (Macedonian). North Macedonia has no consumer credit SCORE of the FICO kind; the Кредитен регистар at the central bank records whether a person is in arrears and for how long, so these bands are qualitative labels a bank assigns, not a number a consumer can look up.
+locale: mk
+---
+Слаб
+Задоволителен
+Добар
+Многу добар
+Одличен

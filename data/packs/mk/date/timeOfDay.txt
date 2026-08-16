@@ -1,0 +1,12 @@
+---
+description: Time of day (Macedonian). ноќ and полноќ carry ќ, the Macedonian reflex of Proto-Slavic *tj: Bulgarian writes нощ with щ and Serbian ноћ with ћ, so the single commonest word for "night" spells itself differently in each of the three neighbouring languages. пладне is noon and попладне is simply "after-noon", built on it.
+locale: mk
+---
+утро
+претпладне
+пладне
+попладне
+вечер
+ноќ
+мугри
+полноќ

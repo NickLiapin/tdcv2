@@ -1,0 +1,5 @@
+---
+description: Capital of Турција, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Анкара

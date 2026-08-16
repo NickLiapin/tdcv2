@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Macedonian). The word is тримесечје, literally "three-month period" — Macedonian does not call it a quarter — and the ordinal is written as a roman numeral before it.
+locale: mk
+---
+I тримесечје
+II тримесечје
+III тримесечје
+IV тримесечје

@@ -1,0 +1,17 @@
+---
+description: Kind of social-media item (Macedonian). Almost every one is a verbal noun in -ње (споделување, спомнување, прикачување, означување), because that is how Macedonian names an action — the same reason hacker/ingverb.txt is entirely -ње.
+locale: mk
+---
+Објава
+Коментар
+Одговор
+Сторија
+Рил
+Анкета
+Во живо
+Споделување
+Тема
+Спомнување
+Директна порака
+Прикачување
+Означување

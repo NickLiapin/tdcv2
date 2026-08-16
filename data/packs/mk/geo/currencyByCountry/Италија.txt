@@ -1,0 +1,5 @@
+---
+description: Currency of Италија, named in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+евро

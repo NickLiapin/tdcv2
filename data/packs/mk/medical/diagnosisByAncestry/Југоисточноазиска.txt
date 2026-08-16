@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the Југоисточноазиска ancestry group, in Macedonian. Child of medical/ancestry.txt — the filename must match the parent value character for character. Ancestry shifts the prior probability; it does not decide a diagnosis.
+locale: mk
+---
+Хемоглобин Е болест
+Алфа-таласемија
+Дефицит на глукоза-6-фосфат дехидрогеназа
+Назофарингеален карцином
+Бета-таласемија
+Бругада синдром
+Нетолеранција на лактоза

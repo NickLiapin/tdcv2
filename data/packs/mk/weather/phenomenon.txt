@@ -1,0 +1,19 @@
+---
+description: Severe or notable weather (Macedonian). THE LAST TWO ARE NAMED LOCAL WINDS AND THEY MATTER: вардарец is the cold, dry, sometimes violent north-westerly that funnels down the Vardar valley from Skopje to Gevgelija and on into Greece — it is the reason the valley is a wind-energy corridor — and југо is the warm, damp southerly that brings the change in weather and, in local belief, headaches with it. Neither has an English name; both are ordinary weather-forecast vocabulary in Macedonian.
+locale: mk
+---
+Ураган
+Торнадо
+Снежна бура
+Топлотен бран
+Студен бран
+Поплава
+Суша
+Монсун
+Песочна бура
+Ледена бура
+Пожар
+Циклон
+Град
+Вардарец
+Југо

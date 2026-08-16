@@ -1,0 +1,30 @@
+---
+description: Book genre (Macedonian). Љубовен роман — the romance — carries љ. Народни приказни and Изворна поезија are categories a Macedonian bookshop really has: Marko Cepenkov's folk-tale collections and the oral epic are a live shelf and not a historical curiosity.
+locale: mk
+---
+Роман
+Расказ
+Поезија
+Драма
+Криминален роман
+Трилер
+Љубовен роман
+Научна фантастика
+Фантастика
+Хорор
+Биографија
+Историја
+Самопомош
+Литература за млади
+Историски роман
+Авантура
+Мемоари
+Филозофија
+Патопис
+Готварство
+Стрип
+Дистопија
+Есеј
+Народни приказни
+Изворна поезија
+Публицистика

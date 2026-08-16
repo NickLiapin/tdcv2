@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Macedonian). THE SECOND HALF IS THE MACEDONIAN FOLK SET and it is not a museum list: гајда (bagpipe), зурла (a piercing double-reed shawm), тапан (the double-headed drum slung from the shoulder), кавал and шупелка (end-blown flutes), тамбура (long-necked lute) and дајре (frame drum) are played at weddings and at every village собор. Зурла and тапан always come as a pair, two zurlas against one drum, and that pair is the sound of a Macedonian wedding procession. Банџо carries џ.
+locale: mk
+---
+Гитара
+Пијано
+Виолина
+Тапани
+Бас гитара
+Саксофон
+Труба
+Флејта
+Виолончело
+Кларинет
+Тромбон
+Харфа
+Укулеле
+Банџо
+Хармоника
+Синтисајзер
+Обоа
+Контрабас
+Усна хармоника
+Ксилофон
+Гајда
+Зурла
+Тапан
+Кавал
+Шупелка
+Тамбура
+Дајре
+Кемане
+Канон
+Дарабука
+Двојанка

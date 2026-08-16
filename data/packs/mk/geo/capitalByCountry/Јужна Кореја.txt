@@ -1,0 +1,5 @@
+---
+description: Capital of Јужна Кореја, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Сеул

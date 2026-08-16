@@ -1,0 +1,5 @@
+---
+description: Capital of Јапонија, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Токио

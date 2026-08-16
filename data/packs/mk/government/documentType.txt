@@ -1,0 +1,22 @@
+---
+description: Kind of official document (Macedonian). ТАПИЈА IS THE ONE WITHOUT AN ENGLISH WORD: a Turkish loan for the title deed, still the everyday name for what the cadastre issues. The three извод entries are not three documents but one register read three ways — Macedonian keeps separate civil registers for births, marriages and deaths, and an извод is a certified extract from whichever one applies, so a Macedonian record asks which book rather than which certificate. Уверение за неосудуваност — the certificate of no criminal record — is demanded for most jobs and for many licences.
+locale: mk
+---
+Лична карта
+Пасош
+Возачка дозвола
+Извод од матична книга на родените
+Извод од матична книга на венчаните
+Извод од матична книга на умрените
+Уверение за државјанство
+Уверение за неосудуваност
+Потврда за живеалиште
+Диплома за средно образование
+Диплома за високо образование
+Работна книшка
+Здравствена картичка
+Нотарски акт
+Полномошно
+Даночна пријава
+Сообраќајна дозвола
+Тапија

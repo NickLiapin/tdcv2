@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Северноафриканска ancestry group, in Macedonian. Child of medical/ancestry.txt — the filename must match the parent value character for character. Ancestry shifts the prior probability; it does not decide a diagnosis.
+locale: mk
+---
+Дефицит на глукоза-6-фосфат дехидрогеназа
+Носителство на бета-таласемија
+Фамилијарна медитеранска треска
+Бехчетова болест
+Нетолеранција на лактоза
+Ксеродерма пигментозум

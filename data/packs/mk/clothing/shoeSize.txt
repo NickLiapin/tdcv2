@@ -1,0 +1,16 @@
+---
+description: Shoe size on the EUROPEAN (Paris point) scale, which is what a Macedonian shoebox is marked with. North Macedonia uses the continental numbering exactly as Germany, Italy and Serbia do — there is no separate national scale, and UK or US numbering is not printed on the box.
+locale: mk
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

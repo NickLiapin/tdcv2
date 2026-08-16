@@ -1,0 +1,34 @@
+---
+description: Bird (Macedonian). Клукајдрвец is the woodpecker (literally "peck-wood"), водомар the kingfisher, славеј the nightingale. Штркот — the white stork — nests on Macedonian village chimneys and telegraph poles and its arrival is the folk marker for spring.
+locale: mk
+---
+Врабец
+Црвеногушка
+Орел
+Јастреб
+Був
+Папагал
+Пингвин
+Сокол
+Штиглец
+Сојка
+Колибри
+Клукајдрвец
+Пеликан
+Фламинго
+Лебед
+Врана
+Гавран
+Чинка
+Чапја
+Водомар
+Штрк
+Ластовица
+Славеј
+Гулаб
+Кос
+Кукавица
+Пупунец
+Дрозд
+Гугутка
+Јаребица

@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in the Источноазиска ancestry group, in Macedonian. Child of medical/ancestry.txt — the filename must match the parent value character for character. Ancestry shifts the prior probability; it does not decide a diagnosis.
+locale: mk
+---
+Алфа-таласемија
+Дефицит на алдехид дехидрогеназа 2
+Нетолеранција на лактоза
+Назофарингеален карцином
+Карцином на желудник
+Примарен затворен агол глауком
+Кавасакиева болест
+Мојамоја болест
+Преосетливост на карбамазепин
+Патолошка миопија

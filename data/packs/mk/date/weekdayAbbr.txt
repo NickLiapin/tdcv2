@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Macedonian), Monday first.
+locale: mk
+---
+пон.
+вто.
+сре.
+чет.
+пет.
+саб.
+нед.

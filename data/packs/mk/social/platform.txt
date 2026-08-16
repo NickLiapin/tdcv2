@@ -1,0 +1,21 @@
+---
+description: Social platform used in North Macedonia. VIBER IS THE ONE THAT SURPRISES AN OUTSIDER: across the Balkans it is the default messenger for family, work groups and even municipal announcements, where most of western Europe uses WhatsApp. Facebook remains dominant among older users in a way it no longer is in western Europe.
+locale: mk
+---
+Facebook
+Messenger
+Viber
+Instagram
+TikTok
+YouTube
+WhatsApp
+Telegram
+X
+LinkedIn
+Snapchat
+Pinterest
+Reddit
+Discord
+Twitch
+Threads
+Skype

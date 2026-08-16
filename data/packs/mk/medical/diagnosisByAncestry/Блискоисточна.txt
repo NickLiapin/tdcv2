@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Блискоисточна ancestry group, in Macedonian. Child of medical/ancestry.txt — the filename must match the parent value character for character. Ancestry shifts the prior probability; it does not decide a diagnosis.
+locale: mk
+---
+Фамилијарна медитеранска треска
+Бета-таласемија
+Дефицит на глукоза-6-фосфат дехидрогеназа
+Бехчетова болест
+Дефицит на витамин Д
+Носителство на српеста клеточна анемија

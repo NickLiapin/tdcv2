@@ -1,0 +1,12 @@
+---
+description: Personal pronoun (Macedonian), subject form. THE PRONOUNS ARE THE ONE PLACE MACEDONIAN KEPT CASE: the nouns lost every case ending, but тој / него / му are three living forms of one word, and this list holds only the first of them. Note ние and вие against Russian мы and вы — Macedonian has no ы at all. There is no formal-singular pronoun of its own: politeness uses the plural вие, capitalised as Вие in a letter.
+locale: mk
+---
+јас
+ти
+тој
+таа
+тоа
+ние
+вие
+тие

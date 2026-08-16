@@ -1,0 +1,41 @@
+---
+description: Technical noun (Macedonian), bare form with no definite article. ЗАШТИТЕН ЅИД IS THE MACEDONIAN FOR "FIREWALL" and it carries ѕ, the letter no other living Slavic Cyrillic alphabet uses — one of the very few places ѕ turns up in modern technical vocabulary. глушец is the computer mouse and is the ordinary word for the animal too.
+locale: mk
+---
+драјвер
+протокол
+пропусност
+панел
+микрочип
+програма
+порта
+картичка
+низа
+интерфејс
+систем
+сензор
+заштитен ѕид
+хард диск
+пиксел
+аларм
+монитор
+апликација
+предавател
+магистрала
+коло
+кондензатор
+матрица
+база на податоци
+цевковод
+глушец
+тастатура
+екран
+сервер
+клиент
+мрежа
+датотека
+папка
+наредба
+грешка
+верзија
+библиотека

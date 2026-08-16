@@ -1,0 +1,16 @@
+---
+description: Month name (Macedonian, LOWERCASE per Macedonian orthography). These are the international Latin-derived names, like Bulgarian, Serbian and Russian and UNLIKE Czech (leden), Croatian (siječanj), Polish (styczeń) and Ukrainian (січень), which kept the Slavic nature-names. Macedonian HAS such a set too — коложег, сечко, цутар, тревен, косар, жетвар, златец, житар, гроздобер, листопад, студен, снежник — but it is archaic and literary, never used on a form or an invoice, so it is deliberately not shipped here. THE FORM INSIDE A DATE IS IDENTICAL TO THE ONE HERE, and that identity is grammar and not a shortcut: Macedonian lost every noun case, so 16 август 2026 uses the bare nominative where Czech would switch to a genitive (16. srpna).
+locale: mk
+---
+јануари
+февруари
+март
+април
+мај
+јуни
+јули
+август
+септември
+октомври
+ноември
+декември

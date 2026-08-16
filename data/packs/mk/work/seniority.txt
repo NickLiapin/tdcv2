@@ -1,0 +1,20 @@
+---
+description: Seniority level (Macedonian). The middle of the ladder is borrowed wholesale from English business usage (Јуниор, Сениор, Лид) while the top and bottom are native words, which is exactly how a Macedonian job advertisement is written.
+locale: mk
+---
+Практикант
+Приправник
+Јуниор
+Соработник
+Средно ниво
+Сениор
+Водач на тим
+Стручен соработник
+Главен
+Истакнат
+Раководител
+Виш раководител
+Директор
+Извршен директор
+Раководител на сектор
+Шеф

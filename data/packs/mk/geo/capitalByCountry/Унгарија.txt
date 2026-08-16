@@ -1,0 +1,5 @@
+---
+description: Capital of Унгарија, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Будимпешта

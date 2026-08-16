@@ -1,0 +1,10 @@
+---
+description: Dishes of the Перуанска kitchen as a Macedonian menu names them. Child of food/cuisine.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Севиче
+Ломо салтадо
+Аџи де гаљина
+Кауса
+Антикучос
+Папа а ла хуанкаина

@@ -1,0 +1,16 @@
+---
+description: Mark on the Macedonian school and university scale. THERE ARE TWO SCALES AND THEY DO NOT OVERLAP. School runs 1 to 5 with FIVE as the top mark and 1 as failing, and each number carries a word that is written beside it — Одличен 5, Многу добар 4, Добар 3, Доволен 2, Недоволен 1. University runs 6 to 10, with TEN as the top and 5 as a fail, so the same digit means "excellent" in a school record and "failed" in a university one. Any pipeline joining school and university marks on a single numeric column will silently rank a failing student above a very good one.
+locale: mk
+---
+Одличен 5
+Многу добар 4
+Добар 3
+Доволен 2
+Недоволен 1
+10
+9
+8
+7
+6
+Положил
+Не положил

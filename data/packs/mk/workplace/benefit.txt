@@ -1,0 +1,22 @@
+---
+description: Employment benefit (Macedonian). К-15 HAS NO WESTERN EQUIVALENT: it is the annual holiday allowance, a lump sum paid before the summer break, and the name is the number of the old Yugoslav pay-slip line it sat on — a Macedonian employee asks whether an offer includes К-15 the way an American asks about the 401(k) match. Топол оброк is the meal allowance, also a separate payroll line rather than a canteen. Осигурување carries њ.
+locale: mk
+---
+Приватно здравствено осигурување
+Стоматолошко осигурување
+Очно осигурување
+Дополнително пензиско осигурување
+Платено отсуство
+Работа од дома
+Флексибилно работно време
+Акции на компанијата
+Животно осигурување
+Родителско отсуство
+Членство во теретана
+Надомест за школарина
+Патни трошоци
+Програма за добросостојба
+Топол оброк
+Службен телефон
+Службен автомобил
+К-15

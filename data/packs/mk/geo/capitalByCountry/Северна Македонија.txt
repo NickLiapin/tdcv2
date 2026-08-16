@@ -1,0 +1,5 @@
+---
+description: Capital of Северна Македонија, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Скопје

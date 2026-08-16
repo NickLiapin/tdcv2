@@ -1,0 +1,10 @@
+---
+description: Dishes of the Виетнамска kitchen as a Macedonian menu names them. Child of food/cuisine.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Фо
+Бан ми
+Пролетни ролни
+Бун ча
+Ком там
+Виетнамско кафе

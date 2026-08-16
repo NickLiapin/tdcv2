@@ -1,0 +1,10 @@
+---
+description: Diagnoses a Кардиологија clinic records, in Macedonian. Child of medical/specialtyCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Артериска хипертензија
+Коронарна артериска болест
+Атријална фибрилација
+Конгестивна срцева слабост
+Миокарден инфаркт
+Хиперлипидемија

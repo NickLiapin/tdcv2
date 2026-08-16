@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for Нов Зеланд. Child of geo/country.txt.
+locale: mk
+---
+NZD

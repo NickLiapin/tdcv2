@@ -1,0 +1,50 @@
+---
+description: Country as Macedonian names it, weighted by population in millions. TRANSLATED, NEVER TRANSLITERATED: Германија is not "Germany" respelled but the Macedonian name, and the same goes for Унгарија, Грција, Романија and Холандија. THE COUNTRY'S OWN NAME IS СЕВЕРНА МАКЕДОНИЈА and has been since the Prespa Agreement came into force on 12 February 2019 — but the LANGUAGE is still македонски and the currency is still the денар, so a pack that scrubs every "Македонија" is as wrong as one that never heard of the rename. Њу Делхи carries њ; Џакарта and Абуџа carry џ; рубља carries љ. Each value has a capitalByCountry, currencyByCountry and currencyCodeByCountry child of exactly the same name.
+locale: mk
+weighted: true
+---
+Кина,1410
+Индија,1400
+Соединети Американски Држави,335
+Индонезија,275
+Пакистан,240
+Нигерија,220
+Бразил,215
+Бангладеш,170
+Русија,144
+Мексико,128
+Јапонија,125
+Египет,110
+Виетнам,98
+Турција,85
+Германија,84
+Тајланд,72
+Франција,68
+Обединето Кралство,67
+Јужна Африка,60
+Италија,59
+Јужна Кореја,52
+Шпанија,47
+Аргентина,46
+Канада,39
+Полска,38
+Украина,38
+Саудиска Арабија,36
+Австралија,26
+Романија,19
+Холандија,18
+Чешка,11
+Грција,10
+Португалија,10
+Шведска,10
+Унгарија,10
+Швајцарија,9
+Австрија,9
+Србија,7
+Бугарија,6
+Сингапур,6
+Норвешка,5
+Ирска,5
+Нов Зеланд,5
+Хрватска,4
+Северна Македонија,2

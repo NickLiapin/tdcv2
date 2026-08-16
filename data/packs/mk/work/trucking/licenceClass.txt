@@ -1,0 +1,11 @@
+---
+description: Driving licence category as North Macedonia issues it (Macedonian). THE CATEGORIES ARE THE EUROPEAN ONES — B, C, C1, CE, D, D1 — and NOT the American Class A / B / C, which is what the English list holds. North Macedonia aligned its licence categories with EU Directive 2006/126/EC, so a Macedonian lorry driver holds C or CE and the phrase "Class A licence" means nothing here.
+locale: mk
+---
+Категорија B
+Категорија C1
+Категорија C
+Категорија C1E
+Категорија CE
+Категорија D1
+Категорија D

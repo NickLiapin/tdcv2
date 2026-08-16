@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for Обединето Кралство. Child of geo/country.txt.
+locale: mk
+---
+GBP

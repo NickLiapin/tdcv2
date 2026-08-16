@@ -1,0 +1,5 @@
+---
+description: Capital of Романија, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Букурешт

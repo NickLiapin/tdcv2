@@ -1,0 +1,10 @@
+---
+description: Diagnoses a Ортопедија clinic records, in Macedonian. Child of medical/specialtyCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Остеоартритис
+Ревматоиден артритис
+Дискус хернија
+Синдром на карпален тунел
+Ишијас
+Руптура на ротаторна манжетна

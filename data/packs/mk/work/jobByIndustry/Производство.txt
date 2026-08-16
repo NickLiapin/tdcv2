@@ -1,0 +1,10 @@
+---
+description: Jobs found in the Производство sector, in Macedonian. Child of work/industryCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Стругар
+Заварувач
+Контролор на квалитет
+Раководител на производство
+Монтер
+Шивач

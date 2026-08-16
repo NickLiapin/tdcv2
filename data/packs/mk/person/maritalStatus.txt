@@ -1,0 +1,18 @@
+---
+description: Marital status (Macedonian). THE WORD FOR "MARRIED" IS DIFFERENT FOR A MAN AND FOR A WOMAN, and not by an ending but by a different root: a man is женет (from жена, "he has taken a wife") and a woman is мажена (from маж, "she has been given a husband"). There is no single word covering both, so a Macedonian form either asks the gender first or writes both. Same for the negative — неженет and немажена — and for widowhood, вдовец and вдовица. вонбрачна заедница is the registered unmarried partnership.
+locale: mk
+---
+Неженет
+Немажена
+Женет
+Мажена
+Разведен
+Разведена
+Вдовец
+Вдовица
+Разделен
+Разделена
+Свршен
+Свршена
+Вонбрачна заедница
+Не е наведено

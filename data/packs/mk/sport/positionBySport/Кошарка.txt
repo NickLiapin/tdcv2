@@ -1,0 +1,9 @@
+---
+description: Playing positions in Кошарка, in Macedonian. Child of sport/sportCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Плејмејкер
+Бек шутер
+Ниско крило
+Крилен центар
+Центар

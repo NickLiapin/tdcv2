@@ -1,0 +1,17 @@
+---
+description: Kind of legal case (Macedonian). Прекршочен covers the minor-offence procedure, which is a separate track from the criminal one and is where most traffic and public-order matters end up.
+locale: mk
+---
+Граѓански
+Кривичен
+Семеен
+Стечај
+Отштетно барање
+Работен спор
+Договорен спор
+Интелектуална сопственост
+Имотно-правен
+Управен
+Даночен
+Прекршочен
+Наследство

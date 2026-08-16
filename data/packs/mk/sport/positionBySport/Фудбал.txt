@@ -1,0 +1,10 @@
+---
+description: Playing positions in Фудбал, in Macedonian. Child of sport/sportCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Голман
+Штопер
+Бек
+Дефанзивен врзен играч
+Крилен играч
+Напаѓач

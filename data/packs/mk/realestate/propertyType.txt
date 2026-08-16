@@ -1,0 +1,23 @@
+---
+description: Property type (Macedonian). Куќа carries ќ. Викендица — the weekend house in the hills or by a lake — is a category in its own right and a large share of Macedonian property transactions; Плац is a building plot sold as such.
+locale: mk
+---
+Куќа
+Стан
+Гарсониера
+Дуплекс
+Куќа во низа
+Вила
+Викендица
+Приземје
+Поткровје
+Студио
+Пентхаус
+Монтажна куќа
+Планинска куќарка
+Плац
+Земјоделско земјиште
+Деловен простор
+Магацин
+Двојна куќа
+Салонски стан

@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Macedonian; brand names keep their original Latin spelling, and only the generic entries are translated).
+locale: mk
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+Steam Deck
+Мобилен
+Прелистувач
+Аркадна машина

@@ -1,0 +1,26 @@
+---
+description: Allergen (Macedonian). Амброзија — ragweed — is listed because it is the dominant late-summer allergen across the Vardar plain and the Skopje basin, where an English list would put grass pollen first.
+locale: mk
+---
+Пеницилин
+Кикиритки
+Јаткасти плодови
+Морски плодови
+Јајца
+Млеко
+Соја
+Пченица
+Латекс
+Полен
+Амброзија
+Гриња од прашина
+Влакна од животни
+Убод од пчела
+Аспирин
+Сулфонамиди
+Јод
+Сусам
+Мувла
+Никел
+Конзерванси
+Боја за коса

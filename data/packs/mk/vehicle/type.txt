@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Macedonian). Теренец is the SUV and Комбе the panel van; Караван is the estate, and it is a far larger share of the Macedonian fleet than of an American one.
+locale: mk
+---
+Лимузина
+Купе
+Хечбек
+Теренец
+Кросовер
+Кабриолет
+Караван
+Пикап
+Родстер
+Ван
+Комбе
+Теренско возило
+Спортски автомобил
+Луксузен автомобил
+Мини
+Микрокар
+Автобус
+Камион
+Мотоцикл
+Скутер
+Трактор
+Приколка

@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for Унгарија. Child of geo/country.txt.
+locale: mk
+---
+HUF

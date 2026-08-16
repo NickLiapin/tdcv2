@@ -1,0 +1,29 @@
+---
+description: Gemstone (Macedonian). Охридски бисер is a Macedonian product rather than a mineral: it is made in Ohrid from an emulsion of the scales of the endemic плашица fish over a mother-of-pearl bead, by two families who have kept the method secret since the nineteenth century, and it is what a Macedonian means by "pearl".
+locale: mk
+---
+Дијамант
+Рубин
+Сафир
+Смарагд
+Аметист
+Топаз
+Опал
+Гранат
+Аквамарин
+Перидот
+Тиркиз
+Жад
+Оникс
+Бисер
+Охридски бисер
+Цитрин
+Танзанит
+Турмалин
+Месечев камен
+Циркон
+Лапис лазули
+Килибар
+Малахит
+Ахат
+Јаспис

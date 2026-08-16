@@ -1,0 +1,5 @@
+---
+description: Capital of Индонезија, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Џакарта

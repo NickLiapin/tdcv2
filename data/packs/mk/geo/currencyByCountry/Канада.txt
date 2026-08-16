@@ -1,0 +1,5 @@
+---
+description: Currency of Канада, named in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+канадски долар

@@ -1,0 +1,5 @@
+---
+description: Capital of Холандија, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Амстердам

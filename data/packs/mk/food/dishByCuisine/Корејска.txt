@@ -1,0 +1,11 @@
+---
+description: Dishes of the Корејска kitchen as a Macedonian menu names them. Child of food/cuisine.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Бибимбап
+Булгоги
+Кимчи чорба
+Џапчае
+Токбоки
+Корејско пржено пилешко
+Галби

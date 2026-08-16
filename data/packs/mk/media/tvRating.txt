@@ -1,0 +1,13 @@
+---
+description: Broadcast age classification used in North Macedonia. THIS IS NOT THE AMERICAN G / PG / R SCHEME. The regulator, the Агенција за аудио и аудиовизуелни медиумски услуги, sets four bands by minimum age and the marker is shown as a number in the corner of the screen for the whole programme, so a Macedonian record stores 12 or 16 and not a letter code.
+locale: mk
+---
+Без ограничување
+12+
+16+
+18+
+Родителско водство
+Детска програма
+Образовна програма
+Само за возрасни
+Општа програма

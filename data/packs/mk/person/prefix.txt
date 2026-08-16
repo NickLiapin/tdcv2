@@ -1,0 +1,36 @@
+---
+description: Macedonian honorific or title, in the abbreviated form written BEFORE a name. The commonest one carries a Macedonian-only letter: г-ѓа is госпоѓа, "Mrs", and its ѓ is the reflex of Proto-Slavic *dj where Bulgarian has жд (госпожа) and Serbian has ђ — one abbreviation that tells the three languages apart. ѓакон is the same letter in a church title. Macedonian academic titles PRECEDE the name and stack (проф. д-р Марија Стојановска), which is why person/suffix.txt holds almost nothing academic. хаџи is a fossilised pilgrimage title that also froze into a whole family of surnames (Хаџиевски, Хаџиев).
+locale: mk
+---
+г-дин
+г-ѓа
+г-ѓица
+д-р
+проф.
+проф. д-р
+доц.
+доц. д-р
+вон. проф.
+асист.
+акад.
+м-р
+инж.
+дипл. инж.
+арх.
+адв.
+нотар
+ген.
+полк.
+потполк.
+мајор
+капетан
+поручник
+водник
+отец
+поп
+ѓакон
+епископ
+митрополит
+архиепископ
+хаџи
+бате

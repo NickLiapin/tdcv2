@@ -1,0 +1,10 @@
+---
+description: Diagnoses a Психијатрија clinic records, in Macedonian. Child of medical/specialtyCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Големо депресивно растројство
+Генерализирано анксиозно растројство
+Биполарно растројство
+Шизофренија
+Посттрауматско стресно растројство
+АДХД

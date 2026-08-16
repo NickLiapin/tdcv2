@@ -1,0 +1,11 @@
+---
+description: Weekday name (Macedonian, lowercase), Monday first. среда is "the middle" and четврток and петок are literally "fourth" and "fifth" counted from Monday, so the names themselves prove the week starts on Monday; недела ("no work") closes it. Note the Macedonian spellings against the Bulgarian ones — среда not сряда, четврток not четвъртък, петок not петък — the vowel differences are systematic and are one of the plainest places the two languages diverge in everyday text.
+locale: mk
+---
+понеделник
+вторник
+среда
+четврток
+петок
+сабота
+недела

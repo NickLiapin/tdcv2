@@ -1,0 +1,10 @@
+---
+description: Jobs found in the Финансии sector, in Macedonian. Child of work/industryCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Финансиски аналитичар
+Сметководител
+Инвестициски банкар
+Ревизор
+Актуар
+Кредитен референт

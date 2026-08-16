@@ -1,0 +1,30 @@
+---
+description: Garment type (Macedonian). Џемпер carries џ and кошула is the shirt. Опинци are the leather peasant shoes of the folk costume, still worn for ора and for the Twelfth Night ritual, and they have no everyday English equivalent.
+locale: mk
+---
+Маица
+Фармерки
+Фустан
+Јакна
+Џемпер
+Здолниште
+Шорцеви
+Дуксер
+Блуза
+Костум
+Палто
+Патики
+Чизми
+Капа
+Шал
+Кошула
+Панталони
+Елек
+Мантил
+Пижама
+Чорапи
+Ракавици
+Ремен
+Вратоврска
+Сако
+Опинци

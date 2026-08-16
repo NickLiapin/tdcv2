@@ -1,0 +1,26 @@
+---
+description: Metal (Macedonian). Names are international and transcribed; злато, сребро, бакар, железо, олово and калај are the native Slavic words and are far older than the rest.
+locale: mk
+---
+Злато
+Сребро
+Платина
+Бакар
+Железо
+Алуминиум
+Титаниум
+Цинк
+Никел
+Олово
+Калај
+Бронза
+Месинг
+Челик
+Паладиум
+Кобалт
+Хром
+Волфрам
+Манган
+Магнезиум
+Молибден
+Антимон

@@ -1,0 +1,15 @@
+---
+description: Employment type (Macedonian). Договор на дело is the Macedonian contract-for-work, used very widely — a large share of Macedonian working relationships is not a labour contract at all, so a dataset that treats "полно работно време" as the near-universal case overstates formality. Вработување carries њ.
+locale: mk
+---
+Полно работно време
+Скратено работно време
+Договор на дело
+Привремено вработување
+Практикантство
+Хонорарно
+Сезонско
+По потреба
+Волонтерство
+Приправништво
+Агенциско вработување

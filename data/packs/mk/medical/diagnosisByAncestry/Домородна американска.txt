@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Домородна американска ancestry group, in Macedonian. Child of medical/ancestry.txt — the filename must match the parent value character for character. Ancestry shifts the prior probability; it does not decide a diagnosis.
+locale: mk
+---
+Дијабетес мелитус тип 2
+Жолчни камења
+Дијабетична нефропатија
+Ревматоиден артритис
+Неалкохолна масна болест на црниот дроб
+Метаболен синдром

@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the Медитеранска ancestry group, in Macedonian. Child of medical/ancestry.txt — the filename must match the parent value character for character. Ancestry shifts the prior probability; it does not decide a diagnosis.
+locale: mk
+---
+Бета-таласемија
+Носителство на бета-таласемија
+Дефицит на глукоза-6-фосфат дехидрогеназа
+Фамилијарна медитеранска треска
+Бехчетова болест
+Алфа-таласемија
+Фавизам

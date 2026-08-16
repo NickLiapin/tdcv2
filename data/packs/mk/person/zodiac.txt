@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Macedonian). Translated, not transliterated — Јарец is the goat, Вага the scales, Девица the maiden, Стрелец the archer — and Водолија is the water-carrier as one word.
+locale: mk
+---
+Овен
+Бик
+Близнаци
+Рак
+Лав
+Девица
+Вага
+Скорпија
+Стрелец
+Јарец
+Водолија
+Риби

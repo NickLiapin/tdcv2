@@ -1,0 +1,11 @@
+---
+description: Dishes of the Либанска kitchen as a Macedonian menu names them. Child of food/cuisine.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Хумус
+Фалафел
+Шаурма
+Табуле
+Кибе
+Фатуш
+Манакиш

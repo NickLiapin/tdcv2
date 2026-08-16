@@ -1,0 +1,22 @@
+---
+description: Cat breed (Macedonian). Breed names are international and are transcribed into Cyrillic rather than translated, except where the breed name is a plain adjective (Персиска, Сијамска, Норвешка шумска), which Macedonian does translate.
+locale: mk
+---
+Персиска
+Мејн кун
+Сијамска
+Регдол
+Бенгалска
+Сфинкс
+Британска краткодлака
+Абисинска
+Шкотска превиткана
+Норвешка шумска
+Руска сина
+Бирманска
+Американска краткодлака
+Девон рекс
+Бурманска
+Ангорска
+Домашна мачка
+Турска ангора

@@ -1,0 +1,10 @@
+---
+description: Jobs found in the Право sector, in Macedonian. Child of work/industryCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Адвокат
+Правен асистент
+Судија
+Правен секретар
+Службеник за усогласеност
+Судски записничар

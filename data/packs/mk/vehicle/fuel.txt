@@ -1,0 +1,14 @@
+---
+description: Fuel type (Macedonian). ТНГ — течен нафтен гас, the Macedonian for LPG — is not a fringe entry: converting a petrol car to run on gas is common in North Macedonia because the fuel is much cheaper, and a large share of the older fleet is dual-fuel, which no western European vehicle dataset would predict.
+locale: mk
+---
+Бензин
+Дизел
+Електричен
+Хибрид
+Приклучен хибрид
+Водород
+Етанол
+Природен гас
+ТНГ
+Био-дизел

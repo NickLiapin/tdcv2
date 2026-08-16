@@ -1,0 +1,11 @@
+---
+description: Dishes of the Аргентинска kitchen as a Macedonian menu names them. Child of food/cuisine.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Асадо
+Емпанадас
+Чимичури
+Миланеса
+Чорипан
+Дулче де лече
+Локро

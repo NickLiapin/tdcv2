@@ -1,0 +1,16 @@
+---
+description: Conditions with a raised prevalence in the Ашкенази еврејска ancestry group, in Macedonian. Child of medical/ancestry.txt — the filename must match the parent value character for character. Ancestry shifts the prior probability; it does not decide a diagnosis.
+locale: mk
+---
+Теј-Саксова болест
+Гошеова болест тип 1
+Фамилијарна дисаутономија
+Канаванова болест
+Ниман-Пикова болест тип А
+Блумов синдром
+Дефицит на фактор XI
+Основачка мутација BRCA1
+Основачка мутација BRCA2
+Муколипидоза тип IV
+Кронова болест
+Торзиона дистонија

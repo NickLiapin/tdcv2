@@ -1,0 +1,10 @@
+---
+description: Jobs found in the Здравство sector, in Macedonian. Child of work/industryCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Медицинска сестра
+Лекар
+Фармацевт
+Физиотерапевт
+Медицински асистент
+Рендген техничар

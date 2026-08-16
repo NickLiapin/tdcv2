@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are alphanumeric and are used unchanged in Macedonian, including on a Cyrillic boarding pass — nobody transliterates A320. The A320 family and the 737 dominate the Skopje schedule because the traffic is almost entirely low-cost narrowbody; a widebody at Skopje is a charter or a diversion.
+locale: mk
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330-200
+Airbus A330-300
+Airbus A350-900
+Boeing 737-300
+Boeing 737-400
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 757-200
+Boeing 767-300
+Boeing 777-300ER
+Boeing 787-9
+Embraer E190
+Embraer E195
+ATR 72-600
+Bombardier CRJ900
+Airbus A220-300
+De Havilland Dash 8 Q400
+Fokker 100
+Airbus A319neo
+Boeing 737 MAX 9
+Embraer E175

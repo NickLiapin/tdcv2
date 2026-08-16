@@ -1,0 +1,12 @@
+---
+description: Blood group (Macedonian). Written with the international letters and the Rh sign, unchanged — the only local difference is that a Macedonian record often writes the Rh as Rh+ / Rh- in full rather than as a bare sign.
+locale: mk
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+0+
+0-

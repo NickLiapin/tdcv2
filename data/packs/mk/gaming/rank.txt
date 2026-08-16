@@ -1,0 +1,14 @@
+---
+description: Competitive rank ladder (Macedonian). The metals are the native words and the top ranks are loans, which is exactly how a Macedonian player says them out loud.
+locale: mk
+---
+Железо
+Бронза
+Сребро
+Злато
+Платина
+Дијамант
+Мајстор
+Гранд мајстор
+Предизвикувач
+Легенда

@@ -1,0 +1,5 @@
+---
+description: Capital of Шпанија, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Мадрид

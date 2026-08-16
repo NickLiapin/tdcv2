@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Macedonian street, neighbourhood or housing estate (нас. Југ, ул. Западна). Masculine and feminine forms are both listed because the qualifier agrees with the noun it attaches to — квартал is masculine, улица feminine — and Macedonian keeps that agreement even though it has no noun cases at all.
+locale: mk
+---
+Исток
+Запад
+Север
+Југ
+Североисток
+Северозапад
+Југоисток
+Југозапад
+Центар
+Централен
+Централна
+Горен
+Долен
+Среден
+Средна

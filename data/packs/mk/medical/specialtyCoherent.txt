@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (a diagnosisBySpecialty child of the same name).
+locale: mk
+---
+Кардиологија
+Дерматологија
+Ендокринологија
+Гастроентерологија
+Нефрологија
+Неврологија
+Онкологија
+Ортопедија
+Психијатрија
+Пулмологија

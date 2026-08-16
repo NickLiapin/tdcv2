@@ -1,0 +1,34 @@
+---
+description: Airline serving North Macedonia. THE COUNTRY HAS NO NATIONAL CARRIER AND HAS NOT HAD ONE SINCE 2009, when МАТ — Македонски авиотранспорт — went bankrupt; a later attempt, Air Macedonia, never flew commercially. Skopje and Ohrid are effectively low-cost airports today, with Wizz Air by far the largest operator, so a Macedonian aviation dataset looks nothing like a Bulgarian or Croatian one where a flag carrier still anchors the schedule. МАТ is kept in the list because it is what older Macedonian records name.
+locale: mk
+---
+Wizz Air
+Turkish Airlines
+AJet
+Pegasus Airlines
+Austrian Airlines
+Lufthansa
+Swiss International Air Lines
+Air Serbia
+Croatia Airlines
+Aegean Airlines
+LOT Polish Airlines
+Eurowings
+easyJet
+Ryanair
+Chair Airlines
+Edelweiss Air
+flydubai
+Qatar Airways
+Air Montenegro
+Tarom
+Transavia
+ITA Airways
+Air France
+KLM
+British Airways
+Emirates
+МАТ Македонски авиотранспорт
+Air Albania
+SunExpress
+Corendon Airlines

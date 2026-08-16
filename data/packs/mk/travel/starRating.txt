@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Macedonian). ЅВЕЗДА CARRIES Ѕ — the letter that no other living Slavic Cyrillic alphabet uses — and the plural ѕвезди is one of the few places the letter turns up in everyday commercial text. Note the counting form: Macedonian uses a special plural after a numeral (2 ѕвезди) and the singular after 1.
+locale: mk
+---
+1 ѕвезда
+2 ѕвезди
+3 ѕвезди
+4 ѕвезди
+5 ѕвезди

@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (a positionBySport child of the same name). РАКОМЕТ STANDS WHERE THE ENGLISH LIST PUTS CRICKET, and that is not a substitution for its own sake: handball is North Macedonia's strongest team sport by a distance — RK Vardar won the EHF Champions League in 2017 and 2019, and the national league fills halls that football cannot.
+locale: mk
+---
+Фудбал
+Кошарка
+Ракомет
+Одбојка
+Хокеј на мраз
+Бејзбол
+Рагби
+Американски фудбал

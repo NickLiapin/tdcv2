@@ -1,0 +1,27 @@
+---
+description: KIND of state body, as Macedonian names it. THE NAMED MINISTRIES AND AGENCIES OF NORTH MACEDONIA ARE THE COUNTRY PACK'S and live at north_macedonia.government.agency, which carries the post-2019 forms (Народна банка на Република Северна Македонија and the rest). This file holds the generic words instead, so it composes: Управа за + a subject, Агенција за + a subject. Управа and Дирекција are not interchangeable in Macedonian administrative usage — an управа administers a register or a revenue, a дирекција directs an operation.
+locale: mk
+---
+Министерство
+Агенција
+Управа
+Дирекција
+Фонд
+Завод
+Комисија
+Инспекторат
+Совет
+Биро
+Институт
+Служба
+Центар
+Регистар
+Секретаријат
+Кабинет
+Општинска администрација
+Јавно претпријатие
+Јавна установа
+Царина
+Инспекција
+Стопанска комора
+Народен правобранител

@@ -1,0 +1,8 @@
+---
+description: Season (Macedonian, lowercase). Four seasons: North Macedonia is landlocked, continental in the north and Mediterranean-influenced in the Vardar valley, so all four are real and пролет is short.
+locale: mk
+---
+пролет
+лето
+есен
+зима

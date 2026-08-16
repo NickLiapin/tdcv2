@@ -1,0 +1,19 @@
+---
+description: KIND of court, as Macedonian names it — not the roster of actual courts. THE NAMED COURTS OF NORTH MACEDONIA ARE THE COUNTRY PACK'S BUSINESS and live at north_macedonia.government.court, which lists every basic, appellate and supreme court by seat. This file holds the generic words a Macedonian legal text uses for a class of court, so it stays usable for a case in any jurisdiction. Меѓународен carries ѓ. Note that Уставен суд is not a court of the judiciary at all in the Macedonian arrangement: it sits under its own chapter of the constitution and reviews laws rather than cases.
+locale: mk
+---
+Основен суд
+Апелационен суд
+Врховен суд
+Управен суд
+Виш управен суд
+Уставен суд
+Стопански суд
+Прекршочен орган
+Арбитражен суд
+Избран суд
+Меѓународен суд
+Европски суд за човекови права
+Суд на правдата на ЕУ
+Воен суд
+Помирителен совет

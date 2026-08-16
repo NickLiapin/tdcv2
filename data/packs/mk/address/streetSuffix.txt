@@ -1,0 +1,44 @@
+---
+description: Macedonian thoroughfare type. IT GOES BEFORE THE STREET NAME (ул. Гоце Делчев, бул. Партизански одреди, нас. Аеродром), the opposite of the English order, and the abbreviated form is what is written on an envelope. Two entries have no English equivalent. населба (нас.) is a planned housing estate addressed as a unit — in one a Macedonian address may have no street at all and read нас. + зграда + влез + кат + стан. ќор-сокак is a dead end, a Turkish loan that is completely naturalised, and it carries ќ. Note булевар, not the Bulgarian булевард.
+locale: mk
+---
+ул.
+улица
+бул.
+булевар
+пл.
+плоштад
+нас.
+населба
+кеј
+сокак
+ќор-сокак
+патека
+алеја
+парк
+градина
+шеталиште
+пат
+автопат
+магистрала
+обиколница
+мост
+надвозник
+подвозник
+тунел
+скалила
+индустриска зона
+стопански двор
+село
+маало
+чаршија
+безистен
+станица
+пристаниште
+аеродром
+раскрсница
+крстосница
+спуст
+угорница
+клучка
+премин

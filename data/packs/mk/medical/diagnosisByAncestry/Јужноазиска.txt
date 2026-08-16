@@ -1,0 +1,12 @@
+---
+description: Conditions with a raised prevalence in the Јужноазиска ancestry group, in Macedonian. Child of medical/ancestry.txt — the filename must match the parent value character for character. Ancestry shifts the prior probability; it does not decide a diagnosis.
+locale: mk
+---
+Ран дијабетес мелитус тип 2
+Предвремена коронарна артериска болест
+Централна дебелина при нормален индекс на телесна маса
+Дефицит на витамин Д
+Носителство на бета-таласемија
+Метаболен синдром
+Дефицит на глукоза-6-фосфат дехидрогеназа
+Ревматска срцева болест

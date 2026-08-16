@@ -1,0 +1,20 @@
+---
+description: Parcel carrier operating in North Macedonia. Македонска пошта is the universal postal operator and Пост Експрес is its express arm; the rest are international networks with a Skopje presence. THIS LIST IS SHORTER THAN ITS BULGARIAN OR POLISH EQUIVALENT ON PURPOSE. North Macedonia has no large domestic private parcel network of the Econt or InPost kind — the market is about two million people, the private couriers are small and their brands turn over quickly — so naming only the stable operators is the honest shape of it rather than a gap in the pack.
+locale: mk
+---
+Македонска пошта
+Пост Експрес
+DHL
+DPD
+GLS
+UPS
+FedEx
+TNT
+Schenker
+Gebrüder Weiss
+Cargo Partner
+Kuehne+Nagel
+Fersped
+Milšped
+Packeta
+Sameday

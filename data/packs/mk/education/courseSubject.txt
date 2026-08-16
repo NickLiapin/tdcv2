@@ -1,0 +1,24 @@
+---
+description: School subject (Macedonian). Граѓанско образование — civic education, carrying ѓ — is a compulsory subject in Macedonian schools and has no exact English counterpart; Македонски јазик и литература is the mother-tongue subject, and in schools teaching in Albanian it is taught alongside Албански јазик rather than instead of it.
+locale: mk
+---
+Математика
+Физика
+Хемија
+Биологија
+Информатика
+Историја
+Географија
+Македонски јазик и литература
+Англиски јазик
+Ликовно образование
+Музичко образование
+Физичко и здравствено образование
+Економија
+Филозофија
+Психологија
+Странски јазик
+Статистика
+Социологија
+Етика
+Граѓанско образование

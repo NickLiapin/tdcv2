@@ -1,0 +1,10 @@
+---
+description: Jobs found in the Угостителство sector, in Macedonian. Child of work/industryCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Готвач
+Хотелски менаџер
+Шанкер
+Консиерж
+Помошник готвач
+Организатор на настани

@@ -1,0 +1,81 @@
+---
+description: Hobby or pastime (Macedonian). MOST OF THESE ARE VERBAL NOUNS IN -ње, which is how Macedonian names an activity — читање, готвење, пливање, планинарење, сликање, танцување, пеење, набљудување — and the suffix carries the letter њ, one of the six Macedonian has and Russian does not. That single ending is why њ is common in this pack while ѕ is rare: it is productive, so any verb can produce one. Note that Macedonian has NO INFINITIVE, so this -ње noun is the only way to name an activity as a thing; a language with an infinitive would use that instead, which is why the English list reads "Reading, Cooking" and this one cannot be a word-for-word map of it.
+locale: mk
+---
+Читање
+Планинарење
+Фотографија
+Готвење
+Градинарство
+Сликање
+Велосипедизам
+Видео игри
+Јога
+Патување
+Риболов
+Плетење
+Трчање
+Печење
+Обработка на дрво
+Шах
+Танцување
+Пливање
+Кампување
+Набљудување птици
+Грнчарство
+Астрономија
+Собирање марки
+Пеење
+Свирење гитара
+Лов
+Скијање
+Ракотворби
+Народни ора
+Ронење
+Веслање
+Качување
+Јавање
+Пчеларство
+Винарство
+Моделарство
+Стрелаштво
+Боречки вештини
+Фитнес
+Аеробик
+Пинг понг
+Билијард
+Карти
+Табла
+Крстозбор
+Судоку
+Собирање монети
+Собирање книги
+Читање поезија
+Пишување
+Блогирање
+Програмирање
+Роботика
+Дрон
+Печатење 3D
+Везење
+Шиење
+Ткаење
+Резбарство
+Керамика
+Витраж
+Калиграфија
+Оригами
+Цртање
+Акварел
+Скулптура
+Театар
+Филм
+Караоке
+Диџеј
+Собирање плочи
+Птичарство
+Аквариум
+Бонсаи
+Кактуси
+Печурки
+Собирање билки

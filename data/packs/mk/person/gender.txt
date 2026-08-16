@@ -1,0 +1,6 @@
+---
+description: Gender label (Macedonian). Two values only, matching en and ru, because this list is what a parent= filter selects on and a longer one silently leaves most rows without a name. These are the ADJECTIVES машки / женски, which is what a Macedonian form prints beside its М / Ж boxes; the nouns маж and жена are used when the form asks for a person rather than a category.
+locale: mk
+---
+Машки
+Женски

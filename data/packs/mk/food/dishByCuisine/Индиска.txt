@@ -1,0 +1,12 @@
+---
+description: Dishes of the Индиска kitchen as a Macedonian menu names them. Child of food/cuisine.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Путер пилешко
+Бирјани
+Тика масала
+Самоса
+Дал макани
+Нан
+Палак панир
+Роган џош

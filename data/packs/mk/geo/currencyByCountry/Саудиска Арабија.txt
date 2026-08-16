@@ -1,0 +1,5 @@
+---
+description: Currency of Саудиска Арабија, named in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+ријал

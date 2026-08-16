@@ -1,0 +1,23 @@
+---
+description: Mineral extracted (Macedonian). The first three of the metals are the ones the country actually mines in quantity — lead, zinc and copper — and лигнит is what fires the Bitola power station and thus most of the national grid.
+locale: mk
+---
+Олово
+Цинк
+Бакар
+Лигнит
+Јаглен
+Злато
+Сребро
+Железна руда
+Никел
+Боксит
+Варовник
+Мермер
+Гипс
+Сол
+Фелдспат
+Кварц
+Литиум
+Кобалт
+Фосфат

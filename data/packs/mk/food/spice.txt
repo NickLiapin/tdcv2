@@ -1,0 +1,34 @@
+---
+description: Spice or culinary herb (Macedonian). Ѓумбир — ginger — carries ѓ. Црвен пипер is not paprika in the Hungarian sense but the ground sweet red pepper that goes into tavče gravče and ajvar, and the country grows its own. Вегета is a brand that became the generic word for stock powder across the whole of the former Yugoslavia and belongs in a spice list here the way "Bovril" never would in an English one.
+locale: mk
+---
+Цимет
+Ким
+Црвен пипер
+Куркума
+Ѓумбир
+Мускатно оревче
+Оригано
+Босилек
+Мајчина душица
+Рузмарин
+Кардамом
+Коријандер
+Чили
+Каранфилче
+Шафран
+Ловоров лист
+Копар
+Жалфија
+Магдонос
+Нане
+Сенф
+Бибер
+Вегета
+Чубрица
+Алева пиперка
+Ким во зрно
+Анасон
+Синап
+Морска сол
+Зачинска смеса

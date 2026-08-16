@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Macedonian). Џакузи carries џ and бања carries њ. Термална вода is not a luxury item here: North Macedonia has a string of thermal spa towns — Banjište, Kežovica, Katlanovo, Negorci — and a Macedonian hotel listing that offers it is naming the reason the hotel exists.
+locale: mk
+---
+Бесплатен Wi-Fi
+Базен
+Спа
+Фитнес центар
+Ресторан
+Бар
+Услуга во соба
+Превоз до аеродром
+Бесплатен појадок
+Паркинг
+Дозволени миленици
+Бизнис центар
+Консиерж
+Перална услуга
+Џакузи
+Тераса на покрив
+Клима уред
+Сеф
+Сателитска телевизија
+Детско игралиште
+Сауна
+Тениско игралиште
+Плажа
+Бања
+Термална вода
+Скијачки превоз
+Изнајмување велосипеди
+Организирани излети
+Собна кујна
+Балкон

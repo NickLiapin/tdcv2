@@ -1,0 +1,21 @@
+---
+description: Cuisine (Macedonian). Each value has a dishByCuisine child file of exactly the same name. МАКЕДОНСКА, ТУРСКА AND ГРЧКА OVERLAP HEAVILY ON THE GROUND and dishes appear under more than one heading here on purpose, because that is where a Macedonian menu puts them: баклава and мусака are eaten as local food and named as Turkish or Greek at the same time, and five hundred years of shared kitchen is why. Ѓирос and ѓомлезе carry ѓ, ќебапи and ќофтиња carry ќ, пинџур and џапчае carry џ.
+locale: mk
+---
+Македонска
+Турска
+Грчка
+Италијанска
+Француска
+Шпанска
+Кинеска
+Јапонска
+Корејска
+Индиска
+Тајландска
+Виетнамска
+Мексиканска
+Американска
+Аргентинска
+Перуанска
+Либанска

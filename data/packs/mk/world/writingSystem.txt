@@ -1,0 +1,24 @@
+---
+description: Writing system (Macedonian). КИРИЛИЦА IS NOT A NEUTRAL ENTRY IN A MACEDONIAN LIST. The Ohrid Literary School, founded by Св. Климент Охридски in the 880s on what is now Macedonian soil, is one of the two centres where Slavic letters were taught and spread; глаголица, the older alphabet Cyril devised, was what Clement first taught there. The Macedonian alphabet itself was codified much later, on 5 May 1945, by a commission whose reporter was Блаже Конески, and it deliberately gave Macedonian ѓ, ќ and ѕ rather than borrowing the Serbian or Bulgarian solutions.
+locale: mk
+---
+кирилица
+глаголица
+латиница
+грчко писмо
+арапско писмо
+хебрејско писмо
+ерменско писмо
+грузиско писмо
+деванагари
+бенгалско писмо
+тамилско писмо
+ханзи
+кана
+хирагана
+катакана
+хангул
+тајско писмо
+етиопско писмо
+клинесто писмо
+хиероглифи

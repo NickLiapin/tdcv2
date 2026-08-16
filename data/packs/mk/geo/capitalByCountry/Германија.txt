@@ -1,0 +1,5 @@
+---
+description: Capital of Германија, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Берлин

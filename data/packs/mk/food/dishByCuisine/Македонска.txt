@@ -1,0 +1,14 @@
+---
+description: Dishes of the Македонска kitchen as a Macedonian menu names them. Child of food/cuisine.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Тавче гравче
+Ајвар
+Пастрмајлија
+Селска салата
+Сарма
+Турли тава
+Пинџур
+Зелник
+Ѓомлезе
+Полнети пиперки

@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for Канада. Child of geo/country.txt.
+locale: mk
+---
+CAD

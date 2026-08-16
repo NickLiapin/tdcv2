@@ -1,0 +1,12 @@
+---
+description: Clothing size (international letters, used unchanged in North Macedonia and printed in Latin even on a Cyrillic label).
+locale: mk
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

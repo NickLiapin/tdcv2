@@ -1,0 +1,20 @@
+---
+description: Compass direction (Macedonian). The intercardinals are single compound words — Североисток, not "Север-исток" — while the sixteen-point subdivisions hyphenate the two halves. Југ is south and Југо, one letter longer, is the warm southerly wind at weather/phenomenon.txt; they are not the same word.
+locale: mk
+---
+Север
+Југ
+Исток
+Запад
+Североисток
+Северозапад
+Југоисток
+Југозапад
+Север-североисток
+Исток-североисток
+Исток-југоисток
+Југ-југоисток
+Југ-југозапад
+Запад-југозапад
+Запад-северозапад
+Север-северозапад

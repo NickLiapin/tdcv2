@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Macedonian, the parent of diagnosisByAncestry. THESE ARE ANCESTRY POPULATIONS AS CLINICAL GENETICS DEFINES THEM — geographic descent, not social race categories. Медитеранска is the band that matters most for the Macedonian-speaking population: the beta-thalassaemia trait and G6PD deficiency have a real regional prevalence in the southern Balkans and are screened for.
+locale: mk
+---
+Североевропска
+Источноевропска
+Медитеранска
+Ашкенази еврејска
+Блискоисточна
+Северноафриканска
+Субсахарска африканска
+Јужноазиска
+Источноазиска
+Југоисточноазиска
+Домородна американска
+Пацифичка островска

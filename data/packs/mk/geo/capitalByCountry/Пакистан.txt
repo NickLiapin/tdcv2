@@ -1,0 +1,5 @@
+---
+description: Capital of Пакистан, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Исламабад

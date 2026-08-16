@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Macedonian). Припејд — prepaid — is a much larger share of the Macedonian market than of a western European one, so a dataset that treats it as the minority case is wrong about the country.
+locale: mk
+---
+Претплатнички
+Припејд
+Неограничен
+Семеен
+Бизнис
+Плати колку користиш
+Само интернет
+Ученички
+Пензионерски
+Роаминг пакет
+Комбиниран
+Дополнителна картичка

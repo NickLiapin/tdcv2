@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for Норвешка. Child of geo/country.txt.
+locale: mk
+---
+NOK

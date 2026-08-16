@@ -1,0 +1,24 @@
+---
+description: Purpose of a trip (Macedonian). Бањско лекување — a stay at a thermal spa prescribed or half-prescribed for a condition — is a real category in the region and has no Anglophone counterpart; Поклоничко патување is the monastery pilgrimage.
+locale: mk
+---
+Деловно
+Одмор
+Семеен одмор
+Меден месец
+Авантура
+Патување со кола
+Крстарење
+Патување со ранец
+Градски викенд
+Плажа
+Групна тура
+Самостојно патување
+Планинарење
+Скијање
+Поклоничко патување
+Бањско лекување
+Гастрономско патување
+Винска тура
+Студиско патување
+Посета на роднини

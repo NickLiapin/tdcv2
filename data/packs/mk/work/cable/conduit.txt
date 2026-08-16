@@ -1,0 +1,11 @@
+---
+description: Cable conduit type (Macedonian).
+locale: mk
+---
+PVC цевка
+Крута челична цевка
+HDPE цевка
+Директно вкопување
+Внатрешна цевка
+Кабелска полица
+Воздушен носач

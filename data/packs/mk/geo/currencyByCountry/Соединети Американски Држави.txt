@@ -1,0 +1,5 @@
+---
+description: Currency of Соединети Американски Држави, named in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+американски долар

@@ -1,0 +1,12 @@
+---
+description: Mining method (Macedonian). Површински коп and подземна експлоатација are both worked in North Macedonia: Bučim is an open pit for copper and Sasa is an underground lead-zinc mine, so both halves of this list describe live operations.
+locale: mk
+---
+Површински коп
+Подземна експлоатација
+Ленточна експлоатација
+Плацерска експлоатација
+Отстранување на врв
+Окно
+Ходник
+Долг фронт

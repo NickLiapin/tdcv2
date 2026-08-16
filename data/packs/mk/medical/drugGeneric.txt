@@ -1,0 +1,45 @@
+---
+description: Generic drug name (Macedonian), International Nonproprietary Name transcribed into Cyrillic. That transcription is the pharmacy convention here and is what a Macedonian prescription prints, so the same molecule is Парацетамол on a Skopje box and Paracetamol on the same manufacturer's box in Ljubljana.
+locale: mk
+---
+Парацетамол
+Ибупрофен
+Аспирин
+Амоксицилин
+Азитромицин
+Лизиноприл
+Метформин
+Аторвастатин
+Амлодипин
+Омепразол
+Левотироксин
+Салбутамол
+Метопролол
+Лосартан
+Габапентин
+Хидрохлоротиазид
+Сертралин
+Преднизон
+Варфарин
+Фуросемид
+Ципрофлоксацин
+Доксициклин
+Флуоксетин
+Циталопрам
+Пантопразол
+Симвастатин
+Монтелукаст
+Трамадол
+Напроксен
+Амоксицилин со клавуланска киселина
+Инсулин гларгин
+Есциталопрам
+Дулоксетин
+Клопидогрел
+Диклофенак
+Ранитидин
+Дексаметазон
+Бисопролол
+Рамиприл
+Кларитромицин
+Цефиксим

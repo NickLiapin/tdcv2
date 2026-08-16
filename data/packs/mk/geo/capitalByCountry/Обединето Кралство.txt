@@ -1,0 +1,5 @@
+---
+description: Capital of Обединето Кралство, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Лондон

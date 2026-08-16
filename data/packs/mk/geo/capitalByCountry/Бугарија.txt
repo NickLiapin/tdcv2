@@ -1,0 +1,5 @@
+---
+description: Capital of Бугарија, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Софија

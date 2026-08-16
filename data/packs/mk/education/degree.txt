@@ -1,0 +1,20 @@
+---
+description: Academic qualification (Macedonian). THE MACEDONIAN LADDER IS NOT THE ANGLOPHONE ONE. Гимназија is the academic secondary school and Средно стручно образование the vocational one, and which of the two a person finished is recorded for life. Above them the Bologna structure applies, but the old title Дипломиран инженер survives in professional use beside the new Магистер, so a Macedonian CV may carry either and they are not the same qualification.
+locale: mk
+---
+Основно образование
+Средно образование
+Гимназија
+Средно стручно образование
+Виша школа
+Дипломиран
+Дипломиран инженер
+Дипломиран правник
+Дипломиран економист
+Магистер по науки
+Магистер по уметности
+Магистер по бизнис администрација
+Доктор на науки
+Доктор по медицина
+Специјалист
+Академик

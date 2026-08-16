@@ -1,0 +1,5 @@
+---
+description: Capital of Сингапур, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Сингапур

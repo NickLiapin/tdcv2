@@ -1,0 +1,34 @@
+---
+description: Vegetable (Macedonian). Модар патлиџан (aubergine) carries џ, кељ (kale) carries љ, and спанаќ and леќа carry ќ — four Macedonian-only letters in one short vegetable list, and none of them forced. Пиперка is the single most important vegetable in the country: North Macedonia grows peppers on an industrial scale for ajvar, and a Macedonian recipe that says "пиперка" without qualification means the long red ротунда or куртовска капија, not a bell pepper.
+locale: mk
+---
+Морков
+Брокула
+Спанаќ
+Компир
+Краставица
+Марула
+Кромид
+Пиперка
+Тиквичка
+Карфиол
+Боранија
+Грашок
+Пченка
+Аспарагус
+Модар патлиџан
+Кељ
+Зелка
+Целер
+Печурка
+Сладок компир
+Цвекло
+Ротквица
+Праз
+Тиква
+Домат
+Блитва
+Леќа
+Грав
+Ротунда
+Репка

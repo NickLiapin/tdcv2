@@ -1,0 +1,26 @@
+---
+description: Fish (Macedonian). THE LAST THREE ARE ENDEMIC TO LAKE OHRID and exist nowhere else on earth: охридска пастрмка (Salmo letnica), белвица and плашица, the last of which is fished for the scales that were used to make Ohrid pearl. Lake Ohrid is three million years old, one of the oldest lakes in the world, and its endemic fish are the reason a Macedonian fish list is not interchangeable with a Serbian or Bulgarian one.
+locale: mk
+---
+Лосос
+Туна
+Пастрмка
+Костреж
+Бакалар
+Сом
+Златна рипка
+Гупи
+Скуша
+Иверак
+Ципал
+Сабјарка
+Марлин
+Бета
+Крап
+Гргеч
+Клен
+Јагула
+Мрена
+Охридска пастрмка
+Белвица
+Плашица

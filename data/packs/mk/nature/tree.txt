@@ -1,0 +1,32 @@
+---
+description: Tree (Macedonian). МОЛИКА IS THE ONE THAT MATTERS HERE: Pinus peuce, the Macedonian pine, grows above 1,400 metres on Pelister and almost nowhere else, it is the symbol of Pelister National Park, and it is a Balkan endemic — the English word for it is literally "Macedonian pine". Дрен is the cornelian cherry, whose wood and fruit both have a place in Macedonian folk custom.
+locale: mk
+---
+Даб
+Јавор
+Бор
+Молика
+Бреза
+Кедар
+Врба
+Смрека
+Брест
+Јасен
+Бука
+Цреша
+Орев
+Топола
+Чемпрес
+Ела
+Платан
+Трепетлика
+Магнолија
+Дрен
+Костен
+Липа
+Багрем
+Дива крушка
+Смоква
+Оскоруша
+Габер
+Јасика

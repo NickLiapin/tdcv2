@@ -1,0 +1,32 @@
+---
+description: Technical action as a VERBAL NOUN IN -ње. This file is where the English -ing has no Macedonian counterpart: Macedonian has no gerund and no participle that can stand as a noun, so an ongoing action is named with the -ње noun (заобиколување, "bypassing") or with a fully conjugated да-clause. Every value here therefore carries њ, one of the six letters Macedonian has and Russian does not, and that is grammar showing through rather than the list being stuffed.
+locale: mk
+---
+бекапирање
+заобиколување
+хакирање
+презапишување
+компресирање
+копирање
+навигирање
+индексирање
+поврзување
+генерирање
+квантифицирање
+пресметување
+синтетизирање
+пренесување
+програмирање
+рестартирање
+парсирање
+шифрирање
+дешифрирање
+распоредување
+следење
+мерење
+тестирање
+разгранување
+спојување
+враќање
+преоптоварување
+кеширање

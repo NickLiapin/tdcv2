@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Macedonian). мај, јуни and јули are already short and take no abbreviating full stop.
+locale: mk
+---
+јан.
+фев.
+мар.
+апр.
+мај
+јуни
+јули
+авг.
+септ.
+окт.
+ноем.
+дек.

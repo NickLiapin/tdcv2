@@ -1,0 +1,16 @@
+---
+description: Kind of meeting (Macedonian). Планирање carries њ. The agile vocabulary is borrowed almost untranslated (спринт, ретроспектива), which is what a Macedonian software team really says.
+locale: mk
+---
+Дневен состанок
+Еден на еден
+Состанок на сите
+Ретроспектива
+Планирање спринт
+Почетен состанок
+Синхронизација
+Преглед
+Работилница
+Бура на идеи
+Проверка
+Анализа по настан

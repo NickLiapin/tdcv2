@@ -1,0 +1,10 @@
+---
+description: Jobs found in the Технологија sector, in Macedonian. Child of work/industryCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Софтверски инженер
+Научник за податоци
+DevOps инженер
+Менаџер на производ
+UX дизајнер
+QA инженер

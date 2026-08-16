@@ -1,0 +1,12 @@
+---
+description: Dishes of the Француска kitchen as a Macedonian menu names them. Child of food/cuisine.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Кок о вен
+Говедско бургоњ
+Рататуј
+Кроасан
+Киш Лорен
+Бујабес
+Палачинки
+Касуле

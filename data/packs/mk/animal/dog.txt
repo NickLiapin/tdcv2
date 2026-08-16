@@ -1,0 +1,28 @@
+---
+description: Dog breed (Macedonian). ШАРПЛАНИНЕЦ IS THE NATIVE ONE: the Šarplaninac takes its name from Šar Planina, the mountain on the country's north-western border, and it is the livestock guardian that Macedonian shepherds have used for centuries — a Macedonian breed list that starts with the Labrador and never reaches it has been translated from English rather than written.
+locale: mk
+---
+Шарпланинец
+Лабрадор ретривер
+Германски овчар
+Златен ретривер
+Француски булдог
+Булдог
+Пудла
+Бигл
+Ротвајлер
+Јазовичар
+Боксер
+Сибирски хаски
+Германска дога
+Доберман
+Австралиски овчар
+Бордер коли
+Чивава
+Ши цу
+Померанец
+Корги
+Бернски планински пес
+Мопс
+Далматинец
+Мешанец

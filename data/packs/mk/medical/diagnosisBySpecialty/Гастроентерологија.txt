@@ -1,0 +1,10 @@
+---
+description: Diagnoses a Гастроентерологија clinic records, in Macedonian. Child of medical/specialtyCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Гастроезофагеална рефлуксна болест
+Кронова болест
+Улцерозен колитис
+Пептичен улкус
+Синдром на иритабилно црево
+Цироза на црниот дроб

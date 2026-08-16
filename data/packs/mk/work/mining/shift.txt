@@ -1,0 +1,9 @@
+---
+description: Mining shift (Macedonian). Ноќна carries ќ.
+locale: mk
+---
+Дневна
+Попладневна
+Ноќна
+Ротирачка
+Викенд

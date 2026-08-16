@@ -1,0 +1,10 @@
+---
+description: Jobs found in the Транспорт sector, in Macedonian. Child of work/industryCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Возач на камион
+Координатор за логистика
+Контролор на летање
+Диспечер
+Пилот
+Магационер

@@ -1,0 +1,43 @@
+---
+description: Dish (Macedonian). THE FIRST DOZEN ARE THE MACEDONIAN TABLE and they are not translations of anything. Тавче гравче — beans baked in an earthenware pan with red pepper — is the national dish. Ајвар is the roasted-pepper relish every household still makes by the sackful in September, and пинџур is its rougher cousin with tomato and aubergine. Пастрмајлија is the boat-shaped flatbread with cubed pork from Štip, and it has its own annual festival. Ѓомлезе, from the Mavrovo villages, is a layered pastry baked in a šač. Ѓомлезе and ѓувеч carry ѓ; ќебапи, ќофтиња and ќофте carry ќ; пинџур carries џ.
+locale: mk
+---
+Тавче гравче
+Ајвар
+Пастрмајлија
+Шопска салата
+Селска салата
+Мусака
+Сарма
+Ќебапи
+Ќебапчиња
+Зелник
+Турли тава
+Полнети пиперки
+Пинџур
+Малиџано
+Тулумби
+Баклава
+Мекици
+Пита
+Чорба од телешко
+Тарана
+Попара
+Качамак
+Ѓомлезе
+Ѓувеч
+Шкембе чорба
+Пилешка супа
+Риба на скара
+Охридска пастрмка
+Јагнешко под сач
+Печено јагне
+Питулици
+Зелник со праз
+Пилаф
+Ќофтиња
+Сутлијаш
+Ревани
+Пржени пиперки
+Ролат
+Манџа од компир

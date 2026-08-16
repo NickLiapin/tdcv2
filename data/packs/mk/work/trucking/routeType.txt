@@ -1,0 +1,11 @@
+---
+description: Haulage route type (Macedonian). Меѓународен carries ѓ, and it is the commonest of these: North Macedonia sits on Corridor VIII and Corridor X, so a large share of the country's haulage is transit rather than domestic.
+locale: mk
+---
+Меѓународен
+Долги релации
+Регионален
+Локален
+Наменски
+Тимски
+Последна милја

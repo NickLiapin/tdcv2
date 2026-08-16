@@ -1,0 +1,27 @@
+---
+description: Macedonian address unit designator, abbreviated, written before its number. A FULL MACEDONIAN FLAT ADDRESS STACKS FOUR OF THEM — зграда 3, влез Б, кат 5, стан 17 — because the housing estates are addressed by building rather than by street. влез (entrance) has no English equivalent: one block has several separate lettered stairwells that do not connect inside, so влез Б is not a floor or a wing but a different front door. дуќан carries ќ and визба is the cellar every older Macedonian house has, used for wine.
+locale: mk
+---
+ст.
+стан
+кат
+влез
+зграда
+бр.
+лам.
+апартман
+канцеларија
+локал
+дуќан
+магацин
+гаража
+паркинг место
+подрум
+визба
+таван
+соба
+кабинет
+оддел
+парцела
+деловен простор
+атеље

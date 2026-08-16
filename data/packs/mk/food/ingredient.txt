@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Macedonian). Шеќер (sugar) and спанаќ (spinach) carry ќ and are as everyday as a word gets. Кашкавал is the hard yellow sheep or cow cheese of the whole region and is not interchangeable with сирење, the white brined one; a Macedonian recipe naming one will not accept the other. Ајвар appears as an ingredient and not only as a dish, because it is used the way a Frenchman uses tomato purée.
+locale: mk
+---
+Брашно
+Шеќер
+Сол
+Путер
+Јајца
+Млеко
+Кромид
+Лук
+Домат
+Пилешки гради
+Ориз
+Кашкавал
+Маслиново масло
+Црн пипер
+Морков
+Компир
+Пиперка
+Мелено месо
+Презла
+Лимон
+Мед
+Квасец
+Павлака
+Спанаќ
+Сирење
+Јогурт
+Кисела павлака
+Ајвар
+Оцет
+Тесто
+Гриз
+Скроб
+Ванилија
+Какао
+Чоколадо
+Суво грозје
+Сусам
+Магдонос
+Свинска маст
+Сончогледово масло

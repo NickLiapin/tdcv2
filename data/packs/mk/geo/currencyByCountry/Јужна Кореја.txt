@@ -1,0 +1,5 @@
+---
+description: Currency of Јужна Кореја, named in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+вон

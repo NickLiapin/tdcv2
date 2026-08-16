@@ -1,0 +1,23 @@
+---
+description: Kind of event (Macedonian). THE LAST THREE HAVE NO ENGLISH EQUIVALENT. Слава is the household patron-saint day, a fixed annual feast a family keeps and to which neighbours come without invitation. Собор is the village fair on the parish saint's day, which is when emigrants come home. Панаѓур — carrying ѓ, from the Greek panegyris — is the market fair that grew out of the same thing and is now a trade event in its own right. A Macedonian event calendar without these three is missing most of its year.
+locale: mk
+---
+Конференција
+Свадба
+Концерт
+Фестивал
+Работилница
+Вебинар
+Саем
+Хуманитарна вечер
+Вмрежување
+Промоција на производ
+Семинар
+Гала
+Крштевка
+Матурска вечер
+Годишнина
+Роденден
+Слава
+Собор
+Панаѓур

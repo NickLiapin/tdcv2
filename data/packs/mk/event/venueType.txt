@@ -1,0 +1,20 @@
+---
+description: Kind of venue (Macedonian). Дом на култура is the socialist-era house of culture that every Macedonian town of any size still has and still uses as its main hall; Манастирски двор — a monastery courtyard — is a real wedding and concert venue here.
+locale: mk
+---
+Хотелска сала
+Конгресен центар
+Стадион
+Театар
+Свечена сала
+Тераса на покрив
+Градина
+Магацин
+Амфитеатар
+Ноќен клуб
+Сала за состаноци
+Дом на култура
+Спортска сала
+Плоштад
+Манастирски двор
+Винарија

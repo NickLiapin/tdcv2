@@ -1,0 +1,12 @@
+---
+description: Dishes of the Мексиканска kitchen as a Macedonian menu names them. Child of food/cuisine.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Такоси
+Бурито
+Енчилада
+Кесадиља
+Гвакамоле
+Тамалес
+Полнети чили
+Посоле

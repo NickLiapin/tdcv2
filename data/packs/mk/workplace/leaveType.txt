@@ -1,0 +1,16 @@
+---
+description: Kind of leave (Macedonian). КРВОДАРИТЕЛСКИ ДЕН IS REAL AND HAS NO ANGLOPHONE COUNTERPART: a Macedonian employee who gives blood is entitled to a paid day off for it, an entitlement inherited from Yugoslav labour law and still in the collective agreements. Отсуство carries no special letter, but родителско and породилно are two different entitlements and a payroll system that merges them will misreport both.
+locale: mk
+---
+Годишен одмор
+Боледување
+Родителско отсуство
+Породилно отсуство
+Смртен случај во семејство
+Судска обврска
+Неплатено отсуство
+Студиско отсуство
+Слободен ден
+Воена обврска
+Отсуство за нега на дете
+Крводарителски ден

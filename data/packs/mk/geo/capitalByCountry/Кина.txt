@@ -1,0 +1,5 @@
+---
+description: Capital of Кина, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Пекинг

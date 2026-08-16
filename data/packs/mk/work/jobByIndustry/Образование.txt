@@ -1,0 +1,10 @@
+---
+description: Jobs found in the Образование sector, in Macedonian. Child of work/industryCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Наставник
+Универзитетски професор
+Педагог
+Библиотекар
+Асистент
+Директор на училиште

@@ -1,0 +1,11 @@
+---
+description: Dishes of the Американска kitchen as a Macedonian menu names them. Child of food/cuisine.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Чизбургер
+Ребра на скара
+Макарони со сирење
+Бафало крилца
+Чорба од школки
+Пита со јаболка
+Пченкарен леб

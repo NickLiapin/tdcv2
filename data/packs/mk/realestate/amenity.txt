@@ -1,0 +1,26 @@
+---
+description: Property feature (Macedonian). Централно греење carries њ. Its presence or absence is the first thing a Macedonian listing states, because most of the country heats with wood, electricity or a per-flat gas boiler and district heating exists only in parts of Skopje.
+locale: mk
+---
+Базен
+Гаража
+Камин
+Централно греење
+Паркет
+Гардеробна
+Балкон
+Двор
+Теретана
+Лифт
+Паркинг
+Машина за садови
+Веш машина
+Дозволени миленици
+Аларм
+Соларни панели
+Тераса
+Подрум
+Клима уред
+Интерфон
+Видео надзор
+Тавански простор

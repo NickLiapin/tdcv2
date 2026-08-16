@@ -1,0 +1,16 @@
+---
+description: Conditions with a raised prevalence in the Субсахарска африканска ancestry group, in Macedonian. Child of medical/ancestry.txt. THIS LIST IS A PREVALENCE SIGNAL, NOT AN EXCLUSIVE ONE: every condition here occurs in every population, and ancestry shifts the prior probability rather than deciding the diagnosis.
+locale: mk
+---
+Српеста клеточна анемија
+Носителство на српеста клеточна анемија
+Дефицит на глукоза-6-фосфат дехидрогеназа
+APOL1-поврзана нефропатија
+Келоидно лузнење
+Саркоидоза
+Хипертензивна нефросклероза
+Фиброми на матка
+Бенигна етничка неутропенија
+Нетолеранција на лактоза
+Псевдофоликулитис барбе
+Витилиго

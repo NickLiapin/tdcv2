@@ -1,0 +1,23 @@
+---
+description: Legal term (Macedonian). Извршување and вештачење carry њ. Вештачење is the court-appointed expert examination, a distinct procedural step with no single English word — "expert witness" describes a person, not the act.
+locale: mk
+---
+Тужител
+Тужен
+Обвинет
+Судски повик
+Исказ
+Изјава под заклетва
+Времена мерка
+Сведоштво
+Пресуда
+Спогодба
+Постапка
+Надлежност
+Жалба
+Ревизија
+Извршување
+Застареност
+Доказ
+Вештачење
+Полномошно

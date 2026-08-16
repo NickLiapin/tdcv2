@@ -1,0 +1,36 @@
+---
+description: Building type (Macedonian). Куќа and Дуќан carry ќ and Џамија carries џ, all three everyday words. Two categories are specific to the country the language belongs to: Станбена зграда covers the socialist-era blocks that hold most of urban Skopje, and Викендица is the weekend cottage in the hills that a great many town families also own and that a Western European listing has no single word for.
+locale: mk
+---
+Станбена зграда
+Куќа
+Викендица
+Двојна куќа
+Куќа во низа
+Стан
+Гарсониера
+Поткровје
+Подрум
+Деловна зграда
+Административна зграда
+Трговски центар
+Продавница
+Дуќан
+Магацин
+Хала
+Фабрика
+Работилница
+Гаража
+Штала
+Плевна
+Црква
+Манастир
+Џамија
+Училиште
+Болница
+Хотел
+Ресторан
+Стадион
+Библиотека
+Кула
+Барака

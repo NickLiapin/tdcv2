@@ -1,0 +1,5 @@
+---
+description: Capital of Португалија, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Лисабон

@@ -1,0 +1,21 @@
+---
+description: Video game genre (Macedonian). Genre labels are half translated and half loaned, which is what Macedonian gaming press really does — Пукачка and Загатка are Macedonian words, MMORPG and Роглик are not translated at all.
+locale: mk
+---
+Акција
+Авантура
+Игра со улоги
+Стратегија
+Симулација
+Спорт
+Загатка
+Пукачка
+Платформска
+Трки
+Борбена
+Опстанок
+Песочник
+MMORPG
+Роглик
+Хорор
+Едукативна

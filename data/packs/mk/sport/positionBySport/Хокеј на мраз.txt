@@ -1,0 +1,9 @@
+---
+description: Playing positions in Хокеј на мраз, in Macedonian. Child of sport/sportCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Голман
+Одбранбен играч
+Центар
+Лево крило
+Десно крило

@@ -1,0 +1,42 @@
+---
+description: Animal (Macedonian), bare singular. БАЛКАНСКИ РИС IS NOT DECORATION: the Balkan lynx is the national animal of North Macedonia, it is on the five-denar coin, and there are thought to be fewer than forty left in the country — so a Macedonian list of animals that omits it is missing the one every child there can name. Коњ and свиња carry њ.
+locale: mk
+---
+Куче
+Мачка
+Слон
+Лав
+Тигар
+Мечка
+Волк
+Лисица
+Елен
+Срна
+Зајак
+Коњ
+Крава
+Овца
+Коза
+Свиња
+Мајмун
+Жирафа
+Зебра
+Кенгур
+Панда
+Коала
+Видра
+Делфин
+Кит
+Фока
+Еж
+Верверица
+Ракун
+Лос
+Бизон
+Рис
+Балкански рис
+Дивокоза
+Мрка мечка
+Дива свиња
+Твор
+Куна

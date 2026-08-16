@@ -1,0 +1,28 @@
+---
+description: Role-playing character class (Macedonian). Fantasy vocabulary in Macedonian is mostly translated rather than loaned — Воин, Разбојник, Ловец, Свештеник are ordinary words doing double duty — while the classes with no native word (Паладин, Некромант, Бард) come across untranslated.
+locale: mk
+---
+Воин
+Маг
+Разбојник
+Паладин
+Ловец
+Свештеник
+Некромант
+Друид
+Монах
+Стрелец
+Варварин
+Бард
+Атентатор
+Чаробник
+Витез
+Берсерк
+Шаман
+Гладијатор
+Инквизитор
+Врач
+Алхемичар
+Механичар
+Јавач
+Ловец на ѕверови

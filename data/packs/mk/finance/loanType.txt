@@ -1,0 +1,14 @@
+---
+description: Kind of loan (Macedonian). Дозволено пречекорување is the authorised overdraft and is the commonest consumer credit product in the country, ahead of the credit card.
+locale: mk
+---
+Станбен кредит
+Автомобилски кредит
+Потрошувачки кредит
+Студентски кредит
+Хипотекарен кредит
+Деловен кредит
+Брз кредит
+Дозволено пречекорување
+Консолидација на долг
+Кредитна картичка

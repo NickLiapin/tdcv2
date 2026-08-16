@@ -1,0 +1,30 @@
+---
+description: Mobile carrier — the Macedonian networks and the international brands a Macedonian roams onto. NORTH MACEDONIA HAS EXACTLY TWO MOBILE NETWORKS, and that is unusually few: Македонски Телеком and А1 Македонија. Both changed name inside the last decade, so older records carry the old ones — Македонски Телеком traded as Т-Мобиле until 2015, and А1 Македонија was formed that same year by merging ВИП Оператор and ОНЕ. A dataset assembled across 2014 and 2016 therefore contains four brand names for two companies.
+locale: mk
+---
+Македонски Телеком
+А1 Македонија
+Т-Мобиле
+ВИП Оператор
+ОНЕ
+Лајка Мобајл
+Telekom Srbija
+Vodafone
+Deutsche Telekom
+Turkcell
+Türk Telekom
+Cosmote
+Vodafone Greece
+A1 Austria
+A1 Bulgaria
+Yettel
+Vivacom
+Telenor
+Orange
+T-Mobile
+Swisscom
+Telia
+Play
+Movistar
+TIM
+One Albania

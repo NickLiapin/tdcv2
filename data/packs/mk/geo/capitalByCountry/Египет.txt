@@ -1,0 +1,5 @@
+---
+description: Capital of Египет, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Каиро

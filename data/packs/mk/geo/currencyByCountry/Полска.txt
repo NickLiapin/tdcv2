@@ -1,0 +1,5 @@
+---
+description: Currency of Полска, named in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+злот

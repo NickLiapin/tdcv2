@@ -1,0 +1,34 @@
+---
+description: Unit of measure (Macedonian). NORTH MACEDONIA IS FULLY METRIC — there is no local unit in commercial use, so unlike the English list this one carries no pound, ounce or gallon. Вреќа carries ќ and пакување carries њ. Декар (1,000 m²) and ар (100 m²) are the land units a Macedonian land record actually uses; hectares appear in official statistics but a farmer counts in decares.
+locale: mk
+---
+парче
+кутија
+кашон
+пакување
+дузина
+пар
+комплет
+ролна
+врзоп
+килограм
+грам
+литар
+милилитар
+метар
+сантиметар
+милиметар
+тон
+картон
+послужавник
+вреќа
+торба
+шише
+конзерва
+тегла
+квадратен метар
+кубен метар
+ар
+хектар
+декар
+километар

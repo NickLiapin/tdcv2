@@ -1,0 +1,24 @@
+---
+description: Insect (Macedonian). Вилинско коњче is the dragonfly — literally "the fairy's little horse" — and carries њ; бубамара is the ladybird and светулка the firefly.
+locale: mk
+---
+Мравка
+Пчела
+Пеперутка
+Бубачка
+Вилинско коњче
+Скакулец
+Бубамара
+Молец
+Штурец
+Оса
+Светулка
+Богомолка
+Цикада
+Термит
+Комарец
+Мушичка
+Стршлен
+Бумбар
+Гасеница
+Свилена буба

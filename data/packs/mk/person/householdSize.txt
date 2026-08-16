@@ -1,0 +1,11 @@
+---
+description: Number of people in the household. MACEDONIAN HOUSEHOLDS ARE LARGER THAN THE EU AVERAGE — the 2021 census recorded an average of 3.06 people, against about 2.2 in the EU — because the multi-generation household is still ordinary, so the 4-to-6 band is not a tail here the way it is in northern Europe. The values are bare numerals and carry no language.
+locale: mk
+---
+1
+2
+3
+4
+5
+6
+7+

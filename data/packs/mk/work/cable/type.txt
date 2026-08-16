@@ -1,0 +1,13 @@
+---
+description: Cable type (Macedonian). Category designations are alphanumeric and are not translated.
+locale: mk
+---
+Оптичко влакно
+Коаксијален
+Усукан пар
+Cat5e
+Cat6
+Cat6a
+Етернет
+Воздушен
+Подземен

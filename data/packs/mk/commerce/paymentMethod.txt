@@ -1,0 +1,19 @@
+---
+description: Payment method (Macedonian). ПЛАЌАЊЕ ПРИ ИСПОРАКА — cash on delivery — IS NOT A TAIL OPTION HERE: card penetration is lower than in western Europe and a large share of Macedonian online orders is still paid in cash at the door, so a generated dataset that treats it as rare is wrong about the country. Плаќање and плати carry ќ. Уплатница is the paper payment slip taken to a bank or post office counter, which has no English equivalent and is still how utility bills are settled.
+locale: mk
+---
+Кредитна картичка
+Дебитна картичка
+Плаќање при испорака
+Готовина
+Банкарски трансфер
+Уплатница
+Е-банкарство
+Мобилно плаќање
+PayPal
+Apple Pay
+Google Pay
+Подарок ваучер
+Криптовалута
+Купи сега плати подоцна
+Рати

@@ -1,0 +1,18 @@
+---
+description: Order status (Macedonian). Чека плаќање carries both ќ and њ; the -ње verbal noun is how Macedonian names an action, so almost every status word in an e-commerce interface ends up carrying њ.
+locale: mk
+---
+Во исчекување
+Во обработка
+Потврдена
+Испратена
+На испорака
+Испорачана
+Откажана
+Вратена
+Рефундирана
+На чекање
+Резервирана
+Неуспешна
+Чека плаќање
+Во царина

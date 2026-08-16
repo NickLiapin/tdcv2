@@ -1,0 +1,25 @@
+---
+description: Religion (Macedonian). The two that matter demographically in the Macedonian-speaking world are Православие and Ислам, and they are listed as such rather than folded into Христијанство, because a Macedonian form asks which — the 2021 census records Orthodox and Muslim as separate answers. Џаинизам carries џ.
+locale: mk
+---
+Христијанство
+Православие
+Ислам
+Католицизам
+Протестантизам
+Јудаизам
+Хиндуизам
+Будизам
+Сикизам
+Бахаи
+Џаинизам
+Шинтоизам
+Таоизам
+Атеизам
+Агностицизам
+Секуларизам
+Не е изјаснето
+Друга вероисповед
+Старообредништво
+Езичество
+Суфизам

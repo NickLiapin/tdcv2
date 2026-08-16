@@ -1,0 +1,5 @@
+---
+description: Capital of Србија, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Белград

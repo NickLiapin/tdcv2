@@ -1,0 +1,39 @@
+---
+description: Playing position (Macedonian), across sports. НАПАЃАЧ CARRIES Ѓ and is the commonest position word in the language — the striker — from напаѓа, "he attacks". Фаќач carries ќ. Голман is the goalkeeper in football, handball and water polo alike, so the same value legitimately belongs to three sports.
+locale: mk
+---
+Голман
+Одбранбен играч
+Средински играч
+Напаѓач
+Крилен играч
+Штопер
+Бек
+Плејмејкер
+Центар
+Крило
+Пивот
+Кружен напаѓач
+Разигрувач
+Крилен центар
+Бранител
+Либеро
+Дизач
+Коректор
+Среден блокер
+Примач сервис
+Фрлач
+Фаќач
+Прва база
+Шорт стоп
+Квотербек
+Тркачки бек
+Широк примач
+Лајнбекер
+Корнербек
+Столб
+Кука
+Втора линија
+Отворач
+Лев бек
+Десен бек

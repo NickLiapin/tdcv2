@@ -1,0 +1,20 @@
+---
+description: Horse breed (Macedonian). Липицанер is the one with a local history: the Lipizzaner stud lines pass through the former Yugoslavia and the breed is still worked in the region rather than being an exotic import.
+locale: mk
+---
+Арапски
+Полнокрвен
+Мустанг
+Клајдсдејл
+Апалуза
+Кватер
+Фризиски
+Шир
+Андалузиски
+Морган
+Паломино
+Першерон
+Шетландско пони
+Липицанер
+Домашен коњ
+Товарен коњ

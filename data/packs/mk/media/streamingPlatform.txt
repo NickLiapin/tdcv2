@@ -1,0 +1,16 @@
+---
+description: Streaming service available in North Macedonia. MRT Play is the public broadcaster's catch-up service, and Telekom TV and A1 Xplore TV are the two telco offerings — between them they are how most Macedonian households watch television, because the mobile operators sell the TV package. The international services carry no Macedonian subtitles as a rule, which is one reason Serbian and Croatian subtitle files circulate instead.
+locale: mk
+---
+Netflix
+HBO Max
+Disney+
+Amazon Prime Video
+Apple TV+
+YouTube
+Spotify
+Twitch
+MRT Play
+Telekom TV
+A1 Xplore TV
+Deezer

@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (a jobByIndustry child of the same name). Градежништво carries њ.
+locale: mk
+---
+Технологија
+Здравство
+Финансии
+Градежништво
+Образование
+Угостителство
+Производство
+Трговија
+Транспорт
+Право

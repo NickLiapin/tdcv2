@@ -1,0 +1,14 @@
+---
+description: Diagnosis recorded only for male patients (Macedonian), matching en/person/male/diagnosis.txt. Macedonian clinical vocabulary is Latin-derived and transcribed into Cyrillic (простатитис, варикоцела) rather than translated, which is why these read as international terms in a Macedonian coat.
+locale: mk
+---
+Варикоцела
+Крипторхизам
+Фимоза
+Аденом на простата
+Простатитис
+Хроничен панкреатитис
+Хламидија
+Хроничен артритис
+Емболија на централната ретинална артерија
+Карцином на ректум

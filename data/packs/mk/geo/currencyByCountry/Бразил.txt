@@ -1,0 +1,5 @@
+---
+description: Currency of Бразил, named in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+реал

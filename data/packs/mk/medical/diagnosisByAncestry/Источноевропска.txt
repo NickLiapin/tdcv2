@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Источноевропска ancestry group, in Macedonian. Child of medical/ancestry.txt — the filename must match the parent value character for character. Ancestry shifts the prior probability; it does not decide a diagnosis.
+locale: mk
+---
+Наследна хемохроматоза
+Фенилкетонурија
+Фамилијарна хиперхолестеролемија
+Алкохолна болест на црниот дроб
+Цистична фиброза
+Вилсонова болест

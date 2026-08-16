@@ -1,0 +1,10 @@
+---
+description: Diagnoses a Неврологија clinic records, in Macedonian. Child of medical/specialtyCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Мигрена
+Епилепсија
+Паркинсонова болест
+Мултипла склероза
+Исхемичен мозочен удар
+Периферна невропатија

@@ -1,0 +1,24 @@
+---
+description: Household budget line (Macedonian). Осигурување, штедење and домаќинство carry њ or ќ. Комуналии covers water, refuse and shared building costs as one billed item, which is how a Macedonian household actually receives it.
+locale: mk
+---
+Кирија
+Станбен кредит
+Намирници
+Комуналии
+Транспорт
+Забава
+Здравство
+Осигурување
+Ресторани
+Штедење
+Претплати
+Патувања
+Образование
+Облека
+Подароци
+Детска нега
+Отплата на долг
+Домаќинство
+Гориво
+Телефон

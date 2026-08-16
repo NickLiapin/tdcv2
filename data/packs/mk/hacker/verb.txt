@@ -1,0 +1,32 @@
+---
+description: Technical verb (Macedonian), third person singular present — the dictionary form, because Macedonian has no infinitive. See word/verb.txt for what that means for a config that wants to build a phrase.
+locale: mk
+---
+бекапира
+заобиколува
+хакира
+презапишува
+компресира
+копира
+навигира
+индексира
+поврзува
+генерира
+квантифицира
+пресметува
+синтетизира
+внесува
+пренесува
+програмира
+рестартира
+парсира
+шифрира
+дешифрира
+распоредува
+следи
+мери
+тестира
+спојува
+враќа
+кешира
+преоптоварува

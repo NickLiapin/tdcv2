@@ -1,0 +1,5 @@
+---
+description: Capital of Норвешка, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Осло

@@ -1,0 +1,9 @@
+---
+description: Diagnoses a Нефрологија clinic records, in Macedonian. Child of medical/specialtyCoherent.txt — the filename must match the parent value character for character.
+locale: mk
+---
+Хронична бубрежна болест
+Нефролитијаза
+Гломерулонефритис
+Акутно бубрежно оштетување
+Полицистична бубрежна болест

@@ -1,0 +1,32 @@
+---
+description: Flower (Macedonian). Темјанушка — the violet — carries њ. Кокиче is the snowdrop and Мајчина душица is wild thyme, literally "mother's little soul", which grows across the Macedonian hills and is picked for tea.
+locale: mk
+---
+Роза
+Лале
+Маргарита
+Сончоглед
+Крин
+Орхидеја
+Нарцис
+Невен
+Лаванда
+Ирис
+Божур
+Каранфил
+Хризантема
+Афион
+Темјанушка
+Јасмин
+Хибискус
+Лотос
+Далија
+Бегонија
+Јоргован
+Мајчина душица
+Камилица
+Кокиче
+Јаглика
+Мак
+Петунија
+Гладиола

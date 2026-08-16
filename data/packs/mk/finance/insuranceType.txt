@@ -1,0 +1,18 @@
+---
+description: Kind of insurance (Macedonian). Каско is the ex-Yugoslav word for comprehensive motor cover, kept apart from the compulsory third-party policy, and the two are never confused in a Macedonian record.
+locale: mk
+---
+Здравствено
+Автомобилско
+Каско
+Домаќинско
+Животно
+Станарско
+Патничко
+За миленици
+Инвалидско
+Стоматолошко
+Очно
+Од одговорност
+Дополнително здравствено
+Пензиско

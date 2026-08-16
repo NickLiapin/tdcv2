@@ -1,0 +1,28 @@
+---
+description: Name suffix (Macedonian). MACEDONIAN HAS NO Jr / Sr CONVENTION AT ALL, so the roman numerals here number MONARCHS and never a son who shares his father's name — Филип II Македонски, Александар III Македонски, Самоил. A Macedonian son with his father's name is told apart by the patronymic middle name instead. Academic titles come BEFORE the name in Macedonian (проф. д-р Иван Петровски), so what genuinely trails a name is only a doctoral abbreviation or an international degree carried over untranslated.
+locale: mk
+---
+д-р на науки
+д.н.
+PhD
+MSc
+MBA
+MD
+LL.M.
+BSc
+MA
+BA
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+постхумно
+ем.
+в.д.
+пен.

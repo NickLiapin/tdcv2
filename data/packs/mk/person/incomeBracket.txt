@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Macedonian. THE CURRENCY IS THE MACEDONIAN DENAR, code MKD, written ден. after the amount, and it is pegged to the euro at roughly 61.5 MKD = 1 EUR — a peg held since 1995, so a denar figure converts to euro by a near-constant. The bands are set against the real distribution: the average NET monthly wage was about 37,000 MKD in 2024, so a single-earner household lands near 450,000 MKD a year and the 350,000-700,000 band is the middle of the country, not the bottom of it. Note the thousands separator: Macedonian writes 1.500.000 with full stops and uses the comma for the decimal, the opposite of English. North Macedonia is the only country where Macedonian is official, so there is no second currency to consider.
+locale: mk
+---
+Под 150.000 ден.
+150.000–250.000 ден.
+250.000–350.000 ден.
+350.000–500.000 ден.
+500.000–700.000 ден.
+700.000–1.000.000 ден.
+1.000.000–1.500.000 ден.
+Над 1.500.000 ден.

@@ -1,0 +1,5 @@
+---
+description: Capital of Соединети Американски Држави, in Macedonian. Child of geo/country.txt.
+locale: mk
+---
+Вашингтон
