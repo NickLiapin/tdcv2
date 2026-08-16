@@ -71,8 +71,12 @@ describe('a share declared inside a pack generator', () => {
   });
 
   it('refuses rather than silently misallocating when streaming is forced', () => {
+    // Matched on the CONSEQUENCE, not on "declares a share". A pack earns this
+    // refusal two ways — a percent= in its body, or a weighted list its body
+    // draws from — and the old wording named only the first, so it described
+    // twelve full-name packs wrongly the day the second one started refusing.
     expect(() => render(parseStrict(config('')), { now: NOW, packs, engine: 2 })).toThrow(
-      /declares a share/,
+      /apportioned across the whole column/,
     );
   });
 });

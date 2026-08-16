@@ -1984,6 +1984,21 @@
         ]
       }
     },
+    "generators/template-composed-tdc-pack-weighted": {
+      "engine2": {
+        "refused": "a pack generator (\"V\") whose value is apportioned across the whole column cannot be resolved one row at a time — every row would take the largest share; the in-memory engine handles it (run without a forced streaming engine)"
+      },
+      "engine3": {
+        "lines": [
+          "Kovács István",
+          "Varga József",
+          "Horváth Zoltán",
+          "Nagy László",
+          "Tóth Sándor",
+          "Szabó János"
+        ]
+      }
+    },
     "generators/template-composed-tdc-pack-distinct": {
       "engine2": {
         "lines": [

@@ -274,20 +274,78 @@ public sealed class DataPacks
     /// Whether a pack generator apportions a share over the whole column.
     /// </summary>
     /// <remarks>
+    /// <para>Two ways to earn it.</para>
+    /// <para>
     /// A <c>percent=</c> anywhere in a generator's body — on its <c>&lt;mix&gt;</c>, on a
     /// <c>&lt;gen&gt;</c>, on a compound field — makes its quota a property of the run rather than of
-    /// a row. The router asks this before sending a config to an engine that resolves one row at a
-    /// time.
+    /// a row.
+    /// </para>
+    /// <para>
+    /// And a body that merely DRAWS from a weighted list, which the body does not say. A weighted
+    /// list is laid out to an exact Hamilton quota over the run, so each value takes its measured
+    /// share of the rows; asked for ONE row that plan is computed over a column of one and the row
+    /// goes to the largest share, every time, for every seed. Twelve shipped full-name packs were in
+    /// that state — eight rows of <c>hu.person.male.fullName</c> came back as eight copies of
+    /// "Nagy László" — because the body says <c>value="hu.person.lastName"</c> and nothing in that
+    /// line says the list on the other end carries weights. German and Polish full names were fine,
+    /// and the only difference is that their name lists carry no weights.
+    /// </para>
+    /// <para>
+    /// The router asks this before sending a config to an engine that resolves one row at a time,
+    /// and so does the row-at-a-time path inside the engine itself.
+    /// </para>
+    /// <para>
+    /// A plain LIST answers false even when it is weighted: whoever draws one lays its quota out
+    /// over the rows already, and marking it here would cost every weighted draw the streaming
+    /// engines for nothing. Only a GENERATOR over such a list is stuck.
+    /// </para>
     /// </remarks>
     public bool NeedsWholeColumn(string dottedPath, string? locale)
     {
         Entry entry = Load(dottedPath, locale);
-        if (!entry.IsGenerator)
+        return entry.IsGenerator
+            && BodyNeedsWholeColumn(
+                entry.Generator!,
+                locale,
+                new HashSet<string>(StringComparer.Ordinal) { CacheKey(dottedPath, locale) });
+    }
+
+    /// <summary>
+    /// The same question about an address reached from INSIDE another pack's body.
+    /// </summary>
+    /// <remarks>
+    /// Here a weighted list is the answer rather than a plain no: it is the leaf this walk is
+    /// looking for, and the generator that drew it inherits its quota.
+    /// </remarks>
+    /// <param name="visiting">
+    /// The addresses already on this walk. A generator that references itself, directly or round a
+    /// ring, is reported by the pack loader as its own error; this walk just stops instead of
+    /// recursing until the stack runs out.
+    /// </param>
+    private bool DrawsWholeColumn(string dottedPath, string? locale, HashSet<string> visiting)
+    {
+        if (!visiting.Add(CacheKey(dottedPath, locale)))
         {
             return false;
         }
 
-        string body = entry.Generator!;
+        Entry entry;
+        try
+        {
+            entry = Load(dottedPath, locale);
+        }
+        catch (Exception e) when (e is ArgumentException or IOException)
+        {
+            // An address that does not resolve is the validator's problem, not this walk's.
+            return false;
+        }
+
+        return entry.Weighted
+            || (entry.IsGenerator && BodyNeedsWholeColumn(entry.Generator!, locale, visiting));
+    }
+
+    private bool BodyNeedsWholeColumn(string body, string? locale, HashSet<string> visiting)
+    {
         Parser.ConfigBuilder.PackGenerator composed;
         try
         {
@@ -295,7 +353,8 @@ public sealed class DataPacks
         }
         catch (ArgumentException)
         {
-            // A single bare <gen>: it declares a share only through its own percent=.
+            // A single bare <gen>: it declares a share only through its own percent=, and a bare
+            // <gen> may not be a template, so there is no list behind it to inherit one from.
             return body.Contains("percent=");
         }
 
@@ -306,22 +365,86 @@ public sealed class DataPacks
                 return true;
             }
 
-            if (spec.Gen is not null && Declares(spec.Gen.Attrs.GetValueOrDefault("percent")))
+            foreach (Model.Gen gen in GensOf(spec))
             {
-                return true;
-            }
-
-            if (spec.IsCompound
-                && spec.Fields!.Any(f => Declares(f.Gen.Attrs.GetValueOrDefault("percent"))))
-            {
-                return true;
+                if (Declares(gen.Attrs.GetValueOrDefault("percent"))
+                    || DrawsWeights(gen, locale, visiting))
+                {
+                    return true;
+                }
             }
         }
 
         return false;
     }
 
+    /// <summary>
+    /// Does this <c>&lt;gen&gt;</c> inside a pack body reach a weighted list, directly or through
+    /// another pack generator?
+    /// </summary>
+    private bool DrawsWeights(Model.Gen gen, string? locale, HashSet<string> visiting)
+    {
+        if (gen.Type != "template")
+        {
+            return false;
+        }
+
+        string target = gen.Attrs.GetValueOrDefault("value") ?? "";
+
+        // `common.vehicle.model.${{Brand}}` — an address that is not known until the row is, so
+        // there is no list here to ask about.
+        if (target.Length == 0 || target.Contains("${{"))
+        {
+            return false;
+        }
+
+        string? inner = gen.Attrs.GetValueOrDefault("local");
+        return DrawsWholeColumn(
+            target, string.IsNullOrWhiteSpace(inner) ? locale : inner, visiting);
+    }
+
+    /// <summary>Every <c>&lt;gen&gt;</c> a pack body's sequence holds, whichever shape it took.</summary>
+    /// <remarks>
+    /// The compound shape is the one the full-name packs use — two NAMED gens, which is a compound
+    /// and not a lone <c>Gen</c> — while a composed body keeps its gens in <c>Items</c> and a
+    /// conditional keeps them in <c>Branches</c>. Reading one of the shapes and not the others is
+    /// how the weighted draw stayed invisible in the first place.
+    /// </remarks>
+    private static IEnumerable<Model.Gen> GensOf(Model.SequenceSpec spec)
+    {
+        if (spec.Gen is not null)
+        {
+            yield return spec.Gen;
+        }
+
+        foreach (Model.Field field in spec.Fields ?? Enumerable.Empty<Model.Field>())
+        {
+            yield return field.Gen;
+        }
+
+        foreach (Model.Item item in spec.Items ?? Enumerable.Empty<Model.Item>())
+        {
+            if (item.Gen is not null)
+            {
+                yield return item.Gen;
+            }
+
+            if (item.Field is not null)
+            {
+                yield return item.Field.Gen;
+            }
+        }
+
+        foreach (Model.Branch branch in spec.Branches ?? Enumerable.Empty<Model.Branch>())
+        {
+            yield return branch.Gen;
+        }
+    }
+
     private static bool Declares(string? percent) => !string.IsNullOrWhiteSpace(percent);
+
+    /// <summary>One address as it is asked for: a dotted path under two locales is two packs.</summary>
+    private static string CacheKey(string dottedPath, string? locale) => dottedPath + "|" + locale;
 
     /// <summary>
     /// Resolve a dotted path against a locale and load it.
@@ -333,7 +456,7 @@ public sealed class DataPacks
     /// </remarks>
     public Entry Load(string dottedPath, string? locale)
     {
-        string key = dottedPath + "|" + locale;
+        string key = CacheKey(dottedPath, locale);
         if (_cache.TryGetValue(key, out Entry? cached))
         {
             return cached;

@@ -21,7 +21,7 @@ use source::{discover_root, DirectorySource, EmbeddedSource, LayeredSource, Pack
 
 use crate::engine::{invalid, EngineResult};
 use crate::errors::Diagnostic;
-use crate::model::config::{Gen, SequenceSpec, Source};
+use crate::model::config::{Case, CasePart, Gen, Item, Mix, SequenceSpec, Source, Switch};
 use crate::parser::config_builder;
 use crate::parser::lexer::Pos;
 
@@ -55,6 +55,64 @@ fn declares_share(spec: &SequenceSpec) -> bool {
         Source::Gen(gen) => declared(gen),
         Source::Fields(fields) => fields.iter().any(|field| declared(&field.gen)),
         _ => false,
+    }
+}
+
+/// Every `<gen>` one sequence of a pack generator's body can reach.
+///
+/// Its own, a compound's fields, the items of a composed body, a conditional's
+/// branches, and the ones nested inside `<mix>` and `<switch>` cases. The
+/// nesting is the part worth spelling out: a `<gen type="template">` written
+/// inside a `<case>` draws from the very same list as one written at the top of
+/// the sequence, so a walk that stopped at the top level would call a pack
+/// row-at-a-time on the strength of where its reference happens to sit.
+fn gens_of(spec: &SequenceSpec) -> Vec<&Gen> {
+    let mut found = Vec::new();
+    match &spec.source {
+        Source::Gen(gen) => found.push(gen),
+        Source::Fields(fields) => found.extend(fields.iter().map(|field| &field.gen)),
+        Source::Items(items) => {
+            for item in items {
+                match item {
+                    Item::Field(field) => found.push(&field.gen),
+                    Item::Gen(gen) => found.push(gen),
+                    Item::Text(_) | Item::Constant { .. } => {}
+                }
+            }
+        }
+        Source::Branches(branches) => found.extend(branches.iter().map(|branch| &branch.gen)),
+        Source::Mix(mix) => gens_of_mix(mix, &mut found),
+        Source::Switch(switch) => gens_of_switch(switch, &mut found),
+        // A `<compute>` derives its value from columns already drawn; it reaches
+        // no pack of its own.
+        Source::Compute(_) => {}
+    }
+    found
+}
+
+fn gens_of_mix<'a>(mix: &'a Mix, found: &mut Vec<&'a Gen>) {
+    for case in &mix.cases {
+        gens_of_case(case, found);
+    }
+}
+
+fn gens_of_switch<'a>(switch: &'a Switch, found: &mut Vec<&'a Gen>) {
+    for entry in &switch.entries {
+        gens_of_case(&entry.value, found);
+    }
+    if let Some(fallback) = &switch.fallback {
+        gens_of_case(fallback, found);
+    }
+}
+
+fn gens_of_case<'a>(case: &'a Case, found: &mut Vec<&'a Gen>) {
+    for part in &case.parts {
+        match part {
+            CasePart::Gen(gen) => found.push(gen),
+            CasePart::Mix(mix) => gens_of_mix(mix, found),
+            CasePart::Switch(switch) => gens_of_switch(switch, found),
+            CasePart::Text(_) => {}
+        }
     }
 }
 
@@ -217,6 +275,8 @@ impl DataPacks {
 
     /// Whether a pack generator apportions a share over the whole column.
     ///
+    /// Two ways to earn it.
+    ///
     /// A `percent=` anywhere in a generator's body — on its `<mix>`, on a
     /// `<gen>`, on a compound field — makes its quota a property of the run
     /// rather than of a row. Asked before a config is handed to an engine that
@@ -224,22 +284,91 @@ impl DataPacks {
     /// single row, so every row goes to the largest share and the column comes
     /// out uniform while looking like data.
     ///
+    /// And a body that DRAWS from a weighted list, which the body does not say.
+    /// A weighted list is laid out to the same exact quota, so each value takes
+    /// its measured share of the rows; over a column of one row that plan awards
+    /// the row to the largest share, every time, for every seed. Six shipped
+    /// locales lost their full names to this: eight rows of
+    /// `hu.person.male.fullName` came out `Nagy László` eight times, and Czech,
+    /// Dutch, Serbian, Persian and Hebrew were in the same state, while German
+    /// and Polish were not — the only difference being that their name lists
+    /// carry no weights. The body says `value="hu.person.lastName"` and nothing
+    /// in that line reveals that the list on the other end is weighted, so the
+    /// question has to be followed through the reference.
+    ///
     /// An address that does not resolve answers "no" — an unknown pack is the
     /// validator's complaint to make, and the router has no better answer than
     /// the one it would give for a pack with no shares.
     pub fn needs_whole_column(&self, dotted_path: &str, locale: &str) -> bool {
+        self.whole_column(dotted_path, locale, &mut Vec::new())
+    }
+
+    /// [`needs_whole_column`](Self::needs_whole_column), carrying the addresses
+    /// already open on the walk.
+    ///
+    /// Only a GENERATOR can answer yes here. A plain weighted list asked for
+    /// directly by a config is laid out by the streaming engines themselves, and
+    /// saying yes for one would move every config drawing a first name off the
+    /// engine that handles it perfectly well.
+    fn whole_column(&self, dotted_path: &str, locale: &str, seen: &mut Vec<String>) -> bool {
+        let visiting = format!("{dotted_path}|{locale}");
+        // A generator that comes back round to itself. The loader reports the
+        // cycle as the error it is; this walk only has to stop, since recursing
+        // would end the process rather than answer.
+        if seen.iter().any(|open| open == &visiting) {
+            return false;
+        }
         let Ok(entry) = self.load(dotted_path, locale) else {
             return false;
         };
         let Some(body) = entry.generator.as_deref() else {
             return false;
         };
-        match config_builder::parse_pack_body(body) {
-            Ok(composed) => composed.sequences.iter().any(declares_share),
+        let Ok(composed) = config_builder::parse_pack_body(body) else {
             // A single bare `<gen>` does not parse as a composed body: it
-            // declares a share only through its own `percent=`.
-            Err(_) => body.contains("percent="),
+            // declares a share only through its own `percent=`, and it draws
+            // from no list to inherit one from.
+            return body.contains("percent=");
+        };
+        seen.push(visiting);
+        let answer = composed.sequences.iter().any(|spec| {
+            declares_share(spec)
+                || gens_of(spec)
+                    .into_iter()
+                    .any(|gen| self.draws_whole_column(gen, locale, seen))
+        });
+        seen.pop();
+        answer
+    }
+
+    /// Whether one `<gen>` of a pack body reaches a weighted list, directly or
+    /// through another pack generator.
+    ///
+    /// The locale travels with the reference: a body drawing `person.lastName`
+    /// means the surname of the locale the caller is running under, and reading
+    /// the English list to answer a Hungarian question would answer about the
+    /// wrong file. An explicit `local=` on the `<gen>` wins, as it does at
+    /// render time.
+    fn draws_whole_column(&self, gen: &Gen, locale: &str, seen: &mut Vec<String>) -> bool {
+        if gen.gen_type != "template" {
+            return false;
         }
+        let target = gen.attr_or("value", "");
+        // `common.vehicle.model.${{Brand}}` — the pack this names is not known
+        // until the row is, and a config holding one is on its way to the
+        // in-memory engine by a rule of its own.
+        if target.is_empty() || target.contains("${{") {
+            return false;
+        }
+        let inner = gen
+            .attr("local")
+            .map(str::trim)
+            .filter(|declared| !declared.is_empty())
+            .unwrap_or(locale);
+        let Ok(entry) = self.load(target, inner) else {
+            return false;
+        };
+        entry.weighted() || (entry.is_generator() && self.whole_column(target, inner, seen))
     }
 
     /// Resolve a dotted path against a locale and load it.

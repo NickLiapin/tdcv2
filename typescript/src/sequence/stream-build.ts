@@ -76,6 +76,13 @@ import {
 } from './repeat.js';
 import type { NumberLengthChoice } from '../generators/number.js';
 import { numberLengthChoicesOf, pinLength, weightedTemplatePack } from './stream-weighted.js';
+import { StreamUnsupportedError } from './stream-errors.js';
+import { refuseIfWholeColumn } from './stream-refusals.js';
+
+// Re-exported from its own module: `stream-refusals.ts` throws it too, and
+// importing it back out of this file would close a cycle. Every existing
+// importer still reads it from here.
+export { StreamUnsupportedError } from './stream-errors.js';
 import { arrangeExactUniq, type ExactUniqField } from './exact-uniq.js';
 import { counterValueAt } from './stream-resolve.js';
 import { buildComposedStream, composesOwnValue } from './composed.js';
@@ -173,30 +180,12 @@ export function buildLazyRegistry(
       continue;
     }
 
-    // A running total is the one construct that genuinely cannot be answered
-    // from a row index: row 900,000,000 IS the sum of everything before it.
-    // That is not a gap in the streaming builder, it is what "running" means —
-    // so it is refused by name and the router hands the config to the in-memory
-    // engine, the same road every other whole-column construct takes.
-    if (spec.gen?.type === 'running') {
-      throw new StreamUnsupportedError(
-        `a running total ("${spec.name}") is the accumulation of every row before it, ` +
-          'so it cannot be computed one row at a time; the in-memory engine handles it ' +
-          '(run without a forced streaming engine)',
-      );
-    }
-
-    // A statistic over the whole run is the stronger form of the same thing: it
-    // is not knowable from the rows SO FAR either, because the rows after this
-    // one are part of the answer. Refused by name, and the router hands the
-    // config to the in-memory engine.
-    if (spec.gen?.type === 'stat') {
-      throw new StreamUnsupportedError(
-        `a statistic ("${spec.name}") is computed over every row of the run, including the ` +
-          'ones after this one, so it cannot be computed one row at a time; the in-memory ' +
-          'engine handles it (run without a forced streaming engine)',
-      );
-    }
+    // Everything this path cannot answer a row at a time, refused while the
+    // column is being CONSTRUCTED — see stream-refusals.ts for which and why.
+    // The timing is the point: engine 3 falls back to memory by catching this
+    // around the registry build, and a refusal raised later, at the row that
+    // reads the value, arrives after that catch has already returned.
+    refuseIfWholeColumn(spec, baseOptions.packs, locale);
 
     // A formula STREAMS. Row i is computed from row i and nothing else, which is
     // exactly the property the lazy registry is built on — so it is the one of
@@ -207,32 +196,6 @@ export function buildLazyRegistry(
     if (spec.gen?.type === 'formula') {
       registry[spec.name] = lazyFormula(spec, registry);
       continue;
-    }
-
-    // A date measured from another date needs only the SAME row of its source,
-    // so unlike a running total it is not the idea that resists streaming — the
-    // streaming path simply has no way to read a sibling column lazily, which is
-    // why a dynamic template defers here too. Refused by name until it has one,
-    // and the router hands the config to the in-memory engine.
-    if (spec.gen?.type === 'date' && (spec.gen.attrs['of'] ?? '').trim() !== '') {
-      throw new StreamUnsupportedError(
-        `a date measured from another column ("${spec.name}") reads that column as the row is ` +
-          'built, and the streaming path has no way to do that yet; the in-memory engine ' +
-          'handles it (run without a forced streaming engine)',
-      );
-    }
-
-    // A network call is not a draw: it is neither reproducible from a row index
-    // nor answerable synchronously, which is what a lazy per-row resolver needs.
-    // Refused here rather than left to fall through, because the fall-through
-    // reached the in-memory engine's synchronous guard and told a CLI user to
-    // "use the CLI".
-    if (spec.gen?.type === 'http') {
-      throw new StreamUnsupportedError(
-        `<gen type="http"> ("${spec.name}") is a network call, so it is neither ` +
-          'reproducible nor answerable one row at a time; the in-memory engine handles it ' +
-          '(run without a forced streaming engine)',
-      );
     }
 
     if (spec.uniq) {
@@ -531,14 +494,6 @@ function buildSwitchSeq(
     }
     return fallback ? fallback(i) : undefined;
   });
-}
-
-/** A feature the streaming builder can't do lazily — Engine 3 catches this to fall back. */
-export class StreamUnsupportedError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = 'StreamUnsupportedError';
-  }
 }
 
 function unsupported(feature: string, name: string): StreamUnsupportedError {

@@ -761,6 +761,26 @@ public final class StreamEngine {
               + attrs.getOrDefault("value", "")
               + "\" interpolates a field; the in-memory engine resolves it per row");
     }
+    // A whole-column quota INSIDE a pack generator — a `percent=` its body declares, or a weighted
+    // list its body draws from. Resolved a row at a time the quota is computed over a column of
+    // one and every row takes the largest share: six rows of `hu.person.male.fullName` came out as
+    // six copies of "Nagy László", correct-looking and silently wrong.
+    //
+    // Refused here, while the column is being CONSTRUCTED, rather than at the row that reads it.
+    // buildColumns() runs inside StreamEngine.rows(), which is what DiskEngine wraps in its
+    // try/catch — so engine 3 falls back to memory for this the way it already does for the other
+    // refusals, instead of handing the error to the caller after the fallback had finished.
+    if (wholeColumnTemplatePack(gen)) {
+      throw new Unsupported(
+          "pack generator \""
+              + attrs.getOrDefault("value", "")
+              + "\" (\""
+              + streamId
+              + "\") has a value apportioned across the whole column — either a share its body "
+              + "declares or a weighted list its body draws from — which cannot be resolved one "
+              + "row at a time; the in-memory engine handles it (run without a forced streaming "
+              + "engine)");
+    }
 
     // An empty subset — a parent value with no rows of its own. Always inactive.
     if (domain.size() == 0) {
@@ -1215,6 +1235,25 @@ public final class StreamEngine {
                 gen.attrs(),
                 prng,
                 new boolean[slots]));
+  }
+
+  /**
+   * A {@code <gen type="template">} pointing at a pack GENERATOR whose value is a whole-column
+   * quota. Its values are computed rather than listed, so there is no list to lay out and the
+   * streaming engines have nothing to seek into.
+   */
+  private boolean wholeColumnTemplatePack(Config.Gen gen) {
+    if (!"template".equals(gen.type())) {
+      return false;
+    }
+    String address = gen.attrs().getOrDefault("value", "");
+    String locale = localeOf(gen.attrs());
+    // A synthetic address (person.b_day and its kind) has no pack file behind it, so asking the
+    // registry for it would throw rather than answer.
+    if (address.isEmpty() || !packs.exists(address, locale)) {
+      return false;
+    }
+    return packs.needsWholeColumn(address, locale);
   }
 
   /** A {@code <gen type="template">} pointing at a pack that carries its own shares. */

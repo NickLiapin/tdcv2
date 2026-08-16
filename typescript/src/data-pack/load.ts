@@ -66,8 +66,13 @@ export interface PackEntry {
   /** Addresses this generator references (for load-time validation). */
   readonly references?: readonly string[] | undefined;
   /**
-   * The generator declares a share (`<mix percent>` / `percent=`), so it is only
-   * correct across a whole column and must not be resolved a row at a time.
+   * The generator's value is only correct across a whole column, so it must not
+   * be resolved a row at a time.
+   *
+   * Two ways to earn it. The generator may declare a share itself (`<mix
+   * percent>` / `percent=`), which `parseGeneratorSpec` sees in the body. Or it
+   * may DRAW from a weighted list, which the body does not say and only the
+   * loaded registry knows — see `propagateWholeColumn`.
    */
   readonly needsWholeColumn?: boolean | undefined;
   /** Human-readable description from the header, if any. */
@@ -150,7 +155,65 @@ function scanPacksFromDisk(roots: readonly string[]): ScanResult {
   // (a cycle would recurse forever at render time).
   validateGeneratorReferences(registry, diagnostics);
 
+  // Third pass: a generator that DRAWS from a weighted list is a whole-column
+  // quota too, and only the finished registry can tell.
+  propagateWholeColumn(registry);
+
   return { registry, locales, diagnostics };
+}
+
+/**
+ * A generator that draws from a weighted list is whole-column, transitively.
+ *
+ * A weighted list is laid out to an exact Hamilton quota over the run: `Kovács`
+ * takes its measured share of the rows, not a uniform one. That is a plan for a
+ * COLUMN. Asked for one row, the plan is computed over a column of one and the
+ * single row goes to the largest share — the same failure `percent=` has, in a
+ * place nothing was looking.
+ *
+ * It cost five shipped locales their full names. `hu.person.male.fullName` is a
+ * pack generator whose body draws `hu.person.lastName` and
+ * `hu.person.male.firstName`, both weighted; a config asking for eight Hungarian
+ * names got `Nagy László` eight times, on every engine, for every seed. Czech,
+ * Dutch, Persian and Hebrew were in the same state, and German, Spanish and
+ * Polish were not — the only difference being that their name lists carry no
+ * weights. Handed the whole count the very same generator returns eight
+ * different names, so nothing was wrong with the pack or the data.
+ *
+ * `parseGeneratorSpec` cannot see this: it reads one body, and whether
+ * `hu.person.lastName` is weighted is a fact about a different file that may not
+ * be loaded yet. So it is decided here, once every address is registered, and
+ * from there the existing machinery does the rest — `perRowBuildable` stops
+ * taking the row-at-a-time path, the router sends the config to the in-memory
+ * engine, and a forced streaming engine refuses with a message instead of
+ * quietly repeating one name.
+ */
+function propagateWholeColumn(registry: Map<string, PackEntry>): void {
+  /** Memoised answers. A cycle is already reported above, so it resolves false. */
+  const answered = new Map<string, boolean>();
+  const visiting = new Set<string>();
+
+  const isWholeColumn = (address: string): boolean => {
+    const cached = answered.get(address);
+    if (cached !== undefined) return cached;
+    const entry = registry.get(address);
+    if (!entry) return false;
+    // A weighted DATA list is the leaf this walk is looking for.
+    if (entry.percents !== undefined) return true;
+    if (!entry.generator) return false;
+    if (visiting.has(address)) return false;
+    visiting.add(address);
+    const answer =
+      entry.needsWholeColumn === true || (entry.references ?? []).some((ref) => isWholeColumn(ref));
+    visiting.delete(address);
+    answered.set(address, answer);
+    return answer;
+  };
+
+  for (const [address, entry] of registry) {
+    if (!entry.generator || entry.needsWholeColumn === true) continue;
+    if (isWholeColumn(address)) registry.set(address, { ...entry, needsWholeColumn: true });
+  }
 }
 
 /**

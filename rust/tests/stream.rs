@@ -147,6 +147,46 @@ fn a_uniq_asking_for_more_rows_than_combinations_says_so() {
     assert!(message.contains("at most 12 distinct rows"), "{message}");
 }
 
+#[test]
+fn a_pack_whose_quota_spans_the_column_is_refused_here_rather_than_answered_wrongly() {
+    // `hu.person.male.fullName` draws two weighted lists. Each is an exact quota
+    // over the run, and this engine asks the pack for one row at a time — a quota
+    // over a column of one goes wholly to the largest share, which is how eight
+    // Hungarian names came out `Nagy László` eight times. The router keeps such a
+    // config away from here; when somebody names the engine anyway, saying so is
+    // the only honest answer left.
+    let weighted = pack_config("hu", "hu.person.male.fullName").with_engine("2");
+    let message = engine::render(&weighted, 0)
+        .expect_err("a whole-column pack cannot stream")
+        .message()
+        .to_string();
+    assert!(message.contains("pack generator (\"V\")"), "{message}");
+    assert!(message.contains("whole column"), "{message}");
+
+    // The counter-case, and the reason this is not simply refused for every pack
+    // generator: German name lists carry no weights, so the identical pack shape
+    // streams — and must keep doing so, or it loses the streaming engines for a
+    // quota it does not have.
+    let plain = pack_config("de", "de.person.male.fullName").with_engine("2");
+    let rows: std::collections::BTreeSet<String> = engine::render(&plain, 0)
+        .expect("an unweighted pack streams")
+        .lines()
+        .map(str::to_string)
+        .collect();
+    assert!(rows.len() > 1, "de streamed one repeated name: {rows:?}");
+}
+
+fn pack_config(locale: &str, address: &str) -> Config {
+    let text = format!(
+        "<tdc><env count=\"8\" seed=\"probe\" local=\"{locale}\">\
+         <sequence name=\"V\"><gen type=\"template\" value=\"{address}\"/></sequence></env>\
+         <block><line><data>${{{{V}}}}</data></line></block></tdc>"
+    );
+    let parsed = parser::parse(&text);
+    assert!(parsed.ok(), "did not parse: {text}");
+    config_builder::build(&parsed.tree, None).expect("builds")
+}
+
 /// Writing a run to a file must not go through a copy of the whole output.
 ///
 /// The `-o` path used to ask the facade for the text and hand the bytes to the

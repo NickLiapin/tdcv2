@@ -236,18 +236,40 @@ def _declares_shares(gen: Gen, config: Config, packs: DataPacks) -> bool:
 
 
 def _needs_whole_column(packs: DataPacks, path: str, locale: str) -> bool:
-    """Whether a pack generator apportions a share over the whole column.
+    """Whether a pack GENERATOR apportions a share over the whole column.
+
+    Two ways to earn it.
 
     A ``percent=`` anywhere in a generator's body — on its ``<mix>``, on a ``<gen>``, on a compound
-    field — makes its quota a property of the run rather than of a row. The router asks this before
-    sending a config to an engine that resolves one row at a time.
-    """
-    from ..parser import config_builder
+    field — makes its quota a property of the run rather than of a row.
 
+    And a body that DRAWS from a weighted list, which the body does not say. A weighted list is
+    laid out to an exact Hamilton quota over the run, so each value takes its measured share of the
+    rows; asked for one row, that plan is computed over a column of one and the row goes to the
+    largest share, every time, for every seed. Twelve shipped full-name packs were in that state —
+    ``hu.person.male.fullName`` returned the same name on all forty rows of a forty-row run —
+    because the body says ``value="hu.person.lastName"`` and nothing in that line says the list on
+    the other end carries weights.
+
+    Only a generator is ever marked. A weighted list drawn DIRECTLY by a config is not this
+    problem: the streaming engine lays one out across the column already, and marking it here
+    would take `en.person.lastName` off the streaming engines for nothing. The weighted leaf
+    matters one level down, inside a body, which is what ``_draws_whole_column`` is for.
+
+    The router asks this before sending a config to an engine that resolves one row at a time.
+    """
     entry = packs.load(path, locale)
     if not entry.is_generator:
         return False
-    body = entry.generator or ""
+    return _body_needs_whole_column(packs, entry.generator or "", locale, frozenset({path}))
+
+
+def _body_needs_whole_column(
+    packs: DataPacks, body: str, locale: str, seen: frozenset[str]
+) -> bool:
+    """The share test over one generator body: its own ``percent=``, or what it draws from."""
+    from ..parser import config_builder
+
     try:
         composed = config_builder.parse_pack_body(body)
     except (ValueError, AttributeError):
@@ -257,12 +279,37 @@ def _needs_whole_column(packs: DataPacks, path: str, locale: str) -> bool:
     for spec in composed.sequences:
         if spec.is_mix and spec.mix.percent and spec.mix.percent.strip():
             return True
-        if spec.gen is not None and _has_percent(spec.gen):
-            return True
-        for f in _fields_of(spec):
-            if f.gen is not None and _has_percent(f.gen):
+        for gen in [spec.gen, *(f.gen for f in _fields_of(spec))]:
+            if gen is None:
+                continue
+            if _has_percent(gen):
+                return True
+            if _draws_whole_column(packs, gen, locale, seen):
                 return True
     return False
+
+
+def _draws_whole_column(packs: DataPacks, gen, locale: str, seen: frozenset[str]) -> bool:
+    """Does a ``<gen>`` in a pack body reach a weighted list, directly or through another pack?"""
+    if gen.type != "template":
+        return False
+    target = gen.attrs.get("value", "")
+    if not target or _is_dynamic(target) or target in seen:
+        return False  # `target in seen` is the cycle guard; the pack loader reports the cycle
+    inner = gen.attrs.get("local") or locale
+    try:
+        if not packs.exists(target, inner):
+            return False
+        entry = packs.load(target, inner)
+        # HERE a weighted list is the leaf the walk is looking for — it is the thing the body
+        # draws from, and its quota is what the body inherits.
+        if entry.weighted:
+            return True
+        if not entry.is_generator:
+            return False
+        return _body_needs_whole_column(packs, entry.generator or "", inner, seen | {target})
+    except (ValueError, OSError):
+        return False
 
 
 def _is_dynamic(value: str) -> bool:

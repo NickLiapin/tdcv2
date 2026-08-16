@@ -1157,15 +1157,22 @@ function buildGenValuesRaw(
       // GENERATOR runs its stored <gen> spec; a pack DATA list is a uniform pick.
       const packEntry = ctx.packs?.get(resolvePackAddress(path, gen.attrs['local'] ?? locale));
       if (packEntry?.generator) {
-        // A share inside the pack is apportioned over the column. Row at a time,
-        // the quota would be computed over one row and every row would go to the
-        // largest share — wrong, and silently so. Engine selection routes such a
-        // config to the in-memory engine; this is the backstop for a forced one.
+        // A whole-column quota inside the pack — a `percent=` its body declares,
+        // or a weighted list its body DRAWS from. Row at a time, the quota is
+        // computed over one row and every row goes to the largest share: wrong,
+        // and silently so.
+        //
+        // The message used to say "declares a share (percent=)", which named
+        // only the first of the two and so misdescribed twelve full-name packs
+        // that carry no percent= anywhere. Engine selection routes such a config
+        // to the in-memory engine and `buildLazyRegistry` refuses it up front;
+        // this is the last backstop, for a path that reaches here anyway.
         if (ctx.perRow && packEntry.needsWholeColumn === true) {
           throw new StreamUnsupportedError(
-            `pack generator "${path}" declares a share (percent=) — its quota is ` +
-              'apportioned across the whole column, which the streaming engines cannot ' +
-              'do row by row. Use mode="memory" or omit the engine override.',
+            `pack generator "${path}" has a value apportioned across the whole column — ` +
+              'either a share its body declares or a weighted list its body draws from — ' +
+              'which the streaming engines cannot do row by row. Use mode="memory" or omit ' +
+              'the engine override.',
           );
         }
         return runGenerator(packEntry.generator, count, prng, locale, now, {

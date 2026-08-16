@@ -53,6 +53,17 @@ export function pinLength(gen: GenSpec, group: NumberLengthChoice): GenSpec {
  * address the same way the in-memory builder does, so both engines draw the
  * same pack by the same quota.
  */
+/** A pack generator whose value only comes out right over a WHOLE column. */
+export function wholeColumnTemplatePack(
+  gen: GenSpec,
+  packs: ReadonlyMap<string, PackEntry> | undefined,
+  locale: string,
+): boolean {
+  if (gen.type !== 'template') return false;
+  const address = resolvePackAddress(gen.attrs['value'] ?? '', gen.attrs['local'] ?? locale);
+  return packs?.get(address)?.needsWholeColumn === true;
+}
+
 export function weightedTemplatePack(
   gen: GenSpec,
   packs: ReadonlyMap<string, PackEntry> | undefined,

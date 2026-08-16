@@ -138,6 +138,20 @@
       ]
     },
     {
+      "name": "template-composed-tdc-pack-weighted",
+      "description": "A .tdc pack body that DRAWS from a weighted list still varies row to row. The sibling case above draws Polish, whose name lists carry no weights, and it worked; this one draws Hungarian, whose lists do, and it returned \"Nagy Laszlo\" on all six rows in every implementation. A weighted list is an exact quota over the column, the pack body was asked for one row at a time, and a quota computed over a column of one goes to the largest share.",
+      "config": "<tdc><env count=\"6\" seed=\"packs\" local=\"hu\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"hu.person.male.fullName\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",
+      "expected": [
+        "Kovács István",
+        "Varga József",
+        "Horváth Zoltán",
+        "Nagy László",
+        "Tóth Sándor",
+        "Szabó János"
+      ],
+      "now": "2026-04-23T12:00:00Z"
+    },
+    {
       "name": "template-composed-tdc-pack-distinct",
       "description": "A .tdc pack whose body pairs <distinct> fields; the repair draws off the body's own prng",
       "config": "<tdc><env count=\"8\" seed=\"b\" local=\"es\" mode=\"memory\"><sequence name=\"V\"><gen type=\"template\" value=\"es.person.female.fullName\"/></sequence></env><block><line><data>${{V}}</data></line></block></tdc>",

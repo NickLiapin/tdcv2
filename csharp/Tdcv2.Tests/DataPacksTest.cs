@@ -1,3 +1,4 @@
+using Tdcv2.Engine;
 using Tdcv2.Packs;
 
 namespace Tdcv2.Tests;
@@ -63,6 +64,154 @@ public class DataPacksTest
             () => Packs().Load("person.nosuchthing", "en"));
         Assert.Contains("en/person/nosuchthing.txt", e.Message);
     }
+}
+
+/// <summary>
+/// A pack generator that draws from a WEIGHTED list has to see the whole column.
+/// </summary>
+/// <remarks>
+/// A weighted list is laid out to an exact Hamilton quota over the run, so each value takes its
+/// measured share of the rows. Asked for ONE row that plan is computed over a column of one and the
+/// single row goes to the largest share — every time, for every seed. A pack generator is resolved
+/// a row at a time unless it is marked whole-column, and the mark used to be set only when the pack
+/// body wrote <c>percent=</c> itself, which a body that merely draws
+/// <c>value="hu.person.lastName"</c> never does.
+/// <para>
+/// Twelve shipped full-name packs came out of that as one repeated name: eight rows of
+/// <c>hu.person.male.fullName</c> were eight copies of "Nagy László". German and Polish full names
+/// were correct, and the only difference is that their name lists carry no weights — which is why
+/// they are here too, as the case the fix must NOT touch: marking them would cost them the
+/// streaming engines for nothing.
+/// </para>
+/// </remarks>
+public class WeightedPackGeneratorTest
+{
+    /// <summary>The shipped packs whose bodies reach a weighted list, and the locale each needs.</summary>
+    public static TheoryData<string, string> DrawsWeights() => new()
+    {
+        { "hu", "hu.person.male.fullName" },
+        { "hu", "hu.person.female.fullName" },
+        { "cs", "cs.person.male.fullName" },
+        { "cs", "cs.person.female.fullName" },
+        { "nl", "nl.person.male.fullName" },
+        { "nl", "nl.person.female.fullName" },
+        { "sr", "sr.person.male.fullName" },
+        { "sr", "sr.person.female.fullName" },
+        { "fa", "fa.person.male.fullName" },
+        { "fa", "fa.person.female.fullName" },
+        { "he", "he.person.male.fullName" },
+        { "he", "he.person.female.fullName" },
+        { "zh-cn", "china.geo.streetName" },
+    };
+
+    /// <summary>The same shape over name lists that carry no weights.</summary>
+    public static TheoryData<string, string> DrawsNoWeights() => new()
+    {
+        { "de", "de.person.male.fullName" },
+        { "pl", "pl.person.male.fullName" },
+    };
+
+    [Theory]
+    [MemberData(nameof(DrawsWeights))]
+    public void APackReachingAWeightedListIsWholeColumn(string locale, string address)
+    {
+        Assert.True(
+            DataPacks.Discover().NeedsWholeColumn(address, locale),
+            address + " draws from a weighted list and must be marked whole-column");
+
+        // The mark is only useful if it reaches the router: a config naming this pack belongs to
+        // the engine that holds the column, not to one that resolves a row at a time.
+        Assert.Equal(1, Probe(locale, address).Engine);
+
+        // And the point of all of it — eight rows that are not eight copies of one name.
+        Assert.True(
+            Distinct(locale, address) > 1,
+            address + " returned the same value on every row");
+    }
+
+    /// <summary>
+    /// Asked for the streaming engine outright, such a pack is refused rather than repeated.
+    /// </summary>
+    /// <remarks>
+    /// The two halves of one rule. Engine 2 cannot apportion a quota row by row, and a caller who
+    /// named that engine asked to be told so — emitting one value six times would hide exactly what
+    /// they asked about. Engine 3 named no engine: it catches the refusal while the column is being
+    /// built and finishes the run in memory, which is why the refusal has to be raised there and not
+    /// inside the per-row resolver, where it would arrive after the fallback's catch is gone.
+    /// </remarks>
+    [Theory]
+    [MemberData(nameof(DrawsWeights))]
+    public void StreamingRefusesItAndTheExactEngineFallsBack(string locale, string address)
+    {
+        Assert.Throws<StreamEngine.UnsupportedHere>(() => Probe(locale, address, 2).ToString());
+        Assert.Equal(Probe(locale, address).ToString(), Probe(locale, address, 3).ToString());
+    }
+
+    [Theory]
+    [MemberData(nameof(DrawsNoWeights))]
+    public void APackOverPlainListsStaysPerRow(string locale, string address)
+    {
+        Assert.False(
+            DataPacks.Discover().NeedsWholeColumn(address, locale),
+            address + " draws from no weighted list and must keep the streaming engines");
+        Assert.Equal(2, Probe(locale, address).Engine);
+        Assert.Equal(8, Distinct(locale, address));
+
+        // Nothing here is apportioned, so nothing is refused: the streaming engine answers it.
+        Assert.Equal(8, Rows(Probe(locale, address, 2)).Distinct(StringComparer.Ordinal).Count());
+    }
+
+    /// <summary>
+    /// Two generators that reference each other answer instead of recursing for ever.
+    /// </summary>
+    /// <remarks>
+    /// The pack loader reports a reference cycle as its own error; this walk only has to stop. A
+    /// ring is reachable from any config that names one of its packs, so without the guard the
+    /// answer would be a stack overflow rather than a diagnostic.
+    /// </remarks>
+    [Fact]
+    public void AReferenceRingStopsInsteadOfRecursing()
+    {
+        string root = Path.Combine(Path.GetTempPath(), "tdc-pack-ring");
+        if (Directory.Exists(root))
+        {
+            Directory.Delete(root, recursive: true);
+        }
+
+        Directory.CreateDirectory(Path.Combine(root, "xx"));
+        File.WriteAllText(Path.Combine(root, "xx", "a.tdc"), Ring("xx.b"));
+        File.WriteAllText(Path.Combine(root, "xx", "b.tdc"), Ring("xx.a"));
+
+        var packs = new DataPacks(root);
+        Assert.False(packs.NeedsWholeColumn("xx.a", "xx"));
+        Assert.False(packs.NeedsWholeColumn("xx.b", "xx"));
+
+        Directory.Delete(root, recursive: true);
+    }
+
+    private static string Ring(string reference) =>
+        "---\ngenerator: tdc\nlocale: xx\n---\n"
+        + "<sequence name=\"s\"><gen type=\"template\" value=\"" + reference + "\"/></sequence>\n"
+        + "<data>${{s}}</data>\n";
+
+    /// <summary>
+    /// Eight rows of one pack, on the named engine or on whichever one the router picks.
+    /// </summary>
+    private static Tdc Probe(string locale, string address, int? engine = null) =>
+        new(new Tdc.Options
+        {
+            ConfigString =
+                "<tdc><env count=\"8\" seed=\"probe\" local=\"" + locale + "\">"
+                + "<sequence name=\"P\"><gen type=\"template\" value=\"" + address + "\"/></sequence>"
+                + "</env><block><line><data>${{P}}</data></line></block></tdc>",
+            Engine = engine,
+        });
+
+    private static IEnumerable<string> Rows(Tdc run) =>
+        run.ToString().Split('\n', StringSplitOptions.RemoveEmptyEntries);
+
+    private static int Distinct(string locale, string address) =>
+        Rows(Probe(locale, address)).Distinct(StringComparer.Ordinal).Count();
 }
 
 /// <summary>

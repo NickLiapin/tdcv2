@@ -5,8 +5,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Reads data packs off disk.
@@ -302,49 +304,154 @@ public final class DataPacks {
   /**
    * Whether a pack generator apportions a share over the whole column.
    *
+   * <p>Two ways to earn it.
+   *
    * <p>A {@code percent=} anywhere in a generator's body — on its {@code <mix>}, on a {@code
    * <gen>}, on a compound field — makes its quota a property of the run rather than of a row.
-   * The router asks this before sending a config to an engine that resolves one row at a time.
+   *
+   * <p>And a body that DRAWS from a weighted list, which the body does not say. A weighted list is
+   * laid out to an exact Hamilton quota over the run, so each value takes its measured share of the
+   * rows; asked for one row, that plan is computed over a column of one and the row goes to the
+   * largest share, every time, for every seed. Twelve shipped full-name packs were in that state —
+   * eight rows of {@code hu.person.male.fullName} were eight copies of {@code Nagy László} —
+   * because the body says {@code value="hu.person.lastName"} and nothing in that line says the list
+   * on the other end carries weights. German and Polish were fine, and the only difference is that
+   * their name lists carry no weights.
+   *
+   * <p>The router asks this before sending a config to an engine that resolves one row at a time.
+   *
+   * <p>A plain LIST answers false even when it is weighted: the streaming engines lay a list's
+   * quota out by row index without holding the column, so only a GENERATOR over one is stuck.
    */
   public boolean needsWholeColumn(String dottedPath, String locale) {
     Entry entry = load(dottedPath, locale);
     if (!entry.isGenerator()) {
       return false;
     }
-    String body = entry.generator();
+    Set<String> seen = new HashSet<>();
+    seen.add(cacheKey(dottedPath, locale));
+    return bodyNeedsWholeColumn(entry.generator(), locale, seen);
+  }
+
+  /**
+   * The same question about an address reached from inside another pack's body.
+   *
+   * <p>Here a weighted list IS the answer: it is the leaf the walk is looking for, and the
+   * generator that drew it inherits its quota.
+   *
+   * @param seen the addresses already on this walk — a reference cycle is reported by the pack
+   *     loader, so this stops rather than recursing for ever
+   */
+  private boolean drawsWholeColumn(String dottedPath, String locale, Set<String> seen) {
+    if (!seen.add(cacheKey(dottedPath, locale))) {
+      return false;
+    }
+    Entry entry;
+    try {
+      entry = load(dottedPath, locale);
+    } catch (RuntimeException e) {
+      // An address that does not resolve is the validator's problem, not this walk's.
+      return false;
+    }
+    if (entry.weighted()) {
+      return true;
+    }
+    return entry.isGenerator() && bodyNeedsWholeColumn(entry.generator(), locale, seen);
+  }
+
+  private boolean bodyNeedsWholeColumn(String body, String locale, Set<String> seen) {
     io.github.nickliapin.tdc.parser.ConfigBuilder.PackGenerator composed;
     try {
       composed = io.github.nickliapin.tdc.parser.ConfigBuilder.parsePackBody(body);
     } catch (RuntimeException e) {
-      // A single bare <gen>: it declares a share only through its own percent=.
+      // A single bare <gen>: it declares a share only through its own percent=, and a bare <gen>
+      // may not be a template, so it reaches no list to inherit one from.
       return body.contains("percent=");
     }
     for (io.github.nickliapin.tdc.model.Config.SequenceSpec spec : composed.sequences()) {
       if (spec.isMix() && declares(spec.mix().percent())) {
         return true;
       }
-      if (spec.gen() != null && declares(spec.gen().attrs().get("percent"))) {
-        return true;
-      }
-      // A local sequence holding a lone <gen> has no fields at all, which is the ordinary shape
-      // inside a pack body — most of them are one generator and a check digit.
-      if (spec.fields() != null) {
-        for (io.github.nickliapin.tdc.model.Config.Field field : spec.fields()) {
-          if (field.gen() != null && declares(field.gen().attrs().get("percent"))) {
-            return true;
-          }
+      for (io.github.nickliapin.tdc.model.Config.Gen gen : gensOf(spec)) {
+        if (declares(gen.attrs().get("percent"))) {
+          return true;
+        }
+        if (drawsWeights(gen, locale, seen)) {
+          return true;
         }
       }
     }
     return false;
   }
 
+  /** Does this {@code <gen>} inside a pack body reach a weighted list, directly or through a pack? */
+  private boolean drawsWeights(
+      io.github.nickliapin.tdc.model.Config.Gen gen, String locale, Set<String> seen) {
+    if (!"template".equals(gen.type())) {
+      return false;
+    }
+    String target = gen.attr("value", "");
+    // `common.vehicle.model.${{Brand}}` — an address that is not known until the row is, so there
+    // is no list here to ask about.
+    if (target.isEmpty() || target.contains("${{")) {
+      return false;
+    }
+    String inner = gen.attrs().get("local");
+    return drawsWholeColumn(target, inner == null || inner.isBlank() ? locale : inner, seen);
+  }
+
+  /**
+   * Every {@code <gen>} a pack body's sequence holds, whichever shape it took.
+   *
+   * <p>The compound shape is the one the full-name packs use — two NAMED gens, which is a compound
+   * and not a lone {@code gen} — but a composed body keeps its gens in {@code items} instead, and a
+   * conditional keeps them in {@code branches}. Reading only one of the three would have left the
+   * other two silently unexamined, which is exactly how the weighted draw went unnoticed.
+   */
+  private static List<io.github.nickliapin.tdc.model.Config.Gen> gensOf(
+      io.github.nickliapin.tdc.model.Config.SequenceSpec spec) {
+    List<io.github.nickliapin.tdc.model.Config.Gen> gens = new ArrayList<>();
+    if (spec.gen() != null) {
+      gens.add(spec.gen());
+    }
+    if (spec.fields() != null) {
+      for (io.github.nickliapin.tdc.model.Config.Field field : spec.fields()) {
+        if (field.gen() != null) {
+          gens.add(field.gen());
+        }
+      }
+    }
+    if (spec.items() != null) {
+      for (io.github.nickliapin.tdc.model.Config.Item item : spec.items()) {
+        if (item.gen() != null) {
+          gens.add(item.gen());
+        }
+        if (item.field() != null && item.field().gen() != null) {
+          gens.add(item.field().gen());
+        }
+      }
+    }
+    if (spec.branches() != null) {
+      for (io.github.nickliapin.tdc.model.Config.Branch branch : spec.branches()) {
+        if (branch.gen() != null) {
+          gens.add(branch.gen());
+        }
+      }
+    }
+    return gens;
+  }
+
   private static boolean declares(String percent) {
     return percent != null && !percent.trim().isEmpty();
   }
 
+  /** One address as it is asked for: the same dotted path under two locales is two packs. */
+  private static String cacheKey(String dottedPath, String locale) {
+    return dottedPath + "|" + locale;
+  }
+
   public Entry load(String dottedPath, String locale) {
-    String key = dottedPath + "|" + locale;
+    String key = cacheKey(dottedPath, locale);
     Entry cached = cache.get(key);
     if (cached != null) {
       return cached;

@@ -844,6 +844,22 @@ public sealed class StreamEngine
                 + "the in-memory engine resolves it per row");
         }
 
+        // A pack generator whose value is a share of the RUN — one its body declares with
+        // `percent=`, or one it inherits by drawing from a weighted list. Either way the quota is
+        // computed over the count it is handed, so a body asked for one row apportions over a
+        // column of one and awards it to the largest share: six rows of `hu.person.male.fullName`
+        // came back as six copies of "Nagy László". Refused HERE, while the column is being
+        // constructed, rather than inside the per-row resolver below — engine 3 catches this to
+        // fall back to the in-memory engine, and a refusal raised when a row is READ arrives long
+        // after that catch has gone.
+        if (type == "template" && WholeColumnPack(gen))
+        {
+            throw new UnsupportedHere(
+                $"a pack generator (\"{streamId}\") whose value is apportioned across the whole "
+                + "column cannot be resolved one row at a time — every row would take the largest "
+                + "share; the in-memory engine handles it (run without a forced streaming engine)");
+        }
+
         // An empty subset — a parent value with no rows of its own. Always inactive.
         if (domain.Size == 0)
         {
@@ -1305,6 +1321,31 @@ public sealed class StreamEngine
 
         DataPacks.Entry entry = _packs.Load(address, locale);
         return entry.Weighted ? new FileGen.Weighted(entry.Values, entry.Percents!) : null;
+    }
+
+    /// <summary>
+    /// A <c>&lt;gen type="template"&gt;</c> pointing at a pack GENERATOR that has to see the whole
+    /// column.
+    /// </summary>
+    /// <remarks>
+    /// A weighted LIST is not one of these: this engine lays a list's quota out by row index in
+    /// <see cref="QuotaColumn"/> without ever holding the column. What it cannot do is run a pack
+    /// BODY to a quota, because the body is handed a count and computes its own apportionment from
+    /// it.
+    /// </remarks>
+    private bool WholeColumnPack(Gen gen)
+    {
+        string address = gen.Attrs.GetValueOrDefault("value", "");
+
+        // An interpolated address is refused above, and a synthetic one (person.b_day and its
+        // kind) has no pack file to ask about at all.
+        if (address.Length == 0 || address.Contains("${{"))
+        {
+            return false;
+        }
+
+        string? locale = LocaleOf(gen.Attrs);
+        return _packs.Exists(address, locale) && _packs.NeedsWholeColumn(address, locale);
     }
 
     /// <summary>

@@ -338,6 +338,20 @@ class StreamEngine:
                     "time; the in-memory engine handles it (run without a forced streaming "
                     "engine)"
                 )
+            # A pack generator whose value is a whole-column quota — because the body declares a
+            # share, or because it DRAWS from a weighted list. Either way the apportionment is
+            # over the run, and computing it a row at a time hands every row to the largest
+            # share: `hu.person.male.fullName` returned "Nagy László" on all six rows of a
+            # six-row run, here, silently, while the reference refused the same config. The
+            # router already sends such a config to memory; this is the backstop for a forced
+            # streaming engine, and its absence is what let the wrong answer out.
+            if self._pack_needs_whole_column(spec.gen):
+                raise UnsupportedError(
+                    f'a pack generator ("{spec.name}") whose value is apportioned across the '
+                    "whole column cannot be resolved one row at a time — every row would take "
+                    "the largest share; the in-memory engine handles it (run without a forced "
+                    "streaming engine)"
+                )
             # A date measured from another date reads a SIBLING column as the row is built,
             # and the streaming path has no way to do that yet — the same reason a dynamic
             # template defers. Refused by name, and the router hands the config to memory.
@@ -937,6 +951,24 @@ class StreamEngine:
                 memory._generate(gen, slots, run), gen.attrs, prng, [False] * slots
             ),
         )
+
+    def _pack_needs_whole_column(self, gen: Gen | None) -> bool:
+        """Is this ``<gen>`` a pack generator that only answers correctly over a whole column?"""
+        if gen is None or gen.type != "template":
+            return False
+        address = gen.attrs.get("value", "")
+        locale = gen.attrs.get("local") or self.config.locale
+        if not address or "${{" in address:
+            return False
+        from . import router
+
+        try:
+            if not self.packs.exists(address, locale):
+                return False
+            return router._needs_whole_column(self.packs, address, locale)
+        except (ValueError, OSError):
+            # An address that does not resolve is the validator's problem, not this one's.
+            return False
 
     def _weighted_template_pack(self, gen: Gen) -> tuple[list[str], list[float]] | None:
         """A ``<gen type="template">`` pointing at a pack that carries its own shares."""

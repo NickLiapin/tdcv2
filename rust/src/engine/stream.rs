@@ -1059,6 +1059,31 @@ impl StreamEngine<'_> {
                 gen.attr_or("value", "")
             ));
         }
+        if gen_type == "template" {
+            // A pack GENERATOR whose quota spans the column — its own `percent=`,
+            // or the weighted list its body draws from. This path asks such a
+            // generator for one row at a time, and a quota apportioned over a
+            // column of one goes entirely to the largest share:
+            // `hu.person.male.fullName` returned `Nagy László` on all eight rows,
+            // and every `china.geo.streetName` took the 60% suffix. The router
+            // keeps these configs away from here; this is the backstop for an
+            // engine named outright, and the route to memory for one that was not.
+            let address = gen.attr_or("value", "");
+            if !address.is_empty()
+                && self
+                    .env
+                    .packs
+                    .needs_whole_column(address, self.locale_of(attrs))
+            {
+                return unsupported(&format!(
+                    "a pack generator (\"{stream_id}\") whose value is apportioned across the \
+                     whole column — by its own percent=, or by the weighted list its body draws \
+                     from — cannot be resolved one row at a time: every row would take the \
+                     largest share; the in-memory engine handles it (run without a forced \
+                     streaming engine)"
+                ));
+            }
+        }
 
         // An empty subset — a parent value with no rows of its own.
         if domain.size == 0 {

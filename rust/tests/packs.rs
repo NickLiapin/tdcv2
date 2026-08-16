@@ -103,6 +103,142 @@ fn a_generator_pack_carries_its_rule_instead_of_a_list() {
     assert!(body.contains("<compute>"), "{body}");
 }
 
+/// The shipped generators whose body DRAWS from a weighted list and says so
+/// nowhere: no `percent=` of their own, only a `value="…lastName"` pointing at a
+/// file that happens to carry counts.
+const WEIGHTED_DRAW: [(&str, &str); 6] = [
+    ("hu", "hu.person.male.fullName"),
+    ("cs", "cs.person.male.fullName"),
+    ("nl", "nl.person.male.fullName"),
+    ("sr", "sr.person.male.fullName"),
+    ("fa", "fa.person.male.fullName"),
+    ("he", "he.person.female.fullName"),
+];
+
+/// The same shape over lists that carry no counts. They must keep streaming: the
+/// flag costs a column the streaming engines, and paying that for a pack with no
+/// quota in it buys nothing.
+const UNWEIGHTED_DRAW: [(&str, &str); 2] = [
+    ("de", "de.person.male.fullName"),
+    ("pl", "pl.person.male.fullName"),
+];
+
+#[test]
+fn drawing_from_a_weighted_list_makes_a_generator_whole_column_and_drawing_from_a_plain_one_does_not(
+) {
+    // A weighted list is laid out to an exact quota over the run, so asked for a
+    // single row it awards that row to the largest share — every row, every
+    // seed. The pack that draws it cannot say so, because whether
+    // `hu.person.lastName` carries counts is a fact about a different file.
+    let packs = packs();
+
+    let mut unflagged: Vec<&str> = Vec::new();
+    for (locale, address) in WEIGHTED_DRAW {
+        let body = packs
+            .load(address, locale)
+            .expect(address)
+            .generator
+            .unwrap_or_default();
+        assert!(
+            !body.contains("percent="),
+            "{address} declares a share of its own, so it proves nothing here"
+        );
+        if !packs.needs_whole_column(address, locale) {
+            unflagged.push(address);
+        }
+    }
+    assert!(
+        unflagged.is_empty(),
+        "{} of {} generators drawing from a weighted list are not marked whole-column: {unflagged:?}",
+        unflagged.len(),
+        WEIGHTED_DRAW.len()
+    );
+
+    let mut overflagged: Vec<&str> = Vec::new();
+    for (locale, address) in UNWEIGHTED_DRAW {
+        if packs.needs_whole_column(address, locale) {
+            overflagged.push(address);
+        }
+    }
+    assert!(
+        overflagged.is_empty(),
+        "{} generator(s) over unweighted lists lost the streaming engines for nothing: {overflagged:?}",
+        overflagged.len()
+    );
+}
+
+#[test]
+fn a_name_pack_over_a_weighted_list_does_not_hand_every_row_the_same_name() {
+    // The failure this guards is silent: eight Hungarian names came out as
+    // `Nagy László` eight times, on every engine and every seed, and the column
+    // looked like data. `china.geo.streetName` is here as the neighbouring case
+    // — it declares `percent=` in its own body — so one rule cannot be fixed by
+    // breaking the other.
+    let mut repeated: Vec<String> = Vec::new();
+    for (locale, address) in WEIGHTED_DRAW
+        .iter()
+        .chain(UNWEIGHTED_DRAW.iter())
+        .chain([("zh-cn", "china.geo.streetName")].iter())
+    {
+        let rows = render_pack(locale, address, 8);
+        let distinct: std::collections::BTreeSet<&String> = rows.iter().collect();
+        if distinct.len() < 2 {
+            repeated.push(format!("{address} -> {:?}", distinct));
+        }
+    }
+    assert!(
+        repeated.is_empty(),
+        "{} pack(s) returned one value for all 8 rows: {repeated:?}",
+        repeated.len()
+    );
+}
+
+#[test]
+fn a_ring_of_generators_stops_the_walk_instead_of_ending_the_process() {
+    // Two packs that name each other. The loader reports the cycle as the error
+    // it is; this question has no reason to recurse into it, and a walk that did
+    // would take the whole test binary down with a stack overflow rather than
+    // fail one assertion.
+    let root = std::env::temp_dir().join("tdc-packs-ring");
+    let ring = root.join("ring");
+    let _ = std::fs::remove_dir_all(&root);
+    std::fs::create_dir_all(&ring).expect("temp packs");
+    for (file, target) in [("one.tdc", "ring.two"), ("two.tdc", "ring.one")] {
+        std::fs::write(
+            ring.join(file),
+            format!(
+                "---\ngenerator: tdc\n---\n\
+                 <sequence name=\"s\"><gen type=\"template\" value=\"{target}\"/></sequence>\n\
+                 <data>${{{{s}}}}</data>\n"
+            ),
+        )
+        .expect("write pack");
+    }
+
+    let packs = DataPacks::from_root(&root.display().to_string());
+    assert!(!packs.needs_whole_column("ring.one", "en"));
+
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+/// Eight rows of one pack address, through the engine the router picks.
+///
+/// No `mode=`, because the routing IS the thing under test: the default is disk,
+/// and a pack whose quota spans the column has to pull the run back to the
+/// in-memory engine on its own.
+fn render_pack(locale: &str, address: &str, count: usize) -> Vec<String> {
+    let config = format!(
+        "<tdc><env count=\"{count}\" seed=\"probe\" local=\"{locale}\">\
+         <sequence name=\"P\"><gen type=\"template\" value=\"{address}\"/></sequence></env>\
+         <block><line><data>${{{{P}}}}</data></line></block></tdc>"
+    );
+    let parsed = tdcv2::parser::parse(&config);
+    assert!(parsed.ok(), "did not parse: {config}");
+    let built = tdcv2::parser::config_builder::build(&parsed.tree, None).expect("builds");
+    let text = tdcv2::engine::render(&built, 0).unwrap_or_else(|e| panic!("{e}\n  in: {config}"));
+    text.lines().map(str::to_string).collect()
+}
+
 #[test]
 fn the_header_is_optional_and_its_absence_is_not_a_shape_of_its_own() {
     // A pack with no `---` block is a plain list from its first line. A parser
