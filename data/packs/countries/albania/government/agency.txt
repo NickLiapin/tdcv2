@@ -1,0 +1,61 @@
+---
+address: albania.government.agency
+description: Central agencies, authorities, directorates and independent institutions of the Albanian state, taken from the official 2025 register of public authorities published by the Commissioner for the Right to Information and Protection of Personal Data. Names are the official Albanian ones, with the abbreviation appended where the institution itself uses it — Albanian administration is spoken in initials (AKSHI, ASHK, QKB, DPT, KLSH, SPAK), and a form that only carries the long name is not the form a real record holds. Four are worth knowing before reading any Albanian dataset: the QENDRA KOMBËTARE E BIZNESIT issues the NIPT and is the company register (see albania.tax.nipt); the DREJTORIA E PËRGJITHSHME E TATIMEVE is the tax administration; the AGJENCIA SHTETËRORE E KADASTRËS holds land and property, an unusually loaded institution in a country that spent thirty years untangling communist-era expropriation; and AKSHI runs e-Albania, the single portal through which almost every state service is now delivered — Albania closed most physical counters in 2022, so an Albanian's dealings with the state run through one login.
+locale: sq
+---
+Agjencia Kombëtare e Shoqërisë së Informacionit - AKSHI
+Agjencia Shtetërore e Kadastrës - ASHK
+Qendra Kombëtare e Biznesit - QKB
+Drejtoria e Përgjithshme e Tatimeve - DPT
+Drejtoria e Përgjithshme e Doganave
+Drejtoria e Përgjithshme e Policisë së Shtetit
+Drejtoria e Përgjithshme e Burgjeve
+Drejtoria e Përgjithshme e Arkivave
+Drejtoria e Përgjithshme e Pronësisë Industriale
+Instituti i Statistikave - INSTAT
+Instituti i Sigurimeve Shoqërore - ISSH
+Instituti i Shëndetit Publik - ISHP
+Instituti i Sigurisë Ushqimore dhe Veterinarisë - ISUV
+Autoriteti Kombëtar i Ushqimit - AKU
+Autoriteti i Komunikimeve Elektronike dhe Postare - AKEP
+Autoriteti i Mbikëqyrjes Financiare - AMF
+Autoriteti i Mediave Audiovizive - AMA
+Autoriteti i Konkurrencës
+Autoriteti i Aviacionit Civil
+Autoriteti Rrugor Shqiptar - ARRSH
+Autoriteti Kombëtar për Sigurinë Kibernetike - AKSK
+Autoriteti Portual Durrës
+Agjencia Kombëtare e Mbrojtjes Civile
+Agjencia Kombëtare e Punësimit dhe Aftësive - AKPA
+Agjencia Kombëtare e Turizmit
+Agjencia Kombëtare e Burimeve Natyrore - AKBN
+Agjencia Kombëtare e Mjedisit - AKM
+Agjencia Kombëtare e Zonave të Mbrojtura
+Agjencia Kombëtare e Diasporës
+Agjencia e Prokurimit Publik - APP
+Agjencia e Trajtimit të Pronave - ATP
+Agjencia Shqiptare e Zhvillimit të Investimeve - AIDA
+Agjencia e Sigurimit të Cilësisë në Arsimin e Lartë - ASCAL
+Agjencia Telegrafike Shqiptare - ATSH
+Fondi i Sigurimit të Detyrueshëm të Kujdesit Shëndetësor - FSDKSH
+Fondi Shqiptar i Zhvillimit - FSHZH
+Kontrolli i Lartë i Shtetit - KLSH
+Komisioni Qendror i Zgjedhjeve - KQZ
+Këshilli i Lartë Gjyqësor - KLGJ
+Këshilli i Lartë i Prokurorisë - KLP
+Prokuroria e Posaçme Kundër Korrupsionit dhe Krimit të Organizuar - SPAK
+Byroja Kombëtare e Hetimit - BKH
+Shërbimi Informativ i Shtetit - SHISH
+Shërbimi Social Shtetëror
+Inspektorati Kombëtar për Mbrojtjen e Territorit - IKMT
+Inspektorati Shtetëror Shëndetësor - ISHSH
+Komisioneri për të Drejtën e Informimit dhe Mbrojtjen e të Dhënave Personale
+Komisioneri për Mbrojtjen nga Diskriminimi - KMD
+Avokati i Popullit
+Banka e Shqipërisë - BSH
+Posta Shqiptare Sh.a
+Radio Televizioni Shqiptar - RTSH
+Akademia e Shkencave e Shqipërisë
+Biblioteka Kombëtare e Shqipërisë
+Qendra e Botimeve Zyrtare - QBZ
+Qendra Kombëtare e Urgjencës Mjekësore

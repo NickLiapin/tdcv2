@@ -1,0 +1,80 @@
+---
+address: albania.geo.city
+description: Albanian cities and towns weighted by the population of the town proper at the INSTAT census of 2023 — the first full census since 2011, and the one that recorded the country falling to 2.4 million people. The weights are the real census counts, so the shape of the draw is the real shape of Albanian urban life: Tiranë alone outweighs the next twenty towns together, and past the first dozen the list falls away into places of a few thousand. Kamëz, second only to Durrës outside the capital, did not exist as a town before 1991 — it is the settlement that the internal migration of the 1990s built on Tirana's northern edge. GHEG AND TOSK. Standard literary Albanian has been Tosk-based since the orthography congress of 1972, and these are the standard forms, used administratively for northern Gheg-speaking towns as well as southern ones. The clearest trace of the split in this list is Vlorë: Tosk turned an old intervocalic -n- into -r- (rhotacism), which Gheg did not, so the Gheg form is Vlonë — and the Italian exonym Valona, still current in Italy across the strait, preserves the -n- the standard name lost. The list keeps Ura Vajgurore, which is the town; its MUNICIPALITY was renamed Dimal in 2020 and appears under that name in albania.geo.municipality.
+locale: sq
+weighted: true
+---
+Tiranë,389323
+Durrës,101728
+Elbasan,66834
+Vlorë,66320
+Kamëz,61739
+Shkodër,61633
+Fier,52926
+Korçë,43254
+Berat,40665
+Lushnjë,26036
+Sarandë,19882
+Fushë-Krujë,17877
+Pogradec,17371
+Gjirokastër,16569
+Kavajë,15827
+Kukës,15643
+Peshkopi,14710
+Lezhë,14687
+Sukth,13395
+Laç,12854
+Kuçovë,12629
+Patos,12255
+Mamurras,11442
+Vorë,8969
+Krujë,8921
+Burrel,7928
+Bulqizë,7875
+Bilisht,7287
+Ura Vajgurore,7209
+Manëz,7185
+Cërrik,7001
+Shëngjin,6963
+Librazhd,6787
+Gramsh,6786
+Rrëshen,6773
+Divjakë,6713
+Klos,6344
+Milot,6193
+Shijak,5832
+Vau i Dejës,5710
+Prrenjas,5049
+Rrogozhinë,5002
+Delvinë,4952
+Ballsh,4944
+Krumë,4814
+Përmet,4809
+Peqin,4753
+Bajzë,4335
+Orikum,4297
+Bajram Curri,4113
+Roskovec,4078
+Çorovodë,3918
+Himarë,3901
+Tepelenë,3709
+Maliq,3668
+Poliçan,3492
+Koplik,2990
+Ersekë,2822
+Finiq,2693
+Rubik,2550
+Pukë,2508
+Fushë-Arrëz,2221
+Këlcyrë,2149
+Krrabë,2023
+Memaliaj,1786
+Konispol,1758
+Libohovë,1599
+Selenicë,1384
+Krastë,1339
+Fierzë,1149
+Leskovik,939
+Reps,900
+Ulëz,661
+Kurbnesh,358

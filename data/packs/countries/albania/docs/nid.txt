@@ -1,0 +1,69 @@
+---
+address: albania.docs.nid
+description: Numri i Identitetit (NID) — the ten-character personal number printed on the Albanian identity card and biometric passport, and the number that doubles as the individual's tax number. Its structure was fixed by decision no. 827 of the Council of Ministers, 11 December 2003, and it is NOT the digits-only number every neighbour issues. Layout YYMMDDSSSC, but only two of those pairs are what they look like. YY is a LETTER plus a digit, and the letter carries the decade: the sequence runs continuously A0-A9 = 1900-1909, B = the 1910s, on through J = the 1990s, K = the 2000s, L = the 2010s, M = the 2020s, up to T = the 2090s, while the 1800s used two plain digits (00-09 = 1800-1809). So the letter is the century AND the decade at once, and the digit beside it is the year within that decade: a person born in 2003 carries K3, one born in 1978 carries H8. MM is the month with the sex folded into it — 01-12 for a man, the same month plus fifty (51-62) for a woman — which is the Nordic and Yugoslav trick applied to the month rather than to the serial. DD is the day, plainly. SSS is a serial 001-999 among everyone born in Albania on that same day. C is a control character in the range A-W. THE CONTROL CHARACTER IS DRAWN HERE, NOT COMPUTED, AND THIS FILE MAKES NO CHECKSUM CLAIM. Its algorithm lives in the 2003 Council of Ministers decision and is not reproduced in any source I could obtain; the one description I found in the open (a modulo 23, which would fit the 23 letters A to W exactly) comes from a newspaper account of a 2009 dispute over miscalculated numbers, not from the decision itself, and a checksum implemented from a newspaper is worse than none because it looks verified. There is also no published NID to test against, and there could not honestly be one: an NID identifies a living person. Everything before the tenth character is verifiable structure and is generated exactly; the tenth is a plausible letter. The generator accepts sex="m" or sex="f" to fix the sex; anything else draws.
+generator: tdc
+locale: sq
+---
+<!-- Real calendar dates only: the day field must be a day the month actually has. -->
+<sequence name="dob"><gen type="date" from="1920-01-01" to="2024-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="serial"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<sequence name="sex"><gen type="text" value="any"/></sequence>
+<sequence name="sexraw"><gen type="regex" value="[0-9]"/></sequence>
+<!-- A-W, the published range of the control character. NOT a computed check. -->
+<sequence name="control"><gen type="text" value="A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W"/></sequence>
+<sequence name="nid"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <let name="year"><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="0"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+  </concat></to_number></let>
+  <!-- Decade since 1900. The letter is that count stepped up from A, and because
+       A..J covers 1900-1999 in ten letters, K falls on the 2000s with no break. -->
+  <let name="decade"><divide><subtract><use name="year"/><int v="1900"/></subtract><int v="10"/></divide></let>
+  <let name="yearLetter">
+    <choose>
+      <when><test><equals><use name="decade"/><int v="2"/></equals></test><then><str v="C"/></then></when>
+      <when><test><equals><use name="decade"/><int v="3"/></equals></test><then><str v="D"/></then></when>
+      <when><test><equals><use name="decade"/><int v="4"/></equals></test><then><str v="E"/></then></when>
+      <when><test><equals><use name="decade"/><int v="5"/></equals></test><then><str v="F"/></then></when>
+      <when><test><equals><use name="decade"/><int v="6"/></equals></test><then><str v="G"/></then></when>
+      <when><test><equals><use name="decade"/><int v="7"/></equals></test><then><str v="H"/></then></when>
+      <when><test><equals><use name="decade"/><int v="8"/></equals></test><then><str v="I"/></then></when>
+      <when><test><equals><use name="decade"/><int v="9"/></equals></test><then><str v="J"/></then></when>
+      <when><test><equals><use name="decade"/><int v="10"/></equals></test><then><str v="K"/></then></when>
+      <when><test><equals><use name="decade"/><int v="11"/></equals></test><then><str v="L"/></then></when>
+      <otherwise><str v="M"/></otherwise>
+    </choose>
+  </let>
+  <let name="yearDigit"><at><in><use name="d"/></in><index><int v="3"/></index></at></let>
+  <let name="month"><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+  </concat></to_number></let>
+  <let name="day"><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+  </concat></let>
+  <!-- sex="f" -> 1, sex="m" -> 0, anything else -> drawn from a spare digit. -->
+  <let name="schars"><each><over><field name="sex"/></over><do><current/></do></each></let>
+  <let name="sexcode"><to_number><encode as="unicode"><at><in><use name="schars"/></in><index><int v="0"/></index></at></encode></to_number></let>
+  <let name="female">
+    <choose>
+      <when><test><equals><use name="sexcode"/><int v="102"/></equals></test><then><int v="1"/></then></when>
+      <when><test><equals><use name="sexcode"/><int v="109"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><mod><field name="sexraw"/><int v="2"/></mod></otherwise>
+    </choose>
+  </let>
+  <!-- A woman's month is her real month plus fifty: March is 03 or 53. -->
+  <let name="encodedMonth"><pad width="2" fill="0">
+    <add><use name="month"/><multiply><use name="female"/><int v="50"/></multiply></add>
+  </pad></let>
+  <result><concat>
+    <use name="yearLetter"/><use name="yearDigit"/>
+    <use name="encodedMonth"/><use name="day"/>
+    <field name="serial"/><field name="control"/>
+  </concat></result>
+</compute></sequence>
+<data>${{nid}}</data>

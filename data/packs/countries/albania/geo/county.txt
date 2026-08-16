@@ -1,0 +1,17 @@
+---
+address: albania.geo.county
+description: The twelve counties (qarqe, singular qark) of Albania, the country's first-level division, in Albanian alphabetical order. Created by the territorial-administrative law of 2000, each has an elected Këshill i Qarkut and a government-appointed Prefekt; the official 2025 register of public authorities lists exactly twelve of each, which is the count checked against here. The names are given in the INDEFINITE form the administration uses (Tiranë, Vlorë, Korçë), not the definite form of everyday speech (Tirana, Vlora, Korça) — Albanian marks definiteness with a suffix, so a county is "Qarku i Tiranës" but the bare name is "Tiranë". Note that the county capital is not always the county's namesake: Dibër county is administered from Peshkopi, not from the town of Dibër.
+locale: sq
+---
+Berat
+Dibër
+Durrës
+Elbasan
+Fier
+Gjirokastër
+Korçë
+Kukës
+Lezhë
+Shkodër
+Tiranë
+Vlorë

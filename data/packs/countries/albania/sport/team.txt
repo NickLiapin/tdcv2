@@ -1,0 +1,35 @@
+---
+address: albania.sport.team
+description: Albanian football clubs — the current Kategoria Superiore first, then the established clubs of the divisions below. The top flight is TEN clubs, small enough that the whole league fits in the first ten lines of this file, and three of the ten are from Tiranë. Two names catch people out. DINAMO CITY is the club everyone still calls Dinamo Tirana, renamed in 2021, so a dataset keyed on the old name will not match the current one. And EGNATIA now plays in Durrës, not in Rrogozhinë where it was founded and where most references still place it; it took its third title in 2025-26. Club names are the Albanian ones, prefixed KF (Klubi i Futbollit), FK (Futboll Klub) or KS (Klubi Sportiv) as each club styles itself — the prefix is part of the name, not an abbreviation added here. Skënderbeu, Vllaznia, Partizani and Teuta carry names that are arguments as much as labels: a fifteenth-century warlord, the word for brotherhood, the communist-era army club, and the queen of the Illyrians.
+locale: sq
+---
+KF Tirana
+FK Partizani Tirana
+Dinamo City
+KF Vllaznia Shkodër
+KF Teuta Durrës
+KF Skënderbeu Korçë
+KF Egnatia
+KF Laçi
+AF Elbasani
+FK Vora
+FK Kukësi
+KF Bylis Ballsh
+KF Flamurtari Vlorë
+KF Apolonia Fier
+KF Luftëtari Gjirokastër
+KS Besa Kavajë
+KF Kastrioti Krujë
+KF Erzeni Shijak
+KF Tomori Berat
+KF Burreli
+KF Korabi Peshkopi
+KF Pogradeci
+KF Lushnja
+KF Turbina Cërrik
+KS Kamza
+KF Shkumbini Peqin
+KF Butrinti Sarandë
+KF Naftëtari Kuçovë
+KF Sopoti Librazhd
+KF Veleçiku Koplik

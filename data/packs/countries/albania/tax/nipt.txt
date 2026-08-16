@@ -1,0 +1,7 @@
+---
+address: albania.tax.nipt
+description: NIPT — Numri i Identifikimit për Personin e Tatueshëm, the taxable person's identification number, now officially NUIS (Numri Unik i Identifikimit të Subjektit) and issued by the Qendra Kombëtare e Biznesit within a day of registration. Ten characters: a letter, eight digits, a letter, as in J91402501L or K22218003V. The first letter marks the kind of entity and the batch it was registered in; the last is a control character. THE CONTROL LETTER IS DRAWN HERE, NOT COMPUTED. Its algorithm is not published: python-stdnum, which is the most careful open validator of national numbers there is, ships stdnum.al.nipt with the note "check digit algorithm unknown" and validates the shape only — regex ^[A-M][0-9]{8}[A-Z]$, which is the rule reproduced here, including the leading letter being restricted to A-M while the trailing one may be any letter. Inventing arithmetic to fill that gap would produce numbers that look checked and are not, so the shape is generated exactly and no checksum is claimed. The two numbers above are python-stdnum's own doctest values and are accepted by this pattern; Z22218003V, which that library rejects for its leading letter, cannot be produced by it. A NIPT is a business number and does not identify a person — a sole trader gets one, but it is a different number from their identity number (see albania.docs.nid).
+generator: tdc
+locale: sq
+---
+<gen type="regex" value="[A-M][0-9]{8}[A-Z]"/>

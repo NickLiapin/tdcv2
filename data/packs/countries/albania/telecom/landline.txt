@@ -1,0 +1,24 @@
+---
+address: albania.telecom.landline
+description: Albanian fixed-line number in E.164 form — +355 followed by a national significant number of exactly EIGHT digits, one shorter than a mobile. The eight is fixed by the numbering plan and the area code eats into it: Tiranë's one-digit 4 leaves seven subscriber digits, a two-digit code leaves six, a three-digit code leaves five, and this generator computes that split from the length of the code it drew rather than assuming one shape. The first subscriber digit runs 2-9, again from the plan. Read across the three shapes and the invariant is visible: Tiranë +355 4 2345678, Shkodër +355 22 345678, Lezhë +355 215 23456 — one code, one lead digit, and a tail that gives way, always eight in total. Counting the digits after +355 is the whole test: eight is a landline, nine is a mobile.
+generator: tdc
+locale: sq
+---
+<sequence name="code"><gen type="template" value="albania.telecom.areaCode"/></sequence>
+<sequence name="lead"><gen type="regex" value="[2-9]"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="number"><compute>
+  <let name="len"><length><field name="code"/></length></let>
+  <!-- Total must be 8: len(code) + 1 lead digit + tail. -->
+  <let name="tail">
+    <choose>
+      <when><test><equals><use name="len"/><int v="1"/></equals></test>
+        <then><slice from="0" to="6"><field name="rest"/></slice></then></when>
+      <when><test><equals><use name="len"/><int v="2"/></equals></test>
+        <then><slice from="0" to="5"><field name="rest"/></slice></then></when>
+      <otherwise><slice from="0" to="4"><field name="rest"/></slice></otherwise>
+    </choose>
+  </let>
+  <result><concat><str v="+355"/><field name="code"/><field name="lead"/><use name="tail"/></concat></result>
+</compute></sequence>
+<data>${{number}}</data>

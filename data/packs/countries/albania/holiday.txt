@@ -1,0 +1,19 @@
+---
+address: albania.holiday
+description: The official public holidays of Albania, in Albanian. Two of them exist nowhere else. DITA E VERËS, 14 March, is a pre-Christian spring festival kept alive in Elbasan and made a national holiday in 2004 — it is the older of the two, and the ballokume biscuit baked for it is an Elbasan speciality. DITA E ALFABETIT, 22 November, marks the Congress of Manastir of 1908, which settled the 36-letter Latin alphabet Albanian still uses — the one with the digraphs dh, gj, ll, nj, rr, sh, th, xh, zh and the letters ë and ç, none of which existed in a single agreed form before that week. Albania is also the only country in Europe whose calendar carries BOTH Muslim Eids, both Easters (Catholic and Orthodox on their separate dates) and Nowruz as state holidays at once, a consequence of the 1998 constitution declaring no official religion in a country that is roughly half Muslim, and of the Bektashi order, whose world headquarters is in Tiranë, keeping Nevruz as its own principal feast. 28 and 29 November are two different days and not one long weekend: independence from the Ottoman Empire in 1912, and liberation from German occupation in 1944.
+locale: sq
+---
+Viti i Ri
+Dita e Verës
+Dita e Nevruzit
+Pashkët Katolike
+Pashkët Ortodokse
+Dita Ndërkombëtare e Punës
+Bajrami i Madh
+Bajrami i Vogël
+Dita e Nënë Terezës
+Dita e Alfabetit
+Dita e Pavarësisë
+Dita e Çlirimit
+Dita Kombëtare e Rinisë
+Krishtlindjet

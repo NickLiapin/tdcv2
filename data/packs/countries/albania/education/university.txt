@@ -1,0 +1,37 @@
+---
+address: albania.education.university
+description: Universities and university colleges of Albania — the public institutions first, then the accredited private ones. Two things a neighbour's list would not prepare you for. The public system is SMALL and CENTRALISED: nine of the public institutions sit in Tiranë, and the regional universities are one per city, each named after a local figure — Luigj Gurakuqi in Shkodër, Aleksandër Xhuvani in Elbasan, Eqrem Çabej in Gjirokastër, Fan Noli in Korçë, Ismail Qemali in Vlorë, Aleksandër Moisiu in Durrës. And the private sector is LARGER than the public one by headcount of institutions, a legacy of the deregulation of the 2000s; the survivors listed here are the ones still accredited by ASCAL. Names are in the Albanian form, which is why the English-language brands appear as Universiteti i New York-ut në Tiranë and Kolegji Universitar "Instituti Kanadez i Teknologjisë" — the Albanian genitive attaches even to a foreign name.
+locale: sq
+---
+Universiteti i Tiranës
+Universiteti Politeknik i Tiranës
+Universiteti Bujqësor i Tiranës
+Universiteti i Mjekësisë, Tiranë
+Universiteti i Arteve, Tiranë
+Universiteti i Sporteve të Tiranës
+Akademia e Studimeve Albanologjike
+Akademia e Forcave të Armatosura
+Akademia e Sigurisë
+Universiteti "Luigj Gurakuqi" Shkodër
+Universiteti "Aleksandër Xhuvani" Elbasan
+Universiteti "Eqrem Çabej" Gjirokastër
+Universiteti "Fan S. Noli" Korçë
+Universiteti "Ismail Qemali" Vlorë
+Universiteti "Aleksandër Moisiu" Durrës
+Universiteti Europian i Tiranës
+Universiteti Katolik "Zoja e Këshillit të Mirë"
+Universiteti Metropolitan Tirana
+Universiteti "Marin Barleti"
+Universiteti "Luarasi"
+Universiteti Polis
+Universiteti Mesdhetar i Shqipërisë
+Albanian University
+Universiteti i New York-ut në Tiranë
+Universiteti Epoka
+Western Balkans University
+Kolegji Universitar "Instituti Kanadez i Teknologjisë"
+Kolegji Universitar Reald
+Kolegji Universitar "Wisdom"
+Akademia e Filmit dhe Multimedias "Marubi"
+Shkolla e Magjistraturës
+Shkolla Shqiptare e Administratës Publike

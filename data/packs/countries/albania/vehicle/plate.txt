@@ -1,0 +1,7 @@
+---
+address: albania.vehicle.plate
+description: Albanian civilian number plate in the format introduced in 2011 — two letters, three digits, two letters, on white with black characters, a blue EU-style band on the left carrying AL and the double-headed eagle, and a hologram between the first letter pair and the digits. The 2011 change was not cosmetic: it ABOLISHED the regional code. Plates from 1993 to 2011 opened with a two-letter district abbreviation (TR Tiranë, DR Durrës, KO Korçë, SH Shkodër, VL Vlorë) followed by four digits and a series letter, so an older Albanian plate says where the car was registered and a current one deliberately does not. Special series keep their own patterns and are not generated here: CD for diplomatic, MB for police, MM for military with a branch suffix, red on white for temporary, and black on yellow for taxis.
+generator: tdc
+locale: sq
+---
+<gen type="regex" value="[A-Z]{2} [0-9]{3} [A-Z]{2}"/>

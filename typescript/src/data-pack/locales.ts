@@ -174,6 +174,7 @@ export const RTL_LOCALES: ReadonlySet<string> = new Set([
  * `usa` + `russia` carry data today.
  */
 export const CANONICAL_COUNTRIES: ReadonlySet<string> = new Set([
+  'albania',
   'algeria',
   'angola',
   'argentina',

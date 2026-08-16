@@ -1,0 +1,10 @@
+---
+address: albania.telecom.operator
+description: Albania's telecoms operators and the regulator. The mobile market is a DUOPOLY and has been since 2022: Vodafone Albania and One Albania, the latter formed when Hungary's 4iG merged Telekom Albania — the old AMC, the country's first mobile network — with ALBtelecom, the fixed incumbent. That merger is why a list of Albanian mobile operators is two names long where a country of three million usually has three or four, and why ALBtelecom survives here as a fixed-line and ISP brand rather than a separate mobile network. AKEP is the regulator; Posta Shqiptare is the postal operator it also regulates, which is what the "dhe Postare" in its name is doing.
+locale: sq
+---
+Vodafone Albania
+One Albania
+ALBtelecom
+Posta Shqiptare
+Autoriteti i Komunikimeve Elektronike dhe Postare

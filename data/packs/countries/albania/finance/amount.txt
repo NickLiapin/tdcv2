@@ -1,0 +1,12 @@
+---
+address: albania.finance.amount
+description: A sum of money written the way Albania writes it — a whole number of lek, thousands separated, with the plural "Lekë" after the figure. The separator is a NO-BREAK SPACE (U+00A0), not an ordinary space and not a dot: that is what CLDR gives for sq-AL, and it is the character that appears twice in the group= attribute and once before Lekë in the body below, so a diff that shows nothing between the quotes is showing U+00A0 doing its job. The decimal mark, when a figure has one at all, is a COMMA — but prices do not have one, because the qindarkë subdivision has not circulated since before 1991 (see albania.finance.currency), so lek amounts are integers and this generator produces integers. Range 100 to 9 999 999 lekë, which spans a coffee to a small flat: at roughly 100 lekë to the euro, move the decimal two places to read it in euro.
+generator: tdc
+locale: sq
+---
+<sequence name="lek"><gen type="number" value="100..9999999"/></sequence>
+<sequence name="amount"><compute>
+  <let name="grouped"><group size="3" sep=" "><field name="lek"/></group></let>
+  <result><concat><use name="grouped"/><str v=" Lekë"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

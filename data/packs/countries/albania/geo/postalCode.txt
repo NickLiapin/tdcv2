@@ -1,0 +1,15 @@
+---
+address: albania.geo.postalCode
+description: Albanian postal code (kodi postar) — four digits, introduced by Posta Shqiptare on 11 October 2006. The first two digits are the postal branch at DISTRICT level (the pre-2014 rreth, which the post office kept as its own geography and which is therefore NOT the same map as the 12 counties or the 61 municipalities); the last two identify the office serving one administrative unit inside it. The first pair is drawn here from the published district table, so 1042 is a Tirana code and 9401 a Vlorë one, and codes like 4700 (Kurbin) or 8700 (Tropojë) fall where the post office really put them. Two of the pairs are not places at all: 17 is transit and 18 is the EMS express office, both in Tirana. Codes with 00 as the last pair are the district centre itself.
+generator: tdc
+locale: sq
+---
+<!-- District branches: 10 Tiranë, 15 Krujë, 20 Durrës, 25 Kavajë, 30 Elbasan,
+     33 Gramsh, 34 Librazhd, 35 Peqin, 40 Shkodër, 43 Malësi e Madhe, 44 Pukë,
+     45 Lezhë, 46 Mirditë, 47 Kurbin, 50 Berat, 53 Kuçovë, 54 Skrapar,
+     60 Gjirokastër, 63 Tepelenë, 64 Përmet, 70 Korçë, 73 Pogradec, 74 Kolonjë,
+     80 Mat, 83 Dibër, 84 Bulqizë, 85 Kukës, 86 Has, 87 Tropojë, 90 Lushnjë,
+     93 Fier, 94 Vlorë, 97 Sarandë; plus 17 transit and 18 EMS. -->
+<sequence name="branch"><gen type="text" value="10,15,17,18,20,25,30,33,34,35,40,43,44,45,46,47,50,53,54,60,63,64,70,73,74,80,83,84,85,86,87,90,93,94,97"/></sequence>
+<sequence name="office"><gen type="regex" value="[0-9]{2}"/></sequence>
+<data>${{branch}}${{office}}</data>

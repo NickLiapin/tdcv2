@@ -1,0 +1,12 @@
+---
+address: albania.finance.currency
+description: The forms of the Albanian currency, the lek — ISO 4217 code ALL, numeric 008. The plural is lekë and it is the plural that is written after a sum, which is why CLDR gives "Lekë" as the symbol for sq-AL rather than a sign. The lek is nominally divided into 100 qindarka, but the subdivision is dead: no qindarkë coin has circulated since before 1991 and prices are quoted in whole lek, so an amount with a decimal part is a foreign-exchange or accounting figure, not a price. LEKU I VJETËR, the old lek, is the other live form and it is not history: the 1965 revaluation cut a zero off the currency and much of the country never stopped counting in the old unit, so a market price said aloud as "dy mijë lekë" for something costing 200 lekë is ordinary speech, not a mistake. The name comes from Lekë Dukagjini, the fifteenth-century lord whose customary code, the Kanun, still gives the Albanian north its unofficial law.
+locale: sq
+---
+lek
+lekë
+Lekë
+ALL
+leku shqiptar
+qindarkë
+lek i vjetër

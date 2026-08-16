@@ -1,0 +1,26 @@
+---
+address: albania.finance.iban
+description: Albanian IBAN — 28 characters, AL + two ISO 7064 MOD 97-10 check digits + a 24-character BBAN, made compulsory for domestic transfers by the Bank of Albania from 1 June 2009. The BBAN is a KIB (Kodi i Identifikimit të Bankës) of eight digits followed by the sixteen-digit account: three digits for the bank, four for the branch, and one national control digit computed over those seven. WHAT IS VERIFIED AND WHAT IS NOT. The two international check digits ARE computed here, by the real MOD 97-10 fold, and the arithmetic is verified against two published Albanian IBANs — AL47212110090000000235698741, the example the Bank of Albania and the SWIFT IBAN registry both print, and AL35202111090000000001234567 — each accepted, and each rejected when one digit is altered. The NATIONAL control digit at BBAN position 8 is NOT computed: Bank of Albania regulation no. 42 of 16 July 2008 defines the field but no source I could obtain states the arithmetic behind it, so it is drawn as a plain digit. The three-digit bank code is likewise drawn rather than taken from a register: the Bank of Albania's list of bank codes is not published in any form I could reach. The consequence is precise — a generated IBAN passes international IBAN validation and would fail a Bank of Albania domestic check. Nothing here is a bank that exists; for the banks that do, see albania.finance.bank.
+generator: tdc
+locale: sq
+---
+<sequence name="kib"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{16}"/></sequence>
+<sequence name="iban"><compute>
+  <let name="bban"><concat><field name="kib"/><field name="account"/></concat></let>
+  <!-- ISO 13616: move the country code and a "00" placeholder to the end, read
+       every letter as its base-36 value, then fold the whole thing mod 97. -->
+  <let name="rearranged"><concat><use name="bban"/><str v="AL"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="AL"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

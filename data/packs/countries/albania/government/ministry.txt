@@ -1,0 +1,19 @@
+---
+address: albania.government.ministry
+description: The ministries of the Albanian government, plus the two institutions that stand beside them in any list of central bodies — the Kryeministria and the Kuvend. Names are as the official 2025 register of public authorities carries them. Albanian cabinets are re-cut often and portfolios travel between ministries, so a ministry list is a snapshot, not a constant; what does not move is the shape — the foreign ministry is MINISTRIA PËR EVROPËN DHE PUNËT E JASHTME, with EU accession named in the title rather than handed to a separate ministry, which is how a candidate country that opened negotiations in 2022 organises itself.
+locale: sq
+---
+Kryeministria
+Kuvendi i Republikës së Shqipërisë
+Ministria e Financave
+Ministria e Punëve të Brendshme
+Ministria e Drejtësisë
+Ministria e Mbrojtjes
+Ministria për Evropën dhe Punët e Jashtme
+Ministria e Arsimit
+Ministria e Shëndetësisë dhe Mirëqenies Sociale
+Ministria e Infrastrukturës dhe Energjisë
+Ministria e Bujqësisë dhe Zhvillimit Rural
+Ministria e Turizmit, Kulturës dhe Sportit
+Ministria e Ekonomisë dhe Inovacionit
+Ministria e Mjedisit

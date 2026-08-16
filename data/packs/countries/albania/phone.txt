@@ -1,0 +1,6 @@
+---
+address: albania.phone
+description: Albanian mobile number in E.164 form. Country code +355; the national significant number of a mobile is NINE digits in the block 62-69, per the national numbering plan AKEP notified to the ITU on 13 February 2017. Nine digits is the number to hold on to — an Albanian mobile is one digit LONGER than an Albanian landline, which is always eight (see albania.telecom.landline), and a validator that assumes one length for both will reject half the country. Written nationally the number carries a trunk 0, so +355 69 2345678 is dialled 069 2345678 at home. The live consumer prefixes are 66, 67, 68 and 69, which is what this generator draws; the plan reserves 62-65 as well. Do not read the operator off the prefix: Albania has had full mobile number portability since 2011, run from a central reference database, so a 069 number may sit on either network. The 2017 plan also abolished the twelve numbering regions and made the whole country one, which is why an Albanian area code no longer tells you anything about where the numbering authority put a subscriber, only where the line was first sold.
+generator: tdc
+---
+<gen type="regex" value="\+3556[6-9][0-9]{7}"/>

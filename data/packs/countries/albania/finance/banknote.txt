@@ -1,0 +1,11 @@
+---
+address: albania.finance.banknote
+description: The banknote denominations of the New Albanian Banknote Series, issued by the Bank of Albania between 2019 and 2022 and now the whole of the note range in circulation: 200, 500, 1000, 2000, 5000 and 10000 lekë. The 10000 lekë note is new to this series — Albania had no denomination above 5000 before it — and the 200 lekë note replaced a coin at the bottom end. Values are written the Albanian way, with the plural lekë following the figure.
+locale: sq
+---
+200 lekë
+500 lekë
+1000 lekë
+2000 lekë
+5000 lekë
+10000 lekë

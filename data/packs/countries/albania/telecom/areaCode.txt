@@ -1,0 +1,7 @@
+---
+address: albania.telecom.areaCode
+description: Albanian fixed-line area codes, without the trunk 0. They come in three lengths, and the length is the point: Tiranë is the single digit 4, the larger towns have two digits (22 Shkodër, 24 Kukës, 32 Berat, 33 Vlorë, 34 Fier, 35 Lushnjë, 52 Durrës, 53 Laç, 54 Elbasan, 55 Kavajë, 82 Korçë, 83 Pogradec, 84 Gjirokastër, 85 Sarandë), and everything else has three (215 Lezhë, 218 Peshkopi, 511 Krujë, 813 Përmet, 852 is not one — Sarandë is 85). The subscriber part shrinks to match, so the national number always comes to eight digits whichever code it starts with; that invariant, and every range these codes sit inside, is from the numbering plan AKEP notified to the ITU in 2017. Directories often print a code one digit too long — Elbasan as 545, Kukës as 242, Kavajë as 554 — because they have run the first subscriber digit into the code; the codes here are the real ones, cut at the boundary the plan defines. Towns without their own code hang off a neighbour's: Patos dials inside Fier's 34.
+generator: tdc
+locale: sq
+---
+<gen type="text" value="4,22,24,32,33,34,35,52,53,54,55,82,83,84,85,211,212,213,214,215,216,217,218,219,311,312,313,361,368,371,387,388,391,392,393,394,511,512,513,514,561,563,571,577,581,591,811,812,813,814,815,861,881,885,893"/>

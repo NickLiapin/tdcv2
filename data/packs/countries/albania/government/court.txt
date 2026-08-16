@@ -1,0 +1,27 @@
+---
+address: albania.government.court
+description: The courts of Albania under the judicial map that took effect on 1 February 2023, decision no. 505 of the Këshilli i Lartë Gjyqësor of 21 November 2022. This list is short because the map cut it: twenty-two district courts became THIRTEEN first-instance courts of general jurisdiction, and six appeal courts became ONE. So Berat's court now covers Berat, Dimal, Kuçovë, Skrapar and Poliçan, and towns that had a courthouse — Krujë, Lushnjë as a general court, Mat, Pukë, Tropojë — no longer do. Names carry the new formula "e Shkallës së Parë e Juridiksionit të Përgjithshëm", which is not decoration: it distinguishes them from the ADMINISTRATIVE branch, a separate first-instance/appeal ladder that Albania runs in parallel and that survives the merger with two first-instance seats, Tiranë and Lushnjë — Lushnjë keeps an administrative court after losing its general one. The special anti-corruption courts (GJKKO), first instance and appeal, are a third ladder created by the 2016 justice reform, sitting alongside SPAK; they try senior officials and organised crime and nothing else. The Kolegji i Posaçëm i Apelimit is the vetting court, the temporary body that re-examined every judge and prosecutor in the country. Taken from the official 2025 register of public authorities.
+locale: sq
+---
+Gjykata Kushtetuese
+Gjykata e Lartë
+Gjykata e Apelit të Juridiksionit të Përgjithshëm
+Gjykata Administrative e Apelit
+Gjykata e Posaçme e Apelit për Korrupsionin dhe Krimin e Organizuar
+Gjykata e Posaçme e Shkallës së Parë për Korrupsionin dhe Krimin e Organizuar
+Kolegji i Posaçëm i Apelimit
+Gjykata Administrative e Shkallës së Parë Tiranë
+Gjykata Administrative e Shkallës së Parë Lushnjë
+Gjykata e Shkallës së Parë e Juridiksionit të Përgjithshëm Tiranë
+Gjykata e Shkallës së Parë e Juridiksionit të Përgjithshëm Durrës
+Gjykata e Shkallës së Parë e Juridiksionit të Përgjithshëm Elbasan
+Gjykata e Shkallës së Parë e Juridiksionit të Përgjithshëm Fier
+Gjykata e Shkallës së Parë e Juridiksionit të Përgjithshëm Vlorë
+Gjykata e Shkallës së Parë e Juridiksionit të Përgjithshëm Shkodër
+Gjykata e Shkallës së Parë e Juridiksionit të Përgjithshëm Korçë
+Gjykata e Shkallës së Parë e Juridiksionit të Përgjithshëm Berat
+Gjykata e Shkallës së Parë e Juridiksionit të Përgjithshëm Lezhë
+Gjykata e Shkallës së Parë e Juridiksionit të Përgjithshëm Gjirokastër
+Gjykata e Shkallës së Parë e Juridiksionit të Përgjithshëm Dibër
+Gjykata e Shkallës së Parë e Juridiksionit të Përgjithshëm Kukës
+Gjykata e Shkallës së Parë e Juridiksionit të Përgjithshëm Sarandë

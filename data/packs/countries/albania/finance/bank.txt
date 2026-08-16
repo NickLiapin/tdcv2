@@ -1,0 +1,17 @@
+---
+address: albania.finance.bank
+description: The banks of Albania — the central bank first, then the eleven second-tier banks holding a Bank of Albania licence. Eleven is the whole sector: Albania has no savings banks, no cooperative tier and no state-owned commercial bank, and consolidation has been steady (Banka Amerikane e Investimeve absorbed the local NBG and Intesa arms, OTP bought Société Générale Albania in 2019, and the state sold its last stake in 2009). Names are in the Albanian legal form, which is why the international brands read Banka Raiffeisen and Banka Intesa Sanpaolo Albania rather than the English styling. Banka Kombëtare Tregtare, the largest, is Turkish-owned through Çalık Holding despite the national name.
+locale: sq
+---
+Banka e Shqipërisë
+Banka Kombëtare Tregtare
+Banka Raiffeisen
+Banka Credins
+Banka Amerikane e Investimeve
+Banka Intesa Sanpaolo Albania
+Banka OTP Albania
+Banka Tirana
+Banka Union
+Banka Procredit
+Banka e Parë e Investimeve Albania
+Banka e Bashkuar e Shqipërisë

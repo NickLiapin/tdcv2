@@ -1,0 +1,66 @@
+---
+address: albania.geo.municipality
+description: The sixty-one municipalities (bashki, singular bashkia) of Albania, the second-level division and the only local government with an elected mayor and council. The 2014 territorial reform replaced 373 communes and municipalities with these 61, so a bashkia is now a large unit — Bashkia Tiranë alone holds about a fifth of the country. Taken from the official 2025 register of public authorities, which lists exactly 61. WATCH THE NAME DIMAL: the municipality around Ura Vajgurore was renamed Dimal in 2020 after the Illyrian settlement on the hill above it, and reference tables that were not updated still call it Ura Vajgurore — the town keeps that name (see albania.geo.city) but the municipality does not. Pustec is the Macedonian-speaking municipality on Lake Prespa, renamed from Liqenas in 2013; Dropull and Finiq are the two Greek-minority municipalities of the south.
+locale: sq
+---
+Belsh
+Berat
+Bulqizë
+Cërrik
+Delvinë
+Devoll
+Dibër
+Dimal
+Divjakë
+Dropull
+Durrës
+Elbasan
+Fier
+Finiq
+Fushë-Arrëz
+Gjirokastër
+Gramsh
+Has
+Himarë
+Kamëz
+Kavajë
+Këlcyrë
+Klos
+Kolonjë
+Konispol
+Korçë
+Krujë
+Kuçovë
+Kukës
+Kurbin
+Lezhë
+Libohovë
+Librazhd
+Lushnjë
+Malësi e Madhe
+Maliq
+Mallakastër
+Mat
+Memaliaj
+Mirditë
+Patos
+Peqin
+Përmet
+Pogradec
+Poliçan
+Prrenjas
+Pukë
+Pustec
+Roskovec
+Rrogozhinë
+Sarandë
+Selenicë
+Shijak
+Shkodër
+Skrapar
+Tepelenë
+Tiranë
+Tropojë
+Vau i Dejës
+Vlorë
+Vorë

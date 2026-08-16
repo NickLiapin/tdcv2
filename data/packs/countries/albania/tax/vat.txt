@@ -1,0 +1,8 @@
+---
+address: albania.tax.vat
+description: Albanian VAT number. ALBANIA ISSUES NO SEPARATE VAT NUMBER — this is the thing a European neighbour's pack would get wrong. A Polish VAT number is the NIP with PL in front of it but it is registered separately; a Croatian one is the OIB; an Albanian one is simply the NIPT, the same ten characters the Qendra Kombëtare e Biznesit gave the business when it registered, written with the country prefix AL when the counterparty is foreign. There is no second register and no second number: registering for TVSH (tatimi mbi vlerën e shtuar) flags the existing NIPT rather than issuing anything new. Albania is outside the EU and outside the EU VAT area, so an AL-prefixed number is not in VIES and cannot be checked there — the check is the QKB's own public register. The AL prefix is real usage and not decoration: python-stdnum's compact() for al.nipt strips a leading "AL" or "(AL)" precisely because numbers arrive in that form. No checksum is claimed here for the same reason as in albania.tax.nipt — the control letter's algorithm is not published.
+generator: tdc
+locale: sq
+---
+<sequence name="nipt"><gen type="template" value="albania.tax.nipt"/></sequence>
+<data>AL${{nipt}}</data>
