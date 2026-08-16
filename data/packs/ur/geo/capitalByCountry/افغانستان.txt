@@ -1,0 +1,5 @@
+---
+description: Capital of افغانستان in Urdu.
+locale: ur
+---
+کابل

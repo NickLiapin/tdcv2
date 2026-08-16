@@ -1,0 +1,24 @@
+---
+description: Cricket positions in Urdu. Batting order, bowling type and fielding place are three different kinds of "position" and all three are here, which is how a cricket team sheet actually reads. بارہواں کھلاڑی, the twelfth man, is a substitute who may field but not bat or bowl.
+locale: ur
+---
+اوپننگ بلے باز
+ون ڈاؤن بلے باز
+مڈل آرڈر بلے باز
+فنشر
+وکٹ کیپر
+بیٹنگ آل راؤنڈر
+بولنگ آل راؤنڈر
+تیز گیند باز
+سوئنگ گیند باز
+آف اسپنر
+لیگ اسپنر
+بائیں ہاتھ کا اسپنر
+سلپ فیلڈر
+پوائنٹ
+کور
+مڈ آن
+لانگ آن
+ڈیپ فائن لیگ
+کپتان
+بارہواں کھلاڑی

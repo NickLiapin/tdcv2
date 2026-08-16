@@ -1,0 +1,54 @@
+---
+description: Airline names as Urdu writes them. Urdu newspapers and ticketing text render carrier names in Urdu script, so that is the form here; the IATA code stays Latin wherever it appears elsewhere. The list leads with the carriers that actually serve the Urdu-speaking world — the Pakistani and Indian airlines and the Gulf carriers that carry most of the labour migration between them — and then the large international names. Airline branding is a company property rather than a country fact, so this stays in the language pack, but a config wanting one country's fleet should filter it.
+locale: ur
+---
+پی آئی اے
+ایئر بلیو
+سرین ایئر
+ایئر سیال
+فلائی جناح
+ایئر انڈیا
+انڈیگو
+وستارا
+اسپائس جیٹ
+ایمریٹس
+قطر ایئرویز
+اتحاد ایئرویز
+فلائی دبئی
+ایئر عربیہ
+سعودی ایئرلائنز
+گلف ایئر
+عمان ایئر
+کویت ایئرویز
+جزیرہ ایئرویز
+ترکش ایئرلائنز
+قازقستان ایئر
+ازبکستان ایئرویز
+تھائی ایئرویز
+سنگاپور ایئرلائنز
+ملائیشیا ایئرلائنز
+کیتھے پیسیفک
+چائنا سدرن
+ایئر چائنا
+جاپان ایئرلائنز
+کورین ایئر
+برٹش ایئرویز
+ورجن اٹلانٹک
+لفتھانزا
+ایئر فرانس
+کے ایل ایم
+سوئس
+آسٹرین ایئرلائنز
+ایبیریا
+الاطالیہ
+ایروفلوٹ
+فن ایئر
+ایس اے ایس
+ٹی اے پی پرتگال
+ایتھوپین ایئرلائنز
+کینیا ایئرویز
+مصر ایئر
+رائل جورڈینین
+مڈل ایسٹ ایئرلائنز
+بیمان بنگلہ دیش
+سری لنکن ایئرلائنز

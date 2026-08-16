@@ -1,0 +1,16 @@
+---
+description: Zodiac signs in Urdu. These are the Arabic names of the twelve signs and they are what an Urdu newspaper's daily horoscope column is headed with — حمل for Aries, ثور for Taurus, and so on. They are the same twelve Western signs, not the Hindu sidereal system, though several of the names are shared translations of the same Greek originals.
+locale: ur
+---
+حمل
+ثور
+جوزا
+سرطان
+اسد
+سنبلہ
+میزان
+عقرب
+قوس
+جدی
+دلو
+حوت

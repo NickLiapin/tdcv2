@@ -1,0 +1,5 @@
+---
+description: Currency of इजिप्त, as Marathi names it
+locale: mr
+---
+इजिप्शियन पाउंड

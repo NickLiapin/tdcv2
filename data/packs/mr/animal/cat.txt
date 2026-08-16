@@ -1,0 +1,22 @@
+---
+description: Cat breed. Breed names are international and are written in Marathi transliteration, which is how a Marathi pet shop or veterinary record writes them. Pedigree cats are rare in Maharashtra; the ordinary house cat is a देशी मांजर, a plain non-pedigree animal, and that is the first entry because it is what most rows should honestly be.
+locale: mr
+---
+देशी मांजर
+पर्शियन
+सयामी
+मेन कून
+रॅगडॉल
+बेंगाल
+स्फिंक्स
+ब्रिटिश शॉर्टहेअर
+ॲबिसिनियन
+स्कॉटिश फोल्ड
+नॉर्वेजियन फॉरेस्ट
+रशियन ब्लू
+बर्मन
+अमेरिकन शॉर्टहेअर
+डेव्हॉन रेक्स
+बर्मीज
+हिमालयन
+बॉम्बे

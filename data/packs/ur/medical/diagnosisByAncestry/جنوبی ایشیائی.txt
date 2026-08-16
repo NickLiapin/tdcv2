@@ -1,0 +1,16 @@
+---
+description: Conditions with a higher prevalence in South Asian ancestry, in Urdu — the group most speakers of this pack belong to. Type 2 diabetes and coronary disease appear a decade earlier and at a lower body-mass index than in European populations, so the standard BMI thresholds under-diagnose both here. Beta thalassaemia carrier rates are high and are concentrated further by cousin marriage.
+locale: ur
+---
+ذیابیطس قسم دوم
+دل کی شریانوں کی جلد بیماری
+بیٹا تھیلیسیمیا
+جی سکس پی ڈی کی کمی
+وٹامن ڈی کی کمی
+آئرن کی کمی
+لیکٹوز کی عدم برداشت
+پولی سسٹک اووری
+دائمی گردے کی بیماری
+منہ کا سرطان
+تپ دق کا خطرہ
+موروثی سماعت کی کمی

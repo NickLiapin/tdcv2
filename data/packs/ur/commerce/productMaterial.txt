@@ -1,0 +1,64 @@
+---
+description: Material a product is made of, in Urdu. سوتی, ریشمی, اونی and کھدر are the cloth words a garment listing uses; کھدر is hand-spun handloom cotton and carries a political history in South Asia that no other fabric word does. شیشم and دیودار are the two timbers Pakistani and Indian furniture is actually made from, and a furniture listing names the wood rather than saying "wooden". پیتل, تانبا and کانسی are brass, copper and bronze and are distinct materials on a kitchenware listing, not synonyms for "metal".
+locale: ur
+---
+فولاد
+لوہا
+سٹین لیس سٹیل
+ایلومینیم
+پیتل
+تانبا
+کانسی
+چاندی
+سونا
+پلاٹینم
+لکڑی
+شیشم
+دیودار
+چیڑ
+ساگوان
+املتاس
+بانس
+بید
+پلاسٹک
+ایکریلک
+فائبر گلاس
+ربڑ
+چمڑا
+مصنوعی چمڑا
+سوتی
+ریشمی
+اونی
+لینن
+کھدر
+ململ
+لٹھا
+بوسکی
+جارجٹ
+شفون
+ویلوٹ
+ڈینم
+پالئیےسٹر
+نائلون
+لائیکرا
+جوٹ
+کینوس
+شیشہ
+آئینہ
+چینی
+سیرامک
+مٹی
+چکنی مٹی
+ماربل
+گرینائٹ
+سنگ مرمر
+پتھر
+کنکریٹ
+سیمنٹ
+اینٹ
+کاغذ
+گتہ
+موم
+رال
+سلیکون
+جپسم

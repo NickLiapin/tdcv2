@@ -1,0 +1,5 @@
+---
+description: Capital of तुर्कस्तान, as Marathi names it
+locale: mr
+---
+अंकारा

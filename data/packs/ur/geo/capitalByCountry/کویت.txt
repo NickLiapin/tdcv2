@@ -1,0 +1,5 @@
+---
+description: Capital of کویت in Urdu.
+locale: ur
+---
+کویت سٹی

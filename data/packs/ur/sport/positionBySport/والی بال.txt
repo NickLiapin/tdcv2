@@ -1,0 +1,11 @@
+---
+description: Volleyball positions in Urdu.
+locale: ur
+---
+سیٹر
+آؤٹ سائیڈ ہٹر
+اپوزٹ ہٹر
+مڈل بلاکر
+لبیرو
+ڈیفنس اسپیشلسٹ
+سرور

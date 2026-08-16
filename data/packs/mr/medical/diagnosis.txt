@@ -1,0 +1,98 @@
+---
+description: Medical diagnosis that can occur in any patient, in Marathi — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale and ancestry-linked ones in diagnosisByAncestry. The list is ordered by what a Maharashtrian hospital actually records rather than by a European case mix: tuberculosis, dengue, malaria, chikungunya, leptospirosis and typhoid are routine here, and leptospirosis in particular spikes in Mumbai every monsoon when people wade through flooded streets. Note that the everyday Marathi disease vocabulary is Sanskrit-built where Hindi's is Persian-built — Marathi says ताप, कावीळ and जुलाब where Hindi says बुख़ार, पीलिया and दस्त — so this list and its Hindi counterpart are different words, not different spellings of the same words.
+locale: mr
+---
+उच्च रक्तदाब
+टाइप २ मधुमेह
+दमा
+जुनाट अवरोधक फुफ्फुसविकार
+फुफ्फुसाचा क्षयरोग
+फुफ्फुसाबाहेरील क्षयरोग
+न्यूमोनिया
+डेंग्यू ताप
+मलेरिया
+चिकुनगुनिया
+विषमज्वर
+लेप्टोस्पायरोसिस
+कॉलरा
+तीव्र आंत्रदाह
+अमिबिक आमांश
+जंतसंसर्ग
+हिपॅटायटिस अ
+हिपॅटायटिस ब
+हिपॅटायटिस ई
+कावीळ
+मेंदूज्वर
+गोवर
+कांजिण्या
+गालगुंड
+घटसर्प
+धनुर्वात
+स्वाइन फ्लू
+कोविड-१९
+ॲनिमिया
+लोहन्यूनता ॲनिमिया
+जीवनसत्त्व ब१२ न्यूनता
+जीवनसत्त्व ड न्यूनता
+कुपोषण
+थायरॉईड न्यूनता
+थायरॉईड अधिक्य
+लठ्ठपणा
+रक्तातील मेदवाढ
+चयापचय संलक्षण
+हृदयधमनी विकार
+हृदयविकाराचा झटका
+अलिंद कंपन
+हृदय निकामी होणे
+आमवाती हृदयरोग
+पक्षाघात
+मायग्रेन
+अपस्मार
+पार्किन्सन रोग
+अल्झायमर रोग
+मल्टिपल स्क्लेरोसिस
+नैराश्य
+चिंतारोग
+द्विध्रुवी विकार
+निद्रानाश
+मद्यव्यसन
+तंबाखू व्यसन
+सांधेझीज
+आमवाती संधिवात
+गाउट
+हाडांची ठिसूळता
+कंबरदुखी
+मणक्याची चकती सरकणे
+मनगटातील नस दबणे
+स्नायुबंधदाह
+सोरायसिस
+इसब
+बुरशीजन्य त्वचारोग
+खरूज
+कोड
+ॲलर्जिक नासिकादाह
+जुनाट सायनसदाह
+कानदाह
+डोळे येणे
+मोतीबिंदू
+काचबिंदू
+ॲपेंडिसाइटिस
+पित्ताशयदाह
+आम्लपित्त
+जठरदाह
+पेप्टिक अल्सर
+आतड्यांचा क्षोभ
+मूळव्याध
+जुनाट मूत्रपिंड विकार
+मूत्रपिंडातील खडे
+मूत्रमार्ग संसर्ग
+यकृत सिरोसिस
+स्वादुपिंडदाह
+मुखाचा कर्करोग
+रक्ताचा कर्करोग
+लसिकाग्रंथीचा कर्करोग
+त्वचेचा कर्करोग
+सर्पदंश
+श्वानदंश
+उष्माघात
+विषबाधा

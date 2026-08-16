@@ -1,0 +1,25 @@
+---
+description: Religions in Urdu. Two entries carry facts a config cannot infer. First, the Sunni/Shia distinction is recorded and matters — Pakistan is majority Sunni with a large Shia minority, and a religion field for this region that offers only "Islam" is coarser than the records it models. Second, احمدیت: Pakistan's Second Constitutional Amendment of 1974 classifies Ahmadis as non-Muslim for the purposes of Pakistani law, and applicants for a passport or an identity card must sign a declaration to that effect, so on Pakistani state forms Ahmadi is a separate religion field value and not a branch of Islam. This file records what those documents contain; it takes no position on the question itself. کالاش is the pre-Islamic religion still practised in three valleys of Chitral and is the smallest of Pakistan's recognised religious communities.
+locale: ur
+---
+اسلام
+سنی اسلام
+شیعہ اسلام
+ہندو مت
+عیسائیت
+سکھ مت
+بدھ مت
+یہودیت
+جین مت
+زرتشتی
+پارسی
+بہائیت
+احمدیت
+کالاش
+لادینیت
+الحاد
+اگناسٹک
+سیکولر
+قدیم مذاہب
+دیگر
+نامعلوم

@@ -1,0 +1,20 @@
+---
+description: Mark or grade as an Indian mark sheet prints it, in Marathi. Indian school results are reported as a CLASS rather than a letter: प्रथम श्रेणी is a first class (60% and above), द्वितीय श्रेणी a second (50–59%), and विशेष प्रावीण्यासह प्रथम श्रेणी is a distinction (75% and above). The letter grades below are the CBSE/state nine-point scale used in school report cards. A config that maps this list onto an American A+/A/A- scale is describing a different education system.
+locale: mr
+---
+विशेष प्रावीण्यासह प्रथम श्रेणी
+प्रथम श्रेणी
+द्वितीय श्रेणी
+तृतीय श्रेणी
+उत्तीर्ण
+अनुत्तीर्ण
+अनुपस्थित
+श्रेणीसुधार
+A1
+A2
+B1
+B2
+C1
+C2
+D
+E

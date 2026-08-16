@@ -1,0 +1,5 @@
+---
+description: Currency of जर्मनी, as Marathi names it
+locale: mr
+---
+युरो

@@ -1,0 +1,30 @@
+---
+description: Diagnoses recorded for male patients in Urdu — the male-only conditions plus the ones that skew heavily male in this population. The skew is behavioural rather than biological for several: chewed tobacco, نسوار (moist snuff) and چھالیہ are used overwhelmingly by men here and drive منہ کا سرطان, and motorcycle trauma and industrial injury fill male casualty records because the riders and the workers are men.
+locale: ur
+---
+پروسٹیٹ کا بڑھنا
+پروسٹیٹ کی سوزش
+پروسٹیٹ کا سرطان
+خصیوں کا سرطان
+خصیے کا مروڑ
+ہائیڈروسیل
+ویریکوسیل
+ورم الخصیہ
+تنگی غلفہ
+مردانہ بانجھ پن
+ہرنیا
+گنج پن
+گاؤٹ
+منہ کا سرطان
+تمباکو کی لت
+نسوار کا استعمال
+چھالیہ کی لت
+دل کی شریانوں کی جلد بیماری
+موٹر سائیکل کا حادثہ
+کام کی جگہ کا حادثہ
+کمر کی چوٹ
+سماعت کی صنعتی کمی
+پھیپھڑوں کی صنعتی بیماری
+جلد کا جلنا
+ذیابیطس قسم دوم
+بلند فشار خون

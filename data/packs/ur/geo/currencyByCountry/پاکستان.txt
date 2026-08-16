@@ -1,0 +1,5 @@
+---
+description: Currency of پاکستان in Urdu.
+locale: ur
+---
+پاکستانی روپیہ

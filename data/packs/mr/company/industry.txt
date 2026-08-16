@@ -1,0 +1,58 @@
+---
+description: Industry or sector, in Marathi. The list is weighted towards what Maharashtra actually runs on: साखर उद्योग (the sugar industry, organised almost entirely as farmer co-operatives and the political backbone of western Maharashtra), सूतगिरणी (cotton spinning), द्राक्ष व वाइन (the Nashik vineyards), चित्रपट (Mumbai is India's film industry) and बंदर व जहाजबांधणी (the Konkan ports). सहकार, the co-operative sector, is listed as an industry in its own right because in Maharashtra it is one — sugar, dairy, banking and credit all run through co-operative societies here in a way they do in no other Indian state.
+locale: mr
+---
+शेती
+सहकार
+साखर उद्योग
+दुग्धव्यवसाय
+मत्स्यव्यवसाय
+फलोत्पादन
+द्राक्ष व वाइन
+सूतगिरणी
+वस्त्रोद्योग
+खाणकाम
+बांधकाम
+उत्पादन
+अभियांत्रिकी
+वाहन उद्योग
+रसायन उद्योग
+औषधनिर्माण
+जैवतंत्रज्ञान
+माहिती तंत्रज्ञान
+दूरसंचार
+वित्त
+बँकिंग
+विमा
+भांडवली बाजार
+स्थावर मालमत्ता
+किरकोळ व्यापार
+घाऊक व्यापार
+वाहतूक
+मालवाहतूक
+बंदर व जहाजबांधणी
+हवाई वाहतूक
+पर्यटन
+आदरातिथ्य
+अन्नप्रक्रिया
+मनोरंजन
+चित्रपट
+प्रसारमाध्यमे
+प्रकाशन
+जाहिरात
+शिक्षण
+आरोग्यसेवा
+ऊर्जा
+अपारंपरिक ऊर्जा
+पाणीपुरवठा
+कचरा व्यवस्थापन
+पर्यावरण सेवा
+सल्लागार सेवा
+कायदेशीर सेवा
+लेखापरीक्षण
+संरक्षण उत्पादन
+अवकाश तंत्रज्ञान
+हस्तकला
+सेवाभावी संस्था
+सुरक्षा सेवा
+मनुष्यबळ पुरवठा

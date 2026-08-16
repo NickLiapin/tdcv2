@@ -1,0 +1,5 @@
+---
+description: Currency of انڈونیشیا in Urdu.
+locale: ur
+---
+انڈونیشیائی روپیہ

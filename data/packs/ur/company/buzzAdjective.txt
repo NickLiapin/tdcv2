@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective in Urdu, for generating corporate catch-phrases. Pakistani and Indian corporate Urdu code-switches heavily, so about a third of these are English loans in Urdu script (ڈیجیٹل, اسمارٹ, گلوبل) sitting beside the Persianate formal register (جامع, مربوط, مستعد) — that mixture is what an actual company brochure in Urdu reads like, and a list written entirely in one register would not.
+locale: ur
+---
+جامع
+مربوط
+مؤثر
+کارآمد
+قابل توسیع
+لچکدار
+مضبوط
+پائیدار
+جدید
+اختراعی
+بے مثال
+منفرد
+معیاری
+بھروسہ مند
+شفاف
+محفوظ
+تیز رفتار
+بہتر
+کامیاب
+ترقی پسند
+عالمی
+مقامی
+گاہک دوست
+صارف دوست
+ماحول دوست
+ذمہ دار
+پیشہ ورانہ
+ماہر
+تجربہ کار
+مستعد
+چابک دست
+فعال
+متحرک
+خودکار
+ہم آہنگ
+متوازن
+منظم
+منصوبہ بند
+ہدف پر مرکوز
+نتیجہ خیز
+قابل اعتماد
+بین الاقوامی
+ڈیجیٹل
+اسمارٹ
+گلوبل
+ہائی ٹیک
+آن لائن
+کلاؤڈ بیسڈ
+ڈیٹا ڈرِوَن
+اینڈ ٹو اینڈ
+فُل اسٹیک
+ریئل ٹائم
+کاسٹ ایفیکٹو
+کسٹمر سینٹرک
+ویلیو ایڈڈ

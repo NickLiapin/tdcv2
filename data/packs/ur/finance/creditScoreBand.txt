@@ -1,0 +1,9 @@
+---
+description: Credit rating band in Urdu. Formal consumer credit scoring is thin across the Urdu-speaking world compared with Europe or the United States — a large share of borrowing runs through the کمیٹی, a rotating savings pool among people who know each other, and through family lending, neither of which produces a score at all. So these bands describe the minority of borrowers with a bank record, and a config using them to characterise a whole population would be describing the banked, not the people.
+locale: ur
+---
+کمزور
+معمولی
+اچھا
+بہت اچھا
+بہترین

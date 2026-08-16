@@ -1,0 +1,14 @@
+---
+description: Playing positions in कबड्डी, in Marathi. Kabaddi's positions are named in Marathi and English side by side, which is how the Pro Kabaddi League commentary actually runs.
+locale: mr
+---
+चढाईपटू
+पकडपटू
+अष्टपैलू
+डावा कॉर्नर
+उजवा कॉर्नर
+डावा कव्हर
+उजवा कव्हर
+इन
+कर्णधार
+राखीव खेळाडू

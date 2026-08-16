@@ -1,0 +1,5 @@
+---
+description: Capital of جنوبی افریقہ in Urdu.
+locale: ur
+---
+پریٹوریا

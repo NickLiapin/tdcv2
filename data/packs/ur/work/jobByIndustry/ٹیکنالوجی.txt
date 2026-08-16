@@ -1,0 +1,24 @@
+---
+description: Technology jobs in Urdu. Titles in this sector are English in practice — a Pakistani software company's offer letter says "Senior Software Engineer" in Latin script — so these are the Urdu renderings used in Urdu-language job advertisements and government service rules rather than in the private sector.
+locale: ur
+---
+سافٹ ویئر انجینئر
+سینئر سافٹ ویئر انجینئر
+ویب ڈویلپر
+موبائل ایپ ڈویلپر
+ڈیٹا انجینئر
+ڈیٹا سائنس دان
+ڈیٹا تجزیہ کار
+نیٹ ورک انجینئر
+سسٹم ایڈمنسٹریٹر
+ڈیٹا بیس ایڈمنسٹریٹر
+معیار جانچ انجینئر
+پروڈکٹ مینیجر
+پروجیکٹ مینیجر
+یو ایکس ڈیزائنر
+گرافک ڈیزائنر
+سائبر سکیورٹی ماہر
+ڈیو آپس انجینئر
+ٹیکنیکل سپورٹ
+آئی ٹی مینیجر
+کال سینٹر نمائندہ

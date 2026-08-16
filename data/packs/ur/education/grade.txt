@@ -1,0 +1,18 @@
+---
+description: Result grade in Urdu. Two systems are on this list and both are current. The letter grades are what a Pakistani or Indian board issues today. The DIVISIONS below them — فرسٹ ڈویژن, سیکنڈ ڈویژن, تھرڈ ڈویژن — are the older percentage bands (60%+, 45-59%, 33-44%) that boards, universities and employers still use constantly: a job advertisement here asks for a second division, not a C. کامیاب and ناکام are simple pass and fail. ضمنی is the supplementary paper a student sits after failing one subject, which is a result state in its own right and has no European equivalent.
+locale: ur
+---
+اے پلس
+اے
+بی پلس
+بی
+سی
+ڈی
+ای
+ایف
+فرسٹ ڈویژن
+سیکنڈ ڈویژن
+تھرڈ ڈویژن
+کامیاب
+ناکام
+ضمنی

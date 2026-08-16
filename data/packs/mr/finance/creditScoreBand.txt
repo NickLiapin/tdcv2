@@ -1,0 +1,9 @@
+---
+description: Credit score band, in Marathi. Indian lending keys on the CIBIL score, which runs 300 to 900 rather than the American 300 to 850, so a config mapping a US FICO number onto these labels will misgrade every row.
+locale: mr
+---
+खराब
+सामान्य
+चांगला
+खूप चांगला
+उत्कृष्ट

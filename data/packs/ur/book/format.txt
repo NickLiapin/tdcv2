@@ -1,0 +1,12 @@
+---
+description: Book format in Urdu. کتابچہ is a pamphlet or chapbook and is the format most Urdu religious and political publishing has always used — cheap, unbound, sold at a shrine or a bus stand — so an Urdu catalogue that offers only hardback and paperback is missing the commonest physical form of the language's own print culture.
+locale: ur
+---
+مجلد
+سادہ جلد
+کاغذی جلد
+کتابچہ
+ای بک
+آڈیو بک
+مصور ایڈیشن
+درسی ایڈیشن

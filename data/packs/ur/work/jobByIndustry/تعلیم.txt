@@ -1,0 +1,24 @@
+---
+description: Education jobs in Urdu. قاری and حافظ are teaching posts in their own right — Qur'an recitation and memorisation are taught in schools as well as in madrasas — and مہتمم is the head of a madrasa. آیا is the female attendant who looks after young children in a school.
+locale: ur
+---
+استاد
+پرائمری ٹیچر
+سیکنڈری ٹیچر
+لیکچرار
+اسسٹنٹ پروفیسر
+ایسوسی ایٹ پروفیسر
+پروفیسر
+ہیڈ ماسٹر
+پرنسپل
+وائس چانسلر
+ناظم امتحانات
+لائبریرین
+لیب اسسٹنٹ
+کھیل کا استاد
+قاری
+حافظ
+مہتمم
+تعلیمی مشیر
+آیا
+چپراسی

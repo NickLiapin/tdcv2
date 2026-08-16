@@ -1,0 +1,24 @@
+---
+description: Film genre in Urdu. مصالحہ فلم is the last line and is a genre in its own right across South Asian cinema, not a joke: a single film that carries action, romance, comedy, family melodrama and six song sequences, and is marketed as exactly that. A genre field for this market that has to pick one of the Western labels will always be picking wrongly.
+locale: ur
+---
+ایکشن
+مہم جوئی
+مزاح
+ڈراما
+رومانوی
+خاندانی
+تھرلر
+پراسرار
+خوف
+جنگی
+تاریخی
+سوانحی
+سائنس فکشن
+فنتاسی
+جرائم
+جاسوسی
+دستاویزی
+متحرک فلم
+موسیقی
+مصالحہ فلم

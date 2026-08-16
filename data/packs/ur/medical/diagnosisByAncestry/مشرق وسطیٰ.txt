@@ -1,0 +1,13 @@
+---
+description: Conditions with a higher prevalence in Middle Eastern ancestry, in Urdu. Consanguineous marriage is common across this region as well, which raises recessive disease frequency for the same reason it does in South Asia.
+locale: ur
+---
+بحیرہ روم کا وقفے وقفے سے بخار
+تھیلیسیمیا
+سکل سیل کی بیماری
+جی سکس پی ڈی کی کمی
+ذیابیطس قسم دوم
+موروثی سماعت کی کمی
+وٹامن ڈی کی کمی
+ریڑھ کے پٹھوں کی کمزوری
+موروثی میٹابولک امراض

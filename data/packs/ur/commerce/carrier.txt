@@ -1,0 +1,24 @@
+---
+description: Parcel carriers as Urdu writes them. The first block is what a package in the Urdu-speaking world is actually carried by: ٹی سی ایس and لیوپرڈ are the two big Pakistani couriers, ڈاک خانہ the state post, ڈی ایکس is a domestic courier and بلیو ایکس, ٹریکس and پوسٹ ایکس handle e-commerce; ڈیلیوری, ڈیلہیوری and بلیو ڈارٹ serve the Indian side. The international integrators follow. Cash on delivery is the dominant payment mode across this whole market, so a carrier here is usually also collecting the money — see commerce/paymentMethod.
+locale: ur
+---
+ٹی سی ایس
+لیوپرڈ کوریئر
+ڈاک خانہ
+ڈی ایکس ایکسپریس
+بلیو ایکس
+ٹریکس
+پوسٹ ایکس
+ایم اینڈ پی
+کال کوریئر
+ریڈ ایکس
+بلیو ڈارٹ
+ڈیلہیوری
+ڈی ایچ ایل
+فیڈ ایکس
+یو پی ایس
+ٹی این ٹی
+ارامیکس
+ایس ایف ایکسپریس
+ایمیزون لاجسٹکس
+ای ایم ایس

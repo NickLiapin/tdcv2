@@ -1,0 +1,39 @@
+---
+description: Music genres in Urdu. The first block is what this language's own music actually is, and none of it maps onto a Western genre label. قوالی is Sufi devotional singing performed by a party with harmonium and handclaps, and it fills stadiums. غزل as a musical genre is the sung form of the poetic one — the same word names both. نعت, حمد, منقبت and نوحہ are four different kinds of religious song addressed to four different subjects, and نوحہ specifically is the lament sung in Muharram. ملی نغمہ is the patriotic song, a genre with its own broadcast slots. کافی is the Sufi verse form of Punjab and Sindh set to music. Western genres follow, in the Urdu spellings a music app uses.
+locale: ur
+---
+قوالی
+غزل
+نعت
+حمد
+منقبت
+نوحہ
+مرثیہ
+صوفیانہ کلام
+کافی
+ملی نغمہ
+لوک موسیقی
+کلاسیکی موسیقی
+نیم کلاسیکی
+خیال
+ٹھمری
+دھرپد
+ٹپہ
+دوہا
+ماہیا
+بھنگڑا
+گیت
+فلمی موسیقی
+پاپ
+راک
+ہپ ہاپ
+ریپ
+جاز
+بلیوز
+کنٹری
+الیکٹرانک
+ٹیکنو
+ہاؤس
+ریگے
+میٹل
+اوپیرا

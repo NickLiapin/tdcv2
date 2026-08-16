@@ -1,0 +1,5 @@
+---
+description: Currency of नेपाळ, as Marathi names it
+locale: mr
+---
+नेपाळी रुपया

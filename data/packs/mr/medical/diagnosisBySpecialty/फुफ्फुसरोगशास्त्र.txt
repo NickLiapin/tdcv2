@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in फुफ्फुसरोगशास्त्र (Marathi). क्षयरोग leads because India carries about a quarter of the world's tuberculosis burden and it is a routine rather than an exotic diagnosis here.
+locale: mr
+---
+क्षयरोग
+दमा
+जुनाट अवरोधक फुफ्फुसविकार
+न्यूमोनिया
+ब्राँकायटिस
+फुफ्फुसावरणदाह
+श्वसनमार्गातील ऍलर्जी
+झोपेतील श्वासावरोध
+फुफ्फुसातील गुठळी
+व्यावसायिक फुफ्फुसविकार

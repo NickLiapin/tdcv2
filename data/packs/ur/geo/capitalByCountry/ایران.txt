@@ -1,0 +1,5 @@
+---
+description: Capital of ایران in Urdu.
+locale: ur
+---
+تہران

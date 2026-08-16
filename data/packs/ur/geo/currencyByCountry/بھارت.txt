@@ -1,0 +1,5 @@
+---
+description: Currency of بھارت in Urdu.
+locale: ur
+---
+بھارتی روپیہ

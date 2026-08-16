@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Urdu, used as the parent of medical/diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. جنوبی ایشیائی is the group most of this pack's speakers belong to, and the reason it matters here is specific: first-cousin marriage is common across much of the Urdu-speaking world, which raises the frequency of recessive conditions well above what a population-level figure for the region would suggest.
+locale: ur
+---
+زیریں صحارا افریقی
+شمالی افریقی
+بحیرہ روم
+مشرق وسطیٰ
+شمالی یورپی
+مشرقی یورپی
+اشکنازی یہودی
+جنوبی ایشیائی
+مشرقی ایشیائی
+جنوب مشرقی ایشیائی
+مقامی امریکی
+بحرالکاہل کے جزائر

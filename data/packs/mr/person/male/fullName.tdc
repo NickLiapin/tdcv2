@@ -1,0 +1,11 @@
+---
+description: Full male Marathi name in the OFFICIAL three-part form — given name, father's given name, family name (सचिन रमेश तेंडुलकर). This is not a middle name in the European sense and not the Hindi कुमार slot: it is the father's own first name, unchanged, and every Maharashtrian school record, passport, voter roll and property deed is written this way. A config joining only first + last is producing a valid short form, but the three-part name is what an official record holds.
+generator: tdc
+locale: mr
+---
+<sequence name="p">
+  <gen name="f" type="template" value="mr.person.male.firstName"/>
+  <gen name="m" type="template" value="mr.person.male.firstName"/>
+  <gen name="l" type="template" value="mr.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.m}} ${{p.l}}</data>

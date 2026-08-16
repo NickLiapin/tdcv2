@@ -1,0 +1,9 @@
+---
+description: Season in Urdu. There are FIVE, not four, and the extra one is the reason: برسات, the monsoon, is a season in its own right across the whole Urdu-speaking region — roughly July to September, when most of the year's rain falls in a few weeks — and it is not a wet part of summer but a distinct season with its own crops, its own festivals and its own body of poetry. Classical Urdu and its Sanskrit-descended substrate count six seasons; ordinary modern speech counts these five, and a config that maps a European four onto them has to lose برسات, which is the one an agricultural or insurance dataset most needs.
+locale: ur
+---
+بہار
+گرما
+برسات
+خزاں
+سرما

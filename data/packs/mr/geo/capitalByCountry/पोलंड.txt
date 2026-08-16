@@ -1,0 +1,5 @@
+---
+description: Capital of पोलंड, as Marathi names it
+locale: mr
+---
+वॉर्सा

@@ -1,0 +1,16 @@
+---
+description: Gregorian month, in Marathi. Three of these are the fastest way to tell a Marathi list from a Hindi one written in the same Devanagari script: Marathi writes जुलै, ऑगस्ट and ऑक्टोबर where Hindi writes जुलाई, अगस्त and अक्तूबर. The ऑ vowel sign is a Marathi habit for the English 'o' of October and August. Marathi does not capitalise and does not inflect the month inside a written date. Alongside these, Maharashtra keeps the Shalivahana Shaka lunar calendar — चैत्र through फाल्गुन — on which every festival date is fixed and whose new year, गुढी पाडवा, falls in March or April; see DATE_LOCALE.json.
+locale: mr
+---
+जानेवारी
+फेब्रुवारी
+मार्च
+एप्रिल
+मे
+जून
+जुलै
+ऑगस्ट
+सप्टेंबर
+ऑक्टोबर
+नोव्हेंबर
+डिसेंबर

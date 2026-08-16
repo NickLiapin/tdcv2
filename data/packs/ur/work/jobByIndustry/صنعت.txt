@@ -1,0 +1,24 @@
+---
+description: Manufacturing jobs in Urdu. Pakistan's industry is concentrated in textiles, surgical instruments and sports goods, which is why the loom, the stitching floor and the polishing bench are on this list where a European one would have machine tools.
+locale: ur
+---
+پروڈکشن مینیجر
+فیکٹری سپروائزر
+مشین آپریٹر
+ٹیکسٹائل ورکر
+بنکر
+رنگ ساز
+درزی
+سلائی مشین آپریٹر
+کوالٹی انسپکٹر
+ٹول میکر
+ویلڈر
+فٹر
+ٹرنر
+الیکٹریشن
+مکینیکل ٹیکنیشن
+پیکنگ ورکر
+گودام انچارج
+سیفٹی افسر
+مینٹیننس انجینئر
+لیبر ٹھیکیدار

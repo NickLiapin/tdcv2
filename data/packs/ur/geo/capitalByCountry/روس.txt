@@ -1,0 +1,5 @@
+---
+description: Capital of روس in Urdu.
+locale: ur
+---
+ماسکو

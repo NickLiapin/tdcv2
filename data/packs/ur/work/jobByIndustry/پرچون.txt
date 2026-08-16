@@ -1,0 +1,22 @@
+---
+description: Retail jobs in Urdu. ریڑھی بان, the handcart vendor, and پھیری والا, the door-to-door hawker, are counted as retail employment because that is what they are — a very large share of retail in this region happens on a cart or on foot rather than in a shop.
+locale: ur
+---
+دکاندار
+سیلز مین
+سیلز گرل
+کیشیئر
+اسٹور مینیجر
+شاپ اسسٹنٹ
+ویزوئل مرچنڈائزر
+خریداری افسر
+اسٹاک کیپر
+ای کامرس مینیجر
+کسٹمر سروس نمائندہ
+ڈسٹری بیوٹر
+ہول سیلر
+ریڑھی بان
+پھیری والا
+کریانہ فروش
+میڈیکل اسٹور اٹینڈنٹ
+برانڈ نمائندہ

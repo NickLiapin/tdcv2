@@ -1,0 +1,34 @@
+---
+description: Property amenities in Urdu, as a listing lists them. Four of these are advertised here and nowhere in Europe, and all four exist because of infrastructure that cannot be assumed. بورنگ is the property's own water bore, which matters where the mains supply is intermittent. جنریٹر, یو پی ایس and سولر are three separate answers to load shedding — scheduled power cuts — and a listing names which one it has. سرونٹ کوارٹر, separate staff accommodation, is an ordinary feature of a middle-class house here. چوکیدار is a live-in watchman.
+locale: ur
+---
+بجلی
+گیس
+پانی
+بورنگ
+واٹر ٹینک
+جنریٹر
+یو پی ایس
+سولر سسٹم
+ایئر کنڈیشنر
+لفٹ
+پارکنگ
+چوکیدار
+باؤنڈری وال
+لان
+صحن
+چھت
+بلٹ ان الماریاں
+کچن کیبنٹ
+ماربل فرش
+ٹائل فرش
+سیوریج
+انٹرنیٹ
+سرونٹ کوارٹر
+مسجد قریب
+اسکول قریب
+بازار قریب
+ہسپتال قریب
+پارک قریب
+مرکزی سڑک پر
+گیٹڈ کمیونٹی

@@ -1,0 +1,20 @@
+---
+description: Horse breed, in Marathi. भीमथडी is Maharashtra's own breed, raised in the Bhima river valley and the mount of the Maratha light cavalry — it is small, hardy and bred for distance rather than height, and it appears in no other locale's list. काठियावाडी and मारवाडी are the neighbouring Gujarat and Rajasthan breeds, recognisable by inward-curving ear tips.
+locale: mr
+---
+भीमथडी
+मारवाडी
+काठियावाडी
+मणिपुरी
+स्पिती
+झांस्कारी
+अरबी
+थोरोब्रेड
+मस्टँग
+अँडालुशियन
+फ्रिजियन
+शेटलँड पोनी
+पर्चेरॉन
+क्लाइड्सडेल
+अपालूसा
+पालोमिनो

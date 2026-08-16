@@ -1,0 +1,11 @@
+---
+description: Pronouns in Urdu. Urdu marks NO GENDER in its pronouns at all: وہ is he, she and they alike, and the sex of the person is carried by the verb ending or by nothing. So an Urdu pronoun field cannot express the he/him vs she/her distinction an English one is built around, and a config translating that distinction into Urdu is inventing it. What Urdu marks instead is RESPECT, on three levels that are not interchangeable: تو is intimate or contemptuous and is used to God, to small children and as an insult; تم is familiar, used to friends, siblings and juniors; آپ is respectful and is what a stranger, an elder or anyone senior is addressed as, and it is also the polite plural. Choosing the wrong one is a social error of the kind English has no way to make.
+locale: ur
+---
+میں
+ہم
+تو
+تم
+آپ
+یہ
+وہ

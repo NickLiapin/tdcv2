@@ -1,0 +1,5 @@
+---
+description: Capital of अमेरिकेची संयुक्त संस्थाने, as Marathi names it
+locale: mr
+---
+वॉशिंग्टन डी.सी.

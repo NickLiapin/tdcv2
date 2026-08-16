@@ -1,0 +1,16 @@
+---
+description: Jobs found in the उत्पादन sector, in Marathi. The parent list is work/industryCoherent.txt and this filename must match its value character for character.
+locale: mr
+---
+यंत्रकारागीर
+फिटर
+वेल्डर
+पत्रा कारागीर
+गुणवत्ता निरीक्षक
+उत्पादन पर्यवेक्षक
+देखभाल तंत्रज्ञ
+गिरणी कामगार
+यंत्रमाग कामगार
+विणकर
+साखर कारखाना कामगार
+पॅकिंग कामगार

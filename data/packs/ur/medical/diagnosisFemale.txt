@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Urdu that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis. زچگی کی پیچیدگیاں and نفاسی خون بہنا carry more weight here than they would in a European list: maternal mortality remains high across much of the Urdu-speaking world and post-partum haemorrhage is its leading single cause.
+locale: ur
+---
+حمل
+حمل کی ذیابیطس
+حمل کا بلند فشار خون
+اسقاط حمل
+حمل خارج رحم
+زچگی کی پیچیدگیاں
+نفاسی خون بہنا
+ولادت کے بعد ڈپریشن
+ماہواری کی بے قاعدگی
+شدید ماہواری درد
+ماہواری کا بند ہونا
+پولی سسٹک اووری
+بچہ دانی کے رسولے
+بچہ دانی کا سرطان
+بچہ دانی کے منہ کا سرطان
+رحم کا سرطان
+رحم کی سوزش
+رحم کا اخراج
+بیضہ دانی کا سسٹ
+چھاتی کی گلٹی
+چھاتی کا سرطان
+دودھ کی نالی کی سوزش
+زنانہ بانجھ پن
+سن یاس کی علامات
+نالی کا بند ہونا
+نفاس

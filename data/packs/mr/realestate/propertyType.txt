@@ -1,0 +1,25 @@
+---
+description: Kind of property, in Marathi. Indian flats are described by BHK — bedroom, hall, kitchen — so a two-bedroom flat is a २ बीएचके and that is the phrase every listing, advertisement and conversation uses; a config emitting two-bedroom apartment for a Marathi row is not describing the market. वाडा is the traditional courtyard mansion, still bought and sold in old town centres. चाळीतील खोली is a room in a tenement row, which is a real and transacted property type in Mumbai and Pune. गाळा is a commercial unit in a building — a shop-shaped space rather than a shop — and बिनशेती प्लॉट is land converted from agricultural use, a legal status that decides whether anything may be built on it at all.
+locale: mr
+---
+१ बीएचके सदनिका
+२ बीएचके सदनिका
+३ बीएचके सदनिका
+४ बीएचके सदनिका
+१ आरके
+रो हाऊस
+बंगला
+वाडा
+चाळीतील खोली
+स्टुडिओ
+पेंटहाउस
+डुप्लेक्स
+फार्महाउस
+शेतजमीन
+बिनशेती प्लॉट
+गाळा
+दुकान
+कार्यालय
+गोदाम
+औद्योगिक भूखंड
+विश्रामगृह

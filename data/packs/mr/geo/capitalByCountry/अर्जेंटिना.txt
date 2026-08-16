@@ -1,0 +1,5 @@
+---
+description: Capital of अर्जेंटिना, as Marathi names it
+locale: mr
+---
+ब्युनोस आयर्स

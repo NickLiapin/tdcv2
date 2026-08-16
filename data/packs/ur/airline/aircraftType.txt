@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are written in Latin script inside Urdu text exactly as they are in Polish or Japanese — an Urdu aviation report says بوئنگ 777 in prose but prints 777-300ER in a table, and nobody transliterates the model number. ATR 72 and the Airbus A320 family dominate short routes across South Asia and the Gulf, which is why the narrowbodies outnumber the widebodies here.
+locale: ur
+---
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 747-400
+Boeing 757-200
+Boeing 767-300ER
+Boeing 777-200LR
+Boeing 777-300ER
+Boeing 787-8 Dreamliner
+Boeing 787-9 Dreamliner
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330-200
+Airbus A330-300
+Airbus A350-900
+Airbus A380-800
+ATR 42-500
+ATR 72-500
+ATR 72-600
+Embraer E175
+Embraer E190
+Bombardier CRJ900
+De Havilland Dash 8-Q400
+Fokker 27

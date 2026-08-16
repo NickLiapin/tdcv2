@@ -1,0 +1,5 @@
+---
+description: Currency of दक्षिण कोरिया, as Marathi names it
+locale: mr
+---
+दक्षिण कोरियन वॉन

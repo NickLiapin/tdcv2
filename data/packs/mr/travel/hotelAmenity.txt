@@ -1,0 +1,34 @@
+---
+description: Hotel amenity, in Marathi. शाकाहारी जेवण and जैन जेवण are listed because Indian hotels advertise them as amenities — a strictly vegetarian kitchen, and Jain food prepared without root vegetables, are things guests choose a hotel for. गरम पाणी is on the list for the same reason: continuous hot water is a feature and not an assumption.
+locale: mr
+---
+मोफत वाय-फाय
+जलतरण तलाव
+स्पा
+व्यायामशाळा
+उपाहारगृह
+बार
+खोलीत सेवा
+विमानतळ वाहन सेवा
+मोफत न्याहारी
+वाहनतळ
+पाळीव प्राण्यांना परवानगी
+व्यवसाय केंद्र
+स्वागतकक्ष सेवा
+कपडे धुलाई सेवा
+गच्चीवरील गॅलरी
+गरम पाणी
+वातानुकूलन
+शाकाहारी जेवण
+जैन जेवण
+सभागृह
+वाहनचालक निवास
+लिफ्ट
+जनरेटर बॅकअप
+प्रथमोपचार
+बालसंगोपन
+सामान ठेवण्याची सोय
+मंदिर दर्शन सेवा
+स्थानिक सहल आयोजन
+चलन विनिमय
+धुम्रपान क्षेत्र

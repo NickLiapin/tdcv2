@@ -1,0 +1,44 @@
+---
+description: Medical specialty, in Marathi. The last six are the AYUSH systems, which are government-recognised medical specialities in India with their own five-year degrees, registration councils and hospitals — आयुर्वेद in particular has a large presence in Maharashtra, and a B.A.M.S. holder is a registered medical practitioner. Leaving them out would misdescribe the Indian medical workforce. Note the -शास्त्र compounding described in medical/specialtyCoherent.txt.
+locale: mr
+---
+हृदयरोगशास्त्र
+त्वचारोगशास्त्र
+अंतःस्रावशास्त्र
+जठरांत्रशास्त्र
+मज्जातंतूशास्त्र
+कर्करोगशास्त्र
+नेत्ररोगशास्त्र
+अस्थिरोगशास्त्र
+बालरोगशास्त्र
+मानसोपचारशास्त्र
+फुफ्फुसरोगशास्त्र
+क्ष-किरणशास्त्र
+संधिवातशास्त्र
+मूत्ररोगशास्त्र
+मूत्रपिंडशास्त्र
+रक्तशास्त्र
+प्रतिकारशक्तिशास्त्र
+ऍलर्जीशास्त्र
+भूलशास्त्र
+अपघात विभाग
+कुटुंब वैद्यक
+सामान्य वैद्यक
+स्त्रीरोग व प्रसूतिशास्त्र
+कान-नाक-घसा शास्त्र
+विकृतिशास्त्र
+सामान्य शल्यचिकित्सा
+प्लास्टिक शल्यचिकित्सा
+हृदय शल्यचिकित्सा
+मज्जातंतू शल्यचिकित्सा
+संसर्गजन्य रोगशास्त्र
+वृद्धत्व वैद्यक
+नवजात शिशुशास्त्र
+दंतवैद्यक
+सामाजिक आरोग्यशास्त्र
+आयुर्वेद
+योग व निसर्गोपचार
+युनानी
+सिद्ध
+होमिओपॅथी
+पुनर्वसन वैद्यक

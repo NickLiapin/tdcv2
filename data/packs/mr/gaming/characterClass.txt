@@ -1,0 +1,28 @@
+---
+description: Player character class, in Marathi. Indian gaming talk is heavily English, so the loanwords are kept where that is what players actually say; the native words (योद्धा, जादूगार, धनुर्धर, मारेकरी, संन्यासी) are the ones Marathi game translations and mythological games use.
+locale: mr
+---
+योद्धा
+जादूगार
+धनुर्धर
+मारेकरी
+पुजारी
+शिकारी
+संन्यासी
+मल्ल
+रक्षक
+सेनापती
+गुप्तहेर
+तांत्रिक
+वैद्य
+नाइट
+पॅलाडिन
+ड्रुइड
+बार्ड
+नेक्रोमॅन्सर
+वॉरलॉक
+रोग
+टँक
+सपोर्ट
+स्नायपर
+समनर

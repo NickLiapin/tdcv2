@@ -1,0 +1,5 @@
+---
+description: Capital of ترکی in Urdu.
+locale: ur
+---
+انقرہ

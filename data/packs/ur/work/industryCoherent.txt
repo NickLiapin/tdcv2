@@ -1,0 +1,14 @@
+---
+description: Industry with a coherent job list beside it — the parent of work/jobByIndustry, so every value here has a file of that exact name.
+locale: ur
+---
+ٹیکنالوجی
+صحت
+مالیات
+تعمیرات
+تعلیم
+مہمان نوازی
+صنعت
+پرچون
+نقل و حمل
+قانون

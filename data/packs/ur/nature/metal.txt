@@ -1,0 +1,26 @@
+---
+description: Metals in Urdu. پیتل and کانسی are brass and bronze — alloys, and named as separate materials rather than as kinds of copper. پارہ is mercury. سونا and چاندی head the list because gold and silver are held as household savings across this region far more than as ornament: gold is priced by the تولہ (11.66 g) and a family's wealth is often literally worn.
+locale: ur
+---
+سونا
+چاندی
+تانبا
+پیتل
+کانسی
+لوہا
+فولاد
+سیسہ
+جست
+رانگا
+ایلومینیم
+نکل
+کروم
+ٹائٹینیم
+پلاٹینم
+پارہ
+ٹنگسٹن
+کوبالٹ
+مینگنیز
+میگنیشیم
+یورینیم
+لیتھیم

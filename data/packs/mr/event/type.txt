@@ -1,0 +1,66 @@
+---
+description: Kind of event, in Marathi. This is one of the most locale-specific lists in the pack and almost none of it survives translation. गणेशोत्सव is the ten-day public Ganesh festival that Tilak turned into a mass political institution in 1893 and that shuts Maharashtra down every September; गुढी पाडवा is the Marathi new year, when a decorated pole goes up outside the door. डोहाळेजेवण is the ceremony held for a woman in her seventh month and has no Hindi or English name. मुंज is the thread ceremony. षष्ट्यब्दीपूर्ती and सहस्रचंद्रदर्शन are the formal sixtieth and eighty-first birthday rituals, both of which generate a printed invitation. साहित्य संमेलन is the annual Marathi literary convention, a three-day mass event with an elected president and tens of thousands of attendees, and there is nothing comparable in any other Indian language. The theatre entries — नाटक, संगीत नाटक, एकांकिका स्पर्धा, तमाशा, लावणी, दशावतार, भारूड, कीर्तन, पोवाडा — are living commercial and folk performance forms with their own touring circuits, not heritage revivals, and Hindi has no equivalent to any of them.
+locale: mr
+---
+गणेशोत्सव
+गुढी पाडवा
+मकर संक्रांत
+दिवाळी
+होळी
+रंगपंचमी
+नागपंचमी
+गोकुळाष्टमी
+दहीहंडी
+नवरात्र
+दसरा
+कोजागिरी पौर्णिमा
+आषाढी एकादशी
+कार्तिकी एकादशी
+वटपौर्णिमा
+नारळी पौर्णिमा
+पोळा
+भाऊबीज
+महाशिवरात्र
+रामनवमी
+हरतालिका
+अक्षय्य तृतीया
+शिवजयंती
+आंबेडकर जयंती
+लग्न
+साखरपुडा
+बारसे
+मुंज
+डोहाळेजेवण
+वास्तुशांती
+गृहप्रवेश
+सत्यनारायण पूजा
+वाढदिवस
+षष्ट्यब्दीपूर्ती
+सहस्रचंद्रदर्शन
+नाटक
+संगीत नाटक
+एकांकिका स्पर्धा
+तमाशा
+लावणी कार्यक्रम
+कीर्तन
+भारूड
+दशावतार
+गोंधळ
+पोवाडा
+भजन संध्या
+गाण्याची मैफल
+व्याख्यान
+साहित्य संमेलन
+नाट्य संमेलन
+परिषद
+कार्यशाळा
+प्रदर्शन
+जत्रा
+यात्रा
+दिंडी
+पालखी
+मिरवणूक
+स्नेहसंमेलन
+निधी संकलन कार्यक्रम
+क्रीडा स्पर्धा
+उत्पादन प्रकाशन

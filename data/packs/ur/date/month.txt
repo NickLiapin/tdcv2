@@ -1,0 +1,16 @@
+---
+description: Gregorian month names in Urdu, which is what a date on a Pakistani or Indian document carries. Urdu also uses the Hijri lunar months for every religious date — محرم، صفر، ربیع الاول، ربیع الثانی، جمادی الاول، جمادی الثانی، رجب، شعبان، رمضان، شوال، ذی القعدہ، ذی الحجہ — and those names do NOT align with these month for month: the Hijri year is about eleven days shorter than the Gregorian one, so رمضان moves backwards through the seasons and cannot be substituted line for line into this list. The two calendars are printed side by side on Pakistani newspapers and government letterheads, so a document may carry both dates at once.
+locale: ur
+---
+جنوری
+فروری
+مارچ
+اپریل
+مئی
+جون
+جولائی
+اگست
+ستمبر
+اکتوبر
+نومبر
+دسمبر

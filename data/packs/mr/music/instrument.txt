@@ -1,0 +1,37 @@
+---
+description: Musical instrument, in Marathi. Nine are Maharashtrian and a translated list would have none of them. ढोल and ताशा are the drums of the ढोल-ताशा पथक, the massed percussion troupes of hundreds of players that lead every Ganeshotsav procession; लेझीम is the small jingling frame swung in formation alongside them. ढोलकी is the waisted drum of tamasha and lavani, played with both hands at speed. संबळ is the twin-drum of the Gondhal ritual and हलगी the frame drum of Kolhapur's processions. तुतारी is the curved Maratha war trumpet, still sounded at political rallies. टाळ, the hand cymbals, and चिपळ्या, the wooden clappers, are what every Warkari carries on the walk to Pandharpur. Note that Marathi calls the harmonium पेटी, literally the box, where Hindi says हारमोनियम. Four of these — संबळ, टाळ, चिपळ्या, पखवाज — carry letters Hindi cannot write.
+locale: mr
+---
+तबला
+पेटी
+संवादिनी
+ढोल
+ताशा
+ढोलकी
+लेझीम
+संबळ
+हलगी
+तुतारी
+चौघडा
+मृदंग
+पखवाज
+टाळ
+चिपळ्या
+एकतारी
+तंबोरा
+वीणा
+सतार
+सरोद
+संतूर
+बासरी
+सनई
+शहनाई
+डफ
+नगारा
+घुंगरू
+शंख
+व्हायोलिन
+गिटार
+पियानो
+ड्रम
+सिंथेसायझर

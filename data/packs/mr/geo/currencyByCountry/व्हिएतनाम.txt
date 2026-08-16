@@ -1,0 +1,5 @@
+---
+description: Currency of व्हिएतनाम, as Marathi names it
+locale: mr
+---
+व्हिएतनामी डाँग

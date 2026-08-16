@@ -1,0 +1,16 @@
+---
+description: Indian dishes in Urdu, drawn from across the country rather than only from the north — the southern دوسہ and سانبھر belong here as much as بٹر چکن does.
+locale: ur
+---
+مسالہ دوسہ
+ادلی
+سانبھر
+راجما چاول
+چھولے بھٹورے
+پاؤ بھاجی
+وڑا پاؤ
+پانی پوری
+بٹر چکن
+روگن جوش
+رس گلہ
+ٹھنڈائی

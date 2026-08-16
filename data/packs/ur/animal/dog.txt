@@ -1,0 +1,29 @@
+---
+description: Dog breeds in Urdu. The first block is the imported pedigree breeds, named as Urdu writes them. The second is the region's own, which no European list contains: بلی کتا (the "Bully Kutta", a large Punjabi and Sindhi mastiff), گل ٹیر and گل ڈونگ, the Afghan کوچی shepherd, and the تازی, the sighthound the Arabic-speaking world calls a saluki and Urdu has always called by this name. آوارہ کتا closes the list — the free-roaming street dog, which in most South Asian cities outnumbers every pedigree on this list put together.
+locale: ur
+---
+جرمن شیفرڈ
+لیبراڈور
+گولڈن ریٹریور
+راٹ ویلر
+ڈوبرمین
+بل ڈاگ
+باکسر
+بیگل
+پگ
+ڈالمیشن
+ہسکی
+پومیرینین
+چیہواہوا
+گریٹ ڈین
+کاکر اسپینیل
+شیہ زو
+لہاسا اپسو
+افغان ہاؤنڈ
+بلی کتا
+گل ٹیر
+گل ڈونگ
+کوچی
+تازی
+مدھول ہاؤنڈ
+آوارہ کتا

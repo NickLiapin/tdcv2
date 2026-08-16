@@ -1,0 +1,5 @@
+---
+description: Currency of जपान, as Marathi names it
+locale: mr
+---
+जपानी येन

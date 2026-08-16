@@ -1,0 +1,48 @@
+---
+description: Generic drug names in Urdu script. Pakistan and India are both very large generic manufacturers and prescriptions here are written by generic name far more often than by brand, so this is the form that actually appears on a prescription pad. Names are transliterated rather than translated, which is what an Urdu prescription does.
+locale: ur
+---
+پیراسیٹامول
+آئبوپروفین
+ڈائیکلوفینیک
+ایسپرین
+ٹرامادول
+اموکسی سلین
+ایزیتھرومائسن
+سیفکسیم
+سیپروفلوکساسن
+میٹرونیڈازول
+ڈوکسی سائیکلین
+رفیمپیسن
+آئسونیازڈ
+پائرازینامائیڈ
+ایتھمبیوٹول
+آرٹیمیتھر
+کلوروکوئن
+میٹفارمین
+گلائی بین کلامائیڈ
+انسولین
+املوڈپین
+لوسارٹن
+اٹینولول
+بائسوپرولول
+اینالاپرل
+فروسیمائیڈ
+ایٹورواسٹیٹن
+کلوپیڈوگرل
+وارفرین
+اومیپرازول
+رینیٹیڈین
+ڈومپیریڈون
+اورل ری ہائیڈریشن سالٹ
+سالبوٹامول
+بڈیسونائیڈ
+مونٹیلوکاسٹ
+سیٹریزین
+لوریٹاڈین
+پریڈنیسولون
+ہائیڈروکورٹیزون
+لیوو تھائیروکسن
+فولک ایسڈ
+آئرن سلفیٹ
+وٹامن ڈی

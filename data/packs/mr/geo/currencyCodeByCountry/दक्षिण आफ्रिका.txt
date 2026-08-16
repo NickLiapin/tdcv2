@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of दक्षिण आफ्रिका
+locale: mr
+---
+ZAR

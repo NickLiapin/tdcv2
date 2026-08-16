@@ -1,0 +1,20 @@
+---
+description: Medical diagnosis in Urdu that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis, and male-skewed but not male-only conditions live in person/male/diagnosis.
+locale: ur
+---
+پروسٹیٹ کا بڑھنا
+پروسٹیٹ کی سوزش
+پروسٹیٹ کا سرطان
+خصیوں کا سرطان
+خصیے کا مروڑ
+ورم الخصیہ
+ورم البربخ
+ہائیڈروسیل
+ویریکوسیل
+خصیے کا نہ اترنا
+تنگی غلفہ
+آلہ تناسل کا سرطان
+مردانہ بانجھ پن
+نامردی
+منی کی کمی
+مردانہ چھاتی کا بڑھنا

@@ -1,0 +1,16 @@
+---
+description: Abbreviated Marathi month. The full stop is part of the abbreviation. The four names that are already short — मार्च, मे, जून, जुलै — are not abbreviated at all and carry no stop, so a formatter that blindly appends one is wrong four times a year.
+locale: mr
+---
+जाने.
+फेब्रु.
+मार्च
+एप्रि.
+मे
+जून
+जुलै
+ऑग.
+सप्टें.
+ऑक्टो.
+नोव्हें.
+डिसें.

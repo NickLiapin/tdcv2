@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier in Urdu, as a translated ladder labels it.
+locale: ur
+---
+لوہا
+کانسی
+چاندی
+سونا
+پلاٹینم
+ہیرا
+ماسٹر
+گرینڈ ماسٹر
+چیلنجر
+افسانوی

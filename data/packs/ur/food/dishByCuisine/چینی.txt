@@ -1,0 +1,16 @@
+---
+description: Chinese dishes as they are eaten and named in the Urdu-speaking world. This is Pakistani-Chinese cooking, which is its own hybrid: چکن مانچورین and ہاٹ اینڈ سار سوپ are South Asian inventions that no kitchen in China serves, and چائنیز چاول means fried rice with a specific local seasoning.
+locale: ur
+---
+چائنیز چاول
+چکن مانچورین
+ہاٹ اینڈ سار سوپ
+چکن کارن سوپ
+چاؤمین
+اسپرنگ رول
+ڈمپلنگ
+سویٹ اینڈ سار چکن
+کنگ پاؤ چکن
+ماپو ٹوفو
+پیکنگ ڈک
+ڈم سم

@@ -1,0 +1,5 @@
+---
+description: Capital of बांगलादेश, as Marathi names it
+locale: mr
+---
+ढाका

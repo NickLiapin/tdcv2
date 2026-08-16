@@ -1,0 +1,34 @@
+---
+description: Hashtags in Urdu. Urdu hashtags work: X, Facebook and Instagram all index the Perso-Arabic script, and Urdu-language trends run on all three. The hash sign stays on the LEFT of the word even though the text runs right to left, which is a rendering rule rather than a spelling one — the tag is stored as # followed by the Urdu letters.
+locale: ur
+---
+#پاکستان
+#اردو
+#اردوادب
+#شاعری
+#غزل
+#قوالی
+#کرکٹ
+#ہاکی
+#تعلیم
+#صحت
+#معیشت
+#کاروبار
+#ٹیکنالوجی
+#سفر
+#کھانا
+#کھانا_پکانا
+#فیشن
+#خریداری
+#تصویرکشی
+#فلم
+#ڈرامہ
+#موسیقی
+#کتابیں
+#خبریں
+#موسم
+#رمضان
+#عید
+#محرم
+#وطن
+#نوجوان

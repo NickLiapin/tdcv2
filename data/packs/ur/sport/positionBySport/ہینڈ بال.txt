@@ -1,0 +1,12 @@
+---
+description: Handball positions in Urdu.
+locale: ur
+---
+گول کیپر
+لیفٹ ونگ
+رائٹ ونگ
+لیفٹ بیک
+رائٹ بیک
+سنٹر بیک
+پیوٹ
+دفاعی کھلاڑی

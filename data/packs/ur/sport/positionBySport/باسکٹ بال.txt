@@ -1,0 +1,11 @@
+---
+description: Basketball positions in Urdu.
+locale: ur
+---
+پوائنٹ گارڈ
+شوٹنگ گارڈ
+سمال فارورڈ
+پاور فارورڈ
+سنٹر
+سکستھ مین
+متبادل کھلاڑی

@@ -1,0 +1,27 @@
+---
+description: Secondary address unit in Urdu. Most of these are the word نمبر ("number") after a noun, because an Urdu address numbers the thing rather than abbreviating it: مکان نمبر ۱۲, گلی نمبر ۴. پورشن, اپر پورشن and لوئر پورشن have no European equivalent and are the commonest rental unit in urban Pakistan — one floor of a house let separately with its own entrance, so the same مکان نمبر can be two households. کوارٹر is government or railway staff housing and marks the address as institutional.
+locale: ur
+---
+مکان نمبر
+فلیٹ نمبر
+پلاٹ نمبر
+دکان نمبر
+دفتر نمبر
+کمرہ نمبر
+گلی نمبر
+اسٹریٹ نمبر
+بلاک
+یونٹ
+سیکٹر
+فیز
+منزل
+گراؤنڈ فلور
+فرسٹ فلور
+سیکنڈ فلور
+بیسمنٹ
+پورشن
+اپر پورشن
+لوئر پورشن
+کوارٹر
+ہاسٹل
+کیبن

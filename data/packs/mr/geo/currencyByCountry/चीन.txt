@@ -1,0 +1,5 @@
+---
+description: Currency of चीन, as Marathi names it
+locale: mr
+---
+चिनी युआन

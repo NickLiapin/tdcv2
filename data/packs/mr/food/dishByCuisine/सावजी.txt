@@ -1,0 +1,14 @@
+---
+description: Dishes of सावजी cooking, in Marathi. The parent list is food/cuisine.txt and this filename must match its value character for character.
+locale: mr
+---
+सावजी मटण
+सावजी चिकन
+सावजी रस्सा
+पातोडी
+तर्री
+खिमा
+कलेजी
+मुंडी रस्सा
+भाकरी
+चपाती

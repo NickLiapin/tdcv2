@@ -1,0 +1,40 @@
+---
+description: Bird names in Urdu. Several are words English borrowed on the way out of South Asia — مینا became "myna" and بلبل "bulbul" — while others are the ordinary Urdu names of birds an Urdu speaker actually sees: کوا, چڑیا, فاختہ, ہدہد. شاہین and باز are not synonyms and the difference matters to any Urdu reader, because Iqbal built a whole national symbolism on شاہین, the mountain falcon, as against the trained hunting باز. چکور, the chukar partridge that in Urdu poetry gazes at the moon, is a stock literary image rather than merely a bird.
+locale: ur
+---
+کوا
+چڑیا
+کبوتر
+فاختہ
+قمری
+طوطا
+مینا
+بلبل
+کوئل
+ہدہد
+الو
+باز
+شاہین
+عقاب
+گدھ
+چیل
+شکرہ
+مرغابی
+بطخ
+ہنس
+مرغ
+مرغی
+بٹیر
+تیتر
+چکور
+مور
+سارس
+کونج
+بگلا
+لق لق
+ابابیل
+کٹھ پھوڑا
+نیل کنٹھ
+سرخاب
+شتر مرغ
+پپیہا

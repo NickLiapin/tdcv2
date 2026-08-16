@@ -1,0 +1,5 @@
+---
+description: Capital of برازیل in Urdu.
+locale: ur
+---
+براسیلیا

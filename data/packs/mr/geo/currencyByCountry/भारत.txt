@@ -1,0 +1,5 @@
+---
+description: Currency of भारत, as Marathi names it
+locale: mr
+---
+भारतीय रुपया

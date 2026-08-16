@@ -1,0 +1,18 @@
+---
+description: Mobile plan type in Urdu. The bundle vocabulary is what this market actually sells: prepaid dominates almost completely, and packages are bought by the day, the week or the month rather than by contract, so روزانہ بنڈل is a real product and not a promotion. سوشل پیکج is a data bundle that covers only WhatsApp, Facebook and TikTok, which is a common way to be online here without paying for general data.
+locale: ur
+---
+پری پیڈ
+پوسٹ پیڈ
+روزانہ بنڈل
+ہفتہ وار بنڈل
+ماہانہ بنڈل
+کال پیکج
+ایس ایم ایس پیکج
+انٹرنیٹ پیکج
+سوشل پیکج
+انلمیٹڈ
+فیملی پیکج
+رومنگ
+ڈیٹا سِم
+بزنس پیکج

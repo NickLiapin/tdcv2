@@ -1,0 +1,19 @@
+---
+description: Cardiology diagnoses in Urdu. South Asians develop coronary artery disease earlier and at lower body weight than most other populations, so a cardiology record here contains patients a decade younger than a European one would.
+locale: ur
+---
+بلند فشار خون
+دل کی شریانوں کی بیماری
+دل کا دورہ
+انجائنا
+دل کی ناکامی
+دھڑکن کی بے قاعدگی
+ایٹریل فبریلیشن
+دل کے پٹھوں کی بیماری
+دل کے والو کی خرابی
+گٹھیا سے دل کی بیماری
+پیدائشی دل کی خرابی
+دل کی جھلی کی سوزش
+شریانوں کی سختی
+گہری رگ کا لوتھڑا
+کولیسٹرول کی زیادتی

@@ -1,0 +1,5 @@
+---
+description: Currency of بنگلہ دیش in Urdu.
+locale: ur
+---
+بنگلہ دیشی ٹکہ

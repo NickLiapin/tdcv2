@@ -1,0 +1,59 @@
+---
+description: Sport, in Marathi, led by what Maharashtra actually plays. Seven are Maharashtrian or Indian and appear in no European list. मल्लखांब is gymnastics performed on a fixed wooden pole or a hanging rope, Maharashtra's own discipline and now its state sport. दांडपट्टा is the Maratha sword-flail, revived and recognised as a state sport in 2022. मर्दानी खेळ are the Maratha martial games it belongs to. कुस्ती, wrestling in a clay pit at a तालीम, is the village sport of western Maharashtra. आट्यापाट्या, विटीदांडू and लगोरी are the street games every Marathi childhood contains. बैलगाडा शर्यत, bullock cart racing, is a rural sport that was banned, litigated over for a decade and legally restored — it is a live subject, not a curiosity. कबड्डी and खो खो are Indian sports with professional leagues.
+locale: mr
+---
+क्रिकेट
+कबड्डी
+खो खो
+कुस्ती
+मल्लखांब
+दांडपट्टा
+मर्दानी खेळ
+लाठीकाठी
+आट्यापाट्या
+विटीदांडू
+लगोरी
+लंगडी
+बैलगाडा शर्यत
+फुटबॉल
+हॉकी
+बॅडमिंटन
+टेनिस
+टेबल टेनिस
+व्हॉलीबॉल
+बास्केटबॉल
+हँडबॉल
+रग्बी
+बेसबॉल
+बॉक्सिंग
+ज्युदो
+कराटे
+तायक्वांदो
+तलवारबाजी
+तिरंदाजी
+नेमबाजी
+वेटलिफ्टिंग
+ॲथलेटिक्स
+मॅरेथॉन
+ट्रायथलॉन
+पोहणे
+वॉटर पोलो
+सायकलिंग
+रोइंग
+नौकानयन
+कयाकिंग
+घोडेस्वारी
+पोलो
+गोल्फ
+स्क्वॅश
+बुद्धिबळ
+कॅरम
+बिलियर्ड्स
+स्नूकर
+जिम्नॅस्टिक्स
+योगासन
+गिर्यारोहण
+स्केटिंग
+रस्सीखेच
+पतंगबाजी
+पॅराग्लायडिंग

@@ -1,0 +1,21 @@
+---
+description: Bicycle types in Urdu. سائیکل is transport rather than sport across most of this region, so the utility shapes come first; ریس سائیکل and ماؤنٹین بائیک are the imported sporting kinds.
+locale: ur
+---
+عام سائیکل
+ریس سائیکل
+ماؤنٹین بائیک
+ہائبرڈ سائیکل
+بی ایم ایکس
+بچوں کی سائیکل
+ٹرائی سائیکل
+مال بردار سائیکل
+ریڑھی سائیکل
+فولڈنگ سائیکل
+برقی سائیکل
+ٹینڈم
+ٹورنگ سائیکل
+فکسڈ گیئر
+ڈیلیوری سائیکل
+چنگ چی سائیکل
+سنگل اسپیڈ

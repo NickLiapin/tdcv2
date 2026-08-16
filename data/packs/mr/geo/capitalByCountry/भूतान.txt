@@ -1,0 +1,5 @@
+---
+description: Capital of भूतान, as Marathi names it
+locale: mr
+---
+थिंफू

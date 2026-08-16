@@ -1,0 +1,5 @@
+---
+description: Capital of بھارت in Urdu.
+locale: ur
+---
+نئی دہلی

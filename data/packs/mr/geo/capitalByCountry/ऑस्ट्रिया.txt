@@ -1,0 +1,5 @@
+---
+description: Capital of ऑस्ट्रिया, as Marathi names it
+locale: mr
+---
+व्हिएन्ना

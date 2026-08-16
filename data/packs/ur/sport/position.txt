@@ -1,0 +1,44 @@
+---
+description: Playing positions in Urdu, mixed across sports. Cricket positions dominate because cricket does, and several of them — سلپ, گلی, پوائنٹ, لانگ آن, ڈیپ فائن لیگ — are fielding places on the ground rather than roles in a team, which is a kind of position no other sport on this list has.
+locale: ur
+---
+بلے باز
+اوپننگ بلے باز
+مڈل آرڈر بلے باز
+وکٹ کیپر
+آل راؤنڈر
+تیز گیند باز
+سپن گیند باز
+فیلڈر
+سلپ
+گلی
+پوائنٹ
+کور
+مڈ آن
+مڈ آف
+لانگ آن
+ڈیپ فائن لیگ
+بارہواں کھلاڑی
+کپتان
+گول کیپر
+دفاعی کھلاڑی
+سنٹر بیک
+رائٹ بیک
+لیفٹ بیک
+سویپر
+مڈفیلڈر
+دفاعی مڈفیلڈر
+حملہ آور مڈفیلڈر
+ونگر
+فارورڈ
+سنٹر فارورڈ
+اسٹرائیکر
+ریڈر
+اسٹاپر
+کارنر
+سیٹر
+لبیرو
+مڈل بلاکر
+پوائنٹ گارڈ
+سنٹر
+ہاف بیک

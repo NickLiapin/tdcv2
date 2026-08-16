@@ -1,0 +1,44 @@
+---
+description: Company legal form or name suffix, in Marathi. Several are Maharashtrian institutional forms that a European or even a Hindi list has no slot for. सहकारी संस्था is the co-operative society, and सहकारी साखर कारखाना — the co-operative sugar mill — is the single most important economic institution in western Maharashtra; there are more than a hundred of them and each one is a company, a political base and a village employer at once. पतसंस्था is the credit society, नागरी सहकारी बँक the urban co-operative bank, and दूध संघ the dairy union. बंधू is the Marathi of Brothers and is a genuine trading name suffix (जोशी बंधू). प्रा. लि. is the abbreviation for private limited and appears on nearly every incorporated Indian firm.
+locale: mr
+---
+प्रा. लि.
+लि.
+LLP
+अँड कंपनी
+अँड सन्स
+बंधू
+अँड ब्रदर्स
+उद्योग
+इंडस्ट्रीज
+समूह
+ग्रुप
+एंटरप्रायझेस
+ट्रेडर्स
+स्टोअर्स
+एजन्सी
+असोसिएट्स
+कन्सल्टंट्स
+सर्व्हिसेस
+सोल्युशन्स
+टेक्नॉलॉजीज
+सिस्टिम्स
+लॅब्ज
+व्हेंचर्स
+होल्डिंग्ज
+इन्फ्रा
+बिल्डर्स अँड डेव्हलपर्स
+सहकारी संस्था
+सहकारी साखर कारखाना
+सहकारी सूतगिरणी
+नागरी सहकारी बँक
+पतसंस्था
+दूध संघ
+बचत गट
+मंडळ
+प्रतिष्ठान
+न्यास
+फाउंडेशन
+संघटना
+महामंडळ
+आंतरराष्ट्रीय

@@ -1,0 +1,5 @@
+---
+description: Currency of آئرلینڈ in Urdu.
+locale: ur
+---
+یورو

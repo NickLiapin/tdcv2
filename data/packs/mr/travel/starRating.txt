@@ -1,0 +1,9 @@
+---
+description: Hotel star rating, in Marathi.
+locale: mr
+---
+एक तारांकित
+दोन तारांकित
+तीन तारांकित
+चार तारांकित
+पाच तारांकित

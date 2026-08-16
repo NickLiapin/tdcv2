@@ -1,0 +1,5 @@
+---
+description: Capital of जपान, as Marathi names it
+locale: mr
+---
+टोकियो

@@ -1,0 +1,18 @@
+---
+description: Leave types in Urdu. Three of these exist because of this region's law and religion and appear on real leave forms. حج کی چھٹی is granted once in a career for the pilgrimage, and it is long — several weeks — because the journey is. زچگی کی چھٹی is statutory maternity leave; پدرانہ چھٹی, paternity leave, was legislated in Pakistan only in 2023 and is new enough that a dataset spanning years will show it appearing. عدت کی چھٹی is leave for the waiting period a widow observes, which some service rules grant explicitly. آرام کی چھٹی ("casual leave") is a small annual allowance taken a day at a time without giving a reason, and it is a separate category from annual leave throughout South Asian service rules.
+locale: ur
+---
+سالانہ چھٹی
+آرام کی چھٹی
+بیماری کی چھٹی
+طبی چھٹی
+زچگی کی چھٹی
+پدرانہ چھٹی
+حج کی چھٹی
+عمرہ کی چھٹی
+سوگ کی چھٹی
+عدت کی چھٹی
+شادی کی چھٹی
+بلا معاوضہ چھٹی
+تعلیمی چھٹی
+ہنگامی چھٹی

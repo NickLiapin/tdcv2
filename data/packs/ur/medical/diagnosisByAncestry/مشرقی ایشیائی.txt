@@ -1,0 +1,12 @@
+---
+description: Conditions with a higher prevalence in East Asian ancestry, in Urdu.
+locale: ur
+---
+لیکٹوز کی عدم برداشت
+الکحل کی عدم برداشت
+معدے کا سرطان
+ناک اور حلق کا سرطان
+ہیپاٹائٹس بی
+ذیابیطس قسم دوم
+گلوکوما
+قریب کی نظر

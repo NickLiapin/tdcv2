@@ -1,0 +1,22 @@
+---
+description: Hospitality jobs in Urdu. باورچی is the cook and نان بائی specifically the tandoor baker, who is a separate trade; چائے والا runs the tea stall that in this culture is a social institution rather than a kiosk.
+locale: ur
+---
+ہوٹل مینیجر
+استقبالیہ افسر
+دربان
+بیرا
+ویٹر
+باورچی
+شیف
+نان بائی
+تندور والا
+چائے والا
+بار ٹینڈر
+ہاؤس کیپنگ
+لانڈری ورکر
+ایونٹ مینیجر
+ٹریول ایجنٹ
+ٹور گائیڈ
+بکنگ افسر
+شادی ہال منیجر

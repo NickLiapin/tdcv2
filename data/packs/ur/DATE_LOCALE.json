@@ -1,0 +1,51 @@
+{
+  "months": [
+    "جنوری",
+    "فروری",
+    "مارچ",
+    "اپریل",
+    "مئی",
+    "جون",
+    "جولائی",
+    "اگست",
+    "ستمبر",
+    "اکتوبر",
+    "نومبر",
+    "دسمبر"
+  ],
+  "monthsInDate": [
+    "جنوری",
+    "فروری",
+    "مارچ",
+    "اپریل",
+    "مئی",
+    "جون",
+    "جولائی",
+    "اگست",
+    "ستمبر",
+    "اکتوبر",
+    "نومبر",
+    "دسمبر"
+  ],
+  "monthsShort": [
+    "جن",
+    "فر",
+    "مار",
+    "اپر",
+    "مئی",
+    "جون",
+    "جول",
+    "اگ",
+    "ست",
+    "اکت",
+    "نوم",
+    "دس"
+  ],
+  "weekdays": ["اتوار", "پیر", "منگل", "بدھ", "جمعرات", "جمعہ", "ہفتہ"],
+  "weekdaysShort": ["اتو", "پیر", "منگ", "بدھ", "جمعر", "جمعہ", "ہفتہ"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "THE MONTHS IN THIS FILE ARE THE GREGORIAN ONES, IN URDU, and that is deliberate: months[0] must be whatever the engine calls month number 0, the engine generates Gregorian dates, so months[0] is January = جنوری. Urdu also runs on the HIJRI lunar calendar for every religious date — محرم، صفر، ربیع الاول، ربیع الثانی، جمادی الاول، جمادی الثانی، رجب، شعبان، رمضان، شوال، ذی القعدہ، ذی الحجہ — and those twelve do NOT map onto these twelve. The Hijri year is about eleven days shorter than the Gregorian, so رمضان moves backwards through the seasons and lands on a different Gregorian date every year; no Hijri month boundary coincides with a Gregorian one, and substituting the names index for index would be wrong for every row. Pakistani newspapers and government letterheads print BOTH dates side by side, so a document may legitimately carry two. This pack does not convert between the calendars. Weekday names come from Persian, not Arabic: پیر، منگل، بدھ، جمعرات are the everyday words, جمعہ is Friday, and ہفتہ literally means \"week\" and is Saturday. The week is written Sunday-first here because this file requires it; Pakistan's weekend is Saturday and Sunday, with a long Friday midday break for congregational prayers. The everyday date format is day first with slashes, ۲۴/۰۸/۲۰۲۶, which is why L is DD/MM/YYYY. Urdu writes its digits as ۰۱۲۳۴۵۶۷۸۹ (U+06F0-U+06F9), the same forms Persian uses and NOT the Arabic-Indic ٠١٢٣٤٥٦٧٨٩ of the ar locale — ۴ ۵ ۶ are drawn differently from ٤ ٥ ٦. Urdu text is right-to-left and is set in the Nastaʿlīq hand, which slopes downwards from right to left; a date rendered in an Arabic Naskh font will be legible but will not look like Urdu."
+}

@@ -1,0 +1,24 @@
+---
+description: Insect and other small invertebrate, in Marathi. Four cannot be spelled in Hindi: वाळवी (termite), झुरळ (cockroach), टोळ (locust) and कोळी (spider) all carry ळ. काजवा is the firefly, and the fireflies of the Western Ghats in the weeks before the monsoon are a Maharashtrian tourist season of their own. Note that फुलपाखरू (butterfly) is NEUTER and मुंगी (ant) is FEMININE, so the two take different agreement in the same sentence frame — Marathi's three genders do not respect the category boundary a config might expect.
+locale: mr
+---
+मुंगी
+मधमाशी
+फुलपाखरू
+भुंगा
+चतुर
+नाकतोडा
+गांधीलमाशी
+पतंग
+रातकिडा
+काजवा
+डास
+माशी
+वाळवी
+झुरळ
+टोळ
+गोम
+विंचू
+ढेकूण
+कोळी
+गोगलगाय

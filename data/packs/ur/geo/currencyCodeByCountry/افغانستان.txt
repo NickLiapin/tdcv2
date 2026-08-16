@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for افغانستان. The code stays Latin — a currency code is written in Latin letters inside Urdu text exactly as it is everywhere else.
+locale: ur
+---
+AFN

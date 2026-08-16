@@ -1,0 +1,5 @@
+---
+description: Currency of سعودی عرب in Urdu.
+locale: ur
+---
+سعودی ریال

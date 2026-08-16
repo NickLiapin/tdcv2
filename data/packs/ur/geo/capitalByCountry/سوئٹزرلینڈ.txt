@@ -1,0 +1,5 @@
+---
+description: Capital of سوئٹزرلینڈ in Urdu.
+locale: ur
+---
+برن

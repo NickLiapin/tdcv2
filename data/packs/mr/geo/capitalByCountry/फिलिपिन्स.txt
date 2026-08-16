@@ -1,0 +1,5 @@
+---
+description: Capital of फिलिपिन्स, as Marathi names it
+locale: mr
+---
+मनिला

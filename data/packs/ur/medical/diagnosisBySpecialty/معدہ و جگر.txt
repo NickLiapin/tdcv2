@@ -1,0 +1,24 @@
+---
+description: Gastroenterology and hepatology diagnoses in Urdu. Hepatitis B and C dominate this specialty across Pakistan far more than they would anywhere in Europe, largely through reused syringes and unscreened blood.
+locale: ur
+---
+معدے کا السر
+تیزابیت
+معدے کی سوزش
+آنتوں کی سوزش
+چڑچڑی آنت
+قبض
+بواسیر
+بھگندر
+ہیپاٹائٹس بی
+ہیپاٹائٹس سی
+یرقان
+جگر کی سختی
+چربی والا جگر
+پتے کی پتھری
+پتے کی سوزش
+لبلبے کی سوزش
+ہیضہ
+ٹائیفائیڈ
+امیبی پیچش
+گلوٹن کی حساسیت

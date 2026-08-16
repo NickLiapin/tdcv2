@@ -1,0 +1,58 @@
+---
+description: Colour as it appears on a product listing, in Marathi. This is the same colour vocabulary as color/name.txt but read as a fixed label rather than as an adjective in a sentence — a listing prints रंग: काळा with the masculine form regardless of the product's gender, because it is a label and not agreement. That is why this file exists separately: a config that puts color/name.txt into a sentence must agree it, and one that puts this into a colour FIELD must not.
+locale: mr
+---
+लाल
+तांबडा
+हिरवा
+निळा
+पिवळा
+केशरी
+जांभळा
+गुलाबी
+तपकिरी
+काळा
+पांढरा
+करडा
+राखाडी
+आकाशी
+फिकट निळा
+गडद निळा
+मोरपंखी
+पोपटी
+शेवाळी
+लिंबू रंग
+सोनेरी
+चंदेरी
+तांबूस
+शेंदरी
+भगवा
+मरून
+बदामी
+गव्हाळ
+मातकट
+चंदनी
+कस्तुरी
+हळदी
+मेंदी रंग
+अबोली
+पारवा
+कबरा
+चॉकलेटी
+कॉफी रंग
+नारिंगी
+जर्द
+फिकट हिरवा
+गडद हिरवा
+पिस्ता
+मोतिया
+माणिक
+पाचू
+नीलम
+पोवळा
+फिरोजी
+ऊदी
+जांभूळ
+गुलाल
+रक्तवर्णी
+दुधाळ

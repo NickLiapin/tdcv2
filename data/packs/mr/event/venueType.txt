@@ -1,0 +1,22 @@
+---
+description: Kind of venue an event is held at, in Marathi. मंगल कार्यालय is the standard Maharashtrian wedding hall — a hired building with a kitchen, a hall and a stage, booked by the day — and it is what almost every Marathi wedding invitation names. नाट्यगृह is the municipal playhouse that most district towns have, because Marathi theatre tours. समाजमंदिर is the community hall a housing society or a village builds for exactly these purposes.
+locale: mr
+---
+मंगल कार्यालय
+नाट्यगृह
+सभागृह
+समाजमंदिर
+लॉन्स
+हॉटेल बँक्वेट हॉल
+मैदान
+क्रीडांगण
+स्टेडियम
+मंदिर प्रांगण
+शाळेचे पटांगण
+गच्ची
+बाग
+प्रदर्शन केंद्र
+परिषद कक्ष
+सांस्कृतिक केंद्र
+वाडा
+नदीकाठ

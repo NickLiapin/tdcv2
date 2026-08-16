@@ -1,0 +1,121 @@
+---
+description: Everyday product, in Marathi. Every noun here carries a grammatical gender that a config needs but cannot see from the string: खुर्ची is feminine, पंखा masculine, पुस्तक neuter. That matters because commerce/productAdjective.txt has to agree with it in three ways, not two. Several items are specific to a Maharashtrian household — पाटा वरवंटा is the grinding stone, विळी the floor-mounted curved blade used for cutting vegetables (it carries ळ), डबा the stacked tiffin carrier, and तांब्या the copper drinking vessel.
+locale: mr
+---
+खुर्ची
+टेबल
+कपाट
+पलंग
+गादी
+उशी
+चादर
+पडदा
+सतरंजी
+घोंगडी
+भांडे
+ताट
+वाटी
+पेला
+तांब्या
+कढई
+तवा
+कुकर
+डबा
+विळी
+पाटा वरवंटा
+खलबत्ता
+सूप
+टोपली
+चाळणी
+झारा
+पळी
+चमचा
+सुरी
+कात्री
+दिवा
+मेणबत्ती
+पंखा
+कूलर
+हीटर
+इस्त्री
+आरसा
+घड्याळ
+फुलदाणी
+चटई
+पायपुसणी
+झाडू
+बादली
+मग
+साबण
+टॉवेल
+ब्रश
+कंगवा
+छत्री
+टोपी
+चप्पल
+बूट
+पिशवी
+पाकीट
+बॅग
+पाठपिशवी
+पाण्याची बाटली
+चष्मा
+घड्याळाचा पट्टा
+पुस्तक
+वही
+पेन
+पेन्सिल
+खोडरबर
+पट्टी
+संगणक
+कीबोर्ड
+माउस
+मॉनिटर
+हेडफोन
+स्पीकर
+चार्जर
+मोबाइल
+कॅमेरा
+सायकल
+हेल्मेट
+चेंडू
+बॅट
+पतंग
+भातुकली
+खेळणी
+चित्र
+मूर्ती
+समई
+निरांजन
+उदबत्ती
+अगरबत्ती स्टँड
+रांगोळीचा साचा
+शिवणयंत्र
+कापड
+साडी
+शर्ट
+पँट
+मोजे
+हातमोजे
+कंदील
+टॉर्च
+कुलूप
+किल्ली
+दोरी
+खिळा
+हातोडा
+पक्कड
+स्क्रूड्रायव्हर
+मापपट्टी
+रंगाचा ब्रश
+खुरपे
+कुदळ
+फावडे
+विळा
+कोयता
+जाळी
+गादीचे कव्हर
+थर्मास
+जेवणाचा डबा
+मसाल्याचा डबा
+साठवणीचे भांडे

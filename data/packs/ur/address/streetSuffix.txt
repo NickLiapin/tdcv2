@@ -1,0 +1,44 @@
+---
+description: The noun that closes an Urdu street address. Urdu keeps three registers side by side and a config that mixes them badly will read as a translation: سڑک and گلی are the ordinary Urdu words for road and lane, شاہراہ and گزرگاہ are the formal Persianate register used on signboards and in gazettes, and روڈ, اسٹریٹ, ایونیو, بائی پاس and موٹروے are English loans written in Urdu script, which is what a modern Pakistani or Indian address actually carries. محلہ is a residential quarter rather than a street and is how older city addresses are given at all — the quarter is named and the house is found by asking.
+locale: ur
+---
+روڈ
+سڑک
+گلی
+کوچہ
+شاہراہ
+گزرگاہ
+راستہ
+چوک
+چوراہا
+موڑ
+پل
+پھاٹک
+ناکہ
+بازار
+مارکیٹ
+منڈی
+میدان
+احاطہ
+محلہ
+بستی
+کالونی
+ٹاؤن
+سیکٹر
+بلاک
+فیز
+اسٹریٹ
+ایونیو
+لین
+بولیوارڈ
+سرکل
+کراسنگ
+بائی پاس
+لنک روڈ
+مین روڈ
+سروس روڈ
+ہائی وے
+موٹروے
+رنگ روڈ
+انڈر پاس
+فلائی اوور

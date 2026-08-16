@@ -1,0 +1,19 @@
+---
+description: Directional qualifier appended to an Urdu street, block or sector name (گلبرگ شمالی, ماڈل ٹاؤن ایکسٹینشن). The four cardinal words are Arabic loans and the compounds are formed by simple apposition — شمال مشرق, not a single fused word. مرکزی ("central") and نیا/پرانا are on the list because in Urdu addressing they do the same job as a compass word: they distinguish two districts of the same name.
+locale: ur
+---
+شمالی
+جنوبی
+مشرقی
+مغربی
+شمال مشرقی
+شمال مغربی
+جنوب مشرقی
+جنوب مغربی
+مرکزی
+بالائی
+زیریں
+اندرونی
+بیرونی
+نیا
+پرانا

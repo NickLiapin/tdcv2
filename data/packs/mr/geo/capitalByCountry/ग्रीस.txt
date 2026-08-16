@@ -1,0 +1,5 @@
+---
+description: Capital of ग्रीस, as Marathi names it
+locale: mr
+---
+अथेन्स

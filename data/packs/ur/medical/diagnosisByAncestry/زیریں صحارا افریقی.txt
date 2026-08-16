@@ -1,0 +1,16 @@
+---
+description: Conditions with a higher prevalence in Sub-Saharan African ancestry, in Urdu. This list is a PREVALENCE SIGNAL, not an exclusive one: every condition named here also occurs in every other population, and ancestry raises or lowers a prior probability rather than deciding a diagnosis.
+locale: ur
+---
+سکل سیل کی بیماری
+سکل سیل کا حامل
+جی سکس پی ڈی کی کمی
+بلند فشار خون
+ذیابیطس قسم دوم
+گردے کی دائمی بیماری
+پروسٹیٹ کا سرطان
+فالج
+سارکوئیڈوسس
+لیکٹوز کی عدم برداشت
+گلوکوما
+فائبرائڈ

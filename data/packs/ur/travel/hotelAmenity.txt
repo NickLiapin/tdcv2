@@ -1,0 +1,34 @@
+---
+description: Hotel amenities in Urdu. قبلہ نما, a qibla direction marker in the room, and جائے نماز, a prayer mat, are standard fittings in a Pakistani, Gulf or Indian Muslim hotel and are advertised as amenities; حلال کھانا and a مسجد on the premises are the same kind of entry. جنریٹر بیک اپ is listed because a hotel here advertises that the power will not go out.
+locale: ur
+---
+وائی فائی
+ایئر کنڈیشنر
+گرم پانی
+جنریٹر بیک اپ
+لفٹ
+پارکنگ
+ناشتہ
+حلال کھانا
+ریستوران
+روم سروس
+لانڈری
+قبلہ نما
+جائے نماز
+مسجد
+جم
+سوئمنگ پول
+سپا
+کانفرنس روم
+شادی ہال
+ایئرپورٹ ٹرانسفر
+ٹیکسی سروس
+سکیورٹی
+سی سی ٹی وی
+فیملی رومز
+بچوں کا کھیل کا علاقہ
+معذور افراد کے لیے رسائی
+ٹی وی
+فرج
+چائے کافی
+چوبیس گھنٹے استقبالیہ

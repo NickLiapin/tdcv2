@@ -1,0 +1,5 @@
+---
+description: Currency of جنوبی افریقہ in Urdu.
+locale: ur
+---
+جنوبی افریقی رینڈ

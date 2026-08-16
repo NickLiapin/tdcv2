@@ -1,0 +1,5 @@
+---
+description: Capital of جاپان in Urdu.
+locale: ur
+---
+ٹوکیو

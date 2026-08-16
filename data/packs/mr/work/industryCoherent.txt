@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list. Each value has a work/jobByIndustry child file and the filename must match the value character for character.
+locale: mr
+---
+माहिती तंत्रज्ञान
+आरोग्यसेवा
+वित्त
+बांधकाम
+शिक्षण
+आदरातिथ्य
+उत्पादन
+किरकोळ व्यापार
+वाहतूक
+विधी

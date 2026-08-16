@@ -1,0 +1,19 @@
+---
+description: Reason a customer returns an order, phrased as an Urdu returns form does. اصلی نہیں ("not genuine") is on the list because in a market with a large counterfeit trade it is one of the commonest real reasons, and no European returns list carries it.
+locale: ur
+---
+خراب حالت میں پہنچا
+غلط چیز بھیجی گئی
+تفصیل کے مطابق نہیں
+سائز غلط ہے
+رنگ مختلف نکلا
+ارادہ بدل گیا
+کہیں سستا مل گیا
+شروع سے ہی خراب
+کچھ حصے غائب ہیں
+دیر سے پہنچا
+اب ضرورت نہیں
+غلطی سے آرڈر ہو گیا
+معیار توقع سے کم
+اصلی نہیں
+ڈبہ ٹوٹا ہوا تھا

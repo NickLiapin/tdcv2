@@ -1,0 +1,9 @@
+---
+description: Hotel star rating in Urdu.
+locale: ur
+---
+ایک ستارہ
+دو ستارے
+تین ستارے
+چار ستارے
+پانچ ستارے

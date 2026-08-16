@@ -1,0 +1,20 @@
+---
+description: Court or tribunal, in Marathi. As with government/agency.txt these are the WORDS Marathi uses for kinds of court, and because the language has one jurisdiction they are the real forums of Maharashtra and India — the reader should know that rather than assume a generic list. Three have no European counterpart. लोकअदालत is a statutory settlement forum whose award is final and unappealable, held on scheduled days to clear backlog. ग्राम न्यायालय is the mobile village court. सहकार न्यायालय is the co-operative court, which exists because Maharashtra's economy runs through co-operative societies and their disputes get a dedicated bench. महसूल and तहसीलदार courts are the revenue judiciary, a parallel hierarchy that decides land questions and is quite separate from the civil courts.
+locale: mr
+---
+सर्वोच्च न्यायालय
+उच्च न्यायालय
+जिल्हा न्यायालय
+सत्र न्यायालय
+दिवाणी न्यायालय
+प्रथमवर्ग न्यायदंडाधिकारी न्यायालय
+कुटुंब न्यायालय
+कामगार न्यायालय
+सहकार न्यायालय
+ग्राहक तक्रार निवारण आयोग
+लोकअदालत
+ग्राम न्यायालय
+महसूल न्यायालय
+तहसीलदार न्यायालय
+महाराष्ट्र प्रशासकीय न्यायाधिकरण
+राष्ट्रीय हरित न्यायाधिकरण

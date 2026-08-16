@@ -1,0 +1,14 @@
+---
+description: Fuel type in Urdu. سی این جی is not an alternative fuel here — compressed natural gas ran a very large share of Pakistan's cars and rickshaws for two decades, with dedicated filling stations on every main road, and the country was for a time the largest CNG market in the world; supply is now rationed, so a vehicle record from this region will contain a lot of CNG conversions of petrol cars. مٹی کا تیل, kerosene, is on the list because it still powers small agricultural engines.
+locale: ur
+---
+پٹرول
+ڈیزل
+سی این جی
+ایل پی جی
+بجلی
+ہائبرڈ
+پلگ اِن ہائبرڈ
+مٹی کا تیل
+ہائیڈروجن
+شمسی توانائی

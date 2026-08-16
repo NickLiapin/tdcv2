@@ -1,0 +1,5 @@
+---
+description: Capital of युनायटेड किंग्डम, as Marathi names it
+locale: mr
+---
+लंडन

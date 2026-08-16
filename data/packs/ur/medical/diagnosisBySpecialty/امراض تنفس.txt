@@ -1,0 +1,19 @@
+---
+description: Pulmonology diagnoses in Urdu. Winter smog in the Punjab plain now drives a seasonal surge in every diagnosis on this list, and biomass cooking smoke gives non-smoking women chronic lung disease at rates a European clinic would not expect.
+locale: ur
+---
+دمہ
+دائمی رکاوٹی پھیپھڑوں کی بیماری
+تپ دق
+نمونیا
+برونکائٹس
+پھیپھڑوں کا سرطان
+سانس کی نالی کا انفیکشن
+خراٹے اور نیند کی رکاوٹ
+پھیپھڑوں میں پانی
+پھیپھڑوں کا لوتھڑا
+پھیپھڑوں کی سختی
+سلیکوسس
+دھول سے پھیپھڑوں کی بیماری
+آلودگی سے سانس کی تکلیف
+ناک کی الرجی

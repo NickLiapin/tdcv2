@@ -1,0 +1,32 @@
+---
+description: Technical verb in the progressive form, in Marathi — and this file needs a warning that the English name of the address hides. MARATHI HAS NO BARE -ING FORM. The values here are the -त participle (करत, घेत, जोडत), which is NOT a complete verb: it must be completed by an auxiliary, and the auxiliary is what carries tense, person AND gender — एन्क्रिप्ट करत आहे (is encrypting), करत होता (masculine, was encrypting), करत होती (feminine), करत होते (neuter). Because Marathi has three grammatical genders and not two, that auxiliary has three past forms, decided by the subject. So a config that pastes one of these strings into a sentence as though it were an English gerund produces a fragment, and one that appends a fixed auxiliary will be wrong for two genders out of three. Use these as progress labels (a UI status line reads एन्क्रिप्ट करत आहे) rather than as sentence verbs.
+locale: mr
+---
+बॅकअप घेत
+वळसा घालत
+हॅक करत
+अधिक्रमित करत
+संकुचित करत
+प्रत करत
+संचार करत
+निर्देशांकित करत
+जोडत
+निर्माण करत
+मोजत
+गणना करत
+संश्लेषित करत
+प्रक्षेपित करत
+आज्ञावली लिहीत
+पुन्हा सुरू करत
+पार्स करत
+एन्क्रिप्ट करत
+डिक्रिप्ट करत
+तैनात करत
+चाचणी घेत
+दुरुस्त करत
+अद्ययावत करत
+पुनर्संचयित करत
+स्थलांतरित करत
+संकलित करत
+समक्रमित करत
+शोधत

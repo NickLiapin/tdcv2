@@ -1,0 +1,5 @@
+---
+description: Capital of पाकिस्तान, as Marathi names it
+locale: mr
+---
+इस्लामाबाद

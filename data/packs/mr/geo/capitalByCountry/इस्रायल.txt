@@ -1,0 +1,5 @@
+---
+description: Capital of इस्रायल, as Marathi names it
+locale: mr
+---
+जेरुसलेम

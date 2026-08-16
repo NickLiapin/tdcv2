@@ -1,0 +1,11 @@
+---
+description: Weekday names in Urdu, Sunday first as the pack contract requires. Urdu inherits its weekday names from Persian rather than from Arabic: پیر, منگل, بدھ and جمعرات are the everyday words, جمعہ is Friday, the day of congregational prayer, and ہفتہ means literally "week" and is Saturday. The working week is NOT Monday to Friday here — Pakistan's weekend is Saturday and Sunday but Friday carries a long midday break for prayers, and Friday afternoon is not a normal working slot.
+locale: ur
+---
+اتوار
+پیر
+منگل
+بدھ
+جمعرات
+جمعہ
+ہفتہ

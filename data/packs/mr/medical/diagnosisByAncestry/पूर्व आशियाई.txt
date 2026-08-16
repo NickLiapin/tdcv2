@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of पूर्व आशियाई ancestry, in Marathi. A prevalence signal, not an exclusive one.
+locale: mr
+---
+अल्डिहाइड डिहायड्रोजनेज न्यूनता
+जठर कर्करोग
+नासोफॅरिंजियल कर्करोग
+प्रौढ लॅक्टेज न्यूनता
+अल्फा-थॅलेसेमिया
+जी६पीडी न्यूनता
+कावासाकी रोग
+मोयामोया रोग
+जुनाट हिपॅटायटिस बी
+कमी बीएमआयवर टाइप २ मधुमेह

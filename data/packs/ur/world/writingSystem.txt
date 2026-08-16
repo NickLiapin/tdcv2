@@ -1,0 +1,33 @@
+---
+description: Writing systems in Urdu. نستعلیق is first because it is the hand Urdu is written in, and it is not merely a font: Nastaʿlīq is a distinct calligraphic style in which the words slope downwards from right to left and each letter changes shape according to what follows it, and it is far more cursive and far harder to typeset than the نسخ hand Arabic uses — which is why Urdu newspapers were composed by hand until the 1980s and why Urdu still looks wrong when it is set in an Arabic font. The pair شاہ مکھی and گورمکھی is the same story as Urdu and Hindi told again about a different language: Punjabi is written in Perso-Arabic شاہ مکھی in Pakistan and in گورمکھی in India, one language and two scripts whose readers cannot read each other.
+locale: ur
+---
+نستعلیق
+نسخ
+عربی
+فارسی
+شاہ مکھی
+گورمکھی
+دیوناگری
+بنگالی
+گجراتی
+تامل
+تیلگو
+کنڑ
+ملیالم
+اڑیہ
+سنہالی
+تبتی
+لاطینی
+سیریلک
+یونانی
+عبرانی
+چینی
+ہیراگانا
+کاتاکانا
+ہنگول
+تھائی
+برمی
+خمیر
+جارجیائی
+آرمینیائی

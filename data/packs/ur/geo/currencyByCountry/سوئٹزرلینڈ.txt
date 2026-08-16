@@ -1,0 +1,5 @@
+---
+description: Currency of سوئٹزرلینڈ in Urdu.
+locale: ur
+---
+سوئس فرانک

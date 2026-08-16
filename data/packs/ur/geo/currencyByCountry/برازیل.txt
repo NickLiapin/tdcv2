@@ -1,0 +1,5 @@
+---
+description: Currency of برازیل in Urdu.
+locale: ur
+---
+برازیلی ریال

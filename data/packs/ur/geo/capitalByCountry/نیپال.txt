@@ -1,0 +1,5 @@
+---
+description: Capital of نیپال in Urdu.
+locale: ur
+---
+کھٹمنڈو

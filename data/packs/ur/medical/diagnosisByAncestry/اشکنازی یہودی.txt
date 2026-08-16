@@ -1,0 +1,13 @@
+---
+description: Conditions with a higher prevalence in Ashkenazi Jewish ancestry, in Urdu.
+locale: ur
+---
+ٹے سیکس کی بیماری
+گاؤچر کی بیماری
+کینوان کی بیماری
+خاندانی خود مختار اعصابی خرابی
+بی آر سی اے سے چھاتی کا سرطان
+بلوم سنڈروم
+فینکونی خون کی کمی
+نیمن پک کی بیماری
+فیکٹر الیون کی کمی

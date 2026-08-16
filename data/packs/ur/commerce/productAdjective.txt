@@ -1,0 +1,58 @@
+---
+description: Adjective describing a product, in Urdu. These are the words a Pakistani or Indian listing actually uses: اصلی ("genuine") and امپورٹڈ carry more selling weight in this market than any quality claim, because the counterfeit trade is large enough that authenticity is the headline feature. ہاتھ سے بنا (handmade) and دیسی (locally made) are not downmarket words here.
+locale: ur
+---
+چھوٹا
+بڑا
+درمیانہ
+ہلکا
+بھاری
+مضبوط
+نازک
+خوبصورت
+شاندار
+عمدہ
+اعلیٰ
+بہترین
+معیاری
+پائیدار
+آرام دہ
+کارآمد
+جدید
+قدیم
+روایتی
+دیسی
+امپورٹڈ
+اصلی
+نقلی
+ہاتھ سے بنا
+مشین سے بنا
+سستا
+مہنگا
+کفایتی
+پرتعیش
+سادہ
+رنگین
+چمکدار
+ملائم
+کھردرا
+نرم
+سخت
+لچکدار
+ہلکا پھلکا
+بے داغ
+خودکار
+دوبارہ استعمال کے قابل
+ماحول دوست
+پانی سے محفوظ
+آگ سے محفوظ
+زنگ سے پاک
+بجلی سے چلنے والا
+بیٹری سے چلنے والا
+تہ ہونے والا
+قابل نقل و حمل
+گھریلو
+تجارتی
+صنعتی
+بچوں کے لیے
+خواتین کے لیے

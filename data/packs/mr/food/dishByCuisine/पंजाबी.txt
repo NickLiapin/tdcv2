@@ -1,0 +1,15 @@
+---
+description: Dishes of पंजाबी cooking, in Marathi. The parent list is food/cuisine.txt and this filename must match its value character for character.
+locale: mr
+---
+छोले भटुरे
+राजमा भात
+बटर चिकन
+तंदुरी चिकन
+पनीर टिक्का
+दाल मखनी
+आलू पराठा
+मलाई कोफ्ता
+शाही पनीर
+लस्सी
+नान

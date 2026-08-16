@@ -1,0 +1,59 @@
+---
+description: Business buzz verb, in Marathi, given in the dictionary form that ends in -णे. Two things a config cannot infer. FIRST, Marathi has no simple verb for most of this vocabulary and builds them as COMPOUND verbs — a noun plus करणे (to do): परिवर्तन करणे, अनुकूलित करणे, विश्लेषण करणे. The noun carries the meaning and करणे carries the grammar, so a config splitting on whitespace will cut a single verb in half. SECOND, and this is where Marathi's three genders bite hardest, the PAST tense of a transitive verb agrees with its OBJECT, not its subject: त्याने अहवाल तयार केला (masculine object), त्याने योजना तयार केली (feminine), त्याने प्रारूप तयार केले (neuter). One subject, three verb forms, chosen by a noun that appears earlier in the sentence. Hindi has the same ergative pattern but only two genders to resolve it into; Marathi has three, so a sentence generator ported from Hindi will be wrong on every neuter object.
+locale: mr
+---
+सक्षम करणे
+विस्तारणे
+परिवर्तित करणे
+नवोन्मेष करणे
+एकत्रित करणे
+तैनात करणे
+गती देणे
+वाढवणे
+घडवणे
+मापन करणे
+जोपासणे
+चालना देणे
+विकसित करणे
+जलद करणे
+सुलभ करणे
+निर्माण करणे
+प्रोत्साहन देणे
+कमाई करणे
+कार्यान्वित करणे
+उत्पादित करणे
+पुनर्व्याख्या करणे
+पुनर्कल्पना करणे
+क्रांती घडवणे
+नेतृत्व करणे
+प्रमाणित करणे
+संक्रमण करणे
+एकसंध करणे
+उपयोजित करणे
+सुधारणे
+अनुकूलित करणे
+संघटित करणे
+सुसंगत करणे
+हाताळणे
+उघडणे
+सामर्थ्य देणे
+समन्वय साधणे
+बळकट करणे
+गुंतवणे
+आखणे
+राबवणे
+तपासणे
+मोजणे
+सादर करणे
+वितरित करणे
+संरेखित करणे
+केंद्रित करणे
+विश्लेषण करणे
+अंदाज वर्तवणे
+स्वयंचलित करणे
+सहकार्य करणे
+वेगवान करणे
+दृढ करणे
+प्रगत करणे
+पुनर्रचना करणे
+सुव्यवस्थित करणे

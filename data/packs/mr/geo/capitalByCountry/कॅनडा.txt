@@ -1,0 +1,5 @@
+---
+description: Capital of कॅनडा, as Marathi names it
+locale: mr
+---
+ओटावा

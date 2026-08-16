@@ -1,0 +1,16 @@
+---
+description: Kind of loan, in Marathi. Three of these are Indian and a European list has no equivalent. सोनेतारण कर्ज is the gold loan — household gold pledged for cash, a mainstream product offered by every bank and a very large part of Indian retail credit. बचत गट कर्ज is lending to a women's self-help group rather than to an individual, the standard rural micro-credit channel in Maharashtra. सावकारी कर्ज is borrowing from a private moneylender at punitive interest; it is illegal in most forms, it is real, and it is the credit of last resort behind much of the state's farm distress. Recording it is more honest than leaving the category clean.
+locale: mr
+---
+गृहकर्ज
+वाहन कर्ज
+वैयक्तिक कर्ज
+शैक्षणिक कर्ज
+सोनेतारण कर्ज
+पीक कर्ज
+व्यवसाय कर्ज
+बचत गट कर्ज
+मुदत कर्ज
+ओव्हरड्राफ्ट
+तारण कर्ज
+सावकारी कर्ज

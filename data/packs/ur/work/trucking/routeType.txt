@@ -1,0 +1,11 @@
+---
+description: Trucking route type in Urdu.
+locale: ur
+---
+طویل فاصلہ
+بین الصوبائی
+علاقائی
+مقامی
+شہری
+بین الاقوامی
+آخری میل

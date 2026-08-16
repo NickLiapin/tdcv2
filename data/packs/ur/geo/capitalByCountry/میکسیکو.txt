@@ -1,0 +1,5 @@
+---
+description: Capital of میکسیکو in Urdu.
+locale: ur
+---
+میکسیکو سٹی

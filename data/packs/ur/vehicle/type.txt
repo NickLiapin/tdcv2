@@ -1,0 +1,32 @@
+---
+description: Vehicle types in Urdu. Half of this list is South Asian road traffic and appears on no European one. چنگ چی is the motorcycle-rickshaw that carries most short-distance passengers and goods in Pakistani towns, named after the Chinese manufacturer whose engines started it. سوزوکی in Pakistani speech means a small pickup van of any make, because Suzuki made the first ones — the brand became the noun. رکشہ is the three-wheeled auto-rickshaw, ویگن and کوچ are two sizes of intercity minibus, and تانگہ, گدھا گاڑی and بیل گاڑی are the horse, donkey and ox carts still registered and still on the roads.
+locale: ur
+---
+کار
+موٹر سائیکل
+رکشہ
+چنگ چی
+سوزوکی
+پک اپ
+ڈبل کیبن
+جیپ
+ویگن
+منی بس
+بس
+کوچ
+ٹرک
+ٹرالر
+ٹینکر
+ڈمپر
+ٹریکٹر
+ٹرالی
+کرین
+لوڈر
+ایمبولینس
+فائر بریگیڈ
+تانگہ
+گدھا گاڑی
+بیل گاڑی
+ٹھیلا
+سائیکل
+اسکوٹر

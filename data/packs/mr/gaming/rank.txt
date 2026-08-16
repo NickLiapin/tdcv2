@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier, in Marathi. The metal names are the Marathi ones a translated game uses — रौप्य for silver and सुवर्ण for gold, the same words that name Olympic medals in Marathi newspapers.
+locale: mr
+---
+लोखंड
+कांस्य
+रौप्य
+सुवर्ण
+प्लॅटिनम
+हिरा
+मास्टर
+ग्रँडमास्टर
+चॅलेंजर
+दिग्गज

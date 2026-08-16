@@ -1,0 +1,30 @@
+---
+description: Official identity, civil-registration and revenue document, in Marathi. The entry with no counterpart anywhere else is ७/१२ उतारा, the seven-twelve extract: it is the Maharashtra land record that states who holds a plot, what is grown on it and what charges sit against it, and it is the single most requested document in the state — no land is bought, no crop loan is taken and no inheritance is settled without one. ८-अ उतारा and फेरफार उतारा are its companions. शाळा सोडल्याचा दाखला, the school leaving certificate, is the document an Indian carries as proof of date of birth for the rest of their life. आधार and पॅन are the two national numbers almost every record keys on.
+locale: mr
+---
+आधार कार्ड
+पॅन कार्ड
+मतदार ओळखपत्र
+शिधापत्रिका
+वाहनचालक परवाना
+पासपोर्ट
+व्हिसा
+जन्म दाखला
+मृत्यू दाखला
+विवाह नोंदणी दाखला
+रहिवासी दाखला
+जातीचा दाखला
+नॉन-क्रिमिलेयर दाखला
+उत्पन्नाचा दाखला
+अपंगत्व प्रमाणपत्र
+शाळा सोडल्याचा दाखला
+७/१२ उतारा
+८-अ उतारा
+फेरफार उतारा
+शेतकरी दाखला
+वाहन नोंदणी प्रमाणपत्र
+जीएसटी नोंदणी प्रमाणपत्र
+बांधकाम परवानगी
+दुकान व आस्थापना नोंदणी
+आयुष्मान भारत कार्ड
+ई-श्रम कार्ड

@@ -1,0 +1,14 @@
+---
+description: Dishes of इटालियन cooking, in Marathi. The parent list is food/cuisine.txt and this filename must match its value character for character.
+locale: mr
+---
+पिझ्झा
+पास्ता
+लझान्या
+रिसोट्टो
+गार्लिक ब्रेड
+स्पगेटी
+रॅव्हिओली
+ब्रुशेटा
+तिरामिसू
+मिनेस्ट्रोन सूप

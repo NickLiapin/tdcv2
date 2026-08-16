@@ -1,0 +1,30 @@
+---
+description: Kind of legal case in Urdu. خلع and طلاق are both divorce and are two different actions: طلاق is pronounced by the husband, خلع is sought by the wife through a court, and an Urdu family-law record distinguishes them. جرگہ and پنچایت are informal tribal and village dispute councils rather than courts — they have no statutory power in either Pakistan or India and they nevertheless settle an enormous share of disputes, so a case-type field that omits them is describing only the formal system.
+locale: ur
+---
+دیوانی مقدمہ
+فوجداری مقدمہ
+خاندانی مقدمہ
+طلاق
+خلع
+نان و نفقہ
+حضانت
+وراثت
+جائیداد کا تنازع
+قبضہ
+کرایہ داری
+معاہدے کی خلاف ورزی
+ازالہ حیثیت عرفی
+چوری
+ڈکیتی
+قتل
+فراڈ
+بدعنوانی
+ٹیکس کا تنازع
+محنت کا تنازع
+صارف کی شکایت
+آئینی درخواست
+ضمانت کی درخواست
+اپیل
+جرگہ
+پنچایت

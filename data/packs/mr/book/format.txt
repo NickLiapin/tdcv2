@@ -1,0 +1,14 @@
+---
+description: Book or publication format, in Marathi. The one that exists in no other language's pack is दिवाळी अंक, the Diwali annual: several hundred literary magazines are published in Marathi once a year for Diwali and only then, carrying new fiction, poetry and essays by the best writers in the language, and a Marathi household buys three or four of them every autumn. It is a publishing format, not a genre, and there is nothing like it in Hindi, English or any European language.
+locale: mr
+---
+बांधीव
+पेपरबॅक
+ई-पुस्तक
+श्राव्यपुस्तक
+दिवाळी अंक
+मासिक
+साप्ताहिक
+नियतकालिक
+ग्रंथ
+पुस्तिका

@@ -1,0 +1,21 @@
+---
+description: Cuisine in Urdu — the parent list of food/dishByCuisine, so every value here has a file of that exact name beside it. The regional Pakistani and Indian cuisines are listed separately rather than folded into one because they are genuinely different kitchens: مغلائی is the rich court cooking of the Mughal courts, پنجابی is wheat, dairy and heavy spice, سندھی and بلوچی are quite distinct, and پشتون cooking barely uses chilli at all and is built on plain roasted meat and rice.
+locale: ur
+---
+پاکستانی
+مغلائی
+پنجابی
+سندھی
+بلوچی
+پشتون
+ہندوستانی
+افغانی
+ایرانی
+عربی
+ترکی
+چینی
+جاپانی
+تھائی
+اطالوی
+امریکی
+میکسیکن

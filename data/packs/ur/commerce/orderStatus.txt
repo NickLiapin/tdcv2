@@ -1,0 +1,18 @@
+---
+description: Order status in Urdu, as an e-commerce interface in Pakistan or India shows it.
+locale: ur
+---
+زیر التوا
+زیر عمل
+تصدیق شدہ
+روانہ کر دیا گیا
+ترسیل کے لیے روانہ
+پہنچا دیا گیا
+منسوخ
+واپس
+رقم واپس
+روک لیا گیا
+اسٹاک ختم
+ناکام
+ادائیگی کا منتظر
+جزوی طور پر روانہ

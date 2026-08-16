@@ -1,0 +1,12 @@
+---
+description: Conduit and installation method for cable runs, in Urdu.
+locale: ur
+---
+پی وی سی پائپ
+جی آئی پائپ
+ایچ ڈی پی ای
+زیر زمین
+کیبل ٹرے
+اوور ہیڈ
+دیوار میں
+نالی میں

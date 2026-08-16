@@ -1,0 +1,51 @@
+---
+description: Countries as Urdu names them, weighted by population in millions — the parent of geo/capitalByCountry, geo/currencyByCountry and geo/currencyCodeByCountry, so every value here has a file of that exact name in all three. Names are TRANSLATED, not transliterated: Germany is جرمنی, Greece is یونان, Egypt is مصر, Spain is ہسپانیہ, Britain is برطانیہ and the United States is امریکہ, all of them Urdu words inherited through Persian rather than respellings of the English. India is بھارت, which is what Pakistani Urdu calls the modern state. The set is weighted towards this language's own world: the neighbours (بھارت, ایران, افغانستان, بنگلہ دیش, نیپال, سری لنکا) and the Gulf states, where several million Pakistanis and Urdu-speaking Indians work and where a very large share of the region's remittances comes from, are all present alongside the large economies. See location/country.txt for the full unweighted list of the world.
+locale: ur
+weighted: true
+---
+چین,1410
+بھارت,1400
+امریکہ,335
+انڈونیشیا,275
+پاکستان,240
+نائجیریا,220
+برازیل,215
+بنگلہ دیش,170
+روس,144
+میکسیکو,128
+جاپان,125
+مصر,110
+ویتنام,98
+ایران,89
+ترکی,85
+جرمنی,84
+تھائی لینڈ,72
+فرانس,68
+برطانیہ,67
+جنوبی افریقہ,60
+اٹلی,59
+جنوبی کوریا,52
+ہسپانیہ,47
+ارجنٹینا,46
+افغانستان,42
+کینیڈا,39
+پولینڈ,38
+سعودی عرب,36
+ملائیشیا,34
+نیپال,30
+آسٹریلیا,26
+سری لنکا,22
+نیدرلینڈز,18
+سویڈن,10
+یونان,10
+پرتگال,10
+متحدہ عرب امارات,10
+سوئٹزرلینڈ,9
+سنگاپور,6
+ناروے,5
+آئرلینڈ,5
+نیوزی لینڈ,5
+عمان,5
+کویت,4
+قطر,3
+بحرین,2

@@ -1,0 +1,48 @@
+---
+description: Animals in Urdu, general list. Six of these mark a distinction Urdu makes and English does not: گائے is a cow and بھینس a water buffalo, which are different animals kept for different milk and are never one word in Urdu; بکری is a goat and بھیڑ a sheep, but دنبہ is specifically the fat-tailed sheep of the north; شیر in ordinary Urdu means the tiger and ببر شیر the lion, so a careless translation of "lion" as شیر renames the animal. مارخور is the screw-horned wild goat of the northern mountains and is Pakistan's national animal.
+locale: ur
+---
+کتا
+بلی
+گھوڑا
+گدھا
+خچر
+اونٹ
+گائے
+بھینس
+بیل
+بکری
+بکرا
+بھیڑ
+دنبہ
+سور
+ہاتھی
+شیر
+ببر شیر
+چیتا
+تیندوا
+ریچھ
+بھیڑیا
+لومڑی
+گیدڑ
+ہرن
+خرگوش
+بندر
+لنگور
+گلہری
+چوہا
+چمگادڑ
+سانپ
+مگرمچھ
+چھپکلی
+کچھوا
+مینڈک
+ڈولفن
+وہیل
+زرافہ
+زیبرا
+گینڈا
+دریائی گھوڑا
+نیل گائے
+مارخور
+اڑیال

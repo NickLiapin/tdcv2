@@ -1,0 +1,35 @@
+---
+description: Event type in Urdu. The first block is the life-cycle events an Urdu-speaking family actually holds, and they are not one event with stages: مہندی, بارات and ولیمہ are three separate functions on three separate days, held by different sides of the family, and a wedding record that collapses them into "wedding" loses the structure the whole industry is organised around. عقیقہ is the naming ceremony held for a newborn, ختم قرآن a completion reading, and قل and چہلم the third-day and fortieth-day gatherings after a death.
+locale: ur
+---
+شادی
+منگنی
+مہندی
+بارات
+ولیمہ
+عقیقہ
+سالگرہ
+ختم قرآن
+محفل نعت
+مجلس
+قل
+چہلم
+عرس
+میلاد
+افطار پارٹی
+عید ملن
+کانفرنس
+سیمینار
+ورکشاپ
+تربیتی نشست
+مشاعرہ
+مباحثہ
+نمائش
+میلہ
+کنسرٹ
+تقریب تقسیم انعامات
+افتتاح
+جلسہ
+ریلی
+فنڈ ریزنگ
+کھیلوں کا مقابلہ

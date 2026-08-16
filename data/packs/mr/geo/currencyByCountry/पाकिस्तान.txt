@@ -1,0 +1,5 @@
+---
+description: Currency of पाकिस्तान, as Marathi names it
+locale: mr
+---
+पाकिस्तानी रुपया

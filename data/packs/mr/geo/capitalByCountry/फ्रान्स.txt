@@ -1,0 +1,5 @@
+---
+description: Capital of फ्रान्स, as Marathi names it
+locale: mr
+---
+पॅरिस

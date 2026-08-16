@@ -1,0 +1,5 @@
+---
+description: Capital of जर्मनी, as Marathi names it
+locale: mr
+---
+बर्लिन

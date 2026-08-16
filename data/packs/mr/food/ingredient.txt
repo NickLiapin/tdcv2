@@ -1,0 +1,50 @@
+---
+description: Kitchen staple, in Marathi. Two entries are Maharashtrian spice blends that a config should not translate away: गोडा मसाला is the dark, coconut-and-stone-flower blend that gives Pune and Deshastha cooking its particular taste, and कांदा-लसूण मसाला is the onion-and-garlic blend of the Kolhapur and Deccan kitchens. The two are not interchangeable and a household usually keeps both. ज्वारी, बाजरी and नाचणी — sorghum, pearl millet and finger millet — head the grain list rather than wheat, because the everyday bread of most of Maharashtra is a millet भाकरी and not a wheat chapati. तांदूळ, डाळ, गूळ, तीळ and लसूण all carry ळ and have no Hindi spelling.
+locale: mr
+---
+तांदूळ
+गहू
+ज्वारी
+बाजरी
+नाचणी
+कणिक
+रवा
+पोहे
+साबुदाणा
+बेसन
+डाळ
+तूरडाळ
+मूगडाळ
+हरभराडाळ
+उडीदडाळ
+मसूरडाळ
+मटकी
+वाटाणा
+शेंगदाणे
+तीळ
+गूळ
+साखर
+मीठ
+तेल
+तूप
+दही
+दूध
+ताक
+खवा
+पनीर
+ओले खोबरे
+सुके खोबरे
+कांदा
+लसूण
+आले
+टोमॅटो
+बटाटा
+कोथिंबीर
+कढीपत्ता
+चिंच
+कोकम
+गोडा मसाला
+कांदा-लसूण मसाला
+अंडी
+चिकन
+मटण

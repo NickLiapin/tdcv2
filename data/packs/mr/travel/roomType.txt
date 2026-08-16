@@ -1,0 +1,22 @@
+---
+description: Hotel room category, in Marathi. Indian hotels price by AC or non-AC before anything else, so वातानुकूलित and विनावातानुकूलित are the first distinction a booking makes and not an afterthought.
+locale: mr
+---
+साधी खोली
+वातानुकूलित खोली
+विनावातानुकूलित खोली
+डिलक्स
+सूट
+एकल
+दुहेरी
+जुळ्या खाटा
+कुटुंब खोली
+स्टुडिओ
+प्रेसिडेंशियल सूट
+ज्युनिअर सूट
+दिव्यांगस्नेही खोली
+डॉर्मिटरी
+कॉटेज
+तंबू
+गृहनिवास
+समुद्रदृश्य खोली

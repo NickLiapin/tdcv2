@@ -1,0 +1,5 @@
+---
+description: Capital of मेक्सिको, as Marathi names it
+locale: mr
+---
+मेक्सिको सिटी

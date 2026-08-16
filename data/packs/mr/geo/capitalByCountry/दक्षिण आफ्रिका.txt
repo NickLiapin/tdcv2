@@ -1,0 +1,5 @@
+---
+description: Capital of दक्षिण आफ्रिका, as Marathi names it
+locale: mr
+---
+प्रिटोरिया

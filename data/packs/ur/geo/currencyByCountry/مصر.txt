@@ -1,0 +1,5 @@
+---
+description: Currency of مصر in Urdu.
+locale: ur
+---
+مصری پاؤنڈ

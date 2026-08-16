@@ -1,0 +1,5 @@
+---
+description: Capital of श्रीलंका, as Marathi names it
+locale: mr
+---
+श्री जयवर्धनेपुरा कोट्टे

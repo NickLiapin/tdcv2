@@ -1,0 +1,38 @@
+---
+description: Fruit in Urdu. آم comes first and not alphabetically: the mango is the fruit of the region, its season is an event, and Pakistan and India grow named varieties (چونسہ, انور رٹول, سندھڑی, لنگڑا) the way France names wine. فالسہ, جامن, شہتوت, بیر, چیکو and لیچی have no ordinary English names at all. مالٹا, کینو and سنگترہ are three different citrus fruits and not three words for orange.
+locale: ur
+---
+آم
+کیلا
+سیب
+انگور
+انار
+امرود
+پپیتا
+خربوزہ
+تربوز
+آڑو
+خوبانی
+آلوبخارا
+ناشپاتی
+لیچی
+چیکو
+فالسہ
+جامن
+بیر
+شہتوت
+انجیر
+کھجور
+ناریل
+انناس
+مالٹا
+کینو
+سنگترہ
+لیموں
+گریپ فروٹ
+اسٹرابیری
+چیری
+کیوی
+ایوکاڈو
+املی
+گنا

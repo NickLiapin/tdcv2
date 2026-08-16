@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter, in Marathi. Note that India's financial year runs from 1 April to 31 March, so the first quarter is April–June and not January–March; a config that lines these up with calendar quarters is off by one for every Indian dataset.
+locale: mr
+---
+पहिली तिमाही
+दुसरी तिमाही
+तिसरी तिमाही
+चौथी तिमाही

@@ -1,0 +1,29 @@
+---
+description: Writing system, in Marathi — and the file that has to state the limit of every script test applied to this pack. MARATHI IS WRITTEN IN DEVANAGARI, THE SAME SCRIPT AS HINDI. There is no Unicode range, no character-class check and no font that separates the two: a validator that confirms a value is Devanagari has confirmed nothing about which language it is. The only evidence is VOCABULARY, and within the script the only single-character evidence is ळ, the retroflex L, which Marathi inherited from Sanskrit and Hindi lost entirely — Marathi मंगळवार against Hindi मंगलवार, नेपाळ against नेपाल, तूळ against तुला. Marathi also uses ऱ्, the eyelash-ra (वऱ्हाडी, तऱ्हा), and the vowel signs ॲ and ऑ for borrowed English vowels, none of which Hindi writes. Two entries here are Marathi's own scripts. बाळबोध is the name of the Devanagari variant used for Marathi, which carries exactly those extra letters. मोडी is the cursive script in which Marathi was administered from the Yadava period until the 1950s — every pre-Independence land record and Peshwa document in Maharashtra is in Modi, and it is a distinct Unicode block, so a Modi string genuinely IS identifiable as Marathi by script alone. Devanagari Marathi is not.
+locale: mr
+---
+देवनागरी
+बाळबोध
+मोडी
+ब्राह्मी
+रोमन
+गुजराती
+गुरुमुखी
+बंगाली
+ओडिया
+कन्नड
+तेलुगू
+तमिळ
+मल्याळम
+उर्दू (नस्तालिक)
+सिंहली
+तिबेटी
+चिनी (हान)
+हिरागाना
+काताकाना
+हंगुल
+सिरिलिक
+ग्रीक
+अरबी
+हिब्रू
+थाई

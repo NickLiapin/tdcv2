@@ -1,0 +1,11 @@
+---
+description: Abbreviated Marathi weekday, Monday first. The abbreviation drops -वार and keeps the planet name, so Tuesday abbreviates to मंगळ — still carrying the ळ that Hindi cannot write.
+locale: mr
+---
+सोम
+मंगळ
+बुध
+गुरु
+शुक्र
+शनि
+रवि

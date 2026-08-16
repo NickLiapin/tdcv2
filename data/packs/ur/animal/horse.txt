@@ -1,0 +1,20 @@
+---
+description: Horse breeds in Urdu. نُکرہ is the pure white Pakistani riding horse, and بلوچی and مارواڑی are the region's own desert breeds — the مارواڑی is recognisable by ear tips that curve inward until they touch. عربی گھوڑا is the Arabian, from which most of the light breeds on the list descend. ٹٹو is a pony rather than a breed. خچر, the mule, is deliberately absent: it is not a horse, and a breed list that includes it is a list of pack animals.
+locale: ur
+---
+عربی گھوڑا
+نُکرہ
+بلوچی گھوڑا
+مارواڑی
+کاٹھیاواڑی
+کابلی گھوڑا
+اخل تیکے
+تھوروبریڈ
+عرب تھوروبریڈ
+مستنگ
+کوارٹر ہارس
+اپلوسا
+فریزین
+شائر
+ہفلنگر
+ٹٹو

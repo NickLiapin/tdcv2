@@ -1,0 +1,19 @@
+---
+description: Loan type in Urdu. The first four are Islamic finance contracts and are not synonyms for the interest-bearing loans below them: مرابحہ is a cost-plus sale, اجارہ a lease, مشارکہ a partnership and قرض حسنہ an interest-free benevolent loan. سود (interest) is prohibited in Islamic law and constitutionally contested in Pakistan, so a large share of the market is structured to avoid it — a lending dataset for this region that offers only conventional loan types is missing the products a great many borrowers will actually take.
+locale: ur
+---
+مرابحہ
+اجارہ
+مشارکہ
+قرض حسنہ
+مکان کا قرض
+گاڑی کا قرض
+ذاتی قرض
+تعلیمی قرض
+کاروباری قرض
+زرعی قرض
+مائیکرو فنانس
+گولڈ لون
+اوور ڈرافٹ
+کریڈٹ لائن
+قرض کی یکجائی

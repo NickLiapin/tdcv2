@@ -1,0 +1,46 @@
+---
+description: Technical noun in Urdu. Urdu has a genuine native computing vocabulary — کمپیوٹر is مشین or شمارندہ in formal registers, and سرور, ڈیٹا بیس and فائل are borrowed unchanged — so the list mixes coined Urdu terms with the loans a working engineer actually says.
+locale: ur
+---
+نظام
+پروگرام
+فائل
+فولڈر
+ڈیٹا
+ڈیٹا بیس
+سرور
+کلائنٹ
+نیٹ ورک
+رابطہ
+پروٹوکول
+پیغام
+درخواست
+جواب
+خرابی
+انتباہ
+ریکارڈ
+اندراج
+فہرست
+صف
+قطار
+ڈھیر
+خانہ
+کلید
+قدر
+متغیر
+فعل
+طریقہ
+کلاس
+شے
+ماڈیول
+لائبریری
+پیکج
+رسائی
+اجازت
+سند
+خفیہ کلید
+یادداشت
+ذخیرہ
+بینڈوتھ
+تاخیر
+گنجائش

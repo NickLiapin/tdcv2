@@ -1,0 +1,40 @@
+---
+description: Vegetable, in Marathi. Half of this list cannot be spelled in Hindi: दुधी भोपळा, कारले, पडवळ, घोसाळे, वाल, मुळा, रताळे, अळू and चवळी all carry ळ. शेवगा is the drumstick pod, अळू the colocasia leaf that is rolled and steamed into वडी, and अंबाडी the sour roselle leaf of the Vidarbha kitchen — none has a common English name. Note the genders: वांगे is neuter, भेंडी feminine, बटाटा masculine, so the same adjective takes three different endings across three consecutive rows of a generated table.
+locale: mr
+---
+वांगे
+भेंडी
+दुधी भोपळा
+लाल भोपळा
+दोडका
+कारले
+पडवळ
+घोसाळे
+तोंडली
+गवार
+वाल
+शेवगा
+कोबी
+फ्लॉवर
+मुळा
+गाजर
+बीट
+बटाटा
+रताळे
+सुरण
+अळू
+पालक
+मेथी
+चाकवत
+चवळी
+अंबाडी
+माठ
+शेपू
+करडई
+कांदा
+टोमॅटो
+काकडी
+मटार
+फरसबी
+मका
+आंबट चुका

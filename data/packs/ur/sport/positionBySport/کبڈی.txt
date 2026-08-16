@@ -1,0 +1,14 @@
+---
+description: Kabaddi positions in Urdu — a genuinely different set from every other sport on this list. A ریڈر crosses into the opposing half alone and must return; the defenders are named by where they stand across the back line (کارنر at the ends, کور beside them, اِن at the centre), and an all-rounder does both. Kabaddi is played at village and national level across Pakistan and India and its position names have no English originals.
+locale: ur
+---
+ریڈر
+اسٹاپر
+لیفٹ کارنر
+رائٹ کارنر
+لیفٹ کور
+رائٹ کور
+لیفٹ اِن
+رائٹ اِن
+آل راؤنڈر
+کپتان

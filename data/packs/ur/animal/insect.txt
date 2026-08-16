@@ -1,0 +1,28 @@
+---
+description: Insects and the small crawling animals Urdu groups with them. بچھو (scorpion), مکڑی (spider), چیچڑی (tick) and کن کھجورا (centipede) are not insects zoologically, and they are here because Urdu کیڑا covers all of them — the everyday category is "crawling thing", not "hexapod", and a pest-control or symptom column in Urdu will contain them. ٹڈی, the desert locust, is a farm-record word rather than a curiosity: swarms reached Pakistan and India as recently as 2019-20 and are logged as agricultural events.
+locale: ur
+---
+مکھی
+مچھر
+چیونٹی
+دیمک
+شہد کی مکھی
+بھڑ
+تتلی
+پتنگا
+ٹڈی
+ٹڈا
+جھینگر
+کاکروچ
+کھٹمل
+جوں
+پسو
+بچھو
+مکڑی
+جگنو
+سنڈی
+گبریلا
+چیچڑی
+کن کھجورا
+گھن
+کیڑا

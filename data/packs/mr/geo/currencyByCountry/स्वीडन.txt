@@ -1,0 +1,5 @@
+---
+description: Currency of स्वीडन, as Marathi names it
+locale: mr
+---
+स्वीडिश क्रोना

@@ -1,0 +1,5 @@
+---
+description: Capital of کینیڈا in Urdu.
+locale: ur
+---
+اوٹاوا

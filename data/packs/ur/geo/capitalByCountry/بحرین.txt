@@ -1,0 +1,5 @@
+---
+description: Capital of بحرین in Urdu.
+locale: ur
+---
+منامہ

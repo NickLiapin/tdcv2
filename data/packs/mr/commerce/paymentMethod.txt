@@ -1,0 +1,21 @@
+---
+description: Payment method, in Marathi. The ordering is deliberate and a config should not shuffle it: UPI is the way India actually pays, running tens of billions of transactions a month, and a Maharashtrian dataset in which credit cards outnumber UPI does not describe the country. रोख (cash on delivery) remains the second pillar for e-commerce outside the metros. Wallet and app names are brands and keep their Latin spelling.
+locale: mr
+---
+UPI
+PhonePe
+Google Pay
+Paytm
+BHIM
+डेबिट कार्ड
+क्रेडिट कार्ड
+डिलिव्हरीवर रोख
+नेट बँकिंग
+NEFT
+RTGS
+IMPS
+EMI
+वॉलेट
+भेटकार्ड
+धनादेश
+रोख

@@ -1,0 +1,21 @@
+---
+description: Social platform. Service names are BRANDS and keep their real Latin spelling. WhatsApp leads because it is where Indian social life actually happens — family groups, housing society groups, village groups — and ShareChat and Moj are Indian platforms built for Indian-language users, so a Marathi dataset that omits them is describing a Western social graph.
+locale: mr
+---
+WhatsApp
+Instagram
+Facebook
+YouTube
+X
+Telegram
+LinkedIn
+Snapchat
+Reddit
+Pinterest
+Threads
+Discord
+Twitch
+ShareChat
+Moj
+Josh
+Koo

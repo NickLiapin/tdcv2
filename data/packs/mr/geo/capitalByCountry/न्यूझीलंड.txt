@@ -1,0 +1,5 @@
+---
+description: Capital of न्यूझीलंड, as Marathi names it
+locale: mr
+---
+वेलिंग्टन

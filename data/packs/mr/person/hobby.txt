@@ -1,0 +1,81 @@
+---
+description: Hobby or pastime, in Marathi. Several are specific to Maharashtra and have no equivalent to translate to: किल्ले भटकंती is fort-walking, the state's dominant weekend pastime because Maharashtra has some three hundred and fifty hill forts; वारकरी दिंडी is walking with the pilgrim procession to Pandharpur; लावणी, तमाशा and कीर्तन are live performance traditions people take part in rather than only watch; मल्लखांब is the Maharashtrian pole gymnastic. रांगोळी, the doorstep powder drawing, carries ळ and so cannot be spelled in Hindi at all.
+locale: mr
+---
+वाचन
+गिर्यारोहण
+किल्ले भटकंती
+छायाचित्रण
+स्वयंपाक
+बागकाम
+चित्रकला
+सायकलिंग
+गेमिंग
+योग
+प्रवास
+मासेमारी
+विणकाम
+धावणे
+बेकिंग
+लाकूडकाम
+बुद्धिबळ
+नृत्य
+लावणी
+भजन
+कीर्तन
+नाटक
+तबलावादन
+हार्मोनियम वादन
+गायन
+रांगोळी
+मेहंदी
+पोहणे
+क्रिकेट
+कबड्डी
+मल्लखांब
+कुस्ती
+वारकरी दिंडी
+पक्षीनिरीक्षण
+खगोलनिरीक्षण
+मृत्तिकाशिल्प
+सुलेखन
+कवितालेखन
+ब्लॉगलेखन
+नाणेसंग्रह
+तिकीटसंग्रह
+शिल्पकला
+वारली चित्रकला
+पोवाडा गायन
+बासरीवादन
+पेटीवादन
+ढोलताशा
+गरबा
+ट्रेकिंग
+जलतरण
+सायकल सफर
+वनभ्रमण
+बोन्साय
+फुलझाडे जोपासणे
+चित्रपट पाहणे
+नाट्यप्रयोग पाहणे
+संगीत ऐकणे
+पुस्तकसंग्रह
+पत्रलेखन
+ओरिगामी
+भरतकाम
+शिवणकाम
+पाककृती प्रयोग
+मत्स्यपालन
+श्वानपालन
+मधुमक्षिकापालन
+शेती
+परसबाग
+योगासने
+प्राणायाम
+ध्यानधारणा
+वादविवाद
+कोडी सोडवणे
+सुडोकू
+व्यायाम
+मैदानी खेळ
+पतंगबाजी

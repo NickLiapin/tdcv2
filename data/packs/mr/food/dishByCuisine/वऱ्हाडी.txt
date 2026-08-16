@@ -1,0 +1,16 @@
+---
+description: Dishes of वऱ्हाडी cooking, in Marathi. The parent list is food/cuisine.txt and this filename must match its value character for character.
+locale: mr
+---
+वऱ्हाडी चिकन
+पातोडी रस्सा
+वांग्याचे भरीत
+ठेचा
+भाकरी
+चुलीवरचे मटण
+कढी
+बेसनाचे वडे
+तर्री पोहे
+सांडगे
+धपाटे
+आलू वडी

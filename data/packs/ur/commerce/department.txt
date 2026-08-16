@@ -1,0 +1,54 @@
+---
+description: Store department or product category in Urdu. کریانہ is the neighbourhood dry-goods shop and the word covers the whole grocery category; درزی and کپڑا are separate departments because unstitched cloth and tailoring are bought separately from ready-made clothes across this market. عطر و خوشبو and جہیز کا سامان have no European counterpart on a department list — the first is the attar and fragrance counter, the second the household goods bought for a dowry, which is a real retail category with its own shops.
+locale: ur
+---
+کتابیں
+فلمیں
+موسیقی
+گیمز
+الیکٹرانکس
+کمپیوٹر
+موبائل فون
+گھریلو سامان
+باغبانی
+اوزار
+کریانہ
+پھل اور سبزیاں
+گوشت
+بیکری
+مشروبات
+کپڑا
+ریڈی میڈ کپڑے
+درزی
+جوتے
+زیورات
+گھڑیاں
+عطر و خوشبو
+کاسمیٹکس
+بچوں کا سامان
+کھلونے
+کھیل کا سامان
+دفتری سامان
+سٹیشنری
+دوا
+طبی آلات
+فرنیچر
+قالین اور دریاں
+برتن
+بجلی کا سامان
+ہارڈ ویئر
+پینٹ
+آٹو پارٹس
+موٹر سائیکل
+سائیکل
+زرعی سامان
+مویشی
+پالتو جانور
+جہیز کا سامان
+تحائف
+سفری سامان
+کیمرہ
+آڈیو
+ایئر کنڈیشنر
+فریج
+واشنگ مشین

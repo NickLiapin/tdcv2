@@ -1,0 +1,18 @@
+---
+description: Dishes of मालवणी cooking, in Marathi. The parent list is food/cuisine.txt and this filename must match its value character for character.
+locale: mr
+---
+मालवणी मटण
+मालवणी चिकन
+सुके बोंबील
+तिसऱ्या मसाला
+कोलंबी फ्राय
+सुरमई फ्राय
+माशाचे सांबारे
+वडे सागुती
+सोलकढी
+तांदळाची भाकरी
+आंबोळी
+खतखते
+घावणे
+कोंबडी वडे

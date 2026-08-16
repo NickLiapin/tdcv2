@@ -1,0 +1,46 @@
+---
+description: Cooking ingredients in Urdu. The four flours are separate ingredients and not grades of one: آٹا is wholemeal wheat for roti, میدہ refined white flour, سوجی semolina, بیسن gram flour. The pulses likewise — دال چنا, دال مسور, دال ماش, دال مونگ and دال ارہر are five different lentils with five different cooking times. گھی and بناسپتی are clarified butter and its hydrogenated vegetable substitute, which is what most cooking here actually uses. گڑ is unrefined cane jaggery.
+locale: ur
+---
+آٹا
+میدہ
+سوجی
+بیسن
+چاول
+دال چنا
+دال مسور
+دال ماش
+دال مونگ
+دال ارہر
+چنے
+لوبیا
+تیل
+گھی
+بناسپتی
+مکھن
+دہی
+دودھ
+بالائی
+کریم
+پنیر
+کھویا
+انڈا
+گوشت
+مرغی
+مچھلی
+قیمہ
+شکر
+چینی
+گڑ
+شہد
+نمک
+سرکہ
+لیموں کا رس
+خمیر
+بیکنگ پاؤڈر
+کارن فلور
+ناریل کا برادہ
+بادام
+پستہ
+اخروٹ
+کشمش

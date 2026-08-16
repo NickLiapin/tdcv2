@@ -1,0 +1,14 @@
+---
+description: Dishes of आगरी cooking, in Marathi. The parent list is food/cuisine.txt and this filename must match its value character for character.
+locale: mr
+---
+आगरी मटण
+कोलंबी भात
+खिमा वडे
+माशाचे कालवण
+आगरी चिकन
+वालाचे बिरडे
+तांदळाची भाकरी
+सुके बोंबील
+चिंबोरी मसाला
+नारळाची चटणी

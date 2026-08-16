@@ -1,0 +1,21 @@
+---
+description: Kinds of court, in Urdu. This holds the WORDS the language uses for a tier of court, not one country's judiciary — Urdu serves two legal systems, and Pakistan and India build different hierarchies out of largely the same terms. Two entries have no European equivalent: وفاقی شرعی عدالت is a court that tests whether laws conform to Islamic injunctions, and دار القضا is an informal Islamic arbitration forum. عدالت عالیہ is a High Court and عدالت عظمیٰ a Supreme Court.
+locale: ur
+---
+عدالت عظمیٰ
+عدالت عالیہ
+ضلعی عدالت
+سیشن عدالت
+مجسٹریٹ عدالت
+دیوانی عدالت
+فوجداری عدالت
+خاندانی عدالت
+بینکنگ عدالت
+انسداد دہشت گردی عدالت
+احتساب عدالت
+محنت کی عدالت
+ٹیکس ٹریبونل
+صارف عدالت
+وفاقی شرعی عدالت
+دار القضا
+ثالثی عدالت

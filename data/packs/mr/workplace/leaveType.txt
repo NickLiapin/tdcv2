@@ -1,0 +1,16 @@
+---
+description: Kind of leave, in Marathi. The first four are the Indian service-rule categories and they are legally distinct, not synonyms: किरकोळ रजा (casual leave) is short notice and capped per year, अर्जित रजा (earned leave) accumulates and can be encashed, अर्धवेतन रजा (half-pay leave) is paid at half salary, and वैद्यकीय रजा needs a certificate. A Maharashtrian government or bank employee's record tracks all four separately. निवडणूक कर्तव्य रजा is leave for election duty, which government staff are conscripted into and which is neither optional nor deducted.
+locale: mr
+---
+किरकोळ रजा
+अर्जित रजा
+अर्धवेतन रजा
+वैद्यकीय रजा
+प्रसूती रजा
+पितृत्व रजा
+दुःखद प्रसंगी रजा
+विनावेतन रजा
+अध्ययन रजा
+भरपाई रजा
+सणाची सुट्टी
+निवडणूक कर्तव्य रजा

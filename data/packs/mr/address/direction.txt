@@ -1,0 +1,20 @@
+---
+description: Directional qualifier used with a Marathi locality, ward or society name (पूर्व उपनगर, दक्षिण मुंबई). Two things a config cannot infer. FIRST, the four intercardinals — ईशान्य north-east, आग्नेय south-east, नैऋत्य south-west, वायव्य north-west — are the वास्तुशास्त्र directions and are quoted as a selling point in Marathi property listings, not as archaisms; Marathi says ईशान्य where Hindi says ईशान. SECOND, उत्तरेकडील, दक्षिणेकडील and their fellows show Marathi agglutination in a single word: उत्तर + एकडे (towards) + ईल (adjectival) all stack onto the noun with nothing written separately, where Hindi would write उत्तर की ओर का as three words. This is the same mechanism that turns पुणे into पुण्यात, in Pune.
+locale: mr
+---
+उत्तर
+दक्षिण
+पूर्व
+पश्चिम
+ईशान्य
+आग्नेय
+नैऋत्य
+वायव्य
+उत्तरेकडील
+दक्षिणेकडील
+पूर्वेकडील
+पश्चिमेकडील
+मध्य
+मध्यवर्ती
+वरचा
+खालचा

@@ -1,0 +1,16 @@
+---
+description: Abbreviated Gregorian month names in Urdu. Urdu abbreviates by clipping the word and adding no full stop, which is why مئی، جون and مارچ are unchanged — they are already as short as they go.
+locale: ur
+---
+جن
+فر
+مار
+اپر
+مئی
+جون
+جول
+اگ
+ست
+اکت
+نوم
+دس

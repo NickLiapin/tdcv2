@@ -1,0 +1,11 @@
+---
+description: Full female Marathi name in the OFFICIAL three-part form — given name, father's given name, family name (कल्पना विनायक जोशी). The middle element is a man's given name because it is the father's, which is why it is drawn from the MALE first-name list; on marriage a woman traditionally replaces both the middle element and the surname with her husband's, so the same three-slot shape describes both an unmarried and a married woman with different fillers. The surname is drawn from person/lastName.txt unchanged: Marathi family names do not inflect for gender, unlike Polish or Czech.
+generator: tdc
+locale: mr
+---
+<sequence name="p">
+  <gen name="f" type="template" value="mr.person.female.firstName"/>
+  <gen name="m" type="template" value="mr.person.male.firstName"/>
+  <gen name="l" type="template" value="mr.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.m}} ${{p.l}}</data>

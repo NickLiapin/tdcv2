@@ -1,0 +1,47 @@
+---
+description: Job skill, in Marathi. Note that मराठी टंकलेखन — Marathi typing — is a genuine, tested, certificate-bearing skill in Maharashtra: state government clerical posts require a typing certificate in Marathi, and the Devanagari keyboard layouts are a learned competence rather than something a computer literate person simply has. बैलजोडी हाकणे (driving a bullock pair) and ऊसतोड are farm skills that a Maharashtrian labour record genuinely lists.
+locale: mr
+---
+पायथन
+जावास्क्रिप्ट
+एसक्यूएल
+जावा
+सी++
+क्लाउड संगणन
+यंत्रशिक्षण
+विदा विश्लेषण
+प्रकल्प व्यवस्थापन
+ॲजाइल
+जाहीर भाषण
+तांत्रिक लेखन
+ग्राहक सेवा
+विक्री
+हिशेब
+वित्तीय प्रारूपण
+कॅड
+त्रिमितीय प्रारूपण
+आलेखन कला
+जाहिरात लेखन
+मराठी टंकलेखन
+इंग्रजी टंकलेखन
+लघुलेखन
+वेल्डिंग
+विद्युत जोडणी
+नळकाम
+सुतारकाम
+आराखडा वाचन
+यंत्रकाम
+सोल्डरिंग
+फोर्कलिफ्ट चालवणे
+अवजड यंत्र चालवणे
+अवजड वाहन चालवणे
+प्रथमोपचार
+सीपीआर
+अन्न सुरक्षा
+बैलजोडी हाकणे
+ऊसतोड
+शिवणकाम
+वाटाघाटी
+संघ नेतृत्व
+वेळेचे नियोजन
+समस्या निराकरण

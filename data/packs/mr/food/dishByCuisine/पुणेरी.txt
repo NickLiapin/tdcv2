@@ -1,0 +1,19 @@
+---
+description: Dishes of पुणेरी cooking, in Marathi. The parent list is food/cuisine.txt and this filename must match its value character for character.
+locale: mr
+---
+मिसळ
+बाकरवडी
+श्रीखंड
+पुरणपोळी
+साबुदाणा खिचडी
+आमटी
+मसाले भात
+कोथिंबीर वडी
+थालीपीठ
+पिठलं भाकरी
+दाळिंबी उसळ
+बटाटा वडा
+वडा पाव
+सांजा
+उकडीचे मोदक

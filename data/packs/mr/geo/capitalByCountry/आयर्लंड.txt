@@ -1,0 +1,5 @@
+---
+description: Capital of आयर्लंड, as Marathi names it
+locale: mr
+---
+डब्लिन

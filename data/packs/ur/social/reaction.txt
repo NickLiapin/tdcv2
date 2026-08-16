@@ -1,0 +1,15 @@
+---
+description: Reaction to a post, in Urdu.
+locale: ur
+---
+پسند
+محبت
+واہ
+ہنسی
+حیرت
+افسوس
+غصہ
+دعا
+شکریہ
+ماشاءاللہ
+سبحان اللہ

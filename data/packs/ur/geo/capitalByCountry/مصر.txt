@@ -1,0 +1,5 @@
+---
+description: Capital of مصر in Urdu.
+locale: ur
+---
+قاہرہ

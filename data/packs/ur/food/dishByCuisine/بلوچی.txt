@@ -1,0 +1,13 @@
+---
+description: Balochi dishes in Urdu. سجی is a whole lamb or chicken salted and roasted upright beside an open fire, and لنڈی is mutton cured by hanging it in the winter air — both are preservation and pit-cooking rather than curry, and Balochi cooking uses very little spice, which is the opposite of what a South Asian cuisine field usually assumes.
+locale: ur
+---
+سجی
+لنڈی
+خدی کباب
+دم پخت
+روش
+کاک
+بلوچی تکہ
+بلوچی پلاؤ
+دودھ پتی

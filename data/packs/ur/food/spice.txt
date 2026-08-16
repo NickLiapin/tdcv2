@@ -1,0 +1,34 @@
+---
+description: Spices in Urdu. گرم مصالحہ is a BLEND and not a single spice — the proportions differ from household to household and the list is not fixed — and the same is true of چاٹ مصالحہ and بریانی مصالحہ, so a recipe field holding one of those three is naming a mixture. الائچی and بڑی الائچی are green and black cardamom and are not interchangeable. کالا نمک is black salt, a sulphurous rock salt with a distinct smell, not salt that is black.
+locale: ur
+---
+ہلدی
+لال مرچ
+ثابت لال مرچ
+دھنیا
+زیرہ
+کالی مرچ
+الائچی
+بڑی الائچی
+لونگ
+دار چینی
+تیج پات
+جائفل
+جاوتری
+سونف
+اجوائن
+کلونجی
+رائی
+سرسوں
+میتھی دانہ
+ہینگ
+امچور
+انار دانہ
+کالا نمک
+پوست دانہ
+تل
+کیوڑہ
+زعفران
+گرم مصالحہ
+چاٹ مصالحہ
+بریانی مصالحہ

@@ -1,0 +1,32 @@
+---
+description: Flowers in Urdu. موتیا and چنبیلی are jasmines and are strung into garlands and worn in the hair — they are sold by weight on every South Asian street corner, which is why they come before the roses. رات کی رانی ("queen of the night") flowers after dark and is planted for its scent rather than its look. گیندا, the marigold, is the flower of celebration and of shrines. گڑہل is hibiscus and ہار سنگھار the night-flowering jasmine tree.
+locale: ur
+---
+گلاب
+چنبیلی
+موتیا
+رات کی رانی
+گیندا
+نرگس
+سوسن
+لالہ
+گل داؤدی
+سورج مکھی
+کنول
+نیلوفر
+کچنار
+گڑہل
+ہار سنگھار
+چمپا
+کیوڑہ
+بوگن ویلیا
+گل خیرو
+موگرہ
+ٹیولپ
+ڈیفوڈل
+للی
+آرکڈ
+کارنیشن
+ڈیزی
+پینزی
+پٹونیا

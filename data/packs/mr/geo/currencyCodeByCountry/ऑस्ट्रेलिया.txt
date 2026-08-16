@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of ऑस्ट्रेलिया
+locale: mr
+---
+AUD

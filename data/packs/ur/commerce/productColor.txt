@@ -1,0 +1,58 @@
+---
+description: Colour as it appears on a product listing in Urdu. This is a shorter and more commercial set than color/name — a catalogue uses گہرا نیلا and ہلکا سبز where prose uses لاجوردی and دھانی, and it uses گہرا and ہلکا as productive modifiers on almost any colour word.
+locale: ur
+---
+سفید
+آف وائٹ
+سیاہ
+کالا
+سرمئی
+گہرا سرمئی
+ہلکا سرمئی
+چاندی
+سنہری
+سرخ
+گہرا سرخ
+ہلکا سرخ
+مہرون
+عنابی
+گلابی
+ہلکا گلابی
+گہرا گلابی
+نارنجی
+پیلا
+ہلکا پیلا
+سرسوں
+زعفرانی
+سبز
+گہرا سبز
+ہلکا سبز
+دھانی
+زیتونی
+پستئی
+فیروزی
+آسمانی
+نیلا
+گہرا نیلا
+ہلکا نیلا
+لاجوردی
+رائل بلیو
+نیوی
+جامنی
+ارغوانی
+بنفشی
+کاسنی
+بھورا
+گہرا بھورا
+ہلکا بھورا
+کتھئی
+بادامی
+خاکی
+ریتلا
+کریمی
+موتیا
+چمپئی
+مٹیالا
+شربتی
+دو رنگا
+کثیر رنگ

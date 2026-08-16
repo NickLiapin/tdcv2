@@ -1,0 +1,20 @@
+---
+description: Severe or notable weather event, in Marathi. Two of these dominate Marathi news in a way they dominate no European locale's. अवकाळी पाऊस is unseasonal rain — rain out of its season that flattens a standing crop days before harvest — and it is a political as much as a meteorological term, because it triggers compensation demands every year. दुष्काळ, drought, is the other: Marathwada and western Vidarbha are chronically dry and a declared drought reshapes the state budget. The monsoon is split into its two real arms, नैऋत्य (south-west, June to September, which is the one that matters here) and ईशान्य. Both दुष्काळ and अवकाळी carry ळ.
+locale: mr
+---
+नैऋत्य मान्सून
+ईशान्य मान्सून
+अवकाळी पाऊस
+दुष्काळ
+चक्रीवादळ
+गारपीट
+पूर
+ढगफुटी
+उष्णतेची लाट
+थंडीची लाट
+वीज पडणे
+भूस्खलन
+धुळीचे वादळ
+वणवा
+त्सुनामी
+भूकंप

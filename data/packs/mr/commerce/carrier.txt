@@ -1,0 +1,24 @@
+---
+description: Parcel carrier operating in Maharashtra. Company names are BRAND names and keep their real Latin spelling. India Post reaches villages the private carriers do not serve, which is why a realistic Indian dataset should not be all private couriers.
+locale: mr
+---
+India Post
+Blue Dart
+Delhivery
+DTDC
+Ecom Express
+XpressBees
+Ekart Logistics
+Amazon Transportation Services
+Shadowfax
+Gati
+Professional Couriers
+TCI Express
+Safexpress
+Trackon
+Shiprocket
+FedEx
+DHL Express
+UPS
+Aramex
+VRL Logistics

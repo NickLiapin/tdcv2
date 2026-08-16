@@ -1,0 +1,29 @@
+---
+description: Legal term, in Marathi. वकीलपत्र is the signed authority appointing an advocate, filed on the record; फिर्याद is the criminal complaint that starts a police case. Marathi legal vocabulary is Sanskrit-built rather than Persian-built, which is where it parts company with Urdu-influenced Hindi court language: Marathi says प्रतिवादी and अधिकारक्षेत्र where a Hindi court file may say मुद्दालेह and इख़्तियार.
+locale: mr
+---
+वादी
+प्रतिवादी
+फिर्यादी
+आरोपी
+समन्स
+साक्ष
+साक्षीदार
+प्रतिज्ञापत्र
+मनाई हुकूम
+जबाब
+निकाल
+तडजोड
+खटला
+आरोपपत्र
+अधिकारक्षेत्र
+जामीन
+अपील
+पुनर्विलोकन
+वकीलपत्र
+दस्तऐवज
+हमीपत्र
+कलम
+फिर्याद
+दावा
+आदेश

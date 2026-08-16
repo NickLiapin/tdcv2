@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in हृदयरोगशास्त्र (Marathi). आमवाती हृदयरोग is listed because it remains a leading cardiac diagnosis in India, driven by untreated childhood streptococcal infection — it is largely gone from Europe and is not gone from Maharashtra.
+locale: mr
+---
+उच्च रक्तदाब
+हृदयधमनी विकार
+हृदयविकाराचा झटका
+अलिंद कंपन
+हृदय निकामी होणे
+आमवाती हृदयरोग
+डायलेटेड कार्डिओमायोपथी
+संसर्गजन्य अंतर्हृदयदाह
+महाधमनी झडप संकोच
+रक्तातील मेदवाढ

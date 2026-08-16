@@ -1,0 +1,26 @@
+---
+description: Metal, in Marathi. पंचधातू and अष्टधातू are alloys of five and eight metals used to cast temple idols and ritual vessels; they are named categories in Indian metalwork and a Marathi shop sells by them. पितळ (brass) is the everyday metal of a Maharashtrian kitchen and carries ळ.
+locale: mr
+---
+सोने
+चांदी
+तांबे
+पितळ
+कासे
+लोखंड
+पोलाद
+ॲल्युमिनियम
+जस्त
+शिसे
+कथिल
+निकेल
+प्लॅटिनम
+पारा
+टायटॅनियम
+क्रोमियम
+मँगेनीज
+कोबाल्ट
+टंगस्टन
+युरेनियम
+पंचधातू
+अष्टधातू

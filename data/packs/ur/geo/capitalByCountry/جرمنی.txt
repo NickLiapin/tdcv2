@@ -1,0 +1,5 @@
+---
+description: Capital of جرمنی in Urdu.
+locale: ur
+---
+برلن

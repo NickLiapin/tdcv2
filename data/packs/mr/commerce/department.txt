@@ -1,0 +1,58 @@
+---
+description: Store department or product category, in Marathi. Several are shaped by what an Indian shop actually sells: किराणा is the dry-goods grocery, मंडई the fresh produce market, साड्या a department of its own in any Maharashtrian clothing store, and भांडी the metal cookware section that no Western department store has as a category.
+locale: mr
+---
+पुस्तके
+चित्रपट
+संगीत
+खेळ
+इलेक्ट्रॉनिक्स
+संगणक
+मोबाइल
+गृहोपयोगी वस्तू
+बाग
+अवजारे
+किराणा
+मंडई
+आरोग्य
+सौंदर्यप्रसाधने
+खेळणी
+बालवस्तू
+कपडे
+साड्या
+तयार कपडे
+पादत्राणे
+दागिने
+घड्याळे
+चष्मे
+क्रीडासाहित्य
+वाहनसामग्री
+औद्योगिक साहित्य
+कार्यालयीन साहित्य
+पाळीव प्राणी
+फर्निचर
+उपकरणे
+स्टेशनरी
+हार्डवेअर
+भांडी
+धान्य
+मसाले
+दुग्धजन्य पदार्थ
+फळे
+भाजीपाला
+मिठाई
+बेकरी
+चादरी
+पडदे
+गादी
+दिवे
+रंग
+प्लंबिंग
+विद्युत साहित्य
+बांधकाम साहित्य
+शेती साहित्य
+बियाणे
+खते
+संगीत वाद्ये
+कलासाहित्य
+प्रवासी सामान

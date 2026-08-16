@@ -1,0 +1,5 @@
+---
+description: Currency of पोलंड, as Marathi names it
+locale: mr
+---
+पोलिश झ्लोटी

@@ -1,0 +1,41 @@
+---
+description: Technical noun, in Marathi — and a good place to see that Marathi coins where Hindi borrows. विदागार is a database (विदा, data, is a Marathi coinage that Hindi does not use), कळफलक is a keyboard, संचिका a file, आज्ञावली a program, संकेतशब्द a password and जाळे a network. All of these are in real use in Marathi textbooks, government IT circulars and Marathi Wikipedia, and none of them is Hindi. कळफलक and जाळे carry ळ, so they cannot even be spelled in Hindi.
+locale: mr
+---
+ड्रायव्हर
+प्रोटोकॉल
+बँडविड्थ
+पॅनेल
+मायक्रोचिप
+आज्ञावली
+पोर्ट
+कार्ड
+ॲरे
+इंटरफेस
+प्रणाली
+संवेदक
+फायरवॉल
+हार्ड ड्राइव्ह
+पिक्सेल
+गजर
+फीड
+मॉनिटर
+अनुप्रयोग
+प्रक्षेपक
+बस
+परिपथ
+धारित्र
+आव्यूह
+विदागार
+पाइपलाइन
+संचिका
+सर्व्हर
+जाळे
+संकेतशब्द
+कळफलक
+स्मृती
+प्रक्रियक
+संगणक
+त्रुटी
+आवृत्ती
+अनुमती

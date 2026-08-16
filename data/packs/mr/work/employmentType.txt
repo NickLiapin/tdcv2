@@ -1,0 +1,17 @@
+---
+description: Employment or contract type, in Marathi. रोजंदारी — daily wage — is the first category rather than an afterthought, because a very large share of Indian work is paid by the day with no contract at all; कंत्राटी कामगार is the contract-labour status that the Contract Labour Act regulates and that Indian industrial records distinguish sharply from permanent employment. मानधनावर is honorarium-based, the status of anganwadi and ASHA workers, who are officially volunteers rather than employees.
+locale: mr
+---
+कायमस्वरूपी
+पूर्णवेळ
+अर्धवेळ
+कंत्राटी
+कंत्राटी कामगार
+रोजंदारी
+हंगामी
+तात्पुरता
+प्रशिक्षणार्थी
+उमेदवारी
+स्वयंरोजगार
+मुक्त व्यावसायिक
+मानधनावर

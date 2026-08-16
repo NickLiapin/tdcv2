@@ -1,0 +1,5 @@
+---
+description: Capital of امریکہ in Urdu.
+locale: ur
+---
+واشنگٹن ڈی سی

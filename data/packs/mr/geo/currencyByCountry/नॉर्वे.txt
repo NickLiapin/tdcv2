@@ -1,0 +1,5 @@
+---
+description: Currency of नॉर्वे, as Marathi names it
+locale: mr
+---
+नॉर्वेजियन क्रोन

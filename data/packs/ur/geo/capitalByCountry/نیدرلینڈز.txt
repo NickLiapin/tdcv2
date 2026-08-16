@@ -1,0 +1,5 @@
+---
+description: Capital of نیدرلینڈز in Urdu.
+locale: ur
+---
+ایمسٹرڈیم

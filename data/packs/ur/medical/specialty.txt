@@ -1,0 +1,40 @@
+---
+description: Medical specialties in Urdu. حکمت (Unani/Greco-Arabic medicine) and ہومیو پیتھی are the last two lines and are not folklore: both are licensed and regulated systems in Pakistan and India with their own registration councils and their own qualified practitioners, and patient records genuinely reference them, so a specialty list for this region that admits only allopathic medicine is incomplete.
+locale: ur
+---
+امراض قلب
+اعصابی امراض
+سرطان
+امراض جلد
+معدہ و جگر
+غدود و ذیابیطس
+امراض تنفس
+ہڈی و جوڑ
+نفسیات
+امراض گردہ
+عمومی طب
+خاندانی طب
+اطفال
+امراض نسواں
+زچگی
+جراحی
+دماغی جراحی
+دل کی جراحی
+ہڈیوں کی جراحی
+پلاسٹک سرجری
+بے ہوشی
+حادثات و ایمرجنسی
+انتہائی نگہداشت
+امراض چشم
+ناک کان گلا
+دندان سازی
+امراض خون
+امراض مناعت
+متعدی امراض
+تابکاری
+ریڈیالوجی
+پیتھالوجی
+بحالی صحت
+مسکن نگہداشت
+حکمت
+ہومیو پیتھی

@@ -1,0 +1,5 @@
+---
+description: Capital of عمان in Urdu.
+locale: ur
+---
+مسقط

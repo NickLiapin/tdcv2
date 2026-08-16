@@ -1,0 +1,5 @@
+---
+description: Capital of متحدہ عرب امارات in Urdu.
+locale: ur
+---
+ابوظہبی

@@ -1,0 +1,5 @@
+---
+description: Capital of ہسپانیہ in Urdu.
+locale: ur
+---
+میڈرڈ

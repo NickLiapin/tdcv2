@@ -1,0 +1,18 @@
+---
+description: Jobs found in the आरोग्यसेवा sector, in Marathi. The parent list is work/industryCoherent.txt and this filename must match its value character for character.
+locale: mr
+---
+परिचारिका
+वैद्यकीय अधिकारी
+शल्यचिकित्सक
+भूलतज्ज्ञ
+बालरोगतज्ज्ञ
+औषधनिर्माता
+प्रयोगशाळा तंत्रज्ञ
+क्ष-किरण तंत्रज्ञ
+भौतिकोपचारतज्ज्ञ
+दंतवैद्य
+आयुर्वेदिक वैद्य
+आशा स्वयंसेविका
+अंगणवाडी सेविका
+रुग्णवाहिका सहाय्यक

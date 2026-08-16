@@ -1,0 +1,18 @@
+---
+description: Marital status, in Marathi. Note that the words are gender-marked and that this is a three-gender language's version of the problem: अविवाहित / अविवाहिता and विधुर / विधवा are the masculine and feminine forms, and a config that draws one at random for a row whose gender it already knows will contradict itself. The neuter does not appear here because no adult is neuter — but see person/gender.txt for where it does reach people.
+locale: mr
+---
+अविवाहित
+अविवाहिता
+विवाहित
+विवाहिता
+घटस्फोटित
+घटस्फोटिता
+विधुर
+विधवा
+विभक्त
+साखरपुडा झालेला
+साखरपुडा झालेली
+पुनर्विवाहित
+सहजीवनात
+अज्ञात

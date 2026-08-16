@@ -1,0 +1,5 @@
+---
+description: Currency of نائجیریا in Urdu.
+locale: ur
+---
+نائجیرین نائرا

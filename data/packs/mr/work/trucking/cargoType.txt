@@ -1,0 +1,19 @@
+---
+description: Truck cargo or trailer type, in Marathi. ऊस वाहतूक is on the list because sugarcane haulage is a seasonal industry of its own in western Maharashtra, with tractor trailers and bullock carts queuing at the mill gate for months. दूध टँकर likewise: the co-operative dairy network moves milk by road twice a day.
+locale: mr
+---
+बंद ट्रक
+शीतवाहन
+सपाट ट्रेलर
+टँकर
+दूध टँकर
+जनावर वाहतूक
+घातक माल
+कंटेनर
+वाहन वाहक
+लोबॉय
+स्टेप डेक
+डंपर
+सुटा माल
+ऊस वाहतूक
+लाकूड वाहतूक

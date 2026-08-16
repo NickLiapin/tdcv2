@@ -1,0 +1,12 @@
+---
+description: Conditions with a higher prevalence in Southeast Asian ancestry, in Urdu.
+locale: ur
+---
+الفا تھیلیسیمیا
+ہیموگلوبن ای
+جی سکس پی ڈی کی کمی
+ہیپاٹائٹس بی
+لیکٹوز کی عدم برداشت
+ناک اور حلق کا سرطان
+ذیابیطس قسم دوم
+ملیریا کا خطرہ

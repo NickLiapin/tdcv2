@@ -1,0 +1,38 @@
+---
+description: Unit of measure in Urdu. The metric units are official in both Pakistan and India, but the traditional ones below them are what a shop actually weighs with and a config that omits them is describing a market that does not exist: سیر is about 933 g and still used for grain and vegetables, تولہ is 11.66 g and is THE unit gold is priced in across South Asia, ماشہ and رتی are its subdivisions, and من (the "maund", 40 seers, about 37 kg) is the unit a wheat or cotton crop is bought in. گز is the yard cloth is cut by, and مرلہ and کنال are the land units every property advertisement uses — 1 کنال is 20 مرلہ, about 505 square metres.
+locale: ur
+---
+عدد
+درجن
+جوڑا
+سیٹ
+ڈبہ
+پیکٹ
+تھیلا
+بوری
+بنڈل
+رول
+کلوگرام
+گرام
+ملی گرام
+ٹن
+لیٹر
+ملی لیٹر
+میٹر
+سینٹی میٹر
+کلومیٹر
+مربع میٹر
+مربع فٹ
+فٹ
+انچ
+گز
+سیر
+چھٹانک
+من
+تولہ
+ماشہ
+رتی
+مرلہ
+کنال
+ایکڑ
+مربع

@@ -1,0 +1,20 @@
+---
+description: Compass directions in Urdu, the sixteen points. The four cardinals are Arabic loans and the compounds are built by simple apposition — شمال مشرق is "north east", two words, not a fused one. One direction an Urdu speaker orients by is deliberately NOT on this list: قبلہ, the direction of the Kaaba in Mecca, which mosques face, prayer mats point towards and hotel rooms mark. It is a real and constantly used direction but it is not a compass point — it differs from place to place — so it belongs in a bearing calculation rather than in a list of sixteen.
+locale: ur
+---
+شمال
+جنوب
+مشرق
+مغرب
+شمال مشرق
+شمال مغرب
+جنوب مشرق
+جنوب مغرب
+شمال شمال مشرق
+مشرق شمال مشرق
+مشرق جنوب مشرق
+جنوب جنوب مشرق
+جنوب جنوب مغرب
+مغرب جنوب مغرب
+مغرب شمال مغرب
+شمال شمال مغرب

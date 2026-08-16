@@ -1,0 +1,40 @@
+---
+description: Bird, in Marathi. Almost every name here is the Marathi one used by birdwatchers in the Western Ghats rather than a translation from English. दयाळ is the oriental magpie-robin, साळुंकी the common myna, खंड्या the kingfisher, भारद्वाज the greater coucal, सुगरण the baya weaver whose hanging nest is a Maharashtrian roadside sight, and टिटवी the red-wattled lapwing. Five of them — कावळा, बगळा, दयाळ, साळुंकी, कोकिळा — carry ळ and so have no Hindi spelling at all.
+locale: mr
+---
+चिमणी
+कावळा
+पोपट
+मोर
+कोंबडा
+कोंबडी
+बदक
+हंस
+घार
+गरुड
+ससाणा
+घुबड
+गिधाड
+बगळा
+करकोचा
+धनेश
+सुतारपक्षी
+खंड्या
+भारद्वाज
+दयाळ
+साळुंकी
+बुलबुल
+कोकिळा
+टिटवी
+तितर
+लावा
+पारवा
+कबूतर
+सुगरण
+शिंजिर
+भोरडी
+होला
+राजहंस
+रोहित
+पाणकावळा
+तळ्यातील बदक

@@ -1,0 +1,5 @@
+---
+description: Capital of Sri Lanka in Urdu. کولمبو is the commercial capital and the city everything is actually addressed to; the legislative capital is the adjoining Sri Jayawardenepura Kotte, which is where parliament sits.
+locale: ur
+---
+کولمبو

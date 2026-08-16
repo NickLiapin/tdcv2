@@ -1,0 +1,5 @@
+---
+description: Capital of स्वीडन, as Marathi names it
+locale: mr
+---
+स्टॉकहोम

@@ -1,0 +1,54 @@
+---
+description: Everyday dish eaten across Maharashtra, named in Marathi — the pan-Maharashtrian repertoire that is not tied to one region. Regional specialities live in food/dishByCuisine. Four of these define the cuisine and exist nowhere else: पुरणपोळी is the flatbread stuffed with sweetened split-gram paste that is made for every major festival; मिसळ पाव is sprouted-bean curry under farsan with a bread roll, eaten for breakfast and graded by how much तर्री, the red oil on top, you can take; वडा पाव is the potato fritter in a bun that is Mumbai's street food; and थालीपीठ is the multigrain flatbread patted out by hand. Note the grammatical genders in one line, because a sentence about food must agree with them: वडा is masculine, पुरणपोळी is feminine, and पिठलं is neuter. Three genders, three verb forms — Hindi has two.
+locale: mr
+---
+पुरणपोळी
+मिसळ पाव
+वडा पाव
+थालीपीठ
+झुणका भाकर
+पिठलं भाकरी
+भरली वांगी
+मोदक
+उकडीचे मोदक
+श्रीखंड
+बासुंदी
+आमटी भात
+वरण भात
+मटकीची उसळ
+कोथिंबीर वडी
+साबुदाणा खिचडी
+पोहे
+उपमा
+भाकरी
+सोलकढी
+माशाचे कालवण
+बोंबील फ्राय
+शेवभाजी
+तांबडा रस्सा
+पांढरा रस्सा
+मटण रस्सा
+कोंबडी वडे
+करंजी
+अनारसे
+चकली
+चिवडा
+शंकरपाळी
+बेसन लाडू
+रवा लाडू
+तिळगूळ
+बाकरवडी
+भेळ
+दाबेली
+पाव भाजी
+मसाले भात
+खिचडी
+आळूची वडी
+दहीभात
+ताक
+पन्हे
+कोकम सरबत
+गुळपोळी
+मसाला दूध
+साजूक तूप भात
+सांजा

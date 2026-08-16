@@ -1,0 +1,24 @@
+---
+description: Religion or religious community, in Marathi. Two are Maharashtrian traditions that exist nowhere else. वारकरी संप्रदाय is the Warkari movement, a devotional tradition seven centuries old built round the pilgrimage to Pandharpur and the poetry of Dnyaneshwar and Tukaram; a Maharashtrian who calls themselves वारकरी is naming a real affiliation, not a hobby. महानुभाव पंथ is the Mahanubhava sect, founded in Marathi in the thirteenth century, which produced the earliest Marathi prose and wrote it in ciphers of its own to keep it from outsiders. Note also that Maharashtra has India's largest Navayana Buddhist population, converts and their descendants following Ambedkar's 1956 conversion at Nagpur — बौद्ध is therefore a large and specifically Maharashtrian category rather than a marginal one.
+locale: mr
+---
+हिंदू
+बौद्ध
+मुस्लीम
+ख्रिश्चन
+जैन
+शीख
+पारशी
+ज्यू
+वारकरी संप्रदाय
+महानुभाव पंथ
+नाथ संप्रदाय
+लिंगायत
+आदिवासी श्रद्धा
+बहाई
+शिंतो
+ताओ
+निरीश्वरवाद
+अज्ञेयवाद
+निधर्मी
+कोणतेही नाही

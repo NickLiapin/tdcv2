@@ -1,0 +1,5 @@
+---
+description: Currency of عمان in Urdu.
+locale: ur
+---
+عمانی ریال

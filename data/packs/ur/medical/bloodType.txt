@@ -1,0 +1,12 @@
+---
+description: ABO and Rh blood group. The notation is international and is written in Latin on a Pakistani or Indian blood-group card, so it is not transliterated here.
+locale: ur
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

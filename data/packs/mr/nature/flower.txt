@@ -1,0 +1,36 @@
+---
+description: Flower, in Marathi. The list leads with what is actually grown, worn and offered in Maharashtra: मोगरा, जाई and जुई are strung into the गजरा a woman wears in her hair; झेंडू is the marigold of every festival garland; सोनचाफा is the golden champa whose scent is a Konkan summer; अबोली is the flower that gives its name to a colour with no English equivalent. कारवी is the one that could not appear in any other locale's list — a Western Ghats shrub that flowers once every seven or eight years and turns whole hillsides purple when it does, drawing crowds to the Kaas plateau. Eight names here carry ळ (कमळ, अबोली, बकुळ, कर्दळ, सूर्यफूल, गुलछडी, ब्रह्मकमळ, सोनकेवडा) and so have no Hindi spelling.
+locale: mr
+---
+मोगरा
+जाई
+जुई
+चाफा
+सोनचाफा
+कमळ
+गुलाब
+झेंडू
+शेवंती
+अबोली
+जास्वंद
+कण्हेर
+बकुळ
+पारिजात
+रातराणी
+निशिगंध
+कर्दळ
+तगर
+अनंत
+गोकर्ण
+बोगनवेल
+सूर्यफूल
+गुलछडी
+ब्रह्मकमळ
+कारवी
+तेरडा
+सोनकेवडा
+चमेली
+लिली
+ऑर्किड
+ट्यूलिप
+डेझी

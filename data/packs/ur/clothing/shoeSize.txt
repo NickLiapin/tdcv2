@@ -1,0 +1,17 @@
+---
+description: Shoe size as it is printed on a shoebox in the Urdu-speaking world: the UK scale, not the European one. Pakistan and India both inherited British sizing and never changed it, so a shoe labelled 8 is a UK 8 — roughly EU 42 — and a config that reads these as European sizes will be four numbers out on every row. Half sizes appear mostly on imported sports footwear; locally-made خُسہ and chappal are sold in whole sizes only. Children's sizes restart at 1 on a separate scale and are not mixed in here.
+locale: ur
+---
+4
+5
+6
+6.5
+7
+7.5
+8
+8.5
+9
+9.5
+10
+11
+12

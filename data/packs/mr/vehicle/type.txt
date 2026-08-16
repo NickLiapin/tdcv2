@@ -1,0 +1,26 @@
+---
+description: Vehicle type, in Marathi. Three belong to Maharashtra rather than to a European road. एसटी बस is the Maharashtra State Road Transport Corporation bus, known to everyone as लाल परी, the red fairy, and it is the only public transport reaching most villages in the state. ऑटो रिक्षा is the three-wheeler that does the work a taxi does elsewhere. बैलगाडी, the bullock cart, is still a registered and used road vehicle in rural districts, and leaving it out would flatter the dataset.
+locale: mr
+---
+हॅचबॅक
+सेदान
+एसयूव्ही
+क्रॉसओव्हर
+एमपीव्ही
+कूपे
+कन्व्हर्टिबल
+पिकअप
+व्हॅन
+टेम्पो
+टेम्पो ट्रॅव्हलर
+जीप
+ट्रक
+बस
+एसटी बस
+ऑटो रिक्षा
+सायकल रिक्षा
+दुचाकी
+स्कूटर
+मोटरसायकल
+ट्रॅक्टर
+बैलगाडी

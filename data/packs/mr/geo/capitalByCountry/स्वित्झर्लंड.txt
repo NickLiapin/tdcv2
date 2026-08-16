@@ -1,0 +1,5 @@
+---
+description: Capital of स्वित्झर्लंड, as Marathi names it
+locale: mr
+---
+बर्न

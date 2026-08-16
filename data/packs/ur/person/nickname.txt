@@ -1,0 +1,92 @@
+---
+description: Familiar and household names in Urdu. Three different things are on this list and all three are how a person is actually addressed. First, the clipped given name plus ی — عمران becomes عمی, نعمان becomes نومی, کامران becomes کامی, عائشہ becomes ایشی, فاطمہ becomes فاطی. Second, the گھر کا نام, the "house name", a completely separate name given in childhood that often bears no relation at all to the legal one: منا, منی, گڑیا, گڈو, پپو, بلو, ٹیپو, سونو. A great many people in the Urdu-speaking world are known by such a name for life inside the family and by their registered name nowhere else, so a nickname column here is NOT a diminutive of the first-name column and must not be derived from it. Third, kinship words used as address to people who are not relatives — بھائی, باجی, آپا, چاچا, ماموں — and the honorific-plus-title forms (خان صاحب, شاہ جی) that stand in for a name entirely.
+locale: ur
+---
+منا
+منی
+گڑیا
+گڈو
+پپو
+بلو
+ٹیپو
+سونو
+مونو
+بابو
+جانی
+چھوٹو
+ماہی
+رانی
+شانی
+نونی
+لالہ
+گڈی
+ٹینا
+ڈولی
+مٹھو
+کالو
+گورا
+چھوٹی
+بڑی
+منجھلا
+منجھلی
+لاڈلی
+لاڈلا
+ہیرا
+چاند
+عمی
+نومی
+کامی
+عدی
+فری
+سلو
+رضی
+عثی
+حمی
+بلی
+دانی
+واسی
+ہاشی
+طلحی
+سعدی
+ارسی
+ایشی
+فاطی
+زینی
+خدی
+ہانی
+صبی
+نوری
+گلی
+شمی
+رخی
+نازی
+فوزی
+رابی
+سمی
+ثنی
+بھائی
+بھائی جان
+باجی
+آپا
+بی بی
+یار
+جگر
+استاد
+ماسٹر
+چاچا
+چاچو
+تایا
+ماموں
+خالو
+پھوپھا
+دادو
+نانو
+ابو
+امی
+بھابھی
+بھیا
+خان صاحب
+شاہ جی
+چودھری صاحب
+پیر صاحب
+حاجی صاحب

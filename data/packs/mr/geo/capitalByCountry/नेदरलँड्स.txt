@@ -1,0 +1,5 @@
+---
+description: Capital of नेदरलँड्स, as Marathi names it
+locale: mr
+---
+ॲम्स्टरडॅम

@@ -1,0 +1,18 @@
+---
+description: Streaming service as Urdu writes it. The Urdu-language market runs mostly on free ad-supported YouTube channels and on the broadcasters' own apps rather than on paid subscription: ARY Zap, Tamasha and Tapmad are Pakistani, JioCinema and ZEE5 Indian, and Netflix has an Urdu catalogue but a small subscriber base against them.
+locale: ur
+---
+یوٹیوب
+نیٹ فلکس
+ایمیزون پرائم ویڈیو
+ڈزنی پلس
+ٹماشا
+ٹیپ میڈ
+اے آر وائے زیپ
+جیو سنیما
+زی فائیو
+ہاٹ اسٹار
+ایم ایکس پلیئر
+سونی لیو
+ڈیلی موشن
+اسپاٹیفائی

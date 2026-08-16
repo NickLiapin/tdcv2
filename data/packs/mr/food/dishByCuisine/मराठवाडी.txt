@@ -1,0 +1,14 @@
+---
+description: Dishes of मराठवाडी cooking, in Marathi. The parent list is food/cuisine.txt and this filename must match its value character for character.
+locale: mr
+---
+कळण्याची भाकरी
+हुलग्याचे माडगे
+शेंगदाणा चटणी
+ज्वारीची भाकरी
+वांग्याची भाजी
+खर्डा
+पिठलं
+बाजरीची भाकरी
+धपाटे
+गूळपोळी

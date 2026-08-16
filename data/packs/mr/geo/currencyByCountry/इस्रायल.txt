@@ -1,0 +1,5 @@
+---
+description: Currency of इस्रायल, as Marathi names it
+locale: mr
+---
+इस्रायली शेकेल

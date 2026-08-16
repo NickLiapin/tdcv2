@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of अमेरिकेची संयुक्त संस्थाने
+locale: mr
+---
+USD

@@ -1,0 +1,30 @@
+---
+description: Aircraft type. These are MODEL designations and keep their real Latin spelling in any locale — an A320 is an A320 on a Marathi boarding pass as much as on an English one. The list leans towards the narrowbodies that actually fly India's domestic network.
+locale: mr
+---
+Airbus A320neo
+Airbus A320
+Airbus A321neo
+Airbus A321
+Airbus A319
+Airbus A330
+Airbus A350
+Airbus A380
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 737-700
+Boeing 777-300ER
+Boeing 777-200LR
+Boeing 787-8 Dreamliner
+Boeing 787-9 Dreamliner
+Boeing 747-400
+ATR 72-600
+ATR 42
+Bombardier Q400
+Embraer E175
+Embraer E190
+Embraer E145
+Bombardier CRJ900
+Cessna Caravan 208B
+Dornier 228
+Tecnam P2012

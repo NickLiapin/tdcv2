@@ -1,0 +1,22 @@
+---
+description: Cat breeds in Urdu. Breed names are mostly the country of origin plus بلی, which is how Urdu names any imported animal type. دیسی بلی is the last line for a reason: "desi" means locally-bred and unpedigreed, it is what the overwhelming majority of cats in the Urdu-speaking world are, and a data set of Pakistani or Indian pets that contains only pedigree breeds is wrong about the population it claims to describe.
+locale: ur
+---
+ایرانی بلی
+سیامی بلی
+انگورا بلی
+ترکی وان
+روسی نیلی
+بنگالی بلی
+برمی بلی
+ابیسینیائی بلی
+برٹش شارٹ ہیئر
+مین کون
+ریگ ڈال
+سائبیرین بلی
+اسکاٹش فولڈ
+اسفنکس
+بمبئی بلی
+سنگاپوری بلی
+مصری ماؤ
+دیسی بلی

@@ -1,0 +1,15 @@
+---
+description: Reaction to a post, in Marathi.
+locale: mr
+---
+आवडले
+प्रेम
+हसू
+आश्चर्य
+दुःख
+राग
+काळजी
+अभिनंदन
+पाठिंबा
+उपयुक्त
+उत्सुकता

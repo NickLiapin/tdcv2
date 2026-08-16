@@ -1,0 +1,38 @@
+---
+description: Common Marathi adverb. Adverbs are the one word class in Marathi that does NOT inflect for gender, so unlike the adjectives and verbs in this pack these can be pasted anywhere without agreement — which makes them the safe building block for a config that has no gender information. हळू, काळजीपूर्वक, जवळजवळ and हळुवारपणे carry ळ.
+locale: mr
+---
+लवकर
+हळू
+पटकन
+काळजीपूर्वक
+सहज
+शांतपणे
+मोठ्याने
+नेहमी
+कधीच नाही
+अनेकदा
+कधीकधी
+क्वचित
+अचानक
+हळुवारपणे
+स्पष्टपणे
+सोप्या रीतीने
+जवळजवळ
+पूर्णपणे
+जेमतेम
+बहुतेक
+खरोखर
+खोलवर
+व्यापकपणे
+मुक्तपणे
+धाडसाने
+उत्सुकतेने
+ठामपणे
+आनंदाने
+प्रेमाने
+वेगाने
+आत्ताच
+उद्या
+काल
+आज

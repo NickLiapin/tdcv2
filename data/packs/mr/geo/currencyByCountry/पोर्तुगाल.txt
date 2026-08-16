@@ -1,0 +1,5 @@
+---
+description: Currency of पोर्तुगाल, as Marathi names it
+locale: mr
+---
+युरो

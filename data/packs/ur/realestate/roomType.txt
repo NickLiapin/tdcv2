@@ -1,0 +1,22 @@
+---
+description: Rooms in Urdu. بیٹھک is the men's sitting room, kept near the front door so male visitors can be received without entering the household proper — it is a standard room in a South Asian house and has no European equivalent. زنان خانہ and مردان خانہ name the same division in larger and older houses. صحن is the internal courtyard the house is built around, not a garden.
+locale: ur
+---
+کمرہ
+بیڈ روم
+ماسٹر بیڈ روم
+ڈرائنگ روم
+بیٹھک
+زنان خانہ
+مردان خانہ
+ٹی وی لاؤنج
+کھانے کا کمرہ
+باورچی خانہ
+غسل خانہ
+اٹیچڈ باتھ
+برآمدہ
+صحن
+چھت
+سٹور
+گیراج
+سرونٹ کوارٹر

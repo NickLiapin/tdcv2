@@ -1,0 +1,5 @@
+---
+description: Capital of सौदी अरेबिया, as Marathi names it
+locale: mr
+---
+रियाध

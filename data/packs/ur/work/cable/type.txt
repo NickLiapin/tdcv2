@@ -1,0 +1,13 @@
+---
+description: Cable type in Urdu. Trade names stay Latin, as they are printed on the drum.
+locale: ur
+---
+فائبر آپٹک
+کو ایکسیل
+ٹوئسٹڈ پیئر
+Cat5e
+Cat6
+Cat6a
+ایتھرنیٹ
+بجلی کی تار
+آرمرڈ کیبل

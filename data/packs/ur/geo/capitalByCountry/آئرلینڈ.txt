@@ -1,0 +1,5 @@
+---
+description: Capital of آئرلینڈ in Urdu.
+locale: ur
+---
+ڈبلن

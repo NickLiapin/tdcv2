@@ -1,0 +1,71 @@
+---
+description: Nationality or demonym in Urdu, adjective form. Led by Pakistan, its neighbours and the Gulf states, which is where the overwhelming majority of non-local nationalities in Urdu-language records come from: several million Pakistanis work in Saudi Arabia and the UAE, and Afghan nationality appears constantly in Pakistani records because of four decades of refugee movement.
+locale: ur
+---
+پاکستانی
+بھارتی
+بنگلہ دیشی
+افغان
+ایرانی
+سری لنکن
+نیپالی
+بھوٹانی
+مالدیپی
+چینی
+سعودی
+اماراتی
+قطری
+کویتی
+عمانی
+بحرینی
+ترک
+مصری
+عراقی
+شامی
+اردنی
+لبنانی
+فلسطینی
+یمنی
+ازبک
+تاجک
+ترکمن
+قازق
+کرغیز
+آذری
+روسی
+یوکرینی
+برطانوی
+امریکی
+کینیڈین
+آسٹریلوی
+نیوزی لینڈی
+جرمن
+فرانسیسی
+اطالوی
+ہسپانوی
+پرتگالی
+ڈچ
+بیلجین
+سوئس
+سویڈش
+ناروے کا
+ڈینش
+فن لینڈی
+پولش
+یونانی
+جاپانی
+کوریائی
+ملائیشیائی
+انڈونیشیائی
+تھائی
+ویتنامی
+فلپائنی
+سنگاپوری
+جنوبی افریقی
+نائجیرین
+کینیائی
+مراکشی
+صومالی
+برازیلی
+ارجنٹینی
+میکسیکن

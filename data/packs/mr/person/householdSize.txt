@@ -1,0 +1,14 @@
+---
+description: Number of people in a household. Maharashtra's average household is about four, and joint households of eight or more remain common in rural districts, which is why the list runs further than the European default.
+locale: mr
+---
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 पेक्षा जास्त

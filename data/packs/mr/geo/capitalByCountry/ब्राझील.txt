@@ -1,0 +1,5 @@
+---
+description: Capital of ब्राझील, as Marathi names it
+locale: mr
+---
+ब्राझिलिया

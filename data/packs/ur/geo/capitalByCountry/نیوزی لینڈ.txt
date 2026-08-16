@@ -1,0 +1,5 @@
+---
+description: Capital of نیوزی لینڈ in Urdu.
+locale: ur
+---
+ویلنگٹن

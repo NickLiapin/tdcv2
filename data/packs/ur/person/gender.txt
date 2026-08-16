@@ -1,0 +1,8 @@
+---
+description: Gender label in Urdu. THREE, not two, and the third is a legal category rather than a courtesy: خواجہ سرا is recognised as a third gender on Pakistan's identity card and passport, following the Supreme Court's 2009 ruling and the Transgender Persons (Protection of Rights) Act 2018, and India recognises "other" on the same footing after NALSA v. Union of India in 2014. So a gender column for this locale that offers only مرد and عورت cannot hold a value that appears on real state-issued documents.
+locale: ur
+---
+مرد
+عورت
+خواجہ سرا
+دیگر

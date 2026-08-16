@@ -1,0 +1,16 @@
+---
+description: Arab dishes in Urdu. مندی and کبسہ are the spiced rice-and-meat dishes of the Gulf, and they are on an Urdu list because millions of Pakistanis and Indians have worked in the Gulf and brought them home — these are not exotic here.
+locale: ur
+---
+مندی
+کبسہ
+مچبوس
+شاورما
+فلافل
+حمص
+تبولہ
+مقلوبہ
+فتہ
+ام علی
+کنافہ
+بقلاوہ

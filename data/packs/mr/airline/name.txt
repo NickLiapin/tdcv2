@@ -1,0 +1,54 @@
+---
+description: Airline serving Maharashtra's airports — Mumbai is India's busiest international gateway and Pune, Nagpur and Shirdi carry heavy domestic traffic. Airline names are BRAND names and keep their real Latin spelling, as Wi-Fi and Xbox do; Marathi newspapers print them in Latin inside a Devanagari sentence.
+locale: mr
+---
+IndiGo
+Air India
+Air India Express
+Akasa Air
+SpiceJet
+Alliance Air
+Star Air
+FLY91
+IndiaOne Air
+Emirates
+Qatar Airways
+Etihad Airways
+flydubai
+Air Arabia
+Oman Air
+Kuwait Airways
+Gulf Air
+Saudia
+Turkish Airlines
+Lufthansa
+Swiss International Air Lines
+British Airways
+Virgin Atlantic
+Air France
+KLM
+Finnair
+Aeroflot
+Singapore Airlines
+Scoot
+Thai Airways International
+Malaysia Airlines
+AirAsia
+Cathay Pacific
+Japan Airlines
+All Nippon Airways
+Korean Air
+Air China
+China Eastern Airlines
+Vietnam Airlines
+SriLankan Airlines
+Nepal Airlines
+Biman Bangladesh Airlines
+Druk Air
+Maldivian
+Air Mauritius
+Ethiopian Airlines
+Kenya Airways
+EgyptAir
+Qantas
+United Airlines

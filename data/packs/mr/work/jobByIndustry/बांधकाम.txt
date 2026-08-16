@@ -1,0 +1,18 @@
+---
+description: Jobs found in the बांधकाम sector, in Marathi. The parent list is work/industryCoherent.txt and this filename must match its value character for character.
+locale: mr
+---
+बांधकाम कामगार
+बांधकाम मुकादम
+गवंडी
+सुतार
+विजतंत्री
+नळकारागीर
+वेल्डर
+रंगारी
+गिलावा कारागीर
+भूमापक
+स्थापत्य अभियंता
+इमारत निरीक्षक
+क्रेन चालक
+पाडकाम कामगार

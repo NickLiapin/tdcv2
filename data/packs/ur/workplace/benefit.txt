@@ -1,0 +1,24 @@
+---
+description: Employee benefits in Urdu. عیدی is the one no European list has: a bonus paid before Eid, expected rather than discretionary, and in many workplaces the largest single payment of the year after salary. پراویڈنٹ فنڈ and گریجویٹی are the South Asian retirement instruments — a matched savings fund and a lump sum on leaving after long service — and they do what a pension does elsewhere. حج کی سہولت, paid leave and often a contribution towards the pilgrimage once in a career, is offered by many large employers here.
+locale: ur
+---
+طبی سہولت
+گروپ انشورنس
+پراویڈنٹ فنڈ
+گریجویٹی
+پنشن
+سالانہ بونس
+عیدی
+سالانہ اضافہ
+اوور ٹائم
+رہائش
+گاڑی
+پٹرول الاؤنس
+موبائل الاؤنس
+کھانے کی سہولت
+ٹرانسپورٹ
+بچوں کی تعلیمی امداد
+حج کی سہولت
+لچکدار اوقات
+گھر سے کام
+تربیتی کورس

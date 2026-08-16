@@ -1,0 +1,21 @@
+---
+description: Seniority or grade label, in Marathi. The Indian public sector — which employs a very large share of Marathi white-collar workers — grades by वर्ग: वर्ग-१ (gazetted officer) down to वर्ग-४ (attendant and support staff), and a Maharashtrian job advertisement, pay slip and pension order all use these words rather than the corporate ladder above them. Both scales are here because both are real.
+locale: mr
+---
+शिकाऊ
+प्रशिक्षणार्थी
+कनिष्ठ
+सहायक
+मध्यम स्तर
+वरिष्ठ
+प्रमुख
+मुख्य
+व्यवस्थापक
+वरिष्ठ व्यवस्थापक
+संचालक
+उपाध्यक्ष
+अध्यक्ष
+वर्ग-१
+वर्ग-२
+वर्ग-३
+वर्ग-४

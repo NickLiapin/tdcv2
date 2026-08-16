@@ -1,0 +1,28 @@
+---
+description: Venue type in Urdu. شادی ہال and مارکی are the two standard wedding venues across Pakistan — the first a permanent banquet hall, the second a temporary tented marquee raised on an open plot — and between them they host most large gatherings in the country. دربار is a shrine courtyard and امام بارگاہ a Shia congregation hall, both of which host events that a hotel would host elsewhere.
+locale: ur
+---
+شادی ہال
+مارکی
+ہوٹل
+بینکوئٹ ہال
+آڈیٹوریم
+کانفرنس روم
+کمیونٹی سینٹر
+کلب
+ریستوران
+فارم ہاؤس
+لان
+باغ
+چھت
+اسٹیڈیم
+کھیل کا میدان
+مسجد
+امام بارگاہ
+دربار
+تھیٹر
+سنیما
+نمائش گاہ
+یونیورسٹی کیمپس
+اسکول ہال
+گھر

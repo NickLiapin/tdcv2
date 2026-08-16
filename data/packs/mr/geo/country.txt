@@ -1,0 +1,51 @@
+---
+description: Country as Marathi names it, weighted by population in millions. The names are TRANSLATED where Marathi has its own form and only transliterated where it does not: the United States is अमेरिकेची संयुक्त संस्थाने, a real Marathi noun phrase in which the possessive -ची is welded onto अमेरिका rather than written as a separate word, and Turkey is तुर्कस्तान, Marathi's own form, where Hindi says तुर्की. नेपाळ carries ळ, the retroflex L Hindi does not have (Hindi writes नेपाल) — the cheapest single-character proof that this list is Marathi and not Hindi, since both are Devanagari and no script check can separate them. भारत sits second at its real weight rather than being pushed to the top: a plain draw from this file will produce China as often as India, and a config that wants an India-centred dataset must filter rather than rely on the weighting. Country names inflect like any other Marathi noun and take their postpositions as suffixes — भारतात (in India), जपानला (to Japan), फ्रान्समधून (from France) — so a config dropping one into a sentence has to inflect it, not paste it.
+locale: mr
+weighted: true
+---
+चीन,1410
+भारत,1400
+अमेरिकेची संयुक्त संस्थाने,335
+इंडोनेशिया,275
+पाकिस्तान,240
+नायजेरिया,220
+ब्राझील,215
+बांगलादेश,170
+रशिया,144
+मेक्सिको,128
+जपान,125
+फिलिपिन्स,115
+इजिप्त,110
+व्हिएतनाम,98
+इराण,88
+तुर्कस्तान,85
+जर्मनी,84
+थायलंड,72
+फ्रान्स,68
+युनायटेड किंग्डम,67
+दक्षिण आफ्रिका,60
+इटली,59
+म्यानमार,55
+दक्षिण कोरिया,52
+स्पेन,47
+अर्जेंटिना,46
+कॅनडा,39
+पोलंड,38
+सौदी अरेबिया,36
+मलेशिया,34
+नेपाळ,30
+ऑस्ट्रेलिया,26
+श्रीलंका,22
+नेदरलँड्स,18
+संयुक्त अरब अमिराती,10
+स्वीडन,10
+ग्रीस,10
+पोर्तुगाल,10
+स्वित्झर्लंड,9
+ऑस्ट्रिया,9
+इस्रायल,9
+सिंगापूर,6
+नॉर्वे,5
+आयर्लंड,5
+न्यूझीलंड,5
+भूतान,1

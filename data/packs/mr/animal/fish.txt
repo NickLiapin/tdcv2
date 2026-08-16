@@ -1,0 +1,37 @@
+---
+description: Fish and shellfish, in Marathi — and this is one of the most distinctively Marathi lists in the pack, because Maharashtra has a five-hundred-kilometre Konkan coast with its own fish vocabulary that no other Indian language shares. बांगडा is mackerel, सुरमई kingfish, पापलेट pomfret, बोंबील the Bombay duck, रावस Indian salmon, तारली sardine, कोळंबी prawn, तिसऱ्या clams, चिंबोरी and खेकडा crab, शिवंड lobster. Six of them carry ळ (कोळंबी, शिंगाळा, घोळ, तळ्यातील) or the eyelash-ra ऱ् (तिसऱ्या), neither of which exists in Hindi. A Marathi fish market list is not a translated one.
+locale: mr
+---
+बांगडा
+सुरमई
+पापलेट
+बोंबील
+रावस
+तारली
+मांदेली
+हलवा
+घोळ
+शिंगाळा
+मुशी
+मोरी
+वाम
+जिताडा
+कोळंबी
+तिसऱ्या
+चिंबोरी
+खेकडा
+शिवंड
+कालवं
+निवटी
+खुबे
+सौंदाळे
+कटला
+रोहू
+मरळ
+वाघूर
+कुर्ल्या
+मासा
+तिलापिया
+सामन
+ट्यूना
+सार्डिन

@@ -1,0 +1,34 @@
+---
+description: Household budget category in Urdu. Three of these carry weight that a European budget list has no line for. زکوٰۃ is the obligatory annual alms of 2.5% on savings and is budgeted as a fixed outgoing, not as discretionary charity; قربانی is the animal bought at Eid al-Adha and is a large once-a-year expense; and جہیز, the goods a family accumulates for a daughter's marriage, is saved towards for years and is one of the biggest single line items a household here will ever plan for. بجلی کا بل sits separately from گیس کا بل because they are billed by different utilities.
+locale: ur
+---
+مکان کا کرایہ
+قسط
+راشن
+بجلی کا بل
+گیس کا بل
+پانی کا بل
+موبائل و انٹرنیٹ
+سفر
+پٹرول
+تعلیم
+فیس
+صحت
+دوا
+بیمہ
+کپڑے
+گھریلو سامان
+مرمت
+ملازم کی تنخواہ
+باہر کھانا
+تفریح
+زکوٰۃ
+خیرات
+قربانی
+جہیز
+تحائف
+بچت
+سرمایہ کاری
+قرض کی ادائیگی
+کمیٹی
+دیگر

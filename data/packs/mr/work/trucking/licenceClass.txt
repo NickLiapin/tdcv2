@@ -1,0 +1,11 @@
+---
+description: Commercial driving licence class as issued in India, in Marathi. These are the RTO vehicle classes — light, medium goods, heavy goods, heavy passenger, transport endorsement, trailer and a separate hazardous-goods endorsement — and they are NOT the American CDL Class A/B/C. A config emitting Class A for an Indian driver is describing the wrong country's licensing system.
+locale: mr
+---
+एलएमव्ही (हलके मोटार वाहन)
+एलएमव्ही-टीआर (वाहतूक)
+एमजीव्ही (मध्यम मालवाहू)
+एचजीएमव्ही (जड मालवाहू)
+एचपीएमव्ही (जड प्रवासी)
+ट्रेलर
+घातक माल परवाना

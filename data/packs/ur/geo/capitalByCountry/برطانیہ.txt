@@ -1,0 +1,5 @@
+---
+description: Capital of برطانیہ in Urdu.
+locale: ur
+---
+لندن

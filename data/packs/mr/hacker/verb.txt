@@ -1,0 +1,32 @@
+---
+description: Technical verb, in Marathi, in the dictionary form ending in -णे. Most are COMPOUND verbs — an English or Sanskrit noun plus करणे (to do) — because that is how Marathi absorbs a foreign verb: एन्क्रिप्ट करणे, तैनात करणे, संकुचित करणे. A config splitting on whitespace will cut them in half.
+locale: mr
+---
+बॅकअप घेणे
+वळसा घालणे
+हॅक करणे
+अधिक्रमित करणे
+संकुचित करणे
+प्रत करणे
+संचार करणे
+निर्देशांकित करणे
+जोडणे
+निर्माण करणे
+मोजणे
+गणना करणे
+संश्लेषित करणे
+इनपुट देणे
+प्रक्षेपित करणे
+आज्ञावली लिहिणे
+पुन्हा सुरू करणे
+पार्स करणे
+एन्क्रिप्ट करणे
+डिक्रिप्ट करणे
+तैनात करणे
+चाचणी घेणे
+दुरुस्त करणे
+अद्ययावत करणे
+पुनर्संचयित करणे
+स्थलांतरित करणे
+संकलित करणे
+समक्रमित करणे

@@ -1,0 +1,5 @@
+---
+description: Currency of نیوزی لینڈ in Urdu.
+locale: ur
+---
+نیوزی لینڈ ڈالر

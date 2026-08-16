@@ -1,0 +1,38 @@
+---
+description: Fruit, in Marathi. The list is led by what grows in Maharashtra and by what the state is known for: हापूस is the Alphonso mango of the Konkan coast, which has its own geographical-indication registration and a two-month season the whole state waits for; the Nagpur orange and the Nashik grape are export crops; Mahabaleshwar strawberries are a hill-station industry; and कोकम, the sour purple fruit of the Konkan, is used as a souring agent and drunk as sherbet and has no English name. Nine of these names cannot be written in Hindi at all — केळे, सीताफळ, रामफळ, जांभूळ, नारळ, आवळा, शहाळे, डाळिंब and चारोळी all carry ळ, where Hindi writes केला, सीताफल, जामुन, नारियल, आँवला and अनार. That is the vocabulary test the script test cannot do.
+locale: mr
+---
+आंबा
+हापूस आंबा
+पायरी आंबा
+केळे
+पेरू
+चिकू
+सीताफळ
+रामफळ
+जांभूळ
+करवंद
+फणस
+नारळ
+शहाळे
+काजू
+बोर
+आवळा
+कवठ
+डाळिंब
+संत्रे
+मोसंबी
+लिंबू
+द्राक्षे
+टरबूज
+खरबूज
+पपई
+अननस
+सफरचंद
+स्ट्रॉबेरी
+अंजीर
+खजूर
+कोकम
+रातांबा
+चारोळी
+सुपारी

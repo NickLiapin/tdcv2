@@ -1,0 +1,44 @@
+---
+description: Adjective for a product listing, in Marathi. Read the note in color/name.txt before using this list: the adjectives that end in -आ — मोठा, लहान, हलका, जड, कडक — inflect for THREE genders, so मोठा (masculine), मोठी (feminine) and मोठे (neuter) are three different words and the right one is decided by the noun in commerce/productNoun.txt. A template that concatenates an adjective and a noun without agreeing them produces Marathi that is grammatically wrong in roughly two cases out of three. The rest of the list is INVARIANT — टिकाऊ, सुंदर, आकर्षक, हस्तनिर्मित, जाड, बारीक and every compound ending in -योग्य or -शील never change form — so a config that has no gender information should restrict itself to those.
+locale: mr
+---
+टिकाऊ
+सुंदर
+आकर्षक
+हस्तनिर्मित
+हलका
+जड
+मोठा
+लहान
+जाड
+बारीक
+मऊ
+कडक
+गुळगुळीत
+खडबडीत
+नक्षीदार
+साधा
+रंगीत
+पारदर्शक
+अपारदर्शक
+जलरोधक
+उष्णतारोधक
+पुनर्वापरयोग्य
+घडीचा
+वाहून नेण्याजोगा
+बिनतारी
+रिचार्जेबल
+समायोज्य
+पारंपरिक
+आधुनिक
+कलात्मक
+उच्च दर्जाचा
+किफायतशीर
+बहुउपयोगी
+सेंद्रिय
+शुद्ध
+नैसर्गिक
+आयात केलेला
+स्वदेशी
+प्रीमियम
+मर्यादित आवृत्ती

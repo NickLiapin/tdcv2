@@ -1,0 +1,15 @@
+---
+description: Jobs found in the किरकोळ व्यापार sector, in Marathi. The parent list is work/industryCoherent.txt and this filename must match its value character for character.
+locale: mr
+---
+दुकान सहाय्यक
+दुकान व्यवस्थापक
+रोखपाल
+ग्राहक सेवा प्रतिनिधी
+साठा व्यवस्थापक
+दृश्य मांडणीकार
+विक्री प्रतिनिधी
+किराणा दुकानदार
+भाजी विक्रेता
+फेरीवाला
+सुरक्षा रक्षक

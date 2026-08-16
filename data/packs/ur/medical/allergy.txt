@@ -1,0 +1,28 @@
+---
+description: Allergen in Urdu, as an intake form lists one. چنے (chickpea) and سرسوں (mustard) are on the list because they are staples in this diet and are correspondingly common triggers here — a South Asian allergy form that carries only the European big eight will miss both. Peanut allergy, by contrast, is far less common in South Asia than in the West.
+locale: ur
+---
+مونگ پھلی
+بادام
+اخروٹ
+کاجو
+پستہ
+تل
+دودھ
+انڈا
+گندم
+گلوٹن
+سویا
+مچھلی
+جھینگا
+چنے
+سرسوں
+دھول
+گھاس کا زیرہ
+پھپھوندی
+جانوروں کے بال
+لیٹیکس
+پینسلین
+اسپرین
+مکھی کا ڈنک
+سلفا دوا

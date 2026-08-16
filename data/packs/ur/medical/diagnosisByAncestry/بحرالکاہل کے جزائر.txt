@@ -1,0 +1,11 @@
+---
+description: Conditions with a higher prevalence in Pacific Islander ancestry, in Urdu.
+locale: ur
+---
+ذیابیطس قسم دوم
+موٹاپا
+گاؤٹ
+بلند فشار خون
+گردے کی دائمی بیماری
+گٹھیا
+دل کی بیماری

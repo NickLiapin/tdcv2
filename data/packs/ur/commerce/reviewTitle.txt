@@ -1,0 +1,30 @@
+---
+description: Product review headline in Urdu, as a buyer writes one. The mix is deliberately uneven the way real reviews are — enthusiastic, flat and disappointed — and several are the stock phrases of South Asian online marketplaces: پیسے پورے وصول ("full value for money"), اصلی مال ("genuine goods"), and تصویر سے مختلف ("different from the photo"), which is the standard complaint where listings are photographed once and stocked loosely.
+locale: ur
+---
+بہترین پروڈکٹ
+ضرور خریدیں
+پیسے پورے وصول
+اصلی مال
+معیار شاندار
+توقع سے بڑھ کر
+بس ٹھیک ٹھاک
+کوئی خاص نہیں
+مایوسی ہوئی
+پیسے ضائع
+جلد خراب ہو گیا
+تصویر سے مختلف
+قیمت کے حساب سے اچھا
+دوبارہ خریدوں گا
+ترسیل بہت تیز
+ترسیل میں دیر ہوئی
+پیکنگ اچھی تھی
+ڈبہ ٹوٹا ہوا ملا
+سائز چھوٹا نکلا
+سائز بڑا نکلا
+رنگ مختلف ہے
+کام آسان ہو گیا
+مضبوط اور پائیدار
+ہلکا اور آرام دہ
+سب کو مشورہ دوں گا
+دوبارہ نہیں

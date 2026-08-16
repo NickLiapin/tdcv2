@@ -1,0 +1,5 @@
+---
+description: Currency of جاپان in Urdu.
+locale: ur
+---
+جاپانی ین

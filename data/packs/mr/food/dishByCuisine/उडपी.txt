@@ -1,0 +1,16 @@
+---
+description: Dishes of उडपी cooking, in Marathi. The parent list is food/cuisine.txt and this filename must match its value character for character.
+locale: mr
+---
+इडली
+मेदूवडा
+डोसा
+मसाला डोसा
+उत्तपा
+सांबार
+नारळाची चटणी
+रस्सम
+उपमा
+शिरा
+पुरी भाजी
+फिल्टर कॉफी

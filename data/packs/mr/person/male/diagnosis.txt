@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses that require male anatomy, plus a few common conditions, in Marathi. Medical Marathi keeps the Sanskrit-built terms for organs and processes (प्रोस्टेट ग्रंथीची वाढ, वृषणदाह) but takes the English word wholesale where no Marathi term ever settled, which is why the list mixes the two registers — that mixture is what a Marathi hospital record actually looks like.
+locale: mr
+---
+प्रोस्टेट ग्रंथीची सौम्य वाढ
+प्रोस्टेटदाह
+प्रोस्टेट कर्करोग
+वृषण कर्करोग
+वृषणपिळ
+वृषणशिरावृद्धी
+जलवृषण
+अधिवृषणदाह
+अवतरित न झालेले वृषण
+शिश्नमुखसंकोच
+पुरुष वंध्यत्व
+स्तनवृद्धी
+पुरुष लैंगिक दुर्बलता
+पुरुष संप्रेरक न्यूनता
+पुरुष टक्कल
+जुनाट स्वादुपिंडदाह
+क्लॅमिडिया
+जुनाट संधिवात
+गुदाशय कर्करोग
+मूत्रमार्ग अडथळा
+अंडाशयवाहिनी गळू
+अंतर्गळ
+मूळव्याध
+यकृतविकार
+उच्च रक्तदाब
+मधुमेह

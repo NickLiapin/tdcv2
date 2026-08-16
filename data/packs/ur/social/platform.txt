@@ -1,0 +1,21 @@
+---
+description: Social platforms as Urdu writes them. Urdu press and Urdu users transliterate these names rather than keeping them Latin — فیس بک and واٹس ایپ are how they are written in an Urdu newspaper — which is the opposite of the convention for gaming platforms and technical abbreviations in this pack. واٹس ایپ leads because it is by a wide margin the dominant messaging app across Pakistan and Muslim South Asia, and ٹک ٹاک has an unusually large Urdu-language user base outside the big cities.
+locale: ur
+---
+واٹس ایپ
+فیس بک
+یوٹیوب
+ٹک ٹاک
+انسٹاگرام
+ایکس
+اسنیپ چیٹ
+لنکڈ اِن
+ٹیلیگرام
+امو
+پنٹرسٹ
+ریڈٹ
+تھریڈز
+ڈسکورڈ
+سگنل
+مسینجر
+ڈیلی موشن

@@ -1,0 +1,5 @@
+---
+description: Currency of अर्जेंटिना, as Marathi names it
+locale: mr
+---
+अर्जेंटिनी पेसो

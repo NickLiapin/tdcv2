@@ -1,0 +1,42 @@
+---
+description: Honorific placed BEFORE a name in Urdu. Urdu has no Mr/Mrs pair that does all the work — respect is carried by a whole apparatus of prefixes, and which one is used says what kind of authority the person holds. جناب and محترم are the general formal ones and محترمہ their feminine; حضرت is reserved for religious figures and saints. The religious block is not archaic: مولانا, مفتی, قاری, حافظ, علامہ and پیر are current forms of address printed on letterheads and read out at gatherings across the Urdu-speaking world. سید and میر mark claimed descent from the Prophet, and حاجی marks someone who has performed the hajj — both are used in place of a title for life. چوہدری, ملک, راجہ, رانا, سردار and نواب are landed and tribal titles that in Pakistan are used as prefixes exactly as "Sir" is in Britain, and several of them are also family names (see person/lastName), so the same word may appear at either end of a full name. ڈاکٹر, پروفیسر and انجینئر are used far more freely as social titles here than in Europe. No Jr/Sr apparatus exists in Urdu at all — see person/suffix.
+locale: ur
+---
+جناب
+محترم
+محترمہ
+جناب عالی
+حضرت
+مولانا
+مولوی
+مفتی
+قاری
+حافظ
+علامہ
+شیخ
+پیر
+صوفی
+سید
+میر
+شاہ
+حاجی
+ڈاکٹر
+پروفیسر
+انجینئر
+جسٹس
+ایڈووکیٹ
+چوہدری
+ملک
+راجہ
+رانا
+سردار
+نواب
+خان
+میاں
+خواجہ
+بیگم
+کرنل
+میجر
+کیپٹن
+بریگیڈیئر
+جنرل

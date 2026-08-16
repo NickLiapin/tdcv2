@@ -1,0 +1,26 @@
+---
+description: Kinds of official document in Urdu. Four have no European counterpart and are ordinary paperwork here. نکاح نامہ is the marriage contract — a signed civil document with financial terms, not a certificate issued after the fact. ڈومیسائل certifies which district a person belongs to and gates university admission and government jobs. فرد ملکیت is the extract from the land revenue register that proves who holds a piece of land. حلف نامہ is a sworn statement written on judicial stamp paper, which is how a great many routine declarations are made across the region. کردار کا سرٹیفکیٹ, a character certificate from a school or the police, is required for jobs and admissions.
+locale: ur
+---
+شناختی کارڈ
+پاسپورٹ
+ڈرائیونگ لائسنس
+پیدائشی سرٹیفکیٹ
+وفات کا سرٹیفکیٹ
+نکاح نامہ
+طلاق نامہ
+ڈومیسائل
+کردار کا سرٹیفکیٹ
+فرد ملکیت
+رجسٹری
+اسٹامپ پیپر
+حلف نامہ
+ووٹر فہرست کا اندراج
+راشن کارڈ
+تعلیمی سند
+ڈگری
+لائسنس
+اجازت نامہ
+این او سی
+ٹیکس ریٹرن
+ویزا

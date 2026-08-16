@@ -1,0 +1,18 @@
+---
+description: Mughlai dishes in Urdu — the court cooking of the Mughal kitchens, built on slow braising, cream, nuts and saffron rather than on chilli heat. شب دیگ is cooked overnight in a sealed pot, and دم پخت names the sealing technique rather than a dish.
+locale: ur
+---
+قورمہ
+مرغ مسلم
+شامی کباب
+یخنی پلاؤ
+ملائی بوٹی
+نرگسی کوفتہ
+شب دیگ
+پسندے
+متنجن
+مغلائی پراٹھا
+شاہی ٹکڑے
+زردہ
+فرنی
+حلوہ سوہن

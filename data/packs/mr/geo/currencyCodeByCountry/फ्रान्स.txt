@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of फ्रान्स
+locale: mr
+---
+EUR

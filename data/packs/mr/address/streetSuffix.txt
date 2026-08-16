@@ -1,0 +1,46 @@
+---
+description: Marathi thoroughfare or settlement word. Unlike the European locales this element goes AFTER the name, not before it — टिळक रस्ता, स्टेशन रोड, शनिवार पेठ — which is the reverse of Polish ulica Długa. Four of these have no Hindi or English counterpart worth translating to. पेठ is the ward unit of an old Maharashtrian town, and Pune's addresses are still written by पेठ (शनिवार पेठ, कसबा पेठ) rather than by street. बोळ is a lane too narrow for a cart. आळी is the quarter of one trade or caste (सोनार आळी). चाळ is the single-room tenement row of Mumbai and Pune. Note that बोळ, आळी, चाळ, माळ and तळे all contain ळ, the retroflex L that Marathi kept and Hindi does not have — a Hindi list cannot spell any of them. Note also that Marathi ADDRESSES BY AREA at least as often as by road, which is why नगर, वसाहत, सोसायटी and सेक्टर sit in the same list as रस्ता.
+locale: mr
+---
+रस्ता
+मार्ग
+रोड
+पथ
+गल्ली
+बोळ
+आळी
+चौक
+नाका
+वेस
+पेठ
+वाडा
+वाडी
+नगर
+कॉलनी
+सोसायटी
+संकुल
+वसाहत
+अपार्टमेंट
+उपनगर
+सेक्टर
+विभाग
+टप्पा
+पाडा
+वस्ती
+चाळ
+झोपडपट्टी
+बाग
+उद्यान
+मैदान
+माळ
+तळे
+घाट
+पूल
+बंदर
+पाणंद
+बायपास
+महामार्ग
+रिंग रोड
+क्रॉस
+मुख्य रस्ता
+सर्कल

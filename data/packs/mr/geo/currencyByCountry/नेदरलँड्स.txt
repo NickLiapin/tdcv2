@@ -1,0 +1,5 @@
+---
+description: Currency of नेदरलँड्स, as Marathi names it
+locale: mr
+---
+युरो

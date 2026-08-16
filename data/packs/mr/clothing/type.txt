@@ -1,0 +1,40 @@
+---
+description: Garment and footwear, in Marathi. Five entries are Maharashtrian and appear in no other locale. नऊवारी साडी is the nine-yard sari draped between the legs like trousers, the traditional Maharashtrian drape and still worn at weddings and by Lavani dancers, as against the five-yard sari worn everywhere else in India. फेटा is the Maharashtrian turban, tied fresh for each occasion rather than pre-formed. गांधी टोपी, the white side cap, is Maharashtrian political dress and is still worn by farmers' movements. कोल्हापुरी चप्पल is the hand-stitched leather sandal of Kolhapur, which carries a geographical-indication registration. उपरणे is the shoulder cloth worn with a धोतर-सदरा. The imported garments keep their English names in Marathi speech.
+locale: mr
+---
+साडी
+नऊवारी साडी
+चोळी
+ब्लाउज
+पंजाबी ड्रेस
+ओढणी
+कुर्ता
+सदरा
+धोतर
+लेंगा
+पैजामा
+उपरणे
+शेला
+शाल
+फेटा
+पगडी
+गांधी टोपी
+टोपी
+टी-शर्ट
+शर्ट
+पँट
+जीन्स
+स्कर्ट
+फ्रॉक
+जॅकेट
+स्वेटर
+कोट
+रेनकोट
+बनियन
+मोजे
+कोल्हापुरी चप्पल
+चप्पल
+सँडल
+बूट
+स्पोर्ट्स शूज
+नऊवारी परकर

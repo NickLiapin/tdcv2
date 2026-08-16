@@ -1,0 +1,5 @@
+---
+description: Capital of چین in Urdu.
+locale: ur
+---
+بیجنگ

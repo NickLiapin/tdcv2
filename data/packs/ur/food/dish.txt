@@ -1,0 +1,52 @@
+---
+description: Dishes in Urdu. The list is what is actually eaten across the Urdu-speaking world rather than a restaurant menu: the biryanis and pulaos, the slow-cooked نہاری and حلیم that are eaten at breakfast rather than at dinner, the kebab family (which is six different things and not one), the everyday dal-and-roti meals, and the sweets. سری پائے is head and trotters simmered overnight and is a Sunday breakfast, not an oddity. حلوہ پوری and نان چنے are breakfasts. قلفی and فالودہ are frozen desserts with no European equivalent.
+locale: ur
+---
+بریانی
+پلاؤ
+یخنی پلاؤ
+کابلی پلاؤ
+قورمہ
+نہاری
+حلیم
+سری پائے
+کڑاہی
+مٹن کڑاہی
+چکن تکہ
+سیخ کباب
+شامی کباب
+چپلی کباب
+بہاری کباب
+ملائی بوٹی
+تندوری چکن
+مرغ چنے
+دال چاول
+دال گوشت
+آلو گوشت
+بھنڈی گوشت
+ساگ گوشت
+پالک پنیر
+سجی
+لنڈی
+چنا چاٹ
+دہی بھلے
+سموسہ
+پکوڑا
+رول
+پراٹھا
+حلوہ پوری
+نان چنے
+زردہ
+کھیر
+فرنی
+گاجر کا حلوہ
+سویاں
+رس ملائی
+گلاب جامن
+جلیبی
+برفی
+لڈو
+قلفی
+فالودہ
+لسی
+ٹھنڈائی

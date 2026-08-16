@@ -1,0 +1,35 @@
+---
+description: Trees in Urdu. برگد and پیپل are the banyan and the peepal, both figs, both enormous, and both village landmarks that meetings are held under. نیم is the neem, whose twigs are used as toothbrushes and whose leaves go into everything from medicine to grain storage. شیشم is the timber Pakistani and Indian furniture is made of. چنار is the plane tree of Kashmir and دیودار the Himalayan cedar. چلغوزہ is the pine whose nuts are a major export from the tribal districts.
+locale: ur
+---
+برگد
+پیپل
+نیم
+آم
+شیشم
+کیکر
+ببول
+سرو
+چنار
+دیودار
+صنوبر
+چیڑ
+چلغوزہ
+بید
+سفیدہ
+املتاس
+گلمہر
+جامن
+شہتوت
+انار
+انجیر
+کھجور
+ناریل
+بانس
+تون
+سمبل
+کچنار
+ارجن
+بادام
+اخروٹ
+زیتون

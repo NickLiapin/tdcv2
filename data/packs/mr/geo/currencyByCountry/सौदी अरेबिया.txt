@@ -1,0 +1,5 @@
+---
+description: Currency of सौदी अरेबिया, as Marathi names it
+locale: mr
+---
+सौदी रियाल

@@ -1,0 +1,31 @@
+---
+description: Educational qualification, in Marathi. The first two are the Maharashtra State Board certificates and are what most Marathi records actually hold: एस.एस.सी. is the class ten certificate and एच.एस.सी. the class twelve one, and an Indian job application asks for them by these names and not as high-school diploma. Marathi writes degree abbreviations with Devanagari letter names, so B.Sc. is बी.एस्सी. — the Hindi बी.एससी. is a different spelling of the same abbreviation. आय.टी.आय. is the industrial training certificate, the commonest post-school trade qualification in the state.
+locale: mr
+---
+एस.एस.सी.
+एच.एस.सी.
+पदविका
+आय.टी.आय. प्रमाणपत्र
+डी.एड.
+बी.ए.
+बी.कॉम.
+बी.एस्सी.
+बी.ई.
+बी.टेक.
+बी.एड.
+बी.फार्म.
+बी.आर्क.
+एम.ए.
+एम.कॉम.
+एम.एस्सी.
+एम.ई.
+एम.टेक.
+एम.बी.ए.
+एम.एस.डब्ल्यू.
+एम.बी.बी.एस.
+बी.डी.एस.
+बी.ए.एम.एस.
+एलएल.बी.
+एलएल.एम.
+एम.फिल.
+पीएच.डी.

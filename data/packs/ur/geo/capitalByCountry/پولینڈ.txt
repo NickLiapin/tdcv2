@@ -1,0 +1,5 @@
+---
+description: Capital of پولینڈ in Urdu.
+locale: ur
+---
+وارسا

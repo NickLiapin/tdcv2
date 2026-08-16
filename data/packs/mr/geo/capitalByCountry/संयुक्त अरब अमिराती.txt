@@ -1,0 +1,5 @@
+---
+description: Capital of संयुक्त अरब अमिराती, as Marathi names it
+locale: mr
+---
+अबू धाबी

@@ -1,0 +1,12 @@
+---
+description: Conditions with a higher prevalence in Northern European ancestry, in Urdu.
+locale: ur
+---
+سسٹک فائبروسس
+ہیموکرومیٹوسس
+گلوٹن کی حساسیت
+ذیابیطس قسم اول
+ملٹی پل سکلیروسس
+جلد کا سرطان
+ہڈیوں کی کمزوری
+الفا ون اینٹی ٹرپسن کی کمی

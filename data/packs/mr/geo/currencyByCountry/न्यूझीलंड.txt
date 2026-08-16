@@ -1,0 +1,5 @@
+---
+description: Currency of न्यूझीलंड, as Marathi names it
+locale: mr
+---
+न्यूझीलंड डॉलर

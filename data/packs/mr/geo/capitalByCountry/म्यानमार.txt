@@ -1,0 +1,5 @@
+---
+description: Capital of म्यानमार, as Marathi names it
+locale: mr
+---
+नेपिडॉ

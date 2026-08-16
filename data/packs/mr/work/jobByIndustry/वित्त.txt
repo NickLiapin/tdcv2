@@ -1,0 +1,16 @@
+---
+description: Jobs found in the वित्त sector, in Marathi. The parent list is work/industryCoherent.txt and this filename must match its value character for character.
+locale: mr
+---
+लेखापाल
+हिशेबनीस
+वित्त विश्लेषक
+लेखापरीक्षक
+विमागणितज्ज्ञ
+कर सल्लागार
+बँक व्यवस्थापक
+कर्ज अधिकारी
+रोखपाल
+गुंतवणूक सल्लागार
+विमा प्रतिनिधी
+पतसंस्था लिपिक

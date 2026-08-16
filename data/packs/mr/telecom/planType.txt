@@ -1,0 +1,16 @@
+---
+description: Kind of telecom plan, in Marathi. रिचार्ज is the everyday word for topping up a prepaid number and is a plan category in its own right in India, where the large majority of connections are prepaid rather than contract — the reverse of Europe.
+locale: mr
+---
+प्रीपेड
+पोस्टपेड
+रिचार्ज
+अमर्यादित
+कुटुंब योजना
+व्यवसाय योजना
+फक्त डेटा
+वार्षिक योजना
+मासिक योजना
+ब्रॉडबँड
+फायबर
+डीटीएच

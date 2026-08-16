@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, used as the parent of medical/diagnosisByAncestry. These are ancestry populations as CLINICAL GENETICS defines them — geographic descent, not social or caste categories. The twelve match the reference locales so that a cross-locale dataset lines up.
+locale: mr
+---
+उप-सहारी आफ्रिकी
+उत्तर आफ्रिकी
+भूमध्यसागरी
+मध्यपूर्वी
+उत्तर युरोपीय
+पूर्व युरोपीय
+अश्केनाझी ज्यू
+दक्षिण आशियाई
+पूर्व आशियाई
+आग्नेय आशियाई
+मूळ अमेरिकी
+प्रशांत बेटवासी

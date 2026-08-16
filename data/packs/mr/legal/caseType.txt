@@ -1,0 +1,19 @@
+---
+description: Kind of legal case, in Marathi. जमीन महसूल दावा (land revenue suit) and सहकारी संस्था वाद (co-operative society dispute) are heard by their own separate forums in Maharashtra rather than by an ordinary civil court, so they are genuine case categories here and not sub-types of civil litigation.
+locale: mr
+---
+दिवाणी
+फौजदारी
+कौटुंबिक
+दिवाळखोरी
+अपघात नुकसानभरपाई
+कामगार
+करार वाद
+बौद्धिक संपदा
+स्थावर मालमत्ता
+जमीन महसूल दावा
+भाडेकरार वाद
+कर
+ग्राहक तक्रार
+वारसा हक्क
+सहकारी संस्था वाद

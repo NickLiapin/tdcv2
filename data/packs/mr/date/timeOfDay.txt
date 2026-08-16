@@ -1,0 +1,13 @@
+---
+description: Part of the day, in Marathi. तिन्हीसांज is the one with no English or Hindi equivalent: it names the short dusk when the lamp is lit and the household stops work, literally the meeting of the three sandhyas, and it is a real time-of-day word in daily Marathi rather than a poetic one. संध्याकाळ and सायंकाळ both carry ळ.
+locale: mr
+---
+पहाट
+सकाळ
+दुपार
+भरदुपार
+संध्याकाळ
+सायंकाळ
+तिन्हीसांज
+रात्र
+मध्यरात्र

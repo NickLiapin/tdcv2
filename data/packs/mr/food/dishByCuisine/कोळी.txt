@@ -1,0 +1,14 @@
+---
+description: Dishes of कोळी cooking, in Marathi. The parent list is food/cuisine.txt and this filename must match its value character for character.
+locale: mr
+---
+माशाचे कालवण
+बोंबील फ्राय
+सुरमई तळलेली
+पापलेट फ्राय
+कोलंबी मसाला
+खेकडा मसाला
+तिसऱ्या सुके
+माशाचे सुके
+भात
+सोलकढी

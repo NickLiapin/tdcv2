@@ -1,0 +1,5 @@
+---
+description: Currency of آسٹریلیا in Urdu.
+locale: ur
+---
+آسٹریلوی ڈالر

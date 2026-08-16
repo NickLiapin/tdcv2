@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses that require female anatomy, plus a few common conditions, in Marathi. As in the male list the register is mixed: Sanskrit-built Marathi where the term exists (गर्भाशयदाह, अंडाशय गळू) and the English word where it does not, which is how a Marathi case sheet is actually written. गर्भाशय (uterus) and स्तन (breast) are neuter and masculine respectively, so any generated sentence about them must take the matching agreement — Marathi's third gender is not decorative.
+locale: mr
+---
+गर्भाशय अंतःस्तर विकृती
+गर्भाशय गाठी
+अंडाशय गळू
+बहुगळू अंडाशय संलक्षण
+गर्भाशयमुख विकृती
+गर्भाशयमुखदाह
+गर्भाशयदाह
+गर्भाशय कर्करोग
+गर्भाशयमुख कर्करोग
+अंडाशय कर्करोग
+स्तन कर्करोग
+स्तनदाह
+स्तनगाठ
+ओटीपोट दाह
+योनिमार्ग जंतुसंसर्ग
+अतिरज
+कष्टार्तव
+अनार्तव
+गर्भावस्थेतील उच्च रक्तदाब
+गर्भावस्थेतील मधुमेह
+गर्भाशयबाह्य गर्भधारणा
+प्रसूतीनंतर रक्तस्राव
+रजोनिवृत्ती लक्षणसमूह
+गर्भाशय अधोगमन
+जुनाट स्वादुपिंडदाह
+क्लॅमिडिया
+जुनाट संधिवात

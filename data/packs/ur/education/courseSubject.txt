@@ -1,0 +1,32 @@
+---
+description: School subject in Urdu, as it appears on a Pakistani or Indian report card. اسلامیات (Islamic Studies) and مطالعہ پاکستان are compulsory subjects in Pakistan through secondary school; اخلاقیات is the alternative offered to non-Muslim students in place of اسلامیات. اردو is a subject as well as the medium, and انگریزی sits beside it on every board syllabus.
+locale: ur
+---
+ریاضی
+طبیعیات
+کیمیا
+حیاتیات
+کمپیوٹر سائنس
+اردو
+انگریزی
+عربی
+فارسی
+اسلامیات
+اخلاقیات
+مطالعہ پاکستان
+تاریخ
+جغرافیہ
+معاشیات
+معاشرتی علوم
+شہریت
+نفسیات
+فلسفہ
+مصوری
+موسیقی
+جسمانی تعلیم
+ڈرائنگ
+گھریلو معاشیات
+زراعت
+شماریات
+اکاؤنٹنگ
+کاروباری مطالعہ

@@ -1,0 +1,5 @@
+---
+description: Capital of इटली, as Marathi names it
+locale: mr
+---
+रोम

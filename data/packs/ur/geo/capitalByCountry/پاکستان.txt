@@ -1,0 +1,5 @@
+---
+description: Capital of پاکستان in Urdu.
+locale: ur
+---
+اسلام آباد

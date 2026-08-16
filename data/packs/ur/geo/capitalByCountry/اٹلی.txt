@@ -1,0 +1,5 @@
+---
+description: Capital of اٹلی in Urdu.
+locale: ur
+---
+روم

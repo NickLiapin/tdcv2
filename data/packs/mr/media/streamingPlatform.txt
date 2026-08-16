@@ -1,0 +1,16 @@
+---
+description: Streaming service available in Maharashtra. Service names are BRANDS and keep their real Latin spelling. Planet Marathi and Ultra Jhakaas are Marathi-language OTT platforms — the language has enough of an audience to support streaming services of its own, which most Indian languages do not — and a realistic Marathi dataset should not be all national services.
+locale: mr
+---
+JioHotstar
+Netflix
+Amazon Prime Video
+ZEE5
+SonyLIV
+Planet Marathi
+Ultra Jhakaas
+MX Player
+YouTube
+Apple TV+
+Airtel Xstream
+Sun NXT

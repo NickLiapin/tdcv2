@@ -1,0 +1,14 @@
+---
+description: Jobs found in the विधी sector, in Marathi. The parent list is work/industryCoherent.txt and this filename must match its value character for character.
+locale: mr
+---
+वकील
+कायदेशीर सहाय्यक
+न्यायाधीश
+न्यायालयीन लिपिक
+नोटरी
+कायदेशीर सल्लागार
+अनुपालन अधिकारी
+मुद्रांक विक्रेता
+दस्तऐवज लेखनिक
+सरकारी वकील

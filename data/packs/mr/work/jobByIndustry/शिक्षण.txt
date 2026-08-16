@@ -1,0 +1,15 @@
+---
+description: Jobs found in the शिक्षण sector, in Marathi. The parent list is work/industryCoherent.txt and this filename must match its value character for character.
+locale: mr
+---
+प्राथमिक शिक्षक
+माध्यमिक शिक्षक
+विशेष शिक्षक
+प्राध्यापक
+अधिव्याख्याता
+सहायक अध्यापक
+मुख्याध्यापक
+ग्रंथपाल
+शालेय समुपदेशक
+शिकवणी शिक्षक
+शिक्षण विस्तार अधिकारी

@@ -1,0 +1,18 @@
+---
+description: Shoe size on the UK scale, which is what a Marathi shopper reads on a shoebox and asks for in a shop. India inherited British sizing and has never used the continental European (Paris point) scale: a label reading 8 in Pune means UK 8, roughly EU 42, so a config that treats these as European numbers will be four sizes out. Half sizes appear mainly on sports footwear.
+locale: mr
+---
+3
+4
+5
+6
+6.5
+7
+7.5
+8
+8.5
+9
+9.5
+10
+11
+12

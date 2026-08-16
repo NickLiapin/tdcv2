@@ -1,0 +1,5 @@
+---
+description: Capital of इजिप्त, as Marathi names it
+locale: mr
+---
+कैरो

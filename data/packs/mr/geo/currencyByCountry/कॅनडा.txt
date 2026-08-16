@@ -1,0 +1,5 @@
+---
+description: Currency of कॅनडा, as Marathi names it
+locale: mr
+---
+कॅनेडियन डॉलर

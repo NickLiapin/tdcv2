@@ -1,0 +1,24 @@
+---
+description: Purpose of travel in Urdu. The top three are the reasons people from this region actually travel, and none of them is on a European list. حج is the pilgrimage every Muslim who can afford it makes once, with a national quota and a lottery; عمرہ is the lesser pilgrimage, made at any time of year and by very large numbers; and رشتہ داروں سے ملاقات — visiting relatives — outweighs tourism many times over, because families are spread between the home district, the city and the Gulf. زیارت is pilgrimage to shrines, and بارات is travelling as part of a wedding party, which moves whole coachloads of people across the country.
+locale: ur
+---
+حج
+عمرہ
+زیارت
+رشتہ داروں سے ملاقات
+شادی
+بارات
+کاروباری دورہ
+ملازمت کے لیے سفر
+تعلیمی سفر
+علاج کے لیے سفر
+سیر و تفریح
+خاندانی چھٹیاں
+ہنی مون
+مذہبی اجتماع
+کانفرنس
+نمائش
+خریداری
+کوہ پیمائی
+ٹریکنگ
+ہجرت

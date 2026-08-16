@@ -1,0 +1,26 @@
+---
+description: Healthcare jobs in Urdu. لیڈی ہیلتھ ورکر is a formal cadre and not a general term: Pakistan's Lady Health Worker programme puts a trained woman in her own village to deliver primary care and vaccination, and it is one of the largest community health workforces in the world. دائی is the traditional birth attendant who still delivers a large share of rural births. حکیم practises Unani medicine and is a registered profession.
+locale: ur
+---
+ڈاکٹر
+ماہر امراض قلب
+ماہر اطفال
+سرجن
+ماہر امراض نسواں
+ماہر بے ہوشی
+ڈینٹسٹ
+فارماسسٹ
+نرس
+ہیڈ نرس
+لیڈی ہیلتھ ورکر
+دائی
+ویکسینیٹر
+لیب ٹیکنیشن
+ریڈیالوجی ٹیکنیشن
+فزیو تھراپسٹ
+غذائی ماہر
+ہسپتال ایڈمنسٹریٹر
+ایمبولینس ڈرائیور
+حکیم
+ہومیو پیتھ
+ماہر نفسیات

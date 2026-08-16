@@ -1,0 +1,20 @@
+---
+description: Compass direction, in Marathi. The four intercardinals are the Sanskrit-derived ईशान्य (north-east), आग्नेय (south-east), नैऋत्य (south-west) and वायव्य (north-west), which are ordinary words in Marathi rather than technical ones — a weather bulletin says नैऋत्य मान्सून for the south-west monsoon, and a property advertisement quotes a plot's ईशान्य orientation as a Vastu selling point. Note that Marathi says ईशान्य where Hindi says ईशान. The eight-point names below them are built by compounding the cardinal onto the intercardinal, again as one word.
+locale: mr
+---
+उत्तर
+दक्षिण
+पूर्व
+पश्चिम
+ईशान्य
+आग्नेय
+नैऋत्य
+वायव्य
+उत्तर-ईशान्य
+पूर्व-ईशान्य
+पूर्व-आग्नेय
+दक्षिण-आग्नेय
+दक्षिण-नैऋत्य
+पश्चिम-नैऋत्य
+पश्चिम-वायव्य
+उत्तर-वायव्य

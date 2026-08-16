@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter in Urdu. Pakistan's financial year runs 1 July to 30 June, so its first quarter is July-September and not January-March; India's runs 1 April to 31 March. Neither matches the calendar year, so a quarter label from this list says nothing about which months it covers until the config says which financial year it is on.
+locale: ur
+---
+پہلی سہ ماہی
+دوسری سہ ماہی
+تیسری سہ ماہی
+چوتھی سہ ماہی

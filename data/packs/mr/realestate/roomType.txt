@@ -1,0 +1,22 @@
+---
+description: Room, in Marathi. Four of these are the rooms of a traditional Maharashtrian house and have no English name. ओसरी is the covered front verandah where visitors are received without entering the house; पडवी the narrower back one; माजघर the inner family room that no guest enters; दिवाणखाना the formal reception room. A modern flat listing still uses दिवाणखाना for the living room. न्हाणीघर is the bathing room and is traditionally separate from the संडास, the lavatory, which is why both are listed and a config should not collapse them into one bathroom.
+locale: mr
+---
+दिवाणखाना
+बैठकीची खोली
+स्वयंपाकघर
+शयनगृह
+न्हाणीघर
+संडास
+पूजा खोली
+माजघर
+ओसरी
+पडवी
+गच्ची
+बाल्कनी
+गॅलरी
+कोठीची खोली
+अभ्यासिका
+तळघर
+जिना
+अंगण

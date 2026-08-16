@@ -1,0 +1,24 @@
+---
+description: Purpose of a trip, in Marathi. तीर्थयात्रा and वारी are the two that a European list has no category for and that a Maharashtrian dataset cannot honestly omit. वारी is the walk to Pandharpur — several hundred thousand people covering two hundred and fifty kilometres on foot every June and July, the largest recurring journey in the state. गडभ्रमंती is fort-trekking, the ordinary Maharashtrian weekend.
+locale: mr
+---
+व्यवसाय
+विरंगुळा
+कुटुंब सहल
+मधुचंद्र
+साहस
+रस्ते प्रवास
+क्रूझ
+बॅकपॅकिंग
+शहर भेट
+समुद्रकिनारा सुट्टी
+गट सहल
+एकट्याने प्रवास
+तीर्थयात्रा
+वारी
+गडभ्रमंती
+वनभ्रमंती
+शैक्षणिक सहल
+वैद्यकीय प्रवास
+लग्नासाठी प्रवास
+गावाकडे प्रवास

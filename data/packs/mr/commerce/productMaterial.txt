@@ -1,0 +1,51 @@
+---
+description: Material a product is made of, in Marathi. The traditional materials at the top are what Maharashtrian craft goods are actually made from: पितळ (brass) for temple and kitchen ware, तांबे (copper) for water vessels, सागवान (teak) for the furniture of an old वाडा, बांबू for baskets, and माती for the Kumbhar potter's work. पितळ carries ळ.
+locale: mr
+---
+पितळ
+तांबे
+कासे
+स्टेनलेस स्टील
+लोखंड
+ॲल्युमिनियम
+चांदी
+सोने
+सागवान
+शिसव
+बाभूळ
+आंब्याचे लाकूड
+बांबू
+वेत
+माती
+टेराकोटा
+दगड
+संगमरवर
+काळा पाषाण
+काच
+प्लास्टिक
+रबर
+सिलिकॉन
+कापूस
+खादी
+रेशीम
+पैठणी रेशीम
+लोकर
+ताग
+घोंगडी लोकर
+चामडे
+कृत्रिम चामडे
+कागद
+पुठ्ठा
+सिमेंट
+काँक्रीट
+फायबर
+कार्बन फायबर
+नायलॉन
+पॉलिस्टर
+डेनिम
+कॅनव्हास
+मलमल
+जरी
+सिरॅमिक
+पोर्सलिन
+शहाबादी फरशी

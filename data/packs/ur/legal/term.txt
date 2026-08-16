@@ -1,0 +1,34 @@
+---
+description: Legal terminology in Urdu. Much of this is Arabic through Islamic jurisprudence rather than through English: وکیل is an advocate, گواہ a witness, حلف an oath, وراثت inheritance, وصیت a will, and عدت the waiting period a woman observes after divorce or widowhood, which is a legal fact with financial consequences in family law here.
+locale: ur
+---
+مدعی
+مدعا علیہ
+وکیل
+گواہ
+گواہی
+حلف
+حلف نامہ
+ثبوت
+فرد جرم
+چالان
+ضمانت
+ریمانڈ
+فیصلہ
+ڈگری
+اپیل
+نظرثانی
+حکم امتناع
+سمن
+وارنٹ
+قبضہ
+وراثت
+وصیت
+عدت
+مہر
+نان و نفقہ
+ازالہ
+ہرجانہ
+معاہدہ
+دفعہ
+قانون سازی

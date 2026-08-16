@@ -1,0 +1,14 @@
+---
+description: Medical specialty with a coherent diagnosis list beside it — the parent of medical/diagnosisBySpecialty, so every value here has a file of that exact name.
+locale: ur
+---
+امراض قلب
+اعصابی امراض
+سرطان
+امراض جلد
+معدہ و جگر
+غدود و ذیابیطس
+امراض تنفس
+ہڈی و جوڑ
+نفسیات
+امراض گردہ

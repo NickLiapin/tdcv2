@@ -1,0 +1,22 @@
+---
+description: Endocrinology diagnoses in Urdu. Iodine deficiency goitre persists in the northern mountain districts, which is why گلہڑ is on a modern list at all.
+locale: ur
+---
+ذیابیطس قسم اول
+ذیابیطس قسم دوم
+حمل کی ذیابیطس
+ذیابیطس کا پاؤں
+تھائیرائیڈ کی کمی
+تھائیرائیڈ کی زیادتی
+گلہڑ
+تھائیرائیڈ کی گلٹی
+پیراتھائیرائیڈ کی خرابی
+ایڈرینل کی کمزوری
+کشنگ سنڈروم
+پولی سسٹک اووری
+موٹاپا
+وٹامن ڈی کی کمی
+ہڈیوں کی کمزوری
+قد کی کمی
+بلوغت میں تاخیر
+کولیسٹرول کی زیادتی

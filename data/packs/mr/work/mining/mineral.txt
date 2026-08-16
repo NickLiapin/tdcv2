@@ -1,0 +1,23 @@
+---
+description: Mined mineral or quarried commodity, in Marathi. The list is Maharashtra's own geology, not a generic one. Almost the whole state sits on Deccan Trap बेसाल्ट, which is quarried everywhere for road metal and building stone. जांभा दगड is the laterite of the Konkan, cut into blocks straight from the ground and hardening in air. शहाबादी फरशी is the limestone flagstone from Shahabad that floors a large share of Maharashtrian houses. दगडी कोळसा comes from the Chandrapur and Nagpur fields and मॅंगनीज from Bhandara — Maharashtra is one of India's main manganese sources.
+locale: mr
+---
+दगडी कोळसा
+मॅंगनीज
+लोहखनिज
+बॉक्साइट
+चुनखडी
+डोलोमाइट
+बेसाल्ट
+जांभा दगड
+शहाबादी फरशी
+ग्रॅनाइट
+सिलिका वाळू
+कायनाइट
+क्रोमाइट
+फ्लोराइट
+तांबे
+वाळू
+मुरूम
+सोने
+चांदी

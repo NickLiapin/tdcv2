@@ -1,0 +1,41 @@
+---
+description: Playing position across sports, in Marathi. This is the flat list; the sport-specific ones live in sport/positionBySport, and a config that wants a position to match its sport must use those instead — drawing from here gives a cricketer a goalkeeper's job. Note that the Marathi cricket terms (फलंदाज, गोलंदाज, यष्टिरक्षक, क्षेत्ररक्षक) are Marathi's own and are not the Hindi ones.
+locale: mr
+---
+गोलरक्षक
+बचावपटू
+मध्यवर्ती बचावपटू
+पूर्ण-पाठ
+अर्ध-पाठ
+मध्यरक्षक
+संरक्षक मध्यरक्षक
+आक्रमक मध्यरक्षक
+विंगर
+आघाडीपटू
+स्ट्रायकर
+केंद्र-आघाडी
+फलंदाज
+सलामीवीर
+अष्टपैलू
+गोलंदाज
+वेगवान गोलंदाज
+फिरकी गोलंदाज
+यष्टिरक्षक
+क्षेत्ररक्षक
+चढाईपटू
+पकडपटू
+डावा कॉर्नर
+उजवा कॉर्नर
+डावा कव्हर
+उजवा कव्हर
+धावपटू
+पाठलागकर्ता
+सेटर
+लिबेरो
+मिडल ब्लॉकर
+पॉइंट गार्ड
+शूटिंग गार्ड
+सेंटर
+पिव्होट
+कर्णधार
+राखीव खेळाडू

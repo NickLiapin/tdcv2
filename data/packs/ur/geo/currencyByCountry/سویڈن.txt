@@ -1,0 +1,5 @@
+---
+description: Currency of سویڈن in Urdu.
+locale: ur
+---
+سویڈش کرونا

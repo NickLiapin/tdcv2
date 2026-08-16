@@ -1,0 +1,26 @@
+---
+description: School or college subject, in Marathi. मराठी is a taught subject in its own right in every Maharashtra school and is compulsory to class ten by state law, which is why it heads the language subjects rather than sitting among foreign languages.
+locale: mr
+---
+मराठी
+हिंदी
+इंग्रजी
+संस्कृत
+गणित
+भौतिकशास्त्र
+रसायनशास्त्र
+जीवशास्त्र
+विज्ञान
+संगणकशास्त्र
+इतिहास
+भूगोल
+नागरिकशास्त्र
+अर्थशास्त्र
+तत्त्वज्ञान
+मानसशास्त्र
+समाजशास्त्र
+चित्रकला
+संगीत
+शारीरिक शिक्षण
+सांख्यिकी
+पर्यावरणशास्त्र

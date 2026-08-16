@@ -1,0 +1,5 @@
+---
+description: Capital of चीन, as Marathi names it
+locale: mr
+---
+बीजिंग

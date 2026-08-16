@@ -1,0 +1,5 @@
+---
+description: Capital of فرانس in Urdu.
+locale: ur
+---
+پیرس

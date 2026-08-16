@@ -1,0 +1,85 @@
+---
+description: Diagnoses in Urdu, weighted towards what is actually diagnosed across the Urdu-speaking world rather than towards a European clinic's caseload. Five of these are regional facts rather than entries on a list. تپ دق (tuberculosis) is not historical here — Pakistan carries one of the five largest TB burdens in the world. ہیپاٹائٹس سی is at among the highest prevalence anywhere. تھیلیسیمیا is common because first-cousin marriage is common, which concentrates recessive carriers. ڈینگی returns as a seasonal epidemic after every monsoon. پولیو is on the list because Pakistan and Afghanistan are the last two countries where wild poliovirus still circulates.
+locale: ur
+---
+ذیابیطس
+بلند فشار خون
+دل کی بیماری
+دل کا دورہ
+فالج
+دمہ
+دائمی رکاوٹی پھیپھڑوں کی بیماری
+تپ دق
+نمونیا
+برونکائٹس
+ہیپاٹائٹس بی
+ہیپاٹائٹس سی
+یرقان
+جگر کا سرطان
+جگر کی خرابی
+گردے کی دائمی بیماری
+گردے کی پتھری
+پتے کی پتھری
+معدے کا السر
+تیزابیت
+قبض
+بواسیر
+آنتوں کی سوزش
+ٹائیفائیڈ
+ہیضہ
+ملیریا
+ڈینگی
+چکن گونیا
+پولیو
+خسرہ
+کالی کھانسی
+تشنج
+خناق
+کورونا وائرس
+خون کی کمی
+تھیلیسیمیا
+ہیموفیلیا
+سرطان خون
+چھاتی کا سرطان
+پھیپھڑوں کا سرطان
+منہ کا سرطان
+معدے کا سرطان
+بچہ دانی کا سرطان
+پروسٹیٹ کا سرطان
+جوڑوں کا درد
+گٹھیا
+ہڈیوں کی کمزوری
+کمر درد
+گردن کا درد
+فریکچر
+درد شقیقہ
+مرگی
+رعشہ
+نسیان
+ڈپریشن
+بے چینی
+نیند کی خرابی
+شیزوفرینیا
+تھائیرائیڈ کی زیادتی
+تھائیرائیڈ کی کمی
+موٹاپا
+غذائی قلت
+وٹامن ڈی کی کمی
+آئرن کی کمی
+ایگزیما
+چنبل
+چھپاکی
+کیل مہاسے
+فنگل انفیکشن
+خارش
+موتیا بند
+گلوکوما
+آنکھوں کی سوزش
+کان کا انفیکشن
+سماعت کی کمی
+دانت کا درد
+مسوڑھوں کی بیماری
+گلے کی سوزش
+سائنس کی سوزش
+الرجی
+ایڈز

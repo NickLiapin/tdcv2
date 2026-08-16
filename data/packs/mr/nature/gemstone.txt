@@ -1,0 +1,29 @@
+---
+description: Gemstone, in Marathi. The first nine are the नवरत्न, the nine gems of Indian astrology — हिरा, माणिक, पाचू, नीलम, पुष्कराज, मोती, पोवळा, गोमेद, वैडूर्य — each matched to a planet and worn on the advice of an astrologer, which is why a Marathi jeweller stocks and names them as a set. That is a live retail category, not folklore. पोवळा (coral) and वैडूर्य carry letters Hindi does not use.
+locale: mr
+---
+हिरा
+माणिक
+पाचू
+नीलम
+पुष्कराज
+मोती
+पोवळा
+गोमेद
+वैडूर्य
+स्फटिक
+ॲमेथिस्ट
+ओपल
+गार्नेट
+ॲक्वामरीन
+पेरिडॉट
+फिरोजा
+जेड
+ओनिक्स
+सिट्रीन
+टूमलीन
+मूनस्टोन
+झिरकॉन
+लॅपिस लाझुली
+टोपाझ
+अंबर

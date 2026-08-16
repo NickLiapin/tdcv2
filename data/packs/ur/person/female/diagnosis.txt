@@ -1,0 +1,31 @@
+---
+description: Diagnoses recorded for female patients in Urdu — the female-only conditions plus the ones that skew heavily female in this population. آئرن کی کمی and وٹامن ڈی کی کمی are near-universal findings in women here: repeated pregnancy depletes iron, and covered dress plus indoor work leaves very little sun exposure, so both are ordinary entries rather than notable ones.
+locale: ur
+---
+حمل
+حمل کی ذیابیطس
+حمل کا بلند فشار خون
+اسقاط حمل
+حمل خارج رحم
+زچگی کی پیچیدگیاں
+نفاسی خون بہنا
+ولادت کے بعد ڈپریشن
+ماہواری کی بے قاعدگی
+شدید ماہواری درد
+پولی سسٹک اووری
+بچہ دانی کے رسولے
+بچہ دانی کے منہ کا سرطان
+چھاتی کا سرطان
+چھاتی کی گلٹی
+بیضہ دانی کا سسٹ
+رحم کی سوزش
+زنانہ بانجھ پن
+سن یاس کی علامات
+آئرن کی کمی
+وٹامن ڈی کی کمی
+ہڈیوں کی کمزوری
+تھائیرائیڈ کی کمی
+خون کی کمی
+پیشاب کی نالی کا انفیکشن
+ڈپریشن
+چولہے کے دھوئیں سے پھیپھڑوں کی بیماری

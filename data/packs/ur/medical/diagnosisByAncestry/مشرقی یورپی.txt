@@ -1,0 +1,11 @@
+---
+description: Conditions with a higher prevalence in Eastern European ancestry, in Urdu.
+locale: ur
+---
+ہیموکرومیٹوسس
+گلوٹن کی حساسیت
+ذیابیطس قسم اول
+ولسن کی بیماری
+فینائل کیٹون یوریا
+خون کے لوتھڑے کا رجحان
+ہڈیوں کی کمزوری

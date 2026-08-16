@@ -1,0 +1,15 @@
+---
+description: Dishes of खान्देशी cooking, in Marathi. The parent list is food/cuisine.txt and this filename must match its value character for character.
+locale: mr
+---
+शेवभाजी
+वांग्याचे भरीत
+कळण्याची भाकरी
+डाळगंडोरी
+मांडे
+खान्देशी मटण
+तिखट भरीत
+सांडगे
+कढी
+ठेचा
+गव्हाची खीर

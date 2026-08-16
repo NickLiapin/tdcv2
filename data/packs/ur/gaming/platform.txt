@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Brand names keep their Latin spelling here because that is how they are written on a Pakistani or Indian storefront and in gaming chat, unlike social platforms which Urdu press does transliterate. The order reflects the market: mobile is overwhelmingly first across the Urdu-speaking world, PC follows, and consoles are a small and heavily grey-imported segment.
+locale: ur
+---
+Mobile
+Android
+iOS
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+Steam Deck

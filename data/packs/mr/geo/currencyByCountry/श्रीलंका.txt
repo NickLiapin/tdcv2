@@ -1,0 +1,5 @@
+---
+description: Currency of श्रीलंका, as Marathi names it
+locale: mr
+---
+श्रीलंकन रुपया

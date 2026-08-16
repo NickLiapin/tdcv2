@@ -1,0 +1,5 @@
+---
+description: Currency of थायलंड, as Marathi names it
+locale: mr
+---
+थाई बाथ

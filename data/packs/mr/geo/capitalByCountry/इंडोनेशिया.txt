@@ -1,0 +1,5 @@
+---
+description: Capital of इंडोनेशिया, as Marathi names it
+locale: mr
+---
+जकार्ता

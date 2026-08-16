@@ -1,0 +1,21 @@
+---
+description: Weather condition, in Marathi. Note how many carry ळ — ढगाळ, पावसाळी, मुसळधार, वादळी — which is the letter Hindi does not have; Hindi's बादल, बरसात and मूसलाधार are different words, not different spellings. मुसळधार पाऊस, literally pestle-thick rain, is the ordinary Marathi word for a monsoon downpour and is used in weather bulletins.
+locale: mr
+---
+स्वच्छ
+ऊन
+अंशतः ढगाळ
+ढगाळ
+पावसाळी
+रिमझिम
+मुसळधार पाऊस
+वादळी
+गडगडाट
+धुके
+धुरके
+दमट
+कोरडे
+उष्ण
+थंड
+गारपीट
+वारा

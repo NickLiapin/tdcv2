@@ -1,0 +1,5 @@
+---
+description: Capital of इराण, as Marathi names it
+locale: mr
+---
+तेहरान

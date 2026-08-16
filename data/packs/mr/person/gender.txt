@@ -1,0 +1,6 @@
+---
+description: Gender label (Marathi). Exactly two values, matching en, ru and pl — this list is what a parent= filter keys on, so a longer one silently leaves most rows without a name. Do not confuse this with GRAMMATICAL gender, of which Marathi has three: पुल्लिंग (masculine), स्त्रीलिंग (feminine) and नपुंसकलिंग (neuter). The third is not a social category and no person is filed under it, but it does reach people in one place a config will meet: मूल, the Marathi word for child, is grammatically NEUTER, so a sentence about a child takes neuter agreement — ते मूल आलं, not तो मूल आला — regardless of the child's sex. Hindi, which has only two genders, cannot produce that disagreement and a Hindi-derived template will get it wrong.
+locale: mr
+---
+पुरुष
+स्त्री

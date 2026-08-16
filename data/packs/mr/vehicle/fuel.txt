@@ -1,0 +1,14 @@
+---
+description: Fuel type, in Marathi. सीएनजी belongs high on any Indian list — compressed natural gas is what most Mumbai taxis and autorickshaws run on, by law — and it is a mainstream rather than an exotic fuel here.
+locale: mr
+---
+पेट्रोल
+डिझेल
+सीएनजी
+एलपीजी
+विद्युत
+संकरित
+प्लग-इन संकरित
+हायड्रोजन
+इथेनॉल मिश्रित
+सौर

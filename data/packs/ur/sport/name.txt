@@ -1,0 +1,59 @@
+---
+description: Sports in Urdu. The order says something true about the region. کرکٹ is not one sport among many here — it is the sport, and everything else competes for what is left. ہاکی comes second by history rather than by present popularity: Pakistan won three Olympic golds and four World Cups at field hockey and it is still the official national sport. اسکواش third for the same reason — Pakistani players held the world championship almost continuously from 1950 to 1997. کبڈی and پہلوانی (traditional wrestling on earth) are the village sports with the deepest roots, نیزہ بازی is tent pegging on horseback and Pakistan is a leading nation in it, and گلی ڈنڈا is the stick-and-peg street game most children here learn before they learn cricket.
+locale: ur
+---
+کرکٹ
+ہاکی
+اسکواش
+فٹ بال
+کبڈی
+پہلوانی
+کشتی
+باکسنگ
+والی بال
+باسکٹ بال
+بیڈمنٹن
+ٹیبل ٹینس
+ٹینس
+پولو
+نیزہ بازی
+گھڑ سواری
+تیر اندازی
+نشانہ بازی
+ایتھلیٹکس
+دوڑ
+میراتھن
+لمبی چھلانگ
+اونچی چھلانگ
+گولہ پھینکنا
+نیزہ پھینکنا
+ڈسکس تھرو
+تیراکی
+غوطہ خوری
+کشتی رانی
+بادبانی
+سائیکلنگ
+وزن اٹھانا
+جمناسٹک
+جوڈو
+کراٹے
+تائیکوانڈو
+مارشل آرٹس
+فینسنگ
+کوہ پیمائی
+ٹریکنگ
+پیراگلائیڈنگ
+اسکیئنگ
+آئس ہاکی
+رگبی
+ہینڈ بال
+گالف
+بلیئرڈ
+سنوکر
+شطرنج
+کیرم
+لڈو
+گلی ڈنڈا
+پٹھو گرم
+رسہ کشی
+ای اسپورٹس

@@ -1,0 +1,10 @@
+---
+description: Film and television content rating as certified in India, not the American scale. The Central Board of Film Certification issues U (unrestricted), UA with an age marker, A (adults only) and S (restricted to a specified profession); the UA age bands were introduced in 2024. A config emitting PG-13 or TV-MA for a Marathi row is describing the wrong country's regulator.
+locale: mr
+---
+U
+UA 7+
+UA 13+
+UA 16+
+A
+S

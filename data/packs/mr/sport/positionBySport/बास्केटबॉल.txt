@@ -1,0 +1,10 @@
+---
+description: Playing positions in बास्केटबॉल, in Marathi.
+locale: mr
+---
+पॉइंट गार्ड
+शूटिंग गार्ड
+स्मॉल फॉरवर्ड
+पॉवर फॉरवर्ड
+सेंटर
+सिक्स्थ मॅन

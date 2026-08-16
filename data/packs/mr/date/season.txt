@@ -1,0 +1,7 @@
+---
+description: Season, in Marathi — and there are THREE, not four. Maharashtra's year is उन्हाळा (hot, March to May), पावसाळा (monsoon, June to September) and हिवाळा (cool, October to February), and that is how any Marathi speaker divides the year. There is no autumn in the European sense; the great climatic event of the year is the arrival of the south-west monsoon in the second week of June, which is the hinge the whole agricultural and social calendar turns on. A config that forces a four-season European model onto Marathi is inventing a season. Note also that all three words carry ळ, the retroflex L that Hindi does not have — Hindi's गर्मी, बरसात and सर्दी are different words entirely, not different spellings. Classical Marathi poetry additionally names six ऋतू (वसंत, ग्रीष्म, वर्षा, शरद, हेमंत, शिशिर), which is a literary scheme and not the everyday one; it is recorded here rather than listed, because a data row labelled शिशिर would describe nothing a Maharashtrian recognises about their own weather.
+locale: mr
+---
+उन्हाळा
+पावसाळा
+हिवाळा

@@ -1,0 +1,24 @@
+---
+description: Construction jobs in Urdu. مستری is the skilled tradesman — a راج مستری lays brick, a لکڑی کا مستری works wood — and مزدور is the unskilled labourer who works beside him. Both are hired daily and the pairing is how almost every building site here is staffed.
+locale: ur
+---
+سول انجینئر
+سائٹ انجینئر
+آرکیٹیکٹ
+سرویئر
+کوانٹٹی سرویئر
+فورمین
+راج مستری
+لکڑی کا مستری
+لوہار
+ویلڈر
+پلمبر
+بجلی کا مستری
+پینٹر
+ٹائل لگانے والا
+شٹرنگ کاریگر
+کرین آپریٹر
+مزدور
+سیفٹی افسر
+پروجیکٹ مینیجر
+ٹھیکیدار

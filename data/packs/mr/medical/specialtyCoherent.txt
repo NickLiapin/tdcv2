@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list. Note the Marathi word-building: Marathi forms these with -शास्त्र (हृदयरोगशास्त्र, cardiology) where Hindi uses -विज्ञान as a separate word (हृदय रोग विज्ञान). Same script, same Sanskrit roots, different compounding habit — and Marathi writes it as ONE word, which is the agglutinating instinct that runs through the whole language.
+locale: mr
+---
+हृदयरोगशास्त्र
+मज्जातंतूशास्त्र
+कर्करोगशास्त्र
+त्वचारोगशास्त्र
+जठरांत्रशास्त्र
+अंतःस्रावशास्त्र
+फुफ्फुसरोगशास्त्र
+अस्थिरोगशास्त्र
+मानसोपचारशास्त्र
+मूत्रपिंडशास्त्र

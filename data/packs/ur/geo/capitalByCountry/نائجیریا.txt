@@ -1,0 +1,5 @@
+---
+description: Capital of نائجیریا in Urdu.
+locale: ur
+---
+ابوجا

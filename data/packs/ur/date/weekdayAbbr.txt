@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday names in Urdu. جمعرات and جمعہ have to be clipped to different lengths (جمعر and جمعہ) because clipping both to three letters would make Thursday and Friday the same string.
+locale: ur
+---
+اتو
+پیر
+منگ
+بدھ
+جمعر
+جمعہ
+ہفتہ

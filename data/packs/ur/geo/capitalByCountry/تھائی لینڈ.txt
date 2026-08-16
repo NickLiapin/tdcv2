@@ -1,0 +1,5 @@
+---
+description: Capital of تھائی لینڈ in Urdu.
+locale: ur
+---
+بنکاک

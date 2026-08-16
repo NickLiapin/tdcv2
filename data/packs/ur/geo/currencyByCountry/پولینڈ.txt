@@ -1,0 +1,5 @@
+---
+description: Currency of پولینڈ in Urdu.
+locale: ur
+---
+پولش زلوٹی

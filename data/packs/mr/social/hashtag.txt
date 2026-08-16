@@ -1,0 +1,34 @@
+---
+description: Hashtag as a Marathi user actually writes it — in Devanagari, with no spaces, because a hashtag cannot contain one. Marathi social media is genuinely Devanagari rather than romanised, so #मराठी and #गणपतीबाप्पामोरया are the real strings, not transliterations of English tags. गणपतीबाप्पामोरया is the ten-day Ganeshotsav chant, मराठीमाणूस a loaded identity tag, वारी the walk to Pandharpur, and गडकिल्ले the fort-trekking tag.
+locale: mr
+---
+मराठी
+महाराष्ट्र
+गणपतीबाप्पामोरया
+मराठीमाणूस
+मराठीभाषा
+पुणे
+मुंबई
+नागपूर
+कोल्हापूर
+कोकण
+सह्याद्री
+गडकिल्ले
+वारी
+पंढरपूर
+शिवजयंती
+गुढीपाडवा
+दिवाळी
+लावणी
+पुरणपोळी
+मिसळपाव
+वडापाव
+ट्रेकिंग
+फोटोग्राफी
+निसर्ग
+प्रवास
+वाचन
+नाटक
+कविता
+स्वयंपाक
+फिटनेस

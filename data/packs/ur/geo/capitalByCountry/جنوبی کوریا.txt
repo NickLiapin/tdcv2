@@ -1,0 +1,5 @@
+---
+description: Capital of جنوبی کوریا in Urdu.
+locale: ur
+---
+سیول

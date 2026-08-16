@@ -1,0 +1,16 @@
+---
+description: Sindhi dishes in Urdu. سندھی بریانی is not a milder or spicier biryani but a different one — it carries potato, prune and yoghurt. پلا مچھلی is the hilsa of the Indus. سائیں بھاجی is a spinach and lentil stew eaten with rice.
+locale: ur
+---
+سندھی بریانی
+سائیں بھاجی
+کوکی
+سندھی کڑھی
+پلا مچھلی
+دال پکوان
+تھڑل دال
+لولہ
+مٹن پلاؤ
+سیل مچھلی
+بیسن کی روٹی
+سندھی کھیر

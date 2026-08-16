@@ -1,0 +1,22 @@
+---
+description: Oncology diagnoses in Urdu. منہ کا سرطان is placed high because chewed tobacco, پان, چھالیہ and گٹکا are used across this region on a scale that makes oral cancer one of the commonest cancers here and a rarity in Europe.
+locale: ur
+---
+منہ کا سرطان
+چھاتی کا سرطان
+پھیپھڑوں کا سرطان
+معدے کا سرطان
+آنت کا سرطان
+جگر کا سرطان
+بچہ دانی کا سرطان
+رحم کا سرطان
+پروسٹیٹ کا سرطان
+مثانے کا سرطان
+گردے کا سرطان
+سرطان خون
+لمف غدود کا سرطان
+ہڈی کا سرطان
+جلد کا سرطان
+دماغ کا رسولہ
+لبلبے کا سرطان
+گلے کا سرطان

@@ -1,0 +1,5 @@
+---
+description: Capital of پرتگال in Urdu.
+locale: ur
+---
+لزبن

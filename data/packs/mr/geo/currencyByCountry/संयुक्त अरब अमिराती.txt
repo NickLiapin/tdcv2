@@ -1,0 +1,5 @@
+---
+description: Currency of संयुक्त अरब अमिराती, as Marathi names it
+locale: mr
+---
+अमिराती दिरहम

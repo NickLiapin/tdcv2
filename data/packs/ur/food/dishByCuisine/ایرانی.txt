@@ -1,0 +1,15 @@
+---
+description: Iranian dishes in Urdu. چلو کباب is grilled meat with rice and is Iran's national dish; قورمہ سبزی and فسنجان are the two great stews, the second thickened with walnut and pomegranate. Urdu writes these names as Urdu, not as Persian — فالودہ is spelled the Urdu way here.
+locale: ur
+---
+چلو کباب
+کباب کوبیدہ
+قورمہ سبزی
+فسنجان
+آبگوشت
+تہ چین
+زرشک پلاؤ
+آش رشتہ
+شیر برنج
+فالودہ شیرازی
+بستنی

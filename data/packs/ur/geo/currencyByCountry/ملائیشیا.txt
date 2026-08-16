@@ -1,0 +1,5 @@
+---
+description: Currency of ملائیشیا in Urdu.
+locale: ur
+---
+ملائیشیائی رنگٹ

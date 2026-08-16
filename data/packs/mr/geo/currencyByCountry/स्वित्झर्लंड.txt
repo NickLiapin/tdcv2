@@ -1,0 +1,5 @@
+---
+description: Currency of स्वित्झर्लंड, as Marathi names it
+locale: mr
+---
+स्विस फ्रँक

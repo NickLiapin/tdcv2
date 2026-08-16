@@ -1,0 +1,12 @@
+---
+description: Clothing size. Indian ready-made clothing is labelled on the international S/M/L scale, and Marathi retail uses the Latin letters unchanged; the traditional garments in clothing/type.txt are not sized this way at all — a साडी is sold by length in metres and a धोतर by the same measure, so a config pairing this list with those garments is producing something that does not exist.
+locale: mr
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

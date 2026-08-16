@@ -1,0 +1,19 @@
+---
+description: Field hockey positions in Urdu. Pakistan's hockey vocabulary keeps the older English names (اِن سائیڈ رائٹ, سنٹر ہاف) that the modern game has largely dropped, because that is the era the country's hockey was built in. پنالٹی کارنر اسپیشلسٹ is a real squad role — the drag-flicker who takes short corners.
+locale: ur
+---
+گول کیپر
+فل بیک
+رائٹ بیک
+لیفٹ بیک
+سویپر
+ہاف بیک
+سنٹر ہاف
+رائٹ ہاف
+لیفٹ ہاف
+اِن سائیڈ رائٹ
+اِن سائیڈ لیفٹ
+رائٹ ونگ
+لیفٹ ونگ
+سنٹر فارورڈ
+پنالٹی کارنر اسپیشلسٹ

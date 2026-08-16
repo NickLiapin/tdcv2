@@ -1,0 +1,15 @@
+---
+description: Marathi personal pronoun, given as nominative/dative pairs because the dative is the form a sentence actually needs most often. Two features here have no Hindi counterpart and no European one. FIRST, the third person singular splits THREE ways — तो (masculine), ती (feminine), ते (neuter) — because Marathi has three grammatical genders; Hindi has वह for all of them. Anything agreeing with a third-person subject therefore has three forms in Marathi and one or two in its neighbours. SECOND, Marathi distinguishes an EXCLUSIVE we (आम्ही, us but not you) from an INCLUSIVE we (आपण, us including you), a distinction Hindi and English simply cannot make: आपण जाऊया means let us go together, आम्ही जातो means we are going without you. आपण doubles as the polite second person, so the three levels of address are तू (intimate), तुम्ही (plural or polite) and आपण (formal). Note the dative endings -ला and -ना: they are suffixes welded onto the pronoun, not separate words, which is the same agglutination that produces घरात and पुण्यात from घर and पुणे.
+locale: mr
+---
+मी/मला
+तू/तुला
+तो/त्याला
+ती/तिला
+ते/त्याला
+आम्ही/आम्हाला
+आपण/आपल्याला
+तुम्ही/तुम्हाला
+ते/त्यांना
+त्या/त्यांना
+ती/त्यांना

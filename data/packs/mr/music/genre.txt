@@ -1,0 +1,39 @@
+---
+description: Music genre, in Marathi. Eight of these are Marathi forms with no counterpart in any other language. भावगीत is the Marathi light song, a whole twentieth-century concert-hall repertoire. नाट्यसंगीत is the music of Marathi Sangeet Natak — theatre in which the plot stops for a classical song that the audience demands to hear again — and it exists in no other Indian theatre tradition. अभंग is the Warkari devotional verse form; गवळण its companion; भारूड a sung allegory. पोवाडा is the ballad of a warrior's deeds, sung standing, and लावणी the fast, sharply worded women's song of the tamasha stage. कोळीगीत is the fisherfolk song of the Konkan coast. All of these are performed commercially today, not preserved in an archive.
+locale: mr
+---
+भावगीत
+नाट्यसंगीत
+अभंग
+भजन
+कीर्तन
+गवळण
+भारूड
+ओवी
+लावणी
+पोवाडा
+कोळीगीत
+बालगीत
+भक्तिगीत
+देशभक्तीपर गीत
+चित्रपटगीत
+सुगम संगीत
+हिंदुस्थानी शास्त्रीय
+ख्याल
+ठुमरी
+ध्रुपद
+गझल
+कव्वाली
+सूफी
+रॉक
+पॉप
+जॅझ
+हिप हॉप
+रॅप
+इलेक्ट्रॉनिक
+ब्लूज
+रेगे
+हेवी मेटल
+लोकसंगीत
+आर अँड बी
+इंडी

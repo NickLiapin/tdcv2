@@ -1,0 +1,5 @@
+---
+description: Capital of بنگلہ دیش in Urdu.
+locale: ur
+---
+ڈھاکہ

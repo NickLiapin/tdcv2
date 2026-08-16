@@ -1,0 +1,5 @@
+---
+description: Capital of व्हिएतनाम, as Marathi names it
+locale: mr
+---
+हनोई

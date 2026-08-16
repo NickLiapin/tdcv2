@@ -1,0 +1,23 @@
+---
+description: Minerals in Urdu. سینڈک کا تانبا و سونا, ریکوڈک and the Salt Range are the deposits that make this list regional rather than generic: Pakistan mines rock salt at Khewra on a scale second only to Poland, has one of the world's largest undeveloped copper-gold bodies at Reko Diq, and produces most of the world's onyx marble.
+locale: ur
+---
+نمک
+کوئلہ
+تانبا
+سونا
+چاندی
+لوہا
+کرومائٹ
+باکسائٹ
+سیسہ
+جست
+جپسم
+چونا پتھر
+سنگ مرمر
+گرینائٹ
+فائر کلے
+سلفر
+بیرائٹس
+سنگ سلیمانی
+قدرتی گیس

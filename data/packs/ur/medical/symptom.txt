@@ -1,0 +1,44 @@
+---
+description: Symptoms in Urdu, as a patient reports one. Two are worth reading as language rather than as medicine: گھبراہٹ covers palpitation, anxiety and nausea at once and is one of the commonest presenting complaints in an Urdu-speaking clinic without mapping onto any single English symptom, and جسم درد ("body pain") is a whole-body ache reported as a single complaint rather than as pain in a named part.
+locale: ur
+---
+بخار
+کھانسی
+خشک کھانسی
+بلغم
+گلے کی خراش
+ناک بہنا
+چھینکیں
+سانس پھولنا
+سینے میں درد
+دل کی دھڑکن تیز ہونا
+گھبراہٹ
+چکر آنا
+بے ہوشی
+سر درد
+آدھے سر کا درد
+جسم درد
+کمزوری
+تھکن
+پٹھوں کا درد
+جوڑوں کا درد
+کمر درد
+گردن کا درد
+پیٹ درد
+متلی
+قے
+دست
+قبض
+بھوک کی کمی
+وزن میں کمی
+وزن میں اضافہ
+پیاس زیادہ لگنا
+بار بار پیشاب
+پیشاب میں جلن
+خارش
+جلد پر دانے
+سوجن
+زخم کا نہ بھرنا
+آنکھوں کا پیلا پن
+نیند نہ آنا
+یادداشت کی کمزوری

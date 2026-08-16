@@ -1,0 +1,31 @@
+---
+description: What follows a name in Urdu. There is NO generational suffix in this language — no Jr., no Sr., no II or III after an Urdu name — and translating an English suffix list would produce something no Urdu speaker has ever written. What actually goes after the name is respect. صاحب is the universal one and attaches to almost anything: a name (اسلم صاحب), a title (ڈاکٹر صاحب), even a job (ڈرائیور صاحب); صاحبہ is its feminine. جی is the respect particle and can follow a name, a title or another honorific (شاہ جی, بھائی جی), and can also stand alone as a respectful "yes". بھائی, بھائی جان, باجی and آپا are kinship words used as suffixes to people who are not relatives at all. مرحوم and مرحومہ mark someone who has died and appear on documents and in speech about the dead. Then come the qualifications, which in South Asia are written after the name on nameplates, letterheads and visiting cards exactly as they are in English — and finally the state honours (تمغۂ امتیاز, ستارۂ امتیاز, ہلال امتیاز, نشان حیدر), which are written after the name for life and are a real part of how a decorated person is styled.
+locale: ur
+---
+صاحب
+صاحبہ
+جی
+بھائی
+بھائی جان
+باجی
+آپا
+مرحوم
+مرحومہ
+شہید
+ریٹائرڈ
+ایڈووکیٹ
+ایم اے
+بی اے
+ایم ایس سی
+بی ایس سی
+ایم بی اے
+ایم بی بی ایس
+ایف سی پی ایس
+ایم ڈی
+پی ایچ ڈی
+ایل ایل بی
+سی ایس پی
+تمغۂ امتیاز
+ستارۂ امتیاز
+ہلال امتیاز
+نشان حیدر

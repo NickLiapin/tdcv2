@@ -1,0 +1,49 @@
+---
+description: Building type (Marathi). Four of these have no European equivalent worth translating to. A वाडा is the courtyard mansion of an old Maharashtrian town, built round an open square with rooms on all four sides — the Peshwa's Shaniwar Wada is one. A चाळ is the single-room tenement row with a shared verandah and shared toilets, the housing of industrial Mumbai. A खानावळ is the household eating house that serves a fixed thali to regulars by the month. A नाट्यगृह is a purpose-built playhouse, and Maharashtra has one in nearly every district town because Marathi theatre is a living commercial tradition with its own touring circuit. Note ळ in शाळा, धर्मशाळा, खानावळ and ग्रंथालय: none of those spellings is possible in Hindi.
+locale: mr
+---
+घर
+सदनिका
+फ्लॅट
+बंगला
+वाडा
+चाळ
+झोपडी
+इमारत
+टॉवर
+कार्यालय
+दुकान
+गोदाम
+कारखाना
+गिरणी
+रुग्णालय
+दवाखाना
+शाळा
+महाविद्यालय
+विद्यापीठ
+मंदिर
+मशीद
+गुरुद्वारा
+चर्च
+मठ
+आश्रम
+धर्मशाळा
+हॉटेल
+खानावळ
+उपाहारगृह
+नाट्यगृह
+चित्रपटगृह
+मॉल
+बाजार
+मंडई
+ग्रंथालय
+वस्तुसंग्रहालय
+पोलीस ठाणे
+ग्रामपंचायत भवन
+तहसील कार्यालय
+समाजमंदिर
+क्रीडांगण
+स्टेडियम
+गोठा
+कोठार
+वसतिगृह

@@ -1,0 +1,44 @@
+---
+description: Symptom or presenting complaint, in Marathi — and this is the list where the difference between Marathi and Hindi is most visible to anyone who can read either. Marathi's everyday medical words are Sanskrit-derived where Hindi's are Persian- or Arabic-derived: fever is ताप not बुख़ार, jaundice is कावीळ not पीलिया, diarrhoea is जुलाब not दस्त, nausea is मळमळ not मतली, confusion is गोंधळ not भ्रम, weakness is अशक्तपणा not कमज़ोरी. Six of these carry ळ — मळमळ, जुलाब, पुरळ, जळजळ, गोंधळ, कावीळ — so they cannot be spelled in Hindi at all. Since both languages use Devanagari, this vocabulary is the only test there is.
+locale: mr
+---
+ताप
+डोकेदुखी
+थकवा
+मळमळ
+उलटी
+जुलाब
+बद्धकोष्ठता
+पोटदुखी
+छातीत दुखणे
+धाप लागणे
+खोकला
+घसा दुखणे
+नाक वाहणे
+नाक चोंदणे
+चक्कर येणे
+अंधुक दिसणे
+स्नायुदुखी
+सांधेदुखी
+कंबरदुखी
+त्वचेवर पुरळ
+खाज
+सूज
+बधिरपणा
+मुंग्या येणे
+धडधड
+भूक न लागणे
+वजन कमी होणे
+रात्री घाम येणे
+थंडी वाजणे
+शिंका येणे
+छातीत जळजळ
+पोट फुगणे
+पेटके येणे
+अशक्तपणा
+गोंधळ
+झोप न लागणे
+कानात आवाज येणे
+नाकातून रक्त येणे
+कावीळ
+लघवीला जळजळ

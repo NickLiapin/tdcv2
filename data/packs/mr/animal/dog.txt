@@ -1,0 +1,28 @@
+---
+description: Dog breed, in Marathi. Two entries are Indian and belong here rather than in an imported list: मुधोळ हाउंड is the sighthound of the Karnataka–Maharashtra border, raised at Mudhol and kept by Deccan families for coursing, and देशी कुत्रा is the ordinary Indian pariah dog, which is what the large majority of dogs in Maharashtra actually are. मुधोळ carries ळ, so the breed name cannot be spelled in Hindi.
+locale: mr
+---
+देशी कुत्रा
+मुधोळ हाउंड
+लॅब्रॅडोर रिट्रीव्हर
+जर्मन शेफर्ड
+गोल्डन रिट्रीव्हर
+पग
+बीगल
+डाबरमन
+रॉटवायलर
+बॉक्सर
+ग्रेट डेन
+सायबेरियन हस्की
+पोमेरेनियन
+शिह त्झू
+डॅशहुंड
+कॉकर स्पॅनियल
+बॉर्डर कॉली
+चिहुआहुआ
+सेंट बर्नार्ड
+बुलडॉग
+फ्रेंच बुलडॉग
+पूडल
+राजपालयम
+कारवानी

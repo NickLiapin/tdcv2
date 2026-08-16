@@ -1,0 +1,12 @@
+---
+description: Playing positions in खो खो, in Marathi. Kho kho has no equivalent anywhere outside the subcontinent, so its positions have no English names to borrow.
+locale: mr
+---
+धावपटू
+पाठलागकर्ता
+सक्रिय पाठलागकर्ता
+बसलेला खेळाडू
+खांब गाठणारा
+बचावपटू
+कर्णधार
+राखीव खेळाडू

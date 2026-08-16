@@ -1,0 +1,5 @@
+---
+description: Currency of युनायटेड किंग्डम, as Marathi names it
+locale: mr
+---
+पाउंड स्टर्लिंग

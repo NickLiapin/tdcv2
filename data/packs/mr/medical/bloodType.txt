@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood group. Written in Latin letters on every Indian blood bank card and hospital record, in Marathi documents as in English ones.
+locale: mr
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

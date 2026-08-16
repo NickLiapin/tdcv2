@@ -1,0 +1,21 @@
+---
+description: Cuisine, in Marathi. Each value has a food/dishByCuisine child file. Eleven of the seventeen are REGIONS OR COMMUNITIES OF MAHARASHTRA rather than countries, because there is no single thing called Marathi food and a Maharashtrian will tell you so at length. कोल्हापुरी and मालवणी are fierce with chilli; पुणेरी is markedly sweeter and uses गोडा मसाला; कोकणी and आगरी are coconut, kokum and fish; वऱ्हाडी and सावजी are Vidarbha's mutton kitchens; खान्देशी has its own शेवभाजी; मराठवाडी is millet and dry chutney because the region is dry. सारस्वत and कोळी are community rather than geographic kitchens. The distances between these are as large as between Italian and Greek, and a config that draws one Marathi dish at random for a Kolhapur row is producing something a reader from Kolhapur would not recognise as their food. Note वऱ्हाडी, which contains ऱ्, the eyelash-ra — a letter form Marathi uses and Hindi does not.
+locale: mr
+---
+कोकणी
+मालवणी
+कोल्हापुरी
+पुणेरी
+वऱ्हाडी
+सावजी
+खान्देशी
+मराठवाडी
+आगरी
+कोळी
+सारस्वत
+उडपी
+गुजराती
+दक्षिण भारतीय
+पंजाबी
+चायनीज
+इटालियन

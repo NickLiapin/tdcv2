@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (रास), in Marathi. These are the Sanskrit-derived signs used across India, but note the seventh: Marathi writes तूळ where Hindi writes तुला. That single letter ळ, the retroflex L that Marathi kept and Hindi never had, is the whole difference between this list and its Hindi counterpart — and since both are in Devanagari, no script test can find it. Marathi astrology is far more likely to key on the birth नक्षत्र (lunar mansion) than on the sun sign; a Marathi newspaper prints राशीभविष्य daily.
+locale: mr
+---
+मेष
+वृषभ
+मिथुन
+कर्क
+सिंह
+कन्या
+तूळ
+वृश्चिक
+धनु
+मकर
+कुंभ
+मीन

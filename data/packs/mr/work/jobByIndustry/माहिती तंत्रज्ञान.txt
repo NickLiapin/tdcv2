@@ -1,0 +1,18 @@
+---
+description: Jobs found in the माहिती तंत्रज्ञान sector, in Marathi. The parent list is work/industryCoherent.txt and this filename must match its value character for character.
+locale: mr
+---
+सॉफ्टवेअर अभियंता
+वरिष्ठ सॉफ्टवेअर अभियंता
+विदा विश्लेषक
+विदा शास्त्रज्ञ
+डेव्हऑप्स अभियंता
+गुणवत्ता चाचणी अभियंता
+उत्पादन व्यवस्थापक
+यूएक्स संरचनाकार
+जाळे अभियंता
+विदागार प्रशासक
+सुरक्षा विश्लेषक
+क्लाउड वास्तुविशारद
+माहिती तंत्रज्ञान सहाय्यक
+संगणक प्रणाली प्रशासक

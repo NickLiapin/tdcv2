@@ -1,0 +1,18 @@
+---
+description: Dishes of कोकणी cooking, in Marathi. The parent list is food/cuisine.txt and this filename must match its value character for character.
+locale: mr
+---
+सोलकढी
+माशाचे कालवण
+कोंबडी वडे
+तांदळाची भाकरी
+घावन
+आंबोळी
+उकडीचे मोदक
+फणसाची भाजी
+काजूची उसळ
+ओल्या नारळाची चटणी
+तिसऱ्याचे सुके
+कोलंबी भात
+अळूचे फदफदे
+खाजे

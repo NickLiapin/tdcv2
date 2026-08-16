@@ -1,0 +1,18 @@
+---
+description: Marital status in Urdu. Three of these have no slot on a European form. نکاح شدہ رخصتی باقی is a real intermediate state: the نکاح, the marriage contract, is signed and the couple are legally married, but the رخصتی, the bride's move to her husband's house, has not happened yet — sometimes months or years later — and until it does the couple do not live together, so neither "single" nor "married" describes them. عدت is the waiting period a widow or divorcee observes before she may remarry, four months and ten days after a death, and it is a status with legal consequences rather than a private matter. ایک سے زائد شادیاں records polygamous marriage, which is lawful in Pakistan subject to the first wife's consent and an arbitration council's permission, and appears on real records. خلع and طلاق are both divorce and are separately recorded — see legal/caseType.
+locale: ur
+---
+غیر شادی شدہ
+منگنی شدہ
+نکاح شدہ رخصتی باقی
+شادی شدہ
+ایک سے زائد شادیاں
+علیحدہ
+مطلقہ
+خلع یافتہ
+بیوہ
+رنڈوا
+عدت میں
+دوسری شادی
+رشتہ طے شدہ
+نامعلوم

@@ -1,0 +1,20 @@
+---
+description: Time of day in Urdu. The first block is the ordinary secular division of the day. The second is the five daily prayer times — فجر، ظہر، عصر، مغرب، عشا — which are how time of day is actually named and appointments are actually made across the Urdu-speaking world: "عصر کے بعد" is a normal way to fix a meeting, and the times themselves move with sunrise and sunset rather than sitting at fixed clock hours. سحری and افطار are the pre-dawn and sunset meals of Ramadan and name times of day only during that month.
+locale: ur
+---
+صبح
+سویرا
+دوپہر
+سہ پہر
+شام
+رات
+آدھی رات
+طلوع آفتاب
+غروب آفتاب
+فجر
+ظہر
+عصر
+مغرب
+عشا
+سحری
+افطار

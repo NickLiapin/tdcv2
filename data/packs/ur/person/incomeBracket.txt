@@ -1,0 +1,12 @@
+---
+description: Household income band in Urdu. Two things differ from a European list and both will break a config that ignores them. First, income here is quoted MONTHLY, not annually — a Pakistani job advertisement and a Pakistani salary slip both state a monthly figure, and an annual bracket would look wrong to every reader. Second, the numbers are grouped by لاکھ (one lakh = 100,000) and کروڑ (one crore = 100 lakh = 10,000,000), not by thousand and million, and the digit grouping that goes with them is 2,2,3 — ۱۲,۳۴,۵۶۷ — not the Western 3,3,3. The currency is the Pakistani rupee. The same words لاکھ and کروڑ serve the Indian rupee too, and the grouping is identical on both sides of the border, but the two currencies are nowhere near the same value, so a bracket here is not an Indian bracket. Digits are the Urdu-Persian forms ۰۱۲۳۴۵۶۷۸۹ (U+06F0-U+06F9), which is what Urdu text uses — NOT the Arabic-Indic ٠١٢٣٤٥٦٧٨٩ of the ar pack.
+locale: ur
+---
+۳۰ ہزار روپے سے کم
+۳۰ سے ۵۰ ہزار روپے
+۵۰ ہزار سے ۱ لاکھ روپے
+۱ سے ۲ لاکھ روپے
+۲ سے ۳ لاکھ روپے
+۳ سے ۵ لاکھ روپے
+۵ سے ۱۰ لاکھ روپے
+۱۰ لاکھ روپے سے زائد

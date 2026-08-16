@@ -1,0 +1,5 @@
+---
+description: Currency of रशिया, as Marathi names it
+locale: mr
+---
+रशियन रूबल

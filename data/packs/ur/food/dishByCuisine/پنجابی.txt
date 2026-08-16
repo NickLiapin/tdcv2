@@ -1,0 +1,16 @@
+---
+description: Punjabi dishes in Urdu. سرسوں کا ساگ with مکئی کی روٹی is a winter dish and only a winter dish — mustard greens are a cold-season crop — so a Punjabi menu that offers it year round is describing a restaurant rather than a kitchen.
+locale: ur
+---
+سرسوں کا ساگ
+مکئی کی روٹی
+دال مکھنی
+مرغ چنے
+آلو پراٹھا
+تندوری روٹی
+کڑھی
+بھنڈی گوشت
+پنیر
+لسی
+کھیر
+گاجر کا حلوہ

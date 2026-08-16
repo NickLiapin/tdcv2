@@ -1,0 +1,32 @@
+---
+description: Technical adjective, in Marathi. Note मुक्तस्रोत for open-source and बिनतारी for wireless: Marathi has a stronger habit than Hindi of coining native technical vocabulary rather than borrowing, and both words are in ordinary use in Marathi computing writing.
+locale: mr
+---
+सहायक
+प्राथमिक
+बॅक-एंड
+फ्रंट-एंड
+डिजिटल
+मुक्तस्रोत
+आभासी
+बहुव्यासपीठीय
+अतिरिक्त
+ऑनलाइन
+बिनतारी
+तंत्रिका
+प्रकाशीय
+सॉलिड-स्टेट
+मोबाइल
+हाय-स्पीड
+एन्क्रिप्टेड
+वितरित
+समांतर
+संकुचित
+स्वयंचलित
+दूरस्थ
+स्थानिक
+केंद्रीय
+गतिशील
+स्थिर
+सुसंगत
+प्रमाणित

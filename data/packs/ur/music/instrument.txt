@@ -1,0 +1,34 @@
+---
+description: Musical instruments in Urdu. رباب is the Pashtun lute and the national instrument of that music; الغوزہ is the twin flute of Sindh and Punjab, played two pipes at once with circular breathing; چمٹا is a pair of iron tongs with jingles, played in qawwali and folk. ہارمونیم is a European instrument that South Asia adopted, redesigned to be played sitting on the floor, and then made the backbone of qawwali and ghazal — it is more central here than in the place it came from. طبلہ is a PAIR of drums played with both hands and is not a single drum.
+locale: ur
+---
+طبلہ
+ڈھولک
+ڈھول
+نقارہ
+دف
+چمٹا
+ستار
+سرود
+سارنگی
+رباب
+تنبورہ
+دلربا
+سنتور
+بین
+بانسری
+الغوزہ
+شہنائی
+ہارمونیم
+گٹار
+الیکٹرک گٹار
+بیس گٹار
+پیانو
+کی بورڈ
+وائلن
+سیلو
+ڈرم سیٹ
+سیکسوفون
+ٹرمپٹ
+کلیرینٹ
+اکارڈین

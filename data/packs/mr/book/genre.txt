@@ -1,0 +1,32 @@
+---
+description: Book genre, in Marathi. Four of these are categories of Marathi literature with no counterpart to translate from. संतसाहित्य is the devotional verse of the Warkari saints — Dnyaneshwar, Tukaram, Namdev, Janabai — which is read as living literature and not as scripture. दलित साहित्य is the movement founded in Marathi in the 1960s and later exported to every other Indian language; Marathi is where it began. ग्रामीण कादंबरी is the rural novel, a major twentieth-century Marathi form. एकांकिका is the one-act play, which has its own inter-collegiate competition circuit across the state. पोवाडा is the sung ballad of a warrior's deeds.
+locale: mr
+---
+कादंबरी
+कथासंग्रह
+ललित
+आत्मचरित्र
+चरित्र
+प्रवासवर्णन
+नाटक
+एकांकिका
+कवितासंग्रह
+समीक्षा
+वैचारिक
+इतिहास
+रहस्यकथा
+गूढकथा
+विज्ञानकथा
+बालसाहित्य
+विनोदी
+ग्रामीण कादंबरी
+दलित साहित्य
+संतसाहित्य
+पोवाडा
+लावणी संग्रह
+आत्मकथन
+व्यक्तिचित्रे
+धार्मिक
+पाककृती
+आरोग्य
+स्वयंसुधारणा

@@ -1,0 +1,5 @@
+---
+description: Capital of दक्षिण कोरिया, as Marathi names it
+locale: mr
+---
+सेऊल

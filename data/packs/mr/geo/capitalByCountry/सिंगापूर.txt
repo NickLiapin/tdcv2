@@ -1,0 +1,5 @@
+---
+description: Capital of सिंगापूर, as Marathi names it
+locale: mr
+---
+सिंगापूर

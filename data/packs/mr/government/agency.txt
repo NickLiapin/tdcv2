@@ -1,0 +1,34 @@
+---
+description: Government body, regulator or public office, in Marathi. This is a LANGUAGE pack, so these are the words Marathi uses for kinds of public body — but Marathi has essentially one jurisdiction, so the entries name real bodies of MAHARASHTRA and INDIA and the reader should know that rather than guess. The three-tier rural structure (ग्रामपंचायत at village level, पंचायत समिती at block, जिल्हा परिषद at district) is the Panchayati Raj system, which Maharashtra adopted early and runs more fully than most states; a Marathi rural record is far more likely to name a जिल्हा परिषद than any national ministry. म्हाडा, सिडको, एमआयडीसी, महावितरण and एस.टी. महामंडळ are acronym-named state corporations that Marathi speech and press use as ordinary words.
+locale: mr
+---
+महाराष्ट्र शासन
+जिल्हाधिकारी कार्यालय
+तहसील कार्यालय
+ग्रामपंचायत
+पंचायत समिती
+जिल्हा परिषद
+महानगरपालिका
+नगरपरिषद
+महाराष्ट्र लोकसेवा आयोग
+महाराष्ट्र राज्य माध्यमिक व उच्च माध्यमिक शिक्षण मंडळ
+महाराष्ट्र प्रदूषण नियंत्रण मंडळ
+महाराष्ट्र राज्य मार्ग परिवहन महामंडळ
+म्हाडा
+सिडको
+एमआयडीसी
+महावितरण
+महानिर्मिती
+महापारेषण
+कृषी विभाग
+महसूल विभाग
+आरोग्य विभाग
+पोलीस आयुक्तालय
+प्रादेशिक परिवहन कार्यालय
+नोंदणी व मुद्रांक विभाग
+भारतीय रिझर्व्ह बँक
+भारतीय निवडणूक आयोग
+भारतीय विशिष्ट ओळख प्राधिकरण
+आयकर विभाग
+वस्तू व सेवा कर विभाग
+संघ लोकसेवा आयोग

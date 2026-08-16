@@ -1,0 +1,5 @@
+---
+description: Capital of آسٹریلیا in Urdu.
+locale: ur
+---
+کینبرا

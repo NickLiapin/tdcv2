@@ -1,0 +1,5 @@
+---
+description: Capital of नेपाळ, as Marathi names it
+locale: mr
+---
+काठमांडू

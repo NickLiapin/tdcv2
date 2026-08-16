@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in कर्करोगशास्त्र (Marathi). मुखाचा कर्करोग heads this list rather than trailing it, because smokeless tobacco — गुटखा and खर्रा — makes oral cancer the commonest male cancer in India, which is true of almost nowhere else.
+locale: mr
+---
+मुखाचा कर्करोग
+स्तनाचा कर्करोग
+गर्भाशयमुखाचा कर्करोग
+फुफ्फुसाचा कर्करोग
+जठराचा कर्करोग
+आतड्याचा कर्करोग
+यकृताचा कर्करोग
+रक्ताचा कर्करोग
+लसिकाग्रंथीचा कर्करोग
+प्रोस्टेट कर्करोग

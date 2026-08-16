@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Marathi. Amounts are in INDIAN RUPEES (₹). Two things a config must not assume. FIRST, the bands are written in the Indian numbering system, which groups by लाख (1 lakh = 100,000) and कोटी (1 crore = 100 lakh); a Marathi salary is quoted as ₹12 लाख and never as ₹1.2 million, and a formatter producing a raw number for a Marathi reader must use 2,2,3 digit grouping (₹12,00,000) rather than the Western 3,3,3. SECOND, the labels show Marathi agglutination at work: लाखांपेक्षा is लाख + आं (oblique plural) + पेक्षा (than), all one written word, and कोटीहून is कोटी + हून (from/than). Hindi would write से कम as a separate word after a separate noun; Marathi stacks the postposition onto the noun and inflects the noun to carry it. Any template that joins a number to a Marathi postposition with a space is producing something no Marathi speaker would write.
+locale: mr
+---
+₹2 लाखांपेक्षा कमी
+₹2–5 लाख
+₹5–10 लाख
+₹10–15 लाख
+₹15–25 लाख
+₹25–50 लाख
+₹50 लाख–1 कोटी
+₹1 कोटीहून अधिक

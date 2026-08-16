@@ -1,0 +1,36 @@
+---
+description: Book genre in Urdu. The first nine are verse FORMS, not subjects, and that is the defining difference between an Urdu catalogue and a European one: غزل, نظم, مرثیہ, قصیدہ, مثنوی and رباعی are shelved and reviewed as distinct genres, an Urdu bookshop has a section for each, and a reader asks for a غزل collection the way a Western reader asks for a novel. Prose forms follow — افسانہ is the short story as a literary institution, داستان the long oral romance, سفرنامہ the travel account, and خود نوشت the autobiography as against سوانح عمری, a life written by someone else.
+locale: ur
+---
+ناول
+افسانہ
+مختصر افسانہ
+داستان
+شاعری
+غزل
+نظم
+مرثیہ
+قصیدہ
+مثنوی
+رباعی
+سوانح عمری
+خود نوشت
+سفرنامہ
+خطوط
+تاریخ
+فلسفہ
+تصوف
+مذہب
+تفسیر
+سیرت
+سیاست
+جاسوسی ناول
+رومانوی ناول
+سائنس فکشن
+فنتاسی
+ہارر
+طنز و مزاح
+تنقید
+بچوں کا ادب
+درسی کتاب
+لغت

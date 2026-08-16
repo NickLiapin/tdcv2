@@ -1,0 +1,24 @@
+---
+description: Weather and climate events in Urdu. لو is a named thing rather than a description — the searing dry wind that blows across the plains in May and June, killing people every year, and Urdu speaks of "لو چلنا" the way English speaks of a heatwave but with a specific wind behind it. گلیشیئر جھیل کا پھٹنا, the glacial lake outburst flood, is a real recurring hazard in Gilgit-Baltistan as the northern glaciers retreat. سیلاب heads the list because riverine flooding is this region's defining disaster.
+locale: ur
+---
+سیلاب
+طغیانی
+مون سون
+لو
+گرمی کی لہر
+سردی کی لہر
+خشک سالی
+قحط
+آندھی
+گرد باد
+طوفان
+سمندری طوفان
+بگولا
+ژالہ باری
+برفانی تودہ
+گلیشیئر جھیل کا پھٹنا
+لینڈ سلائیڈنگ
+سموگ
+زلزلہ
+سونامی

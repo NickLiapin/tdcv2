@@ -1,0 +1,18 @@
+---
+description: Kind of insurance, in Marathi. पीक विमा — crop insurance — belongs at the top of any honest Maharashtrian list rather than as an afterthought: the state's rain-fed districts live and die by the monsoon, crop insurance is a national scheme with tens of millions of enrolled farmers, and it is a live political subject in Marathi newspapers every June. पशुधन विमा insures cattle, which for a dairy household is the main capital asset.
+locale: mr
+---
+आरोग्य विमा
+जीवन विमा
+मुदत विमा
+वाहन विमा
+गृह विमा
+पीक विमा
+पशुधन विमा
+भाडेकरू विमा
+प्रवास विमा
+अपंगत्व विमा
+दंत विमा
+नेत्र विमा
+दायित्व विमा
+गट विमा

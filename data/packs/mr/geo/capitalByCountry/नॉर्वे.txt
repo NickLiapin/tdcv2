@@ -1,0 +1,5 @@
+---
+description: Capital of नॉर्वे, as Marathi names it
+locale: mr
+---
+ओस्लो

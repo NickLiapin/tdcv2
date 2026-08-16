@@ -1,0 +1,18 @@
+---
+description: Insurance type in Urdu. تکافل is the first line because it is not a variant of insurance but a separate legal category: a mutual-guarantee arrangement structured to comply with Islamic law, regulated separately in Pakistan, and chosen by many who will not buy conventional cover on religious grounds. فصل کا بیمہ (crop) and مویشی کا بیمہ (livestock) are ordinary retail products in an agrarian economy rather than specialist lines.
+locale: ur
+---
+تکافل
+صحت کا بیمہ
+گاڑی کا بیمہ
+مکان کا بیمہ
+زندگی کا بیمہ
+حادثاتی بیمہ
+سفری بیمہ
+فصل کا بیمہ
+مویشی کا بیمہ
+کاروباری بیمہ
+آگ کا بیمہ
+مال برداری کا بیمہ
+معذوری کا بیمہ
+تعلیمی بیمہ

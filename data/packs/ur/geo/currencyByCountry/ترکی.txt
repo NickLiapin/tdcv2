@@ -1,0 +1,5 @@
+---
+description: Currency of ترکی in Urdu.
+locale: ur
+---
+ترک لیرا

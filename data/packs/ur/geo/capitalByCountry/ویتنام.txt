@@ -1,0 +1,5 @@
+---
+description: Capital of ویتنام in Urdu.
+locale: ur
+---
+ہنوئی

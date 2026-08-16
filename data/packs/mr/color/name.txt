@@ -1,0 +1,58 @@
+---
+description: Colour, in Marathi — and the single clearest place in the pack to see what Marathi's THREE grammatical genders cost a config. Every colour ending in -आ here is an adjective that must agree with its noun in three forms, not two: काळा शर्ट (masculine), काळी साडी (feminine), काळं पुस्तक (neuter). Hindi has काला and काली and stops there, so a generator ported from Hindi will produce काळा पुस्तक, which no Marathi speaker would write. The colours that do not end in -आ (केशरी, गुलाबी, आकाशी, चंदेरी, मोरपंखी) are invariant and safe to paste beside any noun — a config that cannot agree its genders should draw only from those. Note also how many are unspellable in Hindi: पिवळा, जांभळा, काळा, शेवाळी, गव्हाळ, हळदी, अबोली and पोवळा all carry ळ. अबोली is named after the abolim flower and has no English name; भगवा is the saffron of the Maratha flag and is a specific shade, not a synonym for orange.
+locale: mr
+---
+लाल
+तांबडा
+हिरवा
+निळा
+पिवळा
+केशरी
+जांभळा
+गुलाबी
+तपकिरी
+काळा
+पांढरा
+करडा
+राखाडी
+आकाशी
+फिकट निळा
+गडद निळा
+मोरपंखी
+पोपटी
+शेवाळी
+लिंबू रंग
+सोनेरी
+चंदेरी
+तांबूस
+शेंदरी
+भगवा
+मरून
+बदामी
+गव्हाळ
+मातकट
+चंदनी
+कस्तुरी
+हळदी
+मेंदी रंग
+अबोली
+पारवा
+कबरा
+चॉकलेटी
+कॉफी रंग
+नारिंगी
+जर्द
+फिकट हिरवा
+गडद हिरवा
+पिस्ता
+मोतिया
+माणिक
+पाचू
+नीलम
+पोवळा
+फिरोजी
+ऊदी
+जांभूळ
+गुलाल
+रक्तवर्णी
+दुधाळ

@@ -1,0 +1,38 @@
+---
+description: Kinds of public body, in Urdu. This holds the WORDS Urdu-language administration uses for a government body, not one country's institutions — Urdu is the national language of Pakistan and a scheduled language of India, and both administrations use these same terms, so naming particular agencies here would tie the language pack to one state. محکمہ مال, the land revenue department, is worth knowing: it keeps the patwari's land records, and in South Asia it is the office most citizens deal with most often.
+locale: ur
+---
+وزارت
+ڈویژن
+محکمہ
+ادارہ
+اتھارٹی
+کمیشن
+بورڈ
+کونسل
+ایجنسی
+ڈائریکٹوریٹ
+سیکرٹریٹ
+محکمہ مال
+محکمہ آبپاشی
+محکمہ تعلیم
+محکمہ صحت
+محکمہ زراعت
+محکمہ جنگلات
+محکمہ ڈاک
+محکمہ موسمیات
+محکمہ شماریات
+محکمہ اطلاعات
+بلدیہ
+ضلعی انتظامیہ
+تحصیل دفتر
+یونین کونسل
+پولیس
+محکمہ انسداد بدعنوانی
+کسٹمز
+ایکسائز
+ٹیکس بورڈ
+الیکشن کمیشن
+عدالت
+رجسٹرار آفس
+آڈیٹر جنرل

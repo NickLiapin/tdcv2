@@ -1,0 +1,30 @@
+---
+description: Mobile and fixed-line operators as Urdu writes them. The first block serves Pakistan — جاز is the largest network, زونگ is Chinese-owned, یوفون belongs to the state carrier پی ٹی سی ایل, and ٹیلی نار Pakistan was sold in 2025; وارد is listed because it merged into Jazz in 2016 and still appears in older records. ایس سی او is the army-run operator that holds the licence for Azad Jammu and Kashmir and Gilgit-Baltistan and serves nowhere else. The second block serves the Indian side, where a large Urdu-speaking population lives.
+locale: ur
+---
+جاز
+زونگ
+یوفون
+ٹیلی نار
+وارد
+ایس سی او
+پی ٹی سی ایل
+ورلڈ کال
+نیا ٹیل
+ٹرانس ورلڈ
+ویٹیل
+جیو
+ایئرٹیل
+وی آئی
+بی ایس این ایل
+ایم ٹی این ایل
+ایس ٹی سی
+زین
+اتصالات
+اوریدو
+موبائلی
+دو
+عمانٹیل
+ٹرکسل
+گرامین فون
+روبی

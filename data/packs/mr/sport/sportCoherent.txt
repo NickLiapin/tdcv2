@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list, in Marathi, led by cricket. Only sports with genuinely named playing positions are here, which is why कुस्ती, मल्लखांब and बुद्धिबळ are absent despite being major Maharashtrian sports — they have no positions to name.
+locale: mr
+---
+क्रिकेट
+कबड्डी
+खो खो
+फुटबॉल
+हॉकी
+व्हॉलीबॉल
+बास्केटबॉल
+हँडबॉल

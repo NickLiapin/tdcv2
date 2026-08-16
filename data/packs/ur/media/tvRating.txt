@@ -1,0 +1,13 @@
+---
+description: Content rating in Urdu. Pakistan's film censor boards issue U (universal) and A (adults only) and little in between, and India's CBFC issues U, U/A and A; neither ladder resembles the American one, so the labels here are the local ones with their Urdu glosses rather than a translation of G/PG/R.
+locale: ur
+---
+یو - ہر عمر کے لیے
+یو اے - والدین کی رہنمائی
+اے - صرف بالغان
+ایس - مخصوص ناظرین
+خاندانی
+عمومی
+تیرہ سال سے زائد
+سولہ سال سے زائد
+اٹھارہ سال سے زائد

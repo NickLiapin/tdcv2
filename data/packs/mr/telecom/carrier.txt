@@ -1,0 +1,22 @@
+---
+description: Mobile or broadband operator serving Maharashtra. Company names are BRANDS and keep their real Latin spelling. Indian mobile is a three-private-operator market — Jio, Airtel and Vi — with the state-owned BSNL behind them, and a realistic dataset should reflect that rather than list a dozen equals.
+locale: mr
+---
+Jio
+Airtel
+Vi
+BSNL
+MTNL
+JioFiber
+Airtel Xstream Fiber
+BSNL Bharat Fiber
+ACT Fibernet
+Hathway
+Excitel
+Tata Play Fiber
+You Broadband
+Spectra
+RailWire
+GTPL
+Den Networks
+Tikona

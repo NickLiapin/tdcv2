@@ -1,0 +1,23 @@
+---
+description: Playing positions in क्रिकेट, in Marathi. Marathi has its OWN cricket vocabulary and does not borrow Hindi's: a batter is फलंदाज (Hindi बल्लेबाज), a bowler गोलंदाज (Hindi गेंदबाज), a wicketkeeper यष्टिरक्षक and a fielder क्षेत्ररक्षक. Marathi commentary on state radio and in newspapers uses these words, so a Hindi-derived list would be wrong in every row. The fielding positions keep their English names because that is what players say.
+locale: mr
+---
+फलंदाज
+सलामीवीर
+मधल्या फळीतील फलंदाज
+अष्टपैलू
+गोलंदाज
+वेगवान गोलंदाज
+फिरकी गोलंदाज
+यष्टिरक्षक
+क्षेत्ररक्षक
+कर्णधार
+स्लिप
+गली
+पॉइंट
+कव्हर
+मिड ऑन
+मिड ऑफ
+स्क्वेअर लेग
+थर्ड मॅन
+लाँग ऑन

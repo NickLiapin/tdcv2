@@ -1,0 +1,25 @@
+---
+description: Weather in Urdu. The vocabulary is monsoon vocabulary: مون سون, موسلا دھار بارش (torrential rain) and حبس (oppressive still humidity before rain) name states of weather that a temperate list has no words for. سموگ is the last line and is recent — since the mid-2010s the Punjab plain has had a winter smog season severe enough that schools close for it, so it is now a routine weather condition rather than pollution.
+locale: ur
+---
+صاف
+دھوپ
+ابر آلود
+جزوی ابر آلود
+بادل
+بارش
+ہلکی بارش
+موسلا دھار بارش
+مون سون
+بوندا باندی
+گرج چمک
+ژالہ باری
+دھند
+گرد آلود
+آندھی
+حبس
+خشک
+شدید گرمی
+شدید سردی
+برف باری
+سموگ

@@ -1,0 +1,38 @@
+---
+description: Unit a product is sold by, in Marathi. The traditional units at the end are still in daily commercial use in Maharashtra and have no European counterpart. गुंठा is the land unit every Maharashtrian property deal is quoted in — one guntha is 1089 square feet, forty gunthas make an acre — and a property listing in Pune or Nashik gives the plot in gunthas, not in square metres. तोळा is the gold weight (11.66 g) a jeweller quotes, and both it and पायली carry ळ. मण, शेर, पायली and खंडी are grain measures still heard in village markets. The metric units are the legal ones and are what an invoice prints.
+locale: mr
+---
+नग
+डझन
+जोडी
+संच
+बॉक्स
+खोका
+पाकीट
+पिशवी
+बंडल
+जुडी
+पेंडी
+रोल
+किलोग्रॅम
+ग्रॅम
+क्विंटल
+टन
+लिटर
+मिलिलिटर
+मीटर
+सेंटिमीटर
+फूट
+इंच
+चौरस फूट
+चौरस मीटर
+एकर
+हेक्टर
+गुंठा
+तोळा
+मण
+शेर
+पायली
+खंडी
+डबा
+माप

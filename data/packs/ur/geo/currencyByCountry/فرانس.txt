@@ -1,0 +1,5 @@
+---
+description: Currency of فرانس in Urdu.
+locale: ur
+---
+یورو

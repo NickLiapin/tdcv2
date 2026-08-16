@@ -1,0 +1,48 @@
+---
+description: Kind of building, in Urdu. The list carries the housing vocabulary of the Urdu-speaking city, where the words are not interchangeable the way "house" and "home" are in English: مکان is the physical dwelling, گھر is the household living in it, کوٹھی a detached villa on its own plot, حویلی an old walled family compound built around a courtyard, and بنگلہ the colonial-era single-storey house whose name English borrowed back as "bungalow". پورشن is the Pakistani rental unit with no European equivalent — one floor of a house let separately, with its own door and stair, so a two-storey مکان is routinely two addresses. Places of worship for four communities are listed because Pakistani and Indian address data contains all of them.
+locale: ur
+---
+مکان
+گھر
+فلیٹ
+اپارٹمنٹ
+بنگلہ
+کوٹھی
+حویلی
+پورشن
+کوارٹر
+جھگی
+دفتر
+دکان
+گودام
+کارخانہ
+ملز
+پلازہ
+مارکیٹ
+بازار
+شاپنگ مال
+ہسپتال
+کلینک
+اسکول
+کالج
+یونیورسٹی
+مدرسہ
+مسجد
+امام بارگاہ
+گرجا گھر
+مندر
+گردوارہ
+ہوٹل
+ریستوران
+لائبریری
+اسٹیڈیم
+سنیما
+تھانہ
+ڈاکخانہ
+بینک
+پٹرول پمپ
+ورکشاپ
+فارم ہاؤس
+ہاسٹل
+گیسٹ ہاؤس
+عمارت

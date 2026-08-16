@@ -1,0 +1,5 @@
+---
+description: Currency of یونان in Urdu.
+locale: ur
+---
+یورو

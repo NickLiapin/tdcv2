@@ -1,0 +1,12 @@
+---
+description: Sport with a coherent position list beside it — the parent of sport/positionBySport, so every value here has a file of that exact name. اسکواش, پہلوانی and نیزہ بازی are deliberately absent even though they matter more here than rugby does: they are individual sports and have no positions at all, so giving them a position file would be inventing one.
+locale: ur
+---
+کرکٹ
+ہاکی
+فٹ بال
+والی بال
+باسکٹ بال
+کبڈی
+ہینڈ بال
+رگبی

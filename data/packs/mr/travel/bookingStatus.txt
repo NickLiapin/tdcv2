@@ -1,0 +1,15 @@
+---
+description: Booking status, in Marathi. प्रतीक्षा यादीत and रद्द होण्याच्या प्रतीक्षेत are Indian railway statuses — a waitlisted ticket is a normal, confirmable state of a booking here, not an error, and RAC is a half-berth allocation with no European equivalent.
+locale: mr
+---
+निश्चित
+प्रलंबित
+प्रतीक्षा यादीत
+आरएसी
+रद्द
+आगमन नोंदवले
+प्रस्थान नोंदवले
+गैरहजर
+बदल केला
+परतावा दिला
+तिकीट जारी

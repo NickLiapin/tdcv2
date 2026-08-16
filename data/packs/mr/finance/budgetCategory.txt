@@ -1,0 +1,30 @@
+---
+description: Household budget line, in Marathi. Two entries are Indian and a European budget list has no slot for them. सणसमारंभ is festival spending, which is a real and planned annual line in a Marathi household — Diwali alone means new clothes for everyone, sweets, gifts and often a repainted house. सोसायटी देखभाल शुल्क is the monthly maintenance charge every flat-owner pays their housing society, the Indian equivalent of a service charge and usually the second-largest fixed cost after the loan.
+locale: mr
+---
+घरभाडे
+गृहकर्ज हप्ता
+सोसायटी देखभाल शुल्क
+किराणा
+भाजीपाला
+वीजबिल
+पाणीपट्टी
+गॅस
+इंधन
+प्रवास
+मोबाइल व इंटरनेट
+आरोग्य
+विमा हप्ता
+बाहेरचे जेवण
+मनोरंजन
+वर्गणी
+शिक्षण
+कपडे
+भेटवस्तू
+सणसमारंभ
+धार्मिक खर्च
+बालसंगोपन
+कर्जफेड
+बचत
+गुंतवणूक
+सहल

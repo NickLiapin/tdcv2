@@ -1,0 +1,9 @@
+---
+description: Work shift, in Marathi. पाळी is the Marathi word for a shift and carries ळ, so none of these five values can be written in Hindi, which says पाली.
+locale: mr
+---
+दिवस पाळी
+रात्र पाळी
+सकाळ पाळी
+दुपार पाळी
+फिरती पाळी

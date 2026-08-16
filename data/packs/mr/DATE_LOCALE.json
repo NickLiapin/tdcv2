@@ -1,0 +1,59 @@
+{
+  "months": [
+    "जानेवारी",
+    "फेब्रुवारी",
+    "मार्च",
+    "एप्रिल",
+    "मे",
+    "जून",
+    "जुलै",
+    "ऑगस्ट",
+    "सप्टेंबर",
+    "ऑक्टोबर",
+    "नोव्हेंबर",
+    "डिसेंबर"
+  ],
+  "monthsInDate": [
+    "जानेवारी",
+    "फेब्रुवारी",
+    "मार्च",
+    "एप्रिल",
+    "मे",
+    "जून",
+    "जुलै",
+    "ऑगस्ट",
+    "सप्टेंबर",
+    "ऑक्टोबर",
+    "नोव्हेंबर",
+    "डिसेंबर"
+  ],
+  "monthsShort": [
+    "जाने.",
+    "फेब्रु.",
+    "मार्च",
+    "एप्रि.",
+    "मे",
+    "जून",
+    "जुलै",
+    "ऑग.",
+    "सप्टें.",
+    "ऑक्टो.",
+    "नोव्हें.",
+    "डिसें."
+  ],
+  "weekdays": [
+    "रविवार",
+    "सोमवार",
+    "मंगळवार",
+    "बुधवार",
+    "गुरुवार",
+    "शुक्रवार",
+    "शनिवार"
+  ],
+  "weekdaysShort": ["रवि", "सोम", "मंगळ", "बुध", "गुरु", "शुक्र", "शनि"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "Marathi and Hindi share the Devanagari script, so nothing about the shape of these strings proves which language they belong to. The VOCABULARY does, and the weekday array is the cheapest place to check it: Tuesday is मंगळवार in Marathi and मंगलवार in Hindi. The difference is the single letter ळ, the retroflex L that Marathi kept from Sanskrit and Hindi lost; if a date table renders मंगलवार for mr, it has been filled from the wrong language. The month names carry a second marker: Marathi writes जुलै, ऑगस्ट and ऑक्टोबर where Hindi writes जुलाई, अगस्त and अक्तूबर, and the ऑ vowel sign in ऑगस्ट/ऑक्टोबर is a Marathi orthographic habit for borrowed English 'o'. Both months and weekdays are invariant — Marathi does not inflect them inside a written date, so monthsInDate is identical to months and that is correct, not a copy-paste slip. The abbreviation always ends in a full stop except for the four names that are already short (मार्च, मे, जून, जुलै). The week is written Sunday-first here because the formatter wants it that way; a Marathi calendar prints Monday first, which is what date/weekday.txt holds. Numeric dates are DD/MM/YYYY with slashes. Alongside the Gregorian year, Maharashtra runs on the Shalivahana Shaka calendar, whose months are चैत्र, वैशाख, ज्येष्ठ, आषाढ, श्रावण, भाद्रपद, आश्विन, कार्तिक, मार्गशीर्ष, पौष, माघ, फाल्गुन and whose new year is गुढी पाडवा in March or April, not 1 January; every Marathi festival date is fixed on that calendar and drifts against this one. That calendar is NOT wired into the engine and is recorded here only so a reader knows it exists."
+}

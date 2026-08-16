@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis that requires male anatomy, in Marathi — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.txt.
+locale: mr
+---
+प्रोस्टेट ग्रंथीची सौम्य वाढ
+प्रोस्टेटदाह
+प्रोस्टेट कर्करोग
+वृषण कर्करोग
+वृषणपिळ
+वृषणशिरावृद्धी
+जलवृषण
+अधिवृषणदाह
+अवतरित न झालेले वृषण
+शिश्नमुखसंकोच
+शिश्नमुखदाह
+पुरुष लैंगिक दुर्बलता
+पेरोनी रोग
+पुरुष वंध्यत्व
+स्तनवृद्धी
+पुरुष संप्रेरक न्यूनता
+दीर्घ ताठरता
+शुक्रगळू
+पुरुष टक्कल
+वृषणकोश अंतर्गळ

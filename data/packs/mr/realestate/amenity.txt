@@ -1,0 +1,29 @@
+---
+description: Amenity advertised on a Marathi property listing. Two entries are Indian and a European list has no slot for them. पूजा खोली is a dedicated prayer room, a standard line on almost every Indian flat plan. वास्तुशास्त्रानुसार — Vastu-compliant — is a genuine selling point printed on Maharashtrian listings, meaning the plan follows the traditional orientation rules; buyers ask for it and developers advertise it. जनरेटर बॅकअप, बोअरवेल and पाण्याची टाकी are on the list because municipal power and water are not continuous everywhere and a building's own supply is a feature.
+locale: mr
+---
+लिफ्ट
+वाहनतळ
+जलतरण तलाव
+व्यायामशाळा
+उद्यान
+बालोद्यान
+सुरक्षा रक्षक
+सीसीटीव्ही
+जनरेटर बॅकअप
+सौर पॅनेल
+बोअरवेल
+पाण्याची टाकी
+गच्ची
+बाल्कनी
+मॉड्युलर किचन
+कपाट
+सुसज्ज
+पूजा खोली
+गॅलरी
+क्लब हाउस
+समाजमंदिर
+वास्तुशास्त्रानुसार
+गॅस पाइपलाइन
+इंटरकॉम
+अग्निशमन यंत्रणा

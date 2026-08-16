@@ -1,0 +1,35 @@
+---
+description: Marathi name suffix. The Marathi respect particle is -राव and -साहेब rather than the Hindi -जी: a Maharashtrian is addressed as पाटीलसाहेब or यशवंतराव, and both fuse to the name in writing. -पंत is the older Brahmin equivalent (नानापंत), and -शेठ marks a trader. The one that a European locale has no slot for is कै., short for कैलासवासी, written before or after a dead person's name in every Marathi obituary and memorial notice — Hindi uses स्व. for the same job, so a transliterated Hindi pack would put the wrong abbreviation on the deceased. Academic degrees follow the name as they do in English; Marathi writes them with Devanagari letter-names, so B.Sc. is बी.एस्सी. and not the Hindi बी.एससी.
+locale: mr
+---
+राव
+साहेब
+पंत
+शेठ
+बुवा
+अण्णा
+दादा
+ताई
+बाई
+काका
+मामा
+आबा
+तात्या
+नाना
+कै.
+नि.
+कनिष्ठ
+ज्येष्ठ
+बी.ए.
+एम.ए.
+बी.एस्सी.
+एम.एस्सी.
+बी.कॉम.
+एम.कॉम.
+बी.ई.
+एम.ई.
+एम.बी.ए.
+एम.बी.बी.एस.
+एम.डी.
+एलएल.बी.
+पीएच.डी.

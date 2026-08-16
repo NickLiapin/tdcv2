@@ -1,0 +1,18 @@
+---
+description: Employment type in Urdu. دیہاڑی دار is the first line that matters: the daily-wage labourer hired at a labour stand each morning with no contract at all is an enormous share of the workforce across this region, and a payroll dataset that has no category for it is describing the formal economy only. ٹھیکہ ملازم is contract labour hired through an intermediary, and خاندانی کاروبار is unpaid work in a family business, which is how most rural women's labour is recorded when it is recorded at all.
+locale: ur
+---
+مستقل
+عارضی
+ٹھیکہ ملازم
+دیہاڑی دار
+جز وقتی
+کل وقتی
+فری لانس
+انٹرن شپ
+اپرنٹس شپ
+موسمی
+خاندانی کاروبار
+ڈیلی ویجز
+کنٹریکٹ
+آؤٹ سورس

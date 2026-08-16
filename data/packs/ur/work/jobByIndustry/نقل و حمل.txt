@@ -1,0 +1,24 @@
+---
+description: Transport jobs in Urdu. رکشہ ڈرائیور and چنگ چی ڈرائیور are distinct occupations with different licences and different economics; کنڈیکٹر is the bus conductor who collects fares by hand, a job that has not disappeared here.
+locale: ur
+---
+ڈرائیور
+ٹرک ڈرائیور
+بس ڈرائیور
+رکشہ ڈرائیور
+چنگ چی ڈرائیور
+ٹیکسی ڈرائیور
+کنڈیکٹر
+ڈیلیوری رائیڈر
+کوریئر
+لاجسٹکس مینیجر
+ڈسپیچر
+گودام انچارج
+فورک لفٹ آپریٹر
+ٹریفک وارڈن
+ریلوے گارڈ
+اسٹیشن ماسٹر
+پائلٹ
+فضائی میزبان
+کیپٹن
+بحری ملاح

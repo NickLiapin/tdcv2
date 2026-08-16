@@ -1,0 +1,26 @@
+---
+description: Common allergy, in Marathi. शेंगदाणे (peanut) sits lower here than it would in a Western list and धूळ (dust), परागकण (pollen) and घरातील धुळीतील कण (house dust mite) sit higher, which reflects what Indian allergy clinics actually see. उडीद and तीळ are listed because Indian food labelling names them.
+locale: mr
+---
+धूळ
+परागकण
+घरातील धुळीतील कण
+बुरशी
+प्राण्यांचे केस
+झुरळ
+पेनिसिलिन
+सल्फा औषधे
+ॲस्पिरिन
+आयोडिन
+लेटेक्स
+शेंगदाणे
+काजू-बदाम
+तीळ
+उडीद
+दूध
+अंडी
+गहू
+सोयाबीन
+कोळंबी
+मासे
+मधमाशीचा दंश

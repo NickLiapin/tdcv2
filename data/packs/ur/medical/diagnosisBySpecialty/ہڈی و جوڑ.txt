@@ -1,0 +1,22 @@
+---
+description: Orthopaedic diagnoses in Urdu. موٹر سائیکل کا حادثہ is on the list because two-wheelers carry most of the road traffic across this region and dominate its trauma intake.
+locale: ur
+---
+فریکچر
+جوڑ کا اترنا
+گٹھیا
+جوڑوں کا گھساؤ
+ہڈیوں کی کمزوری
+کمر درد
+گردن کا درد
+ریڑھ کی ہڈی کی ڈسک
+کندھے کا درد
+گھٹنے کی چوٹ
+لگامنٹ کا پھٹنا
+پٹھے کا کھنچاؤ
+ایڑی کا درد
+ٹخنے کی موچ
+کلائی کا درد
+ہڈی کا انفیکشن
+ہڈی کا سرطان
+موٹر سائیکل کا حادثہ

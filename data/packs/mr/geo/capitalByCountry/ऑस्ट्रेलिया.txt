@@ -1,0 +1,5 @@
+---
+description: Capital of ऑस्ट्रेलिया, as Marathi names it
+locale: mr
+---
+कॅनबेरा

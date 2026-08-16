@@ -1,0 +1,9 @@
+---
+description: Work shift in Urdu.
+locale: ur
+---
+صبح کی شفٹ
+دوپہر کی شفٹ
+رات کی شفٹ
+دوہری شفٹ
+گھومتی شفٹ

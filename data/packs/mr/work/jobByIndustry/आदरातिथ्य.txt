@@ -1,0 +1,17 @@
+---
+description: Jobs found in the आदरातिथ्य sector, in Marathi. The parent list is work/industryCoherent.txt and this filename must match its value character for character.
+locale: mr
+---
+आचारी
+सहायक आचारी
+स्वयंपाकी
+बेकर
+बारटेंडर
+बरिस्ता
+वाढपी
+यजमान
+भांडी धुणारा
+हॉटेल व्यवस्थापक
+गृहव्यवस्थापिका
+स्वागतकक्ष सेवक
+खानावळ चालक

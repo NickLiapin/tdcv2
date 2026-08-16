@@ -1,0 +1,26 @@
+---
+description: Film genre, in Marathi. Two of these are genres of MARATHI cinema specifically and have no counterpart in any other film industry's vocabulary. संतपट is the saint film: Marathi cinema invented it with Sant Tukaram in 1936, which won at Venice, and the form ran for decades. तमाशापट is the tamasha film, built around the folk theatre form and its Lavani dance numbers, and it dominated Marathi popular cinema from the 1950s to the 1970s. ग्रामीण, the rural film, is a third Marathi staple. A config translating an English genre list into Marathi would produce none of these and would miss most of what the industry has actually made.
+locale: mr
+---
+कृतीपट
+विनोदी
+नाट्य
+भयपट
+थरारक
+प्रेमकथा
+विज्ञानकथा
+काल्पनिक
+माहितीपट
+ॲनिमेशन
+साहसी
+गुन्हेगारी
+रहस्य
+ऐतिहासिक
+संगीतमय
+युद्धपट
+चरित्रपट
+कौटुंबिक
+ग्रामीण
+तमाशापट
+संतपट
+पौराणिक

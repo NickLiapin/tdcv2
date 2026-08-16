@@ -1,0 +1,5 @@
+---
+description: Currency of मेक्सिको, as Marathi names it
+locale: mr
+---
+मेक्सिकन पेसो

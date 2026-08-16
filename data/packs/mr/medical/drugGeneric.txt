@@ -1,0 +1,48 @@
+---
+description: Common generic drug name, in Marathi transliteration. These are International Nonproprietary Names and the molecule is the same everywhere; Marathi patient leaflets and hospital discharge cards spell them in Devanagari, while the prescription itself is usually written in Latin script. The list leads with what an Indian pharmacy actually dispenses — the four-drug tuberculosis regimen, the antimalarials and the deworming agents are ordinary retail items here.
+locale: mr
+---
+पॅरासिटामॉल
+आयब्युप्रोफेन
+ॲस्पिरिन
+डायक्लोफेनाक
+नेप्रोक्सेन
+ट्रामाडॉल
+अमॉक्सिसिलिन
+अमॉक्सिसिलिन-क्लॅव्ह्युलनेट
+ॲझिथ्रोमायसिन
+सिप्रोफ्लॉक्सासिन
+डॉक्सिसायक्लिन
+सेफिक्झिम
+मेट्रोनिडाझोल
+आयसोनियाझिड
+रिफाम्पिसिन
+पायराझिनामाइड
+इथाम्ब्युटॉल
+आर्टिमीथर-ल्युमेफँट्रिन
+क्लोरोक्वीन
+प्रायमाक्वीन
+अल्बेंडाझोल
+आयव्हरमेक्टिन
+मेटफॉर्मिन
+ग्लिमेपिराइड
+इन्सुलिन ग्लार्जिन
+टेल्मिसार्टन
+ॲम्लोडिपिन
+लोसार्टन
+एनालाप्रिल
+मेटोप्रोलोल
+हायड्रोक्लोरोथायाझाइड
+फ्युरोसेमाइड
+ॲटोरव्हास्टॅटिन
+क्लोपिडोग्रेल
+ओमेप्राझोल
+पँटोप्राझोल
+ऑनडॅनसेट्रॉन
+लेव्होथायरॉक्सिन
+साल्ब्युटामॉल
+प्रेडनिसोलोन
+सेटिरिझिन
+सर्ट्रालाइन
+फेरस सल्फेट
+फॉलिक आम्ल

@@ -1,0 +1,5 @@
+---
+description: Capital of पोर्तुगाल, as Marathi names it
+locale: mr
+---
+लिस्बन

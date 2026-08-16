@@ -1,0 +1,5 @@
+---
+description: Capital of ناروے in Urdu.
+locale: ur
+---
+اوسلو

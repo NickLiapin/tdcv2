@@ -1,0 +1,5 @@
+---
+description: Capital of स्पेन, as Marathi names it
+locale: mr
+---
+माद्रिद

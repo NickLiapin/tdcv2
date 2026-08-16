@@ -1,0 +1,45 @@
+---
+description: The element that closes a company name in Urdu. The first block is the statutory forms — پرائیویٹ لمیٹڈ, لمیٹڈ, and the two partnership words — written in Urdu script as a company's own Urdu letterhead prints them. The rest are trade-name endings rather than legal forms, and several are specific to this business culture: برادران is "brothers" and is the commonest family-firm ending in Urdu (شیخ برادران), اینڈ سنز its English-borrowed twin, تاجران merchants, ٹریڈرز and انٹرپرائزز the small-trader endings a shop sign carries, and کارخانہ a workshop. A config joining a namePart to one of these should not also add a European suffix.
+locale: ur
+---
+پرائیویٹ لمیٹڈ
+لمیٹڈ
+کارپوریشن
+کمپنی
+اینڈ کمپنی
+برادران
+اینڈ سنز
+اینڈ برادرز
+ایسوسی ایٹس
+پارٹنرز
+ٹریڈرز
+تاجران
+انٹرپرائزز
+کارپوریٹ
+گروپ
+ہولڈنگز
+انڈسٹریز
+مینوفیکچررز
+ملز
+کارخانہ
+ورکس
+ایجنسیز
+کارپوریشنز
+سروسز
+خدمات
+سولوشنز
+سسٹمز
+ٹیکنالوجیز
+لیبز
+وینچرز
+کنسلٹنٹس
+مشاورتی
+بلڈرز
+ڈویلپرز
+امپیکس
+امپورٹرز
+ایکسپورٹرز
+انٹرنیشنل
+عالمی
+سٹور
+ایمپوریم

@@ -1,0 +1,14 @@
+---
+description: Rugby positions in Urdu.
+locale: ur
+---
+پراپ
+ہکر
+لاک
+فلینکر
+نمبر ایٹ
+اسکرم ہاف
+فلائی ہاف
+سنٹر
+ونگ
+فل بیک

@@ -1,0 +1,11 @@
+---
+description: Trucking route type, in Marathi.
+locale: mr
+---
+लांब पल्ला
+आंतरराज्य
+प्रादेशिक
+स्थानिक
+समर्पित
+दुहेरी चालक
+अखेरचा टप्पा

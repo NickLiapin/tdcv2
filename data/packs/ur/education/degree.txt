@@ -1,0 +1,34 @@
+---
+description: Academic qualification in Urdu. The ladder is not the European one. میٹرک is the tenth-class school certificate and انٹرمیڈیٹ the twelfth, and the twelfth splits by stream — ایف اے arts, ایف ایس سی pre-medical or pre-engineering, آئی کام commerce — so an Urdu CV states which. The بی اے and بی ایس سی that follow were two-year "pass" degrees until Pakistan replaced them with the four-year بی ایس, so both shapes are in circulation. The last four lines are the دینی مدارس ladder, which is a genuine parallel system rather than a religious footnote: درس نظامی is its eight-year curriculum, and Pakistan's Higher Education Commission recognises شہادۃ العالمیہ as equivalent to an MA in Arabic and Islamic Studies, so it is a degree that appears in real employment records.
+locale: ur
+---
+میٹرک
+انٹرمیڈیٹ
+ایف اے
+ایف ایس سی
+آئی کام
+ڈپلومہ
+ڈی اے ای
+بی اے
+بی ایس سی
+بی کام
+بی ایس
+بی ای
+بی ٹیک
+ایل ایل بی
+ایم بی بی ایس
+بی ڈی ایس
+ڈی وی ایم
+فارم ڈی
+ایم اے
+ایم ایس سی
+ایم کام
+ایم بی اے
+ایم ایس
+ایم فل
+ایل ایل ایم
+پی ایچ ڈی
+درس نظامی
+شہادۃ العالمیہ
+حافظ قرآن
+قاری

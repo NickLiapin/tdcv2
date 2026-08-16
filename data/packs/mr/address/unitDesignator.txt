@@ -1,0 +1,29 @@
+---
+description: Marathi address unit or interior designator, written before its number. Three are specific to India and Maharashtra. गट नं. is the revenue survey group number that identifies agricultural land in Maharashtra's 7/12 land record — it is the rural equivalent of a street address and appears in property listings and legal documents alike. सर्व्हे नं. is its urban sibling. यांचे मार्फत is the Marathi of care-of, and it is written into a large share of real addresses because post is routinely delivered to a named householder rather than to a numbered flat. Note मजला (floor) and तळमजला (ground floor): तळ + मजला, the postposition-like element welded on, again in one word.
+locale: mr
+---
+घर नं.
+सदनिका क्र.
+फ्लॅट नं.
+प्लॉट नं.
+गट नं.
+सर्व्हे नं.
+दुकान नं.
+खोली नं.
+गल्ली नं.
+मजला
+तळमजला
+पहिला मजला
+दुसरा मजला
+इमारत
+विंग
+ब्लॉक
+टॉवर
+सेक्टर
+टप्पा
+यांचे मार्फत
+जवळ
+समोर
+मागे
+शेजारी
+पोस्ट

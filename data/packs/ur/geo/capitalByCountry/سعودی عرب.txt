@@ -1,0 +1,5 @@
+---
+description: Capital of سعودی عرب in Urdu.
+locale: ur
+---
+ریاض

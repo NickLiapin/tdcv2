@@ -1,0 +1,14 @@
+---
+description: Pashtun dishes in Urdu. This kitchen barely uses chilli at all — meat is salted and roasted and served with rice or bread — and چپلی کباب is the one loud exception. قہوہ, green tea with cardamom, closes every meal.
+locale: ur
+---
+کابلی پلاؤ
+چپلی کباب
+دم پخت
+لانڈی
+شینواری تکہ
+کڑاہی گوشت
+مانٹو
+شولہ
+پشاوری نان
+قہوہ

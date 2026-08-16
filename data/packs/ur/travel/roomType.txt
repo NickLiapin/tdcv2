@@ -1,0 +1,22 @@
+---
+description: Hotel room types in Urdu. فیملی روم is the commonest booking in this market rather than a special request, because families travel together and in numbers. علیحدہ خواتین کی منزل, a women-only floor, is offered by many hotels in Pakistan and the Gulf and is a room category in practice.
+locale: ur
+---
+سنگل روم
+ڈبل روم
+ٹوئن روم
+ٹرپل روم
+فیملی روم
+ڈی لکس روم
+ایگزیکٹو روم
+سوئٹ
+پریزیڈنشل سوئٹ
+اکانومی روم
+اسٹینڈرڈ روم
+ایئر کنڈیشنڈ روم
+نان اے سی روم
+ڈارمیٹری
+علیحدہ خواتین کی منزل
+سی ویو روم
+گارڈن ویو روم
+کنیکٹنگ رومز

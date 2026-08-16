@@ -1,0 +1,28 @@
+---
+description: Role-playing character class in Urdu. Gaming vocabulary in Pakistan and India is overwhelmingly English, so half of these are the English terms in Urdu script — which is what a player actually says — and the other half are the Urdu words a translated or locally-made game uses.
+locale: ur
+---
+جنگجو
+سپاہی
+تیرانداز
+جادوگر
+ساحر
+عامل
+شفا دینے والا
+راہب
+چور
+قاتل
+شکاری
+محافظ
+بہادر
+سردار
+نائٹ
+پیلاڈن
+ڈروڈ
+بارڈ
+رینجر
+ورلاک
+نیکرومینسر
+برسرکر
+مونک
+سمنر

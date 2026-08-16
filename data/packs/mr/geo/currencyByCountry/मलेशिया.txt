@@ -1,0 +1,5 @@
+---
+description: Currency of मलेशिया, as Marathi names it
+locale: mr
+---
+मलेशियन रिंगिट

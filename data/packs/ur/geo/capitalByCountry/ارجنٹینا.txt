@@ -1,0 +1,5 @@
+---
+description: Capital of ارجنٹینا in Urdu.
+locale: ur
+---
+بیونس آئرس

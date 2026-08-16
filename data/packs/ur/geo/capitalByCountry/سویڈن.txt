@@ -1,0 +1,5 @@
+---
+description: Capital of سویڈن in Urdu.
+locale: ur
+---
+اسٹاک ہوم

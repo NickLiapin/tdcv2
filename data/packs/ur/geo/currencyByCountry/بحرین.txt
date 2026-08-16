@@ -1,0 +1,5 @@
+---
+description: Currency of بحرین in Urdu.
+locale: ur
+---
+بحرینی دینار

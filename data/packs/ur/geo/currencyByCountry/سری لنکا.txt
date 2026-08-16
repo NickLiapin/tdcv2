@@ -1,0 +1,5 @@
+---
+description: Currency of سری لنکا in Urdu.
+locale: ur
+---
+سری لنکن روپیہ

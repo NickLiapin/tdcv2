@@ -1,0 +1,38 @@
+---
+description: Vegetables in Urdu. Several are gourds that English lumps together and Urdu does not: توری, گھیا, کدو, ٹینڈا and کریلا are five distinct vegetables cooked five different ways. ساگ is a dish as much as a plant — the mustard greens of a Punjabi winter — and میتھی is fenugreek eaten as a leaf, not the seed sold as a spice. اروی and کچالو are taro corms.
+locale: ur
+---
+آلو
+پیاز
+ٹماٹر
+لہسن
+ادرک
+بھنڈی
+بینگن
+توری
+گھیا
+کدو
+ٹینڈا
+کریلا
+شلجم
+گاجر
+مولی
+چقندر
+مٹر
+پھلیاں
+لوبیا
+گوبھی
+بند گوبھی
+پالک
+ساگ
+میتھی
+دھنیا
+پودینہ
+ہری مرچ
+شملہ مرچ
+ککڑی
+کھیرا
+کھمبی
+اروی
+کچالو
+ککڑی کا پھول

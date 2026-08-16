@@ -1,0 +1,29 @@
+---
+description: Gemstones in Urdu. Several of these are mined in the Urdu-speaking region rather than merely traded there: emerald in Swat, ruby in Hunza, peridot in Kohistan, topaz at Katlang, and the lapis of Badakhshan that has reached the world through Peshawar for four thousand years. عقیق (carnelian) and فیروزہ (turquoise) matter for a second reason — both are worn as rings for religious and protective significance across this culture, so a jewellery record here is not only about value.
+locale: ur
+---
+یاقوت
+زمرد
+نیلم
+ہیرا
+موتی
+فیروزہ
+عقیق
+لعل
+مرجان
+پکھراج
+دُر نجف
+لاجورد
+زبرجد
+یشب
+کہربا
+سنگ سلیمانی
+اوپل
+ٹوپاز
+جیڈ
+گارنیٹ
+ایمیتھسٹ
+مون اسٹون
+ٹائیگر آئی
+بلور
+سنگ مرمر

@@ -1,0 +1,5 @@
+---
+description: Capital of मलेशिया, as Marathi names it
+locale: mr
+---
+क्वालालंपूर

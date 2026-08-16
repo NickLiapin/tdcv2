@@ -1,0 +1,35 @@
+---
+description: Spice, in Marathi. Three are Maharashtrian and appear in no other locale's list. दगडफूल is the dried lichen — literally stone-flower — that gives गोडा मसाला its dark, smoky base and is used in almost no cuisine outside the Deccan. तिरफळ is the Konkan's own Sichuan-pepper relative, numbing and citrus-scented, and no Malvani fish curry is right without it. The regional blends at the end (कोल्हापुरी, मालवणी, गोडा, कांदा-लसूण) are the finished masalas a household actually reaches for, not single-spice ingredients. हळद, तिरफळ, जायफळ and तीळ all carry ळ.
+locale: mr
+---
+हळद
+जिरे
+धणे
+मोहरी
+मेथी
+हिंग
+दालचिनी
+लवंग
+वेलची
+मिरे
+काळी मिरी
+तमालपत्र
+बडीशेप
+ओवा
+शहाजिरे
+दगडफूल
+नागकेशर
+तिरफळ
+जायफळ
+जावित्री
+खसखस
+तीळ
+सुंठ
+लाल तिखट
+काश्मिरी मिरची
+गोडा मसाला
+कांदा-लसूण मसाला
+कोल्हापुरी मसाला
+मालवणी मसाला
+गरम मसाला
+कालवण मसाला

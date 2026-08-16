@@ -1,0 +1,11 @@
+---
+description: Driving licence class in Urdu. Pakistan issues LTV (light transport vehicle), HTV (heavy transport vehicle) and PSV (public service vehicle) endorsements on top of the ordinary car and motorcycle licence, and a lorry driver must hold HTV; the classes are named by those Latin abbreviations even in Urdu paperwork.
+locale: ur
+---
+موٹر سائیکل
+ایل ٹی وی
+ایچ ٹی وی
+پی ایس وی
+ٹریکٹر
+بین الاقوامی لائسنس
+لرنر پرمٹ

@@ -1,0 +1,41 @@
+---
+description: Garment types in Urdu. شلوار قمیض is the national dress of Pakistan and is worn by both men and women, which is unusual enough to be worth stating: it is not a men's or a women's garment, and the difference between the two is cut and cloth rather than name. دوپٹہ, the long scarf worn with it, is a separate garment and is counted separately. شیروانی and اچکن are the formal coats worn at weddings; لہنگا, غرارہ and شرارہ are the bridal and festive lower garments and differ from each other in how they are cut, not in what they are for. کھسہ is the pointed leather slipper of Punjab. Western garments follow, in the Urdu spellings a shop uses.
+locale: ur
+---
+شلوار قمیض
+شلوار
+قمیض
+کرتہ
+کرتی
+دوپٹہ
+چادر
+عبایا
+برقع
+حجاب
+اسکارف
+واسکٹ
+شیروانی
+اچکن
+انگرکھا
+لہنگا
+غرارہ
+شرارہ
+ساڑھی
+تہبند
+لنگی
+پگڑی
+ٹوپی
+صافہ
+پینٹ
+شرٹ
+ٹی شرٹ
+جینز
+کوٹ
+جیکٹ
+سویٹر
+بنیان
+جراب
+جوتا
+چپل
+کھسہ
+سینڈل

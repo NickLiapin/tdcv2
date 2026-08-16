@@ -1,0 +1,5 @@
+---
+description: Capital of भारत, as Marathi names it
+locale: mr
+---
+नवी दिल्ली

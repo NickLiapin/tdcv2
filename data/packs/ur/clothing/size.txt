@@ -1,0 +1,15 @@
+---
+description: Clothing size in the Urdu-speaking market. The international letters are standard on stitched garments, but فری سائز is the last line and is not a joke entry: an enormous share of what is sold in Pakistan and India is unstitched cloth or a loose kurta cut to no size at all, and a garment field that cannot hold "one size" cannot describe that market. سمال, میڈیم and لارج are the same three sizes written in Urdu script, which is what a local shop's handwritten label carries.
+locale: ur
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+سمال
+میڈیم
+لارج
+فری سائز

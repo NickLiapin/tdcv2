@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of आयर्लंड
+locale: mr
+---
+EUR

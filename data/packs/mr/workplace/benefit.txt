@@ -1,0 +1,26 @@
+---
+description: Employment benefit, in Marathi. Four are Indian statutory components with no European equivalent and they appear on every Indian pay slip. भविष्य निर्वाह निधी is the Employees' Provident Fund, a compulsory retirement deduction matched by the employer. ग्रॅच्युइटी is a lump sum payable after five years' service, also statutory. महागाई भत्ता is dearness allowance, an inflation-indexed component revised twice a year, and घरभाडे भत्ता is house rent allowance, which is a separate taxable line rather than part of basic pay. दिवाळी बोनस is the annual bonus, paid before Diwali by law in covered establishments — it is a legal entitlement, not a gift.
+locale: mr
+---
+आरोग्य विमा
+जीवन विमा
+अपघात विमा
+भविष्य निर्वाह निधी
+ग्रॅच्युइटी
+निवृत्तिवेतन
+महागाई भत्ता
+घरभाडे भत्ता
+प्रवास भत्ता
+वाहन भत्ता
+वैद्यकीय भत्ता
+दिवाळी बोनस
+सशुल्क रजा
+घरून काम
+लवचिक वेळ
+समभाग पर्याय
+प्रसूती रजा
+पितृत्व रजा
+व्यायामशाळा सदस्यत्व
+शैक्षणिक शुल्क परतावा
+कँटीन सुविधा
+पाळणाघर सुविधा

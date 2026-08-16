@@ -1,0 +1,22 @@
+---
+description: Psychiatric diagnoses in Urdu. Mental illness carries heavy stigma across the Urdu-speaking world and is very substantially under-reported; presentations arrive as physical complaints far more often than as psychological ones, so a psychiatric column here will always understate prevalence.
+locale: ur
+---
+ڈپریشن
+بے چینی
+گھبراہٹ کے دورے
+خوف
+وسواس
+نیند کی خرابی
+دو قطبی مرض
+شیزوفرینیا
+صدمے کے بعد کا دباؤ
+ماتمی صدمہ
+نشے کی لت
+تمباکو کی لت
+بچوں کی توجہ کی کمی
+آٹزم
+ذہنی معذوری
+کھانے کی خرابی
+خودکشی کا خیال
+ولادت کے بعد ڈپریشن

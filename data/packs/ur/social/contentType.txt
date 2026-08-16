@@ -1,0 +1,17 @@
+---
+description: Type of social-media post in Urdu.
+locale: ur
+---
+تصویر
+ویڈیو
+ریل
+شارٹ
+لائیو
+اسٹوری
+تحریر
+تھریڈ
+پول
+میم
+خبر
+اشتہار
+تبصرہ

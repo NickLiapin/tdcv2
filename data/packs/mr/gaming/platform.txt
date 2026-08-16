@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Hardware and store names are BRANDS and keep their real Latin spelling. मोबाइल leads because Indian gaming is overwhelmingly a phone activity — console ownership is a small fraction of what it is in Europe — and गेमिंग कॅफे, the paid-by-the-hour PC cafe, is still a real platform in Indian towns.
+locale: mr
+---
+मोबाइल
+PC
+गेमिंग कॅफे
+ब्राउझर
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+Meta Quest

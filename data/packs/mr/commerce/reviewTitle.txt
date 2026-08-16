@@ -1,0 +1,30 @@
+---
+description: Product review headline, in Marathi. These are written the way a Marathi buyer writes them, not translated from English — पैसा वसूल (money recovered, worth every rupee) is the standard Indian verdict of approval and has no idiomatic English equivalent.
+locale: mr
+---
+उत्तम वस्तू!
+जरूर घ्या
+पैसा वसूल
+अपेक्षेपेक्षा चांगले
+ठीकठाक
+पुन्हा घेईन
+निराशा झाली
+दर्जा उत्तम
+लवकर तुटले
+किमतीच्या मानाने चांगले
+शिफारस करणार नाही
+खूप आवडले!
+थोडे महाग वाटले
+वर्णनाप्रमाणेच
+पॅकिंग चांगले होते
+वितरण उशिरा झाले
+टिकाऊ आहे
+फोटोसारखे नाही
+घरातल्या सगळ्यांना आवडले
+पुन्हा विचार करा
+मस्तच
+सामान्य
+किंमत जास्त वाटते
+सेवा उत्तम
+पुन्हा मागवले
+समाधानी आहे

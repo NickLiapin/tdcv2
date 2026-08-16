@@ -1,0 +1,11 @@
+---
+description: Day of the week, in Marathi, MONDAY FIRST as a Marathi calendar prints it. मंगळवार is the single cheapest test of whether a Devanagari list is Marathi or Hindi: Marathi writes मंगळवार with ळ, Hindi writes मंगलवार with ल, and no script check can tell the two apart because both are Devanagari. Note that DATE_LOCALE.json holds the same seven Sunday-first, because the formatter indexes them that way.
+locale: mr
+---
+सोमवार
+मंगळवार
+बुधवार
+गुरुवार
+शुक्रवार
+शनिवार
+रविवार

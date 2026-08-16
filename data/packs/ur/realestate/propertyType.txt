@@ -1,0 +1,24 @@
+---
+description: Property types in Urdu. پورشن is a floor of a house let separately with its own entrance and is the commonest rental unit in urban Pakistan. مرلہ and کنال, the land units every listing quotes, are in commerce/unitOfMeasure. کوٹھی, بنگلہ and حویلی are three different houses, not three words for one — a detached villa, a single-storey colonial-style house, and an old walled family compound.
+locale: ur
+---
+مکان
+فلیٹ
+اپارٹمنٹ
+پورشن
+اپر پورشن
+لوئر پورشن
+کوٹھی
+بنگلہ
+حویلی
+پینٹ ہاؤس
+فارم ہاؤس
+رہائشی پلاٹ
+تجارتی پلاٹ
+زرعی زمین
+دکان
+دفتر
+گودام
+فیکٹری
+عمارت
+ہاسٹل

@@ -1,0 +1,18 @@
+---
+description: Pakistani dishes in Urdu. نہاری, حلیم and سری پائے are eaten at BREAKFAST here, not at dinner, because all three are simmered overnight and sold from dawn — a meal-time field that assumes they are evening food is wrong about the whole cuisine.
+locale: ur
+---
+بریانی
+نہاری
+حلیم
+سری پائے
+چکن کڑاہی
+سیخ کباب
+چپلی کباب
+دال چاول
+آلو گوشت
+حلوہ پوری
+نان چنے
+سجی
+فالودہ
+قلفی

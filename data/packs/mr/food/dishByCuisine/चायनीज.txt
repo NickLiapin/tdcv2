@@ -1,0 +1,14 @@
+---
+description: Dishes of चायनीज cooking, in Marathi. The parent list is food/cuisine.txt and this filename must match its value character for character.
+locale: mr
+---
+गोबी मंचुरियन
+चिली पनीर
+हक्का नूडल्स
+शेजवान राईस
+स्प्रिंग रोल
+मंचाऊ सूप
+चिकन लॉलीपॉप
+फ्राईड राईस
+चिली चिकन
+ट्रिपल शेजवान राईस

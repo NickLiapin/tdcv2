@@ -1,0 +1,29 @@
+---
+description: Fish in Urdu. The first block is the freshwater fish of the Indus and Ganges systems, which is what a fish market in an Urdu-speaking city actually sells: رہو, تھیلا, موری and کھگا are carp and catfish with no common English names, and پلا is the hilsa, the river shad that runs upstream to spawn and is the most prized fish in the region. سرمئی is the kingfish of the Arabian Sea coast. مہاشیر is the great river carp of the Himalayan foothills. The international names follow, in the Urdu spellings a menu uses.
+locale: ur
+---
+رہو
+تھیلا
+موری
+کھگا
+ملی
+سول
+پلا
+مہاشیر
+سنگھاڑا
+گلفام
+سرمئی
+راوس
+دندیا
+بام مچھلی
+جھینگا
+کیکڑا
+ٹراؤٹ
+سالمن
+ٹونا
+کوڈ
+تلاپیا
+کیٹ فش
+گراس کارپ
+سلور کارپ
+شارک

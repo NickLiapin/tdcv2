@@ -1,0 +1,21 @@
+---
+description: Seniority level in Urdu. گریڈ is the last one and is how the public sector actually ranks people: Pakistan's Basic Pay Scale runs from BPS-1 to BPS-22, and a civil servant is described by grade rather than by title.
+locale: ur
+---
+انٹرن
+زیر تربیت
+اپرنٹس
+جونیئر
+اسسٹنٹ
+ایسوسی ایٹ
+درمیانی درجہ
+سینئر
+لیڈ
+انچارج
+سپروائزر
+مینیجر
+سینئر مینیجر
+ڈپٹی ڈائریکٹر
+ڈائریکٹر
+سربراہ
+گریڈ

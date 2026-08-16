@@ -1,0 +1,19 @@
+---
+description: Payment method in Urdu. کیش آن ڈیلیوری is the first line and not the last for a reason: cash on delivery is the DEFAULT for online purchases across Pakistan and much of India, not a fallback, because card penetration is low and buyers do not pay for goods they have not seen. ایزی پیسہ and جاز کیش are mobile-money wallets tied to a phone number rather than a bank account and are how a great many people here hold money at all. Those wallets, the branchless-banking agent (ایجنٹ کے ذریعے) and the informal حوالہ transfer are all real settlement routes in this market that a European payment list has no slot for.
+locale: ur
+---
+کیش آن ڈیلیوری
+نقد
+ایزی پیسہ
+جاز کیش
+کریڈٹ کارڈ
+ڈیبٹ کارڈ
+بینک ٹرانسفر
+آن لائن بینکنگ
+اے ٹی ایم ٹرانسفر
+ایجنٹ کے ذریعے
+چیک
+منی آرڈر
+حوالہ
+گفٹ کارڈ
+قسطوں پر

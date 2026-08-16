@@ -1,0 +1,18 @@
+---
+description: Jobs found in the वाहतूक sector, in Marathi. The parent list is work/industryCoherent.txt and this filename must match its value character for character.
+locale: mr
+---
+ट्रक चालक
+लांब पल्ल्याचा चालक
+वितरण चालक
+बस चालक
+वाहक
+एसटी चालक
+रिक्षाचालक
+फोर्कलिफ्ट चालक
+गोदाम कामगार
+मालवाहतूक समन्वयक
+नियंत्रक
+रेल्वे चालक
+वैमानिक
+कुरिअर

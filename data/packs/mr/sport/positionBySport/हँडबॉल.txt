@@ -1,0 +1,11 @@
+---
+description: Playing positions in हँडबॉल, in Marathi.
+locale: mr
+---
+गोलरक्षक
+डावा विंग
+उजवा विंग
+डावा बॅक
+उजवा बॅक
+केंद्र बॅक
+पिव्होट
