@@ -1,0 +1,12 @@
+---
+description: Dishes of Thai cuisine (Czech)
+locale: cs
+---
+Pad thai
+Zelené kari
+Polévka tom yum
+Kari massaman
+Salát ze zelené papáje
+Lepkavá rýže s mangem
+Satay
+Polévka tom kha

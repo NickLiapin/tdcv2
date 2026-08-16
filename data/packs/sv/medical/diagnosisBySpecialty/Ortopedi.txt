@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in ortopedi, in Swedish
+locale: sv
+---
+Artros i knä
+Höftledsartros
+Diskbråck
+Ischias
+Frozen shoulder
+Meniskskada
+Korsbandsskada
+Höftfraktur
+Karpaltunnelsyndrom
+Hälsporre

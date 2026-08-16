@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Dutch).
+locale: nl
+---
+Standaardkamer
+Superiorkamer
+Suite
+Juniorsuite
+Presidentiële suite
+Eenpersoonskamer
+Tweepersoonskamer
+Twinkamer
+Kamer met kingsizebed
+Driepersoonskamer
+Vierpersoonskamer
+Gezinskamer
+Studio
+Appartement
+Bungalow
+Rolstoeltoegankelijke kamer
+Kamer met zeezicht
+Penthousesuite

@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Dutch). 'Fietsverhuur' belongs on any realistic Dutch hotel list - bicycle hire is a standard amenity here, not a novelty.
+locale: nl
+---
+Gratis wifi
+Zwembad
+Verwarmd zwembad
+Spa
+Fitnessruimte
+Restaurant
+Bar
+Roomservice
+Luchthavenshuttle
+Ontbijt inbegrepen
+Gratis parkeren
+Huisdieren toegestaan
+Businesscenter
+Conciërgeservice
+Wasservice
+Bubbelbad
+Dakterras
+Airconditioning
+Kluisje op de kamer
+24-uursreceptie
+Vergaderzalen
+Lift
+Minibar
+Rolstoeltoegankelijk
+Bagageopslag
+Fietsverhuur
+Kinderspeelhoek
+Sauna
+Zeezicht
+Volledig uitgeruste keuken

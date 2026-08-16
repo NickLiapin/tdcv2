@@ -1,0 +1,26 @@
+---
+description: Property amenity (Swedish). Bastu and tvättstuga are the two a Swedish listing never omits: nearly every apartment building has a shared laundry room booked on a schedule, and a sauna is an ordinary fitting rather than a luxury.
+locale: sv
+---
+balkong
+inglasad balkong
+altan
+uteplats
+trädgård
+bastu
+tvättstuga
+egen tvättmaskin
+diskmaskin
+hiss
+förråd
+vindsförråd
+cykelrum
+garage
+carport
+golvvärme
+kakelugn
+braskamin
+öppen spis
+sjöutsikt
+brygga
+fiber

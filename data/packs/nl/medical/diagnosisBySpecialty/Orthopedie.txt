@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in Orthopaedics (Dutch).
+locale: nl
+---
+Artrose
+Reumatoïde artritis
+Hernia nuclei pulposi
+Ischias
+Carpaletunnelsyndroom
+Tenniselleboog
+Rotatorcuffruptuur
+Schouderimpingement
+Voorstekruisbandruptuur
+Meniscusletsel
+Hielspoor

@@ -1,0 +1,34 @@
+---
+description: Vegetable (Thai). Mostly tropical greens, gourds and shoots sold by weight in a fresh market — several have no European counterpart at all (ผักบุ้ง morning glory, ชะอม climbing wattle, สะตอ the stink bean of the south, ตำลึง ivy gourd, ผักหวาน and ใบเหลียง wild forest greens).
+locale: th
+---
+ผักบุ้ง
+คะน้า
+กะหล่ำปลี
+ผักกาดขาว
+ถั่วฝักยาว
+ถั่วพู
+ถั่วงอก
+มะเขือเปราะ
+มะเขือยาว
+มะเขือพวง
+มะระ
+ฟักทอง
+ฟัก
+บวบ
+แตงกวา
+ข้าวโพดอ่อน
+หน่อไม้
+เห็ดฟาง
+เห็ดนางฟ้า
+ต้นหอม
+หอมแดง
+กระเทียม
+ตำลึง
+ชะอม
+สะตอ
+ดอกแค
+ผักกระเฉด
+ผักหวาน
+ใบเหลียง
+กระเจี๊ยบเขียว

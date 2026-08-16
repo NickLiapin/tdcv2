@@ -1,0 +1,12 @@
+---
+description: Dishes of libanesiskt cuisine, in Swedish
+locale: sv
+---
+Hummus
+Tabbouleh
+Fattoush
+Kibbeh
+Falafel
+Shawarma
+Mujadara
+Baba ganoush

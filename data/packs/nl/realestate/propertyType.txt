@@ -1,0 +1,29 @@
+---
+description: Dutch property type. Dutch names a terraced house by its exact position in the row, and the distinction is priced: a tussenwoning sits in the middle with neighbours on both sides, a hoekwoning or eindwoning closes the row with one free side and usually a wider garden, and a twee-onder-een-kapwoning is a pair of houses sharing one roof. English collapses all of this into terraced and semi-detached. Portiekwoning (reached by a shared internal stair, no lift) and galerijflat (reached along an open external walkway) are likewise two different flats, not one. Grachtenpand and woonboot are ordinary categories on the Amsterdam and Utrecht markets.
+locale: nl
+---
+Rijtjeshuis
+Tussenwoning
+Hoekwoning
+Eindwoning
+Twee-onder-een-kapwoning
+Vrijstaande woning
+Appartement
+Portiekwoning
+Galerijflat
+Maisonnette
+Bovenwoning
+Benedenwoning
+Studio
+Penthouse
+Herenhuis
+Grachtenpand
+Dijkwoning
+Hofjeswoning
+Woonboot
+Woonwagen
+Boerderij
+Bungalow
+Villa
+Recreatiewoning
+Bouwkavel

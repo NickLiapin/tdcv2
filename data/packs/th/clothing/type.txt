@@ -1,0 +1,34 @@
+---
+description: Garment type (Thai), mixing everyday clothes with genuine Thai dress: ผ้าถุง and ผ้าซิ่น (wrapped skirts), โจงกระเบน (the wrapped-and-tucked lower garment), เสื้อม่อฮ่อม (the northern indigo shirt), ชุดไทยจักรี (one of the royal Thai formal dress styles) and ผ้าขาวม้า (the all-purpose checked cloth).
+locale: th
+---
+เสื้อยืด
+เสื้อเชิ้ต
+เสื้อโปโล
+เสื้อกล้าม
+เสื้อฮู้ด
+เสื้อกันหนาว
+เสื้อแจ็คเก็ต
+เสื้อคลุม
+สูท
+กางเกงยีนส์
+กางเกงขายาว
+กางเกงขาสั้น
+กระโปรง
+ชุดเดรส
+ชุดนอน
+ชุดว่ายน้ำ
+ชุดกีฬา
+ชุดนักเรียน
+ผ้าถุง
+ผ้าซิ่น
+โจงกระเบน
+เสื้อม่อฮ่อม
+ชุดไทยจักรี
+ผ้าขาวม้า
+รองเท้าผ้าใบ
+รองเท้าแตะ
+ถุงเท้า
+หมวก
+ผ้าพันคอ
+เข็มขัด

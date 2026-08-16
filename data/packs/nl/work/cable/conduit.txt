@@ -1,0 +1,12 @@
+---
+description: Conduit or installation method for a cable run (Dutch trade terms).
+locale: nl
+---
+PVC-buis
+Stalen pantserbuis
+HDPE-mantelbuis
+Direct in de grond
+Subduct
+Kabelgoot
+Kabelladder
+Bovengrondse draagkabel

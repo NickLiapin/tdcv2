@@ -1,0 +1,14 @@
+---
+description: Loan type (Swedish). Studielån is not a bank product: it comes from CSN, the state student aid agency, at a low fixed rate with income-independent repayment. Bolån carry a statutory amorteringskrav, a minimum repayment rate tied to how much you borrowed against the property's value.
+locale: sv
+---
+bolån
+blancolån
+privatlån
+billån
+båtlån
+studielån
+kontokredit
+samlingslån
+företagslån
+byggnadskreditiv

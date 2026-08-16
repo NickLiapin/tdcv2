@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Czech. A prevalence signal, not an exclusive one.
+locale: cs
+---
+Deficit glukózo-6-fosfátdehydrogenázy
+Nosičství beta-talasemie
+Familiární středomořská horečka
+Behçetova choroba
+Hypolaktazie dospělých
+Xeroderma pigmentosum

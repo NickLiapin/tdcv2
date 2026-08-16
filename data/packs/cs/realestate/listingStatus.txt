@@ -1,0 +1,16 @@
+---
+description: Listing status (Czech)
+locale: cs
+---
+Na prodej
+K pronájmu
+Rezervováno
+Prodáno
+Smlouva o smlouvě budoucí
+Staženo z nabídky
+Připravujeme
+Dražba
+Nová výstavba
+Snížená cena
+Pronajato
+Exkluzivně

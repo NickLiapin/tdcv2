@@ -1,0 +1,18 @@
+---
+description: Insurance type (Czech). Povinne ruceni is the compulsory third-party motor policy every Czech vehicle must carry; havarijni pojisteni is the optional comprehensive one.
+locale: cs
+---
+Zdravotní
+Povinné ručení
+Havarijní pojištění
+Pojištění nemovitosti
+Pojištění domácnosti
+Životní
+Cestovní
+Pojištění mazlíčků
+Úrazové
+Pojištění pracovní neschopnosti
+Zubní
+Odpovědnosti za škodu
+Pojištění odpovědnosti zaměstnance
+Zemědělské

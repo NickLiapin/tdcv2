@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Czech)
+locale: cs
+---
+Psoriáza
+Atopická dermatitida
+Akné
+Melanom
+Rosacea
+Kontaktní dermatitida
+Kopřivka
+Dermatomykóza
+Vitiligo
+Seboroická dermatitida

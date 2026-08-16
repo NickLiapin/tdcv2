@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Swedish), given as subject/object/possessive. Swedish has a gender-neutral third-person pronoun of its own, hen, coined in the 1960s, in general use since about 2012 and listed in SAOL since 2015 — it is a real Swedish word, not a translation of singular they. Swedish also splits the inanimate third person by grammatical gender: den for common-gender nouns, det for neuter.
+locale: sv
+---
+han
+hon
+hen
+den
+han/honom/hans
+hon/henne/hennes
+hen/hen/hens
+de/dem/deras

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Hindi). Ordered around India's actual cancer profile — oral cancer (tobacco and betel quid) and gallbladder cancer are far more prominent here than in Europe.
+locale: hi
+---
+मुख कैंसर
+स्तन कैंसर
+गर्भाशय ग्रीवा कैंसर
+फेफड़े का कैंसर
+पेट का कैंसर
+बड़ी आंत का कैंसर
+पित्ताशय का कैंसर
+ग्रासनली का कैंसर
+ल्यूकेमिया
+लिम्फ़ोमा

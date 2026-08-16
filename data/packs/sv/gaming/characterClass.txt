@@ -1,0 +1,28 @@
+---
+description: RPG character class (Swedish)
+locale: sv
+---
+krigare
+riddare
+barbar
+paladin
+vakt
+jägare
+bågskytt
+tjuv
+lönnmördare
+skurk
+spanare
+magiker
+trollkarl
+besvärjare
+häxa
+druid
+präst
+munk
+bard
+nekromantiker
+alkemist
+hantverkare
+läkare
+krönikör

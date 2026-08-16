@@ -1,0 +1,26 @@
+---
+description: Property amenity (Hindi); Indian listings sell on power and water first, so पावर बैकअप, बोरवेल, पानी की टंकी and 24-hour supply matter more here than in European listings, and वास्तु अनुरूप (Vastu-compliant) and पूर्वमुखी (east-facing) are genuine selling points
+locale: hi
+---
+लिफ़्ट
+पावर बैकअप
+24 घंटे पानी की आपूर्ति
+बोरवेल
+पानी की टंकी
+आरओ वॉटर सिस्टम
+गेटेड सोसाइटी
+सुरक्षा गार्ड
+सीसीटीवी निगरानी
+इंटरकॉम
+कवर पार्किंग
+क्लब हाउस
+जिम
+स्विमिंग पूल
+बच्चों का पार्क
+मॉड्यूलर किचन
+पूजा कक्ष
+सर्वेंट रूम
+वास्तु अनुरूप
+पूर्वमुखी
+गैस पाइपलाइन
+रेन वॉटर हार्वेस्टिंग

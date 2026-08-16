@@ -1,0 +1,88 @@
+---
+description: Medical diagnosis in Dutch that can occur in any patient - no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry. Terms follow what a huisarts actually records (NHG usage), so native compounds such as Hoge bloeddruk, Herseninfarct, Galstenen and Constitutioneel eczeem stand beside Latinate ones, and Dutch keeps the international abbreviations COPD and ADHD untranslated.
+locale: nl
+---
+Hoge bloeddruk
+Diabetes mellitus type 2
+Astma
+Acute bronchitis
+Griep
+Migraine
+Gegeneraliseerde angststoornis
+Depressie
+Burn-out
+Artrose
+Reumatoïde artritis
+Refluxziekte
+IJzergebreksanemie
+Bloedarmoede
+Hypothyreoïdie
+Hyperthyreoïdie
+Urineweginfectie
+Longontsteking
+Chronische nierschade
+Coronaire hartziekte
+Hartinfarct
+Atriumfibrilleren
+Hartfalen
+Herseninfarct
+Epilepsie
+Ziekte van Parkinson
+Ziekte van Alzheimer
+Multiple sclerose
+Psoriasis
+Constitutioneel eczeem
+Hooikoorts
+Chronische rhinosinusitis
+Middenoorontsteking
+Conjunctivitis
+Cataract
+Glaucoom
+Blindedarmontsteking
+Galstenen
+Galblaasontsteking
+Diverticulitis
+Prikkelbaredarmsyndroom
+Ziekte van Crohn
+Colitis ulcerosa
+Chronische hepatitis B
+Levercirrose
+Acute pancreatitis
+Jicht
+Osteoporose
+Fibromyalgie
+Ischias
+Hernia nuclei pulposi
+Aspecifieke lagerugpijn
+Carpaletunnelsyndroom
+Peesontsteking
+COPD
+Tuberculose
+Leukemie
+Lymfoom
+Melanoom
+Hypercholesterolemie
+Obesitas
+Obstructief slaapapneu
+Slapeloosheid
+Bipolaire stoornis
+ADHD
+Coeliakie
+Systemische lupus erythematodes
+Vertigo
+Oorsuizen
+Aambeien
+Spataderen
+Chronische veneuze insufficiëntie
+Diepveneuze trombose
+Longembolie
+Nierstenen
+Maagzweer
+Gastritis
+Wondroos
+Gordelroos
+Ziekte van Lyme
+Sepsis
+Borstkanker
+Acute gastro-enteritis
+Vitamine D-tekort

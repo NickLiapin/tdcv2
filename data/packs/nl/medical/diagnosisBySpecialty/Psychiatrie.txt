@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in Psychiatry (Dutch). Burn-out is included because Dutch practice treats overspanning and burn-out as a formal diagnosis with its own guideline, not merely as a complaint.
+locale: nl
+---
+Depressie
+Gegeneraliseerde angststoornis
+Paniekstoornis
+Bipolaire stoornis
+Schizofrenie
+Dwangstoornis
+Posttraumatische stressstoornis
+Anorexia nervosa
+Verslaving
+Burn-out
+Slaapstoornis

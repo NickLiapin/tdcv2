@@ -1,0 +1,29 @@
+---
+description: Company department or function (Dutch). Personeelszaken is the traditional Dutch name for HR, technische dienst for in-house maintenance, and arbo covers occupational health and safety, which Dutch law requires every employer to organise.
+locale: nl
+---
+Ontwikkeling
+Productmanagement
+Ontwerp
+Verkoop
+Marketing
+Financiën
+Boekhouding
+Salarisadministratie
+Personeelszaken
+Bedrijfsvoering
+Juridische zaken
+Klantenservice
+Informatietechnologie
+Onderzoek en ontwikkeling
+Inkoop
+Kwaliteitsborging
+Logistiek
+Administratie
+Technische dienst
+Facilitaire dienst
+Arbo en veiligheid
+Compliance
+Communicatie
+Opleiding en ontwikkeling
+Directie

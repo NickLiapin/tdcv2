@@ -1,0 +1,37 @@
+---
+description: Musical instrument (Swedish). Nyckelharpa is Sweden's own keyed fiddle, on the UNESCO intangible heritage list; spilåpipa and härjedalspipa are Swedish shepherd flutes and the säckpipa is the Swedish bagpipe.
+locale: sv
+---
+nyckelharpa
+fiol
+altfiol
+cello
+kontrabas
+dragspel
+durspel
+munspel
+säckpipa
+spilåpipa
+härjedalspipa
+psalmodikon
+gitarr
+elgitarr
+basgitarr
+banjo
+mandolin
+harpa
+piano
+flygel
+orgel
+cembalo
+synt
+flöjt
+blockflöjt
+klarinett
+oboe
+fagott
+saxofon
+trumpet
+trombon
+valthorn
+trummor

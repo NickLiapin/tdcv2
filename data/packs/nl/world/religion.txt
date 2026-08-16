@@ -1,0 +1,27 @@
+---
+description: Religious affiliation worded the way Dutch statistics and everyday speech word it, not as a generic world-religion list. Two things a generic list gets wrong here. First, the Netherlands is now majority non-religious - over half of adults report no affiliation - so ongelovig, atheïst, agnost and geen religie are ordinary majority answers rather than edge cases. Second, the Protestant side is finely divided by the historic verzuiling (pillarisation), the arrangement that split Dutch society into Catholic, Protestant, socialist and liberal pillars each with its own schools, newspapers, unions and broadcasters. Within Protestantism the hervormd / gereformeerd distinction still carries social meaning even though the two main churches merged into the Protestantse Kerk in Nederland (PKN) in 2004. Doopsgezind, Remonstrants and Oud-katholiek are denominations of Dutch origin.
+locale: nl
+---
+Rooms-katholiek
+Protestantse Kerk in Nederland
+Nederlands-hervormd
+Gereformeerd
+Gereformeerd vrijgemaakt
+Christelijk gereformeerd
+Evangelisch
+Pinkstergemeente
+Doopsgezind
+Remonstrants
+Oud-katholiek
+Orthodox christelijk
+Jehova's getuige
+Islam
+Jodendom
+Hindoeïsme
+Boeddhisme
+Sikhisme
+Humanistisch
+Ongelovig
+Atheïst
+Agnost
+Geen religie

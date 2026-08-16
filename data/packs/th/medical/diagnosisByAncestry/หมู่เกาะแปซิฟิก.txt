@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Thai. A prevalence signal, not an exclusive one.
+locale: th
+---
+เบาหวานชนิดที่ 2
+โรคอ้วน
+ความดันโลหิตสูงจากโรคอ้วน
+โรคเก๊าท์
+ภาวะกรดยูริกในเลือดสูง
+โรคลิ้นหัวใจรูมาติก
+โรคไตเรื้อรัง

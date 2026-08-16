@@ -1,0 +1,19 @@
+---
+description: Order return reason (Swedish). Ångerrätt is the statutory 14-day right of withdrawal under distansavtalslagen and applies to every distance sale; öppet köp is a separate voluntary return period that individual Swedish retailers offer on top of it.
+locale: sv
+---
+ångerrätt
+öppet köp
+fel storlek
+för liten
+för stor
+motsvarade inte beskrivningen
+fel färg
+fel vara levererad
+skadad vid leverans
+defekt vara
+delar saknas
+kvalitet under förväntan
+hittade billigare
+beställde av misstag
+levererades för sent

@@ -1,0 +1,29 @@
+---
+description: Gemstone (Thai). ทับทิม (ruby) and ไพลิน (blue sapphire) lead because Thailand, and Chanthaburi in particular, is one of the world's great coloured-stone cutting and trading centres; บุษราคัม, เขียวส่อง, ไพฑูรย์ and มุกดาหาร are Thai trade names for stones English calls yellow sapphire, green sapphire, cat's eye and moonstone.
+locale: th
+---
+ทับทิม
+ไพลิน
+บุษราคัม
+เขียวส่อง
+มรกต
+เพชร
+โกเมน
+ไข่มุก
+หยก
+อำพัน
+นิล
+เพทาย
+ไพฑูรย์
+มุกดาหาร
+โมรา
+ปะการัง
+ทัวร์มาลีน
+อเมทิสต์
+โทแพซ
+อความารีน
+เพอริดอต
+โอปอล
+เทอร์ควอยซ์
+ลาพิสลาซูลี
+สปิเนล

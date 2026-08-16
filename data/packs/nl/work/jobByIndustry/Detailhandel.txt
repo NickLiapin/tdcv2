@@ -1,0 +1,16 @@
+---
+description: Jobs in Retail (Dutch)
+locale: nl
+---
+Filiaalmanager
+Kassamedewerker
+Verkoopmedewerker
+Vakkenvuller
+Winkelbeveiliger
+Categoriemanager
+Inkoper
+Klantadviseur
+Magazijnmedewerker
+Rayonmanager
+Etaleur
+Bedrijfsleider

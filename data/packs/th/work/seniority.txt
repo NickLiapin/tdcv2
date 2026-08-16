@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Thai). Thailand runs a formal civil-service grade ladder in parallel with corporate titles: ระดับปฏิบัติงาน / ระดับชำนาญงาน / ระดับอาวุโส for support grades and ระดับปฏิบัติการ / ระดับชำนาญการ / ระดับชำนาญการพิเศษ / ระดับเชี่ยวชาญ / ระดับทรงคุณวุฒิ for knowledge grades, so a Thai record may carry a state grade instead of a company level.
+locale: th
+---
+เด็กฝึกงาน
+พนักงานใหม่
+ระดับต้น
+ระดับกลาง
+ระดับอาวุโส
+หัวหน้างาน
+ผู้จัดการ
+ผู้อำนวยการ
+ผู้บริหารระดับสูง
+ระดับปฏิบัติงาน
+ระดับชำนาญงาน
+ระดับปฏิบัติการ
+ระดับชำนาญการ
+ระดับชำนาญการพิเศษ
+ระดับเชี่ยวชาญ
+ระดับทรงคุณวุฒิ

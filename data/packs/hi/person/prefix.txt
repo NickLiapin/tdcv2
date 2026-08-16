@@ -1,0 +1,36 @@
+---
+description: Hindi honorific or form of address, placed before a name. श्री / श्रीमती / सुश्री are the everyday equivalents of Mr / Mrs / Ms, and कुमारी marks an unmarried woman. The religious and caste titles (पंडित, स्वामी, महंत, मौलाना, हाजी, सरदार, ठाकुर) are in ordinary administrative use in India, not archaisms.
+locale: hi
+---
+श्री
+श्रीमती
+सुश्री
+कुमारी
+डॉ.
+प्रो.
+इंजी.
+पंडित
+पं.
+आचार्य
+स्वामी
+महंत
+गुरु
+बाबा
+माता
+साध्वी
+मौलाना
+हाफ़िज़
+हाजी
+जनाब
+सरदार
+ठाकुर
+चौधरी
+राव साहब
+सेठ
+मुंशी
+न्यायमूर्ति
+कर्नल
+मेजर
+कैप्टन
+ब्रिगेडियर
+अधिवक्ता

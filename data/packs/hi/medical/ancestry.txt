@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Hindi, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: hi
+---
+उप-सहारा अफ़्रीकी
+उत्तर अफ़्रीकी
+भूमध्यसागरीय
+मध्य पूर्वी
+उत्तरी यूरोपीय
+पूर्वी यूरोपीय
+अश्कनाज़ी यहूदी
+दक्षिण एशियाई
+पूर्व एशियाई
+दक्षिण-पूर्व एशियाई
+मूल अमेरिकी
+प्रशांत द्वीपीय

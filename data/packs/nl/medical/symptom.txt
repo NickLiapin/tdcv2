@@ -1,0 +1,47 @@
+---
+description: Common symptoms and complaints in Dutch, worded the way a patient states them at the huisarts' desk. Dutch separates Kortademigheid (running short of breath) from Benauwdheid (a tight, oppressed feeling in the chest) and records them as distinct complaints.
+locale: nl
+---
+Koorts
+Hoofdpijn
+Vermoeidheid
+Misselijkheid
+Braken
+Diarree
+Obstipatie
+Buikpijn
+Opgeblazen gevoel
+Zuurbranden
+Bloed bij de ontlasting
+Pijn op de borst
+Kortademigheid
+Benauwdheid
+Piepende ademhaling
+Hoesten
+Keelpijn
+Heesheid
+Slikklachten
+Loopneus
+Verstopte neus
+Niezen
+Neusbloeding
+Duizeligheid
+Wazig zien
+Oorsuizen
+Spierpijn
+Spierkrampen
+Gewrichtspijn
+Lage rugpijn
+Huiduitslag
+Jeuk
+Zwelling
+Gevoelloosheid
+Tintelingen
+Hartkloppingen
+Verminderde eetlust
+Onbedoeld gewichtsverlies
+Nachtzweten
+Koude rillingen
+Krachtsverlies
+Verwardheid
+Slapeloosheid

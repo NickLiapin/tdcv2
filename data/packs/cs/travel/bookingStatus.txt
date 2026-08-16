@@ -1,0 +1,15 @@
+---
+description: Booking status (Czech, agrees with rezervace)
+locale: cs
+---
+Potvrzena
+Čeká na potvrzení
+Zrušena
+Na čekací listině
+Ubytován
+Odhlášen
+Nevyužita
+Změněna
+Vrácena
+Propadlá
+Garantovaná

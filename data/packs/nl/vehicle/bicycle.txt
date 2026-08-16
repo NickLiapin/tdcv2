@@ -1,0 +1,31 @@
+---
+description: Bicycle type (Dutch). This list is deliberately far longer and more specific than the European default, because in the Netherlands a bicycle is TRANSPORT rather than a hobby: there are more bicycles than people, and the everyday vocabulary distinguishes machines that other languages have no separate word for at all. An omafiets ('grandma bike') is the upright coaster-brake city bike that is the default Dutch bicycle; a bakfiets is a front-loading cargo bike used to carry children and shopping; a transportfiets is the heavy-duty trade bike with a front rack; a ligfiets is a recumbent. Note the legal categories at the end: a snorfiets is capped at 25 km/h and a bromfiets at 45 km/h, and they carry different licence plates and helmet rules.
+locale: nl
+---
+Omafiets
+Opafiets
+Stadsfiets
+Transportfiets
+Bakfiets
+Moederfiets
+Vouwfiets
+Ligfiets
+Tandem
+Toerfiets
+Hybride fiets
+Racefiets
+Mountainbike
+Gravelbike
+Cyclocrossfiets
+Baanfiets
+Kinderfiets
+Driewieler
+Loopfiets
+Elektrische fiets
+Speed pedelec
+Fatbike
+Bezorgfiets
+Rolstoelfiets
+Duofiets
+Snorfiets
+Bromfiets

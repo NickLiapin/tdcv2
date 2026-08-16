@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in dermatologi, in Swedish
+locale: sv
+---
+Atopiskt eksem
+Psoriasis
+Akne
+Rosacea
+Kontakteksem
+Urtikaria
+Bältros
+Svampinfektion i huden
+Vitiligo
+Basalcellscancer

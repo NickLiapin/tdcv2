@@ -1,0 +1,12 @@
+---
+description: Driving licence category for trucks and buses. The Netherlands and Belgium both use the EU categories, so this list holds for the whole language area; a Dutch professional driver additionally needs code 95, the periodic professional competence endorsement, which is not a category of its own.
+locale: nl
+---
+Rijbewijs B
+Rijbewijs BE
+Rijbewijs C1
+Rijbewijs C1E
+Rijbewijs C
+Rijbewijs CE
+Rijbewijs D
+Rijbewijs DE

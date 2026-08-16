@@ -1,0 +1,29 @@
+---
+description: Gemstone (Czech). Cesky granat, the deep red pyrope of the Bohemian Uplands, has been mined and set since the Renaissance and is protected as a designation of origin; vltavin (moldavite) is a green tektite formed by a meteorite impact and found nowhere but Czechia.
+locale: cs
+---
+Diamant
+Rubín
+Safír
+Smaragd
+Ametyst
+Topas
+Opál
+Granát
+Český granát
+Vltavín
+Akvamarín
+Peridot
+Tyrkys
+Nefrit
+Onyx
+Perla
+Citrín
+Tanzanit
+Turmalín
+Měsíční kámen
+Zirkon
+Lapis lazuli
+Jantar
+Malachit
+Růženín

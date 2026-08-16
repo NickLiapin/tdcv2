@@ -1,0 +1,27 @@
+---
+description: Swedish address unit designator. Two are specifically Swedish: lgh is followed by the four-digit lägenhetsnummer that Lantmäteriet assigns to every flat in the national address register, and the floor is written as a number plus tr ("3 tr", three flights up) counted from the ground floor, which is bv and is not floor 1.
+locale: sv
+---
+lgh
+lgh nr
+vån
+tr
+bv
+nb
+uppg
+uppgång
+port
+ing
+ingång
+hus
+trappuppgång
+rum
+kontor
+lokal
+förråd
+garage
+p-plats
+postbox
+box
+c/o
+våningsplan

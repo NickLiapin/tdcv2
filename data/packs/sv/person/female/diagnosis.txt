@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Swedish (female-specific + common)
+locale: sv
+---
+Endometrios
+PCOS
+Myom i livmodern
+Äggstockscysta
+Dysmenorré
+Kraftig menstruationsblödning
+PMS
+PMDS
+Klimakteriebesvär
+Livmoderhalscancer
+Äggstockscancer
+Livmodercancer
+Bröstcancer
+Bröstinflammation
+Hypertoni
+Typ 2-diabetes
+Typ 1-diabetes
+Förhöjda blodfetter
+Fetma
+Astma
+KOL
+Allergisk rinit
+Kronisk bronkit
+Lunginflammation
+Sömnapné
+Hjärtsvikt
+Förmaksflimmer

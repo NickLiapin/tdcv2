@@ -1,0 +1,18 @@
+---
+description: Dishes of อาหารเหนือ (Northern Thai / Lanna). Mild rather than fiery, pork-heavy, built on herb dips (น้ำพริก) eaten with sticky rice; coconut milk is largely absent and Burmese influence shows in แกงฮังเล.
+locale: th
+---
+ข้าวซอยไก่
+น้ำพริกอ่อง
+น้ำพริกหนุ่ม
+น้ำพริกน้ำปู
+ไส้อั่ว
+แกงฮังเล
+แคบหมู
+ขนมจีนน้ำเงี้ยว
+ลาบเหนือ
+ยำจิ๊นไก่
+จอผักกาด
+แกงโฮะ
+แกงแค
+ข้าวกั๊นจิ๊น

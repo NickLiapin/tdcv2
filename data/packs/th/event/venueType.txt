@@ -1,0 +1,20 @@
+---
+description: Venue type (Thai). วัด (the temple) and ศาลาวัด (its open pavilion) host weddings, funerals and ordinations in Thailand, so they head the list where a European pack would start with a hotel ballroom.
+locale: th
+---
+วัด
+ศาลาวัด
+ศาลาประชาคม
+หอประชุม
+ศูนย์การประชุม
+โรงแรม
+ห้องจัดเลี้ยง
+ร้านอาหาร
+รีสอร์ต
+สนามกีฬา
+ตลาดนัด
+ห้างสรรพสินค้า
+ชายหาด
+ลานกิจกรรม
+สวนสาธารณะ
+หอศิลป์

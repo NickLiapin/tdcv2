@@ -1,0 +1,36 @@
+---
+description: Dutch honorific / form of address. 'Mevrouw' covers married and unmarried women alike - the old 'Mejuffrouw' is archaic and kept here only for historical records. 'Ir.', 'Ing.', 'Drs.' and 'Mr.' are Dutch academic titles that precede the name: 'Mr.' is a lawyer (meester in de rechten), NOT the English 'Mister', and 'Drs.' is a pre-Bologna master's degree, not a doctor.
+locale: nl
+---
+Dhr.
+Mevr.
+Mej.
+Meneer
+Mevrouw
+Dr.
+Dr. ir.
+Drs.
+Ir.
+Ing.
+Mr.
+Prof.
+Prof. dr.
+Prof. mr.
+Prof. ir.
+Bc.
+BSc
+MSc
+LLM
+MA
+Zr.
+Br.
+Ds.
+Pastoor
+Dominee
+Kapitein
+Majoor
+Kolonel
+Generaal
+Luitenant
+Sergeant
+Agent

@@ -1,0 +1,27 @@
+---
+description: Government body (Swedish agencies and public offices). Sweden runs on independent agencies rather than ministries: Skatteverket also keeps the population register, Försäkringskassan pays parental and sickness benefit, Kronofogden enforces debts, and the kommun and region are the two levels of self-government that deliver schools and healthcare.
+locale: sv
+---
+Skatteverket
+Försäkringskassan
+Arbetsförmedlingen
+Migrationsverket
+Kronofogdemyndigheten
+Polismyndigheten
+Socialstyrelsen
+Folkhälsomyndigheten
+Trafikverket
+Transportstyrelsen
+Lantmäteriet
+Bolagsverket
+Centrala studiestödsnämnden
+Pensionsmyndigheten
+Naturvårdsverket
+Livsmedelsverket
+Tullverket
+Kriminalvården
+Konsumentverket
+Statistiska centralbyrån
+Länsstyrelsen
+kommunen
+regionen

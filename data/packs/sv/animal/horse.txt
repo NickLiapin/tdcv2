@@ -1,0 +1,20 @@
+---
+description: Horse breed (Swedish). Nordsvensk brukshäst, gotlandsruss and svensk ardenner are Sweden's own breeds; russ is the half-wild pony of Gotland.
+locale: sv
+---
+nordsvensk brukshäst
+gotlandsruss
+svensk ardenner
+svenskt halvblod
+svensk varmblodig travare
+kallblodstravare
+islandshäst
+fjordhäst
+shetlandsponny
+connemara
+engelskt fullblod
+arabiskt fullblod
+haflinger
+shire
+welsh ponny
+new forest ponny

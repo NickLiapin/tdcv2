@@ -1,0 +1,15 @@
+---
+description: Positions in fotboll, in Swedish.
+locale: sv
+---
+målvakt
+högerback
+vänsterback
+mittback
+libero
+defensiv mittfältare
+central mittfältare
+offensiv mittfältare
+högermittfältare
+vänstermittfältare
+anfallare

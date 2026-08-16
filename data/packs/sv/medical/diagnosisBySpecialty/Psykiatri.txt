@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in psykiatri, in Swedish
+locale: sv
+---
+Depression
+Generaliserat ångestsyndrom
+Paniksyndrom
+Bipolär sjukdom
+Schizofreni
+ADHD
+Autismspektrumtillstånd
+Utmattningssyndrom
+Posttraumatiskt stressyndrom
+Ätstörning

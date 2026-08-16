@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Czech). Note pneumologie: Czech names the lung specialty from the Greek pneumon, where English and Polish use pulmo.
+locale: cs
+---
+Kardiologie
+Neurologie
+Onkologie
+Dermatologie
+Gastroenterologie
+Endokrinologie
+Pneumologie
+Ortopedie
+Psychiatrie
+Nefrologie

@@ -1,0 +1,20 @@
+---
+description: Room type (Thai). ห้องพระ (the room holding the household Buddha altar) and ครัวไทย (a separate outdoor or back kitchen for high-heat Thai cooking, kept apart from the western-style kitchen) are Thai rooms with no European equivalent.
+locale: th
+---
+ห้องนอน
+ห้องนอนใหญ่
+ห้องน้ำ
+ห้องน้ำในตัว
+ห้องนั่งเล่น
+ห้องรับแขก
+ห้องอาหาร
+ห้องครัว
+ครัวไทย
+ห้องพระ
+ห้องทำงาน
+ห้องแต่งตัว
+ห้องซักล้าง
+ห้องเก็บของ
+ห้องแม่บ้าน
+ระเบียง

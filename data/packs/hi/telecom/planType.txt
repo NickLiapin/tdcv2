@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Hindi). India is overwhelmingly prepaid, and annual (365-day) recharge packs are a normal plan length there.
+locale: hi
+---
+प्रीपेड
+पोस्टपेड
+असीमित
+डेटा पैक
+वॉइस पैक
+टॉप-अप
+वार्षिक प्लान
+मासिक प्लान
+फ़ैमिली प्लान
+कॉर्पोरेट प्लान
+रोमिंग पैक
+कॉम्बो प्लान

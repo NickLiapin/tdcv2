@@ -1,0 +1,26 @@
+---
+description: Company department / function (Swedish)
+locale: sv
+---
+ledning
+ekonomi
+redovisning
+lön
+HR
+personal
+rekrytering
+IT
+utveckling
+produktion
+kvalitet
+inköp
+logistik
+lager
+försäljning
+marknad
+kommunikation
+kundtjänst
+juridik
+fastighet
+arbetsmiljö
+forskning och utveckling

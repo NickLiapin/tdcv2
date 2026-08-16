@@ -1,0 +1,15 @@
+---
+description: Positions in bandy, in Swedish.
+locale: sv
+---
+målvakt
+vänsterback
+högerback
+vänsterhalv
+centerhalv
+högerhalv
+vänsterytter
+vänsterinner
+center
+högerinner
+högerytter

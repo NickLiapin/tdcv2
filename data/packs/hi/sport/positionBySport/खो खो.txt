@@ -1,0 +1,10 @@
+---
+description: Positions in kho kho (Hindi); चेज़र and रनर are the two traditional roles, while अटैकर, डिफ़ेंडर, ऑल-राउंडर and वज़ीर are the league position names
+locale: hi
+---
+चेज़र
+रनर
+अटैकर
+डिफ़ेंडर
+ऑल-राउंडर
+वज़ीर

@@ -1,0 +1,14 @@
+---
+description: Consumer / business loan product as Thai banks and finance companies sell it; principal and instalments are in Thai baht (THB, ฿). สินเชื่อเช่าซื้อรถจักรยานยนต์ (motorcycle hire-purchase) is a mass-market product in Thailand rather than a niche one, สินเชื่อนาโนไฟแนนซ์ is the licensed small-ticket high-rate category created by the Bank of Thailand, and บัตรกดเงินสด is a cash-withdrawal card, a separate product from a credit card.
+locale: th
+---
+สินเชื่อบ้าน
+สินเชื่อรถยนต์
+สินเชื่อส่วนบุคคล
+สินเชื่อเช่าซื้อรถจักรยานยนต์
+สินเชื่อนาโนไฟแนนซ์
+สินเชื่อ SME
+บัตรกดเงินสด
+สินเชื่อจำนำทะเบียนรถ
+สินเชื่อเพื่อการศึกษา
+สินเชื่อสวัสดิการข้าราชการ

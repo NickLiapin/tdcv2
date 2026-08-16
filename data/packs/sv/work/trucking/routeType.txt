@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Swedish)
+locale: sv
+---
+lokaltrafik
+regionaltrafik
+fjärrtrafik
+internationell trafik
+distributionstur
+anläggningskörning
+pendeltrafik

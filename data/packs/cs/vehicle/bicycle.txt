@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Czech)
+locale: cs
+---
+Silniční kolo
+Horské kolo
+Krosové kolo
+Městské kolo
+Gravel
+BMX
+Elektrokolo
+Skládací kolo
+Trekingové kolo
+Cyklokrosové kolo
+Dráhové kolo
+Lehokolo
+Nákladní kolo
+Sjezdové kolo
+Dětské kolo
+Tříkolka
+Tandem

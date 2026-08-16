@@ -1,0 +1,28 @@
+---
+description: Religion or religious tradition, in Hindi, weighted toward India's actual landscape: Hinduism is by far the largest, followed by Islam, Christianity, Sikhism, Buddhism and Jainism, with Sarna and other tribal traditions returned separately in the census. Also includes the major world religions and the non-religious answers. The list carries no weights.
+locale: hi
+---
+हिंदू धर्म
+इस्लाम
+ईसाई धर्म
+सिख धर्म
+बौद्ध धर्म
+जैन धर्म
+पारसी धर्म
+यहूदी धर्म
+बहाई धर्म
+सरना धर्म
+जनजातीय धर्म
+सनामही धर्म
+डोनी-पोलो
+वैष्णव संप्रदाय
+शैव संप्रदाय
+शाक्त संप्रदाय
+आर्य समाज
+लिंगायत
+शिंतो
+ताओ धर्म
+कन्फ़्यूशियसवाद
+नास्तिकता
+अज्ञेयवाद
+धर्म न मानने वाले

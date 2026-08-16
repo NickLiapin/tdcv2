@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Ashkenaziska judar, in Swedish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: sv
+---
+Tay-Sachs sjukdom
+Gauchers sjukdom
+Familjär dysautonomi
+Canavans sjukdom
+Niemann-Picks sjukdom
+Bloomsyndrom
+Fanconis anemi
+Mukolipidos typ IV
+BRCA1-mutation
+BRCA2-mutation
+Faktor XI-brist
+Crohns sjukdom

@@ -1,0 +1,34 @@
+---
+description: Flower (Dutch). The first block is bulb flowers (bolgewassen): the Netherlands is the world's bulb grower and exporter, so Dutch bulb vocabulary is unusually rich and specific and these names are everyday words rather than gardening jargon. Tulp arrived from the Ottoman empire and the 1630s tulpenmanie is Dutch history, not folklore.
+locale: nl
+---
+Tulp
+Narcis
+Hyacint
+Krokus
+Gladiool
+Dahlia
+Iris
+Lelie
+Anemoon
+Fresia
+Amaryllis
+Sneeuwklokje
+Blauw druifje
+Roos
+Zonnebloem
+Madeliefje
+Margriet
+Orchidee
+Goudsbloem
+Lavendel
+Pioenroos
+Anjer
+Chrysant
+Klaproos
+Viooltje
+Jasmijn
+Begonia
+Lelietje-van-dalen
+Vergeet-mij-nietje
+Azalea

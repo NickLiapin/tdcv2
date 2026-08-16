@@ -1,0 +1,29 @@
+---
+description: Gemstone (Dutch). Diamant leads because Amsterdam was one of Europe's diamond-cutting centres for centuries and the trade shaped the city. Barnsteen (amber) washes up along the North Sea coast.
+locale: nl
+---
+Diamant
+Robijn
+Saffier
+Smaragd
+Amethist
+Topaas
+Opaal
+Granaat
+Aquamarijn
+Peridoot
+Turkoois
+Jade
+Onyx
+Parel
+Citrien
+Tanzaniet
+Toermalijn
+Maansteen
+Zirkoon
+Lapis lazuli
+Barnsteen
+Koraal
+Malachiet
+Rozenkwarts
+Obsidiaan

@@ -1,0 +1,18 @@
+---
+description: Insurance type (Swedish). Trafikförsäkring is compulsory by law for every registered vehicle in Sweden; inkomstförsäkring is a Swedish top-up that raises the ceiling of the a-kassa unemployment benefit and is usually bought through a trade union.
+locale: sv
+---
+hemförsäkring
+villaförsäkring
+fritidshusförsäkring
+bilförsäkring
+trafikförsäkring
+olycksfallsförsäkring
+sjukförsäkring
+livförsäkring
+barnförsäkring
+reseförsäkring
+djurförsäkring
+inkomstförsäkring
+företagsförsäkring
+ansvarsförsäkring

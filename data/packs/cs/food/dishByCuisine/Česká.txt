@@ -1,0 +1,33 @@
+---
+description: Dishes of Czech cuisine (Czech). The first group is the canon of Sunday and pub cooking; the utopenec, nakladany hermelin and smazeny syr group is specifically hospoda food, eaten with beer. Czech per-head beer consumption has been the highest in the world for three decades, and the pivnice menu is a real culinary category, not a novelty.
+locale: cs
+---
+Svíčková na smetaně
+Vepřo-knedlo-zelo
+Guláš
+Segedínský guláš
+Smažený řízek
+Smažený sýr
+Bramborák
+Knedlíky
+Ovocné knedlíky
+Rajská omáčka
+Koprová omáčka
+Česnečka
+Kulajda
+Bramboračka
+Zelňačka
+Utopenec
+Nakládaný hermelín
+Tlačenka
+Škvarky
+Chlebíčky
+Bramborový salát
+Smažený kapr
+Buchty
+Koláče
+Vánočka
+Trdelník
+Palačinky
+Lívance
+Škubánky

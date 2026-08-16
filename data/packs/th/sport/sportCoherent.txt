@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Thai)
+locale: th
+---
+ฟุตบอล
+ฟุตซอล
+วอลเลย์บอล
+เซปักตะกร้อ
+บาสเกตบอล
+รักบี้
+แฮนด์บอล
+มวยไทย

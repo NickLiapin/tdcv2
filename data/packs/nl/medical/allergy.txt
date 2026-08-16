@@ -1,0 +1,29 @@
+---
+description: Common allergens as a Dutch allergy clinic or an EU food label names them; drug allergens use the INN (Acetylsalicylzuur) rather than a brand name, and the terms are the same in the Netherlands and in Flanders.
+locale: nl
+---
+Penicilline
+Pinda's
+Noten
+Schaaldieren
+Vis
+Kippenei
+Koemelk
+Soja
+Tarwe
+Gluten
+Selderij
+Sesamzaad
+Latex
+Graspollen
+Boompollen
+Huisstofmijt
+Dierenhaar
+Schimmels
+Bijengif
+Wespengif
+Acetylsalicylzuur
+Sulfonamiden
+Jodiumhoudend contrastmiddel
+Nikkel
+Aardbeien

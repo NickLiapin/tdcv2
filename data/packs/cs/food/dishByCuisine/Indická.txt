@@ -1,0 +1,12 @@
+---
+description: Dishes of Indian cuisine (Czech)
+locale: cs
+---
+Máslové kuře
+Biryani
+Tikka masala
+Samosa
+Dal makhani
+Chléb naan
+Palak paneer
+Rogan josh

@@ -1,0 +1,30 @@
+---
+description: Garment type (Swedish). Several are winter clothing a Swedish wardrobe needs and a Mediterranean one does not: täckjacka, skaljacka, ullkofta, långkalsonger, pulkabyxor, mössa and vantar.
+locale: sv
+---
+t-shirt
+linne
+skjorta
+blus
+tröja
+collegetröja
+hoodie
+kofta
+ullkofta
+cardigan
+väst
+kavaj
+kostym
+klänning
+kjol
+byxor
+jeans
+chinos
+shorts
+täckjacka
+skaljacka
+regnjacka
+kappa
+mössa
+vantar
+halsduk

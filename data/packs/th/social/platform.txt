@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Thailand. LINE is Thailand-specific in practice — it is the dominant messenger by a wide margin and Facebook Messenger is only secondary — and Pantip is Thailand's own long-running discussion forum with no foreign equivalent; Shopee and Lazada are listed because Thai social selling largely happens there.
+locale: th
+---
+LINE
+Facebook
+Messenger
+TikTok
+Instagram
+X
+YouTube
+Shopee
+Lazada
+Pantip
+Blockdit
+Twitch
+Discord
+Telegram
+WhatsApp
+Threads
+LinkedIn

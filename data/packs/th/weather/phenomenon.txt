@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Thai). Thailand has three seasons and no winter in the temperate sense, so the real seasonal events are the two monsoons — มรสุมตะวันตกเฉียงใต้ brings the rains from June, มรสุมตะวันออกเฉียงเหนือ the cool dry air from November — plus tropical storms rated by strength (ดีเปรสชัน, โซนร้อน, ไต้ฝุ่น), flooding, drought and the ฝุ่น PM2.5 haze season of the cool months. No blizzard, ice storm or cold snap appears here because none of them happen.
+locale: th
+---
+มรสุมตะวันตกเฉียงใต้
+มรสุมตะวันออกเฉียงเหนือ
+พายุฤดูร้อน
+พายุดีเปรสชัน
+พายุโซนร้อน
+ไต้ฝุ่น
+คลื่นลมแรง
+น้ำท่วมฉับพลัน
+น้ำท่วมขัง
+ดินโคลนถล่ม
+ภัยแล้ง
+คลื่นความร้อน
+ฝุ่น PM2.5
+หมอกควันไฟป่า
+ลูกเห็บ

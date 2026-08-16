@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Medelhavsområdet, in Swedish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: sv
+---
+Betatalassemi
+Familjär medelhavsfeber
+G6PD-brist
+Sicklecellanlag
+Hemokromatos
+Wilsons sjukdom
+Behçets sjukdom

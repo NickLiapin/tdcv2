@@ -1,0 +1,82 @@
+---
+description: Hobby / interest (Czech). Several are specifically Czech pastimes with no one-word equivalent elsewhere: chalupareni (weekending at a country cottage), houbareni (going to the woods for wild mushrooms), tramping (a Czech backwoods movement dating from the 1920s) and vodactvi (river canoeing as a summer institution).
+locale: cs
+---
+Čtení
+Turistika
+Cyklistika
+Horská cyklistika
+Běh
+Plavání
+Lyžování
+Běžecké lyžování
+Snowboarding
+Bruslení
+Horolezectví
+Skalní lezení
+Vodáctví
+Kanoistika
+Jachting
+Rybaření
+Houbaření
+Chalupaření
+Trampování
+Kempování
+Skauting
+Orientační běh
+Geocaching
+Zahradničení
+Včelařství
+Pěstování bonsají
+Akvaristika
+Chovatelství
+Kutilství
+Truhlářství
+Modelářství
+Železniční modelářství
+Vaření
+Pečení
+Domácí pivovarnictví
+Zavařování
+Degustace vína
+Fotografování
+Astrofotografie
+Astronomie
+Malování
+Kreslení
+Keramika
+Šití
+Pletení
+Vyšívání
+Kaligrafie
+Hra na kytaru
+Hra na klavír
+Hra na housle
+Zpěv
+Sborový zpěv
+Folklorní tanec
+Tanec
+Ochotnické divadlo
+Návštěvy divadla
+Film
+Psaní
+Poezie
+Genealogie
+Sběratelství známek
+Numismatika
+Šachy
+Deskové hry
+Videohry
+Programování
+Robotika
+3D tisk
+Jóga
+Pilates
+Posilování
+Bojová umění
+Box
+Tenis
+Fotbal
+Hokej
+Volejbal
+Dobrovolnictví

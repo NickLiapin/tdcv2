@@ -1,0 +1,40 @@
+---
+description: Building type (Czech). Panelak (a prefabricated concrete apartment block), chata (a small weekend cabin), chalupa (a converted village cottage) and hospoda (a village pub) are Czech institutions with no one-word equivalent in English.
+locale: cs
+---
+Dům
+Rodinný dům
+Byt
+Bytový dům
+Panelák
+Činžovní dům
+Vila
+Chata
+Chalupa
+Kancelář
+Kancelářská budova
+Sklad
+Hala
+Obchod
+Prodejna
+Továrna
+Nemocnice
+Poliklinika
+Škola
+Gymnázium
+Univerzita
+Hotel
+Penzion
+Restaurace
+Hospoda
+Obchodní centrum
+Stadion
+Knihovna
+Kostel
+Muzeum
+Divadlo
+Radnice
+Nádraží
+Garáž
+Statek
+Zámek

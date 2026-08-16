@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Thai); ตรวจสุขภาพก่อนเริ่มงาน is a routine step in Thai hiring — a pre-employment medical check is normally required before the start date, not an exception
+locale: th
+---
+คัดกรองใบสมัคร
+สัมภาษณ์ทางโทรศัพท์
+ทำแบบทดสอบ
+สัมภาษณ์กับฝ่ายบุคคล
+สัมภาษณ์ทางเทคนิค
+สัมภาษณ์กับผู้บริหาร
+ตรวจสอบประวัติ
+ตรวจสุขภาพก่อนเริ่มงาน
+เสนอเงินเดือน
+ปฏิเสธ
+รับเข้าทำงาน

@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Czech). Kmin (caraway) and majoranka (marjoram) carry Czech cooking the way paprika carries Hungarian - they are in the bread, the roast pork and the potato soup.
+locale: cs
+---
+Skořice
+Kmín
+Římský kmín
+Sladká paprika
+Kurkuma
+Zázvor
+Muškátový oříšek
+Oregano
+Bazalka
+Tymián
+Rozmarýn
+Kardamom
+Koriandr
+Chilli
+Hřebíček
+Šafrán
+Bobkový list
+Kopr
+Šalvěj
+Petrželka
+Máta
+Anýz
+Bílý pepř
+Kajenský pepř
+Hořčičné semínko
+Estragon
+Fenykl
+Majoránka
+Nové koření
+Vanilka

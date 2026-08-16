@@ -1,0 +1,22 @@
+---
+description: Weather condition (Dutch), the words an actual Dutch or Flemish forecast uses. Several have no clean English equivalent: motregen is fine steady drizzle, miezerig is the miserable half-rain that is neither drizzle nor shower, and buien - passing showers moving through - is the default Dutch weather rather than an exception. Mist and nevel are separate official categories separated by visibility, not synonyms. IJzel is freezing rain forming a glaze on roads and is its own much-feared category, warned for on its own.
+locale: nl
+---
+Zonnig
+Helder
+Half bewolkt
+Bewolkt
+Zwaarbewolkt
+Regenachtig
+Motregen
+Miezerig
+Buien
+Onweer
+Sneeuw
+Natte sneeuw
+IJzel
+Hagel
+Mist
+Nevel
+Winderig
+Benauwd

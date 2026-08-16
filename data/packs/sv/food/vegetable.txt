@@ -1,0 +1,34 @@
+---
+description: Vegetable (Swedish)
+locale: sv
+---
+potatis
+morot
+lök
+gul lök
+rödlök
+purjolök
+vitlök
+kålrot
+rotselleri
+palsternacka
+rödbeta
+vitkål
+rödkål
+grönkål
+brysselkål
+blomkål
+broccoli
+spenat
+sallad
+isbergssallad
+gurka
+tomat
+paprika
+squash
+aubergine
+ärtor
+sockerärtor
+majs
+svamp
+kantarell

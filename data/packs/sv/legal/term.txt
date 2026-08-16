@@ -1,0 +1,23 @@
+---
+description: Legal term (Swedish)
+locale: sv
+---
+stämningsansökan
+kärande
+svarande
+målsägande
+tilltalad
+ombud
+offentlig försvarare
+målsägandebiträde
+huvudförhandling
+bevisning
+vittnesmål
+dom
+beslut
+överklagande
+prövningstillstånd
+laga kraft
+preskription
+skadestånd
+verkställighet

@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Swedish market. SVT Play and UR Play are free public-service services funded by the public-service tax; Viaplay is the Nordic regional service and Spotify is Swedish.
+locale: sv
+---
+SVT Play
+UR Play
+TV4 Play
+Viaplay
+Netflix
+HBO Max
+Disney+
+Prime Video
+Apple TV+
+Discovery+
+Spotify
+YouTube

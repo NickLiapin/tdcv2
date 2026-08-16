@@ -1,0 +1,33 @@
+---
+description: Thai post-nominal. Thai has NO generational suffix — no Jr., Sr., II or III — because the 1913 Surname Act gave every family its own surname and children are told apart by their nickname, not by a number; a config that appends 'Jr.' to a Thai name is wrong. What Thai does put after a name is the degree abbreviation and the abbreviation of a royal decoration (ม.ป.ช., ป.ช., ท.ช. and the rest), which appear on formal name lists and business cards.
+locale: th
+---
+วท.บ.
+วท.ม.
+ศศ.บ.
+ศศ.ม.
+วศ.บ.
+วศ.ม.
+บธ.บ.
+บธ.ม.
+น.บ.
+น.ม.
+บช.บ.
+ศ.บ.
+ค.บ.
+พย.บ.
+พ.บ.
+ท.บ.
+ภ.บ.
+ปร.ด.
+Ph.D.
+M.D.
+M.B.A.
+ม.ป.ช.
+ม.ว.ม.
+ป.ช.
+ป.ม.
+ท.ช.
+ท.ม.
+ต.ช.
+ต.ม.

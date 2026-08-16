@@ -1,0 +1,17 @@
+---
+description: Diagnoses seen in Dermatology (Thai). The tropical skin problems are the everyday ones: เกลื้อน and กลาก in the humidity, โรคน้ำกัดเท้า after flooding, and ฝ้า as the commonest cosmetic complaint.
+locale: th
+---
+ผื่นภูมิแพ้ผิวหนัง
+โรคสะเก็ดเงิน
+ลมพิษ
+ผื่นแพ้สัมผัส
+โรคสิว
+ฝ้า
+เกลื้อน
+กลาก
+โรคน้ำกัดเท้า
+โรคหิด
+งูสวัด
+ด่างขาว
+มะเร็งผิวหนังชนิดเมลาโนมา

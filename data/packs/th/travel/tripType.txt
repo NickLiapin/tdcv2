@@ -1,0 +1,25 @@
+---
+description: Trip type (Thai). Two entries have no European equivalent: ไหว้พระเก้าวัด is the nine-temple merit circuit made in a single day for good fortune, and กลับบ้านต่างจังหวัด is the mass homecoming to the home province at สงกรานต์ and New Year, which is the single largest travel movement of the Thai year.
+locale: th
+---
+เที่ยวทะเล
+เที่ยวเกาะ
+เที่ยวภูเขา
+เที่ยวน้ำตก
+ทริปดำน้ำ
+ทริปเดินป่า
+เที่ยวตลาดน้ำ
+เที่ยวเชิงเกษตร
+ไหว้พระเก้าวัด
+ทัวร์วัด
+ทริปกินเที่ยว
+ทริปถ่ายรูป
+แบกเป้เที่ยว
+ทริปวันเดียว
+ทริปครอบครัว
+ฮันนีมูน
+เที่ยวสงกรานต์
+กลับบ้านต่างจังหวัด
+ดูงาน
+เที่ยวต่างประเทศ
+ทัวร์ญี่ปุ่น

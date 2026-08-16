@@ -1,0 +1,21 @@
+---
+description: Cuisine (Czech). Each value has a dishByCuisine child file. Vietnamese is on the list for a Czech reason rather than a generic one: Czechia has the largest Vietnamese community in Europe relative to its size, and a Vietnamese bistro is an ordinary feature of a Czech high street.
+locale: cs
+---
+Italská
+Japonská
+Mexická
+Čínská
+Indická
+Francouzská
+Thajská
+Řecká
+Španělská
+Americká
+Korejská
+Vietnamská
+Turecká
+Libanonská
+Peruánská
+Argentinská
+Česká

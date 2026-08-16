@@ -1,0 +1,15 @@
+---
+description: Positions in field hockey (Hindi); हॉकी on its own means field hockey in India
+locale: hi
+---
+गोलकीपर
+राइट फ़ुल बैक
+लेफ़्ट फ़ुल बैक
+सेंटर बैक
+स्वीपर
+राइट हाफ़
+सेंटर हाफ़
+लेफ़्ट हाफ़
+राइट विंग
+सेंटर फ़ॉरवर्ड
+लेफ़्ट विंग

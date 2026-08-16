@@ -1,0 +1,30 @@
+---
+description: Diagnosis that occurs only or overwhelmingly in men, in Dutch
+locale: nl
+---
+Prostaatkanker
+Goedaardige prostaatvergroting
+Prostatitis
+Erectiestoornis
+Teelbalkanker
+Varicocele
+Hydrocele
+Epididymitis
+Balanitis
+Phimosis
+Ziekte van Peyronie
+Testiculaire torsie
+Mannelijke onvruchtbaarheid
+Gynaecomastie
+Hypogonadisme
+Syndroom van Klinefelter
+Mannelijke kaalheid
+Cryptorchisme
+Priapisme
+Laag testosteron
+Penis kanker
+Mannelijke borstkanker
+Azoöspermie
+Oligospermie
+Prostaatabces
+Urethrastrictuur

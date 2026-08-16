@@ -1,0 +1,19 @@
+---
+description: Court (Swedish judiciary). Sweden runs two parallel court ladders: the general courts (tingsrätt, hovrätt, Högsta domstolen) and the administrative courts (förvaltningsrätt, kammarrätt, Högsta förvaltningsdomstolen) that handle disputes with public authorities. Hyresnämnden and Arbetsdomstolen are specialist tribunals.
+locale: sv
+---
+tingsrätt
+hovrätt
+Högsta domstolen
+förvaltningsrätt
+kammarrätt
+Högsta förvaltningsdomstolen
+Arbetsdomstolen
+Patent- och marknadsdomstolen
+Patent- och marknadsöverdomstolen
+mark- och miljödomstol
+Mark- och miljööverdomstolen
+migrationsdomstol
+Migrationsöverdomstolen
+hyresnämnd
+Kronofogdemyndigheten

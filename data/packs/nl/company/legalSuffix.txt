@@ -1,0 +1,48 @@
+---
+description: Company legal form and name suffix in Dutch, covering both countries. The Netherlands writes them with points - B.V., N.V., V.O.F., C.V. - alongside Stichting, Vereniging, Coöperatie, Maatschap and Eenmanszaak. Belgium writes them without points and reformed them in 2019: BVBA was abolished and renamed BV, CVBA became CV, Comm.V became CommV, and NV kept its name; BVBA is kept here because it is on every Belgian document written before 2019. VZW is the Belgian non-profit, the Dutch counterpart is Stichting. Koninklijke is not a legal form but a royal designation the monarch grants to a company of a hundred years standing and unimpeachable reputation, and it is written in front of the name.
+locale: nl
+---
+B.V.
+N.V.
+V.O.F.
+C.V.
+Stichting
+Vereniging
+Coöperatie
+Maatschap
+Eenmanszaak
+Onderlinge waarborgmaatschappij
+BV
+NV
+CommV
+CV
+VZW
+BVBA
+Koninklijke
+Groep
+Holding
+Concern
+Beheer
+Participaties
+Onderneming
+Bedrijven
+& Zonen
+& Partners
+& Co.
+Gebroeders
+Internationaal
+International
+Consultancy
+Advies
+Diensten
+Oplossingen
+Systemen
+Technologie
+Industrie
+Handel
+Distributie
+Investeringen
+Laboratoria
+Werken
+Nederland
+Benelux

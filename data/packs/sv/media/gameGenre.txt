@@ -1,0 +1,21 @@
+---
+description: Video game genre (Swedish)
+locale: sv
+---
+actionspel
+äventyrsspel
+rollspel
+strategispel
+realtidsstrategi
+turordningsbaserat strategispel
+plattformsspel
+pusselspel
+skjutspel
+förstapersonsskjutare
+simulator
+sportspel
+racingspel
+överlevnadsspel
+skräckspel
+sandlådespel
+musikspel

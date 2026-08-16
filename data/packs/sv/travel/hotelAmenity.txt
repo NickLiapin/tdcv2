@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Swedish). Bastu and frukostbuffé are near-universal in Swedish hotels; skidförråd and torkrum belong to the mountain hotels.
+locale: sv
+---
+frukostbuffé
+bastu
+relaxavdelning
+pool
+gym
+spa
+restaurang
+bar
+rumsservice
+wifi
+parkering
+laddstolpe
+konferensrum
+tvättservice
+torkrum
+skidförråd
+cykelförvaring
+husdjur tillåtna
+barnsäng
+familjerum
+hiss
+tillgänglighetsanpassat
+receptionen dygnet runt
+bagageförvaring
+minibar
+kaffekokare på rummet
+balkong
+sjöutsikt
+strandnära
+bastuflotte

@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Swedish)
+locale: sv
+---
+ansökan mottagen
+urval
+telefonavstämning
+första intervju
+andra intervju
+arbetsprov
+tester
+referenstagning
+bakgrundskontroll
+erbjudande
+avslag

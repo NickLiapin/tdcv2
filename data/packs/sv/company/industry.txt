@@ -1,0 +1,59 @@
+---
+description: Industry sector (Swedish)
+locale: sv
+---
+informationsteknik
+programvara
+telekommunikation
+elektronik
+fordonsindustri
+verkstadsindustri
+stålindustri
+gruvindustri
+skogsindustri
+pappersindustri
+träindustri
+kemisk industri
+läkemedel
+medicinteknik
+bioteknik
+livsmedelsindustri
+dryckesindustri
+jordbruk
+fiske
+energi
+vattenkraft
+vindkraft
+kärnkraft
+solenergi
+olja och gas
+byggindustri
+anläggning
+fastigheter
+arkitektur
+detaljhandel
+e-handel
+grossisthandel
+transport
+sjöfart
+flyg
+järnväg
+logistik
+bank
+försäkring
+kapitalförvaltning
+revision
+juridik
+konsultverksamhet
+reklam
+media
+förlag
+film
+musik
+spelutveckling
+besöksnäring
+hotell
+restaurang
+utbildning
+hälso- och sjukvård
+offentlig förvaltning

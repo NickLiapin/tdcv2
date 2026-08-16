@@ -1,0 +1,26 @@
+---
+description: Common allergies (Czech). Klistata (ticks) are not an allergen but Czech woodland is dense with them; the entries here are the classic allergens.
+locale: cs
+---
+Penicilin
+Arašídy
+Ořechy
+Korýši
+Vejce
+Mléko
+Sója
+Pšenice
+Latex
+Pyl trav
+Pyl břízy
+Roztoči domácího prachu
+Zvířecí srst
+Včelí bodnutí
+Aspirin
+Sulfonamidy
+Jód
+Sezam
+Lepek
+Plísně
+Nikl
+Jodová kontrastní látka

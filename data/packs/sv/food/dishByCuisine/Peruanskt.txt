@@ -1,0 +1,13 @@
+---
+description: Dishes of peruanskt cuisine, in Swedish
+locale: sv
+---
+Ceviche
+Lomo saltado
+Aji de gallina
+Causa limeña
+Anticuchos
+Papa a la huancaína
+Rocoto relleno
+Pollo a la brasa
+Suspiro limeño

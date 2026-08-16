@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Hindi). India carries about a quarter of the world's tuberculosis burden, and silicosis is a recognised occupational disease there.
+locale: hi
+---
+दमा
+दीर्घकालिक अवरोधक फुफ्फुसीय रोग
+निमोनिया
+फुफ्फुसीय क्षय रोग
+फुफ्फुसीय अंतःशल्यता
+ऑब्सट्रक्टिव स्लीप एपनिया
+ब्रोंकाइक्टेसिस
+अंतरालीय फेफड़ा रोग
+सिलिकोसिस
+फुफ्फुसावरण बहाव

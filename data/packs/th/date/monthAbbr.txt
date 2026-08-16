@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Thai). The abbreviations carry their full stops — ม.ค., ก.พ. — and the stops are part of the value.
+locale: th
+---
+ม.ค.
+ก.พ.
+มี.ค.
+เม.ย.
+พ.ค.
+มิ.ย.
+ก.ค.
+ส.ค.
+ก.ย.
+ต.ค.
+พ.ย.
+ธ.ค.

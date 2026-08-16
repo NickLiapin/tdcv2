@@ -1,0 +1,16 @@
+---
+description: Jobs in Healthcare (Dutch)
+locale: nl
+---
+Verpleegkundige
+Huisarts
+Apotheker
+Fysiotherapeut
+Doktersassistent
+Radiodiagnostisch laborant
+Ambulanceverpleegkundige
+Chirurg
+Kinderarts
+Tandarts
+Verloskundige
+Verzorgende IG

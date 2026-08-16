@@ -1,0 +1,190 @@
+---
+description: Street names common across Czechia (nature, trades, national figures, dates). A Czech address writes the street FIRST and the number after it (Dlouha 12), and the type word - ulice - is normally left out unless it is namesti or trida. Note the large group beginning with a preposition (Na Prikope, U Rybnika, Pod Lesem, K Nadrazi): these are ordinary Czech street names, not fragments. City-specific streets belong in a country pack.
+locale: cs
+---
+Lipová
+Květinová
+Zahradní
+Polní
+Luční
+Lesní
+Sadová
+Bezová
+Růžová
+Fialková
+Konvalinková
+Vrbová
+Topolová
+Javorová
+Dubová
+Buková
+Smrková
+Borová
+Modřínová
+Jedlová
+Habrová
+Olšová
+Jilmová
+Kaštanová
+Ořechová
+Jabloňová
+Hrušková
+Třešňová
+Švestková
+Malinová
+Jahodová
+Ostružinová
+Brusinková
+Šípková
+Trnková
+Břízová
+Akátová
+Krátká
+Dlouhá
+Široká
+Úzká
+Vysoká
+Nízká
+Hlavní
+Nová
+Stará
+Malá
+Velká
+Tichá
+Slunečná
+Zelená
+Bílá
+Zlatá
+Stříbrná
+Skalní
+Údolní
+Horní
+Dolní
+Příčná
+Rovná
+Krajní
+Okružní
+Spojovací
+Na Příkopě
+Na Poříčí
+Na Návsi
+Na Stráni
+Na Svahu
+Na Vyhlídce
+Na Hrázi
+Na Kopci
+Na Rybníčku
+Pod Lesem
+Pod Strání
+Pod Kaštany
+Pod Vodárnou
+Pod Skalkou
+U Rybníka
+U Potoka
+U Mlýna
+U Lesa
+U Studánky
+U Kříže
+U Sokolovny
+U Nádraží
+U Parku
+K Lesu
+K Nádraží
+Ke Hřišti
+Ke Skalce
+V Zahradách
+V Lukách
+V Jámě
+V Údolí
+Za Humny
+Za Mlýnem
+Za Sadem
+Nad Přehradou
+Nad Rybníkem
+Masarykova
+Havlíčkova
+Palackého
+Komenského
+Nerudova
+Jiráskova
+Wolkerova
+Bezručova
+Riegrova
+Škroupova
+Smetanova
+Dvořákova
+Janáčkova
+Husova
+Žižkova
+Purkyňova
+Nezvalova
+Čapkova
+Erbenova
+Máchova
+Tylova
+Zeyerova
+Vrchlického
+Sladkovského
+Rašínova
+Štefánikova
+Denisova
+Fügnerova
+Tyršova
+Sokolská
+Legionářská
+Boženy Němcové
+Svatopluka Čecha
+5. května
+17. listopadu
+28. října
+1. máje
+9. května
+Nádražní
+Školní
+Kostelní
+Hřbitovní
+Mlýnská
+Zámecká
+Radniční
+Nemocniční
+Průmyslová
+Tovární
+Dělnická
+Družstevní
+Pekařská
+Řeznická
+Kovářská
+Bednářská
+Truhlářská
+Zámečnická
+Rybářská
+Myslivecká
+Sportovní
+Rekreační
+Lázeňská
+Poštovní
+Divadelní
+Muzejní
+Univerzitní
+Studentská
+Vodní
+Břehová
+Přístavní
+Nábřežní
+Pražská
+Brněnská
+Ostravská
+Plzeňská
+Olomoucká
+Budějovická
+Hradecká
+Liberecká
+Zlínská
+Jihlavská
+Kladenská
+Vídeňská
+Vinohradská
+Karlova
+Celetná
+Železná
+Kaprova

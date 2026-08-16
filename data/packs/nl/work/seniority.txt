@@ -1,0 +1,22 @@
+---
+description: Seniority / level label for a role (Dutch). Dutch job adverts use the ladder junior - medior - senior, and medior as a written level label is a Dutch-market convention that English-language adverts do not have.
+locale: nl
+---
+Stagiair
+Leerling
+Trainee
+Junior
+Medior
+Senior
+Medewerker
+Ervaren medewerker
+Specialist
+Expert
+Coördinator
+Teamleider
+Manager
+Afdelingshoofd
+Adjunct-directeur
+Directeur
+Algemeen directeur
+Bestuurder

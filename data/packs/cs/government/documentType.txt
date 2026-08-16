@@ -1,0 +1,21 @@
+---
+description: Official document type (Czech). The rodne cislo is the Czech national identification number, issued at birth and derived from the date of birth and sex; it appears on the obcansky prukaz.
+locale: cs
+---
+Cestovní pas
+Občanský průkaz
+Rodný list
+Oddací list
+Úmrtní list
+Řidičský průkaz
+Povolení k pobytu
+Vízum
+Daňové přiznání
+Stavební povolení
+Živnostenské oprávnění
+Rodné číslo
+Daňové identifikační číslo
+Potvrzení o trvalém pobytu
+Výpis z katastru nemovitostí
+Vysvědčení
+Výpis z rejstříku trestů

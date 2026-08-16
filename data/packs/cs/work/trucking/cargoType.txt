@@ -1,0 +1,17 @@
+---
+description: Truck cargo type (Czech)
+locale: cs
+---
+Skříňový návěs
+Chladírenský návěs
+Valník
+Cisterna
+Přeprava živých zvířat
+Nebezpečné věci ADR
+Intermodální kontejner
+Autotransportér
+Nízkoložný návěs
+Sklápěč
+Volně ložený materiál
+Přeprava dřeva
+Nadrozměrný náklad

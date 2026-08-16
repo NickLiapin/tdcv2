@@ -1,0 +1,14 @@
+---
+description: Payment status (Swedish)
+locale: sv
+---
+obetald
+väntande
+reserverad
+betald
+delbetald
+försenad
+påmind
+till inkasso
+återbetald
+avbruten

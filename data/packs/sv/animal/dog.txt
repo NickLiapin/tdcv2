@@ -1,0 +1,29 @@
+---
+description: Dog breed (Swedish). The first several are Swedish native breeds registered by Svenska Kennelklubben — jämthund and norrbottenspets are elkhounds from the north, västgötaspets is the Swedish vallhund, drever a short-legged hound.
+locale: sv
+---
+jämthund
+norrbottenspets
+västgötaspets
+drever
+svensk lapphund
+gotlandsstövare
+hamiltonstövare
+schillerstövare
+smålandsstövare
+svensk vit älghund
+labrador retriever
+golden retriever
+schäfer
+border collie
+tax
+beagle
+cocker spaniel
+springer spaniel
+pudel
+chihuahua
+mops
+rottweiler
+boxer
+dalmatiner
+blandras

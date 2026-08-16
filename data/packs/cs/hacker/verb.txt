@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (Czech)
+locale: cs
+---
+archivovat
+obcházet
+hackovat
+přepisovat
+komprimovat
+kopírovat
+navigovat
+indexovat
+propojovat
+generovat
+kvantifikovat
+počítat
+syntetizovat
+zadávat
+přenášet
+programovat
+restartovat
+analyzovat
+šifrovat
+dešifrovat
+nasazovat
+kompilovat
+ladit
+optimalizovat
+synchronizovat
+virtualizovat
+směrovat
+monitorovat

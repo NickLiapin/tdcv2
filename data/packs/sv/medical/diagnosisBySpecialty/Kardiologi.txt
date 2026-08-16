@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in kardiologi, in Swedish
+locale: sv
+---
+Hypertoni
+Kärlkramp
+Hjärtinfarkt
+Hjärtsvikt
+Förmaksflimmer
+Klaffel
+Kardiomyopati
+Endokardit
+Djup ventrombos
+Perifer kärlsjukdom

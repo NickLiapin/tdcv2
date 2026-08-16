@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Czech). Cimbal is the Moravian hammered dulcimer at the centre of a folk band; ceske dudy are the bagpipes of the Chodsko region, quite unlike the Scottish kind; heligonka is the Czech diatonic button accordion.
+locale: cs
+---
+Kytara
+Klavír
+Housle
+Bicí
+Baskytara
+Saxofon
+Trubka
+Flétna
+Violoncello
+Klarinet
+Pozoun
+Harfa
+Ukulele
+Bendžo
+Akordeon
+Heligonka
+Klávesy
+Hoboj
+Kontrabas
+Foukací harmonika
+Xylofon
+Klasická kytara
+Pianino
+Viola
+Varhany
+Cimbál
+České dudy
+Tamburína
+Zobcová flétna
+Fagot
+Lesní roh

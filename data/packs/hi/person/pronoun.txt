@@ -1,0 +1,15 @@
+---
+description: Personal pronoun (Hindi). Note that Hindi third-person pronouns are NOT gendered — वह covers he, she and it alike, and it is the VERB, not the pronoun, that agrees with the subject's gender. There is therefore no he/she pair to draw from here, unlike the European locales. The pairs below are the singular/plural and near/far distinctions Hindi actually makes, plus the honorific plural आप used for a single respected person.
+locale: hi
+---
+वह
+वे
+यह
+ये
+आप
+उसका
+उसकी
+उनका
+उनकी
+इसका
+इसकी

@@ -1,0 +1,18 @@
+---
+description: Order status (Dutch)
+locale: nl
+---
+In behandeling
+Bevestigd
+Wordt verwerkt
+Klaargemaakt voor verzending
+Verzonden
+Onderweg
+Bezorgd
+Geannuleerd
+Geretourneerd
+Terugbetaald
+In de wacht
+Wacht op betaling
+Niet op voorraad
+Mislukt

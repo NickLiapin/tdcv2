@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Hindi. A prevalence signal, not an exclusive one.
+locale: hi
+---
+वंशानुगत हीमोक्रोमैटोसिस
+फ़ेनिलकीटोनूरिया
+पारिवारिक हाइपरकोलेस्ट्रोलेमिया
+अल्कोहल जनित यकृत रोग
+सिस्टिक फ़ाइब्रोसिस
+विल्सन रोग

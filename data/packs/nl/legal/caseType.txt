@@ -1,0 +1,19 @@
+---
+description: Legal case type (Dutch). Kort geding is a full category rather than a stage: it is a fast interim hearing before the voorzieningenrechter that can produce an enforceable order within days, and a large share of Dutch civil disputes never goes any further.
+locale: nl
+---
+Civiele zaak
+Strafzaak
+Familiezaak
+Faillissement
+Letselschade
+Arbeidszaak
+Huurzaak
+Contractgeschil
+Intellectueel eigendom
+Vastgoedzaak
+Vreemdelingenzaak
+Belastingzaak
+Bestuursrechtelijke zaak
+Handelszaak
+Kort geding

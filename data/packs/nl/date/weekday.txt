@@ -1,0 +1,11 @@
+---
+description: Weekday name (Dutch). LOWERCASE, like the months - Dutch does not capitalise weekday names.
+locale: nl
+---
+maandag
+dinsdag
+woensdag
+donderdag
+vrijdag
+zaterdag
+zondag

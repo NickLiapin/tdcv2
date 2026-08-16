@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, given in Dutch. A prevalence signal, not an exclusive one.
+locale: nl
+---
+Alfa-thalassemie
+Aldehydedehydrogenase-2-deficiëntie
+Lactose-intolerantie
+Nasofarynxcarcinoom
+Maagkanker
+Gesloten-kamerhoekglaucoom
+Ziekte van Kawasaki
+Moyamoya-ziekte
+Carbamazepine-overgevoeligheid
+Hoge myopie

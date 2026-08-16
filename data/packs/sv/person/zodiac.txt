@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Swedish). Swedish names the signs in the definite form, so Väduren, not Vädur.
+locale: sv
+---
+Väduren
+Oxen
+Tvillingarna
+Kräftan
+Lejonet
+Jungfrun
+Vågen
+Skorpionen
+Skytten
+Stenbocken
+Vattumannen
+Fiskarna

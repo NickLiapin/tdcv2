@@ -1,0 +1,24 @@
+---
+description: Writing system (Swedish)
+locale: sv
+---
+latinska alfabetet
+kyrilliska alfabetet
+grekiska alfabetet
+runor
+arabiska alfabetet
+hebreiska alfabetet
+armeniska alfabetet
+georgiska alfabetet
+devanagari
+bengaliska skriften
+tamilska skriften
+thailändska skriften
+khmerskriften
+burmesiska skriften
+kinesiska tecken
+hiragana
+katakana
+hangul
+etiopisk skrift
+punktskrift

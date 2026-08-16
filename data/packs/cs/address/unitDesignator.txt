@@ -1,0 +1,27 @@
+---
+description: Czech address unit / interior designator, abbreviated as it is written before a number. A Czech house carries TWO numbers: the cislo popisne (c. p.), a permanent registration number unique within the municipality, and the cislo orientacni (c. or.), the sequential number along the street. Both are written together as popisne/orientacni - Dlouha 123/45 - and only the second one counts up the street.
+locale: cs
+---
+č. p.
+č. or.
+č. ev.
+byt
+b.
+patro
+p.
+přízemí
+vchod
+vch.
+blok
+budova
+bud.
+sekce
+schodiště
+kancelář
+kanc.
+místnost
+podlaží
+suterén
+podkroví
+sklep
+parcela

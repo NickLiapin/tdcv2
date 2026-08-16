@@ -1,0 +1,24 @@
+---
+description: Writing system (Dutch).
+locale: nl
+---
+Latijns schrift
+Cyrillisch schrift
+Grieks schrift
+Arabisch schrift
+Hebreeuws schrift
+Armeens schrift
+Georgisch schrift
+Chinees schrift (Han)
+Hiragana
+Katakana
+Hangul
+Devanagari
+Thais schrift
+Tibetaans schrift
+Ethiopisch schrift (Ge'ez)
+Cherokee-lettergreepschrift
+Mayaschrift
+Bengaals schrift
+Tamilschrift
+Glagolitisch schrift

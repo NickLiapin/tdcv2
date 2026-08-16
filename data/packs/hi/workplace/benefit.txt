@@ -1,0 +1,22 @@
+---
+description: Employee benefit as offered in India (Hindi); provident fund, gratuity and ESI are statutory, and HRA and LTA are salary components with their own tax treatment
+locale: hi
+---
+भविष्य निधि
+ग्रेच्युटी
+कर्मचारी राज्य बीमा
+समूह स्वास्थ्य बीमा
+जीवन बीमा
+दुर्घटना बीमा
+सवेतन अवकाश
+घर से काम
+लचीले कार्य घंटे
+मकान किराया भत्ता
+अवकाश यात्रा रियायत
+भोजन कूपन
+कंपनी परिवहन सुविधा
+वार्षिक बोनस
+कर्मचारी शेयर विकल्प
+शिक्षा शुल्क प्रतिपूर्ति
+बच्चों की शिक्षा भत्ता
+जिम सदस्यता

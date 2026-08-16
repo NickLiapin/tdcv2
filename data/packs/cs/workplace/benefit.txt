@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Czech). Stravenky (employer-issued meal vouchers) and the Multisport karta (one card admitting the holder to thousands of gyms and pools) are standard Czech benefits with no English equivalent. Czech law guarantees four weeks of paid leave, so a fifth week is offered as a benefit; sick days are paid days off that need no doctor's note.
+locale: cs
+---
+Stravenky
+Stravenkový paušál
+Multisport karta
+Pátý týden dovolené
+Sick days
+Home office
+Pružná pracovní doba
+Penzijní připojištění
+Životní pojištění
+Zdravotní péče nad rámec
+Firemní notebook
+Firemní telefon
+Služební vůz
+Příspěvek na dopravu
+Příspěvek na vzdělávání
+Jazykové kurzy
+Třináctý plat
+Roční bonus

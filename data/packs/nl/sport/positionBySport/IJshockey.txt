@@ -1,0 +1,9 @@
+---
+description: Positions in ice hockey (Dutch). Ice hockey is 'ijshockey' in Dutch and never bare 'hockey', which means field hockey.
+locale: nl
+---
+Doelman
+Verdediger
+Center
+Linkervleugel
+Rechtervleugel

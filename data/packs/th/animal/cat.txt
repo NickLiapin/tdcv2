@@ -1,0 +1,24 @@
+---
+description: Cat breed (Thai); the first entries are indigenous Thai breeds documented in the ตำราแมว, the classical Thai cat treatise — วิเชียรมาศ is the Siamese, ศุภลักษณ์ the copper-coloured Suphalak, โคราช and สีสวาด two names for the Korat, ขาวมณี the white Khao Manee.
+locale: th
+---
+วิเชียรมาศ
+ศุภลักษณ์
+โคราช
+สีสวาด
+ขาวมณี
+นิลรัตน์
+โกญจา
+แซมเสวตร
+เปอร์เซีย
+เมนคูน
+สก็อตติชโฟลด์
+บริติชชอร์ตแฮร์
+อเมริกันชอร์ตแฮร์
+แร็กดอลล์
+เบงกอล
+สฟิงซ์
+อะบิสซิเนียน
+รัสเซียนบลู
+นอร์วีเจียนฟอเรสต์
+มันช์กิน

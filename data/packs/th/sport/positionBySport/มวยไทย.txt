@@ -1,0 +1,14 @@
+---
+description: Muay Thai has no positions — it is an individual combat sport, not a team game — so this file holds the recognised fighter styles instead (มวยฝีมือ the technician, มวยบุก the pressure fighter, มวยเข่า the knee fighter, มวยหมัด the puncher, มวยเตะ the kicker, มวยมัด the clinch-and-smother fighter, มวยตั้งรับ the counter-fighter, มวยปล้ำ the wrestler), plus the two corner roles.
+locale: th
+---
+มวยฝีมือ
+มวยบุก
+มวยเข่า
+มวยหมัด
+มวยเตะ
+มวยมัด
+มวยตั้งรับ
+มวยปล้ำ
+เทรนเนอร์
+พี่เลี้ยง

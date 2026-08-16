@@ -1,0 +1,59 @@
+---
+description: Sport (Czech). Nohejbal was invented in Czechoslovakia in the 1920s and is played nowhere else in quantity; florbal has more registered players in Czechia than any sport but football; and ledni hokej is the national game.
+locale: cs
+---
+Fotbal
+Futsal
+Nohejbal
+Americký fotbal
+Basketbal
+Baseball
+Softbal
+Volejbal
+Plážový volejbal
+Házená
+Ragby
+Lední hokej
+Pozemní hokej
+Florbal
+Kriket
+Tenis
+Padel
+Stolní tenis
+Badminton
+Squash
+Golf
+Plavání
+Vodní pólo
+Atletika
+Cyklistika
+Horská cyklistika
+Cyklokros
+Box
+Zápas
+Judo
+Karate
+Taekwondo
+Šerm
+Sportovní gymnastika
+Moderní gymnastika
+Vzpírání
+Triatlon
+Veslování
+Kanoistika
+Vodní slalom
+Jachting
+Sjezdové lyžování
+Běh na lyžích
+Skoky na lyžích
+Severská kombinace
+Biatlon
+Snowboarding
+Krasobruslení
+Rychlobruslení
+Sportovní lezení
+Lukostřelba
+Sportovní střelba
+Jezdectví
+Motoristický sport
+Orientační běh

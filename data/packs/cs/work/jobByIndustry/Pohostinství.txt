@@ -1,0 +1,16 @@
+---
+description: Jobs in Hospitality (Czech)
+locale: cs
+---
+Šéfkuchař
+Zástupce šéfkuchaře
+Kuchař
+Číšník
+Barman
+Barista
+Recepční
+Manažer hotelu
+Concierge
+Pokojská
+Koordinátor akcí
+Průvodce cestovního ruchu

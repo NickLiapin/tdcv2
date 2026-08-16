@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Thai), Sunday first. The abbreviations carry their full stops and the stops are part of the value.
+locale: th
+---
+อา.
+จ.
+อ.
+พ.
+พฤ.
+ศ.
+ส.

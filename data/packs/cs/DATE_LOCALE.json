@@ -1,0 +1,58 @@
+{
+  "months": [
+    "leden",
+    "únor",
+    "březen",
+    "duben",
+    "květen",
+    "červen",
+    "červenec",
+    "srpen",
+    "září",
+    "říjen",
+    "listopad",
+    "prosinec"
+  ],
+  "monthsInDate": [
+    "ledna",
+    "února",
+    "března",
+    "dubna",
+    "května",
+    "června",
+    "července",
+    "srpna",
+    "září",
+    "října",
+    "listopadu",
+    "prosince"
+  ],
+  "monthsShort": [
+    "led",
+    "úno",
+    "bře",
+    "dub",
+    "kvě",
+    "čvn",
+    "čvc",
+    "srp",
+    "zář",
+    "říj",
+    "lis",
+    "pro"
+  ],
+  "weekdays": [
+    "neděle",
+    "pondělí",
+    "úterý",
+    "středa",
+    "čtvrtek",
+    "pátek",
+    "sobota"
+  ],
+  "weekdaysShort": ["ne", "po", "út", "st", "čt", "pá", "so"],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D. MMMM YYYY"
+  }
+}

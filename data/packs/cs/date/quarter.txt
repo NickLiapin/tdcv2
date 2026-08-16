@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Czech, ctvrtleti)
+locale: cs
+---
+Q1
+Q2
+Q3
+Q4

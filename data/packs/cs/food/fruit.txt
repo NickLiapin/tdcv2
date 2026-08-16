@@ -1,0 +1,38 @@
+---
+description: Fruit (Czech)
+locale: cs
+---
+Jablko
+Banán
+Pomeranč
+Jahoda
+Hroznové víno
+Mango
+Ananas
+Meloun
+Broskev
+Hruška
+Višeň
+Borůvka
+Malina
+Kiwi
+Citron
+Limetka
+Švestka
+Meruňka
+Granátové jablko
+Fík
+Papája
+Kokos
+Cantaloup
+Mandarinka
+Maracuja
+Třešeň
+Ostružina
+Nektarinka
+Grep
+Datle
+Kdoule
+Angrešt
+Rybíz
+Brusinka

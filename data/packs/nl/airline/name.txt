@@ -1,0 +1,54 @@
+---
+description: Airline: Dutch and Belgian carriers plus the international ones that actually serve Schiphol and Brussels. Airline brand names are never translated, so they keep their real spelling in Dutch text. KLM is the Netherlands' flag carrier and Brussels Airlines the Belgian one; Surinam Airways is here because the Amsterdam-Paramaribo route is a standing Dutch connection.
+locale: nl
+---
+KLM
+KLM Cityhopper
+Transavia
+Corendon Dutch Airlines
+TUI fly Netherlands
+Martinair
+AIS Airlines
+Brussels Airlines
+TUI fly Belgium
+Air Belgium
+Ryanair
+easyJet
+Wizz Air
+Vueling
+Eurowings
+Lufthansa
+Air France
+British Airways
+Iberia
+Swiss International Air Lines
+Austrian Airlines
+SAS Scandinavian Airlines
+Finnair
+Norwegian
+airBaltic
+Aer Lingus
+TAP Air Portugal
+ITA Airways
+Aegean Airlines
+LOT Polish Airlines
+Turkish Airlines
+Pegasus Airlines
+Luxair
+Icelandair
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Cathay Pacific
+Japan Airlines
+All Nippon Airways
+Korean Air
+China Southern Airlines
+Qantas
+Air Canada
+American Airlines
+United Airlines
+Delta Air Lines
+Ethiopian Airlines
+Surinam Airways

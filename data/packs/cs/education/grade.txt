@@ -1,0 +1,20 @@
+---
+description: Grade / mark on the Czech school scale. Czech school marks run from 1 to 5 with ONE as the best and FIVE as a fail - the inverse of the Polish and German-style scales, and the opposite of what a config written for another locale will assume. Universities use the ECTS letters instead, and pass / fail subjects use zapocteno.
+locale: cs
+---
+1 – výborně
+2 – chvalitebně
+3 – dobře
+4 – dostatečně
+5 – nedostatečně
+A
+B
+C
+D
+E
+F
+Započteno
+Nezapočteno
+Prospěl s vyznamenáním
+Prospěl
+Neprospěl

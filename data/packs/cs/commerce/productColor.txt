@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Czech product listing (masculine singular; borrowed names kept invariable)
+locale: cs
+---
+Černá
+Bílá
+Šedá
+Grafitová
+Perleťově šedá
+Stříbrná
+Zlatá
+Bronzová
+Měděná
+Červená
+Vínová
+Višňová
+Bordó
+Korálová
+Růžová
+Pudrově růžová
+Fuchsiová
+Purpurová
+Oranžová
+Terakotová
+Lososová
+Žlutá
+Hořčicová
+Starozlatá
+Zelená
+Olivová
+Mátová
+Smaragdová
+Khaki
+Tyrkysová
+Modrá
+Tmavě modrá
+Světle modrá
+Petrolejová
+Azurová
+Indigová
+Fialová
+Levandulová
+Šeříková
+Hnědá
+Čokoládová
+Velbloudí
+Béžová
+Krémová
+Slonová kost
+Písková
+Taupe
+Antracitová
+Průhledná
+Vícebarevná
+Vzorovaná
+Dvoubarevná
+Přírodní
+Melírovaná

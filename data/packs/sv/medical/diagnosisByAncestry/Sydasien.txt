@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Sydasien, in Swedish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: sv
+---
+Typ 2-diabetes
+Kranskärlssjukdom
+Betatalassemi
+G6PD-brist
+Laktosintolerans
+D-vitaminbrist
+Metabolt syndrom
+Kronisk njursvikt

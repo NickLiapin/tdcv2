@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Thai). Note that กะเพรา (holy basil, the sharp peppery one in ผัดกะเพรา) and โหระพา (Thai sweet basil, the aniseed one in green curry) are DIFFERENT herbs used in different dishes, as is ใบแมงลัก (lemon basil) — English collapses all three to "basil", and a config that treats them as interchangeable will produce nonsense. ข่า (galangal) is likewise not ขิง (ginger).
+locale: th
+---
+พริกขี้หนู
+พริกชี้ฟ้า
+พริกแห้ง
+พริกป่น
+พริกไทยขาว
+พริกไทยดำ
+พริกไทยอ่อน
+ข่า
+ตะไคร้
+ใบมะกรูด
+ผิวมะกรูด
+กระชาย
+ขมิ้น
+ขิง
+ผักชี
+รากผักชี
+ผักชีลาว
+ผักชีฝรั่ง
+โหระพา
+กะเพรา
+ใบแมงลัก
+สะระแหน่
+ยี่หร่า
+ลูกผักชี
+อบเชย
+กานพลู
+โป๊ยกั๊ก
+ลูกกระวาน
+ดีปลี
+ใบเตย

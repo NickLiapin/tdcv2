@@ -1,0 +1,41 @@
+---
+description: Tech noun (Czech)
+locale: cs
+---
+ovladač
+protokol
+propustnost
+panel
+mikročip
+program
+port
+karta
+pole
+rozhraní
+systém
+senzor
+firewall
+pevný disk
+pixel
+alarm
+datový tok
+monitor
+aplikace
+vysílač
+sběrnice
+obvod
+kondenzátor
+databáze
+kanál zpracování
+server
+router
+přepínač
+mezipaměť
+jádro
+knihovna
+zásuvný modul
+kontejner
+záloha
+neuronová síť
+šifrovací klíč
+síťový paket

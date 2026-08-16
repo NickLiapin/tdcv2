@@ -1,0 +1,15 @@
+---
+description: Shipping status (Swedish)
+locale: sv
+---
+förbereds
+inlämnad
+under transport
+på terminal
+ute för leverans
+levererad
+finns att hämta
+ombud aviserat
+leveransförsök misslyckades
+i retur
+försenad

@@ -1,0 +1,26 @@
+---
+description: Household budget or spending category (Dutch). Amounts are in EUR in both the Netherlands and Belgium, and Dutch writes them with a full stop for thousands and a comma for decimals (45.000,50 EUR). Zorgverzekering is a separate fixed line here because Dutch basic health insurance is compulsory for every resident and bought from a private insurer as a monthly premium, so it is a household bill rather than a tax. Gemeentelijke heffingen bundles the municipal and water-board levies that arrive as one annual bill.
+locale: nl
+---
+Huur
+Hypotheek
+Boodschappen
+Energie en water
+Vervoer
+Uitgaan
+Zorg
+Zorgverzekering
+Verzekeringen
+Restaurants
+Sparen
+Abonnementen
+Vakantie
+Onderwijs
+Kleding
+Cadeaus
+Kinderopvang
+Aflossing schulden
+Huisdieren
+Telefoon en internet
+Belastingen
+Gemeentelijke heffingen

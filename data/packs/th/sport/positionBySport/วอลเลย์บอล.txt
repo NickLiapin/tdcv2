@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Thai). Volleyball genuinely has only these five roles, so the list is short by nature rather than incomplete.
+locale: th
+---
+ตัวเซ็ต
+ตัวตบหัวเสา
+ตัวตบตรงข้าม
+ตัวบล็อกกลาง
+ตัวรับอิสระ

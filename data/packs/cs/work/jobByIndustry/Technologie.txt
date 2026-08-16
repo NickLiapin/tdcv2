@@ -1,0 +1,16 @@
+---
+description: Jobs in Technology (Czech)
+locale: cs
+---
+Softwarový inženýr
+Frontend vývojář
+Backend vývojář
+DevOps inženýr
+Datový vědec
+Datový analytik
+Produktový manažer
+UX designér
+Tester softwaru
+Správce systémů
+Cloudový architekt
+Specialista na kybernetickou bezpečnost

@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Dutch). Dutch translates freely here - 'draadloos', 'versleuteld', 'schaalbaar' are the normal words - but leaves settled loanwords alone, so 'realtime', 'opensource' and 'cloudgebaseerd' stay as they are.
+locale: nl
+---
+digitaal
+virtueel
+primair
+secundair
+redundant
+draadloos
+optisch
+neuraal
+haptisch
+platformonafhankelijk
+gedistribueerd
+versleuteld
+extern
+mobiel
+geïntegreerd
+schaalbaar
+asynchroon
+bidirectioneel
+opensource
+modulair
+fouttolerant
+realtime
+hoogbeschikbaar
+adaptief
+autonoom
+verbonden
+cloudgebaseerd
+krachtig

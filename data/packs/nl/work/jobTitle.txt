@@ -1,0 +1,243 @@
+---
+description: Dutch job titles across sectors: tech, healthcare, trades, construction, extraction, transport, utilities, business, hospitality, retail, education, public service, law, media, engineering and agriculture. Several are institutions with no direct English equivalent, among them verloskundige (the independent midwife who leads normal Dutch births), praktijkondersteuner (the nurse practitioner attached to a GP practice), functioneel beheerder (the business-side owner of an application), boa (a municipal officer with limited police powers), intern begeleider (the primary-school learning-support coordinator), and the water trades sluiswachter, schipper and waterbouwkundig ingenieur.
+locale: nl
+---
+Softwareontwikkelaar
+Senior softwareontwikkelaar
+Frontendontwikkelaar
+Backendontwikkelaar
+Webontwikkelaar
+Mobiele appontwikkelaar
+Data-analist
+Datawetenschapper
+Data-engineer
+Machinelearning-engineer
+DevOps-engineer
+Cloudarchitect
+Systeembeheerder
+Netwerkbeheerder
+Databasebeheerder
+Informatiebeveiligingsanalist
+Softwaretester
+Productmanager
+UX-ontwerper
+UI-ontwerper
+ICT-supportmedewerker
+Informatieanalist
+Functioneel beheerder
+Applicatiebeheerder
+Scrum master
+Businessanalist
+Enterprisearchitect
+Verpleegkundige
+Gespecialiseerd verpleegkundige
+Wijkverpleegkundige
+Verzorgende IG
+Huisarts
+Chirurg
+Anesthesioloog
+Kinderarts
+Gynaecoloog
+Cardioloog
+Psychiater
+Psycholoog
+Apotheker
+Apothekersassistent
+Doktersassistent
+Praktijkondersteuner
+Ambulanceverpleegkundige
+Fysiotherapeut
+Ergotherapeut
+Logopedist
+Diëtist
+Mondhygiënist
+Tandarts
+Tandartsassistent
+Radiodiagnostisch laborant
+Verloskundige
+Dierenarts
+Optometrist
+Elektricien
+Loodgieter
+Lasser
+Timmerman
+Installatiemonteur
+Cv-monteur
+Koeltechnicus
+Verspaner
+Pijpfitter
+Metselaar
+Dakdekker
+Rietdekker
+Schilder
+Stukadoor
+Tegelzetter
+Glaszetter
+Automonteur
+Vrachtwagenmonteur
+Vliegtuigmonteur
+Liftmonteur
+Stratenmaker
+Betonvlechter
+Isolatiemonteur
+Smid
+Meubelmaker
+Bouwvakker
+Uitvoerder
+Bouwkundig tekenaar
+Bouwkundig inspecteur
+Sloper
+Bekistingstimmerman
+Heimachinist
+Landmeter
+Mijnwerker
+Ondergronds mijnwerker
+Boormeester
+Kraanmachinist
+Graafmachinist
+Springmeester
+Steengroevewerker
+Mijnbouwkundige
+Vrachtwagenchauffeur
+Internationaal chauffeur
+Bezorger
+Buschauffeur
+Taxichauffeur
+Koerier
+Heftruckchauffeur
+Magazijnmedewerker
+Logistiek coördinator
+Transportplanner
+Expediteur
+Luchtverkeersleider
+Verkeersvlieger
+Steward
+Machinist
+Schipper
+Sluiswachter
+Havenmeester
+Loods
+Monteur hoogspanningsnet
+Telecommonteur
+Glasvezelmonteur
+Kabelmonteur
+Meteropnemer
+Waterzuiveringstechnicus
+Windturbinemonteur
+Zonnepaneelmonteur
+Gasmonteur
+Energieadviseur
+Boekhouder
+Administratief medewerker
+Salarisadministrateur
+Financieel analist
+Accountant
+Actuaris
+Belastingadviseur
+Controller
+Bankmedewerker
+Hypotheekadviseur
+Verzekeringsadviseur
+Makelaar
+Effectenhandelaar
+Econoom
+Inkoper
+Accountmanager
+Marketingmanager
+Marketingmedewerker
+Merkmanager
+HR-adviseur
+Recruiter
+Operationeel manager
+Projectmanager
+Directiesecretaresse
+Kantoormanager
+Receptionist
+Chef-kok
+Souschef
+Kok
+Bakker
+Banketbakker
+Slager
+Barman
+Barista
+Ober
+Gastheer
+Afwasser
+Hotelmanager
+Hotelreceptionist
+Conciërge
+Evenementenmanager
+Reisleider
+Schoonmaker
+Verkoopmedewerker
+Filiaalmanager
+Kassamedewerker
+Vakkenvuller
+Winkelbeveiliger
+Categoriemanager
+Klantadviseur
+Callcentermedewerker
+Beveiliger
+Hovenier
+Leerkracht basisonderwijs
+Docent voortgezet onderwijs
+Leraar speciaal onderwijs
+Hoogleraar
+Onderzoeker
+Onderwijsassistent
+Decaan
+Intern begeleider
+Bibliothecaris
+Schooldirecteur
+Bijlesdocent
+Pedagogisch medewerker
+Politieagent
+Brandweerman
+Rechercheur
+Penitentiair inrichtingswerker
+Douanebeambte
+Buitengewoon opsporingsambtenaar
+Maatschappelijk werker
+Casemanager
+Postbode
+Vuilnisman
+Beroepsmilitair
+Gemeenteambtenaar
+Rechter
+Officier van justitie
+Notaris
+Advocaat
+Juridisch medewerker
+Griffier
+Gerechtsdeurwaarder
+Grafisch ontwerper
+Fotograaf
+Cameraman
+Copywriter
+Contentredacteur
+Journalist
+Redacteur
+Vertaler
+Tolk
+Musicus
+Acteur
+Architect
+Interieurontwerper
+Civiel ingenieur
+Werktuigbouwkundig ingenieur
+Elektrotechnisch ingenieur
+Chemisch technoloog
+Bedrijfskundig ingenieur
+Waterbouwkundig ingenieur
+Akkerbouwer
+Melkveehouder
+Veehouder
+Tuinder
+Bollenkweker
+Bloemist
+Landarbeider
+Boomverzorger
+Visser
+Bosarbeider
+Imker

@@ -1,0 +1,16 @@
+---
+description: Jobs in Healthcare (Czech)
+locale: cs
+---
+Praktický lékař
+Zdravotní sestra
+Chirurg
+Anesteziolog
+Zdravotnický záchranář
+Farmaceut
+Fyzioterapeut
+Radiologický asistent
+Laborant
+Porodní asistentka
+Nutriční terapeut
+Zubní lékař

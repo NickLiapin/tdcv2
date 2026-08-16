@@ -1,0 +1,9 @@
+---
+description: Work shift (Thai)
+locale: th
+---
+กะเช้า
+กะบ่าย
+กะดึก
+กะหมุนเวียน
+กะซ่อมบำรุง

@@ -1,0 +1,12 @@
+---
+description: Dishes of Turkish cuisine (Czech)
+locale: cs
+---
+Kebab
+Baklava
+Meze
+Lahmacun
+Dolma
+Kofte
+Pide
+Menemen

@@ -1,0 +1,15 @@
+---
+description: Shipping status (Czech)
+locale: cs
+---
+Vytvořen štítek
+Vyzvednuto dopravcem
+V přepravě
+V doručování
+Doručeno
+Připraveno k vyzvednutí
+Zpoždění
+Problém při přepravě
+Vráceno odesílateli
+Chybná adresa
+Neúspěšný pokus o doručení

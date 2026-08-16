@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Czech)
+locale: cs
+---
+po
+út
+st
+čt
+pá
+so
+ne

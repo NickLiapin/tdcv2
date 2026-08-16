@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Czech (male-specific + common), for a male patient row
+locale: cs
+---
+Benigní hyperplazie prostaty
+Zánět prostaty
+Karcinom prostaty
+Nádor varlete
+Torze varlete
+Varikokéla
+Hydrokéla
+Zánět nadvarlete
+Kryptorchismus
+Fimóza
+Erektilní dysfunkce
+Mužská neplodnost
+Gynekomastie
+Androgenní alopecie
+Tříselná kýla
+Chronická pankreatitida
+Chlamydiová infekce
+Arteriální hypertenze
+Diabetes mellitus 2. typu
+Bronchiální astma
+Chronická bronchitida
+Migréna
+Sideropenická anémie
+Hypotyreóza
+Ledvinové kameny
+Dna

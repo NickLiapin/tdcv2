@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Hindi that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: hi
+---
+सौम्य प्रोस्टेट अतिवृद्धि
+प्रोस्टेटशोथ
+प्रोस्टेट कैंसर
+वृषण कैंसर
+वृषण मरोड़
+वैरिकोसील
+हाइड्रोसील
+अधिवृषणशोथ
+अवरोहित वृषण
+फ़ाइमोसिस
+बैलेनाइटिस
+स्तंभन दोष
+पेरोनी रोग
+पुरुष बंध्यता
+गाइनेकोमैस्टिया
+पुरुष हाइपोगोनैडिज़्म
+प्रियापिज़्म
+अधिवृषण पुटी
+पुरुष प्रतिरूप गंजापन
+वंक्षण-अंडकोषीय हर्निया

@@ -1,0 +1,14 @@
+---
+description: Medical specialty (has a coherent diagnosis list). Gastroenterology appears under its real Dutch name Maag-darm-leverziekten, abbreviated MDL - Flanders says Gastro-enterologie - and pulmonology under Longziekten.
+locale: nl
+---
+Cardiologie
+Neurologie
+Oncologie
+Dermatologie
+Maag-darm-leverziekten
+Endocrinologie
+Longziekten
+Orthopedie
+Psychiatrie
+Nefrologie

@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Swedish). Friskvårdsbidrag is a Swedish institution: an annual wellness allowance the employer may pay tax-free, currently up to 5 000 SEK, and a friskvårdstimme is paid exercise time during the working day. Tjänstepension is the occupational pension almost every collective agreement provides on top of the state pension, and 25 semesterdagar is the statutory minimum, not a perk.
+locale: sv
+---
+friskvårdsbidrag
+friskvårdstimme
+tjänstepension
+25 semesterdagar
+extra semesterdagar
+föräldralön
+sjuklön
+företagshälsovård
+gruppförsäkring
+sjukvårdsförsäkring
+förmånsbil
+förmånscykel
+lunchförmån
+kompetensutveckling
+arbetstidsförkortning
+flextid
+distansarbete
+aktieprogram

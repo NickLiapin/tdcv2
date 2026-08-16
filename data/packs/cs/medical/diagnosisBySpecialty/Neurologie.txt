@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Czech)
+locale: cs
+---
+Migréna
+Epilepsie
+Parkinsonova nemoc
+Roztroušená skleróza
+Ischemická cévní mozková příhoda
+Periferní neuropatie
+Alzheimerova nemoc
+Neuralgie trojklaného nervu
+Myasthenia gravis
+Tranzitorní ischemická ataka

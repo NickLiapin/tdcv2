@@ -1,0 +1,11 @@
+---
+description: Kijkwijzer age classification, the Dutch content-rating system, used for cinema, TV and video in both the Netherlands and Flanders - so unlike most rating schemes it is genuinely locale-level rather than country-level. AL means 'alle leeftijden' (all ages); the numbers are minimum advised ages. Do NOT substitute MPAA codes (G/PG/PG-13/R): they mean nothing here. Kijkwijzer also displays six content pictograms alongside the age symbol - geweld, angst, seks, discriminatie, drugs- en alcoholmisbruik, grof taalgebruik - but those are content warnings, not age ratings, so they are not mixed into this list.
+locale: nl
+---
+AL
+6
+9
+12
+14
+16
+18

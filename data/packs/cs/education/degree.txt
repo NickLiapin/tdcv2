@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Czechia. Vyssi odborna skola sits between secondary school and university and awards DiS.; the doctoral titles MUDr., JUDr. and PhDr. are written before the name, unlike Ph.D.
+locale: cs
+---
+Základní vzdělání
+Výuční list
+Střední vzdělání s maturitou
+Maturita
+Vyšší odborné vzdělání (DiS.)
+Absolutorium konzervatoře
+Bakalář (Bc.)
+Magistr (Mgr.)
+Inženýr (Ing.)
+Doktor medicíny (MUDr.)
+Doktor práv (JUDr.)
+Doktor filozofie (PhDr.)
+Doktor (Ph.D.)
+MBA
+Docent
+Profesor

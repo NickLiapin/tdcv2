@@ -1,0 +1,19 @@
+---
+description: Court type (Thai judiciary). Thailand runs THREE separate court systems side by side, not the single hierarchy a European config assumes — ศาลยุติธรรม (the courts of justice, ศาลชั้นต้น to ศาลอุทธรณ์ to ศาลฎีกา), ศาลปกครอง (the administrative courts, with their own supreme court ศาลปกครองสูงสุด) and ศาลรัฐธรรมนูญ (the constitutional court), and a case never moves between them
+locale: th
+---
+ศาลรัฐธรรมนูญ
+ศาลฎีกา
+ศาลอุทธรณ์
+ศาลชั้นต้น
+ศาลแพ่ง
+ศาลอาญา
+ศาลแขวง
+ศาลจังหวัด
+ศาลเยาวชนและครอบครัว
+ศาลแรงงาน
+ศาลภาษีอากรกลาง
+ศาลทรัพย์สินทางปัญญาและการค้าระหว่างประเทศกลาง
+ศาลล้มละลายกลาง
+ศาลปกครอง
+ศาลปกครองสูงสุด

@@ -1,0 +1,31 @@
+---
+description: Diagnosis that occurs only or overwhelmingly in women, in Dutch
+locale: nl
+---
+Baarmoederhalskanker
+Eierstokkanker
+Baarmoederkanker
+Borstkanker
+Endometriose
+Vleesbomen
+Polycysteus-ovariumsyndroom
+Bekkenontsteking
+Vaginitis
+Bacteriële vaginose
+Vulvodynie
+Menopauze
+Overgangsklachten
+Premenstrueel syndroom
+Premenstrueel dysfoor syndroom
+Dysmenorroe
+Menorragie
+Amenorroe
+Zwangerschapsdiabetes
+Pre-eclampsie
+Hyperemesis gravidarum
+Postpartumdepressie
+Mastitis
+Verzakking van de baarmoeder
+Onvruchtbaarheid bij de vrouw
+Buitenbaarmoederlijke zwangerschap
+Fibrocysteuze borstafwijking

@@ -1,0 +1,29 @@
+---
+description: RPG character class (Thai; Thai game translations mix native words with transliterated loanwords, and both are kept here)
+locale: th
+---
+นักรบ
+อัศวิน
+พาลาดิน
+นักดาบ
+บาร์บาเรียน
+เบอร์เซิร์กเกอร์
+นักสู้
+นักธนู
+นักล่า
+เรนเจอร์
+โจร
+นักฆ่า
+นักเวทมนตร์
+จอมเวท
+นักเวทมืด
+นักบวช
+หมอผี
+ดรูอิด
+เนโครแมนเซอร์
+ผู้เรียกอสูร
+นักเล่นแร่แปรธาตุ
+นักประดิษฐ์
+บาร์ด
+แทงค์
+ฮีลเลอร์

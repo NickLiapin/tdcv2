@@ -1,0 +1,20 @@
+---
+description: Court of the Dutch judiciary. Two absences shape this list. The Netherlands has no constitutional court: article 120 of the Grondwet forbids any court from testing an Act of Parliament against the Constitution, so nothing here corresponds to the German Bundesverfassungsgericht or the Polish constitutional tribunal. And there is no jury: professional judges decide fact and law together, sitting alone (enkelvoudige kamer, including the politierechter and kinderrechter) or in threes (meervoudige kamer). The Hoge Raad hears cassatie on points of law only. The highest general administrative court is the Afdeling bestuursrechtspraak of the Raad van State, with the Centrale Raad van Beroep for social security and the College van Beroep voor het bedrijfsleven for economic regulation.
+locale: nl
+---
+Rechtbank
+Kantonrechter
+Gerechtshof
+Hoge Raad der Nederlanden
+Raad van State
+Centrale Raad van Beroep
+College van Beroep voor het bedrijfsleven
+Voorzieningenrechter
+Politierechter
+Kinderrechter
+Ondernemingskamer
+Pachtkamer
+Militaire kamer
+Meervoudige kamer
+Enkelvoudige kamer
+Tuchtcollege

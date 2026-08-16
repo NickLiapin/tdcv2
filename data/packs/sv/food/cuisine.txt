@@ -1,0 +1,21 @@
+---
+description: Cuisine (Swedish). The values are the neuter form of the nationality adjective, because Swedish says "italienskt kök" and a menu or a restaurant listing simply writes Italienskt. Each value has a dishByCuisine child file.
+locale: sv
+---
+Italienskt
+Japanskt
+Mexikanskt
+Kinesiskt
+Indiskt
+Franskt
+Thailändskt
+Grekiskt
+Spanskt
+Amerikanskt
+Koreanskt
+Vietnamesiskt
+Turkiskt
+Libanesiskt
+Peruanskt
+Argentinskt
+Svenskt

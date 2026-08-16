@@ -1,0 +1,15 @@
+---
+description: Social reaction (Czech)
+locale: cs
+---
+To se mi líbí
+Super
+Ha ha
+Wow
+To mě mrzí
+Naštvat
+Držím palce
+Slavím
+Podporuji
+Zajímavé
+Překvapivé

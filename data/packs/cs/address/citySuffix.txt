@@ -1,0 +1,39 @@
+---
+description: Trailing qualifier of a Czech place name (Usti nad Labem, Roznov pod Radhostem, Frydek-Mistek). The nad / pod pattern - naming the river a town stands on or the mountain it stands under - is the normal way Czech distinguishes two towns of the same name.
+locale: cs
+---
+nad Labem
+nad Vltavou
+nad Sázavou
+nad Moravou
+nad Nisou
+nad Orlicí
+nad Bečvou
+nad Jizerou
+nad Ohří
+nad Dyjí
+nad Metují
+nad Cidlinou
+nad Lužnicí
+nad Svitavou
+pod Radhoštěm
+pod Bezdězem
+pod Hostýnem
+pod Ještědem
+pod Řípem
+pod Pradědem
+pod Sněžkou
+v Čechách
+na Moravě
+ve Slezsku
+u Prahy
+u Brna
+u Plzně
+u Rakovníka
+Lázně
+Hora
+Lhota
+Ves
+Brod
+Městec
+Králové

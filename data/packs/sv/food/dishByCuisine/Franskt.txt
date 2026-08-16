@@ -1,0 +1,13 @@
+---
+description: Dishes of franskt cuisine, in Swedish
+locale: sv
+---
+Coq au vin
+Boeuf bourguignon
+Ratatouille
+Bouillabaisse
+Quiche lorraine
+Löksoppa
+Crème brûlée
+Croissant
+Tarte tatin

@@ -1,0 +1,18 @@
+---
+description: Diagnoses seen in Gastroenterology (Thai). โรคพยาธิใบไม้ตับ (liver fluke) belongs on a Thai GI list — it is endemic in Isan and is why Thailand has the world's highest rate of bile-duct cancer.
+locale: th
+---
+กรดไหลย้อน
+กระเพาะอาหารอักเสบ
+แผลในกระเพาะอาหาร
+ลำไส้แปรปรวน
+ลำไส้ใหญ่อักเสบเป็นแผลเรื้อรัง
+โรคโครห์น
+ตับแข็ง
+ไขมันพอกตับ
+ไวรัสตับอักเสบบีเรื้อรัง
+นิ่วในถุงน้ำดี
+ถุงน้ำดีอักเสบ
+ตับอ่อนอักเสบเรื้อรัง
+โรคพยาธิใบไม้ตับ
+ริดสีดวงทวาร

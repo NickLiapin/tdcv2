@@ -1,0 +1,21 @@
+---
+description: Video game genre (Dutch).
+locale: nl
+---
+Actie
+Avontuur
+Rollenspel
+Strategie
+Simulatie
+Sport
+Puzzel
+Shooter
+Platformer
+Racespel
+Vechtspel
+Survival
+Open wereld
+MMORPG
+Roguelike
+Horror
+Muziekspel

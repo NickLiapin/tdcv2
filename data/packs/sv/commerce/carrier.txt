@@ -1,0 +1,24 @@
+---
+description: Parcel carriers used in Sweden. PostNord is the former state post office and still carries most letters; Budbee, Instabox and Airmee are Swedish last-mile firms built around parcel lockers and evening home delivery, which is how a large share of Swedish e-commerce is actually delivered.
+locale: sv
+---
+PostNord
+DHL Express
+DHL Freight
+DB Schenker
+Bring
+Budbee
+Instabox
+Airmee
+Early Bird
+Best Transport
+UPS
+FedEx
+TNT
+GLS
+DSV
+Jetpak
+Citymail
+Schenker Privpak
+PostNord MyPack
+Porterbuddy

@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Thai). Thai names the two sport bikes after animals — จักรยานเสือหมอบ (road, "crouching tiger") and จักรยานเสือภูเขา (mountain, "mountain tiger") — จักรยานแม่บ้าน is the everyday step-through bike most households own, and สามล้อถีบ (the pedal samlor) is still a working passenger vehicle in provincial towns rather than a museum piece.
+locale: th
+---
+จักรยานเสือหมอบ
+จักรยานเสือภูเขา
+จักรยานไฮบริด
+จักรยานทัวร์ริ่ง
+จักรยานกราเวล
+จักรยานฟิกซ์เกียร์
+จักรยานพับได้
+จักรยานมินิ
+จักรยานแม่บ้าน
+จักรยานไฟฟ้า
+จักรยานล้อโต
+จักรยานบีเอ็มเอ็กซ์
+จักรยานเด็ก
+จักรยานสามล้อ
+จักรยานแทนเด็ม
+จักรยานบรรทุกของ
+สามล้อถีบ

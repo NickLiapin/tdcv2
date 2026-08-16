@@ -1,0 +1,20 @@
+---
+description: Horse breed named in Thai; horse breeding is marginal in Thailand, so apart from the native ม้าไทยพื้นเมือง this list is deliberately short and consists of international breeds transcribed into Thai.
+locale: th
+---
+ม้าไทยพื้นเมือง
+อาหรับ
+ธอโรเบรด
+ควอเตอร์ฮอร์ส
+อาปาลูซา
+มัสแตง
+เฟรเชียน
+เพอร์เชอรอน
+ไคลด์เดสเดล
+ไชร์
+แฮฟลิงเกอร์
+อันดาลูเซีย
+ลูซิตาโน
+ม้าแคระเชตแลนด์
+พาโลมิโน
+มอร์แกน

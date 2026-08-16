@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Czech)
+locale: cs
+---
+Předplacená karta
+Tarif
+Neomezený tarif
+Rodinný tarif
+Firemní tarif
+Platba podle spotřeby
+Pouze data
+Sdílený tarif
+Jednotný tarif
+Kombinovaný tarif
+Balíček
+Dobití kreditu

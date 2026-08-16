@@ -1,0 +1,10 @@
+---
+description: Season (Hindi). North India traditionally counts SIX seasons, not four — each ऋतु spans roughly two lunar months, and they are still the seasons named in poetry, in the panchang and in Ayurvedic practice. In everyday speech Indians instead use a practical three-season split — गर्मी (roughly March to June), बरसात or मानसून (July to September) and सर्दी (October to February). A config that needs the colloquial three should use those words, not a four-season European set, which does not describe India's climate at all.
+locale: hi
+---
+वसंत
+ग्रीष्म
+वर्षा
+शरद
+हेमंत
+शिशिर

@@ -1,0 +1,12 @@
+---
+description: Dishes of turkiskt cuisine, in Swedish
+locale: sv
+---
+Kebab
+Lahmacun
+Pide
+Meze
+Imam bayildi
+Manti
+Baklava med pistage
+Turkisk pizza

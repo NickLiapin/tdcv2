@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Thai, ไตรมาส). Note that the Thai government fiscal year (ปีงบประมาณ) runs 1 October to 30 September, so ไตรมาส 1 of a public-sector budget is October to December, not January to March.
+locale: th
+---
+ไตรมาส 1
+ไตรมาส 2
+ไตรมาส 3
+ไตรมาส 4

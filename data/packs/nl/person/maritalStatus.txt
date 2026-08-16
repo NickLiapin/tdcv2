@@ -1,0 +1,18 @@
+---
+description: Marital status (Dutch). Dutch status labels do not inflect for gender, so there is one entry per state. 'Geregistreerd partnerschap' is a distinct legal status in the Netherlands, separate from marriage and from cohabitation, and 'samenwonend met samenlevingscontract' is the notarised cohabitation contract that carries some of the same rights.
+locale: nl
+---
+ongehuwd
+gehuwd
+gescheiden
+weduwe
+weduwnaar
+duurzaam gescheiden levend
+geregistreerd partnerschap
+geregistreerd partnerschap beëindigd
+partner overleden
+samenwonend
+samenwonend met samenlevingscontract
+verloofd
+hertrouwd
+onbekend

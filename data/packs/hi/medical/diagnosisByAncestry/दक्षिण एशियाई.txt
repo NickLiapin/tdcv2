@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Hindi. A prevalence signal, not an exclusive one. Coronary disease presents roughly a decade earlier than in Europeans, and sickle cell disease clusters in the tribal belt of central India.
+locale: hi
+---
+बीटा-थैलेसीमिया वाहक अवस्था
+सिकल सेल रोग
+ग्लूकोज़-6-फ़ॉस्फ़ेट डिहाइड्रोजनेज़ की कमी
+समय-पूर्व कोरोनरी धमनी रोग
+कम आयु में टाइप 2 मधुमेह
+सामान्य बॉडी मास इंडेक्स पर उदरीय मोटापा
+उपापचयी सिंड्रोम
+वयस्क प्रकार की लैक्टेज़ अल्पता
+विटामिन B12 की कमी
+विटामिन D की कमी
+आमवाती हृदय रोग
+हीमोग्लोबिन E रोग

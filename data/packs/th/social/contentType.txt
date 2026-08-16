@@ -1,0 +1,17 @@
+---
+description: Social content type (Thai). กระทู้ is a forum thread in the Pantip sense and รีวิว (a written product, restaurant or trip review) is a content genre in its own right on Thai social media, not merely a rating.
+locale: th
+---
+โพสต์
+คอมเมนต์
+ตอบกลับ
+สตอรี่
+รีล
+คลิปสั้น
+ไลฟ์สด
+โพล
+แชร์
+กระทู้
+รีวิว
+เมนชั่น
+ข้อความส่วนตัว

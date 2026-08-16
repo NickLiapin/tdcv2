@@ -1,0 +1,13 @@
+---
+description: Dishes of mexikanskt cuisine, in Swedish
+locale: sv
+---
+Tacos
+Enchiladas
+Quesadilla
+Guacamole
+Tamales
+Pozole
+Chiles en nogada
+Mole poblano
+Churros

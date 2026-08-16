@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Swedish)
+locale: sv
+---
+torrlast
+kyltransport
+frystransport
+styckegods
+partigods
+bulk
+tanktransport
+farligt gods (ADR)
+timmertransport
+containertransport
+biltransport
+anläggningstransport
+flyttlass

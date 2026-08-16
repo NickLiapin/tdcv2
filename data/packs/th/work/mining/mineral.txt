@@ -1,0 +1,23 @@
+---
+description: Mineral / commodity actually mined in Thailand (Thai). Tin (ดีบุก, from Phuket and Ranong) and lignite (ลิกไนต์, the Mae Moh field in Lampang) are the historically dominant Thai minerals, and Thai gem mining - ruby and sapphire - is at Chanthaburi and Kanchanaburi.
+locale: th
+---
+ยิปซัม
+หินปูน
+ลิกไนต์
+เกลือหิน
+โพแทช
+ดีบุก
+ทองคำ
+สังกะสี
+แบไรต์
+เฟลด์สปาร์
+ดินขาว
+ทรายแก้ว
+หินอ่อน
+แกรนิต
+ทับทิม
+ไพลิน
+ฟลูออไรต์
+แมงกานีส
+พลวง

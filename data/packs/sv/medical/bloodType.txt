@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type as written in Sweden. The fourth group is the digit zero, 0, not the letter O — Swedish (like German and most of continental Europe) writes blodgrupp 0, and a Swedish record showing "O+" is following the English convention, not the Swedish one.
+locale: sv
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+0+
+0-

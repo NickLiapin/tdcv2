@@ -1,0 +1,36 @@
+---
+description: Czech honorific or academic title. Czech academic titles are written BEFORE the name and are part of everyday address (Ing. Jan Novak, MUDr. Eva Novakova); degrees awarded after the name live in person/suffix. Abbreviated forms as they are actually written.
+locale: cs
+---
+pan
+paní
+slečna
+Ing.
+Ing. arch.
+Mgr.
+MgA.
+Bc.
+BcA.
+MUDr.
+MDDr.
+MVDr.
+JUDr.
+PhDr.
+RNDr.
+PharmDr.
+ThDr.
+ThLic.
+PaedDr.
+doc.
+prof.
+akad. arch.
+akad. mal.
+P.
+Mons.
+gen.
+plk.
+mjr.
+kpt.
+por.
+por. Bc.
+npor.

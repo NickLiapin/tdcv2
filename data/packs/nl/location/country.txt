@@ -1,0 +1,242 @@
+---
+description: Country and territory names (Dutch). Dutch country names diverge from English far more than a reader expects - Duitsland, Frankrijk, Oostenrijk, Zwitserland, Zweden, Griekenland, Hongarije, Oekraine, Oezbekistan - so these are genuine translations, not respellings. Two notes on the Kingdom itself: 'Nederland' is the country and 'Holland' is only two of its twelve provinces, so Holland is not listed as a country name; and the Kingdom of the Netherlands is four countries, which is why Curacao, Aruba and Sint Maarten appear here in their own right while 'Nederlandse Antillen' is retained for records predating its dissolution in 2010.
+locale: nl
+---
+Afghanistan
+Albanië
+Algerije
+Amerikaans-Samoa
+Andorra
+Angola
+Anguilla
+Antarctica
+Antigua en Barbuda
+Argentinië
+Armenië
+Aruba
+Australië
+Oostenrijk
+Azerbeidzjan
+Bahama's
+Bahrein
+Bangladesh
+Barbados
+Belarus
+België
+Belize
+Benin
+Bermuda
+Bhutan
+Bolivia
+Bonaire
+Bosnië en Herzegovina
+Botswana
+Brazilië
+Brunei
+Bulgarije
+Burkina Faso
+Burundi
+Cambodja
+Kameroen
+Canada
+Kaapverdië
+Kaaimaneilanden
+Centraal-Afrikaanse Republiek
+Tsjaad
+Chili
+China
+Christmaseiland
+Cocoseilanden
+Colombia
+Comoren
+Democratische Republiek Congo
+Republiek Congo
+Cookeilanden
+Costa Rica
+Ivoorkust
+Kroatië
+Cuba
+Curaçao
+Cyprus
+Tsjechië
+Denemarken
+Djibouti
+Dominica
+Dominicaanse Republiek
+Oost-Timor
+Ecuador
+Egypte
+El Salvador
+Equatoriaal-Guinea
+Eritrea
+Estland
+Ethiopië
+Falklandeilanden
+Faeröer
+Fiji
+Finland
+Frankrijk
+Frans-Guyana
+Frans-Polynesië
+Franse Zuidelijke Gebieden
+Gabon
+Gambia
+Georgië
+Duitsland
+Ghana
+Gibraltar
+Griekenland
+Groenland
+Grenada
+Guadeloupe
+Guam
+Guatemala
+Guinee
+Guinee-Bissau
+Guyana
+Haïti
+Heilige Stoel
+Honduras
+Hongkong
+Hongarije
+IJsland
+India
+Indonesië
+Iran
+Irak
+Ierland
+Israël
+Italië
+Jamaica
+Japan
+Jordanië
+Kazachstan
+Kenia
+Kiribati
+Noord-Korea
+Zuid-Korea
+Kosovo
+Koeweit
+Kirgizië
+Laos
+Letland
+Libanon
+Lesotho
+Liberia
+Libië
+Liechtenstein
+Litouwen
+Luxemburg
+Macau
+Madagaskar
+Malawi
+Maleisië
+Maldiven
+Mali
+Malta
+Marshalleilanden
+Martinique
+Mauritanië
+Mauritius
+Mayotte
+Mexico
+Micronesia
+Moldavië
+Monaco
+Mongolië
+Montenegro
+Montserrat
+Marokko
+Mozambique
+Myanmar
+Namibië
+Nauru
+Nepal
+Nederland
+Nederlandse Antillen
+Nieuw-Caledonië
+Nieuw-Zeeland
+Nicaragua
+Niger
+Nigeria
+Niue
+Noord-Macedonië
+Noordelijke Marianen
+Noorwegen
+Oman
+Pakistan
+Palau
+Palestijnse Gebieden
+Panama
+Papoea-Nieuw-Guinea
+Paraguay
+Peru
+Filipijnen
+Pitcairneilanden
+Polen
+Portugal
+Puerto Rico
+Qatar
+Réunion
+Roemenië
+Rusland
+Rwanda
+Saint Kitts en Nevis
+Saint Lucia
+Saint Vincent en de Grenadines
+Samoa
+San Marino
+Sao Tomé en Principe
+Saoedi-Arabië
+Senegal
+Servië
+Seychellen
+Sierra Leone
+Singapore
+Sint Maarten
+Slowakije
+Slovenië
+Salomonseilanden
+Somalië
+Zuid-Afrika
+Zuid-Soedan
+Spanje
+Sri Lanka
+Soedan
+Suriname
+Eswatini
+Zweden
+Zwitserland
+Syrië
+Taiwan
+Tadzjikistan
+Tanzania
+Thailand
+Tibet
+Togo
+Tokelau
+Tonga
+Trinidad en Tobago
+Tunesië
+Turkije
+Turkmenistan
+Turks- en Caicoseilanden
+Tuvalu
+Oeganda
+Oekraïne
+Verenigde Arabische Emiraten
+Verenigd Koninkrijk
+Verenigde Staten
+Uruguay
+Oezbekistan
+Vanuatu
+Vaticaanstad
+Venezuela
+Vietnam
+Britse Maagdeneilanden
+Amerikaanse Maagdeneilanden
+Wallis en Futuna
+Westelijke Sahara
+Jemen
+Zambia
+Zimbabwe

@@ -1,0 +1,22 @@
+---
+description: Event / occasion type (Thai). The list is led by the occasions Thai people actually hold: งานบวช is a Buddhist ordination, งานทำบุญขึ้นบ้านใหม่ a house-blessing merit ceremony, and งานกฐิน / งานผ้าป่า are temple robe-offering events with no European equivalent.
+locale: th
+---
+งานบวช
+งานแต่งงาน
+งานหมั้น
+งานศพ
+งานทำบุญขึ้นบ้านใหม่
+งานทำบุญบริษัท
+งานกฐิน
+งานผ้าป่า
+งานลอยกระทง
+งานสงกรานต์
+งานวัด
+งานเลี้ยงรุ่น
+งานรับปริญญา
+งานวันเกิด
+งานเลี้ยงปีใหม่
+งานสัมมนา
+งานแสดงสินค้า
+งานคอนเสิร์ต

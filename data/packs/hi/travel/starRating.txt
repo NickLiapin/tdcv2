@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Hindi); written the way Hindi says it, as in पाँच सितारा होटल
+locale: hi
+---
+एक सितारा
+दो सितारा
+तीन सितारा
+चार सितारा
+पाँच सितारा

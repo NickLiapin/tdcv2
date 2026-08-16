@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Czech)
+locale: cs
+---
+Wi-Fi zdarma
+Bazén
+Vyhřívaný bazén
+Wellness
+Posilovna
+Restaurace
+Bar
+Pokojová služba
+Transfer z letiště
+Snídaně v ceně
+Parkování zdarma
+Vstřícný ke zvířatům
+Business centrum
+Concierge
+Prádelna
+Vířivka
+Střešní terasa
+Klimatizace
+Trezor
+Nonstop recepce
+Konferenční sály
+Výtah
+Minibar
+Bezbariérový přístup
+Úschovna zavazadel
+Půjčovna kol
+Dětský koutek
+Sauna
+Výhled na moře
+Kuchyňský kout

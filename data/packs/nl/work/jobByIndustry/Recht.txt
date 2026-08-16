@@ -1,0 +1,16 @@
+---
+description: Jobs in Legal (Dutch)
+locale: nl
+---
+Advocaat
+Juridisch medewerker
+Rechter
+Griffier
+Compliance officer
+Notaris
+Officier van justitie
+Bedrijfsjurist
+Octrooigemachtigde
+Gerechtsdeurwaarder
+Mediator
+Notarisklerk

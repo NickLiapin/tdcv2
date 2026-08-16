@@ -1,0 +1,35 @@
+---
+description: Unit of measure for goods sold in India (Hindi): metric units plus traditional commercial units that are still in daily use - quintal for grain, tola for gold, bigha and acre for land, gaz for cloth, bori for sacks.
+locale: hi
+---
+नग
+डिब्बा
+पैकेट
+पैक
+दर्जन
+जोड़ा
+सेट
+रोल
+गट्ठर
+किलोग्राम
+ग्राम
+टन
+क्विंटल
+लीटर
+मिलीलीटर
+मीटर
+सेंटीमीटर
+वर्ग मीटर
+घन मीटर
+बोरी
+थैली
+कनस्तर
+बोतल
+जार
+ट्यूब
+कार्टन
+ट्रे
+एकड़
+बीघा
+गज़
+तोला

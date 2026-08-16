@@ -1,0 +1,12 @@
+---
+description: Swedish form of address. The list is deliberately short, and that is the Swedish fact worth recording: the du-reformen of the late 1960s abolished honorific address altogether. Swedes say du to strangers, to ministers and to their doctor, and titles are simply not used when addressing someone. Herr, Fru and Fröken survive only on formal envelopes and in ceremonial text (Fröken is additionally dated, since it marks an unmarried woman); Dr, Docent and Professor appear on academic material, not in speech. Only the royal family is still addressed by title. Do not import a German or English honorific list here — a Swedish record with a title in front of the name is almost always wrong.
+locale: sv
+---
+Herr
+Fru
+Fröken
+Dr
+Docent
+Professor
+Hans Majestät
+Hennes Majestät

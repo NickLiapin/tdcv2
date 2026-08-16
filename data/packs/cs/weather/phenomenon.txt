@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Czech)
+locale: cs
+---
+Hurikán
+Tornádo
+Sněhová vánice
+Vlna veder
+Vlna mrazů
+Povodeň
+Sucho
+Monzun
+Písečná bouře
+Mrznoucí déšť
+Lesní požár
+Cyklón
+Přízemní mrazík
+Krupobití
+Vichřice

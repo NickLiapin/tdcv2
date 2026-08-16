@@ -1,0 +1,23 @@
+---
+description: Movie genre (Swedish)
+locale: sv
+---
+drama
+komedi
+romantisk komedi
+action
+äventyr
+thriller
+kriminaldrama
+deckare
+skräckfilm
+science fiction
+fantasy
+krigsfilm
+västern
+historisk film
+biografisk film
+musikal
+animerad film
+familjefilm
+dokumentärfilm

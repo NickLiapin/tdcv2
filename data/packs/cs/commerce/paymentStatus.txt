@@ -1,0 +1,14 @@
+---
+description: Payment status (Czech)
+locale: cs
+---
+Čeká na zaplacení
+Autorizována
+Zaplaceno
+Neúspěšná
+Vrácena
+Částečně vrácena
+Zpětné zúčtování
+Zrušena
+Zamítnuta
+Ověřuje se

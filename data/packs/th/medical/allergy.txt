@@ -1,0 +1,26 @@
+---
+description: Common allergies (Thai). Thailand's tropical climate makes house dust mite and cockroach the dominant year-round aeroallergens rather than seasonal tree pollen, and shellfish is the leading food allergy.
+locale: th
+---
+เพนิซิลลิน
+ยากลุ่มซัลฟา
+แอสไพริน
+ยาชาเฉพาะที่
+สารทึบรังสีที่มีไอโอดีน
+กุ้ง
+ปู
+หอย
+ถั่วลิสง
+ถั่วเปลือกแข็ง
+นมวัว
+ไข่
+แป้งสาลี
+ถั่วเหลือง
+งา
+ไรฝุ่น
+แมลงสาบ
+ขนแมว
+ขนสุนัข
+เชื้อรา
+น้ำยางธรรมชาติ
+พิษผึ้ง

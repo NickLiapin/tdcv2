@@ -1,0 +1,39 @@
+---
+description: Playing position drawn from several sports at once (Dutch). Because it mixes sports, the same Dutch word can mean different things depending on the game: 'Middenvelder' is a midfielder in football and hockey but the centre fielder in honkbal. For a coherent single-sport draw use sport/positionBySport instead. Dutch basketball keeps the English position names unchanged.
+locale: nl
+---
+Doelman
+Centrale verdediger
+Rechtsback
+Linksback
+Verdedigende middenvelder
+Centrale middenvelder
+Aanvallende middenvelder
+Rechtsbuiten
+Linksbuiten
+Spits
+Vleugelspeler
+Spelverdeler
+Passer-loper
+Middenblokkeerder
+Diagonaalspeler
+Libero
+Werper
+Vanger
+Korte stop
+Eerste honkman
+Tweede honkman
+Derde honkman
+Buitenvelder
+Aangewezen slagman
+Cirkelloper
+Linkerhoekspeler
+Rechterhoekspeler
+Opbouwer
+Point guard
+Shooting guard
+Small forward
+Power forward
+Center
+Aanvaller
+Verdediger

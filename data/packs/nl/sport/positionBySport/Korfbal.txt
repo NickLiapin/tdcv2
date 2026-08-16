@@ -1,0 +1,9 @@
+---
+description: Positions in korfbal (Dutch). Korfbal was invented in the Netherlands in 1902 and is played seriously almost nowhere else; it is mixed-gender by rule, four men and four women per team. A team is split between an attacking zone (aanvalsvak) and a defending zone (verdedigingsvak) and the two halves swap after every two goals, so aanvaller and verdediger are rotating assignments rather than fixed positions - the other entries are roles within a zone. The list is short because korfbal genuinely has few named positions; it is not truncated.
+locale: nl
+---
+Aanvaller
+Verdediger
+Schutter
+Doorloper
+Rebounder

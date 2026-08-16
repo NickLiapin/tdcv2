@@ -1,0 +1,16 @@
+---
+description: Shoe size on the EU (Paris point) scale, which is what both the Netherlands and Belgium use. The range runs higher than a generic European list because the Netherlands has the tallest average population in the world, so real Dutch foot sizes skew larger than the European mean. This list is unweighted and therefore does not itself encode that skew - weight it in the config if the skew matters.
+locale: nl
+---
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47

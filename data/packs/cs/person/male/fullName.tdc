@@ -1,0 +1,10 @@
+---
+description: Czech full male name — a single given name and a single surname (Jan Novák). Czech names carry one surname, given name first.
+generator: tdc
+locale: cs
+---
+<sequence name="p">
+  <gen name="f" type="template" value="cs.person.male.firstName"/>
+  <gen name="l" type="template" value="cs.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

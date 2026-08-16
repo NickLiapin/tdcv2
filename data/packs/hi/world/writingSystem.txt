@@ -1,0 +1,30 @@
+---
+description: Writing system, in Hindi. Devanagari comes first, followed by the other scripts of India's Eighth Schedule languages and two historic Indian scripts, then the major world scripts.
+locale: hi
+---
+देवनागरी
+बांग्ला
+गुरमुखी
+गुजराती
+ओड़िया
+तमिल
+तेलुगु
+कन्नड़
+मलयालम
+उर्दू (नस्तालीक़)
+मेइतेइ मयेक
+ओल चिकी
+तिब्बती
+मोड़ी
+ब्राह्मी
+सिंहली
+रोमन
+सिरिलिक
+यूनानी
+अरबी
+हिब्रू
+चीनी (हान)
+हिरागाना
+कटाकाना
+हंगुल
+थाई

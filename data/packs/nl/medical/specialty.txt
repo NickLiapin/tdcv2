@@ -1,0 +1,44 @@
+---
+description: Medical specialties as the Dutch specialist register names them. Several names are not calques of the English: gastroenterology is Maag-darm-leverziekten (abbreviated MDL), general surgery is simply Heelkunde, ENT is Keel-neus-oorheelkunde (KNO) and paediatrics is Kindergeneeskunde. Ouderengeneeskunde (elderly care medicine) is a registered specialty that exists in the Netherlands and almost nowhere else. Flanders uses Gastro-enterologie, Pediatrie and Urgentiegeneeskunde where the Netherlands uses Maag-darm-leverziekten, Kindergeneeskunde and Spoedeisende geneeskunde; the Netherlands form is given here. Dutch primary care is built around the huisarts, who is the gatekeeper to every hospital specialty on this list.
+locale: nl
+---
+Huisartsgeneeskunde
+Interne geneeskunde
+Cardiologie
+Longziekten
+Maag-darm-leverziekten
+Nefrologie
+Endocrinologie
+Hematologie
+Oncologie
+Reumatologie
+Klinische immunologie
+Allergologie
+Infectieziekten
+Neurologie
+Psychiatrie
+Dermatologie
+Oogheelkunde
+Keel-neus-oorheelkunde
+Urologie
+Gynaecologie en verloskunde
+Kindergeneeskunde
+Neonatologie
+Klinische geriatrie
+Ouderengeneeskunde
+Orthopedie
+Heelkunde
+Plastische chirurgie
+Vaatchirurgie
+Cardiothoracale chirurgie
+Neurochirurgie
+Kaakchirurgie
+Anesthesiologie
+Spoedeisende geneeskunde
+Revalidatiegeneeskunde
+Radiologie
+Nucleaire geneeskunde
+Pathologie
+Medische microbiologie
+Klinische genetica
+Bedrijfsgeneeskunde

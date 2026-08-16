@@ -1,0 +1,22 @@
+---
+description: Jobs in Tourism and hotels (Thai). Tourism is around 12 percent of Thai GDP, so this is one of the country's largest employment sectors, and it includes trades that barely exist elsewhere - หมอนวดสปา, ครูสอนดำน้ำ and คนขับเรือหางยาว.
+locale: th
+---
+มัคคุเทศก์
+พนักงานต้อนรับส่วนหน้า
+พนักงานจองห้องพัก
+แม่บ้านโรงแรม
+พนักงานยกกระเป๋า
+พนักงานเสิร์ฟ
+บาร์เทนเดอร์
+บาริสต้า
+เชฟ
+กุ๊ก
+พนักงานล้างจาน
+หมอนวดสปา
+ครูสอนดำน้ำ
+คนขับเรือหางยาว
+พนักงานขายทัวร์
+ผู้จัดการโรงแรม
+ผู้จัดการร้านอาหาร
+พนักงานขับรถรับส่งนักท่องเที่ยว

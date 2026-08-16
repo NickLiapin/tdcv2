@@ -1,0 +1,15 @@
+---
+description: Positions in FIELD hockey (Dutch). In Dutch 'hockey' unqualified always means field hockey, the sport in which the Netherlands is among the world's strongest nations; ice hockey positions live in IJshockey.txt. 'Laatste man' is the Dutch name for the sweeper behind the defensive line.
+locale: nl
+---
+Keeper
+Laatste man
+Centrale verdediger
+Rechtsback
+Linksback
+Controlerende middenvelder
+Centrale middenvelder
+Aanvallende middenvelder
+Rechtsbuiten
+Linksbuiten
+Spits

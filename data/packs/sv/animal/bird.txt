@@ -1,0 +1,34 @@
+---
+description: Bird (Swedish). Koltrast is Sweden's national bird; ripa, lavskrika and fjällpipare belong to the mountains and the far north.
+locale: sv
+---
+koltrast
+talgoxe
+blåmes
+bofink
+gulsparv
+domherre
+grönfink
+steglits
+sädesärla
+rödhake
+näktergal
+lövsångare
+svartvit flugsnappare
+stare
+skata
+kråka
+korp
+nötskrika
+lavskrika
+större hackspett
+gök
+tornseglare
+ladusvala
+tofsvipa
+storspov
+fjällpipare
+ripa
+tjäder
+orre
+havsörn

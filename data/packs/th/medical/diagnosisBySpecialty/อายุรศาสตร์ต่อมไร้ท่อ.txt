@@ -1,0 +1,18 @@
+---
+description: Diagnoses seen in Endocrinology (Thai). คอพอก (goitre) stays on the list because iodine-deficiency goitre was a mass public-health problem in northern Thailand and is still followed clinically.
+locale: th
+---
+เบาหวานชนิดที่ 2
+เบาหวานชนิดที่ 1
+ภาวะไทรอยด์ทำงานต่ำ
+ไทรอยด์เป็นพิษ
+โรคเกรฟส์
+ไทรอยด์อักเสบฮาชิโมโต
+คอพอก
+ก้อนที่ต่อมไทรอยด์
+มะเร็งไทรอยด์
+โรคอ้วน
+กลุ่มอาการเมตาบอลิก
+กลุ่มอาการคุชชิง
+ภาวะต่อมหมวกไตบกพร่อง
+โรคกระดูกพรุน

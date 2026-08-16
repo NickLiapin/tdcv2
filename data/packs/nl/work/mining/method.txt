@@ -1,0 +1,12 @@
+---
+description: Method of mineral extraction (Dutch). Coal mining in Limburg closed in 1974, so the underground terms pijlerbouw and kamer-en-pijlerbouw are historical; what the Netherlands actually extracts today is sand and gravel by dredging, salt by solution mining and gas by drilling, and those three methods lead the list in real usage.
+locale: nl
+---
+Dagbouw
+Ondergrondse winning
+Pijlerbouw
+Kamer-en-pijlerbouw
+Schachtbouw
+Baggerwinning
+Boorwinning
+Oplossingswinning

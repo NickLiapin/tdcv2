@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Czech)
+locale: cs
+---
+Rozehrávač
+Křídelní obránce
+Malé křídlo
+Silné křídlo
+Pivot

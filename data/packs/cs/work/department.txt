@@ -1,0 +1,26 @@
+---
+description: Company department (Czech)
+locale: cs
+---
+Vývoj
+Produkt
+Design
+Obchod
+Marketing
+Finance
+Účetnictví
+Personalistika
+Provoz
+Právní oddělení
+Zákaznická podpora
+Informační technologie
+Výzkum a vývoj
+Nákup
+Kontrola kvality
+Logistika
+Administrativa
+Údržba
+Bezpečnost
+Compliance
+Komunikace
+Vzdělávání

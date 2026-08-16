@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Dutch).
+locale: nl
+---
+Chronische nierschade
+Acuut nierfalen
+Nierstenen
+Glomerulonefritis
+Nefrotisch syndroom
+Cystenieren
+Diabetische nefropathie
+Urineweginfectie
+Renale anemie
+Hyperkaliëmie

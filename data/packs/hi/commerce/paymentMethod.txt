@@ -1,0 +1,20 @@
+---
+description: Payment method offered at an Indian checkout. UPI is the dominant rail and cash on delivery is still very common. Wallet brand names keep their Latin spelling the way Indian checkout pages print them.
+locale: hi
+---
+यूपीआई
+कैश ऑन डिलीवरी
+नकद
+डेबिट कार्ड
+क्रेडिट कार्ड
+नेट बैंकिंग
+एनईएफ़टी
+आरटीजीएस
+आईएमपीएस
+ईएमआई
+Paytm वॉलेट
+PhonePe
+Google Pay
+चेक
+डिमांड ड्राफ़्ट
+गिफ़्ट कार्ड

@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in Dermatology (Dutch).
+locale: nl
+---
+Psoriasis
+Constitutioneel eczeem
+Contacteczeem
+Acne vulgaris
+Rosacea
+Netelroos
+Gordelroos
+Voetschimmel
+Melanoom
+Basaalcelcarcinoom
+Vitiligo

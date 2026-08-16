@@ -1,0 +1,20 @@
+---
+description: Jobs in Agriculture (Thai). Roughly a third of Thailand's workforce is agricultural, so this list is far larger in real life than its European equivalent; คนกรีดยาง (rubber tapper) and ควาญช้าง (mahout) are Thai occupations with no European counterpart.
+locale: th
+---
+ชาวนา
+ชาวสวนยาง
+ชาวสวนผลไม้
+คนกรีดยาง
+ชาวไร่อ้อย
+ชาวไร่มันสำปะหลัง
+ชาวไร่ข้าวโพด
+ชาวประมงพื้นบ้าน
+เจ้าของบ่อกุ้ง
+คนเลี้ยงไก่
+คนเลี้ยงหมู
+ควาญช้าง
+นักวิชาการเกษตร
+เจ้าหน้าที่ส่งเสริมการเกษตร
+คนขับรถเกี่ยวข้าว
+สัตวแพทย์

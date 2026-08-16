@@ -1,0 +1,32 @@
+---
+description: Fish of Thai rivers and seas (Thai) — freshwater staples such as ปลาช่อน (snakehead), ปลาสลิด (snakeskin gourami) and the Mekong giant catfish ปลาบึก sit beside the sea fish sold in Thai markets; ปลากัด, the Siamese fighting fish, is Thailand's national aquatic animal.
+locale: th
+---
+ปลาช่อน
+ปลาสลิด
+ปลาบึก
+ปลาดุก
+ปลานิล
+ปลาตะเพียน
+ปลากะพงขาว
+ปลากะพงแดง
+ปลาทู
+ปลาอินทรี
+ปลากระเบน
+ปลาฉลาม
+ปลาสวาย
+ปลาแรด
+ปลากราย
+ปลาชะโด
+ปลาซิว
+ปลากัด
+ปลาหมอ
+ปลาไหล
+ปลายี่สก
+ปลาจะละเม็ด
+ปลาทูน่า
+ปลาโอ
+ปลาเก๋า
+ปลาบู่
+ปลากระบอก
+ปลาลิ้นหมา

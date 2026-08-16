@@ -1,0 +1,26 @@
+---
+description: Property amenity (Czech)
+locale: cs
+---
+Bazén
+Garáž
+Krb
+Klimatizace
+Dřevěné podlahy
+Šatna
+Balkon
+Zahrada
+Posilovna
+Výtah
+Parkovací stání
+Myčka
+Prádelna
+Domácí mazlíčci povoleni
+Alarm
+Fotovoltaika
+Terasa
+Sklep
+Recepce
+Místo na grilování
+Zařízeno
+Vytápění

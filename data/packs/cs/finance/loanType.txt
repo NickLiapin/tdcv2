@@ -1,0 +1,14 @@
+---
+description: Loan type (Czech)
+locale: cs
+---
+Hypoteční úvěr
+Úvěr na auto
+Spotřebitelský úvěr
+Studentská půjčka
+Americká hypotéka
+Podnikatelský úvěr
+Kontokorent
+Konsolidace půjček
+Zastavárenská půjčka
+Mikropůjčka

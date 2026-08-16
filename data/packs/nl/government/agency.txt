@@ -1,0 +1,29 @@
+---
+description: Dutch government body. Waterschap is the entry with no counterpart abroad: the water boards are a separate fourth layer of Dutch government, older than the state itself, with their own directly elected councils, their own tax (waterschapsbelasting) and sole responsibility for dikes, water levels and water quality. Gemeente, Provincie and Waterschap are the three sub-national governments a Dutch resident deals with. The rest are the national executive agencies: Belastingdienst (tax), UWV (employee benefits), SVB (state pension and child benefit), RDW (vehicles), IND (immigration), DUO (education and student loans), CBR (driving licences), Kadaster (land registry), KVK (company register).
+locale: nl
+---
+Belastingdienst
+Gemeente
+Provincie
+Waterschap
+UWV
+Sociale Verzekeringsbank
+RDW
+Immigratie- en Naturalisatiedienst
+DUO
+CBR
+Kadaster
+Kamer van Koophandel
+Rijkswaterstaat
+Centraal Bureau voor de Statistiek
+AIVD
+Politie
+Koninklijke Marechaussee
+Openbaar Ministerie
+Douane
+Autoriteit Persoonsgegevens
+Nederlandse Voedsel- en Warenautoriteit
+Nederlandse Arbeidsinspectie
+Rijksdienst voor Ondernemend Nederland
+Raad voor de Kinderbescherming
+CAK

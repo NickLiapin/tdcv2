@@ -1,0 +1,14 @@
+---
+description: Fuel type (Hindi); इथेनॉल मिश्रित पेट्रोल is India's E20 blended petrol, a real nationwide policy
+locale: hi
+---
+पेट्रोल
+डीज़ल
+सीएनजी
+एलपीजी
+इलेक्ट्रिक
+हाइब्रिड
+प्लग-इन हाइब्रिड
+इथेनॉल मिश्रित पेट्रोल
+बायोडीज़ल
+हाइड्रोजन

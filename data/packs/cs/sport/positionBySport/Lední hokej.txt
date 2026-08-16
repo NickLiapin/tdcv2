@@ -1,0 +1,10 @@
+---
+description: Positions in ice hockey (Czech)
+locale: cs
+---
+Brankář
+Obránce
+Levé křídlo
+Pravé křídlo
+Centr
+Útočník

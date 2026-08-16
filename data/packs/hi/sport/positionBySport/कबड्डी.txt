@@ -1,0 +1,12 @@
+---
+description: Positions in kabaddi (Hindi); the raider and all-rounder plus the six named defensive spots used by the Pro Kabaddi League
+locale: hi
+---
+रेडर
+ऑल-राउंडर
+लेफ़्ट कॉर्नर
+लेफ़्ट इन
+लेफ़्ट कवर
+राइट कवर
+राइट इन
+राइट कॉर्नर

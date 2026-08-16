@@ -1,0 +1,24 @@
+---
+description: Parcel carriers commonly used in Czechia. Zasilkovna (Packeta) and Balikovna are pickup-point networks rather than door delivery, which is how most Czech e-commerce parcels actually move.
+locale: cs
+---
+Česká pošta
+Balíkovna
+Zásilkovna
+Packeta
+PPL
+DPD
+GLS
+DHL Express
+DHL Parcel
+UPS
+FedEx
+TNT
+Geis
+WEDO
+AlzaBox
+Toptrans
+Gebrüder Weiss
+Dachser
+DB Schenker
+Raben

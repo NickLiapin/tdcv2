@@ -504,6 +504,56 @@ KO = DateLocale(
     {"L": "YYYY. MM. DD.", "LL": "YYYY[년] M[월] D[일]", "LLL": "YYYY[년] M[월] D[일] HH:mm", "LLLL": "YYYY[년] M[월] D[일] dddd HH:mm"},
 )
 
+# Dutch writes month and weekday names in lower case, unlike its German neighbour.
+NL = DateLocale(
+    "nl",
+    ("januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"),
+    ("jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"),
+    ("zondag", "maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag"),
+    ("zo", "ma", "di", "wo", "do", "vr", "za"),
+    {"L": "DD-MM-YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd D MMMM YYYY HH:mm"},
+)
+
+# Swedish writes month and weekday names in lower case, and Sweden is an ISO-8601 country: the short date is YYYY-MM-DD.
+SV = DateLocale(
+    "sv",
+    ("januari", "februari", "mars", "april", "maj", "juni", "juli", "augusti", "september", "oktober", "november", "december"),
+    ("jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"),
+    ("söndag", "måndag", "tisdag", "onsdag", "torsdag", "fredag", "lördag"),
+    ("sön", "mån", "tis", "ons", "tors", "fre", "lör"),
+    {"L": "YYYY-MM-DD", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd D MMMM YYYY HH:mm"},
+)
+
+# Hindi names the Gregorian months with borrowed forms and the weekdays after the planets; the week starts on Sunday.
+HI = DateLocale(
+    "hi",
+    ("जनवरी", "फ़रवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितंबर", "अक्तूबर", "नवंबर", "दिसंबर"),
+    ("जन.", "फ़र.", "मार्च", "अप्रैल", "मई", "जून", "जुल.", "अग.", "सित.", "अक्तू.", "नव.", "दिस."),
+    ("रविवार", "सोमवार", "मंगलवार", "बुधवार", "गुरुवार", "शुक्रवार", "शनिवार"),
+    ("रवि", "सोम", "मंगल", "बुध", "गुरु", "शुक्र", "शनि"),
+    {"L": "DD/MM/YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd, D MMMM YYYY HH:mm"},
+)
+
+# Thailand counts years in the Buddhist Era, 543 ahead of the Common Era: 2026 CE is 2569. The formatter does NOT convert — the year a config supplies is the year printed — so a caller that wants the BE year adds 543 itself. The pack says so in its own date descriptions rather than leaving a silent 543-year error.
+TH = DateLocale(
+    "th",
+    ("มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"),
+    ("ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."),
+    ("วันอาทิตย์", "วันจันทร์", "วันอังคาร", "วันพุธ", "วันพฤหัสบดี", "วันศุกร์", "วันเสาร์"),
+    ("อา.", "จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส."),
+    {"L": "DD/MM/YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd D MMMM YYYY HH:mm"},
+)
+
+# Czech, like Russian and Polish, inflects the month name inside a date: the standalone nominative is "leden" but a date reads "5. ledna 2026". These are the genitive forms the formatter needs; the nominative list lives in the pack at cs/date/month.txt. Month and weekday names are lower case.
+CS = DateLocale(
+    "cs",
+    ("ledna", "února", "března", "dubna", "května", "června", "července", "srpna", "září", "října", "listopadu", "prosince"),
+    ("led", "úno", "bře", "dub", "kvě", "čvn", "čvc", "srp", "zář", "říj", "lis", "pro"),
+    ("neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota"),
+    ("ne", "po", "út", "st", "čt", "pá", "so"),
+    {"L": "DD.MM.YYYY", "LL": "D. MMMM YYYY", "LLL": "D. MMMM YYYY HH:mm", "LLLL": "dddd D. MMMM YYYY HH:mm"},
+)
+
 _BY_NAME: dict[str, DateLocale] = {
     "en": EN,
     "eng": EN,
@@ -538,9 +588,16 @@ _BY_NAME: dict[str, DateLocale] = {
     "jpn": JA,
     "ko": KO,
     "kor": KO,
+    "nl": NL,
+    "nld": NL,
+    "cs": CS,
+    "ces": CS,
+    "th": TH,
+    "hi": HI,
+    "sv": SV,
 }
 
-NAMES = ("ar", "de", "el", "en", "es", "fr", "id", "it", "ja", "ko", "pl", "pt", "ru", "tr", "uk", "vi", "zh-cn")
+NAMES = ("ar", "cs", "de", "el", "en", "es", "fr", "id", "it", "ja", "ko", "hi", "nl", "pl", "pt", "ru", "sv", "th", "tr", "uk", "vi", "zh-cn")
 
 
 def resolve(name: str | None) -> DateLocale:

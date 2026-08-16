@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child), in Swedish
+locale: sv
+---
+Teknik
+Hälso- och sjukvård
+Finans
+Bygg
+Utbildning
+Besöksnäring
+Tillverkning
+Handel
+Transport
+Juridik

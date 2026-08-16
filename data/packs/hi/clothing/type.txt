@@ -1,0 +1,30 @@
+---
+description: Garment type (Hindi). Indian garments come first — saree, salwar-kameez, kurta, lehenga, dhoti, sherwani and so on — followed by the Western items worn everyday in India.
+locale: hi
+---
+साड़ी
+ब्लाउज़
+सलवार
+कमीज़
+कुर्ता
+कुर्ती
+चूड़ीदार
+लहँगा
+दुपट्टा
+धोती
+लुंगी
+शेरवानी
+अचकन
+नेहरू जैकेट
+पगड़ी
+अंगवस्त्रम
+पेटीकोट
+शॉल
+शर्ट
+पैंट
+जींस
+टी-शर्ट
+स्वेटर
+जैकेट
+स्कर्ट
+टोपी

@@ -1,0 +1,16 @@
+---
+description: Dishes of อาหารญี่ปุ่น (Japanese food) as named on Thai menus — the names are katakana-style loanwords written in Thai script.
+locale: th
+---
+ซูชิ
+ซาชิมิ
+ราเมง
+อุด้ง
+เทมปุระ
+ทงคัตสึ
+ยากิโทริ
+กิวด้ง
+ชาบูชาบู
+ทาโกยากิ
+โอโคโนมิยากิ
+ซุปมิโซะ

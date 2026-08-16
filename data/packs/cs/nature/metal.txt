@@ -1,0 +1,26 @@
+---
+description: Metal (Czech)
+locale: cs
+---
+Zlato
+Stříbro
+Platina
+Měď
+Železo
+Hliník
+Titan
+Zinek
+Nikl
+Olovo
+Cín
+Bronz
+Mosaz
+Ocel
+Palladium
+Kobalt
+Chrom
+Wolfram
+Rtuť
+Hořčík
+Lithium
+Mangan

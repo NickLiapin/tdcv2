@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter label (Hindi). India's financial year runs 1 April to 31 March, so Q1 is April-May-June and Q4 is January-February-March — a config that maps a calendar month to a quarter using the January-start convention will be one quarter out for Indian data. The Indian financial year is written as, for example, वित्त वर्ष 2025-26.
+locale: hi
+---
+पहली तिमाही
+दूसरी तिमाही
+तीसरी तिमाही
+चौथी तिमाही

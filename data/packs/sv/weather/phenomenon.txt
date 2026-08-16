@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Swedish). Four of these are northern-latitude facts rather than generic weather: norrsken is the aurora, midnattssol and polarnatt are the summer and winter of the area above the Arctic Circle, and snöyra is a driving ground blizzard.
+locale: sv
+---
+norrsken
+midnattssol
+polarnatt
+snöyra
+yrsnö
+hagel
+underkylt regn
+isbildning
+rimfrost
+dimbankar
+solsken
+regnbåge
+åskväder
+kraftig vind
+värmebölja

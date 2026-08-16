@@ -1,0 +1,11 @@
+---
+description: Swedish driving licence category for trucks, as Transportstyrelsen issues them. YKB, yrkeskompetensbevis, is not a licence category but a separate mandatory professional certificate renewed every five years — without it a C or D licence does not permit commercial driving.
+locale: sv
+---
+Behörighet B
+Behörighet BE
+Behörighet C1
+Behörighet C1E
+Behörighet C
+Behörighet CE
+YKB

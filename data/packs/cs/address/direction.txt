@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Czech district, estate or street name (sidliste Sever, mestska cast Jih)
+locale: cs
+---
+Sever
+Jih
+Východ
+Západ
+Severovýchod
+Severozápad
+Jihovýchod
+Jihozápad
+Severní
+Jižní
+Východní
+Západní
+Střed
+Centrum
+Předměstí

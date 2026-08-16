@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Thai). Thai budget accommodation is priced on a distinction Europe does not have — ห้องพัดลม (fan only) versus ห้องแอร์ (air-conditioned) — and พูลวิลล่า, บังกะโล and เรือนไทย are ordinary resort categories rather than luxury exceptions.
+locale: th
+---
+ห้องสแตนดาร์ด
+ห้องซูพีเรีย
+ห้องดีลักซ์
+จูเนียร์สวีท
+ห้องสวีท
+ห้องเตียงเดี่ยว
+ห้องเตียงคู่
+ห้องเตียงใหญ่
+ห้องพักสามคน
+ห้องครอบครัว
+ห้องสตูดิโอ
+ห้องพัดลม
+ห้องแอร์
+ห้องรวม
+บังกะโล
+พูลวิลล่า
+เรือนไทย
+ห้องวิวทะเล

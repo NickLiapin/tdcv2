@@ -1,0 +1,45 @@
+---
+description: Common generic drug names as Thai practice writes them: Latin-script INN. Thai prescriptions, hospital formularies and the National List of Essential Medicines all name generics in roman letters, so the whole list follows that one convention. Settled Thai spellings exist only for a handful of consumer-facing drugs (พาราเซตามอล, แอสไพริน) and mixing the two scripts in one list would misrepresent the record. The set leans Thai: albendazole and praziquantel for endemic helminths, artesunate for malaria, isoniazid and rifampicin for tuberculosis.
+locale: th
+---
+paracetamol
+ibuprofen
+diclofenac
+aspirin
+tramadol
+colchicine
+allopurinol
+amoxicillin
+amoxicillin/clavulanic acid
+dicloxacillin
+azithromycin
+roxithromycin
+ceftriaxone
+ciprofloxacin
+doxycycline
+metronidazole
+albendazole
+praziquantel
+artesunate
+isoniazid
+rifampicin
+metformin
+insulin glargine
+simvastatin
+atorvastatin
+amlodipine
+enalapril
+losartan
+hydrochlorothiazide
+furosemide
+warfarin
+clopidogrel
+omeprazole
+domperidone
+loratadine
+cetirizine
+chlorpheniramine
+salbutamol
+prednisolone
+levothyroxine
+sertraline

@@ -1,0 +1,9 @@
+---
+description: Work shift (Hindi); Indian collieries number their shifts rather than naming them, and the general shift is the daytime administrative one
+locale: hi
+---
+प्रथम पाली
+द्वितीय पाली
+रात्रि पाली
+सामान्य पाली
+घूर्णन पाली

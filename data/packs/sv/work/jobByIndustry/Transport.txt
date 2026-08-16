@@ -1,0 +1,16 @@
+---
+description: Jobs in transport, in Swedish
+locale: sv
+---
+lastbilschaufför
+bussförare
+taxiförare
+lokförare
+tågvärd
+pilot
+flygvärdinna
+sjökapten
+matros
+logistiker
+speditör
+terminalarbetare

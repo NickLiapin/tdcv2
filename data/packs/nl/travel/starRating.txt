@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Dutch; note the plural 'sterren' from two upwards).
+locale: nl
+---
+1 ster
+2 sterren
+3 sterren
+4 sterren
+5 sterren

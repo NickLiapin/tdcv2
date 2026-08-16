@@ -1,0 +1,19 @@
+---
+description: Order return reason (Czech)
+locale: cs
+---
+Dorazilo poškozené
+Přišlo jiné zboží
+Neodpovídá popisu
+Špatná velikost
+Rozmyslel jsem si to
+Našel jsem nižší cenu
+Výrobní vada
+Chybí části
+Pozdní doručení
+Už to nepotřebuji
+Objednáno omylem
+Horší kvalita, než jsem čekal
+Jiná barva než na fotografii
+Nekompatibilní
+Duplicitní objednávka

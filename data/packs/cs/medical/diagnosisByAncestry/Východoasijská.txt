@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, in Czech. A prevalence signal, not an exclusive one.
+locale: cs
+---
+Alfa-talasemie
+Deficit aldehyddehydrogenázy 2
+Hypolaktazie dospělých
+Nazofaryngeální karcinom
+Karcinom žaludku
+Primární glaukom s uzavřeným úhlem
+Kawasakiho nemoc
+Nemoc moyamoya
+Přecitlivělost na karbamazepin
+Patologická myopie

@@ -1,0 +1,54 @@
+---
+description: Language name (Swedish). The first five after svenska are Sweden's five recognised national minority languages — finska, meänkieli, samiska, romani chib and jiddisch — a statutory list under the språklag, which is why they lead here.
+locale: sv
+---
+svenska
+finska
+meänkieli
+samiska
+romani chib
+jiddisch
+engelska
+norska
+danska
+isländska
+färöiska
+tyska
+nederländska
+franska
+spanska
+portugisiska
+italienska
+grekiska
+polska
+ryska
+ukrainska
+estniska
+lettiska
+litauiska
+tjeckiska
+slovakiska
+ungerska
+rumänska
+bulgariska
+serbiska
+kroatiska
+bosniska
+albanska
+turkiska
+arabiska
+persiska
+kurdiska
+somaliska
+tigrinja
+amhariska
+swahili
+hindi
+urdu
+bengali
+kinesiska
+japanska
+koreanska
+vietnamesiska
+thailändska
+svenskt teckenspråk

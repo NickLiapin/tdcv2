@@ -1,0 +1,28 @@
+---
+description: Swedish post-nominal / name suffix. Swedish has no Jr / Sr: d.ä. (den äldre) and d.y. (den yngre) are the equivalents and are written after the name. The rest are Swedish academic and professional post-nominals; leg. marks a state licence issued by Socialstyrelsen.
+locale: sv
+---
+d.ä.
+d.y.
+fil.kand.
+fil.mag.
+fil.lic.
+fil.dr
+tekn.kand.
+tekn.lic.
+tekn.dr
+med.kand.
+med.lic.
+med.dr
+jur.kand.
+jur.dr
+ek.kand.
+ek.mag.
+civ.ing.
+civ.ek.
+leg.läk.
+leg.tandläk.
+leg.psykolog
+leg.sjuksköterska
+MBA
+professor emeritus

@@ -1,0 +1,12 @@
+---
+description: Dishes of vietnamesiskt cuisine, in Swedish
+locale: sv
+---
+Pho
+Banh mi
+Vårrullar med räkor
+Bun cha
+Com tam
+Bo luc lac
+Ca kho to
+Che

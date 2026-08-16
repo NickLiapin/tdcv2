@@ -1,0 +1,23 @@
+---
+description: Official Dutch document type. DigiD is not paper but it belongs here: it is the national login credential, and essentially every dealing with a Dutch authority - tax return, health records, municipality, pension - goes through it. The burgerservicenummer (BSN) is the single citizen number used by every public body. A Verklaring Omtrent het Gedrag is the standard good-conduct certificate an employer asks for. Carrying an identiteitskaart, paspoort or rijbewijs is legally required from age 14 in the Netherlands (identificatieplicht), so the identity card is held far more widely than in countries where it is optional.
+locale: nl
+---
+Paspoort
+Identiteitskaart
+Rijbewijs
+Verblijfsvergunning
+Uittreksel BRP
+Burgerservicenummer
+DigiD
+Verklaring Omtrent het Gedrag
+Geboorteakte
+Huwelijksakte
+Overlijdensakte
+Uittreksel Kadaster
+Uittreksel Handelsregister
+Kentekenbewijs
+Belastingaangifte
+Omgevingsvergunning
+Visum
+Diploma
+Zorgpas

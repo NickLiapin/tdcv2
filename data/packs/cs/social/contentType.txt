@@ -1,0 +1,17 @@
+---
+description: Social content type (Czech)
+locale: cs
+---
+Příspěvek
+Komentář
+Odpověď
+Story
+Reels
+Anketa
+Živé vysílání
+Sdílení
+Vlákno
+Zmínka
+Soukromá zpráva
+Krátké video
+Fotoalbum

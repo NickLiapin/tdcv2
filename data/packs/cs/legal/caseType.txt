@@ -1,0 +1,17 @@
+---
+description: Legal case type (Czech)
+locale: cs
+---
+Občanskoprávní
+Trestní
+Rodinná
+Insolvenční
+Náhrada škody
+Pracovněprávní
+Spor ze smlouvy
+Duševní vlastnictví
+Nemovitosti
+Cizinecká
+Daňová
+Správní
+Obchodní

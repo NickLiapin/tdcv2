@@ -1,0 +1,7 @@
+---
+description: Season (Thai). Thailand is tropical and has THREE seasons, not the four of the temperate default: ฤดูร้อน (hot, roughly March-May), ฤดูฝน (rainy / monsoon, June-October) and ฤดูหนาว (cool, November-February). ฤดูหนาว means "cool season" — it carries no snow or frost.
+locale: th
+---
+ฤดูร้อน
+ฤดูฝน
+ฤดูหนาว

@@ -1,0 +1,29 @@
+---
+description: Gemstone (Swedish)
+locale: sv
+---
+diamant
+rubin
+safir
+smaragd
+topas
+ametist
+akvamarin
+opal
+granat
+turmalin
+peridot
+citrin
+bergkristall
+rosenkvarts
+rökkvarts
+jaspis
+onyx
+agat
+turkos
+lapis lazuli
+malakit
+bärnsten
+korall
+pärla
+månsten

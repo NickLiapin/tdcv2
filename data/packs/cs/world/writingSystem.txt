@@ -1,0 +1,24 @@
+---
+description: Writing system (Czech). Czech itself uses the Latin alphabet with two diacritics invented for it - the hacek (c, r, s, z, e) and the carka (a, e, i, o, u, y) - plus the krouzek in u. The letter r stands for a sound found in essentially no other language.
+locale: cs
+---
+Latinka
+Cyrilice
+Řecká abeceda
+Arabské písmo
+Hebrejské písmo
+Arménské písmo
+Gruzínské písmo
+Čínské znaky
+Hiragana
+Katakana
+Hangul
+Dévanágarí
+Thajské písmo
+Tibetské písmo
+Etiopské písmo
+Čerokézské slabičné písmo
+Mayské písmo
+Bengálské písmo
+Tamilské písmo
+Hlaholice

@@ -1,0 +1,20 @@
+---
+description: Horse breed (Dutch). Four of these are Dutch breeds: the Fries paard (the black Friesian), the Gelders paard, the Groninger paard and the Nederlands warmbloedpaard, registered by the KWPN studbook and the most-used sport horse in the country.
+locale: nl
+---
+Fries paard
+Gelders paard
+Groninger paard
+Nederlands warmbloedpaard
+Shetlandpony
+Fjordenpaard
+Arabier
+Engelse volbloed
+Andalusiër
+Lusitano
+Haflinger
+Appaloosa
+Quarter horse
+Shire
+Clydesdale
+Percheron

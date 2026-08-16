@@ -1,0 +1,19 @@
+---
+description: Dishes of Spaans cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Paella
+Tortilla espanola
+Gazpacho
+Patatas bravas
+Jamon iberico
+Gambas al ajillo
+Croquetas
+Pulpo a la gallega
+Fabada
+Cochinillo
+Pisto
+Albondigas
+Churros met chocolade
+Crema catalana
+Pan con tomate

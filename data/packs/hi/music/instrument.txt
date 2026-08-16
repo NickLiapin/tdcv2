@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Hindi). Indian classical and folk instruments come first, followed by the international ones.
+locale: hi
+---
+सितार
+तबला
+सारंगी
+बाँसुरी
+वीणा
+सरोद
+संतूर
+शहनाई
+हारमोनियम
+ढोलक
+मृदंग
+तानपुरा
+पखावज
+घटम
+नादस्वरम
+ढोल
+नगाड़ा
+एकतारा
+डमरू
+सुरबहार
+मंजीरा
+करताल
+चिमटा
+मोरचंग
+रावणहत्था
+डफली
+गिटार
+पियानो
+वायलिन
+ड्रम
+की-बोर्ड

@@ -1,0 +1,14 @@
+---
+description: Positions in association football (Czech)
+locale: cs
+---
+Brankář
+Stoper
+Krajní obránce
+Defenzivní záložník
+Střední záložník
+Ofenzivní záložník
+Krajní záložník
+Křídlo
+Útočník
+Hrotový útočník

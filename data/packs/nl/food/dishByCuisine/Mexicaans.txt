@@ -1,0 +1,18 @@
+---
+description: Dishes of Mexicaans cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Tacos al pastor
+Burrito
+Quesadilla
+Enchiladas
+Guacamole
+Nachos
+Fajitas
+Chili con carne
+Tamales
+Pozole
+Ceviche
+Elote
+Churros
+Salsa verde

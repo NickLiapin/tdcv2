@@ -1,0 +1,9 @@
+---
+description: Credit score band (Czech)
+locale: cs
+---
+Špatné
+Podprůměrné
+Dobré
+Velmi dobré
+Výborné

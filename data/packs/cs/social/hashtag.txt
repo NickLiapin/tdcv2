@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Czech (prefix with # in a template)
+locale: cs
+---
+láska
+štěstí
+krása
+móda
+příroda
+umění
+cestování
+jídlo
+sport
+motivace
+styl
+slunce
+trendy
+provás
+rodina
+léto
+fitness
+život
+inspirace
+vzpomínky
+fotografie
+hudba
+zdraví
+přátelství
+neděle
+káva
+kočky
+psi
+čtení
+pátek

@@ -1,0 +1,19 @@
+---
+description: Dishes of Marokkaans cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Tajine met kip en olijven
+Tajine met lamsvlees en pruimen
+Couscous met zeven groenten
+Harira
+Bastilla
+Merguez
+Kefta
+Zaalouk
+Taktouka
+Msemen
+Harcha
+Briouat
+Chebakia
+Muntthee
+Rfissa

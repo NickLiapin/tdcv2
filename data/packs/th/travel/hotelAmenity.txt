@@ -1,0 +1,35 @@
+---
+description: Hotel amenity (Thai). A Thai hotel advertises เครื่องปรับอากาศ and เครื่องทำน้ำอุ่น where a European one advertises heating — air conditioning and a hot-water heater are the selling points in a tropical country. นวดแผนไทย is an ordinary in-house amenity, and in beach and island towns บริการเช่ารถจักรยานยนต์ and เรือรับส่ง are standard hotel services.
+locale: th
+---
+เครื่องปรับอากาศ
+เครื่องทำน้ำอุ่น
+Wi-Fi ฟรี
+สระว่ายน้ำ
+บาร์ริมสระ
+อาหารเช้า
+ร้านอาหารไทย
+มินิบาร์
+ตู้เย็น
+กาต้มน้ำไฟฟ้า
+น้ำดื่มบริการฟรี
+ตู้เซฟ
+มุ้งลวด
+ระเบียงส่วนตัว
+วิวทะเล
+สปา
+นวดแผนไทย
+ฟิตเนส
+บริการซักรีด
+เครื่องซักผ้าหยอดเหรียญ
+บริการรับฝากกระเป๋า
+แผนกต้อนรับ 24 ชั่วโมง
+ที่จอดรถ
+รถรับส่งสนามบิน
+เรือรับส่ง
+บริการเช่ารถจักรยานยนต์
+บริการเช่าจักรยาน
+ทัวร์เดย์ทริป
+ห้องประชุม
+ลิฟต์
+อนุญาตให้นำสัตว์เลี้ยงเข้าพัก

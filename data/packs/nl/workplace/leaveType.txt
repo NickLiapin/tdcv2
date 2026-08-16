@@ -1,0 +1,18 @@
+---
+description: Type of leave, using the statutory Dutch names. Dutch law splits birth leave finely: zwangerschapsverlof is the leave before the birth, bevallingsverlof the leave after it, geboorteverlof the partner's week and aanvullend geboorteverlof the partner's extra five weeks. Calamiteitenverlof is short emergency leave and zorgverlof comes in a short and a long form. Belgian leave categories are named differently (klein verlet, tijdskrediet, loopbaanonderbreking) and are not in this list.
+locale: nl
+---
+Vakantieverlof
+Ziekteverzuim
+Zwangerschapsverlof
+Bevallingsverlof
+Geboorteverlof
+Aanvullend geboorteverlof
+Ouderschapsverlof
+Calamiteitenverlof
+Kortdurend zorgverlof
+Langdurend zorgverlof
+Adoptieverlof
+Onbetaald verlof
+Buitengewoon verlof
+Studieverlof

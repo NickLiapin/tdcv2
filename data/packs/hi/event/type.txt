@@ -1,0 +1,22 @@
+---
+description: Event type (Hindi); India's real event mix, so the Hindu life-cycle ceremonies (गृह प्रवेश housewarming, मुंडन first haircut, नामकरण naming) and the pre-wedding हल्दी and मेहंदी sit alongside conferences and fairs
+locale: hi
+---
+शादी
+सगाई
+हल्दी
+मेहंदी
+गृह प्रवेश
+मुंडन
+नामकरण
+जन्मदिन
+सालगिरह
+दीवाली समारोह
+होली मिलन
+पूजा
+जागरण
+कीर्तन
+मेला
+संगीत कार्यक्रम
+सम्मेलन
+प्रदर्शनी

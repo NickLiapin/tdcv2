@@ -1,0 +1,16 @@
+---
+description: Jobs in Retail (Czech)
+locale: cs
+---
+Prodavač
+Vedoucí prodejny
+Pokladní
+Skladník
+Merchandiser
+Nákupčí
+Regionální manažer
+Vedoucí směny
+Zákaznický poradce
+Aranžér výloh
+Inventurista
+Pracovník e-shopu

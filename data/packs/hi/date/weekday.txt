@@ -1,0 +1,11 @@
+---
+description: Weekday name (Hindi). The Indian week begins on रविवार (Sunday), so this list is Sunday-first, not Monday-first as in the European packs. Each name is built on the planet that rules the day — रवि the sun, सोम the moon, मंगल Mars, बुध Mercury, गुरु Jupiter, शुक्र Venus, शनि Saturn.
+locale: hi
+---
+रविवार
+सोमवार
+मंगलवार
+बुधवार
+गुरुवार
+शुक्रवार
+शनिवार

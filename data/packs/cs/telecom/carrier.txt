@@ -1,0 +1,30 @@
+---
+description: Mobile and fixed-line carrier operating in Czechia. O2, T-Mobile and Vodafone own the three networks; the rest are virtual operators or regional internet providers.
+locale: cs
+---
+O2
+T-Mobile
+Vodafone
+Kaktus
+Tesco Mobile
+SAZKAmobil
+Bleskmobil
+Nordic Telecom
+Mobil.cz
+Lycamobile
+Starnet
+Poda
+Nej.cz
+Netbox
+CETIN
+České Radiokomunikace
+Telly
+freeSAT
+Skylink
+Dial Telecom
+Quantcom
+Vinatel
+Českomoravská telekomunikační
+Internet CZ
+Faster CZ
+Airwaynet

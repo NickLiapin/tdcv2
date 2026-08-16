@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Czech)
+locale: cs
+---
+Arteriální hypertenze
+Ischemická choroba srdeční
+Fibrilace síní
+Srdeční selhání
+Infarkt myokardu
+Hyperlipidemie
+Dilatační kardiomyopatie
+Myokarditida
+Aortální stenóza
+Supraventrikulární tachykardie

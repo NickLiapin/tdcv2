@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Czech)
+locale: cs
+---
+Pilíř
+Mlýnová spojka
+Druhá řada
+Třetí řada
+Číslo osm
+Útoková spojka
+Střed útoku
+Křídlo
+Zadák
+Mlynář

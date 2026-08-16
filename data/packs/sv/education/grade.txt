@@ -1,0 +1,16 @@
+---
+description: Grade / mark in the Swedish school system. A-F has been the scale since the 2011 reform: A to E pass, F fails, and a dash (streck) means there was too little basis to set a grade at all. IG / G / VG / MVG is the scale it replaced and still appears in older records; U / G / VG is the separate university scale.
+locale: sv
+---
+A
+B
+C
+D
+E
+F
+-
+MVG
+VG
+G
+IG
+U

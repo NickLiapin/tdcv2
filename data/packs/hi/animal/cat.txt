@@ -1,0 +1,22 @@
+---
+description: Cat breed (Hindi); India has no indigenous pedigree cat breed, so this is the international list as sold in India, plus देसी बिल्ली, the non-pedigree Indian domestic cat
+locale: hi
+---
+फ़ारसी
+सियामी
+मेन कून
+बंगाल
+रैगडॉल
+स्फ़िंक्स
+ब्रिटिश शॉर्टहेयर
+अमेरिकन शॉर्टहेयर
+हिमालयन
+बॉम्बे
+एबिसिनियन
+रशियन ब्लू
+स्कॉटिश फ़ोल्ड
+नॉर्वेजियन फ़ॉरेस्ट
+बर्मी
+बिरमन
+तुर्की अंगोरा
+देसी बिल्ली

@@ -1,0 +1,20 @@
+---
+description: Payment method (Thai). Thailand is not the card-first European default: พร้อมเพย์ (PromptPay), the national instant-transfer rail, and its QR code carry everyday spending, and เก็บเงินปลายทาง (cash on delivery) still takes a large share of e-commerce. เคาน์เตอร์เซอร์วิส is the over-the-counter channel in convenience stores.
+locale: th
+---
+พร้อมเพย์
+สแกนคิวอาร์โค้ด
+เก็บเงินปลายทาง
+บัตรเครดิต
+บัตรเดบิต
+โอนผ่านธนาคาร
+โมบายแบงก์กิ้ง
+TrueMoney Wallet
+Rabbit LINE Pay
+ShopeePay
+เคาน์เตอร์เซอร์วิส
+เงินสด
+ผ่อนชำระ 0%
+บัตรของขวัญ
+Apple Pay
+หักบัญชีอัตโนมัติ

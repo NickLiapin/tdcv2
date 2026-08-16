@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Dutch, two letters, lowercase, no full stop)
+locale: nl
+---
+ma
+di
+wo
+do
+vr
+za
+zo

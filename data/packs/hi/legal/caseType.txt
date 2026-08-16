@@ -1,0 +1,21 @@
+---
+description: Type of legal matter as classified in Indian courts. Public interest litigation and writ petitions are distinctively Indian categories with no European equivalent.
+locale: hi
+---
+दीवानी
+फ़ौजदारी
+पारिवारिक
+वैवाहिक विवाद
+संपत्ति विवाद
+किरायेदारी विवाद
+उपभोक्ता शिकायत
+श्रम विवाद
+सेवा संबंधी विवाद
+अनुबंध विवाद
+कर विवाद
+बौद्धिक संपदा
+दिवाला एवं शोधन अक्षमता
+मोटर दुर्घटना दावा
+जनहित याचिका
+रिट याचिका
+पर्यावरण संबंधी

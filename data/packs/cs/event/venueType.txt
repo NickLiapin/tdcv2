@@ -1,0 +1,20 @@
+---
+description: Venue type (Czech). Sokolovna - the hall of the Sokol gymnastic movement - is in almost every Czech town and doubles as the village dance hall.
+locale: cs
+---
+Hotelový sál
+Kongresové centrum
+Stadion
+Divadlo
+Banketní sál
+Terasa
+Zahrada
+Průmyslová hala
+Aula
+Noční klub
+Konferenční sál
+Zámek
+Vinařství
+Pláž
+Muzeum
+Sokolovna

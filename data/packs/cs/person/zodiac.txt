@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Czech)
+locale: cs
+---
+Beran
+Býk
+Blíženci
+Rak
+Lev
+Panna
+Váhy
+Štír
+Střelec
+Kozoroh
+Vodnář
+Ryby

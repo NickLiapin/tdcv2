@@ -1,0 +1,32 @@
+---
+description: Flower (Hindi); led by the lotus, India's national flower, and the marigold, the everyday ritual flower of India
+locale: hi
+---
+कमल
+गेंदा
+गुलाब
+चमेली
+मोगरा
+बेला
+जूही
+चंपा
+पलाश
+हरसिंगार
+रजनीगंधा
+कनेर
+गुड़हल
+सूरजमुखी
+केतकी
+कचनार
+सदाबहार
+गुलदाउदी
+रातरानी
+कुमुदिनी
+ब्रह्मकमल
+नरगिस
+गुलबहार
+ट्यूलिप
+लैवेंडर
+ऑर्किड
+डहलिया
+बोगनवेलिया

@@ -1,0 +1,9 @@
+---
+description: Positions in basket, in Swedish. Swedish basketball uses the English position names unchanged, so they are kept as-is.
+locale: sv
+---
+point guard
+shooting guard
+small forward
+power forward
+center

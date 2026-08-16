@@ -1,0 +1,16 @@
+---
+description: Leave type (Thai). Two entries are genuine Thai statutory entitlements with no European counterpart — ลาบวช is leave to ordain as a Buddhist monk, and ลาเพื่อประกอบพิธีฮัจย์ is leave for Muslim employees to perform the Hajj; ลาไปทำหมัน (sterilisation leave) is likewise written into Thai labour law
+locale: th
+---
+ลาป่วย
+ลากิจ
+ลาพักร้อน
+ลาคลอด
+ลาไปช่วยภริยาคลอดบุตร
+ลาบวช
+ลาเพื่อประกอบพิธีฮัจย์
+ลารับราชการทหาร
+ลาไปทำหมัน
+ลาเพื่อฝึกอบรม
+ลาศึกษาต่อ
+ลาโดยไม่รับค่าจ้าง

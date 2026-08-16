@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in Nephrology (Thai). ภาวะเลือดเป็นกรดจากท่อไต (renal tubular acidosis) is unusually common in Northeast Thailand, where it underlies the region's hypokalaemic paralysis.
+locale: th
+---
+โรคไตเรื้อรัง
+ไตวายเรื้อรังระยะสุดท้าย
+ไตวายเฉียบพลัน
+โรคไตจากเบาหวาน
+โรคไตจากความดันโลหิตสูง
+หน่วยไตอักเสบ
+กลุ่มอาการเนโฟรติก
+กรวยไตอักเสบ
+นิ่วในไต
+โรคถุงน้ำในไตชนิดพันธุกรรม
+ภาวะเลือดเป็นกรดจากท่อไต
+การติดเชื้อทางเดินปัสสาวะ

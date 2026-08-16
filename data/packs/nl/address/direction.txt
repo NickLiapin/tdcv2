@@ -1,0 +1,19 @@
+---
+description: Directional qualifier appended to a Dutch street name or district (Ringweg Noord, Amsterdam-Zuidoost)
+locale: nl
+---
+Noord
+Zuid
+Oost
+West
+Noordoost
+Noordwest
+Zuidoost
+Zuidwest
+Midden
+Centrum
+Binnenstad
+Noorden
+Zuiden
+Oosten
+Westen

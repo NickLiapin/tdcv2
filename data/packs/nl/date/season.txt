@@ -1,0 +1,8 @@
+---
+description: Season (Dutch, lowercase). Dutch has two everyday words for two of the four: lente and voorjaar both mean spring, herfst and najaar both mean autumn. The -jaar pair is the one used in business and weather language (najaarscollectie, voorjaarsnota), the other in ordinary speech. Only the four canonical values are listed here.
+locale: nl
+---
+lente
+zomer
+herfst
+winter

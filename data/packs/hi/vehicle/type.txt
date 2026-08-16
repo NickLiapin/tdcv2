@@ -1,0 +1,26 @@
+---
+description: Vehicle type (Hindi); the real Indian road mix rather than European car body styles, so three-wheelers, tempos, bullock carts and rail transit sit alongside car classes
+locale: hi
+---
+साइकिल
+साइकिल रिक्शा
+ऑटो रिक्शा
+ई-रिक्शा
+मोपेड
+स्कूटर
+मोटरसाइकिल
+कार
+हैचबैक
+सेडान
+एसयूवी
+जीप
+टैक्सी
+टेम्पो
+टेम्पो ट्रैवलर
+मिनी ट्रक
+ट्रक
+बस
+ट्रैक्टर
+बैलगाड़ी
+मेट्रो
+लोकल ट्रेन

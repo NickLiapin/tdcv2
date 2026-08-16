@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Hindi). Dermatophytosis and melasma are among the highest-volume Indian dermatology diagnoses.
+locale: hi
+---
+सोरायसिस
+ऐटोपिक डर्मेटाइटिस
+मुँहासे
+दाद
+खुजली (स्कैबीज़)
+श्वित्र
+कुष्ठ रोग
+संपर्क जनित त्वचाशोथ
+पित्ती
+मेलेस्मा

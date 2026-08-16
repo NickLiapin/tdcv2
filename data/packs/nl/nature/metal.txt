@@ -1,0 +1,26 @@
+---
+description: Metal (Dutch). Note IJzer: IJ is a single Dutch digraph and both letters are capitalised together at the start of a word, so 'Ijzer' is a spelling error. Any case transform applied to Dutch text has to know this.
+locale: nl
+---
+Goud
+Zilver
+Platina
+Koper
+IJzer
+Aluminium
+Titaan
+Zink
+Nikkel
+Lood
+Tin
+Brons
+Messing
+Staal
+Palladium
+Kobalt
+Chroom
+Wolfraam
+Kwik
+Magnesium
+Lithium
+Mangaan

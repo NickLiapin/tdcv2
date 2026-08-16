@@ -1,0 +1,12 @@
+---
+description: Dishes of argentinskt cuisine, in Swedish
+locale: sv
+---
+Asado
+Empanadas
+Chimichurri
+Milanesa
+Locro
+Provoleta
+Alfajores
+Dulce de leche

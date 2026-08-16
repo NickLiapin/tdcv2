@@ -1,0 +1,40 @@
+---
+description: Medical specialities (Swedish, as Socialstyrelsen names them). Swedish uses plain Swedish compounds where English reaches for Greek — lungmedicin, njurmedicin, hudsjukdomar, ögonsjukdomar, öron-, näs- och halssjukdomar — and allmänmedicin is the GP speciality.
+locale: sv
+---
+allmänmedicin
+internmedicin
+kardiologi
+neurologi
+onkologi
+hematologi
+endokrinologi
+gastroenterologi
+njurmedicin
+lungmedicin
+reumatologi
+infektionssjukdomar
+hudsjukdomar
+psykiatri
+barn- och ungdomspsykiatri
+geriatrik
+barnmedicin
+obstetrik och gynekologi
+kirurgi
+ortopedi
+urologi
+kärlkirurgi
+thoraxkirurgi
+neurokirurgi
+plastikkirurgi
+handkirurgi
+anestesi och intensivvård
+akutsjukvård
+radiologi
+klinisk patologi
+klinisk kemi
+klinisk mikrobiologi
+ögonsjukdomar
+öron-, näs- och halssjukdomar
+rehabiliteringsmedicin
+arbets- och miljömedicin

@@ -1,0 +1,17 @@
+---
+description: Mobile and broadband plan type (Dutch). Sim only is the dominant Dutch contract form: since 2016 a bundled handset counts as consumer credit under Dutch law and must be registered at BKR, which pushed the market towards buying the phone separately. Alles-in-1 is the standard bundle of internet, television and telephony sold by KPN, Ziggo and Odido.
+locale: nl
+---
+Prepaid
+Abonnement
+Sim only
+Onbeperkt
+Alleen data
+Gezinsbundel
+Gedeelde bundel
+Zakelijk abonnement
+Betalen per gebruik
+Vast tarief
+Maandbundel
+Opwaarderen
+Alles-in-1

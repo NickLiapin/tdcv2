@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Swedish; written kvartal in full, Q1-Q4 in reporting)
+locale: sv
+---
+Q1
+Q2
+Q3
+Q4

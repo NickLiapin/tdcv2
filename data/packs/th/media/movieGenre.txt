@@ -1,0 +1,23 @@
+---
+description: Movie genre (Thai); สยองขวัญ in the Thai market overwhelmingly means the domestic ghost film (หนังผี) rather than the Western slasher, so the label does not map one-to-one onto European horror
+locale: th
+---
+แอ็กชัน
+ตลก
+ดรามา
+สยองขวัญ
+ระทึกขวัญ
+โรแมนติก
+โรแมนติกคอมเมดี้
+ไซไฟ
+แฟนตาซี
+สารคดี
+แอนิเมชัน
+ผจญภัย
+อาชญากรรม
+ลึกลับ
+คาวบอย
+มิวสิคัล
+สงคราม
+ชีวประวัติ
+ครอบครัว

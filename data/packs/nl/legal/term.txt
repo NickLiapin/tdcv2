@@ -1,0 +1,27 @@
+---
+description: Legal term (Dutch). Dutch splits what English calls a judgment three ways and the words are not interchangeable: a vonnis is a first-instance decision of a rechtbank, an arrest is a decision of a gerechtshof or the Hoge Raad, and a beschikking is a decision in proceedings that have no opposing party. Cassatie is review on points of law only, so the Hoge Raad does not re-examine the facts. Griffierecht is the court fee every claimant pays up front.
+locale: nl
+---
+Eiser
+Gedaagde
+Verdachte
+Dagvaarding
+Betekening
+Verklaring onder ede
+Getuigenverklaring
+Voorlopige voorziening
+Vonnis
+Arrest
+Beschikking
+Schikking
+Procedure
+Rechtszitting
+Bevoegdheid
+Hoger beroep
+Cassatie
+Officier van justitie
+Advocaat
+Bewijs
+Volmacht
+Griffierecht
+Proceskosten

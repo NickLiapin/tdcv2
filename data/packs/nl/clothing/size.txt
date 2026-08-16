@@ -1,0 +1,12 @@
+---
+description: Clothing size, international letters - used in Dutch and Flemish shops alongside the numeric confectiemaat, which runs roughly 36-46 for women and 46-58 for men and is what labels and mail-order forms usually print. Only the letters are listed here so a single draw stays internally consistent; use a number range for confectiemaat.
+locale: nl
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

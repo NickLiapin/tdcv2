@@ -1,0 +1,20 @@
+---
+description: Dishes of อาหารอีสาน (Northeastern Thai). Lao-influenced, built on sticky rice, grilling, lime, toasted rice powder and ปลาร้า fermented fish — no coconut milk, and hotter and more sour than Central Thai food.
+locale: th
+---
+ส้มตำไทย
+ส้มตำปูปลาร้า
+ตำซั่ว
+ลาบหมู
+ลาบเป็ด
+น้ำตกหมู
+ก้อยกุ้ง
+ไก่ย่าง
+ข้าวเหนียว
+ต้มแซ่บกระดูกอ่อน
+ซุปหน่อไม้
+หมกหน่อไม้
+อ่อมหมู
+แจ่วบอง
+ไส้กรอกอีสาน
+เนื้อแดดเดียว

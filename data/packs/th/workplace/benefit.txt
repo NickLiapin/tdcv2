@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Thai). ประกันสังคม is the statutory social security scheme every employer must enrol staff in, and เบี้ยขยัน (a monthly attendance bonus forfeited by being late or absent) is a standard Thai payroll line with no European equivalent
+locale: th
+---
+ประกันสังคม
+กองทุนสำรองเลี้ยงชีพ
+ประกันสุขภาพกลุ่ม
+ประกันชีวิตกลุ่ม
+ประกันอุบัติเหตุ
+เบี้ยขยัน
+ค่าครองชีพ
+โบนัสประจำปี
+ค่าเดินทาง
+ค่าอาหาร
+ค่าโทรศัพท์
+ที่พักพนักงาน
+รถรับส่งพนักงาน
+ตรวจสุขภาพประจำปี
+ชุดยูนิฟอร์ม
+ทำงานแบบไฮบริด
+อบรมและพัฒนาทักษะ
+ค่าเล่าเรียนบุตร

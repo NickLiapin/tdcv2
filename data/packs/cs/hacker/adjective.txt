@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Czech)
+locale: cs
+---
+pomocný
+primární
+sekundární
+digitální
+virtuální
+redundantní
+bezdrátový
+optický
+neuronový
+dotykový
+multiplatformní
+distribuovaný
+šifrovaný
+vzdálený
+mobilní
+vestavěný
+škálovatelný
+asynchronní
+obousměrný
+otevřený
+polovodičový
+rychlý
+výkonný
+cloudový
+síťový
+offline
+64bitový
+8bitový

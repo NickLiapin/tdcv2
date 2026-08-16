@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Swedish). Swedish abbreviates to three letters without a full stop; maj is never abbreviated because it is already three letters.
+locale: sv
+---
+jan
+feb
+mar
+apr
+maj
+jun
+jul
+aug
+sep
+okt
+nov
+dec

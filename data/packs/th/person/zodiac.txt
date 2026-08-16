@@ -1,0 +1,16 @@
+---
+description: Western zodiac sign in Thai (ราศี). Note that this is not the sign most Thais would give: everyday Thai identity runs on the twelve-year animal cycle ปีนักษัตร (ชวด ฉลู ขาล เถาะ มะโรง มะเส็ง มะเมีย มะแม วอก ระกา จอ กุน) and, even more, on the day of the week a person was born, which carries its own colour and its own Buddha image. Those two systems are not in this file because this file is the ราศี; a config that wants them needs a different list.
+locale: th
+---
+ราศีเมษ
+ราศีพฤษภ
+ราศีเมถุน
+ราศีกรกฎ
+ราศีสิงห์
+ราศีกันย์
+ราศีตุลย์
+ราศีพิจิก
+ราศีธนู
+ราศีมังกร
+ราศีกุมภ์
+ราศีมีน

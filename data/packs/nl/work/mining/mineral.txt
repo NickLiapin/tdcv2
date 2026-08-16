@@ -1,0 +1,28 @@
+---
+description: Mined mineral or extracted commodity (Dutch). The entries that matter in the Netherlands itself are aardgas, steenzout, zand, grind and klei, plus turf, which was the country's fuel for centuries; the metals are included for general use rather than because they are mined locally.
+locale: nl
+---
+Aardgas
+Steenzout
+Zand
+Grind
+Klei
+Turf
+Steenkool
+Bruinkool
+Kalksteen
+Gips
+IJzererts
+Koper
+Goud
+Zilver
+Zink
+Lood
+Bauxiet
+Nikkel
+Uranium
+Lithium
+Kobalt
+Tin
+Fosfaat
+Kalizout

@@ -1,0 +1,9 @@
+---
+description: Credit score band (Hindi). India does not use the US FICO 300-850 scale: the CIBIL score runs 300-900 and these five bands map to 300-549 / 550-649 / 650-749 / 750-799 / 800-900.
+locale: hi
+---
+ख़राब
+औसत
+अच्छा
+बहुत अच्छा
+उत्कृष्ट

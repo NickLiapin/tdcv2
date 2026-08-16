@@ -1,0 +1,84 @@
+---
+description: Medical diagnosis in Swedish that can occur in any patient — no sex or ancestry restriction. Three of these are specifically Swedish clinical facts: utmattningssyndrom is a diagnosis of its own in the Swedish ICD-10-SE (F43.8A) and has no direct English equivalent; borreliainfektion and TBE are tick-borne and routine in Swedish primary care, with TBE covered by a regional vaccination programme. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: sv
+---
+Hypertoni
+Typ 2-diabetes
+Typ 1-diabetes
+Förhöjda blodfetter
+Fetma
+Astma
+KOL
+Allergisk rinit
+Kronisk bronkit
+Lunginflammation
+Sömnapné
+Hjärtsvikt
+Förmaksflimmer
+Kärlkramp
+Hjärtinfarkt
+Stroke
+TIA
+Djup ventrombos
+Lungemboli
+Åderbråck
+Migrän
+Spänningshuvudvärk
+Epilepsi
+Yrsel
+Tinnitus
+Hörselnedsättning
+Grå starr
+Glaukom
+Torra ögon
+Depression
+Generaliserat ångestsyndrom
+Paniksyndrom
+Utmattningssyndrom
+Sömnstörning
+ADHD
+Autismspektrumtillstånd
+Demens
+Alzheimers sjukdom
+Parkinsons sjukdom
+Multipel skleros
+Reumatoid artrit
+Artros
+Osteoporos
+Gikt
+Fibromyalgi
+Ischias
+Diskbråck
+Karpaltunnelsyndrom
+Atopiskt eksem
+Psoriasis
+Akne
+Rosacea
+Nässelutslag
+Bältros
+Vattkoppor
+Körtelfeber
+Influensa
+Covid-19
+Halsfluss
+Bihåleinflammation
+Öroninflammation
+Urinvägsinfektion
+Njursten
+Kronisk njursvikt
+Gallsten
+Magsår
+Gastrit
+Refluxsjukdom
+Celiaki
+Crohns sjukdom
+Ulcerös kolit
+IBS
+Hypotyreos
+Hypertyreos
+Järnbristanemi
+B12-brist
+D-vitaminbrist
+Borreliainfektion
+TBE
+Vinterkräksjuka

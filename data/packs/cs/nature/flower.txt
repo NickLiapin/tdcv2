@@ -1,0 +1,32 @@
+---
+description: Flower (Czech)
+locale: cs
+---
+Růže
+Tulipán
+Sedmikráska
+Slunečnice
+Lilie
+Orchidej
+Narcis
+Měsíček
+Levandule
+Kosatec
+Pivoňka
+Karafiát
+Chryzantéma
+Mák
+Fialka
+Jasmín
+Ibišek
+Lotos
+Jiřina
+Begónie
+Konvalinka
+Gardénie
+Kamélie
+Petúnie
+Pelargonie
+Bugenvilea
+Pomněnka
+Azalka

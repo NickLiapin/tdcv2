@@ -1,0 +1,10 @@
+---
+description: Positions in volleyball (Hindi)
+locale: hi
+---
+सेटर
+आउटसाइड हिटर
+ऑपोज़िट हिटर
+मिडिल ब्लॉकर
+लिबरो
+डिफ़ेंसिव स्पेशलिस्ट

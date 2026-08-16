@@ -1,0 +1,11 @@
+---
+description: Weekday name (Czech, lowercase per Czech orthography). The week starts on Monday.
+locale: cs
+---
+pondělí
+úterý
+středa
+čtvrtek
+pátek
+sobota
+neděle

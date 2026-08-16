@@ -1,0 +1,12 @@
+---
+description: Trucking route type (Dutch).
+locale: nl
+---
+Internationaal transport
+Nationaal transport
+Regionaal transport
+Stadsdistributie
+Vaste route
+Duobemanning
+Pakketbezorging
+Retourvracht

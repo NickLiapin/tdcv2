@@ -1,0 +1,26 @@
+---
+description: Metal (Thai). ดีบุก (tin) and พลวง (antimony) are here because they are the metals Thailand actually mined and exported, and นาก is a gold-copper alloy used in Thai jewellery that has no one-word English equivalent.
+locale: th
+---
+ทองคำ
+เงิน
+นาก
+ทองคำขาว
+ทองแดง
+เหล็ก
+เหล็กกล้า
+ดีบุก
+อะลูมิเนียม
+ไทเทเนียม
+สังกะสี
+นิกเกิล
+ตะกั่ว
+สัมฤทธิ์
+ทองเหลือง
+แพลเลเดียม
+โคบอลต์
+โครเมียม
+ทังสเตน
+ปรอท
+แมกนีเซียม
+พลวง

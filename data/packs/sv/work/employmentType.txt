@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Swedish). Tillsvidareanställning is the Swedish default — LAS, the employment protection act, treats every hire as permanent unless a fixed-term ground is stated — and provanställning is the six-month trial period that may precede it. Egenföretagare with F-skatt is the Swedish self-employed form.
+locale: sv
+---
+tillsvidareanställning
+provanställning
+särskild visstidsanställning
+vikariat
+säsongsanställning
+timanställning
+projektanställning
+praktik
+lärlingsanställning
+konsultuppdrag
+egenföretagare (F-skatt)

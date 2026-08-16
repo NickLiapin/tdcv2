@@ -1,0 +1,17 @@
+---
+description: Legal case type (Swedish)
+locale: sv
+---
+brottmål
+tvistemål
+familjemål
+vårdnadstvist
+äktenskapsskillnad
+bodelning
+arvstvist
+hyrestvist
+arbetstvist
+förvaltningsmål
+migrationsmål
+miljömål
+konkursärende

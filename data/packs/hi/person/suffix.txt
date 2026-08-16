@@ -1,0 +1,28 @@
+---
+description: Name suffix (Hindi). The first value, जी, is the one a European locale has no equivalent for — it is the universal Hindi respect particle and attaches to almost any name or title (शर्मा जी, डॉक्टर साहब जी). Academic degrees in India follow the name as they do in English, and the civil-service cadre abbreviations (आईएएस, आईपीएस, आईएफ़एस) are written after the name on letterheads and nameplates.
+locale: hi
+---
+जी
+साहब
+जूनियर
+सीनियर
+द्वितीय
+तृतीय
+बी.ए.
+एम.ए.
+बी.एससी.
+एम.एससी.
+बी.कॉम.
+एम.कॉम.
+बी.टेक.
+एम.टेक.
+एम.बी.ए.
+एम.बी.बी.एस.
+एम.डी.
+एलएल.बी.
+पीएच.डी.
+आईएएस
+आईपीएस
+आईएफ़एस
+सेवानिवृत्त
+स्व.

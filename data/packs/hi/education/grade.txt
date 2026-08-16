@@ -1,0 +1,19 @@
+---
+description: Result or grade as reported in India. Indian boards and universities report a percentage and a CGPA rather than a letter grade: the class divisions (First/Second/Third) are derived from the percentage, and A1 to E are the CBSE nine-point grade bands.
+locale: hi
+---
+विशेष योग्यता
+प्रथम श्रेणी
+द्वितीय श्रेणी
+तृतीय श्रेणी
+उत्तीर्ण
+अनुत्तीर्ण
+अनुपस्थित
+A1
+A2
+B1
+B2
+C1
+C2
+D
+E

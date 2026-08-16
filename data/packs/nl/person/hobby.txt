@@ -1,0 +1,81 @@
+---
+description: Hobby / interest (Dutch). Note what is NOT here as a hobby: ordinary cycling. In the Netherlands a bicycle is transport, not recreation, so 'fietsen' as a pastime means the recreational day-trip (fietstocht) and the sport is named separately as wielrennen. Schaatsen, zeilen, volkstuinieren and klaverjassen are Dutch pastimes with no clean English equivalent.
+locale: nl
+---
+Lezen
+Wandelen
+Fotografie
+Koken
+Tuinieren
+Volkstuinieren
+Schilderen
+Tekenen
+Wielrennen
+Mountainbiken
+Fietstochten maken
+Schaatsen
+Zeilen
+Roeien
+Kanoën
+Surfen
+Kitesurfen
+Zwemmen
+Hardlopen
+Voetballen
+Korfballen
+Hockey
+Tennissen
+Golfen
+Paardrijden
+Vissen
+Vogels kijken
+Wadlopen
+Klimmen
+Yoga
+Fitness
+Dansen
+Stijldansen
+Zingen
+Koorzang
+Muziek maken
+Piano spelen
+Gitaar spelen
+Fanfare
+Toneelspelen
+Videogames
+Bordspellen
+Schaken
+Dammen
+Klaverjassen
+Bridge
+Puzzelen
+Breien
+Haken
+Naaien
+Borduren
+Houtbewerking
+Modelbouw
+Postzegels verzamelen
+Munten verzamelen
+Genealogie
+Geschiedenis
+Sterrenkunde
+Vlinders kijken
+Imkeren
+Bakken
+Brouwen
+Wijnproeven
+Reizen
+Kamperen
+Caravanreizen
+Bloemschikken
+Pottenbakken
+Keramiek
+Kalligrafie
+Schrijven
+Bloggen
+Programmeren
+Elektronica
+Motorrijden
+Oldtimers
+Duiven houden

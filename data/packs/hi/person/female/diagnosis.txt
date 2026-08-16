@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Hindi for a female patient — the female-specific conditions plus the common ones a woman in India is actually likely to carry. Two are disproportionately Indian and belong at the top of any Indian dataset — iron-deficiency anaemia, which affects more than half of Indian women of reproductive age, and cervical cancer, of which India carries roughly a fifth of the world's cases.
+locale: hi
+---
+लौह अल्पता जनित रक्ताल्पता
+गर्भाशय ग्रीवा कैंसर
+स्तन कैंसर
+बहुपुटीय अंडाशय संलक्षण
+एंडोमेट्रियोसिस
+गर्भाशय फ़ाइब्रॉएड
+अंडाशय पुटी
+अंडाशय कैंसर
+गर्भाशय अंतःस्तर कैंसर
+श्रोणि शोथ रोग
+कष्टार्तव
+अनियमित मासिक धर्म
+रजोनिवृत्ति
+गर्भावधि मधुमेह
+प्रीक्लेम्पसिया
+प्रसवोत्तर अवसाद
+स्त्री बांझपन
+स्तनशोथ
+गर्भाशय भ्रंश
+अस्थिसुषिरता
+थायरॉइड अल्पक्रियता
+टाइप 2 मधुमेह
+उच्च रक्तचाप
+विटामिन डी अल्पता
+मूत्र मार्ग संक्रमण
+पित्ताशय की पथरी
+अवटु ग्रंथि विकार

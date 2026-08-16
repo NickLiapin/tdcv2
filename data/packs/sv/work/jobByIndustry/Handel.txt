@@ -1,0 +1,16 @@
+---
+description: Jobs in handel, in Swedish
+locale: sv
+---
+butikssäljare
+butikschef
+kassabiträde
+visual merchandiser
+inköpare
+kategorichef
+lagerarbetare
+truckförare
+e-handelsansvarig
+kundtjänstmedarbetare
+säljare
+distriktschef

@@ -1,0 +1,24 @@
+---
+description: Dishes of svenskt cuisine, in Swedish
+locale: sv
+---
+Köttbullar med potatismos och lingon
+Raggmunk med fläsk
+Ärtsoppa med fläsk
+Kroppkakor
+Pyttipanna
+Kalops
+Dillkött
+Kåldolmar
+Blodpudding med lingonsylt
+Stekt strömming med potatismos
+Inlagd sill
+Gravlax med hovmästarsås
+Surströmming med tunnbröd
+Janssons frestelse
+Sjömansbiff
+Wallenbergare
+Renskav med potatismos
+Ostkaka med sylt
+Semla
+Kanelbulle

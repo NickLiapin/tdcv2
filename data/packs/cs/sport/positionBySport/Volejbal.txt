@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Czech)
+locale: cs
+---
+Nahrávač
+Smečař
+Blokař
+Univerzál
+Libero

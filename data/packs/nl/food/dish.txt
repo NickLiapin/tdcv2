@@ -1,0 +1,44 @@
+---
+description: Dish (Dutch) - the general everyday list, mixing Dutch and Flemish home cooking with the foreign food that has become ordinary in the Low Countries. Indonesian and Surinamese dishes appear here as normal weekday food rather than as exotica, which is what they are in the Netherlands.
+locale: nl
+---
+Stamppot boerenkool
+Hutspot
+Erwtensoep
+Hachee
+Rookworst met stamppot
+Bitterballen
+Kroketten
+Frikandel speciaal
+Kibbeling
+Haring met uitjes
+Uitsmijter
+Tosti
+Kapsalon
+Patat oorlog
+Huzarensalade
+Pannenkoeken
+Poffertjes
+Appeltaart
+Stroopwafels
+Oliebollen
+Gentse waterzooi
+Vlaamse stoverij
+Mosselen met friet
+Vol-au-vent
+Witlof met ham en kaas
+Nasi goreng
+Bami goreng
+Sate met satesaus
+Rendang
+Gado gado
+Roti kip
+Pom
+Pindasoep
+Pizza margherita
+Spaghetti bolognese
+Doner kebab
+Tajine met kip
+Sushi
+Pad thai
+Cheeseburger

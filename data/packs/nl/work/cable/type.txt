@@ -1,0 +1,13 @@
+---
+description: Cable type in telecom and networking. Category names such as Cat6a are international product names and keep their spelling in Dutch.
+locale: nl
+---
+Glasvezelkabel
+Coaxkabel
+Twisted pair
+Cat5e
+Cat6
+Cat6a
+Ethernetkabel
+Luchtkabel
+Grondkabel

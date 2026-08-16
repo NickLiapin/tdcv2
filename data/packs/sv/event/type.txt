@@ -1,0 +1,22 @@
+---
+description: Event type (Swedish). Half of these are fixed points in the Swedish year rather than generic occasions: valborgsmässoafton (bonfires on 30 April), midsommarfirande (the Friday nearest 24 June, the biggest day of the year), kräftskiva (an August crayfish party), luciafirande (13 December), julbord and the studentexamen celebration when school-leavers ride through town on lorries.
+locale: sv
+---
+bröllop
+dop
+konfirmation
+studentexamen
+examen
+födelsedagskalas
+namnsdag
+kräftskiva
+midsommarfirande
+valborgsmässoafton
+luciafirande
+julbord
+nyårsfirande
+begravning
+jubileum
+konferens
+mässa
+fika

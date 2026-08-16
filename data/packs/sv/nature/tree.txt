@@ -1,0 +1,32 @@
+---
+description: Tree (Swedish). Gran, tall and björk carry Swedish forestry between them; ek and bok grow mainly in the south, and fjällbjörk is the dwarf mountain birch that marks the tree line.
+locale: sv
+---
+gran
+tall
+björk
+asp
+al
+klibbal
+ek
+bok
+alm
+ask
+lönn
+lind
+rönn
+hägg
+sälg
+vide
+hassel
+idegran
+en
+lärk
+fjällbjörk
+avenbok
+kastanj
+valnöt
+körsbärsträd
+äppelträd
+päronträd
+plommonträd

@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Dutch, kwartaal)
+locale: nl
+---
+Q1
+Q2
+Q3
+Q4

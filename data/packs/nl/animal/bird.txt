@@ -1,0 +1,35 @@
+---
+description: Bird (Dutch). The list leans to wetland, meadow and coastal birds because that is what the Dutch and Flemish landscape is: polder, plas, wad and kwelder. Grutto (black-tailed godwit) is the unofficial national bird of the Netherlands and the country holds a large share of the world population. All names are the ordinary Dutch names, identical in Flanders.
+locale: nl
+---
+Grutto
+Kievit
+Scholekster
+Tureluur
+Kluut
+Lepelaar
+Blauwe reiger
+Ooievaar
+Aalscholver
+Bergeend
+Smient
+Wilde eend
+Grauwe gans
+Knobbelzwaan
+Meerkoet
+Waterhoen
+Fuut
+Zilvermeeuw
+Visdief
+Huismus
+Koolmees
+Pimpelmees
+Merel
+Spreeuw
+Vink
+Roodborst
+Ekster
+Kauw
+Buizerd
+Torenvalk
+Boerenzwaluw

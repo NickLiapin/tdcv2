@@ -1,0 +1,16 @@
+---
+description: Jobs in Transport (Czech)
+locale: cs
+---
+Řidič kamionu
+Řidič autobusu
+Kurýr
+Spediční referent
+Dispečer
+Koordinátor logistiky
+Skladový operátor
+Obsluha vysokozdvižného vozíku
+Strojvedoucí
+Řídící letového provozu
+Dopravní pilot
+Celní deklarant

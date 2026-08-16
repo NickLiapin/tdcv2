@@ -1,0 +1,17 @@
+---
+description: Social content type (Dutch). 'Draadje' is the ordinary Dutch word for a thread of posts.
+locale: nl
+---
+Bericht
+Reactie
+Antwoord
+Story
+Reel
+Peiling
+Livestream
+Gedeeld bericht
+Draadje
+Vermelding
+Privébericht
+Korte video
+Fotoalbum

@@ -1,0 +1,15 @@
+---
+description: Employment type (Czech). DPP (dohoda o provedeni prace) and DPC (dohoda o pracovni cinnosti) are the two Czech light-touch contracts used for casual work, each with its own hour and tax ceiling; they are not the same thing as a fixed-term employment contract.
+locale: cs
+---
+Plný úvazek
+Částečný úvazek
+Zkrácený úvazek
+Dohoda o provedení práce
+Dohoda o pracovní činnosti
+Práce na dobu určitou
+Práce na dobu neurčitou
+Stáž
+Praxe
+Živnostník
+Sezónní práce

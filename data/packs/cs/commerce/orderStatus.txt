@@ -1,0 +1,18 @@
+---
+description: Order status (Czech)
+locale: cs
+---
+Čeká na vyřízení
+Přijata
+Potvrzena
+Zpracovává se
+Připravuje se k odeslání
+Odesláno
+Na cestě
+Doručeno
+Zrušeno
+Vráceno
+Vrácení peněz
+Pozastaveno
+Čeká na platbu
+Není skladem

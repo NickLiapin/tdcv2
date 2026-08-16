@@ -1,0 +1,16 @@
+---
+description: Year level on the Thai school ladder — ป.1 to ป.6 is primary (ประถมศึกษา) and ม.1 to ม.6 is secondary (มัธยมศึกษา), with ม.1-ม.3 lower and ม.4-ม.6 upper. This is NOT a European grade 1-12 run: the numbering restarts at ม.1 after ป.6. Thai marks are a separate thing — a 0-4 grade-point scale in half steps (4, 3.5, 3, 2.5, 2, 1.5, 1, 0).
+locale: th
+---
+ป.1
+ป.2
+ป.3
+ป.4
+ป.5
+ป.6
+ม.1
+ม.2
+ม.3
+ม.4
+ม.5
+ม.6

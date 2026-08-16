@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Swedish; brand names kept as-is)
+locale: sv
+---
+PC
+Steam
+Steam Deck
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Nintendo Switch
+mobil
+surfplatta
+VR

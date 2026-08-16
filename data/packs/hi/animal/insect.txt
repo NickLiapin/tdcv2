@@ -1,0 +1,24 @@
+---
+description: Insect (Hindi); includes the locust and the silkworm, both economically significant in India
+locale: hi
+---
+चींटी
+मधुमक्खी
+भौंरा
+तितली
+पतंगा
+रेशम कीट
+टिड्डा
+टिड्डी
+झींगुर
+व्याध पतंग
+मच्छर
+मक्खी
+ततैया
+तिलचट्टा
+दीमक
+जुगनू
+खटमल
+पिस्सू
+जूँ
+घुन

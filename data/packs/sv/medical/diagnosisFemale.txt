@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Swedish that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: sv
+---
+Endometrios
+PCOS
+Myom i livmodern
+Äggstockscysta
+Dysmenorré
+Kraftig menstruationsblödning
+PMS
+PMDS
+Klimakteriebesvär
+Livmoderhalscancer
+Äggstockscancer
+Livmodercancer
+Bröstcancer
+Bröstinflammation
+Framfall
+Bäckenbottendysfunktion
+Vulvodyni
+Bakteriell vaginos
+Svampinfektion i underlivet
+Graviditetsdiabetes
+Havandeskapsförgiftning
+Förlossningsdepression
+Graviditetsillamående
+Missfall
+Utomkvedshavandeskap
+Cellförändringar i livmoderhalsen

@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, given in Dutch. A prevalence signal, not an exclusive one.
+locale: nl
+---
+Ziekte van Tay-Sachs
+Ziekte van Gaucher type 1
+Familiaire dysautonomie
+Ziekte van Canavan
+Ziekte van Niemann-Pick type A
+Syndroom van Bloom
+Factor XI-deficiëntie
+BRCA1-foundermutatie
+BRCA2-foundermutatie
+Mucolipidose type IV
+Ziekte van Crohn
+Torsiedystonie

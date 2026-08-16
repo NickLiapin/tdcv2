@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Hindi). Skeletal tuberculosis is listed because spinal TB remains a routine orthopaedic diagnosis in India.
+locale: hi
+---
+ऑस्टियोआर्थराइटिस
+रुमेटी संधिशोथ
+इंटरवर्टेब्रल डिस्क प्रोलैप्स
+कार्पल टनल सिंड्रोम
+कटिस्नायुशूल
+सर्वाइकल स्पॉन्डिलोसिस
+रोटेटर कफ़ चोट
+ऊरु ग्रीवा भंग
+अस्थि क्षय रोग
+स्कोलियोसिस

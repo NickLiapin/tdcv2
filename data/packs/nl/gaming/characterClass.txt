@@ -1,0 +1,28 @@
+---
+description: RPG character class (Dutch). These are the terms Dutch fantasy translations use; note that Dutch players themselves overwhelmingly say the English class names in play, so an English list is also defensible for chat-style data.
+locale: nl
+---
+Krijger
+Magiër
+Tovenaar
+Schurk
+Paladijn
+Jager
+Priester
+Heksenmeester
+Druïde
+Monnik
+Sjamaan
+Doodsridder
+Demonenjager
+Barbaar
+Dodenbezweerder
+Bard
+Sluipmoordenaar
+Woudloper
+Tempelier
+Berserker
+Bezweerder
+Alchemist
+Ingenieur
+Genezer

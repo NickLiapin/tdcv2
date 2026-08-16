@@ -1,0 +1,39 @@
+---
+description: Music genre (Swedish). Dansband is a Swedish genre with its own touring circuit and dance halls; visa is the Swedish sung-poetry tradition of Bellman, Taube and Vreeswijk; schlager is what Melodifestivalen produces; and folkmusik here means the Swedish fiddle repertoire of polska and låt.
+locale: sv
+---
+dansband
+schlager
+visa
+trubadur
+folkmusik
+polska
+spelmansmusik
+körsång
+psalmer
+gospel
+klassiskt
+opera
+kammarmusik
+symfonisk musik
+jazz
+blues
+soul
+funk
+pop
+indiepop
+rock
+hårdrock
+heavy metal
+death metal
+black metal
+punk
+progressiv rock
+hiphop
+rap
+R&B
+reggae
+house
+techno
+elektronisk musik
+ambient

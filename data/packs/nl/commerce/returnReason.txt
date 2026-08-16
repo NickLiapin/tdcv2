@@ -1,0 +1,19 @@
+---
+description: Order return reason (Dutch). Under the Dutch and EU herroepingsrecht an online buyer may return a purchase within 14 days without giving any reason at all, so Van gedachten veranderd is a legally complete reason here rather than the weak excuse it would be elsewhere.
+locale: nl
+---
+Beschadigd aangekomen
+Verkeerd product ontvangen
+Komt niet overeen met de omschrijving
+Verkeerde maat
+Van gedachten veranderd
+Elders goedkoper gevonden
+Fabricagefout
+Onderdelen ontbreken
+Te laat bezorgd
+Niet meer nodig
+Per ongeluk besteld
+Kwaliteit valt tegen
+Kleur wijkt af van de foto
+Niet compatibel
+Dubbele bestelling

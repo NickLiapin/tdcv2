@@ -1,0 +1,21 @@
+---
+description: Payment method (Czech). Dobirka (cash on delivery) is still a mainstream Czech e-commerce option rather than a fringe one, QR platba is the bank-transfer QR code standard, and stravenka is the employer-issued meal voucher accepted in shops and restaurants.
+locale: cs
+---
+Platební karta
+Kreditní karta
+Debetní karta
+Bankovní převod
+QR platba
+Dobírka
+Hotovost
+Apple Pay
+Google Pay
+PayPal
+Platba na fakturu
+Dárkový poukaz
+Kryptoměna
+Splátky
+Twisto
+Inkaso
+Stravenka

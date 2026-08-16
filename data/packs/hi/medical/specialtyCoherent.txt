@@ -1,0 +1,14 @@
+---
+description: Medical specialty in Hindi (has a coherent diagnosis list). Each value is the file name of a list under medical/diagnosisBySpecialty.
+locale: hi
+---
+हृदय रोग विज्ञान
+तंत्रिका विज्ञान
+कैंसर रोग विज्ञान
+त्वचा रोग विज्ञान
+जठरांत्र रोग विज्ञान
+अंतःस्रावी विज्ञान
+श्वसन रोग विज्ञान
+अस्थि रोग विज्ञान
+मनोरोग विज्ञान
+वृक्क रोग विज्ञान

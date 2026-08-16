@@ -1,0 +1,19 @@
+---
+description: Dishes of Grieks cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Gyros
+Souvlaki
+Moussaka
+Tzatziki
+Griekse salade
+Dolmades
+Spanakopita
+Pastitsio
+Kleftiko
+Saganaki
+Taramosalata
+Fasolada
+Baklava
+Loukoumades
+Pita gyros

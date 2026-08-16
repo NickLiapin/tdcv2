@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in njurmedicin, in Swedish
+locale: sv
+---
+Kronisk njursvikt
+Akut njursvikt
+Njursten
+Glomerulonefrit
+Diabetesnefropati
+Njurcystor
+Nefrotiskt syndrom
+Urinvägsinfektion
+Pyelonefrit
+Renal hypertoni

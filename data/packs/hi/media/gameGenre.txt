@@ -1,0 +1,21 @@
+---
+description: Video game genre (Hindi). Acronyms such as RPG and MMORPG are left in Latin because Hindi gaming media writes them that way; battle royale is listed because it is India's dominant mobile-game category.
+locale: hi
+---
+एक्शन
+एडवेंचर
+RPG
+रणनीति
+सिमुलेशन
+खेलकूद
+पहेली
+शूटर
+प्लेटफ़ॉर्मर
+रेसिंग
+फ़ाइटिंग
+सर्वाइवल
+ओपन वर्ल्ड
+MMORPG
+बैटल रॉयल
+हॉरर
+संगीत

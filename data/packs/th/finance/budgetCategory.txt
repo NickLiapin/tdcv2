@@ -1,0 +1,24 @@
+---
+description: Household budget / spending category (Thai). Amounts booked against these are in Thai baht (THB, ฿). Two lines are specific to Thailand — ทำบุญและบริจาค is merit-making at the temple, a routine monthly outgoing, and เงินให้พ่อแม่ is the money adult children send their parents, which most Thai household budgets carry as a fixed item.
+locale: th
+---
+ค่าเช่าบ้าน
+ผ่อนบ้าน
+ผ่อนรถ
+ค่าอาหาร
+ค่าน้ำค่าไฟ
+ค่าเดินทาง
+ค่าน้ำมัน
+ค่าโทรศัพท์และอินเทอร์เน็ต
+ค่ารักษาพยาบาล
+เบี้ยประกัน
+ค่าเล่าเรียนบุตร
+เงินออม
+ค่าบันเทิง
+ค่าสมาชิกรายเดือน
+ค่าท่องเที่ยว
+ค่าเสื้อผ้า
+เงินให้พ่อแม่
+ทำบุญและบริจาค
+ชำระหนี้บัตรเครดิต
+ภาษี

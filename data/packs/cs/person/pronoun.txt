@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Czech). Czech is a pro-drop language - the subject pronoun is usually left out and the verb ending carries the person - so these appear far less often in running text than the English equivalents.
+locale: cs
+---
+on
+ona
+ono
+on/jeho
+ona/její
+ono/jeho
+on/ona
+ona/ono

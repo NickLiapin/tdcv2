@@ -1,0 +1,24 @@
+---
+description: School subject (Czech)
+locale: cs
+---
+Matematika
+Fyzika
+Chemie
+Biologie
+Informatika
+Dějepis
+Zeměpis
+Český jazyk
+Výtvarná výchova
+Hudební výchova
+Tělesná výchova
+Ekonomie
+Filozofie
+Psychologie
+Cizí jazyk
+Statistika
+Přírodopis
+Občanská výchova
+Základy společenských věd
+Pracovní výchova

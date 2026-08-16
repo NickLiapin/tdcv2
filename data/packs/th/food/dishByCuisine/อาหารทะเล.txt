@@ -1,0 +1,18 @@
+---
+description: Dishes of อาหารทะเล (seafood). In Thailand this is a menu category in its own right — the ร้านอาหารทะเล of the coasts serves these across regional lines, with the fish or shellfish named before the method.
+locale: th
+---
+กุ้งเผา
+กุ้งแช่น้ำปลา
+กุ้งอบวุ้นเส้น
+ปูผัดผงกะหรี่
+ปูนึ่ง
+ปลากะพงนึ่งมะนาว
+ปลาเผาเกลือ
+ปลาหมึกย่าง
+ปลาหมึกผัดไข่เค็ม
+หอยแมลงภู่อบ
+หอยลายผัดน้ำพริกเผา
+ต้มยำทะเล
+ผัดฉ่าทะเล
+ยำทะเล

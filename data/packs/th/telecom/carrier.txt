@@ -1,0 +1,24 @@
+---
+description: Telecom operator (Thai). Deliberately shorter than the European lists: Thailand's mobile market is a genuine near-duopoly — เอไอเอส (AIS) and ทรูมูฟ เอช (TrueMove H) hold almost all of it, and since the 2023 True-dtac merger ดีแทค sits inside the True group, leaving state-owned เอ็นที (NT) a distant third. The rest are real MVNOs, retail sub-brands, legacy operators and fixed-line/broadband names; no carrier here is invented, so the file stops at 20 rather than padding to the Polish count.
+locale: th
+---
+เอไอเอส
+ทรูมูฟ เอช
+ดีแทค
+เอ็นที
+โทรคมนาคมแห่งชาติ
+แอดวานซ์ อินโฟร์ เซอร์วิส
+ทรู คอร์ปอเรชั่น
+โทเทิ่ล แอ็คเซ็ส คอมมูนิเคชั่น
+เอไอเอส วัน-ทู-คอล
+แฮปปี้
+ทรูมูฟ
+ดีแทค ไตรเน็ต
+my by NT
+เพนกวิน ซิม
+Feels
+ทีโอที
+แคท เทเลคอม
+3BB
+ทรูออนไลน์
+เอไอเอส ไฟเบอร์

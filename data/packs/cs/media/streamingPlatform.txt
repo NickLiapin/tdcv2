@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Czech market. Voyo and iVysilani are domestic: Voyo belongs to the TV Nova group and iVysilani is the public broadcaster's archive.
+locale: cs
+---
+Netflix
+Disney+
+Max
+Amazon Prime Video
+Apple TV+
+SkyShowtime
+Voyo
+iVysílání
+Prima+
+YouTube
+Spotify
+Twitch

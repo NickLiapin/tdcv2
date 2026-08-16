@@ -1,0 +1,247 @@
+---
+description: Country and territory names (Swedish). Swedish keeps its own forms for many of them — Tyskland, Frankrike, Storbritannien, Nederländerna, Vitryssland, Elfenbenskusten — and writes them without an article.
+locale: sv
+---
+Afghanistan
+Albanien
+Algeriet
+Andorra
+Angola
+Antigua och Barbuda
+Argentina
+Armenien
+Australien
+Azerbajdzjan
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belgien
+Belize
+Benin
+Bhutan
+Bolivia
+Bosnien och Hercegovina
+Botswana
+Brasilien
+Brunei
+Bulgarien
+Burkina Faso
+Burundi
+Centralafrikanska republiken
+Chile
+Colombia
+Comorerna
+Costa Rica
+Cuba
+Cypern
+Danmark
+Djibouti
+Dominica
+Dominikanska republiken
+Ecuador
+Egypten
+Ekvatorialguinea
+El Salvador
+Elfenbenskusten
+Eritrea
+Estland
+Eswatini
+Etiopien
+Fiji
+Filippinerna
+Finland
+Frankrike
+Färöarna
+Förenade Arabemiraten
+Gabon
+Gambia
+Georgien
+Ghana
+Grekland
+Grenada
+Grönland
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Indien
+Indonesien
+Irak
+Iran
+Irland
+Island
+Israel
+Italien
+Jamaica
+Japan
+Jemen
+Jordanien
+Kambodja
+Kamerun
+Kanada
+Kap Verde
+Kazakstan
+Kenya
+Kina
+Kirgizistan
+Kiribati
+Kroatien
+Kuwait
+Laos
+Lesotho
+Lettland
+Libanon
+Liberia
+Libyen
+Liechtenstein
+Litauen
+Luxemburg
+Madagaskar
+Malawi
+Malaysia
+Maldiverna
+Mali
+Malta
+Marocko
+Marshallöarna
+Mauretanien
+Mauritius
+Mexiko
+Mikronesien
+Moldavien
+Monaco
+Mongoliet
+Montenegro
+Moçambique
+Myanmar
+Namibia
+Nauru
+Nederländerna
+Nepal
+Nicaragua
+Niger
+Nigeria
+Nordkorea
+Nordmakedonien
+Norge
+Nya Zeeland
+Oman
+Pakistan
+Palau
+Palestina
+Panama
+Papua Nya Guinea
+Paraguay
+Peru
+Polen
+Portugal
+Qatar
+Rumänien
+Rwanda
+Ryssland
+Saint Kitts och Nevis
+Saint Lucia
+Saint Vincent och Grenadinerna
+Salomonöarna
+Samoa
+San Marino
+Saudiarabien
+Schweiz
+Senegal
+Serbien
+Seychellerna
+Sierra Leone
+Singapore
+Slovakien
+Slovenien
+Somalia
+Spanien
+Sri Lanka
+Storbritannien
+Sudan
+Surinam
+Sverige
+Sydafrika
+Sydkorea
+Sydsudan
+Syrien
+São Tomé och Príncipe
+Tadzjikistan
+Taiwan
+Tanzania
+Tchad
+Thailand
+Tjeckien
+Togo
+Tonga
+Trinidad och Tobago
+Tunisien
+Turkiet
+Turkmenistan
+Tuvalu
+Tyskland
+Uganda
+Ukraina
+Ungern
+Uruguay
+USA
+Uzbekistan
+Vanuatu
+Vatikanstaten
+Venezuela
+Vietnam
+Vitryssland
+Zambia
+Zimbabwe
+Österrike
+Östtimor
+Bermuda
+Gibraltar
+Guam
+Hongkong
+Isle of Man
+Jungfruöarna
+Kajmanöarna
+Macao
+Nya Kaledonien
+Puerto Rico
+Åland
+Anguilla
+Aruba
+Curaçao
+Franska Guyana
+Franska Polynesien
+Guadeloupe
+Martinique
+Réunion
+Saint-Martin
+Falklandsöarna
+Kongo-Brazzaville
+Kongo-Kinshasa
+Antarktis
+Sydgeorgien
+Svalbard
+Västsahara
+Norfolkön
+Julön
+Cooköarna
+Niue
+Tokelau
+Wallis och Futuna
+Amerikanska Samoa
+Nordmarianerna
+Saint-Pierre och Miquelon
+Montserrat
+Turks- och Caicosöarna
+Brittiska Jungfruöarna
+Saint-Barthélemy
+Sint Maarten
+Bonaire
+Pitcairnöarna
+Sankta Helena
+Kokosöarna
+Bouvetön
+Heard- och McDonaldöarna

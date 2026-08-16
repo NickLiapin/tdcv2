@@ -1,0 +1,23 @@
+---
+description: Mineral / commodity actually mined in India (Hindi); India is the world's main source of mica, and lignite is listed separately from coal because Neyveli mines it on its own
+locale: hi
+---
+कोयला
+लिग्नाइट
+लौह अयस्क
+बॉक्साइट
+मैंगनीज़ अयस्क
+अभ्रक
+चूना पत्थर
+डोलोमाइट
+क्रोमाइट
+तांबा अयस्क
+जस्ता
+सीसा
+यूरेनियम
+हीरा
+सोना
+बैराइट
+इल्मेनाइट
+जिप्सम
+संगमरमर

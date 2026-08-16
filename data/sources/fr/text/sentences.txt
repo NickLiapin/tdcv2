@@ -1196,7 +1196,6 @@ Et l'agent, tirant un papier de son portefeuille, montra à son compagnon une co
 Passepartout, abasourdi, regardait Fix, sans pouvoir articuler une parole.
 Le 28 septembre dernier, un vol de cinquante-cinq mille livres a été commis à la Banque d'Angleterre par un individu dont le signalement a pu être relevé.
 Or, voici ce signalement, et c'est trait pour trait celui du sieur Fogg.
-s'écria Passepartout en frappant la table de son robuste poing.
 Mon maître est le plus honnête homme du monde!
 Vous êtes entré à son service le jour de son départ, et il est parti précipitamment sous un prétexte insensé, sans malles, emportant une grosse somme en bank-notes!
 Et vous osez soutenir que c'est un honnête homme!
@@ -1246,7 +1245,6 @@ répondit Fix, feignant la surprise, n'est-il pas avec vous?
 Se serait-il embarqué sans nous à bord du Carnatic?
 Mais, excusez ma question, vous comptiez donc partir sur ce paquebot?
 --Moi aussi, madame, et vous me voyez très désappointé.
-En prononçant ces mots: "huit jours", Fix sentait son coeur bondir de joie.
 On aurait le temps de recevoir le mandat d'arrêt.
 Enfin, la chance se déclarait pour le représentant de la loi.
 Aouda, se dirigea vers les docks à la recherche d'un navire en partance.
@@ -1670,7 +1668,6 @@ Fogg, non moins flegmatique que d'habitude, voulut se défendre avec ces armes n
 Un énorme gaillard à barbiche rouge, au teint coloré, large d'épaules, qui paraissait être le chef de la bande, leva son formidable poing sur Mr.
 Fogg, et il eût fort endommagé le gentleman, si Fix, par dévouement, n'eût reçu le coup à sa place.
 Une énorme bosse se développa instantanément sous le chapeau de soie du détective, transformé en simple toque.
-Fogg, en lançant à son adversaire un regard de profond mépris.
 Fix fut renversé et se releva, les habits déchirés, mais sans meurtrissure sérieuse.
 Aouda avait été épargnée, et, seul, Fix en était pour son coup de poing.
 Fogg à l'inspecteur, dès qu'ils furent hors de la foule.
@@ -2568,7 +2565,6 @@ Un voisin la fit tomber d'un coup de coude, il la ramassa encore une fois.
 Le nouveau articula, d'une voix bredouillante, un nom inintelligible.
 Le même bredouillement de syllabes se fit entendre, couvert par les huées de la classe.
 Le nouveau, prenant alors une résolution extrême, ouvrit une bouche démesurée et lança à pleins poumons, comme pour appeler quelqu'un, ce mot: Charbovari.
-Ce fut un vacarme qui s'élança d'un bond, monta en crescendo, avec des éclats de voix aigus (on hurlait, on aboyait, on trépignait, on répétait: Charbovari!
 Il se mit en mouvement, mais, avant de partir, hésita.
 fit timidement le nouveau, promenant autour de lui des regards inquiets.
 exclamé d'une voix furieuse, arrêta, comme le Quos ego, une bourrasque nouvelle.
@@ -3753,7 +3749,6 @@ J'ai tout quitté à cause de l'intérêt que je te porte.
 Quand Justin, qui se rhabillait, fut parti, l'on causa quelque peu des évanouissements.
 Du reste, il y a des gens bien délicats.
 Ainsi j'ai vu, dans une rencontre, un témoin perdre connaissance rien qu'au bruit des pistolets que l'on chargeait.
-Boulanger congédia son domestique, en l'engageant à se tranquilliser l'esprit, puisque sa fantaisie était passée.
 - Elle m'a procuré l'avantage de votre connaissance, ajouta-t-il.
 Et il regardait Emma durant cette phrase.
 Puis il déposa trois francs sur le coin de la table, salua négligemment et s'en alla.
@@ -5750,7 +5745,6 @@ Devenu plus faible qu'un enfant, Charles se laissa conduire en bas, dans la sall
 Il fut sur la Place accosté par l'Aveugle, qui, s'étant traîné jusqu'à Yonville dans l'espoir de la pommade antiphlogistique, demandait à chaque passant où demeurait l'apothicaire.
 comme si je n'avais pas d'autres chiens à fouetter!
 Et il entra précipitamment dans la pharmacie.
-Canivet venait de partir), assis dans le fauteuil, près de la fenêtre, et contemplant d'un regard idiot les pavés de la salle.
 - Il faudrait à présent, dit le pharmacien, fixer vous-même l'heure de la cérémonie.
 Homais, par contenance, prit une carafe sur l'étagère pour arroser les géraniums.
 Et il n'acheva pas, suffoquant sous une abondance de souvenirs que ce geste du pharmacien lui rappelait.

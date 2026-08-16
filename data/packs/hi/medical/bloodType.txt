@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type. The labels are international, so they are identical to every other locale; in India B positive is the most frequent group, but this list carries no weights.
+locale: hi
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

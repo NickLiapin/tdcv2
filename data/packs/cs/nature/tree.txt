@@ -1,0 +1,32 @@
+---
+description: Tree (Czech). Lipa - the small-leaved lime - is the Czech national tree and turns up constantly in place names, street names and heraldry.
+locale: cs
+---
+Dub
+Javor
+Borovice
+Bříza
+Cedr
+Vrba
+Sekvoj
+Smrk
+Jilm
+Jasan
+Buk
+Třešeň
+Ořešák
+Topol
+Cypřiš
+Jedle
+Klen
+Osika
+Magnólie
+Dřín
+Lípa
+Modřín
+Jeřáb
+Eukalyptus
+Kaštan
+Palma
+Habr
+Olše

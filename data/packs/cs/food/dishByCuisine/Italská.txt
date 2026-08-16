@@ -1,0 +1,13 @@
+---
+description: Dishes of Italian cuisine (Czech)
+locale: cs
+---
+Pizza margherita
+Špagety carbonara
+Lasagne
+Rizoto
+Ossobuco
+Tiramisu
+Gnocchi
+Minestrone
+Fettuccine Alfredo

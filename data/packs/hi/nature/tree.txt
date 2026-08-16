@@ -1,0 +1,32 @@
+---
+description: Tree (Hindi); trees that actually grow in India, from the peepal and banyan of the plains to the deodar and chir pine of the Himalaya
+locale: hi
+---
+नीम
+पीपल
+बरगद
+आम
+इमली
+जामुन
+कटहल
+आँवला
+बेल
+महुआ
+गुलमोहर
+अमलतास
+कचनार
+अशोक
+कदंब
+अर्जुन
+सेमल
+बबूल
+खेजड़ी
+शीशम
+सागौन
+साल
+चंदन
+नारियल
+ताड़
+बाँस
+देवदार
+चीड़

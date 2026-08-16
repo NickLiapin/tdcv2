@@ -1,0 +1,17 @@
+---
+description: Diagnoses seen in Psychiatry (Thai). Methamphetamine (ยาบ้า) use disorder is Thailand's dominant substance-use diagnosis, ahead of alcohol on most Thai inpatient services.
+locale: th
+---
+โรคซึมเศร้า
+โรควิตกกังวลทั่วไป
+โรคแพนิก
+โรคอารมณ์สองขั้ว
+โรคจิตเภท
+โรคย้ำคิดย้ำทำ
+ภาวะเครียดหลังเหตุการณ์สะเทือนใจ
+โรคสมาธิสั้น
+โรคออทิสติก
+โรคติดสารเสพติดกลุ่มแอมเฟตามีน
+โรคติดสุรา
+ภาวะซึมเศร้าหลังคลอด
+โรคนอนไม่หลับ

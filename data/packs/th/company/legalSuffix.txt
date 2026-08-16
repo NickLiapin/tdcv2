@@ -1,0 +1,49 @@
+---
+description: Company legal form / name tail used in Thailand. WARNING for configs: the Thai form BRACKETS the company name rather than trailing it — บริษัท <name> จำกัด (Co., Ltd.) and บริษัท <name> จำกัด (มหาชน) (PLC), with ห้างหุ้นส่วนจำกัด leading a partnership — so this value cannot simply be appended to a name. The Latin Co., Ltd. / PCL forms are the ones Thai firms print on their own signage; the rest of the list is the descriptive tail words Thai company names use.
+locale: th
+---
+บริษัทจำกัด
+บริษัทมหาชนจำกัด
+บจก.
+บมจ.
+ห้างหุ้นส่วนจำกัด
+หจก.
+ห้างหุ้นส่วนสามัญ
+ห้างหุ้นส่วนสามัญนิติบุคคล
+หสน.
+ร้าน
+สหกรณ์
+สหกรณ์การเกษตร
+มูลนิธิ
+สมาคม
+วิสาหกิจชุมชน
+องค์การมหาชน
+รัฐวิสาหกิจ
+กิจการร่วมค้า
+Co., Ltd.
+Public Company Limited
+PCL
+Ltd.
+Ltd., Part.
+กรุ๊ป
+โฮลดิ้ง
+กลุ่มบริษัท
+เครือ
+อุตสาหกรรม
+พาณิชย์
+การค้า
+ขนส่ง
+ก่อสร้าง
+วิศวกรรม
+การช่าง
+เทคโนโลยี
+โซลูชั่น
+เซอร์วิส
+บริการ
+พัฒนา
+ผลิตภัณฑ์
+อินเตอร์เนชั่นแนล
+คอร์ปอเรชั่น
+เอ็นเตอร์ไพรส์
+พร็อพเพอร์ตี้
+แลนด์

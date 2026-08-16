@@ -1,0 +1,14 @@
+---
+description: Dishes of อาหารตะวันออกกลาง (Middle Eastern food) as named on Thai menus.
+locale: th
+---
+ฮัมมูส
+ฟาลาเฟล
+ชาวาร์มา
+เคบับ
+ชิชเคบับ
+ทาบูเลห์
+บาบากานูช
+ขนมปังพิตา
+คูสคูส
+บักลาวา

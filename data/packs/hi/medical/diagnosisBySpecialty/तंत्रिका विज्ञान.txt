@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Hindi). Neurocysticercosis is listed because it is a leading cause of adult-onset epilepsy in India.
+locale: hi
+---
+माइग्रेन
+मिर्गी
+पार्किंसन रोग
+मल्टीपल स्क्लेरोसिस
+इस्केमिक स्ट्रोक
+परिधीय तंत्रिका विकृति
+अल्ज़ाइमर रोग
+त्रिपृष्ठी तंत्रिकाशूल
+मायस्थीनिया ग्रेविस
+न्यूरोसिस्टीसर्कोसिस

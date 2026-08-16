@@ -1,0 +1,16 @@
+---
+description: Listing status (Thai). ขายดาวน์ — reselling the pre-completion contract and the deposit already paid on an unfinished condominium — is a normal, very common status in the Thai market and has no European counterpart.
+locale: th
+---
+ประกาศขาย
+ประกาศให้เช่า
+ขายดาวน์
+มาใหม่
+ลดราคา
+จองแล้ว
+ทำสัญญาแล้ว
+ขายแล้ว
+ให้เช่าแล้ว
+ถอนประกาศ
+โครงการใหม่
+ขายทอดตลาด

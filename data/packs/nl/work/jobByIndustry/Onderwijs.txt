@@ -1,0 +1,16 @@
+---
+description: Jobs in Education (Dutch)
+locale: nl
+---
+Leerkracht basisonderwijs
+Docent voortgezet onderwijs
+Hoogleraar
+Onderwijsassistent
+Bibliothecaris
+Schooldirecteur
+Leraar speciaal onderwijs
+Decaan
+Intern begeleider
+Pedagogisch medewerker
+Bijlesdocent
+Onderzoeker

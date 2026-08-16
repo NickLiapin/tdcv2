@@ -1,0 +1,26 @@
+---
+description: Trip type (Dutch). Two entries are characteristically Dutch rather than generic: 'kampeervakantie' - camping and caravanning is a mainstream family holiday here, not a fringe one - and 'fietsvakantie', a cycling holiday.
+locale: nl
+---
+Zakenreis
+Vakantie
+Gezinsvakantie
+Huwelijksreis
+Avontuurlijke reis
+Autovakantie
+Kampeervakantie
+Fietsvakantie
+Cruise
+Rugzakreis
+Stedentrip
+Strandvakantie
+Groepsreis
+Alleen reizen
+Culturele reis
+Ecotoerisme
+Bedevaart
+Schoolreis
+Culinaire reis
+Wintersportvakantie
+Familiebezoek
+Congres- of beursbezoek

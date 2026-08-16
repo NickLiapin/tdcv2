@@ -1,0 +1,17 @@
+---
+description: Hiring / interview stage as used in India (Hindi); the written test, the group discussion and the separate HR round are standard steps in Indian hiring
+locale: hi
+---
+आवेदन की समीक्षा
+लिखित परीक्षा
+टेलीफ़ोन साक्षात्कार
+तकनीकी साक्षात्कार
+समूह चर्चा
+पैनल साक्षात्कार
+एचआर साक्षात्कार
+अंतिम दौर
+पृष्ठभूमि सत्यापन
+प्रस्ताव पत्र
+अस्वीकृत
+चयनित
+वापस लिया गया

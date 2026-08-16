@@ -1,0 +1,6 @@
+---
+description: Gender label (Hindi). Two values, matching en, pl and ru — this list is what a parent filter such as parent="Gender.पुरुष" selects on, so a longer one silently leaves most rows without a name. India does officially recognise a third gender (अन्य / ट्रांसजेंडर) on Aadhaar and on government forms, and a config that models identity rather than the male/female name directories should carry it in a list of its own.
+locale: hi
+---
+पुरुष
+महिला

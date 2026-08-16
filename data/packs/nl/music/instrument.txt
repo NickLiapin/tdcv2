@@ -1,0 +1,36 @@
+---
+description: Musical instrument (Dutch). Two entries are specific to the Low Countries: the beiaard (carillon), the tower bell instrument of the Netherlands and Flanders whose playing tradition is UNESCO-listed, and the draaiorgel, the Dutch street barrel organ.
+locale: nl
+---
+Gitaar
+Klassieke gitaar
+Basgitaar
+Piano
+Vleugel
+Viool
+Altviool
+Cello
+Contrabas
+Drumstel
+Saxofoon
+Trompet
+Trombone
+Dwarsfluit
+Blokfluit
+Klarinet
+Hobo
+Fagot
+Harp
+Ukelele
+Banjo
+Accordeon
+Keyboard
+Mondharmonica
+Xylofoon
+Pauken
+Tamboerijn
+Orgel
+Doedelzak
+Draailier
+Draaiorgel
+Beiaard

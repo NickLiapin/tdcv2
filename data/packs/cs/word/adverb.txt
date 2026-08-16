@@ -1,0 +1,36 @@
+---
+description: Common adverb (Czech)
+locale: cs
+---
+rychle
+pomalu
+opatrně
+snadno
+tiše
+hlasitě
+vždy
+nikdy
+často
+někdy
+zřídka
+náhle
+jemně
+zřetelně
+prostě
+téměř
+zcela
+sotva
+většinou
+opravdu
+hluboce
+široce
+volně
+směle
+rozhodně
+ochotně
+zdvořile
+brzy
+pozdě
+časně
+možná
+stále

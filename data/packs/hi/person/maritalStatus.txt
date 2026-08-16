@@ -1,0 +1,18 @@
+---
+description: Marital status (Hindi). Several of these inflect for the subject's gender and the list carries both forms where they differ — विधवा is a widow and विधुर a widower, विवाहिता is the explicitly feminine form of विवाहित. A config that already knows the row's gender should filter rather than draw blind.
+locale: hi
+---
+अविवाहित
+अविवाहिता
+विवाहित
+विवाहिता
+तलाक़शुदा
+विधवा
+विधुर
+पृथक निवासरत
+सगाई हुई
+पुनर्विवाहित
+परित्यक्ता
+सहजीवन में
+एकल
+अज्ञात

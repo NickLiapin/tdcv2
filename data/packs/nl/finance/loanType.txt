@@ -1,0 +1,15 @@
+---
+description: Loan type (Dutch). Studielening is not a bank product in the Netherlands: student debt is lent by DUO, a government agency, on terms no bank offers, and it is the one large debt that stays outside the BKR register. Rood staan is an authorised current-account overdraft and is registered at BKR like any other credit.
+locale: nl
+---
+Hypotheek
+Tweede hypotheek
+Persoonlijke lening
+Doorlopend krediet
+Autolening
+Studielening
+Zakelijke lening
+Rood staan
+Private lease
+Verbouwingslening
+Microkrediet

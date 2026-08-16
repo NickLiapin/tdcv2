@@ -1,0 +1,180 @@
+---
+description: Street names common across the Netherlands and Flanders. A Dutch street name is normally ONE fused word carrying its own thoroughfare type (Kerkstraat, Julianalaan, Molenweg), not a name plus a separate suffix - so these are complete street names, and address/streetSuffix.txt is the element already fused onto them rather than something to append. The Dutch address puts the street FIRST and the number AFTER it: 'Kerkstraat 12', never '12 Kerkstraat'. City-specific streets belong in a country pack.
+locale: nl
+---
+Kerkstraat
+Dorpsstraat
+Molenstraat
+Schoolstraat
+Nieuwstraat
+Hoofdstraat
+Stationsstraat
+Julianastraat
+Beatrixstraat
+Wilhelminastraat
+Emmastraat
+Bernhardstraat
+Irenestraat
+Margrietstraat
+Marijkestraat
+Christinastraat
+Oranjestraat
+Prins Hendrikstraat
+Prinses Beatrixlaan
+Koningin Julianalaan
+Willem-Alexanderstraat
+Nassaustraat
+Oranje Nassaulaan
+Stadhouderslaan
+Raadhuisstraat
+Marktstraat
+Havenstraat
+Kanaalstraat
+Bergstraat
+Veldstraat
+Bosstraat
+Heidestraat
+Zandstraat
+Lindestraat
+Beukenstraat
+Eikenstraat
+Berkenstraat
+Wilgenstraat
+Iepenstraat
+Esdoornstraat
+Kastanjelaan
+Populierenlaan
+Acacialaan
+Lindelaan
+Beukenlaan
+Eikenlaan
+Berkenlaan
+Wilgenlaan
+Meidoornlaan
+Vlierlaan
+Hazelaarlaan
+Sparrenlaan
+Dennenlaan
+Lariksstraat
+Tulpstraat
+Rozenstraat
+Narcisstraat
+Hyacintstraat
+Crocusstraat
+Anjerstraat
+Violenstraat
+Lelielaan
+Zonnebloemstraat
+Klaproosstraat
+Korenbloemstraat
+Madeliefstraat
+Irislaan
+Dahliastraat
+Begoniastraat
+Fuchsiastraat
+Azalealaan
+Rhododendronlaan
+Merelstraat
+Lijsterstraat
+Vinkenstraat
+Mezenstraat
+Spreeuwenstraat
+Zwaluwstraat
+Leeuwerikstraat
+Nachtegaalstraat
+Reigerstraat
+Ooievaarstraat
+Zwanenstraat
+Eendenstraat
+Kievitstraat
+Grutostraat
+Valkstraat
+Sperwerstraat
+Buizerdstraat
+Uilenstraat
+Fazantstraat
+Patrijsstraat
+Hertenlaan
+Reelaan
+Vossenlaan
+Dassenlaan
+Hazenpad
+Konijnenlaan
+Egelpad
+Eekhoornlaan
+Rembrandtstraat
+Vermeerstraat
+Van Goghstraat
+Jan Steenstraat
+Frans Halsstraat
+Ruysdaelstraat
+Bosboomstraat
+Breitnerstraat
+Mondriaanlaan
+Escherlaan
+Vondelstraat
+Bilderdijkstraat
+Multatulistraat
+Nescioplein
+Couperusstraat
+Bredastraat
+Huygensstraat
+Spinozastraat
+Erasmuslaan
+Hugo de Grootstraat
+Michiel de Ruyterstraat
+Piet Heinstraat
+Tromplaan
+Willem Barentszstraat
+Abel Tasmanstraat
+Van Riebeeckstraat
+Thorbeckelaan
+Troelstralaan
+Drees-laan
+Kuyperlaan
+Schaepmanstraat
+Anne Frankstraat
+Prof. Lorentzlaan
+Einsteinlaan
+Newtonstraat
+Copernicuslaan
+Keplerstraat
+Galileistraat
+Marconistraat
+Edisonstraat
+Wattstraat
+Voltastraat
+Ampèrestraat
+Industrieweg
+Ambachtsweg
+Handelsweg
+Nijverheidsweg
+Energieweg
+Transportweg
+Ondernemingsweg
+Bedrijfsweg
+Zuiderdiep
+Noorderhaven
+Westersingel
+Oostersingel
+Nieuwe Gracht
+Oude Gracht
+Herengracht
+Keizersgracht
+Prinsengracht
+Singelgracht
+Waterkant
+Dijkweg
+Zeedijk
+Ringdijk
+Polderweg
+Slotermeerlaan
+Veenweg
+Turfmarkt
+Vismarkt
+Botermarkt
+Kaasmarkt
+Grote Markt
+Brink
+Plantsoen
+Hofplein

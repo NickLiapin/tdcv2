@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Czech)
+locale: cs
+---
+PVC chránička
+Ocelová trubka
+Vysokohustotní polyethylen
+Uložení přímo do země
+Vnitřní kanál
+Kabelový žlab
+Zavěšení na sloupech

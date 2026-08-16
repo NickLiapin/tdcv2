@@ -1,0 +1,15 @@
+---
+description: Booking status (Thai). ชำระมัดจำแล้ว is its own state here — Thai hotels and tour operators routinely take a partial มัดจำ (deposit) and settle the balance on arrival.
+locale: th
+---
+รอยืนยัน
+ยืนยันแล้ว
+ชำระมัดจำแล้ว
+ชำระเงินแล้ว
+เช็คอินแล้ว
+เช็คเอาต์แล้ว
+เปลี่ยนแปลงแล้ว
+ยกเลิก
+ไม่มาตามนัด
+คืนเงินแล้ว
+หมดอายุ

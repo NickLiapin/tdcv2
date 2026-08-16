@@ -1,0 +1,21 @@
+---
+description: Qualification / degree as awarded in the Netherlands. The Dutch ladder is vmbo / havo / vwo in secondary school, then mbo (vocational), hbo (universities of applied sciences) and wo (research universities); the older pre-Bologna titles drs., ir., ing. and mr. are still carried by many people and still used in writing. This list does NOT fit Flanders, whose secondary tracks are ASO / TSO / BSO / KSO and whose pre-Bologna title was licentiaat.
+locale: nl
+---
+Basisonderwijs
+Vmbo-diploma
+Havo-diploma
+Vwo-diploma
+Mbo-diploma niveau 2
+Mbo-diploma niveau 3
+Mbo-diploma niveau 4
+Propedeuse
+Associate degree
+Hbo-bachelor
+Wo-bachelor
+Master
+Doctorandus (drs.)
+Ingenieur (ir.)
+Ingenieur (ing.)
+Meester in de rechten (mr.)
+Doctor (dr.)

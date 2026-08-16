@@ -1,0 +1,13 @@
+---
+description: Dishes of French cuisine (Czech)
+locale: cs
+---
+Coq au vin
+Hovězí po burgundsku
+Ratatouille
+Croissant
+Quiche lorraine
+Bouillabaisse
+Francouzské palačinky
+Cassoulet
+Cibulová polévka

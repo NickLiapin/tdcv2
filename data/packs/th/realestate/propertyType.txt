@@ -1,0 +1,23 @@
+---
+description: Property type (Thai). อาคารพาณิชย์ and ตึกแถว are the shop-house — retail or a workshop on the ground floor with the dwelling above, built in a terrace — which has no clean European equivalent and is one of the most common building types in Thailand; เรือนไทย is the traditional raised wooden Thai house.
+locale: th
+---
+คอนโดมิเนียม
+บ้านเดี่ยว
+บ้านแฝด
+ทาวน์เฮาส์
+ทาวน์โฮม
+อาคารพาณิชย์
+ตึกแถว
+หอพัก
+อพาร์ตเมนต์
+เซอร์วิสอพาร์ตเมนต์
+สตูดิโอ
+เพนต์เฮาส์
+บ้านจัดสรร
+บ้านสวน
+เรือนไทย
+โฮมออฟฟิศ
+อาคารสำนักงาน
+โกดัง
+ที่ดินเปล่า

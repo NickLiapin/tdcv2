@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Czech)
+locale: cs
+---
+Chronické onemocnění ledvin
+Nefrolitiáza
+Glomerulonefritida
+Akutní poškození ledvin
+Polycystická choroba ledvin
+Nefrotický syndrom
+Pyelonefritida
+Diabetická nefropatie
+Renální hypertenze
+Terminální selhání ledvin

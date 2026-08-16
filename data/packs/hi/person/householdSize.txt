@@ -1,0 +1,14 @@
+---
+description: Household size. The list runs further than the European packs on purpose — the Indian joint family is a live arrangement, so households of eight or more are ordinary rather than exceptional, and the census average sits above four.
+locale: hi
+---
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 से अधिक

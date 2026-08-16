@@ -1,0 +1,21 @@
+---
+description: Weather phenomenon (Dutch). Dutch forecasts name wind by the Beaufort scale (windkracht 1-12) in ordinary broadcast language, unlike English-speaking countries, so storm, zware storm and orkaan here are named wind strengths (9, 10 and 12) rather than exotic events. Windhoos is the small land tornado the Low Countries actually get. Stormvloed - the North Sea storm surge - is the phenomenon Dutch water management exists for: the 1953 flood led to the Deltawerken.
+locale: nl
+---
+Storm
+Zware storm
+Orkaan
+Windhoos
+Stormvloed
+Springtij
+Overstroming
+Sneeuwstorm
+Hittegolf
+Koudegolf
+Nachtvorst
+Droogte
+Bosbrand
+Hagelstorm
+Zandstorm
+Cycloon
+Moesson

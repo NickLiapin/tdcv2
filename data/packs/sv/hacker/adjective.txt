@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Swedish, common-gender singular)
+locale: sv
+---
+digital
+trådlös
+krypterad
+distribuerad
+redundant
+skalbar
+molnbaserad
+virtuell
+containeriserad
+asynkron
+synkron
+optisk
+seriell
+parallell
+inbyggd
+modulär
+öppen
+sluten
+primär
+sekundär
+hierarkisk
+neural
+programmerbar
+automatiserad
+responsiv
+beständig
+flyktig
+sandlådad

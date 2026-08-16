@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Dutch).
+locale: nl
+---
+IJzer
+Brons
+Zilver
+Goud
+Platina
+Smaragd
+Diamant
+Meester
+Grootmeester
+Uitdager

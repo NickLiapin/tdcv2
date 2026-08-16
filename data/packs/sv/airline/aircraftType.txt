@@ -1,0 +1,30 @@
+---
+description: Aircraft type (manufacturer designations, used unchanged in Swedish). Saab 340 and Saab 2000 are Swedish-built regional airliners and still fly Nordic routes.
+locale: sv
+---
+Airbus A220-100
+Airbus A220-300
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321neo
+Airbus A330-300
+Airbus A350-900
+Airbus A380-800
+Boeing 737-700
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 767-300
+Boeing 777-300ER
+Boeing 787-9
+Boeing 747-400
+ATR 72-600
+Embraer E190
+Embraer E195-E2
+Bombardier CRJ900
+De Havilland Dash 8-400
+Saab 340
+Saab 2000
+Cessna 172
+Beechcraft King Air
+Pilatus PC-12

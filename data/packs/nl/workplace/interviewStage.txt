@@ -1,0 +1,17 @@
+---
+description: Stage of a hiring process (Dutch). The arbeidsvoorwaardengesprek is a separate, named meeting in the Dutch process: pay, holiday and conditions are negotiated after the candidate has been chosen but before the offer is signed.
+locale: nl
+---
+Sollicitatie ontvangen
+Cv-screening
+Telefonische screening
+Eerste gesprek
+Tweede gesprek
+Assessment
+Praktijkopdracht
+Arbeidsvoorwaardengesprek
+Referentiecheck
+Aanbod
+Afgewezen
+Aangenomen
+Teruggetrokken

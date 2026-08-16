@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Czech that requires female anatomy - it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: cs
+---
+Endometrióza
+Syndrom polycystických ovarií
+Děložní myomy
+Ovariální cysta
+Karcinom vaječníku
+Karcinom děložního čípku
+Dysplazie děložního čípku
+Zánět děložního čípku
+Zánět děložní sliznice
+Karcinom endometria
+Zánět pánevních orgánů
+Bakteriální vaginóza
+Vulvovaginální kandidóza
+Silné menstruační krvácení
+Dysmenorea
+Amenorea
+Preeklampsie
+Gestační diabetes
+Hyperemesis gravidarum
+Mimoděložní těhotenství
+Poporodní krvácení
+Mastitida
+Fibrocystické změny prsu
+Klimakterický syndrom
+Premenstruační dysforická porucha
+Prolaps dělohy

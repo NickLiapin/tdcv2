@@ -1,0 +1,46 @@
+---
+description: Vegetable (Dutch). Several are staples of Dutch cooking with awkward English equivalents: boerenkool is curly kale eaten mashed with potato, andijvie is escarole, koolraap swede, postelein purslane, and snijbiet chard. Note witlof - Flanders writes and says witloof, and the Flemish spelling should not be used as general Dutch.
+locale: nl
+---
+Aardappel
+Wortel
+Ui
+Prei
+Knoflook
+Sjalot
+Boerenkool
+Spruitjes
+Bloemkool
+Broccoli
+Witte kool
+Rode kool
+Spitskool
+Savooiekool
+Koolraap
+Knolselderij
+Bleekselderij
+Andijvie
+Spinazie
+Sla
+Witlof
+Postelein
+Snijbiet
+Rammenas
+Radijs
+Biet
+Rode biet
+Pastinaak
+Schorseneer
+Asperge
+Sperzieboon
+Snijboon
+Tuinboon
+Doperwt
+Peultjes
+Courgette
+Aubergine
+Paprika
+Tomaat
+Komkommer
+Pompoen
+Champignon

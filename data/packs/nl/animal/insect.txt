@@ -1,0 +1,24 @@
+---
+description: Insect (Dutch). Ordinary Dutch names for insects common in the Low Countries.
+locale: nl
+---
+Mier
+Bij
+Hommel
+Vlinder
+Kever
+Libel
+Sprinkhaan
+Lieveheersbeestje
+Mot
+Krekel
+Wesp
+Glimworm
+Bidsprinkhaan
+Cicade
+Termiet
+Mug
+Vlieg
+Kakkerlak
+Vlo
+Oorwurm

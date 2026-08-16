@@ -1,0 +1,44 @@
+---
+description: Building type (Hindi). कोठी and हवेली are large detached town houses, a चाल is the single-room tenement common in Mumbai, a ढाबा is a roadside eating house, and a धर्मशाला is a pilgrims' rest house — none of them has a European equivalent worth translating to.
+locale: hi
+---
+मकान
+फ़्लैट
+अपार्टमेंट
+बंगला
+कोठी
+हवेली
+विला
+झोपड़ी
+चाल
+छात्रावास
+दुकान
+गोदाम
+कारख़ाना
+मिल
+कार्यालय
+अस्पताल
+क्लिनिक
+विद्यालय
+महाविद्यालय
+विश्वविद्यालय
+मंदिर
+मस्जिद
+गुरुद्वारा
+गिरजाघर
+धर्मशाला
+आश्रम
+होटल
+ढाबा
+रेस्तराँ
+सिनेमाघर
+मॉल
+बाज़ार
+पुस्तकालय
+संग्रहालय
+थाना
+तहसील भवन
+पंचायत भवन
+सामुदायिक भवन
+स्टेडियम
+गोशाला

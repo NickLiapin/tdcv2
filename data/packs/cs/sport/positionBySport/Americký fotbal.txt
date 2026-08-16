@@ -1,0 +1,14 @@
+---
+description: Positions in American football (Czech)
+locale: cs
+---
+Quarterback
+Running back
+Wide receiver
+Tight end
+Útočný lajnař
+Defenzivní lajnař
+Linebacker
+Cornerback
+Safety
+Kicker

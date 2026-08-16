@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Czech (female-specific + common), for a female patient row
+locale: cs
+---
+Endometrióza
+Syndrom polycystických ovarií
+Děložní myomy
+Ovariální cysta
+Karcinom vaječníku
+Karcinom děložního čípku
+Dysplazie děložního čípku
+Zánět děložního čípku
+Zánět děložní sliznice
+Karcinom prsu
+Fibroadenom prsu
+Vaginální kandidóza
+Bakteriální vaginóza
+Zánět pánevních orgánů
+Předčasná menopauza
+Klimakterický syndrom
+Chronická pankreatitida
+Chlamydiová infekce
+Arteriální hypertenze
+Diabetes mellitus 2. typu
+Bronchiální astma
+Migréna
+Sideropenická anémie
+Hypotyreóza
+Osteoporóza
+Gestační diabetes
+Preeklampsie

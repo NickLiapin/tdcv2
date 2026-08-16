@@ -1,0 +1,32 @@
+---
+description: Tech verb in the infinitive (Dutch). Line for line this is the base form of hacker/ingverb.txt. Loanwords take Dutch verb morphology rather than being replaced - hence 'hacken', 'debuggen', 'routeren', 'monitoren'.
+locale: nl
+---
+beveiligen
+omzeilen
+hacken
+overschrijven
+comprimeren
+kopiëren
+navigeren
+indexeren
+verbinden
+genereren
+kwantificeren
+berekenen
+synthetiseren
+invoeren
+overdragen
+programmeren
+herstarten
+analyseren
+versleutelen
+ontsleutelen
+uitrollen
+compileren
+debuggen
+optimaliseren
+synchroniseren
+virtualiseren
+routeren
+monitoren

@@ -1,0 +1,12 @@
+---
+description: Mining method (Swedish)
+locale: sv
+---
+dagbrott
+underjordsbrytning
+skivrasbrytning
+igensättningsbrytning
+rum- och pelarbrytning
+sublevel stoping
+borrning och sprängning
+lakning

@@ -1,0 +1,20 @@
+---
+description: Dishes of Chinees cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Babi pangang
+Foe yong hai
+Tjaptjoy
+Koe loe yuk
+Gebakken rijst
+Mihoen
+Wan tan soep
+Peking eend
+Kip kerrie
+Chow mein
+Dim sum
+Loempia
+Kip met cashewnoten
+Zoetzure kip
+Mapo tofu
+Gebakken banaan

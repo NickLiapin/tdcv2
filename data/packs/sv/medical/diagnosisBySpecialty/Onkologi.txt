@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in onkologi, in Swedish
+locale: sv
+---
+Bröstcancer
+Prostatacancer
+Lungcancer
+Tjocktarmscancer
+Malignt melanom
+Lymfom
+Leukemi
+Njurcancer
+Bukspottkörtelcancer
+Urinblåsecancer

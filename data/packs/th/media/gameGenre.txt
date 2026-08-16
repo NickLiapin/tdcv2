@@ -1,0 +1,21 @@
+---
+description: Video game genre (Thai); MMORPG is kept in Latin letters because that is how Thai players write it
+locale: th
+---
+แอ็กชัน
+ผจญภัย
+เกมสวมบทบาท
+วางแผน
+จำลองสถานการณ์
+กีฬา
+ปริศนา
+ยิงมุมมองบุคคลที่หนึ่ง
+แพลตฟอร์ม
+แข่งรถ
+ต่อสู้
+เอาชีวิตรอด
+โลกเปิด
+MMORPG
+โร้กไลก์
+สยองขวัญ
+ดนตรี

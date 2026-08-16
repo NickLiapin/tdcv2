@@ -1,0 +1,22 @@
+---
+description: Jobs in Healthcare (Thai). Includes อาสาสมัครสาธารณสุขประจำหมู่บ้าน, the village health volunteer who is the front line of Thai primary care, and แพทย์แผนไทย, a licensed practitioner of traditional Thai medicine.
+locale: th
+---
+แพทย์
+ศัลยแพทย์
+กุมารแพทย์
+ทันตแพทย์
+เภสัชกร
+พยาบาลวิชาชีพ
+ผู้ช่วยพยาบาล
+พยาบาลผดุงครรภ์
+นักกายภาพบำบัด
+นักเทคนิคการแพทย์
+นักรังสีเทคนิค
+นักโภชนาการ
+นักจิตวิทยาคลินิก
+เจ้าหน้าที่กู้ชีพ
+เจ้าหน้าที่สาธารณสุขชุมชน
+อาสาสมัครสาธารณสุขประจำหมู่บ้าน
+แพทย์แผนไทย
+ผู้ช่วยทันตแพทย์

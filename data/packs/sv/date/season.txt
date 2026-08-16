@@ -1,0 +1,8 @@
+---
+description: Season (Swedish, lowercase). Sweden does not define its seasons by calendar date: SMHI, the national weather service, defines them meteorologically by temperature — autumn begins when the daily mean stays below 10 °C for five days, winter below 0 °C, spring above 0 °C, summer above 10 °C. Season therefore starts weeks earlier in the north than in the south, and above the Arctic Circle summer carries midnattssol and winter polarnatt.
+locale: sv
+---
+vår
+sommar
+höst
+vinter

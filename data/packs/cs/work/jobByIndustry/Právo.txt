@@ -1,0 +1,16 @@
+---
+description: Jobs in Law (Czech)
+locale: cs
+---
+Advokát
+Advokátní koncipient
+Notář
+Soudce
+Státní zástupce
+Soudní exekutor
+Právní asistent
+Vyšší soudní úředník
+Podnikový právník
+Specialista na compliance
+Patentový zástupce
+Insolvenční správce

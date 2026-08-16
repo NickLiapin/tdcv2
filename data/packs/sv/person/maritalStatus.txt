@@ -1,0 +1,18 @@
+---
+description: Marital status (Swedish). Two of these have no European default equivalent: sambo is a legally defined status in Sweden — unmarried cohabitees are covered by sambolagen, which governs their shared home — and särbo names a committed couple who keep separate homes. Only änka / änkling are gendered; the rest are the same for everyone.
+locale: sv
+---
+ogift
+gift
+sambo
+särbo
+separerad
+skild
+änka
+änkling
+förlovad
+registrerad partner
+efterlevande make
+efterlevande maka
+upplöst partnerskap
+uppgift saknas

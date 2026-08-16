@@ -1,0 +1,16 @@
+---
+description: Jobs in hälso- och sjukvård, in Swedish
+locale: sv
+---
+läkare
+specialistläkare
+distriktsläkare
+sjuksköterska
+specialistsjuksköterska
+barnmorska
+undersköterska
+fysioterapeut
+arbetsterapeut
+psykolog
+tandläkare
+biomedicinsk analytiker

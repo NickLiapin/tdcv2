@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Thai). The head of the list is the Thai classical instrumentarium — the ปี่พาทย์ (percussion and reed) and เครื่องสาย (string) ensembles; แคน, พิณ, โหวด and โปงลาง belong to Isan (northeastern) music and are genuinely different from the central Thai set; international instruments follow at the end.
+locale: th
+---
+ระนาดเอก
+ระนาดทุ้ม
+ฆ้องวงใหญ่
+ฆ้องวงเล็ก
+ปี่ใน
+ปี่นอก
+ขลุ่ยเพียงออ
+ซอด้วง
+ซออู้
+ซอสามสาย
+จะเข้
+กระจับปี่
+ตะโพน
+กลองแขก
+กลองยาว
+โทน-รำมะนา
+ฉิ่ง
+ฉาบ
+กรับ
+โหวด
+แคน
+พิณ
+โปงลาง
+กีตาร์
+กีตาร์ไฟฟ้า
+กีตาร์เบส
+เปียโน
+ไวโอลิน
+กลองชุด
+แซกโซโฟน
+ทรัมเป็ต

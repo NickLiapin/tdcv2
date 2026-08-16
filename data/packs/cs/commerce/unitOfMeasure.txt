@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Czech). Czechia uses the metric system throughout.
+locale: cs
+---
+kus
+karton
+balík
+balení
+tucet
+pár
+sada
+role
+svazek
+kilogram
+gram
+tuna
+litr
+mililitr
+metr
+centimetr
+milimetr
+metr čtvereční
+metr krychlový
+sáček
+taška
+tácek
+plechovka
+láhev
+sklenice
+tuba
+pytel
+paleta
+obálka
+souprava

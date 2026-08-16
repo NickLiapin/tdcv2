@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Dutch). 'Passer-loper' is the Dutch name for the outside hitter, who both receives serve and attacks from the wing.
+locale: nl
+---
+Spelverdeler
+Passer-loper
+Middenblokkeerder
+Diagonaalspeler
+Libero

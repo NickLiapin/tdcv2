@@ -1,0 +1,27 @@
+---
+description: Household budget / spending category (Hindi). Includes lines that are normal in an Indian household budget - domestic help wages and festival & wedding spending.
+locale: hi
+---
+किराया
+गृह ऋण की किस्त
+किराना एवं राशन
+बिजली-पानी का बिल
+आवागमन
+ईंधन
+मनोरंजन
+स्वास्थ्य
+बीमा प्रीमियम
+बाहर खाना
+बचत एवं निवेश
+सब्सक्रिप्शन
+यात्रा
+शिक्षा एवं ट्यूशन फ़ीस
+कपड़े
+उपहार
+बच्चों की देखभाल
+क़र्ज़ की अदायगी
+पालतू जानवर
+मोबाइल एवं इंटरनेट
+कर एवं शुल्क
+घरेलू सहायक का वेतन
+त्योहार एवं शादी-ब्याह

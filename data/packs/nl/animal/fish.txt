@@ -1,0 +1,29 @@
+---
+description: Fish (Dutch). This is a fishing nation's vocabulary: North Sea species come first, then freshwater. Haring is culturally central - eaten raw as Hollandse nieuwe, taken by the tail, and the start of the season is a public event. Garnaal (the North Sea brown shrimp) is a crustacean rather than a fish, but it is a mainstay of the Dutch catch and belongs in any list of what the fleet lands.
+locale: nl
+---
+Haring
+Kabeljauw
+Schol
+Tong
+Makreel
+Schelvis
+Koolvis
+Wijting
+Zeebaars
+Heilbot
+Bot
+Rog
+Sardine
+Ansjovis
+Zeeduivel
+Garnaal
+Zalm
+Forel
+Tonijn
+Paling
+Snoek
+Snoekbaars
+Baars
+Karper
+Brasem

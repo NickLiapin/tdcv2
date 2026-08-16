@@ -1,0 +1,16 @@
+---
+description: Leave type (Swedish). Two have no equivalent elsewhere: VAB — vård av sjukt barn — is paid leave to look after a sick child, claimed from Försäkringskassan and used by almost every Swedish parent, and föräldraledighet draws on 480 shared parental days, 90 of them reserved for each parent. Permission is short paid leave for a funeral or a move.
+locale: sv
+---
+semester
+föräldraledighet
+VAB
+sjukfrånvaro
+sjukskrivning
+tjänstledighet
+studieledighet
+kompledighet
+permission
+obetald ledighet
+föräldraledighet på deltid
+arbetsbefriad

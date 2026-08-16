@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Hindi); Indian corporates and PSUs use the deputy-general-manager and general-manager grades between manager and director
+locale: hi
+---
+प्रशिक्षु
+परिवीक्षाधीन
+कनिष्ठ
+सहायक
+मध्य स्तर
+वरिष्ठ
+टीम लीड
+विशेषज्ञ
+पर्यवेक्षक
+प्रबंधक
+वरिष्ठ प्रबंधक
+उप महाप्रबंधक
+महाप्रबंधक
+निदेशक
+उपाध्यक्ष
+मुख्य कार्यकारी अधिकारी

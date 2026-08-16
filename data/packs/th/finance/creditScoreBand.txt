@@ -1,0 +1,12 @@
+---
+description: Credit grade issued by the National Credit Bureau of Thailand (เครดิตบูโร) on a THB-denominated credit report. Thailand does NOT use the poor/fair/good/excellent bands of the European and US schemes — the NCB publishes eight letter grades from AA (best, score 753-900) down to HH (worst, 300-615), and AA-HH is what a Thai credit report actually prints. The grades are written in Latin letters in Thai documents.
+locale: th
+---
+AA
+BB
+CC
+DD
+EE
+FF
+GG
+HH

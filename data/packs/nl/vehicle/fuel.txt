@@ -1,0 +1,14 @@
+---
+description: Fuel type (Dutch). Dutch pumps are labelled by octane rather than by brand words: Euro 95 (now sold as E10) and Euro 98 are the two petrol grades, and 'benzine' is the generic. LPG is still common in the Netherlands and rare in most of Europe.
+locale: nl
+---
+Benzine
+Euro 95 (E10)
+Euro 98
+Diesel
+Elektrisch
+Hybride
+Plug-in hybride
+Waterstof
+LPG
+CNG (aardgas)

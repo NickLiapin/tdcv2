@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Thai; hardware brand names keep their Latin spelling, and mobile is the dominant platform in Thailand rather than a minor one)
+locale: th
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Meta Quest
+มือถือ
+เว็บเบราว์เซอร์

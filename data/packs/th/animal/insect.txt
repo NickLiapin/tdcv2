@@ -1,0 +1,27 @@
+---
+description: Insect found in Thailand (Thai); several are farmed or eaten — จิ้งหรีด (cricket), ด้วงสาคู (sago palm weevil), มดแดง (weaver ant, for its eggs) and แมลงดานา, whose scent goes into น้ำพริก.
+locale: th
+---
+มด
+มดแดง
+ผึ้ง
+ชันโรง
+ผีเสื้อ
+ผีเสื้อกลางคืน
+ด้วง
+ด้วงสาคู
+แมลงปอ
+ตั๊กแตน
+ตั๊กแตนตำข้าว
+จิ้งหรีด
+จักจั่น
+หิ่งห้อย
+ต่อ
+แตน
+ปลวก
+ยุง
+แมลงวัน
+แมลงสาบ
+แมลงดานา
+หนอนไหม
+เต่าทอง

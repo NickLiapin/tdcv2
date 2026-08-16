@@ -1,0 +1,46 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Swedish)
+locale: sv
+---
+projektledning
+agilt arbetssätt
+scrum
+kravanalys
+systemutveckling
+programmering
+databashantering
+molntjänster
+IT-säkerhet
+nätverksdrift
+dataanalys
+statistik
+maskininlärning
+budgetering
+bokföring
+bokslut
+avtalsrätt
+upphandling
+förhandling
+försäljning
+kundbemötande
+marknadsföring
+sociala medier
+copywriting
+grafisk design
+fotografering
+svetsning
+CNC-programmering
+elinstallation
+VVS-montage
+maskinunderhåll
+truckkörning
+lagerhantering
+körkort B
+första hjälpen
+HLR
+arbetsmiljöarbete
+pedagogik
+handledning
+ledarskap
+kommunikation
+problemlösning

@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Swedish)
+locale: sv
+---
+kabelränna
+kabelstege
+elrör
+VP-rör
+kabelkanal
+markförläggning
+luftledning

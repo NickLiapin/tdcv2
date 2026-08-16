@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Thai market (brand names keep their real spelling); Disney+ carries the Hotstar name in Thailand, and LINE TV is deliberately absent because it shut down in 2021
+locale: th
+---
+Netflix
+YouTube
+Disney+ Hotstar
+Prime Video
+Apple TV+
+Viu
+WeTV
+iQIYI
+TrueID
+AIS Play
+MONOMAX
+oneD

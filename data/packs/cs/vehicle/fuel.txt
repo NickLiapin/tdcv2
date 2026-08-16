@@ -1,0 +1,14 @@
+---
+description: Fuel type (Czech)
+locale: cs
+---
+Benzín
+Nafta
+Elektřina
+Hybrid
+Plug-in hybrid
+Vodík
+Etanol
+CNG
+LPG
+Bionafta

@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Czech)
+locale: cs
+---
+Posouzení životopisu
+Telefonický rozhovor
+Technický pohovor
+Osobní pohovor
+Pohovor s panelem
+Finální kolo
+Ověření referencí
+Nabídka
+Odmítnut
+Přijat
+Staženo

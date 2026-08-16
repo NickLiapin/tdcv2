@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child). Horeca is the ordinary Dutch word for the hospitality sector, contracted from hotel, restaurant and cafe, and is used in both the Netherlands and Flanders.
+locale: nl
+---
+Technologie
+Gezondheidszorg
+Financiën
+Bouw
+Onderwijs
+Horeca
+Industrie
+Detailhandel
+Transport
+Recht

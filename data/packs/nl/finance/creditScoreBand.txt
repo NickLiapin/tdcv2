@@ -1,0 +1,13 @@
+---
+description: Credit standing as the Netherlands actually records it - NOT a score band. There is no Dutch consumer credit score: nothing corresponds to FICO or to a numeric band, and inventing one would be fiction. What exists is a register. Stichting BKR in Tiel records every consumer credit and every arrears event as a coded registration: an A code (achterstandsmelding) when payments fall behind, an H code (herstelmelding) when the arrears are cured, and a bijzonderheidscode 1 to 5 saying what happened next. A lender reads the presence and the code of a registration, not a number. Belgium works the same way through the Centrale voor Kredieten aan Particulieren at the Nationale Bank, which is also a register and also has no score. Bijzonderheidscode 5 differs from the others in being temporary: it is removed when the preventive arrangement ends, whereas an A code persists for five years after the credit is settled. Treat a value from this list as a categorical registration state and never as an ordinal band.
+locale: nl
+---
+Geen BKR-registratie
+Positieve registratie zonder achterstand
+A-codering (achterstandsmelding)
+H-codering (herstelmelding na achterstand)
+Bijzonderheidscode 1 (aflossingsregeling getroffen)
+Bijzonderheidscode 2 (restantvordering opeisbaar gesteld)
+Bijzonderheidscode 3 (bedrag van € 250 of meer afgeboekt)
+Bijzonderheidscode 4 (consument onbereikbaar)
+Bijzonderheidscode 5 (preventieve betalingsregeling hypotheek)

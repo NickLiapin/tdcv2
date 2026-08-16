@@ -1,0 +1,39 @@
+---
+description: Music genre (Hindi). Filmi (film playback music) is by far the largest music category in India and is listed first; ghazal and qawwali are standard Hindi genre words despite their Perso-Arabic roots.
+locale: hi
+---
+फ़िल्मी
+हिंदुस्तानी शास्त्रीय
+कर्नाटक शास्त्रीय
+ख़याल
+ध्रुपद
+ठुमरी
+दादरा
+टप्पा
+ग़ज़ल
+क़व्वाली
+भजन
+कीर्तन
+सूफ़ी
+भांगड़ा
+लावणी
+गरबा
+बाउल
+रवींद्र संगीत
+लोक संगीत
+देशभक्ति गीत
+इंडी-पॉप
+रैप
+हिप-हॉप
+रॉक
+पॉप
+जैज़
+पाश्चात्य शास्त्रीय
+ब्लूज़
+कंट्री
+रेगे
+हेवी मेटल
+इलेक्ट्रॉनिक
+हाउस
+टेक्नो
+ट्रांस

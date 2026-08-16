@@ -1,0 +1,30 @@
+---
+description: Product review title (Swedish)
+locale: sv
+---
+Mycket nöjd
+Precis som beskrivet
+Bra kvalitet för priset
+Rekommenderas varmt
+Överträffade förväntningarna
+Snabb leverans
+Bra men inte perfekt
+Håller måttet
+Prisvärt
+Enkel att använda
+Snygg design
+Stabil och gedigen
+Fungerar utmärkt
+Bra men lite dyr
+Godkänt
+Motsvarade inte förväntningarna
+Sämre än väntat
+Gick sönder direkt
+Fel storlek
+Missvisande bild
+Lång leveranstid
+Dålig kundservice
+Skulle inte köpa igen
+Blandade känslor
+Bra för nybörjare
+Ett fynd

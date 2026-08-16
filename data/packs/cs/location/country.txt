@@ -1,0 +1,237 @@
+---
+description: Country and territory names (Czech)
+locale: cs
+---
+Afghánistán
+Albánie
+Alžírsko
+Americká Samoa
+Andorra
+Angola
+Anguilla
+Antarktida
+Antigua a Barbuda
+Argentina
+Arménie
+Aruba
+Austrálie
+Ázerbájdžán
+Bahamy
+Bahrajn
+Bangladéš
+Barbados
+Belgie
+Belize
+Benin
+Bermudy
+Bhútán
+Bolívie
+Bosna a Hercegovina
+Botswana
+Brazílie
+Brunej
+Bulharsko
+Burkina Faso
+Burundi
+Kambodža
+Kamerun
+Kanada
+Kapverdy
+Kajmanské ostrovy
+Středoafrická republika
+Čad
+Chile
+Čína
+Vánoční ostrov
+Kokosové ostrovy
+Kolumbie
+Komory
+Konžská demokratická republika
+Konžská republika
+Cookovy ostrovy
+Kostarika
+Pobřeží slonoviny
+Chorvatsko
+Kuba
+Curaçao
+Kypr
+Česko
+Dánsko
+Džibutsko
+Dominika
+Dominikánská republika
+Východní Timor
+Ekvádor
+Egypt
+Salvador
+Rovníková Guinea
+Eritrea
+Estonsko
+Eswatini
+Etiopie
+Falklandy
+Faerské ostrovy
+Fidži
+Finsko
+Francie
+Francouzská Guyana
+Francouzská Polynésie
+Francouzská jižní území
+Gabon
+Gambie
+Gruzie
+Německo
+Ghana
+Gibraltar
+Řecko
+Grónsko
+Grenada
+Guadeloupe
+Guam
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Hongkong
+Maďarsko
+Island
+Indie
+Indonésie
+Írán
+Irák
+Irsko
+Izrael
+Itálie
+Jamajka
+Japonsko
+Jordánsko
+Kazachstán
+Keňa
+Kiribati
+Severní Korea
+Jižní Korea
+Kosovo
+Kuvajt
+Kyrgyzstán
+Laos
+Lotyšsko
+Libanon
+Lesotho
+Libérie
+Libye
+Lichtenštejnsko
+Litva
+Lucembursko
+Macao
+Madagaskar
+Malawi
+Malajsie
+Maledivy
+Mali
+Malta
+Marshallovy ostrovy
+Martinik
+Mauritánie
+Mauricius
+Mayotte
+Mexiko
+Mikronésie
+Moldavsko
+Monako
+Mongolsko
+Černá Hora
+Montserrat
+Maroko
+Mosambik
+Myanmar
+Namibie
+Nauru
+Nepál
+Nizozemsko
+Nizozemské Antily
+Nová Kaledonie
+Nový Zéland
+Nikaragua
+Niger
+Nigérie
+Niue
+Severní Makedonie
+Severní Mariany
+Norsko
+Omán
+Pákistán
+Palau
+Palestina
+Panama
+Papua-Nová Guinea
+Paraguay
+Peru
+Filipíny
+Pitcairnovy ostrovy
+Polsko
+Portugalsko
+Portoriko
+Katar
+Réunion
+Rumunsko
+Rusko
+Rwanda
+Svatý Kryštof a Nevis
+Svatá Lucie
+Svatý Vincenc a Grenadiny
+Samoa
+San Marino
+Svatý Tomáš a Princův ostrov
+Saúdská Arábie
+Senegal
+Srbsko
+Seychely
+Sierra Leone
+Singapur
+Slovensko
+Slovinsko
+Šalomounovy ostrovy
+Somálsko
+Jihoafrická republika
+Jižní Súdán
+Španělsko
+Srí Lanka
+Súdán
+Surinam
+Švédsko
+Švýcarsko
+Sýrie
+Tchaj-wan
+Tádžikistán
+Tanzanie
+Thajsko
+Tibet
+Togo
+Tokelau
+Tonga
+Trinidad a Tobago
+Tunisko
+Turecko
+Turkmenistán
+Turks a Caicos
+Tuvalu
+Uganda
+Ukrajina
+Spojené arabské emiráty
+Spojené království
+Spojené státy americké
+Uruguay
+Uzbekistán
+Vanuatu
+Vatikán
+Venezuela
+Vietnam
+Britské Panenské ostrovy
+Americké Panenské ostrovy
+Wallis a Futuna
+Západní Sahara
+Jemen
+Zambie
+Zimbabwe

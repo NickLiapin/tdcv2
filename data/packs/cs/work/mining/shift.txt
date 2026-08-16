@@ -1,0 +1,9 @@
+---
+description: Mining shift (Czech)
+locale: cs
+---
+Denní
+Noční
+Odpolední
+Ranní
+Střídavá

@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Swedish)
+locale: sv
+---
+feber
+frossa
+huvudvärk
+yrsel
+trötthet
+sjukdomskänsla
+illamående
+kräkningar
+diarré
+förstoppning
+magsmärta
+halsbränna
+aptitlöshet
+viktnedgång
+viktuppgång
+hosta
+slemhosta
+andfåddhet
+väsande andning
+bröstsmärta
+hjärtklappning
+ont i halsen
+snuva
+nästäppa
+nysningar
+öronvärk
+ryggsmärta
+nacksmärta
+ledvärk
+muskelvärk
+stelhet
+svullnad
+hudutslag
+klåda
+domningar
+sömnsvårigheter
+nedstämdhet
+oro

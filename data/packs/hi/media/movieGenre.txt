@@ -1,0 +1,23 @@
+---
+description: Movie genre (Hindi). Masala (the multi-genre commercial film) and pauranik (mythological) are genuine Indian-cinema genre labels with no Western equivalent.
+locale: hi
+---
+एक्शन
+कॉमेडी
+ड्रामा
+हॉरर
+थ्रिलर
+रोमांस
+विज्ञान कथा
+फ़ैंटेसी
+वृत्तचित्र
+एनिमेशन
+साहसिक
+अपराध
+रहस्य
+संगीतमय
+युद्ध
+बायोपिक
+मसाला
+पौराणिक
+सामाजिक

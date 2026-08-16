@@ -1,0 +1,13 @@
+---
+description: Trucking route type in Thailand (Thai). Includes the domestic runs named by region, the port run to Laem Chabang, cross-border haulage to Laos, Cambodia, Myanmar and Malaysia, and the two real Greater Mekong Subregion corridors - R3A (Bangkok to Kunming through Laos) and R9 (the east-west corridor through Mukdahan and Savannakhet).
+locale: th
+---
+ในเมือง
+ระหว่างจังหวัด
+ขึ้นเหนือ
+ลงใต้
+ไปอีสาน
+เข้าท่าเรือแหลมฉบัง
+ขนส่งข้ามแดน
+เส้นทาง R3A
+เส้นทาง R9

@@ -1,0 +1,24 @@
+---
+description: Trip type (Hindi); तीर्थयात्रा leads because pilgrimage (Char Dham, Vaishno Devi, Tirupati) is a genuinely huge share of Indian domestic travel, and hill stations, wildlife safaris and Kerala backwaters are the other staples
+locale: hi
+---
+तीर्थयात्रा
+हिल स्टेशन की छुट्टी
+समुद्र तट की छुट्टी
+वन्यजीव सफ़ारी
+बैकवाटर यात्रा
+ट्रेकिंग
+साहसिक यात्रा
+व्यापारिक यात्रा
+सम्मेलन यात्रा
+हनीमून
+गंतव्य विवाह
+पारिवारिक छुट्टी
+रिश्तेदारों से मिलने की यात्रा
+अकेले यात्रा
+समूह टूर
+बैकपैकिंग
+रोड ट्रिप
+वीकेंड गेटअवे
+विरासत भ्रमण
+वेलनेस रिट्रीट

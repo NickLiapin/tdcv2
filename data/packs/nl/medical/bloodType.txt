@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type. Dutch names the fourth group with the letter O (bloedgroep O), never with a zero.
+locale: nl
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

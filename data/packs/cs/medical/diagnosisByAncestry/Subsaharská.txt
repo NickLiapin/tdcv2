@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, in Czech. A prevalence signal, not an exclusive one - anyone can have these, and most patients of this ancestry have none of them.
+locale: cs
+---
+Srpkovitá anémie
+Nosičství srpkovité anémie
+Deficit glukózo-6-fosfátdehydrogenázy
+Nefropatie spojená s APOL1
+Keloidy
+Sarkoidóza
+Hypertenzní nefroskleróza
+Děložní myomy
+Benigní etnická neutropenie
+Hypolaktazie dospělých
+Pseudofolliculitis barbae
+Vitiligo

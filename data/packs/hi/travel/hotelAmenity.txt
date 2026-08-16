@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Hindi); what Indian hotels actually advertise, so power backup, round-the-clock hot water, RO drinking water and a pure-vegetarian restaurant appear alongside the international amenities
+locale: hi
+---
+मुफ़्त वाई-फ़ाई
+स्विमिंग पूल
+स्पा
+जिम
+रेस्तराँ
+शुद्ध शाकाहारी रेस्तराँ
+बार
+रूम सर्विस
+नाश्ता शामिल
+एयरपोर्ट ट्रांसफ़र
+मुफ़्त पार्किंग
+पावर बैकअप
+24 घंटे गर्म पानी
+आरओ पेयजल
+एयर कंडीशनिंग
+लिफ़्ट
+24 घंटे रिसेप्शन
+लॉन्ड्री सेवा
+बिज़नेस सेंटर
+कॉन्फ़्रेंस हॉल
+बैंक्वेट हॉल
+तिजोरी
+मिनी बार
+डॉक्टर ऑन कॉल
+आयुर्वेदिक मसाज
+योग कक्ष
+रूफ़टॉप टैरेस
+बच्चों का खेल क्षेत्र
+पालतू जानवरों की अनुमति
+व्हीलचेयर सुलभ

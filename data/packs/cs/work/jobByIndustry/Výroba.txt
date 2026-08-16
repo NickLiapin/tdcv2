@@ -1,0 +1,16 @@
+---
+description: Jobs in Manufacturing (Czech)
+locale: cs
+---
+Obsluha CNC stroje
+Svářeč
+Soustružník
+Frézař
+Kontrolor kvality
+Vedoucí výroby
+Montážní dělník
+Údržbář
+Technolog výroby
+Operátor výrobní linky
+Mistr
+Skladník

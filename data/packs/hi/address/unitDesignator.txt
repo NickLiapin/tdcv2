@@ -1,0 +1,27 @@
+---
+description: Hindi address unit or interior designator, written before its number. Two are specific to India — खसरा नं. is the revenue survey plot number that identifies rural land, and द्वारा (the Hindi of 'care of') is written into an enormous share of real Indian addresses, because post is routinely delivered to a named householder rather than to a flat.
+locale: hi
+---
+मकान नं.
+फ़्लैट नं.
+प्लॉट नं.
+खसरा नं.
+दुकान नं.
+कमरा नं.
+गली नं.
+मंज़िल
+भूतल
+प्रथम तल
+द्वितीय तल
+ब्लॉक
+टावर
+विंग
+सेक्टर
+चरण
+पॉकेट
+खंड
+द्वारा
+निकट
+सामने
+पीछे
+डाकघर

@@ -1,0 +1,58 @@
+{
+  "months": [
+    "januari",
+    "februari",
+    "mars",
+    "april",
+    "maj",
+    "juni",
+    "juli",
+    "augusti",
+    "september",
+    "oktober",
+    "november",
+    "december"
+  ],
+  "monthsInDate": [
+    "januari",
+    "februari",
+    "mars",
+    "april",
+    "maj",
+    "juni",
+    "juli",
+    "augusti",
+    "september",
+    "oktober",
+    "november",
+    "december"
+  ],
+  "monthsShort": [
+    "jan",
+    "feb",
+    "mar",
+    "apr",
+    "maj",
+    "jun",
+    "jul",
+    "aug",
+    "sep",
+    "okt",
+    "nov",
+    "dec"
+  ],
+  "weekdays": [
+    "söndag",
+    "måndag",
+    "tisdag",
+    "onsdag",
+    "torsdag",
+    "fredag",
+    "lördag"
+  ],
+  "weekdaysShort": ["sön", "mån", "tis", "ons", "tors", "fre", "lör"],
+  "formats": {
+    "L": "YYYY-MM-DD",
+    "LL": "D MMMM YYYY"
+  }
+}

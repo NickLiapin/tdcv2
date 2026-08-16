@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Hindi; brand names kept as-is). मोबाइल is listed first because mobile is overwhelmingly India's dominant gaming platform
+locale: hi
+---
+मोबाइल
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+Steam Deck
+Meta Quest
+ब्राउज़र

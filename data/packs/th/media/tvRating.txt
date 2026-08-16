@@ -1,0 +1,13 @@
+---
+description: Content rating using Thailand's OWN codes, not the American ones — a TV-14 / TV-MA list would be wrong here. ป ด ท น ฉ are the NBTC broadcast ratings (ปฐมวัย 3-5, เด็ก 6-12, ทั่วไป, age-restricted, restricted); ส and ห are the film-board codes, ส marking a film the state promotes and ห one banned from release in the kingdom
+locale: th
+---
+ป (ปฐมวัย)
+ด (เด็ก)
+ท (ทั่วไป)
+น 13+
+น 15+
+น 18+
+ฉ (เฉพาะ)
+ส (ส่งเสริม)
+ห (ห้ามเผยแพร่)

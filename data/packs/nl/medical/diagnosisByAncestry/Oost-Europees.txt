@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, given in Dutch. A prevalence signal, not an exclusive one.
+locale: nl
+---
+Erfelijke hemochromatose
+Fenylketonurie
+Familiaire hypercholesterolemie
+Alcoholische leverziekte
+Taaislijmziekte
+Ziekte van Wilson

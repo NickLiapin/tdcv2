@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Sweden. Flashback is Sweden's large anonymous discussion forum, Familjeliv its parenting forum and Blocket the classifieds site every Swede uses to buy and sell second-hand — all three are Swedish and have no international equivalent in this list.
+locale: sv
+---
+Facebook
+Instagram
+TikTok
+Snapchat
+YouTube
+LinkedIn
+X
+Reddit
+Pinterest
+Discord
+Twitch
+WhatsApp
+Messenger
+Telegram
+Flashback
+Familjeliv
+Blocket

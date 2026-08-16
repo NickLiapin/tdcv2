@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Swedish). Note lungmedicin and njurmedicin: those are the names of the Swedish specialities, not pulmonologi and nefrologi, which Swedish healthcare does not use as speciality titles.
+locale: sv
+---
+Kardiologi
+Neurologi
+Onkologi
+Dermatologi
+Gastroenterologi
+Endokrinologi
+Lungmedicin
+Ortopedi
+Psykiatri
+Njurmedicin

@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, in Hindi. A prevalence signal, not an exclusive one.
+locale: hi
+---
+अल्फ़ा-थैलेसीमिया
+एल्डिहाइड डिहाइड्रोजनेज़ 2 की कमी
+वयस्क प्रकार की लैक्टेज़ अल्पता
+नासाग्रसनी कैंसर
+पेट का कैंसर
+प्राथमिक कोण-बंद ग्लूकोमा
+कावासाकी रोग
+मोयामोया रोग
+कार्बामाज़ेपिन अतिसंवेदनशीलता
+पैथोलॉजिकल मायोपिया

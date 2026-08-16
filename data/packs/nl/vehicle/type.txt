@@ -1,0 +1,31 @@
+---
+description: Vehicle body type (Dutch). The two-wheeler entries at the end are Dutch legal vehicle classes, not body styles: a snorfiets is limited to 25 km/h and wears a blue plate, a bromfiets to 45 km/h on a yellow plate, and a brommobiel is a 45 km/h microcar drivable on a moped licence. These distinctions govern insurance, helmets and whether the vehicle belongs on the cycle path, and they have no equivalent in most locales.
+locale: nl
+---
+Sedan
+Hatchback
+Stationwagen
+Coupé
+Cabriolet
+SUV
+Cross-over
+Terreinwagen
+MPV
+Bestelwagen
+Bestelbus
+Pick-up
+Sportwagen
+Roadster
+Kleine stadsauto
+Luxewagen
+Minibus
+Touringcar
+Bus
+Vrachtwagen
+Trekker met oplegger
+Camper
+Motorfiets
+Scooter
+Snorfiets
+Bromfiets
+Brommobiel

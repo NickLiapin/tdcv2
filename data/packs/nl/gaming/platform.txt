@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Dutch; hardware brand names are kept exactly as marketed).
+locale: nl
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Meta Quest
+Mobiel
+Browser

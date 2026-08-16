@@ -1,0 +1,12 @@
+---
+description: Clothing size (international letters, which is what Indian retail uses)
+locale: hi
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

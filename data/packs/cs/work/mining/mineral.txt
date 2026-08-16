@@ -1,0 +1,23 @@
+---
+description: Mined mineral (Czech). Cerne uhli and hnede uhli - hard coal and lignite - are counted separately in Czechia because they come from different basins and different industries.
+locale: cs
+---
+Černé uhlí
+Hnědé uhlí
+Měď
+Zlato
+Stříbro
+Železná ruda
+Zinek
+Olovo
+Bauxit
+Vápenec
+Nikl
+Uran
+Draselná sůl
+Fosforit
+Lithium
+Kobalt
+Sádrovec
+Kamenná sůl
+Kaolin

@@ -1,0 +1,42 @@
+---
+description: Music genre (Dutch). Hardstyle and gabber are Dutch-born electronic genres - gabber came out of Rotterdam - and Dutch trance is an export of its own. Nederpop and Nederhop are pop and hip hop sung in Dutch. Levenslied and its tearjerker form smartlap, and kleinkunst (the sung-cabaret tradition), have no clean English equivalent. Carnavalsmuziek belongs to the Catholic south of the Netherlands and to Flanders, not to the whole country. Loanwords keep their real spelling.
+locale: nl
+---
+Rock
+Pop
+Jazz
+Klassieke muziek
+Hiphop
+Country
+Elektronische muziek
+Blues
+Reggae
+Heavy metal
+Folk
+R&B
+Soul
+Funk
+Punk
+Disco
+House
+Techno
+Trance
+Hardstyle
+Gabber
+Drum and bass
+Dubstep
+Indie
+Gospel
+Ambient
+Ska
+Alternatieve rock
+Progressieve metal
+Filmmuziek
+Wereldmuziek
+Nederpop
+Nederhop
+Levenslied
+Smartlap
+Kleinkunst
+Carnavalsmuziek
+Schlager

@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Czech; brand names kept as-is)
+locale: cs
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Meta Quest
+Mobilní zařízení
+Prohlížeč

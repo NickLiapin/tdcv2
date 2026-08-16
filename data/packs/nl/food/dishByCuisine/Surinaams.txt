@@ -1,0 +1,22 @@
+---
+description: Dishes of Surinaams cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Roti kip
+Bara
+Pom
+Broodje pom
+Moksi meti
+Bruine bonen met rijst
+Pindasoep
+Saoto soep
+Bakabana
+Telo met bakkeljauw
+Heri heri
+Petjil
+Nasi met masala kip
+Fiadu
+Bojo
+Pastei
+Sopropo
+Tjauw min

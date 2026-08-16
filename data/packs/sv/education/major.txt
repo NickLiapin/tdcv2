@@ -1,0 +1,32 @@
+---
+description: Field of study / major (Swedish)
+locale: sv
+---
+datavetenskap
+systemvetenskap
+informationsteknik
+matematik
+statistik
+fysik
+kemi
+biologi
+molekylärbiologi
+miljövetenskap
+geovetenskap
+maskinteknik
+elektroteknik
+byggteknik
+industriell ekonomi
+företagsekonomi
+nationalekonomi
+juridik
+statsvetenskap
+sociologi
+psykologi
+pedagogik
+socialt arbete
+medicin
+omvårdnad
+folkhälsovetenskap
+historia
+litteraturvetenskap

@@ -1,0 +1,41 @@
+---
+description: Trailing qualifier of a Dutch or Flemish place name (Alphen aan den Rijn, Bergen op Zoom, Katwijk aan Zee, Wijk bij Duurstede). Almost all of them name the water the town sits on, which is what you would expect of a country where settlements were sited by river and sea. The bare compass suffixes (-Noord, -Zuid) mark a district rather than a separate town.
+locale: nl
+---
+aan de Rijn
+aan den Rijn
+aan de Maas
+aan de Lek
+aan de Waal
+aan de IJssel
+aan den IJssel
+aan de Vecht
+aan de Amstel
+aan de Eem
+aan de Berkel
+aan de Dommel
+aan de Geul
+aan de Zaan
+aan de Schelde
+aan de Leie
+aan de Dender
+aan Zee
+aan het Meer
+aan het Kanaal
+op Zoom
+bij Duurstede
+bij Zee
+in Limburg
+in Holland
+in de Betuwe
+in de Achterhoek
+in Twente
+in Zeeland
+in Brabant
+-Noord
+-Zuid
+-Oost
+-West
+-Centrum
+-Binnen
+-Buiten

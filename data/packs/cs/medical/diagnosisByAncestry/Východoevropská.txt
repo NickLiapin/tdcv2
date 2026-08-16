@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Czech. A prevalence signal, not an exclusive one.
+locale: cs
+---
+Dědičná hemochromatóza
+Fenylketonurie
+Familiární hypercholesterolemie
+Alkoholové onemocnění jater
+Cystická fibróza
+Wilsonova choroba

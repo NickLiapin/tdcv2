@@ -1,0 +1,9 @@
+---
+description: Work shift (Swedish)
+locale: sv
+---
+dagskift
+kvällsskift
+nattskift
+tvåskift
+treskift

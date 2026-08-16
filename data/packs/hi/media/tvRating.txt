@@ -1,0 +1,11 @@
+---
+description: Film / TV content certificate issued by the CBFC in India. U/A 7+, 13+ and 16+ replaced the single U/A band in 2024, which is kept here because older titles still carry it. India has no TV-14 / TV-MA style broadcast scale, so this list is deliberately short.
+locale: hi
+---
+U
+U/A
+U/A 7+
+U/A 13+
+U/A 16+
+A
+S

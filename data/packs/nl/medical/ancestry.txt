@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Dutch, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them - geographic descent, not social race categories.
+locale: nl
+---
+Subsaharaans-Afrikaans
+Noord-Afrikaans
+Mediterraan
+Midden-Oosters
+Noord-Europees
+Oost-Europees
+Asjkenazisch-Joods
+Zuid-Aziatisch
+Oost-Aziatisch
+Zuidoost-Aziatisch
+Inheems-Amerikaans
+Oceanisch

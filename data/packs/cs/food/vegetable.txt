@@ -1,0 +1,34 @@
+---
+description: Vegetable (Czech)
+locale: cs
+---
+Mrkev
+Brokolice
+Špenát
+Brambora
+Okurka
+Salát
+Cibule
+Paprika
+Cuketa
+Květák
+Hrášek
+Kukuřice
+Chřest
+Lilek
+Kadeřávek
+Zelí
+Řapíkatý celer
+Žampion
+Batáty
+Červená řepa
+Ředkvička
+Dýně
+Mangold
+Artyčok
+Pórek
+Tuřín
+Rajče
+Řeřicha
+Pažitka
+Česnek

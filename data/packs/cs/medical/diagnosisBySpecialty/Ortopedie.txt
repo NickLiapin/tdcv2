@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Czech)
+locale: cs
+---
+Artróza
+Revmatoidní artritida
+Výhřez meziobratlové ploténky
+Syndrom karpálního tunelu
+Ischias
+Poranění rotátorové manžety
+Zlomenina krčku stehenní kosti
+Skolióza
+Achillodynie
+Ruptura předního zkříženého vazu

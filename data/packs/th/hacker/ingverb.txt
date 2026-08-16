@@ -1,0 +1,32 @@
+---
+description: Tech action in progress (Thai). Thai has no participle and no aspect inflection at all — the progressive is carried by the preverb กำลัง placed before an unchanged verb, so this file is a Thai construction rather than a Thai word form, and each value is กำลัง plus the matching entry of hacker/verb.txt
+locale: th
+---
+กำลังเข้ารหัส
+กำลังถอดรหัส
+กำลังบีบอัด
+กำลังสำรองข้อมูล
+กำลังกู้คืนข้อมูล
+กำลังประมวลผล
+กำลังเชื่อมต่อ
+กำลังตัดการเชื่อมต่อ
+กำลังแฮก
+กำลังดักจับ
+กำลังเจาะระบบ
+กำลังติดตั้ง
+กำลังถอนการติดตั้ง
+กำลังคอมไพล์
+กำลังดีพลอย
+กำลังรีสตาร์ท
+กำลังตั้งค่า
+กำลังซิงโครไนซ์
+กำลังจัดทำดัชนี
+กำลังกำหนดเส้นทาง
+กำลังตรวจสอบสิทธิ์
+กำลังอัปเดต
+กำลังลบ
+กำลังคัดลอก
+กำลังย้าย
+กำลังฟอร์แมต
+กำลังวิเคราะห์
+กำลังปรับให้เหมาะสม

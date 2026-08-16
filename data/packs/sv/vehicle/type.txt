@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Swedish). Kombi — the estate car — is its own category in Sweden and long the default family car; halvkombi is the hatchback.
+locale: sv
+---
+kombi
+halvkombi
+sedan
+SUV
+crossover
+coupé
+cabriolet
+minibuss
+familjebuss
+pickup
+skåpbil
+lätt lastbil
+lastbil
+dragbil
+buss
+husbil
+husvagn
+släpvagn
+traktor
+fyrhjuling
+snöskoter
+motorcykel

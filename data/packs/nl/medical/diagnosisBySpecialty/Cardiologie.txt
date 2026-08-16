@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in Cardiology (Dutch).
+locale: nl
+---
+Hoge bloeddruk
+Coronaire hartziekte
+Angina pectoris
+Hartinfarct
+Atriumfibrilleren
+Hartfalen
+Hypercholesterolemie
+Aortaklepstenose
+Cardiomyopathie
+Pericarditis
+Endocarditis

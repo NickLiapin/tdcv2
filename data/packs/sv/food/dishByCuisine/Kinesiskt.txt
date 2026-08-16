@@ -1,0 +1,12 @@
+---
+description: Dishes of kinesiskt cuisine, in Swedish
+locale: sv
+---
+Pekinganka
+Dumplings
+Mapo tofu
+Wokade nudlar
+Vårrullar
+Kung Pao-kyckling
+Friterad ris
+Dim sum

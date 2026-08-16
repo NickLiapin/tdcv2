@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in Pulmonology (Thai). Tuberculosis and pulmonary melioidosis are routine on a Thai chest service, not rarities.
+locale: th
+---
+โรคหืด
+โรคปอดอุดกั้นเรื้อรัง
+ปอดอักเสบ
+วัณโรคปอด
+โรคเมลิออยโดสิสที่ปอด
+หลอดลมโป่งพอง
+เยื่อหุ้มปอดอักเสบ
+ภาวะน้ำในช่องเยื่อหุ้มปอด
+ลิ่มเลือดอุดกั้นในปอด
+ภาวะหยุดหายใจขณะหลับจากการอุดกั้น
+โรคปอดฝุ่นหิน
+มะเร็งปอด

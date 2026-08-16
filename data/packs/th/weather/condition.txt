@@ -1,0 +1,20 @@
+---
+description: Weather condition (Thai). Thailand is tropical: there is deliberately no snow, no sleet, no frost and no black ice in this list, because none of them occur. อากาศเย็น is as cold as it gets — ฤดูหนาว means "cool season", not "freezing" — while heat plus humidity (ร้อนอบอ้าว, ร้อนชื้น) and rain of every intensity are the everyday states.
+locale: th
+---
+แดดจัด
+ท้องฟ้าแจ่มใส
+เมฆบางส่วน
+มีเมฆมาก
+ฟ้าหลัว
+ร้อนอบอ้าว
+ร้อนชื้น
+ฝนตกปรอยๆ
+ฝนตก
+ฝนตกหนัก
+ฝนฟ้าคะนอง
+ฟ้าร้อง
+ฟ้าผ่า
+ลมกระโชกแรง
+หมอกลงจัด
+อากาศเย็น

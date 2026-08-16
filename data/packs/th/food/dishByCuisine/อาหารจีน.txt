@@ -1,0 +1,18 @@
+---
+description: Dishes of อาหารจีน as eaten in Thailand — the Teochew-descended shophouse and noodle-stall repertoire, which most Thais treat as everyday food rather than as foreign cuisine.
+locale: th
+---
+ข้าวหมูแดง
+ข้าวหน้าเป็ด
+ข้าวขาหมู
+บะหมี่เกี๊ยว
+ติ่มซำ
+ขนมจีบ
+ซาลาเปา
+ฮ่อยจ๊อ
+ผัดซีอิ๊ว
+ราดหน้า
+ก๋วยเตี๋ยวคั่วไก่
+หมูพะโล้
+ปลานึ่งซีอิ๊ว
+เป็ดปักกิ่ง

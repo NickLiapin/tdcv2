@@ -1,0 +1,31 @@
+---
+description: Mobile and broadband carrier in the Netherlands and Belgium; brand names keep their real spelling and casing, including the deliberately lower-case hollandsnieuwe. Odido is the current name of T-Mobile Netherlands, renamed in 2023; T-Mobile and Telfort are kept because they run through years of historical records. VodafoneZiggo is the Dutch joint venture that owns both the Vodafone and Ziggo brands. Proximus, Telenet, BASE, Orange Belgium, Mobile Vikings, Scarlet, VOO and Edpnet are the Belgian side; Proximus is the former state operator and BASE and Scarlet are subsidiaries of Telenet and Proximus respectively.
+locale: nl
+---
+KPN
+VodafoneZiggo
+Vodafone
+Ziggo
+Odido
+T-Mobile
+Telfort
+Simyo
+Ben
+Youfone
+Tele2
+hollandsnieuwe
+Simpel
+Budget Mobiel
+Lebara
+Lycamobile
+Delta
+Caiway
+XS4ALL
+Proximus
+Telenet
+BASE
+Orange Belgium
+Mobile Vikings
+Scarlet
+VOO
+Edpnet

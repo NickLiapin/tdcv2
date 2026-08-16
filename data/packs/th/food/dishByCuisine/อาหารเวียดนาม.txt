@@ -1,0 +1,12 @@
+---
+description: Dishes of อาหารเวียดนาม (Vietnamese food) as named on Thai menus — the repertoire is well established in Thailand's northeast, where Vietnamese communities have cooked it for generations.
+locale: th
+---
+เฝอ
+แหนมเนือง
+ปอเปี๊ยะญวน
+บั๋นหมี่
+ก๋วยจั๊บญวน
+หมูยอ
+ขนมเบื้องญวน
+ข้าวเกรียบปากหม้อญวน

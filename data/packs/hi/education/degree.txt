@@ -1,0 +1,28 @@
+---
+description: Academic degree or qualification as actually awarded in India, written the way Indians abbreviate it. The AYUSH degrees (B.A.M.S., B.H.M.S.) are full state-registered medical degrees. School levels are included because Indian records often report the highest qualification as 10th or 12th.
+locale: hi
+---
+हाई स्कूल (10वीं)
+इंटरमीडिएट (12वीं)
+आईटीआई
+डिप्लोमा
+बी.ए.
+बी.एससी.
+बी.कॉम.
+बी.टेक.
+बी.ई.
+एम.बी.बी.एस.
+बी.डी.एस.
+बी.ए.एम.एस.
+बी.एच.एम.एस.
+बी.फ़ार्म
+एलएल.बी.
+बी.एड.
+एम.ए.
+एम.एससी.
+एम.कॉम.
+एम.टेक.
+एम.बी.ए.
+एम.डी.
+एम.फ़िल.
+पीएच.डी.

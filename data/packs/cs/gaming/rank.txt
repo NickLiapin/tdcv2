@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Czech)
+locale: cs
+---
+Železo
+Bronz
+Stříbro
+Zlato
+Platina
+Smaragd
+Diamant
+Mistr
+Velmistr
+Vyzyvatel

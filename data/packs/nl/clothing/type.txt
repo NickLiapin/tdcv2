@@ -1,0 +1,33 @@
+---
+description: Garment type (Dutch), Netherlands form. Klompen (wooden shoes) are in the list because they are still real work footwear in agriculture and horticulture, not only a souvenir. Some garment words differ in Flanders - a dress is commonly 'kleedje' there and 'jurk' in the Netherlands - and this list uses the Netherlands word throughout.
+locale: nl
+---
+T-shirt
+Spijkerbroek
+Broek
+Korte broek
+Jurk
+Rok
+Blouse
+Overhemd
+Trui
+Vest
+Hoodie
+Jas
+Regenjas
+Colbert
+Pak
+Pyjama
+Sokken
+Handschoenen
+Sjaal
+Muts
+Pet
+Hoed
+Riem
+Stropdas
+Sneakers
+Laarzen
+Sandalen
+Pantoffels
+Klompen

@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (Dutch). Baseball is 'honkbal' in Dutch and has a fully translated vocabulary of its own - honkman for baseman, werper for pitcher, korte stop for shortstop - because the Netherlands has played it competitively since the 1910s and runs a domestic league.
+locale: nl
+---
+Werper
+Vanger
+Eerste honkman
+Tweede honkman
+Derde honkman
+Korte stop
+Linksvelder
+Middenvelder
+Rechtsvelder
+Aangewezen slagman

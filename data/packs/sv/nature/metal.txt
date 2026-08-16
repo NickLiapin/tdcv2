@@ -1,0 +1,26 @@
+---
+description: Metal (Swedish)
+locale: sv
+---
+järn
+stål
+rostfritt stål
+koppar
+mässing
+brons
+tenn
+bly
+zink
+aluminium
+titan
+nickel
+krom
+volfram
+kobolt
+magnesium
+silver
+guld
+platina
+palladium
+kvicksilver
+gjutjärn

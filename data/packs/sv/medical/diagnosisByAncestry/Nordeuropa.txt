@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Nordeuropa, in Swedish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: sv
+---
+Cystisk fibros
+Hemokromatos
+Laktostolerans i vuxen ålder
+Alfa-1-antitrypsinbrist
+Celiaki
+Multipel skleros
+Typ 1-diabetes
+Malignt melanom
+Fenylketonuri
+Ulcerös kolit

@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in Endocrinology (Dutch).
+locale: nl
+---
+Diabetes mellitus type 2
+Diabetes mellitus type 1
+Hypothyreoïdie
+Hyperthyreoïdie
+Hashimoto-thyreoïditis
+Struma
+Osteoporose
+Syndroom van Cushing
+Bijnierschorsinsufficiëntie
+Polycysteus-ovariumsyndroom
+Acromegalie

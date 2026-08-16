@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Swedish)
+locale: sv
+---
+enkelrum
+dubbelrum
+twinrum
+trebäddsrum
+familjerum
+svit
+juniorsvit
+superiorrum
+standardrum
+ekonomirum
+delat rum
+sovsal
+stuga
+lägenhet
+hytt
+tillgänglighetsanpassat rum
+rum med balkong
+rum med sjöutsikt

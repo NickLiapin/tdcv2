@@ -1,0 +1,12 @@
+---
+description: Book format (Dutch). 'Gebonden' is the hardback and 'paperback' is borrowed unchanged; 'pocket' is the Dutch word for the small cheap edition, not a calque of 'pocket book'. Grootletterboek (large print) is a standard category in Dutch libraries.
+locale: nl
+---
+Gebonden
+Paperback
+E-book
+Luisterboek
+Pocket
+Grootletterboek
+Geïllustreerde editie
+Bibliotheekeditie

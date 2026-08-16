@@ -1,0 +1,16 @@
+---
+description: Listing status (Hindi); निर्माणाधीन (under construction) and रेडी टू मूव are the two states Indian portals sort by
+locale: hi
+---
+बिक्री के लिए
+किराए के लिए
+लंबित
+सौदा तय
+बिक चुका
+किराए पर दिया गया
+निर्माणाधीन
+रेडी टू मूव
+जल्द उपलब्ध
+कीमत घटाई गई
+बैंक नीलामी
+बाज़ार से हटाया गया

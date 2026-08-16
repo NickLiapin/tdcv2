@@ -1,0 +1,21 @@
+---
+description: Official document type (Swedish). Personbevis is an extract from the population register that Skatteverket issues and that Swedish life constantly asks for; samordningsnummer is the identifier given to people who are not registered residents. Utdrag ur belastningsregistret is the criminal-record extract required before working with children.
+locale: sv
+---
+pass
+nationellt id-kort
+körkort
+personbevis
+samordningsnummer
+uppehållstillståndskort
+LMA-kort
+vigselbevis
+dödsfallsintyg
+inkomstdeklaration
+F-skattsedel
+registreringsbevis
+bygglov
+arbetsgivarintyg
+slutbetyg
+utdrag ur belastningsregistret
+fullmakt

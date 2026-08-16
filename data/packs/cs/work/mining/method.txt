@@ -1,0 +1,12 @@
+---
+description: Mining method (Czech)
+locale: cs
+---
+Povrchová
+Hlubinná
+Lomová
+Rýžovnická
+Odstranění nadloží
+Jámová
+Štolová
+Stěnová

@@ -1,0 +1,82 @@
+---
+description: Medical diagnosis in Czech that can occur in any patient - no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale / diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: cs
+---
+Arteriální hypertenze
+Diabetes mellitus 2. typu
+Bronchiální astma
+Akutní bronchitida
+Chřipka
+Migréna
+Generalizovaná úzkostná porucha
+Depresivní porucha
+Artróza
+Revmatoidní artritida
+Refluxní choroba jícnu
+Sideropenická anémie
+Hypotyreóza
+Infekce močových cest
+Pneumonie
+Chronické onemocnění ledvin
+Ischemická choroba srdeční
+Fibrilace síní
+Srdeční selhání
+Ischemická cévní mozková příhoda
+Epilepsie
+Parkinsonova nemoc
+Alzheimerova nemoc
+Roztroušená skleróza
+Psoriáza
+Atopická dermatitida
+Alergická rýma
+Chronická sinusitida
+Zánět středního ucha
+Konjunktivitida
+Katarakta
+Glaukom
+Apendicitida
+Cholecystitida
+Divertikulitida
+Syndrom dráždivého tračníku
+Crohnova nemoc
+Ulcerózní kolitida
+Chronická hepatitida B
+Jaterní cirhóza
+Akutní pankreatitida
+Dna
+Osteoporóza
+Fibromyalgie
+Ischias
+Výhřez meziobratlové ploténky
+Syndrom karpálního tunelu
+Tendinitida
+Chronická obstrukční plicní nemoc
+Tuberkulóza
+Leukemie
+Lymfom
+Melanom
+Hyperlipidemie
+Obezita
+Syndrom obstrukční spánkové apnoe
+Nespavost
+Bipolární afektivní porucha
+Porucha pozornosti s hyperaktivitou
+Celiakie
+Systémový lupus erythematodes
+Vertigo
+Tinnitus
+Hemoroidy
+Varixy dolních končetin
+Hluboká žilní trombóza
+Plicní embolie
+Nefrolitiáza
+Anémie
+Hypertyreóza
+Vředová choroba žaludku a dvanáctníku
+Gastritida
+Celulitida kůže
+Sepse
+Akutní gastroenteritida
+Deficit vitaminu D
+Klíšťová encefalitida
+Lymeská borelióza

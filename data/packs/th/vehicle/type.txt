@@ -1,0 +1,27 @@
+---
+description: Vehicle type (Thai) — Thailand's real road mix, not Europe's. รถกระบะ (the pickup) is the national vehicle and Thailand is one of the world's largest pickup markets, so its three cab shapes are separate categories; รถจักรยานยนต์ outnumber cars. รถสองแถว (a pickup converted into a shared-route bus), รถตุ๊กตุ๊ก, วินมอเตอร์ไซค์ (the motorcycle-taxi rank), รถอีแต๋น (the Isan farm truck) and เรือหางยาว are ordinary Thai vehicle categories a European config will not have.
+locale: th
+---
+รถเก๋ง
+รถแฮทช์แบ็ก
+รถอีโคคาร์
+รถอเนกประสงค์
+รถกระบะ
+รถกระบะตอนเดียว
+รถกระบะแค็บ
+รถกระบะสี่ประตู
+รถตู้
+รถเมล์
+รถทัวร์
+รถสองแถว
+รถตุ๊กตุ๊ก
+รถแท็กซี่
+รถจักรยานยนต์
+วินมอเตอร์ไซค์
+มอเตอร์ไซค์พ่วงข้าง
+รถบรรทุกสิบล้อ
+รถพ่วง
+รถอีแต๋น
+รถไถนาเดินตาม
+เรือหางยาว
+เรือด่วน

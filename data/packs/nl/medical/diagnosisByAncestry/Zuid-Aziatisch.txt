@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, given in Dutch. A prevalence signal, not an exclusive one.
+locale: nl
+---
+Vroeg optredende diabetes mellitus type 2
+Vroegtijdige coronaire hartziekte
+Abdominale obesitas bij een normale body-mass-index
+Metabool syndroom
+Vitamine D-tekort
+Bèta-thalassemie minor
+Glucose-6-fosfaatdehydrogenasedeficiëntie
+Reumatische hartziekte

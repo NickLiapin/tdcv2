@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Swedish (prefix with # in a template)
+locale: sv
+---
+fika
+fredagsmys
+lagom
+friluftsliv
+allemansrätten
+midsommar
+kräftskiva
+lucia
+julbord
+vabruari
+sommarstuga
+skärgården
+fjällen
+norrsken
+midnattssol
+vinterbad
+bastu
+surdeg
+kanelbullensdag
+husmanskost
+återbruk
+hållbart
+cykelpendling
+kollektivtrafik
+vardagslyx
+mysigt
+svensksommar
+höstkänsla
+första advent
+semlefredag

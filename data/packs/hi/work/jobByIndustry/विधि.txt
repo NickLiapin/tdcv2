@@ -1,0 +1,16 @@
+---
+description: Jobs in law (Hindi); an Indian courtroom lawyer is an advocate, and a munshi is the advocate's clerk
+locale: hi
+---
+अधिवक्ता
+वरिष्ठ अधिवक्ता
+न्यायाधीश
+सरकारी वकील
+विधि सलाहकार
+विधि अधिकारी
+विधि सहायक
+नोटरी
+कंपनी सचिव
+न्यायालय लिपिक
+मुंशी
+पेटेंट एजेंट

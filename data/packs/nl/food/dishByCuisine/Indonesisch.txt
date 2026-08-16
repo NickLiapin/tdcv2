@@ -1,0 +1,24 @@
+---
+description: Dishes of Indonesisch cuisine as named in Dutch. Spellings are the Dutch-domesticated ones (sate, ketjap, kroepoek), which is how these words are actually written in the Netherlands, not the modern Indonesian spellings. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Nasi goreng
+Bami goreng
+Sate ajam met satesaus
+Rendang
+Gado gado
+Rijsttafel
+Babi pangang
+Kip pangang
+Loempia
+Sambal goreng boontjes
+Sambal goreng telor
+Soto ajam
+Gehaktbal in ketjapsaus
+Pisang goreng
+Kroepoek
+Serundeng
+Atjar tjampoer
+Nasi rames
+Ayam ketjap
+Perkedel

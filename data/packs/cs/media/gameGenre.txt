@@ -1,0 +1,21 @@
+---
+description: Video game genre (Czech)
+locale: cs
+---
+Akční
+Adventura
+RPG
+Strategie
+Simulátor
+Sportovní
+Logická
+Střílečka
+Plošinovka
+Závodní
+Bojová
+Survival
+Otevřený svět
+MMORPG
+Roguelike
+Horor
+Hudební

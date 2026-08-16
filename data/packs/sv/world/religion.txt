@@ -1,0 +1,25 @@
+---
+description: World religion (Swedish)
+locale: sv
+---
+kristendom
+protestantism
+lutherdom
+Svenska kyrkan
+katolicism
+ortodox kristendom
+pingstkyrkan
+frikyrka
+islam
+sunni
+shia
+judendom
+hinduism
+buddhism
+sikhism
+jainism
+bahai
+shinto
+asatro
+ateism
+agnosticism

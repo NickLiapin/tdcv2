@@ -1,0 +1,8 @@
+---
+description: Season (Czech, lowercase per Czech orthography)
+locale: cs
+---
+jaro
+léto
+podzim
+zima

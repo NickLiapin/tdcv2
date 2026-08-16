@@ -1,0 +1,14 @@
+---
+description: Positions in baseboll, in Swedish.
+locale: sv
+---
+kastare
+fångare
+förstabasman
+andrabasman
+tredjebasman
+shortstop
+vänsterfältare
+centerfältare
+högerfältare
+slagman

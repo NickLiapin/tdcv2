@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, given in Dutch. A prevalence signal, not an exclusive one. Anyone can have these, and most patients of this ancestry have none of them.
+locale: nl
+---
+Sikkelcelziekte
+Sikkelceldragerschap
+Glucose-6-fosfaatdehydrogenasedeficiëntie
+APOL1-geassocieerde nefropathie
+Keloïdvorming
+Sarcoïdose
+Hypertensieve nefrosclerose
+Vleesbomen
+Benigne etnische neutropenie
+Lactose-intolerantie
+Pseudofolliculitis barbae
+Vitiligo

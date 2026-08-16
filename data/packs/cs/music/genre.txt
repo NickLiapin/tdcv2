@@ -1,0 +1,39 @@
+---
+description: Music genre (Czech, including Czech genres). Dechovka is the brass-band music of Czech village festivals, bigbit was the domestic name for 1960s rock, tramping songs came out of the interwar backwoods movement, and cimbalova muzika is the Moravian dulcimer band.
+locale: cs
+---
+Rock
+Pop
+Jazz
+Vážná hudba
+Hip hop
+Country
+Elektronická hudba
+Blues
+Reggae
+Heavy metal
+Folk
+R&B
+Soul
+Funk
+Punk
+Disco
+House
+Techno
+Indie
+Gospel
+Ambient
+Ska
+Dechovka
+Bigbít
+Trampská píseň
+Písničkářství
+Lidová hudba
+Cimbálová muzika
+Filmová hudba
+Progresivní metal
+Drum and bass
+Trance
+Alternativní rock
+Balada
+Šanson

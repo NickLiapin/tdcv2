@@ -1,0 +1,36 @@
+---
+description: Common adverb (Thai). Thai has few dedicated adverbs: most are the plain adjective or verb placed after what it modifies, often reduplicated with the ๆ mark (ช้าๆ, เงียบๆ) or built with อย่าง. Degree words such as มาก follow the word they intensify rather than preceding it.
+locale: th
+---
+มาก
+น้อย
+นิดหน่อย
+ค่อนข้าง
+เสมอ
+บ่อย
+บางครั้ง
+ไม่ค่อย
+ไม่เคย
+ทุกวัน
+ตอนนี้
+เดี๋ยวนี้
+เมื่อก่อน
+ภายหลัง
+ในที่สุด
+ทันที
+ช้าๆ
+เร็วๆ
+ค่อยๆ
+อย่างรวดเร็ว
+อย่างระมัดระวัง
+เงียบๆ
+ดังๆ
+จริงๆ
+เกือบ
+อีกครั้ง
+ด้วยกัน
+คนเดียว
+โดยเฉพาะ
+แน่นอน
+บางที
+ที่นี่

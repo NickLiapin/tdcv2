@@ -1,0 +1,21 @@
+---
+description: Dishes of Turks cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Doner kebab
+Lahmacun
+Pide
+Iskender kebab
+Adana kebab
+Kofte
+Manti
+Menemen
+Borek
+Dolma
+Mercimek corbasi
+Cacik
+Imam bayildi
+Baklava
+Kunefe
+Simit
+Turks brood

@@ -1,0 +1,23 @@
+---
+description: Movie genre (Czech)
+locale: cs
+---
+Akční
+Komedie
+Drama
+Horor
+Thriller
+Romantický
+Sci-fi
+Fantasy
+Dokumentární
+Animovaný
+Dobrodružný
+Kriminální
+Mysteriózní
+Western
+Muzikál
+Válečný
+Životopisný
+Film noir
+Romantická komedie

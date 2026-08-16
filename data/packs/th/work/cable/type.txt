@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Thai)
+locale: th
+---
+สายใยแก้วนำแสง
+สายโคแอกเชียล
+สายคู่บิดเกลียว
+สาย UTP
+สาย STP
+Cat5e
+Cat6
+สายพาดอากาศ
+สายใต้ดิน

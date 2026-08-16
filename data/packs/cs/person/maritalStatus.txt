@@ -1,0 +1,18 @@
+---
+description: Marital status in Czech. Most forms are gendered and must agree with the row's gender: svobodny / svobodna, zenaty (a man) / vdana (a woman), rozvedeny / rozvedena, vdovec / vdova. The two words for married are not a masculine/feminine pair of one adjective - they are different words.
+locale: cs
+---
+svobodný
+svobodná
+ženatý
+vdaná
+rozvedený
+rozvedená
+vdovec
+vdova
+žijící odděleně
+v registrovaném partnerství
+zasnoubený
+zasnoubená
+druh
+družka

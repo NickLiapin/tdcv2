@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Czech)
+locale: cs
+---
+Dálková
+Mezinárodní
+Regionální
+Místní
+Vyhrazená
+Dvoučlenná posádka
+Poslední míle

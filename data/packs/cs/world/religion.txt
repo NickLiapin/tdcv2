@@ -1,0 +1,26 @@
+---
+description: Religion or worldview (Czech). Czechia is among the least religious countries in the world - bez vyznani is the largest single answer in its census - and husitstvi is its own fifteenth-century reform church, a century before Luther.
+locale: cs
+---
+Křesťanství
+Katolictví
+Protestantismus
+Pravoslaví
+Husitství
+Českobratrská církev evangelická
+Islám
+Hinduismus
+Buddhismus
+Judaismus
+Sikhismus
+Džinismus
+Bahá'í
+Šintoismus
+Taoismus
+Konfucianismus
+Zoroastrismus
+Slovanské pohanství
+Animismus
+Ateismus
+Agnosticismus
+Bez vyznání

@@ -1,0 +1,16 @@
+---
+description: Jobs in Construction (Dutch)
+locale: nl
+---
+Timmerman
+Metselaar
+Elektricien
+Loodgieter
+Dakdekker
+Stukadoor
+Uitvoerder
+Bouwvakker
+Kraanmachinist
+Bouwkundig tekenaar
+Stratenmaker
+Heimachinist

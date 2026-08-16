@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, given in Dutch. A prevalence signal, not an exclusive one.
+locale: nl
+---
+Bèta-thalassemie
+Bèta-thalassemie minor
+Alfa-thalassemie
+Glucose-6-fosfaatdehydrogenasedeficiëntie
+Favisme
+Familiaire mediterrane koorts
+Ziekte van Behçet

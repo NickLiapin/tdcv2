@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Thai. A prevalence signal, not an exclusive one.
+locale: th
+---
+ภาวะเหล็กเกินทางพันธุกรรม
+โรคฟีนิลคีโตนูเรีย
+ภาวะไขมันในเลือดสูงทางพันธุกรรม
+โรคตับจากแอลกอฮอล์
+โรคซิสติกไฟโบรซิส
+โรควิลสัน

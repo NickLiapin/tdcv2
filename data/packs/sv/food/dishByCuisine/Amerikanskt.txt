@@ -1,0 +1,12 @@
+---
+description: Dishes of amerikanskt cuisine, in Swedish
+locale: sv
+---
+Hamburgare
+Revbensspjäll
+Buffalo wings
+Mac and cheese
+Clam chowder
+Cheesecake
+Pannkakor med lönnsirap
+Äppelpaj

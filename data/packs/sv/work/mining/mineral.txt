@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Swedish). Järnmalm and apatit come from the far north (Kiruna and Malmberget) and copper, zinc, lead, silver and gold from the Skellefteå and Bergslagen fields — Sweden is the EU's largest iron-ore producer, so this list reflects what is actually mined here.
+locale: sv
+---
+järnmalm
+magnetit
+hematit
+apatit
+kopparmalm
+zinkmalm
+blymalm
+silver
+guld
+svavelkis
+nickel
+kobolt
+sällsynta jordartsmetaller
+kalksten
+dolomit
+kvarts
+fältspat
+grafit
+torv

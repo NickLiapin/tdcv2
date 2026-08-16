@@ -1,0 +1,18 @@
+---
+description: Insurance product type (Thai); premiums and sums insured are in Thai baht (THB, ฿). ประกันภัยรถยนต์ภาคบังคับ is the compulsory motor cover every Thai vehicle must carry under the Motor Vehicle Victims Protection Act, universally called พ.ร.บ.; the ชั้น 1 line is the top voluntary motor tier, and ประกันสังคม is the state social-security scheme rather than a private policy.
+locale: th
+---
+ประกันสุขภาพ
+ประกันชีวิต
+ประกันภัยรถยนต์ภาคบังคับ
+ประกันภัยรถยนต์ภาคสมัครใจชั้น 1
+ประกันอัคคีภัยที่อยู่อาศัย
+ประกันการเดินทาง
+ประกันอุบัติเหตุส่วนบุคคล
+ประกันโรคร้ายแรง
+ประกันมะเร็ง
+ประกันชีวิตควบการลงทุน
+ประกันสะสมทรัพย์
+ประกันบำนาญ
+ประกันภัยธุรกิจ
+ประกันสังคม

@@ -1,0 +1,30 @@
+---
+description: Product review title (Dutch). Dutch review language runs flatter than English: Prima and Doet wat het moet doen are genuine approval, not faint praise, and superlatives are rare even in five-star reviews.
+locale: nl
+---
+Prima product!
+Echt een aanrader
+Niet de prijs waard
+Overtrof mijn verwachtingen
+Gewoon oké
+Zou ik zo weer kopen
+Teleurstellend
+Uitstekende kwaliteit
+Te snel kapot
+Perfect voor deze prijs
+Beter dan verwacht
+Niet aan te raden
+Helemaal blij mee!
+Aan de dure kant
+Precies zoals omschreven
+Doet wat het moet doen
+Goede prijs-kwaliteitverhouding
+Sneller bezorgd dan beloofd
+Slechte materialen
+Precies wat ik zocht
+Handleiding onduidelijk
+Heel gebruiksvriendelijk
+Niet wat ik ervan verwachtte
+Zeker voor herhaling vatbaar
+Klantenservice prima geregeld
+Stevig gemaakt

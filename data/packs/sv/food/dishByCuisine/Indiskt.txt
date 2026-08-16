@@ -1,0 +1,12 @@
+---
+description: Dishes of indiskt cuisine, in Swedish
+locale: sv
+---
+Chicken tikka masala
+Rogan josh
+Dal
+Biryani
+Samosa
+Palak paneer
+Naan
+Tandoorikyckling

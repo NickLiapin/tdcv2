@@ -1,0 +1,15 @@
+---
+description: Social reaction as the Dutch interfaces themselves label it (Facebook and LinkedIn ship Dutch UI strings, so 'Vind ik leuk' rather than a translation of 'Like').
+locale: nl
+---
+Vind ik leuk
+Super
+Haha
+Wauw
+Verdrietig
+Boos
+Knuffel
+Felicitatie
+Steun
+Inzichtrijk
+Nieuwsgierig

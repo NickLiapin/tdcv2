@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Hindi). The pulses are listed individually because Indian cooking treats them as different foods rather than as one category — तूर, मूंग, मसूर, उड़द and चना दाल are not interchangeable. घी, खोया and छाछ likewise have no single-word English equivalent.
+locale: hi
+---
+गेहूँ का आटा
+मैदा
+बेसन
+सूजी
+चावल
+बासमती चावल
+पोहा
+साबूदाना
+चना दाल
+तूर दाल
+मूंग दाल
+मसूर दाल
+उड़द दाल
+राजमा
+छोले
+सोयाबीन
+मूंगफली
+काजू
+बादाम
+पिस्ता
+किशमिश
+नारियल
+गुड़
+चीनी
+शहद
+दूध
+दही
+पनीर
+मक्खन
+घी
+मलाई
+छाछ
+खोया
+सरसों का तेल
+रिफ़ाइंड तेल
+नारियल तेल
+तिल का तेल
+नमक
+काला नमक
+बेकिंग सोडा

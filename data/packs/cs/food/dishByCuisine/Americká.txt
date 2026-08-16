@@ -1,0 +1,12 @@
+---
+description: Dishes of American cuisine (Czech)
+locale: cs
+---
+Cheeseburger
+Grilovaná žebra
+Makarony se sýrem
+Buffalo křidélka
+Mušlová polévka
+Jablečný koláč
+Kukuřičný chléb
+Hot dog

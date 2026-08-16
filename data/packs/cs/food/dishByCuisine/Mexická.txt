@@ -1,0 +1,13 @@
+---
+description: Dishes of Mexican cuisine (Czech)
+locale: cs
+---
+Tacos
+Burrito
+Enchiladas
+Quesadilla
+Guacamole
+Tamales
+Plněné papričky chili
+Pozole
+Mole poblano

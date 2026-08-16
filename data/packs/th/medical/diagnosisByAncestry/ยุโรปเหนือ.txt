@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Thai. A prevalence signal, not an exclusive one.
+locale: th
+---
+โรคซิสติกไฟโบรซิส
+ภาวะเหล็กเกินทางพันธุกรรม
+ภาวะพร่องแอลฟา-1 แอนติทริปซิน
+โรคฟีนิลคีโตนูเรีย
+โรคเซลิแอค
+โรคปลอกประสาทเสื่อมแข็ง
+เบาหวานชนิดที่ 1
+โรคพังผืดฝ่ามือดูปุยตรอง
+มะเร็งผิวหนังชนิดเบซัลเซลล์
+ภาวะย่อยแลคโตสได้ตลอดชีวิต

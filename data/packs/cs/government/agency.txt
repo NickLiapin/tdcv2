@@ -1,0 +1,29 @@
+---
+description: Government body (Czech ministries and public offices)
+locale: cs
+---
+Ministerstvo zdravotnictví
+Ministerstvo školství, mládeže a tělovýchovy
+Ministerstvo dopravy
+Ministerstvo financí
+Ministerstvo spravedlnosti
+Ministerstvo práce a sociálních věcí
+Ministerstvo obrany
+Ministerstvo vnitra
+Ministerstvo zahraničních věcí
+Ministerstvo zemědělství
+Ministerstvo životního prostředí
+Ministerstvo průmyslu a obchodu
+Ministerstvo kultury
+Ministerstvo pro místní rozvoj
+Finanční úřad
+Česká správa sociálního zabezpečení
+Všeobecná zdravotní pojišťovna
+Český statistický úřad
+Úřad práce
+Matriční úřad
+Katastrální úřad
+Živnostenský úřad
+Česká národní banka
+Policie České republiky
+Městská policie

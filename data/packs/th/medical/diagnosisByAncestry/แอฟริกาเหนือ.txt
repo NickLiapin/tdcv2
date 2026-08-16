@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Thai. A prevalence signal, not an exclusive one.
+locale: th
+---
+ภาวะพร่องเอนไซม์ G6PD
+พาหะเบตาธาลัสซีเมีย
+โรคไข้เมดิเตอร์เรเนียนในครอบครัว
+โรคเบห์เชต
+โรคซีโรเดอร์มาพิกเมนโตซุม
+ภาวะแพ้แลคโตส

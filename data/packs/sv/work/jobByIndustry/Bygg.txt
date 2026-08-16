@@ -1,0 +1,16 @@
+---
+description: Jobs in bygg, in Swedish
+locale: sv
+---
+byggnadsarbetare
+snickare
+murare
+betongarbetare
+elektriker
+rörmokare
+ventilationstekniker
+plåtslagare
+målare
+byggnadsingenjör
+arbetsledare
+platschef

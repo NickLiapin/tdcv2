@@ -1,0 +1,27 @@
+---
+description: School subject (Thai). พระพุทธศาสนา (Buddhism), นาฏศิลป์ (Thai classical dance) and ลูกเสือ (scouting) are genuinely timetabled subjects in Thai schools, and วิทยาการคำนวณ is the current name of the computing subject.
+locale: th
+---
+ภาษาไทย
+คณิตศาสตร์
+วิทยาศาสตร์
+ฟิสิกส์
+เคมี
+ชีววิทยา
+สังคมศึกษา
+ประวัติศาสตร์
+ภูมิศาสตร์
+พระพุทธศาสนา
+หน้าที่พลเมือง
+ภาษาอังกฤษ
+ภาษาจีน
+ศิลปะ
+ดนตรี
+นาฏศิลป์
+สุขศึกษา
+พลศึกษา
+การงานอาชีพ
+วิทยาการคำนวณ
+เทคโนโลยีสารสนเทศ
+แนะแนว
+ลูกเสือ

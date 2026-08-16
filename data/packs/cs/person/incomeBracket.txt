@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Czech. Amounts are in CZK (Czech koruna, written Kc), the currency of Czechia - the only country where Czech is the official language. Czechia is in the EU but has not adopted the euro.
+locale: cs
+---
+Do 200 000 Kč
+200 000–350 000 Kč
+350 000–500 000 Kč
+500 000–700 000 Kč
+700 000–1 000 000 Kč
+1 000 000–1 500 000 Kč
+1 500 000–2 500 000 Kč
+Nad 2 500 000 Kč

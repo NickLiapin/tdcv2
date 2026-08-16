@@ -1,0 +1,32 @@
+---
+description: Flower (Thai, tropical species only — no tulips or edelweiss). Thai flower names carry the prefix ดอก, which is kept here, and Thai flowers carry ritual roles a European list does not: ดอกมะลิ (jasmine) is the flower of Mother's Day and ดอกดาวเรือง (marigold) is the flower offered at temples and shrines.
+locale: th
+---
+ดอกกล้วยไม้
+ดอกลีลาวดี
+ดอกจำปี
+ดอกจำปา
+ดอกมะลิ
+ดอกบัว
+ดอกกุหลาบ
+ดอกดาวเรือง
+ดอกเข็ม
+ดอกชบา
+ดอกพุด
+ดอกราชพฤกษ์
+ดอกกฤษณา
+ดอกบานบุรี
+ดอกเฟื่องฟ้า
+ดอกปทุมมา
+ดอกรองเท้านารี
+ดอกดาหลา
+ดอกพุทธรักษา
+ดอกอัญชัน
+ดอกแก้ว
+ดอกปีบ
+ดอกพิกุล
+ดอกลำดวน
+ดอกทองกวาว
+ดอกชงโค
+ดอกบานชื่น
+ดอกทานตะวัน

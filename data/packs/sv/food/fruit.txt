@@ -1,0 +1,38 @@
+---
+description: Fruit (Swedish). The wild berries in the middle — hjortron, lingon, blåbär, smultron, åkerbär — are picked in the forest under allemansrätten and are ordinary groceries in Sweden, not exotica.
+locale: sv
+---
+äpple
+päron
+plommon
+körsbär
+krusbär
+vinbär
+svarta vinbär
+röda vinbär
+hallon
+jordgubbe
+smultron
+blåbär
+lingon
+hjortron
+åkerbär
+tranbär
+havtorn
+nypon
+slånbär
+rönnbär
+banan
+apelsin
+clementin
+citron
+lime
+grapefrukt
+vindruva
+melon
+vattenmelon
+ananas
+mango
+kiwi
+persika
+aprikos

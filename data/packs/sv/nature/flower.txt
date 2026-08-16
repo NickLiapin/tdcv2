@@ -1,0 +1,32 @@
+---
+description: Flower (Swedish). Linnea, the twinflower, is Sweden's own emblematic plant, named after Carl von Linné; blåsippa, vitsippa and gullviva are the flowers of the Swedish spring and are protected in much of the country.
+locale: sv
+---
+ros
+tulpan
+narciss
+pingstlilja
+påsklilja
+lilja
+solros
+vallmo
+blåklint
+prästkrage
+maskros
+smörblomma
+gullviva
+blåsippa
+vitsippa
+liljekonvalj
+linnea
+förgätmigej
+viol
+styvmorsviol
+lupin
+klöver
+kaprifol
+syren
+jasmin
+hortensia
+dahlia
+krokus

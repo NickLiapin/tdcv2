@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Dutch).
+locale: nl
+---
+Doelman
+Linkeropbouwer
+Middenopbouwer
+Rechteropbouwer
+Linkerhoekspeler
+Rechterhoekspeler
+Cirkelloper

@@ -1,0 +1,38 @@
+---
+description: Field of study / degree programme, named as Dutch universities and hogescholen name them.
+locale: nl
+---
+Informatica
+Kunstmatige intelligentie
+Data science
+Bedrijfskunde
+Technische bedrijfskunde
+Bedrijfseconomie
+Economie
+Accountancy
+Marketing
+Rechtsgeleerdheid
+Fiscaal recht
+Geneeskunde
+Diergeneeskunde
+Farmacie
+Verpleegkunde
+Psychologie
+Pedagogische wetenschappen
+Sociologie
+Politicologie
+Communicatiewetenschap
+Geschiedenis
+Filosofie
+Nederlandse taal en cultuur
+Biologie
+Scheikunde
+Natuurkunde
+Wiskunde
+Werktuigbouwkunde
+Elektrotechniek
+Civiele techniek
+Bouwkunde
+Lucht- en ruimtevaarttechniek
+Milieukunde
+Grafisch ontwerpen

@@ -1032,6 +1032,306 @@ public static class DateLocales
             ["LLLL"] = "YYYY[년] M[월] D[일] dddd HH:mm",
         });
 
+    // Dutch writes month and weekday names in lower case, unlike its German neighbour.
+    internal static readonly DateLocale NL = new(
+        new[]
+        {
+            "januari",
+            "februari",
+            "maart",
+            "april",
+            "mei",
+            "juni",
+            "juli",
+            "augustus",
+            "september",
+            "oktober",
+            "november",
+            "december",
+        },
+        new[]
+        {
+            "jan",
+            "feb",
+            "mrt",
+            "apr",
+            "mei",
+            "jun",
+            "jul",
+            "aug",
+            "sep",
+            "okt",
+            "nov",
+            "dec",
+        },
+        new[]
+        {
+            "zondag",
+            "maandag",
+            "dinsdag",
+            "woensdag",
+            "donderdag",
+            "vrijdag",
+            "zaterdag",
+        },
+        new[]
+        {
+            "zo",
+            "ma",
+            "di",
+            "wo",
+            "do",
+            "vr",
+            "za",
+        },
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["L"] = "DD-MM-YYYY",
+            ["LL"] = "D MMMM YYYY",
+            ["LLL"] = "D MMMM YYYY HH:mm",
+            ["LLLL"] = "dddd D MMMM YYYY HH:mm",
+        });
+
+    // Swedish writes month and weekday names in lower case, and Sweden is an ISO-8601 country: the short date is YYYY-MM-DD.
+    internal static readonly DateLocale SV = new(
+        new[]
+        {
+            "januari",
+            "februari",
+            "mars",
+            "april",
+            "maj",
+            "juni",
+            "juli",
+            "augusti",
+            "september",
+            "oktober",
+            "november",
+            "december",
+        },
+        new[]
+        {
+            "jan",
+            "feb",
+            "mar",
+            "apr",
+            "maj",
+            "jun",
+            "jul",
+            "aug",
+            "sep",
+            "okt",
+            "nov",
+            "dec",
+        },
+        new[]
+        {
+            "söndag",
+            "måndag",
+            "tisdag",
+            "onsdag",
+            "torsdag",
+            "fredag",
+            "lördag",
+        },
+        new[]
+        {
+            "sön",
+            "mån",
+            "tis",
+            "ons",
+            "tors",
+            "fre",
+            "lör",
+        },
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["L"] = "YYYY-MM-DD",
+            ["LL"] = "D MMMM YYYY",
+            ["LLL"] = "D MMMM YYYY HH:mm",
+            ["LLLL"] = "dddd D MMMM YYYY HH:mm",
+        });
+
+    // Hindi names the Gregorian months with borrowed forms and the weekdays after the planets; the week starts on Sunday.
+    internal static readonly DateLocale HI = new(
+        new[]
+        {
+            "जनवरी",
+            "फ़रवरी",
+            "मार्च",
+            "अप्रैल",
+            "मई",
+            "जून",
+            "जुलाई",
+            "अगस्त",
+            "सितंबर",
+            "अक्तूबर",
+            "नवंबर",
+            "दिसंबर",
+        },
+        new[]
+        {
+            "जन.",
+            "फ़र.",
+            "मार्च",
+            "अप्रैल",
+            "मई",
+            "जून",
+            "जुल.",
+            "अग.",
+            "सित.",
+            "अक्तू.",
+            "नव.",
+            "दिस.",
+        },
+        new[]
+        {
+            "रविवार",
+            "सोमवार",
+            "मंगलवार",
+            "बुधवार",
+            "गुरुवार",
+            "शुक्रवार",
+            "शनिवार",
+        },
+        new[]
+        {
+            "रवि",
+            "सोम",
+            "मंगल",
+            "बुध",
+            "गुरु",
+            "शुक्र",
+            "शनि",
+        },
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["L"] = "DD/MM/YYYY",
+            ["LL"] = "D MMMM YYYY",
+            ["LLL"] = "D MMMM YYYY HH:mm",
+            ["LLLL"] = "dddd, D MMMM YYYY HH:mm",
+        });
+
+    // Thailand counts years in the Buddhist Era, 543 ahead of the Common Era: 2026 CE is 2569. The formatter does NOT convert — the year a config supplies is the year printed — so a caller that wants the BE year adds 543 itself. The pack says so in its own date descriptions rather than leaving a silent 543-year error.
+    internal static readonly DateLocale TH = new(
+        new[]
+        {
+            "มกราคม",
+            "กุมภาพันธ์",
+            "มีนาคม",
+            "เมษายน",
+            "พฤษภาคม",
+            "มิถุนายน",
+            "กรกฎาคม",
+            "สิงหาคม",
+            "กันยายน",
+            "ตุลาคม",
+            "พฤศจิกายน",
+            "ธันวาคม",
+        },
+        new[]
+        {
+            "ม.ค.",
+            "ก.พ.",
+            "มี.ค.",
+            "เม.ย.",
+            "พ.ค.",
+            "มิ.ย.",
+            "ก.ค.",
+            "ส.ค.",
+            "ก.ย.",
+            "ต.ค.",
+            "พ.ย.",
+            "ธ.ค.",
+        },
+        new[]
+        {
+            "วันอาทิตย์",
+            "วันจันทร์",
+            "วันอังคาร",
+            "วันพุธ",
+            "วันพฤหัสบดี",
+            "วันศุกร์",
+            "วันเสาร์",
+        },
+        new[]
+        {
+            "อา.",
+            "จ.",
+            "อ.",
+            "พ.",
+            "พฤ.",
+            "ศ.",
+            "ส.",
+        },
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["L"] = "DD/MM/YYYY",
+            ["LL"] = "D MMMM YYYY",
+            ["LLL"] = "D MMMM YYYY HH:mm",
+            ["LLLL"] = "dddd D MMMM YYYY HH:mm",
+        });
+
+    // Czech, like Russian and Polish, inflects the month name inside a date: the standalone nominative is "leden" but a date reads "5. ledna 2026". These are the genitive forms the formatter needs; the nominative list lives in the pack at cs/date/month.txt. Month and weekday names are lower case.
+    internal static readonly DateLocale CS = new(
+        new[]
+        {
+            "ledna",
+            "února",
+            "března",
+            "dubna",
+            "května",
+            "června",
+            "července",
+            "srpna",
+            "září",
+            "října",
+            "listopadu",
+            "prosince",
+        },
+        new[]
+        {
+            "led",
+            "úno",
+            "bře",
+            "dub",
+            "kvě",
+            "čvn",
+            "čvc",
+            "srp",
+            "zář",
+            "říj",
+            "lis",
+            "pro",
+        },
+        new[]
+        {
+            "neděle",
+            "pondělí",
+            "úterý",
+            "středa",
+            "čtvrtek",
+            "pátek",
+            "sobota",
+        },
+        new[]
+        {
+            "ne",
+            "po",
+            "út",
+            "st",
+            "čt",
+            "pá",
+            "so",
+        },
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["L"] = "DD.MM.YYYY",
+            ["LL"] = "D. MMMM YYYY",
+            ["LLL"] = "D. MMMM YYYY HH:mm",
+            ["LLLL"] = "dddd D. MMMM YYYY HH:mm",
+        });
+
     private static readonly Dictionary<string, DateLocale> ByName =
         new(StringComparer.Ordinal)
         {
@@ -1068,12 +1368,20 @@ public static class DateLocales
             ["jpn"] = JA,
             ["ko"] = KO,
             ["kor"] = KO,
+            ["nl"] = NL,
+            ["nld"] = NL,
+            ["cs"] = CS,
+            ["ces"] = CS,
+            ["th"] = TH,
+            ["hi"] = HI,
+            ["sv"] = SV,
         };
 
     /// <summary>The advertised names, for the validator's "did you mean" list.</summary>
     public static IReadOnlyList<string> Names { get; } = new[]
     {
         "ar",
+        "cs",
         "de",
         "el",
         "en",
@@ -1083,9 +1391,13 @@ public static class DateLocales
         "it",
         "ja",
         "ko",
+        "hi",
+        "nl",
         "pl",
         "pt",
         "ru",
+        "sv",
+        "th",
         "tr",
         "uk",
         "vi",

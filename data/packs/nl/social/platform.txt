@@ -1,0 +1,21 @@
+---
+description: Social platform used in the Netherlands and Flanders. WhatsApp is the dominant messaging platform in both markets by a wide margin - far more so than in the US - so a realistic Dutch dataset should not treat it as just one option among many.
+locale: nl
+---
+WhatsApp
+Facebook
+Instagram
+TikTok
+YouTube
+X
+LinkedIn
+Snapchat
+Pinterest
+Reddit
+Twitch
+Discord
+Threads
+Telegram
+Mastodon
+Bluesky
+Tumblr

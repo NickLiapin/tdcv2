@@ -1,0 +1,19 @@
+---
+description: Payment method (Swedish). Swish is the Swedish bank-run instant payment app that virtually everyone uses, Klarna is the Swedish buy-now-pay-later provider whose invoice option is a default at Swedish checkouts, and bankgiro, plusgiro and autogiro are the Swedish transfer and direct-debit systems. Sweden is close to cashless, so kontant sits near the bottom on purpose.
+locale: sv
+---
+Swish
+Klarna faktura
+Klarna delbetalning
+kort
+Visa
+Mastercard
+bankkort
+kreditkort
+bankgiro
+plusgiro
+autogiro
+direktbetalning via bank
+Trustly
+faktura
+kontant

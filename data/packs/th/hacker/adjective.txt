@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Thai); Thai adjectives follow the noun instead of preceding it and never inflect, so these are bare forms that attach directly after a noun
+locale: th
+---
+ดิจิทัล
+อนาล็อก
+ไร้สาย
+เสมือน
+แบบกระจาย
+แบบขนาน
+อะซิงโครนัส
+ปลอดภัย
+เข้ารหัส
+โอเพนซอร์ส
+ระยะไกล
+ภายในเครื่อง
+บนคลาวด์
+สำรอง
+ความเร็วสูง
+ประสิทธิภาพสูง
+อัตโนมัติ
+เรียลไทม์
+ออฟไลน์
+ออนไลน์
+ข้ามแพลตฟอร์ม
+หลายเธรด
+ฝังตัว
+ปรับขนาดได้
+เข้ากันได้
+ล้าสมัย
+ทนต่อความผิดพลาด
+บีบอัดแล้ว

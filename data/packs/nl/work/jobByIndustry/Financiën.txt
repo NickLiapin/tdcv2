@@ -1,0 +1,16 @@
+---
+description: Jobs in Finance (Dutch)
+locale: nl
+---
+Financieel analist
+Boekhouder
+Accountant
+Actuaris
+Belastingadviseur
+Bankmedewerker
+Vermogensadviseur
+Risicomanager
+Controller
+Hypotheekadviseur
+Verzekeringsadviseur
+Portefeuillemanager

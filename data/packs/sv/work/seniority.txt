@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Swedish)
+locale: sv
+---
+praktikant
+trainee
+junior
+biträdande
+medarbetare
+handläggare
+erfaren
+specialist
+senior
+expert
+teamledare
+gruppchef
+sektionschef
+avdelningschef
+enhetschef
+verksamhetschef

@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Hindi, where founder mutations are unusually well characterised. A prevalence signal, not an exclusive one.
+locale: hi
+---
+टे-सैक्स रोग
+गौशर रोग टाइप 1
+पारिवारिक डिसऑटोनोमिया
+कैनवन रोग
+नीमन-पिक रोग टाइप A
+ब्लूम सिंड्रोम
+फ़ैक्टर XI की कमी
+BRCA1 संस्थापक उत्परिवर्तन
+BRCA2 संस्थापक उत्परिवर्तन
+म्यूकोलिपिडोसिस टाइप IV
+क्रोहन रोग
+टॉर्शन डिस्टोनिया

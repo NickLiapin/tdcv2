@@ -1,0 +1,16 @@
+---
+description: Streaming service actually available in the Low Countries; brand names keep their real spelling and are never translated. The list is deliberately split across both markets: Videoland, NPO Start, Ziggo GO, KPN and Pathé Thuis are Netherlands-only, while Streamz and VRT MAX are Flanders-only. NPO and VRT are the Dutch and Flemish public broadcasters respectively, so a config aimed at one market should filter rather than draw from the whole list.
+locale: nl
+---
+Netflix
+Videoland
+NPO Start
+Ziggo GO
+KPN
+Pathé Thuis
+Streamz
+VRT MAX
+Disney+
+Prime Video
+HBO Max
+Apple TV+

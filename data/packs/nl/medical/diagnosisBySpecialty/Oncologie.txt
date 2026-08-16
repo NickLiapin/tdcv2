@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in Oncology (Dutch).
+locale: nl
+---
+Borstkanker
+Longkanker
+Dikkedarmkanker
+Prostaatkanker
+Blaaskanker
+Maagkanker
+Alvleesklierkanker
+Nierkanker
+Melanoom
+Leukemie
+Lymfoom

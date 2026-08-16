@@ -1,0 +1,20 @@
+---
+description: Compass direction and regional qualifier used with Thai district, road and estate names; Thailand's own regions double as directional labels in everyday use — ภาคเหนือ (north), ภาคกลาง (centre), ภาคอีสาน (the northeast, formally ภาคตะวันออกเฉียงเหนือ) and ภาคใต้ (south).
+locale: th
+---
+เหนือ
+ใต้
+ตะวันออก
+ตะวันตก
+ตะวันออกเฉียงเหนือ
+ตะวันตกเฉียงเหนือ
+ตะวันออกเฉียงใต้
+ตะวันตกเฉียงใต้
+กลาง
+ภาคเหนือ
+ภาคกลาง
+ภาคใต้
+ภาคอีสาน
+ภาคตะวันออกเฉียงเหนือ
+ภาคตะวันออก
+ภาคตะวันตก

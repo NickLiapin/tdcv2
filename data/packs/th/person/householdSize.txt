@@ -1,0 +1,11 @@
+---
+description: Household size. Thai households skew larger than European ones and are commonly three-generational — grandparents raising grandchildren while the middle generation works in Bangkok is an ordinary arrangement, not an unusual one — so the upper buckets carry real weight here.
+locale: th
+---
+1
+2
+3
+4
+5
+6
+7+

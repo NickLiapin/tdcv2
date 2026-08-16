@@ -1,0 +1,20 @@
+---
+description: Dishes of Japans cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Sushi
+Sashimi
+Ramen
+Udon
+Soba
+Tempura
+Yakitori
+Tonkatsu
+Gyoza
+Donburi
+Okonomiyaki
+Miso soep
+Onigiri
+Teriyaki kip
+Katsu curry
+Edamame

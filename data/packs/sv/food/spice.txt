@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Swedish). Dill is the defining Swedish herb — in crayfish, in gravlax, in dillkött — and kryddnejlika, kummin and enbär carry the pickling and cured traditions.
+locale: sv
+---
+dill
+persilja
+gräslök
+timjan
+rosmarin
+basilika
+oregano
+salvia
+dragon
+mejram
+körvel
+libbsticka
+lagerblad
+svartpeppar
+vitpeppar
+kryddpeppar
+kryddnejlika
+kanel
+kardemumma
+ingefära
+muskot
+saffran
+vanilj
+kummin
+fänkål
+anis
+senapsfrön
+enbär
+paprikapulver
+chili

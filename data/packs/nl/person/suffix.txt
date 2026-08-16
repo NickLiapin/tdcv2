@@ -1,0 +1,28 @@
+---
+description: Name / academic suffix (Dutch). Dutch puts most academic titles BEFORE the name (see person/prefix.txt); the post-nominal forms here are the Anglo-style degree abbreviations that have become common since the Bologna reform, plus generational suffixes. 'Sr.' and 'Jr.' are used but far less than in English.
+locale: nl
+---
+Jr.
+Sr.
+sr.
+jr.
+II
+III
+IV
+BSc
+MSc
+MA
+LLM
+LLB
+BA
+BBA
+MBA
+PhD
+RA
+RC
+AA
+MD
+EMBA
+BEng
+MEng
+PDEng

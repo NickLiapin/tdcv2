@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Swedish). Innebandy and bandy are here because they are Swedish mass sports — innebandy was invented in Sweden in the 1970s and has more licensed players than ice hockey, and bandy is played on a football-sized sheet of ice with a ball.
+locale: sv
+---
+Fotboll
+Ishockey
+Innebandy
+Handboll
+Bandy
+Basket
+Volleyboll
+Baseboll

@@ -1,0 +1,42 @@
+---
+description: Fruit (Dutch). The soft-fruit and orchard names at the top are what actually grows in the Netherlands and Flanders; the tropical ones below are supermarket staples, several arriving through the Indonesian and Surinamese connection.
+locale: nl
+---
+Appel
+Peer
+Aardbei
+Framboos
+Braam
+Blauwe bes
+Rode bes
+Zwarte bes
+Kruisbes
+Kers
+Pruim
+Mirabel
+Kweepeer
+Druif
+Rabarber
+Vlierbes
+Meidoornbes
+Sinaasappel
+Mandarijn
+Citroen
+Limoen
+Grapefruit
+Banaan
+Ananas
+Mango
+Papaja
+Kiwi
+Meloen
+Watermeloen
+Perzik
+Nectarine
+Abrikoos
+Vijg
+Dadel
+Granaatappel
+Lychee
+Passievrucht
+Avocado

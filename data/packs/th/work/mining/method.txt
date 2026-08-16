@@ -1,0 +1,12 @@
+---
+description: Mining method (Thai). These are the categories used by Thai mining law rather than the generic English set: เหมืองหาบ is open-cast, and เหมืองเรือขุด (bucket dredge) and เหมืองฉีด (hydraulicking) are the historic methods of the Phuket and Ranong tin fields.
+locale: th
+---
+เหมืองหาบ
+เหมืองแล่น
+เหมืองฉีด
+เหมืองสูบ
+เหมืองเรือขุด
+เหมืองอุโมงค์
+เหมืองใต้ดิน
+เหมืองปล่อง

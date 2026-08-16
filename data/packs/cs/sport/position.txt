@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Czech)
+locale: cs
+---
+Brankář
+Stoper
+Krajní obránce
+Defenzivní záložník
+Střední záložník
+Ofenzivní záložník
+Křídlo
+Útočník
+Hrotový útočník
+Rozehrávač
+Křídelní obránce
+Malé křídlo
+Silné křídlo
+Pivot
+Nahrávač
+Smečař
+Blokař
+Univerzál
+Libero
+Nadhazovač
+Chytač
+Spojka
+První meta
+Určený pálkař
+Levé křídlo
+Pravé křídlo
+Levá spojka
+Pravá spojka
+Obránce
+Centr
+Pilíř
+Mlynář
+Zadák
+Quarterback
+Linebacker

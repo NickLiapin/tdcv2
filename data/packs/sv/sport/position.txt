@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Swedish)
+locale: sv
+---
+målvakt
+back
+mittback
+ytterback
+libero
+mittfältare
+defensiv mittfältare
+offensiv mittfältare
+yttermittfältare
+anfallare
+center
+forward
+vänsterforward
+högerforward
+vänsterytter
+högerytter
+vänsterinner
+högerinner
+centerhalv
+vänsterhalv
+högerhalv
+point guard
+shooting guard
+small forward
+power forward
+passare
+spiker
+mittblockerare
+universal
+vänstersexa
+högersexa
+mittnia
+kastare
+fångare
+slagman

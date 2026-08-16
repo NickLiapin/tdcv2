@@ -1,0 +1,17 @@
+---
+description: Social content type (Hindi). Everyday Hindi social-media vocabulary is heavily English-loaned, so most entries are the Devanagari forms Hindi users actually type.
+locale: hi
+---
+पोस्ट
+टिप्पणी
+जवाब
+स्टोरी
+रील
+पोल
+लाइव
+रीपोस्ट
+थ्रेड
+मेंशन
+डायरेक्ट मैसेज
+शॉर्ट वीडियो
+फ़ोटो एल्बम

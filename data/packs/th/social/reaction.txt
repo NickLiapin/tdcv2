@@ -1,0 +1,15 @@
+---
+description: Social reaction (Thai). The first seven are the official Thai names of the Facebook reactions; ปัง and สู้ๆ are the everyday Thai equivalents of "killing it" and "keep going".
+locale: th
+---
+ถูกใจ
+รักเลย
+ห่วงใย
+ฮ่าๆ
+ว้าว
+เศร้า
+โกรธ
+ยินดีด้วย
+สู้ๆ
+ปัง
+น่าสนใจ

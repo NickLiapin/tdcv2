@@ -1,0 +1,22 @@
+---
+description: Cat breed (Dutch). Breed names that come from abroad are used in their Dutch form where one exists (Siamees, Brits korthaar) and in the original where none does (Maine Coon, Ragdoll, Sphynx).
+locale: nl
+---
+Perzische kat
+Maine Coon
+Siamees
+Ragdoll
+Bengaal
+Sphynx
+Brits korthaar
+Abessijn
+Scottish Fold
+Noorse boskat
+Russisch blauw
+Heilige Birmaan
+Amerikaans korthaar
+Devon Rex
+Burmees
+Turkse angora
+Somali
+Manx

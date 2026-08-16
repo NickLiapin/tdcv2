@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Czech)
+locale: cs
+---
+Standardní
+Superior
+Apartmá
+Junior suite
+Prezidentské apartmá
+Jednolůžkový
+Dvoulůžkový
+Dvoulůžkový s oddělenými lůžky
+S manželskou postelí
+Třílůžkový
+Čtyřlůžkový
+Rodinný pokoj
+Studio
+Apartmán s kuchyňkou
+Bungalov
+Bezbariérový pokoj
+Pokoj s výhledem na moře
+Penthouse

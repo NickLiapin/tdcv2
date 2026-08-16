@@ -1,0 +1,17 @@
+---
+description: Diagnoses seen in Cardiology (Thai). Rheumatic valve disease is still a live Thai cardiology problem, and กลุ่มอาการบรูกาดา (Brugada syndrome) is the sudden nocturnal death syndrome first described in Thai and Lao men.
+locale: th
+---
+ความดันโลหิตสูง
+โรคหัวใจขาดเลือด
+กล้ามเนื้อหัวใจตายเฉียบพลัน
+ภาวะหัวใจห้องบนสั่นพลิ้ว
+หัวใจเต้นเร็วผิดปกติเหนือโพรงหัวใจ
+ภาวะหัวใจล้มเหลว
+โรคลิ้นหัวใจรูมาติก
+ลิ้นหัวใจเอออร์ติกตีบ
+กล้ามเนื้อหัวใจอักเสบ
+โรคกล้ามเนื้อหัวใจหนาผิดปกติ
+เยื่อหุ้มหัวใจอักเสบ
+กลุ่มอาการบรูกาดา
+ไขมันในเลือดสูง

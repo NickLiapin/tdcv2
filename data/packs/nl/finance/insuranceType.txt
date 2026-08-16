@@ -1,0 +1,20 @@
+---
+description: Insurance type (Dutch). Three differ from the European default. Zorgverzekering (basic health cover) is legally compulsory for every Dutch resident but sold by private insurers, so everyone holds a policy and pays a monthly premium. A Dutch home is insured by two separate policies, Opstalverzekering for the building and Inboedelverzekering for the contents, not by one household policy. WA-verzekering is the compulsory third-party motor liability layer, and the aansprakelijkheidsverzekering (general personal liability, usually shortened to AVP) is held by the large majority of Dutch households even though nothing requires it.
+locale: nl
+---
+Zorgverzekering
+Aanvullende zorgverzekering
+Autoverzekering
+WA-verzekering
+Opstalverzekering
+Inboedelverzekering
+Levensverzekering
+Overlijdensrisicoverzekering
+Reisverzekering
+Huisdierenverzekering
+Arbeidsongeschiktheidsverzekering
+Tandartsverzekering
+Aansprakelijkheidsverzekering
+Rechtsbijstandverzekering
+Uitvaartverzekering
+Fietsverzekering

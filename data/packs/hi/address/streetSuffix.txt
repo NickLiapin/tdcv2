@@ -1,0 +1,44 @@
+---
+description: Hindi thoroughfare type. Unlike the European locales this element goes AFTER the name, not before it — महात्मा गांधी मार्ग, स्टेशन रोड, चांदनी चौक, नेहरू नगर — which is the reverse of Polish ulica Długa. Note also that Indian addresses locate a building by area rather than by street as often as not, which is why नगर, कॉलोनी, विहार, सेक्टर and मोहल्ला (settlement and neighbourhood units, not roads) belong in the same list as मार्ग and रोड.
+locale: hi
+---
+मार्ग
+रोड
+पथ
+सड़क
+गली
+कूचा
+लेन
+चौक
+चौराहा
+तिराहा
+सर्कल
+नगर
+कॉलोनी
+विहार
+पुरम
+पुरी
+एन्क्लेव
+सोसाइटी
+अपार्टमेंट
+सेक्टर
+ब्लॉक
+फ़ेज़
+बाग़
+वाटिका
+उद्यान
+बाज़ार
+गंज
+मंडी
+हाट
+मोहल्ला
+बस्ती
+टोला
+पाड़ा
+वाड़ी
+चाल
+बाईपास
+राजमार्ग
+रिंग रोड
+क्रॉस
+मुख्य मार्ग

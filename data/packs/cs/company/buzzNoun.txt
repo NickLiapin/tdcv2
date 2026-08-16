@@ -1,0 +1,64 @@
+---
+description: Business buzz noun (Czech)
+locale: cs
+---
+synergie
+paradigma
+ekosystém
+provozní model
+pracovní postup
+architektura
+infrastruktura
+platforma
+řešení
+strategie
+plán rozvoje
+iniciativa
+metodika
+sladění
+páka
+výkonnost
+výstup
+kontaktní bod
+referenční bod
+milník
+zapojení
+orchestrace
+integrace
+migrace
+transformace
+optimalizace
+škálovatelnost
+interoperabilita
+podniková správa
+shoda s předpisy
+odolnost
+pozorovatelnost
+telemetrie
+kadence
+vertikála
+kanál
+finanční páka
+přidaná hodnota
+hodnotová nabídka
+konkurenční výhoda
+podíl na trhu
+segment
+nika
+portfolio
+investice
+návratnost investice
+produktivita
+účinnost
+inovace
+disrupce
+digitalizace
+automatizace
+analytika
+byznysová inteligence
+životní cyklus
+doba uvedení na trh
+úspory z rozsahu
+neustálé zlepšování
+řízení změn
+sběr dat

@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Nordafrika, in Swedish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: sv
+---
+Betatalassemi
+G6PD-brist
+Familjär medelhavsfeber
+Typ 2-diabetes
+Laktosintolerans
+Fenylketonuri

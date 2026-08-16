@@ -1,0 +1,23 @@
+---
+description: Property type (Swedish). Bostadsrätt is the normal way Swedes own a flat — you buy a share in the co-operative that owns the building, not the flat itself — while hyresrätt is a rental contract with regulated rent that is itself traded. Ägarlägenhet, true freehold apartment ownership, has only existed since 2009 and is rare.
+locale: sv
+---
+bostadsrätt
+hyresrätt
+ägarlägenhet
+villa
+radhus
+kedjehus
+parhus
+fritidshus
+sommarstuga
+torp
+gård
+tomt
+skogsfastighet
+lantbruksfastighet
+kontorslokal
+butikslokal
+industrilokal
+lager
+garageplats

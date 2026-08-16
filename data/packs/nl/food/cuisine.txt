@@ -1,0 +1,22 @@
+---
+description: Cuisine (Dutch). Each value has a dishByCuisine child file. Two entries are here because of Dutch history rather than fashion: Indonesian food arrived with the colonial connection and is so thoroughly domesticated that nasi, bami and satesaus are supermarket staples and the rijsttafel is a Dutch invention; Surinamese food arrived with independence in 1975 and the broodje pom and roti shop are ordinary city food. Vlaams is listed separately from Nederlands because Flemish cooking is a distinct tradition, not a regional variant.
+locale: nl
+---
+Nederlands
+Vlaams
+Indonesisch
+Surinaams
+Italiaans
+Chinees
+Turks
+Marokkaans
+Frans
+Japans
+Grieks
+Spaans
+Thais
+Indiaas
+Vietnamees
+Mexicaans
+Amerikaans
+Libanees

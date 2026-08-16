@@ -1,0 +1,17 @@
+---
+description: Diagnoses seen in Oncology (Thai). The ordering reflects Thailand's own cancer registry: liver and bile-duct cancer lead, driven by hepatitis B and liver fluke, not the European breast/colorectal pair.
+locale: th
+---
+มะเร็งตับ
+มะเร็งท่อน้ำดี
+มะเร็งปอด
+มะเร็งลำไส้ใหญ่
+มะเร็งเต้านม
+มะเร็งปากมดลูก
+มะเร็งกระเพาะอาหาร
+มะเร็งโพรงหลังจมูก
+มะเร็งช่องปาก
+มะเร็งต่อมลูกหมาก
+มะเร็งไทรอยด์
+มะเร็งเม็ดเลือดขาว
+มะเร็งต่อมน้ำเหลือง

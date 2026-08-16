@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Thai)
+locale: th
+---
+การ์ดจ่าย
+การ์ดยิง
+ฟอร์เวิร์ดตัวเล็ก
+ฟอร์เวิร์ดตัวใหญ่
+เซ็นเตอร์

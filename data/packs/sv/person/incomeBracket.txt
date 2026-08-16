@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Swedish. Amounts are in SEK, the currency of Sweden — Sweden kept the krona and did not adopt the euro. Swedish writes thousands with a space, not a comma or a full stop. Note that Swedish is also an official language of Finland, where the currency is the euro; a Finland-Swedish dataset needs a country pack, not this file.
+locale: sv
+---
+Under 200 000 SEK
+200 000–300 000 SEK
+300 000–400 000 SEK
+400 000–500 000 SEK
+500 000–700 000 SEK
+700 000–900 000 SEK
+900 000–1 200 000 SEK
+Över 1 200 000 SEK

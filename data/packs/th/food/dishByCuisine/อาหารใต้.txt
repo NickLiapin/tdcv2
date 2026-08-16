@@ -1,0 +1,17 @@
+---
+description: Dishes of อาหารใต้ (Southern Thai). The hottest of the four regional cuisines — turmeric, black pepper, fresh chilli and fermented fish innards (ไตปลา), with Malay and Indian influence along the peninsula.
+locale: th
+---
+แกงไตปลา
+แกงเหลือง
+คั่วกลิ้งหมู
+ใบเหลียงผัดไข่
+ข้าวยำปักษ์ใต้
+แกงมัสมั่น
+ปลาทอดขมิ้น
+หมูฮ้อง
+สะตอผัดกุ้ง
+น้ำพริกกุ้งเสียบ
+ขนมจีนน้ำยาปักษ์ใต้
+ไก่ทอดหาดใหญ่
+แกงส้มปลากะพง

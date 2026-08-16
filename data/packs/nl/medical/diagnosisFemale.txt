@@ -1,0 +1,32 @@
+---
+description: Medical diagnosis in Dutch that requires female anatomy - it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis. Breast cancer is deliberately absent because it also occurs in men and therefore belongs in medical/diagnosis.
+locale: nl
+---
+Endometriose
+Polycysteus-ovariumsyndroom
+Vleesbomen
+Eierstokcyste
+Eierstokkanker
+Baarmoederhalskanker
+Cervicale dysplasie
+Cervicitis
+Endometritis
+Baarmoederkanker
+Bekkenontsteking
+Bartholinitis
+Bacteriële vaginose
+Vulvovaginale candidiasis
+Vulvodynie
+Menorragie
+Dysmenorroe
+Amenorroe
+Pre-eclampsie
+Zwangerschapsdiabetes
+Hyperemesis gravidarum
+Buitenbaarmoederlijke zwangerschap
+Fluxus post partum
+Mastitis
+Fibrocysteuze mastopathie
+Overgangsklachten
+Premenstrueel dysfoor syndroom
+Uterusprolaps

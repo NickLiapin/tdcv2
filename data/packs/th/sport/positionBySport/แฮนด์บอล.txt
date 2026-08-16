@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Thai)
+locale: th
+---
+ผู้รักษาประตู
+แบ็กซ้าย
+แบ็กกลาง
+แบ็กขวา
+ปีกซ้าย
+ปีกขวา
+พิวอต

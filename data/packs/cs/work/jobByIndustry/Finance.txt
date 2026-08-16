@@ -1,0 +1,16 @@
+---
+description: Jobs in Finance (Czech)
+locale: cs
+---
+Finanční analytik
+Účetní
+Hlavní účetní
+Interní auditor
+Pojistný matematik
+Úvěrový poradce
+Daňový poradce
+Burzovní makléř
+Specialista na řízení rizik
+Finanční kontrolor
+Bankovní přepážkový pracovník
+Investiční analytik

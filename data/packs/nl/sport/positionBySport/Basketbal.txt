@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Dutch). Dutch basketball uses the English position names unchanged; translating them would produce terms no Dutch player says.
+locale: nl
+---
+Point guard
+Shooting guard
+Small forward
+Power forward
+Center

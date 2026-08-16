@@ -1,0 +1,22 @@
+---
+description: Dishes of Italiaans cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Pizza margherita
+Spaghetti bolognese
+Spaghetti carbonara
+Lasagne
+Risotto met paddenstoelen
+Gnocchi
+Ravioli
+Tagliatelle met zalm
+Penne arrabbiata
+Saltimbocca
+Ossobuco
+Vitello tonnato
+Caprese
+Bruschetta
+Minestrone
+Tiramisu
+Panna cotta
+Focaccia

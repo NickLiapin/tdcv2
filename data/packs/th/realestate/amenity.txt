@@ -1,0 +1,26 @@
+---
+description: Property amenity (Thai). Thailand is tropical, so a listing advertises air conditioning, a water heater (เครื่องทำน้ำอุ่น heats the shower — there is no central heating anywhere in the country), insect screens and walking distance to a BTS or MRT station, where a European listing would advertise heating and insulation.
+locale: th
+---
+แอร์
+เครื่องทำน้ำอุ่น
+มุ้งลวด
+เฟอร์นิเจอร์ครบ
+เครื่องซักผ้า
+ตู้เย็น
+ระเบียง
+สระว่ายน้ำ
+ฟิตเนส
+สวนส่วนกลาง
+โคเวิร์กกิ้งสเปซ
+ลิฟต์
+คีย์การ์ด
+กล้องวงจรปิด
+รปภ. 24 ชั่วโมง
+นิติบุคคลดูแล
+ที่จอดรถ
+ที่จอดรถมอเตอร์ไซค์
+ใกล้ BTS
+ใกล้ MRT
+ร้านสะดวกซื้อ
+อินเทอร์เน็ตไฟเบอร์

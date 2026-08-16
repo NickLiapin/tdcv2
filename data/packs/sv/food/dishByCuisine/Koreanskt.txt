@@ -1,0 +1,12 @@
+---
+description: Dishes of koreanskt cuisine, in Swedish
+locale: sv
+---
+Bibimbap
+Bulgogi
+Kimchi
+Japchae
+Tteokbokki
+Samgyeopsal
+Kimchigryta
+Koreansk friterad kyckling

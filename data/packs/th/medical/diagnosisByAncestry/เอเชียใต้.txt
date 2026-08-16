@@ -1,0 +1,13 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Thai. A prevalence signal, not an exclusive one.
+locale: th
+---
+เบาหวานชนิดที่ 2
+โรคหัวใจขาดเลือดก่อนวัยอันควร
+ภาวะอ้วนลงพุง
+กลุ่มอาการเมตาบอลิก
+พาหะเบตาธาลัสซีเมีย
+ภาวะพร่องเอนไซม์ G6PD
+โรคลิ้นหัวใจรูมาติก
+วัณโรค
+ภาวะขาดวิตามินดี

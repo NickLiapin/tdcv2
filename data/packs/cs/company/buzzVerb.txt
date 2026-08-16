@@ -1,0 +1,59 @@
+---
+description: Business buzz verb (Czech, infinitive)
+locale: cs
+---
+využívat
+optimalizovat
+zefektivnit
+orchestrovat
+posilovat
+umožňovat
+škálovat
+transformovat
+narušovat zavedené
+inovovat
+iterovat
+integrovat
+nasazovat
+odemykat
+urychlovat
+znásobovat
+navrhovat
+srovnávat
+rozvíjet
+pohánět
+vyvíjet
+usnadňovat
+generovat
+motivovat
+monetizovat
+operacionalizovat
+předefinovat
+přehodnocovat
+revolucionizovat
+vést
+standardizovat
+migrovat
+sjednocovat
+maximalizovat
+minimalizovat
+konsolidovat
+synergizovat
+digitalizovat
+automatizovat
+outsourcovat
+internalizovat
+segmentovat
+prioritizovat
+přizpůsobovat
+artikulovat
+kapitalizovat
+dynamizovat
+budovat loajalitu
+pozicovat
+umocňovat
+zvyšovat rentabilitu
+systematizovat
+profesionalizovat
+zviditelňovat
+certifikovat

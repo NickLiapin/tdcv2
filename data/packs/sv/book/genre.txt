@@ -1,0 +1,30 @@
+---
+description: Book genre (Swedish)
+locale: sv
+---
+roman
+deckare
+kriminalroman
+thriller
+spänningsroman
+science fiction
+fantasy
+skräck
+historisk roman
+släktroman
+kärleksroman
+ungdomsroman
+barnbok
+bilderbok
+novellsamling
+poesi
+dramatik
+essäer
+biografi
+självbiografi
+memoarer
+reportage
+facklitteratur
+populärvetenskap
+kokbok
+reseskildring

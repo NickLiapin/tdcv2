@@ -1,0 +1,44 @@
+---
+description: Dish (Swedish). Most of these are husmanskost, the Swedish everyday cooking tradition, together with the smörgåsbord and fika items a Swedish dataset needs: semla is eaten around Shrove Tuesday, kanelbulle has its own national day, and surströmming is fermented Baltic herring opened outdoors in late August.
+locale: sv
+---
+Köttbullar
+Raggmunk
+Ärtsoppa
+Pannkakor
+Kroppkakor
+Pyttipanna
+Kalops
+Dillkött
+Kåldolmar
+Blodpudding
+Falukorv
+Isterband
+Stekt strömming
+Inlagd sill
+Gravlax
+Löjrom
+Surströmming
+Janssons frestelse
+Sjömansbiff
+Biff Rydberg
+Wallenbergare
+Renskav
+Älgstek
+Kalvsylta
+Leverpastej
+Smörgåstårta
+Västerbottenpaj
+Toast Skagen
+Räksmörgås
+Ostkaka
+Äppelkaka
+Semla
+Kanelbulle
+Kardemummabulle
+Prinsesstårta
+Chokladboll
+Punschrulle
+Våfflor
+Knäckebröd med ost
+Blåbärssoppa

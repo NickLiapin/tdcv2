@@ -1,0 +1,28 @@
+---
+description: RPG character class (Czech)
+locale: cs
+---
+Bojovník
+Mág
+Zloděj
+Paladin
+Lovec
+Kněz
+Černokněžník
+Druid
+Mnich
+Šaman
+Rytíř smrti
+Lovec démonů
+Barbar
+Nekromant
+Bard
+Vrah
+Klerik
+Čaroděj
+Zvěd
+Templář
+Berserk
+Zaklínač
+Alchymista
+Inženýr

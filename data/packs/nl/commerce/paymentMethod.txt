@@ -1,0 +1,20 @@
+---
+description: Payment method (Dutch), most common first. iDEAL is the dominant online payment method in the Netherlands and carries the majority of Dutch e-commerce payments; it is a bank-to-bank redirect run by the Dutch banks themselves and has no equivalent in most locales, so a Dutch checkout list that omits it is wrong. Bancontact is the Belgian equivalent and is what Flanders uses instead. PIN (pinnen) is the everyday in-person debit method and is what Dutch shops mean by card payment. Acceptgiro is obsolete since 2023 but still appears throughout historical records. Automatische incasso is direct debit and is how most recurring Dutch bills are paid.
+locale: nl
+---
+iDEAL
+Bancontact
+PIN
+Automatische incasso
+Overboeking
+Creditcard
+Achteraf betalen
+Klarna
+PayPal
+Apple Pay
+Google Pay
+Contant
+Cadeaubon
+Betaalverzoek
+Acceptgiro
+Rembours

@@ -1,0 +1,12 @@
+---
+description: Positions in futsal (Thai). Thai futsal uses both plain Thai position names and the Portuguese-derived terms ฟิกโซ่, อาลา and ปิโวต์ borrowed unchanged from the Brazilian game, so both are listed.
+locale: th
+---
+ผู้รักษาประตู
+กองหลัง
+ปีกซ้าย
+ปีกขวา
+กองหน้าตัวเป้า
+ฟิกโซ่
+อาลา
+ปิโวต์

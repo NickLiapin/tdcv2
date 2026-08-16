@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Hindi); led by cricket. Only sports with genuinely named playing positions are listed, which is why badminton, wrestling and chess are absent despite being major Indian sports
+locale: hi
+---
+क्रिकेट
+हॉकी
+कबड्डी
+खो खो
+फ़ुटबॉल
+वॉलीबॉल
+बास्केटबॉल
+हैंडबॉल

@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Swedish district, estate or road name (Norra Djurgården, Söderort, Västerort). Swedish uses norr/söder/öster/väster as nouns and norra/södra/östra/västra as the attributive form.
+locale: sv
+---
+Norr
+Söder
+Öster
+Väster
+Norra
+Södra
+Östra
+Västra
+Nordost
+Nordväst
+Sydost
+Sydväst
+Centrum
+Centrala
+Innerstaden

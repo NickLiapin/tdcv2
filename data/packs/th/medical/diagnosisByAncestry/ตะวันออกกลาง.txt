@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Thai. A prevalence signal, not an exclusive one.
+locale: th
+---
+โรคไข้เมดิเตอร์เรเนียนในครอบครัว
+เบตาธาลัสซีเมีย
+ภาวะพร่องเอนไซม์ G6PD
+โรคเบห์เชต
+พาหะโรคเม็ดเลือดแดงรูปเคียว
+ภาวะขาดวิตามินดี

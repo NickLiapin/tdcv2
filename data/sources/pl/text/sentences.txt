@@ -25,7 +25,6 @@ Następnie odłożył papierosa, odszedł z laską do okna i począł jej się p
 -- Zdaje mi się, mój drogi Watson, że prawie wszystkie twoje wnioski były mylne.
 Pod jednym tylko względem miałeś słuszność, a mianowicie, że posiadacz tej laski jest doktorem prowincyonalnym i że dużo chodzi.
 I tak, naprzykład, twierdzisz, że laska jest darem jakiegoś prowincyonalnego klubu myśliwskiego.
-Ja przypuszczam, że ofiarowali ją lekarzowi pensyonarze szpitala Charing Cross (C.
 -- Przyznaję, że to jest prawdopodobniejsze.
 -- Mogę to tylko wywnioskować, że przed osiedleniem się na wsi, ten lekarz praktykował w mieście.
 -- Sądzę, że możemy posunąć się jeszcze dalej na drodze przypuszczeń.
@@ -40,7 +39,6 @@ Ma psa trochę większego od jamnika, a mniejszego od wyżła.
 Holmes zasiadł wygodnie w fotelu i puszczał kłęby dymu.
 Z pośród wielu Mortimerów, jeden tylko mógł być tym, o którego nam chodziło.
 Był studentem-praktykantem w szpitalu Charing-Cross od r.
-1882), "Czy idziemy z biegiem postępu?" ("Dziennik Psychologiczny" 1883).
 -- Widzisz pan, że miałem słuszność -- rzekł Holmes.
 -- Jego pies zwykł nosić laskę w zębach; ponieważ laska jest ciężka, więc ją trzyma pośrodku; w tem miejscu znać ślady psich zębów.
 Zęby są za duże na jamnika, za małe na wyżła.
@@ -446,7 +444,6 @@ Daruj mi ciekawość, ale chciałbym wiedzieć, czy to moja znajoma.
 Choć go śledzi, jednak boi się być śledzoną.
 Gdyśmy weszli na pierwsze piętro, naprzeciw nam wybiegł sir Henryk, widocznie wzburzony.
 Jeżeli but się nie znajdzie, popamiętają mnie tutaj!
--- Tak; wzięli mi naprzód żółty, a teraz czarny.
 Miałem tylko trzy pary: nowe żółte, stare czarne i te oto lakierki.
 Wczoraj zniknął jeden od żółtej pary, a dziś jeden od czarnej.
 Przed nami stał wystraszony posługacz, Niemiec.
@@ -1106,7 +1103,6 @@ Na progu stała pani Barrymore, jeszcze bledsza od męża.
 To wszystko moja wina, sir Henryku, moja wyłącznie...
 -- Mój nieszczęsny brat umiera z głodu, tam, na bagnie...
 To światło jest sygnałem, że przygotowaliśmy dla niego pożywienie...
-a tamto światełko wskazuje, gdzie mamy je przynieść...
 -- To prawda -- przytwierdził Barrymore.
 -- Mówiłem, że tajemnica nie moja i że nie mam prawa jej zdradzić.
 Ale teraz sir Henryk przekonał się, że to nie był spisek przeciw niemu...
@@ -1405,7 +1401,6 @@ Lyons -- rzekłem, wstając -- bierze pani na siebie wielką odpowiedzialność 
 Jeżeli będę zmuszony wezwać pomocy policyi, wtedy dopiero przekonasz się pani, jak dalece jesteś skompromitowaną.
 Gdybyś pani była niewinną, to w pierwszej chwili nie zaprzeczyłabyś, żeś pisała tego dnia do sir Karola.
 -- Zaprzeczyłam, w obawie, aby nie wyciągnięto z tego wniosków fałszywych i żeby nie być wplątaną w skandal.
--- A dlaczego zależało pani tak bardzo na tem, aby sir Karol ów list spalił?
 -- Jeżeli pan go przeczytał, to musi pan wiedzieć, dlaczego.
 -- Przytoczyłeś pan jeden ustęp dosłownie.
 List, jak już raz nadmieniłem, został spalony i nie można go było odczytać.
@@ -2151,7 +2146,6 @@ Kursywę w oryginale w wersji tekstowej oznaczono podkreśleniami.
 W trakcie redagowania wersji elektronicznej zwrócono także uwagę na niekonsekwencje występujące w oryginalnym tekście.
 Poniższa lista wskazuje na różnice w pisowni podobnych słów lub zwrotów, liczby w nawiasach oznaczają ilość wystąpień danej formy w tekście.
 - "zauważył Watson." - powinno być "zauważyłem"; w oryginale w tym miejscu nie ma odniesienia do tego, kto mówi.
-Produced by Michalina Makowska, Eve Sobol, and Julia Jezierska.
 Leniwo, sennie pierzchały mgły przezrocze, tulące się dotąd w niemej pieszczocie do ścian wielkiego grodu i wodnej, płynącej u stóp jego fali.
 Na poddaszach krytego cegłą staromiejskiego domku nieprzesłonięte niczem okno jedno zaśmiało się weselej od innych do matowego porannego światła.
 Ciekawie do wnętrza facyatki wśliznął się brzask smętny.
@@ -2358,7 +2352,6 @@ On zaś nieporuszony stoi i bezustannie patrzy.
 Mrok szary pokrywa płaszczem swym wszystko dokoła, a w cieniach tych tajemniczych, cichych, szeptać i ruszać się coś poczyna.
 Nad głowami ich lecą wielkie czarne złowróżbne ptaki, szumem swych skrzydeł mącąc martwotę rozlanej wokoło pustki i ciszy.
 On, nic zgoła nie pojmując, spogląda wciąż, przelękły, zdziwiony...
-To - posłuszne niewidzialnemu, a nadprzyrodzonemu skinieniu - lecą tak zapewne żerować na padół ziemski - wyrzuty sumienia!...
 Tymczasem szmer lotu ptaków - olbrzymów cichnie, zmierzch pochłania ich postacie - nikną.
 On z ulgą oddycha i instynktownie postępuje parę kroków naprzód.
 Nagle wyrywa mu się z piersi przenikliwy krzyk!...
@@ -2921,7 +2914,6 @@ Ha-ha-ha, wiedziałem doskonale, że się stawią wszyscy...
 Poczciwa jednak ta nasza światowa menażerya....
 Pytanie to, zwrócone do pani Melanii Warnickiej w jej dużym, pięknym salonie, wygłosił, sadowiąc się wygodnie na fotelu, Emil Ładyżyński.
 odpowiedziała marszałkowa rozpartemu z gracyą w krześle gościowi swemu.
-- No, c'est tout ce qu'il faut, na razie; teraz damy sobie wielkiego i dystyngowanego nura n'est ce pas?..
 A niech tam wszyscy myślą sobie, co im się żywnie podoba!- zawyrokował tenże głosem stanowczym.
 - C'est ce qui me tranquillise, iż zamknęłam zupełnie dziś już rachunki z towarzystwem tutejszem - odparła z westchnieniem ulgi pani Melania.
 Rozmowa potoczyła się dalej; treścią jej był przebieg dzisiejszego, a ostatniego czwartkowego przyjęcia u Marszałkowej.
@@ -2939,7 +2931,6 @@ pas seulement, oni naturalnie, ale i książe Jerzy, hrabia Alfred, księstwo St
 Vous savez, ona wychodzi za tego księcia Ryszarda S.
 A także Otoccy, Daworowscy, Igelhausenowie...
 kończyła pani Melania, zadowolona w duszy z szumnej nomenklatury.
-mais, sapristi, c'est la fine fleur, śmietaneczka ze śmietanki naszej...
 Powinszować marszałkowej, powinszować...
 -L'essentiel - ciągnął dalej, - że wszyscy, jak przewidywałem, połknęli przygotowaną przez nas wiadomostkę.
 - Wszyscy, bez wyjątku; robiłam przecież, co tylko mogłam - potwierdziła pani Melania.
@@ -2950,7 +2941,6 @@ Marszałkowa, z uśmiechem, przyzwalająco kiwnęła głową.
 - Wyszedłszy stąd temu godzin parę, byłem na jour fixe u Leliwów, hr.
 Dezydery Otockiej, u księstwa Pilanich...
 - Że też pan wszystko z wesołej tylko strony bierze - nieco smutnie i pobłażliwie jakby uśmiechnęła się pani Melania.
-- Tak - potwierdziła pani Melania - do siebie jadę na dni kilka, potem zaś natychmiast do Januarego, a pan wyjeżdża?..
 - Comme de raison, prawdopodobnie do Szwajcaryi, na sześć tygodni...
 - okrzyczał się Ładyżyński - pani marszałkowa niech będzie spokojną, poluje sobie na kaczki, i jedynaczkę swą wydziedzicza.
 Niech nie lekceważą woli starszego pokolenia!..
@@ -3376,7 +3366,6 @@ Od parodniowego pobytu swego w małem nadlemańskiem miasteczku, Dzierżymirscy 
 - Otóż - ciągnął po przelotnej chwilce wahania - że napisałem do jednego z dawnych znajomych, by donosił mi, co się dzieje z ojcem twoim w Gowartowie...
 O, mój drogi, najdroższy, jakiś ty dobry, poczciwy, złoty!
 - wykrzyknęła szczerze uradowana Ola i przytuliwszy się do Romana, uściskała go serdecznie.
-- A tak, ja, we własnej osobie, tak często bowiem smutną bywałaś...
 - potwierdził Dzierżymirski, i urwał nagle.
 Przyjemnego a jednocześnie i przykrego doznał on wrażenia.
 Miłą była mu myśl, że odgadłszy utrapienie żony, ulżył jej.
@@ -3495,7 +3484,6 @@ ale, czy ksiądz dobrodziej nie uważał przypadkiem ?...
 Nam pozostaje pogodzić się tylko z Jego Najwyższą Wolą!..
 Zapanowało chwilę ciężkie, ołowiane milczenie.
 - i Krasnostawski ku drzwiom się skierował pośpiesznie.
-- A tak, serce, jutro odpust u mnie, roboty huk!..
 Każ zaprzęgać, jeśli łaska, a ja tymczasem w ogrodzie poczekam i modlitwy swe przedwieczorne odmówię.
 - W tej chwili służę księdzu dobrodziejowi...
 - rzucił w półukłonie Krasnostawski i znikł za drzwiami.
@@ -3967,13 +3955,11 @@ U wejścia zaś salonów, wyparta zwiększającą się falą ludzi, stanęła zw
 Znalazłszy się niebawem poza zbitą u drzwi garstką panów, na razie nie mógł postąpić ani kroku naprzód.
 Widząc to, skrzywił swe wąskie usta, i wspiął się dyskretnie na palce.
 Spojrzał następnie na stojących opodal rautowiczów.
-- Que diable, je ne suis pas venu ici pour garder l'antichambre...
 Popatrzył znowu przed siebie, wspiąwszy się na palce.
 - szepnął z ulgą, tym razem już po polsku, dojrzał bowiem właśnie poznanego w przeddzień Emila Ładyżyńskiego.
 Rzuciwszy po francusku parę ugrzecznionych przeproszeń, młodzieniec postąpił znów kroków kilka, aż stopniowo, przepraszając dalej bezustannie, zdołał dotrzeć do Ładyżyńskiego.
 Podali sobie ręce, witając się uprzejmie.
 - Eh bien, chèr comte - zagadnął, z uśmiechem pierwszy pan Emil - jakież wrażenie z rautu "koroniarzy?.." Trudno się dostać, co?
-Et, ce qui touche, gospodarza, prezesa, vous ne le verrez probablement pas, bo jest akurat pod przeciwnym biegunem.
 Pani Dzierżymirska była tak bardzo uprzejmą zaprosić mnie, bo złożyłem jej wizytę, lecz prezesa, jako nader zwykle zajętego podobno, nie widziałem...
 c'est simple - potwierdził Ładyżyński - nasz prezesunio jest to człowiek, który jest wszędzie, ale nigdy u siebie w domu...
 - zanuciwszy półgłosem wyrazy ostatnie, rzekł starzejący się kawaler, i prowadząc za sobą przybysza, puścił się naprzód.
@@ -4022,18 +4008,15 @@ Nie przypuszczałam zgoła, że będę miała w pana sąsiada.
 Topolski skłonił się, rzuciwszy jednocześnie zdawkowo - banalną grzeczność.
 - To pan dziedziczy po hrabi Teodorze Irenhauzie?
 - Tak, pani; to był mój dziad stryjeczny...
-Znałam doskonale swego czasu dziadka, pańskiego, nous sommes donc en pays de connaissance...
 Był to bardzo dystyngowany, zacny i miły człowiek...
 - Nie, pani, jadę tam dopiero za parę tygodni...
 - Pozna pan zatem Ukrainę, - ciągnęła dalej swobodnie młoda kobieta, - kraj to cudny, śliczny, zobaczy pan...
 Ja go tak lubię, tak kocham, z całego serca!..
 - Ot bynajmniej nie jest mi obcą Ukraina - pośpieszył z odpowiedzią Topolski.
-- Zaznałem już jej uroku, bywałem bowiem u stryja dawniej, et je suis tout à fait de votre opinion madame, c'est un pays charmant...
 Tyle wdzięku, cichego czaru, w tych drzemiących stepach i polach, tyle poezyi, w jej dumkach, a tyle, tyle tęsknoty we wszystkiem!..
 - z zapałem, wygłosił ostatnie słowa Topolski.
 Ola, po raz pierwszy, spojrzała nań uważniej.
 Twarz młodzieńca w tej chwili pozbyła się całkiem nałożonej konwenansowej maski światowca, złagodniała jakby i wypiękniała.
-- Gawędzę z panem, et j'oublie tout à fait, comte, que vous connaissez ici très peu de monde...
 Przyjechał pan dni temu parę zaledwie...
 Z wdziękiem, Topolski podał natychmiast Oli swe ramię, rozpływając się jednocześnie w podziękowaniach, grzecznościach i zasypując zręcznymi komplementami młodą kobietę...
 Uprzejma gospodyni tymczasem prowadziła go ku grupie siedzących starszych dam.
@@ -4129,7 +4112,6 @@ A po Sekwanie, krążąc, uwijały się parowe statki, zatrzymywały się u licz
 Znalazłszy się na bruku, Roman przyśpieszył kroku, i wyminąwszy kilka wąskich zaułków, znikł w bramie jednego z domów.
 W chwilę później dzwonił na krętych ciemnych schodach starej, jak świat, kamienicy - u drzwi pomieszkania Orlęckiego.
 Otworzyła mu młoda, fertyczna służąca, w charakterystycznym białym czepeczku na głowie.
-- Sorti et ne reviendra qu'a dix heures du soir - posłyszał zwięzłą odpowiedź.
 - A jutro o której godzinie zastać go będzie można?
 W Niedzielę pan przyjmuje od drugiej do obiadu - poinformowała przybysza młoda Francuzka.
 - odwzajemniając się dzień dobrym, według miejscowego zwyczaju, pożegnała go dziewczyna uśmiechem i zalotnem błyśnięciem czarnych oczu.
@@ -4378,7 +4360,6 @@ Więc tu spoczywają snem, nieprzebudzonym, wiecznym, prochy tego, wielkiego duc
 Nagle, gdy poruszony, niemy, stał tak, wciąż, zamyślony, drgnął gwałtownie.
 Bo oto w tejże samej chwili wybiła w ciszy głośno godzina czwarta, a z jej uderzeniem, jako sygnał zamykania już gmachu, raptowny, rozległ się właśnie odgłos bębna.
 Donośnie rozchodził się w milczeniu uderzenia krótkie, wzbijały się pod strop wysoki, echem dudniły w zagłębieniach, arkadach, owalnej kopule wysokiej.
-sortez, s'il vous plait, sortez, sortez!..
 - rozległ się jednocześnie twardy głos szwajcara, stróża Napoleonowego grobowca...
 Postukując grubą laską, iść począł on i rozpędzać energicznie przed sobą, ku wyjściu rozsypanych po gmachu tam i ówdzie gości.
 - rozkazujący, wojskowo - lakoniczny, - bezustanny rozbrzmiewał głos jego i mieszał się!
@@ -4620,7 +4601,6 @@ Wyminął ich wóz; jadący w przeciwną stronę, chłop pokłonił się nisko, 
 - Ja bym cię ozłocił, klęczał przed tobą - zmiatał proch u stóp twoich!..
 Jeździec z koniem, jak huragan, wpadli we wrota i na dziedziniec małego dworku.
 Krasnostawski zeskoczył z kasztanka i huknął donośnie.
-Odemknął drzwi kluczem, a przestąpiwszy próg, zatrzasnął je z hałasem.
 - Nie mnie, marnemu pionowi, marzyć i kochać, nie mnie!..
 -szepnął Krasnostawski, z bezmierną goryczą.
 Rozłożywszy jednocześnie na stole olbrzymią rachunkową księgę, umoczył pióro w kałamarzu i usiadł ciężko przed biurkiem.
@@ -4726,7 +4706,6 @@ Urwała, i otworzywszy nuty, dotknęła się ręką klawiatury.
 - Pani się śmieje, tymczasem to, co mówię, wszak takie naturalne...
 - zaśmiała się - vous êtes incomparable!..
 - przerwał porywczo nieco mężczyzna - niech skończę...
-- Ależ słucham, słucham od kwadransa, et vous n'en finissez pas.
 Odczuwamy się z panią wzajemnie, rozumiemy, jak rzadko kto może...
 Dusze nasze - to jakby niewidzialny kamerton, który, za uderzeniem myśli, uczuć nam wspólnych, brzmi zawsze jednakowo...
 - Otóż mylisz się pan zupełnie, bo ja, na przykład teraz, nic, ale to nic pana nie rozumiem...

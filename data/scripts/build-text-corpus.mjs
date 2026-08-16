@@ -66,6 +66,21 @@ const BOOKS = {
     [34079, "Tajemnica Baskerville'ow", "Arthur Conan Doyle"],
     [6000, "Ironia Pozorow", "Waclaw Sieroszewski"],
   ],
+  cs: [
+    [13083, "R.U.R.", "Karel Capek"],
+    [27960, "Hore dedinu", "Josef Uher"],
+    [47754, "Blesky nad Beskydami", "Frantisek Sokol-Tuma"],
+  ],
+  sv: [
+    [57052, "Roda rummet", "August Strindberg"],
+    [39147, "Bannlyst", "Selma Lagerlof"],
+    [51440, "Valda Berattelser", "Selma Lagerlof"],
+  ],
+  nl: [
+    [11024, "Max Havelaar", "Multatuli"],
+    [15975, "Camera Obscura", "Hildebrand"],
+    [10819, "De kleine Johannes", "Frederik van Eeden"],
+  ],
   ja: [
     [33307, "Yujo", "Saneatsu Mushanokoji"],
     [35327, "Amerika monogatari", "Kafu Nagai"],
@@ -175,7 +190,356 @@ const SCRIPT = {
   pt: /[a-zàáâãçéêíóôõú]/i,
   pl: /[a-ząćęłńóśźż]/i,
   ru: /[а-яё]/i,
+  nl: /[a-zàäéëïöü]/i,
+  sv: /[a-zåäö]/i,
+  cs: /[a-záčďéěíňóřšťúůýž]/i,
   ja: /[ぁ-んァ-ヶ一-龯]/u,
+};
+
+/**
+ * Function words, used to spot a sentence that is in the WRONG language.
+ *
+ * The SCRIPT gate above separates alphabets; it cannot separate two languages
+ * that share one. Max Havelaar quotes French at length, and eight French
+ * sentences sailed through the Dutch gate untouched — "Le plus rare ensemble de
+ * mérites…" came out as the first line of the Dutch filler corpus.
+ *
+ * The obvious test — require a sentence to contain one of its own language's
+ * function words — was tried first and was wrong. It threw away about a
+ * thousand perfectly good sentences across the seven Latin-script locales,
+ * because short dialogue often contains none of them: "Encore cinq minutes,
+ * dit Andrew Stuart." is unimpeachable French with not one word from a
+ * 25-item list.
+ *
+ * So the test is comparative instead, and only fires on positive evidence: a
+ * sentence is dropped when it matches ANOTHER language's function words and
+ * none of its own. Text that matches neither list is left alone, because
+ * matching nothing is not evidence of anything.
+ */
+/**
+ * Gutenberg's own furniture, which sits INSIDE the START/END markers on some
+ * books and is therefore not removed by stripping the licence.
+ *
+ * "Produced by Ronnie Sahlberg, Therese Wright, and the Online Distributed
+ * Proofreading Team at http://www.pgdp.net." was the first sentence of the
+ * Swedish filler corpus. Once the marker was written down, the same line turned
+ * up in de, it, pl and ja too — it had been shipping as prose since the corpus
+ * was first built, in every locale whose books carry a credit line.
+ *
+ * This is not language detection; it is a list of things Project Gutenberg
+ * writes and nineteenth-century novelists do not.
+ */
+const BOILERPLATE =
+  /project gutenberg|produced (by|from)|made available by|generously|proofread|pgdp\.net|internet archive|google book|library of|transcriber|updated editions|https?:\/\/|www\.|ebook|e-text|public domain|copyright|scanned|digiti[sz]ed/i;
+
+const STOPWORDS = {
+  // English is never a corpus locale. It is here purely as a DETECTOR: Gutenberg
+  // credit lines are English, and chasing them one phrase at a time was
+  // whack-a-mole — "Produced by…", then "produced from images…", then "Thanks to
+  // … for creating plain text from HTML." Listing English once kills the whole
+  // class, because an English sentence scores high on English and near zero on
+  // whatever language the corpus claims to be.
+  en: [
+    "the",
+    "and",
+    "of",
+    "to",
+    "in",
+    "is",
+    "for",
+    "with",
+    "that",
+    "this",
+    "was",
+    "from",
+    "by",
+    "at",
+    "on",
+    "as",
+    "are",
+    "it",
+    "be",
+    "or",
+    "an",
+    "have",
+    "has",
+    "not",
+    "but",
+    "all",
+    "were",
+    "been",
+    "their",
+    "which",
+    "thanks",
+    "created",
+    "creating",
+  ],
+  fr: [
+    "le",
+    "la",
+    "les",
+    "de",
+    "des",
+    "du",
+    "un",
+    "une",
+    "et",
+    "est",
+    "que",
+    "qui",
+    "pas",
+    "dans",
+    "pour",
+    "sur",
+    "avec",
+    "ne",
+    "se",
+    "ce",
+    "il",
+    "elle",
+    "nous",
+    "vous",
+    "au",
+    "aux",
+    "par",
+  ],
+  de: [
+    "der",
+    "die",
+    "das",
+    "und",
+    "ist",
+    "nicht",
+    "ein",
+    "eine",
+    "den",
+    "dem",
+    "des",
+    "zu",
+    "mit",
+    "auf",
+    "für",
+    "von",
+    "sich",
+    "er",
+    "sie",
+    "es",
+    "aber",
+    "auch",
+    "noch",
+    "wie",
+    "war",
+  ],
+  it: [
+    "il",
+    "lo",
+    "la",
+    "gli",
+    "le",
+    "di",
+    "che",
+    "non",
+    "un",
+    "una",
+    "per",
+    "con",
+    "su",
+    "da",
+    "del",
+    "della",
+    "si",
+    "è",
+    "ma",
+    "come",
+    "più",
+    "anche",
+    "sono",
+    "era",
+  ],
+  es: [
+    "el",
+    "la",
+    "los",
+    "las",
+    "de",
+    "que",
+    "no",
+    "un",
+    "una",
+    "por",
+    "con",
+    "su",
+    "para",
+    "es",
+    "se",
+    "en",
+    "al",
+    "del",
+    "pero",
+    "como",
+    "más",
+    "ya",
+    "muy",
+    "era",
+    "son",
+  ],
+  pt: [
+    "os",
+    "as",
+    "de",
+    "que",
+    "não",
+    "um",
+    "uma",
+    "por",
+    "com",
+    "para",
+    "é",
+    "se",
+    "em",
+    "no",
+    "na",
+    "do",
+    "da",
+    "mas",
+    "como",
+    "mais",
+    "já",
+    "era",
+    "são",
+  ],
+  pl: [
+    "i",
+    "w",
+    "z",
+    "na",
+    "nie",
+    "to",
+    "że",
+    "się",
+    "do",
+    "jak",
+    "ale",
+    "po",
+    "za",
+    "od",
+    "przez",
+    "jest",
+    "był",
+    "była",
+    "być",
+    "ma",
+    "tylko",
+    "już",
+    "co",
+    "tym",
+    "przy",
+  ],
+  cs: [
+    "a",
+    "je",
+    "se",
+    "na",
+    "že",
+    "v",
+    "s",
+    "z",
+    "do",
+    "to",
+    "ale",
+    "jak",
+    "po",
+    "za",
+    "od",
+    "byl",
+    "byla",
+    "být",
+    "má",
+    "jen",
+    "již",
+    "co",
+    "tím",
+    "při",
+    "pro",
+    "který",
+    "která",
+    "tak",
+    "když",
+    "nebo",
+  ],
+  sv: [
+    "och",
+    "att",
+    "det",
+    "som",
+    "en",
+    "på",
+    "är",
+    "av",
+    "för",
+    "med",
+    "till",
+    "den",
+    "har",
+    "de",
+    "inte",
+    "om",
+    "ett",
+    "han",
+    "men",
+    "var",
+    "jag",
+    "sig",
+    "från",
+    "vi",
+    "så",
+    "kan",
+    "när",
+    "hon",
+    "ut",
+    "eller",
+  ],
+  nl: [
+    "de",
+    "het",
+    "een",
+    "en",
+    "van",
+    "is",
+    "dat",
+    "niet",
+    "ik",
+    "je",
+    "hij",
+    "zij",
+    "wij",
+    "te",
+    "op",
+    "met",
+    "voor",
+    "aan",
+    "er",
+    "om",
+    "ook",
+    "nog",
+    "maar",
+    "als",
+    "dan",
+    "zo",
+    "bij",
+    "naar",
+    "uit",
+    "door",
+    "hy",
+    "zy",
+    "wy",
+    "my",
+    "zyn",
+    "altyd",
+    "wel",
+    "men",
+    "zich",
+  ],
 };
 
 /** Everything between the Gutenberg start and end markers, and nothing else. */
@@ -219,7 +583,25 @@ function paragraphs(text, splitOn) {
  * roman numeral are all "text" and none of them is a sentence, so length and
  * shape do the filtering that a human eye would.
  */
-function keep(rule, script) {
+function keep(rule, script, locale) {
+  const own = STOPWORDS[locale];
+  const others = Object.entries(STOPWORDS).filter(([code]) => code !== locale);
+  const speaks = (text) => {
+    if (own === undefined) return true;
+    // Split ON the apostrophe, not across it. French elides — l'existence,
+    // n'est, d'être — and a tokenizer that keeps the apostrophe inside the word
+    // never sees "est" or "de", so French quotations scored zero against their
+    // own language and stayed in the Dutch and Swedish corpora.
+    const words = new Set(text.toLowerCase().match(/\p{L}+/gu) ?? []);
+    const hits = (list) => list.filter((w) => words.has(w)).length;
+    const mine = hits(own);
+    const best = Math.max(0, ...others.map(([, list]) => hits(list)));
+    // Counting, not a boolean. A single shared word proves nothing: "de" is
+    // Dutch AND French, which is how "Le plus rare ensemble de mérites…" was
+    // still passing as Dutch after the first attempt. Drop the sentence only
+    // when another language is the clearly better explanation.
+    return best < mine + 2;
+  };
   const [sMin, sMax] = rule.sentence;
   const [pMin, pMax] = rule.paragraph;
   return {
@@ -227,15 +609,24 @@ function keep(rule, script) {
       s.length >= sMin &&
       s.length <= sMax &&
       script.test(s) &&
+      !BOILERPLATE.test(s) &&
+      speaks(s) &&
       /[.!?…。！？]$/u.test(s) &&
       !/^[IVXLC]+\.?$/.test(s) &&
       !/[*_[\]{}<>|]/.test(s) &&
-      (s.match(/"/g) ?? []).length % 2 === 0,
+      (s.match(/"/g) ?? []).length % 2 === 0 &&
+      // Same idea as the quote rule: a sentence split out of the middle of a
+      // parenthetical carries a closing bracket with no opener, and reads as
+      // debris — "12:te och 9:de), så hade den stått ovanför altaret."
+      (s.match(/\(/g) ?? []).length === (s.match(/\)/g) ?? []).length,
     paragraph: (p) =>
       p.length >= pMin &&
       p.length <= pMax &&
+      !BOILERPLATE.test(p) &&
+      speaks(p) &&
       !/[*_[\]{}<>|]/.test(p) &&
-      (p.match(/"/g) ?? []).length % 2 === 0,
+      (p.match(/"/g) ?? []).length % 2 === 0 &&
+      (p.match(/\(/g) ?? []).length === (p.match(/\)/g) ?? []).length,
   };
 }
 
@@ -265,7 +656,7 @@ function header(description, locale) {
 
 function buildLocale(locale) {
   const rule = RULES[locale] ?? DEFAULT_RULE;
-  const KEEP = keep(rule, SCRIPT[locale]);
+  const KEEP = keep(rule, SCRIPT[locale], locale);
   const books = BOOKS[locale];
   if (!books) throw new Error(`no books listed for "${locale}"`);
 

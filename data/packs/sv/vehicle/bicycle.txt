@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Swedish)
+locale: sv
+---
+damcykel
+herrcykel
+hybridcykel
+citycykel
+pendlarcykel
+racercykel
+gravelcykel
+mountainbike
+terrängcykel
+elcykel
+lådcykel
+trehjuling
+barncykel
+vikcykel
+tandemcykel
+fatbike
+cyklokross

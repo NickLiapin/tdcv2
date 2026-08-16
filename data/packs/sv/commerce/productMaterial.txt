@@ -1,0 +1,69 @@
+---
+description: Product material (Swedish), as a noun — compose with "i" ("bord i massiv ek", "stol i rostfritt stål")
+locale: sv
+---
+massiv ek
+massiv björk
+massiv furu
+massiv gran
+massiv bok
+massiv ask
+massiv alm
+massiv valnöt
+massiv teak
+furu
+björkfaner
+ekfaner
+plywood
+spånskiva
+MDF
+bambu
+rotting
+korg
+kork
+läder
+anilinläder
+nubuck
+mocka
+konstläder
+bomull
+ekologisk bomull
+linne
+ull
+merinoull
+lammull
+fårskinn
+kashmir
+silke
+viskos
+lyocell
+polyester
+återvunnen polyester
+nylon
+akryl
+fleece
+denim
+kanvas
+filt
+jute
+sisal
+rostfritt stål
+kolstål
+gjutjärn
+aluminium
+mässing
+koppar
+krom
+zink
+glas
+härdat glas
+porslin
+stengods
+keramik
+marmor
+granit
+betong
+gummi
+silikon
+plast
+återvunnen plast

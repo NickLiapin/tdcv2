@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Czech. A prevalence signal, not an exclusive one.
+locale: cs
+---
+Diabetes mellitus 2. typu
+Obezita
+Dna
+Chronické onemocnění ledvin
+Revmatická horečka
+Hypertenze

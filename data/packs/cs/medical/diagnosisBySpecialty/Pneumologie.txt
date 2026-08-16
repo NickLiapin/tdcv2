@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Czech)
+locale: cs
+---
+Bronchiální astma
+Chronická obstrukční plicní nemoc
+Pneumonie
+Plicní embolie
+Tuberkulóza
+Syndrom obstrukční spánkové apnoe
+Bronchiektázie
+Plicní sarkoidóza
+Plicní fibróza
+Chronická bronchitida

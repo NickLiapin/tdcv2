@@ -1,0 +1,31 @@
+---
+description: Book genre (Dutch). Streekroman - the regional novel set in a named rural province - is a shelf category in Dutch bookshops with no English equivalent. Loanwords that Dutch publishing uses unchanged (thriller, fantasy, graphic novel) keep their English spelling.
+locale: nl
+---
+Literaire fictie
+Non-fictie
+Detective
+Thriller
+Romantiek
+Sciencefiction
+Fantasy
+Horror
+Biografie
+Geschiedenis
+Zelfhulp
+Poëzie
+Jeugdliteratuur
+Historische roman
+Misdaadroman
+Avonturenroman
+Memoires
+Filosofie
+Reisverhaal
+Kookboek
+Graphic novel
+Dystopie
+Essay
+Kort verhaal
+Kinderboek
+Streekroman
+Magisch realisme

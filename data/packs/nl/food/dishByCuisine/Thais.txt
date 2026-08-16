@@ -1,0 +1,18 @@
+---
+description: Dishes of Thais cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Pad thai
+Groene curry
+Rode curry
+Massaman curry
+Tom yum soep
+Tom kha kai
+Som tam
+Larb
+Khao pad
+Satay met pindasaus
+Pad krapow
+Mango sticky rice
+Loempia's met zoetzure saus
+Panang curry

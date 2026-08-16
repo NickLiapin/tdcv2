@@ -1,0 +1,14 @@
+---
+description: Payment status (Dutch)
+locale: nl
+---
+In afwachting
+Geautoriseerd
+Betaald
+Mislukt
+Terugbetaald
+Gedeeltelijk terugbetaald
+Terugboeking
+Geannuleerd
+Geweigerd
+In beoordeling

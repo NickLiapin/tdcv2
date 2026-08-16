@@ -1,0 +1,12 @@
+---
+description: Time of day (Swedish). Swedish splits the morning into morgon and förmiddag, and treats middag as the noon hour, so the day has more named parts than the English default.
+locale: sv
+---
+gryning
+morgon
+förmiddag
+middag
+eftermiddag
+kväll
+natt
+midnatt

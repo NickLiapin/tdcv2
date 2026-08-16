@@ -1,0 +1,54 @@
+---
+description: Airline (Swedish and Nordic carriers first, then major international ones; brand names keep their own spelling)
+locale: sv
+---
+SAS
+Norwegian
+BRA
+Air Leap
+Finnair
+Icelandair
+Widerøe
+Play
+Lufthansa
+KLM
+Air France
+British Airways
+Swiss
+Austrian Airlines
+Brussels Airlines
+Iberia
+Vueling
+TAP Air Portugal
+Aegean Airlines
+LOT
+Czech Airlines
+Air Baltic
+Ryanair
+easyJet
+Wizz Air
+Eurowings
+Transavia
+Turkish Airlines
+Pegasus Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+El Al
+Royal Jordanian
+Egyptair
+Ethiopian Airlines
+Kenya Airways
+South African Airways
+Delta Air Lines
+United Airlines
+American Airlines
+Air Canada
+LATAM
+Singapore Airlines
+Thai Airways
+Japan Airlines
+ANA
+Cathay Pacific
+Korean Air
+Qantas

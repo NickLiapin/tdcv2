@@ -1,0 +1,15 @@
+---
+description: Booking status (Dutch, agreeing with 'de boeking').
+locale: nl
+---
+Bevestigd
+In behandeling
+Geannuleerd
+Op wachtlijst
+Ingecheckt
+Uitgecheckt
+Niet verschenen
+Gewijzigd
+Terugbetaald
+Verlopen
+Gegarandeerd

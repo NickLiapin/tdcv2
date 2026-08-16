@@ -1,0 +1,29 @@
+---
+description: Fish (Czech). Kapr is the Czech Christmas fish - carp ponds in South Bohemia have been farmed since the fourteenth century.
+locale: cs
+---
+Losos
+Tuňák
+Pstruh
+Mořský okoun
+Treska
+Sumec
+Zlatá rybka
+Klaun očkatý
+Gupka
+Makrela
+Halibut
+Chňapal
+Mečoun
+Marlín
+Skalára
+Bojovnice
+Kapr
+Okoun
+Sardinka
+Ančovička
+Štikozubec
+Štika
+Tilápie
+Pražma
+Candát

@@ -1,0 +1,30 @@
+---
+description: Aircraft type (manufacturer designations, used unchanged in Hindi). Weighted towards types actually flown in India, including the ATR 72 and Q400 turboprops and the Dornier 228 used on regional UDAN routes.
+locale: hi
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330
+Airbus A350
+Airbus A380
+Airbus A220
+Boeing 737
+Boeing 737 MAX
+Boeing 747
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+ATR 42
+ATR 72
+Bombardier Q400
+Bombardier CRJ200
+Bombardier CRJ900
+Embraer E170
+Embraer E175
+Embraer E190
+Embraer E195
+Cessna Caravan 208
+HAL Dornier 228

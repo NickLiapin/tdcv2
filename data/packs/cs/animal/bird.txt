@@ -1,0 +1,34 @@
+---
+description: Bird (Czech)
+locale: cs
+---
+Vrabec
+Červenka
+Orel
+Sokol
+Sova
+Papoušek
+Tučňák
+Poštolka
+Sojka
+Kolibřík
+Datel
+Pelikán
+Plameňák
+Labuť
+Havran
+Vrána
+Stehlík
+Volavka
+Ledňáček
+Racek
+Holub
+Vlaštovka
+Slavík
+Kondor
+Tukan
+Pštros
+Čáp
+Sýček
+Skřivan
+Konipas

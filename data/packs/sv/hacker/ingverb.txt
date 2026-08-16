@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Swedish — Swedish forms these with -ing or -ande, not with an -ing participle)
+locale: sv
+---
+kompilering
+indexering
+kryptering
+dekryptering
+komprimering
+packning
+avlusning
+felsökning
+loggning
+övervakning
+lastbalansering
+cachelagring
+spegling
+säkerhetskopiering
+återställning
+migrering
+distribution
+driftsättning
+versionshantering
+autentisering
+auktorisering
+validering
+rendering
+strömning
+synkronisering
+parsning
+routing
+skalning

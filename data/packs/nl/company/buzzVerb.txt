@@ -1,0 +1,62 @@
+---
+description: Business buzz verb (Dutch, infinitive). Borgen and verankeren (to make a change stick permanently in the organisation) and polderen (to negotiate everyone into a compromise) are stock Dutch management verbs that English renders only with a phrase.
+locale: nl
+---
+benutten
+optimaliseren
+stroomlijnen
+orkestreren
+versterken
+mogelijk maken
+opschalen
+transformeren
+ontwrichten
+innoveren
+itereren
+integreren
+uitrollen
+ontsluiten
+versnellen
+vermenigvuldigen
+ontwerpen
+benchmarken
+ontwikkelen
+aandrijven
+evolueren
+faciliteren
+genereren
+motiveren
+monetiseren
+operationaliseren
+herdefiniëren
+herwaarderen
+revolutioneren
+aansturen
+standaardiseren
+migreren
+uniformeren
+maximaliseren
+minimaliseren
+consolideren
+samenbrengen
+digitaliseren
+automatiseren
+uitbesteden
+internaliseren
+segmenteren
+prioriteren
+afstemmen
+articuleren
+kapitaliseren
+dynamiseren
+binden
+positioneren
+verstevigen
+rendabel maken
+systematiseren
+professionaliseren
+zichtbaar maken
+certificeren
+polderen
+borgen
+verankeren

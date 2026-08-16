@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Czech that requires male anatomy - it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: cs
+---
+Benigní hyperplazie prostaty
+Zánět prostaty
+Karcinom prostaty
+Nádor varlete
+Torze varlete
+Varikokéla
+Hydrokéla
+Zánět nadvarlete
+Kryptorchismus
+Fimóza
+Balanitida
+Erektilní dysfunkce
+Peyronieova choroba
+Mužská neplodnost
+Gynekomastie
+Mužský hypogonadismus
+Priapismus
+Cysta nadvarlete
+Androgenní alopecie
+Skrotální kýla

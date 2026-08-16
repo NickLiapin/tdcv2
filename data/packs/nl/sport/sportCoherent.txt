@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list of its own; each value is the filename of a list in sport/positionBySport. The selection is Dutch rather than generic: korfbal and honkbal are here because both are mainstream team sports in the Netherlands, and 'Hockey' means field hockey - ice hockey is the separate entry 'IJshockey'.
+locale: nl
+---
+Voetbal
+Korfbal
+Hockey
+IJshockey
+Volleybal
+Handbal
+Honkbal
+Basketbal

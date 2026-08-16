@@ -1,0 +1,18 @@
+---
+description: Type of workplace meeting (Dutch). Functioneringsgesprek and beoordelingsgesprek are two distinct annual conversations under Dutch practice: the first is a two-way review of how the job is going, the second is the employer's one-way appraisal. The ondernemingsraad (works council) is statutory in Dutch firms above fifty staff, so its meeting is a normal calendar item.
+locale: nl
+---
+Werkoverleg
+Teamoverleg
+Dagelijkse stand-up
+Eén-op-één-gesprek
+Functioneringsgesprek
+Beoordelingsgesprek
+Personeelsbijeenkomst
+Sprintplanning
+Retrospective
+Kick-offbijeenkomst
+Brainstormsessie
+Voortgangsoverleg
+Directieoverleg
+Ondernemingsraadvergadering

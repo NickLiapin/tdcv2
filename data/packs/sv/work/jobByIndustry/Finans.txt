@@ -1,0 +1,16 @@
+---
+description: Jobs in finans, in Swedish
+locale: sv
+---
+bankkamrer
+banktjänsteman
+redovisningsekonom
+revisor
+auktoriserad revisor
+controller
+finansanalytiker
+kreditanalytiker
+försäkringsrådgivare
+kapitalförvaltare
+aktuarie
+ekonomiassistent

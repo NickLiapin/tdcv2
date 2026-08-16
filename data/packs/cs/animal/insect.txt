@@ -1,0 +1,24 @@
+---
+description: Insect (Czech)
+locale: cs
+---
+Mravenec
+Včela
+Motýl
+Brouk
+Vážka
+Kobylka
+Slunéčko sedmitečné
+Můra
+Cvrček
+Vosa
+Světluška
+Kudlanka
+Cikáda
+Termit
+Komár
+Moucha
+Šváb
+Blecha
+Stonožka
+Štěnice

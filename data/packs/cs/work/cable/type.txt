@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Czech)
+locale: cs
+---
+Optické vlákno
+Koaxiální
+Kroucená dvojlinka
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Nadzemní
+Podzemní

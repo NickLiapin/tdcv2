@@ -1,0 +1,29 @@
+---
+description: Dog breed (Hindi); international breeds common in India plus India's own recognised breeds (Rajapalayam, Mudhol Hound, Caravan Hound, Chippiparai, Gaddi, Rampur Hound, Kombai, Indian pariah dog)
+locale: hi
+---
+लैब्राडोर रिट्रीवर
+जर्मन शेफ़र्ड
+गोल्डन रिट्रीवर
+बीगल
+पग
+रॉटवीलर
+डॉबरमैन
+डालमेशियन
+बॉक्सर
+ग्रेट डेन
+पॉमेरियन
+इंडियन स्पिट्ज
+शिह त्ज़ु
+साइबेरियन हस्की
+कॉकर स्पैनियल
+सेंट बर्नार्ड
+डचशंड
+राजापालयम
+मुधोल हाउंड
+कारवां हाउंड
+चिप्पीपराई
+कोम्बाई
+रामपुर हाउंड
+गद्दी कुत्ता
+इंडियन पैरिया कुत्ता

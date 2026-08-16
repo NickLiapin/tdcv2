@@ -1,0 +1,13 @@
+---
+description: Dishes of japanskt cuisine, in Swedish
+locale: sv
+---
+Sushi
+Sashimi
+Ramen
+Udon
+Tempura
+Yakitori
+Gyoza
+Misosoppa
+Katsucurry

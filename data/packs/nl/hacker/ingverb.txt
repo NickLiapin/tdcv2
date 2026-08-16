@@ -1,0 +1,32 @@
+---
+description: Tech verb as a present participle (Dutch -end form). Unlike English -ing, the Dutch present participle is not a normal predicate: you cannot say 'het systeem is versleutelend'. It works attributively or in headline-style fragments, which is exactly what this filler is for, but do not build a progressive tense out of it.
+locale: nl
+---
+beveiligend
+omzeilend
+hackend
+overschrijvend
+comprimerend
+kopiërend
+navigerend
+indexerend
+verbindend
+genererend
+kwantificerend
+berekenend
+synthetiserend
+invoerend
+overdragend
+programmerend
+herstartend
+analyserend
+versleutelend
+ontsleutelend
+uitrollend
+compilerend
+debuggend
+optimaliserend
+synchroniserend
+virtualiserend
+routerend
+monitorend

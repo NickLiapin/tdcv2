@@ -1,0 +1,36 @@
+---
+description: Building type (Dutch). Several of these have no clean English equivalent: a grachtenpand is a canal house, a portiekwoning a walk-up flat reached from a shared stair with no lift, a galerijflat a block whose flats open onto an external access gallery, and a woonboot a legally registered floating home with its own address and postcode.
+locale: nl
+---
+Woning
+Huis
+Rijtjeshuis
+Tussenwoning
+Hoekwoning
+Twee-onder-een-kapwoning
+Vrijstaande woning
+Herenhuis
+Grachtenpand
+Appartement
+Portiekwoning
+Galerijflat
+Maisonnette
+Penthouse
+Studio
+Bovenwoning
+Benedenwoning
+Woonboot
+Woonwagen
+Bungalow
+Villa
+Boerderij
+Schuur
+Loods
+Bedrijfspand
+Kantoorpand
+Winkelpand
+Magazijn
+Garagebox
+Parkeergarage
+Kerk
+Molen

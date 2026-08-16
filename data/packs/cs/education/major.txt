@@ -1,0 +1,32 @@
+---
+description: Field of study / major (Czech)
+locale: cs
+---
+Informatika
+Management
+Psychologie
+Biologie
+Strojírenství
+Elektrotechnika
+Stavebnictví
+Ekonomie
+Politologie
+Bohemistika
+Ošetřovatelství
+Chemie
+Matematika
+Historie
+Marketing
+Finance a účetnictví
+Žurnalistika
+Sociologie
+Fyzika
+Grafický design
+Datová analytika
+Ochrana životního prostředí
+Právo
+Všeobecné lékařství
+Architektura
+Logistika
+Pedagogika
+Filozofie

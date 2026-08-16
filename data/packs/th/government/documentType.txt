@@ -1,0 +1,24 @@
+---
+description: Official document type (Thai); two of these have no European counterpart and cannot be inferred from a Western list — ทะเบียนบ้าน is the house registration book that ties every person to an address and is required for almost every transaction, and บัตรทอง is the universal health coverage card
+locale: th
+---
+บัตรประจำตัวประชาชน
+ทะเบียนบ้าน
+สูติบัตร
+มรณบัตร
+ทะเบียนสมรส
+ทะเบียนหย่า
+ใบขับขี่
+หนังสือเดินทาง
+วีซ่า
+ใบอนุญาตทำงาน
+ใบสำคัญถิ่นที่อยู่
+บัตรประกันสังคม
+บัตรทอง
+โฉนดที่ดิน
+ทะเบียนรถ
+แบบแสดงรายการภาษี ภ.ง.ด.90
+ใบกำกับภาษี
+หนังสือรับรองบริษัท
+ใบเปลี่ยนชื่อ-สกุล
+ใบรับรองแพทย์

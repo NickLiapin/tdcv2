@@ -1,0 +1,12 @@
+---
+description: Mining method (Hindi); board-and-pillar is the dominant Indian underground coal method, and mountaintop removal is omitted because it is not practised in India
+locale: hi
+---
+खुली खदान
+भूमिगत खनन
+बोर्ड एंड पिलर
+लॉन्गवॉल खनन
+शाफ़्ट खनन
+सुरंग खनन
+पट्टी खनन
+जलोढ़ खनन

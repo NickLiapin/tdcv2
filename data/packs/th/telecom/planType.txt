@@ -1,0 +1,17 @@
+---
+description: Mobile plan type (Thai). Unlike Europe, prepaid is the default here: the market splits into เติมเงิน (prepaid, the large majority of Thai SIMs) and รายเดือน (postpaid), and most of what is sold on top is a short-lived add-on pack (แพ็กรายวัน, แพ็กรายสัปดาห์) rather than a contract.
+locale: th
+---
+เติมเงิน
+รายเดือน
+เน็ตไม่อั้น
+เน็ตไม่ลดสปีด
+แพ็กรายวัน
+แพ็กรายสัปดาห์
+แพ็กเกจเสริม
+แพ็กเกจครอบครัว
+ซิมเน็ต
+ซิมท่องเที่ยว
+ซิมรายปี
+ไฟเบอร์บ้าน
+โรมมิ่งต่างประเทศ

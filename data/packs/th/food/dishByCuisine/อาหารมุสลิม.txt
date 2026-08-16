@@ -1,0 +1,15 @@
+---
+description: Dishes of อาหารมุสลิม — Thai-Muslim food, a genuine and distinct Thai cuisine cooked mainly in the deep south and in the old Muslim quarters of Bangkok. Persian and Malay influence gives it dried spice (cardamom, cinnamon, cumin) where the rest of Thai cooking uses fresh herbs, and it is halal, so pork is absent and beef and goat are common.
+locale: th
+---
+แกงมัสมั่น
+ข้าวหมกไก่
+ข้าวหมกแพะ
+โรตี
+มะตะบะ
+ซุปเนื้อ
+ซุปหางวัว
+แกงกุรุหม่า
+ข้าวยำ
+ไก่กอและ
+แกงกะหรี่เนื้อ

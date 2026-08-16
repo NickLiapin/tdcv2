@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Stillahavsöarna, in Swedish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: sv
+---
+Typ 2-diabetes
+Fetma
+Gikt
+Reumatisk hjärtsjukdom
+Kronisk njursvikt
+Hypertoni

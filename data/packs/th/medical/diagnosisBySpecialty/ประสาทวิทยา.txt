@@ -1,0 +1,18 @@
+---
+description: Diagnoses seen in Neurology (Thai). Includes the CNS infections that a Thai neurology service genuinely admits — tuberculous and cryptococcal meningitis, and Japanese encephalitis.
+locale: th
+---
+ไมเกรน
+โรคลมชัก
+หลอดเลือดสมองตีบ
+หลอดเลือดสมองแตก
+ภาวะสมองขาดเลือดชั่วคราว
+โรคพาร์กินสัน
+โรคอัลไซเมอร์
+ภาวะสมองเสื่อม
+เส้นประสาทส่วนปลายเสื่อม
+โรคปวดเส้นประสาทใบหน้า
+กลุ่มอาการกิลแลง-บาร์เร
+โรคมัยแอสทีเนียเกรวิส
+เยื่อหุ้มสมองอักเสบ
+โรคไข้สมองอักเสบเจอี

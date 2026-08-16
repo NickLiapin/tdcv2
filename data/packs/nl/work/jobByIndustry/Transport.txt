@@ -1,0 +1,16 @@
+---
+description: Jobs in Transportation (Dutch)
+locale: nl
+---
+Vrachtwagenchauffeur
+Logistiek coördinator
+Luchtverkeersleider
+Transportplanner
+Verkeersvlieger
+Magazijnmedewerker
+Buschauffeur
+Machinist
+Expediteur
+Heftruckchauffeur
+Koerier
+Schipper

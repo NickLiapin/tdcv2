@@ -1,0 +1,24 @@
+---
+description: Directional qualifier used with an Indian locality, sector or colony name (दक्षिण दिल्ली, पश्चिम विहार). The last four are the intercardinal directions of वास्तु, the Indian architectural tradition — ईशान is north-east, आग्नेय south-east, नैऋत्य south-west and वायव्य north-west. They are not archaic; Indian property listings advertise a plot's वास्तु orientation as a selling point.
+locale: hi
+---
+उत्तर
+दक्षिण
+पूर्व
+पश्चिम
+उत्तर-पूर्व
+उत्तर-पश्चिम
+दक्षिण-पूर्व
+दक्षिण-पश्चिम
+उत्तरी
+दक्षिणी
+पूर्वी
+पश्चिमी
+मध्य
+केंद्रीय
+ऊपरी
+निचला
+ईशान
+आग्नेय
+नैऋत्य
+वायव्य

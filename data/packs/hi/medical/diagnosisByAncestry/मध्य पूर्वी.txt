@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Hindi. A prevalence signal, not an exclusive one.
+locale: hi
+---
+पारिवारिक भूमध्यसागरीय ज्वर
+बीटा-थैलेसीमिया
+ग्लूकोज़-6-फ़ॉस्फ़ेट डिहाइड्रोजनेज़ की कमी
+बेहसेट रोग
+विटामिन D की कमी
+सिकल सेल वाहक अवस्था

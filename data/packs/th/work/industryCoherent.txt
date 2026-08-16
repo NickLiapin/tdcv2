@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: th
+---
+เทคโนโลยี
+สาธารณสุข
+การศึกษา
+การเงินการธนาคาร
+ก่อสร้าง
+การผลิต
+ขนส่งและโลจิสติกส์
+ค้าปลีก
+ท่องเที่ยวและโรงแรม
+เกษตรกรรม

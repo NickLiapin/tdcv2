@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (Czech)
+locale: cs
+---
+Nadhazovač
+Chytač
+První meta
+Druhá meta
+Třetí meta
+Spojka
+Levé pole
+Střední pole
+Pravé pole
+Určený pálkař

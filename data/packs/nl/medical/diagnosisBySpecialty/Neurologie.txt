@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in Neurology (Dutch).
+locale: nl
+---
+Migraine
+Spanningshoofdpijn
+Epilepsie
+Ziekte van Parkinson
+Multiple sclerose
+Herseninfarct
+Hersenbloeding
+Ziekte van Alzheimer
+Perifere neuropathie
+Trigeminusneuralgie
+Rustelozebenensyndroom

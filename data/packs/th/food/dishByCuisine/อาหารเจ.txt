@@ -1,0 +1,18 @@
+---
+description: Dishes of อาหารเจ — the strict vegetarian food of เทศกาลกินเจ, the nine-day Nine Emperor Gods festival. เจ is stricter than Western vegetarianism — no meat, no fish sauce, no eggs, no dairy, and none of the five pungent vegetables (garlic, onion, shallot, chive, asafoetida) — so a เจ dish is cooked to its own recipe rather than being a meat dish with the meat left out.
+locale: th
+---
+ก๋วยเตี๋ยวเจ
+ผัดหมี่เจ
+ข้าวผัดเจ
+หมี่กะทิเจ
+ก๋วยจั๊บเจ
+จับฉ่าย
+เห็ดหอมตุ๋น
+เต้าหู้ทอด
+ลาบเห็ด
+แกงเลียงเจ
+ยำสาหร่าย
+ผัดผักรวมมิตร
+ข้าวหมกเห็ด
+เผือกทอด

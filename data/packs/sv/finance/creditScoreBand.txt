@@ -1,0 +1,9 @@
+---
+description: Credit standing band (Swedish). Sweden has no consumer-facing credit score like FICO: UC and the other credit bureaus publish a riskprognos, a percentage probability of default, and a betalningsanmärkning — a registered payment default — is the single fact that matters most. These bands are descriptive labels for that, not a numeric scale.
+locale: sv
+---
+mycket låg risk
+låg risk
+normal risk
+förhöjd risk
+betalningsanmärkning

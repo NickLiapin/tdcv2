@@ -1,0 +1,24 @@
+---
+description: Parcel carriers commonly used in Thailand; the state operator is ไปรษณีย์ไทย (Thailand Post) and the private express firms keep their real Latin brand spelling.
+locale: th
+---
+ไปรษณีย์ไทย
+Kerry Express
+Flash Express
+J&T Express
+SCG Express
+Ninja Van
+Best Express
+DHL Express
+DHL eCommerce
+FedEx
+UPS
+TNT
+Lalamove
+Grab Express
+Shopee Express
+Lazada Express
+นิ่มเอ็กซ์เพรส
+Inter Express Logistics
+บริษัท ขนส่ง จำกัด (บขส.)
+นครชัยแอร์

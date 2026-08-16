@@ -1,0 +1,20 @@
+---
+description: Venue type (Dutch). 'Strandpaviljoen' is a Dutch coastal institution - a permanent beach restaurant that doubles as an event space - and is a far more common venue here than a vineyard would be.
+locale: nl
+---
+Hotelzaal
+Congrescentrum
+Stadion
+Theater
+Feestzaal
+Dakterras
+Tuin
+Loods
+Auditorium
+Nachtclub
+Vergaderzaal
+Landgoed
+Kasteel
+Strandpaviljoen
+Museum
+Cultureel centrum

@@ -1,0 +1,41 @@
+---
+description: Tech noun (Dutch). Dutch and English coexist in this vocabulary: 'bandbreedte' and 'harde schijf' are translated, while 'firewall', 'router', 'switch', 'cache', 'container' and 'pipeline' are the everyday Dutch words too. Translating those would read as invented.
+locale: nl
+---
+stuurprogramma
+protocol
+bandbreedte
+paneel
+microchip
+programma
+poort
+kaart
+matrix
+interface
+systeem
+sensor
+firewall
+harde schijf
+pixel
+alarm
+datastroom
+monitor
+applicatie
+zender
+bus
+schakeling
+condensator
+database
+pipeline
+server
+router
+switch
+cache
+kern
+bibliotheek
+extensie
+container
+back-up
+neuraal netwerk
+encryptiesleutel
+netwerkpakket

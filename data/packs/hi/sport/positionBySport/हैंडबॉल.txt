@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Hindi)
+locale: hi
+---
+गोलकीपर
+लेफ़्ट विंग
+लेफ़्ट बैक
+सेंटर बैक
+राइट बैक
+राइट विंग
+पिवट

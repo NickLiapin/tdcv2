@@ -1,0 +1,20 @@
+---
+description: Dishes of Indiaas cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Chicken tikka masala
+Butter chicken
+Rogan josh
+Palak paneer
+Dal makhani
+Chana masala
+Biryani
+Tandoori kip
+Samosa
+Naan
+Roti
+Aloo gobi
+Vindaloo
+Korma
+Raita
+Gulab jamun

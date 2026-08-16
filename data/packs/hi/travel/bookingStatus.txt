@@ -1,0 +1,15 @@
+---
+description: Booking status (Hindi); प्रतीक्षा सूची में is the waitlist state, which matters far more in India than elsewhere because Indian Railways runs a formal waitlist on every train
+locale: hi
+---
+पुष्ट
+लंबित
+गारंटीशुदा
+प्रतीक्षा सूची में
+संशोधित
+चेक-इन
+चेक-आउट
+अनुपस्थित
+रद्द
+धनवापसी की गई
+अवधि समाप्त

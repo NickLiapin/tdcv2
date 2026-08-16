@@ -1,0 +1,24 @@
+---
+description: Trip type (Czech)
+locale: cs
+---
+Služební cesta
+Dovolená
+Rodinná dovolená
+Svatební cesta
+Dobrodružství
+Cesta autem
+Plavba
+Cestování s batohem
+Víkend ve městě
+Dovolená u moře
+Zájezd
+Cesta na vlastní pěst
+Poznávací zájezd
+Ekoturistika
+Pouť
+Školní výlet
+Gastroturistika
+Lyžařský zájezd
+Návštěva rodiny
+Konference nebo veletrh

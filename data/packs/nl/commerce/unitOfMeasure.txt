@@ -1,0 +1,36 @@
+---
+description: Unit of measure for products (Dutch). Ons and pond are still everyday shop units in the Netherlands but they are metric, not imperial: een ons is exactly 100 g and een pond exactly 500 g, so they must not be mapped onto the English ounce and pound.
+locale: nl
+---
+stuk
+doos
+krat
+pak
+dozijn
+paar
+set
+rol
+bos
+bundel
+kilogram
+gram
+ons
+pond
+ton
+liter
+milliliter
+meter
+centimeter
+vierkante meter
+kubieke meter
+zak
+tray
+blik
+fles
+pot
+tube
+baal
+pallet
+envelop
+stel
+partij

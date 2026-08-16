@@ -1,0 +1,18 @@
+---
+description: Mark on the Dutch grading scale. Dutch schools and universities grade from 1 to 10, where 6 is the lowest pass ('voldoende') and 1 and 2 are essentially never given; marks are written with a comma decimal, e.g. 7,5. Practical subjects are often marked with the words onvoldoende / voldoende / goed instead of a number, and cum laude is the Dutch university distinction. Nothing here transfers to Flanders, which marks secondary school in percentages and university work out of 20.
+locale: nl
+---
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Onvoldoende
+Voldoende
+Goed
+Cum laude

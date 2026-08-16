@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Dutch). 'hen/hun' is the form the Transgender Netwerk Nederland recommends for non-binary use; 'die/diens' is the other established option.
+locale: nl
+---
+hij
+zij
+hen
+die
+hij/hem
+zij/haar
+hen/hun
+die/diens

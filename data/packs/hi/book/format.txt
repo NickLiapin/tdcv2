@@ -1,0 +1,12 @@
+---
+description: Book format (Hindi). Sajild / ajild are the terms Hindi publishers actually print on the copyright page for hardbound and paperbound editions.
+locale: hi
+---
+सजिल्द
+अजिल्द
+पेपरबैक
+ई-बुक
+ऑडियोबुक
+पॉकेट संस्करण
+सचित्र संस्करण
+पुस्तकालय संस्करण

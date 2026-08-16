@@ -1,0 +1,47 @@
+---
+description: Cooking ingredient (Dutch). Hagelslag, ontbijtkoek, jonge and oude kaas, roomboter and karnemelk are Dutch pantry staples; hagelslag in particular - chocolate sprinkles eaten on buttered bread at breakfast by adults - has no equivalent elsewhere. Ketjap manis and sambal sit here as everyday store-cupboard items because of the Indonesian connection, not as specialist goods.
+locale: nl
+---
+Bloem
+Zelfrijzend bakmeel
+Suiker
+Basterdsuiker
+Poedersuiker
+Zout
+Peper
+Roomboter
+Margarine
+Zonnebloemolie
+Olijfolie
+Melk
+Karnemelk
+Slagroom
+Creme fraiche
+Yoghurt
+Kwark
+Jonge kaas
+Belegen kaas
+Oude kaas
+Geitenkaas
+Ei
+Gist
+Bakpoeder
+Vanillesuiker
+Cacao
+Chocolade
+Hagelslag
+Stroop
+Appelstroop
+Honing
+Azijn
+Mosterd
+Mayonaise
+Ketjap manis
+Sambal oelek
+Bouillonblokje
+Tomatenpuree
+Paneermeel
+Rijst
+Pasta
+Havermout
+Ontbijtkoek

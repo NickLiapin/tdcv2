@@ -1,0 +1,23 @@
+---
+description: Legal term (Czech)
+locale: cs
+---
+Žalobce
+Žalovaný
+Předvolání k soudu
+Čestné prohlášení
+Výpověď svědka
+Svědectví
+Předběžné opatření
+Rozsudek
+Smír
+Soudní řízení
+Přípravné jednání
+Příslušnost soudu
+Odvolání
+Státní zástupce
+Obhájce
+Důkaz
+Ústavní stížnost
+Doručení písemnosti
+Plná moc

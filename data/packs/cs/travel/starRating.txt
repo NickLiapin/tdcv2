@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Czech). The noun after the numeral changes form: one hvezdicka, two to four hvezdicky, five hvezdicek - Czech counts in three grammatical bands.
+locale: cs
+---
+1 hvězdička
+2 hvězdičky
+3 hvězdičky
+4 hvězdičky
+5 hvězdiček

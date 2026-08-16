@@ -1,0 +1,26 @@
+---
+description: Common allergies (Swedish). Björkpollen is the dominant spring allergen across Sweden, and fästingbett appears here because of alfa-gal-allergi, the red-meat allergy a tick bite can trigger.
+locale: sv
+---
+björkpollen
+gräspollen
+gråbopollen
+alpollen
+hasselpollen
+pälsdjur
+katt
+hund
+häst
+kvalster
+mögel
+nötter
+jordnötter
+mandel
+soja
+mjölkprotein
+laktosintolerans
+gluten
+ägg
+skaldjur
+fisk
+getingstick

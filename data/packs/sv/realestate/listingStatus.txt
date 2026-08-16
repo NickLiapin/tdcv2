@@ -1,0 +1,16 @@
+---
+description: Listing status (Swedish)
+locale: sv
+---
+kommande
+till salu
+visning bokad
+budgivning pågår
+budgivning avslutad
+såld
+under kontrakt
+tillträde bokat
+uthyres
+uthyrd
+reserverad
+avpublicerad

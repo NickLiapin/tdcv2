@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Czech. A prevalence signal, not an exclusive one.
+locale: cs
+---
+Beta-talasemie
+Nosičství beta-talasemie
+Deficit glukózo-6-fosfátdehydrogenázy
+Familiární středomořská horečka
+Behçetova choroba
+Alfa-talasemie
+Favismus

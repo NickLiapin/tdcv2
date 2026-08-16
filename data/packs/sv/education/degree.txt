@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Sweden. Civilingenjör is a five-year integrated engineering degree, not a bachelor's; docent is a qualification above the doctorate rather than a post.
+locale: sv
+---
+grundskola
+gymnasieexamen
+yrkesexamen
+yrkeshögskoleexamen
+högskoleexamen
+kandidatexamen
+magisterexamen
+masterexamen
+civilingenjörsexamen
+civilekonomexamen
+juristexamen
+läkarexamen
+lärarexamen
+licentiatexamen
+doktorsexamen
+docent

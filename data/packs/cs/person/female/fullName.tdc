@@ -1,0 +1,10 @@
+---
+description: Czech full female name — a single given name and a single surname (Eva Nováková). Czech names carry one surname, given name first. The surname comes from the feminine list, so it reads -ová as Czech requires; drawing it from person.lastName instead would produce Eva Novák, which is not a possible Czech name.
+generator: tdc
+locale: cs
+---
+<sequence name="p">
+  <gen name="f" type="template" value="cs.person.female.firstName"/>
+  <gen name="l" type="template" value="cs.person.female.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

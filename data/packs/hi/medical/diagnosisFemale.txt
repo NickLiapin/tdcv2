@@ -1,0 +1,32 @@
+---
+description: Medical diagnosis in Hindi that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis. Anaemia in pregnancy is included because it affects more than half of pregnant women in India.
+locale: hi
+---
+एंडोमेट्रियोसिस
+पॉलीसिस्टिक ओवरी सिंड्रोम
+गर्भाशय फ़ाइब्रॉएड
+अंडाशय पुटी
+अंडाशय कैंसर
+गर्भाशय ग्रीवा कैंसर
+गर्भाशय ग्रीवा डिसप्लेसिया
+गर्भाशय ग्रीवाशोथ
+गर्भाशय अंतःस्तर शोथ
+गर्भाशय अंतःस्तर कैंसर
+श्रोणि सूजन रोग
+बैक्टीरियल वेजिनोसिस
+योनि कैंडिडिआसिस
+अत्यधिक रक्तस्रावी माहवारी
+कष्टार्तव
+रजोरोध
+प्री-एक्लेम्पसिया
+गर्भकालीन मधुमेह
+हाइपरएमेसिस ग्रेविडेरम
+अस्थानिक गर्भावस्था
+गर्भावस्था में रक्ताल्पता
+प्रसवोत्तर रक्तस्राव
+प्रसूति नालव्रण
+स्तनदाह
+फ़ाइब्रोसिस्टिक स्तन परिवर्तन
+रजोनिवृत्ति सिंड्रोम
+मासिक धर्म पूर्व डिस्फ़ोरिक विकार
+गर्भाशय भ्रंश

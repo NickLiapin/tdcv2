@@ -1,0 +1,14 @@
+---
+description: Dishes of spanskt cuisine, in Swedish
+locale: sv
+---
+Paella
+Tortilla española
+Gazpacho
+Patatas bravas
+Jamón ibérico
+Pulpo a la gallega
+Churros med choklad
+Crema catalana
+Tapas
+Fabada

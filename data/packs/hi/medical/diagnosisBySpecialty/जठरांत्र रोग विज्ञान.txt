@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Hindi). Intestinal tuberculosis is included because it is common in India and is the main differential for Crohn disease there.
+locale: hi
+---
+गैस्ट्रोइसोफ़ेगल रिफ़्लक्स रोग
+पेप्टिक अल्सर रोग
+चिड़चिड़ा आंत्र सिंड्रोम
+अल्सरेटिव कोलाइटिस
+क्रोहन रोग
+आंत्र क्षय रोग
+यकृत सिरोसिस
+गैर-अल्कोहलिक फैटी लिवर रोग
+तीव्र अग्न्याशयशोथ
+पित्ताशय की पथरी

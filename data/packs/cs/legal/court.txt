@@ -1,0 +1,19 @@
+---
+description: Court type in the Czech judiciary. Czechia has two supreme courts - the Nejvyssi soud for civil and criminal matters and the Nejvyssi spravni soud for administrative ones - plus a separate Ustavni soud outside the ordinary hierarchy. First-instance courts are okresni, except in Prague where they are called obvodni.
+locale: cs
+---
+Ústavní soud
+Nejvyšší soud
+Nejvyšší správní soud
+Vrchní soud
+Krajský soud
+Okresní soud
+Obvodní soud
+Městský soud
+Rozhodčí soud
+Soud pro mládež
+Insolvenční soud
+Konkurzní senát
+Odvolací soud
+Dovolací soud
+Soudní dvůr Evropské unie

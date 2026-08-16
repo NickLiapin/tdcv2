@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Hindi). These are the twelve राशि of Indian (Vedic) astrology, which are the same twelve signs as the Western zodiac but computed SIDEREALLY — the sign for a given birth date differs from the Western tropical one by roughly 23 degrees, about three weeks, so a config must not map a date to a sign using a Western table and then label it with these names.
+locale: hi
+---
+मेष
+वृषभ
+मिथुन
+कर्क
+सिंह
+कन्या
+तुला
+वृश्चिक
+धनु
+मकर
+कुंभ
+मीन

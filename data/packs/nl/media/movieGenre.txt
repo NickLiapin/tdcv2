@@ -1,0 +1,23 @@
+---
+description: Movie genre (Dutch).
+locale: nl
+---
+Actie
+Komedie
+Drama
+Horror
+Thriller
+Romantiek
+Sciencefiction
+Fantasy
+Documentaire
+Animatie
+Avontuur
+Misdaad
+Mysterie
+Western
+Musical
+Oorlogsfilm
+Biografie
+Film noir
+Romantische komedie

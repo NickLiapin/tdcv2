@@ -1,0 +1,22 @@
+---
+description: Cat breed (Czech)
+locale: cs
+---
+Perská
+Mainská mývalí
+Siamská
+Ragdoll
+Bengálská
+Sphynx
+Britská krátkosrstá
+Habešská
+Skotská klapouchá
+Norská lesní
+Ruská modrá
+Barmská posvátná
+Americká krátkosrstá
+Devon rex
+Barmská
+Turecká angora
+Somálská
+Manská

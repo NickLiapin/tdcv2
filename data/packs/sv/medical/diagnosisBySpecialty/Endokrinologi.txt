@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in endokrinologi, in Swedish
+locale: sv
+---
+Typ 1-diabetes
+Typ 2-diabetes
+Hypotyreos
+Hypertyreos
+Struma
+Osteoporos
+Binjurebarksvikt
+Cushings syndrom
+PCOS
+D-vitaminbrist

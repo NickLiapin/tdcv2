@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Hindi); interstate and intra-state are separated because Indian goods permits differ between them
+locale: hi
+---
+लंबी दूरी
+अंतरराज्यीय
+राज्य के भीतर
+क्षेत्रीय
+स्थानीय
+समर्पित मार्ग
+अंतिम मील

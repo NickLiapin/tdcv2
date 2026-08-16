@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Czech)
+locale: cs
+---
+Depresivní porucha
+Generalizovaná úzkostná porucha
+Bipolární afektivní porucha
+Schizofrenie
+Posttraumatická stresová porucha
+Porucha pozornosti s hyperaktivitou
+Obsedantně-kompulzivní porucha
+Mentální anorexie
+Panická porucha
+Závislost na alkoholu

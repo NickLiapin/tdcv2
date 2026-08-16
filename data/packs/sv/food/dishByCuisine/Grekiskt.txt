@@ -1,0 +1,12 @@
+---
+description: Dishes of grekiskt cuisine, in Swedish
+locale: sv
+---
+Moussaka
+Souvlaki
+Gyros
+Tzatziki
+Grekisk sallad
+Spanakopita
+Dolmar
+Baklava

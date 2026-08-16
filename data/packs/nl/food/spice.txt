@@ -1,0 +1,39 @@
+---
+description: Spice and herb (Dutch). Speculaaskruiden and koekkruiden are Dutch ready-made spice blends with no English name, sold year-round for baking; laurier, jeneverbes and kruidnagel are the backbone of Dutch stews such as hachee and draadjesvlees.
+locale: nl
+---
+Peper
+Zwarte peper
+Witte peper
+Cayennepeper
+Paprikapoeder
+Zout
+Kaneel
+Kruidnagel
+Nootmuskaat
+Foelie
+Gember
+Kardemom
+Komijn
+Koriander
+Kurkuma
+Karwij
+Anijs
+Steranijs
+Venkelzaad
+Laurier
+Tijm
+Rozemarijn
+Salie
+Oregano
+Basilicum
+Peterselie
+Bieslook
+Dille
+Dragon
+Jeneverbes
+Speculaaskruiden
+Koekkruiden
+Kerriepoeder
+Sambal
+Mosterdzaad

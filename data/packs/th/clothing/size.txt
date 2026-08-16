@@ -1,0 +1,13 @@
+---
+description: Clothing size (international letters, used unchanged in Thailand); ฟรีไซส์ — 'free size', one-size-fits-all — is a standard label in Thai shops and markets and is included as a real value.
+locale: th
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+ฟรีไซส์

@@ -1,0 +1,19 @@
+---
+description: Positions in cricket (Hindi); batting and bowling roles followed by the fielding positions as Hindi commentary names them
+locale: hi
+---
+सलामी बल्लेबाज़
+मध्यक्रम बल्लेबाज़
+तेज़ गेंदबाज़
+स्पिन गेंदबाज़
+विकेटकीपर
+ऑलराउंडर
+स्लिप
+गली
+प्वाइंट
+कवर
+मिड-ऑन
+मिड-ऑफ़
+थर्ड मैन
+फ़ाइन लेग
+स्क्वेयर लेग

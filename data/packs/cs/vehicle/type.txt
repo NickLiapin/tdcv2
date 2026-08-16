@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Czech)
+locale: cs
+---
+Sedan
+Kupé
+Hatchback
+SUV
+Crossover
+Terénní vůz
+Kabriolet
+Minivan
+Kombi
+Dodávka
+Pick-up
+Van
+Užitkový vůz
+Sportovní vůz
+Roadster
+Městský vůz
+Luxusní vůz
+Limuzína
+Mikrobus
+Autobus
+Nákladní vůz
+Motocykl

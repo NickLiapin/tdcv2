@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Czech)
+locale: cs
+---
+Horečka
+Bolest hlavy
+Únava
+Nevolnost
+Zvracení
+Průjem
+Zácpa
+Bolest břicha
+Bolest na hrudi
+Dušnost
+Kašel
+Bolest v krku
+Rýma
+Ucpaný nos
+Závrať
+Rozmazané vidění
+Bolest svalů
+Bolest kloubů
+Bolest zad
+Kožní vyrážka
+Svědění
+Otok
+Necitlivost
+Brnění
+Bušení srdce
+Ztráta chuti k jídlu
+Nechtěný úbytek hmotnosti
+Noční pocení
+Zimnice
+Kýchání
+Pálení žáhy
+Nadýmání
+Svalové křeče
+Slabost
+Zmatenost
+Nespavost
+Šelest v uších
+Krvácení z nosu

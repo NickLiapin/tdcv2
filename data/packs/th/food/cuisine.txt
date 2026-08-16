@@ -1,0 +1,21 @@
+---
+description: Cuisine (Thai). Each value has a dishByCuisine child file. The FIRST FOUR values are Thai REGIONAL cuisines, not one national cuisine split four ways — ภาคกลาง (Central, coconut milk and palm sugar), อีสาน (Northeast, Lao-influenced, sticky rice and fermented fish), เหนือ (Northern/Lanna, mild, pork and herb dips, no coconut milk) and ใต้ (Southern, turmeric and searing heat) differ from one another as much as they differ from the food of neighbouring countries, and share almost no dishes. อาหารมุสลิม is Thai-Muslim food of the deep south, and อาหารเจ is the strict vegetarian food eaten during เทศกาลกินเจ (the Nine Emperor Gods festival).
+locale: th
+---
+อาหารไทยภาคกลาง
+อาหารอีสาน
+อาหารเหนือ
+อาหารใต้
+อาหารจีน
+อาหารญี่ปุ่น
+อาหารเกาหลี
+อาหารเวียดนาม
+อาหารอินเดีย
+อาหารอิตาเลียน
+อาหารฝรั่งเศส
+อาหารอเมริกัน
+อาหารเม็กซิกัน
+อาหารตะวันออกกลาง
+อาหารมุสลิม
+อาหารเจ
+อาหารทะเล

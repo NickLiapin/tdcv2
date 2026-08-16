@@ -1,0 +1,13 @@
+---
+description: Dishes of italienskt cuisine, in Swedish
+locale: sv
+---
+Pizza margherita
+Spaghetti carbonara
+Lasagne
+Risotto
+Ossobuco
+Vitello tonnato
+Caprese
+Tiramisu
+Panna cotta

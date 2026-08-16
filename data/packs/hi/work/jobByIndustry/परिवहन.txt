@@ -1,0 +1,16 @@
+---
+description: Jobs in transport and logistics (Hindi); loco pilot is Indian Railways' title for a train driver
+locale: hi
+---
+ट्रक चालक
+बस चालक
+टैक्सी चालक
+ऑटो रिक्शा चालक
+डिलीवरी एजेंट
+लोको पायलट
+रेलवे गार्ड
+स्टेशन मास्टर
+पायलट
+केबिन क्रू
+गोदाम कर्मचारी
+लॉजिस्टिक्स समन्वयक

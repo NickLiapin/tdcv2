@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (Swedish operators and international brands). Telia, Tele2, Telenor and Tre own the Swedish networks; Comviq, Halebop, Hallon, Vimla, Fello and Chilimobil are their budget or virtual brands.
+locale: sv
+---
+Telia
+Tele2
+Telenor
+Tre
+Comviq
+Halebop
+Hallon
+Vimla
+Fello
+Chilimobil
+Lycamobile
+Telness
+Bahnhof
+Bredband2
+Vodafone
+Orange
+O2
+T-Mobile
+Deutsche Telekom
+Elisa
+DNA
+Telenor Norge
+TDC
+Ice
+EE
+Swisscom

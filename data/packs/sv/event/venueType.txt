@@ -1,0 +1,20 @@
+---
+description: Venue type (Swedish). Bygdegård, Folkets hus and hembygdsgård are Sweden's village and workers' community halls — associations own them and they host everything from weddings to council meetings.
+locale: sv
+---
+bygdegård
+Folkets hus
+församlingshem
+hembygdsgård
+herrgård
+slott
+konferensanläggning
+hotell
+restaurang
+festvåning
+idrottshall
+sporthall
+arena
+konserthus
+teater
+sommarstuga

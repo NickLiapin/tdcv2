@@ -1,0 +1,20 @@
+---
+description: Dishes of Amerikaans cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Cheeseburger
+Hamburger
+Hotdog
+Buffalo wings
+Mac and cheese
+Clubsandwich
+Caesarsalade
+Pulled pork
+Spareribs
+BBQ brisket
+Cornbread
+Pancakes met ahornsiroop
+New York cheesecake
+Brownie
+Apple pie
+Chicken wings

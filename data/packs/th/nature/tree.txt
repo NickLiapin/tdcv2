@@ -1,0 +1,32 @@
+---
+description: Tree (Thai, tropical species only — no oak, birch or spruce). Thai tree names carry the prefix ต้น, which is kept here; ต้นราชพฤกษ์ (also called คูน) is the national tree of Thailand.
+locale: th
+---
+ต้นราชพฤกษ์
+ต้นสัก
+ต้นยางนา
+ต้นตะเคียน
+ต้นโพธิ์
+ต้นไทร
+ต้นมะขาม
+ต้นจามจุรี
+ต้นประดู่
+ต้นตาล
+ต้นมะพร้าว
+ต้นไผ่
+ต้นชมพูพันธุ์ทิพย์
+ต้นหางนกยูง
+ต้นพะยูง
+ต้นสะเดา
+ต้นยางพารา
+ต้นมะม่วง
+ต้นขนุน
+ต้นทุเรียน
+ต้นมังคุด
+ต้นลำไย
+ต้นกล้วย
+ต้นมะละกอ
+ต้นนุ่น
+ต้นอินทนิล
+ต้นโกงกาง
+ต้นตะแบก

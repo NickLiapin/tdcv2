@@ -1,0 +1,12 @@
+---
+description: Book format (Czech)
+locale: cs
+---
+Pevná vazba
+Brožovaná vazba
+Elektronická kniha
+Audiokniha
+Kapesní vydání
+Ilustrované vydání
+Knihovní vazba
+Vázané v kůži

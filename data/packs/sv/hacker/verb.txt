@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (Swedish)
+locale: sv
+---
+kompilera
+köra
+installera
+avinstallera
+uppgradera
+konfigurera
+starta om
+koppla upp
+koppla ner
+logga in
+logga ut
+kryptera
+dekryptera
+komprimera
+packa upp
+indexera
+söka
+filtrera
+sortera
+spara
+läsa in
+skriva över
+radera
+återställa
+spegla
+distribuera
+driftsätta
+felsöka

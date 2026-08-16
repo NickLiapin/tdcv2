@@ -1,0 +1,15 @@
+---
+description: Booking status (Swedish)
+locale: sv
+---
+förfrågan
+preliminär
+bekräftad
+betald
+delbetald
+incheckad
+utcheckad
+ombokad
+avbokad
+utebliven
+väntelista

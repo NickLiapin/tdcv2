@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Hindi)
+locale: hi
+---
+प्वाइंट गार्ड
+शूटिंग गार्ड
+स्मॉल फ़ॉरवर्ड
+पावर फ़ॉरवर्ड
+सेंटर

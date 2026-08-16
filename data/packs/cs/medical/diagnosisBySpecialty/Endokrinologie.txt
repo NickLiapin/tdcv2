@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Czech)
+locale: cs
+---
+Diabetes mellitus 2. typu
+Hypotyreóza
+Hypertyreóza
+Osteoporóza
+Cushingův syndrom
+Syndrom polycystických ovarií
+Hashimotova tyreoiditida
+Gravesova-Basedowova choroba
+Adrenální insuficience
+Diabetes mellitus 1. typu

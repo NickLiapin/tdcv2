@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: hi
+---
+सूचना प्रौद्योगिकी
+स्वास्थ्य सेवा
+वित्त
+निर्माण
+शिक्षा
+आतिथ्य
+विनिर्माण
+खुदरा व्यापार
+परिवहन
+विधि

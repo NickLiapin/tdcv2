@@ -1,0 +1,63 @@
+---
+description: Industry sector (Dutch). Three of these are outsized in the Netherlands relative to other European economies: Tuinbouw and Sierteelt (greenhouse and ornamental horticulture, the flower and seed trade), Waterbouw (hydraulic engineering - dikes, dredging, land reclamation) and Waterbeheer, which is a whole industry here because a third of the country sits below sea level.
+locale: nl
+---
+Landbouw
+Veeteelt
+Tuinbouw
+Sierteelt
+Visserij
+Bosbouw
+Delfstoffenwinning
+Bouw
+Waterbouw
+Waterbeheer
+Industrie
+Detailhandel
+Groothandel
+Transport
+Logistiek
+Informatietechnologie
+Financiën
+Bankwezen
+Verzekeringen
+Vastgoed
+Gezondheidszorg
+Onderwijs
+Horeca
+Toerisme
+Amusement
+Energie
+Olie en gas
+Duurzame energie
+Telecommunicatie
+Automotive
+Luchtvaart
+Scheepvaart
+Farmacie
+Biotechnologie
+Media
+Reclame
+Advies
+Juridische dienstverlening
+Accountancy
+Personeelsdiensten
+Voeding en dranken
+Textiel
+Chemie
+Metaalindustrie
+Papierindustrie
+Elektronica
+Software
+E-commerce
+Games
+Sport
+Cultuur
+Wetenschappelijk onderzoek
+Openbaar bestuur
+Defensie
+Beveiliging
+Goede doelen
+Afvalbeheer
+Architectuur
+Techniek

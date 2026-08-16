@@ -1,0 +1,36 @@
+---
+description: Common adverb (Swedish)
+locale: sv
+---
+mycket
+lite
+ganska
+väldigt
+ofta
+sällan
+alltid
+aldrig
+ibland
+nu
+sedan
+snart
+redan
+fortfarande
+genast
+långsamt
+snabbt
+gärna
+knappast
+nästan
+precis
+ungefär
+särskilt
+framför allt
+istället
+dessutom
+därför
+kanske
+verkligen
+tyvärr
+lyckligtvis
+överallt

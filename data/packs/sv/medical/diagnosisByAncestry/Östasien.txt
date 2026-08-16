@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Östasien, in Swedish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: sv
+---
+Laktosintolerans
+Alkoholintolerans (ALDH2-brist)
+Magsäckscancer
+Nasofarynxcancer
+Hepatit B
+Glaukom med trång kammarvinkel
+Kawasakis sjukdom
+Betatalassemi
+Moyamoyasjukdom
+Typ 2-diabetes

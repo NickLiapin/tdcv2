@@ -1,0 +1,16 @@
+---
+description: Jobs in utbildning, in Swedish
+locale: sv
+---
+förskollärare
+barnskötare
+grundskollärare
+gymnasielärare
+speciallärare
+specialpedagog
+rektor
+studie- och yrkesvägledare
+universitetslektor
+professor
+doktorand
+fritidspedagog

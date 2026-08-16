@@ -1,0 +1,27 @@
+---
+description: Dutch address unit / interior designator. Dutch flat numbering uses a bare letter or number suffixed straight onto the house number - 'Kerkstraat 12A', 'Kerkstraat 12-3' - far more often than a spelled-out designator, so these appear mostly on business and institutional addresses.
+locale: nl
+---
+App.
+Appartement
+Woning
+Kamer
+Etage
+Verdieping
+Begane grond
+Souterrain
+Zolder
+Hoog
+Laag
+Achter
+Voor
+Bus
+Ingang
+Portiek
+Trappenhuis
+Gebouw
+Vleugel
+Unit
+Kantoor
+Postbus
+Antwoordnummer

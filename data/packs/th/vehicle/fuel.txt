@@ -1,0 +1,16 @@
+---
+description: Fuel type (Thai) — what is actually on the pump in Thailand. The country runs a national ethanol-blend programme, so the แก๊สโซฮอล์ grades ARE the normal petrol and plain เบนซิน 95 is the expensive exception; diesel is sold by biodiesel blend (B7, B20); and แอลพีจี and เอ็นจีวี conversions are common on taxis and older pickups, which no European fuel list needs.
+locale: th
+---
+แก๊สโซฮอล์ 91
+แก๊สโซฮอล์ 95
+แก๊สโซฮอล์ E20
+แก๊สโซฮอล์ E85
+เบนซิน 95
+ดีเซล
+ดีเซล B7
+ดีเซล B20
+แอลพีจี
+เอ็นจีวี
+ไฟฟ้า
+ไฮบริด

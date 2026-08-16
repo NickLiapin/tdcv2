@@ -1,0 +1,18 @@
+---
+description: Employment / contract type under Dutch labour law. The zzp'er, a self-employed person working without staff, is a very large and specifically Dutch category rather than a fringe case. Oproepcontract, nulurencontract and min-maxcontract are the three named on-call forms, payroll and uitzendkracht are two legally distinct kinds of hired-in labour, and a leerwerkplek is the paid workplace half of a BBL vocational track. Part-time work is the Dutch norm rather than the exception. Belgian contract law names its categories differently.
+locale: nl
+---
+Vast contract
+Tijdelijk contract
+Voltijd
+Deeltijd
+Oproepcontract
+Nulurencontract
+Min-maxcontract
+Uitzendkracht
+Payrollcontract
+Zzp'er
+Stage
+Leerwerkplek
+Detachering
+Seizoenswerk

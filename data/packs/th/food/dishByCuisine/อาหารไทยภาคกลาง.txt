@@ -1,0 +1,18 @@
+---
+description: Dishes of อาหารไทยภาคกลาง (Central Thai). The Bangkok-and-central-plains cuisine — coconut-milk curries, palm sugar, jasmine rice — and the one foreigners mean when they say "Thai food".
+locale: th
+---
+ต้มยำกุ้ง
+ผัดไทย
+แกงเขียวหวานไก่
+พะแนงหมู
+ต้มข่าไก่
+ข้าวผัดปู
+ผัดกะเพราหมูสับ
+แกงส้มชะอมกุ้ง
+หมูสะเต๊ะ
+ห่อหมกปลา
+ยำวุ้นเส้น
+ข้าวมันไก่
+ทอดมันปลากราย
+ผัดผักบุ้งไฟแดง

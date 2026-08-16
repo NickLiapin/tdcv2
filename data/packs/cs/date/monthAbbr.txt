@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Czech). cvn and cvc are deliberately distinct - cerven and cervenec differ only in their ending, so a three-letter cut would collide.
+locale: cs
+---
+led
+úno
+bře
+dub
+kvě
+čvn
+čvc
+srp
+zář
+říj
+lis
+pro

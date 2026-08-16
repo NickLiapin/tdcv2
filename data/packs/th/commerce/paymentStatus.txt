@@ -1,0 +1,15 @@
+---
+description: Payment status (Thai). รอตรวจสอบสลิปโอนเงิน is the Thai step where a buyer uploads a bank-transfer slip and the shop verifies it by hand.
+locale: th
+---
+รอชำระเงิน
+อนุมัติวงเงินแล้ว
+ชำระเงินแล้ว
+ชำระไม่สำเร็จ
+รอตรวจสอบสลิปโอนเงิน
+คืนเงินแล้ว
+คืนเงินบางส่วน
+เรียกคืนเงินผ่านบัตร
+ยกเลิกแล้ว
+ถูกปฏิเสธ
+อยู่ระหว่างตรวจสอบ

@@ -1,0 +1,24 @@
+---
+description: Employment benefit as offered in the Netherlands. Vakantiegeld is statutory rather than optional: every Dutch employee is owed at least 8 percent of annual salary as holiday allowance, normally paid out in May. Reiskostenvergoeding, thuiswerkvergoeding and the fietsplan are tax-facilitated Dutch schemes. Belgian employers offer a partly different set (maaltijdcheques, ecocheques, bedrijfswagen), so this list is Netherlands-first.
+locale: nl
+---
+Vakantiegeld
+Dertiende maand
+Pensioenregeling
+Reiskostenvergoeding
+Thuiswerkvergoeding
+Leaseauto
+Fietsplan
+Collectieve zorgverzekering
+Opleidingsbudget
+Winstuitkering
+Bonusregeling
+Flexibele werktijden
+Hybride werken
+Bedrijfsfitness
+Personeelskorting
+Laptop van de zaak
+Telefoon van de zaak
+Bovenwettelijke vakantiedagen
+Betaald ouderschapsverlof
+OV-jaarabonnement

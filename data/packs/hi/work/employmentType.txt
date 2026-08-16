@@ -1,0 +1,16 @@
+---
+description: Employment / contract type as used in India (Hindi); includes daily-wage and outsourced-contract work, and the unorganised sector, which accounts for most Indian employment
+locale: hi
+---
+स्थायी
+अस्थायी
+पूर्णकालिक
+अंशकालिक
+संविदा
+आउटसोर्स संविदा
+दैनिक वेतनभोगी
+मौसमी
+प्रशिक्षु
+अप्रेंटिस
+स्वतंत्र पेशेवर
+असंगठित क्षेत्र

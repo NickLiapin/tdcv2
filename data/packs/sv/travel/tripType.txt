@@ -1,0 +1,24 @@
+---
+description: Trip type (Swedish). Fjällvandring, skidsemester and stugsemester are the three Swedish holidays; charterresa is the packaged Mediterranean week that Swedish travel agents invented in the 1950s.
+locale: sv
+---
+semesterresa
+weekendresa
+affärsresa
+konferensresa
+charterresa
+storstadssemester
+stugsemester
+husvagnssemester
+campingsemester
+fjällvandring
+skidsemester
+vandringsresa
+cykelsemester
+kryssning
+skärgårdstur
+roadtrip
+familjesemester
+svensemester
+studieresa
+pilgrimsvandring

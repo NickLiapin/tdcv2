@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, given in Dutch. A prevalence signal, not an exclusive one.
+locale: nl
+---
+Hemoglobine-E-ziekte
+Alfa-thalassemie
+Bèta-thalassemie
+Glucose-6-fosfaatdehydrogenasedeficiëntie
+Nasofarynxcarcinoom
+Brugada-syndroom
+Lactose-intolerantie

@@ -1,0 +1,45 @@
+---
+description: Company legal form or name suffix used in Czechia. s.r.o. (limited company) and a.s. (joint stock) cover the great majority of registered firms; z.s., z.u., o.p.s. and nadacni fond are the non-profit forms. The remainder are ordinary name tails rather than legal forms.
+locale: cs
+---
+s.r.o.
+spol. s r.o.
+a.s.
+v.o.s.
+k.s.
+SE
+s.p.
+p.o.
+družstvo
+z.s.
+z.ú.
+o.p.s.
+nadace
+nadační fond
+Group
+Holding
+Czech
+CZ
+Bohemia
+Morava
+Praha
+Brno
+a syn
+a synové
+bratři
+a spol.
+Servis
+Systémy
+Technologie
+Řešení
+Consulting
+Invest
+Trade
+Centrum
+Agentura
+Institut
+Laboratoře
+Závody
+Podnik
+Dílny
+Sdružení

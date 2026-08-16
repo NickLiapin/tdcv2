@@ -1,0 +1,16 @@
+---
+description: Meeting type (Swedish). Fika is a real workplace fixture, not a joke — a scheduled coffee break the whole team takes together — and APT, arbetsplatsträff, is the recurring staff meeting that Swedish collective agreements and the public sector build into the calendar. Medarbetarsamtal and lönesamtal are the annual development and salary reviews.
+locale: sv
+---
+fika
+morgonmöte
+avstämning
+veckomöte
+månadsmöte
+APT
+personalmöte
+medarbetarsamtal
+lönesamtal
+styrelsemöte
+workshop
+kickoff

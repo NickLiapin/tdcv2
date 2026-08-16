@@ -1,0 +1,48 @@
+---
+description: Common verb (Czech, infinitive)
+locale: cs
+---
+být
+nacházet se
+mít
+dělat
+říkat
+dostávat
+jít
+vědět
+brát
+vidět
+přicházet
+myslet
+dívat se
+chtít
+dávat
+používat
+nacházet
+vyprávět
+ptát se
+pracovat
+cítit
+zkoušet
+nechávat
+volat
+stavět
+hýbat se
+hrát
+běžet
+přinášet
+začínat
+psát
+držet
+nést
+uchovávat
+otevírat
+procházet se
+učit se
+růst
+nabízet
+pamatovat
+žít
+mluvit
+jíst
+pít

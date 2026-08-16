@@ -1,0 +1,45 @@
+---
+description: Company legal / name suffix used in Sweden. AB is the limited company, AB (publ) the listed one; HB and KB are the two partnership forms, and enskild firma is a sole trader. Ekonomisk förening is the co-operative form used by everything from grocery chains to housing associations.
+locale: sv
+---
+AB
+AB (publ)
+HB
+KB
+enskild firma
+ekonomisk förening
+bostadsrättsförening
+ideell förening
+stiftelse
+filial
+Gruppen
+Koncernen
+Holding
+Invest
+Partner
+Partners
+& Söner
+& Co
+Bröderna
+Konsult
+Konsulting
+Teknik
+System
+Systems
+Solutions
+Service
+Tjänster
+Handel
+Industri
+Verkstad
+Bygg
+Entreprenad
+Fastigheter
+Data
+IT
+Media
+Design
+Logistik
+Norden
+Sverige
+Skandinavien

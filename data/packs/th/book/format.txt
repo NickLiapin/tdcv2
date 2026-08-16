@@ -1,0 +1,12 @@
+---
+description: Book format (Thai); พ็อกเก็ตบุ๊ก is the ordinary Thai word for a trade paperback and is not a small-format book.
+locale: th
+---
+ปกแข็ง
+ปกอ่อน
+พ็อกเก็ตบุ๊ก
+อีบุ๊ก
+หนังสือเสียง
+ฉบับกระเป๋า
+ฉบับรวมเล่ม
+หนังสือภาพ

@@ -1,0 +1,16 @@
+---
+description: Employment / contract type (Thai). Thailand employs several million registered migrant workers (แรงงานต่างด้าว) from Myanmar, Cambodia and Laos, so that is a real contract class here; ข้าราชการ (civil servant) is likewise a distinct class of employment rather than just an employer - a tenured career track with its own pay scale and pension, separate from พนักงานราชการ and ลูกจ้างประจำ.
+locale: th
+---
+พนักงานประจำ
+สัญญาจ้าง
+พนักงานรายวัน
+ลูกจ้างชั่วคราว
+พาร์ทไทม์
+ฟรีแลนซ์
+รับจ้างทั่วไป
+ค้าขายส่วนตัว
+ข้าราชการ
+พนักงานราชการ
+ลูกจ้างประจำ
+แรงงานต่างด้าว

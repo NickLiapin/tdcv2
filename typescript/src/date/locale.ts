@@ -661,6 +661,180 @@ const KO: DateLocale = {
   },
 };
 
+// Dutch writes month and weekday names in lower case, unlike its German neighbour.
+const NL: DateLocale = {
+  name: 'nl',
+  months: [
+    'januari',
+    'februari',
+    'maart',
+    'april',
+    'mei',
+    'juni',
+    'juli',
+    'augustus',
+    'september',
+    'oktober',
+    'november',
+    'december',
+  ],
+  monthsShort: ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
+  weekdays: ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'],
+  weekdaysShort: ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'],
+  formats: {
+    L: 'DD-MM-YYYY',
+    LL: 'D MMMM YYYY',
+    LLL: 'D MMMM YYYY HH:mm',
+    LLLL: 'dddd D MMMM YYYY HH:mm',
+  },
+};
+
+// Swedish writes month and weekday names in lower case, and Sweden is an ISO-8601 country: the short date is YYYY-MM-DD.
+const SV: DateLocale = {
+  name: 'sv',
+  months: [
+    'januari',
+    'februari',
+    'mars',
+    'april',
+    'maj',
+    'juni',
+    'juli',
+    'augusti',
+    'september',
+    'oktober',
+    'november',
+    'december',
+  ],
+  monthsShort: ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
+  weekdays: ['söndag', 'måndag', 'tisdag', 'onsdag', 'torsdag', 'fredag', 'lördag'],
+  weekdaysShort: ['sön', 'mån', 'tis', 'ons', 'tors', 'fre', 'lör'],
+  formats: {
+    L: 'YYYY-MM-DD',
+    LL: 'D MMMM YYYY',
+    LLL: 'D MMMM YYYY HH:mm',
+    LLLL: 'dddd D MMMM YYYY HH:mm',
+  },
+};
+
+// Hindi names the Gregorian months with borrowed forms and the weekdays after the planets; the week starts on Sunday.
+const HI: DateLocale = {
+  name: 'hi',
+  months: [
+    'जनवरी',
+    'फ़रवरी',
+    'मार्च',
+    'अप्रैल',
+    'मई',
+    'जून',
+    'जुलाई',
+    'अगस्त',
+    'सितंबर',
+    'अक्तूबर',
+    'नवंबर',
+    'दिसंबर',
+  ],
+  monthsShort: [
+    'जन.',
+    'फ़र.',
+    'मार्च',
+    'अप्रैल',
+    'मई',
+    'जून',
+    'जुल.',
+    'अग.',
+    'सित.',
+    'अक्तू.',
+    'नव.',
+    'दिस.',
+  ],
+  weekdays: ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार'],
+  weekdaysShort: ['रवि', 'सोम', 'मंगल', 'बुध', 'गुरु', 'शुक्र', 'शनि'],
+  formats: {
+    L: 'DD/MM/YYYY',
+    LL: 'D MMMM YYYY',
+    LLL: 'D MMMM YYYY HH:mm',
+    LLLL: 'dddd, D MMMM YYYY HH:mm',
+  },
+};
+
+// Thailand counts years in the Buddhist Era, 543 ahead of the Common Era: 2026 CE is 2569. The formatter does NOT convert — the year a config supplies is the year printed — so a caller that wants the BE year adds 543 itself. The pack says so in its own date descriptions rather than leaving a silent 543-year error.
+const TH: DateLocale = {
+  name: 'th',
+  months: [
+    'มกราคม',
+    'กุมภาพันธ์',
+    'มีนาคม',
+    'เมษายน',
+    'พฤษภาคม',
+    'มิถุนายน',
+    'กรกฎาคม',
+    'สิงหาคม',
+    'กันยายน',
+    'ตุลาคม',
+    'พฤศจิกายน',
+    'ธันวาคม',
+  ],
+  monthsShort: [
+    'ม.ค.',
+    'ก.พ.',
+    'มี.ค.',
+    'เม.ย.',
+    'พ.ค.',
+    'มิ.ย.',
+    'ก.ค.',
+    'ส.ค.',
+    'ก.ย.',
+    'ต.ค.',
+    'พ.ย.',
+    'ธ.ค.',
+  ],
+  weekdays: [
+    'วันอาทิตย์',
+    'วันจันทร์',
+    'วันอังคาร',
+    'วันพุธ',
+    'วันพฤหัสบดี',
+    'วันศุกร์',
+    'วันเสาร์',
+  ],
+  weekdaysShort: ['อา.', 'จ.', 'อ.', 'พ.', 'พฤ.', 'ศ.', 'ส.'],
+  formats: {
+    L: 'DD/MM/YYYY',
+    LL: 'D MMMM YYYY',
+    LLL: 'D MMMM YYYY HH:mm',
+    LLLL: 'dddd D MMMM YYYY HH:mm',
+  },
+};
+
+// Czech, like Russian and Polish, inflects the month name inside a date: the standalone nominative is "leden" but a date reads "5. ledna 2026". These are the genitive forms the formatter needs; the nominative list lives in the pack at cs/date/month.txt. Month and weekday names are lower case.
+const CS: DateLocale = {
+  name: 'cs',
+  months: [
+    'ledna',
+    'února',
+    'března',
+    'dubna',
+    'května',
+    'června',
+    'července',
+    'srpna',
+    'září',
+    'října',
+    'listopadu',
+    'prosince',
+  ],
+  monthsShort: ['led', 'úno', 'bře', 'dub', 'kvě', 'čvn', 'čvc', 'srp', 'zář', 'říj', 'lis', 'pro'],
+  weekdays: ['neděle', 'pondělí', 'úterý', 'středa', 'čtvrtek', 'pátek', 'sobota'],
+  weekdaysShort: ['ne', 'po', 'út', 'st', 'čt', 'pá', 'so'],
+  formats: {
+    L: 'DD.MM.YYYY',
+    LL: 'D. MMMM YYYY',
+    LLL: 'D. MMMM YYYY HH:mm',
+    LLLL: 'dddd D. MMMM YYYY HH:mm',
+  },
+};
+
 const LOCALES = new Map<string, DateLocale>([
   ['en', EN],
   ['eng', EN],
@@ -695,10 +869,18 @@ const LOCALES = new Map<string, DateLocale>([
   ['jpn', JA],
   ['ko', KO],
   ['kor', KO],
+  ['nl', NL],
+  ['nld', NL],
+  ['cs', CS],
+  ['ces', CS],
+  ['th', TH],
+  ['hi', HI],
+  ['sv', SV],
 ]);
 
 export const DATE_LOCALE_NAMES: readonly string[] = [
   'ar',
+  'cs',
   'de',
   'el',
   'en',
@@ -708,9 +890,13 @@ export const DATE_LOCALE_NAMES: readonly string[] = [
   'it',
   'ja',
   'ko',
+  'hi',
+  'nl',
   'pl',
   'pt',
   'ru',
+  'sv',
+  'th',
   'tr',
   'uk',
   'vi',

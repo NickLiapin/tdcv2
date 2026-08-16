@@ -1,0 +1,59 @@
+---
+description: Industry sector (Czech)
+locale: cs
+---
+Zemědělství
+Chov hospodářských zvířat
+Rybářství
+Lesnictví
+Těžba
+Stavebnictví
+Zpracovatelský průmysl
+Maloobchod
+Velkoobchod
+Doprava
+Informační technologie
+Finance
+Bankovnictví
+Pojišťovnictví
+Nemovitosti
+Zdravotnictví
+Školství
+Pohostinství
+Cestovní ruch
+Zábava
+Energetika
+Ropa a plyn
+Obnovitelné zdroje
+Telekomunikace
+Automobilový průmysl
+Letecký průmysl
+Farmacie
+Biotechnologie
+Logistika
+Média
+Reklama
+Poradenství
+Právní služby
+Účetnictví
+Personalistika
+Potraviny a nápoje
+Pivovarnictví
+Textilní průmysl
+Chemický průmysl
+Hutnictví
+Papírenský průmysl
+Elektrotechnika
+Software
+Elektronický obchod
+Videohry
+Sport
+Kultura
+Věda a výzkum
+Veřejná správa
+Obrana
+Ostraha
+Neziskový sektor
+Odpadové hospodářství
+Vodohospodářství
+Architektura

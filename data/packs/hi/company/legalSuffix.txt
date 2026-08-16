@@ -1,0 +1,48 @@
+---
+description: Company legal form or name suffix used in India (Private Limited / Limited / LLP / OPC / partnership firm / sole proprietorship / HUF / cooperative society / trust / society / Section 8 company / PSU) plus trading suffixes that appear in real Indian company names.
+locale: hi
+---
+प्राइवेट लिमिटेड
+प्रा. लि.
+लिमिटेड
+लि.
+पब्लिक लिमिटेड
+एलएलपी
+वन पर्सन कंपनी
+साझेदारी फ़र्म
+एकल स्वामित्व
+हिंदू अविभाजित परिवार
+सहकारी समिति
+ट्रस्ट
+सोसाइटी
+सेक्शन 8 कंपनी
+सार्वजनिक क्षेत्र का उपक्रम
+निगम
+समूह
+होल्डिंग्स
+इंडस्ट्रीज़
+एंटरप्राइजेज
+उद्योग
+उद्यम
+ट्रेडर्स
+एजेंसीज़
+कॉर्पोरेशन
+एंड संस
+एंड कंपनी
+ब्रदर्स
+एसोसिएट्स
+कंसल्टेंट्स
+सॉल्यूशंस
+सिस्टम्स
+टेक्नोलॉजीज़
+सर्विसेज़
+वेंचर्स
+लैब्स
+मिल्स
+इंडिया
+इंटरनेशनल
+प्रतिष्ठान
+भंडार
+स्टोर्स
+केंद्र
+संस्थान

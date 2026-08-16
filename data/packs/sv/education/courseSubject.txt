@@ -1,0 +1,24 @@
+---
+description: School subject (Swedish)
+locale: sv
+---
+svenska
+svenska som andraspråk
+engelska
+matematik
+fysik
+kemi
+biologi
+teknik
+geografi
+historia
+samhällskunskap
+religionskunskap
+moderna språk
+idrott och hälsa
+bild
+musik
+slöjd
+hem- och konsumentkunskap
+naturkunskap
+psykologi

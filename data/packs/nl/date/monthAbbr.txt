@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Dutch, lowercase, no full stop). Note 'mrt' for maart - not 'maa' - and that mei, juni and juli are not abbreviated in practice because they are already short.
+locale: nl
+---
+jan
+feb
+mrt
+apr
+mei
+jun
+jul
+aug
+sep
+okt
+nov
+dec

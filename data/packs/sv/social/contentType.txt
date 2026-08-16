@@ -1,0 +1,17 @@
+---
+description: Social content type (Swedish)
+locale: sv
+---
+inlägg
+bild
+bildkarusell
+video
+kortvideo
+story
+direktsändning
+kommentar
+delning
+omröstning
+tråd
+artikel
+podd

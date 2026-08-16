@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Thai). Thai writes the numeral followed by ดาว, with a space before the numeral as Thai does for any digit token.
+locale: th
+---
+1 ดาว
+2 ดาว
+3 ดาว
+4 ดาว
+5 ดาว

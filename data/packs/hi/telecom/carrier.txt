@@ -1,0 +1,22 @@
+---
+description: Telecom operator in India. Deliberately short at the top: Indian mobile telecom consolidated to just Jio, Airtel, Vi (Vodafone Idea), BSNL and MTNL, and nothing has been invented to pad the list. The remainder are real fixed-line and broadband ISPs. Brand names are kept in Latin script, as Indian bills and SIM packs print them.
+locale: hi
+---
+Jio
+Airtel
+Vi
+BSNL
+MTNL
+JioFiber
+Airtel Xstream Fiber
+BSNL Bharat Fiber
+ACT Fibernet
+Hathway
+Excitel
+Tata Play Fiber
+You Broadband
+Alliance Broadband
+Spectra
+RailWire
+Asianet Broadband
+Tikona

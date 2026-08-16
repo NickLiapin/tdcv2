@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Swedish, Monday-first)
+locale: sv
+---
+mån
+tis
+ons
+tors
+fre
+lör
+sön

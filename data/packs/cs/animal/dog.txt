@@ -1,0 +1,33 @@
+---
+description: Dog breed (Czech). Cesky fousek, chodsky pes and cesky terier are Czech national breeds; the ceskoslovensky vlcak was bred from German shepherds and Carpathian wolves.
+locale: cs
+---
+Labradorský retrívr
+Německý ovčák
+Zlatý retrívr
+Francouzský buldoček
+Anglický buldok
+Pudl
+Bígl
+Rotvajler
+Jezevčík
+Boxer
+Sibiřský husky
+Německá doga
+Dobrman
+Australský ovčák
+Border kolie
+Čivava
+Ši-cu
+Pomeranian
+Corgi
+Bernský salašnický pes
+Chrt
+Mastif
+Bulteriér
+Bernardýn
+Dalmatin
+Český fousek
+Chodský pes
+Český teriér
+Československý vlčák

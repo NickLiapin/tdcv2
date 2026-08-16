@@ -1,0 +1,16 @@
+---
+description: Jobs in healthcare (Hindi); includes ASHA and ANM, India's frontline community health workers
+locale: hi
+---
+चिकित्सक
+शल्य चिकित्सक
+बाल रोग विशेषज्ञ
+स्त्री रोग विशेषज्ञ
+आयुर्वेदिक चिकित्सक
+दंत चिकित्सक
+स्टाफ़ नर्स
+एएनएम
+आशा कार्यकर्ता
+फ़ार्मासिस्ट
+प्रयोगशाला तकनीशियन
+रेडियोलॉजी तकनीशियन

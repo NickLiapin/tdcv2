@@ -1,0 +1,16 @@
+---
+description: Jobs in tillverkning, in Swedish
+locale: sv
+---
+produktionstekniker
+CNC-operatör
+svetsare
+industrimekaniker
+underhållstekniker
+processoperatör
+kvalitetstekniker
+produktionsledare
+verktygsmakare
+automationsingenjör
+montör
+lackerare

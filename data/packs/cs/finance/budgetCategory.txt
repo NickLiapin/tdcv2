@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Czech)
+locale: cs
+---
+Nájem
+Hypotéka
+Potraviny
+Energie
+Doprava
+Zábava
+Zdraví
+Pojištění
+Restaurace
+Úspory
+Předplatné
+Cestování
+Vzdělávání
+Oblečení
+Dárky
+Péče o děti
+Splátky dluhů
+Domácí mazlíčci
+Telefon a internet
+Daně

@@ -1,0 +1,14 @@
+---
+description: Fuel type (Swedish). E85 and biogas are ordinary pump options in Sweden, and HVO100 is a renewable diesel sold at Swedish stations; laddhybrid is the plug-in hybrid category used in the vehicle register.
+locale: sv
+---
+bensin
+diesel
+el
+laddhybrid
+elhybrid
+etanol E85
+biogas
+fordonsgas
+HVO100
+vätgas

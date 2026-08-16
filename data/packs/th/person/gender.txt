@@ -1,0 +1,6 @@
+---
+description: Gender label (Thai). Two values, matching en and pl — this list is what a parent="Gender.ชาย" filter matches on, so a longer one silently leaves most rows without a name. Identity options beyond the pair belong in a file of their own.
+locale: th
+---
+ชาย
+หญิง

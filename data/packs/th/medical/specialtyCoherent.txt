@@ -1,0 +1,14 @@
+---
+description: Medical specialty in Thai (has a coherent diagnosis list). This is the subset of medical/specialty that has a matching child file under medical/diagnosisBySpecialty; the broad list of specialties is a different file.
+locale: th
+---
+อายุรศาสตร์โรคหัวใจ
+ประสาทวิทยา
+อายุรศาสตร์โรคระบบทางเดินอาหาร
+อายุรศาสตร์โรคระบบการหายใจ
+อายุรศาสตร์ต่อมไร้ท่อ
+อายุรศาสตร์โรคไต
+ศัลยศาสตร์ออร์โธปิดิกส์
+ตจวิทยา
+มะเร็งวิทยา
+จิตเวชศาสตร์

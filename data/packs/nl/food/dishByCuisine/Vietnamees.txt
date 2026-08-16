@@ -1,0 +1,17 @@
+---
+description: Dishes of Vietnamees cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Pho bo
+Pho ga
+Banh mi
+Bun cha
+Bun bo hue
+Goi cuon
+Cha gio
+Com tam
+Banh xeo
+Ca kho to
+Bo luc lac
+Che
+Vietnamese ijskoffie

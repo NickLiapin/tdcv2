@@ -1,0 +1,13 @@
+---
+description: Dishes of Spanish cuisine (Czech)
+locale: cs
+---
+Paella
+Tapas
+Gazpacho
+Španělská tortilla
+Churros
+Patatas bravas
+Iberská šunka
+Chobotnice po galicijsku
+Salmorejo

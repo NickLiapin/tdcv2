@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Hindi); the generic ladder from lowest to highest, not any one game's tier names
+locale: hi
+---
+लोहा
+काँसा
+चाँदी
+सोना
+प्लैटिनम
+पन्ना
+हीरा
+मास्टर
+ग्रैंडमास्टर
+चैलेंजर

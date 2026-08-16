@@ -1,0 +1,28 @@
+---
+description: Thai interior / unit designator, written BEFORE its number (ห้อง 502, ชั้น 3, อาคาร บี); a Thai address pins a dwelling down by บ้านเลขที่ and then หมู่ or ซอย rather than by a number on the road, so these designators locate a unit inside a building, a housing project or a shophouse row.
+locale: th
+---
+บ้านเลขที่
+เลขที่
+ห้อง
+ห้องเลขที่
+ห้องพัก
+ห้องเช่า
+ห้องชุด
+ชั้น
+ชั้นลอย
+ชั้นใต้ดิน
+ดาดฟ้า
+อาคาร
+ตึก
+คูหา
+ยูนิต
+โซน
+ปีก
+หลังที่
+แปลงที่
+ทางเข้า
+ล็อบบี้
+ที่จอดรถ
+สาขา
+ตู้ ปณ.

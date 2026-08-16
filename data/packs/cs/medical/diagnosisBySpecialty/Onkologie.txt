@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Czech)
+locale: cs
+---
+Karcinom prsu
+Karcinom plic
+Kolorektální karcinom
+Leukemie
+Lymfom
+Melanom
+Karcinom prostaty
+Karcinom žaludku
+Karcinom pankreatu
+Mnohočetný myelom

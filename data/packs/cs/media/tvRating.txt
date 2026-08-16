@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, descriptive Czech (statutory rating codes are country data)
+locale: cs
+---
+Přístupné bez omezení
+Nevhodné pro děti do 7 let
+Nevhodné pro děti do 12 let
+Nevhodné pro mládež do 15 let
+Mládeži do 18 let nepřístupné
+Doporučen rodičovský dohled
+Pouze pro dospělé
+Pro děti
+Pro mládež

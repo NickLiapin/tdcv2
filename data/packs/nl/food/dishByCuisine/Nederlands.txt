@@ -1,0 +1,40 @@
+---
+description: Dishes of Nederlands cuisine as named in Dutch. Snacks dominate because the frituur/snackbar is a real institution; stamppot and erwtensoep are winter one-pot dishes with no English name.
+locale: nl
+---
+Stamppot boerenkool met rookworst
+Hutspot met klapstuk
+Zuurkoolstamppot
+Erwtensoep
+Bruine bonensoep
+Hachee
+Draadjesvlees
+Rookworst
+Bitterballen
+Kroket
+Broodje kroket
+Frikandel
+Frikandel speciaal
+Kaassoufflé
+Kibbeling
+Lekkerbek
+Haring met uitjes
+Uitsmijter
+Tosti ham-kaas
+Huzarensalade
+Kapsalon
+Patat met
+Poffertjes
+Pannenkoeken
+Appeltaart
+Stroopwafel
+Oliebollen
+Speculaas
+Boterkoek
+Limburgse vlaai
+Zeeuwse bolus
+Zuurvlees
+Balkenbrij
+Saucijzenbroodje
+Nasischijf
+Broodje gezond

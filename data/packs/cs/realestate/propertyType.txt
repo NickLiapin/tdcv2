@@ -1,0 +1,23 @@
+---
+description: Property type (Czech). Czech flats are advertised by the disposition code - 1+kk, 2+1, 3+kk - where the digit counts rooms and kk means a kitchenette rather than a separate kitchen; that code, not a bedroom count, is how a Czech listing states its size.
+locale: cs
+---
+Rodinný dům
+Byt
+Řadový dům
+Dvojdomek
+Činžovní dům
+Vila
+Bungalov
+Chata
+Chalupa
+Loft
+Garsoniéra
+Podkrovní byt
+Mobilní dům
+Statek
+Zemědělská usedlost
+Pozemek
+Komerční prostor
+Kancelář
+Zámek

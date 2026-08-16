@@ -1,0 +1,16 @@
+---
+description: Jobs in teknik, in Swedish
+locale: sv
+---
+systemutvecklare
+webbutvecklare
+frontendutvecklare
+backendutvecklare
+systemarkitekt
+testledare
+IT-tekniker
+nätverkstekniker
+dataanalytiker
+IT-säkerhetsspecialist
+produktägare
+scrum master

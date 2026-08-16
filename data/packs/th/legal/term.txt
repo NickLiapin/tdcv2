@@ -1,0 +1,23 @@
+---
+description: Legal term (Thai); อุทธรณ์ and ฎีกา are separate words for the two successive levels of appeal, not synonyms
+locale: th
+---
+โจทก์
+จำเลย
+คำฟ้อง
+คำให้การ
+พยาน
+สำนวน
+คำพิพากษา
+คำสั่งศาล
+อุทธรณ์
+ฎีกา
+ประกันตัว
+ทนายความ
+อัยการ
+ผู้พิพากษา
+หมายเรียก
+หมายจับ
+สัญญา
+ค่าเสียหาย
+ไกล่เกลี่ย

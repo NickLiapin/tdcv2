@@ -1,0 +1,16 @@
+---
+description: Month name (Thai). NOTE for configs: Thai dates count years in the Buddhist Era (พ.ศ.), which runs 543 years ahead of CE — 2026 CE is พ.ศ. 2569. This pack does NOT convert anything; the year a config supplies is used exactly as given.
+locale: th
+---
+มกราคม
+กุมภาพันธ์
+มีนาคม
+เมษายน
+พฤษภาคม
+มิถุนายน
+กรกฎาคม
+สิงหาคม
+กันยายน
+ตุลาคม
+พฤศจิกายน
+ธันวาคม

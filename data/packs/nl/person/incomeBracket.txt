@@ -1,0 +1,12 @@
+---
+description: Annual gross household income bracket, labelled in Dutch. Amounts are in euros, the currency of both the Netherlands and Belgium. Dutch writes thousands with a full stop and decimals with a comma, so 45.000 EUR is forty-five thousand.
+locale: nl
+---
+Minder dan 15.000 EUR
+15.000-25.000 EUR
+25.000-35.000 EUR
+35.000-50.000 EUR
+50.000-75.000 EUR
+75.000-100.000 EUR
+100.000-150.000 EUR
+Meer dan 150.000 EUR

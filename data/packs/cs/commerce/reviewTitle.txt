@@ -1,0 +1,30 @@
+---
+description: Product review title (Czech)
+locale: cs
+---
+Skvělý výrobek!
+Vřele doporučuji
+Nestojí za ty peníze
+Předčilo očekávání
+Prostě v pořádku
+Koupil bych znovu
+Zklamání
+Vynikající kvalita
+Rychle se rozbilo
+Za tu cenu ideální
+Lepší, než jsem čekal
+Nedoporučuji
+Nadšený!
+Trochu drahé
+Přesně podle popisu
+Splní, co má
+Dobrý poměr ceny a výkonu
+Dorazilo dřív, než slibovali
+Chatrné materiály
+Přesně to, co jsem hledal
+Návod je nesrozumitelný
+Velmi snadné ovládání
+Tohle jsem nečekal
+Určitě objednám znovu
+Bezchybný přístup
+Poctivé zpracování

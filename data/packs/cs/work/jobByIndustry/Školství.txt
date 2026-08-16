@@ -1,0 +1,16 @@
+---
+description: Jobs in Education (Czech)
+locale: cs
+---
+Učitel prvního stupně
+Učitel střední školy
+Vysokoškolský pedagog
+Výchovný poradce
+Knihovník
+Asistent pedagoga
+Ředitel školy
+Učitel mateřské školy
+Speciální pedagog
+Logoped
+Lektor
+Metodik výuky

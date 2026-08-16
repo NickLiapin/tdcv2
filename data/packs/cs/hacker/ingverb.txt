@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Czech). Czech has no present participle used this way, so the English -ing form maps onto the verbal noun in -ni / -vani.
+locale: cs
+---
+archivování
+obcházení
+hackování
+přepisování
+komprimace
+kopírování
+navigace
+indexování
+propojování
+generování
+kvantifikace
+výpočet
+syntetizování
+zadávání
+přenášení
+programování
+restartování
+analýza
+šifrování
+dešifrování
+nasazování
+kompilace
+ladění
+optimalizace
+synchronizace
+virtualizace
+směrování
+monitorování

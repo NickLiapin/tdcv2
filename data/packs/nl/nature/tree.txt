@@ -1,0 +1,32 @@
+---
+description: Tree (Dutch). Knotwilg heads the list because the pollarded willow is a defining feature of the Dutch and Flemish landscape - it is a management form, not a species, and there is no single English word for it. Populier lines the polder roads, and the iep (elm) is the canal tree of Amsterdam, which holds one of the largest urban elm collections anywhere. Els, es, berk and beuk are the ordinary trees of Low Countries woodland.
+locale: nl
+---
+Knotwilg
+Wilg
+Treurwilg
+Populier
+Iep
+Beuk
+Eik
+Es
+Berk
+Els
+Linde
+Esdoorn
+Grove den
+Spar
+Lariks
+Haagbeuk
+Hazelaar
+Meidoorn
+Vlier
+Lijsterbes
+Paardenkastanje
+Plataan
+Walnoot
+Zoete kers
+Taxus
+Hulst
+Ceder
+Magnolia

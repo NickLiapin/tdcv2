@@ -1,0 +1,54 @@
+---
+description: Store department / category (Swedish)
+locale: sv
+---
+frukt och grönt
+mejeri
+chark
+kött
+fisk och skaldjur
+bröd
+bageri
+kolonial
+torrvaror
+fryst
+glass
+godis
+snacks
+dryck
+kaffe och te
+barnmat
+hygien
+apotek
+hushåll
+städ
+tvätt
+djurmat
+kläder
+damkläder
+herrkläder
+barnkläder
+skor
+accessoarer
+smycken
+sport
+friluftsliv
+leksaker
+hobby
+böcker
+kontorsmaterial
+elektronik
+datorer
+mobiltelefoni
+vitvaror
+hemelektronik
+belysning
+möbler
+textil
+kök
+trädgård
+bygg
+färg
+verktyg
+bil
+däck

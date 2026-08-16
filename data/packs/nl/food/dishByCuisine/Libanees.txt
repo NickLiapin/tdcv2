@@ -1,0 +1,19 @@
+---
+description: Dishes of Libanees cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Hummus
+Baba ganoush
+Tabouleh
+Fattoush
+Falafel
+Shawarma
+Kibbeh
+Manakish
+Sfiha
+Mujadara
+Kafta
+Warak enab
+Labneh
+Muhammara
+Knafeh

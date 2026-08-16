@@ -1,0 +1,22 @@
+---
+description: Event type (Czech)
+locale: cs
+---
+Konference
+Kongres
+Svatba
+Koncert
+Festival
+Workshop
+Seminář
+Webinář
+Veletrh
+Výstava
+Charitativní sbírka
+Oborové setkání
+Uvedení produktu
+Ples
+Narozeniny
+Promoce
+Křtiny
+Výročí

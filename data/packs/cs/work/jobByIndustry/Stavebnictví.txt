@@ -1,0 +1,16 @@
+---
+description: Jobs in Construction (Czech)
+locale: cs
+---
+Elektrikář
+Instalatér
+Zedník
+Tesař
+Stavbyvedoucí
+Obsluha těžké techniky
+Geodet
+Pokrývač
+Železář
+Omítkář
+Stavební dozor
+Stavební dělník

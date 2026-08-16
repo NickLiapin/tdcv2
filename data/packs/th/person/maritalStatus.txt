@@ -1,0 +1,17 @@
+---
+description: Marital status in Thai. Unlike Polish or Russian, Thai marital-status words are NOT gendered — หม้าย covers both widow and widower, and หย่าร้าง covers both. Thailand also distinguishes a registered marriage from an unregistered one: a great many Thai couples hold the ceremony (แต่งงาน) without ever registering it at the district office, so สมรสไม่จดทะเบียน is a real and common status rather than an edge case. คู่ชีวิต is the term that came in with the 2024 marriage-equality act.
+locale: th
+---
+โสด
+แต่งงานแล้ว
+จดทะเบียนสมรส
+สมรสไม่จดทะเบียน
+หมั้น
+อยู่กินฉันสามีภรรยา
+แยกกันอยู่
+หย่าร้าง
+หม้าย
+คู่ชีวิต
+อยู่ด้วยกัน
+แยกทาง
+ไม่ระบุ

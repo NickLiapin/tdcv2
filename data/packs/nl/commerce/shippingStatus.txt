@@ -1,0 +1,16 @@
+---
+description: Shipping status (Dutch). Afgegeven bij de buren is a standard PostNL outcome, not an exception: Dutch carriers hand a parcel to a neighbour by default when nobody is home, and the tracking page reports it as a successful delivery.
+locale: nl
+---
+Label aangemaakt
+Onderweg
+Wordt vandaag bezorgd
+Bezorgd
+Afgegeven bij de buren
+Probleem tijdens transport
+Retour afzender
+Klaar om af te halen
+Vertraagd
+Bij de douane
+Adres onjuist
+Bezorgpoging mislukt

@@ -1,0 +1,9 @@
+---
+description: Work shift (Dutch). Ploegendienst is the general Dutch term for rotating shift work; a three-shift rota is named vroege, late and nacht.
+locale: nl
+---
+Vroege dienst
+Late dienst
+Nachtdienst
+Dagdienst
+Ploegendienst

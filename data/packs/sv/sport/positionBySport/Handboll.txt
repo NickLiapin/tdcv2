@@ -1,0 +1,11 @@
+---
+description: Positions in handboll, in Swedish.
+locale: sv
+---
+målvakt
+vänstersexa
+vänsternia
+mittnia
+högernia
+högersexa
+mittsexa

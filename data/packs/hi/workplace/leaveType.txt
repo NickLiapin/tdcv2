@@ -1,0 +1,16 @@
+---
+description: Leave type as used in India (Hindi): casual leave, earned leave, half-pay leave, compensatory off and the restricted holiday are the statutory and service-rule categories
+locale: hi
+---
+आकस्मिक अवकाश
+अर्जित अवकाश
+चिकित्सा अवकाश
+अर्धवेतन अवकाश
+मातृत्व अवकाश
+पितृत्व अवकाश
+प्रतिपूरक अवकाश
+बिना वेतन अवकाश
+प्रतिबंधित अवकाश
+अध्ययन अवकाश
+विवाह अवकाश
+शोक अवकाश

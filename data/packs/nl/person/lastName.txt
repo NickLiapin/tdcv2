@@ -1,0 +1,485 @@
+---
+description: Dutch and Flemish surnames, roughly frequency-ordered. A Dutch full name carries a single surname, so draw once. Many of these begin with a tussenvoegsel - a particle such as de, van, van der, van den, ten or ter - and two rules follow from it that no config can infer. ALPHABETISATION IGNORES THE PARTICLE: de Vries files under V, van den Berg under B, so sorting these values as plain strings gives the wrong order for a Dutch reader. CAPITALISATION DEPENDS ON WHAT PRECEDES: the particle is lowercase when a given name or initial comes first (Jan de Vries, J. de Vries) and capitalised when it does not (meneer De Vries, De Vries kwam binnen). The values here are stored in the lowercase form, which is correct for '<firstName> <lastName>'; capitalise the particle yourself when the surname stands alone. Note that this is the Netherlands rule - in Flanders the capitalisation is fixed per family and forms part of the official name, which is why the Flemish entries below appear as Vandenberghe, De Smet or Vanhoutte and should not be recased.
+weighted: true
+locale: nl
+---
+de Jong,1000000
+Jansen,933032
+de Vries,895958
+van den Berg,870550
+van Dijk,851339
+Bakker,835958
+Janssen,823171
+Visser,812252
+Smit,802741
+Meijer,794328
+de Boer,786793
+Mulder,779977
+de Groot,773758
+Bos,768045
+Vos,762765
+Peters,757858
+Hendriks,753277
+van Leeuwen,748984
+Dekker,744945
+Brouwer,741134
+de Wit,737527
+Dijkstra,734104
+Smits,730848
+de Graaf,727744
+van der Meer,724779
+van der Linden,721942
+Kok,719223
+Jacobs,716612
+de Haan,714101
+Vermeulen,711685
+van den Heuvel,709355
+van der Veen,707106
+van den Broek,704934
+de Bruijn,702832
+de Bruin,700798
+van der Heijden,698827
+Schouten,696915
+van Beek,695058
+Willems,693255
+van Vliet,691502
+van de Ven,689797
+Hoekstra,688137
+Maas,686519
+Verhoeven,684943
+Koster,683405
+van Dam,681905
+van der Wal,680440
+Prins,679009
+Blom,677610
+Huisman,676243
+Peeters,674905
+de Jonge,673596
+Kuipers,672314
+van Veen,671058
+Post,669828
+Kuiper,668622
+Veenstra,667440
+Kramer,666280
+van den Brink,665142
+Scholten,664025
+van Wijk,662928
+Postma,661851
+Martens,660793
+Vink,659753
+de Ruiter,658731
+Timmermans,657726
+Groen,656738
+Gerritsen,655766
+Jonker,654809
+van Loon,653868
+Boer,652941
+van der Velde,652028
+Driessen,651130
+Stevens,650244
+Hermans,649372
+van Doorn,648512
+Evers,647665
+Verbeek,646830
+van der Laan,646007
+de Lange,645195
+Bosman,644394
+Wolters,643603
+Sanders,642824
+Mol,642054
+Kooij,641295
+van der Berg,640545
+Bosch,639805
+van der Horst,639074
+Wolf,638353
+van Rijn,637640
+Verhagen,636936
+Kuijpers,636240
+van der Pol,635552
+Smeets,634873
+van Dongen,634202
+van Es,633538
+Koning,632882
+Cornelissen,632233
+van der Sluis,631591
+de Waal,630957
+van der Meulen,630329
+Rietveld,629709
+Nijhuis,629095
+Schuurman,628487
+Schipper,627886
+de Koning,627291
+van Buren,626702
+Verheul,626120
+van Gelderen,625543
+Roos,624972
+Klein,624406
+Ruijter,623847
+van Zanten,623292
+Reijnders,622743
+Molenaar,622200
+de Rooij,621661
+van Oosten,621128
+van der Hoeven,620600
+Bruggeman,620076
+de Vos,619557
+Nieuwenhuis,619043
+Doornbos,618534
+van Duijn,618029
+Kroon,617529
+Beekman,617033
+van Hoek,616542
+van Dalen,616055
+Wagenaar,615572
+Hofman,615093
+Bergsma,614618
+Sluiter,614147
+Terpstra,613680
+Feenstra,613217
+van der Woude,612758
+Wiersma,612303
+Boersma,611851
+de Haas,611403
+Bootsma,610959
+Hoving,610518
+Dijkman,610080
+Zijlstra,609646
+van der Kooi,609215
+Brinkman,608788
+van Aken,608364
+Duijvestein,607943
+Verweij,607525
+Broekman,607111
+van Rossum,606699
+Hendrikse,606291
+Aarts,605885
+Bakhuizen,605483
+van Hulst,605083
+van Wely,604687
+Vonk,604293
+Kaptein,603902
+Rutten,603514
+Boonstra,603128
+Vermaas,602745
+Barendse,602365
+Hoogland,601988
+Steenbergen,601613
+Verschuren,601240
+Vroom,600870
+Wesseling,600503
+van Beveren,600138
+Snel,599776
+Braam,599416
+Muller,599058
+Loman,598702
+Riemersma,598349
+van Ginkel,597998
+Slot,597650
+Krijgsman,597303
+Dorland,596959
+van Nieuwkoop,596617
+Wielinga,596277
+Nagel,595940
+Grootveld,595604
+Buter,595270
+van Kampen,594939
+Heemskerk,594609
+Sikkema,594282
+Kuik,593956
+Damen,593633
+Rademaker,593311
+Middelkoop,592991
+Overbeek,592673
+Zwart,592357
+Witteveen,592043
+Struik,591731
+van Duin,591420
+Bergman,591112
+Slootweg,590805
+Kortenhorst,590499
+Boekhoudt,590196
+Roosendaal,589894
+Merkus,589594
+Bijl,589295
+van Vuuren,588999
+Waaijer,588704
+Reinders,588410
+Landman,588118
+Hoekman,587828
+Kroes,587539
+van Bruggen,587252
+Weijers,586966
+Grimberg,586682
+Stam,586399
+Kolkman,586118
+Verbruggen,585838
+Hilhorst,585560
+Weerdenburg,585283
+Buijs,585008
+Kalkman,584734
+Oostra,584461
+Kist,584190
+Pot,583920
+Dros,583652
+Beumer,583385
+Wolffensperger,583119
+Havik,582855
+Steenhuis,582592
+Boomsma,582330
+van Assen,582069
+Waanders,581810
+Sterk,581552
+Buursma,581296
+Deelen,581040
+Krul,580786
+Roozen,580533
+Lubbers,580281
+Alberts,580030
+Nijboer,579781
+Woudstra,579533
+Renkema,579286
+Vellinga,579040
+Sipkema,578795
+Talsma,578551
+Jelsma,578309
+Hoekzema,578067
+Reitsma,577827
+van der Schaaf,577588
+Miedema,577350
+Poortinga,577113
+Spoelstra,576877
+Ypma,576642
+Bouma,576408
+Attema,576175
+Douma,575943
+Elzinga,575712
+Hiemstra,575483
+Osinga,575254
+Sytsema,575026
+Tjepkema,574799
+Wijnstra,574574
+Zandstra,574349
+Faber,574125
+Visschedijk,573902
+Nauta,573680
+Bijlsma,573459
+Kuperus,573239
+Sijbrandij,573020
+Kingma,572801
+Andringa,572584
+Buma,572368
+Hettinga,572152
+Roorda,571937
+Rispens,571724
+Wybenga,571511
+Bergstra,571299
+Haisma,571088
+Wiegersma,570877
+Peeperkorn,570668
+Janssens,570459
+Maes,570251
+Mertens,570044
+Claes,569838
+Goossens,569633
+Wouters,569428
+de Smet,569225
+Aerts,569022
+Michiels,568820
+van Damme,568618
+Segers,568418
+de Clercq,568218
+Verstraeten,568019
+van den Broeck,567821
+Lemmens,567624
+Dubois,567427
+Cools,567231
+Simons,567036
+de Coninck,566841
+Vandenberghe,566647
+Verheyen,566454
+Pauwels,566262
+van de Velde,566070
+Coppens,565880
+Bogaerts,565689
+Cornelis,565500
+Verbeeck,565311
+van Hoof,565123
+Vandevelde,564936
+de Backer,564749
+Dewulf,564563
+Vanhoutte,564377
+Verlinden,564193
+de Ridder,564009
+Nijs,563825
+Vandenbroucke,563643
+Verhelst,563460
+de Meyer,563279
+Vermeire,563098
+Bruyninckx,562918
+Vanden Bossche,562739
+Ceulemans,562560
+Debruyne,562381
+Declercq,562204
+Devos,562027
+Deprez,561850
+Vanderplancke,561674
+Roelants,561499
+Naessens,561325
+Vanwynsberghe,561151
+Descamps,560977
+Delvaux,560804
+Beckers,560632
+Geerts,560460
+Gijsen,560289
+Berckmans,560119
+Bourgeois,559949
+Vandaele,559779
+Callewaert,559610
+Lievens,559442
+Verduyn,559274
+Casteleyn,559107
+Vanpeteghem,558941
+Verhulst,558775
+Baert,558609
+Christiaens,558444
+Verstraete,558280
+Vermeersch,558116
+Vanden Bergh,557952
+Steurs,557789
+Depoorter,557627
+Dhondt,557465
+Vandewalle,557304
+Vanhaverbeke,557143
+Vanoverberghe,556983
+Roelandts,556823
+Steenackers,556664
+Snoeck,556505
+Storme,556346
+Ryckaert,556189
+Wauters,556031
+Deroo,555875
+Vandenbulcke,555718
+Steyaert,555562
+Speybrouck,555407
+Buyse,555252
+Coussement,555098
+Braem,554944
+Boone,554790
+Bracke,554637
+Brandt,554485
+Carlier,554332
+Cassiers,554181
+Claeys,554030
+Cloet,553879
+Cocquyt,553729
+Corthouts,553579
+Craeynest,553429
+Cuypers,553280
+Daems,553132
+Debacker,552984
+Decoster,552836
+Deconinck,552689
+Dedecker,552542
+Deforche,552396
+Degraeve,552250
+Dejonghe,552104
+Dekeyser,551959
+Delaere,551815
+Delbeke,551670
+Demeester,551527
+Demeulemeester,551383
+Denys,551240
+Depuydt,551098
+Derous,550955
+Desmet,550814
+Desutter,550672
+Devriendt,550531
+Dierckx,550391
+Dobbelaere,550250
+Dujardin,550111
+Duyck,549971
+Everaert,549832
+Follens,549693
+Gadeyne,549555
+Ghesquiere,549417
+Goethals,549280
+Goetghebeur,549143
+Haeck,549006
+Hanssens,548870
+Heylen,548733
+Hoste,548598
+Huyghe,548463
+Ide,548328
+Impens,548193
+Joos,548059
+Kesteloot,547925
+Lagae,547792
+Lambrecht,547659
+Lauwers,547526
+Leroy,547393
+Loones,547261
+Maertens,547130
+Mahieu,546998
+Malfait,546867
+Matthys,546737
+Meire,546606
+Mestdagh,546476
+Moens,546347
+Mommerency,546217
+Mortier,546088
+Muylle,545960
+Nollet,545832
+Nuytten,545704
+Ollevier,545576
+Opsomer,545449
+Pattyn,545322
+Persyn,545195
+Pieters,545069
+Plets,544943
+Provoost,544817
+Quintens,544692
+Raes,544567
+Reynaert,544442
+Rommel,544317
+Roose,544193
+Rosseel,544069
+Sabbe,543946
+Saelens,543823
+Samyn,543700
+Schepens,543577
+Sercu,543455
+Seys,543333
+Sioen,543211
+Slembrouck,543090
+Soenen,542969
+Standaert,542848
+Stragier,542728
+Tanghe,542607
+Terryn,542488
+Thys,542368
+Tytgat,542249
+Vanacker,542130
+Vanbecelaere,542011
+Vancoillie,541892
+Vandekerckhove,541774
+Vanderhaeghe,541656
+Vandierendonck,541539
+Vaneeckhout,541421
+Vangheluwe,541304
+Vanhecke,541188
+Vanhoenacker,541071
+Vanlerberghe,540955
+Vanmaele,540839
+Vannieuwenhuyse,540723
+Vanoost,540608
+Vanpoucke,540493
+Vansteenkiste,540378
+Vantomme,540263
+Verbrugghe,540149
+Vercruysse,540035
+Verhaeghe,539921
+Vermote,539807
+Verplancke,539694
+Vlaeminck,539581
+Vyncke,539468
+Wybo,539356

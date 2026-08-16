@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Hindi); includes the Swiss tent of Indian resort camps and the houseboat of Kerala and Kashmir, both sold as room categories
+locale: hi
+---
+स्टैंडर्ड रूम
+डीलक्स रूम
+सुपर डीलक्स रूम
+एग्ज़ीक्यूटिव रूम
+जूनियर सुइट
+सुइट
+प्रेसिडेंशियल सुइट
+सिंगल रूम
+डबल रूम
+ट्विन रूम
+ट्रिपल रूम
+फ़ैमिली रूम
+स्टूडियो अपार्टमेंट
+कॉटेज
+विला
+डॉरमिटरी
+स्विस टेंट
+हाउसबोट

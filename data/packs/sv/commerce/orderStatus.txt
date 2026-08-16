@@ -1,0 +1,18 @@
+---
+description: Order status (Swedish)
+locale: sv
+---
+mottagen
+bekräftad
+under behandling
+plockad
+packad
+klar för leverans
+skickad
+under transport
+levererad
+hämtad
+delvis levererad
+restnoterad
+avbruten
+returnerad

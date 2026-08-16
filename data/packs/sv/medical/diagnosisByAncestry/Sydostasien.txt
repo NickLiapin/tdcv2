@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Sydostasien, in Swedish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: sv
+---
+Alfatalassemi
+Betatalassemi
+Hemoglobin E-sjukdom
+G6PD-brist
+Laktosintolerans
+Nasofarynxcancer
+Talassemia intermedia

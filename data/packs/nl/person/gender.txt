@@ -1,0 +1,8 @@
+---
+description: Gender label (Dutch). Two values, matching en, de and pl - this list is what
+  `parent="Gender.Man"` filters on, so a longer one silently leaves most rows without a
+  name. Identity options beyond the pair belong in a file of their own.
+locale: nl
+---
+Man
+Vrouw

@@ -1,0 +1,16 @@
+---
+description: Jobs in Manufacturing (Dutch)
+locale: nl
+---
+Verspaner
+Lasser
+Kwaliteitsinspecteur
+Productieleider
+Productiemedewerker
+Onderhoudsmonteur
+Werkvoorbereider
+Machinebediener
+Gereedschapmaker
+Procesoperator
+Ploegleider
+Meet- en regeltechnicus

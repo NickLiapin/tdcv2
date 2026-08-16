@@ -1,0 +1,10 @@
+---
+description: Dutch full male name - one given name and one surname (Jan de Vries). A Dutch name carries a single surname. Where the surname begins with a tussenvoegsel the particle stays lowercase after the given name, which is exactly the form person/lastName.txt stores, so this template needs no special casing.
+generator: tdc
+locale: nl
+---
+<sequence name="p">
+  <gen name="f" type="template" value="nl.person.male.firstName"/>
+  <gen name="l" type="template" value="nl.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

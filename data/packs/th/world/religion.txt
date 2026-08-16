@@ -1,0 +1,25 @@
+---
+description: Religion (Thai). Thai Buddhism is THERAVADA (roughly 93% of the population), not the Mahayana of East Asia, and the Muslim minority (~5%, mostly Sunni) is concentrated in the deep south. Religion is not exclusive here: การนับถือผี — spirit belief, the ศาลพระภูมิ spirit house standing outside almost every Thai building — coexists with Buddhism inside the same household rather than competing with it, so a config that treats one religion per person as the whole picture will be wrong about Thailand.
+locale: th
+---
+ศาสนาพุทธ
+พุทธนิกายเถรวาท
+พุทธนิกายมหายาน
+ศาสนาอิสลาม
+อิสลามนิกายซุนนี
+อิสลามนิกายชีอะห์
+ศาสนาคริสต์
+คริสต์นิกายโรมันคาทอลิก
+คริสต์นิกายโปรเตสแตนต์
+คริสต์นิกายออร์โธดอกซ์
+พราหมณ์-ฮินดู
+ศาสนาซิกข์
+ศาสนายิว
+ศาสนาเชน
+ลัทธิเต๋า
+ลัทธิขงจื๊อ
+ศาสนาชินโต
+ความเชื่อพื้นบ้านจีน
+การนับถือผี
+ศาสนาบาไฮ
+ไม่มีศาสนา

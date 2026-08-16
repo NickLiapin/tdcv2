@@ -1,0 +1,17 @@
+---
+description: Property listing status (Dutch). Verkocht onder voorbehoud is a distinct and very common Dutch state, not a synonym for sold: the deal is agreed but still conditional, normally on the buyer securing a mortgage or on a building survey, and the property often returns to the market. A Dutch private buyer also has three days of statutory bedenktijd after signing in which the sale can be undone without penalty.
+locale: nl
+---
+Te koop
+Te huur
+Onder bod
+Onder optie
+Gereserveerd
+Verkocht onder voorbehoud
+Verkocht
+Verhuurd
+Ingetrokken
+Binnenkort te koop
+Nieuwbouw
+Prijs verlaagd
+Executieveiling

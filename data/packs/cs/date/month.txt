@@ -1,0 +1,16 @@
+---
+description: Month name (Czech, nominative, lowercase per Czech orthography). Czech month names are native Slavic words rather than the Latin ones - leden is the icy month, kveten the month of blossom - and they change form inside a date: 5. ledna, not 5. leden. The date form is in DATE_LOCALE.json as monthsInDate.
+locale: cs
+---
+leden
+únor
+březen
+duben
+květen
+červen
+červenec
+srpen
+září
+říjen
+listopad
+prosinec

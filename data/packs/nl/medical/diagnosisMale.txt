@@ -1,0 +1,25 @@
+---
+description: Medical diagnosis in Dutch that requires male anatomy - it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: nl
+---
+Benigne prostaathyperplasie
+Prostatitis
+Prostaatkanker
+Zaadbalkanker
+Torsio testis
+Varicocele
+Hydrocele
+Epididymitis
+Cryptorchisme
+Hypospadie
+Phimosis
+Balanitis
+Erectiestoornis
+Ziekte van Peyronie
+Mannelijke onvruchtbaarheid
+Gynaecomastie
+Hypogonadisme bij de man
+Priapisme
+Spermatocele
+Androgenetische alopecia
+Scrotale hernia

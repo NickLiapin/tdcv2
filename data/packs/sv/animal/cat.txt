@@ -1,0 +1,22 @@
+---
+description: Cat breed (Swedish). Norsk skogkatt is the Nordic native breed; huskatt is what most Swedish cats are recorded as.
+locale: sv
+---
+huskatt
+norsk skogkatt
+maine coon
+ragdoll
+brittiskt korthår
+perser
+siames
+birma
+bengal
+rysk blå
+abessinier
+orientaliskt korthår
+devon rex
+cornish rex
+sphynx
+sibirisk katt
+helig birma
+burma

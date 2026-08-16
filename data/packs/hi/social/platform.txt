@@ -1,0 +1,21 @@
+---
+description: Social platform popular in India. ShareChat, Moj, Josh and Chingari are the Indian-built short-video and vernacular networks.
+locale: hi
+---
+WhatsApp
+Instagram
+Facebook
+YouTube
+X
+Telegram
+Snapchat
+LinkedIn
+Reddit
+Pinterest
+Threads
+Discord
+Twitch
+ShareChat
+Moj
+Josh
+Chingari

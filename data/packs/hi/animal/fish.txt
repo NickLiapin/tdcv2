@@ -1,0 +1,29 @@
+---
+description: Fish (Hindi); Indian food, farmed and aquarium fish, including the three Indian major carps (rohu, catla, mrigal) and the mahseer
+locale: hi
+---
+रोहू
+कतला
+मृगल
+महाशीर
+हिल्सा
+मांगुर
+सिंघी
+भेटकी
+पॉम्फ़्रेट
+सुरमई
+बांगड़ा
+रावस
+बोंबिल
+बाम मछली
+कॉमन कार्प
+सिल्वर कार्प
+ग्रास कार्प
+तिलापिया
+टूना
+सार्डिन
+ट्राउट
+सैल्मन
+कॉड
+गोल्डफ़िश
+गप्पी

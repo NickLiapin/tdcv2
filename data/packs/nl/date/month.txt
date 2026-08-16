@@ -1,0 +1,16 @@
+---
+description: Month name (Dutch). LOWERCASE - unlike German and English, Dutch does not capitalise month names except at the start of a sentence. Capitalising them is the single commonest mistake in Dutch generated text.
+locale: nl
+---
+januari
+februari
+maart
+april
+mei
+juni
+juli
+augustus
+september
+oktober
+november
+december

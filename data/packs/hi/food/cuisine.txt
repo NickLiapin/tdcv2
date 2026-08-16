@@ -1,0 +1,22 @@
+---
+description: Cuisine (Hindi). Each value has a dishByCuisine child file. Fifteen of the eighteen are REGIONS OF INDIA rather than countries, because that is how food is actually named there — there is no single dish called Indian curry, and Kashmiri, Chettinad and Bengali cooking have less in common with each other than Italian has with Greek. The three foreign entries are the ones Indians actually eat out on. Note that चीनी here means the Indo-Chinese idiom invented by the Hakka community of Kolkata (गोभी मंचूरियन, चिली पनीर), which is a genuinely Indian cuisine and not the food of China.
+locale: hi
+---
+पंजाबी
+मुग़लई
+अवधी
+राजस्थानी
+गुजराती
+महाराष्ट्रीय
+बंगाली
+दक्षिण भारतीय
+चेट्टीनाड
+हैदराबादी
+कश्मीरी
+गोवा
+ओड़िया
+बिहारी
+पूर्वोत्तर भारतीय
+चीनी
+इतालवी
+थाई

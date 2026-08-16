@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Hindi); GI pipe is the galvanised-iron conduit standard on Indian sites
+locale: hi
+---
+पीवीसी नाली
+जीआई पाइप
+एचडीपीई नाली
+सीधे ज़मीन में बिछाना
+इनरडक्ट
+केबल ट्रे
+हवाई मैसेंजर तार

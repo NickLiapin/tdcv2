@@ -1,0 +1,30 @@
+---
+description: Property amenity as written in a Dutch listing. Berging (a lockable private storage room, usually on the ground floor or in the basement) and Fietsenstalling are near-universal features of Dutch flats and are always named in an advertisement. Dubbel glas and Zonnepanelen appear because a Dutch listing must state an energy label, so insulation and solar are selling points rather than extras.
+locale: nl
+---
+Zwembad
+Garage
+Open haard
+Airconditioning
+Houten vloer
+Vloerverwarming
+Centrale verwarming
+Inloopkast
+Balkon
+Dakterras
+Tuin
+Achterom
+Fitnessruimte
+Lift
+Parkeerplaats
+Fietsenstalling
+Berging
+Kelder
+Vaatwasser
+Wasruimte
+Huisdieren toegestaan
+Alarmsysteem
+Zonnepanelen
+Dubbel glas
+Gemeubileerd
+Receptie

@@ -1,0 +1,29 @@
+---
+description: Fish (Swedish). Strömming is the Baltic herring — the same species as sill but smaller and, by law and custom, a different word; röding and harr belong to the northern lakes and rivers.
+locale: sv
+---
+strömming
+sill
+torsk
+lax
+öring
+regnbåge
+röding
+harr
+gädda
+abborre
+gös
+mört
+braxen
+id
+lake
+siklöja
+sik
+ål
+flundra
+rödspätta
+makrill
+hälleflundra
+kolja
+sej
+marulk

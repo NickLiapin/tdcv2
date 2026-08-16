@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Hindi). Hindi's gerund is identical to its infinitive, so this list uses the Sanskrit-derived action nouns (sankalan, kootlekhan, anukoolan) that Hindi technical writing uses instead, keeping it distinct from hacker/verb.
+locale: hi
+---
+संग्रहण
+संपीड़न
+प्रतिलिपिकरण
+अनुक्रमण
+संयोजन
+संगणन
+संश्लेषण
+प्रसारण
+पुनरारंभ
+विश्लेषण
+कूटलेखन
+विकूटन
+परिनियोजन
+संकलन
+अनुकूलन
+समन्वयन
+आभासीकरण
+मार्गनिर्धारण
+निगरानी
+अधिलेखन
+सत्यापन
+प्रमाणीकरण
+संपादन
+हैकिंग
+डिबगिंग
+प्रोग्रामिंग
+स्कैनिंग
+फ़ॉर्मैटिंग

@@ -1,0 +1,9 @@
+---
+description: Positions in ishockey, in Swedish.
+locale: sv
+---
+målvakt
+back
+center
+vänsterforward
+högerforward

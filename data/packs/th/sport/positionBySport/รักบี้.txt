@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Thai) — the names are the English ones borrowed into Thai, which is how they are actually said here.
+locale: th
+---
+พร็อพ
+ฮุกเกอร์
+ล็อก
+แฟลงเกอร์
+นัมเบอร์เอต
+สครัมฮาล์ฟ
+สแตนด์ออฟ
+เซ็นเตอร์
+ปีก
+ฟูลแบ็ก

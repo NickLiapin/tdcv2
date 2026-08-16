@@ -1,0 +1,16 @@
+---
+description: Jobs in juridik, in Swedish
+locale: sv
+---
+advokat
+biträdande jurist
+bolagsjurist
+domare
+rådman
+åklagare
+notarie
+kronofogde
+juridisk rådgivare
+paralegal
+delgivningsman
+familjerättsjurist

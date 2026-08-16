@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Thai — the group Thais themselves fall into, so this is the file a Thai cohort actually draws from. Roughly 30-40% of Thais carry a thalassaemia or haemoglobin E gene, ฮีโมโกลบินอี is a specifically Southeast Asian variant, and กลุ่มอาการบรูกาดา was first described in Thai and Lao men. A prevalence signal, not an exclusive one.
+locale: th
+---
+แอลฟาธาลัสซีเมีย
+เบตาธาลัสซีเมีย
+ฮีโมโกลบินอี
+โรคฮีโมโกลบินอีร่วมกับเบตาธาลัสซีเมีย
+ภาวะพร่องเอนไซม์ G6PD
+ภาวะแพ้แลคโตส
+มะเร็งโพรงหลังจมูก
+มะเร็งท่อน้ำดี
+กลุ่มอาการบรูกาดา
+การแพ้ยาคาร์บามาเซพีนชนิดรุนแรง

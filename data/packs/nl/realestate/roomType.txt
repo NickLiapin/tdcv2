@@ -1,0 +1,23 @@
+---
+description: Room type in a Dutch home. Het toilet is counted as its own room and is normally a separate cubicle away from the badkamer, so a Dutch listing gives them as two rooms. Zolder is a usable attic floor while a vliering is the low crawl space above it, and a bijkeuken is the utility room holding the washing machine and the freezer.
+locale: nl
+---
+Slaapkamer
+Badkamer
+Toilet
+Keuken
+Bijkeuken
+Woonkamer
+Eetkamer
+Werkkamer
+Logeerkamer
+Hal
+Kelder
+Zolder
+Vliering
+Berging
+Garage
+Provisiekast
+Atelier
+Serre
+Dakterras

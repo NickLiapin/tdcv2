@@ -1,0 +1,12 @@
+---
+description: Thai personal pronoun. Thai third person is NOT marked for gender — เขา covers he, she and they alike, so a config cannot derive a pronoun from person.gender the way it can in English or Polish. What Thai pronouns do encode is the SPEAKER's gender and social standing: a man says ผม for 'I' and a woman says ดิฉัน or ฉัน, and ท่าน raises the referent rather than identifying them. Thai also drops the pronoun altogether far more often than a European language does.
+locale: th
+---
+เขา
+เธอ
+ท่าน
+มัน
+ผม
+ดิฉัน
+ฉัน
+พวกเขา

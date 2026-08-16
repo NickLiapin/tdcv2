@@ -1,0 +1,28 @@
+---
+description: Dishes of Vlaams cuisine as named in Dutch. Several of these are Flemish-only words: witloof is Flemish for what the Netherlands calls witlof, and stoverij/stoofvlees is the Flemish beer stew. Do not serve this list as general Dutch food.
+locale: nl
+---
+Gentse waterzooi
+Vlaamse stoverij
+Konijn met pruimen
+Paling in 't groen
+Mosselen met friet
+Vol-au-vent
+Garnaalkroketten
+Kaaskroketten
+Tomaat garnaal
+Witloof met ham en kaas
+Vlaamse frieten
+Stoemp
+Hutsepot
+Balletjes in tomatensaus
+Filet d'Anvers
+Gentse mastellen
+Luikse wafel
+Brusselse wafel
+Mattentaart
+Antwerpse handjes
+Speculoos
+Rijstpap
+Boterhammen met plattekaas
+Ardense pastei

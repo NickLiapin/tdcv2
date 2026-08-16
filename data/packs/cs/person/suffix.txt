@@ -1,0 +1,22 @@
+---
+description: Name or academic suffix written AFTER a Czech name, following a comma (Jan Novak, Ph.D.). Czech puts most of its degrees before the name instead - those are in person/prefix - so this list is short by design rather than truncated. st. and ml. are the Czech senior / junior markers.
+locale: cs
+---
+Ph.D.
+CSc.
+DrSc.
+DSc.
+Th.D.
+DiS.
+dr. h. c.
+MBA
+LL.M.
+MPA
+MSc.
+M.A.
+BBA
+DBA
+st.
+ml.
+II.
+III.

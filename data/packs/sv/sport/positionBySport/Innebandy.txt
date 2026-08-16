@@ -1,0 +1,10 @@
+---
+description: Positions in innebandy, in Swedish.
+locale: sv
+---
+målvakt
+back
+center
+forward
+vänsterforward
+högerforward

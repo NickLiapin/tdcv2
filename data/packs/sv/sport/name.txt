@@ -1,0 +1,62 @@
+---
+description: Sport (Swedish). Several are Swedish or Nordic and have no English equivalent: bandy, innebandy, brännboll (a schoolyard bat-and-run game), kubb and varpa (lawn games from Gotland), and långfärdsskridsko (tour skating on natural ice).
+locale: sv
+---
+fotboll
+ishockey
+innebandy
+handboll
+bandy
+basket
+volleyboll
+baseboll
+rugby
+amerikansk fotboll
+cricket
+tennis
+badminton
+bordtennis
+squash
+padel
+golf
+friidrott
+löpning
+maraton
+terränglöpning
+orientering
+simning
+simhopp
+vattenpolo
+rodd
+kanot
+kajak
+segling
+surfing
+längdskidåkning
+alpin skidåkning
+skidskytte
+backhoppning
+freestyle
+snowboard
+konståkning
+hastighetsåkning på skridskor
+långfärdsskridsko
+curling
+gymnastik
+trampolin
+brottning
+boxning
+judo
+karate
+taekwondo
+ridsport
+travsport
+cykling
+mountainbike
+bågskytte
+skytte
+bowling
+boule
+brännboll
+kubb
+varpa

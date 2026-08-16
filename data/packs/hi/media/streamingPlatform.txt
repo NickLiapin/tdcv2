@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in India. Brand names are kept in Latin script, as Indian apps and bills print them. JioHotstar is the merged Disney+ Hotstar / JioCinema service.
+locale: hi
+---
+JioHotstar
+Netflix
+Amazon Prime Video
+ZEE5
+SonyLIV
+MX Player
+Aha
+Hoichoi
+Sun NXT
+ALTBalaji
+YouTube
+Apple TV+

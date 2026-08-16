@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Czechia. Rajce.net is the long-running Czech photo sharing site.
+locale: cs
+---
+WhatsApp
+Facebook
+Instagram
+TikTok
+YouTube
+X
+LinkedIn
+Telegram
+Snapchat
+Pinterest
+Reddit
+Twitch
+Discord
+Threads
+Messenger
+Mastodon
+Rajče.net

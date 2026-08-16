@@ -1,0 +1,32 @@
+---
+description: Tech verb (Thai). Thai verbs do not conjugate and have no infinitive, so the bare form below is both the citation form and every finite form; tense and aspect are added by separate words, never by changing the verb
+locale: th
+---
+เข้ารหัส
+ถอดรหัส
+บีบอัด
+สำรองข้อมูล
+กู้คืนข้อมูล
+ประมวลผล
+เชื่อมต่อ
+ตัดการเชื่อมต่อ
+แฮก
+ดักจับ
+เจาะระบบ
+ติดตั้ง
+ถอนการติดตั้ง
+คอมไพล์
+ดีพลอย
+รีสตาร์ท
+ตั้งค่า
+ซิงโครไนซ์
+จัดทำดัชนี
+กำหนดเส้นทาง
+ตรวจสอบสิทธิ์
+อัปเดต
+ลบ
+คัดลอก
+ย้าย
+ฟอร์แมต
+วิเคราะห์
+ปรับให้เหมาะสม

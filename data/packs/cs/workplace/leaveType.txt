@@ -1,0 +1,16 @@
+---
+description: Leave type (Czech). Otcovska is the two-week paid paternity leave; rodicovska is the long parental leave that follows maternity leave and may run until the child is four.
+locale: cs
+---
+Dovolená
+Nemocenská
+Mateřská dovolená
+Rodičovská dovolená
+Otcovská
+Ošetřovné
+Neplacené volno
+Studijní volno
+Sick day
+Svatební volno
+Volno na stěhování
+Náhradní volno

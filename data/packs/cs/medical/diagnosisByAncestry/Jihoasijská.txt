@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Czech. A prevalence signal, not an exclusive one.
+locale: cs
+---
+Časný diabetes mellitus 2. typu
+Předčasná ischemická choroba srdeční
+Abdominální obezita při normálním BMI
+Deficit vitaminu D
+Nosičství beta-talasemie
+Metabolický syndrom
+Deficit glukózo-6-fosfátdehydrogenázy
+Revmatická horečka srdce

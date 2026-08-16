@@ -1,0 +1,13 @@
+---
+description: Film and TV age rating in Sweden. Statens medieråd sets only four cinema age limits — barntillåten, från 7 år, från 11 år, från 15 år — and adult film censorship was abolished in 2011, so there is no 18 rating and no content code beyond age. The last entries are descriptive labels broadcasters add themselves.
+locale: sv
+---
+barntillåten
+från 7 år
+från 11 år
+från 15 år
+olämplig för barn
+vuxenprogram
+innehåller våld
+innehåller starkt språk
+ej åldersgräns

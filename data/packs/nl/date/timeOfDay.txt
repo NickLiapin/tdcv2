@@ -1,0 +1,12 @@
+---
+description: Time of day (Dutch). One genuine Netherlands/Flanders trap: 'voormiddag' means late morning in the Netherlands but the whole morning in Flanders, and 'namiddag' means late afternoon in the Netherlands but the whole afternoon in Flanders. The unambiguous words are ochtend, middag, avond and nacht.
+locale: nl
+---
+ochtend
+voormiddag
+middag
+namiddag
+avond
+nacht
+middernacht
+schemering

@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Czech)
+locale: cs
+---
+Brankář
+Levé křídlo
+Pravé křídlo
+Levá spojka
+Pravá spojka
+Střední spojka
+Pivot

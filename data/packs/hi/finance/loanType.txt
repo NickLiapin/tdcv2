@@ -1,0 +1,16 @@
+---
+description: Loan type (Hindi) as sold in India; the gold loan and the Kisan Credit Card are genuinely major Indian products and MUDRA is the government micro-enterprise loan scheme.
+locale: hi
+---
+गृह ऋण
+वाहन ऋण
+व्यक्तिगत ऋण
+शिक्षा ऋण
+स्वर्ण ऋण
+कृषि ऋण
+किसान क्रेडिट कार्ड
+व्यवसाय ऋण
+मुद्रा ऋण
+संपत्ति पर ऋण
+ओवरड्राफ़्ट
+स्वयं सहायता समूह ऋण

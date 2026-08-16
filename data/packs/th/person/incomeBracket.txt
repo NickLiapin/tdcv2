@@ -1,0 +1,12 @@
+---
+description: Household income bracket, labelled in Thai. Amounts are in Thai baht (THB, ฿), the currency of Thailand. Note that Thailand states income MONTHLY, not annually — a Thai salary is quoted as เงินเดือน — so these are per-month bands and an annual-bracket config will read them off by a factor of twelve. For scale, the 2024 statutory minimum wage is roughly 330–370 บาท per day.
+locale: th
+---
+ต่ำกว่า 10,000 บาท/เดือน
+10,000–15,000 บาท/เดือน
+15,000–25,000 บาท/เดือน
+25,000–35,000 บาท/เดือน
+35,000–50,000 บาท/เดือน
+50,000–80,000 บาท/เดือน
+80,000–150,000 บาท/เดือน
+มากกว่า 150,000 บาท/เดือน

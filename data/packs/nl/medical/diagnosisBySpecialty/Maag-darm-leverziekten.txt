@@ -1,0 +1,16 @@
+---
+description: Diagnoses seen in gastroenterology, which the Netherlands calls Maag-darm-leverziekten (MDL) - literally stomach, bowel and liver disease, so hepatology sits inside the same specialty. Flanders calls it Gastro-enterologie.
+locale: nl
+---
+Refluxziekte
+Maagzweer
+Gastritis
+Prikkelbaredarmsyndroom
+Ziekte van Crohn
+Colitis ulcerosa
+Coeliakie
+Diverticulitis
+Galstenen
+Acute pancreatitis
+Levercirrose
+Niet-alcoholische leververvetting

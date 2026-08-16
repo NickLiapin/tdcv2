@@ -1,0 +1,45 @@
+---
+description: Common generic drug names (Czech spelling of the INN). Czech writes the international names with Czech orthography - paracetamol, ibuprofen, amoxicilin - so the spelling differs slightly from the English list.
+locale: cs
+---
+Paracetamol
+Ibuprofen
+Kyselina acetylsalicylová
+Amoxicilin
+Amoxicilin s kyselinou klavulanovou
+Azithromycin
+Ciprofloxacin
+Doxycyklin
+Lisinopril
+Enalapril
+Losartan
+Amlodipin
+Metoprolol
+Hydrochlorothiazid
+Furosemid
+Spironolakton
+Metformin
+Glibenklamid
+Inzulin glargin
+Atorvastatin
+Simvastatin
+Omeprazol
+Pantoprazol
+Levothyroxin
+Salbutamol
+Montelukast
+Prednison
+Dexamethason
+Loratadin
+Gabapentin
+Sertralin
+Fluoxetin
+Escitalopram
+Citalopram
+Duloxetin
+Warfarin
+Klopidogrel
+Tramadol
+Naproxen
+Diklofenak
+Alopurinol

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in neurologi, in Swedish
+locale: sv
+---
+Migrän
+Epilepsi
+Stroke
+TIA
+Multipel skleros
+Parkinsons sjukdom
+Alzheimers sjukdom
+Polyneuropati
+Karpaltunnelsyndrom
+Ansiktsförlamning

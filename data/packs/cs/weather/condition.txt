@@ -1,0 +1,20 @@
+---
+description: Weather condition (Czech)
+locale: cs
+---
+Slunečno
+Polojasno
+Oblačno
+Zataženo
+Déšť
+Mrholení
+Bouřka
+Sněžení
+Déšť se sněhem
+Mlha
+Větrno
+Opar
+Jasno
+Krupobití
+Přeháňky
+Dusno

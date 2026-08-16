@@ -1,0 +1,11 @@
+---
+description: Czech driving licence category for goods vehicles
+locale: cs
+---
+Skupina B
+Skupina B+E
+Skupina C1
+Skupina C
+Skupina C+E
+Skupina D
+Profesní průkaz

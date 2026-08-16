@@ -1,0 +1,251 @@
+---
+description: Job title (Czech), masculine form. Czech normally makes a feminine job title with -ka or -kyne (ucitel / ucitelka, reditel / reditelka, pravnik / pravnicka), so a female row wants the feminine form rather than this one.
+locale: cs
+---
+Softwarový inženýr
+Frontend vývojář
+Backend vývojář
+Fullstack vývojář
+Mobilní vývojář
+DevOps inženýr
+Datový vědec
+Datový analytik
+Datový inženýr
+Databázový administrátor
+Správce systémů
+Správce sítě
+Cloudový architekt
+Softwarový architekt
+Tester softwaru
+Automatizační tester
+Produktový manažer
+Projektový manažer
+Scrum master
+Business analytik
+UX designér
+UI designér
+Grafický designér
+Webdesignér
+Specialista na kybernetickou bezpečnost
+Etický hacker
+Technický podpora
+Helpdesk technik
+Vedoucí vývoje
+Technický ředitel
+Praktický lékař
+Internista
+Chirurg
+Kardiolog
+Neurolog
+Onkolog
+Pediatr
+Psychiatr
+Dermatolog
+Gynekolog
+Urolog
+Ortoped
+Oftalmolog
+Anesteziolog
+Radiolog
+Patolog
+Zubní lékař
+Dentální hygienistka
+Zdravotní sestra
+Praktická sestra
+Zdravotnický záchranář
+Porodní asistentka
+Farmaceut
+Farmaceutický asistent
+Fyzioterapeut
+Ergoterapeut
+Nutriční terapeut
+Laborant
+Radiologický asistent
+Sanitář
+Veterinář
+Účetní
+Hlavní účetní
+Mzdová účetní
+Finanční analytik
+Finanční ředitel
+Finanční kontrolor
+Interní auditor
+Externí auditor
+Daňový poradce
+Pojistný matematik
+Úvěrový poradce
+Bankovní poradce
+Investiční poradce
+Burzovní makléř
+Portfolio manažer
+Specialista na řízení rizik
+Pojišťovací agent
+Likvidátor pojistných událostí
+Ekonom
+Advokát
+Advokátní koncipient
+Notář
+Soudce
+Státní zástupce
+Soudní exekutor
+Podnikový právník
+Právní asistent
+Patentový zástupce
+Insolvenční správce
+Specialista na compliance
+Učitel mateřské školy
+Učitel prvního stupně
+Učitel střední školy
+Vysokoškolský pedagog
+Docent
+Profesor
+Ředitel školy
+Zástupce ředitele
+Asistent pedagoga
+Speciální pedagog
+Výchovný poradce
+Logoped
+Školní psycholog
+Lektor
+Metodik výuky
+Knihovník
+Archivář
+Vychovatel
+Elektrikář
+Instalatér
+Topenář
+Zedník
+Tesař
+Truhlář
+Podlahář
+Obkladač
+Malíř pokojů
+Pokrývač
+Klempíř
+Zámečník
+Svářeč
+Soustružník
+Frézař
+Nástrojař
+Obsluha CNC stroje
+Automechanik
+Autoelektrikář
+Karosář
+Autolakýrník
+Mechanik
+Údržbář
+Stavbyvedoucí
+Stavební dozor
+Rozpočtář
+Geodet
+Statik
+Projektant
+Architekt
+Krajinný architekt
+Interiérový designér
+Stavební inženýr
+Strojní inženýr
+Elektroinženýr
+Chemický inženýr
+Procesní inženýr
+Technolog
+Konstruktér
+Kontrolor kvality
+Vedoucí výroby
+Mistr
+Operátor výrobní linky
+Montážní dělník
+Skladník
+Obsluha vysokozdvižného vozíku
+Řidič kamionu
+Řidič autobusu
+Řidič dodávky
+Kurýr
+Strojvedoucí
+Průvodčí
+Dopravní pilot
+Letuška
+Řídící letového provozu
+Kapitán lodi
+Dispečer
+Spediční referent
+Koordinátor logistiky
+Celní deklarant
+Šéfkuchař
+Kuchař
+Cukrář
+Pekař
+Řezník
+Číšník
+Barman
+Barista
+Sommelier
+Sládek
+Recepční
+Manažer hotelu
+Concierge
+Pokojská
+Průvodce cestovního ruchu
+Delegát cestovní kanceláře
+Koordinátor akcí
+Prodavač
+Vedoucí prodejny
+Pokladní
+Nákupčí
+Merchandiser
+Obchodní zástupce
+Obchodní ředitel
+Account manažer
+Marketingový specialista
+Marketingový ředitel
+Copywriter
+Specialista na sociální sítě
+Specialista na SEO
+Public relations manažer
+Personalista
+HR ředitel
+Náborář
+Mzdový specialista
+Kancelářský asistent
+Asistent ředitele
+Recepční kanceláře
+Překladatel
+Tlumočník
+Novinář
+Redaktor
+Fotograf
+Kameraman
+Střihač
+Zvukař
+Herec
+Hudebník
+Dirigent
+Tanečník
+Kurátor
+Restaurátor
+Policista
+Hasič
+Voják z povolání
+Strážník
+Bezpečnostní pracovník
+Sociální pracovník
+Pečovatel
+Kadeřník
+Kosmetička
+Masér
+Zahradník
+Lesník
+Zemědělec
+Chovatel
+Rybář
+Horník
+Geolog
+Meteorolog
+Chemik
+Biolog
+Fyzik
+Matematik
+Statistik
+Vědecký pracovník
+Ekolog
+Uklízeč

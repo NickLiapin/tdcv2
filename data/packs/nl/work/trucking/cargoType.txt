@@ -1,0 +1,19 @@
+---
+description: Truck cargo or trailer type (Dutch road freight). The huifoplegger, a curtain-sided trailer, is the European workhorse rather than the closed dry van; ADR is the European agreement that governs dangerous goods; bloementransport is a genuine Dutch specialisation, the conditioned overnight runs out of the flower auctions.
+locale: nl
+---
+Gesloten oplegger
+Koeloplegger
+Huifoplegger
+Open oplegger
+Tankoplegger
+Silo-oplegger
+Veetransport
+ADR-transport
+Containerchassis
+Autotransporter
+Dieplader
+Semi-dieplader
+Kipper
+Houttransport
+Bloementransport

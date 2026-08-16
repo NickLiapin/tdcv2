@@ -1,0 +1,58 @@
+---
+description: Product adjective (Czech), masculine singular base form. Czech adjectives precede the noun and must agree with its gender: skladaci zidle is feminine, skladaci stul masculine.
+locale: cs
+---
+elegantní
+přenosný
+univerzální
+odolný
+vodotěsný
+chytrý
+ruční
+funkční
+ergonomický
+skládací
+nastavitelný
+akumulátorový
+bezdrátový
+lehký
+kompaktní
+trvanlivý
+oboustranný
+protiskluzový
+prodyšný
+izolační
+recyklovaný
+ekologický
+udržitelný
+prémiový
+klasický
+moderní
+minimalistický
+rustikální
+retro
+industriální
+sportovní
+víceúčelový
+stohovatelný
+rozebíratelný
+snadno omyvatelný
+antibakteriální
+odolný proti skvrnám
+termoizolační
+prošívaný
+zesílený
+tichý
+automatický
+programovatelný
+kompatibilní
+profesionální
+úsporný
+ručně vyráběný
+luxusní
+designový
+špičkový
+bez značky
+limitovaná edice
+energeticky úsporný
+nerezový

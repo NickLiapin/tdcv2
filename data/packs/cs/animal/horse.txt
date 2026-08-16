@@ -1,0 +1,20 @@
+---
+description: Horse breed (Czech). Starokladrubsky kun is a Czech breed developed for the imperial court at Kladruby and still bred by the state.
+locale: cs
+---
+Arabský kůň
+Anglický plnokrevník
+Mustang
+Clydesdale
+Appaloosa
+Quarter horse
+Frís
+Shire
+Andaluský kůň
+Morgan
+Palomino
+Peršeron
+Shetlandský pony
+Lusitano
+Haflinger
+Starokladrubský kůň

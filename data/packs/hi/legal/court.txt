@@ -1,0 +1,21 @@
+---
+description: Court or tribunal in the Indian judicial hierarchy, in Hindi. Lok Adalat and Gram Nyayalaya are statutory Indian forums with no European counterpart.
+locale: hi
+---
+उच्चतम न्यायालय
+उच्च न्यायालय
+ज़िला न्यायालय
+सत्र न्यायालय
+मजिस्ट्रेट न्यायालय
+परिवार न्यायालय
+वाणिज्यिक न्यायालय
+श्रम न्यायालय
+किशोर न्याय बोर्ड
+उपभोक्ता विवाद प्रतितोष आयोग
+लोक अदालत
+ग्राम न्यायालय
+राष्ट्रीय हरित अधिकरण
+आयकर अपीलीय अधिकरण
+राष्ट्रीय कंपनी विधि अधिकरण
+केंद्रीय प्रशासनिक अधिकरण
+सशस्त्र बल अधिकरण

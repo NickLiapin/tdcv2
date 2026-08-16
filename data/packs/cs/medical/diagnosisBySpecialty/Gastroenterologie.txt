@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Czech)
+locale: cs
+---
+Refluxní choroba jícnu
+Crohnova nemoc
+Ulcerózní kolitida
+Vředová choroba žaludku a dvanáctníku
+Syndrom dráždivého tračníku
+Jaterní cirhóza
+Celiakie
+Akutní pankreatitida
+Divertikulitida
+Žlučové kameny

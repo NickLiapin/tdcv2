@@ -1,0 +1,16 @@
+---
+description: Shoe size on the EUROPEAN scale, which is how most Thai shops label footwear; US sizes are commonly printed on the same box alongside, but every number in this file is EU.
+locale: th
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

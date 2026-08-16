@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Czech. In Czech, for the ancestry whose founder mutations are unusually well characterised. A prevalence signal, not an exclusive one.
+locale: cs
+---
+Tay-Sachsova choroba
+Gaucherova choroba 1. typu
+Familiární dysautonomie
+Canavanova choroba
+Niemannova-Pickova choroba typu A
+Bloomův syndrom
+Deficit faktoru XI
+Zakladatelská mutace BRCA1
+Zakladatelská mutace BRCA2
+Mukolipidóza typu IV
+Crohnova nemoc
+Torzní dystonie

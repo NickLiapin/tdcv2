@@ -1,0 +1,54 @@
+---
+description: Store department / category (Czech)
+locale: cs
+---
+Knihy
+Filmy
+Hudba
+Videohry
+Elektronika
+Počítače
+Mobilní telefony
+Dům a byt
+Zahrada
+Nářadí
+Železářství
+Potraviny
+Nápoje
+Zdraví
+Lékárna
+Krása
+Parfumerie
+Hračky
+Dětské zboží
+Kojenecké zboží
+Oblečení
+Obuv
+Šperky
+Hodinky
+Doplňky
+Sport
+Turistika
+Autodíly
+Motocykly
+Průmyslové zboží
+Kancelář
+Papírnictví
+Chovatelské potřeby
+Nábytek
+Dekorace
+Bílá technika
+Osvětlení
+Bytový textil
+Vybavení kuchyně
+Kutilství
+Stavebniny
+Fotografie
+Hudební nástroje
+Zavazadla
+Optika
+Drogerie
+Dárky
+Výtvarné potřeby
+Vodní sporty
+Zimní sporty

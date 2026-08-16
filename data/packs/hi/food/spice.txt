@@ -1,0 +1,35 @@
+---
+description: Spice (Hindi). This is the working shelf of an Indian kitchen rather than a list of exotic flavourings — हल्दी, जीरा and धनिया go into almost every savoury dish made in the country. गरम मसाला is a blend, not a single spice, and its composition differs by region and by household. अमचूर is dried green-mango powder and हींग is asafoetida; neither has a Western equivalent.
+locale: hi
+---
+हल्दी
+जीरा
+धनिया
+लाल मिर्च
+गरम मसाला
+हींग
+मेथी दाना
+सरसों
+राई
+हरी इलायची
+बड़ी इलायची
+दालचीनी
+लौंग
+तेजपत्ता
+काली मिर्च
+सौंफ़
+अजवाइन
+कलौंजी
+जायफल
+जावित्री
+केसर
+अमचूर
+कसूरी मेथी
+चाट मसाला
+कड़ी पत्ता
+तिल
+खसखस
+अनारदाना
+दगड़ फूल
+सोंठ
+स्टार ऐनीज़

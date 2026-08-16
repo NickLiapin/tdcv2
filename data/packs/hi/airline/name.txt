@@ -1,0 +1,54 @@
+---
+description: Airline. The first nine are India's currently operating scheduled carriers; the rest are real international airlines that serve India. Defunct and merged carriers (Jet Airways, Kingfisher, Vistara, Go First, AirAsia India) are deliberately excluded so every entry is a live operator.
+locale: hi
+---
+IndiGo
+Air India
+Air India Express
+Akasa Air
+SpiceJet
+Alliance Air
+Star Air
+FLY91
+IndiaOne Air
+Emirates
+Qatar Airways
+Etihad Airways
+flydubai
+Air Arabia
+Oman Air
+Kuwait Airways
+Gulf Air
+Saudia
+Turkish Airlines
+Singapore Airlines
+Scoot
+Thai Airways International
+Malaysia Airlines
+AirAsia
+Cathay Pacific
+Japan Airlines
+All Nippon Airways
+Korean Air
+Air China
+China Eastern Airlines
+Vietnam Airlines
+SriLankan Airlines
+Nepal Airlines
+Biman Bangladesh Airlines
+Druk Air
+Maldivian
+Air Mauritius
+Ethiopian Airlines
+Kenya Airways
+EgyptAir
+Lufthansa
+British Airways
+Air France
+KLM
+Virgin Atlantic
+Swiss International Air Lines
+Finnair
+Qantas
+Air Canada
+United Airlines

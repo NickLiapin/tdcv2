@@ -1,0 +1,36 @@
+---
+description: Vegetable (Hindi). Many of these are gourds and greens with no common English name (परवल, टिंडा, कुंदरू, जिमीकंद, बथुआ, चौलाई, सहजन) and are ordinary market produce in India, not exotica.
+locale: hi
+---
+आलू
+प्याज़
+टमाटर
+बैंगन
+भिंडी
+लौकी
+तोरई
+करेला
+कद्दू
+परवल
+टिंडा
+कुंदरू
+फूलगोभी
+पत्तागोभी
+पालक
+मेथी
+बथुआ
+चौलाई
+मूली
+गाजर
+शलजम
+चुकंदर
+शिमला मिर्च
+हरी मिर्च
+अदरक
+लहसुन
+मटर
+बीन्स
+सहजन
+अरबी
+जिमीकंद
+कच्चा केला

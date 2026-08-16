@@ -1,0 +1,16 @@
+---
+description: Meeting type (Czech)
+locale: cs
+---
+Denní stand-up
+Setkání jeden na jednoho
+Celofiremní setkání
+Retrospektiva
+Plánování sprintu
+Zahajovací schůzka
+Synchronizace
+Revize
+Workshop
+Brainstorming
+Kontrolní schůzka
+Vyhodnocení projektu

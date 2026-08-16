@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Hindi); the monsoon is the single most important weather fact about India, so both branches are listed separately (दक्षिण-पश्चिम = the June-September southwest monsoon, उत्तर-पूर्व = the October-December northeast monsoon over the southeast coast); लू is the deadly north Indian summer heat wave
+locale: hi
+---
+दक्षिण-पश्चिम मानसून
+उत्तर-पूर्व मानसून
+लू
+शीत लहर
+आँधी
+धूल भरी आँधी
+ओलावृष्टि
+चक्रवात
+बादल फटना
+बाढ़
+सूखा
+घना कोहरा
+बिजली गिरना
+भूस्खलन
+हिमस्खलन

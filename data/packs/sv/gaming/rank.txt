@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Swedish)
+locale: sv
+---
+obanad
+brons
+silver
+guld
+platina
+diamant
+mästare
+stormästare
+elit
+legend

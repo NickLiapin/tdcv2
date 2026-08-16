@@ -1,0 +1,15 @@
+---
+description: Diagnoses seen in pulmonology, which Dutch calls Longziekten; the specialty's full register name is Longziekten en tuberculose.
+locale: nl
+---
+Astma
+COPD
+Longontsteking
+Longembolie
+Tuberculose
+Obstructief slaapapneu
+Longfibrose
+Sarcoïdose
+Bronchiëctasieën
+Pleuravocht
+Pneumothorax

@@ -1,0 +1,20 @@
+---
+description: Horse breed (Hindi); India's recognised indigenous breeds (Marwari, Kathiawari, Manipuri, Zanskari, Spiti, Bhutia, Kachchhi-Sindhi) plus international breeds
+locale: hi
+---
+मारवाड़ी
+काठियावाड़ी
+मणिपुरी
+ज़ांस्कारी
+स्पीति
+भूटिया
+कच्छी-सिंधी
+अरबी
+थोरब्रेड
+मस्टैंग
+अप्पलूसा
+क्वार्टर हॉर्स
+शायर
+क्लाइड्सडेल
+अंडालूसी
+शेटलैंड पोनी

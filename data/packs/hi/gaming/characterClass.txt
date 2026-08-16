@@ -1,0 +1,28 @@
+---
+description: RPG character class (Hindi); native Hindi words where one exists (चारण is the bard, ठग the rogue, ओझा the shaman, कीमियागर the alchemist), transliteration only where Hindi has none
+locale: hi
+---
+योद्धा
+शूरवीर
+बर्बर
+बर्सर्कर
+हत्यारा
+ठग
+गुप्तचर
+धनुर्धर
+रेंजर
+जादूगर
+मायावी
+तांत्रिक
+नेक्रोमैंसर
+ओझा
+ड्र्यूड
+पुजारी
+उपचारक
+भिक्षु
+पैलाडिन
+चारण
+कीमियागर
+अभियंता
+आह्वानकर्ता
+रक्षक

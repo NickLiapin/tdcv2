@@ -1,0 +1,14 @@
+---
+description: Time of day (Thai). Thai cuts the day more finely than English: สาย is late morning, ค่ำ is early night before ดึก (deep night), and there is no single word matching "afternoon/evening" one to one.
+locale: th
+---
+เช้าตรู่
+เช้า
+สาย
+เที่ยง
+บ่าย
+เย็น
+ค่ำ
+กลางคืน
+ดึก
+เที่ยงคืน

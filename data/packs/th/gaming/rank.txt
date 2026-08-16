@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Thai; Thai players use the English tier names transliterated into Thai script rather than native metal words)
+locale: th
+---
+ไอรอน
+บรอนซ์
+ซิลเวอร์
+โกลด์
+แพลทินัม
+ไดมอนด์
+มาสเตอร์
+แกรนด์มาสเตอร์
+แชลเลนเจอร์
+เลเจนด์

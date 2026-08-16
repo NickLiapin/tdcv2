@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Dutch)
+locale: nl
+---
+Ram
+Stier
+Tweelingen
+Kreeft
+Leeuw
+Maagd
+Weegschaal
+Schorpioen
+Boogschutter
+Steenbok
+Waterman
+Vissen

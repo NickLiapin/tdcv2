@@ -1,0 +1,18 @@
+---
+description: Truck cargo type on Thai roads (Thai). The list follows real Thai freight flows - milled rice, rubber, cassava, cane sugar, frozen seafood and export fruit, where chilled durian northbound to China is a single very large flow - rather than a generic trailer taxonomy.
+locale: th
+---
+ข้าวสาร
+ยางพารา
+มันสำปะหลัง
+อ้อยและน้ำตาล
+อาหารทะเลแช่แข็ง
+ผลไม้ส่งออก
+ปูนซีเมนต์
+เหล็ก
+ชิ้นส่วนยานยนต์
+ชิ้นส่วนอิเล็กทรอนิกส์
+น้ำมันเชื้อเพลิง
+ก๊าซ
+สินค้าอันตราย
+ตู้คอนเทนเนอร์

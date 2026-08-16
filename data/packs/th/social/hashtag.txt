@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Thai (prefix with # in a template). Thai is written without spaces between words, so a Thai hashtag is one unbroken run of characters and needs no camel-casing; สายมู and มูเตลู (amulet, fortune-telling and luck-seeking culture) and ซีรีส์วาย (Thai BL drama) are genuinely Thai social-media categories with no Western equivalent.
+locale: th
+---
+รีวิว
+ของกินอร่อย
+เที่ยวไทย
+คาเฟ่ฮอปปิ้ง
+ร้านเด็ด
+ตลาดนัด
+ชีวิตดีดี
+สายมู
+มูเตลู
+กินอะไรดี
+แนะนำร้าน
+กรุงเทพ
+เชียงใหม่
+ภูเก็ต
+ทะเลไทย
+วัดไทย
+สตรีทฟู้ด
+ก๋วยเตี๋ยว
+ชานมไข่มุก
+ของหวาน
+ทำอาหาร
+แต่งบ้าน
+รีวิวหนัง
+ซีรีส์วาย
+ไอดอลไทย
+ออกกำลังกาย
+วิ่ง
+เที่ยวคนเดียว
+ของมันต้องมี
+ลดน้ำหนัก

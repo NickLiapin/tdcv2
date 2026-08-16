@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Swedish)
+locale: sv
+---
+kontantkort
+abonnemang
+fastpris
+surfpott
+obegränsad surf
+familjeabonnemang
+företagsabonnemang
+mobilt bredband
+datadelning
+extra SIM
+eSIM
+utlandspaket

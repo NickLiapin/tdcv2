@@ -1,0 +1,12 @@
+---
+description: Dishes of thailändskt cuisine, in Swedish
+locale: sv
+---
+Pad thai
+Grön curry
+Röd curry
+Tom yum
+Tom kha gai
+Papayasallad
+Massamancurry
+Mangoris

@@ -1,0 +1,15 @@
+---
+description: Positions in association football (Dutch). 'Schaduwspits' - literally shadow striker - is the Dutch term for the second forward operating just behind the main one, a fixture of Dutch tactical vocabulary.
+locale: nl
+---
+Doelman
+Rechtsback
+Linksback
+Centrale verdediger
+Verdedigende middenvelder
+Centrale middenvelder
+Aanvallende middenvelder
+Rechtsbuiten
+Linksbuiten
+Schaduwspits
+Spits

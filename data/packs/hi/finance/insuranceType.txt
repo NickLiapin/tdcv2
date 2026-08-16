@@ -1,0 +1,19 @@
+---
+description: Insurance type (Hindi) as sold in India; includes third-party motor cover (compulsory by law), crop insurance, livestock insurance and the Ayushman Bharat government health scheme.
+locale: hi
+---
+जीवन बीमा
+सावधि बीमा
+स्वास्थ्य बीमा
+समूह स्वास्थ्य बीमा
+आयुष्मान भारत
+मोटर बीमा
+मोटर थर्ड पार्टी बीमा
+गृह बीमा
+अग्नि बीमा
+यात्रा बीमा
+व्यक्तिगत दुर्घटना बीमा
+फ़सल बीमा
+पशुधन बीमा
+देयता बीमा
+साइबर बीमा

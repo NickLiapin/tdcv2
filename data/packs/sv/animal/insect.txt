@@ -1,0 +1,24 @@
+---
+description: Insect (Swedish)
+locale: sv
+---
+myra
+bi
+humla
+geting
+fluga
+mygga
+knott
+broms
+fjäril
+nattfjäril
+trollslända
+nyckelpiga
+skalbagge
+ekoxe
+gräshoppa
+syrsa
+spindel
+fästing
+gråsugga
+tusenfoting

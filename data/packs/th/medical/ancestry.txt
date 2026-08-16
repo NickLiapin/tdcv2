@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Thai, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: th
+---
+ยุโรปเหนือ
+ยุโรปตะวันออก
+เมดิเตอร์เรเนียน
+ยิวแอชเคนาซี
+ตะวันออกกลาง
+แอฟริกาเหนือ
+แอฟริกาใต้สะฮารา
+เอเชียตะวันออก
+เอเชียใต้
+เอเชียตะวันออกเฉียงใต้
+ชนพื้นเมืองอเมริกา
+หมู่เกาะแปซิฟิก

@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Swedish (male-specific + common)
+locale: sv
+---
+Godartad prostataförstoring
+Prostatit
+Prostatacancer
+Testikelcancer
+Erektil dysfunktion
+Förhudsförträngning
+Testikeltorsion
+Bitestikelinflammation
+Varikocele
+Hydrocele
+Gynekomasti
+Peniscancer
+Testosteronbrist
+Hypertoni
+Typ 2-diabetes
+Typ 1-diabetes
+Förhöjda blodfetter
+Fetma
+Astma
+KOL
+Allergisk rinit
+Kronisk bronkit
+Lunginflammation
+Sömnapné
+Hjärtsvikt
+Förmaksflimmer

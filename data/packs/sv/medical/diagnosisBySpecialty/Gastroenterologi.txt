@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in gastroenterologi, in Swedish
+locale: sv
+---
+Refluxsjukdom
+Magsår
+Gastrit
+Celiaki
+Crohns sjukdom
+Ulcerös kolit
+IBS
+Gallsten
+Levercirros
+Divertikulit

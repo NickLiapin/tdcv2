@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Czech)
+locale: cs
+---
+Mouka
+Cukr
+Sůl
+Máslo
+Vejce
+Mléko
+Cibule
+Česnek
+Rajče
+Kuřecí prsa
+Rýže
+Sýr
+Olivový olej
+Černý pepř
+Mrkev
+Brambory
+Paprika
+Mleté maso
+Strouhanka
+Citron
+Med
+Droždí
+Smetana
+Špenát
+Ocet
+Kuřecí vývar
+Fazole
+Čočka
+Těstoviny
+Tuňák
+Jogurt
+Strouhaný sýr
+Petržel
+Rostlinný olej
+Rajčatový protlak
+Kukuřičný škrob
+Bílé víno
+Mandle
+Vlašské ořechy
+Čokoláda

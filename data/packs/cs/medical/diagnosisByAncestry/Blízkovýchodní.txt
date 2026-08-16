@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Czech. A prevalence signal, not an exclusive one.
+locale: cs
+---
+Familiární středomořská horečka
+Beta-talasemie
+Deficit glukózo-6-fosfátdehydrogenázy
+Behçetova choroba
+Deficit vitaminu D
+Nosičství srpkovité anémie

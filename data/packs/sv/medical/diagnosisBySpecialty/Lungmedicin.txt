@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in lungmedicin, in Swedish
+locale: sv
+---
+Astma
+KOL
+Lunginflammation
+Kronisk bronkit
+Sömnapné
+Lungemboli
+Sarkoidos
+Lungfibros
+Pleurit
+Tuberkulos

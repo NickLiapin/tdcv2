@@ -1,0 +1,16 @@
+---
+description: Jobs in besöksnäring, in Swedish
+locale: sv
+---
+kock
+kallskänka
+konditor
+bagare
+servitör
+hovmästare
+bartender
+barista
+receptionist
+hotellchef
+housekeeper
+restaurangchef

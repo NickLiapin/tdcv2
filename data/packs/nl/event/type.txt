@@ -1,0 +1,22 @@
+---
+description: Event type (Dutch). 'Netwerkborrel' is the standard Dutch professional networking format - drinks rather than a seated reception - and has no one-word English equivalent.
+locale: nl
+---
+Conferentie
+Congres
+Bruiloft
+Concert
+Festival
+Workshop
+Seminar
+Webinar
+Vakbeurs
+Tentoonstelling
+Benefietavond
+Netwerkborrel
+Productlancering
+Gala
+Verjaardag
+Diploma-uitreiking
+Doopfeest
+Jubileum

@@ -1,0 +1,24 @@
+---
+description: Writing system (Thai). อักษรไทย is an abugida descended from Khmer and ultimately from Brahmi, written left to right with NO spaces between words — a space marks the end of a clause, not a word — and it has its own digits ๐๑๒๓๔๕๖๗๘๙ used alongside the Arabic ones on money, documents and vehicle plates. The first entries are scripts used in and around Thailand today or historically: อักษรธรรมล้านนา in the north, อักษรไทน้อย in the northeast, อักษรยาวี (Arabic script for Malay) in the deep south.
+locale: th
+---
+อักษรไทย
+อักษรลาว
+อักษรเขมร
+อักษรพม่า
+อักษรมอญ
+อักษรธรรมล้านนา
+อักษรไทน้อย
+อักษรยาวี
+อักษรละติน
+อักษรจีน
+คานะ
+ฮันกึล
+เทวนาครี
+อักษรอาหรับ
+อักษรซีริลลิก
+อักษรกรีก
+อักษรฮีบรู
+อักษรทมิฬ
+อักษรสิงหล
+อักษรทิเบต

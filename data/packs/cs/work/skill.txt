@@ -1,0 +1,46 @@
+---
+description: Workplace skill (Czech). Programming languages and tool names keep their real spelling.
+locale: cs
+---
+Python
+JavaScript
+SQL
+Java
+C++
+Cloud computing
+Strojové učení
+Analýza dat
+Řízení projektů
+Agilní metodiky
+Prezentační dovednosti
+Technická dokumentace
+Zákaznický servis
+Obchodní jednání
+Účetnictví
+Finanční modelování
+Projektování v CAD
+3D modelování
+Počítačová grafika
+Copywriting
+Svařování
+Elektroinstalace
+Instalatérství
+Truhlářství
+Čtení technické dokumentace
+Obrábění kovů
+Obsluha vysokozdvižného vozíku
+Obsluha stavebních strojů
+Řízení nákladních vozidel
+První pomoc
+Kardiopulmonální resuscitace
+Hygienické minimum
+Angličtina
+Němčina
+Francouzština
+Ruština
+Vyjednávání
+Vedení týmu
+Time management
+Řešení problémů
+Týmová spolupráce
+Tabulkové procesory

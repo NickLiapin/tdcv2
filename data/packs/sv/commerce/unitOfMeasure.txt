@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Swedish)
+locale: sv
+---
+styck
+st
+par
+förpackning
+kartong
+låda
+påse
+säck
+burk
+flaska
+tub
+rulle
+ark
+bunt
+kilo
+kg
+hektogram
+hg
+gram
+g
+liter
+l
+deciliter
+dl
+centiliter
+cl
+milliliter
+ml
+meter
+kvadratmeter

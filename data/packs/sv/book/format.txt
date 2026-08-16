@@ -1,0 +1,12 @@
+---
+description: Book format (Swedish)
+locale: sv
+---
+inbunden
+pocket
+storpocket
+kartonnage
+häftad
+e-bok
+ljudbok
+talbok

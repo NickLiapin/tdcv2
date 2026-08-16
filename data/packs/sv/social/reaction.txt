@@ -1,0 +1,15 @@
+---
+description: Social reaction (Swedish)
+locale: sv
+---
+gilla
+ogilla
+älska
+haha
+wow
+ledsen
+arg
+tacksam
+spara
+dela
+kommentera

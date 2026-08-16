@@ -1,0 +1,16 @@
+---
+description: Jobs in Technology (Dutch)
+locale: nl
+---
+Softwareontwikkelaar
+Datawetenschapper
+DevOps-engineer
+Productmanager
+UX-ontwerper
+Softwaretester
+Systeembeheerder
+Frontendontwikkelaar
+Backendontwikkelaar
+Informatiebeveiligingsanalist
+Cloudarchitect
+Functioneel beheerder

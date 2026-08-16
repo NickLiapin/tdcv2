@@ -1,0 +1,12 @@
+---
+description: Thai driving licence class issued by the Department of Land Transport (Thai). These are NOT the EU B/C/D/E categories: Thailand splits private (ส่วนบุคคล) from public/for-hire (สาธารณะ) licences, and the goods-vehicle ladder runs ท.1 to ท.4, with ท.4 required for hazardous goods.
+locale: th
+---
+ใบอนุญาตขับรถยนต์ส่วนบุคคล
+ใบอนุญาตขับรถยนต์สาธารณะ
+ใบอนุญาตขับรถจักรยานยนต์ส่วนบุคคล
+ใบอนุญาตเป็นผู้ขับรถ ท.1
+ใบอนุญาตเป็นผู้ขับรถ ท.2
+ใบอนุญาตเป็นผู้ขับรถ ท.3
+ใบอนุญาตเป็นผู้ขับรถ ท.4
+ใบอนุญาตขับรถระหว่างประเทศ

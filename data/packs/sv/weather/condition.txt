@@ -1,0 +1,20 @@
+---
+description: Weather condition (Swedish)
+locale: sv
+---
+klart
+soligt
+växlande molnighet
+halvklart
+molnigt
+mulet
+dimma
+duggregn
+regn
+regnskurar
+åska
+snöblandat regn
+snö
+snöbyar
+blåsigt
+storm

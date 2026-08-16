@@ -1,0 +1,29 @@
+---
+description: Legal term used in Indian courts, in Hindi. FIR, charge sheet and anticipatory bail are specific to Indian criminal procedure.
+locale: hi
+---
+वादी
+प्रतिवादी
+अभियुक्त
+समन
+शपथ पत्र
+गवाह
+गवाही
+जिरह
+प्राथमिकी
+आरोप पत्र
+ज़मानत
+अग्रिम ज़मानत
+साक्ष्य
+फ़ैसला
+डिक्री
+समझौता
+अपील
+पुनरीक्षण
+स्थगन आदेश
+अंतरिम आदेश
+अधिकारिता
+सरकारी अभियोजक
+बचाव पक्ष का वकील
+वकालतनामा
+न्यायालय की अवमानना

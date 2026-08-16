@@ -1,0 +1,30 @@
+---
+description: Book genre (Czech)
+locale: cs
+---
+Beletrie
+Literatura faktu
+Detektivka
+Thriller
+Romance
+Vědecká fantastika
+Fantasy
+Horor
+Biografie
+Historie
+Příručka
+Poezie
+Literatura pro mládež
+Historický román
+Černý román
+Dobrodružný román
+Vzpomínky
+Filozofie
+Cestopis
+Kuchařka
+Komiks
+Dystopie
+Esej
+Povídka
+Magický realismus
+Literatura pro děti

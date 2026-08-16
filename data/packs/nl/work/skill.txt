@@ -1,0 +1,50 @@
+---
+description: Professional skill, technical, trade and soft, for skill lists and profiles (Dutch). VCA is the Dutch and Belgian safety certificate that most site and industrial work requires, and BHV is the in-house emergency response training that Dutch law obliges employers to provide. Programming languages and product names keep their international spelling.
+locale: nl
+---
+Python
+JavaScript
+SQL
+Java
+C++
+Cloud computing
+Machine learning
+Data-analyse
+Excel
+Projectmanagement
+Agile werken
+Scrum
+Presenteren
+Technisch schrijven
+Klantenservice
+Verkoop
+Boekhouden
+Financiële modellering
+CAD-tekenen
+3D-modelleren
+Grafisch ontwerp
+Copywriting
+Lassen
+Elektrische installatie
+Loodgieterswerk
+Timmerwerk
+Tekeninglezen
+Verspanen
+Solderen
+Heftruckcertificaat
+Bediening van zwaar materieel
+Vrachtwagen rijden
+VCA-certificaat
+Bedrijfshulpverlening
+Eerste hulp
+Reanimatie
+Voedselveiligheid
+Engels
+Duits
+Frans
+Spaans
+Onderhandelen
+Leidinggeven
+Timemanagement
+Probleemoplossend vermogen
+Samenwerken

@@ -1,0 +1,24 @@
+---
+description: Academic degree / qualification level as awarded in Thailand. NOTE: the vocational certificates ประกาศนียบัตรวิชาชีพ (ปวช.) and ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) sit between school and university and have no clean European equivalent — ปวช. runs alongside upper secondary and ปวส. above it, below a bachelor's. Thai bachelor's degrees are named by faculty (…บัณฑิต), master's …มหาบัณฑิต, doctorate …ดุษฎีบัณฑิต.
+locale: th
+---
+ประถมศึกษา
+มัธยมศึกษาตอนต้น
+มัธยมศึกษาตอนปลาย
+ประกาศนียบัตรวิชาชีพ (ปวช.)
+ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)
+อนุปริญญา
+ปริญญาตรี
+ปริญญาโท
+ปริญญาเอก
+วิทยาศาสตรบัณฑิต
+ศิลปศาสตรบัณฑิต
+วิศวกรรมศาสตรบัณฑิต
+บริหารธุรกิจบัณฑิต
+นิติศาสตรบัณฑิต
+แพทยศาสตรบัณฑิต
+พยาบาลศาสตรบัณฑิต
+ครุศาสตรบัณฑิต
+บัญชีบัณฑิต
+บริหารธุรกิจมหาบัณฑิต
+ปรัชญาดุษฎีบัณฑิต

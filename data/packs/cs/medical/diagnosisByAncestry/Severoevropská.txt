@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Czech. A prevalence signal, not an exclusive one.
+locale: cs
+---
+Cystická fibróza
+Dědičná hemochromatóza
+Deficit alfa-1-antitrypsinu
+Fenylketonurie
+Celiakie
+Roztroušená skleróza
+Diabetes mellitus 1. typu
+Dupuytrenova kontraktura
+Bazaliom
+Perzistence laktázy

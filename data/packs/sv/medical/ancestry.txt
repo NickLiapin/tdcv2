@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Swedish, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: sv
+---
+Subsahariska Afrika
+Nordafrika
+Medelhavsområdet
+Mellanöstern
+Nordeuropa
+Östeuropa
+Ashkenaziska judar
+Sydasien
+Östasien
+Sydostasien
+Ursprungsbefolkning i Amerika
+Stillahavsöarna

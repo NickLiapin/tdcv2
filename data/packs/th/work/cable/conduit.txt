@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Thai). Overhead runs strung on power poles (พาดสายบนเสาไฟฟ้า) are still the dominant method in Thai towns and cities, not the exception.
+locale: th
+---
+ท่อร้อยสายพีวีซี
+ท่อโลหะบาง
+ท่อโลหะหนา
+ท่อ HDPE
+ฝังดินโดยตรง
+รางเคเบิล
+พาดสายบนเสาไฟฟ้า

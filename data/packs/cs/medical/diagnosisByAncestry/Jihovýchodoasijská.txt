@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Czech. A prevalence signal, not an exclusive one.
+locale: cs
+---
+Hemoglobinopatie E
+Alfa-talasemie
+Deficit glukózo-6-fosfátdehydrogenázy
+Nazofaryngeální karcinom
+Beta-talasemie
+Brugada syndrom
+Hypolaktazie dospělých

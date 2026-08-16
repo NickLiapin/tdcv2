@@ -1,0 +1,29 @@
+---
+description: Dog breed (Dutch). Includes the Dutch native breeds that a Netherlands or Flemish dataset will actually contain: Keeshond, Hollandse herder, Kooikerhondje, Stabijhoun and Drentsche patrijshond. Stabijhoun keeps its Frisian spelling, which is why it looks unlike the rest.
+locale: nl
+---
+Labrador retriever
+Duitse herder
+Hollandse herder
+Golden retriever
+Franse bulldog
+Engelse bulldog
+Poedel
+Beagle
+Rottweiler
+Teckel
+Boxer
+Siberische husky
+Duitse dog
+Dobermann
+Border collie
+Chihuahua
+Shih tzu
+Welsh corgi
+Berner sennenhond
+Dalmatiër
+Sint-bernard
+Keeshond
+Kooikerhondje
+Stabijhoun
+Drentsche patrijshond

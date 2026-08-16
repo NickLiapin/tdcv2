@@ -1,0 +1,30 @@
+---
+description: Garment type (Czech)
+locale: cs
+---
+Tričko
+Džíny
+Šaty
+Bunda
+Svetr
+Sukně
+Šortky
+Mikina s kapucí
+Halenka
+Oblek
+Kabát
+Tenisky
+Holínky
+Klobouk
+Šála
+Košile
+Kalhoty
+Vesta
+Pláštěnka
+Pyžamo
+Ponožky
+Pásek
+Čepice
+Sandály
+Rukavice
+Kravata

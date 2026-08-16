@@ -1,0 +1,20 @@
+---
+description: Dishes of Frans cuisine as named in Dutch. Dish names of foreign cuisines keep their original spelling in Dutch, so they are not translated here.
+locale: nl
+---
+Coq au vin
+Boeuf bourguignon
+Ratatouille
+Quiche lorraine
+Soupe a l'oignon
+Bouillabaisse
+Cassoulet
+Confit de canard
+Steak tartaar
+Croque monsieur
+Gratin dauphinois
+Moules marinieres
+Creme brulee
+Tarte tatin
+Profiteroles
+Escargots

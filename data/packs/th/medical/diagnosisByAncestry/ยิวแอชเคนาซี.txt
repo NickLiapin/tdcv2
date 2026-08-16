@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Thai, where founder mutations are unusually well characterised. A prevalence signal, not an exclusive one.
+locale: th
+---
+โรคเทย์-แซคส์
+โรคโกเชร์ชนิดที่ 1
+โรคคานาแวน
+โรคนีมันน์-พิคชนิดเอ
+กลุ่มอาการบลูม
+โรคมิวโคลิพิโดสิสชนิดที่ 4
+ภาวะระบบประสาทอัตโนมัติผิดปกติทางพันธุกรรม
+ภาวะพร่องแฟกเตอร์ 11
+การกลายพันธุ์ยีน BRCA1
+การกลายพันธุ์ยีน BRCA2
+โรคกล้ามเนื้อบิดเกร็งทางพันธุกรรม
+โรคโครห์น

@@ -1,0 +1,11 @@
+---
+description: Indian RTO driving licence class for goods vehicles (Hindi): LMV light motor vehicle, LMV-TR light transport, MGV medium goods vehicle, HGMV heavy goods motor vehicle, HTV heavy transport vehicle, plus the hazardous-goods and trailer endorsements; these are not the European C/CE categories
+locale: hi
+---
+एलएमवी
+एलएमवी-टीआर
+एमजीवी
+एचजीएमवी
+एचटीवी
+खतरनाक माल पृष्ठांकन
+ट्रेलर पृष्ठांकन

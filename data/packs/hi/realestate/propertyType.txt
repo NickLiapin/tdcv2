@@ -1,0 +1,25 @@
+---
+description: Property type (Hindi); BHK is India-specific notation meaning bedroom-hall-kitchen, so 2 बीएचके is a two-bedroom flat with a living room and a kitchen. पीजी is paying-guest accommodation and चॉल is the Mumbai tenement block
+locale: hi
+---
+फ़्लैट
+अपार्टमेंट
+1 बीएचके
+2 बीएचके
+3 बीएचके
+बिल्डर फ़्लोर
+पेंटहाउस
+स्टूडियो अपार्टमेंट
+स्वतंत्र मकान
+रो हाउस
+बंगला
+कोठी
+विला
+फ़ार्म हाउस
+हवेली
+चॉल
+पीजी
+प्लॉट
+कृषि भूमि
+दुकान
+गोदाम

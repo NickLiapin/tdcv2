@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Czech)
+locale: cs
+---
+Kardiologie
+Dermatologie
+Endokrinologie
+Gastroenterologie
+Neurologie
+Onkologie
+Oftalmologie
+Ortopedie
+Traumatologie
+Pediatrie
+Psychiatrie
+Pneumologie
+Radiologie
+Revmatologie
+Urologie
+Nefrologie
+Hematologie
+Imunologie
+Alergologie
+Anesteziologie
+Urgentní medicína
+Všeobecné praktické lékařství
+Vnitřní lékařství
+Gynekologie a porodnictví
+Otorinolaryngologie
+Patologie
+Chirurgie
+Plastická chirurgie
+Cévní chirurgie
+Kardiochirurgie
+Infekční lékařství
+Geriatrie
+Neonatologie
+Rehabilitační medicína
+Nukleární medicína
+Klinická výživa

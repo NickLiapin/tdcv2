@@ -1,0 +1,12 @@
+---
+description: Dishes of Greek cuisine (Czech)
+locale: cs
+---
+Musaka
+Souvlaki
+Gyros
+Řecký salát
+Spanakopita
+Baklava
+Tzatziki
+Dolmades

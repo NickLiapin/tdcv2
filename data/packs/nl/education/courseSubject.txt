@@ -1,0 +1,26 @@
+---
+description: School subject as taught in Dutch secondary education (havo/vwo). Several entries are Netherlands-only: maatschappijleer and culturele en kunstzinnige vorming are Dutch curriculum subjects with no Flemish equivalent, and Flemish schools name their subject blocks differently.
+locale: nl
+---
+Nederlands
+Engels
+Duits
+Frans
+Wiskunde
+Natuurkunde
+Scheikunde
+Biologie
+Aardrijkskunde
+Geschiedenis
+Economie
+Bedrijfseconomie
+Maatschappijleer
+Informatica
+Filosofie
+Latijn
+Grieks
+Lichamelijke opvoeding
+Kunst
+Muziek
+Techniek
+Culturele en kunstzinnige vorming

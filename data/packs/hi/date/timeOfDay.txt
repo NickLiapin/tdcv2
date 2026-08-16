@@ -1,0 +1,14 @@
+---
+description: Time of day (Hindi). ब्रह्म मुहूर्त is the pre-dawn hour and a real, commonly used time marker in India rather than a poetic flourish — it names the period roughly ninety minutes before sunrise.
+locale: hi
+---
+ब्रह्म मुहूर्त
+तड़के
+प्रातःकाल
+सुबह
+दोपहर
+अपराह्न
+संध्या
+शाम
+रात
+मध्यरात्रि

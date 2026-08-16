@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry, in Czech. A prevalence signal, not an exclusive one.
+locale: cs
+---
+Diabetes mellitus 2. typu
+Žlučové kameny
+Karcinom žlučníku
+Alkoholové onemocnění jater
+Revmatoidní artritida
+Nealkoholové ztukovatění jater
+Hypolaktazie dospělých

@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Hindi for a male patient — the male-specific conditions plus the common ones a man in India is actually likely to carry. India's ischaemic heart disease presents about a decade earlier than in Europe, and tobacco-related oral cancer is far commoner in Indian men than in European ones, so both are here.
+locale: hi
+---
+सौम्य प्रोस्टेट वृद्धि
+प्रोस्टेट शोथ
+प्रोस्टेट कैंसर
+वृषण कैंसर
+वृषण मरोड़
+वैरिकोसील
+हाइड्रोसील
+एपिडिडाइमाइटिस
+अवरोहणहीन वृषण
+फ़िमोसिस
+स्तंभन दोष
+पुरुष बांझपन
+गाइनेकोमेस्टिया
+पुरुष हाइपोगोनैडिज़्म
+पुरुष प्रतिरूप गंजापन
+मुख कैंसर
+कोरोनरी धमनी रोग
+टाइप 2 मधुमेह
+उच्च रक्तचाप
+क्षय रोग
+मद्यजन्य यकृत रोग
+सीओपीडी
+गुर्दे की पथरी
+वंक्षण हर्निया
+गठिया
+मादक द्रव्य निर्भरता

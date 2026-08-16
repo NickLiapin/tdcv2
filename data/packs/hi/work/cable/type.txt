@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Hindi); the Cat category names stay in Latin script because they are product designations
+locale: hi
+---
+ऑप्टिकल फ़ाइबर
+को-एक्सियल
+ट्विस्टेड पेयर
+Cat5e
+Cat6
+Cat6a
+ईथरनेट
+हवाई केबल
+भूमिगत केबल

@@ -1,0 +1,16 @@
+---
+description: Gregorian month names in Hindi, which is what a date on an Indian document carries. India also has a second official calendar — the Saka era, whose months are चैत्र, वैशाख, ज्येष्ठ, आषाढ़, श्रावण, भाद्रपद, आश्विन, कार्तिक, अग्रहायण, पौष, माघ and फाल्गुन. Those names still govern every festival date and every panchang, but they do not align with the Gregorian months and must never be substituted line for line into this list.
+locale: hi
+---
+जनवरी
+फ़रवरी
+मार्च
+अप्रैल
+मई
+जून
+जुलाई
+अगस्त
+सितंबर
+अक्तूबर
+नवंबर
+दिसंबर

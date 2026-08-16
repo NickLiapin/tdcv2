@@ -1,0 +1,7 @@
+---
+description: Positions in sepak takraw (Thai). Takraw is played three a side, so there are only three positions and the list is genuinely this short: เตะกง is the server at the back, หน้าซ้าย the feeder and หน้าขวา the killer at the net.
+locale: th
+---
+เตะกง
+หน้าซ้าย
+หน้าขวา

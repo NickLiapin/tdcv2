@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Dutch (prefix with # in a template). Hashtags carry no spaces, so Dutch compounds appear closed up, and Dutch tags are Dutch words rather than borrowed English ones. 'Gezellig' has no English equivalent and is a genuine high-frequency tag; 'fietsen' is on the list because cycling is everyday life here, not a niche hobby.
+locale: nl
+---
+liefde
+geluk
+mode
+natuur
+kunst
+reizen
+eten
+sport
+motivatie
+stijl
+zonsondergang
+gezellig
+lekker
+familie
+zomer
+fitness
+leven
+inspiratie
+herinneringen
+fotografie
+muziek
+gezondheid
+vriendschap
+zondag
+koffie
+katten
+honden
+lezen
+vrijdag
+fietsen

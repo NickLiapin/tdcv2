@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Hindi). Rheumatic heart disease is listed because it remains a leading cardiac diagnosis in India.
+locale: hi
+---
+उच्च रक्तचाप
+कोरोनरी धमनी रोग
+हृदयाघात
+आलिंद विकंपन
+हृदय विफलता
+आमवाती हृदय रोग
+डाइलेटेड कार्डियोमायोपैथी
+संक्रामक अंतर्हृद्शोथ
+महाधमनी वाल्व संकीर्णता
+डिस्लिपिडेमिया
