@@ -86,6 +86,35 @@ const BOOKS = {
     [35327, "Amerika monogatari", "Kafu Nagai"],
     [31757, "Omedetaki hito", "Saneatsu Mushanokoji"],
   ],
+  hu: [
+    [43777, "Az uj foldesur", "Mor Jokai"],
+    [69689, "A Pal-utcai fiuk", "Ferenc Molnar"],
+    [40685, "Timar Virgil fia", "Mihaly Babits"],
+  ],
+  fi: [
+    [78018, "Karavaani ja muita juttuja", "Pentti Haanpaa"],
+    [78058, "Lintukoto", "Joel Lehtonen"],
+    [78096, "Hajamuistelmia pakolaiselamasta", "Aatto Siren"],
+  ],
+  // Serbian has four public-domain books on Gutenberg, total. The primer is not
+  // prose and is left out; these are a novel and a popular-science book, which
+  // between them is the whole available corpus rather than a selection from it.
+  sr: [
+    [11292, "Sekund vecnosti", "Dragutin J. Ilic"],
+    [11291, "Kameno doba", "Jovan Zujovic"],
+  ],
+  // Translations rather than Hebrew originals, and deliberately: the Hebrew
+  // originals on Gutenberg are 19th-century Haskalah works written in an ornate
+  // biblical register, and filler text lifted from those reads to a modern
+  // Hebrew speaker roughly as Wycliffe reads to an English one.
+  he: [
+    [18291, "Hunger, Book One", "Knut Hamsun"],
+    [5139, "Tales", "Carl Ewald"],
+  ],
+  // One book. Searching Gutenberg for Persian returns "Displaying results 1-1",
+  // and this is it — so the corpus is not a selection and cannot be widened
+  // without a source other than Gutenberg.
+  fa: [[46740, "Five Selected Short Stories", "D. H. Lawrence"]],
 };
 
 /**
@@ -119,6 +148,47 @@ const RULES = {
     // where the annotated run begins. Real Japanese prose has neither, so both
     // come out before anything is measured or kept.
     clean: (t) => t.replace(/《[^》]*》/gu, "").replace(/[｜|]/gu, ""),
+    // Japanese prose has no spaces in it, so a "sentence" that contains one is
+    // not prose. In practice it is always the colophon — 「日本現代文學全集33
+    // 永井荷風集」（第七刷）を底本にした — where the space separates parts of a
+    // cited title. The generic apparatus rules cannot see it: nothing is
+    // parenthesised and the date is written 昭和四十二年, in kanji, so there is
+    // no four-digit year to match. The absence of spaces is the Japanese
+    // invariant, and it catches this exactly.
+    reject: (s) => /\s/u.test(s),
+  },
+  he: {
+    // Hebrew writes no vowels, so the same sentence is materially SHORTER in
+    // characters than its European equivalent — the default 40-character floor
+    // reads as a filter on content and works as a filter on orthography, and
+    // throws away ordinary Hebrew sentences for being spelled economically.
+    sentence: [25, 140],
+    paragraph: [140, 600],
+    // Strip the vowel points. Modern Hebrew is written unpointed — the rest of
+    // the he pack is, and says so — but these books are from a period that
+    // pointed an ambiguous word to disambiguate it, and 111 of 150 paragraphs
+    // came out carrying at least one. Shipping them would make the filler text
+    // the only pointed thing in the pack. Only the combining marks go; maqaf
+    // (U+05BE), paseq and sof pasuq are punctuation and stay.
+    clean: (t) =>
+      t.replace(/[\u0591-\u05BD\u05BF\u05C1\u05C2\u05C4\u05C5\u05C7]/gu, ""),
+  },
+  fa: {
+    // The file is one block with no blank lines at all \u2014 1433 newlines and not
+    // a single paragraph break \u2014 so the default blank-line split returns the
+    // whole 134 000-character book as one "paragraph" and the filter drops it.
+    paragraphSplit: /\n/,
+    // Persian orthography, normalised. This text is typed in the mixed way a
+    // lot of Persian on the web is: 1986 Arabic yeh against 5226 Persian yeh,
+    // 684 Arabic kaf against 1907 Persian kaf, plus 954 harakat. The rest of
+    // the fa pack is checked to contain no Arabic yeh or kaf at all, so an
+    // unnormalised corpus would be the one place in the locale where the same
+    // letter is written two ways.
+    clean: (t) =>
+      t
+        .replace(/\u064A/gu, "\u06CC")
+        .replace(/\u0643/gu, "\u06A9")
+        .replace(/[\u064B-\u0652\u0670]/gu, ""),
   },
 };
 const DEFAULT_RULE = {
@@ -128,7 +198,21 @@ const DEFAULT_RULE = {
   paragraphSplit: /\n{2,}/,
   clean: (t) => t,
   segmentable: true,
+  /** A locale-specific "this cannot be prose in my language" test. None by default. */
+  reject: () => false,
 };
+
+/**
+ * The rule for a locale: the defaults, with that locale's overrides on top.
+ *
+ * Merged rather than substituted. `RULES[locale] ?? DEFAULT_RULE` reads as
+ * "override what you need", and is not — an entry that set only a sentence
+ * length would silently lose the terminator, the paragraph split and `clean`,
+ * and the failure is a corpus that comes out empty or unsplit rather than an
+ * error anyone can act on. Japanese happened to override every field, so
+ * nothing showed this until Hebrew wanted two.
+ */
+const ruleFor = (locale) => ({ ...DEFAULT_RULE, ...(RULES[locale] ?? {}) });
 
 /** How many of each the pack keeps. The English pack set these numbers. */
 const WANT = { sentence: 500, paragraph: 150, word: 400 };
@@ -194,6 +278,19 @@ const SCRIPT = {
   sv: /[a-zåäö]/i,
   cs: /[a-záčďéěíňóřšťúůýž]/i,
   ja: /[ぁ-んァ-ヶ一-龯]/u,
+  hu: /[a-záéíóöőúüű]/i,
+  fi: /[a-zäö]/i,
+  // Serbian Cyrillic, not Russian Cyrillic: ђ ј љ њ ћ џ are Serbian letters and
+  // ё ъ ы э are not, so the class is the Serbian alphabet rather than the block.
+  sr: /[абвгдђежзијклљмнњопрстћуфхцчџш]/i,
+  he: /[֐-׿]/u,
+  // The Persian alphabet, which is the Arabic one plus پ چ ژ گ and with ک ی in
+  // place of ك ي. Broad on purpose: this class is also the book-level gate,
+  // which asks whether half the letters in the file are in this script, and the
+  // four Persian-only letters are 2.7% of a Persian text — they identify the
+  // language and cannot measure the script. Persian-versus-Arabic is settled by
+  // the source book and by the stopword list, not here.
+  fa: /[ء-يپچژکگی]/u,
 };
 
 /**
@@ -540,6 +637,158 @@ const STOPWORDS = {
     "men",
     "zich",
   ],
+  hu: [
+    "a",
+    "az",
+    "és",
+    "hogy",
+    "nem",
+    "is",
+    "de",
+    "egy",
+    "van",
+    "volt",
+    "meg",
+    "csak",
+    "már",
+    "még",
+    "el",
+    "ki",
+    "be",
+    "fel",
+    "le",
+    "mint",
+    "vagy",
+    "ez",
+    "azt",
+    "ha",
+    "úgy",
+    "ott",
+    "itt",
+    "nagy",
+    "minden",
+    "amit",
+  ],
+  fi: [
+    "ja",
+    "on",
+    "ei",
+    "se",
+    "hän",
+    "että",
+    "oli",
+    "mutta",
+    "niin",
+    "kuin",
+    "sitä",
+    "kun",
+    "mitä",
+    "vain",
+    "jo",
+    "nyt",
+    "myös",
+    "hyvin",
+    "tai",
+    "hänen",
+    "sen",
+    "tämä",
+    "olla",
+    "vielä",
+    "ovat",
+    "joka",
+    "hänelle",
+    "siitä",
+  ],
+  sr: [
+    "и",
+    "је",
+    "да",
+    "се",
+    "не",
+    "у",
+    "на",
+    "за",
+    "су",
+    "од",
+    "али",
+    "како",
+    "што",
+    "по",
+    "то",
+    "био",
+    "била",
+    "бити",
+    "један",
+    "која",
+    "који",
+    "више",
+    "него",
+    "кад",
+    "сам",
+    "све",
+    "још",
+    "тако",
+  ],
+  he: [
+    "את",
+    "של",
+    "לא",
+    "על",
+    "אני",
+    "הוא",
+    "היא",
+    "זה",
+    "כי",
+    "עם",
+    "אל",
+    "כל",
+    "מה",
+    "אם",
+    "היה",
+    "הם",
+    "גם",
+    "רק",
+    "או",
+    "אבל",
+    "יש",
+    "אין",
+    "כמו",
+    "אשר",
+    "אותו",
+    "עוד",
+    "כך",
+    "אחד",
+  ],
+  fa: [
+    "و",
+    "در",
+    "به",
+    "از",
+    "که",
+    "این",
+    "را",
+    "با",
+    "است",
+    "برای",
+    "آن",
+    "یک",
+    "خود",
+    "تا",
+    "کرد",
+    "شد",
+    "می",
+    "بود",
+    "اما",
+    "هم",
+    "من",
+    "او",
+    "ما",
+    "چه",
+    "نه",
+    "هر",
+    "یا",
+    "بر",
+  ],
 };
 
 /** Everything between the Gutenberg start and end markers, and nothing else. */
@@ -583,6 +832,38 @@ function paragraphs(text, splitOn) {
  * roman numeral are all "text" and none of them is a sentence, so length and
  * shape do the filtering that a human eye would.
  */
+/**
+ * A book's own front matter, which is not Gutenberg boilerplate and not prose.
+ *
+ * BOILERPLATE catches what Gutenberg wraps a book IN, and the header strip takes
+ * the rest — but a title page, a colophon and a rights notice belong to the book
+ * and survive both. They are in the right language and the right script, so
+ * every gate above passes them, and they land at the top of the corpus where
+ * they are the first thing anyone reads: the Hungarian pack opened with "(A
+ * fordítás jogát szerző fenntartja magának)" and the Finnish one with
+ * "Helsingissä, Kustannusosakeyhtiö Kansanvalta, 1930."
+ *
+ * Two shapes, both language-agnostic on purpose — a keyword list per language
+ * would be the same whack-a-mole the English boilerplate comment describes:
+ *
+ *   * a sentence that is WHOLLY parenthesised. Prose does not put a whole
+ *     sentence in brackets; a rights line and an editor's aside do.
+ *   * a short sentence carrying a bare year. An imprint is a place, a publisher
+ *     and a date with no verb between them. Six words is the ceiling, so a real
+ *     short sentence that happens to name a year is the only thing at risk, and
+ *     losing one of those from filler text costs nothing.
+ *
+ * Measured over every corpus before it was added: 4 lines out of 6500, all four
+ * genuine apparatus, and zero false positives in the nine locales that were
+ * already shipping. One of the four was a bibliographic note that had been in
+ * the Japanese pack since it was built.
+ */
+const WHOLLY_PARENTHESISED = /^\s*[([].*[)\]][.!?]?\s*$/u;
+const YEAR = /(?:^|[^\d])(1[4-9]\d\d|20[0-2]\d)(?:[^\d]|$)/u;
+const isApparatus = (s) =>
+  WHOLLY_PARENTHESISED.test(s) ||
+  (YEAR.test(s) && (s.match(/\p{L}+/gu) ?? []).length < 7);
+
 function keep(rule, script, locale) {
   const own = STOPWORDS[locale];
   const others = Object.entries(STOPWORDS).filter(([code]) => code !== locale);
@@ -610,6 +891,8 @@ function keep(rule, script, locale) {
       s.length <= sMax &&
       script.test(s) &&
       !BOILERPLATE.test(s) &&
+      !isApparatus(s) &&
+      !rule.reject(s) &&
       speaks(s) &&
       /[.!?…。！？]$/u.test(s) &&
       !/^[IVXLC]+\.?$/.test(s) &&
@@ -623,6 +906,8 @@ function keep(rule, script, locale) {
       p.length >= pMin &&
       p.length <= pMax &&
       !BOILERPLATE.test(p) &&
+      !isApparatus(p) &&
+      !rule.reject(p) &&
       speaks(p) &&
       !/[*_[\]{}<>|]/.test(p) &&
       (p.match(/"/g) ?? []).length % 2 === 0 &&
@@ -655,7 +940,7 @@ function header(description, locale) {
 }
 
 function buildLocale(locale) {
-  const rule = RULES[locale] ?? DEFAULT_RULE;
+  const rule = ruleFor(locale);
   const KEEP = keep(rule, SCRIPT[locale], locale);
   const books = BOOKS[locale];
   if (!books) throw new Error(`no books listed for "${locale}"`);
@@ -752,7 +1037,7 @@ function writePack(locale, sentences, paragraphs_) {
       "\n",
     "utf8",
   );
-  if ((RULES[locale] ?? DEFAULT_RULE).segmentable) {
+  if (ruleFor(locale).segmentable) {
     writeFileSync(
       join(dir, "word.txt"),
       header(

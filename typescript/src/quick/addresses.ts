@@ -4,7 +4,7 @@
  * Every bundled address, as a property. Regenerate after changing the packs:
  * `npm run quick:types`. `npm run check` fails if the two disagree.
  *
- * 7531 addresses.
+ * 7546 addresses.
  */
 
 import type { QuickAddress, QuickParams } from './types.js';
@@ -6064,6 +6064,11 @@ export type QuickAddressTree = {
         readonly carrier: QuickAddress;
         readonly planType: QuickAddress;
       };
+      readonly text: {
+        readonly paragraph: QuickAddress;
+        readonly sentence: QuickAddress;
+        readonly word: QuickAddress;
+      };
       readonly travel: {
         readonly bookingStatus: QuickAddress;
         readonly hotelAmenity: QuickAddress;
@@ -6373,6 +6378,11 @@ export type QuickAddressTree = {
       readonly telecom: {
         readonly carrier: QuickAddress;
         readonly planType: QuickAddress;
+      };
+      readonly text: {
+        readonly paragraph: QuickAddress;
+        readonly sentence: QuickAddress;
+        readonly word: QuickAddress;
       };
       readonly travel: {
         readonly bookingStatus: QuickAddress;
@@ -7002,6 +7012,11 @@ export type QuickAddressTree = {
         readonly carrier: QuickAddress;
         readonly planType: QuickAddress;
       };
+      readonly text: {
+        readonly paragraph: QuickAddress;
+        readonly sentence: QuickAddress;
+        readonly word: QuickAddress;
+      };
       readonly travel: {
         readonly bookingStatus: QuickAddress;
         readonly hotelAmenity: QuickAddress;
@@ -7630,6 +7645,11 @@ export type QuickAddressTree = {
       readonly telecom: {
         readonly carrier: QuickAddress;
         readonly planType: QuickAddress;
+      };
+      readonly text: {
+        readonly paragraph: QuickAddress;
+        readonly sentence: QuickAddress;
+        readonly word: QuickAddress;
       };
       readonly travel: {
         readonly bookingStatus: QuickAddress;
@@ -10602,6 +10622,11 @@ export type QuickAddressTree = {
       readonly telecom: {
         readonly carrier: QuickAddress;
         readonly planType: QuickAddress;
+      };
+      readonly text: {
+        readonly paragraph: QuickAddress;
+        readonly sentence: QuickAddress;
+        readonly word: QuickAddress;
       };
       readonly travel: {
         readonly bookingStatus: QuickAddress;

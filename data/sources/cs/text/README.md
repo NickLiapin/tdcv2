@@ -17,7 +17,7 @@ is kept. Quotes and dashes are normalised to ASCII.
 
 ## Files
 
-- `sentences.txt` — 3404 sentences
-- `paragraphs.txt` — 419 paragraphs
+- `sentences.txt` — 3403 sentences
+- `paragraphs.txt` — 417 paragraphs
 
 Rebuild with `node data/scripts/build-text-corpus.mjs --locale cs`. The raw books are not committed.
