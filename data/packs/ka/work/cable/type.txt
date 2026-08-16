@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Georgian)
+locale: ka
+---
+ოპტიკურ-ბოჭკოვანი
+კოაქსიალური
+დაგრეხილი წყვილი
+Cat5e
+Cat6
+Cat6a
+Ethernet
+საჰაერო
+მიწისქვეშა

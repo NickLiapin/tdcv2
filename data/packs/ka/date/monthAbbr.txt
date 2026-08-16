@@ -1,0 +1,16 @@
+---
+description: Abbreviated month (Georgian). No capitals exist in Mkhedruli, so an abbreviation is distinguished only by being short.
+locale: ka
+---
+იან
+თებ
+მარ
+აპრ
+მაი
+ივნ
+ივლ
+აგვ
+სექ
+ოქტ
+ნოე
+დეკ

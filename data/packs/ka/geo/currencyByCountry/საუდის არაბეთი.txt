@@ -1,0 +1,5 @@
+---
+description: Currency of საუდის არაბეთი (Georgian)
+locale: ka
+---
+საუდის რიალი

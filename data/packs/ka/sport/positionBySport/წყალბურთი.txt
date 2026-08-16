@@ -1,0 +1,10 @@
+---
+description: Playing positions in წყალბურთი, named in Georgian.
+locale: ka
+---
+მეკარე
+ცენტრალური თავდამსხმელი
+ცენტრალური მცველი
+ფრთა
+დრაივერი
+პერიმეტრის მოთამაშე

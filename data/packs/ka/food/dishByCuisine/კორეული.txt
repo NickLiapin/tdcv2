@@ -1,0 +1,12 @@
+---
+description: Dishes of კორეული cuisine, named in Georgian.
+locale: ka
+---
+ბიბიმბაპი
+კიმჩი
+ბულგოგი
+ტოკპოკი
+სამგიოფსალი
+ჯაპჩე
+კიმჩი ჩიგე
+ქათამი კორეულად

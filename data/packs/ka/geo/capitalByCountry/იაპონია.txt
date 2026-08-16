@@ -1,0 +1,5 @@
+---
+description: Capital of იაპონია (Georgian)
+locale: ka
+---
+ტოკიო

@@ -1,0 +1,12 @@
+---
+description: Georgian personal pronouns — the whole set. Georgian has ONE third-person pronoun, ის, used for he, she and it alike (იგი is its literary variant, მან its ergative form). There is no gendered pronoun to choose, so a config that draws a pronoun per gender will correctly get the same value for every row.
+locale: ka
+---
+მე
+შენ
+ის
+იგი
+მან
+ჩვენ
+თქვენ
+ისინი

@@ -1,0 +1,5 @@
+---
+description: Currency code of შვედეთი
+locale: ka
+---
+SEK

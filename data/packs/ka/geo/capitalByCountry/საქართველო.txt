@@ -1,0 +1,5 @@
+---
+description: Capital of საქართველო (Georgian)
+locale: ka
+---
+თბილისი

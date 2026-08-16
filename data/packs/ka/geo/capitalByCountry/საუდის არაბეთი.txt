@@ -1,0 +1,5 @@
+---
+description: Capital of საუდის არაბეთი (Georgian)
+locale: ka
+---
+ერ-რიადი

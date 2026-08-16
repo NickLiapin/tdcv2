@@ -1,0 +1,12 @@
+---
+description: Dishes of ლიბანური cuisine, named in Georgian.
+locale: ka
+---
+ჰუმუსი
+ფალაფელი
+თაბულე
+შაურმა
+ბაბა განუში
+კიბე
+ფატუში
+მანაკიში

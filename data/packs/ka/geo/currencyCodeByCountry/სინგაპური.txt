@@ -1,0 +1,5 @@
+---
+description: Currency code of სინგაპური
+locale: ka
+---
+SGD

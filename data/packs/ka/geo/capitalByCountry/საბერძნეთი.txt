@@ -1,0 +1,5 @@
+---
+description: Capital of საბერძნეთი (Georgian)
+locale: ka
+---
+ათენი

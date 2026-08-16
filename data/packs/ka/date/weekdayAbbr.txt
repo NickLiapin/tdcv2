@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday (Georgian), Sunday first
+locale: ka
+---
+კვ
+ორშ
+სამ
+ოთხ
+ხუთ
+პარ
+შაბ

@@ -1,0 +1,18 @@
+---
+description: Marital status in Georgian. Unlike Polish or Russian, NONE of these has a masculine and a feminine form: Georgian has no grammatical gender, so one word serves everybody and the list is half the length its Slavic equivalents need.
+locale: ka
+---
+დაუქორწინებელი
+დაქორწინებული
+განქორწინებული
+ქვრივი
+ცალკე მცხოვრები
+სამოქალაქო ქორწინებაში
+დანიშნული
+თანაცხოვრებაში
+ხელახლა დაქორწინებული
+მარტოხელა მშობელი
+პარტნიორობაში
+ურთიერთობაში
+უცნობია
+არ არის მითითებული

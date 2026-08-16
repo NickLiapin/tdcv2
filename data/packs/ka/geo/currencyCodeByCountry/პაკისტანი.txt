@@ -1,0 +1,5 @@
+---
+description: Currency code of პაკისტანი
+locale: ka
+---
+PKR

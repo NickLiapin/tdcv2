@@ -1,0 +1,5 @@
+---
+description: Capital of გერმანია (Georgian)
+locale: ka
+---
+ბერლინი

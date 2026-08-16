@@ -1,0 +1,34 @@
+---
+description: Spice and herb (Georgian). უცხო სუნელი (blue fenugreek), ომბალო (pennyroyal) and ხმელი სუნელი (the standard Georgian mixed spice) barely exist outside Georgian cooking, and ყვითელი ყვავილი is Imeretian saffron — marigold petals, not crocus.
+locale: ka
+---
+ხმელი სუნელი
+უცხო სუნელი
+ყვითელი ყვავილი
+ომბალო
+ქონდარი
+კინძი
+ქინძის თესლი
+ტარხუნა
+რეჰანი
+ოხრახუში
+კამა
+პიტნა
+წიწმატი
+ნიახური
+დაფნის ფოთოლი
+შავი პილპილი
+წითელი წიწაკა
+ჩილი
+დარიჩინი
+მიხაკი
+ზაფრანა
+კოჭა
+კურკუმა
+მუსკატის კაკალი
+ვანილი
+მდოგვი
+ქინძი
+ძირა
+კამის თესლი
+სუმახი

@@ -1,0 +1,42 @@
+---
+description: Dishes of ქართული cuisine, named in Georgian. Georgian cooking is built on walnuts, sour plum, pomegranate, coriander and blue fenugreek rather than on olive oil or butter, and khinkali is eaten by hand with the top knot left on the plate.
+locale: ka
+---
+ხაჭაპური
+აჭარული ხაჭაპური
+იმერული ხაჭაპური
+მეგრული ხაჭაპური
+პენოვანი ხაჭაპური
+ლობიანი
+ხინკალი
+მწვადი
+ჩაქაფული
+ჩახოხბილი
+ხარჩო
+ჩაშუშული
+ბადრიჯანი ნიგვზით
+ფხალი
+ლობიო
+მჭადი
+ელარჯი
+გომი
+ჭვიშტარი
+ჩურჩხელა
+ტკემალი
+საცივი
+კუჩმაჩი
+შქმერული
+აბხაზურა
+კუპატი
+ხაშლამა
+ხაში
+სულგუნი
+ნადუღი
+მაწონი
+ბაჟე
+ჯონჯოლი
+ფელამუში
+გოზინაყი
+ნაზუქი
+შოთის პური
+აჯაფსანდალი

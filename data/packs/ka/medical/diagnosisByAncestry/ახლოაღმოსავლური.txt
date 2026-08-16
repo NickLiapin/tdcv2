@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the ახლოაღმოსავლური ancestry group, named in Georgian.
+locale: ka
+---
+ფამილიური ხმელთაშუაზღვისპირული ცხელება
+ბეტა-თალასემია
+G6PD-ის დეფიციტი
+ტიპი 2 დიაბეტი
+ლაქტოზის აუტანლობა
+ბეჰჩეტის დაავადება
+თანდაყოლილი სმენის დაქვეითება

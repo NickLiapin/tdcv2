@@ -1,0 +1,16 @@
+---
+description: Streaming service (brand names kept in Latin)
+locale: ka
+---
+Netflix
+YouTube
+Amazon Prime Video
+Disney+
+HBO Max
+Apple TV+
+Spotify
+Deezer
+SoundCloud
+Twitch
+TikTok
+Adjara Sport

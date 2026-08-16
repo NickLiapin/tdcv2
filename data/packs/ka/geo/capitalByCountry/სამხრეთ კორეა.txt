@@ -1,0 +1,5 @@
+---
+description: Capital of სამხრეთ კორეა (Georgian)
+locale: ka
+---
+სეული

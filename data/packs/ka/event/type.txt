@@ -1,0 +1,23 @@
+---
+description: Event type (Georgian). სუფრა is the Georgian banquet, presided over by a tamada who sets the order of the toasts; ქელეხი is the funeral feast. Neither is simply "a dinner" and neither has a European equivalent.
+locale: ka
+---
+ქორწილი
+დაბადების დღე
+ნათლობა
+ნიშნობა
+იუბილე
+სუფრა
+ქელეხი
+კონფერენცია
+სემინარი
+ტრენინგი
+ვორქშოფი
+გამოფენა
+ფესტივალი
+კონცერტი
+სპექტაკლი
+პრემიერა
+პრეზენტაცია
+კორპორატიული ღონისძიება
+საქველმოქმედო საღამო

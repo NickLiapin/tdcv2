@@ -1,0 +1,16 @@
+---
+description: Mark (Georgian). Georgian schools mark on a numeric 1–10 scale where 10 is the best, not on letters and not on the five-point scale used before independence; universities add a pass / fail mark.
+locale: ka
+---
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+ჩათვლილი
+ჩაუთვლელი

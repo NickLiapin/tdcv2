@@ -1,0 +1,5 @@
+---
+description: Capital of ესპანეთი (Georgian)
+locale: ka
+---
+მადრიდი

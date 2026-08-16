@@ -1,0 +1,5 @@
+---
+description: Currency code of სამხრეთ კორეა
+locale: ka
+---
+KRW

@@ -1,0 +1,44 @@
+---
+description: Company legal form and name suffix as registered in Georgia — the only country where Georgian is the state language. შპს is the limited-liability company, სს the joint-stock company, ი/მ the sole trader; ააიპ and სსიპ are the non-commercial and public-law legal persons. Written as initials, which in a script with no capitals are simply short words.
+locale: ka
+---
+შპს
+სს
+ი/მ
+სპს
+კს
+კოოპერატივი
+ააიპ
+სსიპ
+ფონდი
+კავშირი
+ასოციაცია
+ჰოლდინგი
+ჯგუფი
+კომპანია
+ფირმა
+კორპორაცია
+ფილიალი
+წარმომადგენლობა
+საწარმო
+ქარხანა
+კომბინატი
+სახლი
+ცენტრი
+სააგენტო
+ბიურო
+ინსტიტუტი
+ლაბორატორია
+სერვისი
+სისტემები
+ტექნოლოგიები
+გადაწყვეტები
+კონსალტინგი
+ინვესტიციები
+დისტრიბუცია
+ვაჭრობა
+ძმები
+და კომპანია
+და შვილები
+ჯორჯია
+საქართველო

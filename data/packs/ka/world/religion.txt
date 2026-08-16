@@ -1,0 +1,25 @@
+---
+description: World religion (Georgian). Georgia adopted Christianity in the fourth century and the Georgian Orthodox Church is autocephalous, which is why მართლმადიდებლობა heads the list.
+locale: ka
+---
+მართლმადიდებლობა
+ქრისტიანობა
+კათოლიციზმი
+პროტესტანტიზმი
+სომხური სამოციქულო ეკლესია
+ისლამი
+სუნიზმი
+შიიზმი
+იუდაიზმი
+ჰინდუიზმი
+ბუდიზმი
+სიკჰიზმი
+ჯაინიზმი
+ბაჰაიზმი
+სინტოიზმი
+დაოსიზმი
+კონფუციანელობა
+ზოროასტრიზმი
+იეზიდიზმი
+ათეიზმი
+აგნოსტიციზმი

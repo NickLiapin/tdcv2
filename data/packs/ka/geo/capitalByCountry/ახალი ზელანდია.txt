@@ -1,0 +1,5 @@
+---
+description: Capital of ახალი ზელანდია (Georgian)
+locale: ka
+---
+ველინგტონი

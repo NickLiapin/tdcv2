@@ -1,0 +1,23 @@
+---
+description: Mineral or ore (Georgian). Manganese from Chiatura and coal from Tkibuli are the two mining industries Georgia is actually known for.
+locale: ka
+---
+მანგანუმი
+ქვანახშირი
+ოქრო
+სპილენძი
+ვერცხლი
+დარიშხანი
+ბარიტი
+ტალკი
+დიატომიტი
+ბენტონიტი
+კირქვა
+დოლომიტი
+მარმარილო
+ანდეზიტი
+ბაზალტი
+ტუფი
+კვარცი
+თიხა
+ხრეში

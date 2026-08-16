@@ -1,0 +1,16 @@
+---
+description: Month name in the nominative (Georgian). Inside a date the month takes the dative — see monthsInDate in DATE_LOCALE.json.
+locale: ka
+---
+იანვარი
+თებერვალი
+მარტი
+აპრილი
+მაისი
+ივნისი
+ივლისი
+აგვისტო
+სექტემბერი
+ოქტომბერი
+ნოემბერი
+დეკემბერი

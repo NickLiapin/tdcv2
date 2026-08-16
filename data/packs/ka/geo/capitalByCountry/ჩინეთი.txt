@@ -1,0 +1,5 @@
+---
+description: Capital of ჩინეთი (Georgian)
+locale: ka
+---
+პეკინი

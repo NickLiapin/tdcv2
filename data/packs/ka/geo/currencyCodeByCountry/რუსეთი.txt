@@ -1,0 +1,5 @@
+---
+description: Currency code of რუსეთი
+locale: ka
+---
+RUB

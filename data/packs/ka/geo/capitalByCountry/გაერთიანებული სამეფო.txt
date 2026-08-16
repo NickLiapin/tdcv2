@@ -1,0 +1,5 @@
+---
+description: Capital of გაერთიანებული სამეფო (Georgian)
+locale: ka
+---
+ლონდონი

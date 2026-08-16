@@ -1,0 +1,5 @@
+---
+description: Currency code of იტალია
+locale: ka
+---
+EUR

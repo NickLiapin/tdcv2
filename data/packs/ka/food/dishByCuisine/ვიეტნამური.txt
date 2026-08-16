@@ -1,0 +1,10 @@
+---
+description: Dishes of ვიეტნამური cuisine, named in Georgian.
+locale: ka
+---
+ფო
+ბან მი
+ბუნ ჩა
+კაო ლაუ
+გოი კუონი
+ბან სეო

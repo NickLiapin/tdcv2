@@ -1,0 +1,5 @@
+---
+description: Currency of შვედეთი (Georgian)
+locale: ka
+---
+შვედური კრონა

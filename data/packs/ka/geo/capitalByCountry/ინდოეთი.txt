@@ -1,0 +1,5 @@
+---
+description: Capital of ინდოეთი (Georgian)
+locale: ka
+---
+ნიუ-დელი

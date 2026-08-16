@@ -1,0 +1,5 @@
+---
+description: Capital of ინდონეზია (Georgian)
+locale: ka
+---
+ჯაკარტა

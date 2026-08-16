@@ -1,0 +1,5 @@
+---
+description: Capital of შვეიცარია (Georgian)
+locale: ka
+---
+ბერნი

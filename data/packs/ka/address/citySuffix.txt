@@ -1,0 +1,24 @@
+---
+description: Trailing element of a Georgian place name — the second half of a compound toponym (ახალციხე, შუახევი, ახალგორი, თეთრიწყარო). Georgian compounds these directly onto the prefix with no space.
+locale: ka
+---
+ციხე
+ქალაქი
+სოფელი
+ხევი
+წყარო
+გორი
+უბანი
+შენი
+კარი
+ყანა
+ჭალა
+მთა
+ველი
+პირი
+ღელე
+სერი
+ხიდი
+თავი
+ბოლო
+ტბა

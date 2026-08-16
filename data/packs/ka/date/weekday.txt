@@ -1,0 +1,11 @@
+---
+description: Weekday (Georgian), Sunday first. Four of the seven are transparently numbered off the sabbath: ორშაბათი is "second sabbath" (Monday), სამშაბათი "third", ოთხშაბათი "fourth", ხუთშაბათი "fifth". შაბათი is the sabbath itself, პარასკევი comes from Greek paraskeue, and კვირა means both "Sunday" and "week".
+locale: ka
+---
+კვირა
+ორშაბათი
+სამშაბათი
+ოთხშაბათი
+ხუთშაბათი
+პარასკევი
+შაბათი

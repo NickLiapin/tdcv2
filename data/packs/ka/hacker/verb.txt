@@ -1,0 +1,32 @@
+---
+description: Tech verb in the third person singular present — the citation form of a Georgian verb. Georgian has no infinitive at all, so a verb can never be listed "bare" the way English lists "to hack"; the masdar in hacker/ingverb.txt is the nearest thing to one.
+locale: ka
+---
+შლის
+წერს
+კითხულობს
+ტვირთავს
+ჩამოტვირთავს
+აგზავნის
+იღებს
+ამუშავებს
+ამოწმებს
+ეძებს
+პოულობს
+ცვლის
+აახლებს
+ქმნის
+აკოპირებს
+ინახავს
+აღადგენს
+შიფრავს
+ხსნის
+კეტავს
+რთავს
+თიშავს
+უერთდება
+წყვეტს
+ზომავს
+ითვლის
+ადარებს
+ალაგებს

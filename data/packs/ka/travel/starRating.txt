@@ -1,0 +1,9 @@
+---
+description: Hotel star rating
+locale: ka
+---
+1
+2
+3
+4
+5

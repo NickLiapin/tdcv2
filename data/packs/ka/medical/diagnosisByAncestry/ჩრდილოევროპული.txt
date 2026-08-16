@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the ჩრდილოევროპული ancestry group, named in Georgian.
+locale: ka
+---
+ცისტური ფიბროზი
+ჰემოქრომატოზი
+ცელიაკია
+ტიპი 1 დიაბეტი
+ალფა-1 ანტიტრიფსინის დეფიციტი
+მელანომა
+ფენილკეტონურია

@@ -1,0 +1,5 @@
+---
+description: Currency code of ბანგლადეში
+locale: ka
+---
+BDT

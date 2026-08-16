@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Georgian)
+locale: ka
+---
+რკინა
+ბრინჯაო
+ვერცხლი
+ოქრო
+პლატინა
+ალმასი
+ზურმუხტი
+ოსტატი
+დიდოსტატი
+ჩემპიონი

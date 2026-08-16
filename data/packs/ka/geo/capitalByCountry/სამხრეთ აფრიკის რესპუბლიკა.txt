@@ -1,0 +1,5 @@
+---
+description: Capital of სამხრეთ აფრიკის რესპუბლიკა (Georgian)
+locale: ka
+---
+პრეტორია

@@ -1,0 +1,10 @@
+---
+description: Georgian full female name — one given name and one surname (ნინო ბერიძე). It draws from the SAME surname list as the male generator, because Georgian surnames do not inflect for gender.
+generator: tdc
+locale: ka
+---
+<sequence name="p">
+  <gen name="f" type="template" value="ka.person.female.firstName"/>
+  <gen name="l" type="template" value="ka.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

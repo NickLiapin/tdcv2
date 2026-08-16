@@ -1,0 +1,5 @@
+---
+description: Currency of შვეიცარია (Georgian)
+locale: ka
+---
+შვეიცარიული ფრანკი

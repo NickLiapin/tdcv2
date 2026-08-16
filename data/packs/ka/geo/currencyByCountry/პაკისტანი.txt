@@ -1,0 +1,5 @@
+---
+description: Currency of პაკისტანი (Georgian)
+locale: ka
+---
+პაკისტანური რუპია

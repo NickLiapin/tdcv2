@@ -1,0 +1,5 @@
+---
+description: Currency of იტალია (Georgian)
+locale: ka
+---
+ევრო

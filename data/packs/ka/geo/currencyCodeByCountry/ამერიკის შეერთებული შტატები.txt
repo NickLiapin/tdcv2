@@ -1,0 +1,5 @@
+---
+description: Currency code of ამერიკის შეერთებული შტატები
+locale: ka
+---
+USD

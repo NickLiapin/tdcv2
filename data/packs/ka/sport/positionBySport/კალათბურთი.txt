@@ -1,0 +1,9 @@
+---
+description: Playing positions in კალათბურთი, named in Georgian.
+locale: ka
+---
+გამწევი მცველი
+ატაკის მცველი
+მსუბუქი ფორვარდი
+მძიმე ფორვარდი
+ცენტრი

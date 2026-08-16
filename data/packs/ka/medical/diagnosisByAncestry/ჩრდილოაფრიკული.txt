@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the ჩრდილოაფრიკული ancestry group, named in Georgian.
+locale: ka
+---
+ბეტა-თალასემია
+G6PD-ის დეფიციტი
+ფამილიური ხმელთაშუაზღვისპირული ცხელება
+ლაქტოზის აუტანლობა
+ტიპი 2 დიაბეტი
+ჰემოგლობინოპათია
+ცელიაკია

@@ -1,0 +1,12 @@
+---
+description: Dishes of აზერბაიჯანული cuisine, named in Georgian.
+locale: ka
+---
+ფლავი
+დოვგა
+ქუთაბი
+ლიულია ქაბაბი
+დიუშბარა
+პიტი
+შექერბურა
+ბადრიჯნის დოლმა

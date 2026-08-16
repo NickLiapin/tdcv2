@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Georgian)
+locale: ka
+---
+კარდიოლოგია
+ნევროლოგია
+ონკოლოგია
+დერმატოლოგია
+გასტროენტეროლოგია
+ენდოკრინოლოგია
+პულმონოლოგია
+ორთოპედია
+ფსიქიატრია
+ნეფროლოგია

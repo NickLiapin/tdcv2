@@ -1,0 +1,21 @@
+---
+description: Kind of official document (Georgian). These are the names of the document types, not the identifier formats — numbering rules belong in a country pack.
+locale: ka
+---
+პასპორტი
+პირადობის მოწმობა
+დაბადების მოწმობა
+ქორწინების მოწმობა
+გარდაცვალების მოწმობა
+მართვის მოწმობა
+ბინადრობის ნებართვა
+ვიზა
+საგადასახადო დეკლარაცია
+მშენებლობის ნებართვა
+სამეწარმეო ლიცენზია
+რეგისტრაციის მოწმობა
+ცნობა საცხოვრებელი ადგილიდან
+ნასამართლობის ცნობა
+სკოლის ატესტატი
+დიპლომი
+მინდობილობა

@@ -1,0 +1,9 @@
+---
+description: Credit score band (Georgian)
+locale: ka
+---
+ძალიან დაბალი
+დაბალი
+საშუალო
+კარგი
+შესანიშნავი

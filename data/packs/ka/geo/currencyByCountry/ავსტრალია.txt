@@ -1,0 +1,5 @@
+---
+description: Currency of ავსტრალია (Georgian)
+locale: ka
+---
+ავსტრალიური დოლარი

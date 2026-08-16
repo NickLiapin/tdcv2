@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the ინდიგენური ამერიკული ancestry group, named in Georgian.
+locale: ka
+---
+ტიპი 2 დიაბეტი
+ნაღვლის ბუშტის დაავადება
+სიმსუქნე
+ალკოჰოლური ღვიძლის დაავადება
+რევმატოიდული ართრიტი
+ლაქტოზის აუტანლობა
+თირკმლის ქრონიკული დაავადება

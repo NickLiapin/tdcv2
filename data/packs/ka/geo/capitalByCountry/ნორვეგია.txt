@@ -1,0 +1,5 @@
+---
+description: Capital of ნორვეგია (Georgian)
+locale: ka
+---
+ოსლო

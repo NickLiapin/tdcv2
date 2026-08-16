@@ -1,0 +1,24 @@
+---
+description: Writing system (Georgian). Georgian has THREE alphabets of its own — ასომთავრული, ნუსხური and მხედრული — and UNESCO lists all three together as intangible heritage. Mkhedruli, the one in use today, has 33 letters, NO upper case whatsoever, and a near one-to-one letter-to-sound fit.
+locale: ka
+---
+ქართული მხედრული
+ასომთავრული
+ნუსხური
+ლათინური ანბანი
+კირილიცა
+ბერძნული ანბანი
+არაბული დამწერლობა
+ებრაული ანბანი
+სომხური ანბანი
+ჩინური იეროგლიფები
+ჰირაგანა
+კატაკანა
+ჰანგული
+დევანაგარი
+ტაილანდური დამწერლობა
+ტიბეტური დამწერლობა
+ეთიოპური დამწერლობა
+ბენგალური დამწერლობა
+ტამილური დამწერლობა
+გლაგოლიცა

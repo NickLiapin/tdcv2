@@ -1,0 +1,13 @@
+---
+description: Dishes of თურქული cuisine, named in Georgian.
+locale: ka
+---
+დონერი
+ქაბაბი
+ლაჰმაჯუნი
+პიდე
+მანთი
+ისკენდერი
+მენემენი
+ჩორბა
+ქიუფთა

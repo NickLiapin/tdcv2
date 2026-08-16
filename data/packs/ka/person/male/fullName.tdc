@@ -1,0 +1,10 @@
+---
+description: Georgian full male name — one given name and one surname (გიორგი ბერიძე). The given name comes first and stands in the stem form; the surname carries the case ending. Georgia uses one surname, not the Spanish two, and there is no patronymic in the Georgian civil register.
+generator: tdc
+locale: ka
+---
+<sequence name="p">
+  <gen name="f" type="template" value="ka.person.male.firstName"/>
+  <gen name="l" type="template" value="ka.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

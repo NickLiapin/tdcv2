@@ -1,0 +1,25 @@
+---
+description: Georgian thoroughfare type — goes AFTER the street name, the reverse of Polish or Russian order: რუსთაველის გამზირი, ვარდების ქუჩა. The name before it is in the genitive.
+locale: ka
+---
+ქუჩა
+გამზირი
+ხეივანი
+მოედანი
+შესახვევი
+ჩიხი
+გზატკეცილი
+მაგისტრალი
+სანაპირო
+ბულვარი
+პარკი
+სკვერი
+ხიდი
+აღმართი
+დაღმართი
+კვარტალი
+მასივი
+დასახლება
+ბაღი
+გზა
+გადასასვლელი

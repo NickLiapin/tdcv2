@@ -1,0 +1,24 @@
+---
+description: Mobile / telecom operator — the Georgian networks first, then the regional and international ones. Georgian names are written in Mkhedruli, foreign brands in Latin, which is how a Georgian bill actually looks.
+locale: ka
+---
+მაგთიკომი
+სილქნეტი
+Cellfie Mobile
+Geocell
+Vodafone
+Orange
+T-Mobile
+Turkcell
+Türk Telekom
+Beeline
+MTS
+MegaFon
+Tele2
+A1
+Play
+Ucom
+Viva-MTS
+Azercell
+Bakcell
+Kcell

@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the სამხრეთაზიური ancestry group, named in Georgian.
+locale: ka
+---
+ტიპი 2 დიაბეტი
+გულის იშემიური დაავადება
+ბეტა-თალასემია
+G6PD-ის დეფიციტი
+ლაქტოზის აუტანლობა
+D ვიტამინის დეფიციტი
+მეტაბოლური სინდრომი

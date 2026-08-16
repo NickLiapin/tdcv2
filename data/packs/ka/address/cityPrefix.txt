@@ -1,0 +1,20 @@
+---
+description: Leading element of a Georgian place name (ახალქალაქი, ზემო ალვანი, თეთრიწყარო). Combine with a real toponym; it does not by itself name a real city. Georgian has no capital letters, so these never change shape at the head of a name.
+locale: ka
+---
+ახალი
+ძველი
+ზემო
+ქვემო
+ზედა
+ქვედა
+შუა
+დიდი
+პატარა
+თეთრი
+წითელი
+შავი
+მწვანე
+ცივი
+მაღალი
+გრძელი

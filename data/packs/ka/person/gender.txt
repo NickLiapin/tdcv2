@@ -1,0 +1,6 @@
+---
+description: Gender label as the Georgian civil register writes it. Two values, matching en and ru — this list is what `parent="Gender.მამრობითი"` filters on, so a longer one silently leaves most rows without a name. Note that Georgian itself has NO grammatical gender: this is a data field, and nothing in the surrounding sentence changes with it.
+locale: ka
+---
+მამრობითი
+მდედრობითი

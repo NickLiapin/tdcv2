@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Georgian, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: ka
+---
+სუბსაჰარული აფრიკული
+ჩრდილოაფრიკული
+ხმელთაშუაზღვისპირული
+ახლოაღმოსავლური
+ჩრდილოევროპული
+აღმოსავლეთევროპული
+აშკენაზი ებრაული
+სამხრეთაზიური
+აღმოსავლეთაზიური
+სამხრეთ-აღმოსავლეთ აზიური
+ინდიგენური ამერიკული
+წყნარი ოკეანის კუნძულების

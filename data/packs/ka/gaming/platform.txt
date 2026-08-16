@@ -1,0 +1,15 @@
+---
+description: Gaming platform (brand names kept in Latin, as Georgian print writes them)
+locale: ka
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+Android
+iOS
+macOS
+ბრაუზერი

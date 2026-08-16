@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Georgian. Amounts are in lari (GEL), the currency of Georgia, the only country where Georgian is the state language. The bands sit far below western European ones because Georgian household incomes do.
+locale: ka
+---
+6 000 ლარამდე
+6 000–12 000 ლარი
+12 000–24 000 ლარი
+24 000–36 000 ლარი
+36 000–60 000 ლარი
+60 000–100 000 ლარი
+100 000–200 000 ლარი
+200 000 ლარზე მეტი

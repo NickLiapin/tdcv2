@@ -1,0 +1,32 @@
+---
+description: Garment type (Georgian). ჩოხა and ახალუხი are the traditional Georgian coat and the tunic worn beneath it; both are still worn at weddings and by dance and choral ensembles.
+locale: ka
+---
+მაისური
+ჯინსი
+კაბა
+ქურთუკი
+სვიტერი
+ქვედაბოლო
+შორტები
+ჰუდი
+ბლუზა
+კოსტიუმი
+პალტო
+სპორტული ფეხსაცმელი
+ჩექმა
+ქუდი
+შარფი
+პერანგი
+შარვალი
+ჟილეტი
+წვიმის ქურთუკი
+პიჟამა
+წინდები
+ქამარი
+კეპი
+სანდალი
+ხელთათმანი
+ჰალსტუხი
+ჩოხა
+ახალუხი

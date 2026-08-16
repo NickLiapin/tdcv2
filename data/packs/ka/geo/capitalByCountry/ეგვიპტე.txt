@@ -1,0 +1,5 @@
+---
+description: Capital of ეგვიპტე (Georgian)
+locale: ka
+---
+კაირო

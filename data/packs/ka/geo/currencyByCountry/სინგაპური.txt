@@ -1,0 +1,5 @@
+---
+description: Currency of სინგაპური (Georgian)
+locale: ka
+---
+სინგაპურის დოლარი

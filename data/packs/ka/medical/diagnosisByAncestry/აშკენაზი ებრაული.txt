@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the აშკენაზი ებრაული ancestry group, named in Georgian.
+locale: ka
+---
+ტეი-საქსის დაავადება
+გოშეს დაავადება
+ნიმან-პიკის დაავადება
+კანავანის დაავადება
+ფამილიური დიზავტონომია
+BRCA1 და BRCA2 მუტაციები
+ბლუმის სინდრომი

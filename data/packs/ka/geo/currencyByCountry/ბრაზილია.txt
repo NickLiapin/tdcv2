@@ -1,0 +1,5 @@
+---
+description: Currency of ბრაზილია (Georgian)
+locale: ka
+---
+ბრაზილიური რეალი

@@ -1,0 +1,13 @@
+---
+description: Broadcast age rating (Georgian). Georgian television labels programmes by minimum age, not by a letter code.
+locale: ka
+---
+ყველა ასაკისთვის
+ასაკობრივი შეზღუდვის გარეშე
+7+
+12+
+15+
+18+
+მშობლის თანხლებით
+ზოგადი აუდიტორია
+მხოლოდ ზრდასრულთათვის

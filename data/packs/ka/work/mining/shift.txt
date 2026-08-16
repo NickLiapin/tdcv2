@@ -1,0 +1,9 @@
+---
+description: Mining shift (Georgian)
+locale: ka
+---
+დილის ცვლა
+დღის ცვლა
+საღამოს ცვლა
+ღამის ცვლა
+დასვენების ცვლა

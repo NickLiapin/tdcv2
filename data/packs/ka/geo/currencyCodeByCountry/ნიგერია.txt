@@ -1,0 +1,5 @@
+---
+description: Currency code of ნიგერია
+locale: ka
+---
+NGN

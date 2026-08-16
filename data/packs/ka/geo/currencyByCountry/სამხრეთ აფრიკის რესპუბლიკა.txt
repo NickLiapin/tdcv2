@@ -1,0 +1,5 @@
+---
+description: Currency of სამხრეთ აფრიკის რესპუბლიკა (Georgian)
+locale: ka
+---
+რანდი

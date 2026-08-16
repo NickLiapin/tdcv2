@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in the სუბსაჰარული აფრიკული ancestry group, named in Georgian. The list is a prevalence signal, not an exclusive one: none of these conditions occurs only in this population, and none occurs in every member of it.
+locale: ka
+---
+ნამგლისებრუჯრედოვანი ანემია
+G6PD-ის დეფიციტი
+ბეტა-თალასემია
+არტერიული ჰიპერტენზია
+ტიპი 2 დიაბეტი
+სარკოიდოზი
+ლაქტოზის აუტანლობა
+საშვილოსნოს ფიბრომიომა
+თირკმლის ქრონიკული დაავადება
+კეტოაციდოზისკენ მიდრეკილი დიაბეტი

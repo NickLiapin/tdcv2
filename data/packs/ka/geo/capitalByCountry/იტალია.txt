@@ -1,0 +1,5 @@
+---
+description: Capital of იტალია (Georgian)
+locale: ka
+---
+რომი

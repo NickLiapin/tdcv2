@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the ხმელთაშუაზღვისპირული ancestry group, named in Georgian.
+locale: ka
+---
+ბეტა-თალასემია
+ალფა-თალასემია
+G6PD-ის დეფიციტი
+ფამილიური ხმელთაშუაზღვისპირული ცხელება
+ჰემოქრომატოზი
+ცელიაკია
+ბეჰჩეტის დაავადება

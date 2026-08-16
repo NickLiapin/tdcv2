@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Georgian street, district or housing estate name
+locale: ka
+---
+ჩრდილოეთი
+სამხრეთი
+აღმოსავლეთი
+დასავლეთი
+ჩრდილო-აღმოსავლეთი
+ჩრდილო-დასავლეთი
+სამხრეთ-აღმოსავლეთი
+სამხრეთ-დასავლეთი
+ცენტრი
+ცენტრალური
+ზემო
+ქვემო
+ზედა
+ქვედა
+შუა

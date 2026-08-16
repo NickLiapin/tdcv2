@@ -1,0 +1,5 @@
+---
+description: Currency code of არგენტინა
+locale: ka
+---
+ARS

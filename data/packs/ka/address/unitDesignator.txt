@@ -1,0 +1,22 @@
+---
+description: Georgian address unit / interior designator, with the abbreviated forms used before a number. Abbreviations end in a full stop and, having no capitals available, are distinguished only by length.
+locale: ka
+---
+ბინა
+ბ.
+სადარბაზო
+სად.
+სართული
+სართ.
+კორპუსი
+კორპ.
+შენობა
+ოთახი
+ოფისი
+ოფ.
+ავტოფარეხი
+სარდაფი
+სხვენი
+ეზო
+ბლოკი
+სექცია

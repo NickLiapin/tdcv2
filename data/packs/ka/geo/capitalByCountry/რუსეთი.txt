@@ -1,0 +1,5 @@
+---
+description: Capital of რუსეთი (Georgian)
+locale: ka
+---
+მოსკოვი

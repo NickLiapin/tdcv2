@@ -1,0 +1,44 @@
+---
+description: Airline — the Georgian carriers plus the airlines that actually serve Tbilisi, Kutaisi and Batumi. Brand names keep their own Latin spelling, which is how Georgian print writes them.
+locale: ka
+---
+Georgian Airways
+Vanilla Sky
+Geosky
+Turkish Airlines
+AJet
+Pegasus Airlines
+SunExpress
+Wizz Air
+Ryanair
+flydubai
+Air Arabia
+Qatar Airways
+Emirates
+Etihad Airways
+Lufthansa
+Austrian Airlines
+LOT Polish Airlines
+airBaltic
+Aegean Airlines
+Israir
+Arkia
+El Al
+Azerbaijan Airlines
+FlyOne Armenia
+Uzbekistan Airways
+Air Astana
+SCAT Airlines
+Belavia
+Corendon Airlines
+Jazeera Airways
+Kuwait Airways
+Saudia
+Gulf Air
+China Southern Airlines
+Air China
+Aeroflot
+Ural Airlines
+Azimuth
+Red Wings
+flyadeal

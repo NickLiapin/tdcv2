@@ -1,0 +1,5 @@
+---
+description: Capital of ამერიკის შეერთებული შტატები (Georgian)
+locale: ka
+---
+ვაშინგტონი

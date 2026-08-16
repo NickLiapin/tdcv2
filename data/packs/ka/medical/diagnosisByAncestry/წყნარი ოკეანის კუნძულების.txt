@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the წყნარი ოკეანის კუნძულების ancestry group, named in Georgian.
+locale: ka
+---
+ტიპი 2 დიაბეტი
+სიმსუქნე
+პოდაგრა
+რევმატიული ცხელება
+თირკმლის ქრონიკული დაავადება
+არტერიული ჰიპერტენზია
+ლაქტოზის აუტანლობა

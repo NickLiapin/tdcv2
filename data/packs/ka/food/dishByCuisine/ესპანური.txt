@@ -1,0 +1,13 @@
+---
+description: Dishes of ესპანური cuisine, named in Georgian.
+locale: ka
+---
+პაელია
+ტაპასი
+გასპაჩო
+ტორტილია
+ხამონი
+პულპო
+ჩურო
+კროკეტი
+ფაბადა

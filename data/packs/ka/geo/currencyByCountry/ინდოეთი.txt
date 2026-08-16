@@ -1,0 +1,5 @@
+---
+description: Currency of ინდოეთი (Georgian)
+locale: ka
+---
+ინდური რუპია

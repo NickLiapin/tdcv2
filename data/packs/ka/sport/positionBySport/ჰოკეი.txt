@@ -1,0 +1,10 @@
+---
+description: Playing positions in ჰოკეი, named in Georgian.
+locale: ka
+---
+მეკარე
+მარცხენა მცველი
+მარჯვენა მცველი
+ცენტრი
+მარცხენა ფრთა
+მარჯვენა ფრთა

@@ -1,0 +1,21 @@
+---
+description: Social platform (brand names kept in Latin)
+locale: ka
+---
+Facebook
+Instagram
+YouTube
+TikTok
+X
+Telegram
+WhatsApp
+Viber
+Messenger
+LinkedIn
+Pinterest
+Reddit
+Discord
+Snapchat
+Threads
+Twitch
+Clubhouse

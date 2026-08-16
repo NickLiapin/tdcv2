@@ -1,0 +1,24 @@
+---
+description: Fish (Georgian). ხრამული and ქაფშია are Kura-basin and Black Sea species with no common English name.
+locale: ka
+---
+კალმახი
+ორაგული
+ზუთხი
+კობრი
+ლოქო
+ქაშაყი
+სკუმბრია
+თინუსი
+ქაფშია
+კეფალი
+ბარაბულა
+კამბალა
+ღორჯო
+წვერა
+ხრამული
+ვირთევზა
+სარდინი
+ტილაპია
+დორადო
+სიბასი

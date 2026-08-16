@@ -1,0 +1,5 @@
+---
+description: Capital of ნიგერია (Georgian)
+locale: ka
+---
+აბუჯა

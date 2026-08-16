@@ -1,0 +1,5 @@
+---
+description: Capital of თურქეთი (Georgian)
+locale: ka
+---
+ანკარა

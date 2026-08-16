@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the აღმოსავლეთევროპული ancestry group, named in Georgian.
+locale: ka
+---
+ცისტური ფიბროზი
+ფენილკეტონურია
+ჰემოქრომატოზი
+ცელიაკია
+ტიპი 1 დიაბეტი
+ვილსონის დაავადება
+ლაქტოზის აუტანლობა

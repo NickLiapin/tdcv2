@@ -1,0 +1,5 @@
+---
+description: Capital of კანადა (Georgian)
+locale: ka
+---
+ოტავა

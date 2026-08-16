@@ -1,0 +1,5 @@
+---
+description: Capital of პაკისტანი (Georgian)
+locale: ka
+---
+ისლამაბადი

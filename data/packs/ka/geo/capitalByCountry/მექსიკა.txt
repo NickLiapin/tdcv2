@@ -1,0 +1,5 @@
+---
+description: Capital of მექსიკა (Georgian)
+locale: ka
+---
+მეხიკო

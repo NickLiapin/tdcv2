@@ -1,0 +1,5 @@
+---
+description: Currency code of საქართველო
+locale: ka
+---
+GEL

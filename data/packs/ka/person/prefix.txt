@@ -1,0 +1,36 @@
+---
+description: Georgian honorific / form of address. These attach to the GIVEN name, not to the surname: ბატონი გიორგი and ქალბატონი ნინო, never ბატონი ბერიძე. Mkhedruli has no capitals, so an honorific is not visually marked off from the name that follows it.
+locale: ka
+---
+ბატონი
+ქალბატონი
+ბ-ნი
+ქ-ნი
+დოქტორი
+დოქ.
+პროფესორი
+პროფ.
+აკადემიკოსი
+ექიმი
+მედიცინის დოქტორი
+ინჟინერი
+მაგისტრი
+ბაკალავრი
+მამა
+დეკანოზი
+მღვდელი
+ეპისკოპოსი
+მიტროპოლიტი
+პატრიარქი
+დედა
+მონაზონი
+ძმა
+ბატონიშვილი
+თავადი
+აზნაური
+ადვოკატი
+მოსამართლე
+გენერალი
+პოლკოვნიკი
+მაიორი
+კაპიტანი

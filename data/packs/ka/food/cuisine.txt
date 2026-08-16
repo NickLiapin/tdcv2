@@ -1,0 +1,21 @@
+---
+description: Cuisine (Georgian). Each value has a dishByCuisine child file. The neighbours — Armenian, Azerbaijani, Turkish — are on the list because they are what a Georgian menu actually offers beside the Georgian one.
+locale: ka
+---
+ქართული
+იტალიური
+იაპონური
+მექსიკური
+ჩინური
+ინდური
+ფრანგული
+ტაილანდური
+ბერძნული
+ესპანური
+ამერიკული
+კორეული
+ვიეტნამური
+თურქული
+ლიბანური
+სომხური
+აზერბაიჯანული

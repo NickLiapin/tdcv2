@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Georgian, კვარტალი). Roman numerals are used, as in Georgian accounting practice.
+locale: ka
+---
+I კვარტალი
+II კვარტალი
+III კვარტალი
+IV კვარტალი

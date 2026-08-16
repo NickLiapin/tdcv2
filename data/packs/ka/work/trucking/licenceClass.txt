@@ -1,0 +1,11 @@
+---
+description: Driving licence category for goods vehicles. Georgia uses the European A/B/C/D letter categories, so a Georgian licence reads the same as an EU one.
+locale: ka
+---
+კატეგორია B
+კატეგორია BE
+კატეგორია C1
+კატეგორია C1E
+კატეგორია C
+კატეგორია CE
+კატეგორია T

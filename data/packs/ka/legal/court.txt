@@ -1,0 +1,17 @@
+---
+description: Kind of court (Georgian). Georgian is the state language of one country, so these name the courts of Georgia: a three-tier system of district / city courts, courts of appeal and the Supreme Court, with a separate Constitutional Court.
+locale: ka
+---
+საკონსტიტუციო სასამართლო
+უზენაესი სასამართლო
+სააპელაციო სასამართლო
+საქალაქო სასამართლო
+რაიონული სასამართლო
+საერთო სასამართლო
+მაგისტრატი სასამართლო
+სამოქალაქო საქმეთა კოლეგია
+სისხლის სამართლის საქმეთა კოლეგია
+ადმინისტრაციულ საქმეთა კოლეგია
+ნაფიც მსაჯულთა სასამართლო
+საარბიტრაჟო სასამართლო
+სამხედრო სასამართლო

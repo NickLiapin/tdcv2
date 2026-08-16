@@ -1,0 +1,5 @@
+---
+description: Capital of არგენტინა (Georgian)
+locale: ka
+---
+ბუენოს-აირესი

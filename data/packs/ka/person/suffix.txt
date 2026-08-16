@@ -1,0 +1,24 @@
+---
+description: Name suffix (Georgian). Georgian carries NO generational suffix at all — there is no Georgian Jr. or III after a family name, and academic titles go in front of the name, not behind it. What is left is the ordinal numbering of monarchs (თამარ მეფე, დავით IV) plus the Latin post-nominals that Georgian CVs borrow unchanged, and უფროსი / უმცროსი used only to tell a father and son apart.
+locale: ka
+---
+უფროსი
+უმცროსი
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+XI
+XII
+PhD
+MBA
+MSc
+MD
+LLM
+BSc

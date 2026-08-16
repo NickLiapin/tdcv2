@@ -1,0 +1,5 @@
+---
+description: Capital of სინგაპური (Georgian)
+locale: ka
+---
+სინგაპური

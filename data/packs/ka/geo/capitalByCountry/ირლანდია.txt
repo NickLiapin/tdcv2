@@ -1,0 +1,5 @@
+---
+description: Capital of ირლანდია (Georgian)
+locale: ka
+---
+დუბლინი

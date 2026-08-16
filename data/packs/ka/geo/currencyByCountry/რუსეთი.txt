@@ -1,0 +1,5 @@
+---
+description: Currency of რუსეთი (Georgian)
+locale: ka
+---
+რუსული რუბლი

@@ -1,0 +1,12 @@
+---
+description: Dishes of სომხური cuisine, named in Georgian.
+locale: ka
+---
+ტოლმა
+ხოროვაცი
+ლავაში
+ჰარისა
+სპასი
+ბასტურმა
+გატა
+ღაფამა

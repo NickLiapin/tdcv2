@@ -1,0 +1,5 @@
+---
+description: Currency of ნიგერია (Georgian)
+locale: ka
+---
+ნაირა

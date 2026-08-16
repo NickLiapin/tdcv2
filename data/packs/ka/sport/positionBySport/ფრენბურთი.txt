@@ -1,0 +1,9 @@
+---
+description: Playing positions in ფრენბურთი, named in Georgian.
+locale: ka
+---
+დამრიგებელი
+დიაგონალი
+ცენტრალური ბლოკერი
+მიმღები თავდამსხმელი
+ლიბერო

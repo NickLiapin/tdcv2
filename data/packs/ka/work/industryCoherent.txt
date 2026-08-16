@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child), in Georgian
+locale: ka
+---
+ტექნოლოგია
+ჯანდაცვა
+ფინანსები
+მშენებლობა
+განათლება
+სასტუმრო და კვება
+წარმოება
+საცალო ვაჭრობა
+ტრანსპორტი
+სამართალი

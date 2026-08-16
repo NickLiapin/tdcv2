@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the აღმოსავლეთაზიური ancestry group, named in Georgian.
+locale: ka
+---
+ლაქტოზის აუტანლობა
+ალდეჰიდდეჰიდროგენაზას დეფიციტი
+ცხვირ-ხახის კიბო
+კუჭის კიბო
+ალფა-თალასემია
+G6PD-ის დეფიციტი
+ტიპი 2 დიაბეტი

@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type (written with Latin letters in Georgian medical records)
+locale: ka
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

@@ -1,0 +1,5 @@
+---
+description: Capital of პორტუგალია (Georgian)
+locale: ka
+---
+ლისაბონი

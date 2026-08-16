@@ -1,0 +1,5 @@
+---
+description: Capital of შვედეთი (Georgian)
+locale: ka
+---
+სტოკჰოლმი

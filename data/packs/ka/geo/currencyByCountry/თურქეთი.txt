@@ -1,0 +1,5 @@
+---
+description: Currency of თურქეთი (Georgian)
+locale: ka
+---
+თურქული ლირა

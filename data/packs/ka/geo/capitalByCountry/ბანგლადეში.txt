@@ -1,0 +1,5 @@
+---
+description: Capital of ბანგლადეში (Georgian)
+locale: ka
+---
+დაკა

@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Georgian). Georgia's Labour Code recognises the fixed-term and open-ended contract; the rest are the working arrangements a job advert names.
+locale: ka
+---
+სრული განაკვეთი
+ნახევარი განაკვეთი
+უვადო ხელშეკრულება
+ვადიანი ხელშეკრულება
+მომსახურების ხელშეკრულება
+დროებითი სამუშაო
+სტაჟირება
+პრაქტიკა
+თვითდასაქმება
+სეზონური სამუშაო
+დისტანციური სამუშაო

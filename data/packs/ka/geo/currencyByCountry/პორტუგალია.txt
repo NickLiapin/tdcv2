@@ -1,0 +1,5 @@
+---
+description: Currency of პორტუგალია (Georgian)
+locale: ka
+---
+ევრო

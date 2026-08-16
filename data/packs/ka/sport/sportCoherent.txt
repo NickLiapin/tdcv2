@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Georgian). Rugby and water polo are on it because Georgia is genuinely strong at both, not because a European template put them there.
+locale: ka
+---
+ფეხბურთი
+კალათბურთი
+ფრენბურთი
+ხელბურთი
+რაგბი
+წყალბურთი
+ბეისბოლი
+ჰოკეი

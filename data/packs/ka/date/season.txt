@@ -1,0 +1,8 @@
+---
+description: Season (Georgian). Georgia lies wholly in the northern temperate zone and has the usual four.
+locale: ka
+---
+ზამთარი
+გაზაფხული
+ზაფხული
+შემოდგომა

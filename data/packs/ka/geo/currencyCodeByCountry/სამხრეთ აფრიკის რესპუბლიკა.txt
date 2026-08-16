@@ -1,0 +1,5 @@
+---
+description: Currency code of სამხრეთ აფრიკის რესპუბლიკა
+locale: ka
+---
+ZAR

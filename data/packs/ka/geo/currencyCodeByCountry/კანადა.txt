@@ -1,0 +1,5 @@
+---
+description: Currency code of კანადა
+locale: ka
+---
+CAD

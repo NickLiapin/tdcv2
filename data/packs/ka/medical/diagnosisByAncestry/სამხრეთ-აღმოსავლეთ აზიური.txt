@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in the სამხრეთ-აღმოსავლეთ აზიური ancestry group, named in Georgian.
+locale: ka
+---
+ალფა-თალასემია
+ბეტა-თალასემია
+G6PD-ის დეფიციტი
+ჰემოგლობინი E
+ლაქტოზის აუტანლობა
+ტუბერკულოზი
+ტიპი 2 დიაბეტი
