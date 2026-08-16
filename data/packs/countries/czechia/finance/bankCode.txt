@@ -1,0 +1,35 @@
+---
+address: czechia.finance.bankCode
+description: Four-digit Czech payment-system bank codes (kód banky) from the ČNB register — the part written after the slash in 2000145399/0800. These are issued codes, not a pattern: the list matches czechia.finance.bank line for line, so the same row index yields the bank and its code. 0710 is the Czech National Bank itself, which is where state and tax-office accounts sit.
+---
+0800
+0100
+0300
+0600
+2700
+5500
+3030
+2010
+6210
+2250
+5800
+6000
+6363
+2070
+2100
+7990
+7950
+7960
+7970
+8060
+2600
+3500
+6200
+7910
+8040
+4300
+8090
+2060
+2220
+2200
+0710

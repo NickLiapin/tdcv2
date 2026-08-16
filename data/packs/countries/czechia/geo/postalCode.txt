@@ -1,0 +1,6 @@
+---
+address: czechia.geo.postalCode
+description: Czech postal code (PSČ) — five digits, but written 3+2 with a space, as 110 00. The space is not decoration; it is how the code is printed on forms and envelopes, and code lists give it that way. The first digit is the delivery region, 1 for Prague through 7 for Moravia-Silesia and Olomouc; 8 and 9 are not used, so the leading digit is 1-7.
+generator: tdc
+---
+<gen type="regex" value="[1-7][0-9]{2} [0-9]{2}"/>

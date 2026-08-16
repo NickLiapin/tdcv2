@@ -1,0 +1,80 @@
+---
+address: czechia.geo.city
+description: Cities and towns of Czechia, roughly ordered by population. Prague is an order of magnitude larger than anything else and the country flattens fast — Brno is under a fifth of Prague and the list is into 20,000-person towns by the fortieth entry, so a draw from here is mostly small-town Czechia, which is what the country looks like.
+locale: cs
+---
+Praha
+Brno
+Ostrava
+Plzeň
+Liberec
+Olomouc
+České Budějovice
+Hradec Králové
+Ústí nad Labem
+Pardubice
+Zlín
+Havířov
+Kladno
+Most
+Opava
+Frýdek-Místek
+Karviná
+Jihlava
+Teplice
+Děčín
+Karlovy Vary
+Chomutov
+Jablonec nad Nisou
+Mladá Boleslav
+Prostějov
+Přerov
+Třebíč
+Česká Lípa
+Třinec
+Tábor
+Znojmo
+Příbram
+Cheb
+Kolín
+Trutnov
+Písek
+Kroměříž
+Orlová
+Vsetín
+Šumperk
+Valašské Meziříčí
+Uherské Hradiště
+Litvínov
+Hodonín
+Chrudim
+Havlíčkův Brod
+Nový Jičín
+Krnov
+Litoměřice
+Sokolov
+Břeclav
+Klatovy
+Český Těšín
+Žďár nad Sázavou
+Bohumín
+Kutná Hora
+Jindřichův Hradec
+Blansko
+Strakonice
+Náchod
+Beroun
+Mělník
+Kopřivnice
+Otrokovice
+Rakovník
+Benešov
+Vyškov
+Jirkov
+Svitavy
+Bruntál
+Žatec
+Nymburk
+Pelhřimov
+Rokycany
+Tachov

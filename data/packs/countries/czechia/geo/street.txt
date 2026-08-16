@@ -1,0 +1,79 @@
+---
+address: czechia.geo.street
+description: Streets and squares that really exist in Czech cities — Prague first, then Brno, Ostrava and Plzeň. The generic Czech street vocabulary (Lipová, Na Příkopě-style preposition names) lives in the language pack at cs.address.streetName; this file is the named ones you could point at on a map. Note the shape of a Czech address: the street comes first and the number after it (Vodičkova 12), and the word ulice is left out unless the name itself is a náměstí or a třída.
+locale: cs
+---
+Václavské náměstí
+Staroměstské náměstí
+Národní
+Na Příkopě
+Pařížská
+Celetná
+Karlova
+Nerudova
+Vodičkova
+Jungmannova
+Revoluční
+Dlouhá
+Rytířská
+Melantrichova
+Husova
+Křižovnická
+Kaprova
+Platnéřská
+Wilsonova
+Legerova
+Ječná
+Sokolská
+Vinohradská
+Korunní
+Bělehradská
+Francouzská
+Slezská
+Vršovická
+Milady Horákové
+Dukelských hrdinů
+Strossmayerovo náměstí
+Dejvická
+Evropská
+Jugoslávských partyzánů
+Technická
+Zenklova
+Sokolovská
+Českomoravská
+Pobřežní
+Rohanské nábřeží
+Radlická
+Plzeňská
+Štefánikova
+Zborovská
+Janáčkovo nábřeží
+Malostranské náměstí
+Letenská
+Politických vězňů
+Masarykova
+Česká
+Joštova
+Kobližná
+Veveří
+Údolní
+Kounicova
+Lidická
+Cejl
+Křenová
+Hybešova
+Náměstí Svobody
+Zelný trh
+Moravské náměstí
+Purkyňova
+Palackého třída
+Stodolní
+Nádražní
+Sokolská třída
+Českobratrská
+Poděbradova
+28. října
+Klatovská třída
+Americká
+Rooseveltova
+Sady Pětatřicátníků

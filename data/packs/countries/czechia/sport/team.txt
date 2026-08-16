@@ -1,0 +1,33 @@
+---
+address: czechia.sport.team
+description: Czech football clubs — the top flight first, then the second tier. Sparta and Slavia are both Prague clubs and between them have taken nearly every title the country has awarded; Viktoria Plzeň and Baník Ostrava are the standing challenge from outside the capital. Football is not the national sport here, though — for that see czechia.sport.hockeyTeam.
+locale: cs
+---
+AC Sparta Praha
+SK Slavia Praha
+FC Viktoria Plzeň
+FC Baník Ostrava
+FC Slovan Liberec
+SK Sigma Olomouc
+FK Mladá Boleslav
+FK Jablonec
+1. FC Slovácko
+FK Teplice
+FC Hradec Králové
+Bohemians Praha 1905
+FK Pardubice
+MFK Karviná
+FC Zbrojovka Brno
+SK Dynamo České Budějovice
+FC Trinity Zlín
+SFC Opava
+FK Dukla Praha
+FK Viktoria Žižkov
+FC Vysočina Jihlava
+1. FK Příbram
+FC Sellier & Bellot Vlašim
+FK Chrudim
+FC Silon Táborsko
+MFK Vyškov
+FK Baník Most-Souš
+SK Líšeň

@@ -1,0 +1,29 @@
+---
+address: czechia.sport.hockeyTeam
+description: Ice-hockey clubs of the Tipsport extraliga, then the second-tier Maxa liga. This file exists because a Czech sport pack that only lists football clubs is wrong about the country: ice hockey is the national sport, the extraliga outdraws the football league, and towns like Třinec, Litvínov and Vsetín are known nationally for their hockey club and for nothing else. A generic European country pack would not have this file.
+locale: cs
+---
+HC Sparta Praha
+HC Oceláři Třinec
+HC Dynamo Pardubice
+HC Kometa Brno
+HC Vítkovice Ridera
+Bílí Tygři Liberec
+Mountfield HK
+HC Škoda Plzeň
+HC Energie Karlovy Vary
+Rytíři Kladno
+HC Olomouc
+BK Mladá Boleslav
+HC Motor České Budějovice
+HC Verva Litvínov
+HC Dukla Jihlava
+HC Slavia Praha
+HC Baník Sokolov
+HC Zubr Přerov
+HC RT TORAX Poruba
+VHK ROBE Vsetín
+HC Frýdek-Místek
+SK Horácká Slavia Třebíč
+AZ Havířov
+HC Stadion Litoměřice

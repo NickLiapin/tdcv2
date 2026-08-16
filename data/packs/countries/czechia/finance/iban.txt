@@ -1,0 +1,51 @@
+---
+address: czechia.finance.iban
+description: Czech IBAN — 24 chars: CZ + 2 ISO 7064 mod-97 check digits + a 4-digit ČNB bank code + the 6-digit account prefix + the 10-digit account number. Three checks hold at once here, not one: the mod-97 IBAN check and BOTH of the domestic weighted mod-11 checks (prefix under 10,5,8,4,2,1 and main part under 6,3,7,9,10,5,8,4,2,1), so the BBAN is still a valid Czech account number after the IBAN is taken apart. Verified against the published CZ6508000000192000145399, which is the account 19-2000145399/0800.
+generator: tdc
+---
+<sequence name="bank"><gen type="template" value="czechia.finance.bankCode"/></sequence>
+<sequence name="pbase"><gen type="regex" value="00[0-9]{3}"/></sequence>
+<sequence name="abase"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="pcheck"><compute>
+  <let name="sum"><reduce>
+    <over><field name="pbase"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="10,5,8,4,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <result><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+</compute></sequence>
+<sequence name="acheck"><compute>
+  <let name="sum"><reduce>
+    <over><field name="abase"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="6,3,7,9,10,5,8,4,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <result><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+</compute></sequence>
+<valid><less_than>
+  <add>
+    <divide><to_number><field name="pcheck"/></to_number><int v="10"/></divide>
+    <divide><to_number><field name="acheck"/></to_number><int v="10"/></divide>
+  </add>
+  <int v="1"/>
+</less_than></valid>
+<sequence name="iban"><compute>
+  <let name="bban"><concat><field name="bank"/><field name="pbase"/><field name="pcheck"/><field name="abase"/><field name="acheck"/></concat></let>
+  <let name="rearranged"><concat><use name="bban"/><str v="CZ"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="CZ"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

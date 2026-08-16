@@ -1,0 +1,82 @@
+---
+address: czechia.geo.okres
+description: The 76 okresy of Czechia plus the capital, ordered by kraj. The okres was abolished as a tier of government in 2002 and still has not gone away — it names the court, the land registry, the social-security office and the vehicle register, so it keeps appearing on documents long after it stopped governing anything. Four are city halves (Brno-město and Brno-venkov, Praha-východ and Praha-západ) where the surrounding district is administered separately from the city it surrounds.
+locale: cs
+---
+Praha
+Benešov
+Beroun
+Kladno
+Kolín
+Kutná Hora
+Mělník
+Mladá Boleslav
+Nymburk
+Praha-východ
+Praha-západ
+Příbram
+Rakovník
+České Budějovice
+Český Krumlov
+Jindřichův Hradec
+Písek
+Prachatice
+Strakonice
+Tábor
+Domažlice
+Klatovy
+Plzeň-město
+Plzeň-jih
+Plzeň-sever
+Rokycany
+Tachov
+Cheb
+Karlovy Vary
+Sokolov
+Děčín
+Chomutov
+Litoměřice
+Louny
+Most
+Teplice
+Ústí nad Labem
+Česká Lípa
+Jablonec nad Nisou
+Liberec
+Semily
+Hradec Králové
+Jičín
+Náchod
+Rychnov nad Kněžnou
+Trutnov
+Chrudim
+Pardubice
+Svitavy
+Ústí nad Orlicí
+Havlíčkův Brod
+Jihlava
+Pelhřimov
+Třebíč
+Žďár nad Sázavou
+Blansko
+Brno-město
+Brno-venkov
+Břeclav
+Hodonín
+Vyškov
+Znojmo
+Jeseník
+Olomouc
+Prostějov
+Přerov
+Šumperk
+Kroměříž
+Uherské Hradiště
+Vsetín
+Zlín
+Bruntál
+Frýdek-Místek
+Karviná
+Nový Jičín
+Opava
+Ostrava-město

@@ -1,0 +1,33 @@
+---
+address: czechia.education.university
+description: The public universities of Czechia, official Czech names, oldest and largest first. Univerzita Karlova was founded in 1348 and is the oldest university north of the Alps and east of Paris, which is why a Czech CV can carry a date no other country's can. Note the vocabulary: a vysoká škola is a university too, not a college — ČVUT, VŠCHT and VŠE are full universities whose names simply predate the word univerzita.
+locale: cs
+---
+Univerzita Karlova
+Masarykova univerzita
+České vysoké učení technické v Praze
+Vysoké učení technické v Brně
+Univerzita Palackého v Olomouci
+Vysoká škola ekonomická v Praze
+Česká zemědělská univerzita v Praze
+Vysoká škola báňská – Technická univerzita Ostrava
+Západočeská univerzita v Plzni
+Mendelova univerzita v Brně
+Jihočeská univerzita v Českých Budějovicích
+Univerzita Pardubice
+Technická univerzita v Liberci
+Ostravská univerzita
+Univerzita Hradec Králové
+Univerzita Tomáše Bati ve Zlíně
+Univerzita Jana Evangelisty Purkyně v Ústí nad Labem
+Vysoká škola chemicko-technologická v Praze
+Slezská univerzita v Opavě
+Veterinární univerzita Brno
+Akademie múzických umění v Praze
+Akademie výtvarných umění v Praze
+Vysoká škola uměleckoprůmyslová v Praze
+Janáčkova akademie múzických umění
+Univerzita obrany
+Policejní akademie České republiky v Praze
+Vysoká škola technická a ekonomická v Českých Budějovicích
+Vysoká škola polytechnická Jihlava

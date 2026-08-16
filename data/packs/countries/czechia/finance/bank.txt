@@ -1,0 +1,36 @@
+---
+address: czechia.finance.bank
+description: Banks and credit unions operating in Czechia, trading names, roughly by size. Line for line this list matches czechia.finance.bankCode, so drawing the same row index from both gives a bank and its real four-digit ČNB payment-system code. Building societies (stavební spořitelny) are included because they hold ordinary retail accounts here; the last entry is the central bank, whose code 0710 really does appear on public accounts such as tax-office ones.
+locale: cs
+---
+Česká spořitelna
+Komerční banka
+ČSOB
+MONETA Money Bank
+UniCredit Bank
+Raiffeisenbank
+Air Bank
+Fio banka
+mBank
+Banka CREDITAS
+J&T Banka
+PPF banka
+Partners Banka
+Trinity Bank
+ČSOB Hypoteční banka
+Modrá pyramida stavební spořitelna
+Raiffeisen stavební spořitelna
+ČSOB Stavební spořitelna
+MONETA Stavební spořitelna
+Stavební spořitelna České spořitelny
+Citibank Europe
+ING Bank
+Commerzbank
+Deutsche Bank
+Oberbank
+Národní rozvojová banka
+Česká exportní banka
+Citfin
+Artesa
+Peněžní dům
+Česká národní banka

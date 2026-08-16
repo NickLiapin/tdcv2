@@ -1,6 +1,6 @@
 ---
-address: czechia.tax.vat
-description: Czech VAT number (DIČ) — CZ followed by the registrant's IČO, so the eight digits carry the real IČO mod-11 check (weights 8,7,6,5,4,3,2) rather than being free digits. A natural person's DIČ is CZ plus their nine- or ten-digit rodné číslo instead; take czechia.docs.rodneCislo and drop the slash for that form. Czechia is NOT in the eurozone, so the amounts a DIČ appears beside are in koruna (CZK) — unlike neighbouring Slovakia and Austria, whose packs would otherwise look interchangeable.
+address: czechia.tax.ico
+description: Czech company registration number (IČO) — 8 digits issued by the statistical office to every legal person and every sole trader. The last digit is a real mod-11 check over the first seven under weights 8,7,6,5,4,3,2: remainder 0 gives 1, remainder 1 gives 0, otherwise 11 minus the remainder. Leading zeros are part of the number and are significant — Škoda Auto is 00177041, not 177041.
 generator: tdc
 ---
 <sequence name="base"><gen type="regex" value="[0-9]{7}"/></sequence>
@@ -12,7 +12,8 @@ generator: tdc
       <at><in><list v="8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
     </multiply></add></do>
   </reduce></let>
+  <!-- (11 - sum mod 11) mod 10 folds both special cases: r=0 gives 1, r=1 gives 0. -->
   <let name="check"><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="10"/></mod></let>
   <result><concat><field name="base"/><use name="check"/></concat></result>
 </compute></sequence>
-<data>CZ${{ico}}</data>
+<data>${{ico}}</data>

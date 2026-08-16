@@ -1,0 +1,18 @@
+---
+address: czechia.holiday
+description: The 13 public holidays of Czechia, in calendar order. Two of them are the reason a Czech calendar cannot be copied from a Catholic neighbour: 5 July for Cyril and Methodius and 6 July for the burning of Jan Hus, a Catholic-condemned reformer commemorated by the state. Czechia is one of the least religious countries in Europe and its calendar shows it — Assumption and All Saints, which are days off in Poland and Austria, are ordinary working days here.
+locale: cs
+---
+Den obnovy samostatného českého státu a Nový rok
+Velký pátek
+Velikonoční pondělí
+Svátek práce
+Den vítězství
+Den slovanských věrozvěstů Cyrila a Metoděje
+Den upálení mistra Jana Husa
+Den české státnosti
+Den vzniku samostatného československého státu
+Den boje za svobodu a demokracii a Mezinárodní den studentstva
+Štědrý den
+1. svátek vánoční
+2. svátek vánoční

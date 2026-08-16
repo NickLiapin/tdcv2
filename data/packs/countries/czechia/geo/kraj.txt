@@ -1,0 +1,19 @@
+---
+address: czechia.geo.kraj
+description: The 14 first-level units of Czechia — 13 kraje plus the capital, which is a kraj in its own right and is never called one (it is Hlavní město Praha, not "Pražský kraj"). Two more break the pattern: Kraj Vysočina puts the word first because Vysočina is a highland, not a town, and Moravskoslezský kraj names two historic lands rather than a city. Given in the nominative, as on forms; the address form inflects (v Jihomoravském kraji).
+locale: cs
+---
+Hlavní město Praha
+Středočeský kraj
+Jihočeský kraj
+Plzeňský kraj
+Karlovarský kraj
+Ústecký kraj
+Liberecký kraj
+Královéhradecký kraj
+Pardubický kraj
+Kraj Vysočina
+Jihomoravský kraj
+Olomoucký kraj
+Zlínský kraj
+Moravskoslezský kraj

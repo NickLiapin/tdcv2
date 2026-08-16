@@ -1,0 +1,8 @@
+---
+address: czechia.phone
+description: Czech mobile number in E.164 form. The Czech plan is closed and flat, which is unusual in Europe: nine digits, no area code to prepend or drop, and no trunk zero — the trunk 0 was abolished in 2002, so the number you dial locally is the number you dial nationally and the number after +420. Geographic numbers simply start 2 (Prague), 3, 4 or 5 instead of a mobile prefix; this file draws the mobile prefixes actually assigned — 601-608, 702-705, 720-739, 770-779 and 790-795, 797, 799 — one at a time rather than from a regex alternation, so no prefix is over-represented.
+generator: tdc
+---
+<sequence name="prefix"><gen type="text" value="601,602,603,604,605,606,607,608,702,703,704,705,720,721,722,723,724,725,726,727,728,729,730,731,732,733,734,735,736,737,738,739,770,771,772,773,774,775,776,777,778,779,790,791,792,793,794,795,797,799"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+420${{prefix}}${{rest}}</data>

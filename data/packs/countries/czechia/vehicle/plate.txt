@@ -1,0 +1,10 @@
+---
+address: czechia.vehicle.plate
+description: Czech registration plate in the format used since 2001 — seven characters written 1A2 3456: a digit, then the letter of the kraj that issued it, then a digit, a space, and four more digits. The letter is the region and only the region (A Praha, S Středočeský, C Jihočeský, P Plzeňský, K Karlovarský, U Ústecký, L Liberecký, H Královéhradecký, E Pardubický, J Vysočina, B Jihomoravský, M Olomoucký, Z Zlínský, T Moravskoslezský); it is not a make, so a Škoda is no more likely to carry an S than anything else. Series run from 1x0 0001 upward, hence the leading digit 1-9. Personalised plates and the older pre-2001 district plates are not generated.
+generator: tdc
+---
+<sequence name="head"><gen type="regex" value="[1-9]"/></sequence>
+<sequence name="region"><gen type="text" value="A,S,C,P,K,U,L,H,E,J,B,M,Z,T"/></sequence>
+<sequence name="mid"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>${{head}}${{region}}${{mid}} ${{tail}}</data>

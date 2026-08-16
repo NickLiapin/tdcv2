@@ -1,0 +1,35 @@
+---
+address: czechia.docs.rodneCislo
+description: Czech birth number (rodné číslo) in the printed YYMMDD/SSSC form. The month field carries the sex — 01-12 for men, +50 (51-62) for women — so the number states the date of birth and the sex on its face. Every ten-digit number issued since 1954 is divisible by 11, and the last digit IS that check: the remainder of the first nine digits modulo 11. Draws births 1954-2009. Pass sex="m" or sex="f" to fix the sex; anything else (the default) draws it. Not generated: the pre-1954 nine-digit form, which has no check digit at all, and the +20/+70 months used since 2004 when a day's serials run out. Drop the slash for the ten-digit machine form — that is also the natural-person DIČ once CZ is prefixed.
+generator: tdc
+---
+<sequence name="dob"><gen type="date" from="1954-01-01" to="2009-12-31" format="YYMMDD"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="sex"><gen type="text" value="any"/></sequence>
+<sequence name="sexraw"><gen type="regex" value="[01]"/></sequence>
+<sequence name="ymd"><compute>
+  <let name="yy"><slice from="0" to="2"><field name="dob"/></slice></let>
+  <let name="mm"><to_number><slice from="2" to="4"><field name="dob"/></slice></to_number></let>
+  <let name="dd"><slice from="4" to="6"><field name="dob"/></slice></let>
+  <!-- 'f' is 102 and 'm' is 109 in Unicode; any other first character (the
+       default "any") falls back to a drawn bit, so the column mixes sexes. -->
+  <let name="sexcode"><to_number><encode as="unicode"><slice from="0" to="1"><field name="sex"/></slice></encode></to_number></let>
+  <let name="female">
+    <choose>
+      <when><test><equals><use name="sexcode"/><int v="102"/></equals></test><then><int v="1"/></then></when>
+      <when><test><equals><use name="sexcode"/><int v="109"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><to_number><field name="sexraw"/></to_number></otherwise>
+    </choose>
+  </let>
+  <let name="encmonth"><pad width="2" fill="0"><add><use name="mm"/><multiply><use name="female"/><int v="50"/></multiply></add></pad></let>
+  <result><concat><use name="yy"/><use name="encmonth"/><use name="dd"/></concat></result>
+</compute></sequence>
+<!-- The ten-digit number must be divisible by 11. Since 10 = -1 (mod 11), that
+     makes the check digit the first nine digits modulo 11. A remainder of 10
+     has no digit to carry it, so those draws are rejected: before 1985 such
+     numbers were issued with a 0 and are then NOT divisible by 11. -->
+<sequence name="check"><compute><result>
+  <mod><to_number><concat><field name="ymd"/><field name="serial"/></concat></to_number><int v="11"/></mod>
+</result></compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{ymd}}/${{serial}}${{check}}</data>
