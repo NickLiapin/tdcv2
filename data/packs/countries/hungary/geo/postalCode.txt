@@ -1,0 +1,18 @@
+---
+address: hungary.geo.postalCode
+description: Hungarian postcode (irányítószám) — 4 digits. Budapest codes are REAL - 1XXY, where XX is the district number 01-23 and Y is a sub-zone, so 1051 is the V. kerület and 1223 the XXII. Codes outside Budapest are STRUCTURAL only - 2000-9999 is the right range and the leading digit is the right kind of regional digit, but the individual code is not looked up against a settlement. Budapest is drawn about 20% of the time, close to its share of the population.
+generator: tdc
+locale: hu
+---
+<sequence name="mode"><gen type="number" value="1..10"/></sequence>
+<sequence name="district"><gen type="number" value="1..23" length="2" first_zero="true"/></sequence>
+<sequence name="subzone"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="country"><gen type="regex" value="[2-9][0-9]{3}"/></sequence>
+<sequence name="code"><compute>
+  <result><choose>
+    <when><test><less_than><to_number><field name="mode"/></to_number><int v="3"/></less_than></test>
+      <then><concat><str v="1"/><field name="district"/><field name="subzone"/></concat></then></when>
+    <otherwise><field name="country"/></otherwise>
+  </choose></result>
+</compute></sequence>
+<data>${{code}}</data>

@@ -1,0 +1,23 @@
+---
+address: hungary.finance.bankCode
+description: The first 8 digits of a Hungarian pénzforgalmi jelzőszám — a 3-digit bank prefix, a 4-digit branch and the MNB check digit. Every entry here carries a VALID check digit (weights 9,7,3,1,9,7,3; check = (10 - sum mod 10) mod 10) and a real bank prefix - 100 Magyar Államkincstár, 101/102 the former Budapest Bank, 103 MKB/MBH, 104 K&H, 107 CIB, 109 UniCredit, 116 Erste, 117/119 OTP, 120 Raiffeisen, 162 MagNet, 651 the savings-bank network. 10032000 is the Treasury identifier every NAV payment account is built on and 11773016 is the one in the published HU test IBAN. The branch halves are well-formed and check-valid but are not claimed to be currently allocated branches.
+---
+10032000
+10102086
+10201006
+10300002
+10404065
+10700024
+10918001
+11600006
+11705008
+11734004
+11738008
+11742001
+11749008
+11773016
+11994002
+12010422
+12072507
+16200106
+65100118

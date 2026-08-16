@@ -1,0 +1,20 @@
+---
+address: hungary.docs.taj
+description: TAJ szám — the Hungarian social-security / health-insurance number. 9 digits. The first 8 are a plain running serial (they may start with 0, and often do); the 9th is the check digit. REAL ARITHMETIC - odd positions are multiplied by 3, even positions by 7, the products are summed, and the check digit is that sum modulo 10. Verified against the worked example published in the 2023 Digitális kultúra school-leaving exam (2213, 2023-05-15) - 673457015, sum 175, check 5.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="taj"><compute>
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="3,7,3,7,3,7,3,7"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><use name="sum"/><int v="10"/></mod></let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{taj}}</data>

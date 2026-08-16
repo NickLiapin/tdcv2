@@ -1,0 +1,35 @@
+---
+address: hungary.finance.iban
+description: Hungarian IBAN — 28 characters - HU + 2 ISO 7064 MOD-97 check digits + a 24-digit BBAN. BOTH check layers are implemented, not one. The domestic layer - the 8th digit closes the bank-and-branch block and the 16th closes the account block, each by the MNB rule (weights 9,7,3,1,9,7,3; check = (10 - sum mod 10) mod 10). The international layer - the MOD-97 check digits after HU. The trailing 8 zeros are not padding invented here - a 16-digit Hungarian account is genuinely widened to 24 by appending zeros for IBAN, which is how real HU IBANs are built and why every one of them ends in 00000000. Verified against the published HU test IBAN HU42117730161111101800000000, where both domestic blocks and the MOD-97 all check out.
+generator: tdc
+---
+<sequence name="bankCode"><gen type="template" value="hungary.finance.bankCode"/></sequence>
+<sequence name="body"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="iban"><compute>
+  <!-- Domestic layer: close the account block with its own MNB check digit. -->
+  <let name="sum"><reduce>
+    <over><field name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="9,7,3,1,9,7,3"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="inner"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <let name="bban"><concat><field name="bankCode"/><field name="body"/><use name="inner"/><str v="00000000"/></concat></let>
+  <!-- International layer: ISO 7064 MOD-97-10 over the rearranged string. -->
+  <let name="rearranged"><concat><use name="bban"/><str v="HU"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="HU"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

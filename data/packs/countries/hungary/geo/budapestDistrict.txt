@@ -1,0 +1,28 @@
+---
+address: hungary.geo.budapestDistrict
+description: The 23 districts of Budapest, written the way a Hungarian address writes them - a Roman numeral followed by "kerület". The numeral IS the address; the district's own name (Óbuda, Ferencváros, Zugló) is a nickname and is deliberately not stored here. A Budapest postcode encodes the same number - 1XXY, where XX is the district.
+locale: hu
+---
+I. kerület
+II. kerület
+III. kerület
+IV. kerület
+V. kerület
+VI. kerület
+VII. kerület
+VIII. kerület
+IX. kerület
+X. kerület
+XI. kerület
+XII. kerület
+XIII. kerület
+XIV. kerület
+XV. kerület
+XVI. kerület
+XVII. kerület
+XVIII. kerület
+XIX. kerület
+XX. kerület
+XXI. kerület
+XXII. kerület
+XXIII. kerület

@@ -1,0 +1,35 @@
+---
+address: hungary.education.university
+description: Universities of Hungary, under their current Hungarian names. Two renamings are reflected - Szent István Egyetem became Magyar Agrár- és Élettudományi Egyetem in 2021, and Testnevelési Egyetem became Magyar Testnevelési és Sporttudományi Egyetem in 2021. Közép-európai Egyetem (CEU) is not listed - its teaching moved to Vienna in 2019.
+locale: hu
+---
+Eötvös Loránd Tudományegyetem
+Budapesti Műszaki és Gazdaságtudományi Egyetem
+Szegedi Tudományegyetem
+Debreceni Egyetem
+Pécsi Tudományegyetem
+Semmelweis Egyetem
+Budapesti Corvinus Egyetem
+Széchenyi István Egyetem
+Miskolci Egyetem
+Pannon Egyetem
+Óbudai Egyetem
+Budapesti Gazdasági Egyetem
+Magyar Agrár- és Élettudományi Egyetem
+Nemzeti Közszolgálati Egyetem
+Pázmány Péter Katolikus Egyetem
+Károli Gáspár Református Egyetem
+Eszterházy Károly Katolikus Egyetem
+Neumann János Egyetem
+Dunaújvárosi Egyetem
+Nyíregyházi Egyetem
+Soproni Egyetem
+Tokaj-Hegyalja Egyetem
+Liszt Ferenc Zeneművészeti Egyetem
+Magyar Képzőművészeti Egyetem
+Moholy-Nagy Művészeti Egyetem
+Színház- és Filmművészeti Egyetem
+Magyar Testnevelési és Sporttudományi Egyetem
+Andrássy Gyula Budapesti Német Nyelvű Egyetem
+Milton Friedman Egyetem
+Országos Rabbiképző - Zsidó Egyetem

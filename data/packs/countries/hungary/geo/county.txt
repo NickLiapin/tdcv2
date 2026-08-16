@@ -1,0 +1,25 @@
+---
+address: hungary.geo.county
+description: Hungary's first-level division — the 19 counties plus Budapest, which sits in none of them and is a first-level unit in its own right. Two departures from what an older list would say - the official word became "vármegye" (not "megye") on 2023-01-01, and Csongrád was renamed Csongrád-Csanád in 2020. The bare proper name is stored; the word "vármegye" is Hungarian vocabulary and lives in data/packs/hu/.
+locale: hu
+---
+Budapest
+Bács-Kiskun
+Baranya
+Békés
+Borsod-Abaúj-Zemplén
+Csongrád-Csanád
+Fejér
+Győr-Moson-Sopron
+Hajdú-Bihar
+Heves
+Jász-Nagykun-Szolnok
+Komárom-Esztergom
+Nógrád
+Pest
+Somogy
+Szabolcs-Szatmár-Bereg
+Tolna
+Vas
+Veszprém
+Zala

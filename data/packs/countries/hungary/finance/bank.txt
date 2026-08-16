@@ -1,0 +1,29 @@
+---
+address: hungary.finance.bank
+description: Banks operating in Hungary. Reflects the 2022-2023 consolidation - MKB, Budapest Bank and Takarékbank merged into MBH Bank, so the old three are not listed separately; Sberbank Magyarország, which failed in 2022, is left out.
+locale: hu
+---
+OTP Bank
+MBH Bank
+K&H Bank
+Erste Bank Hungary
+Raiffeisen Bank
+UniCredit Bank Hungary
+CIB Bank
+Gránit Bank
+MagNet Bank
+Magyar Nemzeti Bank
+Magyar Államkincstár
+Oberbank
+Polgári Bank
+Duna Takarék Bank
+Merkantil Bank
+Fundamenta-Lakáskassza
+OTP Jelzálogbank
+Sopron Bank
+KDB Bank Európa
+Bank of China Hungária
+Citibank Europe
+ING Bank
+Revolut Bank
+Cofidis

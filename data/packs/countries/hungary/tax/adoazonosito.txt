@@ -1,0 +1,22 @@
+---
+address: hungary.tax.adoazonosito
+description: Adóazonosító jel — the 10-digit tax identifier NAV issues to a private person. Every digit means something - the 1st is the constant 8 (a natural person, not a company), digits 2-6 are the number of days between 1867-01-01 and the person's birth date, digits 7-9 are a same-day serial, and the 10th is the check digit. REAL ARITHMETIC - each of the first nine digits is multiplied by its position (1st by 1 ... 9th by 9), the products are summed, and the check digit is that sum modulo 11; a remainder of 10 is never issued and is rejected here. The day range 23010..53325 is exactly birth dates 1930-01-01 through 2012-12-31, so every number generated decodes to a real date. Rule and the 1867 epoch as published in the 2023 Digitális kultúra school-leaving exam (2311, 2023-05-22).
+generator: tdc
+---
+<sequence name="days"><gen type="number" value="23010..53325"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="base"><compute>
+  <result><concat><str v="8"/><field name="days"/><field name="serial"/></concat></result>
+</compute></sequence>
+<sequence name="check"><compute><result>
+  <mod>
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/><multiply><current/><add><current_index/><int v="1"/></add></multiply></add></do>
+    </reduce>
+    <int v="11"/>
+  </mod>
+</result></compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{base}}${{check}}</data>

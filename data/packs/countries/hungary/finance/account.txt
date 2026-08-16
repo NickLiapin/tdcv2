@@ -1,0 +1,21 @@
+---
+address: hungary.finance.account
+description: Hungarian domestic bank account number (pénzforgalmi jelzőszám) in the everyday 2x8 form, written as two hyphen-separated blocks - 11773016-11111018. BOTH check digits are real - the 8th digit closes the bank-and-branch block and the 16th closes the account block, each by the same MNB rule (weights 9,7,3,1,9,7,3 over the preceding seven digits; check = (10 - sum mod 10) mod 10). Verified against the published NAV personal-income-tax account 10032000-06056353, where both blocks check out. This is the number a Hungarian gives another Hungarian; hungary.finance.iban is the same account in international form.
+generator: tdc
+---
+<sequence name="bankCode"><gen type="template" value="hungary.finance.bankCode"/></sequence>
+<sequence name="body"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="account"><compute>
+  <let name="sum"><reduce>
+    <over><field name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="9,7,3,1,9,7,3"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="bankCode"/><str v="-"/><field name="body"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{account}}</data>

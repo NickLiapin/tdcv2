@@ -1,0 +1,17 @@
+---
+address: hungary.vehicle.plate
+description: Hungarian number plate. BOTH formats are shipped because both are on the road - the pre-2022 AAA-123 (drawn 70%) and the format introduced in July 2022, AA BB-123 (drawn 30%, roughly its share of the fleet by 2026). Neither format encodes a region - unlike Poland or Germany, the letters in a Hungarian plate carry no geography, they are simply issued in sequence. I, O and Q are left out of the letter set, as they are on the real plates, to keep them apart from 1 and 0.
+generator: tdc
+locale: hu
+---
+<sequence name="mode"><gen type="number" value="1..10"/></sequence>
+<sequence name="old"><gen type="regex" value="[A-HJ-NPR-Z]{3}-[0-9]{3}"/></sequence>
+<sequence name="new"><gen type="regex" value="[A-HJ-NPR-Z]{2} [A-HJ-NPR-Z]{2}-[0-9]{3}"/></sequence>
+<sequence name="plate"><compute>
+  <result><choose>
+    <when><test><less_than><to_number><field name="mode"/></to_number><int v="8"/></less_than></test>
+      <then><field name="old"/></then></when>
+    <otherwise><field name="new"/></otherwise>
+  </choose></result>
+</compute></sequence>
+<data>${{plate}}</data>

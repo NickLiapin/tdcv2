@@ -1,0 +1,44 @@
+---
+address: hungary.docs.szemelyiAzonosito
+description: Személyi azonosító (the személyi szám) — 11 digits - a century-and-sex digit, the birth date as YYMMDD, a 3-digit same-day serial and a mod-11 check digit. Hungary is unusual in that the WEIGHTING changed - a number for someone born up to 1996 is weighted 1,2,3...10 across the first ten digits, and one for someone born from 1997 is weighted 10,9,8...1. The lead digit changed too - 1 male / 2 female up to 1999, 3 male / 4 female from 2000. Both eras are generated, each with its own weighting. A remainder of 10 is never issued, so it is rejected here.
+generator: tdc
+---
+<sequence name="dob"><gen type="date" from="1930-01-01" to="2012-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="sexbit"><gen type="number" value="0..1"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="year"><compute><result><slice from="0" to="4"><field name="dob"/></slice></result></compute></sequence>
+<sequence name="base"><compute>
+  <let name="y"><to_number><field name="year"/></to_number></let>
+  <!-- 1/2 for anyone born up to 1999-12-31, 3/4 from 2000-01-01; +0 male, +1 female. -->
+  <let name="era">
+    <choose>
+      <when><test><greater_than><use name="y"/><int v="1999"/></greater_than></test><then><int v="3"/></then></when>
+      <otherwise><int v="1"/></otherwise>
+    </choose>
+  </let>
+  <let name="lead"><add><use name="era"/><to_number><field name="sexbit"/></to_number></add></let>
+  <result><concat><use name="lead"/><slice from="2"><field name="dob"/></slice><field name="serial"/></concat></result>
+</compute></sequence>
+<sequence name="check"><compute>
+  <let name="y"><to_number><field name="year"/></to_number></let>
+  <!-- Born up to 1996: weight the i-th digit by i. Born from 1997: weight it by 11-i. -->
+  <let name="ascending"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/><add><current_index/><int v="1"/></add></multiply></add></do>
+  </reduce></let>
+  <let name="descending"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/><subtract><int v="10"/><current_index/></subtract></multiply></add></do>
+  </reduce></let>
+  <let name="sum">
+    <choose>
+      <when><test><less_than><use name="y"/><int v="1997"/></less_than></test><then><use name="ascending"/></then></when>
+      <otherwise><use name="descending"/></otherwise>
+    </choose>
+  </let>
+  <result><mod><use name="sum"/><int v="11"/></mod></result>
+</compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{base}}${{check}}</data>

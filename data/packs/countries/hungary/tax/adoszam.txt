@@ -1,0 +1,23 @@
+---
+address: hungary.tax.adoszam
+description: Adószám — the 11-digit tax number of a Hungarian business, written 12345678-1-23. Three parts - an 8-digit core whose last digit is a REAL check digit (weights 9,7,3,1,9,7,3 over the first seven; check = (10 - sum mod 10) mod 10), then a 1-digit VAT status code, then a 2-digit tax-office code. The VAT digit is drawn 2 six times out of ten because a plain domestic VAT payer is by far the common case. The office codes are the real ones - 02 through 20 are the 19 counties in alphabetical order, 41-44 are the Budapest directorates and 51 is the large-taxpayer directorate. The first 8 digits are the same number as hungary.tax.vat carries after the HU prefix. Check digit verified against three published company numbers - MOL 10625790, OTP Bank 10537914, Richter Gedeon 10484878.
+generator: tdc
+locale: hu
+---
+<sequence name="core"><gen type="regex" value="[1-9][0-9]{6}"/></sequence>
+<sequence name="vatCode"><gen type="text" value="1,2,2,2,2,2,2,3,4,5"/></sequence>
+<sequence name="office"><gen type="text" value="02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,41,42,43,44,51"/></sequence>
+<sequence name="adoszam"><compute>
+  <let name="sum"><reduce>
+    <over><field name="core"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="9,7,3,1,9,7,3"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="core"/><use name="check"/><str v="-"/><field name="vatCode"/><str v="-"/><field name="office"/></concat></result>
+</compute></sequence>
+<data>${{adoszam}}</data>

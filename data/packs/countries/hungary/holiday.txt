@@ -1,0 +1,20 @@
+---
+address: hungary.holiday
+description: Public holidays in Hungary, in Hungarian. Hungary marks three national days rather than one - 15 March for the 1848 revolution, 20 August for Szent István and the founding of the state, and 23 October for the 1956 revolution and the 1989 declaration of the republic. Nagypéntek (Good Friday) has been a public holiday only since 2017. Szenteste and Szilveszter are listed because they are universally observed, not because they are statutory.
+locale: hu
+---
+Újév
+Az 1848-as forradalom emléknapja
+Nagypéntek
+Húsvétvasárnap
+Húsvéthétfő
+A munka ünnepe
+Pünkösdvasárnap
+Pünkösdhétfő
+Az államalapítás ünnepe
+Az 1956-os forradalom emléknapja
+Mindenszentek
+Szenteste
+Karácsony
+Karácsony másnapja
+Szilveszter

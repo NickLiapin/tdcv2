@@ -1,0 +1,35 @@
+---
+address: hungary.sport.team
+description: Hungarian football clubs — NB I and NB II. Football only, to match the shape of the other country packs, which is a real omission for Hungary - water polo and handball are the sports the country actually wins in, and several of the clubs listed here (Ferencváros, Újpest, Vasas) are multi-sport societies whose water-polo sections are better known abroad than their football sides.
+locale: hu
+---
+Ferencvárosi TC
+Újpest FC
+Debreceni VSC
+Puskás Akadémia FC
+MOL Fehérvár FC
+Paksi FC
+Zalaegerszegi TE
+Diósgyőri VTK
+Kisvárda Master Good
+Kecskeméti TE
+MTK Budapest
+Győri ETO FC
+Nyíregyháza Spartacus FC
+Budapest Honvéd FC
+Vasas SC
+Mezőkövesd Zsóry FC
+Szeged-Csanád Grosics Akadémia
+Békéscsaba 1912 Előre
+Soproni VSE
+Budafoki MTE
+Aqvital FC Csákvár
+Tiszakécskei LC
+FC Ajka
+Kolorcity Kazincbarcika SC
+Szentlőrinc SE
+BFC Siófok
+Karcagi SE
+Szombathelyi Haladás
+Gyirmót FC Győr
+Kaposvári Rákóczi FC
