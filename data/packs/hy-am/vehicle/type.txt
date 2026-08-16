@@ -1,0 +1,27 @@
+---
+description: Vehicle body type, in Armenian. մարշրուտկա is a vehicle category here and not a slang word: the fixed-route minibus is the backbone of public transport in Armenia, and a transport dataset without it is missing most of the journeys.
+locale: hy-am
+---
+սեդան
+հեչբեք
+կուպե
+ունիվերսալ
+ջիպ
+քրոսովեր
+կաբրիոլետ
+մինիվեն
+պիկափ
+ֆուրգոն
+միկրոավտոբուս
+մարշրուտկա
+ավտոբուս
+բեռնատար
+ինքնաթափ
+ցիստեռն
+քարշակ
+շտապօգնություն
+հրշեջ մեքենա
+տրակտոր
+մոտոցիկլ
+սկուտեր
+քառանիվ

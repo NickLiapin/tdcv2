@@ -1,0 +1,5 @@
+---
+description: Currency of Նոր Զելանդիա, in Armenian.
+locale: hy-am
+---
+նորզելանդական դոլար

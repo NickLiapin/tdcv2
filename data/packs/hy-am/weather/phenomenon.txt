@@ -1,0 +1,21 @@
+---
+description: Severe weather and natural hazard, in Armenian. THE FIRST FIVE ARE ARMENIA'S and the last four are vocabulary only: կարկուտ destroys orchards every summer and is the hazard Armenian agriculture insures against; երաշտ, ցրտահարություն and սելավ (mudflow off a bare mountainside) are the others. երկրաշարժ is not weather but belongs on any Armenian hazard list — the 1988 Spitak earthquake killed tens of thousands and rebuilt the country's construction law. Armenia is landlocked, high and continental, so ՓՈԹՈՐԻԿ, ՄՈՒՍՈՆ, ՑԻԿԼՈՆ AND ՏՈՐՆԱԴՈ NEVER OCCUR THERE; they are here because Armenian names them, not because they happen.
+locale: hy-am
+---
+կարկուտ
+երաշտ
+ցրտահարություն
+սելավ
+ձնահյուս
+երկրաշարժ
+ջրհեղեղ
+շոգի ալիք
+ցրտի ալիք
+անտառային հրդեհ
+փոշու փոթորիկ
+սառցե անձրև
+բուք
+փոթորիկ
+մուսոն
+ցիկլոն
+տորնադո

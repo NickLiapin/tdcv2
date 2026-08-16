@@ -1,0 +1,5 @@
+---
+description: Capital of Նիգերիա, in Armenian.
+locale: hy-am
+---
+Աբուջա

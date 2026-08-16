@@ -1,0 +1,10 @@
+---
+description: Playing positions in ռեգբի, in Armenian.
+locale: hy-am
+---
+առաջնագծի
+հուքեր
+լոք
+սքրամ-հաֆ
+ֆլայ-հաֆ
+ֆուլբեկ

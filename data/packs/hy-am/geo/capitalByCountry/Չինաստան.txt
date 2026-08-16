@@ -1,0 +1,5 @@
+---
+description: Capital of Չինաստան, in Armenian.
+locale: hy-am
+---
+Պեկին

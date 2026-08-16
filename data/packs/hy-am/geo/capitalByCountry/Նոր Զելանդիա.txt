@@ -1,0 +1,5 @@
+---
+description: Capital of Նոր Զելանդիա, in Armenian.
+locale: hy-am
+---
+Վելինգտոն

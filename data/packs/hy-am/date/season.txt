@@ -1,0 +1,8 @@
+---
+description: Season, in Armenian. Four, and they are sharply real in a country that is high, dry and continental: Yerevan runs from about -10 in winter to over 40 in summer.
+locale: hy-am
+---
+գարուն
+ամառ
+աշուն
+ձմեռ

@@ -1,0 +1,20 @@
+---
+description: Directional qualifier used with an Armenian district, quarter or place name. Վերին and Ներքին ('upper' and 'lower') are the pair an Armenian map uses far more than any compass word: the country is mountainous and villages come in vertically stacked pairs — Վերին Պտղնի above Ներքին Պտղնի, Վերին Գետաշեն above Ներքին Գետաշեն. The four compass words are compounds of the sun: արևելք is 'sun-rising' and արևմուտք 'sun-setting'.
+locale: hy-am
+---
+հյուսիս
+հարավ
+արևելք
+արևմուտք
+հյուսիս-արևելք
+հյուսիս-արևմուտք
+հարավ-արևելք
+հարավ-արևմուտք
+հյուսիսային
+հարավային
+արևելյան
+արևմտյան
+վերին
+ներքին
+կենտրոն
+կենտրոնական

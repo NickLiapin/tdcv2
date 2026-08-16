@@ -1,0 +1,12 @@
+---
+description: The team sports that carry a position list. Parent of sport/positionBySport — the child filenames must match these exactly. Note that these are not the sports Armenia is good at: the country's Olympic medals come almost entirely from ըմբշամարտ (wrestling), ծանրամարտ (weightlifting) and բռնցքամարտ (boxing), none of which has positions. See sport/name.txt.
+locale: hy-am
+---
+ֆուտբոլ
+բասկետբոլ
+վոլեյբոլ
+ձեռքի գնդակ
+հոկեյ
+ռեգբի
+ջրագնդակ
+բեյսբոլ

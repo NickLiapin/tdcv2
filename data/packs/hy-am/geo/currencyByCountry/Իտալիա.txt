@@ -1,0 +1,5 @@
+---
+description: Currency of Իտալիա, in Armenian.
+locale: hy-am
+---
+եվրո

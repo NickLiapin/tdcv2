@@ -1,0 +1,41 @@
+---
+description: Kind of building, in Eastern Armenian. Two entries have no European equivalent and are the reason this list is not a translation of en. kisakaruyts (կիսակառույց, 'half-built') is a standing category in Armenian property listings and municipal registers: a concrete frame abandoned mid-construction, of which Yerevan and the marzes hold thousands from the 1990s, and people live in them. domik (դոմիկ, from Russian domik) is the metal container dwelling put up after the 1988 Spitak earthquake; families in Gyumri were still registered at domik addresses decades later. Note also that a Soviet-built block is a shenk (շենք) while a detached house is a tun (տուն) or arandznatun (առանձնատուն), and Armenian keeps the two words apart in a way English 'building' does not.
+locale: hy-am
+---
+բնակարան
+առանձնատուն
+տուն
+բազմաբնակարան շենք
+քոթեջ
+կիսակառույց
+դոմիկ
+գրասենյակ
+վարչական շենք
+պահեստ
+խանութ
+առևտրի կենտրոն
+գործարան
+արտադրամաս
+արհեստանոց
+հիվանդանոց
+պոլիկլինիկա
+դեղատուն
+դպրոց
+մանկապարտեզ
+համալսարան
+հյուրանոց
+ռեստորան
+սրճարան
+մարզադաշտ
+մարզասրահ
+գրադարան
+թանգարան
+թատրոն
+կինոթատրոն
+եկեղեցի
+մատուռ
+վանք
+ավտոտնակ
+ջերմոց
+անասնաշենք
+ամբարանոց

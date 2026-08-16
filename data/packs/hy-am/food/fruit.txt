@@ -1,0 +1,37 @@
+---
+description: Fruit, in Armenian. ԾԻՐԱՆ IS FIRST AND THAT IS NOT ARBITRARY: the apricot's botanical name is Prunus armeniaca, the third band of the Armenian flag is officially apricot-coloured, the duduk is turned from apricot wood, and Yerevan's film festival is Ոսկե Ծիրան, the Golden Apricot. նուռ, the pomegranate, is the other national fruit and appears on everything from carpets to khachkars. հոն (cornelian cherry) and չիչխան (sea buckthorn) are gathered wild and sold at the roadside, and neither has a common English name people use.
+locale: hy-am
+---
+ծիրան
+նուռ
+խաղող
+դեղձ
+սալոր
+կեռաս
+բալ
+խնձոր
+տանձ
+սերկևիլ
+թուզ
+հոն
+չիչխան
+մասուր
+ելակ
+ազնվամորի
+մոշ
+հաղարջ
+թթի
+սեխ
+ձմերուկ
+արքայանարինջ
+կիտրոն
+նարինջ
+մանդարին
+լայմ
+բանան
+կիվի
+արքայախնձոր
+մանգո
+ավոկադո
+արմավ
+չամիչ

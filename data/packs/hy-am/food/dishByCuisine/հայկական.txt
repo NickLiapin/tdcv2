@@ -1,0 +1,19 @@
+---
+description: Armenian dishes. խորոված is the spit-roast that anchors every gathering; տոլմա is the stuffed vine or cabbage leaf, plural in Armenian and singular nowhere; խաշ is eaten at dawn in winter, with garlic, dried lavash and vodka, and is a ritual rather than a meal; ժենգյալով հաց is the flatbread of Artsakh, stuffed with up to twenty wild herbs; and հարիսա, wheat pounded with chicken over many hours, is the dish of Genocide commemoration.
+locale: hy-am
+---
+խորոված
+տոլմա
+խաշ
+հարիսա
+սպաս
+ղափամա
+ժենգյալով հաց
+քյուֆթա
+բոզբաշ
+արիշտա
+խաշլամա
+ղավուրմա
+ամիչ
+գաթա
+մատնաքաշ

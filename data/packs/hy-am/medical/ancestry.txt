@@ -1,0 +1,16 @@
+---
+description: Ancestry population as clinical genetics defines it: geographic descent, not a social race category. Parent list of medical/diagnosisByAncestry — the child filenames must match these exactly. Armenians themselves fall under միջերկրածովյան and մերձավորարևելյան, which is why familial Mediterranean fever appears under both: FMF carries one of the highest carrier rates in the world in Armenians, on the order of one person in five to seven in the Armenian population, and it is the single most clinically important genetic fact about this group.
+locale: hy-am
+---
+ենթասահարյան աֆրիկյան
+հյուսիսաֆրիկյան
+միջերկրածովյան
+մերձավորարևելյան
+հյուսիսեվրոպական
+արևելաեվրոպական
+աշքենազի հրեական
+հարավասիական
+արևելաասիական
+հարավարևելյան ասիական
+բնիկ ամերիկյան
+խաղաղօվկիանոսյան

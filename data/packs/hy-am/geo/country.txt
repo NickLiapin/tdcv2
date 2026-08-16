@@ -1,0 +1,48 @@
+---
+description: Country as Armenian names it, weighted by population in millions. THESE ARE TRANSLATIONS, NOT TRANSLITERATIONS, and several are unrecognisable from the English: Armenian names Greece Հունաստան (from Հույն, 'Ionian'), Poland Լեհաստան (from Լեհ, the old name for a Pole), and Georgia Վրաստան (from Վիրք, the classical name of the country) — none of which sounds anything like the endonym. THE -ՍՏԱՆ SUFFIX IS THE THING TO NOTICE: Armenian borrowed the Iranian '-stan' and applies it far beyond Central Asia, so Greece, Poland, China (Չինաստան), India (Հնդկաստան), Russia (Ռուսաստան) and Armenia itself (Հայաստան) all end in it. Armenia is on the list because it is the one country where this language is official; Lebanon and Georgia sit higher than their size warrants in Armenian awareness because of the diaspora and the open border.
+locale: hy-am
+weighted: true
+---
+Չինաստան,1410
+Հնդկաստան,1400
+Ամերիկայի Միացյալ Նահանգներ,335
+Ինդոնեզիա,275
+Պակիստան,240
+Նիգերիա,220
+Բրազիլիա,215
+Բանգլադեշ,170
+Ռուսաստան,144
+Մեքսիկա,128
+Ճապոնիա,124
+Եգիպտոս,105
+Վիետնամ,99
+Իրան,88
+Թուրքիա,85
+Գերմանիա,84
+Թաիլանդ,70
+Ֆրանսիա,68
+Միացյալ Թագավորություն,67
+Հարավաֆրիկյան Հանրապետություն,60
+Իտալիա,59
+Հարավային Կորեա,52
+Իսպանիա,48
+Արգենտինա,46
+Կանադա,40
+Ուկրաինա,38
+Լեհաստան,37
+Սաուդյան Արաբիա,36
+Ավստրալիա,26
+Ղազախստան,20
+Նիդերլանդներ,18
+Շվեդիա,10
+Պորտուգալիա,10
+Հունաստան,10
+Ադրբեջան,10
+Շվեյցարիա,9
+Սինգապուր,6
+Նորվեգիա,5
+Իռլանդիա,5
+Նոր Զելանդիա,5
+Լիբանան,5
+Վրաստան,4
+Հայաստան,3

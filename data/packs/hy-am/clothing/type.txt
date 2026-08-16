@@ -1,0 +1,31 @@
+---
+description: Garment, in Armenian. տարազ is the Armenian national costume and is not a museum word: it is worn at weddings, by dance ensembles and on Vardavar, and appears in clothing catalogues as its own category. Note that Armenian distinguishes վերնաշապիկ (a buttoned shirt) from շապիկ (a t-shirt), where English uses 'shirt' for both.
+locale: hy-am
+---
+շապիկ
+վերնաշապիկ
+բլուզ
+տաբատ
+ջինս
+կիսավարտիք
+զգեստ
+կիսաշրջազգեստ
+բաճկոն
+վերարկու
+սվիտեր
+բլուզոն
+ժիլետ
+կոստյում
+հագուստի հավաքածու
+հուդի
+սպորտային հագուստ
+կոշիկ
+սպորտային կոշիկ
+երկարաճիտ կոշիկ
+հողաթափ
+գուլպա
+ձեռնոց
+գլխարկ
+շարֆ
+գոտի
+տարազ

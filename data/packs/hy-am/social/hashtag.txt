@@ -1,0 +1,34 @@
+---
+description: Hashtag in Armenian. Hashtags work in the Armenian script exactly as in Latin. Note that the ligature և (U+0587) appears inside ordinary Armenian words and its UPPER CASE IS TWO CHARACTERS — so a platform that uppercases a hashtag for matching will change its length, and #Հայևմիշտ becomes eight characters where the original had seven. The two characters are also contested: Unicode's default mapping gives ԵՒ while reformed Eastern Armenian writes ԵՎ (see world/writingSystem.txt).
+locale: hy-am
+---
+#Հայաստան
+#Երևան
+#հայկական
+#հայերեն
+#Արարատ
+#Սևան
+#Գյումրի
+#Տաթև
+#Գառնի
+#Գեղարդ
+#խորոված
+#լավաշ
+#տոլմա
+#ծիրան
+#նուռ
+#դուդուկ
+#Կոմիտաս
+#Վարդավառ
+#Ամանոր
+#Հայևմիշտ
+#ապրիլի24
+#հիշումեմ
+#լեռներ
+#ճամփորդություն
+#բնություն
+#սուրճ
+#գինի
+#տանիք
+#ընտանիք
+#շնորհակալություն

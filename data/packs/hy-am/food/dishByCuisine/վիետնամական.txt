@@ -1,0 +1,9 @@
+---
+description: Vietnamese dishes as Armenian names them.
+locale: hy-am
+---
+ֆո
+բան մի
+գարնանային ռուլետ
+բուն չա
+վիետնամական սուրճ

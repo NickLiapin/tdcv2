@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Ճապոնիա. Codes are Latin everywhere.
+locale: hy-am
+---
+JPY

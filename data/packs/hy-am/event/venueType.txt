@@ -1,0 +1,22 @@
+---
+description: Kind of venue, in Armenian. հարսանյաց սրահ is a building type in its own right in Armenia — a purpose-built hall of several hundred covers that does nothing but weddings and memorials — and մշակույթի տուն is the Soviet house of culture, which in most towns outside Yerevan is still the only hall there is.
+locale: hy-am
+---
+հարսանյաց սրահ
+ռեստորանի սրահ
+հյուրանոցի դահլիճ
+համաժողովների կենտրոն
+մշակույթի տուն
+թատրոն
+համերգասրահ
+մարզադաշտ
+մարզահամալիր
+ցուցասրահ
+գրադարանի դահլիճ
+եկեղեցի
+բացօթյա հարթակ
+այգի
+տանիք
+ամառանոց
+նիստերի սենյակ
+գիշերային ակումբ

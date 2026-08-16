@@ -1,0 +1,30 @@
+---
+description: Household budget line, in Armenian. ընտանիքին օգնություն — money sent to or received from relatives — is a real budget category here and not a curiosity: remittances have run at roughly a tenth of Armenia's GDP, and a household budget that leaves the line out does not describe an Armenian household.
+locale: hy-am
+---
+վարձակալություն
+հիփոթեք
+մթերք
+կոմունալ վճարներ
+գազ
+էլեկտրաէներգիա
+ջուր
+կապ և ինտերնետ
+տրանսպորտ
+վառելիք
+առողջապահություն
+դեղորայք
+ապահովագրություն
+սննդի ծախս
+ժամանց
+ճամփորդություն
+կրթություն
+երեխաների խնամք
+հագուստ
+նվերներ
+բաժանորդագրություններ
+խնայողություն
+պարտքի մարում
+հարկեր
+բարեգործություն
+ընտանիքին օգնություն

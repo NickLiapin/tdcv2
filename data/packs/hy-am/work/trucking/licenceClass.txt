@@ -1,0 +1,11 @@
+---
+description: Driving licence category as Armenia issues it. THESE ARE NOT THE AMERICAN CLASS A / B / C: Armenia uses the European lettered categories — B for a car, C for a lorry, D for a bus, E as the trailer add-on, and the Armenian licence prints exactly these letters.
+locale: hy-am
+---
+B
+C
+C1
+D
+D1
+BE
+CE

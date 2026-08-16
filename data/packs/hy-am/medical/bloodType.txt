@@ -1,0 +1,12 @@
+---
+description: ABO and Rh blood group. The notation is international and stays in Latin on an Armenian test result, though Armenian hospitals still often write the Roman-numeral Soviet form beside it — I(0), II(A), III(B), IV(AB).
+locale: hy-am
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

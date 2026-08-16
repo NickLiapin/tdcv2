@@ -1,0 +1,26 @@
+---
+description: Insect and other small crawling creature, in Armenian. The list follows everyday Armenian usage rather than entomology: սարդ (spider), կարիճ (scorpion) and տիզ (tick) are arachnids but sit in the same folk category as the insects, and Armenian has no single everyday word that excludes them. զատիկ, the ladybird, shares its name with Easter.
+locale: hy-am
+---
+մրջյուն
+մեղու
+իշամեղու
+թիթեռ
+բզեզ
+ճպուռ
+մորեխ
+ծղրիդ
+ցեց
+կրետ
+լուսատտիկ
+մոծակ
+ճանճ
+զատիկ
+թրթուր
+սարդ
+կարիճ
+տիզ
+լվա
+ոջիլ
+խորոմ
+ուտիճ

@@ -1,0 +1,11 @@
+---
+description: Number of people in the household. Armenian households run larger than western European ones — the multi-generational household with a married son and his parents is still ordinary — so the tail past 4 is not rare here.
+locale: hy-am
+---
+1
+2
+3
+4
+5
+6
+7+

@@ -1,0 +1,20 @@
+---
+description: Horse breed. ղարաբաղյան is the Karabakh horse, the mountain riding breed of the Armenian highland and one of the oldest surviving breeds in the Caucasus; it is claimed as a national breed by both Armenia and Azerbaijan and an Armenian source names it as here.
+locale: hy-am
+---
+ղարաբաղյան
+արաբական
+անգլիական մաքրացեղ
+ախալթեքե
+դոնի
+բուդյոննիի
+ֆրիզական
+անդալուզյան
+շիրե
+կլայդսդեյլ
+ապալուզա
+հաֆլինգեր
+մուստանգ
+պոնի
+շետլանդական պոնի
+կաբարդինյան

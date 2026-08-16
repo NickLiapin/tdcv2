@@ -1,0 +1,44 @@
+---
+description: Animal, in Armenian. Four here are the fauna of the Armenian highland specifically: հովազ is the Caucasian leopard, of which a few dozen survive and which is the emblem of Armenian conservation; մուֆլոն the Armenian mouflon; բեզոարյան այծ the bezoar goat of the Syunik cliffs; and ջեյրան the goitered gazelle, reintroduced after being shot out of the country entirely.
+locale: hy-am
+---
+շուն
+կատու
+ձի
+կով
+ոչխար
+այծ
+խոզ
+էշ
+ջորի
+ուղտ
+գոմեշ
+արջ
+գայլ
+աղվես
+նապաստակ
+սկյուռ
+ոզնի
+եղջերու
+եղնիկ
+հովազ
+մուֆլոն
+բեզոարյան այծ
+ջեյրան
+վարազ
+լուսան
+շնագայլ
+ջրարջ
+ջրասամույր
+փիղ
+առյուծ
+վագր
+ընձուղտ
+զեբր
+կապիկ
+կենգուրու
+պանդա
+կոալա
+դելֆին
+կետ
+փոկ

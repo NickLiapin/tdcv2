@@ -1,0 +1,16 @@
+---
+description: Month name, in Armenian, in the nominative — the form a dropdown shows. THE CIVIL MONTH NAMES ARE THE LATIN ONES, borrowed and respelled; Armenian's OWN month names belong to the Armenian calendar and are quite different: Նավասարդ, Հոռի, Սահմի, Տրե, Քաղոց, Արաց, Մեհեկան, Արեգ, Ահեկան, Մարերի, Մարգաց, Հրոտից, each of exactly 30 days, plus five epagomenal days called Ավելյաց. Those are still used by the church and in ceremonial dating and are NOT interchangeable with these — a date formatter that swapped them in would be off by weeks. The Armenian era counts from 552 AD, so 2026 is Armenian year 1475. See DATE_LOCALE.json for the genitive forms a date actually prints: «5 հունվարի», not «5 Հունվար».
+locale: hy-am
+---
+Հունվար
+Փետրվար
+Մարտ
+Ապրիլ
+Մայիս
+Հունիս
+Հուլիս
+Օգոստոս
+Սեպտեմբեր
+Հոկտեմբեր
+Նոյեմբեր
+Դեկտեմբեր

@@ -1,0 +1,14 @@
+---
+description: Short male-specific diagnosis list, in Armenian — the subset an ordinary record uses.
+locale: hy-am
+---
+վարիկոցելե
+կրիպտորխիզմ
+ֆիմոզ
+շագանակագեղձի ադենոմա
+պրոստատիտ
+քրոնիկ պանկրեատիտ
+քլամիդիոզ
+քրոնիկ արթրիտ
+ցանցաթաղանթի զարկերակի էմբոլիա
+ուղիղ աղիքի քաղցկեղ

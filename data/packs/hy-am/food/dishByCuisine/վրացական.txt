@@ -1,0 +1,12 @@
+---
+description: Georgian dishes as Armenian names them.
+locale: hy-am
+---
+խաչապուրի
+խինկալի
+սացիվի
+լոբիո
+չախոխբիլի
+մծվադի
+պխալի
+չուրչխելա

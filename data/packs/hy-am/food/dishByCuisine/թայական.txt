@@ -1,0 +1,10 @@
+---
+description: Thai dishes as Armenian names them.
+locale: hy-am
+---
+պադ թայ
+կանաչ կարի
+թոմ յամ
+մասամման կարի
+պապայայի աղցան
+մանգոյով կպչուն բրինձ

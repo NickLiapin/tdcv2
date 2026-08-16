@@ -1,0 +1,30 @@
+---
+description: Kind of official document, in Armenian. These are the NAMES of the document types; the numbering rules for each belong in a country pack (see armenia.docs.psn and armenia.tax.tin). Two are Armenia-specific and worth knowing: նույնականացման քարտ is the chip ID card that replaced the Soviet internal passport, and «Ծառայության մասին տեղեկանք» — the military service certificate — is a document Armenian men are asked for at almost every hiring and every border crossing until they are 27.
+locale: hy-am
+---
+անձնագիր
+կենսաչափական անձնագիր
+նույնականացման քարտ
+ծննդյան վկայական
+ամուսնության վկայական
+ամուսնալուծության վկայական
+մահվան վկայական
+վարորդական վկայական
+բնակության վկայական
+հաշվառման տեղեկանք
+դատվածության բացակայության տեղեկանք
+զինվորական գրքույկ
+ծառայության մասին տեղեկանք
+վիզա
+աշխատանքային թույլտվություն
+հարկային հայտարարագիր
+շինարարական թույլտվություն
+գործունեության լիցենզիա
+սեփականության վկայական
+լիազորագիր
+կտակ
+դիպլոմ
+ատեստատ
+աշխատանքային գրքույկ
+կենսաթոշակային վկայական
+բժշկական տեղեկանք

@@ -1,0 +1,29 @@
+---
+description: Dog breed. հայկական գամփռ heads the list: the Gampr is the native livestock guardian of the Armenian highland, recognised as a breed by Armenia itself and worked with sheep to this day, and it is not the same animal as the Caucasian shepherd it is often collapsed into. The rest are the international breeds, written in Armenian.
+locale: hy-am
+---
+հայկական գամփռ
+կովկասյան հովվաշուն
+լաբրադոր ռետրիվեր
+գերմանական հովվաշուն
+ոսկեգույն ռետրիվեր
+ֆրանսիական բուլդոգ
+բուլդոգ
+պուդել
+բիգլ
+ռոտվեյլեր
+տակսա
+բոքսյոր
+սիբիրյան հասկի
+գերմանական դոգ
+դոբերման
+ավստրալիական հովվաշուն
+բորդեր քոլի
+չիխուախուա
+շիհ-ցու
+պոմերանյան
+կորգի
+բեռնական լեռնային շուն
+սպանիել
+թերիեր
+ալաբայ

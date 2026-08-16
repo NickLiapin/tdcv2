@@ -1,0 +1,6 @@
+---
+description: Gender label as the Armenian civil register writes it. Two values, matching en and ru — this list is what a `parent=` filter selects on, so a longer one silently leaves rows without a name. ARMENIAN HAS NO GRAMMATICAL GENDER AT ALL: one third-person pronoun for he, she and it, no agreement on adjectives, verbs or articles, and no gendered surname. This is a data field about the person, and nothing in the Armenian sentence around it changes with the value.
+locale: hy-am
+---
+արական
+իգական

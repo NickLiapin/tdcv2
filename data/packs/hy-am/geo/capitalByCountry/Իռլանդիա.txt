@@ -1,0 +1,5 @@
+---
+description: Capital of Իռլանդիա, in Armenian.
+locale: hy-am
+---
+Դուբլին

@@ -1,0 +1,5 @@
+---
+description: Currency of Իրան, in Armenian.
+locale: hy-am
+---
+իրանական ռիալ

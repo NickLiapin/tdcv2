@@ -1,0 +1,5 @@
+---
+description: Capital of Վիետնամ, in Armenian.
+locale: hy-am
+---
+Հանոյ

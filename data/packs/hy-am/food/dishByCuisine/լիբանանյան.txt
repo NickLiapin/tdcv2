@@ -1,0 +1,11 @@
+---
+description: Lebanese dishes as Armenian names them. Beirut holds one of the largest Armenian communities in the world, so this cuisine arrived with people rather than with restaurants.
+locale: hy-am
+---
+համոս
+ֆալաֆել
+շաուրմա
+թաբուլե
+քիբբե
+ֆաթուշ
+մանաղիշ

@@ -1,0 +1,12 @@
+---
+description: Time of day, in Armenian.
+locale: hy-am
+---
+առավոտ
+ցերեկ
+կեսօր
+երեկո
+գիշեր
+լուսաբաց
+մթնշաղ
+կեսգիշեր

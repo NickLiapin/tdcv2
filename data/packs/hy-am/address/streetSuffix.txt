@@ -1,0 +1,26 @@
+---
+description: Armenian thoroughfare type. IT GOES AFTER THE NAME, not before: Աբովյան փողոց, Մաշտոցի պողոտա, Հանրապետության հրապարակ — the opposite of Polish 'ulica Długa' and of Russian 'ulitsa Abovyana'. Abbreviated on envelopes and on the plate itself as փող. and պող. նրբանցք is the numbered side-lane that Armenian addressing leans on heavily: a Yerevan address is routinely «Կոմիտասի պող., 3-րդ նրբանցք, շ. 12».
+locale: hy-am
+---
+փողոց
+պողոտա
+հրապարակ
+նրբանցք
+փակուղի
+խճուղի
+մայրուղի
+ճանապարհ
+պուրակ
+զբոսայգի
+այգի
+թաղամաս
+զանգված
+թաղ
+բակ
+կամուրջ
+ափ
+անցում
+շրջանցիկ
+փող.
+պող.
+նրբ.

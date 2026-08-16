@@ -1,0 +1,21 @@
+---
+description: Cuisine, in Armenian, as an Armenian restaurant listing labels itself. The neighbours come first for a reason: Georgian and Persian restaurants are ordinary in Yerevan in a way that Thai or Vietnamese ones are not, and Russian food is a household register rather than a restaurant one. Parent list of food/dishByCuisine — the child filenames must match these strings exactly.
+locale: hy-am
+---
+հայկական
+վրացական
+ռուսական
+պարսկական
+լիբանանյան
+հունական
+իտալական
+ֆրանսիական
+իսպանական
+ամերիկյան
+մեքսիկական
+չինական
+ճապոնական
+կորեական
+հնդկական
+թայական
+վիետնամական

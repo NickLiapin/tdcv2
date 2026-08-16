@@ -1,0 +1,5 @@
+---
+description: Currency of Իռլանդիա, in Armenian.
+locale: hy-am
+---
+եվրո

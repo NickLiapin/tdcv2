@@ -1,0 +1,28 @@
+---
+description: School subject, in Armenian. TWO ENTRIES HAVE NO EQUIVALENT IN A WESTERN CURRICULUM. շախմատ is compulsory: Armenia made chess a required subject for years 2-4 in 2011 and was the first country in the world to do so, with its own textbooks and trained teachers. նախնական զինվորական պատրաստություն is compulsory pre-conscription military training in the upper years, a Soviet subject Armenia kept. Հայոց պատմություն is taught as a separate subject from world history, and հայոց լեզու separately from հայ գրականություն.
+locale: hy-am
+---
+մաթեմատիկա
+հանրահաշիվ
+երկրաչափություն
+ֆիզիկա
+քիմիա
+կենսաբանություն
+ինֆորմատիկա
+հայոց լեզու
+հայ գրականություն
+Հայոց պատմություն
+համաշխարհային պատմություն
+աշխարհագրություն
+ռուսաց լեզու
+անգլերեն
+ֆրանսերեն
+կերպարվեստ
+երաժշտություն
+ֆիզկուլտուրա
+շախմատ
+տեխնոլոգիա
+հասարակագիտություն
+տնտեսագիտություն
+նախնական զինվորական պատրաստություն
+բնագիտություն

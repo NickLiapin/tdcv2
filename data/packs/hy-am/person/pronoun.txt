@@ -1,0 +1,12 @@
+---
+description: Armenian personal pronouns — the whole set. THERE IS NO GENDERED THIRD PERSON: նա is he, she and it alike, so a config that draws a pronoun per gender will correctly get the same value on every row. What Armenian has instead is a THREE-WAY DEIXIS that English does not: սա is 'this, by me', դա 'that, by you', նա 'that, over there', and the same three consonants ս / դ / ն run through the demonstratives (այս / այդ / այն), the definite article and the possessives — գիրքս is 'my book', գիրքդ 'your book', գիրքը 'the book'. The article and the possessive are SUFFIXES, not separate words, which is why an Armenian noun phrase has no article to draw.
+locale: hy-am
+---
+ես
+դու
+նա
+սա
+դա
+մենք
+դուք
+նրանք

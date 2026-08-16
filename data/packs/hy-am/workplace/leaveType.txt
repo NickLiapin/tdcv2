@@ -1,0 +1,16 @@
+---
+description: Kind of leave, in Armenian. զինվորական հավաքներ is real and regular: Armenian men remain in the reserve after conscription and are called up for training musters, and an employer must hold the job. Armenia's labour code gives 20 working days of annual leave as the floor.
+locale: hy-am
+---
+ամենամյա արձակուրդ
+հիվանդության արձակուրդ
+ծնողական արձակուրդ
+հղիության և ծննդաբերության արձակուրդ
+սգո արձակուրդ
+չվճարվող արձակուրդ
+ուսումնական արձակուրդ
+անձնական օր
+բժշկական արձակուրդ
+զինվորական հավաքներ
+հանգստյան օրերի փոխհատուցում
+ստեղծագործական արձակուրդ

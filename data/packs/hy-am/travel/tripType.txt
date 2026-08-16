@@ -1,0 +1,24 @@
+---
+description: Kind of trip, in Armenian. ուխտագնացություն (pilgrimage) is an ordinary trip type here — to Khor Virap, Tatev, Geghard or Etchmiadzin — and հայրենադարձություն names the diaspora's journey back, which for many families is the reason they travel to Armenia at all.
+locale: hy-am
+---
+գործուղում
+հանգիստ
+ընտանեկան արձակուրդ
+մեղրամիս
+արկածային
+ավտոճամփորդություն
+ուխտագնացություն
+հայրենադարձություն
+հարազատներին այցելություն
+նավարկություն
+ուսումնական
+բժշկական զբոսաշրջություն
+քաղաքային կարճ այց
+լեռնային արշավ
+դահուկային հանգիստ
+գինու տուր
+գաստրոնոմիական տուր
+խմբակային տուր
+միայնակ ճամփորդություն
+կամավորական ուղևորություն

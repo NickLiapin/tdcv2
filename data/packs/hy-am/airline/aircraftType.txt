@@ -1,0 +1,28 @@
+---
+description: Aircraft type. Manufacturer designations keep their Latin spelling on an Armenian ticket and an Armenian boarding pass, exactly as they do everywhere else. The Soviet types at the end are not padding: Yerevan's fleet was Tupolev and Yakovlev until the 1990s and an Armenian historical dataset will meet them.
+locale: hy-am
+---
+Boeing 737
+Boeing 737 MAX
+Boeing 747
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330
+Airbus A350
+Embraer E190
+Embraer E195
+Bombardier CRJ200
+ATR 72
+Sukhoi Superjet 100
+Tupolev Tu-134
+Tupolev Tu-154
+Yakovlev Yak-42
+Antonov An-24
+Ilyushin Il-86
+Mil Mi-8

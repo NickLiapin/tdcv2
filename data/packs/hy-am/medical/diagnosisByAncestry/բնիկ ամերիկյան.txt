@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the բնիկ ամերիկյան ancestry group, in Armenian.
+locale: hy-am
+---
+2-րդ տիպի շաքարային դիաբետ
+լեղաքարային հիվանդություն
+դիաբետիկ նեֆրոպաթիա
+ռևմատոիդ արթրիտ
+ոչ ալկոհոլային ճարպային լյարդ
+մետաբոլիկ համախտանիշ

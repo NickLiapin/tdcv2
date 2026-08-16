@@ -1,0 +1,13 @@
+---
+description: Fuel type, in Armenian. ՍԳ AND ՍԱԳ ARE THE POINT: Armenia has no oil and imports Russian gas, so compressed natural gas is what most of the car fleet actually runs on — a majority of taxis and a large share of private cars are converted, and CNG filling stations outnumber petrol ones in Yerevan. A vehicle dataset for Armenia that offers only petrol, diesel and electric is describing a different country's fleet.
+locale: hy-am
+---
+սեղմված բնական գազ
+հեղուկացված գազ
+բենզին
+դիզել
+հիբրիդ
+կցորդվող հիբրիդ
+էլեկտրական
+ջրածին
+էթանոլ

@@ -1,0 +1,12 @@
+---
+description: Annual household income band, labelled in Armenian. THE CURRENCY IS THE ARMENIAN DRAM (դրամ, ISO code AMD, symbol ֏ U+058F) — the word simply means 'money' and comes from the Greek drachma, and the symbol is a proper Armenian-block character, not a Latin one. The bands are set where Armenian incomes are: the average gross monthly wage is a few hundred thousand dram, so a mid-range annual household income here is a few million dram, and a euro-shaped ladder would put almost every Armenian household in the bottom bucket.
+locale: hy-am
+---
+1 000 000 ֏-ից պակաս
+1–2 մլն ֏
+2–4 մլն ֏
+4–6 մլն ֏
+6–10 մլն ֏
+10–20 մլն ֏
+20–40 մլն ֏
+40 մլն ֏-ից ավելի

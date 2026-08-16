@@ -1,0 +1,44 @@
+---
+description: Corporate buzzword verb, in the Armenian infinitive. The infinitive is the dictionary form and ends in -ել or -ալ; Armenian verbs conjugate for person and number but NOT for gender, so a sentence built from this list needs no agreement with whoever is doing it.
+locale: hy-am
+---
+օպտիմալացնել
+պարզեցնել
+ինտեգրել
+մասշտաբավորել
+փոխակերպել
+արագացնել
+ուժեղացնել
+ապահովել
+ներդնել
+զարգացնել
+կառուցել
+վերափոխել
+նորարարել
+կրկնարկել
+ավտոմատացնել
+թվայնացնել
+համաժամեցնել
+կենտրոնացնել
+ապակենտրոնացնել
+վերլուծել
+չափել
+գնահատել
+կանխատեսել
+պլանավորել
+համակարգել
+ղեկավարել
+առաջնորդել
+խթանել
+ընդլայնել
+բարելավել
+հարմարեցնել
+ստանդարտացնել
+միավորել
+վերակազմակերպել
+եկամտաբերել
+վերաիմաստավորել
+հեղափոխել
+առաջ մղել
+համախմբել
+ներգրավել

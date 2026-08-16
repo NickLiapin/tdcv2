@@ -1,0 +1,11 @@
+---
+description: Persian dishes as Armenian names them. Iran is Armenia's open southern border and Persian food is familiar rather than exotic.
+locale: hy-am
+---
+չելով քյաբաբ
+ղորմե սաբզի
+ֆեսենջան
+աբգուշտ
+թահչին
+դիզի
+շիրին փոլո

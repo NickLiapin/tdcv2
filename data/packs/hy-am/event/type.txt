@@ -1,0 +1,29 @@
+---
+description: Kind of event, in Armenian. Half of this list is the Armenian family calendar and has no English one-word equivalent: խնամախոսություն is the formal visit at which one family asks for the other's daughter; նշանադրություն the engagement that follows and that is itself a full party; կնունք the baptism, held for adults as often as for infants; քառասունք the memorial on the fortieth day after a death and տարելից the one at a year, both of which are catered events on the scale of a small wedding. A dataset of Armenian 'events' that only holds conferences and concerts is missing most of what Armenians actually attend.
+locale: hy-am
+---
+հարսանիք
+նշանադրություն
+խնամախոսություն
+կնունք
+մկրտություն
+անվանակոչություն
+տարեդարձ
+հոբելյան
+հոգեհանգիստ
+քառասունք
+տարելից
+համաժողով
+գիտաժողով
+սեմինար
+վեբինար
+համերգ
+փառատոն
+ցուցահանդես
+ներկայացում
+շնորհանդես
+բարեգործական միջոցառում
+ցանցային հանդիպում
+վարպետության դաս
+մրցույթ
+շրջանավարտների հանդիպում

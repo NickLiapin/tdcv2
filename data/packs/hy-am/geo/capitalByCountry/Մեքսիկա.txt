@@ -1,0 +1,5 @@
+---
+description: Capital of Մեքսիկա, in Armenian.
+locale: hy-am
+---
+Մեխիկո

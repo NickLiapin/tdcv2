@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday, in Armenian, Monday first. Abbreviated by dropping vowels, as with the months.
+locale: hy-am
+---
+երկ
+երք
+չրք
+հնգ
+ուրբ
+շբթ
+կիր

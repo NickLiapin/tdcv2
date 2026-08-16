@@ -1,0 +1,5 @@
+---
+description: Capital of Սինգապուր, in Armenian.
+locale: hy-am
+---
+Սինգապուր

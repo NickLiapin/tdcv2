@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Ղազախստան. Codes are Latin everywhere.
+locale: hy-am
+---
+KZT

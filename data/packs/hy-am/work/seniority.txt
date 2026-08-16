@@ -1,0 +1,20 @@
+---
+description: Seniority level, in Armenian. The English ladder is borrowed unchanged at the top of the technology sector — an Armenian IT company writes 'Senior' in Latin on a job advert — but the state and industrial sectors use the Armenian words, and the two ladders do not map onto each other.
+locale: hy-am
+---
+պրակտիկանտ
+աշկերտ
+կրտսեր մասնագետ
+մասնագետ
+առաջատար մասնագետ
+ավագ մասնագետ
+գլխավոր մասնագետ
+խմբի ղեկավար
+բաժնի պետ
+վարչության պետ
+մենեջեր
+ավագ մենեջեր
+տնօրեն
+գործադիր տնօրեն
+փոխտնօրեն
+վարչության նախագահ

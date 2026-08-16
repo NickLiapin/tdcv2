@@ -1,0 +1,46 @@
+---
+description: Armenian company legal form. THE ORDER AND THE QUOTES ARE THE POINT: an Armenian company is written «Name» FORM — «Արարատ» ՍՊԸ — with the name inside Armenian angle quotes «» and the form AFTER it, in capitals. Latin 'Ararat LLC' inverts both. ՍՊԸ is a limited company, ՓԲԸ and ԲԲԸ closed and open joint stock, ԱՁ a sole trader, ՊՈԱԿ and ՀՈԱԿ the state and community non-commercial organisations that most Armenian schools, hospitals and theatres legally are, and ՀԿ an NGO. The abbreviations are read out letter by letter; ՍՊԸ is 'se-pe-ye'.
+locale: hy-am
+---
+ՍՊԸ
+ՓԲԸ
+ԲԲԸ
+ԱՁ
+ՊՈԱԿ
+ՀՈԱԿ
+ՀԿ
+ՊՆԿ
+հիմնադրամ
+կոոպերատիվ
+արտադրական կոոպերատիվ
+սպառողական կոոպերատիվ
+լիակատար ընկերակցություն
+վստահության վրա հիմնված ընկերակցություն
+մասնաճյուղ
+ներկայացուցչություն
+ընկերություն
+խումբ
+հոլդինգ
+կոնցեռն
+կորպորացիա
+գործընկերներ
+արտադրություն
+գործարան
+կոմբինատ
+տրեստ
+ասոցիացիա
+միություն
+ակումբ
+կենտրոն
+ինստիտուտ
+լաբորատորիա
+ստուդիա
+սալոն
+սերվիս
+տեխնոլոգիաներ
+համակարգեր
+լուծումներ
+ինվեստ
+կապիտալ
+տրեյդ
+գրուպ

@@ -1,0 +1,20 @@
+---
+description: Payment method. Armenia has payment rails of its own that no European list would carry, and they are what an Armenian checkout page actually offers: ArCa (ԱրՔա) is the national card scheme, on which nearly every Armenian debit card is co-badged; Idram, Telcell and EasyPay are domestic e-wallets and terminal networks that predate card acceptance in most of the country. ապառիկ — buying on instalments through the shop rather than through a card — is the single most common way an Armenian household buys a large appliance. Mir is Russia's scheme and is accepted here because of the size of the Russian-resident diaspora. Naming Armenia's systems is deliberate: Armenian is the state language of one country.
+locale: hy-am
+---
+կանխիկ
+բանկային քարտ
+ապառիկ
+ArCa
+Visa
+Mastercard
+Mir
+Idram
+Telcell
+EasyPay
+բանկային փոխանցում
+վճարում առաքման պահին
+նվեր-քարտ
+Apple Pay
+Google Pay
+կրիպտոարժույթ

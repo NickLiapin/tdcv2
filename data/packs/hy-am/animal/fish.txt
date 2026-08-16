@@ -1,0 +1,28 @@
+---
+description: Fish, in Armenian. The first four are the endemic trout of Lake Sevan and are the reason this list is not a translation: իշխան literally means 'prince', is found naturally nowhere else on earth, and its four seasonal forms (ամառային իշխան, ձմեռային բոջակ, գեղարքունի, բոջակ) are counted separately by Armenian fisheries law. կողակ and բեղլու are the other two Sevan endemics. սիգ, the whitefish, is NOT native — it was introduced from Lake Ladoga in the 1920s and then out-competed the ishkhan, so a historical Armenian dataset and a modern one will not have the same fish in them.
+locale: hy-am
+---
+իշխան
+գեղարքունի
+կողակ
+բեղլու
+սիգ
+կարմրախայտ
+ծածան
+կարաս
+լոքո
+թառափ
+սաղմոն
+իշխանաձուկ
+թունա
+ծովատառեխ
+սկումբրիա
+ձողաձուկ
+ոսկեձկնիկ
+գուպպի
+թառ
+կատվաձուկ
+ողնաշուն
+կարմրաթև
+վահանաձուկ
+թրաձուկ

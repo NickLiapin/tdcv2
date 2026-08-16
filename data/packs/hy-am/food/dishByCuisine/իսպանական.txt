@@ -1,0 +1,11 @@
+---
+description: Spanish dishes as Armenian names them.
+locale: hy-am
+---
+պաելյա
+տապաս
+գասպաչո
+իսպանական տորտիլյա
+չուրրոս
+պատատաս բրավաս
+խամոն

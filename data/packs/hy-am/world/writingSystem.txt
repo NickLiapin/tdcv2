@@ -1,0 +1,26 @@
+---
+description: Writing system, in Armenian. ՀԱՅԿԱԿԱՆ ԱՅԲՈՒԲԵՆ IS FIRST AND IS THE REASON THIS PACK EXISTS. It was devised by Mesrop Mashtots around 405 AD, it is related to no other script, and it is encoded at U+0530–U+058F. It had 36 letters originally, Ա to Ք; Օ and Ֆ were added in the twelfth century, making 39. It doubles as a NUMERAL SYSTEM — Ա=1 … Թ=9, Ժ=10 … Ղ=90, Ճ=100 … Ջ=900, Ռ=1000 … Ք=9000 — which is why Armenian kings are numbered Տիգրան Բ and not Tigranes II. TWO TRAPS FOR CODE. First, և (U+0587) is a single lowercase ligature whose UPPER CASE IS TWO CHARACTERS, so toUpperCase does not round-trip and any length-preserving casing routine corrupts it — and և is the ordinary word for 'and', so it is everywhere. WORSE, THE TWO CHARACTERS DISAGREE: Unicode's default full uppercase mapping (SpecialCasing.txt) gives ԵՒ, Ե + Ւ (U+0552 YIWN), while REFORMED EASTERN ARMENIAN — this pack's orthography — writes ԵՎ, Ե + Վ, because the 1922 reform abolished ւ as a standalone letter and replaced it with վ. So a Unicode-conformant toUpperCase on Գևորգյան returns ԳԵՒՈՐԳՅԱՆ, containing a letter the Republic's spelling does not use; the correct Armenian result is ԳԵՎՈՐԳՅԱՆ. This is measured, not theoretical: Node returns "\u0535\u0552" for "\u0587".toUpperCase(). Second, the punctuation is not Latin: the full stop is ։ (U+0589, վերջակետ) and looks like a colon without being one, the comma is ՝ (U+055D), and the question ՞ (U+055E) and exclamation ՜ (U+055C) marks are written ABOVE THE STRESSED VOWEL INSIDE the word being questioned or exclaimed, not at the end of the sentence. Armenian is written left to right and has full upper and lower case, unlike Georgian.
+locale: hy-am
+---
+հայկական այբուբեն
+լատինական
+կիրիլիցա
+հունական
+վրացական
+եբրայական
+արաբական
+հին հայկական երկաթագիր
+բոլորգիր
+նոտրգիր
+շղագիր
+սեպագիր
+հիերոգլիֆներ
+չինական
+ճապոնական
+հիրագանա
+կատականա
+հանգըլ
+դևանագարի
+թամիլերեն գիր
+եթովպական
+հայկական թվանշաններ

@@ -1,0 +1,45 @@
+---
+description: Professional skill, in Armenian. ՌՈՒՍԵՐԵՆ IS A SKILL HERE AND A COMMON ONE: Russian has no official status in Armenia and is still the second language of most of the workforce, it is what a large share of Armenian business with the region is conducted in, and it appears on Armenian CVs more often than English does outside the technology sector.
+locale: hy-am
+---
+Python
+JavaScript
+SQL
+Java
+C++
+ամպային տեխնոլոգիաներ
+մեքենայական ուսուցում
+տվյալների վերլուծություն
+նախագծերի կառավարում
+Agile
+հրապարակային ելույթ
+տեխնիկական գրագրություն
+հաճախորդների սպասարկում
+վաճառք
+հաշվապահություն
+ֆինանսական մոդելավորում
+CAD
+եռաչափ մոդելավորում
+գրաֆիկ դիզայն
+կոպիռայթինգ
+եռակցում
+էլեկտրագծերի մոնտաժում
+սանտեխնիկա
+ատաղձագործություն
+գծագրերի ընթերցում
+մետաղամշակում
+զոդում
+բեռնիչի կառավարում
+ծանր տեխնիկայի կառավարում
+վարորդական իրավունք
+առաջին օգնություն
+սրտաթոքային վերակենդանացում
+սննդի անվտանգություն
+ռուսերեն
+անգլերեն
+ֆրանսերեն
+պարսկերեն
+բանակցություններ
+թիմի ղեկավարում
+ժամանակի կառավարում
+խնդիրների լուծում

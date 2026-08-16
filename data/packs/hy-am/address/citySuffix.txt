@@ -1,0 +1,26 @@
+---
+description: Trailing element of an Armenian place name. Unlike a Polish or Russian trailing adjective these are SUFFIXES, not words: they attach directly to the stem with no space (Ստեփան + ավան = Ստեփանավան, Գետ + աշեն = Գետաշեն), so a config that joins prefix and suffix with a space will produce something no Armenian map has. -ավան is a settlement, -աշեն 'built by', -կերտ / -ակերտ 'made by', -բերդ a fortress, -ձոր a gorge, -վան a dwelling place, -ապատ and -շատ 'built up' from the Iranian layer of the language, -ուտ a stand of plants (Կաղնուտ, an oak wood). The -ք of Ակունք and Հարթաշեն-like plurals is the classical nominative plural, still frozen in dozens of names.
+locale: hy-am
+---
+ավան
+աշեն
+ակերտ
+կերտ
+բերդ
+ձոր
+գյուղ
+վան
+ապատ
+շատ
+տուն
+ուտ
+քար
+սար
+լիճ
+հովիտ
+աղբյուր
+դաշտ
+բլուր
+անտառ
+կապ
+ք

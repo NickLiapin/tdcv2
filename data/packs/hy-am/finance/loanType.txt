@@ -1,0 +1,16 @@
+---
+description: Kind of loan, in Armenian. ոսկու գրավով վարկ — a loan against pledged gold — is a mainstream regulated bank product in Armenia, offered over the counter by the largest banks, and it is the closest thing the country has to a universal small-credit facility. ապառիկ is the shop instalment plan that most large household purchases are made on.
+locale: hy-am
+---
+հիփոթեքային վարկ
+ավտովարկ
+սպառողական վարկ
+ապառիկ
+ոսկու գրավով վարկ
+գրավադրված վարկ
+ուսանողական վարկ
+բիզնես վարկ
+գյուղատնտեսական վարկ
+վարկային գիծ
+օվերդրաֆտ
+պարտքերի համախմբում

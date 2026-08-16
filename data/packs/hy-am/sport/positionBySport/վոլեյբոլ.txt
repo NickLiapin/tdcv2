@@ -1,0 +1,9 @@
+---
+description: Playing positions in վոլեյբոլ, in Armenian.
+locale: hy-am
+---
+կապող
+եզրային հարվածող
+կենտրոնական արգելափակող
+լիբերո
+դիագոնալ

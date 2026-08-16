@@ -1,0 +1,30 @@
+---
+description: KIND of public body, in Armenian — not a roster. The actual ministries, committees and services of the Republic of Armenia already live in the armenia country pack at armenia.government.agency, and duplicating them here would put a country's institutions into a language pack. What belongs here are the WORDS: նախարարություն is a ministry, կոմիտե a committee (Armenia calls what most countries would call an agency a committee — the tax and customs service is Պետական եկամուտների կոմիտե), տեսչական մարմին an inspectorate, and the -պետարան words are the tier of local and provincial administration: մարզպետարան a provincial governor's office, քաղաքապետարան a mayoralty, գյուղապետարան a village office.
+locale: hy-am
+---
+նախարարություն
+կոմիտե
+գործակալություն
+ծառայություն
+տեսչական մարմին
+վարչություն
+բաժին
+տեսչություն
+հանձնաժողով
+խորհուրդ
+կենտրոն
+պետական ոչ առևտրային կազմակերպություն
+համայնքային ոչ առևտրային կազմակերպություն
+հիմնադրամ
+մարզպետարան
+քաղաքապետարան
+գյուղապետարան
+համայնքապետարան
+վարչական շրջանի ղեկավարի աշխատակազմ
+կառավարության աշխատակազմ
+աշխատակազմ
+ներկայացուցչություն
+դեսպանություն
+հյուպատոսություն
+պետական ռեգիստր
+արխիվ

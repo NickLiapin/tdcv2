@@ -1,0 +1,20 @@
+---
+description: Compass point, in Armenian. The four cardinals are transparent compounds of the sun and the day: արևելք is 'sun-rising', արևմուտք 'sun-setting', հարավ is the noon side and հյուսիս the cold one. The sixteen-point rose is built by hyphenation exactly as in English.
+locale: hy-am
+---
+հյուսիս
+հարավ
+արևելք
+արևմուտք
+հյուսիս-արևելք
+հյուսիս-արևմուտք
+հարավ-արևելք
+հարավ-արևմուտք
+հյուսիս-հյուսիս-արևելք
+արևելք-հյուսիս-արևելք
+արևելք-հարավ-արևելք
+հարավ-հարավ-արևելք
+հարավ-հարավ-արևմուտք
+արևմուտք-հարավ-արևմուտք
+արևմուտք-հյուսիս-արևմուտք
+հյուսիս-հյուսիս-արևմուտք

@@ -1,0 +1,12 @@
+---
+description: Mining method, in Armenian. Armenia works both: the Kajaran copper-molybdenum pit is one of the largest open pits in Eurasia, while the Sotk gold and the Shamlugh copper are underground.
+locale: hy-am
+---
+բացահանք
+ստորգետնյա
+շերտային
+ալյուվիալ
+հանքահոր
+դրեյֆ
+լավային
+կամերային

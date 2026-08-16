@@ -1,0 +1,22 @@
+---
+description: Parcel carrier. Armenian is the state language of one country, so the domestic names here are Armenia's: Հայփոստ is the national post and ONEX the parcel forwarder most Armenians actually use for buying abroad, because Armenia is landlocked with two of its four borders closed and almost every incoming parcel is consolidated somewhere else first. Foreign carriers keep their Latin brand, which is how an Armenian tracking page reads.
+locale: hy-am
+---
+Հայփոստ
+ONEX
+DHL
+FedEx
+UPS
+TNT
+Aramex
+EMS
+CDEK
+Boxberry
+Pony Express
+Meest
+DPD
+GLS
+Yandex Delivery
+Glovo
+Menu.am
+Bolt Food

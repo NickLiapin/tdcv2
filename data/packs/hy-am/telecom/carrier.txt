@@ -1,0 +1,30 @@
+---
+description: Mobile operator. ARMENIA'S OWN THREE — Վիվա, Թիմ and Յուքոմ — live in the armenia country pack at armenia.telecom.operator and are deliberately not repeated here; this file holds the foreign networks an Armenian phone actually roams onto or that the diaspora is on, keeping their Latin brands. Note that Armenia has exactly three operators for under three million people, which is why a 'carrier' field in Armenian data has so little variety.
+locale: hy-am
+---
+Beeline
+MTS
+MegaFon
+Tele2
+Yota
+Magti
+Silknet
+Cellfie
+Azercell
+Bakcell
+Nar
+Turkcell
+Türk Telekom
+Vodafone
+Orange
+T-Mobile
+O2
+Irancell
+Hamrah-e Aval
+Zain
+Ooredoo
+Etisalat
+STC
+Kcell
+Beeline Kazakhstan
+Life:)

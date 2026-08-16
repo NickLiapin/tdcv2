@@ -1,0 +1,32 @@
+---
+description: Tree, in Armenian. ծիրանենի (the apricot) and նռնենի (the pomegranate) are the two an Armenian names first, and both bear the fruit that the culture is symbolised by. The wild կաղնի and հաճարենի forests of Lori and Tavush are what is left of Armenia's woodland, which now covers under a tenth of the country.
+locale: hy-am
+---
+ծիրանենի
+նռնենի
+կաղնի
+հաճարենի
+բարդի
+ուռենի
+սոսի
+թխկի
+հացենի
+կնձնի
+լորենի
+կեչի
+սոճի
+եղևնի
+մայրի
+նոճի
+գիհի
+ընկուզենի
+թթենի
+դեղձենի
+բալենի
+կեռասենի
+խնձորենի
+տանձենի
+սալորենի
+թզենի
+սերկևիլենի
+ձիթենի

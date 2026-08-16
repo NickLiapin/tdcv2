@@ -1,0 +1,5 @@
+---
+description: Currency of Ավստրալիա, in Armenian.
+locale: hy-am
+---
+ավստրալիական դոլար

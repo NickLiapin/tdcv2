@@ -1,0 +1,11 @@
+---
+description: Japanese dishes as Armenian names them.
+locale: hy-am
+---
+սուշի
+ռամեն
+տեմպուրա
+ուդոն
+տերիյակի հավ
+միսո ապուր
+օնիգիրի

@@ -1,0 +1,5 @@
+---
+description: Currency of Գերմանիա, in Armenian.
+locale: hy-am
+---
+եվրո

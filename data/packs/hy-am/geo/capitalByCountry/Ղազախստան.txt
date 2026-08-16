@@ -1,0 +1,5 @@
+---
+description: Capital of Ղազախստան, in Armenian.
+locale: hy-am
+---
+Աստանա

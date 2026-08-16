@@ -1,0 +1,5 @@
+---
+description: Currency of Ղազախստան, in Armenian.
+locale: hy-am
+---
+ղազախական տենգե

@@ -1,0 +1,14 @@
+---
+description: The ten industries that carry a job list. Parent of work/jobByIndustry — the child filenames must match these exactly.
+locale: hy-am
+---
+տեխնոլոգիա
+առողջապահություն
+ֆինանսներ
+շինարարություն
+կրթություն
+հյուրընկալություն
+արտադրություն
+մանրածախ առևտուր
+տրանսպորտ
+իրավունք

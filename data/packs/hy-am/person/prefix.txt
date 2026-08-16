@@ -1,0 +1,34 @@
+---
+description: Armenian form of address. պարոն and տիկին take EITHER the surname or the given name — «պարոն Սարգսյան» in an office and «պարոն Արմեն» to someone you know — unlike Georgian, where the honorific attaches only to the given name. օրիորդ (Miss) is now old-fashioned and slightly formal. THE CLERICAL TITLES ARE A SEPARATE SYSTEM: Տեր goes before a parish priest's name (Տեր Հովհաննես), Սրբազան AFTER a bishop's, and Վեհափառ is reserved for the Catholicos of All Armenians. The academic titles are the Soviet ladder Armenia kept, so դոցենտ and պրոֆեսոր are conferred ranks rather than job descriptions.
+locale: hy-am
+---
+պարոն
+տիկին
+օրիորդ
+պրն.
+տկն.
+դոկտոր
+դոկտ.
+պրոֆեսոր
+պրոֆ.
+դոցենտ
+ակադեմիկոս
+բժիշկ
+ինժեներ
+վարպետ
+ուսուցիչ
+Տեր
+Սրբազան
+Վեհափառ
+Հայր
+Աբեղա
+Քահանա
+Գեներալ
+Գնդապետ
+Փոխգնդապետ
+Մայոր
+Կապիտան
+Լեյտենանտ
+Սերժանտ
+Վաստակավոր
+Պատվավոր

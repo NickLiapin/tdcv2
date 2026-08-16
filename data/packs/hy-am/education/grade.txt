@@ -1,0 +1,16 @@
+---
+description: School mark, in Armenian. ARMENIA GRADES OUT OF TEN, not out of five and not on letters: the ten-point scale replaced the Soviet five-point scale in schools in 2007, 10 is the top mark and anything below 4 is a fail. The old five-point words are still what a parent says out loud — «հինգ» for top marks — and the pass/fail pair ստուգված / չստուգված is used for subjects that carry no numeric mark. Universities grade out of 100 with their own bands, which is a third scale again.
+locale: hy-am
+---
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+ստուգված
+չստուգված

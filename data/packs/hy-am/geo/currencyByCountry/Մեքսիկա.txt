@@ -1,0 +1,5 @@
+---
+description: Currency of Մեքսիկա, in Armenian.
+locale: hy-am
+---
+մեքսիկական պեսո

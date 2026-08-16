@@ -1,0 +1,11 @@
+---
+description: Greek dishes as Armenian names them.
+locale: hy-am
+---
+մուսակա
+սուվլակի
+յիրոս
+հունական աղցան
+սպանակոպիտա
+բակլավա
+ձաձիկի

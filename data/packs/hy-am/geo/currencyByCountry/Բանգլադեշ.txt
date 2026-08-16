@@ -1,0 +1,5 @@
+---
+description: Currency of Բանգլադեշ, in Armenian.
+locale: hy-am
+---
+բանգլադեշյան տակա

@@ -1,0 +1,30 @@
+---
+description: Property feature as an Armenian listing advertises it. Three are local and tell you what Armenian housing is like: ավտոնոմ ջեռուցում (its own boiler) matters because central heating collapsed nationally in the 1990s and never came back, so a flat's heating is its own problem; ջրի պահեստարան (a water tank) is standard because mains water was rationed by the hour for years and many buildings still keep the tank; and երկաթե դուռ, a steel front door, is advertised as a feature rather than assumed.
+locale: hy-am
+---
+ավտոնոմ ջեռուցում
+ջրի պահեստարան
+երկաթե դուռ
+վերանորոգված
+եվրովերանորոգում
+կահույքով
+կենցաղային տեխնիկայով
+օդորակիչ
+լոջիա
+պատշգամբ
+ապակեպատ պատշգամբ
+ավտոկայանատեղի
+ավտոտնակ
+վերելակ
+նկուղ
+ձեղնահարկ
+բակ
+այգի
+լողավազան
+մարզասրահ
+անվտանգության համակարգ
+տեսախցիկներ
+կոնսյերժ
+արևային վահանակներ
+բնական գազ
+լավ տեսարան

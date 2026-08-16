@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Console and store brands keep their Latin spelling in Armenian.
+locale: hy-am
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+Meta Quest
+համակարգիչ
+բջջային
+վեբ բրաուզեր
+խաղասրահ

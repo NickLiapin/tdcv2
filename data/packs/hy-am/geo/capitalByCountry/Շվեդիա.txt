@@ -1,0 +1,5 @@
+---
+description: Capital of Շվեդիա, in Armenian.
+locale: hy-am
+---
+Ստոկհոլմ

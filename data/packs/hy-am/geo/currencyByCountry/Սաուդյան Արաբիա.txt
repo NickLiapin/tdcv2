@@ -1,0 +1,5 @@
+---
+description: Currency of Սաուդյան Արաբիա, in Armenian.
+locale: hy-am
+---
+սաուդյան ռիալ

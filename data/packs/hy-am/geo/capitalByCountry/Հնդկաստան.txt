@@ -1,0 +1,5 @@
+---
+description: Capital of Հնդկաստան, in Armenian.
+locale: hy-am
+---
+Նյու Դելի

@@ -1,0 +1,5 @@
+---
+description: Currency of Ուկրաինա, in Armenian.
+locale: hy-am
+---
+ուկրաինական գրիվնա

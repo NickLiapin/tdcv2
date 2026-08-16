@@ -1,0 +1,5 @@
+---
+description: Capital of Ավստրալիա, in Armenian.
+locale: hy-am
+---
+Կանբերա

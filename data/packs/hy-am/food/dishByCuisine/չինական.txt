@@ -1,0 +1,11 @@
+---
+description: Chinese dishes as Armenian names them.
+locale: hy-am
+---
+կունգ պաո հավ
+տապակած բրինձ
+դամփլինգ
+չոու մեյն
+պեկինյան բադ
+մապո տոֆու
+վոնտոն ապուր

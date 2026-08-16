@@ -1,0 +1,24 @@
+---
+description: Kind of property, in Armenian. «ստալինկա», «խրուշչովկա» and «պանելային» are the real categories an Armenian listing uses — a flat is described by which Soviet building series it sits in, because that determines the ceiling height, the wall thickness and the earthquake behaviour. «նորակառույց» means anything built after independence.
+locale: hy-am
+---
+բնակարան
+ստուդիա բնակարան
+առանձնատուն
+քոթեջ
+կիսատուն
+տաունհաուս
+վիլլա
+նորակառույց
+ստալինկա
+խրուշչովկա
+պանելային շենք
+մոնոլիտ շենք
+կիսակառույց
+ամառանոց
+գյուղական տուն
+հողատարածք
+առևտրային տարածք
+գրասենյակային տարածք
+արտադրական տարածք
+պահեստ

@@ -1,0 +1,17 @@
+---
+description: Kind of legal case, in Armenian. Armenia's judiciary itself — every court by name, and the fact that Ararat and Vayots Dzor share one — lives in the armenia country pack at armenia.government.court; this file holds the subject-matter words a case file is labelled with.
+locale: hy-am
+---
+քաղաքացիական
+քրեական
+վարչական
+ընտանեկան
+սնանկության
+աշխատանքային
+պայմանագրային վեճ
+վնասի հատուցման
+մտավոր սեփականության
+անշարժ գույքի
+ժառանգության
+հարկային
+միգրացիոն

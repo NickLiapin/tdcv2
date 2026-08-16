@@ -1,0 +1,44 @@
+---
+description: Generic drug name, in Armenian. կոլխիցին is on this list for a reason no other locale would have: it is the lifelong prophylaxis for familial Mediterranean fever and is one of the most prescribed drugs in Armenia. The spellings are the Russian-mediated INN forms Armenian pharmacies actually print.
+locale: hy-am
+---
+կոլխիցին
+պարացետամոլ
+իբուպրոֆեն
+ասպիրին
+ամոքսիցիլին
+ազիթրոմիցին
+լիզինոպրիլ
+մետֆորմին
+ատորվաստատին
+ամլոդիպին
+օմեպրազոլ
+լևոթիրոքսին
+սալբուտամոլ
+մետոպրոլոլ
+լոսարտան
+գաբապենտին
+հիդրոքլորթիազիդ
+սերտրալին
+պրեդնիզոլոն
+վարֆարին
+ֆուրոսեմիդ
+ցիպրոֆլոքսացին
+դոքսիցիկլին
+ֆլուոքսետին
+ցիտալոպրամ
+պանտոպրազոլ
+սիմվաստատին
+մոնտելուկաստ
+տրամադոլ
+նապրոքսեն
+ցեֆտրիաքսոն
+ինսուլին գլարգին
+էսցիտալոպրամ
+դուլոքսետին
+կլոպիդոգրել
+դիկլոֆենակ
+նիմեսուլիդ
+դեքսամետազոն
+հեպարին
+ալոպուրինոլ

@@ -1,0 +1,14 @@
+---
+description: The ten specialties that carry a diagnosis list. Parent of medical/diagnosisBySpecialty — the child filenames must match these exactly.
+locale: hy-am
+---
+սրտաբանություն
+նյարդաբանություն
+ուռուցքաբանություն
+մաշկաբանություն
+գաստրոէնտերոլոգիա
+էնդոկրինոլոգիա
+թոքաբանություն
+օրթոպեդիա
+հոգեբուժություն
+նեֆրոլոգիա

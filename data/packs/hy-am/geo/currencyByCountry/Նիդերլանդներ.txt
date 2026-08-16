@@ -1,0 +1,5 @@
+---
+description: Currency of Նիդերլանդներ, in Armenian.
+locale: hy-am
+---
+եվրո

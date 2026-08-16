@@ -1,0 +1,11 @@
+---
+description: Mexican dishes as Armenian names them.
+locale: hy-am
+---
+տակո
+բուրիտո
+էնչիլադա
+կեսադիլյա
+գուակամոլե
+տամալես
+նաչոս

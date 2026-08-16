@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the խաղաղօվկիանոսյան ancestry group, in Armenian.
+locale: hy-am
+---
+2-րդ տիպի շաքարային դիաբետ
+ճարպակալման հետ կապված հիպերտոնիա
+պոդագրա
+ռևմատիկ սրտի հիվանդություն
+քրոնիկ երիկամային հիվանդություն
+հիպերուրիկեմիա

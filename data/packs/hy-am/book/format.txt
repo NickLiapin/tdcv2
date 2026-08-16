@@ -1,0 +1,12 @@
+---
+description: Book format, in Armenian. աուդիոգիրք and էլեկտրոնային գիրք are loans written in Armenian; the Armenian publishing market is small enough that a paperback and a hardback of the same title are often the same print run in different covers.
+locale: hy-am
+---
+կոշտ կազմ
+փափուկ կազմ
+էլեկտրոնային գիրք
+աուդիոգիրք
+գրպանի հրատարակություն
+գրադարանային կազմ
+նվերային հրատարակություն
+բրայլյան տպագրություն

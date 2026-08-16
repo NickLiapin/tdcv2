@@ -1,0 +1,18 @@
+---
+description: KIND of court, in Armenian — the words, not the roster. The twenty courts that actually exist in Armenia, with their statutory names, are in the armenia country pack at armenia.government.court, and repeating them here would put one country's judiciary into a language pack. Note that Armenian has no jury court and no arbitration court in the state system: ընդհանուր իրավասության դատարան (the court of general jurisdiction) is the first instance for everything that is not administrative, bankruptcy or corruption.
+locale: hy-am
+---
+սահմանադրական դատարան
+վճռաբեկ դատարան
+վերաքննիչ դատարան
+առաջին ատյանի դատարան
+ընդհանուր իրավասության դատարան
+վարչական դատարան
+սնանկության դատարան
+հակակոռուպցիոն դատարան
+քաղաքացիական դատարան
+քրեական դատարան
+զինվորական դատարան
+արբիտրաժային տրիբունալ
+միջազգային դատարան
+մարդու իրավունքների դատարան

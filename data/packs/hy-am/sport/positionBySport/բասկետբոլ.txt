@@ -1,0 +1,9 @@
+---
+description: Playing positions in բասկետբոլ, in Armenian.
+locale: hy-am
+---
+հենակետային տարանցիկ
+հարձակվող տարանցիկ
+թեթև եզրային
+ծանր եզրային
+կենտրոնական

@@ -1,0 +1,5 @@
+---
+description: Currency of Ինդոնեզիա, in Armenian.
+locale: hy-am
+---
+ինդոնեզական ռուփի

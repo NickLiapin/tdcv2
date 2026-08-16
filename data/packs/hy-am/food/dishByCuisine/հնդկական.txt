@@ -1,0 +1,11 @@
+---
+description: Indian dishes as Armenian names them.
+locale: hy-am
+---
+կարագով հավ
+բիրիանի
+տիկկա մասալա
+սամոսա
+դալ
+նան
+պալակ պանիր

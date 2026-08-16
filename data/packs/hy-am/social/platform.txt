@@ -1,0 +1,21 @@
+---
+description: Social platform. Brands keep their Latin spelling. Telegram, WhatsApp and Viber sit high because they carry most private messaging in Armenia — Viber in particular is a mainstream utility here in a way it is not in western Europe, used by banks and by the government for notifications.
+locale: hy-am
+---
+Facebook
+Instagram
+Telegram
+WhatsApp
+Viber
+YouTube
+TikTok
+X
+LinkedIn
+Reddit
+Pinterest
+Snapchat
+Discord
+Threads
+VK
+Odnoklassniki
+Mastodon

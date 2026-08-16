@@ -1,0 +1,5 @@
+---
+description: Capital of Միացյալ Թագավորություն, in Armenian.
+locale: hy-am
+---
+Լոնդոն

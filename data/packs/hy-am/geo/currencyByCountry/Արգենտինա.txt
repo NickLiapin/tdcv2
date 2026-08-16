@@ -1,0 +1,5 @@
+---
+description: Currency of Արգենտինա, in Armenian.
+locale: hy-am
+---
+արգենտինական պեսո

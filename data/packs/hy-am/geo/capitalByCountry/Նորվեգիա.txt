@@ -1,0 +1,5 @@
+---
+description: Capital of Նորվեգիա, in Armenian.
+locale: hy-am
+---
+Օսլո

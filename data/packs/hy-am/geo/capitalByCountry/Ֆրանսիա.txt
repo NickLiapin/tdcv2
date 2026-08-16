@@ -1,0 +1,5 @@
+---
+description: Capital of Ֆրանսիա, in Armenian.
+locale: hy-am
+---
+Փարիզ

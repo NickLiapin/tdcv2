@@ -1,0 +1,40 @@
+---
+description: Airline. Armenian carriers are written in Armenian, foreign ones keep their Latin brand — which is how a departure board at Zvartnots actually reads. Armenia has never sustained a flag carrier: Հայկական ավիաուղիներ folded in 2003, Արմավիա — for a decade the de facto national airline — in 2013, and Fly Arna in 2024, so three of the Armenian names here are historical and a dataset dated after 2024 should not be issuing tickets on them.
+locale: hy-am
+---
+Արմավիա
+Հայկական ավիաուղիներ
+Armenia Airways
+Fly Arna
+Flyone Armenia
+Aeroflot
+S7 Airlines
+Ural Airlines
+Pobeda
+Turkish Airlines
+Pegasus Airlines
+Austrian Airlines
+Lufthansa
+Air France
+KLM
+LOT Polish Airlines
+Wizz Air
+Ryanair
+FlyDubai
+Emirates
+Qatar Airways
+Etihad Airways
+Air Arabia
+Georgian Airways
+Azerbaijan Airlines
+Iran Air
+Mahan Air
+Belavia
+Air Astana
+Uzbekistan Airways
+China Southern Airlines
+Air India
+El Al
+Middle East Airlines
+Cyprus Airways
+Wizz Air Abu Dhabi

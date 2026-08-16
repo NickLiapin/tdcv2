@@ -1,0 +1,16 @@
+---
+description: Abbreviated month, in Armenian. Armenian abbreviates by dropping the vowels rather than by cutting the word short — հունվար becomes հնվ, փետրվար becomes փտվ — so a three-letter prefix of the full name is NOT the abbreviation.
+locale: hy-am
+---
+հնվ
+փտվ
+մրտ
+ապր
+մյս
+հնս
+հլս
+օգս
+սեպ
+հոկ
+նոյ
+դեկ

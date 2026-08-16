@@ -1,0 +1,20 @@
+---
+description: Academic qualification, in Armenian. ARMENIA KEEPS THE SOVIET TWO-TIER DOCTORATE and it is the thing an English-language system gets wrong: գիտությունների թեկնածու (Candidate of Sciences) is the first research degree and is what Armenians translate as PhD, while գիտությունների դոկտոր is a SECOND, higher doctorate earned years later on a further thesis — so an Armenian «դոկտոր» is not the same rank as an American PhD, and mapping the two onto one field loses the distinction. Armenia signed the Bologna process and now also awards բակալավր and մագիստրոս, so all four coexist in a live register.
+locale: hy-am
+---
+միջնակարգ կրթության ատեստատ
+հիմնական կրթության վկայական
+արհեստագործական ուսումնարանի վկայական
+միջին մասնագիտական կրթության դիպլոմ
+քոլեջի դիպլոմ
+բակալավրի աստիճան
+մագիստրոսի աստիճան
+դիպլոմավորված մասնագետ
+ասպիրանտուրայի ավարտական
+գիտությունների թեկնածու
+գիտությունների դոկտոր
+բժշկի դիպլոմ
+կլինիկական օրդինատուրա
+ինտերնատուրա
+պրոֆեսորի կոչում
+դոցենտի կոչում

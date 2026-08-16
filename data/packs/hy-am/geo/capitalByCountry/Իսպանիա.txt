@@ -1,0 +1,5 @@
+---
+description: Capital of Իսպանիա, in Armenian.
+locale: hy-am
+---
+Մադրիդ

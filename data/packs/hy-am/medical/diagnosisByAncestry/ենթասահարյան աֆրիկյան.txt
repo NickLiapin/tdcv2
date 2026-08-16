@@ -1,0 +1,15 @@
+---
+description: Conditions with a raised prevalence in the ենթասահարյան աֆրիկյան ancestry group, in Armenian. This list is a PREVALENCE SIGNAL, not an exclusive one: every condition here occurs in every population, and ancestry changes the prior probability, nothing more.
+locale: hy-am
+---
+մանգաղաձև բջջային անեմիա
+մանգաղաձև բջջային կրողություն
+գլյուկոզա-6-ֆոսֆատդեհիդրոգենազի անբավարարություն
+APOL1-կապակցված նեֆրոպաթիա
+կելոիդային սպիացում
+սարկոիդոզ
+հիպերտոնիկ նեֆրոսկլերոզ
+արգանդի միոմա
+բարորակ էթնիկ նեյտրոպենիա
+լակտազի ոչ կայունություն
+վիտիլիգո

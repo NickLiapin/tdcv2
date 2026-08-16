@@ -1,0 +1,5 @@
+---
+description: Currency of Հարավաֆրիկյան Հանրապետություն, in Armenian.
+locale: hy-am
+---
+հարավաֆրիկյան ռանդ

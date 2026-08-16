@@ -1,0 +1,22 @@
+---
+description: Employment benefit, in Armenian. THE PENSION LINE IS DIFFERENT HERE: Armenia's funded pillar (կուտակային կենսաթոշակ) is mandatory for anyone born after 1973 and is a payroll deduction, not a perk, so an Armenian benefits list has no 401(k)-style match on it. Private health insurance is the benefit that actually distinguishes employers, because there is no universal cover.
+locale: hy-am
+---
+բժշկական ապահովագրություն
+ատամնաբուժական ապահովագրություն
+տեսողության ապահովագրություն
+վճարովի արձակուրդ
+հեռավար աշխատանք
+ճկուն ժամեր
+բաժնետոմսերի օպցիոն
+կյանքի ապահովագրություն
+ծնողական արձակուրդ
+մարզասրահի բաժանորդագրություն
+ուսման վարձի փոխհատուցում
+տրանսպորտի փոխհատուցում
+սննդի փոխհատուցում
+բարեկեցության ծրագիր
+բջջային կապի փոխհատուցում
+ծառայողական մեքենա
+լրացուցիչ կենսաթոշակային ծրագիր
+մասնագիտական վերապատրաստում

@@ -1,0 +1,24 @@
+---
+description: Cat breed. Most breed names are internationalisms taken through Russian and written in Armenian; վանա կատու is not — the Van cat is the white, odd-eyed, swimming cat of Lake Van, in the historically Armenian highland now in eastern Turkey, and Armenians name it after the lake rather than after the Turkish province.
+locale: hy-am
+---
+վանա կատու
+պարսկական
+սիամական
+բրիտանական կարճամազ
+մեյն-կուն
+բենգալական
+սֆինքս
+աբիսինյան
+շոտլանդական ծալքականջ
+նորվեգական անտառային
+ռուսական կապույտ
+բիրման
+ամերիկյան կարճամազ
+դևոն ռեքս
+բիրմայական
+ռեգդոլ
+հիմալայան
+սիբիրյան
+թուրքական անգորա
+բոմբեյ

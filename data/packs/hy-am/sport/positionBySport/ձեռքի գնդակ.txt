@@ -1,0 +1,9 @@
+---
+description: Playing positions in ձեռքի գնդակ, in Armenian.
+locale: hy-am
+---
+դարպասապահ
+եզրային
+կիսաեզրային
+կենտրոնական
+գծային

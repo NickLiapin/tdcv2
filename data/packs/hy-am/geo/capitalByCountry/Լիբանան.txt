@@ -1,0 +1,5 @@
+---
+description: Capital of Լիբանան, in Armenian.
+locale: hy-am
+---
+Բեյրութ

@@ -1,0 +1,30 @@
+---
+description: Product review headline, in Armenian. Note where the exclamation mark sits: Armenian writes ՜ (U+055C) ABOVE THE STRESSED VOWEL INSIDE the word, not at the end of the sentence — «Հիանալի՜ ապրանք» carries its mark on the last vowel of the first word, and «Ի՞նչ որակ» carries the question mark (U+055E) on the ի of the question word. A config that appends '!' or '?' to an Armenian string is writing something Armenian typography does not do.
+locale: hy-am
+---
+Հիանալի՜ ապրանք
+Խորհուրդ եմ տալիս
+Չարժե գումարը
+Գերազանցեց սպասելիքները
+Այնքան էլ լավը չէ
+Նորից կգնեի
+Հիասթափված եմ
+Գերազանց որակ
+Շատ շուտ փչացավ
+Գնի համար կատարյալ է
+Ավելի լավն էր, քան սպասում էի
+Խորհուրդ չեմ տալիս
+Շատ եմ հավանել
+Մի քիչ թանկ է
+Ճիշտ այնպես, ինչպես նկարագրված է
+Ի՞նչ որակ
+Արժե իր գինը
+Կրկին կպատվիրեմ
+Առաքումն արագ էր
+Փաթեթավորումը վատ էր
+Նկարից տարբերվում է
+Ամուր և հուսալի
+Սովորական ապրանք
+Կպատվիրեմ նաև ընկերներիս համար
+Ափսոս գումարը
+Իմ սպասածը չէր

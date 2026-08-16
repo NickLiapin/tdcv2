@@ -1,0 +1,26 @@
+---
+description: Armenian address unit designator, in the abbreviated form actually written on an envelope: «Աբովյան փող., շ. 12, բն. 34». շ. is շենք (block) and բն. is բնակարան (flat); an Armenian address needs BOTH, because a Soviet-built quarter numbers its blocks independently of the street. մուտք is the stairwell entrance — the Russian podyezd — and is part of the address, not of the directions.
+locale: hy-am
+---
+բն.
+բնակարան
+շ.
+շենք
+մուտք
+հարկ
+սենյակ
+գրասենյակ
+կորպուս
+բլոկ
+տարածք
+ավտոտնակ
+նկուղ
+ձեղնահարկ
+կիսանկուղ
+տաղավար
+կրպակ
+բաժին
+սրահ
+դահլիճ
+պահեստ
+կցաշենք

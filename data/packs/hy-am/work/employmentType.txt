@@ -1,0 +1,15 @@
+---
+description: Employment type, in Armenian. ԱՆՀԱՏ ՁԵՌՆԱՐԿԱՏԵՐ IS THE ONE TO NOTICE: registering as a sole trader (ԱՁ) is how a very large share of Armenian professionals — IT contractors above all — are legally engaged, because the turnover tax on a sole trader is far below payroll tax. An Armenian 'employment type' field with only full-time and part-time in it will misclassify most of the technology sector.
+locale: hy-am
+---
+լրիվ դրույք
+կես դրույք
+պայմանագրային
+ժամանակավոր
+պրակտիկա
+անհատ ձեռնարկատեր
+ազատ զբաղվածություն
+սեզոնային
+օրավարձով
+աշկերտություն
+համատեղությամբ

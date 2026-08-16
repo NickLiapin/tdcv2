@@ -1,0 +1,14 @@
+---
+description: Competitive rank ladder, in Armenian.
+locale: hy-am
+---
+երկաթ
+բրոնզ
+արծաթ
+ոսկի
+պլատին
+ադամանդ
+վարպետ
+մեծ վարպետ
+մարտահրավերի
+լեգենդար

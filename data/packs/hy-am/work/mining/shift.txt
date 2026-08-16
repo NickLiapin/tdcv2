@@ -1,0 +1,9 @@
+---
+description: Mine shift, in Armenian.
+locale: hy-am
+---
+ցերեկային
+գիշերային
+երեկոյան
+պտտվող
+հերթափոխային

@@ -1,0 +1,16 @@
+---
+description: Zodiac sign, in Armenian. These are translations of the constellation names rather than loans: Խոյ is 'ram', Ցուլ 'bull', Կշեռք 'scales', Աղեղնավոր 'archer', Ջրհոս 'water-pourer'.
+locale: hy-am
+---
+Խոյ
+Ցուլ
+Երկվորյակ
+Խեցգետին
+Առյուծ
+Կույս
+Կշեռք
+Կարիճ
+Աղեղնավոր
+Այծեղջյուր
+Ջրհոս
+Ձկներ

@@ -1,0 +1,16 @@
+---
+description: Shoe size on the European (Paris point) scale — the numbers printed on a shoebox in Armenia. Armenia has no scale of its own and switched fully to the European one; Soviet-era Russian sizing, which used the same numbers for adults, still appears on older stock and causes no confusion because for adult sizes the two agree.
+locale: hy-am
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

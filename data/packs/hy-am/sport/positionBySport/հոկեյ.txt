@@ -1,0 +1,9 @@
+---
+description: Playing positions in հոկեյ, in Armenian.
+locale: hy-am
+---
+դարպասապահ
+պաշտպան
+կենտրոնական հարձակվող
+ձախ եզրային
+աջ եզրային

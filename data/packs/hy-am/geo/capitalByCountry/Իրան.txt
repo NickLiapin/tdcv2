@@ -1,0 +1,5 @@
+---
+description: Capital of Իրան, in Armenian.
+locale: hy-am
+---
+Թեհրան

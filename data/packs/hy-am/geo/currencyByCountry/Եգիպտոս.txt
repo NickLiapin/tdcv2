@@ -1,0 +1,5 @@
+---
+description: Currency of Եգիպտոս, in Armenian.
+locale: hy-am
+---
+եգիպտական ֆունտ

@@ -1,0 +1,31 @@
+---
+description: Flower, in Armenian. վարդ leads because Armenian is full of it — Վարդան, Վարդուհի and Վարդանանք are all built on the word, and Վարդավառ, the midsummer water festival, is 'the rose blaze'. կակաչ, the wild poppy of the Ararat plain, and the endemic Արարատյան բոժոժ (Armenian cornflower) are highland flowers rather than garden ones.
+locale: hy-am
+---
+վարդ
+կակաչ
+շուշան
+մանուշակ
+նարգիզ
+հասմիկ
+մեխակ
+քրիզանթեմ
+դալիա
+հիրիկ
+վարդակակաչ
+արևածաղիկ
+երիցուկ
+լալա
+հակինթ
+խոլորձ
+բեգոնիա
+նունուֆար
+լոտոս
+հիբիսկուս
+նռնածաղիկ
+վայրի կակաչ
+եղրևանի
+ազնվամորու ծաղիկ
+մորմ
+սոսնձածաղիկ
+բամբակածաղիկ

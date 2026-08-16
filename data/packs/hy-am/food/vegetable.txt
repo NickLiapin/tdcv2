@@ -1,0 +1,34 @@
+---
+description: Vegetable, in Armenian. ավելուկ and սիբեխ are the two that make this list Armenian: they are wild greens — mountain sorrel and a chervil relative — gathered in spring, plaited into ropes and hung to dry for winter soups, and they are sold that way in every Armenian market. There is no English word for either that a shopper would recognise.
+locale: hy-am
+---
+ավելուկ
+սիբեխ
+բանջար
+լոլիկ
+վարունգ
+սոխ
+սխտոր
+պղպեղ
+սմբուկ
+դդմիկ
+դդում
+կարտոֆիլ
+գազար
+ճակնդեղ
+կաղամբ
+ծաղկակաղամբ
+բրոկկոլի
+սպանախ
+հազար
+բողկ
+շաղգամ
+նեխուր
+պրաս
+լոբի
+ոլոռ
+ոսպ
+սիսեռ
+եգիպտացորեն
+ծնեբեկ
+սունկ

@@ -1,0 +1,5 @@
+---
+description: Capital of Ռուսաստան, in Armenian.
+locale: hy-am
+---
+Մոսկվա

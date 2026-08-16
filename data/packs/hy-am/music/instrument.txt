@@ -1,0 +1,35 @@
+---
+description: Musical instrument, in Armenian. The first six are the Armenian ones and they are what an Armenian ensemble is built from: դուդուկ, the double-reed apricot-wood pipe, is on UNESCO's intangible heritage list and is the sound most people mean by 'Armenian music'; զուռնա is its loud outdoor cousin, դհոլ the drum that goes with both, քանոն the plucked zither, and շվի the shepherd's flute. կանոն is the same instrument as քանոն under its other spelling and is deliberately not duplicated here.
+locale: hy-am
+---
+դուդուկ
+զուռնա
+դհոլ
+քանոն
+քամանչա
+շվի
+թառ
+սանթուր
+բլուլ
+կիթառ
+դաշնամուր
+ջութակ
+թմբուկ
+բաս կիթառ
+սաքսոֆոն
+շեփոր
+ֆլեյտա
+թավջութակ
+կլառնետ
+տրոմբոն
+տավիղ
+ուկուլելե
+բանջո
+ակորդեոն
+սինթեզատոր
+հոբոյ
+կոնտրաբաս
+հարմոնիկա
+քսիլոֆոն
+օրգան
+զանգակներ

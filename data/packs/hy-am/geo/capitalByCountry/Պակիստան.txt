@@ -1,0 +1,5 @@
+---
+description: Capital of Պակիստան, in Armenian.
+locale: hy-am
+---
+Իսլամաբադ

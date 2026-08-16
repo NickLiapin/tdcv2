@@ -1,0 +1,5 @@
+---
+description: Currency of Վիետնամ, in Armenian.
+locale: hy-am
+---
+վիետնամական դոնգ

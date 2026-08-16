@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the արևելաեվրոպական ancestry group, in Armenian.
+locale: hy-am
+---
+ժառանգական հեմոքրոմատոզ
+ֆենիլկետոնուրիա
+ընտանեկան հիպերխոլեստերինեմիա
+ալկոհոլային լյարդի հիվանդություն
+կիստոզ ֆիբրոզ
+Վիլսոնի հիվանդություն

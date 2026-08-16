@@ -1,0 +1,5 @@
+---
+description: Capital of Արգենտինա, in Armenian.
+locale: hy-am
+---
+Բուենոս Այրես

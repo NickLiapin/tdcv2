@@ -1,0 +1,8 @@
+---
+description: Financial quarter, in Armenian. Armenia writes the ordinal with the suffix attached to the digit — 1-ին, 2-րդ — where English writes 'Q1'.
+locale: hy-am
+---
+1-ին եռամսյակ
+2-րդ եռամսյակ
+3-րդ եռամսյակ
+4-րդ եռամսյակ

@@ -1,0 +1,11 @@
+---
+description: Weekday, in Armenian, Monday first. THE NAMES ARE COUNTING: Երկուշաբթի, Երեքշաբթի, Չորեքշաբթի and Հինգշաբթի are literally 'two-sabbath', 'three-sabbath', 'four-sabbath' and 'five-sabbath', numbered from Շաբաթ, the sabbath. Ուրբաթ (Friday) is a Syriac loan meaning the eve of it, and Կիրակի (Sunday) is Greek kyriakē, 'the Lord's day'. So four of the seven contain a numeral, and a config that sorts weekdays alphabetically will produce something that looks almost, but not quite, like counting.
+locale: hy-am
+---
+Երկուշաբթի
+Երեքշաբթի
+Չորեքշաբթի
+Հինգշաբթի
+Ուրբաթ
+Շաբաթ
+Կիրակի

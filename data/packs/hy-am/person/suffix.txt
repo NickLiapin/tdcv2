@@ -1,0 +1,26 @@
+---
+description: Name suffix, in Armenian. ARMENIA HAS NO Jr./Sr. GENERATIONAL SUFFIX — a father and son with the same name are told apart with ավագ and կրտսեր, and nothing follows the surname. THE REGNAL NUMBERS ARE ARMENIAN LETTERS, NOT ROMAN NUMERALS: the Armenian alphabet doubles as a numeral system (Ա=1, Բ=2, Գ=3 … Ք=9000), so it is Տիգրան Բ, not Տիգրան II, and Աշոտ Գ, not Ashot III. A formatter that emits Roman numerals for an Armenian king is writing a foreign convention. The post-nominals are the Soviet-derived academic abbreviations Armenian CVs actually carry: գ.թ. is candidate of sciences, գ.դ. doctor of sciences, բ.գ.թ. candidate of medical sciences.
+locale: hy-am
+---
+ավագ
+կրտսեր
+Ա
+Բ
+Գ
+Դ
+Ե
+Զ
+Է
+Ը
+Թ
+Ժ
+գ.թ.
+գ.դ.
+բ.գ.թ.
+բ.գ.դ.
+տ.գ.թ.
+տ.գ.դ.
+ֆ.մ.գ.թ.
+ֆ.մ.գ.դ.
+ՀՀ ԳԱԱ թղթակից անդամ
+ՀՀ ԳԱԱ ակադեմիկոս

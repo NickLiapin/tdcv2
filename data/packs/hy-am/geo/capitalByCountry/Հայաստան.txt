@@ -1,0 +1,5 @@
+---
+description: Capital of Հայաստան, in Armenian.
+locale: hy-am
+---
+Երևան

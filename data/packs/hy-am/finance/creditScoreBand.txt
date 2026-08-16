@@ -1,0 +1,9 @@
+---
+description: Loan quality class as an Armenian bank actually records it. ARMENIA HAS NO CONSUMER CREDIT SCORE of the FICO or Schufa kind — there is no three-digit number a borrower can look up. What exists is the Central Bank's five-class classification of the loan itself, set by CBA regulation 3 and used by every bank and by the ACRA credit bureau: ստանդարտ, հսկվող, ոչ ստանդարտ, կասկածելի, անհուսալի, in worsening order, driven mostly by how many days the loan is overdue. Translating 'Poor / Fair / Good / Excellent' into Armenian would have produced a scale that no Armenian record contains, so this file carries the real one instead.
+locale: hy-am
+---
+ստանդարտ
+հսկվող
+ոչ ստանդարտ
+կասկածելի
+անհուսալի

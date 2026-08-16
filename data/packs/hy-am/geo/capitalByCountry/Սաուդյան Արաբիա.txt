@@ -1,0 +1,5 @@
+---
+description: Capital of Սաուդյան Արաբիա, in Armenian.
+locale: hy-am
+---
+Ռիադ

@@ -1,0 +1,54 @@
+---
+description: Product adjective, in Armenian. Armenian adjectives DO NOT AGREE with the noun in number or case — there is no gender in the language and an attributive adjective never changes shape — so unlike Polish, Russian or French, a config may concatenate any adjective here with any noun and the result is grammatical. This is the single biggest thing a template writer needs to know about Armenian.
+locale: hy-am
+---
+փոքր
+մեծ
+էրգոնոմիկ
+խելացի
+գեղեցիկ
+անհավանական
+ֆանտաստիկ
+գործնական
+նրբագիծ
+ձեռագործ
+ձեռքով պատրաստված
+լիցենզավորված
+նրբաճաշակ
+առանց ապրանքանիշի
+էլեգանտ
+ժամանակակից
+հնաոճ
+պրեմիում
+շքեղ
+կոմպակտ
+դյուրակիր
+դիմացկուն
+թեթև
+անլար
+վերալիցքավորվող
+կարգավորվող
+ծալովի
+ջրակայուն
+ջերմամեկուսացված
+վերամշակված
+բնական
+օրգանական
+ամուր
+հարմարավետ
+պարզ
+բազմաֆունկցիոնալ
+ունիվերսալ
+մասնագիտական
+տնային
+մանկական
+ամրացված
+չժանգոտվող
+ձայնամեկուսացված
+հակահրդեհային
+հակաալերգիկ
+թափանցիկ
+փայլուն
+մատտ
+ինքնամաքրվող
+ավտոմատ

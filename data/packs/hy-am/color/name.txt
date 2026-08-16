@@ -1,0 +1,57 @@
+---
+description: Colour name, in Armenian. ծիրանագույն ('apricot-coloured') is the point of this list: it is the official name of the third band of the Armenian flag, fixed by the law on the state flag, and no other national flag names a colour after a fruit. Armenian builds most colour words with -գույն ('-coloured') on a noun — վարդագույն from վարդ 'rose', երկնագույն from երկինք 'sky', ոսկեգույն from ոսկի 'gold' — so a colour word in Armenian is usually transparently the thing it is the colour of.
+locale: hy-am
+---
+կարմիր
+կապույտ
+ծիրանագույն
+կանաչ
+դեղին
+նարնջագույն
+մանուշակագույն
+վարդագույն
+շագանակագույն
+սև
+սպիտակ
+մոխրագույն
+երկնագույն
+ոսկեգույն
+արծաթագույն
+պղնձագույն
+բրոնզագույն
+բեժ
+բորդո
+փիրուզագույն
+մարջանագույն
+սաթագույն
+բալագույն
+նռնագույն
+ձիթապտղի
+մուգ կապույտ
+բաց կապույտ
+մուգ կանաչ
+բաց կանաչ
+մուգ կարմիր
+բաց դեղին
+կաթնագույն
+սերուցքագույն
+ավազագույն
+հողագույն
+ժանգագույն
+կրեմագույն
+յասամանագույն
+բալենու գույն
+լիմոնագույն
+արյունագույն
+մրրկագույն
+ածխագույն
+մոխրակապույտ
+կանաչավուն
+կապտավուն
+կարմրավուն
+դեղնավուն
+սևավուն
+սպիտակավուն
+թխագույն
+վառ կարմիր
+խակ

@@ -1,0 +1,5 @@
+---
+description: Capital of Իտալիա, in Armenian.
+locale: hy-am
+---
+Հռոմ

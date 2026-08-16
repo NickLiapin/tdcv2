@@ -1,0 +1,12 @@
+---
+description: Broadcast age rating as Armenia's National Commission on Television and Radio sets it: an age number with a plus, the Russian-style system rather than the American letters. «Առանց տարիքային սահմանափակման» is the unrestricted label.
+locale: hy-am
+---
+առանց տարիքային սահմանափակման
+0+
+6+
+12+
+16+
+18+
+ծնողական հսկողությամբ
+արգելված է հեռարձակել

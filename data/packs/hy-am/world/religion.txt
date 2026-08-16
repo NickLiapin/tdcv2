@@ -1,0 +1,27 @@
+---
+description: World religion, in Armenian. ՀԱՅ ԱՌԱՔԵԼԱԿԱՆ ԵԿԵՂԵՑԻ IS FIRST AND IS ITS OWN CHURCH: Armenia adopted Christianity as the state religion in 301, the first state anywhere to do so, and the Armenian Apostolic Church is Oriental Orthodox — it rejected Chalcedon in 451 — so it is NOT the same thing as Eastern Orthodoxy and lumping it under ուղղափառություն is a real error. Its head is the Catholicos of All Armenians at Etchmiadzin. Two smaller Armenian churches exist alongside it, the Catholic (Mekhitarist) and the Evangelical. եզդիականություն is here because Yezidis are Armenia's largest religious minority, with the world's largest Yezidi temple at Aknalich.
+locale: hy-am
+---
+Հայ Առաքելական Եկեղեցի
+Հայ Կաթողիկե Եկեղեցի
+Հայ Ավետարանական Եկեղեցի
+քրիստոնեություն
+ուղղափառություն
+կաթոլիկություն
+բողոքականություն
+իսլամ
+սուննիականություն
+շիայականություն
+եզդիականություն
+հուդայականություն
+հինդուիզմ
+բուդդայականություն
+սիկհականություն
+ջայնականություն
+բահայականություն
+զրադաշտականություն
+շամանականություն
+հեթանոսություն
+աթեիզմ
+ագնոստիցիզմ
+աշխարհիկ

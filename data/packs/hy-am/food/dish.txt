@@ -1,0 +1,44 @@
+---
+description: Dish, in Armenian — the Armenian ones first, then the international dishes an Armenian menu carries. See food/dishByCuisine/հայկական.txt for what each of the first fifteen is.
+locale: hy-am
+---
+խորոված
+տոլմա
+խաշ
+հարիսա
+սպաս
+ղափամա
+ժենգյալով հաց
+քյուֆթա
+բոզբաշ
+արիշտա
+խաշլամա
+ղավուրմա
+ամիչ
+գաթա
+մատնաքաշ
+բասթուրմա
+սուջուխ
+լավաշ
+ձավարով ապուր
+թթու
+խաչապուրի
+խինկալի
+բորշչ
+պելմենի
+օլիվյե
+շաուրմա
+համոս
+ֆալաֆել
+պիցցա
+սուշի
+ռամեն
+բուրգեր
+կարբոնարա
+լազանյա
+պաելյա
+տակո
+կանաչ կարի
+ցեզար աղցան
+տապակած բրինձ
+բլիթ

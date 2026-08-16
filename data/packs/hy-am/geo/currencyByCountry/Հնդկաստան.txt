@@ -1,0 +1,5 @@
+---
+description: Currency of Հնդկաստան, in Armenian.
+locale: hy-am
+---
+հնդկական ռուփի

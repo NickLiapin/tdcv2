@@ -1,0 +1,12 @@
+---
+description: Russian dishes as Armenian names them.
+locale: hy-am
+---
+բորշչ
+պելմենի
+բլինի
+օլիվյե
+սոլյանկա
+շչի
+օկրոշկա
+պիրոժկի

@@ -1,0 +1,9 @@
+---
+description: Playing positions in ջրագնդակ, in Armenian.
+locale: hy-am
+---
+դարպասապահ
+կենտրոնական հարձակվող
+կենտրոնական պաշտպան
+եզրային
+դրայվեր

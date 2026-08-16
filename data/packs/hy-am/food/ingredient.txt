@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient, in Armenian. Five here are Armenian staples with no European counterpart: ձավար (cracked wheat) is the everyday grain rather than rice, կորկոտ its coarser boiled form, մածուն the Armenian yoghurt that soups are built on, չորթան the dried sour-milk ball that is reconstituted in winter, and լավաշ the thin bread that is a wrapper, a plate and a utensil at once, listed by UNESCO as intangible heritage.
+locale: hy-am
+---
+ալյուր
+ձավար
+կորկոտ
+բրինձ
+լավաշ
+մատնաքաշ
+պաքսիմատ
+շաքարավազ
+աղ
+կարագ
+ձու
+կաթ
+մածուն
+թան
+չորթան
+սերուցք
+պանիր
+լոռի պանիր
+չանախ
+մոթալ
+սոխ
+սխտոր
+լոլիկ
+պղպեղ
+գազար
+կարտոֆիլ
+սմբուկ
+դդմիկ
+ձիթապտղի յուղ
+արևածաղկի յուղ
+հավի կրծքամիս
+գառան միս
+աղացած միս
+լոբի
+ոսպ
+սիսեռ
+ընկույզ
+չիր
+մեղր
+խմորիչ

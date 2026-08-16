@@ -1,0 +1,10 @@
+---
+description: Playing positions in բեյսբոլ, in Armenian.
+locale: hy-am
+---
+փիթչեր
+քեթչեր
+առաջին բազայի
+շորթսթոփ
+կենտրոնական դաշտային
+նշանակված հարվածող

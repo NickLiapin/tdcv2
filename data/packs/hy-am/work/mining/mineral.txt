@@ -1,0 +1,25 @@
+---
+description: Mineral, in Armenian. THE ORDER IS ARMENIA'S OWN GEOLOGY: copper and molybdenum first because Kajaran is the country's largest enterprise and copper concentrate its biggest metal export; then gold from Sotk and Meghradzor, then the perlite, tuff, basalt, travertine and obsidian that Armenia has in quantities out of all proportion to its size. Armenia has NO coal, NO oil and NO gas worth extracting, which is why coal sits far down a list where an English one would have it first.
+locale: hy-am
+---
+պղինձ
+մոլիբդեն
+ոսկի
+արծաթ
+ցինկ
+կապար
+երկաթի հանքաքար
+պերլիտ
+տուֆ
+բազալտ
+տրավերտին
+օբսիդիան
+գրանիտ
+մարմար
+ցեոլիտ
+դիատոմիտ
+բենտոնիտ
+աղ
+գիպս
+կրաքար
+ածուխ

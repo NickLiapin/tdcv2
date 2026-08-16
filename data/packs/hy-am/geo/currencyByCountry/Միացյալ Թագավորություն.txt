@@ -1,0 +1,5 @@
+---
+description: Currency of Միացյալ Թագավորություն, in Armenian.
+locale: hy-am
+---
+բրիտանական ֆունտ ստեռլինգ

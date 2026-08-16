@@ -1,0 +1,28 @@
+---
+description: Metal, in Armenian. պղինձ and մոլիբդեն are the two that matter economically: Armenia's largest enterprise is the Zangezur copper-molybdenum combine at Kajaran, and copper concentrate is the country's biggest single export after processed diamonds.
+locale: hy-am
+---
+պղինձ
+մոլիբդեն
+ոսկի
+արծաթ
+պլատին
+երկաթ
+ալյումին
+տիտան
+ցինկ
+նիկել
+կապար
+անագ
+բրոնզ
+արույր
+պողպատ
+պալադիում
+կոբալտ
+քրոմ
+վոլֆրամ
+սնդիկ
+մագնեզիում
+լիթիում
+ուրան
+ռենիում

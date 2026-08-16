@@ -1,0 +1,10 @@
+---
+description: Korean dishes as Armenian names them.
+locale: hy-am
+---
+բիբիմբապ
+բուլգոգի
+կիմչի ապուր
+ջապչե
+տոկպոկկի
+կորեական տապակած հավ

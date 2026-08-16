@@ -1,0 +1,54 @@
+---
+description: Product material, in Armenian. տուֆ and բազալտ are here because they are ordinary building and homeware materials in Armenia and exotic almost everywhere else: the pink volcanic tuff that Yerevan is faced in is quarried at Artik and Ani, and it is what an Armenian means by 'stone' in a product description. օբսիդիան — the volcanic glass of Gutanasar, worked in Armenia since the Neolithic — is sold as jewellery to this day.
+locale: hy-am
+---
+պողպատ
+չժանգոտվող պողպատ
+փայտ
+կաղնի
+ընկուզենի
+բետոն
+պլաստիկ
+բամբակ
+կտավատ
+մետաքս
+բուրդ
+թավիշ
+կաշի
+արհեստական կաշի
+կտավ
+ֆետր
+գրանիտ
+մարմար
+տուֆ
+բազալտ
+օբսիդիան
+ռետին
+մետաղ
+ալյումին
+տիտան
+պղինձ
+արույր
+բրոնզ
+արծաթ
+ոսկի
+կերամիկա
+պորցելան
+կավ
+ապակի
+ապակեպլաստ
+սիլիկոն
+բամբուկ
+ածխածնային մանրաթել
+թուղթ
+ստվարաթուղթ
+գիպս
+ցեմենտ
+պոլիէթիլեն
+նեյլոն
+պոլիեսթեր
+վիսկոզա
+խցան
+եղեգ
+ուռենու ճյուղ
+շիֆեր

@@ -1,0 +1,5 @@
+---
+description: Capital of Գերմանիա, in Armenian.
+locale: hy-am
+---
+Բեռլին

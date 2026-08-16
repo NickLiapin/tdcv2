@@ -1,0 +1,34 @@
+---
+description: Unit of measure, in Armenian. Armenia is fully metric and has been since the Soviet period, so there is deliberately no pound, ounce or gallon on this list — an Armenian invoice never carries one. Two survivals from the pre-metric system are still heard in a market: փութ (pood, 16.38 kg) and լիտր used loosely for a wine measure.
+locale: hy-am
+---
+հատ
+տուփ
+արկղ
+փաթեթ
+տասնյակ
+զույգ
+հավաքածու
+գլան
+կապոց
+փունջ
+կիլոգրամ
+գրամ
+տոննա
+ցենտներ
+լիտր
+միլիլիտր
+մետր
+սանտիմետր
+միլիմետր
+կիլոմետր
+քառակուսի մետր
+խորանարդ մետր
+հեկտար
+պարկ
+դույլ
+շիշ
+բանկա
+տոպրակ
+սկուտեղ
+կտոր

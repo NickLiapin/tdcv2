@@ -1,0 +1,18 @@
+---
+description: Kind of insurance, in Armenian. ԱՊՊԱ is the one every Armenian driver knows by its initials — compulsory motor third-party liability, introduced in 2011 and the only insurance most households carry. Note what is NOT compulsory: Armenia has no universal mandatory health insurance, so առողջության ապահովագրություն is an employer benefit rather than a fact of life.
+locale: hy-am
+---
+ԱՊՊԱ
+ավտոմեքենայի ապահովագրություն
+կասկո
+առողջության ապահովագրություն
+դժբախտ պատահարների ապահովագրություն
+կյանքի ապահովագրություն
+գույքի ապահովագրություն
+բնակարանի ապահովագրություն
+վարձակալի ապահովագրություն
+ճամփորդական ապահովագրություն
+բեռի ապահովագրություն
+գյուղատնտեսական ապահովագրություն
+պատասխանատվության ապահովագրություն
+ընտանի կենդանու ապահովագրություն

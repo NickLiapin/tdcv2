@@ -1,0 +1,5 @@
+---
+description: Currency of Սինգապուր, in Armenian.
+locale: hy-am
+---
+սինգապուրյան դոլար

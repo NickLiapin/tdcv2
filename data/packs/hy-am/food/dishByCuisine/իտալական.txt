@@ -1,0 +1,11 @@
+---
+description: Italian dishes as Armenian names them.
+locale: hy-am
+---
+մարգարիտա պիցցա
+կարբոնարա
+լազանյա
+ռիզոտտո
+տիրամիսու
+նյոկկի
+մինեստրոնե

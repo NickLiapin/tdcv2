@@ -1,0 +1,17 @@
+---
+description: Freight type, in Armenian. Armenia is LANDLOCKED with the Turkish and Azerbaijani borders closed, so almost all road freight goes north through the single Upper Lars pass into Georgia — a mountain road that snow closes for days at a time. That is why սառնարանային (refrigerated) and շուտ փչացող (perishable) freight are the categories Armenian hauliers talk about most.
+locale: hy-am
+---
+չոր բեռ
+սառնարանային
+շուտ փչացող
+հարթակային
+ցիստեռն
+անասուն
+վտանգավոր բեռ
+կոնտեյներային
+ավտոփոխադրիչ
+ցածր հարթակ
+ինքնաթափ
+նյութական բեռ
+փայտանյութ

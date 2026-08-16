@@ -1,0 +1,11 @@
+---
+description: French dishes as Armenian names them.
+locale: hy-am
+---
+կոկ օ վեն
+բեֆ բուրգինյոն
+ռատատույ
+կրուասան
+կիշ լորեն
+բույաբես
+կրեպ

@@ -1,0 +1,9 @@
+---
+description: Hotel star rating, in Armenian.
+locale: hy-am
+---
+1 աստղ
+2 աստղ
+3 աստղ
+4 աստղ
+5 աստղ

@@ -1,0 +1,39 @@
+---
+description: Music genre, in Armenian. The first four are Armenian and are living categories, not folklore: աշուղական is the sung poetry tradition of Sayat-Nova; ռաբիզ is the urban popular style that Armenians argue about; հոգևոր երգեցողություն is the Armenian Apostolic Church's own monophonic chant, notated in a system (խազ) that has never been fully deciphered; and դուդուկի երաժշտություն is a UNESCO-listed genre in its own right.
+locale: hy-am
+---
+հայ ժողովրդական
+աշուղական
+ռաբիզ
+հոգևոր երգեցողություն
+դուդուկի երաժշտություն
+էստրադային
+ռոք
+փոփ
+ջազ
+դասական
+հիփ-հոփ
+ռեփ
+քանթրի
+էլեկտրոնային
+բլյուզ
+ռեգգի
+մետալ
+ֆոլկ
+R&B
+սոուլ
+ֆանկ
+փանկ
+դիսկո
+հաուս
+տեխնո
+ինդի
+գոսփել
+էմբիենթ
+շանսոն
+լատինաամերիկյան
+սաունդթրեք
+օպերա
+օպերետա
+սիմֆոնիկ
+կամերային

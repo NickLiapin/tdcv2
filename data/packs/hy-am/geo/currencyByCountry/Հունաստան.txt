@@ -1,0 +1,5 @@
+---
+description: Currency of Հունաստան, in Armenian.
+locale: hy-am
+---
+եվրո

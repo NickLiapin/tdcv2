@@ -1,0 +1,5 @@
+---
+description: Capital of Հարավային Կորեա, in Armenian.
+locale: hy-am
+---
+Սեուլ

@@ -1,0 +1,34 @@
+---
+description: Hotel amenity, in Armenian. ջերմային ջրեր և առողջարան is a category in itself in Armenia: Jermuk, Arzni, Dilijan and Hankavan are Soviet-era spa towns built on mineral springs, and 'sanatorium' is still a normal kind of holiday.
+locale: hy-am
+---
+անվճար Wi-Fi
+լողավազան
+ջերմային ջրեր և առողջարան
+սպա
+մարզասրահ
+ռեստորան
+բար
+սենյակային սպասարկում
+օդանավակայանի տրանսֆեր
+անվճար նախաճաշ
+ավտոկայանատեղի
+ընտանի կենդանիների հետ
+բիզնես կենտրոն
+կոնսյերժ
+լվացքի ծառայություն
+ջակուզի
+տանիքի տեռաս
+օդորակիչ
+ջեռուցում
+վերելակ
+սեյֆ
+մինիբար
+թեյնիկ
+բալկոն
+լեռների տեսարան
+մանկական հրապարակ
+համաժողովների սրահ
+տոնիր և խորոված
+այգի
+շաբաթօրյա տրանսֆեր

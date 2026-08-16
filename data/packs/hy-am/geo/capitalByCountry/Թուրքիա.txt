@@ -1,0 +1,5 @@
+---
+description: Capital of Թուրքիա, in Armenian.
+locale: hy-am
+---
+Անկարա

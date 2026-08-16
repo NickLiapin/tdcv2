@@ -1,0 +1,17 @@
+---
+description: Streaming service. Brands keep their Latin spelling. What is worth knowing is that most global services either do not operate in Armenia or launched only recently, so Armenian viewers use Russian services (Kinopoisk, ivi, Okko) and YouTube far more than a European list would suggest.
+locale: hy-am
+---
+Netflix
+YouTube
+Amazon Prime Video
+Apple TV+
+Disney+
+Max
+Spotify
+Twitch
+Kinopoisk
+ivi
+Okko
+Start
+Crunchyroll
