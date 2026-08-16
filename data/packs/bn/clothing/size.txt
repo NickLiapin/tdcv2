@@ -1,0 +1,12 @@
+---
+description: Clothing size. Bangladeshi retail uses the international letter sizes, and the garment industry that supplies the world uses them too. ফ্রি সাইজ is a genuine and very common local label on ready-made kurtis and kameez — one cut that is meant to fit a range — and is not a placeholder.
+locale: bn
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+ফ্রি সাইজ

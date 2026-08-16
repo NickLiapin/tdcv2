@@ -1,0 +1,17 @@
+---
+description: Shoe size. Bangladesh sizes shoes on the UK scale, NOT the European one — a shoe box in a Bata or Apex shop reads 8, meaning UK 8, roughly EU 42. Bata has been in Bangladesh since 1962 and its sizing is the de facto national standard. The file is named shoeSizeEu only because clothing.shoeSizeEu is the engine's address for the shoe-size list; the values here are UK sizes. A very large share of the rural population wears plastic or rubber sandals sized only S/M/L, so a config generating footwear data for Bangladesh should not assume everyone has a numbered size at all.
+locale: bn
+---
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+S
+M
+L

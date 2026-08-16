@@ -1,0 +1,11 @@
+---
+description: Dishes of চাটগাঁইয়া cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+মেজবানি মাংস
+কালা ভুনা
+শুঁটকি ভর্তা
+লইট্টা শুঁটকি
+গরুর নলা
+বেলা বিস্কুট
+চিংড়ি ভুনা

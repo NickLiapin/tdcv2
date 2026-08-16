@@ -1,0 +1,16 @@
+---
+description: Dishes of বাঙালি ঘরোয়া cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+ভাত
+ডাল
+আলু ভর্তা
+শুঁটকি ভর্তা
+বেগুন ভাজা
+মাছের ঝোল
+ডিম ভুনা
+লাউ চিংড়ি
+পাঁচমিশালি সবজি
+চচ্চড়ি
+শুক্তো
+লাবড়া

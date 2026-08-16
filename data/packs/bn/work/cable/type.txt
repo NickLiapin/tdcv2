@@ -1,0 +1,13 @@
+---
+description: Cable type. These are international product names and are kept in their real form, as Bangladeshi tenders, invoices and technician's notes write them.
+locale: bn
+---
+ফাইবার অপটিক
+কোঅ্যাক্সিয়াল
+টুইস্টেড পেয়ার
+Cat5e
+Cat6
+Cat6a
+ইথারনেট
+ওভারহেড
+ভূগর্ভস্থ

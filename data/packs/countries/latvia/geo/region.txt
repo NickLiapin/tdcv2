@@ -1,0 +1,10 @@
+---
+address: latvia.geo.region
+description: The five historical lands of Latvia, as named by the Latviešu vēsturisko zemju likums of 2021. These are cultural and legal regions, not local government — the administrative first-level unit is the novads (latvia.geo.novads). Four of them are on the state coat of arms; Sēlija was recognised separately by the 2021 law, having previously been counted as part of Zemgale.
+locale: lv
+---
+Vidzeme
+Latgale
+Kurzeme
+Zemgale
+Sēlija

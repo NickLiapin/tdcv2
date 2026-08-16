@@ -1,0 +1,39 @@
+---
+description: Event type (Bengali). গায়ে হলুদ is the turmeric ceremony held before a Bengali wedding and is a separate, separately catered event from the আকদ (the Muslim contract) and the বৌভাত (the groom's family reception) — a config that models a Bengali wedding as one event will be wrong about the count, the guest list and the spend. মিলাদ, ইফতার পার্টি, কুলখানি and শ্রাদ্ধ are religious gatherings of record with dates attached. একুশে বইমেলা and বৈশাখী মেলা are annual public events of national scale.
+locale: bn
+---
+বিয়ে
+গায়ে হলুদ
+আকদ
+বৌভাত
+মেহেদি সন্ধ্যা
+জন্মদিন
+আকিকা
+সুন্নতে খতনা
+মিলাদ
+ইফতার পার্টি
+কুলখানি
+শ্রাদ্ধ
+অন্নপ্রাশন
+পূজা
+সম্মেলন
+সেমিনার
+কর্মশালা
+ওয়েবিনার
+প্রশিক্ষণ
+বাণিজ্য মেলা
+বৈশাখী মেলা
+একুশে বইমেলা
+কনসার্ট
+সাংস্কৃতিক অনুষ্ঠান
+নাটক মঞ্চায়ন
+কবিতা পাঠের আসর
+ক্রীড়া প্রতিযোগিতা
+পুরস্কার বিতরণী
+বার্ষিক সাধারণ সভা
+পণ্য উদ্বোধন
+উদ্বোধনী অনুষ্ঠান
+তহবিল সংগ্রহ
+স্মরণসভা
+পুনর্মিলনী
+নেটওয়ার্কিং

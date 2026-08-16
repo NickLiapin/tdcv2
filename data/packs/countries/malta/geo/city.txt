@@ -1,0 +1,73 @@
+---
+address: malta.geo.city
+description: The 68 localities of Malta in the everyday postal form. Malta has no city/town/village tier: the locality IS the unit, so malta.geo.city and malta.geo.locality are the same 68 places, line for line, in the same order — this file under English, malta.geo.locality under Maltese, and malta.geo.localityCode holds each one's postcode letters.
+locale: en
+---
+Attard
+Balzan
+Birgu
+Birkirkara
+Birżebbuġa
+Cospicua
+Dingli
+Fgura
+Floriana
+Fontana
+Għajnsielem
+Għarb
+Għargħur
+Għasri
+Għaxaq
+Gudja
+Gżira
+Ħamrun
+Iklin
+Kalkara
+Kerċem
+Kirkop
+Lija
+Luqa
+Marsa
+Marsaskala
+Marsaxlokk
+Mdina
+Mellieħa
+Mġarr
+Mosta
+Mqabba
+Msida
+Mtarfa
+Munxar
+Nadur
+Naxxar
+Paola
+Pembroke
+Pietà
+Qala
+Qormi
+Qrendi
+Rabat
+Safi
+St Julian's
+St Paul's Bay
+San Ġwann
+San Lawrenz
+Sannat
+Santa Luċija
+Santa Venera
+Senglea
+Siġġiewi
+Sliema
+Swieqi
+Ta' Xbiex
+Tarxien
+Valletta
+Victoria
+Xagħra
+Xewkija
+Xgħajra
+Żabbar
+Żebbuġ
+Żebbuġ, Gozo
+Żejtun
+Żurrieq

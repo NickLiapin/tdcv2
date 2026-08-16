@@ -1,0 +1,12 @@
+---
+description: Dishes of ভারতীয় cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+বাটার চিকেন
+তন্দুরি চিকেন
+পনির বাটার মশলা
+নান
+সমুচা
+ছোলে ভাটুরে
+মাসালা দোসা
+ইডলি

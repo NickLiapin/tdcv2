@@ -1,0 +1,30 @@
+---
+description: Book genre (Bengali). Three are specifically Bengali categories rather than translations: মুক্তিযুদ্ধভিত্তিক (writing about the 1971 Liberation War) is its own shelf in every Bangladeshi bookshop, ভ্রমণকাহিনি (travel writing) is a far larger genre in Bengali than in English, and প্রবন্ধ is the discursive essay, a form Bengali readers buy in volume.
+locale: bn
+---
+উপন্যাস
+ছোটগল্প
+কবিতা
+নাটক
+প্রবন্ধ
+রম্যরচনা
+মুক্তিযুদ্ধভিত্তিক
+ইতিহাস
+জীবনী
+আত্মজীবনী
+ভ্রমণকাহিনি
+গোয়েন্দা কাহিনি
+রহস্য
+ভৌতিক
+কল্পবিজ্ঞান
+ফ্যান্টাসি
+রোমান্স
+শিশুসাহিত্য
+কিশোর উপন্যাস
+ধর্মীয়
+দর্শন
+রাজনীতি
+অর্থনীতি
+বিজ্ঞান
+আত্মোন্নয়ন
+রান্নার বই

@@ -1,0 +1,36 @@
+---
+description: Bengali honorific or form of address, written before a name. The first two are the ones no European locale has an equivalent for and no config can guess: মোঃ (short for মোহাম্মদ) and মোছাঃ (short for মোসাম্মৎ) stand in front of a very large share of Bangladeshi Muslim names of record — a National ID, a school certificate and a payroll line read মোঃ শফিকুল ইসলাম and মোছাঃ রোকেয়া বেগম, not the bare name. They are gendered: মোঃ for men, মোছাঃ for women. জনাব / জনাবা are the formal Mr / Mrs of Bangladeshi officialese, শ্রী / শ্রীমতী the Hindu equivalents, and আলহাজ্ব marks someone who has performed the Hajj — it is in ordinary administrative use on signboards and nameplates, not an archaism.
+locale: bn
+---
+মোঃ
+মোছাঃ
+জনাব
+জনাবা
+বেগম
+শ্রী
+শ্রীমতী
+মিসেস
+মিস
+ডাঃ
+অধ্যাপক
+প্রকৌশলী
+স্থপতি
+অ্যাডভোকেট
+ব্যারিস্টার
+আলহাজ্ব
+হাফেজ
+মাওলানা
+মুফতি
+ক্বারী
+পীর
+শাহ
+ফাদার
+সিস্টার
+ব্রাদার
+রেভারেন্ড
+ভান্তে
+স্বামী
+কবি
+শহীদ
+বীর মুক্তিযোদ্ধা
+মেজর

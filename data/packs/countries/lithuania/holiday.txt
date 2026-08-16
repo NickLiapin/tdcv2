@@ -1,0 +1,21 @@
+---
+address: lithuania.holiday
+description: Public holidays of Lithuania (Lithuanian names). Lithuania keeps two separate independence days and both are public holidays: 16 February 1918 (the restoration of the state) and 11 March 1990 (the restoration of independence from the Soviet Union). Since 2020 the day after Christmas and 2 November are holidays as well.
+locale: lt
+---
+Naujieji metai
+Lietuvos valstybės atkūrimo diena
+Lietuvos nepriklausomybės atkūrimo diena
+Velykos
+Antroji Velykų diena
+Tarptautinė darbo diena
+Motinos diena
+Tėvo diena
+Rasos ir Joninės
+Valstybės diena
+Žolinė
+Visų Šventųjų diena
+Mirusiųjų atminimo diena
+Šv. Kūčios
+Šv. Kalėdos
+Antroji šv. Kalėdų diena

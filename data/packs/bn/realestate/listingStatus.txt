@@ -1,0 +1,16 @@
+---
+description: Listing status (Bengali). বায়না হয়েছে is the state after an advance payment has changed hands and before the deed is registered — a distinct and legally meaningful stage in a Bangladeshi property sale with no clean English equivalent. মামলাধীন (under litigation) is listed because land disputes are common enough that a listing genuinely carries the status.
+locale: bn
+---
+বিক্রয়ের জন্য
+ভাড়ার জন্য
+বায়না হয়েছে
+আলোচনা চলছে
+বিক্রি হয়েছে
+ভাড়া হয়েছে
+বাজার থেকে প্রত্যাহার
+শীঘ্রই আসছে
+নির্মাণাধীন
+নতুন নির্মাণ
+দাম কমানো হয়েছে
+মামলাধীন

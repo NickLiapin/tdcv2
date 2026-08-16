@@ -1,0 +1,12 @@
+---
+description: Job titles in the স্বাস্থ্যসেবা sector, in Bengali. Coherent child of work/industryCoherent.txt.
+locale: bn
+---
+চিকিৎসক
+সার্জন
+নার্স
+ফার্মাসিস্ট
+মেডিকেল টেকনোলজিস্ট
+ফিজিওথেরাপিস্ট
+ধাত্রী
+স্বাস্থ্য সহকারী

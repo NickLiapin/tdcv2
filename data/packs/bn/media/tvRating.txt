@@ -1,0 +1,13 @@
+---
+description: Television or film content rating. Bangladesh's Censor Board certifies films as ইউ (universal), ইউএ (parental guidance) and এ (adults only) — a three-tier system, not the American five — and television carries an advisory rather than a rating. The international labels at the end appear on streaming services operating here.
+locale: bn
+---
+ইউ
+ইউএ
+এ
+সবার জন্য
+অভিভাবকের তত্ত্বাবধানে
+১৩+
+১৬+
+১৮+
+প্রাপ্তবয়স্কদের জন্য

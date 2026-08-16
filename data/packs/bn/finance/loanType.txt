@@ -1,0 +1,16 @@
+---
+description: Loan or credit product (Bengali) as sold in Bangladesh. ক্ষুদ্রঋণ leads because microcredit is not a niche product here: Grameen Bank and BRAC built the model in Bangladesh, it won a Nobel Peace Prize, and tens of millions of rural households — overwhelmingly women — borrow through it rather than through a bank. ইসলামি বিনিয়োগ covers the Shariah-compliant products (মুরাবাহা, ইজারা, মুশারাকা) that a large share of Bangladeshi banking runs on and which are structured as trade or partnership rather than as interest-bearing loans. প্রবাসী ঋণ is lending against expected remittances or to fund a migrant's departure.
+locale: bn
+---
+ক্ষুদ্রঋণ
+গৃহঋণ
+গাড়ি ঋণ
+ব্যক্তিগত ঋণ
+শিক্ষা ঋণ
+কৃষি ঋণ
+এসএমই ঋণ
+ব্যবসা ঋণ
+প্রবাসী ঋণ
+ইসলামি বিনিয়োগ (মুরাবাহা)
+ওভারড্রাফট
+কিস্তি সুবিধা

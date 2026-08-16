@@ -1,0 +1,29 @@
+---
+description: Dog breed. দেশি কুকুর — the free-ranging pariah dog — is listed first and is by far the commonest dog in Bangladesh; the Bangladeshi variety of it is the same landrace as the Indian pariah. Pet dog ownership is much rarer in Bangladesh than in Europe, partly for religious reasons, so a config generating Bangladeshi pet records should not assume dogs at European rates. Breed names are international loanwords in Bengali script.
+locale: bn
+---
+দেশি কুকুর
+জার্মান শেফার্ড
+ল্যাব্রাডর
+গোল্ডেন রিট্রিভার
+রটওয়েলার
+ডোবারম্যান
+পিটবুল
+বক্সার
+গ্রেট ডেন
+হাস্কি
+স্পিটজ
+পমেরানিয়ান
+শিহ‌ৎজু
+পুডল
+বিগল
+ড্যাক্সহুন্ড
+ককার স্প্যানিয়েল
+বুলডগ
+চিহুয়াহুয়া
+বর্ডার কলি
+গ্রেহাউন্ড
+মাস্টিফ
+ডালমেশিয়ান
+সেন্ট বার্নার্ড
+টেরিয়ার

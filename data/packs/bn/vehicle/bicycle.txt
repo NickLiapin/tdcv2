@@ -1,0 +1,21 @@
+---
+description: Bicycle or cycle-driven vehicle type (Bengali). রিকশা and ভ্যান head the list because the pedal rickshaw and the flatbed cycle van are working vehicles carrying passengers and freight, not recreation — Dhaka is often described as having more cycle rickshaws than any other city in the world. The sport categories that fill a European list follow.
+locale: bn
+---
+রিকশা
+ভ্যান
+সাধারণ সাইকেল
+মহিলাদের সাইকেল
+শিশুদের সাইকেল
+মাউন্টেন বাইক
+রোড বাইক
+হাইব্রিড বাইক
+গ্র্যাভেল বাইক
+বিএমএক্স
+ইলেকট্রিক সাইকেল
+ভাঁজযোগ্য সাইকেল
+ট্যুরিং বাইক
+ফ্যাট বাইক
+সিঙ্গেল স্পিড
+ট্রাইসাইকেল
+কার্গো সাইকেল

@@ -1,0 +1,24 @@
+---
+description: Writing system, in Bengali. বাংলা লিপি comes first — the Bengali-Assamese script, written from a headline like Devanagari but with its own distinct letterforms and its OWN DIGITS ০১২৩৪৫৬৭৮৯, which are in everyday use on Bangladeshi banknotes, number plates, forms and newspapers. It is not Devanagari and the two are not interchangeable. চাকমা লিপি is the Brahmi-derived script of the Chakma language, still taught in the Chittagong Hill Tracts, and মেইতেই মায়েক and ওল চিকি are the scripts of Manipuri and Santali, both of which have speakers in Bangladesh.
+locale: bn
+---
+বাংলা লিপি
+দেবনাগরী
+চাকমা লিপি
+মেইতেই মায়েক
+ওল চিকি
+রোমান
+আরবি
+ফারসি নাস্তালিক
+সিরিলিক
+গ্রিক
+হিব্রু
+চীনা (হান)
+হিরাগানা
+কাতাকানা
+হাঙ্গুল
+থাই
+বর্মি
+খেমার
+তামিল
+সিংহলি

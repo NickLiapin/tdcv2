@@ -1,0 +1,11 @@
+---
+description: Cable conduit or containment type. Product names are international; ওভারহেড is listed because most Bangladeshi urban cabling is strung overhead on poles rather than buried, which is why the tangled cable bundle is a Dhaka landmark.
+locale: bn
+---
+পিভিসি
+জিআই পাইপ
+এইচডিপিই
+সরাসরি মাটির নিচে
+ইনারডাক্ট
+কেবল ট্রে
+ওভারহেড

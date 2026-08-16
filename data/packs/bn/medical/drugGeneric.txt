@@ -1,0 +1,49 @@
+---
+description: Generic drug name in Bengali script. Bangladesh follows the BRITISH INN spellings, not the American ones, so it is প্যারাসিটামল and never acetaminophen, and অ্যাড্রেনালিন rather than epinephrine — a config translating a US drug list will get this wrong. ওরস্যালাইন heads the list for a reason no other locale shares: oral rehydration solution was developed in Dhaka at what is now icddr,b, is credited with saving tens of millions of lives, and is sold in every village shop in Bangladesh as an everyday item rather than a pharmacy product. Bangladesh also manufactures about 98% of the medicine it consumes, so these are locally made generics rather than imports.
+locale: bn
+---
+ওরস্যালাইন
+প্যারাসিটামল
+আইবুপ্রোফেন
+অ্যাসপিরিন
+ডাইক্লোফেনাক
+ন্যাপ্রোক্সেন
+ট্রামাডল
+অ্যামোক্সিসিলিন
+অ্যাজিথ্রোমাইসিন
+সেফিক্সিম
+সেফট্রিয়াক্সোন
+সিপ্রোফ্লক্সাসিন
+ডক্সিসাইক্লিন
+মেট্রোনিডাজল
+ফ্লুক্লক্সাসিলিন
+ওমিপ্রাজল
+এসোমিপ্রাজল
+ডমপেরিডোন
+মেট্রোক্লোপ্রামাইড
+মেটফরমিন
+গ্লিক্লাজাইড
+ইনসুলিন
+লেভোথাইরক্সিন
+অ্যাটোরভাস্ট্যাটিন
+রোসুভাস্ট্যাটিন
+অ্যামলোডিপিন
+লোসারটান
+রামিপ্রিল
+বিসোপ্রোলল
+ফুরোসেমাইড
+ক্লোপিডোগ্রেল
+ওয়ারফারিন
+স্যালবিউটামল
+মন্টিলুকাস্ট
+প্রেডনিসোলন
+সেটিরিজিন
+ফেক্সোফেনাডিন
+গ্যাবাপেন্টিন
+সারট্রালিন
+ফ্লুক্সেটিন
+এসসিটালোপ্রাম
+ডায়াজেপাম
+অ্যাড্রেনালিন
+ভিটামিন ডি
+আয়রন ও ফলিক অ্যাসিড

@@ -1,0 +1,66 @@
+---
+address: lithuania.geo.city
+description: Cities of Lithuania, roughly ordered by population. Vilnius and Kaunas hold about a third of the country between them; below Panevėžys the list drops under 90,000 very quickly.
+locale: lt
+---
+Vilnius
+Kaunas
+Klaipėda
+Šiauliai
+Panevėžys
+Alytus
+Marijampolė
+Mažeikiai
+Jonava
+Utena
+Kėdainiai
+Telšiai
+Tauragė
+Ukmergė
+Visaginas
+Plungė
+Kretinga
+Šilutė
+Radviliškis
+Palanga
+Gargždai
+Druskininkai
+Rokiškis
+Biržai
+Elektrėnai
+Kuršėnai
+Garliava
+Jurbarkas
+Vilkaviškis
+Raseiniai
+Anykščiai
+Lentvaris
+Grigiškės
+Naujoji Akmenė
+Prienai
+Joniškis
+Kelmė
+Varėna
+Kaišiadorys
+Pasvalys
+Širvintos
+Zarasai
+Kupiškis
+Molėtai
+Šilalė
+Skuodas
+Šalčininkai
+Šakiai
+Nemenčinė
+Ignalina
+Pabradė
+Trakai
+Švenčionys
+Švenčionėliai
+Pakruojis
+Lazdijai
+Kazlų Rūda
+Neringa
+Rietavas
+Birštonas
+Pagėgiai

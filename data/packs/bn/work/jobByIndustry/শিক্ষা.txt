@@ -1,0 +1,12 @@
+---
+description: Job titles in the শিক্ষা sector, in Bengali. Coherent child of work/industryCoherent.txt.
+locale: bn
+---
+প্রাথমিক বিদ্যালয়ের শিক্ষক
+মাধ্যমিক বিদ্যালয়ের শিক্ষক
+কলেজ শিক্ষক
+অধ্যাপক
+প্রধান শিক্ষক
+মাদ্রাসা শিক্ষক
+গ্রন্থাগারিক
+গৃহশিক্ষক

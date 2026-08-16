@@ -1,0 +1,24 @@
+---
+description: Purpose of a trip (Bengali). Four are specific to Bangladesh and are among the commonest reasons anyone travels. হজ্জ and ওমরাহ are pilgrimages to Mecca — Bangladesh sends well over a hundred thousand pilgrims a year on a state-administered quota, and the trip is planned and saved for over decades. ঈদের ছুটিতে বাড়ি যাওয়া is the mass return to the village at Eid, when something like ten million people leave Dhaka in a few days; it is the largest recurring movement of people in the country. প্রবাসে কাজে যাওয়া is departure for overseas work.
+locale: bn
+---
+ঈদের ছুটিতে বাড়ি যাওয়া
+হজ্জ
+ওমরাহ
+প্রবাসে কাজে যাওয়া
+ব্যবসায়িক সফর
+অফিসের কাজে
+সম্মেলন
+প্রশিক্ষণ
+পারিবারিক ভ্রমণ
+মধুচন্দ্রিমা
+বন্ধুদের সঙ্গে ভ্রমণ
+একা ভ্রমণ
+শিক্ষা সফর
+চিকিৎসার জন্য
+আত্মীয়ের সঙ্গে দেখা
+তীর্থযাত্রা
+অ্যাডভেঞ্চার
+পাহাড় ভ্রমণ
+সমুদ্র ভ্রমণ
+নৌভ্রমণ

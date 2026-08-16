@@ -1,0 +1,8 @@
+---
+address: malta.geo.island
+description: The three inhabited islands of the Maltese archipelago (Maltese — Malta, Għawdex, Kemmuna). This is the closest thing Malta has to a division above the locality, and it is geographic rather than administrative: Gozo alone is also a region and a ministry, and the identity-card suffix letter records whether the birth was registered in Malta or in Gozo. Filfla, Cominotto and St Paul's Islands are uninhabited and left out.
+locale: mt
+---
+Malta
+Għawdex
+Kemmuna

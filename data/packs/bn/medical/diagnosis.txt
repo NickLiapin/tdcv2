@@ -1,0 +1,97 @@
+---
+description: Diagnosis (Bengali, patient-facing register). Ordered by what a Bangladeshi clinic actually sees, which is why the list opens with conditions a European pack barely carries: ডেঙ্গু is an annual national epidemic, টাইফয়েড and আমাশয় and কৃমি সংক্রমণ are routine, যক্ষ্মা (tuberculosis) is among the highest burdens in the world, কালাজ্বর is endemic to the northern districts, and আর্সেনিকজনিত বিষক্রিয়া — arsenic poisoning from shallow tube wells — affects tens of millions of people and is the largest mass poisoning in recorded history. Alongside them sit the non-communicable diseases that now kill most Bangladeshis: hypertension, diabetes, stroke and chronic kidney disease. A caution a config cannot infer: Bangladeshi clinical records are written in ENGLISH even on Bengali-language forms, so a real prescription or discharge summary will say 'Hypertension', not উচ্চ রক্তচাপ. The Bengali terms here are the register of patient counselling, health education and Bengali medical writing, and that is the honest description of what this list is.
+locale: bn
+---
+উচ্চ রক্তচাপ
+ডায়াবেটিস
+ডেঙ্গু
+চিকুনগুনিয়া
+টাইফয়েড
+যক্ষ্মা
+নিউমোনিয়া
+শ্বাসনালির প্রদাহ
+হাঁপানি
+সিওপিডি
+আমাশয়
+পাতলা পায়খানা
+কৃমি সংক্রমণ
+জন্ডিস
+হেপাটাইটিস বি
+হেপাটাইটিস সি
+লিভার সিরোসিস
+ফ্যাটি লিভার
+কালাজ্বর
+ম্যালেরিয়া
+আর্সেনিকজনিত বিষক্রিয়া
+অপুষ্টি
+রক্তস্বল্পতা
+ভিটামিন ডি স্বল্পতা
+থ্যালাসেমিয়া
+গ্যাস্ট্রিক আলসার
+অম্লশূল
+পাকস্থলীর প্রদাহ
+আন্ত্রিক প্রদাহ
+আইবিএস
+ক্রোন রোগ
+আলসারেটিভ কোলাইটিস
+অ্যাপেন্ডিসাইটিস
+পিত্তথলির পাথর
+পিত্তথলির প্রদাহ
+অগ্ন্যাশয়ের প্রদাহ
+অর্শ
+করোনারি ধমনির রোগ
+হৃদযন্ত্রের বিকলতা
+অনিয়মিত হৃদস্পন্দন
+বাতজ্বরজনিত হৃদরোগ
+স্ট্রোক
+রক্তে চর্বির আধিক্য
+স্থূলতা
+দীর্ঘমেয়াদি কিডনি রোগ
+কিডনিতে পাথর
+মূত্রনালির সংক্রমণ
+থাইরয়েডের স্বল্পক্রিয়া
+থাইরয়েডের অতিক্রিয়া
+গলগণ্ড
+মাইগ্রেন
+মৃগীরোগ
+পারকিনসন্স রোগ
+আলঝেইমার্স রোগ
+মাল্টিপল স্ক্লেরোসিস
+স্নায়ুর ক্ষয়
+বিষণ্ণতা
+দুশ্চিন্তাজনিত ব্যাধি
+বাইপোলার ডিসঅর্ডার
+সিজোফ্রেনিয়া
+নিদ্রাহীনতা
+নাক ডাকা ও শ্বাসরোধ
+অস্থিসন্ধির ক্ষয়
+রিউমাটয়েড আর্থ্রাইটিস
+গেঁটে বাত
+অস্টিওপোরোসিস
+সায়াটিকা
+কোমরের ডিস্ক সরে যাওয়া
+কার্পাল টানেল সিনড্রোম
+টেনডনের প্রদাহ
+সোরিয়াসিস
+একজিমা
+খোসপাঁচড়া
+দাদ
+শ্বেতী
+ব্রণ
+অ্যালার্জিক রাইনাইটিস
+সাইনাসের প্রদাহ
+কানের প্রদাহ
+চোখ ওঠা
+ছানি
+গ্লুকোমা
+মাথা ঘোরা
+কানে শব্দ
+স্তন ক্যান্সার
+ফুসফুসের ক্যান্সার
+মুখগহ্বরের ক্যান্সার
+রক্তের ক্যান্সার
+লিম্ফোমা
+সেপসিস
+ধনুষ্টংকার
+জলাতঙ্ক
+সাপে কাটা

@@ -1,0 +1,6 @@
+---
+address: bulgaria.geo.postalCode
+description: Bulgarian postal code (пощенски код) — four digits, no separator and no leading zero. The first two digits name the delivery region (10xx–19xx Sofia city, 40xx–49xx Plovdiv/Pazardzhik/Smolyan, 80xx–89xx Burgas/Sliven/Yambol, 90xx–99xx Varna/Dobrich/Shumen), the last two the office. 1000 is central Sofia, 4000 Plovdiv, 9000 Varna, 8000 Burgas.
+generator: tdc
+---
+<gen type="number" value="1000..9999" length="4"/>

@@ -1,0 +1,34 @@
+---
+description: Hotel amenity as advertised in Bangladesh (Bengali). জেনারেটর ব্যাকআপ is advertised because power cuts are routine, and হালাল খাবার and নামাজের স্থান are standard expectations rather than special provisions. সমুদ্রের দৃশ্য belongs to Cox's Bazar, which claims the longest natural sea beach in the world and is the country's main domestic holiday destination.
+locale: bn
+---
+ফ্রি ওয়াই-ফাই
+শীতাতপ নিয়ন্ত্রিত কক্ষ
+জেনারেটর ব্যাকআপ
+২৪ ঘণ্টা গরম পানি
+লিফট
+রেস্তোরাঁ
+হালাল খাবার
+নামাজের স্থান
+রুম সার্ভিস
+সকালের নাশতা
+বুফে
+সুইমিং পুল
+জিম
+স্পা
+সম্মেলন কক্ষ
+গাড়ি পার্কিং
+বিমানবন্দর পরিবহন
+লন্ড্রি সেবা
+সিসিটিভি নিরাপত্তা
+লকার
+সমুদ্রের দৃশ্য
+পাহাড়ের দৃশ্য
+বাগান
+ছাদ
+শিশুদের খেলার জায়গা
+মানি এক্সচেঞ্জ
+ট্যুর ডেস্ক
+ধূমপানমুক্ত কক্ষ
+প্রতিবন্ধীবান্ধব
+পোষা প্রাণী অনুমোদিত

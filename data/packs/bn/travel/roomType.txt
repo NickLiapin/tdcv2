@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Bengali). Room categories in Bangladeshi hotels are English loanwords in Bengali script, which is what a booking confirmation prints. পারিবারিক কক্ষ matters more here than in a European dataset, because families travel together and a family of five in one room is the normal booking.
+locale: bn
+---
+স্ট্যান্ডার্ড
+ডিলাক্স
+সুপার ডিলাক্স
+একক কক্ষ
+দ্বৈত কক্ষ
+টুইন বেড
+কিং বেড
+কুইন বেড
+পারিবারিক কক্ষ
+সুইট
+জুনিয়র সুইট
+প্রেসিডেনশিয়াল সুইট
+স্টুডিও
+কটেজ
+ভিলা
+ডরমিটরি
+শীতাতপবিহীন কক্ষ
+প্রতিবন্ধীবান্ধব কক্ষ

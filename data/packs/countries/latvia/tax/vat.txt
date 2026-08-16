@@ -1,6 +1,27 @@
 ---
 address: latvia.tax.vat
-description: Latvian VAT / PVN (LV + 11 digits, no checksum)
+description: Latvian PVN (pievienotās vērtības nodokļa) registration number — LV plus the payer's 11-digit number. Rewritten from the stub that shipped here, which declared "no checksum" and drew eleven free digits; that is not true of Latvia. For a legal entity the eleven digits are its vienotais reģistrācijas numurs and carry a real check — weights 9,1,4,8,3,10,2,5,7,6,1 over all eleven, weighted sum 3 modulo 11 — so a random eleven-digit LV VAT number is rejected by any validator about ten times out of eleven. Verified against LV40003521600, and LV40003521601 is refused. A sole trader registers under their own personas kods instead, which is a different arithmetic; latvia.docs.personasKods produces that shape.
 generator: tdc
+locale: lv
 ---
-<gen type="regex" value="LV[0-9]{11}"/>
+<sequence name="base"><gen type="regex" value="[459][0-9]{9}"/></sequence>
+<sequence name="check"><compute><result>
+  <mod>
+    <subtract>
+      <int v="14"/>
+      <mod>
+        <reduce>
+          <over><field name="base"/></over>
+          <init><int v="0"/></init>
+          <do><add><acc/><multiply><current/>
+            <at><in><list v="9,1,4,8,3,10,2,5,7,6"/></in><index><current_index/></index></at>
+          </multiply></add></do>
+        </reduce>
+        <int v="11"/>
+      </mod>
+    </subtract>
+    <int v="11"/>
+  </mod>
+</result></compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>LV${{base}}${{check}}</data>

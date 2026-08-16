@@ -1,0 +1,17 @@
+---
+description: Type of legal case (Bengali). ভূমি বিরোধ leads because land disputes are the single largest category of civil litigation in Bangladesh — a consequence of fragmented inheritance and incomplete land records — and a case can outlast the parties. পারিবারিক মামলা covers matters heard under the personal law of the parties' own religion, which differs for Muslims, Hindus, Christians and Buddhists.
+locale: bn
+---
+ভূমি বিরোধ
+দেওয়ানি
+ফৌজদারি
+পারিবারিক
+উত্তরাধিকার
+চেক প্রত্যাখ্যান
+অর্থঋণ
+শ্রম বিরোধ
+চুক্তি ভঙ্গ
+মেধাস্বত্ব
+মানহানি
+নারী ও শিশু নির্যাতন
+দুর্নীতি

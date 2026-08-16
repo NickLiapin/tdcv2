@@ -1,0 +1,10 @@
+---
+description: Dishes of থাই cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+পাদ থাই
+টম ইয়াম
+গ্রিন কারি
+থাই ফ্রায়েড রাইস
+সোম টাম
+ম্যাংগো স্টিকি রাইস

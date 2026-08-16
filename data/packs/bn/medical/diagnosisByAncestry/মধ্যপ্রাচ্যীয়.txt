@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in people of মধ্যপ্রাচ্যীয় descent, in Bengali. Coherent child of medical/ancestry.txt.
+locale: bn
+---
+পারিবারিক ভূমধ্যসাগরীয় জ্বর
+বিটা-থ্যালাসেমিয়া
+জি৬পিডি ঘাটতি
+বেহসেট রোগ
+ভিটামিন ডি স্বল্পতা
+সিকল সেল বাহক

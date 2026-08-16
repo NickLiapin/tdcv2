@@ -1,0 +1,14 @@
+---
+description: Medical specialty in Bengali that has a coherent diagnosis list; each value is the file name of a list under medical/diagnosisBySpecialty. These are the Bengali department names as they appear on the signage of a Bangladeshi government hospital. Bangladeshi clinicians also write and speak the transliterated English forms — কার্ডিওলজি, নিউরোলজি, অনকোলজি, ডার্মাটোলজি — and a prescription or a discharge summary will normally carry those, in Latin script, even on an otherwise Bengali form. Both registers are correct; this pack uses the Bengali one throughout.
+locale: bn
+---
+হৃদরোগ
+স্নায়ুরোগ
+ক্যান্সার
+চর্মরোগ
+পরিপাকতন্ত্র
+হরমোন ও ডায়াবেটিস
+বক্ষব্যাধি
+অস্থিরোগ
+মানসিক রোগ
+কিডনি রোগ

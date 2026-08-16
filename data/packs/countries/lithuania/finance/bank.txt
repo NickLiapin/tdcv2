@@ -1,0 +1,26 @@
+---
+address: lithuania.finance.bank
+description: Banks, branches and licensed payment institutions operating in Lithuania, as carried on the Bank of Lithuania's participant register. The market is small and Nordic-owned at the top — Swedbank, SEB and Šiaulių bankas hold most of the retail business — while the long tail is fintech: Lithuania issues more e-money and payment-institution licences than any other EU state, which is why names like Revolut and Paysera sit beside the banks here.
+locale: lt
+---
+Swedbank, AB
+AB SEB bankas
+AB Šiaulių bankas
+Luminor Bank AS Lietuvos skyrius
+Revolut Bank UAB
+AB Citadele bankas
+Urbo bankas
+AB Mano bankas
+Lietuvos centrinė kredito unija
+Jungtinė centrinė kredito unija
+European Merchant Bank
+Bigbank AS filialas
+AB Fjord Bank
+Svenska Handelsbanken AB Lietuvos filialas
+OP Corporate Bank plc Lietuvos filialas
+AS Industra Bank Lietuvos filialas
+GF bankas UAB
+PayRay UAB
+Paysera LT UAB
+Neo Finance UAB
+Lietuvos bankas

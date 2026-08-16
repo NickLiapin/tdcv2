@@ -1,0 +1,47 @@
+---
+description: Legal or trading suffix in a Bangladeshi company name. লিমিটেড and প্রাইভেট লিমিটেড are the registered forms under the Companies Act. এন্টারপ্রাইজ, ট্রেডার্স and স্টোর are not legal forms at all but are the overwhelmingly common trading names of Bangladeshi sole proprietorships — 'করিম এন্টারপ্রাইজ' is what a small business is actually called, and a config generating Bangladeshi company names should use them far more often than the corporate forms. সমিতি is a registered cooperative society, a real and very common legal entity here.
+locale: bn
+---
+লিমিটেড
+প্রাইভেট লিমিটেড
+পিএলসি
+কোম্পানি লিমিটেড
+এন্টারপ্রাইজ
+ট্রেডার্স
+ট্রেডিং
+স্টোর
+ডিপার্টমেন্টাল স্টোর
+কর্পোরেশন
+গ্রুপ
+গ্রুপ অব কোম্পানিজ
+হোল্ডিংস
+ইন্ডাস্ট্রিজ
+ইঞ্জিনিয়ারিং
+কনস্ট্রাকশন
+টেক্সটাইল মিলস
+গার্মেন্টস
+নিটওয়্যার
+স্পিনিং মিলস
+সিমেন্ট
+কেমিক্যালস
+ফার্মাসিউটিক্যালস
+ফুডস
+অ্যাগ্রো
+ফিশারিজ
+পোল্ট্রি
+শিপিং
+লজিস্টিকস
+প্রপার্টিজ
+ডেভেলপারস
+রিয়েল এস্টেট
+সলিউশনস
+সিস্টেমস
+টেকনোলজিস
+সফটওয়্যার
+কনসালট্যান্টস
+অ্যাসোসিয়েটস
+অ্যান্ড সন্স
+অ্যান্ড ব্রাদার্স
+সমিতি
+ফাউন্ডেশন
+ট্রাস্ট

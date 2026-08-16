@@ -1,0 +1,56 @@
+---
+address: latvia.docs.personasKods
+description: Latvian personas kods, both forms in circulation. Latvia broke its own number in two on 1 July 2017, so one address cannot honestly emit only one shape. The PRE-2017 form is DDMMYY-CNNNZ, where C is the century (0 = 1800s, 1 = 1900s, 2 = 2000s) and NNN a birth-order serial; unlike its Estonian and Lithuanian neighbours it encodes NO sex. The form issued SINCE 1 July 2017 begins 32 — an impossible day-of-month, which is the whole point — and the remaining eight digits carry no birth date, no sex and no region at all. Both are legally current: nobody was reissued, so old codes stay in force for life. Drawn here roughly 85 pre-2017 / 15 post-2017, an estimate from births and new registrations since 2017 against Latvia's population, not a published figure. The check digit is the SAME for both forms — see the note in the body. Dates run 1900-01-01..2017-06-30, so the century marker 0 for the 1800s never fires.
+generator: tdc
+locale: lv
+---
+<sequence name="dob"><gen type="date" from="1900-01-01" to="2017-06-30" format="YYYYMMDD"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="opaque"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="era"><gen type="number" value="0..99" length="2"/></sequence>
+<sequence name="kods"><compute>
+  <!-- The drawn calendar date arrives as YYYYMMDD; the code writes it DDMMYY. -->
+  <let name="year"><to_number><slice from="0" to="4"><field name="dob"/></slice></to_number></let>
+  <let name="ddmmyy"><concat>
+    <slice from="6" to="8"><field name="dob"/></slice>
+    <slice from="4" to="6"><field name="dob"/></slice>
+    <slice from="2" to="4"><field name="dob"/></slice>
+  </concat></let>
+  <!-- Century digit: 0 = 1800s, 1 = 1900s, 2 = 2000s. Only 1 and 2 are produced. -->
+  <let name="century">
+    <choose>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test><then><str v="2"/></then></when>
+      <otherwise><str v="1"/></otherwise>
+    </choose>
+  </let>
+  <!-- The discontinuity: a "32" code carries no date, an old code is all date. -->
+  <let name="base">
+    <choose>
+      <when><test><less_than><to_number><field name="era"/></to_number><int v="15"/></less_than></test>
+        <then><concat><str v="32"/><field name="opaque"/></concat></then></when>
+      <otherwise><concat><use name="ddmmyy"/><use name="century"/><field name="serial"/></concat></otherwise>
+    </choose>
+  </let>
+  <!-- ONE check rule covers both forms. The 2017 change is often written up as a
+       new checksum, because the old rule is published as (1101 - S) mod 11 mod 10
+       and the new one as (1 - S) mod 11 mod 10 — but 1101 = 11*100 + 1, so
+       1101 = 1 (mod 11) and the two are the same function. Confirmed on published
+       vectors of both shapes: 161175-19997 (old) and 328673-00679 (new). -->
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="1,6,3,7,9,10,5,8,4,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <!-- Max S is 9*55 = 495, so 1101 - S never goes negative. -->
+  <let name="check"><mod><mod><subtract><int v="1101"/><use name="sum"/></subtract><int v="11"/></mod><int v="10"/></mod></let>
+  <!-- Latvians write the code with the hyphen; it is on the ID card that way. -->
+  <result><concat>
+    <slice from="0" to="6"><use name="base"/></slice>
+    <str v="-"/>
+    <slice from="6" to="10"><use name="base"/></slice>
+    <use name="check"/>
+  </concat></result>
+</compute></sequence>
+<data>${{kods}}</data>

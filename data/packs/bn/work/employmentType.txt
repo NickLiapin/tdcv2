@@ -1,0 +1,15 @@
+---
+description: Employment type (Bengali). দিনমজুরি (day labour, paid at the end of each day) and মৌসুমি কাজ are the arrangements a large part of the Bangladeshi workforce actually has, and অনানুষ্ঠানিক — informal, with no contract at all — covers roughly 85% of employment in the country. A config that models Bangladeshi work as full-time or part-time salaried employment will describe a small minority of it.
+locale: bn
+---
+পূর্ণকালীন
+খণ্ডকালীন
+চুক্তিভিত্তিক
+অস্থায়ী
+দিনমজুরি
+মৌসুমি
+শিক্ষানবিশ
+ইন্টার্ন
+ফ্রিল্যান্স
+অনানুষ্ঠানিক
+প্রবাসী চুক্তি

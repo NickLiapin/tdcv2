@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in the মানসিক রোগ department, in Bengali. Coherent child of medical/specialtyCoherent.txt.
+locale: bn
+---
+বিষণ্ণতা
+দুশ্চিন্তাজনিত ব্যাধি
+বাইপোলার ডিসঅর্ডার
+সিজোফ্রেনিয়া
+আঘাত-পরবর্তী মানসিক চাপ
+মনোযোগের ঘাটতিজনিত ব্যাধি
+নিদ্রাহীনতা

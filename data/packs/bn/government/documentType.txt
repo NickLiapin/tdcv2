@@ -1,0 +1,27 @@
+---
+description: Official document or record (Bengali, Bangladesh). জাতীয় পরিচয়পত্র (the NID) is the master identity document and its number gates almost everything else — a SIM card, a bank account, a passport, a vote. Several have no European counterpart: কাবিননামা is the Muslim marriage contract and the legal proof of marriage, ওয়ারিশ সনদ is the certificate of heirs issued by a Union Parishad chairman and required to inherit anything, চারিত্রিক সনদ is a certificate of good character demanded for jobs and admissions, নামজারি is the mutation of a land record, and দলিল is the registered deed itself. মুক্তিযোদ্ধা সনদ certifies status as a freedom fighter of 1971 and carries a pension and quota rights.
+locale: bn
+---
+জাতীয় পরিচয়পত্র
+জন্ম নিবন্ধন সনদ
+মৃত্যু সনদ
+পাসপোর্ট
+ড্রাইভিং লাইসেন্স
+টিআইএন সনদ
+ভ্যাট নিবন্ধন
+ট্রেড লাইসেন্স
+নাগরিকত্ব সনদ
+চারিত্রিক সনদ
+ওয়ারিশ সনদ
+কাবিননামা
+তালাকনামা
+ভূমি খতিয়ান
+দলিল
+নামজারি
+খাজনা রসিদ
+শিক্ষাগত সনদ
+প্রশংসাপত্র
+টিকা কার্ড
+মুক্তিযোদ্ধা সনদ
+প্রত্যয়নপত্র
+হোল্ডিং ট্যাক্স রসিদ

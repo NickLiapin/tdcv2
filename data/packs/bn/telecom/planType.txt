@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Bengali). প্রিপেইড dominates overwhelmingly — the great majority of Bangladeshi mobile connections are prepaid, and postpaid is a minority corporate and professional product. ফ্লেক্সিলোড is the over-the-counter top-up sold at any shop, and বান্ডেল অফার (a data-plus-minutes pack bought for a few days at a time) is how most people actually buy service, rather than by monthly plan.
+locale: bn
+---
+প্রিপেইড
+পোস্টপেইড
+ফ্লেক্সিলোড
+বান্ডেল অফার
+ডেটা প্যাক
+মিনিট প্যাক
+আনলিমিটেড
+ফ্যামিলি প্যাক
+কর্পোরেট
+শিক্ষার্থী প্যাকেজ
+রোমিং
+শুধু ডেটা

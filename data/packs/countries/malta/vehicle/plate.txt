@@ -1,0 +1,8 @@
+---
+address: malta.vehicle.plate
+description: Maltese number plate — three letters, a space, three digits (ABC 123), the system in use since 1995. The marks are allocated at random except for the first letter, which says which month the annual tax disc falls due, cycling three times through the alphabet: A/M/Y January, B/N/Z February, on to L/X December. Special series are outside this shape and are not generated — GV plus a letter for government (GVP police, GVA armed forces, GVH health), CD for diplomatic, TAXI plus three digits and M or G for taxis, a trailing PY for buses, a trailing K or QZ for hire cars. Malta drives on the LEFT, a British inheritance shared in the EU only with Ireland and Cyprus, so a Maltese vehicle record is right-hand drive even though the plate looks like any other EU plate with its blue band and M.
+generator: tdc
+---
+<sequence name="letters"><gen type="regex" value="[A-Z]{3}"/></sequence>
+<sequence name="digits"><gen type="regex" value="[0-9]{3}"/></sequence>
+<data>${{letters}} ${{digits}}</data>

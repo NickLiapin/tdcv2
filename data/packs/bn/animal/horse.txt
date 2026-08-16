@@ -1,0 +1,20 @@
+---
+description: Horse type or breed. Bangladesh has almost no horse-breeding tradition and no recognised native breed — the horses that exist are the টাঙ্গা ঘোড়া pulling carts in old Dhaka and Manikganj, and the ponies of the northern districts. The rest of this list is international breed names met through racing and imports, and a config should not present them as locally common.
+locale: bn
+---
+দেশি ঘোড়া
+টাট্টু ঘোড়া
+আরবি
+থরোব্রেড
+মার্ওয়ারি
+কাথিয়াওয়ারি
+মুস্তাং
+অ্যাপালুসা
+ক্লাইডসডেল
+ফ্রিজিয়ান
+শায়ার
+অ্যান্ডালুসিয়ান
+কোয়ার্টার হর্স
+পালোমিনো
+শেটল্যান্ড পনি
+পারচেরন

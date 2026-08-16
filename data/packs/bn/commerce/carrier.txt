@@ -1,0 +1,24 @@
+---
+description: Delivery or courier company operating in Bangladesh. সুন্দরবন কুরিয়ার and এসএ পরিবহন are the long-established parcel networks that run on the intercity bus system; পাঠাও, রেডএক্স, স্টেডফাস্ট, ইকুরিয়ার and পেপারফ্লাই are the e-commerce delivery companies that grew up after 2015. ডাক বিভাগ is the state post office. The international integrators are at the end because they handle export freight rather than domestic parcels.
+locale: bn
+---
+সুন্দরবন কুরিয়ার সার্ভিস
+এসএ পরিবহন
+করতোয়া কুরিয়ার
+জননী কুরিয়ার
+কন্টিনেন্টাল কুরিয়ার
+ডাক বিভাগ
+পাঠাও কুরিয়ার
+রেডএক্স
+স্টেডফাস্ট কুরিয়ার
+ইকুরিয়ার
+পেপারফ্লাই
+ই-পোস্ট
+দারাজ এক্সপ্রেস
+ফুডপান্ডা
+ডিএইচএল
+ফেডএক্স
+ইউপিএস
+টিএনটি
+আরামেক্স
+ডিএইচএল গ্লোবাল ফরওয়ার্ডিং

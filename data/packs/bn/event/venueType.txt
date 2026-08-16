@@ -1,0 +1,24 @@
+---
+description: Venue type (Bengali). কমিউনিটি সেন্টার is the standard Bangladeshi wedding venue — a hired hall with catering, of which every neighbourhood has several — and it does the job a hotel ballroom does in a European dataset at a fraction of the cost. ছাদ (a rooftop) and বাড়ির উঠান (a courtyard) are real, common venues rather than improvisations.
+locale: bn
+---
+কমিউনিটি সেন্টার
+কনভেনশন সেন্টার
+হোটেলের বলরুম
+মিলনায়তন
+অডিটোরিয়াম
+সেমিনার কক্ষ
+সম্মেলন কক্ষ
+ছাদ
+বাড়ির উঠান
+বাগানবাড়ি
+রিসোর্ট
+রেস্তোরাঁ
+স্টেডিয়াম
+খেলার মাঠ
+মঞ্চ
+মেলা প্রাঙ্গণ
+শহীদ মিনার প্রাঙ্গণ
+মসজিদ প্রাঙ্গণ
+মন্দির প্রাঙ্গণ
+নৌকা

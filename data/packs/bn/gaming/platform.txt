@@ -1,0 +1,15 @@
+---
+description: Gaming platform. মোবাইল is listed first because mobile is overwhelmingly the dominant gaming platform in Bangladesh — consoles are expensive imports subject to heavy duty and are rare outside affluent urban households. সাইবার ক্যাফে is a real platform here in the sense that matters: a large share of PC gaming happens in paid gaming cafés rather than at home. Brand names are kept as-is.
+locale: bn
+---
+মোবাইল
+PC
+সাইবার ক্যাফে
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+ব্রাউজার
+Meta Quest

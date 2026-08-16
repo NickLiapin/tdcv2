@@ -1,0 +1,25 @@
+---
+address: latvia.docs.personasKods32
+description: Latvian personas kods, the dateless form issued since 1 July 2017 — 32NNNN-NNNNZ. Latvia stopped putting the birth date in the number and marked the break by opening every new code with 32, a day-of-month that cannot exist, so old and new can never be confused. Everything after the 32 is random: no birth date, no sex, no region. Everyone registered in the Population Register from that date holds this form, and holders of an old code may swap once, free, on request. The check digit rule is UNCHANGED from the pre-2017 form — the two are frequently published as different formulas, (1101 - S) mod 11 mod 10 versus (1 - S) mod 11 mod 10, but 1101 = 1 (mod 11) makes them the same function. Verified against the published number 328673-00679, and 328673-00677 is refused.
+generator: tdc
+locale: lv
+---
+<sequence name="opaque"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="kods"><compute>
+  <let name="base"><concat><str v="32"/><field name="opaque"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="1,6,3,7,9,10,5,8,4,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><mod><mod><subtract><int v="1101"/><use name="sum"/></subtract><int v="11"/></mod><int v="10"/></mod></let>
+  <result><concat>
+    <slice from="0" to="6"><use name="base"/></slice>
+    <str v="-"/>
+    <slice from="6" to="10"><use name="base"/></slice>
+    <use name="check"/>
+  </concat></result>
+</compute></sequence>
+<data>${{kods}}</data>

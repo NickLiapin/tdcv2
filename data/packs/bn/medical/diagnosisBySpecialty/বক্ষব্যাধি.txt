@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in the বক্ষব্যাধি department, in Bengali. Coherent child of medical/specialtyCoherent.txt.
+locale: bn
+---
+হাঁপানি
+যক্ষ্মা
+নিউমোনিয়া
+সিওপিডি
+শ্বাসনালির প্রদাহ
+ফুসফুসে পানি জমা
+ফুসফুসে রক্তনালির বাধা

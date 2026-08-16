@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in the হরমোন ও ডায়াবেটিস department, in Bengali. Coherent child of medical/specialtyCoherent.txt.
+locale: bn
+---
+ডায়াবেটিস
+থাইরয়েডের স্বল্পক্রিয়া
+থাইরয়েডের অতিক্রিয়া
+গলগণ্ড
+স্থূলতা
+অস্টিওপোরোসিস
+ভিটামিন ডি স্বল্পতা

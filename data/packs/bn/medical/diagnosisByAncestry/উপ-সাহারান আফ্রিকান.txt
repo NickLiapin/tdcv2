@@ -1,0 +1,16 @@
+---
+description: Conditions with a raised prevalence in people of উপ-সাহারান আফ্রিকান descent, in Bengali. Coherent child of medical/ancestry.txt. This list is a PREVALENCE SIGNAL, not an exclusive one: every condition here occurs in other populations too, and ancestry raises or lowers a prior probability rather than deciding a diagnosis.
+locale: bn
+---
+সিকল সেল রোগ
+সিকল সেল বাহক
+জি৬পিডি ঘাটতি
+APOL1-সম্পর্কিত কিডনি রোগ
+কেলয়েড ক্ষতচিহ্ন
+সারকয়ডোসিস
+উচ্চ রক্তচাপজনিত কিডনি ক্ষয়
+জরায়ুর টিউমার
+সৌম্য নিউট্রোপেনিয়া
+ল্যাকটোজ অসহিষ্ণুতা
+সিউডোফলিকুলাইটিস বারবি
+শ্বেতী

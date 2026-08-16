@@ -1,0 +1,27 @@
+---
+address: latvia.docs.registracijasNumurs
+description: Latvian vienotais reģistrācijas numurs — the 11-digit number the Uzņēmumu reģistrs gives a legal entity, and the same number the State Revenue Service uses as the taxpayer number. It carries a real check: with weights 9,1,4,8,3,10,2,5,7,6,1 over all eleven digits the weighted sum must be 3 modulo 11, and the roughly one draw in eleven that has no single-digit solution is refused rather than fudged. Only the leading digit is modelled beyond that — 4, 5 and 9 are what real numbers start with, and no normative act publishes how the interior digits are formed, so they are drawn flat rather than invented. Verified against AS Latvenergo 40003032949 and Latvijas Universitāte 90000076669. A natural person trading in their own name uses their personas kods here instead.
+generator: tdc
+locale: lv
+---
+<sequence name="base"><gen type="regex" value="[459][0-9]{9}"/></sequence>
+<sequence name="check"><compute><result>
+  <mod>
+    <subtract>
+      <int v="14"/>
+      <mod>
+        <reduce>
+          <over><field name="base"/></over>
+          <init><int v="0"/></init>
+          <do><add><acc/><multiply><current/>
+            <at><in><list v="9,1,4,8,3,10,2,5,7,6"/></in><index><current_index/></index></at>
+          </multiply></add></do>
+        </reduce>
+        <int v="11"/>
+      </mod>
+    </subtract>
+    <int v="11"/>
+  </mod>
+</result></compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{base}}${{check}}</data>

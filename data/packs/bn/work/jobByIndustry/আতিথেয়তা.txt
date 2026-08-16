@@ -1,0 +1,12 @@
+---
+description: Job titles in the আতিথেয়তা sector, in Bengali. Coherent child of work/industryCoherent.txt.
+locale: bn
+---
+শেফ
+বাবুর্চি
+ওয়েটার
+হোটেল ব্যবস্থাপক
+রিসেপশনিস্ট
+হাউসকিপার
+ট্যুর গাইড
+বারিস্তা

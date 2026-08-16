@@ -1,0 +1,19 @@
+---
+description: Weather or natural phenomenon (Bengali, Bangladesh). These are the events that actually shape the country. কালবৈশাখী is the violent pre-monsoon nor'wester of April and May and is named after the Bengali month it arrives in. নদীভাঙন — riverbank erosion — displaces tens of thousands of people a year and is a permanent line item in Bangladeshi disaster records, not a rare event. জলোচ্ছ্বাস is the cyclone storm surge that does most of the killing on the coast, and বজ্রপাত (lightning strike) is a declared national disaster because it kills several hundred people every year, mostly farmers in open fields. লবণাক্ততা, the salt intrusion creeping up the southwest delta, is a slow phenomenon rather than a storm but belongs in the same list.
+locale: bn
+---
+কালবৈশাখী
+ঘূর্ণিঝড়
+জলোচ্ছ্বাস
+বন্যা
+আকস্মিক বন্যা
+নদীভাঙন
+জলাবদ্ধতা
+খরা
+শৈত্যপ্রবাহ
+তাপপ্রবাহ
+ঘন কুয়াশা
+বজ্রপাত
+টর্নেডো
+ভূমিধস
+লবণাক্ততা

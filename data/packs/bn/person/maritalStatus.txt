@@ -1,0 +1,16 @@
+---
+description: Marital status (Bengali, Bangladesh). বিবাহবিচ্ছিন্ন is the legal term used on forms; তালাকপ্রাপ্ত is the everyday word in the Muslim context and both are in real administrative use. Bangladeshi family law is administered separately for Muslims, Hindus, Christians and Buddhists, so the same English status can carry a different legal meaning depending on the person; the labels here are the ones that appear on a general-purpose form.
+locale: bn
+---
+অবিবাহিত
+বিবাহিত
+বিবাহবিচ্ছিন্ন
+তালাকপ্রাপ্ত
+বিধবা
+বিপত্নীক
+পৃথকবাসী
+বাগদত্ত
+পুনর্বিবাহিত
+একক অভিভাবক
+স্বামী পরিত্যক্তা
+উল্লেখ করা হয়নি

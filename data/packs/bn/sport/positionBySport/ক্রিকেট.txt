@@ -1,0 +1,13 @@
+---
+description: Playing positions in ক্রিকেট, in Bengali. Coherent child of sport/sportCoherent.txt. Position names in Bangladesh are largely English loanwords written in Bengali script, which is how commentary, coaching and the sports pages actually render them.
+locale: bn
+---
+ব্যাটসম্যান
+ওপেনার
+বোলার
+ফাস্ট বোলার
+স্পিনার
+উইকেটরক্ষক
+অলরাউন্ডার
+ফিল্ডার
+অধিনায়ক

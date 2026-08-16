@@ -1,0 +1,6 @@
+---
+address: bulgaria.phone
+description: Bulgarian mobile number in E.164 form — +359 then a nine-digit national number beginning 87, 88 or 89 (Vivacom, A1 and Yettel respectively; written nationally as 087x/088x/089x with a trunk 0 that the +359 form drops). Landlines use variable-length area codes on the same trunk — Sofia is 2, so a Sofia number is +3592 plus seven digits, while smaller towns have longer codes and shorter subscriber numbers.
+generator: tdc
+---
+<gen type="regex" value="\+3598[789][0-9]{7}"/>

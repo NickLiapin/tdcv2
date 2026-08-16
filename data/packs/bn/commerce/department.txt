@@ -1,0 +1,54 @@
+---
+description: Shop department or product category (Bengali), as a Bangladeshi marketplace or department store organises it. কাঁচাবাজার — the wet market for fresh vegetables, fish and meat — is a category of its own and is where most household food is still bought; মুদি is the dry-goods grocery. Both belong here rather than being folded into a single 'grocery'.
+locale: bn
+---
+কাঁচাবাজার
+মুদি
+মাছ ও মাংস
+ফলমূল
+শাকসবজি
+মসলা
+বেকারি
+মিষ্টি
+পানীয়
+প্রসাধনী
+ওষুধ
+স্বাস্থ্যসামগ্রী
+শিশু পণ্য
+পোশাক
+পুরুষের পোশাক
+নারীর পোশাক
+শিশুর পোশাক
+শাড়ি
+জুতা
+ব্যাগ
+গহনা
+ঘড়ি
+ইলেকট্রনিক্স
+মোবাইল ফোন
+কম্পিউটার
+গৃহস্থালি সামগ্রী
+আসবাবপত্র
+রান্নাঘরের সামগ্রী
+বিছানাপত্র
+পর্দা ও কার্পেট
+বৈদ্যুতিক সামগ্রী
+হার্ডওয়্যার
+নির্মাণসামগ্রী
+কৃষি উপকরণ
+বীজ ও সার
+পশুখাদ্য
+খেলার সামগ্রী
+বই
+স্টেশনারি
+খেলনা
+উপহার সামগ্রী
+গাড়ির যন্ত্রাংশ
+মোটরসাইকেল যন্ত্রাংশ
+সাইকেল
+বাগানের সামগ্রী
+পোষা প্রাণী
+সংগীত সামগ্রী
+শিল্পসামগ্রী
+হস্তশিল্প
+পাটজাত পণ্য

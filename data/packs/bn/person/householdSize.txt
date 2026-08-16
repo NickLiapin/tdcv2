@@ -1,0 +1,14 @@
+---
+description: Household size. The list runs further than the European packs on purpose: the Bangladeshi joint family is a live arrangement and households of eight or more are ordinary rather than exceptional, so a list stopping at 7+ throws away a real part of the distribution. The national average is around 4.3 people per household. Values are written in Western digits so they can be compared and summed; Bengali digits ০-৯ are used in Bangladeshi print and on official forms, and a config that wants them should format the number rather than take the label from here.
+locale: bn
+---
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10 এর বেশি

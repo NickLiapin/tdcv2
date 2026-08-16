@@ -1,0 +1,12 @@
+---
+description: Job titles in the ব্যাংকিং ও অর্থ sector, in Bengali. Coherent child of work/industryCoherent.txt.
+locale: bn
+---
+ব্যাংক কর্মকর্তা
+হিসাবরক্ষক
+নিরীক্ষক
+ঋণ কর্মকর্তা
+আর্থিক বিশ্লেষক
+ক্যাশিয়ার
+বিমা কর্মকর্তা
+ক্ষুদ্রঋণ মাঠকর্মী

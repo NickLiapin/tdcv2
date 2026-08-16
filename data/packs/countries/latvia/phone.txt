@@ -1,0 +1,6 @@
+---
+address: latvia.phone
+description: Latvian mobile number in E.164 form. Latvia has no area codes at all — the plan is flat, eight digits for every subscriber in the country, and there is no trunk prefix to strip, so the national and international forms differ only by +371. The leading digit is the whole of the geography: 2 is mobile, 6 is fixed line. Mobile is what is drawn here; a landline is the same shape with 6 in front.
+generator: tdc
+---
+<gen type="regex" value="\+3712[0-9]{7}"/>

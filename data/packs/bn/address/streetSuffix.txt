@@ -1,0 +1,44 @@
+---
+description: Bengali thoroughfare type. Unlike the European locales this element goes AFTER the name, not before it — বঙ্গবন্ধু এভিনিউ, স্টেশন রোড, মিরপুর সড়ক — which is the reverse of Polish ulica Długa. Two facts a config cannot infer. First, a Bangladeshi address locates a building by AREA at least as often as by street, which is why পাড়া, মহল্লা, নগর, আবাসিক এলাকা, হাউজিং, সেক্টর and ব্লক are here alongside the road words; a Dhaka address is routinely written as house-road-block-area with no street name that a map would recognise. Second, রোড and এভিনিউ are English loans in everyday Bangladeshi use and are written in Bengali script, not translated to সড়ক — both forms are correct and both are in real addresses.
+locale: bn
+---
+সড়ক
+রোড
+এভিনিউ
+সরণি
+পথ
+রাস্তা
+লেন
+গলি
+বাইলেন
+মোড়
+চত্বর
+চৌরাস্তা
+মহাসড়ক
+বাইপাস
+রিং রোড
+লিংক রোড
+সার্কুলার রোড
+ফিডার রোড
+পাড়া
+মহল্লা
+নগর
+আবাসিক এলাকা
+হাউজিং
+সোসাইটি
+কলোনি
+সেক্টর
+ব্লক
+খণ্ড
+প্রকল্প
+টাওয়ার
+প্লাজা
+মার্কেট
+বাজার
+হাট
+ঘাট
+বন্দর
+বাগ
+উদ্যান
+পার্ক
+চর

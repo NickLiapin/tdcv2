@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in people of উত্তর আফ্রিকান descent, in Bengali. Coherent child of medical/ancestry.txt.
+locale: bn
+---
+জি৬পিডি ঘাটতি
+বিটা-থ্যালাসেমিয়া বাহক
+পারিবারিক ভূমধ্যসাগরীয় জ্বর
+বেহসেট রোগ
+ল্যাকটোজ অসহিষ্ণুতা
+জেরোডার্মা পিগমেন্টোসাম

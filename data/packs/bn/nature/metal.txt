@@ -1,0 +1,26 @@
+---
+description: Metal name (Bengali). কাঁসা and পিতল — bell metal and brass — are listed separately because Bengali distinguishes them and Bangladeshi household ware is made of both; কাঁসার থালা is a real object with its own word.
+locale: bn
+---
+সোনা
+রূপা
+তামা
+পিতল
+কাঁসা
+লোহা
+ইস্পাত
+অ্যালুমিনিয়াম
+দস্তা
+সীসা
+টিন
+নিকেল
+প্ল্যাটিনাম
+টাইটানিয়াম
+পারদ
+ক্রোমিয়াম
+কোবাল্ট
+ম্যাঙ্গানিজ
+টাংস্টেন
+ইউরেনিয়াম
+ম্যাগনেসিয়াম
+প্যালাডিয়াম

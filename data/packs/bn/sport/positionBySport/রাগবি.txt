@@ -1,0 +1,11 @@
+---
+description: Playing positions in রাগবি, in Bengali. Coherent child of sport/sportCoherent.txt. Position names in Bangladesh are largely English loanwords written in Bengali script, which is how commentary, coaching and the sports pages actually render them.
+locale: bn
+---
+প্রপ
+হুকার
+লক
+ফ্ল্যাঙ্কার
+স্ক্রাম হাফ
+ফ্লাই হাফ
+ফুলব্যাক

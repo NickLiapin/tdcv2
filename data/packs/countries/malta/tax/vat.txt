@@ -1,6 +1,18 @@
 ---
 address: malta.tax.vat
-description: Maltese VAT (MT + 8 digits, no checksum)
+description: Maltese VAT number — MT plus eight digits, where the last two are a real check pair. Rewritten from the shipped stub, which drew eight free digits and said "no checksum"; Malta does have one. The first six digits are weighted 3,4,6,7,8,9, summed, and the check pair is 37 minus that sum modulo 37 — so it lands in 01..37 and never in 38..99, which is worth knowing if you are eyeballing output. The leading digit is never 0. Verified against the published example MT 1167-9112 (python-stdnum doctest): 3+4+36+49+72+9 = 173, 173 mod 37 = 25, 37-25 = 12.
 generator: tdc
 ---
-<gen type="regex" value="MT[0-9]{8}"/>
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{5}"/></sequence>
+<sequence name="vat"><compute>
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,4,6,7,8,9"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="37"/><mod><use name="sum"/><int v="37"/></mod></subtract></pad></let>
+  <result><concat><str v="MT"/><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{vat}}</data>

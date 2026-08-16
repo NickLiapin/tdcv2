@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in the ক্যান্সার department, in Bengali. Coherent child of medical/specialtyCoherent.txt.
+locale: bn
+---
+স্তন ক্যান্সার
+ফুসফুসের ক্যান্সার
+পাকস্থলীর ক্যান্সার
+জরায়ুমুখের ক্যান্সার
+মুখগহ্বরের ক্যান্সার
+রক্তের ক্যান্সার
+লিম্ফোমা

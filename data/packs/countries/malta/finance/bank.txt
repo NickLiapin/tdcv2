@@ -1,0 +1,18 @@
+---
+address: malta.finance.bank
+description: Credit institutions licensed in Malta, members of the Malta Bankers' Association; the first six are the core domestic banks designated for financial-stability purposes. Same order as malta.finance.bankCode. Malta adopted the euro on 1 January 2008, so nothing in this pack carries a Maltese lira amount. The Central Bank of Malta closes the list because its identifier, MALT, is the one used in the published ISO 13616 example IBAN that malta.finance.iban is verified against.
+locale: en
+---
+APS Bank p.l.c.
+Bank of Valletta p.l.c.
+BNF Bank p.l.c.
+HSBC Bank Malta p.l.c.
+Lombard Bank Malta p.l.c.
+MeDirect Bank (Malta) p.l.c.
+FIMBANK p.l.c.
+Izola Bank p.l.c.
+Sparkasse Bank Malta p.l.c.
+IIG Bank (Malta) Ltd
+ECCM Bank p.l.c.
+FCM Bank Limited
+Central Bank of Malta

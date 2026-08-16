@@ -1,0 +1,6 @@
+---
+address: lithuania.vehicle.plate
+description: Lithuanian vehicle plate — three letters and three digits (ABC 123), black on white with the EU stripe. Lithuania carries no regional code on its plates, so unlike a Polish or German plate nothing in the number says where the car is registered. The letters are drawn from the Latin alphabet without the Lithuanian diacritics, which plates do not use.
+generator: tdc
+---
+<gen type="regex" value="[A-Z]{3} [0-9]{3}"/>

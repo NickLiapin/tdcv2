@@ -1,0 +1,27 @@
+---
+description: Bangladeshi address unit or interior designator, written before its number or value. Several have no European counterpart. দাগ নং and খতিয়ান নং are the mouza plot and record-of-rights numbers that identify rural land and appear on every land document. প্রযত্নে is the Bengali 'care of' and is written into an enormous share of real addresses, because post is delivered to a named householder rather than to a flat. The last four are not extras but the STRUCTURE of a Bangladeshi postal address, which is written as a chain of administrative units: গ্রামঃ … ডাকঘরঃ … থানাঃ … জেলাঃ …. A config that models a Bangladeshi address as house-number + street will produce something no postman could deliver.
+locale: bn
+---
+বাড়ি নং
+হোল্ডিং নং
+ফ্ল্যাট নং
+প্লট নং
+দাগ নং
+খতিয়ান নং
+দোকান নং
+রুম নং
+রোড নং
+সেক্টর
+ব্লক
+টাওয়ার
+উইং
+তলা
+নিচতলা
+দোতলা
+প্রযত্নে
+গ্রাম
+ডাকঘর
+ওয়ার্ড নং
+থানা
+উপজেলা
+জেলা

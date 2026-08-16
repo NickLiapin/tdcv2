@@ -1,0 +1,34 @@
+---
+description: Bird name (Bengali). দোয়েল, the oriental magpie-robin, comes first: it is the national bird of Bangladesh and appears on the two-taka note. The list is the birds of a delta country — storks, herons, kingfishers and the winter migrants that fill the haor wetlands — rather than the European garden birds.
+locale: bn
+---
+দোয়েল
+কাক
+চড়ুই
+শালিক
+ময়না
+টিয়া
+বুলবুলি
+কোকিল
+ঘুঘু
+পায়রা
+মাছরাঙা
+বক
+সারস
+পানকৌড়ি
+বালিহাঁস
+মাছমুরাল
+চিল
+শকুন
+বাজপাখি
+পেঁচা
+মৌটুসি
+বাবুই
+কাঠঠোকরা
+হুদহুদ
+ময়ূর
+মুরগি
+হাঁস
+রাজহাঁস
+তিতির
+কাদাখোঁচা

@@ -1,0 +1,9 @@
+---
+description: Hotel star rating, written the way Bengali says it, as in পাঁচ তারকা হোটেল. The numerals in the labels are spelled out rather than written as digits because that is the idiom.
+locale: bn
+---
+এক তারকা
+দুই তারকা
+তিন তারকা
+চার তারকা
+পাঁচ তারকা

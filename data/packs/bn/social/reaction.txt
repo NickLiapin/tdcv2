@@ -1,0 +1,15 @@
+---
+description: Reaction to a post (Bengali), as the platforms label them in their Bengali interface.
+locale: bn
+---
+লাইক
+ভালোবাসা
+হাহা
+বাহ
+দুঃখ
+রাগ
+যত্ন
+উদযাপন
+সমর্থন
+অন্তর্দৃষ্টিপূর্ণ
+কৌতূহল

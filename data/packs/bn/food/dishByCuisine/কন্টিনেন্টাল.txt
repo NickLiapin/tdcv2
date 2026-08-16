@@ -1,0 +1,11 @@
+---
+description: Dishes of কন্টিনেন্টাল cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+চিকেন স্টেক
+বিফ স্টেক
+গ্রিলড চিকেন
+ফিশ অ্যান্ড চিপস
+চিকেন স্যুপ
+সিজার সালাদ
+রোস্ট চিকেন

@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Bangladeshi locality, block or sector name (উত্তর বাড্ডা, পশ্চিম রামপুরা). কিবলা is the one no European locale has: it is the direction of prayer, roughly west-north-west from Bangladesh, and it is genuinely used to orient a room or a plot in property descriptions and in mosque construction. উজান and ভাটি are the upstream and downstream halves of a river country and name whole regions, not just directions — ভাটি অঞ্চল is the seasonally flooded lowland of the northeast.
+locale: bn
+---
+উত্তর
+দক্ষিণ
+পূর্ব
+পশ্চিম
+উত্তর-পূর্ব
+উত্তর-পশ্চিম
+দক্ষিণ-পূর্ব
+দক্ষিণ-পশ্চিম
+মধ্য
+কেন্দ্রীয়
+উপরের
+নিচের
+কিবলা
+উজান
+ভাটি

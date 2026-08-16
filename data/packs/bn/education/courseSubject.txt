@@ -1,0 +1,28 @@
+---
+description: School subject (Bengali). বাংলা and ইংরেজি are compulsory for every Bangladeshi student to the end of HSC, and ধর্ম ও নৈতিক শিক্ষা is a compulsory subject taught separately for Muslim, Hindu, Buddhist and Christian pupils in the same school. বাংলাদেশ ও বিশ্বপরিচয় is the combined social-studies subject of the primary and lower-secondary curriculum and has no European equivalent.
+locale: bn
+---
+বাংলা
+ইংরেজি
+গণিত
+বিজ্ঞান
+পদার্থবিজ্ঞান
+রসায়ন
+জীববিজ্ঞান
+উচ্চতর গণিত
+বাংলাদেশ ও বিশ্বপরিচয়
+ইতিহাস
+ভূগোল
+পৌরনীতি
+অর্থনীতি
+হিসাববিজ্ঞান
+ব্যবসায় সংগঠন
+ধর্ম ও নৈতিক শিক্ষা
+তথ্য ও যোগাযোগ প্রযুক্তি
+কৃষিশিক্ষা
+গার্হস্থ্য বিজ্ঞান
+শারীরিক শিক্ষা
+চারু ও কারুকলা
+সংগীত
+আরবি
+সমাজবিজ্ঞান

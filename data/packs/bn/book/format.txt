@@ -1,0 +1,12 @@
+---
+description: Book format (Bengali). পেপারব্যাক dominates the Bangladeshi market and হার্ডকভার is comparatively rare and expensive, which is the reverse of a European publishing dataset. Most Bengali books are published for the একুশে বইমেলা, the month-long February book fair in Dhaka, which is when the great majority of the year's titles appear at all.
+locale: bn
+---
+পেপারব্যাক
+হার্ডকভার
+ই-বুক
+অডিওবুক
+পকেট সংস্করণ
+সচিত্র সংস্করণ
+সংকলন
+লাইব্রেরি বাঁধাই

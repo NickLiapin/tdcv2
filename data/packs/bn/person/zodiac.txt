@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Bengali). These are the twelve রাশি, the same twelve signs as the Western zodiac but read SIDEREALLY in South Asian astrology, so the sign for a given birth date is usually the previous one by Western reckoning. Bangladesh is a Muslim-majority country where astrology has no religious standing, but রাশিফল columns run in the Bengali dailies of both Bangladesh and West Bengal and horoscope matching is still part of many Hindu Bengali marriages.
+locale: bn
+---
+মেষ
+বৃষ
+মিথুন
+কর্কট
+সিংহ
+কন্যা
+তুলা
+বৃশ্চিক
+ধনু
+মকর
+কুম্ভ
+মীন

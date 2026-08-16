@@ -1,0 +1,61 @@
+---
+description: Product material (Bengali). পাট comes near the top because jute is Bangladesh's historic export, still called the golden fibre, and jute goods are a live product category rather than a curiosity; মসলিন, জামদানি, খাদি, তাঁতের কাপড় and নকশিকাঁথা are Bangladeshi textile traditions, and জামদানি holds a GI registration and UNESCO recognition. শীতল পাটি is the cool woven mat of Sylhet, also on the UNESCO list.
+locale: bn
+---
+পাট
+তুলা
+সুতি
+মসলিন
+জামদানি
+খাদি
+তাঁতের কাপড়
+নকশিকাঁথা
+সিল্ক
+রাজশাহী সিল্ক
+মসৃণ সিল্ক
+উল
+লিনেন
+পলিয়েস্টার
+ডেনিম
+শীতল পাটি
+বাঁশ
+বেত
+কাঠ
+সেগুন কাঠ
+মেহগনি কাঠ
+প্লাইউড
+পার্টিকেল বোর্ড
+লোহা
+ইস্পাত
+স্টেইনলেস স্টিল
+অ্যালুমিনিয়াম
+পিতল
+কাঁসা
+তামা
+রুপা
+সোনা
+প্লাস্টিক
+মেলামাইন
+সিলিকন
+রাবার
+চামড়া
+কৃত্রিম চামড়া
+কাচ
+সিরামিক
+মাটির
+টেরাকোটা
+চীনামাটি
+পাথর
+মার্বেল
+গ্রানাইট
+কংক্রিট
+সিমেন্ট
+ইট
+কাগজ
+কার্ডবোর্ড
+কার্বন ফাইবার
+নাইলন
+ক্যানভাস
+শঙ্খ
+মুক্তা
+নারিকেলের ছোবড়া

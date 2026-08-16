@@ -1,0 +1,10 @@
+---
+description: Season (Bengali). Bengal counts SIX seasons, not four — the ষড়ঋতু, each spanning two months of the বঙ্গাব্দ calendar: গ্রীষ্ম (summer, বৈশাখ-জ্যৈষ্ঠ, mid-April to mid-June), বর্ষা (monsoon, আষাঢ়-শ্রাবণ), শরৎ (early autumn, ভাদ্র-আশ্বিন), হেমন্ত (late autumn and harvest, কার্তিক-অগ্রহায়ণ), শীত (winter, পৌষ-মাঘ) and বসন্ত (spring, ফাল্গুন-চৈত্র). This is not folklore: the six seasons are taught in school, name the poetry and song repertoire, and set the agricultural calendar. The list starts with গ্রীষ্ম because that is where the Bengali year starts, not with spring. In everyday speech Bangladeshis compress these to three — গরম, বর্ষা and শীত — and a config that needs the colloquial set should use those, not a four-season European one, which does not describe the country at all.
+locale: bn
+---
+গ্রীষ্ম
+বর্ষা
+শরৎ
+হেমন্ত
+শীত
+বসন্ত

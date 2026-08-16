@@ -1,0 +1,14 @@
+---
+description: Fuel type (Bengali). অকটেন is listed separately from পেট্রোল because Bangladeshi filling stations sell them as two distinct grades at two prices, and a driver asks for one or the other by name — a distinction no European fuel list makes. সিএনজি is compressed natural gas and is what most three-wheelers and a large share of buses and private cars run on, which is why the auto-rickshaw is simply called a 'CNG'. প্যাডেলচালিত is included because human-powered vehicles are a real and large category of the Bangladeshi fleet.
+locale: bn
+---
+পেট্রোল
+অকটেন
+ডিজেল
+সিএনজি
+এলপিজি
+বিদ্যুৎ
+হাইব্রিড
+কেরোসিন
+প্যাডেলচালিত
+সৌরচালিত

@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type. The labels are international and identical to every other locale. In Bangladesh B positive is the most frequent group, followed by O positive; the list carries no weights.
+locale: bn
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

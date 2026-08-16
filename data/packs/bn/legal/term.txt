@@ -1,0 +1,23 @@
+---
+description: Legal term (Bengali). এজাহার is the First Information Report lodged at a police station and is the document that starts a criminal case; জামিন is bail; ওকালতনামা is the signed authority a client gives a lawyer, without which no advocate may appear. নোটিশ জারি, তামাদি and জারি মোকদ্দমা are the procedural terms a Bangladeshi cause list is written in.
+locale: bn
+---
+বাদী
+বিবাদী
+আসামি
+সাক্ষী
+এজাহার
+চার্জশিট
+সমন
+ওয়ারেন্ট
+জামিন
+রিমান্ড
+ওকালতনামা
+হলফনামা
+জবানবন্দি
+নিষেধাজ্ঞা
+রায়
+ডিক্রি
+আপিল
+তামাদি
+জারি মোকদ্দমা

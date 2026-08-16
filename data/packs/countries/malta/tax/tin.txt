@@ -1,0 +1,6 @@
+---
+address: malta.tax.tin
+description: Maltese taxpayer reference number — nine digits, issued by the tax authority to non-Maltese nationals and to entities. Maltese nationals have no separate TIN: their tax number IS the identity-card number, so use malta.docs.idCard for them. No check digit; the number is simply allocated on registration.
+generator: tdc
+---
+<gen type="regex" value="[1-9][0-9]{8}"/>

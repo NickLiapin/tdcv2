@@ -1,0 +1,22 @@
+---
+description: Employment benefit (Bengali). Two are legally mandated in Bangladesh and have no European equivalent: উৎসব বোনাস is the festival bonus, paid twice a year (at the two Eids for Muslim staff, at their own festivals for others) and normally equal to a month's basic pay — every Bangladeshi employee expects it and its late payment is a standard cause of garment-sector strikes. বৈশাখী ভাতা is the separate Pohela Boishakh allowance paid to government employees. ভবিষ্য তহবিল is the provident fund and গ্র্যাচুইটি the end-of-service gratuity, both far more central to a Bangladeshi compensation package than a pension scheme is.
+locale: bn
+---
+উৎসব বোনাস
+বৈশাখী ভাতা
+ভবিষ্য তহবিল
+গ্র্যাচুইটি
+চিকিৎসা ভাতা
+স্বাস্থ্য বিমা
+যাতায়াত ভাতা
+বাড়ি ভাড়া ভাতা
+খাদ্য ভাতা
+মোবাইল বিল
+বার্ষিক ছুটি
+মাতৃত্বকালীন ছুটি
+পিতৃত্বকালীন ছুটি
+কর্মক্ষেত্রে শিশু যত্নকেন্দ্র
+গাড়ি সুবিধা
+প্রশিক্ষণ সুবিধা
+কর্মদক্ষতা বোনাস
+গ্রুপ জীবন বিমা

@@ -1,0 +1,11 @@
+---
+description: Haulage route type (Bengali). আন্তঃজেলা (inter-district) and মহাসড়ক (highway) are the ordinary Bangladeshi categories; বন্দর রুট is the Chattogram-to-Dhaka container corridor, which carries a large share of the country's freight on its own.
+locale: bn
+---
+দূরপাল্লা
+আন্তঃজেলা
+মহাসড়ক
+আঞ্চলিক
+স্থানীয়
+বন্দর রুট
+শেষ-ধাপ বিতরণ

@@ -1,0 +1,33 @@
+---
+address: bulgaria.geo.province
+description: The 28 области of Bulgaria, the first-level division. Every one carries the name of its administrative centre — there is no separate regional name to learn, unlike Poland's adjectival województwa — which is why the list reads as a list of cities. The capital is split in two: София-град is the city, София-област the ring of territory around it.
+locale: bg
+---
+Благоевград
+Бургас
+Варна
+Велико Търново
+Видин
+Враца
+Габрово
+Добрич
+Кърджали
+Кюстендил
+Ловеч
+Монтана
+Пазарджик
+Перник
+Плевен
+Пловдив
+Разград
+Русе
+Силистра
+Сливен
+Смолян
+София-град
+София-област
+Стара Загора
+Търговище
+Хасково
+Шумен
+Ямбол

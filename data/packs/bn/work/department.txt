@@ -1,0 +1,26 @@
+---
+description: Company department (Bengali). Bangladeshi corporate life runs on a mix of Bengali and English department names and both appear on real org charts; the Bengali forms are given here because that is what the pack is for. মার্চেন্ডাইজিং and কমপ্লায়েন্স are listed because they are standard departments in the garment sector, which is where a large share of Bangladeshi white-collar jobs sit — কমপ্লায়েন্স in particular exists because of buyer audits after the 2013 Rana Plaza collapse, and it has no counterpart in a European org chart of the same size.
+locale: bn
+---
+প্রকৌশল
+উৎপাদন
+পরিকল্পনা
+নকশা
+বিক্রয়
+বিপণন
+মার্চেন্ডাইজিং
+কমপ্লায়েন্স
+অর্থ
+হিসাব
+মানবসম্পদ
+প্রশাসন
+পরিচালন
+আইন
+গ্রাহকসেবা
+তথ্যপ্রযুক্তি
+গবেষণা ও উন্নয়ন
+ক্রয়
+মান নিয়ন্ত্রণ
+সরবরাহ
+নিরাপত্তা
+রক্ষণাবেক্ষণ

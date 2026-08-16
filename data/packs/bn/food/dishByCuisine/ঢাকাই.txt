@@ -1,0 +1,13 @@
+---
+description: Dishes of ঢাকাই cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+কাচ্চি বিরিয়ানি
+মোরগ পোলাও
+বাকরখানি
+বোরহানি
+শিক কাবাব
+নেহারি
+হালিম
+মোরগ মুসাল্লাম
+শাহী টুকরা

@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in people of প্রশান্ত মহাসাগরীয় দ্বীপবাসী descent, in Bengali. Coherent child of medical/ancestry.txt.
+locale: bn
+---
+টাইপ ২ ডায়াবেটিস
+স্থূলতাজনিত উচ্চ রক্তচাপ
+গেঁটে বাত
+বাতজ্বরজনিত হৃদরোগ
+দীর্ঘমেয়াদি কিডনি রোগ
+রক্তে ইউরিক অ্যাসিডের আধিক্য

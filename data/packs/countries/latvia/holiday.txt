@@ -1,0 +1,21 @@
+---
+address: latvia.holiday
+description: Public holidays of Latvia (svētku dienas, official Latvian names). Two dates carry the country's own history rather than the European calendar: 4 May 1990, when the Supreme Soviet declared the restoration of independence, and 18 November 1918, the proclamation of the Republic. Jāņi on 23-24 June is the midsummer holiday and the only two consecutive non-religious days off in the year.
+locale: lv
+---
+Jaungada diena
+Lielā Piektdiena
+Pirmās Lieldienas
+Otrās Lieldienas
+Darba svētki
+Latvijas Republikas Satversmes sapulces sasaukšanas diena
+Latvijas Republikas Neatkarības deklarācijas pasludināšanas diena
+Mātes diena
+Vasarsvētki
+Līgo diena
+Jāņu diena
+Latvijas Republikas proklamēšanas diena
+Ziemassvētku vakars
+Pirmie Ziemassvētki
+Otrie Ziemassvētki
+Vecgada vakars

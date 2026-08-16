@@ -1,0 +1,9 @@
+---
+address: malta.education.university
+description: Tertiary institutions of Malta. Four lines is the whole truth, not a sample — Malta has exactly ONE university, L-Università ta' Malta, founded by the Jesuits as the Collegium Melitense in 1592, made a state institution in 1769, and the country's only public degree-awarding body ever since. The American University of Malta is a small private licensee opened in Cospicua in 2016; MCAST and the Institute of Tourism Studies are vocational colleges rather than universities, and are here because a Maltese person's tertiary qualification most often comes from one of them. A list of thirty would be fiction.
+locale: en
+---
+University of Malta
+Malta College of Arts, Science and Technology
+Institute of Tourism Studies
+American University of Malta

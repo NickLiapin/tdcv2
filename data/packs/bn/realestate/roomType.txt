@@ -1,0 +1,20 @@
+---
+description: Room in a Bangladeshi home (Bengali). বারান্দা (the balcony or veranda) is close to universal and does real work — laundry, plants, sitting out in the evening. ছাদ (the flat roof) is a shared amenity used for drying, gardening and gathering, and is listed in advertisements. অজুখানা is the ablution area, and a separate গোসলখানা and পায়খানা — bathing room and lavatory — are often two rooms rather than one.
+locale: bn
+---
+শোবার ঘর
+বসার ঘর
+খাবার ঘর
+রান্নাঘর
+গোসলখানা
+পায়খানা
+বারান্দা
+ছাদ
+স্টোর রুম
+পড়ার ঘর
+অতিথি কক্ষ
+কাজের ঘর
+গ্যারেজ
+সিঁড়িঘর
+অজুখানা
+উঠান

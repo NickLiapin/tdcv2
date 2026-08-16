@@ -1,0 +1,26 @@
+---
+description: Allergen (Bengali). The food entries are the ones Bangladeshis actually report, which is not the European set: চিংড়ি, ইলিশ, বেগুন, গরুর মাংস and হাঁসের ডিম head the list because shrimp, hilsa, brinjal, beef and duck egg are the classic reported food allergies in Bengal, while peanut allergy — the defining allergen of a Western dataset — is comparatively rare here. ধুলা and ফুলের রেণু matter year-round in a country with no frost to end the pollen season.
+locale: bn
+---
+চিংড়ি
+ইলিশ
+বেগুন
+গরুর মাংস
+হাঁসের ডিম
+মুরগির ডিম
+গরুর দুধ
+বাদাম
+চিনাবাদাম
+সয়া
+গম
+তিল
+ধুলা
+ধুলার মাইট
+ফুলের রেণু
+ছত্রাক
+পশুর লোম
+পেনিসিলিন
+সালফা ওষুধ
+অ্যাসপিরিন
+আয়োডিন
+ল্যাটেক্স

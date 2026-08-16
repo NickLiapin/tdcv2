@@ -1,0 +1,30 @@
+---
+address: lithuania.education.university
+description: Universities and academies of Lithuania (Lithuanian names). Vilniaus universitetas was founded in 1579 and is among the oldest universities in eastern Europe. Šiaulių universitetas is absent on purpose — it was merged into Vilnius University in 2021 and now exists only as Vilniaus universiteto Šiaulių akademija.
+locale: lt
+---
+Vilniaus universitetas
+Kauno technologijos universitetas
+Vilniaus Gedimino technikos universitetas
+Vytauto Didžiojo universitetas
+Lietuvos sveikatos mokslų universitetas
+Klaipėdos universitetas
+Mykolo Romerio universitetas
+Vilniaus dailės akademija
+Lietuvos muzikos ir teatro akademija
+Lietuvos sporto universitetas
+Generolo Jono Žemaičio Lietuvos karo akademija
+ISM Vadybos ir ekonomikos universitetas
+Kazimiero Simonavičiaus universitetas
+Europos humanitarinis universitetas
+Vilniaus kolegija
+Kauno kolegija
+Klaipėdos valstybinė kolegija
+Šiaulių valstybinė kolegija
+Panevėžio kolegija
+Alytaus kolegija
+Utenos kolegija
+Marijampolės kolegija
+Lietuvos aukštoji jūreivystės mokykla
+Vilniaus technologijų ir dizaino kolegija
+Kauno miškų ir aplinkos inžinerijos kolegija

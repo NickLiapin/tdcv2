@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Bengali (prefix with # in a template). These are the tags Bangladeshi posts actually carry — the festivals (ঈদ, পহেলাবৈশাখ, পূজা), the national days (একুশেফেব্রুয়ারি, বিজয়দিবস, স্বাধীনতাদিবস) and the everyday subjects. Written without spaces, as a hashtag must be.
+locale: bn
+---
+ঈদমোবারক
+পহেলাবৈশাখ
+শুভনববর্ষ
+দুর্গাপূজা
+একুশেফেব্রুয়ারি
+মাতৃভাষা
+বিজয়দিবস
+স্বাধীনতাদিবস
+মুক্তিযুদ্ধ
+বাংলাদেশ
+ঢাকা
+চট্টগ্রাম
+সিলেট
+কক্সবাজার
+সুন্দরবন
+পদ্মাসেতু
+ভালোবাসা
+পরিবার
+বন্ধুত্ব
+আড্ডা
+চা
+বৃষ্টি
+ভ্রমণ
+খাবার
+রান্না
+বই
+কবিতা
+গান
+ক্রিকেট
+প্রকৃতি

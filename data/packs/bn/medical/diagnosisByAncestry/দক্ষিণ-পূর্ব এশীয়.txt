@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised prevalence in people of দক্ষিণ-পূর্ব এশীয় descent, in Bengali. Coherent child of medical/ancestry.txt.
+locale: bn
+---
+হিমোগ্লোবিন ই রোগ
+আলফা-থ্যালাসেমিয়া
+জি৬পিডি ঘাটতি
+নাসোফ্যারিঞ্জিয়াল ক্যান্সার
+বিটা-থ্যালাসেমিয়া
+ব্রুগাডা সিনড্রোম
+ল্যাকটোজ অসহিষ্ণুতা

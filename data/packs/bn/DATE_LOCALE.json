@@ -1,0 +1,59 @@
+{
+  "months": [
+    "জানুয়ারি",
+    "ফেব্রুয়ারি",
+    "মার্চ",
+    "এপ্রিল",
+    "মে",
+    "জুন",
+    "জুলাই",
+    "আগস্ট",
+    "সেপ্টেম্বর",
+    "অক্টোবর",
+    "নভেম্বর",
+    "ডিসেম্বর"
+  ],
+  "monthsInDate": [
+    "জানুয়ারি",
+    "ফেব্রুয়ারি",
+    "মার্চ",
+    "এপ্রিল",
+    "মে",
+    "জুন",
+    "জুলাই",
+    "আগস্ট",
+    "সেপ্টেম্বর",
+    "অক্টোবর",
+    "নভেম্বর",
+    "ডিসেম্বর"
+  ],
+  "monthsShort": [
+    "জানু",
+    "ফেব্রু",
+    "মার্চ",
+    "এপ্রিল",
+    "মে",
+    "জুন",
+    "জুলাই",
+    "আগ",
+    "সেপ্ট",
+    "অক্টো",
+    "নভে",
+    "ডিসে"
+  ],
+  "weekdays": [
+    "রবিবার",
+    "সোমবার",
+    "মঙ্গলবার",
+    "বুধবার",
+    "বৃহস্পতিবার",
+    "শুক্রবার",
+    "শনিবার"
+  ],
+  "weekdaysShort": ["রবি", "সোম", "মঙ্গল", "বুধ", "বৃহঃ", "শুক্র", "শনি"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "Bengali month names do not change form inside a date, so monthsInDate equals months. The WEEK STARTS ON SUNDAY and the weekend is FRIDAY AND SATURDAY in Bangladesh — Friday is the day of congregational prayer and offices, banks and schools close on both days. A working-day calculation that treats Saturday and Sunday as the weekend will be wrong for every Bangladeshi date. Bengali has its OWN DIGITS, ০১২৩৪৫৬৭৮৯, which are in everyday use on banknotes, vehicle number plates, government forms and in print, so a Bengali-facing date may legitimately be rendered ১৬/০৮/২০২৬. Two further calendars run alongside the Gregorian one and this pack does NOT convert between them. The বঙ্গাব্দ (Bengali calendar) is a solar calendar whose year begins at পহেলা বৈশাখ, around 14 April, and whose months are বৈশাখ, জ্যৈষ্ঠ, আষাঢ়, শ্রাবণ, ভাদ্র, আশ্বিন, কার্তিক, অগ্রহায়ণ, পৌষ, মাঘ, ফাল্গুন, চৈত্র; 2026 CE spans 1432 and 1433 BS, and no Bengali month starts on the first of a Gregorian one. The Hijri calendar fixes Ramadan and the two Eids and moves about eleven days earlier each Gregorian year. Bangladeshi newspapers print all three dates on the masthead. A caller that wants a বঙ্গাব্দ or Hijri date must convert it itself. Bangladesh's FISCAL YEAR runs 1 July to 30 June."
+}

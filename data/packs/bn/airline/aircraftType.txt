@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Model designations are international and never translated. The types listed are the ones actually flown into and out of Bangladesh: Biman's 787s and 737s, the Dash 8 and ATR turboprops on the short domestic hops to Cox's Bazar, Saidpur and Barishal, and the widebodies of the Gulf carriers.
+locale: bn
+---
+Boeing 787-8
+Boeing 787-9
+Boeing 777-300ER
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 767-300
+Airbus A320
+Airbus A321neo
+Airbus A330-300
+Airbus A350-900
+Airbus A380
+Airbus A319
+ATR 72-600
+ATR 72-500
+Dash 8 Q400
+Dash 8-300
+Embraer E190
+Embraer E175
+Bombardier CRJ900
+Boeing 747-400F
+Boeing 777F
+Cessna 208 Caravan
+Beechcraft King Air
+Airbus A310
+McDonnell Douglas MD-11F
+Antonov An-26

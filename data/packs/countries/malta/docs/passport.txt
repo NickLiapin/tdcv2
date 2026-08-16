@@ -1,0 +1,6 @@
+---
+address: malta.docs.passport
+description: Maltese passport number — seven digits, no letters and no check digit (Microsoft Purview's entity definition records "Checksum: No"). Both of Malta's civil identifiers go unchecked — see malta.docs.idCard. The only Maltese numbers that carry real arithmetic are the VAT number and the IBAN.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{7}"/>

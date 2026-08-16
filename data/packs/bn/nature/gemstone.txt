@@ -1,0 +1,29 @@
+---
+description: Gemstone name (Bengali). Bangladesh mines none of these; they arrive through the jewellery trade and through Vedic astrology, where each stone is prescribed for a planet — which is why the nine নবরত্ন stones (মানিক, মুক্তা, প্রবাল, পান্না, পোখরাজ, হীরা, নীলা, গোমেদ, বৈদূর্য) are the ones a Bengali jeweller actually names.
+locale: bn
+---
+হীরা
+চুনি
+নীলা
+পান্না
+মুক্তা
+প্রবাল
+পোখরাজ
+গোমেদ
+বৈদূর্য
+মানিক
+অ্যামিথিস্ট
+ওপাল
+ফিরোজা
+জেড
+গার্নেট
+অ্যাকুয়ামেরিন
+সিট্রিন
+মুনস্টোন
+ল্যাপিস লাজুলি
+টুরমালিন
+জিরকন
+পেরিডট
+অনিক্স
+স্ফটিক
+অ্যাম্বার

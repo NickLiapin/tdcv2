@@ -1,0 +1,25 @@
+---
+address: lithuania.finance.iban
+description: Lithuanian IBAN — 20 chars, the shortest in the Baltics: LT + 2 ISO 7064 check digits + a 5-digit bank identifier + an 11-digit account number. The bank identifiers are real, taken from the Bank of Lithuania's published register, so a generated IBAN routes to a bank that exists. Lithuania joined the euro on 1 January 2015, last of the three Baltic states, so an IBAN generated here is a euro account.
+generator: tdc
+locale: lt
+---
+<sequence name="bank"><gen type="text" value="73000,73000,70440,70440,71800,71800,40100,21400,72900,72300,70700,32500,35000,50100,50200,50300,71100,20900,22500,21200,21500,21700,30300,60024,22600,35200,10100"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{11}"/></sequence>
+<sequence name="iban"><compute>
+  <let name="bban"><concat><field name="bank"/><field name="account"/></concat></let>
+  <!-- ISO 13616: move the country code and a 00 placeholder to the end, then MOD 97. -->
+  <let name="rearranged"><concat><use name="bban"/><str v="LT"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="LT"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

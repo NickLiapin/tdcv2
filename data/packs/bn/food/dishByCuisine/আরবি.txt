@@ -1,0 +1,11 @@
+---
+description: Dishes of আরবি cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+শাওয়ারমা
+হুমাস
+ফালাফেল
+মান্দি
+কাবসা
+তাবুলে
+বাকলাভা

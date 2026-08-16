@@ -1,0 +1,34 @@
+---
+description: Spice or seasoning (Bengali). পাঁচফোড়ন is the five-spice mix that is the signature of Bengali cooking and exists nowhere else — whole cumin, nigella, fenugreek, fennel and radhuni, used unground. রাঁধুনি (radhuni, wild celery seed) is the fifth of them and is a specifically Bengali spice that no other South Asian cuisine uses. সরিষার তেল is listed among the spices rather than the oils because in Bengali cooking mustard oil is a flavour, not a medium.
+locale: bn
+---
+পাঁচফোড়ন
+রাঁধুনি
+কালোজিরা
+জিরা
+ধনে
+মৌরি
+মেথি
+হলুদ
+শুকনা মরিচ
+মরিচের গুঁড়া
+গোলমরিচ
+দারুচিনি
+এলাচ
+লবঙ্গ
+তেজপাতা
+জয়ত্রী
+জায়ফল
+স্টার অ্যানিস
+শাহি জিরা
+সরিষা
+সরিষার তেল
+পোস্ত
+আমচুর
+গরম মশলা
+বিরিয়ানি মশলা
+কাবাব মশলা
+আদা বাটা
+রসুন বাটা
+পেঁয়াজ বেরেস্তা
+কাঁচা মরিচ

@@ -1,0 +1,12 @@
+---
+description: Job titles in the নির্মাণ sector, in Bengali. Coherent child of work/industryCoherent.txt.
+locale: bn
+---
+রাজমিস্ত্রি
+কাঠমিস্ত্রি
+রড মিস্ত্রি
+ইলেকট্রিশিয়ান
+প্লাম্বার
+সিভিল প্রকৌশলী
+সাইট সুপারভাইজার
+জরিপকারী

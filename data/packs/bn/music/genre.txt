@@ -1,0 +1,39 @@
+---
+description: Music genre (Bengali). The first block is Bengali and has no European counterpart. রবীন্দ্রসংগীত is the songs of Rabindranath Tagore — a repertoire of over two thousand pieces with its own performance tradition, its own schools and its own copyright history, and it supplies the national anthems of BOTH Bangladesh and India. নজরুলগীতি is the parallel body of work by Kazi Nazrul Islam, Bangladesh's national poet. বাউল is the mystic minstrel tradition of Lalon Shah, recognised by UNESCO; ভাটিয়ালি is the boatman's song of the delta rivers; ভাওয়াইয়া belongs to the north; মুর্শিদি, মারফতি and জারি-সারি are the devotional song forms of rural Bangladesh.
+locale: bn
+---
+রবীন্দ্রসংগীত
+নজরুলগীতি
+বাউল
+লালনগীতি
+ভাটিয়ালি
+ভাওয়াইয়া
+মুর্শিদি
+মারফতি
+জারি গান
+সারি গান
+পল্লীগীতি
+লোকগীতি
+গণসংগীত
+দেশাত্মবোধক গান
+আধুনিক বাংলা গান
+ব্যান্ড সংগীত
+বাংলা রক
+হিন্দুস্তানি শাস্ত্রীয়
+খেয়াল
+ঠুমরি
+গজল
+কাওয়ালি
+হামদ ও নাত
+কীর্তন
+সিনেমার গান
+র‍্যাপ
+হিপ হপ
+পপ
+রক
+মেটাল
+জ্যাজ
+ব্লুজ
+রেগে
+ইলেকট্রনিক
+ক্লাসিক্যাল

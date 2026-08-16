@@ -1,0 +1,18 @@
+---
+address: bulgaria.holiday
+description: Official Bulgarian public holidays as the Кодекс на труда names them. Two are worth knowing about: 3 март marks liberation from Ottoman rule and is the national day, and 24 май honours the Cyrillic alphabet itself — a country whose national holiday is its writing system. 1 ноември is non-working for schools and universities only.
+locale: bg
+---
+Нова година
+Ден на Освобождението на България от османско робство
+Разпети петък
+Велика събота
+Великден
+Ден на труда и на международната работническа солидарност
+Гергьовден, Ден на храбростта и Българската армия
+Ден на светите братя Кирил и Методий, на българската азбука, просвета и култура и на славянската книжовност
+Ден на Съединението
+Ден на Независимостта на България
+Ден на народните будители
+Бъдни вечер
+Рождество Христово

@@ -1,0 +1,19 @@
+---
+description: Reason a customer returns an order (Bengali). ভাঙা অবস্থায় এসেছে and ছবির সাথে মিল নেই are the two commonest on Bangladeshi platforms, where cash on delivery means the customer inspects before paying and refuses at the door.
+locale: bn
+---
+ভাঙা অবস্থায় এসেছে
+ভুল পণ্য এসেছে
+ছবির সাথে মিল নেই
+মাপ ঠিক হয়নি
+রং ভিন্ন
+নকল পণ্য
+মেয়াদ উত্তীর্ণ
+যন্ত্রাংশ নেই
+কাজ করছে না
+দেরিতে ডেলিভারি
+মত পরিবর্তন
+অন্য জায়গায় কম দাম
+আর প্রয়োজন নেই
+ভুল করে অর্ডার
+মান আশানুরূপ নয়

@@ -1,0 +1,35 @@
+---
+address: bulgaria.docs.egn
+description: Bulgarian ЕГН (единен граждански номер) — 10 digits. Unusually, the century is folded into the MONTH rather than carried in the year: month+0 for 1900–1999, month+20 for 1800–1899, month+40 for 2000–2099, so a February 2008 birth reads as month 47. Digits 7–9 are a birth-order number whose range names the област of birth (000–043 Благоевград … 624–721 София-град … 904–925 Ямбол, 926–999 unknown), and the ninth digit is even for men, odd for women. Digit 10 is a check digit over the first nine with weights 2,4,8,5,10,9,7,3,6 modulo 11, a remainder of 10 becoming 0. Dates are drawn 1920–2025, so the +0 and +40 branches fire and the +20 branch stands documented but idle.
+generator: tdc
+---
+<sequence name="dob"><gen type="date" from="1920-01-01" to="2025-12-31" format="YYYYMMDD"/></sequence>
+<!-- 000..925 is the issued birth-order span; 926..999 is reserved for "unknown region". -->
+<sequence name="serial"><gen type="number" value="0..925" length="3"/></sequence>
+<sequence name="egn"><compute>
+  <let name="year"><to_number><slice from="0" to="4"><field name="dob"/></slice></to_number></let>
+  <let name="yy"><slice from="2" to="4"><field name="dob"/></slice></let>
+  <let name="mm"><to_number><slice from="4" to="6"><field name="dob"/></slice></to_number></let>
+  <let name="dd"><slice from="6" to="8"><field name="dob"/></slice></let>
+  <!-- The century offset added to the month. -->
+  <let name="offset">
+    <choose>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test><then><int v="40"/></then></when>
+      <when><test><less_than><use name="year"/><int v="1900"/></less_than></test><then><int v="20"/></then></when>
+      <otherwise><int v="0"/></otherwise>
+    </choose>
+  </let>
+  <let name="encmonth"><pad width="2" fill="0"><add><use name="mm"/><use name="offset"/></add></pad></let>
+  <let name="base"><concat><use name="yy"/><use name="encmonth"/><use name="dd"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="2,4,8,5,10,9,7,3,6"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <!-- mod 11, then mod 10 so a remainder of 10 collapses to 0. -->
+  <let name="check"><mod><mod><use name="sum"/><int v="11"/></mod><int v="10"/></mod></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{egn}}</data>

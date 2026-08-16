@@ -1,0 +1,16 @@
+---
+description: Streaming service used in Bangladesh. Brand names are kept in their real form. চরকি and বঙ্গ are Bangladeshi platforms; হইচই is Bengali-language and Kolkata-based but very widely watched here; বায়োস্কোপ and টফি are run by the mobile operators Grameenphone and Banglalink and are bundled with data packages, which is a distribution model with no European equivalent. Disney+ Hotstar is deliberately absent: it is not available in Bangladesh.
+locale: bn
+---
+ইউটিউব
+নেটফ্লিক্স
+চরকি
+হইচই
+বঙ্গ
+বায়োস্কোপ
+টফি
+দীপ্ত প্লে
+র‍্যাবিটহোল
+অ্যামাজন প্রাইম ভিডিও
+স্পটিফাই
+টুইচ

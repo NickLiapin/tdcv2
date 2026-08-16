@@ -1,0 +1,13 @@
+---
+description: Dishes of পশ্চিমবঙ্গীয় cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+শুক্তো
+কষা মাংস
+চিংড়ির মালাইকারি
+লুচি আলুর দম
+মিষ্টি দই
+রসগোল্লা
+সন্দেশ
+ফুচকা
+ঝালমুড়ি

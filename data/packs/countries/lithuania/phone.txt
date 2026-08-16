@@ -1,0 +1,6 @@
+---
+address: lithuania.phone
+description: Lithuanian mobile number in E.164 form (+370 6XXXXXXX). The national significant number is always 8 digits; the leading digit sorts the type, and 6 is the whole mobile range. Landlines use an area code instead — 5 for Vilnius, 37 for Kaunas, 46 for Klaipėda — still inside the same 8 digits. The domestic trunk prefix changed from 8 to 0 during 2024-2025 but never appears in E.164.
+generator: tdc
+---
+<gen type="regex" value="\+3706[0-9]{7}"/>

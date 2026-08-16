@@ -1,0 +1,29 @@
+---
+address: lithuania.sport.team
+description: Lithuanian sports clubs, basketball first. Football is not the national sport here — basketball is, and Žalgiris Kaunas is the club with a European name, so the LKL clubs lead the list and the A lyga clubs follow. Note the collision the country lives with: Žalgiris Kaunas is the basketball club, FK Žalgiris is the Vilnius football club, and Kauno Žalgiris is a third, separate football club — all three are listed under the names their own supporters use.
+locale: lt
+---
+Žalgiris Kaunas
+Rytas Vilnius
+Neptūnas Klaipėda
+Lietkabelis Panevėžys
+Wolves Vilnius
+Šiauliai
+Juventus Utena
+Nevėžis Kėdainiai
+CBet Jonava
+Dzūkija Alytus
+Pieno žvaigždės Pasvalys
+Gargždų Nafta
+FK Žalgiris
+Kauno Žalgiris
+FK Sūduva
+FK Panevėžys
+FK Hegelmann
+FK Riteriai
+FA Šiauliai
+FK Banga
+FK Džiugas
+FK Transinvest
+FK Dainava
+FK Jonava

@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in people of দক্ষিণ এশীয় descent, in Bengali. Coherent child of medical/ancestry.txt.
+locale: bn
+---
+অল্প বয়সে টাইপ ২ ডায়াবেটিস
+অকাল হৃদরোগ
+স্বাভাবিক ওজনেও পেটে মেদ
+ভিটামিন ডি স্বল্পতা
+বিটা-থ্যালাসেমিয়া বাহক
+হিমোগ্লোবিন ই বাহক
+বিপাকীয় সিনড্রোম
+জি৬পিডি ঘাটতি
+বাতজ্বরজনিত হৃদরোগ
+যক্ষ্মা

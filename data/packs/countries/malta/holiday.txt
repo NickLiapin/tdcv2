@@ -1,0 +1,19 @@
+---
+address: malta.holiday
+description: The fourteen public and national holidays of Malta (Maltese names) — the most of any EU member state, and since 2020 one that falls on a weekend is added to the worker's leave rather than lost. Five are national days marking political events (Jum il-Ħelsien, Sette Giugno, Jum il-Vitorja, Jum l-Indipendenza, Jum ir-Repubblika); the other nine are Catholic feasts, which is why a Maltese calendar carries three saints' days that a Northern European one does not. Sette Giugno keeps its Italian name — it commemorates the riots of 7 June 1919, from the period when Italian, not Maltese, was the language of law and letters in Malta.
+locale: mt
+---
+L-Ewwel tas-Sena
+Il-Festa tan-Nawfraġju ta' San Pawl
+Il-Festa ta' San Ġużepp
+Jum il-Ħelsien
+Il-Ġimgħa l-Kbira
+Jum il-Ħaddiem
+Sette Giugno
+Il-Festa ta' San Pietru u San Pawl
+Il-Festa ta' Santa Marija
+Jum il-Vitorja
+Jum l-Indipendenza
+Il-Festa tal-Kunċizzjoni
+Jum ir-Repubblika
+Il-Milied

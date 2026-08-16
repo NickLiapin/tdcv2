@@ -1,0 +1,32 @@
+---
+address: lithuania.docs.imonesKodas
+description: Lithuanian legal entity code (juridinio asmens kodas, everyday name imones kodas) — 9 digits issued by Registru centras, permanent across name changes, and also the entity's tax number. The check is weights 1..8 over the first eight digits mod 11. The published Registru centras rule says the remainder "must be less than 10", and that is not a rounding of a two-pass rule: across 2,952 real Lithuanian entity codes harvested from the GLEIF LEI register, every single one validates on that first pass and NOT ONE needs the second weight set that third-party validators implement as a fallback. So this file draws again instead of falling through — the codes it emits are the shape Registru centras actually issues, and they satisfy the lenient validators too. Leading digits mirror the register: 30 is the modern series (87% of the corpus), 11-19 the old state enterprises, 21-28 the budget institutions.
+generator: tdc
+locale: lt
+---
+<!-- era is a numeric flag, not a word: the compute layer compares numbers only. -->
+<sequence name="era"><gen type="text" value="0,0,0,0,0,0,0,1"/></sequence>
+<sequence name="historic"><gen type="text" value="11,12,13,14,15,16,17,18,19,21,22,23,24,25,26,27,28"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="base"><compute>
+  <let name="prefix">
+    <choose>
+      <when><test><equals><to_number><field name="era"/></to_number><int v="1"/></equals></test>
+        <then><field name="historic"/></then></when>
+      <otherwise><str v="30"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><use name="prefix"/><field name="rest"/></concat></result>
+</compute></sequence>
+<sequence name="check"><compute><result>
+  <!-- Weight of position i is i+1, so the table is the index itself. -->
+  <mod><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <add><current_index/><int v="1"/></add>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod>
+</result></compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{base}}${{check}}</data>

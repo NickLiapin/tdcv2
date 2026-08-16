@@ -1,0 +1,16 @@
+---
+description: GREGORIAN month names in Bengali, which is what a date on a Bangladeshi document, invoice or newspaper masthead carries — Bangladesh runs its administration, its banking and its academic year on the Gregorian calendar. Bengali also has its OWN calendar, the বঙ্গাব্দ, whose twelve months are বৈশাখ, জ্যৈষ্ঠ, আষাঢ়, শ্রাবণ, ভাদ্র, আশ্বিন, কার্তিক, অগ্রহায়ণ, পৌষ, মাঘ, ফাল্গুন and চৈত্র, and whose new year is পহেলা বৈশাখ around 14 April. Those months are alive: they govern the seasons, the harvest, the festival calendar and the date printed alongside the Gregorian one on a Bangladeshi newspaper. They do NOT align with the Gregorian months — বৈশাখ runs roughly 14 April to 14 May — and the engine does not convert between the two calendars, so they must never be substituted line for line into this list. A caller that wants a বঙ্গাব্দ date must convert it itself. The same warning applies to the Hijri calendar, which fixes Ramadan and the two Eids and is printed on the same mastheads.
+locale: bn
+---
+জানুয়ারি
+ফেব্রুয়ারি
+মার্চ
+এপ্রিল
+মে
+জুন
+জুলাই
+আগস্ট
+সেপ্টেম্বর
+অক্টোবর
+নভেম্বর
+ডিসেম্বর

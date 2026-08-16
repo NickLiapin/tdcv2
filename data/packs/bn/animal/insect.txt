@@ -1,0 +1,24 @@
+---
+description: Insect name (Bengali). মশা comes first for the reason a Bangladeshi would put it first: the Aedes mosquito causes the annual dengue epidemic, which is a national news story every monsoon.
+locale: bn
+---
+মশা
+মাছি
+পিঁপড়া
+মৌমাছি
+ভীমরুল
+বোলতা
+প্রজাপতি
+ফড়িং
+ঘাসফড়িং
+ঝিঁঝিঁ পোকা
+জোনাকি
+গুবরে পোকা
+উইপোকা
+তেলাপোকা
+মাকড়সা
+শুঁয়োপোকা
+পঙ্গপাল
+জোঁক
+কেন্নো
+ছারপোকা

@@ -1,0 +1,11 @@
+---
+description: Dishes of তুর্কি cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+দোনার কাবাব
+লাহমাজুন
+পিদে
+কোফতা
+মেজে
+তুর্কি বাকলাভা
+তুর্কি ডিলাইট

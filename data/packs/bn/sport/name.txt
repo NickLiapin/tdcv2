@@ -1,0 +1,59 @@
+---
+description: Sport (Bengali). Ordered by what Bangladesh plays and watches rather than by the Olympic programme: cricket first by a very long way, then football, then the indigenous games — হা-ডু-ডু (kabaddi, the national sport), দাঁড়িয়াবান্ধা, গোল্লাছুট, লাঠি খেলা, নৌকা বাইচ (the monsoon boat race, which draws crowds in the tens of thousands) and বলি খেলা (the Chittagong wrestling bout held every April). Those six have no European equivalent and are not translations of anything.
+locale: bn
+---
+ক্রিকেট
+ফুটবল
+হা-ডু-ডু
+কাবাডি
+ব্যাডমিন্টন
+ভলিবল
+হকি
+বাস্কেটবল
+হ্যান্ডবল
+টেবিল টেনিস
+টেনিস
+দাবা
+ক্যারম
+লুডু
+সাঁতার
+অ্যাথলেটিকস
+দৌড়
+ম্যারাথন
+উচ্চ লাফ
+দীর্ঘ লাফ
+গোলক নিক্ষেপ
+আরচারি
+শুটিং
+ভারোত্তোলন
+কুস্তি
+বক্সিং
+কারাতে
+তায়কোয়ান্দো
+জুডো
+উশু
+সাইক্লিং
+নৌকা বাইচ
+রোয়িং
+কায়াকিং
+দাঁড়িয়াবান্ধা
+গোল্লাছুট
+লাঠি খেলা
+বলি খেলা
+ঘুড়ি ওড়ানো
+মোরগ লড়াই
+গরুর দৌড়
+স্কোয়াশ
+গলফ
+বিলিয়ার্ডস
+স্নুকার
+রাগবি
+বেসবল
+আইস হকি
+স্কিইং
+সার্ফিং
+স্কেটবোর্ডিং
+জিমন্যাস্টিকস
+ফেন্সিং
+ট্রায়াথলন
+ই-স্পোর্টস

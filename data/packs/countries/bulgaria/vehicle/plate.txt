@@ -1,0 +1,10 @@
+---
+address: bulgaria.vehicle.plate
+description: Bulgarian number plate — a one- or two-letter област code, four digits, then a two-letter series. Since 1992 only the twelve Cyrillic letters that are also Latin glyphs are used (А В Е К М Н О Р С Т У Х), so a Bulgarian plate reads identically to a driver who knows neither alphabet — a deliberate design decision, not a coincidence. The област codes are not always the first letter of the province: Р is Русе while Пловдив is РВ, ЕН is Плевен, М is Монтана from its old name Михайловград, and ТХ is Добрич from Толбухин. София-град has outgrown one code and now uses С, СА and СВ.
+generator: tdc
+locale: bg
+---
+<sequence name="code"><gen type="text" value="А,В,ВН,ВР,ВТ,Е,ЕВ,ЕН,К,КН,М,Н,ОВ,Р,РА,РВ,РК,РР,С,СА,СВ,СМ,СН,СО,СС,СТ,Т,ТХ,У,Х"/></sequence>
+<sequence name="digits"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="series"><gen type="regex" value="[АВЕКМНОРСТУХ]{2}"/></sequence>
+<data>${{code}} ${{digits}} ${{series}}</data>

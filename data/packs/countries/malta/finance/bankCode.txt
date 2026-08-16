@@ -1,0 +1,18 @@
+---
+address: malta.finance.bankCode
+description: The four-letter bank identifier that opens a Maltese IBAN — the institution's BIC less the country and location suffix. Same order as malta.finance.bank. MMEB is HSBC Bank Malta, inherited from Mid-Med Bank, which HSBC bought in 1999; MALT is the Central Bank of Malta.
+locale: en
+---
+APSB
+VALL
+BNIF
+MMEB
+LBMA
+MBWM
+FIMB
+IZOL
+SBMT
+IIGB
+ECMB
+FCMF
+MALT

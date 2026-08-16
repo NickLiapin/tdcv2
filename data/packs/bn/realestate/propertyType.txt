@@ -1,0 +1,23 @@
+---
+description: Property type (Bengali, Bangladesh). ফ্ল্যাট leads because apartment living is what urban Bangladesh means by a home. Several have no European equivalent: a টিনশেড বাড়ি is the corrugated-iron house that most of the countryside lives in, a সাবলেট is a room let out of an occupied flat and is a large part of the Dhaka rental market, a মেস is shared bachelor lodging let by the bed, and a দোকানঘর is a shop unit with living space above. ভিটাবাড়ি is the homestead plot with the house on it, which is how rural property is described and inherited.
+locale: bn
+---
+ফ্ল্যাট
+অ্যাপার্টমেন্ট
+ডুপ্লেক্স
+পেন্টহাউস
+স্টুডিও ফ্ল্যাট
+সাবলেট
+মেস
+একক বাড়ি
+দোতলা বাড়ি
+টিনশেড বাড়ি
+সেমিপাকা বাড়ি
+ভিটাবাড়ি
+খামারবাড়ি
+রিসোর্ট
+দোকানঘর
+অফিস স্পেস
+গুদাম
+প্লট
+কৃষি জমি

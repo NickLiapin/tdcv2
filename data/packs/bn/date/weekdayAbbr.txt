@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday name (Bengali), Sunday-first to match date/weekday.txt.
+locale: bn
+---
+রবি
+সোম
+মঙ্গল
+বুধ
+বৃহঃ
+শুক্র
+শনি

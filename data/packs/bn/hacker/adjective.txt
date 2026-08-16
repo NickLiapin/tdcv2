@@ -1,0 +1,32 @@
+---
+description: Technical adjective (Bengali), mixing the native technical vocabulary that Bengali computing writing uses with the English loans that Bangladeshi practitioners actually speak.
+locale: bn
+---
+ডিজিটাল
+ভার্চুয়াল
+তারবিহীন
+অপটিক্যাল
+নিউরাল
+প্রাথমিক
+গৌণ
+সহায়ক
+মোবাইল
+দূরবর্তী
+অন্তর্নির্মিত
+স্কেলেবল
+অ্যাসিনক্রোনাস
+দ্বিমুখী
+মুক্ত উৎস
+অর্ধপরিবাহী
+দ্রুতগতির
+দক্ষ
+ক্লাউডভিত্তিক
+অনলাইন
+অফলাইন
+৬৪-বিট
+৮-বিট
+এনক্রিপ্টেড
+স্পর্শ-সংবেদী
+বিতরণকৃত
+ক্রস-প্ল্যাটফর্ম
+কৃত্রিম

@@ -1,0 +1,19 @@
+---
+description: Court or tribunal (Bengali). Bangladesh's Supreme Court has two divisions — the আপিল বিভাগ and the হাইকোর্ট বিভাগ — and they are not separate courts. গ্রাম আদালত is the village court run by a Union Parishad and has no European equivalent: it hears small civil and criminal matters locally, with elected representatives sitting alongside the parties' nominees. নারী ও শিশু নির্যাতন দমন ট্রাইব্যুনাল and শ্রম আদালত are specialised tribunals with their own procedure.
+locale: bn
+---
+বাংলাদেশ সুপ্রিম কোর্ট
+আপিল বিভাগ
+হাইকোর্ট বিভাগ
+জেলা জজ আদালত
+দায়রা জজ আদালত
+যুগ্ম জেলা জজ আদালত
+চিফ জুডিসিয়াল ম্যাজিস্ট্রেট আদালত
+মেট্রোপলিটন ম্যাজিস্ট্রেট আদালত
+পারিবারিক আদালত
+নারী ও শিশু নির্যাতন দমন ট্রাইব্যুনাল
+শ্রম আদালত
+অর্থঋণ আদালত
+ভূমি জরিপ ট্রাইব্যুনাল
+আন্তর্জাতিক অপরাধ ট্রাইব্যুনাল
+গ্রাম আদালত

@@ -1,0 +1,47 @@
+---
+description: Skill (Bengali). Programming languages, tools and standards keep their real names, as they do in every locale. Three entries are specifically Bangladeshi: ইংরেজি ভাষা appears as a listed SKILL rather than an assumption, because English proficiency is a stated hiring criterion here; আরবি ভাষা matters for Gulf employment; and নকশিকাঁথা সেলাই is a recognised craft skill with an export market behind it.
+locale: bn
+---
+Python
+JavaScript
+SQL
+Java
+PHP
+C++
+React
+ক্লাউড কম্পিউটিং
+মেশিন লার্নিং
+ডেটা বিশ্লেষণ
+সাইবার নিরাপত্তা
+গ্রাফিক ডিজাইন
+ভিডিও সম্পাদনা
+ডিজিটাল মার্কেটিং
+কনটেন্ট রাইটিং
+AutoCAD
+থ্রিডি মডেলিং
+প্রকল্প ব্যবস্থাপনা
+অ্যাজাইল
+হিসাবরক্ষণ
+আর্থিক মডেলিং
+নিরীক্ষা
+বিক্রয়
+গ্রাহকসেবা
+আলোচনা
+নেতৃত্ব
+সময় ব্যবস্থাপনা
+সমস্যা সমাধান
+উপস্থাপনা
+ইংরেজি ভাষা
+আরবি ভাষা
+টাইপিং
+মেশিন অপারেটিং
+ওয়েল্ডিং
+বৈদ্যুতিক ওয়্যারিং
+প্লাম্বিং
+কাঠের কাজ
+নকশা পড়া
+সেলাই
+নকশিকাঁথা সেলাই
+ড্রাইভিং
+প্রাথমিক চিকিৎসা
+খাদ্য নিরাপত্তা

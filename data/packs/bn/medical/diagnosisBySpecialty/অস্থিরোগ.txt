@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in the অস্থিরোগ department, in Bengali. Coherent child of medical/specialtyCoherent.txt.
+locale: bn
+---
+অস্থিসন্ধির ক্ষয়
+রিউমাটয়েড আর্থ্রাইটিস
+কোমরের ডিস্ক সরে যাওয়া
+সায়াটিকা
+হাড় ভাঙা
+কাঁধের রগ ছিঁড়ে যাওয়া
+কার্পাল টানেল সিনড্রোম

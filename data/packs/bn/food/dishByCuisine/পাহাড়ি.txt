@@ -1,0 +1,10 @@
+---
+description: Dishes of পাহাড়ি cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+বাঁশ কোড়লের তরকারি
+হেবাং
+পাজন
+সিদল ভর্তা
+ব্যাম্বু চিকেন
+নাপ্পি ভর্তা

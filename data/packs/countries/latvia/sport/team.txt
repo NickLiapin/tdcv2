@@ -1,0 +1,23 @@
+---
+address: latvia.sport.team
+description: Latvian football clubs — the ten of the 2026 Virslīga plus established 1. līga and recently top-flight sides. Football is not Latvia's first sport, and this file is football only; ice hockey and basketball are deliberately absent, because Latvia's top leagues in both are cross-border (the Optibet hokeja līga fields Estonian, Lithuanian and Ukrainian clubs, and basketball plays in the Latvian-Estonian league), so neither roster is a list of Latvian clubs. Names churn: FK Metta went down after 2025 and Ogre United came up.
+locale: lv
+---
+FK RFS
+Riga FC
+FK Auda
+FK Liepāja
+BFC Daugavpils
+FS Jelgava
+SK Super Nova
+FK Tukums 2000
+FK Grobiņa
+Ogre United
+FK Metta
+Valmiera FC
+FK Spartaks Jūrmala
+FK Ventspils
+Rīgas Futbola skola
+JDFS Alberts
+SK Babīte
+FK Smiltene

@@ -1,0 +1,11 @@
+---
+description: Dishes of বরিশালি cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+ভাপা ইলিশ
+ইলিশ ভুনা
+সরষে ইলিশ
+নারকেল চিংড়ি
+কচুর লতি দিয়ে চিংড়ি
+পান্তা ভাত
+চিতই পিঠা

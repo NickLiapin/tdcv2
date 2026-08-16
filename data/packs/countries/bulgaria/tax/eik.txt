@@ -1,0 +1,33 @@
+---
+address: bulgaria.tax.eik
+description: Bulgarian ЕИК (единен идентификационен код) — the 9-digit company number issued by the Търговски регистър, formerly БУЛСТАТ. The ninth digit is a two-stage weighted check over the first eight: weights 1,2,3,4,5,6,7,8 modulo 11, and only when that yields 10 a second pass with weights 3,4,5,6,7,8,9,10 modulo 11, with a second 10 collapsing to 0. Both stages are implemented here.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<sequence name="eik"><compute>
+  <!-- Stage 1: weights 1..8. -->
+  <let name="s1"><mod><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="1,2,3,4,5,6,7,8"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <!-- Stage 2: weights 3..10, consulted only when stage 1 gives 10. -->
+  <let name="s2"><mod><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,4,5,6,7,8,9,10"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><use name="s1"/><int v="10"/></equals></test>
+        <then><mod><use name="s2"/><int v="10"/></mod></then></when>
+      <otherwise><use name="s1"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{eik}}</data>

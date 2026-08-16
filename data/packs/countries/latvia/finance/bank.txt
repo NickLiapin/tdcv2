@@ -1,0 +1,17 @@
+---
+address: latvia.finance.bank
+description: Credit institutions licensed in Latvia (official Latvian names). Latvia's banking sector was cut roughly in half after the 2018 collapse of ABLV Bank and the wind-down of the non-resident deposit business, so this list is short by regional standards and deliberately excludes the well-known names that no longer trade — ABLV, Parex, Latvijas Krājbanka, Baltic International Bank. Swedbank Latvia operates under the Swedbank Baltics licence.
+locale: lv
+---
+Swedbank
+AS SEB banka
+AS Citadele banka
+Luminor Bank AS Latvijas filiāle
+AS Rietumu Banka
+BluOr Bank AS
+Signet Bank AS
+AS Industra Bank
+Magnetiq Bank AS
+AS Indexo Banka
+AS Reģionālā investīciju banka
+Latvijas Banka

@@ -1,0 +1,20 @@
+---
+description: Everyday weather condition (Bengali). ভ্যাপসা গরম — humid, still, oppressive heat — is the single most-used weather word in a Bangladeshi summer and has no one-word English equivalent; ঝিরিঝিরি বৃষ্টি is the fine continuous monsoon drizzle as distinct from a downpour.
+locale: bn
+---
+রৌদ্রোজ্জ্বল
+পরিষ্কার
+আংশিক মেঘলা
+মেঘলা
+ঘন মেঘাচ্ছন্ন
+বৃষ্টি
+ঝিরিঝিরি বৃষ্টি
+মুষলধারে বৃষ্টি
+বজ্রবৃষ্টি
+শিলাবৃষ্টি
+কুয়াশাচ্ছন্ন
+ধোঁয়াশা
+ভ্যাপসা গরম
+শুষ্ক
+ঝড়ো হাওয়া
+দমকা বাতাস

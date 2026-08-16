@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in the পরিপাকতন্ত্র department, in Bengali. Coherent child of medical/specialtyCoherent.txt.
+locale: bn
+---
+গ্যাস্ট্রিক আলসার
+অম্লশূল
+আন্ত্রিক প্রদাহ
+লিভার সিরোসিস
+ফ্যাটি লিভার
+হেপাটাইটিস বি
+আমাশয়

@@ -1,0 +1,22 @@
+---
+description: Cat breed. Pedigree cats are a small and recent urban phenomenon in Bangladesh — the ordinary Bangladeshi cat is the unregistered দেশি বিড়াল, which is listed first because it is what almost every cat in a Bangladeshi record actually is. The rest are international breed names, kept in their standard form as loanwords, which is how a Dhaka breeder or vet writes them.
+locale: bn
+---
+দেশি বিড়াল
+পার্সিয়ান
+মেইন কুন
+সিয়ামিজ
+র‍্যাগডল
+বেঙ্গল
+স্ফিংক্স
+ব্রিটিশ শর্টহেয়ার
+অ্যাবিসিনিয়ান
+স্কটিশ ফোল্ড
+রাশিয়ান ব্লু
+বার্মিজ
+হিমালয়ান
+টার্কিশ অ্যাঙ্গোরা
+এক্সোটিক শর্টহেয়ার
+মানসকো
+নরওয়েজিয়ান ফরেস্ট
+বার্মান

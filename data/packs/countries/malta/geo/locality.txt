@@ -1,0 +1,73 @@
+---
+address: malta.geo.locality
+description: The 68 local councils of Malta in their official Maltese form. These are the ONLY elected sub-national bodies in the country — there is no county, province or district layer above them, so nothing here corresponds to poland.geo.voivodeship or spain.geo.province. Maltese fuses the definite article onto the place name (Il-Mosta, Tas-Sliema, Ħaż-Żebbuġ, Ir-Rabat), which is why these strings do not look like the postal forms in malta.geo.city; the two files are aligned line for line.
+locale: mt
+---
+Ħ'Attard
+Ħal Balzan
+Il-Birgu
+Birkirkara
+Birżebbuġa
+Bormla
+Ħad-Dingli
+Il-Fgura
+Il-Furjana
+Il-Fontana
+Għajnsielem
+L-Għarb
+Ħal Għargħur
+L-Għasri
+Ħal Għaxaq
+Il-Gudja
+Il-Gżira
+Il-Ħamrun
+L-Iklin
+Il-Kalkara
+Ta' Kerċem
+Ħal Kirkop
+Ħal Lija
+Ħal Luqa
+Il-Marsa
+Marsaskala
+Marsaxlokk
+L-Imdina
+Il-Mellieħa
+L-Imġarr
+Il-Mosta
+L-Imqabba
+L-Imsida
+L-Imtarfa
+Il-Munxar
+In-Nadur
+In-Naxxar
+Raħal Ġdid
+Pembroke
+Tal-Pietà
+Il-Qala
+Ħal Qormi
+Il-Qrendi
+Ir-Rabat
+Ħal Safi
+San Ġiljan
+San Pawl il-Baħar
+San Ġwann
+San Lawrenz
+Ta' Sannat
+Santa Luċija
+Santa Venera
+L-Isla
+Is-Siġġiewi
+Tas-Sliema
+Is-Swieqi
+Ta' Xbiex
+Ħal Tarxien
+Il-Belt Valletta
+Ir-Rabat, Għawdex
+Ix-Xagħra
+Ix-Xewkija
+Ix-Xgħajra
+Ħaż-Żabbar
+Ħaż-Żebbuġ
+Iż-Żebbuġ, Għawdex
+Iż-Żejtun
+Iż-Żurrieq

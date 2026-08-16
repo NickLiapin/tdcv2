@@ -1,6 +1,30 @@
 ---
 address: bulgaria.tax.vat
-description: Bulgarian VAT (BG + 9 or 10 digits, no checksum)
+description: Bulgarian VAT number (ДДС номер) — the prefix BG followed by the trader's own identifier, so it is never a free-standing serial. For a company that is the 9-digit ЕИК and its two-stage weighted check digit, which is what this file emits (Софарма АД, ЕИК 831902088, is registered as BG831902088). A sole trader or a private individual is registered as BG + their 10-digit ЕГН instead — for that shape use bulgaria.docs.egn with a BG prefix.
 generator: tdc
 ---
-<gen type="regex" value="BG[0-9]{9}[0-9]?"/>
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<sequence name="check"><compute>
+  <let name="s1"><mod><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="1,2,3,4,5,6,7,8"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <let name="s2"><mod><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,4,5,6,7,8,9,10"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <result>
+    <choose>
+      <when><test><equals><use name="s1"/><int v="10"/></equals></test>
+        <then><mod><use name="s2"/><int v="10"/></mod></then></when>
+      <otherwise><use name="s1"/></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>BG${{base}}${{check}}</data>

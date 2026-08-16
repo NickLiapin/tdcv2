@@ -1,0 +1,15 @@
+---
+description: Stage of a hiring process (Bengali). লিখিত পরীক্ষা comes early because a written test is a normal step for Bangladeshi jobs at every level, not just for the civil service, and it is often the screening filter rather than the CV.
+locale: bn
+---
+আবেদন যাচাই
+লিখিত পরীক্ষা
+টেলিফোন সাক্ষাৎকার
+কারিগরি সাক্ষাৎকার
+সরাসরি সাক্ষাৎকার
+বোর্ড সাক্ষাৎকার
+চূড়ান্ত সাক্ষাৎকার
+রেফারেন্স যাচাই
+নিয়োগপত্র
+যোগদান
+প্রত্যাখ্যাত

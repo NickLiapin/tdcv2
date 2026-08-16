@@ -1,0 +1,12 @@
+---
+description: Job titles in the খুচরা ব্যবসা sector, in Bengali. Coherent child of work/industryCoherent.txt.
+locale: bn
+---
+দোকান ব্যবস্থাপক
+বিক্রয়কর্মী
+ক্যাশিয়ার
+গুদাম কর্মী
+সরবরাহকারী
+মার্চেন্ডাইজার
+গ্রাহকসেবা প্রতিনিধি
+ডেলিভারি ম্যান

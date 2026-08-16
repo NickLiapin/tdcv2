@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in people of আদিবাসী আমেরিকান descent, in Bengali. Coherent child of medical/ancestry.txt.
+locale: bn
+---
+টাইপ ২ ডায়াবেটিস
+পিত্তথলির পাথর
+ডায়াবেটিসজনিত কিডনি রোগ
+রিউমাটয়েড আর্থ্রাইটিস
+ফ্যাটি লিভার
+বিপাকীয় সিনড্রোম

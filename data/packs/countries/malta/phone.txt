@@ -1,0 +1,6 @@
+---
+address: malta.phone
+description: Maltese mobile number in E.164 form. Malta runs a flat, closed eight-digit plan with NO area codes — you dial all eight digits from anywhere in the country, and no part of the number is a trunk prefix. The leading pair says what kind of line it is, not where it is — 77, 79, 98 and 99 are mobile, 2x is fixed — which is why this file carries no dialling-code list of the sort a larger country's pack needs.
+generator: tdc
+---
+<gen type="regex" value="\+356(77|79|98|99)[0-9]{6}"/>

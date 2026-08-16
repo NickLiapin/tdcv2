@@ -1,0 +1,20 @@
+---
+description: Seniority or grade label for a role (Bengali). The Bangladeshi civil service uses a numbered grade ladder from গ্রেড-১ down to গ্রেড-২০ rather than these words, and a government record will carry the grade number instead of a title; these are the private-sector labels. উপ-মহাব্যবস্থাপক and মহাব্যবস্থাপক sit between manager and director in Bangladeshi banks and state-owned enterprises, exactly as in India.
+locale: bn
+---
+শিক্ষানবিশ
+প্রশিক্ষণার্থী
+শিক্ষানবিশ কর্মকর্তা
+জুনিয়র
+সহকারী
+মধ্যম স্তর
+সিনিয়র
+টিম লিড
+বিশেষজ্ঞ
+তত্ত্বাবধায়ক
+ব্যবস্থাপক
+সিনিয়র ব্যবস্থাপক
+উপ-মহাব্যবস্থাপক
+মহাব্যবস্থাপক
+পরিচালক
+ব্যবস্থাপনা পরিচালক

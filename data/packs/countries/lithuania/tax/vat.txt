@@ -1,6 +1,42 @@
 ---
 address: lithuania.tax.vat
-description: Lithuanian VAT / PVM (LT + 9 or 12 digits, no checksum)
+description: Lithuanian VAT number (PVM moketojo kodas) — LT followed by 9 digits for a registered legal entity or 12 for a temporarily registered taxpayer. Both forms carry a mandatory marker digit 1 in the second-to-last position and a two-pass mod-11 check whose weight for position i is 1+(i mod 9), re-run as 1+((i+2) mod 9) when the first remainder is 10, then reduced mod 10. That makes this the third distinct weighted scheme Lithuania uses: the personal code runs 1..9,1 over ten digits, the entity code runs 1..8 over eight, and this one derives its weights from the position so that the same rule covers both the 8-digit and the 11-digit base. Verified against the published numbers LT119511515, LT100001919017 and LT100004801610 - the last needs both passes and still lands on 10, which is why the final mod 10 exists.
 generator: tdc
 ---
-<gen type="regex" value="LT(?:[0-9]{9}|[0-9]{12})"/>
+<sequence name="form"><gen type="text" value="9,9,9,9,12"/></sequence>
+<sequence name="short"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="long"><gen type="regex" value="[0-9]{10}"/></sequence>
+<sequence name="pvm"><compute>
+  <!-- The digit before the check is always 1; it is what marks the number as a PVM code. -->
+  <let name="base">
+    <choose>
+      <when><test><equals><to_number><field name="form"/></to_number><int v="12"/></equals></test>
+        <then><concat><field name="long"/><str v="1"/></concat></then></when>
+      <otherwise><concat><field name="short"/><str v="1"/></concat></otherwise>
+    </choose>
+  </let>
+  <let name="s1"><mod><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <add><int v="1"/><mod><current_index/><int v="9"/></mod></add>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <let name="s2"><mod><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <add><int v="1"/><mod><add><current_index/><int v="2"/></add><int v="9"/></mod></add>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <!-- Pass 2 is taken only when pass 1 gives 10, and a second 10 collapses to 0. -->
+  <let name="check">
+    <choose>
+      <when><test><equals><use name="s1"/><int v="10"/></equals></test>
+        <then><mod><use name="s2"/><int v="10"/></mod></then></when>
+      <otherwise><use name="s1"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><str v="LT"/><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{pvm}}</data>

@@ -1,0 +1,11 @@
+---
+description: Weekday name (Bengali). The Bangladeshi week begins on রবিবার (Sunday), so this list is Sunday-first, not Monday-first as in the European packs. The WEEKEND is Friday and Saturday: শুক্রবার is the day of congregational prayer and the primary rest day, and offices, schools and banks close on both. A config that treats শনিবার-রবিবার as the weekend, or that marks Monday as the start of the week, will be wrong about every Bangladeshi working-day calculation. Each name is built on the planet that rules the day — রবি the sun, সোম the moon, মঙ্গল Mars, বুধ Mercury, বৃহস্পতি Jupiter, শুক্র Venus, শনি Saturn.
+locale: bn
+---
+রবিবার
+সোমবার
+মঙ্গলবার
+বুধবার
+বৃহস্পতিবার
+শুক্রবার
+শনিবার

@@ -1,0 +1,20 @@
+---
+description: Cuisine (Bengali, Bangladesh). Each value has a food/dishByCuisine child file. Eight of the sixteen are REGIONS rather than countries, because that is how food is actually named here: there is no single dish called 'Bangladeshi curry', and Chittagonian মেজবান, Sylheti আখনি and Dhaka's কাচ্চি have less in common with each other than Italian has with Greek. পশ্চিমবঙ্গীয় is listed separately from the Bangladeshi regions on purpose — the same language, a different kitchen: West Bengal's food is sweeter, uses more সরষে and ঘি, and its restaurant repertoire (কষা মাংস, শুক্তো, মিষ্টি দই) is not what a Dhaka menu carries. চীনা here means the Bangladeshi Chinese-restaurant idiom that has been on every Dhaka high street since the 1960s (চিলি চিকেন, থাই স্যুপ), which is a genuinely local cuisine and not the food of China. আরবি reflects the Gulf: hundreds of thousands of Bangladeshis have worked in Saudi Arabia and the UAE and brought শাওয়ারমা and মান্দি home with them.
+locale: bn
+---
+ঢাকাই
+চাটগাঁইয়া
+সিলেটি
+বরিশালি
+মোগলাই
+বাঙালি ঘরোয়া
+পশ্চিমবঙ্গীয়
+পাহাড়ি
+ভারতীয়
+চীনা
+থাই
+আরবি
+তুর্কি
+ইতালীয়
+কন্টিনেন্টাল
+জাপানি

@@ -1,0 +1,15 @@
+---
+address: lithuania.geo.county
+description: The 10 counties (apskritys) of Lithuania. They are the first-level division on paper, but their governing bodies — the apskričių viršininkų administracijos — were abolished on 1 July 2010 and their powers handed to the municipalities and to central government. A county today is a statistical and reporting unit with no administration of its own; for a field that names who actually governs an address, use lithuania.geo.municipality instead.
+locale: lt
+---
+Alytaus apskritis
+Kauno apskritis
+Klaipėdos apskritis
+Marijampolės apskritis
+Panevėžio apskritis
+Šiaulių apskritis
+Tauragės apskritis
+Telšių apskritis
+Utenos apskritis
+Vilniaus apskritis

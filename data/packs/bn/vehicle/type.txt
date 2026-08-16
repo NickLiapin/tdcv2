@@ -1,0 +1,32 @@
+---
+description: Vehicle type (Bengali, Bangladesh). The first eight are what actually moves people and goods here and none of them has a European counterpart: a রিকশা is the cycle rickshaw, an ইজিবাইক its battery-powered replacement, a সিএনজি অটোরিকশা the three-wheeled taxi named after its fuel, a লেগুনা a converted pickup running a fixed urban route, and নসিমন and করিমন are unregistered rural vehicles built around irrigation-pump engines. The river craft — লঞ্চ, ট্রলার, নৌকা, ফেরি — are transport, not leisure: a large part of the country is reached by water. Cars come well down the list because private car ownership is a small urban minority.
+locale: bn
+---
+রিকশা
+ভ্যান
+ইজিবাইক
+সিএনজি অটোরিকশা
+লেগুনা
+নসিমন
+করিমন
+ঠেলাগাড়ি
+মোটরসাইকেল
+সাইকেল
+বাস
+মিনিবাস
+মাইক্রোবাস
+প্রাইভেট কার
+সেডান
+হ্যাচব্যাক
+এসইউভি
+পিকআপ
+ট্রাক
+কাভার্ড ভ্যান
+লরি
+ট্রাক্টর
+নৌকা
+ট্রলার
+লঞ্চ
+ফেরি
+স্পিডবোট
+গরুর গাড়ি

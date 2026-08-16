@@ -1,0 +1,34 @@
+---
+description: Unit of measure (Bengali). Bangladesh is metric on paper and traditional in the market. মণ (about 37.32 kg), সের and ছটাক are still quoted for grain, fish and jaggery; কাঠা, শতাংশ, বিঘা and একর measure land and appear on every deed — a কাঠা is about 1.65 decimals and there are 20 to a বিঘা, but the exact value varies by district, which is a real hazard for anyone computing with it. হালি is a count of four, used for eggs and bananas and nothing else. A config must not assume kilograms.
+locale: bn
+---
+পিস
+টি
+হালি
+ডজন
+জোড়া
+সেট
+প্যাকেট
+বক্স
+কার্টন
+বস্তা
+বান্ডিল
+কেজি
+গ্রাম
+মিলিগ্রাম
+টন
+মণ
+সের
+ছটাক
+লিটার
+মিলিলিটার
+গজ
+মিটার
+সেন্টিমিটার
+ফুট
+ইঞ্চি
+বর্গফুট
+কাঠা
+শতাংশ
+বিঘা
+একর

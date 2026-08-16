@@ -1,0 +1,16 @@
+---
+description: Conditions with a raised prevalence in people of আশকেনাজি ইহুদি descent, in Bengali. Coherent child of medical/ancestry.txt.
+locale: bn
+---
+টে-স্যাক্স রোগ
+গশে রোগ
+পারিবারিক ডিসঅটোনমিয়া
+ক্যানাভান রোগ
+নিম্যান-পিক রোগ
+ব্লুম সিনড্রোম
+ফ্যাক্টর ১১ ঘাটতি
+BRCA1 প্রতিষ্ঠাতা মিউটেশন
+BRCA2 প্রতিষ্ঠাতা মিউটেশন
+মিউকোলিপিডোসিস চতুর্থ ধরন
+ক্রোন রোগ
+টর্শন ডিসটোনিয়া

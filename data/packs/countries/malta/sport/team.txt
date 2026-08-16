@@ -1,0 +1,35 @@
+---
+address: malta.sport.team
+description: Maltese football clubs — the current Premier League alongside the historic powers. Almost every name is a locality out of malta.geo.city, because in a country this size a club is its village; Floriana (27 titles), Sliema Wanderers (26) and Valletta (25) between them hold most championships since the league began in 1909. Football is the largest club sport but not the only national one — water polo runs it close every summer — and that is not represented here.
+locale: en
+---
+Valletta F.C.
+Birkirkara F.C.
+Hibernians F.C.
+Floriana F.C.
+Sliema Wanderers F.C.
+Ħamrun Spartans F.C.
+Balzan F.C.
+Gżira United F.C.
+Mosta F.C.
+Marsaxlokk F.C.
+Żabbar St. Patrick F.C.
+Birżebbuġa St. Peter's F.C.
+Senglea Athletic F.C.
+Gudja United F.C.
+Sirens F.C.
+Santa Luċija F.C.
+Naxxar Lions F.C.
+Msida Saint-Joseph F.C.
+Pietà Hotspurs F.C.
+Qormi F.C.
+Mqabba F.C.
+Żejtun Corinthians F.C.
+Rabat Ajax F.C.
+Tarxien Rainbows F.C.
+St. Andrews F.C.
+Swieqi United F.C.
+Lija Athletic F.C.
+Vittoriosa Stars F.C.
+Melita F.C.
+Victoria Hotspurs F.C.

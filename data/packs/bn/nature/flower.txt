@@ -1,0 +1,32 @@
+---
+description: Flower name (Bengali). শাপলা comes first because the white water lily is the national flower of Bangladesh and appears on the national emblem and on the coin. Most of these are tropical or subtropical and grow in Bangladesh; the European garden flowers a Bangladeshi would only meet in a florist's shop are at the end.
+locale: bn
+---
+শাপলা
+পদ্ম
+কৃষ্ণচূড়া
+রজনীগন্ধা
+হাসনাহেনা
+বেলি
+জুঁই
+চাঁপা
+গন্ধরাজ
+কামিনী
+কদম
+শিউলি
+জবা
+গোলাপ
+গাঁদা
+দোলনচাঁপা
+নয়নতারা
+অপরাজিতা
+মাধবীলতা
+বকুল
+পলাশ
+শিমুল
+সূর্যমুখী
+রঙ্গন
+টগর
+স্থলপদ্ম
+অর্কিড
+টিউলিপ

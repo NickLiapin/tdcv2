@@ -1,0 +1,53 @@
+---
+address: lithuania.docs.asmensKodas
+description: Lithuanian personal code (asmens kodas) — 11 digits. Digit 1 encodes century AND sex in one symbol (1/2 = male/female born 1801-1900, 3/4 = 1901-2000, 5/6 = 2001-2100), digits 2-7 are YYMMDD, digits 8-10 a serial for people born the same day, digit 11 a two-pass mod-11 check. Only 3, 4, 5 and 6 are generated; 1 and 2 are real but nobody carrying them is alive. The check runs weights 1,2,3,4,5,6,7,8,9,1 over the first ten digits, and if that remainder is 10 it re-runs with 3,4,5,6,7,8,9,1,2,3, falling back to 0 if that is 10 as well. This second pass is genuinely used - Lithuania's own worked example 33309240064 needs it.
+generator: tdc
+locale: lt
+---
+<sequence name="dob"><gen type="date" from="1900-01-01" to="2015-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="sexbit"><gen type="text" value="0,1"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="kodas"><compute>
+  <!-- The drawn calendar date arrives as YYYYMMDD; the code carries YYMMDD. -->
+  <let name="year"><to_number><slice from="0" to="4"><field name="dob"/></slice></to_number></let>
+  <let name="yymmdd"><slice from="2" to="8"><field name="dob"/></slice></let>
+  <!-- One digit for century and sex together: 3/4 for the 1900s, 5/6 for the 2000s,
+       the odd value male and the even value female. -->
+  <let name="century">
+    <choose>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test><then><int v="5"/></then></when>
+      <otherwise><int v="3"/></otherwise>
+    </choose>
+  </let>
+  <let name="first"><add><use name="century"/><to_number><field name="sexbit"/></to_number></add></let>
+  <let name="base"><concat><use name="first"/><use name="yymmdd"/><field name="serial"/></concat></let>
+  <!-- Pass 1: weights 1..9 then 1, over the ten base digits. -->
+  <let name="c1"><mod><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="1,2,3,4,5,6,7,8,9,1"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <!-- Pass 2, reached only when pass 1 gives 10: the same weights shifted by two. -->
+  <let name="c2"><mod><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,4,5,6,7,8,9,1,2,3"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><use name="c1"/><int v="10"/></equals></test>
+        <then><choose>
+          <when><test><equals><use name="c2"/><int v="10"/></equals></test><then><int v="0"/></then></when>
+          <otherwise><use name="c2"/></otherwise>
+        </choose></then>
+      </when>
+      <otherwise><use name="c1"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{kodas}}</data>

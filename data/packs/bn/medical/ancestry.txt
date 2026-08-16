@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Bengali, used as the parent of medical/diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Bangladeshis fall under দক্ষিণ এশীয়, and the entry that matters most locally is the thalassaemia carrier state: roughly one Bangladeshi in ten carries a beta-thalassaemia or haemoglobin E trait, which makes premarital screening a live public-health question here in a way it is not in northern Europe.
+locale: bn
+---
+উপ-সাহারান আফ্রিকান
+উত্তর আফ্রিকান
+ভূমধ্যসাগরীয়
+মধ্যপ্রাচ্যীয়
+উত্তর ইউরোপীয়
+পূর্ব ইউরোপীয়
+আশকেনাজি ইহুদি
+দক্ষিণ এশীয়
+পূর্ব এশীয়
+দক্ষিণ-পূর্ব এশীয়
+আদিবাসী আমেরিকান
+প্রশান্ত মহাসাগরীয় দ্বীপবাসী

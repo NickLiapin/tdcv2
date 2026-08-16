@@ -1,0 +1,41 @@
+---
+description: Medical specialty in Bengali — the full list, of which medical/specialtyCoherent.txt is the subset with coherent diagnosis children. Two entries have no European counterpart and are real qualifications in Bangladesh: ইউনানি and আয়ুর্বেদ are state-registered systems of medicine with their own government colleges and their own practitioners' register, alongside হোমিওপ্যাথি, which is far more widely used here than in western Europe. জনস্বাস্থ্য is listed high because public health is a large employer in a country with a well-known community-health system.
+locale: bn
+---
+সাধারণ চিকিৎসা
+পারিবারিক চিকিৎসা
+শিশু রোগ
+হৃদরোগ
+স্নায়ুরোগ
+মানসিক রোগ
+চর্মরোগ
+পরিপাকতন্ত্র
+হরমোন ও ডায়াবেটিস
+বক্ষব্যাধি
+কিডনি রোগ
+বাতরোগ
+রক্তরোগ
+ক্যান্সার
+সংক্রামক রোগ
+চক্ষু
+নাক-কান-গলা
+দন্ত
+অস্থিরোগ
+সাধারণ শল্যচিকিৎসা
+হৃদশল্যচিকিৎসা
+স্নায়ুশল্যচিকিৎসা
+মূত্র ও প্রজননতন্ত্র
+প্লাস্টিক সার্জারি
+শিশু শল্যচিকিৎসা
+স্ত্রীরোগ ও ধাত্রীবিদ্যা
+অবেদনবিদ্যা
+জরুরি চিকিৎসা
+নিবিড় পরিচর্যা
+রেডিওলজি
+প্যাথলজি
+ফিজিওথেরাপি
+পুষ্টিবিদ্যা
+জনস্বাস্থ্য
+ইউনানি
+আয়ুর্বেদ
+হোমিওপ্যাথি

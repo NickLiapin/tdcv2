@@ -1,0 +1,28 @@
+---
+address: malta.finance.iban
+description: Maltese IBAN — 31 characters, the LONGEST in the European Union, so any buffer or column sized to a European norm will truncate it. (Poland is 28, Germany 22, Belgium and Norway 16; only Saint Lucia, at 32, is longer anywhere.) The layout is MT + 2 ISO 7064 mod-97-10 check digits + a 4-letter bank identifier + a 5-digit branch code + an 18-character alphanumeric account number, and the account part being alphanumeric rather than numeric is the other place a Maltese IBAN breaks an assumption. The bank identifier is drawn from malta.finance.bankCode so it names a real institution, and the check digits are computed, not guessed.
+generator: tdc
+locale: en
+---
+<sequence name="bankcode"><gen type="template" value="malta.finance.bankCode"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9A-Z]{18}"/></sequence>
+<sequence name="iban"><compute>
+  <let name="bban"><concat><field name="bankcode"/><field name="branch"/><field name="account"/></concat></let>
+  <!-- ISO 13616: move the country code and a "00" placeholder to the end. -->
+  <let name="rearranged"><concat><use name="bban"/><str v="MT"/><str v="00"/></concat></let>
+  <!-- Every char to its base-36 value (letters A->10 ... Z->35, digits stay). -->
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <!-- Horner fold mod 97, so the 60-digit value never has to exist as one number. -->
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="MT"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

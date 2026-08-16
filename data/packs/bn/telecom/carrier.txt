@@ -1,0 +1,30 @@
+---
+description: Telecom operator in Bangladesh. Deliberately short at the top, and nothing has been invented to pad it: mobile telecom here is FOUR operators — গ্রামীণফোন, রবি, বাংলালিংক and the state-owned টেলিটক — after Airtel merged into Robi in 2016. The rest are fixed broadband ISPs and the state fixed-line operator BTCL; the ISP market is genuinely fragmented, with hundreds of small local providers that no list could enumerate, so these are only the larger national ones.
+locale: bn
+---
+গ্রামীণফোন
+রবি
+বাংলালিংক
+টেলিটক
+বিটিসিএল
+লিংক৩
+অ্যাম্বার আইটি
+কার্নিভাল ইন্টারনেট
+বিডিকম
+ডট ইন্টারনেট
+অগ্নি সিস্টেমস
+এডিএন টেলিকম
+সার্কেল নেটওয়ার্ক
+ট্রায়াঙ্গল সার্ভিসেস
+রেসকিউ নেট
+এক্সেস টেলিকম
+সামিট কমিউনিকেশন্স
+ফাইবার অ্যাট হোম
+বাংলাফোন
+মেট্রোনেট
+নভোকম
+স্কাইনেট
+সিটি অনলাইন
+ব্র্যাক নেট
+আইএসপিএবি সদস্য
+স্যাটেলাইট ইন্টারনেট

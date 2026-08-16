@@ -1,0 +1,12 @@
+---
+description: Job titles in the তথ্যপ্রযুক্তি sector, in Bengali. Coherent child of work/industryCoherent.txt.
+locale: bn
+---
+সফটওয়্যার প্রকৌশলী
+ওয়েব ডেভেলপার
+ডেটা বিশ্লেষক
+সিস্টেম অ্যাডমিনিস্ট্রেটর
+নেটওয়ার্ক প্রকৌশলী
+ইউএক্স ডিজাইনার
+কিউএ প্রকৌশলী
+প্রোডাক্ট ম্যানেজার

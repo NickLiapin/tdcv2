@@ -1,0 +1,28 @@
+---
+description: Role-playing character class (Bengali). Fantasy class names are borrowed into Bengali rather than translated, which is how Bangladeshi players and gaming pages actually name them; where a Bengali word exists and is used (যোদ্ধা, তীরন্দাজ, জাদুকর, ঘাতক) it is given.
+locale: bn
+---
+যোদ্ধা
+জাদুকর
+তীরন্দাজ
+ঘাতক
+নাইট
+প্যালাডিন
+রোগ
+মেজ
+উইজার্ড
+ওয়ারলক
+নেক্রোম্যান্সার
+ড্রুইড
+শামান
+প্রিস্ট
+ক্লেরিক
+মঙ্ক
+রেঞ্জার
+হান্টার
+বার্ড
+বারবেরিয়ান
+বার্সার্কার
+সামুরাই
+নিনজা
+সমনার

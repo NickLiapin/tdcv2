@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Bengali). একতারা comes first: the one-stringed drone lute of the Baul singers is close to a national symbol. দোতারা, ঢোল, ঢাক, খোল, মন্দিরা, খমক and বাঁশি are the instruments of Bengali folk and devotional music; তবলা, হারমোনিয়াম, সেতার, সরোদ and এসরাজ come from the Hindustani classical tradition. The Western instruments at the end are played here too but are not what the tradition is built on.
+locale: bn
+---
+একতারা
+দোতারা
+বাঁশি
+ঢোল
+ঢাক
+খোল
+মাদল
+খমক
+মন্দিরা
+করতাল
+ঘুঙুর
+সারিন্দা
+তবলা
+হারমোনিয়াম
+সেতার
+সরোদ
+এসরাজ
+সন্তুর
+বীণা
+সানাই
+শঙ্খ
+গিটার
+বেস গিটার
+কিবোর্ড
+পিয়ানো
+ড্রামস
+বেহালা
+চেলো
+স্যাক্সোফোন
+ট্রাম্পেট
+ম্যান্ডোলিন

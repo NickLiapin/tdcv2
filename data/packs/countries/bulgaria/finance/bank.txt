@@ -1,0 +1,26 @@
+---
+address: bulgaria.finance.bank
+description: Banks holding a Bulgarian licence, plus the branches of foreign banks that operate here, as the БНБ lists them. Trade names are used where they differ from the licensed name — Пощенска банка is licensed as Юробанк България АД. Райфайзенбанк and Пиреос are absent on purpose: both were absorbed (into ОББ and Пощенска банка respectively) and no longer exist as Bulgarian banks. Българска народна банка closes the list as the central bank rather than a commercial one; its BNBG code carries state accounts.
+locale: bg
+---
+УниКредит Булбанк
+Банка ДСК
+Обединена българска банка
+Пощенска банка
+Първа инвестиционна банка
+Централна кооперативна банка
+Алианц Банк България
+Инвестбанк
+Интернешънъл Асет Банк
+Общинска банка
+Тексим Банк
+Българска банка за развитие
+Ти Би Ай Банк
+ПроКредит Банк
+Токуда Банк
+Българо-американска кредитна банка
+Търговска банка Д
+Българска народна банка
+Ситибанк Европа
+БНП Париба
+ИНГ Банк

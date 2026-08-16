@@ -1,0 +1,18 @@
+---
+description: Insurance type (Bengali). তাকাফুল is Islamic mutual insurance and is offered by most Bangladeshi insurers alongside the conventional product, because conventional insurance is regarded by many as impermissible; নৌ বিমা matters for a country whose trade moves through one seaport; শস্য বিমা and গবাদি পশু বিমা are government-supported schemes; and প্রবাসী কল্যাণ বিমা is the compulsory insurance a migrant worker buys before leaving. Insurance penetration in Bangladesh is under 0.5% of GDP, so a config should not assume most people hold any of these.
+locale: bn
+---
+জীবন বিমা
+স্বাস্থ্য বিমা
+দুর্ঘটনা বিমা
+মোটর বিমা
+অগ্নি বিমা
+নৌ বিমা
+শস্য বিমা
+গবাদি পশু বিমা
+ভ্রমণ বিমা
+শিক্ষা বিমা
+পেনশন বিমা
+গ্রুপ বিমা
+প্রবাসী কল্যাণ বিমা
+তাকাফুল

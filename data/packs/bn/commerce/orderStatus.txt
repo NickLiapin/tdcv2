@@ -1,0 +1,18 @@
+---
+description: Order status (Bengali) as a Bangladeshi e-commerce site reports it. ক্যাশ অন ডেলিভারিতে বাতিল is listed as its own status because cash on delivery is the dominant payment method here and refusal at the door is a routine, separately tracked outcome rather than an edge case.
+locale: bn
+---
+অপেক্ষমাণ
+প্রক্রিয়াধীন
+নিশ্চিত
+প্যাকিং হয়েছে
+পাঠানো হয়েছে
+বিতরণের পথে
+বিতরণ সম্পন্ন
+বাতিল
+ক্যাশ অন ডেলিভারিতে বাতিল
+ফেরত এসেছে
+টাকা ফেরত
+স্থগিত
+স্টক নেই
+ব্যর্থ

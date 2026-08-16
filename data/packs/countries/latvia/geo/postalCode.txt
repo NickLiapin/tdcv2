@@ -1,0 +1,8 @@
+---
+address: latvia.geo.postalCode
+description: Latvian pasta indekss. Latvia is the odd one out among its neighbours — the country prefix is part of the code, not decoration, so the written form is LV-NNNN and the LV is never dropped the way Lithuania and Estonia drop theirs. The first two digits are the routing district: 10-13 Rīga, 20-21 Pierīga and Jūrmala, 30-38 Kurzeme and Zemgale, 40-48 Vidzeme and northern Latgale, 50-58 the Daugava valley and southern Latgale. Drawn flat across the issued span 1001-5871; real post clusters heavily on Rīga's 10xx, which a flat draw under-represents.
+generator: tdc
+locale: lv
+---
+<sequence name="index"><gen type="number" value="1001..5871" length="4"/></sequence>
+<data>LV-${{index}}</data>

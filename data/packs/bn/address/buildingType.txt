@@ -1,0 +1,48 @@
+---
+description: Building type (Bangladesh, Bengali). Four have no European equivalent worth translating to: a টিনশেড ঘর is the corrugated-iron-roofed house that most of rural Bangladesh lives in, a মেস is the shared rented lodging that unmarried men and students take in Dhaka, a আড়ত is the wholesale commodity depot behind every river port, and a গার্মেন্টস কারখানা is listed separately from কারখানা because ready-made garment factories employ about four million people and are their own building class in Bangladeshi records.
+locale: bn
+---
+বাড়ি
+ফ্ল্যাট
+অ্যাপার্টমেন্ট
+দালান
+টিনশেড ঘর
+কুঁড়েঘর
+বস্তিঘর
+ছাত্রাবাস
+মেস
+দোকান
+গুদাম
+আড়ত
+কারখানা
+গার্মেন্টস কারখানা
+মিল
+অফিস
+ব্যাংক
+হাসপাতাল
+ক্লিনিক
+স্কুল
+কলেজ
+মাদ্রাসা
+বিশ্ববিদ্যালয়
+মসজিদ
+মন্দির
+গির্জা
+প্যাগোডা
+ঈদগাহ
+মাজার
+হোটেল
+রেস্তোরাঁ
+চায়ের দোকান
+সিনেমা হল
+শপিং মল
+বাজার
+লাইব্রেরি
+জাদুঘর
+থানা
+ইউনিয়ন পরিষদ ভবন
+উপজেলা পরিষদ ভবন
+কমিউনিটি সেন্টার
+স্টেডিয়াম
+খামার
+ধানের গোলা

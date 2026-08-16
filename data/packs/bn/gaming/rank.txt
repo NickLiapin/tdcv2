@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier. These are the tiers of the games Bangladeshi players actually play online, kept in their real English form because that is what the games display.
+locale: bn
+---
+Bronze
+Silver
+Gold
+Platinum
+Diamond
+Crown
+Ace
+Conqueror
+Master
+Grandmaster

@@ -1,0 +1,17 @@
+---
+description: Freight or cargo type (Bengali). কনটেইনার heads the list because almost all Bangladeshi export freight moves as containers between Chattogram port, the Dhaka inland container depots and the garment factories. পাট and গার্মেন্টস পণ্য are named separately because they are the country's two historic export cargoes.
+locale: bn
+---
+কনটেইনার
+গার্মেন্টস পণ্য
+পাট
+ধান ও চাল
+সার
+সিমেন্ট
+রড ও ইস্পাত
+নির্মাণসামগ্রী
+জ্বালানি তেল
+গ্যাস সিলিন্ডার
+হিমায়িত মাছ
+গবাদি পশু
+সাধারণ পণ্য

@@ -1,0 +1,16 @@
+---
+description: Meeting type (Bengali). Bangladeshi offices mix Bengali and English meeting names freely and both forms appear on a real calendar invitation; the Bengali forms are given here.
+locale: bn
+---
+দৈনিক সভা
+একের সঙ্গে এক
+সাধারণ সভা
+পর্যালোচনা সভা
+পরিকল্পনা সভা
+সূচনা সভা
+সমন্বয় সভা
+কর্মশালা
+মতবিনিময় সভা
+বাজেট সভা
+বোর্ড সভা
+বার্ষিক সাধারণ সভা

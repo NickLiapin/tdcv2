@@ -1,0 +1,16 @@
+---
+description: Leave type (Bengali). নৈমিত্তিক ছুটি (casual leave) and অর্জিত ছুটি (earned leave) are the two statutory categories of the Bangladesh Labour Act and are what an HR record actually carries; হজ্জ ছুটি is separate leave granted for the pilgrimage.
+locale: bn
+---
+নৈমিত্তিক ছুটি
+অর্জিত ছুটি
+অসুস্থতাজনিত ছুটি
+মাতৃত্বকালীন ছুটি
+পিতৃত্বকালীন ছুটি
+শোক ছুটি
+বিনা বেতনে ছুটি
+শিক্ষা ছুটি
+হজ্জ ছুটি
+সরকারি ছুটি
+ক্ষতিপূরণমূলক ছুটি
+বিশেষ ছুটি

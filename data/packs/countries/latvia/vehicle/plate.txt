@@ -1,0 +1,9 @@
+---
+address: latvia.vehicle.plate
+description: Latvian vehicle plate — two letters, a hyphen, four digits. The letters encode NOTHING: unlike Poland, Czechia or Germany, where the prefix names the region that issued the plate, Latvia's pairs run in plain sequence and a plate says nothing about where the car lives. The original 1994 series excluded O, I, Q, W, X, Y (the last four are not letters of the Latvian alphabet); as short combinations ran out CSDD put O, I, W, X and Y back into circulation, and only Q stays out — that is the set drawn here. Older plates carry one to three digits rather than four, and from 2026 newly issued plates replace the hyphen with the small state coat of arms, which has no text form; the hyphen is kept.
+generator: tdc
+locale: lv
+---
+<sequence name="letters"><gen type="regex" value="[A-PR-Z]{2}"/></sequence>
+<sequence name="digits"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>${{letters}}-${{digits}}</data>

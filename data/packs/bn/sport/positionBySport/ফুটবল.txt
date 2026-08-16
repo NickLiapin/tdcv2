@@ -1,0 +1,13 @@
+---
+description: Playing positions in ফুটবল, in Bengali. Coherent child of sport/sportCoherent.txt. Position names in Bangladesh are largely English loanwords written in Bengali script, which is how commentary, coaching and the sports pages actually render them.
+locale: bn
+---
+গোলরক্ষক
+রক্ষণভাগের খেলোয়াড়
+সেন্টার ব্যাক
+ফুল ব্যাক
+মধ্যমাঠের খেলোয়াড়
+রক্ষণাত্মক মিডফিল্ডার
+উইঙ্গার
+স্ট্রাইকার
+ফরোয়ার্ড

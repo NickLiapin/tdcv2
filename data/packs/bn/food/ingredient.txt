@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Bengali). চাল, ডাল and আটা head the list because rice, lentils and wheat flour are the staples. Three entries need a note: ঘি is clarified butter and not interchangeable with butter, গুড় is unrefined date-palm or cane jaggery and is what Bengali sweets are made with rather than sugar, and চিতই / আতপ / সিদ্ধ চাল are three different rices with three different uses — a config must not treat 'rice' as one ingredient.
+locale: bn
+---
+চাল
+আতপ চাল
+সিদ্ধ চাল
+চিনিগুঁড়া চাল
+আটা
+ময়দা
+সুজি
+মসুর ডাল
+মুগ ডাল
+ছোলার ডাল
+খেসারির ডাল
+মটর ডাল
+ছোলা
+তেল
+সরিষার তেল
+সয়াবিন তেল
+ঘি
+মাখন
+দুধ
+দই
+ছানা
+ডিম
+মুরগির মাংস
+গরুর মাংস
+খাসির মাংস
+মাছ
+চিংড়ি
+শুঁটকি
+নারিকেল
+নারিকেলের দুধ
+চিনি
+গুড়
+লবণ
+তেঁতুল
+লেবু
+টক দই
+নুডলস
+সেমাই
+পাউরুটি
+বেসন

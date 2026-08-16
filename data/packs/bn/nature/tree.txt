@@ -1,0 +1,32 @@
+---
+description: Tree name (Bengali). আম comes first because the mango is the tree Bangladesh plants, argues about the varieties of, and named its national tree after. সুন্দরী gives its name to the Sundarbans, the largest mangrove forest in the world and Bangladesh's storm barrier; গোলপাতা and কেওড়া are the other mangroves of the same forest. সোনালু is the golden shower that flowers with the Bengali new year.
+locale: bn
+---
+আম
+কাঁঠাল
+জাম
+নারিকেল
+সুপারি
+তাল
+খেজুর
+বট
+অশ্বত্থ
+কদম
+শিমুল
+কৃষ্ণচূড়া
+সোনালু
+জারুল
+মেহগনি
+সেগুন
+শাল
+গর্জন
+সুন্দরী
+গোলপাতা
+কেওড়া
+নিম
+বাবলা
+তেঁতুল
+পেয়ারা
+লিচু
+বাঁশ
+শিরীষ

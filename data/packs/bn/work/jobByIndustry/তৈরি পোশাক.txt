@@ -1,0 +1,12 @@
+---
+description: Job titles in the তৈরি পোশাক sector, in Bengali. Coherent child of work/industryCoherent.txt.
+locale: bn
+---
+সুইং অপারেটর
+কাটিং মাস্টার
+কোয়ালিটি ইন্সপেক্টর
+লাইন চিফ
+ফ্লোর ইনচার্জ
+মার্চেন্ডাইজার
+প্রোডাকশন ম্যানেজার
+প্যাকিং হেলপার

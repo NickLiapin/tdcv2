@@ -1,0 +1,31 @@
+---
+address: malta.docs.idCard
+description: Maltese identity-card number — seven digits and a suffix letter (0142589M). It has NO check digit. That is the finding, not an omission: Identità, the issuing agency, describes the number purely structurally, and Microsoft Purview's entity definition records "Checksum: Not applicable". Do not read the trailing letter as a Spanish-style control character; it is a registry category. What the number does carry is an internal rule, and this generator honours it. The first five digits are the person's birth-registration serial at the Public Registry and the last two are the YEAR that birth was registered, so the letter's century has to agree with them — M (Malta) and G (Gozo) mark registrations of 1900-1999 and take any year, while L (Malta) and H (Gozo) mark 2000 onwards and are held to 00-26. A (foreign national holding a residence permit) and P (Maltese citizen born abroad, no registrable birth certificate) carry no birth-registration semantics. B and Z, the 1800-1899 Malta and Gozo letters, are not emitted: no living holder has one.
+generator: tdc
+---
+<sequence name="reg"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="yy"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="slot"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="id"><compute>
+  <!-- Twenty slots, so the suffix letters land in roughly lifelike proportions. -->
+  <let name="s"><mod><to_number><field name="slot"/></to_number><int v="20"/></mod></let>
+  <let name="letter"><at>
+    <in><list><str v="M"/><str v="M"/><str v="M"/><str v="M"/><str v="M"/><str v="M"/><str v="M"/><str v="M"/><str v="M"/><str v="M"/><str v="G"/><str v="G"/><str v="L"/><str v="L"/><str v="L"/><str v="L"/><str v="H"/><str v="A"/><str v="A"/><str v="P"/></list></in>
+    <index><use name="s"/></index>
+  </at></let>
+  <!-- 1 where the letter means "registered in 2000 or later" (L and H). -->
+  <let name="modern"><at>
+    <in><list v="0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0"/></in>
+    <index><use name="s"/></index>
+  </at></let>
+  <let name="year">
+    <choose>
+      <when><test><equals><use name="modern"/><int v="1"/></equals></test>
+        <then><mod><to_number><field name="yy"/></to_number><int v="27"/></mod></then></when>
+      <otherwise><to_number><field name="yy"/></to_number></otherwise>
+    </choose>
+  </let>
+  <let name="yypad"><pad width="2" fill="0"><use name="year"/></pad></let>
+  <result><concat><field name="reg"/><use name="yypad"/><use name="letter"/></concat></result>
+</compute></sequence>
+<data>${{id}}</data>

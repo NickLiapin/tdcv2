@@ -1,0 +1,26 @@
+---
+description: Household budget line (Bengali). বাসা ভাড়া heads the list because rent is the largest single item for most urban Bangladeshi households. Three have no European counterpart: গৃহকর্মীর বেতন — domestic help is normal well down the income scale here — কোচিং ও প্রাইভেট টিউশন, which is an unavoidable expense because private tutoring is effectively part of the school system, and আত্মীয়স্বজনকে সাহায্য, remittances and support sent to relatives, which is a standing monthly line in a large share of households.
+locale: bn
+---
+বাসা ভাড়া
+বাজার খরচ
+চাল ও ডাল
+বিদ্যুৎ বিল
+গ্যাস বিল
+পানির বিল
+মোবাইল ও ইন্টারনেট
+যাতায়াত
+শিক্ষা
+কোচিং ও প্রাইভেট টিউশন
+চিকিৎসা
+ওষুধ
+পোশাক
+গৃহকর্মীর বেতন
+আত্মীয়স্বজনকে সাহায্য
+দান ও যাকাত
+সঞ্চয়
+ঋণের কিস্তি
+বিমা প্রিমিয়াম
+বিনোদন
+উৎসব খরচ
+ভ্রমণ

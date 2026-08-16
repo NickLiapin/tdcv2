@@ -1,0 +1,42 @@
+---
+description: Animal name (Bengali). রয়েল বেঙ্গল টাইগার heads the list as the national animal of Bangladesh; the next block is the wildlife of the Sundarbans and the hill forests, and গঙ্গা নদীর শুশুক is the Ganges river dolphin, which lives in the rivers rather than at sea and is a distinct animal from the marine dolphin.
+locale: bn
+---
+রয়েল বেঙ্গল টাইগার
+চিতাবাঘ
+হাতি
+গণ্ডার
+ভালুক
+হরিণ
+চিত্রা হরিণ
+মায়া হরিণ
+বন্য শূকর
+বানর
+হনুমান
+উল্লুক
+শিয়াল
+নেকড়ে
+খেঁকশিয়াল
+বেজি
+সজারু
+কাঠবিড়ালি
+খরগোশ
+বাদুড়
+গঙ্গা নদীর শুশুক
+ডলফিন
+তিমি
+কুমির
+ঘড়িয়াল
+কচ্ছপ
+গুইসাপ
+সাপ
+গরু
+মহিষ
+ছাগল
+ভেড়া
+ঘোড়া
+গাধা
+উট
+কুকুর
+বিড়াল
+শূকর

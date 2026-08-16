@@ -1,0 +1,10 @@
+---
+description: Dishes of সিলেটি cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+আখনি পোলাও
+সাতকড়া দিয়ে গরুর মাংস
+চুঙ্গা পিঠা
+হিদল ভর্তা
+শুঁটকির তরকারি
+সাত রঙের চা

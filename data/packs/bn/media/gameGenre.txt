@@ -1,0 +1,21 @@
+---
+description: Video game genre (Bengali). Genre names are English loanwords in Bengali script, which is how Bangladeshi gaming media and shops write them.
+locale: bn
+---
+অ্যাকশন
+অ্যাডভেঞ্চার
+রোল-প্লেয়িং
+স্ট্র্যাটেজি
+সিমুলেশন
+স্পোর্টস
+রেসিং
+পাজল
+শুটার
+ব্যাটল রয়্যাল
+প্ল্যাটফর্মার
+ফাইটিং
+সারভাইভাল
+স্যান্ডবক্স
+এমএমওআরপিজি
+রগলাইক
+কার্ড গেম

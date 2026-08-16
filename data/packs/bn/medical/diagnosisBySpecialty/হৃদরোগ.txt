@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in the হৃদরোগ department, in Bengali. Coherent child of medical/specialtyCoherent.txt.
+locale: bn
+---
+উচ্চ রক্তচাপ
+করোনারি ধমনির রোগ
+হৃদযন্ত্রের বিকলতা
+অনিয়মিত হৃদস্পন্দন
+হৃদরোগে আক্রান্ত হওয়া
+রক্তে চর্বির আধিক্য
+বাতজ্বরজনিত হৃদরোগ

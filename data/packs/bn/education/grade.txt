@@ -1,0 +1,16 @@
+---
+description: Result or grade as reported in Bangladesh. Public examinations (SSC and HSC) report a GPA on a FIVE-point scale, where A+ is 5.00 — not the four-point scale used at university and not a letter grade in the American sense. গোল্ডেন এ প্লাস is not an official grade at all but a universally used term for an A+ in every subject, and it appears in newspapers, school notices and family conversation every results day. Universities grade on a 4.00 CGPA and use the letters at the end of this list.
+locale: bn
+---
+গোল্ডেন এ প্লাস
+এ+
+এ
+এ-
+বি
+সি
+ডি
+এফ
+উত্তীর্ণ
+অকৃতকার্য
+অনুপস্থিত
+বহিষ্কৃত

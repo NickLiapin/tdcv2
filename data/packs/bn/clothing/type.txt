@@ -1,0 +1,36 @@
+---
+description: Garment (Bengali, Bangladesh). The first ten have no European equivalent and are what most people actually wear: শাড়ি and সালোয়ার কামিজ with an ওড়না for women, পাঞ্জাবি with পায়জামা for men on formal and religious occasions, and লুঙ্গি — a tube of cloth worn at the waist — as ordinary everyday and household dress for men across the country. গামছা is the thin checked cotton towel that doubles as a headwrap and a shoulder cloth and is close to a national object. Note that Bangladesh makes clothing for the world and wears something else.
+locale: bn
+---
+শাড়ি
+সালোয়ার কামিজ
+ওড়না
+পাঞ্জাবি
+পায়জামা
+লুঙ্গি
+ধুতি
+ফতুয়া
+কুর্তা
+গামছা
+বোরকা
+হিজাব
+নিকাব
+টুপি
+চাদর
+শাল
+ব্লাউজ
+পেটিকোট
+শার্ট
+টি-শার্ট
+প্যান্ট
+জিন্স
+স্কার্ট
+জ্যাকেট
+সোয়েটার
+কোট
+স্যুট
+টাই
+মোজা
+স্যান্ডেল
+জুতা
+কেডস

@@ -1,0 +1,41 @@
+---
+address: latvia.geo.novads
+description: The 36 novadi of Latvia as they stand after the administrative reform of 1 July 2021, which cut 119 local governments (110 novadi and 9 republican cities) down to 43. This file is the 2021 vintage and nothing earlier — a pre-reform list of 110 names is not merely long, it is wrong, because most of those novadi no longer exist. The 43 are these 36 novadi plus 7 valstspilsētas that are local governments in their own right (Rīga, Daugavpils, Jelgava, Jūrmala, Liepāja, Rēzekne, Ventspils); those seven are in latvia.geo.city, and none of them is a novads, so none appears here. Varakļānu novads is on the list because the Constitutional Court ruled on 1 June 2021 that folding it into Rēzeknes novads was unconstitutional.
+locale: lv
+---
+Ādažu novads
+Aizkraukles novads
+Alūksnes novads
+Augšdaugavas novads
+Balvu novads
+Bauskas novads
+Cēsu novads
+Dienvidkurzemes novads
+Dobeles novads
+Gulbenes novads
+Jēkabpils novads
+Jelgavas novads
+Ķekavas novads
+Krāslavas novads
+Kuldīgas novads
+Limbažu novads
+Līvānu novads
+Ludzas novads
+Madonas novads
+Mārupes novads
+Ogres novads
+Olaines novads
+Preiļu novads
+Rēzeknes novads
+Ropažu novads
+Salaspils novads
+Saldus novads
+Saulkrastu novads
+Siguldas novads
+Smiltenes novads
+Talsu novads
+Tukuma novads
+Valkas novads
+Valmieras novads
+Varakļānu novads
+Ventspils novads

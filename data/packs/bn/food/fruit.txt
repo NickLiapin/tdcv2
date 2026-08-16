@@ -1,0 +1,40 @@
+---
+description: Fruit (Bengali). Ordered by what a Bangladeshi market actually sells: the summer mango and jackfruit season first — কাঁঠাল is the national fruit — then the litchi and the monsoon fruits, then the rarities. আমড়া, কামরাঙা, জামরুল, ডেউয়া, লটকন, বেল, তেঁতুল, আতা and শরিফা have no common English names and no European equivalent; a config that translates this list from English will lose most of it.
+locale: bn
+---
+আম
+কাঁঠাল
+লিচু
+কলা
+পেঁপে
+পেয়ারা
+আনারস
+তরমুজ
+বাঙ্গি
+নারিকেল
+ডাব
+খেজুর
+তাল
+কুল
+জাম
+জামরুল
+আমড়া
+কামরাঙা
+বেল
+তেঁতুল
+আতা
+শরিফা
+সফেদা
+লটকন
+ডেউয়া
+চালতা
+গাব
+করমচা
+কমলা
+মাল্টা
+আপেল
+আঙুর
+নাশপাতি
+ডালিম
+স্ট্রবেরি
+ড্রাগন ফল

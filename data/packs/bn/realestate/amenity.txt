@@ -1,0 +1,26 @@
+---
+description: Property amenity as advertised in Bangladesh (Bengali). The first four are what a Dhaka listing leads with and would puzzle a European reader: জেনারেটর সুবিধা and আইপিএস are backup power against load shedding, গ্যাস সংযোগ is a piped-gas connection, which is scarce and effectively unobtainable for new buildings, and ২৪ ঘণ্টা পানি means an uninterrupted water supply. A lift matters above the fifth floor and is advertised as দরজা পর্যন্ত লিফট.
+locale: bn
+---
+জেনারেটর সুবিধা
+আইপিএস
+গ্যাস সংযোগ
+২৪ ঘণ্টা পানি
+লিফট
+গাড়ি পার্কিং
+নিরাপত্তা প্রহরী
+সিসিটিভি
+ইন্টারকম
+কমিউনিটি স্পেস
+ছাদ ব্যবহারের সুবিধা
+খেলার জায়গা
+জিম
+সুইমিং পুল
+মসজিদ কাছে
+স্কুল কাছে
+বাজার কাছে
+প্রধান সড়কের পাশে
+আসবাবসহ
+শীতাতপ নিয়ন্ত্রিত
+সৌর প্যানেল
+পোষা প্রাণী অনুমোদিত

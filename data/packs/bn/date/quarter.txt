@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter label (Bengali). Bangladesh's financial year runs 1 JULY to 30 JUNE, so প্রথম প্রান্তিক is July-August-September and চতুর্থ প্রান্তিক is April-May-June. A config that maps a calendar month to a quarter using the January-start convention will label every Bangladeshi financial row two quarters wrong. Note this differs from India, whose year starts in April, so the Hindi pack's quarters do not transfer either.
+locale: bn
+---
+প্রথম প্রান্তিক
+দ্বিতীয় প্রান্তিক
+তৃতীয় প্রান্তিক
+চতুর্থ প্রান্তিক

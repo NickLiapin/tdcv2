@@ -1,0 +1,58 @@
+---
+description: Colour name (Bengali). Four have no clean English equivalent and are the ones a config translating from English will lose: গেরুয়া is the ochre-saffron of monastic robes, মেটে is the dull earth-brown of unglazed pottery, ধূসর is grey but কাঁচা হলুদ is specifically the yellow of raw turmeric, and মেহেদি is the red-brown of henna. লাল-সবুজ is listed as one value because red-and-green is read as a single colour in Bangladesh — it is the flag, and every Victory Day and cricket match is described in it.
+locale: bn
+---
+লাল
+সবুজ
+লাল-সবুজ
+নীল
+আকাশি
+গাঢ় নীল
+হলুদ
+কাঁচা হলুদ
+কমলা
+বেগুনি
+গোলাপি
+বাদামি
+মেটে
+গেরুয়া
+মেহেদি
+কালো
+সাদা
+ধূসর
+ছাই
+সোনালি
+রূপালি
+তামাটে
+খয়েরি
+মেরুন
+জলপাই
+সরিষা
+ফিরোজা
+টিয়া
+ময়ূরকণ্ঠী
+লেবু
+কচি কলাপাতা
+গাঢ় সবুজ
+বোতল সবুজ
+আকাশ নীল
+রয়্যাল ব্লু
+নেভি ব্লু
+বেবি পিংক
+ম্যাজেন্টা
+লালচে বেগুনি
+ল্যাভেন্ডার
+ক্রিম
+অফ হোয়াইট
+হাতির দাঁত
+বালুরঙ
+উটের রঙ
+চকলেট
+কফি
+ইটরঙা
+জং ধরা
+সিঁদুরে লাল
+রক্তলাল
+গাঢ় খয়েরি
+স্বচ্ছ
+বহুরঙা

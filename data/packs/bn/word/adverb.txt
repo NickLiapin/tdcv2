@@ -1,0 +1,36 @@
+---
+description: Common Bengali adverb. Note that Bengali forms most manner adverbs by adding -ভাবে or -ে to an adjective (দ্রুতভাবে, ধীরে, সহজে) rather than by a single suffix like English -ly; several here are reduplicated forms (ধীরে ধীরে, আস্তে আস্তে), which is a productive Bengali pattern that intensifies or extends the action and has no English equivalent.
+locale: bn
+---
+দ্রুত
+ধীরে
+ধীরে ধীরে
+আস্তে
+আস্তে আস্তে
+সাবধানে
+সহজে
+চুপচাপ
+জোরে
+সবসময়
+কখনো না
+প্রায়ই
+মাঝে মাঝে
+কদাচিৎ
+হঠাৎ
+ধীরস্থিরভাবে
+স্পষ্টভাবে
+সরাসরি
+প্রায়
+সম্পূর্ণভাবে
+সবেমাত্র
+বেশিরভাগ
+সত্যিই
+গভীরভাবে
+ব্যাপকভাবে
+স্বাধীনভাবে
+সাহসের সঙ্গে
+শান্তভাবে
+আগ্রহভরে
+দৃঢ়ভাবে
+আনন্দের সঙ্গে
+দয়া করে

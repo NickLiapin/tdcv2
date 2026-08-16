@@ -1,0 +1,25 @@
+---
+address: latvia.education.university
+description: Higher education institutions of Latvia (official Latvian names). Latvijas Universitāte was founded in 1919, in the middle of the war of independence and a year after the state itself. Names here are current and not historical: Latvijas Lauksaimniecības universitāte became Latvijas Biozinātņu un tehnoloģiju universitāte in 2022, Latvijas Sporta pedagoģijas akadēmija was absorbed by Rīgas Stradiņa universitāte in 2023, and Banku augstskola became the business school of Latvijas Universitāte on 1 September 2025 — none of the three retired names is listed.
+locale: lv
+---
+Latvijas Universitāte
+Rīgas Tehniskā universitāte
+Rīgas Stradiņa universitāte
+Latvijas Biozinātņu un tehnoloģiju universitāte
+Daugavpils Universitāte
+Liepājas Universitāte
+Rēzeknes Tehnoloģiju akadēmija
+Vidzemes Augstskola
+Ventspils Augstskola
+Latvijas Mākslas akadēmija
+Jāzepa Vītola Latvijas Mūzikas akadēmija
+Latvijas Kultūras akadēmija
+Latvijas Nacionālā aizsardzības akadēmija
+Rīgas Ekonomikas augstskola
+Rīgas Juridiskā augstskola
+Transporta un sakaru institūts
+Biznesa augstskola Turība
+Ekonomikas un kultūras augstskola
+Rīgas Starptautiskā ekonomikas un biznesa administrācijas augstskola
+Latvijas Kristīgā akadēmija

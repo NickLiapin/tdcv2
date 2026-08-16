@@ -1,0 +1,29 @@
+---
+description: Name suffix (Bengali). Bengali has no Jr / Sr / III: a Bangladeshi does not inherit a father's name and number it. What DOES follow a name is a respect particle, and the first six here are the ones a European locale has no slot for — সাহেব and ভাই after a man's name, আপা and আপু after a woman's, দা (elder brother) and দি (elder sister) in the Hindu convention. They attach to the name itself (করিম সাহেব, রহিম ভাই, বুলবুল আপা, সুব্রত দা) and are used constantly in speech, in email and on office signage. The rest are the degrees and titles Bangladesh writes after a name on a letterhead or a prescription pad; বীর শ্রেষ্ঠ, বীর উত্তম, বীর বিক্রম and বীর প্রতীক are the four gallantry titles of the 1971 Liberation War and are permanently part of the bearer's name of record.
+locale: bn
+---
+সাহেব
+ভাই
+আপা
+আপু
+দা
+দি
+মিয়া
+বাবু
+বি.এ.
+বি.এসসি.
+এম.এ.
+এম.এসসি.
+এম.বি.বি.এস.
+বি.ডি.এস.
+এল.এল.বি.
+এম.বি.এ.
+পি-এইচ.ডি.
+এফ.সি.পি.এস.
+এফ.আর.সি.এস.
+পি.এস.সি.
+অবঃ
+বীর শ্রেষ্ঠ
+বীর উত্তম
+বীর বিক্রম
+বীর প্রতীক

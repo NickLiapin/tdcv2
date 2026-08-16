@@ -1,0 +1,12 @@
+---
+description: Job titles in the কৃষি sector, in Bengali. Coherent child of work/industryCoherent.txt.
+locale: bn
+---
+কৃষক
+বর্গাচাষি
+ক্ষেতমজুর
+মৎস্যচাষি
+জেলে
+পোল্ট্রি খামারি
+কৃষি সম্প্রসারণ কর্মকর্তা
+চা শ্রমিক

@@ -1,0 +1,11 @@
+---
+address: malta.geo.region
+description: The six regions of Malta — Tramuntana (Northern), Punent (Western), Lvant (Eastern), Port, Nofsinhar (Southern), Għawdex (Gozo). Read this before assuming a European norm: Malta has NO first-level administrative division. There are no counties, provinces, departments or oblasts, and the 68 local councils sit directly under central government. A region is a second-tier body made of local councils, not a layer an address passes through — no Maltese address contains one, so nothing here plays the part poland.geo.voivodeship or spain.geo.province plays. Act XIV of 2019 reorganised them and the six Regional Councils took office in late 2021, replacing five earlier regions; their statutory functions are narrow (waste-management tendering, social-impact evaluations, support to local councils, bye-laws).
+locale: mt
+---
+Reġjun Tramuntana
+Reġjun Punent
+Reġjun Lvant
+Reġjun Port
+Reġjun Nofsinhar
+Reġjun Għawdex

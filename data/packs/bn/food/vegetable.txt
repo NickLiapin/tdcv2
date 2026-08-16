@@ -1,0 +1,40 @@
+---
+description: Vegetable (Bengali). Most of these have no English name in general use — লাউ, কচু, ঝিঙা, চিচিঙ্গা, পটল, ধুন্দল, কাঁকরোল, শজনে, থোড় and মোচা are ordinary market items in Bangladesh and untranslatable one for one. শাক covers the leafy greens as a class and Bengali names each one separately, which is why several appear individually.
+locale: bn
+---
+আলু
+পেঁয়াজ
+রসুন
+আদা
+টমেটো
+বেগুন
+লাউ
+মিষ্টি কুমড়া
+চাল কুমড়া
+ঝিঙা
+চিচিঙ্গা
+পটল
+ধুন্দল
+কাঁকরোল
+করলা
+শসা
+মুলা
+গাজর
+শালগম
+ফুলকপি
+বাঁধাকপি
+শিম
+বরবটি
+ঢেঁড়স
+কচু
+কচুর লতি
+মিষ্টি আলু
+শজনে
+থোড়
+মোচা
+পালং শাক
+লাল শাক
+পুঁই শাক
+কলমি শাক
+ধনেপাতা
+কাঁচা মরিচ

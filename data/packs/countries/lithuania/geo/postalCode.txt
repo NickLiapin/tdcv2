@@ -1,0 +1,7 @@
+---
+address: lithuania.geo.postalCode
+description: Lithuanian postal code (pašto kodas) — the letters LT, a hyphen and five digits. The first two digits are the delivery region and the last three the locality or route. The LT- prefix is written on international mail and is the form the register itself prints; domestic mail may omit it. A corpus of 1,674 distinct real Lithuanian postcodes spans LT-00122 to LT-99392 across 91 of the 100 possible two-digit prefixes, so the whole five-digit space is drawn.
+generator: tdc
+locale: lt
+---
+<gen type="regex" value="LT-[0-9]{5}"/>

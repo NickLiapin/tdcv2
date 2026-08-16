@@ -1,0 +1,9 @@
+---
+description: Work shift (Bengali). দিন, রাত and the rotating pattern are what Bangladeshi factories and the Barapukuria mine actually run.
+locale: bn
+---
+দিন
+সন্ধ্যা
+রাত
+ঘূর্ণায়মান
+সাধারণ

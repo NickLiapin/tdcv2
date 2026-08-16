@@ -1,0 +1,44 @@
+---
+description: Prepared dish (Bengali, Bangladesh) — a flat list across all cuisines, for when a config does not need the cuisine to agree. ভাত ও ডাল leads because rice with lentils is what most of the country eats twice a day, and the rest is ordered from everyday home cooking outward to restaurant food.
+locale: bn
+---
+ভাত ও ডাল
+খিচুড়ি
+ভুনা খিচুড়ি
+পান্তা ভাত
+পোলাও
+বিরিয়ানি
+কাচ্চি বিরিয়ানি
+তেহারি
+মোরগ পোলাও
+সরষে ইলিশ
+ভাপা ইলিশ
+মাছের ঝোল
+চিংড়ির মালাইকারি
+কালা ভুনা
+মেজবানি মাংস
+গরুর ভুনা
+খাসির রেজালা
+মুরগির কোরমা
+চিকেন রোস্ট
+নেহারি
+হালিম
+শিক কাবাব
+শামি কাবাব
+চাপলি কাবাব
+আলু ভর্তা
+বেগুন ভর্তা
+শুঁটকি ভর্তা
+ডিম ভুনা
+লাউ চিংড়ি
+শুক্তো
+চচ্চড়ি
+লাবড়া
+সবজি খিচুড়ি
+পরোটা
+লুচি
+বাকরখানি
+চিতই পিঠা
+ভাপা পিঠা
+পাটিসাপটা
+নকশি পিঠা

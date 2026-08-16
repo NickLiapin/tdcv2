@@ -1,0 +1,11 @@
+---
+description: Driving licence class as issued by BRTA, the Bangladesh Road Transport Authority. These are the real categories on a Bangladeshi licence: a professional licence (পেশাদার) is required to drive for hire and is distinct from the non-professional one, and heavy and medium vehicles are separate endorsements.
+locale: bn
+---
+পেশাদার হালকা
+পেশাদার মাঝারি
+পেশাদার ভারী
+অপেশাদার হালকা
+মোটরসাইকেল
+থ্রি-হুইলার
+শিক্ষানবিশ

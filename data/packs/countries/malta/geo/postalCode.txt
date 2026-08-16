@@ -1,0 +1,9 @@
+---
+address: malta.geo.postalCode
+description: Maltese postcode — three locality letters, a space, then four digits (BKR 1234). The letters are drawn from malta.geo.localityCode so they name a place that exists; the four digits are not mapped to delivery walks here, so they are drawn 1000-9999 (no code in service starts with 0). Malta adopted postcodes only in 2007.
+generator: tdc
+locale: en
+---
+<sequence name="code"><gen type="template" value="malta.geo.localityCode"/></sequence>
+<sequence name="digits"><gen type="regex" value="[1-9][0-9]{3}"/></sequence>
+<data>${{code}} ${{digits}}</data>

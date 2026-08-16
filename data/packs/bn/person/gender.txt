@@ -1,0 +1,6 @@
+---
+description: Gender label (Bengali, Bangladesh). Two values, matching en, pl and hi — this list is what a parent filter such as parent="Gender.পুরুষ" selects on, so a longer list silently leaves most rows without a name. Bangladesh has legally recognised হিজড়া as a third gender since 2013 and it is a selectable option on the National ID and the passport, so a config modelling identity rather than the male/female name directories should carry it in a list of its own. NOTE — THE PACK SPEAKS BANGLADESH. Bengali is the language of two places: Bangladesh (~170 million speakers, sole official language) and the Indian state of West Bengal (~97 million). They share the language and diverge on currency (৳ টাকা here, not ₹ রুপি), administration, national figures, festivals, the surname distribution and a good deal of vocabulary. Every list in this pack is Bangladeshi; where the West Bengal usage differs enough to mislead, the file's own description says so.
+locale: bn
+---
+পুরুষ
+নারী

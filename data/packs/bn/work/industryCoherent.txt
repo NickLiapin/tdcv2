@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (work/jobByIndustry child), in Bengali. Two departures from the European default are deliberate. তৈরি পোশাক — ready-made garments — leads because it is not one industry among many in Bangladesh: it is about 84% of the country's exports and employs roughly four million people, most of them women, so a Bangladeshi employment dataset without it is not describing Bangladesh. কৃষি replaces the generic 'manufacturing' of the en pack for the same reason: agriculture is still the largest single employer in the country.
+locale: bn
+---
+তৈরি পোশাক
+কৃষি
+তথ্যপ্রযুক্তি
+স্বাস্থ্যসেবা
+ব্যাংকিং ও অর্থ
+নির্মাণ
+শিক্ষা
+আতিথেয়তা
+পরিবহন
+খুচরা ব্যবসা

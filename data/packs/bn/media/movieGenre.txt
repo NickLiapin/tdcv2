@@ -1,0 +1,23 @@
+---
+description: Film genre (Bengali). মুক্তিযুদ্ধভিত্তিক — films about the 1971 Liberation War — is a standing genre with state funding behind it and is not a subcategory of war film. সামাজিক (the social drama) is the mainstream commercial genre of Bengali cinema in both Dhaka and Kolkata.
+locale: bn
+---
+সামাজিক
+মুক্তিযুদ্ধভিত্তিক
+অ্যাকশন
+কমেডি
+নাটকীয়
+রোমান্স
+থ্রিলার
+রহস্য
+ভৌতিক
+কল্পবিজ্ঞান
+ফ্যান্টাসি
+অ্যাডভেঞ্চার
+অপরাধ
+গোয়েন্দা
+ঐতিহাসিক
+জীবনীভিত্তিক
+তথ্যচিত্র
+অ্যানিমেশন
+শিশুতোষ

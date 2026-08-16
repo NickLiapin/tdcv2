@@ -1,0 +1,58 @@
+---
+description: Colour as printed on a product listing (Bengali). Overlaps color/name.txt on purpose — a product colour is a marketing label, so it carries the English loanwords Bangladeshi online sellers actually use alongside the native colour words.
+locale: bn
+---
+লাল
+সবুজ
+নীল
+আকাশি
+হলুদ
+কমলা
+বেগুনি
+গোলাপি
+বাদামি
+কালো
+সাদা
+ধূসর
+সোনালি
+রূপালি
+মেরুন
+খয়েরি
+জলপাই
+ফিরোজা
+ক্রিম
+অফ হোয়াইট
+নেভি ব্লু
+রয়্যাল ব্লু
+স্কাই ব্লু
+বেবি পিংক
+হট পিংক
+ম্যাজেন্টা
+ল্যাভেন্ডার
+পিচ
+কোরাল
+মিন্ট
+লাইম
+মাস্টার্ড
+চকলেট
+কফি
+বেইজ
+স্যান্ড
+আইভরি
+চারকোল
+গানমেটাল
+রোজ গোল্ড
+কপার
+ব্রোঞ্জ
+প্লাটিনাম
+মাল্টিকালার
+স্বচ্ছ
+ম্যাট কালো
+গ্লসি সাদা
+ডিপ রেড
+ফরেস্ট গ্রিন
+টিল
+ইন্ডিগো
+ভায়োলেট
+স্লেট
+টেরাকোটা

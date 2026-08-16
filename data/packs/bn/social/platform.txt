@@ -1,0 +1,21 @@
+---
+description: Social or messaging platform used in Bangladesh. ফেসবুক is first by a very wide margin — for a large part of the country Facebook IS the internet, and businesses run on Facebook pages rather than websites. ইমো is the entry a config would never guess: imo is a video-calling app with little presence in the West that is ubiquitous in Bangladesh because it works on slow connections and is how millions of migrant workers in the Gulf call home. টিকটক and লাইকি are large; টুইটার/X is small here.
+locale: bn
+---
+ফেসবুক
+মেসেঞ্জার
+হোয়াটসঅ্যাপ
+ইমো
+ইউটিউব
+টিকটক
+ইনস্টাগ্রাম
+টেলিগ্রাম
+ভাইবার
+লাইকি
+বিগো লাইভ
+স্ন্যাপচ্যাট
+লিংকডইন
+এক্স
+রেডিট
+পিন্টারেস্ট
+ডিসকর্ড

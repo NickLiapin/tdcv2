@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in the স্নায়ুরোগ department, in Bengali. Coherent child of medical/specialtyCoherent.txt.
+locale: bn
+---
+মাইগ্রেন
+মৃগীরোগ
+স্ট্রোক
+পারকিনসন্স রোগ
+মাল্টিপল স্ক্লেরোসিস
+স্নায়ুর ক্ষয়
+মস্তিষ্কের প্রদাহ

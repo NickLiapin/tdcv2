@@ -1,0 +1,24 @@
+---
+address: latvia.finance.iban
+description: Latvian IBAN — 21 characters: LV + 2 ISO 7064 check digits + a bank code that is four LETTERS, not digits (it is the institution half of the bank's BIC — HABA for Swedbank, UNLA for SEB, PARX for Citadele) + a 13-digit account number. The letter bank code is the visible difference from Poland, Lithuania and Estonia, whose BBANs are numeric throughout, and it means the MOD-97 fold has to transliterate letters to numbers before it can run. The registry allows the 13-character account to be alphanumeric; real Latvian accounts are digits, and digits are what is drawn. State bodies bank at the Treasury under TREL, which is deliberately left out of the draw. Verified against the SWIFT registry example LV80BANK0000435195001 and the real published accounts LV24UNLA0001000221208 and LV47HABA0551055080524.
+generator: tdc
+locale: lv
+---
+<sequence name="bank"><gen type="text" value="HABA,UNLA,PARX,RIKO,RTMB,CBBR,LLBB,MULT,LAPB,IDXO"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{13}"/></sequence>
+<sequence name="iban"><compute>
+  <let name="bban"><concat><field name="bank"/><field name="account"/></concat></let>
+  <let name="rearranged"><concat><use name="bban"/><str v="LV"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="LV"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

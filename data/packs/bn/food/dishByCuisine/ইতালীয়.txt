@@ -1,0 +1,11 @@
+---
+description: Dishes of ইতালীয় cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+মার্গারিটা পিৎজা
+পাস্তা
+লাজানিয়া
+স্প্যাগেটি
+রিসোতো
+গার্লিক ব্রেড
+তিরামিসু

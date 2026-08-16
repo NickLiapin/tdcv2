@@ -1,0 +1,26 @@
+---
+description: Religion or religious tradition, in Bengali, ordered by Bangladesh's actual landscape: about 91% Muslim (overwhelmingly Sunni, of the Hanafi school), about 8% Hindu, then Buddhist — concentrated among the Chakma, Marma and Barua communities of the southeast — and Christian. সুফিবাদ and বাউল are listed separately because both are live and specifically Bengali: Sufi shrines (মাজার) draw large followings, and the Baul tradition of Lalon Shah is a syncretic mystic practice that UNESCO lists as intangible heritage and that its followers do not necessarily place inside either Islam or Hinduism. সর্বপ্রাণবাদ covers the indigenous traditions of the Chittagong Hill Tracts and the Santal communities. The list carries no weights.
+locale: bn
+---
+ইসলাম
+সুন্নি ইসলাম
+শিয়া ইসলাম
+আহমদিয়া
+সুফিবাদ
+হিন্দু ধর্ম
+বৌদ্ধ ধর্ম
+খ্রিষ্টান ধর্ম
+ক্যাথলিক
+প্রোটেস্ট্যান্ট
+বাউল
+সর্বপ্রাণবাদ
+শিখ ধর্ম
+জৈন ধর্ম
+ইহুদি ধর্ম
+বাহাই
+জরথুস্ত্রীয়
+কনফুসীয়
+শিন্তো
+নাস্তিক্যবাদ
+অজ্ঞেয়বাদ
+ধর্মনিরপেক্ষ

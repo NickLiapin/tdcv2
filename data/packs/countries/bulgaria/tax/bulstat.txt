@@ -1,0 +1,56 @@
+---
+address: bulgaria.tax.bulstat
+description: Bulgarian БУЛСТАТ in its 13-digit branch form — a valid 9-digit ЕИК, a 3-digit branch (клон/поделение) number, and a THIRTEENTH check digit computed over digits 9–12 only (that is, over the ЕИК's own check digit plus the branch), weights 2,7,3,5 modulo 11 with a fallback pass of 4,9,5,7 and a remainder of 10 collapsing to 0. Both check digits and both fallback stages are implemented, so the first nine digits validate on their own as bulgaria.tax.eik does.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="bulstat"><compute>
+  <!-- The 9-digit check, exactly as bulgaria.tax.eik computes it. -->
+  <let name="s1"><mod><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="1,2,3,4,5,6,7,8"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <let name="s2"><mod><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,4,5,6,7,8,9,10"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><use name="s1"/><int v="10"/></equals></test>
+        <then><mod><use name="s2"/><int v="10"/></mod></then></when>
+      <otherwise><use name="s1"/></otherwise>
+    </choose>
+  </let>
+  <!-- The extra check reads four digits: the ЕИК check digit and the branch. -->
+  <let name="quad"><concat><use name="check"/><field name="branch"/></concat></let>
+  <let name="e1"><mod><reduce>
+    <over><use name="quad"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="2,7,3,5"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <let name="e2"><mod><reduce>
+    <over><use name="quad"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="4,9,5,7"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <let name="extra">
+    <choose>
+      <when><test><equals><use name="e1"/><int v="10"/></equals></test>
+        <then><mod><use name="e2"/><int v="10"/></mod></then></when>
+      <otherwise><use name="e1"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><field name="base"/><use name="check"/><field name="branch"/><use name="extra"/></concat></result>
+</compute></sequence>
+<data>${{bulstat}}</data>

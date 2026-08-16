@@ -1,0 +1,9 @@
+---
+description: Credit rating band (Bengali). Bangladesh has no consumer credit score of the FICO kind: banks check the Credit Information Bureau (CIB) report at Bangladesh Bank, which classifies a borrower's existing loans rather than scoring the person. These bands are the ordinary quality labels a lender uses; a config must not present them as a numeric national credit score, because there is not one.
+locale: bn
+---
+খারাপ
+মোটামুটি
+ভালো
+খুব ভালো
+চমৎকার

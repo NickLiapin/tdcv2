@@ -1,0 +1,41 @@
+---
+description: Fish name (Bengali). This list matters more in Bengali than in any European locale: মাছে ভাতে বাঙালি — 'the Bengali is made of fish and rice' — is the proverb Bengalis describe themselves with. ইলিশ, the hilsa, comes first because it is the national fish, the centre of the Pohela Boishakh meal and the subject of an annual government fishing ban. Most of these are freshwater or estuarine, which is what a delta eats; the marine species are at the end. চিংড়ি (shrimp) is included because Bengali counts it with the fish and it is Bangladesh's largest seafood export.
+locale: bn
+---
+ইলিশ
+রুই
+কাতলা
+মৃগেল
+কালিবাউশ
+পাঙ্গাস
+বোয়াল
+আইড়
+চিতল
+ফলি
+শোল
+গজার
+টাকি
+মাগুর
+শিং
+কৈ
+পাবদা
+টেংরা
+পুঁটি
+মলা
+ঢেলা
+খলিশা
+চান্দা
+বাইম
+কাজলি
+বাটা
+সরপুঁটি
+তেলাপিয়া
+কার্প
+চিংড়ি
+গলদা চিংড়ি
+বাগদা চিংড়ি
+রূপচাঁদা
+কোরাল
+লইট্টা
+চেউয়া
+কাঁকড়া

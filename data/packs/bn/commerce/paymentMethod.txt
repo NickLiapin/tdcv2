@@ -1,0 +1,19 @@
+---
+description: Payment method (Bengali, Bangladesh). This list is where Bangladesh diverges most sharply from a European one. বিকাশ, নগদ, রকেট and উপায় are mobile financial services, not wallets attached to a bank account, and between them they carry a very large share of all retail and person-to-person payment in the country — বিকাশ alone is used as a common noun for sending money. ক্যাশ অন ডেলিভারি is the default for online shopping. Credit cards are a minority instrument held mostly by urban salaried professionals, so a config that models Bangladeshi payments on card rails will describe almost none of it.
+locale: bn
+---
+বিকাশ
+নগদ
+রকেট
+উপায়
+ক্যাশ অন ডেলিভারি
+নগদ টাকা
+ডেবিট কার্ড
+ক্রেডিট কার্ড
+ব্যাংক ট্রান্সফার
+চেক
+মোবাইল ব্যাংকিং
+ইন্টারনেট ব্যাংকিং
+কিউআর পেমেন্ট
+কিস্তিতে পরিশোধ
+বাকিতে

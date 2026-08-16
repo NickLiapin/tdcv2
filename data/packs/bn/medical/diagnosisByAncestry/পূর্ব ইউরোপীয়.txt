@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in people of পূর্ব ইউরোপীয় descent, in Bengali. Coherent child of medical/ancestry.txt.
+locale: bn
+---
+বংশগত আয়রন সঞ্চয় রোগ
+ফিনাইলকিটোনুরিয়া
+পারিবারিক উচ্চ কোলেস্টেরল
+মদজনিত যকৃতের রোগ
+সিস্টিক ফাইব্রোসিস
+উইলসন রোগ

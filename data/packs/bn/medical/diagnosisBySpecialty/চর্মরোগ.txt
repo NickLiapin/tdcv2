@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in the চর্মরোগ department, in Bengali. Coherent child of medical/specialtyCoherent.txt.
+locale: bn
+---
+সোরিয়াসিস
+একজিমা
+খোসপাঁচড়া
+দাদ
+ব্রণ
+শ্বেতী
+ছত্রাক সংক্রমণ

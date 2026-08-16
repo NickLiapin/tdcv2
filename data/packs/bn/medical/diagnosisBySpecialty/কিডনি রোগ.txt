@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in the কিডনি রোগ department, in Bengali. Coherent child of medical/specialtyCoherent.txt.
+locale: bn
+---
+দীর্ঘমেয়াদি কিডনি রোগ
+কিডনিতে পাথর
+কিডনির প্রদাহ
+আকস্মিক কিডনি বিকল
+পলিসিস্টিক কিডনি
+মূত্রনালির সংক্রমণ
+নেফ্রোটিক সিনড্রোম

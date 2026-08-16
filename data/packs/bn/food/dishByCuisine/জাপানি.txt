@@ -1,0 +1,10 @@
+---
+description: Dishes of জাপানি cooking, in Bengali. Coherent child of food/cuisine.txt.
+locale: bn
+---
+সুশি
+রামেন
+টেম্পুরা
+টেরিয়াকি চিকেন
+মিসো স্যুপ
+ইয়াকিসোবা

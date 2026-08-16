@@ -1,0 +1,39 @@
+---
+description: Playing position (Bengali) — a flat list across sports, for when a config does not need the position to agree with the sport. Cricket positions come first. Note that Bengali sports vocabulary is overwhelmingly English loanwords in Bengali script; the native compounds (গোলরক্ষক, উইকেটরক্ষক, অধিনায়ক, রক্ষণভাগের খেলোয়াড়) exist and are used in writing, while commentary usually says the English.
+locale: bn
+---
+ব্যাটসম্যান
+ওপেনার
+বোলার
+ফাস্ট বোলার
+স্পিনার
+উইকেটরক্ষক
+অলরাউন্ডার
+ফিল্ডার
+স্লিপ ফিল্ডার
+অধিনায়ক
+সহ-অধিনায়ক
+গোলরক্ষক
+রক্ষণভাগের খেলোয়াড়
+সেন্টার ব্যাক
+ফুল ব্যাক
+লেফট ব্যাক
+রাইট ব্যাক
+মধ্যমাঠের খেলোয়াড়
+রক্ষণাত্মক মিডফিল্ডার
+আক্রমণাত্মক মিডফিল্ডার
+উইঙ্গার
+স্ট্রাইকার
+ফরোয়ার্ড
+সেন্টার ফরোয়ার্ড
+রেইডার
+স্টপার
+কর্নার
+কভার
+সেটার
+আউটসাইড হিটার
+মিডল ব্লকার
+লিবেরো
+পয়েন্ট গার্ড
+শুটিং গার্ড
+সেন্টার

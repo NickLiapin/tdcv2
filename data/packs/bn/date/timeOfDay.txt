@@ -1,0 +1,14 @@
+---
+description: Time of day (Bengali). শেষরাত is the last watch of the night before dawn and is a live time marker in Bangladesh rather than a poetic one — it is when সেহরি is eaten in Ramadan and when the ফজর prayer falls. গোধূলি is the dusk half-hour when cattle come home, and Bengali distinguishes it from সন্ধ্যা proper.
+locale: bn
+---
+শেষরাত
+ভোর
+সকাল
+বেলা
+দুপুর
+বিকেল
+গোধূলি
+সন্ধ্যা
+রাত
+মধ্যরাত

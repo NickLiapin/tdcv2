@@ -1,0 +1,28 @@
+---
+description: Educational qualification (Bengali, Bangladesh). Two things a config cannot infer. First, the ladder is এসএসসি at about sixteen, এইচএসসি at about eighteen, then স্নাতক and স্নাতকোত্তর; there is no 'high school diploma' and no associate degree. Second, Bangladesh runs a PARALLEL madrasa system whose certificates are legally equivalent at each rung — দাখিল equals SSC, আলিম equals HSC, ফাজিল equals a bachelor's and কামিল a master's — and several million students are in it, so a Bangladeshi education dataset that offers only the general stream is missing a whole track. জেডিসি and জেএসসি were junior-level public examinations that Bangladesh has since discontinued but which appear in older records.
+locale: bn
+---
+প্রাথমিক শিক্ষা সমাপনী
+জেএসসি
+জেডিসি
+এসএসসি
+দাখিল
+এসএসসি (ভোকেশনাল)
+এইচএসসি
+আলিম
+এইচএসসি (বিএম)
+ডিপ্লোমা ইন ইঞ্জিনিয়ারিং
+ডিপ্লোমা ইন নার্সিং
+স্নাতক (পাস)
+স্নাতক (সম্মান)
+ফাজিল
+বিএসসি ইঞ্জিনিয়ারিং
+এমবিবিএস
+বিডিএস
+এলএলবি
+স্নাতকোত্তর
+কামিল
+এমবিএ
+এমফিল
+পিএইচডি
+এফসিপিএস

@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Bengali); each value is the file name of a list under sport/positionBySport. ক্রিকেট leads because it is what Bangladesh follows, plays and argues about, and কাবাডি — played in villages as হা-ডু-ডু — is the NATIONAL SPORT of Bangladesh by government declaration, which is why it sits above football. Only sports with genuinely named playing positions are listed, which is why ব্যাডমিন্টন, শুটিং, আরচারি and দাবা are absent despite being the disciplines Bangladesh actually wins medals in.
+locale: bn
+---
+ক্রিকেট
+ফুটবল
+কাবাডি
+হকি
+ভলিবল
+বাস্কেটবল
+হ্যান্ডবল
+রাগবি

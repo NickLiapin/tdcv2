@@ -1,0 +1,12 @@
+---
+description: Job titles in the পরিবহন sector, in Bengali. Coherent child of work/industryCoherent.txt.
+locale: bn
+---
+বাসচালক
+ট্রাকচালক
+সিএনজি চালক
+রিকশাচালক
+নৌকার মাঝি
+লঞ্চের সারেং
+ট্রেন চালক
+পাইলট

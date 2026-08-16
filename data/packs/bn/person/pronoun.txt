@@ -1,0 +1,20 @@
+---
+description: Personal pronoun (Bengali). Bengali has NO grammatical gender at all — সে covers he, she and it alike, and unlike Hindi the verb does not agree with the subject's gender either, so nothing in a Bengali sentence marks the subject as male or female. There is therefore no he/she pair to draw from here. What Bengali distinguishes instead is FORMALITY, on three levels in the second person and two in the third: তুই is intimate or condescending (a sibling, a childhood friend, a small child), তুমি is familiar (family, friends, a junior), আপনি is respectful (a stranger, an elder, a customer), and in the third person সে/তারা is ordinary while তিনি/তাঁরা is honorific. Getting the level wrong is a social error in a way that no European pronoun choice is. The near/far distinction (এ, ও, সে for this one / that one / the one over there) is also live.
+locale: bn
+---
+আমি
+আমরা
+তুই
+তোরা
+তুমি
+তোমরা
+আপনি
+আপনারা
+সে
+তারা
+তিনি
+তাঁরা
+এ
+ইনি
+ও
+উনি

@@ -1,0 +1,12 @@
+---
+description: Mining method (Bengali). Bangladesh has very little mining: one underground coal mine at Barapukuria, hard rock at Maddhapara, natural gas fields, and river-sand and stone dredging. Open-pit mining has been proposed at Phulbari and never approved. The methods here are the general vocabulary, and a config should not present Bangladesh as a mining economy on the strength of it.
+locale: bn
+---
+ভূগর্ভস্থ খনন
+উন্মুক্ত খনন
+শ্যাফট খনন
+ড্রিফট খনন
+লংওয়াল
+পাথর উত্তোলন
+বালু উত্তোলন
+ড্রেজিং

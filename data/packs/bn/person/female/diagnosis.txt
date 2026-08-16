@@ -1,0 +1,31 @@
+---
+description: Diagnosis that can only apply to a female patient, in Bengali. The obstetric entries are weighted to what a Bangladeshi record actually contains: maternal anaemia and eclampsia remain common, and obstetric fistula is still a recognised public-health problem in Bangladesh in a way it is not in a European locale, which is why it is listed rather than left out as an exotic case.
+locale: bn
+---
+জরায়ুর টিউমার
+জরায়ুমুখের ক্যান্সার
+জরায়ুমুখের প্রদাহ
+ডিম্বাশয়ের সিস্ট
+ডিম্বাশয়ের ক্যান্সার
+পলিসিস্টিক ওভারি সিনড্রোম
+এন্ডোমেট্রিওসিস
+জরায়ুর প্রদাহ
+শ্রোণিপ্রদাহ
+অতিরিক্ত রক্তস্রাব
+মাসিকের ব্যথা
+মাসিক বন্ধ হওয়া
+গর্ভকালীন উচ্চ রক্তচাপ
+একলাম্পসিয়া
+গর্ভকালীন ডায়াবেটিস
+গর্ভাবস্থার অতিরিক্ত বমি
+জরায়ুর বাইরে গর্ভধারণ
+প্রসব-পরবর্তী রক্তক্ষরণ
+প্রসূতি ফিস্টুলা
+গর্ভকালীন রক্তস্বল্পতা
+স্তনপ্রদাহ
+স্তন ক্যান্সার
+স্তনের ফাইব্রোঅ্যাডেনোমা
+জরায়ু নেমে আসা
+রজঃনিবৃত্তির উপসর্গ
+মাসিকপূর্ব মানসিক অস্থিরতা
+যোনির ছত্রাক সংক্রমণ

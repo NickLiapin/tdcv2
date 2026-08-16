@@ -1,0 +1,23 @@
+---
+description: Mineral or extracted material (Bengali). The first six are what Bangladesh actually has: natural gas above all, then coal at Barapukuria, hard rock at Maddhapara, limestone, white clay, and the heavy mineral sands of the Cox's Bazar beaches. The rest is general vocabulary.
+locale: bn
+---
+প্রাকৃতিক গ্যাস
+কয়লা
+কঠিন শিলা
+চুনাপাথর
+সাদা মাটি
+খনিজ বালু
+নুড়ি পাথর
+সিলিকা বালু
+পিট
+খনিজ তেল
+লোহা
+তামা
+সোনা
+দস্তা
+বক্সাইট
+জিপসাম
+লবণ
+ফসফেট
+ইউরেনিয়াম
