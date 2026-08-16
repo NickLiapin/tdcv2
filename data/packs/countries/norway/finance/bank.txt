@@ -1,0 +1,104 @@
+---
+address: norway.finance.bank
+description: Every bank that holds a bank identifier in the Norwegian payment system, from the "Norwegian BIC Table" that Bits AS — the banks' own infrastructure company — publishes and keeps current. Two things about this list are Norwegian rather than generic. First, the savings banks: sixty-nine of the ninety-nine names here carry the word Sparebank, they are self-owned foundations with no shareholders, and a country of 5.6 million supports that many of them, so a plausible-looking Norwegian bank list made of five big names is wrong about the shape of the market. Second, the list moves: the 2025 mergers are already in it, so Sparebanken Vest and Sparebanken Sør appear as "Sparebanken Norge" and SpareBank 1 SR-Bank as "SpareBank 1 Sør-Norge ASA", and Sbanken — a name in every older Norwegian test fixture — is gone, absorbed into DNB. The foreign banks that appear (Nordea Bank Abp NUF, Svenska Handelsbanken AB NUF, Danske Bank) are branches, which is what NUF means and why they are Norwegian for payment purposes. Names are as Bits registers them. Source: Bits AS, Norwegian BIC Table.
+locale: nb
+---
+Aasen Sparebank
+Agder Sparebank
+Askim og Spydeberg Sparebank
+Aurskog Sparebank
+BN Bank ASA
+BNP Paribas S.A. Norway Branch
+Bank Norwegian, en filial av NOBA Bank Group AB (publ)
+Berg Sparebank
+Bien Sparebank ASA
+Bjugn Sparebank
+Boligbanken ASA
+Citibank Europe PLC
+Citibank International PLC
+Cultura Sparebank
+DNB Bank ASA
+Danske Bank
+Eika digitalbank AS
+Etnedal Sparebank
+Evje og Hornnes Sparebank
+Fana Sparebank
+Flekkefjord Sparebank
+Gildeskål Sparebank
+Grong Sparebank
+Grue Sparebank
+Haltdalen Sparebank
+Haugesund Sparebank
+Heder Bank ASA
+Hegra Sparebank
+Høland og Setskog Sparebank
+Jernbanepersonalets sparebank
+Jæren Sparebank
+KLP Banken AS
+Kvinesdal Sparebank
+Landkreditt Bank AS
+Lillesands Sparebank
+Lunar Bank A/S
+Luster Sparebank
+Marker og Eidsberg Sparebank
+Melhus Sparebank
+Nidaros Sparebank
+Nordea Bank Abp NUF
+Nordic Corporate Bank ASA
+Næringsbanken ASA
+OBOSBanken AS
+Odal Sparebank
+Oppdalsbanken
+Orkla Sparebank
+Pareto Bank ASA
+Rogaland Sparebank
+Romerike Sparebank
+RørosBanken
+SEB AB, Oslofilialen
+Santander Consumer Bank AS
+Selbu Sparebank
+Skagerrak Sparebank
+Skandinaviska Enskilda Banken
+Skandinaviska Enskilda Banken AB (publ)
+Skudenes & Aakra Sparebank
+Skue Sparebank
+Sogn Sparebank
+Soknedal Sparebank
+SpareBank 1 Nord-Norge
+SpareBank 1 Nordmøre
+SpareBank 1 SMN
+SpareBank 1 Sogn og Fjordane
+SpareBank 1 Sør-Norge ASA
+SpareBank 1 Østlandet
+SpareBank1 Helgeland
+Sparebank 1 Gudbrandsdal
+Sparebank 1 Hallingdal Valdres
+Sparebank 1 Lom og Sjåk
+Sparebank 1 Ringerike Hadeland
+Sparebank 68 grader Nord
+Sparebank1 Østfold Akershus
+Sparebanken Møre
+Sparebanken Narvik
+Sparebanken Norge
+Sparebanken Norge - Oslo
+Sparebanken Norge - Sør
+Sparebanken Øst
+Spareskillingsbanken
+Stadsbygd Sparebank
+Storebrand Bank ASA
+Strømmen Sparebank
+Svenska Handelsbanken AB NUF
+Swedbank Norge
+Swedbank Oslo
+Søgne og Greipstad Sparebank
+Telemark Sparebank
+Tinde Sparebank
+Tolga-Os Sparebank
+Trøgstad Sparebank
+Trøndelag Sparebank
+Valdres Sparebank
+Valle Sparebank
+Voss Sparebank
+Voss Veksel-og Landmandsbank
+Ørland Sparebank
+Ørskog Sparebank

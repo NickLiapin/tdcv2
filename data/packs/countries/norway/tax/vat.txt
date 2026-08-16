@@ -1,0 +1,8 @@
+---
+address: norway.tax.vat
+description: The Norwegian VAT number (MVA-nummer). Norway is not in the EU, but it has had value-added tax since 1970 and it does not issue a separate VAT identifier: the VAT number IS the organisation number, with the country prefix NO in front and the suffix MVA behind — NO923609016MVA — and it is checked exactly as the organisation number is, by the modulus-11 rule over the weights 3, 2, 7, 6, 5, 4, 3, 2. The suffix is not decoration and not optional: it is the flag that says this entity is REGISTERED in the VAT register (Merverdiavgiftsregisteret), which happens only once taxable turnover passes NOK 50 000, so a Norwegian company can hold a perfectly valid organisation number and have no MVA number at all. That is the trap for anyone reusing an EU VAT routine here: Norway's number will fail a VIES lookup because Norway is not in VIES, and stripping the MVA suffix to "make it look European" turns a VAT number back into a plain company number. Written with spaces on invoices — NO 923 609 016 MVA — and without them in files, which is what this generator emits.
+generator: tdc
+locale: nb
+---
+<sequence name="org"><gen type="template" value="norway.docs.organisasjonsnummer"/></sequence>
+<data>NO${{org}}MVA</data>

@@ -1,0 +1,22 @@
+---
+address: norway.finance.accountNumber
+description: A Norwegian bank account number (kontonummer) — eleven digits, written 1234.56.78903 and stored as 12345678903. It carries its own routing: the first FOUR digits are the bank identifier (drawn here from norway.finance.bankCode, the real allocation table), the next two are the bank's internal account group, the next four the customer's serial, and the eleventh is a modulus-11 check digit over the weights 5, 4, 3, 2, 7, 6, 5, 4, 3, 2. Norway has no separate sort code, no branch field and no IBAN-only form — the eleven digits are the whole address of the account, which is why a Norwegian IBAN is the shortest in Europe at 15 characters (see norway.finance.iban) and why a Norwegian will read their account number aloud as three groups without ever mentioning a bank. As with every modulus-11 scheme here, a required check digit of 10 cannot be written into one digit; such an account number is not issuable and the <valid> predicate below redraws instead of emitting it. Verified against a published account: the University of Bergen states its account as 7694.05.00857, and 5·7+4·6+3·9+2·4+7·0+6·5+5·0+4·0+3·8+2·5 = 158, 158 mod 11 = 4, 11 − 4 = 7, which is the digit it ends with.
+generator: tdc
+locale: nb
+---
+<sequence name="bank"><gen type="template" value="norway.finance.bankCode"/></sequence>
+<sequence name="group"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="check"><compute>
+  <let name="base"><concat><field name="bank"/><field name="group"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <result><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+</compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{bank}}${{group}}${{serial}}${{check}}</data>

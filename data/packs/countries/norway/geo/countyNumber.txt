@@ -1,0 +1,19 @@
+---
+address: norway.geo.countyNumber
+description: The two-digit county numbers (fylkesnummer) in force from 1 January 2024, leading zero kept — Oslo is 03, not 3. They are also the first two digits of every four-digit municipality number, which is why a Norwegian dataset keyed on kommunenummer silently changed key in 2024: every municipality that had been in Viken, Vestfold og Telemark or Troms og Finnmark was renumbered, Halden going from 3001 to 3101 without moving an inch. Order matches norway.geo.county. Source: Statistics Norway KLASS classification 104, valid 1 January 2024.
+---
+03
+11
+15
+18
+31
+32
+33
+34
+39
+40
+42
+46
+50
+55
+56

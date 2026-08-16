@@ -1,0 +1,9 @@
+---
+address: norway.vehicle.plate
+generator: tdc
+description: An ordinary Norwegian vehicle registration plate — two letters, a space and five digits, the digits running 10000–99999 so a plate never starts with a zero. The letter pair is drawn from norway.vehicle.plateLetters, which carries the real exclusions (no I, M, O, Q, Æ, Ø, Å; G and W reserved; NS and SS never issued). Two things about the Norwegian plate catch people out. The letters carry NO geography: the county-letter system was abolished in 1971 and plates are issued from one national pool, so a plate tells you nothing about where a car lives. And electric cars are no longer marked: they had their own EL, EK, EV… series from 1999, but from 2022 they take ordinary plates, so a rule that reads "EL" as "electric" is right about old cars and wrong about new ones. Diplomatic (CD), trade (prefix A/B on a red plate), provisional and moped plates all have their own shapes and are not generated here. Written with a space between letters and digits, which is how the plate itself is laid out.
+locale: nb
+---
+<sequence name="letters"><gen type="template" value="norway.vehicle.plateLetters"/></sequence>
+<sequence name="digits"><gen type="number" value="10000..99999"/></sequence>
+<data>${{letters}} ${{digits}}</data>

@@ -1,0 +1,41 @@
+---
+address: norway.government.agency
+description: Central agencies, directorates and inspectorates of the Norwegian state, each one verified as a live entry in the Enhetsregisteret at Brønnøysund. Norwegian government is unusually DIRECTORATE-shaped: ministries are small and set policy, while the work — collecting tax, paying pensions, licensing drivers, inspecting food — is done by a separate etat or direktorat with its own organisation number, its own budget line and, in many cases, its own act of parliament. That is why a Norwegian record naming "the government" as a counterparty is almost always naming one of these instead. Four are worth knowing before reading any Norwegian dataset: Skatteetaten runs the tax system AND the population register, so it is the source of the fødselsnummer; NAV (Arbeids- og velferdsetaten) pays almost every benefit and pension there is and touches a third of the state budget; Brønnøysundregistrene holds the company register and issues the organisasjonsnummer; and Statistisk sentralbyrå publishes the classifications (kommunenummer, fylkesnummer, tettsted) that the geography files in this pack are built from. The names move: Petroleumstilsynet became Havindustritilsynet on 1 January 2024, and the county governors were renamed from fylkesmann to statsforvalter in 2021, so both old names appear in records before those dates and neither is current. Names in normal Norwegian case, not the register's uppercase.
+locale: nb
+---
+Skatteetaten
+Arbeids- og velferdsetaten
+Brønnøysundregistrene
+Statistisk sentralbyrå
+Politidirektoratet
+Statens vegvesen
+Utlendingsdirektoratet
+Helsedirektoratet
+Folkehelseinstituttet
+Mattilsynet
+Arbeidstilsynet
+Finanstilsynet
+Datatilsynet
+Konkurransetilsynet
+Forbrukertilsynet
+Kartverket
+Nasjonal kommunikasjonsmyndighet
+Tolletaten
+Norges Bank
+Riksrevisjonen
+Sivilombudet
+Direktoratet for samfunnssikkerhet og beredskap
+Sjøfartsdirektoratet
+Luftfartstilsynet
+Havindustritilsynet
+Statens lånekasse for utdanning
+Husbanken
+Miljødirektoratet
+Fiskeridirektoratet
+Landbruksdirektoratet
+Norges vassdrags- og energidirektorat
+Utdanningsdirektoratet
+Direktoratet for høyere utdanning og kompetanse
+Kriminalomsorgsdirektoratet
+Forsvaret
+Sametinget

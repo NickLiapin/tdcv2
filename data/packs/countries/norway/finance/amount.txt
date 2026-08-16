@@ -1,0 +1,21 @@
+---
+address: norway.finance.amount
+generator: tdc
+description: A sum of money written the way Norway writes it: groups of three separated by a NO-BREAK SPACE, a COMMA for the decimal point, and "kr" AFTER the figure with another no-break space before it — 1 234 567,89 kr. That is the nb-NO currency pattern in CLDR, and it disagrees with the English habit of 1,234,567.89 on every count, which is how Norwegian amounts get silently corrupted: a comma read as a thousands separator turns 1 234,56 into 123456, a factor of a hundred, and both readings are valid numbers so nothing downstream complains. THE SEPARATORS HERE ARE U+00A0, NOT ORDINARY SPACES — invisible in an editor, and the reason a naive split on " " gives the wrong field count. Two decimals are kept even though the physical øre is gone: Norway withdrew the 50-øre coin in 2012 and cash totals round to the whole krone, but electronic amounts, invoices and bank statements still carry two. "kr" is the everyday symbol and NOK the ISO 4217 code; the two are not interchangeable in text, and "NOK 1 234,56" is bank language while "1 234,56 kr" is shop language. The magnitude is spread across five decades rather than drawn uniformly, because a uniform draw over a seven-digit range puts nearly every value in the millions and a Norwegian price list is mostly two, three and four figures. Nothing here is a number the engine can do arithmetic on: it is the PRINTED form. For a value to compute with, generate a plain number and format it at the point of output.
+locale: nb
+---
+<sequence name="raw"><gen type="number" value="1..9999999"/></sequence>
+<sequence name="shift"><gen type="number" value="0..4"/></sequence>
+<sequence name="ore"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="amount"><compute>
+  <!-- Spread the magnitude: divide the 7-digit draw by 1, 10, 100, 1000 or 10000. -->
+  <let name="scale"><at>
+    <in><list v="1,10,100,1000,10000"/></in>
+    <index><to_number><field name="shift"/></to_number></index>
+  </at></let>
+  <let name="whole"><divide><to_number><field name="raw"/></to_number><use name="scale"/></divide></let>
+  <!-- CLDR nb-NO: group separator U+00A0, decimal comma, pattern "#,##0.00 ¤". -->
+  <let name="grouped"><group size="3" sep=" "><use name="whole"/></group></let>
+  <result><concat><use name="grouped"/><str v=","/><field name="ore"/><str v=" kr"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

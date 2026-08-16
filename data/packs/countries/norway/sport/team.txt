@@ -1,0 +1,37 @@
+---
+address: norway.sport.team
+description: Norwegian football clubs — the Eliteserien and OBOS-ligaen sides, plus the clubs with the deepest history in the league. Names carry conventions that look like noise and are not: "IL" is idrettslag and "IF" idrettsforening (sports club), "FK" fotballklubb, "BK" ballklubb, "SK" sportsklubb, and "IK" idrettsklubb, so Vålerenga is formally Vålerenga Fotball while Rosenborg is Rosenborg BK. Two are worth flagging to anyone parsing them: FK Bodø/Glimt carries a SLASH in its registered name — it is one club, not two — and Sarpsborg 08 FF carries a year, because the club was founded in 2008 out of a merger and the number is part of the name. Norwegian clubs are member-owned associations rather than companies, and the season runs SPRING TO AUTUMN (March to December) rather than autumn to spring, because of the winter — which is also why a Norwegian club fixture list has a long gap in the middle of the calendar year for exactly the opposite reason to a southern European one.
+locale: nb
+---
+Rosenborg BK
+Molde FK
+FK Bodø/Glimt
+SK Brann
+Vålerenga Fotball
+Lillestrøm SK
+Viking FK
+Strømsgodset IF
+Odds BK
+Sarpsborg 08 FF
+FK Haugesund
+Tromsø IL
+Sandefjord Fotball
+KFUM Oslo
+Fredrikstad FK
+Hamarkameratene
+Kristiansund BK
+Aalesunds FK
+Stabæk Fotball
+IK Start
+Sogndal Fotball
+Ranheim Fotball
+Raufoss IL
+Bryne FK
+Mjøndalen IF
+Kongsvinger IL
+Skeid Fotball
+Åsane Fotball
+Egersunds IK
+Levanger FK
+Moss FK
+Lyn Fotball

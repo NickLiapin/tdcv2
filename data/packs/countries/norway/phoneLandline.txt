@@ -1,0 +1,7 @@
+---
+address: norway.phoneLandline
+description: A Norwegian fixed-line number in E.164 form — +47 and eight digits beginning with 2, 3, 5, 6 or 7. The allocated geographic blocks are 20000000–39999999, 50000000–57999999 and 60000000–79999999, which is what the pattern below encodes; 58 and 59 are carved out of the 5-series for machine-to-machine numbering and are excluded here. These digits are HISTORICALLY geographic — 22 is Oslo, 55 Bergen, 73 Trondheim, 51 Stavanger, 77 Tromsø — but they are not an area code: you dial all eight digits from anywhere, number portability has been in force since 1999, and a fixed number can be carried to another region, so the leading pair is a hint about where a line was first sold and not a reliable location. Written in pairs by convention, 22 12 34 56, which is a different grouping from the mobile 412 34 567. Source: Nkom's national numbering plan for telephony (E.164), forskrift 2004-02-16-426.
+generator: tdc
+locale: nb
+---
+<gen type="regex" value="\+47(2[0-9]|3[0-9]|5[0-7]|6[0-9]|7[0-9])[0-9]{6}"/>

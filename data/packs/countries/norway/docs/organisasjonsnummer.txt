@@ -1,0 +1,20 @@
+---
+address: norway.docs.organisasjonsnummer
+description: The Norwegian organisation number (organisasjonsnummer) — nine digits closed by a modulus-11 check digit over the published weights 3, 2, 7, 6, 5, 4, 3, 2, taken from the first digit onwards. It is issued by the Brønnøysund Register Centre to every legal entity in the country, and "every" is meant literally: a company has one, but so does a housing cooperative, a marching band, a sole trader who registers, a government ministry and a foreign branch, and there were 1 170 472 of them in the register when this file was written. That is why an organisasjonsnummer is the join key of Norwegian open data — it appears on every invoice, in the VAT number (see norway.tax.vat) and in the public procurement record — and why treating it as "the company registration number" understates it. Numbers are allocated in ascending blocks and every number now in the register begins with 8 or 9: the lowest is 810034882 and the highest 999670504, so this generator draws its first digit from {8, 9} rather than from {1..9}. A required check digit of 10 cannot be written and Brønnøysund declares such a number invalid; the <valid> predicate below discards those draws and takes another, which costs about one draw in eleven. Written out for humans in groups of three — 923 609 016 for Equinor ASA — but stored and transmitted as nine bare digits, which is the form emitted here.
+generator: tdc
+locale: nb
+---
+<sequence name="base"><gen type="regex" value="[89][0-9]{7}"/></sequence>
+<sequence name="check"><compute>
+  <!-- Σ dᵢwᵢ over 3,2,7,6,5,4,3,2, then 11 − (Σ mod 11); 11 folds to 0, 10 is never issued. -->
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <result><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+</compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{base}}${{check}}</data>

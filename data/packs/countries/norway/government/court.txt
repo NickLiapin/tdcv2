@@ -1,0 +1,40 @@
+---
+address: norway.government.court
+description: The Norwegian ordinary courts — Høyesterett, the six lagmannsretter (courts of appeal) and the tingretter (district courts) — as they stand after the reversal of 10 June 2025. The count is the story: the 2021 court reform merged 60 district courts into 23, and four years later Stortinget undid part of it, taking the number back up to 28. So a list of 60 is pre-2021, a list of 23 is 2021–2025, and 28 is current. The six lagmannsretter have been stable since 1936 and their names are the old law-thing regions rather than modern counties, which is why Borgarting (Oslo) and Frostating (Trøndelag) match no county on any map. Two ladders sit outside this list and are frequently mistaken for part of it: the jordskifteretter, a separate land-consolidation court system with 34 seats that handles boundary and shared-property disputes and has no equivalent in most countries, and the forliksrådene, lay conciliation boards in every municipality that most small civil claims must pass through before a tingrett will hear them. Names are given in full, the way a judgment cites them. Source: domstol.no / the Courts of Norway.
+locale: nb
+---
+Høyesterett
+Borgarting lagmannsrett
+Eidsivating lagmannsrett
+Agder lagmannsrett
+Gulating lagmannsrett
+Frostating lagmannsrett
+Hålogaland lagmannsrett
+Oslo tingrett
+Asker og Bærum tingrett
+Buskerud tingrett
+Ringerike og Hallingdal tingrett
+Follo og Nordre Østfold tingrett
+Søndre Østfold tingrett
+Romerike og Glåmdal tingrett
+Hedmarken og Østerdal tingrett
+Gudbrandsdal tingrett
+Vestoppland og Valdres tingrett
+Vestfold tingrett
+Nedre Telemark tingrett
+Øvre Telemark tingrett
+Agder tingrett
+Sør-Rogaland tingrett
+Haugaland og Sunnhordland tingrett
+Hordaland tingrett
+Hardanger og Voss tingrett
+Sogn og Fjordane tingrett
+Sunnmøre tingrett
+Nordmøre og Romsdal tingrett
+Trøndelag tingrett
+Helgeland tingrett
+Salten og Lofoten tingrett
+Midtre Hålogaland tingrett
+Nord-Troms og Senja tingrett
+Vestre Finnmark tingrett
+Indre og Østre Finnmark tingrett

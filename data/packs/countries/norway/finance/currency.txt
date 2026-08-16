@@ -1,0 +1,7 @@
+---
+address: norway.finance.currency
+description: The two Norwegian money units. The currency is the krone (ISO 4217 NOK, everyday symbol kr), divided into 100 øre. The øre is a genuine hundredth like a cent, so a Norwegian amount is an ordinary two-decimal amount and needs no unit flag — but it no longer exists as a coin: the last one, the 50-øre, was withdrawn on 1 May 2012, so cash totals are rounded to the nearest krone at the till while card, invoice and bank amounts keep both decimals. That split is the thing to know: a Norwegian receipt can show 149,50 and a cash payment of 150, and neither is an error. Norway kept its own currency after voting against EU membership twice, in 1972 and 1994, so the krone floats and Norwegian prices are NOT euro prices at a fixed rate; Svalbard uses the krone too, and so, in practice, do the Norwegian dependencies. Notes in circulation are 50, 100, 200, 500 and 1000 kroner; 1, 5, 10 and 20 kroner are coins. The plural of krone is kroner, and the symbol "kr" takes no plural. See norway.finance.amount for how a figure is written.
+locale: nb
+---
+krone
+øre

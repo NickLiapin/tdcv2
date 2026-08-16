@@ -1,0 +1,68 @@
+---
+address: norway.docs.dnummer
+description: The Norwegian D-number — the identity number given to people who are not registered residents but still have business with the Norwegian state: seasonal workers, offshore crews, foreign directors of Norwegian companies, students, anyone who needs a bank account or a tax card without living here. It is a fødselsnummer in every respect but one: THE DAY IS OFFSET BY 40. Someone born on 1 January 1980 gets 410180, someone born on the 31st gets 710180, so the first two digits of a D-number are always in 41–71 and never in 01–31. That single rule is what a validator must know, because a D-number passes every fødselsnummer check — same individnummer ranges, same two modulus-11 check digits over the same weight vectors — and a system that only accepts day 01–31 rejects several hundred thousand people who legitimately have one. It also means a naive date parser reads a D-number's birth date as a month-51 nonsense date rather than failing loudly. The offset is the ONLY difference; do not confuse it with the H-number, a temporary hospital number that offsets the MONTH by 40 instead, or with the FH-number, which encodes no date at all. Check digits are computed over the offset day, not the real one, so a D-number's check digits do not match the corresponding fødselsnummer. Draws that produce a check digit of 10 are unissuable and are redrawn.
+generator: tdc
+locale: nb
+---
+<sequence name="dob"><gen type="date" from="1900-01-01" to="2039-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="hundreds"><gen type="number" value="0..4"/></sequence>
+<sequence name="tens"><gen type="number" value="0..9"/></sequence>
+<sequence name="sexraw"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="core"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <let name="year"><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="0"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+  </concat></to_number></let>
+  <!-- The D-number rule: day + 40, so the result is always 41..71 and needs no padding. -->
+  <let name="day"><add><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+  </concat></to_number><int v="40"/></add></let>
+  <let name="offset">
+    <choose>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test><then><int v="5"/></then></when>
+      <otherwise><int v="0"/></otherwise>
+    </choose>
+  </let>
+  <let name="i1"><add><field name="hundreds"/><use name="offset"/></add></let>
+  <result><concat>
+    <use name="day"/>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <use name="i1"/><field name="tens"/><field name="sexraw"/>
+  </concat></result>
+</compute></sequence>
+<sequence name="k1"><compute>
+  <let name="sum"><reduce>
+    <over><field name="core"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,7,6,1,8,9,4,5,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <result><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+</compute></sequence>
+<sequence name="k2"><compute>
+  <let name="sum"><reduce>
+    <over><field name="core"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="5,4,3,2,7,6,5,4,3"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="total"><add><use name="sum"/><multiply><to_number><field name="k1"/></to_number><int v="2"/></multiply></add></let>
+  <result><mod><subtract><int v="11"/><mod><use name="total"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+</compute></sequence>
+<sequence name="worst"><compute>
+  <result><choose>
+    <when><test><equals><to_number><field name="k1"/></to_number><int v="10"/></equals></test><then><int v="10"/></then></when>
+    <otherwise><field name="k2"/></otherwise>
+  </choose></result>
+</compute></sequence>
+<valid><less_than><to_number><field name="worst"/></to_number><int v="10"/></less_than></valid>
+<data>${{core}}${{k1}}${{k2}}</data>

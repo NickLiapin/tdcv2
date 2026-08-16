@@ -1,0 +1,7 @@
+---
+address: norway.phone
+description: A Norwegian mobile number in E.164 form — +47 and then eight digits beginning with 4 or 9. Norway's numbering plan has been CLOSED and eight digits flat since 1993: there are no area codes, no trunk prefix, no leading zero to strip, and the number you dial from the next street is the number you dial from Australia minus the +47. That is the fact most foreign address schemas get wrong about Norway, because a "city code" column has nothing to put in it and a "national format" that inserts a 0 produces a number that does not exist. The mobile ranges are the 4-series (40000000–49999999) and the 9-series (90000000–99999999), both assigned by Nkom; fixed lines live in 2, 3, 5, 6 and 7 (see norway.phoneLandline) and 8 is reserved for special-rate services. Written nationally in three groups, 412 34 567, and internationally as +47 412 34 567; this generator emits the unspaced E.164 form so it survives a CSV round-trip, and norway.phoneNational carries the spaced Norwegian form. Source: Nkom's national numbering plan for telephony (E.164), forskrift 2004-02-16-426.
+generator: tdc
+locale: nb
+---
+<gen type="regex" value="\+47[49][0-9]{7}"/>

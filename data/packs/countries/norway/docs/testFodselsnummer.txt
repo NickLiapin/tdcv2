@@ -1,0 +1,68 @@
+---
+address: norway.docs.testFodselsnummer
+description: A SYNTHETIC Norwegian identity number in the form the Norwegian state itself uses for testing — a fødselsnummer with 80 ADDED TO THE MONTH, so the month digits read 81–92 instead of 01–12. This is not a convention invented here: it is the rule Skatteetaten's Tenor test register and Digdir's ID-porten TestID both run on ("syntetisk personidentifikator, +80 på måned-sifrene"), and it exists to solve exactly the problem a data generator creates. A generator that emits well-formed real-format fødselsnummer will, given enough rows, emit a number that belongs to a living person — the format has only about 700 issuable numbers per birth date, so collision is not a remote possibility but an arithmetic certainty at scale — and that number will then pass every validator, resolve in every lookup, and quietly contaminate a production system. The +80 month cannot belong to anyone, because no one is born in month 87, yet everything else about the number is right: the individnummer still encodes the century by range, the last individ digit still encodes sex, and BOTH modulus-11 check digits are computed normally over the offset month, so a synthetic number passes a correct validator and is rejected by a date parser. Use this address when the data may ever leave a sandbox, and norway.docs.fodselsnummer when the format has to be exactly what production sees. Draws whose check digit computes to 10 are unissuable and are redrawn here too. Note that the +80 offset stacks with nothing: it is applied to the month, while the D-number's +40 is applied to the day, so the two conventions are independent and both can be recognised on sight.
+generator: tdc
+locale: nb
+---
+<sequence name="dob"><gen type="date" from="1900-01-01" to="2039-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="hundreds"><gen type="number" value="0..4"/></sequence>
+<sequence name="tens"><gen type="number" value="0..9"/></sequence>
+<sequence name="sexraw"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="core"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <let name="year"><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="0"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+  </concat></to_number></let>
+  <!-- Tenor/TestID rule: month + 80, always two digits (81..92), so no padding is needed. -->
+  <let name="month"><add><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+  </concat></to_number><int v="80"/></add></let>
+  <let name="offset">
+    <choose>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test><then><int v="5"/></then></when>
+      <otherwise><int v="0"/></otherwise>
+    </choose>
+  </let>
+  <let name="i1"><add><field name="hundreds"/><use name="offset"/></add></let>
+  <result><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+    <use name="month"/>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <use name="i1"/><field name="tens"/><field name="sexraw"/>
+  </concat></result>
+</compute></sequence>
+<sequence name="k1"><compute>
+  <let name="sum"><reduce>
+    <over><field name="core"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,7,6,1,8,9,4,5,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <result><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+</compute></sequence>
+<sequence name="k2"><compute>
+  <let name="sum"><reduce>
+    <over><field name="core"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="5,4,3,2,7,6,5,4,3"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="total"><add><use name="sum"/><multiply><to_number><field name="k1"/></to_number><int v="2"/></multiply></add></let>
+  <result><mod><subtract><int v="11"/><mod><use name="total"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+</compute></sequence>
+<sequence name="worst"><compute>
+  <result><choose>
+    <when><test><equals><to_number><field name="k1"/></to_number><int v="10"/></equals></test><then><int v="10"/></then></when>
+    <otherwise><field name="k2"/></otherwise>
+  </choose></result>
+</compute></sequence>
+<valid><less_than><to_number><field name="worst"/></to_number><int v="10"/></less_than></valid>
+<data>${{core}}${{k1}}${{k2}}</data>

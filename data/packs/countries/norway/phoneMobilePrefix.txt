@@ -1,0 +1,25 @@
+---
+address: norway.phoneMobilePrefix
+description: The twenty two-digit blocks a Norwegian mobile number can start with — the whole 4-series and the whole 9-series, 40000000–49999999 and 90000000–99999999 in Nkom's plan. They are NOT operator codes and NOT regional codes: Norway has had full mobile number portability since 2001, so a 4-series number says nothing about which operator holds it and nothing about where its owner lives. Nkom allocates blocks of 10 000 or 100 000 numbers to operators out of both series at once, which is why Telenor, Telia and the resellers all have customers across the whole range. The only inference the prefix supports is the one this file exists for: 4 or 9 means mobile, 2/3/5/6/7 means a fixed line, 8 means a special-rate service. Source: Nkom, "Tildeling og bruk av nummer for landmobile tjenester (4- og 9-seriene)".
+locale: nb
+---
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99

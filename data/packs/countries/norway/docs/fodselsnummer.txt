@@ -1,0 +1,83 @@
+---
+address: norway.docs.fodselsnummer
+description: The Norwegian national identity number (fødselsnummer) — eleven digits, DDMMYY + a three-digit individnummer + TWO modulus-11 check digits, and the only key that matters in Norwegian public data. Three things about it are Norwegian rather than generic. (1) THE CENTURY IS ENCODED IN A RANGE, not in a digit: the individnummer says which century the two-digit year belongs to, 000–499 for 1900–1999 and 500–999 for 2000–2039, with two historical ranges this generator does not draw from (500–749 for 1854–1899, and 900–999 which was opened as a SECOND window for 1940–1999 when the 000–499 range began to run out). So 010190 12345 and 010190 62345 are a hundred years apart, and a parser that assumes "year < 30 means 2000s" gets it wrong in both directions. (2) The LAST digit of the individnummer is the sex: odd is male, even is female. Pass sex="m" or sex="f" on the calling gen to pin it; the default draws both. (3) Both check digits are modulus 11, over published weight vectors — k1 over 3,7,6,1,8,9,4,5,2 and k2 over 5,4,3,2,7,6,5,4,3 plus 2×k1 — and EITHER of them can come out as 10, which cannot be written in one digit. Such a number is never issued, so this generator does not emit it: the <valid> predicate below throws the whole draw away and redraws. That costs about one number in six, and it is the difference between a fødselsnummer and a number that merely looks like one. For non-residents see norway.docs.dnummer, where the day is offset by 40. From 2032 Norway plans a new identity number with no birth date in it at all; nothing here will survive that change.
+generator: tdc
+locale: nb
+---
+<sequence name="dob"><gen type="date" from="1900-01-01" to="2039-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="hundreds"><gen type="number" value="0..4"/></sequence>
+<sequence name="tens"><gen type="number" value="0..9"/></sequence>
+<sequence name="sex"><gen type="text" value="any"/></sequence>
+<sequence name="sexraw"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="core"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <!-- The draw arrives as YYYYMMDD; a fødselsnummer is written DDMMYY. -->
+  <let name="year"><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="0"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+  </concat></to_number></let>
+  <!-- Century by RANGE: 1900–1999 uses individnummer 000–499, 2000–2039 uses 500–999. -->
+  <let name="offset">
+    <choose>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test><then><int v="5"/></then></when>
+      <otherwise><int v="0"/></otherwise>
+    </choose>
+  </let>
+  <let name="i1"><add><field name="hundreds"/><use name="offset"/></add></let>
+  <!-- Sex sits in the LAST individ digit: odd male, even female, otherwise free. -->
+  <let name="schars"><each><over><field name="sex"/></over><do><current/></do></each></let>
+  <let name="sexcode"><to_number><encode as="unicode"><at><in><use name="schars"/></in><index><int v="0"/></index></at></encode></to_number></let>
+  <let name="base5"><mod><field name="sexraw"/><int v="5"/></mod></let>
+  <let name="i3">
+    <choose>
+      <when><test><equals><use name="sexcode"/><int v="109"/></equals></test>
+        <then><add><multiply><use name="base5"/><int v="2"/></multiply><int v="1"/></add></then></when>
+      <when><test><equals><use name="sexcode"/><int v="102"/></equals></test>
+        <then><multiply><use name="base5"/><int v="2"/></multiply></then></when>
+      <otherwise><field name="sexraw"/></otherwise>
+    </choose>
+  </let>
+  <result><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <use name="i1"/><field name="tens"/><use name="i3"/>
+  </concat></result>
+</compute></sequence>
+<sequence name="k1"><compute>
+  <!-- k1 = 11 − (Σ dᵢwᵢ mod 11) over weights 3 7 6 1 8 9 4 5 2; 11 folds to 0, 10 is unissuable. -->
+  <let name="sum"><reduce>
+    <over><field name="core"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,7,6,1,8,9,4,5,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <result><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+</compute></sequence>
+<sequence name="k2"><compute>
+  <!-- k2 = 11 − (Σ dᵢwᵢ + 2·k1 mod 11) over weights 5 4 3 2 7 6 5 4 3 for the nine core digits. -->
+  <let name="sum"><reduce>
+    <over><field name="core"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="5,4,3,2,7,6,5,4,3"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="total"><add><use name="sum"/><multiply><to_number><field name="k1"/></to_number><int v="2"/></multiply></add></let>
+  <result><mod><subtract><int v="11"/><mod><use name="total"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+</compute></sequence>
+<sequence name="worst"><compute>
+  <!-- One number standing for "either check digit came out 10", so a single predicate can reject both cases. -->
+  <result><choose>
+    <when><test><equals><to_number><field name="k1"/></to_number><int v="10"/></equals></test><then><int v="10"/></then></when>
+    <otherwise><field name="k2"/></otherwise>
+  </choose></result>
+</compute></sequence>
+<valid><less_than><to_number><field name="worst"/></to_number><int v="10"/></less_than></valid>
+<data>${{core}}${{k1}}${{k2}}</data>

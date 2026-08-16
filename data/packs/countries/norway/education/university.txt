@@ -1,0 +1,32 @@
+---
+address: norway.education.university
+description: Norway's accredited higher-education institutions — eleven universities, nine specialised university institutions (vitenskapelige høgskoler) and the remaining university colleges, under their official Norwegian names. The list is short because Norway spent a decade merging: the 2016 structural reform cut some thirty state institutions to a handful, so NTNU absorbed the colleges of Gjøvik, Ålesund and Sør-Trøndelag, and names like Høgskolen i Bergen, Høgskolen i Oslo og Akershus and Høgskolen i Hedmark exist only in old records. It is still moving — Høgskolen i Innlandet became Universitetet i Innlandet on accreditation in 2024 — so a hard-coded list ages fast. Note the case conventions, which are Norwegian and not typos: only the first word and proper nouns take a capital, so it is "Norges teknisk-naturvitenskapelige universitet", not Title Case. Three of these are private and self-funded (Handelshøyskolen BI, MF vitenskapelig høyskole, VID vitenskapelige høgskole); the rest are state institutions where tuition is free for Norwegian and EEA students, which is the single most important fact about Norwegian higher education and the reason there is no "tuition" field anywhere in this pack. Samisk høgskole / Sámi allaskuvla in Kautokeino teaches in North Sámi.
+locale: nb
+---
+Universitetet i Oslo
+Universitetet i Bergen
+Norges teknisk-naturvitenskapelige universitet
+UiT Norges arktiske universitet
+Norges miljø- og biovitenskapelige universitet
+Universitetet i Stavanger
+Universitetet i Agder
+Nord universitet
+OsloMet – storbyuniversitetet
+Universitetet i Sørøst-Norge
+Universitetet i Innlandet
+Norges handelshøyskole
+Norges idrettshøgskole
+Norges musikkhøgskole
+Arkitektur- og designhøgskolen i Oslo
+Kunsthøgskolen i Oslo
+Høgskolen i Molde – vitenskapelig høgskole i logistikk
+Handelshøyskolen BI
+MF vitenskapelig høyskole
+VID vitenskapelige høgskole
+Høgskulen på Vestlandet
+Høgskolen i Østfold
+Høgskulen i Volda
+Samisk høgskole
+Politihøgskolen
+Forsvarets høgskole
+Universitetssenteret på Svalbard

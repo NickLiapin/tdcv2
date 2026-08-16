@@ -1,0 +1,7 @@
+---
+address: norway.phoneNational
+description: A Norwegian mobile number written the way Norwegians write it — three digits, a space, two digits, a space, three digits: 412 34 567. There is no leading zero and no area code to put in front, because the plan is closed and eight digits flat, so the national form differs from the international one only by the missing +47. Note the grouping is NOT the same for fixed lines: those are written in pairs, 22 12 34 56, which is norway.phoneLandline's business. Use this form when a column is meant to look like something a Norwegian typed; use norway.phone when it has to be machine-dialable.
+generator: tdc
+locale: nb
+---
+<gen type="regex" value="[49][0-9]{2} [0-9]{2} [0-9]{3}"/>

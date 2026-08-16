@@ -1,0 +1,23 @@
+---
+address: norway.finance.iban
+description: The Norwegian IBAN — NO + two ISO 7064 MOD-97-10 check digits + the eleven-digit account number, fifteen characters in all. It is the SHORTEST IBAN in the world, and that is worth knowing before writing a validator: a fixed-width IBAN field of 18, 22 or 24 characters, or a regex that assumes at least four BBAN groups, silently mangles Norwegian ones. The BBAN here is not a random eleven digits — it is drawn from norway.finance.accountNumber, so the account inside the IBAN carries its OWN modulus-11 check digit over the weights 5, 4, 3, 2, 7, 6, 5, 4, 3, 2 in addition to the IBAN's mod-97, and both have to hold for the number to be real. That two-checksum structure is why a Norwegian IBAN typo is nearly always caught. Verified against a published IBAN: the University of Bergen publishes NO5276940500857 on its own finance pages, and both checks accept it. Printed with a space every four characters for humans (NO52 7694 0500 857) and without spaces in files, which is the form emitted here.
+generator: tdc
+locale: nb
+---
+<sequence name="bban"><gen type="template" value="norway.finance.accountNumber"/></sequence>
+<sequence name="iban"><compute>
+  <!-- ISO 13616: move the country code and "00" to the end, letters become 10..35, take mod 97. -->
+  <let name="rearranged"><concat><field name="bban"/><str v="NO"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="NO"/><use name="check"/><field name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

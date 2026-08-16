@@ -1,0 +1,20 @@
+---
+address: norway.geo.county
+description: The 15 counties (fylker) of Norway as they stand after the re-split of 1 January 2024. This list is the whole story of Norwegian regional government in one decade: the 2020 reform merged 19 counties into 11, and four years later three of those mergers were undone by Stortinget, so Viken broke back into Østfold, Akershus and Buskerud, Vestfold og Telemark into Vestfold and Telemark, and Troms og Finnmark into Troms and Finnmark. A pack written against 2021 data therefore names three counties that no longer exist and misses seven that do — the single most common way Norwegian reference data goes stale. The eight counties that were NOT split (Oslo, Rogaland, Møre og Romsdal, Nordland, Innlandet, Agder, Vestland, Trøndelag) kept both their names and their numbers; the seven restored ones got NEW numbers (31, 32, 33, 39, 40, 55, 56), so the county number is not a stable key across 2024 either. Four counties carry official parallel Sámi or Kven names in the register — Nordland is "Nordland – Nordlánnda", Troms is "Troms – Romsa – Tromssa" — and the Norwegian form used here is the one that appears in a postal address. Source: Statistics Norway KLASS classification 104, valid 1 January 2024.
+locale: nb
+---
+Oslo
+Rogaland
+Møre og Romsdal
+Nordland
+Østfold
+Akershus
+Buskerud
+Innlandet
+Vestfold
+Telemark
+Agder
+Vestland
+Trøndelag
+Troms
+Finnmark

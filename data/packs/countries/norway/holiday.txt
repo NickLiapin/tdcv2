@@ -1,0 +1,17 @@
+---
+address: norway.holiday
+description: Norway's twelve public holidays, in calendar order. Nine of them come from lov om helligdager og helligdagsfred (LOV-1995-02-24-12 § 2), which also makes every Sunday a helligdag; the two May dates come from a separate 1947 act on 1 and 17 May as høgtidsdagar. Two things follow that a foreign calendar usually gets wrong. First, seven of the twelve MOVE with Easter — skjærtorsdag, langfredag, both påskedager, Kristi himmelfartsdag and both pinsedager — so a hard-coded Norwegian holiday table is wrong every year, and the Easter block alone accounts for five consecutive non-working days around Easter, which is why Norwegian business simply stops that week. Second, the days that feel like holidays are not: julaften (24 December) and nyttårsaften (31 December) are ORDINARY working days in law, even though most workplaces close early, and 1 May is a holiday while 8 May (liberation day) and 6 February (Sámi national day) are official flag days without being days off. 17 May is the constitution day, not an independence day — the constitution was signed at Eidsvoll in 1814 and full independence came in 1905.
+locale: nb
+---
+Første nyttårsdag
+Skjærtorsdag
+Langfredag
+Første påskedag
+Andre påskedag
+Offentlig høytidsdag 1. mai
+Grunnlovsdagen 17. mai
+Kristi himmelfartsdag
+Første pinsedag
+Andre pinsedag
+Første juledag
+Andre juledag
