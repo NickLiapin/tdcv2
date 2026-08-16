@@ -1,0 +1,8 @@
+---
+address: armenia.telecom.operator
+description: The three mobile network operators of Armenia. Three is all there are — the market has been a strict triopoly since 2009 and no MVNO tier sits under it. Their names have changed more often than their networks: VIVA was VivaCell-MTS from 2007 until Russia's MTS sold out and the brand became Viva Armenia, and it is the market leader with more than half the country's subscribers; TEAM has been Team Telecom Armenia since 2020 and was Beeline before that and ArmenTel, the state monopoly, before that, and it still owns the fixed-line copper it inherited from the Soviet ministry; UCOM started as a fibre broadband and IPTV company and became a mobile operator in 2015 by buying Orange Armenia, which is why the ex-Orange codes 55 and 95 are Ucom's today. The mobile network codes assigned to each are listed in armenia.phone; do not use them to identify a subscriber's operator, because number portability has been live since 1 April 2014 and the code stays with the customer. Names here are the Armenian transliterations the operators use in their own Armenian-language material, which are transliterations rather than translations — «Յուքոմ» is Ucom spelled in Armenian letters, not an Armenian word.
+locale: hy-am
+---
+Վիվա
+Թիմ
+Յուքոմ

@@ -1,0 +1,55 @@
+---
+address: armenia.geo.city
+description: Every town of Armenia — all 49 of them — weighted by the permanent population the 13 October 2022 census recorded, in the Armenian spelling the state register uses. FORTY-NINE IS THE WHOLE LIST, not a top-N cut: Armenia has 49 urban communities and this file holds every one, down to Dastakert in Syunik with 227 people. That is why the weights look nothing like a European country's: Yerevan alone is 1,086,677 of the country's 2,932,731, a little over 37 percent, Gyumri is the only other town above 100,000, Vanadzor the only other above 50,000, and the tenth-largest town has 20,081. There is no tail of mid-sized cities to draw from, and a generator tuned for one will over-sample places that hold a few thousand people. Yerevan is a community with special status rather than a marz or an ordinary town, but it is a settlement and it belongs in a list of settlements. Names are Eastern Armenian in the reformed (Soviet, 1922/1940) orthography that the Republic of Armenia's own registers use — Աբովյան, Նոյեմբերյան, Ստեփանավան with the -յան ending, not the -եան of the classical orthography the Western Armenian diaspora and Iranian-Armenians keep. Two names carry traps for transliteration code: Վաղարշապատ is the legal name of the town most foreigners and most Armenians still call Էջմիածին (Ejmiatsin) after the cathedral, renamed back to Vagharshapat in 1995, and Նոր Հաճն is two words with the second ending in ն, not "Nor Hachen". Դաստակերտ and Շամլուղ are legally towns and demographically villages; leaving them out would misrepresent the register, keeping them at their real weight costs nothing. See armenia.geo.cityEnglish for the same 49 in the same order in Latin script.
+locale: hy-am
+weighted: true
+---
+Երևան,1086677
+Գյումրի,112301
+Վանաձոր,75186
+Աբովյան,46434
+Վաղարշապատ,44837
+Հրազդան,44231
+Կապան,32780
+Արմավիր,27470
+Չարենցավան,22071
+Մասիս,20081
+Արտաշատ,19020
+Սևան,18705
+Իջևան,18689
+Գավառ,17741
+Արթիկ,17647
+Գորիս,17113
+Արարատ,16592
+Դիլիջան,15914
+Աշտարակ,15686
+Սիսիան,13179
+Սպիտակ,13133
+Վարդենիս,12466
+Եղվարդ,12279
+Ալավերդի,12152
+Ստեփանավան,11982
+Մարտունի,11287
+Վեդի,11066
+Բյուրեղավան,10432
+Նոր Հաճն,9816
+Մեծամոր,8472
+Տաշիր,7424
+Եղեգնաձոր,6912
+Բերդ,6899
+Քաջարան,6355
+Ապարան,5803
+Ճամբարակ,5468
+Վայք,5356
+Մարալիկ,5334
+Նոյեմբերյան,4273
+Մեղրի,4159
+Ջերմուկ,3936
+Թալին,3904
+Ագարակ,3210
+Ախթալա,2360
+Այրում,1740
+Թումանյան,1414
+Ծաղկաձոր,1010
+Շամլուղ,690
+Դաստակերտ,227

@@ -1,0 +1,32 @@
+---
+address: armenia.education.university
+description: Armenian universities and higher-education institutes, state ones first and then the larger private and intergovernmental ones, in their official Armenian names. THE NAMING CONVENTION IS THE THING TO GET RIGHT. An Armenian institution named after a person carries that person's name in the GENITIVE followed by «անվան», literally "of the name of": Խաչատուր Աբովյանի անվան, Մխիթար Հերացու անվան, Հովհաննես Թումանյանի անվան. The genitive is not always formed by adding ի — Հերացի becomes Հերացու, Կոմիտաս becomes Կոմիտասի — so building these strings by concatenation from a bare surname produces wrong Armenian. Note also that the honorand is almost always a nineteenth- or twentieth-century figure whose surname ends in -յան in the reformed orthography this pack uses; the same names in diaspora sources end in -եան. WHAT THE LIST SAYS ABOUT THE COUNTRY: the state sector is concentrated in Yerevan almost completely, and outside it there are only four state universities — Gyumri, Vanadzor, Gavar and Goris — one per corner of the country. Yerevan State University, founded in 1919 in the first republic, is the reference institution and «համալսարան» without qualification means it. Three of the entries are not Armenian institutions in the ordinary sense: the American University of Armenia is affiliated to the University of California and teaches in English, the Russian-Armenian University was set up by intergovernmental agreement in 1997 and teaches largely in Russian, and the French University in Armenia (UFAR) awards Lyon degrees. The Gevorkian Theological Seminary in Vagharshapat, founded 1874, trains the clergy of the Armenian Apostolic Church and sits outside the state accreditation system entirely. Not included: the military and police academies, which are real higher-education institutions in Armenian law but are not places a civilian dataset should be enrolling people into.
+locale: hy-am
+---
+Երևանի պետական համալսարան
+Հայաստանի ազգային պոլիտեխնիկական համալսարան
+Երևանի Մխիթար Հերացու անվան պետական բժշկական համալսարան
+Հայաստանի պետական տնտեսագիտական համալսարան
+Խաչատուր Աբովյանի անվան հայկական պետական մանկավարժական համալսարան
+Հայաստանի ազգային ագրարային համալսարան
+Երևանի Վալերի Բրյուսովի անվան պետական համալսարան
+Ճարտարապետության և շինարարության Հայաստանի ազգային համալսարան
+Երևանի Կոմիտասի անվան պետական կոնսերվատորիա
+Երևանի գեղարվեստի պետական ակադեմիա
+Երևանի թատրոնի և կինոյի պետական ինստիտուտ
+Հայաստանի ֆիզիկական կուլտուրայի և սպորտի պետական ինստիտուտ
+Հայաստանի պետական կառավարման ակադեմիա
+Շիրակի Միքայել Նալբանդյանի անվան պետական համալսարան
+Վանաձորի Հովհաննես Թումանյանի անվան պետական համալսարան
+Գավառի պետական համալսարան
+Գորիսի պետական համալսարան
+Հայաստանի ամերիկյան համալսարան
+Հայ-Ռուսական համալսարան
+Հայաստանում ֆրանսիական համալսարան
+ՀՀ ԳԱԱ գիտակրթական միջազգային կենտրոն
+Երևանի «Հայբուսակ» համալսարան
+Եվրասիա միջազգային համալսարան
+Հյուսիսային համալսարան
+Մեսրոպ Մաշտոցի անվան համալսարան
+Անանիա Շիրակացու անվան միջազգային հարաբերությունների համալսարան
+Գևորգյան հոգևոր ճեմարան

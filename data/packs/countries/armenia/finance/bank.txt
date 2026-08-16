@@ -1,0 +1,22 @@
+---
+address: armenia.finance.bank
+description: The seventeen commercial banks licensed by the Central Bank of Armenia, in their own Armenian brand names. Seventeen is the whole system — Armenia has no savings-bank tier, no cooperative network and no postal bank, so this list is not a top-N of a longer register the way a German or Polish bank list is. THE IBAN QUESTION, and the reason there is no armenia/finance/iban.txt in this pack: ARMENIA IS NOT AN IBAN COUNTRY. The ISO 13616 registry that SWIFT maintains as registration authority lists 113 countries and Armenia is not one of them, while both its neighbours are — Georgia issues GE IBANs and Azerbaijan AZ ones — and so do Moldova, Kazakhstan and Ukraine, which is why an "AM IBAN" looks plausible and is not a thing. Armenian banks settle across borders on SWIFT/BIC alone: ARMIAM22 Ameriabank, ASHBAM22 Ardshinbank, ARMCAM22 ARARATBANK, CBRAAM22 the Central Bank. A domestic transfer is made to a bare local account number instead. This pack ships no IBAN generator rather than a well-formed fake that would pass a mod-97 check and be rejected by every real Armenian bank. Three of the seventeen are foreign banks' Armenian arms and behave differently from the rest: Mellat Bank is the Armenian subsidiary of Iran's Bank Mellat and is the practical channel for Iran-facing trade, Byblos Bank Armenia belongs to Lebanon's Byblos Bank, and VTB Bank (Armenia) is Russian-owned and carries sanctions exposure that the others do not. Artsakhbank was the bank of Nagorno-Karabakh and now operates from Yerevan. Recent name changes that break older lookup tables: AMIO Bank has been AMIO only since 17 November 2023 and was ARMBUSINESSBANK before that (and Arminvestbank before 2006), IDBank was Anelik Bank, Evocabank was Prometey Bank, Acba bank dropped "Credit Agricole" from its name, and HSBC Bank Armenia no longer exists at all — Ardshinbank absorbed it on 29 November 2024. See armenia.finance.bankEnglish for the Latin forms these same banks use on their English documents.
+locale: hy-am
+---
+Ամերիաբանկ
+Արդշինբանկ
+Ամիո Բանկ
+Ակբա բանկ
+Ինեկոբանկ
+Կոնվերս Բանկ
+Յունիբանկ
+ԱյԴի Բանկ
+Էվոկաբանկ
+Արարատբանկ
+Հայէկոնոմբանկ
+Արմսվիսբանկ
+ՎՏԲ-Հայաստան Բանկ
+Արցախբանկ
+Ֆաստ Բանկ
+Մելլաթ Բանկ
+Բիբլոս Բանկ Արմենիա

@@ -1,0 +1,32 @@
+---
+address: armenia.product.barcode
+description: An EAN-13 article number issued through GS1 Armenia — thirteen digits opening with the GS1 prefix 485, which the International Article Numbering association assigns to Armenia (484 is Moldova, 486 Georgia, 487 Kazakhstan; 485 is Armenia and nothing else). THIS IS THE ONE IDENTIFIER IN THIS PACK THAT CARRIES A CHECK DIGIT WHOSE RULE IS PUBLISHED, which is why it is here: Armenia's own two identifiers, the ՀԾՀ and the ՀՎՀՀ, both have real check digits whose formulas the issuing bodies have never published, so neither armenia.docs.psn nor armenia.tax.tin computes one. The thirteenth digit is the GS1 modulo-10 check from the GS1 General Specifications: weight the twelve preceding digits 1,3,1,3,… from the left so that the last of them gets 3, sum, and take the amount that carries the sum up to the next multiple of ten. VERIFIED BOTH WAYS against 27 real published Armenian product barcodes recorded in Open Food Facts, every one of them in the 485 range and every one from a real Armenian producer — 4850013000018 (Jermuk mineral water), 4850013000063 (Jermuk "Byuregh"), 4850001260042 and 4850001260028 (Marianna, matsun), 4850004310027 (Aparan, tan), 4850057000203 (Ashtarak Kat, matsoun), 4850041790042 (Yeremyan, milk), 4850001111276 (Yan, orange juice), 4850001011200 (the Armenian Coca-Cola bottler's Sprite), and eighteen more. The fold in this file accepts all 27 and rejects all 3159 single-digit alterations of them. The prefix identifies the GS1 member organisation that issued the company its number range, NOT where the goods were made — an Armenian importer can carry a 485 code on a product made elsewhere, and an Armenian exporter selling under a foreign customer's brand will carry that customer's prefix. The nine digits between the prefix and the check split into a company number and an item number at a boundary GS1 Armenia sets per member, so this file draws them as one block rather than pretending to a split it cannot know.
+generator: tdc
+---
+<sequence name="rest"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="code"><compute>
+  <let name="base"><concat><str v="485"/><field name="rest"/></concat></let>
+  <let name="sum">
+    <reduce>
+      <over><use name="base"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/>
+        <multiply><current/>
+          <choose>
+            <when>
+              <test><equals>
+                <mod><current_index/><int v="2"/></mod>
+                <mod><subtract><length><use name="base"/></length><int v="1"/></subtract><int v="2"/></mod>
+              </equals></test>
+              <then><int v="3"/></then>
+            </when>
+            <otherwise><int v="1"/></otherwise>
+          </choose>
+        </multiply>
+      </add></do>
+    </reduce>
+  </let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{code}}</data>

@@ -1,0 +1,18 @@
+---
+address: armenia.geo.yerevanDistrict
+description: The twelve administrative districts (վարչական շրջաններ) of Yerevan, weighted by the 13 October 2022 census. They are districts of a city, not communities of their own: since the 2009 law on local self-government in Yerevan the city is one community and the district heads are appointed by the mayor, so a Yerevan address names a district but the legal community is Yerevan. The twelve weights here sum to exactly 1,086,677, Yerevan's own census figure in armenia.geo.city — the city has no population outside its districts, which is the arithmetic check this file is built to pass. The spread is wide enough to matter: Malatia-Sebastia and Shengavit hold about 140,000 each while Nork-Marash holds 11,098, so drawing districts uniformly puts twelve times too many people in Nork-Marash. Names carry history rather than geography — Մալաթիա-Սեբաստիա and Նոր Նորք are named for Malatya and Sebastia in historic Western Armenia, settled by 1915 refugees; Էրեբունի is named for the Urartian fortress of 782 BC that gives Yerevan its founding date; Քանաքեռ-Զեյթուն is a hyphenated pair of formerly separate villages. Կենտրոն is simply "centre" and is where nearly every ministry, embassy and head office sits, which is why postal codes 0001-0019 and most institutional addresses land there while only 11 percent of the city lives there.
+locale: hy-am
+weighted: true
+---
+Մալաթիա-Սեբաստիա,140784
+Շենգավիթ,140525
+Նոր Նորք,134668
+Էրեբունի,124957
+Կենտրոն,119841
+Արաբկիր,118870
+Աջափնյակ,111508
+Քանաքեռ-Զեյթուն,73834
+Ավան,55094
+Դավթաշեն,43704
+Նուբարաշեն,11794
+Նորք-Մարաշ,11098

@@ -1,0 +1,8 @@
+---
+address: armenia.tax.vat
+description: Armenia does NOT issue a separate VAT number, and this file exists to say so rather than to invent one. A business registered for ԱԱՀ (ավելացված արժեքի հարկ, value added tax) is identified on its VAT invoices, its returns and its counterparties' books by its ordinary eight-digit ՀՎՀՀ — the same number armenia.tax.tin generates — and there is no second registration number, no letter prefix and no check-digit scheme layered on top. Armenia is not in the European Union, so there is no VIES entry and no "AM" prefix printed by the tax service; where a cross-border system shows AM12345678 the AM was added by that system, not by Armenia. This file therefore emits the bare eight digits, identical in shape to armenia.tax.tin, so that a config with a "vat" field for every country still resolves — but the honest modelling of an Armenian company is one identifier, not two, and a schema that carries both will carry the same value twice. Armenia joined the Eurasian Economic Union in 2015, and EAEU cross-border VAT reporting also keys on the ՀՎՀՀ. VAT registration itself became compulsory above a turnover threshold rather than optional; the threshold moves and is not modelled here, because a threshold is not an identifier.
+generator: tdc
+locale: hy-am
+---
+<sequence name="tin"><gen type="template" value="armenia.tax.tin"/></sequence>
+<data>${{tin}}</data>

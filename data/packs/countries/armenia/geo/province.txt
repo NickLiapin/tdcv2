@@ -1,0 +1,16 @@
+---
+address: armenia.geo.province
+description: The first-level territorial units of Armenia — the ten marzes (մարզեր) plus Yerevan — in Armenian, in the nominative. ELEVEN LINES FOR TEN MARZES, and the mismatch is the point: Yerevan is legally NOT a marz. Article 9 of the Constitution makes the administrative-territorial units of Armenia the marzes and the communities, and Yerevan is a community with a special status of its own, with an elected council and a mayor where a marz has a governor (մարզպետ) appointed by the government. Every one of the state's own systems nonetheless treats Yerevan as the eleventh first-level unit: it has its own postal zone (00-01), its own plate codes, its own court of first instance, and its own column in every armstat table, so shipping ten and forcing the caller to bolt Yerevan on by hand would be modelling the statute rather than the data. THE GENITIVE TRAP: a marz is almost always written in Armenian with the province name in the genitive followed by the word marz — Արագածոտնի մարզ, Շիրակի մարզ — and the genitive of Լոռի is Լոռու, not Լոռիի. This file holds the bare nominative, so appending "ի մարզ" mechanically will produce a wrong form for Lori and for Վայոց ձոր, whose genitive is Վայոց ձորի. Note also that the second word of Վայոց ձոր is lower-case in the statute and in armstat's own tables, unlike Նոր Նորք or Նոր Հաճն where the second word is a noun. Three marzes share a name with a town inside them (Արարատ, Արմավիր, and — nearly — Շիրակ); armenia.geo.city holds the towns.
+locale: hy-am
+---
+Երևան
+Արագածոտն
+Արարատ
+Արմավիր
+Գեղարքունիք
+Լոռի
+Կոտայք
+Շիրակ
+Սյունիք
+Վայոց ձոր
+Տավուշ

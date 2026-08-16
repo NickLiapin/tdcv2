@@ -1,0 +1,40 @@
+---
+address: armenia.government.agency
+description: The bodies of the Armenian state that a citizen or a company actually deals with — the twelve ministries, the committees and inspection bodies subordinate to the government, and the autonomous bodies that answer to no minister — in their own Armenian names as gov.am lists them. TWELVE MINISTRIES IS THE WHOLE CABINET, and the shape of the list is the point: several portfolios that are separate ministries almost everywhere else are fused here. Education, science, culture AND sport are one ministry, created by the 2019 merger of four. Territorial administration and infrastructure are one, so roads, energy, transport and the provinces sit together. There is no ministry of the interior in the usual sense until 2021, when one was created and the POLICE was moved under it — the Armenian police had reported straight to the government for twenty years before that, and so a dataset older than 2021 will show «ՀՀ ոստիկանություն» as a top-level body rather than a part of the ministry. THE ONES YOU WILL MEET MOST: the State Revenue Committee (Պետական եկամուտների կոմիտե) is both the tax service and the customs service in one body and issues the ՀՎՀՀ for everyone except banks; the Cadastre Committee registers every title to land and buildings; the Statistical Committee is the armstat whose census figures weight the geography files in this pack; and the migration and citizenship service, under the interior ministry, runs the population register and allocates the ՀԾՀ. The Central Bank is constitutionally independent and is not a government body: it supervises the seventeen banks in armenia.finance.bank and issues those banks' tax numbers itself. The Prosecutor General's office, the Investigative Committee, the Anti-Corruption Committee, the National Security Service, the Human Rights Defender, the Audit Chamber, the Central Electoral Commission and the Supreme Judicial Council are likewise outside the cabinet, each answering to the National Assembly or to no one, which is why they are listed after the ministries rather than among them.
+locale: hy-am
+---
+Աշխատանքի և սոցիալական հարցերի նախարարություն
+Առողջապահության նախարարություն
+Արդարադատության նախարարություն
+Արտաքին գործերի նախարարություն
+Բարձր տեխնոլոգիական արդյունաբերության նախարարություն
+Էկոնոմիկայի նախարարություն
+Կրթության, գիտության, մշակույթի և սպորտի նախարարություն
+Ներքին գործերի նախարարություն
+Շրջակա միջավայրի նախարարություն
+Պաշտպանության նախարարություն
+Տարածքային կառավարման և ենթակառուցվածքների նախարարություն
+Ֆինանսների նախարարություն
+Պետական եկամուտների կոմիտե
+Կադաստրի կոմիտե
+Վիճակագրական կոմիտե
+Քաղաքաշինության կոմիտե
+Միջուկային անվտանգության կարգավորման կոմիտե
+Ոստիկանություն
+Միգրացիայի և քաղաքացիության ծառայություն
+Առողջապահական և աշխատանքի տեսչական մարմին
+Բնապահպանության և ընդերքի տեսչական մարմին
+Կրթության տեսչական մարմին
+Շուկայի վերահսկողության տեսչական մարմին
+Սննդամթերքի անվտանգության տեսչական մարմին
+Քաղաքաշինության, տեխնիկական և հրդեհային անվտանգության տեսչական մարմին
+Կենտրոնական բանկ
+Գլխավոր դատախազություն
+Քննչական կոմիտե
+Հակակոռուպցիոն կոմիտե
+Ազգային անվտանգության ծառայություն
+Մարդու իրավունքների պաշտպան
+Հաշվեքննիչ պալատ
+Կենտրոնական ընտրական հանձնաժողով
+Բարձրագույն դատական խորհուրդ
+Հանրային ծառայությունները կարգավորող հանձնաժողով

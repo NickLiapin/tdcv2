@@ -1,0 +1,55 @@
+---
+address: armenia.geo.cityEnglish
+description: The same 49 Armenian towns as armenia.geo.city, in the same order and with the same 2022 census weights, romanised. The romanisation is the one Armenian official English-language documents and road signs use, which is neither BGN/PCGN nor ISO 9985 consistently: Gyumri not Giumri, Vagharshapat not Vagharšapat, Tsaghkadzor not C'axkajor. This file exists because Armenian data is very often keyed in Latin — bank statements, airline manifests, the English column of government registers — and a country pack that only offered Armenian script would be unusable for half the datasets that need it. Ejmiatsin/Etchmiadzin is NOT listed: the town's legal name is Vagharshapat and that is what appears here, but code matching town names against Armenian sources should expect both. Nor Hachn is sometimes written Nor Hachen. Where the town shares its name with its province — Ararat, Armavir — the entry here is the TOWN; the province of the same name lives in armenia.geo.provinceEnglish, and the two are not the same place: the town of Armavir has 27,470 people, the province 253,493.
+locale: en
+weighted: true
+---
+Yerevan,1086677
+Gyumri,112301
+Vanadzor,75186
+Abovyan,46434
+Vagharshapat,44837
+Hrazdan,44231
+Kapan,32780
+Armavir,27470
+Charentsavan,22071
+Masis,20081
+Artashat,19020
+Sevan,18705
+Ijevan,18689
+Gavar,17741
+Artik,17647
+Goris,17113
+Ararat,16592
+Dilijan,15914
+Ashtarak,15686
+Sisian,13179
+Spitak,13133
+Vardenis,12466
+Yeghvard,12279
+Alaverdi,12152
+Stepanavan,11982
+Martuni,11287
+Vedi,11066
+Byureghavan,10432
+Nor Hachn,9816
+Metsamor,8472
+Tashir,7424
+Yeghegnadzor,6912
+Berd,6899
+Kajaran,6355
+Aparan,5803
+Chambarak,5468
+Vayk,5356
+Maralik,5334
+Noyemberyan,4273
+Meghri,4159
+Jermuk,3936
+Talin,3904
+Agarak,3210
+Akhtala,2360
+Ayrum,1740
+Tumanyan,1414
+Tsaghkadzor,1010
+Shamlugh,690
+Dastakert,227

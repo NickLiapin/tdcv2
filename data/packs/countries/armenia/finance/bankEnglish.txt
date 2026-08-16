@@ -1,0 +1,22 @@
+---
+address: armenia.finance.bankEnglish
+description: The same seventeen licensed Armenian banks as armenia.finance.bank, in the same order, in the Latin names they use on English documents and in the Central Bank's English register. Capitalisation is theirs and is not consistent — ARARATBANK and ARMECONOMBANK are set in full capitals in their own materials, Acba bank keeps a lower-case second word, AMIO Bank and ArmSwissBank are camel-cased — so normalising the case will not match their letterheads. The legal form is part of the registered name and Armenian contracts carry it: ՓԲԸ is a closed joint-stock company (CJSC) and ԲԲԸ an open one (OJSC), so "Ameriabank CJSC" and "ARARATBANK OJSC" are the full names, dropped here because a bank list wants brands. Armenia has no IBAN — see armenia.finance.bank for the evidence and for why this pack ships no IBAN generator.
+locale: en
+---
+Ameriabank
+Ardshinbank
+AMIO Bank
+Acba bank
+Inecobank
+Converse Bank
+Unibank
+IDBank
+Evocabank
+ARARATBANK
+ARMECONOMBANK
+ArmSwissBank
+VTB Bank (Armenia)
+Artsakhbank
+Fast Bank
+Mellat Bank
+Byblos Bank Armenia

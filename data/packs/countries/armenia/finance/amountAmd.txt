@@ -1,0 +1,13 @@
+---
+address: armenia.finance.amountAmd
+description: A sum of money written the way Armenia writes it — digits grouped in threes, the groups separated by a NO-BREAK SPACE (U+00A0) and not by a comma or a full stop, then a no-break space and the dram sign ֏ (U+058F ARMENIAN DRAM SIGN), which sits AFTER the amount and never before it. That is CLDR's hy-AM currency pattern and it is what ICU produces: Intl.NumberFormat('hy-AM', {style:'currency', currency:'AMD'}).format(1234567) gives exactly 1 234 567 ֏. Two things break naive code here. First, the separator really is U+00A0, not U+0020: a byte-level equality test against a string built with an ordinary space fails, and a naive split on ' ' does not split. Second, the sign is a real Unicode character in the Armenian block, not a letter combination — a font without Armenian coverage renders it as tofu, and systems that cannot carry it fall back to the three-letter code AMD or to the Armenian abbreviation դր. (with the full stop), both of which are correct and neither of which is this file. AMOUNTS ARE WHOLE DRAMS. The dram has a subunit, the luma, 100 to the dram, and it has been dead since the 1990s: no luma coin circulates, no Armenian price carries decimals, and a supermarket receipt in Yerevan is integers to the last line. ICU will still hand you two fraction digits because CLDR marks AMD as a two-digit currency, so a formatter left on defaults produces 1 000,00 ֏ for a thousand drams — syntactically right, and wrong in every Armenian dataset you will ever be handed. This file generates integers for that reason. If you do need the decimal form, the decimal separator is a COMMA, not a point. Scale check for anyone sizing test data: a dram is worth roughly a quarter of a US cent, so ordinary Armenian numbers are large — a coffee is around 1 000 ֏, a monthly salary in six figures, and the smallest note in circulation is 1000.
+generator: tdc
+locale: hy-am
+---
+<sequence name="raw"><gen type="number" value="100..99999999"/></sequence>
+<sequence name="amount"><compute><result><concat>
+  <group size="3" sep=" "><field name="raw"/></group>
+  <str v=" "/>
+  <str v="֏"/>
+</concat></result></compute></sequence>
+<data>${{amount}}</data>

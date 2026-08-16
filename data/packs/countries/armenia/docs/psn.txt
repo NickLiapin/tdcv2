@@ -1,0 +1,27 @@
+---
+address: armenia.docs.psn
+description: ՀԾՀ — հանրային ծառայությունների համարանիշ, the Public Services Number, the ten-digit identifier every Armenian citizen, resident foreigner, stateless person and refugee carries. It is printed on the identification card, it is the number a bank must take before opening an account, and it is what an Armenian pay slip, pension file and tax payment are keyed on. It replaced the Soviet-style social security card (սոցիալական ապահովության քարտ) in 2012 and the old card numbers were carried over unchanged, so a number issued in 2004 and a number issued today have the same shape. STRUCTURE, from article 4 of the law of 30 November 2011 ՀՕ-288-Ն and, since the law of 3 July 2025 ՀՕ-233-Ն on the State Population Register, from article 13 of that: digits 1-2 are the day of the month PLUS ten for a male and PLUS fifty for a female, so 11-41 male and 51-81 female; digits 3-4 are the month of birth combined with the century, 01-12 for the twentieth century and 21-32 for the twenty-first; digits 5-6 the last two digits of the year; digits 7-9 a serial 001-999 among people of the same sex born on the same day; digit 10 a check digit. THE THING THAT WILL BREAK YOUR PARSER: June is not 06. The statute says in as many words that a person born in June gets 14 for a twentieth-century birth and 34 for a twenty-first, jumping out of the otherwise consecutive month sequence — «01-12 ... (հունիսին ծնված լինելու դեպքում` 14)». Nothing in the law explains it; it is simply the rule, it is still the rule in the 2025 re-enactment, and code that reads digits 3-4 as a plain month will decode every June birth in Armenia as an April birth in the wrong century. A second rule from the same article: the digit 6 may never repeat three times in a row anywhere in the number, so 1266 6012 3 is not issuable. This file enforces both. WHAT IS NOT REAL HERE, stated plainly: the tenth digit. Article 4 part 2 of the 2011 law delegated the check-digit rule to the body running the population register, which set it in Order 4-Ն of the Chief of Police of 15 February 2012, and article 13 of the 2025 law repeats the delegation to the migration and citizenship authority. Neither the formula nor a worked example is in any public text I could find, and no accessible source publishes one. So the last digit here is DRAWN, not computed, and a number from this file will fail a real ՀԾՀ validator about nine times in ten. That is deliberate: an invented mod-11 that looks like a checksum is worse than an honest random digit, because it looks verified. No real ՀԾՀ is quoted anywhere in this pack either — a ՀԾՀ identifies a living person and its first six digits give that person's date of birth and sex.
+generator: tdc
+locale: hy-am
+---
+<!-- Day of the month; the sex offset is added to it, +10 male / +50 female. -->
+<sequence name="day"><gen type="number" value="1..31"/></sequence>
+<sequence name="sexOffset"><gen type="text" value="10,50"/></sequence>
+<!-- Month AND century. June is 14 / 34, not 06 / 26 — see the description. -->
+<sequence name="monthCentury"><gen type="text" value="01,02,03,04,05,14,07,08,09,10,11,12,21,22,23,24,25,34,27,28,29,30,31,32"/></sequence>
+<sequence name="year"><gen type="number" value="0..99" length="2" first_zero="true"/></sequence>
+<sequence name="serial"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<!-- The check digit's rule is not published. This digit is drawn, not computed. -->
+<sequence name="last"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="psn"><compute>
+  <let name="daySex"><pad width="2" fill="0">
+    <add><to_number><field name="day"/></to_number><to_number><field name="sexOffset"/></to_number></add>
+  </pad></let>
+  <result><concat>
+    <use name="daySex"/><field name="monthCentury"/><field name="year"/><field name="serial"/><field name="last"/>
+  </concat></result>
+</compute></sequence>
+<!-- Article 4 part 3: "6" may not repeat three times consecutively. Deleting every
+     "666" from a legal number changes nothing, so the length stays 10. -->
+<valid><equals><length><replace from="666" to=""><field name="psn"/></replace></length><int v="10"/></equals></valid>
+<data>${{psn}}</data>

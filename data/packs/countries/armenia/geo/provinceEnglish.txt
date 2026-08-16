@@ -1,0 +1,16 @@
+---
+address: armenia.geo.provinceEnglish
+description: The ten marzes of Armenia plus Yerevan, romanised, in the same order as armenia.geo.province. The ISO 3166-2 codes are AM-AG Aragatsotn, AM-AR Ararat, AM-AV Armavir, AM-ER Yerevan, AM-GR Gegharkunik, AM-KT Kotayk, AM-LO Lori, AM-SH Shirak, AM-SU Syunik, AM-TV Tavush, AM-VD Vayots Dzor — note that the code letters are taken from the ROMANISED name, so Kotayk is KT and Gegharkunik is GR, and that they do not follow the Armenian alphabetical order this file uses. Vayots Dzor is written as two words with a capital D in English usage even though the Armenian is Վայոց ձոր with a lower-case ձ. Ordering here follows the Armenian alphabet with Yerevan first, which is the order armstat publishes; an English-alphabetical sort will not reproduce it.
+locale: en
+---
+Yerevan
+Aragatsotn
+Ararat
+Armavir
+Gegharkunik
+Lori
+Kotayk
+Shirak
+Syunik
+Vayots Dzor
+Tavush

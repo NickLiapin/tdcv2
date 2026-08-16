@@ -1,0 +1,16 @@
+---
+address: armenia.phoneLandline
+description: An Armenian fixed-line number in E.164 form. The national significant number is eight digits here as it is for mobiles, but the split moves: Yerevan has TWO-digit area codes and six subscriber digits, everywhere else has THREE-digit area codes and five. Yerevan is 10, 11, 12 and 15 — 10 is the original city code and 12 and 15 were added to the plan in 2021, which is why a Yerevan landline written as +374 10 xxxxxx and one written +374 12 xxxxxx are both eight digits and both correct. The two second cities have their own three-digit codes, 312 Gyumri and 322 Vanadzor, and the rest of the country runs 222 to 287 by district: 222 Abovyan, 223 Hrazdan and Tsaghkadzor, 224 Yeghvard and Nor Hachn, 226 Charentsavan, 231 Vagharshapat and Zvartnots, 232 Ashtarak, 233 Baghramyan, 234 Vedi, 235 Artashat, 236 Masis, 237 Armavir and Metsamor, 238 Ararat, 242 Maralik, 244 Artik, 245 Ashotsk, 246 Amasia, 252 Aparan, 253 Alaverdi, 254 Tashir, 255 Spitak, 256 Stepanavan, 261 Sevan, 262 Martuni, 263 Ijevan, 264 Gavar, 265 Chambarak, 266 Noyemberyan, 267 Berd, 269 Vardenis, 281 Yeghegnadzor, 282 Vayk, 284 Goris, 285 Kapan and Kajaran, 286 Agarak and Meghri, 287 Jermuk. Notice what that mapping is NOT: it is not one code per province. Kapan and Kajaran share 285, Vagharshapat and Zvartnots share 231, and the code blocks were laid out along the old Soviet trunk network rather than along the marz boundaries, so deriving a province from a landline prefix gives the wrong answer often enough to matter. 47 is absent from this file and from the plan: it carried the fixed lines of Nagorno-Karabakh and stopped with the territory's dissolution on 1 January 2024. Trunk prefix 0, international prefix 00, so the same Yerevan number is 10 xxxxxx locally, 0 10 xxxxxx from Gyumri and +374 10 xxxxxx from abroad.
+generator: tdc
+---
+<sequence name="yerevan"><gen type="regex" value="\+374(10|11|12|15)[0-9]{6}"/></sequence>
+<sequence name="regional"><gen type="regex" value="\+374(222|223|224|226|231|232|233|234|235|236|237|238|242|244|245|246|252|253|254|255|256|261|262|263|264|265|266|267|269|281|282|283|284|285|286|287|312|322)[0-9]{5}"/></sequence>
+<sequence name="pick"><gen type="number" value="1..10"/></sequence>
+<sequence name="number"><compute>
+  <result><choose>
+    <when><test><less_than><to_number><field name="pick"/></to_number><int v="6"/></less_than></test>
+      <then><field name="yerevan"/></then></when>
+    <otherwise><field name="regional"/></otherwise>
+  </choose></result>
+</compute></sequence>
+<data>${{number}}</data>

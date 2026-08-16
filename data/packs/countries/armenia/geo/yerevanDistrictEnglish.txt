@@ -1,0 +1,18 @@
+---
+address: armenia.geo.yerevanDistrictEnglish
+description: The twelve districts of Yerevan romanised, same order and same 2022 census weights as armenia.geo.yerevanDistrict. Watch the hyphens: Malatia-Sebastia, Kanaker-Zeytun and Nork-Marash are hyphenated compounds of two place names, while Nor Nork is two separate words — "new Nork" beside the old Nork that is half of Nork-Marash. English sources vary between Ajapnyak and Achapnyak, Erebuni and Erebouni, Zeytun and Zeitun; the forms here are the ones the Yerevan municipality uses on its own English pages.
+locale: en
+weighted: true
+---
+Malatia-Sebastia,140784
+Shengavit,140525
+Nor Nork,134668
+Erebuni,124957
+Kentron,119841
+Arabkir,118870
+Ajapnyak,111508
+Kanaker-Zeytun,73834
+Avan,55094
+Davtashen,43704
+Nubarashen,11794
+Nork-Marash,11098

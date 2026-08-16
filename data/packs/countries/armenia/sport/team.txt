@@ -1,0 +1,25 @@
+---
+address: armenia.sport.team
+description: Armenian football clubs — the ten of the 2025-26 Premier League first, then clubs of the First League and the Cup. THE LEAGUE IS TINY AND IT IS ALMOST ENTIRELY ONE CITY. Seven of the ten top-flight clubs are Yerevan clubs, and of the three that are not, Shirak in Gyumri is the only one that plays in the town it is named for: Alashkert and Noah both play their home games in Abovyan, Van plays in Charentsavan, and Gandzasar Kapan — named for a monastery in Nagorno-Karabakh and based in Kapan, 320 km from the capital — plays in Yerevan's Shengavit district. So a "home town" field taken from a club name will be wrong for most of the league. The names carry the country's history rather than its geography: Ararat is the mountain that is Armenia's national symbol and stands in Turkey; Van and Alashkert are towns of historic Western Armenia, lost in 1915; Urartu is the Iron Age kingdom the country descends from and is the current name of the club that was Banants until 2019; Noah is the ark, which landed on Ararat; Pyunik means "phoenix" and is the most decorated club in the country. ԲԿՄԱ is an acronym, Բանակի կենտրոնական մարզական ակումբ, the army sports club — the Armenian CSKA. The league was voted up from ten clubs to twelve for 2026-27, which saved Shirak from relegation, and the season before that West Armenia were disqualified outright, which saved Gandzasar Kapan; a league table older than a season will not match. Nothing outside football is listed: Armenia's team sports beyond it are thin, and its Olympic strength is in weightlifting, wrestling, boxing and above all chess, which are individual sports with no clubs to name.
+locale: hy-am
+---
+Փյունիկ
+Արարատ-Արմենիա
+Նոա
+Ուրարտու
+Ալաշկերտ
+Վան
+Արարատ Երևան
+Շիրակ
+ԲԿՄԱ Երևան
+Գանձասար Կապան
+Լոռի
+Սյունիք
+Կիլիկիա
+Անդրանիկ
+Օլիմպիա
+ՄԻԿԱ
+Սարդարապատ
+Էջմիածին
+Հայք
+Բենտոնիտ

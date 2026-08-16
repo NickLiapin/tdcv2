@@ -1,0 +1,32 @@
+---
+address: armenia.holiday
+description: The holidays and memorial days of Armenia as the law of 24 June 2001 ՀՕ-200 «Հայաստանի Հանրապետության տոների և հիշատակի օրերի մասին» names them, in its own Armenian wording. THIRTEEN calendar days are non-working in 2026 — 31 December and 1-2 January (Ամանոր), 6 January (Սուրբ Ծնունդ և Հայտնություն), 27 January, 28 January, 8 March, 24 April, 1 May, 9 May, 28 May, 5 July and 21 September — and the first eleven lines below are those, with the New Year counted once. Everything after them is a statutory observance that is a normal working day; both kinds are in the statute and Armenian datasets use both, so both are here. TWO DEPARTURES FROM WHAT A NEIGHBOUR'S PACK WOULD SUGGEST. First, CHRISTMAS IS 6 JANUARY AND ONLY 6 JANUARY. The Armenian Apostolic Church never adopted the separate 25 December Nativity, keeping the original joint feast of the Nativity and the Theophany on 6 January, so Armenia is the one country in the region where 25 December is an ordinary working day and Russia's 7 January is not the date either. Second, the New Year break just got shorter: 3, 4 and 5 January were non-working "pre-Christmas" days under article 1 and are working days again, and 7 January (Մեռելոց) has gone the same way, which is why an Armenian working-day calendar computed from a source older than the recent amendments will be wrong by four days every January. 27 January, the memorial day for those who fell defending the homeland, is the newest entry and post-dates the 2020 and 2023 Karabakh wars. 24 April, the memorial day for the victims of the Armenian Genocide, is the day that most defines the Armenian year: it is non-working, it is not a celebration, and a system that labels it a "holiday" in a user-facing string will read badly in Armenia. Two more calendar shapes worth knowing and not modelled as fixed dates: Սուրբ Վարդանանց falls on the Thursday eight weeks before Easter and Սուրբ Էջմիածնի տոն on the Sunday 64 days after it, and the Armenian church computes Easter on its own reckoning, so neither can be derived from a Gregorian rule.
+locale: hy-am
+---
+Ամանոր
+Սուրբ Ծնունդ և Հայտնություն
+Հայրենիքի պաշտպանության համար զոհվածների հիշատակի օր
+Բանակի օր
+Կանանց տոն
+Հայոց ցեղասպանության զոհերի հիշատակի օր
+Աշխատանքի օր
+Հաղթանակի և խաղաղության տոն
+Հանրապետության տոն
+Սահմանադրության օր
+Անկախության տոն
+Մեռելոց հիշատակի օր
+Մայրենի լեզվի օր
+Մայրության և գեղեցկության տոն
+Երկրապահի օր
+Ընտանիքի օր
+Ուսանողների և երիտասարդների օր
+Երեխաների իրավունքների պաշտպանության օր
+Բռնադատվածների հիշատակի օր
+Գիտելիքի և դպրության օր
+Ուսուցչի օր
+Թարգմանչաց տոն
+Տեղական ինքնակառավարման օր
+Երկրաշարժի զոհերի հիշատակի օր
+Ցեղասպանությունների դատապարտման և կանխարգելման օր
+Սուրբ Վարդանանց տոն
+Սուրբ Էջմիածնի տոն

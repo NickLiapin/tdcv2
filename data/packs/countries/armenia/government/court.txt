@@ -1,0 +1,23 @@
+---
+address: armenia.government.court
+description: Every court that exists in Armenia, named as the Judicial Code — the constitutional law of 7 February 2018, articles 23, 24 and 28 — names them. The list is complete, not a sample: Armenia is a small unitary state and its whole judiciary is twenty courts. THE FIRST-INSTANCE COURTS ARE TERRITORIAL BUT THERE ARE TEN OF THEM FOR ELEVEN TERRITORIES, because Ararat and Vayots Dzor share one court — «Արարատի և Վայոց ձորի մարզերի առաջին ատյանի ընդհանուր իրավասության դատարան» — and Vayots Dzor, with 47,369 people, is too small to carry its own. Yerevan's court of first instance is by far the largest with a statutory minimum of 62 judges against six for Aragatsotn and six for Tavush. Each court has a central seat and other seats (նստավայրեր) that the Supreme Judicial Council fixes, so a case heard "in the Lori court" may have been heard in Vanadzor, Stepanavan or Alaverdi. Three specialised courts sit above the territorial ones in subject matter rather than in hierarchy: the Administrative Court, the Bankruptcy Court, and the Anti-Corruption Court created in 2021, which hears corruption prosecutions and also the civil claims for forfeiture of property of illegal origin. Their jurisdiction is the whole country and their central seats are in Yerevan. THE APPEAL TIER IS SUBJECT-MATTER, NOT GEOGRAPHIC — a civil, a criminal and an administrative appeal court, all three sitting in Yerevan, so unlike Poland or France there is no regional court of appeal, and there is deliberately no separate anti-corruption appeal court: those appeals go to the criminal and civil appeal courts, heard by judges designated for them. Above that sits one Court of Cassation. The Constitutional Court is outside the ordinary system entirely — it reviews the constitutionality of laws and does not hear appeals — which is why it is listed last rather than first.
+locale: hy-am
+---
+Երևան քաղաքի առաջին ատյանի ընդհանուր իրավասության դատարան
+Արագածոտնի մարզի առաջին ատյանի ընդհանուր իրավասության դատարան
+Արարատի և Վայոց ձորի մարզերի առաջին ատյանի ընդհանուր իրավասության դատարան
+Արմավիրի մարզի առաջին ատյանի ընդհանուր իրավասության դատարան
+Գեղարքունիքի մարզի առաջին ատյանի ընդհանուր իրավասության դատարան
+Կոտայքի մարզի առաջին ատյանի ընդհանուր իրավասության դատարան
+Լոռու մարզի առաջին ատյանի ընդհանուր իրավասության դատարան
+Շիրակի մարզի առաջին ատյանի ընդհանուր իրավասության դատարան
+Սյունիքի մարզի առաջին ատյանի ընդհանուր իրավասության դատարան
+Տավուշի մարզի առաջին ատյանի ընդհանուր իրավասության դատարան
+Վարչական դատարան
+Սնանկության դատարան
+Հակակոռուպցիոն դատարան
+Վերաքննիչ քաղաքացիական դատարան
+Վերաքննիչ քրեական դատարան
+Վերաքննիչ վարչական դատարան
+Վճռաբեկ դատարան
+Սահմանադրական դատարան
