@@ -1,0 +1,47 @@
+---
+address: romania.geo.county
+description: The 41 counties (județe) of Romania plus the municipality of București, which is not a județ but ranks with one; Romanian alphabetical order, the same order as romania.geo.countyCode
+locale: ro
+---
+Alba
+Arad
+Argeș
+Bacău
+Bihor
+Bistrița-Năsăud
+Botoșani
+Brașov
+Brăila
+București
+Buzău
+Caraș-Severin
+Călărași
+Cluj
+Constanța
+Covasna
+Dâmbovița
+Dolj
+Galați
+Giurgiu
+Gorj
+Harghita
+Hunedoara
+Ialomița
+Iași
+Ilfov
+Maramureș
+Mehedinți
+Mureș
+Neamț
+Olt
+Prahova
+Satu Mare
+Sălaj
+Sibiu
+Suceava
+Teleorman
+Timiș
+Tulcea
+Vaslui
+Vâlcea
+Vrancea

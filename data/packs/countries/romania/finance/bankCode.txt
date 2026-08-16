@@ -1,0 +1,23 @@
+---
+address: romania.finance.bankCode
+description: The four-letter bank codes that occupy positions 5-8 of a Romanian IBAN — RNCB is BCR, BTRL Banca Transilvania, BRDE BRD, WBAN Intesa Sanpaolo, BRMA Exim Banca Românească, ROIN Salt Bank. TREZ is not a bank but the State Treasury, and every Romanian public institution banks under it, so it is the code an invoice to the state carries.
+---
+RNCB
+BTRL
+BRDE
+INGB
+RZBR
+BACX
+CECE
+UGBI
+BREL
+CARP
+WBAN
+EGNA
+BRMA
+MIRO
+ROIN
+TBIB
+CRCO
+CITI
+TREZ

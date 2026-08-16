@@ -1,0 +1,22 @@
+---
+address: romania.holiday
+description: Public holidays in Romania (zile de sărbătoare legală, Codul muncii art. 139). The movable ones follow the ORTHODOX calendar — Vinerea Mare, Paște and Rusalii fall on the Julian-computus dates, which usually differ from the Western Easter by one to five weeks — and 1 December is Ziua Națională, the 1918 union proclaimed at Alba Iulia, not a summer or spring national day.
+locale: ro
+---
+Anul Nou
+A doua zi de Anul Nou
+Bobotează
+Sfântul Ioan Botezătorul
+Ziua Unirii Principatelor Române
+Vinerea Mare
+Prima zi de Paște
+A doua zi de Paște
+Ziua Muncii
+Ziua Copilului
+Prima zi de Rusalii
+A doua zi de Rusalii
+Adormirea Maicii Domnului
+Sfântul Andrei
+Ziua Națională a României
+Prima zi de Crăciun
+A doua zi de Crăciun

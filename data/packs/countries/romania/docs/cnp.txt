@@ -1,0 +1,65 @@
+---
+address: romania.docs.cnp
+description: Romanian CNP (cod numeric personal) — 13 digits: S YY MM DD JJ NNN C. S carries sex and century (1/2 = male/female born 1900-1999, 5/6 = male/female born 2000-2099), YYMMDD is the date of birth, JJ the county of registration, NNN a serial and C a check digit. C is the sum of the first twelve digits weighted by the constant 279146358279 taken mod 11, with a remainder of 10 written as 1.
+generator: tdc
+---
+<!-- County codes 01-39 are the județe in the Romanian alphabetical order fixed
+     in 1978; 40 is București and 41-46 its six sectors; 51 and 52 are Călărași
+     and Giurgiu, counties created in 1981 and appended after the fact. 47 and
+     48 named Bucharest districts 7 and 8, abolished in 1979, and are not drawn.
+     The order behind 01-39 is romania.geo.county with București, Călărași and
+     Giurgiu removed from their alphabetical places. -->
+<sequence name="county"><gen type="text" value="01,02,03,04,05,06,07,08,09,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,51,52"/></sequence>
+<sequence name="dob"><gen type="date" from="1935-01-01" to="2015-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="serial"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<sequence name="sexraw"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="cnp"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <!-- Decode the drawn calendar date (YYYYMMDD). -->
+  <let name="year"><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="0"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+  </concat></to_number></let>
+  <let name="yy"><concat>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+  </concat></let>
+  <let name="mmdd"><concat>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+  </concat></let>
+  <!-- Unlike the PESEL, the CNP keeps the month intact and puts the century in
+       the leading digit: 1900s = 1/2, 2000s = 5/6. Sex is the parity: odd male,
+       even female. -->
+  <let name="sex"><mod><field name="sexraw"/><int v="2"/></mod></let>
+  <let name="s">
+    <choose>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test>
+        <then><add><int v="5"/><use name="sex"/></add></then></when>
+      <otherwise><add><int v="1"/><use name="sex"/></add></otherwise>
+    </choose>
+  </let>
+  <let name="base"><concat><use name="s"/><use name="yy"/><use name="mmdd"/><field name="county"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="2,7,9,1,4,6,3,5,8,2,7,9"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="rem"><mod><use name="sum"/><int v="11"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><use name="rem"/><int v="10"/></equals></test><then><int v="1"/></then></when>
+      <otherwise><use name="rem"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{cnp}}</data>

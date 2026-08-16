@@ -1,0 +1,85 @@
+---
+address: romania.geo.city
+description: Cities of Romania, roughly ordered by population (2021 census)
+locale: ro
+---
+București
+Cluj-Napoca
+Iași
+Constanța
+Timișoara
+Craiova
+Brașov
+Galați
+Ploiești
+Oradea
+Brăila
+Arad
+Pitești
+Sibiu
+Bacău
+Târgu Mureș
+Baia Mare
+Buzău
+Botoșani
+Satu Mare
+Râmnicu Vâlcea
+Drobeta-Turnu Severin
+Suceava
+Piatra Neamț
+Focșani
+Târgoviște
+Bistrița
+Reșița
+Tulcea
+Slatina
+Călărași
+Alba Iulia
+Giurgiu
+Deva
+Hunedoara
+Zalău
+Sfântu Gheorghe
+Bârlad
+Vaslui
+Roman
+Turda
+Slobozia
+Alexandria
+Voluntari
+Medgidia
+Lugoj
+Mediaș
+Miercurea Ciuc
+Onești
+Sighetu Marmației
+Petroșani
+Mangalia
+Tecuci
+Râmnicu Sărat
+Pașcani
+Dej
+Reghin
+Năvodari
+Câmpina
+Săcele
+Caracal
+Făgăraș
+Fetești
+Curtea de Argeș
+Sighișoara
+Rădăuți
+Câmpulung
+Moinești
+Turnu Măgurele
+Caransebeș
+Dorohoi
+Roșiorii de Vede
+Cugir
+Buftea
+Popești-Leordeni
+Codlea
+Târnăveni
+Câmpia Turzii
+Gherla
+Salonta

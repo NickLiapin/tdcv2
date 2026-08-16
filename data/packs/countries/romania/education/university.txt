@@ -1,0 +1,35 @@
+---
+address: romania.education.university
+description: State universities of Romania (Romanian names)
+locale: ro
+---
+Universitatea din București
+Universitatea Babeș-Bolyai din Cluj-Napoca
+Universitatea Alexandru Ioan Cuza din Iași
+Universitatea Națională de Știință și Tehnologie Politehnica București
+Universitatea Tehnică din Cluj-Napoca
+Universitatea Tehnică Gheorghe Asachi din Iași
+Universitatea Politehnica Timișoara
+Universitatea de Vest din Timișoara
+Academia de Studii Economice din București
+Universitatea de Medicină și Farmacie Carol Davila din București
+Universitatea de Medicină și Farmacie Iuliu Hațieganu din Cluj-Napoca
+Universitatea de Medicină și Farmacie Grigore T. Popa din Iași
+Universitatea de Medicină și Farmacie Victor Babeș din Timișoara
+Universitatea de Științe Agronomice și Medicină Veterinară din București
+Universitatea de Arhitectură și Urbanism Ion Mincu
+Universitatea din Craiova
+Universitatea Transilvania din Brașov
+Universitatea Lucian Blaga din Sibiu
+Universitatea Ovidius din Constanța
+Universitatea Dunărea de Jos din Galați
+Universitatea din Oradea
+Universitatea Ștefan cel Mare din Suceava
+Universitatea Vasile Alecsandri din Bacău
+Universitatea 1 Decembrie 1918 din Alba Iulia
+Universitatea Aurel Vlaicu din Arad
+Universitatea Valahia din Târgoviște
+Universitatea Petrol-Gaze din Ploiești
+Universitatea Maritimă din Constanța
+Universitatea Națională de Apărare Carol I
+Academia Tehnică Militară Ferdinand I

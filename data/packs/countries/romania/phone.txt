@@ -1,0 +1,6 @@
+---
+address: romania.phone
+description: Romanian mobile number in E.164 form — +40 then a nine-digit national number opening 7X, where X is 1-9 (071 Orange, 072-073 Vodafone, 074-075 Orange, 076 and 078 Telekom, 077 and 079 Digi). 070 is personal numbering, not mobile, so it is excluded.
+generator: tdc
+---
+<gen type="regex" value="\+407[1-9][0-9]{7}"/>

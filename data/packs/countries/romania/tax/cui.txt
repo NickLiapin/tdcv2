@@ -1,0 +1,29 @@
+---
+address: romania.tax.cui
+description: Romanian CUI / CIF (cod unic de înregistrare) — the company registration number issued by ONRC, 2 to 10 digits of which the last is a check digit. The body is right-aligned against the key 753217532, the weighted sum is multiplied by 10 and taken mod 11, and a remainder of 10 is written as 0. Bodies are drawn in the 6-7 digit band, which is where real Romanian companies sit.
+generator: tdc
+---
+<sequence name="base"><gen type="number" value="100000..4999999"/></sequence>
+<sequence name="cui"><compute>
+  <!-- The key is applied from the right, so a short body is left-padded to the
+       nine positions of the key rather than the key being truncated. -->
+  <let name="p"><pad width="9" fill="0"><field name="base"/></pad></let>
+  <let name="sum"><reduce>
+    <over><use name="p"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="7,5,3,2,1,7,5,3,2"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="r"><mod><multiply><use name="sum"/><int v="10"/></multiply><int v="11"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><use name="r"/><int v="10"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><use name="r"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{cui}}</data>

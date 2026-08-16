@@ -1,0 +1,25 @@
+---
+address: romania.finance.bank
+description: Banks operating in Romania (Romanian trading names). Accounts are in lei — Romania joined the EU in 2007 but has not adopted the euro, so a Romanian IBAN is not a euro IBAN.
+locale: ro
+---
+Banca Transilvania
+Banca Comercială Română
+BRD - Groupe Société Générale
+ING Bank România
+Raiffeisen Bank România
+UniCredit Bank
+CEC Bank
+Exim Banca Românească
+Libra Internet Bank
+Patria Bank
+ProCredit Bank
+Garanti BBVA
+Vista Bank
+Intesa Sanpaolo Bank România
+Salt Bank
+TBI Bank
+Techventures Bank
+Banca Centrală Cooperatistă CREDITCOOP
+Citibank Europe
+Revolut Bank

@@ -1,0 +1,9 @@
+---
+address: romania.vehicle.plate
+description: Romanian registration plate — county code, a two-digit group (01-99, never 00) and a three-letter group, e.g. CJ 07 ABC. The county code is drawn from romania.geo.countyCode, so B really is București and TM really is Timiș. Q is never used and the letter group may not begin with I or O. București alone may also carry a three-digit group (B 123 ABC), which this generator does not emit.
+generator: tdc
+---
+<sequence name="code"><gen type="template" value="romania.geo.countyCode"/></sequence>
+<sequence name="digits"><gen type="number" value="1..99" length="2" first_zero="true"/></sequence>
+<sequence name="letters"><gen type="regex" value="[A-HJ-NPR-Z][A-PR-Z]{2}"/></sequence>
+<data>${{code}} ${{digits}} ${{letters}}</data>

@@ -1,0 +1,33 @@
+---
+address: romania.sport.team
+description: Superliga and Liga 2 football clubs (Romanian names). FCSB and CSA Steaua București are two separate clubs — the army club kept the Steaua name and badge after the 2017 ruling, while the Superliga side plays as FCSB.
+locale: ro
+---
+FCSB
+CFR Cluj
+Universitatea Craiova
+Rapid București
+Dinamo București
+Universitatea Cluj
+Farul Constanța
+Sepsi OSK Sfântu Gheorghe
+Petrolul Ploiești
+UTA Arad
+Oțelul Galați
+Politehnica Iași
+FC Botoșani
+FC Hermannstadt
+FC Argeș Pitești
+Gloria Buzău
+Unirea Slobozia
+Metaloglobus București
+CSA Steaua București
+FC Voluntari
+Concordia Chiajna
+Chindia Târgoviște
+CS Mioveni
+Corvinul Hunedoara
+Poli Timișoara
+Ceahlăul Piatra Neamț
+Gaz Metan Mediaș
+Astra Giurgiu

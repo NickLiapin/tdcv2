@@ -1,6 +1,10 @@
 ---
 address: romania.tax.vat
-description: Romanian VAT / CIF (RO + 2 to 10 digits, no checksum)
+description: Romanian VAT number (cod de înregistrare în scopuri de TVA) — the prefix RO followed by the company's CUI, so it carries the CUI's own 753217532 check digit rather than being free digits.
 generator: tdc
 ---
-<gen type="regex" value="RO[0-9]{2,10}"/>
+<!-- A Romanian VAT number is not a separate number: a company registered for
+     VAT keeps its CUI and gains the RO prefix. Drawing it from romania.tax.cui
+     keeps the checksum real and keeps the two files from drifting apart. -->
+<sequence name="cui"><gen type="template" value="romania.tax.cui"/></sequence>
+<data>RO${{cui}}</data>

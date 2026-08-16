@@ -1,0 +1,6 @@
+---
+address: romania.geo.postalCode
+description: Romanian postal code (cod poștal) — six digits since 1 May 2003. The first digit is one of ten postal regions, the second the county inside it, the last four the street or building. Region 0 is București and Ilfov, so a leading zero is normal and the code is a string, not a number; 00xxxx is not issued.
+generator: tdc
+---
+<gen type="number" value="10000..999999" length="6" first_zero="true"/>
