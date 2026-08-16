@@ -1,0 +1,23 @@
+---
+description: Film genre (Chinese). 主旋律 is the state-approved patriotic genre and is a real box-office category in China.
+locale: zh-cn
+---
+剧情
+喜剧
+动作
+爱情
+科幻
+悬疑
+惊悚
+恐怖
+犯罪
+战争
+历史
+古装
+武侠
+动画
+纪录片
+青春
+家庭
+公路
+主旋律

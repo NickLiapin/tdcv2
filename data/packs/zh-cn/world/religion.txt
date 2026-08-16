@@ -1,0 +1,25 @@
+---
+description: Religion (Chinese). China recognises five official religions — 佛教, 道教, 伊斯兰教, 天主教, 基督教 (Protestantism, counted separately from Catholicism) — and the largest actual category is 无宗教信仰. 民间信仰 (local folk religion, including 妈祖信仰) is practised far more widely than any of the five and is not officially a religion at all.
+locale: zh-cn
+---
+佛教
+道教
+伊斯兰教
+天主教
+基督教
+东正教
+藏传佛教
+南传佛教
+儒家
+民间信仰
+妈祖信仰
+萨满教
+苯教
+印度教
+犹太教
+锡克教
+神道教
+巴哈伊教
+摩尼教
+祆教
+无宗教信仰

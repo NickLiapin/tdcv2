@@ -1,0 +1,16 @@
+---
+description: Streaming platform used in China. Netflix, Spotify and YouTube are not available in the country, so none of them appear; 爱奇艺, 腾讯视频, 优酷 and 芒果TV are the four big video services and 哔哩哔哩 the one people under thirty actually live on.
+locale: zh-cn
+---
+爱奇艺
+腾讯视频
+优酷
+芒果TV
+哔哩哔哩
+抖音
+快手
+西瓜视频
+咪咕视频
+QQ音乐
+网易云音乐
+喜马拉雅

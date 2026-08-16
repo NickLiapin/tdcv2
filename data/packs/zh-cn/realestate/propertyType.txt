@@ -1,0 +1,23 @@
+---
+description: Property type (Chinese). 法拍房 is a court-auctioned property and a real market segment; 商住两用 is a lease-limited hybrid; and 农村宅基地 is rural homestead land, which is collectively owned and cannot be sold to an outsider at all.
+locale: zh-cn
+---
+住宅
+公寓
+别墅
+LOFT
+商铺
+写字楼
+厂房
+仓库
+车位
+商住两用
+四合院
+自建房
+农村宅基地
+学区房
+二手房
+新房
+期房
+现房
+法拍房

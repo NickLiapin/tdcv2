@@ -1,0 +1,26 @@
+---
+description: Metal (Chinese). Chinese writes most metal names with the 金 radical, which is why 铁 铜 银 锌 铝 all share a left-hand component.
+locale: zh-cn
+---
+金
+银
+铜
+铁
+铝
+锌
+锡
+铅
+镍
+钛
+镁
+钨
+钼
+钴
+铬
+锰
+汞
+铂
+钯
+稀土
+不锈钢
+青铜

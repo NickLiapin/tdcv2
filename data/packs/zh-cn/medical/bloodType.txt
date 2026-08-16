@@ -1,0 +1,12 @@
+---
+description: Blood group (Chinese). Chinese writes the ABO group with 型 — A型 — and states the Rh factor separately. Rh-negative blood is rare in China (well under 1% of Han Chinese, against about 15% of Europeans) and is colloquially called 熊猫血, panda blood, because of how hard it is to find a donor.
+locale: zh-cn
+---
+A型Rh阳性
+A型Rh阴性
+B型Rh阳性
+B型Rh阴性
+AB型Rh阳性
+AB型Rh阴性
+O型Rh阳性
+O型Rh阴性

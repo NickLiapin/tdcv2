@@ -1,0 +1,11 @@
+---
+description: Weekday name (Chinese). The days are simply numbered from Monday — 星期一 is day one — and Sunday is the exception, named 星期日 (or 星期天 in speech) rather than 星期七. The colloquial form replaces 星期 with 周: 周一, 周日.
+locale: zh-cn
+---
+星期日
+星期一
+星期二
+星期三
+星期四
+星期五
+星期六

@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Chinese district, gate or estate name (东门, 城北, 中央). Chinese names the four directions in the order 东南西北 — east first, not north — and compounds them the other way round from English: 东南 is south-east, 西北 is north-west.
+locale: zh-cn
+---
+东
+南
+西
+北
+中
+东南
+东北
+西南
+西北
+上
+下
+内
+外
+前
+后

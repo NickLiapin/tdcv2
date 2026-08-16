@@ -1,0 +1,14 @@
+---
+description: Dishes of 鲁菜 (Chinese).
+locale: zh-cn
+---
+糖醋鲤鱼
+九转大肠
+葱烧海参
+爆炒腰花
+油焖大虾
+四喜丸子
+德州扒鸡
+一品豆腐
+奶汤蒲菜
+把子肉

@@ -1,0 +1,14 @@
+---
+description: Dishes of 徽菜 (Chinese).
+locale: zh-cn
+---
+臭鳜鱼
+毛豆腐
+一品锅
+火腿炖甲鱼
+黄山炖鸽
+徽州圆子
+问政山笋
+中和汤
+蟹壳黄烧饼
+石耳炖鸡

@@ -1,0 +1,20 @@
+---
+description: Seniority level (Chinese). Chinese company ladders are shorter than European ones and 总 alone (王总) addresses anyone from a director upward.
+locale: zh-cn
+---
+实习生
+应届生
+初级
+中级
+高级
+资深
+专家
+主管
+组长
+经理
+高级经理
+总监
+副总裁
+总裁
+副总经理
+总经理

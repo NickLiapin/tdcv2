@@ -1,0 +1,11 @@
+---
+description: Cable conduit type (Chinese).
+locale: zh-cn
+---
+PVC管
+镀锌钢管
+金属软管
+桥架
+线槽
+地埋管
+穿线管

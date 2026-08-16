@@ -1,0 +1,17 @@
+---
+description: Freight cargo type (Chinese).
+locale: zh-cn
+---
+普通货物
+危险品
+冷藏货物
+生鲜
+散货
+集装箱
+大件货物
+超限货物
+液体货物
+粮食
+煤炭
+建材
+快递包裹

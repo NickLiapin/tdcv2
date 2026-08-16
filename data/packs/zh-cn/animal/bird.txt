@@ -1,0 +1,34 @@
+---
+description: Bird (Chinese). 丹顶鹤, 朱鹮 and 红腹锦鸡 are Chinese species; 喜鹊 carries the meaning 'good news' and is the bird of the Qixi legend.
+locale: zh-cn
+---
+麻雀
+喜鹊
+乌鸦
+燕子
+鸽子
+画眉
+黄鹂
+百灵
+八哥
+鹦鹉
+翠鸟
+啄木鸟
+布谷鸟
+杜鹃
+仙鹤
+丹顶鹤
+朱鹮
+白鹭
+苍鹭
+天鹅
+大雁
+野鸭
+鸳鸯
+孔雀
+红腹锦鸡
+猫头鹰
+老鹰
+隼
+海鸥
+鸬鹚

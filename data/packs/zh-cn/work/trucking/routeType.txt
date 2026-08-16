@@ -1,0 +1,11 @@
+---
+description: Haulage route type (Chinese).
+locale: zh-cn
+---
+市内配送
+省内运输
+跨省长途
+干线运输
+支线运输
+最后一公里
+回程车

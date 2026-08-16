@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 精神科 (Chinese).
+locale: zh-cn
+---
+抑郁症
+焦虑症
+双相情感障碍
+精神分裂症
+强迫症
+失眠症
+创伤后应激障碍
+惊恐障碍
+注意缺陷多动障碍
+神经衰弱

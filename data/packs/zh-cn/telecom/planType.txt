@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Chinese).
+locale: zh-cn
+---
+预付费
+后付费
+月租套餐
+流量包
+语音包
+短信包
+5G套餐
+融合套餐
+家庭共享套餐
+校园套餐
+日租卡
+物联网卡

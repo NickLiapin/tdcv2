@@ -1,0 +1,28 @@
+---
+description: Mobile carrier in China. The state operators are the first three (a fourth, 中国广电, launched 5G service in 2022); everything after 沃派 is a real MVNO reselling their network. 全球通 / 神州行 / 动感地带 are 中国移动's own long-running brand tiers, not separate companies.
+locale: zh-cn
+---
+中国移动
+中国联通
+中国电信
+中国广电
+全球通
+神州行
+动感地带
+沃派
+天翼
+小米移动
+京东通信
+阿里通信
+苏宁互联
+国美极信
+蜗牛移动
+分享通信
+迪信通通信
+远特通信
+民生通讯
+话机世界
+长江时代
+巴士在线
+中国移动香港
+中国联通国际

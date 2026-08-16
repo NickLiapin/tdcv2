@@ -1,0 +1,14 @@
+---
+description: Dishes of 湘菜 (Chinese).
+locale: zh-cn
+---
+剁椒鱼头
+毛氏红烧肉
+辣椒炒肉
+口味虾
+腊味合蒸
+干锅牛蛙
+外婆菜
+血粑鸭
+臭豆腐
+农家小炒肉

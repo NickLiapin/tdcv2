@@ -1,0 +1,22 @@
+---
+description: Kind of venue (Chinese). 庙会 is a temple fair, 会展中心 the convention complex every provincial capital has, and 农家乐 a countryside restaurant and day-trip venue.
+locale: zh-cn
+---
+酒店宴会厅
+饭店
+会展中心
+体育馆
+体育场
+剧院
+音乐厅
+电影院
+展览馆
+博物馆
+文化馆
+社区活动中心
+学校礼堂
+公园
+广场
+庙会
+农家乐
+度假村

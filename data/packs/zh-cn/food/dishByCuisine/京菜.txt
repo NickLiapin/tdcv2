@@ -1,0 +1,14 @@
+---
+description: Dishes of 京菜 (Chinese).
+locale: zh-cn
+---
+北京烤鸭
+涮羊肉
+炸酱面
+豆汁
+卤煮火烧
+爆肚
+京酱肉丝
+炒肝
+驴打滚
+艾窝窝

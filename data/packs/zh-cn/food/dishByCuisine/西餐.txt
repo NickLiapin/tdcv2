@@ -1,0 +1,14 @@
+---
+description: Dishes of 西餐 (Chinese).
+locale: zh-cn
+---
+牛排
+意大利面
+披萨
+汉堡
+凯撒沙拉
+奶油蘑菇汤
+罗宋汤
+焗饭
+三明治
+炸鱼薯条

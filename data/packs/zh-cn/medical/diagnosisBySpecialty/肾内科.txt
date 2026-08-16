@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 肾内科 (Chinese).
+locale: zh-cn
+---
+慢性肾脏病
+急性肾损伤
+肾病综合征
+IgA肾病
+糖尿病肾病
+高血压肾病
+肾结石
+尿路感染
+多囊肾
+尿毒症

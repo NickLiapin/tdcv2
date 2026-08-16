@@ -1,0 +1,14 @@
+---
+description: Dishes of 日本料理 (Chinese).
+locale: zh-cn
+---
+寿司
+刺身
+天妇罗
+日式拉面
+味噌汤
+照烧鸡
+鳗鱼饭
+章鱼小丸子
+寿喜锅
+日式咖喱

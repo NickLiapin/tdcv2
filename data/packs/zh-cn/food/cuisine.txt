@@ -1,0 +1,21 @@
+---
+description: Cuisine (Chinese). The first eight are the 八大菜系, the regional schools Chinese cooking is actually classified by — a Chinese diner picks between 川菜 and 粤菜 the way a European one picks between countries, and 'Chinese food' is not a category anyone inside China orders from. Each value has a dishByCuisine child file.
+locale: zh-cn
+---
+川菜
+粤菜
+鲁菜
+苏菜
+浙菜
+闽菜
+湘菜
+徽菜
+东北菜
+西北菜
+京菜
+清真菜
+火锅
+日本料理
+韩国料理
+西餐
+泰国菜

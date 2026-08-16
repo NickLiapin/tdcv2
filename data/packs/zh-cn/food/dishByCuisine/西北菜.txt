@@ -1,0 +1,14 @@
+---
+description: Dishes of 西北菜 (Chinese).
+locale: zh-cn
+---
+羊肉泡馍
+肉夹馍
+手抓羊肉
+大盘鸡
+兰州牛肉面
+裤带面
+凉皮
+烤羊肉串
+馕坑肉
+胡辣汤

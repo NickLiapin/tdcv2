@@ -1,0 +1,16 @@
+---
+description: Type of meeting (Chinese). 复盘会 — the post-mortem held after anything, successful or not — is a fixture of Chinese company life.
+locale: zh-cn
+---
+晨会
+周会
+月度会
+季度会
+复盘会
+需求评审会
+项目启动会
+部门例会
+一对一沟通
+全员大会
+述职会
+年会

@@ -1,0 +1,16 @@
+---
+description: Shoe size as China labels it. Everyday Chinese says the EU number — 我穿40码 — so the values here are that number; the national standard GB/T 3293 prints the foot length in millimetres beside it (40码 is 250mm), which is what the box says.
+locale: zh-cn
+---
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45

@@ -1,0 +1,14 @@
+---
+description: Dishes of 韩国料理 (Chinese).
+locale: zh-cn
+---
+韩式烤肉
+石锅拌饭
+泡菜
+部队锅
+韩式冷面
+韩式炸鸡
+辣炒年糕
+大酱汤
+参鸡汤
+紫菜包饭

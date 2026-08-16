@@ -1,0 +1,21 @@
+---
+description: Social platform used in China. Facebook, Instagram, X and WhatsApp are blocked and do not appear. 微信 is not comparable to any single Western app — it carries messaging, payments, government services and 小程序 mini-apps at once.
+locale: zh-cn
+---
+微信
+QQ
+微博
+抖音
+快手
+小红书
+哔哩哔哩
+知乎
+豆瓣
+贴吧
+今日头条
+视频号
+朋友圈
+闲鱼
+大众点评
+钉钉
+飞书

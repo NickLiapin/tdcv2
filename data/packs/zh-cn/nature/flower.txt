@@ -1,0 +1,32 @@
+---
+description: Flower (Chinese). 梅 兰 竹 菊 are the 四君子, the four gentlemen of Chinese painting; 牡丹 is the flower of wealth and 荷花 of purity.
+locale: zh-cn
+---
+牡丹
+芍药
+梅花
+兰花
+菊花
+荷花
+桂花
+茉莉
+玫瑰
+月季
+杜鹃花
+山茶花
+海棠
+玉兰
+紫藤
+丁香
+石榴花
+栀子花
+水仙
+君子兰
+凤仙花
+牵牛花
+向日葵
+百合
+郁金香
+康乃馨
+薰衣草
+满天星

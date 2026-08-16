@@ -1,0 +1,15 @@
+---
+description: Employment type (Chinese). 劳务派遣 (agency dispatch) and 编制内 (an established post in a state body, which carries tenure and a different pension) are Chinese categories a European list will not have.
+locale: zh-cn
+---
+全职
+兼职
+实习
+劳务派遣
+外包
+劳务合同
+编制内
+合同工
+临时工
+自由职业
+返聘

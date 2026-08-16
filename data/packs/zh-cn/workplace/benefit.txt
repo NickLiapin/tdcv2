@@ -1,0 +1,22 @@
+---
+description: Employment benefit (Chinese). 五险一金 — five insurances and one fund — is the statutory package every Chinese job advert names first, and it is one word, not a list.
+locale: zh-cn
+---
+五险一金
+年终奖
+带薪年假
+补充医疗保险
+住房补贴
+交通补贴
+餐补
+话费补贴
+高温补贴
+节日福利
+免费班车
+员工食堂
+定期体检
+股票期权
+培训补贴
+团建活动
+生日福利
+加班调休

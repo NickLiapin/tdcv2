@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Chinese). Chinese hospitals name departments by 内科 / 外科 plus the organ — 心内科 is cardiology as an internal-medicine department, and 心外科 (cardiac surgery) is a different department under a different roof.
+locale: zh-cn
+---
+心内科
+神经内科
+肿瘤科
+皮肤科
+消化内科
+内分泌科
+呼吸内科
+骨科
+精神科
+肾内科

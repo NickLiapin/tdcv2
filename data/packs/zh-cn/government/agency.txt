@@ -1,0 +1,27 @@
+---
+description: Government body (Chinese). The list runs top to bottom: 局 and 委员会 are the municipal bureaux, and the last three — 街道办事处, 居委会, 村委会 — are the sub-district and neighbourhood level that handles most of what a citizen actually deals with, and has no European counterpart.
+locale: zh-cn
+---
+公安局
+派出所
+税务局
+民政局
+人力资源和社会保障局
+市场监督管理局
+海关
+教育局
+卫生健康委员会
+发展和改革委员会
+住房和城乡建设局
+交通运输局
+生态环境局
+应急管理局
+统计局
+财政局
+商务局
+文化和旅游局
+自然资源局
+农业农村局
+医疗保障局
+街道办事处
+居民委员会

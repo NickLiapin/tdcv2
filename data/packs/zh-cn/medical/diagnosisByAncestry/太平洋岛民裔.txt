@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of 太平洋岛民裔 ancestry, in Chinese.
+locale: zh-cn
+---
+2型糖尿病
+肥胖症
+痛风
+高尿酸血症
+风湿热
+慢性肾脏病
+类风湿关节炎
+哮喘
+乙型肝炎
+心血管疾病

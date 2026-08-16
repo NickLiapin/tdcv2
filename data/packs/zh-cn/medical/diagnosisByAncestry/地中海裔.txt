@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of 地中海裔 ancestry, in Chinese.
+locale: zh-cn
+---
+β地中海贫血
+蚕豆病
+家族性地中海热
+血色病
+遗传性球形红细胞增多症
+系统性红斑狼疮
+白塞病
+家族性高胆固醇血症
+囊性纤维化
+血友病

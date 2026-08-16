@@ -1,0 +1,11 @@
+---
+description: Positions or team-match slots in 乒乓球 (Chinese).
+locale: zh-cn
+---
+一单
+二单
+三单
+一双
+二双
+混双
+团体替补

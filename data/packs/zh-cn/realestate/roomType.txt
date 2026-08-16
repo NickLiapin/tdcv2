@@ -1,0 +1,20 @@
+---
+description: Room layout or room (Chinese). A Chinese flat is described by its 户型 — rooms and reception rooms, counted as 三室两厅 — rather than by a bedroom count, and the 厅 is counted because a second one means a separate dining room.
+locale: zh-cn
+---
+一室一厅
+两室一厅
+两室两厅
+三室一厅
+三室两厅
+四室两厅
+开间
+复式
+跃层
+主卧
+次卧
+客厅
+餐厅
+书房
+厨房
+卫生间

@@ -1,0 +1,8 @@
+---
+description: Gender label as it appears on a Chinese form. The resident identity card carries only 男 / 女.
+locale: zh-cn
+---
+男
+女
+其他
+未说明

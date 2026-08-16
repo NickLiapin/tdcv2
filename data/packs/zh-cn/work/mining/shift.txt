@@ -1,0 +1,9 @@
+---
+description: Mining shift (Chinese).
+locale: zh-cn
+---
+早班
+中班
+夜班
+白班
+检修班

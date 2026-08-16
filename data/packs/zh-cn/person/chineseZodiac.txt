@@ -1,0 +1,16 @@
+---
+description: Chinese zodiac animal (生肖 / 属相). Determined by the birth YEAR on the lunar calendar, not by the date, and it repeats on a twelve-year cycle, so it is derivable from a birth year but NOT from a birth month or day. Asking someone 你属什么 is a socially acceptable way of asking their age.
+locale: zh-cn
+---
+鼠
+牛
+虎
+兔
+龙
+蛇
+马
+羊
+猴
+鸡
+狗
+猪

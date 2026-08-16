@@ -1,0 +1,14 @@
+---
+description: Loan type (Chinese). A Chinese mortgage comes in three forms: at the commercial rate, at the lower rate of the housing provident fund, or as a combination of both, which is a distinction the European locales do not have.
+locale: zh-cn
+---
+住房商业贷款
+住房公积金贷款
+组合贷款
+消费贷款
+信用贷款
+抵押贷款
+汽车贷款
+助学贷款
+经营贷款
+装修贷款

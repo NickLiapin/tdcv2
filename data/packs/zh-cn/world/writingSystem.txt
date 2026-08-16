@@ -1,0 +1,24 @@
+---
+description: Writing system (Chinese). 简体字 is what this pack is written in; 繁体字 is the traditional form still used in Taiwan, Hong Kong and Macau, and is a different pack (zh-tw, zh-hk, zh-mo), not a style option. 拼音 is a romanisation for input and teaching, not a script anyone writes in.
+locale: zh-cn
+---
+简体字
+繁体字
+拼音
+注音符号
+甲骨文
+金文
+篆书
+隶书
+拉丁字母
+西里尔字母
+希腊字母
+阿拉伯字母
+希伯来字母
+天城文
+泰文
+谚文
+假名
+藏文
+蒙古文
+彝文

@@ -1,0 +1,31 @@
+---
+description: Dog breed (Chinese). 中华田园犬 is the native landrace; 松狮 and 沙皮 are Chinese breeds and 西施犬 despite the name is not.
+locale: zh-cn
+---
+中华田园犬
+金毛寻回犬
+拉布拉多犬
+德国牧羊犬
+边境牧羊犬
+哈士奇
+阿拉斯加雪橇犬
+萨摩耶
+柯基
+柴犬
+秋田犬
+比熊
+泰迪
+贵宾犬
+博美
+吉娃娃
+腊肠犬
+斗牛犬
+法国斗牛犬
+杜宾犬
+罗威纳
+松狮犬
+沙皮犬
+西施犬
+京巴犬
+藏獒
+拉萨犬

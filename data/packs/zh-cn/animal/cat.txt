@@ -1,0 +1,22 @@
+---
+description: Cat breed (Chinese). 狸花猫 is the Chinese native shorthair and the most common cat in the country.
+locale: zh-cn
+---
+狸花猫
+橘猫
+奶牛猫
+三花猫
+玄猫
+英国短毛猫
+美国短毛猫
+布偶猫
+波斯猫
+暹罗猫
+缅因猫
+俄罗斯蓝猫
+苏格兰折耳猫
+孟买猫
+无毛猫
+金渐层
+银渐层
+中华田园猫

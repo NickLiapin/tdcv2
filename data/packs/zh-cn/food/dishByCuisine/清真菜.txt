@@ -1,0 +1,14 @@
+---
+description: Dishes of 清真菜 (Chinese).
+locale: zh-cn
+---
+手抓饭
+羊肉串
+馕
+拉条子
+烤包子
+羊杂汤
+牛肉面
+奶茶
+馓子
+羊肉焖饼

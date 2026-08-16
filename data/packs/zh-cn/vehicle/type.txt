@@ -1,0 +1,26 @@
+---
+description: Type of vehicle (Chinese). 电动自行车 and 三轮车 carry a large share of Chinese urban traffic and rarely appear on a European list; 网约车 (ride-hailing) is a separate licensed vehicle category from 出租车.
+locale: zh-cn
+---
+轿车
+SUV
+MPV
+两厢车
+三厢车
+跑车
+越野车
+皮卡
+面包车
+微型车
+新能源汽车
+纯电动车
+插电混动车
+出租车
+网约车
+公交车
+大巴车
+校车
+卡车
+挂车
+房车
+电动自行车

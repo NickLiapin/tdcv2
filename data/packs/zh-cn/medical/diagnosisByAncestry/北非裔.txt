@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of 北非裔 ancestry, in Chinese.
+locale: zh-cn
+---
+家族性地中海热
+G6PD缺乏症
+β地中海贫血
+糖原累积病
+苯丙酮尿症
+视网膜色素变性
+遗传性听力损失
+白化病
+蚕豆病
+家族性高胆固醇血症

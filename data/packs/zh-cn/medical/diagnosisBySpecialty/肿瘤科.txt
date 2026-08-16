@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 肿瘤科 (Chinese).
+locale: zh-cn
+---
+肺癌
+胃癌
+肝癌
+食管癌
+结直肠癌
+乳腺癌
+鼻咽癌
+淋巴瘤
+白血病
+甲状腺癌

@@ -1,0 +1,9 @@
+---
+description: Credit rating band. China has no FICO score: the 央行征信报告 carries a record rather than a number, and the score people actually quote is 芝麻信用 — Alipay's private score, running 350 to 950 with these five bands.
+locale: zh-cn
+---
+较差
+中等
+良好
+优秀
+极好

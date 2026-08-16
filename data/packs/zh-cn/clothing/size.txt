@@ -1,0 +1,12 @@
+---
+description: Clothing size (Chinese). Both scales are on the label: the international letters and the national standard GB/T 1335, which sizes by height in centimetres and chest girth (170/88A).
+locale: zh-cn
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+均码

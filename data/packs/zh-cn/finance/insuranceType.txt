@@ -1,0 +1,18 @@
+---
+description: Insurance type (Chinese). The first five plus 住房公积金 are the statutory 五险一金 that an employer deducts; the rest are commercial products bought on top.
+locale: zh-cn
+---
+养老保险
+医疗保险
+失业保险
+工伤保险
+生育保险
+住房公积金
+商业医疗险
+重疾险
+意外险
+定期寿险
+终身寿险
+年金险
+交强险
+商业车险

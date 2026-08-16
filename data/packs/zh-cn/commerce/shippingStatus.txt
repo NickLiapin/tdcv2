@@ -1,0 +1,15 @@
+---
+description: Shipping status (Chinese).
+locale: zh-cn
+---
+已下单
+仓库处理中
+已出库
+已揽收
+运输中
+到达分拣中心
+派送中
+已投柜
+已签收
+派送失败
+退回中

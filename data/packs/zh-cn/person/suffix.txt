@@ -1,0 +1,28 @@
+---
+description: Professional or academic title written after a Chinese name. Chinese has no Jr. / Sr. / III: where a European family repeats a name across generations, a Chinese one traditionally shares a GENERATIONAL CHARACTER (辈分字) inside the given name of every cousin in the same generation, which is not a suffix and cannot be modelled as one.
+locale: zh-cn
+---
+院士
+博士
+硕士
+学士
+博士后
+教授
+副教授
+讲师
+研究员
+副研究员
+高级工程师
+工程师
+助理工程师
+高级技师
+技师
+主任医师
+副主任医师
+主治医师
+注册会计师
+一级建造师
+特级教师
+高级教师
+注册律师
+高级经济师

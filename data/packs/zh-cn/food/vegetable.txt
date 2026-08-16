@@ -1,0 +1,34 @@
+---
+description: Vegetable (Chinese). 白菜, 韭菜, 空心菜, 苦瓜, 莲藕, 茭白 and 香椿 are staples of a Chinese kitchen with no fixed English name.
+locale: zh-cn
+---
+白菜
+大白菜
+小白菜
+青菜
+菠菜
+油麦菜
+生菜
+芹菜
+韭菜
+香菜
+空心菜
+茼蒿
+苋菜
+香椿
+萝卜
+胡萝卜
+土豆
+红薯
+山药
+莲藕
+茭白
+竹笋
+冬瓜
+南瓜
+苦瓜
+黄瓜
+丝瓜
+茄子
+西红柿
+辣椒

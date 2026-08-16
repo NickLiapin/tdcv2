@@ -1,0 +1,11 @@
+---
+description: Number of people in the household (户). The Chinese household register 户口本 is issued per household, so this is a real administrative field rather than a survey question.
+locale: zh-cn
+---
+1
+2
+3
+4
+5
+6
+7+

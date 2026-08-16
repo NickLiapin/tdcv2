@@ -1,0 +1,32 @@
+---
+description: Book genre (Chinese). 玄幻, 仙侠 and 都市 are categories of the Chinese web-novel market, which is larger than the printed one and has no Western counterpart; 教辅 is exam-preparation material and is the best-selling print category in the country.
+locale: zh-cn
+---
+小说
+武侠
+玄幻
+仙侠
+都市
+历史
+军事
+悬疑
+推理
+科幻
+言情
+青春文学
+儿童文学
+散文
+诗歌
+传记
+纪实文学
+社会科学
+哲学
+心理学
+经济管理
+计算机
+教辅
+考试
+养生
+菜谱
+旅游
+绘本

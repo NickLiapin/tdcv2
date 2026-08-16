@@ -1,0 +1,30 @@
+---
+description: Diagnosis that only affects women, or is overwhelmingly female, in Chinese.
+locale: zh-cn
+---
+乳腺癌
+乳腺增生
+乳腺炎
+宫颈癌
+宫颈炎
+子宫肌瘤
+子宫内膜异位症
+子宫内膜癌
+卵巢囊肿
+卵巢癌
+多囊卵巢综合征
+盆腔炎
+阴道炎
+月经不调
+痛经
+闭经
+更年期综合征
+先兆流产
+妊娠期糖尿病
+妊娠期高血压
+子痫前期
+产后出血
+产后抑郁
+不孕症
+桥本甲状腺炎
+系统性红斑狼疮

@@ -1,0 +1,14 @@
+---
+description: Competitive rank ladder (Chinese), as 英雄联盟 and 王者荣耀 name the tiers.
+locale: zh-cn
+---
+黑铁
+青铜
+白银
+黄金
+铂金
+翡翠
+钻石
+大师
+宗师
+王者

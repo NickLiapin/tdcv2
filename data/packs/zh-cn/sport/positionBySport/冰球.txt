@@ -1,0 +1,11 @@
+---
+description: Positions or team-match slots in 冰球 (Chinese).
+locale: zh-cn
+---
+守门员
+左边锋
+右边锋
+中锋
+左后卫
+右后卫
+替补

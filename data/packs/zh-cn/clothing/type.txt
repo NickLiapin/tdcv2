@@ -1,0 +1,30 @@
+---
+description: Garment (Chinese). 旗袍, 唐装, 汉服 and 中山装 are Chinese garments; 汉服 is a live revival movement, not historical costume.
+locale: zh-cn
+---
+T恤
+衬衫
+polo衫
+卫衣
+毛衣
+针织衫
+外套
+夹克
+风衣
+羽绒服
+棉袄
+大衣
+西装
+马甲
+裤子
+牛仔裤
+西裤
+运动裤
+短裤
+裙子
+连衣裙
+半身裙
+旗袍
+唐装
+汉服
+中山装

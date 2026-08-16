@@ -1,0 +1,16 @@
+---
+description: Star sign (星座, the Western zodiac). Popular in modern Chinese life and derived from the birth DATE. The native Chinese system is a different thing entirely — twelve animals derived from the birth YEAR — and lives in person/chineseZodiac.txt so that a config asking for a star sign does not silently get an animal.
+locale: zh-cn
+---
+白羊座
+金牛座
+双子座
+巨蟹座
+狮子座
+处女座
+天秤座
+天蝎座
+射手座
+摩羯座
+水瓶座
+双鱼座

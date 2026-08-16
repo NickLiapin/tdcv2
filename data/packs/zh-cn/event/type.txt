@@ -1,0 +1,22 @@
+---
+description: Kind of event (Chinese). 满月酒 (the banquet a month after a birth), 谢师宴 (the dinner thanking teachers after the 高考) and 乔迁宴 (the housewarming banquet) are Chinese occasions with no English name, and all three are catered events people are formally invited to.
+locale: zh-cn
+---
+婚礼
+订婚宴
+满月酒
+百日宴
+生日宴
+寿宴
+谢师宴
+升学宴
+乔迁宴
+开业典礼
+年会
+团建
+追悼会
+发布会
+展会
+招聘会
+音乐节
+运动会

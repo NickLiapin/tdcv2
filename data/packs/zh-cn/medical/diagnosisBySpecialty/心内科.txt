@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 心内科 (Chinese).
+locale: zh-cn
+---
+高血压
+冠心病
+心绞痛
+心肌梗死
+心律失常
+房颤
+心力衰竭
+心肌病
+心包炎
+风湿性心脏病

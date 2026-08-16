@@ -1,0 +1,21 @@
+---
+description: Bicycle (Chinese). 共享单车 — the dockless hire bikes that fill Chinese cities — is the commonest kind of bicycle in the country, and 二八大杠 is the heavy black roadster of the 1970s and 80s, still a household word.
+locale: zh-cn
+---
+共享单车
+山地车
+公路车
+折叠车
+通勤车
+城市车
+电助力车
+死飞
+二八大杠
+儿童自行车
+三轮车
+载货三轮车
+双人自行车
+场地车
+越野车
+旅行车
+躺车

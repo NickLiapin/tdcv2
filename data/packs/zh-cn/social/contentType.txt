@@ -1,0 +1,17 @@
+---
+description: Kind of social post (Chinese). 弹幕 — comments that scroll across the video itself, in sync with the frame they were written at — is native to Chinese platforms and has no Western equivalent.
+locale: zh-cn
+---
+朋友圈
+短视频
+直播
+图文笔记
+长文
+微博
+转发
+评论
+弹幕
+话题
+投票
+打卡
+Vlog

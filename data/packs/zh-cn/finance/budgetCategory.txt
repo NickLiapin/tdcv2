@@ -1,0 +1,24 @@
+---
+description: Household budget category (Chinese). 人情往来 — the cash given at weddings, funerals, births and new houses — is a real and sometimes large line in a Chinese household budget and has no English equivalent. 孝敬父母 (money sent to parents) is another.
+locale: zh-cn
+---
+房租
+房贷
+车贷
+水电燃气
+物业费
+通讯费
+交通出行
+餐饮
+买菜
+日用品
+服饰美妆
+医疗
+保险
+教育培训
+育儿
+娱乐
+旅游
+人情往来
+孝敬父母
+储蓄理财

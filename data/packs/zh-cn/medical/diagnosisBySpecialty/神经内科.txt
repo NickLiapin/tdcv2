@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 神经内科 (Chinese).
+locale: zh-cn
+---
+脑梗死
+脑出血
+短暂性脑缺血发作
+癫痫
+偏头痛
+帕金森病
+阿尔茨海默病
+多发性硬化
+面神经麻痹
+重症肌无力

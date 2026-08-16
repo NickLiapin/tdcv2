@@ -1,0 +1,28 @@
+---
+description: Character class (Chinese). The second half is the 仙侠 / 武侠 cast — 剑仙, 道士, 御灵师 — which Chinese games draw on instead of the European fantasy roster.
+locale: zh-cn
+---
+战士
+法师
+刺客
+射手
+坦克
+辅助
+治疗
+猎人
+盗贼
+德鲁伊
+圣骑士
+术士
+牧师
+武僧
+死亡骑士
+剑客
+剑仙
+刀客
+枪豪
+道士
+和尚
+医师
+御灵师
+阵法师

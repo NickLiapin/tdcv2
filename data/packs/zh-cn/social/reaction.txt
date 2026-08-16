@@ -1,0 +1,15 @@
+---
+description: Reaction to a post (Chinese). 三连 is Bilibili's one-gesture combination of like, coin and favourite, and 投币 (spending a coin on a video) is a form of approval that costs the viewer something.
+locale: zh-cn
+---
+点赞
+收藏
+转发
+评论
+分享
+关注
+投币
+三连
+送礼物
+举报
+拉黑

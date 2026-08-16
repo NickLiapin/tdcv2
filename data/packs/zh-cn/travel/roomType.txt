@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Chinese). 大床房 (one large bed) and 标准间 (two singles) is the first question a Chinese booking asks, and 钟点房 is a room let by the hour.
+locale: zh-cn
+---
+单人间
+标准间
+大床房
+双床房
+三人间
+家庭房
+豪华间
+行政房
+套房
+豪华套房
+总统套房
+亲子房
+无烟房
+无障碍房
+情侣房
+榻榻米房
+钟点房
+青旅床位

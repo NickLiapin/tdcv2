@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 内分泌科 (Chinese).
+locale: zh-cn
+---
+2型糖尿病
+1型糖尿病
+甲状腺功能亢进
+甲状腺功能减退
+桥本甲状腺炎
+甲状腺结节
+高尿酸血症
+痛风
+骨质疏松症
+肥胖症

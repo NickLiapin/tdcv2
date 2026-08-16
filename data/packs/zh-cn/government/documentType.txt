@@ -1,0 +1,21 @@
+---
+description: Official document (Chinese). 户口簿 is the household register — the document that ties a person to a place and governs schooling, healthcare and property rights — and it has no equivalent anywhere in Europe. 居住证 is the permit a migrant needs to access services in a city where their 户口 is not registered.
+locale: zh-cn
+---
+居民身份证
+户口簿
+居住证
+护照
+港澳通行证
+台湾通行证
+机动车驾驶证
+机动车行驶证
+结婚证
+离婚证
+出生医学证明
+不动产权证
+营业执照
+社会保障卡
+学位证书
+毕业证书
+残疾人证

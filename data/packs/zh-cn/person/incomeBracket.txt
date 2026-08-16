@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Chinese. Amounts are in CNY (人民币, 元); the unit 万 is ten thousand, so 10万元 is 100000 yuan. Chinese quotes salary monthly (月薪) and household income annually, which is why the labels here read in 万元 per year.
+locale: zh-cn
+---
+5万元以下
+5万-10万元
+10万-20万元
+20万-30万元
+30万-50万元
+50万-100万元
+100万-200万元
+200万元以上

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 消化内科 (Chinese).
+locale: zh-cn
+---
+胃炎
+胃溃疡
+十二指肠溃疡
+幽门螺杆菌感染
+胃食管反流病
+肠易激综合征
+溃疡性结肠炎
+脂肪肝
+肝硬化
+胆囊炎

@@ -1,0 +1,26 @@
+---
+description: Property feature (Chinese). 南北通透 — windows on both the north and south faces, so the flat cross-ventilates — is the single most quoted selling point in a Chinese listing and has no English name. 学区 (the school a flat is zoned for) is the second.
+locale: zh-cn
+---
+电梯
+地暖
+中央空调
+精装修
+毛坯
+南北通透
+落地窗
+飘窗
+阳台
+露台
+私家花园
+车位
+地下车库
+24小时安保
+门禁系统
+物业管理
+幼儿园
+学区
+近地铁
+临公园
+商圈
+医院

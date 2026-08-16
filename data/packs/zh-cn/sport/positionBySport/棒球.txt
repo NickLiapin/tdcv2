@@ -1,0 +1,14 @@
+---
+description: Positions or team-match slots in 棒球 (Chinese).
+locale: zh-cn
+---
+投手
+捕手
+一垒手
+二垒手
+三垒手
+游击手
+左外野手
+中外野手
+右外野手
+指定打击

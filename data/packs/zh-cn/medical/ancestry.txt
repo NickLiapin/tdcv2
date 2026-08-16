@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Chinese, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories, and not the 56 官方民族 of person/ethnicity.txt, which is an administrative field and a different thing entirely.
+locale: zh-cn
+---
+撒哈拉以南非洲裔
+北非裔
+地中海裔
+中东裔
+北欧裔
+东欧裔
+德系犹太裔
+南亚裔
+东亚裔
+东南亚裔
+美洲原住民裔
+太平洋岛民裔

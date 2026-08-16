@@ -1,0 +1,14 @@
+---
+description: Positions or team-match slots in 橄榄球 (Chinese).
+locale: zh-cn
+---
+前锋
+锋线
+二排
+八号位
+争球前锋
+传锋
+接锋
+中卫
+边卫
+全卫

@@ -1,0 +1,27 @@
+---
+description: Interior address element of a Chinese building. The full tail of an address reads number-building-unit-room and is written as one string: 5号楼2单元301室. Floor numbering skips 4 in many residential blocks (四 is a homophone of 死), which is why 4楼 can be missing from a real building.
+locale: zh-cn
+---
+室
+号
+号楼
+栋
+幢
+座
+单元
+层
+楼
+门
+院
+大院
+宿舍
+信箱
+邮政信箱
+附
+甲
+乙
+丙
+A座
+B座
+东区
+西区

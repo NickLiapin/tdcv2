@@ -1,0 +1,15 @@
+---
+description: Interview stage (Chinese). 背景调查 comes last, after the offer talk, and 笔试 (a written test) is standard rather than exceptional.
+locale: zh-cn
+---
+简历筛选
+HR初筛
+电话面试
+笔试
+一面
+二面
+三面
+技术面
+总监面
+HR面
+背景调查

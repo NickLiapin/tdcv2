@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child).
+locale: zh-cn
+---
+互联网
+医疗卫生
+金融
+建筑
+教育
+餐饮住宿
+制造业
+零售
+交通运输
+法律

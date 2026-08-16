@@ -1,0 +1,14 @@
+---
+description: Dishes of 浙菜 (Chinese).
+locale: zh-cn
+---
+西湖醋鱼
+东坡肉
+龙井虾仁
+叫花鸡
+宋嫂鱼羹
+西湖牛肉羹
+干炸响铃
+片儿川
+油焖春笋
+醉蟹

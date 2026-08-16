@@ -1,0 +1,16 @@
+---
+description: Listing status (Chinese). 网签 is the online registration of a sale contract with the housing authority and is a distinct step between signing and transfer of title.
+locale: zh-cn
+---
+在售
+待售
+已售
+已下架
+已预定
+签约中
+网签中
+已过户
+出租中
+已租
+暂缓出售
+议价中

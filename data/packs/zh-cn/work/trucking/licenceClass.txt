@@ -1,0 +1,11 @@
+---
+description: Chinese driving licence class. The Chinese system runs A1 A2 A3 B1 B2 C1 C2 in DESCENDING order of vehicle size, so A1 is the largest — the reverse of the European A-is-a-motorcycle convention.
+locale: zh-cn
+---
+A1
+A2
+A3
+B1
+B2
+C1
+C2

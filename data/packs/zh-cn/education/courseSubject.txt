@@ -1,0 +1,24 @@
+---
+description: School subject (Chinese). 语文 is the Chinese-language subject and is not 'Chinese as a foreign language'; 道德与法治 (morality and rule of law) is a compulsory subject with no Western equivalent.
+locale: zh-cn
+---
+语文
+数学
+英语
+物理
+化学
+生物
+政治
+历史
+地理
+道德与法治
+信息技术
+通用技术
+体育
+音乐
+美术
+书法
+科学
+劳动
+心理健康
+综合实践

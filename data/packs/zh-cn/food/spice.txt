@@ -1,0 +1,34 @@
+---
+description: Spice or aromatic (Chinese). 花椒 is not pepper and not chilli — it numbs rather than burns, and the 麻 it provides is half of what 麻辣 means. 十三香 and 五香粉 are prepared blends sold by that name.
+locale: zh-cn
+---
+花椒
+麻椒
+八角
+桂皮
+香叶
+丁香
+草果
+小茴香
+孜然
+白芷
+陈皮
+干辣椒
+辣椒粉
+姜
+生姜
+干姜
+大蒜
+葱
+洋葱
+五香粉
+十三香
+白胡椒
+黑胡椒
+芥末
+咖喱粉
+沙姜
+肉蔻
+砂仁
+甘草
+紫苏

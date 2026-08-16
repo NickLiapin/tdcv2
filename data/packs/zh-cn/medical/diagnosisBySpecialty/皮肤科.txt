@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 皮肤科 (Chinese).
+locale: zh-cn
+---
+湿疹
+特应性皮炎
+银屑病
+荨麻疹
+痤疮
+带状疱疹
+白癜风
+脂溢性皮炎
+手足癣
+接触性皮炎

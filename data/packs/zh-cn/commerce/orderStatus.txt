@@ -1,0 +1,18 @@
+---
+description: Order status (Chinese).
+locale: zh-cn
+---
+待付款
+已付款
+待发货
+已发货
+运输中
+派送中
+已签收
+已完成
+已取消
+退款中
+已退款
+退货中
+换货中
+交易关闭

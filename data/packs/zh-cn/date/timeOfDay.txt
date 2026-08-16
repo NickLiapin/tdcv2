@@ -1,0 +1,12 @@
+---
+description: Time of day (Chinese). Chinese slices the day finer than English at both ends: 凌晨 is roughly midnight to dawn and 傍晚 is the hour around sunset, and both are ordinary everyday words rather than literary ones.
+locale: zh-cn
+---
+凌晨
+早上
+上午
+中午
+下午
+傍晚
+晚上
+深夜

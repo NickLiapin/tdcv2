@@ -1,0 +1,15 @@
+---
+description: Booking status (Chinese).
+locale: zh-cn
+---
+待确认
+已确认
+已支付
+待入住
+已入住
+已退房
+已完成
+已取消
+退款中
+已退款
+已改期

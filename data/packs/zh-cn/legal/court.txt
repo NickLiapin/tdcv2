@@ -1,0 +1,19 @@
+---
+description: Court or tribunal (Chinese). China runs four tiers of ordinary court plus specialised ones, and the 人民检察院 is a separate branch that both prosecutes and supervises the courts. 互联网法院 hears online disputes entirely online.
+locale: zh-cn
+---
+最高人民法院
+高级人民法院
+中级人民法院
+基层人民法院
+人民法庭
+知识产权法院
+互联网法院
+海事法院
+金融法院
+军事法院
+铁路运输法院
+最高人民检察院
+人民检察院
+劳动人事争议仲裁委员会
+仲裁委员会

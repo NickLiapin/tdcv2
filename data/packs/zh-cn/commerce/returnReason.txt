@@ -1,0 +1,19 @@
+---
+description: Reason a Chinese customer returns an order. 七天无理由退货 — a statutory seven-day no-reason return — is its own reason code and the commonest one.
+locale: zh-cn
+---
+七天无理由退货
+不喜欢
+尺码不合适
+颜色不符
+与描述不符
+质量问题
+商品破损
+少件漏发
+发错货
+临期或过期
+包装破损
+物流太慢
+重复下单
+拍错了
+降价了

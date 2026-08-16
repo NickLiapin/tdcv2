@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Chinese). The first block is the Chinese orchestra — 古筝, 二胡, 琵琶, 唢呐, 笙 — which is what 民乐 is played on and what most Chinese children learn first.
+locale: zh-cn
+---
+古筝
+古琴
+琵琶
+二胡
+板胡
+京胡
+中阮
+柳琴
+三弦
+扬琴
+笛子
+箫
+唢呐
+笙
+埙
+葫芦丝
+锣
+钹
+木鱼
+编钟
+大鼓
+腰鼓
+钢琴
+小提琴
+大提琴
+吉他
+电吉他
+贝斯
+架子鼓
+萨克斯
+小号

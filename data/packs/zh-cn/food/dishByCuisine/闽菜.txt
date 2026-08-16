@@ -1,0 +1,14 @@
+---
+description: Dishes of 闽菜 (Chinese).
+locale: zh-cn
+---
+佛跳墙
+荔枝肉
+沙茶面
+醉排骨
+海蛎煎
+鸡汤汆海蚌
+白斩河田鸡
+芋泥
+肉燕
+福鼎肉片

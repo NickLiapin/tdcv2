@@ -1,0 +1,16 @@
+---
+description: Positions or team-match slots in 足球 (Chinese).
+locale: zh-cn
+---
+门将
+中后卫
+边后卫
+清道夫
+后腰
+中场
+前腰
+边前卫
+边锋
+前锋
+中锋
+影子前锋

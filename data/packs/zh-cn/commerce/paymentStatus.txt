@@ -1,0 +1,14 @@
+---
+description: Payment status (Chinese).
+locale: zh-cn
+---
+未支付
+支付中
+支付成功
+支付失败
+已取消
+部分退款
+全额退款
+退款失败
+已冻结
+已结算

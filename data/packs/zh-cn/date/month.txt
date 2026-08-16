@@ -1,0 +1,16 @@
+---
+description: Month name (Chinese). Chinese names months by number — 一月 through 十二月, written 1月-12月 as often as in characters — and has no month words of its own. The traditional lunar months (正月, 腊月) belong to the lunar calendar, which runs on different dates entirely and is not what a Gregorian date field holds.
+locale: zh-cn
+---
+一月
+二月
+三月
+四月
+五月
+六月
+七月
+八月
+九月
+十月
+十一月
+十二月

@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Chinese).
+locale: zh-cn
+---
+一星级
+二星级
+三星级
+四星级
+五星级

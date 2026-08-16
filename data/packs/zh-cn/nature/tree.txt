@@ -1,0 +1,32 @@
+---
+description: Tree (Chinese). 银杏 and 水杉 are living fossils native to China; 银杏 is the national tree in all but name.
+locale: zh-cn
+---
+银杏
+水杉
+松树
+柏树
+杉树
+柳树
+杨树
+槐树
+榆树
+桦树
+枫树
+梧桐
+樟树
+香樟
+榕树
+桉树
+竹子
+毛竹
+桃树
+李树
+杏树
+梨树
+苹果树
+枣树
+柿树
+石榴树
+橡树
+棕榈

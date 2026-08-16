@@ -1,0 +1,11 @@
+---
+description: Positions or team-match slots in 羽毛球 (Chinese).
+locale: zh-cn
+---
+男单
+女单
+男双
+女双
+混双
+团体一单
+团体一双

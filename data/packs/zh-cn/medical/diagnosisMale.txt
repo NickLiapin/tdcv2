@@ -1,0 +1,24 @@
+---
+description: Diagnosis that only affects men, or is overwhelmingly male, in Chinese.
+locale: zh-cn
+---
+前列腺增生
+前列腺癌
+前列腺炎
+睾丸炎
+睾丸癌
+附睾炎
+精索静脉曲张
+隐睾
+包茎
+包皮过长
+阴茎癌
+勃起功能障碍
+男性不育症
+少精症
+无精症
+睾丸扭转
+鞘膜积液
+男性乳腺发育
+雄激素性脱发
+血友病甲

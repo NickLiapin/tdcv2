@@ -1,0 +1,32 @@
+---
+description: University subject (Chinese). These are 专业 names as they appear in the Ministry of Education catalogue, which is what an applicant picks from — a Chinese student applies to a named 专业 at a named university, not to the university alone.
+locale: zh-cn
+---
+计算机科学与技术
+软件工程
+人工智能
+电子信息工程
+通信工程
+自动化
+机械工程
+土木工程
+建筑学
+材料科学与工程
+化学工程与工艺
+环境工程
+临床医学
+口腔医学
+中医学
+药学
+护理学
+生物科学
+数学与应用数学
+物理学
+金融学
+会计学
+工商管理
+市场营销
+国际经济与贸易
+法学
+汉语言文学
+新闻学

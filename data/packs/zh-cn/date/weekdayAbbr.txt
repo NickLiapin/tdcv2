@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Chinese) — the 周 form, which is what a calendar grid and a timetable use. Sunday is 周日, never 周七.
+locale: zh-cn
+---
+周日
+周一
+周二
+周三
+周四
+周五
+周六

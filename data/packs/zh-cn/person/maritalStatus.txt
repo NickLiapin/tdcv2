@@ -1,0 +1,18 @@
+---
+description: Marital status as a Chinese form asks it. 事实婚姻 is a cohabiting union recognised as a marriage in law and is a distinct box, not a synonym for 同居.
+locale: zh-cn
+---
+未婚
+已婚
+初婚
+再婚
+离异
+丧偶
+分居
+订婚
+恋爱中
+同居
+事实婚姻
+单身
+保密
+未说明

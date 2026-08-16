@@ -1,0 +1,14 @@
+---
+description: Fuel or drivetrain (Chinese). Chinese petrol is sold by octane grade with a 号 — 92号汽油, 95号汽油 — and diesel by cetane, so the grade IS the name of the fuel at the pump.
+locale: zh-cn
+---
+92号汽油
+95号汽油
+98号汽油
+0号柴油
+-10号柴油
+纯电动
+插电式混合动力
+油电混合动力
+天然气
+氢燃料电池

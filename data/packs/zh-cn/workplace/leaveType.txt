@@ -1,0 +1,16 @@
+---
+description: Type of leave (Chinese). 探亲假 (leave to visit parents living elsewhere) and 调休 (a day off swapped against overtime, and also the mechanism that makes Chinese public holidays run into weekends) are statutory Chinese categories.
+locale: zh-cn
+---
+年假
+病假
+事假
+婚假
+产假
+陪产假
+育儿假
+丧假
+工伤假
+调休
+探亲假
+哺乳假

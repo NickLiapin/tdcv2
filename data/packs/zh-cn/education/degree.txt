@@ -1,0 +1,20 @@
+---
+description: Level of education (Chinese). The Chinese ladder counts school years before it counts degrees, and 中专 / 职高 / 技校 are three distinct kinds of vocational upper secondary that a form asks about separately. 在职研究生 is a part-time postgraduate route taken while employed.
+locale: zh-cn
+---
+小学
+初中
+高中
+中专
+职高
+技校
+大专
+本科
+学士
+双学位
+硕士
+专业硕士
+博士
+博士后
+在职研究生
+MBA

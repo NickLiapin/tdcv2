@@ -1,0 +1,14 @@
+---
+description: Dishes of 东北菜 (Chinese).
+locale: zh-cn
+---
+猪肉炖粉条
+小鸡炖蘑菇
+锅包肉
+地三鲜
+杀猪菜
+酸菜白肉
+溜肉段
+拔丝地瓜
+铁锅炖大鹅
+熘肥肠

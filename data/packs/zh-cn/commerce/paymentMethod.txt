@@ -1,0 +1,19 @@
+---
+description: Payment method in China. Cards barely feature: 微信支付 and 支付宝 are how almost everything is paid for, 花呗 and 白条 are the two big buy-now-pay-later products, 云闪付 is the bank-consortium app and 数字人民币 the central bank's digital currency. Visa and Mastercard are not on the list because they are not accepted in most of the country.
+locale: zh-cn
+---
+微信支付
+支付宝
+云闪付
+银联
+数字人民币
+花呗
+白条
+借记卡
+信用卡
+银行转账
+货到付款
+现金
+礼品卡
+购物券
+分期付款

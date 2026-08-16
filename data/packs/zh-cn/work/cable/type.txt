@@ -1,0 +1,13 @@
+---
+description: Cable type (Chinese).
+locale: zh-cn
+---
+电力电缆
+控制电缆
+通信电缆
+同轴电缆
+光缆
+超五类网线
+六类网线
+架空线
+矿用电缆

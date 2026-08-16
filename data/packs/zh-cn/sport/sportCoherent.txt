@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Chinese). 乒乓球 and 羽毛球 have no field positions — in a team match the 'position' is the numbered slot a player occupies in the tie (一单, 二双), which is what the child files hold.
+locale: zh-cn
+---
+足球
+篮球
+排球
+乒乓球
+羽毛球
+橄榄球
+棒球
+冰球

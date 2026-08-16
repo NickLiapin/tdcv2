@@ -1,0 +1,20 @@
+---
+description: Horse breed (Chinese). 蒙古马, 伊犁马 and 河曲马 are Chinese breeds; 汗血宝马 is the Akhal-Teke of the Han-dynasty histories.
+locale: zh-cn
+---
+蒙古马
+伊犁马
+河曲马
+三河马
+西南马
+滇马
+藏马
+汗血宝马
+阿拉伯马
+纯血马
+夸特马
+阿哈尔捷金马
+安达卢西亚马
+弗里斯兰马
+设特兰矮马
+挽马

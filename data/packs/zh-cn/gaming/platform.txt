@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Chinese). Mobile dominates China far more than it does the West, and 微信小游戏 (games running inside WeChat) is a platform in its own right.
+locale: zh-cn
+---
+PC
+手机
+iOS
+Android
+Steam
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+网页游戏
+云游戏
+微信小游戏

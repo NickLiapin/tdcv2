@@ -1,0 +1,29 @@
+---
+description: Gemstone (Chinese). 和田玉 and 翡翠 are the two jades: the first nephrite from Xinjiang, the second jadeite from Myanmar, and in China they are not interchangeable at any price.
+locale: zh-cn
+---
+和田玉
+翡翠
+羊脂玉
+岫玉
+独山玉
+南红
+绿松石
+青金石
+玛瑙
+水晶
+紫水晶
+黄水晶
+茶晶
+钻石
+红宝石
+蓝宝石
+祖母绿
+碧玺
+月光石
+石榴石
+橄榄石
+珍珠
+珊瑚
+琥珀
+蜜蜡

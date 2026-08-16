@@ -1,0 +1,9 @@
+---
+description: Audience advisory shown by a Chinese platform. China has NO statutory film or television age rating: everything cleared for release by the 广电总局 is nominally suitable for all audiences, so there is no equivalent of PG-13 or FSK 16 to translate. These five are the voluntary labels streaming services display, plus the honest 未分级. The list is short because inventing the rest would misrepresent the country.
+locale: zh-cn
+---
+全年龄
+少儿
+青少年模式
+建议家长陪同
+未分级

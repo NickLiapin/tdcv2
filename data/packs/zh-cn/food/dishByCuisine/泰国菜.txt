@@ -1,0 +1,14 @@
+---
+description: Dishes of 泰国菜 (Chinese).
+locale: zh-cn
+---
+冬阴功汤
+泰式咖喱
+菠萝饭
+青木瓜沙拉
+泰式炒河粉
+芒果糯米饭
+咖喱蟹
+泰式炸鸡
+柠檬鱼
+椰汁鸡汤

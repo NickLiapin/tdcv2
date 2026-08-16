@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Chinese, 季度). China's fiscal year is the calendar year, so 第一季度 is January to March — unlike Japan, whose fiscal year starts in April.
+locale: zh-cn
+---
+第一季度
+第二季度
+第三季度
+第四季度

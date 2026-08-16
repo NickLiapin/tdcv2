@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of 东欧裔 ancestry, in Chinese.
+locale: zh-cn
+---
+囊性纤维化
+苯丙酮尿症
+先天性甲状腺功能减退
+家族性高胆固醇血症
+遗传性血色病
+乳糜泻
+视网膜色素变性
+脊髓性肌萎缩症
+肝豆状核变性
+卟啉病

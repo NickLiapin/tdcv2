@@ -1,0 +1,12 @@
+---
+description: Book format (Chinese). 线装 is the traditional thread-bound binding, still used for reprints of classics.
+locale: zh-cn
+---
+平装
+精装
+简装
+线装
+电子书
+有声书
+期刊
+漫画

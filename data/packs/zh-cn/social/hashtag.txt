@@ -1,0 +1,34 @@
+---
+description: Trending topic as Weibo writes it — Chinese hashtags are FENCED on both sides (#话题#), not prefixed, because Chinese has no spaces to mark where the tag ends. Several of these are untranslatable social shorthand: 内卷 is competition that raises effort without raising reward, 躺平 is the refusal to join in, and 打工人 is the wry self-label of the salaried.
+locale: zh-cn
+---
+#打工人#
+#内卷#
+#躺平#
+#emo了#
+#社死现场#
+#人间清醒#
+#被治愈了#
+#双十一#
+#618#
+#年货节#
+#春节#
+#春运#
+#元宵#
+#清明#
+#端午#
+#中秋#
+#国庆#
+#高考#
+#考研#
+#考公#
+#毕业季#
+#开学季#
+#职场#
+#副业#
+#理财#
+#减肥打卡#
+#健身日常#
+#美食探店#
+#周末去哪儿#
+#今日穿搭#

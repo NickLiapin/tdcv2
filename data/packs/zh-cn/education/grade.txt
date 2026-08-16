@@ -1,0 +1,16 @@
+---
+description: Grade (Chinese). Chinese schooling marks out of 100 and reports a band; 及格 is the pass line at 60. 补考 is the resit, which is itself a recorded outcome.
+locale: zh-cn
+---
+优秀
+良好
+中等
+及格
+不及格
+满分
+A+
+A
+B
+C
+D
+补考

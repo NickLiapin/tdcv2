@@ -1,0 +1,12 @@
+---
+description: Mining method (Chinese).
+locale: zh-cn
+---
+露天开采
+地下开采
+房柱法
+长壁开采
+充填采矿法
+崩落采矿法
+水力开采
+钻孔开采

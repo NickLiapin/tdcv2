@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 骨科 (Chinese).
+locale: zh-cn
+---
+腰椎间盘突出
+颈椎病
+骨折
+骨关节炎
+肩周炎
+腱鞘炎
+半月板损伤
+强直性脊柱炎
+股骨头坏死
+脊柱侧弯

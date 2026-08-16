@@ -1,0 +1,23 @@
+---
+description: Mineral mined in China (Chinese). 稀土 matters here in a way it does not elsewhere: China mines and refines most of the world's supply.
+locale: zh-cn
+---
+煤
+铁矿石
+铜矿
+铝土矿
+铅锌矿
+金矿
+银矿
+钨矿
+钼矿
+锑矿
+锡矿
+稀土
+磷矿
+石灰石
+高岭土
+萤石
+石墨
+石膏
+盐矿

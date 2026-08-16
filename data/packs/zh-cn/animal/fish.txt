@@ -1,0 +1,29 @@
+---
+description: Fish (Chinese). The first four are the 四大家鱼, the four carps farmed together in Chinese ponds for a thousand years.
+locale: zh-cn
+---
+青鱼
+草鱼
+鲢鱼
+鳙鱼
+鲤鱼
+鲫鱼
+鳜鱼
+黄鳝
+泥鳅
+鲈鱼
+带鱼
+黄鱼
+鲳鱼
+石斑鱼
+金枪鱼
+三文鱼
+鳕鱼
+鲨鱼
+鳗鱼
+中华鲟
+白鲟
+娃娃鱼
+罗非鱼
+金鱼
+锦鲤

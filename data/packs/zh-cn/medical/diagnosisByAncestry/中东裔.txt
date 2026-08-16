@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of 中东裔 ancestry, in Chinese.
+locale: zh-cn
+---
+家族性地中海热
+β地中海贫血
+白塞病
+G6PD缺乏症
+脊髓性肌萎缩症
+先天性肾上腺皮质增生
+遗传性听力损失
+II型糖尿病
+苯丙酮尿症
+溶酶体贮积病

@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Chinese). 沙尘暴 (the spring dust storms off the Gobi), 回南天 (the southern spring when walls run with condensation) and 梅雨 (the plum rains) are Chinese weather with no English name.
+locale: zh-cn
+---
+台风
+沙尘暴
+浮尘
+霾
+梅雨
+回南天
+寒潮
+倒春寒
+秋老虎
+冰雹
+霜冻
+结冰
+龙卷风
+雷暴
+干旱

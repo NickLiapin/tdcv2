@@ -1,0 +1,24 @@
+---
+description: Insect (Chinese). 蝈蝈 and 蛐蛐 are kept as singing pets in China and sold in dedicated markets.
+locale: zh-cn
+---
+蚂蚁
+蜜蜂
+黄蜂
+蝴蝶
+蛾
+蜻蜓
+蟑螂
+蚊子
+苍蝇
+蟋蟀
+蝈蝈
+蛐蛐
+螳螂
+瓢虫
+萤火虫
+蝉
+蚕
+天牛
+甲虫
+蜘蛛

@@ -1,0 +1,12 @@
+---
+description: Positions or team-match slots in 篮球 (Chinese).
+locale: zh-cn
+---
+控球后卫
+得分后卫
+小前锋
+大前锋
+中锋
+第六人
+组织前锋
+空间型内线

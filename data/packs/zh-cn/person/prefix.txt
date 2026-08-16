@@ -1,0 +1,36 @@
+---
+description: Chinese form of address. Chinese puts these AFTER the family name — 王先生, 李老师, 张医生 — which is the opposite of every European locale in this pack. The two that go in FRONT are 老 and 小 (老王, 小李), which mark relative age between people who know each other and are not titles at all.
+locale: zh-cn
+---
+先生
+女士
+小姐
+太太
+夫人
+同志
+师傅
+老师
+医生
+大夫
+护士
+律师
+工程师
+教授
+博士
+经理
+总经理
+董事长
+主任
+书记
+局长
+处长
+科长
+校长
+院长
+队长
+班长
+老板
+阿姨
+叔叔
+老
+小

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in 呼吸内科 (Chinese).
+locale: zh-cn
+---
+慢性阻塞性肺疾病
+支气管哮喘
+肺炎
+支气管炎
+肺结核
+支气管扩张
+睡眠呼吸暂停综合征
+尘肺
+肺气肿
+过敏性鼻炎

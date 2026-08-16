@@ -1,0 +1,24 @@
+---
+description: Parcel carrier operating in China. All real companies; 顺丰 is the premium one and 菜鸟驿站 is a pickup-point network rather than a carrier, which is how Chinese parcels are actually delivered in cities.
+locale: zh-cn
+---
+顺丰速运
+中通快递
+圆通速递
+申通快递
+韵达速递
+京东物流
+邮政EMS
+中国邮政
+德邦快递
+极兔速递
+百世快递
+天天快递
+宅急送
+菜鸟驿站
+跨越速运
+安能物流
+顺丰同城
+达达快送
+蜂鸟配送
+美团配送

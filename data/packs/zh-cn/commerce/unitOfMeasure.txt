@@ -1,0 +1,37 @@
+---
+description: Unit of measure (Chinese). 斤 is the market catty — exactly 500 grams — and it is what food is priced in throughout China, so a price per 斤 is half a price per kilo. 亩 is the land unit, about 667 square metres.
+locale: zh-cn
+---
+个
+只
+件
+台
+部
+张
+条
+根
+支
+把
+块
+斤
+公斤
+克
+吨
+米
+厘米
+毫米
+平方米
+立方米
+升
+毫升
+瓶
+罐
+包
+袋
+盒
+箱
+双
+套
+份
+杯
+亩

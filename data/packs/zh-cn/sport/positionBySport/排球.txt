@@ -1,0 +1,11 @@
+---
+description: Positions or team-match slots in 排球 (Chinese).
+locale: zh-cn
+---
+主攻
+副攻
+二传
+接应
+自由人
+发球专项
+拦网专项

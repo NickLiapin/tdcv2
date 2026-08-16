@@ -1,0 +1,24 @@
+---
+description: Kind of trip (Chinese). 春运 is the New Year travel season — the largest annual human migration there is — and it is a trip category in its own right; 跟团游 (a packaged group tour) is still the default way Chinese travellers go abroad, and 自由行 is the named alternative to it.
+locale: zh-cn
+---
+跟团游
+自由行
+半自由行
+自驾游
+定制游
+穷游
+背包游
+亲子游
+研学游
+蜜月旅行
+商务出差
+探亲
+春运返乡
+周边游
+一日游
+周末游
+邮轮游
+房车游
+红色旅游
+出境游
