@@ -1,0 +1,5 @@
+---
+description: Currency of Ástralía as Icelandic names it
+locale: is
+---
+Ástralíudalur

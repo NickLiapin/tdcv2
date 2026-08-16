@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in people of Mið-Austurlönd descent, in Icelandic.
+locale: is
+---
+Beta-talassemía
+Familial Mediterranean fever
+G6PD-skortur
+Sykursýki af tegund 2
+D-vítamínskortur
+Meðfæddir efnaskiptagallar
+Sigðkornaberi
+Meðfædd heyrnarskerðing
+Fenýlketónmiga
+Slímseigjusjúkdómur

@@ -1,0 +1,15 @@
+---
+description: Hiring process stage in Icelandic
+locale: is
+---
+Umsókn
+Umsóknum raðað
+Símaviðtal
+Fyrsta viðtal
+Annað viðtal
+Verkefni
+Hæfnispróf
+Umsagnir
+Tilboð
+Samningur
+Hafnað

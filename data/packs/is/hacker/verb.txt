@@ -1,0 +1,32 @@
+---
+description: Technical verb in Icelandic, infinitive. Icelandic verbs take the "að" particle in the infinitive and inflect for person, number, tense and mood, so a config that wants a finite form has to conjugate — this list gives the citation form.
+locale: is
+---
+afrita
+taka afrit
+hlaða niður
+hlaða upp
+senda
+sækja
+vista
+eyða
+endurræsa
+ræsa
+stöðva
+tengja
+aftengja
+dulkóða
+afkóða
+þjappa
+afþjappa
+þýða
+keyra
+prófa
+kemba
+greina
+skrá
+skrá sig inn
+skrá sig út
+uppfæra
+setja upp
+fjarlægja

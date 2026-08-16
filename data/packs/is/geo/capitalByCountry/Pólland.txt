@@ -1,0 +1,5 @@
+---
+description: Capital of Pólland as Icelandic names it
+locale: is
+---
+Varsjá

@@ -1,0 +1,15 @@
+---
+description: Shipping status in Icelandic
+locale: is
+---
+Sendingarmerki búið til
+Á leiðinni
+Í útkeyrslu
+Afhent
+Frávik
+Endursent
+Bíður afhendingar
+Seinkun
+Í tollmeðferð
+Komið í hús
+Í flutningsmiðstöð

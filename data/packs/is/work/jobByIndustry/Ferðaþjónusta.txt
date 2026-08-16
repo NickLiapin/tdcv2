@@ -1,0 +1,14 @@
+---
+description: Jobs in Ferðaþjónusta, in Icelandic
+locale: is
+---
+Leiðsögumaður
+Hótelstjóri
+Móttökuritari
+Herbergisþerna
+Rútubílstjóri
+Ferðaráðgjafi
+Jöklaleiðsögumaður
+Hvalaskoðunarleiðsögumaður
+Þjónn
+Barþjónn

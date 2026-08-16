@@ -1,0 +1,19 @@
+---
+description: Order return reason in Icelandic
+locale: is
+---
+Kom skemmd
+Röng vara send
+Varan ekki eins og lýst var
+Röng stærð
+Skipti um skoðun
+Fann betra verð annars staðar
+Gölluð við afhendingu
+Hluta vantaði
+Sein afhending
+Þarfnast hennar ekki lengur
+Pantaði fyrir mistök
+Gæði undir væntingum
+Passaði ekki
+Rangur litur
+Tvípöntun

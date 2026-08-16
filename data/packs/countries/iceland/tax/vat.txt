@@ -1,0 +1,7 @@
+---
+address: iceland.tax.vat
+description: The Icelandic VAT number written with its country prefix, IS followed by the five- or six-digit VSK-númer — the form it takes on a cross-border invoice. THIS IS NOT AN EU VAT NUMBER AND MUST NOT BE TREATED AS ONE. Iceland belongs to the EEA and to the single market but not to the EU and not to the EU VAT area, so an IS-prefixed number is absent from VIES, cannot be verified through the Commission's service, and does not make an intra-Community supply intra-Community: goods moving between Iceland and an EU state are an export and an import with customs formalities, however European the paperwork looks. The number itself is short — five or six digits, against the eight to twelve most European numbers carry — and it has NO CHECK DIGIT, so a validator that expects to be able to arithmetically reject a typo in an IS number will find nothing to check; the only verification is Skatturinn's own public register of VAT-registered businesses. Do not substitute the kennitala here, however many secondary tax guides say the two are the same: the kennitala is ten digits, the VSK number is five or six, and an Icelandic invoice carries both in different fields. The full detail of the underlying number is in iceland.tax.vsk.
+generator: tdc
+---
+<sequence name="vsk"><gen type="template" value="iceland.tax.vsk"/></sequence>
+<data>IS${{vsk}}</data>

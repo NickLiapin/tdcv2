@@ -1,0 +1,44 @@
+---
+description: Country as Icelandic names it, weighted by population. Icelandic translates rather than transliterates: Germany is Þýskaland, Dublin is Dyflinni, Beijing is Peking, the United States is Bandaríkin. Iceland itself is Ísland and its population is rounded up to one million here only so the weight is a positive integer — the real figure is about 0.39 million.
+locale: is
+weighted: true
+---
+Kína,1410
+Indland,1400
+Bandaríkin,335
+Indónesía,275
+Pakistan,240
+Nígería,220
+Brasilía,215
+Bangladess,170
+Rússland,144
+Mexíkó,128
+Japan,125
+Egyptaland,105
+Víetnam,98
+Tyrkland,85
+Þýskaland,84
+Taíland,72
+Bretland,67
+Frakkland,65
+Ítalía,59
+Suður-Afríka,60
+Suður-Kórea,52
+Spánn,47
+Argentína,46
+Kanada,39
+Pólland,38
+Sádi-Arabía,36
+Ástralía,26
+Grikkland,10
+Portúgal,10
+Svíþjóð,10
+Noregur,5
+Danmörk,6
+Finnland,6
+Sviss,9
+Holland,18
+Írland,5
+Nýja-Sjáland,5
+Singapúr,6
+Ísland,1

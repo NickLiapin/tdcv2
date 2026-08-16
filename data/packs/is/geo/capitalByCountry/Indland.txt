@@ -1,0 +1,5 @@
+---
+description: Capital of Indland as Icelandic names it
+locale: is
+---
+Nýja-Delí

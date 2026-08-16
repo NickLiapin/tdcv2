@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladess as Icelandic names it
+locale: is
+---
+Dakka

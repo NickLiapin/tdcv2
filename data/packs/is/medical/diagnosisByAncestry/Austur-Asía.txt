@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in people of Austur-Asía descent, in Icelandic.
+locale: is
+---
+Laktósaóþol
+Áfengisóþol
+Magakrabbamein
+Lifrarbólga B
+Nefkokskrabbamein
+Alfa-talassemía
+G6PD-skortur
+Sykursýki af tegund 2
+Gláka
+Nærsýni

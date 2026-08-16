@@ -1,0 +1,44 @@
+---
+description: Airline. Icelandair and PLAY are the two Icelandic passenger carriers; Air Atlanta Icelandic and Bluebird Nordic are Icelandic freight operators, and Ernir and Norlandair fly the domestic routes to towns with no road link in winter. Brand names keep their real spelling.
+locale: is
+---
+Icelandair
+PLAY
+Flugfélagið Ernir
+Norlandair
+Mýflug
+Air Atlanta Icelandic
+Bluebird Nordic
+SAS
+Norwegian
+Finnair
+Lufthansa
+Eurowings
+Discover Airlines
+Austrian Airlines
+Swiss International Air Lines
+Edelweiss Air
+KLM
+Air France
+Transavia
+British Airways
+easyJet
+Jet2
+TUI Airways
+Wizz Air
+Ryanair
+Vueling
+Iberia
+Turkish Airlines
+Delta Air Lines
+United Airlines
+American Airlines
+Air Canada
+JetBlue
+Atlantic Airways
+Air Greenland
+LOT Polskie Linie Lotnicze
+Czech Airlines
+Aegean Airlines
+Air Baltic
+Widerøe

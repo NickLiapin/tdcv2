@@ -1,0 +1,16 @@
+---
+description: Leave type in Icelandic. Fæðingarorlof is 12 months in Iceland, split with a non-transferable share reserved for each parent, which is why it is one line here rather than a footnote to holiday.
+locale: is
+---
+Orlof
+Sumarfrí
+Veikindaleyfi
+Fæðingarorlof
+Feðraorlof
+Foreldraorlof
+Launalaust leyfi
+Námsleyfi
+Rannsóknarleyfi
+Sorgarleyfi
+Vetrarfrí
+Vaktafrí

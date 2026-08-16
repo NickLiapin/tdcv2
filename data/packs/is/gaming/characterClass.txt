@@ -1,0 +1,28 @@
+---
+description: Playable character class in Icelandic
+locale: is
+---
+Stríðsmaður
+Riddari
+Berserkur
+Bogmaður
+Veiðimaður
+Þjófur
+Launmorðingi
+Galdramaður
+Seiðkona
+Særingamaður
+Prestur
+Læknir
+Munkur
+Dvergur
+Álfur
+Jötunn
+Skáld
+Sagnaþulur
+Njósnari
+Verkfræðingur
+Vélvirki
+Byssumaður
+Skjaldberi
+Töframaður

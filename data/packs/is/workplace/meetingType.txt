@@ -1,0 +1,16 @@
+---
+description: Meeting type in Icelandic
+locale: is
+---
+Starfsmannafundur
+Deildarfundur
+Teymisfundur
+Stöðufundur
+Vikuleg staða
+Stjórnarfundur
+Verkefnafundur
+Starfsmannasamtal
+Frammistöðusamtal
+Vinnustofa
+Kynning
+Fjarfundur

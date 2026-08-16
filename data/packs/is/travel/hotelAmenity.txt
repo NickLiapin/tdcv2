@@ -1,0 +1,34 @@
+---
+description: Hotel amenity in Icelandic. A geothermal hot tub and a northern-lights wake-up call are standard offerings in Iceland, not novelties, and many rural hotels advertise blackout curtains because the summer nights never get dark.
+locale: is
+---
+Þráðlaust net
+Morgunverður innifalinn
+Heitur pottur
+Gufubað
+Sundlaug
+Líkamsrækt
+Veitingastaður
+Bar
+Bílastæði
+Hleðslustöð fyrir rafbíla
+Flugvallarrúta
+Móttaka allan sólarhringinn
+Farangursgeymsla
+Þvottaþjónusta
+Herbergisþjónusta
+Ráðstefnusalur
+Norðurljósavakning
+Myrkvunargluggatjöld
+Barnarúm
+Gæludýr leyfð
+Aðgengi fyrir hjólastóla
+Lyfta
+Sjónvarp
+Ísskápur
+Kaffivél
+Hárþurrka
+Öryggishólf
+Loftræsting
+Svalir
+Útsýni

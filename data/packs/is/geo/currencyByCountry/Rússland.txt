@@ -1,0 +1,5 @@
+---
+description: Currency of Rússland as Icelandic names it
+locale: is
+---
+rúbla

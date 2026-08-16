@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Krabbameinslækningar (Icelandic)
+locale: is
+---
+Brjóstakrabbamein
+Lungnakrabbamein
+Ristilkrabbamein
+Blöðruhálskirtilskrabbamein
+Sortuæxli
+Hvítblæði
+Eitlakrabbamein
+Magakrabbamein
+Briskrabbamein
+Nýrnakrabbamein

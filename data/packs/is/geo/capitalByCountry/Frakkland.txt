@@ -1,0 +1,5 @@
+---
+description: Capital of Frakkland as Icelandic names it
+locale: is
+---
+París

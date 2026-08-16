@@ -1,0 +1,5 @@
+---
+description: Currency of Þýskaland as Icelandic names it
+locale: is
+---
+evra

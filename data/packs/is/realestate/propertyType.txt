@@ -1,0 +1,23 @@
+---
+description: Property type in an Icelandic listing. Sumarhús — a summer cottage, usually in Borgarfjörður or the south — is a mass form of property ownership in Iceland rather than a rarity.
+locale: is
+---
+Einbýlishús
+Parhús
+Raðhús
+Fjölbýlishús
+Íbúð
+Íbúð í fjölbýli
+Penthouse-íbúð
+Stúdíóíbúð
+Kjallaraíbúð
+Risíbúð
+Sumarhús
+Bústaðaland
+Jörð
+Lóð
+Atvinnuhúsnæði
+Verslunarhúsnæði
+Skrifstofuhúsnæði
+Iðnaðarhúsnæði
+Bílskúr

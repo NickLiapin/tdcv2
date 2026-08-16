@@ -1,0 +1,20 @@
+---
+description: Weather condition in Icelandic. Slydda — sleet, rain and snow falling together — is a single ordinary word in Icelandic and a daily forecast term; so are él (a sudden snow shower) and hríð (a driving blizzard).
+locale: is
+---
+Heiðskírt
+Léttskýjað
+Hálfskýjað
+Skýjað
+Alskýjað
+Rigning
+Skúrir
+Súld
+Slydda
+Snjókoma
+Él
+Hríð
+Þoka
+Frost
+Hálka
+Rok

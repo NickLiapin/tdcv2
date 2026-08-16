@@ -1,0 +1,22 @@
+---
+description: Hotel room type in Icelandic
+locale: is
+---
+Einstaklingsherbergi
+Tveggja manna herbergi
+Tvíbreitt herbergi
+Herbergi með tveimur rúmum
+Þriggja manna herbergi
+Fjölskylduherbergi
+Svíta
+Júníorsvíta
+Stúdíóíbúð
+Íbúð
+Sumarhús
+Bústaður
+Svefnpokapláss
+Heimagisting
+Farfuglaheimili
+Herbergi með sameiginlegu baði
+Herbergi með sérbaði
+Herbergi með útsýni

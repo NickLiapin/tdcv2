@@ -1,0 +1,5 @@
+---
+description: Currency of Svíþjóð as Icelandic names it
+locale: is
+---
+sænsk króna

@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in people of Miðjarðarhafslönd descent, in Icelandic.
+locale: is
+---
+Beta-talassemía
+G6PD-skortur
+Familial Mediterranean fever
+Sigðkornaberi
+Járnhleðsla
+Glútenóþol
+Wilson-sjúkdómur
+Laktósaóþol
+Sykursýki af tegund 2
+Blóðleysi

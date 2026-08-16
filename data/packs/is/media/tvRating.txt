@@ -1,0 +1,13 @@
+---
+description: Age rating as Icelandic media uses it. Iceland labels by minimum age in years rather than by letter.
+locale: is
+---
+Leyfð öllum
+6 ára
+9 ára
+12 ára
+14 ára
+16 ára
+18 ára
+Bönnuð börnum
+Ómetin

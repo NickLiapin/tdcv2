@@ -1,0 +1,11 @@
+---
+description: Number of people in the household
+locale: is
+---
+1
+2
+3
+4
+5
+6
+7+

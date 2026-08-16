@@ -1,0 +1,10 @@
+---
+description: Icelandic full name for a man: one given name and a patronymic (Jón Einarsson). The second element is NOT a surname — it is the father's given name in the genitive plus -son, so it is not inherited and tells you nothing about the bearer's family. Iceland sorts people by the first element, not the second. The two parts are drawn independently, which is right: a man's given name and his father's given name are unrelated.
+generator: tdc
+locale: is
+---
+<sequence name="p">
+  <gen name="f" type="template" value="is.person.male.firstName"/>
+  <gen name="l" type="template" value="is.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

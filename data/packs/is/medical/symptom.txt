@@ -1,0 +1,42 @@
+---
+description: Symptom in Icelandic
+locale: is
+---
+Hiti
+Hósti
+Hálssærindi
+Nefrennsli
+Stíflað nef
+Höfuðverkur
+Svimi
+Ógleði
+Uppköst
+Niðurgangur
+Hægðatregða
+Kviðverkur
+Brjóstverkur
+Mæði
+Hjartsláttarónot
+Þreyta
+Slappleiki
+Svefnleysi
+Lystarleysi
+Þyngdartap
+Þyngdaraukning
+Kláði
+Útbrot
+Bólga
+Roði
+Bakverkur
+Liðverkir
+Vöðvaverkir
+Dofi
+Náladofi
+Sjóntruflanir
+Eyrnaverkur
+Suð fyrir eyrum
+Sviði við þvaglát
+Blóðnasir
+Kuldahrollur
+Nætursviti
+Máttleysi

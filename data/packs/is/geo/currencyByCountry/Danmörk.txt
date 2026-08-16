@@ -1,0 +1,5 @@
+---
+description: Currency of Danmörk as Icelandic names it
+locale: is
+---
+dönsk króna

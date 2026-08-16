@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Innkirtlalækningar (Icelandic)
+locale: is
+---
+Sykursýki af tegund 1
+Sykursýki af tegund 2
+Vanvirkur skjaldkirtill
+Ofvirkur skjaldkirtill
+Skjaldkirtilshnútur
+Beinþynning
+Offita
+D-vítamínskortur
+Nýrnahettubilun
+Heiladingulsæxli

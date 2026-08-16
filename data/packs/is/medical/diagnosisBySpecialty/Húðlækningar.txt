@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Húðlækningar (Icelandic)
+locale: is
+---
+Exem
+Psóríasis
+Þrymlabólur
+Rósroði
+Ofsakláði
+Sortuæxli
+Grunnfrumukrabbamein
+Sveppasýking í húð
+Skalli
+Skjallblettir

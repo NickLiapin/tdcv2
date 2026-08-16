@@ -1,0 +1,12 @@
+---
+description: Icelandic personal pronoun, given as nominative/dative because Icelandic has four cases (nominative, accusative, dative, genitive) and a pronoun changes shape in each — hann / hann / honum / hans. "hán" is the gender-neutral singular pronoun in current Icelandic use; "þau" is the plural also used for a single person of unstated gender.
+locale: is
+---
+hann/honum
+hún/henni
+hán/háni
+þau/þeim
+hann/hún
+hún/hán
+þau/þau
+hann/þau

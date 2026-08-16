@@ -1,0 +1,5 @@
+---
+description: Capital of Ísland as Icelandic names it
+locale: is
+---
+Reykjavík

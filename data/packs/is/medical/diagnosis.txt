@@ -1,0 +1,83 @@
+---
+description: Medical diagnosis in Icelandic. D-vítamínskortur and skammdegisþunglyndi sit high on the list on purpose: at 64–66° north Iceland gets almost no usable sunlight from October to March, so vitamin D deficiency and seasonal depression are population-level conditions there rather than footnotes.
+locale: is
+---
+Háþrýstingur
+Sykursýki af tegund 1
+Sykursýki af tegund 2
+Astmi
+Langvinn lungnateppa
+Lungnabólga
+Berkjubólga
+Kvef
+Inflúensa
+COVID-19
+Hálsbólga
+Eyrnabólga
+Kinnholubólga
+Ofnæmiskvef
+Exem
+Psóríasis
+Þvagfærasýking
+Nýrnasteinar
+Langvinn nýrnabilun
+Gallsteinar
+Magasár
+Vélindabakflæði
+Iðraólga
+Sáraristilbólga
+Crohns-sjúkdómur
+Glútenóþol
+Lifrarbólga
+Fitulifur
+Skorpulifur
+Brisbólga
+Kransæðasjúkdómur
+Hjartabilun
+Gáttatif
+Hjartaáfall
+Heilablóðfall
+Blóðtappi
+Æðakölkun
+Hátt kólesteról
+Blóðleysi
+Járnskortur
+B12-skortur
+D-vítamínskortur
+Vanvirkur skjaldkirtill
+Ofvirkur skjaldkirtill
+Beinþynning
+Slitgigt
+Iktsýki
+Þvagsýrugigt
+Vefjagigt
+Bakverkur
+Brjósklos
+Sinaskeiðabólga
+Úlnliðsgöng
+Mígreni
+Spennuhöfuðverkur
+Flogaveiki
+Parkinsonsveiki
+Alzheimerssjúkdómur
+Heilabilun
+MS-sjúkdómur
+Þunglyndi
+Skammdegisþunglyndi
+Kvíðaröskun
+Áfallastreituröskun
+ADHD
+Einhverfa
+Svefnleysi
+Kæfisvefn
+Offita
+Vannæring
+Drer
+Gláka
+Augnþurrkur
+Heyrnarskerðing
+Eyrnasuð
+Húðkrabbamein
+Lungnakrabbamein
+Ristilkrabbamein
+Sortuæxli

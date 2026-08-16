@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Icelandic (female + common conditions)
+locale: is
+---
+Legslímuflakk
+Fjölblöðrueggjastokkaheilkenni
+Vöðvahnútar í legi
+Blaðra á eggjastokk
+Eggjastokkakrabbamein
+Leghálskrabbamein
+Frumubreytingar í leghálsi
+Leghálsbólga
+Legbólga
+Legbotnskrabbamein
+Grindarholsbólga
+Sveppasýking í leggöngum
+Brjóstakrabbamein
+Góðkynja brjóstahnútur
+Tíðaverkir
+Meðgöngusykursýki
+Meðgöngueitrun
+Beinþynning
+Járnskortsblóðleysi
+Vanvirkur skjaldkirtill
+Langvinn brisbólga
+Klamydía
+Langvinn liðagigt
+Ristilkrabbamein
+Háþrýstingur
+Mígreni
+Vefjagigt

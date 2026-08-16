@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Hjartalækningar (Icelandic)
+locale: is
+---
+Háþrýstingur
+Kransæðasjúkdómur
+Hjartaáfall
+Hjartabilun
+Gáttatif
+Hjartsláttartruflanir
+Ósæðarlokuþrengsli
+Hjartavöðvabólga
+Gollurshúsbólga
+Æðakölkun

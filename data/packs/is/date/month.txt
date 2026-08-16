@@ -1,0 +1,16 @@
+---
+description: Month name in Icelandic. Icelandic writes month names in LOWER CASE, unlike English.
+locale: is
+---
+janúar
+febrúar
+mars
+apríl
+maí
+júní
+júlí
+ágúst
+september
+október
+nóvember
+desember

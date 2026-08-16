@@ -1,0 +1,28 @@
+---
+description: Íslensk dishes as an Icelandic menu names them
+locale: is
+---
+Kjötsúpa
+Plokkfiskur
+Hangikjöt
+Saltfiskur
+Harðfiskur með smjöri
+Svið
+Slátur
+Lifrarpylsa
+Blóðmör
+Hákarl
+Lambalæri
+Lambaskankar
+Fiskibollur
+Humarsúpa
+Rúgbrauð
+Flatkökur
+Skyr
+Kleinur
+Pönnukökur
+Ástarpungar
+Rjómabollur
+Þorramatur
+Laufabrauð
+Skyrterta

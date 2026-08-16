@@ -1,0 +1,5 @@
+---
+description: Capital of Finnland as Icelandic names it
+locale: is
+---
+Helsinki

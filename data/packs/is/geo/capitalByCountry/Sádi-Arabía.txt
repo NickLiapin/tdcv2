@@ -1,0 +1,5 @@
+---
+description: Capital of Sádi-Arabía as Icelandic names it
+locale: is
+---
+Ríad

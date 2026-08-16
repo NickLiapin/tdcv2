@@ -1,0 +1,14 @@
+---
+description: Norsk dishes as an Icelandic menu names them
+locale: is
+---
+Fårikål
+Lútfiskur
+Brúnostur
+Kjøttkaker
+Grafinn lax
+Rømmegrøt
+Lefse
+Fiskisúpa
+Pinnekjøtt
+Rakfisk

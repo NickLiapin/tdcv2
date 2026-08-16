@@ -178,6 +178,7 @@ export const CANONICAL_COUNTRIES: ReadonlySet<string> = new Set([
   'armenia',
   'bosnia_and_herzegovina',
   'georgia',
+  'iceland',
   'north_macedonia',
   'norway',
   'algeria',

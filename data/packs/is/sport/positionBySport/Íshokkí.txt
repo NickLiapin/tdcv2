@@ -1,0 +1,10 @@
+---
+description: Playing positions in Íshokkí, in Icelandic
+locale: is
+---
+Markvörður
+Hægri varnarmaður
+Vinstri varnarmaður
+Miðherji
+Hægri kantmaður
+Vinstri kantmaður

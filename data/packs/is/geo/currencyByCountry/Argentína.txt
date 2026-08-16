@@ -1,0 +1,5 @@
+---
+description: Currency of Argentína as Icelandic names it
+locale: is
+---
+argentínskt pesó

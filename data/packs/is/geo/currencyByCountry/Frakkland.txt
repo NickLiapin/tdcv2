@@ -1,0 +1,5 @@
+---
+description: Currency of Frakkland as Icelandic names it
+locale: is
+---
+evra

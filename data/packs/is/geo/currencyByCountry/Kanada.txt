@@ -1,0 +1,5 @@
+---
+description: Currency of Kanada as Icelandic names it
+locale: is
+---
+Kanadadalur

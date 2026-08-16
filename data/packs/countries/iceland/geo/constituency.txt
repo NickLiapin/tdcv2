@@ -1,0 +1,11 @@
+---
+address: iceland.geo.constituency
+description: The six parliamentary constituencies (kjördæmi) of Iceland, fixed by Article 31 of the constitution as amended in 1999. They are the only nationwide division below the state that anyone is actually elected in — Iceland has no regional government, so the kjördæmi is a ballot district and nothing else, and it does not correspond to the eight statistical regions in iceland.geo.region. Three cover the southwest (Reykjavíkurkjördæmi norður, Reykjavíkurkjördæmi suður and Suðvesturkjördæmi, the last being the ring of Kópavogur, Garðabær, Hafnarfjörður, Mosfellsbær and Seltjarnarnes around the capital) and three cover the rest of the country, each of them enormous: Norðvesturkjördæmi runs from Akranes to Skagafjörður and takes in the whole of the Westfjords. The 63 seats of Alþingi are distributed between them, and THE DISTRIBUTION IS NOT FIXED: the constitution requires a seat to move from one constituency to another when the number of voters per seat in one exceeds the other by more than half again, which is the mechanism by which the fast-growing Suðvesturkjördæmi has taken seats from the rural constituencies election after election. The rural constituencies are nonetheless still over-represented per head, deliberately, and that imbalance is one of the standing arguments of Icelandic politics. Note the two Reykjavík names: the city is split north and south by a line the electoral commission redraws before each election to keep the halves equal, so a Reykjavík address does not have a permanent constituency the way a rural one does.
+locale: is
+---
+Reykjavíkurkjördæmi norður
+Reykjavíkurkjördæmi suður
+Suðvesturkjördæmi
+Norðvesturkjördæmi
+Norðausturkjördæmi
+Suðurkjördæmi

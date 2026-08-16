@@ -1,0 +1,14 @@
+---
+description: Playing positions in Handbolti, in Icelandic
+locale: is
+---
+Markvörður
+Hornamaður
+Vinstri hornamaður
+Hægri hornamaður
+Skytta
+Vinstri skytta
+Hægri skytta
+Leikstjórnandi
+Línumaður
+Varnarmaður

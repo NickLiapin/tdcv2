@@ -1,0 +1,34 @@
+---
+description: Vegetable in Icelandic. Tomatoes, cucumbers and peppers are grown in Iceland all year in geothermally heated greenhouses, so they are local produce rather than imports; rabarbari (rhubarb) is the one garden crop that thrives outdoors and ends up in every Icelandic jam.
+locale: is
+---
+kartafla
+gulrót
+rófa
+næpa
+laukur
+blaðlaukur
+hvítlaukur
+hvítkál
+rauðkál
+grænkál
+blómkál
+spergilkál
+rósakál
+spínat
+salat
+gúrka
+tómatur
+paprika
+chilipipar
+kúrbítur
+eggaldin
+sveppur
+baunir
+grænar baunir
+maís
+sellerí
+aspas
+radísa
+grasker
+rabarbari

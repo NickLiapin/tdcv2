@@ -1,0 +1,11 @@
+---
+description: Conduit or installation method for cable runs, in Icelandic. Jarðstrengur dominates in Iceland: overhead lines are being buried because of wind and icing on the exposed highland routes.
+locale: is
+---
+Ídráttarrör
+Plaströr
+Stálrör
+Jarðstrengur
+Kapalstigi
+Kapalbakki
+Loftlína

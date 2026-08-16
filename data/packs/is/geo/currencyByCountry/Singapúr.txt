@@ -1,0 +1,5 @@
+---
+description: Currency of Singapúr as Icelandic names it
+locale: is
+---
+Singapúrdalur

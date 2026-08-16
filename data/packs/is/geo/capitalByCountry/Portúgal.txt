@@ -1,0 +1,5 @@
+---
+description: Capital of Portúgal as Icelandic names it
+locale: is
+---
+Lissabon

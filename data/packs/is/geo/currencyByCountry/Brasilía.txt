@@ -1,0 +1,5 @@
+---
+description: Currency of Brasilía as Icelandic names it
+locale: is
+---
+real

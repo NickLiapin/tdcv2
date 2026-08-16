@@ -1,0 +1,21 @@
+---
+description: Video game genre in Icelandic
+locale: is
+---
+Hasarleikur
+Ævintýraleikur
+Hlutverkaleikur
+Skotleikur
+Þrautaleikur
+Herkænskuleikur
+Hermileikur
+Íþróttaleikur
+Kappakstursleikur
+Pallaleikur
+Bardagaleikur
+Hryllingsleikur
+Borðspil
+Kortaleikur
+Fjölspilunarleikur
+Lifunarleikur
+Sandkassaleikur

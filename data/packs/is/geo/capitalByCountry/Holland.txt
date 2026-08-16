@@ -1,0 +1,5 @@
+---
+description: Capital of Holland as Icelandic names it
+locale: is
+---
+Amsterdam

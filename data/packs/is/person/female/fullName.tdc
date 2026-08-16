@@ -1,0 +1,10 @@
+---
+description: Icelandic full name for a woman: one given name and a patronymic (Anna Einarsdóttir). The second element takes -dóttir, not -son, so a brother and sister with the same father are Jón Einarsson and Anna Einarsdóttir — different second names, same family. Nothing is inherited and nothing is shared, which is why Iceland alphabetises by the given name.
+generator: tdc
+locale: is
+---
+<sequence name="p">
+  <gen name="f" type="template" value="is.person.female.firstName"/>
+  <gen name="l" type="template" value="is.person.female.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

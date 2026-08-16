@@ -1,0 +1,14 @@
+---
+description: Jobs in Heilbrigðisþjónusta, in Icelandic
+locale: is
+---
+Læknir
+Hjúkrunarfræðingur
+Sjúkraliði
+Ljósmóðir
+Sjúkraþjálfari
+Lyfjafræðingur
+Geislafræðingur
+Lífeindafræðingur
+Sjúkraflutningamaður
+Sálfræðingur

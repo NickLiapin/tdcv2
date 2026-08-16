@@ -1,0 +1,14 @@
+---
+description: Kínversk dishes as an Icelandic menu names them
+locale: is
+---
+Vorrúllur
+Sætsúrt svínakjöt
+Steiktar núðlur
+Steiktur hrísgrjónaréttur
+Dumplings
+Peking-önd
+Chow mein
+Dim sum
+Mapo tofu
+Wonton-súpa

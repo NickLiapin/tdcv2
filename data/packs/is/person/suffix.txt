@@ -1,0 +1,6 @@
+---
+description: Post-name qualifier. Iceland has NO Jr / Sr / II / III and this list is short on purpose: a generational suffix is impossible when the second name is a patronymic, because father and son already carry different second names (Einar Jónsson's son is Jón Einarsson). The only real Icelandic post-name qualifiers are eldri / yngri, used to tell apart two living people who happen to have identical full names. Nothing else was written rather than invent one.
+locale: is
+---
+eldri
+yngri

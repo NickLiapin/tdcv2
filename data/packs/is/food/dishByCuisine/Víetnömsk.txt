@@ -1,0 +1,14 @@
+---
+description: Víetnömsk dishes as an Icelandic menu names them
+locale: is
+---
+Phở
+Bánh mì
+Ferskar vorrúllur
+Bún chả
+Bánh xèo
+Chả giò
+Cơm tấm
+Phở gà
+Bún bò Huế
+Cà phê sữa đá

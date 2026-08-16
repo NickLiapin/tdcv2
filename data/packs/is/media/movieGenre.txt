@@ -1,0 +1,23 @@
+---
+description: Film genre in Icelandic
+locale: is
+---
+Spennumynd
+Hasarmynd
+Gamanmynd
+Dramamynd
+Rómantísk mynd
+Hryllingsmynd
+Vísindaskáldskapur
+Fantasíumynd
+Sakamálamynd
+Stríðsmynd
+Vestri
+Söngleikur
+Heimildarmynd
+Teiknimynd
+Barnamynd
+Ævintýramynd
+Sögulegt drama
+Njósnamynd
+Stuttmynd

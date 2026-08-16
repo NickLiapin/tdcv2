@@ -1,0 +1,14 @@
+---
+description: Playing positions in Ruðningur, in Icelandic
+locale: is
+---
+Framherji
+Krókur
+Stoð
+Læsari
+Kantframherji
+Áttundi maður
+Tengiliður
+Fyrirliði kastlínu
+Miðjumaður
+Bakvörður

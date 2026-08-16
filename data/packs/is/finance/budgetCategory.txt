@@ -1,0 +1,24 @@
+---
+description: Household budget category in Icelandic. Hiti og rafmagn is one line rather than two in most Icelandic budgets because heating is geothermal hot water billed together with electricity, and it is strikingly cheap by European standards.
+locale: is
+---
+Húsnæði
+Húsaleiga
+Afborganir af láni
+Hiti og rafmagn
+Hússjóður
+Matvara
+Veitingar
+Samgöngur
+Bensín
+Bíllán
+Tryggingar
+Fjarskipti
+Heilsa
+Lyf
+Áskriftir
+Föt
+Tómstundir
+Ferðalög
+Barnagæsla
+Sparnaður

@@ -1,0 +1,26 @@
+---
+description: Metal in Icelandic. Aluminium (ál) is Iceland's largest export after fish, smelted here because the electricity is hydro and geothermal.
+locale: is
+---
+ál
+járn
+stál
+kopar
+eir
+kísill
+kísiljárn
+sink
+blý
+tin
+nikkel
+króm
+mangan
+títan
+magnesíum
+gull
+silfur
+platína
+palladíum
+kvikasilfur
+volfram
+kóbalt

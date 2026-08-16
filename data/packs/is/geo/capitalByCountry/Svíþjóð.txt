@@ -1,0 +1,5 @@
+---
+description: Capital of Svíþjóð as Icelandic names it
+locale: is
+---
+Stokkhólmur

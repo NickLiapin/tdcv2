@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Bæklunarlækningar (Icelandic)
+locale: is
+---
+Slitgigt í hné
+Slitgigt í mjöðm
+Brjósklos
+Beinbrot
+Liðbandsslit
+Axlarklemma
+Sinaskeiðabólga
+Úlnliðsgöng
+Hryggskekkja
+Ilsig

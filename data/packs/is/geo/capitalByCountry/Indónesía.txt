@@ -1,0 +1,5 @@
+---
+description: Capital of Indónesía as Icelandic names it
+locale: is
+---
+Djakarta

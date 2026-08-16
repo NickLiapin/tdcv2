@@ -1,0 +1,11 @@
+---
+description: Weekday in Icelandic, Monday first. Lower case. Three of the seven are plain ordinals — þriðjudagur is "third day" and fimmtudagur "fifth day" — counting from Sunday, and miðvikudagur is "mid-week day".
+locale: is
+---
+mánudagur
+þriðjudagur
+miðvikudagur
+fimmtudagur
+föstudagur
+laugardagur
+sunnudagur

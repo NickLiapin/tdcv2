@@ -1,0 +1,6 @@
+---
+address: iceland.phoneLandline
+description: An Icelandic fixed-line number in E.164 form — +354 followed by seven digits beginning with 4 or 5. The blocks carry a GEOGRAPHIC HINT AND NOT A GEOGRAPHIC RULE: 5 was the Reykjavík and capital-region range and 4 the rest of the country, and new installations still loosely follow that, but Iceland abolished area codes outright in June 1995 and number portability finished the job, so a 4-number in Reykjavík and a 5-number in Ísafjörður are both perfectly ordinary and no part of the number tells you where the line is. That is the opposite of the situation in every neighbouring country and it is why an Icelandic address cannot be inferred from an Icelandic phone number, nor a phone number checked against an address. A fixed number is the same seven digits as a mobile and is written the same way, three and four (551 2345). Landlines are a shrinking category in Iceland — mobile penetration is close to total and many households have no fixed line at all — so a synthetic Icelandic population in which most people have a landline is describing 1995 rather than now.
+generator: tdc
+---
+<gen type="regex" value="\+354[45][0-9]{6}"/>

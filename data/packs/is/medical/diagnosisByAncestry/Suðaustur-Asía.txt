@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in people of Suðaustur-Asía descent, in Icelandic.
+locale: is
+---
+Alfa-talassemía
+Beta-talassemía
+G6PD-skortur
+Laktósaóþol
+Lifrarbólga B
+Nefkokskrabbamein
+Berklar
+Sykursýki af tegund 2
+Hemóglóbín E
+Denguesótt

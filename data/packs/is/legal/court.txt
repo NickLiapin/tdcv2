@@ -1,0 +1,19 @@
+---
+description: Court in the Icelandic judiciary. Iceland has had three tiers since 2018 — héraðsdómur, then landsréttur, then Hæstiréttur — and Landsréttur is the newest court in the country. Named for Iceland because Icelandic is spoken in one country only.
+locale: is
+---
+Hæstiréttur Íslands
+Landsréttur
+Héraðsdómur Reykjavíkur
+Héraðsdómur Reykjaness
+Héraðsdómur Vesturlands
+Héraðsdómur Vestfjarða
+Héraðsdómur Norðurlands vestra
+Héraðsdómur Norðurlands eystra
+Héraðsdómur Austurlands
+Héraðsdómur Suðurlands
+Félagsdómur
+Endurupptökudómur
+Gerðardómur
+Úrskurðarnefnd
+Kærunefnd

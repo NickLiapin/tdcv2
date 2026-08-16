@@ -1,0 +1,5 @@
+---
+description: Capital of Taíland as Icelandic names it
+locale: is
+---
+Bangkok

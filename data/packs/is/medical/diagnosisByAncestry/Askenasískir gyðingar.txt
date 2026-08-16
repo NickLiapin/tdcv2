@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in people of Askenasískir gyðingar descent, in Icelandic.
+locale: is
+---
+Tay-Sachs-sjúkdómur
+Gaucher-sjúkdómur
+Canavan-sjúkdómur
+Familial dysautonomia
+Niemann-Pick-sjúkdómur
+Bloom-heilkenni
+BRCA1-stökkbreyting
+BRCA2-stökkbreyting
+Crohns-sjúkdómur
+Fanconi-blóðleysi

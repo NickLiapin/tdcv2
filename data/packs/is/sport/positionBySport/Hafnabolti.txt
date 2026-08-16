@@ -1,0 +1,14 @@
+---
+description: Playing positions in Hafnabolti, in Icelandic
+locale: is
+---
+Kastari
+Gripari
+Fyrsti hornamaður
+Annar hornamaður
+Þriðji hornamaður
+Stuttstopp
+Vinstri útivörður
+Miðútivörður
+Hægri útivörður
+Sláttumaður

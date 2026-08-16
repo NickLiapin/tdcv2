@@ -1,0 +1,14 @@
+---
+description: Tyrknesk dishes as an Icelandic menu names them
+locale: is
+---
+Kebab
+Döner
+Lahmacun
+Börek
+Meze
+Künefe
+Pilav
+Köfte
+Menemen
+Simit

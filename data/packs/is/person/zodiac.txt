@@ -1,0 +1,16 @@
+---
+description: Zodiac sign in Icelandic
+locale: is
+---
+Hrútur
+Naut
+Tvíburar
+Krabbi
+Ljón
+Meyja
+Vog
+Sporðdreki
+Bogmaður
+Steingeit
+Vatnsberi
+Fiskar

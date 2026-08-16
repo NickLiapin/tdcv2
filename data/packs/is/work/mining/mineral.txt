@@ -1,0 +1,23 @@
+---
+description: Mined or quarried material in Icelandic. What Iceland actually extracts is at the top: aggregate, basalt, pumice, scoria and, until the Mývatn operation closed in 2004, kísilgúr (diatomite). It has never had an operating metal mine, and the ores lower down are vocabulary rather than local industry.
+locale: is
+---
+Möl
+Sandur
+Grjót
+Basalt
+Vikur
+Gjall
+Hraungrýti
+Líparít
+Kísilgúr
+Perlusteinn
+Kalksteinn
+Silfurberg
+Brennisteinn
+Salt
+Kol
+Járngrýti
+Kopar
+Gull
+Ál

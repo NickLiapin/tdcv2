@@ -1,0 +1,16 @@
+---
+description: Mobile or internet plan in Icelandic. Frelsi is the Icelandic word for a prepaid plan and is used as a product name.
+locale: is
+---
+Frelsi
+Áskrift
+Mánaðaráskrift
+Gagnamagnspakki
+Ótakmarkað gagnamagn
+Fjölskyldupakki
+Fyrirtækjaáskrift
+Ljósleiðaratenging
+Heimanet
+Sjónvarpspakki
+Reikiþjónusta
+Símapakki

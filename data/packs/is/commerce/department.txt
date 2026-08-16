@@ -1,0 +1,54 @@
+---
+description: Shop department in Icelandic
+locale: is
+---
+Dömufatnaður
+Herrafatnaður
+Barnafatnaður
+Skór
+Fylgihlutir
+Snyrtivörur
+Hreinlætisvörur
+Heilsuvörur
+Apótek
+Matvara
+Kjötborð
+Fiskborð
+Grænmeti og ávextir
+Bakarí
+Mjólkurvörur
+Frystivörur
+Drykkjarvörur
+Sælgæti
+Kaffi og te
+Heimilistæki
+Raftæki
+Tölvur
+Símar
+Sjónvörp
+Hljómtæki
+Húsgögn
+Heimilisvörur
+Eldhúsvörur
+Rúmföt
+Ljós
+Byggingavörur
+Verkfæri
+Málning
+Garðvörur
+Blóm
+Gæludýravörur
+Íþróttavörur
+Útivistarvörur
+Veiðivörur
+Reiðhjól
+Bílavörur
+Leikföng
+Barnavörur
+Bækur
+Ritföng
+Tónlist
+Tölvuleikir
+Gjafavörur
+Skartgripir
+Úr

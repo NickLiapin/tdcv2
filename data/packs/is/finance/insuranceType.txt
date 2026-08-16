@@ -1,0 +1,18 @@
+---
+description: Insurance type in Icelandic
+locale: is
+---
+Ábyrgðartrygging
+Húseigendatrygging
+Innbústrygging
+Fjölskyldutrygging
+Bifreiðatrygging
+Kaskótrygging
+Ferðatrygging
+Sjúkratrygging
+Líftrygging
+Slysatrygging
+Sjúkdómatrygging
+Örorkutrygging
+Rekstrartrygging
+Farmtrygging

@@ -1,0 +1,5 @@
+---
+description: Currency of Nígería as Icelandic names it
+locale: is
+---
+næra

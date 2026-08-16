@@ -1,0 +1,16 @@
+---
+description: Abbreviated Icelandic month name. Lower case, and the full stop is part of the abbreviation; maí is already short enough to need none.
+locale: is
+---
+jan.
+feb.
+mar.
+apr.
+maí
+jún.
+júl.
+ágú.
+sep.
+okt.
+nóv.
+des.

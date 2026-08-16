@@ -1,0 +1,14 @@
+---
+description: Playing positions in Amerískur fótbolti, in Icelandic
+locale: is
+---
+Leikstjórnandi
+Hlaupari
+Gripari
+Þéttendi
+Sóknarlínumaður
+Varnarlínumaður
+Línuvörður
+Hornvörður
+Öryggisvörður
+Spyrnumaður

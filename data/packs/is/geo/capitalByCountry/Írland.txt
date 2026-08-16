@@ -1,0 +1,5 @@
+---
+description: Capital of Írland as Icelandic names it
+locale: is
+---
+Dyflinni

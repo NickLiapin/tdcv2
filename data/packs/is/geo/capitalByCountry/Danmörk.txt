@@ -1,0 +1,5 @@
+---
+description: Capital of Danmörk as Icelandic names it
+locale: is
+---
+Kaupmannahöfn

@@ -1,0 +1,24 @@
+---
+description: Writing system in Icelandic. The Icelandic alphabet is Latin plus þ (thorn) and ð (eth) — the only living language that kept both — and rúnir, the runic alphabet that preceded it in the North.
+locale: is
+---
+latneskt letur
+íslenskt stafróf
+rúnir
+grískt letur
+kýrillískt letur
+arabískt letur
+hebreskt letur
+armenskt letur
+georgískt letur
+devanagarí
+bengalskt letur
+tamílskt letur
+kínversk tákn
+japanskt letur
+kóreskt hangul
+taílenskt letur
+eþíópískt letur
+tíbetskt letur
+mongólskt letur
+blindraletur

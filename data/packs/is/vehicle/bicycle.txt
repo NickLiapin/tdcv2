@@ -1,0 +1,21 @@
+---
+description: Bicycle type in Icelandic
+locale: is
+---
+Fjallahjól
+Götuhjól
+Kappaksturshjól
+Ferðahjól
+Malarhjól
+Rafmagnshjól
+Rafmagnsfjallahjól
+Borgarhjól
+Samanbrjótanlegt hjól
+Þríhjól
+Barnahjól
+Hjólahlaupahjól
+Þrekhjól
+Vetrarhjól
+Nagladekkjahjól
+Flutningahjól
+Tandemhjól

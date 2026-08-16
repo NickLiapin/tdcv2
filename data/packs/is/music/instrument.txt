@@ -1,0 +1,35 @@
+---
+description: Musical instrument in Icelandic. Langspil and íslensk fiðla are Icelandic folk instruments; the rest are the international ones as Icelandic names them.
+locale: is
+---
+píanó
+flygill
+orgel
+harmóníum
+harmonikka
+gítar
+rafgítar
+bassagítar
+fiðla
+lágfiðla
+selló
+kontrabassi
+harpa
+langspil
+íslensk fiðla
+flauta
+blokkflauta
+klarínett
+óbó
+fagott
+saxófónn
+trompet
+básúna
+horn
+túba
+trommur
+trommusett
+bumba
+sílófónn
+hljómborð
+söngrödd

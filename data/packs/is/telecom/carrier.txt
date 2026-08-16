@@ -1,0 +1,16 @@
+---
+description: Mobile or broadband operator in Iceland. Síminn, Nova and Vodafone Ísland (part of Sýn) carry almost the whole market; Míla and Ljósleiðarinn own the fibre the others sell over. Kept short because Iceland genuinely has few operators — the list is not padded.
+locale: is
+---
+Síminn
+Nova
+Vodafone Ísland
+Sýn
+Hringdu
+Tal
+Míla
+Ljósleiðarinn
+Gagnaveita Reykjavíkur
+Snerpa
+Kapalvæðing
+Hringiðan

@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in people of Suður-Asía descent, in Icelandic.
+locale: is
+---
+Sykursýki af tegund 2
+Kransæðasjúkdómur
+Beta-talassemía
+G6PD-skortur
+D-vítamínskortur
+Laktósaóþol
+Járnskortsblóðleysi
+Berklar
+Efnaskiptaheilkenni
+Sigðkornaberi

@@ -1,0 +1,14 @@
+---
+description: Spænsk dishes as an Icelandic menu names them
+locale: is
+---
+Paella
+Tapas
+Gazpacho
+Tortilla española
+Churros
+Jamón serrano
+Patatas bravas
+Pulpo a la gallega
+Crema catalana
+Albóndigas

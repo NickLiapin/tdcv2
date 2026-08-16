@@ -1,0 +1,14 @@
+---
+description: Payment status in Icelandic
+locale: is
+---
+Í bið
+Heimilað
+Greitt
+Mistókst
+Endurgreitt
+Endurgreitt að hluta
+Endurkrafa
+Ógilt
+Hafnað
+Gjaldfallið

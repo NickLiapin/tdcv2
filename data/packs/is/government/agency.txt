@@ -1,0 +1,30 @@
+---
+description: Government body in Iceland — the ministries and the state agencies people actually deal with. Named for Iceland outright because Icelandic is spoken in exactly one country; a language with several would have to stay generic here.
+locale: is
+---
+Forsætisráðuneytið
+Fjármála- og efnahagsráðuneytið
+Utanríkisráðuneytið
+Dómsmálaráðuneytið
+Heilbrigðisráðuneytið
+Mennta- og barnamálaráðuneytið
+Háskóla-, iðnaðar- og nýsköpunarráðuneytið
+Innviðaráðuneytið
+Umhverfis-, orku- og loftslagsráðuneytið
+Matvælaráðuneytið
+Menningar- og viðskiptaráðuneytið
+Félags- og vinnumarkaðsráðuneytið
+Alþingi
+Skatturinn
+Þjóðskrá Íslands
+Tryggingastofnun
+Sjúkratryggingar Íslands
+Vinnumálastofnun
+Útlendingastofnun
+Samgöngustofa
+Landhelgisgæslan
+Ríkislögreglustjóri
+Hagstofa Íslands
+Veðurstofa Íslands
+Umhverfisstofnun
+Matvælastofnun

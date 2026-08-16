@@ -1,0 +1,5 @@
+---
+description: Currency of Suður-Afríka as Icelandic names it
+locale: is
+---
+rand

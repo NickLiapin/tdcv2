@@ -1,0 +1,21 @@
+---
+address: iceland.vehicle.plate
+description: An Icelandic number plate, in the two formats that are both on the road today. Until 2007 the format was TWO LETTERS AND THREE DIGITS (AB 123); the combinations ran out that year and Samgöngustofa turned the first digit into a letter, so new plates since 2007 are THREE LETTERS AND TWO DIGITS (ABC 12). Old plates were not recalled and stay with the car for life, so a real Icelandic fleet is a mixture, weighted here towards the newer form because the vehicle stock has turned over most of the way since 2007. THE PLATE CARRIES NO GEOGRAPHY AND NO SEQUENCE, and that is the difference from Poland, Germany, Norway and almost every other European country: combinations are issued at random, they encode neither region nor year nor vehicle class, and a plate therefore tells you nothing about a car except that it is registered. Iceland dropped regional coding in 1989, when it abolished the old system in which the first letter was the sýsla — R for Reykjavík, A for Akureyri and so on — and Icelanders of a certain age still read the old letter off a plate out of habit. The plate stays with the CAR and not the owner, for the life of the vehicle, even when it changes hands or changes use. Special series exist and are not generated here: CD plates on green for diplomats, red-bordered plates with a diamond for commercial vehicles, dark yellow for tax-free diesel, dealer plates that always begin RN on red, and vanity plates of two to six characters that follow no pattern at all. Plates are the EU standard 520 x 110 mm with a blue band, although Iceland is not in the EU. Written form puts a space between the letters and the digits.
+generator: tdc
+---
+<!-- 80% post-2007 three letters + two digits, 20% pre-2007 two letters + three
+     digits. The share is declared with percent= on a text gen rather than with an
+     advanced_regex (?%{80:…;20:…}) weighted choice, because the in-pattern form is
+     not honoured inside a pack generator: the pack parser only raises
+     needsWholeColumn for a percent= ATTRIBUTE, so a weighted choice written in the
+     pattern is apportioned over a column of one row and every row takes the first
+     branch. Reported, not patched. -->
+<sequence name="era"><gen type="text" value="1,0" percent="80,20"/></sequence>
+<sequence name="modern"><gen type="regex" value="[A-Z]{3} [0-9]{2}"/></sequence>
+<sequence name="legacy"><gen type="regex" value="[A-Z]{2} [0-9]{3}"/></sequence>
+<sequence name="plate"><compute><result><choose>
+  <when><test><equals><to_number><field name="era"/></to_number><int v="1"/></equals></test>
+    <then><field name="modern"/></then></when>
+  <otherwise><field name="legacy"/></otherwise>
+</choose></result></compute></sequence>
+<data>${{plate}}</data>

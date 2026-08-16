@@ -1,0 +1,14 @@
+---
+description: Jobs in Orkuiðnaður, in Icelandic
+locale: is
+---
+Vélstjóri í virkjun
+Rafmagnsverkfræðingur
+Jarðeðlisfræðingur
+Borverkstjóri
+Rekstrarstjóri virkjunar
+Línumaður
+Veitustjóri
+Umhverfisfulltrúi
+Efnafræðingur
+Tæknifræðingur

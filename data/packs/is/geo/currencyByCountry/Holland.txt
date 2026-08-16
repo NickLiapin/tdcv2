@@ -1,0 +1,5 @@
+---
+description: Currency of Holland as Icelandic names it
+locale: is
+---
+evra

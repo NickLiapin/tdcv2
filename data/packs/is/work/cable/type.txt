@@ -1,0 +1,13 @@
+---
+description: Cable type in Icelandic
+locale: is
+---
+Ljósleiðari
+Koax
+Snúið par
+Cat5e
+Cat6
+Cat6a
+Jarðstrengur
+Loftstrengur
+Háspennustrengur

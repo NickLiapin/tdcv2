@@ -1,0 +1,26 @@
+---
+description: Allergy or intolerance in Icelandic
+locale: is
+---
+Grasfrjó
+Birkifrjó
+Rykmaurar
+Kattaflasa
+Hundaflasa
+Hestaflasa
+Mygla
+Hnetur
+Jarðhnetur
+Möndlur
+Egg
+Mjólkurprótein
+Laktósaóþol
+Glúten
+Fiskur
+Skelfiskur
+Soja
+Sesam
+Penisillín
+Asetýlsalisýlsýra
+Skordýrastungur
+Nikkel

@@ -1,0 +1,12 @@
+---
+description: Compass direction in Icelandic. These are the nouns; the adjectives that go with a place name are different words again (nyrðri, syðri, eystri, vestari) and inflect.
+locale: is
+---
+Norður
+Suður
+Austur
+Vestur
+Norðaustur
+Norðvestur
+Suðaustur
+Suðvestur

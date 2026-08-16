@@ -1,0 +1,12 @@
+---
+description: Blood type
+locale: is
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

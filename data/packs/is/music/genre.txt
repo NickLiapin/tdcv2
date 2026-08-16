@@ -1,0 +1,39 @@
+---
+description: Music genre in Icelandic. Rímur — chanted metrical epic, unbroken since the Middle Ages — and kvæðamennska have no counterpart outside Iceland, and the male voice choir (karlakór) is still a mass movement.
+locale: is
+---
+popp
+rokk
+harðrokk
+þungarokk
+pönk
+nýbylgja
+raftónlist
+teknó
+hústónlist
+danstónlist
+hipphopp
+rapp
+djass
+blús
+sál
+fönk
+reggí
+kántrí
+þjóðlagatónlist
+sveitatónlist
+klassísk tónlist
+ópera
+kammertónlist
+sinfónísk tónlist
+kirkjutónlist
+kórtónlist
+karlakór
+rímur
+kvæðamennska
+vísnatónlist
+dægurlög
+barnatónlist
+kvikmyndatónlist
+tilraunatónlist
+sálmar

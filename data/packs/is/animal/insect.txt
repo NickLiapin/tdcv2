@@ -1,0 +1,24 @@
+---
+description: Insect in Icelandic. Iceland has no native ants, bees, wasps, butterflies of any number, and famously no mosquitoes at all — the words exist and are taught, but several of these animals are not found in the country.
+locale: is
+---
+fluga
+húsfluga
+mýfluga
+lúsmý
+fiðrildi
+mölur
+bjalla
+maríuhæna
+járnsmiður
+geitungur
+humla
+býfluga
+maur
+köngulló
+lús
+fló
+ánamaðkur
+lirfa
+engispretta
+drekafluga

@@ -1,0 +1,19 @@
+---
+description: Weather or natural phenomenon in Icelandic. Thunder is deliberately near the bottom: Iceland gets only a handful of thunderstorms a year, while norðurljós, skammdegi (the dark season), jökulhlaup (a glacial outburst flood) and öskufall (ashfall) are ordinary parts of the Icelandic year.
+locale: is
+---
+Norðurljós
+Miðnætursól
+Skammdegi
+Hafís
+Jökulhlaup
+Eldgos
+Öskufall
+Jarðskjálfti
+Snjóflóð
+Aurskriða
+Sandbylur
+Skafrenningur
+Hrímþoka
+Regnbogi
+Þrumuveður

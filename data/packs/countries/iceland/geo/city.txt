@@ -1,0 +1,119 @@
+---
+address: iceland.geo.city
+description: Icelandic settlements (byggðakjarnar) weighted by their population on 1 January 2026, Statistics Iceland table MAN030101. THE SHAPE OF THIS DRAW IS THE WHOLE POINT AND IT IS unlike anywhere else in Europe: Iceland had 394,324 people that day and 251,912 of them — sixty-four per cent — lived in the seven municipalities of the capital region, so Reykjavík plus Kópavogur plus Hafnarfjörður plus Garðabær plus Mosfellsbær plus Seltjarnarnes plus Álftanes outweigh every other place in the country put together, several times over. Reykjavík alone (138,753) is nearly seven times Akureyri (20,067), which is the second largest settlement and the ONLY town outside the southwest above ten thousand. Past the first fifteen names the list falls into places of two thousand, then eight hundred, then a hundred; the smallest here, Grímsey, has 52 people on an island in the Arctic Circle. Draw this list unweighted and you build a country where 1% of people live in Reykjavík and where Mjóifjörður is as likely an address as Kópavogur, which is not a small distortion but a different nation. Four things to know before using it. GRINDAVÍK IS 817 AND THAT IS NOT AN ERROR: the town was evacuated on 10 November 2023 when the Svartsengi fissure opened under it and most of its ~3,700 people have not returned, so its figure collapsed by four fifths between two censuses and any Icelandic dataset built on pre-2024 populations will disagree with this file about it. "Keflavík og Njarðvík" is one entry because Statistics Iceland counts the two as a single continuous built-up area; they are the twin towns of the municipality Reykjanesbær, and an envelope to either is addressed 230 or 260 Reykjanesbæ. A byggðakjarni is not a municipality: Reykjavík the settlement and Reykjavíkurborg the municipality carry different numbers, and iceland.geo.municipality holds the other list. And the country-dweller is missing on purpose — the Strjálbýli (scattered-settlement) rows of the source, about 18,000 people who live at no named place at all, are aggregates rather than towns and are left out rather than turned into a fake place name.
+locale: is
+weighted: true
+---
+Reykjavík,138753
+Kópavogur,40228
+Hafnarfjörður,32398
+Keflavík og Njarðvík,22572
+Akureyri,20067
+Garðabær,17755
+Mosfellsbær,13417
+Selfoss,11000
+Akranes,8429
+Seltjarnarnes,4609
+Vestmannaeyjar,4518
+Hveragerði,3342
+Álftanes,2916
+Ísafjörður,2807
+Egilsstaðir,2719
+Sauðárkrókur,2672
+Húsavík,2403
+Þorlákshöfn,2316
+Borgarnes,2250
+Sandgerði,2188
+Garður,2006
+Vogar,1818
+Höfn í Hornafirði,1813
+Neskaupstaður,1478
+Reyðarfjörður,1470
+Dalvík,1385
+Stykkishólmur,1218
+Hvolsvöllur,1181
+Siglufjörður,1159
+Hella,1083
+Eskifjörður,1063
+Bolungarvík,985
+Ólafsvík,978
+Blönduós,853
+Grindavík,817
+Grundarfjörður,810
+Ólafsfjörður,771
+Vík í Mýrdal,740
+Patreksfjörður,714
+Fáskrúðsfjörður,707
+Grundarhverfi, Kjalarnesi,655
+Seyðisfjörður,648
+Eyrarbakki,615
+Hvammstangi,597
+Flúðir,539
+Stokkseyri,523
+Vopnafjörður,503
+Reykholt, Biskupstungum,474
+Skagaströnd,440
+Fellabær,408
+Djúpivogur,407
+Lónsbakki,400
+Hrafnagil,398
+Hellissandur,365
+Þórshöfn,341
+Hólmavík,309
+Suðureyri,301
+Grenivík,298
+Þingeyri,289
+Svalbarðseyri,285
+Laugarvatn,280
+Borg, Grímsnesi,275
+Hvanneyri,270
+Reykjahlíð,270
+Bifröst,247
+Mosfellsdalur,245
+Búðardalur,239
+Bíldudalur,237
+Tjarnabyggð,230
+Flateyri,223
+Tálknafjörður,218
+Hnífsdalur,212
+Kirkjubæjarklaustur,210
+Innnes,178
+Súðavík,174
+Stöðvarfjörður,167
+Raufarhöfn,166
+Melahverfi, Hvalfirði,165
+Hofsós,164
+Hrísey,156
+Varmahlíð,155
+Breiðdalsvík,153
+Brúnahlíð, Eyjafirði,143
+Rif,139
+Kópasker,126
+Reykhólar,125
+Hafnir,122
+Laugar,120
+Hauganes,118
+Laugarás,116
+Litli-Árskógssandur,111
+Nesjahverfi, Hornafirði,105
+Gljúfurárholt,101
+Borgarfjörður eystri,99
+Hólar í Hjaltadal,93
+Brautarholt, Skeiðum,92
+Sólheimar, Grímsnesi,91
+Öngulsstaðir,89
+Þykkvibær,85
+Drangsnes,75
+Veigastaðir,74
+Árnes,74
+Reykholt, Borgarfirði,72
+Hof,68
+Árbæjarhverfi, Ölfusi,66
+Laugarbakki,65
+Bakkafjörður,65
+Vogar við Mývatn,60
+Sólberg,56
+Hallormsstaður,56
+Vellir,55
+Kleppjárnsreykir,54
+Grímsey,47

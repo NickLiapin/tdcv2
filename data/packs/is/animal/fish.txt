@@ -1,0 +1,33 @@
+---
+description: Fish in Icelandic — the species an Icelandic fishing vessel or fish counter actually names. Cod (þorskur) is the backbone of the economy; hákarl, the Greenland shark, is eaten fermented and is the country's best known food; bleikja (arctic char) and urriði (brown trout) fill the rivers.
+locale: is
+---
+þorskur
+ýsa
+ufsi
+karfi
+steinbítur
+lúða
+skarkoli
+sandkoli
+langa
+keila
+blálanga
+síld
+loðna
+makríll
+lax
+bleikja
+urriði
+silungur
+hlýri
+grálúða
+skötuselur
+skata
+hákarl
+túnfiskur
+grásleppa
+rauðmagi
+gulllax
+sandsíli
+áll

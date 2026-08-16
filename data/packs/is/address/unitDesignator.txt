@@ -1,0 +1,27 @@
+---
+description: Interior unit designator inside an Icelandic address, normally written after the house number: Laugavegur 12, íb. 301. Floors are counted with the ground floor as 1. hæð, so "3. hæð" is two flights up, and jarðhæð / kjallari / ris name the ground floor, basement and attic outright.
+locale: is
+---
+íb.
+íbúð
+hæð
+h.
+jarðhæð
+kjallari
+ris
+efri hæð
+neðri hæð
+miðhæð
+stigagangur
+stigag.
+inngangur
+herbergi
+herb.
+skrifstofa
+skrifst.
+rými
+bil
+geymsla
+bílskúr
+pósthólf
+box

@@ -1,0 +1,5 @@
+---
+description: Currency of Japan as Icelandic names it
+locale: is
+---
+jen

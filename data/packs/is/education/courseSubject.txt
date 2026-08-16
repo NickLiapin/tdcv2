@@ -1,0 +1,28 @@
+---
+description: School or university subject in Icelandic
+locale: is
+---
+Íslenska
+Stærðfræði
+Enska
+Danska
+Þýska
+Franska
+Spænska
+Saga
+Landafræði
+Eðlisfræði
+Efnafræði
+Líffræði
+Jarðfræði
+Náttúrufræði
+Samfélagsfræði
+Tölvunarfræði
+Forritun
+Myndlist
+Tónmennt
+Íþróttir
+Sund
+Heimilisfræði
+Smíði
+Textílmennt

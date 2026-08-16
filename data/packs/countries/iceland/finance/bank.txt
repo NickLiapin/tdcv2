@@ -1,0 +1,14 @@
+---
+address: iceland.finance.bank
+description: The banks that exist in Iceland, and there are very few, because this is a country of 394,000 people whose entire commercial banking sector failed in one week of October 2008. The three that matter are Landsbankinn, Íslandsbanki and Arion banki, and all three are the SUCCESSORS of the banks that collapsed rather than the banks themselves — Landsbankinn was built out of Landsbanki, Íslandsbanki out of Glitnir and Arion out of Kaupþing, each incorporated within eleven days of the others in October 2008, which is legible in their kennitölur (471008-0280, 491008-0160, 581008-0150; see iceland.docs.kennitalaCompany). The names of the failed banks — Landsbanki, Glitnir, Kaupþing, SPRON, Byr — still appear in Icelandic records from before 2009 and are NOT the same institutions. Kvika banki is the fourth licensed bank and is an investment house rather than a high-street one. Seðlabanki Íslands is the central bank, and since 2020 it is also the financial regulator: Fjármálaeftirlitið, the separate supervisor of the crisis years, was merged into it, so an Icelandic dataset from after 2020 has one authority where an older one has two. The savings-bank movement, which once ran dozens of local sparisjóðir and is why the bank-code block 11 exists at all (see iceland.finance.bankCode), has been reduced to three institutions trading under the shared Sparisjóðurinn brand — Sparisjóður Austurlands, Sparisjóður Þingeyinga and Smári sparisjóður, the last of these formed in July 2025 when Sparisjóður Höfðhverfinga and Sparisjóður Strandamanna merged. Sparisjóður Höfðhverfinga, founded on New Year's Day 1879 in Grenivík, was the oldest financial institution in the country. indó is the outlier: a savings bank licensed in the 2020s and the first genuinely new deposit-taker in decades, holding bank block 22.
+locale: is
+---
+Landsbankinn
+Íslandsbanki
+Arion banki
+Kvika banki
+Seðlabanki Íslands
+indó sparisjóður
+Sparisjóður Austurlands
+Sparisjóður Þingeyinga
+Smári sparisjóður

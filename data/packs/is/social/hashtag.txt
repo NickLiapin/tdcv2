@@ -1,0 +1,34 @@
+---
+description: Hashtag an Icelandic account actually uses. Icelandic letters work in a hashtag, so þ, ð and the accented vowels appear in them — a hashtag list stripped to plain ASCII would not be Icelandic.
+locale: is
+---
+#ísland
+#iceland
+#reykjavík
+#akureyri
+#norðurljós
+#hálendið
+#íslenskurhestur
+#lopapeysa
+#þingvellir
+#gullfoss
+#geysir
+#jökulsárlón
+#vestfirðir
+#austurland
+#suðurland
+#snæfellsnes
+#sundlaug
+#heitirpottar
+#þorrablót
+#17júní
+#verslunarmannahelgin
+#íslenskurmatur
+#ferðalag
+#útivist
+#fjallganga
+#veiði
+#skyr
+#kaffi
+#handbolti
+#náttúra

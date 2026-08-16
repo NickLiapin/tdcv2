@@ -1,0 +1,14 @@
+---
+description: Mexíkósk dishes as an Icelandic menu names them
+locale: is
+---
+Tacos
+Burritos
+Quesadilla
+Guacamole
+Enchiladas
+Nachos
+Fajitas
+Tamales
+Pozole
+Salsa

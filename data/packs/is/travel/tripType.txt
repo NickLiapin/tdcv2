@@ -1,0 +1,24 @@
+---
+description: Trip type in Icelandic. Hringferð (driving Route 1 round the island), hálendisferð (the interior, open only in high summer) and jöklaferð are the Icelandic trip categories a travel agency actually sells.
+locale: is
+---
+Sumarfrí
+Vetrarfrí
+Helgarferð
+Dagsferð
+Hringferð
+Hálendisferð
+Jöklaferð
+Norðurljósaferð
+Hvalaskoðunarferð
+Hestaferð
+Gönguferð
+Veiðiferð
+Bústaðaferð
+Sundlaugaferð
+Borgarferð
+Sólarlandaferð
+Viðskiptaferð
+Ráðstefnuferð
+Fjölskylduferð
+Skólaferðalag

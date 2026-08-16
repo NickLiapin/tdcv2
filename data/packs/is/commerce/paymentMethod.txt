@@ -1,0 +1,19 @@
+---
+description: Payment method as an Icelandic checkout lists it. Card payment is close to universal in Iceland and cash on delivery is vanishingly rare, but both are listed because a shop form still offers them. Aur and Netgíró are Icelandic services and keep their real names.
+locale: is
+---
+Kreditkort
+Debetkort
+Greiðslukort
+Millifærsla
+Bankamillifærsla
+Netgíró
+Aur
+Apple Pay
+Google Pay
+PayPal
+Greiðsludreifing
+Gjafabréf
+Inneign
+Staðgreiðsla
+Greitt við afhendingu

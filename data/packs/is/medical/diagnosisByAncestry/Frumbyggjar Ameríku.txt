@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in people of Frumbyggjar Ameríku descent, in Icelandic.
+locale: is
+---
+Sykursýki af tegund 2
+Gallsteinar
+Offita
+Áfengistengdur lifrarsjúkdómur
+Berklar
+Nýrnabilun
+Efnaskiptaheilkenni
+Eyrnabólgur
+Gigtarsjúkdómar
+Hjarta- og æðasjúkdómar

@@ -1,0 +1,40 @@
+---
+description: Medical specialty in Icelandic
+locale: is
+---
+Heimilislækningar
+Bráðalækningar
+Lyflækningar
+Hjartalækningar
+Lungnalækningar
+Meltingarlækningar
+Innkirtlalækningar
+Nýrnalækningar
+Gigtarlækningar
+Blóðsjúkdómalækningar
+Krabbameinslækningar
+Smitsjúkdómalækningar
+Taugalækningar
+Geðlækningar
+Barnalækningar
+Öldrunarlækningar
+Kvensjúkdómalækningar
+Fæðingarlækningar
+Þvagfæralækningar
+Húðlækningar
+Augnlækningar
+Háls-, nef- og eyrnalækningar
+Bæklunarlækningar
+Skurðlækningar
+Æðaskurðlækningar
+Heilaskurðlækningar
+Lýtalækningar
+Svæfingalækningar
+Myndgreining
+Meinafræði
+Réttarlæknisfræði
+Endurhæfingarlækningar
+Íþróttalækningar
+Svefnlækningar
+Verkjalækningar
+Heimahjúkrun

@@ -1,0 +1,14 @@
+---
+description: Jobs in Upplýsingatækni, in Icelandic
+locale: is
+---
+Forritari
+Hugbúnaðarsérfræðingur
+Kerfisstjóri
+Vefhönnuður
+Gagnasérfræðingur
+Netöryggissérfræðingur
+Tæknistjóri
+Verkefnastjóri
+Prófunarsérfræðingur
+Rekstrarsérfræðingur

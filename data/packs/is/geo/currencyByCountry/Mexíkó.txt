@@ -1,0 +1,5 @@
+---
+description: Currency of Mexíkó as Icelandic names it
+locale: is
+---
+mexíkóskt pesó

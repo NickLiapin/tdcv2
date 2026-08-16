@@ -1,0 +1,14 @@
+---
+description: Ítölsk dishes as an Icelandic menu names them
+locale: is
+---
+Pizza
+Spaghettí bolognese
+Lasagna
+Carbonara
+Risotto
+Minestrone
+Tiramisu
+Ravíólí
+Focaccia
+Gnocchi

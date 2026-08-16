@@ -1,0 +1,5 @@
+---
+description: Capital of Suður-Kórea as Icelandic names it
+locale: is
+---
+Seúl

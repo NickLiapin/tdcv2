@@ -1,0 +1,5 @@
+---
+description: Capital of Suður-Afríka as Icelandic names it
+locale: is
+---
+Pretoría

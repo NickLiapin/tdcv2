@@ -1,0 +1,14 @@
+---
+description: Jobs in Fjármál, in Icelandic
+locale: is
+---
+Endurskoðandi
+Bókari
+Fjármálastjóri
+Viðskiptafræðingur
+Hagfræðingur
+Tryggingaráðgjafi
+Fjárfestingarstjóri
+Áhættustjóri
+Innri endurskoðandi
+Launafulltrúi

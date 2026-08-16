@@ -1,0 +1,30 @@
+---
+description: Aircraft type. The Boeing 757 is the type Iceland is known for — Icelandair built its whole North Atlantic network on it — and the Twin Otter and Dash 8 fly the short domestic hops. Type designations keep their real form in Icelandic.
+locale: is
+---
+Boeing 757-200
+Boeing 757-300
+Boeing 767-300ER
+Boeing 737 MAX 8
+Boeing 737 MAX 9
+Boeing 737-800
+Boeing 747-400F
+Boeing 787-9
+Airbus A320neo
+Airbus A321neo
+Airbus A321LR
+Airbus A319
+Airbus A330-300
+Airbus A350-900
+ATR 72
+ATR 42
+De Havilland Dash 8 Q200
+De Havilland Dash 8 Q400
+DHC-6 Twin Otter
+Cessna 208 Caravan
+Beechcraft King Air
+Fokker 50
+Embraer E190
+Bombardier CRJ900
+Piper PA-31 Navajo
+Learjet 45

@@ -1,0 +1,5 @@
+---
+description: Capital of Bretland as Icelandic names it
+locale: is
+---
+London

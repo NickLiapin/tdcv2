@@ -1,0 +1,26 @@
+---
+description: Company department in Icelandic
+locale: is
+---
+Fjármáladeild
+Mannauðsdeild
+Markaðsdeild
+Söludeild
+Þjónustudeild
+Tæknideild
+Upplýsingatæknideild
+Þróunardeild
+Rannsóknardeild
+Framleiðsludeild
+Gæðadeild
+Innkaupadeild
+Lagerdeild
+Flutningadeild
+Lögfræðideild
+Stjórnsýslusvið
+Rekstrarsvið
+Skrifstofa forstjóra
+Öryggisdeild
+Umhverfisdeild
+Kynningardeild
+Skjaladeild

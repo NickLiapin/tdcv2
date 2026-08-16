@@ -1,0 +1,31 @@
+---
+address: iceland.finance.iban
+description: Icelandic IBAN — 26 characters, IS + two ISO 7064 MOD-97-10 check digits + a 22-digit BBAN, registered format IS2!n4!n2!n6!n10!n. THE LAST TEN DIGITS ARE THE ACCOUNT HOLDER'S KENNITALA, and that is not a curiosity, it is the single most consequential fact about Icelandic banking data. Iceland is one of very few countries whose account number CONTAINS the owner's national identity number, so an Icelandic IBAN is personally identifying on its face: you can read the holder's date of birth out of it, and whether the holder is a person or a company (day digits 41-71 mean a legal person — see iceland.docs.kennitalaCompany). A pseudonymisation routine that keeps the IBAN and hashes the kennitala column has therefore anonymised nothing. This generator draws a kennitala from iceland.docs.kennitalaDigits rather than eleven random digits, so the number embedded in every IBAN it emits passes its own modulus-11 check; the domestic form the same account takes on an Icelandic invoice is 0159-26-007654, four digits for the bank and branch, two for the ledger (höfuðbók) that says what kind of account it is, six for the account itself. THE CHECKSUM IS THE PUBLISHED ISO 13616 ONE, implemented here from the specification: move IS and two zero placeholders to the end of the BBAN, convert every letter to a number with A=10 … Z=35 (so IS becomes 1828), read the result as one long integer, take it modulo 97 by Horner folding a digit at a time so nothing overflows, and the check digits are 98 minus that remainder, padded to two. The registry's own worked example is IS140159260076545510730339 and this arithmetic accepts it; so does IS750001121234563108962099, the example iban.com publishes. Both examples, incidentally, carry a VALID kennitala in their last ten digits — 5510730339 checks out and so does 3108962099 — which is a nice demonstration that the two checksums in an Icelandic IBAN are independent and both real. Print format groups in fours (IS14 0159 2600 7654 5510 7303 39); the electronic form has no spaces and is what this file emits. Iceland is in the EEA and in SEPA, so an Icelandic IBAN behaves like a euro-area one for transfers even though the account is denominated in krónur.
+generator: tdc
+---
+<sequence name="bank"><gen type="template" value="iceland.finance.bankCode"/></sequence>
+<sequence name="ledger"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="kt"><gen type="template" value="iceland.docs.kennitalaDigits"/></sequence>
+<sequence name="iban"><compute>
+  <let name="bban"><concat>
+    <field name="bank"/><field name="ledger"/><field name="account"/><field name="kt"/>
+  </concat></let>
+  <!-- ISO 13616: country code and the two placeholder check digits move to the
+       end, then the whole string is read as a number with A=10 … Z=35. -->
+  <let name="rearranged"><concat><use name="bban"/><str v="IS"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <!-- Horner fold: rem = (rem * 10 + digit) mod 97, so a 26-character number
+       never needs more than two digits of intermediate width. -->
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="IS"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

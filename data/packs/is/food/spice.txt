@@ -1,0 +1,37 @@
+---
+description: Spice or culinary herb in Icelandic. The last three are Icelandic wild plants used in cooking to this day — blóðberg (wild thyme), hvönn (angelica, eaten since the settlement) and fjallagrös (Iceland moss, boiled into porridge and bread).
+locale: is
+---
+salt
+svartur pipar
+hvítur pipar
+papríkuduft
+karrí
+engifer
+kanill
+negull
+múskat
+kardimomma
+kúmen
+kummin
+timjan
+óreganó
+basilíka
+rósmarín
+salvía
+dill
+steinselja
+kóríander
+graslaukur
+lárviðarlauf
+túrmerik
+sinnepsfræ
+chiliduft
+cayennepipar
+saffran
+vanilla
+hvítlauksduft
+laukduft
+blóðberg
+hvönn
+fjallagrös

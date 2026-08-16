@@ -1,0 +1,14 @@
+---
+description: Taílensk dishes as an Icelandic menu names them
+locale: is
+---
+Pad thai
+Grænt karrý
+Rautt karrý
+Tom yum
+Tom kha gai
+Som tam
+Massaman-karrý
+Satay
+Mangó með klístruðum hrísgrjónum
+Larb

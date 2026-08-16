@@ -1,0 +1,14 @@
+---
+description: Jobs in Menntun, in Icelandic
+locale: is
+---
+Grunnskólakennari
+Framhaldsskólakennari
+Leikskólakennari
+Háskólakennari
+Prófessor
+Skólastjóri
+Námsráðgjafi
+Stuðningsfulltrúi
+Bókasafnsfræðingur
+Íþróttakennari

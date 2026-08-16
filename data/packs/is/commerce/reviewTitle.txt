@@ -1,0 +1,30 @@
+---
+description: Product review title in Icelandic
+locale: is
+---
+Frábær vara!
+Mæli eindregið með
+Ekki þess virði
+Fór fram úr væntingum
+Bara ágætt
+Myndi kaupa aftur
+Vonbrigði
+Frábær gæði
+Bilaði of fljótt
+Fullkomið miðað við verð
+Betra en ég bjóst við
+Mæli ekki með
+Elska hana!
+Aðeins of dýrt
+Nákvæmlega eins og lýst var
+Kom fljótt
+Sein afhending
+Góð kaup
+Stenst ekki lýsingu
+Traust og endingargott
+Léleg gæði
+Frábær þjónusta
+Auðvelt í notkun
+Of lítið
+Of stórt
+Kem aftur

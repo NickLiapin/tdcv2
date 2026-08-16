@@ -1,0 +1,5 @@
+---
+description: Currency of Ísland as Icelandic names it
+locale: is
+---
+íslensk króna

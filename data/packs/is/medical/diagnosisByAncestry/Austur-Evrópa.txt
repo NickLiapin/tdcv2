@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in people of Austur-Evrópa descent, in Icelandic.
+locale: is
+---
+Járnhleðsla
+Slímseigjusjúkdómur
+Fenýlketónmiga
+Wilson-sjúkdómur
+Sykursýki af tegund 1
+Glútenóþol
+Áfengistengd lifrarbólga
+Hjarta- og æðasjúkdómar
+Beinþynning
+Skjaldkirtilssjúkdómar

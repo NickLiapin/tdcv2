@@ -1,0 +1,15 @@
+---
+description: Reaction to a post in Icelandic
+locale: is
+---
+Líkar við
+Elska
+Hló
+Vá
+Sorglegt
+Reiður
+Samhryggist
+Deila
+Vista
+Athugasemd
+Fylgja

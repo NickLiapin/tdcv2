@@ -1,0 +1,41 @@
+---
+description: University field of study in Icelandic
+locale: is
+---
+Íslenska
+Bókmenntafræði
+Sagnfræði
+Heimspeki
+Guðfræði
+Lögfræði
+Hagfræði
+Viðskiptafræði
+Stjórnmálafræði
+Félagsfræði
+Sálfræði
+Mannfræði
+Uppeldis- og menntunarfræði
+Kennslufræði
+Læknisfræði
+Hjúkrunarfræði
+Lyfjafræði
+Tannlæknisfræði
+Sjúkraþjálfun
+Næringarfræði
+Líffræði
+Efnafræði
+Eðlisfræði
+Stærðfræði
+Tölvunarfræði
+Hugbúnaðarverkfræði
+Vélaverkfræði
+Byggingarverkfræði
+Rafmagnsverkfræði
+Umhverfisfræði
+Jarðfræði
+Jarðeðlisfræði
+Sjávarútvegsfræði
+Ferðamálafræði
+Arkitektúr
+Myndlist
+Tónlist

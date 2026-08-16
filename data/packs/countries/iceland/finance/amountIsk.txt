@@ -1,0 +1,12 @@
+---
+address: iceland.finance.amountIsk
+description: A sum of money written the way Iceland writes it — a WHOLE number of krónur, thousands separated by a FULL STOP, and "kr." after the figure preceded by a NO-BREAK SPACE (U+00A0), which is what CLDR gives for is-IS and what the character between the digits and kr. in the body below actually is. THERE IS NO DECIMAL PART AND THERE MUST NOT BE ONE. The króna is nominally divided into 100 aurar, but the aurar are dead: the last aurar coins were demonetised in the 1990s, the smallest coin in circulation is 1 króna, ISO 4217 assigns ISK zero decimal places, and Icelandic prices, salaries, invoices and tax returns are all integers. So a column of Icelandic money with two decimal places is either a foreign-exchange rate or a bug, and formatting ISK with the same routine as EUR or USD produces "1.234.567,00 kr.", which no Icelandic system prints. THE SEPARATOR IS THE REVERSE OF ENGLISH and is the other standing trap: Iceland uses a full stop for thousands and a comma for the decimal, so 1.234 is one thousand two hundred and thirty-four, and reading an Icelandic figure with an English parser divides it by a thousand while passing every type check. Amounts run large in ordinary life because the króna is a small unit — roughly 140 to the euro — so a cup of coffee is a four-digit number, a monthly wage a six- or seven-digit one and a flat an eight-digit one; the range here, 500 to 49,999,999 krónur, spans exactly that, and it is why an Icelandic money column looks alarming to anyone reading it as euros. The symbol is written AFTER the figure and is "kr." with the stop, not "Kr" and not the ISO code; ISK is for wires and statements.
+generator: tdc
+locale: is
+---
+<sequence name="kronur"><gen type="number" value="500..49999999"/></sequence>
+<sequence name="amount"><compute>
+  <let name="grouped"><group size="3" sep="."><field name="kronur"/></group></let>
+  <result><concat><use name="grouped"/><str v=" kr."/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

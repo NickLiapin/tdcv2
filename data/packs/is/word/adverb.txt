@@ -1,0 +1,36 @@
+---
+description: Common Icelandic adverb. Icelandic keeps a live distinction between motion and position that English lost: inn / inni, út / úti, upp / uppi, niður / niðri — the first of each pair means going there, the second being there.
+locale: is
+---
+hér
+þar
+hérna
+þarna
+inn
+inni
+út
+úti
+upp
+uppi
+niður
+niðri
+heim
+heima
+burt
+aftur
+áfram
+strax
+núna
+seinna
+áðan
+oft
+sjaldan
+alltaf
+aldrei
+stundum
+mjög
+nokkuð
+alveg
+kannski
+líka
+aðeins

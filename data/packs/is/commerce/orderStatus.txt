@@ -1,0 +1,18 @@
+---
+description: Order status in Icelandic
+locale: is
+---
+Í bið
+Í vinnslu
+Staðfest
+Sent
+Í útkeyrslu
+Afhent
+Hætt við
+Skilað
+Endurgreitt
+Í biðstöðu
+Í pöntun
+Mistókst
+Bíður greiðslu
+Tilbúið til afhendingar

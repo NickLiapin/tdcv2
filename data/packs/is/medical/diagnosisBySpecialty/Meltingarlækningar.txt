@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Meltingarlækningar (Icelandic)
+locale: is
+---
+Vélindabakflæði
+Magasár
+Iðraólga
+Sáraristilbólga
+Crohns-sjúkdómur
+Glútenóþol
+Gallsteinar
+Brisbólga
+Lifrarbólga
+Fitulifur

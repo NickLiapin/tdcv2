@@ -1,0 +1,11 @@
+---
+description: Gross monthly pay band in Icelandic krónur (ISK), the currency of Iceland. Icelandic writes the thousands separator as a full stop and the decimal comma as a comma, so 1,5 millj. kr. is one and a half million krónur. Bands are monthly, not annual, because that is how Icelandic pay is quoted.
+locale: is
+---
+Undir 400 þús. kr.
+400–600 þús. kr.
+600–800 þús. kr.
+800 þús.–1 millj. kr.
+1–1,5 millj. kr.
+1,5–2 millj. kr.
+Yfir 2 millj. kr.

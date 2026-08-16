@@ -1,0 +1,14 @@
+---
+description: Jobs in Verslun, in Icelandic
+locale: is
+---
+Verslunarstjóri
+Afgreiðslumaður
+Kassastarfsmaður
+Sölumaður
+Sölustjóri
+Innkaupastjóri
+Lagerstarfsmaður
+Vörustjóri
+Markaðsstjóri
+Þjónustufulltrúi

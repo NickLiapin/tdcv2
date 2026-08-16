@@ -1,0 +1,12 @@
+---
+description: Title placed before a name. Kept deliberately short: Icelanders normally use NO title at all and address everyone, including ministers and strangers, by the given name alone — a title before a name is formal written register only.
+locale: is
+---
+hr.
+frú
+ungfrú
+dr.
+prófessor
+sr.
+séra
+herra

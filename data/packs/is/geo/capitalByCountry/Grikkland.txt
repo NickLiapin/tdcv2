@@ -1,0 +1,5 @@
+---
+description: Capital of Grikkland as Icelandic names it
+locale: is
+---
+Aþena

@@ -1,0 +1,14 @@
+---
+description: Time of day in Icelandic
+locale: is
+---
+morgunn
+árdegi
+hádegi
+eftirmiðdagur
+síðdegi
+kvöld
+nótt
+miðnætti
+dögun
+rökkur

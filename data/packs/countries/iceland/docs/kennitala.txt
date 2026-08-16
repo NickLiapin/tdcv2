@@ -1,0 +1,48 @@
+---
+address: iceland.docs.kennitala
+description: The Icelandic kennitala for a PERSON, in the printed form DDMMYY-NNCÖ, with its real modulus-11 check digit. Ten digits, and every one of them is load-bearing. DDMMYY is the date of birth. NN is a serial in 20-99 distinguishing people born the same day. C is the check digit. Ö is the century marker — 9 for a birth in the 1900s, 0 for the 2000s, 8 for the 1800s (this generator emits only 9 and 0). THE CHECK IS COMPUTED FROM THE PUBLISHED SPECIFICATION, not inferred: multiply the first eight digits by the fixed weights 3, 2, 7, 6, 5, 4, 3, 2 in that order, sum, take the sum modulo 11, and the check digit is 0 when that remainder is 0 and 11 minus the remainder otherwise. The century digit takes no part in the sum, which is why a kennitala cannot be validated by feeding all ten digits to a generic mod-11 routine. THE REMAINDER 1 IS THE INTERESTING CASE and this file handles it rather than hiding it: 11 minus 1 is 10, which will not fit in one digit, so that combination of birth date and serial IS NEVER ISSUED — Þjóðskrá skips it and assigns the next serial instead. The <valid> guard below reproduces exactly that behaviour, rejecting the draw and redrawing the serial, which is why no kennitala this generator emits will ever be one the register could not have given out. A worked example of the arithmetic, on a published institutional number: Reykjavíkurborg is 530269-7609, so 5·3 + 3·2 + 0·7 + 2·6 + 6·5 + 9·4 + 7·3 + 6·2 = 15+6+0+12+30+36+21+12 = 132, and 132 mod 11 = 0, so the check digit is 0 — which is the ninth digit of the real number. Two things a non-Icelandic reader will get wrong. FIRST, THE KENNITALA IS NOT SECRET. It is printed on the phone book, quoted on invoices, typed into shop tills and published for every company in the country; it identifies, it does not authenticate, and Icelandic systems that treat it as a password are the exception rather than the rule. It is also the tax number, the health number, the driving-licence number and the number the bank account is filed under — Iceland issues no separate TIN, and iceland.finance.iban actually embeds it in the account number. SECOND, COMPANIES HAVE ONE TOO, and it is built the same way with the DAY NUMBER OFFSET BY 40: Landsbankinn was founded on 7 October 2008 and its kennitala is 471008-0280, where 47 is 7+40. That puts every legal person's day digits in the range 41-71 and is how an Icelandic system tells an individual from a company at a glance, with no extra field — see iceland.docs.kennitalaCompany. Values here are drawn over 1900-2012 births and carry no sex convention; Icelandic serials encode nothing but order of registration, unlike the Swedish, Finnish and Polish numbers, so a kennitala cannot tell you whether its holder is a man or a woman.
+generator: tdc
+locale: is
+---
+<sequence name="dob"><gen type="date" from="1900-01-01" to="2012-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="serial"><gen type="regex" value="[2-9][0-9]"/></sequence>
+<!-- The drawn calendar date arrives as YYYYMMDD; the kennitala writes it DDMMYY. -->
+<sequence name="ddmmyy"><compute><result><concat>
+  <slice from="6" to="8"><field name="dob"/></slice>
+  <slice from="4" to="6"><field name="dob"/></slice>
+  <slice from="2" to="4"><field name="dob"/></slice>
+</concat></result></compute></sequence>
+<!-- The eight digits the checksum reads: the date and the serial, in that order. -->
+<sequence name="body"><compute><result>
+  <concat><field name="ddmmyy"/><field name="serial"/></concat>
+</result></compute></sequence>
+<sequence name="check"><compute>
+  <!-- P0 = (3·D1 + 2·D2 + 7·M1 + 6·M2 + 5·Y1 + 4·Y2 + 3·R1 + 2·R2) mod 11 -->
+  <let name="p0"><mod>
+    <reduce>
+      <over><field name="body"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/><multiply><current/>
+        <at><in><list v="3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+      </multiply></add></do>
+    </reduce>
+    <int v="11"/>
+  </mod></let>
+  <!-- C = 0 when P0 = 0, otherwise 11 - P0. P0 = 1 therefore yields 10, which is
+       not a digit; the <valid> guard below throws that draw away, exactly as the
+       register does when it skips such a serial. -->
+  <result><choose>
+    <when><test><equals><use name="p0"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+    <otherwise><subtract><int v="11"/><use name="p0"/></subtract></otherwise>
+  </choose></result>
+</compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<!-- Century marker: 9 = born 1900-1999, 0 = born 2000-2099. Not part of the sum. -->
+<sequence name="century"><compute><result><choose>
+  <when><test><greater_than>
+    <to_number><slice from="0" to="4"><field name="dob"/></slice></to_number>
+    <int v="1999"/>
+  </greater_than></test><then><str v="0"/></then></when>
+  <otherwise><str v="9"/></otherwise>
+</choose></result></compute></sequence>
+<data>${{ddmmyy}}-${{serial}}${{check}}${{century}}</data>

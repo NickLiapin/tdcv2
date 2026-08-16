@@ -1,0 +1,22 @@
+---
+description: Academic or vocational qualification as awarded in Iceland. Stúdentspróf is the upper-secondary leaving certificate that opens university; sveinspróf and meistarabréf are the journeyman and master certificates of the trades.
+locale: is
+---
+Grunnskólapróf
+Stúdentspróf
+Iðnnám
+Sveinspróf
+Meistarabréf
+Starfsréttindanám
+Diplómanám
+Grunndiplóma
+Bakkalárgráða
+BA-gráða
+BS-gráða
+BEd-gráða
+Meistaragráða
+MA-gráða
+MS-gráða
+MBA
+Kandídatspróf
+Doktorsgráða

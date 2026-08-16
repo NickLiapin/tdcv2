@@ -1,0 +1,12 @@
+---
+address: iceland.docs.kennitalaDigits
+description: The same personal kennitala as iceland.docs.kennitala with the hyphen removed — ten bare digits, which is the form the number takes inside a database column, inside an Icelandic IBAN (see iceland.finance.iban, where the last ten digits of the account ARE the holder's kennitala) and inside every machine-readable file the Icelandic state exchanges. Icelanders write it 130269-7609 and store it 1302697609, and both forms are current, which is the reason this address exists separately rather than as a formatting choice buried in a config: a column that mixes the two will fail an equality join on half its rows, and stripping the hyphen after the fact is the kind of clean-up that gets forgotten once. The check digit is the real modulus-11 one; the algorithm and its refusal of the unissuable remainder-1 case both live in iceland.docs.kennitala and are not re-implemented here.
+generator: tdc
+locale: is
+---
+<sequence name="kt"><gen type="template" value="iceland.docs.kennitala"/></sequence>
+<sequence name="digits"><compute><result><concat>
+  <slice from="0" to="6"><field name="kt"/></slice>
+  <slice from="7" to="11"><field name="kt"/></slice>
+</concat></result></compute></sequence>
+<data>${{digits}}</data>

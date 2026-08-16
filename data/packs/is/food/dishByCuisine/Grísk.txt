@@ -1,0 +1,14 @@
+---
+description: Grísk dishes as an Icelandic menu names them
+locale: is
+---
+Mousakka
+Souvlaki
+Gyros
+Grísk salat
+Tzatziki
+Spanakopita
+Dolmades
+Baklava
+Fetaostur í ofni
+Kleftiko

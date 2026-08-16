@@ -1,0 +1,44 @@
+---
+description: Dish in Icelandic — everyday Icelandic food alongside the international dishes an Icelandic kitchen cooks. Kjötsúpa (lamb soup), plokkfiskur (mashed fish and potato) and skyr are national staples rather than curiosities.
+locale: is
+---
+Kjötsúpa
+Plokkfiskur
+Hangikjöt
+Saltfiskur
+Fiskibollur
+Fiskisúpa
+Humarsúpa
+Lambalæri
+Lambakótilettur
+Kjötbollur
+Hakkabuff
+Svið
+Slátur
+Skyr með rjóma
+Rúgbrauð með smjöri
+Flatkökur með hangikjöti
+Harðfiskur
+Hákarl
+Pylsa með öllu
+Grillaður lax
+Steiktur þorskur
+Ofnbökuð ýsa
+Rjómalöguð fiskisúpa
+Kjúklingasúpa
+Grænmetislasagna
+Pasta með rjómasósu
+Pizza
+Hamborgari
+Samloka
+Vöfflur
+Pönnukökur
+Kleinur
+Ástarpungar
+Rjómabollur
+Skúffukaka
+Sætsúpa
+Baunasúpa
+Rúllupylsa
+Laufabrauð
+Malt og appelsín

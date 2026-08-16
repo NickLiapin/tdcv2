@@ -1,0 +1,64 @@
+---
+description: Material on an Icelandic product listing. Lopi — the unspun Icelandic wool the lopapeysa is knitted from — and hraungrýti (lava rock, cut for kitchen tops and souvenirs) are materials with no equivalent elsewhere.
+locale: is
+---
+bómull
+lífræn bómull
+ull
+íslensk ull
+lopi
+merínóull
+silki
+hör
+leður
+rúskinn
+gervileður
+pólýester
+nælon
+akrýl
+flís
+Gore-Tex
+örtrefjar
+gúmmí
+latex
+plast
+endurunnið plast
+gler
+hert gler
+postulín
+keramik
+leir
+steinn
+marmari
+granít
+basalt
+hraungrýti
+tré
+fura
+eik
+birki
+beyki
+valhneta
+bambus
+krossviður
+spónaplata
+málmur
+stál
+ryðfrítt stál
+ál
+kopar
+eir
+messing
+járn
+steypujárn
+sink
+títan
+silfur
+gull
+pappi
+pappír
+korkur
+filt
+denim
+strigi
+dúnn

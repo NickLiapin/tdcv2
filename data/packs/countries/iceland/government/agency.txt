@@ -1,0 +1,81 @@
+---
+address: iceland.government.agency
+description: Named agencies, authorities and institutions of the Icelandic state, taken from the official register of public bodies published on island.is. Names are the official Icelandic ones. FOUR ARE WORTH KNOWING BEFORE READING ANY ICELANDIC DATASET. Þjóðskrá is the national register and it ISSUES THE KENNITALA to individuals — every person legally resident in Iceland is in it, with a registered legal domicile (lögheimili), which is why Icelandic address data is unusually complete and why "moved without telling anyone" is a much smaller category here than elsewhere. Skatturinn is the tax authority, formed by merging the tax office with the customs service, and its fyrirtækjaskrá issues the kennitala to companies (see iceland.docs.kennitalaCompany) — so one number does the work of a company number, a tax number and a statistical identifier. Samgöngustofa runs the vehicle register and issues the plates in iceland.vehicle.plate as well as driving licences. Sýslumenn, the district commissioners, are the general-purpose local arm of the state, handling everything from marriages and estates to permits, and there are nine of them, so a district commissioner is a much bigger unit than the municipality. The list also carries the institutions that record what Iceland is: Veðurstofa Íslands, which forecasts weather AND monitors earthquakes and volcanoes from the same building, and Almannavarnir, the civil-protection service that ran the evacuation of Grindavík in November 2023. Several names are recent and will not match older reference data — Sjúkratryggingar dropped its Íslands, Náttúruverndarstofnun and Umhverfis- og orkustofnun replaced the older Umhverfisstofnun and Orkustofnun, Miðstöð menntunar og skólaþjónustu replaced Menntamálastofnun, and Húsnæðis-, mannvirkja- og skipulagsstofnun absorbed Skipulagsstofnun in 2026.
+locale: is
+---
+Þjóðskrá
+Skatturinn
+Seðlabanki Íslands
+Hagstofa Íslands
+Samgöngustofa
+Sýslumenn
+Vegagerðin
+Vinnumálastofnun
+Vinnueftirlitið
+Útlendingastofnun
+Tryggingastofnun
+Sjúkratryggingar
+Embætti landlæknis
+Lyfjastofnun
+Matvælastofnun
+Veðurstofa Íslands
+Almannavarnir
+Ríkislögreglustjóri
+Lögreglan
+Landhelgisgæsla Íslands
+Fangelsismálastofnun
+Persónuvernd
+Neytendastofa
+Samkeppniseftirlitið
+Fjarskiptastofa
+Hugverkastofan
+Byggðastofnun
+Landmælingar Íslands
+Náttúruverndarstofnun
+Umhverfis- og orkustofnun
+Náttúrufræðistofnun
+Hafrannsóknastofnun
+Fiskistofa
+Land og skógur
+Geislavarnir ríkisins
+Húsnæðis-, mannvirkja- og skipulagsstofnun
+Framkvæmdasýslan - Ríkiseignir
+Fjársýslan
+Ríkisendurskoðun
+Ríkiskaup
+Menntasjóður námsmanna
+Miðstöð menntunar og skólaþjónustu
+Barna- og fjölskyldustofa
+Jafnréttisstofa
+Mannréttindastofnun Íslands
+Umboðsmaður Alþingis
+Umboðsmaður barna
+Umboðsmaður skuldara
+Ríkissáttasemjari
+Landspítali
+Sjúkrahúsið á Akureyri
+Heilsugæsla höfuðborgarsvæðisins
+Blóðbankinn
+Þjóðskjalasafn Íslands
+Þjóðminjasafn Íslands
+Landsbókasafn Íslands - Háskólabókasafn
+Listasafn Íslands
+Þjóðleikhúsið
+Sinfóníuhljómsveit Íslands
+Ríkisútvarpið ohf.
+Kvikmyndamiðstöð Íslands
+Minjastofnun Íslands
+Árnastofnun
+Ferðamálastofa
+Þjóðgarðurinn á Þingvöllum
+Náttúruhamfaratrygging Íslands
+Áfengis- og tóbaksverslun ríkisins
+Alþingi
+Embætti forseta Íslands
+Stjórnarráð Íslands
+Landskjörstjórn
+Dómstólasýslan
+Ríkissaksóknari
+Héraðssaksóknari
+Ríkislögmaður
+Yfirskattanefnd

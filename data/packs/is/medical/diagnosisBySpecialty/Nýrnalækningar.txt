@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nýrnalækningar (Icelandic)
+locale: is
+---
+Langvinn nýrnabilun
+Bráð nýrnabilun
+Nýrnasteinar
+Nýrnabólga
+Blöðrunýru
+Þvagfærasýking
+Nýrungaheilkenni
+Nýrnaháþrýstingur
+Blóðskilun
+Nýrnaígræðsla

@@ -1,0 +1,5 @@
+---
+description: Currency of Pakistan as Icelandic names it
+locale: is
+---
+pakistönsk rúpía

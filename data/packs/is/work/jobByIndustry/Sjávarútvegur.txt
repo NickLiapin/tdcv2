@@ -1,0 +1,14 @@
+---
+description: Jobs in Sjávarútvegur, in Icelandic
+locale: is
+---
+Skipstjóri
+Stýrimaður
+Vélstjóri
+Háseti
+Netagerðarmaður
+Fiskvinnslumaður
+Gæðastjóri í fiskvinnslu
+Fiskifræðingur
+Sjávarútvegsfræðingur
+Verkstjóri í frystihúsi

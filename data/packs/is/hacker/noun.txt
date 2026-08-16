@@ -1,0 +1,41 @@
+---
+description: Technical noun in Icelandic. Icelandic deliberately coins words from native roots instead of borrowing, and these are the results: tölva (computer, from tala "number" + völva "seeress"), sími (telephone, from an old word for thread), vafri (browser), þjónn (server, literally "waiter"), skrá (file), tölvupóstur (email).
+locale: is
+---
+tölva
+sími
+snjallsími
+vafri
+þjónn
+netþjónn
+skrá
+mappa
+gagnagrunnur
+hugbúnaður
+vélbúnaður
+stýrikerfi
+forrit
+smáforrit
+viðmót
+lyklaborð
+mús
+skjár
+prentari
+skanni
+harður diskur
+minni
+örgjörvi
+móðurborð
+skjákort
+netkort
+beinir
+eldveggur
+netið
+skýið
+lén
+netfang
+tölvupóstur
+lykilorð
+dulkóðun
+veira
+spilliforrit

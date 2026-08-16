@@ -1,0 +1,8 @@
+---
+description: Gender label as the Icelandic national register writes it. Iceland has recorded a third option since the Gender Autonomy Act nr. 80/2019.
+locale: is
+---
+Karl
+Kona
+Kynsegin
+Annað

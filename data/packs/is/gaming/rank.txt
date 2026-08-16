@@ -1,0 +1,14 @@
+---
+description: Competitive rank in Icelandic
+locale: is
+---
+Óraðaður
+Brons
+Silfur
+Gull
+Platína
+Demantur
+Meistari
+Stórmeistari
+Áskorandi
+Goðsögn

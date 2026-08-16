@@ -1,0 +1,8 @@
+---
+description: Financial quarter as Icelandic reporting writes it
+locale: is
+---
+1. ársfjórðungur
+2. ársfjórðungur
+3. ársfjórðungur
+4. ársfjórðungur

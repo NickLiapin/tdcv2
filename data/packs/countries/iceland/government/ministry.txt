@@ -1,0 +1,16 @@
+---
+address: iceland.government.ministry
+description: The eleven ministries of Stjórnarráð Íslands, in the official names they carry on stjornarradid.is. ICELANDIC MINISTRIES ARE NOT STABLE INSTITUTIONS AND THAT IS THE THING TO KNOW: portfolios are cut and re-glued at almost every change of government, so a ministry named in a document is a reliable date stamp and an unreliable entity key. The current set shows the seams — Atvinnuvegaráðuneytið is one ministry covering fisheries, agriculture, industry and tourism, four departments that have been separate at other times; Menningar-, nýsköpunar- og háskólaráðuneytið puts culture, innovation and universities together while schools up to the end of upper secondary sit in a different ministry entirely (Mennta- og barnamálaráðuneytið, which also holds child welfare); and Umhverfis-, orku- og loftslagsráðuneytið combines environment with energy, a pairing that is not obvious anywhere but is inevitable in a country running on hydro and geothermal power. Forsætisráðuneytið is the prime minister's office and ranks first. There is no defence ministry because Iceland has no army: defence matters belong to Utanríkisráðuneytið, the foreign ministry, and the coast guard (Landhelgisgæsla Íslands) answers to the justice ministry. Note the definite ending -ráðuneytið on every name; the indefinite form ráðuneyti appears in compounds and in lists but the institution is always written with the article.
+locale: is
+---
+Forsætisráðuneytið
+Atvinnuvegaráðuneytið
+Dómsmálaráðuneytið
+Félags- og húsnæðismálaráðuneytið
+Fjármála- og efnahagsráðuneytið
+Heilbrigðisráðuneytið
+Innviðaráðuneytið
+Menningar-, nýsköpunar- og háskólaráðuneytið
+Mennta- og barnamálaráðuneytið
+Umhverfis-, orku- og loftslagsráðuneytið
+Utanríkisráðuneytið

@@ -1,0 +1,22 @@
+---
+description: Event venue type in Icelandic
+locale: is
+---
+Félagsheimili
+Ráðstefnusalur
+Tónleikahús
+Leikhús
+Kvikmyndahús
+Íþróttahús
+Íþróttavöllur
+Sundlaug
+Hótelsalur
+Veitingahús
+Kaffihús
+Kirkja
+Safn
+Listasafn
+Bókasafn
+Skólahúsnæði
+Útisvæði
+Tjaldsvæði

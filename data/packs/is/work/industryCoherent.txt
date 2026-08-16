@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list. Fishing and tourism head the list because they are the two industries Iceland actually runs on — fish is the historic export and tourism overtook it after 2010 — and orkuiðnaður is here because nearly all Icelandic electricity and heat is hydro and geothermal.
+locale: is
+---
+Sjávarútvegur
+Ferðaþjónusta
+Upplýsingatækni
+Heilbrigðisþjónusta
+Fjármál
+Byggingariðnaður
+Menntun
+Orkuiðnaður
+Verslun
+Flutningar

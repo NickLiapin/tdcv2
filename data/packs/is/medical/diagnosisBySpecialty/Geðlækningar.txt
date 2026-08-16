@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Geðlækningar (Icelandic)
+locale: is
+---
+Þunglyndi
+Skammdegisþunglyndi
+Kvíðaröskun
+Felmtursröskun
+Áfallastreituröskun
+Þráhyggju- og árátturöskun
+Geðhvarfasýki
+Geðklofi
+ADHD
+Átröskun

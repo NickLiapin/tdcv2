@@ -1,0 +1,5 @@
+---
+description: Capital of Kína as Icelandic names it
+locale: is
+---
+Peking

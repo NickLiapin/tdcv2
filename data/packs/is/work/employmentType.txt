@@ -1,0 +1,15 @@
+---
+description: Employment type in Icelandic
+locale: is
+---
+Fullt starf
+Hlutastarf
+Tímavinna
+Verktaka
+Sumarstarf
+Tímabundin ráðning
+Ótímabundin ráðning
+Vaktavinna
+Fjarvinna
+Starfsnám
+Sjálfstætt starfandi

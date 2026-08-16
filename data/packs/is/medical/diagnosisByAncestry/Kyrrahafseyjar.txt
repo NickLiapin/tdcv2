@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in people of Kyrrahafseyjar descent, in Icelandic.
+locale: is
+---
+Sykursýki af tegund 2
+Offita
+Þvagsýrugigt
+Háþrýstingur
+Nýrnabilun
+Gigtarsótt
+Berklar
+Lifrarbólga B
+Efnaskiptaheilkenni
+Hjartabilun

@@ -1,0 +1,26 @@
+---
+description: Vehicle type in Icelandic. Breyttur jeppi — a super-jeep on 38-inch tyres, legally modified for glaciers and river crossings — is a genuine Icelandic vehicle class with its own inspection rules, and björgunarsveitarbíll is the rescue-squad version of it.
+locale: is
+---
+Fólksbíll
+Jeppi
+Jepplingur
+Breyttur jeppi
+Björgunarsveitarbíll
+Sendibíll
+Vörubíll
+Pallbíll
+Rúta
+Strætisvagn
+Húsbíll
+Fellihýsi
+Hjólhýsi
+Tjaldvagn
+Bifhjól
+Vespa
+Reiðhjól
+Rafhjól
+Fjórhjól
+Snjósleði
+Dráttarvél
+Vinnuvél

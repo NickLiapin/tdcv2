@@ -1,0 +1,11 @@
+---
+description: Icelandic driving licence category for goods and passenger vehicles. Meirapróf is the everyday Icelandic word for the whole heavy-vehicle qualification, so it is on the list beside the EU letter categories.
+locale: is
+---
+C1
+C
+C1E
+CE
+D1
+D
+Meirapróf

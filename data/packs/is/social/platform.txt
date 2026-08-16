@@ -1,0 +1,21 @@
+---
+description: Social platform used in Iceland. Facebook has an unusually high share of the Icelandic population; Bland.is is the local forum.
+locale: is
+---
+Facebook
+Messenger
+Instagram
+TikTok
+Snapchat
+YouTube
+X
+LinkedIn
+Reddit
+Pinterest
+Threads
+Discord
+Twitch
+WhatsApp
+Telegram
+Bland.is
+Vísir

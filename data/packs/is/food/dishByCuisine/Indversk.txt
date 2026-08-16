@@ -1,0 +1,14 @@
+---
+description: Indversk dishes as an Icelandic menu names them
+locale: is
+---
+Karrý
+Tandoori-kjúklingur
+Butter chicken
+Biryani
+Samosa
+Naan-brauð
+Dal
+Palak paneer
+Rogan josh
+Chutney

@@ -1,0 +1,16 @@
+---
+description: Listing status in Icelandic
+locale: is
+---
+Til sölu
+Nýtt á skrá
+Verð lækkað
+Í söluferli
+Tilboð samþykkt
+Kauptilboð í vinnslu
+Selt
+Tekið af skrá
+Til leigu
+Leigt
+Í byggingu
+Væntanlegt

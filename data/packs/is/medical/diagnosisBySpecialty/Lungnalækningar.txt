@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Lungnalækningar (Icelandic)
+locale: is
+---
+Astmi
+Langvinn lungnateppa
+Lungnabólga
+Berkjubólga
+Lungnablóðrek
+Kæfisvefn
+Lungnatrefjun
+Berklar
+Fleiðruvökvi
+Lungnakrabbamein

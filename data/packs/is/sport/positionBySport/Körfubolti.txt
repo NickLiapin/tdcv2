@@ -1,0 +1,10 @@
+---
+description: Playing positions in Körfubolti, in Icelandic
+locale: is
+---
+Leikstjórnandi
+Skotbakvörður
+Lítill framherji
+Kraftframherji
+Miðherji
+Bekkjarmaður

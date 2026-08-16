@@ -1,0 +1,22 @@
+---
+description: Cat breed as Icelandic names it. Iceland has no native cat breed, so these are the international breeds with their Icelandic names; the ordinary domestic cat is simply húsköttur.
+locale: is
+---
+húsköttur
+síamsköttur
+persaköttur
+norskur skógarköttur
+bengalköttur
+Maine Coon
+Ragdoll
+breskur skammhár
+abyssiníuköttur
+búrmaköttur
+sfinxköttur
+rússneskur blár
+síberíuköttur
+angóruköttur
+manxköttur
+Devon Rex
+Cornish Rex
+sómalíköttur

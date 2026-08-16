@@ -1,0 +1,11 @@
+---
+description: Haulage route type in Icelandic. Hringvegurinn — Route 1 around the island — and the mountain roads (hálendisleið, fjallvegur) that close every winter are the geography an Icelandic haulier plans around.
+locale: is
+---
+Innanbæjar
+Höfuðborgarsvæðið
+Hringvegurinn
+Landsbyggðarleið
+Fjallvegur
+Hálendisleið
+Hafnarleið

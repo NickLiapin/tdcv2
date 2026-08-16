@@ -1,0 +1,32 @@
+---
+description: Tree in Icelandic. Iceland was largely deforested within a few centuries of the settlement and birch (birki) is the only native forest tree, so most of the list names species Icelanders know from planting programmes or from abroad.
+locale: is
+---
+birki
+ilmbjörk
+reynir
+gulvíðir
+loðvíðir
+blæösp
+sitkagreni
+rauðgreni
+blágreni
+stafafura
+skógarfura
+lerki
+síberíulerki
+ösp
+alaskaösp
+elri
+álmur
+eik
+beyki
+askur
+lind
+hlynur
+kastanía
+víðir
+einir
+þinur
+sedrusviður
+pálmi

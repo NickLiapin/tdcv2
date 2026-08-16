@@ -1,0 +1,31 @@
+---
+address: iceland.sport.team
+description: Icelandic sports clubs — the íþróttafélög that field the football and handball teams of the top divisions and, in most cases, everything else in their neighbourhood as well. THE ICELANDIC CLUB IS A MULTI-SPORT NEIGHBOURHOOD INSTITUTION and not a football business: KR, Valur, Fram, Víkingur and Þróttur are Reykjavík districts as much as they are teams, Breiðablik is Kópavogur, Stjarnan is Garðabær, FH and Haukar split Hafnarfjörður between them, and each runs football, handball, basketball and athletics for everyone from six-year-olds upwards out of one hall. That is why a club's catchment maps onto iceland.geo.city almost one to one, and why there are so many of them for 394,000 people. THE ABBREVIATIONS ARE THE NAMES: KR is Knattspyrnufélag Reykjavíkur, FH is Fimleikafélag Hafnarfjarðar (a GYMNASTICS club by name, which has won the football league), ÍA is Íþróttabandalag Akraness, ÍBV is Íþróttabandalag Vestmannaeyja, KA is Knattspyrnufélag Akureyrar, HK is Handknattleiksfélag Kópavogs, and Icelanders use the initials in speech and print, so a dataset holding only the expanded names holds forms nobody writes. Note two collisions that break naive matching: there are two Víkingurs (Reykjavík and Ólafsvík) and two Þórs (Akureyri and Þorlákshöfn), and the qualifier is part of the name. Handball is the national sport by results rather than football — Iceland took Olympic silver in 2008 — and the same clubs field both. Iceland's men's football team reached the Euro 2016 quarter-finals and the 2018 World Cup, which for a country this size remains the largest per-capita result in the sport.
+locale: is
+---
+KR
+Valur
+Víkingur Reykjavík
+Fram
+Fylkir
+Þróttur Reykjavík
+Leiknir Reykjavík
+Breiðablik
+HK
+Stjarnan
+FH
+Haukar
+Afturelding
+Grótta
+Keflavík
+Njarðvík
+Grindavík
+Þór Þorlákshöfn
+Selfoss
+ÍBV
+ÍA
+KA
+Þór Akureyri
+Vestri
+Víkingur Ólafsvík
+Fjölnir

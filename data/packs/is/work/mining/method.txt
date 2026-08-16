@@ -1,0 +1,12 @@
+---
+description: Extraction method in Icelandic. Iceland has essentially no metal mining at all — no coal, no ore — so the realistic methods are quarrying aggregate and drilling for geothermal steam, and those head the list. Underground and open-pit metal mining are here as vocabulary, not as Icelandic practice.
+locale: is
+---
+Malarnám
+Grjótnám
+Sandnám
+Borun
+Jarðhitaborun
+Opin náma
+Neðanjarðarnám
+Skurðgröftur

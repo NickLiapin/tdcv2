@@ -1,0 +1,5 @@
+---
+description: Capital of Noregur as Icelandic names it
+locale: is
+---
+Ósló

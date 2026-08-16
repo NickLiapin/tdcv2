@@ -1,0 +1,5 @@
+---
+description: Capital of Sviss as Icelandic names it
+locale: is
+---
+Bern

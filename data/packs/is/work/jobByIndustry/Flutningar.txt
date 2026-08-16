@@ -1,0 +1,14 @@
+---
+description: Jobs in Flutningar, in Icelandic
+locale: is
+---
+Vörubílstjóri
+Strætóbílstjóri
+Leigubílstjóri
+Sendibílstjóri
+Flugmaður
+Flugfreyja
+Flugumferðarstjóri
+Flugvirki
+Hafnarstarfsmaður
+Birgðastjóri

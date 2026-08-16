@@ -1,0 +1,14 @@
+---
+description: Fuel or drivetrain in Icelandic. Iceland has one of the highest shares of electric and plug-in hybrid cars in the world, because nearly all its electricity is hydro and geothermal; metan from the Reykjavík landfill is a small but real local fuel.
+locale: is
+---
+Rafmagn
+Tengiltvinn
+Tvinn
+Bensín
+Dísil
+Metan
+Vetni
+Lífdísil
+Etanól
+Steinolía

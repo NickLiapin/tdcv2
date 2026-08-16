@@ -1,0 +1,24 @@
+---
+description: Diagnosis that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: is
+---
+Blöðruhálskirtilsstækkun
+Blöðruhálskirtilsbólga
+Krabbamein í blöðruhálskirtli
+Eistnakrabbamein
+Eistnasnúningur
+Æðahnútar í pung
+Vatnshaull
+Eistnalyppubólga
+Launeista
+Forhúðarþrengsli
+Reðurbólga
+Ristruflanir
+Sáðlátsröskun
+Ófrjósemi karla
+Kviðslit í nára
+Blöðruhálskirtilsígerð
+Krabbamein í reðri
+Peyronie-sjúkdómur
+Lágt testósterón
+Brjóstastækkun karla

@@ -1,0 +1,32 @@
+---
+description: Technical adjective in Icelandic (masculine singular nominative; it agrees with its noun)
+locale: is
+---
+stafrænn
+sýndarlegur
+þráðlaus
+hraðvirkur
+öruggur
+dulkóðaður
+opinn
+lokaður
+sjálfvirkur
+samstilltur
+ósamstilltur
+dreifður
+miðlægur
+skalanlegur
+stöðugur
+óstöðugur
+úreltur
+nýlegur
+samhæfður
+ósamhæfður
+skýjabundinn
+staðbundinn
+fjartengdur
+tvíátta
+einátta
+gagnvirkur
+sjálfstæður
+innbyggður

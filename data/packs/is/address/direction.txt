@@ -1,0 +1,20 @@
+---
+description: Directional qualifier used with an Icelandic street, district or estate name. Icelandic distinguishes the plain compass noun (Norður) from the comparative adjective used to tell two neighbouring places apart (Nyrðri, Syðri, Eystri, Vestari), and the adjective agrees with the noun it qualifies.
+locale: is
+---
+Norður
+Suður
+Austur
+Vestur
+Norðaustur
+Norðvestur
+Suðaustur
+Suðvestur
+Nyrðri
+Syðri
+Eystri
+Vestari
+Efri
+Neðri
+Innri
+Ytri

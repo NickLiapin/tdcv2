@@ -1,0 +1,9 @@
+---
+address: iceland.finance.accountNumber
+description: A domestic Icelandic account number in the form it is written on an invoice, a rent agreement or a group text — 0159-26-007654, four digits of bank and branch, two of ledger (höfuðbók), six of account. It is what Icelanders exchange to pay each other; the IBAN is for abroad. The middle pair is the feature a foreign account model has no slot for: the HÖFUÐBÓK says what KIND of account this is — current account, savings, foreign currency, deposit — so one customer at one branch holds several accounts that differ only in those two digits, and a system that treats the twelve digits as one opaque key will merge or split people's accounts wrongly depending on which way it rounds. The published worked examples use 26 (the Icelandic IBAN registry entry) and 12 (iban.com's), and this generator draws the ledger without claiming which codes each institution actually operates. The six-digit account part is left-padded with zeros and printed with them, so 007654 is not 7654. Unlike the IBAN (see iceland.finance.iban) the domestic form does NOT carry the holder's kennitala and has no check digit at all — Icelandic domestic transfers are validated by looking the account up, not by arithmetic, which is why a typo in one of these is caught by the bank and not by the payer's software.
+generator: tdc
+---
+<sequence name="bank"><gen type="template" value="iceland.finance.bankCode"/></sequence>
+<sequence name="ledger"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>${{bank}}-${{ledger}}-${{account}}</data>

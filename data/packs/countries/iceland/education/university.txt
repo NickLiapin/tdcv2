@@ -1,0 +1,12 @@
+---
+address: iceland.education.university
+description: Every university in Iceland. There are seven, four public and three private, and the whole list fits in a paragraph because the country has 394,000 people — Háskóli Íslands alone teaches something like a fifth of all Icelandic students at any level. HÁSKÓLI ÍSLANDS AND HÁSKÓLINN Í REYKJAVÍK ARE THE TWO THAT MATTER FOR DATA: both are in the capital, both are large by Icelandic standards, and between them they hold most of the country's higher education; Háskólinn á Akureyri is the third and the only one of real size outside the southwest, and it is the reason Iceland has nurses and teachers in the north at all, because it teaches heavily by distance. The other four are small and specialised in a way that says what the country is: Landbúnaðarháskóli Íslands is agriculture and land science at Hvanneyri, Háskólinn á Hólum is aquaculture, equine science and rural tourism at a farm in Hjaltadalur that was a bishop's seat from 1106, Listaháskóli Íslands is the single art, music, design and theatre school for the whole nation, and Háskólinn á Bifröst is a business school in the middle of the western lava fields. THE WORD HÁSKÓLI IS NOT "HIGH SCHOOL" and mistranslating it is the standard error: it is a university, literally high-school in the German Hochschule sense, and Icelandic upper secondary school is menntaskóli or fjölbrautaskóli, which is a different institution entirely and does not belong on this list. Note the prepositions in the names, which are part of them: í Reykjavík (in), á Akureyri and á Hólum and á Bifröst (at), because Icelandic chooses the preposition by place and not by rule.
+locale: is
+---
+Háskóli Íslands
+Háskólinn í Reykjavík
+Háskólinn á Akureyri
+Landbúnaðarháskóli Íslands
+Háskólinn á Hólum
+Listaháskóli Íslands
+Háskólinn á Bifröst

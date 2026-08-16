@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient in Icelandic
+locale: is
+---
+hveiti
+rúgmjöl
+heilhveiti
+sykur
+púðursykur
+salt
+ger
+lyftiduft
+matarsódi
+egg
+mjólk
+rjómi
+sýrður rjómi
+smjör
+smjörlíki
+ostur
+rjómaostur
+skyr
+jógúrt
+olía
+ólífuolía
+edik
+sinnep
+tómatsósa
+majónes
+kjötkraftur
+grænmetiskraftur
+hrísgrjón
+pasta
+núðlur
+kartöflumjöl
+haframjöl
+möndlur
+valhnetur
+rúsínur
+súkkulaði
+kakó
+hunang
+síróp
+kókosmjólk

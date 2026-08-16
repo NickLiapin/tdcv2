@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list. Handball comes second only to football in Iceland — the national men's team took Olympic silver in 2008 — so it sits high rather than as an afterthought.
+locale: is
+---
+Fótbolti
+Handbolti
+Körfubolti
+Blak
+Íshokkí
+Ruðningur
+Hafnabolti
+Amerískur fótbolti

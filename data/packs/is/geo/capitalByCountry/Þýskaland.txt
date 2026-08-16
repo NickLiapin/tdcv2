@@ -1,0 +1,5 @@
+---
+description: Capital of Þýskaland as Icelandic names it
+locale: is
+---
+Berlín

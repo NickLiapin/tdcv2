@@ -1,0 +1,34 @@
+---
+description: Unit of measure in Icelandic. Iceland is fully metric — litres, kilos, metres — so no pound, ounce or gallon appears here; that omission is deliberate.
+locale: is
+---
+stk.
+kassi
+karton
+pakki
+tylft
+par
+sett
+rúlla
+búnt
+kíló
+kg
+gramm
+g
+tonn
+lítri
+l
+millilítri
+ml
+desilítri
+metri
+m
+sentimetri
+cm
+millimetri
+fermetri
+rúmmetri
+bakki
+poki
+askja
+dós

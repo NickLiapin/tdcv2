@@ -1,0 +1,32 @@
+---
+description: Flower in Icelandic. Holtasóley (mountain avens) is the national flower; lúpína, the Alaskan lupin brought in to fight erosion, now colours whole valleys blue and is argued about every summer.
+locale: is
+---
+holtasóley
+lúpína
+sóley
+baldursbrá
+blágresi
+geldingahnappur
+melasól
+eyrarrós
+fífa
+lambagras
+músareyra
+vetrarblóm
+burnirót
+blóðberg
+ljónslappi
+maríustakkur
+hrafnaklukka
+brennisóley
+túnfífill
+skarifífill
+rós
+túlípani
+páskalilja
+liljan
+nellika
+stjúpa
+begónía
+orkídea

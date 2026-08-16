@@ -1,0 +1,14 @@
+---
+description: Kóresk dishes as an Icelandic menu names them
+locale: is
+---
+Bibimbap
+Kimchi
+Bulgogi
+Tteokbokki
+Japchae
+Samgyeopsal
+Kimchi-jjigae
+Sundubu-jjigae
+Kóreskt grill
+Mandu

@@ -1,0 +1,14 @@
+---
+description: Japönsk dishes as an Icelandic menu names them
+locale: is
+---
+Sushi
+Sashimi
+Ramen
+Tempura
+Misósúpa
+Yakitori
+Udon
+Katsu
+Onigiri
+Gyoza

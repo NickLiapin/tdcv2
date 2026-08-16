@@ -1,0 +1,26 @@
+---
+description: Property feature in an Icelandic listing. Hitaveita — mains geothermal hot water — reaches about nine Icelandic homes in ten and is the reason heating is cheap; heitur pottur (an outdoor hot tub) and snjóbræðsla (heated pavements and driveways fed by the same water) are ordinary features rather than luxuries.
+locale: is
+---
+Hitaveita
+Gólfhiti
+Snjóbræðsla
+Heitur pottur
+Gufubað
+Bílskúr
+Bílastæði
+Bílskýli
+Svalir
+Verönd
+Sólpallur
+Garður
+Þvottahús
+Geymsla
+Lyfta
+Uppþvottavél
+Þvottavél
+Arinn
+Sjávarútsýni
+Fjallasýn
+Ljósleiðari
+Öryggiskerfi

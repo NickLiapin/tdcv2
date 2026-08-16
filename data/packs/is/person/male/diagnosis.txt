@@ -1,0 +1,24 @@
+---
+description: Medical diagnoses in Icelandic (male + common conditions)
+locale: is
+---
+Blöðruhálskirtilsstækkun
+Blöðruhálskirtilsbólga
+Krabbamein í blöðruhálskirtli
+Eistnakrabbamein
+Eistnasnúningur
+Æðahnútar í pung
+Vatnshaull
+Eistnalyppubólga
+Launeista
+Forhúðarþrengsli
+Ristruflanir
+Langvinn brisbólga
+Klamydía
+Langvinn liðagigt
+Ristilkrabbamein
+Háþrýstingur
+Sykursýki af tegund 2
+Kransæðasjúkdómur
+Þvagsýrugigt
+Kæfisvefn

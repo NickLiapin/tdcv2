@@ -1,0 +1,5 @@
+---
+description: Capital of Mexíkó as Icelandic names it
+locale: is
+---
+Mexíkóborg

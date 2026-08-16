@@ -1,0 +1,12 @@
+---
+address: iceland.finance.currency
+description: The forms of the Icelandic currency, the króna — ISO 4217 code ISK, numeric 352, symbol "kr." written after the figure. The plural is krónur and the genitive plural is króna, which is why a price is "500 krónur" but a sum of money is "upphæð króna"; both forms are here because both appear in real Icelandic text. THE SUBUNIT IS DEAD AND THAT IS THE FACT THIS FILE EXISTS TO RECORD. One króna is nominally a hundred aurar (singular eyrir), but no aurar coin has circulated since the 1990s, ISO 4217 gives ISK zero decimal places, and every Icelandic price, wage and tax figure is a whole number — see iceland.finance.amountIsk, which emits integers for that reason. The word eyrir survives only in the phrase "hver eyrir" (every penny) and in accounting history. The króna has also been revalued: on 1 January 1981 the currency was redenominated at 100 old krónur to 1 new, so a pre-1981 Icelandic figure is a hundred times the modern one, and unlike the Albanian old lek the old króna did NOT survive in speech — Icelanders count in new krónur and the change is complete. Iceland is in the EEA and in SEPA but not in the EU and not in the euro area, and the króna floats: it collapsed by about half against the euro in 2008 and has no peg, so a historical ISK figure converted at today's rate will be badly wrong. There is no separate Icelandic euro-denominated retail currency, no dual pricing, and no conversion date.
+locale: is
+---
+króna
+krónur
+íslensk króna
+ISK
+kr.
+eyrir
+aurar

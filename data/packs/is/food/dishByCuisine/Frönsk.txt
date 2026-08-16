@@ -1,0 +1,14 @@
+---
+description: Frönsk dishes as an Icelandic menu names them
+locale: is
+---
+Laukssúpa
+Ratatouille
+Coq au vin
+Quiche Lorraine
+Crème brûlée
+Bouillabaisse
+Bœuf bourguignon
+Croissant
+Ostabakki
+Súkkulaðimús

@@ -1,0 +1,10 @@
+---
+description: Playing positions in Blak, in Icelandic
+locale: is
+---
+Uppspilari
+Kantsmassari
+Miðjumaður
+Frjálsi leikmaðurinn
+Gagnstæður smassari
+Uppgjafarmaður

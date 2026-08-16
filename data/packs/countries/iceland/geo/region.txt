@@ -1,0 +1,14 @@
+---
+address: iceland.geo.region
+description: The eight regions (landshlutar) of Iceland, weighted by their population on 1 January 2026 (Statistics Iceland, MAN03250). THESE ARE STATISTICAL AND POSTAL REGIONS, NOT A TIER OF GOVERNMENT: Iceland has exactly two levels of elected authority, the state and the 61 municipalities, and nothing in between — no county, no province, no prefect. The landshluti is what Statistics Iceland aggregates by, what the weather forecast and the road service speak in, and what the district courts, the police districts and the health-service regions are drawn on (Héraðsdómur Norðurlands eystra, Lögreglustjórinn á Vestfjörðum, Heilbrigðisstofnun Suðurlands are all named for these units), but no one is elected to run one. THE DISTRIBUTION IS THE MOST LOPSIDED IN EUROPE: Höfuðborgarsvæðið holds 251,912 of 394,324 people, or 64%, and adding Suðurnes and the western end of Suðurland — all within an hour of Reykjavík — accounts for well over three quarters of the country. Vestfirðir, an entire peninsula the size of a small nation, has 7,341, fewer than a single Reykjavík postal code. Statistics Iceland labels the capital region without its definite article (Höfuðborgarsvæði); the form used here is the ordinary one. The eight names are also the first digit of the postal code, roughly: see iceland.geo.postalCode, where the codes run clockwise from Reykjavík.
+locale: is
+weighted: true
+---
+Höfuðborgarsvæðið,251912
+Suðurland,36570
+Norðurland eystra,32296
+Suðurnes,29644
+Vesturland,17997
+Austurland,11211
+Norðurland vestra,7353
+Vestfirðir,7341

@@ -1,0 +1,25 @@
+---
+description: Religion or belief community in Icelandic. Þjóðkirkjan, the Evangelical Lutheran state church, is still the largest by membership, and Ásatrúarfélagið — the legally recognised Norse pagan association founded in 1972 — is a real registered religion rather than a historical note.
+locale: is
+---
+Kristni
+Þjóðkirkjan
+Lútherstrú
+Kaþólsk trú
+Rétttrúnaðarkirkjan
+Hvítasunnukirkjan
+Aðventistar
+Vottar Jehóva
+Mormónatrú
+Ásatrú
+Ásatrúarfélagið
+Íslam
+Gyðingdómur
+Hindúatrú
+Búddatrú
+Síkismi
+Baháí-trú
+Taóismi
+Húmanismi
+Siðmennt
+Trúlaus

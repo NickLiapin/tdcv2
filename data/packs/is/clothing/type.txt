@@ -1,0 +1,32 @@
+---
+description: Garment type in Icelandic. The lopapeysa — the yoked sweater knitted from unspun Icelandic lopi wool — is a genuine Icelandic garment with no equivalent elsewhere, and ullarsokkar and kuldagalli are everyday winter wear rather than specialist kit.
+locale: is
+---
+bolur
+stuttermabolur
+gallabuxur
+buxur
+kjóll
+jakki
+peysa
+lopapeysa
+pils
+stuttbuxur
+hettupeysa
+blússa
+skyrta
+jakkaföt
+kápa
+úlpa
+regnjakki
+kuldagalli
+strigaskór
+stígvél
+gúmmístígvél
+húfa
+trefill
+vettlingar
+sokkar
+ullarsokkar
+nærföt
+sundföt

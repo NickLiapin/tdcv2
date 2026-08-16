@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in people of Afríka sunnan Sahara descent, in Icelandic. This list is a prevalence signal, not an exclusive one: none of these conditions occurs only in this population, and most people of this descent have none of them.
+locale: is
+---
+Sigðkornablóðleysi
+Alfa-talassemía
+G6PD-skortur
+Laktósaóþol hjá fullorðnum
+Sarklíki
+Háþrýstingur
+Sykursýki af tegund 2
+Nýrnasjúkdómur tengdur APOL1
+Vöðvahnútar í legi
+Blöðruhálskirtilskrabbamein

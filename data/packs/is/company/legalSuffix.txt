@@ -1,0 +1,25 @@
+---
+description: Legal form written after an Icelandic company name, with no comma: Sólfell ehf. ehf. (einkahlutafélag, private limited) is by far the commonest form in Iceland; hf. is the public limited company and ohf. its state-owned variant. The abbreviations are written in lower case even though the name before them is not.
+locale: is
+---
+ehf.
+hf.
+ohf.
+sf.
+slf.
+ses.
+bs.
+svf.
+samlagshlutafélag
+samvinnufélag
+sjálfseignarstofnun
+félag
+samtök
+félagasamtök
+sjóður
+stofnun
+samstæða
+hópur
+útgerð
+verslun
+Group

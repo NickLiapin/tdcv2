@@ -1,0 +1,5 @@
+---
+description: Capital of Nýja-Sjáland as Icelandic names it
+locale: is
+---
+Wellington

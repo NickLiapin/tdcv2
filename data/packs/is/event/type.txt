@@ -1,0 +1,24 @@
+---
+description: Event type in Icelandic
+locale: is
+---
+Brúðkaup
+Afmæli
+Skírn
+Ferming
+Útskrift
+Jarðarför
+Erfidrykkja
+Ráðstefna
+Málþing
+Námskeið
+Vinnustofa
+Tónleikar
+Leiksýning
+Sýningaropnun
+Íþróttamót
+Þorrablót
+Árshátíð
+Jólahlaðborð
+Sumarhátíð
+Þjóðhátíð

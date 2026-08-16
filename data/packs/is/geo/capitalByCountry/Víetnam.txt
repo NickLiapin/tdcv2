@@ -1,0 +1,5 @@
+---
+description: Capital of Víetnam as Icelandic names it
+locale: is
+---
+Hanoí

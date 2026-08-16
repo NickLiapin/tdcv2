@@ -1,0 +1,15 @@
+---
+description: Booking status in Icelandic
+locale: is
+---
+Staðfest
+Í bið
+Greitt
+Ógreitt
+Innritað
+Afbókað
+Endurgreitt
+Breytt
+Á biðlista
+Útrunnið
+Lokið

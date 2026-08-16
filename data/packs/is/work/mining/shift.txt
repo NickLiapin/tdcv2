@@ -1,0 +1,9 @@
+---
+description: Work shift in Icelandic
+locale: is
+---
+Dagvakt
+Kvöldvakt
+Næturvakt
+Vaktaskipti
+Bakvakt

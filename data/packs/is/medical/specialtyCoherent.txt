@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list
+locale: is
+---
+Hjartalækningar
+Taugalækningar
+Krabbameinslækningar
+Húðlækningar
+Meltingarlækningar
+Innkirtlalækningar
+Lungnalækningar
+Bæklunarlækningar
+Geðlækningar
+Nýrnalækningar

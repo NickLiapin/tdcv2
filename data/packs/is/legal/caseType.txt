@@ -1,0 +1,17 @@
+---
+description: Kind of legal case in Icelandic
+locale: is
+---
+Einkamál
+Sakamál
+Skaðabótamál
+Samningamál
+Vinnuréttarmál
+Fjölskyldumál
+Forsjármál
+Skilnaðarmál
+Erfðamál
+Gjaldþrotamál
+Skattamál
+Eignarréttarmál
+Stjórnsýslumál

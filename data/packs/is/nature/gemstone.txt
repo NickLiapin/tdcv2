@@ -1,0 +1,29 @@
+---
+description: Gemstone or notable mineral in Icelandic. Silfurberg — Iceland spar, the clear calcite from Helgustaðir — is the country's own contribution to optics.
+locale: is
+---
+silfurberg
+hrafntinna
+jaspis
+ópall
+agat
+kalsedón
+bergkristall
+ametist
+sítrín
+reykkvars
+rósakvars
+demantur
+smaragður
+safír
+rúbín
+tópas
+túrmalín
+granat
+perídót
+lapis lazuli
+túrkis
+malakít
+ravsteinn
+perla
+kórall

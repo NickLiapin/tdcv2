@@ -1,0 +1,17 @@
+---
+description: Social post type in Icelandic
+locale: is
+---
+Færsla
+Mynd
+Myndband
+Stutt myndband
+Saga
+Beint streymi
+Hlaðvarp
+Bloggfærsla
+Könnun
+Athugasemd
+Deiling
+Endurbirting
+Auglýsing

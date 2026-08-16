@@ -1,0 +1,16 @@
+---
+description: Shoe size on the European (Paris point) scale, which is what an Icelandic shoebox and every Icelandic shop shows. Iceland does not use the UK or US numbering.
+locale: is
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

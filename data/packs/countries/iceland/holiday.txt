@@ -1,0 +1,21 @@
+---
+address: iceland.holiday
+description: The statutory holidays of Iceland. The list comes from two laws read together — lög nr. 88/1971 um 40 stunda vinnuviku, which names "the holy days of the national church, the first day of summer, 1 May and 17 June, and further Christmas Eve and New Year's Eve from 13:00", and lög nr. 32/1997 um helgidagafrið, which enumerates the church days. TWO OF THESE ARE HALF DAYS AND THE LAW SAYS SO: Aðfangadagur (24 December) and Gamlársdagur (31 December) are working mornings and holidays from midday, which is why Icelandic shops shut at noon on those dates and why a payroll rule that treats them as full days is wrong. SUMARDAGURINN FYRSTI IS THE ONE NO NEIGHBOUR HAS: the first day of summer falls on the first Thursday after 18 April, when it is still winter by any thermometer, and it is a survival of the old Icelandic calendar which had two seasons and not four — it is a public holiday with children's parades, in April, in the snow. Frídagur verslunarmanna, the first Monday in August, gives the country its only long weekend and empties the capital into the countryside; it began as a shop-workers' day off in 1894 and became everyone's. 17 June is the national day, the anniversary of the republic in 1944 and of Jón Sigurðsson's birth. Icelandic labour law and collective agreements split these into two classes that pay differently: STÓRHÁTÍÐARDAGAR (the major feasts — Nýársdagur, Föstudagurinn langi, Páskadagur, Hvítasunnudagur, 17. júní, Jóladagur and Aðfangadagur from noon) attract a higher premium than ALMENNIR FRÍDAGAR (Skírdagur, Annar í páskum, Sumardagurinn fyrsti, 1. maí, Uppstigningardagur, Annar í hvítasunnu, Frídagur verslunarmanna, Annar í jólum), so an Icelandic timesheet needs the class and not just the date. Note that Iceland does NOT move a holiday that falls at the weekend — there is no substitute day — so the number of days actually taken swings between eight and twelve from year to year. Þorláksmessa, 23 December, is the busiest shopping evening of the Icelandic year and is not a holiday at all.
+locale: is
+---
+Nýársdagur
+Skírdagur
+Föstudagurinn langi
+Páskadagur
+Annar í páskum
+Sumardagurinn fyrsti
+1. maí
+Uppstigningardagur
+Hvítasunnudagur
+Annar í hvítasunnu
+17. júní
+Frídagur verslunarmanna
+Aðfangadagur jóla
+Jóladagur
+Annar í jólum
+Gamlársdagur

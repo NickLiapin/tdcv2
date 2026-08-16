@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in people of Norður-Afríka descent, in Icelandic.
+locale: is
+---
+Beta-talassemía
+G6PD-skortur
+Familial Mediterranean fever
+Sykursýki af tegund 2
+Sigðkornaberi
+Glútenóþol
+Meðfædd heyrnarskerðing
+Fenýlketónmiga
+Laktósaóþol
+Járnskortsblóðleysi

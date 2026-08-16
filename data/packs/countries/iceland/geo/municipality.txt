@@ -1,0 +1,67 @@
+---
+address: iceland.geo.municipality
+description: The sixty-one municipalities (sveitarfélög) of Iceland by their official names, weighted by the population registered in each on 1 January 2026 (Statistics Iceland, MAN02005), with Skorradalshreppur — 72 people, which merged into Borgarbyggð on 16 May 2026 — folded into Borgarbyggð so the list is the composition in force after that date. THE NAME ENDINGS ARE THE CLASSIFICATION and are not decoration a config may strip: -borg is a city (only Reykjavíkurborg), -bær or -kaupstaður is a town, -hreppur is a rural commune, -byggð and -þing are the modern amalgamations, and "Sveitarfélagið X" is what a merged unit is called when it did not want any of the older endings. So Stykkishólmur the place is Sveitarfélagið Stykkishólmur the municipality, and Skagaströnd the village is Sveitarfélagið Skagaströnd. THE SPREAD IS EXTREME EVEN BY ICELANDIC STANDARDS: Reykjavíkurborg has 139,804 residents and Tjörneshreppur has 54, a ratio of 2,600 to 1, and eleven municipalities have fewer than 400 people each — units that in most of Europe would be a parish and here run their own schools and planning. Iceland has been merging them steadily and by agreement rather than by decree: 229 in 1950, 124 in 2000, 61 now, and the recent mergers are recent enough to break reference data — Tálknafjarðarhreppur went into Vesturbyggð in May 2024, Skagabyggð into Húnabyggð in August 2024, and four east-coast municipalities became Múlaþing in 2020. A municipality is NOT a settlement: Múlaþing covers 10,669 km2 and four separate towns, while Reykjavíkurborg is one city, so joining this list to iceland.geo.city will produce places that are not in the municipality named. Grindavíkurbær is 819 rather than about 3,500 because the town was evacuated in November 2023 and remains so.
+locale: is
+weighted: true
+---
+Reykjavíkurborg,139804
+Kópavogsbær,40286
+Hafnarfjarðarkaupstaður,32398
+Reykjanesbær,22697
+Garðabær,20724
+Akureyrarbær,20284
+Mosfellsbær,13772
+Sveitarfélagið Árborg,12671
+Akraneskaupstaður,8440
+Múlaþing,5235
+Fjarðabyggð,5228
+Seltjarnarnesbær,4609
+Vestmannaeyjabær,4518
+Skagafjörður,4361
+Suðurnesjabær,4232
+Borgarbyggð,4154
+Ísafjarðarbær,3987
+Hveragerðisbær,3344
+Norðurþing,3017
+Sveitarfélagið Ölfus,2907
+Sveitarfélagið Hornafjörður,2631
+Rangárþing eystra,2142
+Fjallabyggð,1969
+Rangárþing ytra,1966
+Dalvíkurbyggð,1925
+Sveitarfélagið Vogar,1896
+Snæfellsbær,1669
+Þingeyjarsveit,1471
+Bláskógabyggð,1453
+Húnabyggð,1352
+Sveitarfélagið Stykkishólmur,1300
+Vesturbyggð,1290
+Eyjafjarðarsveit,1206
+Húnaþing vestra,1190
+Mýrdalshreppur,1004
+Bolungarvíkurkaupstaður,1003
+Hörgársveit,937
+Hrunamannahreppur,912
+Grundarfjarðarbær,857
+Grindavíkurbær,819
+Hvalfjarðarsveit,805
+Flóahreppur,741
+Skeiða- og Gnúpverjahreppur,667
+Grímsnes- og Grafningshreppur,658
+Dalabyggð,653
+Skaftárhreppur,651
+Vopnafjarðarhreppur,633
+Langanesbyggð,543
+Svalbarðsstrandarhreppur,517
+Sveitarfélagið Skagaströnd,450
+Strandabyggð,422
+Grýtubakkahreppur,373
+Kjósarhreppur,319
+Ásahreppur,305
+Reykhólahreppur,243
+Súðavíkurhreppur,219
+Eyja- og Miklaholtshreppur,119
+Kaldrananeshreppur,117
+Fljótsdalshreppur,115
+Árneshreppur,60
+Tjörneshreppur,54

@@ -1,0 +1,19 @@
+---
+description: Marital status. Icelandic adjectives agree with the person's gender, so most statuses appear twice — masculine first, feminine second (ógiftur / ógift, fráskilinn / fráskilin). "Í sambúð" (registered cohabitation) is a distinct legal status in Iceland, not a synonym for single, and is very common.
+locale: is
+---
+Einhleypur
+Einhleyp
+Ógiftur
+Ógift
+Kvæntur
+Gift
+Í sambúð
+Í skráðri sambúð
+Fráskilinn
+Fráskilin
+Ekkill
+Ekkja
+Í staðfestri samvist
+Trúlofaður
+Trúlofuð

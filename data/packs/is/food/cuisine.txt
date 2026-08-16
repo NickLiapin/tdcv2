@@ -1,0 +1,21 @@
+---
+description: Cuisine as Icelandic names it, feminine singular (it agrees with matargerð / eldhús). Danish, Norwegian and Polish are on the list because they are ordinary restaurant categories in Iceland — Denmark ruled the country until 1944 and Poles are the largest immigrant group.
+locale: is
+---
+Íslensk
+Ítölsk
+Frönsk
+Spænsk
+Grísk
+Tyrknesk
+Indversk
+Kínversk
+Japönsk
+Taílensk
+Víetnömsk
+Kóresk
+Mexíkósk
+Amerísk
+Dönsk
+Norsk
+Pólsk

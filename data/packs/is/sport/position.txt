@@ -1,0 +1,39 @@
+---
+description: Playing position in Icelandic (across sports)
+locale: is
+---
+Markvörður
+Varnarmaður
+Miðvörður
+Bakvörður
+Hægri bakvörður
+Vinstri bakvörður
+Miðjumaður
+Varnartengiliður
+Sóknartengiliður
+Kantmaður
+Hægri kantmaður
+Vinstri kantmaður
+Framherji
+Miðherji
+Hornamaður
+Skytta
+Leikstjórnandi
+Línumaður
+Skotbakvörður
+Lítill framherji
+Kraftframherji
+Uppspilari
+Kantsmassari
+Frjálsi leikmaðurinn
+Kastari
+Gripari
+Stuttstopp
+Útivörður
+Sláttumaður
+Varamaður
+Fyrirliði
+Þjálfari
+Aðstoðarþjálfari
+Markvarðaþjálfari
+Sjúkraþjálfari liðs

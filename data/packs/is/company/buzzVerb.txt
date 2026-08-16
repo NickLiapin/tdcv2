@@ -1,0 +1,59 @@
+---
+description: Marketing verb in Icelandic (infinitive)
+locale: is
+---
+efla
+bæta
+einfalda
+hraða
+auka
+styrkja
+tryggja
+samþætta
+sjálfvirknivæða
+stafvæða
+greina
+mæla
+hagræða
+umbreyta
+endurhanna
+þróa
+hanna
+byggja
+reka
+stýra
+leiða
+móta
+skapa
+nýta
+virkja
+tengja
+deila
+miðla
+vernda
+verja
+draga úr
+lækka
+hækka
+stækka
+víkka
+dýpka
+flýta
+einangra
+sannreyna
+staðfesta
+votta
+kortleggja
+forgangsraða
+samræma
+stilla
+aðlaga
+sérsníða
+endurnýta
+endurvinna
+spara
+fjárfesta
+vaxa
+sækja fram
+ná árangri
+skila virði

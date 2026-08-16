@@ -1,0 +1,17 @@
+---
+address: iceland.government.court
+description: The courts of Iceland, from the official register of public bodies on island.is. THE STRUCTURE IS THREE TIERS AND IT ONLY BECAME THREE IN 2018, which is the fact a European neighbour's pack would not lead you to expect: until 1 January 2018 Iceland had just two levels, district court and Supreme Court, and the country created Landsréttur — an appeal court between them — because the European Court of Human Rights and domestic critics held that a two-tier system in which the Supreme Court re-decided facts on paper did not give a real right of appeal. So an Icelandic case file from before 2018 has no Landsréttur stage, and the appointment of Landsréttur's first fifteen judges became a constitutional scandal that itself reached Strasbourg. Below it are EIGHT district courts (héraðsdómstólar), one for the capital and seven named for the statistical regions in iceland.geo.region — Reykjavíkur, Reykjaness, Vesturlands, Vestfjarða, Norðurlands vestra, Norðurlands eystra, Austurlands and Suðurlands — sitting respectively in Reykjavík, Hafnarfjörður, Borgarnes, Ísafjörður, Sauðárkrókur, Akureyri, Egilsstaðir and Selfoss. Eight first-instance courts for 394,000 people means a court district can be an entire quarter of the country: Héraðsdómur Austurlands in Egilsstaðir covers a region the size of Wales holding 11,211 people. Two courts sit outside the ladder. Félagsdómur is the labour court, which hears disputes between unions and employers' associations and nothing else — a separate institution in a country where collective agreements cover almost the whole workforce. Endurupptökudómur, created in 2021, is the court that decides whether a closed case may be REOPENED, a power taken away from the Supreme Court after it was criticised for judging its own past judgments. Iceland has no constitutional court and no administrative court branch: constitutional review is done by the ordinary courts, and administrative disputes start in an appeals board (úrskurðarnefnd) rather than a tribunal.
+locale: is
+---
+Hæstiréttur Íslands
+Landsréttur
+Héraðsdómur Reykjavíkur
+Héraðsdómur Reykjaness
+Héraðsdómur Vesturlands
+Héraðsdómur Vestfjarða
+Héraðsdómur Norðurlands vestra
+Héraðsdómur Norðurlands eystra
+Héraðsdómur Austurlands
+Héraðsdómur Suðurlands
+Félagsdómur
+Endurupptökudómur

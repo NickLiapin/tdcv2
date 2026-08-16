@@ -1,0 +1,22 @@
+---
+description: Employee benefit in Icelandic. Several of these are statutory rather than perks: Iceland gives both parents a long, separately reserved parental leave, and orlofshús — union-owned holiday cottages members book cheaply — are a normal part of an Icelandic job.
+locale: is
+---
+Lífeyrissjóður
+Séreignarsparnaður
+Sjúkrasjóður
+Orlofssjóður
+Orlofshús
+Fæðingarorlof
+Foreldraorlof
+Veikindaréttur
+Íþrótta- og heilsustyrkur
+Samgöngustyrkur
+Mötuneyti
+Fjarvinna
+Sveigjanlegur vinnutími
+Styttri vinnuvika
+Símastyrkur
+Menntastyrkur
+Starfsþróun
+Líftrygging

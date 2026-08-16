@@ -1,0 +1,23 @@
+---
+description: Legal term in Icelandic
+locale: is
+---
+Stefna
+Stefnandi
+Stefndi
+Greinargerð
+Málflutningur
+Dómur
+Úrskurður
+Sátt
+Áfrýjun
+Kæra
+Sönnunargagn
+Vitni
+Verjandi
+Sækjandi
+Lögmaður
+Skaðabætur
+Sekt
+Fyrning
+Lögbann

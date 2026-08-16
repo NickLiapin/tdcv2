@@ -1,0 +1,8 @@
+---
+description: Season in Icelandic. The four modern seasons, but note that the old Icelandic calendar had only TWO — sumar and vetur — and it is still live: sumardagurinn fyrsti, the first day of summer, is a public holiday in late April, and the old month names (þorri, góa) still date events.
+locale: is
+---
+vor
+sumar
+haust
+vetur

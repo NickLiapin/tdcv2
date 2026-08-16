@@ -1,0 +1,14 @@
+---
+description: Dönsk dishes as an Icelandic menu names them
+locale: is
+---
+Smørrebrød
+Frikadeller
+Flæskesteg
+Rødgrød
+Vínarbrauð
+Æbleskiver
+Karrýsíld
+Stegt flæsk
+Hakkabuff
+Remúlaði

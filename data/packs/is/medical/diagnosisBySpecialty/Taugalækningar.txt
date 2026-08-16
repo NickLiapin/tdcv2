@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Taugalækningar (Icelandic)
+locale: is
+---
+Mígreni
+Flogaveiki
+Heilablóðfall
+Parkinsonsveiki
+MS-sjúkdómur
+Alzheimerssjúkdómur
+Úttaugakvilli
+Þrenndartaugabólga
+Heilahristingur
+Vöðvarýrnun

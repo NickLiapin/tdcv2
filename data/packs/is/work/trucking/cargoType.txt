@@ -1,0 +1,17 @@
+---
+description: Freight type in Icelandic. Ferskur fiskur heads the list because chilled fish to Europe is Iceland's most time-critical cargo.
+locale: is
+---
+Ferskur fiskur
+Frystivara
+Kælivara
+Almennur farmur
+Gámar
+Byggingarefni
+Möl og sandur
+Eldsneyti
+Hættulegur farmur
+Búfé
+Húsgögn
+Vinnuvélar
+Póstur og pakkar

@@ -1,0 +1,9 @@
+---
+description: Credit standing band in Icelandic
+locale: is
+---
+Mjög slæmt
+Slæmt
+Í meðallagi
+Gott
+Mjög gott

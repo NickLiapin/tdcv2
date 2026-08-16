@@ -1,0 +1,5 @@
+---
+description: Capital of Tyrkland as Icelandic names it
+locale: is
+---
+Ankara

@@ -1,0 +1,14 @@
+---
+description: Jobs in Byggingariðnaður, in Icelandic
+locale: is
+---
+Húsasmiður
+Múrari
+Málari
+Pípulagningamaður
+Rafvirki
+Byggingarverkfræðingur
+Arkitekt
+Verkstjóri
+Kranamaður
+Jarðvinnuverktaki

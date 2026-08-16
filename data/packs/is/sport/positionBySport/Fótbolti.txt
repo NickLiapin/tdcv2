@@ -1,0 +1,15 @@
+---
+description: Playing positions in Fótbolti, in Icelandic
+locale: is
+---
+Markvörður
+Hægri bakvörður
+Vinstri bakvörður
+Miðvörður
+Varnartengiliður
+Miðjumaður
+Sóknartengiliður
+Hægri kantmaður
+Vinstri kantmaður
+Framherji
+Miðherji

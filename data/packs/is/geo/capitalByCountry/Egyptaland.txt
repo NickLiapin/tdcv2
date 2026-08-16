@@ -1,0 +1,5 @@
+---
+description: Capital of Egyptaland as Icelandic names it
+locale: is
+---
+Kaíró

@@ -1,0 +1,48 @@
+---
+address: iceland.docs.kennitalaCompany
+description: The kennitala of an Icelandic LEGAL PERSON — a company, a municipality, a ministry, a university, a football club — with its real modulus-11 check digit. Same ten digits and the same checksum as the personal number (see iceland.docs.kennitala for the algorithm), with ONE difference that carries the whole distinction: THE DAY NUMBER IS OFFSET BY 40. A body registered on the 7th of a month gets day digits 47, one registered on the 13th gets 53, one registered on the 20th gets 60. Because no month has more than 31 days, individuals occupy days 01-31 and legal persons occupy days 41-71, and the two sets cannot collide — so an Icelandic system can tell a company from a person by reading two characters, with no type column, no prefix and no separate register key. That is why Iceland needs no company number beside its tax number beside its VAT registration: fyrirtækjaskrá, run by Skatturinn, issues the kennitala and the kennitala is all of them. Four published examples, every one of which this generator's arithmetic reproduces: Landsbankinn hf. 471008-0280 (registered 7 October 2008, the day the old bank was split), Íslandsbanki hf. 491008-0160 (9 October 2008), Arion banki hf. 581008-0150 (18 October 2008 — the three big banks were rebuilt inside eleven days of each other and their kennitölur record it), and Háskóli Íslands 600169-2039 (20 January 1969). Reykjavíkurborg is 530269-7609. Landsbankinn's number also shows the unissuable case doing its work in real life: on 7 October 2008 the serial 01 would have given a weighted sum of 67, 67 mod 11 = 1 and therefore a check digit of 10, which does not exist — so 471008-01 could not be issued and the register moved on to 02, which is the number the bank has. The offset also means the date inside a company kennitala is a REGISTRATION date, not a founding date: the University of Iceland was founded in 1911 and its number says 1969, because that is when the register was built. Company kennitölur are fully public — the whole register is searchable free on skatturinn.is and on keldan.is — which is why this file uses real ones as its worked examples and iceland.docs.kennitala uses none: an individual's number is public in the same technical sense and is still nobody's to publish. The check digit is computed here from the specification, and the modulus-11 remainder of 1, which would demand a two-digit check, is refused and redrawn exactly as in the personal generator.
+generator: tdc
+locale: is
+---
+<sequence name="dob"><gen type="date" from="1950-01-01" to="2025-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{2}"/></sequence>
+<!-- Day of registration + 40, then month and two-digit year: 7 Oct 2008 -> 471008. -->
+<sequence name="ddmmyy"><compute>
+  <let name="day40"><add>
+    <to_number><slice from="6" to="8"><field name="dob"/></slice></to_number>
+    <int v="40"/>
+  </add></let>
+  <result><concat>
+    <use name="day40"/>
+    <slice from="4" to="6"><field name="dob"/></slice>
+    <slice from="2" to="4"><field name="dob"/></slice>
+  </concat></result>
+</compute></sequence>
+<sequence name="body"><compute><result>
+  <concat><field name="ddmmyy"/><field name="serial"/></concat>
+</result></compute></sequence>
+<sequence name="check"><compute>
+  <let name="p0"><mod>
+    <reduce>
+      <over><field name="body"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/><multiply><current/>
+        <at><in><list v="3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+      </multiply></add></do>
+    </reduce>
+    <int v="11"/>
+  </mod></let>
+  <result><choose>
+    <when><test><equals><use name="p0"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+    <otherwise><subtract><int v="11"/><use name="p0"/></subtract></otherwise>
+  </choose></result>
+</compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<sequence name="century"><compute><result><choose>
+  <when><test><greater_than>
+    <to_number><slice from="0" to="4"><field name="dob"/></slice></to_number>
+    <int v="1999"/>
+  </greater_than></test><then><str v="0"/></then></when>
+  <otherwise><str v="9"/></otherwise>
+</choose></result></compute></sequence>
+<data>${{ddmmyy}}-${{serial}}${{check}}${{century}}</data>

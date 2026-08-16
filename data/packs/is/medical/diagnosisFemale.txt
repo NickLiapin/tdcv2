@@ -1,0 +1,30 @@
+---
+description: Diagnosis that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: is
+---
+Legslímuflakk
+Fjölblöðrueggjastokkaheilkenni
+Vöðvahnútar í legi
+Blaðra á eggjastokk
+Eggjastokkakrabbamein
+Leghálskrabbamein
+Frumubreytingar í leghálsi
+Leghálsbólga
+Legbólga
+Legbotnskrabbamein
+Grindarholsbólga
+Sveppasýking í leggöngum
+Bakteríusýking í leggöngum
+Brjóstakrabbamein
+Góðkynja brjóstahnútur
+Brjóstabólga
+Tíðaverkir
+Miklar tíðablæðingar
+Tíðateppa
+Fyrirtíðaspenna
+Breytingaskeið
+Meðgöngusykursýki
+Meðgöngueitrun
+Utanlegsfóstur
+Fósturlát
+Ófrjósemi kvenna

@@ -1,0 +1,16 @@
+---
+description: Streaming service available in Iceland. Brand names keep their real spelling; Stöð 2 Maraþon and Sjónvarp Símans are the Icelandic ones.
+locale: is
+---
+Netflix
+Disney+
+Amazon Prime Video
+Apple TV+
+HBO Max
+SkyShowtime
+Viaplay
+YouTube
+Stöð 2 Maraþon
+Sjónvarp Símans
+RÚV
+Spotify

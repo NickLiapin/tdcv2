@@ -1,0 +1,20 @@
+---
+description: Seniority level in Icelandic. Nemi, sveinn and meistari are not loose metaphors here — they are the legally defined stages of an Icelandic trade, passed by sveinspróf and meistarabréf.
+locale: is
+---
+Nemi
+Lærlingur
+Starfsnemi
+Sveinn
+Meistari
+Byrjandi
+Almennur starfsmaður
+Reyndur starfsmaður
+Sérfræðingur
+Yfirmaður
+Teymisstjóri
+Deildarstjóri
+Sviðsstjóri
+Framkvæmdastjóri
+Forstjóri
+Stjórnarmaður

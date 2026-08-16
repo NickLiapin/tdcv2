@@ -1,0 +1,14 @@
+---
+description: Pólsk dishes as an Icelandic menu names them
+locale: is
+---
+Pierogi
+Bigos
+Żurek
+Kotlet schabowy
+Gołąbki
+Barszcz
+Kartöflupönnukökur
+Rosół
+Sernik
+Kiełbasa

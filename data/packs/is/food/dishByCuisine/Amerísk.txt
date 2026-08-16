@@ -1,0 +1,14 @@
+---
+description: Amerísk dishes as an Icelandic menu names them
+locale: is
+---
+Hamborgari
+Franskar kartöflur
+Kjúklingavængir
+Grillrif
+Ostamakkarónur
+Eplakaka
+Ostakaka
+Klúbbsamloka
+Kalkúnn
+Kjúklingasalat

@@ -1,0 +1,32 @@
+---
+description: Progress-message verb as Icelandic software actually writes it. Icelandic has NO -ing form: the progressive is built with "verið að" plus the infinitive, which is why every value here is a phrase rather than a word. The nearest single-word form, the -andi participle, is not idiomatic in a status message.
+locale: is
+---
+Verið að afrita
+Verið að hlaða niður
+Verið að hlaða upp
+Verið að senda
+Verið að sækja
+Verið að vista
+Verið að eyða
+Verið að endurræsa
+Verið að tengja
+Verið að dulkóða
+Verið að afkóða
+Verið að þjappa
+Verið að þýða
+Verið að keyra
+Verið að prófa
+Verið að kemba
+Verið að greina
+Verið að skrá
+Verið að uppfæra
+Verið að setja upp
+Verið að fjarlægja
+Verið að samstilla
+Verið að flokka
+Verið að leita
+Verið að reikna
+Verið að staðfesta
+Verið að hlaða
+Verið að undirbúa

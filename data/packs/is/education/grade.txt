@@ -1,0 +1,20 @@
+---
+description: Mark on the Icelandic school scale. Universities and upper-secondary schools grade 0–10 with 5 as the pass mark; compulsory school has used the letters A, B+, B, C+, C and D since the 2016 curriculum, so both appear here.
+locale: is
+---
+10
+9
+8
+7
+6
+5
+4
+A
+B+
+B
+C+
+C
+D
+Staðið
+Fallið
+Ólokið

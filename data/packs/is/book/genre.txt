@@ -1,0 +1,30 @@
+---
+description: Book genre in Icelandic
+locale: is
+---
+skáldsaga
+fræðirit
+sakamálasaga
+spennusaga
+ástarsaga
+vísindaskáldskapur
+fantasía
+hryllingssaga
+ævisaga
+sjálfsævisaga
+sagnfræði
+sjálfshjálp
+ljóð
+unglingabók
+barnabók
+söguleg skáldsaga
+glæpasaga
+ævintýri
+endurminningar
+heimspeki
+ferðabók
+matreiðslubók
+myndasaga
+framtíðarsaga
+Íslendingasaga
+þjóðsögur

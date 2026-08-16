@@ -1,0 +1,46 @@
+---
+description: Workplace skill in Icelandic
+locale: is
+---
+Verkefnastjórnun
+Teymisvinna
+Samskiptahæfni
+Leiðtogahæfni
+Greiningarhæfni
+Lausnamiðuð hugsun
+Sjálfstæð vinnubrögð
+Skipulagshæfni
+Tímastjórnun
+Þjónustulund
+Sölutækni
+Samningatækni
+Kynningarhæfni
+Ritfærni
+Íslenskukunnátta
+Enskukunnátta
+Norðurlandamál
+Forritun
+Vefþróun
+Gagnagreining
+Tölfræði
+Excel
+Bókhald
+Fjárhagsáætlanagerð
+Gæðastjórnun
+Öryggismál
+Umhverfisstjórnun
+Vélritun
+Skjalastjórnun
+Mannauðsstjórnun
+Ráðningar
+Þjálfun
+Markaðssetning
+Samfélagsmiðlar
+Grafísk hönnun
+Ljósmyndun
+Myndvinnsla
+Vörustjórnun
+Birgðastjórnun
+Vinnuvélaréttindi
+Meirapróf
+Skyndihjálp

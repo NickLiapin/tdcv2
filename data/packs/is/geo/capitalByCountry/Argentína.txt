@@ -1,0 +1,5 @@
+---
+description: Capital of Argentína as Icelandic names it
+locale: is
+---
+Buenos Aires

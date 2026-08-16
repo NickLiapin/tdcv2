@@ -1,0 +1,20 @@
+---
+description: Horse breed as Icelandic names it. The Icelandic horse (íslenski hesturinn) has been bred in isolation since the 10th century — Icelandic law forbids importing any horse, and a horse that leaves the country may never return — and it is the only breed with five gaits, including tölt and skeið.
+locale: is
+---
+íslenski hesturinn
+arabíuhestur
+enskur veðhlaupahestur
+frísneskur hestur
+andalúsíuhestur
+lipizzaner
+shetlandshestur
+ameríski kvarthesturinn
+haflinger
+percheron
+shire
+clydesdale
+appaloosa
+mustang
+welsh-hestur
+trakehner

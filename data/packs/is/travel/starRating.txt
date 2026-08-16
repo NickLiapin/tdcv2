@@ -1,0 +1,9 @@
+---
+description: Hotel star rating in Icelandic
+locale: is
+---
+1 stjarna
+2 stjörnur
+3 stjörnur
+4 stjörnur
+5 stjörnur

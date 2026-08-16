@@ -1,0 +1,22 @@
+---
+description: Kind of official document in Icelandic. The national identity number (kennitala) is deliberately absent: it is an Icelandic institution, not an Icelandic word list, and belongs in an Iceland country pack together with its check digit.
+locale: is
+---
+Vegabréf
+Ökuskírteini
+Nafnskírteini
+Fæðingarvottorð
+Hjónavígsluvottorð
+Skilnaðarvottorð
+Dánarvottorð
+Búsetuvottorð
+Sakavottorð
+Skattframtal
+Atvinnuleyfi
+Dvalarleyfi
+Byggingarleyfi
+Rekstrarleyfi
+Leyfisbréf
+Skráningarskírteini
+Umboð
+Erfðaskrá

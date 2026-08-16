@@ -1,0 +1,12 @@
+---
+description: Book format in Icelandic
+locale: is
+---
+harðspjalda
+kilja
+rafbók
+hljóðbók
+innbundin
+vasabrotsbók
+stórt letur
+myndabók

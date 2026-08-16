@@ -1,0 +1,5 @@
+---
+description: Capital of Nígería as Icelandic names it
+locale: is
+---
+Abúja

@@ -1,0 +1,14 @@
+---
+description: Loan type in Icelandic. Verðtryggt lán — a loan indexed to the consumer price index — is a specifically Icelandic product and still the norm for mortgages.
+locale: is
+---
+Húsnæðislán
+Verðtryggt lán
+Óverðtryggt lán
+Bílalán
+Námslán
+Yfirdráttur
+Neyslulán
+Greiðsludreifing
+Rekstrarlán
+Framkvæmdalán

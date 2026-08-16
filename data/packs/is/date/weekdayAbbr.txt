@@ -1,0 +1,11 @@
+---
+description: Abbreviated Icelandic weekday, Monday first
+locale: is
+---
+mán.
+þri.
+mið.
+fim.
+fös.
+lau.
+sun.

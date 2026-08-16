@@ -1,0 +1,10 @@
+---
+address: iceland.finance.banknote
+description: The banknote denominations issued by Seðlabanki Íslands and in circulation — 500, 1000, 2000, 5000 and 10000 krónur. The range starts high because the króna is a small unit: the 500-króna note is worth a few euros and the 10000-króna note, introduced in 2013, is the largest and is roughly a seventy-euro note, which is why Iceland needs a denomination bigger than any in the euro area's everyday range. Below the notes the coins are 1, 5, 10, 50 and 100 krónur, all whole units, because the aurar subdivision no longer circulates (see iceland.finance.currency). The 2000-króna note is the odd denomination in the series and has become uncommon in tills. NOTE THAT ICELAND BARELY USES ANY OF THEM: it is among the most cashless countries in the world, card payment is universal down to a bus fare or a hot dog, and a visitor can cross the country without touching a banknote — so a synthetic Icelandic dataset in which cash is a common payment method is describing somewhere else. Values are written the Icelandic way, figure then the plural krónur.
+locale: is
+---
+500 krónur
+1000 krónur
+2000 krónur
+5000 krónur
+10000 krónur

@@ -1,0 +1,15 @@
+---
+address: iceland.telecom.operator
+description: Iceland's telecoms operators, its postal operator and its regulator. The mobile market is three networks for 394,000 people — Síminn (the former state monopoly, once Landssíminn), Vodafone Ísland (operated by Sýn) and Nova — plus resellers riding on them, of which Hringdu and Hringiðan are the visible ones. Míla is the wholesale infrastructure company that owns most of the copper and fibre in the ground and the fibre-optic cable ring around the island; it was split off from Síminn and sold in 2022, so the network and the retail brand are now different companies, a separation an Icelandic telecoms dataset from before then will not show. Farice runs the submarine cables that connect Iceland to Europe — FARICE-1, DANICE and IRIS — and matters more than a domestic operator does, because Iceland's entire internet reaches it through three pieces of undersea rope. Fjarskiptastofa is the regulator and allocates the number blocks in iceland.phone; it was called Póst- og fjarskiptastofnun until 2021, so records naming PFS are the same body. Pósturinn is the postal operator, and it is the authority for iceland.geo.postalCode and iceland.geo.streetName — its street and postcode registers are open files that anyone can download, which is why this pack could be built from primary sources at all. RÚV is the public broadcaster and is a telecoms fact as well as a media one, because it runs the national emergency broadcast that reaches the fjords when nothing else does.
+locale: is
+---
+Síminn
+Vodafone Ísland
+Nova
+Sýn
+Hringdu
+Míla
+Farice
+Pósturinn
+Fjarskiptastofa
+RÚV

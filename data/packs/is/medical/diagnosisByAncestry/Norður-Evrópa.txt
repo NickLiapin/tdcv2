@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in people of Norður-Evrópa descent, in Icelandic.
+locale: is
+---
+Slímseigjusjúkdómur
+Járnhleðsla
+Glútenóþol
+Húðkrabbamein
+Sortuæxli
+MS-sjúkdómur
+Sykursýki af tegund 1
+Alfa-1-antitrypsínskortur
+D-vítamínskortur
+Fenýlketónmiga

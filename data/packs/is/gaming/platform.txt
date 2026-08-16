@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Brand names keep their real spelling in Icelandic.
+locale: is
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+iOS
+Android
+Vafraleikur
+Sýndarveruleiki

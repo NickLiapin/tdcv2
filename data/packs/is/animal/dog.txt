@@ -1,0 +1,29 @@
+---
+description: Dog breed as Icelandic names it. The Icelandic sheepdog (íslenskur fjárhundur) is the country's only native breed, a spitz that came with the settlers and was nearly lost in the 20th century.
+locale: is
+---
+íslenskur fjárhundur
+labrador retriever
+golden retriever
+þýskur fjárhundur
+border collie
+púðluhundur
+chihuahua
+langhundur
+boxer
+rottweiler
+beagle
+cocker spaniel
+síberíuhúskí
+sankti bernharðshundur
+dalmatíuhundur
+mops
+enskur bolabítur
+jack russell terrier
+yorkshire terrier
+grænlandshundur
+samójedhundur
+alaskan malamute
+dvergspitz
+schnauzer
+írskur setter
