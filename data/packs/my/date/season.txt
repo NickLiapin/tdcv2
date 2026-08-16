@@ -1,0 +1,7 @@
+---
+description: Season. MYANMAR HAS THREE SEASONS AND THIS LIST HAS THREE ENTRIES — that is the answer, not a truncated four. နွေ is the hot season, roughly March to May and the hottest part of the year, ending with the သင်္ကြန် water festival and the new year. မိုး is the rainy season, roughly June to October, when the south-west monsoon delivers most of the year's water and the rice is transplanted. ဆောင်း is the cool season, roughly November to February. There is no Burmese word that means "autumn" and no season that corresponds to it; the tropical year has no such phase. A config translating spring/summer/autumn/winter into Burmese will produce two words that are wrong. The three seasons are also the frame for the Buddhist year: ဝါတွင်း, the rains retreat when monks stay in one monastery, runs the length of မိုး.
+locale: my
+---
+နွေ
+မိုး
+ဆောင်း

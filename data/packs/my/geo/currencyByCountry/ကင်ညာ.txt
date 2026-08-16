@@ -1,0 +1,5 @@
+---
+description: Currency of ကင်ညာ, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ကင်ညာ ရှီလင်

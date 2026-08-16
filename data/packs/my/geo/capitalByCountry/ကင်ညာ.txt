@@ -1,0 +1,5 @@
+---
+description: Capital of ကင်ညာ, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+နိုင်ရိုဘီ

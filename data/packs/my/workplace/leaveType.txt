@@ -1,0 +1,16 @@
+---
+description: Type of leave. ဘာသာရေးခွင့် is leave to ordain, to keep a retreat or to attend a religious occasion, and in Myanmar it is a normal request rather than an unusual one — ရဟန်းခံခွင့်, leave to be ordained as a monk, is asked for and granted. သင်္ကြန်ခွင့် is the water-festival week in April, when the country stops.
+locale: my
+---
+နှစ်စဉ်ခွင့်
+နာမကျန်းခွင့်
+မီးဖွားခွင့်
+ဖခင်ဖြစ်သူခွင့်
+ရုံးပိတ်ရက်
+သင်္ကြန်ခွင့်
+ဘာသာရေးခွင့်
+ရဟန်းခံခွင့်
+နာရေးခွင့်
+မင်္ဂလာဆောင်ခွင့်
+ပညာသင်ခွင့်
+လစာမဲ့ခွင့်

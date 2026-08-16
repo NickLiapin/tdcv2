@@ -1,0 +1,21 @@
+---
+description: Cuisine. THE FIRST SIX ARE MYANMAR'S OWN AND THEY ARE NOT ONE CUISINE. မြန်မာ (Bamar) is the majority kitchen — oil-braised curries, ငါးပိ, and salads called သုပ်. ရှမ်း is Tai and lighter, built on rice noodles and fermented soy. ရခိုင် is coastal and the hottest food in the country by a distance. မွန် is the delta kitchen Bamar cooking borrowed heavily from. ကချင် is northern hill food, steamed and grilled in bamboo rather than braised in oil. Treating these as regional variants of one Burmese cuisine is the mistake this file exists to prevent. The rest are the foreign cuisines a Yangon or Mandalay restaurant actually offers; Chinese and Indian are not foreign in any ordinary sense, having been cooked in Myanmar for two centuries. These values are the KEYS of food/dishByCuisine and must match those filenames character for character.
+locale: my
+---
+မြန်မာ
+ရှမ်း
+ရခိုင်
+မွန်
+ကချင်
+တရုတ်
+အိန္ဒိယ
+ထိုင်း
+ဂျပန်
+ကိုရီးယား
+အီတလီ
+ပြင်သစ်
+အမေရိကန်
+မက္ကဆီကို
+ဗီယက်နမ်
+လက်ဘနွန်
+ဂရိ

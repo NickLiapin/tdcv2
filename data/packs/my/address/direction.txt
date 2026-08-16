@@ -1,0 +1,19 @@
+---
+description: Direction words used in an address or a description of where something is. The four cardinals are မြောက် (north), တောင် (south), အရှေ့ (east) and အနောက် (west), and BURMESE BUILDS THE INTERCARDINALS EAST-OR-WEST FIRST — အရှေ့မြောက် is literally "east-north" where English says "north-east", so a config translating compass points element by element will reverse them. တောင် is also the word for "mountain" and အနောက် is also the word for "behind"; both ambiguities are live and neither is resolvable without context. The last five are not compass points at all but the Burmese way of placing something on the Ayeyarwady: အထက် and အောက် mean upriver and downriver, and are the words in အထက်မြန်မာပြည် (Upper Burma) and အောက်မြန်မာပြည် (Lower Burma). Myanmar orients itself by the river before it orients itself by the compass.
+locale: my
+---
+မြောက်
+တောင်
+အရှေ့
+အနောက်
+အရှေ့မြောက်
+အနောက်မြောက်
+အရှေ့တောင်
+အနောက်တောင်
+အထက်
+အောက်
+အလယ်
+အတွင်း
+အပြင်
+ရှေ့
+နောက်

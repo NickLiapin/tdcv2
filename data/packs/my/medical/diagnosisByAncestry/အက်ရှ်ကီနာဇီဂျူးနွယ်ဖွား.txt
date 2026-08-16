@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in people of အက်ရှ်ကီနာဇီဂျူးနွယ်ဖွား descent, in Burmese. Coherent child of medical/ancestry.txt.
+locale: my
+---
+တေးဆက်ရောဂါ
+ဂေါ်ရှေးရောဂါ
+ကနေဗန်ရောဂါ
+မိသားစုအာရုံကြောညှိုးနွမ်းရောဂါ
+ဘီအာစီအေမျိုးရိုးဗီဇပြောင်းလဲမှု
+ကရုန်းရောဂါ
+နီမန်းပစ်ရောဂါ
+ဘလွန်းရောဂါ
+မိသားစုမြေထဲပင်လယ်အဖျားရောဂါ
+သွေးခဲမှုချို့တဲ့ရောဂါ

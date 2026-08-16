@@ -1,0 +1,16 @@
+---
+description: Streaming and video platform. THE ORDER IS THE FACT: for a great many people in Myanmar the internet IS Facebook, and Facebook video and Facebook Watch carry more viewing than every subscription service combined. Local services — Canal+ Myanmar, Mahar, Mingalar Par — sell prepaid data-bundled access because card subscriptions are impractical. Brand names keep their real spelling.
+locale: my
+---
+Facebook
+YouTube
+TikTok
+Viber
+Telegram
+Canal+ Myanmar
+Mahar
+Mingalar Par
+iflix
+Netflix
+Viu
+WeTV

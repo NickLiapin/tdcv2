@@ -1,0 +1,19 @@
+---
+description: Payment method. THE ORDER IS THE POINT: Myanmar is a cash-and-wallet economy, not a card economy. ငွေသား (cash) and ပစ္စည်းရောက်မှငွေချေ (cash on delivery) dominate; ကေဘီဇက်ပေး and ဝေးဗ်ပေး are the two mobile wallets that between them carry most electronic retail payment in the country and are used by people who have never had a bank account; ဘဏ်လွှဲ (bank transfer with a photographed slip) is the standard for anything larger. International cards work in hotels and airline offices and almost nowhere else. ရွှေ is listed because gold is genuinely used to settle large private transactions such as land and cars, and ခြေရင်းငွေ is the informal shop credit a regular customer runs.
+locale: my
+---
+ငွေသား
+ပစ္စည်းရောက်မှငွေချေ
+ကေဘီဇက်ပေး
+ဝေးဗ်ပေး
+အေယာပေး
+မိုဘိုင်းငွေကြေး
+ဘဏ်လွှဲ
+ဘဏ်စာရင်းမှနုတ်ယူ
+အေတီအမ်ကတ်
+မြန်မာပေးမန့်ယူနီယံကတ်
+နိုင်ငံတကာခရက်ဒစ်ကတ်
+ချက်လက်မှတ်
+ငွေလွှဲဆိုင်
+ရွှေ
+ခြေရင်းငွေ

@@ -1,0 +1,5 @@
+---
+description: Currency of လာအို, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+လာအို ကစ်

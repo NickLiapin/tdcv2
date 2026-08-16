@@ -1,0 +1,24 @@
+---
+description: Writing system. မြန်မာအက္ခရာ, the Burmese script, is an ABUGIDA descended from Brahmi by way of the Mon and Pyu scripts, and it is round because it was written with a stylus on palm leaf — straight strokes split the leaf along the grain, so the letters became circles. FOUR CONSEQUENCES A CONFIG MUST KNOW. It is written WITHOUT SPACES BETWEEN WORDS: spaces mark phrases if they appear at all, so a word count is not a space count, truncation cannot break on a space, and correct line breaking needs a dictionary. Each consonant carries an inherent vowel that must be killed with the asat mark ်. Vowel signs are stored in LOGICAL order but rendered around all four sides of the consonant, so the visual and the stored order differ. And it has its OWN DIGITS ၀၁၂၃၄၅၆၇၈၉ and its own punctuation, the phrase mark ၊ and the sentence mark ။ — no full stop and no comma. The related scripts of Myanmar's other languages (မွန်, ရှမ်း, ကရင်) use the same block with extra letters.
+locale: my
+---
+မြန်မာအက္ခရာ
+မွန်အက္ခရာ
+ရှမ်းအက္ခရာ
+ကရင်အက္ခရာ
+ပျူအက္ခရာ
+ပါဠိအက္ခရာ
+လက်တင်အက္ခရာ
+ဒေဝနာဂရီအက္ခရာ
+အာရဗီအက္ခရာ
+ဟီဘရူးအက္ခရာ
+ဂရိအက္ခရာ
+ဆီရစ်လစ်အက္ခရာ
+တရုတ်အက္ခရာ
+ဂျပန်ဟီရာဂနာ
+ဂျပန်ကတခန
+ကိုရီးယားဟန်ဂူး
+ထိုင်းအက္ခရာ
+ခမာအက္ခရာ
+လာအိုအက္ခရာ
+တိဘက်အက္ခရာ

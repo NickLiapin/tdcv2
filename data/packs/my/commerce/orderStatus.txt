@@ -1,0 +1,18 @@
+---
+description: Order status through a Myanmar online shop. ငွေချေးပြေစာစစ်ဆေးဆဲ ("checking the transfer slip") is a stage Western checkout flows do not have and Myanmar ones nearly all do: most orders are paid by mobile wallet or bank transfer and the buyer sends a photo of the receipt, which a human then matches against the account. ကိုယ်တိုင်လာယူမည် (collect in person) is likewise a normal fulfilment path rather than an exception.
+locale: my
+---
+အော်ဒါတင်ပြီး
+အတည်ပြုပြီး
+ငွေချေးပြေစာစစ်ဆေးဆဲ
+ငွေပေးချေပြီး
+ပြင်ဆင်ဆဲ
+ထုပ်ပိုးဆဲ
+ပို့ဆောင်ဆဲ
+လမ်းခရီးတွင်
+ကိုယ်တိုင်လာယူမည်
+ရောက်ရှိပြီး
+ပယ်ဖျက်ပြီး
+ပြန်လည်ပေးပို့
+ငွေပြန်အမ်းပြီး
+ဆိုင်းငံ့ထား

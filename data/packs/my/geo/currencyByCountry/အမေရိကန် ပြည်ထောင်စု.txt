@@ -1,0 +1,5 @@
+---
+description: Currency of အမေရိကန် ပြည်ထောင်စု, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+အမေရိကန် ဒေါ်လာ

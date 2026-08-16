@@ -1,0 +1,5 @@
+---
+description: Capital of ပါကစ္စတန်, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+အစ္စလာမာဘတ်

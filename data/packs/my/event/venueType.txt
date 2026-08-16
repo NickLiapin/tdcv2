@@ -1,0 +1,28 @@
+---
+description: Where an event is held. မဏ္ဍပ် — a temporary pavilion of bamboo and cloth put up in the street for the occasion and taken down after — is the commonest event venue in Myanmar and has no European equivalent; weddings, novitiations and funerals all happen in one. ဓမ္မာရုံ is the village or ward hall attached to a monastery and doubles as a public meeting room. ရပ်ကွက်ရုံး is the ward office. A Myanmar venue dataset made of hotels and conference centres describes Yangon business and nothing else.
+locale: my
+---
+မဏ္ဍပ်
+ဓမ္မာရုံ
+ဘုန်းကြီးကျောင်း
+ဘုရားဝင်း
+ရပ်ကွက်ရုံး
+ခန်းမ
+ဟိုတယ်ခန်းမ
+စားသောက်ဆိုင်
+အိမ်
+ရုံးခန်း
+ကျောင်းခန်းမ
+တက္ကသိုလ်ခန်းမ
+ပြခန်း
+အားကစားရုံ
+အားကစားကွင်း
+ဘောလုံးကွင်း
+ရုပ်ရှင်ရုံ
+ပန်းခြံ
+ဥယျာဉ်
+လမ်းမ
+ဈေး
+သင်္ချိုင်း
+မီးသင်္ဂြိုဟ်စက်
+အွန်လိုင်း

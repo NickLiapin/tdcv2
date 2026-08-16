@@ -1,0 +1,5 @@
+---
+description: Capital of နီပေါ, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ကတ္တမန္ဒူ

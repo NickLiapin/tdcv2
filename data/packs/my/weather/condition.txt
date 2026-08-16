@@ -1,0 +1,20 @@
+---
+description: Weather condition. Myanmar's year has THREE seasons, not four (see date/season.txt), and the words here follow the monsoon: မိုးအုံ့, မိုးဖွဲ, မိုးသည်း and မိုးသည်းထန် are four distinct grades of rain because the rainy season needs them. နွေပူပြင်း is the hot-season condition, when the dry zone regularly exceeds 40 °C. နှင်းကျ (frost) happens only in the Shan and Chin hills.
+locale: my
+---
+သာယာ
+နေသာ
+တိမ်အုံ့
+တိမ်ထူ
+မိုးအုံ့
+မိုးဖွဲ
+မိုးရွာ
+မိုးသည်း
+မိုးသည်းထန်
+မိုးကြိုးပစ်
+လေပြင်း
+လေညှင်း
+နွေပူပြင်း
+ချမ်းအေး
+နှင်းကျ
+နှင်းထူ

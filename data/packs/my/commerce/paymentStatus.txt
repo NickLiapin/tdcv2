@@ -1,0 +1,14 @@
+---
+description: Payment status. စလက်ကာစစ်ဆေးဆဲ is the wait while a shop verifies a photographed transfer slip by hand, which is a real and common state in Myanmar commerce rather than an edge case. အရစ်ကျပေးဆပ်ဆဲ (paying in instalments) covers both formal hire purchase and the informal instalment buying that is ordinary for a motorbike or a phone.
+locale: my
+---
+မပေးရသေး
+စလက်ကာစစ်ဆေးဆဲ
+တစ်စိတ်တစ်ပိုင်းပေးပြီး
+အရစ်ကျပေးဆပ်ဆဲ
+ပေးချေပြီး
+ကျော်လွန်နေပြီ
+ပယ်ဖျက်ပြီး
+ငြင်းပယ်ခံရ
+ငွေပြန်အမ်းပြီး
+အငြင်းပွားဆဲ

@@ -1,0 +1,30 @@
+---
+description: Vehicle. THE HEAD OF THE LIST IS RIGHT FOR MYANMAR AND WRONG FOR EUROPE. ဆိုင်ကယ် is the vehicle of the country, and ဆိုင်ကယ်ကယ်ရီ, the motorbike taxi, is public transport almost everywhere — except in Yangon, which has BANNED motorcycles from most of the city since 2003, so the country's largest city is the one place they are absent. ဆိုက်ကား is the sidecar trishaw, with the passenger seated back to back beside the rider, and it is a Myanmar design. ထော်လာဂျီ is the small farm truck built around a single-cylinder diesel engine and is the workhorse of rural transport. နွားလှည်း is still in daily use. ရေယာဉ် and သင်္ဘော matter because the Ayeyarwady is a working road.
+locale: my
+---
+ဆိုင်ကယ်
+ဆိုင်ကယ်ကယ်ရီ
+ဆိုက်ကား
+စက်ဘီး
+လျှပ်စစ်ဆိုင်ကယ်
+သုံးဘီးကား
+ထော်လာဂျီ
+နွားလှည်း
+မြင်းလှည်း
+ကား
+တက္ကစီ
+ဘတ်စ်ကား
+အမြန်ယာဉ်
+ခရီးသည်တင်ယာဉ်
+ကုန်တင်ကား
+ဆယ်ဘီးကား
+ပစ်ကပ်
+ထရပ်ကား
+လယ်ယာသုံးထွန်စက်
+မီးရထား
+လှေ
+စက်လှေ
+ရေယာဉ်
+သင်္ဘော
+လေယာဉ်
+ရဟတ်ယာဉ်

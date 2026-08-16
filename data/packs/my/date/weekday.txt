@@ -1,0 +1,11 @@
+---
+description: Day of the week, verbatim from CLDR (locale my, ICU 76.1). Unlike the months these are NOT loanwords: they are the Burmese planetary day names inherited from Indian astronomy, and the same seven words serve the Gregorian and the traditional calendar alike. THE BURMESE WEEK HAS EIGHT DAYS, NOT SEVEN. Wednesday is split in two: ဗုဒ္ဓဟူး is Wednesday before noon and ရာဟု (Rahu) is Wednesday afternoon, and they are separate signs with separate planets, animals and corners of the pagoda. That eighth day is missing from this list because a Gregorian date has no room for it, but it is the reason a Burmese person asked what day they were born may answer ရာဟု — and see person/male/firstName.txt, because the answer decides the first letter of their name. Note also that တနင်္ဂနွေ and တနင်္လာ contain KINZI, the stacked ng written U+1004 U+103A U+1039 in Unicode, which is one of the sequences a Zawgyi encoder gets wrong.
+locale: my
+---
+တနင်္ဂနွေ
+တနင်္လာ
+အင်္ဂါ
+ဗုဒ္ဓဟူး
+ကြာသပတေး
+သောကြာ
+စနေ

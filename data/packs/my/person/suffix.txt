@@ -1,0 +1,28 @@
+---
+description: Post-nominal. BURMESE HAS NO GENERATIONAL SUFFIX AND THIS LIST CONTAINS NONE. There is no Junior, no Senior, no II or III, and there cannot be: those suffixes exist to distinguish people who share an inherited name, and Burmese names are not inherited, so the collision they solve never happens. A son is never named after his father. What Myanmar does write after a name is the ACADEMIC QUALIFICATION, and it does so far more freely than Britain or America — a signboard, a business card and a wedding invitation will all carry it, usually in Latin letters exactly as printed on the certificate. B.A, B.Sc, M.B.,B.S and B.E are the ordinary ones; M.B.,B.S with its internal comma is the standard Myanmar medical degree and the punctuation is part of it. The Burmese-script entries at the end are honours and religious titles conferred by the state or the Sangha, which follow the name in Burmese text. LATIN LETTERS IN A BURMESE PACK ARE CORRECT HERE, not an encoding failure: these strings are written in Latin script in Myanmar too.
+locale: my
+---
+B.A
+B.Sc
+B.Com
+B.E
+B.Ed
+B.Ag.Sc
+LL.B
+M.B.,B.S
+B.D.S
+B.V.S
+M.A
+M.Sc
+M.B.A
+M.Ed
+LL.M
+M.Med.Sc
+Ph.D
+D.Sc
+Dip.Ed
+A.G.T.I
+R.L
+ဓမ္မာစရိယ
+သီရိပျံချီ
+အဂ္ဂမဟာပဏ္ဍိတ

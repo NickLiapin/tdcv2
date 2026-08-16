@@ -1,0 +1,10 @@
+---
+description: Playing position in လှေလှော်ပြိုင်ပွဲ, in Burmese. Coherent child of sport/sportCoherent.txt.
+locale: my
+---
+ပဲ့ကိုင်
+ဦးဆောင်လှော်သူ
+ဗဟိုလှော်သူ
+နောက်ပိုင်းလှော်သူ
+စည်တီးသူ
+အဖွဲ့ခေါင်းဆောင်

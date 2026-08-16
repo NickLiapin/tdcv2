@@ -1,0 +1,5 @@
+---
+description: Capital of နယူးဇီလန်, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဝယ်လင်တန်

@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in people of အရှေ့ဥရောပနွယ်ဖွား descent, in Burmese. Coherent child of medical/ancestry.txt.
+locale: my
+---
+ဖီနိုင်ကီတိုနူးရီးယား
+ဝီလ်ဆင်ရောဂါ
+ဆီးချိုအမျိုးအစား၂
+သွေးတိုးရောဂါ
+အသည်းခြောက်ရောဂါ
+အဆုတ်တီဘီ
+နှလုံးသွေးကြောကျဉ်းရောဂါ
+လေဖြတ်ရောဂါ
+အရိုးပွရောဂါ
+အစာအိမ်ကင်ဆာ

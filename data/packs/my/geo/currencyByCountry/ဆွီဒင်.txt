@@ -1,0 +1,5 @@
+---
+description: Currency of ဆွီဒင်, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဆွီဒင် ခရိုဏာ

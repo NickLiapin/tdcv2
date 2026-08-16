@@ -1,0 +1,36 @@
+---
+description: Musical instrument. The first nine are the ဆိုင်းဝိုင်း, the Burmese ensemble, and several are unique to the country. ပတ်တလား is a circle of twenty-one tuned drums played by one seated musician in the middle — the lead instrument of Myanmar classical music and found nowhere else. ကြေးဝါင်းဝိုင်း is its gong equivalent. စောင်းကောက် is the arched harp, the national instrument, whose form has been unchanged since it appears on Bagan-period temple walls and which survives nowhere else in Asia. ပတ္တလား (with a different spelling) is the bamboo xylophone. Foreign instruments keep their borrowed names.
+locale: my
+---
+ပတ်တလား
+ကြေးဝါင်းဝိုင်း
+စောင်းကောက်
+ပတ္တလား
+နှဲ
+ပလွေ
+ဆိုင်းဝိုင်းဗုံ
+လင်းကွင်း
+ဝါးလက်ခုပ်
+ဒိုးပတ်
+ဗုံ
+စည်
+မောင်း
+ကြေးစည်
+ဒရမ်
+ဂစ်တာ
+လျှပ်စစ်ဂစ်တာ
+ဘေ့စ်ဂစ်တာ
+စန္ဒရား
+ကီးဘုတ်
+တယော
+ချယ်လို
+ဖလုတ်
+ကလာရီနက်
+ဆက္ကဆိုဖုန်း
+တံပိုး
+ထရမ်ပက်
+ထရွမ်ဘုန်း
+ဟာမိုနီကာ
+အော်ဂင်
+မန်ဒိုလင်
+ယူကုလေလီ

@@ -1,0 +1,12 @@
+---
+description: Book format. စာအုပ်ရှည် is the long narrow paperback shape most Myanmar novels are printed in. ပေစာ is the palm-leaf manuscript — leaves incised with a stylus, blackened with soot, bound between wooden boards — which was the book of Burma for a thousand years and is still how a monastery library holds the Pali canon; ပုရပိုက် is its folding paper cousin, a concertina of thick mulberry paper written on with steatite. Both are current words, not archaeology: a Myanmar library catalogue uses them.
+locale: my
+---
+စာအုပ်
+စာအုပ်ရှည်
+အဖုံးမာ
+အဖုံးပျော့
+အီလက်ထရွန်နစ်စာအုပ်
+အသံစာအုပ်
+ပေစာ
+ပုရပိုက်

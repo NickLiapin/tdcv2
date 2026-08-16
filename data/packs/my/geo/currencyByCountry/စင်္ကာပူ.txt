@@ -1,0 +1,5 @@
+---
+description: Currency of စင်္ကာပူ, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+စင်္ကာပူ ဒေါ်လာ

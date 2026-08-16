@@ -1,0 +1,13 @@
+---
+description: Cable conduit type. Written in Burmese but note that Myanmar's electrical trade works largely in English and inches, so a site conversation uses both languages at once.
+locale: my
+---
+ပီဗွီစီပိုက်
+သံပိုက်
+အလူမီနီယမ်ပိုက်
+ပြောင်းလွယ်ပိုက်
+မြေအောက်လမ်းကြောင်း
+ကြမ်းခင်းအောက်လမ်းကြောင်း
+ကြိုးတွဲလမ်းကြောင်း
+နံရံတွင်းသွယ်တန်း
+ဓာတ်တိုင်ပေါ်သွယ်တန်း

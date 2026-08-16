@@ -1,0 +1,16 @@
+---
+description: Kind of loan. TWO OF THESE ARE NOT BANK PRODUCTS AND THEY MATTER MORE THAN THE ONES THAT ARE. ငွေတိုးချေးငွေ is the informal moneylender's loan, at rates of several per cent a MONTH, and it is how a very large share of Myanmar households borrow. စုဘူး is the rotating savings and credit association — a group pays in monthly and each member takes the pot in turn — which functions as both the savings account and the loan facility for millions of people with no bank relationship. Formal agricultural lending runs through the state agricultural bank against paddy land, and microfinance against a group guarantee. A Myanmar lending dataset made only of mortgages and card debt describes almost nobody.
+locale: my
+---
+လယ်ယာချေးငွေ
+အသေးစားချေးငွေ
+စုဘူး
+ငွေတိုးချေးငွေ
+ရွှေပေါင်နှံချေးငွေ
+မြေပေါင်နှံချေးငွေ
+အိမ်ရာချေးငွေ
+စီးပွားရေးလုပ်ငန်းချေးငွေ
+ယာယီအရင်းအနှီးချေးငွေ
+ဆိုင်ကယ်အရစ်ကျ
+ကားအရစ်ကျ
+ပညာသင်ချေးငွေ

@@ -1,0 +1,16 @@
+---
+description: Fuel. ဒီဇယ် comes before ဓာတ်ဆီ because Myanmar's trucks, buses, farm machinery and generators all run on it and it is the fuel that moves the economy. မီးစက်ဆီ (generator fuel) is listed separately because for many households and businesses it is a distinct recurring purchase, not a vehicle cost. ထင်း and မီးသွေး are here because a large share of Myanmar households still cook on wood and charcoal.
+locale: my
+---
+ဒီဇယ်
+ဓာတ်ဆီ
+ပရီမီယံဓာတ်ဆီ
+အောက်တိန်း၉၅
+မီးစက်ဆီ
+စီအင်န်ဂျီ
+အယ်လ်ပီဂျီ
+လျှပ်စစ်
+ဟိုက်ဘရစ်
+ဆိုလာ
+ထင်း
+မီးသွေး

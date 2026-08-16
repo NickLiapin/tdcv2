@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, the parent of medical/diagnosisByAncestry. These are ancestry populations AS CLINICAL GENETICS DEFINES THEM — geographic descent, not social race categories. နွယ်ဖွား, the suffix on every entry, means "descended from" and is the neutral Burmese word for this; it does not carry the political charge that လူမျိုး ("race", "ethnic nationality") carries in Myanmar, where the term is tied to the state's list of 135 recognised groups and to citizenship law. That distinction is deliberate. Myanmar's own population falls mostly under အရှေ့တောင်အာရှနွယ်ဖွား, and its two clinically most important findings — haemoglobin E and alpha thalassaemia, both very common across mainland Southeast Asia — are in that file. The twelve values are the KEYS of diagnosisByAncestry and must match those filenames character for character.
+locale: my
+---
+ဆာဟာရတောင်ပိုင်းအာဖရိကနွယ်ဖွား
+မြောက်အာဖရိကနွယ်ဖွား
+မြေထဲပင်လယ်ဒေသနွယ်ဖွား
+အရှေ့အလယ်ပိုင်းနွယ်ဖွား
+မြောက်ဥရောပနွယ်ဖွား
+အရှေ့ဥရောပနွယ်ဖွား
+အက်ရှ်ကီနာဇီဂျူးနွယ်ဖွား
+တောင်အာရှနွယ်ဖွား
+အရှေ့တောင်အာရှနွယ်ဖွား
+အရှေ့အာရှနွယ်ဖွား
+ပစိဖိတ်ကျွန်းသားနွယ်ဖွား
+အမေရိကတိုက်တိုင်းရင်းသားနွယ်ဖွား

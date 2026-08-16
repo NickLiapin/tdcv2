@@ -1,0 +1,5 @@
+---
+description: Capital of မြန်မာ, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+နေပြည်တော်

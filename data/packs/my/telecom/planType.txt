@@ -1,0 +1,16 @@
+---
+description: Mobile plan. PREPAID IS THE DEFAULT AND POSTPAID THE EXCEPTION in Myanmar, which is the reverse of most European markets: nearly everyone tops up with a scratch card or a wallet transfer, and a contract plan requires the kind of documentation and bank relationship most people do not have. Data bundles are sold in small denominations and by time of day, so ညပိုင်းအထုပ် (a night bundle) is an ordinary product.
+locale: my
+---
+ကြိုတင်ငွေဖြည့်
+နောက်မှပေးချေ
+ဒေတာအထုပ်
+နေ့စဉ်အထုပ်
+အပတ်စဉ်အထုပ်
+လစဉ်အထုပ်
+ညပိုင်းအထုပ်
+လူမှုကွန်ရက်အထုပ်
+ဂိမ်းအထုပ်
+မိသားစုအထုပ်
+လုပ်ငန်းသုံးအထုပ်
+ခရီးသွားအထုပ်

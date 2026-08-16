@@ -1,0 +1,16 @@
+---
+description: Listing status. ငှားရန် and ရောင်းရန် are the two headline words on any Myanmar listing. စာချုပ်ချုပ်ဆိုပြီး (contract signed) is a distinct state from အရောင်းအဝယ်ပြီးမြောက် (transfer complete) because Myanmar conveyancing runs through a stamped and registered deed and the gap between the two can be long.
+locale: my
+---
+ရောင်းရန်
+ငှားရန်
+အပေါင်ခံရန်
+စျေးညှိနှိုင်းနိုင်
+စာချုပ်ချုပ်ဆိုပြီး
+စရံပေးပြီး
+အရောင်းအဝယ်ပြီးမြောက်
+ငှားရမ်းပြီး
+ယာယီရုပ်သိမ်း
+ပြန်လည်ဖော်ပြ
+အသစ်ဖော်ပြထား
+ဆက်သွယ်ရန်

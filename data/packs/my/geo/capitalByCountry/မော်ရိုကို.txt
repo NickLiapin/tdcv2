@@ -1,0 +1,5 @@
+---
+description: Capital of မော်ရိုကို, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ရာဘတ်

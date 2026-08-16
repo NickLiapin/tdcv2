@@ -1,0 +1,32 @@
+---
+description: School or university subject. မြန်မာစာ (Burmese language and literature) and အင်္ဂလိပ်စာ (English) are the two compulsory language subjects at every level. ဗုဒ္ဓစာပေ and ပါဠိ are taught in the monastic school system, which educates a large share of poor and rural children and is a parallel national school network rather than a religious extra. သိပ္ပံ, သင်္ချာ, ဓာတုဗေဒ, ရူပဗေဒ and ဇီဝဗေဒ are the science stream that dominates Myanmar secondary education, because matriculation results steer almost everyone towards medicine or engineering.
+locale: my
+---
+မြန်မာစာ
+အင်္ဂလိပ်စာ
+သင်္ချာ
+သိပ္ပံ
+ရူပဗေဒ
+ဓာတုဗေဒ
+ဇီဝဗေဒ
+ပထဝီဝင်
+သမိုင်း
+စီးပွားရေးပညာ
+နိုင်ငံရေးသိပ္ပံ
+ဥပဒေပညာ
+စိတ်ပညာ
+ဒဿနိကဗေဒ
+ကွန်ပျူတာသိပ္ပံ
+အင်ဂျင်နီယာပညာ
+ဆေးပညာ
+သူနာပြုပညာ
+စာရင်းကိုင်ပညာ
+စီမံခန့်ခွဲမှုပညာ
+စိုက်ပျိုးရေးပညာ
+သစ်တောပညာ
+ပါဠိ
+ဗုဒ္ဓစာပေ
+အနုပညာ
+ဂီတ
+ကာယပညာ
+ဘာသာပြန်ပညာ

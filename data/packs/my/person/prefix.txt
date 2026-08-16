@@ -1,0 +1,35 @@
+---
+description: HONORIFIC — AND IT IS NOT PART OF THE NAME. This is the single most misunderstood thing about Burmese naming. A Burmese person has no title that belongs to them; the word in front of the name is chosen by the SPEAKER, from the speaker's own age and standing relative to theirs, and it changes over a lifetime and between conversations. The same man is မောင်အောင် as a boy, ကိုအောင် among friends in his twenties and ဦးအောင် at fifty; the same woman is မအေး young and ဒေါ်အေး older. ဦး and ဒေါ် are also the polite default for a stranger of any age. Aung San Suu Kyi is DAW Aung San Suu Kyi — Daw is not a first name and not a title she holds, it is what a Burmese speaker calls a respected woman. The prefix is written JOINED TO THE NAME with no space (ဦးအောင်ဆန်း). The list also carries the ethnic-minority prefixes, which work differently and ARE more fixed: စိုင်း and နန်း are Shan for a man and a woman, နိုင် and မိ are Mon, စော and နော် are Karen, ခွန် is Pa-O. And the monastic ones — ဦးဇင်း, အရှင်, ဆရာတော် — which replace lay address entirely: an ordained man is not called ဦး anything.
+locale: my
+---
+ဦး
+ဒေါ်
+ကို
+မ
+မောင်
+ဆရာ
+ဆရာမ
+ဒေါက်တာ
+ဆရာဝန်
+ဗိုလ်
+ဗိုလ်မှူး
+ဗိုလ်ချုပ်
+သခင်
+စိုင်း
+နန်း
+နိုင်
+မိ
+စော
+နော်
+ခွန်
+ဒူးဝါး
+ဦးဇင်း
+အရှင်
+ဆရာတော်
+သီလရှင်
+ဦးလေး
+အဒေါ်
+အကို
+အမ
+ညီလေး
+နှမလေး

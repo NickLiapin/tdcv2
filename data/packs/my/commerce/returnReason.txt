@@ -1,0 +1,19 @@
+---
+description: Reason for returning goods. ငွေလွှဲမှားယွင်း (wrong transfer) is a return reason in Myanmar because so much is paid by manual bank or wallet transfer that mismatched payments are a routine cause of a cancelled order. အတုဖြစ်နေ (counterfeit) is high on the list for the same reason it would be in any market where a large share of consumer goods arrives through informal border trade.
+locale: my
+---
+အရွယ်အစားမကိုက်
+အရောင်မမှန်
+ပစ္စည်းမှားပါလာ
+ပျက်စီးနေ
+အရည်အသွေးမပြည့်မီ
+အတုဖြစ်နေ
+ဓာတ်ပုံနှင့်မတူ
+နောက်ကျပို့ဆောင်
+အရေအတွက်မပြည့်
+သက်တမ်းကုန်နေ
+စိတ်ပြောင်းလဲသွား
+ပိုမိုကောင်းမွန်သောဈေးတွေ့
+မှာယူမှုမှားယွင်း
+ငွေလွှဲမှားယွင်း
+အာမခံအရပြန်လည်ပေးအပ်

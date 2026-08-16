@@ -1,0 +1,26 @@
+---
+description: Street-type word, appended AFTER the name and joined to it with no space: အနော်ရထာ + လမ်း is အနော်ရထာလမ်း. THIS LIST IS DELIBERATELY SHORT AND WAS NOT PADDED TO THE REFERENCE LENGTH. English has around forty street types (Street, Avenue, Boulevard, Drive, Court, Terrace, Place, Way…) and Burmese has about a dozen: လမ်း covers street, road, avenue and drive all at once, and the distinctions English draws are simply not drawn. Inventing thirty more would have produced words no Burmese address contains. Note also that a very large share of Myanmar streets have NO name at all — Mandalay and downtown Yangon are numbered grids, so the address reads ၃၅လမ်း or ၄၆လမ်း in Burmese digits, with the number where a name would be.
+locale: my
+---
+လမ်း
+လမ်းမ
+လမ်းမကြီး
+လမ်းသွယ်
+လမ်းကြား
+ပတ်လမ်း
+မြို့ပတ်လမ်း
+ကမ်းနားလမ်း
+လမ်းဆုံ
+ရပ်ကွက်
+ကွက်သစ်
+အိမ်ရာ
+တန်း
+ကွင်း
+ဂိတ်
+ဆိပ်ကမ်း
+တံတား
+ကွေ့
+တောင်ကြား
+ကုန်း
+ချောင်း
+ဈေးလမ်း

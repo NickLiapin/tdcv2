@@ -1,0 +1,16 @@
+---
+description: Playing position in ဘောလုံး, in Burmese. Coherent child of sport/sportCoherent.txt.
+locale: my
+---
+ဂိုးသမား
+နောက်ခံလူ
+နောက်ခံအလယ်
+နောက်ခံဘေး
+အလယ်တန်းကာကွယ်
+အလယ်တန်းလူ
+အလယ်တန်းတိုက်စစ်
+တောင်ပံလူ
+ရှေ့တန်းလူ
+ဂိုးသွင်းသမား
+အသင်းခေါင်းဆောင
+အရံကစားသမား

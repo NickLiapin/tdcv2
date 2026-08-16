@@ -1,0 +1,32 @@
+---
+description: Allergen. Myanmar's food allergens are not Europe's: ပုစွန် and ငါးပိ (shrimp and fermented fish paste) top the list because both are in almost every meal, and မြေပဲ (groundnut) matters because groundnut oil is the traditional cooking fat. ဆီးနွေးမှုန့် is house dust and ဖုန်မှုန့် ordinary dust, both major asthma triggers in a country with a long dry season. ပင်နီဆလင် is the drug allergy most often recorded.
+locale: my
+---
+ပုစွန်
+ဂဏန်း
+ငါးပိ
+ငါး
+ကြက်ဥ
+နွားနို့
+မြေပဲ
+နှမ်း
+ပဲမျိုးစုံ
+တိုဟူး
+ဂျုံ
+သရက်သီး
+ငှက်ပျောသီး
+ဖုန်မှုန့်
+ဆီးနွေးမှုန့်
+ပန်းဝတ်မှုန်
+မှိုမှုန့်
+ကြောင်မွှေး
+ခွေးမွှေး
+ပိုးဟပ်
+ပျားတုပ်
+ခြင်ကိုက်
+ပင်နီဆလင်
+အက်စပရင်
+ဆာဖာဆေး
+ရော်ဘာ
+ဆေးဆိုးဆေး
+ရေမွှေး

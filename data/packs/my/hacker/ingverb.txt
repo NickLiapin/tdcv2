@@ -1,0 +1,32 @@
+---
+description: Verb in the mock-technical register, in the Burmese progressive: the နေ suffix marks ongoing action, which is what an English -ing form does here. Burmese has no participle, so these are finite verb phrases rather than adjectives and cannot modify a noun directly.
+locale: my
+---
+စစ်ဆေးနေ
+ချိတ်ဆက်နေ
+ကူးယူနေ
+ဖြန့်ဝေနေ
+ဒေါင်းလုဒ်လုပ်နေ
+အပ်လုဒ်လုပ်နေ
+ကုဒ်ဝှက်နေ
+ကုဒ်ဖြေနေ
+ခွဲခြမ်းစိတ်ဖြာနေ
+တွက်ချက်နေ
+စုစည်းနေ
+ချုံ့နေ
+ဖြန့်ချနေ
+ပြန်လည်စတင်နေ
+မွမ်းမံနေ
+ပြင်ဆင်နေ
+ရှာဖွေနေ
+စောင့်ကြည့်နေ
+မှတ်တမ်းတင်နေ
+သိမ်းဆည်းနေ
+ပြန်လည်ရယူနေ
+ပိတ်ဆို့နေ
+ခွင့်ပြုနေ
+အတည်ပြုနေ
+ငြင်းပယ်နေ
+စမ်းသပ်နေ
+ပြန်လည်သုံးသပ်နေ
+ချိန်ညှိနေ

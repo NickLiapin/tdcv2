@@ -1,0 +1,10 @@
+---
+description: Playing position in ပိုက်ကျော်ခြင်း, in Burmese. Coherent child of sport/sportCoherent.txt.
+locale: my
+---
+တီကောင်း
+ဖီဒါ
+ကီလာ
+ဆာဗာ
+အရံကစားသမား
+နည်းပြ

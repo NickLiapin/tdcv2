@@ -1,0 +1,5 @@
+---
+description: Capital of အီဂျစ်, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ကိုင်ရို

@@ -1,0 +1,5 @@
+---
+description: Capital of ဖိလစ်ပိုင်, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+မနီလာ

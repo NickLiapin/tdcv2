@@ -1,0 +1,5 @@
+---
+description: Currency of အီရန်, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+အီရန် ရီးယော်လ်

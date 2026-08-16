@@ -1,0 +1,5 @@
+---
+description: Currency of ဂျာမနီ, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ယူရို

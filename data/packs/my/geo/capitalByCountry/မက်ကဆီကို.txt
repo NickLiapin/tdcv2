@@ -1,0 +1,5 @@
+---
+description: Capital of မက်ကဆီကို, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+မက္ကဆီကိုစီးတီး

@@ -1,0 +1,16 @@
+---
+description: The twelve Western zodiac signs in Burmese — these are the Pali rasi names, genuinely used in Myanmar horoscope columns and by astrologers. BUT THEY ARE NOT THE SIGN A BURMESE PERSON ACTUALLY KNOWS THEMSELVES BY. That is the BIRTH-DAY SIGN, of which there are EIGHT, one for each day of the week with Wednesday split into morning and afternoon: Sunday is ဂဠုန် the garuda, Monday ကျား the tiger, Tuesday ခြင်္သေ့ the lion, Wednesday morning ဆင် the tusked elephant, Wednesday afternoon (ရာဟု) အစွယ်မဲ့ဆင် the tuskless elephant, Thursday ကြွက် the rat, Friday ပူး the guinea pig, Saturday နဂါး the naga. Each has a planet, a compass corner and a post at every pagoda, where you pour water over the image on your own day. THE BIRTH-DAY SIGN ALSO DECIDES THE FIRST LETTER OF YOUR NAME — see person/male/firstName.txt — so it is woven into identity in a way the rasi signs are not. A config that gives a Myanmar person a star sign and nothing else has given them the foreign half of their astrology.
+locale: my
+---
+မိဿ
+ပြိဿ
+မေထုန်
+ကရကဋ်
+သိဟ်
+ကန်
+တူ
+ဗြိစ္ဆာ
+ဓနု
+မကာရ
+ကုံ
+မိန်

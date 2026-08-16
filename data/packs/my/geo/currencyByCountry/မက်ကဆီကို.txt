@@ -1,0 +1,5 @@
+---
+description: Currency of မက်ကဆီကို, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+မက်ကဆီကို ပီဆို

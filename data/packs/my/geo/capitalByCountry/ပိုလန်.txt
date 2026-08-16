@@ -1,0 +1,5 @@
+---
+description: Capital of ပိုလန်, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဝါဆော

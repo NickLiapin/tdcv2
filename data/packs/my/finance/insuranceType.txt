@@ -1,0 +1,20 @@
+---
+description: Insurance product. MYANMAR IS ONE OF THE LEAST INSURED COUNTRIES ON EARTH — penetration is well under one per cent of GDP — and until 2013 the state insurer was the only one permitted to sell anything at all, so several of these products are barely a decade old in the private market. ကြိုတင်စုဆောင်း-style life products and third-party motor cover are what actually sells. သီးနှံအာမခံ (crop insurance) exists as a pilot rather than as a product a farmer can walk in and buy. In practice a Myanmar household's insurance is gold, land and relatives.
+locale: my
+---
+အသက်အာမခံ
+ကျန်းမာရေးအာမခံ
+မတော်တဆထိခိုက်မှုအာမခံ
+မော်တော်ယာဉ်အာမခံ
+တတိယပုဂ္ဂိုလ်အာမခံ
+မီးအာမခံ
+အိမ်ခြံမြေအာမခံ
+ကုန်ပစ္စည်းအာမခံ
+ရေကြောင်းအာမခံ
+ခရီးသွားအာမခံ
+သီးနှံအာမခံ
+တိရစ္ဆာန်အာမခံ
+လုပ်ငန်းခွင်အာမခံ
+ပညာရေးအာမခံ
+ငွေစုအာမခံ
+ပင်စင်အာမခံ

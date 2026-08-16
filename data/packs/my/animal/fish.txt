@@ -1,0 +1,29 @@
+---
+description: Fish, freshwater first. Myanmar eats far more river fish than sea fish and the Ayeyarwady and Inle names come before the marine ones for that reason. ငါးသလောက် (hilsa) is the prize fish of the delta; ငါးခူ (catfish) and ငါးရံ့ (snakehead) are the everyday market fish; ငါးမြင်း is the Inle carp. THE MOST IMPORTANT ENTRY IS ငါးပိ, WHICH IS NOT A FISH — it is the fermented fish paste made from them, and it is in this list because no Burmese account of fish is complete without it: it is the base of the national cuisine and appears in some form in most Myanmar meals.
+locale: my
+---
+ငါးသလောက်
+ငါးခူ
+ငါးရံ့
+ငါးကြင်း
+ငါးမြင်း
+ငါးဖယ်
+ငါးရှဉ့်
+ငါးဒန်
+ငါးသင်္ဘော
+ငါးကွမ်းရှပ်
+ငါးဘဲ
+ငါးတံခွန်
+ငါးကြောင်
+ငါးပုဇွန်
+ငါးမန်း
+ငါးလိပ်ကျောက်
+ငါးဖန်
+ငါးရွှေဝါ
+ငါးပါးသုံးရာ
+ငါးမုတ်
+ငါးရှဉ့်ဖြူ
+ငါးကျည်း
+ငါးသေတ္တာ
+ငါးပိ
+ငါးခြောက်

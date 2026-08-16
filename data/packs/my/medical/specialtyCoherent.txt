@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list under medical/diagnosisBySpecialty. Burmese names a specialty descriptively — နှလုံးရောဂါကုပညာ is literally "the science of treating heart disease" — rather than with a Greek stem, so there is no Burmese equivalent of the -ology suffix and no short form. These ten values are the KEYS of diagnosisBySpecialty and must match those filenames character for character. Note that a Myanmar hospital organises itself around ပြင်ပလူနာဌာန (outpatients) and အထူးကုဌာန (specialist clinics) rather than around these divisions, and that the specialist is scarce outside Yangon, Mandalay and Naypyidaw.
+locale: my
+---
+နှလုံးရောဂါကုပညာ
+အာရုံကြောရောဂါကုပညာ
+ကင်ဆာရောဂါကုပညာ
+အရေပြားရောဂါကုပညာ
+ဟော်မုန်းရောဂါကုပညာ
+အစာအိမ်နှင့်အူလမ်းကြောင်းရောဂါကုပညာ
+ကျောက်ကပ်ရောဂါကုပညာ
+အဆုတ်ရောဂါကုပညာ
+အရိုးရောဂါကုပညာ
+စိတ်ရောဂါကုပညာ

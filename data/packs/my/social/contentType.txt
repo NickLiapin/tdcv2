@@ -1,0 +1,18 @@
+---
+description: Kind of social post. ဓာတ်ပုံတင်ခြင်း (posting photos) and တိုက်ရိုက်လွှင့်ခြင်း (going live) dominate Myanmar feeds; live selling — a seller showing goods on camera and taking orders in the comments — is a major retail channel in the country and not a novelty.
+locale: my
+---
+စာတိုတင်ခြင်း
+ဓာတ်ပုံတင်ခြင်း
+ဗီဒီယိုတင်ခြင်း
+တိုက်ရိုက်လွှင့်ခြင်း
+ရှော့တ်ဗီဒီယို
+မျှဝေခြင်း
+မှတ်ချက်ပေးခြင်း
+စတိုရီတင်ခြင်း
+ကာတွန်းတင်ခြင်း
+သတင်းမျှဝေခြင်း
+ကြော်ငြာတင်ခြင်း
+တိုက်ရိုက်ရောင်းချခြင်း
+စစ်တမ်းကောက်ခြင်း
+အလှူငွေတောင်းခံခြင်း

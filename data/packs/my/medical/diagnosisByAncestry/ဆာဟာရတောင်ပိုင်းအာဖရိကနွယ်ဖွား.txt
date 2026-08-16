@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in people of ဆာဟာရတောင်ပိုင်းအာဖရိကနွယ်ဖွား descent, in Burmese. A PREVALENCE SIGNAL, NOT AN EXCLUSIVE ONE: every condition here occurs in every population, and this list says only that the base rate differs. It must never be used to rule a diagnosis in or out for an individual. Coherent child of medical/ancestry.txt.
+locale: my
+---
+ဆစ်ကယ်ဆဲလ်သွေးအားနည်းရောဂါ
+ဂျီစိတ်ဒီအင်ဇိုင်းချို့တဲ့မှု
+အယ်လ်ဖာသဲလက်ဆီးမီးယား
+သွေးတိုးရောဂါ
+ကျောက်ကပ်ရောဂါ
+ဆီးချိုအမျိုးအစား၂
+ပရိုစတိတ်ကင်ဆာ
+နို့မှုန့်မကြေရောဂါ
+ဆာကွိုက်ဒိုးစစ်
+အဆုတ်တီဘီ

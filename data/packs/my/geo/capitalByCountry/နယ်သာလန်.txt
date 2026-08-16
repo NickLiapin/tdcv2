@@ -1,0 +1,5 @@
+---
+description: Capital of နယ်သာလန်, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+အမ်စတာဒမ်

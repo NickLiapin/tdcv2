@@ -1,0 +1,5 @@
+---
+description: Currency of သီရိလင်္ကာ, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+သီရိလင်္ကာ ရူပီး

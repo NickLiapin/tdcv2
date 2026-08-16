@@ -1,0 +1,20 @@
+---
+description: Horse type. THIS LIST IS SHORT AND THAT IS THE ANSWER, NOT A GAP. Myanmar has no horse-breeding culture: the country is buffalo and bullock country, the terrain is paddy and hill, and the horse a Burmese person meets is the small ရှမ်းမြင်း of the Shan plateau, the ဆိုက်ကားမြင်း pulling a cart in Pyin Oo Lwin or Inwa, or a racehorse on television. The foreign breed names below are known from screens and books rather than from stables, and inventing thirty more of them would have claimed a horse world Myanmar does not have.
+locale: my
+---
+ရှမ်းမြင်း
+မြင်းငယ်
+မြင်းလှည်းမြင်း
+ပြိုင်မြင်း
+စစ်မြင်း
+မြည်း
+လား
+အာရေဗျမြင်း
+အင်္ဂလိပ်မြင်း
+မွန်ဂိုမြင်း
+ပိုနီမြင်း
+မြင်းဖြူ
+မြင်းညို
+မြင်းနီ
+မြင်းကျား
+မြင်းပျို

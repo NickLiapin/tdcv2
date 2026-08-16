@@ -1,0 +1,57 @@
+---
+description: Country, weighted by population in millions, AS BURMESE NAMES IT. Every name is taken verbatim from CLDR (locale my, ICU 76.1) rather than transliterated by hand, so this pack and the Unicode Consortium agree character for character. Burmese has three layers of country name and all three are visible here. THE OLDEST ARE NATIVE WORDS WITH NO PHONETIC RELATION TO THE ENGLISH AT ALL: တရုတ် is China, ပြင်သစ် is France, ကုလား-derived အိန္ဒိယ is India, and ဂျာမနီ aside, a config that tries to romanise တရုတ် back will get "Tayoke", not "China". The second layer is Pali and Sanskrit, reaching Burma with Buddhism: သီရိလင်္ကာ, ကမ္ဘောဒီးယား. The third and largest is English respelled to Burmese sound: ဘရာဇီး, ပါကစ္စတန်, ဩစတြေးလျ. မြန်မာ is Myanmar's own name for itself and is not a loan of anything. These strings are the KEYS of capitalByCountry, currencyByCountry and currencyCodeByCountry and must match those filenames character for character.
+locale: my
+weighted: true
+---
+အိန္ဒိယ,1450
+တရုတ်,1416
+အမေရိကန် ပြည်ထောင်စု,342
+အင်ဒိုနီးရှား,283
+ပါကစ္စတန်,251
+နိုင်ဂျီးရီးယား,237
+ဘရာဇီး,212
+ဘင်္ဂလားဒေ့ရှ်,173
+ရုရှား,144
+အီသီယိုးပီးယား,132
+မက်ကဆီကို,131
+ဂျပန်,124
+အီဂျစ်,116
+ဖိလစ်ပိုင်,116
+ဗီယက်နမ်,101
+အီရန်,92
+တူရကီ,87
+ဂျာမနီ,84
+ထိုင်း,72
+ယူနိုက်တက်ကင်းဒမ်း,69
+ပြင်သစ်,68
+တန်ဇန်းနီးယား,68
+တောင်အာဖရိက,64
+အီတလီ,59
+ကင်ညာ,57
+မြန်မာ,55
+တောင်ကိုရီးယား,52
+ဆူဒန်,50
+စပိန်,48
+အယ်လ်ဂျီးရီးယား,47
+အာဂျင်တီးနား,46
+အီရတ်,46
+အာဖဂန်နစ္စတန်,42
+ကနေဒါ,39
+ယူကရိန်း,38
+မော်ရိုကို,38
+ပိုလန်,37
+ဥဇဘက်ကစ္စတန်,36
+မလေးရှား,35
+ဆော်ဒီအာရေးဘီးယား,34
+နီပေါ,30
+ဩစတြေးလျ,27
+ထိုင်ဝမ်,23
+သီရိလင်္ကာ,22
+ကာဇက်စတန်,20
+နယ်သာလန်,18
+ကမ္ဘောဒီးယား,17
+ဆွီဒင်,11
+ဆွစ်ဇာလန်,9
+လာအို,8
+စင်္ကာပူ,6
+နယူးဇီလန်,5

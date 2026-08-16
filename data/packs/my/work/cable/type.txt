@@ -1,0 +1,14 @@
+---
+description: Cable type. ဓာတ်အားကြိုး and အင်တာနက်ကြိုး are what a Myanmar electrician or ISP fitter actually pulls. Fibre reached most Myanmar cities only in the last decade, and mobile arrived before fixed line did — the country went from almost no telephones to near-universal mobile in about five years — so the overhead copper an older country accumulated was largely skipped.
+locale: my
+---
+ဓာတ်အားကြိုး
+မြေအောက်ဓာတ်အားကြိုး
+ကြေးနီကြိုး
+အလူမီနီယမ်ကြိုး
+ဖိုက်ဘာကြိုး
+ကွန်ရက်ကြိုး
+ကိုအက်ဆီရယ်ကြိုး
+ဖုန်းကြိုး
+မြေစိုက်ကြိုး
+ထိန်းချုပ်ကြိုး

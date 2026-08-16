@@ -1,0 +1,5 @@
+---
+description: Capital of ယူနိုက်တက်ကင်းဒမ်း, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+လန်ဒန်

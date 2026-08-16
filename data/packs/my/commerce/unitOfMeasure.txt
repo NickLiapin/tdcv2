@@ -1,0 +1,37 @@
+---
+description: Unit of measure. THE FIRST SIX ARE THE MYANMAR CUSTOMARY UNITS AND THEY ARE STILL THE UNITS OF DAILY TRADE, not museum pieces: ပိဿာ (viss) is 1.63 kg and is how meat, fish, oil, gold and vegetables are sold; ကျပ်သား (tical) is one hundredth of a viss, 16.3 g, and is the unit of the gold market; တင်း (basket) is the unit rice is measured in at the mill; တောင် (cubit) and လံ (fathom) measure cloth and land. Myanmar is one of three countries that has not adopted the metric system as its legal standard, and a config that assumes kilograms for a Myanmar market transaction is modelling a shop that does not exist. The metric and imperial units below are used in official documents, industry and imports, so both live side by side.
+locale: my
+---
+ပိဿာ
+ကျပ်သား
+ရွေး
+တင်း
+ပြည်
+စိတ်
+တောင်
+လံ
+မိုင်
+ဧက
+ကီလိုဂရမ်
+ဂရမ်
+တန်
+လီတာ
+မီလီလီတာ
+မီတာ
+စင်တီမီတာ
+ကီလိုမီတာ
+စတုရန်းပေ
+ပေ
+လက်မ
+ဂါလန်
+ခု
+ယောက်
+လုံး
+ထုပ်
+ဘူး
+အိတ်
+ဗူး
+ကတ်
+ဒါဇင်
+တွဲ
+စုံ

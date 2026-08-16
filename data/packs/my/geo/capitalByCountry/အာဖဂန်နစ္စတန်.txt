@@ -1,0 +1,5 @@
+---
+description: Capital of အာဖဂန်နစ္စတန်, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ကဘူးလ်

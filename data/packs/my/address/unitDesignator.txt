@@ -1,0 +1,27 @@
+---
+description: Secondary unit word for a Myanmar address. The floor words are spelled out in full because Burmese has no equivalent of "3F" — မြေညီထပ် is the ground floor, ပထမထပ် the first floor above it, and the ordinals ပထမ ဒုတိယ တတိယ စတုတ္ထ ပဉ္စမ are Pali loans used for nothing else in everyday speech. A Myanmar address runs SMALLEST UNIT FIRST and separates its parts with the Burmese comma ၊ (U+104A) and closes with the Burmese full stop ။ (U+104B), not with "," and ".": အမှတ်(၂၅)၊ ပထမထပ်၊ ၃၅လမ်း၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်။ The house number is conventionally written inside Burmese parentheses and in Burmese digits ၀၁၂၃၄၅၆၇၈၉ (U+1040–U+1049), which are in ordinary daily use on doorplates, buses and price tags.
+locale: my
+---
+အခန်း
+တိုက်ခန်း
+တိုက်
+အဆောက်အအုံ
+အထပ်
+အဆင့်
+မြေညီထပ်
+ပထမထပ်
+ဒုတိယထပ်
+တတိယထပ်
+စတုတ္ထထပ်
+ပဉ္စမထပ်
+အပေါ်ဆုံးထပ်
+ထောင့်ခန်း
+ခန်းမ
+ဌာန
+ရုံးခန်း
+မြေကွက်
+ဂိုဒေါင်
+ဝင်ပေါက်
+အခန်းအမှတ်
+တိုက်အမှတ်
+အမှတ်

@@ -1,0 +1,14 @@
+---
+description: Competitive rank ladder. The metal and jewel names are the international ladder translated — ကြေး, ငွေ, ရွှေ, ပလက်တီနမ်, စိန် — and Myanmar players use the English words at least as often. ရွှေ (gold) sits where it does in every ladder, but note that in Myanmar gold is the standard of value in a much more literal sense than elsewhere: see finance/loanType.txt, where gold is collateral.
+locale: my
+---
+ကြေး
+ငွေ
+ရွှေ
+ပလက်တီနမ်
+စိန်
+ပတ္တမြား
+မာစတာ
+ကြီးကျယ်သောမာစတာ
+ချန်ပီယံ
+ဒဏ္ဍာရီ

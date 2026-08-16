@@ -1,0 +1,5 @@
+---
+description: Currency of အင်ဒိုနီးရှား, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+အင်ဒိုနီးရှား ရူပီးယား

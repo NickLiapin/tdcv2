@@ -1,0 +1,16 @@
+---
+description: Type of meeting. Note that a Myanmar workplace meeting frequently opens with an offering or a short observance if the occasion warrants it, and that seating and speaking order follow age and rank closely — see work/seniority.txt.
+locale: my
+---
+ရုံးအစည်းအဝေး
+ဌာနအစည်းအဝေး
+အဖွဲ့အစည်းအဝေး
+တစ်ဦးချင်းတွေ့ဆုံခြင်း
+နှစ်ပတ်လည်အစည်းအဝေး
+အစုရှယ်ယာရှင်အစည်းအဝေး
+စီမံကိန်းအစည်းအဝေး
+အကျိုးသက်ရောက်မှုသုံးသပ်ခြင်း
+ဖောက်သည်နှင့်တွေ့ဆုံခြင်း
+သင်တန်း
+အလုပ်ရုံဆွေးနွေးပွဲ
+အွန်လိုင်းအစည်းအဝေး

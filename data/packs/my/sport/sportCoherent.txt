@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list under sport/positionBySport. TWO OF THESE ARE MYANMAR'S OWN. ခြင်းလုံး (chinlone) is the national game: six players stand in a circle and keep a woven rattan ball in the air with feet, knees and head, and THERE IS NO OPPOSING SIDE AND NO SCORE — the aim is that the ball never drops and that the strokes are beautiful, so it is judged the way dance is. Its "positions" file therefore holds STROKES rather than roles, which is the honest answer rather than an invented team sheet. ပိုက်ကျော်ခြင်း is sepak takraw, chinlone played competitively over a net, and Myanmar is one of the strongest nations in it. လှေလှော်ပြိုင်ပွဲ is boat racing, a festival sport on the Ayeyarwady and at Inle Lake where the rowers stand and row with one leg wrapped around the oar. These eight values are the KEYS of positionBySport and must match those filenames character for character. Lethwei, Myanmar bare-knuckle boxing, is in sport/name.txt but NOT here, because an individual combat sport has no positions and a file of invented ones would be worse than none.
+locale: my
+---
+ဘောလုံး
+ဘတ်စကက်ဘော
+ဘော်လီဘော
+ပိုက်ကျော်ခြင်း
+ခြင်းလုံး
+ကြက်တောင်
+စားပွဲတင်တင်းနစ်
+လှေလှော်ပြိုင်ပွဲ

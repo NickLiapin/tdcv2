@@ -1,0 +1,29 @@
+---
+description: Household budget line. Order matters here: food is the largest single item in a Myanmar household budget by a wide margin — around half of expenditure in the national household survey — where a European budget is dominated by housing. အလှူ (religious giving) is a BUDGET LINE IN MYANMAR AND NOT A LUXURY: Myanmar has ranked at or near the top of the world giving index for years, and a household plans for alms, monastery donations and festival offerings the way it plans for electricity. မီးစက်ဆီ (generator fuel) is a real recurring cost wherever the grid is unreliable, which is most of the country.
+locale: my
+---
+စားသောက်စရိတ်
+အိမ်ငှားခ
+မီးဖိုချောင်သုံးစရိတ်
+မီးခ
+ရေခ
+မီးစက်ဆီ
+ခရီးသွားစရိတ်
+ဆိုင်ကယ်ဆီ
+ဖုန်းနှင့်အင်တာနက်
+ပညာရေးစရိတ်
+ကျောင်းလခ
+ကျန်းမာရေးစရိတ်
+ဆေးဖိုးဝါးခ
+အဝတ်အထည်
+အိမ်ထောင်ပရိဘောဂ
+အလှူ
+လူမှုရေးကူညီမှု
+မင်္ဂလာနှင့်နာရေး
+ဖျော်ဖြေရေး
+စုဆောင်းငွေ
+ရွှေဝယ်ယူမှု
+ချေးငွေပြန်ဆပ်
+အာမခံ
+အခွန်
+မမျှော်လင့်သောစရိတ်

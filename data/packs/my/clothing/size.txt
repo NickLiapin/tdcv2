@@ -1,0 +1,12 @@
+---
+description: Clothing size. The Latin letters are used unchanged in Myanmar retail — the garment industry that supplies the world from Yangon and Bago runs on them. ဖရီးဆိုက် ("free size", one cut meant to fit a range) is a real and very common label in Myanmar markets, not a placeholder. THE MOST WORN GARMENT IN THE COUNTRY HAS NO SIZE AT ALL: the လုံချည် is a tube of cloth of one width, fitted by folding and knotting at the waist, so a Myanmar wardrobe dataset that gives every garment a size is modelling shirts and jeans and quietly leaving out what most people are wearing.
+locale: my
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+ဖရီးဆိုက်

@@ -1,0 +1,21 @@
+---
+description: Social platform. THE ORDER IS THE FACT AND IT IS UNUSUAL: in Myanmar, Facebook is very widely treated AS the internet. Handsets were sold with it preinstalled and zero-rated during the 2013-2015 mobile boom, so tens of millions of people came online through Facebook and never left it; businesses use a Facebook page instead of a website and news is read in its feed. Viber and Telegram carry messaging, and Telegram grew sharply after 2021 for privacy reasons. Brand names keep their real spelling in Burmese text.
+locale: my
+---
+Facebook
+Facebook Messenger
+Viber
+Telegram
+TikTok
+YouTube
+Instagram
+WhatsApp
+WeChat
+LINE
+X
+Signal
+Zalo
+LinkedIn
+Pinterest
+Reddit
+Discord

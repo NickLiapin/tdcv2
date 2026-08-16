@@ -1,0 +1,15 @@
+---
+description: Gaming platform. THE ORDER IS THE FACT: Myanmar games on ANDROID PHONES, overwhelmingly, and consoles barely exist in the country — an Xbox or PlayStation is a rare imported object rather than a household one. ဂိမ်းဆိုင် is the neighbourhood game shop, a room of networked PCs charged by the hour, and it is where a great deal of Myanmar PC gaming happens because few households own a computer. Brand names keep their real spelling: Android, iOS, PlayStation, Xbox, Nintendo Switch, Steam.
+locale: my
+---
+Android
+iOS
+ဂိမ်းဆိုင်
+ကွန်ပျူတာ
+လက်ပ်တော့
+Steam
+PlayStation
+Xbox
+Nintendo Switch
+ဘရောက်ဇာဂိမ်း
+Facebook ဂိမ်း

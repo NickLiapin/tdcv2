@@ -1,0 +1,5 @@
+---
+description: Currency of ပြင်သစ်, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ယူရို

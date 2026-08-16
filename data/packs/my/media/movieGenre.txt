@@ -1,0 +1,24 @@
+---
+description: Film genre. ဇာတ်ကား is the Burmese word for a feature film and these are the categories a Myanmar video shop or streaming menu uses. ဟာသ has an outsized share of Myanmar cinema. ရိုးရာဇာတ်ပွဲ is the all-night open-air theatre performance — song, dance, comedy and myth in one — which is a genre of its own and predates film.
+locale: my
+---
+ဟာသ
+အချစ်ဇာတ်လမ်း
+အက်ရှင်
+တိုက်ပွဲ
+ဒရာမာ
+ထိတ်လန့်ဖွယ်
+သရဲကား
+စုံထောက်
+လျှို့ဝှက်ဆန်းကြယ်
+သိပ္ပံစိတ်ကူးယဉ်
+စွန့်စားခန်း
+သမိုင်းဝင်ဇာတ်လမ်း
+ဘာသာရေးဇာတ်လမ်း
+မိသားစုဇာတ်လမ်း
+ကလေးကား
+ကာတွန်းကား
+မှတ်တမ်းရုပ်ရှင်
+ဂီတဇာတ်လမ်း
+ရိုးရာဇာတ်ပွဲ
+တိုက်ကွမ်ဒိုကား

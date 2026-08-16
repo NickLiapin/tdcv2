@@ -1,0 +1,28 @@
+---
+description: Character class in a game. Most of these are English game vocabulary respelled to Burmese sound, because Myanmar plays international titles rather than Myanmar-made ones. Four are genuine Burmese words carrying local mythology instead: နတ် is a nat, one of the thirty-seven pre-Buddhist spirits Myanmar still propitiates and by far the most likely Burmese fantasy figure; ဘီလူး is an ogre of Burmese folk tale; ဇော်ဂျီ is the alchemist-wizard of Burmese legend with his red robe and staff; and နဂါး is the serpent-dragon that guards treasure and appears on every temple stair.
+locale: my
+---
+စစ်သည်
+သူရဲကောင်း
+လေးသည်
+ဓားစွမ်း
+မှော်ဆရာ
+ဇော်ဂျီ
+ဗေဒင်ဆရာ
+နတ်
+ဘီလူး
+နဂါး
+ရဟန်း
+ဆေးဆရာ
+သူလျှို
+ခိုးသား
+သတ်သမား
+ကာကွယ်သူ
+ဦးဆောင်သူ
+ကုန်သည်
+လက်နက်ပြင်ဆရာ
+မောင်းသူ
+လေယာဉ်မှူး
+သိပ္ပံပညာရှင်
+အင်ဂျင်နီယာ
+နာမည်ကြီးသူ

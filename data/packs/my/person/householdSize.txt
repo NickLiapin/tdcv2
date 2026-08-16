@@ -1,0 +1,14 @@
+---
+description: Number of people in a household, written with BURMESE DIGITS (U+1040-U+1049), which is what a Myanmar census form, a ward list and a household registration book actually print. The distribution these label is not the European one: the 2014 census put the average Myanmar household at 4.4 people, three-generation households are ordinary rather than exceptional, and a config that models a Myanmar household as two adults and 1.8 children is modelling a European one. ယောက် is the classifier for people and is obligatory — a bare number is not a count of people in Burmese.
+locale: my
+---
+၁ ယောက်
+၂ ယောက်
+၃ ယောက်
+၄ ယောက်
+၅ ယောက်
+၆ ယောက်
+၇ ယောက်
+၈ ယောက်
+၉ ယောက်
+၁၀ ယောက်နှင့်အထက်

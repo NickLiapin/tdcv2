@@ -1,0 +1,21 @@
+---
+description: Video game genre. Nearly all of these are English game vocabulary respelled to Burmese sound, because Myanmar plays imported titles; there is no Burmese game-development vocabulary to draw on. ရိုးရာဂိမ်း covers the traditional board and street games — စစ်တုရင် (Burmese chess), ဂျင် (spinning top), ချင်းလုံး — that are played offline and are the only genre with a native name.
+locale: my
+---
+အက်ရှင်
+စွန့်စားခန်း
+တိုက်ပွဲ
+ပစ်ခတ်ဂိမ်း
+ကစားသမားဇာတ်ကောင်
+မဟာဗျူဟာ
+ပဟေဠိ
+ပြိုင်ကား
+အားကစားဂိမ်း
+ဆိမြူလေးရှင်း
+ရှင်သန်မှုဂိမ်း
+ထိတ်လန့်ဖွယ်
+ပလက်ဖောင်း
+ဇာတ်လမ်းဂိမ်း
+ဂီတဂိမ်း
+ရိုးရာဂိမ်း
+အွန်လိုင်းများပါဝင်ဂိမ်း

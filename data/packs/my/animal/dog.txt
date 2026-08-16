@@ -1,0 +1,29 @@
+---
+description: Dog breed, as named in Burmese. ဗမာခွေး is not a breed name but the honest name for the unpedigreed village dog that is the overwhelming majority of dogs in Myanmar. ရှမ်းခွေး and ကချင်ခွေး are regional landrace types rather than registered breeds. Everything else is a foreign breed carried into Burmese by sound: ဂျာမန်ရှက်ဖတ်, လက်ဘရာဒေါ, ဂျက်ရပ်ဆဲလ်. Note that the Burmese word for dog, ခွေး, is also a strong insult, which is why it appears in no personal name in this pack.
+locale: my
+---
+ဗမာခွေး
+ရှမ်းခွေး
+ကချင်ခွေး
+ဂျာမန်ရှက်ဖတ်
+လက်ဘရာဒေါ
+ဂိုးဒင်းရီထရီဗာ
+ဘူလ်ဒေါ့
+ပူးဒဲလ်
+ဘွတ်ဇာ
+ရော့ဝေလာ
+ဒိုဘာမင်
+ဘီဂယ်
+ဒါ့ချ်ဆွန်း
+ချီဝါဝါ
+ပတ်ဂ်
+ရှစ်ဇူး
+ဆိုင်ဗေးရီးယားဟပ်စကီး
+အလက်စကာမာလမြူ့
+ဂရိတ်ဒိန်း
+စိန့်ဘာနတ်
+ကော်လီ
+ဂျက်ရပ်ဆဲလ်
+တယ်ရီးယား
+ပေါ်မရေးနီးယန်း
+ရှီဘာအီနု

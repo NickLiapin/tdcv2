@@ -1,0 +1,12 @@
+---
+description: Household income band, in MYANMAR KYAT (ကျပ်, MMK) and PER MONTH — Myanmar quotes pay monthly, never annually, so an annual-bracket config reads these off by a factor of twelve. TWO THINGS WILL BREAK A NAIVE READER. First, the digits are Burmese (၀၁၂၃၄၅၆၇၈၉, U+1040-U+1049), which is what Myanmar price tags, forms and newspapers print. Second, MYANMAR DOES NOT COUNT IN THOUSANDS AND MILLIONS: the unit is သိန်း, one hundred thousand, and above it ကုဋေ, ten million. A salary is quoted as ၅ သိန်း and a car as ၂၅၀ သိန်း; nobody says "five hundred thousand kyat". A config that formats a raw kyat figure with Western thousands grouping produces a number no Myanmar reader parses at a glance. For scale, the statutory minimum wage is ၄,၈၀၀ kyat a day, which is roughly ၁.၅ သိန်း a month, and the top band here is a senior professional or business income rather than wealth.
+locale: my
+---
+ကျပ် ၂ သိန်းအောက်
+ကျပ် ၂–၄ သိန်း
+ကျပ် ၄–၇ သိန်း
+ကျပ် ၇–၁၀ သိန်း
+ကျပ် ၁၀–၁၅ သိန်း
+ကျပ် ၁၅–၃၀ သိန်း
+ကျပ် ၃၀–၅၀ သိန်း
+ကျပ် ၅၀ သိန်းအထက်

@@ -1,0 +1,21 @@
+---
+description: Bicycle type. THE FIRST TWO ARE THE ONES MYANMAR ACTUALLY RIDES: a single-speed roadster and a Chinese-built cargo bicycle, both of them work vehicles. ဆိုက်ကား, the sidecar trishaw, is a bicycle with a passenger car bolted to the frame and is licensed transport in most Myanmar towns. The sport categories at the end are a Yangon and Mandalay hobby rather than a national one.
+locale: my
+---
+ရိုးရိုးစက်ဘီး
+ကုန်တင်စက်ဘီး
+ဆိုက်ကား
+သုံးဘီးစက်ဘီး
+ကလေးစက်ဘီး
+အမျိုးသမီးစက်ဘီး
+ခေါက်စက်ဘီး
+တောင်တက်စက်ဘီး
+လမ်းပြေးစက်ဘီး
+ရွှေ့ပြောင်းစက်ဘီး
+လျှပ်စစ်စက်ဘီး
+ဂီယာစက်ဘီး
+ဘီအမ်အိတ်ခ်စ်
+ပြိုင်ပွဲစက်ဘီး
+နှစ်ယောက်စီးစက်ဘီး
+ကုန်တင်သုံးဘီး
+လေ့ကျင့်ရေးစက်ဘီး

@@ -1,0 +1,5 @@
+---
+description: Capital of ထိုင်း, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဘန်ကောက်

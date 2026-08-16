@@ -1,0 +1,29 @@
+---
+description: Aircraft type. THESE ARE MANUFACTURER DESIGNATIONS AND THEY ARE THE SAME IN EVERY LANGUAGE — A320, ATR 72, Boeing 737 — so they stay in Latin script and are not transliterated; a Burmese-script "အေ၃၂၀" appears on no ticket, no timetable and no aircraft. The list leans towards what actually flies in Myanmar: TURBOPROPS DOMINATE THE DOMESTIC NETWORK because many Myanmar airfields are short and unpaved, so the ATR 72 and the Embraer 190 do the work that a narrowbody jet would do elsewhere, and the widebodies at the end are foreign carriers on international routes rather than Myanmar aircraft.
+locale: my
+---
+ATR 72
+ATR 42
+Embraer 190
+Embraer 145
+Bombardier CRJ 200
+Fokker 100
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330
+Airbus A350
+Airbus A380
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 747
+Boeing 767
+Boeing 777
+Boeing 787
+Cessna 208 Caravan
+Beechcraft 1900
+De Havilland Dash 8
+Antonov An-26
+Mil Mi-17
+Bell 412

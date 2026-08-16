@@ -1,0 +1,22 @@
+---
+description: Room in a Myanmar dwelling. ဘုရားခန်း — the shrine room, or at least a shrine shelf on the east wall — is in a large majority of Myanmar homes and is the room a floor plan of a Myanmar house must have. THE EAST WALL MATTERS: the shrine faces or sits east, and a bed is not placed with the feet pointing at it or at the east. ရေချိုးခန်း and အိမ်သာ are separate rooms in Myanmar, not one bathroom.
+locale: my
+---
+ဧည့်ခန်း
+အိပ်ခန်း
+ကလေးအိပ်ခန်း
+ဘုရားခန်း
+ထမင်းစားခန်း
+မီးဖိုချောင်
+ရေချိုးခန်း
+အိမ်သာ
+လှေကားရင်ပြင်
+ပြတင်းရင်ပြင်
+ဝရန်တာ
+မုခ်ဦး
+ဂိုဒေါင်ခန်း
+အထပ်ခိုးခန်း
+ကားရပ်နားရန်နေရာ
+ခြံဝင်း
+ရေတွင်း
+အလုပ်ခန်း

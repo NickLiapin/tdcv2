@@ -1,0 +1,32 @@
+---
+description: Flower. ပိတောက်, the padauk, comes first: it flowers for a single day in April at the start of သင်္ကြန်, and that one day is a national event — people wear the sprays in their hair and the tree is a symbol of Myanmar. သဇင် is the wild orchid of the cold season and the flower of a well-known song. ကံ့ကော် and ငုဝါ are pagoda offerings. Note that most of these are offered at a shrine before they are given to a person: flowers in Myanmar go to the Buddha first.
+locale: my
+---
+ပိတောက်
+သဇင်
+ကံ့ကော်
+ငုဝါ
+ခတ္တာ
+ဂန္ဓမာ
+စံပယ်
+နှင်းဆီ
+ကြာ
+ကြာညို
+ပဒုမ္မာ
+သဲကြားစိမ်း
+ဇီးဖြူပန်း
+မြတ်လေး
+ချယ်ရီ
+သီရိမင်္ဂလာပန်း
+နွယ်နီ
+ခရေ
+စိန်ပန်း
+ဒန့်သလွန်ပန်း
+တောင်ဇလပ်
+ရွှေဝါပန်း
+နှင်းပန်း
+သစ္စာပန်း
+မိုးဟေကို
+ကြက်မောက်ပန်း
+ဆူးပန်း
+နေကြာပန်း

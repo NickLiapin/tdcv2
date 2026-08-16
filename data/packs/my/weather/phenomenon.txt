@@ -1,0 +1,21 @@
+---
+description: Weather phenomenon. မုတ်သုံလေ, the monsoon, is the organising fact of the Myanmar year: the south-west monsoon arrives in May and withdraws in October, and everything from the rice calendar to the school year to the Buddhist rains retreat is timed to it. ဆိုင်ကလုန်းမုန်တိုင်း is a Bay of Bengal cyclone — Nargis in 2008 killed well over a hundred thousand people in the delta — and ရေကြီးခြင်း, ရေလွှမ်းမိုးခြင်း and မြေပြိုခြင်း are the annual consequences. ငလျင် is real too: Myanmar sits on the Sagaing Fault, which runs the length of the country.
+locale: my
+---
+မုတ်သုံလေ
+အနောက်တောင်မုတ်သုံ
+အရှေ့မြောက်မုတ်သုံ
+ဆိုင်ကလုန်းမုန်တိုင်း
+လေပြင်းမုန်တိုင်း
+မိုးကြိုး
+ရေကြီးခြင်း
+ရေလွှမ်းမိုးခြင်း
+မြေပြိုခြင်း
+မိုးခေါင်ခြင်း
+အပူလှိုင်း
+ဖုန်မုန်တိုင်း
+ဆူနာမီ
+ငလျင်
+နေကြတ်
+လကြတ်
+သက်တံ

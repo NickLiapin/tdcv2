@@ -1,0 +1,5 @@
+---
+description: Capital of တန်ဇန်းနီးယား, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဒိုဒိုးမား

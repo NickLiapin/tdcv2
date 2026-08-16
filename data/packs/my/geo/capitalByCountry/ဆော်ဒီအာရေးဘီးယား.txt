@@ -1,0 +1,5 @@
+---
+description: Capital of ဆော်ဒီအာရေးဘီးယား, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ရီယာဒ်

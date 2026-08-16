@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for ကင်ညာ. Latin letters by definition — the code is the same in every language. Coherent child of geo/country.txt.
+locale: my
+---
+KES

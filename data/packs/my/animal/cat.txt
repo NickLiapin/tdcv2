@@ -1,0 +1,22 @@
+---
+description: Cat breed, as named in Burmese. ဗမာကြောင် — the Burmese cat — is a genuine internationally recognised breed whose founding female, Wong Mau, was brought out of Burma in 1930, and Myanmar also has the ဗမာဟိမဝန္တာကြောင် (Birman, the "sacred cat of Burma"). Every other name here is a foreign breed transliterated, because Myanmar has no cat-breeding tradition and the ordinary Myanmar cat is unpedigreed: အိမ်ကြောင် (house cat) and လမ်းကြောင် (street cat) are the two categories most Burmese would actually use.
+locale: my
+---
+ဗမာကြောင်
+ဗမာဟိမဝန္တာကြောင်
+ရှမ်းကြောင်
+ပါရှန်းကြောင်
+ဆိုင်ဗေးရီးယားကြောင်
+မေမွန်ကြောင်
+ဘင်္ဂါလားကြောင်
+ရုရှားပြာကြောင်
+အင်္ဂလိပ်အမွှေးတိုကြောင်
+အမေရိကန်အမွှေးတိုကြောင်
+စကော့တစ်ဖိုးကြောင်
+ရက်ဒေါလ်ကြောင်
+စဖင့်ကြောင်
+အဘီစီးနီးယားကြောင်
+နော်ဝေတောကြောင်
+အိမ်ကြောင်
+လမ်းကြောင်
+ကြောင်ကြီး

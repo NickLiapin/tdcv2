@@ -1,0 +1,15 @@
+---
+description: Shipping status. ဂိတ်တွင်ရောက်ရှိ ("arrived at the bus terminal") is a delivery state, not a transit one: for a great deal of Myanmar freight the journey ends at a bus-station counter and the recipient goes to collect it. ရေလမ်းခရီးတွင် (in transit by river) is a real status on Ayeyarwady consignments and can mean days.
+locale: my
+---
+လက်ခံရရှိပြီး
+ထုပ်ပိုးပြီး
+ထွက်ခွာပြီး
+လမ်းခရီးတွင်
+ရေလမ်းခရီးတွင်
+မြို့တွင်းသို့ရောက်ရှိ
+ဂိတ်တွင်ရောက်ရှိ
+ပို့ဆောင်ရန်ထွက်ခွာ
+လက်ခံသူမတွေ့
+ရောက်ရှိပြီး
+ပြန်လည်ပေးပို့

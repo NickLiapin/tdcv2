@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in people of အရှေ့အာရှနွယ်ဖွား descent, in Burmese. Coherent child of medical/ancestry.txt.
+locale: my
+---
+အယ်လ်ဒီအိပ်ခ်ျ၂အင်ဇိုင်းချို့တဲ့မှု
+အစာအိမ်ကင်ဆာ
+နှာခေါင်းပတ်ကင်ဆာ
+အသည်းရောင်အသားဝါဘီ
+နို့မှုန့်မကြေရောဂါ
+မျက်စိအမြင်တိုရောဂါ
+မိုယာမိုယာရောဂါ
+ကာဝါဆာကီရောဂါ
+ဆီးချိုအမျိုးအစား၂
+အသည်းကင်ဆာ

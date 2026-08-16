@@ -1,0 +1,13 @@
+---
+description: Content rating. Myanmar's film and video censorship is administered by a state board that classifies and can refuse or cut a film outright, so a Myanmar rating is a licence decision rather than only advice to parents. ခွင့်မပြု ("not permitted") is a real outcome on the list for that reason.
+locale: my
+---
+အားလုံးကြည့်ရှုနိုင်
+မိဘလမ်းညွှန်မှုဖြင့်
+၁၃ နှစ်အထက်
+၁၆ နှစ်အထက်
+၁၈ နှစ်အထက်
+အရွယ်ရောက်ပြီးသူသာ
+သတိပြုရန်အကြောင်းအရာပါဝင်
+ခွင့်မပြု
+အဆင့်မသတ်မှတ်ရသေး

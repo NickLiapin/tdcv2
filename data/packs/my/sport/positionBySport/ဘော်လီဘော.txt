@@ -1,0 +1,12 @@
+---
+description: Playing position in ဘော်လီဘော, in Burmese. Coherent child of sport/sportCoherent.txt.
+locale: my
+---
+ဆက်တာ
+အောက်ပင်နာ
+အလယ်ပိတ်ဆို့သူ
+အပြင်တိုက်စစ်မှူး
+အတွင်းတိုက်စစ်မှူး
+လီဘီရို
+ဆာဗာ
+အရံကစားသမား

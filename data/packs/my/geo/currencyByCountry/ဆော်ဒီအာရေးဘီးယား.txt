@@ -1,0 +1,5 @@
+---
+description: Currency of ဆော်ဒီအာရေးဘီးယား, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဆော်ဒီအာရေးဗီးယား ရီယော်လ်

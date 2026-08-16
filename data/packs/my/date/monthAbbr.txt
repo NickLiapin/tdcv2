@@ -1,0 +1,16 @@
+---
+description: Abbreviated Gregorian month, verbatim from CLDR (locale my, ICU 76.1). Burmese abbreviates by keeping the FIRST SYLLABLE ONLY and dropping the rest — ဇန်နဝါရီ to ဇန်, စက်တင်ဘာ to စက်, အောက်တိုဘာ to အောက် — so an abbreviation is not a fixed-width three-letter code the way "Jan" and "Sep" are: ဧ (April) is one character and အောက် is four. A column sized on the assumption that all twelve are the same width will be wrong. မတ် (March), မေ (May) and ဇွန် (June) are already so short that the abbreviation equals the full name.
+locale: my
+---
+ဇန်
+ဖေ
+မတ်
+ဧ
+မေ
+ဇွန်
+ဇူ
+ဩ
+စက်
+အောက်
+နို
+ဒီ

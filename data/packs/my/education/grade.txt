@@ -1,0 +1,18 @@
+---
+description: Mark or grade. MYANMAR MARKS OUT OF 100 AND REPORTS THE NUMBER, not a letter: a matriculation result is quoted as a total out of 600 and as a subject score, and ဂုဏ်ထူး ("distinction") — 80 marks or more in a subject — is the thing students and families actually count. A student is described as having "five distinctions", not as having an A average. The letter grades below are used by international schools and by universities that have adopted them; the pass mark of 40 is the national one.
+locale: my
+---
+ဂုဏ်ထူး
+အောင်
+ရှုံး
+ကျ
+A
+B
+C
+D
+E
+F
+၄၀ မှတ်အောက်
+၄၀–၅၉ မှတ်
+၆၀–၇၉ မှတ်
+၈၀ မှတ်အထက်

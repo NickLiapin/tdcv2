@@ -1,0 +1,5 @@
+---
+description: Capital of ဘင်္ဂလားဒေ့ရှ်, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဒါကာ

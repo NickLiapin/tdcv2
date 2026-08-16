@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday, as printed on a Myanmar wall calendar and in newspaper mastheads: the LAST syllable of the full name, which is the distinctive one. NOTE THAT CLDR HAS NO BURMESE WEEKDAY ABBREVIATION AT ALL — ICU 76.1 returns the full name for weekday:"short" — so unlike date/month.txt and date/weekday.txt these seven are not copied from CLDR but are the forms in actual Myanmar print use. They are ambiguous out of context: နွေ alone is also the word for the hot season and ကြာ alone is also the word for lotus.
+locale: my
+---
+နွေ
+လာ
+ဂါ
+ဟူး
+ကြာ
+သော
+နေ

@@ -1,0 +1,5 @@
+---
+description: Currency of ပါကစ္စတန်, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ပါကစ္စတန် ရူပီး

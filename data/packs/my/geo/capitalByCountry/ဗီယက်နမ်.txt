@@ -1,0 +1,5 @@
+---
+description: Capital of ဗီယက်နမ်, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဟနွိုင်း

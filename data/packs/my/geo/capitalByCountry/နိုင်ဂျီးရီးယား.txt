@@ -1,0 +1,5 @@
+---
+description: Capital of နိုင်ဂျီးရီးယား, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+အဘူဂျာ

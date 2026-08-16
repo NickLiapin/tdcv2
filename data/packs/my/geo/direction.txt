@@ -1,0 +1,20 @@
+---
+description: Compass direction, sixteen points, Burmese. THE COMPOUND ORDER IS REVERSED FROM ENGLISH: Burmese names the east-west term FIRST, so အရှေ့မြောက် is literally "east-north" where English says "north-east", and a config that translates the two halves of an English compass point in place will produce a bearing that is wrong by ninety degrees. The eight-point set is in everyday use; the sixteen-point set below it is navigational and marine and a Burmese speaker on land will not use it. Note that တောင် is simultaneously "south" and "mountain" and အနောက် is simultaneously "west" and "behind" — both collisions are unavoidable and both are real. Burmese also has a religious compass, the eight planetary posts around a pagoda, one for each day of the week with Wednesday split; it is oriented the same way but names its points by planets rather than by bearings.
+locale: my
+---
+မြောက်
+တောင်
+အရှေ့
+အနောက်
+အရှေ့မြောက်
+အနောက်မြောက်
+အရှေ့တောင်
+အနောက်တောင်
+မြောက်-အရှေ့မြောက်
+အရှေ့-အရှေ့မြောက်
+အရှေ့-အရှေ့တောင်
+တောင်-အရှေ့တောင်
+တောင်-အနောက်တောင်
+အနောက်-အနောက်တောင်
+အနောက်-အနောက်မြောက်
+မြောက်-အနောက်မြောက်

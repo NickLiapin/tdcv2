@@ -1,0 +1,12 @@
+---
+description: ABO and Rh blood group. Latin letters and symbols are correct here: a Myanmar hospital chart, blood bank card and donor register all write them exactly this way, in Latin script. THE DISTRIBUTION IS NOT THE EUROPEAN ONE — group B is markedly more common across mainland Southeast Asia than in Europe, and Rh-NEGATIVE IS RARE, under one per cent of the Myanmar population against roughly fifteen per cent in Europe. A config that generates Myanmar blood groups on a European distribution will produce far too many Rh-negative patients, which is exactly the population a blood bank dataset would be used to model.
+locale: my
+---
+O+
+A+
+B+
+AB+
+O-
+A-
+B-
+AB-

@@ -1,0 +1,5 @@
+---
+description: Currency of ဩစတြေးလျ, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဩစတြေးလျ ဒေါ်လာ

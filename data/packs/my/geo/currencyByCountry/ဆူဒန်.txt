@@ -1,0 +1,5 @@
+---
+description: Currency of ဆူဒန်, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဆူဒန် ပေါင်

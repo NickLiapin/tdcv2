@@ -1,0 +1,5 @@
+---
+description: Currency of ဘင်္ဂလားဒေ့ရှ်, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဘင်္ဂလားဒေ့ရှ် တာကာ

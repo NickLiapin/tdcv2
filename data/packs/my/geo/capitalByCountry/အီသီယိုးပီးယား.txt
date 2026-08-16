@@ -1,0 +1,5 @@
+---
+description: Capital of အီသီယိုးပီးယား, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+အာဒစ်အာဘာဘာ

@@ -1,0 +1,5 @@
+---
+description: Capital of အမေရိကန် ပြည်ထောင်စု, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဝါရှင်တန်ဒီစီ

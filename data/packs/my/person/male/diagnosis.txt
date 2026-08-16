@@ -1,0 +1,30 @@
+---
+description: Diagnoses for a male row: the male-only conditions together with the general conditions Myanmar men are most often diagnosed with. Note the Myanmar-specific pair at the end — ဆေးရွက်ကြီးစွဲ and ကွမ်းစား — because betel chewing and cheroot smoking are overwhelmingly male habits in Myanmar and drive the country's very high rates of oral cancer.
+locale: my
+---
+ပရိုစတိတ်ကြီးရောဂါ
+ပရိုစတိတ်ရောင်ရောဂါ
+ပရိုစတိတ်ကင်ဆာ
+ဝှေးစေ့ကင်ဆာ
+ဝှေးအိတ်သွေးကြောကြီးရောဂါ
+အဖျားအရေပြားကျဉ်းရောဂါ
+လိင်တံမာနည်းရောဂါ
+အဆုတ်တီဘီ
+ငှက်ဖျားရောဂါ
+အသည်းရောင်အသားဝါဘီ
+အသည်းခြောက်ရောဂါ
+အသည်းကင်ဆာ
+အဆုတ်ကင်ဆာ
+ပါးစပ်ကင်ဆာ
+နှလုံးသွေးကြောကျဉ်းရောဂါ
+သွေးတိုးရောဂါ
+ဆီးချိုအမျိုးအစား၂
+လေဖြတ်ရောဂါ
+ဂေါက်ရောဂါ
+အစာအိမ်အနာ
+ခါးနာရောဂါ
+အလုပ်ခွင်ထိခိုက်ဒဏ်ရာ
+အရက်စွဲရောဂါ
+ဆေးရွက်ကြီးစွဲရောဂါ
+ကွမ်းစားခြင်းကြောင့်ပါးစပ်နာ
+နာတာရှည်အဆုတ်ကျဉ်းရောဂါ

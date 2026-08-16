@@ -1,0 +1,9 @@
+---
+description: Hotel star rating, written with BURMESE DIGITS as a Myanmar tariff card prints them. ကြယ် means star and is obligatory — a bare numeral is not a rating in Burmese.
+locale: my
+---
+ကြယ် ၁ ပွင့်
+ကြယ် ၂ ပွင့်
+ကြယ် ၃ ပွင့်
+ကြယ် ၄ ပွင့်
+ကြယ် ၅ ပွင့်

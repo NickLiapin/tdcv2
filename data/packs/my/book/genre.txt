@@ -1,0 +1,30 @@
+---
+description: Book genre as a Myanmar bookshop shelves them. ဝတ္ထုရှည် (novel) and ဝတ္ထုတို (short story) are separate shelves, and the short story has a standing in Burmese literature that it does not have in English publishing. ဘာသာရေးစာပေ (religious writing) and ဓမ္မစာပေ (dhamma writing) are the largest section of most shops. ရသစာပေ has no English equivalent: it is writing valued for feeling and craft, the opposite of ဗဟုသုတစာပေ, writing valued for what you learn from it, and Burmese readers use the pair the way English uses "literary" and "non-fiction" but along a different axis.
+locale: my
+---
+ဝတ္ထုရှည်
+ဝတ္ထုတို
+ကဗျာ
+ရသစာပေ
+ဗဟုသုတစာပေ
+ဘာသာရေးစာပေ
+ဓမ္မစာပေ
+သမိုင်း
+အတ္ထုပ္ပတ္တိ
+ကိုယ်တွေ့မှတ်တမ်း
+ခရီးသွားစာပေ
+နိုင်ငံရေးစာပေ
+စီးပွားရေးစာပေ
+သိပ္ပံ
+သိပ္ပံစိတ်ကူးယဉ်
+စုံထောက်
+ထိတ်လန့်ဖွယ်
+အချစ်ဝတ္ထု
+ကလေးစာပေ
+ကာတွန်း
+ဟာသ
+ကျန်းမာရေး
+ချက်ပြုတ်နည်း
+ဘာသာပြန်
+ဖတ်စာအုပ်
+အဘိဓာန်

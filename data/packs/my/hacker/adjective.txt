@@ -1,0 +1,32 @@
+---
+description: Adjective in the mock-technical register. Burmese IT speech code-switches constantly, so a Myanmar engineer describing a system will use Burmese adjectives with English nouns in the same sentence; these are the Burmese half.
+locale: my
+---
+ဒစ်ဂျစ်တယ်
+အွန်လိုင်း
+အော့ဖ်လိုင်း
+နေရာအနှံ့
+နောက်ခံ
+ရှေ့ခံ
+တစ်ပြိုင်တည်း
+အလိုအလျောက်
+ဝှက်ထားသော
+လုံခြုံသော
+မြန်ဆန်သော
+နှေးကွေးသော
+တည်ငြိမ်သော
+မတည်ငြိမ်သော
+ချိတ်ဆက်ထားသော
+ဖြတ်တောက်ထားသော
+ရှုပ်ထွေးသော
+ရိုးရှင်းသော
+ချုံ့ထားသော
+ဖြန့်ကျက်ထားသော
+အလွှာလိုက်
+ပြိုင်တူ
+နောက်ခံလုပ်ဆောင်သော
+တုံ့ပြန်မှုမြန်သော
+ပြင်ဆင်နိုင်သော
+ချဲ့ထွင်နိုင်သော
+ယုံကြည်စိတ်ချရသော
+အားနည်းချက်ရှိသော

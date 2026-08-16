@@ -1,0 +1,30 @@
+---
+description: Mobile operator and telecom service word. THE MYANMAR MOBILE MARKET IS UNUSUALLY YOUNG: until 2013 a SIM card cost the equivalent of thousands of dollars and almost nobody had a phone; licences were opened, prices collapsed to a couple of dollars, and penetration went from a few per cent to near-universal in about five years. The country therefore skipped fixed-line telephony almost entirely and went straight to mobile data. The named operators are the real ones; the words after them are the service categories a Myanmar top-up shop sells.
+locale: my
+---
+မြန်မာ့ဆက်သွယ်ရေးလုပ်ငန်း
+အူရီဒူး
+တယ်လီနော
+မိုင်တဲလ်
+အမ်ပီတီ
+မက်တက်
+ဖုန်းဘေ့စ်
+အင်တာနက်ဝန်ဆောင်မှု
+ဖိုက်ဘာလိုင်း
+ဒေတာအထုပ်
+ဖုန်းဘေလ်ဖြည့်
+ငွေဖြည့်ကတ်
+ဆင်းမ်ကတ်
+အီးဆင်းမ်
+ဖုန်းလိုင်းငှား
+ဂိမ်းအထုပ်
+ညပိုင်းအထုပ်
+လူမှုကွန်ရက်အထုပ်
+ဖုန်းခေါ်ဆိုမှုအထုပ်
+နိုင်ငံတကာခေါ်ဆိုမှု
+ဝိုင်ဖိုင်
+ဒေတာလွှဲပြောင်း
+ဂြိုဟ်တုအင်တာနက်
+ကြိုးဖုန်း
+ကြိုးမဲ့ဖုန်း
+ရေဒီယိုဆက်သွယ်ရေး

@@ -1,0 +1,26 @@
+---
+description: Metal. ရွှေ comes first for a reason that is economic rather than poetic: gold is how Myanmar households store savings, how large private transactions are settled, and what a wedding transfers — see finance/loanType.txt, where it is collateral. ရွှေချ, gold leaf, is applied by hand to pagodas by ordinary pilgrims. ကြေးဝါ (brass) and ကြေးနီ (copper) are cast into the bells and gongs of music/instrument.txt. သွပ် (zinc sheet) is the roof of most of the country.
+locale: my
+---
+ရွှေ
+ငွေ
+ကြေးနီ
+ကြေးဝါ
+သံ
+သံမဏိ
+ခဲမဖြူ
+ခဲ
+သွပ်
+အလူမီနီယမ်
+နီကယ်
+ခရိုမီယမ်
+မန်းဂနိစ်
+တန်စတန်
+ပလက်တီနမ်
+ပါလေးဒီယမ်
+တိုက်တေနီယမ်
+မာကျူရီ
+ကက်ဒမီယမ်
+အန်တီမိုနီ
+ကြေးစပ်
+ရွှေချ

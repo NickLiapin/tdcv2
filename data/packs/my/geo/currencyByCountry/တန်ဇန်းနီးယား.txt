@@ -1,0 +1,5 @@
+---
+description: Currency of တန်ဇန်းနီးယား, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+တန်ဇန်းနီးယား ရှီလင်

@@ -1,0 +1,5 @@
+---
+description: Currency of ဂျပန်, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဂျပန် ယန်း

@@ -1,0 +1,10 @@
+---
+description: Playing position in ကြက်တောင်, in Burmese. Coherent child of sport/sportCoherent.txt.
+locale: my
+---
+ရှေ့ကစားသမား
+နောက်ကစားသမား
+ဆာဗာ
+လက်ခံသူ
+တစ်ဦးချင်းကစားသမား
+နှစ်ဦးတွဲကစားသမား

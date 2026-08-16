@@ -1,0 +1,12 @@
+---
+description: STROKES, NOT POSITIONS — and the difference is the point. Chinlone is cooperative: there is no opponent, no score and no defined role, so a player has no position to hold. What is named instead is the surface the ball is struck with, and these six are the recognised touch points. တပ်စည်းတိုင် is the solo form, danced by one player, usually a woman, against a single hanging ball. ဝိုင်းကစားသူ is simply "one of the circle". The file is short because the sport is honestly this shape. Coherent child of sport/sportCoherent.txt.
+locale: my
+---
+ခြေဖမိုးဖြင့်ခတ်
+ခြေဖဝါးဖြင့်ခတ်
+ခြေဖနောင့်ဖြင့်ခတ်
+ခြေချင်းဝတ်အတွင်းဖြင့်ခတ်
+ခြေချင်းဝတ်အပြင်ဖြင့်ခတ်
+ဒူးဖြင့်ခတ်
+တပ်စည်းတိုင်
+ဝိုင်းကစားသူ

@@ -1,0 +1,19 @@
+---
+description: Personal pronoun. THIS IS THE FILE WHERE BURMESE DIVERGES MOST SHARPLY FROM THE EUROPEAN DEFAULT, in two directions at once. FIRST: the third person has no gender. သူ is he, she and they-singular with one word, so a Burmese text about a person may run for pages without disclosing their sex, and a config that picks a pronoun from a gender column is solving a problem Burmese does not have. SECOND: the first and second person DO encode gender — but the SPEAKER'S, not the referent's. A man says ကျွန်တော် for "I" and a woman says ကျွန်မ; a man addresses someone as ခင်ဗျား and a woman as ရှင်. So the pronoun in a Myanmar sentence tells you the sex of whoever is talking and nothing at all about whoever is being talked about — exactly backwards from English. ငါ and မင်း are the intimate pair, used between close friends and downward by age; using them upward is rude, and Burmese has no neutral "you" that is safe with a stranger, which is why speakers avoid the second person entirely and use a kin term or a title instead.
+locale: my
+---
+ကျွန်တော်
+ကျွန်မ
+ငါ
+ကျွန်ုပ်
+ခင်ဗျား
+ရှင်
+မင်း
+နင်
+သူ
+သူတို့
+ကျွန်တော်တို့
+ကျွန်မတို့
+ငါတို့
+ဒါ
+ဟို

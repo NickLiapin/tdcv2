@@ -1,0 +1,24 @@
+---
+description: Insect and small crawling creature. ခြင် (mosquito) heads the list because malaria and dengue are live public-health facts in Myanmar rather than nuisances. ခြ (termite) destroys the teak and bamboo that most Myanmar houses are built from. ကြက်ဆူပိုး is the lac insect, farmed in the Shan hills for shellac. ပိုးစုန်းကြူး, the firefly, gathers in the mangroves of the delta in numbers that are a genuine tourist sight. Note that ပိုး alone means "insect", "worm" and "silk" — the silkworm sense is why Burmese silk is ပိုးထည်.
+locale: my
+---
+ခြင်
+ယင်
+ပိုးဟပ်
+ပုရွက်ဆိတ်
+ခြ
+ပျား
+ပျားကောင်
+ပင့်ကူ
+ကင်းမြီးကောက်
+ကင်းခြေများ
+လိပ်ပြာ
+ပိုးလိပ်ပြာ
+ပိုးစုန်းကြူး
+နှံကောင်
+ပုစဉ်း
+ပိုးဖလံ
+ပိုးကောင်
+ကြက်ဆူပိုး
+ခြင်ငှက်
+သန်း

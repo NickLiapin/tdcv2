@@ -1,0 +1,11 @@
+---
+description: Route type. နယ်စပ်ကုန်သွယ်လမ်းကြောင်း (border trade route) and ရေလမ်းကြောင်း (river route) are both major freight corridors in Myanmar, and the Ayeyarwady still carries real tonnage. Many upland routes are ရာသီအလိုက်လမ်းကြောင်း — passable in the dry season and not in the rains — which is a scheduling constraint a European logistics model has no equivalent for.
+locale: my
+---
+မြို့တွင်းလမ်းကြောင်း
+မြို့နယ်ချင်းဆက်လမ်းကြောင်း
+ပြည်ထောင်စုလမ်းမကြီး
+နယ်စပ်ကုန်သွယ်လမ်းကြောင်း
+ရေလမ်းကြောင်း
+တောင်ပေါ်လမ်းကြောင်း
+ရာသီအလိုက်လမ်းကြောင်း

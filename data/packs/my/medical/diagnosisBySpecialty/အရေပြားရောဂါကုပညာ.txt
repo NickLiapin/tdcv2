@@ -1,0 +1,16 @@
+---
+description: Diagnosis handled by အရေပြားရောဂါကုပညာ, in Burmese. Coherent child of medical/specialtyCoherent.txt.
+locale: my
+---
+ဝက်ခြံ
+ပိုးဟပ်နာ
+ယားနာ
+အရေပြားရောင်ရောဂါ
+ဆိုရီရာစစ်
+ဝဲနာ
+ပွေးနာ
+ကုလားအမဲစက်
+နူနာ
+အရေပြားကင်ဆာ
+ဆံပင်ကျွတ်ရောဂါ
+ခြေဖျားပိုးနာ

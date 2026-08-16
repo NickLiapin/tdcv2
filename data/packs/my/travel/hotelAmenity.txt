@@ -1,0 +1,34 @@
+---
+description: Hotel amenity. မီးစက် (generator) is high on the list because a Myanmar hotel that cannot promise continuous power cannot promise air conditioning. ဘုရားဖူးလမ်းညွှန် (pilgrimage guide) is an ordinary hotel service in Bagan, Mandalay and Kyaikhtiyo. Note that the licensing rules on which hotels may accept foreign guests are a country matter and are not in this pack.
+locale: my
+---
+အဲယားကွန်း
+ပန်ကာ
+မီးစက်
+ဆိုလာစနစ်
+ရေပူရေအေး
+အခမဲ့ဝိုင်ဖိုင်
+မနက်စာပါဝင်
+စားသောက်ဆိုင်
+လက်ဖက်ရည်ဆိုင်
+မီနီဘား
+ရေခဲသေတ္တာ
+တီဗီ
+မှန်တင်ခုံ
+မီးပူ
+အဝတ်လျှော်ဝန်ဆောင်မှု
+အခန်းသန့်ရှင်းရေး
+နှစ်ဆယ့်လေးနာရီဧည့်ကြို
+လေဆိပ်ကြိုပို့
+ကားငှားဝန်ဆောင်မှု
+စက်ဘီးငှား
+ခရီးစဉ်စီစဉ်ပေးခြင်း
+ဘုရားဖူးလမ်းညွှန်
+ရေကူးကန်
+အားကစားခန်း
+အနှိပ်ခန်း
+ညီလာခံခန်းမ
+ကားပါကင်
+လုံခြုံရေးဝန်ထမ်း
+မီးသတ်ဆေးဘူး
+ရှေးဦးသူနာပြုပစ္စည်း

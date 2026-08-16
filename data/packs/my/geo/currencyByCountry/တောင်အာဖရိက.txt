@@ -1,0 +1,5 @@
+---
+description: Currency of တောင်အာဖရိက, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+တောင်အာဖရိက ရန်း

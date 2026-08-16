@@ -1,0 +1,16 @@
+---
+description: Gregorian month names in Burmese, TAKEN VERBATIM FROM CLDR (locale my, ICU 76.1) so that this pack and the Unicode Consortium agree codepoint for codepoint. Every one is an English name respelled to Burmese phonology; Burmese has no native Gregorian month word because the Gregorian calendar arrived with the British. THE TRADITIONAL MYANMAR CALENDAR IS LUNISOLAR AND STILL GOVERNS RELIGIOUS AND FESTIVAL LIFE, and its twelve months are entirely different words: တန်ခူး ကဆုန် နယုန် ဝါဆို ဝါခေါင် တော်သလင်း သီတင်းကျွတ် တန်ဆောင်မုန်း နတ်တော် ပြာသို တပို့တွဲ တပေါင်း, with a thirteenth intercalary ဒုတိယဝါဆို inserted in about seven years of every nineteen. The Myanmar new year, သင်္ကြန်, falls in mid-April and not on 1 January, and no Myanmar month begins on the first of a Gregorian one. THIS PACK DOES NOT CONVERT between the two calendars and a caller that needs a Myanmar lunar date must compute it itself.
+locale: my
+---
+ဇန်နဝါရီ
+ဖေဖော်ဝါရီ
+မတ်
+ဧပြီ
+မေ
+ဇွန်
+ဇူလိုင်
+ဩဂုတ်
+စက်တင်ဘာ
+အောက်တိုဘာ
+နိုဝင်ဘာ
+ဒီဇင်ဘာ

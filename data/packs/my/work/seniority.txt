@@ -1,0 +1,20 @@
+---
+description: Seniority level. Burmese marks rank with ချုပ် ("chief"), မှူး ("officer"), ကြီး ("great") and ငယ်/လက်ထောက် ("junior/assistant") appended to the role, so seniority is a suffix rather than a separate adjective. THE MOST IMPORTANT RANK MARKER IN MYANMAR IS NOT ON THIS LIST BECAUSE IT IS NOT A JOB TITLE: relative AGE governs address and deference throughout working life, so a younger manager and an older subordinate is a socially awkward arrangement that Myanmar offices work hard to avoid.
+locale: my
+---
+အလုပ်သင်
+အကူ
+လက်ထောက်
+ဝန်ထမ်း
+ကျွမ်းကျင်ဝန်ထမ်း
+အကြီးတန်းဝန်ထမ်း
+ကြီးကြပ်ရေးမှူး
+ဌာနခွဲမှူး
+ဌာနမှူး
+မန်နေဂျာ
+အကြီးတန်းမန်နေဂျာ
+အထွေထွေမန်နေဂျာ
+ဒါရိုက်တာ
+အုပ်ချုပ်မှုဒါရိုက်တာ
+ဥက္ကဋ္ဌ
+ပိုင်ရှင်

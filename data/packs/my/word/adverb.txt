@@ -1,0 +1,36 @@
+---
+description: Adverb. Burmese adverbs mostly PRECEDE the verb they modify, which is itself at the end of the clause, so the order is subject, object, adverb, verb. Several of these are reduplications of an adjective (ဖြည်းဖြည်း from ဖြည်း "slow", ကောင်းကောင်း from ကောင်း "good"), which is the ordinary Burmese way of turning a stative verb into a manner adverb. အရမ်း and အလွန် both mean "very" but sit at different registers: အလွန် is written and formal, အရမ်း is spoken.
+locale: my
+---
+အရမ်း
+အလွန်
+နည်းနည်း
+အများကြီး
+မကြာခဏ
+တစ်ခါတစ်ရံ
+အမြဲ
+ချက်ချင်း
+ဖြည်းဖြည်း
+တဖြည်းဖြည်း
+အတူတူ
+တစ်ယောက်တည်း
+ပြန်ပြီး
+ထပ်မံ
+ကောင်းကောင်း
+မြန်မြန်
+နှေးနှေး
+တိတ်တိတ်
+ကျယ်ကျယ်
+သေချာ
+တကယ်
+ဖြစ်နိုင်ရင်
+အခု
+ခဏ
+ယနေ့
+မနေ့က
+မနက်ဖြန်
+နောက်ဆုံး
+ပထမဆုံး
+တစ်ခါတည်း
+တဖြေးဖြေး
+အနည်းငယ်

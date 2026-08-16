@@ -1,0 +1,5 @@
+---
+description: Capital of အီရန်, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+တီဟီရန်

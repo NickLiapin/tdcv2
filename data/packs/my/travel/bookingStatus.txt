@@ -1,0 +1,15 @@
+---
+description: Booking status. ငွေလွှဲစစ်ဆေးဆဲ (verifying the transfer) is a normal booking state in Myanmar because most payments are made by bank or wallet transfer and confirmed by a human against a photographed slip.
+locale: my
+---
+မှာယူထားပြီး
+အတည်ပြုပြီး
+ငွေလွှဲစစ်ဆေးဆဲ
+စရံပေးပြီး
+ငွေအပြည့်ပေးပြီး
+စောင့်ဆိုင်းစာရင်းတွင်
+ပြောင်းလဲပြီး
+ပယ်ဖျက်ပြီး
+ငွေပြန်အမ်းပြီး
+ရောက်ရှိပြီး
+မလာရောက်

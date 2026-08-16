@@ -1,0 +1,24 @@
+---
+description: Delivery and freight carrier as a Myanmar consignment note names them. THE HEAD OF THIS LIST IS NOT A COURIER INDUSTRY: ဂိတ် is the bus-station parcel counter, and sending a box on the overnight express bus and having the recipient collect it at the terminal is how a very large share of domestic Myanmar freight actually moves. သင်္ဘော and ရေယာဉ် are river boats on the Ayeyarwady, which remains a working freight corridor. မီးရထားပို့ဆောင်ရေး is the state railway. The named companies are the real Myanmar operators, with the international integrators at the end because they serve Yangon and little else.
+locale: my
+---
+ဂိတ်
+ကားဂိတ်ပါဆယ်
+အမြန်ယာဉ်
+ကုန်တင်ကား
+မီးရထားပို့ဆောင်ရေး
+သင်္ဘော
+ရေယာဉ်
+မြစ်ကြောင်းသယ်ယူပို့ဆောင်ရေး
+လေယာဉ်
+ရိုးမအမြန်ချောပို့
+မြန်မာ့စာတိုက်လုပ်ငန်း
+ရွှေမင်္ဂလာအမြန်ချော
+ဂျေအန်ဒီအမြန်ချော
+ရော်ရယ်အမြန်ချော
+ဒီအိတ်ချ်အယ်
+ဖက်ဒရက်စ်
+ယူပီအက်စ်
+တီအန်တီ
+အင်ဂျီးနီးယားပါဆယ်
+ဆိုင်ကယ်ပါဆယ်

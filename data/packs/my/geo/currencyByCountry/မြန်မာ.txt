@@ -1,0 +1,5 @@
+---
+description: Currency of မြန်မာ, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+မြန်မာ ကျပ်

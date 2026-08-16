@@ -1,0 +1,24 @@
+---
+description: Purpose of trip. ဘုရားဖူးခရီး — pilgrimage — is the first entry because it is the largest category of domestic travel in Myanmar by a wide margin: families travel to Kyaikhtiyo, Bagan, Mandalay and Shwedagon, often on chartered buses, and a Myanmar travel dataset without it has missed the main reason people move. ရှင်ပြုပွဲခရီး and နာရေးခရီး are travel for a novitiation and for a funeral, both of which pull relatives across the country.
+locale: my
+---
+ဘုရားဖူးခရီး
+အပန်းဖြေခရီး
+မိသားစုခရီး
+ဆွေမျိုးလည်ပတ်ခရီး
+ရှင်ပြုပွဲခရီး
+မင်္ဂလာဆောင်ခရီး
+နာရေးခရီး
+လုပ်ငန်းခရီး
+အစည်းအဝေးခရီး
+ပညာသင်ခရီး
+လေ့လာရေးခရီး
+ဆေးကုသရေးခရီး
+တောင်တက်ခရီး
+ကမ်းခြေခရီး
+ဓာတ်ပုံရိုက်ခရီး
+နယ်စပ်ကုန်သွယ်ခရီး
+အလုပ်ရှာခရီး
+ပြည်ပအလုပ်ခရီး
+ရာသီအလိုက်ခရီး
+တစ်ရက်ပြန်ခရီး

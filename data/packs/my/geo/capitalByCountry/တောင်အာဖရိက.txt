@@ -1,0 +1,5 @@
+---
+description: Capital of တောင်အာဖရိက, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ပရီတိုးရီးယား

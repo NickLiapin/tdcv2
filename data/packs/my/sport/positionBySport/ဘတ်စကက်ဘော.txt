@@ -1,0 +1,12 @@
+---
+description: Playing position in ဘတ်စကက်ဘော, in Burmese. Coherent child of sport/sportCoherent.txt.
+locale: my
+---
+ပွိုင့်ဂတ်
+ရှုးတင်းဂတ်
+စမောလ်ဖော်ဝပ်
+ပါဝါဖော်ဝပ်
+စင်တာ
+အရံကစားသမား
+အသင်းခေါင်းဆောင်
+နည်းပြ

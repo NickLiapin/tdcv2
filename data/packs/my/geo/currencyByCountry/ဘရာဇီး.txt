@@ -1,0 +1,5 @@
+---
+description: Currency of ဘရာဇီး, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဘရာဇီး ရီးယဲ

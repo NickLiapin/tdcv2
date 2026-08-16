@@ -1,0 +1,5 @@
+---
+description: Capital of တရုတ်, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ပေကျင်း

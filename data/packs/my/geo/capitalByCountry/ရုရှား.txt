@@ -1,0 +1,5 @@
+---
+description: Capital of ရုရှား, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+မော်စကို

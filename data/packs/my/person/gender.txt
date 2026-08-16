@@ -1,0 +1,7 @@
+---
+description: Sex, as a Myanmar form prints it. ကျား and မ are the two boxes on an NRC application, a school register and a hospital chart, and they are single characters — ကျား is literally "tiger" and မ is the word for "female", "woman" and also the honorific for a young woman, so မ ALONE IS AMBIGUOUS in running text and only unambiguous in a labelled field. BURMESE HAS NO GRAMMATICAL GENDER AND NO GENDERED THIRD-PERSON PRONOUN: သူ covers he and she alike, so a Burmese sentence about a person very often does not reveal their sex at all — see person/pronoun.txt, where the pronouns encode the sex of the SPEAKER instead. အခြား ("other") is included because it appears on some modern Myanmar forms; the state does not otherwise recognise a third option.
+locale: my
+---
+ကျား
+မ
+အခြား

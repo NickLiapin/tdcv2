@@ -1,0 +1,30 @@
+---
+description: One-line review headline. Burmese review language leans on ordinary superlatives — ကောင်းတယ်, အရမ်းကောင်း — and on တန်တယ် ("worth it"), which is the single most common verdict in Myanmar online-shop comments. ရောက်တာမြန်တယ် (fast delivery) is praised far more often than the product itself, because delivery is the unreliable part.
+locale: my
+---
+အရမ်းကောင်းတယ်
+ကျေနပ်ပါတယ်
+တန်ပါတယ်
+ဈေးနှုန်းသင့်တယ်
+အရည်အသွေးကောင်းတယ်
+ရောက်တာမြန်တယ်
+ထုပ်ပိုးမှုကောင်းတယ်
+ဓာတ်ပုံအတိုင်းပဲ
+ထပ်ဝယ်မယ်
+သူငယ်ချင်းတွေကိုညွှန်းမယ်
+အသုံးဝင်တယ်
+ခိုင်ခံ့တယ်
+လှတယ်
+မျှော်လင့်ထားသလောက်မဟုတ်
+အသေးစိတ်မလုံလောက်
+အရောင်ကွာတယ်
+အရွယ်အစားမကိုက်ဘူး
+နောက်ကျတယ်
+ထုပ်ပိုးမှုညံ့တယ်
+ပျက်ပြီးရောက်တယ်
+ဈေးကြီးတယ်
+ဒုတိယအကြိမ်မှာတာ
+ပထမဆုံးဝယ်ကြည့်တာ
+ဆိုင်ရှင်အပြောကောင်းတယ်
+ပြန်လဲပေးတယ်
+သတိထားပါ

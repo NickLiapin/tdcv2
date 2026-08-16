@@ -1,0 +1,34 @@
+---
+description: Spice and seasoning. THE FIRST ENTRY IS THE PACK'S MOST IMPORTANT FOOD WORD: ငါးပိ is fermented fish or shrimp paste, and it is in almost everything a Myanmar kitchen cooks. Without it the food is not Burmese. ငါးငံပြာရည် is fish sauce, နနွင်း turmeric (which gives Myanmar curry its colour), and ဆီချက် the flavoured oil that floats on top of a properly made curry and is a technique rather than an ingredient. မဆလာ is the Indian-derived mixed spice, ordinary in Myanmar cooking. ကွမ်း is betel and is a chew, not a food, but is in every market beside the spices.
+locale: my
+---
+ငါးပိ
+ငါးငံပြာရည်
+နနွင်း
+ငရုတ်သီးမှုန့်
+ငရုတ်ကောင်း
+ကြက်သွန်ဖြူ
+ကြက်သွန်နီ
+ဂျင်း
+စားဖိုမှုန့်
+မဆလာ
+ဇီယာ
+ဟင်းခတ်မှုန့်
+ပဲငံပြာရည်
+ချဉ်စော်ကား
+မန်ကျည်းရည်
+သံပရာရည်
+ဆား
+သကြား
+တင်လဲ
+ဆီချက်
+နှမ်း
+နှမ်းဆီ
+မြေပဲဆီ
+နှင်းဆီရေ
+သစ်ကြံပိုး
+လေးညှင်းပွင့်
+ဇာတိပ္ဖိုလ်
+စပါးလင်
+ကုလားအော်
+ကွမ်း

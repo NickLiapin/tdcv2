@@ -1,0 +1,5 @@
+---
+description: Currency of ဗီယက်နမ်, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဗီယက်နမ် ဒေါင်

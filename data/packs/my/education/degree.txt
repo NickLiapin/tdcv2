@@ -1,0 +1,25 @@
+---
+description: Academic award. Myanmar's system is British in shape and the abbreviations are written in Latin letters on the certificate itself, which is why they appear that way in person/suffix.txt. တက္ကသိုလ်ဝင်တန်း (matriculation) is the single most consequential exam in Myanmar life and its result decides which faculty a student may enter, so it is an award in practice. ဓမ္မာစရိယ is the senior Pali scriptural degree of the monastic system, an award of real standing that has no place in a Western degree ladder.
+locale: my
+---
+အခြေခံပညာမူလတန်း
+အခြေခံပညာအလယ်တန်း
+အခြေခံပညာအထက်တန်း
+တက္ကသိုလ်ဝင်တန်း
+ဒီပလိုမာ
+အသိအမှတ်ပြုလက်မှတ်
+ဝိဇ္ဇာဘွဲ့
+သိပ္ပံဘွဲ့
+ဂုဏ်ထူးတန်းဘွဲ့
+စီးပွားရေးဘွဲ့
+ဥပဒေဘွဲ့
+ဆေးပညာဘွဲ့
+အင်ဂျင်နီယာဘွဲ့
+ပညာရေးဘွဲ့
+မဟာဝိဇ္ဇာဘွဲ့
+မဟာသိပ္ပံဘွဲ့
+မဟာစီးပွားရေးစီမံခန့်ခွဲမှုဘွဲ့
+ပါရဂူဘွဲ့
+ဂုဏ်ထူးဆောင်ဘွဲ့
+ပဌမကျော်
+ဓမ္မာစရိယ

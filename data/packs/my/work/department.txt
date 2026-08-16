@@ -1,0 +1,26 @@
+---
+description: Department in a Myanmar organisation. Note that Myanmar company structure often puts ဘဏ္ဍာရေး (finance) and စာရင်းကိုင် (accounts) in separate departments reporting separately, and that အုပ်ချုပ်ရေး (administration) is usually a larger and more powerful function than in a Western firm because so much of doing business is paperwork with the state.
+locale: my
+---
+အုပ်ချုပ်ရေး
+စီမံခန့်ခွဲရေး
+ဘဏ္ဍာရေး
+စာရင်းကိုင်
+စာရင်းစစ်
+လူ့စွမ်းအားအရင်းအမြစ်
+အရောင်း
+ဈေးကွက်ရှာဖွေရေး
+ကြော်ငြာနှင့်ပြန်ကြားရေး
+ဖောက်သည်ဝန်ဆောင်မှု
+ကုန်ထုတ်လုပ်ရေး
+အရည်အသွေးထိန်းချုပ်ရေး
+ဝယ်ယူရေး
+ကုန်လှောင်ရုံ
+ပို့ဆောင်ရေး
+နည်းပညာ
+သတင်းအချက်အလက်
+သုတေသနနှင့်ဖွံ့ဖြိုးရေး
+ဥပဒေရေးရာ
+လုံခြုံရေး
+ပြင်ဆင်ထိန်းသိမ်းရေး
+သန့်ရှင်းရေး

@@ -1,0 +1,12 @@
+---
+description: Driving licence class. THE CLASS LETTERS AND THEIR MEANINGS ARE A COUNTRY FACT and the authoritative table belongs in the Myanmar country pack; these are the Burmese words for the vehicle categories. Note that a very large share of Myanmar road traffic is motorcycles, that Yangon has banned them from most of the city since 2003, and that a great many rural drivers hold no licence at all.
+locale: my
+---
+ဆိုင်ကယ်လိုင်စင်
+ကိုယ်ပိုင်ကားလိုင်စင်
+အငှားယာဉ်လိုင်စင်
+ကုန်တင်ယာဉ်လိုင်စင်
+ခရီးသည်တင်ယာဉ်လိုင်စင်
+အထူးယာဉ်လိုင်စင်
+လယ်ယာသုံးယာဉ်လိုင်စင်
+ယာယီလိုင်စင်

@@ -1,0 +1,5 @@
+---
+description: Currency of အာဂျင်တီးနား, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+အာဂျင်တီးနား ပီဆို

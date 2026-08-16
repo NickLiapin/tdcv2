@@ -1,0 +1,16 @@
+---
+description: Shoe size, on the UK NUMBERING, which is what a shoebox in a Myanmar shop reads. Myanmar footwear is almost entirely imported and boxes carry both UK and EU numbers, but the number a customer asks for and a shop assistant answers with is the UK one — a legacy of British Burma and of Bata, which has sold shoes in the country since the colonial period. THIS IS NOT THE SIZE MOST FEET IN MYANMAR ARE MEASURED BY AT ALL. The everyday footwear is the ဖိနပ်, a rubber or velvet thong slipper, and slippers are sold by foot length in inches or simply by trying them on; a great many people have never had a numbered size. A config generating Myanmar retail data should not assume a numbered size exists for every row.
+locale: my
+---
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13

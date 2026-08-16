@@ -1,0 +1,5 @@
+---
+description: Capital of လာအို, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဗီယင်ကျန်း

@@ -1,0 +1,5 @@
+---
+description: Capital of ဘရာဇီး, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဘရာစီးလီးယား

@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list under work/jobByIndustry. These ten values are the KEYS of jobByIndustry and must match those filenames character for character. Note that လယ်ယာစိုက်ပျိုးရေး belongs at the top of any honest Myanmar list: agriculture employs roughly half the country, against a few per cent in the reference pack's economy.
+locale: my
+---
+နည်းပညာ
+ကျန်းမာရေးစောင့်ရှောက်မှု
+ပညာရေး
+ဘဏ္ဍာရေး
+ဆောက်လုပ်ရေး
+ကုန်ထုတ်လုပ်မှု
+လက်လီရောင်းဝယ်ရေး
+ပို့ဆောင်ရေး
+လယ်ယာစိုက်ပျိုးရေး
+ဥပဒေ

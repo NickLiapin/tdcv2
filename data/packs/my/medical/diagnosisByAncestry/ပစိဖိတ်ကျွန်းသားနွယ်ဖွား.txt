@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in people of ပစိဖိတ်ကျွန်းသားနွယ်ဖွား descent, in Burmese. Coherent child of medical/ancestry.txt.
+locale: my
+---
+ဆီးချိုအမျိုးအစား၂
+အဝလွန်ရောဂါ
+ဂေါက်ရောဂါ
+ကျောက်ကပ်နာတာရှည်ရောဂါ
+သွေးတိုးရောဂါ
+နှလုံးအဆို့ရှင်ရောဂါ
+ပန်းနာရင်ကြပ်ရောဂါ
+အဆုတ်တီဘီ
+ရုမက်တစ်နှလုံးရောဂါ
+အသည်းရောင်အသားဝါဘီ

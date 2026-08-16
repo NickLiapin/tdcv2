@@ -1,0 +1,32 @@
+---
+description: Verb in the mock-technical register, plain form. Burmese verbs take no tense or person ending, so these are complete as they stand — and Burmese is verb-final, so in a real sentence the verb comes after its object, never before it.
+locale: my
+---
+ချိတ်ဆက်
+ဖြတ်တောက်
+ကူးယူ
+ရွှေ့
+ဖျက်
+သိမ်းဆည်း
+ဖွင့်
+ပိတ်
+ဖတ်
+ရေးသား
+ပို့
+လက်ခံ
+စစ်ဆေး
+အတည်ပြု
+ငြင်းပယ်
+ကုဒ်ဝှက်
+ကုဒ်ဖြေ
+ချုံ့
+ဖြန့်
+တွက်ချက်
+ရှာဖွေ
+စီစဉ်
+စစ်ထုတ်
+ပေါင်းစပ်
+ခွဲထုတ်
+ပြန်လည်စတင်
+မွမ်းမံ
+ပြင်ဆင်

@@ -1,0 +1,18 @@
+---
+description: Marital status. Burmese states it as a matter of HAVING A HOUSEHOLD rather than of a ceremony: အိမ်ထောင်ရှိ is literally "has a household" and အိမ်ထောင်မရှိ "has no household", and those are the two words on a Myanmar form. That is not merely idiom — a Myanmar marriage under Buddhist customary law is constituted by living together publicly as husband and wife, with no registration and no certificate required, so the state's question really is whether a household exists. Burmese distinguishes မုဆိုးမ (widow) from မုဆိုးဖို (widower) with separate words. ရဟန်းဘောင်ဝင် (entered the monastic order) is a real status on a Myanmar record and has no European equivalent: a monk or nun is outside the marital categories altogether, and a married man who ordains later in life is neither married nor divorced.
+locale: my
+---
+အိမ်ထောင်မရှိ
+အိမ်ထောင်ရှိ
+လက်ထပ်ပြီး
+တွဲနေထိုင်
+ကွဲကွာနေ
+ကွာရှင်းပြီး
+မုဆိုးမ
+မုဆိုးဖို
+အိမ်ထောင်ပြုဖူး
+ထပ်မံလက်ထပ်
+ချစ်သူရှိ
+စေ့စပ်ပြီး
+ရဟန်းဘောင်ဝင်
+မဖော်ပြလို

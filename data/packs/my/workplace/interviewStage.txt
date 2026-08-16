@@ -1,0 +1,15 @@
+---
+description: Stage of a hiring process. ထောက်ခံစာတောင်းခံခြင်း (asking for a recommendation letter) is a real stage in Myanmar hiring and often means a letter from a ward administrator rather than a former employer — see government/documentType.txt. Personal introduction still carries enormous weight, so a great many Myanmar hires never pass through a formal stage at all.
+locale: my
+---
+လျှောက်လွှာတင်ခြင်း
+လျှောက်လွှာစိစစ်ခြင်း
+ဖုန်းဖြင့်အကြိုစစ်ဆေးခြင်း
+စာဖြေစစ်ဆေးခြင်း
+ကျွမ်းကျင်မှုစစ်ဆေးခြင်း
+ပထမအကြိမ်လူတွေ့
+ဒုတိယအကြိမ်လူတွေ့
+အုပ်ချုပ်မှုအဆင့်လူတွေ့
+ထောက်ခံစာတောင်းခံခြင်း
+လုပ်ခညှိနှိုင်းခြင်း
+အလုပ်ခန့်စာထုတ်ပေးခြင်း

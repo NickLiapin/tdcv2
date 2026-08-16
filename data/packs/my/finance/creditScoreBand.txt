@@ -1,0 +1,9 @@
+---
+description: Credit rating band. MYANMAR HAS NO CONSUMER CREDIT BUREAU AND NO PERSONAL CREDIT SCORE, and this list is the honest consequence: the words below are the qualitative ratings a Myanmar bank or microfinance officer assigns after looking at a borrower, not points on a scale anybody publishes. Lending is overwhelmingly secured on land or gold, or made through a group-guarantee microfinance model where the group is the collateral. A config that generates a three-digit FICO-style number for a Myanmar person has generated something that does not exist in the country.
+locale: my
+---
+အလွန်ကောင်း
+ကောင်း
+သာမန်
+အားနည်း
+အလွန်အားနည်း

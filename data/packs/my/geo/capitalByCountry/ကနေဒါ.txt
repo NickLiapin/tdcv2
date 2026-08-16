@@ -1,0 +1,5 @@
+---
+description: Capital of ကနေဒါ, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+အော်တာဝါ

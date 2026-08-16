@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in people of အမေရိကတိုက်တိုင်းရင်းသားနွယ်ဖွား descent, in Burmese. Coherent child of medical/ancestry.txt.
+locale: my
+---
+ဆီးချိုအမျိုးအစား၂
+သည်းခြေကျောက်တည်ရောဂါ
+ကျောက်ကပ်နာတာရှည်ရောဂါ
+အဝလွန်ရောဂါ
+အသည်းရောင်အသားဝါစီ
+ရုမက်တွိုက်အဆစ်ရောင်ရောဂါ
+နားလယ်ရောင်ရောဂါ
+အဆုတ်တီဘီ
+အရက်စွဲရောဂါ
+နှလုံးသွေးကြောကျဉ်းရောဂါ

@@ -1,0 +1,5 @@
+---
+description: Capital of ကမ္ဘောဒီးယား, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဖနွမ်းပင်

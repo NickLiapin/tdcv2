@@ -1,0 +1,32 @@
+---
+description: Garment. The first six are the Myanmar wardrobe and have no European equivalent. လုံချည် is the tube of cloth worn at the waist by everyone; it is called ပုဆိုး when a man wears it and knotted at the front, and ထဘီ when a woman wears it and tucked at the side, and the three words are not interchangeable. တိုက်ပုံ is the collarless jacket worn over it for formal occasions and ဂေါင်းပေါင်း the wrapped headcloth that completes the outfit at a wedding or a swearing-in. သင်္ကန်း is the monastic robe, in this list because a real share of the male population wears one at some point in life: nearly every Burmese boy ordains as a novice for a period, so ordination robes are ordinary clothing rather than a costume. ဖိနပ် — the thong slipper — is footwear for most people most of the time and is removed at every pagoda, monastery and many homes.
+locale: my
+---
+လုံချည်
+ပုဆိုး
+ထဘီ
+အင်္ကျီ
+တိုက်ပုံအင်္ကျီ
+ဂေါင်းပေါင်း
+ဖိနပ်
+သင်္ကန်း
+တီရှပ်
+ရှပ်အင်္ကျီ
+ဂျာကင်အင်္ကျီ
+ဆွယ်တာ
+ဂျင်းဘောင်းဘီ
+ဘောင်းဘီ
+ဘောင်းဘီတို
+စကတ်
+ဂါဝန်
+ဝတ်စုံ
+ယူနီဖောင်း
+ဆောင်းဦးထုပ်
+ပုဝါ
+ခေါင်းစည်း
+လက်အိတ်
+ခြေအိတ်
+ရှူးဖိနပ်
+အားကစားဖိနပ်
+ရေကူးဝတ်စုံ
+မိုးကာအင်္ကျီ

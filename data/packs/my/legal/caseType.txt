@@ -1,0 +1,19 @@
+---
+description: Kind of legal case. Myanmar's law is a layered inheritance and the layers show here. ရာဇဝတ်မှု and တရားမမှု (criminal and civil) come from the British-Indian codes, most of which are still in force with their original section numbers. ဓလေ့ထုံးတမ်းဥပဒေမှု is a case under CUSTOMARY PERSONAL LAW, which in Myanmar is applied ACCORDING TO THE PARTIES' RELIGION: Buddhist customary law governs marriage, divorce and inheritance for Buddhists, Islamic law for Muslims, Hindu law for Hindus. There is no single national family law, so "divorce case" is not one category in Myanmar but several. နတ်စီရင်မှု is not here; there is no such thing.
+locale: my
+---
+ရာဇဝတ်မှု
+တရားမမှု
+ဓလေ့ထုံးတမ်းဥပဒေမှု
+အိမ်ထောင်ရေးမှု
+အမွေဆက်ခံမှု
+မြေယာအငြင်းပွားမှု
+ပစ္စည်းပိုင်ဆိုင်မှု
+စာချုပ်ဖောက်ဖျက်မှု
+ကြွေးမြီမှု
+အလုပ်သမားအငြင်းပွားမှု
+ကုမ္ပဏီအရေးမှု
+အခွန်မှု
+အုပ်ချုပ်ရေးဆိုင်ရာမှု
+ဖွဲ့စည်းပုံအခြေခံဥပဒေမှု
+ပတ်ဝန်းကျင်ဆိုင်ရာမှု

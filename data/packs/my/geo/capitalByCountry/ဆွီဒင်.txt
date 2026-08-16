@@ -1,0 +1,5 @@
+---
+description: Capital of ဆွီဒင်, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+စတော့ဟုမ်း

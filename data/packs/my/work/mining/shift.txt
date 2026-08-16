@@ -1,0 +1,9 @@
+---
+description: Mining shift. Note that the Myanmar jade and gem sector is overwhelmingly informal and a great deal of work happens outside any rostered shift at all — the scavengers of work/mining/method.txt work the spoil when the machines stop.
+locale: my
+---
+မနက်ပိုင်းအလှည့်
+နေ့ပိုင်းအလှည့်
+ညနေပိုင်းအလှည့်
+ညပိုင်းအလှည့်
+နှစ်ဆယ့်လေးနာရီအလှည့်

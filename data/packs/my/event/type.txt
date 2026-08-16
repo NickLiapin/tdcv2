@@ -1,0 +1,34 @@
+---
+description: Kind of event. THE HEAD OF THIS LIST IS MYANMAR'S OWN CALENDAR AND IT IS BUDDHIST, NOT CIVIL. သင်္ကြန် is the water festival that opens the new year in mid-April and effectively closes the country for a week. ရှင်ပြု is the novitiation ceremony at which a boy is ordained as a novice monk, and it is the largest and most expensive event most Myanmar families ever hold — larger than a wedding. နားသ is the ear-boring ceremony for girls, its counterpart. ကထိန် is the robe-offering that ends the rains retreat, ဆွမ်းကျွေး the meal offered to monks that marks almost every occasion, and အလှူ the act of giving that underlies all of them. A Myanmar events dataset built from conferences and birthdays has missed what people actually attend.
+locale: my
+---
+သင်္ကြန်
+နှစ်သစ်ကူးပွဲ
+ရှင်ပြုပွဲ
+နားသပွဲ
+ကထိန်ပွဲ
+ဆွမ်းကျွေးပွဲ
+အလှူပွဲ
+ဘုရားပွဲ
+ဆီမီးထွန်းပွဲ
+တရားပွဲ
+ရဟန်းခံပွဲ
+မင်္ဂလာဆောင်
+မွေးနေ့ပွဲ
+ကင်ပွန်းတပ်ပွဲ
+နာရေး
+ရက်လည်ဆွမ်းကျွေး
+ညီလာခံ
+အစည်းအဝေး
+သင်တန်း
+အလုပ်ရုံဆွေးနွေးပွဲ
+ဟောပြောပွဲ
+ပြပွဲ
+ကုန်စည်ပြပွဲ
+ဂီတပွဲ
+ဖျော်ဖြေပွဲ
+ရုပ်ရှင်ပြပွဲ
+ဇာတ်ပွဲ
+အားကစားပြိုင်ပွဲ
+ဘွဲ့နှင်းသဘင်
+ကျောင်းဖွင့်ပွဲ

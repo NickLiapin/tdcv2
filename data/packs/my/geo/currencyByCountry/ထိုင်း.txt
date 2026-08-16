@@ -1,0 +1,5 @@
+---
+description: Currency of ထိုင်း, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ထိုင်း ဘတ်

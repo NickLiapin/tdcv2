@@ -1,0 +1,18 @@
+---
+description: Type of employment. နေ့စား (day-rate) and အပိုင်လုပ် (piece-rate) are the two commonest arrangements in Myanmar and neither carries a contract; ရာသီအလိုက်အလုပ် (seasonal) covers the agricultural year that most of the workforce follows. ပြည်ပအလုပ်သမား is a category of national importance: several million Myanmar nationals work abroad, mainly in Thailand, and their remittances are a major part of household income.
+locale: my
+---
+အမြဲတမ်းဝန်ထမ်း
+စာချုပ်ဖြင့်ခန့်ထားသူ
+ယာယီဝန်ထမ်း
+နေ့စားလုပ်သား
+အပိုင်လုပ်သား
+အချိန်ပိုင်း
+အချိန်ပြည့်
+ရာသီအလိုက်အလုပ်
+အလုပ်သင်
+အလကားအလုပ်သင်
+ကိုယ်ပိုင်လုပ်ငန်းရှင်
+လွတ်လပ်စွာလုပ်ကိုင်သူ
+မိသားစုလုပ်ငန်းကူညီသူ
+ပြည်ပအလုပ်သမား

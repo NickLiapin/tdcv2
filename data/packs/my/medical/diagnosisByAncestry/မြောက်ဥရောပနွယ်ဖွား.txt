@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in people of မြောက်ဥရောပနွယ်ဖွား descent, in Burmese. Coherent child of medical/ancestry.txt.
+locale: my
+---
+ဆစ်စတစ်ဖိုက်ဘရိုးစစ်
+သွေးထဲသံဓာတ်ပိုလျှံရောဂါ
+အယ်လ်ဖာဝမ်းအန်တီထရစ်ပဆင်ချို့တဲ့မှု
+ဂလူတင်မတည့်ရောဂါ
+အရေပြားကင်ဆာ
+အရိုးပွရောဂါ
+အူသိမ်ရောင်ရောဂါ
+ဆီးချိုအမျိုးအစား၁
+သိုင်းရွိုက်ရောဂါ
+နှလုံးသွေးကြောကျဉ်းရောဂါ

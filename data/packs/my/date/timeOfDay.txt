@@ -1,0 +1,13 @@
+---
+description: Part of the day. Burmese divides the day around the sun rather than the clock, and နေ့လယ် ("day-middle", roughly 11 to 1) is a named division of its own rather than a point. Three of these are religious and civil markers rather than moods: အရုဏ်တက် is first light, and it is the moment before which a monk may not eat and after which alms rounds begin; မွန်းတည့် is solar noon, after which a monk may not eat at all; and ဆည်းဆာ is the dusk hour when a household lights candles at the shrine. သန်းခေါင် is midnight. Burmese also counts hours with ခုနှစ် classifiers rather than am/pm, so "မနက် ၇ နာရီ" is seven in the morning.
+locale: my
+---
+အရုဏ်တက်
+မနက်
+မွန်းတည့်
+နေ့လယ်
+နေ့ခင်း
+ညနေ
+ဆည်းဆာ
+ည
+သန်းခေါင်

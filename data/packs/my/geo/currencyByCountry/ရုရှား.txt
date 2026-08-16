@@ -1,0 +1,5 @@
+---
+description: Currency of ရုရှား, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ရုရှ ရူဘယ်

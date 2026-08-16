@@ -1,0 +1,26 @@
+---
+description: Legal form appended to a Myanmar company name. THIS LIST IS DELIBERATELY SHORT — Myanmar's Companies Law 2017 recognises only a handful of forms and inventing forty would have produced strings that no registration document contains. The workhorse is ကုမ္ပဏီလီမိတက်, which is what almost every private company is; a public company adds အများနှင့်သက်ဆိုင်သော in front of it. Note that a Myanmar company name is routinely written in BOTH scripts and that the English "Co., Ltd." is at least as common on a signboard as the Burmese, so a config generating Myanmar company names should expect a mixed-script string rather than a purely Burmese one. သမဝါယမအသင်း (cooperative society) is a distinct legal person under a separate law and is not a company at all.
+locale: my
+---
+ကုမ္ပဏီလီမိတက်
+အများနှင့်သက်ဆိုင်သောကုမ္ပဏီလီမိတက်
+ကုမ္ပဏီ
+အစုရှယ်ယာဖြင့်ဖွဲ့စည်းသောကုမ္ပဏီ
+အာမခံချက်ဖြင့်ဖွဲ့စည်းသောကုမ္ပဏီ
+နိုင်ငံခြားကုမ္ပဏီ
+ဖက်စပ်ကုမ္ပဏီ
+ကိုယ်ပိုင်လုပ်ငန်း
+မိတ်ဖက်လုပ်ငန်း
+အစုစပ်လုပ်ငန်း
+သမဝါယမအသင်း
+အသင်း
+အဖွဲ့
+ဌာန
+ကော်ပိုရေးရှင်း
+အုပ်စု
+ဂရုပ်
+ဟိုးလ်ဒင်း
+နိုင်ငံပိုင်စီးပွားရေးအဖွဲ့
+ရုံးခွဲ
+ကိုယ်စားလှယ်ရုံး
+အကျိုးအမြတ်မယူသောအဖွဲ့

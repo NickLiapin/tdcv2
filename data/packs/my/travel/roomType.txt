@@ -1,0 +1,22 @@
+---
+description: Hotel room type. The English category words are used in Myanmar hotels alongside the Burmese ones; both are here because both appear on the same tariff card. ရိုးရာစတိုင်အခန်း (traditional-style room) is a real product in Bagan and Inle, meaning teak, lacquer and a low bed rather than a themed one.
+locale: my
+---
+တစ်ယောက်ခန်း
+နှစ်ယောက်ခန်း
+တွဲခုတင်ခန်း
+သုံးယောက်ခန်း
+မိသားစုခန်း
+အထူးခန်း
+စူပီးရီးယားခန်း
+ဒီလတ်ခ်ျခန်း
+စွီးတ်ခန်း
+ရိုးရာစတိုင်အခန်း
+ဘန်ဂလိုခန်း
+ရေကန်မြင်ကွင်းခန်း
+မြစ်မြင်ကွင်းခန်း
+တောင်မြင်ကွင်းခန်း
+ဥယျာဉ်မြင်ကွင်းခန်း
+အပေါ်ဆုံးထပ်ခန်း
+အိပ်ခန်းစုံခန်း
+တစ်ယောက်ခင်းအိပ်ခန်းစု

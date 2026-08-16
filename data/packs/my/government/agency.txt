@@ -1,0 +1,35 @@
+---
+description: Kind of government body and the ministries a Myanmar administration has. THE LOWEST THREE ARE THE ONES ORDINARY LIFE RUNS THROUGH: ရပ်ကွက်အုပ်ချုပ်ရေးမှူးရုံး (ward administrator's office) and ကျေးရွာအုပ်ချုပ်ရေးမှူးရုံး (village tract office) issue the recommendation letters without which nothing else can be done, and မြို့နယ်အထွေထွေအုပ်ချုပ်ရေးဦးစီးဌာန (township General Administration Department) is the spine of the Myanmar state. Myanmar's ministries are named descriptively and are reorganised often, so these are the standing functions rather than a snapshot of one government's cabinet — which is a country-pack question, not a language one.
+locale: my
+---
+ပြည်ထောင်စုအစိုးရအဖွဲ့
+ဝန်ကြီးဌာန
+ပြည်ထဲရေးဝန်ကြီးဌာန
+နိုင်ငံခြားရေးဝန်ကြီးဌာန
+ကာကွယ်ရေးဝန်ကြီးဌာန
+ပညာရေးဝန်ကြီးဌာန
+ကျန်းမာရေးဝန်ကြီးဌာန
+စီမံကိန်းနှင့်ဘဏ္ဍာရေးဝန်ကြီးဌာန
+စိုက်ပျိုးရေးဝန်ကြီးဌာန
+ပို့ဆောင်ဆက်သွယ်ရေးဝန်ကြီးဌာန
+လျှပ်စစ်နှင့်စွမ်းအင်ဝန်ကြီးဌာန
+ဆောက်လုပ်ရေးဝန်ကြီးဌာန
+အလုပ်သမားဝန်ကြီးဌာန
+သာသနာရေးဝန်ကြီးဌာန
+ဟိုတယ်နှင့်ခရီးသွားလာရေးဝန်ကြီးဌာန
+အထွေထွေအုပ်ချုပ်ရေးဦးစီးဌာန
+မြို့နယ်အထွေထွေအုပ်ချုပ်ရေးဦးစီးဌာန
+ရပ်ကွက်အုပ်ချုပ်ရေးမှူးရုံး
+ကျေးရွာအုပ်ချုပ်ရေးမှူးရုံး
+တိုင်းဒေသကြီးအစိုးရအဖွဲ့
+ပြည်နယ်အစိုးရအဖွဲ့
+မြို့တော်စည်ပင်သာယာရေးကော်မတီ
+လူဝင်မှုကြီးကြပ်ရေးဦးစီးဌာန
+အခွန်ဦးစီးဌာန
+အကောက်ခွန်ဦးစီးဌာန
+မြန်မာနိုင်ငံရဲတပ်ဖွဲ့
+မီးသတ်ဦးစီးဌာန
+ရှေးဟောင်းသုတေသနဦးစီးဌာန
+ဗဟိုဘဏ်
+ရွေးကောက်ပွဲကော်မရှင်
+တရားရုံးချုပ်

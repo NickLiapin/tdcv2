@@ -1,0 +1,21 @@
+---
+description: Freight cargo type. ဆန် heads the list: rice moves in enormous volume from the delta to the dry zone and to the border. နယ်စပ်ကုန်စည် (border trade goods) is a category of its own because the overland trade with China at Muse and with Thailand at Myawaddy is a large share of all Myanmar freight.
+locale: my
+---
+ဆန်
+ပဲမျိုးစုံ
+ဟင်းသီးဟင်းရွက်
+သစ်သီးဝလံ
+ရေခဲသေတ္တာတင်ကုန်
+အအေးခန်းကုန်
+ငါးနှင့်ပုစွန်
+သစ်လုံး
+ဆောက်လုပ်ရေးပစ္စည်း
+ဘိလပ်မြေ
+စက်သုံးဆီ
+ဓာတုပစ္စည်း
+စက်ယန္တရား
+ဆိုင်ကယ်
+အထည်
+နယ်စပ်ကုန်စည်
+အိမ်ပြောင်းပစ္စည်း

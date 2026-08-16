@@ -1,0 +1,5 @@
+---
+description: Currency of အာဖဂန်နစ္စတန်, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+အာဖဂန် အာဖဂနီ

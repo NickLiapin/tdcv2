@@ -1,0 +1,5 @@
+---
+description: Capital of ဂျာမနီ, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဘာလင်

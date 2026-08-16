@@ -1,0 +1,5 @@
+---
+description: Currency of အယ်လ်ဂျီးရီးယား, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+အယ်လ်ဂျီးရီးယား ဒီနာ

@@ -1,0 +1,5 @@
+---
+description: Capital of မလေးရှား, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ကွာလာလမ်ပူ

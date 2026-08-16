@@ -1,0 +1,9 @@
+---
+description: Playing position in စားပွဲတင်တင်းနစ်, in Burmese. Coherent child of sport/sportCoherent.txt.
+locale: my
+---
+ဆာဗာ
+လက်ခံသူ
+တစ်ဦးချင်းကစားသမား
+နှစ်ဦးတွဲကစားသမား
+ဒိုင်လူကြီး

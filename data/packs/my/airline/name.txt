@@ -1,0 +1,54 @@
+---
+description: Airline name. Note that the two on the list beginning မြန်မာ are the words for national carriers and their real corporate names live in the Myanmar country pack; everything else keeps its REAL SPELLING, in Latin script, because that is how an airline name appears on a Myanmar ticket, a departure board and a baggage tag. Latin letters here are correct and are not an encoding failure. Myanmar's domestic network is unusually important — the road journey between many pairs of cities is a day or more — so a domestic-flight dataset for Myanmar is not the niche it would be in a small country.
+locale: my
+---
+မြန်မာ့လေကြောင်း
+မြန်မာအပြည်ပြည်ဆိုင်ရာလေကြောင်း
+Air KBZ
+Air Thanlwin
+Mann Yadanarpon Airlines
+Myanmar Airways International
+Thai Airways
+Bangkok Airways
+Thai AirAsia
+Thai Lion Air
+Nok Air
+Vietjet Air
+Vietnam Airlines
+Singapore Airlines
+Scoot
+Malaysia Airlines
+AirAsia
+Cathay Pacific
+China Airlines
+China Eastern Airlines
+China Southern Airlines
+Air China
+Korean Air
+Asiana Airlines
+All Nippon Airways
+Japan Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Turkish Airlines
+Air India
+IndiGo
+Biman Bangladesh Airlines
+Nepal Airlines
+SriLankan Airlines
+Lufthansa
+Air France
+KLM
+British Airways
+Swiss International Air Lines
+Aeroflot
+Qantas
+Garuda Indonesia
+Philippine Airlines
+Lao Airlines
+Cambodia Angkor Air
+China Eastern
+Hong Kong Airlines
+Jetstar Asia
+Shenzhen Airlines

@@ -1,0 +1,26 @@
+---
+description: Religion. ထေရဝါဒဗုဒ္ဓဘာသာ (Theravada Buddhism) is first because it is the religion of roughly ninety per cent of Myanmar and is woven into the calendar, the naming system, the education system and the state. နတ်ကိုးကွယ်မှု — the veneration of the thirty-seven nats, spirits of people who died violent deaths — is listed SEPARATELY and that is deliberate: it predates Buddhism in Burma, it is practised by the same people who are Buddhists, and treating it as a subset of Buddhism or as a different religion both misrepresent it. Myanmar Christianity is concentrated among the Kachin, Chin and Karen; Islam among the Rohingya, the Kaman and urban communities of Indian descent; Hinduism among people of Indian descent in the cities.
+locale: my
+---
+ထေရဝါဒဗုဒ္ဓဘာသာ
+မဟာယာနဗုဒ္ဓဘာသာ
+နတ်ကိုးကွယ်မှု
+နတ်နှင့်ဗုဒ္ဓဘာသာရောနှော
+ခရစ်ယာန်
+ဘက်တစ်
+ကက်သလစ်
+အန်ဂလီကန်
+ပရိုတက်စတင့်
+အစ္စလာမ်
+ဆွန်နီအစ္စလာမ်
+ရှီအာအစ္စလာမ်
+ဟိန္ဒူ
+ဆစ်
+ဂျိန်း
+ဂျူး
+တာအို
+ကွန်ဖြူးရှပ်
+ရိုးရာယုံကြည်မှု
+နတ်ဆရာ
+ဘာသာမဲ့
+မယုံကြည်သူ

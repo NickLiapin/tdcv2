@@ -1,0 +1,32 @@
+---
+description: Tree. ကျွန်း — teak — is the first entry and the most consequential: Myanmar holds most of the world's remaining natural teak forest, the timber was the reason for two of the three Anglo-Burmese wars, and elephants still haul the logs. ညောင်ပင် is the banyan and ဗောဓိပင် the bodhi, planted at every monastery because the Buddha was enlightened under one; neither is ever felled. ထန်းပင်, the toddy palm, is the tree of the dry zone and yields sugar, spirit, roofing and rope. သနပ်ခါးပင် gives the bark that Myanmar wears on its face.
+locale: my
+---
+ကျွန်း
+ပိတောက်
+ပျဉ်းကတိုး
+ထင်းရှူး
+အင်ကြင်း
+တမာ
+ညောင်ပင်
+ဗောဓိပင်
+ထန်းပင်
+အုန်းပင်
+ကွမ်းသီးပင်
+သနပ်ခါးပင်
+မန်ကျည်းပင်
+သရက်ပင်
+ငှက်ပျောပင်
+ဝါးပင်
+ကြိမ်ပင်
+ဒန့်သလွန်ပင်
+ပေါက်ပင်
+ကုက္ကိုပင်
+ရေတမာပင်
+ဝက်သစ်ချပင်
+သစ်ရာပင်
+မဲဇလီပင်
+ရင်းပင်
+ယူကလစ်ပင်
+ဒီရေတောပင်
+ခရေပင်

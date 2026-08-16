@@ -1,0 +1,5 @@
+---
+description: Currency of နယ်သာလန်, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ယူရို

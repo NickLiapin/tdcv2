@@ -1,0 +1,30 @@
+---
+description: Employee benefit. Two here are legally mandated in Myanmar and unfamiliar elsewhere: လူမှုဖူလုံရေးအကျိုးခံစားခွင့် is the Social Security Board scheme that covers medical care and maternity for registered workers, and အလုပ်သမားရက်စွဲအလိုက်ခွင့် is the statutory leave ladder. ရိက္ခာထောက်ပံ့ကြေး — a rice and oil allowance paid in kind or cash — is a real and common benefit in Myanmar employment, and ဘုရားဖူးခရီးစဉ် (a paid pilgrimage trip) is a genuine staff perk that a Western benefits list has no slot for.
+locale: my
+---
+လူမှုဖူလုံရေးအကျိုးခံစားခွင့်
+ကျန်းမာရေးစောင့်ရှောက်မှု
+ဆေးကုသစရိတ်
+အသက်အာမခံ
+နှစ်စဉ်ခွင့်
+နာမကျန်းခွင့်
+မီးဖွားခွင့်
+ဖခင်ဖြစ်သူခွင့်
+ဘာသာရေးခွင့်
+ရိက္ခာထောက်ပံ့ကြေး
+နေ့လယ်စာ
+လာရောက်မှုဆုကြေး
+နှစ်ကုန်ဆုကြေး
+အလုပ်ခွင်သယ်ယူပို့ဆောင်ရေး
+အိမ်ငှားခထောက်ပံ့ကြေး
+ဖုန်းစရိတ်
+သင်တန်းစရိတ်
+ကလေးပညာသင်ထောက်ပံ့ကြေး
+ပင်စင်
+နှုတ်ထွက်ကြေး
+ဘုရားဖူးခရီးစဉ်
+နှစ်ပတ်လည်ခရီးစဉ်
+အားကစားခန်းမ
+ကလေးထိန်းဌာန
+နာရေးကူညီမှု
+အလုပ်ခွင်ထိခိုက်မှုလျော်ကြေး

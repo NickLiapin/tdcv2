@@ -1,0 +1,15 @@
+---
+description: Reaction. Burmese names these by the emotion rather than by the icon: သဘောကျ is "approve", ရယ်မော "laugh", ချစ်ခင် "love". The prayer-hands gesture, ရှိခိုးခြင်း, is used in Myanmar comment threads far more than elsewhere — it marks respect and merit-sharing on a religious or funeral post, not gratitude.
+locale: my
+---
+သဘောကျ
+ချစ်ခင်
+ရယ်မော
+အံ့သြ
+ဝမ်းနည်း
+ဒေါသထွက်
+ဂရုစိုက်
+ရှိခိုးခြင်း
+မျှဝေ
+သိမ်းဆည်း
+တံဆိပ်တပ်

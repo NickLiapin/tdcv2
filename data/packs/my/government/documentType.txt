@@ -1,0 +1,29 @@
+---
+description: Kind of official document. THE FIRST ENTRY IS THE ONE MYANMAR LIFE TURNS ON: နိုင်ငံသားစိစစ်ရေးကတ်ပြား, the NRC card, which is the identity document, and whose colour encodes citizenship class — pink for full citizens, blue and green for associate and naturalised — so possession alone does not settle status. အိမ်ထောင်စုစာရင်း, the household list, records who lives at an address and is required for school enrolment, a SIM card and a hospital admission; a household that has not updated it cannot do those things. ထောက်ခံစာ, the recommendation letter from a ward or village administrator, is required to obtain almost anything else on this list and has no European counterpart. THE ACTUAL NUMBER FORMATS OF THESE DOCUMENTS ARE NOT IN THIS PACK — they belong to the Myanmar country pack, because a document number is a country fact and not a language one.
+locale: my
+---
+နိုင်ငံသားစိစစ်ရေးကတ်ပြား
+အိမ်ထောင်စုစာရင်း
+ထောက်ခံစာ
+မွေးစာရင်း
+သေစာရင်း
+လက်ထပ်စာချုပ်
+နိုင်ငံကူးလက်မှတ်
+ဗီဇာ
+ယာဉ်မောင်းလိုင်စင်
+ယာဉ်မှတ်ပုံတင်
+မြေပုံမြေရာဇဝင်
+ဂရန်
+အရောင်းအဝယ်စာချုပ်
+လုပ်ငန်းလိုင်စင်
+ကုမ္ပဏီမှတ်ပုံတင်
+အခွန်ထမ်းမှတ်ပုံတင်
+ကျောင်းထောက်ခံစာ
+အောင်လက်မှတ်
+ဘွဲ့လက်မှတ်
+ရာဇဝတ်ကင်းရှင်းကြောင်းလက်မှတ်
+ကျန်းမာရေးထောက်ခံစာ
+ခရီးသွားခွင့်ပြုမိန့်
+တင်သွင်းခွင့်လိုင်စင်
+တင်ပို့ခွင့်လိုင်စင
+အလုပ်လုပ်ခွင့်လက်မှတ်

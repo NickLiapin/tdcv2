@@ -1,0 +1,24 @@
+---
+description: Property type. တိုက်ခန်း, a walk-up flat in a brick block, is the Yangon norm; လုံးချင်းအိမ် a detached house; ပျဉ်ထောင်အိမ် a plank house on posts, which is what most of the country lives in. ကွန်ဒို is legally distinct and recent: foreigners could not own Myanmar property at all until the 2016 Condominium Law let them buy up to 40 per cent of the units above the sixth floor of a registered condominium, which is why the word is a category and not a synonym for flat. မြေကွက် (bare plot) trades heavily because land, not buildings, is where Myanmar wealth is held.
+locale: my
+---
+တိုက်ခန်း
+ကွန်ဒို
+လုံးချင်းအိမ်
+နှစ်ထပ်တိုက်
+ပျဉ်ထောင်အိမ်
+ဝါးအိမ်
+တိုက်တန်း
+အိမ်ရာ
+မြေကွက်
+လယ်မြေ
+ခြံမြေ
+ဥယျာဉ်ခြံ
+ဆိုင်ခန်း
+ရုံးခန်း
+ဂိုဒေါင်
+စက်ရုံ
+ဟိုတယ်
+တည်းခိုခန်း
+နှစ်ရှည်ငှားမြေ
+ရေကမ်းနားမြေ

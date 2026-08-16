@@ -1,0 +1,29 @@
+---
+description: Legal term. Burmese legal vocabulary is a translation layer over English-Indian statute, so most of these are calques: တရားလို is "the one who wants justice" (plaintiff) and တရားခံ "the one who bears it" (defendant). ဓလေ့ထုံးတမ်း is customary law, which in Myanmar is applied by religion rather than nationally — see legal/caseType.txt. စာချုပ်စာတမ်း covers both a contract and the stamped deed that proves it, and in Myanmar practice the stamped, registered document is the thing that matters: an unstamped agreement is very hard to enforce.
+locale: my
+---
+တရားလို
+တရားခံ
+တရားသူကြီး
+ရှေ့နေ
+ဥပဒေအရာရှိ
+သက်သေ
+သက်သေခံချက်
+ကျမ်းကျိန်လွှာ
+တရားစွဲဆိုမှု
+အယူခံ
+ပြန်လည်စိစစ်မှု
+ဆင့်ခေါ်စာ
+ဝရမ်း
+အာမခံ
+ပြစ်ဒဏ်
+လျော်ကြေးငွေ
+ဒဏ်ငွေ
+ထောင်ဒဏ်
+အမိန့်ချမှတ်ချက်
+စာချုပ်စာတမ်း
+တံဆိပ်ခေါင်းခွန်
+မှတ်ပုံတင်ခြင်း
+ဓလေ့ထုံးတမ်း
+အမွေဆက်ခံခွင့်
+အုပ်ထိန်းသူ

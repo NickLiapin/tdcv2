@@ -1,0 +1,8 @@
+---
+description: Financial quarter. သုံးလပတ် is literally "three-month period" and the ordinals ပထမ ဒုတိယ တတိယ စတုတ္ထ are Pali loans. WHICH MONTHS THESE COVER IS A COUNTRY QUESTION AND HAS CHANGED TWICE IN A DECADE: Myanmar's fiscal year ran April-March, was moved to October-September in 2018, and was moved back to April-March in 2022. A config that maps quarter one onto January-March is assuming a calendar year that Myanmar government and company reporting does not use.
+locale: my
+---
+ပထမသုံးလပတ်
+ဒုတိယသုံးလပတ်
+တတိယသုံးလပတ်
+စတုတ္ထသုံးလပတ်

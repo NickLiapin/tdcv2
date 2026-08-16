@@ -1,0 +1,14 @@
+---
+description: Dish of the မွန် kitchen, named in Burmese. Coherent child of food/cuisine.txt.
+locale: my
+---
+မွန်ခေါက်ဆွဲ
+မွန်ဟင်းချို
+မွန်ငါးဟင်း
+မွန်ဆန်ပြုတ်
+မွန်မုန့်
+မွန်ချဉ်ရည်
+မွန်ဟင်းရွက်
+မွန်ဝက်သားဟင်း
+မွန်ငါးပိချက်
+မွန်ကြက်သားဟင်း

@@ -1,0 +1,59 @@
+{
+  "months": [
+    "ဇန်နဝါရီ",
+    "ဖေဖော်ဝါရီ",
+    "မတ်",
+    "ဧပြီ",
+    "မေ",
+    "ဇွန်",
+    "ဇူလိုင်",
+    "ဩဂုတ်",
+    "စက်တင်ဘာ",
+    "အောက်တိုဘာ",
+    "နိုဝင်ဘာ",
+    "ဒီဇင်ဘာ"
+  ],
+  "monthsInDate": [
+    "ဇန်နဝါရီ",
+    "ဖေဖော်ဝါရီ",
+    "မတ်",
+    "ဧပြီ",
+    "မေ",
+    "ဇွန်",
+    "ဇူလိုင်",
+    "ဩဂုတ်",
+    "စက်တင်ဘာ",
+    "အောက်တိုဘာ",
+    "နိုဝင်ဘာ",
+    "ဒီဇင်ဘာ"
+  ],
+  "monthsShort": [
+    "ဇန်",
+    "ဖေ",
+    "မတ်",
+    "ဧ",
+    "မေ",
+    "ဇွန်",
+    "ဇူ",
+    "ဩ",
+    "စက်",
+    "အောက်",
+    "နို",
+    "ဒီ"
+  ],
+  "weekdays": [
+    "တနင်္ဂနွေ",
+    "တနင်္လာ",
+    "အင်္ဂါ",
+    "ဗုဒ္ဓဟူး",
+    "ကြာသပတေး",
+    "သောကြာ",
+    "စနေ"
+  ],
+  "weekdaysShort": ["နွေ", "လာ", "ဂါ", "ဟူး", "ကြာ", "သော", "နေ"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "YYYY MMMM D"
+  },
+  "notes": "Months, monthsShort and weekdays are taken VERBATIM from CLDR (locale my, ICU 76.1) and agree with it codepoint for codepoint. Burmese month names do not change form inside a date, so monthsInDate equals months. weekdaysShort is NOT from CLDR: ICU 76.1 returns the full weekday name for the \"short\" width in this locale, i.e. Burmese has no CLDR abbreviation. The seven values here are the one-syllable forms actually printed on Myanmar wall calendars and newspaper mastheads, taken from the last syllable of each name. They are ambiguous out of context (နွေ is also \"hot season\", ကြာ is also \"lotus\"). LL PUTS THE YEAR FIRST. CLDR renders 16 August 2026 as \"၂၀၂၆ ဩဂုတ် ၁၆\" — year, month, day — which is the Burmese order and the reverse of the European one. L is the numeric form as Myanmar forms are filled in, DD/MM/YYYY; note that CLDR's own numeric \"short\" pattern is d/M/yy, so a caller wanting exact CLDR parity should use that instead. DIGITS: Myanmar's CLDR default numbering system is mymr, so a date formatted for a Burmese reader legitimately renders as ၁၆/၈/၂၆ using U+1040-U+1049. Both Burmese and Latin digits are correct and both are in daily use. THE BURMESE WEEK HAS EIGHT DAYS. Wednesday is split at noon: ဗုဒ္ဓဟူး is Wednesday morning and ရာဟု (Rahu) is Wednesday afternoon, and they are separate astrological days with separate planets, animals and pagoda corners. The eighth day cannot be represented in a Gregorian weekday table and is therefore absent here, but it is not absent from Myanmar life: the day of the week a person was born selects the initial consonant of their name (see person/male/firstName.txt) and their birth-sign animal (see person/zodiac.txt). A SECOND CALENDAR RUNS ALONGSIDE THIS ONE AND THIS PACK DOES NOT CONVERT TO IT. The traditional Myanmar calendar is lunisolar; its months are တန်ခူး ကဆုန် နယုန် ဝါဆို ဝါခေါင် တော်သလင်း သီတင်းကျွတ် တန်ဆောင်မုန်း နတ်တော် ပြာသို တပို့တွဲ တပေါင်း, with an intercalary ဒုတိယဝါဆို inserted in roughly seven years of every nineteen. Its new year, သင်္ကြန်, falls in mid-April, not on 1 January, and 2026 CE spans Myanmar Era 1387 and 1388. Every religious date, every festival and the rains retreat ဝါတွင်း are fixed on that calendar and move against the Gregorian one. A caller that needs a Myanmar lunar date must compute it itself. A full Burmese date in formal writing carries classifier words rather than bare numbers: ၂၀၂၆ ခုနှစ်၊ ဩဂုတ်လ ၁၆ ရက် — \"year 2026, month August, day 16\" — separated by the Burmese phrase mark ၊ (U+104A) and closed with ။ (U+104B), never with a comma and a full stop. Myanmar's FISCAL YEAR is 1 April to 31 March. It was moved to 1 October in 2018 and moved back in 2022, so historical data will disagree with itself across that window."
+}

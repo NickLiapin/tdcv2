@@ -1,0 +1,5 @@
+---
+description: Currency of ယူနိုက်တက်ကင်းဒမ်း, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဗြိတိသျှ ပေါင်

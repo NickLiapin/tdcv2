@@ -1,0 +1,13 @@
+---
+description: Mining method. Myanmar's jade and gem extraction runs from the largest mechanised open pits in the world down to လက်လုပ်တူးဖော်ခြင်း, hand-picking by scavengers over the spoil heaps — which is dangerous, unregulated and employs very large numbers. ရေဆေးနည်း (hydraulic sluicing) is how alluvial gold is worked along the rivers.
+locale: my
+---
+မြေပေါ်တူးဖော်ခြင်း
+မြေအောက်တူးဖော်ခြင်း
+ဥမင်လှိုဏ်ခေါင်းနည်း
+တွင်းတူးနည်း
+ရေဆေးနည်း
+မြစ်ကြောင်းတူးဖော်ခြင်း
+ဖောက်ခွဲနည်း
+လက်လုပ်တူးဖော်ခြင်း
+ဓာတုသန့်စင်နည်း

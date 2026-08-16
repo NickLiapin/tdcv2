@@ -1,0 +1,5 @@
+---
+description: Capital of ကာဇက်စတန်, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+အက်စတာနာ

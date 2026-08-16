@@ -1,0 +1,5 @@
+---
+description: Capital of အာဂျင်တီးနား, in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+ဗျူနိုအေရိစ်

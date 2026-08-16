@@ -1,0 +1,5 @@
+---
+description: Currency of နိုင်ဂျီးရီးယား, named in Burmese. Coherent child of geo/country.txt.
+locale: my
+---
+နိုင်ဂျီးရီးယား နိုင်းရာ

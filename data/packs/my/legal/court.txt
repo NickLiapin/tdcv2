@@ -1,0 +1,19 @@
+---
+description: Kind of court. THIS IS MYANMAR'S JUDICIARY BY NAME, because Burmese is essentially a one-country language and these words mean these institutions. The ladder runs township, district, region or state, and ပြည်ထောင်စုတရားလွှတ်တော်ချုပ် (Supreme Court of the Union) at the top. Two entries have no European counterpart. ဓမ္မဝိနည်းဆိုင်ရာဝိနည်းဓိုရ်အဖွဲ့ is the ecclesiastical tribunal that judges monks under the Vinaya, a parallel jurisdiction with real authority over a large population. စစ်ခုံရုံး is the court martial, which in Myanmar tries soldiers for ordinary crimes as well as military ones and is not subject to the civilian courts.
+locale: my
+---
+မြို့နယ်တရားရုံး
+ခရိုင်တရားရုံး
+တိုင်းဒေသကြီးတရားလွှတ်တော်
+ပြည်နယ်တရားလွှတ်တော်
+ပြည်ထောင်စုတရားလွှတ်တော်ချုပ်
+ဖွဲ့စည်းပုံအခြေခံဥပဒေဆိုင်ရာခုံရုံး
+အယူခံရုံး
+အထူးခုံရုံး
+ကလေးတရားရုံး
+မိသားစုတရားရုံး
+စီးပွားရေးတရားရုံး
+အလုပ်သမားခုံသမာဓိအဖွဲ့
+စစ်ခုံရုံး
+ဓမ္မဝိနည်းဆိုင်ရာဝိနည်းဓိုရ်အဖွဲ့
+ရပ်ကွက်ဖျန်ဖြေရေးအဖွဲ့
