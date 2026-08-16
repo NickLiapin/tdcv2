@@ -9,10 +9,8 @@ use std::path::{Path, PathBuf};
 
 /// Whether a directory entry is repository noise rather than a pack.
 ///
-/// The reference ignores a file's extension entirely when it turns a path into
-/// an address, so a name is the only thing that can keep a locale manifest, a
-/// README or a `.DS_Store` out of the registry — and this is the same short list
-/// `load.ts` keeps. Everything else is data, whatever it is called.
+/// This runs over directory names too, so it must not look at extensions — that
+/// is `is_pack_file`'s job. It is the same short list `load.ts` keeps.
 pub fn is_ignored_entry(name: &str) -> bool {
     if name == "_locale.json" || name.starts_with('.') {
         return true;
@@ -25,6 +23,30 @@ pub fn is_ignored_entry(name: &str) -> bool {
         stem.to_lowercase().as_str(),
         "readme" | "license" | "changelog"
     )
+}
+
+/// The two extensions a pack FILE can carry: `.txt` for a list or a generator
+/// written in a header, `.tdc` for a generator written as a config.
+///
+/// This used to allow everything — the spec said a data file's extension is
+/// ignored, written before a pack carried anything but data. Once
+/// `DATE_LOCALE.json` arrived, fifteen locales silently grew an address
+/// (`bn.DATE_LOCALE`, `hu.DATE_LOCALE`, …) whose values were the lines of the
+/// JSON source: `{`, `"months": [`, `"Január",`. No diagnostic, because nothing
+/// was malformed — a file was read as a list, which is what the loader was told
+/// to do with any file it found. An allowlist rather than a `.json` denylist, so
+/// the next metadata file to be added need not remember to come here first.
+pub const PACK_FILE_EXTENSIONS: [&str; 2] = ["txt", "tdc"];
+
+/// Whether a file name is a pack file rather than metadata sitting beside one.
+pub fn is_pack_file(name: &str) -> bool {
+    match name.rfind('.') {
+        Some(dot) if dot > 0 => {
+            let extension = name[dot + 1..].to_lowercase();
+            PACK_FILE_EXTENSIONS.contains(&extension.as_str())
+        }
+        _ => false,
+    }
 }
 
 pub trait PackSource: std::fmt::Debug {
@@ -118,7 +140,7 @@ impl PackSource for DirectorySource {
                 };
                 if entry.path().is_dir() {
                     walk(&entry.path(), &relative, out);
-                } else {
+                } else if is_pack_file(&name) {
                     out.push(relative);
                 }
             }

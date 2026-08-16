@@ -25,15 +25,33 @@ INDEX_NAME = "index.txt"
 def is_ignored_entry(name: str) -> bool:
     """Whether a directory entry is repository noise rather than a pack.
 
-    The reference ignores a file's extension entirely when it turns a path into an address, so a
-    name is the only thing that can keep a locale manifest, a README or a ``.DS_Store`` out of the
-    registry — and this is the same short list ``load.ts`` keeps. Everything else is data, whatever
-    it is called.
+    This runs over directory names too, so it must not look at extensions — that is
+    :func:`is_pack_file`'s job. It is the same short list ``load.ts`` keeps.
     """
     if name == "_locale.json" or name.startswith("."):
         return True
     stem, dot, _ = name.lower().rpartition(".")
     return (stem if dot else name.lower()) in {"readme", "license", "changelog"}
+
+
+#: The two extensions a pack FILE can carry: ``.txt`` for a list or a generator written in a
+#: header, ``.tdc`` for a generator written as a config.
+PACK_FILE_EXTENSIONS = frozenset({".txt", ".tdc"})
+
+
+def is_pack_file(name: str) -> bool:
+    """Whether a file name is a pack file rather than metadata sitting beside one.
+
+    This used to allow everything — the spec said a data file's extension is ignored, written
+    before a pack carried anything but data. Once ``DATE_LOCALE.json`` arrived, fifteen locales
+    silently grew an address (``bn.DATE_LOCALE``, ``hu.DATE_LOCALE``, …) whose values were the
+    lines of the JSON source: ``{``, ``"months": [``, ``"Január",``. No diagnostic, because
+    nothing was malformed — a file was read as a list, which is what the loader was told to do
+    with any file it found. An allowlist rather than a ``.json`` denylist, so the next metadata
+    file to be added does not have to remember to come here first.
+    """
+    stem, dot, extension = name.rpartition(".")
+    return bool(dot) and bool(stem) and f".{extension.lower()}" in PACK_FILE_EXTENSIONS
 
 
 class Source(Protocol):
@@ -101,7 +119,10 @@ class Directory:
             if not path.is_file():
                 continue
             relative = str(path.relative_to(self.root)).replace("\\", "/")
-            if any(is_ignored_entry(part) for part in relative.split("/")):
+            parts = relative.split("/")
+            if any(is_ignored_entry(part) for part in parts):
+                continue
+            if not is_pack_file(parts[-1]):
                 continue
             found.append(relative)
         return sorted(found)

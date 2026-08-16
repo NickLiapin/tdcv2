@@ -14,10 +14,8 @@ public interface IPackSource
 {
     /// <summary>Whether a directory entry is repository noise rather than a pack.</summary>
     /// <remarks>
-    /// The reference ignores a file's extension entirely when it turns a path into an address, so
-    /// a name is the only thing that can keep a locale manifest, a README or a <c>.DS_Store</c>
-    /// out of the registry — and this is the same short list <c>load.ts</c> keeps. Everything else
-    /// is data, whatever it is called.
+    /// This runs over directory names too, so it must not look at extensions — that is
+    /// <see cref="IsPackFile"/>'s job. It is the same short list <c>load.ts</c> keeps.
     /// </remarks>
     static bool IsIgnoredEntry(string name)
     {
@@ -29,6 +27,30 @@ public interface IPackSource
         int dot = name.LastIndexOf('.');
         string stem = (dot > 0 ? name[..dot] : name).ToLowerInvariant();
         return stem is "readme" or "license" or "changelog";
+    }
+
+    /// <summary>Whether a file name is a pack file rather than metadata sitting beside one.</summary>
+    /// <remarks>
+    /// The two extensions a pack FILE can carry: <c>.txt</c> for a list or a generator written in
+    /// a header, <c>.tdc</c> for a generator written as a config. This used to allow everything —
+    /// the spec said a data file's extension is ignored, written before a pack carried anything
+    /// but data. Once <c>DATE_LOCALE.json</c> arrived, fifteen locales silently grew an address
+    /// (<c>bn.DATE_LOCALE</c>, <c>hu.DATE_LOCALE</c>, …) whose values were the lines of the JSON
+    /// source: <c>{</c>, <c>"months": [</c>, <c>"Január",</c>. No diagnostic, because nothing was
+    /// malformed — a file was read as a list, which is what the loader was told to do with any
+    /// file it found. An allowlist rather than a <c>.json</c> denylist, so the next metadata file
+    /// to be added need not remember to come here first.
+    /// </remarks>
+    static bool IsPackFile(string name)
+    {
+        int dot = name.LastIndexOf('.');
+        if (dot <= 0)
+        {
+            return false;
+        }
+
+        string extension = name[dot..].ToLowerInvariant();
+        return extension is ".txt" or ".tdc";
     }
 
     /// <summary>Whether a pack exists at this path, e.g. <c>en/person/lastName.txt</c>.</summary>
@@ -100,7 +122,8 @@ public sealed class DirectorySource : IPackSource
         foreach (string path in found)
         {
             string rel = Path.GetRelativePath(_root, path).Replace(Path.DirectorySeparatorChar, '/');
-            if (rel.Split('/').Any(IPackSource.IsIgnoredEntry))
+            string[] parts = rel.Split('/');
+            if (parts.Any(IPackSource.IsIgnoredEntry) || !IPackSource.IsPackFile(parts[^1]))
             {
                 continue;
             }

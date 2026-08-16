@@ -1,26 +1,23 @@
 ---
 address: slovenia.tax.vat
-description: Slovenian VAT / ID za DDV (SI + 7-digit base + weighted mod-11 check; redraw when check would be 10)
+description: Slovenian VAT number / ID za DDV — SI plus the taxpayer's 8-digit davčna številka, so this file and slovenia.tax.davcnaStevilka share one arithmetic (7-digit base, weights 8,7,6,5,4,3,2, mod 11). Slovenia issues no separate VAT number; the prefix is the whole difference, which is why a Slovenian invoice shows the bare 8 digits domestically and SI+8 to an EU counterparty. VAT has been charged in EURO since 1 January 2007, when Slovenia became the first of the ten 2004 entrants to adopt the euro and dropped the tolar. Earlier versions of this file resolved the mod-11 edge the JMBG way (remainder 0 to check 0, remainder 1 redrawn); FURS specifies the reverse — remainder 1 gives a check digit of 0, remainder 0 takes the base out of the pool — so roughly one in eleven generated numbers used to be one FURS never issues. Verified against the published VAT numbers SI82646716 (Krka), SI94018154 (Mercator), SI80040306 (Zavarovalnica Triglav), SI44814631 (Zavarovalnica Sava), SI80267432 (Petrol) and SI89190033 (Luka Koper).
 generator: tdc
 ---
-<sequence name="base"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{6}"/></sequence>
 <sequence name="check"><compute>
-  <let name="sum">
-    <reduce>
-      <over><field name="base"/></over>
-      <init><int v="0"/></init>
-      <do><add><acc/>
-        <multiply><current/>
-          <at><in><list v="8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
-        </multiply>
-      </add></do>
-    </reduce>
-  </let>
-  <let name="c"><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract></let>
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
   <result>
     <choose>
-      <when><test><equals><use name="c"/><int v="11"/></equals></test><then><int v="0"/></then></when>
-      <otherwise><use name="c"/></otherwise>
+      <when><test><equals><use name="r"/><int v="1"/></equals></test><then><int v="0"/></then></when>
+      <when><test><equals><use name="r"/><int v="0"/></equals></test><then><int v="10"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
     </choose>
   </result>
 </compute></sequence>

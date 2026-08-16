@@ -553,7 +553,7 @@ function walkFiles(root: string): string[] {
       if (isIgnoredEntry(entry.name)) continue;
       const full = resolve(dir, entry.name);
       if (entry.isDirectory()) dirs.push(full);
-      else if (entry.isFile()) out.push(full);
+      else if (entry.isFile() && isPackFile(entry.name)) out.push(full);
     }
     for (let k = dirs.length - 1; k >= 0; k--) {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -566,14 +566,36 @@ function walkFiles(root: string): string[] {
 /**
  * Skip files/dirs that are clearly not data: dotfiles (`.DS_Store`,
  * `.gitkeep`, `.git`), and common repo docs (README/LICENSE/CHANGELOG)
- * regardless of extension. Extension of DATA files is otherwise ignored,
- * per spec — this only filters obvious non-data noise.
+ * regardless of extension. Applies to directories too, so it must not
+ * look at extensions — that is `isPackFile`'s job.
  */
 function isIgnoredEntry(name: string): boolean {
   if (name === MANIFEST_FILENAME) return true;
   if (name.startsWith('.')) return true;
   const base = name.toLowerCase().replace(/\.[^.]+$/, '');
   return base === 'readme' || base === 'license' || base === 'changelog';
+}
+
+/**
+ * The two extensions a pack FILE can carry: `.txt` for a list or a generator
+ * written in a header, `.tdc` for a generator written as a config.
+ *
+ * This used to be an allow-everything rule — the spec said the extension of a
+ * data file is ignored — and that was written before a pack carried anything
+ * but data. Once `DATE_LOCALE.json` arrived, fifteen locales silently grew an
+ * address (`bn.DATE_LOCALE`, `hu.DATE_LOCALE`, …) whose values were the lines
+ * of the JSON source: `{`, `"months": [`, `"Január",`. No diagnostic, because
+ * nothing was malformed — a file was read as a list, which is exactly what the
+ * loader was told to do with any file it found.
+ *
+ * An allowlist rather than a `.json` denylist: the next metadata file to be
+ * added should not have to remember to come here first.
+ */
+const PACK_FILE_EXTENSIONS: ReadonlySet<string> = new Set(['.txt', '.tdc']);
+
+function isPackFile(name: string): boolean {
+  const dot = name.lastIndexOf('.');
+  return dot > 0 && PACK_FILE_EXTENSIONS.has(name.slice(dot).toLowerCase());
 }
 
 function isDirectory(path: string): boolean {

@@ -91,13 +91,39 @@ function finnishOk(s: string): boolean {
   return check !== 10 && Number(s[9]) === check;
 }
 
+/**
+ * SI + the 8-digit davčna številka: 7-digit base, weights 8,7,6,5,4,3,2, mod 11.
+ *
+ * The two edges are the whole difficulty, and this function used to have them
+ * BACKWARDS — it read `11 - r === 11` (remainder 0) as check 0 and threw away
+ * remainder 1. That is the JMBG convention, not the tax one: the published rule
+ * takes `11 - r` MODULO TEN, so remainder 1 gives check 0 and it is remainder 0
+ * that has no legal check digit.
+ *
+ * The test agreed with the pack because it had been written from the pack. It
+ * is anchored below on six VAT numbers published by the companies themselves,
+ * so the next disagreement is decided by Krka rather than by whichever of the
+ * two files was edited last.
+ */
 function slovenianOk(s: string): boolean {
   if (!/^SI\d{8}$/.test(s)) return false;
   const base = s.slice(2, 9);
-  const raw = 11 - (weighted(base, [8, 7, 6, 5, 4, 3, 2]) % 11);
-  const check = raw === 11 ? 0 : raw;
-  return check !== 10 && Number(s[9]) === check;
+  const r = weighted(base, [8, 7, 6, 5, 4, 3, 2]) % 11;
+  // Remainder 0 would need a check digit of 11. The pack draws again rather
+  // than guess at it, so nothing should ever reach here with r === 0.
+  if (r === 0) return false;
+  return Number(s[9]) === (11 - r) % 10;
 }
+
+/** VAT numbers each company publishes on its own invoices and filings. */
+const SLOVENIAN_PUBLISHED = [
+  'SI82646716', // Krka
+  'SI94018154', // Mercator
+  'SI80040306', // Zavarovalnica Triglav
+  'SI44814631', // Zavarovalnica Sava
+  'SI80267432', // Petrol
+  'SI89190033', // Luka Koper
+] as const;
 
 describe('bundled EU VAT preset packs', () => {
   // --- plain (no checksum): format only ---
@@ -151,6 +177,18 @@ describe('bundled EU VAT preset packs', () => {
       for (const v of out) expect(ok(v), `invalid value: ${v}`).toBe(true);
     });
   }
+
+  it('the Slovenian rule accepts six published numbers, and rejects them altered', () => {
+    for (const vat of SLOVENIAN_PUBLISHED) {
+      expect(slovenianOk(vat), `should accept ${vat}`).toBe(true);
+      // Move the check digit by one: the arithmetic must notice.
+      const moved = `${vat.slice(0, 9)}${String((Number(vat[9]) + 1) % 10)}`;
+      expect(slovenianOk(moved), `should reject ${moved}`).toBe(false);
+      // Move a base digit: same.
+      const bent = `${vat.slice(0, 4)}${String((Number(vat[4]) + 1) % 10)}${vat.slice(5)}`;
+      expect(slovenianOk(bent), `should reject ${bent}`).toBe(false);
+    }
+  });
 
   it('is deterministic for a fixed seed', () => {
     expect(render('belgium.tax.vat', 20, 'x')).toEqual(render('belgium.tax.vat', 20, 'x'));

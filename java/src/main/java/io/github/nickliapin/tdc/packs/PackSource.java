@@ -27,10 +27,8 @@ public interface PackSource {
   /**
    * Whether a directory entry is repository noise rather than a pack.
    *
-   * <p>The reference ignores a file's extension entirely when it turns a path into an address, so
-   * a name is the only thing that can keep a locale manifest, a README or a {@code .DS_Store} out
-   * of the registry — and this is the same short list {@code load.ts} keeps. Everything else is
-   * data, whatever it is called.
+   * <p>This runs over directory names too, so it must not look at extensions — that is {@link
+   * #isPackFile} 's job. It is the same short list {@code load.ts} keeps.
    */
   static boolean isIgnoredEntry(String name) {
     if (name.equals("_locale.json") || name.startsWith(".")) {
@@ -40,6 +38,28 @@ public interface PackSource {
     String stem = dot > 0 ? name.substring(0, dot) : name;
     stem = stem.toLowerCase(java.util.Locale.ROOT);
     return stem.equals("readme") || stem.equals("license") || stem.equals("changelog");
+  }
+
+  /**
+   * Whether a file name is a pack file rather than metadata sitting beside one.
+   *
+   * <p>The two extensions a pack FILE can carry: {@code .txt} for a list or a generator written in
+   * a header, {@code .tdc} for a generator written as a config. This used to allow everything — the
+   * spec said a data file's extension is ignored, written before a pack carried anything but data.
+   * Once {@code DATE_LOCALE.json} arrived, fifteen locales silently grew an address ({@code
+   * bn.DATE_LOCALE}, {@code hu.DATE_LOCALE}, …) whose values were the lines of the JSON source:
+   * <code>{</code>, {@code "months": [}, {@code "Január",}. No diagnostic, because nothing was
+   * malformed — a file was read as a list, which is what the loader was told to do with any file it
+   * found. An allowlist rather than a {@code .json} denylist, so the next metadata file to be added
+   * need not remember to come here first.
+   */
+  static boolean isPackFile(String name) {
+    int dot = name.lastIndexOf('.');
+    if (dot <= 0) {
+      return false;
+    }
+    String extension = name.substring(dot).toLowerCase(java.util.Locale.ROOT);
+    return extension.equals(".txt") || extension.equals(".tdc");
   }
 
   /** Whether a pack exists at this path, e.g. {@code en/person/lastName.txt}. */
@@ -195,6 +215,7 @@ public interface PackSource {
             .map(path -> root.relativize(path).toString().replace('\\', '/'))
             .filter(path -> java.util.Arrays.stream(path.split("/")).noneMatch(
                 PackSource::isIgnoredEntry))
+            .filter(path -> isPackFile(path.substring(path.lastIndexOf('/') + 1)))
             .sorted()
             .toList();
       } catch (IOException e) {
