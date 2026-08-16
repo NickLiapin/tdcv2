@@ -1,0 +1,37 @@
+---
+address: estonia.finance.iban
+description: Estonian IBAN — 20 chars: EE + 2 ISO 7064 check digits + a 2-digit bank identifier + a 14-digit domestic account number left-padded with zeros. TWO checksums are computed here, not one: the domestic account number ends in its own national check digit (weights 7,3,1 repeating from the right over the digits before it, taken to the next multiple of ten), and the ISO 7064 MOD-97 pair is computed on top of the finished BBAN. The bank identifiers are real (10 SEB, 12 Citadele, 16 Holm, 17 and 96 Luminor, 22 Swedbank, 42 Coop, 51 TBB, 75 OP, 77 LHV, 80 Inbank, 81 Bigbank); the account body is structural, not an issued account.
+generator: tdc
+locale: et
+---
+<sequence name="bank"><gen type="text" value="10,12,16,17,22,42,51,75,77,80,81,96"/></sequence>
+<sequence name="acct"><gen type="regex" value="[0-9]{11}"/></sequence>
+<sequence name="iban"><compute>
+  <!-- The 14-digit domestic account field, minus its check digit: 13 digits. -->
+  <let name="body"><concat><str v="00"/><field name="acct"/></concat></let>
+  <!-- National check digit: 7,3,1 repeating from the RIGHT, which over 13 digits
+       reads 7,1,3,7,1,3,7,1,3,7,1,3,7 from the left. Leading zeros add nothing. -->
+  <let name="nsum"><reduce>
+    <over><use name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,1,3,7,1,3,7,1,3,7,1,3,7"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="ncheck"><mod><subtract><int v="10"/><mod><use name="nsum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <let name="bban"><concat><field name="bank"/><use name="body"/><use name="ncheck"/></concat></let>
+  <!-- ISO 7064 MOD-97: move EE00 to the back, letters to numbers, fold mod 97. -->
+  <let name="rearranged"><concat><use name="bban"/><str v="EE"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="EE"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

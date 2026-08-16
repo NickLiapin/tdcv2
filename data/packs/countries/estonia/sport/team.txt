@@ -1,0 +1,25 @@
+---
+address: estonia.sport.team
+description: Estonian football clubs — the Meistriliiga (branded A. Le Coq Premium liiga) top flight first, then Esiliiga clubs. Estonia's top division is small: ten clubs, most of them from Tallinn.
+locale: et
+---
+Tallinna FC Flora
+Tallinna FCI Levadia
+Nõmme Kalju FC
+Paide Linnameeskond
+JK Narva Trans
+Pärnu JK Vaprus
+Harju JK Laagri
+Tartu JK Tammeka
+FC Kuressaare
+FC Nõmme United
+JK Tallinna Kalev
+Tallinna JK Legion
+Viljandi JK Tulevik
+FC Elva
+Tartu JK Welco
+Maardu Linnameeskond
+JK Tabasalu
+FC Tallinn
+Läänemaa JK Haapsalu
+Rakvere JK Tarvas

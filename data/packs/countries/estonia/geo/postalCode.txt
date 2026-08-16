@@ -1,0 +1,7 @@
+---
+address: estonia.geo.postalCode
+description: Estonian postal code (sihtnumber) — five digits, no letters and no separator. Codes are allocated from 10000 upward, so a leading zero never occurs; the leading digits track the region (Tallinn sits in 10000-13999, Tartu around 50000-51000).
+generator: tdc
+locale: et
+---
+<gen type="regex" value="[1-9][0-9]{4}"/>

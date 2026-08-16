@@ -1,0 +1,18 @@
+---
+address: estonia.finance.bank
+description: Credit institutions licensed in Estonia and branches of foreign banks operating there, by their legal names as the Financial Supervision Authority (Finantsinspektsioon) lists them
+locale: et
+---
+Swedbank AS
+AS SEB Pank
+AS LHV Pank
+Luminor Bank AS
+Coop Pank AS
+Bigbank AS
+AS Inbank
+Holm Bank AS
+AS Citadele banka Eesti filiaal
+Nordea Bank Abp Eesti filiaal
+OP Corporate Bank plc Eesti filiaal
+TF Bank AB Eesti filiaal
+Finora Bank UAB Eesti filiaal

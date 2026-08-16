@@ -1,0 +1,20 @@
+---
+address: estonia.education.university
+description: Universities and universities of applied sciences of Estonia (Estonian names). The first six are the public universities; Tartu Ülikool was founded in 1632 and is the oldest.
+locale: et
+---
+Tartu Ülikool
+Tallinna Tehnikaülikool
+Tallinna Ülikool
+Eesti Maaülikool
+Eesti Kunstiakadeemia
+Eesti Muusika- ja Teatriakadeemia
+Estonian Business School
+Tallinna Tehnikakõrgkool
+Tallinna Tervishoiu Kõrgkool
+Tartu Tervishoiu Kõrgkool
+Sisekaitseakadeemia
+Eesti Lennuakadeemia
+Kaitseväe Akadeemia
+Tartu Ülikooli Viljandi Kultuuriakadeemia
+Eesti Ettevõtluskõrgkool Mainor

@@ -1,0 +1,7 @@
+---
+address: estonia.phone
+description: Estonian mobile number in E.164 form (+372 5XXXXXXX). Estonia has NO area codes at all — the country moved to a flat, closed national plan in 2003, so there is nothing between the +372 and the subscriber number, and no trunk prefix to strip. The plan is also mixed-length: mobile numbers are seven or eight digits and both are current, fixed lines are seven. Mobile numbers begin with 5 (the newer 81-84 ranges are also mobile but are not generated here).
+generator: tdc
+locale: et
+---
+<gen type="regex" value="\+3725[0-9]{6,7}"/>

@@ -1,0 +1,17 @@
+---
+address: estonia.holiday
+description: Public holidays of Estonia (Estonian names) as set by the Holidays and Days of National Importance Act. Two of them are independence days, not one: 24 February marks the 1918 declaration and 20 August the 1991 restoration.
+locale: et
+---
+uusaasta
+iseseisvuspäev
+suur reede
+ülestõusmispühade 1. püha
+kevadpüha
+nelipühade 1. püha
+võidupüha
+jaanipäev
+taasiseseisvumispäev
+jõululaupäev
+esimene jõulupüha
+teine jõulupüha

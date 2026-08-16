@@ -1,0 +1,40 @@
+---
+address: estonia.docs.registrikood
+description: Estonian registry code (registrikood) — 8 digits issued by the e-Business Register. The leading digit names the family: 1 = a company, 7 = a state or local-government body, 8 = a non-profit association or foundation. The last digit is a mod-11 check with the same two-pass rule as the isikukood, but over 7 digits: weights 1,2,3,4,5,6,7 first, and only if that remainder is 10 the weights shift to 3,4,5,6,7,8,9; if the second pass also gives 10 the check is 0. The six digits after the family digit are structural, not an issued serial.
+generator: tdc
+locale: et
+---
+<sequence name="family"><gen type="text" value="1,7,8"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="registrikood"><compute>
+  <let name="base"><concat><field name="family"/><field name="rest"/></concat></let>
+  <!-- Pass 1: weights 1..7 over the 7 base digits. -->
+  <let name="c1"><mod><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="1,2,3,4,5,6,7"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <!-- Pass 2 (used only when pass 1 gives 10): weights shifted to 3..9. -->
+  <let name="c2"><mod><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,4,5,6,7,8,9"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><use name="c1"/><int v="10"/></equals></test>
+        <then><choose>
+          <when><test><equals><use name="c2"/><int v="10"/></equals></test><then><int v="0"/></then></when>
+          <otherwise><use name="c2"/></otherwise>
+        </choose></then>
+      </when>
+      <otherwise><use name="c1"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{registrikood}}</data>

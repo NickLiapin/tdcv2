@@ -1,0 +1,53 @@
+---
+address: estonia.docs.isikukood
+description: Estonian personal identification code (isikukood) — 11 digits: a century-and-sex digit (1/2 = born 1800s, 3/4 = 1900s, 5/6 = 2000s; odd = male, even = female), YYMMDD, a 3-digit serial for people born the same day, and a mod-11 check digit. Unlike the Finnish hetu next door, which marks the century with a punctuation character and closes with a letter from a 31-symbol table, everything here is a digit and the century is carried by the SAME digit that carries sex. The check is two-pass: weights 1,2,3,4,5,6,7,8,9,1 first, and only if that remainder is 10 the weights shift to 3,4,5,6,7,8,9,1,2,3; if the second pass also gives 10 the check is 0.
+generator: tdc
+locale: et
+---
+<sequence name="dob"><gen type="date" from="1900-01-01" to="2015-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="sex"><gen type="text" value="0,1"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="isikukood"><compute>
+  <!-- The drawn calendar date arrives as YYYYMMDD; the code carries YYMMDD. -->
+  <let name="year"><to_number><slice from="0" to="4"><field name="dob"/></slice></to_number></let>
+  <let name="yymmdd"><slice from="2" to="8"><field name="dob"/></slice></let>
+  <!-- Century base: 1 = 1800s, 3 = 1900s, 5 = 2000s. Only 3 and 5 are produced.
+       The sex bit is added on top: 0 = male (odd digit), 1 = female (even digit). -->
+  <let name="base">
+    <choose>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test><then><int v="5"/></then></when>
+      <otherwise><int v="3"/></otherwise>
+    </choose>
+  </let>
+  <let name="cs"><add><use name="base"/><to_number><field name="sex"/></to_number></add></let>
+  <let name="body"><concat><use name="cs"/><use name="yymmdd"/><field name="serial"/></concat></let>
+  <!-- Pass 1: weights 1..9 then 1 over the 10 body digits. -->
+  <let name="c1"><mod><reduce>
+    <over><use name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="1,2,3,4,5,6,7,8,9,1"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <!-- Pass 2 (used only when pass 1 gives 10): weights shifted to 3..9 then 1,2,3. -->
+  <let name="c2"><mod><reduce>
+    <over><use name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,4,5,6,7,8,9,1,2,3"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="11"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><use name="c1"/><int v="10"/></equals></test>
+        <then><choose>
+          <when><test><equals><use name="c2"/><int v="10"/></equals></test><then><int v="0"/></then></when>
+          <otherwise><use name="c2"/></otherwise>
+        </choose></then>
+      </when>
+      <otherwise><use name="c1"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><use name="body"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{isikukood}}</data>

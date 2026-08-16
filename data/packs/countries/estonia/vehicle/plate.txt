@@ -1,0 +1,7 @@
+---
+address: estonia.vehicle.plate
+description: Estonian vehicle plate (registreerimismärk) — three digits, a space and three letters (e.g. 123 ABC). Digits come first, which is the reverse of the Finnish ABC-123 across the gulf. Nothing in the plate encodes a region: Estonia issues from one national series, so there is no county code to read off it. The characters are drawn freely, not from the issued series.
+generator: tdc
+locale: et
+---
+<gen type="regex" value="[0-9]{3} [A-Z]{3}"/>

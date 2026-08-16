@@ -1,0 +1,20 @@
+---
+address: estonia.geo.county
+description: The 15 counties (maakonnad) of Estonia — the first-level division, in the official Estonian alphabetical order (õ, ä, ö, ü sort after z, so Põlva precedes Pärnu). The 2017 reform redrew eleven of the county boundaries but abolished none of the counties; what it did abolish was the county government, so a maakond is now a statistical and address unit with no administration of its own.
+locale: et
+---
+Harju maakond
+Hiiu maakond
+Ida-Viru maakond
+Jõgeva maakond
+Järva maakond
+Lääne maakond
+Lääne-Viru maakond
+Põlva maakond
+Pärnu maakond
+Rapla maakond
+Saare maakond
+Tartu maakond
+Valga maakond
+Viljandi maakond
+Võru maakond
