@@ -73,18 +73,18 @@ public final class DateLocales {
   static final DateFormatter.DateLocale RU =
       new DateFormatter.DateLocale(
           List.of(
-              "января",
-              "февраля",
-              "марта",
-              "апреля",
-              "мая",
-              "июня",
-              "июля",
-              "августа",
-              "сентября",
-              "октября",
-              "ноября",
-              "декабря"),
+              "январь",
+              "февраль",
+              "март",
+              "апрель",
+              "май",
+              "июнь",
+              "июль",
+              "август",
+              "сентябрь",
+              "октябрь",
+              "ноябрь",
+              "декабрь"),
           List.of(
               "янв.",
               "февр.",
@@ -119,7 +119,21 @@ public final class DateLocales {
               "LL", "D MMMM YYYY г.",
               "LLL", "D MMMM YYYY г. HH:mm",
               "LLLL", "dddd, D MMMM YYYY г. HH:mm"
-          ));
+          ),
+          List.of(
+              "января",
+              "февраля",
+              "марта",
+              "апреля",
+              "мая",
+              "июня",
+              "июля",
+              "августа",
+              "сентября",
+              "октября",
+              "ноября",
+              "декабря")
+          );
 
   static final DateFormatter.DateLocale ES =
       new DateFormatter.DateLocale(
@@ -481,18 +495,18 @@ public final class DateLocales {
   static final DateFormatter.DateLocale PL =
       new DateFormatter.DateLocale(
           List.of(
-              "stycznia",
-              "lutego",
-              "marca",
-              "kwietnia",
-              "maja",
-              "czerwca",
-              "lipca",
-              "sierpnia",
-              "września",
-              "października",
-              "listopada",
-              "grudnia"),
+              "styczeń",
+              "luty",
+              "marzec",
+              "kwiecień",
+              "maj",
+              "czerwiec",
+              "lipiec",
+              "sierpień",
+              "wrzesień",
+              "październik",
+              "listopad",
+              "grudzień"),
           List.of(
               "sty",
               "lut",
@@ -527,23 +541,37 @@ public final class DateLocales {
               "LL", "D MMMM YYYY",
               "LLL", "D MMMM YYYY HH:mm",
               "LLLL", "dddd, D MMMM YYYY HH:mm"
-          ));
+          ),
+          List.of(
+              "stycznia",
+              "lutego",
+              "marca",
+              "kwietnia",
+              "maja",
+              "czerwca",
+              "lipca",
+              "sierpnia",
+              "września",
+              "października",
+              "listopada",
+              "grudnia")
+          );
 
   static final DateFormatter.DateLocale EL =
       new DateFormatter.DateLocale(
           List.of(
-              "Ιανουαρίου",
-              "Φεβρουαρίου",
-              "Μαρτίου",
-              "Απριλίου",
-              "Μαΐου",
-              "Ιουνίου",
-              "Ιουλίου",
-              "Αυγούστου",
-              "Σεπτεμβρίου",
-              "Οκτωβρίου",
-              "Νοεμβρίου",
-              "Δεκεμβρίου"),
+              "Ιανουάριος",
+              "Φεβρουάριος",
+              "Μάρτιος",
+              "Απρίλιος",
+              "Μάιος",
+              "Ιούνιος",
+              "Ιούλιος",
+              "Αύγουστος",
+              "Σεπτέμβριος",
+              "Οκτώβριος",
+              "Νοέμβριος",
+              "Δεκέμβριος"),
           List.of(
               "Ιαν",
               "Φεβ",
@@ -578,7 +606,21 @@ public final class DateLocales {
               "LL", "D MMMM YYYY",
               "LLL", "D MMMM YYYY HH:mm",
               "LLLL", "dddd, D MMMM YYYY HH:mm"
-          ));
+          ),
+          List.of(
+              "Ιανουαρίου",
+              "Φεβρουαρίου",
+              "Μαρτίου",
+              "Απριλίου",
+              "Μαΐου",
+              "Ιουνίου",
+              "Ιουλίου",
+              "Αυγούστου",
+              "Σεπτεμβρίου",
+              "Οκτωβρίου",
+              "Νοεμβρίου",
+              "Δεκεμβρίου")
+          );
 
   // Ukrainian, like Russian and Polish, inflects the month name inside a date: the
   // standalone nominative is "січень" but a date reads "18 січня 2026". These are
@@ -587,18 +629,18 @@ public final class DateLocales {
   static final DateFormatter.DateLocale UK =
       new DateFormatter.DateLocale(
           List.of(
-              "січня",
-              "лютого",
-              "березня",
-              "квітня",
-              "травня",
-              "червня",
-              "липня",
-              "серпня",
-              "вересня",
-              "жовтня",
-              "листопада",
-              "грудня"),
+              "січень",
+              "лютий",
+              "березень",
+              "квітень",
+              "травень",
+              "червень",
+              "липень",
+              "серпень",
+              "вересень",
+              "жовтень",
+              "листопад",
+              "грудень"),
           List.of(
               "січ",
               "лют",
@@ -632,7 +674,21 @@ public final class DateLocales {
               "L", "DD.MM.YYYY",
               "LL", "D MMMM YYYY",
               "LLL", "D MMMM YYYY HH:mm",
-              "LLLL", "dddd, D MMMM YYYY HH:mm"));
+              "LLLL", "dddd, D MMMM YYYY HH:mm"),
+          List.of(
+              "січня",
+              "лютого",
+              "березня",
+              "квітня",
+              "травня",
+              "червня",
+              "липня",
+              "серпня",
+              "вересня",
+              "жовтня",
+              "листопада",
+              "грудня")
+          );
 
   // Turkish month names do not inflect, and are capitalised as proper nouns.
   static final DateFormatter.DateLocale TR =
@@ -1098,18 +1154,18 @@ public final class DateLocales {
   static final DateFormatter.DateLocale CS =
       new DateFormatter.DateLocale(
           List.of(
-              "ledna",
-              "února",
-              "března",
-              "dubna",
-              "května",
-              "června",
-              "července",
-              "srpna",
+              "leden",
+              "únor",
+              "březen",
+              "duben",
+              "květen",
+              "červen",
+              "červenec",
+              "srpen",
               "září",
-              "října",
-              "listopadu",
-              "prosince"),
+              "říjen",
+              "listopad",
+              "prosinec"),
           List.of(
               "led",
               "úno",
@@ -1143,7 +1199,21 @@ public final class DateLocales {
               "L", "DD.MM.YYYY",
               "LL", "D. MMMM YYYY",
               "LLL", "D. MMMM YYYY HH:mm",
-              "LLLL", "dddd D. MMMM YYYY HH:mm"));
+              "LLLL", "dddd D. MMMM YYYY HH:mm"),
+          List.of(
+              "ledna",
+              "února",
+              "března",
+              "dubna",
+              "května",
+              "června",
+              "července",
+              "srpna",
+              "září",
+              "října",
+              "listopadu",
+              "prosince")
+          );
 
   // Hungarian writes a date big-endian — year, month, day — and puts a full stop after EVERY part,
   // the day included: "2026. 10. 09." is a complete date and "2026. 10. 09" is a typo. Month and
@@ -1205,18 +1275,18 @@ public final class DateLocales {
   static final DateFormatter.DateLocale FI =
       new DateFormatter.DateLocale(
           List.of(
-              "tammikuuta",
-              "helmikuuta",
-              "maaliskuuta",
-              "huhtikuuta",
-              "toukokuuta",
-              "kesäkuuta",
-              "heinäkuuta",
-              "elokuuta",
-              "syyskuuta",
-              "lokakuuta",
-              "marraskuuta",
-              "joulukuuta"),
+              "tammikuu",
+              "helmikuu",
+              "maaliskuu",
+              "huhtikuu",
+              "toukokuu",
+              "kesäkuu",
+              "heinäkuu",
+              "elokuu",
+              "syyskuu",
+              "lokakuu",
+              "marraskuu",
+              "joulukuu"),
           List.of(
               "tammi",
               "helmi",
@@ -1250,7 +1320,21 @@ public final class DateLocales {
               "L", "D.M.YYYY",
               "LL", "D. MMMM YYYY",
               "LLL", "D. MMMM YYYY HH.mm",
-              "LLLL", "dddd D. MMMM YYYY HH.mm"));
+              "LLLL", "dddd D. MMMM YYYY HH.mm"),
+          List.of(
+              "tammikuuta",
+              "helmikuuta",
+              "maaliskuuta",
+              "huhtikuuta",
+              "toukokuuta",
+              "kesäkuuta",
+              "heinäkuuta",
+              "elokuuta",
+              "syyskuuta",
+              "lokakuuta",
+              "marraskuuta",
+              "joulukuuta")
+          );
 
   private static final Map<String, DateFormatter.DateLocale> BY_NAME =
       Map.ofEntries(

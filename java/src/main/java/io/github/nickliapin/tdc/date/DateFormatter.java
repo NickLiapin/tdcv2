@@ -26,7 +26,24 @@ public final class DateFormatter {
       List<String> monthsShort,
       List<String> weekdays,
       List<String> weekdaysShort,
-      Map<String, String> formats) {}
+      Map<String, String> formats,
+      /**
+       * The month as it is written WITH a day number beside it — Russian {@code январь} becomes
+       * {@code 15 января}. {@code null} when the language does not distinguish the two, in which
+       * case {@code months} serves for both.
+       */
+      List<String> monthsInDate) {
+
+    /** The eighteen languages whose month has a single form. */
+    public DateLocale(
+        List<String> months,
+        List<String> monthsShort,
+        List<String> weekdays,
+        List<String> weekdaysShort,
+        Map<String, String> formats) {
+      this(months, monthsShort, weekdays, weekdaysShort, formats, null);
+    }
+  }
 
   private DateFormatter() {}
 
@@ -58,6 +75,9 @@ public final class DateFormatter {
     String expanded = expand(format == null ? "L" : format, locale);
 
     StringBuilder out = new StringBuilder();
+    // Whether a day-of-month token has already been rendered; `MMMM` reads it to pick between
+    // the month's two forms. See `render`.
+    boolean afterDay = false;
     int i = 0;
     while (i < expanded.length()) {
       char ch = expanded.charAt(i);
@@ -78,7 +98,10 @@ public final class DateFormatter {
         }
       }
       if (token != null) {
-        out.append(render(token, value, locale));
+        out.append(render(token, value, locale, afterDay));
+        if (token.equals("D") || token.equals("DD")) {
+          afterDay = true;
+        }
         i += token.length();
         continue;
       }
@@ -97,11 +120,25 @@ public final class DateFormatter {
     };
   }
 
-  private static String render(String token, PlainDateTime v, DateLocale locale) {
+  /**
+   * Renders one token. {@code afterDay} selects the month form.
+   *
+   * <p>Half the world writes the month differently depending on whether a day number stands beside
+   * it. {@code MMMM} takes the in-date form when a day token came BEFORE it and the standalone form
+   * otherwise — the rule the reference applies, read off the format string alone so all five
+   * implementations agree: {@code D. MMMM YYYY} in-date (Czech, Finnish, Russian);
+   * {@code MMMM D, YYYY} standalone (English); {@code YYYY. MMMM D.} standalone (Hungarian, which
+   * wants the nominative); {@code dddd, D MMMM YYYY} in-date, because {@code dddd} is a weekday and
+   * not a day number.
+   */
+  private static String render(
+      String token, PlainDateTime v, DateLocale locale, boolean afterDay) {
     return switch (token) {
       case "YYYY" -> pad(v.year(), 4);
       case "YY" -> pad(v.year() % 100, 2);
-      case "MMMM" -> locale.months().get(v.month() - 1);
+      case "MMMM" ->
+          (afterDay && locale.monthsInDate() != null ? locale.monthsInDate() : locale.months())
+              .get(v.month() - 1);
       case "MMM" -> locale.monthsShort().get(v.month() - 1);
       case "MM" -> pad(v.month(), 2);
       case "M" -> String.valueOf(v.month());

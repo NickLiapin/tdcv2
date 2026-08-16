@@ -23,6 +23,10 @@
 /// because there are exactly four and they are always all present.
 pub struct DateLocale {
     pub months: [&'static str; 12],
+    /// The month as it is written WITH a day number beside it — Russian `январь`
+    /// becomes `15 января`. `None` when the language does not distinguish the
+    /// two, in which case `months` serves for both.
+    pub months_in_date: Option<[&'static str; 12]>,
     pub months_short: [&'static str; 12],
     /// Sunday first, matching the weekday index the calendar produces.
     pub weekdays: [&'static str; 7],
@@ -45,6 +49,7 @@ static AR: DateLocale = DateLocale {
         "نوفمبر",
         "ديسمبر",
     ],
+    months_in_date: None,
     months_short: [
         "يناير",
         "فبراير",
@@ -92,6 +97,7 @@ static DE: DateLocale = DateLocale {
         "November",
         "Dezember",
     ],
+    months_in_date: None,
     months_short: [
         "Jan.", "Feb.", "März", "Apr.", "Mai", "Juni", "Juli", "Aug.", "Sept.", "Okt.", "Nov.",
         "Dez.",
@@ -116,6 +122,20 @@ static DE: DateLocale = DateLocale {
 
 static EL: DateLocale = DateLocale {
     months: [
+        "Ιανουάριος",
+        "Φεβρουάριος",
+        "Μάρτιος",
+        "Απρίλιος",
+        "Μάιος",
+        "Ιούνιος",
+        "Ιούλιος",
+        "Αύγουστος",
+        "Σεπτέμβριος",
+        "Οκτώβριος",
+        "Νοέμβριος",
+        "Δεκέμβριος",
+    ],
+    months_in_date: Some([
         "Ιανουαρίου",
         "Φεβρουαρίου",
         "Μαρτίου",
@@ -128,7 +148,7 @@ static EL: DateLocale = DateLocale {
         "Οκτωβρίου",
         "Νοεμβρίου",
         "Δεκεμβρίου",
-    ],
+    ],),
     months_short: [
         "Ιαν", "Φεβ", "Μαρ", "Απρ", "Μαΐ", "Ιουν", "Ιουλ", "Αυγ", "Σεπ", "Οκτ", "Νοε", "Δεκ",
     ],
@@ -165,6 +185,7 @@ static EN: DateLocale = DateLocale {
         "November",
         "December",
     ],
+    months_in_date: None,
     months_short: [
         "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
     ],
@@ -201,6 +222,7 @@ static ES: DateLocale = DateLocale {
         "noviembre",
         "diciembre",
     ],
+    months_in_date: None,
     months_short: [
         "ene.", "feb.", "mar.", "abr.", "may.", "jun.", "jul.", "ago.", "sept.", "oct.", "nov.",
         "dic.",
@@ -238,6 +260,7 @@ static FR: DateLocale = DateLocale {
         "novembre",
         "décembre",
     ],
+    months_in_date: None,
     months_short: [
         "janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.",
         "déc.",
@@ -269,6 +292,7 @@ static IT: DateLocale = DateLocale {
         "novembre",
         "dicembre",
     ],
+    months_in_date: None,
     months_short: [
         "gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic",
     ],
@@ -292,6 +316,20 @@ static IT: DateLocale = DateLocale {
 
 static PL: DateLocale = DateLocale {
     months: [
+        "styczeń",
+        "luty",
+        "marzec",
+        "kwiecień",
+        "maj",
+        "czerwiec",
+        "lipiec",
+        "sierpień",
+        "wrzesień",
+        "październik",
+        "listopad",
+        "grudzień",
+    ],
+    months_in_date: Some([
         "stycznia",
         "lutego",
         "marca",
@@ -304,7 +342,7 @@ static PL: DateLocale = DateLocale {
         "października",
         "listopada",
         "grudnia",
-    ],
+    ],),
     months_short: [
         "sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paź", "lis", "gru",
     ],
@@ -341,6 +379,7 @@ static PT: DateLocale = DateLocale {
         "novembro",
         "dezembro",
     ],
+    months_in_date: None,
     months_short: [
         "jan.", "fev.", "mar.", "abr.", "mai.", "jun.", "jul.", "ago.", "set.", "out.", "nov.",
         "dez.",
@@ -365,6 +404,20 @@ static PT: DateLocale = DateLocale {
 
 static RU: DateLocale = DateLocale {
     months: [
+        "январь",
+        "февраль",
+        "март",
+        "апрель",
+        "май",
+        "июнь",
+        "июль",
+        "август",
+        "сентябрь",
+        "октябрь",
+        "ноябрь",
+        "декабрь",
+    ],
+    months_in_date: Some([
         "января",
         "февраля",
         "марта",
@@ -377,7 +430,7 @@ static RU: DateLocale = DateLocale {
         "октября",
         "ноября",
         "декабря",
-    ],
+    ],),
     months_short: [
         "янв.",
         "февр.",
@@ -425,6 +478,7 @@ static ZH_CN: DateLocale = DateLocale {
         "十一月",
         "十二月",
     ],
+    months_in_date: None,
     months_short: [
         "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月",
     ],
@@ -453,6 +507,20 @@ static ZH_CN: DateLocale = DateLocale {
 // pack at uk/date/month.txt.
 static UK: DateLocale = DateLocale {
     months: [
+        "січень",
+        "лютий",
+        "березень",
+        "квітень",
+        "травень",
+        "червень",
+        "липень",
+        "серпень",
+        "вересень",
+        "жовтень",
+        "листопад",
+        "грудень",
+    ],
+    months_in_date: Some([
         "січня",
         "лютого",
         "березня",
@@ -465,7 +533,7 @@ static UK: DateLocale = DateLocale {
         "жовтня",
         "листопада",
         "грудня",
-    ],
+    ],),
     months_short: [
         "січ",
         "лют",
@@ -522,6 +590,7 @@ static TR: DateLocale = DateLocale {
         "Kasım",
         "Aralık",
     ],
+    months_in_date: None,
     months_short: [
         "Oca",
         "Şub",
@@ -578,6 +647,7 @@ static ID: DateLocale = DateLocale {
         "November",
         "Desember",
     ],
+    months_in_date: None,
     months_short: [
         "Jan",
         "Feb",
@@ -635,6 +705,7 @@ static VI: DateLocale = DateLocale {
         "tháng 11",
         "tháng 12",
     ],
+    months_in_date: None,
     months_short: [
         "Th1",
         "Th2",
@@ -691,6 +762,7 @@ static JA: DateLocale = DateLocale {
         "11月",
         "12月",
     ],
+    months_in_date: None,
     months_short: [
         "1月",
         "2月",
@@ -747,6 +819,7 @@ static KO: DateLocale = DateLocale {
         "11월",
         "12월",
     ],
+    months_in_date: None,
     months_short: [
         "1월",
         "2월",
@@ -803,6 +876,7 @@ static NL: DateLocale = DateLocale {
         "november",
         "december",
     ],
+    months_in_date: None,
     months_short: [
         "jan",
         "feb",
@@ -859,6 +933,7 @@ static SV: DateLocale = DateLocale {
         "november",
         "december",
     ],
+    months_in_date: None,
     months_short: [
         "jan",
         "feb",
@@ -915,6 +990,7 @@ static HI: DateLocale = DateLocale {
         "नवंबर",
         "दिसंबर",
     ],
+    months_in_date: None,
     months_short: [
         "जन.",
         "फ़र.",
@@ -971,6 +1047,7 @@ static TH: DateLocale = DateLocale {
         "พฤศจิกายน",
         "ธันวาคม",
     ],
+    months_in_date: None,
     months_short: [
         "ม.ค.",
         "ก.พ.",
@@ -1014,6 +1091,20 @@ static TH: DateLocale = DateLocale {
 // Czech, like Russian and Polish, inflects the month name inside a date: the standalone nominative is "leden" but a date reads "5. ledna 2026". These are the genitive forms the formatter needs; the nominative list lives in the pack at cs/date/month.txt. Month and weekday names are lower case.
 static CS: DateLocale = DateLocale {
     months: [
+        "leden",
+        "únor",
+        "březen",
+        "duben",
+        "květen",
+        "červen",
+        "červenec",
+        "srpen",
+        "září",
+        "říjen",
+        "listopad",
+        "prosinec",
+    ],
+    months_in_date: Some([
         "ledna",
         "února",
         "března",
@@ -1026,7 +1117,7 @@ static CS: DateLocale = DateLocale {
         "října",
         "listopadu",
         "prosince",
-    ],
+    ],),
     months_short: [
         "led",
         "úno",
@@ -1086,6 +1177,7 @@ static HU: DateLocale = DateLocale {
         "november",
         "december",
     ],
+    months_in_date: None,
     months_short: [
         "jan.",
         "febr.",
@@ -1133,6 +1225,20 @@ static HU: DateLocale = DateLocale {
 // ordinal, and the time separator is a full stop rather than a colon — 14.30.
 static FI: DateLocale = DateLocale {
     months: [
+        "tammikuu",
+        "helmikuu",
+        "maaliskuu",
+        "huhtikuu",
+        "toukokuu",
+        "kesäkuu",
+        "heinäkuu",
+        "elokuu",
+        "syyskuu",
+        "lokakuu",
+        "marraskuu",
+        "joulukuu",
+    ],
+    months_in_date: Some([
         "tammikuuta",
         "helmikuuta",
         "maaliskuuta",
@@ -1145,7 +1251,7 @@ static FI: DateLocale = DateLocale {
         "lokakuuta",
         "marraskuuta",
         "joulukuuta",
-    ],
+    ],),
     months_short: [
         "tammi",
         "helmi",

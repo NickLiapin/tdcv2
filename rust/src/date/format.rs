@@ -48,6 +48,9 @@ pub fn format(value: PlainDateTime, pattern: Option<&str>, locale_name: Option<&
     let chars: Vec<char> = expanded.chars().collect();
 
     let mut result = String::new();
+    // Whether a day-of-month token has already been rendered; `MMMM` reads it to
+    // pick between the month's two forms. See `render`.
+    let mut after_day = false;
     let mut i = 0;
     while i < chars.len() {
         if chars[i] == '[' {
@@ -69,7 +72,10 @@ pub fn format(value: PlainDateTime, pattern: Option<&str>, locale_name: Option<&
 
         match TOKENS.iter().find(|t| starts_at(&chars, i, t)) {
             Some(token) => {
-                result.push_str(&render(token, value, locale));
+                result.push_str(&render(token, value, locale, after_day));
+                if *token == "D" || *token == "DD" {
+                    after_day = true;
+                }
                 i += token.chars().count();
             }
             None => {
@@ -100,12 +106,30 @@ fn expand(pattern: &str, locale: &DateLocale) -> String {
     }
 }
 
-fn render(token: &str, v: PlainDateTime, locale: &DateLocale) -> String {
+/// `after_day` — whether a day-of-month token has already been rendered.
+///
+/// Half the world writes the month differently depending on whether a day number
+/// stands beside it. Russian says `январь` alone and `15 января 2026` in a date;
+/// Polish, Ukrainian, Greek, Czech and Finnish all shift too. English and
+/// Hungarian do not, and put the month first anyway.
+///
+/// `MMMM` renders the in-date form when a day token came BEFORE it, and the
+/// standalone form otherwise — the rule the reference applies, read off the
+/// format string alone so all five implementations agree:
+///
+///   D. MMMM YYYY      -> in-date     Czech, Finnish, Russian
+///   MMMM D, YYYY      -> standalone  English
+///   YYYY. MMMM D.     -> standalone  Hungarian, which wants the nominative
+///   dddd, D MMMM YYYY -> in-date     `dddd` is a weekday, not a day number
+fn render(token: &str, v: PlainDateTime, locale: &DateLocale, after_day: bool) -> String {
     let month = (v.month - 1).clamp(0, 11) as usize;
     match token {
         "YYYY" => pad(v.year, 4),
         "YY" => pad(v.year % 100, 2),
-        "MMMM" => locale.months[month].to_string(),
+        "MMMM" => match locale.months_in_date {
+            Some(in_date) if after_day => in_date[month].to_string(),
+            _ => locale.months[month].to_string(),
+        },
         "MMM" => locale.months_short[month].to_string(),
         "MM" => pad(v.month, 2),
         "M" => v.month.to_string(),

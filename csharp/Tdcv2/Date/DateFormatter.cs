@@ -9,7 +9,14 @@ public sealed record DateLocale(
     IReadOnlyList<string> MonthsShort,
     IReadOnlyList<string> Weekdays,
     IReadOnlyList<string> WeekdaysShort,
-    IReadOnlyDictionary<string, string> Formats);
+    IReadOnlyDictionary<string, string> Formats,
+    /// <summary>The month as it is written WITH a day number beside it.</summary>
+    /// <remarks>
+    /// Russian <c>январь</c> becomes <c>15 января</c>; Finnish <c>tammikuu</c> becomes
+    /// <c>15. tammikuuta</c>. <c>null</c> when the language does not distinguish the two, in
+    /// which case <c>Months</c> serves for both.
+    /// </remarks>
+    IReadOnlyList<string>? MonthsInDate = null);
 
 /// <summary>
 /// The Moment-style formatting subset TDC uses.
@@ -64,6 +71,9 @@ public static class DateFormatter
         string expanded = Expand(format ?? "L", locale);
 
         var result = new StringBuilder();
+        // Whether a day-of-month token has already been rendered; `MMMM` reads it to pick
+        // between the month's two forms. See `Render`.
+        bool afterDay = false;
         int i = 0;
         while (i < expanded.Length)
         {
@@ -95,7 +105,12 @@ public static class DateFormatter
 
             if (token is not null)
             {
-                result.Append(Render(token, value, locale));
+                result.Append(Render(token, value, locale, afterDay));
+                if (token is "D" or "DD")
+                {
+                    afterDay = true;
+                }
+
                 i += token.Length;
                 continue;
             }
@@ -115,11 +130,22 @@ public static class DateFormatter
         _ => format,
     };
 
-    private static string Render(string token, PlainDateTime v, DateLocale locale) => token switch
+    /// <summary>Renders one token. <paramref name="afterDay"/> selects the month form.</summary>
+    /// <remarks>
+    /// Half the world writes the month differently depending on whether a day number stands
+    /// beside it. <c>MMMM</c> takes the in-date form when a day token came BEFORE it and the
+    /// standalone form otherwise — the rule the reference applies, read off the format string
+    /// alone so all five implementations agree:
+    /// <c>D. MMMM YYYY</c> in-date (Czech, Finnish, Russian); <c>MMMM D, YYYY</c> standalone
+    /// (English); <c>YYYY. MMMM D.</c> standalone (Hungarian, which wants the nominative);
+    /// <c>dddd, D MMMM YYYY</c> in-date, because <c>dddd</c> is a weekday and not a day number.
+    /// </remarks>
+    private static string Render(string token, PlainDateTime v, DateLocale locale, bool afterDay)
+        => token switch
     {
         "YYYY" => Pad(v.Year, 4),
         "YY" => Pad(v.Year % 100, 2),
-        "MMMM" => locale.Months[v.Month - 1],
+        "MMMM" => (afterDay && locale.MonthsInDate is not null ? locale.MonthsInDate : locale.Months)[v.Month - 1],
         "MMM" => locale.MonthsShort[v.Month - 1],
         "MM" => Pad(v.Month, 2),
         "M" => v.Month.ToString(CultureInfo.InvariantCulture),

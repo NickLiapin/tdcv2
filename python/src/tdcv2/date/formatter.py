@@ -88,7 +88,18 @@ def format_date_time(value: PlainDateTime, fmt: str | None, locale_name: str | N
     if parts is None:
         parts = _COMPILED[expanded] = _compile(expanded)
 
-    return "".join(_render(text, value, locale) if is_token else text for is_token, text in parts)
+    # `after_day` — whether a day-of-month token has already been rendered. `MMMM` reads it to
+    # pick between the month's two forms; see `_render`.
+    out: list[str] = []
+    after_day = False
+    for is_token, text in parts:
+        if not is_token:
+            out.append(text)
+            continue
+        out.append(_render(text, value, locale, after_day))
+        if text in ("D", "DD"):
+            after_day = True
+    return "".join(out)
 
 
 def check_format(fmt: str) -> None:
@@ -117,13 +128,29 @@ def _expand(fmt: str, locale: DateLocale) -> str:
     return fmt
 
 
-def _render(token: str, v: PlainDateTime, locale: DateLocale) -> str:
+def _render(token: str, v: PlainDateTime, locale: DateLocale, after_day: bool = False) -> str:
+    """`after_day` — whether a day-of-month token has already been rendered.
+
+    Half the world writes the month differently depending on whether a day number stands beside
+    it. Russian says ``январь`` alone and ``15 января 2026`` in a date; Czech, Polish, Ukrainian,
+    Greek and Finnish all shift too. English and Hungarian do not, and put the month first anyway.
+
+    ``MMMM`` renders the in-date form when a day token came BEFORE it and the standalone form
+    otherwise — the rule the reference applies, read off the format string alone so all five
+    implementations agree without a host date library:
+
+        D. MMMM YYYY      -> in-date     Czech, Finnish, Russian
+        MMMM D, YYYY      -> standalone  English
+        YYYY. MMMM D.     -> standalone  Hungarian, which wants the nominative
+        dddd, D MMMM YYYY -> in-date     ``dddd`` is a weekday, not a day number
+    """
     if token == "YYYY":
         return _pad(v.year, 4)
     if token == "YY":
         return _pad(v.year % 100, 2)
     if token == "MMMM":
-        return locale.months[v.month - 1]
+        months = locale.months_in_date if after_day and locale.months_in_date else locale.months
+        return months[v.month - 1]
     if token == "MMM":
         return locale.months_short[v.month - 1]
     if token == "MM":

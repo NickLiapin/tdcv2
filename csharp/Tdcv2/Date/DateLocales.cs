@@ -81,18 +81,18 @@ public static class DateLocales
     internal static readonly DateLocale RU = new(
         new[]
         {
-            "января",
-            "февраля",
-            "марта",
-            "апреля",
-            "мая",
-            "июня",
-            "июля",
-            "августа",
-            "сентября",
-            "октября",
-            "ноября",
-            "декабря",
+            "январь",
+            "февраль",
+            "март",
+            "апрель",
+            "май",
+            "июнь",
+            "июль",
+            "август",
+            "сентябрь",
+            "октябрь",
+            "ноябрь",
+            "декабрь",
         },
         new[]
         {
@@ -135,6 +135,21 @@ public static class DateLocales
             ["LL"] = "D MMMM YYYY г.",
             ["LLL"] = "D MMMM YYYY г. HH:mm",
             ["LLLL"] = "dddd, D MMMM YYYY г. HH:mm",
+        },
+        MonthsInDate: new[]
+        {
+            "января",
+            "февраля",
+            "марта",
+            "апреля",
+            "мая",
+            "июня",
+            "июля",
+            "августа",
+            "сентября",
+            "октября",
+            "ноября",
+            "декабря",
         });
 
     internal static readonly DateLocale ES = new(
@@ -553,18 +568,18 @@ public static class DateLocales
     internal static readonly DateLocale PL = new(
         new[]
         {
-            "stycznia",
-            "lutego",
-            "marca",
-            "kwietnia",
-            "maja",
-            "czerwca",
-            "lipca",
-            "sierpnia",
-            "września",
-            "października",
-            "listopada",
-            "grudnia",
+            "styczeń",
+            "luty",
+            "marzec",
+            "kwiecień",
+            "maj",
+            "czerwiec",
+            "lipiec",
+            "sierpień",
+            "wrzesień",
+            "październik",
+            "listopad",
+            "grudzień",
         },
         new[]
         {
@@ -607,23 +622,38 @@ public static class DateLocales
             ["LL"] = "D MMMM YYYY",
             ["LLL"] = "D MMMM YYYY HH:mm",
             ["LLLL"] = "dddd, D MMMM YYYY HH:mm",
+        },
+        MonthsInDate: new[]
+        {
+            "stycznia",
+            "lutego",
+            "marca",
+            "kwietnia",
+            "maja",
+            "czerwca",
+            "lipca",
+            "sierpnia",
+            "września",
+            "października",
+            "listopada",
+            "grudnia",
         });
 
     internal static readonly DateLocale EL = new(
         new[]
         {
-            "Ιανουαρίου",
-            "Φεβρουαρίου",
-            "Μαρτίου",
-            "Απριλίου",
-            "Μαΐου",
-            "Ιουνίου",
-            "Ιουλίου",
-            "Αυγούστου",
-            "Σεπτεμβρίου",
-            "Οκτωβρίου",
-            "Νοεμβρίου",
-            "Δεκεμβρίου",
+            "Ιανουάριος",
+            "Φεβρουάριος",
+            "Μάρτιος",
+            "Απρίλιος",
+            "Μάιος",
+            "Ιούνιος",
+            "Ιούλιος",
+            "Αύγουστος",
+            "Σεπτέμβριος",
+            "Οκτώβριος",
+            "Νοέμβριος",
+            "Δεκέμβριος",
         },
         new[]
         {
@@ -666,6 +696,21 @@ public static class DateLocales
             ["LL"] = "D MMMM YYYY",
             ["LLL"] = "D MMMM YYYY HH:mm",
             ["LLLL"] = "dddd, D MMMM YYYY HH:mm",
+        },
+        MonthsInDate: new[]
+        {
+            "Ιανουαρίου",
+            "Φεβρουαρίου",
+            "Μαρτίου",
+            "Απριλίου",
+            "Μαΐου",
+            "Ιουνίου",
+            "Ιουλίου",
+            "Αυγούστου",
+            "Σεπτεμβρίου",
+            "Οκτωβρίου",
+            "Νοεμβρίου",
+            "Δεκεμβρίου",
         });
 
     // Ukrainian, like Russian and Polish, inflects the month name inside a date: the
@@ -675,18 +720,18 @@ public static class DateLocales
     internal static readonly DateLocale UK = new(
         new[]
         {
-            "січня",
-            "лютого",
-            "березня",
-            "квітня",
-            "травня",
-            "червня",
-            "липня",
-            "серпня",
-            "вересня",
-            "жовтня",
-            "листопада",
-            "грудня",
+            "січень",
+            "лютий",
+            "березень",
+            "квітень",
+            "травень",
+            "червень",
+            "липень",
+            "серпень",
+            "вересень",
+            "жовтень",
+            "листопад",
+            "грудень",
         },
         new[]
         {
@@ -729,6 +774,21 @@ public static class DateLocales
             ["LL"] = "D MMMM YYYY",
             ["LLL"] = "D MMMM YYYY HH:mm",
             ["LLLL"] = "dddd, D MMMM YYYY HH:mm",
+        },
+        MonthsInDate: new[]
+        {
+            "січня",
+            "лютого",
+            "березня",
+            "квітня",
+            "травня",
+            "червня",
+            "липня",
+            "серпня",
+            "вересня",
+            "жовтня",
+            "листопада",
+            "грудня",
         });
 
     // Turkish month names do not inflect, and are capitalised as proper nouns.
@@ -1276,18 +1336,18 @@ public static class DateLocales
     internal static readonly DateLocale CS = new(
         new[]
         {
-            "ledna",
-            "února",
-            "března",
-            "dubna",
-            "května",
-            "června",
-            "července",
-            "srpna",
+            "leden",
+            "únor",
+            "březen",
+            "duben",
+            "květen",
+            "červen",
+            "červenec",
+            "srpen",
             "září",
-            "října",
-            "listopadu",
-            "prosince",
+            "říjen",
+            "listopad",
+            "prosinec",
         },
         new[]
         {
@@ -1330,6 +1390,21 @@ public static class DateLocales
             ["LL"] = "D. MMMM YYYY",
             ["LLL"] = "D. MMMM YYYY HH:mm",
             ["LLLL"] = "dddd D. MMMM YYYY HH:mm",
+        },
+        MonthsInDate: new[]
+        {
+            "ledna",
+            "února",
+            "března",
+            "dubna",
+            "května",
+            "června",
+            "července",
+            "srpna",
+            "září",
+            "října",
+            "listopadu",
+            "prosince",
         });
 
     // Hungarian writes a date big-endian — year, month, day — and puts a full stop after EVERY part, the day included: "2026. 10. 09." is a complete date and "2026. 10. 09" is a typo. Month and weekday names are lower case, and the weekday follows the date rather than leading it.
@@ -1396,18 +1471,18 @@ public static class DateLocales
     internal static readonly DateLocale FI = new(
         new[]
         {
-            "tammikuuta",
-            "helmikuuta",
-            "maaliskuuta",
-            "huhtikuuta",
-            "toukokuuta",
-            "kesäkuuta",
-            "heinäkuuta",
-            "elokuuta",
-            "syyskuuta",
-            "lokakuuta",
-            "marraskuuta",
-            "joulukuuta",
+            "tammikuu",
+            "helmikuu",
+            "maaliskuu",
+            "huhtikuu",
+            "toukokuu",
+            "kesäkuu",
+            "heinäkuu",
+            "elokuu",
+            "syyskuu",
+            "lokakuu",
+            "marraskuu",
+            "joulukuu",
         },
         new[]
         {
@@ -1450,6 +1525,21 @@ public static class DateLocales
             ["LL"] = "D. MMMM YYYY",
             ["LLL"] = "D. MMMM YYYY HH.mm",
             ["LLLL"] = "dddd D. MMMM YYYY HH.mm",
+        },
+        MonthsInDate: new[]
+        {
+            "tammikuuta",
+            "helmikuuta",
+            "maaliskuuta",
+            "huhtikuuta",
+            "toukokuuta",
+            "kesäkuuta",
+            "heinäkuuta",
+            "elokuuta",
+            "syyskuuta",
+            "lokakuuta",
+            "marraskuuta",
+            "joulukuuta",
         });
 
     private static readonly Dictionary<string, DateLocale> ByName =

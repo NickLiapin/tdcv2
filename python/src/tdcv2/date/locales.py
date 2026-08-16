@@ -5,9 +5,17 @@ different machines, and it is the one thing the product promises never happens �
 carried here, byte for byte the same in every implementation.
 
 Several languages inflect the month INSIDE a date: Russian's standalone "октябрь" becomes
-"18 октября 2026", and Polish and Greek do the same. The tables below hold the form a date needs,
-not the dictionary form; the nominative list lives in the data pack, where a config asking for a
-month NAME will find it.
+"18 октября 2026", and Polish, Ukrainian, Greek, Czech and Finnish do the same. These tables used
+to hold ONLY the form a date needs, and sent anyone wanting the dictionary form to the data pack's
+own month list. That was a deliberate boundary, and it had one hole: a config writing
+``format="MMMM"`` — a month column, a report heading — was never told, and got "октября" where it
+meant "октябрь".
+
+So both forms live here now. ``months`` is the standalone, dictionary form; ``months_in_date`` is
+the one a date needs, and is ``None`` for the languages that do not distinguish them. The
+formatter picks between them from the format string alone — see ``_render`` in ``formatter.py``.
+The pack's month list is still there and still correct; it is no longer the only way to get a
+month's name right.
 """
 
 from __future__ import annotations
@@ -25,6 +33,14 @@ class DateLocale:
 
     weekdays_short: tuple[str, ...]
     formats: dict[str, str]
+
+    months_in_date: tuple[str, ...] | None = None
+    """The month as it is written WITH a day number beside it.
+
+    Russian ``январь`` becomes ``15 января``; Finnish ``tammikuu`` becomes ``15. tammikuuta``.
+    ``None`` when the language does not distinguish the two — English does not, and Hungarian
+    keeps the nominative — in which case ``months`` is used for both.
+    """
 
 
 EN = DateLocale(
@@ -57,18 +73,18 @@ EN = DateLocale(
 RU = DateLocale(
     "ru",
     (
-        "января",
-        "февраля",
-        "марта",
-        "апреля",
-        "мая",
-        "июня",
-        "июля",
-        "августа",
-        "сентября",
-        "октября",
-        "ноября",
-        "декабря",
+        "январь",
+        "февраль",
+        "март",
+        "апрель",
+        "май",
+        "июнь",
+        "июль",
+        "август",
+        "сентябрь",
+        "октябрь",
+        "ноябрь",
+        "декабрь",
     ),
     (
         "янв.",
@@ -92,6 +108,20 @@ RU = DateLocale(
         "LLL": "D MMMM YYYY г. HH:mm",
         "LLLL": "dddd, D MMMM YYYY г. HH:mm",
     },
+    months_in_date=(
+        "января",
+        "февраля",
+        "марта",
+        "апреля",
+        "мая",
+        "июня",
+        "июля",
+        "августа",
+        "сентября",
+        "октября",
+        "ноября",
+        "декабря",
+    ),
 )
 
 # Spanish month and weekday names are lowercase — that is the orthography, not an oversight. `L`
@@ -386,6 +416,29 @@ IT = DateLocale(
 PL = DateLocale(
     "pl",
     (
+        "styczeń",
+        "luty",
+        "marzec",
+        "kwiecień",
+        "maj",
+        "czerwiec",
+        "lipiec",
+        "sierpień",
+        "wrzesień",
+        "październik",
+        "listopad",
+        "grudzień",
+    ),
+    ("sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paź", "lis", "gru"),
+    ("niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota"),
+    ("nd", "pn", "wt", "śr", "cz", "pt", "sb"),
+    {
+        "L": "DD.MM.YYYY",
+        "LL": "D MMMM YYYY",
+        "LLL": "D MMMM YYYY HH:mm",
+        "LLLL": "dddd, D MMMM YYYY HH:mm",
+    },
+    months_in_date=(
         "stycznia",
         "lutego",
         "marca",
@@ -399,15 +452,6 @@ PL = DateLocale(
         "listopada",
         "grudnia",
     ),
-    ("sty", "lut", "mar", "kwi", "maj", "cze", "lip", "sie", "wrz", "paź", "lis", "gru"),
-    ("niedziela", "poniedziałek", "wtorek", "środa", "czwartek", "piątek", "sobota"),
-    ("nd", "pn", "wt", "śr", "cz", "pt", "sb"),
-    {
-        "L": "DD.MM.YYYY",
-        "LL": "D MMMM YYYY",
-        "LLL": "D MMMM YYYY HH:mm",
-        "LLLL": "dddd, D MMMM YYYY HH:mm",
-    },
 )
 
 # Greek inflects the month inside a date exactly as Russian and Polish do: the standalone
@@ -416,6 +460,29 @@ PL = DateLocale(
 EL = DateLocale(
     "el",
     (
+        "Ιανουάριος",
+        "Φεβρουάριος",
+        "Μάρτιος",
+        "Απρίλιος",
+        "Μάιος",
+        "Ιούνιος",
+        "Ιούλιος",
+        "Αύγουστος",
+        "Σεπτέμβριος",
+        "Οκτώβριος",
+        "Νοέμβριος",
+        "Δεκέμβριος",
+    ),
+    ("Ιαν", "Φεβ", "Μαρ", "Απρ", "Μαΐ", "Ιουν", "Ιουλ", "Αυγ", "Σεπ", "Οκτ", "Νοε", "Δεκ"),
+    ("Κυριακή", "Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο"),
+    ("Κυρ", "Δευ", "Τρί", "Τετ", "Πέμ", "Παρ", "Σάβ"),
+    {
+        "L": "DD/MM/YYYY",
+        "LL": "D MMMM YYYY",
+        "LLL": "D MMMM YYYY HH:mm",
+        "LLLL": "dddd, D MMMM YYYY HH:mm",
+    },
+    months_in_date=(
         "Ιανουαρίου",
         "Φεβρουαρίου",
         "Μαρτίου",
@@ -429,15 +496,6 @@ EL = DateLocale(
         "Νοεμβρίου",
         "Δεκεμβρίου",
     ),
-    ("Ιαν", "Φεβ", "Μαρ", "Απρ", "Μαΐ", "Ιουν", "Ιουλ", "Αυγ", "Σεπ", "Οκτ", "Νοε", "Δεκ"),
-    ("Κυριακή", "Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο"),
-    ("Κυρ", "Δευ", "Τρί", "Τετ", "Πέμ", "Παρ", "Σάβ"),
-    {
-        "L": "DD/MM/YYYY",
-        "LL": "D MMMM YYYY",
-        "LLL": "D MMMM YYYY HH:mm",
-        "LLLL": "dddd, D MMMM YYYY HH:mm",
-    },
 )
 
 # Ukrainian, like Russian and Polish, inflects the month name inside a date: the
@@ -446,11 +504,25 @@ EL = DateLocale(
 # pack at uk/date/month.txt.
 UK = DateLocale(
     "uk",
-    ("січня", "лютого", "березня", "квітня", "травня", "червня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня"),
+    (
+        "січень",
+        "лютий",
+        "березень",
+        "квітень",
+        "травень",
+        "червень",
+        "липень",
+        "серпень",
+        "вересень",
+        "жовтень",
+        "листопад",
+        "грудень",
+    ),
     ("січ", "лют", "бер", "квіт", "трав", "черв", "лип", "серп", "вер", "жовт", "лист", "груд"),
     ("неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота"),
     ("нд", "пн", "вт", "ср", "чт", "пт", "сб"),
     {"L": "DD.MM.YYYY", "LL": "D MMMM YYYY", "LLL": "D MMMM YYYY HH:mm", "LLLL": "dddd, D MMMM YYYY HH:mm"},
+    months_in_date=("січня", "лютого", "березня", "квітня", "травня", "червня", "липня", "серпня", "вересня", "жовтня", "листопада", "грудня")
 )
 
 # Turkish month names do not inflect, and are capitalised as proper nouns.
@@ -547,11 +619,25 @@ TH = DateLocale(
 # Czech, like Russian and Polish, inflects the month name inside a date: the standalone nominative is "leden" but a date reads "5. ledna 2026". These are the genitive forms the formatter needs; the nominative list lives in the pack at cs/date/month.txt. Month and weekday names are lower case.
 CS = DateLocale(
     "cs",
-    ("ledna", "února", "března", "dubna", "května", "června", "července", "srpna", "září", "října", "listopadu", "prosince"),
+    (
+        "leden",
+        "únor",
+        "březen",
+        "duben",
+        "květen",
+        "červen",
+        "červenec",
+        "srpen",
+        "září",
+        "říjen",
+        "listopad",
+        "prosinec",
+    ),
     ("led", "úno", "bře", "dub", "kvě", "čvn", "čvc", "srp", "zář", "říj", "lis", "pro"),
     ("neděle", "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota"),
     ("ne", "po", "út", "st", "čt", "pá", "so"),
     {"L": "DD.MM.YYYY", "LL": "D. MMMM YYYY", "LLL": "D. MMMM YYYY HH:mm", "LLLL": "dddd D. MMMM YYYY HH:mm"},
+    months_in_date=("ledna", "února", "března", "dubna", "května", "června", "července", "srpna", "září", "října", "listopadu", "prosince")
 )
 
 # Hungarian writes a date big-endian — year, month, day — and puts a full stop after EVERY part, the day included: "2026. 10. 09." is a complete date and "2026. 10. 09" is a typo. Month and weekday names are lower case, and the weekday follows the date rather than leading it.
@@ -567,11 +653,25 @@ HU = DateLocale(
 # Finnish, like Czech, inflects the month name inside a date: the month is "tammikuu" but the date reads "5. tammikuuta 2026". These are the partitive forms the formatter needs; the nominative list lives in the pack at fi/date/month.txt. The day number keeps a full stop after it because it is an ordinal, and the time separator is a full stop rather than a colon — 14.30, not 14:30.
 FI = DateLocale(
     "fi",
-    ("tammikuuta", "helmikuuta", "maaliskuuta", "huhtikuuta", "toukokuuta", "kesäkuuta", "heinäkuuta", "elokuuta", "syyskuuta", "lokakuuta", "marraskuuta", "joulukuuta"),
+    (
+        "tammikuu",
+        "helmikuu",
+        "maaliskuu",
+        "huhtikuu",
+        "toukokuu",
+        "kesäkuu",
+        "heinäkuu",
+        "elokuu",
+        "syyskuu",
+        "lokakuu",
+        "marraskuu",
+        "joulukuu",
+    ),
     ("tammi", "helmi", "maalis", "huhti", "touko", "kesä", "heinä", "elo", "syys", "loka", "marras", "joulu"),
     ("sunnuntai", "maanantai", "tiistai", "keskiviikko", "torstai", "perjantai", "lauantai"),
     ("su", "ma", "ti", "ke", "to", "pe", "la"),
     {"L": "D.M.YYYY", "LL": "D. MMMM YYYY", "LLL": "D. MMMM YYYY HH.mm", "LLLL": "dddd D. MMMM YYYY HH.mm"},
+    months_in_date=("tammikuuta", "helmikuuta", "maaliskuuta", "huhtikuuta", "toukokuuta", "kesäkuuta", "heinäkuuta", "elokuuta", "syyskuuta", "lokakuuta", "marraskuuta", "joulukuuta")
 )
 
 _BY_NAME: dict[str, DateLocale] = {
