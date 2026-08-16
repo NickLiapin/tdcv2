@@ -1,0 +1,27 @@
+---
+description: Religion or worldview (Slovak). Slovakia is one of the MORE religious countries in Europe and its Czech neighbour one of the least - about 56 percent of Slovaks give Roman Catholic in the census, against under 10 percent in Czechia - so a Czech-shaped distribution over this list would be wrong in the one way that matters. The Greek Catholic church, Byzantine in rite and in union with Rome, is the third largest and is concentrated in the east; the Lutheran church (Evanjelicka cirkev augsburskeho vyznania) is the second; the Reformed church is largely Hungarian-speaking.
+locale: sk
+---
+Kresťanstvo
+Rímskokatolícka cirkev
+Gréckokatolícka cirkev
+Evanjelická cirkev augsburského vyznania
+Reformovaná kresťanská cirkev
+Pravoslávie
+Protestantizmus
+Islam
+Hinduizmus
+Budhizmus
+Judaizmus
+Sikhizmus
+Džinizmus
+Baháizmus
+Šintoizmus
+Taoizmus
+Konfucianizmus
+Zoroastrizmus
+Slovanské pohanstvo
+Animizmus
+Ateizmus
+Agnosticizmus
+Bez vyznania

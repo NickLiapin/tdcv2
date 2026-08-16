@@ -1,0 +1,12 @@
+---
+description: Dishes of American cuisine (Slovak)
+locale: sk
+---
+Cheeseburger
+Grilované rebrá
+Makaróny so syrom
+Buffalo krídelká
+Mušľová polievka
+Jablkový koláč
+Kukuričný chlieb
+Hot dog

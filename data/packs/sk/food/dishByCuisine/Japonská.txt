@@ -1,0 +1,13 @@
+---
+description: Dishes of Japanese cuisine (Slovak)
+locale: sk
+---
+Sushi
+Ramen
+Tempura
+Udon
+Kura teriyaki
+Miso polievka
+Katsu karí
+Onigiri
+Sashimi

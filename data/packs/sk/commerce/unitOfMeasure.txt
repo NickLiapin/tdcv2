@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Slovak). Slovakia uses the metric system throughout.
+locale: sk
+---
+kus
+kartón
+balík
+balenie
+tucet
+pár
+súprava
+kotúč
+zväzok
+kilogram
+gram
+tona
+liter
+mililiter
+meter
+centimeter
+milimeter
+meter štvorcový
+meter kubický
+vrecko
+taška
+tácka
+plechovka
+fľaša
+pohár
+tuba
+vrece
+paleta
+obálka
+sada

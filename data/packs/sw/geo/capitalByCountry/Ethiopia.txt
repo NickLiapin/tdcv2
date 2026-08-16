@@ -1,0 +1,5 @@
+---
+description: Capital of Ethiopia, as Swahili writes it
+locale: sw
+---
+Addis Ababa

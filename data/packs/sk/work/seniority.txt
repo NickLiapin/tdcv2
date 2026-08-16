@@ -1,0 +1,20 @@
+---
+description: Seniority level (Slovak, nominative)
+locale: sk
+---
+Stážista
+Praktikant
+Junior
+Mladší špecialista
+Špecialista
+Starší špecialista
+Senior
+Vedúci tímu
+Expert
+Hlavný špecialista
+Koordinátor
+Manažér
+Starší manažér
+Riaditeľ úseku
+Riaditeľ
+Generálny riaditeľ

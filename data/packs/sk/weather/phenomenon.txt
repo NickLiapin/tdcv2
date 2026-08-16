@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Slovak, nominative)
+locale: sk
+---
+Hurikán
+Tornádo
+Snehová víchrica
+Vlna horúčav
+Vlna mrazov
+Povodeň
+Sucho
+Monzún
+Piesočná búrka
+Mrznúci dážď
+Lesný požiar
+Cyklón
+Prízemný mráz
+Ľadovec
+Víchrica

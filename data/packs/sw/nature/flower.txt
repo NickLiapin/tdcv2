@@ -1,0 +1,24 @@
+---
+description: Flower (Swahili). Shipped short on purpose: many ornamental flowers have no settled Swahili name and Tanzanian nurseries sell them under the international one, so only the names actually used in Swahili are listed, followed by the loans in Swahili spelling.
+locale: sw
+---
+waridi
+asumini
+yasmini
+kilua
+mkadi
+alizeti
+mrehani
+mwarobaini
+karafuu
+maua ya mnazi
+bugenvilia
+hibiskasi
+okidi
+lily
+tulipu
+daisi
+lavenda
+petunia
+marigold
+sunflower

@@ -1,0 +1,22 @@
+---
+description: Video game genre (Swahili)
+locale: sw
+---
+vitendo
+matukio
+kuigiza wahusika
+mkakati
+mkakati wa zamu
+uigaji
+kupiga risasi
+kupiga risasi mtu wa kwanza
+kuruka majukwaa
+mafumbo
+matukio ya mafumbo
+mbio za magari
+michezo
+mapigano
+kuishi porini
+ulimwengu huru
+kutisha
+muziki

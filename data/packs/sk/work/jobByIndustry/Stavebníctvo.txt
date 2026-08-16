@@ -1,0 +1,16 @@
+---
+description: Jobs in Construction (Slovak)
+locale: sk
+---
+Elektrikár
+Inštalatér
+Murár
+Tesár
+Stavbyvedúci
+Obsluha ťažkej techniky
+Geodet
+Pokrývač
+Železiar
+Omietkár
+Stavebný dozor
+Stavebný robotník

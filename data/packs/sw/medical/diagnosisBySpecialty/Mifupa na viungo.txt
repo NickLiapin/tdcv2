@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the Mifupa na viungo clinic (Swahili)
+locale: sw
+---
+Ugonjwa wa viungo kuchakaa
+Baridi yabisi
+Gauti
+Ulegevu wa mifupa
+Uti wa mgongo kupinda
+Diski ya uti wa mgongo kuteleza
+Mvunjiko wa mfupa
+Bega kuganda
+Kano kuvimba
+Goti kuumia

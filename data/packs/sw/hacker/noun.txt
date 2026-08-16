@@ -1,0 +1,41 @@
+---
+description: Tech noun (Swahili)
+locale: sw
+---
+seva
+kliyenti
+hifadhidata
+jedwali
+hoja
+fahirisi
+akiba
+foleni
+uzi
+mchakato
+kiini
+kumbukumbu
+diski
+safu
+faili
+folda
+itifaki
+pakiti
+lango
+kipanga njia
+ukuta wa moto
+cheti
+ufunguo
+tokeni
+kipindi
+kuki
+hati
+maktaba
+moduli
+kifurushi
+kontena
+taswira
+kundi
+nodi
+rejista
+kumbukumbu za matukio
+mtandao

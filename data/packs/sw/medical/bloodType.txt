@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type
+locale: sw
+---
+O Rh+
+O Rh-
+A Rh+
+A Rh-
+B Rh+
+B Rh-
+AB Rh+
+AB Rh-

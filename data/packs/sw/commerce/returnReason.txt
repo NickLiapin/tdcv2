@@ -1,0 +1,19 @@
+---
+description: Order return reason (Swahili)
+locale: sw
+---
+Saizi haikufaa
+Rangi si sahihi
+Bidhaa haifanani na maelezo
+Bidhaa imeharibika
+Ina kasoro ya kiwandani
+Haifanyi kazi
+Nimeletewa bidhaa isiyo sahihi
+Vipengele vinakosekana
+Nimebadilisha mawazo
+Nimepata bei nafuu kwingine
+Usafirishaji umechelewa
+Nimeagiza vibaya
+Ubora umeniangusha
+Nimeagiza mara mbili
+Sababu nyingine

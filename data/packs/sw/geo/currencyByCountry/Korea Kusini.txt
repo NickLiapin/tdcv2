@@ -1,0 +1,5 @@
+---
+description: Currency of Korea Kusini (Swahili)
+locale: sw
+---
+Won ya Korea Kusini

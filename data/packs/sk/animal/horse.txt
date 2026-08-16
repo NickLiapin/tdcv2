@@ -1,0 +1,22 @@
+---
+description: Horse breed (Slovak). Lipican, hucul and shagya-arab are the three breeds of the national stud at Topoľčianky, which has bred Lipizzaners since 1921; the hucul is the small hardy Carpathian mountain horse.
+locale: sk
+---
+Arabský kôň
+Anglický plnokrvník
+Mustang
+Clydesdale
+Appaloosa
+Quarter horse
+Frízsky kôň
+Shire
+Andalúzsky kôň
+Morgan
+Palomino
+Peršerón
+Shetlandský pony
+Lusitano
+Haflinger
+Lipican
+Hucul
+Shagya-arab

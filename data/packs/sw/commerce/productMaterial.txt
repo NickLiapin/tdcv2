@@ -1,0 +1,61 @@
+---
+description: Product material (Swahili), given as a noun — compose with the associative particle that agrees with the product: "meza YA mninga", "kikapu CHA ukindu". katani (sisal), makuti and ukindu are Tanzanian materials with no European equivalent.
+locale: sw
+---
+mninga
+mvule
+mtiki
+mkangazi
+msonobari
+mbao
+mbao mseto
+mianzi
+ufito
+makuti
+ukindu
+katani
+nyasi
+chuma
+chuma cha pua
+chuma ghafi
+alumini
+titani
+shaba
+shaba nyeupe
+bati
+risasi
+nikeli
+zinki
+dhahabu
+fedha
+plastiki
+plastiki gumu
+akriliki
+silikoni
+mpira
+raba
+sponji
+kioo
+kioo kigumu
+kaure
+keramiki
+udongo
+matofali
+saruji
+zege
+jasi
+mawe
+marumaru
+granaiti
+ngozi
+ngozi bandia
+suede
+pamba
+kitani
+sufi
+hariri
+kashmiri
+polyester
+nailoni
+jinsi
+kanvasi

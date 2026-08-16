@@ -1,0 +1,16 @@
+---
+description: Grade / mark in the Tanzanian system (Swahili). NECTA reports a letter grade per subject and an overall division (Daraja la Kwanza to Daraja Sifuri); the university scale uses the same letters.
+locale: sw
+---
+A
+B+
+B
+C
+D
+E
+F
+Daraja la Kwanza
+Daraja la Pili
+Daraja la Tatu
+Daraja la Nne
+Daraja Sifuri

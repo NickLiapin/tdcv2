@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Slovak. A prevalence signal, not an exclusive one.
+locale: sk
+---
+Familiárna stredomorská horúčka
+Beta-talasémia
+Deficit glukózo-6-fosfátdehydrogenázy
+Behçetova choroba
+Deficit vitamínu D
+Nosičstvo kosáčikovej anémie

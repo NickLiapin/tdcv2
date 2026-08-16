@@ -1,0 +1,29 @@
+---
+description: Bird (Swahili). Shipped short rather than padded: only names in settled Swahili use are listed.
+locale: sw
+---
+shomoro
+chiriku
+kasuku
+kozi
+tai
+mwewe
+kipanga
+bundi
+kunguru
+njiwa
+hua
+kware
+kwale
+kanga
+kuku
+jogoo
+bata
+bata bukini
+bata mzinga
+korongo
+mbuni
+heroe
+shakwe
+furukombe
+tausi

@@ -1,0 +1,15 @@
+---
+description: Shipping status (Swahili)
+locale: sw
+---
+Inasubiri kuchukuliwa
+Imekabidhiwa kwa mtoa huduma
+Njiani
+Ipo katika ghala la kupanga
+Imefika mjini
+Imefika kwenye kituo
+Inapelekwa kwa mteja
+Imewasilishwa
+Uwasilishaji umeshindikana
+Inarudishwa
+Imepotea

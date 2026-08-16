@@ -1,0 +1,5 @@
+---
+description: Currency of Burundi (Swahili)
+locale: sw
+---
+Faranga ya Burundi

@@ -1,0 +1,28 @@
+---
+description: Name suffix (Swahili). Swahili has NO generational suffix — no Jr., no Sr., no III — because a Tanzanian child does not take the father's full name; the father's given name simply becomes the child's second name. What does follow a Tanzanian name is an English-language academic or professional post-nominal, because degrees are awarded and written in English.
+locale: sw
+---
+BA
+BSc
+BEd
+BCom
+LLB
+BBA
+MA
+MSc
+MBA
+MEd
+LLM
+PhD
+MD
+MBChB
+DVM
+BPharm
+BArch
+BEng
+Dip
+Cert
+CPA(T)
+ACCA
+FCPA
+Adv.

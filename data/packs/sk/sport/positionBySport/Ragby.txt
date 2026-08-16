@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Slovak)
+locale: sk
+---
+Pilier
+Mlynár
+Druhý rad
+Tretí rad
+Číslo osem
+Mlynová spojka
+Útoková spojka
+Stred útoku
+Krídlo
+Zadák

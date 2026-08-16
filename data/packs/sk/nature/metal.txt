@@ -1,0 +1,26 @@
+---
+description: Metal (Slovak, nominative)
+locale: sk
+---
+Zlato
+Striebro
+Platina
+Meď
+Železo
+Hliník
+Titán
+Zinok
+Nikel
+Olovo
+Cín
+Bronz
+Mosadz
+Oceľ
+Paládium
+Kobalt
+Chróm
+Volfrám
+Ortuť
+Horčík
+Lítium
+Mangán

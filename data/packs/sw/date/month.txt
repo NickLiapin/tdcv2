@@ -1,0 +1,16 @@
+---
+description: Month name (Swahili, capitalised). Tanzania also counts the months ordinally in speech — "mwezi wa kwanza" for January through "mwezi wa kumi na mbili" for December — but the borrowed names below are what is written on a form or a date line.
+locale: sw
+---
+Januari
+Februari
+Machi
+Aprili
+Mei
+Juni
+Julai
+Agosti
+Septemba
+Oktoba
+Novemba
+Desemba

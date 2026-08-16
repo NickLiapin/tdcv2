@@ -1,0 +1,16 @@
+---
+description: Jobs in Teknolojia (Swahili)
+locale: sw
+---
+mtengenezaji wa programu
+msimamizi wa mifumo
+mhandisi wa upimaji
+mbunifu wa mifumo
+mchambuzi wa data
+mtaalamu wa usalama wa mtandao
+msimamizi wa hifadhidata
+mhandisi wa DevOps
+mbunifu wa kiolesura
+meneja wa bidhaa
+mkurugenzi wa teknolojia
+mhandisi wa msaada

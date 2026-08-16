@@ -1,0 +1,5 @@
+---
+description: Currency of Uganda (Swahili)
+locale: sw
+---
+Shilingi ya Uganda

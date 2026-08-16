@@ -1,0 +1,24 @@
+---
+description: Parcel carriers used in Tanzania. The long-distance bus companies at the end are on the list because a great deal of parcel traffic in Tanzania moves in a bus luggage hold, booked at the ticket office.
+locale: sw
+---
+Posta Tanzania
+EMS Tanzania
+DHL
+FedEx
+UPS
+Aramex
+Skynet
+Speedaf
+Bolt
+Uber
+Piki
+Dar Express
+Scandinavia Express
+Shabiby
+Sumry
+Abood
+Mohammed Trans
+Kimotco
+Tashrif
+Agility

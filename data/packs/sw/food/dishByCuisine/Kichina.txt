@@ -1,0 +1,12 @@
+---
+description: Chinese dishes (Swahili)
+locale: sw
+---
+wali wa kukaanga
+chow mein
+chop suey
+dim sum
+supu ya wonton
+kuku wa tamu na chachu
+bata wa Peking
+tofu ya kukaanga

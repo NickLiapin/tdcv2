@@ -1,0 +1,59 @@
+---
+description: Business buzz verb (Slovak, infinitive)
+locale: sk
+---
+využívať
+optimalizovať
+zefektívniť
+orchestrovať
+posilňovať
+umožňovať
+škálovať
+transformovať
+narúšať zabehnuté
+inovovať
+iterovať
+integrovať
+nasadzovať
+odomykať
+urýchľovať
+znásobovať
+navrhovať
+porovnávať
+rozvíjať
+poháňať
+vyvíjať
+uľahčovať
+generovať
+motivovať
+monetizovať
+operacionalizovať
+predefinovať
+prehodnocovať
+revolucionizovať
+viesť
+štandardizovať
+migrovať
+zjednocovať
+maximalizovať
+minimalizovať
+konsolidovať
+synergizovať
+digitalizovať
+automatizovať
+outsourcovať
+internalizovať
+segmentovať
+prioritizovať
+prispôsobovať
+artikulovať
+kapitalizovať
+dynamizovať
+budovať lojalitu
+pozicovať
+umocňovať
+zvyšovať rentabilitu
+systematizovať
+profesionalizovať
+zviditeľňovať
+certifikovať

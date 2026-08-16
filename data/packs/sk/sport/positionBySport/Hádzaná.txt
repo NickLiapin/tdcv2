@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Slovak)
+locale: sk
+---
+Brankár
+Ľavé krídlo
+Pravé krídlo
+Ľavá spojka
+Pravá spojka
+Stredná spojka
+Pivot

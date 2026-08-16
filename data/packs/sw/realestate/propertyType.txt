@@ -1,0 +1,23 @@
+---
+description: Property type (Swahili). "Chumba na sebule" — one room and a sitting room — is the standard small Tanzanian rental and has no European equivalent; "nyumba ya vyumba" is the shared compound house where each family rents a room.
+locale: sw
+---
+chumba kimoja
+chumba na sebule
+nyumba ya vyumba
+nyumba ya kawaida
+nyumba ya kisasa
+nyumba ya ghorofa
+apartment
+apartment ya vyumba viwili
+apartment ya vyumba vitatu
+penthouse
+vila
+townhouse
+nyumba ya kupanga
+hosteli
+duka
+ofisi
+ghala
+kiwanja
+shamba

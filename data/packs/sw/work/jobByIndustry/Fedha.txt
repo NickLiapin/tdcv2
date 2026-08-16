@@ -1,0 +1,16 @@
+---
+description: Jobs in Fedha (Swahili)
+locale: sw
+---
+mhasibu
+mkaguzi wa hesabu
+mchambuzi wa fedha
+afisa mikopo
+afisa benki
+keshia
+mtaalamu wa kodi
+meneja wa hatari
+mshauri wa uwekezaji
+afisa bima
+mthamini wa mali
+mweka hazina

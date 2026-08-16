@@ -1,0 +1,13 @@
+---
+description: Time of day (Swahili). Swahili clock hours run six hours off the international ones — saa moja is seven o'clock, the first hour after dawn — but these day-part words are used the same way as anywhere.
+locale: sw
+---
+alfajiri
+asubuhi
+mchana
+adhuhuri
+alasiri
+jioni
+magharibi
+usiku
+usiku wa manane

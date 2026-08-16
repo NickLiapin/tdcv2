@@ -1,0 +1,18 @@
+---
+description: Horse breed (Swahili). Horses are marginal in Tanzanian life — the working animals are the donkey (punda) and the ox (maksai) — so this list is short and mostly international breed names.
+locale: sw
+---
+farasi wa Kiarabu
+farasi wa Kiingereza
+Hanoverian
+Holstein
+Friesian
+Andalusia
+Shire
+Percheron
+poni wa Shetland
+Appaloosa
+Mustang
+Arabian
+Thoroughbred
+Boerperd

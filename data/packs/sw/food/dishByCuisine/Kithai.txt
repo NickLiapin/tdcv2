@@ -1,0 +1,12 @@
+---
+description: Thai dishes (Swahili)
+locale: sw
+---
+pad thai
+tom yum
+kari ya kijani
+kari ya nyekundu
+wali wa nazi
+som tam
+satay
+wali wa embe

@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Slovak (female-specific + common), for a female patient row
+locale: sk
+---
+Endometrióza
+Syndróm polycystických vaječníkov
+Myómy maternice
+Cysta vaječníka
+Karcinóm vaječníka
+Karcinóm krčka maternice
+Dysplázia krčka maternice
+Zápal krčka maternice
+Zápal sliznice maternice
+Karcinóm prsníka
+Fibroadenóm prsníka
+Vaginálna kandidóza
+Bakteriálna vaginóza
+Zápal panvových orgánov
+Predčasná menopauza
+Klimakterický syndróm
+Chronická pankreatitída
+Chlamýdiová infekcia
+Artériová hypertenzia
+Diabetes mellitus 2. typu
+Bronchiálna astma
+Migréna
+Sideropenická anémia
+Hypotyreóza
+Osteoporóza
+Gestačný diabetes
+Preeklampsia

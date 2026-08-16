@@ -1,0 +1,5 @@
+---
+description: Capital of Moroko, as Swahili writes it
+locale: sw
+---
+Rabat

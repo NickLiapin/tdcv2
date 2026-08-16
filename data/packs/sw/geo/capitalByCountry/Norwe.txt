@@ -1,0 +1,5 @@
+---
+description: Capital of Norwe, as Swahili writes it
+locale: sw
+---
+Oslo

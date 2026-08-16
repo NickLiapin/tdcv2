@@ -1,0 +1,12 @@
+---
+description: Book format (Swahili)
+locale: sw
+---
+jalada gumu
+jalada laini
+kitabu cha mfukoni
+toleo maalum
+toleo la picha
+kitabu mtandao
+kitabu cha sauti
+kijitabu

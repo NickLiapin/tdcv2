@@ -1,0 +1,18 @@
+---
+description: Marital status in Swahili. Note that the VERB is gendered even though the language is not: a man kuoa (marries), a woman kuolewa (is married), so "Ameoa" and "Ameolewa" both mean married and a config must pick the one matching the row's sex. Ndoa ya kimila (customary), ya kidini (religious) and ya kiserikali (civil) are the three legally recognised forms of marriage in Tanzania.
+locale: sw
+---
+Hajaoa
+Hajaolewa
+Ameoa
+Ameolewa
+Mseja
+Ametaliki
+Ametalikiwa
+Ametengana
+Mjane
+Amechumbiwa
+Ndoa ya kimila
+Ndoa ya kidini
+Ndoa ya kiserikali
+Haijabainishwa

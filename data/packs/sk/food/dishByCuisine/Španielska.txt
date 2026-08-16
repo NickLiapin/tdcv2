@@ -1,0 +1,13 @@
+---
+description: Dishes of Spanish cuisine (Slovak)
+locale: sk
+---
+Paella
+Tapas
+Gazpacho
+Španielska tortilla
+Churros
+Patatas bravas
+Iberská šunka
+Chobotnica po galícijsky
+Salmorejo

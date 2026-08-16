@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Swahili; brand names kept as-is)
+locale: sw
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+simu ya mkononi
+Android
+iOS
+kivinjari

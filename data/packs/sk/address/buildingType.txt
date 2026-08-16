@@ -1,0 +1,44 @@
+---
+description: Building type (Slovak). Salaš (a shepherd's summer sheep farm in the mountains), koliba (the log hut on it, now usually a restaurant), drevenica (a log village cottage) and kaštieľ (a country manor house) are Slovak institutions with no one-word English equivalent. Nominative.
+locale: sk
+---
+Dom
+Rodinný dom
+Byt
+Bytový dom
+Panelák
+Činžiak
+Vila
+Chata
+Chalupa
+Drevenica
+Kancelária
+Kancelárska budova
+Sklad
+Hala
+Obchod
+Predajňa
+Továreň
+Nemocnica
+Poliklinika
+Škola
+Gymnázium
+Univerzita
+Hotel
+Penzión
+Reštaurácia
+Krčma
+Koliba
+Salaš
+Obchodné centrum
+Štadión
+Knižnica
+Kostol
+Múzeum
+Divadlo
+Radnica
+Železničná stanica
+Garáž
+Gazdovstvo
+Kaštieľ
+Hrad

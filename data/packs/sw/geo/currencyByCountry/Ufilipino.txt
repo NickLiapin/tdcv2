@@ -1,0 +1,5 @@
+---
+description: Currency of Ufilipino (Swahili)
+locale: sw
+---
+Peso ya Ufilipino

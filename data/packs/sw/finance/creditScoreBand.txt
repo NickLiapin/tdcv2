@@ -1,0 +1,9 @@
+---
+description: Credit score band (Swahili)
+locale: sw
+---
+chini sana
+chini
+wastani
+nzuri
+nzuri sana

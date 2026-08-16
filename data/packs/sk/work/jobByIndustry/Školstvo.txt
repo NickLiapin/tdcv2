@@ -1,0 +1,16 @@
+---
+description: Jobs in Education (Slovak)
+locale: sk
+---
+Učiteľ prvého stupňa
+Učiteľ strednej školy
+Vysokoškolský pedagóg
+Výchovný poradca
+Knihovník
+Asistent učiteľa
+Riaditeľ školy
+Učiteľ materskej školy
+Špeciálny pedagóg
+Logopéd
+Lektor
+Metodik výučby

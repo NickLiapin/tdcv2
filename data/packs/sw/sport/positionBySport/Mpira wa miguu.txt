@@ -1,0 +1,15 @@
+---
+description: Positions in association football, in the Swahili a Tanzanian commentator uses — kipa, beki, kiungo, winga are the settled loans
+locale: sw
+---
+kipa
+beki wa kulia
+beki wa kushoto
+beki wa kati
+kiungo mkabaji
+kiungo wa kati
+kiungo mshambuliaji
+winga wa kulia
+winga wa kushoto
+mshambuliaji
+mshambuliaji wa kati

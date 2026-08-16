@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Swahili). debe, pishi, kibaba and fungu are the units a Tanzanian market actually sells in — a fungu is a heap priced as a unit, not a weight.
+locale: sw
+---
+kipande
+mzigo
+seti
+jozi
+dazeni
+fungu
+rundo
+gramu
+kilo
+tani
+mililita
+lita
+debe
+pishi
+kibaba
+sentimita
+mita
+kilomita
+mita ya mraba
+mita ya ujazo
+roli
+sanduku
+katoni
+gunia
+chupa
+kopo
+kifurushi
+mfuko
+karatasi
+paleti

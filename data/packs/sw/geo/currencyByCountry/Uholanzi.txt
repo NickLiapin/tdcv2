@@ -1,0 +1,5 @@
+---
+description: Currency of Uholanzi (Swahili)
+locale: sw
+---
+Yuro

@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Slovak, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them - geographic descent, not social race categories.
+locale: sk
+---
+Subsaharská
+Severoafrická
+Stredomorská
+Blízkovýchodná
+Severoeurópska
+Východoeurópska
+Aškenázska
+Juhoázijská
+Východoázijská
+Juhovýchodoázijská
+Pôvodná americká
+Tichomorská

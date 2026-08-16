@@ -1,0 +1,11 @@
+---
+description: Slovak driving licence category for goods vehicles. The kvalifikacna karta vodica is the professional driver qualification card required alongside the licence itself.
+locale: sk
+---
+Skupina B
+Skupina BE
+Skupina C1
+Skupina C1E
+Skupina C
+Skupina CE
+Kvalifikačná karta vodiča

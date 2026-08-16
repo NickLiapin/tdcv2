@@ -1,0 +1,54 @@
+---
+description: Airline (Slovak operators and major international ones). Slovakia has had NO flag carrier since Slovenské aerolínie folded in 2007, which is the main difference from the Czech list — the domestic entries here are charter and ACMI operators (AirExplore, Go2Sky, Smartwings Slovakia), not scheduled national airlines, and Bratislava and Košice are served mostly by foreign low-cost carriers.
+locale: sk
+---
+AirExplore
+Go2Sky
+Smartwings Slovakia
+Wizz Air
+Ryanair
+easyJet
+Lufthansa
+Air France
+KLM
+British Airways
+Iberia
+Swiss International Air Lines
+Austrian Airlines
+Brussels Airlines
+SAS Scandinavian Airlines
+Finnair
+Norwegian
+airBaltic
+TAP Air Portugal
+ITA Airways
+Aegean Airlines
+Turkish Airlines
+Pegasus Airlines
+LOT Polish Airlines
+Air Serbia
+Croatia Airlines
+Tarom
+Bulgaria Air
+Aer Lingus
+Vueling
+Eurowings
+Condor
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Qantas
+Cathay Pacific
+Japan Airlines
+All Nippon Airways
+Korean Air
+Air China
+American Airlines
+United Airlines
+Delta Air Lines
+Air Canada
+Ethiopian Airlines
+El Al
+Smartwings
+České aerolínie

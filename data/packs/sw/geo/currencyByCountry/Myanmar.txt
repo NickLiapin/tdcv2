@@ -1,0 +1,5 @@
+---
+description: Currency of Myanmar (Swahili)
+locale: sw
+---
+Kyat ya Myanmar

@@ -1,0 +1,18 @@
+---
+description: Insurance type (Swahili), as sold in Tanzania. NHIF is the Tanzanian national health fund and the third-party motor cover is the one required by Tanzanian law; crop and livestock cover are the rural products.
+locale: sw
+---
+bima ya afya ya taifa
+bima ya afya ya binafsi
+bima ya maisha
+bima ya ajali
+bima ya gari
+bima ya lazima ya gari
+bima ya moto
+bima ya nyumba
+bima ya mizigo
+bima ya safari
+bima ya dhima
+bima ya pensheni
+bima ya mazao
+bima ya mifugo

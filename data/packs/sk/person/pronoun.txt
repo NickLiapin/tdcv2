@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Slovak). Slovak is a pro-drop language - the subject pronoun is usually left out and the verb ending carries the person - so these appear far less often in running text than the English equivalents.
+locale: sk
+---
+on
+ona
+ono
+on/jeho
+ona/jej
+ono/jeho
+on/ona
+ona/ono

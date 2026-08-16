@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Slovak)
+locale: sk
+---
+Predplatená karta
+Paušál
+Neobmedzený paušál
+Rodinný paušál
+Firemný paušál
+Platba podľa spotreby
+Iba dáta
+Zdieľaný paušál
+Jednotný paušál
+Kombinovaný paušál
+Balík
+Dobitie kreditu

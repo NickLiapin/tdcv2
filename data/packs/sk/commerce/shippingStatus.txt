@@ -1,0 +1,15 @@
+---
+description: Shipping status (Slovak)
+locale: sk
+---
+Vytvorený štítok
+Vyzdvihnuté dopravcom
+V preprave
+V doručovaní
+Doručené
+Pripravené na vyzdvihnutie
+Meškanie
+Problém pri preprave
+Vrátené odosielateľovi
+Chybná adresa
+Neúspešný pokus o doručenie

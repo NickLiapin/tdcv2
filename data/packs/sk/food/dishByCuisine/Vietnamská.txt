@@ -1,0 +1,12 @@
+---
+description: Dishes of Vietnamese cuisine (Slovak)
+locale: sk
+---
+Pho
+Banh mi
+Vietnamské závitky
+Bun cha
+Com tam
+Vietnamská káva
+Goi cuon
+Banh xeo

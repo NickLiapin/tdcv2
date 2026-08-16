@@ -1,0 +1,45 @@
+---
+description: Common generic drug names (Slovak spelling of the INN). Slovak writes the international names with a long i in the final syllable - amoxicilin in Czech is amoxicilin, in Slovak amoxicilin with the accent - so the spelling differs from both the English and the Czech list.
+locale: sk
+---
+Paracetamol
+Ibuprofén
+Kyselina acetylsalicylová
+Amoxicilín
+Amoxicilín s kyselinou klavulánovou
+Azitromycín
+Ciprofloxacín
+Doxycyklín
+Lizinopril
+Enalapril
+Losartan
+Amlodipín
+Metoprolol
+Hydrochlorotiazid
+Furosemid
+Spironolaktón
+Metformín
+Glibenklamid
+Inzulín glargín
+Atorvastatín
+Simvastatín
+Omeprazol
+Pantoprazol
+Levotyroxín
+Salbutamol
+Montelukast
+Prednizón
+Dexametazón
+Loratadín
+Gabapentín
+Sertralín
+Fluoxetín
+Escitalopram
+Citalopram
+Duloxetín
+Warfarín
+Klopidogrel
+Tramadol
+Naproxén
+Diklofenak
+Alopurinol

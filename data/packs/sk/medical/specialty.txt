@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Slovak, nominative)
+locale: sk
+---
+Kardiológia
+Dermatológia
+Endokrinológia
+Gastroenterológia
+Neurológia
+Onkológia
+Oftalmológia
+Ortopédia
+Traumatológia
+Pediatria
+Psychiatria
+Pneumológia
+Rádiológia
+Reumatológia
+Urológia
+Nefrológia
+Hematológia
+Imunológia
+Alergológia
+Anestéziológia
+Urgentná medicína
+Všeobecné lekárstvo
+Vnútorné lekárstvo
+Gynekológia a pôrodníctvo
+Otorinolaryngológia
+Patológia
+Chirurgia
+Plastická chirurgia
+Cievna chirurgia
+Kardiochirurgia
+Infektológia
+Geriatria
+Neonatológia
+Fyziatria a rehabilitácia
+Nukleárna medicína
+Klinická výživa

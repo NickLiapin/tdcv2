@@ -1,0 +1,5 @@
+---
+description: Capital of Somalia, as Swahili writes it
+locale: sw
+---
+Mogadishu

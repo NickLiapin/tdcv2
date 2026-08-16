@@ -1,0 +1,11 @@
+---
+description: Personal pronoun (Swahili). Swahili has ONE third-person singular pronoun: yeye covers he and she alike, and there is no gendered form anywhere in the language. There is also no inclusive/exclusive split in the first-person plural — sisi is simply "we".
+locale: sw
+---
+mimi
+wewe
+yeye
+sisi
+ninyi
+nyinyi
+wao

@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Swahili)
+locale: sw
+---
+homa
+kutetemeka
+maumivu ya kichwa
+kizunguzungu
+uchovu
+kuchoka haraka
+kichefuchefu
+kutapika
+kuharisha
+kufunga choo
+maumivu ya tumbo
+kiungulia
+kukosa hamu ya kula
+kikohozi
+kikohozi kikavu
+kikohozi chenye makohozi
+kupumua kwa shida
+maumivu ya kifua
+moyo kwenda mbio
+miguu kuvimba
+maumivu ya mgongo
+maumivu ya viungo
+maumivu ya misuli
+ganzi
+mkakamao wa misuli
+vipele
+mwasho
+ngozi kuwa nyekundu
+macho kutoa machozi
+pua kuziba
+mafua
+maumivu ya koo
+sauti kubadilika
+kukosa usingizi
+wasiwasi
+huzuni
+kutoona vizuri
+kupungua uzito

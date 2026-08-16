@@ -1,0 +1,54 @@
+---
+description: Store department / category (Swahili)
+locale: sw
+---
+Vyakula
+Matunda na mboga
+Nyama na samaki
+Maziwa
+Mikate
+Nafaka
+Vyakula vya barafu
+Vinywaji
+Vileo
+Vitafunwa
+Chakula cha watoto
+Vifaa vya watoto
+Usafi wa nyumba
+Vipodozi
+Manukato
+Bidhaa za mwili
+Duka la dawa
+Nguo
+Nguo za wanawake
+Nguo za wanaume
+Nguo za watoto
+Viatu
+Mikoba
+Vito
+Saa
+Elektroniki
+Simu
+Kompyuta
+Laptopu
+Tableti
+Televisheni
+Vifaa vya sauti
+Kamera
+Vifaa vya nyumbani
+Vifaa vya jikoni
+Samani
+Mapambo ya nyumba
+Mashuka na taulo
+Taa
+Bustani
+Vifaa vya ujenzi
+Zana
+Vipuri vya magari
+Michezo
+Kambi na safari
+Michezo ya watoto
+Vitabu
+Vifaa vya ofisi
+Vifaa vya wanyama
+Vifaa vya kilimo

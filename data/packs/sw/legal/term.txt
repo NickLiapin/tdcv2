@@ -1,0 +1,24 @@
+---
+description: Legal term in Tanzanian court Swahili. Swahili is official in several countries and their procedures differ; the vocabulary here is the Tanzanian one.
+locale: sw
+---
+madai
+hati ya madai
+mdaiwa
+mdai
+mtu wa tatu
+amri ya mahakama
+hukumu
+adhabu
+rufaa
+mapitio
+hati ya utekelezaji
+upelelezi
+hati ya mashtaka
+kizuizi
+muda wa kupitwa
+maridhiano
+hati ya uwakili
+hati ya mthibitishaji
+gharama za kesi
+dhamana

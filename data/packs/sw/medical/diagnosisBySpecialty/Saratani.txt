@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the Saratani clinic (Swahili)
+locale: sw
+---
+Saratani ya matiti
+Saratani ya mlango wa kizazi
+Saratani ya tezi dume
+Saratani ya mapafu
+Saratani ya tumbo
+Saratani ya utumbo mpana
+Saratani ya ini
+Saratani ya damu
+Saratani ya tezi za limfu
+Saratani ya Kaposi

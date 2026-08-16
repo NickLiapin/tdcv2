@@ -1,0 +1,12 @@
+---
+description: Japanese dishes (Swahili; the dish names keep their own spelling)
+locale: sw
+---
+sushi
+sashimi
+ramen
+tempura
+teriyaki
+udon
+miso
+gyoza

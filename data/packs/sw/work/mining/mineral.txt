@@ -1,0 +1,24 @@
+---
+description: Mined mineral / commodity (Swahili). Tanzanite is found nowhere else on earth, and Tanzania is a major producer of gold, diamonds and graphite.
+locale: sw
+---
+dhahabu
+tanzanite
+almasi
+madini ya vito
+shaba
+nikeli
+chuma
+makaa ya mawe
+grafiti
+uranium
+bati
+risasi
+zinki
+fosfeti
+chumvi
+chokaa
+jasi
+mchanga wa ujenzi
+kokoto
+marumaru

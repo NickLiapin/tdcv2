@@ -1,0 +1,16 @@
+---
+description: Jobs in Technology (Slovak)
+locale: sk
+---
+Softvérový inžinier
+Frontend vývojár
+Backend vývojár
+DevOps inžinier
+Dátový vedec
+Dátový analytik
+Produktový manažér
+UX dizajnér
+Tester softvéru
+Správca systémov
+Cloudový architekt
+Špecialista na kybernetickú bezpečnosť

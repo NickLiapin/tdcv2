@@ -1,0 +1,66 @@
+---
+description: Sport (Swahili). Swahili names most ball games "mpira wa X" — the ball of the hand, of the net, of the ring — so they are phrases, not single words.
+locale: sw
+---
+mpira wa miguu
+futsal
+mpira wa kikapu
+mpira wa wavu
+mpira wa pete
+mpira wa mikono
+mpira wa meza
+tenisi
+badminton
+raga
+kriketi
+hoki
+baseboli
+riadha
+mbio
+mbio za marathon
+mbio za kutembea
+kuruka juu
+kuruka urefu
+kutupa mkuki
+kutupa tufe
+kuogelea
+kuruka majini
+polo ya majini
+kupiga makasia
+kupiga kasia
+matanga
+kuteleza kwenye mawimbi
+kuzamia
+baiskeli
+baiskeli za milimani
+BMX
+mbio za pikipiki
+mbio za magari
+kupanda farasi
+mazoezi ya viungo
+sarakasi
+kunyanyua vitu vizito
+ubondia
+ndondi
+kickboxing
+karate
+judo
+taekwondo
+mieleka
+wushu
+uzio
+kupiga shabaha
+upinde na mshale
+chess
+bao
+kupanda miamba
+kupanda milima
+kushuka mto kwa mtumbwi
+paragliding
+gofu
+biliadi
+bowling
+skeitbodi
+skeiti
+michezo ya kielektroniki
+kuvuta kamba

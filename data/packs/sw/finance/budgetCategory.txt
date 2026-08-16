@@ -1,0 +1,26 @@
+---
+description: Budget / spending category (Swahili)
+locale: sw
+---
+manunuzi ya nyumbani
+kula nje
+malazi
+kodi ya nyumba
+umeme na maji
+vocha na intaneti
+usafiri
+mafuta ya gari
+gari
+afya
+dawa
+elimu
+ada ya shule
+watoto
+nguo na viatu
+urembo
+burudani
+likizo
+zawadi
+sadaka
+akiba
+michango ya kijamii

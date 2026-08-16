@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Slovak)
+locale: sk
+---
+Karcinóm prsníka
+Karcinóm pľúc
+Kolorektálny karcinóm
+Leukémia
+Lymfóm
+Melanóm
+Karcinóm prostaty
+Karcinóm žalúdka
+Karcinóm pankreasu
+Mnohopočetný myelóm

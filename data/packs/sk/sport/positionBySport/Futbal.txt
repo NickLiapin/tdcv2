@@ -1,0 +1,14 @@
+---
+description: Positions in association football (Slovak)
+locale: sk
+---
+Brankár
+Stopér
+Krajný obranca
+Defenzívny stredopoliar
+Stredný stredopoliar
+Ofenzívny stredopoliar
+Krajný stredopoliar
+Krídlo
+Útočník
+Hrotový útočník

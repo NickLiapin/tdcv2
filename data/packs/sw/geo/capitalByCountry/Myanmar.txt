@@ -1,0 +1,5 @@
+---
+description: Capital of Myanmar, as Swahili writes it
+locale: sw
+---
+Naypyidaw

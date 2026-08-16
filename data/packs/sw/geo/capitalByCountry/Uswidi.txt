@@ -1,0 +1,5 @@
+---
+description: Capital of Uswidi, as Swahili writes it
+locale: sw
+---
+Stockholm

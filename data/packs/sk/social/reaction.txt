@@ -1,0 +1,15 @@
+---
+description: Social reaction (Slovak)
+locale: sk
+---
+Páči sa mi to
+Super
+Ha ha
+Wow
+To ma mrzí
+Nahnevať
+Držím palce
+Oslavujem
+Podporujem
+Zaujímavé
+Prekvapujúce

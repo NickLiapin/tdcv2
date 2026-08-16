@@ -1,0 +1,12 @@
+---
+description: Korean dishes (Swahili)
+locale: sw
+---
+kimchi
+bibimbap
+bulgogi
+tteokbokki
+japchae
+samgyeopsal
+kimbap
+ramyeon

@@ -1,0 +1,17 @@
+---
+description: Legal case type (Slovak, adjectival, agreeing with vec)
+locale: sk
+---
+Občianskoprávna
+Trestná
+Rodinná
+Konkurzná
+Náhrada škody
+Pracovnoprávna
+Spor zo zmluvy
+Duševné vlastníctvo
+Nehnuteľnosti
+Cudzinecká
+Daňová
+Správna
+Obchodná

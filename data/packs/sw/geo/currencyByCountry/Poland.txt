@@ -1,0 +1,5 @@
+---
+description: Currency of Poland (Swahili)
+locale: sw
+---
+Zloti ya Poland

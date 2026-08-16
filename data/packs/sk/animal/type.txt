@@ -1,0 +1,42 @@
+---
+description: Animal, general (Slovak, nominative)
+locale: sk
+---
+Pes
+Mačka
+Slon
+Lev
+Tiger
+Medveď
+Vlk
+Líška
+Jeleň
+Králik
+Kôň
+Krava
+Ovca
+Koza
+Prasa
+Opica
+Žirafa
+Zebra
+Kengura
+Panda
+Koala
+Vydra
+Delfín
+Veľryba
+Tuleň
+Ježko
+Veverica
+Medvedík čistotný
+Los
+Zubor
+Jaguár
+Lama
+Puma
+Ťava
+Nosorožec
+Hroch
+Krokodíl
+Netopier

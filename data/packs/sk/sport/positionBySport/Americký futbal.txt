@@ -1,0 +1,14 @@
+---
+description: Positions in American football (Slovak)
+locale: sk
+---
+Quarterback
+Running back
+Wide receiver
+Tight end
+Útočná línia
+Defenzívna línia
+Linebacker
+Cornerback
+Safety
+Kicker

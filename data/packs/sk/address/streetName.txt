@@ -1,0 +1,192 @@
+---
+description: Street names common across Slovakia (nature, trades, national figures, dates). A Slovak address writes the street FIRST and the number after it (Dlhá 12), and the type word — ulica — is normally left out unless it is námestie or trieda. Note the group beginning with a preposition (Na hôrke, Pri potoku, Pod lesom, Za humnami): these are ordinary Slovak street names, not fragments. The national-figure group is Slovak rather than Czech — Štúr, Hurban, Hodža, Hviezdoslav, Bernolák, Sládkovič, Kukučín — and 29. augusta is the anniversary of the Slovak National Uprising. City-specific streets belong in a country pack.
+locale: sk
+---
+Lipová
+Kvetná
+Záhradná
+Poľná
+Lúčna
+Lesná
+Sadová
+Bazová
+Ružová
+Fialková
+Konvalinková
+Vŕbová
+Topoľová
+Javorová
+Dubová
+Buková
+Smreková
+Borovicová
+Smrekovcová
+Jedľová
+Hrabová
+Jelšová
+Brestová
+Gaštanová
+Orechová
+Jabloňová
+Hrušková
+Čerešňová
+Slivková
+Malinová
+Jahodová
+Ostružinová
+Brusnicová
+Šípková
+Trnková
+Brezová
+Agátová
+Krátka
+Dlhá
+Široká
+Úzka
+Vysoká
+Nízka
+Hlavná
+Nová
+Stará
+Malá
+Veľká
+Tichá
+Slnečná
+Zelená
+Biela
+Zlatá
+Strieborná
+Skalná
+Údolná
+Horná
+Dolná
+Priečna
+Rovná
+Krajná
+Okružná
+Spojná
+Mierová
+Jesenná
+Letná
+Jarná
+Zimná
+Na hôrke
+Na vŕšku
+Na barine
+Na výslní
+Na kopci
+Na medzi
+Na hrádzi
+Na vyhliadke
+Na rybníku
+Pod lesom
+Pod hradom
+Pod vinicami
+Pod strážou
+Pod skalkou
+Pri potoku
+Pri mlyne
+Pri kríži
+Pri studni
+Pri parku
+Pri stanici
+K lesu
+K stanici
+K ihrisku
+K vodojemu
+V záhradách
+V lúkach
+V dolinke
+Za humnami
+Za mlynom
+Za sadom
+Za mostom
+Nad jazerom
+Nad tehelňou
+Štúrova
+Hurbanova
+Hodžova
+Hviezdoslavova
+Bernolákova
+Sládkovičova
+Kukučínova
+Vajanského
+Jesenského
+Moyzesova
+Hollého
+Chalupkova
+Palárikova
+Tajovského
+Rázusova
+Kalinčiakova
+Kuzmányho
+Podjavorinskej
+Timravy
+Dobšinského
+Škultétyho
+Fándlyho
+Šafárikova
+Bottova
+Mudroňova
+Radlinského
+Kollárova
+Komenského
+Janka Kráľa
+Milana Rastislava Štefánika
+Ľudovíta Štúra
+Andreja Sládkoviča
+Martina Kukučína
+Pavla Országha Hviezdoslava
+29. augusta
+1. mája
+17. novembra
+9. mája
+Staničná
+Školská
+Kostolná
+Cintorínska
+Mlynská
+Zámocká
+Radničná
+Nemocničná
+Priemyselná
+Továrenská
+Robotnícka
+Družstevná
+Pekárska
+Mäsiarska
+Kováčska
+Hrnčiarska
+Zámočnícka
+Debnárska
+Rybárska
+Poľovnícka
+Športová
+Rekreačná
+Kúpeľná
+Poštová
+Divadelná
+Múzejná
+Univerzitná
+Študentská
+Vodná
+Brehová
+Prístavná
+Nábrežná
+Bratislavská
+Košická
+Žilinská
+Nitrianska
+Prešovská
+Trnavská
+Trenčianska
+Zvolenská
+Popradská
+Martinská
+Levická
+Michalovská
+Viedenská
+Partizánska
+Duklianska
+Obrancov mieru
+Slobody

@@ -1,0 +1,26 @@
+---
+description: Parcel carriers commonly used in Slovakia. Zásielkovňa is the Slovak brand of Packeta; Z-Box, BalíkoBOX and AlzaBox are parcel-locker networks, and SPS (Slovak Parcel Service) is the long-established domestic courier. As in Czechia most Slovak e-commerce parcels move through pickup points rather than to the door.
+locale: sk
+---
+Slovenská pošta
+Zásielkovňa
+Packeta
+Z-Box
+BalíkoBOX
+SPS
+Slovak Parcel Service
+123Kuriér
+GLS
+DPD
+DHL Express
+DHL Parcel
+UPS
+FedEx
+TNT
+AlzaBox
+Geis
+Gebrüder Weiss
+Dachser
+DB Schenker
+Raben
+Kuriér ExpresKurier

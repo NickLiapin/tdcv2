@@ -1,0 +1,20 @@
+---
+description: Level of education / qualification as awarded in Tanzania (Swahili). The school ladder is Darasa la Saba, then Kidato cha Nne (CSEE) and Kidato cha Sita (ACSEE), before the certificate-diploma-degree line.
+locale: sw
+---
+Darasa la Saba
+Kidato cha Nne
+Kidato cha Sita
+Astashahada
+Stashahada
+Stashahada ya Juu
+Shahada ya Kwanza
+Shahada ya Uzamili
+Shahada ya Uzamivu
+Cheti cha Ufundi
+Cheti cha Ualimu
+Stashahada ya Ualimu
+Shahada ya Udaktari
+Shahada ya Sheria
+Shahada ya Uhandisi
+Ubingwa

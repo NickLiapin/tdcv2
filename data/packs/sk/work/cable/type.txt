@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Slovak)
+locale: sk
+---
+Optické vlákno
+Koaxiálny
+Krútená dvojlinka
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Nadzemný
+Podzemný

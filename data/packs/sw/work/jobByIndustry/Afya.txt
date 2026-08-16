@@ -1,0 +1,16 @@
+---
+description: Jobs in Afya (Swahili)
+locale: sw
+---
+daktari bingwa
+daktari wa jumla
+muuguzi
+mkunga
+mfamasia
+mtaalamu wa maabara
+fundi wa mionzi
+daktari wa meno
+mtaalamu wa lishe
+afisa afya ya jamii
+mtaalamu wa viungo
+msimamizi wa zahanati

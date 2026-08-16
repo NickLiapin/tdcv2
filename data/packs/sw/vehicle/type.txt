@@ -1,0 +1,27 @@
+---
+description: Vehicle body type (Swahili). daladala is the Tanzanian minibus, bajaji the three-wheeler, bodaboda the motorcycle taxi and mkokoteni the hand cart — between them they carry most people and most goods in a Tanzanian town. Kenya's matatu is NOT on this list; it is the Kenyan word.
+locale: sw
+---
+saluni
+hachbaki
+steshenweni
+kupe
+SUV
+gari dogo
+gari la abiria
+minibasi
+daladala
+basi
+basi la mwendokasi
+kocha
+lori
+lori la mizigo
+tipa
+tela
+tanki la mafuta
+pikipiki
+bodaboda
+bajaji
+guta
+mkokoteni
+trekta

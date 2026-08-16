@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Slovak)
+locale: sk
+---
+Posúdenie životopisu
+Telefonický rozhovor
+Technický pohovor
+Osobný pohovor
+Pohovor s panelom
+Finálne kolo
+Overenie referencií
+Ponuka
+Odmietnutý
+Prijatý
+Stiahnuté

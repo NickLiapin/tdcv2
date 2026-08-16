@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Slovak)
+locale: sk
+---
+Bronchiálna astma
+Chronická obštrukčná choroba pľúc
+Pneumónia
+Pľúcna embólia
+Tuberkulóza
+Syndróm obštrukčného spánkového apnoe
+Bronchiektázie
+Pľúcna sarkoidóza
+Pľúcna fibróza
+Chronická bronchitída

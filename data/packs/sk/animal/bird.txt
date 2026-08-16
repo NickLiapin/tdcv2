@@ -1,0 +1,34 @@
+---
+description: Bird (Slovak, nominative)
+locale: sk
+---
+Vrabec
+Červienka
+Orol
+Sokol
+Sova
+Papagáj
+Tučniak
+Myšiak
+Sojka
+Kolibrík
+Ďateľ
+Pelikán
+Plameniak
+Labuť
+Havran
+Vrana
+Stehlík
+Volavka
+Rybárik
+Čajka
+Holub
+Lastovička
+Slávik
+Kondor
+Tukan
+Pštros
+Bocian
+Kuvik
+Škovránok
+Trasochvost

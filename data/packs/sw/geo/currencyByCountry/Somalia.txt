@@ -1,0 +1,5 @@
+---
+description: Currency of Somalia (Swahili)
+locale: sw
+---
+Shilingi ya Somalia

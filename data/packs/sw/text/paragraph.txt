@@ -1,0 +1,24 @@
+---
+description: Swahili filler paragraphs. Handwritten: Project Gutenberg holds no Swahili book at all (a search for l.sw returns "No records found"), so unlike fr/de/it/es/pt/pl this is not extracted from a public-domain corpus.
+locale: sw
+---
+Asubuhi ilianza kama kawaida. Alifungua dirisha, akaruhusu upepo wa baharini uingie chumbani, na kusikiliza daladala la kwanza likipita chini. Kisha akaweka maji jikoni na kusubiri yachemke huku akiangalia mapaa ya majirani, mahali ndege walipokuwa wakitua kila siku.
+Njia ya kwenda kijijini ilikuwa ndefu na yenye mashimo. Basi liliruka kwenye kila shimo, na nje ya dirisha yalitanda mashamba, kisha safu ya miti, kisha mashamba tena. Watu walikaa kimya, kila mmoja na mawazo yake, na dereva pekee ndiye aliyewasha redio yenye mtandao mbovu.
+Nyumba ile ilisimama mwisho wa mtaa, ya mwisho kabla ya mteremko kuelekea mtoni. Uzio wake ulikuwa umeinama tangu zamani na mlango haukufungika, na kila mtu alijua hilo. Lakini ni hapa hasa ambapo majirani walikusanyika kila kulipokuwa na jambo la kuamua pamoja.
+Alipenda maktaba kwa sababu ya ukimya wake. Si kwa sababu ya vitabu, bali kwa harufu ya karatasi za zamani na kwa sauti ya hatua zilizopotea kati ya rafu ndefu. Angeweza kukaa nusu siku bila kusema neno kwa mtu yeyote.
+Sokoni kulikuwa na kelele tangu alfajiri. Wauzaji waliita bei zao, wanunuzi walijadiliana, na harufu ya samaki wabichi ilichanganyika na ile ya matunda yaliyoiva. Alipita kati yao akiwa amebeba kikapu tupu, akijua kwamba angetoka na kikapu kizito.
+Msimu wa masika ulianza mapema mwaka ule. Wakulima walikuwa wamesubiri kwa wasiwasi, wakiangalia mawingu kila jioni na kubashiri. Mvua ilipoanza, ilinyesha usiku kucha, na asubuhi njia zote za shambani zilikuwa matope.
+Hospitali ilikuwa na foleni ndefu tangu kabla ya jua kuchomoza. Watu waliketi kwenye madawati marefu wakisubiri majina yao yaitwe. Alichukua namba yake, akakaa mwisho wa safu, na kufungua kitabu alichokuwa amekibeba kwa ajili hii hasa.
+Bandarini kulikuwa na meli tatu zilizosubiri kupakua. Malori yalisimama safu ndefu tangu geti la kwanza, na madereva walilala ndani ya vyumba vyao vya kuendeshea. Kazi ilianza saa kumi na moja, na hadi jioni safu ilikuwa bado ndefu vilevile.
+Harusi ilifanyika ukumbini na ikaendelea hadi usiku wa manane. Ngoma zilipigwa, watu walicheza, na kila mmoja alichangia kidogo hadi ikatosha. Asubuhi iliyofuata mtaa mzima ulikuwa kimya, kama kwamba hakuna kilichotokea.
+Kilimanjaro kilionekana wazi asubuhi ile. Hilo si jambo la kawaida, kwa sababu mara nyingi mlima hujificha mawinguni tangu mapema. Wageni walisimama nje ya mahema wakipiga picha, na mwongozaji akawaambia kwamba wamebahatika.
+Kila jioni mzee alikaa barazani akisoma gazeti la jana. Hakuna aliyemuuliza kwa nini gazeti la jana, kwa sababu jibu lilikuwa wazi: gazeti la leo lilifika kijijini kesho. Alisoma kila ukurasa, hata matangazo, kisha akalikunja na kulihifadhi.
+Duka la kona lilikuwa limefungwa siku hiyo. Aliuliza jirani, na jirani akasema kwamba mwenye duka amesafiri kwenda Dodoma. Ilibidi atembee hadi sokoni, na safari hiyo ikamchukua nusu saa zaidi kuliko alivyopanga.
+Usiku ulikuwa mtulivu. Umeme ulikuwa umekatika tangu jioni, na taa ya kibatari iliweka kivuli kirefu ukutani. Kutoka nje ilisikika sauti ya kereng'ende tu, na mara moja moja mbwa wa mbali.
+Watoto walicheza mpira uwanjani hadi giza lilipoingia. Mpira ulikuwa wa plastiki na milango ilikuwa ni mawe mawili, lakini hilo halikuwapunguzia furaha. Walipoitwa nyumbani, waliahidi kuendelea kesho mahali walipoishia.
+Safari ya kwenda Mwanza ilichukua siku nzima. Waliondoka saa kumi na mbili asubuhi na kufika giza likiwa limeingia. Kutoka dirishani aliona mashamba, misitu, na kisha ziwa likianza kuonekana kama ukanda wa fedha.
+Mkutano wa kijiji uliitishwa chini ya mti mkubwa. Kila mtu aliyekuja alikaa pale alipopata nafasi, na mzee mmoja akaeleza jambo lililowakutanisha. Walijadili kwa muda mrefu, kisha wakaamua kwa pamoja, kama walivyokuwa wakifanya siku zote.
+Alituma pesa kwa simu na ujumbe ukafika mara moja. Hakuhitaji kwenda benki wala kusubiri foleni, na hilo lilikuwa jambo la kawaida kabisa. Dakika chache baadaye alipokea ujumbe mwingine ukithibitisha kwamba pesa zimepokelewa.
+Alinunua dawa dukani na kurudi nyumbani kwa bodaboda. Dereva alimfahamu na hakumuuliza njia. Walipofika, alilipa nauli na kuingia ndani, akiwa amechelewa kidogo kuliko alivyotarajia.
+Wanyama walikusanyika kwenye bwawa la maji jua likianza kuzama. Kwanza walikuja swala, kisha nyati, na mwisho tembo waliokwenda taratibu bila kuangalia pembeni. Gari lilisimama mbali, na hakuna aliyesema neno kwa muda mrefu.
+Harufu ya udongo baada ya mvua ndiyo aliyoipenda kuliko zote. Ilimkumbusha utoto wake, wakati mvua ilipomaanisha kwamba shule zitafungwa mapema. Alisimama mlangoni kwa dakika kadhaa, akivuta pumzi, kisha akaingia ndani.

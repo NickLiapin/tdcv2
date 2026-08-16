@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Slovak)
+locale: sk
+---
+Nahrávač
+Smečiar
+Blokár
+Univerzál
+Libero

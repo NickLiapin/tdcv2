@@ -1,0 +1,32 @@
+---
+description: Field of study / major (Slovak, nominative)
+locale: sk
+---
+Informatika
+Manažment
+Psychológia
+Biológia
+Strojárstvo
+Elektrotechnika
+Stavebníctvo
+Ekonómia
+Politológia
+Slovenský jazyk a literatúra
+Ošetrovateľstvo
+Chémia
+Matematika
+História
+Marketing
+Financie a účtovníctvo
+Žurnalistika
+Sociológia
+Fyzika
+Grafický dizajn
+Dátová analytika
+Ochrana životného prostredia
+Právo
+Všeobecné lekárstvo
+Architektúra
+Logistika
+Pedagogika
+Filozofia

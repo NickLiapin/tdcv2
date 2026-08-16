@@ -1,0 +1,23 @@
+---
+description: Legal term (Slovak, nominative)
+locale: sk
+---
+Žalobca
+Žalovaný
+Predvolanie na súd
+Čestné vyhlásenie
+Výpoveď svedka
+Svedectvo
+Neodkladné opatrenie
+Rozsudok
+Zmier
+Súdne konanie
+Prípravné konanie
+Príslušnosť súdu
+Odvolanie
+Prokurátor
+Obhajca
+Dôkaz
+Ústavná sťažnosť
+Doručenie písomnosti
+Plnomocenstvo

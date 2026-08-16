@@ -1,0 +1,36 @@
+---
+description: Common adverb (Slovak)
+locale: sk
+---
+rýchlo
+pomaly
+opatrne
+ľahko
+ticho
+nahlas
+vždy
+nikdy
+často
+niekedy
+zriedka
+náhle
+jemne
+zreteľne
+jednoducho
+takmer
+celkom
+sotva
+väčšinou
+naozaj
+hlboko
+široko
+voľne
+smelo
+rozhodne
+ochotne
+zdvorilo
+skoro
+neskoro
+včas
+možno
+stále

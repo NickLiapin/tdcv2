@@ -1,0 +1,33 @@
+---
+description: Dog breed (Slovak). Slovenský čuvač (the white mountain flock guardian), slovenský kopov (the black hound bred for wild boar) and slovenský hrubosrstý stavač are Slovakia's three internationally recognised national breeds; the československý vlčiak was bred in Malacky from German shepherds and Carpathian wolves.
+locale: sk
+---
+Labradorský retríver
+Nemecký ovčiak
+Zlatý retríver
+Francúzsky buldoček
+Anglický buldog
+Pudel
+Bígl
+Rotvajler
+Jazvečík
+Boxer
+Sibírsky husky
+Nemecká doga
+Dobrman
+Austrálsky ovčiak
+Border kólia
+Čivava
+Ši-cu
+Pomeranian
+Corgi
+Bernský salašnícky pes
+Chrt
+Mastif
+Bulteriér
+Bernardín
+Dalmatínec
+Slovenský čuvač
+Slovenský kopov
+Slovenský hrubosrstý stavač
+Československý vlčiak

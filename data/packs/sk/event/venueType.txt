@@ -1,0 +1,20 @@
+---
+description: Venue type (Slovak). Kulturny dom - the culture house built in almost every Slovak village under socialism - is still where the village ball, the wedding and the amateur theatre happen; it is the Slovak counterpart of the Czech sokolovna.
+locale: sk
+---
+Hotelová sála
+Kongresové centrum
+Štadión
+Divadlo
+Banketová sála
+Terasa
+Záhrada
+Priemyselná hala
+Aula
+Nočný klub
+Konferenčná sála
+Kaštieľ
+Vinárstvo
+Pláž
+Múzeum
+Kultúrny dom

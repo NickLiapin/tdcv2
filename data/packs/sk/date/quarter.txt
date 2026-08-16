@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Slovak, stvrtrok)
+locale: sk
+---
+Q1
+Q2
+Q3
+Q4

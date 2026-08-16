@@ -1,0 +1,11 @@
+---
+description: Positions in netball (Swahili). Netball is the most widely played team sport for women in Tanzania
+locale: sw
+---
+mfungaji
+mshambuliaji
+bawa la mbele
+kiungo
+bawa la nyuma
+mlinzi
+mlinzi wa lango

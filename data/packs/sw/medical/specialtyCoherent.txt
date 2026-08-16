@@ -1,0 +1,14 @@
+---
+description: Medical specialty in Swahili (has a coherent diagnosis list)
+locale: sw
+---
+Magonjwa ya moyo
+Magonjwa ya mfumo wa fahamu
+Magonjwa ya tumbo
+Magonjwa ya mapafu
+Magonjwa ya homoni
+Magonjwa ya figo
+Mifupa na viungo
+Magonjwa ya ngozi
+Saratani
+Afya ya akili

@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Swahili). The passenger bicycle at the end is a real trade in Tanzanian towns, not a curiosity.
+locale: sw
+---
+baiskeli ya mjini
+baiskeli ya safari
+baiskeli ya mbio
+baiskeli ya milimani
+baiskeli ya changarawe
+baiskeli mseto
+baiskeli ya barabarani
+baiskeli ya kukunja
+baiskeli ya umeme
+baiskeli ya watoto
+baiskeli ya vijana
+BMX
+baiskeli ya magurudumu matatu
+tandemu
+baiskeli ya kulalia
+baiskeli ya mizigo
+baiskeli ya kubeba abiria

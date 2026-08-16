@@ -1,0 +1,5 @@
+---
+description: Currency of Ajentina (Swahili)
+locale: sw
+---
+Peso ya Ajentina

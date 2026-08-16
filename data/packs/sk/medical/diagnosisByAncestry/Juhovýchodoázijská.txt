@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Slovak. A prevalence signal, not an exclusive one.
+locale: sk
+---
+Hemoglobinopatia E
+Alfa-talasémia
+Deficit glukózo-6-fosfátdehydrogenázy
+Nazofaryngeálny karcinóm
+Beta-talasémia
+Brugada syndróm
+Hypolaktázia dospelých

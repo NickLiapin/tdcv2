@@ -1,0 +1,5 @@
+---
+description: Capital of Jamhuri ya Kidemokrasia ya Kongo, as Swahili writes it
+locale: sw
+---
+Kinshasa

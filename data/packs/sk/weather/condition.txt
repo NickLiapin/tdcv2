@@ -1,0 +1,20 @@
+---
+description: Weather condition (Slovak)
+locale: sk
+---
+Slnečno
+Polojasno
+Oblačno
+Zamračené
+Dážď
+Mrholenie
+Búrka
+Sneženie
+Dážď so snehom
+Hmla
+Veterno
+Opar
+Jasno
+Krupobitie
+Prehánky
+Dusno

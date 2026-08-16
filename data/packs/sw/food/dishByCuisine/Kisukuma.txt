@@ -1,0 +1,12 @@
+---
+description: Sukuma dishes from the Lake Victoria basin (Swahili)
+locale: sw
+---
+ugali wa dona
+mlenda
+dagaa
+sangara wa kuchoma
+kuku wa kienyeji
+maharage
+mchicha
+muhogo

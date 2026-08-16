@@ -1,0 +1,12 @@
+---
+description: American dishes (Swahili)
+locale: sw
+---
+hamburger
+chizburger
+hot dog
+kuku wa kukaanga
+mbavu za kuchoma
+pancake
+apple pie
+chipsi

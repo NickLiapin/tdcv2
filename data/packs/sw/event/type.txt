@@ -1,0 +1,24 @@
+---
+description: Event type (Swahili)
+locale: sw
+---
+mkutano
+kongamano
+semina
+warsha
+mafunzo
+mhadhara
+jukwaa
+maonyesho
+maonyesho ya biashara
+wasilisho
+tamasha
+tamasha la muziki
+onyesho la sanaa
+onyesho la filamu
+mashindano
+michuano
+harusi
+sherehe ya kuzaliwa
+mahafali
+sendoff

@@ -1,0 +1,13 @@
+---
+description: Dishes of Mexican cuisine (Slovak)
+locale: sk
+---
+Tacos
+Burrito
+Enchiladas
+Quesadilla
+Guacamole
+Tamales
+Plnené čili papričky
+Pozole
+Mole poblano

@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Swahili)
+locale: sw
+---
+mwanzo
+shaba
+fedha
+dhahabu
+platinamu
+almasi
+bingwa
+bingwa mkuu
+mshindi
+hadithi

@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Swahili)
+locale: sw
+---
+mizigo mikavu
+mizigo ya kupoza
+kontena
+tanki la mafuta
+tanki la maji
+mizigo mizito
+kubeba magari
+nafaka
+saruji
+mbao
+mifugo
+madini
+mizigo ya hatari

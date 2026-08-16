@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the Magonjwa ya tumbo clinic (Swahili)
+locale: sw
+---
+Uvimbe wa tumbo
+Vidonda vya tumbo
+Kiungulia sugu
+Ugonjwa wa utumbo kuwashwa
+Ugonjwa wa Crohn
+Ugonjwa wa vidonda vya utumbo mpana
+Ugonjwa wa celiac
+Uvimbe sugu wa kongosho
+Mawe kwenye nyongo
+Homa ya ini B

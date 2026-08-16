@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Swahili that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: sw
+---
+Kuvimba kwa tezi dume
+Uvimbe wa tezi dume
+Saratani ya tezi dume
+Mishipa ya korodani kuvimba
+Mabusha
+Korodani kutoshuka
+Govi kubana
+Uvimbe wa govi
+Uvimbe wa korodani
+Uvimbe wa mrija wa korodani
+Kupinda kwa korodani
+Saratani ya korodani
+Kushindwa kusimamisha uume
+Ugonjwa wa Peyronie
+Ugumba kwa mwanamume
+Upungufu wa homoni ya kiume
+Ngiri
+Kukosa mbegu za kiume
+Kuvimba kwa matiti kwa mwanamume
+Uvimbe wa mrija wa mkojo

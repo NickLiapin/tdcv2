@@ -1,0 +1,5 @@
+---
+description: Capital of Korea Kusini, as Swahili writes it
+locale: sw
+---
+Seoul

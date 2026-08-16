@@ -1,0 +1,5 @@
+---
+description: Capital of Marekani, as Swahili writes it
+locale: sw
+---
+Washington

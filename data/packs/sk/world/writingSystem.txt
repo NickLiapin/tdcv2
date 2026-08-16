@@ -1,0 +1,24 @@
+---
+description: Writing system (Slovak). Slovak itself uses the Latin alphabet with four diacritics: the makcen (c, d, l, n, s, t, z), the dlzen (a, e, i, o, u, y, and also l and r, which carry length as syllable nuclei - stlp, vrba), the vokan on o (kon, stol) and the dve bodky on a (maso, pamat). The letters l, l-acute, r-acute, a-diaeresis and o-circumflex are exactly the ones Czech does not have, and Czech e-hacek, r-hacek and u-ring are exactly the ones Slovak does not.
+locale: sk
+---
+Latinka
+Cyrilika
+Grécka abeceda
+Arabské písmo
+Hebrejské písmo
+Arménske písmo
+Gruzínske písmo
+Čínske znaky
+Hiragana
+Katakana
+Hangul
+Dévanágarí
+Thajské písmo
+Tibetské písmo
+Etiópske písmo
+Čerokézske slabičné písmo
+Mayské písmo
+Bengálske písmo
+Tamilské písmo
+Hlaholika

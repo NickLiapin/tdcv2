@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Slovak. A prevalence signal, not an exclusive one.
+locale: sk
+---
+Tay-Sachsova choroba
+Gaucherova choroba 1. typu
+Familiárna dysautonómia
+Canavanova choroba
+Niemannova-Pickova choroba typu A
+Bloomov syndróm
+Deficit faktora XI
+Zakladateľská mutácia BRCA1
+Zakladateľská mutácia BRCA2
+Mukolipidóza typu IV
+Crohnova choroba
+Torzná dystónia

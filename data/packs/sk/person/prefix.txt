@@ -1,0 +1,36 @@
+---
+description: Slovak honorific or academic title. Slovak academic titles are written BEFORE the name and are part of everyday address (Ing. Jan Novak, MUDr. Eva Novakova); degrees awarded after the name live in person/suffix. Mgr. art. is the Slovak arts master's and vdp. (veladostojny pan) the ordinary written address for a parish priest. Abbreviated forms as they are actually written.
+locale: sk
+---
+pán
+pani
+slečna
+Ing.
+Ing. arch.
+Mgr.
+Mgr. art.
+Bc.
+MUDr.
+MDDr.
+MVDr.
+JUDr.
+PhDr.
+RNDr.
+PharmDr.
+ThDr.
+ThLic.
+PaedDr.
+doc.
+prof.
+akad. arch.
+akad. mal.
+vdp.
+Mons.
+gen.
+plk.
+mjr.
+kpt.
+por.
+npor.
+ppr.
+nstržm.

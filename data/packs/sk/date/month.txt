@@ -1,0 +1,16 @@
+---
+description: Month name (Slovak, nominative, lowercase per Slovak orthography). Slovak month names are the Latin ones - januar, februar, marec - and are therefore COMPLETELY different from Czech, which uses native Slavic names (leden, unor, brezen). They change to the genitive inside a date: 5. januara, not 5. januar. The date form is in DATE_LOCALE.json as monthsInDate.
+locale: sk
+---
+január
+február
+marec
+apríl
+máj
+jún
+júl
+august
+september
+október
+november
+december

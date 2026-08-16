@@ -1,0 +1,11 @@
+---
+description: Driving licence class as issued in Tanzania (Swahili). The class letter is what appears on the licence card.
+locale: sw
+---
+Daraja A
+Daraja A1
+Daraja B
+Daraja C
+Daraja C1
+Daraja D
+Daraja E

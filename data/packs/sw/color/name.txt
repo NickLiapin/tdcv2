@@ -1,0 +1,55 @@
+---
+description: Colour name (Swahili), in the N-class citation form. The three native colour words INFLECT: nyeupe / nyeusi / nyekundu take a prefix agreeing with what they describe — mtu MWEUSI, kitu CHEUSI, magari MEUSI. Everything else here is a loan or a noun-of-source phrase and stays as written. 'damu ya mzee' is the ordinary Tanzanian word for maroon.
+locale: sw
+---
+nyeupe
+nyeusi
+nyekundu
+kijivu
+kijivu hafifu
+kijivu iliyokolea
+kijani
+kijani kibichi
+kijani iliyokolea
+njano
+manjano
+njano hafifu
+bluu
+buluu
+samawati
+samawati hafifu
+bluu ya bahari
+bluu ya anga
+zambarau
+urujuani
+kahawia
+kahawia iliyokolea
+kahawia hafifu
+hudhurungi
+chungwa
+machungwa
+waridi
+pinki
+pinki hafifu
+damu ya mzee
+nyekundu ya damu
+kaki
+krimu
+maziwa
+pembe
+mchanga
+dhahabu
+fedha
+shaba
+shaba nyeupe
+chuma
+zumaridi
+yakuti
+almasi
+marijani
+lulu
+kaharabu
+kijani cha mzeituni
+bluu ya kijeshi
+nyeusi ya makaa
+kutu

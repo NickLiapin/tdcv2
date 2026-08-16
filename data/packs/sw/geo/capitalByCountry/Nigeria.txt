@@ -1,0 +1,5 @@
+---
+description: Capital of Nigeria, as Swahili writes it
+locale: sw
+---
+Abuja

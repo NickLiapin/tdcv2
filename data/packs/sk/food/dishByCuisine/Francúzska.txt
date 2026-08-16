@@ -1,0 +1,13 @@
+---
+description: Dishes of French cuisine (Slovak)
+locale: sk
+---
+Coq au vin
+Hovädzie po burgundsky
+Ratatouille
+Croissant
+Quiche lorraine
+Bouillabaisse
+Francúzske palacinky
+Cassoulet
+Cibuľová polievka

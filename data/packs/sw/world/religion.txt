@@ -1,0 +1,25 @@
+---
+description: World religion (Swahili). Tanzania is roughly half Christian and half Muslim; the Lutheran and Moravian churches are unusually large here, and Zanzibar is largely Ibadhi, the Omani school, rather than Sunni.
+locale: sw
+---
+Uislamu
+Ukristo
+Ukatoliki
+Kilutheri
+Uanglikana
+Wamoravian
+Wapentekoste
+Waadventista wa Sabato
+Wabaptisti
+Wamethodisti
+Wapresbiteri
+Sunni
+Shia
+Ibadhi
+Uhindu
+Ubuddha
+Usikh
+Ujaini
+Ubahai
+Uyahudi
+Dini za asili

@@ -1,0 +1,32 @@
+---
+description: Flower (Slovak, nominative)
+locale: sk
+---
+Ruža
+Tulipán
+Sedmokráska
+Slnečnica
+Ľalia
+Orchidea
+Narcis
+Nechtík
+Levanduľa
+Kosatec
+Pivonka
+Klinček
+Chryzantéma
+Mak
+Fialka
+Jazmín
+Ibištek
+Lotos
+Georgína
+Begónia
+Konvalinka
+Gardénia
+Kamélia
+Petúnia
+Muškát
+Bugenvilea
+Nezábudka
+Azalka

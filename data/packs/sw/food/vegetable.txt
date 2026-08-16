@@ -1,0 +1,34 @@
+---
+description: Vegetable (Swahili). mchicha, mnavu, mlenda, kisamvu and sukumawiki are the leafy greens a Tanzanian meal is actually built around.
+locale: sw
+---
+mchicha
+mnavu
+mlenda
+kisamvu
+majani ya maboga
+sukumawiki
+kabichi
+saladi
+spinachi
+brokoli
+kolifulawa
+karoti
+nyanya
+kitunguu
+kitunguu saumu
+pilipili hoho
+biringanya
+bamia
+matango
+boga
+maboga
+viazi
+viazi vitamu
+muhogo
+magimbi
+ndizi za kupika
+mahindi
+njegere
+kunde
+figili

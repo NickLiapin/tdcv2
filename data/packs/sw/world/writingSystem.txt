@@ -1,0 +1,24 @@
+---
+description: Writing system (Swahili). Ajami is on the list because Swahili itself was written in Arabic script for centuries before the Latin alphabet arrived — the oldest surviving Swahili manuscripts are in it.
+locale: sw
+---
+hati ya Kilatini
+hati ya Kiarabu
+hati ya Kiajami
+hati ya Kisirili
+hati ya Kigiriki
+hati ya Kiebrania
+Devanagari
+hati ya Kibengali
+hati ya Kitamil
+hati ya Kithai
+hati ya Kikhmer
+hati ya Kichina
+Hangul
+Kana
+hati ya Kiethiopia
+hati ya Kiarmenia
+hati ya Kigeorgia
+hati ya Tifinagh
+hati ya Nko
+hati ya Kisinhala

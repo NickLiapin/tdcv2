@@ -1,0 +1,15 @@
+---
+description: Booking status (Swahili)
+locale: sw
+---
+imefanywa
+inasubiri uthibitisho
+imethibitishwa
+imelipwa
+imelipwa kiasi
+imebadilishwa
+imeghairiwa
+hakufika
+imekamilika
+imerejeshwa
+muda umeisha

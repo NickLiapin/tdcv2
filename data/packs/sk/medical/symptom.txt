@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Slovak, nominative)
+locale: sk
+---
+Horúčka
+Bolesť hlavy
+Únava
+Nevoľnosť
+Vracanie
+Hnačka
+Zápcha
+Bolesť brucha
+Bolesť na hrudi
+Dýchavičnosť
+Kašeľ
+Bolesť hrdla
+Nádcha
+Upchatý nos
+Závrat
+Rozmazané videnie
+Bolesť svalov
+Bolesť kĺbov
+Bolesť chrbta
+Kožná vyrážka
+Svrbenie
+Opuch
+Necitlivosť
+Mravčenie
+Búšenie srdca
+Strata chuti do jedla
+Nechcený úbytok hmotnosti
+Nočné potenie
+Zimnica
+Kýchanie
+Pálenie záhy
+Nadúvanie
+Svalové kŕče
+Slabosť
+Zmätenosť
+Nespavosť
+Hučanie v ušiach
+Krvácanie z nosa

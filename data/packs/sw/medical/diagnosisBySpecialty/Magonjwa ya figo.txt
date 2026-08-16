@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the Magonjwa ya figo clinic (Swahili)
+locale: sw
+---
+Ugonjwa sugu wa figo
+Figo kushindwa kufanya kazi ghafla
+Uvimbe wa figo
+Uvimbe wa vichujio vya figo
+Mawe kwenye figo
+Maambukizi ya njia ya mkojo
+Figo zenye vifuko vya maji
+Shinikizo la damu la figo
+Protini kwenye mkojo
+Damu kwenye mkojo

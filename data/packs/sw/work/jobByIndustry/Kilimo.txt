@@ -1,0 +1,16 @@
+---
+description: Jobs in Kilimo (Swahili)
+locale: sw
+---
+afisa ugani
+mtaalamu wa kilimo
+mtaalamu wa udongo
+daktari wa mifugo
+mfugaji
+mkulima
+msimamizi wa shamba
+mtaalamu wa umwagiliaji
+mtaalamu wa mbegu
+mchambuzi wa mazao
+afisa ushirika
+mendeshaji wa trekta

@@ -1,0 +1,29 @@
+---
+description: Fish (Slovak). Kapor is the Slovak Christmas fish, and pstruh is what the Tatra and Orava streams are fished for.
+locale: sk
+---
+Losos
+Tuniak
+Pstruh
+Morský ostriež
+Treska
+Sumec
+Zlatá rybka
+Klaun očkatý
+Gupka
+Makrela
+Halibut
+Chňapal
+Mečúň
+Marlín
+Skalára
+Bojovnica
+Kapor
+Ostriež
+Sardinka
+Ančovička
+Merlúza
+Šťuka
+Tilapia
+Pražma
+Zubáč

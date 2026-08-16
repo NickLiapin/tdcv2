@@ -1,0 +1,25 @@
+---
+description: Film genre (Swahili). Bongo Movie is the Tanzanian feature-film industry and is a genre label in its own right.
+locale: sw
+---
+vitendo
+matukio
+vichekesho
+tamthilia
+mapenzi
+kusisimua
+kutisha
+kubuni kisayansi
+njozi
+mafumbo
+uhalifu
+mashariki magharibi
+kihistoria
+vita
+wasifu
+uhalisia
+muziki
+uhuishaji
+familia
+michezo
+Bongo Movie

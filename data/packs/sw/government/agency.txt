@@ -1,0 +1,34 @@
+---
+description: Government body (Tanzanian ministries, authorities and public offices, in Swahili)
+locale: sw
+---
+Wizara ya Fedha
+Wizara ya Mambo ya Ndani
+Wizara ya Mambo ya Nje
+Wizara ya Ulinzi
+Wizara ya Katiba na Sheria
+Wizara ya Afya
+Wizara ya Elimu
+Wizara ya Viwanda na Biashara
+Wizara ya Ujenzi na Uchukuzi
+Wizara ya Nishati
+Wizara ya Madini
+Wizara ya Kilimo
+Wizara ya Mifugo na Uvuvi
+Wizara ya Maji
+Wizara ya Ardhi
+Wizara ya Utalii
+Mamlaka ya Mapato Tanzania
+Mamlaka ya Vitambulisho vya Taifa
+Mamlaka ya Mawasiliano Tanzania
+Mamlaka ya Bandari Tanzania
+Wakala wa Barabara Tanzania
+Shirika la Umeme Tanzania
+Ofisi ya Taifa ya Takwimu
+Mfuko wa Hifadhi ya Jamii
+Jeshi la Polisi Tanzania
+Idara ya Uhamiaji
+Wakala wa Usajili na Ufilisi
+Wakala wa Usajili wa Biashara na Leseni
+Taasisi ya Kuzuia na Kupambana na Rushwa
+Baraza la Mitihani la Taifa

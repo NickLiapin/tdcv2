@@ -1,0 +1,28 @@
+---
+description: RPG character class (Swahili)
+locale: sw
+---
+askari
+shujaa
+mpiganaji
+mlinzi
+mwindaji
+mpiga upinde
+mwizi
+muuaji wa kukodiwa
+mchawi
+mganga
+mtabiri
+mwaguzi
+mponyaji
+kuhani
+mtawa
+mwimbaji
+mhunzi
+mtaalamu wa kemia
+mfugaji wa wanyama
+mpelelezi
+mvumbuzi
+mkakamavu
+mlinzi wa kikosi
+mchimbaji

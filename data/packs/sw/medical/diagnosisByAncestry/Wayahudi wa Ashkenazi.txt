@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Wayahudi wa Ashkenazi ancestry, in Swahili.
+locale: sw
+---
+Ugonjwa wa Tay-Sachs
+Ugonjwa wa Gaucher
+Ugonjwa wa Canavan
+Homa ya Mediterania ya kifamilia
+Mabadiliko ya jeni BRCA1
+Mabadiliko ya jeni BRCA2
+Ugonjwa wa Crohn

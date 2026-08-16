@@ -1,0 +1,64 @@
+---
+description: Swahili filler sentences. Handwritten: Project Gutenberg holds no Swahili book at all (a search for l.sw returns "No records found"), so unlike fr/de/it/es/pt/pl this is not extracted from a public-domain corpus.
+locale: sw
+---
+Asubuhi ilianza kama kawaida, kwa sauti ya daladala la kwanza likipita chini ya dirisha.
+Alifungua dirisha na kuruhusu upepo wa baharini uingie chumbani.
+Barabara ilinyooka mbele hadi ikapotea kati ya vilima.
+Jua lilipanda juu ya mapaa na mji ukaanza kuamka polepole.
+Mvua ilinyesha usiku kucha, na asubuhi ardhi ilikuwa laini.
+Hakuwa amerudi hapa kwa muda mrefu, lakini kila kitu kilionekana kumfahamu.
+Sokoni kulikuwa na kelele za wauzaji na harufu ya samaki wabichi.
+Mama alipika ugali na mchuzi wa samaki, kama kila Jumapili.
+Watoto walicheza uwanjani hadi giza lilipoingia.
+Alinunua chai ya rangi na mandazi mawili.
+Basi lilichelewa saa nzima, lakini hakuna aliyelalamika.
+Katika kijiji hicho kila mtu alijua jina la kila mtu mwingine.
+Alisimama pale kwa dakika chache akiangalia mawimbi yakija na kwenda.
+Baba yake alikuwa mvuvi, na babu yake pia.
+Waliketi chini ya mwembe wakisubiri jua lipoe.
+Simu yake ililia mara tatu kabla hajaipokea.
+Alituma pesa kwa M-Pesa na ujumbe ukafika mara moja.
+Msimu wa masika ulianza mapema mwaka huo.
+Wakulima walisubiri mvua kwa wasiwasi mkubwa.
+Njia ya kwenda shambani ilikuwa na matope hadi magotini.
+Alifika ofisini saa mbili kamili, kama alivyoahidi.
+Mkutano ulianza kwa kuchelewa na ukaisha bila uamuzi.
+Bosi wake alimwambia kwamba kazi hiyo ni ya haraka.
+Aliandika barua kwa mkono, kisha akaipiga picha na kuituma.
+Duka la kona lilikuwa limefungwa siku hiyo.
+Aliuliza bei, akashangaa, kisha akaondoka bila kununua.
+Mzee alikaa barazani akisoma gazeti la jana.
+Wanafunzi walikimbia kuelekea darasani kengele ilipolia.
+Mwalimu aliandika ubaoni kwa herufi kubwa.
+Kitabu hicho kilikuwa kimechakaa, lakini bado kilisomeka.
+Maktaba ilikuwa kimya, na hilo ndilo alilolipenda zaidi.
+Hospitali ilikuwa na foleni ndefu tangu alfajiri.
+Daktari alimpima na kumwambia asiwe na wasiwasi.
+Alinunua dawa dukani na kurudi nyumbani kwa bodaboda.
+Mvua ilipoacha, watu walitoka nje kama kwamba hakuna kilichotokea.
+Harufu ya udongo baada ya mvua ndiyo aliyoipenda kuliko zote.
+Waliwasha kibatari kwa sababu umeme ulikuwa umekatika.
+Jenereta la jirani lilifanya kelele hadi usiku wa manane.
+Aliangalia saa yake, kisha akaharakisha hatua.
+Treni ilipita ikiwa imebeba mizigo ya pamba.
+Bandari ilikuwa na meli tatu zilizosubiri kupakua.
+Malori yalisimama safu ndefu kuelekea mpakani.
+Safari ya kwenda Mwanza ilichukua siku nzima.
+Kutoka dirishani aliona mashamba, kisha misitu, kisha mashamba tena.
+Wageni walipiga picha za mlima uliojificha mawinguni.
+Kilimanjaro kilionekana wazi asubuhi ile, jambo lisilo la kawaida.
+Wanyama walikusanyika kwenye bwawa la maji jua likianza kuzama.
+Mwongozaji alieleza kila kitu kwa sauti ya chini.
+Waliondoka mapema ili kuepuka joto la mchana.
+Chakula cha jioni kilikuwa wali, maharage na mchicha.
+Wageni walikaribishwa kwa maneno mafupi na chai ya tangawizi.
+Harusi ilifanyika ukumbini na ikaendelea hadi usiku wa manane.
+Ngoma zilipigwa hadi watu wakachoka.
+Kila mtu alichangia kidogo, na kwa pamoja ikatosha.
+Mkutano wa kijiji uliitishwa chini ya mti mkubwa.
+Waliamua kwa pamoja, kama walivyokuwa wakifanya siku zote.
+Habari zilienea haraka kuliko simu.
+Aliahidi kurudi, na kila mtu akajua kwamba atarudi.
+Usiku ulikuwa mtulivu, ukiingiliwa tu na sauti ya kereng'ende.
+Kesho ilianza kama jana, na hilo halikumsumbua mtu.

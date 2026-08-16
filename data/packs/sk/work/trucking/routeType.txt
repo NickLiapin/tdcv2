@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Slovak, feminine to agree with trasa)
+locale: sk
+---
+Diaľková
+Medzinárodná
+Regionálna
+Miestna
+Vyhradená
+Dvojčlenná posádka
+Posledná míľa

@@ -1,0 +1,18 @@
+---
+description: Insurance type (Slovak). Povinne zmluvne poistenie - PZP - is the compulsory third-party motor policy every Slovak vehicle must carry; Czech calls the same thing povinne ruceni, so the term does not carry across. Havarijne poistenie is the optional comprehensive one.
+locale: sk
+---
+Zdravotné
+Povinné zmluvné poistenie
+Havarijné poistenie
+Poistenie nehnuteľnosti
+Poistenie domácnosti
+Životné
+Cestovné
+Poistenie zvierat
+Úrazové
+Poistenie práceneschopnosti
+Zubné
+Poistenie zodpovednosti za škodu
+Poistenie zodpovednosti zamestnanca
+Poľnohospodárske

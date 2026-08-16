@@ -1,0 +1,44 @@
+---
+description: Company legal / name suffix used in Tanzania. Tanzanian companies are REGISTERED in English even when the business is conducted entirely in Swahili, so "Limited", "Ltd" and "(T) Ltd" appear on the Swahili name; the Swahili forms below (Kampuni, Shirika, Ushirika, SACCOS) are used for cooperatives, parastatals and associations.
+locale: sw
+---
+Limited
+Ltd
+Co. Ltd
+Company Limited
+(T) Ltd
+PLC
+Enterprises
+Investments
+Holdings
+Group
+General Supplies
+Trading
+Traders
+Suppliers
+Agencies
+Services
+Solutions
+Industries
+Manufacturers
+Distributors
+Logistics
+Transporters
+Contractors
+Engineering
+Africa
+East Africa
+Tanzania
+International
+Kampuni
+Shirika
+Ushirika
+SACCOS
+Taasisi
+Chama
+Jumuiya
+Wakfu
+Mfuko
+Bodi
+Mamlaka
+Wakala

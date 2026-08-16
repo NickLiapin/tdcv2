@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Swahili). NHIF membership and the NSSF pension contribution are the two a Tanzanian contract is expected to carry.
+locale: sw
+---
+bima ya afya ya taifa
+bima ya afya ya binafsi
+bima ya maisha
+michango ya pensheni
+likizo ya kulipwa
+siku za ziada za likizo
+likizo ya ugonjwa ya kulipwa
+saa za kazi zinazobadilika
+kufanya kazi nyumbani
+msaada wa ada ya shule
+mafunzo ya kazini
+uanachama wa klabu ya mazoezi
+chakula cha mchana kazini
+posho ya chakula
+posho ya usafiri
+gari la kampuni
+vocha ya simu
+bonasi ya utendaji

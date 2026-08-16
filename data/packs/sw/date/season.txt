@@ -1,0 +1,14 @@
+---
+description: Season (Swahili). Tanzania has no four temperate seasons: the year turns on TWO rains — masika, the long rains from March to May, and vuli, the short rains from October to December — with kiangazi the hot dry spell and kipupwe the cool one. The four temperate names at the end are what a Swahili text uses when writing about somewhere else.
+locale: sw
+---
+masika
+vuli
+kiangazi
+kipupwe
+kaskazi
+kusi
+majira ya kuchipua
+majira ya joto
+majira ya pukutiko
+majira ya baridi

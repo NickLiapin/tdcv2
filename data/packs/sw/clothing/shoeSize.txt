@@ -1,0 +1,16 @@
+---
+description: Shoe size in EUROPEAN sizing, which is what is printed on most shoes sold new in Tanzania — the stock is largely Chinese and European. UK sizes circulate alongside them, especially on mitumba (second-hand) stock imported from Britain and North America, so a Tanzanian shoebox may carry either or both. There is no Tanzanian national scale; the numbers below are the EU ones.
+locale: sw
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

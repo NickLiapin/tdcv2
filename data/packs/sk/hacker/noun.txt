@@ -1,0 +1,41 @@
+---
+description: Tech noun (Slovak, nominative)
+locale: sk
+---
+ovládač
+protokol
+priepustnosť
+panel
+mikročip
+program
+port
+karta
+pole
+rozhranie
+systém
+senzor
+firewall
+pevný disk
+pixel
+alarm
+dátový tok
+monitor
+aplikácia
+vysielač
+zbernica
+obvod
+kondenzátor
+databáza
+spracovateľská linka
+server
+router
+prepínač
+vyrovnávacia pamäť
+jadro
+knižnica
+zásuvný modul
+kontajner
+záloha
+neurónová sieť
+šifrovací kľúč
+sieťový paket

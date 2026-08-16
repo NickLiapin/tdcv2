@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Slovak)
+locale: sk
+---
+Cestný bicykel
+Horský bicykel
+Krosový bicykel
+Mestský bicykel
+Gravel
+BMX
+Elektrobicykel
+Skladací bicykel
+Trekingový bicykel
+Cyklokrosový bicykel
+Dráhový bicykel
+Ležadlový bicykel
+Nákladný bicykel
+Zjazdový bicykel
+Detský bicykel
+Trojkolka
+Tandem

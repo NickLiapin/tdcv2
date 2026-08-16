@@ -1,0 +1,21 @@
+---
+description: Official document type (Slovak). The rodne cislo is the national identification number, issued at birth and derived from the date of birth and sex; Slovakia inherited it from Czechoslovakia, so it is the same institution as the Czech one. List vlastnictva is the Slovak land-registry title deed - the Czech equivalent is worded differently.
+locale: sk
+---
+Cestovný pas
+Občiansky preukaz
+Rodný list
+Sobášny list
+Úmrtný list
+Vodičský preukaz
+Povolenie na pobyt
+Vízum
+Daňové priznanie
+Stavebné povolenie
+Živnostenské oprávnenie
+Rodné číslo
+Daňové identifikačné číslo
+Potvrdenie o trvalom pobyte
+List vlastníctva
+Vysvedčenie
+Výpis z registra trestov

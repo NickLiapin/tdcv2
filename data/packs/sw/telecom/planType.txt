@@ -1,0 +1,16 @@
+---
+description: Mobile plan / bundle type (Swahili). "Bando" is the Tanzanian word for a data bundle, and bundles are sold by the day and by the app, not only by the month.
+locale: sw
+---
+malipo kabla
+malipo baada
+bando la siku
+bando la wiki
+bando la mwezi
+bando la intaneti
+muda wa maongezi
+kifurushi cha ujumbe
+kifurushi cha familia
+kifurushi cha kampuni
+kifurushi cha wanafunzi
+kifurushi cha mitandao ya kijamii

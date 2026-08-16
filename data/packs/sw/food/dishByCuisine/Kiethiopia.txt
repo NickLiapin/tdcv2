@@ -1,0 +1,12 @@
+---
+description: Ethiopian dishes (Swahili)
+locale: sw
+---
+injera
+doro wat
+kitfo
+shiro
+tibs
+gomen
+ful
+misir wat

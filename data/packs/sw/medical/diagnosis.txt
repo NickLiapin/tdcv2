@@ -1,0 +1,101 @@
+---
+description: Medical diagnosis in Swahili that can occur in any patient — no sex or ancestry restriction. The infectious block in the middle is not padding: malaria, kifua kikuu, kichocho, matende and homa ya matumbo carry a large share of the Tanzanian outpatient load. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: sw
+---
+Shinikizo la damu
+Ugonjwa wa mishipa ya moyo
+Angina
+Shambulizi la moyo
+Mapigo ya moyo yasiyo ya kawaida
+Kushindwa kwa moyo
+Ugonjwa wa misuli ya moyo
+Uvimbe wa misuli ya moyo
+Kuziba kwa mishipa ya damu
+Mishipa ya miguu kuvimba
+Kuganda kwa damu kwenye mishipa ya kina
+Kuziba kwa mshipa wa mapafu
+Kiharusi
+Shambulizi dogo la kiharusi
+Kipandauso
+Kifafa
+Ugonjwa wa sclerosis nyingi
+Ugonjwa wa Parkinson
+Upotevu wa kumbukumbu
+Uharibifu wa neva za pembeni
+Maumivu ya neva ya uti wa mgongo
+Kuchakaa kwa uti wa mgongo
+Diski ya uti wa mgongo kuteleza
+Ugonjwa wa viungo kuchakaa
+Baridi yabisi
+Gauti
+Ulegevu wa mifupa
+Uti wa mgongo kupinda
+Pumu
+Ugonjwa sugu wa kuziba njia ya hewa
+Mkamba sugu
+Nimonia
+Uvimbe wa utando wa mapafu
+Kifua kikuu
+Sarcoidosis
+Kukatika kwa pumzi usingizini
+Uvimbe wa sinasi
+Uvimbe sugu wa tonsili
+Uvimbe wa sikio
+Uvimbe wa koo
+Uvimbe wa tumbo
+Vidonda vya tumbo
+Kiungulia sugu
+Ugonjwa wa utumbo kuwashwa
+Ugonjwa wa Crohn
+Ugonjwa wa vidonda vya utumbo mpana
+Ugonjwa wa celiac
+Uvimbe sugu wa kongosho
+Mawe kwenye nyongo
+Uvimbe wa nyongo
+Homa ya ini A
+Homa ya ini B
+Homa ya ini C
+Ini kuharibika
+Mafuta kwenye ini
+Ugonjwa sugu wa figo
+Uvimbe wa figo
+Uvimbe wa vichujio vya figo
+Mawe kwenye figo
+Maambukizi ya njia ya mkojo
+Kisukari aina ya 1
+Kisukari aina ya 2
+Upungufu wa homoni ya tezi
+Wingi wa homoni ya tezi
+Unene uliopitiliza
+Ugonjwa wa kimetaboliki
+Upungufu wa damu wa madini ya chuma
+Upungufu wa damu wa vitamini B12
+Selimundu
+Malaria
+Homa ya matumbo
+Kipindupindu
+Homa ya dengue
+Kichocho
+Minyoo
+Matende
+Ukimwi
+Maambukizi ya VVU
+Surua
+Tetekuwanga
+Matubwitubwi
+Kifaduro
+Pepopunda
+Homa ya manjano
+Ukurutu
+Psoriasis
+Upele
+Fangasi ya ngozi
+Vipele vya mzio
+Chunusi
+Mzio wa pua
+Uvimbe wa jicho
+Mtoto wa jicho
+Shinikizo la jicho
+Uziwi
+Sonona
+Wasiwasi uliokithiri

@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Swahili (male-specific plus common)
+locale: sw
+---
+Kuvimba kwa tezi dume
+Uvimbe wa tezi dume
+Saratani ya tezi dume
+Mishipa ya korodani kuvimba
+Korodani kutoshuka
+Govi kubana
+Ngiri
+Kushindwa kusimamisha uume
+Shinikizo la damu
+Ugonjwa wa mishipa ya moyo
+Shambulizi la moyo
+Kisukari aina ya 2
+Vidonda vya tumbo
+Gauti
+Pumu
+Mkamba sugu
+Kifua kikuu
+Malaria
+Mawe kwenye figo
+Homa ya ini B
+Maumivu ya mgongo
+Upungufu wa damu
+Uvimbe wa tumbo
+Nimonia
+Kipandauso
+Sonona

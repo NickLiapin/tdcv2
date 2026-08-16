@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Slovak. Amounts are in EURO - Slovakia joined the eurozone on 1 January 2009 and is the only country in the region that did, so a config that reuses the Czech, Polish or Hungarian brackets here will be out by an order of magnitude. Slovak writes the amount before the symbol with a space: 8 000 EUR.
+locale: sk
+---
+Do 8 000 €
+8 000 – 14 000 €
+14 000 – 20 000 €
+20 000 – 28 000 €
+28 000 – 40 000 €
+40 000 – 55 000 €
+55 000 – 80 000 €
+Nad 80 000 €

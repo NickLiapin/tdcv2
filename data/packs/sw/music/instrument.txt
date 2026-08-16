@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Swahili). The drums and the taarab instruments come first — udi and kanuni are the oud and the qanun, which reached the coast with the Indian Ocean trade.
+locale: sw
+---
+ngoma
+msondo
+chapuo
+kayamba
+manyanga
+njuga
+upatu
+marimba
+ilimba
+zeze
+filimbi
+zumari
+tari
+dufu
+matoazi
+udi
+kanuni
+violini
+gitaa
+gitaa la besi
+kinanda
+piano
+akodioni
+tarumbeta
+tromboni
+saksafoni
+klarineti
+kinubi
+ngoma za asili
+mbira
+pembe

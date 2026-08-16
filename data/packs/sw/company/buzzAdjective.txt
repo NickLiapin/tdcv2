@@ -1,0 +1,55 @@
+---
+description: Business buzz adjective (Swahili). Two shapes only, both safe to place after a noun: invariable Arabic loans (madhubuti, thabiti) and ki- relational adjectives, which attach through the associative particle — "mpango WA kimkakati", "huduma YA kidijitali". Nothing here takes a class prefix of its own.
+locale: sw
+---
+madhubuti
+thabiti
+imara
+bora
+salama
+rahisi
+kamili
+maalum
+muhimu
+halisi
+rasmi
+halali
+endelevu
+shirikishi
+jumuishi
+angavu
+nadhifu
+mahiri
+hodari
+makini
+adimu
+tele
+wastani
+kimkakati
+kisasa
+kimataifa
+kitaifa
+kikanda
+kidijitali
+kiuchumi
+kibiashara
+kiteknolojia
+kitaalamu
+kisayansi
+kiutendaji
+kiutawala
+kifedha
+kijamii
+kimazingira
+kisheria
+kiviwanda
+kilimo
+kimtandao
+kihuduma
+kimaendeleo
+kiushindani
+kiwango cha juu
+cha kuaminika
+cha kupanuka
+cha muda mrefu
+cha muda mfupi

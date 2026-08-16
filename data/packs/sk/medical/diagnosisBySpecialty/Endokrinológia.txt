@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Slovak)
+locale: sk
+---
+Diabetes mellitus 2. typu
+Hypotyreóza
+Hypertyreóza
+Osteoporóza
+Cushingov syndróm
+Syndróm polycystických vaječníkov
+Hashimotova tyreoiditída
+Gravesova-Basedowova choroba
+Adrenálna insuficiencia
+Diabetes mellitus 1. typu

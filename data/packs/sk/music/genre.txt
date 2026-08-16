@@ -1,0 +1,39 @@
+---
+description: Music genre (Slovak, including Slovak genres). Dychovka is the brass-band music of Slovak village festivals, goralska hudba comes from the Polish-speaking highland villages under the Tatras, ludova hudba and cimbalova muzika are the folk band, and romska hudba is a living professional tradition in Slovakia rather than a historical one.
+locale: sk
+---
+Rock
+Pop
+Jazz
+Vážna hudba
+Hip hop
+Country
+Elektronická hudba
+Blues
+Reggae
+Heavy metal
+Folk
+R&B
+Soul
+Funk
+Punk
+Disco
+House
+Techno
+Indie
+Gospel
+Ambient
+Ska
+Dychovka
+Ľudová hudba
+Goralská hudba
+Rómska hudba
+Cimbalová muzika
+Folklór
+Filmová hudba
+Progresívny metal
+Drum and bass
+Trance
+Alternatívny rock
+Balada
+Šansón

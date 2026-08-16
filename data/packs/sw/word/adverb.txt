@@ -1,0 +1,42 @@
+---
+description: Common adverb (Swahili). polepole and harakaharaka are reduplications — Swahili doubles a word to intensify or soften it, and the doubled form is a single word.
+locale: sw
+---
+sana
+kidogo
+mno
+kabisa
+daima
+kamwe
+mara nyingi
+mara chache
+sasa
+baadaye
+kabla
+baada
+mapema
+haraka
+harakaharaka
+polepole
+taratibu
+vizuri
+vibaya
+pamoja
+peke yake
+hapa
+pale
+kila mahali
+juu
+chini
+mbele
+nyuma
+kushoto
+kulia
+mwanzoni
+mwishowe
+karibu
+kikamilifu
+ghafla
+tena
+bado
+labda

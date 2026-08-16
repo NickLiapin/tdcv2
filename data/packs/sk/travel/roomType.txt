@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Slovak, nominative)
+locale: sk
+---
+Štandardná
+Superior
+Apartmán
+Junior suite
+Prezidentský apartmán
+Jednolôžková
+Dvojlôžková
+Dvojlôžková s oddelenými lôžkami
+S manželskou posteľou
+Trojlôžková
+Štvorlôžková
+Rodinná izba
+Štúdio
+Apartmán s kuchynkou
+Bungalov
+Bezbariérová izba
+Izba s výhľadom na hory
+Penthouse

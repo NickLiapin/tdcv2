@@ -1,0 +1,8 @@
+---
+description: Gender label (Swahili). Swahili has NO grammatical gender at all — no gendered nouns, no gendered adjectives, and one pronoun (yeye) for he and she — so these are labels on a form, not a feature of the language.
+locale: sw
+---
+Mwanamume
+Mwanamke
+Nyingine
+Haijabainishwa

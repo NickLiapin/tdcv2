@@ -1,0 +1,26 @@
+---
+description: Property amenity (Slovak, nominative)
+locale: sk
+---
+Bazén
+Garáž
+Krb
+Klimatizácia
+Drevené podlahy
+Šatník
+Balkón
+Záhrada
+Posilňovňa
+Výťah
+Parkovacie miesto
+Umývačka riadu
+Práčovňa
+Domáce zvieratá povolené
+Alarm
+Fotovoltika
+Terasa
+Pivnica
+Recepcia
+Miesto na grilovanie
+Zariadené
+Vykurovanie

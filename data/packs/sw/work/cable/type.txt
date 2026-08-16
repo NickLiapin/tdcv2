@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Swahili)
+locale: sw
+---
+kebo ya UTP
+kebo ya FTP
+kebo ya STP yenye kinga
+kebo ya koaksia
+nyuzi za mwanga za modi moja
+nyuzi za mwanga za modi nyingi
+kebo ya umeme
+kebo ya simu
+kebo ya kuunganishia

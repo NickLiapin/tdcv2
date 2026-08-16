@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Swahili). All eight are actually played in Tanzania: football and netball everywhere, cricket largely on the coast and in Zanzibar, hockey in schools.
+locale: sw
+---
+Mpira wa miguu
+Mpira wa pete
+Mpira wa kikapu
+Mpira wa wavu
+Mpira wa mikono
+Raga
+Kriketi
+Hoki

@@ -1,0 +1,32 @@
+---
+description: Tech verb (Swahili), in the ku- infinitive
+locale: sw
+---
+kujenga
+kusambaza
+kusanidi
+kuanzisha upya
+kuunganisha
+kuingia
+kusimba fiche
+kusimbua
+kubana
+kutoa
+kufahirisha
+kuhifadhi kwa muda
+kusawazisha
+kunakili
+kupanua
+kuelekeza
+kudukua
+kupitisha
+kukatiza
+kuweka kiraka
+kurejesha
+kusasisha
+kufuta
+kuunda
+kuiga
+kuhamisha
+kusakinisha
+kuumbiza

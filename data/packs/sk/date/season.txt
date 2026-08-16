@@ -1,0 +1,8 @@
+---
+description: Season (Slovak, lowercase per Slovak orthography)
+locale: sk
+---
+jar
+leto
+jeseň
+zima

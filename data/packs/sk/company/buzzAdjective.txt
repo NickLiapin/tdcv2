@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective (Slovak, for catch-phrases). Masculine singular base form - a feminine or neuter noun needs the agreeing ending.
+locale: sk
+---
+škálovateľný
+agilný
+komplexný
+spoľahlivý
+integrovaný
+distribuovaný
+optimalizovaný
+bezpečný
+inteligentný
+automatizovaný
+zjednotený
+kolaboratívny
+inovatívny
+prelomový
+modulárny
+pripravený na nasadenie
+udržateľný
+proaktívny
+adaptívny
+flexibilný
+odolný
+rozšíriteľný
+konfigurovateľný
+strategický
+prierezový
+holistický
+omnikanálový
+viackanálový
+personalizovaný
+zameraný na zákazníka
+založený na dátach
+novej generácie
+pracujúci v reálnom čase
+multiplatformový
+kritický
+vysoko účinný
+vysoko výkonný
+s vysokou pridanou hodnotou
+na mieru
+bezšvíkový
+natívne cloudový
+pripravený na budúcnosť
+svetovej úrovne
+vedúci na trhu
+certifikovaný
+atestovaný
+interoperabilný
+sledovateľný
+auditovateľný
+transparentný
+efektívny
+rentabilný
+konkurencieschopný
+viacjazyčný
+mobilný

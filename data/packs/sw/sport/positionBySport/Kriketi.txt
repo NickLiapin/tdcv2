@@ -1,0 +1,12 @@
+---
+description: Positions and roles in cricket (Swahili)
+locale: sw
+---
+mpiga mpira
+mrusha mpira
+mrusha wa kasi
+mrusha wa mzunguko
+mlinda lango
+mlinzi wa uwanjani
+mchezaji wa pande zote
+nahodha

@@ -1,0 +1,41 @@
+---
+description: Music genre (Swahili). The first block is Tanzanian: bongo flava is the mainstream pop, taarab the Zanzibari orchestral song, singeli the Dar es Salaam street-speed style, and mchiriku, chakacha and mdundiko are coastal drum genres.
+locale: sw
+---
+bongo flava
+taarab
+singeli
+mchiriku
+chakacha
+mdundiko
+ngoma
+muziki wa dansi
+kwaya
+injili
+rumba
+soukous
+zouk
+afrobeats
+amapiano
+reggae
+dancehall
+hip hop
+rap
+R&B
+soul
+pop
+rock
+metali
+punk
+jazz
+blues
+funk
+disko
+elektroniki
+house
+techno
+klasiki
+opera
+simfoni
+kwaya ya kanisa
+muziki wa asili

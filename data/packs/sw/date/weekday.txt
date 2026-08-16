@@ -1,0 +1,11 @@
+---
+description: Weekday name (Swahili). The names COUNT FROM SATURDAY: Jumamosi is day one (mosi), Jumapili day two (pili), Jumatatu day three (tatu), Jumanne four, Jumatano five — so Jumatatu, which looks like 'day three', is Monday. Alhamisi and Ijumaa are the two Arabic names that break the count. The list is Sunday-first for the formatter; a Tanzanian writing a week out starts at Jumatatu.
+locale: sw
+---
+Jumapili
+Jumatatu
+Jumanne
+Jumatano
+Alhamisi
+Ijumaa
+Jumamosi

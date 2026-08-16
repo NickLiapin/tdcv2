@@ -1,0 +1,22 @@
+---
+description: Social platform popular in Slovakia. Pokec, the chat and profile site run by Azet since 1999, is the long-running domestic network - a Slovak online institution with no Czech equivalent - and Modry konik is the parenting forum that functions as a second one.
+locale: sk
+---
+WhatsApp
+Facebook
+Instagram
+TikTok
+YouTube
+X
+LinkedIn
+Telegram
+Snapchat
+Pinterest
+Reddit
+Twitch
+Discord
+Threads
+Messenger
+Mastodon
+Pokec
+Modrý koník

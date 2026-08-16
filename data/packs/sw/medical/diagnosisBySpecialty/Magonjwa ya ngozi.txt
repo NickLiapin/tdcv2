@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the Magonjwa ya ngozi clinic (Swahili)
+locale: sw
+---
+Ukurutu
+Psoriasis
+Upele
+Fangasi ya ngozi
+Vipele vya mzio
+Chunusi
+Mba
+Uvimbe wa nywele
+Mabaka meupe ya ngozi
+Kovu la keloidi

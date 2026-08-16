@@ -1,0 +1,29 @@
+---
+description: Gemstone (Swahili). Tanzanite is first because it is found in exactly one place on earth — the Mererani hills below Kilimanjaro — and is the stone Tanzania is known for.
+locale: sw
+---
+tanzanite
+almasi
+zumaridi
+yakuti
+yakuti nyekundu
+yakuti samawi
+lulu
+lulu nyeusi
+marijani
+kaharabu
+akiki
+zabarajadi
+firuzi
+topazi
+garneti
+opali
+ametisti
+oniksi
+kalsedoni
+malakiti
+obsidiani
+spineli
+zirkoni
+turmalini
+yashmu

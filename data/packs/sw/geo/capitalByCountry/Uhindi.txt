@@ -1,0 +1,5 @@
+---
+description: Capital of Uhindi, as Swahili writes it
+locale: sw
+---
+New Delhi

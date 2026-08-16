@@ -1,0 +1,46 @@
+---
+description: Cooking ingredient (Slovak, nominative). Bryndza - the soft salty sheep cheese from a mountain salas - is a protected Slovak designation and the base of the national dish, so it belongs in an ingredient list here in a way it would not in Czech.
+locale: sk
+---
+Múka
+Cukor
+Soľ
+Maslo
+Vajce
+Mlieko
+Cibuľa
+Cesnak
+Paradajka
+Kuracie prsia
+Ryža
+Syr
+Bryndza
+Slanina
+Olivový olej
+Čierne korenie
+Mrkva
+Zemiaky
+Paprika
+Mleté mäso
+Strúhanka
+Citrón
+Med
+Droždie
+Smotana
+Špenát
+Ocot
+Kurací vývar
+Fazuľa
+Šošovica
+Cestoviny
+Tuniak
+Jogurt
+Strúhaný syr
+Petržlen
+Rastlinný olej
+Paradajkový pretlak
+Kukuričný škrob
+Biele víno
+Mandle
+Vlašské orechy
+Čokoláda

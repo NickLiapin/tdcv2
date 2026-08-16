@@ -1,0 +1,30 @@
+---
+description: Mobile carrier. The Tanzanian operators come first — Yas is the current brand of what everyone still calls Tigo — then the rest of the East African market and the international brands.
+locale: sw
+---
+Vodacom Tanzania
+Airtel Tanzania
+Yas
+Tigo
+Halotel
+TTCL
+Zantel
+Smile
+Honora Tanzania
+Safaricom
+Airtel Kenya
+Telkom Kenya
+MTN Uganda
+Airtel Uganda
+Lycamobile Uganda
+MTN Rwanda
+Airtel Rwanda
+Vodacom Congo
+Africell
+Orange RDC
+Econet
+Vodacom
+MTN
+Orange
+Vodafone
+Etisalat

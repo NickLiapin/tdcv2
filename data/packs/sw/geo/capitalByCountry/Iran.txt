@@ -1,0 +1,5 @@
+---
+description: Capital of Iran, as Swahili writes it
+locale: sw
+---
+Tehran

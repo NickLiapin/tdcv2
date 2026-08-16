@@ -1,0 +1,10 @@
+---
+description: Positions in ice hockey (Slovak)
+locale: sk
+---
+Brankár
+Obranca
+Center
+Ľavé krídlo
+Pravé krídlo
+Útočník

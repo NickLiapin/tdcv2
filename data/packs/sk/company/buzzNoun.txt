@@ -1,0 +1,64 @@
+---
+description: Business buzz noun (Slovak, nominative)
+locale: sk
+---
+synergia
+paradigma
+ekosystém
+prevádzkový model
+pracovný postup
+architektúra
+infraštruktúra
+platforma
+riešenie
+stratégia
+plán rozvoja
+iniciatíva
+metodika
+zosúladenie
+páka
+výkonnosť
+výstup
+kontaktný bod
+referenčný bod
+míľnik
+zapojenie
+orchestrácia
+integrácia
+migrácia
+transformácia
+optimalizácia
+škálovateľnosť
+interoperabilita
+podniková správa
+súlad s predpismi
+odolnosť
+pozorovateľnosť
+telemetria
+kadencia
+vertikála
+kanál
+finančná páka
+pridaná hodnota
+hodnotová ponuka
+konkurenčná výhoda
+podiel na trhu
+segment
+nika
+portfólio
+investícia
+návratnosť investície
+produktivita
+účinnosť
+inovácia
+disrupcia
+digitalizácia
+automatizácia
+analytika
+biznis inteligencia
+životný cyklus
+čas uvedenia na trh
+úspory z rozsahu
+neustále zlepšovanie
+riadenie zmien
+zber dát

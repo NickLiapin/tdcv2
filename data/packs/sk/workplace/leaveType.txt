@@ -1,0 +1,16 @@
+---
+description: Leave type (Slovak). Otcovska dovolenka is the two weeks of paid paternity leave introduced in 2022; rodicovska dovolenka is the long parental leave that follows maternity leave and may run until the child is three. OCR - osetrovne - is the paid leave to nurse a sick child or relative.
+locale: sk
+---
+Dovolenka
+Práceneschopnosť
+Materská dovolenka
+Rodičovská dovolenka
+Otcovská dovolenka
+Ošetrovné
+Neplatené voľno
+Študijné voľno
+Sick day
+Svadobné voľno
+Voľno na sťahovanie
+Náhradné voľno

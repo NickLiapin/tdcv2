@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Swahili)
+locale: sw
+---
+Magonjwa ya ndani
+Afya ya familia
+Watoto
+Magonjwa ya moyo
+Magonjwa ya mfumo wa fahamu
+Magonjwa ya tumbo
+Magonjwa ya mapafu
+Magonjwa ya homoni
+Magonjwa ya figo
+Njia ya mkojo
+Magonjwa ya wanawake
+Uzazi
+Upasuaji wa jumla
+Upasuaji wa mishipa
+Upasuaji wa ubongo
+Upasuaji wa moyo
+Majeraha
+Mifupa na viungo
+Saratani
+Magonjwa ya damu
+Baridi yabisi
+Magonjwa ya ngozi
+Mzio
+Kinga ya mwili
+Magonjwa ya kuambukiza
+Macho
+Sikio, pua na koo
+Meno
+Afya ya akili
+Uraibu
+Usingizishaji
+Uangalizi mahututi
+Mionzi
+Uchunguzi wa maabara
+Patholojia
+Urekebishaji wa viungo

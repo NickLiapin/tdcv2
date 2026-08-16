@@ -1,0 +1,5 @@
+---
+description: Currency of Australia (Swahili)
+locale: sw
+---
+Dola ya Australia

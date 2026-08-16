@@ -1,0 +1,5 @@
+---
+description: Currency of Ufaransa (Swahili)
+locale: sw
+---
+Yuro

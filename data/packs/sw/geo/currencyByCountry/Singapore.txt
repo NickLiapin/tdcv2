@@ -1,0 +1,5 @@
+---
+description: Currency of Singapore (Swahili)
+locale: sw
+---
+Dola ya Singapore

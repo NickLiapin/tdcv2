@@ -1,0 +1,9 @@
+---
+description: Credit score band (Slovak, neuter to agree with hodnotenie)
+locale: sk
+---
+Zlé
+Podpriemerné
+Dobré
+Veľmi dobré
+Výborné

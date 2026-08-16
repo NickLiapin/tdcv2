@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Slovak)
+locale: sk
+---
+po
+ut
+st
+št
+pi
+so
+ne

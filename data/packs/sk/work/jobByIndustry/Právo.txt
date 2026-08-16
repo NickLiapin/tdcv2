@@ -1,0 +1,16 @@
+---
+description: Jobs in Law (Slovak)
+locale: sk
+---
+Advokát
+Advokátsky koncipient
+Notár
+Sudca
+Prokurátor
+Súdny exekútor
+Právny asistent
+Vyšší súdny úradník
+Podnikový právnik
+Špecialista na compliance
+Patentový zástupca
+Správca konkurznej podstaty

@@ -1,0 +1,16 @@
+---
+description: Employment type (Slovak). Slovakia has THREE light-touch work agreements where Czechia has two: dohoda o vykonani prace, dohoda o pracovnej cinnosti and dohoda o brigadnickej praci studentov, the last reserved for students under 26 and with its own levy relief. None of them is an employment contract, and a config that maps the Czech pair across will be missing one.
+locale: sk
+---
+Plný úväzok
+Čiastočný úväzok
+Skrátený úväzok
+Dohoda o vykonaní práce
+Dohoda o pracovnej činnosti
+Dohoda o brigádnickej práci študentov
+Pracovný pomer na určitú dobu
+Pracovný pomer na neurčitý čas
+Stáž
+Prax
+Živnostník
+Sezónna práca

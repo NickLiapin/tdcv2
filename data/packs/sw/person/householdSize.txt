@@ -1,0 +1,11 @@
+---
+description: Household size. Tanzanian households run larger than European ones — the national average is close to five — so the upper bands are the common case here, not the tail.
+locale: sw
+---
+1
+2
+3
+4
+5
+6
+7+

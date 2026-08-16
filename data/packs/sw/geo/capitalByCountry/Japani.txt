@@ -1,0 +1,5 @@
+---
+description: Capital of Japani, as Swahili writes it
+locale: sw
+---
+Tokyo

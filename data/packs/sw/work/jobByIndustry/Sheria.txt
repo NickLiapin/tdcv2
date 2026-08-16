@@ -1,0 +1,16 @@
+---
+description: Jobs in Sheria (Swahili)
+locale: sw
+---
+wakili
+hakimu
+jaji
+karani wa mahakama
+mthibitishaji
+mshauri wa kisheria
+mpelelezi
+afisa haki za binadamu
+msuluhishi
+afisa wa magereza
+mwandishi wa mahakama
+mtaalamu wa mikataba

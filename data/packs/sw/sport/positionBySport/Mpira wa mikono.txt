@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Swahili)
+locale: sw
+---
+kipa
+beki wa kushoto
+beki wa kulia
+kiungo wa kati
+bawa la kushoto
+bawa la kulia
+pivoti

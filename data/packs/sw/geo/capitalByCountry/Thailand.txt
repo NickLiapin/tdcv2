@@ -1,0 +1,5 @@
+---
+description: Capital of Thailand, as Swahili writes it
+locale: sw
+---
+Bangkok

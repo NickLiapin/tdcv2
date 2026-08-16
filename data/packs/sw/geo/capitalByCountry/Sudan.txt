@@ -1,0 +1,5 @@
+---
+description: Capital of Sudan, as Swahili writes it
+locale: sw
+---
+Khartoum

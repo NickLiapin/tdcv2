@@ -1,0 +1,18 @@
+---
+description: Order status (Slovak, agrees with objednávka)
+locale: sk
+---
+Čaká na vybavenie
+Prijatá
+Potvrdená
+Spracúva sa
+Pripravuje sa na odoslanie
+Odoslaná
+Na ceste
+Doručená
+Zrušená
+Vrátená
+Vrátenie peňazí
+Pozastavená
+Čaká na platbu
+Nie je na sklade

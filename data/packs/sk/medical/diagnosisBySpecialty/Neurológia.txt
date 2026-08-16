@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Slovak)
+locale: sk
+---
+Migréna
+Epilepsia
+Parkinsonova choroba
+Skleróza multiplex
+Ischemická cievna mozgová príhoda
+Periférna neuropatia
+Alzheimerova choroba
+Neuralgia trojklaného nervu
+Myasthenia gravis
+Tranzitórny ischemický atak

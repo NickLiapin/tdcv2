@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Slovak (male-specific + common), for a male patient row
+locale: sk
+---
+Benígna hyperplázia prostaty
+Zápal prostaty
+Karcinóm prostaty
+Nádor semenníka
+Torzia semenníka
+Varikokéla
+Hydrokéla
+Zápal nadsemenníka
+Kryptorchizmus
+Fimóza
+Erektilná dysfunkcia
+Mužská neplodnosť
+Gynekomastia
+Androgénna alopécia
+Slabinová prietrž
+Chronická pankreatitída
+Chlamýdiová infekcia
+Artériová hypertenzia
+Diabetes mellitus 2. typu
+Bronchiálna astma
+Chronická bronchitída
+Migréna
+Sideropenická anémia
+Hypotyreóza
+Obličkové kamene
+Dna

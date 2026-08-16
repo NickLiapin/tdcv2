@@ -1,0 +1,31 @@
+---
+description: Book genre (Swahili). Ngano and hekaya are the oral-narrative genres Swahili literature actually organises itself around, alongside the imported novel.
+locale: sw
+---
+riwaya
+hadithi fupi
+mkusanyiko wa hadithi
+insha
+wasifu
+tawasifu
+kumbukumbu
+ushairi
+mashairi
+tenzi
+tamthilia
+ngano
+hekaya
+fasihi simulizi
+riwaya ya kihistoria
+riwaya ya upelelezi
+riwaya ya mapenzi
+riwaya ya kusisimua
+hadithi za kutisha
+kubuni kisayansi
+njozi
+safari na utalii
+sayansi maarufu
+kitabu cha kiada
+kamusi
+kitabu cha upishi
+vitabu vya watoto

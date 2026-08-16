@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Slovak). Slovak has no present participle used this way, so the English -ing form maps onto the verbal noun in -nie / -vanie.
+locale: sk
+---
+archivovanie
+obchádzanie
+hackovanie
+prepisovanie
+kompresia
+kopírovanie
+navigácia
+indexovanie
+prepájanie
+generovanie
+kvantifikácia
+výpočet
+syntetizovanie
+zadávanie
+prenášanie
+programovanie
+reštartovanie
+analýza
+šifrovanie
+dešifrovanie
+nasadzovanie
+kompilácia
+ladenie
+optimalizácia
+synchronizácia
+virtualizácia
+smerovanie
+monitorovanie

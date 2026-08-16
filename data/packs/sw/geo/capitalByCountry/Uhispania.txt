@@ -1,0 +1,5 @@
+---
+description: Capital of Uhispania, as Swahili writes it
+locale: sw
+---
+Madrid

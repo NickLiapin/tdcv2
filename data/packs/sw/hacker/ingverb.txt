@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Swahili)
+locale: sw
+---
+ujenzi
+usambazaji
+usanidi
+uanzishaji upya
+uunganishaji
+uthibitishaji
+usimbaji fiche
+usimbuaji
+ubanaji
+uchambuzi
+ufahirishi
+uhifadhi wa muda
+usawazishaji
+unakili
+upanuzi
+uelekezaji
+udukuzi
+upitishaji
+ukatizaji
+uwekaji kiraka
+urejeshaji
+usasishaji
+ufutaji
+uundaji
+uigaji
+uhamishaji
+usakinishaji
+uumbizaji

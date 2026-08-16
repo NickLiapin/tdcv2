@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Slovak)
+locale: sk
+---
+Refluxná choroba pažeráka
+Crohnova choroba
+Ulcerózna kolitída
+Vredová choroba žalúdka a dvanástnika
+Syndróm dráždivého čreva
+Cirhóza pečene
+Celiakia
+Akútna pankreatitída
+Divertikulitída
+Žlčové kamene

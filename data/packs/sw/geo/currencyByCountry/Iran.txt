@@ -1,0 +1,5 @@
+---
+description: Currency of Iran (Swahili)
+locale: sw
+---
+Riyal ya Iran

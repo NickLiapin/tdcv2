@@ -1,0 +1,5 @@
+---
+description: Capital of Malawi, as Swahili writes it
+locale: sw
+---
+Lilongwe

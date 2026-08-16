@@ -1,0 +1,19 @@
+---
+description: Court type in the Slovak judiciary. Slovakia has NO vrchny sud - the Czech high-court tier between the regional and supreme courts simply does not exist here, which is the sharpest structural difference between the two systems. It has instead a Specializovany trestny sud for corruption and organised crime, a Najvyssi spravny sud created in 2021, and since the 2023 reform mestske sudy in Bratislava in place of the old okresne sudy.
+locale: sk
+---
+Ústavný súd SR
+Najvyšší súd SR
+Najvyšší správny súd SR
+Špecializovaný trestný súd
+Krajský súd
+Okresný súd
+Mestský súd
+Správny súd
+Rozhodcovský súd
+Súd pre mladistvých
+Konkurzný senát
+Exekučný súd
+Odvolací súd
+Dovolací súd
+Súdny dvor Európskej únie

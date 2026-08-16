@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Slovak. A prevalence signal, not an exclusive one.
+locale: sk
+---
+Dedičná hemochromatóza
+Fenylketonúria
+Familiárna hypercholesterolémia
+Alkoholové ochorenie pečene
+Cystická fibróza
+Wilsonova choroba

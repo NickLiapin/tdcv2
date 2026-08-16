@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the Magonjwa ya mapafu clinic (Swahili)
+locale: sw
+---
+Pumu
+Ugonjwa sugu wa kuziba njia ya hewa
+Mkamba sugu
+Nimonia
+Kifua kikuu
+Uvimbe wa utando wa mapafu
+Sarcoidosis
+Kukatika kwa pumzi usingizini
+Kuziba kwa mshipa wa mapafu
+Saratani ya mapafu

@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Slovak, nominative)
+locale: sk
+---
+Brankár
+Stopér
+Krajný obranca
+Defenzívny stredopoliar
+Stredný stredopoliar
+Ofenzívny stredopoliar
+Krídlo
+Útočník
+Hrotový útočník
+Rozohrávač
+Krídelný obranca
+Malé krídlo
+Silné krídlo
+Pivot
+Nahrávač
+Smečiar
+Blokár
+Univerzál
+Libero
+Nadhadzovač
+Chytač
+Spojka
+Prvá méta
+Určený pálkar
+Ľavé krídlo
+Pravé krídlo
+Ľavá spojka
+Pravá spojka
+Obranca
+Center
+Pilier
+Mlynár
+Zadák
+Quarterback
+Linebacker

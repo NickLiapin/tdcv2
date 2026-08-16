@@ -1,0 +1,54 @@
+---
+description: Dish (Swahili) — what is eaten in Tanzania
+locale: sw
+---
+ugali
+ugali wa dona
+ugali wa ulezi
+wali
+wali wa nazi
+wali wa maharage
+pilau
+biriani
+mchuzi wa kuku
+mchuzi wa nyama
+mchuzi wa samaki
+samaki wa kupaka
+nyama choma
+mishkaki
+kuku wa kienyeji
+ndizi nyama
+mtori
+makande
+supu ya ndizi
+chipsi mayai
+chipsi kuku
+kachumbari
+mchicha
+mlenda
+kisamvu
+maharage
+kunde
+dengu
+muhogo
+viazi
+viazi vitamu
+magimbi
+mahindi ya kuchoma
+chapati
+mandazi
+vitumbua
+kaimati
+mahamri
+sambusa
+bajia
+kashata
+urojo
+pweza wa nazi
+dagaa
+sangara wa kuchoma
+mkate wa kumimina
+togwa
+uji
+supu ya kichwa
+mchemsho

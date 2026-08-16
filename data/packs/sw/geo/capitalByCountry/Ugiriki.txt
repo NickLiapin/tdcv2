@@ -1,0 +1,5 @@
+---
+description: Capital of Ugiriki, as Swahili writes it
+locale: sw
+---
+Athene

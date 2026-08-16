@@ -1,0 +1,12 @@
+---
+description: Dishes of Korean cuisine (Slovak)
+locale: sk
+---
+Bibimbap
+Bulgogi
+Kimchi guláš
+Japchae
+Tteokbokki
+Kórejské vyprážané kura
+Galbi
+Kimchi

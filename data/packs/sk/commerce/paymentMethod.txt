@@ -1,0 +1,25 @@
+---
+description: Payment method (Slovak). Several entries are Slovak-only: CardPay and TatraPay are Tatra banka's e-commerce buttons, SporoPay belongs to Slovenská sporiteľňa and ePlatby to VÚB, Pay by square is the national QR-payment standard, Quatro is the standard instalment product, and a gastrolístok is the employer-issued meal voucher. Dobierka (cash on delivery) is still a mainstream option rather than a fringe one. Slovakia is in the eurozone, so all of these settle in euro.
+locale: sk
+---
+Platobná karta
+Kreditná karta
+Debetná karta
+Bankový prevod
+Pay by square
+QR platba
+CardPay
+TatraPay
+SporoPay
+ePlatby VÚB
+Dobierka
+Hotovosť
+Apple Pay
+Google Pay
+PayPal
+Platba na faktúru
+Darčeková poukážka
+Kryptomena
+Splátky Quatro
+Inkaso
+Gastrolístok

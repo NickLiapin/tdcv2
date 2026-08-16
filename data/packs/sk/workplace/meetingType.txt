@@ -1,0 +1,16 @@
+---
+description: Meeting type (Slovak)
+locale: sk
+---
+Denný stand-up
+Stretnutie jeden na jedného
+Celofiremné stretnutie
+Retrospektíva
+Plánovanie šprintu
+Úvodné stretnutie
+Synchronizácia
+Revízia
+Workshop
+Brainstorming
+Kontrolné stretnutie
+Vyhodnotenie projektu

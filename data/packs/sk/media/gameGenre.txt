@@ -1,0 +1,21 @@
+---
+description: Video game genre (Slovak, feminine to agree with hra)
+locale: sk
+---
+Akčná
+Adventúra
+RPG
+Stratégia
+Simulátor
+Športová
+Logická
+Strieľačka
+Plošinovka
+Pretekárska
+Bojová
+Survival
+Otvorený svet
+MMORPG
+Roguelike
+Horor
+Hudobná

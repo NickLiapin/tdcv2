@@ -1,0 +1,44 @@
+---
+description: Dish (Slovak, nominative)
+locale: sk
+---
+Pizza
+Sushi
+Tacos
+Cheeseburger
+Špagety carbonara
+Ramen
+Kuracie karí
+Grilovaný steak
+Caesar šalát
+Klubový sendvič
+Lasagne
+Hubové rizoto
+Paella
+Empanadas
+Pad thai
+Ryba s hranolkami
+Hovädzí guláš
+Burrito
+Gnocchi
+Vyprážaná ryža
+Ceviche
+Bryndzové halušky
+Kapustnica
+Vyprážaný rezeň
+Vyprážaný syr
+Zemiakové placky
+Cesnaková polievka
+Strapačky s kapustou
+Paradajková omáčka
+Kôprová omáčka
+Ovocné knedle
+Zemiakový šalát
+Kura tikka masala
+Gazpacho
+Grécky šalát
+Quesadilla
+Paradajková polievka
+Mäsové guľky
+Pečené kura
+Rybacia polievka

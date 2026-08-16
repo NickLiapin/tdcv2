@@ -1,0 +1,17 @@
+---
+description: Social content type (Swahili)
+locale: sw
+---
+chapisho
+picha
+video
+video fupi
+hadithi
+matangazo ya moja kwa moja
+kushirikisha upya
+maoni
+kura ya maoni
+mkusanyiko
+uhakiki
+tangazo
+pendekezo

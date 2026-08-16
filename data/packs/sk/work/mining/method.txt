@@ -1,0 +1,12 @@
+---
+description: Mining method (Slovak, feminine to agree with tazba)
+locale: sk
+---
+Povrchová
+Hlbinná
+Lomová
+Ryžovanie
+Odstránenie nadložia
+Jamová
+Štôlňová
+Stenová

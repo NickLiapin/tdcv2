@@ -1,0 +1,23 @@
+---
+description: Property type (Slovak). Slovak flats are advertised by room count with the izba as the unit - 1-izbovy, 2-izbovy, 3-izbovy byt - and NOT by the Czech disposition code 2+1 / 3+kk, which a Slovak listing does not use. Garsonka is the studio flat.
+locale: sk
+---
+Rodinný dom
+Byt
+Radový dom
+Dvojdom
+Bytový dom
+Vila
+Bungalov
+Chata
+Chalupa
+Loft
+Garsónka
+Podkrovný byt
+Mobilný dom
+Gazdovstvo
+Poľnohospodárska usadlosť
+Pozemok
+Komerčný priestor
+Kancelária
+Kaštieľ

@@ -1,0 +1,47 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Swahili)
+locale: sw
+---
+kuprogramu
+usimamizi wa hifadhidata
+usimamizi wa mifumo
+usanidi wa mitandao
+usalama wa mtandao
+uchambuzi wa data
+takwimu
+usimamizi wa miradi
+upangaji
+uandaaji wa bajeti
+uhasibu
+kodi
+uchambuzi wa fedha
+majadiliano
+mauzo
+mahusiano na wateja
+masoko
+uandishi
+uhariri
+tafsiri
+kuzungumza hadharani
+kufanya kazi kwa timu
+uongozi
+ulezi wa wafanyakazi
+usimamizi wa muda
+utatuzi wa migogoro
+kufikiri kwa kina
+umakini
+udereva
+matumizi ya zana za umeme
+uchomeleaji
+ufungaji wa umeme
+ufungaji wa mabomba
+useremala
+uchoraji wa ramani
+uendeshaji wa mitambo
+udhibiti wa ubora
+huduma ya kwanza
+uuguzi
+uendeshaji wa keshia
+utunzaji wa ghala
+utunzaji wa nyaraka
+Kiswahili sanifu

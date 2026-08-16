@@ -1,0 +1,5 @@
+---
+description: Currency of Uhindi (Swahili)
+locale: sw
+---
+Rupia ya Uhindi

@@ -1,0 +1,16 @@
+---
+description: Jobs in Transport (Slovak)
+locale: sk
+---
+Vodič kamióna
+Vodič autobusu
+Kuriér
+Špedičný referent
+Dispečer
+Koordinátor logistiky
+Skladový operátor
+Obsluha vysokozdvižného vozíka
+Rušňovodič
+Riadiaci letovej prevádzky
+Dopravný pilot
+Colný deklarant

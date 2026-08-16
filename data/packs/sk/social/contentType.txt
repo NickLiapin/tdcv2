@@ -1,0 +1,17 @@
+---
+description: Social content type (Slovak, nominative)
+locale: sk
+---
+Príspevok
+Komentár
+Odpoveď
+Story
+Reels
+Anketa
+Živé vysielanie
+Zdieľanie
+Vlákno
+Zmienka
+Súkromná správa
+Krátke video
+Fotoalbum

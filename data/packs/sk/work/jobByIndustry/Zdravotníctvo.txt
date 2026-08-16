@@ -1,0 +1,16 @@
+---
+description: Jobs in Healthcare (Slovak)
+locale: sk
+---
+Všeobecný lekár
+Zdravotná sestra
+Chirurg
+Anestéziológ
+Zdravotnícky záchranár
+Farmaceut
+Fyzioterapeut
+Rádiologický technik
+Laborant
+Pôrodná asistentka
+Nutričný terapeut
+Zubný lekár

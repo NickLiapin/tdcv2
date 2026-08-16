@@ -1,0 +1,16 @@
+---
+description: Streaming service available in the Tanzanian market
+locale: sw
+---
+Netflix
+YouTube
+YouTube Premium
+Showmax
+DStv Stream
+Azam TV
+Azam Plus
+Prime Video
+Disney+
+Spotify
+Boomplay
+Wasafi TV

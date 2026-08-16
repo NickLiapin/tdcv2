@@ -1,0 +1,64 @@
+---
+description: Common generic drug names as written on a Tanzanian prescription. The anti-malarials and the anti-retrovirals near the end are the ones a Tanzanian pharmacy dispenses most.
+locale: sw
+---
+parasetamoli
+ibuprofen
+diclofenac
+aspirini
+tramadol
+morphine
+omeprazole
+ranitidine
+metoclopramide
+loperamide
+oral rehydration salts
+amoxicillin
+ampicillin
+azithromycin
+ceftriaxone
+ciprofloxacin
+doxycycline
+metronidazole
+cotrimoxazole
+gentamicin
+fluconazole
+griseofulvin
+acyclovir
+artemether-lumefantrine
+artesunate
+quinine
+sulfadoxine-pyrimethamine
+praziquantel
+albendazole
+mebendazole
+ivermectin
+isoniazid
+rifampicin
+pyrazinamide
+ethambutol
+tenofovir
+lamivudine
+dolutegravir
+efavirenz
+nevirapine
+zidovudine
+chlorpheniramine
+cetirizine
+salbutamol
+prednisolone
+dexamethasone
+hydrochlorothiazide
+amlodipine
+nifedipine
+atenolol
+enalapril
+furosemide
+simvastatin
+metformin
+glibenclamide
+insulini
+levothyroxine
+ferrous sulphate
+folic acid
+vitamin A

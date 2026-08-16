@@ -1,0 +1,12 @@
+---
+description: Book format (Slovak)
+locale: sk
+---
+Pevná väzba
+Brožovaná väzba
+Elektronická kniha
+Audiokniha
+Vreckové vydanie
+Ilustrované vydanie
+Knižničná väzba
+Viazané v koži

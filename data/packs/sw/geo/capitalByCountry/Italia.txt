@@ -1,0 +1,5 @@
+---
+description: Capital of Italia, as Swahili writes it
+locale: sw
+---
+Roma

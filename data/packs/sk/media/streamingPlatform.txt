@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Slovak market. Voyo and JOJ Play are domestic: Voyo belongs to the TV Markiza group and JOJ Play to TV JOJ. Slovakia has no counterpart to the Czech public-broadcaster archive as a consumer streaming brand, so none is listed.
+locale: sk
+---
+Netflix
+Disney+
+Max
+Amazon Prime Video
+Apple TV+
+SkyShowtime
+Voyo
+JOJ Play
+Filmbox
+YouTube
+Spotify
+Twitch

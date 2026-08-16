@@ -1,0 +1,20 @@
+---
+description: Venue type (Swahili)
+locale: sw
+---
+ukumbi
+ukumbi wa mikutano
+kituo cha mikutano
+kituo cha maonyesho
+jukwaa
+sinema
+ukumbi wa muziki
+kituo cha utamaduni
+klabu
+mgahawa
+ukumbi wa harusi
+hoteli
+uwanja wa michezo
+ukumbi wa michezo
+bustani
+eneo la wazi

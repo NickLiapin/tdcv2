@@ -1,0 +1,30 @@
+---
+description: Product review title (Slovak)
+locale: sk
+---
+Skvelý výrobok!
+Vrelo odporúčam
+Nestojí za tie peniaze
+Predčilo očakávania
+Jednoducho v poriadku
+Kúpil by som znova
+Sklamanie
+Vynikajúca kvalita
+Rýchlo sa pokazilo
+Za tú cenu ideálne
+Lepšie, než som čakal
+Neodporúčam
+Nadšený!
+Trochu drahé
+Presne podľa popisu
+Splní, čo má
+Dobrý pomer ceny a výkonu
+Prišlo skôr, ako sľubovali
+Chatrné materiály
+Presne to, čo som hľadal
+Návod je nezrozumiteľný
+Veľmi ľahké ovládanie
+Toto som nečakal
+Určite objednám znova
+Bezchybný prístup
+Poctivé spracovanie

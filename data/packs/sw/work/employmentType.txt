@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Swahili). Kibarua — day labour paid at the end of the day — is the commonest working arrangement in Tanzania and has no clean European equivalent.
+locale: sw
+---
+Ajira ya kudumu
+Mkataba
+Mkataba wa muda maalum
+Muda mfupi
+Kibarua
+Vibarua
+Kujiajiri
+Mafunzo kwa vitendo
+Mwanafunzi wa ufundi
+Kazi ya msimu
+Zamu

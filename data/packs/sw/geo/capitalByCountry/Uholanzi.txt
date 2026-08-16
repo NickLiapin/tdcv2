@@ -1,0 +1,5 @@
+---
+description: Capital of Uholanzi, as Swahili writes it
+locale: sw
+---
+Amsterdam

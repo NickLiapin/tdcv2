@@ -1,0 +1,237 @@
+---
+description: Country and territory names (Slovak, nominative)
+locale: sk
+---
+Afganistan
+Albánsko
+Alžírsko
+Americká Samoa
+Andorra
+Angola
+Anguilla
+Antarktída
+Antigua a Barbuda
+Argentína
+Arménsko
+Aruba
+Austrália
+Azerbajdžan
+Bahamy
+Bahrajn
+Bangladéš
+Barbados
+Belgicko
+Belize
+Benin
+Bermudy
+Bhután
+Bolívia
+Bosna a Hercegovina
+Botswana
+Brazília
+Brunej
+Bulharsko
+Burkina Faso
+Burundi
+Kambodža
+Kamerun
+Kanada
+Kapverdy
+Kajmanie ostrovy
+Stredoafrická republika
+Čad
+Čile
+Čína
+Vianočný ostrov
+Kokosové ostrovy
+Kolumbia
+Komory
+Konžská demokratická republika
+Konžská republika
+Cookove ostrovy
+Kostarika
+Pobrežie Slonoviny
+Chorvátsko
+Kuba
+Curaçao
+Cyprus
+Česko
+Dánsko
+Džibutsko
+Dominika
+Dominikánska republika
+Východný Timor
+Ekvádor
+Egypt
+Salvádor
+Rovníková Guinea
+Eritrea
+Estónsko
+Eswatini
+Etiópia
+Falklandy
+Faerské ostrovy
+Fidži
+Fínsko
+Francúzsko
+Francúzska Guyana
+Francúzska Polynézia
+Francúzske južné územia
+Gabon
+Gambia
+Gruzínsko
+Nemecko
+Ghana
+Gibraltár
+Grécko
+Grónsko
+Grenada
+Guadeloupe
+Guam
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Hongkong
+Maďarsko
+Island
+India
+Indonézia
+Irán
+Irak
+Írsko
+Izrael
+Taliansko
+Jamajka
+Japonsko
+Jordánsko
+Kazachstan
+Keňa
+Kiribati
+Severná Kórea
+Južná Kórea
+Kosovo
+Kuvajt
+Kirgizsko
+Laos
+Lotyšsko
+Libanon
+Lesotho
+Libéria
+Líbya
+Lichtenštajnsko
+Litva
+Luxembursko
+Macao
+Madagaskar
+Malawi
+Malajzia
+Maldivy
+Mali
+Malta
+Marshallove ostrovy
+Martinik
+Mauritánia
+Maurícius
+Mayotte
+Mexiko
+Mikronézia
+Moldavsko
+Monako
+Mongolsko
+Čierna Hora
+Montserrat
+Maroko
+Mozambik
+Mjanmarsko
+Namíbia
+Nauru
+Nepál
+Holandsko
+Holandské Antily
+Nová Kaledónia
+Nový Zéland
+Nikaragua
+Niger
+Nigéria
+Niue
+Severné Macedónsko
+Severné Mariány
+Nórsko
+Omán
+Pakistan
+Palau
+Palestína
+Panama
+Papua-Nová Guinea
+Paraguaj
+Peru
+Filipíny
+Pitcairnove ostrovy
+Poľsko
+Portugalsko
+Portoriko
+Katar
+Réunion
+Rumunsko
+Rusko
+Rwanda
+Svätý Krištof a Nevis
+Svätá Lucia
+Svätý Vincent a Grenadíny
+Samoa
+San Maríno
+Svätý Tomáš a Princov ostrov
+Saudská Arábia
+Senegal
+Srbsko
+Seychely
+Sierra Leone
+Singapur
+Slovensko
+Slovinsko
+Šalamúnove ostrovy
+Somálsko
+Juhoafrická republika
+Južný Sudán
+Španielsko
+Srí Lanka
+Sudán
+Surinam
+Švédsko
+Švajčiarsko
+Sýria
+Taiwan
+Tadžikistan
+Tanzánia
+Thajsko
+Tibet
+Togo
+Tokelau
+Tonga
+Trinidad a Tobago
+Tunisko
+Turecko
+Turkménsko
+Turks a Caicos
+Tuvalu
+Uganda
+Ukrajina
+Spojené arabské emiráty
+Spojené kráľovstvo
+Spojené štáty americké
+Uruguaj
+Uzbekistan
+Vanuatu
+Vatikán
+Venezuela
+Vietnam
+Britské Panenské ostrovy
+Americké Panenské ostrovy
+Wallis a Futuna
+Západná Sahara
+Jemen
+Zambia
+Zimbabwe

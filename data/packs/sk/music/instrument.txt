@@ -1,0 +1,39 @@
+---
+description: Musical instrument (Slovak). Fujara - the two-metre shepherd overtone flute of Podpolanie - is on the UNESCO list of intangible heritage, and so is the Slovak gajdy tradition; koncovka is its stopless little sister, drumbla the jew's harp, ozembuch the stamping stick of a folk band and heligonka the diatonic button accordion. None of these is a Czech instrument.
+locale: sk
+---
+Gitara
+Klavír
+Husle
+Bicie
+Basgitara
+Saxofón
+Trúbka
+Flauta
+Violončelo
+Klarinet
+Pozauna
+Harfa
+Ukulele
+Bendžo
+Akordeón
+Heligónka
+Klávesy
+Hoboj
+Kontrabas
+Ústna harmonika
+Xylofón
+Klasická gitara
+Pianíno
+Viola
+Organ
+Cimbal
+Fujara
+Koncovka
+Gajdy
+Drumbľa
+Ozembuch
+Tamburína
+Zobcová flauta
+Fagot
+Lesný roh

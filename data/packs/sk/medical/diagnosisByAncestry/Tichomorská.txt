@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Slovak. A prevalence signal, not an exclusive one.
+locale: sk
+---
+Diabetes mellitus 2. typu
+Obezita
+Dna
+Chronické ochorenie obličiek
+Reumatická horúčka
+Hypertenzia

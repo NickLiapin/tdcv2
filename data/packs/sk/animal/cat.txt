@@ -1,0 +1,22 @@
+---
+description: Cat breed (Slovak, feminine to agree with mačka)
+locale: sk
+---
+Perzská
+Mainská mývalia
+Siamská
+Ragdoll
+Bengálska
+Sphynx
+Britská krátkosrstá
+Habešská
+Škótska klapouchá
+Nórska lesná
+Ruská modrá
+Birmská
+Americká krátkosrstá
+Devon rex
+Barmská
+Turecká angora
+Somálska
+Manská

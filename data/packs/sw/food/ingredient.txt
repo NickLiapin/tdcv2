@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Swahili)
+locale: sw
+---
+unga wa ngano
+unga wa mahindi
+unga wa muhogo
+unga wa mtama
+unga wa ulezi
+mchele
+mchele wa pishori
+sukari
+sukari guru
+chumvi
+mafuta ya kupikia
+mafuta ya alizeti
+mafuta ya nazi
+samli
+siagi
+majarini
+mayai
+maziwa
+tui la nazi
+maziwa ya unga
+jibini
+mtindi
+hamira
+soda ya kuoka
+maharage
+kunde
+dengu
+njugu
+karanga
+ufuta
+mkate
+tambi
+nyanya
+kitunguu
+kitunguu saumu
+tangawizi
+pilipili
+asali
+siki
+chumvi ya bahari

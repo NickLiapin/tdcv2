@@ -1,0 +1,11 @@
+---
+description: Weekday name (Slovak, nominative, lowercase per Slovak orthography). The week starts on Monday. Only streda and sobota are shared with Czech; pondelok, utorok, stvrtok, piatok and nedela all differ in form from the Czech pondeli, utery, ctvrtek, patek, nedele.
+locale: sk
+---
+pondelok
+utorok
+streda
+štvrtok
+piatok
+sobota
+nedeľa

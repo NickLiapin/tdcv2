@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, in Slovak. A prevalence signal, not an exclusive one.
+locale: sk
+---
+Alfa-talasémia
+Deficit aldehyddehydrogenázy 2
+Hypolaktázia dospelých
+Nazofaryngeálny karcinóm
+Karcinóm žalúdka
+Primárny glaukóm s uzavretým uhlom
+Kawasakiho choroba
+Choroba moyamoya
+Precitlivenosť na karbamazepín
+Patologická myopia

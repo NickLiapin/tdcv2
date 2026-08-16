@@ -1,0 +1,14 @@
+---
+description: Fuel type (Swahili)
+locale: sw
+---
+petroli
+dizeli
+gesi
+gesi asilia
+petroli na gesi
+umeme
+mseto
+mseto wa kuchaji
+hidrojeni
+ethanoli

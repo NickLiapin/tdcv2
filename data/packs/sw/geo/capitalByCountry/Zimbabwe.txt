@@ -1,0 +1,5 @@
+---
+description: Capital of Zimbabwe, as Swahili writes it
+locale: sw
+---
+Harare

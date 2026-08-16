@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Swahili)
+locale: sw
+---
+Mwanafunzi
+Msaidizi
+Mdogo
+Afisa
+Wastani
+Mwandamizi
+Kiongozi
+Mkuu
+Kiongozi wa timu
+Msimamizi
+Meneja wa idara
+Naibu mkurugenzi
+Mkurugenzi
+Mkurugenzi mtendaji
+Mwenyekiti
+Mbia

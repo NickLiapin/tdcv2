@@ -1,0 +1,16 @@
+---
+description: Listing status (Swahili)
+locale: sw
+---
+inapatikana
+mpya
+imesasishwa
+imehifadhiwa
+imelipiwa awali
+inahakikiwa
+imeondolewa sokoni
+imeuzwa
+imepangishwa
+muda umeisha
+kwenye kumbukumbu
+rasimu

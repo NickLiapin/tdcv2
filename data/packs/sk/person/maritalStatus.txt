@@ -1,0 +1,17 @@
+---
+description: Marital status in Slovak. Most forms are gendered and must agree with the row's gender: slobodny / slobodna, zenaty (a man) / vydata (a woman), rozvedeny / rozvedena, vdovec / vdova. The two words for married are not a masculine/feminine pair of one adjective - they are different words. Only the first eight are official civil statuses: Slovakia recognises NEITHER same-sex marriage NOR a registered partnership, unlike Czechia, so there is no Slovak equivalent of v registrovanem partnerstvi and the last five values are colloquial descriptions rather than legal ones.
+locale: sk
+---
+slobodný
+slobodná
+ženatý
+vydatá
+rozvedený
+rozvedená
+vdovec
+vdova
+žijúci oddelene
+zasnúbený
+zasnúbená
+druh
+družka

@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Slovak. A prevalence signal, not an exclusive one.
+locale: sk
+---
+Cystická fibróza
+Dedičná hemochromatóza
+Deficit alfa-1-antitrypsínu
+Fenylketonúria
+Celiakia
+Skleróza multiplex
+Diabetes mellitus 1. typu
+Dupuytrenova kontraktúra
+Bazalióm
+Perzistencia laktázy

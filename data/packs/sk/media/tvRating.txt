@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, descriptive Slovak (the statutory Jednotny system oznacovania codes are country data)
+locale: sk
+---
+Vhodné pre všetkých
+Nevhodné pre maloletých do 7 rokov
+Nevhodné pre maloletých do 12 rokov
+Nevhodné pre maloletých do 15 rokov
+Nevhodné pre maloletých do 18 rokov
+Odporúčaný rodičovský dozor
+Len pre dospelých
+Pre deti
+Pre mládež

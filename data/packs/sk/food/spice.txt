@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Slovak, nominative). Rasca (caraway) and majoran carry Slovak cooking the way paprika carries Hungarian - they are in the bread, the roast pork and the potato soup.
+locale: sk
+---
+Škorica
+Rasca
+Rímska rasca
+Sladká paprika
+Kurkuma
+Zázvor
+Muškátový oriešok
+Oregano
+Bazalka
+Tymian
+Rozmarín
+Kardamóm
+Koriander
+Čili
+Klinček
+Šafran
+Bobkový list
+Kôpor
+Šalvia
+Petržlenová vňať
+Mäta
+Aníz
+Biele korenie
+Kajenské korenie
+Horčičné semienko
+Estragón
+Fenikel
+Majorán
+Nové korenie
+Vanilka

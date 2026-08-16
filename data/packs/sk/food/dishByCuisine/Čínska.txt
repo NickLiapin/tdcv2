@@ -1,0 +1,12 @@
+---
+description: Dishes of Chinese cuisine (Slovak)
+locale: sk
+---
+Kura kung pao
+Vyprážaná ryža
+Chow mein
+Sladkokyslé bravčové
+Tofu mapo
+Pekinská kačica
+Polievka wonton
+Jarné závitky

@@ -1,0 +1,38 @@
+---
+description: Fruit (Slovak, nominative). Marhula, cucoriedka and slivka are Slovak words a Czech list does not contain.
+locale: sk
+---
+Jablko
+Banán
+Pomaranč
+Jahoda
+Hrozno
+Mango
+Ananás
+Melón
+Broskyňa
+Hruška
+Višňa
+Čučoriedka
+Malina
+Kiwi
+Citrón
+Limetka
+Slivka
+Marhuľa
+Granátové jablko
+Figa
+Papája
+Kokos
+Cantaloupe
+Mandarínka
+Marakuja
+Čerešňa
+Ostružina
+Nektarinka
+Grep
+Datle
+Dula
+Egreš
+Ríbezľa
+Brusnica

@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: sk
+---
+Technológie
+Zdravotníctvo
+Financie
+Stavebníctvo
+Školstvo
+Pohostinstvo
+Výroba
+Maloobchod
+Doprava
+Právo

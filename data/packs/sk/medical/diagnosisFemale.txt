@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Slovak that requires female anatomy - it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: sk
+---
+Endometrióza
+Syndróm polycystických vaječníkov
+Myómy maternice
+Cysta vaječníka
+Karcinóm vaječníka
+Karcinóm krčka maternice
+Dysplázia krčka maternice
+Zápal krčka maternice
+Zápal sliznice maternice
+Karcinóm endometria
+Zápal panvových orgánov
+Bakteriálna vaginóza
+Vulvovaginálna kandidóza
+Silné menštruačné krvácanie
+Dysmenorea
+Amenorea
+Preeklampsia
+Gestačný diabetes
+Hyperemesis gravidarum
+Mimomaternicová gravidita
+Popôrodné krvácanie
+Mastitída
+Fibrocystické zmeny prsníka
+Klimakterický syndróm
+Premenštruačná dysforická porucha
+Prolaps maternice

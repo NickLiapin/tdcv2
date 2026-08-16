@@ -1,0 +1,9 @@
+---
+description: Work shift (Swahili)
+locale: sw
+---
+zamu ya kwanza
+zamu ya pili
+zamu ya usiku
+zamu ya wikendi
+zamu ya matengenezo

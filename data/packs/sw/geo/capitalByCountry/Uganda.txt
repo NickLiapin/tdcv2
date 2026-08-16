@@ -1,0 +1,5 @@
+---
+description: Capital of Uganda, as Swahili writes it
+locale: sw
+---
+Kampala

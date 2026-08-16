@@ -1,0 +1,5 @@
+---
+description: Currency of Nigeria (Swahili)
+locale: sw
+---
+Naira ya Nigeria

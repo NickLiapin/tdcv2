@@ -1,0 +1,30 @@
+---
+description: Book genre (Slovak)
+locale: sk
+---
+Beletria
+Literatúra faktu
+Detektívka
+Triler
+Romantická próza
+Vedecká fantastika
+Fantasy
+Horor
+Životopis
+História
+Príručka
+Poézia
+Literatúra pre mládež
+Historický román
+Čierny román
+Dobrodružný román
+Spomienky
+Filozofia
+Cestopis
+Kuchárka
+Komiks
+Dystopia
+Esej
+Poviedka
+Magický realizmus
+Literatúra pre deti

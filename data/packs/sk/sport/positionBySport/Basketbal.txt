@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Slovak)
+locale: sk
+---
+Rozohrávač
+Krídelný obranca
+Malé krídlo
+Silné krídlo
+Pivot

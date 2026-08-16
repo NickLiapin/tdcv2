@@ -1,0 +1,16 @@
+---
+description: Meeting type (Swahili)
+locale: sw
+---
+kikao cha kila siku
+kikao cha wiki
+kikao cha idara
+mkutano mkuu
+mazungumzo ya ana kwa ana
+kikao cha tathmini
+kikao cha kupanga
+onyesho la kazi
+kikao cha kubuni mawazo
+mkutano na mteja
+semina ya mafunzo
+kikao cha kupitia matokeo

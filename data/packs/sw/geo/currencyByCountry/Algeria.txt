@@ -1,0 +1,5 @@
+---
+description: Currency of Algeria (Swahili)
+locale: sw
+---
+Dinari ya Algeria

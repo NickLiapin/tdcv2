@@ -1,0 +1,5 @@
+---
+description: Capital of Ujerumani, as Swahili writes it
+locale: sw
+---
+Berlin

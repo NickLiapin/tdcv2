@@ -1,0 +1,14 @@
+---
+description: Positions in rugby (Swahili; the position names are used untranslated)
+locale: sw
+---
+prop
+hooker
+lock
+flanker
+namba nane
+skrama hafu
+fly hafu
+senta
+winga
+fulbek

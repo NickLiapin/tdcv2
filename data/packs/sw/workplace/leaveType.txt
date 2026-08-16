@@ -1,0 +1,16 @@
+---
+description: Leave type (Swahili)
+locale: sw
+---
+likizo ya mwaka
+likizo ya ziada
+likizo bila malipo
+likizo ya ugonjwa
+likizo ya uzazi
+likizo ya baba
+likizo ya kunyonyesha
+likizo ya masomo
+ruhusa ya dharura
+likizo ya msiba
+likizo ya hija
+kusimamishwa kazi

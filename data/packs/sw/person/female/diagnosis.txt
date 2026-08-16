@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Swahili (female-specific plus common)
+locale: sw
+---
+Endometriosis
+Uvimbe wa nyama kwenye mfuko wa uzazi
+Uvimbe kwenye mayai ya uzazi
+Ugonjwa wa mayai ya uzazi yenye vifuko
+Uvimbe wa matiti usio na madhara
+Maambukizi ya njia ya mkojo
+Upungufu wa damu wa madini ya chuma
+Ulegevu wa mifupa
+Upungufu wa homoni ya tezi
+Shinikizo la damu
+Ugonjwa wa mishipa ya moyo
+Mishipa ya miguu kuvimba
+Kisukari aina ya 2
+Pumu
+Mkamba sugu
+Vidonda vya tumbo
+Mawe kwenye nyongo
+Uvimbe wa tumbo
+Uvimbe wa nyongo
+Uvimbe wa figo
+Baridi yabisi
+Maumivu ya mgongo
+Kipandauso
+Nimonia
+Malaria
+Sonona
+Wasiwasi uliokithiri

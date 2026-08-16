@@ -1,0 +1,32 @@
+---
+description: Tree (Swahili). Swahili tree names are built with the m- prefix of noun class 3 — mwembe is the mango tree, embe the fruit — so the list is not the same words as food/fruit with a different sense. mbuyu is the baobab and mwarobaini the neem, literally "the forty", for the ailments it is said to treat.
+locale: sw
+---
+mbuyu
+mvule
+mninga
+mtiki
+mkangazi
+msonobari
+mkuyu
+mwembe
+mnazi
+mchikichi
+mpapai
+mparachichi
+mfenesi
+mkorosho
+mgomba
+mgunga
+mwarobaini
+mkonge
+mkoche
+mtende
+mchungwa
+mlimao
+mpera
+mstafeli
+mtofaa
+msufi
+mvinje
+mkangaza

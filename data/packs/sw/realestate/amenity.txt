@@ -1,0 +1,26 @@
+---
+description: Property amenity as a Tanzanian listing writes it (Swahili). "Self contained" — a room with its own bathroom — is a Tanzanian listing term with no European equivalent, and a borehole or a water tank is a selling point because the mains supply is intermittent.
+locale: sw
+---
+umeme wa LUKU
+maji ya bomba
+tanki la maji
+kisima cha maji
+jenereta
+paneli za sola
+hita ya maji
+kiyoyozi
+self contained
+jiko la kisasa
+samani kamili
+samani kiasi
+lifti
+ulinzi wa saa 24
+kamera za CCTV
+uzio
+geti la chuma
+maegesho ya gari
+karakana
+bustani
+eneo la watoto kuchezea
+karibu na barabara kuu

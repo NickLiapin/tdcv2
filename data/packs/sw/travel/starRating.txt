@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Swahili)
+locale: sw
+---
+nyota 1
+nyota 2
+nyota 3
+nyota 4
+nyota 5

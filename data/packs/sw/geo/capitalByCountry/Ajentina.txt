@@ -1,0 +1,5 @@
+---
+description: Capital of Ajentina, as Swahili writes it
+locale: sw
+---
+Buenos Aires

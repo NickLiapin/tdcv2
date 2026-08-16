@@ -1,0 +1,14 @@
+---
+description: Indian dishes as cooked and eaten in Tanzania (Swahili)
+locale: sw
+---
+biriani
+sambusa
+bajia
+chapati
+dali
+kuku tikka masala
+mchuzi wa kari
+naani
+rotii
+kachori

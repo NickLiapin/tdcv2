@@ -1,0 +1,5 @@
+---
+description: Currency of Uswidi (Swahili)
+locale: sw
+---
+Krona ya Uswidi

@@ -1,0 +1,14 @@
+---
+description: Loan type (Swahili), as offered by Tanzanian banks and microfinance lenders — the agricultural and small-business lines are the ones that matter most here.
+locale: sw
+---
+mkopo binafsi
+mkopo wa nyumba
+mkopo wa gari
+kadi ya mkopo
+mkopo wa mtaji
+mkopo wa biashara ndogo
+mkopo wa mtandaoni
+mkopo wa kilimo
+mkopo wa elimu
+mkopo wa dharura

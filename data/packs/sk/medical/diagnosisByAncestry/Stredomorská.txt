@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Slovak. A prevalence signal, not an exclusive one.
+locale: sk
+---
+Beta-talasémia
+Nosičstvo beta-talasémie
+Deficit glukózo-6-fosfátdehydrogenázy
+Familiárna stredomorská horúčka
+Behçetova choroba
+Alfa-talasémia
+Favizmus

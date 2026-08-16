@@ -1,0 +1,29 @@
+---
+description: Dog breed (Swahili). Basenji is the one African breed on the list; mbwa wa kienyeji is the ordinary village dog.
+locale: sw
+---
+mbwa wa kienyeji
+Basenji
+Mchungaji wa Kijerumani
+Labrador Retriever
+Golden Retriever
+Rottweiler
+Doberman
+Boxer
+Bulldog
+Pug
+Dachshund
+Beagle
+Poodle
+Yorkshire Terrier
+Jack Russell Terrier
+Saint Bernard
+Husky
+Malamute
+Samoyed
+Border Collie
+Cocker Spaniel
+Dalmatia
+Shih Tzu
+Pomerania
+Greyhound

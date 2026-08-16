@@ -1,0 +1,200 @@
+---
+description: Country and territory names (Swahili). Swahili gives many countries a U- prefix, which is a real noun class and not an ornament: Ufaransa, Ujerumani, Uingereza, Uchina, Ureno, Uholanzi, Uswisi. Marekani (the United States) and Misri (Egypt) do not take it. A pack that spelled these the English way would be in the script but not in the language.
+locale: sw
+---
+Afghanistan
+Afrika Kusini
+Albania
+Algeria
+Angola
+Antigua na Barbuda
+Ajentina
+Armenia
+Australia
+Austria
+Azerbaijan
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belarus
+Ubelgiji
+Belize
+Benin
+Bhutan
+Bolivia
+Bosnia na Herzegovina
+Botswana
+Brazil
+Brunei
+Bulgaria
+Burkina Faso
+Burundi
+Kambodia
+Kamerun
+Kanada
+Cape Verde
+Jamhuri ya Afrika ya Kati
+Chad
+Chile
+Uchina
+Kolombia
+Komoro
+Jamhuri ya Kongo
+Jamhuri ya Kidemokrasia ya Kongo
+Kosta Rika
+Kodivaa
+Kroatia
+Kuba
+Kupro
+Jamhuri ya Cheki
+Denmark
+Djibouti
+Dominika
+Jamhuri ya Dominika
+Ekuado
+Misri
+El Salvador
+Guinea ya Ikweta
+Eritrea
+Estonia
+Eswatini
+Ethiopia
+Fiji
+Ufini
+Ufaransa
+Gabon
+Gambia
+Georgia
+Ujerumani
+Ghana
+Ugiriki
+Grenada
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Hungaria
+Iceland
+India
+Indonesia
+Iran
+Iraq
+Ayalandi
+Israel
+Italia
+Jamaika
+Japani
+Jordan
+Kazakhstan
+Kenya
+Kiribati
+Korea Kaskazini
+Korea Kusini
+Kosovo
+Kuwait
+Kyrgyzstan
+Laos
+Latvia
+Lebanoni
+Lesotho
+Liberia
+Libya
+Liechtenstein
+Lithuania
+Luxemburg
+Madagaska
+Malawi
+Malaysia
+Maldives
+Mali
+Malta
+Visiwa vya Marshall
+Mauritania
+Morisi
+Meksiko
+Mikronesia
+Moldova
+Monako
+Mongolia
+Montenegro
+Moroko
+Msumbiji
+Myanmar
+Namibia
+Nauru
+Nepal
+Uholanzi
+New Zealand
+Nikaragua
+Niger
+Nigeria
+Makedonia Kaskazini
+Norwe
+Omani
+Pakistan
+Palau
+Palestina
+Panama
+Papua New Guinea
+Paraguay
+Peru
+Ufilipino
+Poland
+Ureno
+Qatar
+Romania
+Urusi
+Rwanda
+Saint Kitts na Nevis
+Saint Lucia
+Saint Vincent na Grenadines
+Samoa
+San Marino
+Sao Tome na Principe
+Saudi Arabia
+Senegal
+Serbia
+Shelisheli
+Sierra Leone
+Singapore
+Slovakia
+Slovenia
+Visiwa vya Solomon
+Somalia
+Sudan
+Sudan Kusini
+Uhispania
+Sri Lanka
+Suriname
+Uswidi
+Uswisi
+Syria
+Taiwan
+Tajikistan
+Tanzania
+Thailand
+Timor ya Mashariki
+Togo
+Tonga
+Trinidad na Tobago
+Tunisia
+Uturuki
+Turkmenistan
+Tuvalu
+Uganda
+Ukraine
+Falme za Kiarabu
+Uingereza
+Marekani
+Uruguay
+Uzbekistan
+Vanuatu
+Vatikani
+Venezuela
+Vietnam
+Yemen
+Zambia
+Zimbabwe

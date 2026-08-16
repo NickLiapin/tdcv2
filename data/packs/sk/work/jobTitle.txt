@@ -1,0 +1,252 @@
+---
+description: Job title (Slovak), masculine form. Slovak normally makes a feminine job title with -ka or -kyna (ucitel / ucitelka, riaditel / riaditelka, pravnik / pravnicka), so a female row wants the feminine form rather than this one. Rusnovodic (engine driver), chyzna (chambermaid) and salasnik (sheep-farm hand) are Slovak words; the Czech equivalents are spelled differently or are different words altogether.
+locale: sk
+---
+Softvérový inžinier
+Frontend vývojár
+Backend vývojár
+Fullstack vývojár
+Mobilný vývojár
+DevOps inžinier
+Dátový vedec
+Dátový analytik
+Dátový inžinier
+Databázový administrátor
+Správca systémov
+Správca siete
+Cloudový architekt
+Softvérový architekt
+Tester softvéru
+Automatizačný tester
+Produktový manažér
+Projektový manažér
+Scrum master
+Biznis analytik
+UX dizajnér
+UI dizajnér
+Grafický dizajnér
+Webdizajnér
+Špecialista na kybernetickú bezpečnosť
+Etický hacker
+Technická podpora
+Helpdesk technik
+Vedúci vývoja
+Technický riaditeľ
+Všeobecný lekár
+Internista
+Chirurg
+Kardiológ
+Neurológ
+Onkológ
+Pediater
+Psychiater
+Dermatológ
+Gynekológ
+Urológ
+Ortopéd
+Oftalmológ
+Anestéziológ
+Rádiológ
+Patológ
+Zubný lekár
+Dentálna hygienička
+Zdravotná sestra
+Praktická sestra
+Zdravotnícky záchranár
+Pôrodná asistentka
+Farmaceut
+Farmaceutický laborant
+Fyzioterapeut
+Ergoterapeut
+Nutričný terapeut
+Laborant
+Rádiologický technik
+Sanitár
+Veterinár
+Účtovník
+Hlavný účtovník
+Mzdový účtovník
+Finančný analytik
+Finančný riaditeľ
+Finančný kontrolór
+Interný audítor
+Externý audítor
+Daňový poradca
+Poistný matematik
+Úverový poradca
+Bankový poradca
+Investičný poradca
+Burzový maklér
+Portfólio manažér
+Špecialista na riadenie rizík
+Poisťovací agent
+Likvidátor poistných udalostí
+Ekonóm
+Advokát
+Advokátsky koncipient
+Notár
+Sudca
+Prokurátor
+Súdny exekútor
+Podnikový právnik
+Právny asistent
+Patentový zástupca
+Správca konkurznej podstaty
+Špecialista na compliance
+Učiteľ materskej školy
+Učiteľ prvého stupňa
+Učiteľ strednej školy
+Vysokoškolský pedagóg
+Docent
+Profesor
+Riaditeľ školy
+Zástupca riaditeľa
+Asistent učiteľa
+Špeciálny pedagóg
+Výchovný poradca
+Logopéd
+Školský psychológ
+Lektor
+Metodik výučby
+Knihovník
+Archivár
+Vychovávateľ
+Elektrikár
+Inštalatér
+Kurič
+Murár
+Tesár
+Stolár
+Podlahár
+Obkladač
+Maliar izieb
+Pokrývač
+Klampiar
+Zámočník
+Zvárač
+Sústružník
+Frézar
+Nástrojár
+Obsluha CNC stroja
+Automechanik
+Autoelektrikár
+Karosár
+Autolakovník
+Mechanik
+Údržbár
+Stavbyvedúci
+Stavebný dozor
+Rozpočtár
+Geodet
+Statik
+Projektant
+Architekt
+Krajinný architekt
+Interiérový dizajnér
+Stavebný inžinier
+Strojný inžinier
+Elektroinžinier
+Chemický inžinier
+Procesný inžinier
+Technológ
+Konštruktér
+Kontrolór kvality
+Vedúci výroby
+Majster
+Operátor výrobnej linky
+Montážny robotník
+Skladník
+Obsluha vysokozdvižného vozíka
+Vodič kamióna
+Vodič autobusu
+Vodič dodávky
+Kuriér
+Rušňovodič
+Sprievodca vlaku
+Dopravný pilot
+Letuška
+Riadiaci letovej prevádzky
+Kapitán lode
+Dispečer
+Špedičný referent
+Koordinátor logistiky
+Colný deklarant
+Šéfkuchár
+Kuchár
+Cukrár
+Pekár
+Mäsiar
+Čašník
+Barman
+Barista
+Someliér
+Sládok
+Recepčný
+Manažér hotela
+Concierge
+Chyžná
+Sprievodca cestovného ruchu
+Delegát cestovnej kancelárie
+Koordinátor podujatí
+Predavač
+Vedúci predajne
+Pokladník
+Nákupca
+Merchandiser
+Obchodný zástupca
+Obchodný riaditeľ
+Account manažér
+Marketingový špecialista
+Marketingový riaditeľ
+Copywriter
+Špecialista na sociálne siete
+Špecialista na SEO
+Public relations manažér
+Personalista
+HR riaditeľ
+Náborár
+Mzdový špecialista
+Kancelársky asistent
+Asistent riaditeľa
+Recepčný kancelárie
+Prekladateľ
+Tlmočník
+Novinár
+Redaktor
+Fotograf
+Kameraman
+Strihač
+Zvukár
+Herec
+Hudobník
+Dirigent
+Tanečník
+Kurátor
+Reštaurátor
+Policajt
+Hasič
+Profesionálny vojak
+Mestský policajt
+Bezpečnostný pracovník
+Sociálny pracovník
+Opatrovateľ
+Kaderník
+Kozmetička
+Masér
+Záhradník
+Lesník
+Poľnohospodár
+Salašník
+Chovateľ
+Rybár
+Baník
+Geológ
+Meteorológ
+Chemik
+Biológ
+Fyzik
+Matematik
+Štatistik
+Vedecký pracovník
+Ekológ
+Upratovač

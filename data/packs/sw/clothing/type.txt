@@ -1,0 +1,32 @@
+---
+description: Garment type (Swahili). kanga, kitenge, kikoi, kanzu, kofia, buibui and dera are the Swahili-coast garments; the rest are the everyday imported wardrobe.
+locale: sw
+---
+fulana
+shati
+blauzi
+sweta
+jaketi
+koti
+kizibao
+gauni
+dera
+sketi
+suruali
+suruali ya jinsi
+kaptula
+ovaroli
+suti
+koti la mvua
+kanga
+kitenge
+kikoi
+kanzu
+kofia
+buibui
+hijabu
+mtandio
+pajama
+chupi
+sidiria
+soksi

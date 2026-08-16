@@ -1,0 +1,12 @@
+---
+description: Mining method (Swahili). Uchimbaji mdogo — small-scale artisanal mining — is how most Tanzanian gold is actually dug, and it is a licensed category, not an informal one.
+locale: sw
+---
+uchimbaji wa wazi
+uchimbaji wa chini ya ardhi
+uchimbaji wa kuchimbua mawe
+uchimbaji mdogo
+uchimbaji wa kuosha mchanga
+uchimbaji kwa maji
+uchimbaji kwa mtambo wa kuvuta
+mfumo wa vyumba na nguzo

@@ -1,0 +1,32 @@
+---
+description: Government body (Slovak ministries and public offices). Ministerstvo podohospodarstva a rozvoja vidieka is the agriculture ministry - Slovak says podohospodarstvo where Czech says zemedelstvi. Socialna poistovna and the health insurers are separate bodies, as in Czechia. SR after a name stands for Slovenska republika and is part of the official title.
+locale: sk
+---
+Ministerstvo zdravotníctva SR
+Ministerstvo školstva, výskumu, vývoja a mládeže SR
+Ministerstvo dopravy SR
+Ministerstvo financií SR
+Ministerstvo spravodlivosti SR
+Ministerstvo práce, sociálnych vecí a rodiny SR
+Ministerstvo obrany SR
+Ministerstvo vnútra SR
+Ministerstvo zahraničných vecí a európskych záležitostí SR
+Ministerstvo pôdohospodárstva a rozvoja vidieka SR
+Ministerstvo životného prostredia SR
+Ministerstvo hospodárstva SR
+Ministerstvo kultúry SR
+Ministerstvo investícií, regionálneho rozvoja a informatizácie SR
+Ministerstvo cestovného ruchu a športu SR
+Finančná správa SR
+Daňový úrad
+Sociálna poisťovňa
+Všeobecná zdravotná poisťovňa
+Štatistický úrad SR
+Úrad práce, sociálnych vecí a rodiny
+Matričný úrad
+Okresný úrad
+Katastrálny odbor
+Živnostenský úrad
+Národná banka Slovenska
+Policajný zbor SR
+Mestská polícia

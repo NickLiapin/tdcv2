@@ -1,0 +1,20 @@
+---
+description: Weather condition (Swahili)
+locale: sw
+---
+jua kali
+jua
+mawingu kidogo
+mawingu
+kiwingu
+mvua
+mvua kubwa
+manyunyu
+mvua ya mawe
+ukungu
+ngurumo na radi
+upepo mkali
+joto kali
+baridi
+unyevu
+vumbi

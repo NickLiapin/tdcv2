@@ -1,0 +1,5 @@
+---
+description: Currency of Saudi Arabia (Swahili)
+locale: sw
+---
+Riyal ya Saudia

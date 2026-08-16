@@ -1,0 +1,29 @@
+---
+description: Gemstone (Slovak). Dubnicky opal - the precious opal of Dubnik near Presov - came from what was for centuries the world's only significant opal mine, and the Slovak crown jewels and several European royal collections are set with it; Slovak obsidian from the Zemplin hills is likewise a named local stone. These are the Slovak counterparts of the Czech granat and vltavin.
+locale: sk
+---
+Diamant
+Rubín
+Zafír
+Smaragd
+Ametyst
+Topás
+Opál
+Dubnícky opál
+Slovenský obsidián
+Granát
+Akvamarín
+Peridot
+Tyrkys
+Nefrit
+Ónyx
+Perla
+Citrín
+Tanzanit
+Turmalín
+Mesačný kameň
+Zirkón
+Lazurit
+Jantár
+Malachit
+Ruženín

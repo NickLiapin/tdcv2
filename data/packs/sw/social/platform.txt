@@ -1,0 +1,21 @@
+---
+description: Social platform used in Tanzania. JamiiForums is the Tanzanian discussion board and matters here the way Reddit does elsewhere.
+locale: sw
+---
+WhatsApp
+Instagram
+TikTok
+YouTube
+Facebook
+X
+Telegram
+Snapchat
+LinkedIn
+JamiiForums
+Wasafi
+Clouds
+Pinterest
+Reddit
+Twitch
+Discord
+Threads

@@ -1,0 +1,5 @@
+---
+description: Capital of Komoro, as Swahili writes it
+locale: sw
+---
+Moroni

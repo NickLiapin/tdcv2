@@ -1,0 +1,48 @@
+---
+description: Common verb (Slovak, infinitive)
+locale: sk
+---
+byť
+nachádzať sa
+mať
+robiť
+hovoriť
+dostávať
+ísť
+vedieť
+brať
+vidieť
+prichádzať
+myslieť
+pozerať sa
+chcieť
+dávať
+používať
+nachádzať
+rozprávať
+pýtať sa
+pracovať
+cítiť
+skúšať
+nechávať
+volať
+stavať
+hýbať sa
+hrať
+bežať
+prinášať
+začínať
+písať
+držať
+niesť
+uchovávať
+otvárať
+prechádzať sa
+učiť sa
+rásť
+ponúkať
+pamätať
+žiť
+jesť
+piť
+počúvať

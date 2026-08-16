@@ -1,0 +1,5 @@
+---
+description: Capital of Iraq, as Swahili writes it
+locale: sw
+---
+Baghdad

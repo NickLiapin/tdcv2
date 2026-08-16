@@ -1,0 +1,5 @@
+---
+description: Capital of Kolombia, as Swahili writes it
+locale: sw
+---
+Bogota

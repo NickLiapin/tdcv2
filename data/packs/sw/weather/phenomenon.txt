@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Swahili). Sakitu (frost) happens in Tanzania only on the high ground — the Kilimanjaro and Southern Highlands slopes — and never on the coast.
+locale: sw
+---
+radi
+umeme
+ngurumo
+upinde wa mvua
+ukungu
+umande
+sakitu
+kimbunga
+dhoruba
+upepo mkali
+tufani
+mafuriko
+mafuriko ya ghafla
+ukame
+wimbi la joto

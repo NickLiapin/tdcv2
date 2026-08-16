@@ -1,0 +1,12 @@
+---
+description: Turkish dishes (Swahili)
+locale: sw
+---
+kebabu
+doner kebabu
+lahmacun
+baklava
+borek
+kofte
+pilau ya Kituruki
+ayran

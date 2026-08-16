@@ -1,0 +1,23 @@
+---
+description: Movie genre (Slovak, masculine to agree with film)
+locale: sk
+---
+Akčný
+Komédia
+Dráma
+Horor
+Triler
+Romantický
+Sci-fi
+Fantasy
+Dokumentárny
+Animovaný
+Dobrodružný
+Kriminálny
+Mysteriózny
+Western
+Muzikál
+Vojnový
+Životopisný
+Film noir
+Romantická komédia

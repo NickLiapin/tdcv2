@@ -1,0 +1,5 @@
+---
+description: Currency of Uchina (Swahili)
+locale: sw
+---
+Yuan ya Uchina

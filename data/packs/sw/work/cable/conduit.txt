@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Swahili)
+locale: sw
+---
+mfereji wa nyaya
+bomba linalonyumbulika
+bomba la chuma
+trei ya nyaya
+njia ya kuning'iniza
+mtaro wa chini ya ardhi
+kuzikwa moja kwa moja ardhini

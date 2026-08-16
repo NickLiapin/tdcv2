@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Slovak, masculine singular)
+locale: sk
+---
+pomocný
+primárny
+sekundárny
+digitálny
+virtuálny
+redundantný
+bezdrôtový
+optický
+neurónový
+dotykový
+multiplatformový
+distribuovaný
+šifrovaný
+vzdialený
+mobilný
+vstavaný
+škálovateľný
+asynchrónny
+obojsmerný
+otvorený
+polovodičový
+rýchly
+výkonný
+cloudový
+sieťový
+offline
+64-bitový
+8-bitový

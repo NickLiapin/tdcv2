@@ -1,0 +1,22 @@
+---
+description: Event type (Slovak, nominative)
+locale: sk
+---
+Konferencia
+Kongres
+Svadba
+Koncert
+Festival
+Workshop
+Seminár
+Webinár
+Veľtrh
+Výstava
+Charitatívna zbierka
+Odborné stretnutie
+Uvedenie produktu
+Ples
+Narodeniny
+Promócia
+Krst
+Výročie

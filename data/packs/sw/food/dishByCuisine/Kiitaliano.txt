@@ -1,0 +1,12 @@
+---
+description: Italian dishes (Swahili)
+locale: sw
+---
+pizza
+pasta
+spaghetti
+lasagna
+risotto
+tiramisu
+minestrone
+ravioli

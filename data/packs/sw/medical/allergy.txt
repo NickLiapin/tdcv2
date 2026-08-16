@@ -1,0 +1,26 @@
+---
+description: Common allergies (Swahili)
+locale: sw
+---
+chavua ya nyasi
+chavua ya miti
+vumbi la nyumbani
+utitiri wa vumbi
+manyoya ya paka
+manyoya ya mbwa
+ukungu
+penisilini
+salfa
+aspirini
+dawa ya ganzi
+karanga
+korosho
+maziwa ya ng'ombe
+mayai
+samaki
+kamba
+kaa
+soya
+gluteni
+kuumwa na nyuki
+mpira wa lateksi

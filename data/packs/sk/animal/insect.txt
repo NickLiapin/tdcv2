@@ -1,0 +1,24 @@
+---
+description: Insect (Slovak, nominative)
+locale: sk
+---
+Mravec
+Včela
+Motýľ
+Chrobák
+Vážka
+Koník
+Lienka
+Mora
+Cvrček
+Osa
+Svetluška
+Modlivka
+Cikáda
+Termit
+Komár
+Mucha
+Šváb
+Blcha
+Stonožka
+Ploštica

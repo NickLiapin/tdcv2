@@ -1,0 +1,26 @@
+---
+description: Insect (Swahili). Note kereng'ende, mbung'o and ng'e: ng' with the apostrophe is a single Swahili letter and is NOT the same as ng.
+locale: sw
+---
+nyuki
+nyigu
+mbu
+inzi
+siafu
+sisimizi
+chungu
+mchwa
+kumbikumbi
+nzige
+panzi
+kereng'ende
+kipepeo
+nondo
+mende
+kunguni
+chawa
+kiroboto
+kupe
+mbung'o
+mbawakawa
+funza

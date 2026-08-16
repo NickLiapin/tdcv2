@@ -1,0 +1,59 @@
+{
+  "months": [
+    "Januari",
+    "Februari",
+    "Machi",
+    "Aprili",
+    "Mei",
+    "Juni",
+    "Julai",
+    "Agosti",
+    "Septemba",
+    "Oktoba",
+    "Novemba",
+    "Desemba"
+  ],
+  "monthsInDate": [
+    "Januari",
+    "Februari",
+    "Machi",
+    "Aprili",
+    "Mei",
+    "Juni",
+    "Julai",
+    "Agosti",
+    "Septemba",
+    "Oktoba",
+    "Novemba",
+    "Desemba"
+  ],
+  "monthsShort": [
+    "Jan",
+    "Feb",
+    "Mac",
+    "Apr",
+    "Mei",
+    "Jun",
+    "Jul",
+    "Ago",
+    "Sep",
+    "Okt",
+    "Nov",
+    "Des"
+  ],
+  "weekdays": [
+    "Jumapili",
+    "Jumatatu",
+    "Jumanne",
+    "Jumatano",
+    "Alhamisi",
+    "Ijumaa",
+    "Jumamosi"
+  ],
+  "weekdaysShort": ["Jpi", "Jtt", "Jnn", "Jtn", "Alh", "Ijm", "Jmo"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "Swahili nouns do not decline, so monthsInDate is identical to months — unlike Czech, Finnish or Polish, no case change happens inside a date. The month and weekday names are written with an initial capital. The weekday names COUNT FROM SATURDAY and this is the one thing a formatter author must not 'fix': Jumamosi is day one (mosi), Jumapili day two (pili), Jumatatu day three (tatu), Jumanne four (nne), Jumatano five (tano). So Jumatatu, which reads as 'day three', is MONDAY, and the numeral in the name is not the ISO weekday number. Alhamisi and Ijumaa are Arabic names and break the count entirely. The weekdays array above is Sunday-first because the formatter wants it that way; the working week starts on Jumatatu, and data/packs/sw/date/weekday.txt is likewise Sunday-first for the same reason. The numeric date is DD/MM/YYYY with slashes, as on every Tanzanian form. Written out, a date is 'D MMMM YYYY' and is usually introduced by the word 'tarehe': tarehe 5 Januari 2026. Swahili also counts months ordinally in speech — mwezi wa kwanza (January) through mwezi wa kumi na mbili (December) — which is common but is not what gets written on a form. The CLOCK is the real trap. Swahili time runs SIX HOURS OFF the international clock because the day is counted from sunrise, which on the equator is close to 06:00 all year: saa moja is 07:00, saa sita is 12:00 (noon), saa kumi na mbili is 18:00. A Tanzanian saying 'saa mbili asubuhi' means 08:00. Digital displays and printed timetables use 24-hour international time with a colon (14:30), so a formatter should emit international time and leave the Swahili-clock conversion alone unless a config explicitly asks for it. The decimal separator is a full stop and the thousands separator a comma (1,234.56), following East African English practice. Currency is written TSh before the amount."
+}

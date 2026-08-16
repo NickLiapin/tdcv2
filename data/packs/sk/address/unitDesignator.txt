@@ -1,0 +1,27 @@
+---
+description: Slovak address unit / interior designator, abbreviated as it is written before a number. A Slovak house carries TWO numbers, exactly as in Czechia: the súpisné číslo (s. č.), a permanent registration number unique within the municipality, and the orientačné číslo (o. č.), the sequential number along the street. Both are written together as súpisné/orientačné — Dlhá 1234/12 — and only the second one counts up the street.
+locale: sk
+---
+s. č.
+o. č.
+byt
+b.
+poschodie
+posch.
+prízemie
+vchod
+vch.
+blok
+budova
+bud.
+sekcia
+schodisko
+kancelária
+kanc.
+miestnosť
+podlažie
+suterén
+podkrovie
+pivnica
+parcela
+orientačné číslo

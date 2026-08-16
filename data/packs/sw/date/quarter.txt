@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Swahili, robo ya mwaka)
+locale: sw
+---
+Robo ya kwanza
+Robo ya pili
+Robo ya tatu
+Robo ya nne

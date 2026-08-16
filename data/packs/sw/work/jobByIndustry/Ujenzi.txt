@@ -1,0 +1,16 @@
+---
+description: Jobs in Ujenzi (Swahili)
+locale: sw
+---
+mhandisi wa ujenzi
+mbunifu majengo
+msimamizi wa mradi
+mkadiriaji wa gharama
+fundi ujenzi
+fundi umeme
+fundi bomba
+fundi seremala
+mwashi
+mchoraji ramani
+mendeshaji wa mitambo
+afisa usalama wa tovuti

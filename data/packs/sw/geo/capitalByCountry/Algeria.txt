@@ -1,0 +1,5 @@
+---
+description: Capital of Algeria, as Swahili writes it
+locale: sw
+---
+Algiers

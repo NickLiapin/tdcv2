@@ -1,0 +1,24 @@
+---
+description: Name or academic suffix written AFTER a Slovak name, following a comma (Jan Novak, PhD.). Slovak puts most of its degrees before the name instead - those are in person/prefix - so this list is short by design rather than truncated. ArtD. is the Slovak doctorate in the arts and has no Czech equivalent; st. and ml. are the senior / junior markers.
+locale: sk
+---
+PhD.
+ArtD.
+CSc.
+DrSc.
+DSc.
+ThD.
+DiS.
+DiS. art.
+dr. h. c.
+MBA
+LL.M.
+MPA
+MSc.
+M.A.
+BBA
+DBA
+st.
+ml.
+II.
+III.

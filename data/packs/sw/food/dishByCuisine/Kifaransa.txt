@@ -1,0 +1,12 @@
+---
+description: French dishes (Swahili)
+locale: sw
+---
+baguette
+croissant
+ratatouille
+quiche
+krepu
+bouillabaisse
+coq au vin
+creme brulee

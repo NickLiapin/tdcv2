@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Native American ancestry, in Slovak. A prevalence signal, not an exclusive one.
+locale: sk
+---
+Diabetes mellitus 2. typu
+Obezita
+Žlčové kamene
+Alkoholové ochorenie pečene
+Chronické ochorenie obličiek
+Reumatoidná artritída

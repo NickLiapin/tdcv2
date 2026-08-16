@@ -1,0 +1,5 @@
+---
+description: Capital of Uswisi, as Swahili writes it
+locale: sw
+---
+Bern

@@ -1,0 +1,46 @@
+---
+description: Company legal form or name suffix used in Slovakia. s. r. o. (limited company) and a. s. (joint stock) cover the great majority of registered firms. j. s. a. - jednoducha spolocnost na akcie - is a Slovak start-up vehicle introduced in 2017 and has no Czech equivalent. o. z., n. o., n. f. and nadacia are the non-profit forms. The remainder are ordinary name tails rather than legal forms.
+locale: sk
+---
+s. r. o.
+spol. s r. o.
+a. s.
+v. o. s.
+k. s.
+j. s. a.
+SE
+š. p.
+p. o.
+družstvo
+o. z.
+n. o.
+n. f.
+nadácia
+Group
+Holding
+Slovakia
+SK
+Slovensko
+Tatra
+Považie
+Bratislava
+Košice
+a syn
+a synovia
+bratia
+a spol.
+Servis
+Systémy
+Technológie
+Riešenia
+Consulting
+Invest
+Trade
+Centrum
+Agentúra
+Inštitút
+Laboratóriá
+Závody
+Podnik
+Dielne
+Združenie

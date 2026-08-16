@@ -1,0 +1,61 @@
+---
+description: Sport (Slovak). Vodny slalom is the Slovak national sport in medal terms - Michal Martikan and the Hochschorner twins made Slovakia the most decorated canoe-slalom nation per head in the world - and chodza (race walking) brought Slovakia an Olympic title. Ladovy hokej is the game the country follows. Nohejbal is played here as in Czechia, but it was invented in Bohemia, not Slovakia.
+locale: sk
+---
+Futbal
+Futsal
+Nohejbal
+Americký futbal
+Basketbal
+Baseball
+Softbal
+Volejbal
+Plážový volejbal
+Hádzaná
+Ragby
+Ľadový hokej
+Pozemný hokej
+Florbal
+Kriket
+Tenis
+Padel
+Stolný tenis
+Bedminton
+Squash
+Golf
+Plávanie
+Vodné pólo
+Atletika
+Chôdza
+Cyklistika
+Horská cyklistika
+Cyklokros
+Box
+Zápasenie
+Džudo
+Karate
+Taekwondo
+Šerm
+Športová gymnastika
+Moderná gymnastika
+Vzpieranie
+Triatlon
+Veslovanie
+Rýchlostná kanoistika
+Vodný slalom
+Jachting
+Zjazdové lyžovanie
+Beh na lyžiach
+Skoky na lyžiach
+Severská kombinácia
+Biatlon
+Snoubording
+Krasokorčuľovanie
+Rýchlokorčuľovanie
+Sánkovanie
+Športové lezenie
+Lukostreľba
+Športová streľba
+Jazdectvo
+Motoristický šport
+Orientačný beh

@@ -1,0 +1,24 @@
+---
+description: School subject as named on a Slovak timetable
+locale: sk
+---
+Matematika
+Fyzika
+Chémia
+Biológia
+Informatika
+Dejepis
+Geografia
+Slovenský jazyk a literatúra
+Výtvarná výchova
+Hudobná výchova
+Telesná a športová výchova
+Ekonómia
+Filozofia
+Psychológia
+Cudzí jazyk
+Štatistika
+Prírodoveda
+Občianska náuka
+Náuka o spoločnosti
+Technika

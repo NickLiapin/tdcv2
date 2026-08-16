@@ -1,0 +1,16 @@
+---
+description: Jobs in Finance (Slovak)
+locale: sk
+---
+Finančný analytik
+Účtovník
+Hlavný účtovník
+Interný audítor
+Poistný matematik
+Úverový poradca
+Daňový poradca
+Burzový maklér
+Špecialista na riadenie rizík
+Finančný kontrolór
+Bankový pracovník na priehradke
+Investičný analytik

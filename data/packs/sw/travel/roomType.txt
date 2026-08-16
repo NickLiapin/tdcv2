@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Swahili)
+locale: sw
+---
+chumba cha mtu mmoja
+chumba cha watu wawili
+chumba chenye vitanda viwili
+chumba cha watu watatu
+chumba cha familia
+chumba cha kawaida
+chumba cha juu
+deluxe
+junior suite
+suite
+presidential suite
+studio
+apartment
+vila
+bandani
+banda la ufukweni
+chumba chenye mandhari ya bahari
+chumba chenye balcony

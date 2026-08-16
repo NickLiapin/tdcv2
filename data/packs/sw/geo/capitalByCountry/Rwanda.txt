@@ -1,0 +1,5 @@
+---
+description: Capital of Rwanda, as Swahili writes it
+locale: sw
+---
+Kigali

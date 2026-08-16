@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Slovak). Note Skorpion: Czech calls the same sign Stir, so this is one of the places a copied Czech list gives itself away.
+locale: sk
+---
+Baran
+Býk
+Blíženci
+Rak
+Lev
+Panna
+Váhy
+Škorpión
+Strelec
+Kozorožec
+Vodnár
+Ryby

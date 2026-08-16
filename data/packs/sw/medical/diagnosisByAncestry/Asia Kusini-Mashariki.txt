@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Asia Kusini-Mashariki ancestry, in Swahili.
+locale: sw
+---
+Thalasemia alfa
+Thalasemia beta
+Hemoglobin E
+Upungufu wa kimeng'enya G6PD
+Kutovumilia laktosi
+Saratani ya ini
+Kisukari aina ya 2

@@ -1,0 +1,26 @@
+---
+description: Company department / function (Swahili)
+locale: sw
+---
+Uongozi
+Fedha
+Uhasibu
+Sheria
+Rasilimali watu
+Masoko
+Mauzo
+Manunuzi
+Usafirishaji
+Ghala
+Uzalishaji
+Uhandisi
+Teknolojia ya habari
+Uendelezaji wa programu
+Upimaji
+Msaada wa kiufundi
+Ubora
+Utafiti na maendeleo
+Huduma kwa wateja
+Usalama
+Utawala
+Mahusiano ya umma

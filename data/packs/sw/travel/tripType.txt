@@ -1,0 +1,26 @@
+---
+description: Trip type (Swahili). Safari is not a loanword here — it is the ordinary Swahili word for a journey, and the game-park sense that English borrowed is only one of its uses.
+locale: sw
+---
+likizo
+safari ya wikendi
+safari ya pwani
+safari ya mbuga za wanyama
+kupanda Kilimanjaro
+safari ya visiwani
+utalii wa kitamaduni
+utalii wa vyakula
+safari ya basi
+safari ya meli
+kupanda milima
+kushuka mto kwa mtumbwi
+safari ya baiskeli
+safari ya gari
+safari ya treni
+hija
+umrah
+hijja
+utalii wa ununuzi
+utalii wa matibabu
+safari ya kikazi
+mkutano

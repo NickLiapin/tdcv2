@@ -1,0 +1,16 @@
+---
+description: Jobs in Manufacturing (Slovak)
+locale: sk
+---
+Obsluha CNC stroja
+Zvárač
+Sústružník
+Frézar
+Kontrolór kvality
+Vedúci výroby
+Montážny robotník
+Údržbár
+Technológ výroby
+Operátor výrobnej linky
+Majster
+Skladník

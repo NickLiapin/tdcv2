@@ -1,0 +1,28 @@
+---
+description: Fish and edible sea creatures (Swahili) — the Indian Ocean catch, the Lake Victoria catch, and the fresh-water staples. The last few are molluscs and crustaceans rather than fish, because a Tanzanian fish market sells them side by side.
+locale: sw
+---
+sato
+sangara
+dagaa
+jodari
+nguru
+changu
+chaa
+tasi
+pono
+kolekole
+kibua
+mkizi
+kambale
+mkunga
+papa
+taa
+perege
+furu
+ngogo
+pweza
+ngisi
+kamba
+kambakoche
+kaa

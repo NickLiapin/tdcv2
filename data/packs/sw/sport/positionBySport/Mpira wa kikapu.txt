@@ -1,0 +1,12 @@
+---
+description: Positions in basketball (Swahili; the guard and forward names are used untranslated)
+locale: sw
+---
+point guard
+shooting guard
+small forward
+power forward
+senta
+kiungo mkuu
+mlinzi
+mshambuliaji

@@ -1,0 +1,22 @@
+---
+description: Cat breed (Swahili). Breed names are international and keep their spelling; paka wa kienyeji is the ordinary Tanzanian house cat and is not a breed.
+locale: sw
+---
+paka wa kienyeji
+paka wa Kiajemi
+Siami
+British Shorthair
+Maine Coon
+Sphynx
+Bengal
+Scottish Fold
+Abyssinia
+Ragdoll
+Birman
+Siberia
+Norwegian Forest
+Russian Blue
+Cornish Rex
+Oriental
+Exotic Shorthair
+Angora

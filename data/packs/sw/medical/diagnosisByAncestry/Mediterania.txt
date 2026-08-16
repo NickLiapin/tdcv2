@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterania ancestry, in Swahili.
+locale: sw
+---
+Thalasemia beta
+Upungufu wa kimeng'enya G6PD
+Homa ya Mediterania ya kifamilia
+Anemia ya Cooley
+Ugonjwa wa Behcet
+Kutovumilia laktosi
+Mawe kwenye nyongo

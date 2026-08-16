@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Slovak). Slovak, like Czech, names the lung specialty pneumologia from the Greek pneumon, where English and Polish use pulmo.
+locale: sk
+---
+Kardiológia
+Neurológia
+Onkológia
+Dermatológia
+Gastroenterológia
+Endokrinológia
+Pneumológia
+Ortopédia
+Psychiatria
+Nefrológia

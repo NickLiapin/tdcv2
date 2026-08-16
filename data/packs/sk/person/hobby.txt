@@ -1,0 +1,89 @@
+---
+description: Hobby / interest (Slovak). Several are specifically Slovak pastimes: jaskyniarstvo (caving - Slovakia has some seven thousand catalogued caves and an organised amateur speleological society), drotarstvo (the Kysuce wire craft, now a folk art), chalupárenie and chatárčenie (weekending at a village cottage or a mountain cabin), hubárčenie (going to the woods for wild mushrooms) and turistika, which in Slovak means marked-trail hill walking on the densest trail network in Europe rather than tourism.
+locale: sk
+---
+Čítanie
+Turistika
+Vysokohorská turistika
+Cyklistika
+Horská cyklistika
+Beh
+Plávanie
+Lyžovanie
+Bežecké lyžovanie
+Snoubording
+Korčuľovanie
+Horolezectvo
+Skalolezectvo
+Jaskyniarstvo
+Vodáctvo
+Splavovanie
+Jachting
+Rybárčenie
+Hubárčenie
+Poľovníctvo
+Chalupárenie
+Chatárčenie
+Kempovanie
+Skauting
+Orientačný beh
+Geocaching
+Záhradkárstvo
+Včelárstvo
+Pestovanie bonsajov
+Akvaristika
+Chovateľstvo
+Kutilstvo
+Stolárstvo
+Modelárstvo
+Železničné modelárstvo
+Drotárstvo
+Rezbárstvo
+Paličkovanie
+Varenie
+Pečenie
+Zaváranie
+Domáce pivovarníctvo
+Degustácia vína
+Fotografovanie
+Astrofotografia
+Astronómia
+Maľovanie
+Kreslenie
+Keramika
+Šitie
+Pletenie
+Vyšívanie
+Kaligrafia
+Hra na gitare
+Hra na klavíri
+Hra na husliach
+Hra na fujare
+Spev
+Zborový spev
+Folklórny tanec
+Tanec
+Ochotnícke divadlo
+Návštevy divadla
+Film
+Písanie
+Poézia
+Genealógia
+Filatelia
+Numizmatika
+Šach
+Spoločenské hry
+Videohry
+Programovanie
+Robotika
+3D tlač
+Joga
+Pilates
+Posilňovanie
+Bojové umenia
+Box
+Tenis
+Futbal
+Hokej
+Volejbal
+Dobrovoľníctvo

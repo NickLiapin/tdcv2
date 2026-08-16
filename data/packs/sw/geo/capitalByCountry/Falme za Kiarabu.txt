@@ -1,0 +1,5 @@
+---
+description: Capital of Falme za Kiarabu, as Swahili writes it
+locale: sw
+---
+Abu Dhabi

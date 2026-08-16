@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, described in Swahili. The Tanzanian board issues its own code letters; those are country data, not locale data, so the descriptive labels are what is listed here.
+locale: sw
+---
+kwa umri wote
+kwa familia
+kwa watoto
+kwa uangalizi wa mzazi
+kwa vijana
+miaka 13 na kuendelea
+miaka 16 na kuendelea
+miaka 18 na kuendelea
+bila kikomo cha umri

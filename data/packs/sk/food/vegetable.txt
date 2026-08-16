@@ -1,0 +1,34 @@
+---
+description: Vegetable (Slovak, nominative). Watch kapusta: in Slovak it is plain cabbage, while the Czech word of the same shape means savoy - the Slovak for savoy is kel. Zemiak, paradajka and uhorka likewise differ from the Czech brambor, rajce and okurka.
+locale: sk
+---
+Mrkva
+Brokolica
+Špenát
+Zemiak
+Uhorka
+Šalát
+Cibuľa
+Paprika
+Cuketa
+Karfiol
+Hrach
+Kukurica
+Špargľa
+Baklažán
+Kel kučeravý
+Kapusta
+Zeler stopkový
+Šampiňón
+Batat
+Cvikla
+Reďkovka
+Tekvica
+Mangold
+Artičoka
+Pór
+Kaleráb
+Paradajka
+Žerucha
+Pažítka
+Cesnak

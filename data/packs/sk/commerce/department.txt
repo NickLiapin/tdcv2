@@ -1,0 +1,54 @@
+---
+description: Store department / category (Slovak)
+locale: sk
+---
+Knihy
+Filmy
+Hudba
+Videohry
+Elektronika
+Počítače
+Mobilné telefóny
+Dom a byt
+Záhrada
+Náradie
+Železiarstvo
+Potraviny
+Nápoje
+Zdravie
+Lekáreň
+Krása
+Parfuméria
+Hračky
+Detský tovar
+Dojčenský tovar
+Oblečenie
+Obuv
+Šperky
+Hodinky
+Doplnky
+Šport
+Turistika
+Autodiely
+Motocykle
+Priemyselný tovar
+Kancelária
+Papiernictvo
+Chovateľské potreby
+Nábytok
+Dekorácie
+Biela technika
+Osvetlenie
+Bytový textil
+Vybavenie kuchyne
+Domáci majster
+Stavebniny
+Fotografia
+Hudobné nástroje
+Batožina
+Optika
+Drogéria
+Darčeky
+Výtvarné potreby
+Vodné športy
+Zimné športy

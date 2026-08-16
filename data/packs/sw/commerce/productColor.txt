@@ -1,0 +1,57 @@
+---
+description: Colour as written on a Tanzanian product listing (Swahili). Listings write the bare N-class form after "Rangi:", which is why these are not inflected.
+locale: sw
+---
+nyeupe
+nyeusi
+kijivu
+kijivu hafifu
+kijivu iliyokolea
+fedha
+dhahabu
+shaba
+shaba nyeupe
+krimu
+pembe
+maziwa
+mchanga
+kaki
+kahawia
+kahawia iliyokolea
+kahawia hafifu
+hudhurungi
+nyekundu
+damu ya mzee
+nyekundu ya damu
+waridi
+pinki
+pinki hafifu
+marijani
+chungwa
+machungwa
+njano
+manjano
+njano hafifu
+kijani
+kijani kibichi
+kijani iliyokolea
+kijani cha mzeituni
+zumaridi
+bluu
+buluu
+samawati
+bluu ya anga
+bluu ya bahari
+bluu ya kijeshi
+zambarau
+urujuani
+yakuti
+kaharabu
+lulu
+nyeusi ya makaa
+angavu
+isiyo na rangi
+yenye mistari
+yenye madoa
+rangi ya mbao
+rangi ya marumaru

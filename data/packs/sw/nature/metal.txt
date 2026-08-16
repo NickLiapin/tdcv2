@@ -1,0 +1,26 @@
+---
+description: Metal (Swahili)
+locale: sw
+---
+chuma
+chuma cha pua
+chuma ghafi
+shaba
+shaba nyeupe
+shaba nyekundu
+alumini
+titani
+bati
+risasi
+nikeli
+kromu
+kobalti
+magnesiamu
+tungsteni
+molibdenamu
+fedha
+dhahabu
+platinamu
+paladiamu
+zebaki
+zinki

@@ -1,0 +1,22 @@
+---
+description: Cuisine (Slovak, feminine to agree with kuchyna). Each value has a dishByCuisine child file. Madarska is on this list for a Slovak reason: a Hungarian-speaking minority of about half a million lives along the southern border, and a Hungarian restaurant is an ordinary feature of a town there rather than an exotic one.
+locale: sk
+---
+Talianska
+Japonská
+Mexická
+Čínska
+Indická
+Francúzska
+Thajská
+Grécka
+Španielska
+Americká
+Kórejská
+Vietnamská
+Turecká
+Libanonská
+Peruánska
+Argentínska
+Maďarská
+Slovenská

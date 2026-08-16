@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Slovak. A prevalence signal, not an exclusive one.
+locale: sk
+---
+Skorý diabetes mellitus 2. typu
+Predčasná ischemická choroba srdca
+Abdominálna obezita pri normálnom BMI
+Deficit vitamínu D
+Nosičstvo beta-talasémie
+Metabolický syndróm
+Deficit glukózo-6-fosfátdehydrogenázy
+Reumatická horúčka srdca

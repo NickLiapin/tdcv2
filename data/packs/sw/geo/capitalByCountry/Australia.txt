@@ -1,0 +1,5 @@
+---
+description: Capital of Australia, as Swahili writes it
+locale: sw
+---
+Canberra

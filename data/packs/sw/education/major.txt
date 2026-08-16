@@ -1,0 +1,40 @@
+---
+description: Field of study / degree subject (Swahili)
+locale: sw
+---
+Sayansi ya Kompyuta
+Uhandisi wa Programu
+Usalama wa Mtandao
+Uhandisi wa Umeme
+Uhandisi wa Ujenzi
+Uhandisi wa Mitambo
+Uhandisi wa Madini
+Hisabati
+Fizikia
+Kemia
+Biolojia
+Sayansi ya Mazingira
+Jiografia
+Jiolojia
+Kilimo
+Ufugaji
+Uvuvi
+Misitu
+Udaktari
+Udaktari wa Meno
+Ufamasia
+Uuguzi
+Afya ya Jamii
+Saikolojia
+Sosholojia
+Sayansi ya Siasa
+Sheria
+Uhusiano wa Kimataifa
+Uchumi
+Uhasibu
+Utawala wa Biashara
+Masoko
+Uandishi wa Habari
+Fasihi ya Kiswahili
+Historia
+Elimu

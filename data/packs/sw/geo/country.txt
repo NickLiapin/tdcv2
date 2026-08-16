@@ -1,0 +1,63 @@
+---
+description: Country as Swahili names it, weighted by population in millions. Swahili gives many countries the U- prefix of noun class 11 — Uchina, Uhindi, Ufaransa, Ujerumani, Uingereza, Ureno, Uholanzi, Uswisi, Uswidi, Uturuki — and this is translation, not transliteration: Germany is Ujerumani, not "Germany" respelled. Marekani and Misri take no prefix. Tanzania, Kenya, Uganda, Rwanda, Burundi and the DR Congo are carried at their real weight because they are the countries this language names most often.
+locale: sw
+weighted: true
+---
+Uhindi,1430
+Uchina,1410
+Marekani,335
+Indonesia,277
+Pakistan,240
+Nigeria,223
+Brazili,216
+Bangladesh,173
+Urusi,144
+Ethiopia,126
+Japani,124
+Ufilipino,117
+Misri,112
+Jamhuri ya Kidemokrasia ya Kongo,102
+Vietnam,98
+Iran,89
+Uturuki,85
+Ujerumani,84
+Thailand,72
+Ufaransa,68
+Uingereza,67
+Tanzania,67
+Afrika Kusini,60
+Italia,59
+Kenya,55
+Myanmar,54
+Korea Kusini,52
+Kolombia,52
+Sudan,48
+Uhispania,48
+Uganda,47
+Ajentina,46
+Algeria,45
+Iraq,45
+Kanada,39
+Poland,38
+Moroko,37
+Saudi Arabia,36
+Ghana,34
+Msumbiji,33
+Australia,26
+Zambia,20
+Malawi,20
+Somalia,18
+Uholanzi,18
+Zimbabwe,16
+Rwanda,14
+Burundi,13
+Falme za Kiarabu,10
+Uswidi,10
+Ugiriki,10
+Ureno,10
+Uswisi,9
+Singapore,6
+Norwe,5
+Ayalandi,5
+New Zealand,5
+Komoro,1

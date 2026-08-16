@@ -1,0 +1,40 @@
+---
+description: Building type (Swahili), as a Tanzanian address or property record names it.
+locale: sw
+---
+nyumba ya kuishi
+nyumba ya kupanga
+nyumba ya ghorofa
+ghorofa
+fleti
+banda
+nyumba ya udongo
+nyumba ya bati
+nyumba ya wageni
+jengo la ofisi
+duka
+duka kubwa
+soko
+kibanda
+genge
+ghala
+kiwanda
+karakana
+gereji
+kituo cha mafuta
+stendi ya mabasi
+shule
+chuo
+chuo kikuu
+hospitali
+zahanati
+kituo cha afya
+msikiti
+kanisa
+hekalu
+jumba la makumbusho
+uwanja wa michezo
+hoteli
+bweni
+kituo cha polisi
+ofisi ya posta

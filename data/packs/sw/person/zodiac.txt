@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Swahili). Swahili has its own translated names — Ndume the ram, Fahali the bull, Mapacha the twins — and these are what a Swahili horoscope column prints; the Latin names are also understood.
+locale: sw
+---
+Ndume
+Fahali
+Mapacha
+Kaa
+Simba
+Mashuke
+Mizani
+Nge
+Mshale
+Mbuzi
+Ndoo
+Samaki

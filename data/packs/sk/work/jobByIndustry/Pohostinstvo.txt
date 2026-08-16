@@ -1,0 +1,16 @@
+---
+description: Jobs in Hospitality (Slovak)
+locale: sk
+---
+Šéfkuchár
+Zástupca šéfkuchára
+Kuchár
+Čašník
+Barman
+Barista
+Recepčný
+Manažér hotela
+Concierge
+Chyžná
+Koordinátor podujatí
+Sprievodca cestovného ruchu

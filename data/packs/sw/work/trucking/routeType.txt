@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Swahili). Ukanda wa Kati is the Central Corridor from Dar es Salaam inland to Burundi, Rwanda and the eastern DRC — the road that most Tanzanian long-haul freight actually runs on.
+locale: sw
+---
+ndani ya mji
+kati ya miji
+kimkoa
+kitaifa
+kimataifa
+Ukanda wa Kati
+safari ya kwenda na kurudi

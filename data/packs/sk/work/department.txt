@@ -1,0 +1,26 @@
+---
+description: Company department (Slovak, nominative)
+locale: sk
+---
+Vývoj
+Produkt
+Dizajn
+Obchod
+Marketing
+Financie
+Účtovníctvo
+Personalistika
+Prevádzka
+Právne oddelenie
+Zákaznícka podpora
+Informačné technológie
+Výskum a vývoj
+Nákup
+Kontrola kvality
+Logistika
+Administratíva
+Údržba
+Bezpečnosť
+Compliance
+Komunikácia
+Vzdelávanie

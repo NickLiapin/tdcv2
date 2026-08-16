@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Slovak, nominative)
+locale: sk
+---
+Wi-Fi zdarma
+Bazén
+Vyhrievaný bazén
+Wellness
+Posilňovňa
+Reštaurácia
+Bar
+Izbová služba
+Transfer z letiska
+Raňajky v cene
+Parkovanie zdarma
+Ústretový k zvieratám
+Business centrum
+Concierge
+Práčovňa
+Vírivka
+Strešná terasa
+Klimatizácia
+Trezor
+Nonstop recepcia
+Konferenčné sály
+Výťah
+Minibar
+Bezbariérový prístup
+Úschovňa batožiny
+Požičovňa bicyklov
+Detský kútik
+Sauna
+Výhľad na hory
+Kuchynský kút

@@ -1,0 +1,5 @@
+---
+description: Currency of Misri (Swahili)
+locale: sw
+---
+Pauni ya Misri

@@ -1,0 +1,20 @@
+---
+description: Compass direction (Swahili). Worth knowing where these words come from: kaskazini (north) and kusini (south) are built on kaskazi and kusi, the names of the two monsoon winds that governed Indian Ocean sailing. The Swahili compass is a wind compass before it is a map one, and kaskazi and kusi are also seasons — they appear in date/season.txt.
+locale: sw
+---
+Kaskazini
+Kusini
+Mashariki
+Magharibi
+Kaskazini Mashariki
+Kaskazini Magharibi
+Kusini Mashariki
+Kusini Magharibi
+Kaskazini-Kaskazini Mashariki
+Mashariki-Kaskazini Mashariki
+Mashariki-Kusini Mashariki
+Kusini-Kusini Mashariki
+Kusini-Kusini Magharibi
+Magharibi-Kusini Magharibi
+Magharibi-Kaskazini Magharibi
+Kaskazini-Kaskazini Magharibi

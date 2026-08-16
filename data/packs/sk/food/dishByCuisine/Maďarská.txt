@@ -1,0 +1,12 @@
+---
+description: Dishes of Hungarian cuisine (Slovak). Hungarian food is not exotic in Slovakia - it is the everyday cooking of the whole southern strip of the country, where a large Hungarian minority lives - so gulas, perkelt, leco and langos appear on ordinary Slovak menus as well as on this list.
+locale: sk
+---
+Guláš
+Perkelt
+Halászlé
+Lečo
+Kurací paprikáš
+Plnená kapusta
+Lángoš
+Slivkové knedle

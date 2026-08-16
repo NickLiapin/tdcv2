@@ -1,0 +1,14 @@
+---
+description: Dishes of the Swahili coast (Swahili)
+locale: sw
+---
+wali wa nazi
+mchuzi wa samaki
+samaki wa kupaka
+biriani
+pilau
+mkate wa kumimina
+vitumbua
+mahamri
+kaimati
+sambusa

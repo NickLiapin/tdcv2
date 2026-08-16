@@ -1,0 +1,11 @@
+---
+description: Positions in volleyball (Swahili)
+locale: sw
+---
+mpangaji
+mpigaji wa nje
+mpigaji wa kati
+mpigaji wa kinyume
+libero
+mlinzi
+mpokeaji

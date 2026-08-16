@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Slovak). The noun after the numeral changes form: one hviezdicka, two to four hviezdicky, five hviezdiciek - Slovak counts in three grammatical bands, as Czech does.
+locale: sk
+---
+1 hviezdička
+2 hviezdičky
+3 hviezdičky
+4 hviezdičky
+5 hviezdičiek

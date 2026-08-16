@@ -1,0 +1,15 @@
+---
+description: Booking status (Slovak, agrees with rezervácia)
+locale: sk
+---
+Potvrdená
+Čaká na potvrdenie
+Zrušená
+Na čakacej listine
+Ubytovaný
+Odhlásený
+Nevyužitá
+Zmenená
+Vrátená
+Prepadnutá
+Garantovaná

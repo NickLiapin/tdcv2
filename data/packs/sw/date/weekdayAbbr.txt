@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Swahili), Sunday first. Calendars printed in Tanzania often spell the day out in full instead; these are the short forms used when space is tight.
+locale: sw
+---
+Jpi
+Jtt
+Jnn
+Jtn
+Alh
+Ijm
+Jmo

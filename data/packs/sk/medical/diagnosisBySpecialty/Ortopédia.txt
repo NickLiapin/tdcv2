@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Slovak)
+locale: sk
+---
+Artróza
+Reumatoidná artritída
+Výhrez medzistavcovej platničky
+Syndróm karpálneho tunela
+Ischias
+Poranenie rotátorovej manžety
+Zlomenina krčka stehnovej kosti
+Skolióza
+Achilodýnia
+Ruptúra predného skríženého väzu

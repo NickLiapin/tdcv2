@@ -1,0 +1,5 @@
+---
+description: Currency of Komoro (Swahili)
+locale: sw
+---
+Faranga ya Komoro

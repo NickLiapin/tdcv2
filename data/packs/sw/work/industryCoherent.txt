@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child), in Swahili. Kilimo and Utalii are on the list because agriculture employs most Tanzanians and tourism earns most of the foreign exchange.
+locale: sw
+---
+Teknolojia
+Afya
+Elimu
+Fedha
+Ujenzi
+Kilimo
+Uchukuzi
+Rejareja
+Utalii
+Sheria

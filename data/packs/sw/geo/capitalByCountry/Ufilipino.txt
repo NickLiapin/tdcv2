@@ -1,0 +1,5 @@
+---
+description: Capital of Ufilipino, as Swahili writes it
+locale: sw
+---
+Manila

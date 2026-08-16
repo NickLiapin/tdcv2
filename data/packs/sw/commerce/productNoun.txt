@@ -1,0 +1,148 @@
+---
+description: Product noun (Swahili)
+locale: sw
+---
+meza
+meza ya kando
+kiti
+kochi
+kabati
+rafu
+kitanda
+godoro
+mto
+mto wa kulalia
+blanketi
+shuka
+taulo
+zulia
+mkeka
+pazia
+kioo
+kitambaa cha meza
+kikombe
+sahani
+bakuli
+glasi
+bilauri
+kisu
+uma
+kijiko
+sinia
+sufuria
+kikaango
+chungu
+birika
+buli
+chungio
+mwiko
+ubao wa kukatia
+ndoo
+beseni
+karai
+debe
+jiko
+jiko la gesi
+jiko la mkaa
+tanuri
+friji
+jokofu
+mashine ya kufulia
+mashine ya kuosha vyombo
+feni
+kiyoyozi
+hita ya maji
+pampu ya maji
+tanki la maji
+taa
+tochi
+betri
+jenereta
+paneli ya sola
+inveta
+redio
+televisheni
+spika
+kipaza sauti
+kipokea sauti
+simu
+simu ya mkononi
+chaja
+kebo
+kompyuta
+laptopu
+tableti
+kibodi
+kipanya
+skrini
+printa
+skana
+kamera
+kadi ya kumbukumbu
+diski
+raute
+modemu
+saa
+saa ya ukutani
+mkoba
+begi
+mkoba wa mgongoni
+sanduku
+sanduku la safari
+mkanda
+pochi
+mwavuli
+miwani
+miwani ya jua
+kofia
+viatu
+ndala
+buti
+soksi
+shati
+fulana
+suruali
+gauni
+kanga
+kitenge
+sabuni
+sabuni ya unga
+dawa ya meno
+mswaki
+shampuu
+losheni
+mafuta ya kupaka
+manukato
+karatasi
+kalamu
+penseli
+daftari
+kitabu
+kalenda
+begi la shule
+mkasi
+gundi
+kifutio
+rula
+kikokotoo
+nyundo
+bisibisi
+patasi
+msumeno
+koleo
+jembe
+panga
+shoka
+kamba
+waya
+msumari
+skrubu
+baiskeli
+pikipiki
+tairi
+pampu ya baiskeli
+helmeti
+mpira
+neti
+raketi
+kifaa cha mazoezi

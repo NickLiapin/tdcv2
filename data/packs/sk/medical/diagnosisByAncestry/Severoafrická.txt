@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Slovak. A prevalence signal, not an exclusive one.
+locale: sk
+---
+Deficit glukózo-6-fosfátdehydrogenázy
+Nosičstvo beta-talasémie
+Familiárna stredomorská horúčka
+Behçetova choroba
+Hypolaktázia dospelých
+Xeroderma pigmentosum

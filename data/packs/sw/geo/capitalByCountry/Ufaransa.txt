@@ -1,0 +1,5 @@
+---
+description: Capital of Ufaransa, as Swahili writes it
+locale: sw
+---
+Paris

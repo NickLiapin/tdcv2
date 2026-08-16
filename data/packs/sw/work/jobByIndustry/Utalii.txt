@@ -1,0 +1,16 @@
+---
+description: Jobs in Utalii (Swahili)
+locale: sw
+---
+kiongozi wa watalii
+dereva wa safari
+meneja wa hoteli
+mapokezi
+mhudumu wa chumba
+mpishi
+mhudumu wa mgahawa
+afisa uhifadhi
+mwongozaji wa milima
+afisa mbuga
+mratibu wa safari
+mkalimani

@@ -1,0 +1,18 @@
+---
+description: Everyday Tanzanian dishes (Swahili)
+locale: sw
+---
+ugali
+wali
+pilau
+mchuzi wa kuku
+mchuzi wa nyama
+nyama choma
+mishkaki
+chipsi mayai
+ndizi nyama
+makande
+kachumbari
+mchicha
+maharage
+supu ya ndizi

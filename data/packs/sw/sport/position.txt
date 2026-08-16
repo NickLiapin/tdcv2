@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Swahili)
+locale: sw
+---
+kipa
+beki
+beki wa kati
+beki wa kando
+kiungo
+kiungo mkabaji
+kiungo mshambuliaji
+winga
+mshambuliaji
+mshambuliaji wa kati
+point guard
+shooting guard
+small forward
+power forward
+senta
+mpangaji
+mpigaji wa nje
+mpigaji wa kati
+mpigaji wa kinyume
+libero
+pivoti
+bawa la kushoto
+bawa la kulia
+mfungaji
+mlinzi wa lango
+mpiga mpira
+mrusha mpira
+mlinda lango
+prop
+hooker
+lock
+flanker
+namba nane
+fulbek
+nahodha

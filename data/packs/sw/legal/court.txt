@@ -1,0 +1,19 @@
+---
+description: Court in the Tanzanian judiciary (Swahili). Mahakama ya Mwanzo is the primary court at ward level, where most Tanzanians actually meet the law; the Kadhi courts sit in Zanzibar on matters of Muslim personal status.
+locale: sw
+---
+Mahakama ya Mwanzo
+Mahakama ya Wilaya
+Mahakama ya Hakimu Mkazi
+Mahakama Kuu
+Mahakama ya Rufani
+Divisheni ya Biashara
+Divisheni ya Kazi
+Divisheni ya Ardhi
+Mahakama ya Ardhi ya Wilaya
+Baraza la Ardhi la Kata
+Mahakama ya Kadhi
+Mahakama ya Mafisadi
+Mahakama ya Kodi
+Baraza la Usuluhishi
+Mahakama ya Watoto

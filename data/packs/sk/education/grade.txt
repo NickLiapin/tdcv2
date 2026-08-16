@@ -1,0 +1,21 @@
+---
+description: Grade / mark on the Slovak school scale. Slovak school marks run from 1 to 5 with ONE as the best and FIVE as a fail - the inverse of the Polish and German-style scales, and the opposite of what a config written for another locale will assume. Slovak names the marks with ADJECTIVES (vyborny, chvalitebny), where Czech uses adverbs (vyborne, chvalitebne). Universities use the ECTS letters A to E plus FX for a fail - there is no F.
+locale: sk
+---
+1 – výborný
+2 – chválitebný
+3 – dobrý
+4 – dostatočný
+5 – nedostatočný
+A
+B
+C
+D
+E
+FX
+Absolvoval
+Neabsolvoval
+Prospel s vyznamenaním
+Prospel veľmi dobre
+Prospel
+Neprospel

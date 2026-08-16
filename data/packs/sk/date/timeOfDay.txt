@@ -1,0 +1,12 @@
+---
+description: Time of day (Slovak). Like Czech, Slovak splits the morning in two - rano is the early part, dopoludnia the stretch between it and noon - and has no single word covering both.
+locale: sk
+---
+ráno
+dopoludnia
+poludnie
+popoludní
+podvečer
+večer
+noc
+polnoc

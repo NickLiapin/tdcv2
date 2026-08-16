@@ -1,0 +1,5 @@
+---
+description: Capital of Saudi Arabia, as Swahili writes it
+locale: sw
+---
+Riyadh

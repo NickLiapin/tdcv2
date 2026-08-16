@@ -1,0 +1,14 @@
+---
+description: Payment status (Slovak, agrees with platba)
+locale: sk
+---
+Čaká na zaplatenie
+Autorizovaná
+Zaplatená
+Neúspešná
+Vrátená
+Čiastočne vrátená
+Spätné zúčtovanie
+Zrušená
+Zamietnutá
+Overuje sa

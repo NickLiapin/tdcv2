@@ -1,0 +1,24 @@
+---
+description: School subject as taught in Tanzanian secondary schools (Swahili)
+locale: sw
+---
+Kiswahili
+Kiingereza
+Hisabati
+Fizikia
+Kemia
+Biolojia
+Jiografia
+Historia
+Uraia
+Elimu ya Dini
+Elimu ya Dini ya Kiislamu
+Kilimo
+Biashara
+Uhasibu
+Uchumi
+Kompyuta
+Sanaa
+Muziki
+Michezo
+Ufundi

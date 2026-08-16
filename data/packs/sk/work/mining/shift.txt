@@ -1,0 +1,9 @@
+---
+description: Mining shift (Slovak, feminine to agree with zmena)
+locale: sk
+---
+Denná
+Nočná
+Popoludňajšia
+Ranná
+Striedavá

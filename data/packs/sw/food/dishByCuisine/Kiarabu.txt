@@ -1,0 +1,12 @@
+---
+description: Arab dishes (Swahili)
+locale: sw
+---
+shawarma
+humusi
+falafel
+kabsa
+mandi
+mishkaki
+tende
+halua

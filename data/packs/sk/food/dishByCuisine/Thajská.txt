@@ -1,0 +1,12 @@
+---
+description: Dishes of Thai cuisine (Slovak)
+locale: sk
+---
+Pad thai
+Zelené karí
+Polievka tom yum
+Karí massaman
+Šalát zo zelenej papáje
+Lepkavá ryža s mangom
+Satay
+Polievka tom kha

@@ -1,0 +1,60 @@
+---
+description: Industry sector (Swahili)
+locale: sw
+---
+Teknolojia ya habari
+Mawasiliano
+Programu za kompyuta
+Usalama wa mtandao
+Biashara mtandao
+Rejareja
+Jumla
+Usafirishaji wa mizigo
+Uchukuzi
+Usafiri wa anga
+Reli
+Usafiri wa majini
+Benki
+Bima
+Uwekezaji
+Huduma za kifedha
+Uhasibu
+Huduma za kisheria
+Ushauri
+Ukaguzi
+Majengo na ardhi
+Ujenzi
+Usanifu majengo
+Uendelezaji wa miji
+Viwanda
+Mitambo
+Madini ya chuma
+Kemikali
+Dawa
+Afya
+Huduma za afya
+Bioteknolojia
+Kilimo
+Viwanda vya vyakula
+Vinywaji
+Ufugaji
+Misitu
+Uvuvi
+Nishati
+Nishati mbadala
+Mafuta na gesi
+Uchimbaji madini
+Huduma za maji na umeme
+Elimu
+Utafiti
+Habari na vyombo vya habari
+Uchapishaji
+Matangazo
+Burudani
+Utalii
+Ukarimu
+Migahawa
+Michezo
+Nguo na vitambaa
+Mashirika yasiyo ya kiserikali
+Ushirika

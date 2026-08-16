@@ -1,0 +1,5 @@
+---
+description: Currency of Ghana (Swahili)
+locale: sw
+---
+Cedi ya Ghana

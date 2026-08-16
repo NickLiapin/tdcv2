@@ -1,0 +1,27 @@
+---
+description: Swahili address unit / interior designator. S.L.P. (Sanduku la Posta) is the Tanzanian post-box line and appears on most business addresses, because street numbering is patchy outside the city centres.
+locale: sw
+---
+Na.
+Namba
+Nambari
+Kitalu
+Kizuizi
+Ghorofa
+Orofa
+Chumba
+Nyumba
+Sehemu
+Jengo
+Mnara
+Bawa
+Ghorofa ya Chini
+Chini ya Ardhi
+Mapokezi
+Ofisi
+Duka
+Kibanda
+Lango
+Kiwanja
+S.L.P.
+Sanduku la Posta

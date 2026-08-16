@@ -1,0 +1,14 @@
+---
+description: Loan type (Slovak, nominative). Amounts are in euro - Slovakia has been in the eurozone since 2009.
+locale: sk
+---
+Hypotekárny úver
+Úver na auto
+Spotrebiteľský úver
+Študentská pôžička
+Americká hypotéka
+Podnikateľský úver
+Kontokorent
+Konsolidácia pôžičiek
+Záložná pôžička
+Mikropôžička

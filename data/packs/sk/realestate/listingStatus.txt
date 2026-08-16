@@ -1,0 +1,16 @@
+---
+description: Listing status (Slovak, agrees with ponuka)
+locale: sk
+---
+Na predaj
+Na prenájom
+Rezervované
+Predané
+Zmluva o budúcej zmluve
+Stiahnuté z ponuky
+Pripravujeme
+Dražba
+Novostavba
+Znížená cena
+Prenajaté
+Exkluzívne

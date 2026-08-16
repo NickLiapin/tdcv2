@@ -1,0 +1,23 @@
+---
+description: Employee benefit (Slovak). Rekreacny poukaz is Slovak law and has no counterpart anywhere else: an employer with more than 49 staff must contribute up to 275 EUR a year towards an employee's holiday INSIDE Slovakia. Gastrolistky are the meal vouchers, and since 2021 an employee may take the finance prispevok na stravovanie in cash instead - the Slovak reform Czechia made differently. Slovak law guarantees four weeks of paid leave, so a fifth week is offered as a benefit.
+locale: sk
+---
+Gastrolístky
+Finančný príspevok na stravovanie
+Rekreačný poukaz
+Multisport karta
+Piaty týždeň dovolenky
+Sick days
+Home office
+Pružný pracovný čas
+Doplnkové dôchodkové sporenie
+Životné poistenie
+Nadštandardná zdravotná starostlivosť
+Firemný notebook
+Firemný telefón
+Služobné auto
+Príspevok na dopravu
+Príspevok na vzdelávanie
+Jazykové kurzy
+Trinásty plat
+Ročný bonus

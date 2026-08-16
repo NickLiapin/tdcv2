@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Slovak). jun and jul keep their long vowel, and maj is written in full because it is already three letters.
+locale: sk
+---
+jan
+feb
+mar
+apr
+máj
+jún
+júl
+aug
+sep
+okt
+nov
+dec

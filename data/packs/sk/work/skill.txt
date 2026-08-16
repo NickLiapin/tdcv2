@@ -1,0 +1,46 @@
+---
+description: Workplace skill (Slovak). Programming languages and tool names keep their real spelling.
+locale: sk
+---
+Python
+JavaScript
+SQL
+Java
+C++
+Cloud computing
+Strojové učenie
+Analýza dát
+Riadenie projektov
+Agilné metodiky
+Prezentačné zručnosti
+Technická dokumentácia
+Zákaznícky servis
+Obchodné rokovanie
+Účtovníctvo
+Finančné modelovanie
+Projektovanie v CAD
+3D modelovanie
+Počítačová grafika
+Copywriting
+Zváranie
+Elektroinštalácie
+Inštalatérstvo
+Stolárstvo
+Čítanie technickej dokumentácie
+Obrábanie kovov
+Obsluha vysokozdvižného vozíka
+Obsluha stavebných strojov
+Vedenie nákladných vozidiel
+Prvá pomoc
+Kardiopulmonálna resuscitácia
+Hygienické minimum
+Angličtina
+Nemčina
+Maďarčina
+Francúzština
+Vyjednávanie
+Vedenie tímu
+Time management
+Riešenie problémov
+Tímová spolupráca
+Tabuľkové procesory

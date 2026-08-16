@@ -1,0 +1,10 @@
+---
+description: Slovak full male name — a single given name and a single surname (Ján Novák). Slovak names carry one surname, given name first.
+generator: tdc
+locale: sk
+---
+<sequence name="p">
+  <gen name="f" type="template" value="sk.person.male.firstName"/>
+  <gen name="l" type="template" value="sk.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

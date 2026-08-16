@@ -1,0 +1,19 @@
+---
+description: Payment method (Swahili). Mobile money is the ordinary way money moves in Tanzania — M-Pesa, Airtel Money, Mixx by Yas (formerly Tigo Pesa), HaloPesa, T-Pesa — and a card is the exception, not the default. The brand names keep their spelling.
+locale: sw
+---
+M-Pesa
+Airtel Money
+Mixx by Yas
+Tigo Pesa
+HaloPesa
+T-Pesa
+Selcom
+Taslimu
+Lipa unapopokea
+Uhamisho wa benki
+Kadi ya Visa
+Kadi ya Mastercard
+Kadi ya benki
+Malipo kwa awamu
+Vocha ya zawadi

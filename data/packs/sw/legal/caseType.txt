@@ -1,0 +1,17 @@
+---
+description: Kind of legal case, in the Swahili of the Tanzanian courts. These are the WORDS the language uses for kinds of case, not one country's case register; Swahili is official in Tanzania, Kenya, Uganda and the DR Congo, and this pack uses Tanzanian legal usage throughout.
+locale: sw
+---
+shauri la madai
+shauri la jinai
+shauri la kikatiba
+mgogoro wa kibiashara
+kosa la kiraia
+mgogoro wa kikazi
+shauri la ndoa
+shauri la mirathi
+mgogoro wa ardhi
+mgogoro wa umiliki
+mgogoro wa kodi
+shauri la ufilisi
+madai ya fidia

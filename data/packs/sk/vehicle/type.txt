@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Slovak, nominative)
+locale: sk
+---
+Sedan
+Kupé
+Hatchback
+SUV
+Crossover
+Terénne vozidlo
+Kabriolet
+Minivan
+Kombi
+Dodávka
+Pick-up
+Van
+Úžitkové vozidlo
+Športové auto
+Roadster
+Mestské auto
+Luxusné auto
+Limuzína
+Mikrobus
+Autobus
+Nákladné auto
+Motocykel

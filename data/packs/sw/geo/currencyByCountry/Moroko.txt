@@ -1,0 +1,5 @@
+---
+description: Currency of Moroko (Swahili)
+locale: sw
+---
+Dirham ya Moroko

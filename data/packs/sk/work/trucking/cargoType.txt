@@ -1,0 +1,17 @@
+---
+description: Truck cargo type (Slovak)
+locale: sk
+---
+Skriňový náves
+Chladiarenský náves
+Valník
+Cisterna
+Preprava živých zvierat
+Nebezpečné veci ADR
+Intermodálny kontajner
+Autotransportér
+Nízkoložný náves
+Sklápač
+Voľne ložený materiál
+Preprava dreva
+Nadrozmerný náklad

@@ -1,0 +1,10 @@
+---
+description: Slovak full female name — a single given name and a single surname (Eva Nováková). Slovak names carry one surname, given name first. The surname comes from the feminine list, so it reads -ová as Slovak requires; drawing it from person.lastName instead would produce Eva Novák, which is not a possible Slovak name.
+generator: tdc
+locale: sk
+---
+<sequence name="p">
+  <gen name="f" type="template" value="sk.person.female.firstName"/>
+  <gen name="l" type="template" value="sk.person.female.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

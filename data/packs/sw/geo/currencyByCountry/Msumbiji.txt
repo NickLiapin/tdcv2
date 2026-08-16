@@ -1,0 +1,5 @@
+---
+description: Currency of Msumbiji (Swahili)
+locale: sw
+---
+Metikali ya Msumbiji

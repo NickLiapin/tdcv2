@@ -1,0 +1,41 @@
+---
+description: Trailing qualifier of a Slovak place name (Vranov nad Topľou, Nové Mesto nad Váhom, Rimavská Sobota). The nad / pod pattern — naming the river a town stands on or the mountain it stands under — is the normal way Slovak distinguishes two towns of the same name.
+locale: sk
+---
+nad Váhom
+nad Hronom
+nad Topľou
+nad Bebravou
+nad Ipľom
+nad Nitrou
+nad Oravou
+nad Dunajom
+nad Bodvou
+nad Cirochou
+nad Ondavou
+nad Torysou
+nad Hnilcom
+pod Tatrami
+pod Kláštorom
+pod Vtáčnikom
+pod Sitnom
+pod Poľanou
+pod Rovňou
+pod Bradlom
+pri Trnave
+pri Bratislave
+pri Nitre
+na Ostrove
+Kúpele
+Teplice
+Hora
+Lehota
+Ves
+Brod
+Sobota
+Streda
+Štvrtok
+Zámky
+Baňa
+Belá
+Vrbové

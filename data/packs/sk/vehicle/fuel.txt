@@ -1,0 +1,14 @@
+---
+description: Fuel type (Slovak). Nafta is diesel - the same word means crude oil in Russian, so it does not carry across.
+locale: sk
+---
+Benzín
+Nafta
+Elektrina
+Hybrid
+Plug-in hybrid
+Vodík
+Etanol
+CNG
+LPG
+Bionafta

@@ -1,0 +1,19 @@
+---
+description: Order return reason (Slovak)
+locale: sk
+---
+Prišlo poškodené
+Prišiel iný tovar
+Nezodpovedá popisu
+Nesprávna veľkosť
+Rozmyslel som si to
+Našiel som nižšiu cenu
+Výrobná chyba
+Chýbajú časti
+Neskoré doručenie
+Už to nepotrebujem
+Objednané omylom
+Horšia kvalita, než som čakal
+Iná farba než na fotografii
+Nekompatibilné
+Duplicitná objednávka

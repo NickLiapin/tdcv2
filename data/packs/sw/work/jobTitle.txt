@@ -1,0 +1,226 @@
+---
+description: Tanzanian job titles across sectors, in Swahili — office, trades, farm, transport, health, public service. Swahili builds most occupation nouns with the m-/wa- prefix of noun class 1: MKULIMA is one farmer, WAKULIMA are farmers.
+locale: sw
+---
+mtengenezaji wa programu
+mtengenezaji wa tovuti
+mtengenezaji wa programu za simu
+mhandisi wa upimaji
+msimamizi wa mifumo
+mhandisi wa mitandao
+msimamizi wa hifadhidata
+mhandisi wa DevOps
+mbunifu wa mifumo
+mchambuzi wa data
+mwanasayansi wa data
+mtaalamu wa usalama wa mtandao
+mbunifu wa kiolesura
+mbunifu wa michoro
+meneja wa bidhaa
+meneja wa mradi
+mkurugenzi wa teknolojia
+mhudumu wa msaada wa kiufundi
+fundi wa kompyuta
+daktari wa jumla
+daktari bingwa
+daktari wa upasuaji
+daktari wa watoto
+daktari wa meno
+daktari wa macho
+muuguzi
+mkunga
+mfamasia
+mtaalamu wa maabara
+fundi wa mionzi
+mtaalamu wa lishe
+mtaalamu wa viungo
+afisa afya ya jamii
+mhudumu wa afya wa kijiji
+daktari wa mifugo
+mwalimu wa shule ya awali
+mwalimu wa shule ya msingi
+mwalimu wa sekondari
+mkuu wa shule
+mhadhiri
+profesa
+mkufunzi wa ufundi
+mkutubi
+mshauri wa wanafunzi
+afisa elimu
+mtafiti
+mhasibu
+mkaguzi wa hesabu
+mchambuzi wa fedha
+mtaalamu wa kodi
+afisa mikopo
+afisa benki
+keshia
+mshauri wa uwekezaji
+afisa bima
+mthamini wa mali
+mweka hazina
+meneja wa hatari
+wakili
+hakimu
+jaji
+karani wa mahakama
+mthibitishaji
+mshauri wa kisheria
+mpelelezi
+askari polisi
+askari magereza
+afisa uhamiaji
+afisa forodha
+askari
+zimamoto
+mlinzi
+afisa usalama
+mhandisi wa ujenzi
+mhandisi wa umeme
+mhandisi wa mitambo
+mhandisi wa madini
+mhandisi wa maji
+mbunifu majengo
+mpima ardhi
+mkadiriaji wa gharama
+msimamizi wa tovuti ya ujenzi
+fundi ujenzi
+mwashi
+fundi seremala
+fundi umeme
+fundi bomba
+fundi wa kuchomelea
+fundi wa mabati
+mchoraji rangi
+fundi wa vigae
+mendeshaji wa mitambo
+mendeshaji wa kreni
+fundi wa magari
+fundi wa pikipiki
+fundi wa friji
+fundi wa kiyoyozi
+fundi wa simu
+fundi wa redio
+mkulima
+mfugaji
+mvuvi
+mchimba madini
+mkata mbao
+afisa ugani
+mtaalamu wa kilimo
+mtaalamu wa udongo
+mtaalamu wa umwagiliaji
+msimamizi wa shamba
+mendeshaji wa trekta
+afisa ushirika
+dereva
+dereva wa lori
+dereva wa basi
+dereva wa daladala
+dereva wa bodaboda
+dereva wa bajaji
+kondakta
+rubani
+mhudumu wa ndege
+nahodha wa meli
+baharia
+dereva wa treni
+msimamizi wa usafirishaji
+msimamizi wa ghala
+mratibu wa safari
+meneja wa hoteli
+mapokezi
+mhudumu wa chumba
+mpishi
+mpishi msaidizi
+mhudumu wa mgahawa
+mhudumu wa baa
+kiongozi wa watalii
+dereva wa safari
+mwongozaji wa milima
+afisa mbuga
+afisa uhifadhi
+mkalimani
+mtafsiri
+mwandishi wa habari
+mhariri
+mpiga picha
+mpiga picha za video
+mtangazaji
+mtayarishaji wa vipindi
+mbunifu wa matangazo
+mtaalamu wa masoko
+meneja wa mauzo
+muuzaji
+wakala wa mauzo
+afisa manunuzi
+meneja wa duka
+msimamizi wa hisa
+mpangaji wa bidhaa
+mhudumu wa wateja
+mtaalamu wa rasilimali watu
+afisa ajira
+mkufunzi wa wafanyakazi
+afisa mishahara
+katibu muhtasi
+karani
+mhudumu wa ofisi
+mpokea simu
+mtunza kumbukumbu
+msimamizi wa ofisi
+meneja mkuu
+mkurugenzi mtendaji
+mkurugenzi wa fedha
+mkurugenzi wa uendeshaji
+mwenyekiti wa bodi
+mshauri wa biashara
+mchumi
+mchambuzi wa sera
+afisa mipango
+afisa maendeleo ya jamii
+afisa ustawi wa jamii
+mshauri wa kisaikolojia
+afisa mazingira
+mtaalamu wa hali ya hewa
+mtaalamu wa jiolojia
+mtaalamu wa kemia
+mtaalamu wa fizikia
+mtaalamu wa biolojia
+fundi wa maabara
+mchoraji ramani
+msanii
+mchoraji
+mchongaji
+mwanamuziki
+mwimbaji
+mchezaji ngoma
+mwigizaji
+mkurugenzi wa filamu
+mhandisi wa sauti
+mshonaji
+fundi cherehani
+msusi
+kinyozi
+mtaalamu wa urembo
+mpiga pasi
+mfuaji
+mpishi wa mitaani
+muuza mboga
+muuza matunda
+muuza samaki
+mchinjaji
+mwokaji
+mtengeneza viatu
+fundi viatu
+mfinyanzi
+msukaji wa vikapu
+mchonga vinyago
+mhunzi
+sonara
+mtengeneza samani
+mchimbaji wa visima
+mtunza bustani
+mfagizi
+mlinzi wa jengo
+mhudumu wa kituo cha mafuta
+wakala wa fedha za simu

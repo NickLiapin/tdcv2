@@ -1,0 +1,36 @@
+---
+description: Swahili honorific / form of address. Bwana and Bibi are the everyday ones; Mzee is an age honorific with no European equivalent and outranks both. Ndugu — "comrade" — dates from the ujamaa years and is still the standard opening of Tanzanian official correspondence. Sheikh, Kadhi and Mufti are Muslim titles, Mchungaji, Padri and Askofu Christian ones, and both sets are in ordinary use.
+locale: sw
+---
+Bwana
+Bw.
+Bibi
+Bi.
+Mama
+Baba
+Mzee
+Ndugu
+Mheshimiwa
+Mhe.
+Dkt.
+Daktari
+Prof.
+Mwalimu
+Mwl.
+Mhandisi
+Mha.
+Wakili
+Mkurugenzi
+Mkuu
+Katibu
+Mstahiki
+Mchungaji
+Mch.
+Padri
+Askofu
+Sheikh
+Shekhe
+Kadhi
+Mufti
+Ustadh
+Alhaj

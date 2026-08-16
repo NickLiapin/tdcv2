@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the Afya ya akili clinic (Swahili)
+locale: sw
+---
+Sonona
+Wasiwasi uliokithiri
+Msongo wa mawazo
+Ugonjwa wa hofu
+Ugonjwa wa mfadhaiko baada ya tukio
+Skizofrenia
+Ugonjwa wa hisia mbili
+Utegemezi wa pombe
+Utegemezi wa dawa za kulevya
+Matatizo ya usingizi

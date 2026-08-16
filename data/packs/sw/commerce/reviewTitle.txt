@@ -1,0 +1,30 @@
+---
+description: Product review title (Swahili)
+locale: sw
+---
+Nimeridhika sana na ununuzi huu
+Inafanana na maelezo
+Ubora ni mzuri
+Bei inalingana na ubora
+Naipendekeza sana
+Siipendekezi
+Nilitegemea zaidi
+Bidhaa ilifika imevunjika
+Usafirishaji ulikuwa wa haraka
+Usafirishaji ulichelewa
+Kila kitu ni sawa
+Bidhaa nzuri kabisa
+Inastahili pesa yake
+Nimenunua kwa mara ya pili
+Nilinunua kama zawadi, ikapendwa
+Ni rahisi kutumia
+Ni rahisi kutunza
+Malighafi ni duni
+Ina harufu ya plastiki
+Saizi ni ndogo kuliko nilivyotegemea
+Rangi ni tofauti na pichani
+Inafanya kazi bila tatizo
+Iliharibika ndani ya wiki moja
+Muuzaji anajibu haraka
+Nimeirudisha bidhaa
+Bidhaa ya bei nafuu na yenye manufaa

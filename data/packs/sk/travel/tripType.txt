@@ -1,0 +1,24 @@
+---
+description: Trip type (Slovak, nominative)
+locale: sk
+---
+Služobná cesta
+Dovolenka
+Rodinná dovolenka
+Svadobná cesta
+Dobrodružstvo
+Cesta autom
+Plavba
+Cestovanie s batohom
+Víkend v meste
+Dovolenka pri mori
+Zájazd
+Cesta na vlastnú päsť
+Poznávací zájazd
+Ekoturistika
+Púť
+Školský výlet
+Gastroturistika
+Lyžiarsky zájazd
+Návšteva rodiny
+Konferencia alebo veľtrh

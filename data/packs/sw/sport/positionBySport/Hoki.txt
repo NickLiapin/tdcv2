@@ -1,0 +1,12 @@
+---
+description: Positions in field hockey (Swahili)
+locale: sw
+---
+kipa
+beki
+beki wa kati
+kiungo
+kiungo wa kushoto
+kiungo wa kulia
+mshambuliaji
+mshambuliaji wa kati

@@ -1,0 +1,64 @@
+---
+description: sk filler sentences. Handwritten: Project Gutenberg holds no Slovak book at all, so unlike fr/de/it/es/pt/pl/cs these are not extracted from a public-domain corpus.
+locale: sk
+---
+Ráno otvorila okno a vpustila do izby chladný vzduch.
+Cesta sa strácala medzi kopcami a brezovými hájmi.
+Dlho tu nebol, no všetko naokolo mu pripadalo známe.
+Slnko vyšlo nad strechy a mesto sa pomaly prebudilo.
+Na stole ležal list, ktorý nikto neotvoril už tri dni.
+Vlak meškal a na peróne stálo len zopár ľudí.
+Za dedinou sa začínal les a hneď za ním stúpal chodník do sedla.
+Zima bola dlhá a sneh sa držal až do polovice apríla.
+Zastavil sa pri studni a napil sa z dlane.
+Deti bežali po lúke a nikto ich nevolal domov.
+V kuchyni voňala polievka a rádio hralo potichu.
+Susedov pes štekal celú noc na mesiac.
+Na námestí postavili stánky a od rána tam bolo rušno.
+Sedel na lavičke a počítal ľudí, ktorí prešli okolo.
+Rieka bola po daždi kalná a niesla so sebou konáre.
+Otec zapálil v peci a v izbe sa hneď oteplilo.
+Cez okno bolo vidieť vrchy, ktoré ešte držali sneh.
+Kľúč od brány visel na klinci vedľa dverí.
+Kúpil chlieb, mlieko a noviny a vrátil sa rovnakou cestou.
+Na hodine sa nikto nehlásil, hoci odpoveď poznali všetci.
+Stará mama vyberala z komory zaváraniny a rátala poháre.
+Autobus prišiel s meškaním a vodič sa nikomu neospravedlnil.
+Vietor prevrátil na dvore prázdne vedro.
+Písal pomaly, akoby každé slovo vážil.
+Na salaši sa ešte varí žinčica ako pred sto rokmi.
+Cez víkend chodili na chalupu a kosili trávu okolo domu.
+Zabudol si dáždnik a domov prišiel celý premočený.
+Vo dverách sa objavila známa tvár a on nevedel, čo povedať.
+Na stene visela mapa okresu s vyblednutými hranicami.
+Rok sa skončil ticho, bez sľubov a bez plánov.
+V knižnici bolo chladno a pod stropom svietila jediná lampa.
+Prešli cez most a zahli doľava k železničnej stanici.
+Traktor sa vliekol po ceste a za ním sa tiahol rad áut.
+Na jeseň sa lúka zmenila na hnedý koberec z listov.
+Doniesla koláč a postavila ho doprostred stola.
+Nikto nevedel, kedy tú lipu pred kostolom vysadili.
+Chlapec sa naučil na fujare tri piesne a hral ich stále dokola.
+V pivnici stálo desať vriec zemiakov a debna jabĺk.
+Bolo počuť len tikanie hodín a vlastný dych.
+Do rána napadlo toľko snehu, že bránu nebolo vidieť.
+Vrátil sa po dvadsiatich rokoch a dedinu takmer nespoznal.
+Na trhu predávali bryndzu, oštiepky a sušené huby.
+Poobede sa obloha zatiahla a začalo hrmieť.
+Sadli si k stolu a dlho mlčali.
+Cez pole viedol vyšliapaný chodník rovno k lesu.
+Odložil knihu, zhasol lampu a zaspal skôr, než sa nazdal.
+Na dvore stál starý bicykel s prázdnymi kolesami.
+Voda v potoku bola taká studená, že v nej nevydržal ani minútu.
+Učiteľka rozdala zošity a v triede zavládlo ticho.
+Za oknom padal sneh a v peci praskalo drevo.
+Bratislava sa mu vždy zdala menšia, než o nej hovorili.
+Košice majú najdlhšiu ulicu, akú kedy videl.
+Vo Vysokých Tatrách sa počasie mení každú hodinu.
+Na Orave vedia, čo je zima, aj keď sa už zjari.
+Šiel po hrebeni a pod ním ležala celá dolina v hmle.
+Práca ho bavila, len o nej nikdy nehovoril.
+Kúpili starý dom a tri roky ho opravovali sami.
+V nedeľu chodili na omšu a potom k rodičom na obed.
+Zapamätal si to číslo, hoci ho nikdy nepotreboval.
+Nechal odkaz na stole a odišiel prvým ranným vlakom.

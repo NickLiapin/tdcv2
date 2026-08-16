@@ -1,0 +1,14 @@
+---
+description: Payment status (Swahili)
+locale: sw
+---
+Inasubiri malipo
+Imelipwa
+Imelipwa kiasi
+Imeidhinishwa
+Imekataliwa
+Imeshindikana
+Imerejeshwa
+Imerejeshwa kiasi
+Muda umeisha
+Imeghairiwa

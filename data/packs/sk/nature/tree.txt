@@ -1,0 +1,32 @@
+---
+description: Tree (Slovak, nominative). Lipa - the small-leaved lime - is the Slovak national tree and turns up constantly in place names, street names and heraldry.
+locale: sk
+---
+Dub
+Javor
+Borovica
+Breza
+Céder
+Vŕba
+Sekvoja
+Smrek
+Brest
+Jaseň
+Buk
+Čerešňa
+Orech
+Topoľ
+Cyprus
+Jedľa
+Horský javor
+Osika
+Magnólia
+Drieň
+Lipa
+Smrekovec
+Jarabina
+Eukalyptus
+Gaštan
+Palma
+Hrab
+Jelša

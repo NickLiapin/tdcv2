@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Slovak)
+locale: sk
+---
+Artériová hypertenzia
+Ischemická choroba srdca
+Fibrilácia predsiení
+Zlyhávanie srdca
+Infarkt myokardu
+Hyperlipidémia
+Dilatačná kardiomyopatia
+Myokarditída
+Aortálna stenóza
+Supraventrikulárna tachykardia

@@ -1,0 +1,28 @@
+---
+description: RPG character class (Slovak, nominative)
+locale: sk
+---
+Bojovník
+Mág
+Zlodej
+Paladin
+Lovec
+Kňaz
+Černokňažník
+Druid
+Mních
+Šaman
+Rytier smrti
+Lovec démonov
+Barbar
+Nekromant
+Bard
+Vrah
+Klerik
+Čarodejník
+Zved
+Templár
+Berserk
+Zaklínač
+Alchymista
+Inžinier

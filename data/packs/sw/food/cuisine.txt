@@ -1,0 +1,21 @@
+---
+description: Cuisine (Swahili). Swahili names a cuisine with the Ki- prefix — chakula CHA Kihindi, "food of the Indian kind" — so these are relational adjectives, not country names. Each value has a dishByCuisine child file. The first five are Tanzanian: national, coastal, Zanzibari, Chagga and Sukuma cooking are genuinely different kitchens.
+locale: sw
+---
+Kitanzania
+Kiswahili
+Kizanzibari
+Kichagga
+Kisukuma
+Kihindi
+Kiarabu
+Kichina
+Kijapani
+Kithai
+Kiitaliano
+Kifaransa
+Kimarekani
+Kimexico
+Kiethiopia
+Kituruki
+Kikorea

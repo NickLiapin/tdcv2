@@ -1,0 +1,12 @@
+---
+description: Chagga dishes from the slopes of Kilimanjaro (Swahili)
+locale: sw
+---
+mtori
+machalari
+kiburu
+ndizi nyama
+kisusio
+mbege
+ugali wa ulezi
+mchuzi wa nyama

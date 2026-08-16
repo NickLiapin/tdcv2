@@ -1,0 +1,55 @@
+---
+description: Product adjective (Swahili) — ONLY adjectives that take no class prefix are listed here, on purpose, so that a config can join a productNoun to one of these and get grammatical Swahili: 'meza imara', 'simu rahisi'. Most of them are Arabic loans, which is why they do not inflect. The adjectives that DO take a class prefix live in word/adjective.txt as bare stems with a leading hyphen. Swahili adjectives follow the noun.
+locale: sw
+---
+safi
+imara
+bora
+rahisi
+ghali
+laini
+hodari
+tayari
+kamili
+maalum
+muhimu
+sawa
+tofauti
+halisi
+asilia
+bandia
+thabiti
+madhubuti
+salama
+hatari
+adimu
+nadra
+nadhifu
+maridadi
+murua
+makini
+mahiri
+mashuhuri
+hafifu
+dhaifu
+wastani
+kawaida
+rasmi
+halali
+tele
+tajika
+dijitali
+elektroniki
+otomatiki
+kiotomatiki
+kisasa
+imara zaidi
+ya kubebeka
+ya kukunja
+isiyo na waya
+inayoweza kuchajiwa
+isiyopitisha maji
+isiyoshika kutu
+isiyoteleza
+inayotumika tena
+ya matumizi moja

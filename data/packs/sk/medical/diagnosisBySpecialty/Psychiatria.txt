@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Slovak)
+locale: sk
+---
+Depresívna porucha
+Generalizovaná úzkostná porucha
+Bipolárna afektívna porucha
+Schizofrénia
+Posttraumatická stresová porucha
+Porucha pozornosti s hyperaktivitou
+Obsedantno-kompulzívna porucha
+Mentálna anorexia
+Panická porucha
+Závislosť od alkoholu

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the Magonjwa ya moyo clinic (Swahili)
+locale: sw
+---
+Shinikizo la damu
+Ugonjwa wa mishipa ya moyo
+Angina
+Shambulizi la moyo
+Mapigo ya moyo yasiyo ya kawaida
+Kushindwa kwa moyo
+Ugonjwa wa misuli ya moyo
+Uvimbe wa misuli ya moyo
+Ugonjwa wa vali ya moyo
+Homa ya baridi yabisi ya moyo

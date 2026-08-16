@@ -1,0 +1,38 @@
+---
+description: Fruit (Swahili)
+locale: sw
+---
+embe
+embe dodo
+chungwa
+chenza
+danzi
+balungi
+ndimu
+limao
+nanasi
+papai
+parachichi
+ndizi
+ndizi mbivu
+nazi
+dafu
+fenesi
+stafeli
+topetope
+mapera
+komamanga
+zabibu
+tikitimaji
+tikiti
+tofaa
+pea
+pasheni
+tende
+ukwaju
+zambarau
+mabungo
+korosho
+mzambarau
+forosadi
+kungu

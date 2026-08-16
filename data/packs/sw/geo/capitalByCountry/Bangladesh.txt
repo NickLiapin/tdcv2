@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladesh, as Swahili writes it
+locale: sw
+---
+Dhaka

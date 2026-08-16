@@ -1,0 +1,24 @@
+---
+description: Mobile and fixed-line carrier operating in Slovakia. Slovak Telekom, Orange Slovensko and O2 Slovakia own the three national mobile networks and 4ka runs on SWAN's; the rest are fixed-line, cable or satellite providers. The list is shorter than the Czech one because the Slovak market genuinely has fewer operators - padding it would mean inventing companies.
+locale: sk
+---
+Slovak Telekom
+Orange Slovensko
+O2 Slovakia
+4ka
+SWAN
+Telefónica Slovakia
+Antik Telecom
+Slovanet
+Benestra
+Towercom
+Satro
+DSi Data
+Magio
+Antik TV
+Skylink
+UPC Broadband Slovakia
+Rádiokomunikácie
+Tesco Mobile
+Energotel
+Nextra

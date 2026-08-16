@@ -1,0 +1,18 @@
+---
+description: Order status (Swahili)
+locale: sw
+---
+Mpya
+Imepokelewa
+Imethibitishwa
+Inashughulikiwa
+Imefungashwa
+Tayari kusafirishwa
+Imesafirishwa
+Njiani
+Imefika mjini
+Imewasilishwa
+Imepokelewa na mnunuzi
+Imeghairiwa
+Imerudishwa
+Inasubiri malipo

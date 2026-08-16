@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Swahili, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: sw
+---
+Ulaya Kaskazini
+Ulaya Mashariki
+Mediterania
+Wayahudi wa Ashkenazi
+Mashariki ya Kati
+Afrika Kaskazini
+Afrika Kusini mwa Jangwa la Sahara
+Asia Mashariki
+Asia Kusini
+Asia Kusini-Mashariki
+Wenyeji wa Amerika
+Visiwa vya Pasifiki

@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (Slovak)
+locale: sk
+---
+archivovať
+obchádzať
+hackovať
+prepisovať
+komprimovať
+kopírovať
+navigovať
+indexovať
+prepájať
+generovať
+kvantifikovať
+počítať
+syntetizovať
+zadávať
+prenášať
+programovať
+reštartovať
+analyzovať
+šifrovať
+dešifrovať
+nasadzovať
+kompilovať
+ladiť
+optimalizovať
+synchronizovať
+virtualizovať
+smerovať
+monitorovať

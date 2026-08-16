@@ -1,0 +1,16 @@
+---
+description: Jobs in Retail (Slovak)
+locale: sk
+---
+Predavač
+Vedúci predajne
+Pokladník
+Skladník
+Merchandiser
+Nákupca
+Regionálny manažér
+Vedúci zmeny
+Zákaznícky poradca
+Aranžér výkladov
+Inventarista
+Pracovník e-shopu

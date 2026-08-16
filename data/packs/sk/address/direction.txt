@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Slovak district, estate or street name (sídlisko Sever, mestská časť Juh)
+locale: sk
+---
+Sever
+Juh
+Východ
+Západ
+Severovýchod
+Severozápad
+Juhovýchod
+Juhozápad
+Severný
+Južný
+Východný
+Západný
+Stred
+Centrum
+Predmestie

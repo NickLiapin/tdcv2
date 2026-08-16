@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Swahili). The ki- forms attach through the associative particle — "mfumo WA kidijitali" — and the loans are invariable; nothing here takes a class prefix.
+locale: sw
+---
+dijitali
+kidijitali
+binari
+sambazwa
+sambamba
+salama
+fiche
+wazi
+funge
+mbali
+mahalia
+wingu
+mtandaoni
+nje ya mtandao
+pepe
+imara
+thabiti
+akiba
+fahirisi
+bana
+boreshwa
+kuukuu
+oanifu
+tabaka mbili
+mifumo mingi
+kiwango cha chini
+kiwango cha juu
+otomatiki

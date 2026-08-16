@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Slovak that requires male anatomy - it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: sk
+---
+Benígna hyperplázia prostaty
+Zápal prostaty
+Karcinóm prostaty
+Nádor semenníka
+Torzia semenníka
+Varikokéla
+Hydrokéla
+Zápal nadsemenníka
+Kryptorchizmus
+Fimóza
+Balanitída
+Erektilná dysfunkcia
+Peyronieho choroba
+Mužská neplodnosť
+Gynekomastia
+Mužský hypogonadizmus
+Priapizmus
+Cysta nadsemenníka
+Androgénna alopécia
+Skrotálna hernia

@@ -1,0 +1,5 @@
+---
+description: Currency of Bangladesh (Swahili)
+locale: sw
+---
+Taka ya Bangladesh

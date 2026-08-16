@@ -1,0 +1,15 @@
+---
+description: Social reaction (Swahili)
+locale: sw
+---
+napenda
+nampenda
+nacheka
+nashangaa
+nasikitika
+nakasirika
+naunga mkono
+asante
+hongera
+inavutia
+sipendi

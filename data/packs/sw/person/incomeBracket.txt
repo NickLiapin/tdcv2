@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Swahili. Amounts are in TSh, the Tanzanian shilling, and the bands are set at Tanzanian income levels — a European band structure converted at the exchange rate would put almost every household in the bottom bucket.
+locale: sw
+---
+Chini ya TSh milioni 1
+TSh milioni 1 hadi 3
+TSh milioni 3 hadi 6
+TSh milioni 6 hadi 12
+TSh milioni 12 hadi 24
+TSh milioni 24 hadi 48
+TSh milioni 48 hadi 100
+Zaidi ya TSh milioni 100

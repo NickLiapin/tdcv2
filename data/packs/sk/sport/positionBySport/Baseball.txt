@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (Slovak)
+locale: sk
+---
+Nadhadzovač
+Chytač
+Prvá méta
+Druhá méta
+Tretia méta
+Spojka
+Ľavé pole
+Stredné pole
+Pravé pole
+Určený pálkar

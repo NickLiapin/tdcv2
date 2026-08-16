@@ -1,0 +1,58 @@
+---
+description: Product adjective (Slovak), masculine singular base form. Slovak adjectives precede the noun and must agree with its gender: skladacia stolička is feminine, skladací stôl masculine.
+locale: sk
+---
+elegantný
+prenosný
+univerzálny
+odolný
+vodotesný
+chytrý
+ručný
+funkčný
+ergonomický
+skladací
+nastaviteľný
+akumulátorový
+bezdrôtový
+ľahký
+kompaktný
+trvanlivý
+obojstranný
+protišmykový
+priedušný
+izolačný
+recyklovaný
+ekologický
+udržateľný
+prémiový
+klasický
+moderný
+minimalistický
+rustikálny
+retro
+industriálny
+športový
+viacúčelový
+stohovateľný
+rozoberateľný
+ľahko umývateľný
+antibakteriálny
+odolný proti škvrnám
+termoizolačný
+prešívaný
+zosilnený
+tichý
+automatický
+programovateľný
+kompatibilný
+profesionálny
+úsporný
+ručne vyrábaný
+luxusný
+dizajnový
+špičkový
+bez značky
+limitovaná edícia
+energeticky úsporný
+nehrdzavejúci

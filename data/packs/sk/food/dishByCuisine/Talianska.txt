@@ -1,0 +1,13 @@
+---
+description: Dishes of Italian cuisine (Slovak)
+locale: sk
+---
+Pizza margherita
+Špagety carbonara
+Lasagne
+Rizoto
+Ossobuco
+Tiramisu
+Gnocchi
+Minestrone
+Fettuccine Alfredo

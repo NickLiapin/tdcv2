@@ -1,0 +1,12 @@
+---
+description: Mexican dishes (Swahili)
+locale: sw
+---
+tacos
+burrito
+quesadilla
+nachos
+guacamole
+enchilada
+fajitas
+chili con carne

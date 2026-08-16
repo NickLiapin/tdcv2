@@ -1,0 +1,25 @@
+---
+description: Mined mineral (Slovak). This list differs from the Czech one on facts about the ground, not about the language: Slovakia has essentially NO hard coal (only lignite, at Novaky and Handlova), but it is one of the world's largest producers of magnezit (Jelsava, Lubenik), Europe's main source of perlit, and still works gold at Hodrusa-Hamre - the only operating gold mine in central Europe.
+locale: sk
+---
+Hnedé uhlie
+Lignit
+Magnezit
+Mastenec
+Antimón
+Zlato
+Striebro
+Meď
+Železná ruda
+Mangán
+Bentonit
+Kaolín
+Perlit
+Zeolit
+Vápenec
+Dolomit
+Sadrovec
+Kamenná soľ
+Andezit
+Travertín
+Štrkopiesok

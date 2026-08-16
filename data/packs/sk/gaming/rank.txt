@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Slovak, nominative)
+locale: sk
+---
+Železo
+Bronz
+Striebro
+Zlato
+Platina
+Smaragd
+Diamant
+Majster
+Veľmajster
+Vyzývateľ

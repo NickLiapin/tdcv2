@@ -1,0 +1,54 @@
+---
+description: Airline serving Tanzania: the national and bush carriers first, then the regional African and long-haul ones.
+locale: sw
+---
+Air Tanzania
+Precision Air
+Auric Air
+Coastal Aviation
+Flightlink
+Regional Air
+As Salaam Air
+ZanAir
+Tropical Air
+Safari Airlink
+Kenya Airways
+Jambojet
+Uganda Airlines
+RwandAir
+Ethiopian Airlines
+Egyptair
+Malawian Airlines
+LAM Mozambique
+Airlink
+South African Airways
+FlySafair
+Air Zimbabwe
+Air Botswana
+Congo Airways
+Fastjet
+Emirates
+Qatar Airways
+Etihad Airways
+Turkish Airlines
+Oman Air
+flydubai
+Air Arabia
+Saudia
+Kuwait Airways
+Air India
+IndiGo
+KLM
+Lufthansa
+Swiss
+Air France
+British Airways
+Brussels Airlines
+Neos
+Condor
+Edelweiss Air
+TUI fly
+Singapore Airlines
+China Southern
+Air China
+Korean Air

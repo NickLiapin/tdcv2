@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the Magonjwa ya homoni clinic (Swahili)
+locale: sw
+---
+Kisukari aina ya 1
+Kisukari aina ya 2
+Upungufu wa homoni ya tezi
+Wingi wa homoni ya tezi
+Uvimbe wa tezi ya shingo
+Ugonjwa wa Cushing
+Ugonjwa wa Addison
+Ugonjwa wa mayai ya uzazi yenye vifuko
+Unene uliopitiliza
+Ulegevu wa mifupa

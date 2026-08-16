@@ -1,0 +1,13 @@
+---
+description: Dishes of Peruvian cuisine (Slovak)
+locale: sk
+---
+Ceviche
+Lomo saltado
+Aji de gallina
+Causa limena
+Anticuchos
+Papa a la huancaina
+Arroz chaufa
+Rocoto relleno
+Tiradito

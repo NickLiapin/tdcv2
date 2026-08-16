@@ -1,0 +1,5 @@
+---
+description: Capital of Uchina, as Swahili writes it
+locale: sw
+---
+Beijing

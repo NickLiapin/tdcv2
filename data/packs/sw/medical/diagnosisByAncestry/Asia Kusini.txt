@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Asia Kusini ancestry, in Swahili.
+locale: sw
+---
+Kisukari aina ya 2
+Ugonjwa wa mishipa ya moyo
+Thalasemia beta
+Upungufu wa kimeng'enya G6PD
+Upungufu wa vitamini D
+Kifua kikuu
+Ugonjwa wa kimetaboliki

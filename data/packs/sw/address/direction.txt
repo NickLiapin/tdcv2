@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Swahili street, ward or estate name (Kinondoni Kaskazini, Kitalu cha Mashariki)
+locale: sw
+---
+Kaskazini
+Kusini
+Mashariki
+Magharibi
+Kaskazini Mashariki
+Kaskazini Magharibi
+Kusini Mashariki
+Kusini Magharibi
+Kati
+Katikati
+Juu
+Chini
+Ndani
+Nje
+Karibu

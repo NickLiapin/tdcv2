@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Slovak)
+locale: sk
+---
+Psoriáza
+Atopická dermatitída
+Akné
+Melanóm
+Rosacea
+Kontaktná dermatitída
+Žihľavka
+Dermatomykóza
+Vitiligo
+Seboroická dermatitída

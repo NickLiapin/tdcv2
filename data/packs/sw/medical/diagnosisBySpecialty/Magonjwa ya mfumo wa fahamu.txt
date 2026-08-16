@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the Magonjwa ya mfumo wa fahamu clinic (Swahili)
+locale: sw
+---
+Kiharusi
+Shambulizi dogo la kiharusi
+Kipandauso
+Kifafa
+Ugonjwa wa Parkinson
+Ugonjwa wa sclerosis nyingi
+Upotevu wa kumbukumbu
+Uharibifu wa neva za pembeni
+Uti wa mgongo kuvimba
+Maumivu ya neva ya uso

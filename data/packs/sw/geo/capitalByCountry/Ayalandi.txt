@@ -1,0 +1,5 @@
+---
+description: Capital of Ayalandi, as Swahili writes it
+locale: sw
+---
+Dublin

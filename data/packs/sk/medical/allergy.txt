@@ -1,0 +1,26 @@
+---
+description: Common allergies (Slovak, nominative)
+locale: sk
+---
+Penicilín
+Arašidy
+Orechy
+Kôrovce
+Vajce
+Mlieko
+Sója
+Pšenica
+Latex
+Peľ tráv
+Peľ brezy
+Roztoče domáceho prachu
+Zvieracia srsť
+Včelie bodnutie
+Aspirín
+Sulfónamidy
+Jód
+Sezam
+Lepok
+Plesne
+Nikel
+Jódová kontrastná látka

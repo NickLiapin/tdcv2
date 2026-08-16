@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Slovak product listing (feminine singular, agreeing with farba; borrowed names kept invariable)
+locale: sk
+---
+Čierna
+Biela
+Sivá
+Grafitová
+Perleťovo sivá
+Strieborná
+Zlatá
+Bronzová
+Medená
+Červená
+Vínová
+Višňová
+Bordová
+Koralová
+Ružová
+Púdrovo ružová
+Fuksiová
+Purpurová
+Oranžová
+Terakotová
+Lososová
+Žltá
+Horčicová
+Starozlatá
+Zelená
+Olivová
+Mätová
+Smaragdová
+Khaki
+Tyrkysová
+Modrá
+Tmavomodrá
+Svetlomodrá
+Petrolejová
+Azúrová
+Indigová
+Fialová
+Levanduľová
+Orgovánová
+Hnedá
+Čokoládová
+Ťavia
+Béžová
+Krémová
+Slonová kosť
+Piesková
+Taupe
+Antracitová
+Priehľadná
+Viacfarebná
+Vzorovaná
+Dvojfarebná
+Prírodná
+Melírovaná

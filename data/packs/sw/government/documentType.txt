@@ -1,0 +1,21 @@
+---
+description: Official document type issued in Tanzania (Swahili)
+locale: sw
+---
+kitambulisho cha taifa
+cheti cha kuzaliwa
+cheti cha ndoa
+cheti cha talaka
+cheti cha kifo
+pasipoti
+leseni ya udereva
+kadi ya bima ya afya
+namba ya mlipakodi
+leseni ya biashara
+hati miliki ya ardhi
+hati ya usajili wa gari
+barua ya utambulisho wa mtaa
+cheti cha polisi
+cheti cha kuhitimu
+kadi ya mpiga kura
+kibali cha kazi

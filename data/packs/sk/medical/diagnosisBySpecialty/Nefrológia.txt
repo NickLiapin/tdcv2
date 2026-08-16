@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Slovak)
+locale: sk
+---
+Chronické ochorenie obličiek
+Nefrolitiáza
+Glomerulonefritída
+Akútne poškodenie obličiek
+Polycystická choroba obličiek
+Nefrotický syndróm
+Pyelonefritída
+Diabetická nefropatia
+Renálna hypertenzia
+Terminálne zlyhanie obličiek

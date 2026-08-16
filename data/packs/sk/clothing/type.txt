@@ -1,0 +1,30 @@
+---
+description: Garment type (Slovak, nominative)
+locale: sk
+---
+Tričko
+Rifle
+Šaty
+Bunda
+Sveter
+Sukňa
+Šortky
+Mikina s kapucňou
+Blúzka
+Oblek
+Kabát
+Tenisky
+Čižmy
+Klobúk
+Šál
+Košeľa
+Nohavice
+Vesta
+Pršiplášť
+Pyžamo
+Ponožky
+Opasok
+Čiapka
+Sandále
+Rukavice
+Kravata

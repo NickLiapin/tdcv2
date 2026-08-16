@@ -1,0 +1,44 @@
+---
+description: Swahili thoroughfare type. It comes BEFORE the name and is joined to it by the associative particle, which agrees with the noun class of the type itself: Barabara YA Nyerere, Mtaa WA Uhuru, Kiwanja CHA Michezo, Daraja LA Salender. A config that just concatenates type and name will produce something no Tanzanian would write.
+locale: sw
+---
+Barabara
+Barabara Kuu
+Mtaa
+Njia
+Njia Panda
+Kichochoro
+Uchochoro
+Mzunguko
+Kona
+Makutano
+Daraja
+Handaki
+Uwanja
+Kiwanja
+Bustani
+Ufukwe
+Bandari
+Stendi
+Kituo
+Soko
+Mnara
+Jumba
+Ghorofa
+Kitalu
+Kitongoji
+Kata
+Kijiji
+Wilaya
+Mkoa
+Ghala
+Eneo
+Shamba
+Bonde
+Kilima
+Mto
+Ziwa
+Msitu
+Bwawa
+Chemchem
+Kisima

@@ -1,0 +1,60 @@
+---
+description: Industry sector (Slovak, nominative)
+locale: sk
+---
+Poľnohospodárstvo
+Chov hospodárskych zvierat
+Rybárstvo
+Lesníctvo
+Ťažba
+Stavebníctvo
+Spracovateľský priemysel
+Maloobchod
+Veľkoobchod
+Doprava
+Informačné technológie
+Financie
+Bankovníctvo
+Poisťovníctvo
+Nehnuteľnosti
+Zdravotníctvo
+Školstvo
+Pohostinstvo
+Cestovný ruch
+Zábava
+Energetika
+Ropa a plyn
+Obnoviteľné zdroje
+Telekomunikácie
+Automobilový priemysel
+Letecký priemysel
+Farmácia
+Biotechnológie
+Logistika
+Médiá
+Reklama
+Poradenstvo
+Právne služby
+Účtovníctvo
+Personalistika
+Potraviny a nápoje
+Pivovarníctvo
+Vinárstvo
+Textilný priemysel
+Chemický priemysel
+Hutníctvo
+Papierenský priemysel
+Elektrotechnika
+Softvér
+Elektronický obchod
+Videohry
+Šport
+Kultúra
+Veda a výskum
+Verejná správa
+Obrana
+Ochrana majetku
+Neziskový sektor
+Odpadové hospodárstvo
+Vodné hospodárstvo
+Architektúra

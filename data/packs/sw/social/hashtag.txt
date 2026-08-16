@@ -1,0 +1,37 @@
+---
+description: Hashtag word in Swahili (prefix with # in a template). Simba and Yanga are the two Dar es Salaam football clubs the country divides itself between.
+locale: sw
+---
+tanzania
+bongo
+dar
+daressalaam
+zanzibar
+arusha
+mwanza
+mbeya
+dodoma
+kilimanjaro
+serengeti
+safari
+utalii
+pwani
+bahari
+mlima
+michezo
+simba
+yanga
+bongoflava
+muziki
+sanaa
+picha
+chakula
+kahawa
+kilimo
+biashara
+elimu
+afya
+familia
+urafiki
+kazi
+motisha

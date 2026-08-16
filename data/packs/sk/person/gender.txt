@@ -1,0 +1,6 @@
+---
+description: Gender label (Slovak). Two values, matching en, pl and cs - this list is what parent="Gender.Muz" filters on, so a longer one silently leaves most rows without a name. Identity options beyond the pair belong in a file of their own.
+locale: sk
+---
+Muž
+Žena

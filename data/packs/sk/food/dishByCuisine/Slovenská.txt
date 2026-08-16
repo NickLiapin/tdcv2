@@ -1,0 +1,36 @@
+---
+description: Dishes of Slovak cuisine (Slovak). Bryndzove halusky - potato dumplings with sheep cheese and bacon - is the national dish, and the bryndza / ostiepok / zincica group all come off a salas, the mountain sheep dairy. Lokse, strapacky and demikat are Slovak and have no Czech counterpart; the Bratislavsky rozok and the Skalica trdelnik are both protected designations.
+locale: sk
+---
+Bryndzové halušky
+Bryndzové pirohy
+Strapačky s kapustou
+Kapustnica
+Cesnaková polievka
+Fazuľová polievka
+Hubová polievka
+Držková polievka
+Demikát
+Zemiakové placky
+Lokše
+Šúľance s makom
+Buchty na pare
+Vyprážaný syr
+Vyprážaný rezeň
+Sviečková na smotane
+Segedínsky guláš
+Plnená paprika
+Zemiakový šalát
+Vyprážaný kapor
+Žinčica
+Oštiepok
+Parenica
+Klobása
+Jaternice
+Huspenina
+Škvarky
+Trdelník
+Bratislavský rožok
+Laskonky
+Šišky
+Palacinky

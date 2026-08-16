@@ -1,0 +1,82 @@
+---
+description: Medical diagnosis in Slovak that can occur in any patient - no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale / diagnosisFemale; ancestry-linked ones in diagnosisByAncestry. Note the systematic spelling difference from Czech: Slovak writes the -itis names with a long i (bronchitida in Czech is bronchitida with short i, Slovak bronchitída), and names the kidney oblicka, the liver pecen and the lung pluca where Czech says ledvina, jatra and plice.
+locale: sk
+---
+Artériová hypertenzia
+Diabetes mellitus 2. typu
+Bronchiálna astma
+Akútna bronchitída
+Chrípka
+Migréna
+Generalizovaná úzkostná porucha
+Depresívna porucha
+Artróza
+Reumatoidná artritída
+Refluxná choroba pažeráka
+Sideropenická anémia
+Hypotyreóza
+Infekcia močových ciest
+Pneumónia
+Chronické ochorenie obličiek
+Ischemická choroba srdca
+Fibrilácia predsiení
+Zlyhávanie srdca
+Ischemická cievna mozgová príhoda
+Epilepsia
+Parkinsonova choroba
+Alzheimerova choroba
+Skleróza multiplex
+Psoriáza
+Atopická dermatitída
+Alergická nádcha
+Chronická sinusitída
+Zápal stredného ucha
+Konjunktivitída
+Katarakta
+Glaukóm
+Apendicitída
+Cholecystitída
+Divertikulitída
+Syndróm dráždivého čreva
+Crohnova choroba
+Ulcerózna kolitída
+Chronická hepatitída B
+Cirhóza pečene
+Akútna pankreatitída
+Dna
+Osteoporóza
+Fibromyalgia
+Ischias
+Výhrez medzistavcovej platničky
+Syndróm karpálneho tunela
+Tendinitída
+Chronická obštrukčná choroba pľúc
+Tuberkulóza
+Leukémia
+Lymfóm
+Melanóm
+Hyperlipidémia
+Obezita
+Syndróm obštrukčného spánkového apnoe
+Nespavosť
+Bipolárna afektívna porucha
+Porucha pozornosti s hyperaktivitou
+Celiakia
+Systémový lupus erythematosus
+Vertigo
+Tinitus
+Hemoroidy
+Kŕčové žily dolných končatín
+Hlboká žilová trombóza
+Pľúcna embólia
+Nefrolitiáza
+Anémia
+Hypertyreóza
+Vredová choroba žalúdka a dvanástnika
+Gastritída
+Celulitída kože
+Sepsa
+Akútna gastroenteritída
+Deficit vitamínu D
+Kliešťová encefalitída
+Lymská borelióza
