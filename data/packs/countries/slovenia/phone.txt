@@ -1,0 +1,8 @@
+---
+address: slovenia.phone
+description: Slovenian mobile number in E.164 form - +386 then a two-digit network code and six subscriber digits. The live codes are 30, 40, 68 and 69 (A1), 31, 41, 51 and 65 (Telekom Slovenije), 70 and 71 (Telemach) and 64 (T-2); all eleven are drawn equally here, which is the right SET but not the real market split, where 041 and 031 are far and away the commonest. Nationally the same number is written with a trunk zero, 041 123 456. Landlines are not generated here, and the reason is the interesting part: every Slovenian geographic area code is a SINGLE digit - 1 Ljubljana, 2 Maribor with Prekmurje and Koroška, 3 Celje and Zasavje, 4 Gorenjska, 5 Primorska, 7 Dolenjska and Posavje - where in Croatia only Zagreb has one and every other area code takes two, and in Austria and Italy single-digit area codes do not exist at all. There are only six of them, 6 and 8 are not geographic, and 080 is freephone. Because the plan is fixed at nine digits including the trunk zero, a Slovenian number is +386 plus exactly eight digits whether it is mobile or fixed - 1 plus seven subscriber digits on a landline, two plus six on a mobile - so unlike Croatia the length tells you nothing about which it is.
+generator: tdc
+---
+<sequence name="network"><gen type="text" value="30,31,40,41,51,64,65,68,69,70,71"/></sequence>
+<sequence name="subscriber"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+386${{network}}${{subscriber}}</data>

@@ -1,0 +1,34 @@
+---
+address: israel.docs.teudatZehut
+description: Israeli identity number (תעודת זהות / מספר זהות) — exactly 9 digits, the last of which is a check digit computed over the first eight with the weights 1,2 repeating from the left; a product of 10 or more is replaced by the sum of its two digits, the weighted total is summed, and the check digit is the amount that brings that total up to the next multiple of 10. The number is 9 digits INCLUDING leading zeros: 087451464 is a valid number and 87451464 is not the same number, it is a truncation. Storing the value as an integer, or letting a spreadsheet do it, drops the leading zeros and is the classic bug in Israeli data — every value here is emitted as a fixed-width 9-character string and roughly one in ten starts with 0, on purpose, so that a pipeline which cannot carry them fails here rather than in production.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="tz"><compute>
+  <!-- Weights 1,2,1,2,... from the LEFT over the 8-digit base, so the doubled
+       positions are the odd indices. A doubled digit above 9 is folded by
+       summing its two digits, which is the same as subtracting 9. -->
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when>
+          <test><equals><mod><current_index/><int v="2"/></mod><int v="1"/></equals></test>
+          <then>
+            <let name="d"><multiply><current/><int v="2"/></multiply></let>
+            <choose>
+              <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+                    <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+              <otherwise><use name="d"/></otherwise>
+            </choose>
+          </then>
+        </when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{tz}}</data>

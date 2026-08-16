@@ -1,0 +1,33 @@
+---
+address: israel.sport.team
+description: Israeli football clubs, Hebrew names — Ligat ha'Al and Liga Leumit. Israeli club names are built from one of three historic sports-federation prefixes (מכבי, הפועל, בית"ר) plus a place, so the prefix is part of the name and never dropped, and two different clubs can share a town: מכבי תל אביב and הפועל תל אביב are rivals, not variants of one another. Israel plays in UEFA rather than the Asian confederation, which is why its clubs appear in European competition.
+locale: he
+---
+מכבי תל אביב
+הפועל תל אביב
+מכבי חיפה
+הפועל באר שבע
+בית"ר ירושלים
+מכבי נתניה
+הפועל חיפה
+בני סכנין
+מכבי בני ריינה
+הפועל ירושלים
+עירוני קרית שמונה
+הפועל פתח תקווה
+מכבי פתח תקווה
+הפועל חדרה
+עירוני טבריה
+מ.ס. אשדוד
+בני יהודה תל אביב
+הפועל כפר סבא
+הפועל רמת גן
+הפועל רעננה
+הפועל עכו
+הפועל ניר רמת השרון
+מכבי הרצליה
+הפועל נוף הגליל
+הפועל אום אל-פחם
+מכבי אחי נצרת
+הפועל ראשון לציון
+הפועל אשקלון

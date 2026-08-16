@@ -1,0 +1,7 @@
+---
+address: israel.docs.driversLicense
+description: Israeli driving licence number (רישיון נהיגה). Israel does not mint a licence number: the number printed on the licence IS the holder's Teudat Zehut, so it is 9 digits and carries the same check digit. This is worth knowing before designing a schema — a driver's licence column and an identity column hold the same value, and joining on either gives the same answer, which is not true in most of Europe.
+generator: tdc
+---
+<sequence name="tz"><gen type="template" value="israel.docs.teudatZehut"/></sequence>
+<data>${{tz}}</data>

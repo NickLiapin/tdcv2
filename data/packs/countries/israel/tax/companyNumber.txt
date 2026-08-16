@@ -1,0 +1,33 @@
+---
+address: israel.tax.companyNumber
+description: Israeli company number (ח.פ. — מספר חברה), 9 digits, carrying the SAME check digit as a personal Teudat Zehut: weights 1,2 repeating from the left over the first eight digits, two-digit products folded by summing their digits, check digit completing the total to a multiple of 10. The two number spaces are told apart by the leading digit, not by the algorithm — a corporate number begins with 5. Within that, 51 is a private limited company (חברה בע"מ) and 52 a public one; 58 is an amuta (עמותה, non-profit association) and is kept by the Registrar of Associations rather than the Registrar of Companies. This file issues 51 and 52 only. There is no separate Israeli tax number for a company: this same number is what appears on its invoices and its VAT filings.
+generator: tdc
+---
+<sequence name="prefix"><gen type="text" value="51,52"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="hp"><compute>
+  <let name="base"><concat><field name="prefix"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when>
+          <test><equals><mod><current_index/><int v="2"/></mod><int v="1"/></equals></test>
+          <then>
+            <let name="d"><multiply><current/><int v="2"/></multiply></let>
+            <choose>
+              <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+                    <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+              <otherwise><use name="d"/></otherwise>
+            </choose>
+          </then>
+        </when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{hp}}</data>

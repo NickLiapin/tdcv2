@@ -1,0 +1,19 @@
+---
+address: slovenia.finance.bank
+description: Banks and savings banks of Slovenia, the credit institutions on the Banka Slovenije register, largest first, then the three hranilnice, then the state development bank and the central bank. The list is short because the sector consolidated hard: Abanka and Banka Celje were absorbed into Nova KBM, Nova KBM was bought by OTP and renamed OTP banka, SKB (Société Générale) merged into OTP banka in 2024, and N Banka — formerly Sberbank banka — went to NLB in 2022. Everything here has kept its books in EURO since 1 January 2007; the tolar is long gone.
+locale: sl
+---
+NLB
+OTP banka
+Banka Intesa Sanpaolo
+Gorenjska banka
+UniCredit Banka Slovenija
+Deželna banka Slovenije
+Addiko Bank
+Banka Sparkasse
+BKS Bank AG, Bančna podružnica
+Delavska hranilnica
+Hranilnica LON
+Primorska hranilnica Vipava
+SID - Slovenska izvozna in razvojna banka
+Banka Slovenije

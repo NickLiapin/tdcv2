@@ -1,0 +1,6 @@
+---
+address: israel.geo.postalCode
+description: Israeli postal code (מיקוד) — SEVEN digits. Israel Post replaced the old five-digit code with a seven-digit one on 1 February 2013: the five-digit code identified a delivery area, the seven-digit one narrows it to a side of a street or a single building, so the two are not related by padding and an old code cannot be converted into a new one by adding digits — it has to be looked up. Five-digit codes are still typed into forms and still sit in older databases, so a field that must accept both needs to accept two lengths, but everything generated here is the current seven-digit form. Codes are allotted roughly north to south, and the leading digit is never 0 (Haifa 3xxxxxx, Tel Aviv 6xxxxxx, Beersheba 8xxxxxx, Jerusalem 9xxxxxx). Printed on an envelope the code is broken 12345 67; stored and transmitted it is seven bare digits, which is the form here.
+generator: tdc
+---
+<gen type="regex" value="[1-9][0-9]{6}"/>

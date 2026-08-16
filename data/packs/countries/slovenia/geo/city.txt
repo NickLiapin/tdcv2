@@ -1,0 +1,72 @@
+---
+address: slovenia.geo.city
+description: Towns of Slovenia (mesta), roughly ordered by 2025 population. Slovenia calls a settlement a mesto only above about 3,000 inhabitants under the Zakon o lokalni samoupravi, which is why the list runs out fast and ends in places most countries would call villages — Kostanjevica na Krki has around 700 people and is a town. Ljubljana at roughly 290,000 is the only settlement over 100,000 and Maribor the only other over 50,000, so the whole urban system below the capital is small; Slovenia has no second city in the sense Croatia has Split.
+locale: sl
+---
+Ljubljana
+Maribor
+Celje
+Kranj
+Koper
+Velenje
+Novo mesto
+Ptuj
+Jesenice
+Kamnik
+Trbovlje
+Domžale
+Nova Gorica
+Škofja Loka
+Izola
+Murska Sobota
+Logatec
+Postojna
+Vrhnika
+Slovenska Bistrica
+Kočevje
+Grosuplje
+Slovenj Gradec
+Mengeš
+Ravne na Koroškem
+Ajdovščina
+Krško
+Brežice
+Litija
+Sežana
+Radovljica
+Zagorje ob Savi
+Idrija
+Črnomelj
+Medvode
+Rogaška Slatina
+Slovenske Konjice
+Bled
+Šentjur
+Hrastnik
+Sevnica
+Prevalje
+Ilirska Bistrica
+Ruše
+Cerknica
+Trebnje
+Tržič
+Ribnica
+Žiri
+Šempeter pri Gorici
+Piran
+Lenart v Slovenskih goricah
+Laško
+Metlika
+Ljutomer
+Tolmin
+Gornja Radgona
+Dravograd
+Mežica
+Zreče
+Šoštanj
+Železniki
+Lendava
+Ormož
+Radeče
+Bovec
+Kostanjevica na Krki

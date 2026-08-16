@@ -1,0 +1,31 @@
+---
+address: israel.tax.vat
+description: Israeli VAT registration number (מספר עוסק מורשה). Israel issues no separate VAT identifier and no letter country prefix — unlike an EU member state, where a VAT number is the national tax number with "PL"/"DE"/"FR" welded on the front. What a business quotes as its VAT number IS its existing 9-digit number: the owner's Teudat Zehut for a sole trader (עוסק מורשה), the company number (ח.פ.) for a company. So the only check the number carries is its own — the same weights-1,2 fold used by the Teudat Zehut — and a validator written for an EU-shaped "two letters plus digits" will reject every genuine Israeli VAT number. This file draws across the whole 9-digit space; a value beginning 51 or 52 reads as a company, anything else as a sole trader. VAT itself has been levied at 18% since January 2025 (17% before that); the rate is not part of the number.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="vat"><compute>
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when>
+          <test><equals><mod><current_index/><int v="2"/></mod><int v="1"/></equals></test>
+          <then>
+            <let name="d"><multiply><current/><int v="2"/></multiply></let>
+            <choose>
+              <when><test><greater_than><use name="d"/><int v="9"/></greater_than></test>
+                    <then><subtract><use name="d"/><int v="9"/></subtract></then></when>
+              <otherwise><use name="d"/></otherwise>
+            </choose>
+          </then>
+        </when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{vat}}</data>

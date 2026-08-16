@@ -1,0 +1,17 @@
+---
+address: slovenia.geo.region
+description: The twelve statistical regions (statistične regije) of Slovenia, in the official SURS order. What they ARE - Slovenia's NUTS-3 units, in place since 1995, the level at which the statistical office publishes almost everything, and the level EU cohesion money is allocated over. What they are NOT - a tier of government. Nobody is elected to a regija, it levies nothing, it has no seat and no administration. This is the one place a Slovenian pack cannot be built the way a neighbour's is: Croatia's županija, Poland's województwo and Austria's Bundesland are real first-level self-governing authorities, and Slovenia simply has no equivalent. Below the state there are only the 212 občine (municipalities) - the constitution has provided for pokrajine since 1991 and they have never been created, so Slovenia has stayed the largest EU country with a single administrative tier under the state. Two other divisions exist and are NOT this list - the 58 upravne enote, which are deconcentrated state offices rather than self-government and are where you go to register a car or collect an ID, and the two NUTS-2 halves, Vzhodna Slovenija and Zahodna Slovenija, which exist only because Slovenia had to be split in two to keep the poorer east eligible for cohesion funding. Two regions were renamed in 2015: Spodnjeposavska became Posavska and Notranjsko-kraška became Primorsko-notranjska.
+locale: sl
+---
+Pomurska
+Podravska
+Koroška
+Savinjska
+Zasavska
+Posavska
+Jugovzhodna Slovenija
+Osrednjeslovenska
+Gorenjska
+Primorsko-notranjska
+Goriška
+Obalno-kraška

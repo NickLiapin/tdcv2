@@ -1,0 +1,6 @@
+---
+address: israel.phoneLandline
+description: Israeli fixed-line number in E.164 form, with the same trunk-0 rule as the mobile number — 02-123-4567 becomes +972-2-123-4567. Israel's geographic area codes are single-digit after the 0: 02 Jerusalem, 03 Tel Aviv and the centre, 04 Haifa and the north, 08 the south and the Shfela, 09 the Sharon. There is no 05 or 07 area code, because 05x is mobile and 07x is reserved for VoIP and alternative operators, which is why a landline in international form is +972 followed by 2, 3, 4, 8 or 9 and then seven digits — one digit shorter after the country code than a mobile.
+generator: tdc
+---
+<gen type="regex" value="\+972(2|3|4|8|9)[0-9]{7}"/>

@@ -1,0 +1,21 @@
+---
+address: israel.holiday
+description: Israeli public holidays and national commemorative days, Hebrew names. WHAT THIS LIST IS: names only. WHAT IT IS NOT: dates. Israel keeps two calendars at once — the civil calendar is Gregorian, but the Hebrew calendar is official alongside it and every day named here is fixed to a Hebrew date, so each one lands on a different Gregorian date every year (a Hebrew leap year inserts a whole extra month), and a Hebrew day begins at sunset the evening before, so a one-day holiday occupies parts of two Gregorian dates. No conversion is attempted in this pack and none should be inferred from the order of the lines; if a config needs the actual Gregorian date of Yom Kippur in a given year it must come from a Hebrew-calendar library, not from here. Also not modelled: the working week. Israel's week runs Sunday to Thursday, the weekend is Friday and Saturday, and Shabbat — every Saturday, not a holiday in this list — is the weekly rest day, so a report that treats Saturday and Sunday as the weekend is wrong for Israel by two days. The list covers the statutory rest days and the national days that stop the country; the festivals of Muslim, Christian and Druze citizens (עיד אל-פיטר, עיד אל-אדחא, חג המולד, נבי שועייב) are rest days for those communities by law and are not listed here.
+locale: he
+---
+ראש השנה
+יום כיפור
+סוכות
+שמחת תורה
+חנוכה
+ט"ו בשבט
+פורים
+פסח
+שביעי של פסח
+יום הזיכרון לשואה ולגבורה
+יום הזיכרון לחללי מערכות ישראל ולנפגעי פעולות האיבה
+יום העצמאות
+ל"ג בעומר
+יום ירושלים
+שבועות
+תשעה באב

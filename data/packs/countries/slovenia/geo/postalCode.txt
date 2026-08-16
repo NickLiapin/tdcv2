@@ -1,0 +1,23 @@
+---
+address: slovenia.geo.postalCode
+description: Slovenian postal code (poštna številka) - four digits, and the leading digit is the delivery area of a Pošta Slovenije business unit: 1 Ljubljana, 2 Maribor, 3 Celje, 4 Kranj, 5 Nova Gorica, 6 Koper, 8 Novo mesto, 9 Murska Sobota. SEVEN IS MISSING, and that is the fact worth carrying: Slovenia's codes came out of the Yugoslav five-digit plan, where the whole republic sat in the 6xxxx block (Ljubljana was 61000, Maribor 62000, Koper 66000), and on independence the leading 6 was simply dropped. The 7 block was never needed, so the national list jumps straight from 6333 Sečovlje to 8000 Novo mesto and no Slovenian address has ever begun with 7 or 0. Each block also has its own real ceiling - 1000-1434, 2000-2394, 3000-3342, 4000-4294, 5000-5297, 6000-6333, 8000-8362, 9000-9265 - and this generator enforces the ceiling per block rather than letting one tail range serve all eight, so no drawn code falls outside the span its own block actually occupies. Inside a span there are still gaps: the code is not looked up against a post office, so a drawn number is in the right place and the right shape but is not guaranteed to be an issued one. x000 is a city's own delivery code and x001 its post-box code, which is why 1000 and 1001 are both Ljubljana. On international mail the code is written SI-1000; that prefix is a postal convention rather than part of the number, so it is not generated here. Slovenia's whole code space is under 500 numbers - four digits where Croatia needs five and Poland writes NN-NNN, and sparser than Austria's four digits, which use all nine leading digits with no hole.
+generator: tdc
+---
+<sequence name="area"><gen type="text" value="1,2,3,4,5,6,8,9"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-4][0-9]{2}"/></sequence>
+<!-- One past the highest code each business unit has actually issued. -->
+<sequence name="limit"><compute>
+  <let name="a"><to_number><field name="area"/></to_number></let>
+  <result><choose>
+    <when><test><equals><use name="a"/><int v="1"/></equals></test><then><int v="435"/></then></when>
+    <when><test><equals><use name="a"/><int v="2"/></equals></test><then><int v="395"/></then></when>
+    <when><test><equals><use name="a"/><int v="3"/></equals></test><then><int v="343"/></then></when>
+    <when><test><equals><use name="a"/><int v="4"/></equals></test><then><int v="295"/></then></when>
+    <when><test><equals><use name="a"/><int v="5"/></equals></test><then><int v="298"/></then></when>
+    <when><test><equals><use name="a"/><int v="6"/></equals></test><then><int v="334"/></then></when>
+    <when><test><equals><use name="a"/><int v="8"/></equals></test><then><int v="363"/></then></when>
+    <otherwise><int v="266"/></otherwise>
+  </choose></result>
+</compute></sequence>
+<valid><less_than><to_number><field name="rest"/></to_number><to_number><field name="limit"/></to_number></less_than></valid>
+<data>${{area}}${{rest}}</data>

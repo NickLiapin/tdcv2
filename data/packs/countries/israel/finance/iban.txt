@@ -1,0 +1,24 @@
+---
+address: israel.finance.iban
+description: Israeli IBAN — 23 characters: IL + 2 ISO 7064 MOD-97-10 check digits + a 3-digit bank code + a 3-digit branch code + a 13-digit account number (BBAN pattern 3!n3!n13!n). The bank code is drawn from the real Bank of Israel code list rather than made up, so IL62 0108 0000 0009 9999 999 decomposes as bank 010, branch 800, account 0000099999999. Israel is one of the countries where the branch is its own field, not folded into a national sort code, and the account part is a full 13 digits — a validator hard-coded for a 22-character IBAN, which several European countries use, is one character short here.
+generator: tdc
+---
+<sequence name="bank"><gen type="template" value="israel.finance.bankCode"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{13}"/></sequence>
+<sequence name="iban"><compute>
+  <let name="bban"><concat><field name="bank"/><field name="branch"/><field name="account"/></concat></let>
+  <let name="rearranged"><concat><use name="bban"/><str v="IL"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="IL"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

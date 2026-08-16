@@ -1,0 +1,25 @@
+---
+address: slovenia.tax.maticnaStevilka
+description: Slovenian matična številka — the 7-digit register number AJPES gives every business entity: a 6-digit base plus a weighted mod-11 check over 7,6,5,4,3,2, exactly as article 11 of the Uredba o vodenju in vzdrževanju Poslovnega registra Slovenije prescribes. It shares its edge rule with the davčna številka and not with the EMŠO: remainder 1 makes the check digit 0, remainder 0 takes the base out of the pool. AJPES usually prints the number with a three-digit business-unit suffix appended — Krka is 5043611 but appears as 5043611000, and Zavarovalnica Triglav's Koper branch as 5063345-577 — where 000 is the entity itself and 001 upward are its units; that suffix is outside the check, so it is not generated here. Verified against the published register numbers of Krka 5043611, Mercator 4009908, Zavarovalnica Triglav 5063345, Petrol 5025796 and Luka Koper 5144353.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{5}"/></sequence>
+<sequence name="check"><compute>
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
+  <result>
+    <choose>
+      <when><test><equals><use name="r"/><int v="1"/></equals></test><then><int v="0"/></then></when>
+      <when><test><equals><use name="r"/><int v="0"/></equals></test><then><int v="10"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{base}}${{check}}</data>

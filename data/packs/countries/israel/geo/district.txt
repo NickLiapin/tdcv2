@@ -1,0 +1,11 @@
+---
+address: israel.geo.district
+description: The six districts (מחוזות, mehozot) of Israel — the country's first-level administrative division, used by the Interior Ministry and the Central Bureau of Statistics for administration and statistics. Unlike a Polish voivodeship or a US state, a district is NOT part of a postal address and an Israeli would not write one on an envelope: a delivery address carries street and house number, city, and the 7-digit postal code, and nothing between city and country. Use this field for reporting and segmentation, not as an address line. Districts subdivide into fifteen sub-districts (נפות, nafot), which are likewise statistical rather than postal.
+locale: he
+---
+מחוז ירושלים
+מחוז הצפון
+מחוז חיפה
+מחוז המרכז
+מחוז תל אביב
+מחוז הדרום

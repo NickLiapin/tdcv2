@@ -1,0 +1,20 @@
+---
+address: slovenia.education.university
+description: Slovenian universities and the larger independent higher-education institutions, Slovene names, the three public universities first (Ljubljana 1919, Maribor 1975, Primorska 2003), then the private and international ones, then the samostojni visokošolski zavodi that are not universities but award degrees. Two things a list modelled on a neighbour would get wrong. Ljubljana was founded only in 1919 - after the empire fell, because Austria-Hungary would not license a Slovene-language university - so the country's oldest university is younger than the Republic of Croatia's by two and a half centuries (Zagreb 1669), younger than Vienna 1365 and Bologna 1088, and Slovenia went from having none to having one at independence. And the concentration is extreme: Univerza v Ljubljani alone holds something close to half of all Slovenian students, so a list of a dozen names badly overstates how spread out the system is. Worth knowing before joining these to anything: a Slovenian university is a federation, not a single body - each faculty and academy is a separate legal person with its own matična številka and its own address, which is why invoices and contracts are signed by "Univerza v Ljubljani, Fakulteta za ..." rather than by the university.
+locale: sl
+---
+Univerza v Ljubljani
+Univerza v Mariboru
+Univerza na Primorskem
+Univerza v Novi Gorici
+Nova univerza
+Univerza v Novem mestu
+Alma Mater Europaea - Evropski center Maribor
+Evro-sredozemska univerza
+Fakulteta za informacijske študije v Novem mestu
+Mednarodna podiplomska šola Jožefa Stefana
+Fakulteta za uporabne družbene študije v Novi Gorici
+DOBA Fakulteta
+GEA College - Fakulteta za podjetništvo
+IEDC-Poslovna šola Bled
+Visoka šola za varstvo okolja

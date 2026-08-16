@@ -1,0 +1,55 @@
+---
+address: slovenia.docs.emso
+description: Slovenian EMŠO (enotna matična številka občana) — 13 digits, the Yugoslav JMBG kept unchanged at independence in 1991: DDMMLLL (day, month and only the LAST THREE digits of the year, so 1939 is 939 and 2006 is 006), a two-digit register code, a three-digit serial and a weighted mod-11 check. Slovenia's register block is 50-59, but until 2024 only 50 could be issued, so 50 is what this generator draws. The serial encodes sex — 000-499 male, 500-999 female — which is why an EMŠO leaks both birth date and sex, and why Croatia abandoned the same number for the opaque OIB while Slovenia did not. The check is sum of digit x weight over 7,6,5,4,3,2,7,6,5,4,3,2, then 11 minus the remainder mod 11; when the remainder is 0 the check digit is 0, and when the remainder is 1 the number is not issued at all (the office skips that serial), which is why this file redraws instead of emitting a 10. That edge rule is the OPPOSITE of the one Slovenia's own davčna and matična številka use — see slovenia.tax.davcnaStevilka. Verified against both worked examples in ZPIZ Priloga 6 "Kontrolna številka - Modul 11": 1001939010017 and 2001939010010, the second of which is the remainder-0 case.
+generator: tdc
+---
+<sequence name="dob"><gen type="date" from="1935-01-01" to="2010-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="reg"><gen type="text" value="50"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="check"><compute>
+  <!-- The drawn date arrives as YYYYMMDD; EMŠO wants DD MM LLL. -->
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <let name="body"><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <field name="reg"/>
+    <field name="serial"/>
+  </concat></let>
+  <let name="sum"><reduce>
+    <over><use name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,6,5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
+  <result>
+    <choose>
+      <when><test><equals><use name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<!-- Remainder 1 would make the check 10; the register skips that serial, so redraw. -->
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<sequence name="emso"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <result><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <field name="reg"/>
+    <field name="serial"/>
+    <field name="check"/>
+  </concat></result>
+</compute></sequence>
+<data>${{emso}}</data>

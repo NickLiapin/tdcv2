@@ -1,0 +1,27 @@
+---
+address: slovenia.tax.davcnaStevilka
+description: Slovenian davčna številka (tax number) — 8 digits: seven drawn at random by FURS plus a weighted mod-11 check over the weights 8,7,6,5,4,3,2. One number serves natural persons and legal entities alike, and it is the same number for every tax; the ID za DDV is just this number with SI in front (slovenia.tax.vat). The edge rule is the one to get right, and it is the REVERSE of the EMŠO's: when the remainder is 1 the difference is 10 and the check digit is 0, and when the remainder is 0 the difference is 11 and FURS excludes that base from the pool altogether — so this file emits a check of 0 for remainder 1 and redraws on remainder 0. The leading digit is drawn 1-9 because the number is defined as eight-digit and a leading zero would make it seven. Verified against the FURS worked example 15012557 and against the published tax numbers of Krka 82646716, Mercator 94018154, Zavarovalnica Triglav 80040306, Zavarovalnica Sava 44814631, Petrol 80267432 and Luka Koper 89190033.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{6}"/></sequence>
+<sequence name="check"><compute>
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
+  <result>
+    <choose>
+      <!-- remainder 1 -> difference 10 -> the check digit is 0 -->
+      <when><test><equals><use name="r"/><int v="1"/></equals></test><then><int v="0"/></then></when>
+      <!-- remainder 0 -> difference 11 -> the base is never issued; 10 is the sentinel the guard below rejects -->
+      <when><test><equals><use name="r"/><int v="0"/></equals></test><then><int v="10"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{base}}${{check}}</data>

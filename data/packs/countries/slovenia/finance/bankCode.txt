@@ -1,0 +1,19 @@
+---
+address: slovenia.finance.bankCode
+description: Slovenian bank code — the first two digits of the 15-digit BBAN inside an SI IBAN, assigned by Banka Slovenije. Two digits only, where Croatia's VBDI takes seven: 01 Banka Slovenije, 02 NLB, 04 OTP banka, 07 Gorenjska banka, 10 Banka Intesa Sanpaolo, 19 Deželna banka Slovenije, 29 UniCredit Banka Slovenija, 30 NLB (the block inherited from N Banka, ex-Sberbank), 33 Addiko Bank, 34 Banka Sparkasse, 35 BKS Bank, 38 SID banka, 60 Hranilnica LON, 61 Delavska hranilnica, 64 Primorska hranilnica Vipava. Retired codes are deliberately absent: 03 SKB, 05 Abanka, 06 Banka Celje, 24 Raiffeisen, 25 Probanka, 27 Factor banka, 41 KD Banka. The three digits that follow a code in the BBAN are the branch, which is why account numbers are usually quoted as a five-digit bank-and-branch block.
+---
+01
+02
+04
+07
+10
+19
+29
+30
+33
+34
+35
+38
+60
+61
+64

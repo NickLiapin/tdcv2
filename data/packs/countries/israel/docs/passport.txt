@@ -1,0 +1,6 @@
+---
+address: israel.docs.passport
+description: Israeli passport number (דרכון) — 8 digits, no letters. Israel publishes no check digit inside the number itself; the check digit an inspector's reader validates is the ICAO 7-3-1 digit that sits in the machine-readable zone AFTER the number, not a part of it, so it is not generated here. Do not confuse this with the Teudat Zehut: the passport number is separate, is 8 digits rather than 9, and changes each time the passport is renewed.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{8}"/>

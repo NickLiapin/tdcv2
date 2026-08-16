@@ -1,0 +1,17 @@
+---
+address: israel.finance.bank
+description: Banks operating in Israel, Hebrew names, largest first. Bank of Israel (בנק ישראל) is deliberately absent — it is the central bank and holds no retail accounts. Union Bank and Bank Otsar Ha-Hayal are absent for the opposite reason: they were real banks with real codes, and both have since been absorbed by larger groups.
+locale: he
+---
+בנק הפועלים
+בנק לאומי לישראל
+בנק מזרחי טפחות
+בנק דיסקונט לישראל
+הבנק הבינלאומי הראשון לישראל
+בנק מרכנתיל דיסקונט
+בנק ירושלים
+בנק יהב לעובדי המדינה
+בנק מסד
+בנק פועלי אגודת ישראל
+וואן זירו הבנק הדיגיטלי
+בנק הדואר

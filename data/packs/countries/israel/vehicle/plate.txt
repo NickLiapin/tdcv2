@@ -1,0 +1,28 @@
+---
+address: israel.vehicle.plate
+description: Israeli civilian number plate — digits only, never a letter. Two groupings are on the road at once: the eight-digit plate NNN-NN-NNN issued since July 2017, and the seven-digit plate NN-NNN-NN it replaced, which stays with the vehicle for its whole life and so is still very common. This file issues the eight-digit form about seven times in ten. The digits carry no regional or alphabetic code of any kind — there is no equivalent of a Polish voivodeship letter or a German city code, so nothing about a plate reveals where the car is registered, and a parser that expects letters somewhere will find none. Private plates are black on yellow; other colours mark other categories (red for commercial-lease, green for taxis, white with black for military), and only the civilian numbering is generated here.
+generator: tdc
+---
+<sequence name="d8"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="pick"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="plate"><compute>
+  <!-- Since July 2017: eight digits grouped 3-2-3. -->
+  <let name="eight"><concat>
+    <slice from="0" to="3"><field name="d8"/></slice><str v="-"/>
+    <slice from="3" to="5"><field name="d8"/></slice><str v="-"/>
+    <slice from="5" to="8"><field name="d8"/></slice>
+  </concat></let>
+  <!-- The older plate: seven digits grouped 2-3-2. -->
+  <let name="seven"><concat>
+    <slice from="0" to="2"><field name="d8"/></slice><str v="-"/>
+    <slice from="2" to="5"><field name="d8"/></slice><str v="-"/>
+    <slice from="5" to="7"><field name="d8"/></slice>
+  </concat></let>
+  <let name="out"><choose>
+    <when><test><less_than><to_number><field name="pick"/></to_number><int v="7"/></less_than></test>
+      <then><use name="eight"/></then></when>
+    <otherwise><use name="seven"/></otherwise>
+  </choose></let>
+  <result><use name="out"/></result>
+</compute></sequence>
+<data>${{plate}}</data>

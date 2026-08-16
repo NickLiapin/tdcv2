@@ -1,0 +1,70 @@
+---
+address: israel.geo.city
+description: Cities and larger local-council towns of Israel, Hebrew names, roughly ordered by population. Names that are officially double-barrelled keep their hyphen (תל אביב-יפו, מודיעין-מכבים-רעות, מעלות-תרשיחא) because that hyphen is part of the legal name, not a line break. Arab-majority localities are listed under the Hebrew spelling used by Israeli registries (אום אל-פחם, סחנין, שפרעם); the Arabic form of the same names belongs to the ar language pack, not here. Localities beyond the 1949 armistice line are not listed — see the pack report.
+locale: he
+---
+ירושלים
+תל אביב-יפו
+חיפה
+ראשון לציון
+פתח תקווה
+אשדוד
+נתניה
+באר שבע
+בני ברק
+חולון
+רמת גן
+רחובות
+אשקלון
+בית שמש
+בת ים
+כפר סבא
+הרצליה
+חדרה
+מודיעין-מכבים-רעות
+נצרת
+לוד
+רמלה
+רעננה
+רהט
+הוד השרון
+גבעתיים
+קרית אתא
+נהריה
+קרית גת
+אום אל-פחם
+אילת
+ראש העין
+עכו
+עפולה
+נס ציונה
+קרית מוצקין
+יבנה
+טייבה
+כרמיאל
+טבריה
+קרית ביאליק
+קרית אונו
+אור יהודה
+סחנין
+שפרעם
+טירה
+דימונה
+טמרה
+צפת
+נתיבות
+מגדל העמק
+קרית ים
+אופקים
+ערד
+בית שאן
+קרית שמונה
+נשר
+שדרות
+מעלות-תרשיחא
+יהוד-מונוסון
+זכרון יעקב
+אור עקיבא
+גדרה
+באקה אל-גרבייה
+כפר קאסם

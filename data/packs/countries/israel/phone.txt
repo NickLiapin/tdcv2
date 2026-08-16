@@ -1,0 +1,6 @@
+---
+address: israel.phone
+description: Israeli mobile number in E.164 form. The country code is +972 and the trunk prefix 0 is DROPPED when the number is dialled from abroad: the number written 054-123-4567 at home is +972-54-123-4567 internationally, nine digits after the country code, not ten. Writing +9720541234567 is the single commonest mistake in Israeli phone data and produces a number that cannot be dialled. Mobile prefixes in national form are 050, 052, 053, 054, 055 and 058 (Pelephone, Cellcom, Hot Mobile, Partner, and the virtual operators), so the international form always begins +9725.
+generator: tdc
+---
+<gen type="regex" value="\+9725(0|2|3|4|5|8)[0-9]{7}"/>

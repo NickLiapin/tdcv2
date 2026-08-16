@@ -1,0 +1,58 @@
+---
+address: slovenia.sport.team
+description: Slovenian sports clubs - football first (1. SNL and the regulars of the 2. SNL), then handball, basketball, volleyball and ice hockey. Two ways a list built on Croatia's model would mislead. Ice hockey belongs on a Slovenian list and does not belong on a Croatian or Italian one: Jesenice and Olimpija are the historic core of a sport Slovenia has played at world level for decades, while water polo, which carries a third of Croatia's list, has no Slovenian equivalent at all. And the strongest Slovenian clubs mostly do not play in Slovenian competitions - Cedevita Olimpija plays the regional ABA League, Celje Pivovarna Laško the SEHA League and the EHF Champions League, and the hockey clubs play the Alps Hockey League and the ICEHL across the Austrian and Italian borders - because a country of two million cannot fill a domestic league at that level. Beyond that, club sport is simply not where Slovenia's sporting reputation sits: cycling, alpine skiing and ski jumping are individual, and the basketball and handball the world knows are national teams, so this list understates the country however long it runs. Names are given as the clubs register them, without the shirt sponsors that Slovenian club names collect and shed.
+locale: sl
+---
+NK Maribor
+NK Olimpija Ljubljana
+NK Celje
+FC Koper
+NK Bravo
+NŠ Mura
+NK Aluminij
+NK Radomlje
+NK Brinje Grosuplje
+NK Nafta 1903
+NK Domžale
+ND Primorje
+ND Gorica
+NK Triglav Kranj
+NK Krka
+NK Beltinci
+NK Tabor Sežana
+NK Rogaška
+NK Dob
+NK Ilirija 1911
+NK Fužinar
+NK Bilje
+NK Jadran Dekani
+NK Drava Ptuj
+NK Slovan
+RK Celje Pivovarna Laško
+RK Gorenje Velenje
+RK Trimo Trebnje
+RD Riko Ribnica
+MRK Krka
+RD Škofja Loka
+RK Slovan
+RK Maribor Branik
+RK Dobova
+RK Jeruzalem Ormož
+KK Cedevita Olimpija
+KK Krka
+Helios Suns
+KK Ilirija
+KK Rogaška
+KK Šenčur
+KK Zlatorog Laško
+KK Hopsi Polzela
+KK Šentjur
+KK Triglav Kranj
+ACH Volley Ljubljana
+OK Merkur Maribor
+Calcit Volley Kamnik
+OK Salonit Anhovo
+HK Olimpija Ljubljana
+HDD Jesenice
+HK Triglav Kranj
+HK Celje

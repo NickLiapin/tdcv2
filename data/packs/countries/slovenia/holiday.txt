@@ -1,0 +1,24 @@
+---
+address: slovenia.holiday
+description: Slovenian prazniki, in calendar order, as the Zakon o praznikih in dela prostih dnevih v Republiki Sloveniji now stands - 15 work-free days over 19 named occasions plus 6 prazniki that are NOT work-free. Work-free are novo leto (both 1 AND 2 January, one name for two days), Prešernov dan, both Easter days, dan upora proti okupatorju, praznik dela (again two days, 1 and 2 May), binkoštna nedelja, dan državnosti, Marijino vnebovzetje, dan reformacije, dan spomina na mrtve, božič and dan samostojnosti in enotnosti. Working prazniki are dan Primoža Trubarja (8 June), združitev prekmurskih Slovencev z matičnim narodom (17 August), vrnitev Primorske k matični domovini (15 September), dan slovenskega športa (23 September, added 2020), dan suverenosti (25 October, added 2015) and dan Rudolfa Maistra (23 November). Four places where a neighbour's pack would mislead. First, 26 December is dan samostojnosti in enotnosti, the day the 1990 plebiscite result was declared - the same date is St Stephen's Day in Austria (Stefanitag) and Croatia (Sveti Stjepan), and Slovenia's statehood day is a separate holiday on 25 June. Second, dan reformacije on 31 October is a work-free public holiday in a country that is overwhelmingly Catholic, because Primož Trubar's Reformation produced the first printed books in Slovene and effectively made the written language; Austria, Croatia and Italy mark nothing that day. Third, Slovenia does NOT take Epiphany or Corpus Christi off, which Austria, Croatia and Poland all do. Fourth, the names are written in lower case - Slovene capitalises a holiday only where a proper noun starts it, so it is božič and dan državnosti, never Božič, where Croatian writes Božić and Dan državnosti and German capitalises every noun. A stale source also gets 2 January wrong: it was struck out as an austerity measure in 2012 and restored from 2017.
+locale: sl
+---
+novo leto
+Prešernov dan, slovenski kulturni praznik
+velikonočna nedelja
+velikonočni ponedeljek
+dan upora proti okupatorju
+praznik dela
+binkoštna nedelja
+dan Primoža Trubarja
+dan državnosti
+Marijino vnebovzetje
+združitev prekmurskih Slovencev z matičnim narodom
+vrnitev Primorske k matični domovini
+dan slovenskega športa
+dan reformacije
+dan spomina na mrtve
+dan suverenosti
+dan Rudolfa Maistra
+božič
+dan samostojnosti in enotnosti

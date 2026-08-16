@@ -1,0 +1,9 @@
+---
+address: slovenia.vehicle.plate
+description: Slovenian vehicle plate - a two-letter registration-area code, then a five-character mark with a dash after the SECOND character (LJ 12-345). There are only eleven area codes, one per former administrative region: CE Celje, GO Nova Gorica, KK Krško, KP Koper, KR Kranj, LJ Ljubljana, MB Maribor, MS Murska Sobota, NM Novo mesto, PO Postojna, SG Slovenj Gradec. Between the code and the mark the physical plate carries the coat of arms of the municipality that hosts the upravna enota - a different arms for each town, not one national emblem - and since there is no character for it this generator writes a space. Three things separate this from the neighbours. First, the code is NOT tied to where the owner lives: Slovenia lets you pick any of the eleven when you register, so a Ljubljana car may legitimately wear GO. Second, the permitted letters are the Slovenian alphabet minus Č, Š and Ž, and the letter O is always written as the digit 0 - so a Slovenian plate can never carry a diacritic, where Croatia puts them straight in the area code itself (ČK, KŽ, ŠI, VŽ, ŽU). Third, Slovenia has no year or county sticker in the mark at all, unlike Italy's fixed AA000AA. Only the all-digit form of the standard mark is generated. Letters do enter the same five-character frame once a region's numeric blocks fill, which in practice means Ljubljana, but the split between numeric and letter-bearing marks is not published, so inventing a ratio would be worth less than leaving it out. Personalised plates, which the Pravilnik allows at three to six characters with at most one dash, are also out of scope.
+generator: tdc
+---
+<sequence name="area"><gen type="text" value="CE,GO,KK,KP,KR,LJ,MB,MS,NM,PO,SG"/></sequence>
+<sequence name="head"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{3}"/></sequence>
+<data>${{area}} ${{head}}-${{tail}}</data>

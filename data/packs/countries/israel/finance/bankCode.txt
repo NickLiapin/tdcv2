@@ -1,0 +1,6 @@
+---
+address: israel.finance.bankCode
+description: Israeli bank identification code in the 3-digit form the IBAN carries. Israelis quote it as two digits (12 for Hapoalim, 10 for Leumi); the IBAN pads it to three, so 12 becomes 012 and 4 becomes 004 — dropping that pad is a way to build an IBAN whose MOD-97 still passes while naming a bank that does not exist. The codes here are 004 Bank Yahav, 010 Bank Leumi, 011 Israel Discount Bank, 012 Bank Hapoalim, 017 Mercantile Discount, 018 One Zero Digital Bank, 020 Mizrahi-Tefahot, 031 First International Bank, 046 Bank Massad, 052 Bank Poalei Agudat Israel, 054 Bank of Jerusalem. Codes of merged banks (013, 014) and of the mortgage banks are left out; 000 is the Bank of Israel and is not an account-holding code.
+generator: tdc
+---
+<gen type="text" value="004,010,011,012,017,018,020,031,046,052,054"/>
