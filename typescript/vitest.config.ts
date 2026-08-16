@@ -59,6 +59,15 @@ export default defineConfig({
       },
     },
     reporters: ['default'],
-    testTimeout: 10_000,
+    /**
+     * Sized for a data corpus that keeps growing, not for today's count.
+     *
+     * Any test that scans the shipped packs gets slower every time a locale
+     * ships, and under full parallel load it eventually crosses the line —
+     * which reads as flakiness and is not. Two different tests hit the old
+     * 10s ceiling in one day, at roughly 18,900 and 22,600 addresses. Raising
+     * them one at a time just moves the failure to whichever test is next.
+     */
+    testTimeout: 120_000,
   },
 });
