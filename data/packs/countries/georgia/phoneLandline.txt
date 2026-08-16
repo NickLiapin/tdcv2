@@ -1,0 +1,18 @@
+---
+address: georgia.phoneLandline
+description: Georgian fixed line in E.164 form — +995, a real geographic area code from georgia.phoneAreaCode, and a subscriber block sized to fit the closed nine-digit plan: seven digits behind Tbilisi's two-digit 32, six behind every three-digit provincial code. The generator branches on the LENGTH of the drawn code rather than on a hard-coded list, which is why adding a code to georgia.phoneAreaCode needs no change here. The subscriber block is generated starting with 2, which is the opening digit of the published fixed-line numbers this file was checked against (Tbilisi's +995 32 2XX XX XX being the familiar case); ComCom does not publish its per-block allocations, so the leading 2 is an observed pattern and everything after it is unconstrained. Fixed lines are a shrinking minority of Georgian connections — see georgia.phone — so a person table where most rows carry a landline is not modelling Georgia.
+generator: tdc
+---
+<sequence name="code"><gen type="template" value="georgia.phoneAreaCode"/></sequence>
+<sequence name="sub"><gen type="regex" value="2[0-9]{5}"/></sequence>
+<sequence name="extra"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="number"><compute>
+  <!-- Closed plan, nine national digits: a two-digit code leaves seven for the
+       subscriber, a three-digit code leaves six. -->
+  <result><choose>
+    <when><test><equals><length><field name="code"/></length><int v="2"/></equals></test>
+      <then><concat><str v="+995"/><field name="code"/><field name="sub"/><field name="extra"/></concat></then></when>
+    <otherwise><concat><str v="+995"/><field name="code"/><field name="sub"/></concat></otherwise>
+  </choose></result>
+</compute></sequence>
+<data>${{number}}</data>

@@ -1,0 +1,50 @@
+---
+address: georgia.geo.city
+description: Georgian cities and daba (townlets) weighted by their population at the general census of 14 November 2024, as published for Georgia by citypopulation.de from the National Statistics Office figures. THE SHAPE OF THIS DISTRIBUTION IS THE POINT: Georgia is one of the most primate-city countries in Europe. თბილისი holds about 1.27 million of a 3.7-million country — more than five times ბათუმი, the second city, and more than the next twenty places put together — so a uniform draw over Georgian towns produces a population that lives nowhere like Georgians do, and any per-city aggregate computed from it is wrong by an order of magnitude at the top. Weighted draws fix that; sampling this list unweighted does not. Two deliberate omissions. Places in Abkhazia and the Tskhinvali region (სოხუმი, გაგრა, ცხინვალი, ოჩამჩირე and the rest) are NOT here: the 2024 census did not cover them, so any figure for them comes from a different authority on a different date and would corrupt the relative weights that make this file useful. And a handful of small district centres the source table does not carry (ვანი, მარტვილი, ხობი, თერჯოლა, სიღნაღი, ცაგერი, ონი among them) are absent rather than filled in from a second source at a second date; they are real towns and belong in georgia.geo.municipality, which lists them. ჩაქვი, სურამი and ოჩხამური are daba rather than cities — urban settlements below city rank — and are included because a Georgian address is written to them exactly as to a city. Georgian has no capital letters.
+locale: ka
+weighted: true
+---
+თბილისი,1273015
+ბათუმი,235668
+ქუთაისი,160971
+რუსთავი,132047
+გორი,50343
+ზუგდიდი,46955
+ფოთი,38845
+ხაშური,25721
+სამტრედია,24721
+მარნეული,22888
+ზესტაფონი,21859
+სენაკი,20724
+თელავი,20532
+ქობულეთი,19430
+ახალციხე,19262
+ოზურგეთი,15631
+ჭიათურა,14158
+გარდაბანი,13041
+კასპი,12911
+წყალტუბო,10811
+ბორჯომი,10797
+საგარეჯო,10770
+ახალქალაქი,10747
+ბოლნისი,9654
+ხონი,9081
+ტყიბული,8775
+მცხეთა,8082
+გურჯაანი,7922
+ყვარელი,7854
+ქარელი,6971
+ჩაქვი,6803
+სურამი,6732
+ახმეტა,6719
+საჩხერე,6628
+დუშეთი,6319
+ლანჩხუთი,6224
+დედოფლისწყარო,5773
+წალენჯიხა,5707
+ლაგოდეხი,5698
+ნინოწმინდა,5136
+წნორი,4826
+აბაშა,4786
+ოჩხამური,3159
+ამბროლაური,2206

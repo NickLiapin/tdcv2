@@ -1,0 +1,17 @@
+---
+address: georgia.geo.region
+description: The twelve first-level divisions of Georgia, roughly by population. Georgia's first level is not one kind of thing but three, and a config that treats it as one will mis-model the country. Nine of the twelve are მხარე (mkhare, "region") — administrative regions created by presidential decree in 1994-96 as a temporary arrangement pending a territorial settlement, so they are NOT in the constitution and have no elected assembly; the governor is appointed. Two are autonomous republics with their own constitutions and supreme councils — აჭარა, which functions, and აფხაზეთი, which does not: it is outside central-government control and its administration sits in exile in Tbilisi, so an Abkhazian address is a legal address with no postal or civil service behind it. The twelfth is თბილისი, the capital, which is a self-governing city ranked at the first level in its own right and is not inside any region. There is no third autonomous republic: South Ossetia is not one — the former Tskhinvali/Shida Kartli autonomous oblast was abolished in 1990 and its territory is de jure part of შიდა ქართლი, so a data set with an entry for it is using Russian rather than Georgian administrative geography. Names are given in Mkhedruli because that is what appears on Georgian documents; Georgian has no capital letters, so a region name never changes shape at the head of a line.
+locale: ka
+---
+თბილისი
+იმერეთი
+ქვემო ქართლი
+კახეთი
+სამეგრელო-ზემო სვანეთი
+აჭარის ავტონომიური რესპუბლიკა
+შიდა ქართლი
+სამცხე-ჯავახეთი
+გურია
+მცხეთა-მთიანეთი
+რაჭა-ლეჩხუმი და ქვემო სვანეთი
+აფხაზეთის ავტონომიური რესპუბლიკა

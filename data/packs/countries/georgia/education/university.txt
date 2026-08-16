@@ -1,0 +1,37 @@
+---
+address: georgia.education.university
+description: Higher education institutions of Georgia, in Georgian, state universities first. Two conventions in the names are worth reading before splitting on them. Georgian institutions are very often named "სახელობის" — "named after" — and the honorand's name comes FIRST, in the genitive, so the university's own name is buried in the middle of the string: ივანე ჯავახიშვილის სახელობის თბილისის სახელმწიფო უნივერსიტეტი is Tbilisi State University, and truncating it at 30 characters leaves only the man it is named after. And სახელმწიფო means state-owned; its absence marks a private institution, of which Georgia has an unusually large number for its size — the tail of this list is mostly private, and თბილისის თავისუფალი უნივერსიტეტი, კავკასიის უნივერსიტეტი and ბიზნესისა და ტექნოლოგიების უნივერსიტეტი are among the country's better-known ones. სოხუმის სახელმწიფო უნივერსიტეტი is on the list and is not in Sokhumi: it has operated in exile in Tbilisi since 1993, which is a live example of why an institution's name does not locate it. ქუთაისის საერთაშორისო უნივერსიტეტი is the newest of the large ones, opened in 2020. The generic word უნივერსიტეტი belongs to the language pack; the institutions are Georgia's, and would be the same if the country changed its language.
+locale: ka
+---
+ივანე ჯავახიშვილის სახელობის თბილისის სახელმწიფო უნივერსიტეტი
+საქართველოს ტექნიკური უნივერსიტეტი
+ილიას სახელმწიფო უნივერსიტეტი
+თბილისის სახელმწიფო სამედიცინო უნივერსიტეტი
+ბათუმის შოთა რუსთაველის სახელმწიფო უნივერსიტეტი
+აკაკი წერეთლის სახელმწიფო უნივერსიტეტი
+სოხუმის სახელმწიფო უნივერსიტეტი
+სამცხე-ჯავახეთის სახელმწიფო უნივერსიტეტი
+იაკობ გოგებაშვილის სახელობის თელავის სახელმწიფო უნივერსიტეტი
+საქართველოს შოთა რუსთაველის თეატრისა და კინოს სახელმწიფო უნივერსიტეტი
+თბილისის ვანო სარაჯიშვილის სახელობის სახელმწიფო კონსერვატორია
+თბილისის აპოლონ ქუთათელაძის სახელობის სახელმწიფო სამხატვრო აკადემია
+ქუთაისის საერთაშორისო უნივერსიტეტი
+თბილისის თავისუფალი უნივერსიტეტი
+საქართველოს აგრარული უნივერსიტეტი
+კავკასიის უნივერსიტეტი
+საქართველოს უნივერსიტეტი
+გრიგოლ რობაქიძის სახელობის უნივერსიტეტი
+შავი ზღვის საერთაშორისო უნივერსიტეტი
+ქართულ-ამერიკული უნივერსიტეტი
+ბიზნესისა და ტექნოლოგიების უნივერსიტეტი
+ნიუ ვიჟენ-უნივერსიტეტი
+აღმოსავლეთ ევროპის უნივერსიტეტი
+კავკასიის საერთაშორისო უნივერსიტეტი
+დავით ტვილდიანის სამედიცინო უნივერსიტეტი
+საქართველოს დავით აღმაშენებლის სახელობის უნივერსიტეტი
+საქართველოს საავიაციო უნივერსიტეტი
+საქართველოს საზოგადოებრივ საქმეთა ინსტიტუტი
+საქართველოს საპატრიარქოს წმიდა ანდრია პირველწოდებულის სახელობის ქართული უნივერსიტეტი
+საქართველოს საპატრიარქოს წმიდა თამარ მეფის სახელობის უნივერსიტეტი
+ევროპის უნივერსიტეტი
+ქუთაისის უნივერსიტეტი

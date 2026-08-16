@@ -1,0 +1,7 @@
+---
+address: georgia.tax.vat
+description: GEORGIA ISSUES NO SEPARATE VAT NUMBER, and this file exists to say so rather than to invent one. A person registered for VAT in Georgia is identified on the invoice by the identification number they already have — the nine-digit საიდენტიფიკაციო კოდი for a company, the eleven-digit personal number for a sole trader — with no VAT-specific serial, no check digit and no "GE" country prefix, because Georgia is not in the EU and its numbers are not part of the VIES scheme. So the value drawn here is deliberately identical in shape to georgia.tax.identificationCode: that IS the VAT number of a Georgian company, and a schema that carries taxId and vatId as separate columns for a Georgian party will find them equal in every row, which is the correct answer and not a bug. Two consequences worth designing around. Registration is a threshold rather than a status you can read off the number: it is compulsory above GEL 100,000 of taxable turnover in any twelve consecutive months and voluntary below it, so whether a given Georgian company charges VAT cannot be derived from its identifier and has to be modelled as its own flag. And a foreign supplier of digital services to Georgian consumers registers under a separate non-resident regime, which does not produce a nine-digit code at all — those rows do not belong in this file.
+generator: tdc
+---
+<sequence name="s"><gen type="template" value="georgia.tax.identificationCode"/></sequence>
+<data>${{s}}</data>

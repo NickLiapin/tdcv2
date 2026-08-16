@@ -1,0 +1,7 @@
+---
+address: georgia.finance.currency
+description: The two Georgian money units. The currency is the ლარი (lari, ISO 4217 GEL, symbol ₾), divided into 100 თეთრი (tetri). Unlike the Iranian rial and toman these are not two names for the same money at different scales — the tetri is a genuine hundredth, exactly as a cent is — so a Georgian amount is an ordinary two-decimal amount and needs no unit flag. What DOES need care is the symbol: ₾ is U+20BE, adopted by the National Bank in July 2014 and encoded in Unicode 7.0 the same year, so it is absent from older fonts and from any system whose Unicode tables predate 2014, where it renders as a box; GEL is the safe fallback and is what Georgian banks print in machine-readable contexts. The lari itself dates from 25 September 1995, when it replaced the kuponi at a million to one at the end of Georgia's hyperinflation — so any Georgian money figure from before that date is in a different currency by a factor of 10^6 and cannot be compared with a later one. Notes in circulation are 5, 10, 20, 50, 100 and 200 lari; 1 and 2 lari are coins. See georgia.finance.amount for how an amount is written.
+locale: ka
+---
+ლარი
+თეთრი

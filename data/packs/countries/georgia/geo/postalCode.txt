@@ -1,0 +1,26 @@
+---
+address: georgia.geo.postalCode
+description: Georgian postal codes — four digits, no letters, no space, written BEFORE the city on the last line of the address ("0102, თბილისი"), which is the reverse of the Russian order older Georgian post used. THIS IS A LIST OF REAL CODES AND NOT A PATTERN, DELIBERATELY. Georgia Post publishes no open postcode directory — its site answers one lookup at a time — so a four-digit generator would emit thousands of codes that are not allocated to anywhere, and there is no public file to check them against. Every code here is one Georgia Post itself prints: the Tbilisi codes come from its own branch list and its addressing instruction (which uses 0102 and 0163 as its worked examples), the rest from the same branch list. What the set shows is that the leading digits are NOT a clean regional hierarchy: ზესტაფონი is 2000, ზუგდიდი 2100 and თელავი 2200 although the three sit in three different regions at opposite ends of the country, so a config that infers a region from the first two digits will infer the wrong one. Tbilisi is the one range that is dense and predictable, 0100-0199, and it is where most Georgian post goes. Because this file is a verified subset rather than the whole directory it repeats, which is honest: an address with a real postcode on the wrong street is a better fixture than one whose postcode exists nowhere.
+---
+0102
+0114
+0159
+0160
+0163
+0167
+0171
+0178
+0180
+1400
+2000
+2100
+2200
+3500
+3700
+3800
+3900
+4400
+4600
+5700
+6010
+6200

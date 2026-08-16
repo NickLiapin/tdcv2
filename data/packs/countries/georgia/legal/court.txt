@@ -1,0 +1,29 @@
+---
+address: georgia.legal.court
+description: NAMED courts of Georgia — the individual institutions a case is actually filed in, not the kinds of court, which are ordinary Georgian vocabulary and live at ka.legal.court. The structure is three tiers plus one outsider. First instance is the რაიონული სასამართლო (district court) in a municipality and the საქალაქო სასამართლო (city court) in a self-governing city — the same rank under two names, the name following the settlement rather than the jurisdiction. Second instance is two courts of appeal only, თბილისი for the east and ქუთაისი for the west, so every Georgian appeal goes to one of two buildings. Third is საქართველოს უზენაესი სასამართლო, the Supreme Court, which is also the court of cassation. THE OUTSIDER IS THE CONSTITUTIONAL COURT, and it is outside in two senses: it is not part of the general-court system at all, and it does not sit in the capital — საქართველოს საკონსტიტუციო სასამართლო was moved to ბათუმი in 2007, the only high organ of the Georgian state that is not in Tbilisi. There are fewer first-instance courts than municipalities: Georgia has repeatedly merged them, so one district court covers several municipalities and there is no court named for most places on georgia.geo.municipality. This list is the general courts as constituted, not an exhaustive register of every magistrate bench within them.
+locale: ka
+---
+საქართველოს უზენაესი სასამართლო
+საქართველოს საკონსტიტუციო სასამართლო
+თბილისის სააპელაციო სასამართლო
+ქუთაისის სააპელაციო სასამართლო
+თბილისის საქალაქო სასამართლო
+ბათუმის საქალაქო სასამართლო
+ქუთაისის საქალაქო სასამართლო
+რუსთავის საქალაქო სასამართლო
+ფოთის საქალაქო სასამართლო
+ამბროლაურის რაიონული სასამართლო
+ახალქალაქის რაიონული სასამართლო
+ახალციხის რაიონული სასამართლო
+ბოლნისის რაიონული სასამართლო
+გორის რაიონული სასამართლო
+გურჯაანის რაიონული სასამართლო
+ზესტაფონის რაიონული სასამართლო
+ზუგდიდის რაიონული სასამართლო
+თელავის რაიონული სასამართლო
+მცხეთის რაიონული სასამართლო
+ოზურგეთის რაიონული სასამართლო
+საჩხერის რაიონული სასამართლო
+სენაკის რაიონული სასამართლო
+ხაშურის რაიონული სასამართლო
+ხელვაჩაურის რაიონული სასამართლო

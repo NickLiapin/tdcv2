@@ -1,0 +1,24 @@
+---
+address: georgia.finance.iban
+description: Georgian IBAN — 22 characters, GE + two ISO 7064 MOD-97-10 check digits + a two-LETTER bank code + a 16-digit account number, which is the registered format GE2!n2!a16!n. The published registry example is GE29NB0000000101904917, and this generator's arithmetic accepts it. The two letters are what makes this format distinctive and what breaks naive validators: they are converted to digits (A=10 … Z=35) before the mod-97 is taken, exactly as the country code is, so the string fed to the checksum for GE29NB00…4917 begins NB0000000101904917 followed by GE00, i.e. 1611000000010190491716140000. The bank code is drawn from georgia.finance.bankCode rather than made up, so the account belongs to a bank that exists. Georgia adopted IBAN early for a non-EU country: the National Bank agreed the format with the commercial banks in 2009, accounts began to be opened in IBAN form on 3 May 2010 and IBAN became compulsory for domestic transfers on 1 January 2013, so a Georgian account number from before 2010 in legacy form is not convertible by adding a prefix and has to be treated as a different identifier. Print format groups in fours (GE29 NB00 0000 0101 9049 17); the electronic form has no spaces and is what this file emits.
+generator: tdc
+---
+<sequence name="bank"><gen type="template" value="georgia.finance.bankCode"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{16}"/></sequence>
+<sequence name="iban"><compute>
+  <!-- ISO 13616: move the country code and the two placeholder check digits to
+       the end, then read the whole string as a number with A=10 … Z=35. -->
+  <let name="rearranged"><concat><field name="bank"/><field name="account"/><str v="GE"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="GE"/><use name="check"/><field name="bank"/><field name="account"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

@@ -1,0 +1,21 @@
+---
+address: georgia.finance.amount
+description: A sum of money written the way it is written in Georgia: groups of three separated by a NO-BREAK SPACE, a COMMA for the decimal point, and the lari sign after the figure with a no-break space before it — 1 234 567,89 ₾. That is the ka-GE currency pattern in CLDR, and it disagrees on all three counts with the English habit of 1,234,567.89 and a leading symbol, which is how Georgian amounts get corrupted: a comma read as a thousands separator turns 1 234,56 into 123456, a factor of a hundred, and nothing downstream complains because both are valid numbers. THE SEPARATORS HERE ARE U+00A0, NOT ORDINARY SPACES — invisible in an editor, and the reason a naive split on " " gives the wrong field count. The symbol is ₾ (U+20BE), which no font older than 2014 carries; georgia.finance.currency explains the fallback. The magnitude is drawn across five decades rather than uniformly, because a uniform draw over a seven-digit range puts almost every value in the millions and a Georgian price list is mostly two and three figures. Nothing here is a number the engine can do arithmetic on: it is the PRINTED form, for filling a column a human or a parser will read as Georgian text. For an amount to compute with, generate a plain number and format it at the point of output.
+generator: tdc
+locale: ka
+---
+<sequence name="raw"><gen type="number" value="1..9999999"/></sequence>
+<sequence name="shift"><gen type="number" value="0..4"/></sequence>
+<sequence name="cents"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="amount"><compute>
+  <!-- Spread the magnitude: divide the 7-digit draw by 1, 10, 100, 1000 or 10000. -->
+  <let name="scale"><at>
+    <in><list v="1,10,100,1000,10000"/></in>
+    <index><to_number><field name="shift"/></to_number></index>
+  </at></let>
+  <let name="whole"><divide><to_number><field name="raw"/></to_number><use name="scale"/></divide></let>
+  <!-- CLDR ka-GE: group separator U+00A0, decimal comma, pattern "#,##0.00 ¤". -->
+  <let name="grouped"><group size="3" sep=" "><use name="whole"/></group></let>
+  <result><concat><use name="grouped"/><str v=","/><field name="cents"/><str v=" ₾"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

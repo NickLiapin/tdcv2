@@ -1,0 +1,21 @@
+---
+address: georgia.finance.bankCode
+description: The two-LETTER bank code that occupies positions 5-6 of a Georgian IBAN, from the National Bank of Georgia's published IBAN table, in the same order as georgia.finance.bank. Georgia is one of the few countries whose IBAN bank identifier is alphabetic rather than numeric, which is the single most common way Georgian IBANs are generated wrongly: GE + two check DIGITS + two LETTERS + sixteen digits, so a validator that expects an all-numeric BBAN after the check digits rejects every real Georgian account. The letters are not derived from the bank's SWIFT code and cannot be guessed from it — Terabank is TEBAGE22 but KS, ProCredit is MIBGGE22 but PC, Silk Bank is DISNGE22 but BT — so this mapping has to be looked up rather than computed. Two entries on the NBG table are omitted here because they are not banks anyone holds a retail account with: NB, the National Bank itself, and TR, the State Treasury, whose IBANs are the accounts the budget is paid into.
+---
+TB
+BG
+LB
+CD
+PC
+BS
+KS
+HB
+CR
+BT
+PB
+IS
+ZB
+VT
+PS
+HS
+PV

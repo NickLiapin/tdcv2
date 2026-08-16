@@ -1,0 +1,6 @@
+---
+address: georgia.tax.identificationCode
+description: The Georgian identification code (საიდენტიფიკაციო კოდი, abbreviated ს/კ on invoices and letterheads) — the nine-digit number the National Agency of Public Registry assigns to a legal entity at registration, and the number that entity is then known by to the Revenue Service, the customs authority and the courts. There is only ONE number: registration code and tax number are the same nine digits, and an entity does not get a second identifier when it registers for VAT. A natural person, including a sole trader, does not have one at all — they use their eleven-digit personal number, which is why georgia.docs.personalNumber and this file are the two halves of one identifier space and why a "company number" column in Georgian data is nine digits for some rows and eleven for others. NO CHECK DIGIT: as with the personal number, no checksum algorithm is published, and NAPR validation is a register lookup. The leading digit is an observed convention rather than a documented rule — the three published NAPR identifiers this file was checked against (233105449, 416337084, 202378480) all begin 2 or 4, which matches what secondary sources report for enterprises and legal persons, so the generator restricts itself to that opening and claims nothing more.
+generator: tdc
+---
+<gen type="regex" value="[24][0-9]{8}"/>

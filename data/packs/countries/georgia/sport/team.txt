@@ -1,0 +1,15 @@
+---
+address: georgia.sport.team
+description: The clubs of the ეროვნული ლიგა, Georgia's top football division, in Georgian. Ten clubs, which is the whole league — Georgia's top flight is small enough that this list is complete rather than a selection, and that is worth knowing before treating it as a sample. Names follow the Georgian habit of club-plus-town with no connecting word (ტორპედო ქუთაისი, დინამო ბათუმი), and several carry Soviet-era sports-society names — დინამო, ტორპედო, ლოკომოტივი — that say nothing about the town and everything about which ministry or industry founded the club. Two clubs are named for a year rather than a place (იბერია 1999, კოლხეთი-1913) and two for regions rather than towns (გაგრა, which plays in Tbilisi because Gagra is in Abkhazia, and გარეჯი). დინამო თბილისი is the historically dominant club and the only Georgian winner of a European trophy, the 1981 Cup Winners' Cup. Note what this file is NOT: Georgia's strongest team in international sport is the rugby XV, and its wrestlers, judoka and weightlifters win more medals than its footballers, but Georgian rugby and wrestling clubs are not organised into a published national league table that could be verified line by line, so they are absent rather than guessed at.
+locale: ka
+---
+დინამო თბილისი
+დინამო ბათუმი
+ტორპედო ქუთაისი
+იბერია 1999
+დილა გორი
+სამგურალი წყალტუბო
+კოლხეთი-1913
+გაგრა
+თელავი
+გარეჯი

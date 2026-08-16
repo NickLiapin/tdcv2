@@ -1,0 +1,8 @@
+---
+address: georgia.phone
+description: Georgian mobile number in E.164 form — +995 then a real 5XX network code from georgia.phoneMobilePrefix then six subscriber digits, twelve characters after the plus sign in total. Mobile is the default meaning of "phone number" in Georgia to a degree that matters for modelling: fixed lines are a minority of connections and a Georgian person record with a landline and no mobile is the unusual case, not the other way round. Written here without the trunk 0, because that is what E.164 is; a Georgian typing the same number at home writes 0599 123 456 and a Georgian form field will often accept either, so a validator built for this pack's output should tolerate the leading zero as well. See georgia.phoneLandline for fixed lines, which have a different and shorter subscriber block behind a geographic area code, and georgia.phoneMobilePrefix for why the network code does not tell you the carrier.
+generator: tdc
+---
+<sequence name="prefix"><gen type="template" value="georgia.phoneMobilePrefix"/></sequence>
+<sequence name="sub"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+995${{prefix}}${{sub}}</data>

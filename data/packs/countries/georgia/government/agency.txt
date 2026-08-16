@@ -1,0 +1,34 @@
+---
+address: georgia.government.agency
+description: NAMED public bodies of Georgia, in their full official form — the ministries as the government constitutes them plus the agencies a citizen or a company actually deals with. Distinct from ka.government.agency, which carries the short generic forms (ფინანსთა სამინისტრო, იუსტიციის სახლი) that are ordinary Georgian usage; what makes an entry belong HERE is the საქართველოს in front of it, because that is the state and not the language. Two features of the list are Georgian rather than general. Ministries have been merged and split repeatedly and the portfolios are unusual as a result — ოკუპირებული ტერიტორიებიდან დევნილთა, შრომის, ჯანმრთელობისა და სოციალური დაცვის სამინისტრო combines displaced persons, labour, health and social protection in one department, and there is a state minister for reconciliation with no ministry behind him, both of which are consequences of the conflicts of the 1990s. And the delivery layer is not the ministries: Georgia's public administration is unusually front-office-driven, so identity documents, company registration, property title and much else are transacted at the იუსტიციის სახლი one-stop shops and their parent agencies rather than at the ministry that owns the policy — the სახელმწიფო სერვისების განვითარების სააგენტო issues the ID card that carries georgia.docs.personalNumber, the საჯარო რეესტრის ეროვნული სააგენტო issues georgia.tax.identificationCode, and the შემოსავლების სამსახური is what a taxpayer means by "the tax office".
+locale: ka
+---
+საქართველოს პარლამენტი
+საქართველოს მთავრობა
+საქართველოს შინაგან საქმეთა სამინისტრო
+საქართველოს ფინანსთა სამინისტრო
+საქართველოს იუსტიციის სამინისტრო
+საქართველოს თავდაცვის სამინისტრო
+საქართველოს საგარეო საქმეთა სამინისტრო
+საქართველოს ეკონომიკისა და მდგრადი განვითარების სამინისტრო
+საქართველოს განათლების, მეცნიერებისა და ახალგაზრდობის სამინისტრო
+საქართველოს ოკუპირებული ტერიტორიებიდან დევნილთა, შრომის, ჯანმრთელობისა და სოციალური დაცვის სამინისტრო
+საქართველოს გარემოს დაცვისა და სოფლის მეურნეობის სამინისტრო
+საქართველოს რეგიონული განვითარების სამინისტრო
+საქართველოს ინფრასტრუქტურის სამინისტრო
+საქართველოს კულტურის სამინისტრო
+საქართველოს სპორტის სამინისტრო
+შერიგებისა და სამოქალაქო თანასწორობის საკითხებში საქართველოს სახელმწიფო მინისტრის აპარატი
+საქართველოს ეროვნული ბანკი
+შემოსავლების სამსახური
+საჯარო რეესტრის ეროვნული სააგენტო
+სახელმწიფო სერვისების განვითარების სააგენტო
+იუსტიციის სახლი
+სახელმწიფო უსაფრთხოების სამსახური
+საქართველოს იუსტიციის უმაღლესი საბჭო
+საქართველოს ცენტრალური საარჩევნო კომისია
+საქართველოს კომუნიკაციების ეროვნული კომისია
+საქართველოს სტატისტიკის ეროვნული სამსახური
+სახელმწიფო აუდიტის სამსახური
+საქართველოს სახალხო დამცველი
+საქართველოს ფოსტა

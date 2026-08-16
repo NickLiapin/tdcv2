@@ -1,0 +1,22 @@
+---
+address: georgia.finance.bank
+description: Commercial banks licensed in Georgia, in Georgian, ordered roughly by size. Every name here is on the National Bank of Georgia's own IBAN bank-code table, and georgia.finance.bankCode carries the two-letter code for each one IN THE SAME ORDER, so the two files can be drawn as a pair and the code will belong to the bank. The market is unusually concentrated even by small-country standards: თიბისი ბანკი and საქართველოს ბანკი together hold roughly three quarters of banking assets, and the tail is made up of subsidiaries of Turkish, Kazakh, Azerbaijani and Russian groups plus two recent digital entrants, so a realistic Georgian customer table is not a flat draw over this list. Excluded on purpose: საქართველოს ეროვნული ბანკი, which is the central bank and holds no retail customers although it has an IBAN code (NB), and the სახელმწიფო ხაზინა (State Treasury, TR), which is where taxes are paid rather than a bank anyone banks with — both would otherwise look like ordinary rows here. Also excluded are the two microbanks on the same NBG table, whose Georgian legal names could not be verified. Georgian has no capital letters, and the foreign parents' names are transliterated into Mkhedruli rather than left in Latin, which is how they appear on a Georgian statement.
+locale: ka
+---
+თიბისი ბანკი
+საქართველოს ბანკი
+ლიბერთი ბანკი
+კრედო ბანკი
+პროკრედიტ ბანკი
+ბაზისბანკი
+ტერაბანკი
+ხალიკ ბანკი საქართველო
+ქართუ ბანკი
+სილქ ბანკი
+პაშა ბანკი საქართველო
+იშ ბანკი საქართველო
+ზირაათ ბანკი საქართველო
+ვითიბი ბანკი ჯორჯია
+პეისერა ბანკი საქართველო
+ჰეშ ბანკი
+პეივ ბანკი ჯორჯია

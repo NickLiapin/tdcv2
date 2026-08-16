@@ -1,0 +1,21 @@
+---
+address: georgia.holiday
+description: Public holidays of Georgia as the Labour Code names them, in Georgian. The calendar is the reason a Georgian working-day model cannot be borrowed from a western European one: the Georgian Orthodox Church keeps the Julian calendar for fixed feasts, so Christmas is 7 January and not 25 December, Epiphany is 19 January, and 25 December is an ordinary working day. Easter is moveable and Orthodox, so it falls on the Julian computus and is usually — not always — a week or more after the western date; four consecutive days around it are holidays, Good Friday through Easter Monday, which makes it much the longest break in the year. Three more dates carry weight a foreign reader will miss: 9 April is the anniversary of the Soviet army's dispersal of the 1989 Tbilisi demonstration and of the 1991 declaration of independence, and is a day of mourning as much as a holiday; 26 May is Independence Day proper, for the first republic of 1918; and 14 October (მცხეთობა/სვეტიცხოვლობა) and 23 November (გიორგობა) are church feasts that are nonetheless full state holidays. Where a holiday falls at the weekend Georgian practice is NOT to move it to a weekday, so the number of non-working days in a Georgian year varies with the day of the week each date falls on. Names follow the Labour Code's own wording; the shorter everyday names (ქრისტეშობა for 7 January, მარიამობა for 28 August) are what people actually say.
+locale: ka
+---
+ახალი წლის სადღესასწაულო დღეები
+უფლისა ჩვენისა იესო ქრისტეს შობის დღე
+ნათლისღება
+დედის დღე
+ქალთა საერთაშორისო დღე
+საქართველოს სახელმწიფოებრივი დამოუკიდებლობის აღდგენის აქტის მიღების დღე
+დიდი პარასკევი
+დიდი შაბათი
+უფლისა ჩვენისა იესო ქრისტეს ბრწყინვალე აღდგომა
+ფაშიზმზე გამარჯვების დღე
+წმინდა ანდრია პირველწოდებულის საქართველოში შემოსვლის დღე
+ოჯახის სიწმინდისა და მშობლების პატივისცემის დღე
+საქართველოს დამოუკიდებლობის დღე
+ყოვლადწმინდა ღვთისმშობლის მიძინების დღე
+მცხეთობა
+გიორგობა

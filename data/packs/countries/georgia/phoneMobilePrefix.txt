@@ -1,0 +1,26 @@
+---
+address: georgia.phoneMobilePrefix
+description: The three-digit mobile network codes of Georgia's numbering plan. Every Georgian mobile number begins with 5, and the code here is the whole 5XX opening; six subscriber digits follow, for nine national digits in total. THE CODE DOES NOT IDENTIFY THE OPERATOR, and a config that treats it as though it did will build a carrier column that is wrong for a large share of rows: number portability has been live in Georgia since 2011, so a 577 number may sit on Magti, a 599 on Cellfie, and the only authority on who serves a number today is the central portability database. The original allocations were roughly 511/551/591/595/596/598/599 to Magticom, 514/555/557/558/577/593 to Silknet (the former Geocell), 568/571/574/579/592/597 to Cellfie (VEON), 570/578 to Silknet's S1 and 559 to Datahouse Global — useful for making a plausible-looking data set, not for asserting a carrier. Carrier NAMES belong to the language pack and are at ka.telecom.carrier; this file is numbering-plan data, which is a property of the country and would survive Georgia changing its language. Georgia's plan is closed and nine-digit, in force since 4 June 2011; the trunk prefix is 0 domestically (0599 …) and drops for international dialling (+995 599 …), so the same number appears with ten digits at home and nine after the country code.
+---
+511
+514
+551
+555
+557
+558
+559
+568
+570
+571
+574
+577
+578
+579
+591
+592
+593
+595
+596
+597
+598
+599
