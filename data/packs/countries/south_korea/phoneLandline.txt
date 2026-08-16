@@ -1,0 +1,19 @@
+---
+address: south_korea.phoneLandline
+description: South Korean fixed line in E.164 form (+82 + area code without its 0 + subscriber number). Unlike most numbering plans the Korean national significant number is not a fixed length — Seoul's one-digit code 2 carries an 8-digit subscriber number, and the two-digit provincial codes normally carry 7. Eight-digit subscriber numbers do occur behind two-digit codes as well, particularly on newer business ranges; only the common form is generated.
+generator: tdc
+---
+<sequence name="area"><gen type="template" value="south_korea.phoneAreaCode"/></sequence>
+<sequence name="sub8"><gen type="regex" value="[2-9][0-9]{7}"/></sequence>
+<sequence name="sub7"><gen type="regex" value="[2-9][0-9]{6}"/></sequence>
+<sequence name="number"><compute>
+  <let name="len"><length><field name="area"/></length></let>
+  <result><concat>
+    <str v="+82"/><field name="area"/>
+    <choose>
+      <when><test><equals><use name="len"/><int v="1"/></equals></test><then><field name="sub8"/></then></when>
+      <otherwise><field name="sub7"/></otherwise>
+    </choose>
+  </concat></result>
+</compute></sequence>
+<data>${{number}}</data>

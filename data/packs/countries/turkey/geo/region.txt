@@ -1,0 +1,12 @@
+---
+address: turkey.geo.region
+description: The seven geographical regions (coğrafi bölge) of Türkiye, fixed at the 1941 Geography Congress and taught in every school. They are NOT an administrative tier — nothing is governed at this level and no province code, postal code or plate derives from them; the only first-level administrative division is the province (turkey.geo.province). A record that needs a real statistical grouping wants the 12 NUTS-1 İBBS regions instead, which are not the same seven and are not in this pack. Turkish case: İç Anadolu upper-cases to İÇ ANADOLU, not IC ANADOLU.
+locale: tr
+---
+Marmara Bölgesi
+Ege Bölgesi
+Akdeniz Bölgesi
+İç Anadolu Bölgesi
+Karadeniz Bölgesi
+Doğu Anadolu Bölgesi
+Güneydoğu Anadolu Bölgesi

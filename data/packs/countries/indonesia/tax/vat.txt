@@ -1,0 +1,7 @@
+---
+address: indonesia.tax.vat
+description: Indonesian VAT registration number — which is to say, the NPWP. Indonesia levies PPN (Pajak Pertambahan Nilai) but issues no separate VAT number: a business that crosses the threshold is confirmed as a PKP (Pengusaha Kena Pajak) and is identified on every faktur pajak by the NPWP it already holds. The old NPPKP certificate number repeated the same digits. So this file deliberately draws indonesia.tax.npwp rather than inventing a second identifier; there is no Indonesian equivalent of a PL-prefixed EU VAT number, and no country prefix, because Indonesia is not in the EU VAT system.
+generator: tdc
+---
+<sequence name="npwp"><gen type="template" value="indonesia.tax.npwp"/></sequence>
+<data>${{npwp}}</data>

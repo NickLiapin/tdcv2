@@ -1,0 +1,35 @@
+---
+address: indonesia.sport.team
+description: Indonesian football clubs — the eighteen of the 2025-26 top flight first, then well-known clubs of the second tier and the recent past. The top division was renamed Super League in 2025 after four decades of being called Liga 1 and before that Liga Indonesia; the club names themselves are the stable part. Most are Perse- or PS- contractions of Persatuan Sepak Bola plus the town, which is why so many look alike: Persib is Bandung, Persija Jakarta, Persik Kediri, Persis Surakarta, Persita Tangerang.
+locale: id
+---
+Persib Bandung
+Persija Jakarta
+Persebaya Surabaya
+Arema FC
+PSM Makassar
+Bali United
+Borneo FC Samarinda
+Madura United
+Dewa United Banten
+Persik Kediri
+Persita Tangerang
+Persis Solo
+PSIM Yogyakarta
+Persijap Jepara
+Malut United
+PSBS Biak
+Semen Padang
+Bhayangkara Presisi Lampung
+PSS Sleman
+PSIS Semarang
+Barito Putera
+Persipura Jayapura
+Persiraja Banda Aceh
+PSMS Medan
+Sriwijaya FC
+Persela Lamongan
+Persiba Balikpapan
+Persikabo 1973
+PSPS Riau
+Persiwa Wamena

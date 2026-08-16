@@ -1,0 +1,6 @@
+---
+address: japan.phone
+description: Japanese mobile number in E.164 form (+81 70/80/90 + 8 digits). Nationally the same number is written 090-1234-5678, eleven digits with the trunk 0; E.164 drops that 0, which is why the international form is two digits shorter than the national one. 070 was PHS before it was mobile and is now issued alongside 080 and 090. See japan.phoneLandline for fixed lines, where the area code is not a fixed length.
+generator: tdc
+---
+<gen type="regex" value="\+81[789]0[0-9]{8}"/>

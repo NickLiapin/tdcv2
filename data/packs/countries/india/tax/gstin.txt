@@ -1,0 +1,38 @@
+---
+address: india.tax.gstin
+description: GSTIN — Goods and Services Tax Identification Number, 15 characters, and the one Indian identifier whose check character IS fully published, so it is computed here rather than guessed. Layout: 2-digit census/GST state code (india.geo.stateCode) + the 10-character PAN of the registrant (india.tax.pan) + a 1-character entity number distinguishing that PAN's several registrations inside one state (1-9 then A-Z) + the literal Z, reserved and constant + the check character. The check runs over a BASE-36 alphabet, not over digits: each of the first 14 characters takes its value 0-35 from 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ, is multiplied by 1 at odd 1-based positions and 2 at even ones, and the product contributes floor(p/36) + (p mod 36) — a base-36 Luhn, where a Luhn on digits would add floor(p/10) + (p mod 10). The check character is alphabet[(36 - sum mod 36) mod 36]. Verified against the published GSTIN 27AAPFU0939F1ZV: the fold sums to 221, 221 mod 36 = 5, (36-5) mod 36 = 31, alphabet[31] = V, which is the character actually printed. Changing any one of the first 14 characters changes the check — 27AAPFU0939F1ZW, 28AAPFU0939F1ZV, 27AAPFU0939F2ZV, 27AAPFU0938F1ZV and 27AAPGU0939F1ZV are all rejected. Because this GSTIN embeds a generated PAN, the GSTIN is internally consistent but the PAN inside it still carries the unpublished check letter described in india.tax.pan.
+generator: tdc
+locale: en
+---
+<sequence name="state"><gen type="template" value="india.geo.stateCode"/></sequence>
+<sequence name="pan"><gen type="template" value="india.tax.pan"/></sequence>
+<sequence name="entity"><gen type="regex" value="[1-9A-Z]"/></sequence>
+<sequence name="gstin"><compute>
+  <let name="first14"><concat><field name="state"/><field name="pan"/><field name="entity"/><str v="Z"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="first14"/></over>
+    <init><int v="0"/></init>
+    <do>
+      <!-- base36 gives the 0-35 alphabet value; it returns a STRING, hence to_number. -->
+      <let name="v"><to_number><encode as="base36"><current/></encode></to_number></let>
+      <!-- 1-based position: odd -> factor 1, even -> factor 2. -->
+      <let name="p"><multiply>
+        <use name="v"/>
+        <choose>
+          <when><test><equals><mod><current_index/><int v="2"/></mod><int v="0"/></equals></test><then><int v="1"/></then></when>
+          <otherwise><int v="2"/></otherwise>
+        </choose>
+      </multiply></let>
+      <add><acc/>
+        <divide><use name="p"/><int v="36"/></divide>
+        <mod><use name="p"/><int v="36"/></mod>
+      </add>
+    </do>
+  </reduce></let>
+  <let name="check"><at>
+    <in><list><str v="0"/><str v="1"/><str v="2"/><str v="3"/><str v="4"/><str v="5"/><str v="6"/><str v="7"/><str v="8"/><str v="9"/><str v="A"/><str v="B"/><str v="C"/><str v="D"/><str v="E"/><str v="F"/><str v="G"/><str v="H"/><str v="I"/><str v="J"/><str v="K"/><str v="L"/><str v="M"/><str v="N"/><str v="O"/><str v="P"/><str v="Q"/><str v="R"/><str v="S"/><str v="T"/><str v="U"/><str v="V"/><str v="W"/><str v="X"/><str v="Y"/><str v="Z"/></list></in>
+    <index><mod><subtract><int v="36"/><mod><use name="sum"/><int v="36"/></mod></subtract><int v="36"/></mod></index>
+  </at></let>
+  <result><concat><use name="first14"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{gstin}}</data>

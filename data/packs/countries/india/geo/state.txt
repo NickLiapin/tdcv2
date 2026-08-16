@@ -1,0 +1,33 @@
+---
+address: india.geo.state
+description: The 28 STATES of India, alphabetically. A state and a union territory are different constitutional animals and are kept in different files on purpose — a state has its own elected government and legislature under Art. 246 List II, a union territory is administered by the Union through a Lieutenant Governor or Administrator, and only some (Delhi, Puducherry, Jammu and Kashmir) have a legislature at all. Flattening the 28 and the 8 into one 36-line "region" list would make the pack say something about India that is not true. For the 8 union territories see india.geo.unionTerritory; india.geo.stateCode carries the census/GST numeric code for all 36, in this file's order followed by that one's.
+locale: en
+---
+Andhra Pradesh
+Arunachal Pradesh
+Assam
+Bihar
+Chhattisgarh
+Goa
+Gujarat
+Haryana
+Himachal Pradesh
+Jharkhand
+Karnataka
+Kerala
+Madhya Pradesh
+Maharashtra
+Manipur
+Meghalaya
+Mizoram
+Nagaland
+Odisha
+Punjab
+Rajasthan
+Sikkim
+Tamil Nadu
+Telangana
+Tripura
+Uttar Pradesh
+Uttarakhand
+West Bengal

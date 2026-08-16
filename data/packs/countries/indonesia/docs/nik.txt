@@ -1,0 +1,40 @@
+---
+address: indonesia.docs.nik
+description: Indonesian NIK (Nomor Induk Kependudukan), the 16-digit number on a KTP. It has NO check digit — none at all, not a weighted mod-11, not a Luhn. Nothing in a NIK verifies a NIK, so any 16 well-formed digits pass every structural test and only a Dukcapil lookup can tell a real one from a made-up one; this file therefore computes no checksum and invents none. What the number does carry is meaning. AABBCC is the area where the holder first registered — 2-digit province, 2-digit regency/city, 2-digit district — and here the first four digits are a REAL Kemendagri regency code drawn from indonesia.geo.regencyCode, while the district pair is drawn 01-25 (real regencies hold between 1 and 51 districts numbered from 01, so the pair is well-formed and usually real but is not guaranteed to name a district that exists). DDMMYY is the holder's date of birth, with 40 ADDED TO THE DAY for a woman — so 15 March 1988 reads 150388 for a man and 550388 for a woman. That is modelled here, which means a generated NIK openly reveals both the holder's sex and their exact date of birth; treat these values as you would real ones. ZZZZ is a registration serial from 0001. Verified against the Dukcapil description of the layout; there is no published check-digit algorithm to verify because there is no check digit.
+generator: tdc
+---
+<sequence name="regency"><gen type="template" value="indonesia.geo.regencyCode"/></sequence>
+<sequence name="districtRaw"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="dob"><gen type="date" from="1940-01-01" to="2010-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="sex"><gen type="text" value="M,F"/></sequence>
+<sequence name="serialRaw"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="nik"><compute>
+  <!-- District 01-25, folded from a uniform draw rather than written as a regex
+       alternation, which would weight the branches instead of the values. -->
+  <let name="district"><pad width="2">
+    <add><mod><to_number><field name="districtRaw"/></to_number><int v="25"/></mod><int v="1"/></add>
+  </pad></let>
+  <!-- Registration serial 0001-9999; 0000 is never issued. -->
+  <let name="serial"><pad width="4">
+    <add><mod><to_number><field name="serialRaw"/></to_number><int v="9999"/></mod><int v="1"/></add>
+  </pad></let>
+  <let name="yy"><slice from="2" to="4"><field name="dob"/></slice></let>
+  <let name="mm"><slice from="4" to="6"><field name="dob"/></slice></let>
+  <let name="dd"><to_number><slice from="6" to="8"><field name="dob"/></slice></to_number></let>
+  <!-- A woman's day of birth is recorded 40 higher. F is 15 in base 36. -->
+  <let name="day">
+    <choose>
+      <when>
+        <test><equals><to_number><encode as="base36"><field name="sex"/></encode></to_number><int v="15"/></equals></test>
+        <then><pad width="2"><add><use name="dd"/><int v="40"/></add></pad></then>
+      </when>
+      <otherwise><pad width="2"><use name="dd"/></pad></otherwise>
+    </choose>
+  </let>
+  <result><concat>
+    <field name="regency"/><use name="district"/>
+    <use name="day"/><use name="mm"/><use name="yy"/>
+    <use name="serial"/>
+  </concat></result>
+</compute></sequence>
+<data>${{nik}}</data>

@@ -1,0 +1,10 @@
+---
+address: vietnam.vehicle.plate
+description: Vietnamese vehicle plate — a 2-digit province code, a series letter, then five digits punctuated 000.00, e.g. 30A-123.45. THE PROVINCE CODE HERE IS NOT THE ONE IN A CCCD: plates use their own two-digit table (Hà Nội 29-33 and 40, Hồ Chí Minh 50-59, Hải Phòng 15-16, Đà Nẵng 43, Cần Thơ 65), while vietnam.geo.provinceCode carries the three-digit administrative code (Hà Nội 001, Hồ Chí Minh 079) and postcodes use a third two-digit prefix again. Three schemes, same 63 provinces, no agreement between them — do not derive one from another. The busiest provinces hold several codes because one ran out. The series letter is the issue batch; I, J, O, Q, R and W are avoided because they read as digits or as each other. Cars registered before the five-digit series still carry four digits (30A-1234) and both forms are on the road; two-letter series exist for special categories (LD joint venture, NN foreign, NG diplomatic, KT economic) and are not generated here. From August 2023 a plate follows its owner rather than the vehicle (biển số định danh), which changed who keeps the number on resale but not the format. Motorbike plates use a letter-plus-digit series (29-K1) and are a different shape from this.
+generator: tdc
+locale: vi
+---
+<sequence name="prov"><gen type="text" value="11,12,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,40,43,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,81,82,83,84,85,86,88,89,90,92,93,94,95,97,98,99"/></sequence>
+<sequence name="series"><gen type="text" value="A,B,C,D,E,F,G,H,K,L,M,N,P,S,T,U,V,X,Y,Z"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}\.[0-9]{2}"/></sequence>
+<data>${{prov}}${{series}}-${{serial}}</data>

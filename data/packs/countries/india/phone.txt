@@ -1,0 +1,7 @@
+---
+address: india.phone
+description: Indian mobile number in E.164 form — +91 then ten digits. The first of those ten is 6, 7, 8 or 9 and nothing else: TRAI's national numbering plan reserves that whole range for mobile access codes, and 6 was opened last, in 2018, when the 7/8/9 blocks ran short. Landlines are a different shape entirely — a 2-4 digit STD code plus a 6-8 digit subscriber number, always totalling ten after the trunk prefix, e.g. 011 for Delhi and 022 for Mumbai — and are not generated here.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="\+91[6-9][0-9]{9}"/>

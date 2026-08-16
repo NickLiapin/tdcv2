@@ -1,0 +1,28 @@
+---
+address: vietnam.docs.cccd
+description: Vietnamese citizen identity number (số căn cước công dân, CCCD) — 12 digits, and IT HAS NO CHECK DIGIT. None is invented here. What the 12 digits do carry is structure, laid down by Thông tư 07/2016/TT-BCA, and all of it is modelled: digits 1-3 are the province of birth registration (vietnam.geo.provinceCode, drawn from the real published table); digit 4 encodes century AND sex together — 0 male / 1 female born 1900-1999, 2 male / 3 female born 2000-2099, 4/5 for the 2100s, and so on; digits 5-6 are the last two digits of the birth year; digits 7-12 are a random serial. So a CCCD is not opaque: anyone holding one can read off the bearer's sex, birth year to the exact year, and province of birth. Treat a generated CCCD as carrying those three facts, and do not pair it with a person record whose sex, birth year or province says something else. The number the CCCD replaced was the 9-digit CMND (see vietnam.docs.cmnd); this file generates the 12-digit CCCD only. Between 2016 and 2021 some CCCDs were issued with a chip and some with a barcode, but the number is the same 12 digits either way; from 2024 the card is called "thẻ căn cước" and the number did not change. The province code is the pre-July-2025 63-unit table, which is correct: cards are not reissued when provinces merge.
+generator: tdc
+---
+<sequence name="prov"><gen type="template" value="vietnam.geo.provinceCode"/></sequence>
+<sequence name="born"><gen type="date" from="1930-01-01" to="2024-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="sexpick"><gen type="text" value="M,F"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="cccd"><compute>
+  <let name="year"><to_number><slice from="0" to="4"><field name="born"/></slice></to_number></let>
+  <let name="yy"><slice from="2" to="4"><field name="born"/></slice></let>
+  <!-- Century-and-sex digit. Integer division gives 19 for 1900-1999 and 20 for
+       2000-2099; each century step adds 2, and female adds a further 1. -->
+  <let name="centurybase">
+    <multiply><subtract><divide><use name="year"/><int v="100"/></divide><int v="19"/></subtract><int v="2"/></multiply>
+  </let>
+  <!-- "F" is 15 in base 36, "M" is 22. -->
+  <let name="cs">
+    <choose>
+      <when><test><equals><to_number><encode as="base36"><field name="sexpick"/></encode></to_number><int v="15"/></equals></test>
+        <then><add><use name="centurybase"/><int v="1"/></add></then></when>
+      <otherwise><use name="centurybase"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><field name="prov"/><use name="cs"/><use name="yy"/><field name="tail"/></concat></result>
+</compute></sequence>
+<data>${{cccd}}</data>

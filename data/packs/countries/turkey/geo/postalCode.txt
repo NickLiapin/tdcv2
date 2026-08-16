@@ -1,0 +1,8 @@
+---
+address: turkey.geo.postalCode
+description: Turkish postal code (posta kodu) — five digits, and the first two are the province code, not a region or a sorting zone: every code in İstanbul begins 34, every code in Ankara begins 06. The prefix is therefore drawn from turkey.geo.provinceCode rather than made up, so the code and the province in the same record can be made to agree. Leading zeros are normal (06010 is Ankara) so the value is a string, never an integer. The last three digits identify the delivery area within the province; PTT has not issued the whole 000-999 range in any province, so a generated code is well-formed and province-correct but is not guaranteed to be a code PTT actually delivers to.
+generator: tdc
+---
+<sequence name="province"><gen type="template" value="turkey.geo.provinceCode"/></sequence>
+<sequence name="area"><gen type="regex" value="[0-9]{3}"/></sequence>
+<data>${{province}}${{area}}</data>

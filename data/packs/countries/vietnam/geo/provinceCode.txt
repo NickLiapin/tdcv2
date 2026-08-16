@@ -1,0 +1,9 @@
+---
+address: vietnam.geo.provinceCode
+description: The 3-digit province code of Vietnam (mã tỉnh) — the General Statistics Office administrative-division code, which Thông tư 07/2016/TT-BCA also prescribes as the first three digits of a CCCD. Sliced out of vietnam.geo.provinceWithCode rather than typed out again, so it cannot drift from vietnam.geo.province. Codes are not contiguous: they step in twos and threes (001, 002, 004, 006, 008, 010, 011 …) because gaps were left for future provinces, so a random 001–096 draw would be wrong and this list is the whole enumeration. Vietnam numbers its provinces THREE different ways and they do not agree: this administrative code (Hồ Chí Minh 079, Hà Nội 001), the 2-digit vehicle-plate code (Hồ Chí Minh 50–59, Hà Nội 29–33 and 40 — see vietnam.vehicle.plate), and the 2-digit postal prefix (Hồ Chí Minh 70, Hà Nội 10). Do not substitute one for another.
+generator: tdc
+locale: vi
+---
+<sequence name="entry"><gen type="template" value="vietnam.geo.provinceWithCode"/></sequence>
+<sequence name="code"><compute><result><slice from="0" to="3"><field name="entry"/></slice></result></compute></sequence>
+<data>${{code}}</data>

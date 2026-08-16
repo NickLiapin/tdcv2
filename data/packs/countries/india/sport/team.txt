@@ -1,0 +1,40 @@
+---
+address: india.sport.team
+description: Indian professional club teams. Cricket comes first because in India it is not one sport among several — the ten Indian Premier League franchises are the country's most recognised team names by a wide margin, and unlike European clubs they are city or state franchises created in 2008 rather than clubs with a century behind them. Then the Indian Super League football clubs, where the two Kolkata giants (Mohun Bagan, founded 1889, and East Bengal, 1920) really are older than the league they now play in. Then Pro Kabaddi League teams: kabaddi is a genuinely Indian professional sport with no counterpart in a European pack, and leaving it out would misdescribe what Indian sport is.
+locale: en
+---
+Mumbai Indians
+Chennai Super Kings
+Royal Challengers Bengaluru
+Kolkata Knight Riders
+Delhi Capitals
+Sunrisers Hyderabad
+Rajasthan Royals
+Punjab Kings
+Gujarat Titans
+Lucknow Super Giants
+Mohun Bagan Super Giant
+East Bengal FC
+Bengaluru FC
+Mumbai City FC
+FC Goa
+Kerala Blasters FC
+Odisha FC
+Chennaiyin FC
+Jamshedpur FC
+NorthEast United FC
+Hyderabad FC
+Punjab FC
+Mohammedan SC
+Patna Pirates
+Bengaluru Bulls
+U Mumba
+Jaipur Pink Panthers
+Dabang Delhi
+Bengal Warriorz
+Puneri Paltan
+Haryana Steelers
+Telugu Titans
+Tamil Thalaivas
+Gujarat Giants
+UP Yoddhas

@@ -1,0 +1,68 @@
+---
+address: vietnam.geo.provinceWithCode
+description: THE SOURCE OF TRUTH for Vietnam's provinces. Each line is the official 3-digit province code, one space, then the province name — "079 Hồ Chí Minh". This file exists so the code and the name cannot drift apart: vietnam.geo.province and vietnam.geo.provinceCode are both generated from this one list by slicing it, and vietnam.docs.cccd draws its province code from vietnam.geo.provinceCode. Edit a line here and all three follow; there is no second list to keep in step. The codes are the published administrative-division codes (mã đơn vị hành chính) of the General Statistics Office, which is the same table Thông tư 07/2016/TT-BCA prescribes for the first three digits of a CCCD. THE SET IS THE 63 UNITS AS THEY STOOD UNTIL 30 JUNE 2025. On 1 July 2025 Vietnam merged its provinces down to 34 units; the 63-entry table is kept deliberately, because a CCCD is not reissued when provinces merge and every card in circulation carries a code from this table. See vietnam.geo.province for what that means if you want today's map. Values are Vietnamese: Latin letters that carry up to two marks at once — a vowel modifier (ă â ê ô ơ ư) and a tone (à á ả ã ạ) — so "Đắk Lắk" and "Hồ Chí Minh" hold precomposed code points (NFC) that naive ASCII-folding, NFD round-trips and byte-length checks all get wrong.
+locale: vi
+---
+001 Hà Nội
+002 Hà Giang
+004 Cao Bằng
+006 Bắc Kạn
+008 Tuyên Quang
+010 Lào Cai
+011 Điện Biên
+012 Lai Châu
+014 Sơn La
+015 Yên Bái
+017 Hoà Bình
+019 Thái Nguyên
+020 Lạng Sơn
+022 Quảng Ninh
+024 Bắc Giang
+025 Phú Thọ
+026 Vĩnh Phúc
+027 Bắc Ninh
+030 Hải Dương
+031 Hải Phòng
+033 Hưng Yên
+034 Thái Bình
+035 Hà Nam
+036 Nam Định
+037 Ninh Bình
+038 Thanh Hoá
+040 Nghệ An
+042 Hà Tĩnh
+044 Quảng Bình
+045 Quảng Trị
+046 Thừa Thiên Huế
+048 Đà Nẵng
+049 Quảng Nam
+051 Quảng Ngãi
+052 Bình Định
+054 Phú Yên
+056 Khánh Hoà
+058 Ninh Thuận
+060 Bình Thuận
+062 Kon Tum
+064 Gia Lai
+066 Đắk Lắk
+067 Đắk Nông
+068 Lâm Đồng
+070 Bình Phước
+072 Tây Ninh
+074 Bình Dương
+075 Đồng Nai
+077 Bà Rịa - Vũng Tàu
+079 Hồ Chí Minh
+080 Long An
+082 Tiền Giang
+083 Bến Tre
+084 Trà Vinh
+086 Vĩnh Long
+087 Đồng Tháp
+089 An Giang
+091 Kiên Giang
+092 Cần Thơ
+093 Hậu Giang
+094 Sóc Trăng
+095 Bạc Liêu
+096 Cà Mau

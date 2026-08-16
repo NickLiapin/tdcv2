@@ -1,0 +1,51 @@
+---
+address: turkey.sport.team
+description: Turkish football clubs — Süper Lig and 1. Lig, plus long-established clubs currently in the lower divisions. The naming convention is its own: most clubs are "place + spor" written as one word (Trabzonspor, Konyaspor, Antalyaspor), so the club name is not a phrase and must not be split on a space the way a Polish or Spanish club name can be. The big four Istanbul and Trabzon clubs are the exception, and the newer franchises take a sponsor prefix instead (Çaykur Rizespor, MKE Ankaragücü). Turkish case: Fenerbahçe, Beşiktaş, Şanlıurfaspor and İstanbulspor all lose letters to an ASCII upper().
+locale: tr
+---
+Galatasaray
+Fenerbahçe
+Beşiktaş
+Trabzonspor
+İstanbul Başakşehir
+Adana Demirspor
+Antalyaspor
+Alanyaspor
+Konyaspor
+Sivasspor
+Kayserispor
+Gaziantep FK
+Hatayspor
+Kasımpaşa
+Çaykur Rizespor
+Samsunspor
+Göztepe
+Eyüpspor
+Bodrum FK
+Kocaelispor
+Fatih Karagümrük
+Gençlerbirliği
+Bursaspor
+MKE Ankaragücü
+Altay
+Ümraniyespor
+Boluspor
+Erzurumspor
+Manisa FK
+Sakaryaspor
+Şanlıurfaspor
+Keçiörengücü
+Pendikspor
+Giresunspor
+Denizlispor
+Yeni Malatyaspor
+Adanaspor
+Altınordu
+İstanbulspor
+Tuzlaspor
+Vanspor
+Amedspor
+Elazığspor
+Zonguldak Kömürspor
+Menemenspor
+Nazilli Belediyespor

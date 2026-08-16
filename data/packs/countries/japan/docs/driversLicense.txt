@@ -1,0 +1,11 @@
+---
+address: japan.docs.driversLicense
+description: Japanese driving licence number (運転免許証番号) — 12 digits. Digits 1-2 are the 公安委員会 code of the prefecture that FIRST issued the licence and never change afterwards (Hokkaido has five, one per 方面本部, hence 51 codes for 47 prefectures); digits 3-4 are the last two of the year of first issue; digits 5-10 are a prefectural serial; digit 11 is a check digit; digit 12 counts re-issues after loss or theft and starts at 0. Digit 11 is drawn at RANDOM here and a generated number will not pass a real check: the modulus-11 weighting that circulates for it is not published by the National Police Agency, and there is no published real licence number to test it against, so writing it would only make the number look verified.
+generator: tdc
+---
+<sequence name="authority"><gen type="text" value="10,11,12,13,14,20,21,22,23,24,25,30,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,60,61,62,63,64,65,70,71,72,73,74,80,81,82,83,90,91,92,93,94,95,96,97"/></sequence>
+<sequence name="year"><gen type="number" value="0..99" length="2" first_zero="true"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="check"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="reissues"><gen type="text" value="0,1,2,3" percent="88,8,3,1"/></sequence>
+<data>${{authority}}${{year}}${{serial}}${{check}}${{reissues}}</data>

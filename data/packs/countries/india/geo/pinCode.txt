@@ -1,0 +1,7 @@
+---
+address: india.geo.pinCode
+description: PIN code — Postal Index Number, six digits, India Post's address code, and the name to look for in this pack rather than postalCode. The digits are not flat: the FIRST digit is one of nine postal regions (1 Delhi, Haryana, Punjab, Himachal Pradesh, Jammu and Kashmir; 2 Uttar Pradesh, Uttarakhand; 3 Rajasthan, Gujarat; 4 Maharashtra, Madhya Pradesh, Chhattisgarh, Goa; 5 Andhra Pradesh, Telangana, Karnataka; 6 Tamil Nadu, Kerala; 7 West Bengal, Odisha and the north-east; 8 Bihar, Jharkhand), the first two together give the sub-region, the first three the sorting district, and the last three the delivery post office within it. Region 9 is the Army Postal Service and is excluded here, so the values stay civilian addresses. The pack does not model which sorting districts are actually allotted inside a region — the first digit is real geography, the rest is well-formed.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[1-8][0-9]{5}"/>

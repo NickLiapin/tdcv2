@@ -1,0 +1,21 @@
+---
+address: south_korea.docs.corporateNumber
+description: South Korean corporate registration number (법인등록번호) — 13 digits laid out AAAABB-CCCCCCD, and a third check algorithm again, unrelated to either the resident number or the business number. AAAA is the court registry office that holds the file, BB is the statutory entity class (11 주식회사, 12 합명회사, 13 합자회사, 14 유한회사, 15 유한책임회사, 21 사단법인, 81 외국법인 주식회사, per 별표 3 of the Supreme Court rule on registration numbers), CCCCCC is the registry serial and D is the check. The check runs over the first twelve digits with weights alternating 1,2,1,2,... and is (10 - sum mod 10) mod 10 — plain decimal, no digit-folding of products over nine. A Supreme Court rule amended on 29 November 2024 and in force from 31 January 2025 widened the serial from six digits to seven and ABOLISHED the check digit, so numbers issued since then read AAAABB-CCCCCCC and cannot be validated at all; corporations registered before that keep their old checkable numbers. This generator emits the pre-2025 checkable form. Printed with a hyphen after the sixth digit; emitted as bare digits. The registry-office block is structural — the shape is modelled, the roster of offices is not.
+generator: tdc
+---
+<sequence name="office"><gen type="regex" value="[1-2][0-9]{3}"/></sequence>
+<sequence name="kind"><gen type="text" value="11,12,13,14,15,21,81" percent="70,3,5,8,4,7,3"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="crn"><compute>
+  <let name="base"><concat><field name="office"/><field name="kind"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="1,2,1,2,1,2,1,2,1,2,1,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{crn}}</data>

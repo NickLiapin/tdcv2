@@ -1,0 +1,9 @@
+---
+address: japan.finance.accountType
+description: Japanese deposit-account types (預金種目) as printed on a transfer slip, most common first. 普通 is the ordinary account nearly every individual holds; 当座 is the current account a business needs to draw cheques; 貯蓄 and 定期 are savings and fixed-term. The word is written bare on the slip, without 預金, and a transfer form requires it alongside the bank code, branch code and account number.
+locale: ja
+---
+普通
+当座
+貯蓄
+定期

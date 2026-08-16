@@ -1,0 +1,22 @@
+---
+address: south_korea.geo.provinceKind
+description: What KIND of first-level division each entry is, index-aligned with south_korea.geo.province. Korea's 17 are not one uniform tier — 특별시 is the capital alone, 광역시 are the six metropolitan cities, 특별자치시 is Sejong the administrative capital, 도 is an ordinary province, and 특별자치도 marks the three provinces granted their own statute (Jeju in 2006, Gangwon in June 2023, Jeonbuk in January 2024). Collapsing them all to "province" loses the distinction that decides which laws and which budget line apply.
+locale: ko
+---
+특별시
+광역시
+광역시
+광역시
+광역시
+광역시
+광역시
+특별자치시
+도
+도
+도
+도
+도
+도
+특별자치도
+특별자치도
+특별자치도

@@ -1,0 +1,9 @@
+---
+address: vietnam.finance.bank
+description: Banks operating in Vietnam. Sliced out of vietnam.finance.bankWithCode rather than kept as a second list, so a bank can never appear here without its Napas BIN or under a name the code table does not use. The set is the state-owned big four (Agribank, BIDV, VietinBank, Vietcombank), the joint-stock commercial banks, the joint-venture banks and the wholly foreign-owned subsidiaries — all of which appear in domestic transfers on equal terms, because Napas routes by BIN and not by ownership.
+generator: tdc
+locale: vi
+---
+<sequence name="entry"><gen type="template" value="vietnam.finance.bankWithCode"/></sequence>
+<sequence name="bare"><compute><result><slice from="7"><field name="entry"/></slice></result></compute></sequence>
+<data>${{bare}}</data>

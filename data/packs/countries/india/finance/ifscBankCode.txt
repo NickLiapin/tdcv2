@@ -1,0 +1,39 @@
+---
+address: india.finance.ifscBankCode
+description: The four-letter bank prefix of an IFSC code, index-aligned with india.finance.bank. The prefix is assigned by the Reserve Bank of India and is not an abbreviation of the bank's name in any regular way — Axis Bank is UTIB because it was UTI Bank until 2007, Bank of Baroda is BARB, Bank of India is BKID, and the merged banks kept their acquirer's code. Used by india.finance.ifsc.
+locale: en
+---
+SBIN
+PUNB
+BARB
+CNRB
+UBIN
+BKID
+IDIB
+CBIN
+IOBA
+UCBA
+MAHB
+PSIB
+HDFC
+ICIC
+UTIB
+KKBK
+INDB
+YESB
+IDFB
+IBKL
+FDRL
+RATN
+BDBL
+SIBL
+KVBL
+CIUB
+KARB
+DCBL
+CSBK
+JAKA
+TMBL
+AUBL
+ESFB
+UJVN

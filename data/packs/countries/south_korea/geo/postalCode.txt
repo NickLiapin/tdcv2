@@ -1,0 +1,6 @@
+---
+address: south_korea.geo.postalCode
+description: South Korean postal code (우편번호) — five digits, drawn across the live 01000 to 63644 range. Korea replaced the old six-digit code, written NNN-NNN, with this five-digit one on 1 August 2015 when the postal system was rebuilt around the road-name address; the old code is dead and will not route. The leading pair is roughly geographic — 01 to 09 is Seoul and 63 is Jeju — but the mapping is a delivery-area assignment rather than an administrative one, and only the range is modelled here, not which code belongs to which town.
+generator: tdc
+---
+<gen type="number" value="1000..63644" length="5" first_zero="true"/>

@@ -1,0 +1,26 @@
+---
+address: turkey.docs.tckn
+description: T.C. Kimlik No — the 11-digit Turkish national identity number, issued once per citizen by the MERNİS registry and never reused. Two of the eleven digits are checks, and the rule is not a Luhn or a mod-11: the 10th digit is ((d1+d3+d5+d7+d9) × 7 − (d2+d4+d6+d8)) mod 10, an odd/even split weighted 7 against −1, and the 11th is simply (d1+…+d10) mod 10. The first digit is never 0, so the number is a string and not an integer. Unlike a PESEL or a CNP the body carries nothing — no birth date, no sex, no province — it is a pure serial, so nothing about the holder can be read back out of it. Since 1 July 2006 this number is also the tax number of every Turkish natural person (see turkey.tax.vkn).
+generator: tdc
+---
+<!-- The 10th digit uses −1 on the even positions; −1 ≡ 9 (mod 10), so the whole
+     thing folds as one non-negative weighted sum with weights 7,9,7,9,7,9,7,9,7
+     and no signed arithmetic. -->
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{8}"/></sequence>
+<sequence name="tckn"><compute>
+  <let name="d10"><mod><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,9,7,9,7,9,7,9,7"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce><int v="10"/></mod></let>
+  <let name="body"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><current/></add></do>
+  </reduce></let>
+  <let name="d11"><mod><add><use name="body"/><use name="d10"/></add><int v="10"/></mod></let>
+  <result><concat><field name="base"/><use name="d10"/><use name="d11"/></concat></result>
+</compute></sequence>
+<data>${{tckn}}</data>

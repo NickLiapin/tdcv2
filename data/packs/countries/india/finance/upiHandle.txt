@@ -1,0 +1,35 @@
+---
+address: india.finance.upiHandle
+description: The handle half of a UPI virtual payment address — the part after the @ in something like ramesh@oksbi. UPI, run by NPCI, is how most retail payments in India are actually made, and the handle names the payment service provider rather than the bank holding the money, which is why one person's several VPAs can differ only in this suffix. Real NPCI-allotted handles, stored WITH the leading @ so a config can concatenate a username straight onto one.
+locale: en
+---
+@oksbi
+@okhdfcbank
+@okicici
+@okaxis
+@ybl
+@ibl
+@axl
+@paytm
+@ptaxis
+@ptsbi
+@apl
+@upi
+@sbi
+@hdfcbank
+@icici
+@axisbank
+@kotak
+@fbl
+@idfcbank
+@indus
+@yesbank
+@barodampay
+@pnb
+@cnrb
+@unionbank
+@airtel
+@freecharge
+@jupiteraxis
+@naviaxis
+@slice

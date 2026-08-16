@@ -1,0 +1,13 @@
+---
+address: japan.geo.region
+description: The eight regions (地方) Japan is conventionally divided into. They have no administrative existence - no governor, no budget, no legal boundary - but every weather forecast, school textbook and national newspaper uses them, so address and demographic data routinely carries a region field. Ordered north to south.
+locale: ja
+---
+北海道
+東北
+関東
+中部
+近畿
+中国
+四国
+九州

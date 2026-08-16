@@ -1,0 +1,6 @@
+---
+address: vietnam.finance.accountNumber
+description: Vietnamese bank account number — digits only, no check digit, no national standard. VIETNAM HAS NO IBAN. It is not in the IBAN registry, so there is deliberately no vietnam.finance.iban to sit alongside Poland's or Italy's: a domestic transfer is addressed by the receiving bank's 6-digit Napas BIN (vietnam.finance.bankCode) plus the bare account number, and an inbound international transfer needs the bank's SWIFT/BIC plus the account number instead. Length is set by each bank, not by the country — 9 to 14 digits covers what banks actually issue, and several banks now hand out "nice" numbers that are simply the customer's phone number or CCCD, which is why an account number in Vietnamese data cannot be assumed opaque. Nothing here is verifiable: there is no checksum to get right or wrong.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{9,14}"/>

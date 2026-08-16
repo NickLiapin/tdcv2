@@ -1,0 +1,43 @@
+---
+address: turkey.tax.vkn
+description: Vergi Kimlik No — the 10-digit Turkish tax number issued by the Gelir İdaresi Başkanlığı to legal persons (companies, partnerships, associations). Natural persons do not get one: since 1 July 2006 their tax number IS their T.C. Kimlik No, so a Turkish invoice carries a 10-digit VKN for a company and an 11-digit TCKN for a sole trader, and any field that must hold both is 11 wide. The check digit is unusual — it is not a weighted sum of the digits themselves. Each of the first nine digits is first TRANSFORMED, v_i = (d_i + (10 − i)) mod 10, and only then weighted by 2^(10−i) mod 9; a transformed digit of 0 contributes 0, while one of 9 contributes 9 rather than the 0 the modulo would give. The check is (10 − sum mod 10) mod 10.
+generator: tdc
+---
+<!-- 2^(10-i) mod 9 for i = 1..9 is 8,4,2,1,5,7,8,4,2, so the powers of two are
+     folded into the weight list and never have to be computed.
+
+     The "0 becomes 9" rule fires exactly when v_i = 9, because (v_i * W) mod 9
+     is 0 only for v_i in {0, 9}. That makes it branchless:
+         w_i = ((v_i * W_i) mod 9) + 9 * floor(v_i / 9)
+     which gives 0 for v_i = 0 and 9 for v_i = 9, as the rule requires. -->
+<sequence name="base"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="vkn"><compute>
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do>
+      <add><acc/>
+        <!-- v = (digit + (9 - index)) mod 10 -->
+        <add>
+          <mod>
+            <multiply>
+              <mod><add><current/><subtract><int v="9"/><current_index/></subtract></add><int v="10"/></mod>
+              <at><in><list v="8,4,2,1,5,7,8,4,2"/></in><index><current_index/></index></at>
+            </multiply>
+            <int v="9"/>
+          </mod>
+          <multiply>
+            <int v="9"/>
+            <divide>
+              <mod><add><current/><subtract><int v="9"/><current_index/></subtract></add><int v="10"/></mod>
+              <int v="9"/>
+            </divide>
+          </multiply>
+        </add>
+      </add>
+    </do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{vkn}}</data>

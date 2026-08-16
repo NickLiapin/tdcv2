@@ -1,0 +1,8 @@
+---
+address: indonesia.phone
+description: Indonesian mobile number in E.164 form. Country code +62, then a real operator prefix — 811-813, 821-823 and 851-853 are Telkomsel; 814-816 and 855-858 Indosat; 895-899 Indosat's ex-Tri range; 817-819, 859, 877 and 878 XL Axiata; 831-833 and 838 Axis; 881-889 Smartfren — then seven subscriber digits. Written nationally the same number carries a leading 0 in place of +62, so +6281234567890 is dialled 081234567890. Real subscriber parts run six to eight digits depending on operator and vintage; this file fixes seven, giving the eleven-digit national form that is by far the most common.
+generator: tdc
+---
+<sequence name="prefix"><gen type="text" value="811,812,813,814,815,816,817,818,819,821,822,823,831,832,833,838,851,852,853,855,856,857,858,859,877,878,881,882,883,884,885,886,887,888,889,895,896,897,898,899"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+62${{prefix}}${{line}}</data>

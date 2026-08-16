@@ -1,0 +1,15 @@
+---
+address: south_korea.sport.baseballTeam
+description: The ten KBO 리그 baseball clubs. This file exists because South Korea is the one country in this pack set where the football league is not the main sporting fixture — the KBO outdraws K리그 by a wide margin, and a Korean test fixture that only knows about football clubs is missing the teams people actually name. Every club is a corporate franchise carrying its owner's name; several have moved city or changed hands, which is why the sponsor half of the name shifts over time while the nickname stays.
+locale: ko
+---
+LG 트윈스
+두산 베어스
+KIA 타이거즈
+삼성 라이온즈
+롯데 자이언츠
+한화 이글스
+SSG 랜더스
+NC 다이노스
+KT 위즈
+키움 히어로즈

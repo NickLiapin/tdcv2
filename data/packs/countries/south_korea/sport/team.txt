@@ -1,0 +1,30 @@
+---
+address: south_korea.sport.team
+description: K리그1 and K리그2 football clubs. Korean club names put the CITY FIRST and the sponsor or nickname second (울산 HD, 전북 현대 모터스), the reverse of the European habit, and a good half of the league is named after the chaebol that owns it. Football is not the country's biggest spectator sport — baseball is, and its clubs are at south_korea.sport.baseballTeam.
+locale: ko
+---
+울산 HD
+전북 현대 모터스
+포항 스틸러스
+FC서울
+수원 FC
+광주 FC
+강원 FC
+대구 FC
+제주 SK FC
+대전 하나 시티즌
+김천 상무
+FC안양
+인천 유나이티드
+부산 아이파크
+성남 FC
+경남 FC
+부천 FC 1995
+전남 드래곤즈
+서울 이랜드 FC
+충남아산 FC
+안산 그리너스
+천안 시티 FC
+충북청주 FC
+화성 FC
+수원 삼성 블루윙즈

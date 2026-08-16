@@ -1,0 +1,8 @@
+---
+address: japan.geo.postalCode
+description: Japanese postal code (郵便番号) — three digits, a hyphen, four digits. The leading three are drawn from japan.geo.postalCodePrefix, so every one is a head Japan Post actually assigns; the trailing four are structural and do NOT name a real 町域, so the code as a whole is well-formed but not a real address. Written form: 〒100-0001, with the 〒 postal mark printed as a label before the code rather than stored with it, which is why this generator emits the bare code the way Japan Post's own file does. Japan Post stores it as seven digits with no hyphen; the hyphen is added when it is written down.
+generator: tdc
+---
+<sequence name="head"><gen type="template" value="japan.geo.postalCodePrefix"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>${{head}}-${{tail}}</data>

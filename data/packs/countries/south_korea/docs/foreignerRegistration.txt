@@ -1,0 +1,44 @@
+---
+address: south_korea.docs.foreignerRegistration
+description: South Korean alien registration number (외국인등록번호) — the same 13-digit shape as the resident number and the same weighted mod-11 check, issued to foreign residents instead of an RRN. Digits 1-6 are the DATE OF BIRTH and digit 7 is the century-and-sex marker drawn from the foreigner block — 5 male and 6 female born 1900-1999, 7 male and 8 female born 2000-2099 — which is the only thing separating this number from south_korea.docs.rrn, so it carries the same birthday and sex in clear and deserves the same care. Digits 8-12 are a serial and digit 13 is the check over the first twelve with weights 2,3,4,5,6,7,8,9,2,3,4,5 as (11 - sum mod 11) mod 10. Printed as YYMMDD-NNNNNNN; emitted as bare digits.
+generator: tdc
+---
+<sequence name="dob"><gen type="date" from="1950-01-01" to="2015-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="sexbit"><gen type="regex" value="[01]"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="fin"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <let name="year"><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="0"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+  </concat></to_number></let>
+  <let name="yymmdd"><concat>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+  </concat></let>
+  <!-- Foreigner block: 5/6 for the 1900s, 7/8 for the 2000s, odd male. -->
+  <let name="century">
+    <choose>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test><then><int v="7"/></then></when>
+      <otherwise><int v="5"/></otherwise>
+    </choose>
+  </let>
+  <let name="sex"><add><use name="century"/><field name="sexbit"/></add></let>
+  <let name="base"><concat><use name="yymmdd"/><use name="sex"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="2,3,4,5,6,7,8,9,2,3,4,5"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{fin}}</data>

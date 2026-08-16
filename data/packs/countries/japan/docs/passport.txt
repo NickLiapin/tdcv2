@@ -1,0 +1,7 @@
+---
+address: japan.docs.passport
+description: Japanese passport number (旅券番号) — two uppercase letters followed by seven digits, e.g. TR1234567. The number itself carries NO check digit; the check digits printed on a Japanese passport live in the machine-readable zone and are computed OVER the number, they are not part of it, so nothing is verified here. The letter pairs actually in issue are a subset the Ministry of Foreign Affairs does not publish, so this draws from the whole alphabet rather than pretend to know it.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[A-Z]{2}[0-9]{7}"/>

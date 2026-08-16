@@ -1,0 +1,41 @@
+---
+address: india.vehicle.stateCode
+description: The two-letter registration code that opens an Indian number plate, one per state or union territory. This is a THIRD code system for the same 36 subdivisions and agrees with neither of the others: the plate says MH for Maharashtra where GST says 27 (india.geo.stateCode) and ISO 3166-2 says IN-MH. It is the transport department's own list, and it changes when a state does — CG appeared with Chhattisgarh in 2000, OD replaced OR for Odisha in 2011, TS was cut out of AP for Telangana in 2014, and LA appeared for Ladakh in 2019. DN was retired into DD when Dadra and Nagar Haveli merged with Daman and Diu in 2020. BH, the nationwide Bharat series, is deliberately absent: it is not a state code but a separate scheme with its own plate layout (see india.vehicle.plate).
+locale: en
+---
+AP
+AR
+AS
+BR
+CG
+GA
+GJ
+HR
+HP
+JH
+KA
+KL
+MP
+MH
+MN
+ML
+MZ
+NL
+OD
+PB
+RJ
+SK
+TN
+TS
+TR
+UP
+UK
+WB
+AN
+CH
+DD
+DL
+JK
+LA
+LD
+PY

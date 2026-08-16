@@ -1,0 +1,21 @@
+---
+address: south_korea.geo.provinceCode
+description: The two-digit 시도 code from the government's 행정표준코드, index-aligned with south_korea.geo.province. The numbering is not contiguous and it is not stable — when Gangwon became a 특별자치도 in June 2023 its code moved from 42 to 51, and when Jeonbuk followed in January 2024 its code moved from 45 to 52. Data cut before those dates will not join against this list.
+---
+11
+26
+27
+28
+29
+30
+31
+36
+41
+43
+44
+46
+47
+48
+50
+51
+52

@@ -1,0 +1,53 @@
+---
+address: vietnam.finance.bankWithCode
+description: THE SOURCE OF TRUTH for Vietnam's banks. Each line is the 6-digit Napas bank identification number, one space, then the bank's common name — "970436 Vietcombank". vietnam.finance.bank and vietnam.finance.bankCode are both sliced out of this list, so the name and the code cannot drift apart. The BIN is the code that actually routes a domestic transfer: it is what a VietQR / Napas 247 payload names the receiving bank by, and it is the nearest thing Vietnam has to a sort code. Domestic BINs almost all sit in the 9704xx block. This is NOT a SWIFT/BIC and NOT the 8-digit CITAD interbank code, which is a different identifier for the same banks. Four struggling banks were compulsorily transferred to stronger owners in 2024-2025 and some were renamed since; their BINs did not change, and the names here are the ones the published BIN table carries. Values are mostly Latin brand names, but Vietnamese full names carry stacked diacritics (a vowel modifier plus a tone on one letter) — see vietnam.geo.provinceWithCode for what that does to naive normalisation.
+locale: vi
+---
+970400 Saigonbank
+970403 Sacombank
+970405 Agribank
+970406 DongA Bank
+970407 Techcombank
+970408 GPBank
+970409 BacA Bank
+970410 Standard Chartered Vietnam
+970412 PVcomBank
+970414 OceanBank
+970415 VietinBank
+970416 ACB
+970418 BIDV
+970419 NCB
+970421 VRB
+970422 MB
+970423 TPBank
+970424 Shinhan Bank Vietnam
+970425 ABBANK
+970426 MSB
+970427 VietABank
+970428 Nam A Bank
+970429 SCB
+970430 PGBank
+970431 Eximbank
+970432 VPBank
+970433 VietBank
+970434 Indovina Bank
+970436 Vietcombank
+970437 HDBank
+970438 BaoViet Bank
+970439 Public Bank Vietnam
+970441 VIB
+970442 Hong Leong Bank Vietnam
+970443 SHB
+970444 CBBank
+970446 Co-opBank
+970448 OCB
+970449 LPBank
+970452 KienlongBank
+970454 BVBank
+970455 IBK Hà Nội
+970456 IBK Hồ Chí Minh
+970457 Woori Bank Vietnam
+970458 United Overseas Bank Vietnam
+970466 KEB Hana Hà Nội
+970467 KEB Hana Hồ Chí Minh
+970468 SeABank

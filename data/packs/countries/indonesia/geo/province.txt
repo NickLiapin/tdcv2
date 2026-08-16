@@ -1,0 +1,43 @@
+---
+address: indonesia.geo.province
+description: The 38 provinces of Indonesia, in Kemendagri code order — index-aligned with indonesia.geo.provinceCode. The count is 38 as of the 2022-2024 Papuan reorganisation: three provinces (Papua Selatan, Papua Tengah, Papua Pegunungan) were split off Papua by Laws 14, 15 and 16 of 2022 in July 2022, and Papua Barat Daya was split off Papua Barat by Law 29 of 2022 in December 2022, taking the Papuan total from two to six. The split also RENUMBERED Papua: it is 91 and Papua Barat is 92 here, where pre-2022 tables give Papua 94 and Papua Barat 91 — a list copied from an older source will be wrong in the codes as well as short four names. Names and codes follow Kepmendagri No 300.2.2-2138 Tahun 2025 (the Kemendagri table current at February 2026). Law 2 of 2024 renames DKI Jakarta to Daerah Khusus Jakarta (DKJ) once the presidential decree moving the capital to Nusantara is issued; that decree had not been issued as of August 2026, so the Kemendagri table and this file still read DKI Jakarta.
+locale: id
+---
+Aceh
+Sumatera Utara
+Sumatera Barat
+Riau
+Jambi
+Sumatera Selatan
+Bengkulu
+Lampung
+Kepulauan Bangka Belitung
+Kepulauan Riau
+DKI Jakarta
+Jawa Barat
+Jawa Tengah
+DI Yogyakarta
+Jawa Timur
+Banten
+Bali
+Nusa Tenggara Barat
+Nusa Tenggara Timur
+Kalimantan Barat
+Kalimantan Tengah
+Kalimantan Selatan
+Kalimantan Timur
+Kalimantan Utara
+Sulawesi Utara
+Sulawesi Tengah
+Sulawesi Selatan
+Sulawesi Tenggara
+Gorontalo
+Sulawesi Barat
+Maluku
+Maluku Utara
+Papua
+Papua Barat
+Papua Selatan
+Papua Tengah
+Papua Pegunungan
+Papua Barat Daya

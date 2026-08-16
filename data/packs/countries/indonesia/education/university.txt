@@ -1,0 +1,85 @@
+---
+address: indonesia.education.university
+description: Universities of Indonesia, official Indonesian names, state institutions first and then the large Islamic, Christian and private ones. The naming is worth reading rather than guessing at: an institut is a specialist technical or agricultural institute rather than a lesser university (Institut Teknologi Bandung and Institut Pertanian Bogor are two of the country's strongest), a universitas negeri is a former teachers' college and a different institution from the plain universitas in the same city, and UIN is a state Islamic university. IPB deliberately styles itself IPB University in English while remaining Institut Pertanian Bogor in Indonesian.
+locale: id
+---
+Universitas Indonesia
+Universitas Gadjah Mada
+Institut Teknologi Bandung
+IPB University
+Universitas Airlangga
+Institut Teknologi Sepuluh Nopember
+Universitas Diponegoro
+Universitas Padjadjaran
+Universitas Brawijaya
+Universitas Sebelas Maret
+Universitas Hasanuddin
+Universitas Sumatera Utara
+Universitas Andalas
+Universitas Sriwijaya
+Universitas Syiah Kuala
+Universitas Udayana
+Universitas Jenderal Soedirman
+Universitas Lampung
+Universitas Riau
+Universitas Jember
+Universitas Mataram
+Universitas Sam Ratulangi
+Universitas Mulawarman
+Universitas Tanjungpura
+Universitas Lambung Mangkurat
+Universitas Bengkulu
+Universitas Jambi
+Universitas Nusa Cendana
+Universitas Halu Oleo
+Universitas Tadulako
+Universitas Pattimura
+Universitas Cenderawasih
+Universitas Khairun
+Universitas Papua
+Universitas Palangka Raya
+Universitas Bangka Belitung
+Universitas Maritim Raja Ali Haji
+Universitas Tidar
+Universitas Singaperbangsa Karawang
+Universitas Siliwangi
+Universitas Terbuka
+Universitas Pendidikan Indonesia
+Universitas Negeri Jakarta
+Universitas Negeri Yogyakarta
+Universitas Negeri Malang
+Universitas Negeri Semarang
+Universitas Negeri Surabaya
+Universitas Negeri Padang
+Universitas Negeri Medan
+Universitas Negeri Makassar
+Universitas Negeri Gorontalo
+Institut Teknologi Sumatera
+Institut Teknologi Kalimantan
+UIN Syarif Hidayatullah Jakarta
+UIN Sunan Kalijaga Yogyakarta
+UIN Sunan Ampel Surabaya
+UIN Maulana Malik Ibrahim Malang
+UIN Sunan Gunung Djati Bandung
+UIN Walisongo Semarang
+UIN Alauddin Makassar
+Universitas Islam Indonesia
+Universitas Muhammadiyah Yogyakarta
+Universitas Muhammadiyah Surakarta
+Universitas Muhammadiyah Malang
+Universitas Ahmad Dahlan
+Universitas Katolik Parahyangan
+Universitas Katolik Indonesia Atma Jaya
+Universitas Kristen Petra
+Universitas Kristen Satya Wacana
+Universitas Sanata Dharma
+Universitas Bina Nusantara
+Universitas Trisakti
+Universitas Telkom
+Universitas Pelita Harapan
+Universitas Tarumanagara
+Universitas Gunadarma
+Universitas Mercu Buana
+Universitas Pertamina
+Universitas Prasetiya Mulya
+Universitas Surabaya

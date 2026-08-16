@@ -1,0 +1,8 @@
+---
+address: vietnam.tax.mstBranch
+description: Vietnamese 13-digit tax code for a branch or dependent unit (mã số thuế đơn vị trực thuộc) — the parent's 10-digit MST, a hyphen, then a 3-digit unit number from 001 upward, e.g. 0100112437-001. The parent part is drawn from vietnam.tax.mst, so its check digit is the real computed one; the 3-digit suffix carries no check of its own and is simply the order in which the parent registered its units. The hyphen is how the tax authority writes it and how it appears on invoices, but plenty of systems store the 13 digits unseparated — strip the hyphen if your target does, do not assume it is absent.
+generator: tdc
+---
+<sequence name="parent"><gen type="template" value="vietnam.tax.mst"/></sequence>
+<sequence name="unit"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<data>${{parent}}-${{unit}}</data>

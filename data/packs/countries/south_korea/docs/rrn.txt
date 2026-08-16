@@ -1,0 +1,45 @@
+---
+address: south_korea.docs.rrn
+description: South Korean resident registration number (주민등록번호) — 13 digits carrying a real weighted mod-11 check digit. Read this before using it. Digits 1-6 are the holder's DATE OF BIRTH written YYMMDD, and digit 7 encodes the CENTURY AND THE SEX in one character — 1 male and 2 female born 1900-1999, 3 male and 4 female born 2000-2099 (5-8 are the foreigner series, see south_korea.docs.foreignerRegistration). A generated RRN is therefore not an opaque token: it states a birthday and a sex in clear, which makes it more sensitive than most test data and a poor thing to paste anywhere real. Digits 8-12 are a serial and digit 13 is the check, taken over the first twelve with weights 2,3,4,5,6,7,8,9,2,3,4,5 as (11 - sum mod 11) mod 10, so that a value of 10 is written 0 and 11 is written 1. Until October 2020 digits 8-11 were a birth-registration REGION code; the 2020 reform abolished it and made all six digits after the sex digit random, which randomised the check digit along with them, so numbers issued or reissued since then usually FAIL this check. What is generated here is the pre-reform form, because that is the form a checker accepts. Korea prints the number as YYMMDD-NNNNNNN; the value here is bare digits.
+generator: tdc
+---
+<sequence name="dob"><gen type="date" from="1940-01-01" to="2015-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="sexbit"><gen type="regex" value="[01]"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="rrn"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <!-- Decode the drawn calendar date (YYYYMMDD) into a year and the printed YYMMDD. -->
+  <let name="year"><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="0"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+  </concat></to_number></let>
+  <let name="yymmdd"><concat>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+  </concat></let>
+  <!-- Digit 7 is century AND sex at once: 1/2 for the 1900s, 3/4 for the 2000s, odd male. -->
+  <let name="century">
+    <choose>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test><then><int v="3"/></then></when>
+      <otherwise><int v="1"/></otherwise>
+    </choose>
+  </let>
+  <let name="sex"><add><use name="century"/><field name="sexbit"/></add></let>
+  <let name="base"><concat><use name="yymmdd"/><use name="sex"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="2,3,4,5,6,7,8,9,2,3,4,5"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{rrn}}</data>

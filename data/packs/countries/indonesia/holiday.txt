@@ -1,0 +1,21 @@
+---
+address: indonesia.holiday
+description: Indonesian national public holidays (hari libur nasional) by NAME only — this file deliberately models no dates, because most of these have none that hold from year to year. Indonesia's calendar is set annually by an SKB, a joint decree of the ministers of Religious Affairs, Manpower and Administrative Reform, published the autumn before; it fixes both the holidays and the cuti bersama (joint leave) days bolted on to make long weekends. Only five are fixed-date: Tahun Baru Masehi (1 January), Hari Buruh Internasional (1 May), Hari Lahir Pancasila (1 June), Proklamasi Kemerdekaan (17 August) and Kelahiran Yesus Kristus (25 December). The five Islamic holidays walk backwards about eleven days a year against the Gregorian calendar and their exact dates are confirmed only after the moon sighting; Tahun Baru Imlek follows the Chinese calendar, Nyepi the Balinese Saka calendar, Waisak the Buddhist calendar, and the three Easter-linked Christian dates the movable Christian one. Names as they appear in the SKB for 2026, which lists these sixteen names over seventeen dates because Idulfitri takes two days. The wording has itself shifted: since the mid-2020s decrees the Christian holidays are gazetted as Yesus Kristus rather than the older Isa Almasih.
+locale: id
+---
+Tahun Baru Masehi
+Isra Mikraj Nabi Muhammad SAW
+Tahun Baru Imlek
+Hari Suci Nyepi
+Idulfitri
+Wafat Yesus Kristus
+Kebangkitan Yesus Kristus
+Hari Buruh Internasional
+Kenaikan Yesus Kristus
+Iduladha
+Hari Raya Waisak
+Hari Lahir Pancasila
+Tahun Baru Islam
+Proklamasi Kemerdekaan
+Maulid Nabi Muhammad SAW
+Kelahiran Yesus Kristus

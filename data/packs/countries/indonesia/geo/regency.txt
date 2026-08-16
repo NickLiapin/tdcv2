@@ -1,0 +1,519 @@
+---
+address: indonesia.geo.regency
+description: All 514 second-level divisions of Indonesia — 416 kabupaten (regencies), 93 kota (cities) and the 5 kota administrasi of Jakarta — index-aligned with indonesia.geo.regencyCode. Names as published in Kepmendagri No 300.2.2-2138 Tahun 2025.
+locale: id
+---
+Kabupaten Aceh Selatan
+Kabupaten Aceh Tenggara
+Kabupaten Aceh Timur
+Kabupaten Aceh Tengah
+Kabupaten Aceh Barat
+Kabupaten Aceh Besar
+Kabupaten Pidie
+Kabupaten Aceh Utara
+Kabupaten Simeulue
+Kabupaten Aceh Singkil
+Kabupaten Bireuen
+Kabupaten Aceh Barat Daya
+Kabupaten Gayo Lues
+Kabupaten Aceh Jaya
+Kabupaten Nagan Raya
+Kabupaten Aceh Tamiang
+Kabupaten Bener Meriah
+Kabupaten Pidie Jaya
+Kota Banda Aceh
+Kota Sabang
+Kota Lhokseumawe
+Kota Langsa
+Kota Subulussalam
+Kabupaten Tapanuli Tengah
+Kabupaten Tapanuli Utara
+Kabupaten Tapanuli Selatan
+Kabupaten Nias
+Kabupaten Langkat
+Kabupaten Karo
+Kabupaten Deli Serdang
+Kabupaten Simalungun
+Kabupaten Asahan
+Kabupaten Labuhanbatu
+Kabupaten Dairi
+Kabupaten Toba
+Kabupaten Mandailing Natal
+Kabupaten Nias Selatan
+Kabupaten Pakpak Bharat
+Kabupaten Humbang Hasundutan
+Kabupaten Samosir
+Kabupaten Serdang Bedagai
+Kabupaten Batu Bara
+Kabupaten Padang Lawas Utara
+Kabupaten Padang Lawas
+Kabupaten Labuhanbatu Selatan
+Kabupaten Labuhanbatu Utara
+Kabupaten Nias Utara
+Kabupaten Nias Barat
+Kota Medan
+Kota Pematangsiantar
+Kota Sibolga
+Kota Tanjungbalai
+Kota Binjai
+Kota Tebing Tinggi
+Kota Padangsidimpuan
+Kota Gunungsitoli
+Kabupaten Pesisir Selatan
+Kabupaten Solok
+Kabupaten Sijunjung
+Kabupaten Tanah Datar
+Kabupaten Padang Pariaman
+Kabupaten Agam
+Kabupaten Lima Puluh Kota
+Kabupaten Pasaman
+Kabupaten Kepulauan Mentawai
+Kabupaten Dharmasraya
+Kabupaten Solok Selatan
+Kabupaten Pasaman Barat
+Kota Padang
+Kota Solok
+Kota Sawahlunto
+Kota Padang Panjang
+Kota Bukittinggi
+Kota Payakumbuh
+Kota Pariaman
+Kabupaten Kampar
+Kabupaten Indragiri Hulu
+Kabupaten Bengkalis
+Kabupaten Indragiri Hilir
+Kabupaten Pelalawan
+Kabupaten Rokan Hulu
+Kabupaten Rokan Hilir
+Kabupaten Siak
+Kabupaten Kuantan Singingi
+Kabupaten Kepulauan Meranti
+Kota Pekanbaru
+Kota Dumai
+Kabupaten Kerinci
+Kabupaten Merangin
+Kabupaten Sarolangun
+Kabupaten Batanghari
+Kabupaten Muaro Jambi
+Kabupaten Tanjung Jabung Barat
+Kabupaten Tanjung Jabung Timur
+Kabupaten Bungo
+Kabupaten Tebo
+Kota Jambi
+Kota Sungai Penuh
+Kabupaten Ogan Komering Ulu
+Kabupaten Ogan Komering Ilir
+Kabupaten Muara Enim
+Kabupaten Lahat
+Kabupaten Musi Rawas
+Kabupaten Musi Banyuasin
+Kabupaten Banyuasin
+Kabupaten Ogan Komering Ulu Timur
+Kabupaten Ogan Komering Ulu Selatan
+Kabupaten Ogan Ilir
+Kabupaten Empat Lawang
+Kabupaten Penukal Abab Lematang Ilir
+Kabupaten Musi Rawas Utara
+Kota Palembang
+Kota Pagar Alam
+Kota Lubuk Linggau
+Kota Prabumulih
+Kabupaten Bengkulu Selatan
+Kabupaten Rejang Lebong
+Kabupaten Bengkulu Utara
+Kabupaten Kaur
+Kabupaten Seluma
+Kabupaten Mukomuko
+Kabupaten Lebong
+Kabupaten Kepahiang
+Kabupaten Bengkulu Tengah
+Kota Bengkulu
+Kabupaten Lampung Selatan
+Kabupaten Lampung Tengah
+Kabupaten Lampung Utara
+Kabupaten Lampung Barat
+Kabupaten Tulang Bawang
+Kabupaten Tanggamus
+Kabupaten Lampung Timur
+Kabupaten Way Kanan
+Kabupaten Pesawaran
+Kabupaten Pringsewu
+Kabupaten Mesuji
+Kabupaten Tulang Bawang Barat
+Kabupaten Pesisir Barat
+Kota Bandar Lampung
+Kota Metro
+Kabupaten Bangka
+Kabupaten Belitung
+Kabupaten Bangka Selatan
+Kabupaten Bangka Tengah
+Kabupaten Bangka Barat
+Kabupaten Belitung Timur
+Kota Pangkal Pinang
+Kabupaten Bintan
+Kabupaten Karimun
+Kabupaten Natuna
+Kabupaten Lingga
+Kabupaten Kepulauan Anambas
+Kota Batam
+Kota Tanjung Pinang
+Kabupaten Administrasi Kepulauan Seribu
+Kota Administrasi Jakarta Pusat
+Kota Administrasi Jakarta Utara
+Kota Administrasi Jakarta Barat
+Kota Administrasi Jakarta Selatan
+Kota Administrasi Jakarta Timur
+Kabupaten Bogor
+Kabupaten Sukabumi
+Kabupaten Cianjur
+Kabupaten Bandung
+Kabupaten Garut
+Kabupaten Tasikmalaya
+Kabupaten Ciamis
+Kabupaten Kuningan
+Kabupaten Cirebon
+Kabupaten Majalengka
+Kabupaten Sumedang
+Kabupaten Indramayu
+Kabupaten Subang
+Kabupaten Purwakarta
+Kabupaten Karawang
+Kabupaten Bekasi
+Kabupaten Bandung Barat
+Kabupaten Pangandaran
+Kota Bogor
+Kota Sukabumi
+Kota Bandung
+Kota Cirebon
+Kota Bekasi
+Kota Depok
+Kota Cimahi
+Kota Tasikmalaya
+Kota Banjar
+Kabupaten Cilacap
+Kabupaten Banyumas
+Kabupaten Purbalingga
+Kabupaten Banjarnegara
+Kabupaten Kebumen
+Kabupaten Purworejo
+Kabupaten Wonosobo
+Kabupaten Magelang
+Kabupaten Boyolali
+Kabupaten Klaten
+Kabupaten Sukoharjo
+Kabupaten Wonogiri
+Kabupaten Karanganyar
+Kabupaten Sragen
+Kabupaten Grobogan
+Kabupaten Blora
+Kabupaten Rembang
+Kabupaten Pati
+Kabupaten Kudus
+Kabupaten Jepara
+Kabupaten Demak
+Kabupaten Semarang
+Kabupaten Temanggung
+Kabupaten Kendal
+Kabupaten Batang
+Kabupaten Pekalongan
+Kabupaten Pemalang
+Kabupaten Tegal
+Kabupaten Brebes
+Kota Magelang
+Kota Surakarta
+Kota Salatiga
+Kota Semarang
+Kota Pekalongan
+Kota Tegal
+Kabupaten Kulon Progo
+Kabupaten Bantul
+Kabupaten Gunungkidul
+Kabupaten Sleman
+Kota Yogyakarta
+Kabupaten Pacitan
+Kabupaten Ponorogo
+Kabupaten Trenggalek
+Kabupaten Tulungagung
+Kabupaten Blitar
+Kabupaten Kediri
+Kabupaten Malang
+Kabupaten Lumajang
+Kabupaten Jember
+Kabupaten Banyuwangi
+Kabupaten Bondowoso
+Kabupaten Situbondo
+Kabupaten Probolinggo
+Kabupaten Pasuruan
+Kabupaten Sidoarjo
+Kabupaten Mojokerto
+Kabupaten Jombang
+Kabupaten Nganjuk
+Kabupaten Madiun
+Kabupaten Magetan
+Kabupaten Ngawi
+Kabupaten Bojonegoro
+Kabupaten Tuban
+Kabupaten Lamongan
+Kabupaten Gresik
+Kabupaten Bangkalan
+Kabupaten Sampang
+Kabupaten Pamekasan
+Kabupaten Sumenep
+Kota Kediri
+Kota Blitar
+Kota Malang
+Kota Probolinggo
+Kota Pasuruan
+Kota Mojokerto
+Kota Madiun
+Kota Surabaya
+Kota Batu
+Kabupaten Pandeglang
+Kabupaten Lebak
+Kabupaten Tangerang
+Kabupaten Serang
+Kota Tangerang
+Kota Cilegon
+Kota Serang
+Kota Tangerang Selatan
+Kabupaten Jembrana
+Kabupaten Tabanan
+Kabupaten Badung
+Kabupaten Gianyar
+Kabupaten Klungkung
+Kabupaten Bangli
+Kabupaten Karangasem
+Kabupaten Buleleng
+Kota Denpasar
+Kabupaten Lombok Barat
+Kabupaten Lombok Tengah
+Kabupaten Lombok Timur
+Kabupaten Sumbawa
+Kabupaten Dompu
+Kabupaten Bima
+Kabupaten Sumbawa Barat
+Kabupaten Lombok Utara
+Kota Mataram
+Kota Bima
+Kabupaten Kupang
+Kabupaten Timor Tengah Selatan
+Kabupaten Timor Tengah Utara
+Kabupaten Belu
+Kabupaten Alor
+Kabupaten Flores Timur
+Kabupaten Sikka
+Kabupaten Ende
+Kabupaten Ngada
+Kabupaten Manggarai
+Kabupaten Sumba Timur
+Kabupaten Sumba Barat
+Kabupaten Lembata
+Kabupaten Rote Ndao
+Kabupaten Manggarai Barat
+Kabupaten Nagekeo
+Kabupaten Sumba Tengah
+Kabupaten Sumba Barat Daya
+Kabupaten Manggarai Timur
+Kabupaten Sabu Raijua
+Kabupaten Malaka
+Kota Kupang
+Kabupaten Sambas
+Kabupaten Mempawah
+Kabupaten Sanggau
+Kabupaten Ketapang
+Kabupaten Sintang
+Kabupaten Kapuas Hulu
+Kabupaten Bengkayang
+Kabupaten Landak
+Kabupaten Sekadau
+Kabupaten Melawi
+Kabupaten Kayong Utara
+Kabupaten Kubu Raya
+Kota Pontianak
+Kota Singkawang
+Kabupaten Kotawaringin Barat
+Kabupaten Kotawaringin Timur
+Kabupaten Kapuas
+Kabupaten Barito Selatan
+Kabupaten Barito Utara
+Kabupaten Katingan
+Kabupaten Seruyan
+Kabupaten Sukamara
+Kabupaten Lamandau
+Kabupaten Gunung Mas
+Kabupaten Pulang Pisau
+Kabupaten Murung Raya
+Kabupaten Barito Timur
+Kota Palangkaraya
+Kabupaten Tanah Laut
+Kabupaten Kotabaru
+Kabupaten Banjar
+Kabupaten Barito Kuala
+Kabupaten Tapin
+Kabupaten Hulu Sungai Selatan
+Kabupaten Hulu Sungai Tengah
+Kabupaten Hulu Sungai Utara
+Kabupaten Tabalong
+Kabupaten Tanah Bumbu
+Kabupaten Balangan
+Kota Banjarmasin
+Kota Banjarbaru
+Kabupaten Paser
+Kabupaten Kutai Kartanegara
+Kabupaten Berau
+Kabupaten Kutai Barat
+Kabupaten Kutai Timur
+Kabupaten Penajam Paser Utara
+Kabupaten Mahakam Ulu
+Kota Balikpapan
+Kota Samarinda
+Kota Bontang
+Kabupaten Bulungan
+Kabupaten Malinau
+Kabupaten Nunukan
+Kabupaten Tana Tidung
+Kota Tarakan
+Kabupaten Bolaang Mongondow
+Kabupaten Minahasa
+Kabupaten Kepulauan Sangihe
+Kabupaten Kepulauan Talaud
+Kabupaten Minahasa Selatan
+Kabupaten Minahasa Utara
+Kabupaten Minahasa Tenggara
+Kabupaten Bolaang Mongondow Utara
+Kabupaten Kep. Siau Tagulandang Biaro
+Kabupaten Bolaang Mongondow Timur
+Kabupaten Bolaang Mongondow Selatan
+Kota Manado
+Kota Bitung
+Kota Tomohon
+Kota Kotamobagu
+Kabupaten Banggai
+Kabupaten Poso
+Kabupaten Donggala
+Kabupaten Toli-Toli
+Kabupaten Buol
+Kabupaten Morowali
+Kabupaten Banggai Kepulauan
+Kabupaten Parigi Moutong
+Kabupaten Tojo Una Una
+Kabupaten Sigi
+Kabupaten Banggai Laut
+Kabupaten Morowali Utara
+Kota Palu
+Kabupaten Kepulauan Selayar
+Kabupaten Bulukumba
+Kabupaten Bantaeng
+Kabupaten Jeneponto
+Kabupaten Takalar
+Kabupaten Gowa
+Kabupaten Sinjai
+Kabupaten Bone
+Kabupaten Maros
+Kabupaten Pangkajene dan Kepulauan
+Kabupaten Barru
+Kabupaten Soppeng
+Kabupaten Wajo
+Kabupaten Sidenreng Rappang
+Kabupaten Pinrang
+Kabupaten Enrekang
+Kabupaten Luwu
+Kabupaten Tana Toraja
+Kabupaten Luwu Utara
+Kabupaten Luwu Timur
+Kabupaten Toraja Utara
+Kota Makassar
+Kota Parepare
+Kota Palopo
+Kabupaten Kolaka
+Kabupaten Konawe
+Kabupaten Muna
+Kabupaten Buton
+Kabupaten Konawe Selatan
+Kabupaten Bombana
+Kabupaten Wakatobi
+Kabupaten Kolaka Utara
+Kabupaten Konawe Utara
+Kabupaten Buton Utara
+Kabupaten Kolaka Timur
+Kabupaten Konawe Kepulauan
+Kabupaten Muna Barat
+Kabupaten Buton Tengah
+Kabupaten Buton Selatan
+Kota Kendari
+Kota Bau Bau
+Kabupaten Gorontalo
+Kabupaten Boalemo
+Kabupaten Bone Bolango
+Kabupaten Pohuwato
+Kabupaten Gorontalo Utara
+Kota Gorontalo
+Kabupaten Pasangkayu
+Kabupaten Mamuju
+Kabupaten Mamasa
+Kabupaten Polewali Mandar
+Kabupaten Majene
+Kabupaten Mamuju Tengah
+Kabupaten Maluku Tengah
+Kabupaten Maluku Tenggara
+Kabupaten Kepulauan Tanimbar
+Kabupaten Buru
+Kabupaten Seram Bagian Timur
+Kabupaten Seram Bagian Barat
+Kabupaten Kepulauan Aru
+Kabupaten Maluku Barat Daya
+Kabupaten Buru Selatan
+Kota Ambon
+Kota Tual
+Kabupaten Halmahera Barat
+Kabupaten Halmahera Tengah
+Kabupaten Halmahera Utara
+Kabupaten Halmahera Selatan
+Kabupaten Kepulauan Sula
+Kabupaten Halmahera Timur
+Kabupaten Pulau Morotai
+Kabupaten Pulau Taliabu
+Kota Ternate
+Kota Tidore Kepulauan
+Kabupaten Jayapura
+Kabupaten Kepulauan Yapen
+Kabupaten Biak Numfor
+Kabupaten Sarmi
+Kabupaten Keerom
+Kabupaten Waropen
+Kabupaten Supiori
+Kabupaten Mamberamo Raya
+Kota Jayapura
+Kabupaten Manokwari
+Kabupaten Fak Fak
+Kabupaten Teluk Bintuni
+Kabupaten Teluk Wondama
+Kabupaten Kaimana
+Kabupaten Manokwari Selatan
+Kabupaten Pegunungan Arfak
+Kabupaten Merauke
+Kabupaten Boven Digoel
+Kabupaten Mappi
+Kabupaten Asmat
+Kabupaten Nabire
+Kabupaten Puncak Jaya
+Kabupaten Paniai
+Kabupaten Mimika
+Kabupaten Puncak
+Kabupaten Dogiyai
+Kabupaten Intan Jaya
+Kabupaten Deiyai
+Kabupaten Jayawijaya
+Kabupaten Pegunungan Bintang
+Kabupaten Yahukimo
+Kabupaten Tolikara
+Kabupaten Mamberamo Tengah
+Kabupaten Yalimo
+Kabupaten Lanny Jaya
+Kabupaten Nduga
+Kabupaten Sorong
+Kabupaten Sorong Selatan
+Kabupaten Raja Ampat
+Kabupaten Tambrauw
+Kabupaten Maybrat
+Kota Sorong

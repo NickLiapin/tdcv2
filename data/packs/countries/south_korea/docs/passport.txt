@@ -1,0 +1,6 @@
+---
+address: south_korea.docs.passport
+description: South Korean passport number in the form introduced with the 2020 next-generation biometric passport — a type letter, three digits, one uppercase letter and four digits (M123A4567). The leading letter is the passport class, M for an ordinary passport. The older form was the type letter followed by eight digits (M12345678); the letter was pushed into the middle when the all-numeric space began to run out. Structural only — the number carries no published check digit of its own, and the check digits that do exist live in the machine-readable zone rather than in the number.
+generator: tdc
+---
+<gen type="regex" value="M[0-9]{3}[A-Z][0-9]{4}"/>

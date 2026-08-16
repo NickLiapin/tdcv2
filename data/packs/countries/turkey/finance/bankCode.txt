@@ -1,0 +1,33 @@
+---
+address: turkey.finance.bankCode
+description: The 5-digit bank code that occupies positions 5-9 of a Turkish IBAN, index-aligned with turkey.finance.bank. It is the bank's 4-digit EFT code with a leading zero — Ziraat's EFT code 0010 appears in the IBAN as 00010 — so an IBAN starting TR__00064 is an İş Bankası account and TR__00062 a Garanti BBVA one. Codes in the 002xx block belong to the katılım (participation) banks, which were licensed later than the deposit banks and were given their own range.
+---
+00010
+00064
+00062
+00015
+00012
+00067
+00046
+00111
+00134
+00032
+00099
+00059
+00146
+00103
+00135
+00124
+00125
+00123
+00109
+00143
+00096
+00092
+00091
+00205
+00206
+00203
+00209
+00210
+00211

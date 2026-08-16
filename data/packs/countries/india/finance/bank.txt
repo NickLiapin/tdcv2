@@ -1,0 +1,39 @@
+---
+address: india.finance.bank
+description: Banks operating in India — the 12 public sector banks that survived the 2019-2020 amalgamations, the main private banks, and a few small finance banks. Index-aligned with india.finance.ifscBankCode, which carries each bank's four-letter IFSC prefix on the same line.
+locale: en
+---
+State Bank of India
+Punjab National Bank
+Bank of Baroda
+Canara Bank
+Union Bank of India
+Bank of India
+Indian Bank
+Central Bank of India
+Indian Overseas Bank
+UCO Bank
+Bank of Maharashtra
+Punjab and Sind Bank
+HDFC Bank
+ICICI Bank
+Axis Bank
+Kotak Mahindra Bank
+IndusInd Bank
+Yes Bank
+IDFC First Bank
+IDBI Bank
+Federal Bank
+RBL Bank
+Bandhan Bank
+South Indian Bank
+Karur Vysya Bank
+City Union Bank
+Karnataka Bank
+DCB Bank
+CSB Bank
+Jammu and Kashmir Bank
+Tamilnad Mercantile Bank
+AU Small Finance Bank
+Equitas Small Finance Bank
+Ujjivan Small Finance Bank

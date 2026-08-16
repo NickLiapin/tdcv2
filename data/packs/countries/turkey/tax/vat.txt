@@ -1,0 +1,7 @@
+---
+address: turkey.tax.vat
+description: The number that fills the "VAT number" field on a Turkish invoice. Türkiye levies KDV (katma değer vergisi) but is outside the EU VAT area and issues NO separate VAT registration number — there is nothing here like a Polish PL-prefixed NIP or a German USt-IdNr, and Türkiye does not appear in VIES. What a Turkish invoice carries is the taxpayer's ordinary tax number: the 10-digit Vergi Kimlik No for a company, or the 11-digit T.C. Kimlik No for a sole trader. This generator emits the company case, so it is the same value and the same check digit as turkey.tax.vkn, deliberately without a country prefix. Address turkey.docs.tckn instead when the taxpayer is a natural person.
+generator: tdc
+---
+<sequence name="vat"><gen type="template" value="turkey.tax.vkn"/></sequence>
+<data>${{vat}}</data>

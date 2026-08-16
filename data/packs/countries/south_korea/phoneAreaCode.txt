@@ -1,0 +1,21 @@
+---
+address: south_korea.phoneAreaCode
+description: South Korean landline area codes, written without the 0 trunk prefix. Seoul alone has a single digit (2, dialled 02) and everywhere else has two, one code per first-level division rather than per city — 31 covers the whole of Gyeonggi, 33 the whole of Gangwon. Sejong got its own code, 44, when it was created. Not included here are the non-geographic ranges — 70 for VoIP, 80 for freephone, and the 1544 and 1588 style representative numbers businesses publish instead of a real address.
+---
+2
+31
+32
+33
+41
+42
+43
+44
+51
+52
+53
+54
+55
+61
+62
+63
+64

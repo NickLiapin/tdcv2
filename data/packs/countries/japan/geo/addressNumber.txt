@@ -1,0 +1,28 @@
+---
+address: japan.geo.addressNumber
+description: The 丁目・番・号 block that ends a Japanese address — the part a foreign form would call a street number, and is not one. A Japanese address is written large to small (prefecture, municipality, district, then this), and Japan has almost no named streets: 丁目 is a numbered sub-district, 番 a numbered land block within it, 号 a numbered building within the block, so the three numbers walk you inward through nested areas rather than along a line of doors. Two written forms are in use and both appear here: the spelled-out 1丁目9番1号 and the contracted 1-9-1. Kyoto and parts of Sapporo are the exception that proves the rule - they were laid out on a grid and do use street names - and neither is modelled here.
+generator: tdc
+---
+<sequence name="chome"><gen type="number" value="1..9"/></sequence>
+<sequence name="ban"><gen type="number" value="1..30"/></sequence>
+<sequence name="go"><gen type="number" value="1..25"/></sequence>
+<!-- 1 = spelled out (1丁目9番1号), 2 = contracted (1-9-1). <equals> compares numbers, so the flag is a number. -->
+<sequence name="style"><gen type="text" value="1,2" percent="45,55"/></sequence>
+<sequence name="block"><compute>
+  <result>
+    <choose>
+      <when><test><equals><field name="style"/><int v="1"/></equals></test>
+        <then><concat>
+          <field name="chome"/><str v="丁目"/>
+          <field name="ban"/><str v="番"/>
+          <field name="go"/><str v="号"/>
+        </concat></then></when>
+      <otherwise><concat>
+        <field name="chome"/><str v="-"/>
+        <field name="ban"/><str v="-"/>
+        <field name="go"/>
+      </concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{block}}</data>

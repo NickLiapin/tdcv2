@@ -1,0 +1,7 @@
+---
+address: india.docs.passport
+description: Indian passport number — 8 characters: one letter followed by seven digits, the first of which is never 0. Issued by the Ministry of External Affairs. There is no check digit and no encoded meaning: the letter and the series are booklet-stock allocation, not a code for the holder or the issuing office. The number printed in the machine-readable zone is the same 8 characters, right-padded to 9 with a filler and followed by the ICAO MRZ check digit, which belongs to the document format rather than to the number and is not generated here.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[A-Z][1-9][0-9]{6}"/>

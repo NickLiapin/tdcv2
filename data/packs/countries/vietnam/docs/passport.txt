@@ -1,0 +1,6 @@
+---
+address: vietnam.docs.passport
+description: Vietnamese passport number (số hộ chiếu) — 8 characters: one letter followed by 7 digits, e.g. C1234567. Structural only; the number carries no check digit of its own (the check digits printed on a passport belong to the ICAO machine-readable zone and are computed over the MRZ fields, not stored in the number). The letter marks the booklet series; B, C, N and P are the letters seen on ordinary passports, and which letter means what is not modelled here. Note this is 8 characters, not the 9 the ICAO document-number field allows, so an MRZ built from it is padded with filler.
+generator: tdc
+---
+<gen type="regex" value="[BCNP][0-9]{7}"/>

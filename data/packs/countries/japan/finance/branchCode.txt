@@ -1,0 +1,6 @@
+---
+address: japan.finance.branchCode
+description: Japanese branch code (店番/支店コード) — three digits, the second half of the bank-code/branch-code pair that addresses a domestic transfer. Structural only: each bank assigns its own branch numbers and there is no national registry to check a generated one against, so this draws 001-999 and does not claim the branch exists at any particular bank. 000 is not issued. ゆうちょ銀行 is the odd one out - its own customers know their account as 記号 (5 digits) and 番号 (up to 8), and the bank/branch pair only appears when money arrives from another bank.
+generator: tdc
+---
+<gen type="number" value="1..999" length="3" first_zero="true"/>

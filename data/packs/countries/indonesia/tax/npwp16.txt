@@ -1,0 +1,31 @@
+---
+address: indonesia.tax.npwp16
+description: Indonesian NPWP in the 16-digit form that replaced the 15-digit one. Two different numbers wear this shape. A resident individual's NPWP IS their NIK, unchanged (PMK 112/2022, matched to the tax roll by 31 December 2024) — so it carries the NIK's encoded birth date and sex, and like the NIK it has no check digit. An entity's, and a non-resident's, is the old 15-digit NPWP with a single 0 prepended, which keeps the Luhn digit that now sits ninth-from-the-front in position ten. This file draws an individual number 70% of the time and an entity number 30%, in each case by taking the real thing from indonesia.docs.nik or indonesia.tax.npwp rather than by re-deriving it, so the two stay in step with those files. Digits only, no punctuation: DJP prints the 16-digit form unformatted. Note what the migration cost — three quarters of these numbers now have nothing in them that can be checked.
+generator: tdc
+---
+<sequence name="kind"><gen type="text" value="P,B" percent="70,30"/></sequence>
+<sequence name="nik"><gen type="template" value="indonesia.docs.nik"/></sequence>
+<sequence name="legacy"><gen type="template" value="indonesia.tax.npwp"/></sequence>
+<sequence name="npwp16"><compute>
+  <!-- The legacy number arrives punctuated as NN.NNN.NNN.N-NNN.NNN, a fixed
+       20-character layout, so the 15 digits come back out by position. -->
+  <let name="digits"><concat>
+    <slice from="0" to="2"><field name="legacy"/></slice>
+    <slice from="3" to="6"><field name="legacy"/></slice>
+    <slice from="7" to="10"><field name="legacy"/></slice>
+    <slice from="11" to="12"><field name="legacy"/></slice>
+    <slice from="13" to="16"><field name="legacy"/></slice>
+    <slice from="17" to="20"><field name="legacy"/></slice>
+  </concat></let>
+  <!-- P is 25 in base 36: an individual, whose NPWP is the NIK itself. -->
+  <result>
+    <choose>
+      <when>
+        <test><equals><to_number><encode as="base36"><field name="kind"/></encode></to_number><int v="25"/></equals></test>
+        <then><field name="nik"/></then>
+      </when>
+      <otherwise><concat><str v="0"/><use name="digits"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{npwp16}}</data>

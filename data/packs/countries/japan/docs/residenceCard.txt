@@ -1,0 +1,7 @@
+---
+address: japan.docs.residenceCard
+description: Japanese residence card number (在留カード番号) — the identifier on the card every mid- to long-term foreign resident carries, and the thing an employer checks against the Immigration Services Agency's 在留カード等番号失効情報照会. Twelve characters: two uppercase letters, eight digits, two uppercase letters, e.g. AB12345678CD. No check digit is modelled - the Immigration Services Agency publishes the shape but not any internal rule, and secondary sources that claim a checksum or that confusable letters such as O and I are skipped could not be traced to an agency document, so the full alphabet is used.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[A-Z]{2}[0-9]{8}[A-Z]{2}"/>

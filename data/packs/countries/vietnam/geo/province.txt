@@ -1,0 +1,10 @@
+---
+address: vietnam.geo.province
+description: Province or centrally-governed city of Vietnam (tỉnh / thành phố trực thuộc trung ương). NOT a hand-kept list — it is sliced out of vietnam.geo.provinceWithCode, so it can never fall out of step with vietnam.geo.provinceCode or with the province code inside vietnam.docs.cccd. The 63 units are those in force until 30 June 2025; on 1 July 2025 Vietnam merged them into 34 (6 cities and 28 provinces), the largest redraw of its map since 1975. The pre-merger 63 are kept on purpose: they are the set the CCCD province code enumerates, they are what every identity document, address and archived record issued before mid-2025 refers to, and swapping in the 34 would silently break vietnam.docs.cccd. If you need today's 34 units, that is a separate list and it is not shipped here. Values are Vietnamese: Latin letters carrying up to two marks on one vowel (a modifier such as ă â ê ô ơ ư plus a tone), so "Đắk Lắk" and "Thừa Thiên Huế" break naive ASCII-folding and byte-length checks.
+generator: tdc
+locale: vi
+---
+<!-- Slice off the 3-digit code and the space that follows it; the rest is the name. -->
+<sequence name="entry"><gen type="template" value="vietnam.geo.provinceWithCode"/></sequence>
+<sequence name="bare"><compute><result><slice from="4"><field name="entry"/></slice></result></compute></sequence>
+<data>${{bare}}</data>

@@ -1,0 +1,31 @@
+---
+address: japan.vehicle.plate
+description: A Japanese registration plate as it reads, e.g. 品川 300 あ 12-34. Four parts, all meaningful. The place name (japan.vehicle.plateArea) is the registering office. The three-digit 分類番号 encodes the vehicle class in its FIRST digit - 1 large goods, 2 bus, 3 ordinary passenger, 4 and 6 small goods, 5 and 7 small passenger, 8 special purpose, 9 and 0 large special - and this file emits the passenger and goods classes a civilian fleet is made of. The single hiragana encodes use: あいうえかきくけこ and を are commercial (green plates), the rest are private, and わ and れ mark a rental car, which is why tourists notice them. Four kana are never used - お because it reads as あ at speed, し and へ for what they say, ん because it cannot start a word. The serial runs ・・・1 to 99-99 with a middle hyphen at four digits and ・ filling the empty places, so 0000 does not exist. Not modelled: the letters (A, C, F, H and others) that have appeared in the second and third position of the 分類番号 since 1999 once a popular number ran out, and the E H K M T Y よ series reserved for US forces personnel.
+generator: tdc
+locale: ja
+---
+<sequence name="area"><gen type="template" value="japan.vehicle.plateArea"/></sequence>
+<sequence name="class"><gen type="text" value="300,301,330,500,501,530,580,400,401,430,100,130,800" percent="16,10,10,16,10,10,6,6,4,4,4,2,2"/></sequence>
+<sequence name="kana"><gen type="text" value="さ,す,せ,そ,た,ち,つ,て,と,な,に,ぬ,ね,の,は,ひ,ふ,ほ,ま,み,む,め,も,や,ゆ,ら,り,る,ろ,あ,い,う,え,か,き,く,け,こ,を,わ,れ" percent="3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,2,1"/></sequence>
+<!-- 1 = four digits (12-34), 2 = three (・123), 3 = two (・・12), 4 = one (・・・1). -->
+<sequence name="width"><gen type="text" value="1,2,3,4" percent="82,10,5,3"/></sequence>
+<!-- Leading zeros are shown as ・, never as 0, so each width starts where the shorter one stopped. -->
+<sequence name="d4a"><gen type="number" value="10..99"/></sequence>
+<sequence name="d4b"><gen type="number" value="0..99" length="2" first_zero="true"/></sequence>
+<sequence name="d3"><gen type="number" value="100..999"/></sequence>
+<sequence name="d2"><gen type="number" value="10..99"/></sequence>
+<sequence name="d1"><gen type="number" value="1..9"/></sequence>
+<sequence name="serial"><compute>
+  <result>
+    <choose>
+      <when><test><equals><field name="width"/><int v="1"/></equals></test>
+        <then><concat><field name="d4a"/><str v="-"/><field name="d4b"/></concat></then></when>
+      <when><test><equals><field name="width"/><int v="2"/></equals></test>
+        <then><concat><str v="・"/><field name="d3"/></concat></then></when>
+      <when><test><equals><field name="width"/><int v="3"/></equals></test>
+        <then><concat><str v="・・"/><field name="d2"/></concat></then></when>
+      <otherwise><concat><str v="・・・"/><field name="d1"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{area}} ${{class}} ${{kana}} ${{serial}}</data>

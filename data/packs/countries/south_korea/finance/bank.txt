@@ -1,0 +1,29 @@
+---
+address: south_korea.finance.bank
+description: Banks and deposit-taking institutions of South Korea, index-aligned with south_korea.finance.bankCode. The list mixes commercial banks, the three internet-only banks (케이뱅크, 카카오뱅크, 토스뱅크), the regional banks and the mutual-credit federations, because all of them sit on the same interbank network and a Korean payment form accepts any of them. 대구은행 rebranded as iM뱅크 in 2024 while keeping code 031.
+locale: ko
+---
+KB국민은행
+신한은행
+하나은행
+우리은행
+NH농협은행
+IBK기업은행
+SC제일은행
+한국씨티은행
+KDB산업은행
+Sh수협은행
+카카오뱅크
+케이뱅크
+토스뱅크
+부산은행
+경남은행
+광주은행
+전북은행
+제주은행
+iM뱅크
+새마을금고
+신협
+우체국예금
+산림조합
+지역농축협

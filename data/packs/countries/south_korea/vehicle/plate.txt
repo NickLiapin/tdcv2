@@ -1,0 +1,9 @@
+---
+address: south_korea.vehicle.plate
+description: South Korean number plate in the current form — three digits, one Hangul syllable, four digits (123가4567). The leading block went from two digits to three in September 2019 because the two-digit space was exhausted; both are legal and on the road, but only new registrations get three, so that is what is generated. The Hangul syllable is the use class, not a random letter — the 32 syllables from 가 to 주 are private vehicles, 아 바 사 자 are commercial, and 하 허 호 are rental cars, which is how a hire car is spotted at a glance in Korea. Regional plates carrying a province name in front (서울 12가 3456) were abolished for private cars in 2004.
+generator: tdc
+---
+<sequence name="head"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="kind"><gen type="text" value="가,나,다,라,마,거,너,더,러,머,버,서,어,저,고,노,도,로,모,보,소,오,조,구,누,두,루,무,부,수,우,주,아,바,사,자,하,허,호"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>${{head}}${{kind}}${{tail}}</data>

@@ -1,0 +1,23 @@
+---
+address: vietnam.tax.mst
+description: Vietnamese tax code (mã số thuế, MST) — 10 digits with a REAL check digit, computed here and verified against published numbers. Layout N1N2-N3N4N5N6N7N8N9-N10: N1N2 is an allocation range assigned by the tax authority (broadly following province, with individual taxpayers commonly in the 8x range) — that range table is NOT modelled, only "00" is excluded because no MST begins with it; N3..N9 are the serial; N10 is the check. The check is a weighted mod-11: multiply the nine base digits by 31, 29, 23, 19, 17, 13, 7, 5, 3, sum, and take 10 − (sum mod 11). A base whose sum is 0 mod 11 would need a check digit of 10, which does not exist, so those bases are refused and redrawn rather than fudged. Verified accepting the real published codes 0100112437 (Vietcombank), 0100109106 (Viettel), 0300588569 (Vinamilk), 0101248141 (FPT), 0100150619 (BIDV), 0100111948 (VietinBank), 0100107370 (Petrolimex), 0100107518 (Vietnam Airlines), 0101245486 (Vingroup) and 0100230800 (Techcombank), and rejecting each of them with one digit altered. THIS IS ALSO VIETNAM'S VAT NUMBER: Vietnam issues no separate VAT registration number, so there is deliberately no vietnam.tax.vat — the MST is what appears on a VAT invoice (hoá đơn GTGT). The same 10-digit format and the same check digit serve both companies and individuals. Branches and dependent units get a 13-digit form instead — see vietnam.tax.mstBranch.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="(0[1-9]|[1-9][0-9])[0-9]{7}"/></sequence>
+<sequence name="check"><compute><result>
+  <subtract><int v="10"/>
+    <mod>
+      <reduce>
+        <over><field name="base"/></over>
+        <init><int v="0"/></init>
+        <do><add><acc/><multiply><current/>
+          <at><in><list v="31,29,23,19,17,13,7,5,3"/></in><index><current_index/></index></at>
+        </multiply></add></do>
+      </reduce>
+      <int v="11"/>
+    </mod>
+  </subtract>
+</result></compute></sequence>
+<!-- sum mod 11 == 0 would demand a check digit of 10. Redraw instead. -->
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{base}}${{check}}</data>

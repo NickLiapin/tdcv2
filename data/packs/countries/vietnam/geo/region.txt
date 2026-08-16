@@ -1,0 +1,11 @@
+---
+address: vietnam.geo.region
+description: The six socio-economic regions of Vietnam (vùng kinh tế - xã hội), the grouping statistics and planning documents use above the province. This is a statistical grouping, not a tier of government — Vietnam has no regional administration, so nothing is issued or registered at this level. It is also the one geographic list here that the July 2025 provincial merger left intact. Informally Vietnamese speak instead of three parts — Miền Bắc, Miền Trung, Miền Nam (North, Centre, South) — and that three-way split is what you will meet in cuisine, dialect and everyday speech rather than these six. Values are Vietnamese with stacked diacritics on single vowels.
+locale: vi
+---
+Trung du và miền núi phía Bắc
+Đồng bằng sông Hồng
+Bắc Trung Bộ và Duyên hải miền Trung
+Tây Nguyên
+Đông Nam Bộ
+Đồng bằng sông Cửu Long

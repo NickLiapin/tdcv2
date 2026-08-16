@@ -1,0 +1,8 @@
+---
+address: vietnam.phone
+description: Vietnamese mobile number in E.164 form — +84 followed by nine digits. The two digits after +84 are the real carrier prefix, drawn from the ranges in use since the 2018 renumbering: Viettel 32-39, 86, 96-98; VinaPhone 81-85, 88, 91, 94; MobiFone 70, 76-79, 89, 90, 93; Vietnamobile 52, 56, 58, 92; Gmobile 59, 99; iTel 87; Wintel 55. Vietnam moved every 11-digit mobile number to 10 digits over 2018, so a number written 0120xxxxxxx or 0166xxxxxxx is pre-2018 data and is dead now — the current national form is 0 plus nine digits, and dropping that leading 0 is what makes the E.164 form here. Prefixes are still read as carrier badges in Vietnam (096 is unmistakably Viettel), but mobile number portability has been live since 2018, so a prefix no longer proves who the carrier is.
+generator: tdc
+---
+<sequence name="carrier"><gen type="text" value="32,33,34,35,36,37,38,39,86,96,97,98,81,82,83,84,85,88,91,94,70,76,77,78,79,89,90,93,52,56,58,92,59,99,87,55"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+84${{carrier}}${{line}}</data>

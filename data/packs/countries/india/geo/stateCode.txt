@@ -1,0 +1,41 @@
+---
+address: india.geo.stateCode
+description: The two-digit census / GST state code for all 36 Indian subdivisions. These are the first two characters of a GSTIN (india.tax.gstin) and are the same codes the Census of India uses. Index-aligned with india.geo.state followed by india.geo.unionTerritory — lines 1..28 are the 28 states in that file's order, lines 29..36 the 8 union territories in theirs. The codes are NOT contiguous with that ordering and are NOT sortable: they were assigned in a rough north-to-south sweep and have been patched since. Two live codes are historical scars — 26 now means the merged Dadra and Nagar Haveli and Daman and Diu (25, the old Daman and Diu, is retired), and Andhra Pradesh is 37 because 28 belonged to undivided Andhra Pradesh before Telangana (36) was carved out in 2014. Codes 97 (Other Territory) and 99 (Centre Jurisdiction) exist in GST but name no subdivision and are not listed here.
+locale: en
+---
+37
+12
+18
+10
+22
+30
+24
+06
+02
+20
+29
+32
+23
+27
+14
+17
+15
+13
+21
+03
+08
+11
+33
+36
+16
+09
+05
+19
+35
+04
+26
+07
+01
+38
+31
+34

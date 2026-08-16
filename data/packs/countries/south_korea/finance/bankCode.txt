@@ -1,0 +1,28 @@
+---
+address: south_korea.finance.bankCode
+description: The three-digit institution code used on Korea's interbank network (금융공동망), index-aligned with south_korea.finance.bank. Three digits, always zero-padded — 004 is KB Kookmin, 088 Shinhan, 090 Kakao Bank. This is the code a transfer is addressed with, and it is as close as Korea gets to a routing number. THERE IS NO KOREAN IBAN. Korea is not in the IBAN registry and never has been; a domestic transfer is bank code plus account number, and a number beginning KR is not a Korean bank account. Nothing in this pack invents one.
+---
+004
+088
+081
+020
+011
+003
+023
+027
+002
+007
+090
+089
+092
+032
+039
+034
+037
+035
+031
+045
+048
+071
+064
+012

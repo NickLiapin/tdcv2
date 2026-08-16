@@ -1,0 +1,42 @@
+---
+address: india.holiday
+description: Public holidays observed in India, in English. Only the first THREE are national holidays — Republic Day (26 January), Independence Day (15 August) and Gandhi Jayanti (2 October) are the only days closed across the whole Union by law. Everything after them is either a gazetted or a restricted holiday, and which ones a given office actually closes for is decided state by state and by the employee in the case of restricted holidays. Most of the rest are lunar or luni-solar and move every year: Diwali, Holi, Eid and the Buddhist and Jain festivals have no fixed Gregorian date at all, so a config that pins one to a calendar day is wrong for every year but one. Several are regional new years for the same season under different names — Ugadi, Gudi Padwa, Puthandu, Vishu, Bohag Bihu, Baisakhi and Pohela Boishakh are all spring new years in different states.
+locale: en
+---
+Republic Day
+Independence Day
+Gandhi Jayanti
+Diwali
+Holi
+Dussehra
+Durga Puja
+Janmashtami
+Ram Navami
+Maha Shivaratri
+Ganesh Chaturthi
+Raksha Bandhan
+Navratri
+Makar Sankranti
+Pongal
+Onam
+Chhath Puja
+Lohri
+Baisakhi
+Ugadi
+Gudi Padwa
+Puthandu
+Vishu
+Bohag Bihu
+Pohela Boishakh
+Guru Nanak Jayanti
+Guru Gobind Singh Jayanti
+Buddha Purnima
+Mahavir Jayanti
+Eid al-Fitr
+Eid al-Adha
+Muharram
+Milad-un-Nabi
+Good Friday
+Christmas
+Ambedkar Jayanti
+Navroz

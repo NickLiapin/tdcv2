@@ -1,0 +1,11 @@
+---
+address: india.vehicle.plate
+description: Indian number plate in the standard state format — SS NN XX NNNN, e.g. MH 12 DE 1433. Both halves of the prefix are real geography and are generated as such: the two letters are the state or union territory (india.vehicle.stateCode) and the two characters after them are the RTO DISTRICT, the specific Regional Transport Office that registered the vehicle, so MH 12 is Pune and MH 01 is Mumbai Central. That is why an Indian plate localises a vehicle to a district and a European one usually does not. The district number is drawn 01-99 here; the ranges actually in use are per-state (Maharashtra runs to about 53, Delhi mixes in a letter as DL 3C), and the pack does not model each state's ceiling — a config that needs a real district should pair a state with its own list. The letter series is 1-2 letters and the number 0001-9999; when a series exhausts, the RTO advances the letters. Two real variants are NOT generated here because they are separate schemes rather than variations: the nationwide Bharat series (YY BH NNNN XX, transferable between states without re-registration) and diplomatic plates (NN UN NNN / NN CD NNN).
+generator: tdc
+locale: en
+---
+<sequence name="state"><gen type="template" value="india.vehicle.stateCode"/></sequence>
+<sequence name="rtoDistrict"><gen type="regex" value="(0[1-9]|[1-9][0-9])"/></sequence>
+<sequence name="series"><gen type="regex" value="[A-Z]{1,2}"/></sequence>
+<sequence name="number"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<data>${{state}} ${{rtoDistrict}} ${{series}} ${{number}}</data>

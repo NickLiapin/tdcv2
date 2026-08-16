@@ -1,0 +1,27 @@
+---
+address: india.language
+description: The 22 languages of the Eighth Schedule to the Constitution of India, in their English names. India has NO national language — Hindi and English are the two official languages of the Union (Constitution Art. 343 + Official Languages Act 1963), and the 22 scheduled languages are official at state level, not above it. That is why every value in this India pack is written in ENGLISH: English is an official language of the Union, and it is the script Indian identity documents, bank records, PAN and GSTIN certificates, PIN-code directories and number plates are actually printed in. A pack half in Devanagari would be a pack for one of India's 22 languages, not for India. Hindi text belongs in the hi LANGUAGE pack (data/packs/hi/), which already exists; this pack holds only what is true of the PLACE. English itself is deliberately absent from the list below — it is an official language of the Union but is not in the Eighth Schedule.
+locale: en
+---
+Assamese
+Bengali
+Bodo
+Dogri
+Gujarati
+Hindi
+Kannada
+Kashmiri
+Konkani
+Maithili
+Malayalam
+Manipuri
+Marathi
+Nepali
+Odia
+Punjabi
+Sanskrit
+Santali
+Sindhi
+Tamil
+Telugu
+Urdu

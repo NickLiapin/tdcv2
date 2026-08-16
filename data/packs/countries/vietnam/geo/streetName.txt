@@ -1,0 +1,55 @@
+---
+address: vietnam.geo.streetName
+description: Streets that actually exist in Hà Nội and Hồ Chí Minh City, named ones you could walk down. This is the country half of a deliberate split: vi/address/streetName.txt holds the generic national stock (Lê Lợi, Trần Hưng Đạo, Nguyễn Huệ — the figures and dates every Vietnamese town names a street after, which stay true wherever Vietnamese is spoken), while these are place-bound and would mean nothing in another country. The Hàng- names are the Old Quarter of Hà Nội, where each street was once a single trade's guild street — Hàng Bạc the silversmiths, Hàng Đào the silk dyers — and the name survived the trade. Vietnamese street names take no suffix of their own: the type word (Đường, Phố, Ngõ) goes in FRONT, so it is "Đường Đồng Khởi", never "Đồng Khởi Đường". Values carry stacked diacritics (a vowel modifier plus a tone on one letter).
+locale: vi
+---
+Đồng Khởi
+Nguyễn Huệ
+Lê Thánh Tôn
+Nam Kỳ Khởi Nghĩa
+Hai Bà Trưng
+Điện Biên Phủ
+Cách Mạng Tháng Tám
+Võ Văn Tần
+Nguyễn Thị Minh Khai
+Pasteur
+Alexandre de Rhodes
+Tôn Đức Thắng
+Lý Tự Trọng
+Nguyễn Đình Chiểu
+Trần Quốc Thảo
+Phạm Ngũ Lão
+Bùi Viện
+Nguyễn Văn Cừ
+Xô Viết Nghệ Tĩnh
+Hoàng Văn Thụ
+Trường Chinh
+Tràng Tiền
+Hàng Bài
+Phố Huế
+Bà Triệu
+Hàng Bạc
+Hàng Đào
+Hàng Gai
+Hàng Bồ
+Hàng Mã
+Hàng Buồm
+Mã Mây
+Tạ Hiện
+Lương Văn Can
+Đinh Tiên Hoàng
+Nhà Thờ
+Quán Sứ
+Kim Mã
+Láng Hạ
+Giảng Võ
+Nguyễn Chí Thanh
+Xuân Thuỷ
+Cầu Giấy
+Thanh Niên
+Phan Đình Phùng
+Hoàng Diệu
+Nguyễn Thái Học
+Tôn Thất Tùng
+Giải Phóng
+Nguyễn Trãi

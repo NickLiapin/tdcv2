@@ -1,0 +1,21 @@
+---
+address: indonesia.vehicle.plate
+description: Indonesian number plate (nomor polisi) — a regional letter prefix from indonesia.vehicle.plateCode, one to four digits, then a one- to three-letter series, written with spaces: B 1234 XYZ, DK 55 AB, AB 7 C. The number block is never zero-padded. The suffix length is chosen first and the letters cut to it, rather than written as a regex alternation, so the three lengths keep the intended 10/30/60 split instead of the branches splitting evenly. Private plates are black on white since the 2022 changeover; yellow, red and green grounds mark public transport, government and free-trade-zone vehicles, which this file does not distinguish.
+generator: tdc
+locale: id
+---
+<sequence name="code"><gen type="template" value="indonesia.vehicle.plateCode"/></sequence>
+<sequence name="number"><gen type="number" value="1..9999"/></sequence>
+<sequence name="letters"><gen type="regex" value="[A-Z]{3}"/></sequence>
+<sequence name="len"><gen type="text" value="1,2,3" percent="10,30,60"/></sequence>
+<sequence name="suffix"><compute>
+  <let name="n"><to_number><field name="len"/></to_number></let>
+  <result><choose>
+    <when><test><equals><use name="n"/><int v="1"/></equals></test>
+      <then><slice from="0" to="1"><field name="letters"/></slice></then></when>
+    <when><test><equals><use name="n"/><int v="2"/></equals></test>
+      <then><slice from="0" to="2"><field name="letters"/></slice></then></when>
+    <otherwise><field name="letters"/></otherwise>
+  </choose></result>
+</compute></sequence>
+<data>${{code}} ${{number}} ${{suffix}}</data>

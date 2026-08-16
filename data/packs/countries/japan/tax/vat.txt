@@ -1,0 +1,18 @@
+---
+address: japan.tax.vat
+description: Japanese invoice registration number (適格請求書発行事業者登録番号) — the nearest thing Japan has to a VAT number. Japan levies 消費税 (consumption tax), not VAT, and had no registration number at all until the invoice system started on 2023-10-01. The number is the letter T followed by 13 digits. For an incorporated business those 13 digits ARE its corporate number, check digit and all, so this file reuses the 法人番号 algorithm (9 minus the alternating 2,1 weighted sum mod 9, check digit leading). Sole traders and unincorporated bodies get a separate 13-digit number that is neither a corporate number nor a My Number; the NTA does not publish its internal rule, so that population is not modelled. Registrations are public on 適格請求書発行事業者公表サイト.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{12}"/></sequence>
+<sequence name="registration"><compute>
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="2,1,2,1,2,1,2,1,2,1,2,1"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><subtract><int v="9"/><mod><use name="sum"/><int v="9"/></mod></subtract></let>
+  <result><concat><str v="T"/><use name="check"/><field name="base"/></concat></result>
+</compute></sequence>
+<data>${{registration}}</data>

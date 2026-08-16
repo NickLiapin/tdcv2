@@ -1,0 +1,55 @@
+---
+address: india.education.university
+description: Indian universities and degree-granting institutes, in their official English names. The list mixes three kinds that Indian records keep apart — the Institutes of National Importance created by their own Acts of Parliament (the IITs, IIMs, AIIMS, NITs, IISc), the central and state universities, and the private and deemed-to-be universities — because a student record cites whichever one issued the degree. An IIT is not a university in Indian law and does not call itself one, which is why the names below say Institute rather than University where that is what they are.
+locale: en
+---
+Indian Institute of Technology Bombay
+Indian Institute of Technology Delhi
+Indian Institute of Technology Madras
+Indian Institute of Technology Kanpur
+Indian Institute of Technology Kharagpur
+Indian Institute of Technology Roorkee
+Indian Institute of Technology Guwahati
+Indian Institute of Technology Hyderabad
+Indian Institute of Technology (BHU) Varanasi
+Indian Institute of Science
+Indian Institute of Management Ahmedabad
+Indian Institute of Management Bangalore
+Indian Institute of Management Calcutta
+Indian Institute of Management Lucknow
+All India Institute of Medical Sciences, New Delhi
+University of Delhi
+Jawaharlal Nehru University
+Banaras Hindu University
+Aligarh Muslim University
+Jamia Millia Islamia
+University of Hyderabad
+University of Mumbai
+University of Calcutta
+University of Madras
+Savitribai Phule Pune University
+Osmania University
+Panjab University
+Anna University
+Jadavpur University
+Amrita Vishwa Vidyapeetham
+Manipal Academy of Higher Education
+Vellore Institute of Technology
+Birla Institute of Technology and Science, Pilani
+Amity University
+Symbiosis International University
+Christ University
+Shiv Nadar University
+Ashoka University
+O.P. Jindal Global University
+National Law School of India University
+Tata Institute of Fundamental Research
+Indian Statistical Institute
+National Institute of Technology Tiruchirappalli
+Delhi Technological University
+Kerala University
+University of Rajasthan
+Gujarat University
+Andhra University
+Bangalore University
+Madurai Kamaraj University

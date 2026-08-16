@@ -1,0 +1,12 @@
+---
+address: india.tax.pan
+description: PAN — Permanent Account Number, 10 characters, issued by the Income Tax Department, shaped AAAAA9999A. Positions 4 and 5 are MEANINGFUL and are generated as such, not as filler letters. The 4th character is the holder-type code from the department's published set — P Individual, C Company, H Hindu Undivided Family, F Firm or LLP, A Association of Persons, T Trust, B Body of Individuals, L Local Authority, J Artificial Juridical Person, G Government — weighted here so that P dominates, because individuals hold the overwhelming majority of PANs. The 5th character is the first letter of the holder's SURNAME (for an individual) or of the entity's name; it is drawn independently here because the engine cannot pass a person's name into a pack generator, and a config that wants a coherent record should draw the surname and the PAN from the same row rather than expect this file to know it. The 10th character is a check LETTER, and it is generated at random on purpose: the Income Tax Department has never published the algorithm that produces it. Inventing a plausible one would make every PAN in a test set fail against the real thing while looking rigorous, which is worse than saying so — so it is said here. Positions 1-3 and 6-9 are a departmental running series carrying no public meaning.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="regex" value="[A-Z]{3}"/></sequence>
+<sequence name="holderType"><gen type="text" value="P,C,H,F,A,T,B,L,J,G" percent="69,12,5,5,3,2,1,1,1,1"/></sequence>
+<sequence name="surnameInitial"><gen type="regex" value="[A-Z]"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="checkLetter"><gen type="regex" value="[A-Z]"/></sequence>
+<data>${{prefix}}${{holderType}}${{surnameInitial}}${{serial}}${{checkLetter}}</data>

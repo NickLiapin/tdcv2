@@ -1,0 +1,7 @@
+---
+address: south_korea.tax.vat
+description: South Korean VAT registration identifier. Korea issues no separate VAT number — 부가가치세 is administered on the business registration number itself, so a Korean invoice carries the 10-digit 사업자등록번호 where a European one would carry a country-prefixed VAT ID. This address therefore resolves to south_korea.tax.businessNumber, check digit and all, rather than inventing a second number that does not exist. There is no country prefix either: nothing here is ever written KR1234567890.
+generator: tdc
+---
+<sequence name="brn"><gen type="template" value="south_korea.tax.businessNumber"/></sequence>
+<data>${{brn}}</data>

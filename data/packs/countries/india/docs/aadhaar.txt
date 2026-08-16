@@ -1,0 +1,48 @@
+---
+address: india.docs.aadhaar
+description: Aadhaar number — 12 digits issued by UIDAI, the last one a VERHOEFF check digit. Verhoeff is NOT Luhn and not a mod-11 — it is a fold over the dihedral group D5, so the arithmetic below is two real lookup tables (a 10x10 non-commutative multiplication table and an 8x10 permutation table of period 8) rather than a weight vector. Because D5 is non-commutative the digits must be folded RIGHT TO LEFT, which is why this file mirrors the digit list before reducing over it; folding left to right with the same tables produces a different and wrong answer. The scheme catches every single-digit error and every adjacent transposition, which a weighted mod-10 does not. The first digit is 2-9: UIDAI does not issue numbers beginning 0 or 1, so that no Aadhaar can be mistaken for a shorter number with leading zeros. Aadhaar carries no date, sex or region — it is a random 11-digit body plus the check, by design, so nothing about the holder can be read off it. Verified against the published Verhoeff worked example 236 -> check digit 3 (2363 validates, 2364/2353/2463/3363 and the transposition 2336 all fail).
+generator: tdc
+locale: en
+---
+<sequence name="base"><gen type="regex" value="[2-9][0-9]{10}"/></sequence>
+<sequence name="aadhaar"><compute>
+  <!-- The 11 body digits as a list, so they can be walked in either direction. -->
+  <let name="chars"><each><over><field name="base"/></over><do><current/></do></each></let>
+  <!-- Verhoeff reads a number from its RIGHTMOST digit. There is no <reverse>, so
+       mirror the list: item i of "rev" is item (len-1-i) of "chars". -->
+  <let name="rev"><each>
+    <over><use name="chars"/></over>
+    <do><at>
+      <in><use name="chars"/></in>
+      <index><subtract><length><use name="chars"/></length><int v="1"/><current_index/></subtract></index>
+    </at></do>
+  </each></let>
+  <!-- c = d[c][p[(i+1) mod 8][digit]] over the mirrored digits. The +1 is the check
+       digit's own place: it sits at reversed position 0, and p[0][0]=0 with d[c][0]=c,
+       so an assumed 0 there contributes nothing and the body starts at position 1.
+       Both tables are flattened row-major, so [row][col] is [row*10 + col]. -->
+  <let name="c"><reduce>
+    <over><use name="rev"/></over>
+    <init><int v="0"/></init>
+    <do><at>
+      <in><list v="0,1,2,3,4,5,6,7,8,9,1,2,3,4,0,6,7,8,9,5,2,3,4,0,1,7,8,9,5,6,3,4,0,1,2,8,9,5,6,7,4,0,1,2,3,9,5,6,7,8,5,9,8,7,6,0,4,3,2,1,6,5,9,8,7,1,0,4,3,2,7,6,5,9,8,2,1,0,4,3,8,7,6,5,9,3,2,1,0,4,9,8,7,6,5,4,3,2,1,0"/></in>
+      <index><add>
+        <multiply><acc/><int v="10"/></multiply>
+        <at>
+          <in><list v="0,1,2,3,4,5,6,7,8,9,1,5,7,6,2,8,3,0,9,4,5,8,0,3,7,9,6,1,4,2,8,9,1,6,0,4,3,5,2,7,9,4,5,3,1,2,6,8,7,0,4,2,8,6,5,7,3,9,0,1,2,7,9,3,8,0,6,4,1,5,7,0,4,6,9,1,3,2,5,8"/></in>
+          <index><add>
+            <multiply><mod><add><current_index/><int v="1"/></add><int v="8"/></mod><int v="10"/></multiply>
+            <to_number><current/></to_number>
+          </add></index>
+        </at>
+      </add></index>
+    </at></do>
+  </reduce></let>
+  <!-- The check digit is the INVERSE of the accumulated group element. -->
+  <let name="check"><at>
+    <in><list v="0,4,3,2,1,5,6,7,8,9"/></in>
+    <index><use name="c"/></index>
+  </at></let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{aadhaar}}</data>

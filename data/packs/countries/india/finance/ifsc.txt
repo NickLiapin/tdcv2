@@ -1,0 +1,9 @@
+---
+address: india.finance.ifsc
+description: IFSC — Indian Financial System Code, 11 characters, the code that routes an NEFT, RTGS or IMPS payment to one bank BRANCH. Layout: four letters for the bank (india.finance.ifscBankCode), then a literal 0, then six alphanumerics for the branch. The fifth character is ALWAYS 0 — the Reserve Bank reserved it for future use when the code was defined and has never used it, so a code with anything else there is malformed. There is NO checksum in an IFSC: nothing in the eleven characters verifies the other ten, and validation means looking the code up in the RBI's published branch directory. This file therefore generates real bank prefixes and a well-formed branch part, and does not pretend the result names a branch that exists. India has NO IBAN — it is not in the IBAN registry and never adopted the scheme — so there is deliberately no india.finance.iban in this pack; domestic transfers are addressed by IFSC plus account number, and international ones by SWIFT/BIC plus account number.
+generator: tdc
+locale: en
+---
+<sequence name="bank"><gen type="template" value="india.finance.ifscBankCode"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9A-Z]{6}"/></sequence>
+<data>${{bank}}0${{branch}}</data>

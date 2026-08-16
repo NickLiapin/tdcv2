@@ -1,0 +1,22 @@
+---
+address: south_korea.geo.provinceShort
+description: The short form of each first-level division — what actually gets written in an address, a weather report or a news headline (서울, 경기, 충북). Index-aligned with south_korea.geo.province.
+locale: ko
+---
+서울
+부산
+대구
+인천
+광주
+대전
+울산
+세종
+경기
+충북
+충남
+전남
+경북
+경남
+제주
+강원
+전북

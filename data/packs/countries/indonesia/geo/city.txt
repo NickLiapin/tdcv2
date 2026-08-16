@@ -1,0 +1,99 @@
+---
+address: indonesia.geo.city
+description: Indonesian cities, roughly ordered by population. Every name is one of the 93 kota plus Jakarta, spelled as Kemendagri spells it; Jakarta stands for the province, whose five kota administrasi (Jakarta Pusat, Utara, Barat, Selatan, Timur) are in indonesia.geo.regency instead.
+locale: id
+---
+Jakarta
+Surabaya
+Medan
+Bekasi
+Bandung
+Depok
+Tangerang
+Palembang
+Semarang
+Makassar
+Batam
+Tangerang Selatan
+Bandar Lampung
+Bogor
+Pekanbaru
+Padang
+Malang
+Denpasar
+Samarinda
+Banjarmasin
+Tasikmalaya
+Pontianak
+Balikpapan
+Cimahi
+Jambi
+Surakarta
+Manado
+Mataram
+Yogyakarta
+Cilegon
+Kupang
+Palu
+Ambon
+Serang
+Sukabumi
+Jayapura
+Banda Aceh
+Kendari
+Pekalongan
+Binjai
+Bengkulu
+Dumai
+Palangkaraya
+Tegal
+Pematangsiantar
+Probolinggo
+Sorong
+Ternate
+Gorontalo
+Cirebon
+Kediri
+Pasuruan
+Madiun
+Salatiga
+Lubuk Linggau
+Singkawang
+Tarakan
+Batu
+Bitung
+Pangkal Pinang
+Metro
+Bukittinggi
+Blitar
+Prabumulih
+Mojokerto
+Payakumbuh
+Tanjung Pinang
+Banjarbaru
+Langsa
+Lhokseumawe
+Padangsidimpuan
+Tebing Tinggi
+Bau Bau
+Parepare
+Palopo
+Magelang
+Bontang
+Banjar
+Bima
+Tanjungbalai
+Sibolga
+Pariaman
+Gunungsitoli
+Solok
+Padang Panjang
+Tomohon
+Kotamobagu
+Sawahlunto
+Tual
+Subulussalam
+Sabang
+Pagar Alam
+Sungai Penuh
+Tidore Kepulauan

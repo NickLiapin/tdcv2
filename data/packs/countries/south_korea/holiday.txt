@@ -1,0 +1,17 @@
+---
+address: south_korea.holiday
+description: Public holidays of South Korea (공휴일). Two of them, 설날 and 추석, are lunar and move against the Gregorian calendar every year, and each runs three days — the day before, the day itself and the day after — which is why the same holiday name appears once here but blocks three dates in a real calendar. 부처님 오신 날 is lunar too. A 대체공휴일 is granted when one of these falls on a weekend, so the count of non-working days is not fixed from year to year.
+locale: ko
+---
+신정
+설날
+삼일절
+어린이날
+부처님 오신 날
+현충일
+광복절
+추석
+개천절
+한글날
+성탄절
+대체공휴일

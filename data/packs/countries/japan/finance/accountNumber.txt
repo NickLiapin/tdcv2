@@ -1,0 +1,6 @@
+---
+address: japan.finance.accountNumber
+description: Japanese bank account number (口座番号) — seven digits, leading zeros significant, the third part of the bank-code/branch-code/account-number triple that addresses a domestic transfer. No check digit: the number is unique only within a branch, and the transfer is validated by matching the holder's name in katakana rather than by arithmetic on the number.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{7}"/>

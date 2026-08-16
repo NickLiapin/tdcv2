@@ -1,0 +1,31 @@
+---
+address: japan.phoneLandline
+description: Japanese fixed-line number in national form, 0AB-CDE-FGHJ. The area code is VARIABLE-LENGTH, which is unusual and is the whole point of this file: written with the trunk 0 it runs from two characters to five - 03 (Tokyo), 011 (Sapporo), 0267 (Karuizawa), 01267 (northern Hokkaido) - and the local exchange code shrinks to match, because the rule is that trunk 0 + area code + exchange code is always exactly six digits and the subscriber number always four. Every landline number in Japan is therefore ten digits, but you cannot split one into area and exchange without knowing the area. The area codes here are real; the exchange and subscriber digits are structural. The four five-character codes are the genuinely rare ones - 01267, 04992, 05769, 09496 - and 05979 in Mie is the case where the exchange code itself is a single digit.
+generator: tdc
+---
+<!-- 1 = two-character area code, 2 = three, 3 = four, 4 = five. <equals> compares numbers. -->
+<sequence name="bucket"><gen type="text" value="1,2,3,4" percent="22,55,22,1"/></sequence>
+<sequence name="area1"><gen type="text" value="03,06"/></sequence>
+<sequence name="area2"><gen type="text" value="011,017,018,019,022,023,024,025,026,027,028,029,042,043,044,045,046,047,048,049,052,053,054,055,058,059,072,073,075,076,077,078,079,082,083,084,086,087,088,089,092,093,095,096,097,098,099"/></sequence>
+<sequence name="area3"><gen type="text" value="0138,0143,0155,0166,0178,0242,0246,0263,0267,0270,0463,0532,0564,0742,0748,0798,0852,0857,0942,0952,0980,0985"/></sequence>
+<sequence name="area4"><gen type="text" value="01267,04992,05769,05979,09496"/></sequence>
+<sequence name="local4"><gen type="regex" value="[2-9][0-9]{3}"/></sequence>
+<sequence name="local3"><gen type="regex" value="[2-9][0-9]{2}"/></sequence>
+<sequence name="local2"><gen type="regex" value="[2-9][0-9]"/></sequence>
+<sequence name="local1"><gen type="regex" value="[2-9]"/></sequence>
+<sequence name="subscriber"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="number"><compute>
+  <let name="head">
+    <choose>
+      <when><test><equals><field name="bucket"/><int v="1"/></equals></test>
+        <then><concat><field name="area1"/><str v="-"/><field name="local4"/></concat></then></when>
+      <when><test><equals><field name="bucket"/><int v="2"/></equals></test>
+        <then><concat><field name="area2"/><str v="-"/><field name="local3"/></concat></then></when>
+      <when><test><equals><field name="bucket"/><int v="3"/></equals></test>
+        <then><concat><field name="area3"/><str v="-"/><field name="local2"/></concat></then></when>
+      <otherwise><concat><field name="area4"/><str v="-"/><field name="local1"/></concat></otherwise>
+    </choose>
+  </let>
+  <result><concat><use name="head"/><str v="-"/><field name="subscriber"/></concat></result>
+</compute></sequence>
+<data>${{number}}</data>

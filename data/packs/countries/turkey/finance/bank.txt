@@ -1,0 +1,34 @@
+---
+address: turkey.finance.bank
+description: Banks operating in Türkiye that hold customer accounts — the three state deposit banks first, then the large private and foreign-owned deposit banks, then the six katılım (participation, interest-free) banks, which are ordinary licensed banks with their own IBAN bank codes and not a separate product. Index-aligned with turkey.finance.bankCode. Development and investment banks (Türk Eximbank, TSKB, Kalkınma, İller Bankası, Takasbank) have bank codes too but take no deposits, so an account or an IBAN cannot sit at one and they are left out. Turkish case: an ASCII upper() turns İş Bankası into IS BANKASI and Fibabanka's peers lose their dotted i — use a Turkish casing map.
+locale: tr
+---
+Ziraat Bankası
+Türkiye İş Bankası
+Garanti BBVA
+VakıfBank
+Halkbank
+Yapı Kredi
+Akbank
+QNB Finansbank
+DenizBank
+Türk Ekonomi Bankası
+ING Bank
+Şekerbank
+Odeabank
+Fibabanka
+Anadolubank
+Alternatif Bank
+Burgan Bank
+HSBC Bank
+ICBC Turkey Bank
+Aktif Bank
+Turkish Bank
+Citibank
+Arap Türk Bankası
+Kuveyt Türk Katılım Bankası
+Türkiye Finans Katılım Bankası
+Albaraka Türk Katılım Bankası
+Ziraat Katılım Bankası
+Vakıf Katılım Bankası
+Türkiye Emlak Katılım Bankası

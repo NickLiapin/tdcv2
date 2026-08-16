@@ -1,0 +1,9 @@
+---
+address: indonesia.geo.postalCode
+description: Indonesian kode pos — five digits, written without a space or hyphen. The first three come from indonesia.geo.postalCodePrefix, so every generated code opens on a prefix that really exists (zone digit plus a real regency/city pair); the last two — district and village — are structural, drawn uniformly, and are not guaranteed to name a delivery area that exists. Jakarta is the exception the format tables always note: there the third digit is the district, the fourth the urban village and the fifth is always 0, which this file does not model.
+generator: tdc
+locale: id
+---
+<sequence name="prefix"><gen type="template" value="indonesia.geo.postalCodePrefix"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{2}"/></sequence>
+<data>${{prefix}}${{tail}}</data>

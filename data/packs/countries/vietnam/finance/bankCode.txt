@@ -1,0 +1,9 @@
+---
+address: vietnam.finance.bankCode
+description: Vietnamese bank identification number (BIN) — 6 digits, issued by Napas and used to route domestic transfers and to name the receiving bank inside a VietQR payload. Sliced out of vietnam.finance.bankWithCode, so it cannot drift from vietnam.finance.bank. Domestic banks sit almost entirely in the 9704xx block, which is why a random 6-digit draw would look wrong and this is the real enumeration. It is not a SWIFT/BIC and not the 8-digit CITAD code. Vietnam has no IBAN at all — see vietnam.finance.accountNumber.
+generator: tdc
+locale: vi
+---
+<sequence name="entry"><gen type="template" value="vietnam.finance.bankWithCode"/></sequence>
+<sequence name="code"><compute><result><slice from="0" to="6"><field name="entry"/></slice></result></compute></sequence>
+<data>${{code}}</data>

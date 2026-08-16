@@ -1,0 +1,6 @@
+---
+address: vietnam.geo.postalCode
+description: Vietnamese postal code (mã bưu chính) — 6 digits. THIS MODELS THE POST-2018 SCHEME, the national postcode set issued by Quyết định 2475/QĐ-BTTTT and in force from 15 June 2018, which replaced the older 6-digit codes wholesale: the digit count did not change but the values did, so a pre-2018 code and a post-2018 code for the same place are usually different numbers and neither converts to the other. Under the current scheme the first two digits are the province, the next three narrow to district and commune, and the last is the delivery unit — Hà Nội is 10xxxx, Hồ Chí Minh 70xxxx, Đà Nẵng 55xxxx, Cần Thơ 90xxxx. The per-province prefix table is a THIRD numbering of Vietnam's provinces, agreeing with neither the administrative code in vietnam.geo.provinceCode nor the plate code in vietnam.vehicle.plate, and it is NOT modelled here — this generator is structural, so the six digits are well-formed but the place they name is not guaranteed to exist. A leading zero is excluded because no province prefix uses one.
+generator: tdc
+---
+<gen type="regex" value="[1-9][0-9]{5}"/>

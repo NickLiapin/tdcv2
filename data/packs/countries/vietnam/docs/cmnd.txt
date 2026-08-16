@@ -1,0 +1,6 @@
+---
+address: vietnam.docs.cmnd
+description: Vietnamese legacy people's identity card number (chứng minh nhân dân, CMND) — 9 digits, no check digit, and no century/sex encoding either. This is the number the 12-digit CCCD replaced (vietnam.docs.cccd generates that one); CMND cards stopped being issued after 2016 and ceased to be valid on 1 January 2025, so a 9-digit CMND in live data is a historical record, not a current identity. Kept because legacy Vietnamese systems are full of them and migrations have to be tested. The leading digits identified the issuing provincial police unit, but that prefix table is a THIRD numbering scheme, different again from the CCCD province code and the plate code, and it is not modelled here — the nine digits are structural only. A 12-digit CMND also existed briefly (a 2012-2016 pilot in a few provinces) built to the same layout as the CCCD; it is not generated here, because a 12-digit number in Vietnamese data is overwhelmingly a CCCD.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{9}"/>

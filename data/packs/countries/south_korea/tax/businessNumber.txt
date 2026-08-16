@@ -1,0 +1,30 @@
+---
+address: south_korea.tax.businessNumber
+description: South Korean business registration number (사업자등록번호) — 10 digits laid out XXX-XX-XXXXX with its own check digit, and the one place where the arithmetic has a genuine quirk. The first three digits are the issuing tax office, the middle two the taxpayer class (01-79 individual general taxpayer, 80 apartment management office, 81 and 86-88 for-profit corporation head office, 82 non-profit, 83 state or local authority, 84 foreign corporation, 85 for-profit corporation branch, 89 unincorporated religious body, 90-99 individual tax-exempt), then a five-digit serial whose last digit is the check. Digits 1-9 carry weights 1,3,7,1,3,7,1,3,5 — but the ninth weight is applied twice over: the product d9 x 5 is added to the running sum AND its tens digit, floor(d9 x 5 / 10), is added again. Then check = (10 - total mod 10) mod 10. Miss the second term and eight numbers in ten still validate, which is exactly why it has to be written down. Emitted as bare digits; Korea always prints the two hyphens. The tax-office block is structural — real codes run roughly 101 to 621 and are grouped by region, but the roster is not modelled.
+generator: tdc
+---
+<sequence name="office"><gen type="number" value="101..621" length="3"/></sequence>
+<sequence name="kind"><gen type="number" value="1..99" length="2" first_zero="true"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="ninth"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="brn"><compute>
+  <let name="base"><concat><field name="office"/><field name="kind"/><field name="serial"/></concat></let>
+  <!-- Digits 1-8 take weights 1,3,7,1,3,7,1,3 straight. -->
+  <let name="sum8"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="1,3,7,1,3,7,1,3"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <!-- Digit 9 takes weight 5 AND contributes the tens digit of that product a second time. -->
+  <let name="ninthProduct"><multiply><field name="ninth"/><int v="5"/></multiply></let>
+  <let name="total"><add>
+    <use name="sum8"/>
+    <use name="ninthProduct"/>
+    <divide><use name="ninthProduct"/><int v="10"/></divide>
+  </add></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="total"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><use name="base"/><field name="ninth"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{brn}}</data>

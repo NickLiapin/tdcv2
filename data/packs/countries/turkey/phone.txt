@@ -1,0 +1,6 @@
+---
+address: turkey.phone
+description: Turkish mobile number in E.164 form — +90 then ten digits, of which the first three are the mobile prefix and always start with 5. The allocated ranges emitted here are 50x (Türk Telekom), 53x (Turkcell), 54x (Vodafone) and 55x (Türk Telekom); 51x and 56x are only partly allocated and are left out. Number portability has been in force since 2008, so a prefix no longer identifies the operator a number is actually on — treat it as a range, not as a carrier.
+generator: tdc
+---
+<gen type="regex" value="\+905(0[0-9]|3[0-9]|4[0-9]|5[0-9])[0-9]{7}"/>

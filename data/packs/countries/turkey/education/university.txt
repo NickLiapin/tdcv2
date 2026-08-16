@@ -1,0 +1,74 @@
+---
+address: turkey.education.university
+description: Universities of Türkiye (Turkish names) — state universities, the older foundation (vakıf) universities, and the two service universities. Every province has had at least one state university since 2007, so the list is national rather than concentrated in the three big cities. Two things a neighbour's pack would not warn about: Boğaziçi, ODTÜ, İTÜ and Bilkent teach in English while carrying Turkish names, so the name and the language of instruction do not track each other; and a Turkish university can be closed by decree, as İstanbul Şehir Üniversitesi was in 2020 — it is deliberately absent here. Turkish case: an ASCII upper() breaks İstanbul, İzmir, Işık and Bilgi's peers alike.
+locale: tr
+---
+İstanbul Üniversitesi
+Ankara Üniversitesi
+Boğaziçi Üniversitesi
+Orta Doğu Teknik Üniversitesi
+İstanbul Teknik Üniversitesi
+Hacettepe Üniversitesi
+Ege Üniversitesi
+Gazi Üniversitesi
+Yıldız Teknik Üniversitesi
+Marmara Üniversitesi
+Dokuz Eylül Üniversitesi
+Ankara Hacı Bayram Veli Üniversitesi
+Galatasaray Üniversitesi
+Mimar Sinan Güzel Sanatlar Üniversitesi
+Anadolu Üniversitesi
+Eskişehir Osmangazi Üniversitesi
+Çukurova Üniversitesi
+Erciyes Üniversitesi
+Atatürk Üniversitesi
+Bursa Uludağ Üniversitesi
+Akdeniz Üniversitesi
+Selçuk Üniversitesi
+Necmettin Erbakan Üniversitesi
+Karadeniz Teknik Üniversitesi
+Ondokuz Mayıs Üniversitesi
+Sakarya Üniversitesi
+Kocaeli Üniversitesi
+Trakya Üniversitesi
+Gaziantep Üniversitesi
+Harran Üniversitesi
+Dicle Üniversitesi
+Fırat Üniversitesi
+İnönü Üniversitesi
+Van Yüzüncü Yıl Üniversitesi
+Süleyman Demirel Üniversitesi
+Pamukkale Üniversitesi
+Mersin Üniversitesi
+Muğla Sıtkı Koçman Üniversitesi
+Aydın Adnan Menderes Üniversitesi
+Manisa Celâl Bayar Üniversitesi
+Balıkesir Üniversitesi
+Kahramanmaraş Sütçü İmam Üniversitesi
+Recep Tayyip Erdoğan Üniversitesi
+Bolu Abant İzzet Baysal Üniversitesi
+Gebze Teknik Üniversitesi
+İzmir Yüksek Teknoloji Enstitüsü
+Ankara Yıldırım Beyazıt Üniversitesi
+Ankara Sosyal Bilimler Üniversitesi
+İstanbul Medeniyet Üniversitesi
+Sağlık Bilimleri Üniversitesi
+Millî Savunma Üniversitesi
+İhsan Doğramacı Bilkent Üniversitesi
+Koç Üniversitesi
+Sabancı Üniversitesi
+Yeditepe Üniversitesi
+Bahçeşehir Üniversitesi
+Özyeğin Üniversitesi
+Kadir Has Üniversitesi
+İstanbul Bilgi Üniversitesi
+Işık Üniversitesi
+Acıbadem Mehmet Ali Aydınlar Üniversitesi
+İstanbul Medipol Üniversitesi
+İstanbul Aydın Üniversitesi
+Başkent Üniversitesi
+Atılım Üniversitesi
+TOBB Ekonomi ve Teknoloji Üniversitesi
+Çankaya Üniversitesi
+İzmir Ekonomi Üniversitesi
+Yaşar Üniversitesi

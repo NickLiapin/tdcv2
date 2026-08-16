@@ -1,0 +1,7 @@
+---
+address: india.docs.voterId
+description: EPIC number — the Elector's Photo Identity Card number issued by the Election Commission of India, 10 characters: three letters then seven digits. The three-letter prefix identifies the assembly constituency the elector is rolled in, which is why an EPIC is tied to a place in a way a PAN or an Aadhaar is not. The Commission assigns those prefixes constituency by constituency and does not publish the mapping as a list, so the letters here are drawn rather than taken from a table, and no attempt is made to pretend otherwise. There is no check digit. Cards issued before the current series carry older shapes with slashes and are not generated.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[A-Z]{3}[0-9]{7}"/>

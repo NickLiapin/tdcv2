@@ -1,0 +1,18 @@
+---
+address: japan.tax.corporateNumber
+description: Japanese corporate number (法人番号) — 13 digits assigned by the National Tax Agency. The check digit is the LEADING digit, not the trailing one, computed per 財務省令第七十号 第二条 as 9 minus (sum of Pn x Qn) mod 9, where Pn counts from the right of the 12-digit base and Qn is 1 for odd n and 2 for even n; left to right the weights are 2,1,2,1,... Because the remainder is 0..8 the check digit is always 1..9 and never 0. Unlike My Number this number is PUBLIC - the NTA publishes every corporate number with its name and address on 法人番号公表サイト - so a generated one may collide with a real company. The 12-digit base is the 会社法人等番号 from the commercial register for incorporated bodies; its internal layout (registry-office code, entity kind, serial) is not modelled here.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{12}"/></sequence>
+<sequence name="corporateNumber"><compute>
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="2,1,2,1,2,1,2,1,2,1,2,1"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><subtract><int v="9"/><mod><use name="sum"/><int v="9"/></mod></subtract></let>
+  <result><concat><use name="check"/><field name="base"/></concat></result>
+</compute></sequence>
+<data>${{corporateNumber}}</data>

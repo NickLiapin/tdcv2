@@ -1,0 +1,23 @@
+---
+address: japan.holiday
+description: The 16 statutory public holidays (国民の祝日) of Japan, plus the two names a Japanese calendar prints for holidays it derives rather than fixes. This file holds NAMES ONLY and models no dates, which matters more in Japan than elsewhere because four of the sixteen have no fixed date at all: 成人の日, 海の日, 敬老の日 and スポーツの日 were moved to the second or third Monday of their month by the Happy Monday laws of 1998 and 2001, and two more, 春分の日 and 秋分の日, are set astronomically - the Cabinet publishes the equinox dates each February for the year after next, so they cannot be computed from a calendar rule. On top of that, 振替休日 shifts a holiday that falls on a Sunday to the next working day, and 国民の休日 turns a lone weekday caught between two holidays into a holiday itself, which is what produces Silver Week in September some years. None of that is modelled here.
+locale: ja
+---
+元日
+成人の日
+建国記念の日
+天皇誕生日
+春分の日
+昭和の日
+憲法記念日
+みどりの日
+こどもの日
+海の日
+山の日
+敬老の日
+秋分の日
+スポーツの日
+文化の日
+勤労感謝の日
+振替休日
+国民の休日

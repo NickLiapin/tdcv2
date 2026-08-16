@@ -1,0 +1,17 @@
+---
+address: turkey.holiday
+description: Public holidays in Türkiye (Turkish names). Seven of them are fixed Gregorian dates; the two bayram are not — Ramazan Bayramı and Kurban Bayramı follow the Hijri lunar calendar and move about eleven days earlier each Gregorian year, so a holiday calendar for Türkiye cannot be built from month-and-day rules alone. The three arife entries are the statutory half-days before a bayram and before 29 October, when offices close at 13:00; they are real holidays in labour law, not observances. Turkish case: an ASCII upper() turns Ramazan into RAMAZAN correctly but breaks Millî and İşçi elsewhere — use a Turkish casing map.
+locale: tr
+---
+Yılbaşı
+Ulusal Egemenlik ve Çocuk Bayramı
+Emek ve Dayanışma Günü
+Atatürk'ü Anma, Gençlik ve Spor Bayramı
+Ramazan Bayramı
+Kurban Bayramı
+Demokrasi ve Millî Birlik Günü
+Zafer Bayramı
+Cumhuriyet Bayramı
+Ramazan Bayramı Arifesi
+Kurban Bayramı Arifesi
+Cumhuriyet Bayramı Arifesi

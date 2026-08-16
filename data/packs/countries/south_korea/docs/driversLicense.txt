@@ -1,0 +1,10 @@
+---
+address: south_korea.docs.driversLicense
+description: South Korean driving licence number — 12 digits laid out AA-BB-CCCCCC-DE, where AA is the region that first issued it (11 to 26 and 28), BB the year of first issue, CCCCCC a serial, D a check digit and E the reissue count. STRUCTURAL ONLY. D is a real check digit on a real licence, but the algorithm behind it has never been published, so it is drawn here rather than computed and a generated number will not survive a genuine check. Licences issued before May 2014 printed the region as a Korean place name instead of the two digits, and a shorter 10-digit form without the region block is still in circulation.
+generator: tdc
+---
+<sequence name="region"><gen type="text" value="11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,28"/></sequence>
+<sequence name="year"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{2}"/></sequence>
+<data>${{region}}${{year}}${{serial}}${{tail}}</data>

@@ -1,0 +1,29 @@
+---
+address: vietnam.sport.team
+description: Football clubs of V.League 1 and V.League 2 (Vietnamese names). Vietnamese club names carry their sponsor in front and change when the sponsor does — Thể Công Viettel, Thép Xanh Nam Định, Đông Á Thanh Hoá — so the same club appears in older data under a different string, and matching clubs across seasons on the name alone will not work. The place word in the name is the constant part. Values are Vietnamese with stacked diacritics on single vowels.
+locale: vi
+---
+Hà Nội FC
+Thể Công Viettel
+Công An Hà Nội
+Thép Xanh Nam Định
+Hải Phòng
+Hoàng Anh Gia Lai
+Sông Lam Nghệ An
+Becamex Bình Dương
+Đông Á Thanh Hoá
+SHB Đà Nẵng
+Quy Nhơn Bình Định
+Quảng Nam
+Thành phố Hồ Chí Minh
+Hồng Lĩnh Hà Tĩnh
+Khánh Hoà
+Bình Phước
+Phù Đổng Ninh Bình
+PVF-CAND
+Long An
+Đồng Tháp
+Bà Rịa - Vũng Tàu
+Huế
+Đồng Nai
+Trẻ Thành phố Hồ Chí Minh

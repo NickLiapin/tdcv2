@@ -1,0 +1,6 @@
+---
+address: south_korea.phone
+description: South Korean mobile number in E.164 form (+82 10 XXXX XXXX). Korea has exactly ONE mobile prefix — 010. The old carrier-specific prefixes 011, 016, 017, 018 and 019 were folded into 010 and the last of them was switched off when 2G ended, so any generated Korean mobile that does not start 010 is describing a network that no longer exists. Nationally the number is written 010-XXXX-XXXX with the leading 0; in E.164 that 0 is dropped, which is why this reads +8210 and not +82010.
+generator: tdc
+---
+<gen type="regex" value="\+8210[2-9][0-9]{7}"/>

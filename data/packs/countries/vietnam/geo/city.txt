@@ -1,0 +1,73 @@
+---
+address: vietnam.geo.city
+description: Cities of Vietnam, roughly ordered by population. Hồ Chí Minh is written here in its official form; in speech and in plenty of records it is still Sài Gòn, and "TP. HCM" and "TP. Hồ Chí Minh" are both common in written data. Huế was a provincial city until 2025, when it became Vietnam's sixth centrally-governed city. Values are Vietnamese: Latin letters that carry up to two marks at once — a vowel modifier (ă â ê ô ơ ư) plus a tone (à á ả ã ạ) — so "Đà Nẵng", "Quy Nhơn" and "Buôn Ma Thuột" hold precomposed code points (NFC) that naive ASCII-folding, NFD round-trips and byte-length checks all get wrong: "Nguyễn" is six characters but eight bytes.
+locale: vi
+---
+Hồ Chí Minh
+Hà Nội
+Hải Phòng
+Đà Nẵng
+Biên Hoà
+Cần Thơ
+Thuận An
+Dĩ An
+Huế
+Nha Trang
+Buôn Ma Thuột
+Vinh
+Thủ Dầu Một
+Quy Nhơn
+Vũng Tàu
+Nam Định
+Rạch Giá
+Long Xuyên
+Thái Nguyên
+Hạ Long
+Phan Thiết
+Cà Mau
+Mỹ Tho
+Pleiku
+Thanh Hoá
+Bắc Ninh
+Việt Trì
+Hải Dương
+Vĩnh Long
+Sóc Trăng
+Bến Tre
+Tuy Hoà
+Đà Lạt
+Bạc Liêu
+Cao Lãnh
+Tân An
+Sa Đéc
+Châu Đốc
+Hà Tĩnh
+Đồng Hới
+Yên Bái
+Lào Cai
+Điện Biên Phủ
+Bắc Giang
+Lạng Sơn
+Móng Cái
+Cẩm Phả
+Uông Bí
+Thái Bình
+Phủ Lý
+Ninh Bình
+Tam Kỳ
+Hội An
+Quảng Ngãi
+Kon Tum
+Gia Nghĩa
+Đồng Xoài
+Tây Ninh
+Trà Vinh
+Vị Thanh
+Hà Giang
+Cao Bằng
+Bắc Kạn
+Tuyên Quang
+Sơn La
+Lai Châu
+Hoà Bình
+Phan Rang - Tháp Chàm

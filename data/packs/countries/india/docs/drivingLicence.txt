@@ -1,0 +1,11 @@
+---
+address: india.docs.drivingLicence
+description: Indian driving licence number — SSRR YYYYNNNNNNN, e.g. MH12 20110012345. It is issued by a state, not by the Union, and the number says which: the first two letters are the state or union territory code (india.vehicle.stateCode, the same list a number plate uses), the next two digits are the RTO district that issued it, the four after the space are the YEAR of issue, and the last seven are that office's running serial for the year. So the number is readable — office and year come straight off it — and it carries no check digit at all. Rendering varies by state: some print it MH12 20110012345, some DL-0420110149646 with a hyphen and no space, and the digits are the same either way.
+generator: tdc
+locale: en
+---
+<sequence name="state"><gen type="template" value="india.vehicle.stateCode"/></sequence>
+<sequence name="rtoDistrict"><gen type="regex" value="(0[1-9]|[1-9][0-9])"/></sequence>
+<sequence name="year"><gen type="number" value="1995..2025" length="4"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>${{state}}${{rtoDistrict}} ${{year}}${{serial}}</data>

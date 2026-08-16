@@ -1,0 +1,48 @@
+---
+address: vietnam.education.university
+description: Universities of Vietnam (Vietnamese names). Vietnamese distinguishes three words that all come out as "university" in English and the distinction is real: "Đại học Quốc gia" and the regional "Đại học" are umbrella institutions holding member schools; a "Trường Đại học" is a single school, and is a member of one of those umbrellas when its name carries a suffix like "- ĐHQG TP.HCM"; a "Học viện" is an academy, usually attached to a ministry. So "Trường Đại học Bách khoa - ĐHQG TP.HCM" and "Đại học Bách khoa Hà Nội" are not the same kind of thing despite reading alike. Values are Vietnamese with stacked diacritics on single vowels, which breaks naive ASCII-folding and byte-length checks.
+locale: vi
+---
+Đại học Quốc gia Hà Nội
+Đại học Quốc gia Thành phố Hồ Chí Minh
+Đại học Bách khoa Hà Nội
+Trường Đại học Kinh tế Quốc dân
+Trường Đại học Ngoại thương
+Trường Đại học Y Hà Nội
+Trường Đại học Sư phạm Hà Nội
+Trường Đại học Xây dựng Hà Nội
+Trường Đại học Giao thông vận tải
+Trường Đại học Thuỷ lợi
+Trường Đại học Công nghiệp Hà Nội
+Trường Đại học Thương mại
+Trường Đại học Luật Hà Nội
+Trường Đại học Hà Nội
+Trường Đại học Mỏ - Địa chất
+Học viện Tài chính
+Học viện Ngân hàng
+Học viện Ngoại giao
+Học viện Công nghệ Bưu chính Viễn thông
+Học viện Nông nghiệp Việt Nam
+Học viện Kỹ thuật Quân sự
+Học viện Báo chí và Tuyên truyền
+Trường Đại học Bách khoa - ĐHQG TP.HCM
+Trường Đại học Khoa học Tự nhiên - ĐHQG TP.HCM
+Trường Đại học Khoa học Xã hội và Nhân văn - ĐHQG TP.HCM
+Trường Đại học Công nghệ Thông tin - ĐHQG TP.HCM
+Trường Đại học Kinh tế - Luật - ĐHQG TP.HCM
+Trường Đại học Kinh tế Thành phố Hồ Chí Minh
+Trường Đại học Y Dược Thành phố Hồ Chí Minh
+Trường Đại học Sư phạm Kỹ thuật Thành phố Hồ Chí Minh
+Trường Đại học Tôn Đức Thắng
+Trường Đại học Cần Thơ
+Đại học Đà Nẵng
+Đại học Huế
+Đại học Thái Nguyên
+Trường Đại học Vinh
+Trường Đại học Nha Trang
+Trường Đại học Tây Nguyên
+Trường Đại học Quy Nhơn
+Trường Đại học Đà Lạt
+Trường Đại học FPT
+Trường Đại học RMIT Việt Nam
+Trường Đại học VinUni

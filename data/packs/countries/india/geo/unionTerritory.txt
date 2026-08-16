@@ -1,0 +1,13 @@
+---
+address: india.geo.unionTerritory
+description: The 8 UNION TERRITORIES of India, alphabetically. Not states — a union territory is administered by the Union, and only Delhi, Puducherry and Jammu and Kashmir have a legislature. The count is 8 and not 9 because Dadra and Nagar Haveli was merged with Daman and Diu on 26 January 2020, and it is 8 rather than 7 because Jammu and Kashmir was reorganised out of statehood into two union territories (J&K and Ladakh) on 31 October 2019. Delhi's full constitutional name is the National Capital Territory of Delhi. See india.geo.state for the 28 states.
+locale: en
+---
+Andaman and Nicobar Islands
+Chandigarh
+Dadra and Nagar Haveli and Daman and Diu
+Delhi
+Jammu and Kashmir
+Ladakh
+Lakshadweep
+Puducherry

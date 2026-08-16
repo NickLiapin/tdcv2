@@ -1,0 +1,11 @@
+---
+address: india.tax.tan
+description: TAN — Tax Deduction and Collection Account Number, 10 characters shaped AAAA99999A, issued by the Income Tax Department to anyone who deducts tax at source. It is a different number from PAN and is quoted on TDS returns and certificates, so a payroll or vendor test set needs both. The first three letters are the code of the issuing income-tax office's city (DEL Delhi, MUM Mumbai, BLR Bengaluru, CHE Chennai, HYD Hyderabad, and CAL for Kolkata, which kept its pre-2001 code), the 4th letter is the first letter of the deductor's name, then a 5-digit running number and one trailing letter. No checksum is published for TAN, so none is computed — the trailing letter here is drawn, not derived, and this file says so rather than inventing arithmetic that would look verified and would not be.
+generator: tdc
+locale: en
+---
+<sequence name="cityCode"><gen type="text" value="DEL,MUM,BLR,CHE,HYD,CAL,PNE,AHM,JPR,LKN,CHG,BPL,PTN,JDH,NGP,SRT,KNP,IND"/></sequence>
+<sequence name="nameInitial"><gen type="regex" value="[A-Z]"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="tail"><gen type="regex" value="[A-Z]"/></sequence>
+<data>${{cityCode}}${{nameInitial}}${{serial}}${{tail}}</data>

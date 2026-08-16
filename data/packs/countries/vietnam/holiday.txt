@@ -1,0 +1,28 @@
+---
+address: vietnam.holiday
+description: Public holidays and widely observed days in Vietnam. THIS LIST IS NAMES ONLY — it carries no dates and nothing here converts a holiday to a date, which matters more in Vietnam than almost anywhere, because the biggest holidays are LUNAR AND MOVE. Tết Nguyên đán (Lunar New Year) falls somewhere between 21 January and 20 February, a swing of a full month against the Gregorian calendar; Giỗ Tổ Hùng Vương is the 10th day of the 3rd lunar month; Tết Đoan Ngọ, Lễ Vu Lan, Tết Trung thu and Tết Nguyên tiêu are lunar too. Vietnam's lunar calendar is computed on UTC+7, which is why its Tết occasionally lands a day off the Chinese New Year. The first six entries are the statutory paid holidays under Điều 112 of the 2019 Labour Code — 11 days off in total, because Tết Nguyên đán is five days and Quốc khánh is two; the rest are observed nationally but are ordinary working days. Statutory days that fall on a weekend are made up with the following working day, so even the fixed-date ones do not give you a usable date without a calendar. Values are Vietnamese with stacked diacritics on single vowels.
+locale: vi
+---
+Tết Dương lịch
+Tết Nguyên đán
+Giỗ Tổ Hùng Vương
+Ngày Giải phóng miền Nam, thống nhất đất nước
+Ngày Quốc tế Lao động
+Quốc khánh
+Ngày thành lập Đảng Cộng sản Việt Nam
+Tết Nguyên tiêu
+Ngày Thầy thuốc Việt Nam
+Ngày Quốc tế Phụ nữ
+Tết Hàn thực
+Ngày Chiến thắng Điện Biên Phủ
+Ngày sinh Chủ tịch Hồ Chí Minh
+Tết Đoan Ngọ
+Ngày Thương binh Liệt sĩ
+Lễ Vu Lan
+Ngày Cách mạng Tháng Tám
+Tết Trung thu
+Ngày Giải phóng Thủ đô
+Ngày Phụ nữ Việt Nam
+Ngày Nhà giáo Việt Nam
+Ngày thành lập Quân đội nhân dân Việt Nam
+Lễ Giáng sinh

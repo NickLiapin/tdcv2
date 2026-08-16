@@ -1,0 +1,25 @@
+---
+address: japan.docs.myNumber
+description: Japanese My Number (個人番号) — 12 digits, an 11-digit base plus a trailing check digit. The check follows 平成26年総務省令第85号 第五条 exactly - 11 minus (sum of Pn x Qn) mod 11, where Pn is the nth digit counted from the RIGHT of the base and Qn is n+1 for n=1..6 and n-5 for n=7..11; when that remainder is 0 or 1 the check digit is 0. Read left to right the weights are 6,5,4,3,2,7,6,5,4,3,2. Unlike the corporate number, My Number is NOT public: the Number Act forbids collecting or holding it outside the tax, social-security and disaster-relief uses it lists, which is why no real number appears anywhere in this pack.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{11}"/></sequence>
+<sequence name="myNumber"><compute>
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="6,5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="rem"><mod><use name="sum"/><int v="11"/></mod></let>
+  <!-- A remainder of 0 or 1 would give a two-digit 11 or 10, so the rule pins it to 0. -->
+  <let name="check">
+    <choose>
+      <when><test><less_than><use name="rem"/><int v="2"/></less_than></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="rem"/></subtract></otherwise>
+    </choose>
+  </let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{myNumber}}</data>

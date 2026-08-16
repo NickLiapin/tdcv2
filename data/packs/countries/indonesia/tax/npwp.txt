@@ -1,0 +1,37 @@
+---
+address: indonesia.tax.npwp
+description: Indonesian NPWP (Nomor Pokok Wajib Pajak) in its classic 15-digit written form, NN.NNN.NNN.N-NNN.NNN. This is the form that carries a REAL check digit, which is why it is the one generated here: the ninth digit is a Luhn (mod-10 double-add-double) check over the first eight, exactly as on a payment card. The leading pair is a registration serial plus a taxpayer-type code (0 treasury, 1-3 corporate, 4 and 6 sole trader, 5 civil servant, 7-9 employee); the next six digits are the registration serial, the three after the hyphen are the KPP tax-office code and the last three are the branch indicator, 000 for a head office. Indonesia is migrating away from this number: since PMK 112/2022 an individual's NPWP is simply their 16-digit NIK and an entity's is a 0 prepended to these 15 digits, with the 15-digit form retired from DJP services on 1 July 2024. The 16-digit form is at indonesia.tax.npwp16 — but note that it inherits the NIK's total absence of a checksum, so the migration traded a verifiable number for an unverifiable one. Check digit verified in both directions against three published corporate NPWPs: PT Telkom Indonesia 01.000.013.1-093.000, PT Pertamina (Persero) 01.001.664.0-051.000 and PT Bank Tabungan Negara 01.001.609.5-093.000 all compute their printed ninth digit, and every single-digit alteration of them fails.
+generator: tdc
+---
+<sequence name="head"><gen type="regex" value="0[0-9]"/></sequence>
+<sequence name="s1"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="s2"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="kppRaw"><gen type="number" value="1..999"/></sequence>
+<sequence name="branch"><gen type="text" value="000,001,002,003" percent="88,6,4,2"/></sequence>
+<sequence name="kpp"><compute><result><pad width="3"><field name="kppRaw"/></pad></result></compute></sequence>
+<sequence name="check"><compute>
+  <let name="base"><concat><field name="head"/><field name="s1"/><field name="s2"/></concat></let>
+  <!-- Luhn over the 8 base digits. With an even-length payload the doubled
+       positions are the ODD zero-based indices from the left, because index 7
+       is the digit nearest the check digit. A doubled value over 9 has 9
+       subtracted, which is the same as summing its two digits. -->
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when><test><equals><mod><current_index/><int v="2"/></mod><int v="1"/></equals></test>
+          <then><choose>
+            <when><test><greater_than><to_number><current/></to_number><int v="4"/></greater_than></test>
+              <then><subtract><multiply><to_number><current/></to_number><int v="2"/></multiply><int v="9"/></subtract></then>
+            </when>
+            <otherwise><multiply><to_number><current/></to_number><int v="2"/></multiply></otherwise>
+          </choose></then>
+        </when>
+        <otherwise><to_number><current/></to_number></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <result><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></result>
+</compute></sequence>
+<data>${{head}}.${{s1}}.${{s2}}.${{check}}-${{kpp}}.${{branch}}</data>

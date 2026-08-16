@@ -1,0 +1,28 @@
+---
+address: japan.geo.ward
+description: The 23 special wards (特別区) of Tokyo, in the statutory order used by the Tokyo Metropolitan Government. These are not sub-units of a city - Tokyo City was abolished in 1943 and each ward is a municipality with its own mayor, assembly and residence register, which is why an address in central Tokyo reads 東京都 + ward and never names a city. The 20 designated cities elsewhere (Yokohama, Osaka, Nagoya and so on) also have wards, but those are 行政区: administrative divisions of the city with no council of their own, a different thing under the same character 区.
+locale: ja
+---
+千代田区
+中央区
+港区
+新宿区
+文京区
+台東区
+墨田区
+江東区
+品川区
+目黒区
+大田区
+世田谷区
+渋谷区
+中野区
+杉並区
+豊島区
+北区
+荒川区
+板橋区
+練馬区
+足立区
+葛飾区
+江戸川区
