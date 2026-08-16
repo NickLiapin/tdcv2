@@ -1,0 +1,58 @@
+---
+address: mongolia.legal.court
+description: NAMED courts of Mongolia, in Mongolian, as the Judicial General Council constitutes them and as they appear on the national judgment database at shuukh.mn — the institutions a case is actually filed in, not the kinds of court, which are ordinary Mongolian vocabulary. Three tiers, plus one body that is not a court at all. First instance is the сум дундын шүүх (inter-soum court) in the aimags and the дүүргийн шүүх in the capital; second is давж заалдах шатны шүүх, one set per aimag plus the capital's; third is Монгол Улсын Дээд шүүх, which is also the court of cassation. THE STRUCTURE SPLITS BY SUBJECT MATTER AT EVERY LEVEL AND THAT IS THE THING TO MODEL: Mongolia runs separate criminal, civil and administrative benches as separate COURTS with separate names rather than as chambers of one court, so "the district court of Bayanzürkh" is two institutions — Баянзүрх дүүргийн Эрүүгийн хэргийн анхан шатны шүүх and Баянзүрх дүүргийн Иргэний хэргийн анхан шатны шүүх — and a case type is needed before a court name can be resolved. Administrative cases go to a third and entirely parallel chain, one first-instance court per aimag plus one for the capital, feeding a single national Захиргааны хэргийн давж заалдах шатны шүүх. THE ODD ONE OUT IS ҮНДСЭН ХУУЛИЙН ЦЭЦ: Mongolia's constitutional body is a цэц, a tribunal, not a шүүх, it sits outside the judiciary entirely, its members are appointed by three different organs, and its rulings go to parliament rather than on appeal — so a schema that files it under "courts" has mis-modelled the Mongolian constitution. There are far fewer first-instance courts than soums: one inter-soum court covers a whole aimag in most cases, with a handful of extra benches at places big enough to need them (Замын-Үүд on the Chinese border, Ханбогд at the Oyu Tolgoi mine, Хархорин, Бор-Өндөр), so most of mongolia.geo.soum has no court named for it. This list is the general courts as constituted, not an exhaustive register of every bench within them.
+locale: mn
+---
+Монгол Улсын Дээд шүүх
+Үндсэн хуулийн цэц
+Нийслэлийн Эрүүгийн хэргийн давж заалдах шатны шүүх
+Нийслэлийн Иргэний хэргийн давж заалдах шатны шүүх
+Захиргааны хэргийн давж заалдах шатны шүүх
+Архангай аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Баян-Өлгий аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Баянхонгор аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Булган аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Говь-Алтай аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Говьсүмбэр аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Дархан-Уул аймгийн Эрүүгийн хэргийн давж заалдах шатны шүүх
+Дархан-Уул аймгийн Иргэний хэргийн давж заалдах шатны шүүх
+Дорноговь аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Дорнод аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Дундговь аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Завхан аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Орхон аймгийн Эрүүгийн хэргийн давж заалдах шатны шүүх
+Орхон аймгийн Иргэний хэргийн давж заалдах шатны шүүх
+Өвөрхангай аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Өмнөговь аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Сүхбаатар аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Сэлэнгэ аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Төв аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Увс аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Ховд аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Хөвсгөл аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Хэнтий аймгийн Эрүү, Иргэний хэргийн давж заалдах шатны шүүх
+Баянзүрх дүүргийн Эрүүгийн хэргийн анхан шатны шүүх
+Баянзүрх дүүргийн Иргэний хэргийн анхан шатны шүүх
+Баянгол дүүргийн Эрүүгийн хэргийн анхан шатны шүүх
+Баянгол дүүргийн Иргэний хэргийн анхан шатны шүүх
+Сонгинохайрхан дүүргийн Эрүүгийн хэргийн анхан шатны шүүх
+Сонгинохайрхан дүүргийн Иргэний хэргийн анхан шатны шүүх
+Сүхбаатар дүүргийн Эрүүгийн хэргийн анхан шатны шүүх
+Сүхбаатар дүүргийн Иргэний хэргийн анхан шатны шүүх
+Хан-Уул дүүргийн Эрүүгийн хэргийн анхан шатны шүүх
+Хан-Уул дүүргийн Иргэний хэргийн анхан шатны шүүх
+Чингэлтэй дүүргийн Эрүүгийн хэргийн анхан шатны шүүх
+Чингэлтэй дүүргийн Иргэний хэргийн анхан шатны шүүх
+Багануур дүүргийн Эрүүгийн хэргийн анхан шатны шүүх
+Багануур дүүргийн Иргэний хэргийн анхан шатны шүүх
+Налайх дүүргийн Эрүүгийн хэргийн анхан шатны шүүх
+Налайх дүүргийн Иргэний хэргийн анхан шатны шүүх
+Нийслэл дэх Захиргааны хэргийн анхан шатны шүүх
+Дорноговь аймгийн Замын-Үүд сум дахь сум дундын шүүх
+Завхан аймгийн Тосонцэнгэл сум дахь сум дундын шүүх
+Өмнөговь аймгийн Ханбогд сум дахь сум дундын шүүх
+Өвөрхангай аймгийн Хархорин сум дахь сум дундын шүүх
+Сэлэнгэ аймгийн Мандал сум дахь сум дундын шүүх
+Сэлэнгэ аймгийн Сайхан сум дахь сум дундын шүүх
+Ховд аймгийн Булган сум дахь сум дундын шүүх
+Хэнтий аймгийн Бор-Өндөр сум дахь сум дундын шүүх

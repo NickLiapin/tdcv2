@@ -1,0 +1,24 @@
+---
+address: mongolia.finance.iban
+description: Mongolian IBAN — 20 characters, MN + two ISO 7064 MOD-97-10 check digits + a four-digit bank code + a twelve-digit account number, which is the registered format MN2!n4!n12!n. The whole BBAN is numeric, so unlike a Georgian or a British IBAN nothing here needs the A=10…Z=35 letter conversion except the country code itself; the string fed to the checksum for MN12 1234 1234 5678 9123 is 1234123456789123 followed by MN00, i.e. 1234123456789123222300, and 98 minus that modulo 97 gives the 12. The registry's own example, MN121234123456789123, is accepted by this generator's arithmetic, as are the real published IBANs listed under mongolia.finance.bankCode. The bank code is drawn from mongolia.finance.bankCode rather than made up, so the account belongs to an institution that exists. MONGOLIA IS A VERY RECENT IBAN COUNTRY AND THIS IS THE THING TO DESIGN AROUND: the format was registered with SWIFT with effect from April 2023, the Bank of Mongolia ordered the migration by order A-242 of 18 October 2024, and old account numbers stopped working for interbank transfers on 1 April 2025. Before that every Mongolian bank numbered its own accounts, at different lengths and with no shared check digit, so a Mongolian account number captured before 2025 is a different identifier and cannot be turned into an IBAN by prefixing MN and computing a checksum — the bank has to reissue it. Two further consequences. Mongolia is not in SEPA and never will be, so an IBAN here buys the check digit and the machine-readable bank identifier and nothing else; an international payment still needs the SWIFT BIC. And the account number half is twelve digits with no internal structure the public can rely on: the branch is not encoded in a documented field, so the six digits after the bank code that look like a branch in some examples are not one, and a config must not derive a location from them. Print format groups in fours (MN12 1234 1234 5678 9123); the electronic form has no spaces and is what this file emits.
+generator: tdc
+---
+<sequence name="bank"><gen type="template" value="mongolia.finance.bankCode"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{12}"/></sequence>
+<sequence name="iban"><compute>
+  <!-- ISO 13616: move the country code and the two placeholder check digits to
+       the end, then read the whole string as a number with A=10 … Z=35. -->
+  <let name="rearranged"><concat><field name="bank"/><field name="account"/><str v="MN"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="MN"/><use name="check"/><field name="bank"/><field name="account"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

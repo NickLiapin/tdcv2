@@ -1,0 +1,15 @@
+---
+address: mongolia.geo.district
+description: The nine дүүрэг (duureg) of Ulaanbaatar, weighted by their 2022 population. A Mongolian urban address names the district and then the хороо inside it ("15-р хороо, Баянзүрх дүүрэг"), so the district is the unit that a capital address, a court, a school catchment and a registration office are all filed against — the equivalent of the soum for the rest of the country, and the reason mongolia.geo.soum and this file are two disjoint branches rather than one list. The weights are extremely uneven and that unevenness is real: Баянзүрх alone holds more people than the three largest aimags together, and Багахангай, at 4,416, holds fewer than most soum centres. TWO OF THE NINE ARE NOT PART OF THE CITY IN ANY EVERYDAY SENSE. Багануур sits 130 km east of Ulaanbaatar and Багахангай is an exclave surrounded entirely by Төв aimag; both are counted as separate towns for the purposes of the law on the status of cities and settlements while remaining districts of the capital, so Ulaanbaatar's administrative area of 4,704 km² is mostly empty steppe and any density figure computed over the whole city is meaningless. Налайх, 35 km out, is the third of these detached districts and appears in mongolia.geo.city on the same footing. The count has not always been nine: the capital had twelve until 1995, when Туул was merged into Хан-Уул, Гачуурт into Баянзүрх and Жаргалант into Сонгинохайрхан — those three names appear in older records and are not districts today. Below the district are 204 khoroos, numbered rather than named, and the numbering is renewed as districts subdivide, so a khoroo number in an old address may point at different ground now.
+locale: mn
+weighted: true
+---
+Баянзүрх,408797
+Сонгинохайрхан,342112
+Баянгол,246886
+Хан-Уул,238511
+Чингэлтэй,144249
+Сүхбаатар,142444
+Налайх,39579
+Багануур,29341
+Багахангай,4416

@@ -1,0 +1,44 @@
+---
+address: mongolia.geo.city
+description: Mongolian cities and settlements weighted by their population at 31 December 2021, as published for Mongolia by citypopulation.de from the National Statistics Office series. THE SHAPE OF THIS DISTRIBUTION IS THE WHOLE POINT: Mongolia is the most primate-city country in Asia. Улаанбаатар holds 1.47 million of a 3.4-million country — fourteen times Эрдэнэт, the second city, and more than every other settlement on this list put together several times over — so a uniform draw over Mongolian towns produces a population that lives nowhere like Mongolians do, and any per-city aggregate computed from it is wrong by an order of magnitude at the top. Weighted draws fix that; sampling this list unweighted does not. Three of the entries are also districts of the capital and appear here because the law on the status of cities and settlements counts them as separate towns: Налайх, Багануур and Багахангай are simultaneously rows in this file and rows in mongolia.geo.district, so summing the two lists double-counts about 73,000 people. Чингис is the aimag centre of Хэнтий and was called Өндөрхаан until 2013, when it was renamed for Chinggis Khaan; the source table still carries the old name, and records from either side of that date will not join on the string. The tail is not city-like at all — Гуулин at 722 and Хэрлэнбаян-Улаан at 527 are mining and railway settlements with a postal code and a school — but a Mongolian address is written to them exactly as to a city, which is why they are here. Everything below the top twenty-five is a settlement rather than a town, and outside these places Mongolians live at soum centres and in ger camps that this list cannot represent: roughly a quarter of the country has no settlement address at all.
+locale: mn
+weighted: true
+---
+Улаанбаатар,1466431
+Эрдэнэт,102141
+Дархан,84429
+Чойбалсан,47153
+Мөрөн,42423
+Өлгий,39711
+Налайх,38929
+Арвайхээр,34605
+Баянхонгор,32454
+Ховд,31980
+Улаангом,31354
+Багануур,29433
+Даланзадгад,28854
+Сайншанд,27405
+Чингис,24115
+Сүхбаатар,22412
+Цэцэрлэг,20881
+Баруун-Урт,19827
+Замын-Үүд,18995
+Алтай,17514
+Зуунмод,17313
+Улиастай,16580
+Мандалговь,13043
+Булган,12810
+Чойр,10831
+Зүүнхараа,6049
+Багахангай,4459
+Хатгал,3723
+Бугант,3258
+Хялганат,2975
+Номгон,1987
+Орхонтуул,1857
+Дулаанхаан,1802
+Цагааннуур,1663
+Гурванбаян,968
+Баянтоорой,781
+Гуулин,722
+Хэрлэнбаян-Улаан,527

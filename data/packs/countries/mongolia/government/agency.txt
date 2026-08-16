@@ -1,0 +1,35 @@
+---
+address: mongolia.government.agency
+description: The standing public bodies of Mongolia — the агентлаг and independent organs a citizen or a company actually transacts with, as distinct from the ministries, which are at mongolia.government.ministry and change name at almost every change of cabinet. THAT DISTINCTION IS THE POINT OF SPLITTING THE TWO FILES. Mongolian ministries have been merged, split and renamed at nearly every government since 1990, so a ministry name is a poor join key and a dataset keyed on one goes stale within a year or two; the agencies below have mostly kept their names for decades and are what a form, a stamp or an address line actually cites. The delivery layer matters more than the policy layer here: Улсын бүртгэлийн ерөнхий газар issues mongolia.docs.registrationNumber and registers every company, Татварын ерөнхий газар runs the ebarimt receipt system that Mongolian VAT depends on, Монголбанк runs the IBAN scheme behind mongolia.finance.iban, and Харилцаа холбооны зохицуулах хороо maintains the postal-code register behind mongolia.geo.postalCode — four of this pack's files trace back to a body on this list. Two entries are constitutional organs rather than agencies and would be mis-filed as executive bodies: Улсын Их Хурал is the unicameral 126-seat parliament, and Монгол Улсын Ерөнхийлөгч is the directly elected president, who is head of state with real powers over the judiciary and the armed forces but is not head of government. Мэргэжлийн хяналтын ерөнхий газар, the general inspection agency, is deliberately absent: it was dissolved in 2021 and its functions distributed, so an entry for it would name a body that no longer exists — the kind of quiet error a stale list produces.
+locale: mn
+---
+Улсын Их Хурал
+Монгол Улсын Ерөнхийлөгч
+Монгол Улсын Засгийн газар
+Засгийн газрын Хэрэг эрхлэх газар
+Монголбанк
+Санхүүгийн зохицуулах хороо
+Татварын ерөнхий газар
+Гаалийн ерөнхий газар
+Улсын бүртгэлийн ерөнхий газар
+Үндэсний статистикийн хороо
+Цагдаагийн ерөнхий газар
+Тагнуулын ерөнхий газар
+Онцгой байдлын ерөнхий газар
+Хилийн цэргийн газар
+Гадаадын иргэн, харьяатын газар
+Нийгмийн даатгалын ерөнхий газар
+Эрүүл мэндийн даатгалын ерөнхий газар
+Авлигатай тэмцэх газар
+Улсын ерөнхий прокурорын газар
+Үндэсний аудитын газар
+Шүүхийн ерөнхий зөвлөл
+Сонгуулийн ерөнхий хороо
+Харилцаа холбооны зохицуулах хороо
+Газар зохион байгуулалт, геодези, зураг зүйн ерөнхий газар
+Ашигт малтмал, газрын тосны газар
+Цаг уур, орчны шинжилгээний газар
+Хүний эрхийн үндэсний комисс
+Монгол шуудан
+Монголын үндэсний олон нийтийн радио, телевиз
+Хот байгуулалт, хөгжлийн ерөнхий газар

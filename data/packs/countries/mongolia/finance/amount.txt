@@ -1,0 +1,21 @@
+---
+address: mongolia.finance.amount
+description: A sum of money written the way it is written in Mongolia: groups of three separated by a COMMA, the tugrik sign FIRST and a NO-BREAK SPACE after it, and NO DECIMAL PART at all — ₮ 1,234,567. The first two are the CLDR mn-MN currency pattern, and they are the same characters English uses, so a Mongolian amount survives an English parser in a way a Georgian or a German one does not. The third is where a formatter goes wrong: CLDR and ISO 4217 both give MNT two fraction digits, and every currency library will therefore print ₮ 1,234,567.00, but the мөнгө that those decimals count has not circulated since the 1990s and no Mongolian price, invoice, salary or bank statement carries a fractional tugrik. The two decimals are always zero and are noise in every Mongolian row. THE SPACE AFTER THE SIGN IS U+00A0, NOT AN ORDINARY SPACE — invisible in an editor, and the reason a naive split on " " gives the wrong field count. The magnitude is drawn across five decades rather than uniformly, because the tugrik is a low-denomination currency: a loaf of bread is about ₮ 3,000 and a monthly salary about ₮ 2,000,000, so a uniform draw over a seven-digit range would make almost every value a salary. Nothing here is a number the engine can do arithmetic on: it is the PRINTED form, for filling a column a human or a parser will read as Mongolian text. For an amount to compute with, generate a plain number and format it at the point of output. Everyday Mongolian retail often writes the sign after the figure instead (3,000₮ on a price tag); CLDR does not, and this file follows CLDR.
+generator: tdc
+locale: mn
+---
+<sequence name="raw"><gen type="number" value="1..9999999"/></sequence>
+<sequence name="shift"><gen type="number" value="0..4"/></sequence>
+<sequence name="amount"><compute>
+  <!-- Spread the magnitude: divide the 7-digit draw by 1, 10, 100, 1000 or 10000. -->
+  <let name="scale"><at>
+    <in><list v="1,10,100,1000,10000"/></in>
+    <index><to_number><field name="shift"/></to_number></index>
+  </at></let>
+  <let name="whole"><divide><to_number><field name="raw"/></to_number><use name="scale"/></divide></let>
+  <!-- CLDR mn-MN: pattern "¤ #,##0.00", group separator a comma. The decimals are
+       dropped on purpose: the мөнгө is out of circulation. -->
+  <let name="grouped"><group size="3" sep=","><use name="whole"/></group></let>
+  <result><concat><str v="₮ "/><use name="grouped"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

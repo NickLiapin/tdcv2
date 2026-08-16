@@ -1,0 +1,16 @@
+---
+address: mongolia.finance.bankCode
+description: The four-digit bank code that occupies positions 5-8 of a Mongolian IBAN — the first four characters of the BBAN — from the Bank of Mongolia's published register of payment-system participants, in the same order as mongolia.finance.bank. Unlike Georgia's, this identifier is numeric, so the whole Mongolian BBAN is digits and a validator written for MN2!n4!n12!n needs no alphabetic handling. The code is NOT derivable from the bank's SWIFT BIC and has to be looked up: Хаан банк is AGMOMNUB but 0005, Худалдаа хөгжлийн банк is TDBMMNUB but 0004, Хас банк is CAXBMNUB but 0032. The same four digits also appear inside the bank's settlement account at the central bank, which is 3501 followed by the code without its leading zero — 3501005 for Хаан банк, 3501015 for Голомт — so a Mongolian interbank instruction and a Mongolian IBAN are keyed on the same number in two different shapes. A WARNING ABOUT THE PUBLISHED EXAMPLES, because it is the one thing likely to be got wrong here. Two of the Mongolian IBANs circulating on IBAN-lookup sites, MN580050099123456789 and MN870050099107306349, carry the bank code 0050 and are labelled KHAN BANK JSC by those sites. That label is wrong: on the Bank of Mongolia's own register 0050 is Мобифинанс ББСБ, a non-bank payment institution, and Хаан банк is 0005. The register wins, and 0050 is not in this file because Мобифинанс is not a bank — a real Mongolian IBAN can perfectly well carry it, and a "bank name" column joined from a lookup site will be wrong for those rows. IBAN became compulsory for interbank transfers in Mongolia on 1 April 2025 under Bank of Mongolia order A-242; account numbers from before that date are the banks' own legacy formats of different lengths and are not convertible by adding a prefix.
+---
+0005
+0004
+0015
+0032
+0034
+0039
+0030
+0021
+0038
+0033
+0019
+0029

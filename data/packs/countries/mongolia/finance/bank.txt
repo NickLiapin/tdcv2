@@ -1,0 +1,17 @@
+---
+address: mongolia.finance.bank
+description: The commercial banks licensed in Mongolia, in Mongolian, ordered roughly by size. Every name is taken from the Bank of Mongolia's own register of payment-system participants, and mongolia.finance.bankCode carries the four-digit participant code for each one IN THE SAME ORDER, so the two files can be drawn as a pair and the code will belong to the bank. Mongolia has twelve of these for 3.5 million people and the market is concentrated at the top: Хаан банк, Худалдаа хөгжлийн банк, Голомт банк, Хас банк and Төрийн банк are the five habitually counted as the country's top tier and together they hold the overwhelming majority of banking assets, so a realistic Mongolian customer table is not a flat draw over this list. Хаан банк is the outlier by reach rather than by assets — it grew out of the state Agricultural Bank and keeps a branch in essentially every soum centre, which is why its SWIFT code is still AGMOMNUB and why a rural Mongolian account is far more likely to be with it than the asset share suggests. Deliberate exclusions, all of which would otherwise look like ordinary rows: Монголбанк (participant 0001) is the central bank and holds no retail customers; Хөгжлийн банк (0036) is a state policy bank that lends to projects and takes no deposits from the public; Капитал банк and Хадгаламж банк appear on the register only as ЭХА, in receivership, and Анод банк and Зоос банк are failed banks kept on the list for settlement purposes. The register also carries a dozen licensed non-bank payment participants — Мобифинанс, Ард кредит, Токи, Инвескор Хэтэвч and the rest — which do issue account numbers and do appear inside Mongolian IBANs, but they are not banks and are not here.
+locale: mn
+---
+Хаан банк
+Худалдаа хөгжлийн банк
+Голомт банк
+Хас банк
+Төрийн банк
+М банк
+Капитрон банк
+Ариг банк
+Богд банк
+Чингис хаан банк
+Тээвэр хөгжлийн банк
+Үндэсний хөрөнгө оруулалтын банк

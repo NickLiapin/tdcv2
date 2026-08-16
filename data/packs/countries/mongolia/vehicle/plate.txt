@@ -1,0 +1,10 @@
+---
+address: mongolia.vehicle.plate
+description: Mongolian vehicle registration plate in the series in force since 2001 — four digits, then a space, then three Cyrillic letters, black on white, 520 × 110 mm, with the red Soyombo at the left of the digits and the oval MNG between the digits and the letters. The first two letters are a real region code from mongolia.vehicle.plateRegionCode and the third is a free series letter, so a plate here belongs to an aimag or a capital district that exists — which is the one thing a Mongolian plate DOES encode and a Georgian or a Polish-style generator would get wrong in opposite directions. THE LETTERS ARE CYRILLIC AND INCLUDE Ө AND Ү, so a plate-recognition pipeline, a regex or a database column built for Latin A-Z will drop or corrupt every plate from Bayan-Ölgii, Khövsgöl, Ömnögovi, Övörkhangai, Sükhbaatar aimag and Töv. The digits come first and the letters last, the reverse of the Russian and most European layouts, so a parser written for a neighbouring country will read the fields backwards rather than fail loudly. Since about 2018 new plates are set in Roboto rather than DIN 1451, which changes nothing in the data but a great deal in an OCR model trained on the older face. The third letter is written here as any Cyrillic letter of the Mongolian alphabet except Ъ, Ы and Ь: the published description of the series does not say which letters are excluded, so nothing narrower is claimed and those three are a judgement rather than a documented rule. Special plates exist and are NOT generated here — diplomatic, government, military, trailer and temporary transit plates all use different layouts — so a fleet table built from this file is a table of ordinary private and commercial vehicles.
+generator: tdc
+locale: mn
+---
+<sequence name="region"><gen type="template" value="mongolia.vehicle.plateRegionCode"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="series"><gen type="text" value="А,Б,В,Г,Д,Е,Ё,Ж,З,И,Й,К,Л,М,Н,О,Ө,П,Р,С,Т,У,Ү,Ф,Х,Ц,Ч,Ш,Щ,Э,Ю,Я"/></sequence>
+<data>${{serial}} ${{region}}${{series}}</data>

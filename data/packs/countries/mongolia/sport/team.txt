@@ -1,0 +1,15 @@
+---
+address: mongolia.sport.team
+description: The clubs of the Үндэсний дээд лиг, Mongolia's top football division, in Mongolian, for the 2025/26 season. Ten clubs, which is the whole league — Mongolia's top flight is small enough that this list is complete rather than a sample, and that is worth knowing before treating it as one. READ THE NAMES BEFORE ASSUMING THEY ARE MONGOLIAN WORDS. Unlike Georgian or Polish clubs, most of these are English names written out in Cyrillic — Хантерс is Hunters, Вестерн is Western, Централ Сталлионс is Central Stallions, СП Фалконс is SP Falcons — a habit of the 2010s and 2020s that makes Mongolian club names look transliterated because they are, and that will not round-trip through any transliteration table. Only Хангарьд (the Garuda of Buddhist iconography, and the emblem of Ulaanbaatar), Дэрэн (a soum in Dundgovi), Хоромхон and Ховдын Хүлэгүүд (the Steeds of Khovd) are Mongolian. Eight of the ten are based in Ulaanbaatar, so a club here is a poor proxy for a region. THE LARGER POINT IS THAT FOOTBALL IS NOT MONGOLIA'S SPORT. The national sports are the эрийн гурван наадам — wrestling, archery and horse racing — which are contested at Наадам by individuals and by horses, not by clubs, and have no league table to list; бөх wrestlers are ranked by title (арслан, заан, начин) rather than by team. Mongolia's international medals come from wrestlers, judoka and boxers, and its most famous athletes are sumo yokozuna in Japan, none of which is a club. Basketball's league confusingly shares the name Үндэсний дээд лиг and is at least as widely followed, with its own ten clubs; if a config wants Mongolian sport in general, football clubs are the narrowest possible answer. The league also churns: clubs are founded, renamed and relegated season to season, so this list dates faster than anything else in the pack.
+locale: mn
+---
+Улаанбаатар
+Централ Сталлионс
+Дэрэн
+Хангарьд
+Хантерс
+Ховдын Хүлэгүүд
+Вестерн
+Хоромхон
+СП Фалконс
+Улаангом Сити

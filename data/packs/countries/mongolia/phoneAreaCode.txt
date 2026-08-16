@@ -1,0 +1,26 @@
+---
+address: mongolia.phoneAreaCode
+description: Geographic codes for Mongolian fixed lines. THE CODES ARE NOT ALL THE SAME LENGTH, which is the thing to design around: Ulaanbaatar is the two-digit 11 and every aimag is a four-digit 70NN, and because the national number is a closed eight digits the subscriber block absorbs the difference — six digits behind 11, four behind 70NN. A fixed-width parse of Mongolian landlines therefore mis-splits either every capital number or every provincial one, depending on which width it picked. The aimag codes are not arbitrary: each is 70 followed by the aimag's old two-digit trunk code from the pre-2012 plan, so 01-372 for Darkhan-Uul became 7037 and 01-352 for Orkhon became 7035, and the four subscriber digits were carried across unchanged when Mongolia Telecom simplified the plan in 2012. Nothing in the numbering ascends with geography — 7027 is Töv in the centre, 7042 Bayan-Ölgii in the far west, 7058 Dornod in the far east — so a config must not infer a direction or a distance from the code. Ulaanbaatar keeps the legacy 11 that state bodies still print (Монголбанк at 11-310081, the Civil Registration Authority at 11-320146), and it ALSO holds four-digit 70NN blocks of its own that this file does not enumerate, because the Communications Regulatory Commission publishes no per-block allocation: the police moved to 7019xxxx and 7011, 7012 and 7013 are in daily use in the capital. Every code here is one a Mongolian public body prints on its own contact page; the set was checked against the Judicial Council's national emergency-service list, which carries all 21 aimags. Fixed lines are a small and shrinking minority of Mongolian connections — see mongolia.phone — so a person table where most rows carry a landline is not modelling Mongolia.
+---
+11
+7027
+7032
+7033
+7034
+7035
+7036
+7037
+7038
+7042
+7043
+7044
+7045
+7046
+7048
+7051
+7052
+7053
+7054
+7056
+7058
+7059

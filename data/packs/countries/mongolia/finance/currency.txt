@@ -1,0 +1,7 @@
+---
+address: mongolia.finance.currency
+description: The two Mongolian money units. The currency is the төгрөг (tögrög, ISO 4217 MNT, symbol ₮), nominally divided into 100 мөнгө (möngö). THE SUBDIVISION IS DEAD AND THAT IS A MODELLING FACT, NOT TRIVIA: no мөнгө coin has circulated since the 1990s, no Mongolian price carries a fractional part, and the smallest thing anyone pays is a whole tögrög — yet ISO 4217 still records MNT with two decimal places, so a currency library will happily format 1000 as 1,000.00 and a schema will size the column with two decimals that are always zero. Mongolian bank statements and price tags print whole numbers; see mongolia.finance.amount. The tögrög is also a low-denomination currency by international standards, roughly 3,400 to the US dollar, which is why the banknote series runs to ₮20,000 and why an ordinary Mongolian salary is a seven-figure number — an amount column sized for four or five digits will overflow on the first row, and an integer field must be wide enough for tens of millions. The symbol ₮ is U+20AE, encoded in Unicode 1.0 and much older than the Georgian or Turkish signs, so font support is not the problem it is for those; MNT is the safe fallback in machine-readable contexts. The tögrög dates from 1925, when it replaced the various Chinese, Russian and Mongolian coinages then circulating, and unlike the Georgian lari it has never been redenominated — so an amount in tögrög from 1960 and one from today are the same unit, though inflation makes them incomparable in value.
+locale: mn
+---
+төгрөг
+мөнгө

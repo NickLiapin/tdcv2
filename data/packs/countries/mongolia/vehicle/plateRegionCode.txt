@@ -1,0 +1,34 @@
+---
+address: mongolia.vehicle.plateRegionCode
+description: The two-letter region codes that open the three-letter group on a Mongolian number plate — the first two letters of the suffix in the 1234 ААА format, identifying the aimag or capital district where the vehicle was registered. THE LETTERS ARE CYRILLIC, NOT LATIN, which is what makes this file worth having: a Mongolian plate is one of the few national plates in the world written in Cyrillic and carrying no Latin transcription on the plate face at all, only the oval MNG between the digits and the letters. The codes are close to abbreviations of the place — АР Arkhangai, БӨ Bayan-Ölgii, ХӨ Khövsgöl, ЗА Zavkhan — and they use the two letters Russian does not have, Ө and Ү, so a system that stores plates in a Russian-only Cyrillic range or transliterates through Russian will mangle БӨ, ХӨ, ӨМ, ӨВ and СҮ. Ulaanbaatar has five codes rather than one (УБ, УН, УА, УЕ, УК) because the capital exhausted a single series, and two of its districts are numbered separately from the rest of the city: БР is Baganuur and НА is Nalaikh, the two detached districts that also appear as their own towns in mongolia.geo.city. Selenge aimag likewise splits, СЭ for the aimag and СБ for the city of Sükhbaatar inside it, which is not the same place as СҮ, Sükhbaatar AIMAG at the other end of the country — two different units sharing a name, told apart only by the second letter. The published source table for these codes mixes in Latin homoglyphs (writing БH with a Latin H, БP and OP with Latin P and O); those are typographic errors and every code here is normalised to Cyrillic, which is the difference between a plate that sorts and joins and one that silently does not.
+locale: mn
+---
+АР
+БН
+БР
+БӨ
+БУ
+ГА
+ГС
+ДА
+ДГ
+ДО
+ДУ
+ЗА
+НА
+ОР
+СБ
+СЭ
+СҮ
+ТӨ
+УА
+УБ
+УВ
+УЕ
+УК
+УН
+ХО
+ХЭ
+ХӨ
+ӨВ
+ӨМ

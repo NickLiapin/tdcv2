@@ -1,0 +1,23 @@
+---
+address: mongolia.phoneMobilePrefix
+description: The two-digit mobile network prefixes of Mongolia's numbering plan. Every Mongolian mobile number is eight digits and the prefix here is the whole opening pair; six subscriber digits follow. THE PREFIX IS NOT A RELIABLE CARRIER KEY and a config that treats it as one will build an operator column that is wrong for a share of rows. The Communications Regulatory Commission's published plan assigns whole leading digits rather than operators: 8 and 9 are mobile telephony, 5 and 6 are mobile together with IoT and machine-to-machine data, 7 is IP-based voice, 2 is fixed, and 3 and 4 are unallocated reserve. Within 8 and 9 the historic allocations were roughly 94, 95, 99 and 85 to Mobicom, 80, 86, 88 and 89 to Unitel, 90, 91, 92 and 96 to Skytel, 93, 97, 98 and 83 to G-Mobile, and 60, 66 and 69 in the 6X block to ONDO and Skytel — useful for making a plausible-looking data set, not for asserting a carrier. The 6X entries deserve a second look before use: that block is designated for mobile AND for IoT and data services, so a 6X number is as likely to belong to a meter or a vehicle tracker as to a person, and a synthetic person table that draws 60 or 66 as a personal mobile is modelling something Mongolia mostly uses for machines. Operator NAMES are at mongolia.telecom.operator; this file is numbering-plan data, which is a property of the country and would survive Mongolia changing its language. Two things a foreign reader expects and Mongolia does not have: there is no trunk prefix, so the eight digits after +976 are exactly the eight digits a Mongolian dials at home, and there is no fixed-mobile length difference — a Mongolian landline is eight digits too, so length alone will not tell them apart.
+---
+60
+66
+69
+80
+83
+85
+86
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99

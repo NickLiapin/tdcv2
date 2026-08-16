@@ -1,0 +1,33 @@
+---
+address: mongolia.education.university
+description: Higher education institutions of Mongolia, in Mongolian, state universities first. Mongolia's system descends from a single institution: Монгол Улсын Их Сургууль, founded in 1942 as the country's first university, and the six that were later split off from it — the education, agriculture, medical, technical and humanities universities and Khovd — which is why so many of the large state names read as subject areas rather than places, and why a Mongolian graduate's institution says more about their field than about their town. THE ACRONYMS ARE HOW THESE INSTITUTIONS ARE ACTUALLY NAMED IN RUNNING TEXT and a data set that stores only the long form will not match anything a Mongolian typed: МУИС, ШУТИС, АШУҮИС, ХААИС, МУБИС and СЭЗИС are the everyday names, they are built from the initials of the Mongolian words, and they do not resemble any transliteration of the English name — Шинжлэх Ухаан Технологийн Их Сургууль is "MUST" in English and ШУТИС in Mongolian, with not a letter in common. The word Их Сургууль means university and Дээд Сургууль an institute or college of higher education, a rank below; both are ordinary Mongolian vocabulary and belong to the language rather than to the country, but they are part of these institutions' legal names and are kept. Nearly everything is in Ulaanbaatar. Only Ховд Их Сургууль and Дорнод Их Сургууль are aimag universities in their own right, and the rest of provincial higher education is branch campuses and colleges of the capital's institutions, so a synthetic student population distributed evenly across mongolia.geo.aimag does not describe Mongolia. Mongolia also has an unusually large private sector for its size — around sixty licensed institutions in a country of 3.5 million — of which the better-known are at the tail of this list; the private colleges open and close frequently, so this is the durable core rather than a register.
+locale: mn
+---
+Монгол Улсын Их Сургууль
+Шинжлэх Ухаан Технологийн Их Сургууль
+Анагаахын Шинжлэх Ухааны Үндэсний Их Сургууль
+Хөдөө Аж Ахуйн Их Сургууль
+Монгол Улсын Боловсролын Их Сургууль
+Санхүү Эдийн Засгийн Их Сургууль
+Соёл Урлагийн Их Сургууль
+Батлан Хамгаалахын Их Сургууль
+Дотоод Хэргийн Их Сургууль
+Ховд Их Сургууль
+Дорнод Их Сургууль
+Монгол Германы Хамтарсан Ашигт Малтмал Технологийн Их Сургууль
+Их Засаг Олон Улсын Их Сургууль
+Отгонтэнгэр Их Сургууль
+Мандах Их Сургууль
+Орхон Их Сургууль
+Улаанбаатар Их Сургууль
+Сити Их Сургууль
+Этүгэн Их Сургууль
+Ач Анагаах Ухааны Их Сургууль
+Монголын Үндэсний Их Сургууль
+Шинэ Монгол Технологийн Дээд Сургууль
+Шихихутуг Их Сургууль
+Хүмүүнлэгийн Ухааны Их Сургууль
+Үндэсний Биеийн Тамирын Дээд Сургууль
+Гурван-Эрдэнэ Багшийн Дээд Сургууль
+Технологийн Дээд Сургууль
+Дархан Дээд Сургууль

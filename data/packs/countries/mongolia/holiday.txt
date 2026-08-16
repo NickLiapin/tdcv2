@@ -1,0 +1,13 @@
+---
+address: mongolia.holiday
+description: The public holidays of Mongolia — the days the Law on Nationally Observed Holidays and Commemorative Days makes non-working, in Mongolian. THE CALENDAR IS THE REASON A MONGOLIAN WORKING-DAY MODEL CANNOT BE BORROWED FROM ANY WESTERN ONE, and the reason is not Easter but the lunar calendar. Three of the entries here move every year against the Gregorian calendar and cannot be computed from a month and a day: Цагаан сар, the lunar new year, falls on the first three days of the first month of spring in the Mongolian lunisolar calendar, somewhere between late January and early March; Их эзэн Чингис хааны төрсөн өдөр is the first day of the first month of winter, usually in November; and Бурхан багшийн Их дүйчин өдөр, Vesak, is the fifteenth of the first month of summer. Their Gregorian dates are announced each year and are not derivable from the Chinese new year either, because the Mongolian calendar is a distinct Tibetan-derived reckoning that occasionally lands a day or a month apart from it. The fixed dates carry weight a foreign reader will misjudge. Наадам is not one day but six, 10 to 15 July since the 2022 amendment that added the tenth, and Mongolia effectively stops for it — it is much the longest break in the year and combines the anniversary of the 1921 revolution with the wrestling, archery and horse-racing festival that predates it by centuries. Эх, үрсийн баяр on 1 June is a full public holiday, not the token children's day it is elsewhere. And 29 December marks the restoration of independence in 1911, which is a different event from the 1921 revolution celebrated in July, so Mongolia has two national days and they are eight years and six months apart. Christmas is not a holiday in Mongolia in any form, and 25 December is an ordinary working day. Where a holiday falls at a weekend the government normally moves the rest day by resolution rather than letting it lapse, so the count of non-working days in a Mongolian year is announced annually and is not a property of the calendar.
+locale: mn
+---
+Шинэ жил
+Цагаан сар
+Олон улсын эмэгтэйчүүдийн эрхийг хамгаалах өдөр
+Эх, үрсийн баяр
+Бурхан багшийн Их дүйчин өдөр
+Үндэсний их баяр наадам
+Их эзэн Чингис хааны төрсөн өдөр
+Тусгаар тогтнолоо сэргээсэн, Үндэсний эрх чөлөөний өдөр

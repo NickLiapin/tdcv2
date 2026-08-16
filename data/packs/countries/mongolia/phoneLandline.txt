@@ -1,0 +1,18 @@
+---
+address: mongolia.phoneLandline
+description: Mongolian fixed line in E.164 form — +976, a real geographic code from mongolia.phoneAreaCode, and a subscriber block sized to fit the closed eight-digit plan: six digits behind Ulaanbaatar's two-digit 11, four behind every four-digit provincial 70NN. The generator branches on the LENGTH of the drawn code rather than on a hard-coded list, which is why adding a code to mongolia.phoneAreaCode needs no change here. There is no trunk prefix to strip and none to add: Mongolia's plan is closed and eight digits, so the number a Mongolian dials at home is the same eight digits that follow +976, and unlike Georgia or Russia there is no leading 0 in the domestic form. Written without separators here; Mongolian practice writes the capital's as 11-310081 and an aimag's as 7037-1234, which is the same digits with a hyphen after the code. The subscriber block is unconstrained: the CRC publishes the leading digit of the plan but not its per-block allocations, so nothing narrower than "four or six digits" can be claimed. Fixed telephony is marginal in Mongolia — there are roughly 4.8 million active mobile subscriptions against a population of 3.5 million, and a rural household typically has no landline at all — so a landline column should be sparse.
+generator: tdc
+---
+<sequence name="code"><gen type="template" value="mongolia.phoneAreaCode"/></sequence>
+<sequence name="sub"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="extra"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="number"><compute>
+  <!-- Closed plan, eight national digits: a two-digit code leaves six for the
+       subscriber, a four-digit code leaves four. -->
+  <result><choose>
+    <when><test><equals><length><field name="code"/></length><int v="2"/></equals></test>
+      <then><concat><str v="+976"/><field name="code"/><field name="sub"/><field name="extra"/></concat></then></when>
+    <otherwise><concat><str v="+976"/><field name="code"/><field name="sub"/></concat></otherwise>
+  </choose></result>
+</compute></sequence>
+<data>${{number}}</data>

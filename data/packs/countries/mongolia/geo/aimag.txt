@@ -1,0 +1,27 @@
+---
+address: mongolia.geo.aimag
+description: The 21 aimags (аймаг) of Mongolia, weighted by their 2025 population. Mongolia's first level is 22 units, not 21: the aimags plus Улаанбаатар, which is the нийслэл (capital) and sits at the same rank while being a different kind of thing — it has дүүрэг rather than сум beneath it and is not an aimag, so it is deliberately absent here and lives in mongolia.geo.district. A config that concatenates this list with the capital to get "all regions" has produced a correct set with an incorrect label; a config that omits the capital has dropped 46 per cent of Mongolians. THE WEIGHTS UNDERSTATE THE REAL SKEW, and that is the thing to design around. Read as populations these numbers look almost flat — Хөвсгөл 135,600 at the top and Говьсүмбэр 18,107 at the bottom, a spread of seven — because the capital, which holds about half the country, is not in the list at all. Any per-aimag aggregate computed from a draw over this file describes rural Mongolia only. Three aimags are urban rather than territorial and behave unlike the rest: Орхон is the mining city of Эрдэнэт with two soums and 126 people per km², Дархан-Уул is Дархан with four, and Говьсүмбэр is the smallest of all with three; the other eighteen are large pastoral territories with 13 to 27 soums each and under three people per km². Хөвсгөл leads on population but Өмнөговь is the biggest by area at 165,400 km² — larger than England — with 80,005 people in it. Aimag names go bare, without the word аймаг, which is ordinary Mongolian vocabulary; they take a genitive ending in running text (Хөвсгөл becomes Хөвсгөлийн), so a name joined into a sentence will not match this list character for character.
+locale: mn
+weighted: true
+---
+Хөвсгөл,135600
+Өвөрхангай,113486
+Баян-Өлгий,109038
+Орхон,106356
+Дархан-Уул,105122
+Сэлэнгэ,103831
+Төв,92948
+Архангай,91138
+Ховд,89966
+Баянхонгор,87974
+Увс,84140
+Дорнод,83859
+Өмнөговь,80005
+Хэнтий,78792
+Дорноговь,73970
+Завхан,70032
+Сүхбаатар,66441
+Булган,59110
+Говь-Алтай,56091
+Дундговь,45877
+Говьсүмбэр,18107

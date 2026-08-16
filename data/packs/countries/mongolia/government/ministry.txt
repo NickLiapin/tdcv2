@@ -1,0 +1,21 @@
+---
+address: mongolia.government.ministry
+description: The ministries (яам) of the Government of Mongolia. READ THE VOLATILITY WARNING BEFORE JOINING ANYTHING TO THIS LIST. Mongolian ministries are not stable institutions with stable names: they are merged, split and re-titled at nearly every change of cabinet, and Mongolia has had twenty-two governments since 1990 and four since 2021. The portfolio boundaries move with them — mining and heavy industry have been one ministry, then two, then folded into "industry and mineral resources"; roads and transport have been joined to construction and separated from it; culture, sport, tourism and youth have been combined in one department and split into three; education and science have been one ministry and two. So a name here is correct as of the cabinet formed in 2026 and a dataset keyed on ministry names will drift out of date faster than any other list in this pack. Use mongolia.government.agency instead where a stable join key is needed: the agencies beneath these ministries have mostly kept their names for decades. The ministry count is itself a policy variable rather than a constant — cabinets have run from thirteen to nineteen ministers, with governments periodically promising to cut the number and the next one restoring it — and some ministers sit in cabinet without a ministry behind them, which is why the list of ministries and the list of ministers never match. Two conventions to know: the first deputy prime minister ordinarily holds the economy and development portfolio as well, so that ministry is unusually powerful; and a Mongolian minister may sit simultaneously as a member of parliament, which is constitutional there and would be incompatible in most parliamentary systems.
+locale: mn
+---
+Гадаад харилцааны яам
+Сангийн яам
+Эдийн засаг, хөгжлийн яам
+Хууль зүй, дотоод хэргийн яам
+Батлан хамгаалах яам
+Боловсролын яам
+Эрүүл мэндийн яам
+Гэр бүл, нийгмийн хамгааллын яам
+Байгаль орчин, уур амьсгалын өөрчлөлтийн яам
+Аж үйлдвэр, эрдэс баялгийн яам
+Эрчим хүчний яам
+Зам, тээврийн яам
+Хот байгуулалт, барилга, орон сууцжуулалтын яам
+Хүнс, хөдөө аж ахуй, хөнгөн үйлдвэрийн яам
+Цахим хөгжил, инновац, харилцаа холбооны яам
+Аялал жуулчлал, соёл, спорт, залуучуудын яам

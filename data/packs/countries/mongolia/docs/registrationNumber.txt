@@ -1,0 +1,35 @@
+---
+address: mongolia.docs.registrationNumber
+description: The Mongolian registration number (регистрийн дугаар) — ten characters, two Cyrillic letters then eight digits, printed on the identity card and used by every Mongolian state system, bank and employer as the single key to a person. It is ALSO the individual's taxpayer number: Mongolia issues no separate TIN to a natural person, so a schema with distinct registrationNumber and taxId columns for an individual has invented a distinction Mongolia does not make (mongolia.tax.tin is the seven-digit number issued to LEGAL persons only). Layout, from the Civil Registration Authority's own regulation and its published explanations: positions 1-2 are letters, the first coding the aimag or capital district and the second the soum or khoroo that issued the number; 3-4 are the last two digits of the year of birth; 5-6 the month; 7-8 the day; 9 the sex; 10 a check digit. THE MONTH CARRIES THE CENTURY, exactly as a PESEL does: for anyone born from 2000 onwards 20 is added to the month, so a person born in March 2005 has 0523 where a person born in March 1905 or 1995 has month 03. A parser that reads positions 5-6 as a plain month will reject every Mongolian born this century, and one that assumes 19xx will age them by a hundred years. Position 9 is odd for male and even for female, so sex is derived from the number and must not be drawn independently of it. NO CHECK DIGIT IS COMPUTED HERE, AND THAT IS A DECISION RATHER THAN AN OMISSION. Position 10 genuinely is a check digit — the regulation says in terms that it "protects the two letters and the first seven digits against alteration and accidental error" — but Mongolia publishes no algorithm for it. It is not in the regulation, not in the Civil Registration Authority's public explanations, and not in python-stdnum, which has no Mongolia module at all; the one Python package that parses these numbers says outright that no reliable open source describes how the digit is derived. Reverse-engineered mod-11 rules for it circulate. Implementing one would make this file LOOK more rigorous while quietly rejecting real numbers and accepting fake ones, which is worse than no checksum because it looks verified, so position 10 is drawn as a free digit and the file says so. Do not treat output from this generator as passing a Mongolian registry check: it will pass a format check and fail a checksum check, if the verifier has one. THE LETTER PAIR IS LIKEWISE DRAWN AND NOT MAPPED. The regulation says the two letters encode the issuing aimag/district and soum/khoroo and that the letter-and-number books are laid out "by a mathematical method" at the registry's IT department, but it publishes no code table and neither does anyone else; only isolated pairs are documented in the open (ЖЮ for Choibalsan in Dornod). The letters here are drawn from the Mongolian Cyrillic alphabet minus Ъ, Ы and Ь — which never begin a Mongolian word and are a judgement here rather than a documented exclusion — so the pair is structurally right and geographically meaningless, and must not be joined to mongolia.geo.aimag. Not to be confused with the twelve-digit civil registration number (иргэний бүртгэлийн дугаар) introduced alongside it, which carries no letters and no birth date; the physical ID card stopped printing the registration number and the holder's address in 2022, but the number itself continues.
+generator: tdc
+locale: mn
+---
+<!-- Positions 1-2: the issuing aimag/district and soum/khoroo, as letters.
+     No public table maps a pair to a place — see the description. -->
+<sequence name="l1"><gen type="text" value="А,Б,В,Г,Д,Е,Ё,Ж,З,И,Й,К,Л,М,Н,О,Ө,П,Р,С,Т,У,Ү,Ф,Х,Ц,Ч,Ш,Щ,Э,Ю,Я"/></sequence>
+<sequence name="l2"><gen type="text" value="А,Б,В,Г,Д,Е,Ё,Ж,З,И,Й,К,Л,М,Н,О,Ө,П,Р,С,Т,У,Ү,Ф,Х,Ц,Ч,Ш,Щ,Э,Ю,Я"/></sequence>
+<sequence name="dob"><gen type="date" from="1940-01-01" to="2012-12-31" format="YYYYMMDD"/></sequence>
+<!-- Position 9: odd = male, even = female. -->
+<sequence name="sex"><gen type="regex" value="[0-9]"/></sequence>
+<!-- Position 10: the check digit, DRAWN. Mongolia publishes no algorithm. -->
+<sequence name="check"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="rd"><compute>
+  <let name="year"><to_number><slice from="0" to="4"><field name="dob"/></slice></to_number></let>
+  <let name="yy"><slice from="2" to="4"><field name="dob"/></slice></let>
+  <let name="mm"><to_number><slice from="4" to="6"><field name="dob"/></slice></to_number></let>
+  <let name="dd"><slice from="6" to="8"><field name="dob"/></slice></let>
+  <!-- The century lives in the month: 2000 onwards adds 20, so March 2005 is 23. -->
+  <let name="offset">
+    <choose>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test><then><int v="20"/></then></when>
+      <otherwise><int v="0"/></otherwise>
+    </choose>
+  </let>
+  <let name="encmonth"><pad width="2"><add><use name="mm"/><use name="offset"/></add></pad></let>
+  <result><concat>
+    <field name="l1"/><field name="l2"/>
+    <use name="yy"/><use name="encmonth"/><use name="dd"/>
+    <field name="sex"/><field name="check"/>
+  </concat></result>
+</compute></sequence>
+<data>${{rd}}</data>

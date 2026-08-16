@@ -1,0 +1,11 @@
+---
+address: mongolia.telecom.operator
+description: The mobile network operators of Mongolia, weighted by subscribers. The weights are the Communications Regulatory Commission's published market shares at the end of 2024 — Мобиком 36.9 per cent, Юнител 32.2, Скайтел 18.6, Жи-Мобайл 9.5, Ондо 2.8 — applied to the 4.8 million active subscriptions the CRC reports, so they are subscription counts rather than headcounts and they exceed the population: Mongolia has more active SIMs than people, which is why a one-SIM-per-person model produces too few rows. Five operators for 3.5 million people is a lot, and the market is a genuine four-way contest rather than a duopoly with a fringe. Two of them are there for reasons a foreign reader will miss. Жи-Мобайл was created to serve rural Mongolia and carries a share of the herder population out of proportion to its national number, so an operator column correlated with mongolia.geo.aimag rather than drawn flat is closer to the truth; and Ондо is a recent entrant, from 2022, whose small share is growth rather than decline. Скайтел was the CDMA operator and its network history still shows in older handset data. Operator names in a country pack rather than a language pack is a judgement: these are companies that exist in Mongolia and would go on existing if Mongolia changed its script, exactly like the banks at mongolia.finance.bank — the generic words "оператор" and "үүрэн холбоо" are the language's and are not here. Do not derive an operator from a number: the prefix blocks at mongolia.phoneMobilePrefix were allocated per operator historically but do not identify who serves a number today.
+locale: mn
+weighted: true
+---
+Мобиком,1771200
+Юнител,1545600
+Скайтел,892800
+Жи-Мобайл,456000
+Ондо,134400

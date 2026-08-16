@@ -1,0 +1,8 @@
+---
+address: mongolia.phone
+description: Mongolian mobile number in E.164 form — +976 then a real two-digit network prefix from mongolia.phoneMobilePrefix then six subscriber digits, eleven characters after the plus sign in total. Mobile is what "phone number" means in Mongolia to a degree that matters for modelling: there are roughly 4.8 million active mobile subscriptions against 3.5 million people, more than one each, while fixed lines are a small and shrinking minority, so a Mongolian person record with a landline and no mobile is the unusual case rather than the other way round. A herder 300 km from the nearest soum centre has a mobile and no landline, and that is the ordinary case, not the edge case. Written here without any trunk prefix because Mongolia's plan is closed at eight national digits and has none — a Mongolian typing the same number at home writes 9911 2233 or 99112233, never 0 99 11 22 33, so a validator built for this pack's output should NOT tolerate a leading zero the way a Georgian or a British one must. The eight-digit national number is the same length as a Mongolian landline, so length cannot separate the two; the opening digit is what does, and even that is imperfect because the 6X block carries data SIMs as well as phones. See mongolia.phoneLandline for fixed lines, which sit behind a geographic code, and mongolia.phoneMobilePrefix for why the prefix does not identify the carrier.
+generator: tdc
+---
+<sequence name="prefix"><gen type="template" value="mongolia.phoneMobilePrefix"/></sequence>
+<sequence name="sub"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+976${{prefix}}${{sub}}</data>
