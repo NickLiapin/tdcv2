@@ -1,0 +1,27 @@
+---
+address: bosnia_and_herzegovina.tax.vat
+description: Bosnian VAT number, the PDV broj — TWELVE digits, and it is the JIB with the leading digit cut off. JP Autoputevi RS carries ID broj 4402955260002 and PDV broj 402955260002; BH Telecom carries 4200211100005 and 200211100005. There is no letter prefix: writing "BA4200211100005" on an invoice would be wrong, because Bosnia is not in the EU and issues nothing shaped like an EU VAT identification number. THE TRAP THAT FOLLOWS FROM THE TRUNCATION, and it is the reason this file has a description rather than a one-line generator: the PDV broj IS NOT SELF-CHECKING. Its last digit is the JIB's Modul 11 check over the JIB's first twelve digits — which include the leading 4 that the PDV broj has thrown away — so a validator that runs Modul 11 over the eleven digits it can see will reject every valid Bosnian VAT number in the file. Put the 4 back first, then check. Two administrations issue the JIB and therefore the PDV broj, the Porezna uprava FBiH and the Poreska uprava RS, but VAT itself is a STATE tax: it is administered by the Uprava za indirektno oporezivanje BiH (UIO/UINO) in Banja Luka for the whole country, it is the largest single revenue in the state budget, and it is the one fiscal instrument the Dayton settlement left entirely at state level — which is why an entity has a tax administration but not a VAT rate. The rate is a single 17% with no reduced band, unusual in Europe and unchanged since VAT was introduced on 1 January 2006, replacing the two entities' separate sales taxes. Amounts are in convertible marks; see bosnia_and_herzegovina.finance.currency. Registration is compulsory above a turnover of 100,000 KM. Values here take the Federation form, second digit 2, for the same reason as bosnia_and_herzegovina.tax.jib, whose arithmetic and whose eight verified published numbers this file shares.
+generator: tdc
+---
+<sequence name="serial"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="branch"><gen type="text" value="000,000,000,000,000,001,002,003,004,005"/></sequence>
+<sequence name="pdv"><compute>
+  <let name="base"><concat><str v="42"/><field name="serial"/><field name="branch"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,6,5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><less_than><use name="r"/><int v="2"/></less_than></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
+    </choose>
+  </let>
+  <!-- The PDV broj is the JIB without its leading 4, so drop the first digit. -->
+  <result><concat><slice from="1"><use name="base"/></slice><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{pdv}}</data>

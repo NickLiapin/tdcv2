@@ -1,0 +1,25 @@
+---
+address: bosnia_and_herzegovina.education.university
+description: Universities of Bosnia and Herzegovina — the eight public ones first, largest by enrolment, then the better-established private ones. MOSTAR HAS TWO PUBLIC UNIVERSITIES AND THAT IS THE FACT THIS FILE EXISTS TO CARRY. Sveučilište u Mostaru teaches in Croatian and Univerzitet "Džemal Bijedić" u Mostaru teaches in Bosnian; they are separate legal persons with separate rectors, separate faculties and separate campuses in one town of sixty thousand people, and the split is a direct inheritance of the war that divided the city. Note the two words: a university in Croatian is a SVEUČILIŠTE and in Bosnian and Serbian a UNIVERZITET, so the naming itself carries the language, and calling the Croatian one "Univerzitet u Mostaru" — as some Bosnian-language sources do — renames an institution rather than translating it. Sarajevo likewise has two cities' worth: Univerzitet u Sarajevu in the Federation, founded 1949 and by far the largest in the country at over 21,000 students across 25 faculties, and Univerzitet u Istočnom Sarajevu, formed in 1992 out of the faculties that moved into what became Republika Srpska, which writes its own name Универзитет у Источном Сарајеву. There is no state ministry of education in Bosnia and no state university: higher education is a cantonal competence in the Federation and an entity competence in Republika Srpska, so thirteen separate authorities license these institutions and the state's only role is the Agencija za razvoj visokog obrazovanja i osiguranje kvaliteta, which accredits. Enrolment is falling across the country — roughly 88,500 students in 2019/20 against 79,300 in 2024/25 — and it is falling fastest in Republika Srpska. Brčko District has no public university at all; every one of its 1,127 students is at a private institution. Names are Latin; see bosnia_and_herzegovina.language.
+locale: bs
+---
+Univerzitet u Sarajevu
+Univerzitet u Banjoj Luci
+Sveučilište u Mostaru
+Univerzitet u Tuzli
+Univerzitet u Istočnom Sarajevu
+Univerzitet u Zenici
+Univerzitet "Džemal Bijedić" u Mostaru
+Univerzitet u Bihaću
+Internacionalni univerzitet u Sarajevu
+Međunarodni univerzitet Burch
+Panevropski univerzitet Apeiron Banjaluka
+Univerzitet Sinergija
+Univerzitet Slobomir P
+Univerzitet u Travniku
+Univerzitet "VITEZ" Travnik
+Nezavisni univerzitet Banja Luka
+Evropski univerzitet "Kallos" Tuzla
+Univerzitet za poslovni inženjering i menadžment
+Sarajevo School of Science and Technology
+Univerzitet "Bijeljina"

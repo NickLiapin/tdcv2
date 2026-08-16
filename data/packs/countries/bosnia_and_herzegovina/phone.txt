@@ -1,0 +1,23 @@
+---
+address: bosnia_and_herzegovina.phone
+description: Bosnian mobile number in E.164 form — +387 then a two-digit network code beginning 6 and six or seven subscriber digits. THE MOBILE PREFIX IS THE ONE THING IN THIS PACK THAT STILL TELLS YOU THE ENTITY, and that is the point of putting it next to the plate and the postcode, which were built not to. Bosnia has three incumbent mobile operators because the pre-war PTT split three ways during the war and was never put back together: BH Telecom (060, 061, 062), state-owned by the Federation and based in Sarajevo; HT Eronet (063, 064), the Croat-run operator based in Mostar and also Federation-owned; and m:tel, that is Telekom Srpske (065, 066), owned by Republika Srpska and based in Banja Luka. Each grew out of the network it inherited, each still has its historic subscriber base, and after twenty-five years of number portability a 065 number is still overwhelmingly likely to belong to somebody in Republika Srpska. 067 is the one prefix that is not an incumbent: it belongs to a virtual operator riding on m:tel's network. The Regulatorna agencija za komunikacije licenses all of them at STATE level — one regulator, three operators, one numbering plan — which is the same shape as the postal system, where one plan is shared by three operators. SUBSCRIBER LENGTH IS NOT FIXED and depends on the prefix: 061, 062, 063, 065 and 066 take six subscriber digits (a national number of eight digits, 06X XXX XXX), while 060, 064 and 067 were opened later against a shortage and take seven (nine digits nationally). This generator gets that right per prefix rather than picking one length for all. Written nationally the number carries a trunk zero — 061 123 456. Landlines are not generated here; see bosnia_and_herzegovina.phoneLandline, whose geographic codes were laid out on the pre-war map and cut across the entity line exactly as the postcodes do.
+generator: tdc
+---
+<sequence name="network"><gen type="text" value="60,61,62,63,64,65,66,67"/></sequence>
+<sequence name="six"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="seven"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="msisdn"><compute>
+  <let name="n"><field name="network"/></let>
+  <let name="code"><to_number><use name="n"/></to_number></let>
+  <let name="sub">
+    <!-- 060, 064 and 067 were opened against a number shortage and take seven digits. -->
+    <choose>
+      <when><test><equals><use name="code"/><int v="60"/></equals></test><then><field name="seven"/></then></when>
+      <when><test><equals><use name="code"/><int v="64"/></equals></test><then><field name="seven"/></then></when>
+      <when><test><equals><use name="code"/><int v="67"/></equals></test><then><field name="seven"/></then></when>
+      <otherwise><field name="six"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><str v="+387"/><use name="n"/><use name="sub"/></concat></result>
+</compute></sequence>
+<data>${{msisdn}}</data>

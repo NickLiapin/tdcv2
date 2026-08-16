@@ -1,0 +1,22 @@
+---
+address: bosnia_and_herzegovina.geo.cityCyrillic
+description: The same towns in CYRILLIC, and the set is not arbitrary: every value here is a value of bosnia_and_herzegovina.geo.city written in the other official script, and the subset is the towns of Republika Srpska, because those are the ones whose own municipality writes them that way. Republika Srpska's institutions publish in Serbian in Cyrillic; the Federation's publish in Bosnian and Croatian in Latin, and Croatian has no Cyrillic tradition at all, so writing Široki Brijeg or Ljubuški in Cyrillic would produce a string that exists nowhere. This file exists so that a config which needs a Republika Srpska dataset can ask for one EXPLICITLY, at its own address, instead of getting two scripts mixed inside one column — which is what a naive "Bosnia is digraphic" implementation produces and what no Bosnian register looks like. Weights are the same 2013 settlement figures as bosnia_and_herzegovina.geo.city, so the two files agree row for row. Брчко is the one entry that is not in Republika Srpska: Brčko District is officially trilingual and digraphic in its own right, Pošte Srpske runs the 76100 office under that spelling, and leaving the country's eighth town out of the Cyrillic list to keep a tidy rule would have been the wrong trade. Note that Cyrillic here is a matter of SCRIPT and not of translation — Бања Лука and Banja Luka are one name written twice, mapping letter for letter (ђ=đ, ж=ž, љ=lj, њ=nj, ћ=ć, џ=dž, ш=š, ч=č, ј=j), so the two files can be joined on position but must never be concatenated. See bosnia_and_herzegovina.language for the pack-wide decision this file is the exception to, and bosnia_and_herzegovina.vehicle.plate for the place where the country solved the same problem by using only the letters both scripts share.
+locale: sr
+weighted: true
+---
+Бања Лука,138963
+Бијељина,45278
+Брчко,39893
+Приједор,29555
+Добој,25132
+Требиње,23770
+Градишка,14368
+Пале,12905
+Дервента,11631
+Зворник,11497
+Козарска Дубица,10544
+Нови Град,10120
+Модрича,9419
+Прњавор,8120
+Теслић,7057
+Лакташи,5419

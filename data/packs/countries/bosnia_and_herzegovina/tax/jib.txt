@@ -1,0 +1,27 @@
+---
+address: bosnia_and_herzegovina.tax.jib
+description: Bosnian JIB, the jedinstveni identifikacioni broj (also printed ID broj) — 13 digits, the number every company, institution and sole trader quotes on every invoice and every court filing. It is not one register: TWO tax administrations issue it, the Porezna uprava Federacije BiH and the Poreska uprava Republike Srpske, into ONE number space they coordinate only through the leading two digits, and THE TWO ENTITIES GIVE IT DIFFERENT INTERNAL STRUCTURES. That is the fact this file exists to record. The FEDERATION form, from the Pravilnik o dodjeljivanju identifikacionih brojeva i poreznoj registraciji (Sl. novine FBiH 39/02 and later), član 11: first digit 4 (issued by the FBiH tax administration), second digit 2 (a legal person or organisation of the Federation), then SEVEN sequential digits assigned by the administration, then THREE digits for the branch — 000 for a body with no branches, 001 to 999 for one — then a thirteenth digit which is the check over the preceding twelve. Član 14 gives second digit 3 for a sole trader (poduzetnik) on the same shape. The REPUBLIKA SRPSKA form, from the Pravilnik o registraciji i identifikaciji poreskih obveznika, član 11: first two digits 44, then only SIX sequential digits, then a check digit K at position nine over the first eight, then the three branch digits, then the final check — TWO check digits, not one. Other RS prefixes: 45 sole trader, 494 foreign legal person or foreigner, 496 a residents' association, 497 registration by the authority's own motion, 498 an associated company, and 42 or 46 for a branch in Republika Srpska whose founder is a Federation or Brčko District company. THIS GENERATOR EMITS THE FEDERATION FORM ONLY, and the reason is arithmetic, not politics: the RS regulation names the ninth digit "kontrolni broj po modulu 11" and does not publish the weights for it, and six real RS numbers pin only five of the six sequential weights, so any inner check digit written here would be a guess dressed as a checksum. The structure is recorded above; it is not generated. THE OUTER CHECK, which both entities share and which this file computes, is the same Modul 11 as the JMBG: weights 7,6,5,4,3,2,7,6,5,4,3,2 left to right over the first twelve digits, m = 11 minus the remainder mod 11, and m of 10 or 11 gives 0. Verified against eight real published numbers, from both entities and including the m=10 edge case: BH Telecom d.d. Sarajevo 4200211100005, JP Elektroprivreda BiH 4200225150005, JP Autoputevi RS 4402955260002, PPA d.o.o. Banja Luka 4403162560001, ARTIST d.o.o. 4400841930048, MERIDIAN a.d. 4400964260012, JAĆIMOVIĆ d.o.o. 4400902230028 and EASTCODE d.o.o. 4401018290030, the last of which is the m=10 case. The branch digits are drawn 000 half the time here because most taxpayers have no branch; the seven sequential digits are drawn freely, though both verified Federation numbers happen to begin 00. A natural person who is a Bosnian citizen has no JIB — their tax identifier is the JMBG, exactly as the FBiH pravilnik član 2 and the RS pravilnik član 10 both say.
+generator: tdc
+---
+<sequence name="serial"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="branch"><gen type="text" value="000,000,000,000,000,001,002,003,004,005"/></sequence>
+<sequence name="jib"><compute>
+  <let name="base"><concat><str v="42"/><field name="serial"/><field name="branch"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,6,5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><less_than><use name="r"/><int v="2"/></less_than></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
+    </choose>
+  </let>
+  <!-- base is already the first twelve digits, 4 2 + serial + branch. -->
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{jib}}</data>

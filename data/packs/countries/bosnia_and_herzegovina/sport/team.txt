@@ -1,0 +1,32 @@
+---
+address: bosnia_and_herzegovina.sport.team
+description: Bosnian professional sports clubs — the ten of the 2025/26 Premijer liga first, then the larger clubs outside it, then basketball and handball, because a Bosnian list that stopped at football would leave out the sports the country places best in. ONE LEAGUE, AND IT TOOK SEVEN YEARS TO GET THERE. After the war there were three championships, one for each community; the Premijer liga started in 2000 with Federation clubs only, while Republika Srpska ran its own Prva liga and refused to join. UEFA and FIFA recognised neither the separate association nor its competition, so its clubs could play nobody outside the entity, and on 23 May 2002 the Fudbalski savez Republike Srpske merged into the national association and its clubs entered the league for 2002/03. That is why FK Borac Banja Luka, FK Radnik Bijeljina, FK Sloga Doboj and FK Rudar Prijedor play the same fixtures as FK Sarajevo and HŠK Zrinjski Mostar. IT TOOK ONE MORE SUSPENSION TO FINISH THE JOB: on 1 April 2011 FIFA and UEFA suspended Bosnia from all international football because the association was still run by a rotating three-man presidency, one Bosniak, one Croat, one Serb, in defiance of the statutes; the assembly adopted a single-president statute on 26 May and the suspension was lifted on 30 May. The club PREFIXES still carry the divide the league no longer does: FK is fudbalski klub (Bosnian and Serbian), NK is nogometni klub and HŠK is hrvatski športski klub (Croatian), and a club's initials are a reliable guide to whose town it is from. Borac Banja Luka are the current champions; Zrinjski Mostar and FK Sarajevo have the most recent titles before that. Basketball: KK Igokea from Aleksandrovac near Laktaši plays the regional ABA league, and KK Bosna Sarajevo were European champions in 1979. Handball: RK Izviđač Ljubuški and RK Borac Banja Luka are the country's strongest. Names are Latin; Republika Srpska clubs also register a Cyrillic form — ФК Борац Бања Лука — which is a script and not a second name.
+locale: bs
+---
+FK Borac Banja Luka
+HŠK Zrinjski Mostar
+FK Sarajevo
+FK Željezničar Sarajevo
+FK Velež Mostar
+NK Široki Brijeg
+FK Radnik Bijeljina
+FK Sloga Doboj
+FK Rudar Prijedor
+HŠK Posušje
+FK Sloboda Tuzla
+FK Igman Konjic
+NK GOŠK Gabela
+FK Tuzla City
+FK Zvijezda 09
+FK Leotar Trebinje
+NK Čelik Zenica
+FK Krupa
+KK Igokea
+KK Bosna Sarajevo
+KK Široki
+KK Borac Banja Luka
+KK Spars Sarajevo
+RK Izviđač Ljubuški
+RK Borac Banja Luka
+RK Sloga Doboj
+RK Bosna Sarajevo

@@ -1,0 +1,15 @@
+---
+address: bosnia_and_herzegovina.geo.canton
+description: The ten cantons of the Federation of Bosnia and Herzegovina, in their constitutional order, and the warning that comes with them: a canton is NOT the country's first-level division. Cantons exist only inside the Federation, which is 63% of the population; Republika Srpska has no cantons and Brčko District has none, so a Bosnian dataset keyed on canton silently drops 37% of the country. Use bosnia_and_herzegovina.geo.entity for a division that covers everyone. Seats, in order: Bihać, Orašje, Tuzla, Zenica, Goražde, Travnik, Mostar, Široki Brijeg, Sarajevo, Livno. NAMES ARE A POLITICAL OBJECT HERE and this list gives the Bosnian-language forms. In Croatian a kanton is a županija, and the FBiH constitution itself carries both: Posavski kanton is Županija Posavska, Srednjobosanski kanton is Županija Središnja Bosna, Hercegovačko-neretvanski kanton is Županija Hercegovačko-neretvanska, Zapadnohercegovački kanton is Županija Zapadnohercegovačka. The tenth is the one that gave up: no name for it could be agreed at all, so the constitution calls it KANTON 10 — a number where every other canton has a word. Its own cantonal constitution says Hercegbosanska županija, Bosniak politicians used Livanjski kanton, the Federation's official gazette says Kanton 10, and the Constitutional Court of the Federation has ruled on the question more than once. This pack writes Kanton 10 because that is the name in the Federation constitution, and records the rest here rather than choosing between them. Bosanskopodrinjski kanton Goražde carries the town in its own legal name, which is why it is longer than the others.
+locale: bs
+---
+Unsko-sanski kanton
+Posavski kanton
+Tuzlanski kanton
+Zeničko-dobojski kanton
+Bosanskopodrinjski kanton Goražde
+Srednjobosanski kanton
+Hercegovačko-neretvanski kanton
+Zapadnohercegovački kanton
+Kanton Sarajevo
+Kanton 10

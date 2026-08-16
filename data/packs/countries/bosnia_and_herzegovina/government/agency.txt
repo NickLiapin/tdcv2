@@ -1,0 +1,32 @@
+---
+address: bosnia_and_herzegovina.government.agency
+description: State-level agencies and administrative bodies of Bosnia and Herzegovina — the institutions that exist ONCE for the whole country, which in this constitution is a short list and a meaningful one. Dayton left the state very few competences and the entities almost everything, so an agency here is either something the entities could not run twice (a currency, a customs frontier, a radio spectrum, a passport) or something international pressure built anyway. THE FOUR THAT MATTER MOST FOR DATA. Centralna banka Bosne i Hercegovine issues the convertible mark under a currency board, runs the payment system and keeps the catalogue of bank codes — see bosnia_and_herzegovina.finance.bankCode. Uprava za indirektno oporezivanje BiH, based in BANJA LUKA rather than Sarajevo as part of the political settlement that created it in 2004, collects VAT, customs and excise for the whole country and hands the entities their share; it is why the PDV broj is a state number while the JIB is issued by two entity administrations. Agencija za identifikacione dokumente, evidenciju i razmjenu podataka (IDDEEA) has issued every identity card, passport, driving licence and vehicle plate in the country since 2009 and administers the JMBG register — one identity system where there are two of nearly everything else. Agencija za statistiku Bosne i Hercegovine publishes the census and the national accounts, but it does not collect them: the Federal and the Republika Srpska statistical institutes do that and BHAS aggregates, which is why a Bosnian statistic often arrives late and occasionally arrives twice. NOTE WHAT IS NOT HERE: there is no state ministry of education, no state ministry of health, no state ministry of agriculture and no state police force of general jurisdiction — SIPA and the Granična policija have specific mandates, and ordinary policing is entity and cantonal. Bank supervision, deposit-holding, pensions, health insurance and land registry are all duplicated at entity level and so are absent from this list by design. Names are Bosnian Latin; each of these institutions publishes the same name in Croatian and in Serbian Cyrillic, and their own logos usually carry all three.
+locale: bs
+---
+Centralna banka Bosne i Hercegovine
+Uprava za indirektno oporezivanje Bosne i Hercegovine
+Agencija za identifikacione dokumente, evidenciju i razmjenu podataka BiH
+Agencija za statistiku Bosne i Hercegovine
+Regulatorna agencija za komunikacije
+Državna agencija za istrage i zaštitu
+Granična policija Bosne i Hercegovine
+Agencija za osiguranje depozita Bosne i Hercegovine
+Agencija za osiguranje u Bosni i Hercegovini
+Agencija za javne nabavke Bosne i Hercegovine
+Agencija za zaštitu ličnih podataka u Bosni i Hercegovini
+Agencija za lijekove i medicinska sredstva Bosne i Hercegovine
+Agencija za sigurnost hrane Bosne i Hercegovine
+Agencija za pružanje usluga u zračnoj plovidbi Bosne i Hercegovine
+Direkcija za civilno zrakoplovstvo Bosne i Hercegovine
+Agencija za poštanski promet Bosne i Hercegovine
+Agencija za rad i zapošljavanje Bosne i Hercegovine
+Agencija za razvoj visokog obrazovanja i osiguranje kvaliteta
+Agencija za predškolsko, osnovno i srednje obrazovanje
+Institut za standardizaciju Bosne i Hercegovine
+Institut za mjeriteljstvo Bosne i Hercegovine
+Institut za intelektualno vlasništvo Bosne i Hercegovine
+Ured za veterinarstvo Bosne i Hercegovine
+Agencija za bankarstvo Federacije Bosne i Hercegovine
+Agencija za bankarstvo Republike Srpske
+Porezna uprava Federacije Bosne i Hercegovine
+Poreska uprava Republike Srpske

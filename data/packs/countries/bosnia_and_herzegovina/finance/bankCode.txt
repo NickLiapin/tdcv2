@@ -1,0 +1,20 @@
+---
+address: bosnia_and_herzegovina.finance.bankCode
+description: Bosnian bank code — the three digits the Centralna banka Bosne i Hercegovine assigns each bank from its catalogue, and the first group of every domestic transaction account and every BA IBAN. Three digits, where Croatia takes seven and Slovenia two. THE CATALOGUE IS ONE CATALOGUE. Bosnia has two entities, two banking-supervision agencies (Agencija za bankarstvo FBiH and Agencija za bankarstvo Republike Srpske) and two company registers, but only one bank-code register, kept at state level, and the code does not say which entity licensed the bank — the numbers simply run in blocks that reflect where the banks grew up, 1xx and 3xx overwhelmingly Sarajevo and Mostar, 5xx overwhelmingly Banja Luka and Bijeljina. Every code here was confirmed against a published account at that bank that verifies MOD 97-10, which is as close to a primary source as this gets: 134 ASA Banka d.d. Sarajevo, 141 Bosna Bank International d.d. Sarajevo, 194 ProCredit Bank d.d. Sarajevo, 554 Naša banka a.d., 567 Atos bank a.d. Banja Luka, 571 Banka Poštanska štedionica a.d. Banja Luka and 572 MF banka a.d. Banja Luka come from the CBBH's own list of foreign-currency clearing participants, each with its BA39 account printed beside it; 154 Intesa Sanpaolo Banka d.d. BiH, 161 Raiffeisen Bank d.d. BiH, 199 Sparkasse Bank d.d. BiH, 338 UniCredit Bank d.d. Mostar, 555 Nova banka a.d. Banja Luka and 562 NLB Banka a.d. Banja Luka come from accounts those banks or their customers publish; 140 was Sberbank BH d.d. Sarajevo's block, and the licence has since passed through ASA Banka Naša i snažna into ASA Banka, which is the ordinary way a Bosnian code outlives a Bosnian bank name. TWO CODES IN THE POOL ARE NOT NAMED HERE. 132 and 551 are drawn because a published account at each verifies — 1321000185060197 is Općina Tuzla's, BA395517904801183851 is the Republika Srpska finance ministry's — but neither source names the bank, and this pack would rather generate a verified code than guess a name onto it. ONE CODE IS DELIBERATELY ABSENT: 129, which appears in the ISO IBAN registry's specimen BA391290079401028494 and which no bank in the CBBH's current list can be tied to; a specimen is not a licence. Codes travel with the licence rather than the brand, and Bosnian banking has consolidated fast — Sberbank, Hypo, Volksbank, Bobar, Balkan Investment and Banka Srpske have all gone — so the NAME beside a code is the part likelier to be out of date.
+---
+132
+134
+140
+141
+154
+161
+194
+199
+338
+551
+554
+555
+562
+567
+571
+572

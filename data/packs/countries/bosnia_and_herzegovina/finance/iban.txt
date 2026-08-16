@@ -1,0 +1,35 @@
+---
+address: bosnia_and_herzegovina.finance.iban
+description: Bosnian IBAN — 20 characters: BA + 2 ISO 13616 check digits + a 3-digit bank code + a 3-digit branch code + an 8-digit account number + 2 national control digits. Those last two are themselves ISO 7064 MOD 97-10 over the 14 digits in front of them, prescribed by the Central Bank's own Instrukcija o strukturi računa za obavljanje platnih transakcija, which sets the account at "16 cifara podijeljenih u 4 odvojene grupe" XXX YYY ZZZZZZZZ KK and names the standard outright — append two zeros, divide by 97, and the control number is (97 + 1) minus the remainder, so a correct Bosnian account always leaves remainder 1 mod 97. That has a consequence worth knowing: with the BBAN pinned at remainder 1, the outer check can only come out one way, and EVERY VALID BOSNIAN IBAN BEGINS BA39, exactly as every Serbian one begins RS35 and every Slovenian one SI56. The 39 is still COMPUTED here rather than written in, so a wrong national control shows up immediately as a different pair. Accounts are denominated in convertible marks; Bosnia is not in the EU, not in the euro area and not in SEPA, so the IBAN is a domestic format that happens to be ISO-shaped rather than a passport into a European payment area — see bosnia_and_herzegovina.finance.currency. THE POINT WORTH CARRYING ABOUT A COUNTRY WITH TWO ENTITIES: there is ONE account numbering plan and ONE catalogue of bank codes, kept by the Centralna banka Bosne i Hercegovine at state level, and the bank code says nothing about which entity the bank sits in — 161 is Raiffeisen in Sarajevo, 562 NLB Banka in Banja Luka, and the two numbers live in the same space with the same arithmetic. Every bank code drawn here is a live CBBH catalogue code confirmed against a published account at that bank; see bosnia_and_herzegovina.finance.bankCode for the list and its provenance. Verified against fifteen real published Bosnian IBANs, all of which satisfy both checks, among them the ISO registry example BA391290079401028494, the Crveni križ FBiH account BA391610000000850119 at Raiffeisen, Pomozi.ba's BA391541602004449067 at Intesa Sanpaolo, UniCredit Bank d.d. Mostar's BA393386904866047019, Sparkasse's BA391994620059507837 and NLB Banka a.d. Banja Luka's BA395620998144831892, plus the seven CBBH foreign-currency clearing accounts published by the National Bank of Serbia (ASA Banka BA390000000000013484, Bosna Bank International BA390000000000014163, ProCredit BA390000000000019498, Naša banka BA390000000000055485, Atos bank BA390000000000056746, Banka Poštanska štedionica BA390000000000057134, MF banka BA390000000000057231). Printed domestically the same number drops the BA39 and is grouped 154-160-20044490-67; see bosnia_and_herzegovina.finance.account.
+generator: tdc
+---
+<sequence name="bank"><gen type="text" value="132,134,140,141,154,161,194,199,338,551,554,555,562,567,571,572"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="iban"><compute>
+  <let name="n14"><concat><field name="bank"/><field name="branch"/><field name="account"/></concat></let>
+  <!-- National control: ISO 7064 MOD 97-10 over the 14 digits, so that BBAN mod 97 == 1. -->
+  <let name="r14"><reduce>
+    <over><use name="n14"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="nat"><pad width="2" fill="0">
+    <subtract><int v="98"/><mod><multiply><use name="r14"/><int v="3"/></multiply><int v="97"/></mod></subtract>
+  </pad></let>
+  <let name="bban"><concat><use name="n14"/><use name="nat"/></concat></let>
+  <!-- IBAN check: the usual MOD-97 over BBAN + BA + 00. -->
+  <let name="rearranged"><concat><use name="bban"/><str v="BA"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="BA"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

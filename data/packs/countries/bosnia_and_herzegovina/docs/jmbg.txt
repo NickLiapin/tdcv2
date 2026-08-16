@@ -1,0 +1,55 @@
+---
+address: bosnia_and_herzegovina.docs.jmbg
+description: Bosnian JMBG (jedinstveni matični broj građana / јединствени матични број грађана) — 13 digits, the Yugoslav federal number of 1976, still issued unchanged, and the only identity number a Bosnian citizen has. Structure DDMMGGG RR BBB K: day, month, then only the LAST THREE digits of the year (1962 is 962, 2004 is 004), a two-digit register code, a three-digit serial and a weighted mod-11 check. The serial encodes sex — 000-499 male, 500-999 female — so a JMBG leaks birth date, sex and birth region, and Bosnia has not followed Croatia in replacing it with an opaque number. THE REGISTER CODES ARE THE ONE PART OF A BOSNIAN IDENTITY DOCUMENT THAT IS NOT ENTITY-NEUTRAL, and they are pre-war: the federal block for Bosnia and Herzegovina is 10-19, allocated to the ten old regional registers — 10 Banja Luka, 11 Bihać, 12 Doboj, 13 Goražde, 14 Livno, 15 Mostar, 16 Prijedor, 17 Sarajevo, 18 Tuzla, 19 Zenica — and those registers were drawn on the 1976 map, so they cut across the Inter-Entity Boundary Line exactly as the postcodes do. A person born in Banja Luka carries 10 whether they live in Republika Srpska or not, and a person born in Sarajevo carries 17 whichever entity issued their card. All ten are drawn here. Since 2009 the numbers are administered centrally by IDDEEA, the state agency for identity documents, for the whole country, which is why the JMBG is one number space and not two. THE CHECK, from the published federal procedure: weights 2,3,4,5,6,7 repeating from the RIGHT, which over the twelve base digits read left to right is 7,6,5,4,3,2,7,6,5,4,3,2; then m = 11 minus the remainder mod 11. THE DOCUMENTED EDGE CASE: m runs 1 to 11, and only 1 to 9 can be a digit — the specification says that if m is 10 OR 11 the check digit K becomes 0, so remainder 0 and remainder 1 BOTH produce a check of 0 and both are valid numbers. This generator implements that rule rather than redrawing, which is where it parts company with the Serbian pack next door: serbia.docs.jmbg treats the m=10 case as unissued and draws again, so it emits a strict subset. The rule is not theoretical — the real published Bosnian tax number 4401018290030 is an m=10 case, checked in this pack at bosnia_and_herzegovina.tax.jib, which uses the same arithmetic. Verified against the two worked examples of the same federal Modul 11, 1001939010017 and 2001939010010, the second being the remainder-0 case. Latin and Cyrillic spellings of the number's NAME differ; the number itself is digits and has no script.
+generator: tdc
+---
+<sequence name="dob"><gen type="date" from="1935-01-01" to="2012-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="reg"><gen type="text" value="10,11,12,13,14,15,16,17,18,19"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="check"><compute>
+  <!-- The drawn date arrives as YYYYMMDD; the JMBG wants DD MM GGG. -->
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <let name="body"><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <field name="reg"/>
+    <field name="serial"/>
+  </concat></let>
+  <let name="sum"><reduce>
+    <over><use name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,6,5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
+  <result>
+    <!-- m = 11 - r, and the specification maps m = 10 and m = 11 alike to 0,
+         so remainder 0 and remainder 1 both give a check digit of 0. -->
+    <choose>
+      <when><test><less_than><use name="r"/><int v="2"/></less_than></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<sequence name="jmbg"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <result><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <field name="reg"/>
+    <field name="serial"/>
+    <field name="check"/>
+  </concat></result>
+</compute></sequence>
+<data>${{jmbg}}</data>

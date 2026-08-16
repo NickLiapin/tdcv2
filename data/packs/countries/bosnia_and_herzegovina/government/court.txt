@@ -1,0 +1,38 @@
+---
+address: bosnia_and_herzegovina.government.court
+description: Courts of Bosnia and Herzegovina — and there is no single judicial pyramid, there are FOUR, one for each of the two entities, one for Brčko District and one at state level, with no ordinary appeal running between them. THREE CONSTITUTIONAL COURTS: the Ustavni sud Bosne i Hercegovine at state level, whose nine judges include THREE APPOINTED BY THE PRESIDENT OF THE EUROPEAN COURT OF HUMAN RIGHTS and who may not be citizens of Bosnia or any neighbouring state — a foreign-judge arrangement written into the Dayton constitution and still in force thirty years later; the Ustavni sud Federacije Bosne i Hercegovine; and the Ustavni sud Republike Srpske. TWO SUPREME COURTS, the Vrhovni sud Federacije Bosne i Hercegovine and the Vrhovni sud Republike Srpske, and NO supreme court above them: the state has no court of final instance for ordinary civil and criminal law, which is the structural gap the European Commission names in every enlargement report, because the two entity supreme courts can and do read the same statute differently with nobody to reconcile them. The Sud Bosne i Hercegovine is not that court — it is a state court of first and second instance with its own subject-matter jurisdiction over war crimes, organised crime, corruption and state administrative matters, created in 2002. BELOW THAT THE TWO ENTITIES DO NOT EVEN USE THE SAME WORDS. The Federation runs 27 općinski sudovi under 10 kantonalni sudovi, one per canton, under its supreme court. Republika Srpska runs 19 osnovni sudovi under 5 okružni sudovi — Banja Luka, Bijeljina, Doboj, Trebinje and Istočno Sarajevo — plus separate okružni privredni sudovi for commercial matters, a specialisation the Federation does not have. Brčko District has exactly two: the Osnovni sud Brčko distrikta and the Apelacioni sud Brčko distrikta. THE ONE THING THAT IS UNIFIED is the appointment of judges: the Visoko sudsko i tužilačko vijeće Bosne i Hercegovine appoints and disciplines every judge and prosecutor in all four systems, and it is the only state-level judicial institution the entities share. Names are Bosnian Latin; Republika Srpska courts write theirs in Cyrillic — Врховни суд Републике Српске.
+locale: bs
+---
+Ustavni sud Bosne i Hercegovine
+Sud Bosne i Hercegovine
+Visoko sudsko i tužilačko vijeće Bosne i Hercegovine
+Tužilaštvo Bosne i Hercegovine
+Ustavni sud Federacije Bosne i Hercegovine
+Vrhovni sud Federacije Bosne i Hercegovine
+Kantonalni sud u Sarajevu
+Kantonalni sud u Tuzli
+Kantonalni sud u Zenici
+Kantonalni sud u Mostaru
+Kantonalni sud u Bihaću
+Kantonalni sud u Novom Travniku
+Kantonalni sud u Širokom Brijegu
+Kantonalni sud u Goraždu
+Kantonalni sud u Odžaku
+Kantonalni sud u Livnu
+Općinski sud u Sarajevu
+Općinski sud u Tuzli
+Općinski sud u Zenici
+Općinski sud u Mostaru
+Ustavni sud Republike Srpske
+Vrhovni sud Republike Srpske
+Okružni sud u Banjoj Luci
+Okružni sud u Bijeljini
+Okružni sud u Doboju
+Okružni sud u Trebinju
+Okružni sud u Istočnom Sarajevu
+Okružni privredni sud u Banjoj Luci
+Osnovni sud u Banjoj Luci
+Osnovni sud u Prijedoru
+Osnovni sud u Zvorniku
+Osnovni sud Brčko distrikta Bosne i Hercegovine
+Apelacioni sud Brčko distrikta Bosne i Hercegovine

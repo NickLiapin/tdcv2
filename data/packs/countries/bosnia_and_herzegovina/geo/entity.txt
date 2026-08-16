@@ -1,0 +1,9 @@
+---
+address: bosnia_and_herzegovina.geo.entity
+description: The first-level division of Bosnia and Herzegovina, weighted by the 2013 census, and it is not a division like anyone else's. The country has TWO entities and ONE district, and the district is not a third entity — Brčko is a self-governing unit held in condominium by both entities, formally part of both and administered by neither, an arrangement an arbitral tribunal settled on in 1999 because the two entities could not be given a common border there. So a Bosnian address sits in the Federacija Bosne i Hercegovine (2,219,220 people, subdivided into ten cantons which are themselves subdivided into municipalities), in Republika Srpska (1,228,423, subdivided straight into municipalities with NO intermediate tier), or in Brčko distrikt Bosne i Hercegovine (83,516, one municipality-sized unit answering to the state). That asymmetry is the thing to carry: the Federation has a canton between the entity and the municipality and Republika Srpska does not, so a "region" column that works for one entity has no value for the other, and bosnia_and_herzegovina.geo.canton covers barely three-fifths of the country by population. The entity boundary is the Inter-Entity Boundary Line drawn at Dayton in 1995; it is not an international border, there are no controls on it, and it cuts through towns — Sarajevo and Istočno Sarajevo are two cities where there was one. Names are given in Bosnian Latin. Republika Srpska writes its own name Република Српска, and the Federation is Федерација Босне и Херцеговине in Serbian Cyrillic; the three census totals sum to 3,531,159, the whole population of the country. See bosnia_and_herzegovina.language for why this pack writes Latin.
+locale: bs
+weighted: true
+---
+Federacija Bosne i Hercegovine,2219220
+Republika Srpska,1228423
+Brčko distrikt Bosne i Hercegovine,83516

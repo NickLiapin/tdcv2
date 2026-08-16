@@ -1,0 +1,61 @@
+---
+address: bosnia_and_herzegovina.geo.city
+description: Towns of Bosnia and Herzegovina, weighted by the SETTLEMENT population at the 2013 census (Agencija za statistiku BiH, Popis 2013, Knjiga 2), which is the population of the town itself and not of the unit it administers. Read that sentence twice, because the municipal figure is the one every secondary source quotes and it is three to five times larger: Tešanj is 5,257 people as a town and 43,063 as an općina, Velika Kladuša 4,520 and 40,419, Cazin 13,863 and 66,149. Joining a settlement-level figure to a municipality-level one is the commonest corruption in Bosnian population data and it is not a rounding error. The list is the 55 places whose MUNICIPALITY passed roughly 20,000 at that census, ranked here by the settlement count, which is why the order looks unfamiliar — Sanski Most and Bugojno sit above Livno and Široki Brijeg, and Kalesija, an općina of 33,000, is the smallest town on the list at 2,039. Sarajevo's 271,194 is the four municipalities that form the City of Sarajevo (Stari Grad, Centar, Novo Sarajevo, Novi Grad); Ilidža is listed separately because it is a separate municipality of Kanton Sarajevo and not part of the city, though it is continuous urban fabric. LATIN, and see bosnia_and_herzegovina.language for why: three official languages share this script and only one of them uses the other. The Republika Srpska towns on this list are written in Cyrillic by their own municipalities and appear that way at bosnia_and_herzegovina.geo.cityCyrillic. NAMES CHANGED WITH THE ENTITIES, and the forms here are the current legal ones: Republika Srpska dropped the "Bosanski/Bosanska" prefix from the towns that fell inside it, so Bosanski Novi is Novi Grad, Bosanska Dubica is Kozarska Dubica, Bosanska Gradiška is Gradiška and Bosanski Šamac is Šamac — while Bosanska Krupa and Bosanski Petrovac, which ended up in the Federation, kept theirs. Foča was renamed Srbinje in 1994 and changed back in 2004 after the Constitutional Court struck the renaming down. Istočno Sarajevo is absent: it is a city of six municipalities with no settlement of that name, and the 2013 table this list comes from has no row for it. Also below the threshold and therefore missing: Neum, Stolac, Višegrad, Srebrenica, Foča, Mrkonjić Grad, Orašje and Bileća.
+locale: bs
+weighted: true
+---
+Sarajevo,271194
+Banja Luka,138963
+Tuzla,74457
+Zenica,70553
+Ilidža,63528
+Mostar,60195
+Bijeljina,45278
+Brčko,39893
+Bihać,39690
+Prijedor,29555
+Doboj,25132
+Trebinje,23770
+Sanski Most,16913
+Živinice,16157
+Bugojno,15555
+Travnik,15344
+Gradiška,14368
+Cazin,13863
+Pale,12905
+Gračanica,12882
+Gradačac,12764
+Lukavac,12061
+Goražde,11806
+Kakanj,11796
+Derventa,11631
+Zvornik,11497
+Visoko,11205
+Konjic,10732
+Kozarska Dubica,10544
+Bosanska Krupa,10196
+Novi Grad,10120
+Modriča,9419
+Novi Travnik,9008
+Zavidovići,8174
+Prnjavor,8120
+Livno,7927
+Jajce,7172
+Teslić,7057
+Srebrenik,6694
+Banovići,6432
+Vitez,6329
+Posušje,6267
+Široki Brijeg,6149
+Maglaj,6099
+Čapljina,5774
+Tomislavgrad,5587
+Žepče,5460
+Laktaši,5419
+Tešanj,5257
+Hadžići,4993
+Gornji Vakuf-Uskoplje,4831
+Velika Kladuša,4520
+Ljubuški,4023
+Kiseljak,3554
+Kalesija,2039

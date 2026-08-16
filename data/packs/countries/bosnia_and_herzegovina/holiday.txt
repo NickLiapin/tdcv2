@@ -1,0 +1,23 @@
+---
+address: bosnia_and_herzegovina.holiday
+description: Public holidays observed in Bosnia and Herzegovina, and the first thing to say is that THERE IS NO STATE LAW LISTING THEM. A Zakon o praznicima Bosne i Hercegovine has been drafted repeatedly since the late 1990s and has never passed, so the country has no agreed set of national holidays: what exists is a Federation law, a Republika Srpska law, a Brčko District law and the old Yugoslav-era carry-overs, and a date that closes offices in one entity is an ordinary working day in the other. That is not a quirk of one list — it is the ordinary condition of a Bosnian working calendar, and a payroll or SLA calculation built on a single national holiday table will be wrong somewhere in the country on about a dozen days a year. The clearest case is 1 March, Dan nezavisnosti, the anniversary of the 1992 independence referendum: a holiday in the Federation, not marked in Republika Srpska, which observes 9 January as Dan Republike instead — a date the Constitutional Court of Bosnia and Herzegovina has ruled unconstitutional more than once and which Republika Srpska continues to keep. 25 November, Dan državnosti, the anniversary of the 1943 ZAVNOBiH session, is likewise a Federation holiday and not a Republika Srpska one; even inside the Federation, Zapadnohercegovački kanton does not mark it. RELIGIOUS DAYS ARE THE OTHER AXIS. Catholic Christmas on 25 December, Orthodox Christmas on 7 January, Orthodox Easter and Catholic Easter on their own calendars, Velika Gospa on 15 August and Velika Gospojina on 28 August, Ramazanski Bajram and Kurban Bajram on the lunar calendar: each is a working day for two of the three communities and each is observed as a non-working day by employers and municipalities where that community is a majority, whatever the entity law says. The two dates that hold everywhere are 1 January and 1 May, and both are two-day holidays. This list is in rough calendar order and gives Bosnian Latin names; it deliberately includes the entity-specific ones rather than reducing to the intersection, because the intersection would be four days and would misrepresent the country. Brčko District has its own 8 March, the anniversary of the District's establishment.
+locale: bs
+---
+Nova godina
+Drugi dan Nove godine
+Pravoslavni Božić
+Dan Republike Srpske
+Dan nezavisnosti
+Dan uspostave Brčko distrikta
+Katolički Uskrs
+Pravoslavni Vaskrs
+Dan rada
+Drugi dan Dana rada
+Dan pobjede nad fašizmom
+Ramazanski Bajram
+Kurban Bajram
+Velika Gospa
+Velika Gospojina
+Dan uspostave Opšteg okvirnog sporazuma za mir
+Dan državnosti
+Katolički Božić

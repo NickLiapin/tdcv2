@@ -1,0 +1,28 @@
+---
+address: bosnia_and_herzegovina.finance.bank
+description: Banks operating in Bosnia and Herzegovina, as the Centralna banka Bosne i Hercegovine lists them — the Federation's fourteen first, then Republika Srpska's eight. THE LEGAL SUFFIX TELLS YOU THE ENTITY, and it is the one place in Bosnian corporate naming where that is reliably true: a Federation bank is a d.d. (dioničko društvo) and a Republika Srpska bank is an a.d. (akcionarsko društvo), because the two entities passed separate company laws and each borrowed its term from a different neighbour. So Addiko Bank d.d. Sarajevo and Addiko Bank a.d. Banja Luka are the SAME GROUP holding TWO separate banking licences from TWO separate supervisors — as are NLB Banka d.d. Sarajevo and NLB Banka a.d. Banja Luka, and UniCredit Bank d.d. Mostar and UniCredit Bank a.d. Banja Luka. Three international groups therefore appear twice in this list, and a deduplication by brand would be wrong: they file separate accounts, hold separate capital and carry separate bank codes. Supervision is at ENTITY level (Agencija za bankarstvo Federacije BiH, Agencija za bankarstvo Republike Srpske) while the payment system, the bank-code catalogue and deposit insurance are at STATE level, which is the usual Bosnian split. Two banks in the list are entity-owned rather than commercial: Razvojna banka Federacije Bosne i Hercegovine is the Federation's development bank, and Banka Poštanska štedionica a.d. Banja Luka descends from the postal savings bank. Bosna Bank International d.d. Sarajevo is the country's Islamic bank, founded in 2000 with Gulf capital and the only one in the region. Names are the legal forms in Latin; Republika Srpska banks also register a Cyrillic form of the same name, which is a script and not a second name — see bosnia_and_herzegovina.language.
+locale: bs
+---
+Raiffeisen Bank d.d. BiH
+UniCredit Bank d.d. Mostar
+Intesa Sanpaolo Banka d.d. Bosna i Hercegovina
+Sparkasse Bank d.d. BiH
+ASA Banka d.d. Sarajevo
+NLB Banka d.d. Sarajevo
+Addiko Bank d.d. Sarajevo
+Bosna Bank International d.d. Sarajevo
+ProCredit Bank d.d. Sarajevo
+Union banka d.d. Sarajevo
+ZiraatBank BH d.d. Sarajevo
+Privredna banka Sarajevo d.d. Sarajevo
+Razvojna banka Federacije Bosne i Hercegovine
+Komercijalno-investiciona banka d.d. Velika Kladuša
+Nova banka a.d. Banja Luka
+NLB Banka a.d. Banja Luka
+UniCredit Bank a.d. Banja Luka
+Addiko Bank a.d. Banja Luka
+ATOS BANK a.d. Banja Luka
+MF banka a.d. Banja Luka
+Banka Poštanska štedionica a.d. Banja Luka
+Naša banka a.d. Bijeljina
+Centralna banka Bosne i Hercegovine
