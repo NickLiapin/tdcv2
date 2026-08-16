@@ -1,0 +1,43 @@
+---
+description: Symptoms as a Nepali patient reports them. Note that Nepali describes several symptoms with a body part plus a verb rather than with a single noun — टाउको दुख्नु, पेट दुख्नु, रिँगटा लाग्नु — so these are phrases and not one-word labels, which is the honest form and not a padding of the list.
+locale: ne
+---
+ज्वरो
+जाडो लाग्नु
+पसिना आउनु
+टाउको दुख्नु
+रिँगटा लाग्नु
+बेहोस हुनु
+थकान
+कमजोरी
+खोकी
+सुख्खा खोकी
+खकार
+रगत मिसिएको खकार
+सास फेर्न गाह्रो
+छाती दुख्नु
+मुटु ढुकढुक हुनु
+नाक बग्नु
+घाँटी दुख्नु
+स्वर बस्नु
+पेट दुख्नु
+पेट फुल्नु
+वाकवाक
+बान्ता
+झाडा लाग्नु
+कब्जियत
+दिसामा रगत
+पिसाबमा पोल्नु
+पिसाब कम आउनु
+जीउ सुन्निनु
+जोर्नी दुख्नु
+कम्मर दुख्नु
+मांसपेशी दुख्नु
+छाला चिलाउनु
+बिबिरा आउनु
+आँखा रातो हुनु
+देख्न गाह्रो
+सुन्न गाह्रो
+भोक नलाग्नु
+तौल घट्नु
+निद्रा नलाग्नु

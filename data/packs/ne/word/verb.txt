@@ -1,0 +1,48 @@
+---
+description: Common Nepali verbs, in the -नु infinitive, which is the dictionary form. NEPALI VERBS CANNOT BE PASTED INTO A SENTENCE IN THIS FORM: a finite Nepali verb agrees with the subject's person, number AND honorific level, of which there are four in the second person, so ऊ गर्छ, तिमी गर्छौ, तपाईं गर्नुहुन्छ and हजुर गर्नुहुन्छ are all 'you do' with different endings. That makes this list safe for dictionary, tag and label use and unsafe for sentence assembly, which is why word/verb.txt and text/sentence.txt are different files with different jobs. The verbs themselves carry the strongest Nepali-versus-Hindi evidence in the pack: हुनु/छ (Nepali copula, where Hindi has है), गर्नु (Hindi करना), भन्नु (Hindi कहना), जानु/आउनु shared, हेर्नु (Hindi देखना), खानु shared, दिनु shared, लिनु shared, बस्नु shared, हिँड्नु (Hindi चलना), भेट्नु (Hindi मिलना), बुझ्नु (Hindi समझना), पठाउनु (Hindi भेजना), राख्नु shared, लेख्नु shared.
+locale: ne
+---
+हुनु
+गर्नु
+भन्नु
+जानु
+आउनु
+हेर्नु
+सुन्नु
+खानु
+पिउनु
+दिनु
+लिनु
+बस्नु
+उठ्नु
+सुत्नु
+हिँड्नु
+दौडनु
+भेट्नु
+बुझ्नु
+सिक्नु
+सिकाउनु
+पढ्नु
+लेख्नु
+पठाउनु
+राख्नु
+लिनु
+किन्नु
+बेच्नु
+बनाउनु
+पकाउनु
+धुनु
+सफा गर्नु
+खोल्नु
+बन्द गर्नु
+सुरु गर्नु
+सक्नु
+पर्खनु
+सोध्नु
+जवाफ दिनु
+हाँस्नु
+रुनु
+मन पराउनु
+चाहनु
+सम्झनु
+बिर्सनु

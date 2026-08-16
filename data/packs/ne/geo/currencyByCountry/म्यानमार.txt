@@ -1,0 +1,5 @@
+---
+description: Currency of म्यानमार as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+क्यात

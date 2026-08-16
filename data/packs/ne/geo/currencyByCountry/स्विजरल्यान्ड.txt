@@ -1,0 +1,5 @@
+---
+description: Currency of स्विजरल्यान्ड as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+स्विस फ्रान्क

@@ -1,0 +1,18 @@
+---
+description: Jobs in कृषि as Nepali names them. Coherent child of work/industryCoherent.txt: draw the industry, then draw this file for that industry.
+locale: ne
+---
+किसान
+कृषि प्राविधिक
+पशु चिकित्सक
+पशुपालक
+दुग्ध सङ्कलक
+मह पालक
+माछा पालक
+नर्सरी सञ्चालक
+चिया बगान मजदुर
+कृषि सहकारी व्यवस्थापक
+सिँचाइ प्राविधिक
+बीउ व्यापारी
+अलैँची किसान
+भेटेरिनरी जे.टी.

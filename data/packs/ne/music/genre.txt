@@ -1,0 +1,39 @@
+---
+description: Music genres in Nepali. लोक गीत is the base: Nepal's folk music is regional and instrument-specific, and डोहोरी — the improvised, competitive call-and-response duet sung between a man and a woman until one runs out of verses — is a genre, a venue and an evening's entertainment all at once, with no European equivalent. सेलो is Tamang, and the दमाहा and पञ्चेबाजा ensembles are the wedding music of the hills. आधुनिक गीत is the Nepali light-classical song tradition, भजन the devotional, and नेपाली र्‍याप a large and genuinely popular modern scene. रत्यौली is the women's night-before-the-wedding singing, bawdy by tradition.
+locale: ne
+---
+लोक गीत
+डोहोरी
+सेलो
+रत्यौली
+मालश्री धुन
+पञ्चेबाजा
+दमाहा
+भजन
+स्तोत्र
+किर्तन
+आधुनिक गीत
+नेपाली पप
+नेपाली रक
+नेपाली र्‍याप
+हिपहप
+मेटल
+ब्लुज
+ज्याज
+क्लासिकल
+शास्त्रीय संगीत
+गजल
+सुगम संगीत
+देउडा
+झ्याउरे
+टप्पा
+कर्खा
+बालगीत
+देशभक्ति गीत
+चलचित्र गीत
+रिमिक्स
+इलेक्ट्रोनिक
+रेगे
+कन्ट्री
+बलिउड
+के-पप

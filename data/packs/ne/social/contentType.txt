@@ -1,0 +1,17 @@
+---
+description: Kinds of social media post, in Nepali.
+locale: ne
+---
+स्टाटस
+फोटो
+भिडियो
+रिल
+स्टोरी
+लाइभ
+पोल
+लिंक
+मिम
+सेयर
+कमेन्ट
+ट्याग
+चेक-इन

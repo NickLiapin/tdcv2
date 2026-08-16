@@ -1,0 +1,32 @@
+---
+description: Verbs in the Nepali progressive, formed with -दै and the auxiliary — डाउनलोड हुँदै, 'downloading'. This is the form a Nepali progress bar or status line uses, and it is why these are given with हुँदै or गर्दै rather than as bare stems: Nepali has no participle that stands alone the way an English -ing form does.
+locale: ne
+---
+डाउनलोड हुँदै
+अपलोड हुँदै
+इन्स्टल हुँदै
+अपडेट हुँदै
+लोड हुँदै
+सेभ हुँदै
+सिंक हुँदै
+कम्पाइल हुँदै
+डिप्लोय हुँदै
+स्क्यान हुँदै
+प्रशोधन हुँदै
+जडान हुँदै
+पठाइँदै
+प्राप्त हुँदै
+एन्क्रिप्ट हुँदै
+बुट हुँदै
+पुनःसुरु हुँदै
+बन्द हुँदै
+परीक्षण गर्दै
+खोज्दै
+अनुगमन गर्दै
+विश्लेषण गर्दै
+मर्मत गर्दै
+अनुकूलन गर्दै
+पुनर्स्थापना हुँदै
+प्रतिलिपि हुँदै
+मेटिँदै
+तयार हुँदै

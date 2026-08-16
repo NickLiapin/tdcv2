@@ -1,0 +1,29 @@
+---
+description: Dog breeds in Nepali. भोटे कुकुर is the Himalayan mastiff, the thick-coated guard dog of the high villages, and it is the only genuinely Nepali breed on the list. The street dog is not a breed and is not called one, but it is by far the commonest dog in the country and is worshipped once a year: कुकुर तिहार, the second day of Tihar, garlands every dog including the strays. The rest are imported breeds, spelled as Nepali says them.
+locale: ne
+---
+भोटे कुकुर
+तिब्बती मस्टिफ
+जर्मन सेफर्ड
+ल्याब्राडोर
+गोल्डेन रिट्रिभर
+रोटवेलर
+डोबरम्यान
+पग
+स्पिट्ज
+पोमेरेनियन
+बुल डग
+बक्सर
+डाल्मेसियन
+बिगल
+ग्रेट डेन
+हस्की
+साइबेरियन हस्की
+सेन्ट बर्नार्ड
+टेरियर
+चिहुआहुआ
+कक्कर स्प्यानियल
+डासहन्ड
+शिट्जु
+लासा अप्सो
+बसेन्जी

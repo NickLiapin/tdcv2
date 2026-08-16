@@ -1,0 +1,19 @@
+---
+description: Kinds of court and tribunal, as the WORDS Nepali uses. Nepal has one country and one judiciary, so these are named for it and that is said out loud here rather than left to be guessed: the structure since the 2015 constitution is जिल्ला अदालत (77 district courts), उच्च अदालत (7 high courts, one per province) and सर्वोच्च अदालत at the top. The Nepal-specific ones are न्यायिक समिति — a judicial committee chaired by the deputy mayor of each of the 753 local levels, which mediates small local disputes and is a court in everything but name — and the special tribunals: विशेष अदालत for corruption, राजस्व न्यायाधिकरण for revenue, and श्रम अदालत for labour. धर्माधिकरण is the historical religious court, abolished, and is included because it appears in old records.
+locale: ne
+---
+सर्वोच्च अदालत
+उच्च अदालत
+जिल्ला अदालत
+विशेष अदालत
+राजस्व न्यायाधिकरण
+श्रम अदालत
+प्रशासकीय अदालत
+ऋण असुली न्यायाधिकरण
+वैदेशिक रोजगार न्यायाधिकरण
+न्यायिक समिति
+मेलमिलाप केन्द्र
+संवैधानिक इजलास
+पूर्ण इजलास
+संयुक्त इजलास
+धर्माधिकरण

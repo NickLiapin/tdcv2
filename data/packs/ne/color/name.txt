@@ -1,0 +1,58 @@
+---
+description: Colour names in Nepali. Two Nepali colour words have no clean English equivalent and both are in daily use: प्याजी is 'onion', a pale pink-purple, and it is one of the commonest colours named in a Nepali clothes shop; कैलो is the light brown of hair and eyes, used of people, and a कैलो-eyed Nepali is remarked on. सिन्दुरे is the vermilion of the सिन्दुर a married Hindu woman wears in her parting — a colour with a social meaning, not just a hue. रातो leads the list because red is the auspicious colour of Nepal: the flag, the tika, the bridal sari and the temple are all red, and white is the colour of mourning rather than of weddings, which inverts the European association exactly.
+locale: ne
+---
+रातो
+सेतो
+कालो
+हरियो
+निलो
+पहेँलो
+गुलाबी
+प्याजी
+कैलो
+खैरो
+सुन्तला
+बैजनी
+धुम्रो
+फुस्रो
+सिन्दुरे
+रगते रातो
+गाढा रातो
+हल्का रातो
+गाढा निलो
+आकाशे निलो
+समुद्री निलो
+गाढा हरियो
+हल्का हरियो
+पत्ती हरियो
+जैतुनी
+सुनौलो
+चाँदी रङ
+काँसे
+तामे
+फलामे
+मोतीरङ
+हस्तिहाडे
+क्रिम
+बदामी
+कफी रङ
+चकलेटी
+मरुन
+बैंगनी
+जामुनी
+फिरोजा
+मयुरकण्ठी
+पानीरङ
+लसुनी
+हल्दी रङ
+केसरी
+गेरु
+माटो रङ
+बालुवा रङ
+स्लेटी
+कालो खैरो
+गाढा फुस्रो
+बरफ सेतो
+दुध सेतो
+पारदर्शी

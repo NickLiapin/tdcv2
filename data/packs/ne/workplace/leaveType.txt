@@ -1,0 +1,16 @@
+---
+description: Kinds of leave under Nepal's Labour Act. घर बिदा (home leave) is the Nepali one that surprises: an employee accrues one day of home leave for every twenty worked and may accumulate up to sixty, and it exists because Nepali workers migrate internally and need weeks, not days, to go home to a village. सूतक बिदा is mourning leave, thirteen days for a death in the family, which is a ritual period and not a courtesy. बैशाखी/पर्व बिदा covers the festivals. Maternity leave is 98 days, paternity 15.
+locale: ne
+---
+घर बिदा
+बिरामी बिदा
+भैपरी बिदा
+प्रसूति बिदा
+प्रसूति स्याहार बिदा
+सूतक बिदा
+पर्व बिदा
+सार्वजनिक बिदा
+अध्ययन बिदा
+असाधारण बिदा
+बेतलबी बिदा
+क्षतिपूर्ति बिदा

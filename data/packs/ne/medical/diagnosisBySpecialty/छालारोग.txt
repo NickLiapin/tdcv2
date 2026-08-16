@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the छालारोग department, in Nepali. Coherent child of medical/specialtyCoherent.txt: draw the specialty, then draw this file for it.
+locale: ne
+---
+दाद
+लुतो
+एक्जिमा
+सोराइसिस
+छाला एलर्जी
+मुँहासे
+कुष्ठरोग
+पित्ती
+फङ्गल संक्रमण
+श्वेत दाग

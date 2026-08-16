@@ -1,0 +1,5 @@
+---
+description: Currency of डेनमार्क as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+डेनिस क्रोन

@@ -1,0 +1,30 @@
+---
+description: Aircraft type designators. These are manufacturer codes and are the same in every language — A320 is A320 in Nepali — so they are deliberately not transliterated. The Nepali-relevant end of the list is the STOL fleet: the DHC-6 Twin Otter, the Dornier 228 and the LET L-410 are what fly into the mountain strips, and the Y-12 is the Chinese type Nepal Airlines took. The AS350 and the Airbus H125 are the helicopters that do the rescue work above the road head. A Nepali domestic fleet with 737s in it is a fleet that could not land at most of its destinations.
+locale: ne
+---
+DHC-6 Twin Otter
+Dornier 228
+LET L-410
+Y-12
+ATR 72
+ATR 42
+Beechcraft 1900D
+CRJ200
+A319
+A320
+A320neo
+A321
+A330
+A350
+B737-800
+B737 MAX
+B757
+B777
+B787
+AS350 B3
+Airbus H125
+Bell 407
+Mi-17
+Mi-8
+Cessna 208 Caravan
+Piper PA-34

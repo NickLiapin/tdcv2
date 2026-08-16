@@ -1,0 +1,41 @@
+---
+description: Trees in Nepali. पीपल and बर are the two that a Nepali landscape is built around: a चौतारी, the resting platform at the edge of every village and beside every trail, is by definition a peepal and a banyan planted together with a stone plinth between them, and it is a public work anyone may build. साल is the great timber tree of the Terai and the reason for both the forests and the logging. सल्ला is the hill pine, and धुपी the juniper burned as incense at high altitude. लोक्ता is the daphne shrub whose bark makes Nepali paper. Note बाँस, bamboo, which is not a tree but is used as one for everything from scaffolding to water pipes.
+locale: ne
+---
+पीपल
+बर
+साल
+सल्ला
+देवदार
+गोब्रे सल्ला
+खोटे सल्ला
+उत्तिस
+चिलाउने
+कटुस
+फलाँट
+गुराँस
+धुपी
+भोजपत्र
+सिमल
+खयर
+सिसौ
+टिक
+मासला
+अमला
+हर्रो
+बर्रो
+नीम
+बकाइनो
+काफल
+लप्सी
+बाँस
+निगालो
+लोक्ता
+अर्जुन
+कदम
+अशोक
+जामुन
+बेल
+रुद्राक्ष
+कल्पवृक्ष
+स्वामी

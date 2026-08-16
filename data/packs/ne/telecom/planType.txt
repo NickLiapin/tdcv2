@@ -1,0 +1,16 @@
+---
+description: Mobile and internet plan types in Nepal. Prepaid dominates overwhelmingly: a Nepali SIM is topped up with a scratch card or through a wallet, and 'recharge' is a daily transaction rather than a monthly bill. डाटा प्याक sold by the day or the night is the normal unit, and night packs exist because bandwidth was scarce.
+locale: ne
+---
+प्रिपेड
+पोस्टपेड
+डाटा प्याक
+दैनिक डाटा प्याक
+साप्ताहिक डाटा प्याक
+मासिक डाटा प्याक
+नाइट प्याक
+भ्वाइस प्याक
+एसएमएस प्याक
+अनलिमिटेड फाइबर
+कर्पोरेट प्याकेज
+रोमिङ

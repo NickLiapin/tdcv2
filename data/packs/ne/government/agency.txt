@@ -1,0 +1,34 @@
+---
+description: Kinds of Nepali government body. The federal restructuring of 2015 replaced a unitary state with three tiers — संघ, प्रदेश and स्थानीय तह — so a Nepali government record now names a level as well as a body, and a गाउँपालिका and a नगरपालिका are governments with their own budgets and elected mayors rather than branches of a ministry. वडा कार्यालय is the smallest and by far the most used: a ward office issues the recommendation letter (सिफारिस) you need before almost any other transaction, and 'go to the ward' is the first step of most Nepali bureaucracy. जिल्ला प्रशासन कार्यालय issues citizenship and passports. Specific named ministries and departments belong to the Nepal country pack, not here; these are the WORDS for kinds of body.
+locale: ne
+---
+मन्त्रालय
+विभाग
+आयोग
+प्राधिकरण
+बोर्ड
+संस्थान
+निगम
+सचिवालय
+महाशाखा
+शाखा
+कार्यालय
+जिल्ला प्रशासन कार्यालय
+मालपोत कार्यालय
+नापी कार्यालय
+आन्तरिक राजस्व कार्यालय
+भन्सार कार्यालय
+यातायात व्यवस्था कार्यालय
+जिल्ला अदालत
+उच्च अदालत
+सर्वोच्च अदालत
+प्रहरी कार्यालय
+सशस्त्र प्रहरी
+प्रदेश सरकार
+प्रदेश सभा
+नगरपालिका
+उपमहानगरपालिका
+महानगरपालिका
+गाउँपालिका
+वडा कार्यालय
+स्वास्थ्य चौकी

@@ -1,0 +1,5 @@
+---
+description: Currency of अस्ट्रेलिया as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+अस्ट्रेलियाली डलर

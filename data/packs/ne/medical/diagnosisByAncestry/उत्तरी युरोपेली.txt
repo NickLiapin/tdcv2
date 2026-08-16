@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in populations of उत्तरी युरोपेली descent, in Nepali. Coherent child of medical/ancestry.txt.
+locale: ne
+---
+सिस्टिक फाइब्रोसिस
+हिमोक्रोमाटोसिस
+छालाको क्यान्सर
+सेलियाक रोग
+टाइप १ मधुमेह
+मल्टिपल स्क्लेरोसिस
+अल्फा-१ एन्टिट्रिप्सिन कमी
+फिनाइलकिटोनुरिया
+अस्टियोपोरोसिस
+बीआरसीए उत्परिवर्तन

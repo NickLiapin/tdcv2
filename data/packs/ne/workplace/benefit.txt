@@ -1,0 +1,22 @@
+---
+description: Employment benefits in Nepal. चाडपर्व बोनस is statutory and is the one no European list has: the Labour Act requires an annual festival allowance, paid before Dashain, of one month's salary, and Nepali household spending spikes around it. सञ्चय कोष (the Employees Provident Fund) and उपदान (gratuity) are the two compulsory contributions, and सामाजिक सुरक्षा कोष is the newer social security fund every formal employer must enrol staff in. खाजा खर्च (a tea-and-snack allowance) and खाजा समय are ordinary line items. Note that the great majority of Nepali workers are informal and receive none of this.
+locale: ne
+---
+चाडपर्व बोनस
+सञ्चय कोष
+उपदान
+सामाजिक सुरक्षा कोष
+स्वास्थ्य बीमा
+दुर्घटना बीमा
+औषधि उपचार खर्च
+खाजा खर्च
+यातायात खर्च
+मोबाइल खर्च
+इन्धन सुविधा
+आवास सुविधा
+तालिम अवसर
+शैक्षिक सहयोग
+कार्यसम्पादन बोनस
+वार्षिक वृद्धि
+बिदा नगदीकरण
+सवारी सुविधा

@@ -1,0 +1,5 @@
+---
+description: Currency of रुस as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+रुसी रुबल

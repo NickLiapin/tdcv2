@@ -1,0 +1,20 @@
+---
+description: Compass direction in Nepali. The conventional Nepali recitation order is पूर्व पश्चिम उत्तर दक्षिण — east first, then west — not the north-first order of an English compass rose, and that is the order used here. What a config cannot infer is that the compass is not how Nepalis actually give directions: in a country whose settlements sit on slopes, the working axes are उकालो (uphill), ओरालो (downhill), माथि (above), तल (below) and वारि/पारि (this side / the far side of the river), and a Nepali giving directions in a hill village will say 'उकालो लागेर' where a European says 'go north'. The cardinal points still matter for one thing that shows up in records: a Hindu house faces east or north by preference and a corpse is carried out feet-first to the south, so दक्षिण carries a funerary association that makes a south-facing main door unsellable in parts of the Kathmandu valley.
+locale: ne
+---
+पूर्व
+पश्चिम
+उत्तर
+दक्षिण
+उत्तर-पूर्व
+उत्तर-पश्चिम
+दक्षिण-पूर्व
+दक्षिण-पश्चिम
+उत्तर-उत्तर-पूर्व
+पूर्व-उत्तर-पूर्व
+पूर्व-दक्षिण-पूर्व
+दक्षिण-दक्षिण-पूर्व
+दक्षिण-दक्षिण-पश्चिम
+पश्चिम-दक्षिण-पश्चिम
+पश्चिम-उत्तर-पश्चिम
+उत्तर-उत्तर-पश्चिम

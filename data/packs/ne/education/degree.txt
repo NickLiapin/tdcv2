@@ -1,0 +1,34 @@
+---
+description: Academic qualifications in Nepal. The one that will not map onto a European ladder is एस.ई.ई. — the Secondary Education Examination taken at the end of grade 10, which until 2016 was called the S.L.C. and was known as 'the iron gate' because roughly half the country failed it. It is the single most consequential exam in a Nepali life and it appears on CVs decades later. +२ (plus-two) is grades 11 and 12 and is a separate certificate from school; a Nepali bachelor's degree is then commonly THREE years, and the four-year model is newer. प्रवीणता प्रमाणपत्र तह is the old certificate level that sat where +2 now sits and still appears on older records. सी.एम.ए., ए.एच.डब्लू. and अ.न.मी. are the sub-degree health qualifications that most rural health workers actually hold.
+locale: ne
+---
+एस.ई.ई.
+एस.एल.सी.
++२
+प्रवीणता प्रमाणपत्र तह
+डिप्लोमा
+स्नातक
+बी.ए.
+बी.एस्सी.
+बी.बी.एस.
+बी.बी.ए.
+बी.ई.
+बी.टेक.
+एम.बी.बी.एस.
+बी.डी.एस.
+बी.एन.
+बी.फार्म
+एल.एल.बी.
+स्नातकोत्तर
+एम.ए.
+एम.एस्सी.
+एम.बी.ए.
+एम.एड.
+एम.फिल.
+विद्यावारिधि
+पी.एच.डी.
+अ.न.मी.
+सी.एम.ए.
+ए.एच.डब्लू.
+जे.टी.ए.
+व्यावसायिक तालिम प्रमाणपत्र

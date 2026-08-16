@@ -1,0 +1,14 @@
+---
+description: Playing positions in फुटबल as Nepali commentary names them. Coherent child of sport/sportCoherent.txt. Most are English loans spelled in Devanagari, which is what Nepali sports broadcasting actually uses; the invented-Nepali alternatives are not in circulation and are not used here.
+locale: ne
+---
+गोलकिपर
+सेन्टर ब्याक
+लेफ्ट ब्याक
+राइट ब्याक
+डिफेन्सिभ मिडफिल्डर
+सेन्ट्रल मिडफिल्डर
+एट्याकिङ मिडफिल्डर
+लेफ्ट विङ्गर
+राइट विङ्गर
+स्ट्राइकर

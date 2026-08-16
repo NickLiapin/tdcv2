@@ -1,0 +1,11 @@
+---
+description: Full female Nepali name in the ordinary THREE-WORD shape — given name, honorific middle element, family name (सीता कुमारी श्रेष्ठ). Unlike the Marathi and Indian pattern, the Nepali middle element is NOT the father's given name: it is drawn from the same small honorific set (कुमारी, देवी, माया) whatever the father was called, so this generator draws it from person/female/middleName.txt and not from a male name list. The surname is drawn from person/lastName.txt unchanged — Nepali surnames do not inflect for gender, so there is no person/female/lastName.txt to draw from and none should be created.
+generator: tdc
+locale: ne
+---
+<sequence name="p">
+  <gen name="f" type="template" value="ne.person.female.firstName"/>
+  <gen name="m" type="template" value="ne.person.female.middleName"/>
+  <gen name="l" type="template" value="ne.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.m}} ${{p.l}}</data>

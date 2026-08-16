@@ -1,0 +1,23 @@
+---
+description: Minerals mined or quarried in Nepal. Nepal's extractive industry is small and is mostly CONSTRUCTION material — ढुङ्गा, गिट्टी and बालुवा quarried from riverbeds, which is environmentally contentious and locally lucrative — plus limestone for the cement plants that are the country's largest heavy industry. मार्बल from Godawari, म्याग्नेसाइट from Kharidhunga, स्लेट and सिलाजित (shilajit, the mineral pitch scraped from Himalayan rocks and sold as medicine) are the named ones. Nepal has no oil, no coal at scale and no metal mining of consequence.
+locale: ne
+---
+चुनढुङ्गा
+ढुङ्गा
+गिट्टी
+बालुवा
+स्लेट
+मार्बल
+म्याग्नेसाइट
+डोलोमाइट
+क्वार्ट्ज
+टाल्क
+अभ्रख
+फलामको धातु
+तामाको धातु
+जस्ता
+सिसा
+सिलाजित
+माटो
+कोइला
+प्राकृतिक ग्यास

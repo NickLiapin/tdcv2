@@ -1,0 +1,16 @@
+---
+description: Playing positions in क्रिकेट as Nepali commentary names them. Coherent child of sport/sportCoherent.txt. Most are English loans spelled in Devanagari, which is what Nepali sports broadcasting actually uses; the invented-Nepali alternatives are not in circulation and are not used here.
+locale: ne
+---
+ब्याट्सम्यान
+ओपनिङ ब्याट्सम्यान
+अलराउन्डर
+विकेटकिपर
+फास्ट बलर
+स्पिन बलर
+मिडियम पेसर
+स्लिप फिल्डर
+प्वाइन्ट फिल्डर
+मिड अन
+थर्ड म्यान
+कप्तान

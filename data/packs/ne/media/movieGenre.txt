@@ -1,0 +1,26 @@
+---
+description: Film genres in Nepali. The Nepali film industry is called कोलिवुड, and its dominant genres are not Hollywood's: सामाजिक (social drama, usually about family, caste or migration) is the mainstream form, लोक (folk, built around songs and village settings) sells in the hills, and द्वन्द्वकालीन — films set during the 1996-2006 Maoist conflict — is a genre in its own right that a Nepali audience recognises immediately. वैदेशिक रोजगार films about the Gulf are a recurring subject. Hindi-language cinema plays in Nepali halls alongside Nepali films and is a bigger draw.
+locale: ne
+---
+सामाजिक
+लोक
+पारिवारिक
+प्रेमकथा
+हास्य
+एक्सन
+थ्रिलर
+रहस्य
+डरलाग्दो
+द्वन्द्वकालीन
+ऐतिहासिक
+धार्मिक
+युद्ध
+वृत्तचित्र
+जीवनीपरक
+बालचलचित्र
+एनिमेसन
+संगीतमय
+साहसिक
+विज्ञान कथा
+क्राइम
+छोटो चलचित्र

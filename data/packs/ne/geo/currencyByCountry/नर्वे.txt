@@ -1,0 +1,5 @@
+---
+description: Currency of नर्वे as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+नर्वेली क्रोन

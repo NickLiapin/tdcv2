@@ -1,0 +1,10 @@
+---
+description: Season in Nepali — and there are SIX, not four. The Nepali year is divided into ऋतु of two months each: वसन्त (spring, बैशाख–जेठ, mid-April to mid-June), ग्रीष्म (hot, जेठ–असार), वर्षा (monsoon, साउन–भदौ, mid-July to mid-September and the event the whole agricultural year turns on), शरद (autumn, असोज–कार्तिक, the clear post-monsoon weather when the mountains are visible and when Dashain and Tihar fall), हेमन्त (pre-winter, मंसिर–पुष) and शिशिर (winter, माघ–फागुन). This six-way division is what a Nepali almanac, textbook and poem use, and the seasons are tied to the Bikram Sambat months rather than to Gregorian ones. In casual speech people compress it to three — गर्मी, वर्षा and जाडो — the way a Marathi or Hindi speaker does. The other thing a config cannot infer is that Nepal's climate is stacked vertically rather than spread horizontally: the Terai at 60 metres is subtropical and touches 45°C, Kathmandu at 1,400 metres never needs air conditioning, and above 4,000 metres there is no वर्षा season at all because the Himalaya blocks the monsoon — Mustang and Dolpo are high desert in the rain shadow while the rest of the country is under water.
+locale: ne
+---
+वसन्त
+ग्रीष्म
+वर्षा
+शरद
+हेमन्त
+शिशिर

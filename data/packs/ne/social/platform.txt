@@ -1,0 +1,21 @@
+---
+description: Social platforms used in Nepal. Facebook is dominant to a degree that has no European parallel — for many Nepali users it IS the internet, businesses trade on Facebook pages rather than websites, and Facebook Messenger carries the diaspora's calls home. TikTok is second and was banned outright for nine months in 2023-24 before being restored. Viber and IMO matter because they are what migrant workers in the Gulf and Malaysia use to call home. Hamro Patro is Nepali-made and combines a Bikram Sambat calendar, horoscope, news and remittance services in one app, which is a shape of product that exists nowhere else.
+locale: ne
+---
+Facebook
+Messenger
+TikTok
+YouTube
+Instagram
+WhatsApp
+Viber
+IMO
+Telegram
+X
+LinkedIn
+Snapchat
+Reddit
+Discord
+Hamro Patro
+Pinterest
+Threads

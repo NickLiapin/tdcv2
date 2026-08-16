@@ -1,0 +1,12 @@
+---
+description: Garment size. Nepali retail uses the Latin letters unchanged — a label reads S, M, L, XL and a Nepali shopper says 'एम साइज' — so they are given in Latin here rather than transliterated, which would produce a string no label carries. The sizing itself is Asian-cut and runs roughly one size smaller than the European equivalent, because most stock is Indian, Bangladeshi or Chinese; a Nepali L is closer to a European M. Traditional dress does not use this scale at all: a दौरा-सुरुवाल, a साडी, a गुन्यु-चोलो and a Newar हाकु पटासी are cut to measure or wrapped, and have no size.
+locale: ne
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+फ्री साइज

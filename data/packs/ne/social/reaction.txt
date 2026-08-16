@@ -1,0 +1,15 @@
+---
+description: Reactions on a Nepali social post.
+locale: ne
+---
+लाइक
+मन पर्‍यो
+हाँसो
+अचम्म
+दुःख
+रिस
+केयर
+सेयर
+कमेन्ट
+सेभ
+फलो

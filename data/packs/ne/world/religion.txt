@@ -1,0 +1,25 @@
+---
+description: Religions as counted in Nepal. The 2021 census gives Hindu about 81 per cent, Buddhist 8, Muslim 5, Kirat 3, Christian 1.8. Two need explaining to a non-Nepali reader. किरात (Kirat Mundhum) is the indigenous religion of the Rai, Limbu, Yakkha and Sunuwar peoples of the eastern hills, and it is a census category of nearly a million people that exists nowhere else. बोन is the pre-Buddhist Tibetan religion, still practised in Mustang and Dolpo. Note also that the Hindu/Buddhist boundary in Nepal is genuinely blurred rather than politely so: Newars keep both, the same shrine is visited by both, and a census box does not describe the practice. Nepal was the world's only Hindu kingdom until 2008 and is now constitutionally secular, with conversion — not belief — a criminal offence.
+locale: ne
+---
+हिन्दु
+बौद्ध
+इस्लाम
+किरात
+क्रिश्चियन
+प्रकृति
+बोन
+जैन
+सिख
+बहाई
+यहूदी
+नास्तिक
+अनिश्चित
+सनातन धर्म
+वैष्णव
+शैव
+शाक्त
+थेरवाद
+बज्रयान
+महायान
+मुन्धुम

@@ -1,0 +1,54 @@
+---
+description: Airline names as they appear on a Nepali ticket. Nepali domestic carriers keep their registered English names and Nepali writes them in Devanagari on a boarding announcement, so both forms circulate; the Latin ones are used here because that is what is printed. The Nepali fact behind this list is that domestic aviation is not a luxury but the road: large parts of the country have no motorable link at all, Lukla, Simikot, Jumla and Dolpa are reached only by air, and the STOL fleet flying them is Twin Otters and Dorniers rather than jets. Nepal's air safety record is correspondingly poor and every Nepali carrier is on the EU's banned list, which is why an internationally routed Nepali itinerary changes airline in Kathmandu.
+locale: ne
+---
+Nepal Airlines
+Buddha Air
+Yeti Airlines
+Shree Airlines
+Saurya Airlines
+Summit Air
+Tara Air
+Sita Air
+Simrik Airlines
+Manang Air
+Altitude Air
+Prabhu Helicopter
+Heli Everest
+Air Dynasty
+Kailash Helicopter
+Himalaya Airlines
+Qatar Airways
+Emirates
+Flydubai
+Etihad Airways
+Air India
+IndiGo
+Vistara
+Thai Airways
+Malaysia Airlines
+AirAsia
+Korean Air
+Cathay Pacific
+China Southern Airlines
+Air China
+Sichuan Airlines
+Turkish Airlines
+Oman Air
+Kuwait Airways
+Saudia
+Salam Air
+Jazeera Airways
+Bhutan Airlines
+Druk Air
+Biman Bangladesh Airlines
+SriLankan Airlines
+Singapore Airlines
+Scoot
+Air Arabia
+Gulf Air
+Fly Dubai Cargo
+Nepal Airlines Cargo
+Thai Lion Air
+Jetstar Asia
+Himalaya Cargo

@@ -1,0 +1,16 @@
+---
+description: Loan products in Nepal. The two that matter most and appear in no European list are वैदेशिक रोजगार ऋण — borrowed to pay the agency fee and airfare for a job in the Gulf or Malaysia, usually against land and often from a local moneylender rather than a bank — and सहकारी ऋण, from a savings-and-credit cooperative, which is where a great many rural Nepalis actually borrow. मिटरब्याज is not a product but a crime: informal lending at compounding daily interest that has taken land from thousands of Terai families and has been the subject of national protest marches; it is listed because it appears in real Nepali debt records and pretending it does not exist would misrepresent the country's credit landscape.
+locale: ne
+---
+घर कर्जा
+जग्गा कर्जा
+सवारी कर्जा
+शैक्षिक कर्जा
+व्यवसाय कर्जा
+कृषि कर्जा
+लघुवित्त कर्जा
+सहकारी ऋण
+वैदेशिक रोजगार ऋण
+सुन धितो कर्जा
+व्यक्तिगत कर्जा
+मिटरब्याज

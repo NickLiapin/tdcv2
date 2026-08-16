@@ -1,0 +1,29 @@
+---
+description: Writing systems as Nepali names them. देवनागरी is the one Nepali itself uses — and the point worth making in this pack is that Nepali, Hindi, Marathi, Sanskrit, Maithili and Bhojpuri ALL use it, so the script identifies none of them. Nepal's own historic scripts are here and are not decorative: रञ्जना is the Newar liturgical script, still used for the Om Mani Padme Hum on Kathmandu's monasteries and on formal invitations; प्रचलित लिपि and भुजिमोल are the older Newar scripts; लिम्बू (Sirijanga) is the Limbu script, taught in schools in the eastern hills; and अक्खा, तिकामुरी and खेमा are the scripts of other Nepali peoples. Nepal has more living indigenous scripts than a single-script assumption allows for. One orthographic detail is worth recording because it is MEASURABLE: Nepali does not use the nukta (a dot under a letter) or the precomposed nukta letters that Hindi and Urdu use constantly for Perso-Arabic loans — Nepali writes जमिन, फोन and सडक where Hindi writes them with nukta. Nepali also does not use the ऑ vowel sign that Hindi and Marathi take for a borrowed English 'o'; Nepali writes अगस्ट and अस्ट्रेलिया where they write ऑगस्ट and ऑस्ट्रेलिया. Neither signal is decisive on its own — a Hindi list holding no Perso-Arabic loans would show no nukta either — but across a whole pack the counts separate cleanly, and they are the ONLY character-level signal that exists between two languages sharing one script. Everything else has to be decided on vocabulary.
+locale: ne
+---
+देवनागरी
+रञ्जना
+प्रचलित लिपि
+भुजिमोल
+लिम्बू
+अक्खा
+तिकामुरी
+खेमा
+तिब्बती
+मिथिलाक्षर
+कैथी
+बंगाली
+ल्याटिन
+अरबी
+चिनियाँ
+जापानी
+कोरियाली
+सिरिलिक
+ग्रीक
+हिब्रू
+थाई
+बर्मेली
+सिंहली
+तमिल
+ब्रेल

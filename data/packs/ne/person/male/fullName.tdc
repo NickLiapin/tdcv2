@@ -1,0 +1,11 @@
+---
+description: Full male Nepali name in the ordinary THREE-WORD shape — given name, honorific middle element, family name (राम बहादुर थापा). The middle element is drawn from the closed honorific set in person/male/middleName.txt and is not a second given name; see that file for why it must not be initialised. The surname comes from person/lastName.txt unchanged, because Nepali family names do not inflect for gender. This form mixes surname pools, which is right for a plain national draw and wrong for a record that also carries an ethnicity: for that, draw person/surnameGroup and then person/lastNameByGroup/${{group}}.
+generator: tdc
+locale: ne
+---
+<sequence name="p">
+  <gen name="f" type="template" value="ne.person.male.firstName"/>
+  <gen name="m" type="template" value="ne.person.male.middleName"/>
+  <gen name="l" type="template" value="ne.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.m}} ${{p.l}}</data>

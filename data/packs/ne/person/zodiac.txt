@@ -1,0 +1,16 @@
+---
+description: The twelve राशि, in order from मेष. These are the SIDEREAL signs of Vedic astrology, not the tropical ones a European horoscope uses, and the two are about 24 days apart — a person born on 1 April is Aries in a Western paper and मीन in a Nepali one, so these labels must never be derived from a Gregorian birth date with the Western cut-offs. Nepali daily papers print राशिफल on the front section and it is read seriously: a राशि and the fuller जन्मकुण्डली cast at birth are consulted before a marriage is agreed, and a mismatch can end the negotiation. Note कर्कट for Cancer, where Hindi commonly writes कर्क.
+locale: ne
+---
+मेष
+वृष
+मिथुन
+कर्कट
+सिंह
+कन्या
+तुला
+वृश्चिक
+धनु
+मकर
+कुम्भ
+मीन

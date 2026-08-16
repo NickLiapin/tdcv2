@@ -1,0 +1,22 @@
+---
+description: Cat breeds. Nepal has essentially no pedigree cat culture — a Nepali cat is a बिरालो and नेपाली बिरालो is the honest first entry — so the rest of this list is the imported breed names a Kathmandu vet or a pet shop would use, spelled in Devanagari as they are pronounced. Persians are the one breed genuinely present in numbers.
+locale: ne
+---
+नेपाली बिरालो
+पर्सियन
+स्याम
+एन्गोरा
+बंगाल
+मेन कुन
+ब्रिटिश सर्टहेयर
+र्‍यागडल
+स्फिन्क्स
+स्कटिस फोल्ड
+हिमालयन
+रुसी नीलो
+बर्मिज
+एबिसिनियन
+बम्बे
+मन्क्स
+टर्किस भ्यान
+नर्वेजियन फरेस्ट

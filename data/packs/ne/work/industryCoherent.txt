@@ -1,0 +1,14 @@
+---
+description: Industries, and PARENT of work/jobByIndustry/. Ten, matching the reference packs, but the SELECTION is Nepal's rather than Europe's, and two swaps say why. कृषि is first because agriculture is not a sector in Nepal so much as the default: it is around a fifth of GDP and still occupies about half of all workers, and a Nepali employment record without farmers in it is not a Nepali employment record. पर्यटन replaces the reference packs' 'legal' because trekking, mountaineering and the trades around them are a bigger and more distinctively Nepali employer than the courts, which employ very few people; the legal professions are still present in work/jobTitle.txt. The industry MISSING from this list, and it is the largest one, is वैदेशिक रोजगार — foreign employment. Something like a tenth of Nepal's working-age population is abroad at any time, mostly in Qatar, the UAE, Saudi Arabia, Malaysia and South Korea, remittances run at roughly a quarter of GDP, and those people's jobs are not Nepali jobs and do not belong in a Nepali industry list. A dataset modelling Nepali households needs an 'abroad' state that this file cannot give it.
+locale: ne
+---
+कृषि
+पर्यटन
+निर्माण
+शिक्षा
+स्वास्थ्य सेवा
+सूचना प्रविधि
+वित्त
+यातायात
+खुद्रा व्यापार
+आतिथ्य

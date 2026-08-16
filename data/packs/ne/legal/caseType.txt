@@ -1,0 +1,24 @@
+---
+description: Kinds of case in a Nepali court. जग्गा मुद्दा — a land dispute — is the commonest civil case in the country by a very wide margin, because land is the main asset, records are old and contested, and partition among heirs generates litigation for generations. अंशबण्डा is that partition suit. रिट निवेदन (writ petition) is how Nepal's constitutional cases are brought and the Supreme Court's writ jurisdiction is unusually active. जारी was a distinct action, now abolished, brought by a husband against the man his wife left with. बहुविवाह is a criminal offence in Nepal and is prosecuted.
+locale: ne
+---
+जग्गा मुद्दा
+अंशबण्डा
+नामसारी
+करार
+लेनदेन
+बैंकिङ कसुर
+चेक अनादर
+ठगी
+कर्तव्य ज्यान
+कुटपिट
+चोरी
+लागूऔषध
+भ्रष्टाचार
+बहुविवाह
+घरेलु हिंसा
+सम्बन्धविच्छेद
+बालबालिका संरक्षण
+श्रम विवाद
+उपभोक्ता
+रिट निवेदन

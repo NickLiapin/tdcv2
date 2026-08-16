@@ -1,0 +1,5 @@
+---
+description: Currency of स्विडेन as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+स्विडिस क्रोना

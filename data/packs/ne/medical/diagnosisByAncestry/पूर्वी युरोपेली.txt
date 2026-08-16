@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in populations of पूर्वी युरोपेली descent, in Nepali. Coherent child of medical/ancestry.txt.
+locale: ne
+---
+ब्लुम सिन्ड्रोम
+फ्याक्टर ११ कमी
+टे-स्याक्स रोग
+बीआरसीए उत्परिवर्तन
+सिस्टिक फाइब्रोसिस
+हिमोक्रोमाटोसिस
+पारिवारिक भूमध्यसागरीय ज्वरो
+क्रोन रोग
+फेनिलकिटोनुरिया
+मदिराजन्य कलेजो रोग

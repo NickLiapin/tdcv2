@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the पाचनरोग department, in Nepali. Coherent child of medical/specialtyCoherent.txt: draw the specialty, then draw this file for it.
+locale: ne
+---
+ग्यास्ट्राइटिस
+पेप्टिक अल्सर
+झाडापखाला
+कब्जियत
+पित्तथैलीको पत्थरी
+कलेजो सुन्निने
+हेपाटाइटिस बी
+टाइफाइड
+आन्द्राको सूजन
+पेट फुल्ने

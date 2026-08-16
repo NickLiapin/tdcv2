@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the हृदयरोग department, in Nepali. Coherent child of medical/specialtyCoherent.txt: draw the specialty, then draw this file for it.
+locale: ne
+---
+उच्च रक्तचाप
+मुटुको धमनी रोग
+हृदयाघात
+मुटु फेल
+मुटुको धड्कन अनियमित
+बाथजन्य मुटु रोग
+जन्मजात मुटु प्वाल
+एन्जाइना
+कार्डियोमायोप्याथी
+मुटुको भल्भ साँघुरिने

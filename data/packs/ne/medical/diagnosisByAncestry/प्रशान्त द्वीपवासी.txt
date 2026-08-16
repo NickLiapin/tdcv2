@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in populations of प्रशान्त द्वीपवासी descent, in Nepali. Coherent child of medical/ancestry.txt.
+locale: ne
+---
+टाइप २ मधुमेह
+मोटोपन
+गाउट
+दीर्घ मृगौला रोग
+बाथजन्य मुटु रोग
+उच्च रक्तचाप
+मुटुको धमनी रोग
+क्षयरोग
+पातलो हड्डी
+कलेजोमा बोसो

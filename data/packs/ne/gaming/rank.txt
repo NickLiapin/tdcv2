@@ -1,0 +1,14 @@
+---
+description: Competitive rank tiers, as the mobile games Nepal plays label them.
+locale: ne
+---
+ब्रोन्ज
+सिल्भर
+गोल्ड
+प्लेटिनम
+डायमन्ड
+क्राउन
+एस
+कन्करर
+मास्टर
+ग्रान्डमास्टर

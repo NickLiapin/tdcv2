@@ -1,0 +1,16 @@
+---
+description: Dishes of भारतीय cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+बिरयानी
+बटर चिकन
+पनीर टिक्का
+नान
+दोसा
+इडली
+सम्भार
+छोले भटुरा
+राजमा
+पालक पनीर
+तन्दुरी चिकन
+गुलाब जामुन

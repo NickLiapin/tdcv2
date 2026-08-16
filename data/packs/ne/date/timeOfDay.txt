@@ -1,0 +1,13 @@
+---
+description: Part of the day in Nepali. Beyond the words, the fact a config must not miss: NEPAL IS UTC+05:45, the only country in the world on a 45-minute offset from UTC and 15 minutes ahead of Indian Standard Time. The offset is real and deliberate — it puts noon over Gaurishankar — and it means Nepali timestamps do not fall on the hour or the half hour in UTC, that a naive UTC+05:30 or UTC+06:00 assumption puts every Nepali time 15 minutes out, and that some date libraries and embedded devices simply cannot represent the zone. There is no daylight saving. The Nepali working day starts early and ends early: government offices open at 10 and close at 5 (4 in the winter timetable, माघ–फागुन), शुक्रबार is a short day, and शनिबार is the single weekend day, so बिहान in a Nepali record covers a busier stretch than a European morning does.
+locale: ne
+---
+झिसमिसे
+बिहान
+मध्यान्ह
+दिउँसो
+बेलुका
+साँझ
+राति
+मध्यरात
+अबेर राति

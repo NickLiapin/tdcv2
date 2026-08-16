@@ -1,0 +1,27 @@
+---
+description: The label before the numeric part of a Nepali address. वडा नं. is the important one and it is not optional: Nepal's 753 local levels are divided into wards, the ward is the smallest unit of government and the thing that issues your recommendation letters, and every Nepali address carries a ward number where a European address carries a street. घर नं. exists but most houses do not have one — house numbering was attempted in Kathmandu and never completed — so a Nepali address that has a ward and a टोल and no house number is complete rather than truncated. Floors count from भुइँतला (ground floor), so पहिलो तला is one flight up, as in Europe and unlike America. सटर नं. numbers the ground-floor shop units that Nepali buildings are built with, and a rented सटर is the commonest form of small business premises in the country.
+locale: ne
+---
+वडा नं.
+घर नं.
+कोठा नं.
+सटर नं.
+ब्लक
+तल्ला
+भुइँतला
+पहिलो तला
+दोस्रो तला
+तेस्रो तला
+फ्ल्याट नं.
+युनिट
+टावर
+गेट नं.
+प्लट नं.
+कित्ता नं.
+ब्लक नं.
+सिट नं.
+स्ट्याण्ड
+बेसमेन्ट
+छत
+पछाडिको भाग
+अगाडिको भाग

@@ -1,0 +1,19 @@
+---
+description: Payment methods in Nepali. नगद leads because Nepal is a cash economy: cash on delivery dominates online retail and much of the rest is settled in notes. What follows it is the thing a European list has no equivalent for — eSewa, Khalti, IME Pay and ConnectIPS are mobile wallets tied to a phone number, and they carry a very large share of Nepali retail and utility payment, so in a Nepali transaction record the phone column and the wallet identifier are frequently the same value. उधारो is buying on the shopkeeper's ledger and being written down, which is a real settlement method in every किराना पसल in the country. रेमिट्यान्स is a payment method in Nepal in a way it is nowhere in Europe: money arriving from a family member in Qatar or Malaysia is what pays the bill.
+locale: ne
+---
+नगद
+इसेवा
+खल्ती
+आइएमई पे
+कनेक्ट आईपीएस
+फोनपे
+मोबाइल बैङ्किङ
+क्युआर स्क्यान
+डेबिट कार्ड
+क्रेडिट कार्ड
+बैङ्क ट्रान्सफर
+चेक
+उधारो
+किस्ता
+रेमिट्यान्स

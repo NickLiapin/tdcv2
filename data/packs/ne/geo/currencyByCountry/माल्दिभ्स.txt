@@ -1,0 +1,5 @@
+---
+description: Currency of माल्दिभ्स as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+रुफिया

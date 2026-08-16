@@ -1,0 +1,16 @@
+---
+description: Conditions with a raised prevalence in populations of दक्षिण एसियाली descent, in Nepali. Coherent child of medical/ancestry.txt.
+locale: ne
+---
+टाइप २ मधुमेह
+मुटुको धमनी रोग
+थालसेमिया
+जी६पीडी कमी
+क्षयरोग
+भिटामिन डी कमी
+लिपोप्रोटिन (ए) बढी
+पेटको बोसो बढी
+उच्च रक्तचाप
+रक्तअल्पता
+पित्तथैलीको पत्थरी
+दीर्घ मृगौला रोग

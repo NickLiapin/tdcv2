@@ -1,0 +1,41 @@
+---
+description: Playing positions across sports, in Nepali — mostly English loans spelled in Devanagari, which is what Nepali commentary uses. For positions tied to a particular sport, use sport/positionBySport/ with sport/sportCoherent.txt as the parent.
+locale: ne
+---
+गोलकिपर
+डिफेन्डर
+मिडफिल्डर
+फर्वार्ड
+स्ट्राइकर
+विङ्गर
+सेन्टर ब्याक
+फुल ब्याक
+स्विपर
+क्याप्टेन
+उपकप्तान
+ब्याट्सम्यान
+बलर
+अलराउन्डर
+विकेटकिपर
+फिल्डर
+स्पिनर
+पेसर
+ओपनर
+सेटर
+हिटर
+ब्लकर
+लिबेरो
+स्पाइकर
+रेडर
+क्याचर
+कर्नर
+कभर
+प्वाइन्ट गार्ड
+सुटिङ गार्ड
+फर्वार्ड (बास्केटबल)
+सेन्टर
+पिभोट
+एकल खेलाडी
+दोहोरी खेलाडी
+रिजर्भ खेलाडी
+प्रशिक्षक

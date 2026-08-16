@@ -1,0 +1,15 @@
+---
+description: Employment types in Nepal. करार and ज्यालादारी (contract and day-wage) cover most of the workforce; स्थायी, the permanent government or corporate post with a provident fund and a pension, is the aspiration and is a small minority of jobs. वैदेशिक रोजगार is its own category and covers roughly a tenth of the working-age population.
+locale: ne
+---
+स्थायी
+अस्थायी
+करार
+ज्यालादारी
+आंशिक समय
+पूर्ण समय
+मौसमी
+इन्टर्न
+प्रशिक्षार्थी
+स्वरोजगार
+वैदेशिक रोजगार

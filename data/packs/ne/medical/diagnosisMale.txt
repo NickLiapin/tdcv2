@@ -1,0 +1,26 @@
+---
+description: Diagnoses recorded for men, in Nepali. Two entries are Nepal-specific rather than generic male medicine: खैनीजन्य मुख रोग and मुखको क्यान्सर are here because chewing tobacco (खैनी, सुर्ती, गुट्खा) is a predominantly male habit in Nepal and oral cancer is accordingly one of the commonest cancers in Nepali men, well ahead of its rank in Europe; and सिलिकोसिस because it is the occupational disease of the stone-crushing and mining work that Nepali men do at home and as migrant labour in the Gulf. मदिराजन्य कलेजो रोग likewise: alcoholic liver disease is a leading cause of male death in Nepal and home-brewed रक्सी is not measured in any survey.
+locale: ne
+---
+प्रोस्टेट वृद्धि
+प्रोस्टेट क्यान्सर
+अण्डकोष क्यान्सर
+इरेक्टाइल डिस्फंक्सन
+पुरुष बाँझोपन
+फाइमोसिस
+हाइड्रोसिल
+भेरिकोसिल
+इन्गुइनल हर्निया
+गाइनेकोमास्टिया
+मुखको क्यान्सर
+फोक्सोको क्यान्सर
+मदिराजन्य कलेजो रोग
+खैनीजन्य मुख रोग
+सिलिकोसिस
+मुटुरोग
+उच्च रक्तचाप
+मधुमेह
+क्रोनिक ब्रोन्काइटिस
+गाउट
+मृगौलाको पत्थरी
+कम्मर दुखाइ

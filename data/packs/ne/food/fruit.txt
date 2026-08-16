@@ -1,0 +1,38 @@
+---
+description: Fruit in Nepali. Nepal's altitude range means it grows both tropical and temperate fruit within a hundred kilometres: आँप, केरा, लिची and मेवा in the Terai, सुन्तला (the Nepali mandarin, a major cash crop of the mid hills) and नास्पाती higher up, and स्याउ in Mustang and Jumla above 2,500 metres where nothing else pays. काफल is the Himalayan bayberry, which cannot be cultivated and is gathered wild in June — it is the fruit Nepali songs are about. लप्सी (hog plum) is Nepal's own and is eaten as a sour candy more than as a fruit; it grows essentially only here. आमला, बयर, ऐंसेलु and चुत्रो are the hedgerow fruit children eat walking to school.
+locale: ne
+---
+आँप
+केरा
+सुन्तला
+जुनार
+कागती
+निबुवा
+स्याउ
+नास्पाती
+आरु
+आरुबखडा
+मेवा
+अनार
+अंगुर
+लिची
+काँक्रो
+तरबुजा
+खरबुजा
+अनानास
+काठर
+रुखकटहर
+बेल
+अमला
+बयर
+काफल
+ऐंसेलु
+चुत्रो
+लप्सी
+कागती
+नरिवल
+खजुर
+किवी
+स्ट्रबेरी
+अभोकाडो
+ड्रागन फ्रुट

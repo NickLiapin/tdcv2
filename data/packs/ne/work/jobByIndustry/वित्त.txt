@@ -1,0 +1,16 @@
+---
+description: Jobs in वित्त as Nepali names them. Coherent child of work/industryCoherent.txt: draw the industry, then draw this file for that industry.
+locale: ne
+---
+बैङ्क टेलर
+शाखा प्रबन्धक
+लेखापाल
+लेखा परीक्षक
+ऋण अधिकृत
+बीमा एजेन्ट
+सहकारी सञ्चालक
+रेमिट्यान्स अधिकृत
+कोषाध्यक्ष
+वित्तीय विश्लेषक
+कर परामर्शदाता
+धितोपत्र दलाल

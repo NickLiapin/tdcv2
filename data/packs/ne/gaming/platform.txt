@@ -1,0 +1,15 @@
+---
+description: Gaming platforms. Nepal is a mobile-first gaming market by an enormous margin: consoles are import-taxed to the point of being rare, and PUBG Mobile, Free Fire and Ludo King on an Android phone is what Nepali gaming means. The साइबर क्याफे entry is a platform in Nepal in a way it stopped being in Europe — networked cafes running DOTA and Counter-Strike are still the social venue for PC gaming.
+locale: ne
+---
+एन्ड्रोइड
+आईओएस
+पीसी
+साइबर क्याफे
+प्लेस्टेसन
+एक्सबक्स
+निन्तेन्दो स्विच
+स्टिम
+ब्राउजर
+एमुलेटर
+क्लाउड गेमिङ

@@ -1,0 +1,5 @@
+---
+description: Currency of अस्ट्रिया as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+युरो

@@ -1,0 +1,11 @@
+---
+description: Cable routing methods. Nepali urban cabling is famously overhead and tangled — the mass of black bundles on Kathmandu's poles is a recognised municipal problem and periodic cutting campaigns are news — so खम्बा and एरियल are the default and भूमिगत is the exception.
+locale: ne
+---
+खम्बा
+एरियल
+भूमिगत
+डक्ट
+ट्रेन्च
+पाइप
+भवनभित्रको ट्रे

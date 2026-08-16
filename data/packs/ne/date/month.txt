@@ -1,0 +1,16 @@
+---
+description: The GREGORIAN months in Nepali — and the first thing to say is that Nepal does not run on them. Nepal's official, legal and everyday calendar is BIKRAM SAMBAT (विक्रम सम्बत्), about 56 years and 8 months ahead, whose twelve months बैशाख–चैत begin in mid-April and do NOT line up with these: a BS month starts when the sun enters a zodiac sign, so it runs 29 to 32 days, its length is different in different years, and it is fixed by an almanac (पात्रो) rather than by any rule that could be computed. Nepal is the only country in the world using it as the civil calendar, government offices date everything in it, and a Nepali birth certificate, contract, invoice and newspaper masthead all carry a BS date. The BS months themselves are NOT in this pack: they belong to the Nepal country pack at nepal.calendar.bikramSambatMonth, because they are a country's calendar and not a language's month names, and that file also explains why no conversion formula exists. These Gregorian names are what a Nepali writes when dating something for abroad, and they are prefixed सन् (सन् २०२६ जनवरी) to mark that the year is the Western one; a BS year takes वि.सं. instead. The SPELLINGS are Nepali and not Hindi, and this list is one of the cheapest ways to tell the two Devanagari languages apart: Nepali फेब्रुअरी / अप्रिल / जुन / अगस्ट / सेप्टेम्बर / नोभेम्बर / डिसेम्बर against Hindi फ़रवरी / अप्रैल / जून / अगस्त / सितंबर / नवंबर / दिसंबर. नोभेम्बर is the clearest of them: Nepali writes an English v as भ, Hindi as व or व with nukta.
+locale: ne
+---
+जनवरी
+फेब्रुअरी
+मार्च
+अप्रिल
+मे
+जुन
+जुलाई
+अगस्ट
+सेप्टेम्बर
+अक्टोबर
+नोभेम्बर
+डिसेम्बर

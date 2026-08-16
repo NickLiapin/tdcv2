@@ -1,0 +1,69 @@
+---
+description: Complete Nepali sentences for filler prose. Handwritten: Project Gutenberg holds no Nepali book at all, so these were written by hand rather than mined from a corpus by data/scripts/build-text-corpus.mjs, and there are sixty-odd rather than the five hundred a corpus-backed locale ships — a reader should be able to tell which locales have a real corpus behind them and which do not. Every sentence ends in the danda (।), which is Nepali's full stop; the Latin question mark is used for questions, which is normal modern practice. THIS FILE IS THE PACK'S STRONGEST HINDI-SEPARATION EVIDENCE, because grammar shows here where a word list cannot show it: the copula is छ / छन् / हो / हुन्छ / थियो, which Hindi does not have at all (Hindi है / हैं / था); 'and' is र, where Hindi says और; the negative is छैन / होइन / -इनँ, where Hindi says नहीं; the ergative is -ले, where Hindi has ने; and the honorific verb ending -नुहुन्छ (गर्नुहुन्छ, पकाउनुहुन्छ, पर्खनुहोस्) exists in Nepali and in no other Devanagari language. A Devanagari sentence containing छ and र is Nepali; a script census cannot make that call and vocabulary can.
+locale: ne
+---
+आज मौसम धेरै राम्रो छ।
+म काठमाडौँमा बस्छु।
+उनी हरेक दिन विद्यालय जान्छिन्।
+हामी भोलि बिहान पोखरा जान्छौं।
+यो किताब मेरो होइन।
+तपाईंको नाम के हो?
+मलाई नेपाली खाना धेरै मन पर्छ।
+बिहान सबेरै उठ्नु राम्रो कुरा हो।
+हिजो दिनभर पानी पर्‍यो।
+गाउँमा अहिले बिजुली आएको छ।
+उसले बजारबाट तरकारी किन्यो।
+दिदीले भान्सामा भात पकाइन्।
+यहाँबाट हिमाल राम्ररी देखिन्छ।
+बाटो साँघुरो र उकालो छ।
+भरियाहरू भारी बोकेर उकालो लागे।
+दशैंमा सबै आफ्नो गाउँ फर्कन्छन्।
+तिहारमा घरहरू बत्तीले सजिन्छन्।
+नेपालको राष्ट्रिय फूल लालीगुराँस हो।
+सगरमाथा संसारकै अग्लो हिमाल हो।
+नेपालमा हप्ताको एक दिन मात्र बिदा हुन्छ।
+शनिबार विद्यालय र कार्यालय बन्द हुन्छन्।
+आइतबारदेखि फेरि काम सुरु हुन्छ।
+विक्रम सम्बत् ईस्वी सम्बत्भन्दा झन्डै छपन्न वर्ष अगाडि छ।
+नयाँ वर्ष बैशाख एक गते सुरु हुन्छ।
+यो चिया अलि बढी गुलियो भयो।
+मलाई अलिकति नुन चाहियो।
+उनको घर खोलाको पारिपट्टि छ।
+गाउँको बीचमा ठूलो पीपलको रुख छ।
+चौतारीमा बटुवाहरू सुस्ताउँछन्।
+बर्खामा पहिरो जाने डर हुन्छ।
+जाडोमा तराईमा शीतलहर चल्छ।
+बुबा खेतमा काम गर्नुहुन्छ।
+आमाले सधैं बिहान चिया पकाउनुहुन्छ।
+भाइ अहिले कक्षा दसमा पढ्छ।
+बहिनीले परीक्षामा राम्रो अंक ल्याइन्।
+उहाँ जिल्ला अस्पतालका डाक्टर हुनुहुन्छ।
+मेरो साथी विदेशमा काम गर्छ।
+ऊ कतारमा तीन वर्ष बस्यो।
+रेमिट्यान्सले धेरै घरको खर्च चलेको छ।
+बैङ्कमा खाता खोल्न नागरिकता चाहिन्छ।
+पहिले वडा कार्यालयबाट सिफारिस लिनुपर्छ।
+गाउँको पसलमा उधारो लेख्ने चलन छ।
+मैले मोबाइलमा रिचार्ज हालेँ।
+इसेवाबाट बिजुलीको बिल तिरेँ।
+यो बाटो हिउँदमा मात्र खुल्छ।
+जीप बिहान छ बजे छुट्छ।
+बस पार्कमा धेरै भीड थियो।
+हामीले टिकट अघिल्लो दिन नै काट्यौं।
+गाइडले हामीलाई बाटो देखाए।
+लुक्लाको विमानस्थल संसारकै कठिन मानिन्छ।
+यो फोटो कहिले खिचेको हो?
+उनीहरू गत वर्ष यहाँ आएका थिए।
+कृपया एकछिन पर्खनुहोस्।
+धन्यवाद, तपाईंलाई पनि शुभकामना।
+माफ गर्नुहोस्, मैले बुझिनँ।
+फेरि एकपटक भन्नुहोस् न।
+यो कति पर्छ?
+अलि सस्तो गर्नुस् न।
+मलाई यो साइज मिलेन।
+भोलि बिहान बजारमा भेटौंला।
+आज साँझ पानी पर्ला जस्तो छ।
+उसले नेपाली र अङ्ग्रेजी दुवै भाषा बोल्छ।
+किताब टेबलमाथि राखिदिनुहोस्।
+घरको ढोका खुला छ।
+यो गाउँमा अझै पक्की बाटो पुगेको छैन।

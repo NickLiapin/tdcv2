@@ -1,0 +1,30 @@
+---
+description: Telecom and internet providers in Nepal. Brand names keep their real spelling. TWO mobile operators, not five: Nepal Telecom (the state operator, whose network is the only one reaching much of the mountains) and Ncell. Smart Telecom, Hello Mobile and UTL all lost or surrendered their licences, so a Nepali dataset showing five operators is out of date. The fixed-line internet market is the opposite — crowded with private fibre providers, because ADSL was so poor that fibre-to-the-home leapfrogged it. The number FORMATS belong to the Nepal country pack at nepal.phone.
+locale: ne
+---
+Nepal Telecom
+Ncell
+Nepal Telecom ADSL
+WorldLink
+Vianet
+Subisu
+Classic Tech
+Websurfer
+Techminds Networks
+CG Net
+Broadlink
+Dish Media
+ArrowNet
+Loop Network
+Fiber Nepal
+NTC FTTH
+Smart Telecom
+Hello Mobile
+UTL
+Nepal Satellite
+Everest Link
+Himalayan Online
+Info Nepal
+Sky Broadband
+Nepal Digital
+Mercantile

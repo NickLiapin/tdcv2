@@ -1,0 +1,15 @@
+---
+description: Nepali personal pronouns, given as nominative/ergative pairs because the ergative -ले is obligatory on the subject of a completed transitive verb and a sentence built from the bare nominative is simply wrong. The feature with no European counterpart and no Hindi equivalent is that the second person splits FOUR ways by respect, not two: तँ is intimate or contemptuous and is what you use to a small child, a close friend or an animal; तिमी is familiar-equal; तपाईं is the polite default a stranger gets; हजुर is higher again and is also a standalone word meaning 'yes?' or 'pardon?'. Hindi has three (तू/तुम/आप) and English has one, so a translation pipeline flattens the distinction and loses the whole social register. The third person likewise splits ऊ (low) / उनी (mid) / वहाँ (high), and वहाँ is the form used of a parent, a teacher or a minister. Note also that Nepali has no grammatical gender in the pronoun — उनी and वहाँ serve men and women alike — so a Nepali sentence can be gender-neutral where an English one cannot.
+locale: ne
+---
+म/मैले
+हामी/हामीले
+तँ/तैंले
+तिमी/तिमीले
+तपाईं/तपाईंले
+हजुर/हजुरले
+ऊ/उसले
+उनी/उनले
+वहाँ/वहाँले
+उनीहरू/उनीहरूले
+तिनीहरू/तिनीहरूले

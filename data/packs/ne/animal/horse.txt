@@ -1,0 +1,20 @@
+---
+description: Horse types in Nepali. Nepal's own horse is the जुम्ली घोडा of Karnali and the तट्टु, the small hill pony that carries loads where a jeep cannot go — and load-carrying, not riding, is what a Nepali horse is for. The घोडेजात्रा (horse festival) in Kathmandu is the one day of the year horses are raced. Most of the rest are breed names a Nepali would only meet in print.
+locale: ne
+---
+तट्टु
+जुम्ली घोडा
+भरिया घोडा
+टाँगा घोडा
+अरबी
+थरब्रेड
+मुस्ताङ पोनी
+टिब्बतन पोनी
+मार्वाडी
+काठियावाडी
+स्ट्यालियन
+मेयर
+बछेडा
+पोनी
+ड्राफ्ट घोडा
+रेस घोडा

@@ -1,0 +1,12 @@
+---
+description: Playing positions in कबड्डी as Nepali commentary names them. Coherent child of sport/sportCoherent.txt. Most are English loans spelled in Devanagari, which is what Nepali sports broadcasting actually uses; the invented-Nepali alternatives are not in circulation and are not used here.
+locale: ne
+---
+रेडर
+लेफ्ट कर्नर
+राइट कर्नर
+लेफ्ट इन
+राइट इन
+लेफ्ट कभर
+राइट कभर
+अलराउन्डर

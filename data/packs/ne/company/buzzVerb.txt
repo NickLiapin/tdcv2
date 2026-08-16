@@ -1,0 +1,59 @@
+---
+description: Verb a Nepali company slogan uses. These are given in the -न्छौं form (first person plural present) because that is how a Nepali company talks about itself — हामी जोड्छौं, 'we connect' — rather than in the dictionary -नु form, which cannot be pasted into a sentence. Nepali verbs agree with person, number and honorific level, so a config concatenating one of these to an arbitrary subject can still produce a mismatch; the safest use is as a slogan line on its own.
+locale: ne
+---
+जोड्छौं
+बनाउँछौं
+बढाउँछौं
+सुधार्छौं
+सिर्जना गर्छौं
+विकास गर्छौं
+सञ्चालन गर्छौं
+व्यवस्थापन गर्छौं
+सहजीकरण गर्छौं
+सुरक्षित गर्छौं
+सुनिश्चित गर्छौं
+प्रवर्धन गर्छौं
+विस्तार गर्छौं
+रूपान्तरण गर्छौं
+सशक्त बनाउँछौं
+सम्भव बनाउँछौं
+पुर्‍याउँछौं
+उपलब्ध गराउँछौं
+प्रदान गर्छौं
+समर्थन गर्छौं
+सिकाउँछौं
+प्रशिक्षित गर्छौं
+अनुसन्धान गर्छौं
+डिजाइन गर्छौं
+निर्माण गर्छौं
+उत्पादन गर्छौं
+आपूर्ति गर्छौं
+वितरण गर्छौं
+जडान गर्छौं
+मर्मत गर्छौं
+परीक्षण गर्छौं
+प्रमाणित गर्छौं
+मापन गर्छौं
+विश्लेषण गर्छौं
+अनुगमन गर्छौं
+समन्वय गर्छौं
+एकीकृत गर्छौं
+स्वचालित गर्छौं
+अनुकूलन गर्छौं
+पुनर्संरचना गर्छौं
+लगानी गर्छौं
+साझेदारी गर्छौं
+प्रतिस्पर्धा गर्छौं
+अगुवाइ गर्छौं
+प्रेरित गर्छौं
+जोगाउँछौं
+बचाउँछौं
+सम्मान गर्छौं
+सुन्छौं
+बुझ्छौं
+समाधान गर्छौं
+सरलीकरण गर्छौं
+गति दिन्छौं
+फैलाउँछौं
+टिकाउँछौं

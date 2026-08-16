@@ -1,0 +1,59 @@
+---
+description: Sports in Nepali. भलिबल is the national sport, declared so in 2017. दन्डी बियो, कबड्डी, खो खो and गुच्चा are the village games children actually play; टप्पी and चङ्गा (kite fighting, at Dashain, with glass-coated string) are seasonal. पर्वतारोहण is the one Nepal leads the world in and it is an industry as much as a sport. तेक्वान्दो and कराते are where Nepal's international medals come from. एलिफेन्ट पोलो was invented in Nepal, at Meghauli in Chitwan, and the world championship was held there for thirty years until it was stopped over animal welfare — it is included because it is genuinely Nepali and genuinely over.
+locale: ne
+---
+भलिबल
+फुटबल
+क्रिकेट
+कबड्डी
+खो खो
+दन्डी बियो
+बास्केटबल
+ब्याडमिन्टन
+टेबल टेनिस
+टेनिस
+ह्यान्डबल
+हकी
+एथलेटिक्स
+दौड
+म्याराथन
+उच्च उफ्राइ
+लामो उफ्राइ
+गोला प्रक्षेपण
+तेक्वान्दो
+कराते
+जुडो
+बक्सिङ
+कुस्ती
+वुसु
+मुआय थाई
+भारोत्तोलन
+पौडी
+डाइभिङ
+साइक्लिङ
+माउन्टेन बाइकिङ
+मोटरसाइकल रेस
+पर्वतारोहण
+चट्टान आरोहण
+ट्रेल रनिङ
+राफ्टिङ
+क्यायाकिङ
+काइनोइङ
+प्याराग्लाइडिङ
+बन्जी जम्प
+जिपलाइन
+स्किइङ
+गल्फ
+शुटिङ
+आर्चरी
+फेन्सिङ
+स्केटिङ
+स्केटबोर्डिङ
+योग
+जिमन्यास्टिक
+बडीबिल्डिङ
+बिलियर्ड्स
+चेस
+बाघचाल
+एलिफेन्ट पोलो
+चङ्गा

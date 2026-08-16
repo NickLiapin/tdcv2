@@ -1,0 +1,5 @@
+---
+description: Currency of भारत as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+भारतीय रुपैयाँ

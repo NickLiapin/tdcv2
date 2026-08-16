@@ -1,0 +1,13 @@
+---
+description: Cable types in Nepali telecom and power work.
+locale: ne
+---
+अप्टिकल फाइबर
+कोएक्सियल
+ट्विस्टेड पेयर
+क्याट ६
+क्याट ५ई
+एचडीएमआई
+पावर केबल
+अर्थिङ तार
+एरियल बन्च्ड केबल

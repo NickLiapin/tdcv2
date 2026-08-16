@@ -1,0 +1,9 @@
+---
+description: Hotel star ratings as Nepal's Department of Tourism awards them. Nepal grades hotels one to five stars plus a 'tourist standard' category below them, and the great majority of trekking lodges and homestays are ungraded.
+locale: ne
+---
+एक तारे
+दुई तारे
+तीन तारे
+चार तारे
+पाँच तारे

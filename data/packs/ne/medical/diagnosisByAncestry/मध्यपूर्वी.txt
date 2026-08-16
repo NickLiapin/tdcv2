@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in populations of मध्यपूर्वी descent, in Nepali. Coherent child of medical/ancestry.txt.
+locale: ne
+---
+पारिवारिक भूमध्यसागरीय ज्वरो
+बिटा थालसेमिया
+जी६पीडी कमी
+नाता विवाहजन्य आनुवंशिक रोग
+टाइप २ मधुमेह
+बेहचेट रोग
+सिकल सेल रोग
+भिटामिन डी कमी
+मोटोपन
+बहिरोपन

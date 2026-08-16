@@ -1,0 +1,10 @@
+---
+description: Playing positions in ब्याडमिन्टन as Nepali commentary names them. Coherent child of sport/sportCoherent.txt. Most are English loans spelled in Devanagari, which is what Nepali sports broadcasting actually uses; the invented-Nepali alternatives are not in circulation and are not used here.
+locale: ne
+---
+एकल खेलाडी
+दोहोरी खेलाडी
+मिश्रित दोहोरी खेलाडी
+फ्रन्ट कोर्ट
+ब्याक कोर्ट
+डिफेन्डर

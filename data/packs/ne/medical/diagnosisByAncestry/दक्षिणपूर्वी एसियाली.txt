@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in populations of दक्षिणपूर्वी एसियाली descent, in Nepali. Coherent child of medical/ancestry.txt.
+locale: ne
+---
+अल्फा थालसेमिया
+हिमोग्लोबिन ई
+जी६पीडी कमी
+ल्याक्टोज असहिष्णुता
+हेपाटाइटिस बी
+थायमिन कमी
+मलेरिया प्रतिरोध
+क्षयरोग
+पेटको क्यान्सर
+डेङ्गु जटिलता

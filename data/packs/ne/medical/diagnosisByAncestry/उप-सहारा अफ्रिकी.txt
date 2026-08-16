@@ -1,0 +1,16 @@
+---
+description: Conditions with a raised prevalence in populations of उप-सहारा अफ्रिकी descent, in Nepali. Coherent child of medical/ancestry.txt. This list is a PREVALENCE SIGNAL, not an exclusive one: every condition named here occurs in every population, and ancestry shifts the odds rather than deciding the diagnosis. Using it as a rule-out would be bad medicine and bad data.
+locale: ne
+---
+सिकल सेल रोग
+जी६पीडी कमी
+उच्च रक्तचाप
+दीर्घ मृगौला रोग
+एपीओएल१ मृगौला जोखिम
+ल्याक्टोज असहिष्णुता
+प्रोस्टेट क्यान्सर
+फाइब्रोइड
+टाइप २ मधुमेह
+क्षयरोग
+मलेरिया प्रतिरोध
+हेपाटाइटिस बी

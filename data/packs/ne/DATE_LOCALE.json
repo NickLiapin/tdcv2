@@ -1,0 +1,59 @@
+{
+  "months": [
+    "जनवरी",
+    "फेब्रुअरी",
+    "मार्च",
+    "अप्रिल",
+    "मे",
+    "जुन",
+    "जुलाई",
+    "अगस्ट",
+    "सेप्टेम्बर",
+    "अक्टोबर",
+    "नोभेम्बर",
+    "डिसेम्बर"
+  ],
+  "monthsInDate": [
+    "जनवरी",
+    "फेब्रुअरी",
+    "मार्च",
+    "अप्रिल",
+    "मे",
+    "जुन",
+    "जुलाई",
+    "अगस्ट",
+    "सेप्टेम्बर",
+    "अक्टोबर",
+    "नोभेम्बर",
+    "डिसेम्बर"
+  ],
+  "monthsShort": [
+    "जन",
+    "फेब",
+    "मार्च",
+    "अप्रिल",
+    "मे",
+    "जुन",
+    "जुलाई",
+    "अग",
+    "सेप्ट",
+    "अक्टो",
+    "नोभे",
+    "डिसे"
+  ],
+  "weekdays": [
+    "आइतबार",
+    "सोमबार",
+    "मङ्गलबार",
+    "बुधबार",
+    "बिहीबार",
+    "शुक्रबार",
+    "शनिबार"
+  ],
+  "weekdaysShort": ["आइत", "सोम", "मङ्गल", "बुध", "बिही", "शुक्र", "शनि"],
+  "formats": {
+    "L": "YYYY/MM/DD",
+    "LL": "YYYY MMMM D"
+  },
+  "notes": "THESE ARE THE GREGORIAN MONTHS AND NEPAL DOES NOT USE THEM. Nepal's civil calendar is Bikram Sambat (विक्रम सम्बत्), roughly 56 years 8 months ahead of the Gregorian year, and it is the official calendar of the state: birth certificates, contracts, court judgments, invoices, school terms, the national budget and every newspaper masthead are dated in it, and Nepal is the only country in the world where that is true. Its twelve months are बैशाख, जेठ, असार, साउन, भदौ, असोज, कार्तिक, मंसिर, पुष, माघ, फागुन, चैत; the year begins in mid-April; and a BS month begins when the sun enters a zodiac sign, so it is 29 to 32 days long, a DIFFERENT length in different years, published annually in an almanac (पात्रो) rather than derived from a rule. That is the engine limit worth stating plainly: THE ENGINE CANNOT EXPRESS BIKRAM SAMBAT. There is no arithmetic conversion from a Gregorian date, month lengths are not computable, and this table is a Gregorian table with Nepali labels — nothing more. A Nepali BS date must be drawn from the Nepal country pack (nepal.calendar.bikramSambatYear / bikramSambatMonth / bikramSambatDate), which ships them as data rather than pretending they can be calculated. When a Nepali text does carry a Gregorian year it is marked सन् (सन् २०२६), and a Bikram Sambat year is marked वि.सं., because in Nepal the two circulate side by side and a bare four-digit year is ambiguous. THE WEEK STARTS SUNDAY AND THE WEEKEND IS SATURDAY ALONE — Nepal has a one-day weekend, offices and schools run Sunday to Friday, so a six-working-day week is correct and a Sat/Sun weekend is not. NEPAL IS UTC+05:45, the world's only 45-minute offset, 15 minutes ahead of India, with no daylight saving. On the strings themselves: Nepali and Hindi are both written in Devanagari and NO SCRIPT OR CHARACTER TEST CAN TELL THEM APART. Vocabulary can, and the weekday array is the cheapest place to look: Nepali builds days on -बार (आइतबार, मङ्गलबार, बिहीबार) where Hindi uses -वार (रविवार, मंगलवार, गुरुवार), and आइतबार and बिहीबार do not exist in Hindi at all. The months carry a second marker: Nepali नोभेम्बर, डिसेम्बर, सेप्टेम्बर, अगस्ट, फेब्रुअरी, अप्रिल, जुन against Hindi नवंबर, दिसंबर, सितंबर, अगस्त, फ़रवरी, अप्रैल, जून — Nepali renders an English v as भ, which Hindi does not. Months and weekdays are invariant in Nepali, so monthsInDate is identical to months and that is correct rather than a copy-paste slip. Numeric dates are written YEAR FIRST with slashes (२०८१/०४/१५) because that is how a Bikram Sambat date is written on every Nepali form, and the habit carries over to Gregorian ones; DD/MM/YYYY also occurs in commercial writing. Devanagari digits ०१२३४५६७८९ are what a government form prints, Latin digits are equally correct elsewhere, and real Nepali documents mix the two freely."
+}

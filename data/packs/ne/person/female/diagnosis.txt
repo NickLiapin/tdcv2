@@ -1,0 +1,30 @@
+---
+description: The female-specific diagnosis list again under person/, so a config building a person record can reach it beside the name without crossing into medical/. Identical in content to medical/diagnosisFemale.txt; see that file's description for पाठेघर खस्ने (uterine prolapse), which affects roughly one Nepali woman in ten and has no European counterpart in prevalence.
+locale: ne
+---
+स्तन क्यान्सर
+पाठेघरको मुखको क्यान्सर
+पाठेघर खस्ने
+गर्भाशयको फाइब्रोइड
+एन्डोमेट्रियोसिस
+पोलिसिस्टिक ओभरी सिन्ड्रोम
+महिला बाँझोपन
+रक्तअल्पता
+गर्भावस्थाको मधुमेह
+गर्भावस्थाको उच्च रक्तचाप
+प्रसूतिपछिको रक्तस्राव
+अब्स्ट्रेटिक फिस्टुला
+प्रसूतिपछिको डिप्रेसन
+मूत्रनलीको संक्रमण
+अस्टियोपोरोसिस
+थाइराइड कम हुने
+रजोनिवृत्तिका लक्षण
+मासिक अनियमितता
+स्तनपानजन्य संक्रमण
+आइरन कमी
+आयोडिन कमी
+गलगाँड
+चुलोको धुवाँबाट हुने फोक्सो रोग
+पित्तथैलीको पत्थरी
+माइग्रेन
+गर्भपतन

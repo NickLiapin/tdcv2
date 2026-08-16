@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code for मेक्सिको. Codes are Latin letters in every language and are deliberately not transliterated.
+locale: en
+---
+MXN

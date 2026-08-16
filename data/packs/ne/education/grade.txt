@@ -1,0 +1,22 @@
+---
+description: School year and marking bands as Nepal writes them. Nepali schooling runs कक्षा १ to कक्षा १२, with an EEE at the end of grade 10 and a +2 certificate at 12. The grading changed in 2016 from percentage marks to letter grades A+ through NG, so a Nepali transcript from before then reads प्रथम श्रेणी / द्वितीय श्रेणी / तृतीय श्रेणी on a percentage and one from after reads A+ and a GPA on four — both forms are in circulation and a dataset mixing them without a year is unreadable. NG means 'not graded' and replaced the word 'fail', which is a real policy change and not a euphemism a data generator invented.
+locale: ne
+---
+कक्षा १
+कक्षा ५
+कक्षा ८
+कक्षा १०
+कक्षा ११
+कक्षा १२
+A+
+A
+B+
+B
+C+
+C
+D+
+NG
+प्रथम श्रेणी
+द्वितीय श्रेणी
+तृतीय श्रेणी
+विशिष्ट श्रेणी

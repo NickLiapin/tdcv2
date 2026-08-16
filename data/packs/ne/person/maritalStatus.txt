@@ -1,0 +1,17 @@
+---
+description: Marital status in Nepali. The two at the head that a European form has no box for are मागी विवाह and प्रेम विवाह — arranged and love marriage — and in Nepal they are not private trivia: they are the first thing anyone asks about a marriage, they are used in matrimonial advertisements, and a majority of Nepali marriages are still मागी. जारी is a legal term with no English equivalent: it is the status of a woman who has left her husband for another man, and until 2018 the second man owed the first a compensation payment called jari, which the courts actually enforced. It is included because it appears in real Nepali court records. Note also that Nepal has no civil partnership: same-sex marriage was recognised by an interim Supreme Court order in 2023 and the first was registered in 2023, but the Civil Code has not been amended, so there is no settled Nepali term and none is invented here.
+locale: ne
+---
+अविवाहित
+विवाहित
+मागी विवाह
+प्रेम विवाह
+अन्तरजातीय विवाह
+सम्बन्ध विच्छेद
+छुट्टिएको
+विधुर
+विधवा
+पुनर्विवाहित
+जारी
+एकल
+मागी

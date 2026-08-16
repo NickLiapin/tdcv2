@@ -1,0 +1,24 @@
+---
+description: Kinds of trip in Nepali. तीर्थयात्रा (pilgrimage) is the single commonest reason a Nepali travels domestically — Muktinath, Pashupatinath, Janakpur, Gosaikunda, Manakamana — and it is a category a European travel dataset does not have. वैदेशिक रोजगार is travel too, and for millions of Nepalis it is the only flight they will ever take. माइती जाने — a married woman's visit back to her parents' home, which is a named, ritualised journey with its own festivals attached — has no English equivalent at all.
+locale: ne
+---
+तीर्थयात्रा
+माइती जाने
+पारिवारिक भ्रमण
+चाडपर्व घर जाने
+ट्रेकिङ
+पर्वतारोहण
+साहसिक यात्रा
+जंगल सफारी
+पिकनिक
+हनिमुन
+व्यापारिक यात्रा
+सम्मेलन
+अध्ययन भ्रमण
+शैक्षिक यात्रा
+वैदेशिक रोजगार
+उपचारका लागि यात्रा
+स्वयंसेवी यात्रा
+एकल यात्रा
+समूह यात्रा
+बजेट यात्रा

@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in populations of उत्तर अफ्रिकी descent, in Nepali. Coherent child of medical/ancestry.txt.
+locale: ne
+---
+जी६पीडी कमी
+बिटा थालसेमिया
+सिकल सेल रोग
+पारिवारिक भूमध्यसागरीय ज्वरो
+टाइप २ मधुमेह
+नाता विवाहजन्य आनुवंशिक रोग
+भिटामिन डी कमी
+उच्च रक्तचाप
+सेलियाक रोग
+बहिरोपन

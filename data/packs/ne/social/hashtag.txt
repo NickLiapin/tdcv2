@@ -1,0 +1,34 @@
+---
+description: Hashtags Nepali users write. Hashtags are typed in Latin far more often than in Devanagari even by users writing Nepali, so both forms are given here. #VisitNepal, #NepalEarthquake and #EnoughIsEnough are real and consequential Nepali tags — the last was the 2020 protest movement over the government's COVID response.
+locale: ne
+---
+#नेपाल
+#काठमाडौँ
+#पोखरा
+#हिमाल
+#सगरमाथा
+#दशैं
+#तिहार
+#तीज
+#छठ
+#ल्होसार
+#नेपालीखाना
+#दालभात
+#मःमः
+#ट्रेकिङ
+#अन्नपूर्ण
+#नेपालीगीत
+#नेपालीफिल्म
+#Nepal
+#Kathmandu
+#VisitNepal
+#Himalaya
+#Everest
+#NepaliFood
+#Trekking
+#NepaliTiktok
+#Dashain
+#Tihar
+#NepalEarthquake
+#EnoughIsEnough
+#NepaliDiaspora

@@ -1,0 +1,12 @@
+---
+description: Content ratings as Nepal's Film Development Board issues them. The Nepali certificates are उ (general), व (with parental guidance) and अ (adults only) — single Devanagari letters, not the English-style letters other countries use — and the board's censorship remit covers political and religious content as well as sex and violence.
+locale: ne
+---
+उ
+व
+अ
+सबैका लागि
+अभिभावकको साथमा
+१६ वर्षमाथि
+१८ वर्षमाथि
+प्रतिबन्धित

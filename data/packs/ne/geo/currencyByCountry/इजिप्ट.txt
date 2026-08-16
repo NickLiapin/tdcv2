@@ -1,0 +1,5 @@
+---
+description: Currency of इजिप्ट as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+इजिप्टियन पाउन्ड

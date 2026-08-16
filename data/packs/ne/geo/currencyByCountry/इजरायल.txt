@@ -1,0 +1,5 @@
+---
+description: Currency of इजरायल as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+न्यु सेकेल

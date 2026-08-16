@@ -1,0 +1,26 @@
+---
+description: The male-specific diagnosis list again under person/, so a config building a person record can reach it beside the name without crossing into medical/. Identical in content to medical/diagnosisMale.txt; see that file's description for why खैनीजन्य मुख रोग and सिलिकोसिस are on a Nepali list and not a European one.
+locale: ne
+---
+प्रोस्टेट वृद्धि
+प्रोस्टेट क्यान्सर
+अण्डकोष क्यान्सर
+इरेक्टाइल डिस्फंक्सन
+पुरुष बाँझोपन
+फाइमोसिस
+हाइड्रोसिल
+भेरिकोसिल
+इन्गुइनल हर्निया
+गाइनेकोमास्टिया
+मुखको क्यान्सर
+फोक्सोको क्यान्सर
+मदिराजन्य कलेजो रोग
+खैनीजन्य मुख रोग
+सिलिकोसिस
+मुटुरोग
+उच्च रक्तचाप
+मधुमेह
+क्रोनिक ब्रोन्काइटिस
+गाउट
+मृगौलाको पत्थरी
+कम्मर दुखाइ

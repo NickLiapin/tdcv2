@@ -1,0 +1,30 @@
+---
+description: Review headlines a Nepali shopper writes. Nepali online reviews are short and blunt and are very often written in Roman-script Nepali rather than Devanagari; the Devanagari forms are given here because that is what this pack is for, but a real scrape of Daraz or a Facebook marketplace comment thread would be half Romanised.
+locale: ne
+---
+एकदमै राम्रो
+पैसा वसुल
+ठीकै छ
+अपेक्षाभन्दा राम्रो
+फोटोमा जस्तै
+गुणस्तर राम्रो छैन
+छिटो आयो
+धेरै ढिलो
+प्याकिङ राम्रो
+बिग्रिएर आयो
+नक्कली रहेछ
+साइज सानो भयो
+साइज ठूलो भयो
+फेरि किन्छु
+सिफारिस गर्छु
+नकिन्नुस्
+मूल्य महँगो
+सस्तो र राम्रो
+सेवा राम्रो
+जवाफ आएन
+टिकाउ छ
+एक पटकमै बिग्रियो
+मन पर्‍यो
+निराश भएँ
+उपहारका लागि उत्तम
+सबैलाई भन्छु

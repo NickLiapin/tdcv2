@@ -1,0 +1,20 @@
+---
+description: Weather and natural events in Nepal, and this list is a hazard list. पहिरो (landslide) and बाढी are the annual monsoon killers and displace tens of thousands every year; हिमपहिरो is the avalanche; हिमताल विस्फोट is a glacial lake outburst flood, a Himalayan hazard with no lowland equivalent, in which a moraine dam fails and empties a lake down a valley. भूकम्प is not a weather event but belongs in any Nepali hazard vocabulary: Nepal sits on the Indian-Eurasian collision and the 2015 earthquake killed nearly nine thousand people. शीतलहर kills in the Terai each winter and लु, the hot wind, in summer. वायु प्रदूषण is here because Kathmandu's winter air regularly ranks among the world's worst and it is now reported like weather.
+locale: ne
+---
+मनसुन
+पूर्वमनसुन
+पहिरो
+बाढी
+डुबान
+हिमपहिरो
+हिमताल विस्फोट
+खडेरी
+शीतलहर
+लु
+तुसारो
+असिनापात
+चट्याङ
+आँधी
+भूकम्प
+वायु प्रदूषण

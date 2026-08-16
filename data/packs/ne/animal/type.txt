@@ -1,0 +1,52 @@
+---
+description: Kinds of animal in Nepali. The head of the list is livestock, because that is what an animal is in most Nepali records: the buffalo (भैंसी) rather than the cow is the country's dairy and meat animal, since killing a cow is illegal and killing a buffalo is not, and the male buffalo (राँगो) is the sacrificial animal at Dashain. चौंरी is the yak-cattle cross that carries loads above 3,000 metres and gives the milk that चुर्पी is made from — it is not a yak, and the distinction matters in a herd record. The wild list is the Chitwan and Bardiya one: एकसिङ्गे गैंडा (the one-horned rhino, whose population Nepal has more than doubled), पाटे बाघ (Bengal tiger), हिउँ चितुवा (snow leopard) and रातो पाँडा are the flagship species of a country whose conservation record is unusually good.
+locale: ne
+---
+कुकुर
+बिरालो
+गाई
+गोरु
+भैंसी
+राँगो
+बाख्रा
+बोका
+भेडा
+सुँगुर
+कुखुरा
+भाले
+हाँस
+परेवा
+घोडा
+गधा
+खच्चड
+याक
+चौंरी
+खरायो
+मुसा
+बाँदर
+लंगुर
+मृग
+जरायो
+थारे
+एकसिङ्गे गैंडा
+हात्ती
+पाटे बाघ
+चितुवा
+हिउँ चितुवा
+भालु
+रातो पाँडा
+स्याल
+ब्वाँसो
+घडियाल
+गोही
+सर्प
+छेपारो
+भ्यागुतो
+माछा
+गँगटा
+घोंघी
+कछुवा
+चमेरो
+स्यालु
+दुम्सी
+मलसाँप्रो

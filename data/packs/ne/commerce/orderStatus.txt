@@ -1,0 +1,18 @@
+---
+description: Order status in Nepali, as a Nepali e-commerce app shows it. भुक्तानी बाँकी (payment pending) is the normal state rather than the exception: cash on delivery is still how most Nepali online orders are paid, so the money arrives at the door and an order can travel its whole route unpaid.
+locale: ne
+---
+अर्डर प्राप्त
+पुष्टि भयो
+भुक्तानी बाँकी
+भुक्तानी भयो
+तयारी हुँदै
+प्याक भयो
+पठाइयो
+बाटोमा
+डेलिभरीका लागि निस्कियो
+पुर्‍याइयो
+फिर्ता माग
+फिर्ता भयो
+रद्द भयो
+अपुग स्टक

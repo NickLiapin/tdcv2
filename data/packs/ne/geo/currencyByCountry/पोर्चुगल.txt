@@ -1,0 +1,5 @@
+---
+description: Currency of पोर्चुगल as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+युरो

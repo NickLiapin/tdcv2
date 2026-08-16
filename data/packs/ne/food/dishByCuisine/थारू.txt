@@ -1,0 +1,14 @@
+---
+description: Dishes of थारू cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+ढिकरी
+घोंघी
+गंगटा
+सिद्रा
+बगिया
+अनदीको भात
+माछाको झोल
+भुजा
+सिस्नोको साग
+तरुवा

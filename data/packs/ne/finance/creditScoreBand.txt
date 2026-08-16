@@ -1,0 +1,9 @@
+---
+description: Credit standing bands. Nepal has no consumer credit score in the FICO sense: the Credit Information Bureau (कर्जा सूचना केन्द्र) keeps a BLACKLIST rather than a score, and being कालोसूचीमा — blacklisted for a bounced cheque or a defaulted loan — is a binary state that stops you borrowing anywhere and is the thing Nepalis actually talk about. These five bands are therefore a translation of the international convention and are labelled as a bank's internal risk grade, which is what a Nepali bank really uses; a config wanting the Nepali reality should model a blacklist flag instead.
+locale: ne
+---
+उत्कृष्ट
+राम्रो
+मध्यम
+कमजोर
+कालोसूचीमा

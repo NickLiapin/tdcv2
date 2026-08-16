@@ -1,0 +1,5 @@
+---
+description: Currency of मोरक्को as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+मोरक्कोली दिर्हाम

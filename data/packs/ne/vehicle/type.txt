@@ -1,0 +1,26 @@
+---
+description: Vehicle types in Nepali. The middle of this list is what Nepal actually moves on. टेम्पो — a three-wheeled shared minibus, electric in Kathmandu since the 1990s and one of the world's earlier EV fleets — and माइक्रो (a fourteen-seat van run as a shared route service) carry most urban passengers. डोको and नाम्लो are not vehicles but are how goods move where no road goes, which is a large part of the country, and the porter carrying a load on a headstrap is a transport mode with an economy behind it. ट्याक्टर is a passenger and freight vehicle in the Terai as much as a farm machine. Motorcycles outnumber cars several times over.
+locale: ne
+---
+मोटरसाइकल
+स्कुटर
+साइकल
+कार
+जीप
+पिकअप
+भ्यान
+माइक्रो
+हाइस
+टेम्पो
+अटो रिक्सा
+रिक्सा
+ठेला
+बस
+मिनिबस
+नाइट बस
+ट्रक
+टिपर
+ट्याङ्कर
+ट्याक्टर
+एम्बुलेन्स
+दमकल

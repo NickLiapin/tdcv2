@@ -1,0 +1,14 @@
+---
+description: Number of people in a household, as a Nepali form's tick-boxes run. The mean Nepali household was 4.37 people at the 2021 census and falling fast — it was 5.44 in 2001 — so the middle of this list is where the mass is. Two Nepali facts a config should hold beside it: a joint household of three generations under one roof is still ordinary rather than remarkable, which is why the tail runs to ten and above; and about one Nepali household in four has at least one member ABROAD, in the Gulf, Malaysia, Korea or India, so 'household size' and 'people actually present' are different numbers and remittances from the absent member are the household's largest income line.
+locale: ne
+---
+१
+२
+३
+४
+५
+६
+७
+८
+९
+१० वा बढी

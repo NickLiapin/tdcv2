@@ -1,0 +1,16 @@
+---
+description: The closed set of honorific middle elements in a Nepali woman's name, the counterpart of person/male/middleName.txt. कुमारी ('maiden') is the commonest and is what a woman's citizenship certificate most often carries; देवी ('goddess') is its Madhesi and older-generation equivalent; माया, कला, प्रभा and रानी follow. Note that माया behaves in two ways at once — as a separate middle word here, and as a suffix welded into a single given name in person/female/firstName.txt (धनमाया) — and both are correct Nepali. कुमारी in this position says nothing about marital status despite the literal meaning; a married woman keeps it. It is also, confusingly, the title of the living goddess of Kathmandu, which is a different word doing a different job.
+locale: ne
+---
+कुमारी
+देवी
+माया
+कला
+प्रभा
+रानी
+लक्ष्मी
+शोभा
+ज्योति
+पुष्पा
+सरा
+कान्ति

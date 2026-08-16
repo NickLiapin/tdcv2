@@ -1,0 +1,40 @@
+---
+description: Birds of Nepal in Nepali. डाँफे is first because it is the national bird — the Himalayan monal, whose iridescent plumage is on the tourist board's posters — and it lives between 2,500 and 4,500 metres, which no European bird list has a slot for. काग (house crow) and भँगेरा (sparrow) are the urban birds; गिद्ध, the vulture, is here because Nepal's vultures were nearly wiped out by diclofenac given to cattle and the recovery programme is a well-known Nepali conservation story. सारस is the sarus crane of the Terai, and कालिज, ल्वाँठे and च्याखुरा are the hill pheasants and partridges people actually hunt.
+locale: ne
+---
+डाँफे
+काग
+भँगेरा
+कोइली
+मैना
+सुगा
+परेवा
+ढुकुर
+बकुल्ला
+सारस
+गिद्ध
+चील
+बाज
+उल्लु
+लाटोकोसेरो
+कालिज
+च्याखुरा
+ल्वाँठे
+मयुर
+हाँस
+राजहाँस
+सुनचरी
+फिस्टो
+धोबिनी
+जुरेली
+बगेडी
+चिबे
+बटाई
+तित्रा
+कुकुरखोज
+हिमाली चील
+स्वर्गचरी
+मुनिया
+गौंथली
+लामपुच्छ्रे
+जलेवा

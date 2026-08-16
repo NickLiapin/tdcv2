@@ -1,0 +1,12 @@
+---
+description: ABO and Rh blood groups. The distribution in Nepal is roughly O positive 33 per cent, A positive 24, B positive 27, AB positive 8, with the Rh-negative groups together under 4 per cent — Rh-negative blood is rarer in South Asia than in Europe and correspondingly harder to obtain, which is why Nepali blood-donation drives specifically call for it.
+locale: ne
+---
+O+
+O-
+A+
+A-
+B+
+B-
+AB+
+AB-

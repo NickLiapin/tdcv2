@@ -1,0 +1,5 @@
+---
+description: Currency of नेदरल्यान्ड्स as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+युरो

@@ -1,0 +1,11 @@
+---
+description: Kinds of freight route in Nepal. सीमापार is the cross-border run to India; राजमार्ग is the highway network, of which the Prithvi and Mahendra highways carry almost everything; ग्रामीण सडक is unpaved and seasonal, and a large share of Nepal's rural roads are impassable during the monsoon, which is why a delivery date in a Nepali logistics record has a season attached to it.
+locale: ne
+---
+सीमापार
+राजमार्ग
+प्रदेश सडक
+सहरी
+ग्रामीण सडक
+पहाडी मार्ग
+मौसमी बाटो

@@ -1,0 +1,24 @@
+---
+description: The closed set of honorific middle elements in a Nepali man's name. This file exists because the three-word shape is near-universal in Nepal and a generator that draws only a given name and a surname produces names that read as truncated. बहादुर ('brave') is the commonest by a distance and is the Chhetri and Janajati default; प्रसाद ('offering') is the Bahun one; कुमार, राज and नारायण cross all groups; मान is Newar and Tamang; बाबु and लाल are Madhesi and Newar. These are NOT second given names and are never used alone to address someone — nobody calls a man बहादुर — so a config abbreviating a Nepali name should drop the middle element, not the surname, and should never render it as an initial the way an American middle name is initialised.
+locale: ne
+---
+बहादुर
+प्रसाद
+कुमार
+राज
+नारायण
+मान
+बाबु
+लाल
+चन्द्र
+देव
+नाथ
+राम
+कृष्ण
+हरि
+ध्वज
+रत्न
+भक्त
+प्रताप
+ज्योति
+विक्रम

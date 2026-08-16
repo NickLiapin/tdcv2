@@ -1,0 +1,16 @@
+---
+description: Abbreviated Gregorian month in Nepali, index-aligned with date/month.txt. Nepali abbreviates by truncation without a full stop, and the four already-short names (मार्च, मे, जुन, जुलाई) are not shortened at all. As with the full names, these are the FOREIGN calendar: the abbreviation a Nepali actually writes on a form is a Bikram Sambat month, and those live in the Nepal country pack at nepal.calendar.bikramSambatMonth.
+locale: ne
+---
+जन
+फेब
+मार्च
+अप्रिल
+मे
+जुन
+जुलाई
+अग
+सेप्ट
+अक्टो
+नोभे
+डिसे

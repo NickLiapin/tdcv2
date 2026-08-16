@@ -1,0 +1,11 @@
+---
+description: Playing positions in ह्यान्डबल as Nepali commentary names them. Coherent child of sport/sportCoherent.txt. Most are English loans spelled in Devanagari, which is what Nepali sports broadcasting actually uses; the invented-Nepali alternatives are not in circulation and are not used here.
+locale: ne
+---
+गोलकिपर
+लेफ्ट विङ
+राइट विङ
+सेन्टर ब्याक
+पिभोट
+लेफ्ट ब्याक
+राइट ब्याक

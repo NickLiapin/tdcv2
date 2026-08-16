@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in populations of अस्केनाजी यहूदी descent, in Nepali. Coherent child of medical/ancestry.txt.
+locale: ne
+---
+टे-स्याक्स रोग
+गौचर रोग
+क्यानाभान रोग
+पारिवारिक डिसअटोनोमिया
+बीआरसीए उत्परिवर्तन
+ब्लुम सिन्ड्रोम
+निमन-पिक रोग
+फ्याक्टर ११ कमी
+क्रोन रोग
+सिस्टिक फाइब्रोसिस

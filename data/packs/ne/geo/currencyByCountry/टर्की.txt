@@ -1,0 +1,5 @@
+---
+description: Currency of टर्की as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+टर्किस लिरा

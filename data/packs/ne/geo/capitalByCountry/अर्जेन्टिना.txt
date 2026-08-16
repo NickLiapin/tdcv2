@@ -1,0 +1,5 @@
+---
+description: Capital of अर्जेन्टिना as Nepali writes it. Coherent child of geo/country.txt: draw the country, then draw this file for that country.
+locale: ne
+---
+ब्युनोस आइरस

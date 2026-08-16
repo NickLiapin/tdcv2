@@ -1,0 +1,16 @@
+---
+description: Ancestry populations as clinical genetics defines them — GEOGRAPHIC DESCENT, not social race categories — translated into Nepali and kept to the same twelve the reference packs use so a cross-locale config keys on the same set. PARENT of medical/diagnosisByAncestry/. Two things worth saying for Nepal in particular. First, essentially the whole Nepali population falls under दक्षिण एसियाली here, which is exactly why this list is a poor instrument inside Nepal: the clinically interesting variation is between Nepal's own populations, and it is real — Sherpa and other high-altitude peoples carry EPAS1 and EGLN1 variants inherited from Denisovans that let them work above 4,000 metres without the raised haemoglobin that kills lowlanders, and Tibeto-Burman, Indo-Aryan and Terai populations differ measurably in diabetes and cardiovascular risk. None of that fits a twelve-way global scheme and none of it is invented here. Second, the finest-grained real Nepali health datasets key on जात/जाति (caste and ethnicity) rather than ancestry, because caste predicts access to a hospital better than genetics predicts what is wrong.
+locale: ne
+---
+दक्षिण एसियाली
+पूर्वी एसियाली
+दक्षिणपूर्वी एसियाली
+उत्तरी युरोपेली
+पूर्वी युरोपेली
+भूमध्यसागरीय
+मध्यपूर्वी
+उत्तर अफ्रिकी
+उप-सहारा अफ्रिकी
+प्रशान्त द्वीपवासी
+आदिवासी अमेरिकी
+अस्केनाजी यहूदी

@@ -1,0 +1,44 @@
+---
+description: The road-type word a Nepali road name ends with. मार्ग is the formal one used on signposts and in gazettes, पथ its older equivalent (कान्तिपथ, धर्मपथ), सडक the plain word for a road, बाटो the everyday spoken one, and गल्ली a lane. चोक is not a road at all — it is a crossroads or a square, and in Nepal it names the PLACE rather than the way, so an address is far more likely to say 'near बानेश्वर चोक' than to name a road. टोल is the neighbourhood unit that a Nepali address actually uses, and it is the level below the ward. The English loans रोड, लेन and वे appear on newer signs in Kathmandu and are spelled in Devanagari, so they are kept here in that form rather than in Latin.
+locale: ne
+---
+मार्ग
+पथ
+सडक
+बाटो
+गल्ली
+चोक
+टोल
+चौर
+रोड
+लेन
+वे
+गल्छी
+डाँडा
+बेसी
+घाट
+पुल
+मोड
+दोबाटो
+चारबाटो
+गेट
+लाइन
+क्षेत्र
+नगर
+बजार
+हाइवे
+राजमार्ग
+उपमार्ग
+गोरेटो
+पैदलमार्ग
+फुटपाथ
+रिङरोड
+बाइपास
+सर्कल
+स्क्वायर
+एभेन्यु
+गल्लीको मुख
+छेउ
+पारि
+वारि
+बीच

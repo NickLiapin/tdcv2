@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the अस्थिरोग department, in Nepali. Coherent child of medical/specialtyCoherent.txt: draw the specialty, then draw this file for it.
+locale: ne
+---
+हड्डी भाँचिएको
+घुँडा दुखाइ
+कम्मर दुखाइ
+गाउट
+अस्टियोआर्थराइटिस
+अस्टियोपोरोसिस
+स्लिप डिस्क
+काँधको जोर्नी खुस्किएको
+बाथ रोग
+मेरुदण्ड बाङ्गिएको

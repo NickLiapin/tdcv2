@@ -1,0 +1,58 @@
+---
+description: Colour as a Nepali product listing writes it. Same set as color/name.txt; kept separate because a catalogue field and a colour word are different addresses and a config may want them to diverge later. See color/name.txt for प्याजी, कैलो and सिन्दुरे, the three that do not translate.
+locale: ne
+---
+रातो
+सेतो
+कालो
+हरियो
+निलो
+पहेँलो
+गुलाबी
+प्याजी
+कैलो
+खैरो
+सुन्तला
+बैजनी
+धुम्रो
+फुस्रो
+सिन्दुरे
+रगते रातो
+गाढा रातो
+हल्का रातो
+गाढा निलो
+आकाशे निलो
+समुद्री निलो
+गाढा हरियो
+हल्का हरियो
+पत्ती हरियो
+जैतुनी
+सुनौलो
+चाँदी रङ
+काँसे
+तामे
+फलामे
+मोतीरङ
+हस्तिहाडे
+क्रिम
+बदामी
+कफी रङ
+चकलेटी
+मरुन
+बैंगनी
+जामुनी
+फिरोजा
+मयुरकण्ठी
+पानीरङ
+लसुनी
+हल्दी रङ
+केसरी
+गेरु
+माटो रङ
+बालुवा रङ
+स्लेटी
+कालो खैरो
+गाढा फुस्रो
+बरफ सेतो
+दुध सेतो
+पारदर्शी

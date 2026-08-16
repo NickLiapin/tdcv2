@@ -1,0 +1,18 @@
+---
+description: Kinds of insurance sold in Nepal. Penetration is low and life insurance dominates what there is, sold door to door by agents on commission. Two are Nepal-specific: पशु बीमा and बाली बीमा are government-subsidised livestock and crop policies — the state pays a large share of the premium, because a buffalo dying is a household-destroying event — and भूकम्प बीमा became a live product only after 2015, when most damaged houses turned out to be uninsured. विदेश जाने कामदार बीमा is compulsory for migrant workers and is what repatriates a body.
+locale: ne
+---
+जीवन बीमा
+सावधिक जीवन बीमा
+स्वास्थ्य बीमा
+दुर्घटना बीमा
+सवारी साधन बीमा
+तेस्रो पक्ष बीमा
+अग्नि बीमा
+भूकम्प बीमा
+घर बीमा
+पशु बीमा
+बाली बीमा
+यात्रा बीमा
+विदेश जाने कामदार बीमा
+लघुबीमा

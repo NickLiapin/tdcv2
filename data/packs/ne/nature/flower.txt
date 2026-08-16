@@ -1,0 +1,34 @@
+---
+description: Flowers in Nepali. लालीगुराँस is first because it is the NATIONAL FLOWER — the red rhododendron, which forests whole hillsides between 1,500 and 3,500 metres and turns them scarlet in March. सयपत्री (marigold) is the flower of Tihar: the garlands that go round every brother's neck at भाइटीका and round every dog, cow and doorway are made of it, so its price spikes for a week each autumn. मखमली (globe amaranth) is the other Tihar flower, kept because it dries without wilting. सुनगाभा is the orchid, of which Nepal has several hundred species.
+locale: ne
+---
+लालीगुराँस
+सयपत्री
+मखमली
+गोदावरी
+सुनगाभा
+कमल
+गुलाब
+चमेली
+जुही
+बेली
+पारिजात
+गुराँस
+बुकीफूल
+निलो पोइँसे
+सूर्यमुखी
+गेंदा
+डालिया
+ग्लाडियोलस
+कार्नेसन
+लिली
+अर्किड
+चम्पा
+चाँप
+टगर
+अशोक
+पलाश
+सिमल
+बोतलब्रस
+जाइफूल
+हिमाली पोपी

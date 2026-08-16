@@ -1,0 +1,18 @@
+---
+description: Jobs in स्वास्थ्य सेवा as Nepali names them. Coherent child of work/industryCoherent.txt: draw the industry, then draw this file for that industry.
+locale: ne
+---
+डाक्टर
+नर्स
+अ.न.मी.
+स्वास्थ्य सहायक
+महिला स्वास्थ्य स्वयंसेविका
+ल्याब टेक्निसियन
+फार्मासिस्ट
+रेडियोग्राफर
+एम्बुलेन्स चालक
+सुँडेनी
+फिजियोथेरापिस्ट
+जनस्वास्थ्य अधिकृत
+आयुर्वेद चिकित्सक
+दन्त चिकित्सक

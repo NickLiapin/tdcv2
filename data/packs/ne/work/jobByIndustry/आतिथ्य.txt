@@ -1,0 +1,16 @@
+---
+description: Jobs in आतिथ्य as Nepali names them. Coherent child of work/industryCoherent.txt: draw the industry, then draw this file for that industry.
+locale: ne
+---
+होटल प्रबन्धक
+भान्से
+वेटर
+बारटेन्डर
+हाउसकिपर
+रिसोर्ट सञ्चालक
+होमस्टे सञ्चालक
+चिया पसले
+मःमः पसले
+क्याटरिङ प्रबन्धक
+इभेन्ट अर्गनाइजर
+सेक्युरिटी गार्ड

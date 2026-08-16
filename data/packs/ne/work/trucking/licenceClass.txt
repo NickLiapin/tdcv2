@@ -1,0 +1,11 @@
+---
+description: Nepali driving licence categories. The Department of Transport Management issues class A for motorcycles, B for cars and jeeps, C for light goods vehicles, D for buses and E for heavy vehicles, with G, J and K for tractors, power tillers and construction plant. A Nepali licence is a smart card since 2015 and the backlog for one runs into years.
+locale: ne
+---
+A
+B
+C
+D
+E
+G
+J

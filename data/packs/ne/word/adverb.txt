@@ -1,0 +1,36 @@
+---
+description: Common Nepali adverbs. अहिले, भोलि and हिजो are worth noting against Hindi: Nepali has separate words for yesterday (हिजो) and tomorrow (भोलि), where Hindi uses the SAME word कल for both and lets the verb tense decide. That is a real structural difference and a good marker.
+locale: ne
+---
+अहिले
+अघि
+पछि
+हिजो
+आज
+भोलि
+पर्सि
+अस्ति
+सधैं
+कहिल्यै
+कहिलेकाहीं
+बारम्बार
+फेरि
+छिटो
+बिस्तारै
+एक्कासि
+यहाँ
+त्यहाँ
+कहाँ
+माथि
+तल
+भित्र
+बाहिर
+अगाडि
+पछाडि
+नजिक
+टाढा
+धेरै
+थोरै
+एकदम
+साँच्चै
+सायद

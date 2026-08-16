@@ -1,0 +1,15 @@
+---
+description: Jobs in शिक्षा as Nepali names them. Coherent child of work/industryCoherent.txt: draw the industry, then draw this file for that industry.
+locale: ne
+---
+शिक्षक
+प्रधानाध्यापक
+प्राध्यापक
+बालविकास सहयोगी
+पुस्तकालय सहायक
+विद्यालय निरीक्षक
+पाठ्यक्रम विज्ञ
+ट्युटर
+परीक्षा नियन्त्रक
+छात्रावास संरक्षक
+खेलकुद शिक्षक

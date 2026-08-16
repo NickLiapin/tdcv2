@@ -1,0 +1,21 @@
+---
+description: Weather conditions in Nepali. Nepal's weather is vertical: the same day is 35°C in the Terai, mild in Kathmandu and below freezing above 4,000 metres, so a national weather record without an altitude is close to meaningless. मनसुन runs mid-June to late September and delivers about 80 per cent of the year's rain in that window.
+locale: ne
+---
+घमाइलो
+आंशिक बदली
+बदली
+पानी परेको
+झरी
+सिमसिम पानी
+मुसलधारे वर्षा
+असिना
+हिउँ
+हुस्सु
+कुहिरो
+बतास
+आँधीबेहरी
+चट्याङ
+गर्मी
+जाडो
+शीतलहर

@@ -1,0 +1,26 @@
+---
+description: School subjects in Nepal. नेपाली and अङ्ग्रेजी are both compulsory to grade 10, and so is सामाजिक अध्ययन; नैतिक शिक्षा (moral education) and स्वास्थ्य, जनसंख्या तथा वातावरण शिक्षा are compulsory subjects with no European counterpart. संस्कृत is offered as an optional and is compulsory in the Sanskrit-stream schools. The mother tongue subject (मातृभाषा) exists on paper for Nepal's 124 languages and is taught in very few schools.
+locale: ne
+---
+नेपाली
+अङ्ग्रेजी
+गणित
+विज्ञान
+सामाजिक अध्ययन
+नैतिक शिक्षा
+स्वास्थ्य तथा शारीरिक शिक्षा
+जनसंख्या तथा वातावरण
+कम्प्युटर
+लेखा
+अर्थशास्त्र
+व्यवसाय अध्ययन
+संस्कृत
+मातृभाषा
+इतिहास
+भूगोल
+नागरिक शास्त्र
+कला
+संगीत
+व्यावसायिक शिक्षा
+कृषि
+गृह विज्ञान

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the अन्तःस्रावीरोग department, in Nepali. Coherent child of medical/specialtyCoherent.txt: draw the specialty, then draw this file for it.
+locale: ne
+---
+मधुमेह
+थाइराइड कम हुने
+थाइराइड बढी हुने
+गलगाँड
+आयोडिन कमी
+मोटोपन
+पोलिसिस्टिक ओभरी सिन्ड्रोम
+कोर्टिसोल असन्तुलन
+बृद्धि हार्मोन कमी
+अधिवृक्क कमजोरी

@@ -1,0 +1,11 @@
+---
+description: Playing positions in भलिबल as Nepali commentary names them. Coherent child of sport/sportCoherent.txt. Most are English loans spelled in Devanagari, which is what Nepali sports broadcasting actually uses; the invented-Nepali alternatives are not in circulation and are not used here.
+locale: ne
+---
+सेटर
+आउटसाइड हिटर
+अपोजिट हिटर
+मिडल ब्लकर
+लिबेरो
+डिफेन्सिभ स्पेसलिस्ट
+सर्भिङ स्पेसलिस्ट

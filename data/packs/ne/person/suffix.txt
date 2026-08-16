@@ -1,0 +1,28 @@
+---
+description: Nepali honorific placed after a name or, more distinctively, after a TITLE. ज्यू is the marker to know: Nepali welds it onto the job rather than the person, so a letter is addressed to प्रमुख जिल्ला अधिकारीज्यू and सचिवज्यू, and this is one of the cheapest tests that a Devanagari text is Nepali and not Hindi, which has no such usage. जी exists in Nepali too but is felt as the Indian one. The kinship terms are used as address forms to non-relatives constantly — a shopkeeper of your father's age is काका, a woman slightly older is दिदी, a waiter is दाइ — so they attach to names of people who are not family at all. स्व. is स्वर्गीय, 'the late', written before rather than after a name and included here because it is the same closed honorific set. बहादुर appears both here and as a middle name; as a suffix it is part of the name, not an address form.
+locale: ne
+---
+ज्यू
+जी
+दाइ
+दिदी
+भाइ
+बहिनी
+बा
+आमा
+बाजे
+बज्यै
+काका
+काकी
+मामा
+माइजू
+फुपू
+सर
+म्याडम
+गुरु
+बहादुर
+कान्छा
+कान्छी
+सुब्बा
+स्व.
+ज्यू हजुर

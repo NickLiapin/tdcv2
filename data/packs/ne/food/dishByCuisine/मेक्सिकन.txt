@@ -1,0 +1,14 @@
+---
+description: Dishes of मेक्सिकन cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+टाको
+बुरिटो
+नाचोस
+केसाडिया
+गुवाकामोले
+एन्चिलाडा
+फाहिता
+चिली कोन कार्ने
+साल्सा
+चुरोस

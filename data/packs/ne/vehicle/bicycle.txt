@@ -1,0 +1,19 @@
+---
+description: Bicycle types in Nepali. Nepal's cycling is split between the Terai, where a bicycle is basic transport and flat roads make it practical, and the hills, where माउन्टेन बाइक is a sport and a tourism product — Kathmandu valley rim riding and the Mustang trails are well known.
+locale: ne
+---
+माउन्टेन बाइक
+सिटी साइकल
+रोड बाइक
+हाइब्रिड साइकल
+इलेक्ट्रिक साइकल
+फोल्डिङ साइकल
+बीएमएक्स
+बालबालिकाको साइकल
+मालबाहक साइकल
+तीन पाङ्ग्रे साइकल
+ट्यान्डेम
+डाउनहिल बाइक
+फ्याट बाइक
+ट्रयाक साइकल
+पुरानो र्‍यालेइ

@@ -1,0 +1,11 @@
+---
+description: Day of the week in Nepali, SUNDAY FIRST, which is not a formatter's convention here but the real Nepali week: आइतबार is the first working day. THE WEEKEND IS SATURDAY ALONE. Nepal is one of the very few countries in the world with a one-day weekend — government offices, schools, banks and courts all work Sunday to Friday and close only on शनिबार — and it has survived repeated proposals to move to two days. So a Nepali attendance table, shift roster or opening-hours record has SIX working days, and a config that marks Saturday and Sunday as non-working produces something no Nepali employer would recognise. Friday is a short day in the public service (offices close at three rather than five, and in the winter timetable earlier still). The names themselves are among the strongest single tests that a Devanagari list is Nepali and not Hindi: Nepali builds them on -बार where Hindi uses -वार, Sunday is आइतबार where Hindi has रविवार, and Thursday is बिहीबार where Hindi has गुरुवार or बृहस्पतिवार — आइतबार and बिहीबार do not exist in Hindi at all.
+locale: ne
+---
+आइतबार
+सोमबार
+मङ्गलबार
+बुधबार
+बिहीबार
+शुक्रबार
+शनिबार

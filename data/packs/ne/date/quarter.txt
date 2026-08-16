@@ -1,0 +1,8 @@
+---
+description: Calendar quarter in Nepali. The label is ordinary but the YEAR it divides is not: Nepal's fiscal year runs from 1 साउन to the end of असार, which is mid-July to mid-July, so the first quarter of a Nepali financial statement covers mid-July to mid-October and shares no boundary with a January-start quarter. Nepali company reports and government budgets are quoted against that year (written 2081/82, straddling two Bikram Sambat years as well as two Gregorian ones), so a config joining a Nepali quarter label to a Gregorian date range will be roughly two weeks and one whole quarter out. The fiscal calendar itself belongs to the Nepal country pack; see nepal.calendar.bikramSambatMonth.
+locale: ne
+---
+पहिलो त्रैमासिक
+दोस्रो त्रैमासिक
+तेस्रो त्रैमासिक
+चौथो त्रैमासिक

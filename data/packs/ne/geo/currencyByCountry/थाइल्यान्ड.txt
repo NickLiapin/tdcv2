@@ -1,0 +1,5 @@
+---
+description: Currency of थाइल्यान्ड as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+थाई बाहत

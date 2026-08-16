@@ -1,0 +1,30 @@
+---
+description: Kinds of official document in Nepal. नागरिकता प्रमाणपत्र is the master document — until the National ID rolls out it is what proves you are Nepali, and you cannot open a bank account, buy land, sit an exam, get a passport, take a SIM or vote without it. सिफारिस, the ward recommendation letter, is the document that unlocks the others and has no European counterpart at all: it is a letter from your ward office saying you are who you say you are and live where you say you live, and it is required before almost every other transaction. लालपुर्जा is the land ownership certificate, the single most valuable piece of paper a Nepali household owns and the usual collateral for any loan. The specific number FORMATS on these documents belong to the Nepal country pack (nepal.docs.*), not here; this list holds the NAMES of the kinds of document.
+locale: ne
+---
+नागरिकता प्रमाणपत्र
+राष्ट्रिय परिचयपत्र
+राहदानी
+जन्मदर्ता प्रमाणपत्र
+मृत्युदर्ता प्रमाणपत्र
+विवाह दर्ता प्रमाणपत्र
+सम्बन्धविच्छेद दर्ता
+बसाइँसराइ प्रमाणपत्र
+सिफारिस
+लालपुर्जा
+जग्गाधनी प्रमाणपुर्जा
+सवारी चालक अनुमतिपत्र
+सवारी दर्ता प्रमाणपत्र
+स्थायी लेखा नम्बर प्रमाणपत्र
+मूल्य अभिवृद्धि कर दर्ता
+कम्पनी दर्ता प्रमाणपत्र
+व्यवसाय इजाजतपत्र
+शैक्षिक प्रमाणपत्र
+चारित्रिक प्रमाणपत्र
+अनापत्ति पत्र
+श्रम स्वीकृति
+आदिवासी जनजाति प्रमाणपत्र
+अपाङ्गता परिचयपत्र
+ज्येष्ठ नागरिक परिचयपत्र
+मतदाता परिचयपत्र
+बीमालेख

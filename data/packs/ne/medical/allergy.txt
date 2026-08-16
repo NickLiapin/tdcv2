@@ -1,0 +1,26 @@
+---
+description: Allergies as recorded in Nepal, in Nepali. धुलो and चुलोको धुवाँ are at the head because indoor smoke and dust are the dominant respiratory irritants in Nepali homes; peanut allergy, the archetypal European allergy, is comparatively rare here while dust-mite and pollen sensitisation is very common in the Kathmandu valley, whose winter air is among the worst in the world.
+locale: ne
+---
+धुलो
+चुलोको धुवाँ
+परागकण
+ढुसी
+जनावरको रौं
+लामखुट्टेको टोकाइ
+अरिङ्गालको खिल
+पेनिसिलिन
+सल्फा औषधि
+एस्पिरिन
+आइबुप्रोफेन
+ल्याटेक्स
+दूध
+अण्डा
+माछा
+झिँगेमाछा
+बदाम
+गेडागुडी
+गहुँ
+सोयाबिन
+तिल
+मोनोसोडियम ग्लुटामेट

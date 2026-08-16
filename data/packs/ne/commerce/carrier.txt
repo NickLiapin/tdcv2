@@ -1,0 +1,24 @@
+---
+description: Parcel and courier companies operating in Nepal. Brand names keep their real spelling. The Nepali fact here is that the national post is not the default: नेपाल हुलाक सेवा exists but domestic e-commerce moves on private couriers and on the bus — a parcel handed to a night bus conductor at Gongabu with the recipient's phone number written on it is a normal and reliable way to send something to Pokhara, and no dataset models it. Cross-border parcels from India come by road through Birgunj or Biratnagar, and the customs clearance rather than the carrier is what determines the delivery date.
+locale: ne
+---
+Nepal Post
+Aramex
+DHL
+FedEx
+UPS
+Nepal Can Move
+Pathao
+inDrive
+Upaya
+Daraz Express
+Sasto Deal Delivery
+Everest Courier
+Sagarmatha Courier
+Trans World Courier
+Himalayan Courier
+Blue Dart
+TNT
+SkyNet
+Nepal Cargo Service
+Bus Parcel Service

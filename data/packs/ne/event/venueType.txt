@@ -1,0 +1,30 @@
+---
+description: Where an event is held in Nepal. पार्टी प्यालेस is a Nepali institution and a Nepali word: a purpose-built wedding-and-banquet hall, of which Kathmandu has hundreds, and a Nepali wedding happens in one rather than in a hotel or a church. चौतारी is the stone platform under a peepal and banyan tree at the edge of a village where people rest and meet, and it is where a village discussion actually happens. डबली is the raised platform in a Newar square where masked dances are performed. सामुदायिक भवन (community building) and वडा कार्यालय are where a ward's public meetings are held.
+locale: ne
+---
+पार्टी प्यालेस
+बैंक्वेट हल
+होटल
+रिसोर्ट
+सभा हल
+सामुदायिक भवन
+वडा कार्यालय
+विद्यालय
+क्याम्पस
+मन्दिर
+गुम्बा
+मस्जिद
+गिर्जाघर
+चौतारी
+डबली
+मैदान
+रंगशाला
+खुला मञ्च
+पार्क
+घर
+आँगन
+छत
+पाटी
+धर्मशाला
+प्रदर्शनी हल
+सिनेमा हल

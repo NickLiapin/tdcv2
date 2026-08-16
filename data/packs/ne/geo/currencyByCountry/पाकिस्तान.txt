@@ -1,0 +1,5 @@
+---
+description: Currency of पाकिस्तान as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+पाकिस्तानी रुपैयाँ

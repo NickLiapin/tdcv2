@@ -1,0 +1,9 @@
+---
+description: Work shifts at a Nepali quarry or crusher.
+locale: ne
+---
+बिहानको पाली
+दिउँसोको पाली
+रातको पाली
+दोहोरो पाली
+बिदा

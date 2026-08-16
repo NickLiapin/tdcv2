@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in populations of पूर्वी एसियाली descent, in Nepali. Coherent child of medical/ancestry.txt.
+locale: ne
+---
+पेटको क्यान्सर
+नासोफेरिन्जियल क्यान्सर
+मदिरा असहिष्णुता
+ल्याक्टोज असहिष्णुता
+हेपाटाइटिस बी
+मोयामोया रोग
+पातलो हड्डी
+टाइप २ मधुमेह
+ग्लुकोमा
+मायोपिया

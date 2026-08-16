@@ -1,0 +1,83 @@
+---
+description: Pastimes as a Nepali would name them. Several are specific to Nepal and would be odd anywhere else: भजन कीर्तन (devotional singing in a group, the commonest evening activity in a hill village), डाँडा घुम्ने (walking up a ridge, the standard Saturday outing since Saturday is the only day off), कबड्डी and डन्डी बियो as village games, माउन्टेन बाइकिङ and ट्रेकिङ which are both leisure and a livelihood, चियाघरमा गफ (tea-shop conversation) which is a named pastime and not a joke, and तास खेल्ने — cards, played for money at Tihar as a matter of custom and technically illegal the rest of the year. The English loans (फुटबल, क्रिकेट, भलिबल) keep their Nepali spelling: भलिबल with भ, not व, is the Nepali habit of writing an English v.
+locale: ne
+---
+पढ्ने
+लेख्ने
+गीत गाउने
+भजन कीर्तन
+नाच्ने
+बाँसुरी बजाउने
+मादल बजाउने
+सारङ्गी बजाउने
+गितार बजाउने
+चित्र बनाउने
+फोटो खिच्ने
+ट्रेकिङ
+पदयात्रा
+डाँडा घुम्ने
+हिमाल आरोहण
+माउन्टेन बाइकिङ
+साइकल चलाउने
+दौडने
+योग
+ध्यान
+जिम जाने
+पौडी खेल्ने
+फुटबल खेल्ने
+क्रिकेट खेल्ने
+भलिबल खेल्ने
+बास्केटबल खेल्ने
+ब्याडमिन्टन खेल्ने
+टेबल टेनिस खेल्ने
+कबड्डी खेल्ने
+डन्डी बियो
+गुच्चा खेल्ने
+चङ्गा उडाउने
+पिङ खेल्ने
+तास खेल्ने
+बाघचाल खेल्ने
+चेस खेल्ने
+क्यारमबोर्ड खेल्ने
+भिडियो गेम खेल्ने
+फिल्म हेर्ने
+टेलिभिजन हेर्ने
+रेडियो सुन्ने
+पोडकास्ट सुन्ने
+गीत सुन्ने
+खाना पकाउने
+अचार बनाउने
+बगैँचा गोड्ने
+फूल लगाउने
+तरकारी लगाउने
+कुखुरा पाल्ने
+गाईभैंसी पाल्ने
+माछा मार्ने
+चरा हेर्ने
+क्याम्पिङ
+पिकनिक जाने
+तीर्थयात्रा
+मन्दिर जाने
+गुम्बा जाने
+चियाघरमा गफ
+साथीभाइसँग भेट्ने
+स्वयंसेवा गर्ने
+रक्तदान गर्ने
+बुन्ने
+सिलाइकटाइ
+काठको काम
+मूर्ति कुँद्ने
+थाङ्का लेख्ने
+मह काढ्ने
+बजार घुम्ने
+पुराना सिक्का जम्मा गर्ने
+हुलाक टिकट जम्मा गर्ने
+ब्लग लेख्ने
+कविता लेख्ने
+नाटक खेल्ने
+भाषा सिक्ने
+कम्प्युटर चलाउने
+मोटरसाइकल घुमाउने
+राफ्टिङ
+बन्जी जम्प
+प्याराग्लाइडिङ

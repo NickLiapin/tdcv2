@@ -1,0 +1,54 @@
+---
+description: Garments in Nepali. The first block is Nepali dress and none of it maps onto a European wardrobe: दौरा-सुरुवाल is the men's national dress, a cross-over tunic with eight ties and narrow trousers, worn with a ढाका टोपी (the patterned cap that is the country's most recognisable object and is compulsory on a passport photo in some renderings and on official portraits generally); गुन्यु-चोलो is its women's counterpart; हाकु पटासी is the black Newar sari with a red border; the शेर्पा women's बख्खु is a wraparound worn with a striped apron. खास्टो is the shawl, and गमछा the thin cotton cloth a Terai man wears over the shoulder and uses for everything. The सारी, कुर्ता सुरुवाल and लुँगी are shared with India. The rest are the ordinary Western clothes anyone actually wears, with Nepali spellings — note स्वेटर, ज्याकेट and भेस्ट, and the भ for the English v that marks a Nepali spelling out from a Hindi one.
+locale: ne
+---
+दौरा
+सुरुवाल
+दौरा-सुरुवाल
+ढाका टोपी
+भादगाउँले टोपी
+गुन्यु
+चोलो
+गुन्यु-चोलो
+हाकु पटासी
+बख्खु
+खास्टो
+गमछा
+पछ्यौरा
+सारी
+कुर्ता
+कुर्ता सुरुवाल
+लुँगी
+धोती
+पटुका
+मजेत्रो
+शर्ट
+टिसर्ट
+पाइन्ट
+जिन्स
+हाफपाइन्ट
+स्कर्ट
+फ्रक
+गाउन
+ब्लाउज
+स्वेटर
+ज्याकेट
+डाउन ज्याकेट
+भेस्ट
+कोट
+ब्लेजर
+रेनकोट
+मफलर
+पञ्जा
+मोजा
+जुत्ता
+चप्पल
+सेन्डल
+बुट
+ट्रेकिङ बुट
+टोपी
+पगडी
+स्कार्फ
+बेल्ट
+इनरवेयर
+ट्र्याकसुट

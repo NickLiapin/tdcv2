@@ -1,0 +1,34 @@
+---
+description: Units a Nepali market uses, and it is not the metric list. पाथी, माना and मुरी are the volume measures grain is actually sold in — a माना is about half a litre, ten माना make a पाथी, twenty पाथी make a मुरी — and they are still used in villages and in land-rent contracts. धार्नी (about 2.4 kg) and पाउ (a quarter of a kg) are weights; a Nepali butcher quotes धार्नी. Land is measured in TWO incompatible systems: रोपनी, आना, पैसा and दाम in the hills, and बिघा, कट्ठा and धुर in the Terai, and no Nepali land record makes sense without knowing which. तोला is the gold weight (11.66 g) that every jeweller prices in. The metric units are official and are what a supermarket label prints, so both live side by side.
+locale: ne
+---
+किलो
+ग्राम
+क्विन्टल
+टन
+धार्नी
+पाउ
+तोला
+लिटर
+मिलिलिटर
+माना
+पाथी
+मुरी
+बोरा
+मुठा
+गोटा
+दर्जन
+जोर
+प्याकेट
+बट्टा
+बोतल
+मिटर
+सेन्टिमिटर
+किलोमिटर
+हात
+बित्ता
+रोपनी
+आना
+बिघा
+कट्ठा
+धुर

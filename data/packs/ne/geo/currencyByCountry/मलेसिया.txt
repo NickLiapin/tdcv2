@@ -1,0 +1,5 @@
+---
+description: Currency of मलेसिया as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+रिंगिट

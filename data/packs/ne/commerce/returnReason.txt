@@ -1,0 +1,19 @@
+---
+description: Why a Nepali customer returns something. साइज नमिलेको and नक्कली सामान head the list for real reasons: sizing is Asian-cut and inconsistent between imports, and counterfeit goods are common enough that 'it is not genuine' is an ordinary return category. फोटोमा भन्दा फरक (different from the photo) is the standard complaint in a market where most online sellers photograph from the supplier's catalogue.
+locale: ne
+---
+साइज नमिलेको
+फोटोमा भन्दा फरक
+नक्कली सामान
+बिग्रिएको
+भाँचिएको
+गुणस्तर नपुगेको
+गलत सामान आएको
+अपूरो सेट
+म्याद नाघेको
+ढिलो आएको
+मन नपरेको
+मूल्य बढी लागेको
+अर्को ठाउँमा सस्तो पाइएको
+अर्डर दोहोरिएको
+अब चाहिएन

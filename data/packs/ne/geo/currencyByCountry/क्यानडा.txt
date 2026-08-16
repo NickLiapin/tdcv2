@@ -1,0 +1,5 @@
+---
+description: Currency of क्यानडा as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+क्यानाडाली डलर

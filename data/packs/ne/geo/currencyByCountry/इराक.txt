@@ -1,0 +1,5 @@
+---
+description: Currency of इराक as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+इराकी दिनार

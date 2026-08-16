@@ -1,0 +1,6 @@
+---
+description: Gender label in Nepali. Exactly two values, matching en, ru and pl, because this list is what a parent= filter keys on and a longer one leaves most rows without a name. That is a limit of the mechanism and NOT a statement about Nepal, which recognises a third gender in law: a 2007 Supreme Court ruling ordered it, the 2011 and 2021 censuses counted it, and Nepali passports and citizenship certificates carry अन्य (O) as a third option — Nepal was issuing third-gender passports years before most of Europe. A config that needs the legal three-way field should write अन्य in beside this draw rather than adding it here.
+locale: ne
+---
+पुरुष
+महिला

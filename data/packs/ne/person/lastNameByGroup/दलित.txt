@@ -1,0 +1,33 @@
+---
+description: Dalit surnames, hill and Terai. The hill names are occupational and the occupation is still readable: कामी metalworker, दमाई tailor and wedding musician, सार्की leatherworker, सुनार goldsmith, गन्धर्व and गाइने the hereditary singers who travel with a सारङ्गी. विश्वकर्मा, written बि.क. as often as in full, is the name the कामी adopted in the twentieth century after the god of craftsmen, and नेपाली — literally 'Nepali' — is the name दमाई families took; both are attempts to leave a caste-marking surname behind, and both became caste-marking surnames in turn. Caste discrimination has been a criminal offence in Nepal since 2011 and these names remain the single most reliable predictor of who is refused a rented room, which is exactly why a synthetic Nepali dataset that quietly omits them is misleading in a way that matters. Ordered by rough prominence inside the group; unweighted, because no per-surname frequency count exists for Nepal at all — the census counts ethnic groups, never surnames — and a fabricated curve here would be a claim rather than an ordering. Nepali surnames do NOT inflect for gender, so this file serves male and female rows alike.
+locale: ne
+---
+विश्वकर्मा
+बि.क.
+परियार
+नेपाली
+सार्की
+कामी
+दमाई
+सुनार
+मिजार
+दर्जी
+राम
+पासवान
+मुसहर
+चमार
+डोम
+खत्वे
+ततमा
+धोबी
+हलखोर
+दुसाध
+सदा
+बान्तर
+खटिक
+रम्तेल
+ओड
+गन्धर्व
+गाइने
+बादी
+पोडे

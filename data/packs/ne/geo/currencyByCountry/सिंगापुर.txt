@@ -1,0 +1,5 @@
+---
+description: Currency of सिंगापुर as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+सिंगापुरी डलर

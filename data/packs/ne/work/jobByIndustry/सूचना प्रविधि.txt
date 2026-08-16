@@ -1,0 +1,16 @@
+---
+description: Jobs in सूचना प्रविधि as Nepali names them. Coherent child of work/industryCoherent.txt: draw the industry, then draw this file for that industry.
+locale: ne
+---
+सफ्टवेयर इन्जिनियर
+वेब डेभलपर
+डाटा विश्लेषक
+नेटवर्क इन्जिनियर
+सिस्टम एड्मिनिस्ट्रेटर
+क्युए इन्जिनियर
+युआई डिजाइनर
+आईटी सपोर्ट
+डाटाबेस एड्मिन
+साइबर सुरक्षा विश्लेषक
+प्रोजेक्ट म्यानेजर
+डेभअप्स इन्जिनियर

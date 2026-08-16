@@ -1,0 +1,5 @@
+---
+description: Currency of इन्डोनेसिया as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+इन्डोनेसियाली रुपियाह

@@ -1,0 +1,14 @@
+---
+description: Dishes of कोरियाली cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+किम्ची
+बिबिम्बाप
+बुल्गोगी
+ट्टेओकबोक्की
+कोरियन फ्राइड चिकन
+जापचे
+समग्येताङ
+किम्बाप
+सुन्दुबु चिगे
+ग्यालबी

@@ -1,0 +1,14 @@
+---
+description: The ten hospital departments used as the PARENT of medical/diagnosisBySpecialty/. Nepali medicine writes these two ways at once: the signboard over the door of a Kathmandu hospital usually says कार्डियोलोजी and न्युरोलोजी in Devanagari-spelled English, while the Nepali-language form printed on a referral slip is हृदयरोग and स्नायुरोग. The Nepali compounds are used here because they are the language's own words; a config imitating a hospital sign should expect the loanword instead. The department list itself is deliberately the reference packs' ten so that a cross-locale config keys on the same set; what is Nepal-specific is inside the files — क्षयरोग (tuberculosis), जापानिज इन्सेफलाइटिस, कुष्ठरोग (leprosy, still notifiable in Nepal), बाथजन्य मुटु रोग (rheumatic heart disease, common in Nepali children and rare in Europe) and चुलोको धुवाँबाट हुने फोक्सो रोग (lung disease from indoor cooking fires) are ordinary Nepali diagnoses.
+locale: ne
+---
+हृदयरोग
+स्नायुरोग
+अस्थिरोग
+छालारोग
+मनोरोग
+मृगौलारोग
+पाचनरोग
+फोक्सोरोग
+क्यान्सररोग
+अन्तःस्रावीरोग

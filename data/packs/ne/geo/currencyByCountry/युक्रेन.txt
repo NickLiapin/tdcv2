@@ -1,0 +1,5 @@
+---
+description: Currency of युक्रेन as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+ह्रिभ्निया

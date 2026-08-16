@@ -1,0 +1,24 @@
+---
+description: Insects and small crawling things in Nepali. लामखुट्टे heads the list for a reason: dengue reached Kathmandu in 2019 and is now an annual epidemic, and malaria persists in the Terai, so the mosquito is a health-record entity in Nepal rather than a nuisance. मौरी matters as an industry — Nepali hill honey, and the चटक जंगली मौरी whose cliff honey is harvested on rope ladders. जुका is the monsoon leech of the hill forests, which every trekker meets and no European list has.
+locale: ne
+---
+लामखुट्टे
+झिँगा
+उपियाँ
+कमिला
+मौरी
+अरिङ्गाल
+पुतली
+पटपटी
+सलह
+फट्याङ्ग्रा
+झ्याउँकिरी
+गँगटो
+माकुरा
+बिच्छी
+जुका
+गड्यौला
+किरा
+सुँडी
+भुसुना
+उडुस

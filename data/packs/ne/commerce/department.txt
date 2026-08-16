@@ -1,0 +1,57 @@
+---
+description: Store departments in Nepali. The list is written for the shop shapes Nepal actually has: a किराना पसल (the neighbourhood grocery that sells on credit in a ledger), a सटर-sized hardware or cloth shop, a डिपार्टमेन्ट स्टोर in the towns, and the तरकारी बजार. सुनचाँदी is a department in its own right because gold is how Nepali households save — a wedding transfers it, a bank loan is secured against it, and jewellers are correspondingly everywhere. पूजा सामग्री (worship goods) is a shopping category with no European counterpart and a shop on every temple approach.
+locale: ne
+---
+किराना
+तरकारी
+फलफूल
+मासु
+माछा
+दुग्ध पदार्थ
+बेकरी
+मिठाई
+चिया कफी
+मसला
+चामल दाल
+तेल घिउ
+पेय पदार्थ
+जमेको खाना
+सौन्दर्य सामग्री
+साबुन डिटर्जेन्ट
+औषधि
+बालबालिका सामग्री
+खेलौना
+लत्ताकपडा
+जुत्ता
+झोला
+गहना
+सुनचाँदी
+घडी
+चस्मा
+इलेक्ट्रोनिक्स
+मोबाइल
+कम्प्युटर
+घरायसी उपकरण
+फर्निचर
+भाँडाकुँडा
+बिछ्यौना
+पर्दा
+हार्डवेयर
+रङ
+बिजुली सामान
+प्लम्बिङ
+निर्माण सामग्री
+कृषि सामग्री
+बीउ मल
+पशु आहार
+स्टेसनरी
+पुस्तक
+खेलकुद सामग्री
+ट्रेकिङ सामग्री
+पूजा सामग्री
+हस्तकला
+थाङ्का
+गलैँचा
+पशुपंक्षी
+सवारी पार्ट्स
+टायर

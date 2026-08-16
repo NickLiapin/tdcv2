@@ -1,0 +1,16 @@
+---
+description: Jobs in यातायात as Nepali names them. Coherent child of work/industryCoherent.txt: draw the industry, then draw this file for that industry.
+locale: ne
+---
+बस चालक
+ट्रक चालक
+ट्याक्सी चालक
+खलासी
+हवाई पाइलट
+एयर होस्टेस
+ट्राफिक प्रहरी
+कार्गो अधिकृत
+टेम्पो चालक
+मोटरसाइकल कुरियर
+बस काउन्टर अधिकृत
+मेकानिक

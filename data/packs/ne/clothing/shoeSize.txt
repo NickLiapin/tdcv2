@@ -1,0 +1,18 @@
+---
+description: Shoe size on the UK/India scale, which is what a Nepali shoebox prints and what a customer asks for. Nepal's footwear is overwhelmingly imported from India or made by Indian-owned factories in the Terai — Bata has been in Nepal since 1934 and Bata is a British-sized company — so the numbers a Nepali reads are UK numbers, NOT continental European ones: a size 8 in Kathmandu is UK 8, about EU 42, so a config treating these as Paris points will be four sizes out. EU numbers do appear on imported branded trainers and the two scales sit side by side in the same shop window, which is exactly why a size in a Nepali dataset needs its scale named. Half sizes are rare outside sports shops.
+locale: ne
+---
+3
+4
+5
+6
+6.5
+7
+7.5
+8
+8.5
+9
+9.5
+10
+11
+12

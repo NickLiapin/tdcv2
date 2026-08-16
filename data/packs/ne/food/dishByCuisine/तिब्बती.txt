@@ -1,0 +1,16 @@
+---
+description: Dishes of तिब्बती cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+मःमः
+थुक्पा
+थेन्थुक
+सुजा
+त्सम्पा
+शाब्ता
+ल्हाफिङ
+तिङमो
+कोथे
+छ्याङ
+चुर्पी
+आलु फिङ

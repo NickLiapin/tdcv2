@@ -1,0 +1,44 @@
+---
+description: Legal form written after a Nepali company name. प्रा.लि. — प्राइभेट लिमिटेड — is the overwhelming default and is what almost every registered Nepali business is. The three worth knowing beyond it: सहकारी संस्था लि., the cooperative, which in Nepal is a major financial institution and not a niche form — there are over thirty thousand registered cooperatives and they hold a large share of rural savings; and उपभोक्ता समिति, the users' committee, which is the legal entity that local infrastructure is actually built through, so a road or a water scheme has a users' committee rather than a contractor. आमा समूह (mothers' group) is the same idea at village level and holds real money. The Latin forms Pvt. Ltd. and Ltd. appear on the same signboards and are equally correct.
+locale: ne
+---
+प्रा.लि.
+लि.
+प्राइभेट लिमिटेड
+पब्लिक लिमिटेड
+कम्पनी
+इन्डस्ट्रिज
+उद्योग
+ट्रेडर्स
+इन्टरप्राइजेज
+सप्लायर्स
+डिस्ट्रिब्युटर्स
+एजेन्सी
+स्टोर्स
+सेन्टर
+ग्रुप
+होल्डिङ्स
+एसोसिएट्स
+पार्टनर्स
+कन्सल्ट्यान्ट्स
+सेवा
+प्रतिष्ठान
+संस्था
+सहकारी संस्था लि.
+बचत तथा ऋण सहकारी
+उपभोक्ता समिति
+आमा समूह
+सामुदायिक वन उपभोक्ता समूह
+गैससं
+फाउन्डेसन
+ट्रस्ट
+समाज
+क्लब
+संघ
+महासंघ
+बोर्ड
+प्राधिकरण
+निगम
+संस्थान
+बैङ्क लि.
+बीमा कम्पनी लि.

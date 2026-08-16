@@ -1,0 +1,12 @@
+---
+description: Sports with named playing positions, PARENT of sport/positionBySport/. भलिबल is first because it is Nepal's NATIONAL SPORT — declared so by the government in 2017, and genuinely the game played on the flattest patch of ground in every hill village, because it needs a net and a ball and no level pitch. कबड्डी and the volleyball-adjacent village games are played across the Terai. क्रिकेट is the sport Nepal actually follows: the national side won ODI status in 2018, and a Nepal-Netherlands match empties the streets of Kathmandu. The sports NOT in this list, and their absence is deliberate, are the ones Nepal is best at internationally and which have no positions to fill: तेक्वान्दो and कराते are where Nepal's South Asian Games medals come from, and पर्वतारोहण — mountaineering — is the field Nepal leads the world in outright, but a climbing team has roles (सर्दार, आइस डक्टर, भरिया) rather than positions and they belong in work/, not here.
+locale: ne
+---
+भलिबल
+फुटबल
+क्रिकेट
+कबड्डी
+बास्केटबल
+ब्याडमिन्टन
+टेबल टेनिस
+ह्यान्डबल

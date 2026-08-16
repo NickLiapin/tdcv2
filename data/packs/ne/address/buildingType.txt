@@ -1,0 +1,44 @@
+---
+description: Kind of building, in Nepali. The materials matter more here than the labels: about half of Nepal's houses are still माटोको घर or ढुङ्गाको घर — mud-mortared stone or adobe with a slate, thatch or corrugated-iron roof — and that is the single most useful thing about a Nepali dwelling record, because it predicts what the 2015 earthquake did to it and what the rebuilding grant paid for. टहरा is a temporary tin shed and there are still people in them. पाटी and सत्तल are open resthouses at a crossroads or a temple, built for travellers and now often the ward's public shelter; धर्मशाला is the pilgrim version. गुम्बा (Buddhist monastery), मन्दिर and बहाल (a Newar courtyard monastery-house, the building type the Kathmandu valley is actually made of) have no European equivalent. फ्ल्याट and अपार्टमेन्ट are recent and urban; a Nepali who says अपार्टमेन्ट means a flat in a developer's block, which is a Kathmandu phenomenon barely twenty years old.
+locale: ne
+---
+घर
+माटोको घर
+ढुङ्गाको घर
+इँटाको घर
+पक्की घर
+कच्ची घर
+टहरा
+छाप्रो
+बंगला
+अपार्टमेन्ट
+फ्ल्याट
+भवन
+कम्प्लेक्स
+सटर
+पसल
+गोदाम
+कारखाना
+अफिस
+विद्यालय
+क्याम्पस
+अस्पताल
+मन्दिर
+गुम्बा
+मस्जिद
+गिर्जाघर
+बहाल
+पाटी
+सत्तल
+धर्मशाला
+होटल
+लज
+होमस्टे
+रिसोर्ट
+गोठ
+भकारी
+चौतारी
+क्वार्टर
+हल
+सामुदायिक भवन
+वडा कार्यालय

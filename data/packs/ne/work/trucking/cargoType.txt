@@ -1,0 +1,17 @@
+---
+description: Freight types on Nepali roads. Everything except locally grown food comes by road from India through Birgunj, Biratnagar or Bhairahawa, so a Nepali freight record is dominated by imports; ग्यास सिलिन्डर and इन्धन are their own categories because they move in dedicated tankers and are the loads that trigger queues when the border closes.
+locale: ne
+---
+इन्धन
+ग्यास सिलिन्डर
+सिमेन्ट
+छड
+ढुङ्गा गिट्टी
+काठ
+खाद्यान्न
+तरकारी
+पशु आहार
+रासायनिक मल
+औषधि
+इलेक्ट्रोनिक्स
+कन्टेनर

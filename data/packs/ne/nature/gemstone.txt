@@ -1,0 +1,29 @@
+---
+description: Gemstones in Nepali. Nepali gem vocabulary comes from Vedic astrology, where nine stones (नवरत्न) are worn to strengthen nine planets, and a jeweller and an astrologer are consulted together — so माणिक for the Sun, मोती for the Moon, पन्ना for Mercury and so on. रुद्राक्ष is not a gem but a seed and is included because it is worn and traded exactly like one, priced by the number of faces on it.
+locale: ne
+---
+माणिक
+मोती
+मुगा
+पन्ना
+पुखराज
+हीरा
+नीलम
+गोमेद
+वैदूर्य
+स्फटिक
+फिरोजा
+मुनस्टोन
+गार्नेट
+एमेथिस्ट
+एक्वामेरिन
+टुर्मालिन
+जेड
+लापिस लाजुली
+एम्बर
+कोरल
+ओपल
+टोपाज
+जिर्कन
+रुद्राक्ष
+शालिग्राम

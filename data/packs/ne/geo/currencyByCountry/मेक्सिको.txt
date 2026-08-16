@@ -1,0 +1,5 @@
+---
+description: Currency of मेक्सिको as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+मेक्सिकी पेसो

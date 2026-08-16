@@ -1,0 +1,16 @@
+---
+description: Listing status in a Nepali property advertisement. बैनाबट्टा — the earnest-money agreement — is a distinct Nepali stage between agreeing a price and registering the transfer at the मालपोत office, and a deal can and does collapse in it.
+locale: ne
+---
+बिक्रीमा
+भाडामा
+बैनाबट्टा भएको
+बिक्री भइसकेको
+भाडा लागिसकेको
+मोलतोल हुन सक्ने
+मूल्य निश्चित
+बैंक धितोमा
+लिलामीमा
+निर्माणाधीन
+नयाँ
+पुरानो

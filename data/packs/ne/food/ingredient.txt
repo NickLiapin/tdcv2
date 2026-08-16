@@ -1,0 +1,47 @@
+---
+description: Everyday cooking ingredients in Nepali. चामल (uncooked rice) and भात (cooked rice) are different words and a config must not swap them. घिउ is clarified butter and the everyday cooking fat is तोरीको तेल, mustard oil, whose smell is as characteristic of a Nepali kitchen as olive oil is of an Italian one. गहत is horse gram, cooked into a soup taken for kidney stones and in winter, and it is a Nepali staple with almost no presence in European cooking. चुर्पी is rock-hard dried yak or chauri cheese, chewed for hours, and is sold as a dog chew abroad.
+locale: ne
+---
+चामल
+भात
+पिठो
+गहुँको पिठो
+मकैको पिठो
+कोदोको पिठो
+फापरको पिठो
+दाल
+मुसुरो
+मास
+रहर
+चना
+भटमास
+गहत
+बोडी
+केराउ
+तोरीको तेल
+सूर्यमुखी तेल
+घिउ
+नौनी
+दूध
+दही
+मोही
+पनिर
+चुर्पी
+अण्डा
+कुखुराको मासु
+खसीको मासु
+राँगाको मासु
+सुँगुरको मासु
+माछा
+सुकुटी
+सिद्रा
+गुन्द्रुक
+सिन्की
+तामा
+अचार
+नुन
+चिनी
+सक्खर
+मह
+यीस्ट
+बेकिङ सोडा

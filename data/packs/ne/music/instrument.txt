@@ -1,0 +1,37 @@
+---
+description: Musical instruments in Nepali. मादल is the two-headed hand drum that is the backbone of Nepali folk music and the instrument a Nepali would name first. सारङ्गी is the four-string bowed fiddle carried by the गन्धर्व caste, whose hereditary job was to travel the hills carrying news in song. मुरली and बाँसुरी are flutes, टुङ्ना a Sherpa and Tamang lute, ढ्याङ्ग्रो the shaman's frame drum, and पञ्चेबाजा the five-instrument wedding ensemble. दमाहा and सहनाई are played by the दमाई caste, which is why a Nepali wedding band and a Nepali caste name are the same word.
+locale: ne
+---
+मादल
+सारङ्गी
+बाँसुरी
+मुरली
+टुङ्ना
+ढ्याङ्ग्रो
+दमाहा
+सहनाई
+नरसिंहा
+कर्नाल
+टयाम्को
+झ्याली
+मन्जिरा
+खैंजडी
+ढोलक
+तबला
+हार्मोनियम
+सितार
+बीणा
+एस्राज
+सिंगबाजा
+पञ्चेबाजा
+गिटार
+बास गिटार
+किबोर्ड
+पियानो
+ड्रम सेट
+भायोलिन
+बाँसुरी (कन्सर्ट)
+स्याक्सोफोन
+ट्रम्पेट
+अकोर्डियन
+उकुलेले

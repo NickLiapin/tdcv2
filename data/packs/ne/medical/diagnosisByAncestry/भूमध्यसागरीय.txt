@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in populations of भूमध्यसागरीय descent, in Nepali. Coherent child of medical/ancestry.txt.
+locale: ne
+---
+बिटा थालसेमिया
+सिकल सेल रोग
+जी६पीडी कमी
+पारिवारिक भूमध्यसागरीय ज्वरो
+छालाको क्यान्सर
+पारिवारिक उच्च कोलेस्ट्रोल
+हिमोक्रोमाटोसिस
+बेहचेट रोग
+सेलियाक रोग
+मधुमेह

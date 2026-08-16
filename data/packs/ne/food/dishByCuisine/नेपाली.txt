@@ -1,0 +1,18 @@
+---
+description: Dishes of नेपाली cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+दालभात तरकारी
+ढिँडो
+गुन्द्रुकको झोल
+सिन्की
+मासुको झोल
+कुखुराको मासु
+आलु तामा
+सेल रोटी
+फापरको रोटी
+मकैको भात
+चिउरा
+खिर
+सुकुटी
+कागतीको अचार

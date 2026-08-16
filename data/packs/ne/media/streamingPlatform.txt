@@ -1,0 +1,16 @@
+---
+description: Streaming services available in Nepal. Brand names keep their real spelling. YouTube is by far the most important — Nepali music, comedy and news are published to it directly and Nepali creators reach the diaspora through it — and the Nepali platforms (Cinemaghar, Hamro Patro, OSR Digital) are small. Note that YouTube functions as the national broadcaster for Nepali music in a way it does not in countries with a domestic record industry.
+locale: ne
+---
+YouTube
+Netflix
+Amazon Prime Video
+Disney+ Hotstar
+Cinemaghar
+Hamro Patro
+OSR Digital
+Facebook Watch
+TikTok
+Spotify
+JioSaavn
+SoundCloud

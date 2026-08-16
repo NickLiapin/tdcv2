@@ -1,0 +1,47 @@
+---
+description: Generic drug names as a Nepali prescription writes them, in Devanagari. Nepal's pharmacies dispense largely Indian-made generics and a great deal of medicine is sold without a prescription over the counter, antibiotics included — which is why antimicrobial resistance is a stated national health emergency. जीवनजल is the Nepali oral rehydration salt sachet, a brand name that became the word for ORS and one of the most consequential public health products in the country's history. आइरन र फोलिक एसिड and भिटामिन ए are distributed as national programmes rather than sold.
+locale: ne
+---
+प्यारासिटामोल
+आइबुप्रोफेन
+एस्पिरिन
+डाइक्लोफेनाक
+ट्रामाडोल
+एमोक्सिसिलिन
+एजिथ्रोमाइसिन
+सिप्रोफ्लोक्सासिन
+मेट्रोनिडाजोल
+सेफिक्जिम
+डक्सिसाइक्लिन
+जेन्टामाइसिन
+आइसोनियाजिड
+रिफाम्पिसिन
+इथाम्बुटोल
+पाइराजिनामाइड
+एल्बेन्डाजोल
+आइभरमेक्टिन
+क्लोरोक्विन
+आर्टिमेथर
+ओमेप्राजोल
+प्यान्टोप्राजोल
+र्‍यानिटिडिन
+ओन्डान्सेट्रोन
+डोम्पेरिडोन
+लोपेरामाइड
+जीवनजल
+साल्बुटामोल
+बुडेसोनाइड
+प्रेडनिसोलोन
+सेटिरिजिन
+एम्लोडिपिन
+एटेनोलोल
+लोसार्टन
+एटोर्भास्टाटिन
+मेटफर्मिन
+ग्लिमेपिराइड
+इन्सुलिन
+लेभोथाइरोक्सिन
+आइरन र फोलिक एसिड
+भिटामिन ए
+क्याल्सियम
+जिंक

@@ -1,0 +1,28 @@
+---
+description: Character classes as a Nepali gamer names them. Nepali gaming vocabulary is English almost entirely, spelled in Devanagari when written at all and usually just left in Latin — PUBG Mobile and Free Fire are what Nepal plays, on phones, in internet cafes and over mobile data. The two Nepali-flavoured entries are योद्धा and तान्त्रिक, which turn up in Nepali-made mobile games and in translated fantasy.
+locale: ne
+---
+योद्धा
+तान्त्रिक
+वारियर
+मेज
+आर्चर
+रोग
+प्यालाडिन
+नेक्रोम्यान्सर
+ड्रुइड
+बार्ड
+मंक
+बर्सर्कर
+असासिन
+स्नाइपर
+मेडिक
+इन्जिनियर
+ट्याङ्क
+सपोर्ट
+हिलर
+स्काउट
+गनर
+समनर
+इलिमेन्टलिस्ट
+ब्लेडमास्टर

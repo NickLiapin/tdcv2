@@ -1,0 +1,18 @@
+---
+description: Dishes of नेवारी cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+समयबजी
+चटामरी
+बारा
+योमरी
+छोयला
+कचिला
+सन्या खुना
+भुटन
+पुकाला
+स्वाँपुका
+लाखामरी
+वो
+ऐला
+थोँ

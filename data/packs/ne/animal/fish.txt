@@ -1,0 +1,29 @@
+---
+description: Fish in Nepali. महसिर (golden mahseer) is the great river fish of Nepal, the one anglers travel for, and it is threatened by dams. असला is the snow trout of the cold hill streams. सिद्रा is the tiny dried fish of the Terai and eastern hills, sold by weight and eaten whole, and it is a Tharu and Madhesi staple rather than a delicacy. रेन्बो ट्राउट is farmed commercially in Nuwakot and Rasuwa and is a modern arrival. Nepal is landlocked, so every sea fish on this list is imported frozen and is a restaurant item, not a market one.
+locale: ne
+---
+महसिर
+असला
+सिद्रा
+रोहु
+नैनी
+भाकुर
+मंगुर
+सिंगी
+कतला
+बाम
+गडेला
+बुदुना
+चेलवा
+गार्दी
+टेंगरा
+रेन्बो ट्राउट
+कमन कार्प
+ग्रास कार्प
+सिल्भर कार्प
+तिलापिया
+क्याटफिस
+सामन
+टुना
+प्रान
+स्क्विड

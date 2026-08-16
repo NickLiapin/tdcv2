@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday in Nepali, Sunday first, index-aligned with date/weekday.txt. Nepali drops the -बार and keeps the first element, so आइत, सोम, मङ्गल, बुध, बिही, शुक्र, शनि — and बिही, with no Hindi counterpart at all, is the one to look at if you need to check which language a Devanagari calendar column is in.
+locale: ne
+---
+आइत
+सोम
+मङ्गल
+बुध
+बिही
+शुक्र
+शनि

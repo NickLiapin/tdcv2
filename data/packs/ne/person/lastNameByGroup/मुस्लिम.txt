@@ -1,0 +1,22 @@
+---
+description: Muslim Nepali surnames. Muslims are about five per cent of Nepal, overwhelmingly in the central and eastern Terai, and the stock is the north-Indian one: अन्सारी (weavers, by far the commonest), मियाँ, खान, शेख, सिद्दिकी, कुरैशी, इदरिसी, मन्सुरी. This pool is separate from the मधेसी one even though the two live in the same districts and speak the same languages — a Muslim Nepali does not carry यादव or झा, and a Hindu Madhesi does not carry अन्सारी. Ordered by rough prominence inside the group; unweighted, because no per-surname frequency count exists for Nepal at all — the census counts ethnic groups, never surnames — and a fabricated curve here would be a claim rather than an ordering. Nepali surnames do NOT inflect for gender, so this file serves male and female rows alike.
+locale: ne
+---
+अन्सारी
+मियाँ
+खान
+शेख
+सिद्दिकी
+इदरिसी
+कुरैशी
+हुसेन
+अहमद
+अली
+राइन
+मन्सुरी
+मोमिन
+फकिर
+धुनिया
+अख्तर
+रजा
+हसन

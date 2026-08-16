@@ -1,0 +1,40 @@
+---
+description: Vegetables in Nepali. सिस्नो (stinging nettle) is a cooked green in Nepal and not a weed — it is the poor season's vegetable in the hills and is a proverb for hardship. तामा is fermented bamboo shoot, cooked with black-eyed beans and potato into आलु तामा, and it is one of the flavours that most marks Nepali food out from Indian. निगुरो is the fiddlehead fern of the monsoon. रायोको साग, the mustard green, is the everyday leaf and is what गुन्द्रुक is usually made from. फर्सी, इस्कुस (chayote, whose shoots are eaten as well as the fruit) and करेला fill the hill kitchen garden.
+locale: ne
+---
+आलु
+प्याज
+लसुन
+अदुवा
+टमाटर
+काउली
+बन्दा
+मुला
+गाजर
+भन्टा
+भिन्डी
+करेला
+लौका
+फर्सी
+घिरौंला
+चिचिन्डो
+इस्कुस
+सिमी
+बोडी
+केराउ
+मटर
+भटमास
+मकै
+काँक्रो
+रायोको साग
+पालुंगो
+मेथी
+धनियाँ
+सिस्नो
+निगुरो
+तामा
+च्याउ
+बेथे
+तोरीको साग
+चुक
+जिरीको साग

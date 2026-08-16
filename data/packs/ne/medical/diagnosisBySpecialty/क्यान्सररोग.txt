@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the क्यान्सररोग department, in Nepali. Coherent child of medical/specialtyCoherent.txt: draw the specialty, then draw this file for it.
+locale: ne
+---
+पाठेघरको मुखको क्यान्सर
+फोक्सोको क्यान्सर
+मुखको क्यान्सर
+स्तन क्यान्सर
+पेटको क्यान्सर
+पित्तथैलीको क्यान्सर
+कलेजोको क्यान्सर
+रगतको क्यान्सर
+ठूलो आन्द्राको क्यान्सर
+प्रोस्टेट क्यान्सर

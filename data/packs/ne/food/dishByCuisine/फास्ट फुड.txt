@@ -1,0 +1,16 @@
+---
+description: Dishes of फास्ट फुड cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+बर्गर
+पिज्जा
+फ्रेन्च फ्राइज
+हट डग
+फ्राइड चिकन
+चटपटे
+पानीपुरी
+समोसा
+आलु चप
+सेकुवा
+वाइ वाइ
+मःमः

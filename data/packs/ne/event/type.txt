@@ -1,0 +1,56 @@
+---
+description: KINDS of event, in Nepali — the occasions a Nepali household or organisation actually holds. THE NAMED PUBLIC HOLIDAYS ARE DELIBERATELY NOT HERE: दशैं, तिहार, छठ, तीज, बुद्ध जयन्ती, गाईजात्रा, इन्द्रजात्रा, ल्होसार, माघे संक्रान्ति and the rest are owned by the Nepal country pack at nepal.holiday, which lists them in Bikram Sambat order and explains which of them have a fixed date (nine) and which move with a lunar, Tibetan or Hijri calendar (all the others). Duplicating them here would give two lists that could drift apart, so this file holds the generic words चाड, पर्व, जात्रा, मेला and पूजा and leaves the calendar to the pack that owns it. What IS here and belongs to the language is the LIFE-CYCLE set, which has no European counterpart and which generates as many invitations, caterings and photographs as a wedding does: न्वारन is the naming on the eleventh day, पास्नी the first feeding of rice at five or six months, व्रतबन्ध the boys' sacred-thread initiation, बेलबिबाह and गुफा the Newar girls' rites, बुढो पास्नी the celebration of reaching seventy-seven years seven months and seven days, and काजकिरिया the thirteen days of mourning during which the chief mourner wears white and eats one unsalted meal a day. मागी and सुपारी are the two stages of arranging a marriage before the जन्ती, the groom's procession, ever sets out.
+locale: ne
+---
+विवाह
+जन्ती
+मागी
+सुपारी
+न्वारन
+पास्नी
+व्रतबन्ध
+बेलबिबाह
+गुफा
+बुढो पास्नी
+जन्मदिन
+श्राद्ध
+काजकिरिया
+चाड
+पर्व
+जात्रा
+मेला
+पूजा
+यज्ञ
+भजन
+सत्यनारायणको पूजा
+गृहप्रवेश
+शिलान्यास
+उद्घाटन
+सम्मेलन
+गोष्ठी
+कार्यशाला
+तालिम
+सेमिनार
+बैठक
+भेला
+साधारण सभा
+पुरस्कार वितरण
+दीक्षान्त समारोह
+स्वागत
+बिदाइ
+प्रदर्शनी
+महोत्सव
+खेलकुद प्रतियोगिता
+दौड
+साङ्गीतिक कार्यक्रम
+दोहोरी साँझ
+नाटक
+फेसन सो
+र्‍याली
+आमसभा
+अन्तर्क्रिया
+पत्रकार सम्मेलन
+रक्तदान कार्यक्रम
+सरसफाइ अभियान
+वृक्षारोपण
+पिकनिक

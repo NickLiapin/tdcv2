@@ -1,0 +1,12 @@
+---
+description: The seven surname stocks of Nepal, weighted by their approximate share of the population (2021 census group tallies, aggregated by hand — क्षेत्री folds in Thakuri, बाहुन folds in the Dasnami/सन्न्यासी names, जनजाति folds together the sixty-odd indigenous peoples the census lists separately, and the percentages are therefore mine and not the Bureau of Statistics'). THIS IS THE PARENT OF person/lastNameByGroup/ and it exists because a Nepali surname is not a free choice: the pools do not mix. There is no family that could produce both a बज्राचार्य and a तामाङ. A config that wants an internally consistent Nepali person should draw this list and then draw the surname from the matching file; a config that only wants a plausible national mix can draw person/lastName.txt instead, which is these same seven pools already merged at these same shares. What this list must NOT be used for is a 'caste' column in a generated record — these are surname stocks, several of them (जनजाति, मधेसी) cover dozens of separate castes and ethnicities, and Nepal's own forms ask for जात/जाति in far finer categories than seven.
+locale: ne
+weighted: true
+---
+बाहुन,13900
+क्षेत्री,18100
+नेवार,5000
+जनजाति,29000
+मधेसी,15000
+दलित,13000
+मुस्लिम,6000

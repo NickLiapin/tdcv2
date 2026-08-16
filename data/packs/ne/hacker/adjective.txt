@@ -1,0 +1,32 @@
+---
+description: Adjectives from Nepali technical writing. Nepali IT prose is heavily calqued — डिजिटल, भर्चुअल and वायरलेस are borrowed, while डिजिटल and स्वचालित sit beside native compounds like सुरक्षित and बहुस्तरीय. Nepali adjectives in -ओ agree with the noun, so the borrowed and -ित forms here are the ones safe to concatenate.
+locale: ne
+---
+डिजिटल
+भर्चुअल
+वायरलेस
+अनलाइन
+अफलाइन
+स्वचालित
+सुरक्षित
+एन्क्रिप्टेड
+खुला स्रोत
+बन्द स्रोत
+बहुस्तरीय
+वितरित
+केन्द्रीकृत
+अनुकूलित
+स्केलेबल
+रियल टाइम
+समानान्तर
+अतुल्यकालिक
+गतिशील
+स्थिर
+अस्थिर
+प्राथमिक
+माध्यमिक
+आन्तरिक
+बाह्य
+सार्वजनिक
+निजी
+गोप्य

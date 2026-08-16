@@ -1,0 +1,22 @@
+---
+description: Room types in Nepali accommodation. डर्मिटरी and टिहाउस कोठा belong to trekking lodges, where a room is a plywood box with two beds and the price is kept low on the understanding that you eat there. होमस्टे is a government-promoted category with its own registration and standards.
+locale: ne
+---
+एकल कोठा
+दोहोरो कोठा
+ट्विन कोठा
+तीन ओछ्यानको कोठा
+पारिवारिक कोठा
+डिलक्स कोठा
+सुपर डिलक्स
+सुइट
+डर्मिटरी
+टिहाउस कोठा
+होमस्टे कोठा
+एटाच्ड बाथरुम
+कमन बाथरुम
+हिमाल देखिने कोठा
+बगैँचातिर फर्केको
+तल्लो तला
+माथिल्लो तला
+टेन्ट

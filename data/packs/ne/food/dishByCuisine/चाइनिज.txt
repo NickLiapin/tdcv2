@@ -1,0 +1,14 @@
+---
+description: Dishes of चाइनिज cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+चाउमिन
+फ्राइड राइस
+चिली चिकन
+स्प्रिङ रोल
+हट एन्ड साअर सुप
+मन्चुरियन
+स्विट एन्ड साअर
+कुङपाओ चिकन
+वन्टन
+चप्सी

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the फोक्सोरोग department, in Nepali. Coherent child of medical/specialtyCoherent.txt: draw the specialty, then draw this file for it.
+locale: ne
+---
+क्षयरोग
+दम
+क्रोनिक ब्रोन्काइटिस
+निमोनिया
+सीओपीडी
+चुलोको धुवाँबाट हुने फोक्सो रोग
+सिलिकोसिस
+फोक्सोको क्यान्सर
+उच्च हिमाली फोक्सो सुन्निने
+ब्रोन्काइटिस

@@ -1,0 +1,14 @@
+---
+description: Fuel types in Nepali. Nepal imports every litre of petroleum by road from India, so a supply disruption at the border is a national event — the 2015 blockade emptied the country's tanks. Electric vehicles are correspondingly a national policy: Nepal generates its own hydroelectricity and importing EVs saves foreign currency, so tax on them has been repeatedly cut and Kathmandu's taxi and micro fleets are converting.
+locale: ne
+---
+पेट्रोल
+डिजेल
+विद्युतीय
+हाइब्रिड
+एलपीजी
+सीएनजी
+मट्टितेल
+ब्याट्री
+सोलार
+बायोग्यास

@@ -1,0 +1,12 @@
+---
+description: Annual household income band, labelled in Nepali and denominated in NEPALI RUPEES (रु, ISO NPR), which is pegged to the Indian rupee at 1.6 NPR to 1 INR and is not the same currency. Two things a formatter must get right. FIRST, the numbering is South Asian: Nepali groups by लाख (100,000) and करोड (10,000,000), a salary is quoted as रु ५ लाख and never as 500,000, and the digit grouping is 2-2-3 (रु १०,००,००० not रु 1,000,000). SECOND, the bands sit far lower than a European pack's: Nepal's GDP per capita is around 1,400 US dollars, the government's own poverty line is about रु ७२,००० a year per person, and a household above रु २० लाख is genuinely wealthy. The Devanagari digits ०१२३४५६७८९ are used here because that is what a Nepali government form prints; Latin digits are equally correct in commercial writing and the two are mixed freely in real documents.
+locale: ne
+---
+रु १ लाखभन्दा कम
+रु १–२ लाख
+रु २–४ लाख
+रु ४–६ लाख
+रु ६–१० लाख
+रु १०–१५ लाख
+रु १५–२५ लाख
+रु २५ लाखभन्दा माथि

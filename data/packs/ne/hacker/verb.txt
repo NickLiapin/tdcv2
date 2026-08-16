@@ -1,0 +1,32 @@
+---
+description: Verbs from Nepali technical writing, given in the -नु infinitive because that is the dictionary form and the form a manual heading uses (डाटा ब्याकअप गर्नु). Most technical verbs in Nepali are formed by putting an English noun in front of गर्नु ('to do') — ह्याक गर्नु, कम्पाइल गर्नु — which is a productive pattern that will absorb any new English term, and it is why Nepali technical prose reads as half English to a Hindi speaker too.
+locale: ne
+---
+ह्याक गर्नु
+क्र्याक गर्नु
+ब्याकअप गर्नु
+रिस्टोर गर्नु
+कम्पाइल गर्नु
+डिबग गर्नु
+डिप्लोय गर्नु
+इन्स्टल गर्नु
+अपडेट गर्नु
+अपग्रेड गर्नु
+डाउनलोड गर्नु
+अपलोड गर्नु
+जडान गर्नु
+विच्छेद गर्नु
+एन्क्रिप्ट गर्नु
+डिक्रिप्ट गर्नु
+स्क्यान गर्नु
+फिल्टर गर्नु
+सिंक गर्नु
+पार्स गर्नु
+रेन्डर गर्नु
+क्यास गर्नु
+लग गर्नु
+अनुगमन गर्नु
+परीक्षण गर्नु
+अनुकूलन गर्नु
+पुनःसुरु गर्नु
+बन्द गर्नु

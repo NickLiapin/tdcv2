@@ -1,0 +1,15 @@
+---
+description: Jobs in खुद्रा व्यापार as Nepali names them. Coherent child of work/industryCoherent.txt: draw the industry, then draw this file for that industry.
+locale: ne
+---
+पसले
+किराना व्यापारी
+सेल्सम्यान
+क्यासियर
+स्टोर किपर
+मार्केटिङ अधिकृत
+डिपार्टमेन्ट स्टोर प्रबन्धक
+अनलाइन पसल सञ्चालक
+थोक व्यापारी
+फुटपाथ व्यापारी
+सुनचाँदी व्यापारी

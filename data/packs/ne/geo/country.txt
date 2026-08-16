@@ -1,0 +1,60 @@
+---
+description: Country as Nepali names it, weighted by population in millions. The names are TRANSLATED or given in their established Nepali form rather than respelled from English, and three of them are the cheapest proof that a Devanagari list is Nepali and not Hindi. बेलायत is Britain — an old borrowing through Persian, with no Hindi counterpart at all, where Hindi says ब्रिटेन or इंग्लैंड. चिनियाँ is the adjective from चीन, where Hindi says चीनी. And the -ल्यान्ड suffix (थाइल्यान्ड, पोल्यान्ड, न्युजिल्यान्ड, स्विजरल्यान्ड) is Nepali where Hindi writes -लैंड. Note too that Nepali does not use the ऑ vowel that Hindi and Marathi use for a borrowed English 'o': Nepali writes अस्ट्रेलिया and अस्ट्रिया where they write ऑस्ट्रेलिया and ऑस्ट्रिया. The SELECTION is deliberately Nepal-facing at the tail: कतार, संयुक्त अरब इमिरेट्स, कुवेत, साउदी अरब, मलेसिया and दक्षिण कोरिया are far more present in Nepali life than their populations suggest, because they are where the migrant labour goes — remittances are around a quarter of Nepal's GDP and roughly one household in four has someone in one of those six countries. भारत is first at its real weight, and the open border with India means an Indian citizen needs no visa and no passport to enter Nepal, so 'foreign national' in a Nepali record overwhelmingly means Indian.
+locale: ne
+weighted: true
+---
+भारत,1428
+चीन,1410
+संयुक्त राज्य अमेरिका,335
+इन्डोनेसिया,275
+पाकिस्तान,240
+नाइजेरिया,220
+ब्राजिल,215
+बंगलादेश,172
+रुस,144
+मेक्सिको,128
+इथियोपिया,126
+जापान,124
+फिलिपिन्स,117
+इजिप्ट,112
+भियतनाम,98
+इरान,89
+टर्की,85
+जर्मनी,84
+थाइल्यान्ड,72
+फ्रान्स,68
+बेलायत,67
+दक्षिण अफ्रिका,60
+इटाली,59
+म्यानमार,54
+दक्षिण कोरिया,52
+स्पेन,48
+अर्जेन्टिना,46
+इराक,45
+अफगानिस्तान,42
+क्यानडा,39
+युक्रेन,38
+पोल्यान्ड,37
+मोरक्को,37
+साउदी अरब,37
+मलेसिया,34
+नेपाल,30
+अस्ट्रेलिया,26
+श्रीलंका,22
+नेदरल्यान्ड्स,18
+बेल्जियम,12
+ग्रिस,10
+पोर्चुगल,10
+स्विडेन,10
+अस्ट्रिया,9
+स्विजरल्यान्ड,9
+इजरायल,9
+संयुक्त अरब इमिरेट्स,9
+डेनमार्क,6
+सिंगापुर,6
+नर्वे,5
+न्युजिल्यान्ड,5
+कुवेत,4
+कतार,3
+भुटान,1
+माल्दिभ्स,1

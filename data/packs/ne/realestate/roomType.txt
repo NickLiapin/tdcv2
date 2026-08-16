@@ -1,0 +1,22 @@
+---
+description: Rooms in a Nepali house. पूजा कोठा is a room in its own right in most Hindu Nepali homes and appears in floor plans. भान्सा (the kitchen) carries a purity rule in traditional households — outsiders and lower castes were kept out of it, and in some families still are. दलान is the covered porch, आँगन the beaten-earth yard where grain is dried and weddings are held, and बुइगल the loft under the roof used for storage.
+locale: ne
+---
+सुत्ने कोठा
+बैठक कोठा
+भान्सा
+भान्सा कोठा
+पूजा कोठा
+अध्ययन कोठा
+बाथरुम
+शौचालय
+भण्डार
+बुइगल
+दलान
+आँगन
+छत
+बरन्डा
+सिँढी
+गोठ
+बगैँचा
+पार्किङ

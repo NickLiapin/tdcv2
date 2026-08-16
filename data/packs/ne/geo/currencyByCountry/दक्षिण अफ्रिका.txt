@@ -1,0 +1,5 @@
+---
+description: Currency of दक्षिण अफ्रिका as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+र्‍यान्ड

@@ -1,0 +1,34 @@
+---
+description: Nepali honorific placed before a name or a title. Two of these carry a protocol distinction that has no English equivalent and that Nepali newspapers observe strictly: सम्माननीय is reserved for the President, the Vice-President, the Prime Minister and the Chief Justice, and माननीय is for everyone else of rank — ministers, members of parliament, judges. Using माननीय of a Prime Minister is a visible error in Nepali print. श्री is not only a personal honorific: it is written before institutions and place names too (श्री ५ को सरकार was the Crown's own style, with the numeral counting the honorific five times over), and doubling or tripling it raised the rank further. कु. is कुमारी, for an unmarried woman. बडागुरुज्यू, भन्ते and लामा are religious. डा. and प्रा.डा. (professor-doctor) are used far more insistently in Nepali than in English, on business cards, wedding invitations and news captions alike.
+locale: ne
+---
+श्री
+श्रीमती
+सुश्री
+श्रीमान्
+कु.
+डा.
+प्रा.
+प्रा.डा.
+इन्जि.
+अधिवक्ता
+माननीय
+सम्माननीय
+आदरणीय
+मान्यवर
+पण्डित
+गुरु
+स्वामी
+भन्ते
+लामा
+बाजे
+बज्यै
+साहु
+सुब्बा
+कप्तान
+मेजर
+प्रमुख
+अध्यक्ष
+उपकुलपति
+महन्त
+स्व.

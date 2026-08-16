@@ -1,0 +1,83 @@
+---
+description: General diagnoses in Nepali. The head of the list is Nepal's real burden of disease rather than Europe's: क्षयरोग (tuberculosis) is still endemic and notifiable, टाइफाइड and झाडापखाला are water-borne and seasonal, डेङ्गु has become an annual Kathmandu epidemic since 2019, कालाजार and औलो persist in the Terai, and खोपजन्य रोग like दादुरा recur where coverage lapses. उच्च लाग्ने रोग (acute mountain sickness), उच्च हिमाली फोक्सो सुन्निने and मस्तिष्क सुन्निने are altitude illnesses that are ordinary Nepali diagnoses and exotic elsewhere. सर्पदंश and कुकुरको टोकाइ (snakebite and dog bite, for rabies) are common enough in the Terai to be public health programmes. Alongside them sit the non-communicable diseases that now kill most Nepalis — मधुमेह, उच्च रक्तचाप, मुटुरोग and सीओपीडी — because Nepal is in the middle of that transition rather than at either end of it.
+locale: ne
+---
+क्षयरोग
+टाइफाइड
+झाडापखाला
+हैजा
+डेङ्गु
+औलो
+कालाजार
+जापानिज इन्सेफलाइटिस
+स्क्रब टाइफस
+दादुरा
+रुबेला
+बालरोग खोपजन्य
+हेपाटाइटिस ए
+हेपाटाइटिस बी
+हेपाटाइटिस सी
+एचआईभी
+निमोनिया
+रुघाखोकी
+इन्फ्लुएन्जा
+कोभिड-१९
+साइनोसाइटिस
+टन्सिलाइटिस
+कानको संक्रमण
+आँखा पाक्ने
+मोतिबिन्दु
+ग्लुकोमा
+छारे रोग
+माइग्रेन
+उच्च रक्तचाप
+मधुमेह
+मुटुरोग
+हृदयाघात
+मस्तिष्कघात
+बाथजन्य मुटु रोग
+दम
+सीओपीडी
+क्रोनिक ब्रोन्काइटिस
+सिलिकोसिस
+ग्यास्ट्राइटिस
+पेप्टिक अल्सर
+कब्जियत
+आन्द्राको जुका
+अमिबियासिस
+पित्तथैलीको पत्थरी
+मृगौलाको पत्थरी
+दीर्घ मृगौला रोग
+मूत्रनलीको संक्रमण
+थाइराइड कम हुने
+गलगाँड
+आयोडिन कमी
+रक्तअल्पता
+कुपोषण
+भिटामिन ए कमी
+भिटामिन डी कमी
+रिकेट्स
+अस्टियोपोरोसिस
+गाउट
+बाथ रोग
+कम्मर दुखाइ
+स्लिप डिस्क
+हड्डी भाँचिएको
+कुष्ठरोग
+दाद
+एक्जिमा
+सोराइसिस
+छाला एलर्जी
+सर्पदंश
+कुकुरको टोकाइ
+जलन
+सडक दुर्घटनाजन्य चोट
+उच्च लाग्ने रोग
+उच्च हिमाली फोक्सो सुन्निने
+मस्तिष्क सुन्निने
+हिमदंश
+डिप्रेसन
+एन्जाइटी
+मदिरा दुर्व्यसन
+लागूऔषध दुर्व्यसन
+पाठेघर खस्ने

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the मनोरोग department, in Nepali. Coherent child of medical/specialtyCoherent.txt: draw the specialty, then draw this file for it.
+locale: ne
+---
+डिप्रेसन
+एन्जाइटी
+अनिद्रा
+मदिरा दुर्व्यसन
+लागूऔषध दुर्व्यसन
+स्किजोफ्रेनिया
+बाइपोलर डिसअर्डर
+आत्महत्याको सोच
+आघातपछिको तनाव
+बालबालिकाको व्यवहार समस्या

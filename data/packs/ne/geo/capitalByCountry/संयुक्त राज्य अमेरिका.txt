@@ -1,0 +1,5 @@
+---
+description: Capital of संयुक्त राज्य अमेरिका as Nepali writes it. Coherent child of geo/country.txt: draw the country, then draw this file for that country.
+locale: ne
+---
+वासिङ्टन डी.सी.

@@ -1,0 +1,20 @@
+---
+description: Seniority levels in Nepal. The civil service ladder — श्रेणीविहीन, राजपत्र अनंकित and राजपत्रांकित in three classes — is the reference scale a great many Nepali job records use, because government grades set the pattern for the whole formal sector; a 'gazetted officer' (राजपत्रांकित) is a rank with legal meaning, including the power to attest documents.
+locale: ne
+---
+श्रेणीविहीन
+राजपत्र अनंकित
+राजपत्रांकित तृतीय
+राजपत्रांकित द्वितीय
+राजपत्रांकित प्रथम
+विशिष्ट श्रेणी
+प्रशिक्षार्थी
+सहायक
+अधिकृत
+वरिष्ठ अधिकृत
+प्रबन्धक
+वरिष्ठ प्रबन्धक
+विभागीय प्रमुख
+कार्यकारी निर्देशक
+प्रमुख कार्यकारी अधिकृत
+अध्यक्ष

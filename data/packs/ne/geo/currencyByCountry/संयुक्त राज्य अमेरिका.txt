@@ -1,0 +1,5 @@
+---
+description: Currency of संयुक्त राज्य अमेरिका as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+अमेरिकी डलर

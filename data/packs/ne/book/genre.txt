@@ -1,0 +1,32 @@
+---
+description: Book genres in Nepali. नियात्रा is the one with no English single word: it is the Nepali travel-essay, a major and much-read literary form built on walking through the country, and it is a genre heading in every Nepali bookshop. मुक्तक (a four-line epigram) and गजल (ghazal, borrowed from Urdu and hugely popular in Nepali) are likewise shelf categories rather than niche terms. लोककथा and वंशावली — folk tale and genealogy — are the traditional prose forms.
+locale: ne
+---
+उपन्यास
+कथा
+कविता
+मुक्तक
+गजल
+खण्डकाव्य
+महाकाव्य
+नाटक
+निबन्ध
+नियात्रा
+जीवनी
+आत्मकथा
+इतिहास
+लोककथा
+वंशावली
+धार्मिक
+दर्शन
+राजनीति
+समाजशास्त्र
+विज्ञान
+बालसाहित्य
+हास्यव्यङ्ग्य
+रहस्य
+रोमाञ्च
+प्रेमकथा
+अनुवाद
+पाठ्यपुस्तक
+आत्मविकास

@@ -1,0 +1,14 @@
+---
+description: Book formats, in Nepali. सजिल्दा (hardbound) and पेपरब्याक are what a Nepali publisher prints; ई-पुस्तक and अडियो पुस्तक are recent. पत्रिका and साप्ताहिक belong here because in Nepal the weekly newspaper and the literary magazine are where most prose is published — the book trade is small, print runs of a thousand are normal, and a Nepali writer reaches readers through a साप्ताहिक first.
+locale: ne
+---
+सजिल्दा
+पेपरब्याक
+ई-पुस्तक
+अडियो पुस्तक
+पत्रिका
+साप्ताहिक
+जर्नल
+पाठ्यपुस्तक
+चित्रपुस्तक
+पुस्तिका

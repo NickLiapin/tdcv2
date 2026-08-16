@@ -1,0 +1,14 @@
+---
+description: Conditions with a raised prevalence in populations of आदिवासी अमेरिकी descent, in Nepali. Coherent child of medical/ancestry.txt.
+locale: ne
+---
+टाइप २ मधुमेह
+पित्तथैलीको पत्थरी
+मदिरा असहिष्णुता
+मोटोपन
+दीर्घ मृगौला रोग
+बाथ रोग
+क्षयरोग
+कलेजोमा बोसो
+उच्च रक्तचाप
+पित्तथैलीको क्यान्सर

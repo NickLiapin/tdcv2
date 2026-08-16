@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the मृगौलारोग department, in Nepali. Coherent child of medical/specialtyCoherent.txt: draw the specialty, then draw this file for it.
+locale: ne
+---
+मृगौलाको पत्थरी
+दीर्घ मृगौला रोग
+मृगौला फेल
+मूत्रनलीको संक्रमण
+नेफ्रोटिक सिन्ड्रोम
+प्रोटिनयुक्त पिसाब
+पिसाबमा रगत
+मृगौला प्रत्यारोपणपछिको हेरचाह
+डायलाइसिस निर्भरता
+मधुमेहजन्य मृगौला रोग

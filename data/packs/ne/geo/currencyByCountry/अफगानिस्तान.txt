@@ -1,0 +1,5 @@
+---
+description: Currency of अफगानिस्तान as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+अफगानी

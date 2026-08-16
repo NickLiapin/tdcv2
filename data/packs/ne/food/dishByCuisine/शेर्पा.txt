@@ -1,0 +1,16 @@
+---
+description: Dishes of शेर्पा cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+थुक्पा
+मःमः
+स्याक्पा
+रिल्दुक
+सुजा
+चुर्पी
+तिब्बती रोटी
+ढिँडो
+सुकुटी
+छ्याङ
+तोङ्बा
+आलुको अचार

@@ -1,0 +1,26 @@
+---
+description: Metals and alloys in Nepali. सुन and चाँदी head the list because they are savings rather than ornament in Nepal — a household's wealth is held in gold, a wedding transfers it, and the goldsmith is a bank. पित्तल and काँसा are the temple and kitchen alloys, and a Newar bronzecaster's work in काँसा is one of Nepal's oldest exports; अष्टधातु, the eight-metal alloy, is what religious statues are cast in and is a named material.
+locale: ne
+---
+सुन
+चाँदी
+तामा
+पित्तल
+काँसा
+अष्टधातु
+फलाम
+स्टिल
+एल्युमिनियम
+जस्ता
+सिसा
+टिन
+निकल
+क्रोमियम
+टाइटानियम
+प्लाटिनम
+पारो
+म्याग्नेसियम
+म्याङ्गनिज
+कोबाल्ट
+युरेनियम
+अभ्रख

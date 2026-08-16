@@ -1,0 +1,34 @@
+---
+description: Spices in Nepali. तिमुर is the one to know: Sichuan pepper, which numbs the tongue, and which is the single most identifying flavour of Nepali food — तिमुरको छोप, the chilli-and-timur dip, is on every Thakali table and exists nowhere in Indian cooking. जिम्बु is a dried Himalayan allium, fried in ghee and dropped into dal, and it is likewise Nepal-only. अलैँची here means the large black cardamom of the eastern hills, which is Nepal's biggest spice export by value and a different thing from the green cardamom Indian sweets use. भाङ्गोको छोप (hemp-seed chutney) and सिल्टिमुर are regional. The rest are shared with the subcontinent.
+locale: ne
+---
+तिमुर
+जिम्बु
+अलैँची
+सुकुमेल
+दालचिनी
+ल्वाङ
+तेजपात
+जीरा
+धनियाँ
+मेथी
+बेसार
+खुर्सानी
+सुकेको खुर्सानी
+मरिच
+सर्सिउ
+ज्वानो
+सौंफ
+हिङ
+पाँच मसला
+तिल
+भाङ्गोको छोप
+सिल्टिमुर
+अमचुर
+नुन
+बिरे नुन
+चुक
+गुँदपाक
+केसर
+जायफल
+जावित्री

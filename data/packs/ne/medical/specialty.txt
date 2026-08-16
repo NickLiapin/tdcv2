@@ -1,0 +1,40 @@
+---
+description: Hospital departments and clinical specialties in Nepali. The list mixes Nepali compounds with the Devanagari-spelled English loans, and that mixture is honest: a Nepali hospital signboard says कार्डियोलोजी and the Nepali-language referral slip says हृदयरोग, and both are in daily use. आयुर्वेद and होमियोप्याथी are here because Nepal licenses them, runs government Ayurvedic hospitals and trains practitioners at Tribhuvan University; excluding them would misrepresent the health system.
+locale: ne
+---
+सामान्य चिकित्सा
+आकस्मिक
+शल्यक्रिया
+हड्डी शल्यक्रिया
+बालरोग
+स्त्रीरोग तथा प्रसूति
+हृदयरोग
+स्नायुरोग
+मृगौलारोग
+पाचनरोग
+फोक्सोरोग
+छालारोग
+आँखा
+नाक कान घाँटी
+दन्त
+मनोरोग
+क्यान्सररोग
+अन्तःस्रावीरोग
+बाथरोग
+संक्रामक रोग
+रक्तरोग
+एनेस्थेसिया
+रेडियोलोजी
+प्याथोलोजी
+माइक्रोबायोलोजी
+फिजियोथेरापी
+पुनर्स्थापना
+जनस्वास्थ्य
+परिवार नियोजन
+पोषण
+आयुर्वेद
+होमियोप्याथी
+आकस्मिक उद्धार
+गहन उपचार कक्ष
+नवजात शिशु कक्ष
+फार्मेसी

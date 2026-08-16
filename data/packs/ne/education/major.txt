@@ -1,0 +1,48 @@
+---
+description: Fields of study at a Nepali campus. The three most sought-after — MBBS, engineering and a bachelor of business studies — are what a Nepali family aims a child at, and the competition for the free government seats in medicine is ferocious. वन विज्ञान (forestry), कृषि, जलस्रोत इन्जिनियरिङ and पर्वतीय पर्यटन are Nepal's own specialisms; TU's forestry and agriculture campuses at Hetauda and Rampur are national institutions. Note also that a very large share of Nepali students study ABROAD — India, Australia, Japan, Korea, the United States — and the 'no objection letter' issued for it is one of the commonest government documents in the country.
+locale: ne
+---
+चिकित्सा
+नर्सिङ
+फार्मेसी
+जनस्वास्थ्य
+आयुर्वेद
+दन्त चिकित्सा
+सिभिल इन्जिनियरिङ
+कम्प्युटर इन्जिनियरिङ
+इलेक्ट्रिकल इन्जिनियरिङ
+मेकानिकल इन्जिनियरिङ
+जलस्रोत इन्जिनियरिङ
+आर्किटेक्चर
+सूचना प्रविधि
+विज्ञान
+गणित
+भौतिकशास्त्र
+रसायनशास्त्र
+जीवशास्त्र
+वातावरण विज्ञान
+भूगर्भशास्त्र
+कृषि
+वन विज्ञान
+पशु विज्ञान
+व्यवस्थापन
+लेखा
+अर्थशास्त्र
+बैङ्किङ तथा वित्त
+कानुन
+पत्रकारिता
+जनसञ्चार
+समाजशास्त्र
+मानवशास्त्र
+राजनीतिशास्त्र
+अन्तर्राष्ट्रिय सम्बन्ध
+इतिहास
+भूगोल
+नेपाली साहित्य
+अङ्ग्रेजी साहित्य
+संस्कृत
+बौद्ध अध्ययन
+शिक्षा
+मनोविज्ञान
+होटल व्यवस्थापन
+पर्वतीय पर्यटन

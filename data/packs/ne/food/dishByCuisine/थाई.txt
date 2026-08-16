@@ -1,0 +1,14 @@
+---
+description: Dishes of थाई cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+प्याड थाई
+टम याम
+ग्रिन करी
+सोम टम
+म्याङ्गो स्टिकी राइस
+टम खा
+रेड करी
+थाई फ्राइड राइस
+सतय
+लार्ब

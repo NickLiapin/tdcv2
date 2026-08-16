@@ -1,0 +1,30 @@
+---
+description: Household budget lines in Nepali. Three are Nepali rather than generic. चाडपर्व खर्च is a budget category in its own right — Dashain and Tihar cost a household weeks of income in clothes, meat and gifts, and Nepali employers pay a statutory festival bonus for exactly this reason. वैदेशिक रोजगार खर्च is the loan taken to pay a manpower agency and an air ticket, typically at high interest against land, and it is the largest single debt many households carry. पाहुना र आफन्त covers the obligations of hospitality and life-cycle gifts, which are not optional. Note also that घरभाडा in Kathmandu takes a far larger share of income than in most of the country, and that खाना for a majority of households is partly grown rather than bought.
+locale: ne
+---
+खाना
+घरभाडा
+बिजुली
+खानेपानी
+ग्यास
+दाउरा
+इन्टरनेट
+मोबाइल रिचार्ज
+यातायात
+इन्धन
+शिक्षा
+ट्युसन
+स्वास्थ्य
+औषधि
+लत्ताकपडा
+घरायसी सामान
+मर्मत
+चाडपर्व खर्च
+पाहुना र आफन्त
+दान र चन्दा
+बीमा
+ऋणको किस्ता
+वैदेशिक रोजगार खर्च
+बचत
+लगानी
+मनोरञ्जन

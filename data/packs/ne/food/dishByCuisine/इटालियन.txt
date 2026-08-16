@@ -1,0 +1,14 @@
+---
+description: Dishes of इटालियन cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+पिज्जा
+पास्ता
+लजान्जा
+रिजोटो
+स्पागेटी
+ब्रुस्केटा
+टिरामिसु
+राभियोली
+कार्बोनारा
+मिनेस्ट्रोने

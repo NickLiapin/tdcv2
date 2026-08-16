@@ -1,0 +1,11 @@
+---
+description: Playing positions in टेबल टेनिस as Nepali commentary names them. Coherent child of sport/sportCoherent.txt. Most are English loans spelled in Devanagari, which is what Nepali sports broadcasting actually uses; the invented-Nepali alternatives are not in circulation and are not used here.
+locale: ne
+---
+एकल खेलाडी
+दोहोरी खेलाडी
+एट्याकर
+चपर
+ब्लकर
+पेन होल्ड ग्रिप
+सेक होल्ड ग्रिप

@@ -1,0 +1,16 @@
+---
+description: Dishes of मधेसी cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+लिट्टी चोखा
+सत्तु
+दालपुरी
+तरुवा
+ठेकुवा
+मालपुवा
+खिचडी
+चिउरा दही
+पिडुकिया
+माछा भात
+कढी बडी
+बगिया

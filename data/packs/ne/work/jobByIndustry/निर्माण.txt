@@ -1,0 +1,18 @@
+---
+description: Jobs in निर्माण as Nepali names them. Coherent child of work/industryCoherent.txt: draw the industry, then draw this file for that industry.
+locale: ne
+---
+डकर्मी
+सिकर्मी
+ज्यामी
+इन्जिनियर
+ओभरसियर
+प्लम्बर
+इलेक्ट्रिसियन
+रङ्गरोगन कर्मी
+छड बाँध्ने
+ठेकेदार
+सर्भेयर
+क्रेन अपरेटर
+डोजर चालक
+सुरक्षा निरीक्षक

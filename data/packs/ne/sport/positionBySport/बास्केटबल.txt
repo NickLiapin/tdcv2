@@ -1,0 +1,10 @@
+---
+description: Playing positions in बास्केटबल as Nepali commentary names them. Coherent child of sport/sportCoherent.txt. Most are English loans spelled in Devanagari, which is what Nepali sports broadcasting actually uses; the invented-Nepali alternatives are not in circulation and are not used here.
+locale: ne
+---
+प्वाइन्ट गार्ड
+सुटिङ गार्ड
+स्मल फर्वार्ड
+पावर फर्वार्ड
+सेन्टर
+सिक्स्थ म्यान

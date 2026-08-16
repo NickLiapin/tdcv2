@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in the स्नायुरोग department, in Nepali. Coherent child of medical/specialtyCoherent.txt: draw the specialty, then draw this file for it.
+locale: ne
+---
+माइग्रेन
+छारे रोग
+प्यारालाइसिस
+पार्किन्सन रोग
+डिमेन्सिया
+मस्तिष्कघात
+स्नायु कमजोरी
+टाउको दुखाइ
+मेनिन्जाइटिस
+जापानिज इन्सेफलाइटिस

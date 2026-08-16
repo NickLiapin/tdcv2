@@ -1,0 +1,23 @@
+---
+description: Property types in a Nepali listing. घडेरी — a building plot, sold and speculated on in आना or धुर — is the commonest real estate transaction in the country and has no single English word. The distinction between खेत (irrigated paddy land), बारी (unirrigated upland field) and पाखो (steep unterraced slope) is the one that determines a rural plot's value and appears on the ownership certificate. कोठा भाडा, a single rented room, is how most students and young workers in Kathmandu live, and फ्ल्याट in the developer's sense is barely twenty years old.
+locale: ne
+---
+घडेरी
+घर
+घर सहितको जग्गा
+फ्ल्याट
+अपार्टमेन्ट
+कोठा भाडा
+बहाल घर
+व्यावसायिक भवन
+सटर
+अफिस स्पेस
+गोदाम
+कारखाना
+खेत
+बारी
+पाखो
+कबुलियती जग्गा
+गुठी जग्गा
+होटल
+रिसोर्ट

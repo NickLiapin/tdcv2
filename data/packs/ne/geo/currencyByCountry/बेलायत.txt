@@ -1,0 +1,5 @@
+---
+description: Currency of बेलायत as Nepali names it. Coherent child of geo/country.txt.
+locale: ne
+---
+पाउन्ड स्टर्लिङ

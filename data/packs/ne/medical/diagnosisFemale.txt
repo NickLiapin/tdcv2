@@ -1,0 +1,30 @@
+---
+description: Diagnoses recorded for women, in Nepali. Three of these are not generic women's medicine but specifically Nepali, and are here because a synthetic Nepali health record without them is a European record with Nepali labels. पाठेघर खस्ने — uterine prolapse — affects an estimated one Nepali woman in ten and something like six hundred thousand women live with it, the consequence of heavy carrying resumed within days of childbirth on steep ground; it is a national health programme in its own right and it is rare enough in Europe to be a specialist referral. अब्स्ट्रेटिक फिस्टुला follows obstructed labour far from a road. चुलोको धुवाँबाट हुने फोक्सो रोग is chronic lung disease from cooking on an indoor wood or dung stove, which is a women's occupational disease in Nepal and is why Nepali COPD is not a smokers' diagnosis the way European COPD is. पाठेघरको मुखको क्यान्सर (cervical) is the commonest cancer in Nepali women, not breast cancer.
+locale: ne
+---
+स्तन क्यान्सर
+पाठेघरको मुखको क्यान्सर
+पाठेघर खस्ने
+गर्भाशयको फाइब्रोइड
+एन्डोमेट्रियोसिस
+पोलिसिस्टिक ओभरी सिन्ड्रोम
+महिला बाँझोपन
+रक्तअल्पता
+गर्भावस्थाको मधुमेह
+गर्भावस्थाको उच्च रक्तचाप
+प्रसूतिपछिको रक्तस्राव
+अब्स्ट्रेटिक फिस्टुला
+प्रसूतिपछिको डिप्रेसन
+मूत्रनलीको संक्रमण
+अस्टियोपोरोसिस
+थाइराइड कम हुने
+रजोनिवृत्तिका लक्षण
+मासिक अनियमितता
+स्तनपानजन्य संक्रमण
+आइरन कमी
+आयोडिन कमी
+गलगाँड
+चुलोको धुवाँबाट हुने फोक्सो रोग
+पित्तथैलीको पत्थरी
+माइग्रेन
+गर्भपतन

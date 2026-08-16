@@ -1,0 +1,14 @@
+---
+description: Dishes of कन्टिनेन्टल cooking as a Nepali menu lists them. Coherent child of food/cuisine.txt: draw the cuisine, then draw this file for that cuisine, so that a menu row never pairs a Sherpa kitchen with a Madhesi dish.
+locale: ne
+---
+स्टेक
+म्यास पोटेटो
+ग्रिल्ड चिकन
+स्यान्डविच
+सुप
+सलाद
+प्यानकेक
+अमलेट
+फिस एन्ड चिप्स
+रोस्ट पोर्क

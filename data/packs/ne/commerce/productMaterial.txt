@@ -1,0 +1,62 @@
+---
+description: Materials in Nepali. The distinctively Nepali entries are पश्मिना (the Changthangi goat undercoat that Nepal made its name exporting, and which is routinely faked), अल्लो (Himalayan nettle fibre, woven in the eastern hills), लोक्ता (the daphne bark that Nepali handmade paper is made of, and which is the material of the country's oldest surviving documents), राडीपाखी (hand-felted wool blanket), याकको ऊन, and बाँस, which is a structural material rather than a decorative one — scaffolding, roofing, water pipes and whole houses. साल and सल्ला are the two building timbers.
+locale: ne
+---
+कपास
+ऊन
+याकको ऊन
+पश्मिना
+रेशम
+अल्लो
+जुट
+लोक्ता
+राडीपाखी
+छाला
+रबर
+प्लास्टिक
+फलाम
+स्टिल
+तामा
+पित्तल
+काँसा
+एल्युमिनियम
+सुन
+चाँदी
+काठ
+साल काठ
+सल्ला काठ
+बाँस
+निगालो
+बेत
+ढुङ्गा
+संगमरमर
+स्लेट
+माटो
+इँटा
+सिमेन्ट
+बालुवा
+गिट्टी
+काँच
+सिरामिक
+पोर्सिलेन
+कागज
+गत्ता
+नरम फोम
+सिन्थेटिक
+नाइलन
+पोलिस्टर
+डेनिम
+क्यानभास
+ढाका कपडा
+थाङ्का कपडा
+गलैँचा ऊन
+हड्डी
+सिङ
+शंख
+रुद्राक्ष
+पाथर
+टायल
+जस्ता
+टिन
+खर
+परालको छानो

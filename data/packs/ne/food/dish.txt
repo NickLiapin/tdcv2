@@ -1,0 +1,54 @@
+---
+description: Dishes a Nepali eats, across the country's cuisines. दालभात तरकारी is first because it is not one dish among many: it is what most Nepalis eat twice a day, every day, and the Nepali word for a meal (खाना) means it. The verb for eating a meal is भात खानु — 'to eat rice' — regardless of what is actually served, which is the same idiom as in much of Asia and none of Europe. ढिँडो is the maize or millet porridge that is the hill alternative and is eaten in the places rice will not grow. मःमः, a Tibetan import, is now the national snack. सेल रोटी is the ring-shaped rice-flour bread of Dashain and Tihar. गुन्द्रुक and सिन्की are fermented dried greens and radish, the country's own preserving tradition, and गुन्द्रुक is arguably the most Nepali food there is.
+locale: ne
+---
+दालभात तरकारी
+ढिँडो
+मःमः
+चाउमिन
+थुक्पा
+सेल रोटी
+गुन्द्रुक
+सिन्की
+आलु तामा
+कुखुराको मासु
+खसीको मासु
+राँगाको मासु
+सुकुटी
+छोयला
+बारा
+चटामरी
+योमरी
+समयबजी
+कचिला
+भुटन
+सेकुवा
+पकौडा
+समोसा
+चटपटे
+पानीपुरी
+आलु चप
+फिँडी
+खिर
+सिकरनी
+जुजु धौ
+लाखामरी
+मालपुवा
+अनरसा
+फिनी
+लड्डु
+बर्फी
+जेरी
+लालमोहन
+पेडा
+दहीचिउरा
+भुजा
+मकैको भात
+फापरको रोटी
+कोदोको रोटी
+ढिकरी
+लिट्टी चोखा
+तरुवा
+कढी
+मासको बारा
+अचार

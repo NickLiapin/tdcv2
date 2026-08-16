@@ -1,0 +1,21 @@
+---
+description: Kinds of cooking a Nepali menu names, and PARENT of food/dishByCuisine/. The first seven are Nepal's own and are not regional variants of one thing — नेवारी, थकाली, मधेसी, थारू and शेर्पा are separate cuisines belonging to separate peoples, with different staples, different meat and different alcohol, and they no more merge into 'Nepali food' than Sicilian merges into Scandinavian. नेवारी is feast food built on buffalo and beaten rice; थकाली is the one that travelled, so a थकाली भान्सा sign hangs in every Nepali town and the खाना सेट it serves has become the national restaurant meal; थारू cooking uses river snails, crab and dried fish that the hills never eat; शेर्पा and तिब्बती are barley, butter tea and noodle soups from above the tree line. चाइनिज here means the Nepali-Indian version — चाउमिन and चप्सी are Kathmandu dishes, not Chinese ones. The absence to note: there is no vegetarian/non-vegetarian split in this list, and in Nepal that split is a bigger fact about a menu than cuisine is, because Bahun households do not eat buffalo, most Nepalis do not eat beef at all (killing a cow was a criminal offence until 2018 and remains one for cows specifically), and buffalo, goat, chicken, pork and yak are each acceptable to different groups.
+locale: ne
+---
+नेपाली
+नेवारी
+थकाली
+मधेसी
+थारू
+शेर्पा
+तिब्बती
+भारतीय
+चाइनिज
+कन्टिनेन्टल
+इटालियन
+कोरियाली
+जापानी
+थाई
+मेक्सिकन
+अरबी
+फास्ट फुड
