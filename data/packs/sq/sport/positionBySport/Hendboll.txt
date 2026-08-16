@@ -1,0 +1,10 @@
+---
+description: Playing position in Hendboll, in Albanian.
+locale: sq
+---
+Portier
+Krahu i majtë
+Krahu i djathtë
+Qendror
+Pivot
+Bek

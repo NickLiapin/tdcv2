@@ -1,0 +1,5 @@
+---
+description: Capital of Pakistani, in Albanian.
+locale: sq
+---
+Islamabadi

@@ -1,0 +1,58 @@
+{
+  "months": [
+    "janar",
+    "shkurt",
+    "mars",
+    "prill",
+    "maj",
+    "qershor",
+    "korrik",
+    "gusht",
+    "shtator",
+    "tetor",
+    "nëntor",
+    "dhjetor"
+  ],
+  "monthsInDate": [
+    "janar",
+    "shkurt",
+    "mars",
+    "prill",
+    "maj",
+    "qershor",
+    "korrik",
+    "gusht",
+    "shtator",
+    "tetor",
+    "nëntor",
+    "dhjetor"
+  ],
+  "monthsShort": [
+    "jan",
+    "shk",
+    "mar",
+    "pri",
+    "maj",
+    "qer",
+    "kor",
+    "gsh",
+    "sht",
+    "tet",
+    "nën",
+    "dhj"
+  ],
+  "weekdays": [
+    "e diel",
+    "e hënë",
+    "e martë",
+    "e mërkurë",
+    "e enjte",
+    "e premte",
+    "e shtunë"
+  ],
+  "weekdaysShort": ["die", "hën", "mar", "mër", "enj", "pre", "sht"],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D MMMM YYYY"
+  }
+}

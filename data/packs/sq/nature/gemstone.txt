@@ -1,0 +1,29 @@
+---
+description: Gemstone (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Diamant
+Rubin
+Safir
+Smerald
+Ametist
+Topaz
+Opal
+Granat
+Akuamarin
+Peridot
+Turkez
+Nefrit
+Oniks
+Perlë
+Citrin
+Tanzanit
+Turmalinë
+Gur hëne
+Zirkon
+Lapis lazuli
+Qelibar
+Koral
+Malakit
+Agat
+Kuarc

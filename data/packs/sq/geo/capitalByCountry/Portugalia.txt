@@ -1,0 +1,5 @@
+---
+description: Capital of Portugalia, in Albanian.
+locale: sq
+---
+Lisbona

@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with an Albanian street, quarter or estate name (Lagjja Veri, Njesia Qender).
+locale: sq
+---
+Veri
+Jug
+Lindje
+Perëndim
+Verilindje
+Veriperëndim
+Juglindje
+Jugperëndim
+Qendër
+Verior
+Jugor
+Lindor
+Perëndimor
+Qendror
+Periferi

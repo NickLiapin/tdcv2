@@ -1,0 +1,10 @@
+---
+description: Job in the teknologji sector, in Albanian.
+locale: sq
+---
+Inxhinier softueri
+Analist të dhënash
+Inxhinier DevOps
+Menaxher produkti
+Dizajner UX
+Inxhinier cilësie

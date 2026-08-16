@@ -1,0 +1,5 @@
+---
+description: Currency of Italia, named in Albanian.
+locale: sq
+---
+Euroja

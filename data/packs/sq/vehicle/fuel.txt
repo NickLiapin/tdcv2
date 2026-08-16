@@ -1,0 +1,14 @@
+---
+description: Fuel type (Albanian). NAFTE, diesel, comes first because it should: Albania's car fleet is overwhelmingly diesel and largely second-hand German imports, and GAZ, LPG conversion, is far commoner here than in western Europe. An Albanian vehicle dataset weighted like a German one will be wrong about the whole country.
+locale: sq
+---
+Naftë
+Benzinë
+Gaz
+Benzinë dhe gaz
+Elektrik
+Hibrid
+Hibrid me prizë
+Hidrogjen
+Etanol
+Gaz natyror

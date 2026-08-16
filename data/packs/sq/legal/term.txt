@@ -1,0 +1,25 @@
+---
+description: Legal term (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Paditës
+I paditur
+I pandehur
+I dëmtuar
+Dëshmitar
+Prokuror
+Avokat
+Gjyqtar
+Padi
+Aktakuzë
+Fletëthirrje
+Dëshmi
+Deklaratë noteriale
+Masë sigurie
+Vendim
+Aktgjykim
+Marrëveshje
+Ankim
+Juridiksion
+Parashkrim
+Dënim me kusht

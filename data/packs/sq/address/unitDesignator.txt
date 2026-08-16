@@ -1,0 +1,27 @@
+---
+description: Albanian address unit / interior designator, in the abbreviated form written before a number on a letter (Ap. 12, Kati 3, Hyrja B).
+locale: sq
+---
+Ap.
+Apartamenti
+Nr.
+Kati
+Kat
+Hyrja
+Hyrje
+Shkalla
+Pallati
+Godina
+Ndërtesa
+Dhoma
+Zyra
+Njësia
+Blloku
+Sektori
+Bodrumi
+Papafingoja
+Garazhi
+Vendparkimi
+Depoja
+Kutia postare
+Lagjja

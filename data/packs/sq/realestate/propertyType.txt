@@ -1,0 +1,23 @@
+---
+description: Property type (Albanian). GARSONIERE is a one-room flat and it is the Albanian market's smallest unit; APARTAMENT 2+1 is how Albanian listings count rooms — two bedrooms PLUS the living room — so a 2+1 is a three-room flat and a config that reads the number as the total will undercount every Albanian listing by one.
+locale: sq
+---
+Apartament
+Apartament 1+1
+Apartament 2+1
+Apartament 3+1
+Garsonierë
+Shtëpi private
+Vilë
+Vilë dykatëshe
+Dublex
+Njësi biznesi
+Dyqan
+Zyrë
+Magazinë
+Tokë truall
+Tokë bujqësore
+Bujtinë
+Shtëpi malore
+Kullë
+Papafingo

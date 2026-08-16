@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Zelanda e Re.
+locale: sq
+---
+NZD

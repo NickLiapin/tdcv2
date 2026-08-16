@@ -1,0 +1,169 @@
+---
+description: The name element that follows the thoroughfare word on an Albanian street sign. Two kinds sit here and both recur across every Albanian-speaking city, which is why they belong to the LANGUAGE and not to one country: national figures honoured in Tirana, Prishtina, Shkoder and Tetove alike (Skenderbeu, Naim Frasheri, Nene Tereza, Ismail Qemali, Adem Jashari), and plain descriptive names built on landscape or trade. Names that begin with e or i are already in the ablative the thoroughfare word governs (Rruga e Kalase); the bare personal names are not inflected. City-specific streets belong in a country pack.
+locale: sq
+---
+Skënderbeu
+Naim Frashëri
+Sami Frashëri
+Abdyl Frashëri
+Ismail Qemali
+Nënë Tereza
+Gjergj Fishta
+Ndre Mjeda
+Migjeni
+Lasgush Poradeci
+Fan Noli
+Luigj Gurakuqi
+Aleksandër Moisiu
+Eqrem Çabej
+Aleksandër Xhuvani
+Faik Konica
+Jeronim de Rada
+Andon Zako Çajupi
+Asdreni
+Marin Barleti
+Pjetër Bogdani
+Pjetër Budi
+Gjon Buzuku
+Frang Bardhi
+Dora d'Istria
+Isa Boletini
+Bajram Curri
+Azem Galica
+Shote Galica
+Adem Jashari
+Ibrahim Rugova
+Hasan Prishtina
+Ali Pashë Tepelena
+Ismail Kadare
+Dritëro Agolli
+Nexhmije Pagarusha
+Vaçe Zela
+Dëshmorët e Kombit
+Dëshmorët e Lirisë
+Nëna Shqipëri
+Vëllezërit Frashëri
+Kongresi i Manastirit
+Kongresi i Lushnjës
+Lidhja e Prizrenit
+Pavarësia
+Bashkimi Kombëtar
+Rilindja Kombëtare
+Shqiponja
+Flamurtari
+Arbëria
+Iliria
+Dardania
+Teuta
+Bardhyli
+Genti
+Agroni
+Kastriotët
+Zana e Malit
+Besa
+Kanuni
+e Kalasë
+e Kishës
+e Xhamisë
+e Teqesë
+e Manastirit
+e Urës
+e Liqenit
+e Lumit
+e Detit
+e Bregut
+e Kodrës
+e Malit
+e Bjeshkës
+e Fushës
+e Livadhit
+e Arës
+e Kroit
+e Burimit
+e Përroit
+e Grykës
+e Qafës
+e Shpellës
+e Pyllit
+e Ullishtes
+e Vreshtave
+e Kopshtit
+e Lulishtes
+e Parkut
+e Shkollës
+e Spitalit
+e Pazarit
+e Tregut
+e Stacionit
+e Portit
+e Aeroportit
+e Stadiumit
+e Bibliotekës
+e Muzeut
+e Teatrit
+e Fabrikës
+e Mullirit
+e Furrës
+e Hanit
+e Kullës
+e Sarajeve
+e Çesmës
+e Rrapit
+e Lisit
+e Plepave
+e Selvive
+e Manave
+e Arrave
+e Fikut
+e Shegëve
+e Dardhave
+e Mollëve
+e Qershive
+e Trëndafilave
+e Manushaqeve
+e Zambakëve
+e Bilbilit
+e Pëllumbave
+e Shqiponjave
+e Dallëndysheve
+e Vitores
+Lirisë
+Dëshirës
+Shpresës
+Besnikërisë
+Miqësisë
+Bashkimit
+Punëtorëve
+Studentëve
+Mësuesve
+Minatorëve
+Bujqve
+Barinjve
+Peshkatarëve
+Marangozëve
+Muratorëve
+Argjendarëve
+Kovaçëve
+Rrobaqepësve
+Këpucarëve
+Bukëpjekësve
+Tregtarëve
+Ushtarëve
+e Diellit
+e Hënës
+e Yjeve
+e Ylberit
+e Pranverës
+e Verës
+e Vjeshtës
+e Dimrit
+e Agimit
+e Muzgut
+e Erës
+e Borës
+e Gurit
+e Rërës
+e Baltës
+e Hekurit
+e Bakrit
+e Kromit

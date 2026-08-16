@@ -1,0 +1,5 @@
+---
+description: Currency of Mbretëria e Bashkuar, named in Albanian.
+locale: sq
+---
+Paundi britanik

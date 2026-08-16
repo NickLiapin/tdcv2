@@ -1,0 +1,26 @@
+---
+description: Allergen (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Penicilinë
+Kikirikë
+Arra
+Butakë deti
+Vezë
+Qumësht
+Soje
+Grurë
+Latex
+Polen
+Akarienë të pluhurit
+Qime kafshësh
+Thumb blete
+Aspirinë
+Sulfonamide
+Jod
+Susam
+Luleshtrydhe
+Peshk
+Nikel
+Domate
+Mjaltë

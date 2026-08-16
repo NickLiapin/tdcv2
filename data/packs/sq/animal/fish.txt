@@ -1,0 +1,29 @@
+---
+description: Fish (Albanian). KORANI and CIRONKA are endemic to Lake Ohrid and appear on menus in Pogradec and in Ohrid on the Macedonian shore; they are not translations of anything. Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Koran
+Cironkë
+Troftë
+Ngjalë
+Qefull
+Levrek
+Kocë
+Barbun
+Merluc
+Ton
+Salmon
+Skumbri
+Sardele
+Krap
+Mustak
+Shojzë
+Peshk shpatë
+Gjuhëz
+Kubla
+Gof
+Rrufë deti
+Peshk i artë
+Karkalec deti
+Oktapod
+Kallamar

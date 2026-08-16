@@ -1,0 +1,59 @@
+---
+description: Industry sector (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Bujqësi
+Minierë
+Ndërtim
+Prodhim
+Tregti me pakicë
+Tregti me shumicë
+Transport
+Teknologji informacioni
+Financë
+Sigurime
+Pasuri të paluajtshme
+Shëndetësi
+Arsim
+Mikpritje
+Argëtim
+Energji
+Telekomunikacion
+Automobilistikë
+Aeronautikë
+Farmaceutikë
+Bioteknologji
+Logjistikë
+Media
+Konsulencë
+Organizatë jofitimprurëse
+Turizëm
+Peshkim
+Pyjore
+Tekstile
+Këpucë
+Përpunim ushqimi
+Verëtari
+Naftë dhe gaz
+Kromit
+Hidroenergji
+Energji diellore
+Energji e erës
+Ujësjellës
+Mbetje
+Siguri
+Reklamë
+Marketing
+Dizajn
+Arkitekturë
+Inxhinieri
+Drejtësi
+Kontabilitet
+Burime njerëzore
+Përkthim
+Botim
+Muzikë
+Kinematografi
+Sport
+Modë
+Artizanat

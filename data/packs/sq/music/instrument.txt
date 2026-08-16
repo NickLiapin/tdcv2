@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Albanian). LAHUTA, the single-string bowed lute, is the instrument the northern epic is sung to and it has no orchestral equivalent; CIFTELIA has two strings, one for melody and one drone, and is the emblematic Albanian folk instrument; the GAJDE is the bagpipe of the south and the SHARKIA the larger long-necked lute. Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Çifteli
+Lahutë
+Sharki
+Gajde
+Fyell
+Zumare
+Curle
+Def
+Daulle
+Kitarë
+Piano
+Violinë
+Bateri
+Kitarë bas
+Saksofon
+Trombë
+Flaut
+Violonçel
+Klarinetë
+Trombon
+Harpë
+Ukulele
+Banxho
+Fizarmonikë
+Tastierë
+Oboe
+Kontrabas
+Harmonikë
+Ksilofon
+Mandolinë
+Buzuk

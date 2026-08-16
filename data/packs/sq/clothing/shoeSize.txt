@@ -1,0 +1,16 @@
+---
+description: Shoe size as it is printed on a shoebox in Albania and Kosovo: the CONTINENTAL EUROPEAN (Paris point) scale, the same numbering Italy and Germany use. Albania has never had a scale of its own — the shoes come from Italy and Turkey — so this is the European scale and not a local one. UK and US numbers appear only on imported sports shoes, alongside the European number rather than instead of it.
+locale: sq
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

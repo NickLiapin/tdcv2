@@ -1,0 +1,28 @@
+---
+description: Trailing qualifier on an Albanian name. Note what is NOT here: Albania does not use Jr. and Sr., and academic degrees are written BEFORE the name (Prof. Dr. Emri Mbiemri), not after it, so the English Ph.D.-after-the-comma pattern does not occur in Albanian records. What Albanian does use is I RIU and PLAKU for the younger and elder of two men of the same name, and the descriptive by-names that older records carry — I MADHI, the great, and the place-of-origin epithet.
+locale: sq
+---
+i Riu
+Plaku
+i Madhi
+i Vogli
+i Dyti
+i Treti
+II
+III
+MA
+MSc
+PhD
+Dr.
+Prof.
+Inxh.
+Av.
+Ekonomist
+Jurist
+i Vjetri
+Djali
+Nipi
+Shqiptari
+Kosovari
+Arbëreshi
+i Ndjeri

@@ -1,0 +1,14 @@
+---
+description: Condition with raised prevalence in the Evropiane veriore ancestry group, named in Albanian.
+locale: sq
+---
+Fibrozë cistike
+Hemokromatozë e trashëguar
+Mungesë e alfa-1 antitripsinës
+Fenilketonuri
+Sëmundja celiake
+Sklerozë e shumëfishtë
+Diabet i tipit 1
+Kontraktura e Dupuytrenit
+Karcinomë bazocelulare
+Përsëritje e laktazës

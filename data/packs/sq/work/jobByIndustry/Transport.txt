@@ -1,0 +1,10 @@
+---
+description: Job in the transport sector, in Albanian.
+locale: sq
+---
+Shofer kamioni
+Koordinator logjistike
+Kontrollor i trafikut ajror
+Dispeçer
+Pilot komercial
+Punonjës magazine

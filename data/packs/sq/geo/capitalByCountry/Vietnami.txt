@@ -1,0 +1,5 @@
+---
+description: Capital of Vietnami, in Albanian.
+locale: sq
+---
+Hanoi

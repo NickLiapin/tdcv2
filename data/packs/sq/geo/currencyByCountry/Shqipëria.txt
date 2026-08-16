@@ -1,0 +1,5 @@
+---
+description: Currency of Shqipëria, named in Albanian.
+locale: sq
+---
+Leku

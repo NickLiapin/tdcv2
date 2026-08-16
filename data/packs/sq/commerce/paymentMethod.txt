@@ -1,0 +1,19 @@
+---
+description: Payment method (Albanian). PAGESE NE DOREZIM leads the list on purpose: cash on delivery is still the default for online orders in Albania and Kosovo, where card penetration is low and the courier collects the money at the door.
+locale: sq
+---
+Pagesë në dorëzim
+Para në dorë
+Kartë krediti
+Kartë debiti
+Transfertë bankare
+PayPal
+Apple Pay
+Google Pay
+Kartë dhuratë
+Këste
+Faturë
+Kriptomonedhë
+Portofol elektronik
+Urdhërpagesë
+Çek

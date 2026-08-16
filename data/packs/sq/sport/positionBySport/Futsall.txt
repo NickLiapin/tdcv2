@@ -1,0 +1,9 @@
+---
+description: Playing position in Futsall, in Albanian.
+locale: sq
+---
+Portier
+Fiks
+Ala
+Pivot
+Universal

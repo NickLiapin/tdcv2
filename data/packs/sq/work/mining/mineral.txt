@@ -1,0 +1,23 @@
+---
+description: Mineral (Albanian). KROMIT first: Albania holds one of the world's larger chromite reserves and mined it at scale for decades, which is why chromium and not coal is the mineral an Albanian record is likeliest to name. Bitumen from Selenice has been quarried since antiquity.
+locale: sq
+---
+Kromit
+Bakër
+Nikel
+Hekur-nikel
+Qymyr
+Linjit
+Bitum
+Naftë
+Gaz natyror
+Gëlqeror
+Mermer
+Gips
+Kripë
+Zhavorr
+Rërë
+Argjilë
+Bauksit
+Ar
+Argjend

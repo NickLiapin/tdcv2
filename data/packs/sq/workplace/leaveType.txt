@@ -1,0 +1,16 @@
+---
+description: Leave type (Albanian).
+locale: sq
+---
+Pushime vjetore
+Raport mjekësor
+Leje lindjeje
+Leje prindërore
+Leje zie
+Detyrim gjyqësor
+Leje pa pagesë
+Vit sabatik
+Ditë personale
+Leje mjekësore
+Leje ushtarake
+Leje martese

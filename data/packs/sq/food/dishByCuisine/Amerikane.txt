@@ -1,0 +1,11 @@
+---
+description: Dish of Amerikane cuisine, named in Albanian.
+locale: sq
+---
+Çizburger
+Brinjë me barbekju
+Makarona me djathë
+Krahë Bufalo
+Supë guacash
+Byrek me mollë
+Bukë misri

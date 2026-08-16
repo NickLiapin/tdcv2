@@ -1,0 +1,44 @@
+---
+description: Building type (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one. Two entries are worth a note: PALLAT is the ordinary word for a residential block, not a palace, and it is the commonest kind of Albanian dwelling; KULLE is the fortified stone tower house of the northern highlands and of Kosovo, a real and still-standing building type with no English equivalent.
+locale: sq
+---
+Apartament
+Shtëpi
+Pallat
+Vilë
+Banesë
+Zyrë
+Magazinë
+Depo
+Dyqan
+Market
+Fabrikë
+Punishte
+Spital
+Poliklinikë
+Shkollë
+Kopsht fëmijësh
+Gjimnaz
+Universitet
+Hotel
+Restorant
+Kafene
+Qendër tregtare
+Stadium
+Palestër
+Bibliotekë
+Kishë
+Xhami
+Teqe
+Manastir
+Muze
+Teatër
+Kullë
+Han
+Mulli
+Stallë
+Garazh
+Bodrum
+Papafingo
+Kioskë
+Kullë banimi

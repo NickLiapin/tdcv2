@@ -1,0 +1,24 @@
+---
+description: Filler paragraph (Albanian). Handwritten: Project Gutenberg holds no Albanian book at all — a search of the catalogue for language sq returns 'No records found', and gutenberg.org/browse/languages/sq is a 404, so there was no public-domain corpus to build this from and it was composed by hand. Every other locale whose text comes from real books says so in its own description; this one says the opposite, and the difference is the point. Twenty paragraphs of three to four sentences each, ordinary narrative register.
+locale: sq
+---
+Fshati zgjohej gjithmonë para se të lindte dielli. Gratë ndiznin zjarrin dhe burrat dilnin drejt arave me veglat mbi sup. Rruga ishte ende e lagur nga vesa dhe në ajër ndihej era e dheut. Askush nuk fliste shumë në atë orë të mëngjesit.
+Nga maja e kodrës dukej e gjithë lugina. Lumi shkëlqente mes fushave dhe në largësi dalloheshin çatitë e kuqe të fshatit. Barinjtë ngjiteshin ngadalë me bagëtinë dhe zilet dëgjoheshin edhe kur ata nuk shiheshin më.
+Në qytet gjërat ndryshonin më shpejt. Ndërtesa të reja ngriheshin çdo vit dhe rrugët mbusheshin me makina. Vetëm sheshi i vjetër mbetej i njëjti, me rrapin e madh në mes dhe me pleqtë që uleshin nën hijen e tij çdo pasdite.
+Kafeneja hapej në gjashtë dhe mbyllej vonë. Aty njerëzit lexonin gazetat, luanin domino dhe flisnin për punët e ditës. Kamarieri i njihte të gjithë me emër dhe e dinte se kush e pinte kafenë pa sheqer.
+Shkolla ndodhej në fund të lagjes, pas një muri të ulët guri. Në oborr kishte dy plepa dhe një pus që nuk përdorej më. Kur binte zilja, zhurma e fëmijëve mbushte gjithë rrugën.
+Dimri erdhi herët atë vit. Bora zbriti deri poshtë në fushë dhe rrugët u mbyllën për disa ditë. Njerëzit qëndruan brenda, pranë sobave, dhe ndanë atë që kishin ruajtur nga vjeshta.
+Pranvera i ktheu sërish në kopshte. Toka ishte e butë dhe puna nuk mbaronte kurrë. Fëmijët ndihmonin pas shkolle, ndonjëherë me dëshirë dhe ndonjëherë pa të.
+Vera ishte stina e mysafirëve. Kushërinjtë vinin nga larg, sillnin dhurata dhe rrinin javë të tëra. Shtëpia mbushej me zëra dhe tryeza nuk zbrazej para mesnate.
+Në gusht fshati dyfishohej. Ata që kishin ikur ktheheshin me makina të huaja dhe me histori që askush nuk i besonte plotësisht. Pastaj shtatori i merrte përsëri dhe qetësia kthehej ngadalë.
+Tregu i së premtes ishte ngjarja e javës. Shitësit vinin që para agimit dhe shtronin mallin mbi tavolina druri. Kishte perime, djathë, rroba dhe vegla, dhe çdo çmim kërkonte një bisedë të gjatë.
+Ai punonte në ndërtim që në moshë të re. Duart i ishin ashpërsuar dhe shpina e dhembte, por nuk ankohej. Në mbrëmje ulej para televizorit dhe e zinte gjumi para se të mbaronte lajmi.
+Ajo mësonte në një shkollë të vogël me tridhjetë nxënës. Çdo mëngjes ecte njëzet minuta përgjatë rrugës së pluhurosur. E donte punën, edhe pse paga nuk mjaftonte kurrë deri në fund të muajit.
+Dasmat zgjatnin dy ditë. Kërcehej valle deri në mëngjes dhe këndohej me zë të lartë. Të moshuarit rrinin në një tryezë veç dhe kujtonin dasmat e tyre, që kishin qenë ndryshe.
+Në dhomën e pritjes kishte një qilim të vjetër dhe një orë muri që vonohej. Mbi bufe rrinin fotografitë e familjes, disa me ngjyra dhe disa bardhezi. Askush nuk i lëvizte kurrë nga vendi.
+Rruga për në qytet kalonte nëpër tri qafa mali. Makina ngjitej ngadalë dhe në çdo kthesë hapej një pamje e re. Në gjysmë të rrugës kishte një krua ku të gjithë ndalonin për të mbushur ujë.
+Deti ishte i qetë atë mëngjes. Peshkatarët ktheheshin me varkat e ngarkuara dhe i shisnin peshqit aty për aty, mbi kasat e lagura. Era mbante kripë dhe zhurmë pulëbardhash.
+Në zyrë punonin gjashtë veta. Kompjuterët ishin të vjetër dhe interneti binte shpesh, por puna dilte gjithsesi. Në orën dhjetë dilnin të gjithë për kafe, dhe kjo ishte pjesa më e mirë e ditës.
+Biblioteka ndodhej në katin e dytë të një ndërtese komunale. Rafte druri, dritare të mëdha dhe një heshtje që dëgjohej. Bibliotekari e njihte çdo libër dhe e dinte se ku ishte, edhe pa e kërkuar në listë.
+Prilli solli shira të gjatë. Përrenjtë u fryjtën, ura e vjetër u mbulua nga uji dhe fshati mbeti dy ditë pa rrymë. Kur moti u kthjellua, gjithçka dukej më e gjelbër se më parë.
+Kështu kalonin vitet. Njerëzit lindnin, punonin, largoheshin dhe ktheheshin. Fshati mbetej aty ku ishte, pak më i zbrazët çdo dhjetëvjeçar, dhe rrapi në mes të sheshit vazhdonte të nxirrte gjethe çdo pranverë.

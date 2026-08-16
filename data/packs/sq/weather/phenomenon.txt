@@ -1,0 +1,19 @@
+---
+description: Severe weather event (Albanian). PERMBYTJE, flooding, is the one that actually happens here — the Shkoder plain and the Vjosa valley flood most winters — while hurricanes and monsoons are in the list for parity and are events an Albanian reads about rather than lives through.
+locale: sq
+---
+Përmbytje
+Stuhi
+Stuhi me rrufe
+Erë e fortë
+Valë të nxehti
+Thatësirë
+Ngricë e fortë
+Stuhi bore
+Ortek
+Rrëshqitje dheu
+Zjarr pyjor
+Breshër i madh
+Mjegull e dendur
+Uragan
+Tornado

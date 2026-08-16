@@ -1,0 +1,12 @@
+---
+description: Third-person pronoun set (Albanian). ALBANIAN HAS NO GENDER-NEUTRAL THIRD PERSON SINGULAR: the choice is AI for a man and AJO for a woman and there is nothing between them, so the they/them slot an English form offers has no Albanian equivalent and inventing one would be a fabrication. The plural does distinguish gender where English does not — ATA is a group of men or a mixed group, ATO a group of women. Each entry gives the nominative and the dative, the case Albanian uses for the English 'to him / to her'.
+locale: sq
+---
+ai/atij
+ajo/asaj
+ata/atyre
+ato/atyre
+ai
+ajo
+ata
+ato

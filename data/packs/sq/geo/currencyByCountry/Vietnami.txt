@@ -1,0 +1,5 @@
+---
+description: Currency of Vietnami, named in Albanian.
+locale: sq
+---
+Dongu

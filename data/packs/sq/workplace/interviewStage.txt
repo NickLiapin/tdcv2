@@ -1,0 +1,15 @@
+---
+description: Hiring stage (Albanian).
+locale: sq
+---
+Shqyrtim i aplikimit
+Intervistë telefonike
+Intervistë teknike
+Intervistë në zyrë
+Intervistë me panel
+Raundi final
+Kontroll referencash
+Ofertë
+Refuzuar
+Punësuar
+Tërhequr

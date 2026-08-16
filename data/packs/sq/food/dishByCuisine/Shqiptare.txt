@@ -1,0 +1,29 @@
+---
+description: Dish of Shqiptare cuisine, named in Albanian.
+locale: sq
+---
+Tavë kosi
+Fërgesë tirane
+Byrek me spinaq
+Byrek me mish
+Lakror
+Flia
+Japrak
+Speca të mbushur
+Qofte të fërguara
+Tavë dheu
+Paçe
+Trahana
+Petulla
+Përshesh
+Jani me fasule
+Mish në saç
+Comlek
+Pispili
+Qumështor
+Trileçe
+Bakllava
+Sheqerpare
+Revani
+Kadaif
+Ashure

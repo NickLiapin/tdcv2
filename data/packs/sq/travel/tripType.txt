@@ -1,0 +1,24 @@
+---
+description: Purpose of a trip (Albanian). VIZITE FAMILJARE is not filler in this locale: a very large share of Albanian air travel is the diaspora going home in August, and the August return is the single biggest movement in the Albanian travel year.
+locale: sq
+---
+Vizitë familjare
+Pushime
+Biznes
+Muaj mjalti
+Aventurë
+Udhëtim me makinë
+Kroçierë
+Ekskursion
+Pushime në plazh
+Pushime në mal
+Vizitë kulturore
+Turizëm fetar
+Udhëtim studimor
+Konferencë
+Trajnim
+Udhëtim vetëm
+Udhëtim në grup
+Kamping
+Agroturizëm
+Kurim shëndetësor

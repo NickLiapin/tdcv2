@@ -1,0 +1,44 @@
+---
+description: Albanian thoroughfare word — it goes BEFORE the name, as in Polish and unlike English: Rruga Myslym Shyri, Bulevardi Deshmoret e Kombit, Sheshi Skenderbej. Note these are the DEFINITE forms (rruga, bulevardi, sheshi), not the indefinite rruge, bulevard, shesh, because an Albanian address header is always definite; a config that joins the indefinite noun to a street name produces something no Albanian would write. Where the name that follows is a place rather than a person the thoroughfare takes an ablative with e: Rruga e Kavajes, Rruga e Durresit.
+locale: sq
+---
+Rruga
+Bulevardi
+Sheshi
+Rrugica
+Rruginë
+Shëtitorja
+Lagjja
+Unaza
+Sokaku
+Blloku
+Kalimi
+Ura
+Kryqëzimi
+Segmenti
+Aksi
+Autostrada
+Rruga Nacionale
+Rruga Dytësore
+Rruga Rurale
+Kodra
+Bregu
+Lulishtja
+Parku
+Kopshti
+Fusha
+Sheshi i Lirë
+Pallati
+Ndërtesa
+Kompleksi
+Zona
+Njësia
+Kthesa
+Shkalla
+Ulica
+Skaji
+Trakti
+Shtegu
+Rruga Dilbë
+Bulevardi i Ri
+Rruga e Vjetër

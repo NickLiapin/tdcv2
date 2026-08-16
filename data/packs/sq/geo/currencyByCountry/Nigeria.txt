@@ -1,0 +1,5 @@
+---
+description: Currency of Nigeria, named in Albanian.
+locale: sq
+---
+Naira

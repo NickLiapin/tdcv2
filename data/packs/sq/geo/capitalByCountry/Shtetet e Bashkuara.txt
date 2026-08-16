@@ -1,0 +1,5 @@
+---
+description: Capital of Shtetet e Bashkuara, in Albanian.
+locale: sq
+---
+Uashingtoni

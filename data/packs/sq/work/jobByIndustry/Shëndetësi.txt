@@ -1,0 +1,10 @@
+---
+description: Job in the shëndetësi sector, in Albanian.
+locale: sq
+---
+Infermier
+Mjek i përgjithshëm
+Farmacist
+Fizioterapeut
+Ndihmës mjekësor
+Teknik radiologjie

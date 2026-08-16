@@ -1,0 +1,10 @@
+---
+description: Condition with raised prevalence in the E ishujve të Paqësorit ancestry group, named in Albanian.
+locale: sq
+---
+Diabet i tipit 2
+Hipertension i lidhur me obezitetin
+Përdhes
+Sëmundje reumatizmale e zemrës
+Sëmundje kronike e veshkave
+Hiperuricemi

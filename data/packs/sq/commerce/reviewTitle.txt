@@ -1,0 +1,30 @@
+---
+description: Product review headline (Albanian).
+locale: sq
+---
+Produkt i shkëlqyer!
+E rekomandoj fort
+Nuk ia vlen
+Tejkaloi pritshmëritë
+Ashtu-ashtu
+Do ta blija sërish
+I zhgënjyer
+Cilësi shumë e mirë
+U prish shpejt
+Perfekt për çmimin
+Më mirë se ç'e prisja
+Nuk e rekomandoj
+E dua shumë!
+Pak i shtrenjtë
+Saktësisht si në përshkrim
+Dorëzim i shpejtë
+Paketim i dobët
+Vlen çdo lek
+Nuk e prisja kaq të vogël
+Shërbim korrekt
+Materiali është i dobët
+Funksionon pa problem
+I përgjigjet përshkrimit
+Do ta blej përsëri
+Nuk e mora atë që porosita
+Shumë i kënaqur

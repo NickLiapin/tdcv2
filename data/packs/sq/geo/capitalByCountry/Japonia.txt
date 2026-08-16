@@ -1,0 +1,5 @@
+---
+description: Capital of Japonia, in Albanian.
+locale: sq
+---
+Tokio

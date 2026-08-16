@@ -1,0 +1,12 @@
+---
+description: Dish of Kineze cuisine, named in Albanian.
+locale: sq
+---
+Pulë Kung Pao
+Oriz i skuqur
+Petulla të mbushura
+Çou mein
+Mish derri agrodolce
+Tofu Mapo
+Rosë Pekini
+Supë vonton

@@ -1,0 +1,5 @@
+---
+description: Capital of Serbia, in Albanian.
+locale: sq
+---
+Beogradi

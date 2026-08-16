@@ -1,0 +1,5 @@
+---
+description: Capital of Egjipti, in Albanian.
+locale: sq
+---
+Kajro

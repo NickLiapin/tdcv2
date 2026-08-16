@@ -1,0 +1,15 @@
+---
+description: Reaction to a post (Albanian).
+locale: sq
+---
+Pëlqej
+Dashuri
+Ha-ha
+Uau
+I trishtuar
+I zemëruar
+Kujdes
+Urime
+Mbështetje
+Ndriçues
+Kurioz

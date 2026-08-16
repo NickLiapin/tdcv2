@@ -1,0 +1,10 @@
+---
+description: Playing position in Bejsboll, in Albanian.
+locale: sq
+---
+Hedhës
+Kapës
+Bazë e parë
+Ndërbazë
+Fusha qendrore
+Goditës i caktuar

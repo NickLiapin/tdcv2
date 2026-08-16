@@ -1,0 +1,40 @@
+---
+description: Medical specialty (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Kardiologji
+Dermatologji
+Endokrinologji
+Gastroenterologji
+Neurologji
+Onkologji
+Oftalmologji
+Ortopedi
+Pediatri
+Psikiatri
+Pulmonologji
+Radiologji
+Reumatologji
+Urologji
+Nefrologji
+Hematologji
+Imunologji
+Anesteziologji
+Mjekësi urgjente
+Mjekësi familjare
+Mjekësi interne
+Obstetrikë dhe gjinekologji
+Otorinolaringologji
+Patologji
+Kirurgji plastike
+Kirurgji e përgjithshme
+Kirurgji vaskulare
+Sëmundje infektive
+Geriatri
+Neonatologji
+Fizioterapi dhe rehabilitim
+Alergologji
+Stomatologji
+Mjekësi sportive
+Mjekësi ligjore
+Mjekësi e punës

@@ -1,0 +1,20 @@
+---
+description: Weather condition (Albanian).
+locale: sq
+---
+Me diell
+I kthjellët
+Pjesërisht me re
+Me re
+I vranët
+Me shi
+Shi i imët
+Stuhi me rrufe
+Me borë
+Breshër
+Me mjegull
+Me erë
+I turbullt
+Ngricë
+I nxehtë
+I ftohtë

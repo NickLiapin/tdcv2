@@ -1,0 +1,11 @@
+---
+description: Playing position in Futboll, in Albanian.
+locale: sq
+---
+Portier
+Mbrojtës qendror
+Mbrojtës anësor
+Mesfushor mbrojtës
+Mesfushor ofensiv
+Krahu
+Sulmues

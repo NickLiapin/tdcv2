@@ -1,0 +1,36 @@
+---
+description: Ordinary Albanian adverb.
+locale: sq
+---
+shpejt
+ngadalë
+me kujdes
+lehtë
+qetësisht
+me zë të lartë
+gjithmonë
+kurrë
+shpesh
+ndonjëherë
+rrallë
+papritur
+butësisht
+qartë
+thjesht
+afërsisht
+plotësisht
+mezi
+kryesisht
+vërtet
+thellësisht
+gjerësisht
+lirisht
+guximshëm
+me qetësi
+me etje
+fort
+me gëzim
+me dashamirësi
+shpejtësisht
+sërish
+menjëherë

@@ -1,0 +1,12 @@
+---
+description: Broadcast age classification as used in Albania. The Albanian regulator AMA labels programmes by minimum age with a number rather than with letters — 12+, 16+, 18+ — so the American G / PG / R ladder has NO Albanian equivalent and inventing one would be a fabrication. What is here is the Albanian scheme.
+locale: sq
+---
+Për të gjithë
+6+
+12+
+16+
+18+
+Këshillohet prania e prindit
+Vetëm për të rritur
+Pa kufizim moshe

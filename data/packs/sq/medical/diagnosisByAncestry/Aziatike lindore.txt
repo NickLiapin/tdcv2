@@ -1,0 +1,14 @@
+---
+description: Condition with raised prevalence in the Aziatike lindore ancestry group, named in Albanian.
+locale: sq
+---
+Talasemi alfa
+Mungesë e aldehid-dehidrogjenazës 2
+Mospërsëritje e laktazës
+Karcinomë nazofaringeale
+Kancer i stomakut
+Glaukomë me kënd të mbyllur
+Sëmundja e Kawasakit
+Sëmundja Moyamoya
+Mbindjeshmëri ndaj karbamazepinës
+Miopi patologjike

@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday (Albanian). The article is dropped in the abbreviation, which is why these look unlike the full names in sq.date.weekday.
+locale: sq
+---
+hën
+mar
+mër
+enj
+pre
+sht
+die

@@ -1,0 +1,8 @@
+---
+description: Season (Albanian), in the INDEFINITE form. Albania has the four temperate seasons. The definite forms a sentence needs are pranvera, vera, vjeshta, dimri — note that dimer loses its second e when the suffix attaches, so a config cannot build the definite by concatenation.
+locale: sq
+---
+pranverë
+verë
+vjeshtë
+dimër

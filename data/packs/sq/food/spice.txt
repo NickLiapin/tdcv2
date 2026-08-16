@@ -1,0 +1,34 @@
+---
+description: Spice or herb (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Kripë
+Piper i zi
+Piper i kuq
+Paprika
+Kanellë
+Qimnon
+Shafran i Indisë
+Xhenxhefil
+Arrëmyshk
+Rigon
+Borzilok
+Trumzë
+Rozmarinë
+Sherebelë
+Majdanoz
+Kopër
+Nenexhik
+Mendër
+Gjethe dafine
+Karafil
+Hil
+Koriandër
+Shafran
+Sumak
+Susam
+Farë kopre
+Farë anasoni
+Piper i bardhë
+Speca të thata
+Mustardë

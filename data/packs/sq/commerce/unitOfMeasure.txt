@@ -1,0 +1,34 @@
+---
+description: Unit of measure (Albanian). Albania and Kosovo are metric.
+locale: sq
+---
+copë
+kuti
+arkë
+paketë
+duzinë
+palë
+set
+rrotull
+tufë
+kilogram
+gram
+ton
+litër
+mililitër
+metër
+centimetër
+milimetër
+metër katror
+metër kub
+kilometër
+orë
+ditë
+javë
+muaj
+qese
+thes
+kovë
+shishe
+kavanoz
+tepsi

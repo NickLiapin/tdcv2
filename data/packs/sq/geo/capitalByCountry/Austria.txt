@@ -1,0 +1,5 @@
+---
+description: Capital of Austria, in Albanian.
+locale: sq
+---
+Vjena

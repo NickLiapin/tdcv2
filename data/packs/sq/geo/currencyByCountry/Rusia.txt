@@ -1,0 +1,5 @@
+---
+description: Currency of Rusia, named in Albanian.
+locale: sq
+---
+Rubla ruse

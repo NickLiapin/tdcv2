@@ -1,0 +1,10 @@
+---
+description: Diagnosis typically handled by onkologji, named in Albanian.
+locale: sq
+---
+Kancer i gjirit
+Kancer i mushkërive
+Kancer kolorektal
+Leuçemi
+Limfomë
+Melanomë

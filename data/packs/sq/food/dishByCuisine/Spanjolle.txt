@@ -1,0 +1,11 @@
+---
+description: Dish of Spanjolle cuisine, named in Albanian.
+locale: sq
+---
+Paelja
+Tapas
+Gazpaço
+Tortilja spanjolle
+Çuros
+Patate bravas
+Proshutë iberike

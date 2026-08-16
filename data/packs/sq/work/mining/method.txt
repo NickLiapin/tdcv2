@@ -1,0 +1,12 @@
+---
+description: Mining method (Albanian). Albanian chromium and copper are mined UNDERGROUND, in the Bulqiza and Kukes districts, so MINIERE NENTOKESORE is the method that describes real Albanian mining; open-pit is the exception here rather than the rule.
+locale: sq
+---
+Nëntokësore
+Sipërfaqësore
+Karrierë
+Galeri
+Pus vertikal
+Shtresë e gjatë
+Aluvionare
+Në shkallë

@@ -1,0 +1,5 @@
+---
+description: Capital of Italia, in Albanian.
+locale: sq
+---
+Roma

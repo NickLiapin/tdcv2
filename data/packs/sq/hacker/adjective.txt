@@ -1,0 +1,32 @@
+---
+description: Technical adjective (Albanian, masculine singular).
+locale: sq
+---
+ndihmës
+kryesor
+dytësor
+digjital
+me kod të hapur
+virtual
+ndërplatformësh
+i tepërt
+në linjë
+jashtë linje
+shumëbajtësh
+me valë
+nervor
+optik
+gjendje e ngurtë
+celular
+i shpejtë
+i sigurt
+i enkriptuar
+i shpërndarë
+i integruar
+i automatizuar
+i kompiluar
+i interpretuar
+asinkron
+sinkron
+modular
+i vjetruar

@@ -1,0 +1,5 @@
+---
+description: Capital of Afrika e Jugut, in Albanian.
+locale: sq
+---
+Pretoria

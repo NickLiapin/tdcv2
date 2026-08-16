@@ -1,0 +1,16 @@
+---
+description: Ancestry population as clinical genetics defines it: geographic descent, not a social race category. Twelve groups, matching every other locale so a cross-locale config keeps working. Albanian speakers fall under MESDHETARE, and the grouping earns its keep here: beta-thalassaemia and G6PD deficiency are genuinely common along the Albanian and Kosovan coast and interior, and neonatal screening for them is routine.
+locale: sq
+---
+Nënsahariane
+Veriafrikane
+Mesdhetare
+E Lindjes së Mesme
+Evropiane veriore
+Evropiane lindore
+Hebreje ashkenazite
+Aziatike jugore
+Aziatike lindore
+Aziatike juglindore
+Amerikane vendase
+E ishujve të Paqësorit

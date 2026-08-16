@@ -1,0 +1,15 @@
+---
+description: Diagnosis recorded against a male patient (Albanian).
+locale: sq
+---
+Varikocelë
+Kriptorkidizëm
+Fimozë
+Adenomë e prostatës
+Prostatit
+Pankreatit kronik
+Klamidia
+Artrit kronik
+Emboli e arteries qendrore të retinës
+Kancer i rektumit
+Hernie inguinale

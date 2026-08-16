@@ -1,0 +1,10 @@
+---
+description: Diagnosis typically handled by dermatologji, named in Albanian.
+locale: sq
+---
+Psoriazë
+Dermatit atopik
+Akne vulgare
+Melanomë
+Rozacea
+Dermatit kontakti

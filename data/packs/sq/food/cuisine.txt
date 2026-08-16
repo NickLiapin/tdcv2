@@ -1,0 +1,21 @@
+---
+description: Cuisine as an Albanian menu names it. SHQIPTARE and BALLKANIKE come first because they are what is actually eaten; the rest is the world. Cuisine adjectives are given in the FEMININE singular because they agree with kuzhina, which is feminine — kuzhina shqiptare, not shqiptar. This list is the parent of sq.food.dishByCuisine and the filenames there match it character for character.
+locale: sq
+---
+Shqiptare
+Ballkanike
+Mesdhetare
+Italiane
+Greke
+Turke
+Kineze
+Japoneze
+Indiane
+Meksikane
+Franceze
+Tajlandeze
+Spanjolle
+Amerikane
+Koreane
+Libaneze
+Vietnameze

@@ -1,0 +1,10 @@
+---
+description: Dish of Vietnameze cuisine, named in Albanian.
+locale: sq
+---
+Fo
+Ban mi
+Rrotulla pranverore
+Bun ça
+Kom tam
+Kafe vietnameze

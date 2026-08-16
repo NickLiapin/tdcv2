@@ -1,0 +1,10 @@
+---
+description: Condition with raised prevalence in the E Lindjes së Mesme ancestry group, named in Albanian.
+locale: sq
+---
+Ethe familjare mesdhetare
+Talasemi beta
+Mungesë e G6PD
+Sëmundja e Behcetit
+Mungesë e vitaminës D
+Bartës i tiparit drapëror

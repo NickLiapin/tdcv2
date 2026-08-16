@@ -1,0 +1,12 @@
+---
+description: Dish of Indiane cuisine, named in Albanian.
+locale: sq
+---
+Pulë me gjalpë
+Birjani
+Tika masala
+Samosa
+Dal makani
+Naan
+Palak paneer
+Rogan josh

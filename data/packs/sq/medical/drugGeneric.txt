@@ -1,0 +1,45 @@
+---
+description: Generic drug name (Albanian orthography). International non-proprietary names are the same molecule everywhere; only the spelling is localised.
+locale: sq
+---
+Paracetamol
+Ibuprofen
+Aspirinë
+Amoksicilinë
+Amoksicilinë-klavulanat
+Azitromicinë
+Ciprofloksacinë
+Doksiciklinë
+Metronidazol
+Ceftriakson
+Lizinopril
+Enalapril
+Losartan
+Amlodipinë
+Metoprolol
+Bisoprolol
+Hidroklorotiazid
+Furosemid
+Atorvastatinë
+Simvastatinë
+Metformin
+Insulinë glargin
+Levotiroksinë
+Omeprazol
+Pantoprazol
+Salbutamol
+Montelukast
+Prednizon
+Deksametazon
+Diklofenak
+Naproksen
+Tramadol
+Gabapentin
+Sertralinë
+Fluoksetinë
+Escitalopram
+Citalopram
+Duloksetinë
+Varfarinë
+Klopidogrel
+Alopurinol

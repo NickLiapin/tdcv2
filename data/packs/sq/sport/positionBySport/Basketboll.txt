@@ -1,0 +1,9 @@
+---
+description: Playing position in Basketboll, in Albanian.
+locale: sq
+---
+Playmejker
+Bek
+Krah i vogël
+Krah i fortë
+Qendër

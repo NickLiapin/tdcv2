@@ -1,0 +1,10 @@
+---
+description: Job in the tregti sector, in Albanian.
+locale: sq
+---
+Menaxher dyqani
+Arkëtar
+Shitës
+Merchandiser
+Oficer sigurie
+Blerës

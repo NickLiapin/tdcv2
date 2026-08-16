@@ -1,0 +1,5 @@
+---
+description: Currency of Zelanda e Re, named in Albanian.
+locale: sq
+---
+Dollari i Zelandës së Re

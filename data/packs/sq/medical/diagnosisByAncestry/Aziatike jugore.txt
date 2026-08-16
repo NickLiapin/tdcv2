@@ -1,0 +1,12 @@
+---
+description: Condition with raised prevalence in the Aziatike jugore ancestry group, named in Albanian.
+locale: sq
+---
+Diabet i tipit 2 me fillim të hershëm
+Sëmundje koronare e parakohshme
+Obezitet qendror me indeks normal të masës trupore
+Mungesë e vitaminës D
+Bartës i talasemisë beta
+Sindrom metabolik
+Mungesë e G6PD
+Sëmundje reumatizmale e zemrës

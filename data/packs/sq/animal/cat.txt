@@ -1,0 +1,22 @@
+---
+description: Cat breed. Breed names are international and largely kept as they are, with the descriptive ones translated (Britanike me qime te shkurtra for British Shorthair).
+locale: sq
+---
+Persiane
+Maine Coon
+Siameze
+Ragdoll
+Bengale
+Sfinks
+Britanike me qime të shkurtra
+Abisiniane
+Scottish Fold
+Pyjore Norvegjeze
+Blu Ruse
+Birmane
+Amerikane me qime të shkurtra
+Devon Rex
+Burmeze
+Angora Turke
+Vani Turk
+Rroftë Rex

@@ -1,0 +1,5 @@
+---
+description: Currency of Turqia, named in Albanian.
+locale: sq
+---
+Lira turke

@@ -1,0 +1,5 @@
+---
+description: Capital of Suedia, in Albanian.
+locale: sq
+---
+Stokholmi

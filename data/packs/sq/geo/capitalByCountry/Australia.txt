@@ -1,0 +1,5 @@
+---
+description: Capital of Australia, in Albanian.
+locale: sq
+---
+Kanbera

@@ -1,0 +1,20 @@
+---
+description: Seniority level (Albanian).
+locale: sq
+---
+Praktikant
+Nxënës
+Fillestar
+Junior
+I mesëm
+Senior
+Kryesor
+Udhëheqës ekipi
+Përgjegjës
+Menaxher
+Menaxher i lartë
+Drejtor
+Zëvendësdrejtor
+Drejtor i përgjithshëm
+Kryetar
+Administrator

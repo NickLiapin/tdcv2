@@ -1,0 +1,20 @@
+---
+description: Horse breed. KALI I MYZEQESE is the native Albanian lowland horse of the Myzeqe plain, and the Bosnian mountain horse is the working animal of the northern highlands.
+locale: sq
+---
+Kali i Myzeqesë
+Kali i malit të Bosnjës
+Arab
+Anglez
+Lipican
+Haflinger
+Friziane
+Andaluziane
+Mustang
+Apaluza
+Kuarter
+Perkeron
+Klajdsdejl
+Poni Shetland
+Ardenez
+Trakener

@@ -1,0 +1,5 @@
+---
+description: Capital of Arabia Saudite, in Albanian.
+locale: sq
+---
+Riadi

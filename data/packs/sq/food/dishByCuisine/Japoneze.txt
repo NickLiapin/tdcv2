@@ -1,0 +1,12 @@
+---
+description: Dish of Japoneze cuisine, named in Albanian.
+locale: sq
+---
+Sushi
+Ramen
+Tempura
+Udon
+Pulë teriyaki
+Supë miso
+Kari katsu
+Onigiri

@@ -1,0 +1,11 @@
+---
+description: Number of people in a household. The Albanian distribution sits HIGHER than the western European one: the 2023 census put the average household at about 3.2 people, and three-generation households remain ordinary rather than remarkable, so the larger values here are not tail cases.
+locale: sq
+---
+1
+2
+3
+4
+5
+6
+7+

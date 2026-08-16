@@ -1,0 +1,17 @@
+---
+description: Social media content type (Albanian).
+locale: sq
+---
+Postim
+Koment
+Përgjigje
+Storje
+Reels
+Sondazh
+Live
+Ripostim
+Fill diskutimi
+Përmendje
+Mesazh privat
+Video e shkurtër
+Album fotosh

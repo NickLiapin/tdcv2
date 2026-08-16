@@ -1,0 +1,5 @@
+---
+description: Capital of Singapori, in Albanian.
+locale: sq
+---
+Singapori

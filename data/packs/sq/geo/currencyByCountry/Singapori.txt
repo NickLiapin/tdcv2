@@ -1,0 +1,5 @@
+---
+description: Currency of Singapori, named in Albanian.
+locale: sq
+---
+Dollari i Singaporit

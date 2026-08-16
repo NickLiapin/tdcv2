@@ -1,0 +1,16 @@
+---
+description: Meeting type (Albanian).
+locale: sq
+---
+Takim i shkurtër ditor
+Një me një
+Mbledhje e përgjithshme
+Retrospektivë
+Planifikim sprinti
+Nisje projekti
+Sinkronizim
+Rishikim
+Punëtori
+Stuhi idesh
+Kontroll ecurie
+Analizë pas ngjarjes

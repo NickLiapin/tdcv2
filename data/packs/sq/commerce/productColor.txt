@@ -1,0 +1,58 @@
+---
+description: Colour as written on an Albanian product listing. Given in the MASCULINE singular here, unlike sq.color.name which gives the feminine citation form — a listing says nje fustan i zi, a colour chart says e zeze, and the two are the same word in different agreement. Borrowed names do not inflect.
+locale: sq
+---
+i zi
+i bardhë
+gri
+i hirtë
+i argjendtë
+i artë
+i kuq
+i verdhë
+i gjelbër
+jeshile
+i kaltër
+blu
+bexhë
+kafe
+portokalli
+rozë
+vjollcë
+bordo
+tirkize
+lejla
+i murrmë
+i purpurt
+ngjyrë qielli
+ngjyrë deti
+ngjyrë kremi
+ngjyrë fildishi
+ngjyrë rëre
+ngjyrë ulliri
+ngjyrë bakri
+ngjyrë tunxhi
+ngjyrë vishnje
+ngjyrë shege
+ngjyrë limoni
+ngjyrë kajsie
+ngjyrë manushaqeje
+ngjyrë trëndafili
+ngjyrë qumështi
+ngjyrë tulle
+ngjyrë hiri
+ngjyrë antraciti
+i tejdukshëm
+shumëngjyrësh
+me vija
+me pika
+me lule
+dyngjyrësh
+natyral
+i pangjyrë
+i mat
+i shndritshëm
+i çelët
+i errët
+i ndezur
+i zbehtë

@@ -1,0 +1,21 @@
+---
+description: Social platform. Brand names are not translated.
+locale: sq
+---
+Facebook
+Instagram
+TikTok
+YouTube
+WhatsApp
+Viber
+Telegram
+Snapchat
+X
+LinkedIn
+Reddit
+Pinterest
+Discord
+Threads
+Messenger
+Signal
+Twitch

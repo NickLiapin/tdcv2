@@ -1,0 +1,28 @@
+---
+description: Property feature in a listing (Albanian).
+locale: sq
+---
+Pishinë
+Garazh
+Oxhak
+Kondicioner
+Ngrohje qendrore
+Dysheme parketi
+Dhomë veshjeje
+Ballkon
+Verandë
+Kopsht
+Palestër
+Ashensor
+Parkim
+Enëlarëse
+Lavatriçe në banesë
+Lejohen kafshët
+Sistem sigurie
+Panele diellore
+Bodrum
+Papafingo
+Pamje nga deti
+Pamje nga mali
+Mobiluar
+Depozitë uji

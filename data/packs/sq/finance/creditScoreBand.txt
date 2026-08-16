@@ -1,0 +1,9 @@
+---
+description: Credit standing band (Albanian).
+locale: sq
+---
+I dobët
+I pranueshëm
+I mirë
+Shumë i mirë
+I shkëlqyer

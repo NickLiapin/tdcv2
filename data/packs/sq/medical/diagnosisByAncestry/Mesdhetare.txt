@@ -1,0 +1,11 @@
+---
+description: Condition with raised prevalence in the Mesdhetare ancestry group, named in Albanian.
+locale: sq
+---
+Talasemi beta
+Bartës i talasemisë beta
+Mungesë e G6PD
+Ethe familjare mesdhetare
+Sëmundja e Behcetit
+Talasemi alfa
+Favizëm

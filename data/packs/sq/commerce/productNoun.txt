@@ -1,0 +1,152 @@
+---
+description: Product noun (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Karrige
+Tavolinë
+Makinë
+Kompjuter
+Tastierë
+Mi
+Biçikletë
+Top
+Doreza
+Pantallona
+Këmishë
+Këpucë
+Kapelë
+Peshqir
+Sapun
+Djathë
+Proshutë
+Pica
+Sallatë
+Patatina
+Llambë
+Çantë shpine
+Shishe
+Portofol
+Orë
+Kufje
+Altoparlant
+Monitor
+Tryezë pune
+Divan
+Batanije
+Jastëk
+Xhaketë
+Çorape
+Syze dielli
+Çadër
+Filxhan
+Bllok shënimesh
+Karikues
+Ibrik
+Toster
+Ventilator
+Pasqyrë
+Qilim
+Sahat muri
+Vazo
+Thikë
+Lugë
+Pirun
+Shportë
+Çadër kampingu
+Frigorifer
+Lavatriçe
+Enëlarëse
+Furrë
+Sobë
+Mikrovalë
+Fshesë me korrent
+Hekur hekurosjeje
+Tharëse flokësh
+Brisk rroje
+Furçë dhëmbësh
+Pastë dhëmbësh
+Shampo
+Krem duarsh
+Parfum
+Pasqyrë dore
+Kuti veglash
+Çekiç
+Kaçavidë
+Darë
+Sharrë
+Trapan
+Shkallë
+Kovë
+Fshesë
+Lopatë
+Kazmë
+Sfungjer
+Detergjent
+Qese
+Kuti
+Arkë
+Raft
+Dollap
+Krevat
+Dyshek
+Perde
+Mbulesë tavoline
+Tepsi
+Tenxhere
+Tigan
+Pjatë
+Gotë
+Kupë
+Kavanoz
+Termos
+Bateri
+Kabllo
+Adaptor
+Ruter
+Printer
+Skaner
+Kamera
+Aparat fotografik
+Televizor
+Radio
+Telefon
+Tablet
+Laptop
+Konsolë lojërash
+Dorezë loje
+Libër
+Fletore
+Stilolaps
+Laps
+Gomë fshirëse
+Vizore
+Ngjitëse
+Çantë dore
+Valixhe
+Ombrellë
+Shall
+Rrip
+Unazë
+Varëse
+Byzylyk
+Vathë
+Karficë
+Shishe uji
+Kuti drekë
+Peshore
+Termometër
+Tapet
+Kolltuk
+Stol
+Bibliotekë
+Komodinë
+Pasqyrë banjoje
+Dush
+Rubinet
+Llambadar
+Abazhur
+Qiri
+Fener
+Bilbil
+Fyell
+Kitarë

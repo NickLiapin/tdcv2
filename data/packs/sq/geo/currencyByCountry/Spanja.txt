@@ -1,0 +1,5 @@
+---
+description: Currency of Spanja, named in Albanian.
+locale: sq
+---
+Euroja

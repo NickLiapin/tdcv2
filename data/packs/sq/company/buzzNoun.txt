@@ -1,0 +1,64 @@
+---
+description: Corporate buzzword noun (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+sinergji
+paradigmë
+ekosistem
+kornizë
+tubacion
+rrjedhë pune
+arkitekturë
+infrastrukturë
+platformë
+zgjidhje
+strategji
+udhërrëfyes
+nismë
+metodologji
+gjerësi bande
+përafrim
+levë
+kapacitet
+vlerë e shtuar
+produkt i dorëzueshëm
+pikë kontakti
+standard krahasimi
+moment kyç
+angazhim
+orkestrim
+integrim
+migrim
+transformim
+optimizim
+shkallëzueshmëri
+ndërveprueshmëri
+qeverisje
+përputhshmëri
+qëndrueshmëri
+vëzhgueshmëri
+telemetri
+ritëm
+ndarje tregu
+vertikale
+pistë financiare
+tregues
+objektiv
+rezultat
+ndikim
+vlerë
+cilësi
+efikasitet
+produktivitet
+inovacion
+digjitalizim
+automatizim
+bashkëpunim
+partneritet
+rrjet
+portofol
+proces
+procedurë
+politikë
+praktikë e mirë
+përvojë e përdoruesit

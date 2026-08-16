@@ -1,0 +1,14 @@
+---
+description: The ten industries that have a matching sq.work.jobByIndustry file. Filenames match these values character for character.
+locale: sq
+---
+Teknologji
+Shëndetësi
+Financë
+Ndërtim
+Arsim
+Mikpritje
+Prodhim
+Tregti
+Transport
+Drejtësi

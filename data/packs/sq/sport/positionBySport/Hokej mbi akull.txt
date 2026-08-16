@@ -1,0 +1,9 @@
+---
+description: Playing position in Hokej mbi akull, in Albanian.
+locale: sq
+---
+Portier
+Mbrojtës
+Qendër
+Krahu i majtë
+Krahu i djathtë

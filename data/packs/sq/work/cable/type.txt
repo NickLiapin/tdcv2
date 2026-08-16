@@ -1,0 +1,13 @@
+---
+description: Cable type (Albanian).
+locale: sq
+---
+Fibër optike
+Koaksial
+Çift i përdredhur
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Ajror
+Nëntokësor

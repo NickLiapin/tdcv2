@@ -1,0 +1,34 @@
+---
+description: Hotel facility (Albanian).
+locale: sq
+---
+Wi-Fi falas
+Pishinë
+Spa
+Palestër
+Restorant
+Bar
+Shërbim në dhomë
+Transport nga aeroporti
+Mëngjes i përfshirë
+Parkim falas
+Lejohen kafshët
+Qendër biznesi
+Recepsion 24 orë
+Shërbim lavanderie
+Vaskë me ujë të nxehtë
+Tarracë
+Plazh privat
+Kondicioner
+Ashensor
+Kasafortë
+Minibar
+Dhoma për jo duhanpirës
+Sallë konferencash
+Zonë lojërash për fëmijë
+Qira makinash
+Ekskursione
+Pamje nga deti
+Ballkon
+Kuzhinë e përbashkët
+Bagazhi ruhet

@@ -1,0 +1,11 @@
+---
+description: Dish of Tajlandeze cuisine, named in Albanian.
+locale: sq
+---
+Pad Thai
+Kari jeshil
+Tom jam
+Kari masaman
+Sallatë papaje
+Oriz me mango
+Sate

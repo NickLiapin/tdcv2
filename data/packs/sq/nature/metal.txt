@@ -1,0 +1,26 @@
+---
+description: Metal (Albanian). KROM leads the list on purpose: Albania sits on one of Europe's largest chromite deposits and chromium ore was the country's principal export for decades, so it is the metal an Albanian record is most likely to mention. Nickel and copper are the other two that were mined at scale. Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Krom
+Bakër
+Nikel
+Hekur
+Çelik
+Alumin
+Ar
+Argjend
+Platin
+Titan
+Zink
+Plumb
+Kallaj
+Bronz
+Tunxh
+Paladium
+Kobalt
+Volfram
+Magnez
+Merkur
+Uranium
+Litium

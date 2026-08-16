@@ -1,0 +1,5 @@
+---
+description: Capital of Koreja e Jugut, in Albanian.
+locale: sq
+---
+Seuli

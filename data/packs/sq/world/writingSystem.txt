@@ -1,0 +1,24 @@
+---
+description: Writing system (Albanian). ALFABETI SHQIP is first and it is a real entry, not a courtesy: Albanian is written in a Latin alphabet of THIRTY-SIX LETTERS fixed by the Congress of Manastir in November 1908, and it is not the twenty-six-letter Latin alphabet with accents bolted on. Nine of the thirty-six are DIGRAPHS — dh, gj, ll, nj, rr, sh, th, xh, zh — each one a single letter that happens to be written with two characters and that alphabetises as one; d and dh are as different as d and f. Two more are Ç and Ë. Ë is the schwa, and it is so frequent that it rivals plain e for the commonest letter in the language — measured over the Albanian filler prose in this same pack it comes SECOND of all letters, at 8.1 per cent against e at 9.8. So a text with almost no ë is not Albanian, whatever else it looks like. Before 1908 the language had been written in Latin, Greek, Arabic and Cyrillic script and in several competing Latin systems at once; the Congress settled it in a week, and 22 November is a public holiday for it.
+locale: sq
+---
+Alfabeti shqip
+Alfabeti latin
+Alfabeti cirilik
+Alfabeti grek
+Alfabeti arab
+Alfabeti hebraik
+Alfabeti armen
+Alfabeti gjeorgjian
+Shkrimi kinez
+Hiragana
+Katakana
+Hangul
+Devanagari
+Shkrimi tajlandez
+Shkrimi tibetian
+Shkrimi etiopian
+Shkrimi bengali
+Shkrimi tamil
+Glagolitik
+Alfabeti i Elbasanit

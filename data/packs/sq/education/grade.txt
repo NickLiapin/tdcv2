@@ -1,0 +1,16 @@
+---
+description: School mark (Albanian). Albania grades on a TEN-POINT scale where 10 is the best and 4 is the fail, not on letters and not on the German-style inverted scale where 1 is best. The state matura and university marks use the same ten points. A config that maps an A to a 1 will invert every Albanian record it touches.
+locale: sq
+---
+10
+9
+8
+7
+6
+5
+4
+Kaluar
+Mbetur
+Shkëlqyeshëm
+Mirë
+Mjaftueshëm

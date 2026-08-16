@@ -1,0 +1,40 @@
+---
+description: Technical noun (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+drejtues
+protokoll
+gjerësi bande
+panel
+mikroçip
+program
+portë
+kartë
+varg
+ndërfaqe
+sistem
+sensor
+mur zjarri
+disk i fortë
+piksel
+alarm
+burim
+monitor
+aplikacion
+transmetues
+bus
+qark
+kondensator
+matricë
+bazë të dhënash
+tubacion
+server
+klient
+rrjet
+ruter
+çelës rrjeti
+kernel
+skedar
+dosje
+regjistër
+kujtesë

@@ -1,0 +1,17 @@
+---
+description: Truck cargo type (Albanian).
+locale: sq
+---
+Ngarkesë e thatë
+Frigoriferike
+Platformë
+Cisternë
+Bagëti
+Mallra të rrezikshme
+Kontejner
+Transport automjetesh
+Platformë e ulët
+Mallra në masë
+Trungje
+Materiale ndërtimi
+Zhavorr

@@ -1,0 +1,11 @@
+---
+description: Weekday (Albanian). Every weekday name carries the article E and it is part of the name, not a preposition: the day is E HENE, never henë alone. These are the indefinite forms used after nje or in a list; the definite forms used as a subject are e hena, e marta, e merkura, e enjtja, e premtja, e shtuna, e diela. Monday first, as the Albanian week runs.
+locale: sq
+---
+e hënë
+e martë
+e mërkurë
+e enjte
+e premte
+e shtunë
+e diel

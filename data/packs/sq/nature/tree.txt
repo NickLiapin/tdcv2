@@ -1,0 +1,32 @@
+---
+description: Tree (Albanian). RRAP, the oriental plane, is the tree of the village square in Albania and Kosovo — the one meetings are held under — and FRASHER, the ash, is the tree that gave its name to the village that gave the country the Frasheri brothers. Olive, fig and chestnut are ordinary working trees here, not ornamentals. Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Rrap
+Frashër
+Lis
+Dushk
+Ah
+Bredh
+Pishë
+Panjë
+Mështekën
+Shelg
+Plep
+Selvi
+Vidh
+Shkozë
+Blir
+Arrë
+Gështenjë
+Ulli
+Fik
+Man
+Qershi
+Dardhë
+Mollë
+Thanë
+Lajthi
+Dëllinjë
+Akacie
+Kedër

@@ -1,0 +1,54 @@
+---
+description: Shop department (Albanian).
+locale: sq
+---
+Libra
+Filma
+Muzikë
+Lojëra
+Elektronikë
+Kompjuterë
+Telefoni
+Shtëpi
+Kopsht
+Vegla pune
+Ushqimore
+Pije
+Shëndet
+Bukuri
+Kozmetikë
+Lodra
+Fëmijë
+Bebe
+Veshje
+Këpucë
+Aksesorë
+Bizhuteri
+Sport
+Natyrë
+Auto
+Industriale
+Zyrë
+Kafshë shtëpiake
+Mobilie
+Pajisje shtëpiake
+Kancelari
+Hidrosanitare
+Ndriçim
+Bojëra
+Materiale ndërtimi
+Tekstile
+Enë kuzhine
+Pastrim
+Bujqësi
+Peshkim
+Kamping
+Biçikleta
+Motorë
+Instrumente muzikore
+Fotografi
+Optikë
+Farmaci
+Parfumeri
+Dhurata
+Antikuar

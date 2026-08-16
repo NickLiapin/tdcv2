@@ -1,0 +1,10 @@
+---
+description: Diagnosis typically handled by endokrinologji, named in Albanian.
+locale: sq
+---
+Diabet i tipit 2
+Hipotiroidizëm
+Hipertiroidizëm
+Osteoporozë
+Sindromi i Cushingut
+Sindromi i vezoreve policistike

@@ -1,0 +1,5 @@
+---
+description: Capital of Maqedonia e Veriut, in Albanian.
+locale: sq
+---
+Shkupi

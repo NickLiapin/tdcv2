@@ -1,0 +1,45 @@
+---
+description: Legal form appended to an Albanian company name. SH.P.K. (shoqeri me pergjegjesi te kufizuar) is the limited company and by far the commonest; SH.A. is the joint-stock company. Kosovo uses the same two forms, and D.O.O. appears where a company registered under the Serbian-language form. NIPT-holding sole traders are registered as PERSON FIZIK, which is a status rather than a suffix but is written the same way on an invoice.
+locale: sq
+---
+SH.P.K.
+Sh.p.k.
+SH.A.
+Sh.a.
+SHPK
+SHA
+Person Fizik
+N.SH.
+D.O.O.
+OJF
+Shoqatë
+Fondacion
+Qendër
+Institut
+Grup
+Holding
+Partnerë
+Bashkëpunëtorë
+Ndërmarrje
+Industri
+Ndërkombëtar
+Zgjidhje
+Sisteme
+Teknologji
+Konsulencë
+Studio
+Kompani
+Korporatë
+Union
+Aleanca
+Grupi
+Kompleks
+Kombinat
+Firmë
+Agjenci
+Zyrë
+Laborator
+Fabrikë
+Punishte
+Kooperativë
+Degë

@@ -1,0 +1,11 @@
+---
+description: Driving licence category. Albania and Kosovo use the EUROPEAN letter categories, not the American Class A/B/C — C is a lorry, D a bus, and E the trailer entitlement added to either. A config that emits 'Class A' for an Albanian driver is emitting an American licence.
+locale: sq
+---
+B
+BE
+C
+CE
+C1
+D
+DE

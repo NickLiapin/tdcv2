@@ -1,0 +1,10 @@
+---
+description: Condition with raised prevalence in the Veriafrikane ancestry group, named in Albanian.
+locale: sq
+---
+Mungesë e G6PD
+Bartës i talasemisë beta
+Ethe familjare mesdhetare
+Sëmundja e Behcetit
+Mospërsëritje e laktazës
+Kseroderma pigmentoze

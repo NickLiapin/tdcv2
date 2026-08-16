@@ -1,0 +1,16 @@
+---
+description: Streaming service. Brand names are not translated. RTSH Tani is the Albanian public broadcaster's catch-up service and Digitalb is the dominant Albanian-language pay platform in both Albania and Kosovo.
+locale: sq
+---
+Netflix
+Disney+
+Amazon Prime Video
+HBO Max
+Apple TV+
+YouTube
+Spotify
+Twitch
+Digitalb
+RTSH Tani
+Tring
+DigiGO

@@ -1,0 +1,12 @@
+---
+description: ABO and Rhesus blood group. The notation is international.
+locale: sq
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

@@ -1,0 +1,54 @@
+---
+description: Airlines an Albanian traveller actually meets. The list opens with the carriers that fly Tirana and Prishtina — the two airports Albanian speakers use — because that is what makes the list Albanian rather than a translated world list: Wizz Air alone carries a large share of Tirana's traffic, and the Italian, Greek, Turkish and Swiss carriers reflect where the diaspora lives. Airline names are brands and are not translated.
+locale: sq
+---
+Wizz Air
+Ryanair
+Air Albania
+Turkish Airlines
+Lufthansa
+Austrian Airlines
+SWISS
+ITA Airways
+Aegean Airlines
+Olympic Air
+Air Serbia
+LOT Polish Airlines
+Pegasus Airlines
+AJet
+Eurowings
+British Airways
+Air France
+KLM
+Iberia
+Vueling
+easyJet
+Transavia
+Aer Lingus
+SAS
+Finnair
+Norwegian
+Emirates
+Qatar Airways
+Etihad Airways
+Egyptair
+Royal Jordanian
+Air Serbia Montenegro
+Montenegro Airlines
+Croatia Airlines
+Chair Airlines
+Edelweiss Air
+Neos
+Albawings
+Corendon Airlines
+SkyUp
+Nouvelair
+Belavia
+Air Cairo
+Freebird Airlines
+Sun Express
+Aeroitalia
+Luxair
+Brussels Airlines
+TAP Air Portugal
+Air Baltic

@@ -1,0 +1,62 @@
+---
+description: Product material (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Çelik
+Çelik inoks
+Dru
+Beton
+Plastikë
+Pambuk
+Granit
+Gomë
+Metal
+Qeramikë
+Lëkurë
+Bambu
+Qelq
+Alumin
+Silikon
+Li
+Lesh
+Bakër
+Tunxh
+Mermer
+Fibër karboni
+Lis
+Arrë
+Kanavacë
+Poliestër
+Najlon
+Mëndafsh
+Kadife
+Xhins
+Zinxhir
+Hekur
+Argjend
+Ar
+Platin
+Porcelan
+Balte
+Gips
+Tullë
+Gur
+Rërë
+Letër
+Karton
+Tapë
+Shelg
+Kërp
+Akrilik
+Gomë natyrale
+Lëkurë e ekologjike
+Fibër qelqi
+Bronz
+Kromit
+Nikel
+Titan
+Zink
+Kallaj
+Plumb
+Grafit
+Guri i gëlqeres

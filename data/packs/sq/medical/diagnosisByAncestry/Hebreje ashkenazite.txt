@@ -1,0 +1,16 @@
+---
+description: Condition with raised prevalence in the Hebreje ashkenazite ancestry group, named in Albanian.
+locale: sq
+---
+Sëmundja Tay-Sachs
+Sëmundja Gaucher e tipit 1
+Disautonomi familjare
+Sëmundja Canavan
+Sëmundja Niemann-Pick e tipit A
+Sindromi Bloom
+Mungesë e faktorit XI
+Mutacion themelor BRCA1
+Mutacion themelor BRCA2
+Mukolipidozë e tipit IV
+Sëmundja e Crohnit
+Distoni torsionale

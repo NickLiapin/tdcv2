@@ -1,0 +1,237 @@
+---
+description: Job title (Albanian, masculine form). The feminine exists and differs — mesues / mesuese, infermier / infermiere, shites / shitese — so a record that pairs one of these with a woman's name is grammatically wrong unless the config swaps the ending. That swap is not mechanical: most take -e, but avokat and mjek are used unchanged for women in official Albanian, and a few are lexically different.
+locale: sq
+---
+Inxhinier softueri
+Programues
+Zhvillues web
+Zhvillues aplikacionesh
+Analist të dhënash
+Shkencëtar i të dhënave
+Inxhinier DevOps
+Administrator sistemesh
+Administrator bazash të dhënash
+Inxhinier rrjetesh
+Specialist sigurie kibernetike
+Inxhinier cilësie
+Dizajner UX
+Dizajner UI
+Menaxher produkti
+Analist biznesi
+Specialist mbështetjeje IT
+Inxhinier i inteligjencës artificiale
+Arkitekt cloud
+Teknik informatike
+Mjek i përgjithshëm
+Mjek familjeje
+Kirurg
+Anestezist
+Pediatër
+Gjinekolog
+Kardiolog
+Neurolog
+Dermatolog
+Psikiatër
+Radiolog
+Infermier
+Mami
+Farmacist
+Dentist
+Higjienist dentar
+Fizioterapeut
+Logoped
+Optometrist
+Veteriner
+Laborant
+Teknik radiologjie
+Ambulancier
+Ndihmës mjekësor
+Psikolog
+Punonjës social
+Kujdestar shtëpiak
+Elektricist
+Hidraulik
+Marangoz
+Murator
+Saldator
+Bojaxhi
+Suvatues
+Karpentier
+Xhamaxhi
+Mbulues çatie
+Montues gipsi
+Instalues kondicionerësh
+Tornitor
+Mekanik mirëmbajtjeje
+Montues
+Inspektor cilësie
+Mbikëqyrës prodhimi
+Kryepunëtor ndërtimi
+Punëtor ndërtimi
+Topograf
+Inspektor ndërtimi
+Operator makinerish të rënda
+Operator vinçi
+Operator eskavatori
+Punëtor prishjeje
+Minator
+Teknik shpimi
+Teknik shpërthimesh
+Topograf minierash
+Punëtor guroreje
+Shofer kamioni
+Shofer autobusi
+Shofer taksie
+Shofer dërgesash
+Operator pirunthi
+Punonjës magazine
+Koordinator logjistike
+Dispeçer
+Ndërmjetës transporti
+Kontrollor i trafikut ajror
+Pilot komercial
+Asistent fluturimi
+Kapiten anijeje
+Marinar
+Makinist treni
+Korrier
+Postier
+Doganier
+Inspektor tatimor
+Instalues linjash
+Teknik telekomunikacioni
+Teknik fibre optike
+Operator termocentrali
+Operator hidrocentrali
+Teknik i energjisë diellore
+Teknik i turbinave me erë
+Operator i trajtimit të ujit
+Lexues matësish
+Kontabilist
+Financier
+Analist financiar
+Auditues
+Aktuar
+Këshilltar tatimor
+Bankier
+Oficer krediti
+Arkëtar banke
+Ekonomist
+Përfaqësues shitjesh
+Menaxher shitjesh
+Menaxher marketingu
+Specialist marketingu
+Menaxher marke
+Specialist i burimeve njerëzore
+Rekrutues
+Menaxher operacionesh
+Menaxher projekti
+Asistent ekzekutiv
+Menaxher zyre
+Recepsionist
+Nëpunës i futjes së të dhënave
+Specialist prokurimi
+Sekretar
+Kuzhinier
+Ndihmëskuzhinier
+Kuzhinier linje
+Bukëpjekës
+Ëmbëltar
+Banakier
+Barist
+Kamarier
+Mikpritës
+Enëlarës
+Menaxher hoteli
+Kameriere dhomash
+Konsierzh
+Organizator eventesh
+Shitës
+Menaxher dyqani
+Arkëtar
+Përfaqësues i shërbimit të klientit
+Operator qendre thirrjesh
+Roje sigurie
+Pastrues
+Kopshtar
+Mësues i arsimit fillor
+Mësues i gjimnazit
+Mësues i arsimit special
+Profesor
+Pedagog
+Asistent mësimi
+Psikolog shkolle
+Bibliotekar
+Drejtor shkolle
+Instruktor
+Edukatore kopshti
+Polic
+Zjarrfikës
+Hetues
+Roje burgu
+Ushtar
+Oficer kufitar
+Inspektor pune
+Nëpunës civil
+Dizajner grafik
+Fotograf
+Kameraman
+Montazhier
+Kopjeshkrues
+Gazetar
+Redaktor
+Përkthyes
+Interpret
+Shkrimtar
+Aktor
+Regjisor
+Muzikant
+Këngëtar
+Kompozitor
+Arkitekt
+Dizajner interieri
+Inxhinier ndërtimi
+Inxhinier mekanik
+Inxhinier elektrik
+Inxhinier hidroteknik
+Inxhinier mjedisi
+Gjeolog
+Avokat
+Ndihmësjurist
+Gjyqtar
+Prokuror
+Noter
+Përmbarues
+Fermer
+Blegtor
+Bari
+Bletar
+Vreshtar
+Ullishtar
+Agronom
+Peshkatar
+Punëtor bujqësor
+Pylltar
+Arborist
+Peizazhist
+Rrobaqepës
+Këpucar
+Berber
+Floktar
+Estetiste
+Masazhator
+Trajner personal
+Trajner sportiv
+Arbitër
+Argjendar
+Orëndreqës
+Qeramist
+Piktor
+Skulptor
+Restaurues
+Arkeolog
+Historian
+Statisticien
+Sociolog
+Përkthyes teknik
+Menaxher cilësie

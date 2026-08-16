@@ -1,0 +1,5 @@
+---
+description: Currency of Brazili, named in Albanian.
+locale: sq
+---
+Reali brazilian

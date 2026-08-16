@@ -1,0 +1,5 @@
+---
+description: Capital of Tajlanda, in Albanian.
+locale: sq
+---
+Bangkoku

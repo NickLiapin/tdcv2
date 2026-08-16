@@ -1,0 +1,5 @@
+---
+description: Currency of Meksika, named in Albanian.
+locale: sq
+---
+Pesoja meksikane

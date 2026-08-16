@@ -1,0 +1,36 @@
+---
+description: Garment type (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one. OPINGA is the traditional hide shoe with the turned-up toe, still worn in folk costume; QELESHE is the white felt skullcap of the Albanian man, and XHUBLETA is the bell-shaped woollen dress of the northern highlands, inscribed by UNESCO in 2022.
+locale: sq
+---
+Bluzë
+Këmishë
+Xhinse
+Fustan
+Xhaketë
+Triko
+Pulovër
+Fund
+Pantallona
+Pantallona të shkurtra
+Bluzë me kapuç
+Kostum
+Pallto
+Mushama
+Xhup
+Atlete
+Çizme
+Sandale
+Papuçe
+Kapelë
+Shall
+Doreza
+Rrip
+Kravatë
+Çorape
+Pizhame
+Jelek
+Bluzë e brendshme
+Opinga
+Qeleshe
+Xhubletë
+Brekushe

@@ -1,0 +1,19 @@
+---
+description: Reason a customer gives for returning an order (Albanian).
+locale: sq
+---
+Arriti i dëmtuar
+U dërgua produkti i gabuar
+Nuk përputhet me përshkrimin
+Masa e gabuar
+Ndërrova mendje
+Gjeta çmim më të mirë
+Me defekt që në fillim
+Mungojnë pjesë
+Dorëzim me vonesë
+Nuk më duhet më
+E porosita gabimisht
+Cilësia nën pritshmëri
+Ngjyra ndryshe nga fotoja
+Nuk funksionon
+Dublikat i porosisë

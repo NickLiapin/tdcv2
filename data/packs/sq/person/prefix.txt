@@ -1,0 +1,36 @@
+---
+description: Albanian honorific, in the abbreviated form written before a name. Z. is zoti (Mr), ZNJ. is zonja (Mrs) and ZJ. is zonjusha (Miss). The religious titles are the interesting part of this list and they are four traditions in one small country: DOM before a Catholic priest, AT before a monk or an Orthodox father, HOXHE before a Sunni imam, and BABA before a Bektashi cleric — the Bektashi order has its world headquarters in Tirana, so BABA is a live Albanian title and not a borrowing. Academic titles in Albanian go BEFORE the name, never after it: Prof. Dr. Emri Mbiemri.
+locale: sq
+---
+Z.
+Znj.
+Zj.
+Zoti
+Zonja
+Zonjusha
+Dr.
+Prof.
+Prof. Dr.
+Prof. As.
+Prof. As. Dr.
+Inxh.
+Ing.
+Av.
+Mjek
+Mësues
+Dom
+At
+Fra
+Motra
+Peshkop
+Imam
+Hoxhë
+Myfti
+Baba
+Dede
+Gjyqtar
+Prokuror
+Kolonel
+Major
+Kapiten
+Gjeneral

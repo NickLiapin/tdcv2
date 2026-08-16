@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Albanian). Prepaid dominates in both Albania and Kosovo; the postpaid contract is the minority arrangement, the reverse of western Europe.
+locale: sq
+---
+Me parapagesë
+Me kontratë
+Pa limit
+Familjar
+Biznes
+Sipas përdorimit
+Vetëm internet
+Turistik
+Studentor
+Roaming
+Paketë ditore
+Paketë mujore

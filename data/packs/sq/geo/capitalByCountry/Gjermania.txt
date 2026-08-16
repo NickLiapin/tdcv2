@@ -1,0 +1,5 @@
+---
+description: Capital of Gjermania, in Albanian.
+locale: sq
+---
+Berlini

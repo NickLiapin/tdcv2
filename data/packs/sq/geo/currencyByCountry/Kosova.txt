@@ -1,0 +1,5 @@
+---
+description: Currency of Kosova, named in Albanian.
+locale: sq
+---
+Euroja

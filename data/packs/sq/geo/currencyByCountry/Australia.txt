@@ -1,0 +1,5 @@
+---
+description: Currency of Australia, named in Albanian.
+locale: sq
+---
+Dollari australian

@@ -1,0 +1,59 @@
+---
+description: Corporate buzzword adjective (Albanian, masculine singular).
+locale: sq
+---
+i shkallëzueshëm
+i shkathët
+i integruar
+i optimizuar
+i shpërndarë
+i sigurt
+inteligjent
+i automatizuar
+i unifikuar
+bashkëpunues
+inovativ
+prishës
+modular
+i qëndrueshëm
+elastik
+i zgjerueshëm
+i vlerësueshëm
+me vlerë të shtuar
+i orientuar nga të dhënat
+i orientuar nga klienti
+gjithëpërfshirës
+dinamik
+proaktiv
+përshtatës
+i besueshëm
+transparent
+i standardizuar
+i certifikuar
+ndërkombëtar
+kombëtar
+rajonal
+vendor
+digjital
+elektronik
+virtual
+i largët
+hibrid
+i qëndrueshëm mjedisor
+efikas
+efektiv
+konkurrues
+fitimprurës
+i qartë
+i matshëm
+i arritshëm
+i realizueshëm
+afatgjatë
+afatshkurtër
+strategjik
+operacional
+taktik
+i ndërveprueshëm
+i personalizueshëm
+i menaxhueshëm
+i monitorueshëm

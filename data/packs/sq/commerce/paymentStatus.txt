@@ -1,0 +1,14 @@
+---
+description: Payment status (Albanian).
+locale: sq
+---
+Në pritje
+Autorizuar
+Paguar
+Dështuar
+Rimbursuar
+Rimbursuar pjesërisht
+Kontestuar
+Anuluar
+Refuzuar
+Skaduar

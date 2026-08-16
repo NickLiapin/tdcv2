@@ -1,0 +1,5 @@
+---
+description: Currency of Afrika e Jugut, named in Albanian.
+locale: sq
+---
+Randi

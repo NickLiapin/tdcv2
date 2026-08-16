@@ -1,0 +1,10 @@
+---
+description: Diagnosis typically handled by kardiologji, named in Albanian.
+locale: sq
+---
+Hipertension arterial
+Sëmundje koronare
+Fibrilacion atrial
+Insuficiencë kardiake
+Infarkt i miokardit
+Hiperlipidemi

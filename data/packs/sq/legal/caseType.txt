@@ -1,0 +1,17 @@
+---
+description: Kind of legal case (Albanian).
+locale: sq
+---
+Civile
+Penale
+Familjare
+Falimentim
+Dëmshpërblim
+Punësim
+Mosmarrëveshje kontraktore
+Pronësi intelektuale
+Pasuri e paluajtshme
+Emigracion
+Tatimore
+Administrative
+Trashëgimi

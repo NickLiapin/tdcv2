@@ -1,0 +1,5 @@
+---
+description: Capital of Mbretëria e Bashkuar, in Albanian.
+locale: sq
+---
+Londra

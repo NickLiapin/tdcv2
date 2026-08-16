@@ -1,0 +1,5 @@
+---
+description: Capital of Meksika, in Albanian.
+locale: sq
+---
+Qyteti i Meksikës

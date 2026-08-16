@@ -1,0 +1,25 @@
+---
+description: Religion (Albanian). Read the top of this list carefully, because Albania is the European state whose religious make-up software gets wrong most often. It is majority MUSLIM SUNNI, with a large and institutionally distinct BEKTASHI community whose world headquarters — the Kryegjyshata Botërore — is in Tirana and which in 2024 was given a sovereign micro-state of its own inside the city. Catholicism is northern, Orthodoxy southern, and both are real rather than residual. The 1998 constitution declares NO official religion, and the share declaring none or refusing to answer is large: PA PËRKATËSI FETARE is not a rounding error here. Intermarriage across all four is ordinary and unremarked, which is the fact that makes an Albanian dataset behave unlike its neighbours'.
+locale: sq
+---
+Islam sunit
+Bektashizëm
+Katolicizëm
+Ortodoksi
+Krishterim
+Islam
+Protestantizëm
+Ungjillorë
+Dëshmitarët e Jehovait
+Judaizëm
+Hinduizëm
+Budizëm
+Sikizëm
+Bahai
+Pa përkatësi fetare
+Ateizëm
+Agnosticizëm
+Laik
+Besimtar pa përkatësi
+Preferoj të mos përgjigjem
+E papërcaktuar

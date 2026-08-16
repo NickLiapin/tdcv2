@@ -1,0 +1,11 @@
+---
+description: Dish of Greke cuisine, named in Albanian.
+locale: sq
+---
+Musaka
+Suvlaki
+Gjiro
+Sallatë greke
+Spanakopita
+Bakllava
+Tzatziki

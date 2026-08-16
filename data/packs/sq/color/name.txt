@@ -1,0 +1,58 @@
+---
+description: Colour name (Albanian). THE FORM MATTERS HERE. Albanian adjectives agree with their noun, and a colour named on its own agrees with NGJYRA, colour, which is feminine — so the native colours carry the feminine article e and the feminine ending: e kuqe, e bardhe, e zeze. Attached to a masculine noun they change: nje fustan i kuq, not e kuqe. The borrowed names (blu, roze, bezhe, gri, portokalli, vjollce, bordo) never inflect at all, which is why they look bare beside the native ones. A config that puts these straight after a masculine noun will produce agreement errors on every native colour and none of the borrowed ones.
+locale: sq
+---
+e kuqe
+e bardhë
+e zezë
+e gjelbër
+jeshile
+e verdhë
+e kaltër
+blu
+portokalli
+vjollcë
+rozë
+kafe
+gri
+e hirtë
+e artë
+e argjendtë
+bezhë
+e murrme
+e purpurt
+e kuqërremtë
+e verdhemë
+e gjelbëremë
+e kaltërremtë
+bordo
+tirkize
+lejla
+e ndezur
+e çelët
+e errët
+e hapur
+e mbyllur
+ngjyrë qielli
+ngjyrë deti
+ngjyrë tulle
+ngjyrë ari
+ngjyrë argjendi
+ngjyrë bakri
+ngjyrë tunxhi
+ngjyrë kremi
+ngjyrë fildishi
+ngjyrë rëre
+ngjyrë tokë
+ngjyrë ulliri
+ngjyrë shafrani
+ngjyrë mielli
+ngjyrë qumështi
+ngjyrë vishnje
+ngjyrë shege
+ngjyrë limoni
+ngjyrë portokalli
+ngjyrë kajsie
+ngjyrë manushaqeje
+ngjyrë trëndafili
+shumëngjyrëshe

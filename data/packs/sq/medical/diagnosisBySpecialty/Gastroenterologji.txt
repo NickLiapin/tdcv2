@@ -1,0 +1,10 @@
+---
+description: Diagnosis typically handled by gastroenterologji, named in Albanian.
+locale: sq
+---
+Sëmundje e refluksit gastroezofageal
+Sëmundja e Crohnit
+Kolit ulceroz
+Ulçerë peptike
+Sindromi i zorrës së irrituar
+Cirrozë hepatike

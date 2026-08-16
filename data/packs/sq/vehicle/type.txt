@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Sedan
+Kupe
+Hatchback
+Karavan
+Fuoristradë
+Kabriolet
+Minifurgon
+Furgon
+Kamionçinë
+Kamion
+Autobus
+Minibus
+Motoçikletë
+Skuter
+Traktor
+Kamion frigoriferik
+Autoveturë sportive
+Autoveturë luksoze
+Automjet elektrik
+Kuadriciklet
+Rimorkio
+Ambulancë

@@ -1,0 +1,23 @@
+---
+description: Film genre (Albanian).
+locale: sq
+---
+Aksion
+Komedi
+Dramë
+Horror
+Triler
+Dashuri
+Fantashkencë
+Fantazi
+Dokumentar
+Animacion
+Aventurë
+Krim
+Mister
+Uestern
+Muzikor
+Luftë
+Biografik
+Historik
+Familjar

@@ -1,0 +1,18 @@
+---
+description: Order status (Albanian).
+locale: sq
+---
+Në pritje
+Në përpunim
+Konfirmuar
+Dërguar
+Në dorëzim
+Dorëzuar
+Anuluar
+Kthyer
+Rimbursuar
+Pezulluar
+Në pritje të pagesës
+Dështuar
+Në magazinë
+Gati për marrje

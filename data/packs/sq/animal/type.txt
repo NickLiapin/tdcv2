@@ -1,0 +1,44 @@
+---
+description: Animal (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Qen
+Mace
+Elefant
+Luan
+Tigër
+Ari
+Ujk
+Dhelpër
+Dre
+Lepur
+Kalë
+Lopë
+Dele
+Dhi
+Derr
+Majmun
+Gjirafë
+Zebër
+Kangur
+Panda
+Koala
+Lundërz
+Delfin
+Balenë
+Fokë
+Iriq
+Ketër
+Rrëqebull
+Baldosë
+Nuselalë
+Bualli
+Kaproll
+Dhi e egër
+Breshkë
+Gjarpër
+Hardhucë
+Bretkosë
+Mi
+Urith
+Lakuriq nate

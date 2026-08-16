@@ -1,0 +1,21 @@
+---
+description: Video game genre (Albanian).
+locale: sq
+---
+Aksion
+Aventurë
+Rol
+Strategji
+Simulim
+Sport
+Enigmë
+Qitje
+Platformë
+Garë
+Luftim
+Mbijetesë
+Botë e hapur
+MMORPG
+Roguelike
+Horror
+Muzikë

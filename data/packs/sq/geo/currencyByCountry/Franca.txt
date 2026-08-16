@@ -1,0 +1,5 @@
+---
+description: Currency of Franca, named in Albanian.
+locale: sq
+---
+Euroja

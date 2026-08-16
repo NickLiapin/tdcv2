@@ -1,0 +1,11 @@
+---
+description: Haulage route type (Albanian).
+locale: sq
+---
+Ndërkombëtar
+Largësi e gjatë
+Rajonal
+Vendor
+I dedikuar
+Me dy shoferë
+Kilometri i fundit

@@ -1,0 +1,10 @@
+---
+description: Condition with raised prevalence in the Amerikane vendase ancestry group, named in Albanian.
+locale: sq
+---
+Diabet i tipit 2
+Sëmundje e gurëve të tëmthit
+Nefropati diabetike
+Artrit reumatoid
+Mëlçi e yndyrshme joalkoolike
+Sindrom metabolik

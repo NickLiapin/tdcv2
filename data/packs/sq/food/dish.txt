@@ -1,0 +1,46 @@
+---
+description: Dish (Albanian). The list opens with what an Albanian household actually cooks. TAVE KOSI is the national dish — lamb baked under a set custard of yoghurt and egg — and it is the one to know: yoghurt is not a side in Albanian cooking, it is a baking medium. BYREK is the filo pie that is also breakfast, and FLIA, the layered pancake cooked under a lid heaped with embers, is the dish of Kosovo and the northern highlands rather than of Tirana.
+locale: sq
+---
+Tavë kosi
+Fërgesë tirane
+Byrek me spinaq
+Byrek me mish
+Byrek me kungull
+Lakror
+Flia
+Japrak
+Speca të mbushur
+Qofte të fërguara
+Tavë dheu
+Paçe
+Trahana
+Petulla
+Përshesh
+Jani me fasule
+Fasule me lëkurë
+Mish në saç
+Comlek
+Pispili
+Turli perimesh
+Musaka
+Pilaf me mish
+Peshk i pjekur
+Tavë peshku
+Sufllaqe
+Qebapa
+Sallatë fshati
+Tarator
+Turshi
+Speca me gjizë
+Qumështor
+Trileçe
+Bakllava
+Sheqerpare
+Revani
+Kadaif
+Ashure
+Krofne
+Pica
+Sushi
+Hamburger

@@ -1,0 +1,10 @@
+---
+description: Diagnosis typically handled by psikiatri, named in Albanian.
+locale: sq
+---
+Çrregullim depresiv madhor
+Çrregullim i ankthit të përgjithësuar
+Çrregullim bipolar
+Skizofreni
+Çrregullim post-traumatik i stresit
+Çrregullim i vëmendjes dhe hiperaktivitetit

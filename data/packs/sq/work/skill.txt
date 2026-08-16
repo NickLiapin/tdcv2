@@ -1,0 +1,46 @@
+---
+description: Professional skill (Albanian). Programming languages and standards keep their real names in any locale.
+locale: sq
+---
+Python
+JavaScript
+SQL
+Java
+C++
+Excel
+Cloud computing
+Mësim i makinës
+Analizë të dhënash
+Menaxhim projektesh
+Agile
+Të folurit në publik
+Shkrim teknik
+Shërbim ndaj klientit
+Shitje
+Kontabilitet
+Modelim financiar
+AutoCAD
+Modelim 3D
+Dizajn grafik
+Kopjeshkrim
+Saldim
+Instalim elektrik
+Hidraulikë
+Zdrukthtari
+Lexim projektesh
+Punim me makineri
+Ngjitje me kallaj
+Drejtim pirunthi
+Drejtim makinerish të rënda
+Patentë profesionale
+Ndihmë e parë
+Rianimim kardiopulmonar
+Siguri ushqimore
+Anglisht
+Italisht
+Gjermanisht
+Greqisht
+Negociim
+Udhëheqje ekipi
+Menaxhim kohe
+Zgjidhje problemesh

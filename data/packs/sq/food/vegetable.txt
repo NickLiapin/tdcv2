@@ -1,0 +1,34 @@
+---
+description: Vegetable (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Domate
+Kastravec
+Qepë
+Hudhër
+Spec
+Patëllxhan
+Kungull i njomë
+Kungull
+Patate
+Patate e ëmbël
+Karrotë
+Panxhar
+Rrepë
+Presh
+Lakër
+Lulelakër
+Brokoli
+Spinaq
+Marule
+Rukolë
+Selino
+Majdanoz
+Kopër
+Bishtajë
+Bizele
+Bathë
+Fasule
+Misër
+Shpargull
+Kërpudhë

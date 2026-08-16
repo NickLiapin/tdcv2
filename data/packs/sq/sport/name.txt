@@ -1,0 +1,59 @@
+---
+description: Sport (Albanian). The order is Albanian rather than international: football first by a very long way, then basketball and volleyball, then the individual sports Albania and Kosovo actually win medals in — PESHENGRITJE, weightlifting, gave Albania its Olympic weightlifters, and XHUDO gave Kosovo its first Olympic gold through Majlinda Kelmendi. American football, baseball and cricket are at the bottom because essentially nobody here plays them.
+locale: sq
+---
+Futboll
+Basketboll
+Volejboll
+Hendboll
+Futsall
+Peshëngritje
+Xhudo
+Karate
+Mundje
+Boks
+Atletikë
+Vrapim
+Maratonë
+Not
+Çiklizëm
+Tenis
+Pingpong
+Badminton
+Gjimnastikë
+Shah
+Kanotazh
+Vozitje
+Ski
+Alpinizëm
+Ecje malore
+Kërcim me parashutë
+Rafting
+Zhytje
+Sherpëhedhje
+Hedhje disku
+Hedhje shtize
+Kërcim së larti
+Kërcim së gjati
+Triatlon
+Motoçiklizëm
+Automobilizëm
+Golf
+Rugbi
+Hokej mbi akull
+Bejsboll
+Futboll amerikan
+Kriket
+Bilardo
+Boks tajlandez
+Kikboks
+Aikido
+Taekuondo
+Skateboard
+Sërf
+Vela
+Peshkim sportiv
+Gjueti sportive
+Hipizëm
+Harkëtari
+Skermë

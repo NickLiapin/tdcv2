@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladeshi, in Albanian.
+locale: sq
+---
+Daka

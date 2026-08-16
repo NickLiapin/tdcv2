@@ -1,0 +1,9 @@
+---
+description: Diagnosis typically handled by nefrologji, named in Albanian.
+locale: sq
+---
+Sëmundje kronike e veshkave
+Gurë në veshka
+Glomerulonefrit
+Dëmtim akut i veshkave
+Sëmundje policistike e veshkave

@@ -1,0 +1,16 @@
+---
+description: Abbreviated month name (Albanian), lowercase as the full names are.
+locale: sq
+---
+jan
+shk
+mar
+pri
+maj
+qer
+kor
+gsh
+sht
+tet
+nën
+dhj

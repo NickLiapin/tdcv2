@@ -1,0 +1,14 @@
+---
+description: The ten specialties that have a matching sq.medical.diagnosisBySpecialty file. Filenames match these values character for character.
+locale: sq
+---
+Kardiologji
+Neurologji
+Onkologji
+Dermatologji
+Gastroenterologji
+Endokrinologji
+Pulmonologji
+Ortopedi
+Psikiatri
+Nefrologji

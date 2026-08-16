@@ -1,0 +1,5 @@
+---
+description: Currency of Tajlanda, named in Albanian.
+locale: sq
+---
+Bati tajlandez

@@ -1,0 +1,5 @@
+---
+description: Capital of Belgjika, in Albanian.
+locale: sq
+---
+Brukseli

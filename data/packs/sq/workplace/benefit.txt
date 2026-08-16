@@ -1,0 +1,22 @@
+---
+description: Employment benefit (Albanian). The Albanian list is shorter and plainer than an American one for a real reason: health cover is public through the compulsory scheme, so private health insurance is a perk rather than the centre of a package, and there is no 401(k) to match — the pension is the state contribution.
+locale: sq
+---
+Sigurime shoqërore
+Sigurime shëndetësore
+Sigurim shëndetësor privat
+Pushime vjetore
+Bonus vjetor
+Punë në distancë
+Orar fleksibël
+Tiketa ushqimi
+Transport i paguar
+Telefon i kompanisë
+Makinë e kompanisë
+Laptop
+Leje lindjeje
+Rimbursim studimesh
+Trajnime
+Abonim palestre
+Sigurim jete
+Bonus performance

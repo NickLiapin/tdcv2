@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Albanian). These are given in the DEFINITE form, which is how Albanian names them — the sign is Dashi, not dash — so unlike most lists in this pack they already carry the article.
+locale: sq
+---
+Dashi
+Demi
+Binjakët
+Gaforrja
+Luani
+Virgjëresha
+Peshorja
+Akrepi
+Shigjetari
+Bricjapi
+Ujori
+Peshqit

@@ -1,0 +1,11 @@
+---
+description: Dish of Libaneze cuisine, named in Albanian.
+locale: sq
+---
+Humus
+Falafel
+Shauarma
+Tabule
+Kibe
+Fatush
+Manakish

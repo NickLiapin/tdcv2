@@ -1,0 +1,30 @@
+---
+description: Mobile operator. The Albanian-language market is served by very few: ONE ALBANIA (the 2023 merger of Telekom Albania and ALBtelecom, which is why both old names still appear on records) and VODAFONE ALBANIA in Albania, IPKO and VALA in Kosovo, and the diaspora operators an Albanian abroad actually holds. Do not read the operator off an Albanian number: full mobile number portability has been in force since 2011.
+locale: sq
+---
+One Albania
+Vodafone Albania
+ALBtelecom
+Telekom Albania
+Eagle Mobile
+Plus Communication
+IPKO
+Vala
+D3 Mobile
+Z Mobile
+Telekom Slovenija
+A1 Makedonija
+Telekom MK
+Vodafone
+Telekom
+TIM
+Wind Tre
+Vodafone Italia
+Cosmote
+Vodafone Greece
+Swisscom
+Salt
+Sunrise
+O2
+Turkcell
+Deutsche Telekom

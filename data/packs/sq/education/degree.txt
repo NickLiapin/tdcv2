@@ -1,0 +1,20 @@
+---
+description: Academic qualification (Albanian). Albania joined the Bologna process, so the ladder runs Bachelor (three years), Master Profesional or Master i Shkencave (two), Doktoraturë. MASTER I SHKENCAVE and MASTER PROFESIONAL are NOT interchangeable: only the first admits its holder to a doctorate. Diploma e Maturës Shtetërore is the school-leaving certificate, awarded on the state matura examination that also decides university admission.
+locale: sq
+---
+Dëftesë e shkollës 9-vjeçare
+Diplomë e Maturës Shtetërore
+Diplomë profesionale
+Bachelor
+Bachelor në Shkenca
+Bachelor në Arte
+Bachelor në Inxhinieri
+Master Profesional
+Master i Shkencave
+Master në Administrim Biznesi
+Diplomë e Integruar e Nivelit të Dytë
+Doktoraturë
+Doktor i Shkencave
+Profesor i Asociuar
+Profesor
+Specializim pasuniversitar

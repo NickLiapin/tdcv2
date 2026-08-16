@@ -1,0 +1,84 @@
+---
+description: Diagnosis (Albanian). Two entries are not ballast in this locale: TALASEMI BETA is genuinely common along the Albanian coast and in Kosovo, screened for at birth, and ETHE REUMATIZMALE has not disappeared here the way it has in western Europe.
+locale: sq
+---
+Hipertension arterial
+Diabet i tipit 2
+Astmë bronkiale
+Bronkit akut
+Grip
+Migrenë
+Çrregullim i ankthit të përgjithësuar
+Çrregullim depresiv madhor
+Osteoartrit
+Artrit reumatoid
+Sëmundje e refluksit gastroezofageal
+Anemi nga mungesa e hekurit
+Hipotiroidizëm
+Infeksion i traktit urinar
+Pneumoni
+Sëmundje kronike e veshkave
+Sëmundje koronare
+Fibrilacion atrial
+Insuficiencë kardiake
+Aksident cerebrovaskular ishemik
+Epilepsi
+Sëmundja e Parkinsonit
+Sëmundja e Alzheimerit
+Sklerozë e shumëfishtë
+Psoriazë
+Dermatit atopik
+Rinit alergjik
+Sinuzit kronik
+Otit i mesëm
+Konjunktivit
+Katarakt
+Glaukomë
+Apendicit
+Kolecistit
+Divertikulit
+Sindromi i zorrës së irrituar
+Sëmundja e Crohnit
+Kolit ulceroz
+Hepatit kronik B
+Cirrozë hepatike
+Pankreatit akut
+Përdhes
+Osteoporozë
+Fibromialgji
+Shiatikë
+Hernie diskale
+Sindromi i tunelit karpal
+Tendinit
+Sëmundje pulmonare obstruktive kronike
+Tuberkuloz
+Leuçemi
+Limfomë
+Melanomë
+Hiperlipidemi
+Obezitet
+Apne obstruktive e gjumit
+Pagjumësi
+Çrregullim bipolar
+Çrregullim i vëmendjes dhe hiperaktivitetit
+Sëmundja celiake
+Lupus eritematoz sistemik
+Vertigo
+Tinitus
+Hemorroide
+Variçe
+Trombozë e venave të thella
+Emboli pulmonare
+Gurë në veshka
+Anemi
+Hipertiroidizëm
+Ulçerë peptike
+Gastrit
+Celulit
+Sepsë
+Kancer i gjirit
+Gastroenterit akut
+Mungesë e vitaminës D
+Insuficiencë venoze kronike
+Talasemi beta
+Ethe reumatizmale

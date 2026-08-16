@@ -1,0 +1,11 @@
+---
+description: Dish of Koreane cuisine, named in Albanian.
+locale: sq
+---
+Bibimbap
+Bulgogi
+Kimçi
+Xhapçe
+Tteokbokki
+Pulë e skuqur koreane
+Galbi

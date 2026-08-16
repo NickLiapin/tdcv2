@@ -1,0 +1,30 @@
+---
+description: Diagnosis specific to female anatomy or pregnancy (Albanian).
+locale: sq
+---
+Endometriozë
+Sindromi i vezoreve policistike
+Fibroma të mitrës
+Kist vezoreje
+Kancer i vezoreve
+Kancer i qafës së mitrës
+Displazi e qafës së mitrës
+Cervicit
+Endometrit
+Kancer i endometrit
+Sëmundje inflamatore e legenit
+Vaginozë bakteriale
+Kandidozë vulvovaginale
+Menoragji
+Dismenorre
+Amenorre
+Preeklampsi
+Diabet gestacional
+Hiperemezë gravidike
+Shtatzëni ektopike
+Hemorragji pas lindjes
+Mastit
+Ndryshim fibrocistik i gjirit
+Sindrom menopauzal
+Çrregullim disforik paramenstrual
+Prolaps i mitrës

@@ -1,0 +1,42 @@
+---
+description: University field of study (Albanian).
+locale: sq
+---
+Informatikë
+Shkenca kompjuterike
+Inxhinieri informatike
+Administrim biznesi
+Ekonomiks
+Financë
+Kontabilitet
+Marketing
+Drejtësi
+Shkenca politike
+Marrëdhënie ndërkombëtare
+Psikologji
+Sociologji
+Punë sociale
+Gazetari
+Gjuhë dhe letërsi shqipe
+Gjuhë angleze
+Histori
+Arkeologji
+Filozofi
+Mjekësi e përgjithshme
+Stomatologji
+Farmaci
+Infermieri
+Fizioterapi
+Inxhinieri ndërtimi
+Inxhinieri mekanike
+Inxhinieri elektrike
+Arkitekturë
+Agronomi
+Veterinari
+Matematikë
+Fizikë
+Kimi
+Biologji
+Gjeologji
+Shkenca mjedisore
+Arte të bukura

@@ -1,0 +1,10 @@
+---
+description: Job in the prodhim sector, in Albanian.
+locale: sq
+---
+Tornitor
+Saldator
+Inspektor cilësie
+Mbikëqyrës prodhimi
+Montues
+Mekanik mirëmbajtjeje

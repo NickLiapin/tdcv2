@@ -1,0 +1,14 @@
+---
+description: Marital status (Albanian, masculine form; a form for a woman reads i martuar -> e martuar, i divorcuar -> e divorcuar).
+locale: sq
+---
+Beqar
+I martuar
+I divorcuar
+I ve
+I ndarë
+I fejuar
+Bashkëjetesë
+I pamartuar
+Martesë e regjistruar
+Martesë fetare

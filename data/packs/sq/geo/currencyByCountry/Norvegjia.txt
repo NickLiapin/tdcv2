@@ -1,0 +1,5 @@
+---
+description: Currency of Norvegjia, named in Albanian.
+locale: sq
+---
+Krona norvegjeze

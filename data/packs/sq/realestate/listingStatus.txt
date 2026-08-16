@@ -1,0 +1,16 @@
+---
+description: Listing status (Albanian).
+locale: sq
+---
+Në shitje
+Me qira
+Në pritje
+E shitur
+E dhënë me qira
+Nën kontratë
+Jashtë tregut
+Së shpejti
+Ndërtim i ri
+Në ndërtim
+Çmim i ulur
+E rezervuar

@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Maqedonia e Veriut.
+locale: sq
+---
+MKD

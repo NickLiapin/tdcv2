@@ -1,0 +1,5 @@
+---
+description: Capital of Franca, in Albanian.
+locale: sq
+---
+Parisi

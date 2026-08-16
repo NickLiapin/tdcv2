@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Albanian).
+locale: sq
+---
+1 yll
+2 yje
+3 yje
+4 yje
+5 yje

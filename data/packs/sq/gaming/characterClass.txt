@@ -1,0 +1,28 @@
+---
+description: Role-playing character class (Albanian).
+locale: sq
+---
+Luftëtar
+Magjistar
+Hajdut
+Paladin
+Gjuetar
+Prift
+Nekromant
+Druid
+Murg
+Harkëtar
+Barbar
+Bard
+Vrasës
+Klerik
+Shaman
+Kalorës
+Berserk
+Alkimist
+Zjarrndezës
+Mbrojtës
+Shërues
+Përbindësh
+Endacak
+Zanatçi

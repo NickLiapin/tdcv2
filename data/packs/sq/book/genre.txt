@@ -1,0 +1,30 @@
+---
+description: Book genre (Albanian).
+locale: sq
+---
+Letërsi artistike
+Jofiction
+Roman
+Tregim
+Novelë
+Mister
+Triler
+Dashuri
+Fantashkencë
+Fantazi
+Horror
+Biografi
+Autobiografi
+Histori
+Vetëndihmë
+Poezi
+Dramë
+Për të rinj
+Roman historik
+Krim
+Aventurë
+Kujtime
+Filozofi
+Udhëpërshkrim
+Libër gatimi
+Roman grafik

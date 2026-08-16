@@ -1,0 +1,32 @@
+---
+description: Kind of state body, in the WORDS Albanian uses for them. This is a language list, not a register: the named institutions of the Albanian state — AKSHI, QKB, ASHK, DPT — belong to albania.government.agency in the country pack, and Kosovo's to its own. What is here is the vocabulary that any Albanian-speaking administration builds a name out of, which is why each entry is a type (Ministria e Shendetesise) rather than one country's exact title.
+locale: sq
+---
+Ministria e Shëndetësisë
+Ministria e Arsimit
+Ministria e Financave
+Ministria e Drejtësisë
+Ministria e Brendshme
+Ministria e Jashtme
+Ministria e Mbrojtjes
+Ministria e Bujqësisë
+Ministria e Infrastrukturës
+Ministria e Kulturës
+Ministria e Turizmit dhe Mjedisit
+Ministria e Ekonomisë
+Drejtoria e Përgjithshme e Tatimeve
+Drejtoria e Doganave
+Zyra e Gjendjes Civile
+Zyra e Regjistrimit të Pasurive
+Instituti i Statistikave
+Inspektorati Shtetëror
+Agjencia Kombëtare
+Autoriteti Rregullator
+Komisioni Qendror i Zgjedhjeve
+Avokati i Popullit
+Bashkia
+Prefektura
+Këshilli i Qarkut
+Njësia Administrative
+Policia e Shtetit
+Shërbimi Zjarrfikës

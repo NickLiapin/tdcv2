@@ -1,0 +1,10 @@
+---
+description: Job in the ndërtim sector, in Albanian.
+locale: sq
+---
+Elektricist
+Hidraulik
+Marangoz
+Kryepunëtor ndërtimi
+Operator makinerish të rënda
+Topograf

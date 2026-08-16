@@ -1,0 +1,5 @@
+---
+description: Capital of Kina, in Albanian.
+locale: sq
+---
+Pekini

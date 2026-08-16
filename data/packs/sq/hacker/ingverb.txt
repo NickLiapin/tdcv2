@@ -1,0 +1,32 @@
+---
+description: Technical activity, as an Albanian verbal noun (duke + participle).
+locale: sq
+---
+duke bërë kopje rezervë
+duke anashkaluar
+duke hakuar
+duke mbishkruar
+duke ngjeshur
+duke kopjuar
+duke lundruar
+duke indeksuar
+duke lidhur
+duke gjeneruar
+duke matur
+duke llogaritur
+duke sintetizuar
+duke transmetuar
+duke programuar
+duke rindezur
+duke analizuar
+duke enkriptuar
+duke shpërndarë
+duke ngarkuar
+duke shkarkuar
+duke sinkronizuar
+duke verifikuar
+duke filtruar
+duke kompiluar
+duke testuar
+duke monitoruar
+duke rikuperuar

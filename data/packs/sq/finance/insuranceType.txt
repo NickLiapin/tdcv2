@@ -1,0 +1,18 @@
+---
+description: Insurance class (Albanian). SIGURIMI I DETYRUESHEM I AUTOMJETEVE, third-party motor cover, is the only compulsory policy in Albania and Kosovo and is the one most people have ever bought; the private health and life market is small.
+locale: sq
+---
+Sigurim i detyrueshëm i automjeteve
+Kasko
+Sigurim shëndetësor
+Sigurim jete
+Sigurim banese
+Sigurim qiraje
+Sigurim udhëtimi
+Sigurim kafshësh shtëpiake
+Sigurim nga aksidentet
+Sigurim dentar
+Sigurim i syve
+Sigurim përgjegjësie
+Sigurim pasurie
+Sigurim ndaj tërmetit

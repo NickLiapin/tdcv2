@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Biçikletë rruge
+Biçikletë malore
+Biçikletë hibride
+Biçikletë qyteti
+Biçikletë zhavorri
+Biçikletë BMX
+Biçikletë elektrike
+Biçikletë e palosshme
+Biçikletë turistike
+Biçikletë ciklokros
+Biçikletë me goma të trasha
+Biçikletë e shtrirë
+Biçikletë fëmijësh
+Biçikletë me tri rrota
+Tandem
+Biçikletë pa marshe
+Biçikletë ngarkese

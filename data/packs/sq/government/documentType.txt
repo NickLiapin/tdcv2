@@ -1,0 +1,25 @@
+---
+description: Kind of official document, in Albanian. CERTIFIKATE PERSONALE is the extract from the civil register that an Albanian is asked for at almost every counter — it is issued on demand and expires in ninety days, so it is a document people obtain repeatedly rather than hold. LETERNJOFTIM is the identity card; the word for passport is pasaporte.
+locale: sq
+---
+Pasaportë
+Letërnjoftim
+Certifikatë personale
+Certifikatë lindjeje
+Certifikatë martese
+Certifikatë vdekjeje
+Certifikatë familjare
+Patentë shoferi
+Leje qëndrimi
+Leje pune
+Vizë
+Deklaratë tatimore
+Leje ndërtimi
+Licencë biznesi
+Vërtetim banimi
+Vërtetim i gjendjes gjyqësore
+Dëftesë shkolle
+Diplomë
+Kontratë
+Prokurë
+Testament

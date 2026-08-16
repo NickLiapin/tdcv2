@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are brand names and keep their real spelling in every locale; only the words around them would be Albanian.
+locale: sq
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330
+Airbus A350
+Airbus A380
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+Embraer E175
+Embraer E190
+Embraer E195
+Bombardier CRJ900
+ATR 72
+ATR 42
+De Havilland Dash 8
+Sukhoi Superjet 100
+Antonov An-26
+Cessna Citation
+Beechcraft King Air
+Boeing 737-700

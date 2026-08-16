@@ -1,0 +1,26 @@
+---
+description: Company department (Albanian).
+locale: sq
+---
+Inxhinieri
+Produkt
+Dizajn
+Shitje
+Marketing
+Financë
+Kontabilitet
+Burime njerëzore
+Operacione
+Juridike
+Mbështetje për klientin
+Teknologji informacioni
+Kërkim dhe zhvillim
+Prokurim
+Sigurim i cilësisë
+Logjistikë
+Administratë
+Mirëmbajtje
+Siguri
+Përputhshmëri
+Komunikim
+Trajnim

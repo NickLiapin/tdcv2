@@ -1,0 +1,10 @@
+---
+description: Diagnosis typically handled by ortopedi, named in Albanian.
+locale: sq
+---
+Osteoartrit
+Artrit reumatoid
+Hernie diskale
+Sindromi i tunelit karpal
+Shiatikë
+Këputje e kufit rrotullues

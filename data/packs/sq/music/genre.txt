@@ -1,0 +1,39 @@
+---
+description: Music genre (Albanian). The first four are the ones a world list would miss. ISO-POLIFONIA is the multi-part unaccompanied singing of southern Albania, inscribed by UNESCO in 2005 and unlike anything its neighbours sing. KENGE KRESHNIKE are the epic songs of the northern highlands, sung to the one-stringed lahuta. MUZIKE POPULLORE QYTETARE is the urban folk song of Shkoder, Elbasan and Korce, and TALLAVA is the Roma-influenced dance music of Kosovo and the diaspora, disliked by critics and played at every wedding.
+locale: sq
+---
+Iso-polifoni
+Këngë kreshnike
+Muzikë popullore qytetare
+Tallava
+Muzikë popullore
+Valle
+Muzikë e lehtë
+Rock
+Pop
+Xhaz
+Klasike
+Hip-hop
+Rap
+Këngë autoriale
+Elektronike
+Blues
+Rege
+Metal
+Folk
+R&B
+Soul
+Funk
+Punk
+Disko
+House
+Techno
+Indie
+Gospel
+Ambient
+Ska
+Latine
+Opera
+Muzikë kishtare
+Muzikë ilahi
+Muzikë filmi

@@ -1,0 +1,12 @@
+---
+description: The eight sports that have a matching sq.sport.positionBySport file. Filenames match these values character for character. FUTSALL earns its place in an Albanian list where ice hockey does not — it is played seriously in both Albania and Kosovo, whereas hockey is here only for parity with the other locales.
+locale: sq
+---
+Futboll
+Basketboll
+Volejboll
+Hendboll
+Futsall
+Rugbi
+Hokej mbi akull
+Bejsboll

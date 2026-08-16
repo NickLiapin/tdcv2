@@ -1,0 +1,42 @@
+---
+description: Symptom (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Ethe
+Dhimbje koke
+Lodhje
+Të përziera
+Të vjella
+Diarre
+Kapsllëk
+Dhimbje barku
+Dhimbje gjoksi
+Gulçim
+Kollë
+Dhimbje fyti
+Rrjedhje hundësh
+Bllokim i hundëve
+Marrje mendsh
+Shikim i turbullt
+Dhimbje muskujsh
+Dhimbje kyçesh
+Dhimbje shpine
+Skuqje e lëkurës
+Kruajtje
+Ënjtje
+Mpirje
+Ndjesi gjilpërash
+Rrahje të shpejta zemre
+Humbje oreksi
+Rënie peshe pa shkak
+Djersitje natën
+Të dridhura
+Teshtimë
+Urth
+Fryrje barku
+Ngërçe
+Dobësi
+Konfuzion
+Etje e shtuar
+Urinim i shpeshtë
+Zë i ngjirur

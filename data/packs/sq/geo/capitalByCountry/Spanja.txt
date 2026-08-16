@@ -1,0 +1,5 @@
+---
+description: Capital of Spanja, in Albanian.
+locale: sq
+---
+Madridi

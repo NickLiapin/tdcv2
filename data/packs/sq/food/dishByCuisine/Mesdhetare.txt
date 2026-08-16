@@ -1,0 +1,12 @@
+---
+description: Dish of Mesdhetare cuisine, named in Albanian.
+locale: sq
+---
+Peshk në skarë
+Tavë me perime
+Sallatë mesdhetare
+Rizoto me fruta deti
+Kallamar i skuqur
+Bruskete
+Ullinj të marinuar
+Karkalec në skarë

@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one. KOS, set yoghurt, and GJIZE, the fresh curd cheese, are staples of the Albanian kitchen rather than optional extras; a recipe list without them is not an Albanian one.
+locale: sq
+---
+Miell
+Miell misri
+Sheqer
+Kripë
+Gjalpë
+Vaj ulliri
+Vaj luledielli
+Vezë
+Qumësht
+Kos
+Gjizë
+Djathë i bardhë
+Kaçkavall
+Ajkë
+Krem
+Qepë
+Hudhër
+Domate
+Salcë domatesh
+Spec
+Karrotë
+Patate
+Oriz
+Makarona
+Bukë
+Thërrime buke
+Mish i grirë
+Gjoks pule
+Mish qingji
+Mish viçi
+Peshk
+Fasule
+Thjerrëza
+Maja
+Sodë buke
+Mjaltë
+Limon
+Uthull
+Spinaq
+Petë byreku

@@ -1,0 +1,5 @@
+---
+description: Currency of Argjentina, named in Albanian.
+locale: sq
+---
+Pesoja argjentinase

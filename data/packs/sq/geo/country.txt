@@ -1,0 +1,48 @@
+---
+description: Country, as ALBANIAN names it, weighted by population in millions. DEFINITE FORM. Albanian marks definiteness with a suffix, and a country standing alone as a label takes it: the country is Shqiperia, Gjermania, Italia, not the indefinite Shqiperi, Gjermani, Itali that appear after a preposition (ne Shqiperi, in Albania). This differs from albania.geo.county in the Albania COUNTRY pack, which ships the indefinite form the domestic administration uses — the two conventions are both correct and they are not interchangeable. Names are TRANSLATED, not transliterated: Germany is Gjermania and the United Kingdom is Mbreteria e Bashkuar. The four Albanian-speaking or Albanian-neighbouring states are all here — Shqiperia, Kosova, Maqedonia e Veriut and Mali i Zi — because a pack in this language that cannot name Kosovo is not usable.
+locale: sq
+weighted: true
+---
+Kina,1410
+India,1400
+Shtetet e Bashkuara,335
+Indonezia,275
+Pakistani,240
+Nigeria,220
+Brazili,215
+Bangladeshi,170
+Rusia,144
+Meksika,128
+Egjipti,110
+Japonia,125
+Vietnami,98
+Turqia,85
+Gjermania,84
+Tajlanda,72
+Franca,68
+Mbretëria e Bashkuar,67
+Afrika e Jugut,60
+Italia,59
+Koreja e Jugut,52
+Spanja,47
+Argjentina,46
+Kanadaja,39
+Polonia,38
+Arabia Saudite,36
+Australia,26
+Holanda,18
+Greqia,10
+Portugalia,10
+Suedia,10
+Belgjika,12
+Austria,9
+Zvicra,9
+Serbia,7
+Norvegjia,5
+Irlanda,5
+Zelanda e Re,5
+Singapori,6
+Shqipëria,3
+Kosova,2
+Maqedonia e Veriut,2
+Mali i Zi,1

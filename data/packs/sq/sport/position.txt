@@ -1,0 +1,39 @@
+---
+description: Playing position across sports (Albanian).
+locale: sq
+---
+Portier
+Mbrojtës
+Mbrojtës qendror
+Mbrojtës anësor
+Mesfushor
+Mesfushor mbrojtës
+Mesfushor ofensiv
+Krahu
+Sulmues
+Qendërsulmues
+Kapiten
+Rezervë
+Playmejker
+Bek
+Krah i vogël
+Krah i fortë
+Qendër
+Pasues
+Sulmues anësor
+Bllokues qendror
+Libero
+Diagonal
+Pivot
+Fiks
+Ala
+Universal
+Hedhës
+Kapës
+Ndërbazë
+Gjysmëmbledhës
+Gjysmëhapës
+Fundas
+Trajner
+Ndihmëstrajner
+Gjyqtar

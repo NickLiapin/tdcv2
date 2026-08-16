@@ -1,0 +1,17 @@
+---
+description: Diagnosis recorded against a female patient (Albanian).
+locale: sq
+---
+Displazi e qafës së mitrës
+Fibroma të mitrës
+Kandidozë
+Fibroadenomë e gjirit
+Vezore policistike
+Erozion i qafës së mitrës
+Pankreatit kronik
+Klamidia
+Artrit kronik
+Cervicit
+Emboli e arteries qendrore të retinës
+Kancer i rektumit
+Endometrit

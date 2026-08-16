@@ -1,0 +1,5 @@
+---
+description: Capital of Shqipëria, in Albanian.
+locale: sq
+---
+Tirana

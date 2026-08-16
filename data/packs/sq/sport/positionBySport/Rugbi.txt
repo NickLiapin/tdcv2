@@ -1,0 +1,10 @@
+---
+description: Playing position in Rugbi, in Albanian.
+locale: sq
+---
+Prop
+Hooker
+Lock
+Gjysmëmbledhës
+Gjysmëhapës
+Fundas

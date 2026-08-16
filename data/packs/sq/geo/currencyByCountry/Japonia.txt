@@ -1,0 +1,5 @@
+---
+description: Currency of Japonia, named in Albanian.
+locale: sq
+---
+Jeni japonez

@@ -1,0 +1,32 @@
+---
+description: Flower (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Trëndafil
+Tulipan
+Luledele
+Luledielli
+Zambak
+Orkide
+Narcis
+Manushaqe
+Lavandë
+Bozhure
+Karafil
+Krizantemë
+Lulëkuqe
+Jasemin
+Hibiskus
+Shebojë
+Mimozë
+Gardenia
+Zambak uji
+Dahli
+Begonia
+Borëbardhë
+Ciklamen
+Lule shpate
+Lule misri
+Kamomil
+Lule bliri
+Glicinë

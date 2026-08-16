@@ -1,0 +1,16 @@
+---
+description: Month name (Albanian). Albanian writes month names in LOWERCASE, unlike English — a config that capitalises them is making an English assumption. Three of them are transparent native words rather than Latin borrowings: qershor is the month of the cherry (qershi), korrik is the month of the harvest (korrje), and shtator, tetor, nentor, dhjetor are simply seventh, eighth, ninth and tenth month — the Roman count that English lost.
+locale: sq
+---
+janar
+shkurt
+mars
+prill
+maj
+qershor
+korrik
+gusht
+shtator
+tetor
+nëntor
+dhjetor

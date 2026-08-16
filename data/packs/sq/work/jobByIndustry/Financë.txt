@@ -1,0 +1,10 @@
+---
+description: Job in the financë sector, in Albanian.
+locale: sq
+---
+Analist financiar
+Kontabilist
+Bankier
+Auditues
+Aktuar
+Oficer krediti

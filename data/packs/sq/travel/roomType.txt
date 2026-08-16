@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Albanian).
+locale: sq
+---
+Standarde
+Superiore
+Dyshe
+Teke
+Twin
+Trefishe
+Familjare
+Suitë
+Suitë junior
+Suitë presidenciale
+Studio
+Apartament
+Bungalo
+Me pamje nga deti
+Me pamje nga mali
+E aksesueshme
+Me ballkon
+Ekonomike

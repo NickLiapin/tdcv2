@@ -1,0 +1,15 @@
+---
+description: Shipping status (Albanian).
+locale: sq
+---
+Etiketa u krijua
+Në rrugë
+Në dorëzim
+Dorëzuar
+Përjashtim
+Kthyer te dërguesi
+Në pritje të marrjes
+Me vonesë
+Në doganë
+Në qendër sortimi
+Adresë e pasaktë

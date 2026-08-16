@@ -1,0 +1,41 @@
+---
+description: Trailing qualifier of an Albanian place name (Malesi e Madhe, Berzhite e Siperme, Kukes Qender). The qualifier is an ADJECTIVE and it agrees with the gender of the settlement noun, which is why both members of each pair are here: i Madh for a masculine name, e Madhe for a feminine one. A config that always picks one of the pair will produce agreement errors on half the rows.
+locale: sq
+---
+i Madh
+e Madhe
+i Vogël
+e Vogël
+i Ri
+e Re
+i Vjetër
+e Vjetër
+i Sipërm
+e Sipërme
+i Poshtëm
+e Poshtme
+i Mesëm
+e Mesme
+i Epërm
+e Epërme
+Qendër
+i Bardhë
+e Bardhë
+i Zi
+e Zezë
+i Thatë
+e Thatë
+Malore
+Fushore
+Bregdetare
+Verior
+Veriore
+Jugor
+Jugore
+Lindor
+Lindore
+Perëndimor
+Perëndimore
+e Dejës
+e Krujës
+e Madhe e Re

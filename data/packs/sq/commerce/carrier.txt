@@ -1,0 +1,24 @@
+---
+description: Parcel carrier as an Albanian shopper meets one. Posta Shqiptare is the state post and Posta e Kosoves its Kosovan counterpart; the rest are the international couriers and the regional operators that actually deliver into the Balkans. Brand names are not translated.
+locale: sq
+---
+Posta Shqiptare
+Posta e Kosovës
+DHL
+DPD
+GLS
+FedEx
+UPS
+TNT
+Albanian Courier
+Adriatik Express
+Cargus
+Sameday
+Fan Courier
+Gjirafa Delivery
+Speed Ex
+Barrio
+Shpresa Trans
+Balkan Express
+Euro Trans
+Interlogistica

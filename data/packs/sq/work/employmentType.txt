@@ -1,0 +1,15 @@
+---
+description: Employment type (Albanian). PUNE INFORMALE is on the list because it is real: undeclared work is a large share of Albanian employment and a dataset that offers only formal contract types does not describe the labour market.
+locale: sq
+---
+Me kohë të plotë
+Me kohë të pjesshme
+Me kontratë
+I përkohshëm
+Praktikant
+I pavarur
+Sezonal
+Me ditë
+Mësim zanati
+Punë informale
+Vullnetar

@@ -1,0 +1,12 @@
+---
+description: Book format (Albanian).
+locale: sq
+---
+Me kapak të fortë
+Me kapak të butë
+Libër elektronik
+Audiolibër
+Botim xhepi
+Lidhje bibliotekare
+Botim i ilustruar
+Botim shkollor

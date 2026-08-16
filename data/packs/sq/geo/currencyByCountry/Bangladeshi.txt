@@ -1,0 +1,5 @@
+---
+description: Currency of Bangladeshi, named in Albanian.
+locale: sq
+---
+Taka

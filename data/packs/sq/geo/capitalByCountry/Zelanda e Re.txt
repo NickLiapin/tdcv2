@@ -1,0 +1,5 @@
+---
+description: Capital of Zelanda e Re, in Albanian.
+locale: sq
+---
+Uellingtoni

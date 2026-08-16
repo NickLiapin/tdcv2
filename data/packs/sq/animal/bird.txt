@@ -1,0 +1,34 @@
+---
+description: Bird (Albanian). SHQIPONJE, the eagle, is not an ordinary entry: the country calls itself Shqiperia and its people shqiptare, and the double-headed eagle on the flag is the reason the folk etymology linking the two has survived every attempt of the philologists to bury it. Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Shqiponjë
+Harabel
+Mëllenjë
+Gushëkuq
+Skifter
+Fajkua
+Buf
+Kukuvajkë
+Papagall
+Pinguin
+Laraskë
+Sorrë
+Korb
+Bilbil
+Qukapik
+Pelikan
+Flamingo
+Mjellmë
+Çafkë
+Pulëbardhë
+Rosë
+Patë
+Pëllumb
+Turtull
+Thëllëzë
+Lejlek
+Dallëndyshe
+Qyqe
+Gjeldeti
+Fazan

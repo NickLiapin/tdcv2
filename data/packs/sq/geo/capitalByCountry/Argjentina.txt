@@ -1,0 +1,5 @@
+---
+description: Capital of Argjentina, in Albanian.
+locale: sq
+---
+Buenos Ajresi

@@ -1,0 +1,10 @@
+---
+description: Diagnosis typically handled by neurologji, named in Albanian.
+locale: sq
+---
+Migrenë
+Epilepsi
+Sëmundja e Parkinsonit
+Sklerozë e shumëfishtë
+Aksident cerebrovaskular ishemik
+Neuropati periferike

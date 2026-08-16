@@ -1,0 +1,10 @@
+---
+description: Condition with raised prevalence in the Evropiane lindore ancestry group, named in Albanian.
+locale: sq
+---
+Hemokromatozë e trashëguar
+Fenilketonuri
+Hiperkolesterolemi familjare
+Sëmundje e mëlçisë nga alkooli
+Fibrozë cistike
+Sëmundja e Wilsonit

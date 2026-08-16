@@ -1,0 +1,9 @@
+---
+description: Work shift (Albanian).
+locale: sq
+---
+Ditë
+Natë
+Pasdite
+Me rotacion
+Turni i tretë

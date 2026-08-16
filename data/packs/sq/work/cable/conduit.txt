@@ -1,0 +1,11 @@
+---
+description: Cable conduit type (Albanian).
+locale: sq
+---
+Tub PVC
+Tub çeliku i ngurtë
+Tub HDPE
+Varrim i drejtpërdrejtë
+Tub i brendshëm
+Kanaletë kabllore
+Kabllo ajrore me tel mbajtës

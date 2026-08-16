@@ -1,0 +1,10 @@
+---
+description: Job in the drejtësi sector, in Albanian.
+locale: sq
+---
+Avokat
+Ndihmësjurist
+Gjyqtar
+Sekretar juridik
+Oficer përputhshmërie
+Sekretar gjyqi

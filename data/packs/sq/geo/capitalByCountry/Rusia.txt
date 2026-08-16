@@ -1,0 +1,5 @@
+---
+description: Capital of Rusia, in Albanian.
+locale: sq
+---
+Moska

@@ -1,0 +1,15 @@
+---
+description: Booking status (Albanian).
+locale: sq
+---
+Konfirmuar
+Në pritje
+Anuluar
+Regjistruar në hyrje
+Larguar
+Nuk u paraqit
+Ndryshuar
+Rimbursuar
+Në listë pritjeje
+Skaduar
+Paguar

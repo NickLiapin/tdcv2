@@ -1,0 +1,24 @@
+---
+description: School subject (Albanian). GJUHE SHQIPE is the mother-tongue subject and it is what an Albanian school timetable calls it, not 'Albanian' — the same position English holds on an English timetable.
+locale: sq
+---
+Gjuhë shqipe
+Letërsi
+Matematikë
+Fizikë
+Kimi
+Biologji
+Informatikë
+Histori
+Gjeografi
+Gjuhë e huaj
+Anglisht
+Art figurativ
+Muzikë
+Edukim fizik
+Ekonomi
+Filozofi
+Psikologji
+Sociologji
+Statistikë
+Edukim qytetar

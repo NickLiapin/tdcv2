@@ -1,0 +1,32 @@
+---
+description: Technical verb (Albanian, first person singular).
+locale: sq
+---
+bëj kopje rezervë
+anashkaloj
+hakoj
+mbishkruaj
+ngjesh
+kopjoj
+lundroj
+indeksoj
+lidh
+gjeneroj
+mas
+llogaris
+sintetizoj
+fus
+transmetoj
+programoj
+rindez
+analizoj
+enkriptoj
+deshifroj
+shpërndaj
+ngarkoj
+shkarkoj
+sinkronizoj
+verifikoj
+filtroj
+kompiloj
+testoj

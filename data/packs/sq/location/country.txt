@@ -1,0 +1,208 @@
+---
+description: The world's countries as Albanian names them, alphabetical by the Albanian name. DEFINITE FORM throughout, matching sq.geo.country — Gjermania not Gjermani. Names are translated, never transliterated: the Ivory Coast is Bregu i Fildishte, Cape Verde is Kepi i Gjelber, Montenegro is Mali i Zi. Two pairs catch people out and both are in this list: NIGERI is Niger and NIGERIA is Nigeria, one letter apart, and MALI is the west African republic while the identical Albanian common noun mali means 'the mountain'.
+locale: sq
+---
+Afganistani
+Afrika e Jugut
+Algjeria
+Andorra
+Angola
+Antigua dhe Barbuda
+Arabia Saudite
+Argjentina
+Armenia
+Australia
+Austria
+Azerbajxhani
+Bahamas
+Bahrejni
+Bangladeshi
+Barbadosi
+Belgjika
+Belize
+Benini
+Bjellorusia
+Bolivia
+Bosnja dhe Hercegovina
+Botsvana
+Brazili
+Bregu i Fildishtë
+Brunei
+Bullgaria
+Burkina Faso
+Burundi
+Butani
+Danimarka
+Dominika
+Egjipti
+Ekuadori
+Emiratet e Bashkuara Arabe
+Eritrea
+Estonia
+Esuatini
+Etiopia
+Filipinet
+Finlanda
+Fixhi
+Franca
+Gaboni
+Gambia
+Gana
+Gjeorgjia
+Gjermania
+Gjibraltari
+Grenada
+Greqia
+Groenlanda
+Guajana
+Guatemala
+Guinea
+Guinea Ekuatoriale
+Guinea-Bisau
+Haiti
+Holanda
+Hondurasi
+Hong Kongu
+Hungaria
+India
+Indonezia
+Iraku
+Irani
+Irlanda
+Ishujt Faroe
+Ishujt Marshall
+Ishujt Solomon
+Islanda
+Italia
+Izraeli
+Japonia
+Jemeni
+Jordania
+Kamboxhia
+Kameruni
+Kanadaja
+Katari
+Kazakistani
+Kenia
+Kepi i Gjelbër
+Kili
+Kina
+Kirgizstani
+Kiribati
+Kolumbia
+Komoret
+Koreja e Jugut
+Koreja e Veriut
+Kosova
+Kosta Rika
+Kroacia
+Kuba
+Kuvajti
+Laosi
+Lesoto
+Letonia
+Libani
+Liberia
+Libia
+Lihtenshtajni
+Lituania
+Luksemburgu
+Madagaskari
+Makao
+Malajzia
+Malavi
+Maldivet
+Mali
+Mali i Zi
+Malta
+Maqedonia e Veriut
+Maroku
+Mauriciusi
+Mauritania
+Mbretëria e Bashkuar
+Meksika
+Mianmari
+Mikronezia
+Moldavia
+Monako
+Mongolia
+Mozambiku
+Namibia
+Nauru
+Nepali
+Nigeri
+Nigeria
+Nikaragua
+Norvegjia
+Omani
+Pakistani
+Palau
+Palestina
+Panamaja
+Papua Guinea e Re
+Paraguai
+Peruja
+Polonia
+Porto Riko
+Portugalia
+Qipro
+Republika Demokratike e Kongos
+Republika Dominikane
+Republika e Afrikës Qendrore
+Republika e Kongos
+Ruanda
+Rumania
+Rusia
+Sahara Perëndimore
+Salvadori
+Samoa
+San Marino
+Sao Tome dhe Principe
+Sejshellet
+Senegali
+Serbia
+Shqipëria
+Shtetet e Bashkuara
+Shën Kits dhe Nevis
+Shën Lucia
+Shën Vincenti dhe Grenadinet
+Siera Leone
+Singapori
+Siria
+Sllovakia
+Sllovenia
+Somalia
+Spanja
+Sri Lanka
+Sudani
+Sudani i Jugut
+Suedia
+Surinami
+Tajlanda
+Tajvani
+Tanzania
+Taxhikistani
+Timori Lindor
+Togo
+Tonga
+Trinidad dhe Tobago
+Tunizia
+Turkmenistani
+Turqia
+Tuvalu
+Uganda
+Ukraina
+Uruguai
+Uzbekistani
+Vanuatu
+Vatikani
+Venezuela
+Vietnami
+Xhamajka
+Xhibuti
+Zambia
+Zelanda e Re
+Zimbabve
+Zvicra
+Çadi
+Çekia

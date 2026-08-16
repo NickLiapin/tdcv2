@@ -1,0 +1,8 @@
+---
+description: Calendar quarter (Albanian). Albanian business usage writes the quarter with a Roman numeral: Tremujori I, not Q1.
+locale: sq
+---
+Tremujori I
+Tremujori II
+Tremujori III
+Tremujori IV

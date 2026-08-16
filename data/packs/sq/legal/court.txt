@@ -1,0 +1,19 @@
+---
+description: The WORDS Albanian uses for kinds of court — generic legal vocabulary, not one country's judiciary. Albanian is the official language of two states and of a third country's second language, so a language pack cannot name a real bench: Albania's actual courts, reorganised by the judicial map of 1 February 2023, live in albania.government.court, and Kosovo's are different again (Kosovo has Gjykata Themelore where Albania has Gjykata e Shkalles se Pare). GJYKATA E KASACIONIT is here because it is the Kosovo-side term a reader may meet; the Albanian supreme court is Gjykata e Larte.
+locale: sq
+---
+Gjykata Kushtetuese
+Gjykata e Lartë
+Gjykata e Kasacionit
+Gjykata Supreme
+Gjykata e Apelit
+Gjykata e Shkallës së Parë
+Gjykata Themelore
+Gjykata Civile
+Gjykata Penale
+Gjykata Administrative
+Gjykata Familjare
+Gjykata e Punës
+Gjykata Tregtare
+Gjykata Ushtarake
+Gjykata e Arbitrazhit

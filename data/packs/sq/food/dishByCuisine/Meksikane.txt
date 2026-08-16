@@ -1,0 +1,11 @@
+---
+description: Dish of Meksikane cuisine, named in Albanian.
+locale: sq
+---
+Tako
+Burito
+Encilada
+Kesadila
+Guakamole
+Tamale
+Naços

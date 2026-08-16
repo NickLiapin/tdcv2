@@ -1,0 +1,64 @@
+---
+description: Filler sentence (Albanian). Handwritten: Project Gutenberg holds no Albanian book at all — a search of the catalogue for language sq returns 'No records found', and gutenberg.org/browse/languages/sq is a 404, so there was no public-domain corpus to build this from and it was composed by hand. Every other locale whose text comes from real books says so in its own description; this one says the opposite, and the difference is the point. The prose is plain narrative modern standard Albanian, written to read as text rather than as a word salad — so the sentences carry real syntax: the definite suffix on nouns (fshati, dielli, rruga), the linking article on adjectives (i freskët, e qetë), the admirative-free ordinary past, and the je / e agreement that a machine translation of English filler would get wrong.
+locale: sq
+---
+Dielli lindi herët mbi kodra dhe fshati u zgjua me zhurmën e karrocave.
+Rruga e ngushtë zbriste drejt lumit, ku gratë lanin rrobat mbi gurët e lëmuar.
+Në mëngjes ajri ishte i freskët dhe mbi male dukej ende një shtresë e hollë bore.
+Burri i moshuar uli kokën dhe tha se dimri i këtij viti do të ishte i gjatë.
+Fëmijët vraponin nëpër oborr dhe qeshnin pa pushim.
+Nëna vendosi bukën mbi tryezë dhe u ul pranë dritares.
+Qyteti ndryshoi shpejt gjatë viteve të fundit, por sheshi mbeti i njëjti.
+Në mbrëmje njerëzit dilnin për xhiro dhe rrugët mbusheshin me zëra.
+Kafeneja në cep të rrugës ishte plot dhe askush nuk kishte nxitim.
+Ai mori çantën, mbylli derën dhe u nis drejt stacionit.
+Treni erdhi me vonesë, siç ndodhte gati çdo ditë.
+Nga dritarja shihej deti, i qetë dhe i kaltër deri në horizont.
+Vera ishte e nxehtë dhe puna në arë fillonte para se të lindte dielli.
+Fshatarët mblidhnin ullinjtë dhe i çonin në mulli para se të errësohej.
+Vjeshta solli shira të gjatë dhe rrugët u mbushën me baltë.
+Në vatër digjej zjarri dhe në dhomë ndihej era e drurit.
+Gjyshja tregonte përralla që i kishte dëgjuar kur ishte vajzë e vogël.
+Askush nuk e dinte se sa vjeç ishte rrapi në mes të sheshit.
+Nën hijen e tij pleqtë uleshin çdo pasdite dhe flisnin për motin.
+Shkolla ishte një ndërtesë e ulët me dritare të mëdha dhe një oborr me gurë.
+Mësuesja shkroi emrat në tabelë dhe kërkoi qetësi.
+Nxënësit hapën librat dhe filluan të lexonin me zë të ulët.
+Pas mësimit ata dolën me vrap dhe u shpërndanë nëpër lagje.
+Babai punonte në ndërtim dhe kthehej vonë, i lodhur dhe i pluhurosur.
+Në fundjavë familja shkonte te kushërinjtë në fshat.
+Rruga ishte e gjatë dhe makina ngjitej ngadalë nëpër kthesa.
+Nga maja e qafës dukej e gjithë lugina, e gjelbër dhe e qetë.
+Uji i kroit ishte aq i ftohtë sa të dhembnin dhëmbët.
+Ata mbushën shishet dhe u ulën të pushonin mbi një gur të madh.
+Qielli u vrenjt papritur dhe filloi një shi i imët.
+Mëngjesin tjetër toka ishte e lagur dhe era mbante erë dheu.
+Tregu hapej herët dhe zhurma e tij dëgjohej deri në fund të rrugës.
+Shitësit thërrisnin çmimet dhe blerësit ndalonin para arkave me domate.
+Ajo bleu bukë, djathë dhe një kilogram mollë.
+Në dyqanin ngjitur shiteshin libra të vjetër dhe gazeta.
+Pronari lexonte gjithë ditën dhe rrallë ngrinte kokën.
+Nata ra shpejt dhe dritat e qytetit u ndezën një nga një.
+Nga larg dëgjohej muzikë dhe zëri i një këngëtareje.
+Dasma zgjati deri në mëngjes dhe të gjithë kërcyen valle.
+Të nesërmen fshati ishte i heshtur dhe rrugët bosh.
+Puna filloi sërish të hënën, si çdo javë.
+Zyra ishte e vogël, me tri tavolina dhe një dritare nga oborri.
+Ai hapi kompjuterin dhe nisi të shkruante raportin.
+Mbledhja u shty për të mërkurën, sepse drejtori kishte udhëtim.
+Në pushimin e drekës kolegët dilnin për kafe.
+Bisedat ishin gjithmonë për të njëjtat gjëra: motin, çmimet dhe fëmijët.
+Në fund të muajit ata numëronin ditët deri te paga.
+Jeta vazhdonte e njëjtë, e qetë dhe pa befasi.
+Në pranverë malet mbusheshin me lule dhe barinjtë ngjiteshin lart me bagëti.
+Bora shkrihej ngadalë dhe përrenjtë fryheshin nga uji.
+Zogjtë ktheheshin dhe mëngjeset bëheshin më të gjata.
+Njerëzit hapnin dritaret dhe ajrosnin shtëpitë pas dimrit.
+Kopshtet mbusheshin me punë dhe askush nuk rrinte pa bërë gjë.
+Fiqtë piqeshin në gusht dhe rrushi pak më vonë.
+Verë pas vere, gjërat ndryshonin pa u vënë re.
+Të rinjtë largoheshin dhe shtëpitë mbeteshin të mbyllura.
+Ata që ktheheshin sillnin dhurata dhe histori nga larg.
+Në gusht fshati mbushej sërish dhe zërat dëgjoheshin deri natën vonë.
+Pastaj shtatori i shpërndante përsëri dhe qetësia kthehej.
+Kështu kalonin vitet, ngadalë dhe pa bujë.

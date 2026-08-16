@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Albanian).
+locale: sq
+---
+Hekur
+Bronz
+Argjend
+Ar
+Platin
+Diamant
+Mjeshtër
+Madhmjeshtër
+Sfidues
+Legjendë

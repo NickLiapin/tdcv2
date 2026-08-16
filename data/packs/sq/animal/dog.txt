@@ -1,0 +1,29 @@
+---
+description: Dog breed. QENI I SHARRIT is the one that is not an import: the Sharr mountain shepherd dog is the livestock guardian of the Albanian and Macedonian highlands, and it is the breed an Albanian is most likely to have actually met working.
+locale: sq
+---
+Qeni i Sharrit
+Bari Ilir
+Labrador Retriver
+Bari Gjerman
+Golden Retriver
+Buldog Francez
+Buldog Anglez
+Pudël
+Bigëll
+Rotvajler
+Daksund
+Bokser
+Haski Siberian
+Dogë Gjermane
+Doberman
+Bari Australian
+Border Koli
+Çihuahua
+Shih Tzu
+Pomeranian
+Korgi
+Bernez
+Terrier
+Mastif
+Dalmat

@@ -1,0 +1,22 @@
+---
+description: Event type (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Konferencë
+Dasmë
+Fejesë
+Koncert
+Festival
+Seminar
+Trajnim
+Webinar
+Panair
+Ekspozitë
+Mbledhje fondesh
+Takim networking
+Prezantim produkti
+Gala
+Përvjetor
+Ditëlindje
+Promovim libri
+Premierë filmi

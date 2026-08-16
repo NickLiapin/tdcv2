@@ -1,0 +1,5 @@
+---
+description: Capital of Turqia, in Albanian.
+locale: sq
+---
+Ankaraja

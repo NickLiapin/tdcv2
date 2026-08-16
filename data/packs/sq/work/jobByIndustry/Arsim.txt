@@ -1,0 +1,10 @@
+---
+description: Job in the arsim sector, in Albanian.
+locale: sq
+---
+Mësues
+Profesor
+Psikolog shkolle
+Bibliotekar
+Asistent mësimi
+Drejtor shkolle

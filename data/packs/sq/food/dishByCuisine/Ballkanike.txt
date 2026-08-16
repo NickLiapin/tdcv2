@@ -1,0 +1,15 @@
+---
+description: Dish of Ballkanike cuisine, named in Albanian.
+locale: sq
+---
+Qebapa
+Pleskavicë
+Ajvar
+Kaçamak
+Sarma
+Pite
+Tarator
+Sallatë shope
+Burek
+Turshi
+Prebranac

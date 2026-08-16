@@ -1,0 +1,5 @@
+---
+description: Currency of Pakistani, named in Albanian.
+locale: sq
+---
+Rupia pakistaneze

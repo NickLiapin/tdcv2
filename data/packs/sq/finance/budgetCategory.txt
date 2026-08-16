@@ -1,0 +1,26 @@
+---
+description: Household budget line (Albanian).
+locale: sq
+---
+Qira
+Kredi banese
+Ushqime
+Fatura
+Energji elektrike
+Ujë
+Ngrohje
+Transport
+Karburant
+Argëtim
+Shëndetësi
+Sigurime
+Ushqim jashtë
+Kursime
+Abonime
+Udhëtime
+Arsim
+Veshje
+Dhurata
+Kujdes për fëmijët
+Shlyerje borxhi
+Telefon dhe internet

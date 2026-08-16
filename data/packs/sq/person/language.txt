@@ -1,0 +1,47 @@
+---
+description: Language name (Albanian). SHQIPJA is first and it is the entry that carries the fact: ALBANIAN IS AN INDEPENDENT BRANCH OF INDO-EUROPEAN WITH NO CLOSE RELATIVE ANYWHERE. It is not Slavic, not Greek, not Romance and not Turkic, whatever the neighbours are and however many words it has borrowed from all four. Its nearest kin died out: it is generally taken to descend from Illyrian, and its only living relatives are the other branches of Indo-European as a whole, which is to say English and Hindi at the same distance. A classifier that groups sq with sr, bg or mk because of geography is wrong about the language, and any morphology guessed from a Slavic neighbour will fail on it.
+  WHICH ALBANIAN THIS PACK SHIPS: standard literary Albanian, which has been TOSK-based since the Orthography Congress of Tirana in 1972. Gheg, spoken north of the Shkumbin and across Kosovo and North Macedonia, is the other half of the language and is not a mere accent. The clearest visible difference is RHOTACISM: an old intervocalic -n- became -r- in Tosk and stayed -n- in Gheg, so standard Shqiperi is Gheg Shqipni, standard zeri 'the voice' is Gheg zani, and the city standard Albanian calls Vlore is Vlone in Gheg — which is why Italians across the strait still say Valona. Gheg also keeps nasal vowels (a, i) that Tosk lost, and forms the infinitive with me: me punue where Tosk writes per te punuar. Kosovo and North Macedonia use this same Tosk-based standard in writing while speaking Gheg, so one written pack serves all of them; a pack claiming to be Gheg would be a different pack.
+locale: sq
+---
+Shqip
+Anglisht
+Italisht
+Greqisht
+Turqisht
+Serbisht
+Maqedonisht
+Malazezisht
+Boshnjakisht
+Kroatisht
+Gjermanisht
+Frëngjisht
+Spanjisht
+Portugalisht
+Rusisht
+Ukrainisht
+Polonisht
+Çekisht
+Sllovakisht
+Sllovenisht
+Bullgarisht
+Rumanisht
+Hungarisht
+Holandisht
+Suedisht
+Norvegjisht
+Danisht
+Finlandisht
+Arabisht
+Hebraisht
+Persisht
+Kinezisht
+Japonisht
+Koreanisht
+Hindisht
+Vietnamisht
+Tajlandisht
+Indonezisht
+Suahilisht
+Vllahisht
+Romisht
+Arbërisht

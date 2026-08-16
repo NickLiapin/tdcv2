@@ -1,0 +1,20 @@
+---
+description: Compass direction (Albanian). The sixteen-point rose; the compound names join without a hyphen in the eight main points (Verilindje) and take one in the sixteenth-points (Veri-verilindje).
+locale: sq
+---
+Veri
+Jug
+Lindje
+Perëndim
+Verilindje
+Veriperëndim
+Juglindje
+Jugperëndim
+Veri-verilindje
+Lindje-verilindje
+Lindje-juglindje
+Jug-juglindje
+Jug-jugperëndim
+Perëndim-jugperëndim
+Perëndim-veriperëndim
+Veri-veriperëndim

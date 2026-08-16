@@ -1,0 +1,5 @@
+---
+description: Currency of Egjipti, named in Albanian.
+locale: sq
+---
+Paundi egjiptian

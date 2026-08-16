@@ -1,0 +1,9 @@
+---
+description: Playing position in Volejboll, in Albanian.
+locale: sq
+---
+Pasues
+Sulmues anësor
+Bllokues qendror
+Libero
+Diagonal

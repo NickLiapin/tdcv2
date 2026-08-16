@@ -1,0 +1,5 @@
+---
+description: Capital of Mali i Zi, in Albanian.
+locale: sq
+---
+Podgorica

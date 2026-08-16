@@ -1,0 +1,62 @@
+---
+description: Pastime (Albanian). Values are in the INDEFINITE form; see sq.word.noun. Two are worth naming: XHIRO, the evening walk up and down the main street that empties every Albanian town's houses between six and eight, is a genuine daily institution and not a translation of 'strolling'; and VALLE, the circle dance, is learned at weddings rather than in classes.
+locale: sq
+---
+Xhiro
+Valle
+Lexim
+Ecje malore
+Fotografi
+Gatim
+Kopshtari
+Pikturë
+Çiklizëm
+Lojëra elektronike
+Jogë
+Udhëtim
+Peshkim
+Gjueti
+Vrapim
+Not
+Futboll
+Basketboll
+Volejboll
+Shah
+Kërcim
+Këndim
+Kitarë
+Punë dore
+Qëndisje
+Thurje
+Zdrukthtari
+Modelizëm
+Kamping
+Alpinizëm
+Shikim zogjsh
+Astronomi
+Qeramikë
+Skulpturë
+Shkrim
+Poezi
+Teatër
+Muzikë
+Koleksionim pullash
+Koleksionim monedhash
+Bletari
+Vreshtari
+Ullishtari
+Bujqësi
+Rritje kafshësh
+Mbledhje bimësh mjekësore
+Kërpudhambledhje
+Vullnetarizëm
+Mësim gjuhësh
+Programim
+Bordlojëra
+Enigmatikë
+Karaoke
+Motoçiklizëm
+Peshëngritje
+Arte marciale
+Kërcim popullor
+Kuzhinë tradicionale

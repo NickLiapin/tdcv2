@@ -1,0 +1,20 @@
+---
+description: Event venue type (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Sallë hoteli
+Qendër kongresesh
+Stadium
+Teatër
+Sallë banketesh
+Tarracë
+Kopsht
+Magazinë e rikonvertuar
+Auditor
+Klub nate
+Sallë mbledhjesh
+Pallat sporti
+Amfiteatër
+Kështjellë
+Plazh
+Vilë

@@ -1,0 +1,5 @@
+---
+description: Capital of Nigeria, in Albanian.
+locale: sq
+---
+Abuxha

@@ -1,0 +1,11 @@
+---
+description: MONTHLY net household income, in Albanian LEKE (ALL). Two things a config must not get wrong. First, the period: Albanian pay is quoted BY THE MONTH, never by the year, so an annual bracket would be read as a fortune. Second, the currency: Albania uses the lek and KOSOVO USES THE EURO, so a dataset covering Albanian speakers in Kosovo, North Macedonia or the diaspora needs its own brackets — this one is Albania's. The thousands separator is a full stop and the decimal comma, the continental way round. For reference, the average net monthly wage in Albania was in the region of 70,000-80,000 leke in 2024.
+locale: sq
+---
+Nën 30.000 L
+30.000–50.000 L
+50.000–80.000 L
+80.000–120.000 L
+120.000–200.000 L
+200.000–350.000 L
+Mbi 350.000 L

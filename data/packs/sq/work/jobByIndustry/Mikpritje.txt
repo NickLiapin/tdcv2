@@ -1,0 +1,10 @@
+---
+description: Job in the mikpritje sector, in Albanian.
+locale: sq
+---
+Kuzhinier
+Menaxher hoteli
+Banakier
+Recepsionist
+Ndihmëskuzhinier
+Organizator eventesh

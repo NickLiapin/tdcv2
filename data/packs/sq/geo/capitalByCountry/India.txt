@@ -1,0 +1,5 @@
+---
+description: Capital of India, in Albanian.
+locale: sq
+---
+Nju Delhi

@@ -1,0 +1,5 @@
+---
+description: Capital of Norvegjia, in Albanian.
+locale: sq
+---
+Oslo

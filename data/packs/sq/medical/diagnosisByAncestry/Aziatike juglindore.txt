@@ -1,0 +1,11 @@
+---
+description: Condition with raised prevalence in the Aziatike juglindore ancestry group, named in Albanian.
+locale: sq
+---
+Sëmundja e hemoglobinës E
+Talasemi alfa
+Mungesë e G6PD
+Karcinomë nazofaringeale
+Talasemi beta
+Sindromi i Brugadës
+Mospërsëritje e laktazës

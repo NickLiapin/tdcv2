@@ -1,0 +1,16 @@
+---
+description: Loan product (Albanian).
+locale: sq
+---
+Kredi hipotekare
+Kredi për banesë
+Kredi për automjet
+Kredi personale
+Kredi studentore
+Kredi për biznes
+Mikrokredi
+Overdraft
+Linjë krediti
+Kredi konsumatore
+Konsolidim borxhi
+Kredi bujqësore

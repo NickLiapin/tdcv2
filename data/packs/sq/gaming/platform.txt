@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Console and store names are brands and keep their real spelling.
+locale: sq
+---
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+PC
+Steam Deck
+Celular
+PlayStation 4
+Xbox One
+Meta Quest
+Internet kafe
+Lokal lojërash

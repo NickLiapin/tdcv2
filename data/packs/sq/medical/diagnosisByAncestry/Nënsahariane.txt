@@ -1,0 +1,16 @@
+---
+description: Condition with raised prevalence in the Nënsahariane ancestry group, named in Albanian. This list is a PREVALENCE SIGNAL, not an exclusive one: every condition named here occurs in every population, and ancestry raises or lowers a prior, it does not decide a diagnosis.
+locale: sq
+---
+Anemi drapërocelulare
+Bartës i tiparit drapëror
+Mungesë e G6PD
+Nefropati e lidhur me APOL1
+Mbresë keloide
+Sarkoidozë
+Nefrosklerozë hipertensive
+Fibroma të mitrës
+Neutropeni beninje etnike
+Mospërsëritje e laktazës
+Pseudofolikulit i mjekrës
+Vitiligo

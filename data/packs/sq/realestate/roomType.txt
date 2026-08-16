@@ -1,0 +1,20 @@
+---
+description: Room type (Albanian). Values are in the INDEFINITE form; see sq.word.noun for why this pack chose that form and what a config must do to get the definite one.
+locale: sq
+---
+Dhomë gjumi
+Banjë
+Kuzhinë
+Dhomë ndenjeje
+Dhomë ngrënieje
+Zyrë
+Bodrum
+Papafingo
+Garazh
+Lavanderi
+Dhomë mysafirësh
+Verandë
+Ballkon
+Qilar
+Korridor
+Hyrje
