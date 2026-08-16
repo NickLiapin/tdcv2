@@ -1,0 +1,84 @@
+---
+address: slovakia.geo.okres
+description: The 79 okresy of Slovakia, ordered by kraj from west to east. Unlike Czechia, where the okres was abolished as a tier of government in 2002 and survives only as a label on courts and registers, the Slovak okres is still a live unit of state administration with its own okresný úrad. It also still governs the vehicle register, which is why the first two letters of a pre-2023 number plate name the okres. Nine of them are city districts numbered with Roman numerals — Bratislava I to V and Košice I to IV — and Košice-okolie is the ring administered separately from the city it surrounds.
+locale: sk
+---
+Bratislava I
+Bratislava II
+Bratislava III
+Bratislava IV
+Bratislava V
+Malacky
+Pezinok
+Senec
+Dunajská Streda
+Galanta
+Hlohovec
+Piešťany
+Senica
+Skalica
+Trnava
+Bánovce nad Bebravou
+Ilava
+Myjava
+Nové Mesto nad Váhom
+Partizánske
+Považská Bystrica
+Prievidza
+Púchov
+Trenčín
+Komárno
+Levice
+Nitra
+Nové Zámky
+Šaľa
+Topoľčany
+Zlaté Moravce
+Bytča
+Čadca
+Dolný Kubín
+Kysucké Nové Mesto
+Liptovský Mikuláš
+Martin
+Námestovo
+Ružomberok
+Turčianske Teplice
+Tvrdošín
+Žilina
+Banská Bystrica
+Banská Štiavnica
+Brezno
+Detva
+Krupina
+Lučenec
+Poltár
+Revúca
+Rimavská Sobota
+Veľký Krtíš
+Zvolen
+Žarnovica
+Žiar nad Hronom
+Bardejov
+Humenné
+Kežmarok
+Levoča
+Medzilaborce
+Poprad
+Prešov
+Sabinov
+Snina
+Stará Ľubovňa
+Stropkov
+Svidník
+Vranov nad Topľou
+Gelnica
+Košice I
+Košice II
+Košice III
+Košice IV
+Košice-okolie
+Michalovce
+Rožňava
+Sobrance
+Spišská Nová Ves
+Trebišov

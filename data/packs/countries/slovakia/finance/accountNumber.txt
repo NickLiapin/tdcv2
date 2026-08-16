@@ -1,0 +1,41 @@
+---
+address: slovakia.finance.accountNumber
+description: Slovak domestic account number in its written prefix-number/bank form (000019-8742637541/1100). It carries TWO independent weighted mod-11 checks, not one — the six-digit prefix under weights 10,5,8,4,2,1 and the ten-digit main part under weights 6,3,7,9,10,5,8,4,2,1 — and each weighted sum must be an exact multiple of 11. Both are computed here. The bank code is drawn from slovakia.finance.bankCode, so it is a code the NBS really issued. Prefixes are drawn in the 000000-009999 band, where nearly every real prefix sits; a prefix of 000000 is also valid and is what most personal accounts have. The check scheme is Czechoslovak and survives on both sides of the 1993 split unchanged — the published Slovak IBAN SK31 1200 0000 1987 4263 7541 satisfies both weight vectors exactly, which is how they were confirmed here rather than assumed from the neighbour.
+generator: tdc
+---
+<sequence name="bank"><gen type="template" value="slovakia.finance.bankCode"/></sequence>
+<!-- Prefix: two leading zeros plus three free digits; the sixth digit is the check. -->
+<sequence name="pbase"><gen type="regex" value="00[0-9]{3}"/></sequence>
+<!-- Main part: nine free digits; the tenth is the check. -->
+<sequence name="abase"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="pcheck"><compute>
+  <let name="sum"><reduce>
+    <over><field name="pbase"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="10,5,8,4,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <result><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+</compute></sequence>
+<sequence name="acheck"><compute>
+  <let name="sum"><reduce>
+    <over><field name="abase"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="6,3,7,9,10,5,8,4,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <result><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="11"/></mod></result>
+</compute></sequence>
+<!-- The last weight is 1 in both vectors, so a residue of 10 has no digit to
+     carry it. Integer division by 10 turns each check into a 0/1 flag and the
+     row is redrawn unless BOTH fit in one digit — one predicate, two checks. -->
+<valid><less_than>
+  <add>
+    <divide><to_number><field name="pcheck"/></to_number><int v="10"/></divide>
+    <divide><to_number><field name="acheck"/></to_number><int v="10"/></divide>
+  </add>
+  <int v="1"/>
+</less_than></valid>
+<data>${{pbase}}${{pcheck}}-${{abase}}${{acheck}}/${{bank}}</data>

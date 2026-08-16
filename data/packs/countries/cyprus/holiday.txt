@@ -1,0 +1,21 @@
+---
+address: cyprus.holiday
+description: Public holidays of the Republic of Cyprus (Greek names). Mostly the Greek Orthodox calendar, but three entries are Cypriot and would be wrong in a pack for Greece: 1 April marks the start of the EOKA campaign in 1955, 1 October is the Republic's own Independence Day, and Κατακλυσμός — the Monday of the Holy Spirit, kept on the coast with water-throwing — is a Cypriot festival Greece does not hold. 25 March and 28 October, by contrast, are Greek national days that Cyprus also observes.
+locale: el
+---
+Πρωτοχρονιά
+Θεοφάνεια
+Καθαρά Δευτέρα
+Εικοστή Πέμπτη Μαρτίου
+Επέτειος της 1ης Απριλίου
+Μεγάλη Παρασκευή
+Κυριακή του Πάσχα
+Δευτέρα του Πάσχα
+Πρωτομαγιά
+Κατακλυσμός
+Κοίμηση της Θεοτόκου
+Ημέρα Ανεξαρτησίας
+Επέτειος του Όχι
+Παραμονή Χριστουγέννων
+Χριστούγεννα
+Σύναξη της Θεοτόκου

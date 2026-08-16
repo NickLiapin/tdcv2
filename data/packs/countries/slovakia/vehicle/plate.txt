@@ -1,0 +1,9 @@
+---
+address: slovakia.vehicle.plate
+description: Slovak registration plate in the district format used from 1997 to 2022 — two letters naming the okres of registration, then three digits and two letters, written BA-123AB or BA 123 AB. The letters are almost always the obvious abbreviation of the okres town (BA and BL Bratislava, KE Košice, ZA Žilina, TT Trnava, PO Prešov, BB Banská Bystrica), which makes a Slovak plate readable as a place in a way a Czech one is not: Czechia encodes its region in a single letter buried in the middle of the number. Bratislava is the one okres group issued two prefixes, BA and BL. Note SK is Svidník here, not the country. From 1 January 2023 new plates dropped the district link entirely and carry a randomly assigned combination, so a plate issued since then says nothing about where the car lives; this file generates the older district form, which is still the majority on the road. Personalised plates are not generated.
+generator: tdc
+---
+<sequence name="okres"><gen type="text" value="BA,BL,MA,PK,SC,DS,GA,HC,PN,SE,SI,TT,BN,IL,MY,NM,PE,PB,PD,PU,TN,KN,LV,NR,NZ,SA,TO,ZM,BY,CA,DK,KM,LM,MT,NO,RK,TR,TS,ZA,BB,BS,BR,DT,KA,LC,PT,RA,RS,VK,ZV,ZC,ZH,BJ,HE,KK,LE,ML,PP,PO,SB,SV,SL,SP,SK,VT,GL,KE,KS,MI,RV,SO,SN,TV"/></sequence>
+<sequence name="digits"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="tail"><gen type="regex" value="[A-Z]{2}"/></sequence>
+<data>${{okres}}-${{digits}}${{tail}}</data>

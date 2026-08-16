@@ -1,0 +1,24 @@
+---
+address: cyprus.finance.iban
+description: Cypriot IBAN — 28 chars: CY + 2 ISO 7064 check digits + a 3-digit bank code + a 5-digit branch code + a 16-character account number. The bank and branch codes are random digits, not drawn from the Central Bank of Cyprus registry; the account part is generated as digits, which is a valid subset of the alphanumeric field the IBAN registry allows.
+generator: tdc
+---
+<sequence name="bank"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{16}"/></sequence>
+<sequence name="iban"><compute>
+  <let name="bban"><concat><field name="bank"/><field name="branch"/><field name="account"/></concat></let>
+  <let name="rearranged"><concat><use name="bban"/><str v="CY"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="CY"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

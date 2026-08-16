@@ -1,0 +1,9 @@
+---
+address: cyprus.vehicle.plate
+description: Cypriot vehicle plate — three letters, a space and three digits (e.g. MAA 001). Only twelve letters are ever issued, ABEHKMNPTXYZ — every one of them has an identical Greek capital (Α Β Ε Η Κ Μ Ν Ρ Τ Χ Υ Ζ), so a plate reads the same in either alphabet; it is Greece's own rule minus I and O, which Cyprus drops because they are read as 1 and 0. The series runs 001-999 before the letters advance; the current EU-band design began at MAA 001 in 2013. Two things set these cars apart from the rest of the EU: Cyprus drives on the LEFT, a British inheritance shared in the Union only with Malta and Ireland, so the vehicles behind these plates are right-hand drive; and the northern administration issues its own plates in an older two-letter form (AB 123), which this file does not generate.
+generator: tdc
+locale: el
+---
+<sequence name="letters"><gen type="regex" value="[ABEHKMNPTXYZ]{3}"/></sequence>
+<sequence name="serial"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<data>${{letters}} ${{serial}}</data>

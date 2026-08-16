@@ -1,0 +1,21 @@
+---
+address: slovakia.sport.team
+description: Slovak football clubs — the Niké liga first, then the second tier. Slovan Bratislava has taken the great majority of the titles awarded since independence and is the only club from the former Czechoslovakia to have won the European Cup Winners' Cup, in 1969. Spartak Trnava and MŠK Žilina are the standing challenge, and DAC Dunajská Streda is the club of the Hungarian-speaking south, whose support and match-day language are Hungarian rather than Slovak. Until 1993 these clubs played in the Czechoslovak league alongside Sparta and Slavia, which is why the older Slovak clubs and the Czech ones share a naming vocabulary — Slovan, Spartak, Tatran, Dukla — that says nothing about which of the two countries a club is in.
+locale: sk
+---
+ŠK Slovan Bratislava
+FC Spartak Trnava
+MŠK Žilina
+FC DAC 1904 Dunajská Streda
+MFK Ružomberok
+AS Trenčín
+FC Košice
+FK Železiarne Podbrezová
+MFK Skalica
+KFC Komárno
+FC ViOn Zlaté Moravce
+MFK Dukla Banská Bystrica
+FK Tatran Prešov
+FC Petržalka
+FK Púchov
+MFK Zemplín Michalovce

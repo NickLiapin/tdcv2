@@ -1,0 +1,26 @@
+---
+address: slovakia.finance.bank
+description: Banks and building societies operating in Slovakia, trading names, roughly by size. Line for line this list matches slovakia.finance.bankCode, so drawing the same row index from both gives a bank and its real four-digit NBS code. Stavebné sporiteľne are included because they hold ordinary retail accounts here; the last entry is the central bank. Ownership is largely Austrian, Italian, Belgian and Czech — Slovenská sporiteľňa belongs to Erste, VÚB to Intesa Sanpaolo, Tatra banka to Raiffeisen and ČSOB to KBC — so the names on the high street are Slovak while the parents are not. Defunct registrations (Sberbank Slovensko 3100, OTP Banka Slovensko 5200, ZUNO 8410) are deliberately left out.
+locale: sk
+---
+Slovenská sporiteľňa
+Všeobecná úverová banka
+Tatra banka
+Československá obchodná banka
+Poštová banka
+Prima banka Slovensko
+UniCredit Bank Czech Republic and Slovakia
+Prvá stavebná sporiteľňa
+ČSOB stavebná sporiteľňa
+Wüstenrot stavebná sporiteľňa
+Fio banka
+mBank
+J&T Banka
+Privatbanka
+Citibank Europe
+Oberbank
+BKS Bank
+Komerční banka
+Slovenská záručná a rozvojová banka
+EXIMBANKA SR
+Národná banka Slovenska

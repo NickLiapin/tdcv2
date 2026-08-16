@@ -1,0 +1,25 @@
+---
+address: cyprus.sport.team
+description: Football clubs of the Cypriot first and second divisions (Greek names). Several carry the name of a town they no longer play in: Ανόρθωσις and Νέα Σαλαμίνα are Αμμόχωστος clubs displaced in 1974 and now based in Λάρνακα, Δόξα still bears the name of Κατωκοπιά, and Διγενής that of Μόρφου. Keeping the lost town in the club name is standard Cypriot usage, not an error in the data — it is the one place in this pack where towns of the north appear, and they appear as club names rather than as places.
+locale: el
+---
+ΑΠΟΕΛ
+Ομόνοια
+Απόλλων Λεμεσού
+ΑΕΚ Λάρνακας
+Ανόρθωσις Αμμοχώστου
+ΑΕΛ Λεμεσού
+Πάφος FC
+Άρης Λεμεσού
+Ένωσις Νέων Παραλιμνίου
+Νέα Σαλαμίνα Αμμοχώστου
+Δόξα Κατωκοπιάς
+Ολυμπιακός Λευκωσίας
+Καρμιώτισσα Πάνω Πολεμιδιών
+Ερμής Αραδίππου
+ΑΕΖ Ζακακίου
+Ακρίτας Χλώρακας
+ΕΝΘΟΗ Λακατάμιας
+Ονήσιλλος Σωτήρας
+Διγενής Ακρίτας Μόρφου
+ΠΟ Ξυλοτύμβου

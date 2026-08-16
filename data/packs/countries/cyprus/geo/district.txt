@@ -1,0 +1,11 @@
+---
+address: cyprus.geo.district
+description: The six districts (επαρχίες) of the Republic of Cyprus. All six are districts in law, but two are not administered from them in practice — Κερύνεια lies wholly beyond the Republic's effective control, and Αμμόχωστος largely so, its district office sitting at Παραλίμνι in the south-eastern corner the Republic still governs. The list is kept complete because that is what the Republic's own registers hold; cyprus.geo.city, by contrast, ships only towns the Republic actually administers.
+locale: el
+---
+Λευκωσία
+Λεμεσός
+Λάρνακα
+Πάφος
+Αμμόχωστος
+Κερύνεια

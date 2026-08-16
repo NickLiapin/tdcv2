@@ -1,0 +1,15 @@
+---
+address: cyprus.finance.bank
+description: Banks licensed in the Republic of Cyprus (Greek names; brands that are genuinely Latin in Cypriot usage are kept Latin). Cyprus has been in the eurozone since 2008, so these are euro banks; the sector is far smaller than it was before the 2013 deposit bail-in and the 2018 wind-down of the co-operative sector, and the list reflects what is still licensed rather than what once existed.
+locale: el
+---
+Τράπεζα Κύπρου
+Ελληνική Τράπεζα
+Alpha Bank Cyprus
+Eurobank Cyprus
+AstroBank
+Ancoria Bank
+cdbbank
+Εθνική Τράπεζα της Ελλάδος (Κύπρου)
+Οργανισμός Χρηματοδοτήσεως Στέγης
+Κεντρική Τράπεζα της Κύπρου

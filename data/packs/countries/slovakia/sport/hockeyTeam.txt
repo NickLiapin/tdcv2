@@ -1,0 +1,19 @@
+---
+address: slovakia.sport.hockeyTeam
+description: Ice-hockey clubs of the Slovak extraliga. This file exists because a Slovak sport pack that lists only football clubs is wrong about the country: ice hockey is the national sport, and Slovakia's standing in it is far out of proportion to its size — world champions in 2002, Olympic bronze in 2022, and the source of Šatan, Chára and Hossa. Towns like Poprad, Zvolen and Liptovský Mikuláš are known nationally for their hockey club and for little else. HK Nitra and HC Košice draw crowds the local football clubs do not. A generic European country pack would not have this file; Czechia is the only neighbour that needs one for the same reason.
+locale: sk
+---
+HC Slovan Bratislava
+HC Košice
+HK Nitra
+HKM Zvolen
+HK Poprad
+HK Dukla Trenčín
+MHk 32 Liptovský Mikuláš
+HC 07 Detva
+HK Spišská Nová Ves
+MHC Martin
+HC Prešov
+HK Dukla Michalovce
+HC Nové Zámky
+HK Skalica

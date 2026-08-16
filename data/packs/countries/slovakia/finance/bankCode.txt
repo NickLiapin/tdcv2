@@ -1,0 +1,25 @@
+---
+address: slovakia.finance.bankCode
+description: Four-digit Slovak payment-system bank codes (kód banky) from the NBS register — the part written after the slash in 1987426375/0900. These are issued codes, not a pattern: the list matches slovakia.finance.bank line for line, so the same row index yields the bank and its code. 0720 is Národná banka Slovenska itself. Codes are four digits here as in Czechia, but the registers are entirely separate — 0800 is Česká spořitelna in Prague and is not a Slovak code at all, while 0900 is Slovenská sporiteľňa and is not a Czech one.
+---
+0900
+0200
+1100
+7500
+6500
+5600
+1111
+5900
+8170
+7930
+8330
+8360
+8320
+8120
+8130
+8370
+8420
+8100
+3000
+8160
+0720

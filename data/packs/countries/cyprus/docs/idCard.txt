@@ -1,0 +1,6 @@
+---
+address: cyprus.docs.idCard
+description: Cypriot identity card number (Ταυτότητα) — 10 digits, no check digit. The number is a plain serial: unlike the tax code it carries no published checksum, so none is computed here and none should be inferred. The card's machine-readable zone does carry ICAO check digits, but those cover the document number, not this one. Issued by the Republic of Cyprus; the northern administration issues its own cards under a different scheme, not modelled here.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{10}"/>

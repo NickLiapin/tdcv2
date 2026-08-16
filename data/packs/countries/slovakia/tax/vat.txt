@@ -1,6 +1,11 @@
 ---
 address: slovakia.tax.vat
-description: Slovak VAT / IC DPH (SK + 10 digits, no checksum)
+description: Slovak VAT number (IČ DPH) — SK followed by the registrant's ten-digit DIČ. Those ten digits are NOT free: the number is divisible by 11, so the last digit is the first nine modulo 11. Verified against published in-use numbers SK2020372640 (Slovnaft), SK2020273893 (Slovak Telekom), SK2020317068 (ESET) and SK7120001713, all of which divide exactly. Note that the IČ DPH is built on the DIČ and not on the IČO — the reverse of Czechia, where the VAT number is CZ plus the IČO and therefore carries the IČO weighted mod-11 instead. The other half of the difference is the money: Slovakia adopted the euro in 2009, so an IČ DPH appears beside amounts in EUR, while its neighbour's DIČ sits beside koruna. Two countries that were one state until 1993 and still share the birth number and the IČO diverge completely at the tax number and the currency.
 generator: tdc
 ---
-<gen type="regex" value="SK[0-9]{10}"/>
+<sequence name="base"><gen type="regex" value="[1-9][0-9][2346-9][0-9]{6}"/></sequence>
+<sequence name="check"><compute><result>
+  <mod><to_number><field name="base"/></to_number><int v="11"/></mod>
+</result></compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>SK${{base}}${{check}}</data>

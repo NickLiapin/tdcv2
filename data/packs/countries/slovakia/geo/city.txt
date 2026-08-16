@@ -1,0 +1,92 @@
+---
+address: slovakia.geo.city
+description: Towns and cities of Slovakia, roughly by population. The distribution is unusually top-heavy: Bratislava is about twice Košice and Košice about three times Prešov, after which the list flattens into a long tail of towns between ten and fifty thousand, so a Slovak address column drawn uniformly will look wrong unless the order is respected. Bratislava sits in the far south-west corner on the Austrian and Hungarian borders — the only capital in the world bordering two other states — while Košice, the second city, is at the opposite end near Hungary and Ukraine, and the two are further apart in character than a country this size suggests.
+locale: sk
+---
+Bratislava
+Košice
+Prešov
+Žilina
+Nitra
+Banská Bystrica
+Trnava
+Trenčín
+Martin
+Poprad
+Prievidza
+Zvolen
+Považská Bystrica
+Michalovce
+Nové Zámky
+Spišská Nová Ves
+Komárno
+Humenné
+Levice
+Bardejov
+Liptovský Mikuláš
+Piešťany
+Lučenec
+Ružomberok
+Topoľčany
+Čadca
+Pezinok
+Trebišov
+Rimavská Sobota
+Dubnica nad Váhom
+Dunajská Streda
+Partizánske
+Vranov nad Topľou
+Hlohovec
+Šaľa
+Senec
+Brezno
+Snina
+Senica
+Nové Mesto nad Váhom
+Dolný Kubín
+Rožňava
+Bánovce nad Bebravou
+Malacky
+Púchov
+Žiar nad Hronom
+Sereď
+Handlová
+Kežmarok
+Stará Ľubovňa
+Galanta
+Kysucké Nové Mesto
+Skalica
+Detva
+Levoča
+Šamorín
+Sabinov
+Revúca
+Zlaté Moravce
+Holíč
+Bytča
+Stupava
+Veľký Krtíš
+Myjava
+Moldava nad Bodvou
+Svidník
+Stropkov
+Fiľakovo
+Šurany
+Kolárovo
+Štúrovo
+Banská Štiavnica
+Modra
+Tvrdošín
+Námestovo
+Krompachy
+Sečovce
+Nová Baňa
+Krupina
+Trstená
+Ilava
+Poltár
+Žarnovica
+Medzilaborce
+Sobrance
+Gelnica
+Turčianske Teplice

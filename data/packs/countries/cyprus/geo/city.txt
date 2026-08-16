@@ -1,0 +1,55 @@
+---
+address: cyprus.geo.city
+description: Towns and municipalities of the Republic of Cyprus, roughly by population. GREEK forms only — this is a deliberate choice, not an oversight. Cyprus has two official languages and every place here also has a Turkish name (Λευκωσία / Lefkoşa, Λεμεσός / Limasol), but a country pack in this project carries one language, and Greek is the form the Republic's own postal, land-registry and municipal records use. The list is also limited to the area the Republic effectively administers, so Αμμόχωστος, Κερύνεια and Μόρφου are absent: they are Cypriot towns in law, but an address there is not deliverable under the Republic's postcode system. Their districts are still listed in cyprus.geo.district.
+locale: el
+---
+Λευκωσία
+Λεμεσός
+Λάρνακα
+Στρόβολος
+Πάφος
+Λακατάμεια
+Αγλαντζιά
+Παραλίμνι
+Αραδίππου
+Λατσιά
+Γερμασόγεια
+Ύψωνας
+Κάτω Πολεμίδια
+Μέσα Γειτονιά
+Άγιος Αθανάσιος
+Έγκωμη
+Δερύνεια
+Σωτήρα
+Γεροσκήπου
+Αγία Νάπα
+Ιδάλιον
+Τσέρι
+Γέρι
+Πέγεια
+Χλώρακα
+Κοκκινοτριμιθιά
+Πόλις Χρυσοχούς
+Αθηένου
+Λύμπια
+Πάνω Πολεμίδια
+Μουτταγιάκα
+Κολόσσι
+Επισκοπή
+Ξυλοφάγου
+Λιοπέτρι
+Φρέναρος
+Αυγόρου
+Ορμήδεια
+Ξυλοτύμβου
+Πύλα
+Κόρνος
+Πέρα Χωριό
+Ζύγι
+Μαρώνι
+Πισσούρι
+Λεύκαρα
+Κυπερούντα
+Πελένδρι
+Πλάτρες
+Κίσσονεργα

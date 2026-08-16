@@ -1,0 +1,8 @@
+---
+address: slovakia.phone
+description: Slovak mobile number in E.164 form under country code +421. The national significant number is nine digits and mobile numbers all begin with 9, written 09xx xxx xxx domestically; the trunk 0 is dropped after +421, so 0903 123 456 dials as +421903123456. Geographic numbers start 2 (Bratislava) or 3 through 5 instead. The prefixes drawn here are the assigned mobile blocks — 901-908 and 910-919 (Telekom and Orange), 940, 944, 948, 949 (O2) and 950, 951 (4ka) — listed one at a time rather than as a regex alternation, so no prefix is over-represented. Number portability means a prefix no longer identifies the operator, only the block it was issued from. Note the neighbourly trap: +421 is Slovakia and +420 is Czechia, one digit apart, and both take nine-digit numbers with no area code.
+generator: tdc
+---
+<sequence name="prefix"><gen type="text" value="901,902,903,904,905,906,907,908,910,911,914,915,916,917,918,919,940,944,948,949,950,951"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+421${{prefix}}${{rest}}</data>

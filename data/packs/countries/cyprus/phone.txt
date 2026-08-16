@@ -1,0 +1,8 @@
+---
+address: cyprus.phone
+description: Cyprus mobile phone in E.164 form (+357 9X XXXXXX). Cyprus has run a flat, closed 8-digit plan since 2001 — there is no trunk prefix and no separate area code to dial, the leading pair simply says what kind of number it is: 22 Λευκωσία, 23 Αμμόχωστος (free area), 24 Λάρνακα, 25 Λεμεσός, 26 Πάφος for fixed lines, and 95/96/97/99 for mobiles, which is what this file generates. Numbers in the north are not +357 at all: that area is reached through the Turkish plan on +90 392.
+generator: tdc
+---
+<sequence name="prefix"><gen type="text" value="95,96,97,99"/></sequence>
+<sequence name="line"><gen type="number" value="0..999999" length="6" first_zero="true"/></sequence>
+<data>+357${{prefix}}${{line}}</data>

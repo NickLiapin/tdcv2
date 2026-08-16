@@ -1,0 +1,20 @@
+---
+address: slovakia.holiday
+description: The 15 public holidays of Slovakia, in calendar order — štátne sviatky and dni pracovného pokoja together. This is the file that most clearly refuses to be copied from Czechia. Slovakia keeps the Catholic feasts its neighbour dropped: Epiphany, All Saints, and Sedembolestná Panna Mária on 15 September, the patroness of Slovakia and a day off found in no other country's calendar. It does not observe 28 October, the founding of Czechoslovakia, which is a Czech state holiday; nor 6 July for Jan Hus, a Czech reformer. Its own national days are 1 January for the birth of the republic in 1993, 29 August for the Slovak National Uprising of 1944, and 1 September for the constitution. Only 5 July, Cyril and Methodius, is shared between the two.
+locale: sk
+---
+Deň vzniku Slovenskej republiky
+Zjavenie Pána
+Veľký piatok
+Veľkonočný pondelok
+Sviatok práce
+Deň víťazstva nad fašizmom
+Sviatok svätého Cyrila a svätého Metoda
+Výročie Slovenského národného povstania
+Deň Ústavy Slovenskej republiky
+Sedembolestná Panna Mária
+Sviatok všetkých svätých
+Deň boja za slobodu a demokraciu
+Štedrý deň
+Prvý sviatok vianočný
+Druhý sviatok vianočný

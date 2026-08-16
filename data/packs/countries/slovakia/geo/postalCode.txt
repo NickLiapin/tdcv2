@@ -1,0 +1,6 @@
+---
+address: slovakia.geo.postalCode
+description: Slovak postal code (PSČ) — five digits, but written 3+2 with a space, as 811 01. The space is not decoration; it is how the code is printed on forms and envelopes, and code lists give it that way. The leading digit is where Slovakia and Czechia are cleanly complementary: the single Czechoslovak numbering plan of 1973 was split at the 1993 breakup, Czechia keeping 1 through 7 and Slovakia keeping 8, 9 and 0. So a Slovak code begins 0, 8 or 9 and never 1-7 — 8 is Bratislava (811 01 is the old town), 9 is the rest of the west, 0 covers the north and east including Žilina 010, Košice 040 and Prešov 080. A leading digit is therefore enough to tell a Slovak postcode from a Czech one.
+generator: tdc
+---
+<gen type="regex" value="[089][0-9]{2} [0-9]{2}"/>

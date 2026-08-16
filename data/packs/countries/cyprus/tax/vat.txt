@@ -1,6 +1,7 @@
 ---
 address: cyprus.tax.vat
-description: Cypriot VAT (CY + 8 digits + 1 uppercase letter)
+description: Cypriot VAT number (ΦΠΑ) — CY followed by the Tax Identification Code, i.e. 8 digits and the MOD-26 check letter. Rewritten from a random trailing letter to the real one, so the number now passes a VIES-style format check instead of failing it 25 times in 26; the letter itself comes from cyprus.tax.tic.
 generator: tdc
 ---
-<gen type="regex" value="CY[0-9]{8}[A-Z]"/>
+<sequence name="tic"><gen type="template" value="cyprus.tax.tic"/></sequence>
+<data>CY${{tic}}</data>

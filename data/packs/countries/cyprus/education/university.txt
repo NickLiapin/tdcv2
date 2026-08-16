@@ -1,0 +1,14 @@
+---
+address: cyprus.education.university
+description: Universities recognised by the Republic of Cyprus (Greek names; the three that operate under an English brand keep it). Three are public — Πανεπιστήμιο Κύπρου, ΤΕΠΑΚ and the Ανοικτό Πανεπιστήμιο — and the rest are private, an unusually large private sector for a country this size. Universities in the north, such as the Eastern Mediterranean University at Αμμόχωστος, are not on this list: they are licensed by the northern administration and their degrees are not recognised by the Republic.
+locale: el
+---
+Πανεπιστήμιο Κύπρου
+Τεχνολογικό Πανεπιστήμιο Κύπρου
+Ανοικτό Πανεπιστήμιο Κύπρου
+Πανεπιστήμιο Λευκωσίας
+Ευρωπαϊκό Πανεπιστήμιο Κύπρου
+Πανεπιστήμιο Frederick
+Πανεπιστήμιο Νεάπολις Πάφου
+UCLan Cyprus
+Ινστιτούτο Κύπρου

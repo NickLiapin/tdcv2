@@ -1,0 +1,13 @@
+---
+address: slovakia.geo.kraj
+description: The 8 first-level units of Slovakia, west to east. Formally these are samosprávne kraje (also VÚC, vyšší územný celok) since the 2001 reform; the short "Bratislavský kraj" form given here is what appears on forms and in addresses. Slovakia's set is perfectly regular in a way Czechia's is not: all eight are an adjective plus the word kraj, and every one is named after its capital city, so there is no equivalent of Praha standing outside the system, of Kraj Vysočina putting the noun first, or of Moravskoslezský naming two historic lands. Bratislava is simply the seat of Bratislavský kraj rather than a first-level unit in its own right. Given in the nominative, as on forms; the address form inflects (v Košickom kraji).
+locale: sk
+---
+Bratislavský kraj
+Trnavský kraj
+Trenčiansky kraj
+Nitriansky kraj
+Žilinský kraj
+Banskobystrický kraj
+Prešovský kraj
+Košický kraj

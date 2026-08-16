@@ -1,0 +1,36 @@
+---
+address: cyprus.tax.tic
+description: Cypriot Tax Identification Code (ΑΦΜ / TIC) — 8 digits plus a check LETTER. The 1-indexed odd digits are first mapped through the table 1,0,5,7,9,13,15,17,19,21; the even digits count as themselves; the total mod 26 selects A-Z. The base is drawn from the ranges the published rule is known to cover (leading 0 or 9 for individuals, 1 for companies) and never starts 12, which is reserved and never issued. TICs issued since March 2023 start at 60000000 under a check rule the Tax Department has not published, so this file does not generate them.
+generator: tdc
+---
+<!-- Leading pair: 0x and 9x (individuals) and 1x (legal entities), with 12 removed. -->
+<sequence name="lead"><gen type="text" value="00,01,02,03,04,05,06,07,08,09,10,11,13,14,15,16,17,18,19,90,91,92,93,94,95,96,97,98,99"/></sequence>
+<sequence name="rest"><gen type="number" value="0..999999" length="6" first_zero="true"/></sequence>
+<sequence name="tic"><compute>
+  <let name="base"><concat><field name="lead"/><field name="rest"/></concat></let>
+  <!-- Odd 1-based positions (indices 0,2,4,6) go through the scrambled table;
+       even ones contribute their own value. -->
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <choose>
+        <when>
+          <test><equals><mod><current_index/><int v="2"/></mod><int v="0"/></equals></test>
+          <then><at>
+            <in><list v="1,0,5,7,9,13,15,17,19,21"/></in>
+            <index><to_number><encode as="base36"><current/></encode></to_number></index>
+          </at></then>
+        </when>
+        <otherwise><current/></otherwise>
+      </choose>
+    </add></do>
+  </reduce></let>
+  <!-- The remainder maps to its letter through a list of <str> children. -->
+  <let name="check"><at>
+    <in><list><str v="A"/><str v="B"/><str v="C"/><str v="D"/><str v="E"/><str v="F"/><str v="G"/><str v="H"/><str v="I"/><str v="J"/><str v="K"/><str v="L"/><str v="M"/><str v="N"/><str v="O"/><str v="P"/><str v="Q"/><str v="R"/><str v="S"/><str v="T"/><str v="U"/><str v="V"/><str v="W"/><str v="X"/><str v="Y"/><str v="Z"/></list></in>
+    <index><mod><use name="sum"/><int v="26"/></mod></index>
+  </at></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{tic}}</data>

@@ -1,0 +1,27 @@
+---
+address: slovakia.education.university
+description: The public universities of Slovakia, official Slovak names, largest and oldest first. Univerzita Komenského was founded in 1919, immediately after Czechoslovakia came into being, and the date is the point: Slovakia had no university of its own under Hungarian rule, so the whole system is a twentieth-century creation and no Slovak CV can carry a mediaeval alma mater the way a Czech one can. Note the vocabulary: a vysoká škola is a full university too, not a college — the arts academies are degree-granting institutions whose names simply predate the word univerzita. Univerzita J. Selyeho in Komárno teaches in Hungarian, for the Hungarian minority of the southern border strip.
+locale: sk
+---
+Univerzita Komenského v Bratislave
+Slovenská technická univerzita v Bratislave
+Technická univerzita v Košiciach
+Univerzita Pavla Jozefa Šafárika v Košiciach
+Žilinská univerzita v Žiline
+Ekonomická univerzita v Bratislave
+Univerzita Konštantína Filozofa v Nitre
+Slovenská poľnohospodárska univerzita v Nitre
+Univerzita Mateja Bela v Banskej Bystrici
+Prešovská univerzita v Prešove
+Trnavská univerzita v Trnave
+Univerzita sv. Cyrila a Metoda v Trnave
+Technická univerzita vo Zvolene
+Katolícka univerzita v Ružomberku
+Univerzita veterinárskeho lekárstva a farmácie v Košiciach
+Slovenská zdravotnícka univerzita v Bratislave
+Univerzita J. Selyeho
+Vysoká škola múzických umení v Bratislave
+Vysoká škola výtvarných umení v Bratislave
+Akadémia umení v Banskej Bystrici
+Akadémia Policajného zboru v Bratislave
+Paneurópska vysoká škola

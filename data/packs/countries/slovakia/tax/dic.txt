@@ -1,0 +1,13 @@
+---
+address: slovakia.tax.dic
+description: Slovak tax identification number (DIČ) — ten digits assigned by the tax office (Finančná správa) to every taxpayer, natural or legal. It carries a real check: the whole ten-digit number is divisible by 11, which makes the last digit the first nine modulo 11 (because 10 = -1 mod 11). Legal persons are overwhelmingly issued 20........, and that is the band drawn here; the third digit is constrained to 2,3,4,6,7,8,9 so the output also satisfies the stricter published validation regex used by VIES front-ends as well as the plain divisibility rule. This number is NOT the birth number. Czechia derives a natural person's DIČ from their rodné číslo, so a Czech DIČ leaks a date of birth; Slovakia does not, and slovakia.docs.rodneCislo must never be substituted here.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[1-9][0-9][2346-9][0-9]{6}"/></sequence>
+<!-- Divisible by 11, so the tenth digit is the first nine mod 11. A remainder
+     of 10 has no digit to carry it and those draws are rejected. -->
+<sequence name="check"><compute><result>
+  <mod><to_number><field name="base"/></to_number><int v="11"/></mod>
+</result></compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{base}}${{check}}</data>

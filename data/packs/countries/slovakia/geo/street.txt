@@ -1,0 +1,76 @@
+---
+address: slovakia.geo.street
+description: Streets and squares that really exist in Slovak towns — Bratislava first, then Košice, Banská Bystrica, Nitra, Žilina, Trnava and Prešov. The generic Slovak street vocabulary (Lipová, Záhradná and the rest) lives in the language pack at sk.address.streetName; this file is the named ones you could point at on a map. Note the shape of a Slovak address: the street comes first and the number after it (Obchodná 12), and the word ulica is left out unless the name itself is a námestie or a trieda. Hlavná — simply "Main" — is the commonest street name in the country and is the central street of both Košice and Prešov.
+locale: sk
+---
+Obchodná
+Michalská
+Ventúrska
+Panská
+Laurinská
+Sedlárska
+Hviezdoslavovo námestie
+Hlavné námestie
+Námestie SNP
+Primaciálne námestie
+Františkánske námestie
+Rybárska brána
+Štúrova
+Špitálska
+Dunajská
+Grösslingová
+Karadžičova
+Mlynské nivy
+Šancová
+Krížna
+Radlinského
+Palisády
+Zámocká
+Kapitulská
+Klobučnícka
+Poštová
+Suché mýto
+Staromestská
+Pribinova
+Einsteinova
+Bajkalská
+Trnavská cesta
+Račianska
+Vajnorská
+Ružinovská
+Prievozská
+Dolnozemská cesta
+Gorkého
+Medená
+Nedbalova
+Hlavná
+Mlynská
+Alžbetina
+Kuzmányho
+Moyzesova
+Rooseveltova
+Južná trieda
+Trieda SNP
+Watsonova
+Komenského
+Popradská
+Dolná
+Horná
+Skuteckého
+Kyjevské námestie
+Štefánikova trieda
+Farská
+Kupecká
+Svätoplukovo námestie
+Akademická
+Národná
+Mariánske námestie
+Antona Bernoláka
+Vysokoškolákov
+Trojičné námestie
+Hospodárska
+Kollárova
+Masarykova
+Levočská
+Sabinovská
+Októbrová
