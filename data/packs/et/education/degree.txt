@@ -1,0 +1,20 @@
+---
+description: Academic or educational qualification (Estonian). The Estonian ladder is põhiharidus (basic, to year 9), then either gümnaasium or a vocational school, then rakenduskõrgharidus or a bakalaureus, and Estonia follows the Bologna 3+2 structure. Two Soviet-era titles are still carried by living Estonians and appear on CVs: teaduste kandidaat and teaduste doktor, awarded before the system changed in 1992.
+locale: et
+---
+põhiharidus
+keskharidus
+gümnaasiumi lõputunnistus
+kutseharidus
+kutsekeskharidus
+rakenduskõrgharidus
+bakalaureusekraad
+magistrikraad
+integreeritud bakalaureuse- ja magistriõpe
+doktorikraad
+filosoofiadoktor
+arstikraad
+õigusteaduse magister
+ärijuhtimise magister
+teaduste kandidaat
+teaduste doktor

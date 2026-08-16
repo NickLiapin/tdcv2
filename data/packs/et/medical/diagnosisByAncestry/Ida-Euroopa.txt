@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Ida-Euroopa ancestry, named in Estonian. A prevalence signal, not an exclusive one.
+locale: et
+---
+pärilik hemokromatoos
+fenüülketonuuria
+perekondlik hüperkolesteroleemia
+alkoholiga seotud maksahaigus
+tsüstiline fibroos
+Wilsoni tõbi

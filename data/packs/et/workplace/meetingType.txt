@@ -1,0 +1,16 @@
+---
+description: Meeting type (Estonian). Arenguvestlus is a fixture of Estonian working life — an annual one-to-one about the year past and the year ahead, held in schools with pupils as well as in companies with staff.
+locale: et
+---
+koosolek
+iganädalane koosolek
+üks-ühele
+tiimikoosolek
+juhatuse koosolek
+kliendikohtumine
+ajurünnak
+tagasisidevestlus
+arenguvestlus
+planeerimiskoosolek
+retrospektiiv
+infotund

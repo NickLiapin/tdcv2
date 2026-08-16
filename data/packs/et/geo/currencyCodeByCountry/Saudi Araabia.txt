@@ -1,0 +1,5 @@
+---
+description: Currency code of Saudi Araabia
+locale: et
+---
+SAR

@@ -1,0 +1,16 @@
+---
+description: Loan type (Estonian). Õppelaen is state-guaranteed and Estonian tuition at a public university is free for students studying full time in Estonian, so the loan covers living costs rather than fees — an Estonian student debt is a fraction of an American one.
+locale: et
+---
+eluasemelaen
+hüpoteeklaen
+väikelaen
+tarbimislaen
+õppelaen
+autoliising
+kapitalirent
+ärilaen
+kiirlaen
+krediitkonto
+järelmaks
+refinantseerimislaen

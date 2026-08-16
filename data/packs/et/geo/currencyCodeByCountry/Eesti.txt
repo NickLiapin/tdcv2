@@ -1,0 +1,5 @@
+---
+description: Currency code of Eesti
+locale: et
+---
+EUR

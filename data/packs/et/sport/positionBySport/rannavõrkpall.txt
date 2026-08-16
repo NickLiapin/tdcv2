@@ -1,0 +1,6 @@
+---
+description: Positions in rannavõrkpall, in Estonian
+locale: et
+---
+blokeerija
+kaitsemängija

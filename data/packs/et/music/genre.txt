@@ -1,0 +1,39 @@
+---
+description: Music genre (Estonian). Two of these are Estonian genres rather than local names for international ones. Regilaul is the pre-rhyming runic song of the Finnic peoples, sung in an eight-syllable line with a leader and a chorus, and it is still performed and recorded. Koorimuusika is a genre in the ordinary sense here — Estonia has one of the highest rates of choir membership in the world and the composers Arvo Pärt, Veljo Tormis and Cyrillus Kreek wrote for those choirs specifically.
+locale: et
+---
+regilaul
+koorimuusika
+pärimusmuusika
+rahvamuusika
+rokk
+pop
+punk
+punkrokk
+raskemetall
+džäss
+blues
+soul
+funk
+hiphop
+räpp
+elektrooniline muusika
+house
+tehno
+ambient
+indie
+alternatiivmuusika
+kantri
+reggae
+ska
+bluegrass
+ladinamuusika
+klassikaline muusika
+sümfooniline muusika
+kammermuusika
+ooper
+operett
+vaimulik muusika
+gospel
+tantsumuusika
+šansoon

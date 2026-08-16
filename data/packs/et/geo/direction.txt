@@ -1,0 +1,20 @@
+---
+description: Compass direction (Estonian), sixteen points. The four intermediate points have SINGLE NATIVE WORDS — kirre north-east, kagu south-east, edel south-west, loe north-west — inherited from Finnic and not built by compounding north with east the way English, German and Russian do. Only the sixteenths compound, and Estonian joins them with a hyphen using the genitive stem: põhja-kirre, ida-kagu. Estonian writes compass directions in lower case.
+locale: et
+---
+põhi
+lõuna
+ida
+lääs
+kirre
+kagu
+edel
+loe
+põhja-kirre
+ida-kirre
+ida-kagu
+lõuna-kagu
+lõuna-edel
+lääne-edel
+lääne-loe
+põhja-loe

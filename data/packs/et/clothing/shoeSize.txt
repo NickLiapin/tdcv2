@@ -1,0 +1,16 @@
+---
+description: Shoe size on the CONTINENTAL EUROPEAN (Paris point) scale, which is what an Estonian reads on a shoebox and asks for in a shop. Estonia has never used the British or American scales, and the number is always a whole one — the Paris-point scale has no half sizes.
+locale: et
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

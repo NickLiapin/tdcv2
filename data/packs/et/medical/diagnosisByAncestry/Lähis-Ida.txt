@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Lähis-Ida ancestry, named in Estonian. A prevalence signal, not an exclusive one.
+locale: et
+---
+perekondlik Vahemere palavik
+beeta-talasseemia
+glükoos-6-fosfaatdehüdrogenaasi puudulikkus
+Behçeti tõbi
+D-vitamiini puudus
+sirpraku kandlus

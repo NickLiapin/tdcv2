@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Estonian). Estonian counts nouns after a numeral in the PARTITIVE SINGULAR, which is why it is 1 täht but 2 tähte and 5 tähte — the plural is never used after a number, and a config that pluralises this the English way will be wrong.
+locale: et
+---
+1 täht
+2 tähte
+3 tähte
+4 tähte
+5 tähte

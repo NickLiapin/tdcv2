@@ -1,0 +1,24 @@
+---
+description: Shipping carrier operating in Estonia. Omniva is the state post; SmartPOST belongs to Itella and DPD, Venipak and Omniva all run their own parcel-locker networks, which is how the overwhelming majority of Estonian e-commerce is delivered — a courier to the door is the exception here, not the rule. Trade names are not translated.
+locale: et
+---
+Omniva
+SmartPOST
+DPD
+Venipak
+Itella
+GLS
+DHL
+UPS
+FedEx
+TNT
+Cargobus
+Post24
+Express Post
+DB Schenker
+Bolt
+Wolt
+Eesti Post
+Hellmann
+Rhenus
+Postimees Grupp

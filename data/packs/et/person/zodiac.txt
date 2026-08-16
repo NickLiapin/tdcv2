@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Estonian). Estonian translates the signs into native words rather than keeping the Latin — jäär is a ram, sõnn a bull, vähk a crab, kaalud a pair of scales, ambur an archer, kaljukits a mountain goat, veevalaja one who pours water — and only skorpion is a straight loan. Sõnn carries the letter õ, which Finnish does not have.
+locale: et
+---
+jäär
+sõnn
+kaksikud
+vähk
+lõvi
+neitsi
+kaalud
+skorpion
+ambur
+kaljukits
+veevalaja
+kalad

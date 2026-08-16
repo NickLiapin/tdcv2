@@ -1,0 +1,24 @@
+---
+description: Writing system (Estonian). Estonian itself is written in the Latin alphabet with four extra vowel letters — õ ä ö ü — of which Õ IS ESTONIAN’S OWN: Finnish has ä and ö but no õ, German has ä ö ü but no õ, and no other language of the region uses it for the same unrounded back vowel. Estonian orthography is otherwise close to phonemic, and it marks length by doubling the letter, though only two of the language’s three degrees of length can be written at all.
+locale: et
+---
+ladina kiri
+kirillitsa
+kreeka kiri
+araabia kiri
+heebrea kiri
+hiina kirjamärgid
+hiragana
+katakana
+hangul
+devanaagari
+tai kiri
+gruusia kiri
+armeenia kiri
+etioopia kiri
+tamili kiri
+mongoli kiri
+tiibeti kiri
+kirjapunktkiri
+ruunikiri
+glagoolitsa

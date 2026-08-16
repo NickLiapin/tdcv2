@@ -1,0 +1,21 @@
+---
+description: Cuisine (Estonian), and the parent of dishByCuisine. The list starts where an Estonian menu starts: Eesti, then Soome, Vene and Gruusia, because those are the kitchens actually present in Estonian towns. Georgian restaurants are far commoner in Tallinn than a west European would guess, and Russian food is not foreign here at all — a quarter of Estonia’s population is Russian-speaking.
+locale: et
+---
+Eesti
+Soome
+Vene
+Gruusia
+Itaalia
+Jaapani
+Mehhiko
+Hiina
+India
+Prantsuse
+Tai
+Kreeka
+Hispaania
+Ameerika
+Korea
+Vietnami
+Türgi

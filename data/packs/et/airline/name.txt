@@ -1,0 +1,54 @@
+---
+description: Airline name, weighted towards the carriers that actually serve Tallinn. Estonia has had no flag carrier since Estonian Air was liquidated in 2015 over illegal state aid; Nordica was founded to replace it and now flies only as a wet-lease operator under the name Xfly, so Estonians reach the world through airBaltic, Finnair and the low-cost carriers. Airline names are trade names and are not translated.
+locale: et
+---
+airBaltic
+Finnair
+Lufthansa
+LOT Polish Airlines
+SAS
+Ryanair
+Wizz Air
+Turkish Airlines
+KLM
+Air France
+Norwegian
+Nordica
+Xfly
+Estonian Air
+Austrian Airlines
+SWISS
+easyJet
+British Airways
+Emirates
+Qatar Airways
+Etihad Airways
+Iberia
+TAP Air Portugal
+ITA Airways
+Aegean Airlines
+SmartLynx Airlines
+Vueling
+Transavia
+Eurowings
+Air Serbia
+Pegasus Airlines
+Singapore Airlines
+Cathay Pacific
+Qantas
+ANA
+Japan Airlines
+Korean Air
+Air Canada
+United Airlines
+Delta Air Lines
+American Airlines
+LATAM
+Air China
+Icelandair
+PLAY
+Croatia Airlines
+Luxair
+SunExpress
+Air Astana
+Turkish Cargo

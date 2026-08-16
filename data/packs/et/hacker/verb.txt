@@ -1,0 +1,32 @@
+---
+description: Tech verb (Estonian), given in the -ma infinitive, which is the form an Estonian dictionary lists. There is no future tense to choose: krüpteerima covers encrypts and will encrypt alike.
+locale: et
+---
+varundama
+mööda minema
+häkkima
+üle kirjutama
+pakkima
+kopeerima
+navigeerima
+indekseerima
+ühendama
+genereerima
+kvantifitseerima
+arvutama
+sünteesima
+sisestama
+edastama
+programmeerima
+taaskäivitama
+parsima
+krüpteerima
+dekrüpteerima
+juurutama
+skannima
+kompileerima
+siluma
+testima
+valideerima
+migreerima
+sünkroniseerima

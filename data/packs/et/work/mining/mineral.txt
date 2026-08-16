@@ -1,0 +1,23 @@
+---
+description: Mined mineral or commodity (Estonian). Põlevkivi, oil shale, is the one that matters: Estonia is the only country in the world to have built a power system on it, the mines are in Ida-Viru county, and the industry is both the country’s largest single employer outside Tallinn and its largest environmental problem. Fosforiit carries the other half of that story — the Soviet plan to open phosphorite mines in 1987 produced the fosforiidisõda, the Phosphorite War, and that protest is where the movement that regained Estonian independence began. Ravimuda is the curative sea mud that Pärnu and Haapsalu built their spa industry on.
+locale: et
+---
+põlevkivi
+turvas
+lubjakivi
+dolomiit
+liiv
+kruus
+savi
+fosforiit
+graniit
+diktüoneemakilt
+glaukoniitliivakivi
+kvartsliiv
+keraamiline savi
+tsemendisavi
+aleuroliit
+järvemuda
+ravimuda
+põhjavesi
+paekivi

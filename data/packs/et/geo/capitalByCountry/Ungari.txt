@@ -1,0 +1,5 @@
+---
+description: Capital of Ungari, as Estonian names it
+locale: et
+---
+Budapest

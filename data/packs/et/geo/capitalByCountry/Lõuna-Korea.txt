@@ -1,0 +1,5 @@
+---
+description: Capital of Lõuna-Korea, as Estonian names it
+locale: et
+---
+Soul

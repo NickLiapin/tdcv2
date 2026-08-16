@@ -1,0 +1,16 @@
+---
+description: Jobs in ehitus, in Estonian
+locale: et
+---
+ehitusinsener
+objektijuht
+töödejuhataja
+müürsepp
+puusepp
+elektrik
+torulukksepp
+katusepanija
+plaatija
+maaler
+geodeet
+ehitusjärelevalve spetsialist

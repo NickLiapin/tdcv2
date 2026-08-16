@@ -1,0 +1,34 @@
+---
+description: Fish (Estonian). The Baltic species come first and matter more here than the international ones: räim and kilu are the small herring the whole country eats — kilu on rye bread with egg is a national dish — and ahven, haug, koha, siig and luts are what comes out of Lake Peipsi and the coastal water.
+locale: et
+---
+räim
+kilu
+ahven
+haug
+koha
+siig
+luts
+särg
+latikas
+angerjas
+lest
+tursk
+lõhe
+meriforell
+forell
+vikerforell
+karpkala
+linask
+nurg
+meritint
+tuunikala
+makrell
+hiidlest
+mõõkkala
+marliin
+kuldkala
+klounkala
+guppi
+ingelkala
+võitluskala

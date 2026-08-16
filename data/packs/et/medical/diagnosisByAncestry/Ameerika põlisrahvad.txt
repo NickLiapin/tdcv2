@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Ameerika põlisrahvad ancestry, named in Estonian. A prevalence signal, not an exclusive one.
+locale: et
+---
+2. tüüpi diabeet
+sapikivitõbi
+diabeetiline nefropaatia
+reumatoidartriit
+mittealkohoolne rasvmaksahaigus
+metaboolne sündroom

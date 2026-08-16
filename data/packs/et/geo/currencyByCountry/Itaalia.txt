@@ -1,0 +1,5 @@
+---
+description: Currency of Itaalia, as Estonian names it
+locale: et
+---
+euro

@@ -1,0 +1,53 @@
+---
+description: Country as Estonian names it, weighted by population in millions. Translated rather than transliterated — Saksamaa, Rootsi, Venemaa, Ühendkuningriik, Ameerika Ühendriigid, Holland — with -maa, land, as the commonest Estonian ending. Estonia’s own neighbours are here at their REAL weight rather than boosted: Eesti itself scores 1 and Läti 2, which means a plain draw from this file will rarely produce them, and a config that wants a Baltic-centred dataset must filter rather than expect the weighting to do it. Country names inflect through fourteen cases like any other Estonian noun, so a config dropping one into a sentence must inflect it: Eestis, Soome, Rootsist.
+locale: et
+weighted: true
+---
+Hiina,1410
+India,1400
+Ameerika Ühendriigid,335
+Indoneesia,275
+Pakistan,240
+Nigeeria,220
+Brasiilia,215
+Bangladesh,170
+Venemaa,144
+Mehhiko,128
+Jaapan,125
+Egiptus,110
+Vietnam,98
+Türgi,85
+Saksamaa,84
+Tai,72
+Prantsusmaa,68
+Ühendkuningriik,67
+Lõuna-Aafrika Vabariik,60
+Itaalia,59
+Lõuna-Korea,52
+Hispaania,47
+Argentina,46
+Kanada,39
+Poola,38
+Ukraina,38
+Saudi Araabia,36
+Austraalia,26
+Holland,18
+Tšehhi,11
+Rootsi,10
+Kreeka,10
+Portugal,10
+Ungari,10
+Valgevene,9
+Austria,9
+Šveits,9
+Singapur,6
+Taani,6
+Soome,6
+Norra,5
+Iirimaa,5
+Uus-Meremaa,5
+Gruusia,4
+Leedu,3
+Läti,2
+Eesti,1
+Island,1

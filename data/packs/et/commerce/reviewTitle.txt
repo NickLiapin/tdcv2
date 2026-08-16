@@ -1,0 +1,30 @@
+---
+description: Product review title (Estonian). Estonian online reviews are noticeably flatter in register than English ones — understatement reads as sincerity here, so "igati korras" and "rahul jäin" are praise rather than lukewarm.
+locale: et
+---
+Suurepärane toode!
+Soovitan soojalt
+Ei ole seda väärt
+Ületas ootused
+Keskpärane
+Ostaksin uuesti
+Pettumus
+Väga hea kvaliteet
+Läks liiga ruttu katki
+Hinna ja kvaliteedi suhe on hea
+Parem kui ootasin
+Ei soovita
+Väga rahul!
+Veidi ülehinnatud
+Täpselt nagu kirjeldatud
+Kiire tarne
+Sobib hästi
+Ei vasta pildile
+Korralik asi
+Rahul jäin
+Igati korras
+Läheb tagasi
+Ostke julgelt
+Kahju rahast
+Hea kingitus
+Töötab nagu vaja

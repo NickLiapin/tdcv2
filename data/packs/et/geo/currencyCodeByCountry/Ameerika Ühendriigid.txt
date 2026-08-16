@@ -1,0 +1,5 @@
+---
+description: Currency code of Ameerika Ühendriigid
+locale: et
+---
+USD

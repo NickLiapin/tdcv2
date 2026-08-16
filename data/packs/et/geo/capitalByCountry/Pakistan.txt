@@ -1,0 +1,5 @@
+---
+description: Capital of Pakistan, as Estonian names it
+locale: et
+---
+Islamabad

@@ -1,0 +1,237 @@
+---
+description: Country and territory names (Estonian). Estonian keeps its own forms for most of them and translates rather than transliterates — Saksamaa, Rootsi, Soome, Venemaa, Prantsusmaa, Holland, Ühendkuningriik — with -maa, literally land, as the commonest ending. Estonian uses no article, but country names inflect like any other noun through fourteen cases: Eestis is in Estonia, Rootsi is to Sweden, Soomest is from Finland, so a config that drops one into a sentence must inflect it rather than paste the nominative.
+locale: et
+---
+Afganistan
+Albaania
+Alžeeria
+Ameerika Samoa
+Ameerika Ühendriigid
+Andorra
+Angola
+Anguilla
+Antarktis
+Antigua ja Barbuda
+Araabia Ühendemiraadid
+Argentina
+Armeenia
+Aruba
+Aserbaidžaan
+Austraalia
+Austria
+Bahama
+Bahrein
+Bangladesh
+Barbados
+Belau
+Belgia
+Belize
+Benin
+Bermuda
+Bhutan
+Boliivia
+Bosnia ja Hertsegoviina
+Botswana
+Brasiilia
+Brunei
+Bulgaaria
+Burkina Faso
+Burundi
+Colombia
+Cooki saared
+Costa Rica
+Côte d’Ivoire
+Djibouti
+Dominica
+Dominikaani Vabariik
+Ecuador
+Egiptus
+Ekvatoriaal-Guinea
+El Salvador
+Eritrea
+Eesti
+Etioopia
+Falklandi saared
+Fidži
+Filipiinid
+Fääri saared
+Gabon
+Gambia
+Ghana
+Gibraltar
+Grenada
+Gruusia
+Gröönimaa
+Guadeloupe
+Guam
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Hiina
+Hispaania
+Holland
+Honduras
+Hongkong
+Horvaatia
+Iirimaa
+Iisrael
+Ida-Timor
+India
+Indoneesia
+Iraak
+Iraan
+Island
+Itaalia
+Jaapan
+Jamaica
+Jeemen
+Jordaania
+Jõulusaar
+Kaimanisaared
+Kambodža
+Kamerun
+Kanada
+Kasahstan
+Katar
+Keenia
+Kesk-Aafrika Vabariik
+Kiribati
+Komoorid
+Kongo Demokraatlik Vabariik
+Kongo Vabariik
+Kookossaared
+Kosovo
+Kreeka
+Kuuba
+Kuveit
+Kõrgõzstan
+Küpros
+Laos
+Leedu
+Lesotho
+Libeeria
+Liechtenstein
+Liibanon
+Liibüa
+Luksemburg
+Lõuna-Aafrika Vabariik
+Lõuna-Korea
+Lõuna-Sudaan
+Lääne-Sahara
+Läti
+Macau
+Madagaskar
+Maldiivid
+Malawi
+Malaisia
+Mali
+Malta
+Maroko
+Marshalli Saared
+Martinique
+Mauritaania
+Mauritius
+Mayotte
+Mehhiko
+Mikroneesia
+Moldova
+Monaco
+Mongoolia
+Montenegro
+Montserrat
+Mosambiik
+Myanmar
+Namiibia
+Nauru
+Nepal
+Nicaragua
+Nigeeria
+Niger
+Niue
+Norra
+Norfolki saar
+Omaan
+Paapua Uus-Guinea
+Pakistan
+Palestiina
+Panama
+Paraguay
+Peruu
+Pitcairn
+Poola
+Portugal
+Prantsuse Guajaana
+Prantsuse Polüneesia
+Prantsusmaa
+Puerto Rico
+Põhja-Korea
+Põhja-Makedoonia
+Põhja-Mariaanid
+Réunion
+Roheneemesaared
+Rootsi
+Rumeenia
+Rwanda
+Saalomoni Saared
+Saint Kitts ja Nevis
+Saint Lucia
+Saint Vincent ja Grenadiinid
+Saksamaa
+Sambia
+Samoa
+San Marino
+São Tomé ja Príncipe
+Saudi Araabia
+Seišellid
+Senegal
+Serbia
+Sierra Leone
+Singapur
+Slovakkia
+Sloveenia
+Somaalia
+Soome
+Sri Lanka
+Sudaan
+Suriname
+Svaasimaa
+Süüria
+Šveits
+Zimbabwe
+Tadžikistan
+Tai
+Taani
+Taiwan
+Tansaania
+Tiibet
+Togo
+Tokelau
+Tonga
+Trinidad ja Tobago
+Tšaad
+Tšehhi
+Tšiili
+Tuneesia
+Turks ja Caicos
+Tuvalu
+Türgi
+Türkmenistan
+Uganda
+Ukraina
+Ungari
+Uruguay
+Usbekistan
+Uus-Kaledoonia
+Uus-Meremaa
+Valgevene
+Vanuatu
+Vatikan
+Venemaa
+Venezuela
+Vietnam
+Wallis ja Futuna
+Ühendkuningriik
+Briti Neitsisaared
+USA Neitsisaared

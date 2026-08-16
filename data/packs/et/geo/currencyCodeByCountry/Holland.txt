@@ -1,0 +1,5 @@
+---
+description: Currency code of Holland
+locale: et
+---
+EUR

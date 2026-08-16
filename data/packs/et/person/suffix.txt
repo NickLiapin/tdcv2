@@ -1,0 +1,26 @@
+---
+description: Estonian post-nominal abbreviation. Estonian has no Jr or Sr of the English kind — the equivalents are vanem and noorem, written after the name and genuinely rare. The rest are degree abbreviations, written after the name with a comma. Two are historical and still carried by living Estonians: cand. sc. and dr. sc. are the Soviet-era teaduste kandidaat and teaduste doktor, awarded before Estonia moved to the Bologna structure in 1992, and a CV showing one dates its holder precisely.
+locale: et
+---
+vanem
+noorem
+BA
+BSc
+MA
+MSc
+MBA
+LLM
+PhD
+dr
+dr. med.
+dr. phil.
+cand. sc.
+dr. sc.
+prof.
+emer. prof.
+dots.
+mag.
+ins.
+arhit.
+akad.
+vandeadv.

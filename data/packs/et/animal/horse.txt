@@ -1,0 +1,22 @@
+---
+description: Horse breed (Estonian). Three of these are native: eesti hobune is the old Estonian Native, one of the few surviving north European forest horses; tori hobune was bred at the Tori stud from 1856; eesti raskeveohobune is the Estonian Draft. All three are on the national list of endangered farm-animal breeds.
+locale: et
+---
+eesti hobune
+tori hobune
+eesti raskeveohobune
+araabia hobune
+inglise täisvereline
+trakeeni hobune
+hannoveri hobune
+friisi hobune
+andaluusia hobune
+appaloosa
+mustang
+quarter-hobune
+clydesdale
+shire
+percheron
+shetlandi poni
+islandi hobune
+ardenni hobune

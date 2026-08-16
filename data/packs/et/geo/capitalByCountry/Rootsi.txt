@@ -1,0 +1,5 @@
+---
+description: Capital of Rootsi, as Estonian names it
+locale: et
+---
+Stockholm

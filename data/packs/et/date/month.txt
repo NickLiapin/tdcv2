@@ -1,0 +1,16 @@
+---
+description: Month name (Estonian), written in LOWER CASE. Estonia uses the international Latin names, which is where it parts company with Finnish: Finnish says tammikuu where Estonian says jaanuar. Estonian does still have a full set of native folk month names, and they are alive in almanacs and in speech — näärikuu, küünlakuu, paastukuu, jürikuu, lehekuu, jaanikuu, heinakuu, lõikuskuu, mihklikuu, viinakuu, mardikuu, jõulukuu, most of them named after the saint’s day or the farm work that falls in them. They are not the values here because no Estonian writes them on a form.
+locale: et
+---
+jaanuar
+veebruar
+märts
+aprill
+mai
+juuni
+juuli
+august
+september
+oktoober
+november
+detsember

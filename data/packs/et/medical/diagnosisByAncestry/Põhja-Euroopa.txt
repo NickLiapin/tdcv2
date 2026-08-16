@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Põhja-Euroopa ancestry, named in Estonian. A prevalence signal, not an exclusive one.
+locale: et
+---
+tsüstiline fibroos
+pärilik hemokromatoos
+alfa-1-antitrüpsiini puudulikkus
+fenüülketonuuria
+tsöliaakia
+hulgiskleroos
+1. tüüpi diabeet
+Dupuytreni kontraktuur
+basaalrakk-kartsinoom
+laktaasi püsivus

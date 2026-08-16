@@ -1,0 +1,10 @@
+---
+description: Dishes of Vietnami cuisine, in Estonian
+locale: et
+---
+pho
+banh mi
+kevadrullid
+bun cha
+com tam
+vietnami kohv

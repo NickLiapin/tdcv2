@@ -1,0 +1,26 @@
+---
+description: Venue type (Estonian). Lauluväljak and laululava are venue types rather than single buildings: a laululava, an open-air song stage with a shell-shaped roof, stands in almost every Estonian town and is where the local song and dance festivals happen. Rahvamaja, the parish community house, is the other one — most were built between the wars and they are still where a village holds its concerts, elections and funerals.
+locale: et
+---
+lauluväljak
+laululava
+rahvamaja
+seltsimaja
+kultuurikeskus
+kontserdisaal
+teater
+kino
+staadion
+spordihall
+konverentsikeskus
+hotelli peosaal
+banketisaal
+aula
+koosolekuruum
+ööklubi
+katuseterrass
+aed
+park
+mõis
+kirik
+ladu

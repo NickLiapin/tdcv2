@@ -1,0 +1,9 @@
+---
+description: Diagnoses seen in nefroloogia, in Estonian
+locale: et
+---
+krooniline neeruhaigus
+neerukivitõbi
+glomerulonefriit
+äge neerukahjustus
+polütsüstiline neeruhaigus

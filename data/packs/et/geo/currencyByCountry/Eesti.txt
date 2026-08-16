@@ -1,0 +1,5 @@
+---
+description: Currency of Eesti, as Estonian names it
+locale: et
+---
+euro

@@ -1,0 +1,9 @@
+---
+description: Positions in saalihoki, in Estonian
+locale: et
+---
+väravavaht
+kaitsja
+keskründaja
+parem äär
+vasak äär

@@ -1,0 +1,24 @@
+---
+description: Property type (Estonian). Metsamaa is a property type in its own right in Estonia rather than an oddity: forest land is bought, sold and inherited as an ordinary asset, a little over half the country is forest, and about a third of it is in private hands.
+locale: et
+---
+korter
+eramu
+ridaelamu
+paarismaja
+maja osa
+suvila
+aiamaja
+talukompleks
+mõis
+krunt
+elamumaa
+põllumaa
+metsamaa
+ärimaa
+äripind
+büroopind
+kaubanduspind
+laopind
+tootmishoone
+garaaž

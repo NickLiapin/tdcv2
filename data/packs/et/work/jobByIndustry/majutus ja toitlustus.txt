@@ -1,0 +1,15 @@
+---
+description: Jobs in majutus ja toitlustus, in Estonian
+locale: et
+---
+kokk
+peakokk
+kondiiter
+pagar
+kelner
+baarmen
+barista
+toateenija
+hotellijuht
+restoranijuht
+administraator

@@ -1,0 +1,84 @@
+---
+description: Medical diagnosis that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale and diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. Two entries near the end are Estonian public-health facts rather than filler: puukentsefaliit and puukborrelioos, tick-borne encephalitis and Lyme disease, are common enough here that vaccination against the first is routine and the tick season is reported on the news.
+locale: et
+---
+hüpertensioon
+2. tüüpi diabeet
+astma
+äge bronhiit
+gripp
+migreen
+generaliseerunud ärevushäire
+depressioon
+osteoartriit
+reumatoidartriit
+gastroösofageaalne reflukshaigus
+rauavaegusaneemia
+hüpotüreoos
+kuseteede infektsioon
+kopsupõletik
+krooniline neeruhaigus
+südame isheemiatõbi
+kodade virvendusarütmia
+südamepuudulikkus
+isheemiline insult
+epilepsia
+Parkinsoni tõbi
+Alzheimeri tõbi
+hulgiskleroos
+psoriaas
+atoopiline dermatiit
+allergiline riniit
+krooniline sinusiit
+keskkõrvapõletik
+konjunktiviit
+katarakt
+glaukoom
+apenditsiit
+koletsüstiit
+divertikuliit
+ärritatud soole sündroom
+Crohni tõbi
+haavandiline koliit
+krooniline B-hepatiit
+maksatsirroos
+äge pankreatiit
+podagra
+osteoporoos
+fibromüalgia
+ishias
+lülivaheketta song
+karpaalkanali sündroom
+tendiniit
+krooniline obstruktiivne kopsuhaigus
+tuberkuloos
+leukeemia
+lümfoom
+melanoom
+hüperlipideemia
+rasvumine
+obstruktiivne uneapnoe
+unetus
+bipolaarne häire
+aktiivsus- ja tähelepanuhäire
+tsöliaakia
+süsteemne erütematoosluupus
+peapööritus
+tinnitus
+hemorroidid
+veenilaiendid
+süvaveenitromboos
+kopsuemboolia
+neerukivitõbi
+aneemia
+hüpertüreoos
+peptiline haavand
+gastriit
+erüsiipel
+sepsis
+rinnavähk
+äge gastroenteriit
+D-vitamiini puudus
+krooniline veenipuudulikkus
+puukentsefaliit
+puukborrelioos

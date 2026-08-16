@@ -1,0 +1,11 @@
+---
+description: Dishes of Tai cuisine, in Estonian
+locale: et
+---
+pad thai
+roheline karri
+tom yum
+massaman-karri
+papaiasalat
+mango kleepriisiga
+sate

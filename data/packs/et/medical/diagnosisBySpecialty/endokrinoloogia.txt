@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in endokrinoloogia, in Estonian
+locale: et
+---
+2. tüüpi diabeet
+hüpotüreoos
+hüpertüreoos
+osteoporoos
+Cushingi sündroom
+polütsüstiliste munasarjade sündroom

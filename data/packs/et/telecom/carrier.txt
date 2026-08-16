@@ -1,0 +1,30 @@
+---
+description: Telecoms operator (Estonian market). Estonia has three mobile network operators — Telia, Elisa and Tele2 — and everything else on this list resells one of them or provides fixed lines. Levira runs the broadcast transmitter network. Estonia has had nationwide mobile coverage since the 1990s and a mobile ID that legally signs documents since 2007, so a telecoms account here is also an identity credential.
+locale: et
+---
+Telia
+Elisa
+Tele2
+Super
+Bob
+Starman
+STV
+Levira
+Estonian Broadband
+Telset
+Vodafone
+T-Mobile
+Orange
+O2
+Telenor
+A1
+Bite
+LMT
+Tet
+Play
+Plus
+Three
+Swisscom
+Proximus
+KPN
+Turkcell

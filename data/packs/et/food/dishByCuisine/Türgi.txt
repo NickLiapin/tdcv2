@@ -1,0 +1,11 @@
+---
+description: Dishes of Türgi cuisine, in Estonian
+locale: et
+---
+kebab
+türgi baklava
+meze
+lahmacun
+dolma
+köfte
+pide

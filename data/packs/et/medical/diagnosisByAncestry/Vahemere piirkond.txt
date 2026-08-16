@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Vahemere piirkond ancestry, named in Estonian. A prevalence signal, not an exclusive one.
+locale: et
+---
+beeta-talasseemia
+beeta-talasseemia kandlus
+glükoos-6-fosfaatdehüdrogenaasi puudulikkus
+perekondlik Vahemere palavik
+Behçeti tõbi
+alfa-talasseemia
+favism

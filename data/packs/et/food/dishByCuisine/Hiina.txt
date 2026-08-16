@@ -1,0 +1,12 @@
+---
+description: Dishes of Hiina cuisine, in Estonian
+locale: et
+---
+kung pao kana
+praetud riis
+aurutatud pelmeenid
+chow mein
+magushapu sealiha
+mapo tofu
+Pekingi part
+wonton-supp

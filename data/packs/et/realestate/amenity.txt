@@ -1,0 +1,29 @@
+---
+description: Property amenity (Estonian). Saun is high on this list and is not a luxury item here — a private sauna in the flat or in the building is ordinary in Estonia, and a block of flats without one is worth remarking on. Ahiküte, stove heating, is on the list because the wooden houses of Tallinn’s Kalamaja and Tartu’s Supilinn are still heated that way and it materially changes what a flat is worth.
+locale: et
+---
+saun
+rõdu
+klaasitud rõdu
+terrass
+kelder
+panipaik
+pööning
+garaaž
+parkimiskoht
+lift
+keskküte
+ahiküte
+põrandaküte
+kamin
+õhksoojuspump
+aed
+kasvuhoone
+pesuruum
+nõudepesumasin
+sisustatud köök
+turvasüsteem
+videovalve
+jalgrattahoidla
+mänguväljak
+elektriauto laadija

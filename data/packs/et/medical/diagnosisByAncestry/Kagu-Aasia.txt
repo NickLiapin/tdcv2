@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Kagu-Aasia ancestry, named in Estonian. A prevalence signal, not an exclusive one.
+locale: et
+---
+hemoglobiin E haigus
+alfa-talasseemia
+glükoos-6-fosfaatdehüdrogenaasi puudulikkus
+ninaneelu kartsinoom
+beeta-talasseemia
+Brugada sündroom
+laktaasi mittepüsivus

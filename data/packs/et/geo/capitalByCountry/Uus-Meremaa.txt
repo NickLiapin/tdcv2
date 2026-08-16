@@ -1,0 +1,5 @@
+---
+description: Capital of Uus-Meremaa, as Estonian names it
+locale: et
+---
+Wellington

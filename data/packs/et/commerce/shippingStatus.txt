@@ -1,0 +1,15 @@
+---
+description: Shipping status (Estonian). "Pakiautomaadis" is a terminal status here in a way it is not in most countries: an Estonian parcel normally ends its journey in a locker with a door code sent by SMS, and the seven days it waits there before going back are part of the ordinary delivery flow.
+locale: et
+---
+pakikaart loodud
+sorteerimiskeskuses
+teel
+kohaletoimetamisel
+pakiautomaadis
+ootab väljavõtmist
+kohale toimetatud
+hilineb
+tõrge
+tolliläbivaatusel
+saatjale tagastatud

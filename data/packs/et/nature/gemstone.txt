@@ -1,0 +1,29 @@
+---
+description: Gemstone (Estonian). Merevaik, Baltic amber, is the stone of this coast — fossil pine resin washed up along the eastern Baltic and worked into jewellery here for thousands of years — and it is the one entry on this list an Estonian might actually find on a beach.
+locale: et
+---
+merevaik
+teemant
+rubiin
+safiir
+smaragd
+ametüst
+topaas
+opaal
+granaat
+akvamariin
+peridoot
+türkiis
+nefriit
+oniks
+pärl
+tsitriin
+tansaniit
+turmaliin
+kuukivi
+tsirkoon
+lasuriit
+ahhaat
+malahhiit
+jaspis
+mäekristall

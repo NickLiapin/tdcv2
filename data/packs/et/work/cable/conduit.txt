@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Estonian)
+locale: et
+---
+kaablirenn
+kaabliredel
+paigaldustoru
+kaitsetoru
+juhtmekanal
+maapaigaldus
+õhuliin

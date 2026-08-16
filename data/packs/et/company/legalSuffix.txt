@@ -1,0 +1,45 @@
+---
+description: Company legal form or name suffix (Estonian). OÜ, osaühing, is the private limited company and is overwhelmingly the commonest form in the country — Estonia’s e-Residency programme lets a non-resident found one online in under a day without ever setting foot in the country, which is why there are more registered OÜs per head here than almost anywhere. AS is the public limited company, MTÜ a non-profit association, SA a foundation, FIE a sole trader, KÜ the apartment association that owns the common parts of a block of flats. Estonian writes the form BEFORE the name as often as after it: OÜ Tamme Kaubandus is as normal as Tamme Kaubandus OÜ.
+locale: et
+---
+OÜ
+AS
+MTÜ
+SA
+FIE
+TÜ
+UÜ
+KÜ
+filiaal
+Grupp
+Grupi
+Holding
+Invest
+Kapital
+Partners
+ja Partnerid
+ja Pojad
+Kinnisvara
+Ehitus
+Kaubandus
+Tehnika
+Lahendused
+Süsteemid
+Tehnoloogiad
+Konsultatsioonid
+Logistika
+Transport
+Teenused
+Arendus
+Projekt
+Stuudio
+Labor
+Agentuur
+Büroo
+Keskus
+Vabrik
+Tehas
+Kompanii
+Kontsern
+Ühistu
+Selts

@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Estonian). Estonian numbers its quarters with ROMAN numerals and spells the word out — I kvartal, not Q1 — which is what appears in Estonian company reports and tax filings.
+locale: et
+---
+I kvartal
+II kvartal
+III kvartal
+IV kvartal

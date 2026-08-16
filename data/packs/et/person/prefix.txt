@@ -1,0 +1,36 @@
+---
+description: Estonian form of address. The list is short at the top for a reason: Estonians barely use titles in daily life, and the polite plural teie is retreating the way it did in Finland, so a stranger, a doctor and a minister may all be addressed as sina in ordinary Estonian speech — though rather less freely than a Finn would. Härra, proua and preili survive on envelopes and in ceremony (preili is dated, since it marks an unmarried woman). Everything below the first block is an academic, military or church rank, and none of them is marked for the holder’s sex: proua doktor and härra doktor share one word doktor between them.
+locale: et
+---
+härra
+proua
+preili
+doktor
+professor
+emeriitprofessor
+dotsent
+magister
+akadeemik
+rektor
+dekaan
+insener
+arhitekt
+ülemarst
+õde
+õpetaja
+direktor
+minister
+president
+saadik
+linnapea
+vallavanem
+vandeadvokaat
+notar
+kohtunik
+prokurör
+piiskop
+praost
+kirikuõpetaja
+kolonel
+kindral
+kapten

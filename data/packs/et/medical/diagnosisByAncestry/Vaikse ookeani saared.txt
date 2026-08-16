@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Vaikse ookeani saared ancestry, named in Estonian. A prevalence signal, not an exclusive one.
+locale: et
+---
+2. tüüpi diabeet
+rasvumisega seotud hüpertensioon
+podagra
+reumaatiline südamehaigus
+krooniline neeruhaigus
+hüperurikeemia

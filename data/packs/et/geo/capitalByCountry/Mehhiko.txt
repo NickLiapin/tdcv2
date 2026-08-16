@@ -1,0 +1,5 @@
+---
+description: Capital of Mehhiko, as Estonian names it
+locale: et
+---
+Mexico

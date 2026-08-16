@@ -1,0 +1,12 @@
+---
+description: Mining method (Estonian). Kamber-tervikmeetod, room-and-pillar, is the method Estonian oil shale is actually cut by underground; pinnasefreesimine, surface milling with a continuous miner, is how it is taken in the open pits, and Estonia was one of the first places in the world to use it at scale.
+locale: et
+---
+allmaakaevandamine
+pealmaakaevandamine
+kamber-tervikmeetod
+pinnasefreesimine
+puurimine ja lõhkamine
+karjääri kaevandamine
+turba freesimine
+leostamine

@@ -1,0 +1,5 @@
+---
+description: Currency of Kreeka, as Estonian names it
+locale: et
+---
+euro

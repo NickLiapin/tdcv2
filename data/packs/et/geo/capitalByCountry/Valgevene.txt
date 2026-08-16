@@ -1,0 +1,5 @@
+---
+description: Capital of Valgevene, as Estonian names it
+locale: et
+---
+Minsk

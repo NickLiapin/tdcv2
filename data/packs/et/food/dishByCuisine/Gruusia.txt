@@ -1,0 +1,11 @@
+---
+description: Dishes of Gruusia cuisine, in Estonian
+locale: et
+---
+hatšapuri
+hinkalid
+satsivi
+lobio
+badridžaani rullid
+tšahohbili
+mtsvadi

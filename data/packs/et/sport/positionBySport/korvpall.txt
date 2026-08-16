@@ -1,0 +1,10 @@
+---
+description: Positions in korvpall, in Estonian
+locale: et
+---
+mängujuht
+tagamängija
+viskemängija
+ääremängija
+suur ääremängija
+keskmängija

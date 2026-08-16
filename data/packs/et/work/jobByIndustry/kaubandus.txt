@@ -1,0 +1,13 @@
+---
+description: Jobs in kaubandus, in Estonian
+locale: et
+---
+müüja
+kassapidaja
+poejuht
+müügiesindaja
+müügijuht
+ostujuht
+kategooriajuht
+klienditeenindaja
+laotöötaja

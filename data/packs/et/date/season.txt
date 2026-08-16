@@ -1,0 +1,8 @@
+---
+description: Season (Estonian). Four, and sharply unequal at 59° north: talv runs roughly November to March and suvi is short enough that the whole country takes it at once.
+locale: et
+---
+kevad
+suvi
+sügis
+talv

@@ -1,0 +1,17 @@
+---
+description: Streaming platform available in Estonia. Jupiter is the free service of the public broadcaster ERR and carries the whole Estonian television and radio archive; Go3 is the Baltic regional service and Elisa Huub the operator’s own. Trade names are not translated.
+locale: et
+---
+Netflix
+Jupiter
+Go3
+Elisa Huub
+Telia TV
+Viaplay
+Disney+
+Amazon Prime Video
+HBO Max
+Apple TV+
+YouTube
+Spotify
+Twitch

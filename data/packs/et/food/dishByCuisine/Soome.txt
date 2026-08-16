@@ -1,0 +1,11 @@
+---
+description: Dishes of Soome cuisine, in Estonian
+locale: et
+---
+kalakukko
+karjala piiragad
+lihapallid
+lõhesupp
+mustikakook
+kaneelisai
+porokäristys

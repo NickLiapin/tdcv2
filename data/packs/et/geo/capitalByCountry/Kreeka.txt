@@ -1,0 +1,5 @@
+---
+description: Capital of Kreeka, as Estonian names it
+locale: et
+---
+Ateena

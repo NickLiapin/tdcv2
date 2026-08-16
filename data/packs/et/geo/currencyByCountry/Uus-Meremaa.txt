@@ -1,0 +1,5 @@
+---
+description: Currency of Uus-Meremaa, as Estonian names it
+locale: et
+---
+Uus-Meremaa dollar

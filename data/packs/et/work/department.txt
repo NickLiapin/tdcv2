@@ -1,0 +1,26 @@
+---
+description: Company department or function (Estonian)
+locale: et
+---
+juhtkond
+finantsosakond
+raamatupidamine
+palgaarvestus
+personaliosakond
+värbamine
+IT-osakond
+tootearendus
+tootmine
+kvaliteediosakond
+hankeosakond
+logistika
+ladu
+müügiosakond
+turundus
+kommunikatsioon
+klienditugi
+õigusosakond
+kinnisvaraosakond
+töökeskkond
+teadus- ja arendustegevus
+hooldus

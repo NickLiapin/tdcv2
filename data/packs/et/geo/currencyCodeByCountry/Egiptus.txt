@@ -1,0 +1,5 @@
+---
+description: Currency code of Egiptus
+locale: et
+---
+EGP

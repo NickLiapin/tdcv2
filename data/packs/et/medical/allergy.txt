@@ -1,0 +1,29 @@
+---
+description: Common allergy (Estonian). Kase õietolm heads the list because birch pollen is the dominant Estonian allergen — birch is one of the country’s commonest trees and the May pollen season affects a large share of the population, often with cross-reaction to apple and stone fruit.
+locale: et
+---
+kase õietolm
+lepa õietolm
+kõrreliste õietolm
+koirohu õietolm
+tolmulestad
+loomakarvad
+hallitusseened
+penitsilliin
+sulfoonamiidid
+aspiriin
+jood
+lateks
+maapähklid
+pähklid
+seesam
+kala
+karbid
+munad
+piim
+soja
+nisu
+gluteen
+laktoos
+mesilase mürk
+nikkel

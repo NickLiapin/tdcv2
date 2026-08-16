@@ -1,0 +1,5 @@
+---
+description: Capital of Argentina, as Estonian names it
+locale: et
+---
+Buenos Aires

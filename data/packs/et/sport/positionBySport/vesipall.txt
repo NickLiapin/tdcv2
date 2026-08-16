@@ -1,0 +1,10 @@
+---
+description: Positions in vesipall, in Estonian
+locale: et
+---
+väravavaht
+tsentriründaja
+tsentrikaitsja
+äärekaitsja
+tiibmängija
+poolkaitsja

@@ -1,0 +1,5 @@
+---
+description: Currency code of Leedu
+locale: et
+---
+EUR

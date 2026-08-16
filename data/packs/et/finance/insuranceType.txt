@@ -1,0 +1,18 @@
+---
+description: Insurance type (Estonian). Liikluskindlustus and kasko are two different things and Estonians never confuse them: liikluskindlustus is the compulsory third-party motor cover without which a car may not legally be on the road, kasko is the voluntary comprehensive cover on top. Health cover is missing from the top of this list on purpose — Estonian residents are covered by the state Tervisekassa through their social tax, so private tervisekindlustus is a top-up rather than the main event.
+locale: et
+---
+liikluskindlustus
+kaskokindlustus
+kodukindlustus
+varakindlustus
+elukindlustus
+õnnetusjuhtumikindlustus
+reisikindlustus
+tervisekindlustus
+hambaravikindlustus
+töövõimetuskindlustus
+laenukindlustus
+vastutuskindlustus
+lemmikloomakindlustus
+üürnikukindlustus

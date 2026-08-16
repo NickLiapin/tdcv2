@@ -1,0 +1,22 @@
+---
+description: Social platform used in Estonia. Two entries are Estonian. Rate.ee was the country’s own social network and was for years the place every Estonian teenager was; Delfi is the dominant news portal and its comment section is a national institution in its own right. Skype is on the list for a different reason — it was built in Tallinn by Estonian engineers, and the fact is part of how the country sees itself.
+locale: et
+---
+Facebook
+Instagram
+TikTok
+YouTube
+LinkedIn
+X
+Snapchat
+Telegram
+WhatsApp
+Messenger
+Discord
+Reddit
+Pinterest
+Threads
+Twitch
+Skype
+Rate.ee
+Delfi

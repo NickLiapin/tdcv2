@@ -1,0 +1,5 @@
+---
+description: Capital of Ukraina, as Estonian names it
+locale: et
+---
+Kiiev

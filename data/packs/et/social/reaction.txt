@@ -1,0 +1,15 @@
+---
+description: Social reaction (Estonian)
+locale: et
+---
+meeldib
+süda
+naerma
+üllatunud
+kurb
+vihane
+hoian pöialt
+tähistan
+kaastunne
+vau
+jah

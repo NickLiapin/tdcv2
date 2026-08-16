@@ -1,0 +1,34 @@
+---
+description: Government body (Estonian). These are the real institutions of ESTONIA, named as Estonian law names them, because Estonian is spoken as an official language in one country and the words mean these bodies and no others. Riigi Infosüsteemi Amet runs X-tee, the data-exchange layer that lets every state register talk to every other, and is the reason an Estonian never files the same fact twice. Tervisekassa was called Haigekassa until 2023 and both names are still heard.
+locale: et
+---
+Maksu- ja Tolliamet
+Politsei- ja Piirivalveamet
+Sotsiaalkindlustusamet
+Tervisekassa
+Töötukassa
+Transpordiamet
+Keskkonnaamet
+Päästeamet
+Terviseamet
+Statistikaamet
+Riigi Infosüsteemi Amet
+Maa- ja Ruumiamet
+Patendiamet
+Konkurentsiamet
+Andmekaitse Inspektsioon
+Tarbijakaitse ja Tehnilise Järelevalve Amet
+Põllumajandus- ja Toiduamet
+Riigikogu
+Vabariigi Valitsus
+Riigikohus
+Riigikontroll
+Õiguskantsleri Kantselei
+Eesti Pank
+Rahandusministeerium
+Haridus- ja Teadusministeerium
+Sotsiaalministeerium
+Justiits- ja Digiministeerium
+Siseministeerium
+Kaitseministeerium
+Välisministeerium

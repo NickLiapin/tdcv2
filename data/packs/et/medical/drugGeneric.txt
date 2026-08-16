@@ -1,0 +1,45 @@
+---
+description: Common generic drug name (Estonian spelling). Estonian writes the international non-proprietary names phonetically with its own orthography — paratsetamool, ibuprofeen, amoksitsilliin — so the spelling differs from the English form even though the substance is the same.
+locale: et
+---
+paratsetamool
+ibuprofeen
+aspiriin
+amoksitsilliin
+asitromütsiin
+lisinopriil
+enalapriil
+ramipriil
+metformiin
+atorvastatiin
+simvastatiin
+amlodipiin
+omeprasool
+pantoprasool
+levotüroksiin
+salbutamool
+metoprolool
+bisoprolool
+losartaan
+gabapentiin
+hüdroklorotiasiid
+sertraliin
+estsitalopraam
+tsitalopraam
+fluoksetiin
+duloksetiin
+prednisoloon
+varfariin
+klopidogreel
+furosemiid
+tsiprofloksatsiin
+doksütsükliin
+montelukast
+tramadool
+naprokseen
+diklofenak
+tsetirisiin
+loratadiin
+insuliin glargiin
+metronidasool
+tsefuroksiim

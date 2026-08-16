@@ -1,0 +1,31 @@
+---
+description: Dog breed (Estonian). Eesti hagijas, the Estonian Hound, is the only dog breed native to Estonia — bred in the 1940s when Moscow ordered every Soviet republic to develop a hound too short to hunt elk — and it was made a national symbol in 2005. Everything else is an international breed under its Estonian name.
+locale: et
+---
+eesti hagijas
+labrador retriiver
+saksa lambakoer
+kuldne retriiver
+prantsuse buldog
+inglise buldog
+puudel
+biigel
+rotveiler
+taks
+bokser
+siberi husky
+saksa doog
+dobermann
+austraalia lambakoer
+bordercollie
+tšihuahua
+shih tzu
+pomeranian
+welsh corgi
+berni alpi karjakoer
+jack russelli terjer
+mops
+samojeedi koer
+vene-euroopa laika
+foksterjer
+iiri setter

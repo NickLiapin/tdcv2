@@ -1,0 +1,18 @@
+---
+description: Order status (Estonian)
+locale: et
+---
+ootel
+töötlemisel
+kinnitatud
+komplekteerimisel
+pakendamisel
+saadetud
+kohaletoimetamisel
+kohale toimetatud
+valmis väljastamiseks
+tühistatud
+tagastatud
+raha tagastatud
+ootab makset
+järeltellimusel

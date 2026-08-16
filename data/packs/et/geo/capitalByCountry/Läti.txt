@@ -1,0 +1,5 @@
+---
+description: Capital of Läti, as Estonian names it
+locale: et
+---
+Riia

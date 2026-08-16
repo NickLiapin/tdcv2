@@ -1,0 +1,5 @@
+---
+description: Currency of Poola, as Estonian names it
+locale: et
+---
+Poola zlott

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in ortopeedia, in Estonian
+locale: et
+---
+osteoartriit
+reumatoidartriit
+lülivaheketta song
+karpaalkanali sündroom
+ishias
+rotaatormanseti rebend

@@ -1,0 +1,46 @@
+---
+description: Field of study (Estonian). Semiootika is on this list because it is a genuine Estonian speciality rather than a filler entry: the Tartu-Moscow school around Juri Lotman made the University of Tartu the world centre of semiotics, and it is still one of the few places on earth where you can read for a degree in it.
+locale: et
+---
+informaatika
+arvutitehnika
+ärijuhtimine
+majandusteadus
+rahandus
+turundus
+õigusteadus
+politoloogia
+sotsioloogia
+psühholoogia
+ajalugu
+eesti filoloogia
+inglise filoloogia
+semiootika
+folkloristika
+etnoloogia
+kirjandusteadus
+ajakirjandus
+meedia ja kommunikatsioon
+matemaatika
+füüsika
+keemia
+bioloogia
+geoloogia
+geograafia
+keskkonnateadus
+metsandus
+põllumajandus
+veterinaarmeditsiin
+arstiteadus
+hambaravi
+farmaatsia
+õendus
+masinaehitus
+elektrotehnika
+ehitusinseneeria
+arhitektuur
+graafiline disain
+tootedisain
+andmeteadus
+muusika
+teatrikunst

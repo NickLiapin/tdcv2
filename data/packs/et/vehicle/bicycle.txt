@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Estonian)
+locale: et
+---
+maanteeratas
+maastikuratas
+linnaratas
+hübriidratas
+elektriratas
+gravel-ratas
+krossiratas
+trekiratas
+BMX
+tandem
+lasteratas
+kokkupandav ratas
+kaubaratas
+lamamisratas
+fatbike
+tõukeratas
+elektritõukeratas

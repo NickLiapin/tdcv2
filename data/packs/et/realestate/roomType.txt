@@ -1,0 +1,20 @@
+---
+description: Room type (Estonian). Estonian flats are advertised by room count including the living room, so a kahetoaline korter is one bedroom and a living room, not two bedrooms — a config that maps room counts onto bedrooms will overstate Estonian housing by one.
+locale: et
+---
+elutuba
+magamistuba
+köök
+köök-elutuba
+vannituba
+tualett
+esik
+koridor
+kabinet
+lastetuba
+söögituba
+panipaik
+saun
+pesuruum
+rõdu
+kelder

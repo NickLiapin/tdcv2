@@ -1,0 +1,36 @@
+---
+description: Vegetable (Estonian). Kaalikas and naeris — swede and turnip — sit high here rather than as curiosities, because before the potato arrived they were what Estonia lived on through the winter, and they are still ordinary winter food. Hapukapsas, sauerkraut, is treated as a vegetable in its own right.
+locale: et
+---
+kartul
+kapsas
+hapukapsas
+porgand
+peet
+kaalikas
+naeris
+redis
+sibul
+küüslauk
+porrulauk
+kurk
+tomat
+paprika
+salat
+spinat
+lehtkapsas
+lillkapsas
+brokkoli
+rooskapsas
+suvikõrvits
+kõrvits
+baklažaan
+seller
+pastinaak
+mädarõigas
+aeduba
+hernes
+mais
+spargel
+seen
+bataat

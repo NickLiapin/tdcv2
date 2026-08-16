@@ -1,0 +1,17 @@
+---
+description: Social media content type (Estonian). Taskuhääling is the Estonian word for a podcast — literally pocket-broadcast — coined by the language planners and now in ordinary use, which is the normal fate of Estonian neologisms: the country deliberately makes native words rather than borrowing, and they stick.
+locale: et
+---
+postitus
+lugu
+rull
+video
+otseülekanne
+pilt
+galerii
+küsitlus
+kommentaar
+jagamine
+artikkel
+taskuhääling
+meem

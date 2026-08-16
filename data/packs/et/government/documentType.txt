@@ -1,0 +1,26 @@
+---
+description: Official document type (Estonian). The digital documents are not a novelty item on this list, they are the ordinary case: every Estonian resident holds an ID-kaart with a chip that gives a legally binding signature, and Mobiil-ID and Smart-ID do the same from a phone. An e-residendi digi-ID is issued to non-residents who run an Estonian company from abroad and grants no residence or citizenship at all — it is a signing key, and it is regularly misread as an immigration document.
+locale: et
+---
+ID-kaart
+pass
+digi-ID
+Mobiil-ID
+Smart-ID
+e-residendi digi-ID
+elamisluba
+elamisloakaart
+juhiluba
+sünnitunnistus
+abielutunnistus
+lahutustunnistus
+surmatõend
+nimemuutmise tunnistus
+tulumaksudeklaratsioon
+ehitusluba
+kasutusluba
+tegevusluba
+viisa
+relvaluba
+kalastuskaart
+tervisetõend

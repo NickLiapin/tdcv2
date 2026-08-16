@@ -1,0 +1,42 @@
+---
+description: Common symptom or complaint (Estonian). Estonian names most symptoms by compounding the body part onto the word for pain or ache — peavalu is head-pain, kõhuvalu belly-pain, alaseljavalu lower-back-pain — so the list reads as one word where English needs two or three.
+locale: et
+---
+palavik
+peavalu
+väsimus
+nõrkus
+iiveldus
+oksendamine
+kõhulahtisus
+kõhukinnisus
+kõhuvalu
+kõrvetised
+puhitus
+rinnavalu
+õhupuudus
+vilistav hingamine
+köha
+kurguvalu
+nohu
+ninakinnisus
+aevastamine
+pearinglus
+ähmane nägemine
+lihasvalu
+liigesevalu
+alaseljavalu
+nahalööve
+sügelus
+turse
+tuimus
+surin
+südamepekslemine
+isutus
+tahtmatu kaalulangus
+öine higistamine
+külmavärinad
+krambid
+segasus
+unetus
+kuiv suu

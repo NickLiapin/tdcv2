@@ -1,0 +1,26 @@
+---
+description: Metal (Estonian)
+locale: et
+---
+kuld
+hõbe
+plaatina
+pallaadium
+vask
+raud
+teras
+alumiinium
+titaan
+tsink
+nikkel
+plii
+tina
+pronks
+messing
+koobalt
+kroom
+volfram
+elavhõbe
+magneesium
+mangaan
+uraan

@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses drawn for a male row (male-specific conditions plus common ones), in Estonian
+locale: et
+---
+eesnäärme healoomuline suurenemine
+prostatiit
+eesnäärmevähk
+varikotseele
+fimoos
+laskumata munand
+munandimanuse põletik
+erektsioonihäire
+meestüüpi kiilaspäisus
+günekomastia
+krooniline pankreatiit
+klamüdioos
+krooniline artriit
+hüpertensioon
+2. tüüpi diabeet
+südame isheemiatõbi
+podagra
+pärasoolevähk
+alkoholiga seotud maksahaigus
+puukborrelioos
+lülivaheketta song
+obstruktiivne uneapnoe
+krooniline obstruktiivne kopsuhaigus
+hüperlipideemia
+neerukivitõbi
+depressioon

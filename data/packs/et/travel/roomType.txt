@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Estonian)
+locale: et
+---
+ühekohaline tuba
+kahekohaline tuba
+kaheinimesetuba
+kolmene tuba
+perekonnatuba
+standardtuba
+superior-tuba
+deluxe-tuba
+sviit
+juuniorsviit
+katusekorruse sviit
+apartement
+saunaga tuba
+merevaatega tuba
+ratastooliga ligipääsetav tuba
+hostelivoodi
+ühiselamutuba
+kämpingumaja

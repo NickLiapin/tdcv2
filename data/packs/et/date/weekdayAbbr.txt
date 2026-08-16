@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Estonian). SINGLE CAPITAL LETTERS — E T K N R L P — which is what every Estonian wall calendar, timetable and opening-hours sign shows. This is unlike Finnish (su, ma, ti) and unlike every Germanic and Slavic locale in this pack, and a config that assumes a two- or three-letter abbreviation will render an Estonian date wrongly.
+locale: et
+---
+E
+T
+K
+N
+R
+L
+P

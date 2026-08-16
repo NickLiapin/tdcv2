@@ -1,0 +1,11 @@
+---
+description: Dishes of Ameerika cuisine, in Estonian
+locale: et
+---
+juustuburger
+grill-ribid
+makaronid juustuga
+buffalo kanatiivad
+karbisupp
+õunakook
+maisileib

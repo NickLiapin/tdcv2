@@ -1,0 +1,46 @@
+---
+description: Professional skill (Estonian). Three at the end are certificates Estonian employers name outright in a job ad rather than general skills: tuleohutuskoolitus and töötervishoiu ja tööohutuse koolitus are required by law for whole classes of workplace, and toiduhügieeni koolitus for anyone handling unpackaged food. B-kategooria juhiluba, the ordinary car licence, is listed on an Estonian CV as a skill.
+locale: et
+---
+projektijuhtimine
+agiilsed meetodid
+scrum
+nõuete analüüs
+tarkvaraarendus
+programmeerimine
+andmebaasid
+pilveteenused
+küberturvalisus
+andmeanalüüs
+masinõpe
+veebiarendus
+kasutajaliidese disain
+testimine
+DevOps
+võrguhaldus
+raamatupidamine
+eelarvestamine
+finantsanalüüs
+müük
+läbirääkimised
+turundus
+sisuloome
+klienditeenindus
+meeskonna juhtimine
+ajajuhtimine
+esinemisoskus
+keeleoskus
+keevitamine
+elektritööd
+CNC-töötlemine
+joonestamine
+CAD
+kvaliteedikontroll
+laotöö
+logistika
+esmaabi
+B-kategooria juhiluba
+tõstukijuhi luba
+tuleohutuskoolitus
+töötervishoiu ja tööohutuse koolitus
+toiduhügieeni koolitus

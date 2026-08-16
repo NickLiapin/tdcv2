@@ -1,0 +1,5 @@
+---
+description: Currency of Holland, as Estonian names it
+locale: et
+---
+euro

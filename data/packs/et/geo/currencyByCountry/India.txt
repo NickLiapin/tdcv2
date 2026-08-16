@@ -1,0 +1,5 @@
+---
+description: Currency of India, as Estonian names it
+locale: et
+---
+India ruupia

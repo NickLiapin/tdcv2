@@ -1,0 +1,5 @@
+---
+description: Currency code of Rootsi
+locale: et
+---
+SEK

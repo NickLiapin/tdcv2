@@ -1,0 +1,12 @@
+---
+description: Dishes of Vene cuisine, in Estonian
+locale: et
+---
+pelmeenid
+borš
+seljanka
+blinid
+oliviesalat
+pirukad
+šašlõkk
+okroška

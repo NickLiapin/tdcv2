@@ -1,0 +1,11 @@
+---
+description: Dishes of Kreeka cuisine, in Estonian
+locale: et
+---
+mussaka
+souvlaki
+gyros
+kreeka salat
+spanakopita
+baklava
+tzatziki

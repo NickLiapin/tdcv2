@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in gastroenteroloogia, in Estonian
+locale: et
+---
+gastroösofageaalne reflukshaigus
+Crohni tõbi
+haavandiline koliit
+peptiline haavand
+ärritatud soole sündroom
+maksatsirroos

@@ -1,0 +1,5 @@
+---
+description: Currency of Valgevene, as Estonian names it
+locale: et
+---
+Valgevene rubla

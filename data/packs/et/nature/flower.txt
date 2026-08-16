@@ -1,0 +1,34 @@
+---
+description: Flower (Estonian). Rukkilill, the cornflower, leads because it is the national flower of Estonia and the blue of the flag is named for it. Sinilill, maikelluke, ülane and kullerkupp are the wild spring flowers of the Estonian forest, and several of them are protected by law.
+locale: et
+---
+rukkilill
+sinilill
+maikelluke
+ülane
+kullerkupp
+võilill
+kanarbik
+jänesekapsas
+käoking
+metsmaasikas
+roos
+tulp
+nartsiss
+karikakar
+päevalill
+liilia
+orhidee
+saialill
+lavendel
+iiris
+pojeng
+nelk
+krüsanteem
+moon
+kannike
+jasmiin
+hibisk
+lootos
+daalia
+begoonia

@@ -1,0 +1,15 @@
+---
+description: Hiring stage (Estonian). CV-de sõelumine comes first and is unusually literal in Estonia: a CV here normally carries a photograph and a date of birth, both of which most western European employers now discourage.
+locale: et
+---
+CV-de sõelumine
+telefonivestlus
+videovestlus
+esimene vestlus
+tehniline ülesanne
+proovitöö
+teine vestlus
+vestlus juhiga
+isiksusetest
+taustakontroll
+tööpakkumise tegemine

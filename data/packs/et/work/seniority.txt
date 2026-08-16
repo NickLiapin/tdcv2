@@ -1,0 +1,20 @@
+---
+description: Seniority or level label for a role (Estonian). Estonian workplaces mark seniority with the prefixes noorem- and vanem- on the job title itself — nooremspetsialist, vanemspetsialist — rather than with a separate English word, and juhatuse liige, member of the management board, is a legal office registered in the commercial register rather than a rank.
+locale: et
+---
+praktikant
+algaja
+nooremspetsialist
+spetsialist
+vanemspetsialist
+juhtivspetsialist
+ekspert
+nõunik
+konsultant
+tiimijuht
+projektijuht
+osakonnajuhataja
+üksuse juht
+juht
+tegevjuht
+juhatuse liige

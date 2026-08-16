@@ -1,0 +1,34 @@
+---
+description: Hotel facility (Estonian). Saun leads because an Estonian hotel without one is an anomaly, and the spa block below it is not a garnish either: Pärnu and Haapsalu have been spa towns since the nineteenth century, built on curative sea mud, and spa hotels are a substantial part of Estonian tourism.
+locale: et
+---
+saun
+aurusaun
+spaa
+basseinid
+veekeskus
+mudaravi
+jõusaal
+tasuta WiFi
+hommikusöök
+tasuta parkimine
+restoran
+baar
+konverentsiruumid
+ööpäevaringne vastuvõtt
+lift
+õhkkonditsioneer
+minibaar
+seif
+pesuteenus
+ruumiteenindus
+lastehoid
+lemmikloomad lubatud
+jalgrattarent
+elektriauto laadija
+rõdu
+merevaade
+katuseterrass
+suitsuvaba tuba
+ligipääs ratastooliga
+tasuta tühistamine

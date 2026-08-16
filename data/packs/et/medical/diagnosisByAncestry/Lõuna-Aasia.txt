@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of Lõuna-Aasia ancestry, named in Estonian. A prevalence signal, not an exclusive one.
+locale: et
+---
+varajane 2. tüüpi diabeet
+varajane südame isheemiatõbi
+kõhupiirkonna rasvumine normaalse kehamassiindeksi juures
+D-vitamiini puudus
+beeta-talasseemia kandlus
+metaboolne sündroom
+glükoos-6-fosfaatdehüdrogenaasi puudulikkus
+reumaatiline südamehaigus

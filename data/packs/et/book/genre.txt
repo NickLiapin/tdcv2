@@ -1,0 +1,30 @@
+---
+description: Book genre (Estonian). Rahvaluule is a live publishing genre in Estonia rather than an antiquarian label: the Estonian Folklore Archives in Tartu hold roughly 1.5 million pages of collected oral tradition, among the largest such collections anywhere, and regilaul verse is still issued as literature.
+locale: et
+---
+ilukirjandus
+aimekirjandus
+krimiromaan
+põnevik
+armastusromaan
+ulme
+fantaasia
+õudus
+elulugu
+ajalugu
+eneseabi
+luule
+noorteromaan
+ajalooline romaan
+seiklusjutt
+mälestused
+filosoofia
+reisikiri
+kokaraamat
+koomiks
+düstoopia
+lastekirjandus
+näidend
+esseistika
+rahvaluule
+teatmeteos

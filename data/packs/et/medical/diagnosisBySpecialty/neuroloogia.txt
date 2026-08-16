@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in neuroloogia, in Estonian
+locale: et
+---
+migreen
+epilepsia
+Parkinsoni tõbi
+hulgiskleroos
+isheemiline insult
+perifeerne neuropaatia

@@ -1,0 +1,24 @@
+---
+description: Cat breed (Estonian). Breed names that are proper nouns keep their international spelling; the rest are written the way Estonian breed registers write them, with the country name in the genitive standing in front of kass.
+locale: et
+---
+pärsia kass
+Maine Coon
+siiami kass
+ragdoll
+bengali kass
+sfinks
+briti lühikarvaline kass
+abessiinia kass
+šoti lestakõrv
+norra metsakass
+vene sinine kass
+birma kass
+ameerika lühikarvaline kass
+devon rex
+cornish rex
+siberi kass
+türgi angoora
+bombay kass
+kodukass
+metsik triibuline kass

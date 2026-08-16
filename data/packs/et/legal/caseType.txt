@@ -1,0 +1,17 @@
+---
+description: Legal case type (Estonian). Estonian law splits punishable acts in two and the distinction runs through the whole system: a kuritegu is a crime and goes to a criminal court, a väärtegu is a misdemeanour and is usually settled by the police or an inspectorate without a judge at all. Haldusasi, an administrative case against the state, goes to a separate court branch.
+locale: et
+---
+tsiviilasi
+kriminaalasi
+väärteoasi
+haldusasi
+perekonnaasi
+pärimisasi
+pankrotiasi
+töövaidlus
+lepinguvaidlus
+kahju hüvitamise nõue
+intellektuaalomandi vaidlus
+kinnisvaravaidlus
+maksuvaidlus

@@ -1,0 +1,15 @@
+---
+description: Jobs in tehnoloogia, in Estonian
+locale: et
+---
+tarkvaraarendaja
+süsteemiadministraator
+andmeanalüütik
+testija
+tootejuht
+DevOps-insener
+küberturbe spetsialist
+veebiarendaja
+UX-disainer
+IT-juht
+andmebaasi administraator

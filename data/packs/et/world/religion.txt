@@ -1,0 +1,25 @@
+---
+description: Religion or belief (Estonian). Estonia consistently records among the lowest rates of stated religious belief anywhere in the world, and the largest single answer in the census is none at all — so uskkonda mittekuuluv is not a filler entry on this list, it is the majority. Where there is religion it is Lutheran and Orthodox in roughly equal measure, the Orthodox largely among Russian-speakers. Two entries are Estonian: maausk and taarausk are the registered native-faith movements, and vanausulised are the Russian Old Believers who fled the reforms of 1666 and have lived on the shore of Lake Peipsi ever since, growing onions and keeping their own rite.
+locale: et
+---
+uskkonda mittekuuluv
+ateism
+agnostitsism
+luterlus
+õigeusk
+vanausulised
+katoliiklus
+baptism
+metodism
+adventism
+nelipühilus
+vabakogudus
+Jehoova tunnistajad
+maausk
+taarausk
+judaism
+islam
+budism
+hinduism
+uuspaganlus
+muu usund

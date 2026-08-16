@@ -1,0 +1,5 @@
+---
+description: Currency code of Šveits
+locale: et
+---
+CHF

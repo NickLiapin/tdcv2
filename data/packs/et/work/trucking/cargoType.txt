@@ -1,0 +1,17 @@
+---
+description: Truck cargo or trailer type (Estonian). Puiduveod leads because timber is what Estonian trucks mostly carry — over half the country is forest and roundwood moves to the mills by road. Ohtlik veos is carried under ADR, the same European agreement as everywhere else in the EU.
+locale: et
+---
+puiduveod
+kuivkoorem
+külmveod
+sügavkülmveod
+tükikaup
+täiskoorem
+puistlast
+paakveod
+ohtlik veos (ADR)
+konteinerveod
+autoveod
+pinnaseveod
+kolimisveod

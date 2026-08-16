@@ -1,0 +1,9 @@
+---
+description: Credit standing band (Estonian). Estonia has NO consumer credit score of the FICO kind, and this file must not be read as one. What an Estonian lender checks is the maksehäireregister, the register of payment defaults kept by Creditinfo Eesti: a default is either recorded against you or it is not, and the bands below are how lenders describe the result rather than a computed number. A dataset that needs a three-digit score for an Estonian person is modelling something that does not exist here.
+locale: et
+---
+maksehäireteta
+hea maksekäitumine
+keskmine risk
+kõrgendatud risk
+aktiivne maksehäire

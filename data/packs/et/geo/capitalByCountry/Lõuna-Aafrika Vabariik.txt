@@ -1,0 +1,5 @@
+---
+description: Capital of Lõuna-Aafrika Vabariik, as Estonian names it
+locale: et
+---
+Pretoria

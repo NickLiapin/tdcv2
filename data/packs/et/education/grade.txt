@@ -1,0 +1,22 @@
+---
+description: Grade (Estonian). Estonian schools mark on a FIVE-POINT numeric scale where 5 is the best and 1 the worst — the opposite direction from the German scale and a different range from the American letters — and the words in brackets are the official names of the marks. Universities switched to the letters A to F, with F failing, when Estonia joined the Bologna process, and both scales are in daily use. Arvestatud and mittearvestatud are the pass/fail marks for courses that are not graded.
+locale: et
+---
+5
+4
+3
+2
+1
+väga hea
+hea
+rahuldav
+puudulik
+nõrk
+A
+B
+C
+D
+E
+F
+arvestatud
+mittearvestatud

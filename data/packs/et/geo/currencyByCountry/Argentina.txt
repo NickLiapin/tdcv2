@@ -1,0 +1,5 @@
+---
+description: Currency of Argentina, as Estonian names it
+locale: et
+---
+Argentina peeso

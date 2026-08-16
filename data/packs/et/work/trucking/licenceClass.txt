@@ -1,0 +1,11 @@
+---
+description: Estonian driving licence category for trucks, as the Transpordiamet issues them. Ametikoolitus is not a licence class but the separate professional competence qualification, the EU Code 95, renewed every five years — without it a C or CE licence does not permit commercial driving at all.
+locale: et
+---
+B-kategooria
+BE-kategooria
+C1-kategooria
+C1E-kategooria
+C-kategooria
+CE-kategooria
+ametikoolitus

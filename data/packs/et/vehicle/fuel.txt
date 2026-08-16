@@ -1,0 +1,14 @@
+---
+description: Fuel type (Estonian)
+locale: et
+---
+bensiin
+diislikütus
+elekter
+hübriid
+pistikhübriid
+gaas
+surugaas
+vesinik
+etanool
+biodiisel

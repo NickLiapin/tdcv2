@@ -1,0 +1,59 @@
+---
+description: Business buzz verb (Estonian), given in the -ma infinitive, which is the citation form an Estonian dictionary uses. Estonian verbs have no future tense at all: the present carries it, so "me skaleerime" means both we are scaling and we will scale, and a config writing a corporate promise needs no separate future form.
+locale: et
+---
+võimendama
+sujuvamaks muutma
+optimeerima
+sünergiat looma
+orkestreerima
+jõustama
+võimaldama
+skaleerima
+transformeerima
+innoveerima
+itereerima
+integreerima
+juurutama
+rakendama
+avama
+kiirendama
+võrdlema
+kasvatama
+juhtima
+arendama
+hõlbustama
+genereerima
+motiveerima
+monetiseerima
+käiku laskma
+tootestama
+ümber määratlema
+ümber mõtestama
+eest vedama
+standardiseerima
+üle minema
+ühtlustama
+ära kasutama
+digitaliseerima
+automatiseerima
+testima
+valideerima
+prototüüpima
+kaardistama
+analüüsima
+mõõtma
+jälgima
+prognoosima
+planeerima
+delegeerima
+koordineerima
+konsolideerima
+tsentraliseerima
+detsentraliseerima
+kaasama
+positsioneerima
+segmenteerima
+sihtima
+käivitama
+lõpetama

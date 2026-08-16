@@ -1,0 +1,12 @@
+---
+description: Time of day (Estonian). Eha and koit are the northern twilights that never quite finish in June, when the sun sets around eleven and rises again before four; valged ööd, the white nights, are the name for that fortnight.
+locale: et
+---
+hommik
+lõuna
+pärastlõuna
+õhtu
+öö
+koit
+eha
+kesköö

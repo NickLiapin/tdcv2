@@ -1,0 +1,5 @@
+---
+description: Currency of Ameerika Ühendriigid, as Estonian names it
+locale: et
+---
+USA dollar

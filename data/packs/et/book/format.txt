@@ -1,0 +1,12 @@
+---
+description: Book format (Estonian)
+locale: et
+---
+kõvakaaneline
+pehmekaaneline
+e-raamat
+audioraamat
+taskuraamat
+köidetud väljaanne
+karbis komplekt
+suures kirjas väljaanne

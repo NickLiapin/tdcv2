@@ -1,0 +1,5 @@
+---
+description: Currency of Ungari, as Estonian names it
+locale: et
+---
+Ungari forint

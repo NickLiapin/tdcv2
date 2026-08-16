@@ -1,0 +1,14 @@
+---
+description: Jobs in transport, in Estonian
+locale: et
+---
+veoautojuht
+bussijuht
+taksojuht
+kuller
+tõstukijuht
+logistik
+ekspedeerija
+rongijuht
+laevajuht
+lennujuht

@@ -1,0 +1,10 @@
+---
+description: Positions in jäähoki, in Estonian
+locale: et
+---
+väravavaht
+paremkaitsja
+vasakkaitsja
+keskründaja
+parem äär
+vasak äär

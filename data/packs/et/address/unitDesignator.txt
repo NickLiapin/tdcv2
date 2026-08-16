@@ -1,0 +1,29 @@
+---
+description: Estonian address unit designator. An Estonian flat address is street, house number, hyphen, flat number — Pikk 12-5 — so the commonest designator of all is the bare hyphen and the word korter is normally left out; krt is its abbreviation and appears on formal documents. Estonia has no stairwell letter of the Finnish or Swedish kind. Pakiautomaat is a parcel-locker bay and is a real delivery address here, because lockers rather than doorsteps are how most Estonian parcels arrive.
+locale: et
+---
+korter
+krt
+maja
+hoone
+korpus
+trepikoda
+korrus
+tuba
+kontor
+büroo
+ruum
+boks
+garaaž
+panipaik
+kelder
+pööning
+katusekorrus
+parkimiskoht
+postkast
+pakiautomaat
+postkontor
+c/o
+ait
+kuur
+laohoone

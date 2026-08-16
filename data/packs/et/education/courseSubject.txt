@@ -1,0 +1,29 @@
+---
+description: School subject (Estonian) as the national curriculum names them. Inimeseõpetus, roughly personal-and-social education, is a compulsory subject in Estonian schools from year 2 and has no clean English equivalent.
+locale: et
+---
+matemaatika
+füüsika
+keemia
+bioloogia
+geograafia
+loodusõpetus
+informaatika
+ajalugu
+ühiskonnaõpetus
+inimeseõpetus
+eesti keel
+kirjandus
+inglise keel
+vene keel
+saksa keel
+kunst
+muusika
+kehaline kasvatus
+käsitöö ja kodundus
+tööõpetus
+majandusõpetus
+filosoofia
+psühholoogia
+usundiõpetus
+joonestamine

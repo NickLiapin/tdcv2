@@ -1,0 +1,17 @@
+---
+description: Employment or contract type (Estonian). Estonian law distinguishes three contracts and the difference decides who pays which tax: a tööleping makes you an employee with holiday, notice and dismissal protection; a töövõtuleping buys a result; a käsundusleping buys effort. Tähtajatu tööleping — open-ended — is the statutory default, and a fixed term is lawful only on a stated ground. Katseaeg, the trial period, is capped at four months, shorter than the Finnish six.
+locale: et
+---
+tähtajatu tööleping
+tähtajaline tööleping
+katseaeg
+osaline tööaeg
+renditöö
+hooajatöö
+tunnitöö
+töövõtuleping
+käsundusleping
+juhatuse liikme leping
+praktika
+vabakutseline
+FIE

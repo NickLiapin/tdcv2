@@ -1,0 +1,6 @@
+---
+description: Gender label (Estonian). Two values, matching en, fi and pl — this list is what a `parent="Gender.Mees"` filter selects on, so a longer one silently leaves most rows without a name. Identity options beyond the pair belong in a file of their own. Estonian has NO grammatical gender, so unlike Polish or Russian nothing else in the row has to agree with this value: the surname, the adjectives, the job title and the pronoun are all unchanged either way.
+locale: et
+---
+Mees
+Naine

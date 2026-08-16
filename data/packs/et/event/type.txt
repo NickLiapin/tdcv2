@@ -1,0 +1,26 @@
+---
+description: Event type (Estonian). Laulupidu is the one that has to be in this list: the Estonian Song Festival gathers something over thirty thousand singers into a single choir on the Tallinn Song Festival Grounds every five years, a hundred thousand people come to listen, it is on the UNESCO intangible heritage list, and the mass singing of 1988 is why the road to independence is called the Singing Revolution.
+locale: et
+---
+laulupidu
+tantsupidu
+jaanituli
+konverents
+seminar
+töötuba
+veebiseminar
+kontsert
+festival
+mess
+näitus
+tootetutvustus
+võrgustumisüritus
+heategevusüritus
+gala
+pulm
+sünnipäev
+ristsed
+matus
+aastapäev
+koolilõpetamine
+suvepäevad

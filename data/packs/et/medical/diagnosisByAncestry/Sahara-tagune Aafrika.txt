@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sahara-tagune Aafrika ancestry, named in Estonian. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: et
+---
+sirprakuline aneemia
+sirpraku kandlus
+glükoos-6-fosfaatdehüdrogenaasi puudulikkus
+APOL1-seoseline nefropaatia
+keloidsed armid
+sarkoidoos
+hüpertensiivne nefroskleroos
+emaka müoom
+healoomuline etniline neutropeenia
+laktaasi mittepüsivus
+pseudofollikuliit
+vitiliigo

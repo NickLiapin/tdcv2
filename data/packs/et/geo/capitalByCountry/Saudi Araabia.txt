@@ -1,0 +1,5 @@
+---
+description: Capital of Saudi Araabia, as Estonian names it
+locale: et
+---
+Riyadh

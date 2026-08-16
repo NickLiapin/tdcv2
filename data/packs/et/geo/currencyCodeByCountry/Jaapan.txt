@@ -1,0 +1,5 @@
+---
+description: Currency code of Jaapan
+locale: et
+---
+JPY

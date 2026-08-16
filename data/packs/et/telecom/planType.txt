@@ -1,0 +1,16 @@
+---
+description: Mobile or broadband plan type (Estonian)
+locale: et
+---
+kõnepakett
+andmepakett
+ettemaksupakett
+püsilepingupakett
+piiramatu andmeside
+pereleping
+ärileping
+rändluspakett
+mobiilne internet
+kodune internet
+kiudühendus
+lisapakett

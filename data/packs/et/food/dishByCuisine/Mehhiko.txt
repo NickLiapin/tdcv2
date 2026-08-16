@@ -1,0 +1,12 @@
+---
+description: Dishes of Mehhiko cuisine, in Estonian
+locale: et
+---
+tacod
+burrito
+entšiladad
+quesadilla
+guacamole
+tamales
+nachos
+pozole

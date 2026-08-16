@@ -1,0 +1,5 @@
+---
+description: Capital of Türgi, as Estonian names it
+locale: et
+---
+Ankara

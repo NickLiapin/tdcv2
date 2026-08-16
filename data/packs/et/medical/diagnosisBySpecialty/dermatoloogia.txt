@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in dermatoloogia, in Estonian
+locale: et
+---
+psoriaas
+atoopiline dermatiit
+akne
+melanoom
+rosaatsea
+kontaktdermatiit

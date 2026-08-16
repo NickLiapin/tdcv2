@@ -1,0 +1,5 @@
+---
+description: Capital of Iirimaa, as Estonian names it
+locale: et
+---
+Dublin

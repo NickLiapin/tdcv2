@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in pulmonoloogia, in Estonian
+locale: et
+---
+astma
+krooniline obstruktiivne kopsuhaigus
+kopsupõletik
+kopsuemboolia
+tuberkuloos
+uneapnoe

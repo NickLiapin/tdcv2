@@ -1,0 +1,28 @@
+---
+description: RPG character class (Estonian). Estonian job and role words carry no gender, so every one of these names a player of any sex without a second form — unlike Polish, Czech or German, where a class list has to be written twice or hedged.
+locale: et
+---
+sõdalane
+maag
+varas
+salamõrvar
+paladin
+kütt
+vibukütt
+preester
+nõid
+druiid
+munk
+barbar
+nekromant
+bard
+loitsija
+ravitseja
+kaitsja
+luuraja
+alkeemik
+šamaan
+rüütel
+talumees
+sepp
+käskjalg

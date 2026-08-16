@@ -1,0 +1,19 @@
+---
+description: Payment method (Estonian). Pangalink leads and is the Estonian fact this file exists to record: paying by clicking through to your own bank, rather than by typing a card number, has been the default online payment in Estonia since the late 1990s and every Estonian shop offers it. Montonio and Maksekeskus are the Estonian aggregators that resell it to merchants. Cash has all but disappeared from Estonian retail.
+locale: et
+---
+pangalink
+deebetkaart
+krediitkaart
+pangaülekanne
+Montonio
+Maksekeskus
+sularaha
+Apple Pay
+Google Pay
+PayPal
+järelmaks
+liising
+kinkekaart
+e-arve
+ettemaks

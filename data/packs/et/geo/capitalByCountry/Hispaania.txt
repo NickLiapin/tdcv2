@@ -1,0 +1,5 @@
+---
+description: Capital of Hispaania, as Estonian names it
+locale: et
+---
+Madrid

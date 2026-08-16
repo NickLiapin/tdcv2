@@ -1,0 +1,26 @@
+---
+description: Vehicle type (Estonian). Tramm and troll are on the list because Tallinn runs both, and Tallinn public transport is free at the point of use for registered residents of the city — the first capital in the world to do it, from 2013.
+locale: et
+---
+sedaan
+luukpära
+universaal
+maastur
+linnamaastur
+kupee
+kabriolett
+pikap
+kaubik
+veoauto
+sadulveok
+buss
+mikrobuss
+mootorratas
+mopeed
+ATV
+haagissuvila
+haagis
+traktor
+tramm
+troll
+tõukeratas

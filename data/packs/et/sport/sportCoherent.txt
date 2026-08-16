@@ -1,0 +1,12 @@
+---
+description: Team sport that has a coherent position list (a positionBySport child), in Estonian
+locale: et
+---
+jalgpall
+korvpall
+võrkpall
+käsipall
+jäähoki
+saalihoki
+rannavõrkpall
+vesipall

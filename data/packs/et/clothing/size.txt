@@ -1,0 +1,19 @@
+---
+description: Clothing size. Estonia uses the international letter sizes unchanged, and alongside them the continental numeric sizes 34-46 that Estonian shops actually put on the label.
+locale: et
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+34
+36
+38
+40
+42
+44
+46

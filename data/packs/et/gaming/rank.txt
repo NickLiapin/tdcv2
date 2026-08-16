@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Estonian)
+locale: et
+---
+raud
+pronks
+hõbe
+kuld
+plaatina
+teemant
+meister
+suurmeister
+väljakutsuja
+eliit

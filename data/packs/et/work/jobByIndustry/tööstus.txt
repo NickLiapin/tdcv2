@@ -1,0 +1,15 @@
+---
+description: Jobs in tööstus, in Estonian
+locale: et
+---
+tootmisjuht
+tootmistööline
+keevitaja
+lukksepp
+treial
+CNC-operaator
+mehhatroonik
+automaatik
+kvaliteedikontrolör
+seadistaja
+pakkija

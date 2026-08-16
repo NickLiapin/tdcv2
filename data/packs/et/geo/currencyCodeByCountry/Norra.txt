@@ -1,0 +1,5 @@
+---
+description: Currency code of Norra
+locale: et
+---
+NOK

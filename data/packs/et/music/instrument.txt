@@ -1,0 +1,37 @@
+---
+description: Musical instrument (Estonian). The first block is the Estonian folk instrumentarium and has no counterpart in the neighbouring locales: kannel is the box zither of the Finnic peoples and the national instrument, hiiu kannel is a bowed lyre played on Hiiumaa and the west coast, torupill the Estonian bagpipe, lõõtspill the button accordion of village dances, and parmupill the jew’s harp.
+locale: et
+---
+kannel
+hiiu kannel
+torupill
+lõõtspill
+parmupill
+vilepill
+karjapasun
+kitarr
+basskitarr
+klaver
+orel
+süntesaator
+viiul
+vioola
+tšello
+kontrabass
+harf
+flööt
+klarnet
+oboe
+fagott
+saksofon
+trompet
+tromboon
+metsasarv
+tuuba
+trummid
+löökpillid
+ksülofon
+akordion
+suupill
+ukulele
+bandžo

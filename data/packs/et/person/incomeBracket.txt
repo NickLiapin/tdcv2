@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Estonian. Amounts are in EURO: Estonia adopted the euro on 1 January 2011, replacing the kroon, and was the first of the post-Soviet states to do so. Estonian writes thousands with a space and the decimal with a comma, so 45 000,50 €, and the symbol stands after the number with a space between. The brackets are set against Estonian earnings rather than western European ones — the average gross wage is a little under 2 000 euros a month, so the top band here is genuinely high pay in this country.
+locale: et
+---
+Alla 12 000 €
+12 000–20 000 €
+20 000–30 000 €
+30 000–40 000 €
+40 000–55 000 €
+55 000–75 000 €
+75 000–100 000 €
+Üle 100 000 €

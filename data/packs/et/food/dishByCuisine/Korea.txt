@@ -1,0 +1,11 @@
+---
+description: Dishes of Korea cuisine, in Estonian
+locale: et
+---
+bibimbap
+bulgogi
+kimchi-hautis
+japchae
+tteokbokki
+korea praekana
+galbi

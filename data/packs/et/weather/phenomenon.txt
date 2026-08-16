@@ -1,0 +1,19 @@
+---
+description: Weather or sky phenomenon (Estonian). Two are specific to the latitude. Valged ööd are the white nights of June, when at 59° north the sky never fully darkens and Estonians simply stop going to bed; and virmalised, the aurora, are visible from Estonia several times a winter. Jäide, glaze ice, is the freezing rain that coats every surface and closes the roads.
+locale: et
+---
+valged ööd
+virmalised
+jäide
+härmatis
+hall
+tuisk
+jääpurikad
+rahe
+äike
+vikerkaar
+udu
+kaste
+kuumalaine
+põud
+üleujutus

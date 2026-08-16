@@ -1,0 +1,12 @@
+---
+description: Dishes of Jaapani cuisine, in Estonian
+locale: et
+---
+sushi
+ramen
+tempura
+udon
+teriyaki-kana
+misosupp
+katsu-karri
+onigiri

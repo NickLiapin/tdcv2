@@ -1,0 +1,34 @@
+---
+description: Estonian thoroughfare word. It is a SEPARATE word placed after the name, not compounded onto it the way Finnish and Swedish do — Kase tänav, never "Kasetänav" — and the name in front stands in the genitive. The abbreviations tn, mnt, pst and pk are what actually appears in an Estonian postal address and on an ID card, so they are values in their own right rather than typographic variants of the long forms.
+locale: et
+---
+tänav
+tn
+tee
+maantee
+mnt
+puiestee
+pst
+põik
+pk
+käik
+allee
+plats
+väljak
+park
+aed
+kallas
+kaldapealne
+sild
+trepp
+rada
+ring
+kaar
+nurk
+serv
+viadukt
+promenaad
+astmed
+harutee
+tupik
+teerada

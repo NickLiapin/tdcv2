@@ -1,0 +1,12 @@
+---
+description: Dishes of India cuisine, in Estonian
+locale: et
+---
+võikana
+birjani
+tikka masala
+samosa
+dal makhani
+naan
+palak paneer
+rogan josh

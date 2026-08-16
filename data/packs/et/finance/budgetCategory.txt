@@ -1,0 +1,29 @@
+---
+description: Budget / spending category (Estonian). Kommunaalkulud is a single Estonian budget line covering heating, water, rubbish and the building association fee together, because that is how an Estonian flat is billed — one invoice from the korteriühistu.
+locale: et
+---
+üür
+eluasemelaen
+kommunaalkulud
+küte
+elekter
+toidukaubad
+transport
+kütus
+ühistransport
+meelelahutus
+tervishoid
+kindlustus
+väljas söömine
+säästud
+pensionisammas
+tellimused
+reisimine
+haridus
+riided
+kingitused
+lastehoid
+laenumaksed
+sport
+lemmikloomad
+side

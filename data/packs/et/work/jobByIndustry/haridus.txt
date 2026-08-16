@@ -1,0 +1,14 @@
+---
+description: Jobs in haridus, in Estonian
+locale: et
+---
+klassiõpetaja
+aineõpetaja
+lasteaiaõpetaja
+koolijuht
+õppealajuhataja
+tugiisik
+logopeed
+lektor
+professor
+teadur

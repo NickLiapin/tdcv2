@@ -1,0 +1,5 @@
+---
+description: Currency of Singapur, as Estonian names it
+locale: et
+---
+Singapuri dollar

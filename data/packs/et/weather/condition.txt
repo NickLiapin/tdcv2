@@ -1,0 +1,20 @@
+---
+description: Weather condition (Estonian). Lörts and sula are the two an Estonian winter needs and a Mediterranean list does not have: lörts is the wet mixture of rain and snow that is the ordinary Estonian December, and sula is the thaw that turns it to water and back to ice overnight.
+locale: et
+---
+selge
+päikeseline
+vahelduv pilvisus
+pilves
+vihm
+hoovihm
+uduvihm
+lumesadu
+lörts
+rahe
+äike
+udu
+tuuline
+torm
+pakane
+sula

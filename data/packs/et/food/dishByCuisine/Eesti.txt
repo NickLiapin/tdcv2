@@ -1,0 +1,24 @@
+---
+description: Dishes of Eesti cuisine, in Estonian
+locale: et
+---
+verivorst
+sült
+mulgipuder
+mulgikapsad
+kama
+rosolje
+kiluvõileib
+hapukapsad seapraega
+rukkileib
+karask
+kohuke
+kringel
+mannavaht
+leivasupp
+hernesupp suitsulihaga
+silgusoust
+verikäkk
+vastlakukkel
+kartulipuder
+mustikasupp

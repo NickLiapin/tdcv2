@@ -1,0 +1,5 @@
+---
+description: Currency of Iirimaa, as Estonian names it
+locale: et
+---
+euro

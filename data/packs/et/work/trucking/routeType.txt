@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Estonian). Talvine vedu is a real category here: Estonia opens official ice roads across the sea to the western islands most winters, the longest in Europe, with their own speed and seat-belt rules.
+locale: et
+---
+kohalik vedu
+piirkondlik vedu
+kaugvedu
+rahvusvaheline vedu
+jaotusvedu
+pinnasevedu
+talvine vedu

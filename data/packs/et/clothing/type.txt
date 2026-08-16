@@ -1,0 +1,39 @@
+---
+description: Garment type (Estonian). Estonian nouns take no article and carry no gender, so each of these is complete as it stands and none of them changes for the wearer. Kampsun covers what English splits into jumper and cardigan; pusa is the modern loan for a hoodie.
+locale: et
+---
+T-särk
+särk
+pluus
+teksad
+püksid
+lühikesed püksid
+seelik
+kleit
+ülikond
+kostüüm
+jakk
+jope
+mantel
+vest
+kampsun
+pusa
+dressipluus
+dressipüksid
+sokid
+sukkpüksid
+aluspesu
+öösärk
+hommikumantel
+ujumispüksid
+trikoo
+tossud
+saapad
+kummikud
+sandaalid
+müts
+kübar
+sall
+kindad
+labakindad
+vöö

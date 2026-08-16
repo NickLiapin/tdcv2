@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in psühhiaatria, in Estonian
+locale: et
+---
+depressioon
+generaliseerunud ärevushäire
+bipolaarne häire
+skisofreenia
+traumajärgne stressihäire
+aktiivsus- ja tähelepanuhäire

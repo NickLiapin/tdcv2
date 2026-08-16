@@ -1,0 +1,5 @@
+---
+description: Capital of Norra, as Estonian names it
+locale: et
+---
+Oslo

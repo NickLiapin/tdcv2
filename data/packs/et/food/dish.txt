@@ -1,0 +1,49 @@
+---
+description: Dish (Estonian). Estonian and international dishes together, with the Estonian ones first. Verivorst is eaten at Christmas and almost only at Christmas; mulgipuder is barley and potato mashed together and comes from Mulgimaa in the south; kama is a flour of four roasted grains stirred into buttermilk and has no equivalent anywhere else.
+locale: et
+---
+verivorst
+sült
+mulgipuder
+mulgikapsad
+kama
+rosolje
+kiluvõileib
+seapraad hapukapsaga
+hernesupp suitsulihaga
+leivasupp
+silgusoust
+kartulisalat
+karask
+kringel
+mannavaht
+kohupiimakreem
+mustikasupp
+seljanka
+pelmeenid
+borš
+pitsa
+sushi
+taco
+juustuburger
+spagetid carbonara
+ramen
+kanakarri
+ribisteik
+caesari salat
+klubivõileib
+lasanje
+seenerisoto
+paella
+pad thai
+kala friikartulitega
+loomalihahautis
+pannkoogid
+falafelirull
+kana tikka masala
+pho
+burrito
+njokid
+šakšuka
+praetud riis
+hatšapuri

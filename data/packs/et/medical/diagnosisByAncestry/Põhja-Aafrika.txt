@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Põhja-Aafrika ancestry, named in Estonian. A prevalence signal, not an exclusive one.
+locale: et
+---
+glükoos-6-fosfaatdehüdrogenaasi puudulikkus
+beeta-talasseemia kandlus
+perekondlik Vahemere palavik
+Behçeti tõbi
+laktaasi mittepüsivus
+xeroderma pigmentosum

@@ -1,0 +1,40 @@
+---
+description: Medical specialty (Estonian). Perearstiabi leads because it is the gate: in Estonia every resident is registered with a named perearst, a family doctor with a defined patient list, and a referral from them is normally required to reach any of the specialties below.
+locale: et
+---
+perearstiabi
+sisehaigused
+erakorraline meditsiin
+kardioloogia
+dermatoloogia
+endokrinoloogia
+gastroenteroloogia
+neuroloogia
+neurokirurgia
+onkoloogia
+oftalmoloogia
+ortopeedia
+pediaatria
+neonatoloogia
+psühhiaatria
+pulmonoloogia
+radioloogia
+reumatoloogia
+uroloogia
+nefroloogia
+hematoloogia
+immunoloogia
+anestesioloogia
+sünnitusabi ja günekoloogia
+otorinolarüngoloogia
+patoloogia
+plastiline kirurgia
+üldkirurgia
+veresoontekirurgia
+südamekirurgia
+infektsioonhaigused
+geriaatria
+taastusravi
+hambaravi
+töötervishoid
+kohtuarstiteadus

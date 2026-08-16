@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses drawn for a female row (female-specific conditions plus common ones), in Estonian
+locale: et
+---
+emakakaela düsplaasia
+emaka müoom
+vulvovaginaalne kandidoos
+rinna fibroadenoom
+polütsüstiliste munasarjade sündroom
+tservitsiit
+endometrioos
+endometriit
+menopausi sündroom
+düsmenorröa
+rasedusdiabeet
+preeklampsia
+mastiit
+rinnavähk
+krooniline pankreatiit
+klamüdioos
+krooniline artriit
+hüpotüreoos
+rauavaegusaneemia
+osteoporoos
+migreen
+kuseteede infektsioon
+generaliseerunud ärevushäire
+kilpnäärme sõlmed
+veenilaiendid
+puukborrelioos
+D-vitamiini puudus

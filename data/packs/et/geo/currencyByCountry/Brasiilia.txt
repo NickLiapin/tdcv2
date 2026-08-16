@@ -1,0 +1,5 @@
+---
+description: Currency of Brasiilia, as Estonian names it
+locale: et
+---
+Brasiilia reaal

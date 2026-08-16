@@ -1,0 +1,5 @@
+---
+description: Capital of Tai, as Estonian names it
+locale: et
+---
+Bangkok

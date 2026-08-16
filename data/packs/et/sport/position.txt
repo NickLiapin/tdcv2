@@ -1,0 +1,39 @@
+---
+description: Playing position across sports (Estonian). Note that none of these is marked for the sex of the player — an Estonian väravavaht is a goalkeeper of either sex, because the language has no gendered agent nouns at all.
+locale: et
+---
+väravavaht
+kaitsja
+paremkaitsja
+vasakkaitsja
+keskkaitsja
+äärekaitsja
+poolkaitsja
+kaitsev poolkaitsja
+ründav poolkaitsja
+keskväljamängija
+parem äär
+vasak äär
+ründaja
+keskründaja
+mängujuht
+tagamängija
+viskemängija
+ääremängija
+suur ääremängija
+keskmängija
+sidemängija
+diagonaalründaja
+nurgaründaja
+temporündaja
+libero
+blokeerija
+kaitsemängija
+joonemängija
+parem sisemine
+vasak sisemine
+keskmine sisemine
+tsentriründaja
+tsentrikaitsja
+tiibmängija
+kapten

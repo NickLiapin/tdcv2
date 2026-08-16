@@ -1,0 +1,34 @@
+---
+description: Spice or herb (Estonian). Kadakamarjad and mädarõigas are the two an Estonian kitchen has that a Mediterranean one does not: juniper berries flavour the smoked meat and the Christmas pork, and grated horseradish is what goes beside sült. Till is used at a volume that surprises visitors — it goes on the potatoes, in the soup and over the fish.
+locale: et
+---
+till
+petersell
+mädarõigas
+kadakamarjad
+sinep
+must pipar
+sool
+loorberileht
+köömen
+kaneel
+paprika
+kurkum
+ingver
+muskaatpähkel
+pune
+basiilik
+tüümian
+rosmariin
+kardemon
+koriander
+tšillipulber
+nelk
+safran
+salvei
+münt
+apteegitill
+murulauk
+estragon
+majoraan
+karripulber

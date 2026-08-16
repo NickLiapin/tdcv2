@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Estonian). An Estonian abbreviation ends in a full stop when it truncates the word and carries none when it does not, which is why märts, mai, juuni and juuli stand here bare — they are already as short as the word gets.
+locale: et
+---
+jaan.
+veebr.
+märts
+apr.
+mai
+juuni
+juuli
+aug.
+sept.
+okt.
+nov.
+dets.

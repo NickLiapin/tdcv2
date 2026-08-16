@@ -1,0 +1,12 @@
+---
+description: Dishes of Prantsuse cuisine, in Estonian
+locale: et
+---
+coq au vin
+burgundia veiseliha
+ratatouille
+sarvesai
+quiche lorraine
+bouillabaisse
+pannkoogid
+cassoulet

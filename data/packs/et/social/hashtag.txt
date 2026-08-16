@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Estonian (prefix with # in a template). Three need explaining outside Estonia. Sinimustvalge is blue-black-white, the flag, used as a word in its own right. Laulupidu is the Song Festival and taasiseseisvumine the restoration of independence in 1991, which the mass singing of 1988-91 brought about — the two are one story here. Kohuke is a glazed curd bar and is the snack the country runs on.
+locale: et
+---
+eesti
+eestimaa
+tallinn
+tartu
+sinimustvalge
+laulupidu
+taasiseseisvumine
+jaanipäev
+jaanituli
+saun
+talisuplus
+mustikad
+seenel
+marjul
+rukkilill
+mets
+meri
+saaremaa
+hiiumaa
+vanalinn
+kohuke
+verivorst
+rukkileib
+kiluvõileib
+lauluväljak
+digiriik
+eresidentsus
+kevad
+suvi
+valgedööd

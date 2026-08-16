@@ -1,0 +1,23 @@
+---
+description: Film genre (Estonian)
+locale: et
+---
+märul
+komöödia
+draama
+õudus
+põnevik
+romantika
+ulme
+fantaasia
+dokumentaal
+animatsioon
+seiklus
+krimi
+müsteerium
+vestern
+muusikal
+sõjafilm
+elulugu
+perefilm
+lühifilm

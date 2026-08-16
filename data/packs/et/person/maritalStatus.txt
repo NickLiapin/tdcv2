@@ -1,0 +1,12 @@
+---
+description: Marital status (Estonian). Vabaabielu, cohabiting without registering, is not a fringe category in Estonia — a very large share of Estonian couples and of first births are unregistered, higher than almost anywhere in Europe, so a dataset that treats it as rare will be wrong. Registreeritud kooselu is the civil partnership introduced in 2016; from 1 January 2024 marriage itself became sex-neutral in Estonia, the first country in central or eastern Europe to do so, so abielus no longer implies a man and a woman.
+locale: et
+---
+vallaline
+abielus
+vabaabielus
+registreeritud kooselus
+lahutatud
+lesk
+lahus elav
+kihlatud

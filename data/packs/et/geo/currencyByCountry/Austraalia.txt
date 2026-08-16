@@ -1,0 +1,5 @@
+---
+description: Currency of Austraalia, as Estonian names it
+locale: et
+---
+Austraalia dollar

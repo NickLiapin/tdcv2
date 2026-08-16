@@ -1,0 +1,5 @@
+---
+description: Capital of Austraalia, as Estonian names it
+locale: et
+---
+Canberra

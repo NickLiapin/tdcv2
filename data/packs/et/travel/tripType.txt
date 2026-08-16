@@ -1,0 +1,24 @@
+---
+description: Trip type (Estonian). Spaapuhkus is high on the list because it is a mass Estonian holiday rather than a luxury: Estonians, Finns and Latvians fill the Pärnu and Haapsalu spa hotels all year, and a spa weekend is an ordinary family break here.
+locale: et
+---
+puhkusereis
+spaapuhkus
+linnapuhkus
+rannapuhkus
+tööreis
+perereis
+sõprade reis
+matkareis
+rattamatk
+seljakotireis
+autoreis
+suusareis
+ristluslaevareis
+kruiis
+õppereis
+laagrireis
+jahireis
+kalareis
+palverännak
+ümbermaailmareis

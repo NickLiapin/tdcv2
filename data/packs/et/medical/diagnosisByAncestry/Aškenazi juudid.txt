@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Aškenazi juudid ancestry, named in Estonian. A prevalence signal, not an exclusive one.
+locale: et
+---
+Tay-Sachsi tõbi
+Gaucher’ tõbi tüüp 1
+perekondlik düsautonoomia
+Canavani tõbi
+Niemann-Picki tõbi tüüp A
+Bloomi sündroom
+XI faktori puudulikkus
+BRCA1 asutajamutatsioon
+BRCA2 asutajamutatsioon
+mukolipidoos tüüp IV
+Crohni tõbi
+torsioondüstoonia

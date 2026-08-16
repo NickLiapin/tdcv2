@@ -1,0 +1,36 @@
+---
+description: Tree (Estonian). The order is the Estonian forest itself: mänd, kuusk and kask are over three quarters of the growing stock, and more than half of Estonia’s land area is forest. Tamm, saar, kask, kuusk and pärn are also among the commonest Estonian surnames, which is not a coincidence — see person/lastName.
+locale: et
+---
+mänd
+kuusk
+kask
+haab
+lepp
+sanglepp
+tamm
+saar
+jalakas
+vaher
+pärn
+paju
+remmelgas
+toomingas
+pihlakas
+sarapuu
+kadakas
+jugapuu
+nulg
+lehis
+seeder
+küpress
+plataan
+pöök
+kastan
+pappel
+magnoolia
+kontpuu
+õunapuu
+kirsipuu
+pähklipuu
+sekvoia

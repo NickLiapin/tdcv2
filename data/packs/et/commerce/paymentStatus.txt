@@ -1,0 +1,14 @@
+---
+description: Payment status (Estonian)
+locale: et
+---
+ootel
+autoriseeritud
+makstud
+ebaõnnestunud
+tagastatud
+osaliselt tagastatud
+tagasinõue
+tühistatud
+tagasi lükatud
+aegunud

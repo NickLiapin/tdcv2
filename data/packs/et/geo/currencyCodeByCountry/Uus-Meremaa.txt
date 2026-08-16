@@ -1,0 +1,5 @@
+---
+description: Currency code of Uus-Meremaa
+locale: et
+---
+NZD

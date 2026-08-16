@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are international and keep their real spelling in Estonian. The ATR 72 and the Bombardier CRJ900 lead because those are the types Estonian carriers have actually flown: Nordica and its operator Xfly built their fleet on them after Estonian Air was wound up in 2015.
+locale: et
+---
+ATR 72-600
+ATR 42-500
+Bombardier CRJ900
+Bombardier CRJ700
+Embraer E170
+Embraer E175
+Embraer E190
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330
+Airbus A350
+Airbus A380
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 737-700
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+Saab 340
+Cessna 172
+Diamond DA42
+An-2

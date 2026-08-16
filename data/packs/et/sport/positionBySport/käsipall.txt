@@ -1,0 +1,11 @@
+---
+description: Positions in käsipall, in Estonian
+locale: et
+---
+väravavaht
+parem äär
+vasak äär
+parem sisemine
+vasak sisemine
+keskmine sisemine
+joonemängija

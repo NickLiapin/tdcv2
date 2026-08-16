@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in onkoloogia, in Estonian
+locale: et
+---
+rinnavähk
+kopsuvähk
+jämesoolevähk
+leukeemia
+lümfoom
+melanoom

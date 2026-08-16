@@ -1,0 +1,32 @@
+---
+description: Tech verb, Estonian gerund in -des. Estonian has no -ing form; what it has is the des-vorm, which says while doing the thing — varundades is while backing up — so a sentence built from these reads as simultaneous action rather than as a continuous tense.
+locale: et
+---
+varundades
+mööda minnes
+häkkides
+üle kirjutades
+pakkides
+kopeerides
+navigeerides
+indekseerides
+ühendades
+genereerides
+kvantifitseerides
+arvutades
+sünteesides
+edastades
+programmeerides
+taaskäivitades
+parsides
+krüpteerides
+dekrüpteerides
+juurutades
+skannides
+kompileerides
+siludes
+testides
+monitoorides
+marsruutides
+sünkroniseerides
+valideerides

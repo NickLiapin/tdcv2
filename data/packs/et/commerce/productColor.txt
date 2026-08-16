@@ -1,0 +1,58 @@
+---
+description: Colour as a product attribute (Estonian). Shorter and blunter than color/name: this is the word that goes on a price tag, so it favours the plain compounds an Estonian shop actually writes — must, valge, tumesinine — over the poetic shades.
+locale: et
+---
+must
+valge
+hall
+tumehall
+helehall
+grafiithall
+hõbedane
+kuldne
+pronksjas
+vaskne
+punane
+tumepunane
+burgundiapunane
+roosa
+tumeroosa
+lõheroosa
+oranž
+kollane
+sinepikollane
+roheline
+tumeroheline
+heleroheline
+oliiviroheline
+khaki
+sinine
+tumesinine
+helesinine
+meresinine
+türkiissinine
+lilla
+violetne
+pruun
+tumepruun
+helepruun
+beež
+kreemikas
+liivakarva
+looduslik
+läbipaistev
+mitmevärviline
+triibuline
+ruuduline
+täpiline
+meleeritud
+matt must
+läikiv must
+antratsiit
+elevandiluu
+šampanja
+roosakuld
+terashall
+tammepruun
+pähklipruun
+valgendatud tamm

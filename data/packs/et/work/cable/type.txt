@@ -1,0 +1,13 @@
+---
+description: Cable type, telecoms and networking (Estonian)
+locale: et
+---
+keerdpaarkaabel
+koaksiaalkaabel
+valguskaabel
+ühemoodiline kiud
+mitmemoodiline kiud
+jõukaabel
+maakaabel
+signaalikaabel
+paigalduskaabel

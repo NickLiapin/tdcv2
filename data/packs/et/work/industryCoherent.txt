@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (a jobByIndustry child), in Estonian
+locale: et
+---
+tehnoloogia
+tervishoid
+rahandus
+ehitus
+haridus
+majutus ja toitlustus
+tööstus
+kaubandus
+transport
+õigusteenused

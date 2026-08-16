@@ -1,0 +1,80 @@
+---
+description: Hobby or interest (Estonian). Several of these are Estonian institutions rather than generic pastimes. Marjul käimine and seenel käimine — going for berries and going for mushrooms — are possible for everybody because of igaüheõigus, the right of public access, which lets anyone walk, pick and camp on land they do not own. Koorilaul is a mass activity here rather than a niche one, feeding the Song Festival; rahvatants likewise. Talisuplus is swimming through a hole in the ice, usually straight out of a sauna. Discgolf is on this list because Estonia has one of the highest densities of disc golf courses in the world, most of them free to play.
+locale: et
+---
+marjul käimine
+seenel käimine
+saunas käimine
+talisuplus
+koorilaul
+rahvatants
+pillimäng
+laulmine
+discgolf
+kepikõnd
+orienteerumine
+matkamine
+telkimine
+kalapüük
+jääkalastus
+jahindus
+suusatamine
+murdmaasuusatamine
+uisutamine
+kelgutamine
+ujumine
+purjetamine
+sõudmine
+kanuumatk
+jalgrattasõit
+rattamatk
+jooksmine
+jõusaal
+jooga
+male
+kabe
+korvpall
+jalgpall
+võrkpall
+lugemine
+kirjutamine
+blogimine
+taskuhäälingute kuulamine
+filmivaatamine
+teatris käimine
+kontserdil käimine
+muuseumis käimine
+fotograafia
+joonistamine
+maalimine
+keraamika
+skulptuur
+kalligraafia
+käsitöö
+kudumine
+tikkimine
+õmblemine
+puutöö
+sepatöö
+kokkamine
+küpsetamine
+aiandus
+lillekasvatus
+mesindus
+linnuvaatlus
+astronoomia
+programmeerimine
+keelte õppimine
+vabatahtlik töö
+meditatsioon
+reisimine
+autosport
+motosport
+ralli
+mudelism
+kollektsioneerimine
+margikogumine
+mündikogumine
+lauamängud
+ristsõnad
+arvutimängud

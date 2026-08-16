@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladesh, as Estonian names it
+locale: et
+---
+Dhaka

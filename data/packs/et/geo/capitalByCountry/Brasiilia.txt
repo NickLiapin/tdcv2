@@ -1,0 +1,5 @@
+---
+description: Capital of Brasiilia, as Estonian names it
+locale: et
+---
+Brasília

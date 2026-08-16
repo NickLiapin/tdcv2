@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group (Estonian), the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Estonians themselves fall under Põhja-Euroopa, and the Estonian Biobank at the University of Tartu holds genome data on something over a fifth of the adult population, which is among the highest coverage of any national cohort in the world.
+locale: et
+---
+Sahara-tagune Aafrika
+Põhja-Aafrika
+Vahemere piirkond
+Lähis-Ida
+Põhja-Euroopa
+Ida-Euroopa
+Aškenazi juudid
+Lõuna-Aasia
+Ida-Aasia
+Kagu-Aasia
+Ameerika põlisrahvad
+Vaikse ookeani saared

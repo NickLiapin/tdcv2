@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective (Estonian). Two of these are national rather than corporate vocabulary: e-riigi tasemel invokes the digital state Estonia built after 1991 and is used in marketing as a quality claim, and rohepöörde-valmis refers to the green transition, which is the funding word of the decade in Estonian business writing.
+locale: et
+---
+skaleeritav
+agiilne
+sujuv
+töökindel
+integreeritud
+hajus
+pilvepõhine
+andmepõhine
+kliendikeskne
+terviklik
+uue põlvkonna
+reaalajaline
+platvormiülene
+ettevõttetasemel
+moodulipõhine
+võtmed-kätte
+omas klassis parim
+tulevikukindel
+dünaamiline
+ennetav
+kohanduv
+optimeeritud
+turvaline
+nutikas
+automatiseeritud
+ühtne
+koostööl põhinev
+innovaatiline
+murranguline
+säästlik
+eritellimusel
+komponeeritav
+vastupidav
+elastne
+laiendatav
+lisandväärtust loov
+digitaalne
+paberivaba
+e-riigi tasemel
+kasutajasõbralik
+läbipaistev
+jälgitav
+mõõdetav
+jätkusuutlik
+rohepöörde-valmis
+piiriülene
+mehitamata
+iseteeninduslik
+kiire
+paindlik
+usaldusväärne
+mastaapne
+nõuetele vastav
+tõenduspõhine
+kliendile suunatud

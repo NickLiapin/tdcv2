@@ -1,0 +1,59 @@
+{
+  "months": [
+    "jaanuar",
+    "veebruar",
+    "märts",
+    "aprill",
+    "mai",
+    "juuni",
+    "juuli",
+    "august",
+    "september",
+    "oktoober",
+    "november",
+    "detsember"
+  ],
+  "monthsInDate": [
+    "jaanuar",
+    "veebruar",
+    "märts",
+    "aprill",
+    "mai",
+    "juuni",
+    "juuli",
+    "august",
+    "september",
+    "oktoober",
+    "november",
+    "detsember"
+  ],
+  "monthsShort": [
+    "jaan.",
+    "veebr.",
+    "märts",
+    "apr.",
+    "mai",
+    "juuni",
+    "juuli",
+    "aug.",
+    "sept.",
+    "okt.",
+    "nov.",
+    "dets."
+  ],
+  "weekdays": [
+    "pühapäev",
+    "esmaspäev",
+    "teisipäev",
+    "kolmapäev",
+    "neljapäev",
+    "reede",
+    "laupäev"
+  ],
+  "weekdaysShort": ["P", "E", "T", "K", "N", "R", "L"],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D. MMMM YYYY"
+  },
+  "notes": "Three things here differ from every neighbouring locale. FIRST, weekdaysShort is a SINGLE CAPITAL LETTER per day — E T K N R L P — which is what every Estonian calendar, timetable and opening-hours sign prints. Finnish uses two letters (su, ma, ti), German and the Slavic locales two or three; Estonian uses one, and a formatter that pads or truncates to two will produce something no Estonian has seen. The array above is Sunday-first because the formatter wants it that way, while date/weekday.txt in the pack is Monday-first as an Estonian would list it, and the Estonian week genuinely starts on Monday. SECOND, monthsInDate is IDENTICAL to months and that is correct, not a copy-paste slip: Estonian puts the month in the plain nominative inside a written date — 5. jaanuar 2026 — unlike Finnish, which needs the partitive tammikuuta, and unlike Czech, which needs the genitive. Only when the date is used adverbially does Estonian inflect, and then it is the adessive of the whole phrase (5. jaanuaril, on 5 January), which the LL format does not cover. THIRD, the day number always carries a full stop after it because it is an ordinal: 5. is viies, the fifth. Month and weekday names are LOWER CASE. The numeric format is DD.MM.YYYY with dots and leading zeros; ISO 8601 is equally standard in Estonian official use. Time is 24-hour with a colon (14:30). The decimal separator is a comma, the thousands separator a space, and the euro sign follows the number after a space: 1 234,56 €. Estonia has used the euro since 1 January 2011."
+}

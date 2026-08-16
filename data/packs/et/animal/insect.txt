@@ -1,0 +1,29 @@
+---
+description: Insect (Estonian). Jaaniuss, the glow-worm, is named after jaanipäev, midsummer, because that is the one night of the year Estonians are outdoors late enough to see it. Puuk, the tick, is on this list as a public-health fact rather than a curiosity: Estonia is a high-risk country for both tick-borne encephalitis and Lyme disease, and vaccination against the first is routine.
+locale: et
+---
+sipelgas
+mesilane
+kimalane
+liblikas
+mardikas
+põrnikas
+kiil
+rohutirts
+ritsikas
+lepatriinu
+koi
+herilane
+vaablane
+jaaniuss
+palvetaja
+kilk
+termiit
+sääsk
+parm
+kärbes
+puuk
+kirp
+täi
+lutikas
+jooksik

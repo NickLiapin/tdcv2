@@ -1,0 +1,60 @@
+---
+description: Industry sector (Estonian). Põlevkivitööstus is the sector no other locale in this pack has: Estonia mines and burns oil shale for electricity and shale oil, is the only country in the world to have built an economy on it, and the industry sits almost entirely in Ida-Viru county. Metsandus and puidutööstus are the other outsized ones — half the country is forest and timber is a leading export.
+locale: et
+---
+põllumajandus
+metsandus
+kalandus
+mäetööstus
+põlevkivitööstus
+turbatootmine
+ehitus
+töötlev tööstus
+puidutööstus
+keemiatööstus
+tekstiilitööstus
+toiduainetööstus
+masinatööstus
+elektroonikatööstus
+laevaehitus
+jaekaubandus
+hulgikaubandus
+transport
+logistika
+infotehnoloogia
+telekommunikatsioon
+rahandus
+kindlustus
+kinnisvara
+tervishoid
+sotsiaalhoolekanne
+haridus
+majutus ja toitlustus
+turism
+meelelahutus
+kultuur
+sport
+meedia
+reklaam
+kirjastamine
+disain
+konsultatsioon
+õigusteenused
+raamatupidamine
+personaliteenused
+turvateenused
+koristusteenused
+iluteenused
+kinnisvarahaldus
+energeetika
+taastuvenergia
+veemajandus
+jäätmekäitlus
+autotööstus
+lennundus
+farmaatsia
+biotehnoloogia
+teadus ja arendus
+avalik haldus
+riigikaitse
+mittetulundussektor

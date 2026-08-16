@@ -1,0 +1,5 @@
+---
+description: Currency of Šveits, as Estonian names it
+locale: et
+---
+Šveitsi frank

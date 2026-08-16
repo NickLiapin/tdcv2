@@ -1,0 +1,15 @@
+---
+description: Personal pronoun set (Estonian), given as nominative/partitive/genitive. This is the file where Estonian differs most sharply from every Indo-European locale in this pack, and the fact is simple: THERE IS ONE THIRD-PERSON PRONOUN AND IT COVERS HE AND SHE ALIKE. Ta, long form tema, is not a coined neutral like Swedish hen and not a plural pressed into service like English they — it is the only word the language has, and it has been for as long as Estonian has been written. Estonian has no grammatical gender anywhere: no gendered adjectives, no gendered articles (there are no articles at all), no gendered job titles, no gendered surnames. Choosing a pronoun for an Estonian row is therefore not choosing a gender, because there is nothing to choose. Two further things a config cannot infer. Spoken Estonian uses see, formally "this", for people at least as readily as ta, and it is neutral rather than rude. And the three forms given here are three out of FOURTEEN cases: Estonian has almost no prepositions, so what English puts in front of a pronoun Estonian puts on the end of it — temal is he/she has, temast is about him/her, temasse into him/her, temaga with him/her.
+locale: et
+---
+ta
+tema
+ta/teda/tema
+tema/teda/tema
+see
+see/seda/selle
+mina/mind/minu
+sina/sind/sinu
+meie/meid/meie
+teie/teid/teie
+nemad/neid/nende

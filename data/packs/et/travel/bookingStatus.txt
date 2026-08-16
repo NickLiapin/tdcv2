@@ -1,0 +1,15 @@
+---
+description: Travel booking status (Estonian)
+locale: et
+---
+kinnitatud
+ootel
+tühistatud
+sisse registreeritud
+välja registreeritud
+kohale ilmumata
+muudetud
+ootenimekirjas
+raha tagastatud
+lõpetatud
+makse ootel

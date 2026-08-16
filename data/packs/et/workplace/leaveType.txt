@@ -1,0 +1,16 @@
+---
+description: Leave type (Estonian). The Estonian statutory floor is unusually generous and these names carry it: põhipuhkus is 28 calendar days a year by law, õppepuhkus is 30 days for study, isapuhkus is 30 days for the father, and vanemapuhkus together with the parental benefit runs to about 18 months paid — among the longest in the world. Hooldusleht is the doctor’s certificate that lets a parent stay home with a sick child on state benefit.
+locale: et
+---
+põhipuhkus
+haiguspuhkus
+hooldusleht
+rasedus- ja sünnituspuhkus
+isapuhkus
+vanemapuhkus
+lapsepuhkus
+õppepuhkus
+tasustamata puhkus
+lisapuhkus
+puhkus omal kulul
+vaba päev

@@ -1,0 +1,5 @@
+---
+description: Currency of Venemaa, as Estonian names it
+locale: et
+---
+Vene rubla

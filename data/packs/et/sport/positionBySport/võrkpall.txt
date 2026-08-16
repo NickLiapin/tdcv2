@@ -1,0 +1,9 @@
+---
+description: Positions in võrkpall, in Estonian
+locale: et
+---
+sidemängija
+diagonaalründaja
+nurgaründaja
+temporündaja
+libero

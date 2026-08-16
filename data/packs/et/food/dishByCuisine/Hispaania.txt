@@ -1,0 +1,11 @@
+---
+description: Dishes of Hispaania cuisine, in Estonian
+locale: et
+---
+paella
+tapad
+gazpacho
+hispaania omlett
+churros
+patatas bravas
+jamón ibérico

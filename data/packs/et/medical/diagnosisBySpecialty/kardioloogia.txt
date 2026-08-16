@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in kardioloogia, in Estonian
+locale: et
+---
+hüpertensioon
+südame isheemiatõbi
+kodade virvendusarütmia
+südamepuudulikkus
+müokardiinfarkt
+hüperlipideemia

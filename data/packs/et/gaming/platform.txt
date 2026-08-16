@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Estonian). Product names are trade names and stay as they are; only the generic words are translated.
+locale: et
+---
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+arvuti
+Steam Deck
+mobiil
+PlayStation 4
+Xbox One
+Meta Quest
+brauser
+VR-prillid

@@ -1,0 +1,21 @@
+---
+description: Video game genre (Estonian). Estonian translates most of them by compounding — tulistamismäng is shooting-game, ellujäämismäng survival-game — and keeps the loans only where the genre name is itself a proper noun.
+locale: et
+---
+tegevusmäng
+seiklusmäng
+rollimäng
+strateegiamäng
+simulaator
+spordimäng
+mõistatusmäng
+tulistamismäng
+platvormimäng
+võidusõidumäng
+võitlusmäng
+ellujäämismäng
+liivakastimäng
+MMORPG
+roguelike
+ehitusmäng
+õudusmäng

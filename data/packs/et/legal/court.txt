@@ -1,0 +1,19 @@
+---
+description: Court and dispute body (Estonian), as the court system of ESTONIA is built. Three tiers, but two separate first-instance branches: a maakohus hears civil and criminal cases and a halduskohus hears cases against the state, both appeal to a ringkonnakohus, and the Riigikohus at the top is at once the court of cassation and the constitutional court — Estonia has no separate constitutional tribunal of the German or Polish kind. Töövaidluskomisjon and üürikomisjon settle employment and tenancy disputes out of court and most never reach a judge.
+locale: et
+---
+Riigikohus
+ringkonnakohus
+maakohus
+halduskohus
+töövaidluskomisjon
+üürikomisjon
+vahekohus
+töövaidluskohus
+kinnistusosakond
+registriosakond
+maksekäsuosakond
+Euroopa Kohus
+Euroopa Inimõiguste Kohus
+esimese astme kohus
+apellatsioonikohus

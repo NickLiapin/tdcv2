@@ -1,0 +1,27 @@
+---
+description: Legal term (Estonian). Kassatsioon is not a synonym for appeal: an Estonian appeal to the ringkonnakohus is apellatsioon and reopens the facts, while a kassatsioon to the Riigikohus reviews only the application of law, and the Riigikohus chooses which ones to hear.
+locale: et
+---
+hageja
+kostja
+süüdistatav
+kannatanu
+tunnistaja
+advokaat
+vandeadvokaat
+prokurör
+kohtunik
+notar
+kohtutäitur
+hagi
+kaebus
+apellatsioon
+kassatsioon
+kohtuotsus
+kohtumäärus
+kohtukutse
+ütlus
+tõend
+kokkulepe
+kohtualluvus
+aegumistähtaeg

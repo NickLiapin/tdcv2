@@ -1,0 +1,12 @@
+---
+description: Dishes of Itaalia cuisine, in Estonian
+locale: et
+---
+margherita pitsa
+spagetid carbonara
+lasanje
+risoto
+osso buco
+tiramisu
+njokid
+minestrone

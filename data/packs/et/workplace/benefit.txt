@@ -1,0 +1,26 @@
+---
+description: Employee benefit (Estonian). Two of these are Estonian tax facts rather than perks. Tervisekulude hüvitis is a statutory allowance — since 2018 an employer may reimburse up to 400 euros a year per employee for sport and health costs without either side paying tax on it, and Estonian job ads name the figure. III pensionisamba makse is the voluntary third pension pillar, which carries its own income-tax relief. Suvepäevad, a company summer outing of a day or two, is close to universal in Estonian firms and is treated as an expected part of the package.
+locale: et
+---
+tervisekulude hüvitis
+sporditoetus
+III pensionisamba makse
+täiendav tervisekindlustus
+koolitustoetus
+ametiauto
+mobiiltelefon
+sülearvuti
+kaugtöö võimalus
+paindlik tööaeg
+lisapuhkusepäevad
+prillihüvitis
+massaaž
+suvepäevad
+jõulupidu
+kingitused lastele
+toidutoetus
+transporditoetus
+isikliku auto hüvitis
+aktsiaoptsioonid
+tulemustasu
+töötaja soodushinnad

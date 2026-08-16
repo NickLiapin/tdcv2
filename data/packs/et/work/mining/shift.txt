@@ -1,0 +1,9 @@
+---
+description: Work shift (Estonian)
+locale: et
+---
+hommikuvahetus
+õhtuvahetus
+öövahetus
+kahevahetusega töö
+kolmevahetusega töö

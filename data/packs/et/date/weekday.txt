@@ -1,0 +1,11 @@
+---
+description: Weekday name (Estonian), Monday first and in LOWER CASE. The first four days are simply numbered — esmaspäev is first-day, teisipäev second-day, kolmapäev third, neljapäev fourth — and then the naming system changes: reede is borrowed from Germanic Freyja, laupäev from Old Norse laugardagr, the bath day, and pühapäev is holy-day. Half the Estonian week is native arithmetic and half is Scandinavian, which is a fair picture of the country’s history.
+locale: et
+---
+esmaspäev
+teisipäev
+kolmapäev
+neljapäev
+reede
+laupäev
+pühapäev

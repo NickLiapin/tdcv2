@@ -1,0 +1,11 @@
+---
+description: Film and television content rating as ESTONIA classifies them, which is not the American system and does not map onto it. L means permitted for everyone; PERE marks a family film; MS-6 and MS-12 mean not recommended below that age but not forbidden; K-12, K-14 and K-16 are hard age limits enforced at the cinema box office. A config that fills an Estonian row with PG-13 is describing another country.
+locale: et
+---
+L
+PERE
+MS-6
+MS-12
+K-12
+K-14
+K-16

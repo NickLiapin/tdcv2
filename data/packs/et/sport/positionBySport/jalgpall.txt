@@ -1,0 +1,15 @@
+---
+description: Positions in jalgpall, in Estonian
+locale: et
+---
+väravavaht
+paremkaitsja
+vasakkaitsja
+keskkaitsja
+kaitsev poolkaitsja
+keskväljamängija
+ründav poolkaitsja
+parem äär
+vasak äär
+ründaja
+keskründaja

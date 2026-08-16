@@ -1,0 +1,5 @@
+---
+description: Currency of Jaapan, as Estonian names it
+locale: et
+---
+Jaapani jeen

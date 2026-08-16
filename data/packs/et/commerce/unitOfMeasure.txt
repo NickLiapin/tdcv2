@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Estonian). Estonia is fully metric and has been since 1918; the only pre-metric survivor in everyday speech is the toop, which is why it is not here. Jooksev meeter, running metre, is the unit Estonian builders and fabric shops price by.
+locale: et
+---
+tükk
+karp
+kast
+pakk
+tosin
+paar
+komplekt
+rull
+kimp
+kilogramm
+gramm
+tonn
+liiter
+milliliiter
+meeter
+sentimeeter
+millimeeter
+ruutmeeter
+kuupmeeter
+jooksev meeter
+pakend
+alus
+kott
+purk
+pudel
+tuub
+ampull
+plaat
+leht
+supilusikatäis

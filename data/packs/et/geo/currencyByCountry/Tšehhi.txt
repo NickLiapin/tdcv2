@@ -1,0 +1,5 @@
+---
+description: Currency of Tšehhi, as Estonian names it
+locale: et
+---
+Tšehhi kroon

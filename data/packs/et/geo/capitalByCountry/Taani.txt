@@ -1,0 +1,5 @@
+---
+description: Capital of Taani, as Estonian names it
+locale: et
+---
+Kopenhaagen

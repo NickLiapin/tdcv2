@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with an Estonian district, estate or road name (Põhja-Tallinn, Kesklinn, Ida-Viru). Like Finnish and unlike the Germanic languages, Estonian has single native words for the intermediate compass points — kirre, kagu, edel, loe — rather than compounding north with east. The hyphenated forms are the genitive stems that stand in front of a place name: kirre gives Kirde-, loe gives Loode-.
+locale: et
+---
+põhi
+lõuna
+ida
+lääs
+kirre
+kagu
+edel
+loe
+Põhja-
+Lõuna-
+Ida-
+Lääne-
+Kesk-
+kesklinn
+vanalinn

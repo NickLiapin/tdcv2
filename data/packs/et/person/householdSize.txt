@@ -1,0 +1,11 @@
+---
+description: Household size (Estonian). Estonian households are small — the mean is a little under 2.2 people and roughly a third of them hold one person only, which is high even by northern European standards.
+locale: et
+---
+1
+2
+3
+4
+5
+6
+7+

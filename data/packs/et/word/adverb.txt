@@ -1,0 +1,43 @@
+---
+description: Common adverb (Estonian). Estonian makes most manner adverbs with the ending -lt on the adjective — kiire gives kiiresti, aeglane aeglaselt — and the place adverbs come in threes rather than pairs, marking where, from where and to where: siin, siit, siia.
+locale: et
+---
+kiiresti
+aeglaselt
+hästi
+halvasti
+palju
+vähe
+sageli
+harva
+alati
+mitte kunagi
+praegu
+hiljem
+varsti
+ammu
+siin
+siia
+siit
+seal
+sinna
+sealt
+ülal
+all
+ees
+taga
+kaugel
+lähedal
+koos
+üksi
+kohe
+järsku
+vaikselt
+valjult
+kergesti
+kindlasti
+võib-olla
+samuti
+jälle
+veel
+juba

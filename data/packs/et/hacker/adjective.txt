@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Estonian). Estonian makes most of these by compounding — pilvepõhine is cloud-based, juhtmevaba is wire-free, isetaastuv is self-restoring — and none of them agrees with the noun in gender, because there is none.
+locale: et
+---
+abistav
+esmane
+taustapoolne
+digitaalne
+avatud lähtekoodiga
+virtuaalne
+platvormiülene
+üleliigne
+veebipõhine
+haptiline
+mitmebaidine
+juhtmevaba
+optiline
+mobiilne
+1080p
+8-bitine
+kiire
+krüpteeritud
+hajus
+pilvepõhine
+reaalajaline
+autonoomne
+isetaastuv
+paralleelne
+kvant-
+sisseehitatud
+pooljuht-
+närvivõrgupõhine

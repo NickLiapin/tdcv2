@@ -1,0 +1,16 @@
+---
+description: Property listing status (Estonian)
+locale: et
+---
+müügis
+üürile
+broneeritud
+müüdud
+üürile antud
+ettevalmistamisel
+hinda alandatud
+ajutiselt eemaldatud
+oksjonil
+tehing pooleli
+arhiveeritud
+uus kuulutus

@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Ida-Aasia ancestry, named in Estonian. A prevalence signal, not an exclusive one.
+locale: et
+---
+alfa-talasseemia
+aldehüüddehüdrogenaas 2 puudulikkus
+laktaasi mittepüsivus
+ninaneelu kartsinoom
+maovähk
+sulgurnurkne glaukoom
+Kawasaki tõbi
+moyamoya tõbi
+karbamasepiini ülitundlikkus
+patoloogiline müoopia

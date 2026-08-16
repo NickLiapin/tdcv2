@@ -1,0 +1,5 @@
+---
+description: Capital of India, as Estonian names it
+locale: et
+---
+New Delhi

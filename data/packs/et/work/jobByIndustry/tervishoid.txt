@@ -1,0 +1,15 @@
+---
+description: Jobs in tervishoid, in Estonian
+locale: et
+---
+perearst
+eriarst
+kirurg
+õde
+ämmaemand
+hambaarst
+apteeker
+füsioterapeut
+kiirabitehnik
+hooldustöötaja
+laborant

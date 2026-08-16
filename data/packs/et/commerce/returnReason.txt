@@ -1,0 +1,19 @@
+---
+description: Order return reason (Estonian). "Kasutan taganemisõigust" is the legal ground and is a reason in its own right in Estonia: EU distance-selling law gives a consumer fourteen days to withdraw from an online purchase without giving any reason at all, and Estonian shops list it on the return form as a selectable option.
+locale: et
+---
+saabus kahjustatuna
+saadeti vale toode
+toode ei vasta kirjeldusele
+vale suurus
+vale värv
+muutsin meelt
+kasutan taganemisõigust
+leidsin mujalt soodsama hinna
+defektne toode
+puuduvad osad
+hiline kohaletoimetamine
+ei ole enam vajalik
+tellisin kogemata
+kvaliteet ei vastanud ootustele
+topelttellimus
