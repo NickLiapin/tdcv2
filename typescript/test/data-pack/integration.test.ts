@@ -32,6 +32,12 @@ describe('data packs — end to end through TDC', () => {
     for (const v of values) expect(['red', 'green', 'blue']).toContain(v);
   });
 
+  /**
+   * `scanPacks` walks the entire bundled tree, so this test gets slower every
+   * time a pack ships — it crossed the 10s default at ~18,900 addresses, which
+   * looks like flakiness and is not. The timeout is sized for a corpus that
+   * keeps growing, not for today's count.
+   */
   it('resolves bundled pack addresses; every value is a pack member', () => {
     const dir = bundledPacksDir();
     expect(dir).toBeDefined();
@@ -49,7 +55,7 @@ describe('data packs — end to end through TDC', () => {
     const values = out.split('\n').filter(Boolean);
     expect(values).toHaveLength(12);
     for (const v of values) expect(ruFirst?.values ?? []).toContain(v);
-  });
+  }, 120_000);
 
   it('a typo in a pack address is flagged as an unknown template (TDC071)', () => {
     const config = `<tdc>
