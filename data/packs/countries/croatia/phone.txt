@@ -1,0 +1,6 @@
+---
+address: croatia.phone
+description: Croatian mobile number in E.164 form — +385 then a 9X network code (91, 92, 95, 97, 98, 99) and seven subscriber digits. Landlines are not generated here: they take a geographic area code instead, and Zagreb's is the country's only single-digit one — +385 1 plus seven digits — while every other area code has two digits (20 Dubrovnik, 21 Split, 31 Osijek, 51 Rijeka and so on) and six subscriber digits.
+generator: tdc
+---
+<gen type="regex" value="\+3859[125789][0-9]{7}"/>

@@ -1,0 +1,19 @@
+---
+address: croatia.holiday
+description: Public holidays in Croatia (Croatian names), in calendar order, as the Zakon o blagdanima has stood since it was rewritten in 2019 to take effect in 2020. Two things a stale source gets wrong: Dan državnosti moved from 25 June to 30 May, and Dan neovisnosti (8 October) stopped being a public holiday altogether.
+locale: hr
+---
+Nova godina
+Bogojavljenje
+Uskrs
+Uskrsni ponedjeljak
+Praznik rada
+Dan državnosti
+Tijelovo
+Dan antifašističke borbe
+Dan pobjede i domovinske zahvalnosti i Dan hrvatskih branitelja
+Velika Gospa
+Svi sveti
+Dan sjećanja na žrtve Domovinskog rata i Dan sjećanja na žrtvu Vukovara i Škabrnje
+Božić
+Sveti Stjepan

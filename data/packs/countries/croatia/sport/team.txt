@@ -1,0 +1,36 @@
+---
+address: croatia.sport.team
+description: Croatian professional sports clubs — football first (SuperSport HNL and Prva NL), then the handball, basketball and water-polo clubs, because a list of Croatian teams that stopped at football would leave out the sports the country is best known for internationally.
+locale: hr
+---
+GNK Dinamo Zagreb
+HNK Hajduk Split
+HNK Rijeka
+NK Osijek
+NK Slaven Belupo
+NK Lokomotiva
+HNK Gorica
+NK Varaždin
+HNK Šibenik
+NK Istra 1961
+HNK Vukovar 1991
+NK Rudeš
+HNK Cibalia
+NK Zagreb
+NK Dugopolje
+HNK Orijent 1919
+NK Karlovac 1919
+HNK Segesta
+NK Solin
+NK Hrvatski dragovoljac
+RK Zagreb
+RK Nexe
+RK Zadar
+RK Sesvete
+KK Cibona
+KK Zadar
+KK Split
+KK Cedevita Junior
+VK Jug
+HAVK Mladost
+VK Primorje

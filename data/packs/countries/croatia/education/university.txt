@@ -1,0 +1,22 @@
+---
+address: croatia.education.university
+description: Universities of Croatia (Croatian names) — the public universities first, oldest and largest leading, then the private ones. Sveučilište u Zagrebu dates from 1669 and is among the oldest in this part of Europe; Split (1974), Rijeka (1973) and Osijek (1975) are the other large public universities.
+locale: hr
+---
+Sveučilište u Zagrebu
+Sveučilište u Splitu
+Sveučilište u Rijeci
+Sveučilište Josipa Jurja Strossmayera u Osijeku
+Sveučilište u Zadru
+Sveučilište Jurja Dobrile u Puli
+Sveučilište Sjever
+Sveučilište u Dubrovniku
+Sveučilište u Slavonskom Brodu
+Hrvatsko katoličko sveučilište
+Sveučilište Algebra
+Sveučilište VERN'
+Libertas međunarodno sveučilište
+Zagrebačka škola ekonomije i managementa
+Tehničko veleučilište u Zagrebu
+Veleučilište u Karlovcu
+Veleučilište u Rijeci

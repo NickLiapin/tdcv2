@@ -1,0 +1,26 @@
+---
+address: croatia.geo.county
+description: The twenty counties (županije) of Croatia plus the City of Zagreb, in the official numbering order. The županija is Croatia's FIRST-level division — unlike the county in the USA pack, which is a second-level unit under a state. Grad Zagreb is not a županija but holds the powers of one, which is why the country is usually described as "twenty counties and the City of Zagreb" rather than twenty-one counties.
+locale: hr
+---
+Zagrebačka
+Krapinsko-zagorska
+Sisačko-moslavačka
+Karlovačka
+Varaždinska
+Koprivničko-križevačka
+Bjelovarsko-bilogorska
+Primorsko-goranska
+Ličko-senjska
+Virovitičko-podravska
+Požeško-slavonska
+Brodsko-posavska
+Zadarska
+Osječko-baranjska
+Šibensko-kninska
+Vukovarsko-srijemska
+Splitsko-dalmatinska
+Istarska
+Dubrovačko-neretvanska
+Međimurska
+Grad Zagreb

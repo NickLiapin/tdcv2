@@ -1,0 +1,12 @@
+---
+address: croatia.finance.bankCode
+description: Croatian leading bank number (vodeći broj banke, VBDI) — the 7-digit code the Croatian National Bank assigns each payment-service provider and the first block of the BBAN inside an HR IBAN. These are the codes of the largest banks plus the central bank (1001005); each was confirmed against a published IBAN, not the full HNB register.
+---
+2360000
+2340009
+2402006
+2484008
+2407000
+2390001
+2500009
+1001005

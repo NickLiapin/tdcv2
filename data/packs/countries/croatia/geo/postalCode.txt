@@ -1,0 +1,8 @@
+---
+address: croatia.geo.postalCode
+description: Croatian postal code (poštanski broj) — five digits, where the first two identify the delivery area: 10 Zagreb, 20 Dubrovnik, 21 Split, 22 Šibenik, 23 Zadar, 31 Osijek, 32 Vukovar, 33 Virovitica, 34 Požega, 35 Slavonski Brod, 40 Čakovec, 42 Varaždin, 43 Bjelovar, 44 Sisak, 47 Karlovac, 48 Koprivnica, 49 Krapina, 51 Rijeka, 52 Pula, 53 Gospić. Only those twenty prefixes are issued, so the generator draws from them rather than from 00000-99999.
+generator: tdc
+---
+<sequence name="area"><gen type="text" value="10,20,21,22,23,31,32,33,34,35,40,42,43,44,47,48,49,51,52,53"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{3}"/></sequence>
+<data>${{area}}${{rest}}</data>

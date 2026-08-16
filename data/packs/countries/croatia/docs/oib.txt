@@ -1,10 +1,11 @@
 ---
-address: croatia.tax.vat
-description: Croatian VAT number (PDV identifikacijski broj) — HR + a 10-digit base + an ISO 7064 MOD 11,10 check digit. It is not a number of its own: Croatia prefixes the taxpayer's OIB with HR, so croatia.tax.vat and croatia.docs.oib share one arithmetic. PDV has been charged in EURO since 1 January 2023; the kuna is gone.
+address: croatia.docs.oib
+description: Croatian OIB (osobni identifikacijski broj) — 11 digits: a 10-digit base plus an ISO 7064 MOD 11,10 check digit. Unlike the Yugoslav-era JMBG it replaced (the number Croatians call the MBG, retired here between 2009 and 2013), the base is opaque and carries no birth date, sex or region. One number covers natural persons AND legal entities, and it is also the tax number, so Croatia issues no separate tax ID: the VAT number is simply HR + the OIB. Verified against the published numbers 69435151530 and 12345678903.
 generator: tdc
 ---
 <sequence name="base"><gen type="regex" value="[0-9]{10}"/></sequence>
-<sequence name="vat"><compute>
+<sequence name="oib"><compute>
+  <!-- ISO 7064 MOD 11,10: a running product folded over the base digits. -->
   <let name="product">
     <reduce>
       <over><field name="base"/></over>
@@ -24,6 +25,6 @@ generator: tdc
     </reduce>
   </let>
   <let name="check"><mod><subtract><int v="11"/><use name="product"/></subtract><int v="10"/></mod></let>
-  <result><concat><str v="HR"/><field name="base"/><use name="check"/></concat></result>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
 </compute></sequence>
-<data>${{vat}}</data>
+<data>${{oib}}</data>

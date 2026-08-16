@@ -1,0 +1,26 @@
+---
+address: croatia.finance.bank
+description: Banks of Croatia — the nineteen credit institutions authorised by the Hrvatska narodna banka, roughly by size, followed by the central bank and the state development bank. All of them have kept their accounts in EURO since 1 January 2023; the kuna is no longer legal tender.
+locale: hr
+---
+Zagrebačka banka
+Privredna banka Zagreb
+Erste & Steiermärkische Bank
+OTP banka
+Raiffeisenbank Austria
+Hrvatska poštanska banka
+Addiko Bank
+Agram banka
+Podravska banka
+Istarska kreditna banka Umag
+Karlovačka banka
+Croatia banka
+KentBank
+Partner banka
+Imex banka
+Slatinska banka
+Banka Kovanica
+J&T banka
+Samoborska banka
+Hrvatska narodna banka
+Hrvatska banka za obnovu i razvitak

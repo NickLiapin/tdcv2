@@ -1,0 +1,85 @@
+---
+address: croatia.geo.city
+description: Cities and towns of Croatia, roughly ordered by population at the 2021 census. Sesvete is absent on purpose: it is a district of the City of Zagreb, not a separate town.
+locale: hr
+---
+Zagreb
+Split
+Rijeka
+Osijek
+Zadar
+Velika Gorica
+Slavonski Brod
+Pula
+Karlovac
+Varaždin
+Šibenik
+Dubrovnik
+Kaštela
+Sisak
+Samobor
+Bjelovar
+Vinkovci
+Koprivnica
+Čakovec
+Zaprešić
+Vukovar
+Đakovo
+Solin
+Požega
+Kutina
+Sinj
+Sveta Nedelja
+Križevci
+Dugo Selo
+Virovitica
+Slatina
+Nova Gradiška
+Petrinja
+Jastrebarsko
+Sveti Ivan Zelina
+Poreč
+Našice
+Ivanec
+Metković
+Rovinj
+Vrbovec
+Omiš
+Ivanić-Grad
+Umag
+Makarska
+Ogulin
+Trogir
+Županja
+Novska
+Knin
+Gospić
+Opatija
+Krapina
+Daruvar
+Crikvenica
+Valpovo
+Duga Resa
+Imotski
+Labin
+Belišće
+Ploče
+Đurđevac
+Benkovac
+Ludbreg
+Pazin
+Otočac
+Prelog
+Zabok
+Garešnica
+Biograd na Moru
+Senj
+Vrgorac
+Korčula
+Supetar
+Krk
+Hvar
+Pag
+Nin
+Ilok
+Skradin

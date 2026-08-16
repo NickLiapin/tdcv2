@@ -1,0 +1,30 @@
+---
+address: croatia.tax.mbs
+description: Croatian MBS (matični broj subjekta), the court-register number of a legal entity — 9 digits: a 2-digit registry-court code, a 6-digit serial and an ISO 7064 MOD 11,10 check digit, exactly as the Pravilnik o načinu upisa u sudski registar prescribes. Verified against Zagrebačka banka's published MBS 080000014. Three Croatian numbers are easy to confuse: the MBS here is the COURT register number; the MB (matični broj poslovnog subjekta) is a separate 8-digit statistical number issued by the Državni zavod za statistiku and is deliberately not shipped, because its check digit could not be verified against a published number; the MBG is the old Yugoslav personal number, long retired in favour of the OIB. The court code is drawn at random rather than from the real list of commercial courts — Zagreb's is 08.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="mbs"><compute>
+  <!-- ISO 7064 MOD 11,10, the same procedure the OIB uses. -->
+  <let name="product">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="10"/></init>
+      <do>
+        <let name="s"><mod><add><current/><acc/></add><int v="10"/></mod></let>
+        <mod>
+          <multiply><int v="2"/>
+            <choose>
+              <when><test><equals><use name="s"/><int v="0"/></equals></test><then><int v="10"/></then></when>
+              <otherwise><use name="s"/></otherwise>
+            </choose>
+          </multiply>
+          <int v="11"/>
+        </mod>
+      </do>
+    </reduce>
+  </let>
+  <let name="check"><mod><subtract><int v="11"/><use name="product"/></subtract><int v="10"/></mod></let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{mbs}}</data>

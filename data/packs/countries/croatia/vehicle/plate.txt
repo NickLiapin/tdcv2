@@ -1,0 +1,10 @@
+---
+address: croatia.vehicle.plate
+description: Croatian vehicle plate — a two-letter code for the town of registration, then three or four digits, a dash and one or two letters (ZG 123-AB). On the physical plate the Croatian chequy coat of arms sits between the town code and the digits; there is no character for it, so this generator writes a space. All 34 issued town codes are here, diacritics included — ZG Zagreb, ST Split, RI Rijeka, OS Osijek, ČK Čakovec, KR Krapina, KŽ Križevci, ŠI Šibenik, VŽ Varaždin, ŽU Županja and the rest. Velika Gorica has no code of its own; it registers as ZG.
+generator: tdc
+locale: hr
+---
+<sequence name="town"><gen type="text" value="BJ,BM,ČK,DA,DE,DJ,DU,GS,IM,KA,KC,KR,KT,KŽ,MA,NA,NG,OG,OS,PU,PŽ,RI,SB,SK,SL,ST,ŠI,VK,VT,VU,VŽ,ZD,ZG,ŽU"/></sequence>
+<sequence name="digits"><gen type="regex" value="[1-9][0-9]{2,3}"/></sequence>
+<sequence name="letters"><gen type="regex" value="[A-Z]{1,2}"/></sequence>
+<data>${{town}} ${{digits}}-${{letters}}</data>
