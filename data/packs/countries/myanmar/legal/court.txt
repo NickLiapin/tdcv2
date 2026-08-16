@@ -1,0 +1,21 @@
+---
+address: myanmar.legal.court
+description: The NAMED courts of Myanmar — the specific institutions, not the kinds of court, which belong to the Burmese language pack at my.legal.court. THE STRUCTURE IS THE CONSTITUTION'S AND IT IS UNUSUAL IN TWO WAYS. First, there is one High Court per state and region, each called တရားလွှတ်တော် and each named for its division, so "the High Court" in a Myanmar document is ambiguous until you know which of the fourteen is meant — and Nay Pyi Taw has none, its cases going to the ပြည်ထောင်စုတရားလွှတ်တော်ချုပ် directly, which is why the list below has fourteen High Courts and fifteen divisions. Second, the ဖွဲ့စည်းပုံအခြေခံဥပဒေဆိုင်ရာခုံရုံး (Constitutional Tribunal) is NOT part of the court hierarchy at all: it is a separate body of nine members that rules on the constitutionality of laws and on disputes between the union and the states, and the Supreme Court cannot hear an appeal from it. The whole bench of it resigned in 2012 after the legislature moved to impeach them, which is the only time a Myanmar constitutional body has been removed by another. Below the named courts sit the district and township courts, which are where essentially all litigation actually happens and which are named after their township rather than individually — see myanmar.geo.township. WHAT THIS LIST DOES NOT TELL YOU: since February 2021 much of the criminal jurisdiction has moved to စစ်ခုံရုံး, courts-martial sitting in prisons under martial law, whose judgments are not published and whose proceedings are closed, so a dataset of Myanmar court decisions drawn from these named courts is a dataset of the part of the system that still publishes. The ecclesiastical tribunal ဝိနည်းဓိုရ်အဖွဲ့, which judges monks under the Vinaya and has real authority over a very large population, sits outside this hierarchy entirely and is a genuine parallel jurisdiction rather than an internal church matter.
+locale: my
+---
+ပြည်ထောင်စုတရားလွှတ်တော်ချုပ်
+ဖွဲ့စည်းပုံအခြေခံဥပဒေဆိုင်ရာခုံရုံး
+ကချင်ပြည်နယ်တရားလွှတ်တော်
+ကယားပြည်နယ်တရားလွှတ်တော်
+ကရင်ပြည်နယ်တရားလွှတ်တော်
+ချင်းပြည်နယ်တရားလွှတ်တော်
+စစ်ကိုင်းတိုင်းဒေသကြီးတရားလွှတ်တော်
+တနင်္သာရီတိုင်းဒေသကြီးတရားလွှတ်တော်
+ပဲခူးတိုင်းဒေသကြီးတရားလွှတ်တော်
+မကွေးတိုင်းဒေသကြီးတရားလွှတ်တော်
+မန္တလေးတိုင်းဒေသကြီးတရားလွှတ်တော်
+မွန်ပြည်နယ်တရားလွှတ်တော်
+ရခိုင်ပြည်နယ်တရားလွှတ်တော်
+ရန်ကုန်တိုင်းဒေသကြီးတရားလွှတ်တော်
+ရှမ်းပြည်နယ်တရားလွှတ်တော်
+ဧရာဝတီတိုင်းဒေသကြီးတရားလွှတ်တော်

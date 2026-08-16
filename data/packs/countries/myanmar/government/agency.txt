@@ -1,0 +1,37 @@
+---
+address: myanmar.government.agency
+description: NAMED bodies of the Myanmar state — the particular departments a Myanmar record actually refers to, as against the generic ministry-and-office words in the Burmese language pack at my.government.agency. THE ONE TO UNDERSTAND IS အထွေထွေအုပ်ချုပ်ရေးဦးစီးဌာန, the General Administration Department, and it has no counterpart in most countries: it is the single department that runs the country's territory at every level below the union, from the region down to the ward, and it employs the officer who chairs the township committee, keeps the household registration list, signs the recommendation letters without which a citizen can do almost nothing, and collects the land tax. Which ministry it sits under is therefore one of the most consequential facts in Myanmar governance — it was moved from Home Affairs, which the army controls under the constitution, to the civilian Office of the Union Government in 2018, and moved straight back in 2021. Below it, ရပ်ကွက်အုပ်ချုပ်ရေးမှူးရုံး, the ward administrator's office, is where ordinary life meets the state: the overnight-guest list, the household list, the letter you need to open a bank account. လူဝင်မှုကြီးကြပ်ရေးနှင့်ပြည်သူ့အင်အားဝန်ကြီးဌာန issues the NRC and the passport and keeps the population register; ပြည်တွင်းအခွန်များဦးစီးဌာန issues the TIN; ရင်းနှီးမြှုပ်နှံမှုနှင့်ကုမ္ပဏီများညွှန်ကြားမှုဦးစီးဌာန (DICA) registers every company through the MyCO system; ကုန်းလမ်းပို့ဆောင်ရေးညွှန်ကြားမှုဦးစီးဌာန registers vehicles and issues plates; မြန်မာနိုင်ငံတော်ဗဟိုဘဏ် is the central bank. ရန်ကုန်မြို့တော်စည်ပင်သာယာရေးကော်မတီ and its Mandalay twin are city governments with their own taxes and their own by-laws, not branches of a ministry. Named institutions rather than ministries, because Myanmar reorganises and renames its ministries often — the number of them changed three times between 2011 and 2021 — while these departments persist under whatever ministry currently owns them.
+locale: my
+---
+အထွေထွေအုပ်ချုပ်ရေးဦးစီးဌာန
+ရပ်ကွက်အုပ်ချုပ်ရေးမှူးရုံး
+ကျေးရွာအုပ်ချုပ်ရေးမှူးရုံး
+လူဝင်မှုကြီးကြပ်ရေးနှင့်ပြည်သူ့အင်အားဝန်ကြီးဌာန
+ပြည်တွင်းအခွန်များဦးစီးဌာန
+အကောက်ခွန်ဦးစီးဌာန
+ရင်းနှီးမြှုပ်နှံမှုနှင့်ကုမ္ပဏီများညွှန်ကြားမှုဦးစီးဌာန
+ကုန်းလမ်းပို့ဆောင်ရေးညွှန်ကြားမှုဦးစီးဌာန
+မြန်မာနိုင်ငံတော်ဗဟိုဘဏ်
+မြန်မာနိုင်ငံရဲတပ်ဖွဲ့
+မြန်မာ့စာတိုက်လုပ်ငန်း
+ပို့ဆောင်ရေးနှင့်ဆက်သွယ်ရေးဝန်ကြီးဌာန
+ဆက်သွယ်ရေးညွှန်ကြားမှုဦးစီးဌာန
+ကျန်းမာရေးဝန်ကြီးဌာန
+ပညာရေးဝန်ကြီးဌာန
+စီမံကိန်းနှင့်ဘဏ္ဍာရေးဝန်ကြီးဌာန
+ပြည်ထဲရေးဝန်ကြီးဌာန
+နိုင်ငံခြားရေးဝန်ကြီးဌာန
+အလုပ်သမားဝန်ကြီးဌာန
+သာသနာရေးနှင့်ယဉ်ကျေးမှုဝန်ကြီးဌာန
+ဟိုတယ်နှင့်ခရီးသွားလာရေးဝန်ကြီးဌာန
+စိုက်ပျိုးရေးမွေးမြူရေးနှင့်ဆည်မြောင်းဝန်ကြီးဌာန
+သယံဇာတနှင့်သဘာဝပတ်ဝန်းကျင်ထိန်းသိမ်းရေးဝန်ကြီးဌာန
+လျှပ်စစ်စွမ်းအားဝန်ကြီးဌာန
+ဆောက်လုပ်ရေးဝန်ကြီးဌာန
+ရန်ကုန်မြို့တော်စည်ပင်သာယာရေးကော်မတီ
+မန္တလေးမြို့တော်စည်ပင်သာယာရေးကော်မတီ
+နေပြည်တော်စည်ပင်သာယာရေးကော်မတီ
+ပြည်ထောင်စုရွေးကောက်ပွဲကော်မရှင်
+ရှေးဟောင်းသုတေသနနှင့်အမျိုးသားပြတိုက်ဦးစီးဌာန
+မီးသတ်ဦးစီးဌာန
+စာစစ်ဦးစီးဌာန

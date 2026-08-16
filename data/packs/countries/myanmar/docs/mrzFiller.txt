@@ -1,0 +1,5 @@
+---
+address: myanmar.docs.mrzFiller
+description: The ICAO 9303 filler character '<', fourteen of them — the width of the optional-data field of a TD3 machine-readable zone. IT EXISTS AS A DATA FILE FOR A MECHANICAL REASON AND NOT A MYANMAR ONE, and the reason is worth writing down where the next person will find it: the TDC config language is XML and this engine does not decode XML entities, so `<str v="&lt;"/>` yields the four characters &, l, t, ; rather than a less-than sign, and there is no other way to get that character into a generated value from inside a config. A pack list file's body is plain text and is not parsed as XML, so it can hold the character literally — which is what this file is for. myanmar.docs.passportMrz draws the run from here and slices a single character off it for the one-column pad after the document number. If entity decoding is ever added to the parser, this file can go and the `<str>` form can be used instead. Nothing about Myanmar is encoded here; the filler is the same on every ICAO travel document in the world.
+---
+<<<<<<<<<<<<<<

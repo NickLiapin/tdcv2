@@ -1,0 +1,17 @@
+---
+address: myanmar.phoneLandline
+description: A Myanmar fixed-line number in E.164 form. THREE AREA CODES ONLY, and that is deliberate: the numbering plan published for Myanmar names 01 for ရန်ကုန်, 02 for မန္တလေး and 067 for နေပြည်တော် with seven subscriber digits each, and no authoritative list of the remaining regional area codes was found, so the rest are not shipped rather than guessed at. Note what the area codes are NOT: they are one and two and three digits long, so a Myanmar landline is not a fixed-width number and splitting one at a fixed offset lands in the middle of the subscriber part for Nay Pyi Taw. Yangon and Mandalay both expanded from six subscriber digits to seven during the 2010s, so six-digit numbers appear in older Myanmar records and are not simply corrupt. The trunk zero is dropped internationally exactly as for mobiles: 01 234 5678 is +95 1 2345678. A landline is a much rarer thing in Myanmar than in a European dataset — the country had under one fixed line per hundred people when mobile penetration passed 100 per cent, so fixed numbers in Myanmar data belong overwhelmingly to offices, hotels and government, and a synthetic Myanmar person with a home landline is not a typical person. Not modelled: the CDMA 800 and WCDMA 450 fixed-wireless numbers issued in the 2000s under 09 ranges, which look like mobiles and are not, and are still in service in places the copper never reached.
+generator: tdc
+---
+<sequence name="shape"><gen type="text" value="1,2,3" percent="55,30,15"/></sequence>
+<sequence name="sub"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="number"><compute><result>
+  <choose>
+    <when><test><equals><field name="shape"/><int v="1"/></equals></test>
+      <then><concat><str v="+951"/><field name="sub"/></concat></then></when>
+    <when><test><equals><field name="shape"/><int v="2"/></equals></test>
+      <then><concat><str v="+952"/><field name="sub"/></concat></then></when>
+    <otherwise><concat><str v="+9567"/><field name="sub"/></concat></otherwise>
+  </choose>
+</result></compute></sequence>
+<data>${{number}}</data>

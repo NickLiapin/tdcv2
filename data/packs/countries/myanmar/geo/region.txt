@@ -1,0 +1,20 @@
+---
+address: myanmar.geo.region
+description: The first-level divisions of Myanmar, Burmese names, in the constitutional order. MYANMAR HAS TWO KINDS OF FIRST-LEVEL DIVISION AND THE DIFFERENCE IS IN THE NAME. Seven are တိုင်းဒေသကြီး (Region), historically Bamar-majority; seven are ပြည်နယ် (State), named for an ethnic nationality — ကချင်, ကယား, ကရင်, ချင်း, မွန်, ရခိုင်, ရှမ်း. Under the 2008 constitution the two ranks are legally identical, both electing their own hluttaw and both headed by a chief minister appointed by the president; before 1974 the States held powers the Divisions did not, and the word ပြည်နယ် still carries that history, which is why "state" and "region" are not interchangeable words in Myanmar and why translating both as "province" loses the point. The fifteenth entry, နေပြည်တော်ပြည်ထောင်စုနယ်မြေ, is neither: it is the Union Territory, carved out of Mandalay Region when the capital moved there in 2005 and administered directly by the president rather than by a chief minister — the reason it has a postcode prefix of its own (15) but NO NRC number of its own, its residents still being numbered 9 for Mandalay. NOT IN THIS LIST, and they are real places with real government: the six self-administered areas the constitution creates below this level — the ဝကိုယ်ပိုင်အုပ်ချုပ်ခွင့်ရတိုင်း (Wa Self-Administered Division) and the Naga, Danu, Pa-O, Pa Laung and Kokang self-administered zones. Wa in particular runs its own army, its own currency in practice and its own border with China, and a dataset that places every Myanmar address inside one of these fifteen is describing the constitution rather than the ground. The order here is the constitutional one (Article 49), which is neither alphabetical in Burmese nor by population; myanmar.geo.regionEnglish holds the same fifteen in the same order.
+locale: my
+---
+ကချင်ပြည်နယ်
+ကယားပြည်နယ်
+ကရင်ပြည်နယ်
+ချင်းပြည်နယ်
+စစ်ကိုင်းတိုင်းဒေသကြီး
+တနင်္သာရီတိုင်းဒေသကြီး
+ပဲခူးတိုင်းဒေသကြီး
+မကွေးတိုင်းဒေသကြီး
+မန္တလေးတိုင်းဒေသကြီး
+မွန်ပြည်နယ်
+ရခိုင်ပြည်နယ်
+ရန်ကုန်တိုင်းဒေသကြီး
+ရှမ်းပြည်နယ်
+ဧရာဝတီတိုင်းဒေသကြီး
+နေပြည်တော်ပြည်ထောင်စုနယ်မြေ

@@ -1,0 +1,12 @@
+---
+address: myanmar.phoneMobilePrefix
+description: The operator block of a Myanmar mobile number — the digit that follows the 9 in +959, or the 09 trunk domestically. The Posts and Telecommunications Department reserves 09 for every mobile number in the country and splits it between the operators: 2, 4 and 5 are MPT, the former state monopoly; 3 is MecTel, the military-linked operator; 6 is Mytel; 7 is Atom, which was Telenor Myanmar until it was sold in 2022; 8 and 9 are Ooredoo. THE PREFIX NO LONGER TELLS YOU THE OPERATOR and should not be used as a carrier field: these are the blocks each operator was allocated, not the blocks each operator serves. WHAT MAKES MYANMAR UNUSUAL IS THAT THE NUMBERS ARE NOT ALL THE SAME LENGTH. Ooredoo, Atom and Mytel numbers are ten digits after the trunk zero, so eleven with it; MPT's older ranges are eight or nine, because MPT was numbering subscribers when a SIM card cost 1,500 US dollars and there were fewer than a million of them. Myanmar went from around 10 per cent mobile penetration in 2013 to above 100 per cent by 2018 — one of the fastest telecom build-outs anywhere — and the short MPT numbers issued before that are still live. So a fixed-length CHECK on a Myanmar mobile number is wrong, a fixed-length COLUMN truncates the long ones, and this pack models the variation rather than flattening it; see myanmar.phone.
+---
+2
+3
+4
+5
+6
+7
+8
+9

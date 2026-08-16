@@ -259,6 +259,7 @@ export const CANONICAL_COUNTRIES: ReadonlySet<string> = new Set([
   'malta',
   'mauritania',
   'mexico',
+  'myanmar',
   'moldova',
   'monaco',
   'morocco',

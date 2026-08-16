@@ -1,0 +1,11 @@
+---
+address: myanmar.finance.amountMmk
+description: A Myanmar kyat amount, written the way Myanmar writes one. THREE THINGS SEPARATE IT FROM ITS NEIGHBOURS AND ALL THREE ARE EASY TO GET WRONG. First, NO DECIMALS. The kyat divides into 100 ပြား (pya), and pya have been worthless and out of circulation for decades — no Myanmar price, invoice, bank statement or receipt carries a fractional part, so the two decimal places that are compulsory in India, Nepal and Sri Lanka are simply absent here and a money column padded to .00 is not Myanmar data. Second, GROUPING IS BY THREES, not by the South Asian twos. Myanmar borders Bangladesh and India and does NOT follow the lakh-crore grouping they use: a million kyat is 1,000,000 and never 10,00,000, and CLDR's Burmese locale agrees. That makes Myanmar the exception in its own neighbourhood, and a "South Asian formatting" rule applied by region will silently rewrite every number. Third, THE UNIT OF ACCOUNT IN SPEECH IS THE သိန်း — one hundred thousand kyat — even though the written figure is grouped by threes. A car is quoted at ၂၅၀ သိန်း, a salary at ၅ သိန်း a month, a flat in သန်း (millions) or ကုဋေ (ten millions), and a Myanmar person asked a price will answer in သိန်း far more often than in kyat. So the spoken and the written representation of the same amount are grouped differently, and text extracted from Burmese speech or advertising needs multiplying by 100,000 before it joins a column of kyat. This address emits Latin digits with comma grouping, four to nine digits wide, which spans a bus fare to a mid-range car. The symbol (ကျပ် / Ks / MMK) is left off so the value drops into a numeric column; prefix it in the config. Burmese-digit money (၅၀၀,၀၀၀) is written in Burmese-language documents and is not emitted here — see myanmar.docs.nrc for the digit mapping if a config needs it. Note the scale: with the kyat at a few thousand to the US dollar, ordinary Myanmar amounts have more digits than a European reader expects, and a five-figure kyat sum is a small everyday purchase.
+generator: tdc
+locale: en
+---
+<sequence name="digits"><gen type="regex" value="[1-9][0-9]{3,8}"/></sequence>
+<sequence name="amount"><compute><result>
+  <group size="3" sep=","><field name="digits"/></group>
+</result></compute></sequence>
+<data>${{amount}}</data>

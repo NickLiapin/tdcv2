@@ -1,0 +1,24 @@
+---
+address: myanmar.phone
+description: A Myanmar mobile number in E.164 form — +95, then 9, then the operator block from myanmar.phoneMobilePrefix, then the subscriber digits. Country code 95. Domestically the same number is written with a trunk 09 and internationally THE TRUNK ZERO IS DROPPED, so 09 7 6123 4567 is +95 9 7612 34567 and never +95 09…; that leading zero is the commonest error in Myanmar phone data, and because the numbers vary in length it is not caught by a length check. THE LENGTH GENUINELY VARIES and this address emits the real spread rather than one convenient shape: subscriber parts of nine digits (the current Ooredoo, Atom and Mytel allocations, giving +959 plus ten digits), and the shorter eight- and seven-digit forms still carried by MPT subscribers numbered before the 2014 liberalisation. A regular expression that demands exactly ten digits after +959 will reject a large number of real MPT customers, and a fixed-width column will silently truncate the long ones. Not modelled: which operator actually holds a number, because number portability has been available since 2021 and the block no longer decides it; landlines, which are at myanmar.phoneLandline; and the short codes (199 police, 191 fire, 192 ambulance) which are not subscriber numbers. Also not modelled, and worth stating because it shapes real Myanmar telecom data: SIM registration against an NRC has been compulsory since 2013 and unregistered SIMs are periodically cut off, so Myanmar mobile records normally carry an identity number beside the phone number in a way that European ones do not.
+generator: tdc
+---
+<sequence name="block"><gen type="template" value="myanmar.phoneMobilePrefix"/></sequence>
+<!-- 1 = the current allocations (nine subscriber digits), 2 and 3 = the shorter
+     MPT numbers issued before 2014 and still in service. Weighted rather than
+     drawn from a regex alternation so the split is stated, not inherited. -->
+<sequence name="shape"><gen type="text" value="1,2,3" percent="80,14,6"/></sequence>
+<sequence name="nine"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="number"><compute><result>
+  <concat>
+    <str v="+959"/><field name="block"/>
+    <choose>
+      <when><test><equals><field name="shape"/><int v="1"/></equals></test>
+        <then><field name="nine"/></then></when>
+      <when><test><equals><field name="shape"/><int v="2"/></equals></test>
+        <then><slice from="0" to="8"><field name="nine"/></slice></then></when>
+      <otherwise><slice from="0" to="7"><field name="nine"/></slice></otherwise>
+    </choose>
+  </concat>
+</result></compute></sequence>
+<data>${{number}}</data>

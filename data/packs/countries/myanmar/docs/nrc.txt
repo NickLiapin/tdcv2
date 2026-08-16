@@ -1,0 +1,38 @@
+---
+address: myanmar.docs.nrc
+description: မှတ်ပုံတင် — the Myanmar National Registration Card number, the identifier every Myanmar adult is required to hold from the age of ten and the one a bank, a SIM registration, a land office, a school and an employer all ask for. It is FOUR PARTS AND NOT A SERIAL: a state number 1 to 14, a slash, a three-consonant township code, the citizenship tier in brackets, and a six-digit registration number, e.g. ၁၂/ဗဟန(နိုင်)၁၂၃၄၅၆ or 12/ဗဟန(နိုင်)123456. The state-and-township half is drawn as one real pair from myanmar.docs.nrcPrefix, so the township always belongs to the state it is printed with; the tier comes from myanmar.docs.nrcType; only the six-digit tail is drawn freely. THERE IS NO CHECK DIGIT. Nothing in an NRC verifies anything else in it: the immigration department publishes no checksum, none of the openly available NRC validators computes one (they check the state number, the township code against a table, and the shape), and the six digits are an office register entry rather than a derived value. So this pack computes no check for the NRC and claims none — a well-formed NRC can only be validated against the issuing township office, and any library that says it "validates" an NRC is checking the format. THE DIGITS ARE WRITTEN IN TWO SCRIPTS AND BOTH ARE CORRECT. The card itself prints Burmese digits ၀၁၂၃၄၅၆၇၈၉ (U+1040 to U+1049); systems that key it in mostly use Latin 0-9 while keeping the township code in Burmese letters, because there is no agreed romanisation of the code. This address emits the Burmese-digit form about two-thirds of the time and the Latin-digit form the rest, so a config that assumes an NRC column is ASCII-safe will find out here rather than in production. Note what that means for storage: the Burmese-digit form of a 6-digit tail is 18 bytes in UTF-8, not 6, and sorting a mixed column lexicographically puts every Burmese-digit value after every Latin-digit one. Not modelled: the pre-1989 card series, the CSC/NRC renumbering of 1989, and the fact that a person who moves township keeps the number of the office that first registered them, so the state number records where someone was registered and not where they live.
+generator: tdc
+locale: my
+---
+<sequence name="prefix"><gen type="template" value="myanmar.docs.nrcPrefix"/></sequence>
+<sequence name="tier"><gen type="template" value="myanmar.docs.nrcType"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{6}"/></sequence>
+<!-- 1 = the Burmese-digit form printed on the card, 2 = the Latin-digit form keyed into systems. -->
+<sequence name="script"><gen type="text" value="1,2" percent="65,35"/></sequence>
+<sequence name="nrc"><compute>
+  <let name="plain"><concat>
+    <field name="prefix"/><str v="("/><field name="tier"/><str v=")"/><field name="serial"/>
+  </concat></let>
+  <!-- Map ASCII digits onto U+1040..U+1049 and leave the slash, the brackets
+       and the Burmese consonants of the township code untouched. -->
+  <let name="burmese"><join><each>
+    <over><use name="plain"/></over>
+    <do><choose>
+      <when><test><is_digit><current/></is_digit></test>
+        <then><at>
+          <in><list>
+            <str v="၀"/><str v="၁"/><str v="၂"/><str v="၃"/><str v="၄"/>
+            <str v="၅"/><str v="၆"/><str v="၇"/><str v="၈"/><str v="၉"/>
+          </list></in>
+          <index><current/></index>
+        </at></then></when>
+      <otherwise><current/></otherwise>
+    </choose></do>
+  </each></join></let>
+  <result><choose>
+    <when><test><equals><field name="script"/><int v="1"/></equals></test>
+      <then><use name="burmese"/></then></when>
+    <otherwise><use name="plain"/></otherwise>
+  </choose></result>
+</compute></sequence>
+<data>${{nrc}}</data>

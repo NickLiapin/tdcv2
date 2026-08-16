@@ -1,0 +1,27 @@
+---
+address: myanmar.holiday
+description: Public holidays of Myanmar, Burmese names. THE CALENDAR IS LUNISOLAR AND MOST OF THESE DATES MOVE. Eight of them are full-moon days of the Burmese months — ကဆုန်လပြည့် (Buddha's birth, enlightenment and death on one day), ဝါဆိုလပြည့် (the first sermon and the start of the rains retreat), သီတင်းကျွတ် (the end of it, when the whole country lights candles), တန်ဆောင်တိုင် (the balloon and robe-weaving festival), တပေါင်းလပြည့်, တပို့တွဲလပြည့် — and their Gregorian dates shift by weeks from year to year with an intercalary second ဝါဆို month inserted in some years. There is NO closed formula in this pack and none is offered: the government publishes the coming year's dates in a notification, and a Myanmar holiday calendar computed from a fixed rule will be wrong. သင်္ကြန်, THE WATER FESTIVAL, IS THE ONE THAT MATTERS MOST. It is the Burmese new year, it falls around 13-16 April, it is four or five days of public holiday plus the new-year day itself, and the country genuinely stops: offices, banks, ports and most factories close for the better part of a fortnight, so Myanmar transaction data has an April hole that is not missing data. Its four days have names of their own — အကြိုနေ့, အကျနေ့, အကြတ်နေ့, အတက်နေ့ — and they are listed separately here because they are separately gazetted. Three dates are political and each marks a killing or a founding: အာဇာနည်နေ့ (19 July 1947, the assassination of Aung San and six of his cabinet), ပြည်ထောင်စုနေ့ (12 February 1947, the Panglong agreement), တပ်မတော်နေ့ (27 March, the 1945 rising against the Japanese, and the day of the annual military parade). လွတ်လပ်ရေးနေ့ is 4 January 1948, at 4.20 in the morning, the hour astrologers chose. Four are for religious minorities and are national holidays anyway — ခရစ္စမတ်နေ့, ဒီပါဝလီနေ့, အိဒ်နေ့ and ကရင်နှစ်သစ်ကူးနေ့, the last being the Karen new year, a state holiday for an ethnic nationality's own calendar. This file lists the days; it carries no dates, and nothing in this pack converts between the Burmese and Gregorian calendars — the Burmese era year (သက္ကရာဇ်, 1387 in 2025-26) is not modelled here at all.
+locale: my
+---
+နှစ်သစ်ကူးနေ့
+လွတ်လပ်ရေးနေ့
+ပြည်ထောင်စုနေ့
+တောင်သူလယ်သမားနေ့
+တပေါင်းလပြည့်နေ့
+တပ်မတော်နေ့
+သင်္ကြန်အကြိုနေ့
+သင်္ကြန်အကျနေ့
+သင်္ကြန်အကြတ်နေ့
+သင်္ကြန်အတက်နေ့
+နှစ်ဆန်းတစ်ရက်နေ့
+အလုပ်သမားနေ့
+ကဆုန်လပြည့်ဗုဒ္ဓနေ့
+ဝါဆိုလပြည့်နေ့
+အာဇာနည်နေ့
+သီတင်းကျွတ်လပြည့်နေ့
+တန်ဆောင်တိုင်လပြည့်နေ့
+အမျိုးသားနေ့
+ကရင်နှစ်သစ်ကူးနေ့
+ဒီပါဝလီနေ့
+အိဒ်နေ့
+ခရစ္စမတ်နေ့

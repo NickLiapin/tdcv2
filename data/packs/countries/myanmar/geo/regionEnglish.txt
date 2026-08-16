@@ -1,0 +1,20 @@
+---
+address: myanmar.geo.regionEnglish
+description: The same fifteen first-level divisions as myanmar.geo.region, in the same constitutional order, spelt the way the Myanmar government spells them in English. THESE ARE THE 1989 SPELLINGS AND MOST FOREIGN DATASETS STILL CARRY THE OLD ONES. In 1989 the state renamed the country and re-romanised its place names from Burmese rather than through the British colonial forms, so Karen became Kayin, Arakan became Rakhine, Irrawaddy became Ayeyarwady, Tenasserim became Tanintharyi, Pegu became Bago and Magwe became Magway. Both sets are in circulation, the older ones are still used by parts of the press and by some governments as a deliberate political choice, and no automatic normalisation joins them — Kayin and Karen share no substring. The words "Region" and "State" translate တိုင်းဒေသကြီး and ပြည်နယ် and are part of the name rather than a category label appended to it; the 2008 constitution also replaced "Division" with "Region", so Yangon Division and Yangon Region are the same place under two vintages of English. Naypyidaw is written here as the government writes it in one word; Nay Pyi Taw in three is equally current and is what the Burmese နေပြည်တော် is transliterated to syllable by syllable.
+locale: en
+---
+Kachin State
+Kayah State
+Kayin State
+Chin State
+Sagaing Region
+Tanintharyi Region
+Bago Region
+Magway Region
+Mandalay Region
+Mon State
+Rakhine State
+Yangon Region
+Shan State
+Ayeyarwady Region
+Naypyidaw Union Territory

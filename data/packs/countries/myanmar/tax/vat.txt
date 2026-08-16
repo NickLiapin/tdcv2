@@ -1,0 +1,7 @@
+---
+address: myanmar.tax.vat
+description: MYANMAR HAS NO VAT AND ISSUES NO VAT NUMBER. There is no ကုန်သွယ်လုပ်ငန်းခွန် equivalent of a European VAT ID, no country-letter prefix, and nothing on a Myanmar invoice that plays the part MM123456789 would play — because the tax itself is a different tax. What Myanmar levies is ကုန်သွယ်လုပ်ငန်းခွန်, commercial tax: a TURNOVER tax charged on the sale price at each sale, standard rate 5 per cent, with 3 per cent on hotels and on building sales, 1 per cent on gold jewellery and 15 per cent on internet services. A turnover tax is not a value-added tax and the difference is not terminology: there is no input credit, so the tax compounds down a supply chain and the same goods carry it more than once, which is why Myanmar business data shows tax-on-tax that a VAT model cannot reproduce. A separate Specific Goods Tax sits on top for fuel, tobacco, alcohol, teak and jade. The registrant is identified by the nine-digit TIN and by nothing else, so this address resolves to myanmar.tax.tin rather than inventing a second number the country does not issue — the same choice made for South Korea and for Thailand, and for the same reason. If a schema needs a VAT-number column for Myanmar the honest value is empty. A value-added tax has been discussed in Myanmar for years and has not been introduced; if it ever is, this file is the one that changes.
+generator: tdc
+---
+<sequence name="tin"><gen type="template" value="myanmar.tax.tin"/></sequence>
+<data>${{tin}}</data>

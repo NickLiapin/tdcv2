@@ -1,0 +1,17 @@
+---
+address: myanmar.sport.team
+description: Football clubs of the မြန်မာနေရှင်နယ်လိဂ် (Myanmar National League), the country's twelve-club first division. Football is Myanmar's main spectator sport by a distance and the league is professional in name, founded in 2009 when the government asked a group of business conglomerates each to fund a club — which is why several are named for their owner's group rather than for a town, and why the map of the league does not look like a map of the country. EIGHT OF THE TWELVE PLAY IN YANGON, most of them at the same two grounds, သုဝဏ္ဏအားကစားကွင်း and the Yangon United ground, so "home" and "away" in Myanmar league data frequently mean the same stadium. Only ရှမ်းယူနိုက်တက်, which plays at တောင်ကြီး, and ဧရာဝတီယူနိုက်တက်, which plays at ပုသိမ်, are genuinely provincial; ရခိုင်ယူနိုက်တက် carries a state's name and plays in Yangon, because the war made playing in Rakhine impossible. ရှမ်းယူနိုက်တက် has dominated the last decade and ရန်ကုန်ယူနိုက်တက် the decade before it. Names here are the Burmese forms; the same clubs are written in Latin on team sheets and in the AFC's records, and the two do not transliterate to each other consistently — Hantharwady, Hanthawaddy and Hanthawady all appear in official documents for the same club. The traditional Myanmar sport, ခြင်းလုံး (chinlone), has no league, no clubs and no winner by design and therefore appears nowhere in a team list; see the Burmese locale pack for it as a sport name.
+locale: my
+---
+ရှမ်းယူနိုက်တက်
+ရန်ကုန်ယူနိုက်တက်
+ဟံသာဝတီယူနိုက်တက်
+ရတနာပုံ
+ဧရာဝတီယူနိုက်တက်
+ဒဂုံစတားယူနိုက်တက်
+ဒဂုံဆိပ်ကမ်း
+သစ္စာအာမခံ
+မဟာယူနိုက်တက်
+အိုင်အက်စ်ပီအီး
+ရခိုင်ယူနိုက်တက်
+မြဝတီ

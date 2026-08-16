@@ -1,0 +1,9 @@
+---
+address: myanmar.docs.nrcType
+description: The citizenship marker in the middle of a Myanmar NRC number — the part in brackets in 12/ဗဟန(နိုင်)123456. IT IS NOT A CHECK CHARACTER AND NOT A DOCUMENT TYPE. It is the holder's TIER OF CITIZENSHIP under the 1982 Citizenship Law, printed on the card, and it determines what the holder may do: နိုင် is နိုင်ငံသား, a full citizen, pink card; ဧည့် is ဧည့်နိုင်ငံသား, an associate citizen, blue card, a status created for people naturalised under the 1948 Union Citizenship Law; ပြု is နိုင်ငံသားပြုခွင့်ရသူ, a naturalised citizen, green card, for people resident before 4 January 1948 who applied after 1982. Associate and naturalised citizens are barred from certain professions and from standing for office, so the bracket is a legal status that a data model treating it as a checksum or a card-version flag will destroy. The weights here are a deliberate guess — the government publishes no breakdown by tier — set so that နိုင် dominates and the other two appear often enough to be exercised; do not read them as a statistic about Myanmar. WHAT IS DELIBERATELY MISSING: other markers circulate in Myanmar NRC-validation code (သ and စ among them) and no source was found that states what they mean, so they are not shipped rather than guessed at. Also absent is the FRC, နိုင်ငံခြားသားစိစစ်ရေးကတ်ပြား, the foreigner registration card — a different document with a different number, not an NRC with a fourth marker. And the marker says nothing about ethnicity or religion, which the NRC used to record on its face and which is the reason a great many people in Rakhine State hold no NRC at all: the 2014 census left roughly 1.2 million people unenumerated, and a synthetic Myanmar population in which everybody has an NRC is not a model of the real one.
+locale: my
+weighted: true
+---
+နိုင်,96
+ဧည့်,2
+ပြု,2

@@ -1,0 +1,50 @@
+---
+address: myanmar.geo.city
+description: Towns and cities of Myanmar in Burmese, weighted by their URBAN population at the 2014 Population and Housing Census — the last census Myanmar has held, and still the only national count with a published town-by-town table (figures as tabulated by UNFPA Myanmar). READ THE SHAPE OF THIS DISTRIBUTION BEFORE USING IT. ရန်ကုန် is not the largest of several cities: at 5.16 million it is four times မန္တလေး and seventeen times the largest town after the two of them, and roughly a third of all urban Myanmar lives in it. Myanmar is also barely urban at all — 70 per cent of the country lived in villages in 2014 — so a synthetic population drawn only from this list is a picture of the third of the country that lives in a town. နေပြည်တော် is the number that most often disagrees between sources and both numbers are right: 375,189 is the built city, 1.16 million is the Union Territory including the farmland and villages inside its boundary, because the capital was built on rice fields in 2005 and its administrative area swallowed them. THE CENSUS ITSELF HAS A HOLE, and it is not a rounding error: roughly 1.2 million people were not enumerated, overwhelmingly Rohingya in northern ရခိုင်ပြည်နယ်, along with parts of ကချင်ပြည်နယ် and ကရင်ပြည်နယ် that the enumerators could not reach. So the towns of northern Rakhine — ဘူးသီးတောင် and မောင်းတော — are absent from the published town table rather than small, and စစ်တွေ's figure is a count of who was counted. A further decade of civil war since 2021 has emptied and refilled towns on a scale nothing has measured; မြဝတီ on the Thai border in particular is nothing like its 2014 self. Two names worth knowing: မြိတ် (Myeik) was Mergui and ထားဝယ် (Dawei) was Tavoy in the colonial spelling that older records use, and ပြည် (Pyay, formerly Prome) is written with the same two syllables as the word for "country" in ပြည်နယ် — a bare ပြည် in a Myanmar address is the town, not a region.
+locale: my
+weighted: true
+---
+ရန်ကုန်,5160512
+မန္တလေး,1319452
+နေပြည်တော်,375189
+တောင်ကြီး,304253
+မော်လမြိုင်,231894
+ပဲခူး,220487
+မုံရွာ,201446
+မြစ်ကြီးနား,180491
+ပုသိမ်,172923
+လားရှိုး,144031
+ပြင်ဦးလွင်,128783
+စစ်တွေ,124679
+ပြည်,123247
+ကလေး,120506
+မြဝတီ,113155
+ပခုက္ကူ,107557
+မြိတ်,107185
+မိတ္ထီလာ,102405
+တောင်ငူ,98822
+မြင်းခြံ,91542
+မိုးကုတ်,89855
+တိုက်ကြီး,88000
+မကွေး,84754
+ဟင်္သာတ,80956
+စစ်ကိုင်း,79944
+သန်လျင်,79526
+ဘားအံ,75141
+မူဆယ်,74313
+ထားဝယ်,73470
+ညောင်လေးပင်,72873
+ရွှေဘို,72337
+ပျဉ်းမနား,72010
+ဖြူး,63880
+ဖားကန့်,60123
+မြောင်းမြ,58698
+ရွှေကူ,58696
+ကော့သောင်း,57949
+ကလော,57797
+သံဖြူဇရပ်,57208
+သထုံ,55047
+ဗန်းမော်,54711
+အောင်လံ,52865
+မုဒုံ,52514
+တာချီလိတ်,51553

@@ -1,0 +1,34 @@
+---
+address: myanmar.finance.bank
+description: Banks licensed in Myanmar, Burmese names, state banks first and then the private ones roughly by size. THE FIRST FOUR ARE THE STATE. မြန်မာ့စီးပွားရေးဘဏ် is the old universal state bank and still pays most civil servants; မြန်မာ့နိုင်ငံခြားကုန်သွယ်မှုဘဏ် held the monopoly on foreign exchange for decades and is why Myanmar trade paperwork routes through one institution; မြန်မာ့လယ်ယာဖွံ့ဖြိုးရေးဘဏ် lends to farmers against paddy land and reaches more households than any commercial bank. NO IBAN, and this is the single most important banking fact about the country: Myanmar is not in the IBAN system, has no national account-number standard, and each bank numbers its own accounts its own way — so there is no myanmar.finance.iban in this pack and no account-number address either, because writing one would mean inventing a national format that does not exist. A Myanmar payment instruction carries a bank name, a branch, an account number in that bank's own shape and the holder's name, and validation means asking the bank. MOST OF THE COUNTRY DOES NOT USE ANY OF THESE. Banking penetration was in the low tens of per cent before 2021 and the 2021 bank run and the cash shortage that followed pushed people further out of the system; what actually moves money in Myanmar is မိုဘိုင်းငွေ — mobile wallets, KBZPay and Wave Money above all, with Wave reaching villages through agents rather than branches — and hundi, the informal transfer network that carries a large share of remittances from Thailand and Malaysia and leaves no bank record at all. So a synthetic Myanmar population in which everyone holds a bank account is not modelling Myanmar. Also absent by choice: the foreign bank branches (MUFG, OCBC, Bangkok Bank, ICBC, Maybank and a dozen more) which are licensed for corporate business and are not where a Myanmar person banks.
+locale: my
+---
+မြန်မာ့စီးပွားရေးဘဏ်
+မြန်မာ့နိုင်ငံခြားကုန်သွယ်မှုဘဏ်
+မြန်မာ့ရင်းနှီးမြှုပ်နှံမှုနှင့်ကူးသန်းရောင်းဝယ်ရေးဘဏ်
+မြန်မာ့လယ်ယာဖွံ့ဖြိုးရေးဘဏ်
+ကမ္ဘောဇဘဏ်
+ဧရာဝတီဘဏ်
+သမဝါယမဘဏ်
+ရိုးမဘဏ်
+မြန်မာအေပက်စ်ဘဏ်
+ယူနိုက်တက်အမရဘဏ်
+အာရှစိမ်းလန်းဖွံ့ဖြိုးရေးဘဏ်
+ဂလိုဘယ်ထရဲဇာဘဏ်
+မြန်မာနိုင်ငံသားများဘဏ်
+ပထမပုဂ္ဂလိကဘဏ်
+အင်းဝဘဏ်
+ရတနာပုံဘဏ်
+မြဝတီဘဏ်
+ရန်ကုန်မြို့တော်ဘဏ်
+နေပြည်တော်စည်ပင်ဘဏ်
+ကျေးလက်ဒေသဖွံ့ဖြိုးရေးဘဏ်
+ဆောက်လုပ်ရေးအိမ်ရာနှင့်အခြေခံအဆောက်အအုံဖွံ့ဖြိုးရေးဘဏ်
+အသေးစားနှင့်အလတ်စားစီးပွားရေးလုပ်ငန်းများဖွံ့ဖြိုးရေးဘဏ်
+ရွှေဖွံ့ဖြိုးရေးဘဏ်
+မြန်မာမက်ထရိုဘဏ်
+မြန်မာအရှေ့တိုင်းဘဏ်
+ထွန်းကူးသန်းရောင်းဝယ်ရေးဘဏ်
+ဧရာဝတီတောင်သူဖွံ့ဖြိုးရေးဘဏ်
+တွင်းထွက်ပစ္စည်းဖွံ့ဖြိုးရေးဘဏ်
+မြန်မာ့ခရီးသွားလုပ်ငန်းဘဏ်

@@ -1,0 +1,19 @@
+---
+address: myanmar.geo.postalPrefix
+description: The first two digits of a Myanmar postcode, which are the state, region or union territory. Fifteen values, one per first-level division, and every one of them exists: 01 ကချင်ပြည်နယ်, 02 စစ်ကိုင်းတိုင်းဒေသကြီး, 03 ချင်းပြည်နယ်, 04 မကွေးတိုင်းဒေသကြီး, 05 မန္တလေးတိုင်းဒေသကြီး, 06 ရှမ်းပြည်နယ်, 07 ရခိုင်ပြည်နယ်, 08 ပဲခူးတိုင်းဒေသကြီး, 09 ကယားပြည်နယ်, 10 ဧရာဝတီတိုင်းဒေသကြီး, 11 ရန်ကုန်တိုင်းဒေသကြီး, 12 မွန်ပြည်နယ်, 13 ကရင်ပြည်နယ်, 14 တနင်္သာရီတိုင်းဒေသကြီး, 15 နေပြည်တော်ပြည်ထောင်စုနယ်မြေ. THIS IS NOT THE NRC NUMBERING AND THE TWO ARE EASY TO MISTAKE FOR EACH OTHER because both run over small integers and both address the same fifteen-ish places. On an ID card 12 is Yangon; on an envelope 12 is Mon State. Only Kachin (1) is the same in both. There is also no 15 in the NRC scheme at all, Nay Pyi Taw having been created after it was fixed — see myanmar.docs.nrcPrefix. The leading zero is part of the code and this is the trap a numeric column sets: read 01xxx as an integer and Kachin State becomes 1xxx, a four-digit value that is not a Myanmar postcode at all, and the same silently happens to nine of the fifteen divisions. Store Myanmar postcodes as text.
+---
+01
+02
+03
+04
+05
+06
+07
+08
+09
+10
+11
+12
+13
+14
+15
