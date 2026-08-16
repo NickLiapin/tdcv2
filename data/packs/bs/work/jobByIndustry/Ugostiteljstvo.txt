@@ -1,0 +1,22 @@
+---
+description: Jobs that belong to the ugostiteljstvo sector in Bosnia, in the masculine citation form. Drawn together with the parent work/industryCoherent so a record's industry and job agree.
+locale: bs
+---
+Konobar
+Šanker
+Kuhar
+Pomoćni kuhar
+Slastičar
+Pekar
+Aščija
+Buregdžija
+Ćevabdžija
+Kafedžija
+Recepcionar
+Sobarica
+Domaćica hotela
+Turistički vodič
+Šef sale
+Menadžer restorana
+Barista
+Somelijer

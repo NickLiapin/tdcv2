@@ -1,0 +1,21 @@
+---
+description: Cuisine, and the parent of food/dishByCuisine — the filenames in that directory are these values character for character. BOSANSKA AND HERCEGOVAČKA ARE LISTED SEPARATELY because they are separate kitchens inside one country: Bosnia's is the Ottoman inland kitchen of meat, pastry and slow-cooked pots, and Herzegovina's is Mediterranean — pršut, wine, figs, lamb under the sač. TURSKA sits third not as a foreign cuisine but as the one Bosnian food descends from; a Bosnian will tell you baklava is Bosnian and a Turk will tell you it is Turkish, and both are describing the same four hundred years.
+locale: bs
+---
+Bosanska
+Hercegovačka
+Turska
+Talijanska
+Grčka
+Francuska
+Španska
+Mađarska
+Austrijska
+Njemačka
+Kineska
+Japanska
+Indijska
+Meksička
+Libanska
+Tajlandska
+Američka

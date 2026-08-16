@@ -1,0 +1,16 @@
+---
+description: Shoe size on the EUROPEAN (Paris point) scale, which is the number printed on a shoebox in Bosnia and the only one a Bosnian shopper quotes. UK and US numbers print alongside on imported boxes and are never used alone. Bosnia inherited the scale from Yugoslav manufacture; Borovo and Bosna Vitez made shoes to it for fifty years.
+locale: bs
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

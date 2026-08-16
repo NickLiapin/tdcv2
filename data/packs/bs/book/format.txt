@@ -1,0 +1,13 @@
+---
+description: Book format. Bosnian says tvrdi povez and meki povez for hardback and paperback — 'hard binding' and 'soft binding' — and the noun is povez, the binding, not the cover.
+locale: bs
+---
+Tvrdi povez
+Meki povez
+Broširano
+Džepno izdanje
+Elektronska knjiga
+Audio knjiga
+Ilustrovano izdanje
+Reprint
+Faksimil

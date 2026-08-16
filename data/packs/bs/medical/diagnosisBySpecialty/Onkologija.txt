@@ -1,0 +1,18 @@
+---
+description: Diagnoses a onkologija clinic in Bosnia actually records, in the Bosnian medical register. Drawn together with the parent medical/specialtyCoherent so the specialty and the diagnosis agree.
+locale: bs
+---
+Karcinom dojke
+Karcinom pluća
+Karcinom debelog crijeva
+Karcinom želuca
+Karcinom prostate
+Karcinom grlića materice
+Karcinom jajnika
+Karcinom mokraćnog mjehura
+Melanom
+Limfom
+Leukemija
+Multipli mijelom
+Karcinom štitne žlijezde
+Karcinom gušterače

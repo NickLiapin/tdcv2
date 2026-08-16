@@ -1,0 +1,52 @@
+---
+description: A dish, without regard to cuisine. The Bosnian entries lead: this is the everyday eating of the country, and PITA in all its named forms is the centre of it. Note that burek means the MEAT one and nothing else in Bosnia — a cheese burek is a sirnica, and asking for 'sir burek' marks you as being from Serbia or Turkey. Somun is the flatbread ćevapi are served in and it is baked fresh for them.
+locale: bs
+---
+Ćevapi
+Burek
+Zeljanica
+Sirnica
+Krompiruša
+Tikvenjača
+Begova čorba
+Bosanski lonac
+Japrak
+Sogan-dolma
+Klepe
+Sarma
+Dolma
+Musaka
+Pljeskavica
+Ražnjići
+Sudžukice
+Ćufte u sosu
+Grah s mesom
+Bosanska kalja
+Kljukuša
+Tarhana
+Pilav
+Uštipci
+Somun
+Lepinja
+Punjena paprika
+Đuveč
+Paprikaš
+Gulaš
+Riblja čorba
+Janjetina ispod sača
+Pečena janjetina
+Teleća čorba
+Pileća supa
+Palačinke
+Tufahije
+Hurmašice
+Baklava
+Kadaif
+Halva
+Tulumbe
+Šampita
+Sutlijaš
+Ašure
+Krofne
+Trilece
+Ružice

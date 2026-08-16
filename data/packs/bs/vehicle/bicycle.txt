@@ -1,0 +1,21 @@
+---
+description: Bicycle type, Bosnian. Bicikl is the bike and biciklo an older variant; the mountain and gravel types are named in English on a shop shelf here, so this list keeps them where a Bosnian shop keeps them.
+locale: bs
+---
+Cestovni bicikl
+Brdski bicikl
+Trekking bicikl
+Gradski bicikl
+Gravel bicikl
+BMX
+Električni bicikl
+Sklopivi bicikl
+Turistički bicikl
+Ciklokros
+Dječiji bicikl
+Tandem
+Tricikl
+Fiksni bicikl
+Downhill bicikl
+Enduro bicikl
+Kargo bicikl

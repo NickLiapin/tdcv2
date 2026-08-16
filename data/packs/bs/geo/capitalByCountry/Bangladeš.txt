@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladeš in Bosnian. THE RULE THIS FILE FOLLOWS is the one in the Pravopis bosanskoga jezika: a name from a LATIN-script language keeps its original spelling when Bosnian is written in Latin (Canberra, Ottawa, Wellington, Amsterdam, Madrid), a name from a non-Latin script is transcribed by sound (Peking, Moskva, Kairo, Rijad, Seul, Tokio, Daka), and a long-established exonym overrides both (Pariz, Rim, Atina, Varšava, Lisabon, Brazilija). That is the Croatian rule rather than the Serbian one, which transcribes everything — so Bosnian writes Washington and Serbian writes Vašington.
+locale: bs
+---
+Daka

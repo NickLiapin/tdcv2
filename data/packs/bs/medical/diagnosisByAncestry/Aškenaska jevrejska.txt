@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of aškenaska jevrejska ancestry, in the Bosnian medical register.
+locale: bs
+---
+Tay-Sachsova bolest
+Gaucherova bolest
+Cistična fibroza
+Porodična disautonomija
+Canavanova bolest
+Niemann-Pickova bolest
+BRCA1 i BRCA2 mutacije
+Faktor XI deficijencija

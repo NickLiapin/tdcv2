@@ -1,0 +1,22 @@
+---
+description: Jobs that belong to the zdravstvo sector in Bosnia, in the masculine citation form. Drawn together with the parent work/industryCoherent so a record's industry and job agree.
+locale: bs
+---
+Ljekar porodične medicine
+Hirurg
+Pedijatar
+Ginekolog
+Kardiolog
+Anesteziolog
+Radiolog
+Psihijatar
+Stomatolog
+Farmaceut
+Medicinska sestra
+Medicinski tehničar
+Fizioterapeut
+Babica
+Laborant
+Bolničar
+Vozač hitne pomoći
+Nutricionista

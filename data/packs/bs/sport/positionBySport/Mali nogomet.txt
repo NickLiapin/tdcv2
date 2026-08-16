@@ -1,0 +1,9 @@
+---
+description: Playing positions in mali nogomet as a Bosnian commentator names them. The football, basketball, handball and volleyball terms are the region's own and are used unchanged in all three standards; the rugby and ice-hockey ones are descriptive translations of the English, because neither sport has a deep local tradition here and the vocabulary was built by translating.
+locale: bs
+---
+Golman
+Fiksni
+Krilo
+Pivot
+Univerzalni igrač

@@ -1,0 +1,31 @@
+---
+description: Diagnosis for a female patient record — the female-specific conditions plus the general ones markedly more frequent in women. Autoimmune disease, iron-deficiency anaemia, osteoporosis and depression are all recorded at higher rates in Bosnian women, and the anaemia figure is a genuine primary-care burden here.
+locale: bs
+---
+Sideropenična anemija
+Hipotireoza
+Hašimoto tireoiditis
+Osteoporoza
+Reumatoidni artritis
+Depresija
+Anksiozni poremećaj
+Migrena
+Miomi materice
+Endometrioza
+Sindrom policističnih jajnika
+Cista jajnika
+Karcinom dojke
+Karcinom grlića materice
+Karcinom jajnika
+Mastitis
+Neplodnost
+Gestacijski dijabetes
+Preeklampsija
+Anemija u trudnoći
+Postporođajna depresija
+Menopauza
+Vaginalna kandidijaza
+Infekcija urinarnog trakta
+Inkontinencija urina
+Varikozne vene
+Artroza koljena

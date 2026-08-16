@@ -1,0 +1,16 @@
+---
+description: State of a property listing, MASCULINE to agree with oglas. POD UGOVOROM covers the period between the pre-contract and the notarised sale, which in Bosnia is longer than elsewhere because every property transfer must be notarised and then registered in the land book.
+locale: bs
+---
+Aktivan
+Nov
+Rezervisan
+Pod ugovorom
+Prodat
+Izdat
+Povučen
+Istekao
+Snižena cijena
+U pripremi
+Neaktivan
+Čeka uknjižbu

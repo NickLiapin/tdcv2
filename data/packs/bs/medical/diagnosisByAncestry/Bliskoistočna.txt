@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of bliskoistočna ancestry, in the Bosnian medical register.
+locale: bs
+---
+Porodična mediteranska groznica
+Beta-talasemija
+Nedostatak G6PD
+Spinalna mišićna atrofija
+Neperzistentnost laktaze
+Dijabetes tipa 2
+Cistična fibroza

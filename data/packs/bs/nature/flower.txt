@@ -1,0 +1,34 @@
+---
+description: Flower, Bosnian. BOSANSKI LJILJAN — the Bosnian lily, Lilium bosniacum — is first because it is the country's own endemic and its heraldic flower; the golden lilies on the medieval Kotromanić arms are this plant. Behar is the fruit blossom and one of the commonest orientalizmi in the language, giving the girl's name Behara and the word beharati, to be in blossom.
+locale: bs
+---
+Bosanski ljiljan
+Ljiljan
+Ruža
+Behar
+Zumbul
+Lala
+Karanfil
+Ljubičica
+Jaglac
+Visibaba
+Narcis
+Suncokret
+Kadifica
+Nevena
+Bulka
+Različak
+Kamilica
+Maslačak
+Perunika
+Božur
+Jorgovan
+Lipa
+Lavanda
+Bosiljak
+Krizantema
+Begonija
+Orhideja
+Gorska ruža
+Encijan
+Runolist

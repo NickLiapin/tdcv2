@@ -1,0 +1,16 @@
+---
+description: Kind of leave. BOLOVANJE is sick leave and the first thirty days are paid by the employer, after which the health fund takes over — a distinction every Bosnian employee knows. PORODILJSKO covers one year and is paid by the CANTON in the Federation, which means the amount differs by canton inside one country, and by the entity fund in Republika Srpska. Slava is an Orthodox family feast day and is a recognised day off for Serb employees.
+locale: bs
+---
+Godišnji odmor
+Bolovanje
+Porodiljsko odsustvo
+Očinsko odsustvo
+Plaćeno odsustvo
+Neplaćeno odsustvo
+Vjerski praznik
+Slava
+Odsustvo zbog smrti u porodici
+Odsustvo zbog vjenčanja
+Studijsko odsustvo
+Mirovanje radnog odnosa

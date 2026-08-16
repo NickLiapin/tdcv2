@@ -1,0 +1,10 @@
+---
+description: Creditworthiness band. BOSNIA HAS NO CONSUMER CREDIT SCORE in the American sense and no FICO-like number a person can be told; what exists is the Central Bank's CENTRALNI REGISTAR KREDITA (CRK), which records every loan and every late payment and which banks read as a yes or a no. These bands are the internal risk grades a Bosnian bank uses, not a score a customer sees — that distinction is the reason this file has words and not numbers.
+locale: bs
+---
+Uredan
+Dobar
+Prihvatljiv
+Rizičan
+Neuredan platiša
+U blokadi

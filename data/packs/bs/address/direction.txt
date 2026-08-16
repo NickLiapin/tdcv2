@@ -1,0 +1,20 @@
+---
+description: Compass direction, Bosnian. Sixteen points. The intermediate names are compounds written solid (sjeveroistok) and the sixteen-point names hyphenate (sjever-sjeveroistok). Note SJEVER with the ijekavian je — Serbia's ekavian writes sever — and JUG, which is the same in all three.
+locale: bs
+---
+sjever
+jug
+istok
+zapad
+sjeveroistok
+sjeverozapad
+jugoistok
+jugozapad
+sjever-sjeveroistok
+istok-sjeveroistok
+istok-jugoistok
+jug-jugoistok
+jug-jugozapad
+zapad-jugozapad
+zapad-sjeverozapad
+sjever-sjeverozapad

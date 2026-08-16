@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list — these values are the filenames in medical/diagnosisBySpecialty, character for character.
+locale: bs
+---
+Kardiologija
+Neurologija
+Onkologija
+Dermatologija
+Gastroenterologija
+Endokrinologija
+Pulmologija
+Ortopedija
+Psihijatrija
+Nefrologija

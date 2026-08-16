@@ -1,0 +1,19 @@
+---
+description: KIND of court — the Bosnian words for tiers of court, not the named courts of this country, which the Bosnia and Herzegovina country pack owns at bosnia_and_herzegovina.government.court. The words are worth having on their own because BOSNIA USES TWO INCOMPATIBLE SETS AT ONCE: the Federation's first instance is an OPĆINSKI SUD under a KANTONALNI SUD, while Republika Srpska's is an OSNOVNI SUD under an OKRUŽNI SUD, and Republika Srpska additionally has OKRUŽNI PRIVREDNI SUDOVI which the Federation does not. Both sets are current, in one country, for the same kind of case. APELACIONI is the Bosnian and Serbian form where Croatian says žalbeni.
+locale: bs
+---
+Ustavni sud
+Vrhovni sud
+Apelacioni sud
+Kantonalni sud
+Okružni sud
+Općinski sud
+Osnovni sud
+Privredni sud
+Okružni privredni sud
+Upravni sud
+Prekršajni sud
+Arbitražni sud
+Sud časti
+Međunarodni sud
+Vijeće

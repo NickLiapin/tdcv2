@@ -1,0 +1,18 @@
+---
+description: Diagnoses a psihijatrija clinic in Bosnia actually records, in the Bosnian medical register. Drawn together with the parent medical/specialtyCoherent so the specialty and the diagnosis agree.
+locale: bs
+---
+Depresija
+Anksiozni poremećaj
+Panični poremećaj
+Posttraumatski stresni poremećaj
+Bipolarni poremećaj
+Shizofrenija
+Opsesivno-kompulzivni poremećaj
+Poremećaj spavanja
+Ovisnost o alkoholu
+Ovisnost o opijatima
+Poremećaj ishrane
+ADHD
+Demencija
+Poremećaj prilagođavanja

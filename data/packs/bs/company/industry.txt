@@ -1,0 +1,59 @@
+---
+description: Industry a company operates in, as a Bosnian business register phrases it. Note DRVNA INDUSTRIJA and METALOPRERAĐIVAČKA INDUSTRIJA near the top: wood and metalworking are Bosnia's two real export industries, and the country ships furniture and machined parts to Germany and Austria in volume. Rudarstvo and energetika are the state-owned block.
+locale: bs
+---
+Informacione tehnologije
+Telekomunikacije
+Bankarstvo
+Osiguranje
+Računovodstvo
+Konsalting
+Pravne usluge
+Građevinarstvo
+Nekretnine
+Arhitektura
+Drvna industrija
+Metaloprerađivačka industrija
+Mašinogradnja
+Automobilski dijelovi
+Elektroindustrija
+Hemijska industrija
+Farmaceutska industrija
+Prehrambena industrija
+Mljekarstvo
+Mesna industrija
+Pekarstvo
+Tekstilna industrija
+Obućarska industrija
+Kožarska industrija
+Rudarstvo
+Energetika
+Hidroenergija
+Obnovljivi izvori
+Vodoprivreda
+Šumarstvo
+Poljoprivreda
+Stočarstvo
+Vinarstvo
+Ribarstvo
+Trgovina na veliko
+Trgovina na malo
+Ugostiteljstvo
+Turizam
+Hotelijerstvo
+Saobraćaj i logistika
+Špedicija
+Zdravstvo
+Stomatologija
+Obrazovanje
+Nauka i istraživanje
+Mediji
+Izdavaštvo
+Marketing i oglašavanje
+Grafička industrija
+Kultura
+Sport i rekreacija
+Sigurnost i zaštita
+Komunalne usluge
+Reciklaža
+Neprofitni sektor

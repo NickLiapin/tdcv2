@@ -1,0 +1,16 @@
+---
+description: Kind of meeting. KOLEGIJ is the standing management meeting inherited from the Yugoslav enterprise and is still the word on most Bosnian calendars; SJEDNICA is the formal sitting of a board or a council, with minutes.
+locale: bs
+---
+Kolegij
+Sjednica
+Sastanak tima
+Radni sastanak
+Sastanak s klijentom
+Godišnji sastanak
+Prezentacija
+Radionica
+Obuka
+Video konferencija
+Brifing
+Retrospektiva

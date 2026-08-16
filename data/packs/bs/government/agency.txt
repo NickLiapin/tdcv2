@@ -1,0 +1,34 @@
+---
+description: KIND of public body, not a named one — the actual institutions of Bosnia and Herzegovina, with their entity and cantonal duplicates, live in the country pack and this file must not duplicate them. What it holds is the WORDS: ministarstvo, agencija, zavod, uprava, inspektorat, direkcija, fond. ZAVOD is the Yugoslav-era institute-of-state and has no clean English equivalent; a zavod for employment, for statistics, for health insurance, for pensions. Bosnia has these at state, entity, cantonal and district level simultaneously, which is why the same word can name four different offices in one town.
+locale: bs
+---
+Ministarstvo unutrašnjih poslova
+Ministarstvo finansija
+Ministarstvo pravde
+Ministarstvo zdravstva
+Ministarstvo obrazovanja
+Ministarstvo saobraćaja
+Ministarstvo poljoprivrede
+Ministarstvo privrede
+Ministarstvo rada
+Ministarstvo odbrane
+Ministarstvo vanjskih poslova
+Ministarstvo prostornog uređenja
+Agencija za statistiku
+Agencija za zaštitu ličnih podataka
+Zavod za zapošljavanje
+Zavod zdravstvenog osiguranja
+Zavod za penzijsko osiguranje
+Zavod za statistiku
+Poreska uprava
+Uprava za indirektno oporezivanje
+Uprava policije
+Inspektorat rada
+Tržišna inspekcija
+Sanitarna inspekcija
+Direkcija za puteve
+Fond za zaštitu okoliša
+Katastar
+Matični ured
+Centar za socijalni rad
+Komunalno preduzeće

@@ -1,0 +1,16 @@
+---
+description: Mobile tariff type. Bosnia is a PREPAID market first: the prepaid share has been above half for the whole mobile era, because a prepaid SIM needs no contract, no credit check and no permanent address, and a large diaspora keeps a Bosnian number alive on top-ups. DOPUNA is the top-up itself.
+locale: bs
+---
+Prepaid
+Postpaid
+Dopuna
+Neograničeni
+Porodični paket
+Poslovni paket
+Studentski paket
+Samo podaci
+Roming paket
+Kombinovani paket
+Fiksna telefonija
+Trostruka usluga

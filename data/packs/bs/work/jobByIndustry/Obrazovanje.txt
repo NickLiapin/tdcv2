@@ -1,0 +1,22 @@
+---
+description: Jobs that belong to the obrazovanje sector in Bosnia, in the masculine citation form. Drawn together with the parent work/industryCoherent so a record's industry and job agree.
+locale: bs
+---
+Učitelj
+Nastavnik
+Profesor
+Vaspitač
+Pedagog
+Defektolog
+Školski psiholog
+Direktor škole
+Bibliotekar
+Asistent
+Docent
+Dekan
+Rektor
+Mualim
+Vjeroučitelj
+Instruktor vožnje
+Lektor
+Andragog

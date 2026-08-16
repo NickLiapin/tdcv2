@@ -1,0 +1,20 @@
+---
+description: Jobs that belong to the pravo sector in Bosnia, in the masculine citation form. Drawn together with the parent work/industryCoherent so a record's industry and job agree.
+locale: bs
+---
+Advokat
+Sudija
+Tužilac
+Notar
+Pravni savjetnik
+Sudski izvršitelj
+Sudski vještak
+Medijator
+Zapisničar
+Pravni referent
+Korporativni pravnik
+Advokatski pripravnik
+Stečajni upravnik
+Sudski tumač
+Zemljišnoknjižni referent
+Inspektor rada

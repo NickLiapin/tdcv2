@@ -1,0 +1,218 @@
+---
+description: Country and territory names as Bosnian names them. These are TRANSLATIONS AND NATURALISATIONS, not transliterations: Germany is Njemačka, Hungary Mađarska, Greece Grčka, Egypt Egipat, Austria Austrija. Bosnian keeps its own exonyms for its neighbours and for the countries it has long dealt with, and adopts a local spelling only where it never had one. THE BOSNIAN-AGAINST-CROATIAN SPLITS IN THIS LIST are ŠPANIJA (hr Španjolska), HOLANDIJA (hr Nizozemska), KIPAR shared, and the -ska/-ška endings; against Serbian, Bosnian keeps ŠVICARSKA (sr Švajcarska). BOSNA I HERCEGOVINA is the full name and is never shortened to Bosna in an official list — the second half of the name is a place with its own identity, not an appendix.
+locale: bs
+---
+Afganistan
+Albanija
+Alžir
+Andora
+Angola
+Antigva i Barbuda
+Argentina
+Armenija
+Australija
+Austrija
+Azerbejdžan
+Bahami
+Bahrein
+Bangladeš
+Barbados
+Bjelorusija
+Belgija
+Belize
+Benin
+Butan
+Bolivija
+Bosna i Hercegovina
+Bocvana
+Brazil
+Brunej
+Bugarska
+Burkina Faso
+Burundi
+Kambodža
+Kamerun
+Kanada
+Zelenortska Ostrva
+Centralnoafrička Republika
+Čad
+Čile
+Kina
+Kolumbija
+Komori
+Kongo
+Kostarika
+Hrvatska
+Kuba
+Kipar
+Češka
+Danska
+Džibuti
+Dominika
+Dominikanska Republika
+Ekvador
+Egipat
+Salvador
+Ekvatorijalna Gvineja
+Eritreja
+Estonija
+Esvatini
+Etiopija
+Fidži
+Finska
+Francuska
+Gabon
+Gambija
+Gruzija
+Njemačka
+Gana
+Grčka
+Grenada
+Gvatemala
+Gvineja
+Gvineja Bisao
+Gvajana
+Haiti
+Honduras
+Mađarska
+Island
+Indija
+Indonezija
+Iran
+Irak
+Irska
+Izrael
+Italija
+Obala Slonovače
+Jamajka
+Japan
+Jordan
+Kazahstan
+Kenija
+Kiribati
+Kosovo
+Kuvajt
+Kirgistan
+Laos
+Latvija
+Liban
+Lesoto
+Liberija
+Libija
+Lihtenštajn
+Litvanija
+Luksemburg
+Madagaskar
+Malavi
+Malezija
+Maldivi
+Mali
+Malta
+Maršalova Ostrva
+Mauritanija
+Mauricijus
+Meksiko
+Mikronezija
+Moldavija
+Monako
+Mongolija
+Crna Gora
+Maroko
+Mozambik
+Mjanmar
+Namibija
+Nauru
+Nepal
+Holandija
+Novi Zeland
+Nikaragva
+Niger
+Nigerija
+Sjeverna Koreja
+Sjeverna Makedonija
+Norveška
+Oman
+Pakistan
+Palau
+Palestina
+Panama
+Papua Nova Gvineja
+Paragvaj
+Peru
+Filipini
+Poljska
+Portugal
+Katar
+Rumunija
+Rusija
+Ruanda
+Sveti Kits i Nevis
+Sveta Lucija
+Sveti Vinsent i Grenadini
+Samoa
+San Marino
+Sao Tome i Principe
+Saudijska Arabija
+Senegal
+Srbija
+Sejšeli
+Sijera Leone
+Singapur
+Slovačka
+Slovenija
+Solomonska Ostrva
+Somalija
+Južnoafrička Republika
+Južna Koreja
+Južni Sudan
+Španija
+Šri Lanka
+Sudan
+Surinam
+Švedska
+Švicarska
+Sirija
+Tajvan
+Tadžikistan
+Tanzanija
+Tajland
+Istočni Timor
+Togo
+Tonga
+Trinidad i Tobago
+Tunis
+Turska
+Turkmenistan
+Tuvalu
+Uganda
+Ukrajina
+Ujedinjeni Arapski Emirati
+Ujedinjeno Kraljevstvo
+Sjedinjene Američke Države
+Urugvaj
+Uzbekistan
+Vanuatu
+Vatikan
+Venecuela
+Vijetnam
+Jemen
+Zambija
+Zimbabve
+Grenland
+Farska Ostrva
+Gibraltar
+Hong Kong
+Makao
+Portoriko
+Nova Kaledonija
+Francuska Polinezija
+Bermuda
+Kajmanska Ostrva
+Britanska Djevičanska Ostrva
+Aruba
+Kurasao
+Guam
+Zapadna Sahara
+Sjeverni Kipar
+Abhazija
+Južna Osetija

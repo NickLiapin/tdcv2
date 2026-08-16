@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of pacifička otočka ancestry, in the Bosnian medical register.
+locale: bs
+---
+Dijabetes tipa 2
+Gojaznost
+Giht
+Hronična bubrežna bolest
+Reumatska groznica
+Neperzistentnost laktaze
+Hipertenzija

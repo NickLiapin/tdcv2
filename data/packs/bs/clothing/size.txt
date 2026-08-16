@@ -1,0 +1,12 @@
+---
+description: Clothing size. Bosnia reads the international letter sizes on a label and the German-derived number sizes on the tag beside them; the letters are what a shopper says out loud.
+locale: bs
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

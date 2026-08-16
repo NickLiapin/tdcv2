@@ -1,0 +1,34 @@
+---
+description: Airline that flies to Bosnia and Herzegovina — AND BOSNIA HAS NO NATIONAL CARRIER, which is the reason this list has no Bosnian company at the top of it. B&H Airlines, the successor to the Yugoslav-era Air Bosna, lost its licence and stopped flying in 2015; FlyBosnia operated out of Sarajevo for a year before 2020 and stopped too. Every scheduled flight into Sarajevo, Tuzla, Banja Luka and Mostar is now flown by a foreign carrier, and Wizz Air out of Tuzla carries much of the diaspora traffic to Germany, Austria, Sweden and Switzerland. Airline names are brands and keep their real spelling in every locale.
+locale: bs
+---
+Turkish Airlines
+Austrian Airlines
+Lufthansa
+Croatia Airlines
+Air Serbia
+Wizz Air
+Ryanair
+Pegasus Airlines
+AJet
+flydubai
+Qatar Airways
+Eurowings
+SWISS
+LOT Polish Airlines
+Air France
+KLM
+ITA Airways
+Aegean Airlines
+TAROM
+Air Montenegro
+Israir
+Corendon Airlines
+SunExpress
+Chair Airlines
+Edelweiss Air
+Nordwind Airlines
+Freebird Airlines
+Trade Air
+B&H Airlines
+FlyBosnia

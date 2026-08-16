@@ -1,0 +1,36 @@
+---
+description: Unit of measure. Bosnia is metric throughout, but two entries have no English counterpart. DEKA (dekagram, 10 g) is how a Bosnian orders sliced meat and cheese — 'dvadeset deka pršuta' — and it is the everyday shop unit that the metric system officially discourages and nobody has stopped using. OKA is the Ottoman weight of about 1.28 kg, still heard at village markets for honey and cheese; it is listed last because it is old, not because it is dead.
+locale: bs
+---
+komad
+kom.
+par
+tuce
+set
+kutija
+paket
+vreća
+kesa
+flaša
+konzerva
+tegla
+rolna
+list
+tabla
+gram
+deka
+kilogram
+tona
+mililitar
+decilitar
+litar
+milimetar
+centimetar
+metar
+kilometar
+kvadratni metar
+kubni metar
+sat
+dan
+mjesec
+oka

@@ -1,0 +1,22 @@
+---
+description: Kind of venue. Bosnian towns hold events in a DOM KULTURE — the culture house, a Yugoslav-era building every municipality has and most still use — and in the SPORTSKA DVORANA beside it. Bašča is a walled garden and is a real venue for a summer event.
+locale: bs
+---
+Sala za svadbe
+Restoran
+Hotel
+Dom kulture
+Sportska dvorana
+Stadion
+Pozorište
+Kino
+Galerija
+Muzej
+Biblioteka
+Kongresni centar
+Sajmišni prostor
+Bašča
+Vikendica
+Planinarski dom
+Amfiteatar
+Trg

@@ -1,0 +1,34 @@
+---
+description: The -ing slot, AND BOSNIAN HAS NO -ING FORM AT ALL. There is no progressive aspect and no present participle used the way English uses one, so what fills this slot is the GLAGOLSKA IMENICA — the verbal noun in -nje, which is a NEUTER NOUN and not a verb: instaliranje is 'the installing', šifriranje 'the encrypting'. That means these values decline like nouns and cannot be used where a verb is wanted, and a config that treats this file as a verb list is making a category error the language itself does not allow. It is filled anyway, because the address exists in every locale.
+locale: bs
+---
+instaliranje
+pokretanje
+konfigurisanje
+podešavanje
+povezivanje
+slanje
+primanje
+preuzimanje
+postavljanje
+kopiranje
+premještanje
+brisanje
+arhiviranje
+kompajliranje
+izvršavanje
+testiranje
+otklanjanje grešaka
+šifriranje
+dešifriranje
+indeksiranje
+pretraživanje
+filtriranje
+sortiranje
+validiranje
+sinhronizovanje
+keširanje
+nadgledanje
+skaliranje
+optimiziranje
+migriranje

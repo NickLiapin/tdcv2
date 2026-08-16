@@ -1,0 +1,12 @@
+---
+description: Mining method. Bosnia mines coal from both — the Tuzla and Zenica basins are underground, Gacko and Ugljevik are open pits feeding the power stations at their gates — so both leading entries describe real operations in this country and not a textbook.
+locale: bs
+---
+Površinski kop
+Podzemna eksploatacija
+Jamska eksploatacija
+Etažno kopanje
+Komorno-stubna metoda
+Širokočelna metoda
+Okno
+Potkop

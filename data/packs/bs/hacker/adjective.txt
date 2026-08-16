@@ -1,0 +1,38 @@
+---
+description: Technical adjective, MASCULINE singular. These agree in gender with the noun they modify, so pairing this file with hacker/noun.txt blindly gives the wrong ending most of the time — bežični ruter is right, bežični mreža is not, it must be bežična mreža. The English loans (cloud, open-source, real-time) do not inflect at all and are used precisely because they do not.
+locale: bs
+---
+digitalni
+analogni
+virtuelni
+fizički
+logički
+bežični
+žičani
+optički
+mrežni
+lokalni
+udaljeni
+distribuirani
+centralizovani
+redundantni
+otporan na greške
+skalabilan
+modularan
+integrisan
+automatski
+ručni
+šifrirani
+sigurni
+javni
+privatni
+otvoreni
+zatvoreni
+primarni
+sekundarni
+asinhroni
+sinhroni
+cloud
+open-source
+real-time
+cross-platform

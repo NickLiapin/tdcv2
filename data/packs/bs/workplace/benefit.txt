@@ -1,0 +1,22 @@
+---
+description: Employment benefit. TOPLI OBROK — the hot-meal allowance — and REGRES, the annual holiday allowance, are STATUTORY cash entitlements in Bosnia, not perks: they are paid monthly and yearly as separate lines on a payslip, and a Bosnian reading a salary figure will ask whether topli obrok is in it. Both entity labour laws set them. Prevoz is the commuting allowance, also a payslip line.
+locale: bs
+---
+Topli obrok
+Regres
+Naknada za prevoz
+Zdravstveno osiguranje
+Penziono osiguranje
+Trinaesta plaća
+Stimulacija
+Godišnji bonus
+Službeni telefon
+Službeni automobil
+Službeni laptop
+Plaćeno usavršavanje
+Fleksibilno radno vrijeme
+Rad od kuće
+Otpremnina
+Jubilarna nagrada
+Pomoć u slučaju smrti
+Sistematski pregled

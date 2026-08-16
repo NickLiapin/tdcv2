@@ -1,0 +1,30 @@
+---
+description: Headline a Bosnian customer puts on a review. SVE POHVALE is the standard Bosnian formula of approval and has no literal English equivalent — 'all praise' — and MOŽE PROĆI is the equally standard lukewarm one, 'it'll do'. Both are set phrases, not constructions.
+locale: bs
+---
+Sve pohvale!
+Odličan proizvod
+Vrijedi svake marke
+Preporučujem
+Toplo preporučujem
+Može proći
+Solidno
+Očekivao sam više
+Nije vrijedno novca
+Razočaran sam
+Stiglo brzo
+Kasnila isporuka
+Tačno kao na slici
+Ne odgovara opisu
+Kvalitet na nivou
+Slab materijal
+Pokvarilo se odmah
+Kupio bih ponovo
+Ne preporučujem
+Odličan odnos cijene i kvaliteta
+Ljubazna prodaja
+Loša komunikacija
+Sve pet
+Za tu cijenu odlično
+Malo skuplje ali vrijedi
+Zadovoljan

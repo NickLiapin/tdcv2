@@ -1,0 +1,24 @@
+---
+description: Room in a Bosnian home. KUPATILO is the bathroom — the Bosnian and Serbian word, where Croatian says kupaonica — and ŠPAJZ is the larder, from German Speise, a fixture of older flats. AVLIJA is the walled courtyard of an old-town house and is a room in every sense but the roof.
+locale: bs
+---
+Dnevni boravak
+Spavaća soba
+Dječija soba
+Kuhinja
+Trpezarija
+Kupatilo
+Toalet
+Hodnik
+Predsoblje
+Ostava
+Špajz
+Balkon
+Terasa
+Lođa
+Podrum
+Tavan
+Garaža
+Radna soba
+Avlija
+Bašča

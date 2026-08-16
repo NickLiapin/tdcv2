@@ -1,0 +1,19 @@
+---
+description: The Herzegovinian table, which is a Mediterranean kitchen and not the Bosnian one: lamb roasted under the SAČ — the iron bell buried in embers — pršut air-dried in the bura, eel and frog from the Neretva delta, figs, blitva, and sheep's cheese matured in a skin bag (sir iz mijeha). Uštipci are the fried dough eaten with kajmak. The wine is Žilavka and Blatina, from the karst around Mostar and Čitluk, and it goes on the same table.
+locale: bs
+---
+Janjetina ispod sača
+Hercegovački pršut
+Japraci
+Riblji paprikaš od neretvanske jegulje
+Brodet
+Uštipci s kajmakom
+Sir iz mijeha
+Blitva s krompirom
+Smokve u medu
+Hercegovačka rakija lozovača
+Pečena jarebica
+Prga
+Kiseli kupus s rebrima
+Zeljanica s divljim zeljem
+Suho meso s vrhnjem

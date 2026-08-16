@@ -1,0 +1,44 @@
+---
+description: Store-cupboard ingredient. JUFKA is the hand-stretched pastry sheet every pita is built from and there is no other word for it; KAJMAK is the skimmed clotted cream matured in a wooden vessel, eaten with bread and uštipci and sold by weight; PEKMEZ is the thick unsweetened fruit butter, usually plum, cooked down for a whole day. SUDŽUK is the dried spiced beef sausage. PIRINAČ and RIŽA are both current for rice — the first from Persian, the second from Italian — and a Bosnian recipe uses either.
+locale: bs
+---
+Brašno
+Kvasac
+Jufka
+Jaja
+Mlijeko
+Kiselo mlijeko
+Pavlaka
+Vrhnje
+Kajmak
+Sir
+Mladi sir
+Travnički sir
+Maslac
+Ulje
+Maslinovo ulje
+Šećer
+Med
+Pekmez
+So
+Sirće
+Meso
+Junetina
+Teletina
+Janjetina
+Piletina
+Suho meso
+Sudžuk
+Pršut
+Slanina
+Riža
+Pirinač
+Griz
+Kukuruzno brašno
+Orasi
+Badem
+Lješnjak
+Kokos
+Čokolada
+Vanilin šećer
+Prašak za pecivo

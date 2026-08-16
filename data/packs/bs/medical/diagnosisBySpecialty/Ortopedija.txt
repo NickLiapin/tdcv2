@@ -1,0 +1,18 @@
+---
+description: Diagnoses a ortopedija clinic in Bosnia actually records, in the Bosnian medical register. Drawn together with the parent medical/specialtyCoherent so the specialty and the diagnosis agree.
+locale: bs
+---
+Artroza koljena
+Artroza kuka
+Diskus hernija
+Lumbalni sindrom
+Cervikalni sindrom
+Skolioza
+Prijelom kuka
+Prijelom podlaktice
+Uganuće gležnja
+Ruptura prednjeg ukrštenog ligamenta
+Meniskus lezija
+Smrznuto rame
+Teniski lakat
+Petni trn

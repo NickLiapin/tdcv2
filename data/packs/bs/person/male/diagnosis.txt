@@ -1,0 +1,30 @@
+---
+description: Diagnosis for a male patient record — the male-specific conditions plus the general ones that are markedly more frequent in men in Bosnia. Bosnian male smoking prevalence is among the highest in Europe, which is why the respiratory and cardiovascular entries lead, and male alcohol dependence is recorded at several times the female rate.
+locale: bs
+---
+Arterijska hipertenzija
+Infarkt miokarda
+Angina pektoris
+Hronična opstruktivna bolest pluća
+Karcinom pluća
+Bronhitis
+Ovisnost o nikotinu
+Ovisnost o alkoholu
+Ciroza jetre
+Dijabetes tipa 2
+Hiperlipidemija
+Giht
+Benigna hiperplazija prostate
+Karcinom prostate
+Prostatitis
+Erektilna disfunkcija
+Ingvinalna hernija
+Androgena alopecija
+Varikokela
+Karcinom testisa
+Posttraumatski stresni poremećaj
+Moždani udar
+Apneja u snu
+Prijelom podlaktice
+Lumbalni sindrom
+Hipogonadizam

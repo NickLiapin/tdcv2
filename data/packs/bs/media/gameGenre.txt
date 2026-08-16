@@ -1,0 +1,21 @@
+---
+description: Video game genre. Bosnian keeps the English category names — pucačina and strategija are translated but RPG, MOBA and battle royale are not, because that is how a Bosnian shop and a Bosnian player name them.
+locale: bs
+---
+Pucačina
+Akcija
+Avantura
+RPG
+MMORPG
+Strategija
+Simulacija
+Sportska igra
+Trkačka igra
+Platformer
+Logička igra
+Horor
+Preživljavanje
+Battle royale
+MOBA
+Borilačka igra
+Društvena igra

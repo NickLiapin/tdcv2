@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Brand names keep their real spelling — PlayStation is PlayStation in Bosnian — and RAČUNAR is the Bosnian and Serbian word for a computer where Croatian says računalo.
+locale: bs
+---
+PC
+Računar
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+Mobitel
+Tablet
+VR naočale

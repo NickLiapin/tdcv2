@@ -1,0 +1,22 @@
+---
+description: Jobs that belong to the proizvodnja sector in Bosnia, in the masculine citation form. Drawn together with the parent work/industryCoherent so a record's industry and job agree.
+locale: bs
+---
+Radnik u proizvodnji
+Kontrolor kvaliteta
+Mašinski inženjer
+Tehnolog
+Bravar
+Varilac
+Limar
+Tokar
+Glodač
+Livac
+Mehaničar
+Elektroničar
+Tehničar održavanja
+Predradnik
+Planer proizvodnje
+Skladištar
+Pakerica
+Rukovalac CNC mašine

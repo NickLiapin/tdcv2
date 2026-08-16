@@ -1,0 +1,18 @@
+---
+description: Part of the day. The first eight are the ordinary Slavic words; the last five are THE ISLAMIC PRAYER TIMES USED AS CLOCK WORDS, which is a Bosnian fact rather than a religious one. Sabah is first light, ikindija the middle of the afternoon, akšam the moment of sunset and jacija full dark, and a Sarajevo speaker says 'pred akšam' for early evening whether or not they pray. No Croatian or Serbian speaker uses them. Sabah also gives the everyday sabahzora, meaning first light.
+locale: bs
+---
+zora
+jutro
+prijepodne
+podne
+poslijepodne
+predvečerje
+veče
+noć
+ponoć
+sabah
+sabahzora
+ikindija
+akšam
+jacija

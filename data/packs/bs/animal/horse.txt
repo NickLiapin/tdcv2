@@ -1,0 +1,20 @@
+---
+description: Horse breed. BOSANSKI BRDSKI KONJ, the Bosnian mountain horse, is the native breed — small, hardy and worked in the mountains for centuries, and still the only horse many upland villages keep. The rest are the international breeds under their Bosnian names.
+locale: bs
+---
+Bosanski brdski konj
+Arapski konj
+Engleski punokrvnjak
+Lipicaner
+Hrvatski hladnokrvnjak
+Haflinger
+Frizijac
+Andaluzijac
+Ahal-teke
+Kladrubski konj
+Norik
+Poni
+Šetlandski poni
+Perčeron
+Belgijski hladnokrvnjak
+Mustang

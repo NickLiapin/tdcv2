@@ -1,0 +1,32 @@
+---
+description: Legal term in Bosnian. TUŽBA is the claim, TUŽILAC the claimant in a civil case and the prosecutor in a criminal one — the same word for both roles, which is a genuine ambiguity in the language and not a translation error. PRESUDA is a judgment and RJEŠENJE an order; the difference decides which appeal you file. ŽALBA is the appeal and ROK the deadline, and a missed rok is final.
+locale: bs
+---
+Tužba
+Tužilac
+Tuženi
+Optužnica
+Optuženi
+Osumnjičeni
+Svjedok
+Vještak
+Punomoćnik
+Branilac
+Presuda
+Rješenje
+Zaključak
+Žalba
+Revizija
+Rok
+Ročište
+Pretres
+Zapisnik
+Dokaz
+Pravosnažnost
+Izvršenje
+Naknada štete
+Zastara
+Ugovor
+Punomoć
+Ovjera
+Zabilježba

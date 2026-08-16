@@ -1,0 +1,8 @@
+---
+description: Business quarter. Bosnian says kvartal or tromjesečje; the ordinal is written as a figure with a full stop after it, which is how Bosnian writes every ordinal — 1. and not 1st.
+locale: bs
+---
+1. kvartal
+2. kvartal
+3. kvartal
+4. kvartal

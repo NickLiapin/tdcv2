@@ -1,0 +1,15 @@
+---
+description: Cable type. The category names are Bosnian and the standards are not — Cat6 is Cat6 on every continent. Note KABL, the Bosnian and Serbian spelling, against Croatian kabel.
+locale: bs
+---
+Optički kabl
+Koaksijalni kabl
+Upredena parica
+Cat5e
+Cat6
+Cat6a
+Ethernet kabl
+Energetski kabl
+Podzemni kabl
+Nadzemni kabl
+Telefonski kabl

@@ -1,0 +1,30 @@
+---
+description: Telecom operator in Bosnia and Herzegovina, and THE COUNT IS THE FACT: three incumbent operators, one per community and per entity — BH Telecom (Sarajevo, Federation, state-owned), HT Eronet (Mostar, serving the Croat-majority cantons) and m:tel (Banja Luka, Republika Srpska, owned by Telekom Srbija). Bosnia has three national telecoms where every comparable country has one, and each was carved out of the pre-war PTT along the ceasefire lines. Telemach BH is the cable and broadband challenger. The rest are the operators Bosnian users roam onto in the region. Brand names keep their real spelling.
+locale: bs
+---
+BH Telecom
+m:tel
+HT Eronet
+Telemach BH
+Ultra
+Haloo
+Logosoft
+Telrad
+Blicnet
+Miss.Net
+Hrvatski Telekom
+A1 Hrvatska
+Telekom Srbija
+A1 Srbija
+Yettel
+Telekom Slovenije
+A1 Slovenija
+Crnogorski Telekom
+One Crna Gora
+Vodafone
+Deutsche Telekom
+A1 Austria
+Turkcell
+A1 Makedonija
+One Albania
+Telekom Austria

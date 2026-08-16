@@ -1,0 +1,37 @@
+---
+description: Title placed before a name. The civil titles are the regional ones, abbreviated with a full stop and lower case in running text. THE RELIGIOUS TITLES ARE THREE FAITHS' WORTH and are ordinary Bosnian address, not exotic: hadži and hadžija for someone who has made the pilgrimage, hafiz for a memoriser of the Qur'an, efendija (ef.) for a religious teacher, mualim, and the Islamic Community's reis and muftija; beside them fra for a Franciscan — the order that has been in Bosnia since the fourteenth century — don and velečasni for Catholic priests, and otac, protojerej and vladika for the Serbian Orthodox clergy. No other locale in this project needs all three sets in one file.
+locale: bs
+---
+g.
+gosp.
+gospodin
+gđa
+gospođa
+gđica
+gospođica
+dr.
+dr. sc.
+mr.
+mr. sc.
+prof.
+prof. dr.
+doc. dr.
+akademik
+dipl. ing.
+ing.
+hadži
+hadžija
+hafiz
+efendija
+ef.
+mualim
+reis
+muftija
+šejh
+fra
+don
+velečasni
+otac
+protojerej
+vladika
+rabin

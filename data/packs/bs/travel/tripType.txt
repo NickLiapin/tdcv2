@@ -1,0 +1,24 @@
+---
+description: Kind of trip. TWO ARE BOSNIAN-SPECIFIC AND BOTH ARE PILGRIMAGES: HADŽ is the pilgrimage to Mecca, organised in Bosnia by the Islamic Community, and AJVATOVICA is the annual walk to Prusac — the largest Muslim gathering in Europe, held every June since the sixteenth century. Beside them MEĐUGORJE is the Catholic pilgrimage site in Herzegovina that draws over a million visitors a year, more than the rest of Bosnian tourism put together. GASTARBAJTERSKI POVRATAK, the diaspora's summer return, is a real travel category here: the roads fill with German and Austrian plates every July.
+locale: bs
+---
+Godišnji odmor
+Vikend putovanje
+Poslovno putovanje
+Hadž
+Umra
+Ajvatovica
+Hodočašće u Međugorje
+Gastarbajterski povratak
+Posjeta rodbini
+Izlet
+Planinarenje
+Skijanje
+Ljetovanje
+Zimovanje
+Banjski boravak
+Studijsko putovanje
+Ekskurzija
+Kamping
+Krstarenje
+Tranzit

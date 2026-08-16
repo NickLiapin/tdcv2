@@ -1,0 +1,5 @@
+---
+description: Currency of Rusija as Bosnian names it. Currency names are naturalised — funta, rublja, kruna, jen, rijal — and the qualifier agrees in gender with the noun it modifies (Norveška kruna is feminine, Japanski jen masculine), which is why the adjective changes shape down this set.
+locale: bs
+---
+Ruska rublja

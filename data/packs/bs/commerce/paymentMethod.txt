@@ -1,0 +1,19 @@
+---
+description: How a Bosnian customer pays. POUZEĆEM — cash on delivery — is FIRST because it is genuinely the dominant method for online orders in Bosnia: card penetration is low, trust in online payment is lower, and the courier collects the money at the door. UPLATNICA is the paper payment slip taken to a post office or bank counter, still the way most household bills are settled. Bosnia is not a card economy and a config modelling it as one will be wrong.
+locale: bs
+---
+Pouzećem
+Gotovina
+Uplatnica
+Virman
+Kartica
+Debitna kartica
+Kreditna kartica
+Visa
+Mastercard
+Internet bankarstvo
+Mobilno bankarstvo
+PayPal
+Na rate
+Kompenzacija
+Kredit

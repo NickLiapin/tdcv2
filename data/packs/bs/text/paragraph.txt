@@ -1,0 +1,24 @@
+---
+description: Filler paragraph. Handwritten: Project Gutenberg holds no Bosnian book at all — the search for language code bs returns 'No records found' — so there is no public-domain Bosnian text to build a corpus from and these paragraphs were written for this pack. Each is three to four sentences of ordinary Bosnian prose, ijekavian, in the register of a newspaper feature rather than of fiction, and they carry the standard's markers naturally rather than by insertion.
+locale: bs
+---
+Kahva se u Bosni ne pije žurno. Skuha se u džezvi, ostavi da odstoji, pa se sipa u fildžan i pije polahko, uz razgovor koji nema ni početka ni kraja. Ko dođe u kuću, prvo dobije kahvu, pa tek onda pitanje zašto je došao.
+Čaršija je bila puna ljudi. Dućani su bili otvoreni od jutra, a majstori su radili pred vratima da ih svako vidi. Kujundžija je kucao po srebru, terzija je krojio, a iz pekare se osjećao miris tek izvađenog hljeba.
+Nana je mijesila jufku svakog petka. Razvlačila bi je rukama po siniji dok ne bi postala tanka kao list papira, pa bi je punila sirom ili zeljem i uvijala u tepsiju. Pita se nije rezala dok se ne ohladi.
+Rijeka je te godine narasla više nego ikad. Kiša je padala deset dana bez prestanka, a onda se sve srušilo niz padinu — zemlja, kamenje i drveće. Most je izdržao, ali put ispod njega nije.
+Bosna je zemlja planina i šuma. Više od polovine njene površine pod šumom je, uglavnom bukvom i hrastom, a iznad dvije hiljade metara raste bosanski bor, koji ne raste nigdje drugo u Evropi na taj način.
+U selu je ostalo dvadesetak kuća i još manje ljudi. Mladi su otišli, prvo u grad, pa onda dalje. Ljeti se vrate, na sedmicu ili dvije, i onda avlije opet budu pune, a onda opet tiho do idućeg jula.
+Sevdalinka se ne pjeva glasno. Pjeva se onako kako se govori kad se ne želi biti prekinut, a saz ide za glasom, a ne ispred njega. Ko je nikad nije čuo, misli da je tužna. Ko je slušao dugo, zna da nije samo to.
+Škola je bila na kraju sela, u zgradi koja je nekad bila nešto drugo. Djeca su dolazila pješke, po snijegu i po kiši, i nikom to nije bilo čudno. Učitelj je bio jedan i predavao je sve.
+Zima u Bosni dolazi rano i ostaje dugo. U gradovima se osjeti po dimu iz dimnjaka, a u planini po tome što se ništa ne čuje. Snijeg pokrije puteve i ljudi se naviknu čekati.
+Posao je bio dobar dok je fabrika radila. Onda je stala, pa se otvorila, pa opet stala, i tako nekoliko puta. Radnici su čekali plate koje su kasnile mjesecima, a niko nije mogao reći od koga zavise.
+Komšiluk je institucija, a ne susjedstvo. Komšija zna kad ti neko dođe i kad ti neko ode, zna šta kuhaš i kad ti je teško, i to nije radoznalost nego posao koji se podrazumijeva. Kad se nekome desi nesreća, komšija dođe prvi.
+Na svadbi se nije štedjelo. Sofra je bila puna od jutra do noći, svirci su svirali bez prestanka, a niko nije brojao ko je zvan a ko nije. Poslije se pričalo mjesecima, i uvijek je neko rekao da je nekad bilo bolje.
+Rakija se pekla u oktobru, kad se šljive smire. Kazan je bio zajednički, pa se čekalo na red, a čekanje je bilo pola posla. Prva rakija je bila najjača i nju niko nije pio.
+Historija se ovdje ne uči iz knjiga nego iz kuća. Svaka porodica ima svoju verziju, i sve su tačne, i sve se ne slažu. To nije problem koji se rješava, nego stanje s kojim se živi.
+Grad ima tri imena za istu stvar i to nikom ne smeta. Jedan kaže hljeb, drugi kruh, treći opet hljeb ali drugačije naglašeno, i svi razumiju. Nesporazum počinje tek kad neko počne tvrditi da je samo njegova riječ prava.
+Ljeti se ide na teferič. Ustane se rano, ponese hrana i deka, i ide se do vrela ili do livade iznad sela. Tamo se sjedi cijeli dan, jede, pjeva i ne radi ništa, i to je cijela svrha.
+Voz je vozio sporo kroz dolinu, pored rijeke, kroz tunele koje je neko davno probio. Iz prozora se vidjelo ono što se s ceste ne vidi — stare pruge, napuštene stanice i kuće okrenute leđima svijetu.
+Dokumenti su se vadili na tri različita mjesta i nijedno nije znalo za drugo. Za jedno je trebala potvrda iz drugog, a za to drugo potvrda iz prvog. Ljudi su naučili čekati i nositi fasciklu sa sobom.
+Planinari kreću prije zore da bi do podne bili na vrhu. Staza ide kroz bukovu šumu, pa kroz kamenjar, i zadnji sat je najteži. Odozgo se vidi cijela dolina, i onda se čovjek sjeti zašto je krenuo.
+Kad neko umre, dođe cijelo selo. Ne pita se ko je bio i šta je radio, nego se dođe. Poslije se sjedi, pije kahva i priča o njemu, i to traje danima, i tako se stvari vraćaju na svoje mjesto.

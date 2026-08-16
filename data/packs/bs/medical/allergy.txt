@@ -1,0 +1,30 @@
+---
+description: Allergen. AMBROZIJA — ragweed — leads because it is the dominant seasonal allergen of the Sava and Posavina lowlands and its late-summer season is an annual public-health story here. Note LIJEKOVI with the ijekavian ije, and that Bosnian says ALERGIJA NA for 'allergic to'.
+locale: bs
+---
+Ambrozija
+Polen trava
+Polen breze
+Polen ambrozije
+Grinje
+Buđ
+Dlaka mačke
+Dlaka psa
+Ubod pčele
+Ubod ose
+Kikiriki
+Orašasti plodovi
+Mlijeko
+Jaja
+Soja
+Gluten
+Pšenica
+Riba
+Školjke
+Sezam
+Penicilin
+Aspirin
+Lateks
+Nikl
+Sredstva za čišćenje
+Sunčeva svjetlost

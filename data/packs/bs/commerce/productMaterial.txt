@@ -1,0 +1,62 @@
+---
+description: Material. The wood names lead because wood is what Bosnia makes and exports — hrast, bukva, jela and bor from its own forests, worked into furniture for Germany and Austria. ĆILIM is the flatwoven wool rug and the word names both the technique and the object. Note PAMUK for cotton, a Turkish word, and SOMOT for velvet.
+locale: bs
+---
+Drvo
+Hrastovina
+Bukovina
+Jelovina
+Borovina
+Orahovina
+Trešnjevina
+Iverica
+Šperploča
+MDF
+Bambus
+Ratan
+Pluta
+Metal
+Čelik
+Nerđajući čelik
+Aluminij
+Bakar
+Mesing
+Bronza
+Željezo
+Lim
+Plastika
+PVC
+Silikon
+Guma
+Staklo
+Kaljeno staklo
+Kristal
+Keramika
+Porculan
+Glina
+Kamen
+Mramor
+Granit
+Beton
+Gips
+Pamuk
+Lan
+Vuna
+Svila
+Somot
+Ćilim
+Filc
+Koža
+Umjetna koža
+Antilop
+Krzno
+Poliester
+Najlon
+Viskoza
+Akril
+Elastin
+Denim
+Papir
+Karton
+Vosak
+Slama

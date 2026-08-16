@@ -1,0 +1,34 @@
+---
+description: Spice or seasoning. BIBER is the Bosnian and Serbian word for pepper where Croatian says papar, and it came through Turkish; NANA is mint, also Turkish, and is what goes in tea; ALEVA PAPRIKA is the sweet ground red pepper that colours half the country's cooking. Vegeta is a brand and is written as one — it is a Croatian stock powder that is nonetheless in every Bosnian kitchen, and translating a brand would be wrong.
+locale: bs
+---
+So
+Biber
+Aleva paprika
+Ljuta paprika
+Vegeta
+Lovorov list
+Origano
+Bosiljak
+Ruzmarin
+Majčina dušica
+Mažuran
+Kim
+Korijander
+Kurkuma
+Đumbir
+Cimet
+Karanfilić
+Muškatni oraščić
+Šafran
+Vanilija
+Nana
+Peršunov list
+Kopar
+Morač
+Senf
+Sezam
+Mak
+Čili
+Sumak
+Anis

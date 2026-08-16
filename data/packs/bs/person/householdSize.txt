@@ -1,0 +1,12 @@
+---
+description: Number of people in the household. Bosnia's average household was 2.96 at the 2013 census, the smallest it has ever been; the multi-generation household the region is imagined to have is now a minority, but the list runs to 8 or more because it still exists.
+locale: bs
+---
+1
+2
+3
+4
+5
+6
+7
+8+

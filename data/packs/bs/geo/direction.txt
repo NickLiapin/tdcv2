@@ -1,0 +1,20 @@
+---
+description: Compass direction, Bosnian. Note SJEVER with the ijekavian je — Serbia's ekavian writes sever, and Bosnia's Serbs write sjever like everyone else here, because Bosnia is ijekavian in all three of its standards.
+locale: bs
+---
+Sjever
+Jug
+Istok
+Zapad
+Sjeveroistok
+Sjeverozapad
+Jugoistok
+Jugozapad
+Sjever-sjeveroistok
+Istok-sjeveroistok
+Istok-jugoistok
+Jug-jugoistok
+Jug-jugozapad
+Zapad-jugozapad
+Zapad-sjeverozapad
+Sjever-sjeverozapad

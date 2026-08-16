@@ -1,0 +1,14 @@
+---
+description: Payment status, FEMININE to agree with uplata. NEPLAĆENA and DJELIMIČNO PLAĆENA are the two a Bosnian invoicing system spends most of its time in.
+locale: bs
+---
+Neplaćena
+Plaćena
+Djelimično plaćena
+U obradi
+Odbijena
+Vraćena
+Istekla
+Na čekanju
+Stornirana
+Kompenzirana

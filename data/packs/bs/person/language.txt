@@ -1,0 +1,44 @@
+---
+description: Language, as Bosnian names it. THE FIRST THREE ARE ONE LANGUAGE AND THREE STANDARDS: bosanski, hrvatski and srpski are mutually intelligible to the point that no interpreter is ever needed between them, and all three are official in Bosnia and Herzegovina with none above the others. They are listed separately because that is how the constitution, the courts and every census form list them, and because a speaker will tell you which one they speak. Note the Bosnian shapes: TALIJANSKI for Italian (Serbian says italijanski) and ŠPANSKI for Spanish (Croatian says španjolski) — this list sits on the Croatian side of one and the Serbian side of the other, which is precisely what the Bosnian standard does rather than following either wholesale.
+locale: bs
+---
+bosanski
+hrvatski
+srpski
+crnogorski
+engleski
+njemački
+turski
+arapski
+talijanski
+francuski
+španski
+ruski
+slovenački
+makedonski
+albanski
+romski
+mađarski
+poljski
+češki
+slovački
+ukrajinski
+bugarski
+rumunski
+grčki
+perzijski
+hebrejski
+holandski
+švedski
+norveški
+danski
+finski
+portugalski
+kineski
+japanski
+korejski
+hindi
+urdu
+latinski
+znakovni jezik
+ladino

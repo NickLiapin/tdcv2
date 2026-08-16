@@ -1,0 +1,29 @@
+---
+description: Bosnian address unit or interior designator, in the shape written before a number. A Bosnian address puts the house number after the street (Ulica Meše Selimovića 12) and the flat after that (12/3 or 12, stan 3). SPRAT is the Bosnian and Serbian word for a storey where Croatian says kat, and it is one of the plainest everyday splits between the standards. Avlija is the walled courtyard — an orientalizam, and a real part of an old-town address.
+locale: bs
+---
+st.
+stan
+sprat
+prizemlje
+suteren
+podrum
+potkrovlje
+mezanin
+ulaz
+zgrada
+zgr.
+objekat
+soba
+kancelarija
+ured
+apartman
+lokal
+poslovni prostor
+garaža
+parking mjesto
+ostava
+špajz
+avlija
+bb
+kbr.

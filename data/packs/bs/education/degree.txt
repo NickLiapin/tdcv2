@@ -1,0 +1,20 @@
+---
+description: Academic qualification. TWO WORDS SPLIT THE STANDARDS HERE and they are the two that matter: Bosnian says DOKTOR NAUKA and MAGISTAR NAUKA where Croatian says doktor znanosti and magistar znanosti — nauka against znanost is one of the deepest lexical splits in the region, and it runs through every academic title. Bosnia runs the Bologna ladder (bachelor/master/doktor) ON TOP OF the old Yugoslav one (diplomirani, magistar, doktor) and both are still awarded and both appear on cards, which is why this list has fourteen entries where an English one has ten.
+locale: bs
+---
+Svjedodžba osnovne škole
+Svjedodžba srednje škole
+Matura
+Diploma srednje stručne škole
+Bakalaureat
+Bachelor
+Diplomirani inženjer
+Diplomirani ekonomista
+Diplomirani pravnik
+Magistar
+Magistar nauka
+Master
+Specijalista
+Doktor nauka
+Doktor medicine
+Akademik

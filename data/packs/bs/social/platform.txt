@@ -1,0 +1,21 @@
+---
+description: Social platform. Viber leads the messaging list in Bosnia in a way it does in almost nowhere else in Europe — it is the default for family and for business, and WhatsApp is second — while Facebook remains the main public network across all age groups. Brand names keep their real spelling in every locale.
+locale: bs
+---
+Facebook
+Instagram
+Viber
+WhatsApp
+TikTok
+YouTube
+X
+LinkedIn
+Telegram
+Snapchat
+Pinterest
+Reddit
+Discord
+Threads
+Twitch
+Signal
+Messenger

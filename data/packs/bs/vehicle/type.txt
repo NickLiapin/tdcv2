@@ -1,0 +1,26 @@
+---
+description: Vehicle body type, Bosnian. Karavan is the estate, limuzina the saloon — the Yugoslav-era vocabulary that stuck. Note KAMION for lorry and KOMBI for van, both from German, which is where most of Bosnia's second-hand cars still come from.
+locale: bs
+---
+Limuzina
+Karavan
+Hečbek
+Kupe
+Kabriolet
+Terenac
+Krosover
+Kombi
+Minivan
+Pikap
+Kamion
+Kamionet
+Autobus
+Minibus
+Sportski automobil
+Kamper
+Prikolica
+Motocikl
+Skuter
+Traktor
+Cisterna
+Šleper

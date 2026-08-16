@@ -1,0 +1,64 @@
+---
+description: Animal, Bosnian. The domestic and wild animals of the country come first: Bosnia still has wild bear, wolf and lynx in the Dinaric forests, and the BOSANSKI BRDSKI KONJ — the Bosnian mountain horse — is a native breed. Note MEDVJED and MRAVOJED carry the ijekavian je.
+locale: bs
+---
+Pas
+Mačka
+Konj
+Krava
+Ovca
+Koza
+Svinja
+Magarac
+Mazga
+Kokoš
+Pijetao
+Patka
+Guska
+Ćurka
+Zec
+Kunić
+Medvjed
+Vuk
+Lisica
+Ris
+Divlja svinja
+Srna
+Jelen
+Divokoza
+Jazavac
+Vidra
+Kuna
+Lasica
+Vjeverica
+Jež
+Krtica
+Miš
+Štakor
+Slijepi miš
+Dabar
+Lav
+Tigar
+Slon
+Žirafa
+Zebra
+Majmun
+Nosorog
+Nilski konj
+Kamila
+Deva
+Klokan
+Panda
+Koala
+Delfin
+Kit
+Foka
+Morž
+Ajkula
+Kornjača
+Zmija
+Gušter
+Žaba
+Puž
+Bizon
+Los

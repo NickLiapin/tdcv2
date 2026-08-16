@@ -1,0 +1,28 @@
+---
+description: Character class in a role-playing game. Bosnian gaming vocabulary is half-translated in practice: ratnik and čarobnjak are said in Bosnian, but tank and healer are said in English at the same table. This list gives the Bosnian words, since the English ones need no locale.
+locale: bs
+---
+Ratnik
+Čarobnjak
+Vračar
+Strijelac
+Lopov
+Ubica
+Vitez
+Paladin
+Varvarin
+Monah
+Druid
+Šaman
+Nekromant
+Prizivač
+Iscjelitelj
+Sveštenik
+Berserker
+Lovac
+Izviđač
+Bard
+Alhemičar
+Inženjer
+Gladijator
+Mačevalac

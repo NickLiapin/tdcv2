@@ -1,0 +1,22 @@
+---
+description: Jobs that belong to the tehnologija sector in Bosnia, in the masculine citation form. Drawn together with the parent work/industryCoherent so a record's industry and job agree.
+locale: bs
+---
+Programer
+Softverski inženjer
+Web programer
+Mobilni programer
+Sistem administrator
+Mrežni inženjer
+Analitičar podataka
+Tester softvera
+DevOps inženjer
+Arhitekta sistema
+Stručnjak za sigurnost
+Dizajner korisničkog iskustva
+Product menadžer
+Scrum master
+Tehnička podrška
+Baza podataka administrator
+Inženjer vještačke inteligencije
+Voditelj IT odjela

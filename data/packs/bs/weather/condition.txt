@@ -1,0 +1,20 @@
+---
+description: Weather as a Bosnian forecast says it. Bosnia has a continental interior and a Mediterranean strip behind the Herzegovina karst, so the same forecast carries both. Note VEDRO for clear and OBLAČNO for cloudy, and the ijekavian SNIJEG.
+locale: bs
+---
+Vedro
+Sunčano
+Pretežno sunčano
+Djelimično oblačno
+Umjereno oblačno
+Oblačno
+Tmurno
+Kiša
+Slaba kiša
+Pljusak
+Snijeg
+Susnježica
+Grad
+Magla
+Sumaglica
+Vjetrovito

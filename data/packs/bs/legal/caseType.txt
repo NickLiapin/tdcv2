@@ -1,0 +1,17 @@
+---
+description: Kind of legal proceeding. PARNIČNI POSTUPAK is the ordinary civil action and KRIVIČNI POSTUPAK the criminal one — note KRIVIČNI, the Bosnian and Serbian word, where Croatian says kazneni, a split that runs through the whole criminal code. IZVRŠNI POSTUPAK is enforcement and is the stage most Bosnian civil claims actually die in, because enforcement is slow enough to be its own subject in every EU progress report.
+locale: bs
+---
+Parnični postupak
+Krivični postupak
+Prekršajni postupak
+Upravni postupak
+Upravni spor
+Izvršni postupak
+Vanparnični postupak
+Ostavinski postupak
+Stečajni postupak
+Likvidacioni postupak
+Radni spor
+Porodični spor
+Ustavna apelacija

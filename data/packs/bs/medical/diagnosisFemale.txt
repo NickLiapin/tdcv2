@@ -1,0 +1,31 @@
+---
+description: Diagnosis recorded only or overwhelmingly in women. Bosnian gynaecological terminology is Latin-derived with Slavic organ names — MATERICA is the uterus, JAJNIK the ovary, DOJKA the breast — and the diagnoses read as compounds of both.
+locale: bs
+---
+Miomi materice
+Endometrioza
+Sindrom policističnih jajnika
+Cista jajnika
+Karcinom dojke
+Karcinom grlića materice
+Karcinom jajnika
+Karcinom materice
+Fibrocistična bolest dojke
+Mastitis
+Menopauza
+Prerana menopauza
+Neplodnost
+Vanmaternična trudnoća
+Spontani pobačaj
+Preeklampsija
+Gestacijski dijabetes
+Anemija u trudnoći
+Placenta previja
+Postporođajna depresija
+Bakterijska vaginoza
+Vaginalna kandidijaza
+Prolaps materice
+Inkontinencija urina
+Dismenoreja
+Obilna menstruacija
+Osteoporoza nakon menopauze

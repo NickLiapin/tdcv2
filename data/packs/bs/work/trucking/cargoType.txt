@@ -1,0 +1,17 @@
+---
+description: Truck or trailer type, Bosnian. ADR is the European dangerous-goods code and is what a Bosnian driver's licence endorsement says, so hazardous cargo is 'ADR teret' and not a translated phrase. Bosnia sits on the Corridor Vc route from Ploče to Budapest, so most of this list is transit freight.
+locale: bs
+---
+Cerada
+Hladnjača
+Kiper
+Cisterna
+Šleper
+Kontejner
+Autotransporter
+Niska prikolica
+Stočni prevoz
+ADR teret
+Rasuti teret
+Trupci
+Građevinski materijal

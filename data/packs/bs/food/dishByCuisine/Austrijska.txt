@@ -1,0 +1,14 @@
+---
+description: Dishes of the austrijska kitchen as a Bosnian menu writes them. Foreign dish names are transcribed into Bosnian spelling rather than kept in the original — špagete, suši, gvakamole — because Bosnian writes a borrowed word the way it is said.
+locale: bs
+---
+Bečka šnicla
+Apfelštrudl
+Zaher torta
+Kajzeršmarn
+Knedle sa šljivama
+Gulašsupa
+Tafelšpic
+Krofne
+Bečke kobasice
+Linzer torta

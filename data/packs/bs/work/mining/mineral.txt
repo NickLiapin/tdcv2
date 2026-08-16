@@ -1,0 +1,23 @@
+---
+description: Mined mineral or commodity. THIS IS A REAL LIST FOR THIS COUNTRY: Bosnia mines lignite and brown coal at Tuzla, Kakanj, Gacko and Ugljevik, iron ore at Ljubija and Vareš, bauxite at Jajce, Široki Brijeg and Milići, salt at Tuzla — whose name is the Turkish word for salt, tuz — and lead and zinc at Srebrenica, whose name means the silver place. Barite, gypsum and limestone are quarried across the country.
+locale: bs
+---
+Mrki ugalj
+Lignit
+Kameni ugalj
+Željezna ruda
+Boksit
+Olovo
+Cink
+Barit
+So
+Krečnjak
+Gips
+Kvarcni pijesak
+Glina
+Mangan
+Antimon
+Bakar
+Srebro
+Tehnički kamen
+Šljunak

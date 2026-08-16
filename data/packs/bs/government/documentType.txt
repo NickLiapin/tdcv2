@@ -1,0 +1,25 @@
+---
+description: Kind of official document. THREE OF THESE ARE STRAIGHT BOSNIAN-AGAINST-CROATIAN SPLITS AND THEY ARE THE THREE COMMONEST DOCUMENTS A PERSON OWNS: LIČNA KARTA is the identity card (Croatian osobna iskaznica), PASOŠ the passport (Croatian putovnica) and SAOBRAĆAJNA DOZVOLA the vehicle registration (Croatian prometna dozvola). A config that renders a Bosnian ID card as 'osobna iskaznica' has produced a Croatian document. IZVOD IZ MATIČNE KNJIGE ROĐENIH is the birth certificate and is always called that in full on a counter. The identifier NUMBERS on these documents belong to the country pack, not here.
+locale: bs
+---
+Lična karta
+Pasoš
+Vozačka dozvola
+Saobraćajna dozvola
+Izvod iz matične knjige rođenih
+Izvod iz matične knjige vjenčanih
+Izvod iz matične knjige umrlih
+Uvjerenje o državljanstvu
+Uvjerenje o prebivalištu
+Uvjerenje o nekažnjavanju
+Zdravstvena knjižica
+Radna knjižica
+Diploma
+Svjedodžba
+Poreska prijava
+Građevinska dozvola
+Upotrebna dozvola
+Rješenje o registraciji
+Viza
+Boravišna dozvola
+Zemljišnoknjižni izvadak

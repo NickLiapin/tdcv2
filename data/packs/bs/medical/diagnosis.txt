@@ -1,0 +1,83 @@
+---
+description: Diagnosis, general. POSTTRAUMATSKI STRESNI POREMEĆAJ is high on this list and that is an epidemiological fact about this country, not a stylistic choice: population studies after 1995 put PTSD prevalence in Bosnia in the double digits — an order of magnitude above the European baseline — and it remains one of the country's largest untreated health burdens thirty years on. Note the Bosnian forms: HRONIČNI with the h against Croatian kronični, and the ijekavian PRIJELOM, POREMEĆAJ and LIJEČENJE.
+locale: bs
+---
+Arterijska hipertenzija
+Dijabetes tipa 2
+Dijabetes tipa 1
+Hiperlipidemija
+Gojaznost
+Anemija
+Sideropenična anemija
+Hipotireoza
+Hipertireoza
+Astma
+Hronična opstruktivna bolest pluća
+Bronhitis
+Upala pluća
+Sinusitis
+Faringitis
+Tonzilitis
+Otitis
+Alergijski rinitis
+Gastritis
+Čir na želucu
+Refluksna bolest
+Sindrom iritabilnog crijeva
+Ciroza jetre
+Masna jetra
+Hepatitis B
+Hepatitis C
+Žučni kamenci
+Pankreatitis
+Apendicitis
+Hemoroidi
+Infekcija urinarnog trakta
+Nefrolitijaza
+Hronična bubrežna bolest
+Cistitis
+Migrena
+Epilepsija
+Moždani udar
+Multipla skleroza
+Parkinsonova bolest
+Demencija
+Depresija
+Anksiozni poremećaj
+Posttraumatski stresni poremećaj
+Panični poremećaj
+Bipolarni poremećaj
+Poremećaj spavanja
+Ovisnost o alkoholu
+Ovisnost o nikotinu
+Artroza koljena
+Artroza kuka
+Reumatoidni artritis
+Giht
+Osteoporoza
+Diskus hernija
+Lumbalni sindrom
+Cervikalni sindrom
+Skolioza
+Prijelom kuka
+Uganuće gležnja
+Psorijaza
+Atopijski dermatitis
+Ekcem
+Akne
+Urtikarija
+Herpes zoster
+Katarakta
+Glaukom
+Konjunktivitis
+Karcinom dojke
+Karcinom pluća
+Karcinom debelog crijeva
+Karcinom prostate
+Melanom
+Limfom
+Leukemija
+Beta-talasemija
+Anemija u trudnoći
+Varikozne vene
+Duboka venska tromboza

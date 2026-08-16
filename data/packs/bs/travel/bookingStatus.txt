@@ -1,0 +1,15 @@
+---
+description: State of a booking. POTVRĐENA is confirmed and NA ČEKANJU pending; the adjectives are FEMININE because they agree with rezervacija, which is feminine, and a config attaching one to a masculine noun must change the ending.
+locale: bs
+---
+Potvrđena
+Na čekanju
+Otkazana
+Izmijenjena
+Plaćena
+Neplaćena
+Prijavljen dolazak
+Prijavljen odlazak
+Nije se pojavio
+Na listi čekanja
+Istekla

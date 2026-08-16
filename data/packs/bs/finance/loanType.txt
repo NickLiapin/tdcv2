@@ -1,0 +1,16 @@
+---
+description: Kind of loan. Note that Bosnian consumer credit is dominated by the NENAMJENSKI KREDIT — the general-purpose loan with no stated use — and by MIKROKREDIT from a microcredit organisation, a sector Bosnia has at a scale most of Europe does not; and that a Bosnian housing loan is stambeni kredit, indexed in KM but priced off the euro because of the currency board.
+locale: bs
+---
+Nenamjenski kredit
+Stambeni kredit
+Auto kredit
+Potrošački kredit
+Mikrokredit
+Kredit za refinansiranje
+Studentski kredit
+Poljoprivredni kredit
+Kredit za obrtna sredstva
+Investicioni kredit
+Dozvoljeno prekoračenje
+Lombardni kredit

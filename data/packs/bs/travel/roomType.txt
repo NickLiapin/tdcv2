@@ -1,0 +1,22 @@
+---
+description: Hotel room type. Bosnian counts beds, not people: jednokrevetna is a one-bed room, dvokrevetna a two-bed. A dvokrevetna soba may hold two single beds or one double, and Bosnian marks the difference with FRANCUSKI LEŽAJ — the French bed — which is the phrase a booking page uses for a double.
+locale: bs
+---
+Jednokrevetna soba
+Dvokrevetna soba
+Dvokrevetna s francuskim ležajem
+Trokrevetna soba
+Četverokrevetna soba
+Porodična soba
+Studio apartman
+Apartman
+Dvosobni apartman
+Suita
+Soba s pogledom
+Soba s balkonom
+Bungalov
+Vikendica
+Spavaonica
+Soba za osobe s invaliditetom
+Nepušačka soba
+Deluxe soba

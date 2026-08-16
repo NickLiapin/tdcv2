@@ -1,0 +1,38 @@
+---
+description: Musical instrument. THE FIRST SIX ARE THE INSTRUMENTS OF BOSNIAN MUSIC AND FOUR OF THEM ARE OTTOMAN: the SAZ is the long-necked lute sevdalinka was sung to before the accordion took over, the ŠARGIJA its plainer village cousin, the ZURNA the piercing shawm played with the tapan drum at weddings, and the TAPAN itself the big double-headed drum. The GUSLE is the one-string bowed fiddle of the epic singers — Serb and Montenegrin above all, but also Bosniak, and the Bosniak epic tradition recorded by Milman Parry at Novi Pazar is the one that taught Homerists how oral epic works. The DIPLE is the double-reed pipe of Herzegovina. HARMONIKA — the accordion — arrived last and now leads everything.
+locale: bs
+---
+Saz
+Šargija
+Gusle
+Zurna
+Tapan
+Diple
+Harmonika
+Violina
+Viola
+Violončelo
+Kontrabas
+Gitara
+Električna gitara
+Bas gitara
+Klavir
+Klavijature
+Orgulje
+Flauta
+Klarinet
+Oboa
+Fagot
+Saksofon
+Truba
+Trombon
+Horna
+Tuba
+Bubnjevi
+Def
+Tambura
+Mandolina
+Frula
+Svirala
+Ksilofon
+Cimbal

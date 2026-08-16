@@ -1,0 +1,26 @@
+---
+description: Department inside a company. ODJEL is the Bosnian and Croatian word and ODJELJENJE the Serbian one; both are used in Bosnia, in the same building, depending on who wrote the org chart. SLUŽBA is the older Yugoslav word for a service unit and is still on most doors.
+locale: bs
+---
+Uprava
+Ljudski resursi
+Kadrovska služba
+Računovodstvo
+Finansije
+Pravna služba
+Nabava
+Prodaja
+Marketing
+Odnosi s javnošću
+Proizvodnja
+Kontrola kvaliteta
+Razvoj
+Istraživanje i razvoj
+Informatika
+Tehnička podrška
+Logistika
+Skladište
+Održavanje
+Zaštita na radu
+Interna revizija
+Korisnička podrška

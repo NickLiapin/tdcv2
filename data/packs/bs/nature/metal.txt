@@ -1,0 +1,26 @@
+---
+description: Metal, Bosnian. THIS IS AN INDUSTRIAL LIST IN THIS COUNTRY, not an abstract one: Bosnia's economy was built on iron at Zenica, bauxite at Jajce and Mostar, and lead and zinc at Srebrenica — whose name means 'silver place', from srebro. Note ŽELJEZO with the ijekavian je, against Serbia's gvožđe, and ALUMINIJ against Serbian aluminijum.
+locale: bs
+---
+Željezo
+Čelik
+Zlato
+Srebro
+Bakar
+Aluminij
+Cink
+Olovo
+Kalaj
+Nikl
+Hrom
+Mangan
+Titan
+Platina
+Volfram
+Kobalt
+Magnezij
+Bronza
+Mesing
+Lim
+Živa
+Antimon

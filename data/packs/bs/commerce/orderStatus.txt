@@ -1,0 +1,18 @@
+---
+description: Order status. The adjectives are FEMININE because they agree with narudžba, which is feminine; a config that pairs them with a masculine noun must change the ending.
+locale: bs
+---
+Kreirana
+Potvrđena
+U obradi
+Plaćena
+Priprema se
+Spremna za slanje
+Poslana
+U dostavi
+Isporučena
+Preuzeta
+Otkazana
+Vraćena
+Reklamirana
+Na čekanju

@@ -1,0 +1,23 @@
+---
+description: Film genre, Bosnian. RATNI FILM sits high on this list for a reason that is not a genre preference: Bosnian cinema's international reputation was made by war films — Grbavica, Ničija zemlja, Quo Vadis, Aida? — and a Bosnian video shop shelves them together. Note NAUČNA FANTASTIKA with nauka, against Croatian znanstvena fantastika.
+locale: bs
+---
+Drama
+Komedija
+Ratni film
+Historijski film
+Triler
+Akcija
+Avantura
+Krimi
+Misterija
+Horor
+Naučna fantastika
+Fantastika
+Romantična komedija
+Ljubavni film
+Animirani film
+Dokumentarni film
+Biografski film
+Mjuzikl
+Vestern

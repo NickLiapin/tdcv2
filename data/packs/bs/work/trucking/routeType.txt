@@ -1,0 +1,12 @@
+---
+description: Trucking route type. MEĐUNARODNI PREVOZ is the long-haul international run, and it matters here: Bosnia is outside the EU customs union, so a lorry stops at a border post on every international route, and the word for that stop — granični prelaz — is part of the job.
+locale: bs
+---
+Međunarodni prevoz
+Domaći prevoz
+Regionalni prevoz
+Lokalna distribucija
+Dostava na kućnu adresu
+Namjenski prevoz
+Dvočlana posada
+Tranzit

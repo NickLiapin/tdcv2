@@ -1,0 +1,22 @@
+---
+description: Cat breed. Bosnia has no recognised native cat breed, so this is the international list as Bosnian writes it: the country names are translated (Perzijska, Sijamska, Ruska plava) and the trade names are not (Ragdoll, Sphynx, Bengal), which is the ordinary Bosnian split between a description and a brand.
+locale: bs
+---
+Perzijska
+Sijamska
+Mejnkun
+Ragdoll
+Bengalska
+Sphynx
+Britanska kratkodlaka
+Abesinska
+Škotska klempava
+Norveška šumska
+Ruska plava
+Burmanska
+Sibirska
+Turski angora
+Turski van
+Devon rex
+Šarena domaća
+Domaća kratkodlaka

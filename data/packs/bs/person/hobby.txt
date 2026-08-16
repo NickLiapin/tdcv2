@@ -1,0 +1,81 @@
+---
+description: Pastime. Several here are Bosnian institutions rather than hobbies anywhere else. SEVDALINKA is the urban love song of Bosnia, sung to saz and accordion, and 'pjevanje sevdalinki' is a stated pastime. SIJELO is the evening gathering held in someone's house. The ĆEJF (Turkish keyf) is the deliberate slow enjoyment of a thing, and ISPIJANJE KAHVE — an hour over coffee from a fildžan — is named as a pastime here in a way it is not in Zagreb or Belgrade. Note kahva with its h: not kava (Croatian) and not kafa (Serbian).
+locale: bs
+---
+Ispijanje kahve
+Sijelo
+Pjevanje sevdalinki
+Sviranje saza
+Šah
+Planinarenje
+Ribolov
+Lov
+Pčelarstvo
+Vrtlarenje
+Baštovanstvo
+Kuhanje
+Pečenje pite
+Roštiljanje
+Čitanje
+Pisanje
+Slikanje
+Fotografija
+Rezbarenje
+Kaligrafija
+Vez
+Pletenje
+Šivanje
+Ćilimarstvo
+Grnčarstvo
+Sviranje gitare
+Sviranje harmonike
+Sviranje klavira
+Pjevanje
+Zborsko pjevanje
+Ples
+Folklor
+Kolo
+Gluma
+Kino
+Pozorište
+Muzej
+Putovanja
+Kampovanje
+Biciklizam
+Trčanje
+Fitnes
+Plivanje
+Skijanje
+Tenis
+Stolni tenis
+Nogomet
+Košarka
+Rukomet
+Odbojka
+Borilački sport
+Streljaštvo
+Jahanje
+Rafting
+Kajak
+Speleologija
+Skupljanje maraka
+Numizmatika
+Modelarstvo
+Astronomija
+Programiranje
+Videoigre
+Društvene igre
+Tabla
+Karte
+Križaljke
+Sudoku
+Blogovanje
+Podkasti
+Dobrovoljni rad
+Izviđači
+Uzgoj golubova
+Uzgoj ruža
+Berba gljiva
+Sakupljanje ljekovitog bilja
+Pisanje poezije
+Šahovski klub

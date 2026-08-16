@@ -1,0 +1,38 @@
+---
+description: Tree, Bosnian. The list is the Dinaric forest: BOSANSKI BOR, the Bosnian pine (Pinus heldreichii), is the endemic that grows above two thousand metres, and MUNIKA is its Bosnian name. Bukva and hrast make up most of the country's forest cover, which is still over half its land. Note ŠLJIVA — the plum — first among the fruit trees, because Bosnia's orchards are plum orchards and rakija is made of it.
+locale: bs
+---
+Bukva
+Hrast
+Bijeli bor
+Crni bor
+Bosanski bor
+Munika
+Jela
+Smrča
+Ariš
+Tisa
+Grab
+Javor
+Jasen
+Brijest
+Lipa
+Topola
+Vrba
+Breza
+Joha
+Kesten
+Orah
+Lijeska
+Šljiva
+Jabuka
+Kruška
+Trešnja
+Višnja
+Dunja
+Smokva
+Nar
+Badem
+Murva
+Dud
+Divlji kesten

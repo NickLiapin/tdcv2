@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of istočnoevropska ancestry, in the Bosnian medical register.
+locale: bs
+---
+Hemohromatoza
+Cistična fibroza
+Fenilketonurija
+Nedostatak alfa-1 antitripsina
+Kongenitalna hipotireoza
+Dijabetes tipa 1
+Beta-talasemija
+Wilsonova bolest

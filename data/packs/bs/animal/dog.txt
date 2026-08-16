@@ -1,0 +1,30 @@
+---
+description: Dog breed as Bosnian names it. TORNJAK IS THE NATIVE ONE: the Bosnian-Herzegovinian and Croatian shepherd dog of the Dinaric mountains, recognised by the FCI in 2007 under a joint Bosnian-Croatian standard, and it is the breed a Bosnian names first. Barak — the Bosnian coarse-haired hound — is the second, a hunting dog bred in the Bosna valley. The rest are the international breeds, with the descriptive names translated and the trade names kept.
+locale: bs
+---
+Tornjak
+Bosanski oštrodlaki gonič barak
+Šarplaninac
+Njemački ovčar
+Labrador retriver
+Zlatni retriver
+Francuski buldog
+Buldog
+Pudlica
+Bigl
+Rotvajler
+Jazavčar
+Bokser
+Sibirski haski
+Njemačka doga
+Doberman
+Australski ovčar
+Border koli
+Čivava
+Ši-cu
+Pomeranac
+Bernski planinski pas
+Dalmatinac
+Ovčar
+Lovački pas
+Mješanac

@@ -1,0 +1,42 @@
+---
+description: Trailing element of a Bosnian place name (Gornji Vakuf, Bosanski Brod, Kozarska Dubica, Han Pijesak, Banja Luka). VAKUF IS THE ONE NO NEIGHBOUR HAS: it is the Arabic waqf, an Islamic charitable endowment, and it named the towns that grew up on endowed land — Gornji Vakuf, Donji Vakuf, Skender Vakuf, Varcar Vakuf. Han is the roadside inn and names Han Pijesak; ćuprija is the bridge; banja is the spa and opens Banja Luka rather than closing it. The river phrases (na Uni, na Drini, na Savi) are the ordinary Bosnian way of disambiguating two towns with one name.
+locale: bs
+---
+Vakuf
+Han
+Ćuprija
+Banja
+Brijeg
+Polje
+Luka
+Most
+Grad
+Selo
+Voda
+Vrelo
+Kula
+Stijena
+Brod
+Dol
+Gaj
+Naselje
+Bunar
+Čaršija
+Mahala
+Tekija
+Kamen
+na Uni
+na Savi
+na Drini
+na Vrbasu
+na Bosni
+na Neretvi
+na Sani
+na Spreči
+Gornji
+Donji
+Veliki
+Mali
+Novi
+Stari
+Bosanski

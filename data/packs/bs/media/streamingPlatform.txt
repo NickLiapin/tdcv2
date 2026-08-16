@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in Bosnia. Netflix, Disney+ and HBO Max are here; the regional ones matter more in practice — Telemach's EON, BH Telecom's Moja TV and m:tel's Open IPTV are how most Bosnian households actually watch, and each belongs to one of the country's three telecom operators. Brand names keep their real spelling.
+locale: bs
+---
+Netflix
+HBO Max
+Disney+
+Amazon Prime Video
+Apple TV+
+YouTube
+Spotify
+Deezer
+EON
+Moja TV
+Open IPTV
+Pickbox

@@ -1,0 +1,184 @@
+---
+description: Street names that recur across Bosnian towns — writers, medieval rulers, rivers, trades, dates. TWO GRAMMATICAL SHAPES ARE MIXED and a config must compose them differently: the GENITIVE phrases (Meše Selimovića, Kulina bana) follow the thoroughfare type and are already inflected, so must not be inflected again; the ADJECTIVAL names (Bosanska, Kolodvorska) are feminine to agree with ulica and stand before it or alone with the number. The writers here are the shared Bosnian canon of all three communities — Meša Selimović, Mak Dizdar, Ivo Andrić, Aleksa Šantić, Petar Kočić, Antun Branko Šimić, Musa Ćazim Ćatić — and Kulin ban signed the 1189 charter that is the first document of the Bosnian state. Streets unique to one city belong to the Bosnia and Herzegovina COUNTRY pack, not to this file.
+locale: bs
+---
+Meše Selimovića
+Maka Dizdara
+Skendera Kulenovića
+Hasana Kikića
+Muse Ćazima Ćatića
+Alekse Šantića
+Svetozara Ćorovića
+Petra Kočića
+Branka Ćopića
+Ive Andrića
+Antuna Branka Šimića
+Safvet-bega Bašagića
+Hamze Hume
+Ćamila Sijarića
+Abdulaha Sidrana
+Isaka Samokovlije
+Zije Dizdarevića
+Vladimira Nazora
+Nikole Tesle
+Kulina bana
+Kralja Tvrtka
+Husein-kapetana Gradaščevića
+Hrvoja Vukčića Hrvatinića
+Fra Grge Martića
+Fra Anđela Zvizdovića
+Alije Izetbegovića
+Josipa Jurja Strossmayera
+Đure Jakšića
+Jovana Dučića
+Ivana Gundulića
+Marina Držića
+Ruđera Boškovića
+Vuka Karadžića
+Nikole Šubića Zrinskog
+Envera Šehovića
+Hamdije Kreševljakovića
+Mehmed-paše Sokolovića
+Muhameda Hevaija Uskufija
+Derviš-paše Bajezidagića
+Šukrije Kurtovića
+Hasana Brkića
+Bosanska
+Hercegovačka
+Careva
+Kolodvorska
+Čaršijska
+Mahalska
+Sarajevska
+Mostarska
+Tuzlanska
+Banjalučka
+Zenička
+Bihaćka
+Dobojska
+Bijeljinska
+Prijedorska
+Travnička
+Jajačka
+Livanjska
+Trebinjska
+Goraždanska
+Školska
+Bolnička
+Pijačna
+Zanatska
+Radnička
+Omladinska
+Partizanska
+Kozarska
+Igmanska
+Trebevićka
+Vrbaska
+Unska
+Drinska
+Neretvanska
+Savska
+Bosanskih ljiljana
+Zmaja od Bosne
+Braće Ribar
+Prve bosanske brigade
+Šehidska
+Gazijska
+Vakufska
+Tekijska
+Džamijska
+Franjevačka
+Kaldrmarska
+Sokolska
+Vrelo Bosne
+Ilidžanska
+Krajiška
+Ljubuška
+Posavska
+Konjička
+Fojnička
+Visočka
+Maglajska
+Tešanjska
+Gradačačka
+Brčanska
+Cvjetna
+Lipova
+Borova
+Jasenova
+Vrbova
+Kestenova
+Ružina
+Ljiljanova
+Zumbulova
+Behara
+Šipkova
+Dunjina
+Trešnjina
+Jabukova
+Kruškova
+Šljivova
+Orahova
+Lješnjakova
+Bagremova
+Hrastova
+Bukova
+Jelina
+Smrekova
+Topolina
+Proljetna
+Ljetna
+Jesenja
+Zimska
+Sunčana
+Vedra
+Zelena
+Široka
+Duga
+Kratka
+Uska
+Nova
+Stara
+Gornja
+Donja
+Srednja
+Prva
+Druga
+Treća
+Sedma
+Rudarska
+Željezničarska
+Tvornička
+Vojnička
+Mlinska
+Kovačka
+Kazandžijska
+Kujundžijska
+Terzijska
+Saračka
+Ćurčijska
+Tabačka
+Halvadžijska
+Bezistanska
+Hanska
+Hamamska
+Mektebska
+Medreska
+Ćuprijska
+Banjska
+Vrelska
+Izvorska
+Potočka
+Sanska
+Jezerska
+Planinska
+Brdska
+Podgorska
+Šumska
+Livadska
+Poljska
+Vinogradska
+Voćarska
+Baščaršijska
+Mejdanska
+Kapijska

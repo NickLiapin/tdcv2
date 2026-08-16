@@ -1,0 +1,16 @@
+---
+description: Dishes of the meksička kitchen as a Bosnian menu writes them. Foreign dish names are transcribed into Bosnian spelling rather than kept in the original — špagete, suši, gvakamole — because Bosnian writes a borrowed word the way it is said.
+locale: bs
+---
+Takosi
+Burito
+Kesadilja
+Enčilade
+Gvakamole
+Nachos
+Fahitas
+Čili kon karne
+Tamale
+Salsa
+Čurosi
+Pozole

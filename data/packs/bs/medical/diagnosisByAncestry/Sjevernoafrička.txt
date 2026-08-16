@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of sjevernoafrička ancestry, in the Bosnian medical register.
+locale: bs
+---
+Beta-talasemija
+Nedostatak G6PD
+Porodična mediteranska groznica
+Celijakija
+Nedostatak vitamina D
+Dijabetes tipa 2
+Neperzistentnost laktaze
+Favizam

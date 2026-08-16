@@ -1,0 +1,66 @@
+---
+description: Filler sentence. Handwritten: Project Gutenberg holds no Bosnian book at all, so no public-domain corpus exists for this language and these sentences were written for the pack rather than extracted. They are ordinary declarative Bosnian in the past and present tense, ijekavian throughout, and they carry the standard's markers where a natural sentence would carry them — polahko, lahko, kahva, akšam, sevdah, inat, sabur, nafaka, halaliti, muhabetiti, komšija, avlija, čaršija, sokak, ćuprija, jufka, kajmak, sinija, sofra. Sentence-final punctuation is included; a config that appends its own will double it.
+locale: bs
+---
+Kahva se pije polahko, u fildžanu, i niko ne žuri.
+Komšija je prešao preko avlije i donio tepsiju pite.
+U čaršiji je bilo živo, dućani su radili do akšama.
+Sunce je zašlo iza brda, a nad rijekom se digla magla.
+Nana je mijesila jufku na siniji, tanko kao list.
+Voda u vrelu je bila hladna i bistra i ljeti i zimi.
+Sokak je uzak, kaldrma neravna, ali vodi pravo do ćuprije.
+Djeca su se igrala pred kućom dok se nije smrklo.
+Na sofri je bilo hljeba, sira, kajmaka i mladog luka.
+Kiša je padala cijelu noć i potok je narastao do puta.
+Bura je duhala tri dana i onda naglo stala.
+Šljive su te godine dobro rodile pa se pekla rakija.
+Iz mahale se čula harmonika i neko je pjevao sevdalinku.
+Sjedili smo u bašči i muhabetili do iza ponoći.
+Put do sela je dug, ali se lahko pamti.
+Snijeg je zatrpao planinu i ceste su bile zatvorene.
+Otac je radio u fabrici trideset godina i nikad nije zakasnio.
+U školi su nas učili da se svaka riječ piše onako kako se čuje.
+Knjiga je stajala na polici godinama, niko je nije otvorio.
+Pisao je pisma svake sedmice, i svako je počinjalo istim selamom.
+Vjetar je nosio behar preko livade kao snijeg.
+Hljeb je bio topao, tek izvađen iz peći.
+Konj je bio star ali još uvijek jak i miran.
+Pčele su radile cijelo ljeto, a med je bio taman i gust.
+Zemlja je bila teška za kopanje, puna kamena.
+Majstor je uzeo čekić i popravio kapiju za pola sata.
+Cijena je bila visoka, ali roba je bila dobra.
+Na pijaci se prodavalo voće, povrće, sir i domaća jaja.
+Trgovina je zatvorena u podne i otvorena poslije ikindije.
+Račun je plaćen gotovinom jer kartica nije radila.
+Ljekar je rekao da nema razloga za brigu.
+Bolest je prošla za sedmicu dana bez lijekova.
+Srce mu je kucalo brzo dok je čekao odgovor.
+Ruke su joj bile hladne, a lice mirno.
+Sjećanje je izblijedjelo, ali ime je ostalo.
+Istina je jednostavna, samo je teško izgovoriti je.
+Inat je jača stvar od razuma, tako se bar priča.
+Sabur je najteža vrlina i najrjeđa.
+Ko ima merak, ima i vremena.
+Nafaka je ono što ti je zapisano, ni više ni manje.
+Halalio mu je sve, i nikad više o tome nije govorio.
+Sevdah nije tuga, nego nešto između tuge i zadovoljstva.
+Mjesec je bio pun i avlija je bila svijetla kao danju.
+Zvijezde su se vidjele bolje nego u gradu.
+Voz je kasnio dva sata, a niko se nije bunio.
+Autobus je bio pun, ljudi su stajali cijelim putem.
+Cesta je vodila kroz šumu, a onda niz dolinu.
+Most je star preko četiri stotine godina i još stoji.
+Kamen je bio gladak od hiljada ruku koje su ga dodirivale.
+Grad se budi rano, prije nego što sunce izađe iza planine.
+Radnici su počinjali u šest i završavali u dva.
+Plata je stizala petnaestog u mjesecu, nikad ranije.
+Posao je bio težak, ali se za njega dobro plaćalo.
+Ugovor je potpisan i ovjeren kod notara istog dana.
+Dokumenti su predani na šalter i primljen je broj predmeta.
+Rok je istekao u ponedjeljak i ništa se nije moglo uraditi.
+Sud je odložio ročište za mjesec dana.
+Odluka je stigla poštom, u koverti bez pečata.
+Ljeto je bilo dugo i suho, a jesen kratka.
+Zima je došla naglo, prvi snijeg je pao u novembru.
+Proljeće se osjeti prije nego što se vidi.
+Godine prolaze, a kuća ostaje ista.

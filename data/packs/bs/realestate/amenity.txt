@@ -1,0 +1,26 @@
+---
+description: Feature a Bosnian listing advertises. CENTRALNO GRIJANJE means district heating from a city plant and is a selling point; ETAŽNO GRIJANJE is a boiler for the flat alone. UKNJIŽEN — registered in the land book — is the most important word on any Bosnian listing, because a large share of the housing stock built since 1992 is not, and an unregistered flat cannot be mortgaged or cleanly sold.
+locale: bs
+---
+Uknjižen
+Centralno grijanje
+Etažno grijanje
+Grijanje na plin
+Grijanje na drva
+Klima uređaj
+Lift
+Balkon
+Terasa
+Garaža
+Parking mjesto
+Podrum
+Ostava
+Namješten
+Polunamješten
+Nov objekat
+Renoviran
+Pogled na planinu
+Blizu škole
+Blizu centra
+Optički internet
+Video nadzor

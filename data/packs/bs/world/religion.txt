@@ -1,0 +1,25 @@
+---
+description: Religion. BOSNIA IS THE ONE EUROPEAN COUNTRY WHERE THE FIRST THREE ARE ALL NATIVE AND ALL LARGE: islam (about half the population, Sunni and Hanafi, organised as the Islamiska zajednica), pravoslavlje (the Serbian Orthodox Church) and katoličanstvo (the Catholic Church, with the Bosnian Franciscan province that has been here since 1340). JUDAIZAM is fourth and not incidental — Sarajevo's Sephardic community arrived in 1565 and the Sarajevo Haggadah is the city's most famous object. The four are the legally recognised traditional communities, and DERVIŠKI RED names the Sufi orders that are a distinct Bosnian institution with their own tekije.
+locale: bs
+---
+Islam
+Pravoslavlje
+Katoličanstvo
+Judaizam
+Derviški red
+Protestantizam
+Adventizam
+Jehovini svjedoci
+Kršćanstvo
+Hinduizam
+Budizam
+Sikizam
+Bahaizam
+Šintoizam
+Taoizam
+Konfucijanizam
+Ateizam
+Agnosticizam
+Nereligiozan
+Neizjašnjen
+Tradicionalna vjerovanja

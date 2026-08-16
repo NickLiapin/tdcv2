@@ -1,0 +1,52 @@
+---
+description: University field of study, Bosnian. Note HISTORIJA — the Bosnian form, against Croatian povijest and Serbian istorija, a clean three-way split — and the h in HEMIJA and HIRURGIJA where Croatian writes kemija and kirurgija. Those h's are not a spelling preference: they are the Bosnian standard's characteristic restoration of the sound.
+locale: bs
+---
+Medicina
+Stomatologija
+Farmacija
+Veterina
+Zdravstvena njega
+Pravo
+Ekonomija
+Menadžment
+Bankarstvo i finansije
+Računovodstvo
+Političke nauke
+Sociologija
+Psihologija
+Pedagogija
+Filozofija
+Historija
+Arheologija
+Bosanski jezik i književnost
+Engleski jezik i književnost
+Njemački jezik i književnost
+Orijentalna filologija
+Komparativna književnost
+Žurnalistika
+Matematika
+Fizika
+Hemija
+Biologija
+Geografija
+Geologija
+Informatika
+Računarstvo
+Elektrotehnika
+Mašinstvo
+Građevinarstvo
+Arhitektura
+Saobraćaj
+Rudarstvo
+Metalurgija
+Tehnologija
+Agronomija
+Šumarstvo
+Prehrambena tehnologija
+Likovna umjetnost
+Muzička umjetnost
+Dramske umjetnosti
+Islamske nauke
+Katolička teologija
+Pravoslavna teologija

@@ -1,0 +1,16 @@
+---
+description: Dishes of the španska kitchen as a Bosnian menu writes them. Foreign dish names are transcribed into Bosnian spelling rather than kept in the original — špagete, suši, gvakamole — because Bosnian writes a borrowed word the way it is said.
+locale: bs
+---
+Paelja
+Gaspačo
+Tortilja od krompira
+Tapasi
+Čuros
+Pulpo a la galjega
+Jamon serano
+Sangrija
+Fabada
+Kroketi
+Patatas bravas
+Empanada

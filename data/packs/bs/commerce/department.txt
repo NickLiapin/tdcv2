@@ -1,0 +1,54 @@
+---
+description: Shop department as a Bosnian supermarket signs it. Note MESNICA for the butcher's counter and PEKARA for the in-store bakery — both are separate trades in Bosnia and a big shop hosts them under its roof rather than replacing them. BIJELA TEHNIKA, 'white goods', is the fixed phrase for large appliances.
+locale: bs
+---
+Voće i povrće
+Mesnica
+Riblja pijaca
+Mliječni proizvodi
+Pekara
+Slastičarna
+Delikatese
+Smrznuti proizvodi
+Konzervirana hrana
+Tjestenina i žitarice
+Začini
+Ulje i sirće
+Slatkiši
+Grickalice
+Bezalkoholna pića
+Alkoholna pića
+Kahva i čaj
+Dječija hrana
+Hrana za ljubimce
+Higijena
+Kozmetika
+Parfimerija
+Sredstva za čišćenje
+Papirna galanterija
+Bijela tehnika
+Mali kućanski aparati
+Elektronika
+Računari
+Mobiteli
+Audio i video
+Namještaj
+Posuđe
+Tekstil za dom
+Odjeća
+Obuća
+Dječija odjeća
+Sportska oprema
+Igračke
+Knjige
+Papirnica
+Alat
+Bašta i vrt
+Građevinski materijal
+Boje i lakovi
+Rasvjeta
+Auto oprema
+Optika
+Apoteka
+Nakit
+Cvjećara

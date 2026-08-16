@@ -1,0 +1,60 @@
+---
+description: Technical noun, Bosnian. FOUR WORDS SPLIT FROM CROATIAN AND THEY ARE THE FOUR MOST COMMON WORDS IN COMPUTING: RAČUNAR against Croatian računalo, ŠTAMPAČ against pisač, TASTATURA against tipkovnica and SISTEM against sustav. Bosnian follows Serbian on all four, and a translated Croatian glossary is immediately audible as foreign to a Bosnian reader.
+locale: bs
+---
+računar
+server
+mreža
+sistem
+program
+aplikacija
+baza podataka
+tabela
+upit
+podaci
+datoteka
+folder
+disk
+memorija
+procesor
+matična ploča
+grafička kartica
+napajanje
+monitor
+tastatura
+miš
+štampač
+skener
+ruter
+svič
+modem
+kabl
+port
+protokol
+paket
+adresa
+domena
+certifikat
+ključ
+lozinka
+korisnik
+nalog
+sesija
+kolačić
+sučelje
+biblioteka
+okvir
+kod
+skripta
+greška
+zakrpa
+verzija
+kopija
+rezervna kopija
+virus
+zlonamjerni softver
+vatrozid
+šifriranje
+propusnost
+kašnjenje
+oblak

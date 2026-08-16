@@ -1,0 +1,24 @@
+---
+description: What follows a Bosnian name. Bosnian has NO generational suffix — no Jr, Sr, II or III — and a son bearing his father's name is distinguished by the patronymic in brackets, never by a suffix; if your config needs one, it is modelling an American name and not a Bosnian one. What does follow a name is the academic or professional qualification, and Bosnia kept the pre-Bologna Yugoslav ladder alongside the Bologna one, so dipl. ing. and mr. sc. still print on cards next to bacc. and mag.
+locale: bs
+---
+dipl. ing.
+dipl. iur.
+dipl. oec.
+dipl. ecc.
+mr. sc.
+dr. sc.
+dr. med.
+dr. stom.
+dr. vet. med.
+spec.
+prim.
+prof.
+bacc.
+mag.
+univ. spec.
+ing.
+el. ing.
+građ. ing.
+maš. ing.
+hafiz

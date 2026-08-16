@@ -1,0 +1,20 @@
+---
+description: Seniority level. The first block is the Bosnian ladder as an employment book records it — pripravnik is the legally defined trainee grade — and the second is the English ladder that Bosnian IT companies use untranslated, because they hire into an international market. Both appear on Bosnian job adverts, often in the same advert.
+locale: bs
+---
+Pripravnik
+Praktikant
+Volonter
+Mlađi saradnik
+Saradnik
+Samostalni saradnik
+Viši saradnik
+Stručni saradnik
+Specijalista
+Vodeći stručnjak
+Šef odjela
+Rukovodilac
+Direktor sektora
+Izvršni direktor
+Junior
+Medior

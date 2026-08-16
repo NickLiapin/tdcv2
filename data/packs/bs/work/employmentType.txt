@@ -1,0 +1,15 @@
+---
+description: Employment arrangement as a Bosnian contract names it. UGOVOR O DJELU is the contract-for-a-task that carries no employment rights and is the country's commonest way of paying someone who is in practice an employee; VOLONTERSKI RAD covers the unpaid post-graduation traineeship (pripravnički staž) that many professions still require before licensing. The informal economy is large and RAD NA CRNO is the word for it.
+locale: bs
+---
+Puno radno vrijeme
+Nepuno radno vrijeme
+Na određeno vrijeme
+Na neodređeno vrijeme
+Ugovor o djelu
+Ugovor o privremenim poslovima
+Pripravnički staž
+Volonterski rad
+Sezonski rad
+Samostalna djelatnost
+Rad na crno

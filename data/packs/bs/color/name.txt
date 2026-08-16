@@ -1,0 +1,64 @@
+---
+description: Colour name in Bosnian. TWO VALUES SPLIT THE STANDARDS: NARANDŽASTA is the Bosnian and Serbian form and Croatian writes narančasta (dž against č); SMEĐA is Bosnian and Croatian where Serbian usually says braon. Teget is the deep navy of a uniform and comes from Turkish; ćilibarska is amber, from kehribar; and BOJA KAHVE — coffee colour — is written with the Bosnian h, not Croatian kave or Serbian kafe. Every colour here is an ADJECTIVE in the FEMININE, agreeing with boja (colour), which is itself a Turkish loan; a config attaching one to a masculine noun must change the ending (crvena haljina, crven auto).
+locale: bs
+---
+crvena
+plava
+zelena
+žuta
+narandžasta
+ljubičasta
+ružičasta
+smeđa
+siva
+crna
+bijela
+bež
+tirkizna
+zlatna
+srebrna
+bakarna
+bronzana
+bordo
+teget
+tamnoplava
+svijetloplava
+nebeskoplava
+modra
+tamnozelena
+svijetlozelena
+maslinasta
+boja mahovine
+tamnocrvena
+svijetlocrvena
+grimizna
+purpurna
+višnjeva
+trešnjeva
+boja cigle
+boja rđe
+boja kahve
+čokoladna
+karamel
+boja badema
+kestenjasta
+krem
+slonovača
+biserna
+sedefasta
+ćilibarska
+šafranasta
+limun žuta
+zlatno žuta
+boja pijeska
+boja meda
+boja lavande
+boja šljive
+boja mora
+boja neba
+antracit
+grafitna
+srebrnosiva
+prljavo bijela
+mat crna
+sjajna crna

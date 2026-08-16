@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier. These are the metal names, translated: bronza, srebro, zlato. Note that Bosnian players say the English tier names in voice chat and the Bosnian ones in writing.
+locale: bs
+---
+Bronza
+Srebro
+Zlato
+Platina
+Dijamant
+Majstor
+Veliki majstor
+Izazivač
+Početnik
+Legenda

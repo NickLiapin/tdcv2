@@ -1,0 +1,14 @@
+---
+description: Driving licence category as a Bosnian licence prints it. Bosnia uses the EU letter categories — B for a car, C for a lorry, D for a bus, E for a trailer — and NOT the American Class A/B/C system, which is a straight substitution error a translated list would make. C and D also require a professional competence certificate (CPC).
+locale: bs
+---
+B
+BE
+C1
+C1E
+C
+CE
+D1
+D1E
+D
+DE

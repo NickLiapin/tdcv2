@@ -1,0 +1,23 @@
+---
+description: Named weather event. THE FIRST THREE ARE THE REGION'S OWN WINDS and every one of them is a proper noun in Bosnian: BURA is the cold north-easterly that falls off the Dinarides onto Herzegovina and the coast, JUGO the warm damp southerly that blows before rain and is blamed for headaches, and KOŠAVA the eastern wind of the Sava plain. Bosnia has no hurricanes and no monsoon; what it does have is flooding — the May 2014 floods on the Sava, Bosna and Vrbas were the worst in 120 years and set off thousands of landslides that moved wartime minefields, which is why KLIZIŠTE is on this list and not on an English one.
+locale: bs
+---
+Bura
+Jugo
+Košava
+Poplava
+Bujica
+Klizište
+Suša
+Toplotni val
+Mraz
+Poledica
+Snježna oluja
+Snježni nanos
+Grmljavina
+Olujni vjetar
+Šumski požar
+Pijavica
+Tuča
+Inverzija
+Smog

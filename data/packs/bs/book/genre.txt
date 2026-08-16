@@ -1,0 +1,35 @@
+---
+description: Book genre, Bosnian. SEVDALINKA and the epic pjesma are named separately from lyric poetry because they are separate traditions here, and the collections of them are a shelf in every Bosnian bookshop. Note ROMAN for the novel — the French word, used across the region — and PRIPOVIJETKA, the ijekavian short story, against Serbia's pripovetka.
+locale: bs
+---
+Roman
+Pripovijetka
+Novela
+Poezija
+Sevdalinka
+Epska pjesma
+Drama
+Esej
+Putopis
+Biografija
+Autobiografija
+Memoari
+Historija
+Filozofija
+Publicistika
+Naučna literatura
+Udžbenik
+Priručnik
+Rječnik
+Enciklopedija
+Kriminalistički roman
+Trileri
+Naučna fantastika
+Fantastika
+Ljubavni roman
+Horor
+Satira
+Dječija književnost
+Strip
+Kuharica
+Vjerska literatura

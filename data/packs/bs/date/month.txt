@@ -1,0 +1,16 @@
+---
+description: Month name — AND THIS IS THE CLEANEST THREE-WAY TEST IN THE WHOLE PACK. Croatian uses the Slavic month names (siječanj, veljača, ožujak, travanj, svibanj, lipanj, srpanj, kolovoz, rujan, listopad, studeni, prosinac) and Bosnian uses NONE of them, so all twelve values here differ from Croatian. Serbian uses the international names but writes avgust, jun and jul, while the Bosnian standard writes AUGUST, JUNI and JULI — so three of the twelve differ from Serbian too. Lower case: Bosnian does not capitalise month names, and a capital initial inside a date is an English habit. The genitive is what appears inside a date (5. januara 2024.) — see monthsInDate in DATE_LOCALE.json.
+locale: bs
+---
+januar
+februar
+mart
+april
+maj
+juni
+juli
+august
+septembar
+oktobar
+novembar
+decembar

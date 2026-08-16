@@ -1,0 +1,12 @@
+---
+description: Sport with a coherent position list — these values are the filenames in sport/positionBySport, character for character. NOGOMET IS THE FIRST WORD AND IT IS ALSO THE COUNTRY'S BEST-KNOWN LINGUISTIC COMPROMISE: the governing body is officially the NOGOMETNI/FUDBALSKI SAVEZ BOSNE I HERCEGOVINE, with the slash, because nogomet is the Bosnian and Croatian word and fudbal the Serbian one, and neither side would drop theirs. Both are used inside the country, in the same league. This pack uses nogomet, which is the Federation form and the one Bosnian dictionaries give first; a Republika Srpska source will say fudbal for exactly the same game. MALI NOGOMET is futsal, played in every school hall.
+locale: bs
+---
+Nogomet
+Košarka
+Rukomet
+Odbojka
+Vaterpolo
+Mali nogomet
+Hokej na ledu
+Ragbi

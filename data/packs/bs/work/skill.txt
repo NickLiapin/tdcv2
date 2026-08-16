@@ -1,0 +1,46 @@
+---
+description: Workplace skill. The technical names are English and stay English because that is how a Bosnian CV writes them; the soft skills are Bosnian. Note KOMUNIKATIVNOST and SNALAŽLJIVOST — the second is a genuinely load-bearing Bosnian workplace virtue, roughly 'the ability to get by', and it appears on real job adverts.
+locale: bs
+---
+Timski rad
+Komunikativnost
+Snalažljivost
+Organizacija
+Vođenje tima
+Rješavanje problema
+Analitičnost
+Kreativnost
+Pregovaranje
+Prezentacija
+Upravljanje projektima
+Upravljanje vremenom
+Rad pod pritiskom
+Preciznost
+Odgovornost
+Prilagodljivost
+Kritičko mišljenje
+Mentorstvo
+Poslovno pisanje
+Poznavanje engleskog jezika
+Poznavanje njemačkog jezika
+Rad na računaru
+Microsoft Excel
+Microsoft Word
+PowerPoint
+SQL
+Python
+JavaScript
+Java
+Git
+Linux
+AutoCAD
+SAP
+Digitalni marketing
+SEO
+Grafički dizajn
+Knjigovodstvo
+Vozačka dozvola B kategorije
+Zaštita na radu
+Prva pomoć
+Kuhanje
+Zavarivanje

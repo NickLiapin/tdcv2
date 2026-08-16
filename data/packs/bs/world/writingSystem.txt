@@ -1,0 +1,24 @@
+---
+description: Writing system, Bosnian. THE FIRST FOUR ARE ALL BOSNIAN HISTORY, not a list of foreign scripts: LATINICA is what Bosnian is written in today; ĆIRILICA is equally official in this country and is what Republika Srpska publishes in; BOSANČICA is the local Cyrillic hand of medieval Bosnia, used on the stećak tombstones and in the Bosnian chancery until the eighteenth century; and ARABICA — also called ARABICA or matufovica — is the ADAPTED ARABIC SCRIPT in which Bosnian was written by Muslim authors from the sixteenth century to the twentieth, the alhamijado literature. Four scripts for one language, three of them native. Glagoljica is the fifth, used in the Catholic west of the country.
+locale: bs
+---
+Latinica
+Ćirilica
+Bosančica
+Arabica
+Glagoljica
+Arapsko pismo
+Grčko pismo
+Hebrejsko pismo
+Devanagari
+Kinesko pismo
+Hangul
+Hiragana
+Katakana
+Gruzijsko pismo
+Jermensko pismo
+Tajlandsko pismo
+Etiopsko pismo
+Runsko pismo
+Brajevo pismo
+Znakovno pismo

@@ -1,0 +1,46 @@
+---
+description: Symptom as a Bosnian patient describes it. MUKA is nausea and literally means torment; the phrase a patient uses is 'muka mi je', which is impersonal and has no subject — a construction Bosnian uses for most bodily states (hladno mi je, muka mi je, boli me), and one that no word list can convey on its own. Note KAŠALJ, GLAVOBOLJA and TEMPERATURA — a Bosnian says 'imam temperaturu' for a fever, not 'imam groznicu'.
+locale: bs
+---
+Glavobolja
+Vrtoglavica
+Temperatura
+Groznica
+Drhtavica
+Kašalj
+Suhi kašalj
+Kijanje
+Curenje nosa
+Začepljen nos
+Grlobolja
+Promuklost
+Otežano disanje
+Nedostatak zraka
+Bol u grudima
+Lupanje srca
+Muka
+Povraćanje
+Proljev
+Zatvor
+Bol u stomaku
+Nadutost
+Žgaravica
+Gubitak apetita
+Gubitak težine
+Umor
+Malaksalost
+Nesanica
+Pospanost
+Bol u leđima
+Bol u vratu
+Bol u zglobovima
+Ukočenost
+Otok nogu
+Trnci
+Utrnulost
+Osip
+Svrbež
+Znojenje
+Zamagljen vid
+Zujanje u ušima
+Gubitak ravnoteže

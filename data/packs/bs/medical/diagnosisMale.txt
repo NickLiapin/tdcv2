@@ -1,0 +1,24 @@
+---
+description: Diagnosis recorded only or overwhelmingly in men. PROSTATA is the prostate and the two commonest entries here are its enlargement and its cancer; Bosnian screening rates are low and the disease is typically found late, which is a real feature of the country's cancer registry.
+locale: bs
+---
+Benigna hiperplazija prostate
+Karcinom prostate
+Prostatitis
+Erektilna disfunkcija
+Varikokela
+Hidrokela
+Torzija testisa
+Karcinom testisa
+Epididimitis
+Fimoza
+Muška neplodnost
+Androgena alopecija
+Ginekomastija
+Hipogonadizam
+Ingvinalna hernija
+Peyronieva bolest
+Balanitis
+Retencija urina
+Nedostatak testosterona
+Karcinom penisa

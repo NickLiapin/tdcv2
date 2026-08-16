@@ -1,0 +1,32 @@
+---
+description: Fish, Bosnian. The freshwater list is the country's own: Bosnia's rivers hold brown trout (POTOČNA PASTRMKA) and the Neretva has its endemic softmouth trout, and pastrmka rather than pastrva is the Bosnian and Serbian form where Croatian writes pastrva. The Adriatic fish appear because Neum is Bosnia's twenty kilometres of coast and its market sells them.
+locale: bs
+---
+Potočna pastrmka
+Kalifornijska pastrmka
+Mladica
+Lipljen
+Šaran
+Som
+Štuka
+Smuđ
+Klen
+Skobalj
+Deverika
+Linjak
+Grgeč
+Babuška
+Jegulja
+Zlatna ribica
+Losos
+Tuna
+Oslić
+Skuša
+Srdela
+Brancin
+Orada
+Trlja
+List
+Sipa
+Lignja
+Hobotnica

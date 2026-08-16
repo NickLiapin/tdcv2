@@ -1,0 +1,44 @@
+---
+description: Medical specialty. Note HIRURGIJA against Croatian kirurgija — the Bosnian and Serbian h — and that the specialty names are Latin-derived and identical across the region except for that one sound, which is exactly why it is a useful marker. PORODIČNA MEDICINA is Bosnia's reformed primary care, the family-doctor model rolled out after the war to replace the Yugoslav polyclinic.
+locale: bs
+---
+Porodična medicina
+Opća medicina
+Interna medicina
+Hirurgija
+Opća hirurgija
+Abdominalna hirurgija
+Kardiohirurgija
+Neurohirurgija
+Ortopedija
+Traumatologija
+Urologija
+Ginekologija
+Akušerstvo
+Pedijatrija
+Neonatologija
+Kardiologija
+Neurologija
+Pulmologija
+Gastroenterologija
+Endokrinologija
+Nefrologija
+Hematologija
+Onkologija
+Radioterapija
+Reumatologija
+Infektologija
+Dermatologija
+Venerologija
+Oftalmologija
+Otorinolaringologija
+Psihijatrija
+Anesteziologija
+Radiologija
+Patologija
+Mikrobiologija
+Fizikalna medicina
+Medicina rada
+Epidemiologija
+Stomatologija
+Maksilofacijalna hirurgija

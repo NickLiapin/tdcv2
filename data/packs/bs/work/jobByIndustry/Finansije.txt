@@ -1,0 +1,20 @@
+---
+description: Jobs that belong to the finansije sector in Bosnia, in the masculine citation form. Drawn together with the parent work/industryCoherent so a record's industry and job agree.
+locale: bs
+---
+Bankar
+Šalterski službenik
+Kreditni referent
+Finansijski analitičar
+Računovođa
+Knjigovođa
+Revizor
+Poreski savjetnik
+Aktuar
+Broker
+Osiguravajući agent
+Procjenitelj štete
+Blagajnik
+Kontrolor
+Direktor filijale
+Analitičar rizika

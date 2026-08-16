@@ -1,0 +1,8 @@
+---
+description: Season. Four, and note the ijekavian PROLJEĆE — Serbia's ekavian writes proleće. That vowel is the reflex of Common Slavic yat, and it splits the region's speech far more consistently than any national border does: Bosnia is ijekavian throughout, in all three of its languages.
+locale: bs
+---
+proljeće
+ljeto
+jesen
+zima

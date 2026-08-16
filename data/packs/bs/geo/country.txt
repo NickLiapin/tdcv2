@@ -1,0 +1,41 @@
+---
+description: Country as Bosnian names it, weighted by population in millions. Bosnian TRANSLATES or naturalises a country name rather than respelling it — Njemačka for Germany, Holandija for the Netherlands, Sjedinjene Američke Države for the United States — and keeps the local form only where it never coined one (Brazil, Kanada, Pakistan, Singapur). TWO ENTRIES SPLIT FROM CROATIAN AND BOTH FOLLOW SERBIAN: ŠPANIJA where Croatian says Španjolska, and HOLANDIJA where Croatian says Nizozemska. ŠVICARSKA, by contrast, follows Croatian against Serbian Švajcarska. The Bosnian standard picks one side per word rather than one side per language, and this file is a compact demonstration of that.
+locale: bs
+weighted: true
+---
+Kina,1410
+Indija,1400
+Sjedinjene Američke Države,335
+Indonezija,275
+Pakistan,240
+Nigerija,220
+Brazil,215
+Bangladeš,170
+Rusija,144
+Meksiko,128
+Japan,125
+Egipat,110
+Vijetnam,98
+Turska,85
+Njemačka,84
+Tajland,72
+Francuska,68
+Ujedinjeno Kraljevstvo,67
+Južnoafrička Republika,60
+Italija,59
+Južna Koreja,52
+Španija,47
+Argentina,46
+Kanada,39
+Poljska,38
+Saudijska Arabija,36
+Australija,26
+Holandija,18
+Švedska,10
+Grčka,10
+Portugal,10
+Švicarska,9
+Singapur,6
+Norveška,5
+Irska,5
+Novi Zeland,5

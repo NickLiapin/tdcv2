@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of mediteranska ancestry, in the Bosnian medical register.
+locale: bs
+---
+Beta-talasemija
+Nosilac beta-talasemije
+Nedostatak G6PD
+Porodična mediteranska groznica
+Favizam
+Hemohromatoza
+Celijakija
+Nedostatak vitamina D

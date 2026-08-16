@@ -1,0 +1,28 @@
+---
+description: Insect and small invertebrate, Bosnian. Pčela leads because Bosnia has kept village beekeeping and the honey is a named product; bogomoljka is the mantis, literally 'the one who prays to God'.
+locale: bs
+---
+Mrav
+Pčela
+Osa
+Stršljen
+Bumbar
+Leptir
+Moljac
+Buba
+Vilin konjic
+Skakavac
+Cvrčak
+Bubamara
+Krijesnica
+Bogomoljka
+Cikada
+Termit
+Komarac
+Muha
+Buha
+Uš
+Stjenica
+Pauk
+Škorpija
+Stonoga

@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of sjevernoevropska ancestry, in the Bosnian medical register.
+locale: bs
+---
+Cistična fibroza
+Hemohromatoza
+Nedostatak alfa-1 antitripsina
+Celijakija
+Multipla skleroza
+Dijabetes tipa 1
+Melanom
+Perzistentnost laktaze

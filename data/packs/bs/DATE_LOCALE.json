@@ -1,0 +1,60 @@
+{
+  "months": [
+    "januar",
+    "februar",
+    "mart",
+    "april",
+    "maj",
+    "juni",
+    "juli",
+    "august",
+    "septembar",
+    "oktobar",
+    "novembar",
+    "decembar"
+  ],
+  "monthsInDate": [
+    "januara",
+    "februara",
+    "marta",
+    "aprila",
+    "maja",
+    "juna",
+    "jula",
+    "augusta",
+    "septembra",
+    "oktobra",
+    "novembra",
+    "decembra"
+  ],
+  "monthsShort": [
+    "jan.",
+    "feb.",
+    "mar.",
+    "apr.",
+    "maj",
+    "jun.",
+    "jul.",
+    "aug.",
+    "sep.",
+    "okt.",
+    "nov.",
+    "dec."
+  ],
+  "weekdays": [
+    "nedjelja",
+    "ponedjeljak",
+    "utorak",
+    "srijeda",
+    "četvrtak",
+    "petak",
+    "subota"
+  ],
+  "weekdaysShort": ["ned.", "pon.", "uto.", "sri.", "čet.", "pet.", "sub."],
+  "formats": {
+    "L": "DD.MM.YYYY.",
+    "LL": "D. MMMM YYYY.",
+    "LLL": "D. MMMM YYYY. HH:mm",
+    "LLLL": "dddd, D. MMMM YYYY. HH:mm"
+  }
+}

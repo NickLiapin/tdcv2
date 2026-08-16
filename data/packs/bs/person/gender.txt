@@ -1,0 +1,8 @@
+---
+description: Gender label. Bosnian uses SPOL for sex — the Croatian word, and the one Federation forms carry — while Republika Srpska forms write POL, the Serbian word, for the same field. Both appear on paperwork inside one country. The values below are the entries, not the field label.
+locale: bs
+---
+Muško
+Žensko
+Drugo
+Ne želi navesti

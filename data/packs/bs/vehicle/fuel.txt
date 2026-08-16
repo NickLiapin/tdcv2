@@ -1,0 +1,14 @@
+---
+description: Fuel. Bosnia's pumps sell benzin and dizel; LPG (TNG in Bosnian, tečni naftni gas) is common on converted older cars, and the electric charging network is thin outside Sarajevo and Banja Luka.
+locale: bs
+---
+Benzin
+Dizel
+Električni
+Hibrid
+Plug-in hibrid
+Plin
+TNG
+Vodik
+Etanol
+Biodizel

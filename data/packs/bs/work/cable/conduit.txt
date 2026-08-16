@@ -1,0 +1,13 @@
+---
+description: Conduit or installation method for a cable run, as a Bosnian telecom or electrical specification writes it. Bosnia's distribution is still largely aerial on poles outside the cities, which is why nadzemno and samonosivi kabl lead.
+locale: bs
+---
+PVC cijev
+Rebrasta cijev
+HDPE cijev
+Direktno u zemlju
+Kablovski kanal
+Kablovska police
+Nadzemno na stubovima
+Samonosivi kabl
+Kroz kanalizaciju

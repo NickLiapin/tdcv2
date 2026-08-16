@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of jugoistočnoazijska ancestry, in the Bosnian medical register.
+locale: bs
+---
+Alfa-talasemija
+Beta-talasemija
+Hemoglobin E
+Nedostatak G6PD
+Neperzistentnost laktaze
+Nazofaringealni karcinom
+Talasemija intermedija

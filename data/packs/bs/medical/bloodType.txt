@@ -1,0 +1,12 @@
+---
+description: Blood group. BOSNIA WRITES ZERO, NOT THE LETTER O — the group is 0 (nula) on every Bosnian blood-donor card, lab report and health book, following the German and wider European convention, and NOT the American O. A config that renders it as the letter O has produced a document that would be read as a typo here. Rh factor is written Rh+ and Rh- after the group, so a full Bosnian entry reads '0 Rh+'.
+locale: bs
+---
+A Rh+
+A Rh-
+B Rh+
+B Rh-
+AB Rh+
+AB Rh-
+0 Rh+
+0 Rh-

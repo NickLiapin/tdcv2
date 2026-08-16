@@ -1,0 +1,36 @@
+---
+description: The Bosnian table. Ćevapi are the ten little minced-beef fingers in somun bread with raw onion, and they are the national dish; BEGOVA ČORBA — the bey's soup — is chicken, okra and cream and is the dish the Ottoman gentry left behind; BOSANSKI LONAC is the layered pot cooked for hours over wood; JAPRAK is vine or chard leaves rolled around rice and meat, SOGAN-DOLMA is onions hollowed and stuffed, KLEPE are the small filled dumplings under garlic yoghurt. PITA is not a pie: it is the coiled or layered jufka pastry, and it takes a different name for each filling — zeljanica with chard, sirnica with cheese, krompiruša with potato, burek with meat and ONLY with meat, which is the distinction a Bosnian will correct a foreigner on. The sweets are Ottoman: baklava, kadaif, hurmašice, halva, tulumbe, and TUFAHIJE — whole walnut-stuffed apples poached in syrup. Ašure is the Ashura pudding, cooked and given away on the tenth of Muharram.
+locale: bs
+---
+Ćevapi
+Burek
+Begova čorba
+Bosanski lonac
+Japrak
+Sogan-dolma
+Klepe
+Dolma
+Sarma
+Zeljanica
+Sirnica
+Krompiruša
+Kljukuša
+Tarhana
+Pilav
+Pljeskavica
+Sudžukice
+Ćufte
+Musaka
+Grah s mesom
+Bosanska kalja
+Hadžijski ćevap
+Tufahije
+Hurmašice
+Baklava
+Kadaif
+Halva
+Tulumbe
+Ružice
+Šampita
+Sutlijaš
+Ašure

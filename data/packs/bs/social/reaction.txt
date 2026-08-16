@@ -1,0 +1,15 @@
+---
+description: Reaction to a post, Bosnian. Sviđa mi se is the literal 'it pleases me' that Facebook translated Like as, and it is what the button says in Bosnian; the rest are the emotion names.
+locale: bs
+---
+Sviđa mi se
+Super
+Volim
+Smijeh
+Wow
+Tuga
+Ljutnja
+Briga
+Podrška
+Slažem se
+Ne slažem se

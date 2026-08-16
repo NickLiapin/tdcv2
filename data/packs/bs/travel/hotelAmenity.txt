@@ -1,0 +1,34 @@
+---
+description: Hotel facility as a Bosnian booking page lists it. Bosnia's spa hotels are a real category — Banja Vrućica, Ilidža, Fojnica — so BAZAN, SAUNA and TERMALNI BAZEN are ordinary listings and not luxuries. Note PARKING and WI-FI kept in their international spelling, and DORUČAK U CIJENI, breakfast in the price, which is the phrase a Bosnian search filters on.
+locale: bs
+---
+Besplatan Wi-Fi
+Besplatan parking
+Doručak u cijeni
+Klima uređaj
+Grijanje
+Restoran
+Bar
+Bazen
+Termalni bazen
+Sauna
+Đakuzi
+Wellness centar
+Masaža
+Teretana
+Sef
+Mini bar
+Televizor
+Sušilo za kosu
+Balkon
+Terasa
+Bašča
+Kućni ljubimci dozvoljeni
+Pristup za invalide
+Lift
+Recepcija 24 sata
+Usluga pranja veša
+Šatl prevoz
+Punjač za električni automobil
+Dječije igralište
+Konferencijska sala

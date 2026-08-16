@@ -1,0 +1,44 @@
+---
+description: Technical verb, INFINITIVE and IMPERFECTIVE. Bosnian verbs come in aspect pairs and this file gives the form that means an action in progress; the completed partner is a different word (kompajlirati has no perfective, but instalirati/instalirati, brisati/obrisati, slati/poslati do). A config building a past tense from this list gets 'was deleting' where it means 'deleted', and there is no suffix rule that fixes it — the pair must be listed, and this file lists only one half of it.
+locale: bs
+---
+instalirati
+deinstalirati
+pokrenuti
+zaustaviti
+restartovati
+konfigurisati
+podesiti
+povezati
+prekinuti
+slati
+primati
+preuzimati
+postavljati
+kopirati
+premještati
+brisati
+arhivirati
+raspakovati
+kompajlirati
+izvršiti
+testirati
+otklanjati greške
+šifrirati
+dešifrirati
+autentificirati
+autorizirati
+indeksirati
+pretraživati
+filtrirati
+sortirati
+validirati
+sinhronizovati
+keširati
+logovati
+nadgledati
+skalirati
+optimizirati
+migrirati
+razviti
+objaviti

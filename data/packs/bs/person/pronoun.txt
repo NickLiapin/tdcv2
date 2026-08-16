@@ -1,0 +1,9 @@
+---
+description: Personal pronoun, nominative and accusative. Bosnian has THREE grammatical genders and the past-tense verb agrees with them (on je došao, ona je došla, ono je došlo), so a pronoun choice propagates through the whole sentence and there is no gender-free third person singular. Bosnian has NO established non-binary pronoun; oni/njih is a plural pressed into service by translators and is not standard usage — this file records that rather than inventing a form.
+locale: bs
+---
+on/njega
+ona/nju
+ono/njega
+oni/njih
+one/njih

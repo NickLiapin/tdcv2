@@ -1,0 +1,18 @@
+---
+description: Diagnoses a kardiologija clinic in Bosnia actually records, in the Bosnian medical register. Drawn together with the parent medical/specialtyCoherent so the specialty and the diagnosis agree.
+locale: bs
+---
+Arterijska hipertenzija
+Angina pektoris
+Infarkt miokarda
+Srčana insuficijencija
+Atrijalna fibrilacija
+Aritmija
+Kardiomiopatija
+Perikarditis
+Miokarditis
+Aortna stenoza
+Mitralna insuficijencija
+Duboka venska tromboza
+Ateroskleroza
+Hiperlipidemija

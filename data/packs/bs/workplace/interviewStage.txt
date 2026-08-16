@@ -1,0 +1,15 @@
+---
+description: Stage of a hiring process as a Bosnian employer names it. The public sector runs a KONKURS — an advertised competition with a written test and a scored interview, legally required — while the private sector runs the informal ladder above it; the two words in this list mark that split.
+locale: bs
+---
+Prijava na konkurs
+Provjera dokumentacije
+Uži izbor
+Telefonski razgovor
+Prvi razgovor
+Drugi razgovor
+Pismeni test
+Praktični zadatak
+Razgovor s direktorom
+Provjera referenci
+Ponuda za posao

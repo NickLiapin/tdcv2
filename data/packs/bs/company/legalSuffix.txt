@@ -1,0 +1,25 @@
+---
+description: Legal form written after a company name in BOSNIA AND HERZEGOVINA — and this is one place where the language pack cannot help naming a country, because the forms are what the words MEAN. D.O.O. (društvo s ograničenom odgovornošću) is the limited company and covers the overwhelming majority of firms; D.D. is the joint-stock company in the Federation and A.D. (akcionarsko društvo) is the SAME THING in Republika Srpska under a different name, which is why both are here. JP is a public enterprise and JU a public institution. S.P. and OBRT cover the sole trader, registered with a municipality rather than the court. Company registers are ENTITY-level in Bosnia, not state-level, so a firm's suffix tells you which entity registered it.
+locale: bs
+---
+d.o.o.
+d.d.
+a.d.
+d.n.o.
+k.d.
+o.d.
+s.p.
+obrt
+zadruga
+j.p.
+j.u.
+j.k.p.
+ustanova
+fondacija
+udruženje
+podružnica
+predstavništvo
+grupa
+holding
+koncern
+banka

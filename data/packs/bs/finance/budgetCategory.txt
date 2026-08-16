@@ -1,0 +1,24 @@
+---
+description: Household budget line as a Bosnian family keeps it. REŽIJE is the single word for the bundle of utility bills — electricity, water, rubbish, communal charge — and it is what a Bosnian household actually budgets by; there is no per-utility budgeting in ordinary speech. Grijanje is a separate line because district heating is billed separately in the cities and firewood is bought by the cubic metre everywhere else.
+locale: bs
+---
+Stanarina
+Kredit za stan
+Režije
+Struja
+Voda
+Grijanje
+Komunalije
+Hrana
+Higijena
+Prevoz
+Gorivo
+Telefon i internet
+Zdravstvo
+Lijekovi
+Obrazovanje
+Odjeća i obuća
+Zabava
+Godišnji odmor
+Štednja
+Otplata dugova

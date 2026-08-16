@@ -1,0 +1,16 @@
+---
+description: Zodiac sign. Bosnian translates the Latin names rather than keeping them, and the grammatical gender is not the one a translator expects: Vaga, Djevica, Škorpija and Ribe are feminine, Ovan, Bik and Lav masculine.
+locale: bs
+---
+Ovan
+Bik
+Blizanci
+Rak
+Lav
+Djevica
+Vaga
+Škorpija
+Strijelac
+Jarac
+Vodolija
+Ribe

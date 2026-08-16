@@ -1,0 +1,12 @@
+---
+description: Monthly net household income band in KONVERTIBILNA MARKA (KM, ISO 4217 BAM), the currency of the whole country, pegged to the euro at the Deutsche Mark's old rate of 1 EUR = 1.95583 KM. That peg has not moved since 1998 and is why a Bosnian reads a euro price by halving the marka. The bands sit around the country's real average net wage, which passed 1,200 KM in 2023, so the middle of this list is the middle of this country and not of a European average. MONTHLY, not annual: Bosnian pay is quoted per month and the annual figure appears nowhere outside a tax return. Thousands are written with a full stop, decimals with a comma.
+locale: bs
+---
+Do 500 KM
+500-800 KM
+800-1.000 KM
+1.000-1.400 KM
+1.400-2.000 KM
+2.000-3.000 KM
+3.000-5.000 KM
+Preko 5.000 KM

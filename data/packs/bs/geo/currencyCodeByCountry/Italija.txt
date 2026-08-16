@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Italija. Codes are international and identical in every locale; Bosnia's own is BAM.
+locale: bs
+---
+EUR

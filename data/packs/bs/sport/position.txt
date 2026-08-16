@@ -1,0 +1,41 @@
+---
+description: Playing position, without regard to sport. Drawn together these are ambiguous — GOLMAN and CENTAR each belong to four different sports and mean four different things — so a config that needs a position to match a sport must use sport/positionBySport instead, which is what that directory is for.
+locale: bs
+---
+Golman
+Bek
+Desni bek
+Lijevi bek
+Stoper
+Libero
+Zadnji vezni
+Centralni vezni
+Ofanzivni vezni
+Vezni igrač
+Desno krilo
+Lijevo krilo
+Krilo
+Napadač
+Špic
+Plejmejker
+Bek šuter
+Nisko krilo
+Krilni centar
+Centar
+Centarbek
+Kružni napadač
+Lijevi vanjski
+Srednji vanjski
+Desni vanjski
+Dizač
+Korektor
+Primač servisa
+Srednji bloker
+Univerzalni igrač
+Pivot
+Fiksni
+Odbrambeni igrač
+Kapiten
+Rezerva
+Trener
+Sudija

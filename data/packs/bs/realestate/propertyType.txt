@@ -1,0 +1,23 @@
+---
+description: Kind of property as a Bosnian listing describes it. GARSONJERA is the studio flat — one room and a kitchenette — and is a fixed category on every Bosnian portal; JEDNOSOBAN, DVOSOBAN and TROSOBAN count the ROOMS OTHER THAN THE KITCHEN, so a 'dvosoban stan' has a living room and a bedroom, not two bedrooms, and that is the single commonest misreading of a Balkan property advert by a foreign buyer. VIKENDICA is the weekend cottage and IMANJE the farmstead with land.
+locale: bs
+---
+Garsonjera
+Jednosoban stan
+Jedan i po soban stan
+Dvosoban stan
+Dva i po soban stan
+Trosoban stan
+Četverosoban stan
+Penthouse
+Kuća
+Kuća u nizu
+Vila
+Vikendica
+Imanje
+Zemljište
+Građevinsko zemljište
+Poljoprivredno zemljište
+Poslovni prostor
+Kancelarija
+Skladište

@@ -1,0 +1,13 @@
+---
+description: Television content rating as Bosnian broadcasters mark it. Bosnia's Regulatorna agencija za komunikacije uses AGE LIMITS with a plus sign — 12+, 16+, 18+ — and not letter codes, so a config borrowing the American G/PG/R set produces marks that appear on no Bosnian screen. The words beside them are what the on-screen caption says.
+locale: bs
+---
+Bez ograničenja
+12+
+16+
+18+
+Roditeljski nadzor
+Neprimjereno za djecu
+Nasilje
+Vulgaran govor
+Nije za gledaoce mlađe od 18 godina

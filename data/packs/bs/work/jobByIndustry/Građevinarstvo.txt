@@ -1,0 +1,22 @@
+---
+description: Jobs that belong to the građevinarstvo sector in Bosnia, in the masculine citation form. Drawn together with the parent work/industryCoherent so a record's industry and job agree.
+locale: bs
+---
+Građevinski inženjer
+Arhitekta
+Geodeta
+Nadzorni inženjer
+Zidar
+Tesar
+Armirač
+Krovopokrivač
+Fasader
+Moler
+Keramičar
+Parketar
+Staklar
+Vodoinstalater
+Električar
+Rukovalac građevinskih mašina
+Predradnik
+Kalkulant

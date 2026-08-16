@@ -1,0 +1,22 @@
+---
+description: Jobs that belong to the saobraćaj sector in Bosnia, in the masculine citation form. Drawn together with the parent work/industryCoherent so a record's industry and job agree.
+locale: bs
+---
+Vozač kamiona
+Vozač autobusa
+Taksista
+Kurir
+Dostavljač
+Mašinovođa
+Kondukter
+Pilot
+Stjuardesa
+Kontrolor letenja
+Špediter
+Logističar
+Otpremnik
+Dispečer
+Carinski agent
+Skiper
+Radnik na pruzi
+Održavatelj puteva

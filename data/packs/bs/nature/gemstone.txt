@@ -1,0 +1,29 @@
+---
+description: Gemstone, Bosnian. The names are translated where a Slavic or Turkish word exists (dragulj is the gem itself, ćilibar is amber from Turkish kehribar, biser is pearl, tirkiz is turquoise — all three loans that arrived through Ottoman trade) and transliterated where none does.
+locale: bs
+---
+Dijamant
+Rubin
+Safir
+Smaragd
+Ametist
+Topaz
+Opal
+Granat
+Akvamarin
+Peridot
+Tirkiz
+Žad
+Oniks
+Biser
+Citrin
+Turmalin
+Mjesečev kamen
+Cirkon
+Lapis lazuli
+Ćilibar
+Malahit
+Ahat
+Kvarc
+Gorski kristal
+Koral

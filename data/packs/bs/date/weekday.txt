@@ -1,0 +1,11 @@
+---
+description: Weekday, lower case, starting MONDAY — the Bosnian week's first day, and the reason a config that assumes a Sunday-first array will be off by one. These seven are IDENTICAL in Bosnian, Croatian and Serbian-as-written-in-Bosnia, because all three are ijekavian here: srijeda and nedjelja, not the ekavian sreda and nedelja of Serbia proper. That identity is stated on purpose — this pack does not differ from its neighbours everywhere, and manufacturing a difference where none exists is the fabrication this project keeps having to undo. Ponedjeljak is 'after-not-working'; nedjelja is both Sunday and, in Croatian usage, the week, while Bosnian says SEDMICA for the week (Croatian tjedan) and colloquially HEFTA, from Persian hafta.
+locale: bs
+---
+ponedjeljak
+utorak
+srijeda
+četvrtak
+petak
+subota
+nedjelja

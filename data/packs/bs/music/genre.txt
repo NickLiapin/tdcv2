@@ -1,0 +1,39 @@
+---
+description: Music genre. THE FIRST FOUR ARE BOSNIAN AND ONLY BOSNIAN. SEVDALINKA is the urban love song of the Ottoman towns, slow, in a minor mode, sung to saz and later accordion, and it is a UNESCO-listed tradition; the word is from sevdah, itself from Arabic sawda, black bile, by way of Turkish — the melancholy is in the name. ILAHIJA and KASIDA are the sung religious forms of Bosnian Islam. GANGA is the harsh two-part shouted singing of the Herzegovinian and Dalmatian hinterland and sounds like nothing else in Europe. Ravna pjesma and izvorna are the rural forms; NOVOKOMPONOVANA is the manufactured folk of the 1970s and turbofolk its post-war successor, and both are named with the contempt they were given.
+locale: bs
+---
+Sevdalinka
+Ilahija
+Kasida
+Ganga
+Izvorna muzika
+Ravna pjesma
+Novokomponovana muzika
+Turbofolk
+Narodna muzika
+Zabavna muzika
+Pop
+Rok
+Pop-rok
+Novi val
+Pank
+Metal
+Hard rok
+Bluz
+Džez
+Fank
+Soul
+Hip-hop
+Rep
+Elektronska muzika
+Haus
+Tehno
+Regi
+Klasična muzika
+Opera
+Simfonijska muzika
+Kamerna muzika
+Horska muzika
+Filmska muzika
+Latino
+Etno

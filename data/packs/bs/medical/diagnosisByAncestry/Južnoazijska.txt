@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of južnoazijska ancestry, in the Bosnian medical register.
+locale: bs
+---
+Beta-talasemija
+Nedostatak G6PD
+Dijabetes tipa 2
+Koronarna bolest srca
+Neperzistentnost laktaze
+Tuberkuloza
+Nedostatak vitamina D

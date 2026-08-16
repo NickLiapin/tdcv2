@@ -1,0 +1,58 @@
+---
+description: Colour as a Bosnian product listing writes it, FEMININE to agree with boja. Note NARANDŽASTA against Croatian narančasta and SMEĐA against Serbian braon; TEGET is the deep navy of a uniform, from Turkish, and has no one-word equivalent in English.
+locale: bs
+---
+bijela
+crna
+siva
+antracit
+srebrna
+zlatna
+bakarna
+bronzana
+crvena
+tamnocrvena
+bordo
+višnjeva
+roze
+ružičasta
+narandžasta
+žuta
+limun žuta
+zelena
+tamnozelena
+svijetlozelena
+maslinasta
+tirkizna
+plava
+svijetloplava
+tamnoplava
+teget
+modra
+nebeskoplava
+ljubičasta
+lila
+smeđa
+svijetlosmeđa
+tamnosmeđa
+bež
+krem
+boja kahve
+čokoladna
+karamel
+boja pijeska
+boja meda
+kestenjasta
+boja cigle
+boja rđe
+slonovača
+biserna
+sedefasta
+prozirna
+šarena
+mat crna
+sjajna bijela
+boja hrasta
+boja oraha
+boja trešnje
+boja bukve

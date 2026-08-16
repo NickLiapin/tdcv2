@@ -1,0 +1,16 @@
+---
+description: Abbreviated month. Bosnian cuts to three letters and closes with a full stop; maj is already short enough to need none. The forms follow date/month.txt, so aug. and not avg.
+locale: bs
+---
+jan.
+feb.
+mar.
+apr.
+maj
+jun.
+jul.
+aug.
+sep.
+okt.
+nov.
+dec.

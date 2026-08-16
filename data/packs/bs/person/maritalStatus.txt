@@ -1,0 +1,21 @@
+---
+description: Marital status as a Bosnian register writes it. THE ADJECTIVES INFLECT and both forms are listed, because a Bosnian form printed with only the masculine is wrong for half its subjects: neoženjen is an unmarried man and neudata an unmarried woman, and the two words share no root — a man 'is unwived', a woman 'is not given away'. Same split for udovac/udovica and razveden/razvedena. HUDOVICA, with the h, is the Bosnian-standard variant of udovica: one of the restored-h forms that mark this standard off from Croatian and Serbian, listed after the plain form because the plain form is commoner in print.
+locale: bs
+---
+Neoženjen
+Neudata
+Oženjen
+Udata
+U braku
+Razveden
+Razvedena
+Udovac
+Udovica
+Hudovica
+Rastavljen
+Rastavljena
+Vanbračna zajednica
+Zaručen
+Zaručena
+Samac
+Samica

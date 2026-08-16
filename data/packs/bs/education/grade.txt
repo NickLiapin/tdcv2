@@ -1,0 +1,16 @@
+---
+description: School mark. BOSNIA GRADES 1 TO 5 AND FIVE IS THE BEST — the opposite direction from the American A-to-F and from the German 1-to-6, and the single most misread number in any Balkan school record. Each figure has a name that is used as often as the figure: 5 odličan, 4 vrlo dobar, 3 dobar, 2 dovoljan, 1 nedovoljan, and only nedovoljan is a fail. Universities grade 6 to 10 on a separate scale where 10 is the best and 5 is the fail, so a Bosnian transcript carries two incompatible scales and the reader must know which document they are holding.
+locale: bs
+---
+5 (odličan)
+4 (vrlo dobar)
+3 (dobar)
+2 (dovoljan)
+1 (nedovoljan)
+10 (odličan)
+9 (izuzetno dobar)
+8 (vrlo dobar)
+7 (dobar)
+6 (dovoljan)
+5 (nije položio)
+Položio

@@ -1,0 +1,34 @@
+---
+description: Hashtag. Bosnian hashtags are written WITHOUT diacritics as often as with them, because the habit came from an era of ASCII keyboards and stuck — #cevapi and #ćevapi are both current and reach different audiences, which is a real search problem for anyone analysing Bosnian social data. This list keeps the diacritics; a config modelling real posts should strip them roughly half the time.
+locale: bs
+---
+bosna
+bih
+sarajevo
+sevdah
+ćevapi
+kahva
+raja
+domovina
+planine
+priroda
+putovanje
+ljeto
+zima
+porodica
+prijatelji
+ljubav
+sreća
+nostalgija
+djetinjstvo
+tradicija
+kultura
+muzika
+hrana
+recept
+fitnes
+moda
+stil
+posao
+motivacija
+zahvalnost

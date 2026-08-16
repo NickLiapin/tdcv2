@@ -1,0 +1,19 @@
+---
+description: Dishes of the talijanska kitchen as a Bosnian menu writes them. Foreign dish names are transcribed into Bosnian spelling rather than kept in the original — špagete, suši, gvakamole — because Bosnian writes a borrowed word the way it is said.
+locale: bs
+---
+Špagete bolonjeze
+Lazanje
+Pizza margarita
+Rižoto
+Njoke
+Karbonara
+Kanelone
+Bruskete
+Minestrone
+Tiramisu
+Panakota
+Pesto
+Ravioli
+Fokača
+Kapričoza

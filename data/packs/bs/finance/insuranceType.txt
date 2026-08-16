@@ -1,0 +1,18 @@
+---
+description: Kind of insurance. AUTOODGOVORNOST — third-party motor cover — is compulsory and is the policy most Bosnians have, often the only one; the country's insurance market is overwhelmingly motor. Health insurance is not private cover here but the compulsory entity fund contribution, deducted from pay, which is why zdravstveno osiguranje means something different from what it means in an American list.
+locale: bs
+---
+Autoodgovornost
+Kasko osiguranje
+Zeleni karton
+Zdravstveno osiguranje
+Dopunsko zdravstveno osiguranje
+Životno osiguranje
+Penziono osiguranje
+Osiguranje imovine
+Osiguranje stana
+Osiguranje od požara
+Putno osiguranje
+Osiguranje od nezgode
+Osiguranje usjeva
+Osiguranje robe u prevozu

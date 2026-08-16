@@ -1,0 +1,36 @@
+---
+description: Vegetable, Bosnian, and FOUR OF THESE MARK THE STANDARD OFF FROM CROATIAN in the plainest possible way: KROMPIR against krumpir, PARADAJZ against rajčica, SPANAĆ against špinat, KARFIOL against cvjetača. Three more are orientalizmi with no Slavic alternative at all: PATLIDŽAN the aubergine, BORANIJA the green bean and BAMIJA the okra, which goes into begova čorba and is grown for it. GRAH and PASULJ are both current here for the same bean — Croatian has only grah, Serbian only pasulj, and Bosnian genuinely has both.
+locale: bs
+---
+Krompir
+Paradajz
+Paprika
+Crveni luk
+Bijeli luk
+Mrkva
+Kupus
+Kiseli kupus
+Kelj
+Karfiol
+Brokoli
+Krastavac
+Tikvica
+Patlidžan
+Bundeva
+Grah
+Pasulj
+Boranija
+Bamija
+Blitva
+Spanać
+Zelena salata
+Rotkva
+Celer
+Peršun
+Praziluk
+Repa
+Cvekla
+Grašak
+Sočivo
+Kukuruz šećerac
+Ren

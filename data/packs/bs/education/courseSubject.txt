@@ -1,0 +1,24 @@
+---
+description: School subject as a Bosnian timetable prints it. THE LANGUAGE SUBJECT IS THE CONTROVERSY OF BOSNIAN SCHOOLING: it is written 'Bosanski, hrvatski, srpski jezik' on a Federation timetable — three languages on one line, in alphabetical order, taught in one lesson — and 'Srpski jezik' on a Republika Srpska one. That line is why the phrase 'two schools under one roof' exists. TJELESNI ODGOJ is PE in Bosnian and Croatian; Serbian says fizičko vaspitanje, and Bosnian uses odgoj for upbringing where Serbian uses vaspitanje.
+locale: bs
+---
+Bosanski, hrvatski, srpski jezik
+Bosanski jezik
+Matematika
+Engleski jezik
+Njemački jezik
+Historija
+Geografija
+Biologija
+Hemija
+Fizika
+Informatika
+Tehnička kultura
+Likovna kultura
+Muzička kultura
+Tjelesni odgoj
+Vjeronauka
+Kultura religija
+Demokratija i ljudska prava
+Priroda i društvo
+Građansko obrazovanje

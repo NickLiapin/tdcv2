@@ -1,0 +1,68 @@
+---
+description: Building type in Bosnian, and HALF THIS LIST IS OTTOMAN ARCHITECTURE THAT STILL STANDS AND IS STILL USED: a han is the roadside inn with stabling, a bezistan the covered cloth market, a hamam the public bath, a tekija a dervish lodge, a medresa an Islamic school and a mekteb its primary level, a musafirhana the guest-house attached to a mosque, a konak an official residence, a čardak the raised timber house of the countryside and a kula the fortified stone tower-house of Herzegovina. Magaza and dućan are the warehouse and the shop. None of those words is available in Croatian or Serbian for a BUILDING you can walk into today, which is the point. Beside them stand the four religions' buildings — džamija, crkva, samostan, sinagoga — because in a Bosnian town they stand beside each other.
+locale: bs
+---
+Kuća
+Stan
+Zgrada
+Stambena zgrada
+Soliter
+Neboder
+Poslovna zgrada
+Kancelarija
+Skladište
+Magaza
+Dućan
+Trgovina
+Tržni centar
+Pijaca
+Tvornica
+Fabrika
+Hala
+Bolnica
+Dom zdravlja
+Ambulanta
+Škola
+Gimnazija
+Univerzitet
+Fakultet
+Medresa
+Mekteb
+Vrtić
+Hotel
+Motel
+Pansion
+Restoran
+Aščinica
+Kafana
+Buregdžinica
+Slastičarna
+Han
+Bezistan
+Hamam
+Tekija
+Musafirhana
+Konak
+Čardak
+Kula
+Vikendica
+Kuća u nizu
+Dvorac
+Džamija
+Crkva
+Samostan
+Manastir
+Sinagoga
+Stadion
+Sportska dvorana
+Biblioteka
+Muzej
+Pozorište
+Kino
+Garaža
+Silos
+Štala
+Ambar
+Mlin
+Elektrana
+Toranj

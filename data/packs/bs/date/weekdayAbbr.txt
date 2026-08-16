@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday, Monday first. Bosnian uses three letters and a full stop.
+locale: bs
+---
+pon.
+uto.
+sri.
+čet.
+pet.
+sub.
+ned.

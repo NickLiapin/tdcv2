@@ -1,0 +1,246 @@
+---
+description: Job title, MASCULINE singular, which is the citation form; the feminine is formed with -ica, -ka or -inja and not by one rule (ljekar/ljekarka, sudija/sutkinja, profesor/profesorica), so a config cannot derive it from this list. FIVE ENTRIES SPLIT THE STANDARDS AND THEY ARE THE MOST-USED WORDS IN THE FILE: ADVOKAT where Croatian says odvjetnik, SUDIJA where Croatian says sudac, HIRURG where Croatian says kirurg, HISTORIČAR where Croatian says povjesničar and Serbian istoričar — a genuine three-way split — and PREVODILAC where Croatian says prevoditelj. THE RELIGIOUS PROFESSIONS ARE THREE FAITHS' WORTH because Bosnian towns employ all of them: hodža and imam lead a mosque, muezin calls the prayer, mualim teaches, and beside them stand svećenik and fratar (Catholic), sveštenik and paroh (Orthodox) and rabin. Berberin and terzija are the Ottoman trade names still used beside frizer and krojač.
+locale: bs
+---
+Ljekar
+Doktor medicine
+Medicinska sestra
+Medicinski tehničar
+Stomatolog
+Farmaceut
+Hirurg
+Pedijatar
+Ginekolog
+Kardiolog
+Anesteziolog
+Radiolog
+Psihijatar
+Psiholog
+Fizioterapeut
+Veterinar
+Laborant
+Babica
+Bolničar
+Učitelj
+Nastavnik
+Profesor
+Vaspitač
+Odgajatelj
+Pedagog
+Defektolog
+Bibliotekar
+Arhivist
+Dekan
+Rektor
+Asistent
+Docent
+Naučni saradnik
+Prevodilac
+Lektor
+Novinar
+Urednik
+Dopisnik
+Fotoreporter
+Snimatelj
+Voditelj
+Spiker
+Glumac
+Reditelj
+Dramaturg
+Muzičar
+Pjevač
+Kompozitor
+Dirigent
+Slikar
+Vajar
+Grafičar
+Dizajner
+Grafički dizajner
+Modni kreator
+Arhitekta
+Građevinski inženjer
+Mašinski inženjer
+Elektroinženjer
+Inženjer geodezije
+Rudarski inženjer
+Tehnolog
+Hemičar
+Fizičar
+Matematičar
+Biolog
+Geolog
+Meteorolog
+Agronom
+Šumarski inženjer
+Programer
+Softverski inženjer
+Web programer
+Sistem administrator
+Mrežni inženjer
+Analitičar podataka
+Tester softvera
+DevOps inženjer
+Projekt menadžer
+Product menadžer
+Dizajner korisničkog iskustva
+Ekonomista
+Računovođa
+Knjigovođa
+Revizor
+Finansijski analitičar
+Bankar
+Šalterski službenik
+Kreditni referent
+Aktuar
+Broker
+Osiguravajući agent
+Poreski inspektor
+Carinik
+Advokat
+Sudija
+Tužilac
+Notar
+Pravni savjetnik
+Sudski izvršitelj
+Vještak
+Medijator
+Policajac
+Inspektor
+Kriminalist
+Vatrogasac
+Vojnik
+Oficir
+Pilot
+Stjuardesa
+Kontrolor letenja
+Mašinovođa
+Kondukter
+Vozač
+Vozač kamiona
+Taksista
+Vozač autobusa
+Kurir
+Poštar
+Skladištar
+Viličarista
+Špediter
+Logističar
+Direktor
+Izvršni direktor
+Menadžer
+Šef odjela
+Poslovođa
+Sekretar
+Referent
+Službenik
+Administrator
+Kadrovik
+Prodavač
+Trgovački putnik
+Komercijalista
+Blagajnik
+Nabavljač
+Marketing menadžer
+Copywriter
+Konobar
+Šanker
+Kuhar
+Pomoćni kuhar
+Slastičar
+Pekar
+Mesar
+Aščija
+Buregdžija
+Ćevabdžija
+Kafedžija
+Recepcionar
+Sobarica
+Turistički vodič
+Turistički agent
+Frizer
+Berberin
+Kozmetičar
+Maser
+Manikir
+Krojač
+Terzija
+Obućar
+Ćurčija
+Kazandžija
+Kujundžija
+Sarač
+Grnčar
+Rezbar
+Stolar
+Tesar
+Zidar
+Armirač
+Krovopokrivač
+Fasader
+Moler
+Keramičar
+Parketar
+Staklar
+Vodoinstalater
+Električar
+Bravar
+Varilac
+Limar
+Kovač
+Mehaničar
+Automehaničar
+Autolimar
+Autoelektričar
+Vulkanizer
+Mašinbravar
+Tokar
+Glodač
+Livac
+Rudar
+Bušač
+Miner
+Drvosječa
+Pilanar
+Ribar
+Poljoprivrednik
+Ratar
+Voćar
+Vinogradar
+Povrtlar
+Stočar
+Pastir
+Pčelar
+Mljekar
+Baštovan
+Cvjećar
+Čistač
+Higijeničar
+Domar
+Portir
+Čuvar
+Zaštitar
+Dostavljač
+Radnik u proizvodnji
+Kontrolor kvaliteta
+Tehničar održavanja
+Energetičar
+Hodža
+Imam
+Muezin
+Mualim
+Svećenik
+Fratar
+Sveštenik
+Paroh
+Rabin
+Socijalni radnik
+Sociolog
+Historičar
+Arheolog
+Etnolog
+Filozof
+Politolog
+Statističar
+Geograf
+Konzervator
+Muzejski kustos

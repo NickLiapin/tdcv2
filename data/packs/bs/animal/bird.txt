@@ -1,0 +1,42 @@
+---
+description: Bird, Bosnian. The list is the country's own avifauna: BJELOGLAVI SUP, the griffon vulture, was the emblem of the Neretva gorge before it was lost from most of it, and the SOKO — the falcon — gives the surname Sokolović and the name of Sokolac. Roda, the white stork, nests on Posavina chimneys.
+locale: bs
+---
+Orao
+Soko
+Jastreb
+Kobac
+Sova
+Ćuk
+Bjeloglavi sup
+Vrabac
+Golub
+Grlica
+Lasta
+Čiopa
+Roda
+Čaplja
+Ždral
+Labud
+Galeb
+Divlja patka
+Divlja guska
+Čvorak
+Kos
+Drozd
+Slavuj
+Djetlić
+Kukavica
+Sjenica
+Zeba
+Češljugar
+Vrana
+Gavran
+Svraka
+Ušara
+Jarebica
+Prepelica
+Fazan
+Tetrijeb
+Kosac
+Vodomar

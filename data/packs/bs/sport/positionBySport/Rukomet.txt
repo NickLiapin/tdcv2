@@ -1,0 +1,12 @@
+---
+description: Playing positions in rukomet as a Bosnian commentator names them. The football, basketball, handball and volleyball terms are the region's own and are used unchanged in all three standards; the rugby and ice-hockey ones are descriptive translations of the English, because neither sport has a deep local tradition here and the vocabulary was built by translating.
+locale: bs
+---
+Golman
+Lijevo krilo
+Desno krilo
+Lijevi vanjski
+Srednji vanjski
+Desni vanjski
+Kružni napadač
+Odbrambeni specijalista

@@ -1,0 +1,30 @@
+---
+description: Kind of event. TEFERIČ is the one no neighbour has: an open-air outing to a spring or a meadow, with food and singing, held through the summer — the word is Turkish teferrüç and the thing is a Bosnian institution. MEVLUD is the sung commemoration of the Prophet's birth, held in houses and mosques for births, deaths and house-warmings alike. TEVHID is the gathering after a death. SIJELO is the evening visit. SLAVA is the Orthodox family patron-saint feast, and KRSNO IME the same thing. All five are events a Bosnian calendar has and an English one does not.
+locale: bs
+---
+Vjenčanje
+Svadba
+Zaruke
+Rođendan
+Krštenje
+Akika
+Sunet
+Matura
+Diploma
+Sahrana
+Dženaza
+Tevhid
+Mevlud
+Teferič
+Sijelo
+Slava
+Konferencija
+Seminar
+Radionica
+Sajam
+Koncert
+Festival
+Izložba
+Utakmica
+Godišnjica
+Doček Nove godine

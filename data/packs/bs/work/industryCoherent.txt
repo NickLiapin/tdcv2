@@ -1,0 +1,14 @@
+---
+description: Industry, and the parent of work/jobByIndustry — those filenames are these values character for character. TWO OF THE TEN ARE STANDARD MARKERS: FINANSIJE is the Bosnian and Serbian word where Croatian writes financije, and SAOBRAĆAJ is transport where Croatian says promet. Both are ordinary, high-frequency words, which is what makes them useful as a test.
+locale: bs
+---
+Tehnologija
+Zdravstvo
+Finansije
+Građevinarstvo
+Obrazovanje
+Ugostiteljstvo
+Proizvodnja
+Trgovina
+Saobraćaj
+Pravo

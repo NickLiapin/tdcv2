@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, the parent of medical/diagnosisByAncestry — these values are the filenames in that directory, character for character. These are ancestry populations as CLINICAL GENETICS defines them: geographic descent, not social race categories. Two words here are Bosnian rather than Croatian and both are load-bearing: EVROPSKA, not europska, and JEVREJSKA, not židovska — Bosnian follows Serbian on both, and the Jewish community of Sarajevo calls itself Jevrejska opština, which settles the question locally. MEDITERANSKA is not an abstract category in this country: beta-thalassaemia trait is present in Herzegovina and along the Neretva at rates that matter clinically.
+locale: bs
+---
+Subsaharska afrička
+Sjevernoafrička
+Mediteranska
+Bliskoistočna
+Sjevernoevropska
+Istočnoevropska
+Aškenaska jevrejska
+Južnoazijska
+Istočnoazijska
+Jugoistočnoazijska
+Domorodačka američka
+Pacifička otočka

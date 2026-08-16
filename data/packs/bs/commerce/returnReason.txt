@@ -1,0 +1,19 @@
+---
+description: Why a customer returns something. Note that Bosnian consumer law gives a 14-day right of withdrawal on distance sales, so PREDOMISLIO SAM SE is a legally sufficient reason and not an excuse.
+locale: bs
+---
+Oštećen proizvod
+Neispravan proizvod
+Pogrešan proizvod
+Pogrešna veličina
+Ne odgovara opis
+Predomislio sam se
+Kasna isporuka
+Nedostaje dio
+Lošiji kvalitet od očekivanog
+Naručeno duplo
+Bolja cijena drugdje
+Poklon nije odgovarao
+Istekao rok trajanja
+Nekompletno pakovanje
+Bez razloga

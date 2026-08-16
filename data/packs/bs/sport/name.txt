@@ -1,0 +1,64 @@
+---
+description: Sport. The first five are the ones Bosnia actually plays and follows; the country's international results are in football, basketball, handball and — at winter games — in ALPSKO SKIJANJE, because Sarajevo hosted the 1984 Winter Olympics and Jahorina and Bjelašnica are still working ski mountains. TREKING and PLANINARENJE are mass participation sports here in a way they are not further west: the country is mountains. Note NOGOMET, the Federation word, against fudbal in Republika Srpska — the same sport under two names inside one country.
+locale: bs
+---
+Nogomet
+Košarka
+Rukomet
+Odbojka
+Mali nogomet
+Vaterpolo
+Tenis
+Stolni tenis
+Badminton
+Skvoš
+Atletika
+Trčanje
+Maraton
+Plivanje
+Skokovi u vodu
+Veslanje
+Kajak
+Rafting
+Jedrenje
+Biciklizam
+Brdski biciklizam
+Alpsko skijanje
+Nordijsko skijanje
+Skijaški skokovi
+Biatlon
+Snoubord
+Sankanje
+Bob
+Hokej na ledu
+Klizanje
+Planinarenje
+Treking
+Sportsko penjanje
+Speleologija
+Orijentacija
+Padobranstvo
+Paragliding
+Gimnastika
+Ritmička gimnastika
+Dizanje tegova
+Bodibilding
+Boks
+Kikboks
+Karate
+Džudo
+Taekvondo
+Rvanje
+Mačevanje
+Streljaštvo
+Streličarstvo
+Konjički sport
+Ribolov
+Šah
+Ragbi
+Golf
+Bilijar
+Pikado
+Kuglanje
+Odbojka na pijesku
+Sjedeća odbojka

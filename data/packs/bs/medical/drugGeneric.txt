@@ -1,0 +1,52 @@
+---
+description: Generic drug name (INN) as a Bosnian prescription writes it. INNs are Latin and are TRANSCRIBED into Bosnian spelling rather than kept in the Latin form — paracetamol, ibuprofen, amoksicilin, ciprofloksacin — so the ph becomes f, the c before a front vowel becomes c, and x becomes ks. A config that prints the English spelling has printed a foreign prescription. PARACETAMOL, not acetaminophen: the American name is unknown here.
+locale: bs
+---
+Paracetamol
+Ibuprofen
+Diklofenak
+Naproksen
+Metamizol
+Acetilsalicilna kiselina
+Tramadol
+Amoksicilin
+Amoksicilin s klavulanskom kiselinom
+Azitromicin
+Cefaleksin
+Ciprofloksacin
+Doksiciklin
+Klaritromicin
+Metronidazol
+Penicilin
+Omeprazol
+Pantoprazol
+Ranitidin
+Metoklopramid
+Loperamid
+Metformin
+Glimepirid
+Insulin
+Levotiroksin
+Enalapril
+Ramipril
+Amlodipin
+Bisoprolol
+Metoprolol
+Losartan
+Valsartan
+Furosemid
+Hidroklorotiazid
+Atorvastatin
+Simvastatin
+Varfarin
+Klopidogrel
+Salbutamol
+Budesonid
+Loratadin
+Cetirizin
+Prednizolon
+Deksametazon
+Diazepam
+Sertralin
+Alprazolam
+Karbamazepin

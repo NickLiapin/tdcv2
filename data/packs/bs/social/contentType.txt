@@ -1,0 +1,17 @@
+---
+description: Kind of social post. Bosnian uses the English platform words untranslated — objava and post are both said, and story, reel and live are only said in English — which this list records rather than inventing Bosnian coinages nobody uses.
+locale: bs
+---
+Objava
+Story
+Reel
+Video
+Fotografija
+Album
+Live prenos
+Anketa
+Komentar
+Dijeljenje
+Citat
+Podkast
+Događaj

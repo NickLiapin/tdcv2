@@ -1,0 +1,20 @@
+---
+description: Jobs that belong to the trgovina sector in Bosnia, in the masculine citation form. Drawn together with the parent work/industryCoherent so a record's industry and job agree.
+locale: bs
+---
+Prodavač
+Blagajnik
+Šef prodavnice
+Komercijalista
+Trgovački putnik
+Nabavljač
+Merchandiser
+Skladištar
+Viličarista
+Menadžer kategorije
+Kontrolor zaliha
+Dekorater izloga
+Kasir
+Voditelj poslovnice
+Agent nabave
+Marketing referent

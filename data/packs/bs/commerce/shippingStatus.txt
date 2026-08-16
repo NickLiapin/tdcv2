@@ -1,0 +1,15 @@
+---
+description: Shipment status. PREUZETA is 'collected' and NEUSPJELA DOSTAVA the failed delivery attempt; Bosnian addresses outside the cities often have no street number at all — bb, bez broja — so the failed attempt is a common state and worth having.
+locale: bs
+---
+Zaprimljena
+U pripremi
+Predana kuriru
+U tranzitu
+U sortirnom centru
+Na isporuci
+Isporučena
+Preuzeta
+Neuspjela dostava
+Vraćena pošiljaocu
+Izgubljena

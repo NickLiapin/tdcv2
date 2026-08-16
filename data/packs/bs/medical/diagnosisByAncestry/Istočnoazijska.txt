@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of istočnoazijska ancestry, in the Bosnian medical register.
+locale: bs
+---
+Neperzistentnost laktaze
+Alfa-talasemija
+Nedostatak G6PD
+Nedostatak aldehid dehidrogenaze
+Karcinom želuca
+Nazofaringealni karcinom
+Bolest Kawasaki

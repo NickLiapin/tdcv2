@@ -1,0 +1,38 @@
+---
+description: Fruit, Bosnian. ŠLJIVA IS FIRST BECAUSE IT IS THE COUNTRY'S FRUIT: Bosnia's orchards are plum orchards, the plum makes the rakija, and the dried plum was an export before either World War. Note NARANDŽA for the orange — the Bosnian and Serbian form, against Croatian naranča — and that šipak means rose hip in Bosnia and pomegranate in Croatia, which is a genuine trap for a translated list.
+locale: bs
+---
+Šljiva
+Jabuka
+Kruška
+Trešnja
+Višnja
+Breskva
+Kajsija
+Dunja
+Grožđe
+Malina
+Kupina
+Jagoda
+Borovnica
+Ribizla
+Ogrozd
+Smokva
+Nar
+Lubenica
+Dinja
+Banana
+Narandža
+Limun
+Mandarina
+Grejpfrut
+Ananas
+Kivi
+Mango
+Avokado
+Šipak
+Drenjina
+Oskoruša
+Murva
+Dud
+Divlja jabuka

@@ -1,0 +1,9 @@
+---
+description: Work shift. Bosnian mines and factories run the three-shift Yugoslav pattern — prva, druga, treća smjena — and the words for them are the ordinals, not the times.
+locale: bs
+---
+Prva smjena
+Druga smjena
+Treća smjena
+Noćna smjena
+Smjena po rasporedu

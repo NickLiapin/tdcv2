@@ -1,0 +1,44 @@
+---
+description: Garment, Bosnian. THE LAST NINE ARE ORIENTALIZMI and most name garments still worn or still remembered: dimije are the wide gathered trousers of Bosniak women, šalvare their looser cousin, jelek the embroidered waistcoat, fes the brimless cap, čakšire the tight woollen breeches, anterija the long coat, čarape are simply socks and the word has entirely replaced any Slavic one, papuče are slippers and jorgan is the quilt. Čarape and papuče are not archaic and not regional — they are the ordinary words. Note KOŠULJA for shirt and PANTALONE for trousers (Croatian says hlače), a plain Bosnian-Serbian against Croatian split.
+locale: bs
+---
+Košulja
+Majica
+Bluza
+Džemper
+Duks
+Jakna
+Kaput
+Prsluk
+Sako
+Odijelo
+Pantalone
+Farmerke
+Šorc
+Suknja
+Haljina
+Kombinezon
+Trenerka
+Kupaći kostim
+Donji veš
+Pidžama
+Ogrtač
+Kabanica
+Šal
+Marama
+Rukavice
+Kapa
+Šešir
+Cipele
+Patike
+Čizme
+Sandale
+Dimije
+Šalvare
+Jelek
+Fes
+Čakšire
+Anterija
+Čarape
+Papuče
+Jorgan
