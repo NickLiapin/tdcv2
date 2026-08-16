@@ -1,0 +1,65 @@
+---
+address: ghana.geo.city
+description: Cities and towns of Ghana, roughly by population. Ghana is small enough and urbanised enough that the top of this list is stable — Accra and Kumasi are far ahead of everything else, Tamale is the largest northern city and the fastest-growing, and Sekondi-Takoradi is the port and the oil town. The ordering below the top ten is indicative rather than exact; Ghana's last census was 2021, which is recent by regional standards, but the Greater Accra conurbation makes population a matter of where the line is drawn: Ashaiman, Tema, Madina, Adenta, Teshie, Nungua and Dome are separate entries here and separate local authorities in law, and are all continuously built-up with Accra. KASOA is the clearest case — it sits just over the boundary in Central Region, has grown from a market village into one of the largest settlements in the country in about twenty years, and is functionally an Accra suburb administered by another region. Names to get right: SEKONDI-TAKORADI carries the hyphen; OBUASI is the gold town; CAPE COAST and ELMINA hold the slave-trade castles and are spelled the English way because their names are English and Portuguese, not Akan; and Ghana's north is thinly listed here not by neglect but because it is thinly settled.
+locale: en
+---
+Accra
+Kumasi
+Tamale
+Sekondi-Takoradi
+Ashaiman
+Kasoa
+Sunyani
+Cape Coast
+Obuasi
+Teshie
+Tema
+Madina
+Koforidua
+Wa
+Techiman
+Ho
+Nungua
+Dome
+Tafo
+Adenta
+Bolgatanga
+Legon
+Ejura
+Aflao
+Berekum
+Akim Oda
+Nkawkaw
+Hohoe
+Winneba
+Yendi
+Dunkwa-on-Offin
+Tarkwa
+Suhum
+Konongo
+Prestea
+Bawku
+Agona Swedru
+Bibiani
+Savelugu
+Mampong
+Elmina
+Bekwai
+Axim
+Salaga
+Damongo
+Nalerigu
+Goaso
+Dambai
+Sefwi Wiawso
+Bechem
+Wenchi
+Kintampo
+Navrongo
+Somanya
+Akosombo
+Keta
+Kpando
+Half Assini
+Anloga
+Asamankese

@@ -1,0 +1,14 @@
+---
+address: uganda.finance.mobileMoneyProduct
+description: Ugandan mobile-money products, and the file where this pack's language question actually bites. Uganda's mobile money is a DUOPOLY — MTN MoMo and Airtel Money, with the two networks holding well over 90% of mobile subscriptions between them — and the products are named in ENGLISH, not in Swahili. That is the departure from the neighbour a reader would expect to generalise from. Kenya's equivalent list (kenya.finance.mobileMoneyProduct) is the one file in that pack marked locale: sw, because M-Pesa, M-Shwari, Fuliza, Okoa Jahazi and Pochi la Biashara are Swahili words doing service as brands. Uganda's are MoMo, MoMoPay, MoKash, Airtel Money, Airtel Pay, XtraCash — English, or English-shaped coinages — and the one vernacular name here, Wewole (Airtel's JUMO-backed loan product), is LUGANDA, not Swahili. Swahili is a second official language of Uganda and there is a data/packs/sw locale in this repo, but it is not the language Ugandan commerce is transacted or documented in, so no file in this pack carries locale: sw, including this one. Anyone assuming East Africa shares a payments vocabulary because it shares a lingua franca will get Uganda wrong. The products themselves rhyme with Kenya's even where the words do not: MoKash is MTN's savings-and-loans wallet run with NCBA, the same partner bank behind M-Shwari across the border; MoMoPay is the merchant rail, Kenya's Lipa na M-Pesa by another name. Wave is included as the low-fee challenger that entered the market against the duopoly. Order is by prominence, not alphabetical.
+locale: en
+---
+MTN MoMo
+Airtel Money
+MoMoPay
+MoKash
+Airtel Pay
+Wewole
+XtraCash
+MoMo Advance
+Wave

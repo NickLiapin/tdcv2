@@ -1,0 +1,66 @@
+---
+address: zimbabwe.geo.district
+description: Zimbabwean districts as the Registrar-General's office table names them, index-aligned with zimbabwe.geo.districtCode and zimbabwe.geo.districtProvince. This is the ID-number geography rather than the current administrative one, and the two have drifted: Bulilimamangwe was split into Bulilima and Mangwe in 2001 but keeps one registry code, and the country's 64 present-day districts do not all appear because the later ones register under a parent. Bulawayo and Harare are here as districts as well as being provinces and cities, which is the same two-cities-in-a-province-list surprise recorded in zimbabwe.geo.province. Two names are less certain than the rest and are flagged rather than quietly asserted: the districts behind codes 10 and 46 were not recovered by name with confidence from the voters'-roll analysis that reconstructed this table, and Mhondoro-Ngezi and Mbire are the readings two independent implementations settled on — both are real districts, both plausibly late additions to the code table, and neither is confirmed by the Registrar-General. Spellings follow current official usage where it has changed: Murehwa not Murewa, Hwedza not Wedza, Mount Darwin written out. Every one of these names is a place a person's ID says their family is FROM, which is a stronger and stickier attachment than residence — inherited down the paternal line and unchanged by a move to the city — so a district column drawn from this list describes ancestry, not address.
+locale: en
+---
+Beitbridge
+Mberengwa
+Bikita
+Bindura
+Binga
+Buhera
+Bulawayo
+Mhondoro-Ngezi
+Muzarabani
+Chivi
+Chipinge
+Chiredzi
+Mazowe
+Chikomba
+Umzingwane
+Insiza
+Masvingo
+Gokwe South
+Kadoma
+Goromonzi
+Gokwe North
+Gutu
+Gwanda
+Gweru
+Chegutu
+Nyanga
+Bubi
+Kariba
+Hurungwe
+Matobo
+Lupane
+Makoni
+Marondera
+Chimanimani
+Mount Darwin
+Mbire
+Murehwa
+Mutoko
+Mudzi
+Mutasa
+Nkayi
+Mwenezi
+Bulilimamangwe
+Kwekwe
+Seke
+Rushinga
+Harare
+Shurugwi
+Zvishavane
+Shamva
+Makonde
+Guruve
+Tsholotsho
+Mutare
+Chirumanzu
+Hwange
+Hwedza
+Zaka
+Umguza
+Uzumba-Maramba-Pfungwe
+Zvimba

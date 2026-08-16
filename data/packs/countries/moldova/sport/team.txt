@@ -1,0 +1,25 @@
+---
+address: moldova.sport.team
+description: Football clubs of the Moldovan top division (Superliga, called simply Liga since 2023) and the tier below it, Liga 1. The league is tiny — eight clubs in the top flight — and reserve sides such as Sheriff-2 and Zimbru-2 play in the second tier under their own names, which is why they are here and why a config that treats this list as one club per town will double up. Sheriff Tiraspol is on the LEFT BANK and plays in the Moldovan league, in Moldovan competitions and in Europe under the Moldovan federation: football is one of the few institutions that never split, and Sheriff is the club that took Moldova into the Champions League group stage in 2021 and beat Real Madrid at the Bernabéu. Iskra Rîbnița is also a left-bank club in the Moldovan pyramid. Comrat, a town of twenty thousand in Gagauzia, fields three clubs in the second tier. Zimbru Chișinău is the old name — it is the continuation of the Soviet-era Nistru Chișinău and the only Moldovan club with its own stadium built to UEFA standard.
+locale: ro
+---
+FC Sheriff Tiraspol
+FC Zimbru Chișinău
+FC Milsami Orhei
+FC Petrocub Hîncești
+FC Dacia Buiucani
+FC Bălți
+FC Politehnica UTM Chișinău
+CSF Spartanii Sportul
+FC Victoria Chișinău
+FCM Ungheni
+FC Florești
+FC Fălești
+FC Stăuceni
+FC Real Sireți
+FC Iskra Rîbnița
+FC Sheriff-2 Tiraspol
+FC Zimbru-2 Chișinău
+FC Oguz Comrat
+FC Olimp Comrat
+CF Univer Comrat

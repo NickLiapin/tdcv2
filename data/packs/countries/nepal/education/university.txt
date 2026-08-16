@@ -1,0 +1,27 @@
+---
+address: nepal.education.university
+description: The universities of Nepal in Nepali, index-aligned line for line with nepal.education.universityEnglish — the 16 FEDERAL universities first, then the 6 PROVINCIAL ones, and within each group by the year they were founded. The distinction is constitutional rather than cosmetic: a federal university is created by its own Act of the federal parliament and funded through the University Grants Commission, a provincial one was created by a provincial assembly after the 2015 constitution gave provinces that power, is funded from a provincial budget, and none of the six may award a PhD. THE SHAPE OF NEPALI HIGHER EDUCATION IS ONE UNIVERSITY: त्रिभुवन विश्वविद्यालय, founded in 1959, was the only university in the country until 1986 and still enrols roughly 320,000 students — around three quarters of everyone in Nepali higher education — across 64 constituent campuses and well over a thousand affiliated colleges. So a generated Nepali graduate is, in life, overwhelmingly likely to hold a TU degree, and a config drawing evenly from this list describes a country with a far flatter university system than Nepal has. काठमाडौँ विश्वविद्यालय, founded 1991 at धुलिखेल, is the country's first private-sector-model university and the one whose engineering and medical schools are hardest to get into. Note how young most of this list is — nine of the twenty-two were founded after 2010 and four after 2019 — which is why several have almost no students yet and one or two have none: they exist in law and are still being built. Not in this file, and a large omission if you are generating Nepali medical records: the NINE autonomous health-science academies (चिकित्सा विज्ञान राष्ट्रिय प्रतिष्ठान, वी.पी. कोइराला स्वास्थ्य विज्ञान प्रतिष्ठान, पाटन स्वास्थ्य विज्ञान प्रतिष्ठान, कर्णाली स्वास्थ्य विज्ञान प्रतिष्ठान and the rest), which are degree-awarding institutions of university rank but are not universities and run Nepal's teaching hospitals.
+locale: ne
+---
+त्रिभुवन विश्वविद्यालय
+नेपाल संस्कृत विश्वविद्यालय
+काठमाडौँ विश्वविद्यालय
+पूर्वाञ्चल विश्वविद्यालय
+पोखरा विश्वविद्यालय
+लुम्बिनी बौद्ध विश्वविद्यालय
+कृषि तथा वन विश्वविद्यालय
+मध्यपश्चिम विश्वविद्यालय
+सुदूरपश्चिम विश्वविद्यालय
+नेपाल खुला विश्वविद्यालय
+राजर्षि जनक विश्वविद्यालय
+मदन भण्डारी विज्ञान तथा प्रविधि विश्वविद्यालय
+राष्ट्रिय रक्षा विश्वविद्यालय
+शहीद दशरथ चन्द स्वास्थ्य विज्ञान विश्वविद्यालय
+नेपाल विश्वविद्यालय
+योगमाया आयुर्वेद विश्वविद्यालय
+मनमोहन प्राविधिक विश्वविद्यालय
+गण्डकी विश्वविद्यालय
+मधेश कृषि विश्वविद्यालय
+मधेश विश्वविद्यालय
+लुम्बिनी प्राविधिक विश्वविद्यालय
+बागमती विश्वविद्यालय

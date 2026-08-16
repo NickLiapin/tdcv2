@@ -1,0 +1,27 @@
+---
+address: nepal.education.universityEnglish
+description: The same universities as nepal.education.university, in the English names they use themselves, index-aligned line for line with it and in the same order — the 16 federal first, then the 6 provincial. English matters here more than for most of this pack: a Nepali transcript, degree certificate and every application a Nepali student makes abroad is in English, and Nepal sends a very large share of its graduates abroad, so the English name is the one that travels. Three names change depending on the decade of the source and are worth knowing: Far Western University now officially calls itself SUDURPASHCHIM UNIVERSITY, Mid West University calls itself MADHYAPASCHIM UNIVERSITY, and Nepal Sanskrit University was MAHENDRA SANSKRIT UNIVERSITY until the monarchy was abolished — the old names are all over older datasets and rankings. Two more are easy to confuse: Pokhara University (PoU, 1997, in Pokhara) and Purbanchal University (PU, 1993, in the east near Biratnagar) are different institutions whose abbreviations collide, and "PU" in a Nepali document usually means Purbanchal. Tribhuvan University is universally "TU" and is what a Nepali means by "the university". Lumbini Buddhist University is also written Lumbini Bauddha University. Not in this list: the nine autonomous health-science academies, which award degrees and run the teaching hospitals but are institutes rather than universities, and the several hundred affiliated colleges — a Nepali student's record usually names a COLLEGE and the university that affiliates it, so a realistic record needs both columns and this file supplies only the second.
+locale: en
+---
+Tribhuvan University
+Nepal Sanskrit University
+Kathmandu University
+Purbanchal University
+Pokhara University
+Lumbini Buddhist University
+Agriculture and Forestry University
+Madhyapaschim University
+Sudurpashchim University
+Nepal Open University
+Rajarshi Janak University
+Madan Bhandari University of Science and Technology
+National Defence University
+Martyr Dasharath Chand University of Health Science
+University of Nepal
+Yogmaya Ayurveda University
+Manmohan Technical University
+Gandaki University
+Madhesh Agriculture University
+Madhesh University
+Lumbini Technological University
+Bagmati University

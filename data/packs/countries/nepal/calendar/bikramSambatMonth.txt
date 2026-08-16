@@ -1,0 +1,17 @@
+---
+address: nepal.calendar.bikramSambatMonth
+description: The twelve months of the Bikram Sambat year in Nepali, in order, starting with बैशाख — because THE NEPALI YEAR BEGINS IN MID-APRIL, not in January. Index-aligned line for line with nepal.calendar.bikramSambatMonthEnglish. Each month begins when the sun enters a zodiac sign (संक्रान्ति) and therefore runs 29 to 32 days, a different number in different years; see nepal.calendar.bikramSambatYear for why that means no formula converts a BS date and none is attempted anywhere in this pack. The rough Gregorian correspondence, which is the useful thing to hold in your head: बैशाख mid-Apr to mid-May, जेठ mid-May to mid-Jun, असार mid-Jun to mid-Jul, साउन mid-Jul to mid-Aug, भदौ mid-Aug to mid-Sep, असोज mid-Sep to mid-Oct, कार्तिक mid-Oct to mid-Nov, मंसिर mid-Nov to mid-Dec, पुष mid-Dec to mid-Jan, माघ mid-Jan to mid-Feb, फागुन mid-Feb to mid-Mar, चैत mid-Mar to mid-Apr. Several have a second spelling in common use and both are correct Nepali: असार is also आषाढ, साउन also श्रावण, असोज also आश्विन, पुष also पौष, कार्तिक also कात्तिक, चैत also चैत्र — the shorter forms are the everyday ones and are used here. Two months to know by reputation rather than by date: असार is the rice-planting month and the fifteenth of it is a national holiday for it, and मंसिर is the harvest and wedding month, so Nepali wedding dates cluster in it the way European ones cluster in June. The FISCAL YEAR does not start with the calendar year — Nepal's runs 1 साउन to the end of असार, that is mid-July to mid-July, so a Nepali fiscal year is written 2081/82 and straddles two BS years as well as two Gregorian ones.
+locale: ne
+---
+बैशाख
+जेठ
+असार
+साउन
+भदौ
+असोज
+कार्तिक
+मंसिर
+पुष
+माघ
+फागुन
+चैत

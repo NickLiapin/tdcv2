@@ -1,0 +1,14 @@
+---
+address: sri_lanka.vehicle.plateProvince
+description: The two-letter PROVINCE codes carried on Sri Lankan number plates — WP Western, CP Central, SP Southern, NP Northern, EP Eastern, NW North Western, NC North Central, UP Uva, SG Sabaragamuwa. They map one-to-one onto sri_lanka.geo.province and they are the reason a Sri Lankan plate localises a vehicle in a way a British or German one no longer does: the code is the province whose Department of Motor Traffic office registered it. Note the two that break the obvious pattern — Sabaragamuwa is SG and not SP, because SP was already Southern, and North Western is NW while North Central is NC, so the pair cannot be told apart by their first letter alone. One historic code is deliberately NOT in this list: NE, for the North-Eastern Province, which existed from the 1988 merger of Northern and Eastern until the Supreme Court de-merged them in 2006. No NE plate has been issued since, but plenty are still on the road and in old records, so a Sri Lankan vehicle dataset containing NE is not corrupt — it is old. It is left out here because generating it would put a defunct province on new registrations.
+locale: en
+---
+WP
+CP
+SP
+NP
+EP
+NW
+NC
+UP
+SG

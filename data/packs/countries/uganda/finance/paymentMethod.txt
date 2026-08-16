@@ -1,0 +1,19 @@
+---
+address: uganda.finance.paymentMethod
+description: How money actually changes hands in Uganda, in honest order. THIS LIST EXISTS BECAUSE THE ORDER IS THE POINT. The generic payment-method list in a language pack opens with Credit Card, Debit Card, PayPal; that ordering is wrong for Uganda and not marginally. Mobile money is not one option among several here, it is the payment system: MTN MoMo alone processed 3.4 billion transactions worth UGX 133.2 trillion in 2023, against a national GDP a fraction of that, across more than 12 million active users, and Airtel Money runs beside it. A Ugandan pays a boda-boda fare, school fees, a Yaka electricity token, rent and a supplier invoice over a phone number. Cards exist but are a minority instrument concentrated in Kampala supermarkets, hotels and e-commerce, and they sit below cash rather than above it. So: MoMo first, then Airtel Money, then the merchant rails, then bank transfer and cash, then cards. A config that generates Ugandan transactions off the generic list will produce a plausible-looking dataset describing a country that does not exist. Two Uganda-specific entries are worth naming: Yaka is the prepaid electricity token bought over mobile money, ubiquitous enough that "buying Yaka" is a payment category in its own right; and the 0.5% withdrawal levy applies to cash-out only, so a dataset in which every mobile-money transaction carries the same fee is wrong in a way a Ugandan would notice immediately. EFT and RTGS are the domestic bank rails; there is no IBAN behind either (see uganda.finance.account). The file is marked locale: en because every entry is English — unlike Kenya, Uganda's payments vocabulary is not Swahili.
+locale: en
+---
+MTN MoMo
+Airtel Money
+MoMoPay
+Airtel Pay
+Cash
+Bank transfer (EFT)
+RTGS transfer
+Yaka token purchase
+Debit card
+Credit card
+Cheque
+Standing order
+Direct debit
+Bank agent deposit

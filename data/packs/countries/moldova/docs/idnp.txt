@@ -1,0 +1,27 @@
+---
+address: moldova.docs.idnp
+description: IDNP — numărul de identificare de stat al persoanei fizice, the thirteen-digit number every person entered in the State Population Register carries, printed on the buletin de identitate and used as the person's tax number as well. Structure fixed by Government Decision 333 of 18 March 2002: 2 TTT XXX YYYYY K. The leading 2 is the index of the natural-person branch of the state identification system; TTT is the last three digits of the year the number was allocated; XXX the code of the civil-status office that allocated it; YYYYY a serial within that year and office; K the check digit. Sum the first twelve digits under the repeating weights 7,3,1 and take mod 10 — the remainder IS the check digit, with no 10-case to special-case, which is why the Moldovan check never needs the "write 10 as 1" fudge the Romanian CNP needs. THE BIG DEPARTURE FROM THE NEIGHBOURS, and the reason this file looks nothing like romania/docs/cnp.txt or ukraine/tax/rnokpp.txt next to it: the IDNP encodes NEITHER date of birth NOR sex. A Romanian CNP hands you both from its first seven digits, a Ukrainian РНОКПП hands you the birth date as a day count and the sex as a parity, a Polish PESEL hands you both — a Moldovan IDNP hands you the year it was ISSUED and nothing about the person. Reading a birth date out of an IDNP is not a harder problem, it is an impossible one. Two shapes exist: the 2-prefixed number generated here, and a 09-prefixed thirteen-digit form used for provisional numbers issued to people without one; only the 2 form is generated. WHAT IS AND IS NOT VERIFIED HERE: the 7,3,1 mod-10 arithmetic is verified, against 200 real published state identification numbers (see moldova.tax.idno, which is the same checksum on the legal-entity branch) — all 200 accepted, all 200 rejected with one digit altered. The three-digit civil-status office table is NOT published anywhere I could source, so those digits are drawn plainly rather than from a real list, and no real IDNP is quoted anywhere in this pack because an IDNP identifies a living person.
+generator: tdc
+locale: ro
+---
+<!-- Year of allocation, last three digits. IDNPs have been allocated since the
+     first identity cards of 1996, so the field runs 996-999 and then 000 up. -->
+<sequence name="year"><gen type="text" value="996,997,998,999,000,001,002,003,004,005,006,007,008,009,010,011,012,013,014,015,016,017,018,019,020,021,022,023,024,025,026"/></sequence>
+<sequence name="office"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="idnp"><compute>
+  <let name="base"><concat><str v="2"/><field name="year"/><field name="office"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="7,3,1,7,3,1,7,3,1,7,3,1"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <!-- No 10-case: the remainder mod 10 is a digit already. -->
+  <let name="check"><mod><use name="sum"/><int v="10"/></mod></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{idnp}}</data>

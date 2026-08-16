@@ -1,0 +1,29 @@
+---
+address: uganda.sport.team
+description: Ugandan football clubs — the sixteen of the 2025/26 StarTimes Uganda Premier League, followed by the best-known clubs currently outside it. The composition of the top flight is the Ugandan fact worth carrying: a third of it is INSTITUTIONAL rather than civic. KCCA is the Kampala Capital City Authority's club, URA is the Uganda Revenue Authority's, UPDF is the army's, Police FC is the police's, Maroons is the prisons service's (it plays at Luzira Prisons Stadium) and NEC is the army's commercial arm's. A Ugandan league table therefore reads as a list of state institutions in a way an English or Polish one does not, and a generated Ugandan sports dataset built on the assumption that a club represents a town will misdescribe half the division. The two clubs with the deepest support are SC Villa and Express, both Kampala and both older than the institutional sides; Vipers, based at Kitende in Wakiso rather than in Kampala proper, took the 2025/26 title. Uganda's national side is the Cranes, and its most decorated club side historically is SC Villa. Note the geography: Kampala and its Wakiso hinterland supply six of the sixteen, and the rest are spread thinly — Yumbe in the far north-west, Hoima and Kagadi in Bunyoro, Jinja in Busoga, Mbarara in Ankole. Uganda's other mass sport is not on this list: the country's international profile is largely in athletics, where Joshua Cheptegei and Jacob Kiplimo run for a country with no club structure to name.
+locale: en
+---
+Vipers SC
+KCCA FC
+SC Villa
+Kitara FC
+NEC FC
+Express FC
+BUL FC
+Police FC
+Maroons FC
+URA SC
+UPDF FC
+Mbarara City FC
+Lugazi FC
+Entebbe UPPC FC
+Calvary FC
+Buhimba Saints FC
+Onduparaka FC
+Busoga United FC
+Soltilo Bright Stars FC
+Wakiso Giants FC
+Kyetume FC
+Tooro United FC
+Gaddafi FC
+Arua Hill SC

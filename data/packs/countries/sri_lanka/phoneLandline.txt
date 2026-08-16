@@ -1,0 +1,9 @@
+---
+address: sri_lanka.phoneLandline
+description: Sri Lankan fixed-line number in E.164 form — +94, a two-digit area code, then seven subscriber digits. Written nationally it is 0AA N NNNNNN, ten digits, e.g. 011 2 345678 for Colombo; the +94 form drops the trunk 0. THE AREA CODE IS REAL GEOGRAPHY and every one of the 29 codes drawn here is allotted: 11 Colombo, 21 Jaffna, 23 Mannar, 24 Vavuniya, 25 Anuradhapura, 26 Trincomalee, 27 Polonnaruwa, 31 Negombo, 32 Chilaw, 33 Gampaha, 34 Kalutara, 35 Kegalle, 36 Avissawella, 37 Kurunegala, 38 Panadura, 41 Matara, 45 Ratnapura, 47 Hambantota, 51 Hatton, 52 Nuwara Eliya, 54 Nawalapitiya, 55 Badulla and Monaragala, 57 Bandarawela, 63 Ampara, 65 Batticaloa, 66 Matale, 67 Kalmunai, 81 Kandy, 91 Galle. So a Sri Lankan landline localises its subscriber to a town in a way the mobile number (sri_lanka.phone) does not — the mobile prefix names an operator and nothing else. The first subscriber digit is a real signal too: 2 is the historic SLT copper and fibre range, and a Colombo number is overwhelmingly 011 2 NNNNNN, while 4 and 5 were opened for later fixed-wireless and competing operators. Landlines matter more in a Sri Lankan dataset than in India or Bangladesh: SLT's fixed network was built out before the mobile boom, so a company record, a hotel listing or a government office in Sri Lanka very often carries a landline as its only published number.
+generator: tdc
+locale: en
+---
+<sequence name="area"><gen type="text" value="11,21,23,24,25,26,27,31,32,33,34,35,36,37,38,41,45,47,51,52,54,55,57,63,65,66,67,81,91"/></sequence>
+<sequence name="subscriber"><gen type="regex" value="[245][0-9]{6}"/></sequence>
+<data>+94${{area}}${{subscriber}}</data>

@@ -1,0 +1,20 @@
+---
+address: uganda.geo.subRegion
+description: The statistical sub-regions Uganda's 2024 census reported by. Like the four regions above them these are a TABULATION UNIT AND NOT A GOVERNMENT — no sub-region has a council or a budget — but unlike the regions they track something real, because most of them are the historical kingdom, chiefdom or ethnic homeland the districts inside them were carved out of: Buganda, Busoga, Bunyoro, Tooro, Ankole, Kigezi, Acholi, Lango, Teso, Karamoja, Bukedi, West Nile. That is why Ugandan reporting reaches for the sub-region rather than the region when the subject is language, land tenure, poverty or politics; "Karamoja" carries meaning in Uganda in a way that "Northern Region" does not. THE SET IS NOT STABLE AND THIS FILE RECORDS WHICH VERSION IT IS. The census tabulation used here splits Buganda into North and South, counts Kampala apart from Buganda, and merges Bugisu with Sebei into a single Elgon sub-region because Sebei on its own is too small to report reliably. UBOS then published its June 2025 sub-region profile reports with Bugisu, Sebei and Rwenzori broken out separately, so a Ugandan dataset may legitimately show 15 sub-regions or 17 depending on which publication it followed, and both are UBOS. Tooro here includes the Rwenzori districts. Anyone joining this file to a district list should expect that mapping to be the contested part, which is why no district-to-sub-region alignment is shipped in this pack: the districts map cleanly to the four regions (uganda.geo.districtRegion) and only messily to the sub-regions.
+locale: en
+---
+Acholi
+Ankole
+Buganda North
+Buganda South
+Bukedi
+Bunyoro
+Busoga
+Elgon
+Kampala
+Karamoja
+Kigezi
+Lango
+Teso
+Tooro
+West Nile

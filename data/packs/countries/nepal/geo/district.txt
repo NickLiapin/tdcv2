@@ -1,0 +1,82 @@
+---
+address: nepal.geo.district
+description: The 77 DISTRICTS (जिल्ला) of Nepal in their Nepali names, in the Department of Postal Services' own order — by province, and within a province from the far north-east corner of the country south and west, which is why this file is not alphabetical and why its index is the district half of nepal.geo.postalCode. Index-aligned line for line with nepal.geo.districtEnglish. The district is the SECOND administrative level, under the province and above the 753 local levels; it is also the level that matters most in a Nepali record, because the District Administration Office issues the citizenship certificate and the District Court has original jurisdiction, so a Nepali identity document names a district before it names anything else. The count went 75 to 77 in 2015, and it was not a clean addition: Nawalparasi was cut in two by the new provincial boundary (नवलपरासी बर्दघाट सुस्ता पूर्व is in Gandaki, नवलपरासी बर्दघाट सुस्ता पश्चिम in Lumbini) and so was Rukum (रुकुम पूर्वी भाग in Lumbini, रुकुम पश्चिम भाग in Karnali). Those four are given here under their full official names including the parenthesised half, because that is what the government writes and because the bare names Nawalparasi and Rukum are now ambiguous between two provinces. A dataset with 75 districts, or with one Rukum, is a dataset from before 2015. Note also what a district is NOT any more: it has had no elected government since 2017 — the District Coordination Committee is indirectly elected and has no executive power — so a district is a jurisdiction and a postal coordinate rather than a tier of government, and the tiers that govern are the federation, the 7 provinces and the 753 local levels.
+locale: ne
+---
+ताप्लेजुङ
+संखुवासभा
+सोलुखुम्बु
+ओखलढुङ्गा
+खोटाङ
+भोजपुर
+धनकुटा
+तेह्रथुम
+पाँचथर
+इलाम
+झापा
+मोरङ
+सुनसरी
+उदयपुर
+सप्तरी
+सिरहा
+धनुषा
+महोत्तरी
+सर्लाही
+रौतहट
+बारा
+पर्सा
+दोलखा
+सिन्धुपाल्चोक
+रसुवा
+धादिङ
+नुवाकोट
+काठमाडौँ
+भक्तपुर
+ललितपुर
+काभ्रेपलाञ्चोक
+रामेछाप
+सिन्धुली
+मकवानपुर
+चितवन
+गोरखा
+मनाङ
+मुस्ताङ
+म्याग्दी
+कास्की
+लमजुङ
+तनहुँ
+नवलपरासी (बर्दघाट सुस्ता पूर्व)
+स्याङजा
+पर्वत
+बागलुङ
+रुकुम (पूर्वी भाग)
+रोल्पा
+प्यूठान
+गुल्मी
+अर्घाखाँची
+पाल्पा
+नवलपरासी (बर्दघाट सुस्ता पश्चिम)
+रुपन्देही
+कपिलवस्तु
+दाङ
+बाँके
+बर्दिया
+डोल्पा
+मुगु
+हुम्ला
+जुम्ला
+कालिकोट
+दैलेख
+जाजरकोट
+रुकुम (पश्चिम भाग)
+सल्यान
+सुर्खेत
+बाजुरा
+बझाङ
+दार्चुला
+बैतडी
+डँडेलधुरा
+डोटी
+अछाम
+कैलाली
+कञ्चनपुर

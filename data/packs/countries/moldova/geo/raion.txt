@@ -1,0 +1,42 @@
+---
+address: moldova.geo.raion
+description: The second-level administrative-territorial units of Moldova as article 4 of Law 764-XV of 27 December 2001 names them — 32 raioane, three municipii (Chișinău, Bălți and Bender, the last also called Tighina), the autonomous territorial unit of Găgăuzia, and the administrative-territorial units of the left bank of the Nistru. All 37 are shipped because all 37 are what the state's own registers hold: postal codes are issued against them, and an address in Tiraspol is still written to a left-bank unit in Moldovan records. Găgăuzia has a special legal status of its own under Law 344/1994, with its own assembly and its own governor, and is a unit of the second level rather than a raion; the left-bank units have a status set out in Law 173/2005 and are not under the government's effective control. The list describes the register, not the control. Spelling follows the law, which is why it is Hîncești, Rîșcani, Sîngerei, Șoldănești and stînga Nistrului with î: Moldova kept the pre-1993 orthography for its official toponyms where Romania restored â, so a Moldovan raion name and a Romanian county name written by the same rule will not match — do not normalise one into the other. The 32 raions come first in Romanian alphabetical order, then the units that are not raions.
+locale: ro
+---
+Anenii Noi
+Basarabeasca
+Briceni
+Cahul
+Cantemir
+Călărași
+Căușeni
+Cimișlia
+Criuleni
+Dondușeni
+Drochia
+Dubăsari
+Edineț
+Fălești
+Florești
+Glodeni
+Hîncești
+Ialoveni
+Leova
+Nisporeni
+Ocnița
+Orhei
+Rezina
+Rîșcani
+Sîngerei
+Soroca
+Strășeni
+Șoldănești
+Ștefan Vodă
+Taraclia
+Telenești
+Ungheni
+municipiul Chișinău
+municipiul Bălți
+municipiul Bender
+unitatea teritorială autonomă Găgăuzia
+unitățile administrativ-teritoriale din stînga Nistrului

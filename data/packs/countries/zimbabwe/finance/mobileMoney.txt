@@ -1,0 +1,10 @@
+---
+address: zimbabwe.finance.mobileMoney
+description: Mobile-money and wallet services in Zimbabwe — the rails most ordinary payments actually run on, which is why a Zimbabwean payment data set that models only bank accounts models the minority case. EcoCash, launched by Econet in 2011, became the dominant payment system of the cash famine years: when banknotes physically ran out after 2016 people paid for bus fares, vegetables and rent by phone, and EcoCash processed the large majority of all retail transactions in the country. OneMoney is NetOne's equivalent, Telecash was Telecel's, and InnBucks began as a retailer's voucher scheme at Simbisa's takeaway chains and was licensed as a microbank afterwards — a payment system that grew out of a chicken shop is not a joke, it is a rational response to a shortage of small change. ZIPIT is not a wallet but the interbank retail transfer service that lets a bank account push money to another bank or to a wallet, and it is what "I'll zip it to you" means. A wallet is addressed by MOBILE NUMBER, not by an account number: a Zimbabwean payment record often has a phone number where another country's would have an IBAN, which is the join key a foreign schema will be missing. Wallet balances are held per currency like bank balances, so an EcoCash USD wallet and an EcoCash ZiG wallet on the same handset are separate purses.
+locale: en
+---
+EcoCash
+OneMoney
+InnBucks
+Telecash
+ZIPIT

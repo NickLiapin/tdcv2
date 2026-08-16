@@ -1,0 +1,8 @@
+---
+address: uganda.tax.vat
+description: Ugandan VAT registration number — there ISN'T A SEPARATE ONE, and that is the content of this file. Uganda charges VAT (18% standard rate; registration compulsory above UGX 150 million of annual taxable turnover) but registering for it issues no new identifier: VAT is added as an obligation against the taxpayer's existing URA TIN, and it is the TIN that appears on the tax invoice, on the EFRIS e-invoice record and on a customs entry. Uganda's own note to the OECD is explicit that one TIN is issued per taxpayer and used across all tax types, with no separate TINs for different tax categories. So a Ugandan "VAT number" is the TIN, and this address delegates to uganda.tax.tin rather than inventing a second format with a second checksum. Anyone porting an EU-shaped model to Uganda will expect a prefixed, separately-checksummed VAT identifier in the style of PL1234567890 and will not find one — there is no country prefix, no separate register and no second check digit. This is the same answer Kenya gives for the same reason (kenya.tax.vat delegates to the KRA PIN), and it is one of the few places where the two neighbours' documentary systems genuinely coincide.
+generator: tdc
+locale: en
+---
+<sequence name="tin"><gen type="template" value="uganda.tax.tin"/></sequence>
+<data>${{tin}}</data>

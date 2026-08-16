@@ -1,0 +1,55 @@
+---
+address: sri_lanka.docs.nicOld
+description: The OLD Sri Lankan NIC — 9 digits followed by a letter, e.g. 741922757V, issued until 31 December 2015 and STILL VALID FOR LIFE, which is why it is generated rather than treated as history. Most adult Sri Lankans carry one. Layout — 2-digit birth year, 3-digit day field, 3-digit serial, 1 check digit, then the letter. The day field works exactly as in the 12-digit form (sri_lanka.docs.nic): day of the year of birth, 001-366, WITH 500 ADDED FOR A FEMALE, so 501-866 is a woman and the field legitimately runs past 366. THE TRAILING LETTER IS NOT A CHECKSUM. It is V or X and it records VOTING ELIGIBILITY — V for a holder entered on the electoral register, X for one who is not, typically a non-permanent resident. It is a status flag, it can change without the digits changing, and nothing in it verifies any of the nine digits before it; treating it as a check character is a common and wrong assumption. V is overwhelmingly the more frequent and is weighted accordingly here. The 9th digit is described as a check digit and is DRAWN, NOT DERIVED, for the same reason as in the new form: the Department for Registration of Persons has never published the algorithm, and every public validator checks structure only. The 2-digit year is the reason the format was replaced. It cannot distinguish 1905 from 2005 on its own — but in practice it always means 19xx, because the NIC is issued at 16 and this form stopped being issued at the end of 2015, so the last cohort to receive one was born in 1999. That is exactly why the official old-to-new conversion prefixes a literal "19" with no test: 74 192 275 7 V becomes 1974 192 0275 7, the birth year gains its century and the 3-digit serial gains a leading zero, and nothing else moves. The conversion therefore runs cleanly in one direction only — old to new is arithmetic, new to old is a substring, and no information is created either way. Birth years here are drawn 1930-1999 to match the cohort that actually holds this form.
+generator: tdc
+locale: en
+---
+<sequence name="birthDate"><gen type="date" from="1930-01-01" to="1999-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="sex"><gen type="text" value="any"/></sequence>
+<sequence name="coin"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="checkDigit"><gen type="regex" value="[0-9]"/></sequence>
+<!-- V = on the electoral register, X = not. A status flag, not a check character. -->
+<sequence name="voterLetter"><gen type="text" value="V,X" percent="96,4"/></sequence>
+<sequence name="nicOld"><compute>
+  <let name="d"><each><over><field name="birthDate"/></over><do><current/></do></each></let>
+  <!-- Only the last two digits of the year are printed on this form. -->
+  <let name="yy"><concat>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+  </concat></let>
+  <let name="month"><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+  </concat></to_number></let>
+  <let name="day"><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+  </concat></to_number></let>
+  <!-- February always counts 29, so 29 February is day 60 and 1 March is 61. -->
+  <let name="doy"><add>
+    <at>
+      <in><list v="0,31,60,91,121,152,182,213,244,274,305,335"/></in>
+      <index><subtract><use name="month"/><int v="1"/></subtract></index>
+    </at>
+    <use name="day"/>
+  </add></let>
+  <let name="schars"><each><over><field name="sex"/></over><do><current/></do></each></let>
+  <let name="sexcode"><to_number><encode as="unicode"><at><in><use name="schars"/></in><index><int v="0"/></index></at></encode></to_number></let>
+  <let name="offset">
+    <choose>
+      <when><test><equals><use name="sexcode"/><int v="102"/></equals></test><then><int v="500"/></then></when>
+      <when><test><equals><use name="sexcode"/><int v="109"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><multiply><mod><field name="coin"/><int v="2"/></mod><int v="500"/></multiply></otherwise>
+    </choose>
+  </let>
+  <let name="dayField"><pad width="3" fill="0"><add><use name="doy"/><use name="offset"/></add></pad></let>
+  <result><concat>
+    <use name="yy"/>
+    <use name="dayField"/>
+    <field name="serial"/>
+    <field name="checkDigit"/>
+    <field name="voterLetter"/>
+  </concat></result>
+</compute></sequence>
+<data>${{nicOld}}</data>

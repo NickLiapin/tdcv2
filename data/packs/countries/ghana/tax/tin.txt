@@ -1,0 +1,8 @@
+---
+address: ghana.tax.tin
+description: The legacy GRA Taxpayer Identification Number for an INDIVIDUAL — eleven characters, the letter P then ten digits, written P0012345678. This is the number on Ghanaian tax records up to 2021 and it will sit in historical data for a long time, which is why it is kept rather than dropped; for the number a Ghanaian quotes today see ghana.tax.taxId, which is the Ghana Card PIN. THE P IS A CATEGORY LETTER, not a serial: the Ghana Revenue Authority issued P for persons, C for companies, G for government agencies, V for public institutions and Q for foreign missions, all in the same eleven-character shape, so the first character tells you what kind of taxpayer you are looking at before you look anything up. See ghana.tax.tinCorporate for the entity forms, which are still issued and still live. NO CHECK DIGIT IS COMPUTED HERE. Some third-party validators describe the last character as a checksum; the GRA publishes no algorithm for it and no test vector, so there is nothing to implement and nothing to verify against, and inventing one would make these numbers look more trustworthy than real ones. Validation in Ghana means the GRA's own TIN verification portal. Note the "00" after the category letter: in the issued numbers it is effectively fixed padding rather than a meaningful field, so it is written as a literal here rather than drawn.
+generator: tdc
+locale: en
+---
+<sequence name="serial"><gen type="regex" value="[0-9]{8}"/></sequence>
+<data>P00${{serial}}</data>

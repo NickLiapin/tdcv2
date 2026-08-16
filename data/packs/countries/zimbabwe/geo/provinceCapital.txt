@@ -1,0 +1,15 @@
+---
+address: zimbabwe.geo.provinceCapital
+description: Provincial capital of each Zimbabwean province, index-aligned with zimbabwe.geo.province — draw the two together with a switch or a group and the pair is coherent. Two entries repeat the province name rather than naming a different town, and that is correct and not a filler value: Harare and Bulawayo are metropolitan provinces whose whole territory is the city, so the capital of Harare province is Harare. Of the eight rural capitals, only Mutare and Gweru are large towns in their own right; Lupane (Matabeleland North) is a small service centre that became a provincial capital in 2000 when the province's administration moved out of Bulawayo, which sits outside it, and Bindura, Marondera, Chinhoyi and Gwanda are modest towns whose importance is administrative rather than demographic. Chinhoyi, capital of Mashonaland West, was Sinoia before 1982.
+locale: en
+---
+Harare
+Mutare
+Chinhoyi
+Gweru
+Marondera
+Masvingo
+Bindura
+Lupane
+Gwanda
+Bulawayo

@@ -1,0 +1,9 @@
+---
+address: zimbabwe.phone
+description: Zimbabwean mobile number in E.164 form — +263 followed by a nine-digit national number. THE PREFIX NAMES THE OPERATOR AND NOTHING ELSE: 71 is NetOne, 73 is Telecel, 77 and 78 are Econet, and none of them says anything about where the subscriber is, because Zimbabwean mobile numbering was never geographic. Econet holds the large majority of subscribers, which is why 77 and 78 dominate a real Zimbabwean phone column and a uniform draw across the four prefixes over-represents the smaller networks. The prefix matters for a second reason peculiar to this country: a mobile number is a PAYMENT ADDRESS. EcoCash wallets are keyed to Econet numbers and OneMoney to NetOne ones, so a Zimbabwean payment record often joins on a phone number where another country's would join on an account number — see zimbabwe.finance.mobileMoney — and the network prefix effectively picks the wallet. Written nationally the number takes a leading 0 and drops the country code: +263771234567 is 0771234567 on a local form, and both spellings appear in the same data set. Landlines are not generated here; they take area codes that were renumbered from two digits to three (Harare 04 became 024, Bulawayo 09 became 029) and both forms are still in circulation on old letterheads, which makes a landline column ambiguous in a way this file does not pretend to resolve. There is no check digit in a phone number anywhere.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="71,73,77,78"/></sequence>
+<sequence name="subscriber"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+263${{prefix}}${{subscriber}}</data>

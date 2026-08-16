@@ -1,0 +1,17 @@
+---
+address: nepal.vehicle.vehicleClass
+description: The vehicle-class letter stamped on a Nepali embossed number plate, from the Department of Transport Management's published A-to-K scheme: A motorcycle, scooter and moped; B car, jeep and delivery van; C tempo and auto-rickshaw; D power tiller; E tractor; F minibus and mini truck; G truck, bus and lorry; H road roller and dozer; I crane, fire engine and loader; J excavator, backhoe, grader and forklift; K scooter and moped. Some classes carry a digit as well in the full scheme (C1 e-rickshaw, H1 dozer, H2 road roller, I1 crane, I2 fire engine, I3 loader, J1 excavator through J5 other heavy equipment); the bare letters are used here because they are what a plate for an ordinary vehicle carries. THE WEIGHTS ARE THE REAL FLEET, not an even spread, and that is the point of this file: Nepal registers far more two-wheelers than anything else — the mountain roads, the fuel price and the import duty on cars between them make a motorcycle the default household vehicle — so A dominates, B is a distant second, and the heavy classes are rare enough that an evenly-drawn plate column would describe a country with as many road rollers as motorbikes. The letters replaced the Devanagari class syllables of the pre-2020 plates, which encoded ownership as well as size (क private heavy, च private light, प private motorcycle; ख/ज/फ the public equivalents; ग/झ/ब government) — see nepal.vehicle.zonalPlate. That is a real loss of information in the new scheme: an embossed plate no longer says whether the vehicle is private, commercial or government by its letter, and says it by the plate's COLOUR instead.
+weighted: true
+locale: en
+---
+A,62
+B,18
+K,6
+C,5
+G,4
+F,3
+E,1
+D,1
+I,1
+J,1
+H,1

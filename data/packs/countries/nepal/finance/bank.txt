@@ -1,0 +1,25 @@
+---
+address: nepal.finance.bank
+description: The Class A COMMERCIAL BANKS licensed by Nepal Rastra Bank, all twenty of them, which is the whole of the top tier of Nepali banking. Nepal Rastra Bank itself is the central bank and is deliberately NOT in this list — it is the regulator and the note-issuer, it holds no retail accounts, and a generated customer record naming it is wrong. Names are given in English WITHOUT the legal suffix, and both of those choices are deliberate. English, because a Nepali cheque, bank statement, KYC form and cheque-book carry the bank's English name — most of these names are transliterations rather than translations and have no separate Nepali form worth shipping — while the pack's Nepali-valued files are the ones whose values genuinely ARE Nepali words. Without the suffix, because Nepali banks carry a mixture of "Limited", "Ltd." and "PLC" that shifts as companies re-register, so a list carrying any one suffix dates itself, and a payment record uses the bare name anyway. WHY TWENTY AND NOT FORTY, which is what an older dataset will say: Nepal Rastra Bank spent 2015-2024 forcing consolidation through capital requirements, and the commercial banks went from 32 to 20 by merger. Nepal Investment Mega Bank is Nepal Investment Bank plus Mega Bank; Laxmi Sunrise is Laxmi plus Sunrise; Kumari absorbed Nepal Credit and Commerce; Prabhu, Global IME and NIC Asia each absorbed several. So a Nepali banking dataset naming Mega Bank, Sunrise Bank, NCC Bank, Sanima's predecessors or Janata Bank is not corrupt — it is from before its merger, and the merger date is what dates it. Note the state at the head of the list: Nepal Bank (1937, the country's first bank), Rastriya Banijya Bank and Agricultural Development Bank are government-owned and between them hold the rural branch network that the private banks do not. What is NOT in this file and should be looked for separately: the 17 development banks, the finance companies, the microfinance institutions that reach the villages the commercial banks do not, and the mobile wallets (eSewa, Khalti, IME Pay) through which a large and growing share of Nepali retail payment actually moves — eSewa in particular is the default way a Nepali pays a bill and is not a bank.
+locale: en
+---
+Nepal Bank
+Rastriya Banijya Bank
+Agricultural Development Bank
+Nabil Bank
+Nepal Investment Mega Bank
+Standard Chartered Bank Nepal
+Himalayan Bank
+Nepal SBI Bank
+Everest Bank
+Kumari Bank
+Laxmi Sunrise Bank
+Citizens Bank International
+Prime Commercial Bank
+Machhapuchchhre Bank
+NIC Asia Bank
+Global IME Bank
+NMB Bank
+Prabhu Bank
+Siddhartha Bank
+Sanima Bank

@@ -1,0 +1,22 @@
+---
+address: nepal.geo.mountain
+description: Named peaks of Nepal in Nepali, highest first, index-aligned line for line with nepal.geo.mountainEnglish. The first EIGHT are eight-thousanders, and that is the fact worth knowing about this country: of the world's fourteen peaks above 8,000 m, eight stand in Nepal or on its borders, and of the world's TEN highest, eight are here — only K2 and Nanga Parbat, both in Pakistan, are not. सगरमाथा is Everest, 8,848.86 m as jointly re-measured and announced by Nepal and China in December 2020; the name is Nepali and dates from the 1960s, चोमोलुङ्मा is its older Tibetan name, and Everest is a British surveyor's. Three of the eight — धौलागिरी, मनास्लु and अन्नपूर्ण — lie WHOLLY inside Nepal and are shared with nobody, which no other country can say of any eight-thousander except Pakistan. कञ्चनजङ्घा sits on the Indian border and was thought to be the highest mountain on earth until the 1850s survey. After the eight come peaks under 8,000 m that are as well known: नुप्से and पुमोरी stand on Everest's own ridge, आमा दब्लम is the one on every trekking poster, माछापुच्छ्रे has never been climbed to the summit and climbing it is FORBIDDEN because it is held sacred, and ग्याचुङ काङ at 7,952 m is the highest mountain on earth that is not an eight-thousander. Heights are the conventional published ones and are not carried as values here — a mountain's height is a number a config can hold in its own column, and several of these are disputed by tens of metres between surveys. Note for anyone using this as address data: these are NOT places people live. Nepal's settlements are in the hills and the तराई plain, and the highest permanently inhabited villages sit thousands of metres below any name in this file.
+locale: ne
+---
+सगरमाथा
+कञ्चनजङ्घा
+ल्होत्से
+मकालु
+चोयु
+धौलागिरी
+मनास्लु
+अन्नपूर्ण
+ग्याचुङ काङ
+हिमालचुली
+नुप्से
+गौरीशंकर
+लाङटाङ लिरुङ
+पुमोरी
+माछापुच्छ्रे
+आमा दब्लम
+गणेश हिमाल

@@ -1,0 +1,64 @@
+---
+address: ghana.geo.streetNamed
+description: Bare Ghanaian street names, without the Street / Road / Avenue designation that ghana.geo.streetName appends. Three groups, and the mix is deliberate. INDEPENDENCE-ERA NATIONALISTS AND THE BIG SIX — Kwame Nkrumah, J. B. Danquah, Ako Adjei, Obetsebi-Lamptey, Akufo-Addo, William Ofori Atta — whose names are on the biggest roads in Accra and whose descendants are still in politics, which is why some of these names read as current news rather than history. PAN-AFRICAN AND FOREIGN LEADERS, which is unusual and is Nkrumah's doing: Accra has a Patrice Lumumba Road, a Gamal Abdul Nasser Avenue, a Haile Selassie Street, a Jawaharlal Nehru Road, a Josef Broz Tito Avenue and a Kanda Highway, because Ghana was independent first in sub-Saharan Africa and spent the 1960s hosting everyone. Few African capitals name streets after Yugoslavs. And ORDINARY GHANAIAN PLACE AND CLAN NAMES — Ring Road, Liberation, Oxford, Spintex, Cantonments, Labone, Adabraka, Kaneshie, Achimota — which is what most addresses actually use. NOTE WHAT THIS FILE CANNOT FIX: the great majority of Ghanaian streets have no name at all, which is the entire reason ghana.geo.digitalAddress exists, so a config that gives every generated Ghanaian a street address is generating a country more legible than the real one. Names are in English and in Latin script because Ghanaian street signage is English; the personal names inside them are Akan, Ga and Ewe.
+locale: en
+---
+Kwame Nkrumah
+J. B. Danquah
+Ako Adjei
+Obetsebi-Lamptey
+Akufo-Addo
+William Ofori Atta
+Kojo Thompson
+Kwame Nkrumah Circle
+Patrice Lumumba
+Gamal Abdul Nasser
+Haile Selassie
+Jawaharlal Nehru
+Josef Broz Tito
+Julius Nyerere
+Independence
+Liberation
+Ring Road Central
+Ring Road East
+Ring Road West
+Castle
+High
+Barnes
+Farrar
+Oxford
+Cantonments
+Labone
+Adabraka
+Kaneshie
+Achimota
+Spintex
+Tetteh Quarshie
+Giffard
+Aviation
+Airport
+Dzorwulu
+Dansoman
+Mango Tree
+Palm
+Boundary
+Lagos Avenue
+Accra
+Asafoatse Nettey
+Abdul Diouf
+Patrick Lumba
+Kanda
+Volta
+Ashanti
+Prempeh
+Otumfuo
+Harper
+Sunyani
+Bantama
+Guggisberg
+Sekondi
+Fifth Avenue
+Second Circular
+Nsawam
+Legon
+Madina

@@ -1,0 +1,20 @@
+---
+address: tanzania.tax.tin
+description: Tanzanian TIN — the TRA Taxpayer Identification Number, NINE digits, printed on the certificate in three groups (100-181-517) and stored everywhere else as nine bare digits. THE NINTH DIGIT IS A REAL CHECK DIGIT and this file computes it: check = (8*d1 + 9*d2 + 4*d3 + 5*d4 + 6*d5 + 7*d6 + 8*d7 + 9*d8) mod 11, and a base whose remainder is 10 is not issued, which is why the generator carries a <valid> that throws those away — the same refusal Poland's NIP makes. TRA has never published this rule; it was RECOVERED from data, not asserted. 718 real TINs printed in the Tanzania Trade Portal's register of licensed clearing and forwarding agents (September 2017) were fitted by Gaussian elimination over GF(p) for p in 2, 3, 5, 7, 11, 13, 17, 19, 23, 37, 101; every modulus except 11 was INCONSISTENT, and mod 11 gave a single solution that reproduces all 718 check digits exactly. Two TINs from unrelated sources — 100181517 from a published Dar es Salaam tax invoice and 165046420 from a published EFD receipt — were then computed cold and both matched, and 165046420 lies outside the 100-132 block the corpus covers. Because every TIN observed starts with 1, the weight on the first digit cannot be separated from an additive constant, so this file fixes the first digit at 1 and the first weight at 8; that pair is the shape the evidence supports and the whole of the issued range anyway. All eight weights are non-zero mod 11, so every single-digit typo is caught: 58158 of 58158 one-digit corruptions of the corpus were rejected. The base is drawn in 10000000-16999999: the 2017 corpus runs from 100100126 to 132074070, and the later invoice and receipt numbers reach 165046420, so the issued range has grown past 13 and TINs are issued in sequence. Individuals and companies share one TIN format — reports that individuals get ten digits do not match any of the 720 real numbers here, all of which are nine. The TIN is also the anchor of the VAT registration, but is NOT itself the VAT number — see tanzania.tax.vat.
+generator: tdc
+---
+<sequence name="base"><gen type="number" value="10000000..16999999" length="8" first_zero="true"/></sequence>
+<sequence name="check"><compute><result>
+  <mod>
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="0"/></init>
+      <do><add><acc/><multiply><current/>
+        <at><in><list v="8,9,4,5,6,7,8,9"/></in><index><current_index/></index></at>
+      </multiply></add></do>
+    </reduce>
+    <int v="11"/>
+  </mod>
+</result></compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<data>${{base}}${{check}}</data>

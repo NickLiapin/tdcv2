@@ -1,0 +1,42 @@
+---
+address: nepal.holiday
+description: Public holidays of Nepal in Nepali, in the order they fall through the BIKRAM SAMBAT year — so the list starts with नयाँ वर्ष in mid-April and ends in चैत, because that is the shape of a Nepali year and sorting it from January would put it out of order with every calendar in the country. Only NINE have a date that is fixed, and they are the civil ones: नयाँ वर्ष (बैशाख १), गणतन्त्र दिवस (जेठ १५), संविधान दिवस (असोज ३), पृथ्वी जयन्ती (पुष २७), माघे संक्रान्ति (माघ १), शहीद दिवस (माघ १६), प्रजातन्त्र दिवस (फागुन ७) — plus मजदुर दिवस and नारी दिवस, which are fixed to 1 May and 8 March in the GREGORIAN calendar and therefore land on a different Bikram Sambat day most years, which is the neatest demonstration in this pack that a date fixed in one calendar necessarily floats in the other. Everything else moves: the Hindu festivals follow lunar tithis inside the solar BS months, the three ल्होसार are Tibetan-calendar new years, and ईदुल फित्र and ईदुल अजहा follow the Hijri year and shift about eleven days earlier each Gregorian year. So a config that pins दशैँ to a calendar date is wrong for every year but one. WHAT MAKES THIS LIST NEPALI RATHER THAN INDIAN, since the two share a script and several festival names: दशैँ, not Dussehra, is the national holiday — fifteen days, of which six or more are gazetted, the whole country stops, and internal migration for it is the largest annual movement of people in Nepal. Beside it तिहार runs five days and includes भाइटीका, which has no Indian equivalent in that form. छठ is a मधेश festival and is a national holiday because Madhesh is a province, not a minority. Three separate ल्होसार are holidays because Nepal has three distinct Tibeto-Burman new years — तमु for the Gurung in पुष, सोनाम for the Tamang and Yolmo in माघ, ग्याल्पो for the Sherpa and Tibetan communities in फागुन — and a country that gave one of them a holiday and not the others would be making a statement. उधौली and उभौली are the Kirat calendar's two halves, observed by the Rai and Limbu of the east. गाईजात्रा, इन्द्रजात्रा, घोडेजात्रा and यमरी पुन्हि are Kathmandu Valley Newar festivals and are public holidays inside the Valley rather than nationwide, which is the other thing an outsider gets wrong: a Nepali holiday calendar is not uniform across the country and several entries here are gazetted for a district, an ethnic community or for women employees only. फागु पूर्णिमा is observed on two different days — one day in the 56 hill and mountain districts and the next day in the 20 तराई districts. Two absences are deliberate: संविधान दिवस replaced the old राजा को जन्मदिन when the monarchy was abolished in 2008, and no royal anniversary appears here.
+locale: ne
+---
+नयाँ वर्ष
+मजदुर दिवस
+बुद्ध जयन्ती
+उभौली पर्व
+गणतन्त्र दिवस
+जनै पूर्णिमा
+गाईजात्रा
+कृष्ण जन्माष्टमी
+हरितालिका तीज
+गौरा पर्व
+इन्द्रजात्रा
+जितिया
+संविधान दिवस
+घटस्थापना
+विजया दशमी
+तिहार
+भाइटीका
+छठ पर्व
+फाल्गुनन्द जयन्ती
+उधौली पर्व
+यमरी पुन्हि
+क्रिसमस
+तमु ल्होसार
+पृथ्वी जयन्ती
+माघे संक्रान्ति
+सोनाम ल्होसार
+बसन्त पञ्चमी
+शहीद दिवस
+महाशिवरात्रि
+ग्याल्पो ल्होसार
+प्रजातन्त्र दिवस
+फागु पूर्णिमा
+नारी दिवस
+घोडेजात्रा
+रामनवमी
+ईदुल फित्र
+ईदुल अजहा

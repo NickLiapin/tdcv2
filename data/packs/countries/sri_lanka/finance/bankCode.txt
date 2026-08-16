@@ -1,0 +1,31 @@
+---
+address: sri_lanka.finance.bankCode
+description: The 4-digit bank code allotted by LankaClear, the Central Bank-owned operator of SLIPS and LankaPay, and the first half of every domestic routing key (see sri_lanka.finance.slipsCode). AND IT CARRIES A REAL CHECK DIGIT, which nobody publishes as one. The fourth digit is fully determined by the first three under the weights 7, 3, 1 taken mod 10, with the digit being (10 - sum mod 10) mod 10 — equivalently 7*d1 + 3*d2 + 1*d3 + d4 is a multiple of 10. Worked example: Sampath Bank is 7278, and 7*7 + 3*2 + 1*7 = 62, (10 - 2) mod 10 = 8, which is the digit printed. How this was established, because it matters more than the claim — the weights were fitted to 32 codes published by one directory and then tested against 13 further codes taken from two other directories and never used in the fit, including the Central Bank's own 8004, which is the only code in Sri Lanka that does not begin with 7. All 45 pass. A brute-force sweep of all 1,000 weight triples (w1,w2,w3) in 0-9 finds exactly ONE that satisfies every code, so the rule is unique rather than one plausible fit among several. And it catches everything a check digit is for: all 1,620 single-digit mutations of those 45 codes are rejected, with none slipping through — unlike the Bangladeshi routing check, whose weight of 5 blinds it to a whole class of errors. This file therefore draws from the 45 REAL allotted three-digit prefixes and COMPUTES the fourth digit rather than copying it, so every value is both a genuine in-service bank code and an independent demonstration of the arithmetic. Two honest limits. LankaClear does not describe this digit as a check digit in anything public, so the label is this pack's inference and the evidence above is why; and because the codes are drawn from the allotted set, a value here always names a real institution but the pack cannot say WHICH one in the same row as sri_lanka.finance.bank — a config that needs the name and the code to agree must hold the pairing itself.
+generator: tdc
+locale: en
+---
+<!-- The 45 published three-digit prefixes: 7010 Bank of Ceylon, 7038 Standard
+     Chartered, 7047 Citibank, 7056 Commercial Bank, 7074 Habib, 7083 Hatton
+     National, 7092 HSBC, 7108 Indian Bank, 7117 Indian Overseas, 7135 People's
+     Bank, 7144 State Bank of India, 7153 Mashreq, 7162 Nations Trust, 7205
+     Deutsche, 7214 NDB, 7269 MCB, 7278 Sampath, 7287 Seylan, 7296 Public Bank,
+     7302 Union Bank, 7311 Pan Asia, 7384 ICICI, 7454 DFCC, 7463 Amana, 7472
+     Axis, 7481 Cargills, 7719 National Savings, 7728 SANASA, 7737 HDFC, 7746
+     CDB, 7755 Regional Development, 7764 SMIB, 7773 LB Finance, 7782
+     Senkadagala, 7807 Commercial Leasing, 7816 Vallibel, 7825 Central Finance,
+     7834 Kanrich, 7852 Alliance, 7861 LOLC, 7870 Commercial Credit, 7898
+     Merchant Bank, 7913 Mercantile Investment, 7922 People's Leasing, 8004
+     Central Bank of Sri Lanka. -->
+<sequence name="prefix"><gen type="text" value="701,703,704,705,707,708,709,710,711,713,714,715,716,720,721,726,727,728,729,730,731,738,745,746,747,748,771,772,773,774,775,776,777,778,780,781,782,783,785,786,787,789,791,792,800"/></sequence>
+<sequence name="bankCode"><compute>
+  <let name="sum"><reduce>
+    <over><field name="prefix"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,3,1"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><field name="prefix"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{bankCode}}</data>

@@ -1,0 +1,9 @@
+---
+address: tanzania.geo.postalCode
+description: Tanzanian postcode — five digits, no letters, no separator, and the leading digits matter, so 11101 must never be written 11101 minus its shape. THE SYSTEM IS YOUNG AND THINLY USED, which is the thing to know before generating one. TCRA and Tanzania Posts rolled out the Postcode and Addressing System from 2012 and it was formally published as Government Notice No. 240 of 22 April 2016 under section 41 of the Electronic and Postal Communications Act 2010. In practice a Tanzanian postal address is still a P.O. Box and a town — "P.O. Box 9084, Dar es Salaam" — and the postcode is optional, frequently omitted and frequently unknown to the sender. Where it does appear it is on the letterheads of government bodies and large institutions that adopted it early: the Tanzania Commission for Universities prints 41104 Tambukareli, Dodoma and 11479 Dar es Salaam on its own notices. So codes generated here are well-formed and land in real regions, but they are not a delivery guarantee the way a German or British code is, and a Tanzanian record with a blank postcode is realistic rather than broken. The unit addressed is the WARD (kata), not a street or a delivery round, which is finer than Kenya's post-office-based scheme next door and coarser than a house. Structure: the first two digits are the region (the enumeration is in tanzania.geo.regionPostcodePrefix — 11 Dar es Salaam, 41 Dodoma, 71-75 Zanzibar), the next two the district, the last one the ward within it; the region's own base code is prefix + 000. Real, traceable codes are in tanzania.geo.postalCodeMajor.
+generator: tdc
+locale: en
+---
+<sequence name="region"><gen type="text" value="11,21,23,25,27,30,31,33,35,37,39,41,43,45,47,50,51,53,55,57,59,61,63,65,67,71,72,73,74,75"/></sequence>
+<sequence name="rest"><gen type="number" value="101..999" length="3" first_zero="true"/></sequence>
+<data>${{region}}${{rest}}</data>

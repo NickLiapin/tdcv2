@@ -1,0 +1,9 @@
+---
+address: uganda.culture.kingdomTitle
+description: The title borne by the ruler of each kingdom in uganda.culture.kingdom, index-aligned with it — Kabaka of Buganda, Omukama of Bunyoro-Kitara, Omukama of Toro, Kyabazinga of Busoga. The titles are NOT interchangeable and are not translations of "king" into one language: Kabaka is Luganda, Omukama is the Runyoro-Rutooro title shared by Bunyoro and Toro because Toro seceded from Bunyoro in the 1830s and kept the institution, and Kyabazinga is Lusoga for a first-among-equals chosen by the eleven hereditary chiefs rather than a hereditary monarch. This is why the file is a country-pack file and not a language-pack one: the words are Luganda, Runyoro and Lusoga, three different Ugandan languages none of which has a pack in this repo, and what makes them belong together is Uganda rather than any shared vocabulary. The file is marked locale: en only in the sense that these are the forms an English-language Ugandan document prints; they are proper titles rather than English words. Substantive note for anyone modelling succession: the Omukama of Toro, Oyo Nyimba Kabamba Iguru Rukidi IV, acceded in 1995 at the age of three and is one of the youngest people ever to become a monarch, so a Ugandan royal-succession dataset that assumes an adult accession age is wrong in a documented way.
+locale: en
+---
+Kabaka
+Omukama
+Omukama
+Kyabazinga

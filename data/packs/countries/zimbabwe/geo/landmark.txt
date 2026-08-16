@@ -1,0 +1,25 @@
+---
+address: zimbabwe.geo.landmark
+description: Zimbabwean national landmarks, and three of them are load-bearing facts about the country rather than tourist entries. GREAT ZIMBABWE IS WHERE THE COUNTRY'S NAME COMES FROM — a dry-stone city near Masvingo built and occupied by Shona ancestors between roughly the eleventh and fifteenth centuries, its walls laid without mortar and its Great Enclosure the largest ancient structure south of the Sahara; the name is Shona, dzimba dza mabwe, houses of stone. Rhodesian-era officials spent decades insisting it had been built by Phoenicians, Arabs or anyone else, and the state censored archaeologists who said otherwise; the country took the site's name at independence in 1980 precisely as an answer to that. The soapstone Zimbabwe Bird carved there is on the flag, the coat of arms, the banknotes and the coins, and eight of the original carvings were removed in the 1890s — the last piece came home from Germany only in 2003. VICTORIA FALLS is the world's largest sheet of falling water, on the Zambezi at the Zambian border, and its older name Mosi-oa-Tunya — the smoke that thunders — is the one the UNESCO listing carries alongside the English one and the one the Zambian side uses officially; the town beside it is named after the falls. THE BALANCING ROCKS at Epworth outside Harare are the picture on the money: a naturally poised granite stack, the domboremari or money stone, printed on Zimbabwean banknotes through the hyperinflation years and back on the face of the ZiG notes issued from 2024 — see zimbabwe.finance.banknote. The rest are real and ordinary: Hwange is the country's largest national park, Matobo the granite hills where Rhodes is buried among far older San rock paintings, Kariba the dam that made one of the world's largest artificial lakes and displaced 57,000 Tonga people in 1958, and Nyanga holds Mount Nyangani, the highest point in the country. Five of these are UNESCO World Heritage Sites: Great Zimbabwe, Mosi-oa-Tunya/Victoria Falls, Matobo Hills, Mana Pools and Khami.
+locale: en
+---
+Great Zimbabwe
+Victoria Falls
+Mosi-oa-Tunya
+Hwange National Park
+Matobo Hills
+Lake Kariba
+Mana Pools
+Nyanga National Park
+Mount Nyangani
+Epworth Balancing Rocks
+Khami Ruins
+Chinhoyi Caves
+Eastern Highlands
+Gonarezhou National Park
+Zambezi River
+Limpopo River
+National Heroes Acre
+Chimanimani Mountains
+Bridal Veil Falls
+Domboshava

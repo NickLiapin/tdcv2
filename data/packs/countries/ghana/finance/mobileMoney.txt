@@ -1,0 +1,13 @@
+---
+address: ghana.finance.mobileMoney
+description: Mobile money providers in Ghana, and this is the file that a Ghanaian payments dataset actually needs. MOBILE MONEY IS NOT A NICHE HERE, IT IS THE PAYMENT SYSTEM: Ghana moves hundreds of billions of cedis a month through it, MTN MoMo alone has around nineteen million active users and roughly three-quarters of the market, and a Ghanaian is far likelier to have a MoMo wallet than a bank account. Rent, wages, market stalls, church collections, school fees and utility bills all run on it, and a checkout that offers cards and bank transfer but no mobile money is unusable in Ghana. THE WALLET NUMBER IS THE PHONE NUMBER — there is no separate account identifier at all, which is the single most important structural fact and the reason this file lists providers rather than account numbers. To pay someone you have their mobile number and nothing else; see ghana.phoneNational for the form, and note that the network prefix in it used to determine which wallet you were paying. That stopped mattering in 2018, when GhIPSS launched full mobile money INTEROPERABILITY, so MTN can pay AirtelTigo and either can pay a bank account directly — Ghana was the first African country to wire that up nationally, and it is why Ghanaian mobile money behaves like a payment rail rather than three walled gardens. NAMES CHANGE AND RECENTLY: Vodafone Cash became TELECEL CASH when Telecel took over Vodafone Ghana in 2023, and AirtelTigo now trades as AT, so "Vodafone Cash" in a current record is a stale label rather than a different product. GhanaPay is the banks' own joint wallet, launched 2022 as an answer to the telcos. Zeepay and G-Money are the notable independents, licensed as Dedicated Electronic Money Issuers by the Bank of Ghana rather than being telco arms.
+locale: en
+---
+MTN Mobile Money
+MTN MoMo
+Telecel Cash
+AirtelTigo Money
+AT Money
+GhanaPay
+Zeepay
+G-Money

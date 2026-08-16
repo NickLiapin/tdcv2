@@ -1,0 +1,45 @@
+---
+address: tanzania.education.university
+description: University institutions approved to operate in Tanzania, from the Tanzania Commission for Universities register dated 26 March 2026 — the 12 public fully-fledged universities first, then the private ones, then the public and private university colleges. TCU is the statutory regulator under the Universities Act Cap. 346 and states that any institution not on its list is not authorised to teach, so this is an exhaustive register rather than a selection. THREE OF THEM ARE ZANZIBARI and are not branch campuses of anything on the mainland: the State University of Zanzibar is a public university of the Revolutionary Government, and Zanzibar University and Abdulrahman Al-Sumait University are private institutions on the islands — higher education is not a Union matter above a certain level, so Zanzibar runs its own. Some names carry their history: Kairuki University was Hubert Kairuki Memorial University until its recent renaming, Dar es Salaam Tumaini University was TUDARCo, and the Catholic University of Mbeya was CUCoM. The Nelson Mandela African Institution of Science and Technology in Arusha was founded as a pan-African postgraduate institute rather than a national one. Sokoine University of Agriculture at Morogoro and Muhimbili University of Health and Allied Sciences both began as faculties of the University of Dar es Salaam, which is the oldest, founded 1961 as a college of the University of London. Marked locale: en because TCU registers and prints these names in English, which is the language of Tanzanian higher education even though the country runs on Swahili below it — that division, Swahili for government and primary school, English for university and the higher courts, is the shape of Tanzania's bilingualism and this file is on the English side of it.
+locale: en
+---
+University of Dar es Salaam
+Sokoine University of Agriculture
+Open University of Tanzania
+State University of Zanzibar
+Mzumbe University
+Nelson Mandela African Institution of Science and Technology
+Muhimbili University of Health and Allied Sciences
+Ardhi University
+University of Dodoma
+Mbeya University of Science and Technology
+Moshi Cooperative University
+Mwalimu Nyerere University of Agriculture and Technology
+Kairuki University
+Abdulrahman Al-Sumait University
+St. Augustine University of Tanzania
+Zanzibar University
+Tumaini University Makumira
+Aga Khan University
+Catholic University of Health and Allied Sciences
+University of Arusha
+St. Joseph University in Tanzania
+Teofilo Kisanji University
+Mwenge Catholic University
+Muslim University of Morogoro
+University of Iringa
+St. John's University of Tanzania
+Kampala International University in Tanzania
+United African University of Tanzania
+Ruaha Catholic University
+Mwanza University
+Catholic University of Mbeya
+Dar es Salaam Tumaini University
+Rabininsia University
+University of Medical Sciences and Technology
+Hikmah University of East Africa
+KCMC University
+Dar es Salaam University College of Education
+Mkwawa University College of Education
+Mbeya College of Health and Allied Sciences
+Stefano Moshi Memorial University College

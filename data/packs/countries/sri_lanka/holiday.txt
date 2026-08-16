@@ -1,0 +1,30 @@
+---
+address: sri_lanka.holiday
+description: Sri Lankan public and bank holidays in their gazetted English names. SRI LANKA IS THE COUNTRY WHERE EVERY FULL MOON IS A PUBLIC HOLIDAY. The twelve Poya days — Duruthu, Navam, Medin, Bak, Vesak, Poson, Esala, Nikini, Binara, Vap, Il, Unduvap, one for each lunar month and each named for it — are gazetted holidays, and that single fact makes the Sri Lankan working calendar unlike any other. Two consequences for anyone generating dates against it. First, a Poya falls on a full moon, so it drifts through the week and there are THIRTEEN of them in some years, when an extra Adhi Poya falls; a holiday calendar hard-coded to twelve will be short in those years, and one that assumes fixed dates will be wrong every year. Second, Vesak — which commemorates the Buddha's birth, enlightenment and death — carries a second holiday on the day after it, so it is a two-day stop rather than one. The rest of the list shows a country holding four religious calendars at once: Buddhist (the Poya days), Hindu (Thai Pongal in January, Maha Sivarathri, Deepavali), Muslim (Id-Ul-Fitr, Id-Ul-Alha, Milad-Un-Nabi) and Christian (Good Friday, Christmas), plus two secular days, National Day on 4 February for independence in 1948 and May Day. The Sinhala and Tamil New Year in mid-April is two holidays and belongs to both of the island's largest communities at once — it is the same festival, kept on the same days, under two names. Roughly 25 gazetted days plus Saturdays and Sundays means Sri Lanka has one of the longest public holiday lists in the world, which is a real constraint on any model of Sri Lankan working days, delivery times or payment settlement. Names are given as the Gazette prints them, including the parenthetical alternatives for the Muslim festivals, because that is the form a Sri Lankan HR or banking system stores.
+locale: en
+---
+Duruthu Full Moon Poya Day
+Tamil Thai Pongal Day
+Navam Full Moon Poya Day
+National Day
+Maha Sivarathri Day
+Medin Full Moon Poya Day
+Good Friday
+Bak Full Moon Poya Day
+Day prior to Sinhala and Tamil New Year Day
+Sinhala and Tamil New Year Day
+May Day
+Vesak Full Moon Poya Day
+Day following Vesak Full Moon Poya Day
+Id-Ul-Fitr (Ramazan Festival Day)
+Poson Full Moon Poya Day
+Esala Full Moon Poya Day
+Id-Ul-Alha (Hadji Festival Day)
+Nikini Full Moon Poya Day
+Binara Full Moon Poya Day
+Milad-Un-Nabi (Holy Prophet's Birthday)
+Vap Full Moon Poya Day
+Deepavali Festival Day
+Il Full Moon Poya Day
+Unduvap Full Moon Poya Day
+Christmas Day

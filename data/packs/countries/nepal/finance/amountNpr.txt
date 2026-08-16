@@ -1,0 +1,32 @@
+---
+address: nepal.finance.amountNpr
+description: A Nepali rupee amount written the way Nepal writes one — 12,34,567.00 and not 1,234,567.00. Nepal uses the South Asian grouping: the last THREE digits, then every TWO above them, because the place names go हजार, लाख (1,00,000), करोड (1,00,00,000), अर्ब, खर्ब. A Nepali invoice, bank statement, budget speech and annual report all group this way, so 10,00,000 and 1,000,000 are the same number written by two conventions and a money column that regroups by threes is silently rewriting the country's arithmetic. THE THING THAT IS NEPAL'S AND NOT INDIA'S is the peg: the Nepalese rupee has been FIXED to the Indian rupee at 1.60 NPR = 1 INR since 1993, and pegged in some form since 1960, so an NPR figure is an INR figure times 1.6 and Nepal has no independent exchange rate against anything — its rate against the dollar moves only when India's does. Indian notes circulate legally in Nepal (below the 500-rupee denominations, which are barred) and Nepali border-town prices are quoted in both currencies, so a Nepali transaction record may carry either and a dataset that assumes one currency per country is wrong at the border. The rupee subdivides into 100 पैसा, and paisa coins have effectively vanished from circulation while the two decimal places remain compulsory on every invoice — which is why the fractional part below is always present and is almost always 00 in life. The currency symbol (रु / Rs / NPR) is left off so the value drops straight into a numeric column; prefix it in the config. Amounts here run four to nine digits before the decimal, which spans a bus fare to a small property. Nepali-language documents frequently print the same amount in DEVANAGARI numerals (१२,३४,५६७); this address emits Western digits, and nepal.calendar.bikramSambatDate shows the conversion if a config needs it.
+generator: tdc
+locale: en
+---
+<sequence name="digits"><gen type="regex" value="[1-9][0-9]{3,8}"/></sequence>
+<sequence name="paisa"><gen type="text" value="00,25,50,75" percent="85,5,5,5"/></sequence>
+<sequence name="amount"><compute>
+  <let name="len"><length><field name="digits"/></length></let>
+  <let name="grouped"><join><each>
+    <over><field name="digits"/></over>
+    <do>
+      <!-- Digits still to come, counting this one. -->
+      <let name="rem"><subtract><use name="len"/><current_index/></subtract></let>
+      <choose>
+        <when><test><equals><current_index/><int v="0"/></equals></test><then><current/></then></when>
+        <otherwise><choose>
+          <!-- The last three digits are one group. -->
+          <when><test><less_than><use name="rem"/><int v="3"/></less_than></test><then><current/></then></when>
+          <!-- Above them the groups are TWO wide: a separator lands wherever
+               (rem - 3) is even — 3 the हजार mark, 5 the लाख mark, 7 the करोड mark. -->
+          <when><test><equals><mod><subtract><use name="rem"/><int v="3"/></subtract><int v="2"/></mod><int v="0"/></equals></test>
+            <then><concat><str v=","/><current/></concat></then></when>
+          <otherwise><current/></otherwise>
+        </choose></otherwise>
+      </choose>
+    </do>
+  </each></join></let>
+  <result><concat><use name="grouped"/><str v="."/><field name="paisa"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

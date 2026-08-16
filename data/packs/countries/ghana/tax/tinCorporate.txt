@@ -1,0 +1,9 @@
+---
+address: ghana.tax.tinCorporate
+description: The GRA Taxpayer Identification Number for an ENTITY — eleven characters, a category letter then ten digits: C0012345678 for a company, G00 for a government agency, V00 for a public institution, Q00 for a foreign mission. UNLIKE THE INDIVIDUAL TIN THIS ONE DID NOT GO AWAY. The 2021 reform replaced the individual's TIN with their Ghana Card PIN, because a person already had a national identity number to hang tax on; a company has no Ghana Card, so companies, agencies and missions still get and still use a GRA-issued TIN in exactly this form. That asymmetry is the thing to know about Ghanaian tax identifiers, and a schema that assumes one format for all taxpayers will be wrong for one side of it whichever side it picks. THIS IS ALSO GHANA'S VAT NUMBER — there is no separate VAT registration identifier, see ghana.tax.vat. NO CHECK DIGIT: the GRA publishes no checksum algorithm for the TIN in any of its category forms, so none is computed, and a number is checked against the GRA portal rather than by arithmetic. Not to be confused with the company's REGISTRATION NUMBER from the Office of the Registrar of Companies, which is a different identifier on the same certificate.
+generator: tdc
+locale: en
+---
+<sequence name="kind"><gen type="text" value="C,G,V,Q"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{8}"/></sequence>
+<data>${{kind}}00${{serial}}</data>

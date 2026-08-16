@@ -1,0 +1,45 @@
+---
+address: zimbabwe.geo.city
+description: Zimbabwean cities and towns, roughly by 2022 census population. Harare and Bulawayo also appear in zimbabwe.geo.province because they are metropolitan provinces — the overlap is real and is explained there. Three entries are worth knowing before they are used as ordinary rows. Chitungwiza, third largest, is not an independent city in any working sense: it is a dormitory town 25 km south of Harare built to house workers under the segregation-era planning that kept African residence outside the capital, and almost everyone in it commutes into Harare. Epworth, fifth largest, is not a municipality at all but a local board covering a settlement on Harare's south-eastern edge that grew largely unplanned, so it holds two hundred thousand people and has never been a town in the legal sense. Victoria Falls is a small town of perhaps forty thousand that carries a name known worldwide, and it is named for the waterfall next to it — see zimbabwe.geo.landmark — not the other way round. Names are the current official ones and several changed at or after independence in 1980: Harare was Salisbury, Gweru was Gwelo, Mutare was Umtali, Kwekwe was Que Que, Masvingo was Fort Victoria, Chinhoyi was Sinoia, Marondera was Marandellas and Hwange was Wankie. Historical Zimbabwean records therefore use a completely different set of city names before 1982, and a data set spanning independence cannot key on this list alone.
+locale: en
+---
+Harare
+Bulawayo
+Chitungwiza
+Mutare
+Epworth
+Gweru
+Kwekwe
+Kadoma
+Chinhoyi
+Masvingo
+Norton
+Marondera
+Ruwa
+Chegutu
+Zvishavane
+Bindura
+Beitbridge
+Redcliff
+Rusape
+Victoria Falls
+Chiredzi
+Hwange
+Karoi
+Gokwe
+Shurugwi
+Kariba
+Chipinge
+Gwanda
+Plumtree
+Chivhu
+Mvurwi
+Banket
+Lupane
+Nyanga
+Mutoko
+Murehwa
+Shamva
+Zvimba
+Mazowe
+Bikita

@@ -1,0 +1,21 @@
+---
+address: tanzania.sport.team
+description: Clubs of the NBC Premier League, Tanzania's mainland top division, in the 2025-26 season composition. Simba SC and Young Africans — Yanga — are the two big Dar es Salaam clubs and their meeting is the Kariakoo Derby, named for the market quarter both grew out of; between them they have won nearly every title the league has awarded, and Yanga's run of continental appearances has made it one of the stronger sides in East Africa. Azam FC is the third force and is owned by the Bakhresa food group, which also owns the television rights that broadcast the league. What has no European counterpart is how many of the rest are institutional rather than municipal sides: JKT Tanzania is the National Service, Tanzania Prisons is the prison service, TRA United belongs to the Tanzania Revenue Authority, Mtibwa Sugar to a sugar estate in Morogoro. A Tanzanian supporter is often supporting an employer, exactly as in Kenya. Two clubs carry the word Jiji, "city": Dodoma Jiji and Pamba Jiji (Mwanza), the second named for cotton, the crop the lake region grew. THIS LIST IS THE MAINLAND ONLY. Zanzibar runs a separate league under a separate football association, which CAF admitted as a full member in its own right — see tanzania.sport.teamZanzibar. Marked locale: en because the club names are registered and printed in English, with Swahili proper nouns inside them (Simba is lion, Yanga is the Swahili clipping of Young Africans, Mashujaa is heroes, Pamba is cotton).
+locale: en
+---
+Simba SC
+Young Africans
+Azam FC
+Singida Black Stars
+Coastal Union
+Namungo FC
+Tanzania Prisons
+KMC FC
+Dodoma Jiji
+Mtibwa Sugar
+JKT Tanzania
+Mashujaa FC
+Singida Fountain Gate
+Pamba Jiji
+Mbeya City
+TRA United

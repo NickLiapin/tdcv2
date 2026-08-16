@@ -1,0 +1,48 @@
+---
+address: tanzania.finance.bank
+description: Banks licensed by the Bank of Tanzania, as at the January 2025 register — 34 commercial banks first, then the 3 community banks, the 4 microfinance banks and the 2 development banks, 43 in all. Ordered by category and then alphabetically, which is the register's own order and not size: CRDB and NMB are the two largest by assets and both sit in the middle of the list. Four entries carry the country's structure rather than just a name. PEOPLE'S BANK OF ZANZIBAR is owned by the Revolutionary Government of Zanzibar, the only bank on a national register anywhere in this pack collection owned by a government that is not the national one — the union again, this time on a balance sheet. Tanzania Commercial Bank is the former Tanzania Postal Bank, renamed in 2021 after absorbing Twiga Bancorp and Tanzania Women's Bank. Mwalimu Commercial Bank was capitalised by the teachers' union and Mkombozi by the Catholic church, which is a kind of ownership a European register does not produce. Names follow the current brand, and several banks outlived a rebrand: Absa Bank Tanzania was Barclays until 2020, NCBA is the merged CBA and NIC, Mwanga Hakika is the merged Mwanga Community and Hakika Microfinance, Letshego Faidika was Advans. Banks that appear in older Tanzanian bank lists and are deliberately absent because they no longer trade: FBME (licence revoked 2017), Bank M (absorbed into Azania, 2018), Twiga Bancorp and Tanzania Women's Bank (both into TPB/TCB), Covenant Bank for Women, Efatha Bank. The Bank of Tanzania itself is the regulator and the issuer of the shilling (TZS) and is not a retail bank, so it is not here.
+locale: en
+---
+Absa Bank Tanzania
+Access Bank Tanzania
+Akiba Commercial Bank
+Amana Bank
+Azania Bank
+Bank of Africa Tanzania
+Bank of Baroda Tanzania
+Bank of India Tanzania
+China Dasheng Bank
+Citibank Tanzania
+CRDB Bank
+DCB Commercial Bank
+Diamond Trust Bank Tanzania
+Ecobank Tanzania
+Equity Bank Tanzania
+Exim Bank Tanzania
+Guaranty Trust Bank Tanzania
+Habib African Bank
+I&M Bank Tanzania
+International Commercial Bank Tanzania
+KCB Bank Tanzania
+Letshego Faidika Bank
+Maendeleo Bank
+Mkombozi Commercial Bank
+Mwalimu Commercial Bank
+Mwanga Hakika Bank
+National Bank of Commerce
+NCBA Bank Tanzania
+NMB Bank
+People's Bank of Zanzibar
+Stanbic Bank Tanzania
+Standard Chartered Bank Tanzania
+Tanzania Commercial Bank
+United Bank for Africa Tanzania
+Co-operative Bank of Tanzania
+Mufindi Community Bank
+Uchumi Commercial Bank
+Finca Microfinance Bank
+Selcom Microfinance Bank
+VisionFund Tanzania Microfinance Bank
+Yetu Microfinance Bank
+TIB Development Bank
+Tanzania Agricultural Development Bank

@@ -1,0 +1,21 @@
+---
+address: moldova.holiday
+description: The non-working public holidays of Moldova as article 111 of the Labour Code fixes them. THIRTEEN non-working days, but SIXTEEN lines below — fifteen national names plus the local hram — and the mismatch is the point rather than a counting error: two of these days carry two statutory names each, and Moldovan datasets use both. Christmas falls twice over: 7 and 8 January on the old style and 25 December on the new, because a 2013 amendment added the Gregorian date without removing the Julian one and both are non-working by law. 9 May is one day under two names, Victory Day kept from the Soviet calendar and Europe Day added in 2016; which one a Moldovan says tells you a good deal, and the statute carries both. 31 August is the same: the Labour Code calls it the feast of "Limba noastră", and a law of 2 March 2023 — the same season as the constitutional amendment that replaced "Moldovan" with "Romanian" — gave it the second name Ziua Limbii Române. Paștele Blajinilor, the Monday a week after Orthodox Easter when families eat lunch at the graves of their dead, is a public holiday here and is not one in Romania: it is the clearest calendar difference between the two countries. Beyond the statutory list, the hramul of each locality — its patron saint's day, fixed by the local council — is a non-working day in that locality alone, which is why 14 October empties Chișinău and no other town; it is listed last because it is a movable, place-specific entry rather than a national date.
+locale: ro
+---
+Anul Nou
+Crăciunul pe stil vechi
+A doua zi de Crăciun pe stil vechi
+Ziua internațională a femeii
+Prima zi de Paște
+A doua zi de Paște
+Paștele Blajinilor
+Ziua internațională a solidarității oamenilor muncii
+Ziua Victoriei și a comemorării eroilor căzuți pentru independența Patriei
+Ziua Europei
+Ziua Ocrotirii Copilului
+Ziua Independenței
+Limba noastră
+Ziua Limbii Române
+Crăciunul pe stil nou
+Hramul localității

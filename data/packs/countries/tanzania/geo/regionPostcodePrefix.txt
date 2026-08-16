@@ -1,0 +1,36 @@
+---
+address: tanzania.geo.regionPostcodePrefix
+description: The two-digit postcode lead of each Tanzanian region, index-aligned with tanzania.geo.region. A region's own base code is that lead followed by 000 — Dar es Salaam 11000, Arusha 23000, Dodoma 41000 — and every postcode inside the region starts with those two digits. The enumeration is not a range and not derivable from anything: it runs 11 Dar es Salaam, 21 Tanga, 23 Arusha, 25 Kilimanjaro, 27 Manyara, 30 Geita, 31 Mara, 33 Mwanza, 35 Kagera, 37 Shinyanga, 39 Simiyu, 41 Dodoma, 43 Singida, 45 Tabora, 47 Kigoma, 50 Katavi, 51 Iringa, 53 Mbeya, 55 Rukwa, 57 Ruvuma, 59 Njombe, 61 Pwani, 63 Mtwara, 65 Lindi, 67 Morogoro, then the Zanzibar block 71 Mjini Magharibi, 72 Kusini Unguja, 73 Kaskazini Unguja, 74 Kusini Pemba, 75 Kaskazini Pemba. Two things to notice. MBEYA AND SONGWE BOTH LEAD WITH 53: Songwe was split out of Mbeya in 2016 and was never given a block of its own, so this file is 31 lines with only 30 distinct values and the mapping is one-way — a region gives you a prefix, a prefix does not always give you back a region. And the Zanzibar regions occupy a contiguous 71-75 block at the top of the range, which is the postal system quietly recording the same union that tanzania.geo.region describes: the islands were numbered as a set, after the mainland was finished.
+locale: en
+---
+23
+11
+41
+51
+35
+75
+73
+47
+25
+74
+72
+65
+31
+53
+71
+67
+63
+33
+61
+55
+57
+37
+43
+45
+21
+27
+30
+50
+59
+39
+53

@@ -1,0 +1,42 @@
+---
+address: tanzania.geo.streetName
+description: Real Tanzanian road names, mostly Dar es Salaam with a Zanzibar Stone Town tail, given in full because a Tanzanian road name is not a name plus a detachable type word — "Samora Avenue", "Sokoine Drive" and "Kivukoni Front" each carry their own generic and are not interchangeable, so slicing them the way usa.geo.streetNamed does would produce roads nobody could direct you to. The generics are English (Avenue, Road, Street, Drive, Front) even though the country runs in Swahili, which is exactly how the signs read; a Swahili speaker saying the same address out loud says "Barabara ya Samora". THE NAMES ARE A POLITICAL MAP. Samora Machel, Kwame Nkrumah, Patrice Lumumba, Ahmed Sekou Toure, Jomo Kenyatta, Haile Selassie, Nelson Mandela and Indira Gandhi are all here because Dar es Salaam was the headquarters of the African liberation movements through the 1960s and 1970s and named its city centre after them; Bibi Titi Mohamed was the TANU women's leader, Shaaban Robert the Swahili poet, Ali Hassan Mwinyi and Edward Sokoine a president and a prime minister. Kariakoo, the market quarter whose grid these streets run through, is a Swahili rendering of "Carrier Corps", the British First World War labour depot that stood there. The last five are Zanzibar, where Mizingani and Creek Road run along the Stone Town waterfront. Marked locale: en rather than sw because the strings as a whole are the English-generic forms printed on the street signs and in postal addresses; the proper nouns inside them are Swahili, Pan-African and Arabic in roughly equal measure, and calling the whole file Swahili would be a claim about the wrong half of each line. Note that a Tanzanian delivery address is normally a P.O. Box and a town, so a street name here is a locator rather than an address — see tanzania.geo.postalCode.
+locale: en
+---
+Samora Avenue
+Sokoine Drive
+Ohio Street
+Azikiwe Street
+Maktaba Street
+Mkwepu Street
+Zanaki Street
+Jamhuri Street
+Lumumba Street
+Nkrumah Street
+Msimbazi Street
+Uhuru Street
+Bibi Titi Mohamed Street
+Shaaban Robert Street
+Garden Avenue
+Kivukoni Front
+Morogoro Road
+Nyerere Road
+Bagamoyo Road
+New Bagamoyo Road
+Ali Hassan Mwinyi Road
+Kawawa Road
+Kilwa Road
+Pugu Road
+Upanga Road
+Sam Nujoma Road
+United Nations Road
+Haile Selassie Road
+Chole Road
+Toure Drive
+Indira Gandhi Street
+Nelson Mandela Road
+Mizingani Road
+Creek Road
+Kenyatta Road
+Malawi Road
+Gizenga Street

@@ -1,0 +1,15 @@
+---
+address: moldova.finance.bank
+description: The banks licensed by the National Bank of Moldova, in the trading names they use on their own doors and statements. There are ten of them and the whole sector is smaller than one mid-sized Romanian bank, which is the scale to keep in mind when generating Moldovan financial data. Three names that a dataset more than a decade old will still carry are absent, and their absence is the point: Banca de Economii, Banca Socială and Unibank were the three banks through which about a billion dollars left the country in 2014 and were liquidated in 2015, an event Moldovans call "furtul miliardului". Mobiasbancă is here under its current name, OTP Bank, after the Hungarian group bought it from Société Générale in 2019. Moldova-Agroindbank trades as maib and Moldindconbank as MICB. The list is NOT positionally paired with moldova.finance.bankCode.
+locale: ro
+---
+maib
+Moldindconbank
+Victoriabank
+OTP Bank
+Eximbank
+FinComBank
+Energbank
+ProCredit Bank
+Comerțbank
+EuroCreditBank

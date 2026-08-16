@@ -1,0 +1,9 @@
+---
+address: ghana.finance.bankCode
+description: The Ghanaian 3-digit bank code — the value that names a destination bank in a GhIPSS Instant Pay transfer, and the first three digits of every one of that bank's 6-digit branch sort codes. Sliced out of ghana.finance.bankWithCode, so it cannot drift from ghana.finance.bank. The real codes are a sparse sequence with holes in it — 020 to 240 in tens, then 280, 330, 340, 360 — so a random 3-digit draw would name banks that do not exist and miss most that do; this is the actual enumeration instead, and the holes are the banks the 2017-2019 crisis removed. Note the third digit is always 0, because the bank is really identified by two digits and the third belongs to the clearing zone: see ghana.finance.bankWithCode for why both readings are correct, and ghana.finance.sortCode for the full six.
+generator: tdc
+locale: en
+---
+<sequence name="entry"><gen type="template" value="ghana.finance.bankWithCode"/></sequence>
+<sequence name="code"><compute><result><slice from="0" to="3"><field name="entry"/></slice></result></compute></sequence>
+<data>${{code}}</data>

@@ -1,0 +1,23 @@
+---
+address: tanzania.geo.postalCodeMajor
+description: Real, traceable Tanzanian postcodes, for when a well-formed code is not good enough and the value has to be one that exists. In order — 11000 Dar es Salaam region base, 11101 Kivukoni and the Dar es Salaam city centre, 11104 Kijitonyama in Kinondoni, 11107 Dar es Salaam, 11479 Magogoni Street, Dar es Salaam (printed on Tanzania Commission for Universities notices), 21000 Tanga, 23000 Arusha region base, 23101 and 23103 Arusha town, 25107 Moshi, 33100 Mwanza, 41000 Dodoma region base, 41104 Tambukareli, Dodoma (the TCU head office), 41110 Nyerere Road, Dodoma, 41216 Dodoma, 67000 Morogoro, 71101 Shangani and 71102 Mkunazini, both in Stone Town, Zanzibar. Kept short on purpose, and shorter than it could be: Tanzania has thousands of ward-level codes and the public directories that reprint them are badly unreliable — the same list that supplied several entries here also labelled 33385 and 78492 as Dar es Salaam when 33 is Mwanza and 78 is not an allocated region lead at all, and put a "Dodoma" inside Zanzibar's 71 block. Every code above is consistent with the region prefix it claims (tanzania.geo.regionPostcodePrefix) and the ones that were not have been dropped. NOT index-aligned with tanzania.geo.city: one Tanzanian town spans many ward codes and the mapping is not one-to-one, so pairing the two lists would assert something false.
+locale: en
+---
+11000
+11101
+11104
+11107
+11479
+21000
+23000
+23101
+23103
+25107
+33100
+41000
+41104
+41110
+41216
+67000
+71101
+71102

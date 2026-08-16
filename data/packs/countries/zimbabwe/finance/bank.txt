@@ -1,0 +1,26 @@
+---
+address: zimbabwe.finance.bank
+description: Banks licensed by the Reserve Bank of Zimbabwe — the thirteen commercial banks, then the building societies and the savings bank, which in Zimbabwe are ordinary places to hold an everyday account rather than specialist lenders. POSB, the People's Own Savings Bank, is state-owned and is the account many salaried public servants are paid into; CABS is a building society and one of the largest retail deposit-takers in the country. Ownership is worth knowing because it drives the names: Stanbic is Standard Bank of South Africa, Nedbank Zimbabwe was MBCA, First Capital was Barclays Zimbabwe until Barclays sold out in 2017, BancABC is Atlas Mara's former Zimbabwean arm, and Ecobank is the pan-African group — so a bank column here is half South African and pan-African subsidiaries and half locally listed groups (CBZ, FBC, NMB, ZB). THE LIST MOVES FASTER THAN MOST COUNTRIES': Standard Chartered, in Zimbabwe since 1892, announced its exit and its business passed to FBC in 2024; Steward Bank, the bank arm of Econet and the one most bound up with EcoCash, has been renamed; and building-society licences have been surrendered and cancelled since. A Zimbabwean banking data set therefore ages quickly, and a name that was correct three years ago may name an institution that no longer exists under that name. Foreign-currency and local-currency accounts are held separately at the same bank — the nostro FCA in US dollars beside the ZiG account — so one customer routinely has two balances in two currencies at one institution, which is the shape zimbabwe.finance.currency warns about.
+locale: en
+---
+CBZ Bank
+Stanbic Bank Zimbabwe
+FBC Bank
+NMB Bank
+ZB Bank
+First Capital Bank
+Nedbank Zimbabwe
+BancABC Zimbabwe
+Ecobank Zimbabwe
+Steward Bank
+AFC Commercial Bank
+Metbank
+CABS
+POSB
+National Building Society
+Standard Chartered Bank Zimbabwe
+Infrastructure Development Bank of Zimbabwe
+EmpowerBank
+GetBucks Microfinance Bank
+InnBucks Microbank
+Zimbabwe Women's Microfinance Bank

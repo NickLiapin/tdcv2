@@ -1,0 +1,10 @@
+---
+address: ghana.vehicle.plate
+description: A Ghanaian number plate — AS 2567-12 — two letters of region and registering office from ghana.vehicle.plateCode, four digits of serial, and TWO DIGITS OF THE YEAR THE VEHICLE WAS FIRST REGISTERED. The year is the unusual part and it is why this file is worth reading: almost no other country prints the model year of registration in plain arithmetic on the plate, and Ghana has since January 2009. AS 2567-12 is the 2,567th vehicle registered in Ashanti Region during 2012, and every Ghanaian can read a car's age off the back of it at a glance — which is exactly what it is for. Second-hand prices, import duty arguments, taxi and trotro licensing and the ordinary social business of judging someone's car all run on that number, and the DVLA's stated reason for what happened next was that it was distorting the used-vehicle market and pushing buyers to falsify. THAT FORMAT WAS ABOLISHED ON 1 JANUARY 2026. The DVLA replaced the year suffix with a ZONAL code naming the office that registered the vehicle — GR 2224-AD for the Adenta office in Greater Accra, AS 3520-KM for Kumasi — on plates that now also print the region's name in words across the top. So this file generates the 2009-to-2025 form on purpose: it is what seventeen years of Ghanaian vehicles on the road actually carry, and it is what is in every existing Ghanaian record. The new form is NOT generated here, because the full set of zonal codes is not published — two are attested, AD and KM, and a list built from two would be a guess. YEAR RANGE: 09 through 25, the exact span in which this format was issued. COLOUR, which the plate carries and a string cannot: private is black on white, commercial black on yellow, motorcycles white on blue, agricultural green on white, diplomatic white on red.
+generator: tdc
+locale: en
+---
+<sequence name="code"><gen type="template" value="ghana.vehicle.plateCode"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="year"><gen type="number" value="9..25" length="2" first_zero="true"/></sequence>
+<data>${{code}} ${{serial}}-${{year}}</data>

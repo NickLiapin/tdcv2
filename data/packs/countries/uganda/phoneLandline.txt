@@ -1,0 +1,9 @@
+---
+address: uganda.phoneLandline
+description: A Ugandan fixed-line number in E.164 form — +256, then a two-digit code, then seven digits, nine in all, the same national length as a mobile. Written nationally it takes the trunk 0, so +256414123456 is dialled 0414 123456, and the Kampala form most Ugandans recognise is "0414" rather than "41" because the 4 that follows the area code is the first subscriber digit and has become part of how the number looks in print. Only three geographic codes are well attested and only those three are generated: 41 Kampala, 43 Jinja, 45 Iganga and the Mbale side. Also included are 31 and 39, which are NOT geographic — they are fixed-line blocks allocated to operators nationally, 39 held by MTN, and a number in them tells you nothing about where it rings. The list is short because the real thing is small and shrinking: Uganda has well under half a million fixed lines against tens of millions of mobile subscriptions, Uganda Telecom collapsed into administration and the fixed network with it, and a Ugandan business today publishes a mobile number or nothing. A generated Ugandan dataset in which most contacts have a landline is describing a country that has not existed for twenty years. Toll-free numbers, which do appear on Ugandan invoices and government notices, sit in 0800 and 0801 and are not generated here.
+generator: tdc
+locale: en
+---
+<sequence name="area"><gen type="text" value="41,43,45,31,39"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+256${{area}}${{line}}</data>

@@ -1,0 +1,13 @@
+---
+address: ghana.finance.banknote
+description: Ghanaian cedi banknote denominations in circulation, written as Ghanaians write them — GH¢ hard against the figure. The currency is the Ghana cedi, ISO 4217 GHS, divided into 100 pesewas. THE GH IN THE SYMBOL IS THE POINT AND IT DATES THE MONEY: on 1 July 2007 Ghana redenominated, knocking four zeros off the old cedi so that ¢10,000 became GH¢1, and the GH prefix was added to mark the new unit apart from the old. Anyone reading Ghanaian financial records across that date is reading two currencies with almost the same name, and a 2006 salary figure looks absurd beside a 2008 one unless the redenomination is applied. THE TOP OF THE RANGE IS NEW: the GH¢100 and GH¢200 notes were introduced in November 2019, and the reason given was inflation and the weight of cash people had to carry — before them the largest note was GH¢50. The bottom of the range has gone the other way and has largely fallen out of use, so the GH¢1 and GH¢2 notes are rare and grubby where they survive at all and have been substantially replaced by coins; the GH¢1 and GH¢2 both exist as coins, and the pesewa coins below them buy nothing. Note the currency's own resilience problem, which is why so much Ghanaian data is quoted in dollars: the cedi has been one of the more volatile African currencies for a decade, so a cedi amount without its date is close to meaningless.
+locale: en
+---
+GH¢1
+GH¢2
+GH¢5
+GH¢10
+GH¢20
+GH¢50
+GH¢100
+GH¢200

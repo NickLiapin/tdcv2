@@ -1,0 +1,9 @@
+---
+address: zimbabwe.tax.bpNumber
+description: ZIMRA Business Partner number (BP number) — nine digits, and the ONLY Zimbabwean tax identifier whose format the revenue authority has actually published. ZIMRA Public Notice 68 of 2022 states it plainly while announcing a second, parallel number for foreign-currency accounting: the forex BP number has nine digits prefixed by a 3 instead of a 2 for ZWL, with 300000001 given as the example. So the leading digit is real information — 2 for the local-currency registration, 3 for the foreign-currency one — and one taxpayer legitimately holds BOTH, because ZIMRA required forex and local-currency obligations to be returned and paid separately. That is a genuine trap for a schema that assumes one taxpayer has one tax number. There is NO CHECK DIGIT: nothing in the nine digits verifies the other eight, no weighted sum or Luhn is published or discoverable, and a single mistyped digit yields another well-formed BP number, so nothing is computed here and the file says so rather than inventing a checksum that would merely look verified. The BP number is the OLD system's identifier — SAP, in use until ZIMRA moved to TaRMS in October 2023 — and it has been superseded by the TIN (zimbabwe.tax.tin). It is kept in this pack rather than dropped because a decade of Zimbabwean invoices, receipts, credit notes and returns carry it, ZIMRA declared the old numbers invalid for new documents only from 1 January 2024, and a fiscal tax invoice is still commonly specified as carrying BOTH a VAT number and a BP number. Historic Zimbabwean accounting data is full of these.
+generator: tdc
+locale: en
+---
+<sequence name="scheme"><gen type="text" value="2,3"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{8}"/></sequence>
+<data>${{scheme}}${{serial}}</data>

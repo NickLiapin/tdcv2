@@ -1,0 +1,7 @@
+---
+address: zimbabwe.geo.postalCode
+description: ZIMBABWE HAS NO POSTCODE IN USE, and this file exists to say so where a config will actually look. There is no national postcode scheme: the Universal Postal Union's address template for Zimbabwe has no postcode line, ZIMPOST routes on the town name, and a correctly written Zimbabwean address ends "Harare, Zimbabwe" with nothing numeric after it. Two things then follow for anyone modelling a Zimbabwean address. First, the honest field value is EMPTY — a config that renders a real address should leave the postcode column blank or omit it, not call this address. Second, if a schema forces a postcode column to be non-null, this generator fills it with a well-formed five-digit string and that string means NOTHING; it is column shape, not geography, and it must never be joined against, sorted on, or presented as a real code. Beware the two wrong answers in circulation. Several address-data vendors sell "Zimbabwe zip codes", which are their own inventions or reprojections of other datasets; and a great many web forms print 00263 for Harare, which is not a postcode at all but the international dialling prefix 00 followed by the country calling code 263, copied into the wrong box and repeated until it looked official. Physical delivery in Zimbabwe is overwhelmingly to a P.O. Box rather than to a street address, which is the deeper reason no postcode was ever needed: the box number already names the office.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{5}"/>

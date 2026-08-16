@@ -1,0 +1,17 @@
+---
+address: nepal.calendar.bikramSambatMonthEnglish
+description: The twelve Bikram Sambat months romanised, index-aligned with nepal.calendar.bikramSambatMonth and in the same order, starting with Baisakh in mid-April. There is no official romanisation and the variants are wide enough to break a join, so it is worth naming them: Baisakh is also Baishakh and Vaisakh, Jestha also Jeth and Jyestha, Ashar also Asar, Ashadh and Ashadha, Shrawan also Sawan and Saun, Bhadra also Bhadau and Bhado, Ashoj also Asoj and Ashwin, Kartik also Kattik, Mangsir also Marga and Mangshir, Poush also Push and Pausha, Magh also Maagh, Falgun also Phalgun and Fagun, Chaitra also Chait and Chaet. One value per month is chosen here. These are NOT the Gregorian months under other names and must not be mapped onto them one for one — a BS month straddles two Gregorian months, beginning around the 13th to 15th of one and ending around the same date of the next, and its length is 29 to 32 days set annually rather than by rule. The Nepali month names are shared with the Indian sidereal calendars and with the Bengali and Punjabi calendars, so seeing Baisakh in a dataset does not by itself say the dataset is Nepali; what says it is Nepali is that the YEAR beside it is a Bikram Sambat year in the 2000s and that it is being used as a civil date rather than a festival date.
+locale: en
+---
+Baisakh
+Jestha
+Ashar
+Shrawan
+Bhadra
+Ashoj
+Kartik
+Mangsir
+Poush
+Magh
+Falgun
+Chaitra

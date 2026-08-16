@@ -1,0 +1,43 @@
+---
+address: tanzania.geo.city
+description: Tanzanian cities and principal towns, roughly ordered by population. DODOMA IS THIRD AND IT IS THE CAPITAL — the classic error in a Tanzanian dataset is to take Dar es Salaam, which is first here by a factor of four, and label it the capital of the country. It is not, and has not been since 1974: the National Assembly moved to Dodoma in 1996 and the executive completed the move in 2019, so the seat of government is the third city on this list. Zanzibar sits fourth and is a reminder of the other thing this pack tries not to flatten: it is the largest town of the other half of the union, run from its own House of Representatives rather than from Dodoma. The tail is deliberately not all mainland — Chake Chake and Wete are small towns on Pemba, kept because they are regional capitals in tanzania.geo.regionCapital and dropping them would leave the islands represented by one entry. Two names worth recognising: Kahama, eighth, is a gold-mining town in Shinyanga that has grown faster than almost anywhere else in the country, and Tunduma is a border post with Zambia whose population is a trucking queue that settled. The file is marked locale: sw, not en. Unlike Poland, where Warszawa and Warsaw are two different strings in two different languages, Tanzanian towns have no English exonyms — these are simply the Swahili-orthography names the government prints, and the one place with a genuinely separate Swahili name is the old quarter of Zanzibar City, Mji Mkongwe, which English calls Stone Town.
+locale: sw
+---
+Dar es Salaam
+Mwanza
+Dodoma
+Zanzibar
+Arusha
+Mbeya
+Morogoro
+Kahama
+Tanga
+Geita
+Songea
+Kibaha
+Bariadi
+Kasulu
+Tunduma
+Tabora
+Ifakara
+Mpanda
+Kigoma
+Moshi
+Iringa
+Bunda
+Sumbawanga
+Singida
+Musoma
+Tarime
+Mtwara
+Shinyanga
+Nzega
+Bukoba
+Makambako
+Njombe
+Lindi
+Vwawa
+Babati
+Korogwe
+Chake Chake
+Wete

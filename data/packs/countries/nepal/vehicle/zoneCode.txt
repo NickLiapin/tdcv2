@@ -1,0 +1,19 @@
+---
+address: nepal.vehicle.zoneCode
+description: The fourteen ZONAL CODES that appear on pre-2020 Nepali number plates, in Devanagari, with their English two-letter equivalents in this description because both forms were stamped: मे ME Mechi, को KO Koshi, स SA Sagarmatha, ज JA Janakpur, बा BA Bagmati, ना NA Narayani, ग GA Gandaki, लु LU Lumbini, ध DH Dhawalagiri, रा RA Rapti, भे BHE Bheri, क KA Karnali, से SE Seti, म MA Mahakali. READ THE WARNING BEFORE USING THIS FILE. THE ZONES (अञ्चल) DO NOT EXIST. They were Nepal's first-level administrative division from 1962 until the 2015 constitution abolished them, together with the five development regions, and replaced both with the 7 provinces in nepal.geo.province. A dataset whose top-level Nepali region is Bagmati Zone, Narayani or Mechi is a pre-2015 dataset and can be dated by that alone, and this file is emphatically NOT a region list — it exists in the vehicle directory and nowhere else because a zone code is the one place the zones outlived their abolition. Plates went on being stamped with them until the embossed provincial plate finally started being issued in July 2020, five years after the zones ceased to exist, and those plates are still legally on the road, so a Nepali vehicle dataset drawn from life today contains both schemes side by side. Use this address ONLY through nepal.vehicle.zonalPlate. Anything that treats these fourteen as current Nepali geography is wrong twice over: the units are gone, and their boundaries did not line up with the seven provinces that replaced them, so no zone maps onto one province.
+locale: ne
+---
+मे
+को
+स
+ज
+बा
+ना
+ग
+लु
+ध
+रा
+भे
+क
+से
+म

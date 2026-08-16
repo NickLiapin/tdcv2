@@ -1,0 +1,31 @@
+---
+address: ghana.education.university
+description: Ghanaian universities in their official English names. Ghana's higher education is older than most of the region's — the University of Ghana at Legon opened in 1948, nine years before independence, and KNUST in 1952 — and Ghanaian degrees have long been taken across West Africa, which is why several of these names turn up in Nigerian and Liberian records too. The list keeps the distinction a Ghanaian record cares about. PUBLIC universities, funded by the state and the ones a national record most often cites, led by the "big three" a Ghanaian names without thinking: Legon, KNUST and Cape Coast. TECHNICAL and SPECIALIST publics with narrow mandates — Mines and Technology at Tarkwa for the goldfields, Health and Allied Sciences at Ho, Energy and Natural Resources at Sunyani, Professional Studies for accountancy and business. And PRIVATE universities, mostly founded since the late 1990s and mostly church-backed, of which Ashesi is the outlier with an international reputation of its own. All are accredited by the Ghana Tertiary Education Commission, which replaced the National Accreditation Board and the National Council for Tertiary Education in 2020. NAMES CHURNED SHARPLY IN 2020 and old records will not match: four new public universities were created that year out of existing colleges, and three of them carry long personal names Ghanaians never say in full — C. K. Tedam at Navrongo, S. D. Dombo at Wa, and Akenten Appiah-Menka at Kumasi, universally CKT-UTAS, SDD-UBIDS and AAMUSTED. The contraction is what a Ghanaian writes and says: Legon, KNUST, UCC, UEW, UDS, UMaT, UPSA, GIMPA, UHAS, UENR.
+locale: en
+---
+University of Ghana
+Kwame Nkrumah University of Science and Technology
+University of Cape Coast
+University of Education, Winneba
+University for Development Studies
+University of Mines and Technology
+University of Professional Studies, Accra
+Ghana Institute of Management and Public Administration
+University of Health and Allied Sciences
+University of Energy and Natural Resources
+C. K. Tedam University of Technology and Applied Sciences
+Simon Diedong Dombo University of Business and Integrated Development Studies
+Akenten Appiah-Menka University of Skills Training and Entrepreneurial Development
+University of Environment and Sustainable Development
+Ghana Communication Technology University
+University of Media, Arts and Communication
+Ashesi University
+Central University
+Valley View University
+Pentecost University
+Methodist University Ghana
+Presbyterian University Ghana
+Catholic University of Ghana
+Accra Technical University
+Kumasi Technical University
+Takoradi Technical University

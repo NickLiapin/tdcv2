@@ -1,0 +1,15 @@
+---
+address: zimbabwe.geo.province
+description: The ten provinces of Zimbabwe, and the trap in the list is that TWO OF THEM ARE CITIES. Harare and Bulawayo are metropolitan provinces — the city IS the province, with no rural hinterland and no other town inside it — so the same string appears in this file and in zimbabwe.geo.city, and a config that treats province and city as disjoint layers will emit "Harare, Harare" and be right. This is not a defect in the data; it is how the 2013 Constitution divides the country, and it is the same arrangement a reader may know from South Africa's Gauteng (which is NOT a city) or Kenya's Nairobi County (which is). The other eight are ordinary provinces with a rural interior and an administrative capital that is a separate place: see zimbabwe.geo.provinceCapital, which is index-aligned with this file, and note that for Harare and Bulawayo the capital is the province name repeated, because there is nothing else it could be. The two Matabeleland provinces and the two Mashonaland-plus-Midlands blocks carry the country's main ethnolinguistic division on their faces — Matabeleland is Ndebele-speaking, the Mashonaland provinces Shona-speaking — which is why a Zimbabwean data set keyed on province is often implicitly keyed on language as well. Provinces are ordered by population (2022 census); Harare province alone holds about a sixth of the country.
+locale: en
+---
+Harare
+Manicaland
+Mashonaland West
+Midlands
+Mashonaland East
+Masvingo
+Mashonaland Central
+Matabeleland North
+Matabeleland South
+Bulawayo

@@ -1,0 +1,24 @@
+---
+address: zimbabwe.education.university
+description: Universities in Zimbabwe — state institutions first, then the church-founded and private ones, which in this country are a substantial part of the sector rather than a fringe. The University of Zimbabwe in Harare, opened in 1952 as the University College of Rhodesia and Nyasaland, was the only university in the country until 1990 and remains the one a Zimbabwean CV names first; NUST in Bulawayo followed in 1991 as the deliberate Matabeleland counterweight. Great Zimbabwe University at Masvingo is named for the stone city a few kilometres away that the country itself is named after — see zimbabwe.geo.landmark — and was Masvingo State University until 2010. The younger state universities were each planted in a province that had none: Lupane State in Matabeleland North, Gwanda State in Matabeleland South, Chinhoyi University of Technology in Mashonaland West, Bindura in Mashonaland Central, Manicaland State in Mutare. Africa University in Mutare is unusual and worth not flattening into the list: it was founded by the United Methodist Church in 1992 as a pan-African university, teaches students from across the continent, and is not a Zimbabwean national institution in the way the rest are. Zimbabwe Open University is a distance institution with the largest enrolment in the country, so a graduate drawn at random from the real population is likelier to hold a ZOU degree than the ranking-based intuition suggests. Zimbabwe's tertiary sector is disproportionately large for its economy and its graduates are heavily represented in the professions of South Africa, Botswana and the United Kingdom, so a Zimbabwean university in a data set frequently sits beside a foreign employer. Polytechnics and teachers' colleges are a separate tier and are not listed.
+locale: en
+---
+University of Zimbabwe
+National University of Science and Technology
+Midlands State University
+Great Zimbabwe University
+Chinhoyi University of Technology
+Bindura University of Science Education
+Harare Institute of Technology
+Lupane State University
+Gwanda State University
+Manicaland State University of Applied Sciences
+Marondera University of Agricultural Sciences and Technology
+Zimbabwe Open University
+Africa University
+Solusi University
+Catholic University of Zimbabwe
+Women's University in Africa
+Reformed Church University
+Zimbabwe Ezekiel Guti University
+Arrupe Jesuit University

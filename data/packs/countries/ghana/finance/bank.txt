@@ -1,0 +1,9 @@
+---
+address: ghana.finance.bank
+description: Banks licensed by the Bank of Ghana, in the names they trade under. Sliced out of ghana.finance.bankWithCode rather than kept as a second list, so a bank can never appear here without the clearing code that routes money to it. Twenty-four names, which is roughly the whole of Ghanaian commercial banking — a small, concentrated sector where GCB, Ecobank, Absa, Stanbic and Fidelity carry most of the deposits and several of the rest are single-branch operations. Four are state-owned or majority state-owned (GCB, ADB, NIB, Consolidated Bank Ghana) and most of the rest are subsidiaries of Nigerian, South African, Pan-African or European groups, which is why so many names are familiar from elsewhere on the continent and why "Ghana" is part of several of them. Ghanaians use the short form in speech: GCB, Stanchart, Cal, GT, ADB, Fidelity.
+generator: tdc
+locale: en
+---
+<sequence name="entry"><gen type="template" value="ghana.finance.bankWithCode"/></sequence>
+<sequence name="bare"><compute><result><slice from="4"><field name="entry"/></slice></result></compute></sequence>
+<data>${{bare}}</data>

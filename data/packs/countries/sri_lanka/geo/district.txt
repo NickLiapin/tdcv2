@@ -1,0 +1,30 @@
+---
+address: sri_lanka.geo.district
+description: All 25 DISTRICTS of Sri Lanka, alphabetically. The district is the SECOND administrative layer, under the 9 provinces in sri_lanka.geo.province, and it is the layer that actually organises Sri Lankan life — a district has a District Secretary (the old Government Agent), a district court, its own police division and its own electoral district, and it is the unit the census, the postal code blocks and almost every published statistic are keyed to. The count is fixed by the Constitution: the 1978 Constitution names 25 administrative districts, and the last one created was Kilinochchi in February 1984, so unlike Bangladesh's divisions or India's states this list has not moved in over forty years and a dataset with 24 or 26 districts is wrong rather than merely dated. Grouped by province the 25 are — Western: Colombo, Gampaha, Kalutara. Central: Kandy, Matale, Nuwara Eliya. Southern: Galle, Matara, Hambantota. Northern: Jaffna, Kilinochchi, Mannar, Mullaitivu, Vavuniya. Eastern: Ampara, Batticaloa, Trincomalee. North Western: Kurunegala, Puttalam. North Central: Anuradhapura, Polonnaruwa. Uva: Badulla, Monaragala. Sabaragamuwa: Kegalle, Ratnapura. Below the district sit 339 Divisional Secretariat divisions and roughly 14,000 Grama Niladhari divisions, which this pack does not enumerate. Spellings are the official English ones and several have competing romanisations in the wild — Monaragala is also written Moneragala, Mullaitivu also Mullaithivu, Nuwara Eliya is two words and never one — so a join against another Sri Lankan dataset on the district NAME will lose rows unless it is normalised first.
+locale: en
+---
+Ampara
+Anuradhapura
+Badulla
+Batticaloa
+Colombo
+Galle
+Gampaha
+Hambantota
+Jaffna
+Kalutara
+Kandy
+Kegalle
+Kilinochchi
+Kurunegala
+Mannar
+Matale
+Matara
+Monaragala
+Mullaitivu
+Nuwara Eliya
+Polonnaruwa
+Puttalam
+Ratnapura
+Trincomalee
+Vavuniya

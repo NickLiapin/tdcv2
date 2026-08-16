@@ -1,0 +1,9 @@
+---
+address: ghana.phoneNational
+description: Ghanaian mobile number in the domestic form Ghanaians actually write and read aloud — the trunk 0, then the 2-digit network prefix, then seven digits: 0241234567, ten digits in total. This is what goes on a business card, into a bank's records, into a *USSD# menu, and — because the wallet number is the phone number — into a mobile money transfer. The +233 form in ghana.phone is the same number for an international dialler, with this leading 0 removed. Both draw their prefix from ghana.phonePrefix so the two cannot drift apart. Emitted unspaced because that is how it is stored; written by hand a Ghanaian groups it 024 123 4567.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="template" value="ghana.phonePrefix"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>0${{prefix}}${{rest}}</data>

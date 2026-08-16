@@ -1,0 +1,10 @@
+---
+address: nepal.geo.localLevel
+description: All 753 LOCAL LEVELS (स्थानीय तह) of Nepal in Nepali, with their official name and category suffix, sliced out of nepal.geo.localLevelWithPostalCode so that this file and the postcode it belongs to can never fall out of step. THE LOCAL LEVEL IS THE THIRD TIER OF GOVERNMENT AND IT IS THE ONE THAT MATTERS. Nepal's 2015 constitution built a federation of three elected tiers — the federation, 7 provinces and these 753 — and gave the bottom tier real constitutional powers of its own (Schedule 8): it registers births, deaths and marriages, keeps land records, runs basic schools and health posts, levies its own taxes and issues recommendation letters that a Nepali cannot open a bank account or get a passport without. The DISTRICT, which sits between the province and the local level, has no elected government at all. So a Nepali address, and any Nepali administrative record, is province-district-LOCAL LEVEL-ward, and the last two are what a citizen actually deals with. Four categories are mixed here on purpose because they are one tier, not four: 6 महानगरपालिका (metropolitan cities), 11 उपमहानगरपालिका (sub-metropolitan cities), 276 नगरपालिका (municipalities) and 460 गाउँपालिका (rural municipalities) — and the fact that 460 of the 753 are RURAL is the single most useful thing this list says about the country. The suffix is kept because it is part of the official name and appears in every government document; a config wanting the bare place name should use nepal.geo.city, which is a much shorter list of the places that are actually towns. Most of these 753 did not exist before 2017: they were assembled out of some 3,900 former Village Development Committees, so a name here often has no history and no entry in an older gazetteer.
+generator: tdc
+locale: ne
+---
+<!-- Slice off the 5-digit postal code and the space after it; the rest is the name. -->
+<sequence name="entry"><gen type="template" value="nepal.geo.localLevelWithPostalCode"/></sequence>
+<sequence name="bare"><compute><result><slice from="6"><field name="entry"/></slice></result></compute></sequence>
+<data>${{bare}}</data>

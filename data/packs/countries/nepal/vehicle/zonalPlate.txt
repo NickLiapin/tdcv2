@@ -1,0 +1,24 @@
+---
+address: nepal.vehicle.zonalPlate
+description: The Nepali number plate as it was written before the embossed plate arrived in July 2020, e.g. बा २ च १२३४. EVERY CHARACTER IS DEVANAGARI, including both numbers — Nepal wrote its plates in Devanagari numerals ०१२३४५६७८९, so a plate transliterated as "BA 2 CHA 1234" is a transcription and not a plate, and this file emits the Nepali digits rather than ASCII ones for the same reason the Bangladeshi plate does. Four parts, all meaningful: the ZONE code (nepal.vehicle.zoneCode), a lot number prefixed once a zone's four-digit range filled, the CLASS syllable, and the four-digit vehicle number. The class syllable carried more information than the Latin letter that replaced it, because it encoded OWNERSHIP as well as size — क heavy, च light and प motorcycle for private vehicles; ख, ज and फ for public and commercial; ग, झ and ब for government; घ and ञ for state corporations; य for tourist vehicles; and सी.डी. for diplomatic — and the plate's colour said the same thing again: red with white letters for private, black with white for commercial, white with red for government, yellow for state corporations, green for tourist, blue for diplomatic. The embossed plate is uniformly black on white and says none of that in its letters. WHY THIS FILE EXISTS AT ALL, given that its zone codes name units abolished in 2015: because the plates outlived the units by five years and the vehicles outlive the plates. Old plates remain legal and the changeover is still not complete, so a Nepali vehicle dataset drawn from life today holds both forms side by side, and a generator that emits only the new one describes a fleet Nepal does not have. Nothing here is a check digit. The President's car carries no number at all — it carries the coat of arms.
+generator: tdc
+locale: ne
+---
+<sequence name="zone"><gen type="template" value="nepal.vehicle.zoneCode"/></sequence>
+<sequence name="lot"><gen type="regex" value="[१-९]"/></sequence>
+<!-- Private क heavy / च light / प motorcycle, public ख ज फ, government ग झ ब,
+     corporation घ ञ, tourist य. Weighted to the private light and motorcycle
+     syllables, which is what most of the fleet is. -->
+<sequence name="class"><gen type="text" value="प,च,क,फ,ज,ख,ब,झ,ग,य,घ,ञ" percent="45,26,4,6,6,2,2,3,2,2,1,1"/></sequence>
+<sequence name="number"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<sequence name="numberNe"><compute>
+  <let name="digits"><list>
+    <str v="०"/><str v="१"/><str v="२"/><str v="३"/><str v="४"/>
+    <str v="५"/><str v="६"/><str v="७"/><str v="८"/><str v="९"/>
+  </list></let>
+  <result><join sep=""><in><each>
+    <over><field name="number"/></over>
+    <do><at><in><use name="digits"/></in><index><to_number><current/></to_number></index></at></do>
+  </each></in></join></result>
+</compute></sequence>
+<data>${{zone}} ${{lot}} ${{class}} ${{numberNe}}</data>

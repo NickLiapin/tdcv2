@@ -1,0 +1,8 @@
+---
+address: moldova.geo.postalCode
+description: Moldovan postal code (cod poștal) — four digits written with an MD- prefix and a hyphen, MD-2001, and the prefix is part of how the code is written rather than decoration a formatter may drop. Four digits, not five like Ukraine's and not six like Romania's or the Soviet 27NNNN codes Moldova used until the 1990s. The code is geographic and reads as a two-digit zone plus a two-digit office: 20 is municipiul Chișinău, 30 Soroca, 31 Bălți, 32 Bender, 33 Tiraspol, 34 Hîncești, 35 Orhei, 36 Ungheni, 37 Strășeni, 38 Comrat, 39 Cahul, and so on up to 77, with the left-bank raions holding 32, 33, 40, 45, 55, 57 and part of 66. The zones drawn here are the ones the Poșta Moldovei index actually assigns — there is no zone 21 through 29, because everything from 2000 to 2098 is Chișinău and the rest of the country starts at 3000. That is why this file draws a zone from a list rather than a number from a range: a uniform 2000..7799 would put four fifths of its output in codes nobody can deliver to.
+generator: tdc
+---
+<sequence name="zone"><gen type="text" value="20,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,61,62,63,64,65,66,67,68,71,72,73,74,77"/></sequence>
+<sequence name="office"><gen type="number" value="0..99" length="2" first_zero="true"/></sequence>
+<data>MD-${{zone}}${{office}}</data>

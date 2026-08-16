@@ -1,0 +1,9 @@
+---
+address: uganda.geo.region
+description: The four regions of Uganda — Central, Eastern, Northern, Western. READ THE NEXT SENTENCE BEFORE MODELLING THEM. They are a STATISTICAL GROUPING, not a tier of government: no region has a council, a chairperson, a budget or a boundary you can be resident of. Nobody is administered by the Northern Region; the Bureau of Statistics tabulates by it, the World Bank and the donors report by it, and that is the whole of its existence. This is the opposite of what the equivalent file means almost everywhere else in this pack directory — a Polish voivodeship, a Kenyan county and an American state all elect somebody and all appear in an address — and a config that treats these four as an administrative layer between the country and the district is modelling a level that does not exist. They are also NOT the colonial-era provinces, which had governors and were abolished; the four regions were drawn later and only for counting. Uganda's real intermediate layer, to the extent it has one, is the sub-region (uganda.geo.subRegion), and that too is statistical. The units that govern are the 135 districts and 11 cities. Population is concentrated in Central: Wakiso District alone had 3.4 million people at the 2024 census, more than twice the whole Karamoja sub-region and more than Kampala itself.
+locale: en
+---
+Central
+Eastern
+Northern
+Western

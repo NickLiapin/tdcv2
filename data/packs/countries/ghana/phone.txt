@@ -1,0 +1,9 @@
+---
+address: ghana.phone
+description: Ghanaian mobile number in international E.164 form — +233, then the 9-digit national significant number: +233241234567, thirteen characters. THE LEADING 0 IS DROPPED. A Ghanaian writes the number domestically as 024 123 4567, ten digits with the trunk prefix, and internationally with that 0 gone; see ghana.phoneNational for the domestic form of the same thing. The 2-digit block comes from ghana.phonePrefix, so it is one the National Communications Authority really allocated, and the remaining seven digits are free. Ghana went to 9-digit numbers on 1 May 2010, when fixed and mobile were harmonised on the same length, so a Ghanaian number from before then is shorter and will not validate against this shape. GHANA IS A MOBILE COUNTRY to a degree that changes data design: fixed lines are a rounding error, a Ghanaian record has a mobile number where a European one might have a landline, and the number is not merely a contact detail — it is the person's mobile money wallet identifier, so it is a payment credential and should be handled as one. See ghana.finance.mobileMoney.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="template" value="ghana.phonePrefix"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+233${{prefix}}${{rest}}</data>

@@ -1,0 +1,16 @@
+---
+address: uganda.geo.charteredCity
+description: The 11 places that hold city status in Uganda, in the order they got it. Kampala stood alone as Uganda's only city until 2020; Parliament then declared a batch of regional cities and they took effect one financial year at a time — Arua, Gulu, Jinja, Mbarara, Fort Portal, Mbale and Masaka on 1 July 2020, Hoima on 1 July 2021, Lira on 1 July 2022, Soroti on 1 July 2023. A city is a LOCAL GOVERNMENT at the same tier as a district, not a settlement inside one, which is why 135 districts plus these 11 makes the 146 administrative units the 2024 census counted, and why Mbale District and Mbale City both exist and both have populations. Kampala is the odd one out even here: it is not a city council but the Kampala Capital City Authority, run by an executive director appointed by the President alongside an elected lord mayor, an arrangement that exists nowhere else in the country. Distinguish this file from uganda.geo.city, which is the ordinary sense of a populated place and is what a person means by "city" in a mailing address. Several of Uganda's largest urban settlements — Nansana, Kira, Makindye-Ssabagabo, Kyengera, Kasangati — hold no city charter at all despite being bigger than most of the chartered ones, because they are municipalities and town councils inside Wakiso District. Nansana at 692,000 people is the second-largest urban place in Uganda and is not a city.
+locale: en
+---
+Kampala
+Arua
+Gulu
+Jinja
+Mbarara
+Fort Portal
+Mbale
+Masaka
+Hoima
+Lira
+Soroti

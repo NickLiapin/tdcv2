@@ -1,0 +1,39 @@
+---
+address: sri_lanka.sport.team
+description: Sri Lankan sports clubs, weighted heavily towards CRICKET because that is what a "team" means here. Cricket is the national sport in fact if not in law — the law says volleyball — and the domestic first-class competition is a club competition, not a provincial or franchise one, which is the structural difference from India, Australia or England. That is why the first names below are private members' clubs in Colombo with grounds of their own: Sinhalese Sports Club, whose ground hosts Test matches, Nondescripts, Colombo CC, Tamil Union, Bloomfield and Moors. Several were founded on communal lines in the colonial period and kept the names — Sinhalese SC (1899), Tamil Union (1899), Moors SC for the Muslim community, Burgher Recreation Club for the Dutch-descended Burghers — so this list carries the island's communal history in it more plainly than any other file in the pack. The armed forces and the police run first-class clubs too, which is unusual outside South Asia and reflects that a sports contract with the Army, Navy, Air Force or Ports Authority has long been how a talented player from outside Colombo made a living. Rugby follows cricket in the hills and among the schools, and Kandy SC, CR&FC, Havelocks and CH&FC are its clubs; football is a distant third and its clubs are smaller, which is the reverse of the ordering almost everywhere else in Asia. NOT INCLUDED, on purpose: the Lanka Premier League franchises. The LPL is a real Twenty20 competition, but its teams are re-tendered, renamed and re-sponsored between seasons — a franchise list is a list of one year's sponsors rather than of clubs that exist — and a generated dataset that names them would date itself within a season. Names are given in English, which is what the clubs themselves use.
+locale: en
+---
+Sinhalese Sports Club
+Nondescripts Cricket Club
+Colombo Cricket Club
+Tamil Union Cricket and Athletic Club
+Bloomfield Cricket and Athletic Club
+Moors Sports Club
+Colts Cricket Club
+Chilaw Marians Cricket Club
+Ragama Cricket Club
+Burgher Recreation Club
+Panadura Sports Club
+Galle Cricket Club
+Kurunegala Youth Cricket Club
+Saracens Sports Club
+Badureliya Sports Club
+Sebastianites Cricket and Athletic Club
+Lankan Cricket Club
+Sri Lanka Ports Authority Cricket Club
+Army Sports Club
+Navy Sports Club
+Air Force Sports Club
+Police Sports Club
+Kandy Sports Club
+Colombo Rugby and Football Club
+Havelock Sports Club
+Colombo Hockey and Football Club
+Colombo Football Club
+Blue Star Sports Club
+Renown Sports Club
+Saunders Sports Club
+Ratnam Sports Club
+Java Lane Sports Club
+Negombo Youth Sports Club
+Up-Country Lions Football Club

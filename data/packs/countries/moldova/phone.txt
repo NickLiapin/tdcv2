@@ -1,0 +1,6 @@
+---
+address: moldova.phone
+description: Moldovan mobile number in E.164 form — +373 and eight national digits, so eleven in all, which is short: Romania next door runs to twelve and Ukraine to twelve. The two-digit prefixes drawn are the ones ANRCETI has actually allocated — 60, 61, 62, 68 and 69 Orange Moldova; 76, 78 and 79 Moldcell; 66 and 67 Unité, the mobile arm of Moldtelecom. Written without a trunk zero: a Moldovan dialling at home types 069..., but the 0 is not part of the international number. Landlines are the same eight digits behind a geographic prefix instead — 22 for Chișinău, 231 Soroca, 236 Ungheni, 210 and 552 for the left bank — and are not generated here. The left bank is inside +373 for the Moldovan operators and simultaneously reachable through a separate numbering arrangement, so a number there may exist in two forms; only the Moldovan one is generated.
+generator: tdc
+---
+<gen type="regex" value="\+373(60|61|62|66|67|68|69|76|78|79)[0-9]{6}"/>

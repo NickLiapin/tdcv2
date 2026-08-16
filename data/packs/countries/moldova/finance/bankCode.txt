@@ -1,0 +1,16 @@
+---
+address: moldova.finance.bankCode
+description: The two-character bank identifiers the National Bank of Moldova assigns to participants in the SAPI interbank payment system, which occupy positions 5-6 of a Moldovan IBAN — AG maib (Moldova-Agroindbank), ML Moldindconbank, VI Victoriabank, MO OTP Bank (the code predates the rebrand from Mobiasbancă and did not change with it), EX Eximbank, EN Energbank, CM Comerțbank, EC EuroCreditBank, FT FinComBank, PR ProCredit Bank. TR is not a bank: it is the State Treasury of the Ministry of Finance, and every payment to the Moldovan state — taxes, fines, state duty — goes to an IBAN beginning MDxxTR, which is why it belongs in this list even though no customer holds an account there. NB is the National Bank itself. The identifiers of banks wound up after the 2014 banking fraud — BE Banca de Economii, BS Banca Socială, JS Unibank — are not listed: they appear on old documents and in old code tables, but no IBAN is issued under them today. The list is NOT positionally paired with moldova.finance.bank; drawing both in one row will not give you a bank and its own code.
+---
+AG
+ML
+VI
+MO
+EX
+EN
+CM
+EC
+FT
+PR
+TR
+NB

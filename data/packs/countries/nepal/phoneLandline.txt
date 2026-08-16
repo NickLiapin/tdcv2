@@ -1,0 +1,19 @@
+---
+address: nepal.phoneLandline
+description: A Nepali fixed-line number in E.164 form — +977, the STD code from nepal.phoneAreaCode, then the subscriber number. THE TOTAL IS ALWAYS EIGHT DIGITS after the country code and it gets there two different ways, which is the whole difficulty of this number: Kathmandu's code is a single digit (1) and its subscriber numbers are SEVEN digits, everywhere else the code is two digits and the subscriber number is SIX. So +977 1 4XXXXXX and +977 61 4XXXXX are both well-formed and both eight digits long, and a validator that assumes a fixed split between code and subscriber will reject one or the other. WHY THAT IS STILL DECIDABLE, which is a nicer piece of design than it looks: +977 1 0459560 and +977 10 459560 are the same eight digits split two ways, and the plan stays unambiguous only because a Kathmandu subscriber number must start 4, 5 or 6 while the two-digit codes beginning 1 are 10, 11 and 13 — there is no code 14, 15 or 16. So the second digit alone decides the split, and a parser that reads it can always tell a Kathmandu number from a Nuwakot one. The first subscriber digit is 4, 5 or 6 and nothing else, per the ITU-registered plan — a Nepali landline never begins 0, 1, 2, 3, 7, 8 or 9 in its subscriber part, and 9 in particular is reserved to mobile, which is what makes a Nepali number's type readable at a glance. Nepal has NO TRUNK PREFIX in the international sense: domestically the code is dialled with a leading zero (01, 061) and that zero is not part of the number, so a database storing "01 4XXXXXX" has one digit more than E.164 wants. Landlines are worth generating in far smaller proportion than mobiles: Nepal went mobile almost without a fixed-line stage, fixed connections are concentrated in Kathmandu, government offices and businesses, and a Nepali personal record with a landline in it is describing an office or an older household. See nepal.phone for mobile numbers.
+generator: tdc
+---
+<sequence name="area"><gen type="template" value="nepal.phoneAreaCode"/></sequence>
+<sequence name="sub6"><gen type="regex" value="[4-6][0-9]{5}"/></sequence>
+<sequence name="sub7"><gen type="regex" value="[4-6][0-9]{6}"/></sequence>
+<sequence name="number"><compute>
+  <!-- The Kathmandu code is one digit and takes a seven-digit subscriber number;
+       every other code is two digits and takes six. Both total eight. -->
+  <let name="line"><choose>
+    <when><test><equals><length><field name="area"/></length><int v="1"/></equals></test>
+      <then><concat><field name="area"/><field name="sub7"/></concat></then></when>
+    <otherwise><concat><field name="area"/><field name="sub6"/></concat></otherwise>
+  </choose></let>
+  <result><concat><str v="+977"/><use name="line"/></concat></result>
+</compute></sequence>
+<data>${{number}}</data>

@@ -1,0 +1,37 @@
+---
+address: nepal.sport.team
+description: Sports clubs and franchises of Nepal, and the order is the argument: the eight NEPAL PREMIER LEAGUE cricket franchises come first because they are named after the seven PROVINCES and their capitals and were created in 2024 explicitly as a federal map — Sudurpaschim Royals, Karnali Yaks, Lumbini Lions and Janakpur Bolts are the new political geography turned into sport, which is a thing Nepal could not have done before 2015. Cricket is also the sport Nepal is now best at internationally, which reverses the older picture. After them come the MARTYR'S MEMORIAL A-DIVISION LEAGUE football clubs, Nepal's oldest competition and one whose names say a great deal about who funds sport in a poor country: Nepal Army, Nepal Police and APF (the Armed Police Force) are three of the strongest sides and are departmental teams — soldiers and police who are paid to play — while Manang Marsyangdi, the most successful club with eight titles, is named after two Himalayan valleys, and Machhindra, Sankata and Jawalakhel are Kathmandu Valley neighbourhood clubs older than the professional era. Then the NEPAL SUPER LEAGUE franchises, a 2021 city-franchise league that runs alongside the A-Division rather than replacing it, so a Nepali footballer can appear for a club in one and a city franchise in the other in the same year and both rows are correct. WHAT IS MISSING AND WHY: Nepal's declared NATIONAL SPORT is VOLLEYBALL, made official in 2017, and it has no professional club structure to list — the national game of Nepal is therefore absent from a list of Nepali teams, which is a fact about the country rather than a gap in the file. Note also that a Nepali franchise list is a snapshot: the NPL is two seasons old and the football leagues have suspended, restarted and reformatted repeatedly, so any of these names attached to a particular year should be checked against that year.
+locale: en
+---
+Janakpur Bolts
+Sudurpaschim Royals
+Karnali Yaks
+Chitwan Rhinos
+Kathmandu Gurkhas
+Lumbini Lions
+Biratnagar Kings
+Pokhara Avengers
+Manang Marsyangdi Club
+Machhindra FC
+Church Boys United
+Three Star Club
+Nepal Police FC
+Nepal Army FC
+APF FC
+Sankata FC
+Friends Club
+Himalayan Sherpa Club
+Jawalakhel YC
+Satdobato Youth Club
+Shree Bhagwati Club
+Planning Boyz United
+Kathmandu Rayzrs
+Lalitpur City FC
+Pokhara Thunders
+Dhangadhi FC
+Butwal Lumbini FC
+Chitwan FC
+Jhapa FC
+Birgunj United FC
+Biratnagar City FC
+Sporting Ilam De Mechi FC

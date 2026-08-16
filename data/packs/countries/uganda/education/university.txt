@@ -1,0 +1,55 @@
+---
+address: uganda.education.university
+description: Universities in Uganda, public first and then private, each roughly by founding date. The public list is short and the private list is long, which is the fact about Ugandan higher education a generated dataset should reproduce: there are on the order of ten public universities and forty-odd private ones, so a randomly drawn Ugandan university is far more likely to be private than public — the opposite of the balance in most of the country packs beside this one. Makerere is the outlier at the top and dominates in a way no institution does in the reference pack: founded in 1922 as a technical school, it was the university college for the whole of British East Africa, and Nyerere, Obote, Mwai Kibaki and a long list of the region's leaders passed through it, so a Ugandan graduate record drawn uniformly across this list under-represents Makerere severely. Regulation is by the National Council for Higher Education, and the distinction that matters in Ugandan documents is the CHARTER: a chartered university may award its own degrees, while one operating on a provisional licence may not, and the government has repeatedly ordered licensed-but-unchartered institutions to charter or close. Every institution here is a university; Uganda's tertiary sector also contains a large number of degree-awarding colleges and institutes that are not universities and are deliberately not mixed in. Makerere University Business School and Uganda Management Institute are included because they are public degree-awarding institutions Ugandans name alongside universities, though MUBS is constituent to Makerere rather than independent.
+locale: en
+---
+Makerere University
+Uganda Management Institute
+Mbarara University of Science and Technology
+Makerere University Business School
+Kabale University
+Kyambogo University
+Gulu University
+Mountains of the Moon University
+Busitema University
+Lira University
+Muni University
+Soroti University
+Islamic University in Uganda
+Ndejje University
+Uganda Martyrs University
+Kumi University
+Bugema University
+Uganda Christian University
+Nkumba University
+Kampala International University
+Aga Khan University
+Bishop Stuart University
+University of Kisubi
+African Bible University
+Ankole Western University
+ISBAT University
+Kampala University
+Uganda Pentecostal University
+St. Lawrence University
+Muteesa I Royal University
+All Saints University
+Cavendish University Uganda
+Clarke International University
+Great Lakes Regional University
+International University of East Africa
+LivingStone International University
+Victoria University Uganda
+King Ceasor University
+Nexus International University
+Universal Technology and Management University
+Africa Renewal University
+Metropolitan International University
+Nsaka University
+Ibanda University
+Royal Open University
+Stafford University Uganda
+University of the Sacred Heart Gulu
+African Rural University
+Limkokwing University of Creative Technology
+Rwenzori International University

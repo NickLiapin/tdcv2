@@ -1,0 +1,21 @@
+---
+address: ghana.geo.regionCapital
+description: Regional capitals of Ghana, index-aligned line for line with ghana.geo.region, so a config drawing an index gets a region and the town that actually administers it. Six of these were promoted in 2019 and are small towns rather than cities — Goaso (Ahafo), Techiman (Bono East), Nalerigu (North East), Dambai (Oti), Damongo (Savannah) and Sefwi Wiawso (Western North) are regional capitals of a few tens of thousands of people, which is exactly why their regions were created: the argument for the split was distance from the old capital, not population. Two lines catch people out. THE WESTERN REGION'S CAPITAL IS SEKONDI-TAKORADI, written with the hyphen — it is one twin city with two names, Sekondi the administrative half and Takoradi the port and the half everyone actually says. And ACCRA IS BOTH the capital of Greater Accra Region and the national capital, which is not true of most of this list; Kumasi is the second city and the seat of the Asantehene, but the government does not sit there. Bono's capital Sunyani was the capital of the whole of Brong-Ahafo before 2019 and kept the seat when the region was cut down around it.
+locale: en
+---
+Goaso
+Kumasi
+Sunyani
+Techiman
+Cape Coast
+Koforidua
+Accra
+Nalerigu
+Tamale
+Dambai
+Damongo
+Bolgatanga
+Wa
+Ho
+Sekondi-Takoradi
+Sefwi Wiawso

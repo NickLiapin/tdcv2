@@ -1,0 +1,36 @@
+---
+address: tanzania.geo.region
+description: The 31 regions (mikoa) of Tanzania, in ISO 3166-2 code order TZ-01 to TZ-31, and INDEX-ALIGNED with tanzania.geo.regionCode, tanzania.geo.regionCapital and tanzania.geo.regionPostcodePrefix. The count is 31 as at the ISO and National Bureau of Statistics position on 16 August 2026, and it has moved twice in living memory: Manyara was carved out of Arusha in 2002, Geita, Katavi, Njombe and Simiyu were created in 2012 taking the total to 30, and Songwe was split from the western half of Mbeya in January 2016 taking it to 31. A dataset built before 2016 will be short one region and both can be right for their moment. THE 31 SPAN A UNION OF TWO COUNTRIES, WHICH IS THE THING A READER IS MOST LIKELY TO FLATTEN. Twenty-six are on the mainland — Tanganyika, "Tanzania Bara" — and five are in Zanzibar: Kaskazini Pemba, Kaskazini Unguja, Kusini Pemba, Kusini Unguja and Mjini Magharibi, listed separately in tanzania.geo.regionZanzibar. Zanzibar is not a province. It has its own President, its own House of Representatives, its own courts, its own budget and its own civil service, and the United Republic government in Dodoma legislates for it only on the Union matters listed in the constitution. So a Tanzanian region list is one list, but the administration behind it is two, and a "region -> national government" join that works for Mbeya does not work for Pemba. Names are the official Swahili forms, which is why this file is marked locale: sw and not en: Kaskazini Unguja is North Unguja, Kusini Pemba is South Pemba, Mjini Magharibi is Urban West and Pwani is Coast. English-language sources routinely print those four translated — "Zanzibar North", "Zanzibar South", "Zanzibar West", "Coast Region" — and ISO itself lists both columns; the Swahili column is the one the Tanzanian government uses, so it is the one here.
+locale: sw
+---
+Arusha
+Dar es Salaam
+Dodoma
+Iringa
+Kagera
+Kaskazini Pemba
+Kaskazini Unguja
+Kigoma
+Kilimanjaro
+Kusini Pemba
+Kusini Unguja
+Lindi
+Mara
+Mbeya
+Mjini Magharibi
+Morogoro
+Mtwara
+Mwanza
+Pwani
+Rukwa
+Ruvuma
+Shinyanga
+Singida
+Tabora
+Tanga
+Manyara
+Geita
+Katavi
+Njombe
+Simiyu
+Songwe

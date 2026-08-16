@@ -1,0 +1,14 @@
+---
+address: sri_lanka.geo.province
+description: The 9 PROVINCES of Sri Lanka, alphabetically. The province is the FIRST-level division and the district (sri_lanka.geo.district, 25 of them) is the second; both are real layers and this pack keeps them in separate files, because a Sri Lankan address, an electoral register, a provincial council's jurisdiction and every government statistic is reported at one or the other, and flattening them into one "region" list would produce records no Sri Lankan form could accept. The provinces are not administrative decoration — the 13th Amendment (1987) gave each an elected Provincial Council with devolved powers over land, health, education and roads, which is why "province" in Sri Lanka means something closer to a German Land than to a French region. Two things a dataset gets wrong here. First, the count has been 9 since 1987 but not continuously: Northern and Eastern were merged into a single North-Eastern Province from 1988 until the Supreme Court de-merged them in 2006, so a Sri Lankan record from that period may name a province that no longer exists and may carry the plate code NE (see sri_lanka.vehicle.plateProvince). Second, the provinces have no capital-city column here on purpose — a provincial capital is a seat of a council, not a postal or statistical unit, and Sri Lanka's provincial seats (Colombo, Kandy, Galle, Jaffna, Trincomalee, Kurunegala, Anuradhapura, Badulla, Ratnapura) are all already in sri_lanka.geo.city.
+locale: en
+---
+Central
+Eastern
+North Central
+North Western
+Northern
+Sabaragamuwa
+Southern
+Uva
+Western

@@ -1,0 +1,9 @@
+---
+address: sri_lanka.docs.passport
+description: Sri Lankan passport number — one letter followed by seven digits, issued by the Department of Immigration and Emigration. TWO SERIES ARE IN CIRCULATION AT ONCE and both are generated here, weighted. N is the series issued from 2007 in the maroon booklet; P is the ordinary series that replaced it on 21 October 2024 in the navy-blue booklet. Because an ordinary Sri Lankan passport runs ten years, the N series still accounts for the great majority of valid passports and will until the mid-2030s, which is why N dominates the weighting — a Sri Lankan dataset that is all P numbers is a dataset of documents issued in the last two years, not of a population. The letter is a SERIES marker, not a code for the holder or the issuing office, and it is not a check character: there is no checksum anywhere in the eight characters, and verification means querying the Department. Two further prefixes exist and are NOT generated here because they belong to different document classes rather than to the ordinary passport: D for a diplomatic passport and OL for an official passport, the latter being the only one that is two letters and so the only one that would break a fixed-width column. The number in the machine-readable zone is these same eight characters padded to nine and followed by the ICAO MRZ check digit, which belongs to the travel-document format rather than to the number and is not generated here.
+generator: tdc
+locale: en
+---
+<sequence name="series"><gen type="text" value="N,P" percent="85,15"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>${{series}}${{serial}}</data>

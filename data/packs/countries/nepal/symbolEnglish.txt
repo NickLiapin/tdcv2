@@ -1,0 +1,13 @@
+---
+address: nepal.symbolEnglish
+description: The national symbols of Nepal in English, index-aligned line for line with nepal.symbol, in the order flag, emblem, anthem, animal, bird, flower, colour, sport. Each is officially designated rather than merely customary. The flag is the only non-rectangular national flag in the world and the only one taller than it is wide — see nepal.symbol for the full account, including the fact that its construction is specified geometrically in the constitution and yields an irrational aspect ratio of roughly 1:1.21901. The emblem was redesigned in 2006-2008 when the monarchy was abolished: the old one carried the crown, the royal plume and crossed khukuri knives; the present one carries the flag, Mount Everest, green hills and a yellow plain, a man's and a woman's hands clasped, and a garland of rhododendron around the map of Nepal, with the Sanskrit motto "जननी जन्मभूमिश्च स्वर्गादपि गरीयसी" — the mother and the motherland are greater than heaven. The anthem replaced the royal anthem in 2007 for the same reason. The cow is the national animal and is protected in law; the Himalayan monal, डाँफे, is the national bird; the rhododendron, लालीगुराँस, is the national flower; crimson (सिम्रिक) is the national colour. VOLLEYBALL is the national sport, declared in 2017, which surprises people who expect mountaineering or the khukuri-and-wrestling folk games — the older claim that dandi biyo, a stick game, was the national sport was never official. Nepal's most internationally recognised emblem is not on this list at all because it is not a national symbol: the KHUKURI, the recurved knife carried by Gurkha regiments, is a weapon and a regimental badge rather than a designated symbol of the state.
+locale: en
+---
+National flag
+National emblem
+Sayaun Thunga Phulka
+Cow
+Himalayan monal
+Rhododendron
+Crimson
+Volleyball

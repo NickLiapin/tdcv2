@@ -1,0 +1,21 @@
+---
+address: tanzania.sport.teamZanzibar
+description: Clubs of the Zanzibar Premier League — the PBZ Premier League, sponsored by the People's Bank of Zanzibar — which is a separate competition from the mainland's NBC Premier League and not a feeder to it. THIS IS THE SHARPEST SINGLE ILLUSTRATION OF THE UNION IN THIS PACK. The Zanzibar Football Association runs its own league, its own cup and its own national team, and CAF admitted it as a full member in its own right in 2017, so Zanzibar plays continental football as Zanzibar while remaining part of a country that also plays as Tanzania. Its champions enter CAF competitions separately from the mainland champions. FIFA membership is another matter and belongs to the Tanzania Football Federation alone, which is exactly the kind of split the constitution produces: some things are Union matters and some are not, and football landed on the line. Most of the clubs are from Zanzibar City on Unguja — Malindi, Miembeni, Mlandege, Chipukizi, Mafunzo, Jamhuri, Taifa Jang'ombe — and the institutional pattern repeats the mainland's: KMKM is the Zanzibar marine police unit, JKU the Zanzibar national service, Zimamoto the fire brigade, Polisi Zanzibar the police. KMKM has the most titles. Konde Stars and Mundu are Pemba sides, so the file covers both islands. Marked locale: sw: unlike the mainland list, most of these names are ordinary Swahili words serving as club names — chipukizi is a sapling or a youngster, mafunzo is training, zimamoto is fire-extinguishing, jamhuri is republic, miembeni means at the mango trees, taifa is nation.
+locale: sw
+---
+KMKM
+Mlandege
+Malindi
+Miembeni
+Jamhuri
+Chipukizi
+Mafunzo
+JKU
+Zimamoto
+Taifa Jang'ombe
+Polisi Zanzibar
+Konde Stars
+Mundu
+Zanzibar Ocean View
+Duma
+Chuoni

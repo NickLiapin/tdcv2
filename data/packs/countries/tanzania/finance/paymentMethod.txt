@@ -1,0 +1,19 @@
+---
+address: tanzania.finance.paymentMethod
+description: How money actually changes hands in Tanzania, in honest order. THIS LIST EXISTS BECAUSE THE ORDER IS THE POINT. The generic payment-method list in a language pack starts Credit Card, Debit Card, PayPal, and that ordering is not slightly wrong for Tanzania, it is wrong at the top: mobile money is the payment system here and cards are a minority instrument confined to supermarkets, hotels, fuel stations and e-commerce. Some 76.5 million mobile-money wallets were active at the end of 2025 against a population of about 67 million, and the four big wallets are listed first in their real order, M-Pesa then Mixx by Yas then Airtel Money then HaloPesa (see tanzania.finance.mobileMoney). Lipa Namba is the merchant till a shop displays for wallet payments; Lipa kwa Simu, "pay by phone", is the general phrase for it. TIPS, the Tanzania Instant Payment System, is the interoperable retail rail launched in 2022 and is what makes a wallet-to-bank or wallet-to-rival-wallet transfer land in seconds; TISS is the high-value interbank system that settles the big transfers. Cash sits below mobile money but above cards, and is still how most rural and market trade is done. A config that generates Tanzanian transactions off the generic list will produce a plausible dataset describing a country that does not exist. Marked locale: en because most lines are English; two are Swahili product phrases and one, Mixx by Yas, is a brand — the honest split of the wallet names is in tanzania.finance.mobileMoney, which declares no locale at all for that reason.
+locale: en
+---
+M-Pesa
+Mixx by Yas
+Airtel Money
+HaloPesa
+Lipa Namba
+Lipa kwa Simu
+TIPS instant transfer
+Bank transfer (TISS)
+Cash
+Cheque
+Debit card
+Credit card
+Standing order
+Direct debit

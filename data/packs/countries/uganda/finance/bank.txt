@@ -1,0 +1,27 @@
+---
+address: uganda.finance.bank
+description: The commercial banks licensed and supervised by the Bank of Uganda, in the register's alphabetical order, as at 30 October 2025 — 22 of them. Ugandan bank licensing is tiered and the tier matters: these are Tier 1 institutions, the only ones that may call themselves banks and take demand deposits. Tier 2 credit institutions are a different and shorter list that a "banks in Uganda" search will hand you mixed in with this one — ABC Capital, BRAC Uganda Bank, Finance Trust Bank, Guaranty Trust Bank (Uganda), Opportunity Bank, Pride Bank and Yako Bank all carry "Bank" in the name and none of them is on this list. Uganda Development Bank is a state development bank and is not here either. Two names are recent and will not match older datasets: Salaam Bank was licensed in September 2023 as Uganda's first Islamic commercial bank, converting the former Top Finance Bank; and Pearl Bank Uganda is the former PostBank Uganda, which was elevated from a credit institution to Tier 1 in December 2021 and rebranded in November 2025 — a dataset generated before that shows PostBank, and both are correct for their moment. Centenary appears under its legal name, Centenary Rural Development Bank, though everyone says Centenary Bank; it is the largest by customer numbers and grew out of a Catholic-church savings scheme for farmers, which is why the "rural development" is in the name and not marketing. No bank codes are shipped alongside this list: Uganda's clearing and RTGS participant codes are not published in a form that could be verified line by line, so inventing an index-aligned code file would have produced numbers that look authoritative and are not.
+locale: en
+---
+Absa Bank Uganda Limited
+Bank of Africa Uganda Limited
+Bank of Baroda Uganda Limited
+Bank of India (Uganda) Limited
+Cairo Bank Uganda Limited
+Centenary Rural Development Bank Limited
+Citibank Uganda Limited
+DFCU Bank Limited
+Diamond Trust Bank Uganda Limited
+Ecobank Uganda Limited
+Equity Bank Uganda Limited
+Exim Bank Uganda Limited
+Housing Finance Bank Uganda Limited
+I&M Bank (Uganda) Limited
+KCB Bank Uganda Limited
+NCBA Bank Uganda Limited
+Pearl Bank Uganda Limited
+Salaam Bank Uganda Limited
+Stanbic Bank Uganda Limited
+Standard Chartered Bank Uganda Limited
+Tropical Bank Limited
+United Bank for Africa Uganda Limited

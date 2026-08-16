@@ -1,0 +1,71 @@
+---
+address: sri_lanka.geo.city
+description: Cities and towns of Sri Lanka in their official English spellings, roughly by population, with the Colombo conurbation first. THE CAPITAL IS SRI JAYAWARDENEPURA KOTTE, NOT COLOMBO, and that is the single most common error in a Sri Lankan dataset. Parliament moved out of Colombo to Kotte in 1982 and the city was proclaimed the administrative capital; the Supreme Court sits there too. Colombo remains the commercial capital, the largest city, the seat of the President's office and most ministries, and the port — so both cities are real answers to different questions, and a "capital" column that says Colombo is not merely simplifying, it is naming a city that has not been the capital since before most of this data existed. The two are also physically adjacent: Kotte is inside the Colombo urban area, about eight kilometres east of Fort, so a distance calculation that treats them as separate metros will also be wrong. Spelling traps that break joins — Sri Jayawardenepura Kotte is the city, while the university at the same place is spelled University of Sri JayEwardenepura with an E (see sri_lanka.education.university), and both spellings are official; Colombo's own districts are written "Colombo 03" or "Colombo 3" and also carry Sinhala names (Colombo 07 is Cinnamon Gardens, Colombo 03 is Kollupitiya), so an address may name either; Chattogram-style renamings have not happened here, but the war-era Tamil place names in the north and east appear in both Tamil and Sinhala romanisations and this file uses the English administrative form. Values are English because English is Sri Lanka's link language and is what appears on a passport, a utility bill and a bank record; Sinhala and Tamil are the two official languages (see sri_lanka.language) and belong in language packs, not here.
+locale: en
+---
+Colombo
+Dehiwala-Mount Lavinia
+Moratuwa
+Sri Jayawardenepura Kotte
+Negombo
+Kandy
+Kalmunai
+Vavuniya
+Galle
+Trincomalee
+Batticaloa
+Jaffna
+Katunayake
+Maharagama
+Kesbewa
+Anuradhapura
+Ratnapura
+Badulla
+Matara
+Kurunegala
+Puttalam
+Matale
+Nuwara Eliya
+Gampaha
+Kalutara
+Hambantota
+Ampara
+Chilaw
+Panadura
+Wattala
+Ja-Ela
+Beruwala
+Kegalle
+Polonnaruwa
+Kilinochchi
+Mannar
+Mullaitivu
+Monaragala
+Hatton
+Bandarawela
+Point Pedro
+Weligama
+Ambalangoda
+Horana
+Homagama
+Boralesgamuwa
+Peliyagoda
+Kaduwela
+Avissawella
+Gampola
+Nawalapitiya
+Dambulla
+Tangalle
+Balangoda
+Embilipitiya
+Kuliyapitiya
+Chavakachcheri
+Akkaraipattu
+Kattankudy
+Eravur
+Valvettithurai
+Haputale
+Minuwangoda
+Kadugannawa
+Seeduwa
+Ragama

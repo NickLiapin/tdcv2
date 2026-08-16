@@ -1,0 +1,10 @@
+---
+address: tanzania.geo.regionZanzibar
+description: The five regions of Zanzibar, on their own, because Tanzania is a union of two states and a config that needs one side of it should not have to filter the other 26 out of tanzania.geo.region by hand. Three are on Unguja, the big island — Kaskazini Unguja (north), Kusini Unguja (south) and Mjini Magharibi (urban west, which holds Zanzibar City and about half the archipelago's people) — and two are on Pemba, Kaskazini Pemba and Kusini Pemba. The United Republic was formed on 26 April 1964 by the merger of Tanganyika, independent since 1961, with the People's Republic of Zanzibar and Pemba, three months after the January revolution that overthrew the Sultan. What the merger did not do is dissolve Zanzibar. It keeps its own President, its own House of Representatives, its own High Court, its own budget, its own civil service, its own film board and its own immigration desk at the airport, and residents of the mainland show identification to travel there. Only the Union matters in the First Schedule of the constitution — defence, foreign affairs, citizenship, currency, higher education among them — sit with the government in Dodoma. The practical consequence for a dataset is that Zanzibar shows up as its own row in things that look national: its own football league and its own CAF-member football association (tanzania.sport.teamZanzibar), its own number-plate prefix (tanzania.vehicle.plateZanzibar), its own bank (People's Bank of Zanzibar, the only one of the 34 licensed banks owned by a regional government), its own landline area code 024, its own revenue authority collecting VAT on goods consumed there, and two of the country's public holidays. Names are the official Swahili forms; English sources translate them as Zanzibar North, Zanzibar South, Zanzibar West, Pemba North and Pemba South.
+locale: sw
+---
+Kaskazini Unguja
+Kusini Unguja
+Mjini Magharibi
+Kaskazini Pemba
+Kusini Pemba

@@ -1,0 +1,41 @@
+---
+address: ghana.vehicle.plateCode
+description: The two letters that open a Ghanaian number plate — the region and, within the larger regions, the DVLA office that registered the vehicle. The base rule is the region's first letter plus R: CR Central, ER Eastern, NR Northern, VR Volta, WR Western, with UE and UW splitting Upper East from Upper West and AS and BA breaking the pattern for Ashanti and Bono. Regions with more traffic than one office can register hold several codes: Greater Accra runs a long series (GB, GC, GE, GG, GH, GL, GM, GN, GS, GT, GW, GX, GY alongside GR), Ashanti runs AC, AE, AK, AP and AW beside AS, Eastern has EN and ES, Volta has VA and VD, Bono has BR and BW, Western has WT. FOURTEEN OF THESE ARE GREATER ACCRA OR ASHANTI, which is not a bug in the list — it is where Ghana's vehicles are. NOTE WHAT THE LETTERS DO NOT TRACK: the six regions created in 2019 did not each get a fresh code. Bono East got BT, but Ahafo kept registering on Bono's letters, Savannah and North East on Northern's NR, Oti on Volta's VR and Western North on Western's WR, so a plate is a weaker guide to region than ghana.geo.region would suggest — the same mismatch as in ghana.geo.postcodeDistrict, and for the same reason, that the administrative map moved and the coding schemes did not. Savannah is reported to have received SR more recently, and it is left out here rather than asserted. NOT GENERATED, and deliberately: the special series, which are letter codes reserved by holder rather than by place — GA is the Ghana Armed Forces, GP the Ghana Police, FS the Fire Service, PS the Prisons Service, and diplomatic vehicles carry their own white-on-red plates. GA in particular is a trap, because it looks exactly like a Greater Accra code and is not one.
+locale: en
+---
+AC
+AE
+AK
+AP
+AS
+AW
+BA
+BR
+BT
+BW
+CR
+EN
+ER
+ES
+GB
+GC
+GE
+GG
+GH
+GL
+GM
+GN
+GR
+GS
+GT
+GW
+GX
+GY
+NR
+UE
+UW
+VA
+VD
+VR
+WR
+WT

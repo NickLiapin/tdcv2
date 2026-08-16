@@ -1,0 +1,12 @@
+---
+address: nepal.geo.provinceEnglish
+description: The 7 provinces of Nepal in English, index-aligned with nepal.geo.province and in the same constitutional 1-to-7 order. The names to notice are the ones that changed most recently and the ones that are spelled several ways. Koshi is also written Kosi and was Province No. 1 until 1 March 2023. Madhesh was Province No. 2 until January 2022 and is also written Madhes. Sudurpashchim is also Sudurpaschim and Far-Western, and Gandaki, Lumbini, Karnali and Bagmati are named after a river, the Buddha's birthplace, a river and a river respectively rather than after their capitals — which is why, unlike in Bangladesh or Thailand, a province name here is NOT also a city name and the two lists share nothing.
+locale: en
+---
+Koshi
+Madhesh
+Bagmati
+Gandaki
+Lumbini
+Karnali
+Sudurpashchim

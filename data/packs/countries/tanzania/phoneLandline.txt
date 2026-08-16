@@ -1,0 +1,9 @@
+---
+address: tanzania.phoneLandline
+description: Tanzanian fixed line in E.164 form — +255, a two-digit geographic area code in the 22-28 range, then seven digits. Nationally the same number starts 0, so +255222113694 is dialled 022 211 3694. The seven area codes are groups of regions rather than single towns: 22 Dar es Salaam, 23 Morogoro with Pwani, Lindi and Mtwara, 24 ZANZIBAR — Unguja and Pemba both — 25 the southern highlands (Mbeya, Songwe, Iringa, Njombe, Rukwa, Katavi, Ruvuma), 26 the centre (Dodoma, Singida, Tabora, Kigoma), 27 the north east (Arusha, Kilimanjaro, Manyara, Tanga), 28 the lake regions (Mwanza, Mara, Shinyanga, Kagera, Geita, Simiyu). 024 IS THE UNION IN THE NUMBERING PLAN: Zanzibar has one area code for two regions on two islands, the only code in the country that maps to a government rather than to a stretch of geography, and it is the code you dial for the House of Representatives. Fixed lines are a small and shrinking part of Tanzanian telephony — well under a million subscriptions against tens of millions of mobiles — so a realistic Tanzanian contact record has a mobile and, if it is an institution, possibly a landline; a person with only a landline is not a realistic Tanzanian record. Do not confuse these with the mobile blocks, which are 61-79 and never 22-28; see tanzania.phone.
+generator: tdc
+locale: en
+---
+<sequence name="area"><gen type="text" value="22,23,24,25,26,27,28"/></sequence>
+<sequence name="line"><gen type="regex" value="[2-8][0-9]{6}"/></sequence>
+<data>+255${{area}}${{line}}</data>

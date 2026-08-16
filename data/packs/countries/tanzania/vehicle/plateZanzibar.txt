@@ -1,0 +1,9 @@
+---
+address: tanzania.vehicle.plateZanzibar
+description: Zanzibar number plate — identical in shape to the mainland's but led by Z instead of T: Z 123 ABC. This is a separate address rather than a variant folded into tanzania.vehicle.plate because it is a separate registry. Zanzibar registers its own vehicles through its own administration, and the Z is not decoration on a Tanzanian plate, it is the mark of the other half of the union; a car on Unguja or Pemba carries Z, a car in Dodoma carries T, and the two series run independently. Private cars use white and yellow, commercial vehicles white on maroon. Government vehicles of the Revolutionary Government of Zanzibar carry SMZ — Serikali ya Mapinduzi ya Zanzibar — where a mainland government vehicle carries STK, Serikali Kuu Tanzania, and the existence of two government plate prefixes inside one country is the plainest thing in this pack about how the union works. There is no check character and no regional meaning inside the letters. Kept as its own file so that a config generating Zanzibar records does not have to filter mainland plates out of a mixed stream, and so that neither series is given a made-up share of the other: Zanzibar holds a small fraction of the country's vehicles, but no published figure for that fraction was found, and a weighted mix would have had to invent one.
+generator: tdc
+locale: en
+---
+<sequence name="serial"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<sequence name="letters"><gen type="regex" value="[A-Z]{3}"/></sequence>
+<data>Z ${{serial}} ${{letters}}</data>

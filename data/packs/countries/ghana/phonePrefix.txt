@@ -1,0 +1,18 @@
+---
+address: ghana.phonePrefix
+description: THE SOURCE OF TRUTH for Ghanaian mobile prefixes — the two digits that open the 9-digit national significant number, written WITHOUT the trunk 0. ghana.phone and ghana.phoneNational both draw from here, so the international and domestic forms of the same number cannot disagree about which blocks exist. READ THESE AS TWO DIGITS, NOT THREE, and that is the difference from Nigeria next door: a Ghanaian number is 9 digits national, so 024 123 4567 is the trunk 0 plus prefix 24 plus seven digits, and +233 24 123 4567 is the same number internationally. Writing +233024... is the classic error and produces a number one digit too long that dials nothing. These are NCA allocations rather than a pattern, and a Ghanaian reads the network off the prefix instantly: MTN holds 24, 25, 53, 54, 55 and 59 and about seven in ten subscribers; Telecel — Vodafone until 2023, and Ghana Telecom before that — holds 20 and 50; AirtelTigo, now trading as AT, holds 26, 27, 56 and 57, which is two pairs because Airtel and Tigo were separate networks before their 2017 merger and neither block was surrendered; Glo holds 23. 28 was Expresso, which is defunct, and is deliberately absent. This is a plain list rather than a regex alternation because a `[25][0-9]` pattern would generate blocks the NCA never issued and skew the distribution across those it did. Number portability exists, so a prefix is a strong hint about the network and not a guarantee, and every SIM is now registered against the holder's Ghana Card.
+locale: en
+---
+20
+23
+24
+25
+26
+27
+50
+53
+54
+55
+56
+57
+59

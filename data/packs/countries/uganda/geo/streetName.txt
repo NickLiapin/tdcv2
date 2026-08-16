@@ -1,0 +1,65 @@
+---
+address: uganda.geo.streetName
+description: Real Ugandan road names, mostly Kampala, given in full because a Ugandan road name is not a name plus a separable type word — Kampala Road, Jinja Road and Yusuf Lule Road each carry their own generic and are not interchangeable, so slicing them the way usa.geo.streetNamed does would produce roads nobody could direct you to. The set is deliberately mixed, because Kampala's street signs are: the arterial roads out of the city are named for where they go (Jinja Road, Entebbe Road, Gayaza Road, Bombo Road, Hoima Road, Masaka Road, Mityana Road, Port Bell Road), the colonial-era hill roads keep British names (Portal Avenue, Lugard Road, Colville Street, Baskerville Avenue, Tufnell Drive, Hesketh Bell Road, Windsor Crescent, Prince Charles Drive, Princess Anne Drive), and the independence-era renaming laid African and pan-African names over the centre (Kimathi Avenue for the Mau Mau leader, Nkrumah Road, Siad Barre Avenue, Yusuf Lule Road, Ben Kiwanuka Street, Luwum Street for the archbishop murdered in 1977 — the same man the 16 February public holiday is named for). KCCA is still naming roads today, increasingly after local elders proposed by their communities, so this list is a sample of a set that is still growing rather than a register. Note that a Ugandan postal address is normally a P.O. Box and a town, not a street and a house number (see uganda.geo.poBox), so a street name here is a locator rather than a delivery address; where a street IS used it is written with the plot first — "Plot 12, Nakasero Road".
+locale: en
+---
+Kampala Road
+Jinja Road
+Entebbe Road
+Bombo Road
+Gayaza Road
+Hoima Road
+Masaka Road
+Mityana Road
+Port Bell Road
+Kira Road
+Yusuf Lule Road
+Acacia Avenue
+Nakasero Road
+Buganda Road
+Namirembe Road
+Rubaga Road
+Ggaba Road
+Salaama Road
+Luwum Street
+Ben Kiwanuka Street
+William Street
+Nasser Road
+Burton Street
+Market Street
+Dastur Street
+Nkrumah Road
+Parliament Avenue
+Speke Road
+Nile Avenue
+Siad Barre Avenue
+Colville Street
+Portal Avenue
+Kimathi Avenue
+Kyaggwe Road
+Namuwongo Road
+Old Kampala Road
+Wilson Road
+Channel Street
+Johnston Street
+Dewinton Road
+Lugard Road
+Baskerville Avenue
+Tufnell Drive
+Hesketh Bell Road
+Windsor Crescent
+Windsor Loop
+Mackenzie Vale
+MacKinnon Road
+Victoria Avenue
+Prince Charles Drive
+Princess Anne Drive
+Philip Road
+John Babiiha Avenue
+Lumumba Avenue
+Kafu Road
+Wampewo Avenue
+Kololo Hill Drive
+Bukoto Street
+Martyrs Way
+Queen's Way

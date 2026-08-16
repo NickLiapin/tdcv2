@@ -1,0 +1,52 @@
+---
+address: nepal.geo.city
+description: Towns and cities of Nepal in Nepali, roughly by population, index-aligned line for line with nepal.geo.cityEnglish. The head of the list is the 6 महानगरपालिका (metropolitan cities) and the 11 उपमहानगरपालिका (sub-metropolitan cities), which is the whole of Nepal's official urban top tier; after them come the municipalities that are district headquarters, border crossings or otherwise nationally known. Spellings are the Department of Postal Services' own, taken from the same official directory as nepal.geo.localLevel, with the category suffix stripped — so काठमाण्डौ rather than the काठमाडौँ that the district is spelled with, and बाग्लुङ्ग rather than बागलुङ. Nepali place-name orthography genuinely varies between government offices and both spellings turn up in real documents; one is chosen here so a generated column joins cleanly, and the postal directory is chosen as the authority because it is also what the postcodes in this pack come from. WHAT THIS LIST CANNOT TELL YOU, and it is the important part: Nepal is one of the least urbanised countries in Asia and the 2017 restructuring redrew every municipal boundary, folding large stretches of countryside into "municipalities" overnight. So a Nepali who lives in नगरपालिका X may live an hour's walk from a road, the population figures for these places are not comparable with anything published before 2017, and a config generating rural Nepali addresses should reach for nepal.geo.localLevel (460 of whose 753 entries are गाउँपालिका, rural municipalities) plus a ward number rather than for this file. Note too that Pokhara is the largest city by AREA and Kathmandu by population, and that the Kathmandu valley holds four of the entries here — काठमाण्डौ, ललितपुर, भक्तपुर, किर्तिपुर — inside about 30 kilometres, which is why a Nepali address inside the valley needs the local level to be unambiguous.
+locale: ne
+---
+काठमाण्डौ
+पोखरा
+भरतपुर
+ललितपुर
+बिरगन्ज
+विराटनगर
+धरान
+बुटवल
+ईटहरी
+नेपालगञ्ज
+हेटौडा
+धनगढी
+जनकपुरधाम
+घोराही
+तुल्सीपुर
+कलैया
+जीतपुर सिमरा
+भक्तपुर
+किर्तिपुर
+मध्यपुर थिमी
+बनेपा
+धुलिखेल
+भिमदत्त
+दमक
+बिर्तामोड
+मेचीनगर
+ईलाम
+धनकुटा
+खाँदबारी
+राजविराज
+लहान
+मलंगवा
+गौर
+सिद्धार्थनगर
+लुम्बिनी साँस्कृतिक
+कपिलबस्तु
+तानसेन
+वालिङ्ग
+बाग्लुङ्ग
+बेनी
+गोरखा
+कुश्मा
+बेंसीशहर
+बीरेन्द्रनगर
+दिपायल सिलगढी
+अमरगढी
+टिकापुर

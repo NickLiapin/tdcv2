@@ -1,0 +1,25 @@
+---
+address: ghana.language
+description: Languages of Ghana, in their English names, most-spoken first. WHY EVERY VALUE IN THIS PACK IS WRITTEN IN ENGLISH, stated here rather than left implicit, because it is a choice and not an accident. ENGLISH IS THE SOLE OFFICIAL LANGUAGE OF GHANA, and in the sense that matters to a data pack it is not a residue of empire but the working language of the record: the constitution, Parliament, the courts, the Ghana Card, the GRA's tax notices, bank statements, school certificates, number plates, the GhanaPostGPS app and every postal address are in English. A Ghanaian identity document is in English whatever its holder speaks at home, so an English pack is the correct pack for the PLACE, and that is the deliberate decision recorded here. TWI, EWE, GA AND DAGBANI ARE NOT SECOND-CLASS, THEY ARE UNBUILT. Akan — of which Twi and Fante are the varieties Ghanaians name in speech — is spoken by roughly half the country and is the real lingua franca of the south; Ewe holds the southeast, Ga holds Accra itself, and Dagbani holds the north. Each has millions of speakers, a written standard, a Bible translation, radio, newspapers and a place in the eleven government-sponsored languages of Ghanaian education. Each deserves a LANGUAGE pack of its own, at data/packs/ak/, ee/, gaa/ and dag/, and none exists yet. Rather than half-ship them by scattering a few Twi or Ga strings through a country pack, this pack ships none: a country pack holds what is true of the place, and the language a value is written in is a property of a language pack. Note two things a list like this hides. AKAN IS A CLUSTER, not one tongue — Twi, Asante Twi, Akuapem Twi and Fante are listed separately here because Ghanaians list them separately, and a speaker of one understands most of another. And Ghana has around eighty living languages, so any short list is a selection; this one is by speaker count.
+locale: en
+---
+English
+Akan
+Twi
+Asante Twi
+Akuapem Twi
+Fante
+Ewe
+Ga
+Dagbani
+Dangme
+Dagaare
+Nzema
+Gonja
+Kusaal
+Frafra
+Mampruli
+Hausa
+Kasem
+Sisaala
+Bimoba

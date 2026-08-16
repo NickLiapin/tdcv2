@@ -1,0 +1,24 @@
+---
+address: zimbabwe.sport.team
+description: Zimbabwean sports clubs and national teams. Football first, because the Premier Soccer League is the country's mass sport and its two biggest clubs are a national fault line rather than a rivalry: Dynamos of Harare, the most successful club in the league's history, and Highlanders of Bulawayo, founded in 1926 and the oldest club in the country, are the Shona-capital and Ndebele-capital sides respectively, and a match between them carries the weight of that. CAPS United completes the Harare trio. The mining and corporate clubs — FC Platinum of Zvishavane, Ngezi Platinum Stars, Chicken Inn of Bulawayo, Triangle United in the Lowveld sugar estates, ZPC Kariba at the power station — are named after the company that pays for them, which is how professional football in Zimbabwe survives an economy that cannot support gate receipts alone. The national teams are listed by their nicknames because that is what Zimbabwean coverage calls them: the Warriors (men's football), the Mighty Warriors (women's football), the Chevrons (cricket) and the Sables (rugby union). CRICKET IS NOT A MINOR ENTRY HERE. Zimbabwe is one of the small number of full members of the International Cricket Council and has played Test cricket since 1992, which puts a country of sixteen million in a club of a dozen; the Chevrons are the only Zimbabwean team most of the outside world can name, and cricket is disproportionately represented in Zimbabwean sport data for that reason. Rugby carries the same asymmetry in miniature: Zimbabwe played the 1987 and 1991 World Cups as the Sables. Athletics and swimming produce the country's Olympic medals and are individual sports with no clubs to list.
+locale: en
+---
+Dynamos
+Highlanders
+CAPS United
+FC Platinum
+Ngezi Platinum Stars
+Chicken Inn
+Simba Bhora
+Triangle United
+ZPC Kariba
+Manica Diamonds
+Herentals
+Bulawayo Chiefs
+Black Rhinos
+Yadah
+TelOne
+Warriors
+Mighty Warriors
+Chevrons
+Sables

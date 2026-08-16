@@ -1,0 +1,14 @@
+---
+address: ghana.finance.sortCode
+description: The Ghanaian bank branch sort code — six digits, printed on every cheque in the country and quoted on every bank instruction. THE STRUCTURE IS PUBLISHED AND IS THREE FIELDS OF TWO, which is the Bank of Ghana's own worded standard: in 01-02-03 the first pair is the BANK, the second is the CLEARING ZONE the branch sits in, and the third is the BRANCH within it. The bank pair comes from ghana.finance.bankWithCode here, so it always names a bank that exists; the zone runs 01 to 11 because Ghana was divided into eleven clearing zones, each with its own clearing house, and the branch pair is a serial. NO CHECK DIGIT — there is none in the scheme, and the Bank of Ghana does not claim one, so nothing is computed and nothing is invented; a sort code is validated by finding it in the published directory. THE ELEVEN ZONES ARE A FOSSIL AND THAT IS THE INTERESTING PART: on 16 January 2010 Ghana went to electronic cheque truncation, all eleven clearing houses were collapsed into a single national one at GhIPSS in Accra, and the zone digits were kept anyway because they were already printed on millions of cheques and already wired into every routing table. So the middle pair of a Ghanaian sort code still names a clearing house that has not existed since 2010. GHANA HAS NO IBAN. It is not in the ISO 13616 registry, so there is deliberately no ghana.finance.iban in this pack to sit beside Poland's or Egypt's, and an inbound international transfer is addressed by the bank's SWIFT/BIC plus the account number — the sort code is domestic only. Domestically the sort code is being displaced by the 3-digit bank code in ghana.finance.bankCode, because instant transfers route on that and on the account number, and cheques are the shrinking half of Ghanaian payments; see ghana.finance.mobileMoney for what actually moves the money.
+generator: tdc
+locale: en
+---
+<sequence name="entry"><gen type="template" value="ghana.finance.bankWithCode"/></sequence>
+<sequence name="zone"><gen type="number" value="1..11" length="2" first_zero="true"/></sequence>
+<sequence name="branch"><gen type="number" value="1..99" length="2" first_zero="true"/></sequence>
+<sequence name="code"><compute>
+  <let name="bank"><slice from="0" to="2"><field name="entry"/></slice></let>
+  <result><concat><use name="bank"/><field name="zone"/><field name="branch"/></concat></result>
+</compute></sequence>
+<data>${{code}}</data>

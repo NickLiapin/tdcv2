@@ -1,0 +1,12 @@
+---
+address: ghana.geo.streetName
+description: A Ghanaian street — a name from ghana.geo.streetNamed plus a designation. The designations are English because Ghanaian street signage is English, but the mix is Ghanaian rather than British. HIGHWAY, LINK and CIRCLE all carry ordinary urban addresses here where a British city would not use them; Accra's best-known landmark is simply called Circle, after the Kwame Nkrumah interchange. Avenue and Boulevard are commoner than in England because Accra's planned quarters — Cantonments, Airport Residential, Labone, Ridge — were laid out that way. THE HOUSE NUMBER THIS FILE DOES NOT ENCODE is worth knowing: a Ghanaian address is usually written "House No. A/213" or "No. 7", with a letter-slash-number form that names a plot in a surveyed block rather than a position along the street, and in unplanned areas there is no number and no street name at all — the address is a landmark and, since 2017, a digital address. See ghana.geo.digitalAddress, which exists because this file describes the minority of Ghana that has street addresses in the first place.
+generator: tdc
+locale: en
+---
+<sequence name="named"><gen type="template" value="ghana.geo.streetNamed"/></sequence>
+<sequence name="kind"><gen type="text" value="Street,Road,Avenue,Highway,Close,Link,Lane,Crescent,Boulevard,Circle"/></sequence>
+<sequence name="street"><compute>
+  <result><concat><field name="named"/><str v=" "/><field name="kind"/></concat></result>
+</compute></sequence>
+<data>${{street}}</data>

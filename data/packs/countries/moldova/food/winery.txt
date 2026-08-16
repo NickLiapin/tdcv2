@@ -1,0 +1,36 @@
+---
+address: moldova.food.winery
+description: Moldovan wineries, by their own brand names. This file is the Moldovan counterpart of a country's football clubs — wine is not a tourist ornament here but an industry the country is genuinely organised around: Moldova has one of the highest vineyard areas per head in the world, wine is among its largest exports, and the two largest wine cellars on Earth are both Moldovan and both within half an hour of the capital. Mileștii Mici holds the Guinness record for the largest wine collection in the world, around a million and a half bottles in galleries running some 200 km, of which about 55 km are in use; Cricova's tunnels run about 120 km and are laid out as streets with street names. Both were limestone quarries first — the stone that built Chișinău came out of them — and became cellars because the worked-out galleries hold 12-14 °C by themselves. The list mixes the industrial cellars with the estate wineries that grew up after 2006, when Russia closed its market to Moldovan wine overnight and the industry had to learn to sell to people who read labels. Three protected geographic indications cover the country: Codru in the centre, Valul lui Traian in the south-west, Ștefan Vodă in the south-east. Names are written as each producer writes its own, which is why some carry French articles and some carry no diacritics. KVINT is in Tiraspol on the left bank and is listed because it is one of the oldest and best known producers in the country.
+locale: ro
+---
+Cricova
+Mileștii Mici
+Château Purcari
+Castel Mimi
+Château Vartely
+Asconi
+Et Cetera
+Fautor
+Gitana
+Radacini
+Bostavan
+Salcuta
+Lion-Gri
+Novak
+Chateau Cristi
+Carlevana
+Acorex
+Aroma
+Romănești
+Aurelius
+Maurt
+Poiana
+Château Cojușna
+Migdal-P
+Vinuri de Comrat
+KaraGani
+Crama Mircești
+Tronciu Wines
+Ilie Gogu
+Barza Albă
+KVINT

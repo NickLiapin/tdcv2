@@ -1,0 +1,9 @@
+---
+address: zimbabwe.vehicle.plate
+description: Zimbabwean civilian number plate — three letters, a space, four digits: ABC 1234. THE LETTERS CARRY NO REGIONAL MEANING, which is the opposite of what a reader arriving from Poland, Germany, Spain or South Africa will assume. Registration is national and centralised at the Central Vehicle Registry, and plates are issued in one running sequence in the order vehicles are registered, so the letter block tells you roughly WHEN a vehicle was first registered and nothing whatever about WHERE it lives or where its owner comes from. A Zimbabwean plate is not a geography column and must not be joined to one. The current layout has been in use since 2006, when the country adopted the German FE-Schrift typeface and British plate dimensions; the black-on-yellow rear plate with a white front is the private-vehicle colour scheme, red on white marks a commercial vehicle, and military plates are white on black in a different layout whose last two digits are a year. None of these is generated here. Nothing in the plate is a check character; there is no checksum of any kind, so a mistyped plate is another perfectly well-formed plate. The current format is not an independence-era design: plates were introduced under Rhodesia and the incoming government did not change them in 1980, which is why Zimbabwean vehicle records run continuously across 1980 while almost every other national identifier does not. Personalised plates exist and are outside this format.
+generator: tdc
+locale: en
+---
+<sequence name="letters"><gen type="regex" value="[A-Z]{3}"/></sequence>
+<sequence name="digits"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>${{letters}} ${{digits}}</data>

@@ -1,0 +1,35 @@
+---
+address: sri_lanka.finance.bank
+description: Banks licensed by the Central Bank of Sri Lanka, in their usual English trading names. Two things about this list are specific to Sri Lanka rather than to South Asia. First, the STATE still owns the two largest banks by assets — Bank of Ceylon and People's Bank sit at the top of the list, ahead of every private one, and with National Savings Bank, the Regional Development Bank and the State Mortgage and Investment Bank the state sector is roughly half the banking system; a Sri Lankan dataset whose bank column is dominated by private names is describing a different country. Second, the foreign banks present are a legacy of the port and the plantations rather than of recent entry: HSBC, Standard Chartered and Citibank have been in Colombo since the nineteenth or early twentieth century, and the Indian and Pakistani banks came with trade. The list mixes Licensed Commercial Banks with Licensed Specialised Banks (National Savings, HDFC, SMIB, Regional Development, SANASA) because both take deposits and both appear in an account record; the distinction is that a specialised bank may not deal in foreign exchange or offer current accounts, which is why a Sri Lankan salary is far more often paid into one of the first ten names than into one of the last. Names are English because that is what appears on a cheque, a statement and a SWIFT record; the Sinhala and Tamil forms belong in language packs. Related: sri_lanka.finance.bankCode carries the numeric code, but the pack cannot bind a name to a code in the same row — see that file.
+locale: en
+---
+Bank of Ceylon
+People's Bank
+Commercial Bank of Ceylon
+Hatton National Bank
+Sampath Bank
+Seylan Bank
+National Development Bank
+Nations Trust Bank
+DFCC Bank
+Pan Asia Banking Corporation
+Union Bank of Colombo
+Amana Bank
+Cargills Bank
+National Savings Bank
+Regional Development Bank
+SANASA Development Bank
+Housing Development Finance Corporation Bank
+State Mortgage and Investment Bank
+HSBC
+Standard Chartered Bank
+Citibank
+Deutsche Bank
+Habib Bank
+MCB Bank
+Public Bank Berhad
+Indian Bank
+Indian Overseas Bank
+State Bank of India
+ICICI Bank
+Bank of China

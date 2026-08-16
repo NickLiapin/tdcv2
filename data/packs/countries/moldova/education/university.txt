@@ -1,0 +1,22 @@
+---
+address: moldova.education.university
+description: Universities and academies of Moldova in their official Romanian names. Nearly all of them are in Chișinău; Bălți, Comrat, Cahul and Taraclia hold the only ones outside it, and that concentration is real rather than an omission. Comrat State University teaches in Russian, Gagauz and Romanian and is the university of the Gagauz autonomy; the Taraclia branch of the Bulgarian University of Ruse serves the Bulgarian minority in the south. The Academy of Sciences of Moldova is not listed because it is a research academy, not a degree-granting university. Institutions on the left bank operate under authorities Moldova does not recognise and are not listed.
+locale: ro
+---
+Universitatea de Stat din Moldova
+Universitatea Tehnică a Moldovei
+Academia de Studii Economice a Moldovei
+Universitatea de Stat de Medicină și Farmacie Nicolae Testemițanu
+Universitatea Pedagogică de Stat Ion Creangă
+Universitatea de Stat Alecu Russo din Bălți
+Universitatea de Stat din Comrat
+Universitatea de Stat Bogdan Petriceicu Hasdeu din Cahul
+Universitatea Agrară de Stat din Moldova
+Academia de Muzică, Teatru și Arte Plastice
+Academia Militară a Forțelor Armate Alexandru cel Bun
+Academia Ștefan cel Mare a Ministerului Afacerilor Interne
+Universitatea Liberă Internațională din Moldova
+Universitatea de Studii Europene din Moldova
+Universitatea de Studii Politice și Economice Europene Constantin Stere
+Universitatea Cooperatist-Comercială din Moldova
+Universitatea din Ruse Angel Kanciev, filiala Taraclia

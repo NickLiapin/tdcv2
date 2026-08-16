@@ -1,0 +1,13 @@
+---
+address: nepal.symbol
+description: The national symbols of Nepal, in Nepali, index-aligned line for line with nepal.symbolEnglish. THE FLAG IS THE ONE TO KNOW: नेपालको झन्डा IS THE ONLY NON-RECTANGULAR NATIONAL FLAG IN THE WORLD. It is two stacked triangular pennants — the double-pennon that the Rana houses and the old kingdom's rulers flew, joined into one and never squared off — so it is a concave pentagon, and it is also the only national flag that is TALLER THAN IT IS WIDE. The crimson field is सिम्रिक, the colour of the rhododendron and of bravery, and the blue border is peace; the white crescent moon in the upper pennant and the twelve-rayed sun in the lower one stood for the royal house and the Rana prime ministers before 1962 and now stand for the Himalaya and the तराई, or for the moon's cool and the sun's heat, or for the hope that the nation will last as long as they do. Its geometry is not left to a manufacturer: the CONSTITUTION OF NEPAL specifies the flag's construction as a numbered sequence of compass-and-straightedge steps in its own schedule, the only national flag defined that way, and following those steps produces an aspect ratio that is an IRRATIONAL NUMBER — about 1:1.21901 — so the flag cannot be drawn exactly to a whole-number ratio and every printed approximation is slightly wrong. Adopted in its present form on 16 December 1962. The rest of the list is ordinary in kind and Nepali in content: गाई the cow, whose protected status is written into law; डाँफे the Himalayan monal, the pheasant whose male is iridescent green, copper and blue; लालीगुराँस, the rhododendron that turns the middle hills red in फागुन and चैत; सयौँ थुँगा फूलका, the anthem adopted in 2007 after the monarchy fell, whose title means "made of hundreds of flowers" and which is one of very few national anthems that is not a march; and भलिबल, declared the national game in 2017 — a genuinely surprising choice for a country famous for mountaineering, made because volleyball needs a flat patch and a net and is played in schoolyards in every district.
+locale: ne
+---
+नेपालको झन्डा
+निशान छाप
+सयौँ थुँगा फूलका
+गाई
+डाँफे
+लालीगुराँस
+सिम्रिक
+भलिबल

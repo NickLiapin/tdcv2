@@ -1,0 +1,21 @@
+---
+address: zimbabwe.language
+description: SIXTEEN OFFICIAL LANGUAGES — more than any other country on earth, and the single most unusual fact about Zimbabwe's official life. Section 6 of the 2013 Constitution names them all and requires the state to promote each of them equally, in schools and in government: Chewa, Chibarwe, English, Kalanga, Koisan, Nambya, Ndau, Ndebele, Shangani, Shona, sign language, Sotho, Tonga, Tswana, Venda and Xhosa. Zimbabwe's own sign language is one of the sixteen, which is rarer still — most constitutions that recognise a sign language do it separately or not at all. WHY EVERY VALUE IN THIS PACK IS NEVERTHELESS WRITTEN IN ENGLISH, stated here rather than left implicit. Equal promotion is a duty on the state, not a description of the paperwork. English is the language of government business, of the courts, of Parliament's record, of the Registrar-General's registers, of the national ID card and the passport, of ZIMRA returns and tax invoices, of bank statements, of number plates, of school certificates and university transcripts. A Zimbabwean record is in English whatever its subject speaks at home, so an English pack is the correct pack for the PLACE, and this country pack is addressed absolutely and can be reached from a config running under any locale. Shona (spoken by around seven in ten Zimbabweans as a first language and understood by far more) and Ndebele (around one in six, concentrated in Matabeleland) are the two large indigenous languages, and both deserve LANGUAGE packs of their own at data/packs/sn/ and data/packs/nd/. Neither exists. Rather than half-ship them by scattering a few Shona or Ndebele strings through a country pack, this pack ships none: what language a value is written in is a property of a language pack, and a handful of borrowed words is worse than an honest gap. Two entries need reading care. "Koisan" is the Constitution's spelling and its coverage is thin — it stands for the Tshwa/San languages of Tsholotsho and western Matabeleland, with a few hundred speakers left, and it is the one on this list closest to disappearing. "Chibarwe" (Barwe) likewise has a small speaker community in the north-east. Ndau and Kalanga were counted as dialects of Shona and Ndebele respectively before 2013 and are separately official now, which is a political fact as much as a linguistic one. Names are given in the Constitution's own English spellings, which is why Shona appears as Shona and not chiShona.
+locale: en
+---
+Shona
+Ndebele
+English
+Chewa
+Chibarwe
+Kalanga
+Koisan
+Nambya
+Ndau
+Shangani
+Sign language
+Sotho
+Tonga
+Tswana
+Venda
+Xhosa

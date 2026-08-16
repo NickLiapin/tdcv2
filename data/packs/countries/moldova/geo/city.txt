@@ -1,0 +1,69 @@
+---
+address: moldova.geo.city
+description: The towns and cities of Moldova in their official Romanian names, ordered by the 2024 census where it reached them. The country is small and overwhelmingly rural, and the shape of the list says so: Chișinău has more than half a million people, Bălți is the only other town above fifty thousand on the right bank, and the twentieth-largest town in the country has about eleven thousand. A generator that expects a European tail of mid-sized cities will not find one here. Left-bank towns — Tiraspol, Bender (Tighina), Rîbnița, Dubăsari, Slobozia, Grigoriopol, Camenca, Dnestrovsc — are included and placed by their last comparable figures rather than by 2024, because the 2024 census did not cover them; they are Moldovan towns in law and in the postal register, and an address in Tiraspol carries a Moldovan MD- postcode. Names are the Romanian forms the Moldovan register uses: Bender rather than Bendery, Rîbnița rather than Rybnitsa, with î where Romania would write â. Russian is the majority language of daily life in several of these towns and Gagauz in Comrat, Ceadîr-Lunga and Vulcănești, but a country pack in this project carries one language, and Romanian is what the state's own registers hold.
+locale: ro
+---
+Chișinău
+Tiraspol
+Bălți
+Bender
+Rîbnița
+Ungheni
+Durlești
+Cahul
+Orhei
+Soroca
+Comrat
+Codru
+Ialoveni
+Strășeni
+Ceadîr-Lunga
+Căușeni
+Slobozia
+Drochia
+Edineț
+Sîngera
+Fălești
+Hîncești
+Stăuceni
+Vulcănești
+Florești
+Grigoriopol
+Camenca
+Dnestrovsc
+Taraclia
+Sîngerei
+Cricova
+Călărași
+Rezina
+Nisporeni
+Anenii Noi
+Cimișlia
+Rîșcani
+Glodeni
+Dubăsari
+Leova
+Basarabeasca
+Dondușeni
+Criuleni
+Briceni
+Telenești
+Cupcini
+Ștefan Vodă
+Ocnița
+Șoldănești
+Vadul lui Vodă
+Otaci
+Lipcani
+Tvardița
+Vatra
+Cantemir
+Costești
+Iargara
+Biruința
+Căinari
+Cornești
+Ghindești
+Bucovăț
+Mărculești
+Frunză

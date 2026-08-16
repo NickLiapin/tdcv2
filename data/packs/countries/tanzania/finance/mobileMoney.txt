@@ -1,0 +1,10 @@
+---
+address: tanzania.finance.mobileMoney
+description: Tanzanian mobile-money services, in market-share order, and THE ORDER IS THE POINT — including the part of it that contradicts a story most people know. M-Pesa began in Kenya, and it is easy to conclude from that that Tanzania is a Kenyan satellite. IT IS NOT. Tanzania has its own market, its own regulator, its own operators and its own history: it was the first country in the world to make mobile-money accounts interoperable between networks, by commercial agreement in 2014 and then under the National Payment Systems Act, so a Tanzanian could send money from one wallet to a rival's years before a Kenyan could. The competitive shape is different too. Kenya is a one-wallet country, with M-Pesa holding the overwhelming majority; Tanzania is a four-wallet country, and by subscription in 2025 it ran roughly M-Pesa 41%, Mixx by Yas 29%, Airtel Money 19%, HaloPesa 10%, with the small ones sharing what is left. So a Tanzanian transaction dataset that puts everything on M-Pesa is wrong by about sixty percent of its rows. Mixx by Yas is the former Tigo Pesa, renamed in November 2024 when Tigo Tanzania became Yas; Tanzanian sources still say Tigo Pesa constantly, and both names name the same wallet. T-Pesa is the state operator TTCL's, Azam Pesa belongs to the Bakhresa group's Azam, Ezy Pesa was Zantel's and was folded into the Tigo/Yas business. Roughly 76.5 million wallets were active at the end of 2025, in a country of some 67 million people, so the average Tanzanian adult holds more than one. Each wallet is addressed by the phone number itself (tanzania.phone). No locale is declared on this file because the values will not sit still in one language: pesa is the Swahili for money and carries M-Pesa, T-Pesa, HaloPesa and Azam Pesa, while Mixx by Yas and Airtel Money are English brand constructions, and claiming the file for either language would be false of a third of its lines.
+---
+M-Pesa
+Mixx by Yas
+Airtel Money
+HaloPesa
+T-Pesa
+Azam Pesa

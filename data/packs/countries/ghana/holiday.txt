@@ -1,0 +1,19 @@
+---
+address: ghana.holiday
+description: Ghanaian statutory public holidays, in the names the Ministry of the Interior's own gazetted list uses, and reflecting the list in force for 2026. SAY WHICH LIST THIS IS, because Ghana's holiday calendar has been legislated back and forth twice since 2019 and a list of them dates a dataset almost as precisely as a count of regions does. The 2019 amendment added Constitution Day on 7 January, moved Founders' Day to 4 August, renamed 21 September to Kwame Nkrumah Memorial Day and demoted Republic Day on 1 July to a commemorative day; the arrangement now gazetted has Republic Day back as a public holiday, 21 September back as Founder's Day, and no 4 August entry at all. So a Ghanaian holiday list is a statement about a year, not about the country. FIVE OF THESE HAVE NO FIXED DATE. Good Friday and Easter Monday move with the Western Easter. Eid-ul-Fitr, Shaqq Day and Eid-ul-Adha follow the lunar Hijri calendar, move about eleven days earlier each Gregorian year, and their dates are set not by computation but by the Office of the Chief Imam in the course of the year — so a Ghanaian calendar genuinely cannot be built a year ahead. SHAQQ DAY IS THE ONE NOBODY EXPECTS: it is the day immediately after Eid-ul-Fitr and it is a full statutory public holiday in its own right, which makes Ghana one of very few countries to gazette the day after Eid. Ghana is a Christian-majority country that keeps the Muslim holidays nationally, the same federal-style arrangement as Nigeria next door and for the same reason — a substantial Muslim population, concentrated in the north and in Zongo communities everywhere else. FARMERS' DAY is Ghanaian and worth knowing: the first Friday in December, a real national holiday honouring farmers and fishers, with a National Best Farmer awarded a prize at a ceremony the President attends. Commemorative days such as African Union Day on 25 May are gazetted alongside these and are explicitly NOT holidays; they are not in this list.
+locale: en
+---
+New Year's Day
+Constitution Day
+Independence Day
+Good Friday
+Easter Monday
+May Day
+Eid-ul-Fitr
+Shaqq Day
+Eid-ul-Adha
+Republic Day
+Founder's Day
+Farmers' Day
+Christmas Day
+Boxing Day

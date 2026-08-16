@@ -1,0 +1,8 @@
+---
+address: ghana.tax.taxId
+description: The tax number a Ghanaian INDIVIDUAL quotes today, which is their Ghana Card PIN and nothing else. From 1 April 2021 the Ghana Revenue Authority stopped issuing TINs to individuals and adopted the National Identification Authority's PIN in its place, with a transition to 31 December 2021 during which both worked; after that the old individual TIN was retired. So a Ghanaian tax record from 2022 onward carries GHA-123456789-0 where one from 2019 carried P0012345678, and the two are the same taxpayer with no arithmetic relation between the numbers — the change was a substitution, not a derivation, and no rule converts one to the other. THIS ADDRESS RESOLVES TO ghana.docs.ghanaCard rather than generating a second number, which is the point: Ghana deliberately stopped having a separate tax identity for people. Entities are the exception and still hold a GRA-issued TIN — see ghana.tax.tinCorporate — so "the Ghanaian tax number" has two different shapes depending on whether the taxpayer is a person, and any system with one column for it must accept both. The same consolidation happened to the pension number, see ghana.docs.ssnit.
+generator: tdc
+locale: en
+---
+<sequence name="pin"><gen type="template" value="ghana.docs.ghanaCard"/></sequence>
+<data>${{pin}}</data>

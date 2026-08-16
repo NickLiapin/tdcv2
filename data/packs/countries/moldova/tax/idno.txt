@@ -1,0 +1,24 @@
+---
+address: moldova.tax.idno
+description: IDNO — numărul de identificare de stat al unității de drept, the thirteen-digit number the Public Services Agency gives every legal entity in the State Register of Legal Units, and the same number the State Tax Service treats as the company's cod fiscal. Moldova does not run a separate company number and tax number the way Poland runs REGON beside NIP: the IDNO is both, which is why this file sits under tax/ and why an invoice, a court filing and a bank mandate all carry the identical thirteen digits. Structure: 1 TTT XXX YYYYY K — leading 1 is the legal-entity branch of the same state identification system whose natural-person branch is moldova.docs.idnp, TTT the last three digits of the year of allocation, XXX the registering office, YYYYY a serial, K the check digit. Same check as the IDNP: first twelve digits under repeating weights 7,3,1, mod 10, remainder is the digit. Leading zeros never arise here because the first digit is always 1, unlike the Ukrainian ЄДРПОУ next door where a lost leading zero makes a different company. The office codes drawn are the real ones observed across 200 published IDNOs — 600 to 611 and 620 — and the year field is drawn 002 upward because the register in this form dates from 2002. VERIFIED BOTH WAYS against real published numbers: 1002600003778, the IDNO of BC Moldova-Agroindbank SA, and 1008600038413, and 198 more; every one accepted, every one rejected with a single digit changed.
+generator: tdc
+locale: ro
+---
+<sequence name="year"><gen type="text" value="002,003,004,005,006,007,008,009,010,011,012,013,014,015,016,017,018,019,020,021,022,023,024,025,026"/></sequence>
+<sequence name="office"><gen type="text" value="600,601,602,603,604,605,606,607,608,609,610,611,620"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="idno"><compute>
+  <let name="base"><concat><str v="1"/><field name="year"/><field name="office"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/>
+      <multiply><current/>
+        <at><in><list v="7,3,1,7,3,1,7,3,1,7,3,1"/></in><index><current_index/></index></at>
+      </multiply>
+    </add></do>
+  </reduce></let>
+  <let name="check"><mod><use name="sum"/><int v="10"/></mod></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{idno}}</data>

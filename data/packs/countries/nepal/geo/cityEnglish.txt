@@ -1,0 +1,52 @@
+---
+address: nepal.geo.cityEnglish
+description: The same places as nepal.geo.city, in their usual English romanisation, index-aligned line for line with it. Several of these have a second English name that is more widely used than the official one and it is worth knowing which: Siddharthanagar is universally called BHAIRAHAWA and is the town at the Sunauli border crossing; Bhimdatta is universally called MAHENDRANAGAR and is the town at the far-western border; Birendranagar is usually called SURKHET after its district; Jitpur Simara was created in 2017 out of the industrial belt around Simara and older data has neither name. Nepalgunj is also Nepalganj, Birgunj also Birganj, Janakpurdham also plain Janakpur, Kirtipur also Kirtipur/Keertipur, Kusma also Kushma, Waling also Walling, Besisahar also Besishahar. One spelling per place is chosen so a generated column joins cleanly. "Lumbini Sanskritik" is the municipality that contains the Buddha's birthplace and its name means Lumbini Cultural — the archaeological site itself is not a town and is not in this list. English matters more in Nepali records than the population figures suggest: a passport, a bank KYC file, a university transcript, an airline booking and almost all business correspondence are in English, while the citizenship certificate, land records and municipal paperwork are in Nepali, so a generated Nepali record should pick the file that matches the document it is pretending to be.
+locale: en
+---
+Kathmandu
+Pokhara
+Bharatpur
+Lalitpur
+Birgunj
+Biratnagar
+Dharan
+Butwal
+Itahari
+Nepalgunj
+Hetauda
+Dhangadhi
+Janakpurdham
+Ghorahi
+Tulsipur
+Kalaiya
+Jitpur Simara
+Bhaktapur
+Kirtipur
+Madhyapur Thimi
+Banepa
+Dhulikhel
+Bhimdatta
+Damak
+Birtamod
+Mechinagar
+Ilam
+Dhankuta
+Khandbari
+Rajbiraj
+Lahan
+Malangwa
+Gaur
+Siddharthanagar
+Lumbini Sanskritik
+Kapilvastu
+Tansen
+Waling
+Baglung
+Beni
+Gorkha
+Kusma
+Besisahar
+Birendranagar
+Dipayal Silgadhi
+Amargadhi
+Tikapur

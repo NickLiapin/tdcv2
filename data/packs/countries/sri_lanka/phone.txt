@@ -1,0 +1,7 @@
+---
+address: sri_lanka.phone
+description: Sri Lankan mobile number in E.164 form — +94 then nine digits, of which the first is always 7. Written nationally it is 07X NNNNNNN, ten digits including the trunk 0, and the +94 form drops that 0: the commonest mistake in a Sri Lankan phone column is +940771234567, which is the national form with the country code bolted in front and is not dialable. The operator digit is NOT free. The TRC's numbering plan allots 070 and 071 to SLTMobitel (the state operator, formed when Sri Lanka Telecom's Mobitel absorbed the fixed line business), 072 and 078 to Hutch, and 074, 075, 076 and 077 to Dialog, the largest operator, with 075 being the block it inherited from Airtel Sri Lanka. That is the whole market — three operators, eight prefixes — and 073 and 079 are not mobile numbers at all, so a generator that emits them is emitting something no Sri Lankan SIM can be. This file therefore draws the second digit from 0,1,2,4,5,6,7,8 and never 3 or 9. Landlines are a different shape and live in sri_lanka.phoneLandline; they remain more common in Sri Lankan business records than in most of South Asia, because SLT's copper and fibre network reached the towns before mobile did.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="\+947[0-24-8][0-9]{7}"/>

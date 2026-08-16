@@ -1,0 +1,20 @@
+---
+address: zimbabwe.holiday
+description: Zimbabwean public holidays as declared under the Public Holidays and Prohibition of Business Act [Chapter 10:21]. Nine are fixed — 1 January New Year's Day, 21 February Robert Gabriel Mugabe National Youth Day, 18 April Independence Day, 1 May Workers' Day, 25 May Africa Day, 15 September Munhumutapa Day, 22 December Unity Day, 25 December Christmas Day, 26 December Boxing Day — and four move with Easter: Good Friday, Easter Saturday, Easter Sunday and Easter Monday, which is a fuller Easter block than most countries keep. Two more move by rule rather than by date: Heroes' Day on the second Monday of August and Defence Forces Day on the Tuesday immediately after it, always taken as a pair, so Zimbabwe has a mid-August long weekend every year on a date that changes. THREE NAMES CARRY POLITICS AND WILL DATE A DATA SET. The 21 February holiday is Robert Mugabe's birthday, declared a national holiday in late 2017 — days after the coup that removed him — and named for him; the observance has drifted towards being a youth day in substance while keeping his name in the statute. Unity Day on 22 December marks the 1987 Unity Accord between ZANU and ZAPU that ended the Gukurahundi massacres in Matabeleland, and is therefore not a neutral date in Matabeleland. Munhumutapa Day on 15 September, honouring the Mutapa state whose rulers the country traces its pre-colonial statehood to, is the newest addition and by some distance the most contested: it was widely reported in 2024 as gazetted under the Act, a Zimbabwean fact-checking organisation then found no such entry in the General Notice the reports cited, and the government publicly stated that it is not a public holiday. It is listed here because holiday calendars, employers and payroll systems have carried it since 2024 and a Zimbabwean data set of that vintage will contain it — but it is the one line in this file that may be wrong in law, and that is said here rather than discovered later. A Zimbabwean holiday calendar generated a few years apart will disagree with itself, and both versions can be right for their moment. The file is marked locale: en because these are the English official forms the Government Gazette prints, notwithstanding that Munhumutapa and Gukurahundi are Shona words.
+locale: en
+---
+New Year's Day
+Robert Gabriel Mugabe National Youth Day
+Good Friday
+Easter Saturday
+Easter Sunday
+Easter Monday
+Independence Day
+Workers' Day
+Africa Day
+Heroes' Day
+Defence Forces Day
+Munhumutapa Day
+Unity Day
+Christmas Day
+Boxing Day

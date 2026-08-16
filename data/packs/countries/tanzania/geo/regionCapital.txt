@@ -1,0 +1,36 @@
+---
+address: tanzania.geo.regionCapital
+description: The administrative headquarters (makao makuu) of each of the 31 Tanzanian regions, index-aligned with tanzania.geo.region. Most share the region's name; the ones that do not are the useful entries — Kagera is run from Bukoba, Kilimanjaro from Moshi, Manyara from Babati, Mara from Musoma, Katavi from Mpanda, Pwani from Kibaha, Rukwa from Sumbawanga, Ruvuma from Songea, Simiyu from Bariadi and Songwe from Vwawa, a town of about a hundred thousand people that became a regional capital in 2016. The five Zanzibar entries are the seats of the Revolutionary Government's regional administration, not of the Union government: Mkokotoni for Kaskazini Unguja, Koani for Kusini Unguja, Wete for Kaskazini Pemba, Chake Chake for Kusini Pemba, and Zanzibar itself — the city on Unguja, whose old quarter is Mji Mkongwe, Stone Town — for Mjini Magharibi. NOTE WHAT IS NOT HERE: Dar es Salaam is the capital of Dar es Salaam Region and of nothing else. Tanzania's capital is DODOMA, and has been in law since 1974; the National Assembly has sat there since 1996 and the President's office and the ministries completed the move in 2019, so a dataset that labels Dar es Salaam the capital of Tanzania is describing an arrangement that ended. Dar es Salaam remains the largest city, the port, the commercial centre and the place most embassies still are, which is why the error is so durable.
+locale: sw
+---
+Arusha
+Dar es Salaam
+Dodoma
+Iringa
+Bukoba
+Wete
+Mkokotoni
+Kigoma
+Moshi
+Chake Chake
+Koani
+Lindi
+Musoma
+Mbeya
+Zanzibar
+Morogoro
+Mtwara
+Mwanza
+Kibaha
+Sumbawanga
+Songea
+Shinyanga
+Singida
+Tabora
+Tanga
+Babati
+Geita
+Mpanda
+Njombe
+Bariadi
+Vwawa

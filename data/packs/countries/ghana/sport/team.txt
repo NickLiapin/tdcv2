@@ -1,0 +1,23 @@
+---
+address: ghana.sport.team
+description: Football clubs of the Ghana Premier League — the eighteen of the 2025/26 season, which Medeama won. Football means football; Ghana has no rival domestic sport with a professional league, and the national team, the Black Stars, carries more public attention than every club combined. THE LEAGUE IS TWO CLUBS AND SIXTEEN OTHERS. Asante Kotoko of Kumasi and Accra Hearts of Oak are the Ghanaian football rivalry, both founded before independence — Hearts in 1911, Kotoko in 1935 — both African champions, and between them they hold most of the titles ever won; a Ghanaian is a Kotoko or a Hearts supporter first and follows a local club second, and the fixture between them stops the country. Everything else on this list is regional and comparatively young. UNLIKE NIGERIA NEXT DOOR THESE ARE NOT STATE-OWNED CLUBS: Ghanaian clubs are private, and several are named for the business that funds them — Medeama and Samartex are mining and timber companies in the Western Region, Aduana Stars is backed from Dormaa. That makes the names read as brands rather than as places, which is the opposite of the Nigerian pattern where a club is usually simply a state's name plus "United". MEMBERSHIP CHURNS HARD, three up and three down most seasons, so a Ghanaian club list ages within a year: for 2026/27 the promoted sides were Port City, Ashantigold '04 and Debibi United, and Hohoe United withdrew from the competition altogether during 2025/26 rather than being relegated on merit. Names as the clubs style themselves — "Accra Hearts of Oak" in full, "Asante Kotoko" without the "SC" most of the time, and Heart of Lions of Kpando is singular Heart, which is not a typo for the Accra club.
+locale: en
+---
+Asante Kotoko
+Accra Hearts of Oak
+Medeama
+Aduana Stars
+Bibiani Gold Stars
+Samartex
+Nations FC
+Dreams FC
+Bechem United
+Berekum Chelsea
+Karela United
+Basake Holy Stars
+Vision FC
+Young Apostles
+Swedru All Blacks
+Heart of Lions
+Eleven Wonders
+Hohoe United

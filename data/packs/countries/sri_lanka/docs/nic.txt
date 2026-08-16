@@ -1,0 +1,59 @@
+---
+address: sri_lanka.docs.nic
+description: NIC — the National Identity Card number issued by the Department for Registration of Persons, and the number that gates a bank account, a SIM, a passport, a school enrolment and a vote. THIS FILE GENERATES THE 12-DIGIT FORM introduced on 1 January 2016; the 9-digit-plus-letter form it replaced is sri_lanka.docs.nicOld and is still legally valid for life, so a Sri Lankan dataset holding both shapes is correct rather than corrupt. Layout, in order — 4-digit birth YEAR, 3-digit DAY FIELD, 4-digit serial, 1 check digit. THE DAY FIELD IS THE INTERESTING PART AND IT IS NOT A SERIAL. It is the day of the year on which the holder was born, 001 for 1 January through 366 for 31 December, AND A FEMALE HAS 500 ADDED TO IT. So 001-366 is a man and 501-866 is a woman, and the field legitimately exceeds 366 for half the population — a validator that range-checks it at 1-366 rejects every woman in the country, which is the single most expensive mistake to make with this number. What that means in plain terms: an NIC is not an opaque identifier. Anyone holding one can read off the bearer's SEX and EXACT DATE OF BIRTH — not the year, the calendar day — with no lookup, no key and no database. Sri Lankans quote their NIC on job applications, hotel registers, mobile-phone forms and delivery slips, so this is disclosed constantly and unavoidably. Anonymising a Sri Lankan dataset by dropping the date-of-birth and gender columns while keeping the NIC anonymises nothing. The day number is computed here with FEBRUARY FIXED AT 29 DAYS, which is the convention every public NIC decoder implements: day 60 is 29 February, day 61 is 1 March in every year, leap or not, and 366 is reachable for anyone. Decoders in the wild do disagree on this — some feed the offset to a real calendar instead and land a day earlier for births after February in a common year — and the Department has published neither rule, so the disagreement is recorded rather than resolved. THE CHECK DIGIT IS DRAWN, NOT DERIVED, AND THAT IS DELIBERATE. Position 12 is described everywhere as a check digit, but the Department for Registration of Persons has never published the algorithm behind it; every public NIC validator, without exception, checks structure only and says so. Inventing a plausible mod-11 here would make every real Sri Lankan NIC fail against this pack while looking rigorous, which is worse than saying there is nothing to compute — so it is said. Sex is a parameter: pass sex="f" or sex="m" on the calling gen and the day field is offset to match, leave it and a coin decides, so a row that pairs this number with a person's gender or birthday will contradict itself unless the config passes the same value to both.
+generator: tdc
+locale: en
+---
+<sequence name="birthDate"><gen type="date" from="1930-01-01" to="2010-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="sex"><gen type="text" value="any"/></sequence>
+<sequence name="coin"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="checkDigit"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="nic"><compute>
+  <!-- The drawn calendar date, YYYYMMDD, as a list of characters. -->
+  <let name="d"><each><over><field name="birthDate"/></over><do><current/></do></each></let>
+  <let name="year"><concat>
+    <at><in><use name="d"/></in><index><int v="0"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+  </concat></let>
+  <let name="month"><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+  </concat></to_number></let>
+  <let name="day"><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+  </concat></to_number></let>
+  <!-- Days elapsed before the 1st of each month, with FEBRUARY ALWAYS 29:
+       so 29 February is day 60 and 1 March is day 61 in every year, and the
+       last day of December is 366 whether or not the year was a leap year. -->
+  <let name="doy"><add>
+    <at>
+      <in><list v="0,31,60,91,121,152,182,213,244,274,305,335"/></in>
+      <index><subtract><use name="month"/><int v="1"/></subtract></index>
+    </at>
+    <use name="day"/>
+  </add></let>
+  <!-- The sex parameter arrives as text: "m", "f", or the default "any".
+       Read its first character's code point — 109 is m, 102 is f. -->
+  <let name="schars"><each><over><field name="sex"/></over><do><current/></do></each></let>
+  <let name="sexcode"><to_number><encode as="unicode"><at><in><use name="schars"/></in><index><int v="0"/></index></at></encode></to_number></let>
+  <let name="offset">
+    <choose>
+      <when><test><equals><use name="sexcode"/><int v="102"/></equals></test><then><int v="500"/></then></when>
+      <when><test><equals><use name="sexcode"/><int v="109"/></equals></test><then><int v="0"/></then></when>
+      <!-- "any": an odd coin means female, so the offset is 0 or 500. -->
+      <otherwise><multiply><mod><field name="coin"/><int v="2"/></mod><int v="500"/></multiply></otherwise>
+    </choose>
+  </let>
+  <let name="dayField"><pad width="3" fill="0"><add><use name="doy"/><use name="offset"/></add></pad></let>
+  <result><concat>
+    <use name="year"/>
+    <use name="dayField"/>
+    <field name="serial"/>
+    <field name="checkDigit"/>
+  </concat></result>
+</compute></sequence>
+<data>${{nic}}</data>

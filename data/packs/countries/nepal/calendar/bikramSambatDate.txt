@@ -1,0 +1,29 @@
+---
+address: nepal.calendar.bikramSambatDate
+description: A Bikram Sambat date written the way a Nepali document writes it — year, month name, day, e.g. २०८२ असोज १५ — with the numbers in DEVANAGARI NUMERALS (०१२३४५६७८९), which is what a Nepali-language form, certificate, court paper and newspaper actually print. THE DAY IS DRAWN 1 TO 29 AND THAT IS DELIBERATE, not a shortcut. BS months run 29 to 32 days and the length of a given month in a given year is not computable — it is set by the sun's ingress into the next zodiac sign, published annually by the नेपाल पञ्चाङ्ग निर्णायक समिति, and every real converter is a lookup table rather than an algorithm. 29 is the floor across all twelve months in every year, so a day in 1..29 exists in EVERY Bikram Sambat month, and this address therefore never emits a date that did not happen. What it gives up is the tail: the 30th, 31st and 32nd of a month are real dates this file will never produce, so a column generated here is short by roughly one day in ten and must not be used to test end-of-month behaviour. That is the honest trade. The alternative — drawing 1..32 and emitting असोज ३२ in a year when असोज had thirty days — produces a column that looks right and is wrong, which is the more expensive failure. NOTHING HERE CONVERTS TO OR FROM THE GREGORIAN CALENDAR. The engine's date generator produces Common Era dates and no file in this pack shifts them; a config needing a BS date beside its true CE twin must bring its own month-length table, because the offset is 56 years and 8 months rather than a constant and the day-of-month mapping moves every year. See nepal.calendar.bikramSambatYear for the full account of why.
+generator: tdc
+locale: ne
+---
+<sequence name="year"><gen type="template" value="nepal.calendar.bikramSambatYear"/></sequence>
+<sequence name="month"><gen type="template" value="nepal.calendar.bikramSambatMonth"/></sequence>
+<!-- Uniform 1..29 rather than a regex alternation, so no day is favoured. -->
+<sequence name="day"><gen type="number" value="1..29"/></sequence>
+<sequence name="date"><compute>
+  <!-- Devanagari digits, indexed by their Western value. -->
+  <let name="digits"><list>
+    <str v="०"/><str v="१"/><str v="२"/><str v="३"/><str v="४"/>
+    <str v="५"/><str v="६"/><str v="७"/><str v="८"/><str v="९"/>
+  </list></let>
+  <let name="yearNe"><join sep=""><in><each>
+    <over><field name="year"/></over>
+    <do><at><in><use name="digits"/></in><index><to_number><current/></to_number></index></at></do>
+  </each></in></join></let>
+  <let name="dayNe"><join sep=""><in><each>
+    <over><field name="day"/></over>
+    <do><at><in><use name="digits"/></in><index><to_number><current/></to_number></index></at></do>
+  </each></in></join></let>
+  <result><concat>
+    <use name="yearNe"/><str v=" "/><field name="month"/><str v=" "/><use name="dayNe"/>
+  </concat></result>
+</compute></sequence>
+<data>${{date}}</data>

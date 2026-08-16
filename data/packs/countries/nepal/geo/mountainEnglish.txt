@@ -1,0 +1,22 @@
+---
+address: nepal.geo.mountainEnglish
+description: The same peaks as nepal.geo.mountain in their usual English names, index-aligned line for line with it. The first line is the one to read carefully: SAGARMATHA AND EVEREST ARE THE SAME MOUNTAIN, and which name a record uses says where the record was written — Nepali government documents, Nepali maps and Nepali school textbooks say Sagarmatha, Tibetan and Chinese sources say Chomolungma or Qomolangma, and English-language mountaineering literature says Everest. This file gives Everest because that is the English name; nepal.geo.mountain gives सगरमाथा because that is the Nepali one, and they are index-aligned so a config can print either without a lookup table. Dhaulagiri and Annapurna are strictly Dhaulagiri I and Annapurna I — each is the highest of a numbered massif, and Annapurna II, III and IV and Dhaulagiri II through VI are separate mountains, so a dataset with a bare "Annapurna" at 8,091 m and another "Annapurna" at 7,937 m is not duplicated data. Annapurna I is worth one more note: it was the FIRST eight-thousander ever climbed, in 1950, three years before Everest, and it has the highest fatality rate of any of the fourteen. Machhapuchhre is often written Machapuchare or Fishtail, which is what its name means, and it may not be climbed. Cho Oyu is also Chomo Yu, Gyachung Kang also Gyachung Gang.
+locale: en
+---
+Everest
+Kanchenjunga
+Lhotse
+Makalu
+Cho Oyu
+Dhaulagiri
+Manaslu
+Annapurna
+Gyachung Kang
+Himalchuli
+Nuptse
+Gaurishankar
+Langtang Lirung
+Pumori
+Machhapuchhre
+Ama Dablam
+Ganesh Himal

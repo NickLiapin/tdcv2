@@ -1,0 +1,21 @@
+---
+address: tanzania.holidayEnglish
+description: The same sixteen Tanzanian public holidays as tanzania.holiday, index-aligned with it, in the English forms — because English is co-official in Tanzania and a record printed for a court, a bank or an international counterparty will use these. The dates are 1 January, 12 January, Good Friday, Easter Monday, 7 April, 26 April, 1 May, 7 July, 8 August, 14 October, 9 December, 25 December, 26 December, then the three lunar dates. Two names resist translation and are left alone: Saba Saba and Nane Nane are literally "seven seven" and "eight eight", the dates saying themselves, and no English-language Tanzanian source renders them any other way. Idd el Fitri and Idd el Hajj keep the Tanzanian spellings rather than the Gulf-Arabic Eid al-Fitr and Eid al-Adha, because that is how they are gazetted here — Idd el Hajj is the Swahili coast's name for what most of the Muslim world calls Eid al-Adha. Whether to reach for this file or its Swahili twin is a real choice and not a formatting one: use tanzania.holiday for anything modelling Tanzanian domestic records and this one for anything printed in English, and do not mix them inside one dataset.
+locale: en
+---
+New Year's Day
+Zanzibar Revolution Day
+Good Friday
+Easter Monday
+Karume Day
+Union Day
+Workers' Day
+Saba Saba Day
+Nane Nane Day
+Nyerere Day
+Independence Day
+Christmas Day
+Boxing Day
+Maulid
+Idd el Fitri
+Idd el Hajj

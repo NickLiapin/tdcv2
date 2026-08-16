@@ -1,0 +1,9 @@
+---
+address: uganda.culture.kingdom
+description: The four traditional kingdoms restored in Uganda in 1993 and recognised under the 1995 Constitution, index-aligned with uganda.culture.kingdomTitle. This has no equivalent in most country packs and is not decoration: Uganda is a republic that also contains hereditary monarchies, and they are constitutionally real. Milton Obote abolished the kingdoms in 1966 and stormed the Kabaka's palace; the 1993 restoration statute brought Buganda, Bunyoro-Kitara, Toro and Busoga back, and the 1995 Constitution provides for traditional and cultural leaders while barring them from any administrative, legislative or executive power of government or local government. So a Kabaka is a head of state of nothing — he holds land, revenue, enormous cultural authority and no jurisdiction, and Ugandans elect a president and a district council over the same ground. ANKOLE IS THE ONE THAT IS MISSING AND ITS ABSENCE IS THE INTERESTING PART: Ankole was one of the pre-1966 kingdoms, its Omugabe was never restored in 1993, and the question of restoring it remains live and contested to this day — a list of "Uganda's kingdoms" that includes Ankole is describing 1962, not now. Busoga is a different shape from the other three: it is a federation of eleven hereditary chiefdoms whose Kyabazinga is chosen by the chiefs rather than inherited in a single line, so a Busoga succession is an election among royals. Other cultural institutions have been recognised since, notably Obusinga bwa Rwenzururu in 2009, and around fifteen smaller ones exist; they are not on this list because they were not part of the 1993 restoration and are recognised under the general cultural-leaders provision rather than as restored kingdoms. Toro appears in the spelling used by the restoration statute; UBOS writes the sub-region Tooro (see uganda.geo.subRegion) and both are current.
+locale: en
+---
+Buganda
+Bunyoro-Kitara
+Toro
+Busoga

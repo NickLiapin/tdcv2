@@ -1,0 +1,9 @@
+---
+address: tanzania.phone
+description: Tanzanian mobile number in E.164 form — +255 followed by nine digits, of which the first two are the operator block. Written nationally the same number starts 0 instead of +255, so +255754123456 is dialled 0754123456; the leading 0 is a trunk prefix and is dropped, never both. TANZANIA'S BLOCKS ARE TWO DIGITS, NOT THREE, which is the first thing that breaks a validator ported from Kenya next door — a Kenyan number is +254 plus a three-digit operator prefix, a Tanzanian one is +255 plus a two-digit block and seven subscriber digits. The blocks here are the real TCRA allocation: Vodacom holds 74, 75, 76 and 79; Yas — the former Tigo, rebranded on 26 November 2024 after Axian Telecom and Rostam Aziz took over MIC Tanzania — holds 65, 67, 71 and 77, where 77 is the block it inherited when Zantel was folded in; Airtel holds 68, 69 and 78; Halotel, Viettel's Tanzanian arm, holds 61 and 62; TTCL, the state operator, holds 73. Blocks 63 (Amotel), 64 (CooTel) and 72 were allocated and are not in service, and 66 is Smile, a data-only network, so none of the four is generated. Drawing uniformly over the fourteen live blocks puts about 29% of numbers on Vodacom and 29% on Yas, which lands close to their real subscriber shares. That share matters more here than in most countries because a Tanzanian mobile number is a bank account: it is the address of an M-Pesa, Mixx, Airtel Money or HaloPesa wallet, and about 76 million of those wallets were active at the end of 2025 in a country of some 67 million people. Every SIM is registered against a NIDA number (tanzania.docs.nationalId), so a Tanzanian phone number is also an identity claim.
+generator: tdc
+locale: en
+---
+<sequence name="block"><gen type="text" value="74,75,76,79,65,67,71,77,68,69,78,61,62,73"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+255${{block}}${{line}}</data>

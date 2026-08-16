@@ -1,0 +1,21 @@
+---
+address: tanzania.holiday
+description: Tanzanian public holidays in their Swahili forms, index-aligned with tanzania.holidayEnglish. THIS FILE IS MARKED locale: sw AND ITS ENGLISH TWIN IS A SEPARATE FILE, which is a deliberate departure from how Kenya's pack next door handles the same problem. Kenya ships one holiday list marked en, because the Kenya Gazette proclaims holidays in English and only a few names carry an untranslated Swahili noun. Tanzania is the other case: Swahili is the national language AND the language of government here, the Public Holidays Act and its presidential proclamations are Swahili instruments, and the names below are what the calendar on a Tanzanian office wall says. English is co-official and is what the higher courts and much of business run in, so both forms are genuinely current and neither is a translation of the other — hence two files rather than one file with a compromise in it. Four dates are worth knowing. 12 January, Mapinduzi ya Zanzibar, marks the 1964 revolution that overthrew the Sultan of Zanzibar, three months before the union; 26 April, Muungano, marks the union itself, Tanganyika plus Zanzibar becoming one state in 1964; 7 April, Siku ya Karume, is for Abeid Amani Karume, Zanzibar's first President, assassinated in 1972. So THREE OF THE THIRTEEN FIXED HOLIDAYS COME FROM THE ISLANDS' HISTORY rather than the mainland's, which is what a union calendar looks like. Saba Saba (7 July, seven-seven) is the founding of TANU in 1954 and is now the Dar es Salaam international trade fair; Nane Nane (8 August, eight-eight) is farmers' day. Karume Day, Saba Saba and Nyerere Day are proclaimed by the President each year rather than written into the Act, so they are traditional rather than statutory. The last three move with the lunar sighting. Zanzibar additionally observes a second day of each Idd and, at Makunduchi, the Shirazi new year Mwaka Kogwa, which are not Union holidays and are not listed.
+locale: sw
+---
+Mwaka Mpya
+Mapinduzi ya Zanzibar
+Ijumaa Kuu
+Jumatatu ya Pasaka
+Siku ya Karume
+Siku ya Muungano
+Sikukuu ya Wafanyakazi
+Saba Saba
+Nane Nane
+Siku ya Nyerere
+Siku ya Uhuru
+Krismasi
+Siku ya Kufungua Zawadi
+Maulidi
+Idd El Fitri
+Idd El Hajj

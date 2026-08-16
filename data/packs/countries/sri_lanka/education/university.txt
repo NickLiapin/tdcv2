@@ -1,0 +1,29 @@
+---
+address: sri_lanka.education.university
+description: Sri Lankan universities and degree-awarding institutions in their official English names. The list is dominated by STATE universities because Sri Lanka's higher education is: entry to them is free and is decided almost entirely by one national examination, the G.C.E. Advanced Level, through a district-quota scheme run by the University Grants Commission, so which university a Sri Lankan attends is a function of an exam rank and a home district rather than of an application. That also means the state universities are ranked in the popular mind in a fixed order — Colombo, Peradeniya, Moratuwa and Sri Jayewardenepura take the highest cut-offs — and it is why the private institutions at the end of the list (SLIIT, NSBM, SLTC, and the fee-levying Kotelawala Defence University) are recent, fought over politically, and much smaller. A spelling trap worth catching before it breaks a join: the university is the UNIVERSITY OF SRI JAYEWARDENEPURA, with an E, while the city it stands in is Sri JayaWardenepura Kotte, with an A (see sri_lanka.geo.city). Both spellings are official, they are not interchangeable, and a fuzzy match between an address column and an education column will happily conflate them. Two more that catch datasets out: the University of Kelaniya was Vidyalankara Pirivena and the University of Sri Jayewardenepura was Vidyodaya, both renamed in 1978, so pre-1978 records name institutions that still exist under other names; and several institutions here are not general universities at all — the Buddhist and Pali University and Bhiksu University teach monks, Gampaha Wickramarachchi teaches indigenous medicine, and the Open University teaches at a distance and is by student headcount one of the largest. Names are English because that is the language of instruction in almost all of these faculties and the language their degrees are issued in.
+locale: en
+---
+University of Colombo
+University of Peradeniya
+University of Moratuwa
+University of Sri Jayewardenepura
+University of Kelaniya
+University of Ruhuna
+University of Jaffna
+Eastern University, Sri Lanka
+South Eastern University of Sri Lanka
+Rajarata University of Sri Lanka
+Sabaragamuwa University of Sri Lanka
+Wayamba University of Sri Lanka
+Uva Wellassa University
+University of Vavuniya
+University of the Visual and Performing Arts
+Open University of Sri Lanka
+Ocean University of Sri Lanka
+Buddhist and Pali University of Sri Lanka
+Bhiksu University of Sri Lanka
+Gampaha Wickramarachchi University of Indigenous Medicine
+General Sir John Kotelawala Defence University
+Sri Lanka Institute of Information Technology
+NSBM Green University
+Sri Lanka Technological Campus

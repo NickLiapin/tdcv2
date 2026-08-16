@@ -1,0 +1,11 @@
+---
+address: zimbabwe.finance.banknote
+description: ZiG cash denominations that are ACTUALLY IN CIRCULATION, which is a much shorter list than the one announced. When the Zimbabwe Gold (ZWG) launched on 8 April 2024 the Reserve Bank named eight denominations — 1, 2, 5, 10, 20, 50, 100 and 200 ZiG. What reached people's hands was 10 and 20 ZiG notes, with the 1, 2 and 5 issued as COINS from 30 April 2024 rather than as notes, and the 50, 100 and 200 postponed on 30 May 2024, weeks after launch, because the Reserve Bank judged that printing large notes into a young currency would tell everyone what it expected inflation to do. A 50 arrived only with the redesigned series from 2026. So a Zimbabwean cash transaction in 2024-2025 was made up of tens and twenties or it was made in United States dollars, and USD notes circulate physically alongside these — see zimbabwe.finance.currency, because a bare amount here is not interpretable. THE PICTURE ON THE MONEY IS THE BALANCING ROCKS: the domboremari, the money stone, the naturally poised granite stack at Epworth outside Harare that has been on Zimbabwean paper money through several currencies including the hyperinflation notes, and is on the face of the ZiG issue with the gold that backs the currency on the reverse. Zimbabweans call the rocks after the money rather than the money after the rocks. Cash is scarce in practice whatever the denomination: most ordinary payments move by mobile money or bank transfer, so a realistic Zimbabwean payment data set is thin on cash rows — see zimbabwe.finance.mobileMoney. The 1, 2 and 5 are coins and the 10, 20 and 50 are notes; both are listed here because a cash column does not care which is metal.
+locale: en
+---
+ZiG 1
+ZiG 2
+ZiG 5
+ZiG 10
+ZiG 20
+ZiG 50

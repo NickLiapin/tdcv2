@@ -1,0 +1,36 @@
+---
+address: tanzania.geo.regionCode
+description: ISO 3166-2 subdivision codes for the 31 Tanzanian regions, TZ-01 to TZ-31, index-aligned with tanzania.geo.region. The order is not alphabetical and not geographic, and that is informative: TZ-01 to TZ-25 are the 25 regions that existed when the code list was drawn up, alphabetised by their Swahili names, and TZ-26 to TZ-31 are the six created since, appended in the order they were created — Manyara (2002), Geita, Katavi, Njombe, Simiyu (all 2012), Songwe (2016). So the code tells you when a region came into being, and any Tanzanian dataset ending at TZ-25, TZ-26 or TZ-30 is dated rather than wrong. No code has ever been withdrawn. These are the ISO codes and NOT the two-digit postcode leads, which are a different enumeration entirely — Dar es Salaam is TZ-02 but 11xxx — see tanzania.geo.regionPostcodePrefix. They are also not the number-plate codes, because Tanzanian plates carry no regional code at all; see tanzania.vehicle.plate.
+locale: en
+---
+TZ-01
+TZ-02
+TZ-03
+TZ-04
+TZ-05
+TZ-06
+TZ-07
+TZ-08
+TZ-09
+TZ-10
+TZ-11
+TZ-12
+TZ-13
+TZ-14
+TZ-15
+TZ-16
+TZ-17
+TZ-18
+TZ-19
+TZ-20
+TZ-21
+TZ-22
+TZ-23
+TZ-24
+TZ-25
+TZ-26
+TZ-27
+TZ-28
+TZ-29
+TZ-30
+TZ-31

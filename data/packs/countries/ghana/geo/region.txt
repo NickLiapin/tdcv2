@@ -1,0 +1,21 @@
+---
+address: ghana.geo.region
+description: THE SIXTEEN REGIONS OF GHANA, and the count is the whole point of this file. Ghana had TEN regions from 1983 until 2018 and has SIXTEEN since February 2019, so a Ghanaian data set listing ten regions is not merely incomplete — it is dated, and dated to a specific side of a specific referendum. Six new regions were created by referendums held on 27 December 2018 and constituted in February 2019: Brong-Ahafo was split three ways into BONO, BONO EAST and AHAFO and ceased to exist under that name; Northern was split three ways into NORTHERN, SAVANNAH and NORTH EAST; Volta gave up its northern districts to OTI; and Western gave up its north-western districts to WESTERN NORTH. The other six — Ashanti, Central, Eastern, Greater Accra, Upper East, Upper West — were untouched. THIS LIST IS THE POST-2019 SIXTEEN. Two traps follow from that. BRONG-AHAFO IS NOT IN THIS LIST and must not be added back: it is the region that no longer exists, and a record still carrying it is pre-2019 data. And the split is invisible in two other files in this pack on purpose — ghana.geo.postcodeDistrict still encodes the OLD TEN regions in its first letter, because Ghana Post GPS was built in 2017 and its region letters were never re-cut, and ghana.vehicle.plateCode is likewise mostly pre-2019, because the DVLA carried old codes into the new regions rather than issuing sixteen fresh ones. Both are recorded in their own descriptions. Ordered alphabetically; ghana.geo.regionCapital is index-aligned with this list.
+locale: en
+---
+Ahafo
+Ashanti
+Bono
+Bono East
+Central
+Eastern
+Greater Accra
+North East
+Northern
+Oti
+Savannah
+Upper East
+Upper West
+Volta
+Western
+Western North

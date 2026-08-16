@@ -1,0 +1,12 @@
+---
+address: nepal.geo.province
+description: The 7 PROVINCES (प्रदेश) of Nepal in Nepali, in constitutional order 1 to 7, which is also the order of the leading digit of nepal.geo.postalCode and of the province field on a number plate. Index-aligned with nepal.geo.provinceEnglish. THIS IS THE FIRST-LEVEL DIVISION OF NEPAL AND IT IS NEW: the 2015 constitution abolished the 14 ZONES (अञ्चल) and the 5 DEVELOPMENT REGIONS (विकास क्षेत्र) together and replaced both with these seven, so a Nepali dataset whose top-level region is Bagmati Zone, or Mechi, or Narayani, or the Central Development Region, is a dataset from before 2015 and can be dated by that alone. The zones survive in exactly one place in this pack — on pre-2020 number plates, where they were still being stamped five years after they ceased to exist; see nepal.vehicle.zoneCode. The provinces were also NAMELESS at first: the constitution created them as Province No. 1 through 7 and left the naming to each provincial assembly, which took until 2023 to finish, so Koshi (named 1 March 2023) is still called Province 1 in a great deal of published data, and Madhesh was named in 2022. That is why a Nepali provincial dataset can be internally inconsistent while every row in it is correct for its date. Bagmati contains Kathmandu and is where the federal capital sits; Karnali is the largest by area and the smallest by population; Madhesh is the smallest by area and the densest.
+locale: ne
+---
+कोशी
+मधेश
+बागमती
+गण्डकी
+लुम्बिनी
+कर्णाली
+सुदूरपश्चिम

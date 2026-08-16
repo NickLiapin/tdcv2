@@ -1,0 +1,9 @@
+---
+address: nepal.docs.drivingLicence
+description: The number on a Nepali smart driving licence, issued by the Department of Transport Management (DoTM) — twelve digits written in three hyphenated groups, two-two-eight, e.g. 03-06-00184392. The first two groups identify the licence-issuing OFFICE rather than the holder: DoTM runs a Transport Management Office in each province and several sub-offices under each, and the pair locates which one printed the card, which is why a Nepali licence tells you where its holder registered and a European one usually does not. The eight-digit tail is that office's running serial. The card replaced a hand-written booklet in 2015 and the two are not interchangeable — a Nepali licence record with a short alphanumeric number is a pre-2015 record. NO CHECK DIGIT. DoTM has published no checksum for the licence number and none is computed here; the department's own verification is an online lookup of the print queue, which is a database call and not arithmetic, and a fabricated mod-10 would reject every genuine licence a test set was checked against. The office-code halves are drawn in plausible ranges rather than from a published table, because DoTM does not publish the office-code list either — so the shape of a value here is real and the particular office it names is not a claim. Vehicle CATEGORIES on the licence (A for motorcycle, B for car, K for scooter, and the rest) are the same letters as on the number plate; see nepal.vehicle.vehicleClass.
+generator: tdc
+---
+<sequence name="province"><gen type="number" value="1..14" length="2" first_zero="true"/></sequence>
+<sequence name="office"><gen type="number" value="1..20" length="2" first_zero="true"/></sequence>
+<sequence name="serial"><gen type="number" value="1..99999999" length="8" first_zero="true"/></sequence>
+<data>${{province}}-${{office}}-${{serial}}</data>

@@ -1,0 +1,66 @@
+---
+address: zimbabwe.geo.districtProvince
+description: The province each district in zimbabwe.geo.district belongs to, index-aligned with it and with zimbabwe.geo.districtCode, so all three can be drawn as one coherent row. Draw a district on its own and the province is unknown; draw them independently and roughly nine rows in ten put the district in the wrong province, which is the ordinary way a synthetic address stops being checkable. Two entries repeat a city name — Bulawayo and Harare are metropolitan provinces, single districts that are also their own province and their own city, so the district, the province and the city are the same string for them. The province a district sits in is not decorative: Matabeleland North and South are the Ndebele-speaking provinces, the Mashonaland trio and Masvingo are Shona-speaking, and Midlands and Manicaland straddle, so a district drawn here implies a likely home language even though nothing in this pack says so.
+locale: en
+---
+Matabeleland South
+Midlands
+Masvingo
+Mashonaland Central
+Matabeleland North
+Manicaland
+Bulawayo
+Mashonaland West
+Mashonaland Central
+Masvingo
+Manicaland
+Masvingo
+Mashonaland Central
+Mashonaland East
+Matabeleland South
+Matabeleland South
+Masvingo
+Midlands
+Mashonaland West
+Mashonaland East
+Midlands
+Masvingo
+Matabeleland South
+Midlands
+Mashonaland West
+Manicaland
+Matabeleland North
+Mashonaland West
+Mashonaland West
+Matabeleland South
+Matabeleland North
+Manicaland
+Mashonaland East
+Manicaland
+Mashonaland Central
+Mashonaland Central
+Mashonaland East
+Mashonaland East
+Mashonaland East
+Manicaland
+Matabeleland North
+Masvingo
+Matabeleland South
+Midlands
+Mashonaland East
+Mashonaland Central
+Harare
+Midlands
+Midlands
+Mashonaland Central
+Mashonaland West
+Mashonaland Central
+Matabeleland North
+Manicaland
+Midlands
+Matabeleland North
+Mashonaland East
+Masvingo
+Matabeleland North
+Mashonaland East
+Mashonaland West

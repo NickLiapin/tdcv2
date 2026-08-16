@@ -1,0 +1,6 @@
+---
+address: moldova.tax.vat
+description: Moldovan VAT registration number — numărul de înregistrare ca plătitor al TVA, seven digits, issued by the State Tax Service on the certificate of VAT registration and separate from the company's IDNO. Moldova is not in the EU, so there is no VIES entry and no country prefix on the certificate itself; the MD prefix seen in some cross-border systems is added by them, not printed by the tax service, so this file emits the bare seven digits. WHAT IS NOT REAL HERE, stated plainly: the seventh digit is not a computed check. The State Tax Service has not published a checksum for the VAT registration number and I found none to implement, so all seven digits are drawn — which is exactly why this file carries no <compute> while moldova.docs.idnp and moldova.tax.idno do. The difference is deliberate and marks where the verifiable arithmetic stops. If you want a Moldovan business identifier that DOES carry a real check digit, use moldova.tax.idno; it is the one Moldovan invoices and contracts actually lead with.
+generator: tdc
+---
+<gen type="number" value="1000000..9999999"/>

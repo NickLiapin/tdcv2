@@ -1,0 +1,29 @@
+---
+address: ghana.finance.bankWithCode
+description: THE SOURCE OF TRUTH for Ghana's banks. Each line is the 3-digit bank code, one space, then the bank's common name — "130 Ecobank Ghana". ghana.finance.bank and ghana.finance.bankCode are both sliced out of this list so a name and its code cannot drift apart, and ghana.finance.sortCode builds the full 6-digit clearing code on top of it. WHAT THE THREE DIGITS REALLY ARE, because the popular form hides the structure: the Bank of Ghana's own sort-code standard says the 6-digit code is TWO digits of bank, two of clearing zone and two of branch, and a bank's head office is therefore bb-01-00. The "3-digit bank code" that payment APIs and every Ghanaian banking guide quote — 030 Absa, 130 Ecobank, 190 Stanbic — is simply the first three characters of that head-office code, which is the two bank digits plus the leading zero of clearing zone 01. Both are true; the bank is really identified by two digits, and the third is always 0. Ordered by code, which is roughly order of arrival in the country and is why GCB is 040 and the newest bank is 360. THE GAPS IN THE SEQUENCE ARE THE 2017-2019 BANKING CRISIS and are worth reading rather than filling: 220, 260, 290, 300 and 320 are missing because uniBank, Bank of Baroda, Energy Bank, The Royal Bank and GN Bank are gone — the Bank of Ghana revoked nine licences and forced a wave of mergers, seven collapsed banks were folded into the new state-owned Consolidated Bank Ghana at 340, and Bank of Baroda simply left the country. A Ghanaian dataset from 2016 names banks that no longer exist. Two renames sit inside stable codes: 030 was Barclays Bank of Ghana until Absa took the brand in 2020, and 110 was HFC Bank before it became Republic Bank — the code did not move, so old records reconcile. The central bank's own 010 is deliberately NOT in this list: it holds a sort code but takes no retail customers. 070 is the odd one out and belongs here — ARB Apex Bank is the bankers' bank for Ghana's 140-odd rural and community banks, which have no codes of their own and clear through it.
+locale: en
+---
+020 Standard Chartered Bank Ghana
+030 Absa Bank Ghana
+040 GCB Bank
+050 National Investment Bank
+060 United Bank for Africa Ghana
+070 ARB Apex Bank
+080 Agricultural Development Bank
+090 Societe Generale Ghana
+100 Universal Merchant Bank
+110 Republic Bank Ghana
+120 Zenith Bank Ghana
+130 Ecobank Ghana
+140 CalBank
+170 First Atlantic Bank
+180 Prudential Bank
+190 Stanbic Bank Ghana
+200 FBN Bank Ghana
+210 Bank of Africa Ghana
+230 Guaranty Trust Bank Ghana
+240 Fidelity Bank Ghana
+280 Access Bank Ghana
+330 First National Bank Ghana
+340 Consolidated Bank Ghana
+360 OmniBSIC Bank Ghana

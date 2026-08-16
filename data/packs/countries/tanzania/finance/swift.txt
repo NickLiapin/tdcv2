@@ -1,0 +1,35 @@
+---
+address: tanzania.finance.swift
+description: SWIFT/BIC codes of Tanzanian banks — the eight-character head-office form, which is what routes an international payment INTO Tanzania, because there is no IBAN to do it (see tanzania.finance.account). Every code here was traced to a published BIC directory and none was constructed. NOT INDEX-ALIGNED with tanzania.finance.bank, on purpose: the bank list is the current Bank of Tanzania register and the BIC directories that could be read are older, so aligning them would have meant either dropping licensed banks or inventing codes for the ones not found. The mapping, for anyone who needs it: CORUTZTZ CRDB Bank, NMIBTZTZ NMB Bank, NLCBTZTX National Bank of Commerce, SBICTZTX Stanbic Bank Tanzania, SCBLTZTX Standard Chartered Bank Tanzania, BARCTZTZ Absa Bank Tanzania, CITITZTZ Citibank Tanzania, EXTNTZTZ Exim Bank Tanzania, DTKETZTZ Diamond Trust Bank Tanzania, KCBLTZTZ KCB Bank Tanzania, EQBLTZTZ Equity Bank Tanzania, ECOCTZTZ Ecobank Tanzania, IMBLTZTZ I&M Bank Tanzania, EUAFTZTZ Bank of Africa Tanzania, AMNNTZTZ Amana Bank, AZANTZTZ Azania Bank, AKCOTZTZ Akiba Commercial Bank, ACTZTZTZ Access Bank Tanzania, HABLTZTZ Habib African Bank, BARBTZTZ Bank of Baroda Tanzania, BKIDTZTZ Bank of India Tanzania, MKCBTZTZ Mkombozi Commercial Bank, MBTLTZTZ Maendeleo Bank, DASUTZTZ DCB Commercial Bank, UNAFTZTZ United Bank for Africa Tanzania, TAPBTZTZ Tanzania Commercial Bank (still registered under its Tanzania Postal Bank identity), TAINTZTZ TIB Development Bank, UCCTTZTZ Uchumi Commercial Bank, PBZATZTZ People's Bank of Zanzibar, TANZTZTX Bank of Tanzania (the central bank, included because it settles rather than because it takes deposits). Note BARCTZTZ: a BIC survives a rebrand, so Absa still clears on the code Barclays registered, exactly as Absa Kenya still clears on Barclays' bank code 03. The eleven-character form adds a three-character branch suffix, or XXX for the head office.
+locale: en
+---
+CORUTZTZ
+NMIBTZTZ
+NLCBTZTX
+SBICTZTX
+SCBLTZTX
+BARCTZTZ
+CITITZTZ
+EXTNTZTZ
+DTKETZTZ
+KCBLTZTZ
+EQBLTZTZ
+ECOCTZTZ
+IMBLTZTZ
+EUAFTZTZ
+AMNNTZTZ
+AZANTZTZ
+AKCOTZTZ
+ACTZTZTZ
+HABLTZTZ
+BARBTZTZ
+BKIDTZTZ
+MKCBTZTZ
+MBTLTZTZ
+DASUTZTZ
+UNAFTZTZ
+TAPBTZTZ
+TAINTZTZ
+UCCTTZTZ
+PBZATZTZ
+TANZTZTX

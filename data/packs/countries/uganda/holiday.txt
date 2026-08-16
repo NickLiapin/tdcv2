@@ -1,0 +1,19 @@
+---
+address: uganda.holiday
+description: Ugandan public holidays in their gazetted forms, the ten fixed ones in calendar order with the four movable feasts slotted among them where they most often fall. Ten are fixed — 1 January New Year's Day, 26 January NRM Liberation Day (the day the National Resistance Army took Kampala in 1986), 16 February Archbishop Janani Luwum Day, 8 March Women's Day, 1 May Labour Day, 3 June Uganda Martyrs' Day, 9 June National Heroes' Day, 9 October Independence Day (from Britain, 1962), 25 December Christmas, 26 December Boxing Day — and four move: Good Friday, Easter Monday and the two Eids, which follow the lunar sighting. Fourteen in all, which is a lot, and the reasons are Ugandan. Uganda Martyrs' Day commemorates the 45 Christian converts, Catholic and Anglican, executed on the orders of Kabaka Mwanga II between 1885 and 1887; it draws pilgrims to Namugongo on foot from across East Africa and is among the largest annual religious gatherings on the continent, so 3 June is a date on which Ugandan travel, retail and attendance data all move sharply. Archbishop Janani Luwum Day, made a public holiday in 2015, marks the murder of the Anglican archbishop by the Idi Amin regime in 1977 — a state holiday commemorating a victim of the state. NRM Liberation Day marks the arrival in power of the government still in office, which is why it is on the list at all and why it is the holiday most likely to be renamed if that changes; Kenya's 10 October has been renamed four times for exactly that kind of reason. The file is marked locale: en, not sw or lg: every string is the English-language official form the Uganda Gazette prints, and the two Eids are gazetted in English transliteration.
+locale: en
+---
+New Year's Day
+NRM Liberation Day
+Archbishop Janani Luwum Day
+Women's Day
+Good Friday
+Easter Monday
+Labour Day
+Uganda Martyrs' Day
+National Heroes' Day
+Eid al-Fitr
+Eid al-Adha
+Independence Day
+Christmas Day
+Boxing Day
