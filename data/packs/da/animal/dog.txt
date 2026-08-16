@@ -1,0 +1,29 @@
+---
+description: Dog breed (Danish). The first four are the Danish native breeds recognised by Dansk Kennel Klub — broholmeren is the old Danish mastiff, bred back from near-extinction in the 1970s, gammel dansk hønsehund is the Old Danish Pointer, and dansk-svensk gårdhund is the shared Danish-Swedish farm dog. Grønlandshund belongs to the rigsfællesskab: it is a sled dog, kept in Greenland north and east of the Arctic Circle under rules that forbid any other breed there. Denmark also has a hundelov that bans thirteen named breeds outright, so those are absent from this list on purpose rather than by oversight.
+locale: da
+---
+broholmer
+gammel dansk hønsehund
+dansk-svensk gårdhund
+grønlandshund
+labrador retriever
+golden retriever
+schæferhund
+border collie
+gravhund
+beagle
+cocker spaniel
+springer spaniel
+puddel
+chihuahua
+mops
+fransk bulldog
+cavalier king charles spaniel
+jack russell terrier
+border terrier
+shetland sheepdog
+rottweiler
+boxer
+dalmatiner
+hvid schweizisk hyrdehund
+blandingshund

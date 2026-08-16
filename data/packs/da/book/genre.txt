@@ -1,0 +1,30 @@
+---
+description: Book genre (Danish)
+locale: da
+---
+roman
+krimi
+kriminalroman
+thriller
+spændingsroman
+science fiction
+fantasy
+gyser
+historisk roman
+slægtsroman
+kærlighedsroman
+ungdomsroman
+børnebog
+billedbog
+novellesamling
+digtsamling
+drama
+essays
+biografi
+selvbiografi
+erindringer
+reportage
+faglitteratur
+populærvidenskab
+kogebog
+rejsebeskrivelse

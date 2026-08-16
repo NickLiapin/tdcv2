@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Danish. Amounts are in DKK, the currency of Denmark — Denmark negotiated an opt-out from the euro at Edinburgh in 1992 and confirmed it in a referendum in 2000, so the krone stays, pegged narrowly to the euro through ERM II. The abbreviation kr. goes AFTER the number, thousands are separated with a full stop and decimals with a comma: 1.250.000,50 kr. Reading a Danish amount aloud is the notorious part. Danish says the unit before the ten (femogfyrre for 45, "five-and-forty") and, above fifty, counts in TWENTIES rather than tens: halvtreds is 50 from halvtredsindstyve, two-and-a-half twenties; tres is 60, three twenties; halvfjerds 70, three-and-a-half twenties; firs 80, four twenties; halvfems 90, four-and-a-half twenties. So 95.000 kr. is femoghalvfemstusind kroner. Norwegian and Swedish do none of this, which is why Danish numbers are the hardest part of the language for their speakers.
+locale: da
+---
+Under 200.000 kr.
+200.000–300.000 kr.
+300.000–400.000 kr.
+400.000–500.000 kr.
+500.000–700.000 kr.
+700.000–900.000 kr.
+900.000–1.200.000 kr.
+Over 1.200.000 kr.

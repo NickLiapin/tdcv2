@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Danish that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: da
+---
+Endometriose
+PCOS
+Muskelknuder i livmoderen
+Cyste på æggestokken
+Menstruationssmerter
+Kraftig menstruationsblødning
+PMS
+PMDS
+Overgangsalderens gener
+Livmoderhalskræft
+Æggestokkræft
+Livmoderkræft
+Brystkræft
+Brystbetændelse
+Nedsynkning af underlivet
+Bækkenbundsdysfunktion
+Vulvodyni
+Bakteriel vaginose
+Svampeinfektion i skeden
+Graviditetsdiabetes
+Svangerskabsforgiftning
+Fødselsdepression
+Graviditetskvalme
+Spontan abort
+Graviditet uden for livmoderen
+Celleforandringer på livmoderhalsen

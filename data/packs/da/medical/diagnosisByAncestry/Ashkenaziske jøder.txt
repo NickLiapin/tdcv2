@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Ashkenaziske jøder, in Danish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: da
+---
+Tay-Sachs sygdom
+Gauchers sygdom
+Familiær dysautonomi
+Canavans sygdom
+Niemann-Picks sygdom
+Blooms syndrom
+Fanconis anæmi
+Mukolipidose type IV
+BRCA1-mutation
+BRCA2-mutation
+Faktor XI-mangel
+Crohns sygdom

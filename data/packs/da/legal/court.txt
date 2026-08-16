@@ -1,0 +1,21 @@
+---
+description: Court (Danish judiciary). The important structural fact, and the one that separates Denmark from Sweden and Finland: Denmark has NO separate ladder of administrative courts. A dispute with a public authority is heard by the ordinary courts, or more often first by an appeal board — Ankestyrelsen, Landsskatteretten, Flygtningenævnet, huslejenævnet — which are quasi-judicial bodies, not courts, and are listed here because that is where the case actually is. Sø- og Handelsretten in Copenhagen is a specialist maritime and commercial court with national jurisdiction and no counterpart elsewhere in the Nordics. Retten på Færøerne and the two Greenlandic courts belong to the rigsfællesskab: Greenland runs its own court system with lay judges (kredsdommere) rather than legally trained judges at first instance.
+locale: da
+---
+byret
+Østre Landsret
+Vestre Landsret
+Højesteret
+Sø- og Handelsretten
+Arbejdsretten
+Tinglysningsretten
+fogedret
+skifteret
+Procesbevillingsnævnet
+Landsskatteretten
+Ankestyrelsen
+Flygtningenævnet
+huslejenævn
+Retten på Færøerne
+Retten i Grønland
+Grønlands Landsret

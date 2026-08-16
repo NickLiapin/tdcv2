@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Nordafrika, in Danish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: da
+---
+Betatalassæmi
+G6PD-mangel
+Familiær middelhavsfeber
+Type 2-diabetes
+Laktoseintolerans
+Fenylketonuri

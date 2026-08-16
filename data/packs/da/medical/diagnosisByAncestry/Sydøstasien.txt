@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Sydøstasien, in Danish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: da
+---
+Alfatalassæmi
+Betatalassæmi
+Hæmoglobin E-sygdom
+G6PD-mangel
+Laktoseintolerans
+Nasofarynxkræft
+Thalassaemia intermedia

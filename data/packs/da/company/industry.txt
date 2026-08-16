@@ -1,0 +1,60 @@
+---
+description: Industry sector (Danish). The order reflects what Denmark actually lives off: medicinalindustri and medicoindustri (Novo Nordisk, Lundbeck, LEO, Coloplast) are the largest export earners, søfart is Maersk and the world's biggest container line, vindenergi is Vestas and Ørsted, and fjernvarme — district heating — reaches roughly two thirds of Danish homes and is an industry in its own right rather than a utility footnote.
+locale: da
+---
+informationsteknologi
+software
+telekommunikation
+elektronik
+bilindustri
+maskinindustri
+stålindustri
+råstofindvinding
+skovbrug
+papirindustri
+træindustri
+kemisk industri
+medicinalindustri
+medicoindustri
+bioteknologi
+fødevareindustri
+drikkevareindustri
+landbrug
+fiskeri
+energi
+vindenergi
+fjernvarme
+olie og gas
+byggeri
+anlæg
+ejendomme
+arkitektur
+design
+detailhandel
+e-handel
+engroshandel
+transport
+søfart
+luftfart
+jernbane
+logistik
+bank
+realkredit
+forsikring
+pension
+kapitalforvaltning
+revision
+jura
+konsulentvirksomhed
+reklame
+medier
+forlag
+film
+musik
+spiludvikling
+turisme
+hotel
+restauration
+undervisning
+sundhedsvæsen
+offentlig forvaltning

@@ -1,0 +1,33 @@
+---
+description: Tree (Danish). Bøgen is Denmark's national tree, chosen by public vote in 1962, and the beech wood in May is the country's stock image of itself. The conifers are mostly planted rather than native: rødgran, sitkagran and bjergfyr were put into the Jutland heath and the west-coast dunes from the 1800s onward to stop the sand and to grow timber, under the slogan hvad udad tabes, skal indad vindes.
+locale: da
+---
+bøg
+eg
+birk
+asp
+rødel
+ask
+elm
+ahorn
+lind
+røn
+hyld
+hæg
+pil
+seljepil
+hassel
+taks
+ene
+rødgran
+sitkagran
+skovfyr
+bjergfyr
+lærk
+avnbøg
+kastanje
+valnød
+kirsebærtræ
+æbletræ
+pæretræ
+blommetræ

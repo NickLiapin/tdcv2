@@ -1,0 +1,30 @@
+---
+description: Aircraft type (manufacturer designations, used unchanged in Danish). Denmark builds no airliners, so unlike the Swedish list this one has no home-built type in it. What it does carry is the rigsfællesskab: the ATR 42 and ATR 72 are what Danish Air Transport flies on the domestic and Faroese routes, the Dash 8 is Air Greenland's workhorse on the Greenlandic coast, the Airbus A330-800neo is Air Greenland's single long-haul aircraft, and the AW139 is the Faroese helicopter that connects the outlying islands.
+locale: da
+---
+Airbus A220-300
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321neo
+Airbus A330-300
+Airbus A330-800neo
+Airbus A350-900
+Boeing 737-700
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 767-300F
+Boeing 777-300ER
+Boeing 787-9
+Boeing 747-400F
+ATR 42-500
+ATR 72-600
+De Havilland Dash 8-200
+De Havilland Dash 8-400
+Embraer E190
+Embraer E195-E2
+Bombardier CRJ900
+Cessna 172
+Beechcraft King Air
+Pilatus PC-12
+AgustaWestland AW139

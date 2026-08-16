@@ -1,0 +1,22 @@
+---
+description: Venue type (Danish). Forsamlingshuset is the Danish village hall — an association owns it, the village built it in the 1800s, and it hosts weddings, funerals, general meetings and gymnastics in the same room. Kroen is the old inn on the through road, once licensed by royal privilege, and is where a Danish wedding party or a company Christmas lunch actually happens. Højskole and efterskole are residential schools that also let out their halls out of term.
+locale: da
+---
+forsamlingshus
+medborgerhus
+sognegård
+kulturhus
+højskole
+efterskole
+herregård
+slot
+kro
+badehotel
+konferencecenter
+hotel
+restaurant
+festlokale
+idrætshal
+koncertsal
+teater
+sommerhus

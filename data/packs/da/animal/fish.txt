@@ -1,0 +1,29 @@
+---
+description: Fish (Danish). Rødspætten is the Danish fish above all others — Denmark is a plaice country the way Sweden is a herring country. Tobis is the sand eel that feeds Denmark's industrial fishery, stenbider is caught for its roe, and hellefisk, the Greenland halibut, is the single largest export of Greenland and therefore belongs in a Danish list.
+locale: da
+---
+sild
+torsk
+rødspætte
+skrubbe
+ising
+tunge
+laks
+ørred
+havørred
+regnbueørred
+gedde
+aborre
+sandart
+skalle
+brasen
+ål
+makrel
+hornfisk
+sej
+kuller
+hvilling
+brisling
+tobis
+stenbider
+hellefisk

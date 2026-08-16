@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Danish)
+locale: da
+---
+taletidskort
+abonnement
+fastpris
+dataabonnement
+fri data
+familieabonnement
+erhvervsabonnement
+mobilt bredbånd
+datadeling
+ekstra SIM
+eSIM
+udlandspakke

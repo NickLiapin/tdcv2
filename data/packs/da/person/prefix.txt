@@ -1,0 +1,13 @@
+---
+description: Danish form of address. The list is deliberately short, and the shortness is the Danish fact worth recording. Danish had a formal second person, De, and it fell out of use across the late 1960s and 70s without any single reform — a Dane says du to a stranger, to a shop assistant, to their doctor and to the prime minister, and De now survives mainly in letters from public authorities and in service to the elderly. Titles are not used in front of a name in speech at all. Hr., Fru and Frøken belong on envelopes and in ceremony, and Frøken is additionally dated because it marks an unmarried woman. The royal family is the one exception and takes Deres Majestæt or Deres Kongelige Højhed. Danish noble titles — greve, baron, lensbaron — still exist as parts of names, but the constitution of 1849 abolished every privilege attached to them, so they are not forms of address and are deliberately not in this list. Do not import a German or English honorific list here: a Danish record with a title in front of the name is almost always wrong.
+locale: da
+---
+Hr.
+Fru
+Frøken
+Dr.
+Professor
+Hans Majestæt
+Hendes Majestæt
+Hans Kongelige Højhed
+Hendes Kongelige Højhed

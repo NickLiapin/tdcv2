@@ -1,0 +1,12 @@
+---
+description: Time of day (Danish). Danish splits the morning into morgen and formiddag, and middag is the NOON hour rather than the evening meal — the meal is aftensmad, eaten early, and a Dane invited til middag at 18.00 is being invited to dinner by a word that literally says midday. Frokost, confusingly for Swedes and Germans, is the Danish lunch.
+locale: da
+---
+daggry
+morgen
+formiddag
+middag
+eftermiddag
+aften
+nat
+midnat

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in dermatologi, in Danish
+locale: da
+---
+Atopisk eksem
+Psoriasis
+Akne
+Rosacea
+Kontakteksem
+Nældefeber
+Helvedesild
+Svampeinfektion i huden
+Vitiligo
+Basalcellekræft

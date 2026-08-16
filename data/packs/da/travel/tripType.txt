@@ -1,0 +1,24 @@
+---
+description: Trip type (Danish). Sommerhusferie is the default Danish holiday — a week in a rented wooden house near a beach, in Denmark, in July. Badehotelferie is the seaside hotel on the west coast. Højskoleophold is a residential stay of weeks or months at a folk high school with no exam at the end, and Danes of every age take one.
+locale: da
+---
+ferierejse
+weekendtur
+forretningsrejse
+konferencerejse
+charterrejse
+storbyferie
+sommerhusferie
+badehotelferie
+campingferie
+autocamperferie
+vandretur
+skiferie
+cykelferie
+krydstogt
+øhop
+roadtrip
+familieferie
+højskoleophold
+studietur
+badeferie

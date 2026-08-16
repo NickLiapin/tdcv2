@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type as written in Denmark. The fourth group is the DIGIT ZERO, 0, not the letter O — Danish, like Swedish, Finnish, German and most of continental Europe, writes blodtype 0, and a Danish record showing "O+" is following the English convention rather than the Danish one. Danish blood donation is unpaid and organised through Bloddonorerne i Danmark, a volunteer association, rather than through a commercial system.
+locale: da
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+0+
+0-

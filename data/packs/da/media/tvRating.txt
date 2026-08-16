@@ -1,0 +1,13 @@
+---
+description: Film and TV age rating in Denmark. Medierådet for Børn og Unge sets only four cinema limits — tilladt for alle, tilladt for alle men frarådet for børn under 7, tilladt for børn over 11, tilladt for børn over 15 — and there is no 18 rating: adult film censorship was abolished in 1969, when Denmark became the first country in the world to legalise written and then filmed pornography. Children under 7 may see any film if accompanied by an adult, which is a rule about the accompanying adult rather than about the film. The remaining entries are descriptive labels broadcasters add themselves.
+locale: da
+---
+tilladt for alle
+frarådes børn under 7 år
+tilladt for børn over 11 år
+tilladt for børn over 15 år
+uegnet for børn
+voksenprogram
+indeholder vold
+indeholder grovt sprog
+ingen aldersgrænse

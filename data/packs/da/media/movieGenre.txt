@@ -1,0 +1,23 @@
+---
+description: Movie genre (Danish). Danish film has one genre label of its own that is not in this list because it is a manifesto rather than a genre: Dogme 95, the rule set Lars von Trier and Thomas Vinterberg wrote in 1995, is how Danish cinema is filed abroad and is worth knowing about when reading Danish film metadata.
+locale: da
+---
+drama
+komedie
+romantisk komedie
+action
+eventyr
+thriller
+krimidrama
+krimi
+gyser
+science fiction
+fantasy
+krigsfilm
+western
+historisk film
+biografisk film
+musical
+animationsfilm
+familiefilm
+dokumentarfilm

@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (Danish operators and international brands). Four companies own the Danish networks — TDC through its consumer brands YouSee and Nuuday, Telenor, Telia and 3 — and the rest are their budget or virtual brands: CBB and Telmore belong to TDC, Call me and Bibob to Telia, Oister to 3. Norlys, Stofa, Hiper, Fibia, Fastspeed and Kviknet are broadband rather than mobile and are here because Danish households buy the two together. Føroya Tele and Tusass are the operators of the Faroe Islands and Greenland, the other two countries of the rigsfællesskab, and a Danish customer roaming there is roaming abroad.
+locale: da
+---
+TDC
+YouSee
+Nuuday
+Telenor
+Telia
+3
+CBB Mobil
+Telmore
+Call me
+Oister
+Bibob
+Greentel
+Lebara
+Lycamobile
+Norlys
+Stofa
+Hiper
+Fibia
+Fastspeed
+Kviknet
+Føroya Tele
+Tusass
+Vodafone
+Orange
+Deutsche Telekom
+Elisa

@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Danish — Danish forms these with -ing, -ning or -else, not with an -ing participle)
+locale: da
+---
+kompilering
+indeksering
+kryptering
+dekryptering
+komprimering
+pakning
+fejlfinding
+fejlsøgning
+logning
+overvågning
+belastningsfordeling
+cachelagring
+spejling
+sikkerhedskopiering
+gendannelse
+migrering
+distribution
+idriftsættelse
+versionsstyring
+autentificering
+autorisering
+validering
+rendering
+streaming
+synkronisering
+parsning
+routing
+skalering

@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Danish; brand names kept as-is)
+locale: da
+---
+PC
+Steam
+Steam Deck
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Nintendo Switch
+mobil
+tablet
+VR

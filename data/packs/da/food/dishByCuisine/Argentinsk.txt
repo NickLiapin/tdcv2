@@ -1,0 +1,12 @@
+---
+description: Dishes of argentinsk cuisine, in Danish
+locale: da
+---
+Asado
+Empanadas
+Chimichurri
+Milanesa
+Locro
+Provoleta
+Alfajores
+Dulce de leche

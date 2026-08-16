@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Danish)
+locale: da
+---
+urangeret
+bronze
+sølv
+guld
+platin
+diamant
+mester
+stormester
+elite
+legende

@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Danish (female-specific + common)
+locale: da
+---
+Endometriose
+PCOS
+Muskelknuder i livmoderen
+Cyste på æggestokken
+Menstruationssmerter
+Kraftig menstruationsblødning
+PMS
+PMDS
+Overgangsalderens gener
+Livmoderhalskræft
+Æggestokkræft
+Livmoderkræft
+Brystkræft
+Brystbetændelse
+Forhøjet blodtryk
+Type 2-diabetes
+Type 1-diabetes
+Forhøjet kolesterol
+Svær overvægt
+Astma
+KOL
+Høfeber
+Kronisk bronkitis
+Lungebetændelse
+Søvnapnø
+Hjertesvigt
+Atrieflimren

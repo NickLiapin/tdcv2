@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Østasien, in Danish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: da
+---
+Laktoseintolerans
+Alkoholintolerans (ALDH2-mangel)
+Mavekræft
+Nasofarynxkræft
+Hepatitis B
+Snævervinklet grøn stær
+Kawasakis sygdom
+Betatalassæmi
+Moyamoyasygdom
+Type 2-diabetes

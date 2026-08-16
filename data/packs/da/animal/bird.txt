@@ -1,0 +1,34 @@
+---
+description: Bird (Danish). Knopsvanen has been Denmark's national bird since 1984, when it replaced solsorten. Klyden is the emblem of the Danish ornithological society and of the Wadden Sea, and the starling is here twice over: stær is the bird, and sort sol is the name Danes give to the enormous autumn murmurations over the South Jutland marshes.
+locale: da
+---
+solsort
+musvit
+blåmejse
+bogfinke
+gulspurv
+dompap
+grønirisk
+stillits
+hvid vipstjert
+rødhals
+nattergal
+løvsanger
+broget fluesnapper
+stær
+skade
+krage
+ravn
+skovskade
+stor flagspætte
+gøg
+mursejler
+landsvale
+vibe
+storspove
+klyde
+strandskade
+sanglærke
+hvid stork
+knopsvane
+havørn

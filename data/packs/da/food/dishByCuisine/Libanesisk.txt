@@ -1,0 +1,12 @@
+---
+description: Dishes of libanesisk cuisine, in Danish
+locale: da
+---
+Hummus
+Tabbouleh
+Fattoush
+Kibbeh
+Falafel
+Shawarma
+Mujadara
+Baba ganoush

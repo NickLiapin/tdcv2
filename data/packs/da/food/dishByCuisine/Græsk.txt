@@ -1,0 +1,12 @@
+---
+description: Dishes of græsk cuisine, in Danish
+locale: da
+---
+Moussaka
+Souvlaki
+Gyros
+Tzatziki
+Græsk salat
+Spanakopita
+Dolmer
+Baklava

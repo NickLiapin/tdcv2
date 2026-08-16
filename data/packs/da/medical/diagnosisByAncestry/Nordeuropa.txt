@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Nordeuropa, in Danish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: da
+---
+Cystisk fibrose
+Hæmokromatose
+Laktosetolerance i voksenalderen
+Alfa-1-antitrypsinmangel
+Cøliaki
+Dissemineret sklerose
+Type 1-diabetes
+Modermærkekræft
+Fenylketonuri
+Colitis ulcerosa

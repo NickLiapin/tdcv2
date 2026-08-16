@@ -1,0 +1,9 @@
+---
+description: Credit standing band (Danish). Denmark has no consumer-facing credit score like FICO. What exists is a register of bad debtors — RKI, run by Experian, and Debitor Registret — and the single fact that decides whether a Dane can borrow, rent a flat or take a phone subscription is whether they are "registreret i RKI". Registration requires the creditor to have sent three reminders and lasts up to five years. These bands are descriptive labels for a risk assessment, not a numeric scale, and the last one is a binary state rather than a band.
+locale: da
+---
+meget lav risiko
+lav risiko
+normal risiko
+forhøjet risiko
+registreret i RKI

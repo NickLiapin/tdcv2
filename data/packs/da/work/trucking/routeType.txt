@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Danish)
+locale: da
+---
+lokalkørsel
+regionalkørsel
+fjernkørsel
+international kørsel
+distributionskørsel
+entreprenørkørsel
+pendulkørsel

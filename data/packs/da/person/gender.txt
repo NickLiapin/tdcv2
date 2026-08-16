@@ -1,0 +1,11 @@
+---
+description: Gender label (Danish). Two values, matching en, pl, sv and fi — this list is what
+  `parent="Gender.Mand"` filters on, so a longer one silently leaves most rows without a
+  name. Identity options beyond the pair belong in a file of their own. Danish has two
+  grammatical genders, common and neuter, but they are a property of the noun and have
+  nothing to do with the person's sex, so nothing else in a Danish row has to agree with
+  this value.
+locale: da
+---
+Mand
+Kvinde

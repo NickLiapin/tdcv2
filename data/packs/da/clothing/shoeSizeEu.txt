@@ -1,0 +1,16 @@
+---
+description: Shoe size (European sizing, used in Denmark — not UK or US numbering). Worth knowing if the number is ever read aloud or written out: Danish counts units before tens, so 45 is femogfyrre, literally "five-and-forty", and 38 is otteogtredive. The vigesimal forms start above this range; see person/incomeBracket for those.
+locale: da
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

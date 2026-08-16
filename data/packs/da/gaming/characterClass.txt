@@ -1,0 +1,28 @@
+---
+description: RPG character class (Danish)
+locale: da
+---
+kriger
+ridder
+barbar
+paladin
+vogter
+jæger
+bueskytte
+tyv
+snigmorder
+slyngel
+spejder
+magiker
+troldmand
+besværger
+heks
+druide
+præst
+munk
+skjald
+nekromantiker
+alkymist
+håndværker
+læge
+krønikeskriver

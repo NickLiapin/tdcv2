@@ -1,0 +1,16 @@
+---
+description: Jobs in byggeri, in Danish
+locale: da
+---
+bygningsarbejder
+tømrer
+murer
+betonarbejder
+elektriker
+vvs-installatør
+ventilationstekniker
+blikkenslager
+maler
+bygningskonstruktør
+byggeleder
+projektleder

@@ -1,0 +1,16 @@
+---
+description: Jobs in sundhedsvæsen, in Danish. Two have no English counterpart: social- og sundhedsassistent (SOSU) is a distinct two-and-a-half-year health care qualification, and sundhedsplejerske is the nurse who visits every newborn at home as a universal service.
+locale: da
+---
+læge
+speciallæge
+praktiserende læge
+sygeplejerske
+specialsygeplejerske
+jordemoder
+social- og sundhedsassistent
+social- og sundhedshjælper
+sundhedsplejerske
+fysioterapeut
+ergoterapeut
+bioanalytiker

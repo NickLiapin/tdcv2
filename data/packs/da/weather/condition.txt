@@ -1,0 +1,21 @@
+---
+description: Weather condition (Danish). Gråvejr has no English word: it is the flat, uniform, colourless overcast that covers Denmark for much of the winter, and it is a distinct forecast term rather than a mood. Slud is sleet and byger are the scattered showers that make up most Danish rain.
+locale: da
+---
+klart
+solrigt
+let skyet
+delvist skyet
+skyet
+overskyet
+gråvejr
+tåge
+støvregn
+regn
+byger
+torden
+slud
+sne
+snebyger
+blæsende
+storm

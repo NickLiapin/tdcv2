@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Danish), given as subject or as subject/object/possessive. Danish splits the inanimate third person by GRAMMATICAL gender, and this is the clearest place the two-gender system shows: den refers to a common-gender noun (en bil → den) and det to a neuter one (et hus → det), so the choice depends on the noun and not on anything about the thing itself. Danish also has hen as a gender-neutral pronoun for people; it is a borrowing from Swedish, is used in Danish and is far less established here than in Swedish, where it is a native coinage. Singular de is also used.
+locale: da
+---
+han
+hun
+hen
+den
+det
+han/ham/hans
+hun/hende/hendes
+de/dem/deres

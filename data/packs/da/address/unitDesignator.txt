@@ -1,0 +1,30 @@
+---
+description: Danish address unit designator. The Danish flat address is written floor-then-door and is compact to the point of being cryptic to outsiders: "3. th." means third floor, right-hand door, and a full Danish address line reads "Nørregade 12, 3. th.". th. is til højre, tv. til venstre and mf. midt for, used when a landing has three doors. The floor at street level is st. (stuen) and is NOT floor 1 — 1. sal is the floor above it, so a Danish 3. sal is an English fourth floor. Bygning A/B and opgang are used on larger estates.
+locale: da
+---
+st.
+stuen
+kld.
+kælder
+1. sal
+2. sal
+3. sal
+th.
+tv.
+mf.
+lejl.
+lejlighed
+dør
+opg.
+opgang
+etage
+sal
+bygning
+værelse
+kontor
+lokale
+depotrum
+garage
+p-plads
+postboks
+c/o

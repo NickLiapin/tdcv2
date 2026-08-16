@@ -1,0 +1,84 @@
+---
+description: Medical diagnosis in Danish that can occur in any patient — no sex or ancestry restriction. Danish everyday clinical language is plainer than the Latinate English default and a translator should not "correct" it: a heart attack is a blodprop i hjertet and a stroke a blodprop i hjernen, literally a blood clot in the heart or in the brain; multiple sclerosis is dissemineret sklerose; rheumatoid arthritis is leddegigt and osteoarthritis slidgigt; cataract is grå stær and glaucoma grøn stær. Roskildesyge is the Danish name for norovirus gastroenteritis, after an outbreak at a Roskilde wedding party in 1952. One deliberate absence: Denmark has NO burnout diagnosis of its own — where Sweden codes utmattningssyndrom as F43.8A, Danish clinicians record a belastningsreaktion or simply arbejdsrelateret stress, so no equivalent has been invented here. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: da
+---
+Forhøjet blodtryk
+Type 2-diabetes
+Type 1-diabetes
+Forhøjet kolesterol
+Svær overvægt
+Astma
+KOL
+Høfeber
+Kronisk bronkitis
+Lungebetændelse
+Søvnapnø
+Hjertesvigt
+Atrieflimren
+Angina pectoris
+Blodprop i hjertet
+Blodprop i hjernen
+Hjerneblødning
+TCI
+Dyb venetrombose
+Blodprop i lungen
+Åreknuder
+Migræne
+Spændingshovedpine
+Epilepsi
+Svimmelhed
+Tinnitus
+Nedsat hørelse
+Grå stær
+Grøn stær
+Tørre øjne
+Depression
+Generaliseret angst
+Panikangst
+Belastningsreaktion
+Søvnbesvær
+ADHD
+Autismespektrumforstyrrelse
+Demens
+Alzheimers sygdom
+Parkinsons sygdom
+Dissemineret sklerose
+Leddegigt
+Slidgigt
+Knogleskørhed
+Urinsyregigt
+Fibromyalgi
+Iskias
+Diskusprolaps
+Karpaltunnelsyndrom
+Atopisk eksem
+Psoriasis
+Akne
+Rosacea
+Nældefeber
+Helvedesild
+Skoldkopper
+Mononukleose
+Influenza
+Covid-19
+Halsbetændelse
+Bihulebetændelse
+Mellemørebetændelse
+Blærebetændelse
+Nyresten
+Kronisk nyresvigt
+Galdesten
+Mavesår
+Gastritis
+Sure opstød
+Cøliaki
+Crohns sygdom
+Colitis ulcerosa
+Irritabel tyktarm
+For lavt stofskifte
+For højt stofskifte
+Jernmangelanæmi
+B12-mangel
+D-vitaminmangel
+Borreliose
+Roskildesyge

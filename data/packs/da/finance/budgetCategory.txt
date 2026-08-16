@@ -1,0 +1,25 @@
+---
+description: Budget / spending category (Danish)
+locale: da
+---
+bolig
+husleje
+boligafgift
+renter på realkreditlån
+afdrag
+el
+varme
+vand og kloak
+indboforsikring
+mad
+restaurant
+transport
+offentlig transport
+brændstof
+biludgifter
+telefon og internet
+sundhed
+børnepasning
+tøj
+fritid
+opsparing

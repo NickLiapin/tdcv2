@@ -1,0 +1,15 @@
+---
+description: Booking status (Danish)
+locale: da
+---
+forespørgsel
+foreløbig
+bekræftet
+betalt
+delvist betalt
+tjekket ind
+tjekket ud
+ombooket
+afbestilt
+udeblevet
+venteliste

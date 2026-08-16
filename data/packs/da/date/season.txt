@@ -1,0 +1,8 @@
+---
+description: Season (Danish, lowercase). Unlike Sweden and Finland, which define their seasons meteorologically by temperature, DMI uses the fixed three-month meteorological seasons — winter is December to February, spring March to May — because Denmark is small and flat enough that a temperature definition would give nearly the same date everywhere. What changes over the Danish year is the light, not the thermometer: about seventeen and a half hours of daylight at midsummer against seven at midwinter, which is why sankthansaften on 23 June is a bonfire night and why the dark months have a word of their own attached to them, hygge. The two other countries of the rigsfællesskab are a different matter — Greenland and the northern Faroes have polar night and midnight sun, and Denmark proper has neither.
+locale: da
+---
+forår
+sommer
+efterår
+vinter

@@ -1,0 +1,39 @@
+---
+description: Music genre (Danish). Four are Danish institutions rather than international categories. Dansktop is the Danish equivalent of the Swedish dansband — melodic, singable, with its own charts and its own touring circuit. Fællessang is communal singing from Højskolesangbogen, done standing up at meetings, schools, funerals and on television, and it is closer to a national practice than to a genre. Salmer means the Danish hymn tradition of Kingo, Brorson and Grundtvig, whose texts are sung far outside church. Spillemandsmusik is the fiddle repertoire of the villages.
+locale: da
+---
+dansktop
+schlager
+fællessang
+salmer
+visesang
+folkemusik
+spillemandsmusik
+korsang
+gospel
+klassisk
+opera
+kammermusik
+symfonisk musik
+jazz
+blues
+soul
+funk
+pop
+indiepop
+rock
+hårdrock
+heavy metal
+death metal
+black metal
+punk
+progressiv rock
+hiphop
+rap
+R&B
+reggae
+house
+techno
+elektronisk musik
+ambient
+lounge

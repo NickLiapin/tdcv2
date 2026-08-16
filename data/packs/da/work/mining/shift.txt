@@ -1,0 +1,9 @@
+---
+description: Work shift (Danish)
+locale: da
+---
+dagvagt
+aftenvagt
+nattevagt
+toholdsskift
+treholdsskift

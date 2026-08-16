@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Danish market. DRTV is the public broadcaster's free service; DR is funded from the ordinary income tax since the licence fee was abolished in stages from 2019, so DRTV carries no advertising and no subscription. TV 2 Play is the part-commercial national broadcaster's, and Viaplay is the Nordic regional service.
+locale: da
+---
+DRTV
+TV 2 Play
+Viaplay
+Netflix
+HBO Max
+Disney+
+Prime Video
+Apple TV+
+SkyShowtime
+Discovery+
+YouTube
+Spotify

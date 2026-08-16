@@ -1,0 +1,22 @@
+---
+description: Bicycle type (Danish). In Denmark the bicycle is transport rather than sport: there are more bicycles than people, and about a quarter of all trips in Copenhagen are made on one. Ladcykel is the load-carrying front-box bike used as a family car substitute; christianiacykel is the three-wheeled original, built in the Copenhagen free town of Christiania since 1984, and Danes use the brand name as the generic word for the type.
+locale: da
+---
+damecykel
+herrecykel
+hybridcykel
+citycykel
+pendlercykel
+racercykel
+gravelbike
+mountainbike
+terrængående cykel
+elcykel
+ladcykel
+christianiacykel
+trehjulet cykel
+børnecykel
+foldecykel
+tandemcykel
+fatbike
+cykelcross

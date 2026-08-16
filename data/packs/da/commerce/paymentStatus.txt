@@ -1,0 +1,14 @@
+---
+description: Payment status (Danish)
+locale: da
+---
+ubetalt
+afventer
+reserveret
+betalt
+delvist betalt
+forfalden
+rykket
+sendt til inkasso
+refunderet
+annulleret

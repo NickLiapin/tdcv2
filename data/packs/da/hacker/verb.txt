@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (Danish)
+locale: da
+---
+kompilere
+køre
+installere
+afinstallere
+opgradere
+konfigurere
+genstarte
+oprette forbindelse
+afbryde forbindelsen
+logge ind
+logge ud
+kryptere
+dekryptere
+komprimere
+udpakke
+indeksere
+søge
+filtrere
+sortere
+gemme
+indlæse
+overskrive
+slette
+gendanne
+spejle
+distribuere
+idriftsætte
+fejlsøge

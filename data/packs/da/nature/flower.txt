@@ -1,0 +1,33 @@
+---
+description: Flower (Danish). Marguerite — margerit — is Denmark's national flower and lent its name to the queen; hedelyng covers the Jutland heath and hybenrosen the dunes along the west coast. Blå anemone and hvid anemone are the flowers of the Danish beech-wood spring and appear before the leaves do.
+locale: da
+---
+rose
+tulipan
+påskelilje
+pinselilje
+narcis
+lilje
+solsikke
+valmue
+kornblomst
+margerit
+mælkebøtte
+smørblomst
+hulkravet kodriver
+blå anemone
+hvid anemone
+liljekonval
+forglemmigej
+viol
+stedmoderblomst
+lupin
+kløver
+kaprifolie
+syren
+jasmin
+hortensia
+dahlia
+krokus
+hybenrose
+hedelyng

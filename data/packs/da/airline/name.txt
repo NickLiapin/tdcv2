@@ -1,0 +1,54 @@
+---
+description: Airline (Danish and Nordic carriers first, then major international ones; brand names keep their own spelling). SAS is a three-country consortium in which the Danish state is a shareholder, DAT is Danish Air Transport out of Vamdrup, and Air Greenland and Atlantic Airways are the flag carriers of the two other countries in the rigsfællesskab.
+locale: da
+---
+SAS
+Norwegian
+DAT
+Air Greenland
+Atlantic Airways
+Sun-Air
+Finnair
+Icelandair
+Widerøe
+Play
+Lufthansa
+KLM
+Air France
+British Airways
+Swiss
+Austrian Airlines
+Brussels Airlines
+Iberia
+Vueling
+TAP Air Portugal
+Aegean Airlines
+LOT
+Air Baltic
+Ryanair
+easyJet
+Wizz Air
+Eurowings
+Transavia
+Turkish Airlines
+Pegasus Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+El Al
+Royal Jordanian
+Egyptair
+Ethiopian Airlines
+Kenya Airways
+Delta Air Lines
+United Airlines
+American Airlines
+Air Canada
+LATAM
+Singapore Airlines
+Thai Airways
+Japan Airlines
+ANA
+Cathay Pacific
+Korean Air
+Qantas

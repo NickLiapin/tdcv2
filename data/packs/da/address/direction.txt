@@ -1,0 +1,23 @@
+---
+description: Directional qualifier used with a Danish district, estate or road name (Nørrebro, Østerbro, Vestervang, Indre By). Danish uses nord/syd/øst/vest as the plain compass words, nordre/søndre/østre/vestre as the attributive form on roads and districts, and the older nørre/sønder/øster/vester in place names.
+locale: da
+---
+Nord
+Syd
+Øst
+Vest
+Nordre
+Søndre
+Østre
+Vestre
+Nørre
+Sønder
+Øster
+Vester
+Nordøst
+Nordvest
+Sydøst
+Sydvest
+Centrum
+Midtby
+Indre By

@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Denmark. Three are Danish and have no international equivalent in this list: DBA — Den Blå Avis — is the classifieds site Danes use to buy and sell second-hand, Trendsales is the clothing version of it, and Jodel is the anonymous location-based feed that dominates Danish student towns and campuses.
+locale: da
+---
+Facebook
+Instagram
+TikTok
+Snapchat
+YouTube
+LinkedIn
+X
+Reddit
+Pinterest
+Discord
+Twitch
+WhatsApp
+Messenger
+Telegram
+DBA
+Trendsales
+Jodel

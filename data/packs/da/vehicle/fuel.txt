@@ -1,0 +1,14 @@
+---
+description: Fuel type (Danish). The one fact that governs Danish vehicle data is not in this list but stands behind it: registreringsafgiften, the registration tax, which has historically run to 150 % of the value of a car and is scaled by emissions. It made Denmark a country of small cars and few of them, and when the tax was tilted towards low emissions the fleet turned electric faster than almost anywhere. E85 is barely sold in Denmark, unlike in Sweden, and is listed last for that reason.
+locale: da
+---
+benzin
+diesel
+el
+plugin-hybrid
+hybrid
+brint
+biogas
+HVO
+naturgas
+E85

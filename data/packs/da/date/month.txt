@@ -1,0 +1,16 @@
+---
+description: Month name (Danish, lowercase — Danish writes months, weekdays and seasons in lower case, unlike English)
+locale: da
+---
+januar
+februar
+marts
+april
+maj
+juni
+juli
+august
+september
+oktober
+november
+december

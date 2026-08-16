@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Danish). These are NOT uniform three-letter stumps the way Swedish and English abbreviate. Retskrivningsordbogen gives febr. and sept. with four letters, and marts, maj, juni and juli are not abbreviated at all because they are already short — so a Danish column of month abbreviations has ragged widths, and that is correct. Every abbreviated form takes a full stop.
+locale: da
+---
+jan.
+febr.
+marts
+apr.
+maj
+juni
+juli
+aug.
+sept.
+okt.
+nov.
+dec.

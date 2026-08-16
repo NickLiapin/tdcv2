@@ -1,0 +1,19 @@
+---
+description: Payment method (Danish). Three of these are Danish institutions with no equivalent abroad. Dankort is the national debit card scheme, launched in 1983 and for decades the only card most Danes carried; the co-branded Visa/Dankort is a single physical card that runs as a Dankort domestically and as a Visa abroad. MobilePay began as Danske Bank's phone-to-phone transfer app and became the way Danes pay each other and small traders, to the point that a flea-market stall lists a phone number instead of a price. Betalingsservice is the national direct-debit system that pays the rent, the insurance and the union subscription automatically. Denmark is close to cashless and shops may legally refuse cash at night, so kontant sits at the bottom on purpose.
+locale: da
+---
+MobilePay
+Dankort
+Visa/Dankort
+betalingskort
+Visa
+Mastercard
+kreditkort
+bankoverførsel
+Betalingsservice
+Klarna faktura
+Klarna delbetaling
+ViaBill
+Apple Pay
+faktura
+kontant

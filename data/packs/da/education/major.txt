@@ -1,0 +1,33 @@
+---
+description: Field of study / major (Danish)
+locale: da
+---
+datalogi
+softwareudvikling
+informationsteknologi
+matematik
+statistik
+fysik
+kemi
+biologi
+molekylærbiologi
+miljøvidenskab
+geovidenskab
+maskinteknik
+elektroteknik
+bygningsteknik
+erhvervsøkonomi
+nationaløkonomi
+finansiering
+jura
+statskundskab
+sociologi
+antropologi
+psykologi
+pædagogik
+socialt arbejde
+medicin
+sygepleje
+folkesundhedsvidenskab
+historie
+litteraturvidenskab

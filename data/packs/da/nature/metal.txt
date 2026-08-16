@@ -1,0 +1,26 @@
+---
+description: Metal (Danish)
+locale: da
+---
+jern
+stål
+rustfrit stål
+kobber
+messing
+bronze
+tin
+bly
+zink
+aluminium
+titan
+nikkel
+krom
+wolfram
+kobolt
+magnesium
+sølv
+guld
+platin
+palladium
+kviksølv
+støbejern

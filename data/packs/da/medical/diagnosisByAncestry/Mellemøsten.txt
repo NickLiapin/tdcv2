@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Mellemøsten, in Danish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: da
+---
+Familiær middelhavsfeber
+Betatalassæmi
+G6PD-mangel
+Behçets sygdom
+Type 2-diabetes
+Arvelige sygdomme ved fætter-kusine-ægteskab

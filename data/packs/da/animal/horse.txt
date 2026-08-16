@@ -1,0 +1,20 @@
+---
+description: Horse breed (Danish). Knabstrupperen with its spotted coat, frederiksborgheste from the royal stud at Hillerød and the heavy jydske hest are Denmark's three native breeds; dansk varmblod is the modern Danish sport horse and one of the leading dressage breeds in the world.
+locale: da
+---
+knabstrupper
+frederiksborghest
+jydsk hest
+dansk varmblod
+dansk sportspony
+islandsk hest
+fjordhest
+shetlandspony
+welsh pony
+connemara
+new forest pony
+engelsk fuldblod
+arabisk fuldblod
+haflinger
+shire
+tinker

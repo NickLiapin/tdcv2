@@ -1,0 +1,9 @@
+---
+description: Positions in basketball, in Danish. Danish basketball uses the English position names unchanged, so they are kept as-is.
+locale: da
+---
+point guard
+shooting guard
+small forward
+power forward
+center

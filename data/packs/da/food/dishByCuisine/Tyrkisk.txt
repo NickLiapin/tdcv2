@@ -1,0 +1,12 @@
+---
+description: Dishes of tyrkisk cuisine, in Danish
+locale: da
+---
+Kebab
+Lahmacun
+Pide
+Meze
+Imam bayildi
+Manti
+Baklava med pistacie
+Tyrkisk pizza

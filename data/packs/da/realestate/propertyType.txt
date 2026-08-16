@@ -1,0 +1,24 @@
+---
+description: Property type (Danish). Denmark has three distinct tenures and confusing them misreads Danish housing data badly. Ejerlejlighed is true freehold ownership of a flat and has only been legally possible since 1966. Andelsbolig is a share in a co-operative that owns the whole building — you own a share and a right to live in one flat, not the flat itself — and it is roughly a third of the housing in Copenhagen. Almen bolig is non-profit housing let by a housing association from a waiting list, about a fifth of all Danish homes, and it is not means-tested social housing but ordinary housing that anyone may queue for. Sommerhus is a category of its own in Danish law: it may not be used as a year-round residence, and non-residents may not buy one without permission.
+locale: da
+---
+ejerlejlighed
+andelsbolig
+lejelejlighed
+almen bolig
+villa
+rækkehus
+dobbelthus
+klyngehus
+sommerhus
+fritidshus
+kolonihavehus
+nedlagt landbrug
+landejendom
+byggegrund
+skovejendom
+kontorlokale
+butikslokale
+industrilokale
+lager
+garageplads

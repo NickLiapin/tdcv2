@@ -1,0 +1,16 @@
+---
+description: Jobs in turisme, in Danish
+locale: da
+---
+kok
+smørrebrødsjomfru
+konditor
+bager
+tjener
+overtjener
+bartender
+barista
+receptionist
+hotelchef
+housekeeper
+restaurantchef

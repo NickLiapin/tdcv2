@@ -1,0 +1,35 @@
+---
+description: Vegetable (Danish). Grønkål is not a garnish here: grønlangkål, kale stewed in a cream sauce, is Christmas food. The new potatoes and the carrots from the reclaimed seabed at Lammefjorden carry a protected designation and are sold under it.
+locale: da
+---
+kartofler
+nye kartofler
+gulerod
+løg
+rødløg
+porre
+hvidløg
+kålrabi
+knoldselleri
+pastinak
+rødbede
+hvidkål
+rødkål
+grønkål
+rosenkål
+blomkål
+broccoli
+spinat
+salat
+icebergsalat
+agurk
+tomat
+peberfrugt
+squash
+aubergine
+ærter
+sukkerærter
+majs
+champignon
+kantarel
+asparges

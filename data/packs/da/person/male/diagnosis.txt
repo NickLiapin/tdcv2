@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Danish (male-specific + common)
+locale: da
+---
+Godartet forstørret prostata
+Prostatitis
+Prostatakræft
+Testikelkræft
+Rejsningsproblemer
+Forhudsforsnævring
+Testikeltorsion
+Bitestikelbetændelse
+Varicocele
+Hydrocele
+Gynækomasti
+Peniskræft
+Testosteronmangel
+Forhøjet blodtryk
+Type 2-diabetes
+Type 1-diabetes
+Forhøjet kolesterol
+Svær overvægt
+Astma
+KOL
+Høfeber
+Kronisk bronkitis
+Lungebetændelse
+Søvnapnø
+Hjertesvigt
+Atrieflimren

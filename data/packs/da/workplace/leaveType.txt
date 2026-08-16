@@ -1,0 +1,16 @@
+---
+description: Leave type (Danish). Barsel is the Danish parental leave and the 2022 reform is the fact to know: of the 48 weeks paid after birth, 11 are earmarked for each parent and lost if not taken, which is why Danish fathers take far more leave than they did before. Barns første sygedag is a right in most collective agreements to stay home with a sick child, and afspadsering — taking accumulated overtime as time off rather than pay — is so normal that it has its own verb. Note that ferie in Denmark is earned in one year and taken in the next under the ferielov, so a new employee may have holiday entitlement and no paid holiday.
+locale: da
+---
+ferie
+feriefridage
+barsel
+forældreorlov
+barns første sygedag
+barns anden sygedag
+sygefravær
+sygemelding
+orlov uden løn
+tjenestefri
+afspadsering
+seniorordning

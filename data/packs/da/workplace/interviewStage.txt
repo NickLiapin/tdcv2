@@ -1,0 +1,16 @@
+---
+description: Hiring / interview stage (Danish)
+locale: da
+---
+ansøgning modtaget
+screening
+telefonsamtale
+første samtale
+anden samtale
+case-opgave
+test
+personlighedstest
+referencer
+baggrundstjek
+tilbud
+afslag

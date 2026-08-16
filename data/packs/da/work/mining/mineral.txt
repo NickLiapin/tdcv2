@@ -1,0 +1,26 @@
+---
+description: Mined mineral / commodity (Danish). The first block is Denmark: chalk and limestone from Stevns and Aalborg, moler — diatomite — from Mors and Fur, clay, sand and gravel everywhere, salt at Mariager, peat from the bogs, granite from Bornholm, and oil and gas from the North Sea. The second block is Greenland, which is where actual metal mining in the realm takes place: gold at Nalunaq, rubies at Aappaluttoq, zinc and lead at Maarmorilik, anorthosite, and the rare earths of the south — and cryolite from Ivittuut, the only commercially worked deposit of it in the world, mined out in 1987. Uranium is deliberately absent: Greenland banned uranium mining in 2021.
+locale: da
+---
+kridt
+kalksten
+moler
+ler
+plastisk ler
+sand
+grus
+sten
+salt
+tørv
+granit
+sandsten
+flint
+olie
+naturgas
+guld
+rubin
+zink
+bly
+anorthosit
+kryolit
+sjældne jordarter

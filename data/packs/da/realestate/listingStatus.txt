@@ -1,0 +1,16 @@
+---
+description: Listing status (Danish). Denmark has no open bidding round, which is where a Swedish list and a Danish one part company: a Danish home is advertised at an asking price and sold by negotiation through the estate agent, so there is no budgivning status here. What there is instead is the six-day fortrydelsesret — after signing the købsaftale the buyer may still withdraw for six weekdays against a fee of 1 % of the price — so betinget solgt is a real and common state, and a sale is not final until the conditions lapse.
+locale: da
+---
+kommende
+til salg
+fremvisning aftalt
+købsaftale underskrevet
+betinget solgt
+solgt
+overtagelse aftalt
+reserveret
+til leje
+udlejet
+afpubliceret
+solgt ved budrunde

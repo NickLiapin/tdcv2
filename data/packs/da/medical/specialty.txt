@@ -1,0 +1,40 @@
+---
+description: Medical specialities (Danish, as Sundhedsstyrelsen names them). Here Danish and Swedish part company: Danish keeps the Greek and Latin terms where Swedish builds plain compounds, so it is nefrologi and not "nyremedicin", dermato-venerologi and not "hudsjukdomar", oto-rhino-laryngologi and not "öron-, näs- och halssjukdomar". The everyday hospital department names are Danish compounds — Nyremedicinsk Afdeling, Lungemedicinsk Afdeling, Øre-Næse-Halsafdelingen — so both forms occur in Danish health data, the Latin one in the speciality register and the Danish one on the door. Almen medicin is the GP speciality and the entry point to the whole system: a Dane cannot see a specialist without a referral from their own praktiserende læge.
+locale: da
+---
+almen medicin
+intern medicin
+kardiologi
+neurologi
+onkologi
+hæmatologi
+endokrinologi
+gastroenterologi og hepatologi
+nefrologi
+lungemedicin
+reumatologi
+infektionsmedicin
+dermato-venerologi
+psykiatri
+børne- og ungdomspsykiatri
+geriatri
+pædiatri
+gynækologi og obstetrik
+kirurgi
+ortopædisk kirurgi
+urologi
+karkirurgi
+thoraxkirurgi
+neurokirurgi
+plastikkirurgi
+anæstesiologi
+akutmedicin
+radiologi
+patologisk anatomi og cytologi
+klinisk biokemi
+klinisk mikrobiologi
+klinisk fysiologi og nuklearmedicin
+oftalmologi
+oto-rhino-laryngologi
+arbejdsmedicin
+samfundsmedicin

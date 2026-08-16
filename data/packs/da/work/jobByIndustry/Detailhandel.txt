@@ -1,0 +1,16 @@
+---
+description: Jobs in detailhandel, in Danish
+locale: da
+---
+butiksassistent
+butikschef
+kassemedarbejder
+visual merchandiser
+indkøber
+kategorichef
+lagermedarbejder
+truckfører
+e-handelsansvarlig
+kundeservicemedarbejder
+sælger
+distriktschef

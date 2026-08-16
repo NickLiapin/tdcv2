@@ -1,0 +1,12 @@
+---
+description: Book format (Danish)
+locale: da
+---
+indbundet
+hæftet
+paperback
+storudgave
+e-bog
+lydbog
+letlæsning
+punktskrift

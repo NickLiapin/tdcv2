@@ -1,0 +1,11 @@
+---
+description: Danish driving licence category for trucks, as Færdselsstyrelsen issues them. Chaufføruddannelsesbevis is not a licence category but a separate compulsory professional certificate, the Danish implementation of the EU Certificate of Professional Competence, renewed every five years — without it a C or D licence does not permit driving for hire or reward.
+locale: da
+---
+kategori B
+kategori B/E
+kategori C1
+kategori C1/E
+kategori C
+kategori C/E
+chaufføruddannelsesbevis

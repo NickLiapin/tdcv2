@@ -1,0 +1,12 @@
+---
+description: Dishes of koreansk cuisine, in Danish
+locale: da
+---
+Bibimbap
+Bulgogi
+Kimchi
+Japchae
+Tteokbokki
+Samgyeopsal
+Kimchigryde
+Koreansk friturestegt kylling

@@ -1,0 +1,9 @@
+---
+description: Positions in floorball, in Danish.
+locale: da
+---
+målmand
+back
+center
+venstre angriber
+højre angriber

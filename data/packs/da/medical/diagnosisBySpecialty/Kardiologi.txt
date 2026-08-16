@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in kardiologi, in Danish
+locale: da
+---
+Forhøjet blodtryk
+Angina pectoris
+Blodprop i hjertet
+Hjertesvigt
+Atrieflimren
+Hjerteklapsygdom
+Kardiomyopati
+Endokarditis
+Dyb venetrombose
+Perifer arteriesygdom

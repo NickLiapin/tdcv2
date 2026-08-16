@@ -1,0 +1,12 @@
+---
+description: Dishes of vietnamesisk cuisine, in Danish
+locale: da
+---
+Pho
+Banh mi
+Forårsruller med rejer
+Bun cha
+Com tam
+Bo luc lac
+Ca kho to
+Che

@@ -1,0 +1,13 @@
+---
+description: Dishes of peruansk cuisine, in Danish
+locale: da
+---
+Ceviche
+Lomo saltado
+Aji de gallina
+Causa limeña
+Anticuchos
+Papa a la huancaína
+Rocoto relleno
+Pollo a la brasa
+Suspiro limeño

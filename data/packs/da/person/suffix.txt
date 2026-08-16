@@ -1,0 +1,30 @@
+---
+description: Danish post-nominal / name suffix. Danish has no Jr / Sr: d.æ. (den ældre) and d.y. (den yngre) are the equivalents and go after the name. The cand.-titles are the Danish master's degrees — candidatus or candidata plus the field, written with full stops and used after the name in formal contexts and on letterheads — and cand.polyt. is the Danish engineering degree, where Swedish says civilingenjör. Note that dr.phil., dr.med. and dr.scient. are HIGHER doctorates awarded above the ph.d., not synonyms for it. R. and R1. are Ridder af Dannebrog and Ridder af 1. grad, the two lowest classes of the Order of the Dannebrog; Danes who hold one write it after the name in formal lists, and it is a genuinely Danish post-nominal with no Swedish counterpart.
+locale: da
+---
+d.æ.
+d.y.
+cand.mag.
+cand.scient.
+cand.merc.
+cand.jur.
+cand.med.
+cand.polit.
+cand.psych.
+cand.oecon.
+cand.arch.
+cand.ling.merc.
+cand.polyt.
+cand.pæd.
+mag.art.
+ph.d.
+dr.phil.
+dr.med.
+dr.jur.
+dr.scient.
+dr.techn.
+MBA
+professor emeritus
+R.
+R1.
+K.

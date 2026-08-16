@@ -1,0 +1,15 @@
+---
+description: Social reaction (Danish). Note that Danish has no single verb for "to like" in this sense: the button says synes godt om, three words, which is the ordinary Danish phrase for approving of something.
+locale: da
+---
+synes godt om
+synes dårligt om
+elsker
+haha
+wow
+trist
+vred
+taknemmelig
+gem
+del
+kommentér

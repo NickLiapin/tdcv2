@@ -1,0 +1,22 @@
+---
+description: Cat breed (Danish). Huskat is what most Danish cats are registered as; norsk skovkat is the Nordic native breed.
+locale: da
+---
+huskat
+norsk skovkat
+maine coon
+ragdoll
+britisk korthår
+perser
+siameser
+hellig birma
+bengal
+russisk blå
+abyssinier
+orientalsk korthår
+devon rex
+cornish rex
+sphynx
+sibirisk kat
+burmeser
+europæisk korthår

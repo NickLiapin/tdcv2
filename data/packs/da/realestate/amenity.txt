@@ -1,0 +1,27 @@
+---
+description: Property amenity (Danish). Two belong to Danish housing in particular. Fjernvarme, district heating, reaches roughly two thirds of Danish homes and is a selling point on a listing rather than a technicality, because it is usually the cheapest heat available. Fælles vaskeri is the shared laundry booked on a rota that almost every Danish apartment block has instead of a machine in the flat. The tenure forms themselves live in realestate/propertyType, not here.
+locale: da
+---
+altan
+fransk altan
+terrasse
+have
+gårdhave
+sauna
+fælles vaskeri
+egen vaskemaskine
+opvaskemaskine
+elevator
+kælderrum
+loftsrum
+cykelkælder
+garage
+carport
+gulvvarme
+brændeovn
+pejs
+fjernvarme
+varmepumpe
+havudsigt
+bådplads
+fiber

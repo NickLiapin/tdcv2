@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Danish)
+locale: da
+---
+feber
+kulderystelser
+hovedpine
+svimmelhed
+træthed
+utilpashed
+kvalme
+opkastning
+diarré
+forstoppelse
+mavesmerter
+halsbrand
+appetitløshed
+vægttab
+vægtøgning
+hoste
+slimhoste
+åndenød
+hvæsende vejrtrækning
+brystsmerter
+hjertebanken
+ondt i halsen
+snue
+tilstoppet næse
+nysen
+ørepine
+rygsmerter
+nakkesmerter
+ledsmerter
+muskelsmerter
+stivhed
+hævelse
+udslæt
+kløe
+følelsesløshed
+søvnbesvær
+nedtrykthed
+uro

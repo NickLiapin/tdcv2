@@ -1,0 +1,14 @@
+---
+description: Positions in baseball, in Danish.
+locale: da
+---
+kaster
+griber
+førstebaseman
+andenbaseman
+tredjebaseman
+shortstop
+venstre markspiller
+center markspiller
+højre markspiller
+slåer

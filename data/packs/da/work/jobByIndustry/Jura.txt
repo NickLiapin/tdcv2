@@ -1,0 +1,16 @@
+---
+description: Jobs in jura, in Danish
+locale: da
+---
+advokat
+advokatfuldmægtig
+virksomhedsjurist
+dommer
+retsassessor
+anklager
+retsassistent
+fogedfuldmægtig
+juridisk rådgiver
+paralegal
+stævningsmand
+familieretsjurist

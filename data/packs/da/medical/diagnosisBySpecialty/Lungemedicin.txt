@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in lungemedicin, in Danish
+locale: da
+---
+Astma
+KOL
+Lungebetændelse
+Kronisk bronkitis
+Søvnapnø
+Blodprop i lungen
+Sarkoidose
+Lungefibrose
+Lungehindebetændelse
+Tuberkulose

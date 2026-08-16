@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in psykiatri, in Danish
+locale: da
+---
+Depression
+Generaliseret angst
+Panikangst
+Bipolar affektiv sindslidelse
+Skizofreni
+ADHD
+Autismespektrumforstyrrelse
+Belastningsreaktion
+Posttraumatisk belastningsreaktion
+Spiseforstyrrelse

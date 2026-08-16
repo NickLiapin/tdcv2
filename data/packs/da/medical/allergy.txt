@@ -1,0 +1,27 @@
+---
+description: Common allergies (Danish). Birkepollen is the dominant Danish spring allergen and græspollen the summer one; bynke closes the season. Skovflåt is listed because a Danish tick bite carries borreliose almost anywhere in the country and, on Bornholm and a few Zealand foci, tick-borne encephalitis as well.
+locale: da
+---
+birkepollen
+græspollen
+bynkepollen
+ellepollen
+hasselpollen
+pelsdyr
+kat
+hund
+hest
+husstøvmider
+skimmelsvamp
+nødder
+jordnødder
+mandler
+soja
+mælkeprotein
+laktoseintolerans
+gluten
+æg
+skaldyr
+fisk
+hvepsestik
+skovflåt

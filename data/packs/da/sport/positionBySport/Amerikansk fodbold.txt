@@ -1,0 +1,15 @@
+---
+description: Positions in amerikansk fodbold, in Danish. Denmark has played the game since the 1980s and has won the European championship, but the positions have never been translated — Danish clubs use the American names unchanged, so they are kept as-is.
+locale: da
+---
+quarterback
+running back
+fullback
+wide receiver
+tight end
+offensiv linjespiller
+defensiv linjespiller
+linebacker
+cornerback
+safety
+kicker

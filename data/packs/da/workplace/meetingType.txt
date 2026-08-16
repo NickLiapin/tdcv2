@@ -1,0 +1,18 @@
+---
+description: Meeting type (Danish). MUS — medarbejderudviklingssamtale — is the annual development interview, required by most Danish collective agreements and taken seriously enough to have its own form; GRUS is the group version. Fredagsbar is a real fixture rather than a joke: a bar run by the staff or the students on Friday afternoon, on the premises, and Danish workplaces and universities schedule it. Julefrokost is the Christmas lunch and is the single largest social event of the Danish working year.
+locale: da
+---
+morgenmøde
+stand-up
+statusmøde
+ugemøde
+månedsmøde
+personalemøde
+MUS
+GRUS
+lønsamtale
+bestyrelsesmøde
+workshop
+kick-off
+fredagsbar
+julefrokost

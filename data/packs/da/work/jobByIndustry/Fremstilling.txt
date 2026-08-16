@@ -1,0 +1,16 @@
+---
+description: Jobs in fremstilling, in Danish
+locale: da
+---
+produktionstekniker
+CNC-operatør
+svejser
+industrimekaniker
+vedligeholdelsestekniker
+procesoperatør
+kvalitetstekniker
+produktionsleder
+værktøjsmager
+automationsingeniør
+montør
+lakerer

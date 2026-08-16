@@ -1,0 +1,18 @@
+---
+description: Order status (Danish)
+locale: da
+---
+modtaget
+bekræftet
+under behandling
+plukket
+pakket
+klar til afsendelse
+afsendt
+under transport
+leveret
+afhentet
+delvist leveret
+i restordre
+annulleret
+returneret

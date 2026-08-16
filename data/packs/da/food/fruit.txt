@@ -1,0 +1,41 @@
+---
+description: Fruit (Danish). Denmark has an apple culture of its own — Gravensten, Ingrid Marie, Filippa, Guldborg and Belle de Boskoop are named varieties that a Dane will ask for by name — and the wild berries in the middle are picked in hedgerows and plantations rather than bought. Multebær is a northern berry that grows in Denmark barely at all and belongs mostly to Greenland and the Nordic neighbours.
+locale: da
+---
+æble
+Gravensten
+Ingrid Marie
+pære
+blomme
+sveske
+kirsebær
+stikkelsbær
+ribs
+solbær
+hindbær
+jordbær
+skovjordbær
+blåbær
+tyttebær
+multebær
+tranebær
+havtorn
+hyben
+slåen
+rønnebær
+brombær
+hyldebær
+banan
+appelsin
+clementin
+citron
+lime
+grapefrugt
+vindrue
+melon
+vandmelon
+ananas
+mango
+kiwi
+fersken
+abrikos

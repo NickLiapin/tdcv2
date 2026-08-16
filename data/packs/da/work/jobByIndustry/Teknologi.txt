@@ -1,0 +1,16 @@
+---
+description: Jobs in teknologi, in Danish
+locale: da
+---
+systemudvikler
+webudvikler
+frontendudvikler
+backendudvikler
+systemarkitekt
+testmanager
+it-supporter
+netværkstekniker
+dataanalytiker
+it-sikkerhedsspecialist
+produktejer
+scrum master

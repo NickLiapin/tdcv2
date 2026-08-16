@@ -1,0 +1,16 @@
+---
+description: Jobs in finans, in Danish
+locale: da
+---
+bankrådgiver
+kunderådgiver
+regnskabsmedarbejder
+revisor
+statsautoriseret revisor
+controller
+finansanalytiker
+kreditanalytiker
+realkreditrådgiver
+forsikringsrådgiver
+kapitalforvalter
+aktuar

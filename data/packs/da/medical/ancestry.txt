@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Danish, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: da
+---
+Afrika syd for Sahara
+Nordafrika
+Middelhavsområdet
+Mellemøsten
+Nordeuropa
+Østeuropa
+Ashkenaziske jøder
+Sydasien
+Østasien
+Sydøstasien
+Oprindelige folk i Amerika
+Stillehavsøerne

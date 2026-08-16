@@ -1,0 +1,69 @@
+---
+description: Product material (Danish), as a noun — compose with "i" (bord i massiv eg, gryde i rustfrit stål)
+locale: da
+---
+massiv eg
+massiv birk
+massiv fyr
+massiv gran
+massiv bøg
+massiv ask
+massiv elm
+massiv valnød
+massiv teak
+fyrretræ
+birkefiner
+egefiner
+krydsfiner
+spånplade
+MDF
+bambus
+rattan
+kurveflet
+kork
+læder
+anilinlæder
+nubuck
+ruskind
+kunstlæder
+bomuld
+økologisk bomuld
+hør
+uld
+merinould
+lammeuld
+fåreskind
+kashmir
+silke
+viskose
+lyocell
+polyester
+genanvendt polyester
+nylon
+akryl
+fleece
+denim
+kanvas
+filt
+jute
+sisal
+rustfrit stål
+kulstofstål
+støbejern
+aluminium
+messing
+kobber
+krom
+zink
+glas
+hærdet glas
+porcelæn
+stentøj
+keramik
+marmor
+granit
+beton
+gummi
+silikone
+plast
+genanvendt plast

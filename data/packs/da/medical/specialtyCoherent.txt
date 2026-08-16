@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Danish). Note Nefrologi and Lungemedicin: the first is the Latin form Danish uses where Swedish says njurmedicin, the second the Danish compound that has displaced the older pulmonologi. Ortopædkirurgi is the everyday short form of the register name ortopædisk kirurgi.
+locale: da
+---
+Kardiologi
+Neurologi
+Onkologi
+Dermatologi
+Gastroenterologi
+Endokrinologi
+Lungemedicin
+Ortopædkirurgi
+Psykiatri
+Nefrologi

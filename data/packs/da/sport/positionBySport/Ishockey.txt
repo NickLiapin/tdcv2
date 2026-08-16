@@ -1,0 +1,9 @@
+---
+description: Positions in ishockey, in Danish.
+locale: da
+---
+målmand
+back
+center
+venstre wing
+højre wing

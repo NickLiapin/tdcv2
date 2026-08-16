@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Danish). Two are Danish and not shared with the neighbours. Luren is the bronze-age curved horn dug out of Danish bogs, the oldest playable instrument in the country and the emblem on the butter tin; the Lurblæserne statue in Copenhagen is named for it. Langeleg is the Danish drone zither of the folk tradition, played flat on a table.
+locale: da
+---
+lur
+langeleg
+violin
+bratsch
+cello
+kontrabas
+harmonika
+trækharmonika
+mundharmonika
+guitar
+elguitar
+basguitar
+banjo
+mandolin
+harpe
+klaver
+flygel
+orgel
+cembalo
+synthesizer
+fløjte
+blokfløjte
+klarinet
+obo
+fagot
+saxofon
+trompet
+basun
+valdhorn
+trommer
+pauker

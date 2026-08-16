@@ -1,0 +1,24 @@
+---
+description: Writing system (Danish). Two Danish notes. The Danish alphabet has 29 letters: the Latin 26 followed by æ, ø and å in that order at the END, so a Danish sort puts Aarhus and Ærø after Z, not among the As. Å replaced the doubled aa in 1948, which is why Aalborg and Aabenraa still write themselves the old way and why a Danish dataset has to handle both. Runer are not decoration here: the Jelling stones carry the first written use of the name Denmark and are called the country's birth certificate.
+locale: da
+---
+det latinske alfabet
+det kyrilliske alfabet
+det græske alfabet
+runer
+det arabiske alfabet
+det hebraiske alfabet
+det armenske alfabet
+det georgiske alfabet
+devanagari
+den bengalske skrift
+den tamilske skrift
+den thailandske skrift
+khmerskrift
+den burmesiske skrift
+kinesiske tegn
+hiragana
+katakana
+hangul
+etiopisk skrift
+punktskrift

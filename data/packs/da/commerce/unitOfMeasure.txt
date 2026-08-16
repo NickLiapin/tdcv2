@@ -1,0 +1,35 @@
+---
+description: Unit of measure for products (Danish). Note that Danish writes the thousands separator as a full stop and the decimal as a comma, so 1.250,50 kr. for 2,5 kg.
+locale: da
+---
+stk.
+par
+pakke
+karton
+kasse
+pose
+sæk
+dåse
+flaske
+tube
+rulle
+ark
+bundt
+kilo
+kg
+gram
+g
+liter
+l
+deciliter
+dl
+centiliter
+cl
+milliliter
+ml
+meter
+m
+kvadratmeter
+kubikmeter
+palle
+sæt

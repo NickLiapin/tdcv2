@@ -1,0 +1,17 @@
+---
+description: Legal case type (Danish)
+locale: da
+---
+straffesag
+civil sag
+familiesag
+forældremyndighedssag
+skilsmissesag
+bodelingssag
+arvesag
+lejesag
+arbejdsretssag
+forvaltningssag
+udlændingesag
+miljøsag
+konkursbehandling

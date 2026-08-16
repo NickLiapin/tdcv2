@@ -1,0 +1,14 @@
+---
+description: Dishes of spansk cuisine, in Danish
+locale: da
+---
+Paella
+Tortilla española
+Gazpacho
+Patatas bravas
+Jamón ibérico
+Pulpo a la gallega
+Churros med chokolade
+Crema catalana
+Tapas
+Fabada

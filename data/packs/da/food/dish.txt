@@ -1,0 +1,47 @@
+---
+description: Dish (Danish). Stegt flæsk med persillesovs won a public vote in 2014 to be named the national dish. Smørrebrød is the open sandwich on rugbrød, and it is a genre with named compositions rather than a single item: dyrlægens natmad, sol over Gudhjem and stjerneskud each have a fixed recipe. Rødgrød med fløde is the sentence Danes ask foreigners to pronounce. Risalamande is the Christmas dessert with one whole almond hidden in it, and koldskål is drunk cold from a bowl in summer.
+locale: da
+---
+Stegt flæsk med persillesovs
+Frikadeller
+Flæskesteg med rødkål
+Medisterpølse
+Boller i karry
+Hakkebøf med bløde løg
+Millionbøf
+Biksemad
+Forloren hare
+Brændende kærlighed
+Gule ærter
+Æggekage
+Skipperlabskovs
+Mørbradbøf
+Krebinetter
+Hønsekødssuppe
+Grønlangkål
+Brunede kartofler
+Tarteletter med høns i asparges
+Smørrebrød
+Dyrlægens natmad
+Stjerneskud
+Sol over Gudhjem
+Pariserbøf
+Roastbeef med remoulade og ristede løg
+Rullepølse
+Leverpostej med bacon og champignon
+Marineret sild
+Karrysild
+Rejemad
+Fiskefilet med remoulade
+Rugbrød med pålæg
+Rødgrød med fløde
+Koldskål med kammerjunkere
+Æblekage
+Risalamande
+Æbleskiver
+Klejner
+Drømmekage
+Wienerbrød
+Kanelsnegl
+Fastelavnsbolle
+Hindbærsnitte

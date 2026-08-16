@@ -1,0 +1,26 @@
+---
+description: Legal term (Danish). Danish courts sit with lay participation of two kinds and the words are not interchangeable: domsmænd sit beside the judge and vote on both guilt and sentence in ordinary criminal cases, while nævninger sit only in the most serious ones. Anke and kære are two different appeals — anke against a judgment, kære against a procedural ruling — and using the wrong one loses the case on a technicality.
+locale: da
+---
+stævning
+sagsøger
+sagsøgte
+forurettede
+tiltalte
+anklager
+forsvarer
+beskikket forsvarer
+bistandsadvokat
+hovedforhandling
+bevisførelse
+vidneforklaring
+domsmand
+nævning
+dom
+kendelse
+anke
+kære
+retskraft
+forældelse
+erstatning
+fuldbyrdelse

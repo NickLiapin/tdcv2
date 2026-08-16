@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Danish). Danish names the signs in the definite form, so Vædderen and not Væder — the -en and -et endings here are the suffixed definite article, the same mechanism that turns en bil into bilen.
+locale: da
+---
+Vædderen
+Tyren
+Tvillingerne
+Krebsen
+Løven
+Jomfruen
+Vægten
+Skorpionen
+Skytten
+Stenbukken
+Vandmanden
+Fiskene

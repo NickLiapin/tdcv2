@@ -1,0 +1,27 @@
+---
+description: Government body (Danish agencies and public offices). Skattestyrelsen assesses tax and Gældsstyrelsen collects the arrears — they were split out of the old SKAT in 2018 after it collapsed under a dividend fraud. Udbetaling Danmark is unusual: it is a public benefits payer run by ATP, the labour-market pension fund, and it pays out pensions, child benefit and housing benefit for all 98 municipalities from one place. Familieretshuset handles divorce and custody administratively before any court sees them. The kommune and the region are the two levels of self-government — 98 municipalities run schools, daycare and elder care, and 5 regions run the hospitals.
+locale: da
+---
+Skattestyrelsen
+Gældsstyrelsen
+Toldstyrelsen
+Udbetaling Danmark
+ATP
+Familieretshuset
+Udlændingestyrelsen
+Styrelsen for Arbejdsmarked og Rekruttering
+Politiet
+Rigspolitiet
+Kriminalforsorgen
+Sundhedsstyrelsen
+Statens Serum Institut
+Lægemiddelstyrelsen
+Fødevarestyrelsen
+Miljøstyrelsen
+Vejdirektoratet
+Færdselsstyrelsen
+Geodatastyrelsen
+Erhvervsstyrelsen
+Danmarks Statistik
+kommunen
+regionen

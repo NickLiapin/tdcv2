@@ -1,0 +1,12 @@
+---
+description: Dishes of amerikansk cuisine, in Danish
+locale: da
+---
+Hamburger
+Spareribs
+Buffalo wings
+Mac and cheese
+Clam chowder
+Cheesecake
+Pandekager med ahornsirup
+Æbletærte

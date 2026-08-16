@@ -1,0 +1,24 @@
+---
+description: Employee benefit (Danish). Several are Danish institutions rather than perks. Arbejdsmarkedspension is the occupational pension that collective agreements build in at 12-17 % of salary on top of the flat state folkepension, and it is why Danish pension funds are among the largest in Europe relative to the population. Den 6. ferieuge is five extra days of holiday on top of the five statutory weeks, granted by most agreements and often paid out instead. Barns første sygedag is paid leave to stay home with a sick child, and barns anden sygedag where the agreement gives it. Frokostordning is the workplace canteen scheme, deducted from salary and near-universal. Massageordning is exactly what it says and is an ordinary line in a Danish benefits list.
+locale: da
+---
+arbejdsmarkedspension
+sundhedsforsikring
+behandlingsforsikring
+frokostordning
+kaffeordning
+massageordning
+fitnessordning
+den 6. ferieuge
+omsorgsdage
+barns første sygedag
+barns anden sygedag
+seniordage
+fri telefon
+fri internet
+firmabil
+bruttolønsordning
+hjemmearbejde
+flekstid
+kompetenceudvikling
+medarbejderaktier

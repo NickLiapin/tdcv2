@@ -1,0 +1,24 @@
+---
+description: School subject (Danish), as the folkeskole names them. Three have no English counterpart. Natur/teknologi and fysik/kemi are single subjects written with a slash, not pairs. Kristendomskundskab is a knowledge subject about religion rather than religious instruction, and it is compulsory. Uddannelse og job and færdselslære are obligatory cross-cutting topics with no exam. Håndværk og design replaced the older sløjd and håndarbejde in 2014.
+locale: da
+---
+dansk
+dansk som andetsprog
+engelsk
+matematik
+natur/teknologi
+fysik/kemi
+biologi
+geografi
+historie
+samfundsfag
+kristendomskundskab
+tysk
+fransk
+idræt
+billedkunst
+musik
+håndværk og design
+madkundskab
+uddannelse og job
+færdselslære

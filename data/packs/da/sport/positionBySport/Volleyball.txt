@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball, in Danish.
+locale: da
+---
+hæver
+diagonalangriber
+kantangriber
+midterblokker
+libero

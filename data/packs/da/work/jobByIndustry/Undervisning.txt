@@ -1,0 +1,16 @@
+---
+description: Jobs in undervisning, in Danish. Pædagog is the one with no English equivalent — a three-and-a-half-year professional degree covering daycare, after-school care, special needs and social pedagogy, and a protected title, not a classroom assistant.
+locale: da
+---
+pædagog
+pædagogmedhjælper
+dagplejer
+folkeskolelærer
+gymnasielærer
+efterskolelærer
+højskolelærer
+speciallærer
+skoleleder
+studievejleder
+lektor
+ph.d.-studerende

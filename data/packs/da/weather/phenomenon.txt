@@ -1,0 +1,20 @@
+---
+description: Weather phenomenon (Danish). These are a low, flat, wind-exposed country's weather rather than a northern one's. Stormflod is the storm surge that pushes the sea over the coast, and the 1872 surge in the Baltic remains the reference disaster. Sandflugt is the drifting sand that buried farms and whole churches in west Jutland before the dunes were planted. Skybrud is the cloudburst; the Copenhagen skybrud of July 2011 dropped 150 mm in two hours and rewrote Danish urban drainage policy. Note what is NOT in this list: nordlys and midnatssol are essentially not Danish phenomena — they belong to Greenland and the northern Faroes, the other countries of the rigsfællesskab, and nordlys is only rarely visible from Denmark itself.
+locale: da
+---
+stormflod
+vestenvind
+kuling
+orkan
+sandflugt
+skybrud
+isslag
+rimfrost
+hagl
+tordenvejr
+tørke
+hedebølge
+morgentåge
+sort sol
+solskin
+regnbue

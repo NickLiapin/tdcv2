@@ -1,0 +1,13 @@
+---
+description: Dishes of fransk cuisine, in Danish
+locale: da
+---
+Coq au vin
+Boeuf bourguignon
+Ratatouille
+Bouillabaisse
+Quiche lorraine
+Løgsuppe
+Crème brûlée
+Croissant
+Tarte tatin

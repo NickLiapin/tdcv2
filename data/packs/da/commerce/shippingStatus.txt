@@ -1,0 +1,15 @@
+---
+description: Shipping status (Danish)
+locale: da
+---
+under forberedelse
+indleveret
+under transport
+på terminal
+ude til levering
+leveret
+klar til afhentning
+afhentningsbesked sendt
+leveringsforsøg mislykkedes
+retur til afsender
+forsinket

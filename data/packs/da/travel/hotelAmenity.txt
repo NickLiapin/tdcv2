@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Danish). The Danish morgenmadsbuffet is a fixed institution and includes rugbrød, pålæg and cheese rather than pastries alone; a Danish hotel that omits it is remarked on. Ladestander is now near-universal because Denmark's registration tax pushed the car fleet electric fast.
+locale: da
+---
+morgenmadsbuffet
+sauna
+wellness
+pool
+fitnessrum
+spa
+restaurant
+bar
+roomservice
+wifi
+parkering
+ladestander
+mødelokale
+konferencefaciliteter
+vaskeservice
+tørrerum
+cykelparkering
+kæledyr tilladt
+barneseng
+familieværelse
+elevator
+handicapvenlig
+døgnåben reception
+bagageopbevaring
+minibar
+kaffemaskine på værelset
+altan
+havudsigt
+strandnær
+gratis afbestilling

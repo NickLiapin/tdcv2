@@ -1,0 +1,16 @@
+---
+description: Employment / contract type (Danish). The Danish labour market runs on flexicurity, and the words follow from it: there is almost no statutory employment protection — notice periods are short, dismissal needs no state permission, and there is no Danish equivalent of Sweden's LAS — while the security comes from unemployment insurance through an a-kasse and from active labour market policy. Terms and pay are set by collective agreement, overenskomst, rather than by law; Denmark has no statutory minimum wage at all. Two entries are Danish social policy rather than contract law: fleksjob is a permanent subsidised post for someone with permanently reduced working capacity, and løntilskud a temporary wage subsidy for the long-term unemployed. Elevplads is the paid apprenticeship inside a vocational education.
+locale: da
+---
+fastansættelse
+tidsbegrænset ansættelse
+vikariat
+sæsonansættelse
+timelønsansættelse
+projektansættelse
+praktik
+elevplads
+konsulentopgave
+selvstændig
+fleksjob
+løntilskud

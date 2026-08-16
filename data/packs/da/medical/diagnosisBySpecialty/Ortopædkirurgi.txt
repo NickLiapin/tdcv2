@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in ortopædkirurgi, in Danish
+locale: da
+---
+Slidgigt i knæet
+Hofteledsslidgigt
+Diskusprolaps
+Iskias
+Frossen skulder
+Meniskskade
+Korsbåndsskade
+Hoftebrud
+Karpaltunnelsyndrom
+Hælspore

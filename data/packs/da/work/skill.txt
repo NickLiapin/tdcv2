@@ -1,0 +1,47 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Danish). Kørekort B is the ordinary car licence, which a Danish job advert asks for explicitly; §17-uddannelse is the statutory Danish working-environment training that a health and safety representative must complete.
+locale: da
+---
+projektledelse
+agil arbejdsmetode
+scrum
+kravanalyse
+systemudvikling
+programmering
+databasehåndtering
+cloudtjenester
+it-sikkerhed
+netværksdrift
+dataanalyse
+statistik
+maskinlæring
+budgettering
+bogføring
+årsregnskab
+aftaleret
+udbud
+forhandling
+salg
+kundeservice
+markedsføring
+sociale medier
+tekstforfatning
+grafisk design
+fotografering
+svejsning
+CNC-programmering
+elinstallation
+vvs-montage
+maskinvedligehold
+truckcertifikat
+lagerstyring
+kørekort B
+førstehjælp
+hjerte-lunge-redning
+arbejdsmiljøarbejde
+§17-uddannelse
+pædagogik
+supervision
+ledelse
+kommunikation
+problemløsning

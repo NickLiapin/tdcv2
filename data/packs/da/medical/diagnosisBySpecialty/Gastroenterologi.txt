@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in gastroenterologi, in Danish
+locale: da
+---
+Sure opstød
+Mavesår
+Gastritis
+Cøliaki
+Crohns sygdom
+Colitis ulcerosa
+Irritabel tyktarm
+Galdesten
+Skrumpelever
+Divertikulitis

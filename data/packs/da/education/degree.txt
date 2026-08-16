@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Denmark. The Danish upper secondary school is four parallel tracks, not one: stx is the general gymnasium, hf a two-year course, hhx the commercial and htx the technical one, and all four give access to university. Eux combines a vocational apprenticeship with the general entrance qualification. Two things a European default gets wrong here: professionsbachelor from a university college is a distinct qualification from a university bachelorgrad and is not a lesser version of it, and doktorgrad (dr.phil., dr.med., dr.scient.) is a HIGHER degree awarded above the ph.d. for a substantial published work, not a Danish word for a ph.d.
+locale: da
+---
+folkeskolens afgangseksamen
+10. klasse
+studentereksamen (stx)
+højere forberedelseseksamen (hf)
+højere handelseksamen (hhx)
+højere teknisk eksamen (htx)
+erhvervsuddannelse
+eux
+erhvervsakademiuddannelse
+professionsbacheloruddannelse
+bachelorgrad
+diplomuddannelse
+kandidatgrad
+masteruddannelse
+ph.d.-grad
+doktorgrad

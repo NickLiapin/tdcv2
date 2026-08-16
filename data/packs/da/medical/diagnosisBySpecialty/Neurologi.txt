@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in neurologi, in Danish
+locale: da
+---
+Migræne
+Epilepsi
+Blodprop i hjernen
+TCI
+Dissemineret sklerose
+Parkinsons sygdom
+Alzheimers sygdom
+Polyneuropati
+Karpaltunnelsyndrom
+Ansigtslammelse

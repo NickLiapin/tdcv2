@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Middelhavsområdet, in Danish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: da
+---
+Betatalassæmi
+Familiær middelhavsfeber
+G6PD-mangel
+Seglcelleanlæg
+Hæmokromatose
+Wilsons sygdom
+Behçets sygdom

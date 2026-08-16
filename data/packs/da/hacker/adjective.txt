@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Danish, common-gender singular)
+locale: da
+---
+digital
+trådløs
+krypteret
+distribueret
+redundant
+skalerbar
+cloudbaseret
+virtuel
+containeriseret
+asynkron
+synkron
+optisk
+seriel
+parallel
+indlejret
+modulopbygget
+åben
+lukket
+primær
+sekundær
+hierarkisk
+neural
+programmerbar
+automatiseret
+responsiv
+persistent
+flygtig
+isoleret

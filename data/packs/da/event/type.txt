@@ -1,0 +1,23 @@
+---
+description: Event type (Danish). Most of these are fixed points in the Danish year rather than generic occasions. Konfirmation at fourteen is a major family event even in secular families, and nonfirmation is the non-church alternative held on the same weekend. Studenterkørsel is the open lorry that carries newly graduated students round to every family home over a long day in June. Fastelavn is the pre-Lent children's day where a barrel is beaten off its rope. Sankthansaften on 23 June is a bonfire on the beach with a witch on top and a song about it. Julefrokost is the Danish office and family Christmas lunch, and it is an institution with its own etiquette and its own aftermath. Pebersvendefest marks an unmarried person's 25th birthday, when friends tie them to a lamppost and throw cinnamon.
+locale: da
+---
+bryllup
+sølvbryllup
+guldbryllup
+barnedåb
+konfirmation
+nonfirmation
+studenterkørsel
+dimission
+fødselsdag
+rund fødselsdag
+pebersvendefest
+fastelavn
+sankthansaften
+høstfest
+julefrokost
+juleaften
+nytårsaften
+begravelse
+jubilæum

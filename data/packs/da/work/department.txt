@@ -1,0 +1,26 @@
+---
+description: Company department / function (Danish)
+locale: da
+---
+direktion
+økonomi
+regnskab
+løn
+HR
+personale
+rekruttering
+IT
+udvikling
+produktion
+kvalitet
+indkøb
+logistik
+lager
+salg
+marketing
+kommunikation
+kundeservice
+jura
+ejendom
+arbejdsmiljø
+forskning og udvikling

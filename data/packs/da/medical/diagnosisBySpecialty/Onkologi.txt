@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in onkologi, in Danish
+locale: da
+---
+Brystkræft
+Prostatakræft
+Lungekræft
+Tyktarmskræft
+Modermærkekræft
+Lymfekræft
+Leukæmi
+Nyrekræft
+Kræft i bugspytkirtlen
+Blærekræft

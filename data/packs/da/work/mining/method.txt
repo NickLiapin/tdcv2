@@ -1,0 +1,12 @@
+---
+description: Mining method (Danish). An honest note about scale: Denmark itself is a quarrying country, not a mining country. What is taken out of the Danish ground is chalk, limestone, clay, sand, gravel, peat and moler, all from open pits, plus salt at Hvornum near Mariager — the one deep operation in the country, and it is worked by solution mining, pumping water down and brine back up rather than by cutting rock. The North Sea is oil and gas. Real metal mining in the realm happens in Greenland, not in Denmark, so the methods listed here are the ones actually used rather than a generic hard-rock list.
+locale: da
+---
+råstofgrav
+dagbrud
+undergrundsbrydning
+soleboring
+boring og sprængning
+marin råstofindvinding
+tørvegravning
+efterforskningsboring

@@ -1,0 +1,12 @@
+---
+description: Dishes of indisk cuisine, in Danish
+locale: da
+---
+Chicken tikka masala
+Rogan josh
+Dal
+Biryani
+Samosa
+Palak paneer
+Naan
+Tandoorikylling

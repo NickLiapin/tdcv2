@@ -1,0 +1,54 @@
+---
+description: Store department / category (Danish)
+locale: da
+---
+frugt og grønt
+mejeri
+pålæg
+kød
+fisk og skaldyr
+brød
+bageri
+kolonial
+tørvarer
+frost
+is
+slik
+snacks
+drikkevarer
+kaffe og te
+babymad
+hygiejne
+apotek
+husholdning
+rengøring
+vask
+dyrefoder
+tøj
+dametøj
+herretøj
+børnetøj
+sko
+accessories
+smykker
+sport
+friluft
+legetøj
+hobby
+bøger
+kontorartikler
+elektronik
+computere
+mobiltelefoni
+hvidevarer
+forbrugerelektronik
+belysning
+møbler
+boligtekstil
+køkken
+have
+byg
+maling
+værktøj
+bil
+dæk

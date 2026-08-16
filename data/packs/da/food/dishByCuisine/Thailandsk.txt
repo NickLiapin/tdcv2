@@ -1,0 +1,12 @@
+---
+description: Dishes of thailandsk cuisine, in Danish
+locale: da
+---
+Pad thai
+Grøn karry
+Rød karry
+Tom yum
+Tom kha gai
+Papayasalat
+Massamankarry
+Mangoris

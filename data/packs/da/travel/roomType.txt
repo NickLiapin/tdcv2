@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Danish)
+locale: da
+---
+enkeltværelse
+dobbeltværelse
+twinværelse
+tresengsværelse
+familieværelse
+suite
+juniorsuite
+superiorværelse
+standardværelse
+økonomiværelse
+delt værelse
+sovesal
+hytte
+lejlighed
+kahyt
+handicapvenligt værelse
+værelse med altan
+værelse med havudsigt

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in endokrinologi, in Danish
+locale: da
+---
+Type 1-diabetes
+Type 2-diabetes
+For lavt stofskifte
+For højt stofskifte
+Struma
+Knogleskørhed
+Binyrebarkinsufficiens
+Cushings syndrom
+PCOS
+D-vitaminmangel

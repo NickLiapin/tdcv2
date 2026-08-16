@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Danish). Håndbold leads because it is Denmark's strongest team sport by results and by participation. Floorball is the Danish name for the game Sweden calls innebandy — the sport is the same, the word is not, and a Danish record will never say innebandy.
+locale: da
+---
+Fodbold
+Håndbold
+Ishockey
+Floorball
+Basketball
+Volleyball
+Baseball
+Amerikansk fodbold

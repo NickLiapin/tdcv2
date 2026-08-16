@@ -1,0 +1,26 @@
+---
+description: World religion (Danish). Folkekirken is the Evangelical-Lutheran state church, named in the constitution, funded by a church tax that members pay through their income tax, and still carrying roughly seven Danes in ten as members — a membership figure that is far higher than church attendance and is better read as a civic default than as a statement of belief. Grundtvigianisme and Indre Mission are the two great nineteenth-century Danish revival movements, and they pulled in opposite directions: the first towards song, school and a cheerful worldly Christianity, the second towards austerity. Forn Siðr, the Asatru association, has been a state-recognised religious community in Denmark since 2003.
+locale: da
+---
+kristendom
+protestantisme
+lutherdom
+folkekirken
+grundtvigianisme
+Indre Mission
+katolicisme
+ortodoks kristendom
+pinsekirken
+baptisme
+frikirke
+islam
+sunni
+shia
+jødedom
+hinduisme
+buddhisme
+sikhisme
+bahai
+asatro
+ateisme
+agnosticisme

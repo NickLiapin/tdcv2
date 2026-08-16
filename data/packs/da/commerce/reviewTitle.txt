@@ -1,0 +1,30 @@
+---
+description: Product review title (Danish)
+locale: da
+---
+Meget tilfreds
+Præcis som beskrevet
+God kvalitet til prisen
+Kan varmt anbefales
+Overgik forventningerne
+Hurtig levering
+God, men ikke perfekt
+Lever op til forventningerne
+Pengene værd
+Nem at bruge
+Flot design
+Solid og gedigen
+Fungerer fremragende
+God, men lidt dyr
+Godkendt
+Levede ikke op til forventningerne
+Dårligere end ventet
+Gik i stykker med det samme
+Forkert størrelse
+Misvisende billede
+Lang leveringstid
+Dårlig kundeservice
+Ville ikke købe igen
+Blandede følelser
+God til begyndere
+Et godt køb

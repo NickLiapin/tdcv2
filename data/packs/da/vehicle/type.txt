@@ -1,0 +1,27 @@
+---
+description: Vehicle body type (Danish). Stationcar is the Danish word for an estate car — a loan from English that means something else in English, so it is a false friend rather than a borrowing. Varevogn is worth a note of its own: a van on yellow plates is taxed at a fraction of a car's registration tax provided it is used for business, which is why Danish roads carry so many of them and why "papegøjeplader", the half-yellow half-white plates for mixed use, exist at all. Knallert is the moped, which a Dane may ride from fifteen.
+locale: da
+---
+stationcar
+hatchback
+sedan
+SUV
+crossover
+coupé
+cabriolet
+minibus
+MPV
+pickup
+kassevogn
+varevogn
+lastbil
+sættevognstrækker
+bus
+autocamper
+campingvogn
+anhænger
+traktor
+ATV
+snescooter
+motorcykel
+knallert

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in nefrologi, in Danish
+locale: da
+---
+Kronisk nyresvigt
+Akut nyresvigt
+Nyresten
+Glomerulonefritis
+Diabetisk nyresygdom
+Nyrecyster
+Nefrotisk syndrom
+Blærebetændelse
+Nyrebækkenbetændelse
+Renal hypertension

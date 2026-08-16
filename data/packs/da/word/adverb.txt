@@ -1,0 +1,37 @@
+---
+description: Common adverb (Danish)
+locale: da
+---
+meget
+lidt
+ret
+temmelig
+tit
+ofte
+sjældent
+altid
+aldrig
+nogle gange
+nu
+så
+snart
+allerede
+stadig
+straks
+langsomt
+hurtigt
+gerne
+næppe
+næsten
+præcis
+cirka
+især
+frem for alt
+i stedet
+desuden
+derfor
+måske
+virkelig
+desværre
+heldigvis
+overalt

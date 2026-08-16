@@ -1,0 +1,13 @@
+---
+description: Dishes of italiensk cuisine, in Danish
+locale: da
+---
+Pizza margherita
+Spaghetti carbonara
+Lasagne
+Risotto
+Ossobuco
+Vitello tonnato
+Caprese
+Tiramisu
+Panna cotta

@@ -1,0 +1,15 @@
+---
+description: Positions in fodbold, in Danish.
+locale: da
+---
+målmand
+højre back
+venstre back
+midterforsvarer
+libero
+defensiv midtbanespiller
+central midtbanespiller
+offensiv midtbanespiller
+højre kant
+venstre kant
+angriber

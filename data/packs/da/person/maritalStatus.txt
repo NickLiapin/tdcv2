@@ -1,0 +1,18 @@
+---
+description: Marital status (Danish). Two facts a European default gets wrong here. First, Denmark was the FIRST country in the world to create a registered partnership for same-sex couples, in 1989; the register was closed in 2012 when marriage was opened to everyone, so registreret partner survives only in older records and is not an option a new record can take. Second, and the opposite of Sweden: Danish law has NO cohabitation status. Papirløst samlevende is a description, not a legal category — there is no Danish sambolag, unmarried partners inherit nothing from each other and have no claim on a shared home, and the difference matters in any dataset that models households. Only enke and enkemand are gendered; the rest are the same for everyone.
+locale: da
+---
+ugift
+gift
+samlevende
+papirløst samlevende
+separeret
+fraskilt
+enke
+enkemand
+forlovet
+registreret partner
+længstlevende ægtefælle
+ophævet partnerskab
+kæreste
+uoplyst

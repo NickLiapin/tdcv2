@@ -1,0 +1,21 @@
+---
+description: Official document type (Danish). The CPR-nummer, ten digits in the form DDMMYY-SSSS, is the hinge of Danish public life: it is issued at birth or on taking up residence, it is the key to the health service, the tax system, the bank and the library, and it appears on the yellow sundhedskort every Dane carries. MitID replaced NemID as the national digital identity between 2021 and 2023, and Digital Post is a legally binding inbox that adult residents must have — a letter delivered there counts as served. Årsopgørelsen is the annual tax statement, largely pre-filled, that lands for everyone in March. Børneattest is the criminal-record extract required before working with children.
+locale: da
+---
+pas
+kørekort
+sundhedskort
+bopælsattest
+fødsels- og navneattest
+dåbsattest
+vielsesattest
+dødsattest
+opholdstilladelse
+årsopgørelse
+forskudsopgørelse
+straffeattest
+børneattest
+byggetilladelse
+skøde
+CVR-registreringsbevis
+MitID

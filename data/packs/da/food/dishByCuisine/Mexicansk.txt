@@ -1,0 +1,13 @@
+---
+description: Dishes of mexicansk cuisine, in Danish
+locale: da
+---
+Tacos
+Enchiladas
+Quesadilla
+Guacamole
+Tamales
+Pozole
+Chiles en nogada
+Mole poblano
+Churros

@@ -1,0 +1,44 @@
+---
+description: Playing position, mixed sports (Danish). The handball block is the one to notice: Danish names the positions by where they stand rather than by number, so a wing is a fløj, the backcourt players are backs and the pivot in the middle of the defence is the stregspiller, literally the line player.
+locale: da
+---
+målmand
+back
+midterforsvarer
+højre back
+venstre back
+libero
+defensiv midtbanespiller
+central midtbanespiller
+offensiv midtbanespiller
+højre kant
+venstre kant
+angriber
+venstre fløj
+højre fløj
+playmaker
+stregspiller
+center
+wing
+højre wing
+venstre wing
+point guard
+shooting guard
+small forward
+power forward
+hæver
+diagonalangriber
+kantangriber
+midterblokker
+kaster
+griber
+førstebaseman
+andenbaseman
+tredjebaseman
+shortstop
+markspiller
+quarterback
+running back
+wide receiver
+linebacker
+cornerback

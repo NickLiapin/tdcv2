@@ -1,0 +1,37 @@
+---
+description: Hashtag word in Danish (prefix with # in a template). Hygge is in this list as an ordinary word, because that is what it is: Danes use it a dozen times a day as noun, verb and adjective for warm, unhurried, low-stakes company, and treating it as an exotic export is a foreign habit rather than a Danish one. Fredagshygge is Friday evening at home, fællesspisning the shared meal that housing estates and schools organise, and sortsol the starling murmuration over the South Jutland marshes in autumn.
+locale: da
+---
+hygge
+hyggeligt
+fredagshygge
+julehygge
+smørrebrød
+rugbrød
+wienerbrød
+morgenbrød
+koldskål
+jordbær
+hindbærsnitte
+fastelavn
+sankthans
+julefrokost
+nytårstorsk
+kolonihave
+sommerhus
+vinterbadning
+strandtur
+vestkysten
+vadehavet
+sortsol
+klitter
+cykelliv
+cykelpendling
+bæredygtigt
+genbrug
+danskdesign
+fællesspisning
+foreningsliv
+højskole
+dannebrog
+arbejdsglæde

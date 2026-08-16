@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Danish). Danmarks Statistik and Danish public reporting write K1-K4, for kvartal; Danish listed companies reporting in English use Q1-Q4, so both appear in Danish data and the K forms are the Danish ones.
+locale: da
+---
+K1
+K2
+K3
+K4

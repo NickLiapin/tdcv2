@@ -1,0 +1,35 @@
+---
+description: Spice / herb (Danish). Dild belongs with fish and with new potatoes, kommen goes into rugbrød and into the cheeses, and enebær into the cured and pickled traditions. Karry is listed as a spice because the Danish version is a distinct blend — mild, turmeric-heavy and slightly sweet — rather than a generic curry powder.
+locale: da
+---
+dild
+persille
+purløg
+timian
+rosmarin
+basilikum
+oregano
+salvie
+estragon
+merian
+kørvel
+løvstikke
+laurbærblad
+sortpeber
+hvidpeber
+allehånde
+nelliker
+kanel
+kardemomme
+ingefær
+muskatnød
+safran
+vanilje
+kommen
+fennikel
+anis
+sennepsfrø
+enebær
+paprika
+chili
+karry

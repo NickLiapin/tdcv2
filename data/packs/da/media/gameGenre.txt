@@ -1,0 +1,21 @@
+---
+description: Video game genre (Danish)
+locale: da
+---
+actionspil
+eventyrspil
+rollespil
+strategispil
+realtidsstrategi
+turbaseret strategi
+platformsspil
+puslespil
+skydespil
+førstepersonsskydespil
+simulator
+sportsspil
+racerspil
+overlevelsesspil
+gyserspil
+sandkassespil
+musikspil

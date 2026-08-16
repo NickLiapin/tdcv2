@@ -1,0 +1,21 @@
+---
+description: Cuisine (Danish). The values are the nationality adjective in its bare form, because Danish says "italiensk køkken" — and here Danish and Swedish split visibly. Køkken is a neuter noun, so a Swedish list writes the neuter -t form (Italienskt); Danish adjectives ending in -sk that are formed from a place name take NO -t in the neuter, so it is et italiensk køkken, not "italienskt". A value copied from the Swedish pack would be wrong in Danish by exactly one letter. Each value has a dishByCuisine child file.
+locale: da
+---
+Italiensk
+Japansk
+Mexicansk
+Kinesisk
+Indisk
+Fransk
+Thailandsk
+Græsk
+Spansk
+Amerikansk
+Koreansk
+Vietnamesisk
+Tyrkisk
+Libanesisk
+Peruansk
+Argentinsk
+Dansk

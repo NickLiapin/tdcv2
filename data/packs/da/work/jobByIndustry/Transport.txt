@@ -1,0 +1,16 @@
+---
+description: Jobs in transport, in Danish
+locale: da
+---
+lastbilchauffør
+buschauffør
+taxachauffør
+lokomotivfører
+togfører
+pilot
+kabinepersonale
+skibsfører
+matros
+logistikkoordinator
+speditør
+terminalarbejder

@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Danish)
+locale: da
+---
+tørlast
+køletransport
+frysetransport
+stykgods
+partigods
+bulk
+tanktransport
+farligt gods (ADR)
+tømmertransport
+containertransport
+biltransport
+entreprenørtransport
+flyttelæs

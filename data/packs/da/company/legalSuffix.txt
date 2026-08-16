@@ -1,0 +1,45 @@
+---
+description: Company legal / name suffix used in Denmark. A/S is the public limited company and ApS the private one; I/S, K/S and P/S are the three partnership forms. Two are specifically Danish. A.m.b.a. — andelsselskab med begrænset ansvar — is the co-operative form that owns Danish agriculture outright: Arla and Danish Crown are farmer-owned a.m.b.a. Erhvervsdrivende fond is the industrial foundation, and it is the single most distinctive fact about Danish corporate ownership: Novo Nordisk, Carlsberg, Maersk, LEGO's holding structure, Lundbeck and Grundfos are all controlled by foundations rather than by shareholders, which is why Danish company registers are full of them.
+locale: da
+---
+A/S
+ApS
+P/S
+K/S
+I/S
+enkeltmandsvirksomhed
+a.m.b.a.
+f.m.b.a.
+andelsselskab
+erhvervsdrivende fond
+fond
+forening
+filial
+Gruppen
+Koncernen
+Holding
+Invest
+Partner
+Partners
+& Sønner
+& Co
+Brødrene
+Rådgivning
+Teknik
+System
+Systems
+Solutions
+Service
+Handel
+Industri
+Byg
+Entreprise
+Ejendomme
+Data
+IT
+Media
+Design
+Logistik
+Norden
+Danmark
+Skandinavien

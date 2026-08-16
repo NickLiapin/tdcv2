@@ -1,0 +1,17 @@
+---
+description: Social content type (Danish)
+locale: da
+---
+opslag
+billede
+billedkarrusel
+video
+kortvideo
+story
+livestream
+kommentar
+deling
+afstemning
+tråd
+artikel
+podcast

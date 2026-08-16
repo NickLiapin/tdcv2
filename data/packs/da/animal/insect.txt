@@ -1,0 +1,24 @@
+---
+description: Insect (Danish). Skovflåten is not an insect but is kept here for the same reason a Swedish or Finnish list keeps its tick: it is the vector of borreliose, and in Denmark the tick-borne encephalitis focus is essentially confined to Bornholm.
+locale: da
+---
+myre
+bi
+humlebi
+hveps
+flue
+myg
+mitte
+klæg
+sommerfugl
+natsværmer
+guldsmed
+mariehøne
+bille
+eghjort
+græshoppe
+fårekylling
+edderkop
+skovflåt
+bænkebider
+tusindben

@@ -1,0 +1,44 @@
+---
+description: Animal, general (Danish). One trap for a translator: marsvin means BOTH the guinea pig and the harbour porpoise, and the porpoise is the common cetacean in Danish waters, so a Danish record naming a marsvin is genuinely ambiguous without context. The last block is the rigsfællesskab — isbjørn, moskusokse, rensdyr, hvalros and slædehund belong to Greenland, not to Denmark proper.
+locale: da
+---
+hund
+kat
+hest
+ko
+tyr
+kalv
+får
+lam
+ged
+gris
+høne
+hane
+gås
+and
+kanin
+marsvin
+hamster
+krondyr
+rådyr
+dådyr
+vildsvin
+ræv
+grævling
+husmår
+hare
+egern
+pindsvin
+bæver
+odder
+spættet sæl
+gråsæl
+brud
+lækat
+muldvarp
+flagermus
+isbjørn
+moskusokse
+rensdyr
+hvalros
+slædehund

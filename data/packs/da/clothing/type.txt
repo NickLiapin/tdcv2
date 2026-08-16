@@ -1,0 +1,31 @@
+---
+description: Garment type (Danish). The Danish wardrobe is built for wind and rain rather than for deep cold: regnjakke, regnbukser, gummistøvler and skaljakke are ordinary everyday clothing here, and a Danish child is issued a full set for daycare. Note the gender of the nouns — en trøje but et halstørklæde — which matters to any config that puts an article or an adjective in front of the value.
+locale: da
+---
+t-shirt
+undertrøje
+skjorte
+bluse
+sweater
+sweatshirt
+hættetrøje
+cardigan
+uldtrøje
+vest
+blazer
+jakkesæt
+kjole
+nederdel
+bukser
+jeans
+chinos
+shorts
+dynejakke
+skaljakke
+regnjakke
+regnbukser
+frakke
+hue
+vanter
+halstørklæde
+gummistøvler

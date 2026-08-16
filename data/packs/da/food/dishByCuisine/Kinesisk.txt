@@ -1,0 +1,12 @@
+---
+description: Dishes of kinesisk cuisine, in Danish
+locale: da
+---
+Pekingand
+Dumplings
+Mapo tofu
+Wokede nudler
+Forårsruller
+Kung Pao-kylling
+Stegte ris
+Dim sum

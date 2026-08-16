@@ -1,0 +1,11 @@
+---
+description: Positions in håndbold, in Danish. The backs are named by side and the pivot is the stregspiller, the line player who works with his back to the goal.
+locale: da
+---
+målmand
+venstre fløj
+venstre back
+playmaker
+højre back
+højre fløj
+stregspiller

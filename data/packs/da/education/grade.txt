@@ -1,0 +1,16 @@
+---
+description: Grade / mark in the Danish school system. The 7-trins-skala has applied since 2007 and was designed to map onto the ECTS letters: 12, 10, 7, 4, 02, 00, -3. Two things about it are genuinely unusual. The passing threshold 02 and the fail 00 are written with a LEADING ZERO, inherited from the old scale, so that a mark cannot be altered by adding a digit in front of it — 02 is not a typo for 2. And -3 is a negative mark, which no other European scale has; it means the performance was unacceptable, as against 00 which merely fails. The values 13, 11 and 9 belong to the 13-skala the 7-point scale replaced, and still appear in older records; 13 was the legendary top mark, awarded for the exceptionally independent answer and given rarely on purpose.
+locale: da
+---
+12
+10
+7
+4
+02
+00
+-3
+13
+11
+9
+bestået
+ikke bestået

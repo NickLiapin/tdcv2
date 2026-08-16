@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Danish). Denmark's stars are awarded by HORESTA, the hotel and restaurant trade association, not by the state — the scheme is voluntary but national, so a Danish star rating means the same thing in Skagen as in Copenhagen, which is not true of every European country.
+locale: da
+---
+1 stjerne
+2 stjerner
+3 stjerner
+4 stjerner
+5 stjerner

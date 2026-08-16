@@ -1,0 +1,247 @@
+---
+description: Country and territory names (Danish). Danish keeps its own forms for many of them — Tyskland, Frankrig, Storbritannien, Nederlandene, Elfenbenskysten, Ækvatorialguinea — and writes them without an article. Færøerne and Grønland are listed as separate entries and not as parts of Denmark, which is the correct and legally accurate treatment: the three of them form rigsfællesskabet, each of the two has its own parliament, government, language and country code, and neither is in the EU although Denmark is.
+locale: da
+---
+Afghanistan
+Albanien
+Algeriet
+Andorra
+Angola
+Antigua og Barbuda
+Argentina
+Armenien
+Aserbajdsjan
+Australien
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belgien
+Belize
+Benin
+Bhutan
+Bolivia
+Bosnien-Hercegovina
+Botswana
+Brasilien
+Brunei
+Bulgarien
+Burkina Faso
+Burundi
+Cambodja
+Cameroun
+Canada
+Chile
+Colombia
+Comorerne
+Costa Rica
+Cuba
+Cypern
+Danmark
+Djibouti
+Dominica
+Den Dominikanske Republik
+Ecuador
+Egypten
+Ekvatorialguinea
+El Salvador
+Elfenbenskysten
+Eritrea
+Estland
+Eswatini
+Etiopien
+Fiji
+Filippinerne
+Finland
+Frankrig
+Færøerne
+De Forenede Arabiske Emirater
+Gabon
+Gambia
+Georgien
+Ghana
+Grækenland
+Grenada
+Grønland
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Hviderusland
+Indien
+Indonesien
+Irak
+Iran
+Irland
+Island
+Israel
+Italien
+Jamaica
+Japan
+Jordan
+Kap Verde
+Kasakhstan
+Kenya
+Kina
+Kirgisistan
+Kiribati
+Kosovo
+Kroatien
+Kuwait
+Laos
+Lesotho
+Letland
+Libanon
+Liberia
+Libyen
+Liechtenstein
+Litauen
+Luxembourg
+Madagaskar
+Malawi
+Malaysia
+Maldiverne
+Mali
+Malta
+Marokko
+Marshalløerne
+Mauretanien
+Mauritius
+Mexico
+Mikronesien
+Moldova
+Monaco
+Mongoliet
+Montenegro
+Mozambique
+Myanmar
+Namibia
+Nauru
+Nederlandene
+Nepal
+New Zealand
+Nicaragua
+Niger
+Nigeria
+Nordkorea
+Nordmakedonien
+Norge
+Oman
+Pakistan
+Palau
+Palæstina
+Panama
+Papua Ny Guinea
+Paraguay
+Peru
+Polen
+Portugal
+Qatar
+Rumænien
+Rusland
+Rwanda
+Saint Kitts og Nevis
+Saint Lucia
+Saint Vincent og Grenadinerne
+Salomonøerne
+Samoa
+San Marino
+São Tomé og Príncipe
+Saudi-Arabien
+Schweiz
+Senegal
+Serbien
+Seychellerne
+Sierra Leone
+Singapore
+Slovakiet
+Slovenien
+Somalia
+Spanien
+Sri Lanka
+Storbritannien
+Sudan
+Surinam
+Sverige
+Sydafrika
+Sydkorea
+Sydsudan
+Syrien
+Tadsjikistan
+Taiwan
+Tanzania
+Tchad
+Thailand
+Tjekkiet
+Togo
+Tonga
+Trinidad og Tobago
+Tunesien
+Turkmenistan
+Tuvalu
+Tyrkiet
+Tyskland
+Uganda
+Ukraine
+Ungarn
+Uruguay
+USA
+Usbekistan
+Vanuatu
+Vatikanstaten
+Venezuela
+Vietnam
+Yemen
+Zambia
+Zimbabwe
+Østrig
+Østtimor
+Bermuda
+Gibraltar
+Guam
+Hongkong
+Isle of Man
+De Amerikanske Jomfruøer
+Caymanøerne
+Macao
+Ny Kaledonien
+Puerto Rico
+Åland
+Anguilla
+Aruba
+Curaçao
+Fransk Guyana
+Fransk Polynesien
+Guadeloupe
+Martinique
+Réunion
+Saint-Martin
+Falklandsøerne
+Congo-Brazzaville
+Congo-Kinshasa
+Antarktis
+Sydgeorgien
+Svalbard
+Vestsahara
+Norfolkøen
+Juleøen
+Cookøerne
+Niue
+Tokelau
+Wallis og Futuna
+Amerikansk Samoa
+Nordmarianerne
+Saint-Pierre og Miquelon
+Montserrat
+Turks- og Caicosøerne
+De Britiske Jomfruøer
+Saint-Barthélemy
+Sint Maarten
+Bonaire
+Pitcairnøerne
+Sankt Helena
+Cocosøerne
+Bouvetøen
+Heard- og McDonaldøerne

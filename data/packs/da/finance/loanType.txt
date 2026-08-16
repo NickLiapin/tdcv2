@@ -1,0 +1,14 @@
+---
+description: Loan type (Danish). Realkreditlån is the one no other country has in this form: a Danish mortgage is funded by issuing a bond that matches it exactly, the bond trades openly, and the borrower may buy back their own bond at market price — so when rates rise a Danish homeowner can repay a 30-year fixed loan for less than they borrowed. Rentetilpasningslån resets its rate at a fixed interval (F1, F3, F5) and afdragsfrit lån defers repayment of principal for up to ten years. SU-lån is a state student loan on top of SU, the grant Danish students receive rather than borrow, and it carries a low fixed rate set by law.
+locale: da
+---
+realkreditlån
+rentetilpasningslån
+afdragsfrit lån
+banklån
+forbrugslån
+billån
+andelsboliglån
+SU-lån
+kassekredit
+byggekredit

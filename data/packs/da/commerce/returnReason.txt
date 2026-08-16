@@ -1,0 +1,19 @@
+---
+description: Order return reason (Danish). Fortrydelsesret is the statutory 14-day right of withdrawal under forbrugeraftaleloven and covers every distance sale. Bytteret is a separate and purely voluntary exchange period that Danish shops grant on top of it — Danish law gives no right to return a purchase made in a physical shop at all, so a Danish "bytteret 30 dage" sign is a promise from the retailer, not the law.
+locale: da
+---
+fortrydelsesret
+bytteret
+forkert størrelse
+for lille
+for stor
+svarede ikke til beskrivelsen
+forkert farve
+forkert vare leveret
+beskadiget ved levering
+defekt vare
+dele mangler
+kvaliteten levede ikke op til forventningen
+fandt billigere
+bestilte ved en fejl
+leveret for sent

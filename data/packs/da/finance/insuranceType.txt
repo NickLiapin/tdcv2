@@ -1,0 +1,19 @@
+---
+description: Insurance type (Danish). Two are compulsory by law: ansvarsforsikring for every registered vehicle, and arbejdsskadeforsikring for every employer. Two are Danish top-ups on a public system rather than replacements for it — sundhedsforsikring buys faster access to treatment that the tax-funded health service already provides free, and is usually an employment benefit rather than a private purchase; lønsikring raises the ceiling of the a-kasse unemployment benefit and is normally bought through a trade union or an a-kasse. The yellow sundhedskort in every Dane's wallet is not insurance at all: it is the national health card and the key to the whole system.
+locale: da
+---
+indboforsikring
+husforsikring
+ejerskifteforsikring
+fritidshusforsikring
+bilforsikring
+ansvarsforsikring
+ulykkesforsikring
+sundhedsforsikring
+livsforsikring
+børneforsikring
+rejseforsikring
+dyreforsikring
+lønsikring
+arbejdsskadeforsikring
+erhvervsforsikring

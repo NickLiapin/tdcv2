@@ -1,0 +1,11 @@
+---
+description: Weekday name (Danish, lowercase). The Danish week starts on Monday, so the list is Monday-first; DATE_LOCALE.json carries the Sunday-first array the formatter needs.
+locale: da
+---
+mandag
+tirsdag
+onsdag
+torsdag
+fredag
+lørdag
+søndag

@@ -1,0 +1,22 @@
+---
+description: Room type (Danish). Bryggers is the Danish utility room off the kitchen or the back door — washing machine, boots, coats — and it is a standard named room in a Danish house rather than a luxury. Køkkenalrum is the combined kitchen and family room that most new Danish houses are built around.
+locale: da
+---
+entré
+stue
+opholdsstue
+køkken
+køkkenalrum
+spisestue
+soveværelse
+gæsteværelse
+børneværelse
+kontor
+badeværelse
+bruserum
+gæstetoilet
+walk-in garderobe
+bryggers
+fyrrum
+loftsrum
+kælder

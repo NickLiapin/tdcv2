@@ -1,0 +1,29 @@
+---
+description: Gemstone (Danish). Rav is the one with a Danish story: Baltic amber washes ashore on the North Sea coast of Jutland after westerly storms, people walk the beach looking for it after a blow, and it was the export that made Bronze Age Denmark rich.
+locale: da
+---
+diamant
+rubin
+safir
+smaragd
+topas
+ametyst
+akvamarin
+opal
+granat
+turmalin
+peridot
+citrin
+bjergkrystal
+rosenkvarts
+røgkvarts
+jaspis
+onyks
+agat
+turkis
+lapis lazuli
+malakit
+rav
+koral
+perle
+månesten

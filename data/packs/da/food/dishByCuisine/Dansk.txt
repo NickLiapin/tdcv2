@@ -1,0 +1,24 @@
+---
+description: Dishes of dansk cuisine, in Danish. Written as they are served rather than as bare names, because a Danish dish is a fixed combination: flæskesteg comes with rødkål and brune kartofler, and leaving them off makes it a different dish.
+locale: da
+---
+Stegt flæsk med persillesovs og kartofler
+Frikadeller med kartofler og brun sovs
+Flæskesteg med rødkål og brune kartofler
+Medisterpølse med stuvet hvidkål
+Boller i karry med ris
+Hakkebøf med bløde løg
+Biksemad med spejlæg
+Gule ærter med flæsk og pølse
+Brændende kærlighed
+Skipperlabskovs med rugbrød
+Grønlangkål med hamburgerryg
+Æggekage med bacon og purløg
+Marineret sild på rugbrød
+Dyrlægens natmad
+Sol over Gudhjem
+Stjerneskud
+Pariserbøf
+Rødgrød med fløde
+Koldskål med kammerjunkere
+Risalamande med kirsebærsovs
