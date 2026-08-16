@@ -1,0 +1,9 @@
+---
+description: THE FIVE-DAY JAVANESE MARKET WEEK — the pasaran, or pancawara. This file is NOT in the standard locale-pack list and is added because Javanese has no other honest home for it and because a Javanese date is incomplete without it. The five days run in a fixed cycle alongside the ordinary seven-day week, so every date carries TWO day names at once: Jumuwah Kliwon, Senen Pahing, Rebo Wage. The two cycles realign every 35 days (5 x 7), and that 35-day period is the WETONAN — the interval on which a Javanese birthday is actually observed, so a Javanese marks roughly ten a year rather than one. Each pasaran day carries a numeric NEPTU which is added to the weekday's neptu and used to choose wedding dates, house moves and journeys. The names also name the traditional market that met in each village on that day, which is where the word pasaran comes from (pasar, market), and they are the source of a whole class of Javanese personal names — Painem, Wagiman, Legiman, Ponimin, Kliwon — given for the day of birth (see person/male/firstName.txt). The cycle's formal name is PANCAWARA, and Kliwon's neptu is 8 — both verified against the Javanese Wikipedia article on Kliwon. THIS CANNOT BE COMPUTED FROM A GREGORIAN DATE BY ANY DATE LIBRARY IN THE FIVE ENGINE IMPLEMENTATIONS: it needs an epoch anchor, and a config that wants a real weton must supply one.
+locale: jv
+---
+Legi
+Pahing
+Pon
+Wage
+Kliwon

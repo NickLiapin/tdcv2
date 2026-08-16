@@ -1,0 +1,14 @@
+---
+description: Payment status (Javanese).
+locale: jv
+---
+durung dibayar
+ngenteni bayaran
+wis dibayar
+lunas
+kurang bayar
+luwih bayar
+dibalekake
+gagal
+kadaluwarsa
+dibatalake

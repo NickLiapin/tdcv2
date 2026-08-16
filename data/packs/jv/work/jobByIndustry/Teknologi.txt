@@ -1,0 +1,14 @@
+---
+description: Job in the Teknologi industry, as named in Javanese.
+locale: jv
+---
+programer
+analis sistem
+analis dhata
+insinyur piranti lunak
+administrator jaringan
+desainer UI
+manajer produk
+tester
+teknisi komputer
+ahli keamanan siber

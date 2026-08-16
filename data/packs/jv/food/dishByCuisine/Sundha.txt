@@ -1,0 +1,19 @@
+---
+description: Dish belonging to Sundha cuisine, as a Javanese menu names it.
+locale: jv
+---
+karedok
+sega timbel
+pepes
+jangan asem
+pitik bakar
+gepuk
+surabi
+colenak
+seblak
+batagor
+cireng
+combro
+misro
+lalapan
+sambel dadak

@@ -1,0 +1,5 @@
+---
+description: Currency of Meksiko, named in Javanese.
+locale: jv
+---
+Peso Meksiko

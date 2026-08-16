@@ -1,0 +1,64 @@
+---
+description: Javanese filler sentences. Handwritten: Project Gutenberg holds no Javanese book at all — the site's language search for jv returns "No records found", verified against a Polish control query that returns books, so unlike fr/de/it/es/pt/pl these are not extracted from a public-domain corpus and were composed for this pack. Written in NGOKO throughout except two rows kept deliberately in KRAMA ("Panjenengan badhe tindak dhateng pundi?" and "Kula badhe kondur rumiyin") so that the register difference is visible inside the data and not only described in a header. Two grammar facts a config must not fight. Javanese verbs carry NO TENSE — "mangan" is eat, ate and will eat alike, and time is carried by a separate word: wis (already), lagi (in progress), arep (about to), durung (not yet), mau (earlier), mengko (later), sesuk (tomorrow), wingi (yesterday). And Javanese marks the PLURAL by reduplication rather than by a suffix, so bocah-bocah is children and wong-wong is people; a generator must never build a Javanese plural by appending letters.
+locale: jv
+---
+Aku lagi mangan sega pecel ing warung ngarep omah.
+Bapak wis mulih saka sawah nalika srengenge lagi surup.
+Udan deres wiwit esuk mau, dalan ngarep omah kebanjiran.
+Ibu ngracik jamu kunir asem saben Setu esuk.
+Bocah-bocah padha dolanan layangan ing lapangan sawise sekolah bubar.
+Simbah lungguh ing amben karo ngunjuk teh panas.
+Sepedha motorku bocor bane, mula aku kudu nuntun tekan bengkel.
+Wis rong dina iki dheweke ora sekolah amarga lara untu.
+Pasar Legi rame banget yen pasarane pas dina Legi.
+Wong-wong padha nonton wayang kulit nganti esuk.
+Sawahe wis diluku, sesuk arep ditanduri pari.
+Adhiku isih cilik, durung bisa maca aksara Jawa.
+Aku tuku gedhang lan pelem ing pasar mau esuk.
+Dalan menyang gunung rusak amarga longsor.
+Ing Yogyakarta akeh wong dodolan gudheg wiwit bengi.
+Gurune takon sapa sing durung ngumpulake tugas.
+Kucingku turu ing ngisor meja saben awan.
+Wit pelem ing mburi omah wis wiwit awoh.
+Mbakyuku kerja ing pabrik tekstil ing Semarang.
+Yen arep menyang stasiun luwih cepet liwat dalan cilik iki.
+Aku durung tau weruh segara Kidul saka cedhak.
+Gamelan iku ditabuh nganggo laras slendro lan pelog.
+Dheweke pinter nembang macapat wiwit isih cilik.
+Sepuluh taun kepungkur desa iki durung ana listrik.
+Sega kucing regane murah nanging cukup kanggo ngganjel weteng.
+Wong tuwa kudu ngajari bocah tata krama wiwit cilik.
+Aja lali nutup lawang yen metu saka kamar.
+Mengko sore aku arep ngeterake ibu menyang pasar.
+Bakul soto iku wis dodolan ing panggonan kono suwene telung puluh taun.
+Kali sing mbatesi desa iki asat yen mangsa ketiga.
+Manuk perkutut ing kurungan iku regane larang banget.
+Kanca-kancaku padha jagongan ing angkringan nganti tengah wengi.
+Aku njaluk ngapura amarga telat teka.
+Panjenengan badhe tindak dhateng pundi?
+Kula badhe kondur rumiyin.
+Sesuk esuk aku arep mangkat menyang Solo numpak sepur.
+Omahe simbah isih nganggo genteng lawas lan lantai jubin.
+Bocah-bocah sinau nulis aksara Jawa ing sekolah saben dina Setu.
+Wong Jawa lumrahe nyimpen kerise ing panggonan kang resik.
+Sawise panen, wong desa padha nganakake slametan.
+Ing mangsa rendheng iwak ing kali akeh banget.
+Mbah kakung isih kuwat mlaku adoh senajan wis sepuh.
+Aku ora ngerti apa sing dikarepake dheweke.
+Sapa sing ngeterake kowe mrene mau?
+Wedang jahe iku anget lan cocok diombe yen hawa adhem.
+Pak lurah ngundang warga kanggo rembugan ing balai desa.
+Kembang mlathi kerep dianggo ing upacara manten Jawa.
+Bapakku nandur jagung lan tela ing kebon mburi.
+Sepur saka Semarang tekan Solo kira-kira rong jam.
+Aku seneng ngrungokake gendhing nalika lagi nyambut gawe.
+Yen ora ana udan, sumur ing desa iki bisa asat.
+Dhalang iku wis kondhang tekan njaba negara.
+Klambi batik iki digawe tangan, mula regane larang.
+Mbok menawa mengko bengi udan maneh.
+Dheweke lunga menyang Jakarta golek pagawean.
+Anak-anakku wis padha omah-omah kabeh.
+Aku isih kelingan crita simbah babagan jaman Landa.
+Wektu iku listrik durung mlebu desa, mula nganggo lampu teplok.
+Saben tanggal siji Sura wong padha tirakatan ora turu sewengi muput.
+Sing sabar, mengko rejeki mesthi teka.

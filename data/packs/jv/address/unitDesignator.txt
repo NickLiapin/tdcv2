@@ -1,0 +1,27 @@
+---
+description: Address unit designator. NO. is the house number and BLOK the estate block. RT and RW — rukun tetangga and rukun warga, the neighbourhood and sub-neighbourhood associations — are part of every Indonesian address and are written as a pair of numbers, RT 03 / RW 05; there is no European equivalent, and an address without them is incomplete. LANTAI is a floor, KAMAR a room in Indonesian while Javanese says SENTHONG. Javanese is spoken natively in essentially one state, Indonesia, so the institutions named here are Indonesian ones — that is what the words mean, and there is no generic alternative to put instead. Recorded so the next reader is not guessing; if the Indonesia COUNTRY pack ever claims this address, the country pack should win.
+locale: jv
+---
+No.
+Nomer
+Blok
+Kav.
+Unit
+Lantai
+Lt.
+Kamar
+Senthong
+RT
+RW
+RT/RW
+Gedhung
+Menara
+Sayap
+Ruang
+Kios
+Los
+Kotak Pos
+PO Box
+Belakang
+Ngarep
+Mburi

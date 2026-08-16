@@ -1,0 +1,5 @@
+---
+description: Currency of Turki, named in Javanese.
+locale: jv
+---
+Lira Turki

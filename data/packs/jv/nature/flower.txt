@@ -1,0 +1,32 @@
+---
+description: Flower (Javanese). KEMBANG is the ngoko word and SEKAR the krama one, which is why so many Javanese women are called Sekar. The first three — MLATHI, KANTHIL and KENANGA — are the KEMBANG TELON, the set of three used together in almost every Javanese ritual, from a wedding to a grave offering; they are a fixed cultural unit, not three flowers that happen to be listed together. WIJAYAKUSUMA is the flower of Javanese kingship, said to open only at night and only for a rightful ruler. KAMBOJA, frangipani, is planted in graveyards and carries that association strongly enough that it is not given as a gift.
+locale: jv
+---
+mlathi
+kanthil
+kenanga
+mawar
+wijayakusuma
+kamboja
+soka
+kembang sepatu
+cempaka
+tanjung
+melur
+kemuning
+tunjung
+teratai
+seruni
+dhalia
+anggrek
+gladiol
+kenikir
+turi
+waru
+sedhep malem
+bougenvil
+alamandha
+nusa indah
+pacar banyu
+kembang mrak
+flamboyan

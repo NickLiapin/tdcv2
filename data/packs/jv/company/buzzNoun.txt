@@ -1,0 +1,64 @@
+---
+description: Corporate noun (Javanese business register). Mostly Indonesian, because that is the language a Javanese company writes its annual report in.
+locale: jv
+---
+solusi
+layanan
+produk
+platform
+sistem
+jaringan
+ekosistem
+infrastruktur
+teknologi
+inovasi
+transformasi
+digitalisasi
+otomatisasi
+integrasi
+optimalisasi
+efisiensi
+produktivitas
+kualitas
+standar
+sertifikasi
+kepatuhan
+tata kelola
+strategi
+visi
+misi
+nilai
+budaya
+kemitraan
+kolaborasi
+sinergi
+jejaring
+komunitas
+pelanggan
+pengguna
+pasar
+pangsa pasar
+pertumbuhan
+pendapatan
+laba
+investasi
+modal
+aset
+portofolio
+risiko
+peluang
+tantangan
+kinerja
+capaian
+target
+tolok ukur
+analisis
+wawasan
+data
+laporan
+audit
+pengawasan
+pelatihan
+pengembangan
+keberlanjutan
+dampak

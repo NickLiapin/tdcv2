@@ -1,0 +1,9 @@
+---
+description: Playing position or role in Basket. Note KIWA and TENGEN for left and right — Javanese words, where Indonesian says kiri and kanan — and NGAREP and MBURI for front and back.
+locale: jv
+---
+point guard
+shooting guard
+small forward
+power forward
+center

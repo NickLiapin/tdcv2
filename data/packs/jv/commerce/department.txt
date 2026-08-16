@@ -1,0 +1,54 @@
+---
+description: Shop department (Javanese). PRACANGAN is the Javanese word for a general provisions stall, the kind that sells rice, oil, sugar and soap by the scoop, and it is a shop category in Java in a way "grocery" is not.
+locale: jv
+---
+pracangan
+sembako
+panganan
+omben-omben
+sayuran
+woh-wohan
+daging
+iwak
+roti
+jajanan
+bumbu
+klambi
+klambi lanang
+klambi wadon
+klambi bocah
+sepatu
+tas
+perhiasan
+jam tangan
+kosmetik
+perawatan awak
+obat
+kesehatan
+bayi
+dolanan
+buku
+alat tulis
+elektronik
+komputer
+HP
+perabot omah
+meja kursi
+pirantos pawon
+sprei
+alat olahraga
+otomotif
+onderdil
+pirantos tukang
+bahan bangunan
+tanduran
+pupuk
+pakan kewan
+kewan ingon
+kerajinan
+batik
+oleh-oleh
+musik
+game
+film
+pulsa

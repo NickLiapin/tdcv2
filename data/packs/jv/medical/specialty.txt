@@ -1,0 +1,40 @@
+---
+description: Medical specialty (Indonesian clinical vocabulary as used in Java). The Sp. prefix on an Indonesian doctor's title stands for spesialis and is written after the name; see person/suffix.txt.
+locale: jv
+---
+Penyakit Dalam
+Bedah
+Bedah Saraf
+Bedah Ortopedi
+Bedah Plastik
+Anak
+Obstetri lan Ginekologi
+Kardiologi
+Neurologi
+Psikiatri
+Dermatologi
+Mata
+THT
+Paru
+Gastroenterologi
+Endokrinologi
+Nefrologi
+Hematologi
+Onkologi
+Reumatologi
+Urologi
+Anestesiologi
+Radiologi
+Patologi Anatomi
+Patologi Klinik
+Kedokteran Nuklir
+Rehabilitasi Medik
+Kedokteran Jiwa
+Gizi Klinik
+Mikrobiologi Klinik
+Forensik
+Kedokteran Olahraga
+Kedokteran Penerbangan
+Kedokteran Keluarga
+Geriatri
+Andrologi

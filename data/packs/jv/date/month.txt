@@ -1,0 +1,16 @@
+---
+description: Gregorian month in Javanese. Spellings follow Javanese Wikipedia's article titles, minus the diacritics (see world/writingSystem.txt for why this pack writes a plain e throughout): Februari, Mei, September, November and Desember are written Fèbruari, Mèi, Sèptèmber, Novèmber and Dhésèmber where diacritics are used, and Desember keeps the RETROFLEX dh in Javanese where Indonesian has a plain d. THE JAVANESE CALENDAR IS A DIFFERENT CALENDAR and its months are not these: the Sultan Agung reform of 1633 fused the Saka year with the Islamic lunar one, giving Sura, Sapar, Mulud, Bakda Mulud, Jumadilawal, Jumadilakir, Rejeb, Ruwah, Pasa, Sawal, Sela and Besar — a lunar sequence that drifts against this list by about eleven days a year and is what ritual dates are actually reckoned in. Older still is the twelve-part solar farming year, pranata mangsa, listed in date/season.txt. A config needing a Javanese ritual date cannot compute it from a Gregorian month.
+locale: jv
+---
+Januari
+Februari
+Maret
+April
+Mei
+Juni
+Juli
+Agustus
+September
+Oktober
+November
+Desember

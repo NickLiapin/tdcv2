@@ -1,0 +1,12 @@
+---
+description: Diagnosis commonly managed by Dermatologi, written as an Indonesian-language clinical record in Java would write it.
+locale: jv
+---
+dermatitis atopik
+psoriasis
+kadhas
+kudhis
+jerawat
+urtikaria
+vitiligo
+kusta

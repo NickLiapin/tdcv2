@@ -1,0 +1,31 @@
+---
+description: Diagnosis for a person recorded as female — the same list as medical/diagnosisFemale.txt, reachable under person/ so a config building a coherent record can draw it beside person/female/firstName.txt. Javanese has no grammatical gender, so nothing here inflects.
+locale: jv
+---
+kehamilan normal
+hiperemesis gravidarum
+preeklampsia
+eklampsia
+diabetes gestasional
+anemia dalam kehamilan
+abortus spontan
+kehamilan ektopik
+plasenta previa
+endometriosis
+mioma uteri
+kista ovarium
+sindrom ovarium polikistik
+menorrhagia
+dismenore
+amenore
+menopause
+vaginitis
+servisitis
+kanker serviks
+kanker payudara
+kanker ovarium
+mastitis
+infeksi saluran kemih
+osteoporosis pascamenopause
+infertilitas
+kanker endometrium

@@ -1,0 +1,153 @@
+---
+description: Thing a shop sells (Javanese). The household block uses Javanese words where they exist — KENDHIL a cooking pot, WAJAN a wok, IRUS a ladle, SUTHIL a turner, TAMPAH a flat winnowing tray, TENGGOK a carrying basket, KLASA a woven mat, KLOSO the same, KENDHI a water jar, GAYUNG a dipper — and Indonesian or English where they do not, which is most of the electronics.
+locale: jv
+---
+klambi
+kaos
+kemeja
+kathok
+rok
+jaket
+sarung
+jarik
+blangkon
+kebaya
+sepatu
+sandhal
+tas
+dompet
+sabuk
+topi
+kacamata
+jam tangan
+kalung
+gelang
+ali-ali
+anting
+meja
+kursi
+lemari
+amben
+kasur
+bantal
+guling
+sprei
+klasa
+kloso
+karpet
+gordyn
+lampu
+kipas angin
+AC
+kulkas
+mesin cuci
+kompor
+oven
+magic com
+blender
+kendhil
+wajan
+panci
+irus
+suthil
+piring
+mangkok
+gelas
+cangkir
+sendhok
+garpu
+lading
+talenan
+tampah
+tenggok
+kendhi
+gayung
+ember
+sapu
+pel
+sikat
+sabun
+shampo
+odol
+sikat untu
+handuk
+tisu
+deterjen
+pewangi
+HP
+laptop
+komputer
+tablet
+monitor
+keyboard
+mouse
+printer
+flashdisk
+hardisk
+charger
+powerbank
+headset
+speaker
+kamera
+TV
+radio
+kabel
+baterai
+buku
+buku tulis
+pulpen
+potlot
+penggaris
+penghapus
+tas sekolah
+dolanan
+boneka
+lego
+bal
+raket
+sepedha
+helm
+jas udan
+payung
+oli
+ban
+aki
+busi
+kunci inggris
+obeng
+palu
+gergaji
+paku
+cet
+semen
+bata
+genteng
+kayu
+pring
+pupuk
+wiji
+pot
+tanduran
+pakan pitik
+pakan iwak
+beras
+gula
+uyah
+lenga
+kecap
+saus
+mie instan
+kopi
+teh
+susu
+roti
+jajanan
+krupuk
+jamu
+obat
+vitamin
+masker
+batik
+wayang
+keris
+gamelan

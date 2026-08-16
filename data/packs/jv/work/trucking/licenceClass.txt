@@ -1,0 +1,11 @@
+---
+description: Driving licence class. These are INDONESIA'S SIM categories, named as a Javanese driver names them — SIM A for a car, SIM B I for a lorry, SIM B II for a lorry with a trailer, the Umum variants for driving those for hire, SIM C for a motorcycle and SIM D for a driver with a disability. Javanese is spoken natively in essentially one state, Indonesia, so the institutions these words name are Indonesian ones. That is what the words mean and there is no generic alternative to put here instead — but it is recorded so the next reader is not guessing, and if the Indonesia COUNTRY pack ever claims this address, the country pack should win. A Javanese-language list of generic "licence classes" would be an invention, since the only classes that exist for a Javanese speaker are these.
+locale: jv
+---
+SIM A
+SIM A Umum
+SIM B I
+SIM B I Umum
+SIM B II
+SIM B II Umum
+SIM C

@@ -1,0 +1,41 @@
+---
+description: Technical noun (Javanese usage). Computing vocabulary in Java is English and Indonesian; the Javanese contribution is grammatical rather than lexical, and shows up in hacker/verb.txt.
+locale: jv
+---
+sistem
+jaringan
+server
+basis data
+protokol
+bandwidth
+firewall
+enkripsi
+sandhi
+kunci
+token
+sertipikat
+antarmuka
+panel
+dashboard
+monitor
+log
+cache
+memori
+prosesor
+hardisk
+partisi
+berkas
+folder
+skrip
+program
+aplikasi
+pustaka
+modul
+paket
+versi
+tambalan
+bug
+galat
+peringatan
+lalu lintas
+paket data

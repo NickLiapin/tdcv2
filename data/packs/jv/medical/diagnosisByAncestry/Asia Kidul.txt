@@ -1,0 +1,8 @@
+---
+description: Condition with raised prevalence in people of Asia Kidul descent. A prevalence signal, not an exclusive one.
+locale: jv
+---
+diabetes melitus tipe 2
+penyakit jantung koroner
+talasemia beta
+intoleransi laktosa

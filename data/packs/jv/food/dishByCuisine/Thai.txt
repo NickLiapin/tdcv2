@@ -1,0 +1,9 @@
+---
+description: Dish belonging to Thai cuisine, as a Javanese menu names it.
+locale: jv
+---
+tom yam
+pad thai
+som tam
+kari ijo
+ketan pelem

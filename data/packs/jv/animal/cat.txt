@@ -1,0 +1,22 @@
+---
+description: Cat breed as Java names it. KUCING KAMPUNG is the ordinary free-roaming village cat and is by far the commonest; the Javanese bobtail — a short kinked tail — is a real regional trait of these cats and is remarked on, not a defect. Pedigree names are international.
+locale: jv
+---
+kucing kampung
+kucing telon
+kucing belang telon
+anggora
+persia
+siam
+himalaya
+maine coon
+bengal
+sphynx
+british shorthair
+scottish fold
+ragdoll
+birman
+russian blue
+abyssinian
+munchkin
+exotic shorthair

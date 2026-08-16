@@ -1,0 +1,18 @@
+---
+description: Marital status (Javanese). jaka is an unmarried man and prawan an unmarried woman — Javanese has separate words where English has one "single" — and randha is a woman who is widowed OR divorced, duda the male equivalent, with no lexical split between the two causes. The bracketed Indonesian forms are what actually appears on the identity card, because the card is not printed in Javanese.
+locale: jv
+---
+jaka
+prawan
+lajang
+durung nikah
+wis nikah
+omah-omah
+randha
+duda
+pegatan
+ditinggal mati
+pisah omah
+tunangan
+rabi maneh
+ora kasebut

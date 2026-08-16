@@ -1,0 +1,12 @@
+---
+description: Diagnosis commonly managed by Gastroenterologi, written as an Indonesian-language clinical record in Java would write it.
+locale: jv
+---
+gastritis
+tukak lambung
+refluks gastroesofageal
+sirosis hati
+hepatitis B
+kolitis ulseratif
+batu empedu
+pankreatitis

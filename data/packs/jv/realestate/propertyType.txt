@@ -1,0 +1,23 @@
+---
+description: Kind of property (Javanese). The house-form vocabulary — OMAH JOGLO, OMAH LIMASAN, OMAH KAMPUNG — is the roof taxonomy explained in address/buildingType.txt and is used in property listings, because a joglo commands a premium. KOST is a rented room in a shared house, KONTRAKAN a small rented house, RUKO a shophouse, and SAWAH and TEGALAN are wet ricefield and dry field, which are separate property classes with separate prices and separate law.
+locale: jv
+---
+omah
+omah joglo
+omah limasan
+omah kampung
+omah gedhong
+ruko
+rukan
+kost
+kontrakan
+apartemen
+rusun
+vila
+tanah
+sawah
+tegalan
+pekarangan
+kebon
+gudhang
+kios

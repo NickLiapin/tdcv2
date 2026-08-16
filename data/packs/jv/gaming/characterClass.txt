@@ -1,0 +1,28 @@
+---
+description: Player character archetype (Javanese). The first block draws on Javanese and wayang categories rather than on the European fantasy set: SATRIYA is the noble warrior hero, PANDHITA the ascetic sage, BEGAWAN a hermit-teacher, PUNAKAWAN the clown-servant who is also the wisest character on the screen, RAKSASA and BUTA are ogres, DHUKUN a shaman, EMPU a smith. Games sold in Indonesia mostly use the English class names, which is the second block.
+locale: jv
+---
+satriya
+pandhita
+begawan
+punakawan
+raksasa
+buta
+dhukun
+empu
+pendekar
+prajurit
+pemanah
+maling
+warrior
+mage
+assassin
+marksman
+tank
+support
+fighter
+healer
+rogue
+paladin
+necromancer
+summoner

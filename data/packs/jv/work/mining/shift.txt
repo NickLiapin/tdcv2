@@ -1,0 +1,9 @@
+---
+description: Work shift (Javanese). Built on the Javanese time-of-day words — esuk, awan, bengi — described in date/timeOfDay.txt.
+locale: jv
+---
+shift esuk
+shift awan
+shift bengi
+shift dawa
+lembur

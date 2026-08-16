@@ -1,0 +1,38 @@
+---
+description: Vegetable (Javanese), and another list where the Javanese word and the Indonesian one share no root. LOMBOK is a chilli where Indonesian says cabai; BRAMBANG is a shallot where Indonesian says bawang merah; KUNIR is turmeric where Indonesian says kunyit; CAMBAH is a bean sprout where Indonesian says tauge; TELA is cassava where Indonesian says singkong; GORI is young jackfruit, the vegetable gudheg is made of, and Indonesian has to say nangka muda. GODHONG is the general word for a leaf, so godhong tela and godhong so are cassava and melinjo leaves eaten as greens. Note also that Javanese counts several of these as vegetables that a European kitchen would not: mlinjo is a gnetum seed and koro a broad bean.
+locale: jv
+---
+kangkung
+bayem
+sawi
+kubis
+kobis
+wortel
+kenthang
+tela
+terong
+kacang lanjaran
+buncis
+timun
+waluh
+jipang
+gambas
+pare
+kecipir
+koro
+lombok
+lombok rawit
+brambang
+bawang putih
+gori
+rebung
+jamur
+cambah
+godhong tela
+godhong so
+mlinjo
+kemangi
+kenikir
+turi
+genjer
+lumbu

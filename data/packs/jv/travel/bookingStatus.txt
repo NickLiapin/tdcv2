@@ -1,0 +1,15 @@
+---
+description: Booking status (Javanese).
+locale: jv
+---
+dipesen
+wis dikonfirmasi
+ngenteni bayaran
+wis dibayar
+check in
+check out
+dibatalake
+ora teka
+diundur
+daftar tunggu
+kadaluwarsa

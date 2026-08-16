@@ -1,0 +1,26 @@
+---
+description: Metal (Javanese). WESI is iron, TEMBAGA copper, SALAKA silver, MAS gold, WAJA steel. Two entries are Javanese and untranslatable. WESI AJI is heirloom iron — the metal of a keris or a spear, believed to hold power, and valued for its history rather than its purity. PAMOR is the contrasting light metal folded into a keris blade to make its pattern, classically meteoric nickel from the Prambanan fall, and the word now means the pattern itself. SWASA is a gold-copper alloy used for court ornament and has no English name.
+locale: jv
+---
+wesi
+wesi aji
+pamor
+tembaga
+kuningan
+mas
+salaka
+timah
+waja
+swasa
+perunggu
+alumunium
+seng
+timbal
+nikel
+kromium
+platina
+raksa
+titanium
+magnesium
+mangan
+wolfram

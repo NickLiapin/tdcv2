@@ -1,0 +1,24 @@
+---
+description: Purpose of a journey (Javanese). MUDIK — the annual return to one's home village for Idul Fitri — is the largest human migration on earth and is a trip type in Indonesia the way commuting is elsewhere; ZIARAH is pilgrimage to graves, especially those of the Wali Sanga, the nine saints credited with bringing Islam to Java, and is a mass tourism category in its own right. NYADRAN is the pre-Ramadan grave visit and TIRAKATAN an overnight vigil journey.
+locale: jv
+---
+mudik
+ziarah
+nyadran
+tirakatan
+wisata
+wisata alam
+wisata budaya
+wisata kuliner
+wisata religi
+plesir
+dinas
+seminar
+studi banding
+karyawisata
+bulan madu
+nengok sedulur
+kondangan
+nglayat
+umroh
+haji

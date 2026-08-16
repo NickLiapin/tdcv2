@@ -1,0 +1,13 @@
+---
+description: Season. JAVA IS EQUATORIAL AND HAS NO FOUR TEMPERATE SEASONS. The Javanese year turns on rain, and the traditional farming calendar, PRANATA MANGSA, divides it into four main mangsa: mangsa ketiga, the dry season; mangsa labuh, the turn into the rains; mangsa rendheng (also mangsa udan), the rains proper; and mareng, the turn back out of them, written marèng where diacritics are used. Two further "small" seasons are named for how they feel rather than for the weather: terang, bright sky, and semplah, hardship, which carries the paceklik — the lean weeks before the harvest, a word that means hunger, not weather. Bedhidhing is the spell of cold nights in the middle of the dry season. Underneath the four sits a TWELVE-PART division, also called mangsa and numbered rather than named: Kasa, Karo, Katelu, Kapat, Kalima, Kanem, Kapitu, Kawolu, Kasanga, Kasapuluh, Dhesta and Sadha, each with its own length, its own omens in the behaviour of animals and plants, and its own Sanskrit alternative name (Kartika, Pusa, Manggasri, Citra, Manggakala, Naya, Palguna, Wisaka, Jita, Srawana, Padrawana, Asuji). The version given here is the Kasunanan one, which the source states applies to the country between Mount Merapi and Mount Lawu — pranata mangsa is explicitly LOCAL and a reckoning good for one district need not hold for the next. WHAT IS DELIBERATELY ABSENT: Javanese names for spring, summer, autumn and winter. Javanese writing about temperate countries borrows the Indonesian musim semi / musim panas / musim gugur / musim dingin unchanged, and inventing Javanese calques for them would have put four words in this pack that no Javanese speaker uses.
+locale: jv
+---
+mangsa rendheng
+mangsa udan
+mangsa ketiga
+mangsa labuh
+mareng
+mangsa terang
+mangsa semplah
+paceklik
+bedhidhing

@@ -1,0 +1,17 @@
+---
+description: Kind of freight carried by road (Javanese). TEBU — sugar cane — moves in convoys through Central and East Java in the milling season and is a category of its own to any Javanese haulier.
+locale: jv
+---
+semen
+wedhi
+watu
+kayu
+beras
+gula
+tebu
+pupuk
+BBM
+gas
+sapi
+wedhus
+barang elektronik

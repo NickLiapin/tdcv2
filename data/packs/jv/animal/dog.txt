@@ -1,0 +1,29 @@
+---
+description: Dog breed (Javanese). ASU KAMPUNG is the village dog. Note that dogs are kept far less in Java than cats because most Javanese are Muslim and a dog is ritually unclean, so this list describes a smaller reality than the equivalent European one.
+locale: jv
+---
+asu kampung
+kintamani
+herder
+golden retriever
+labrador
+pudel
+chihuahua
+pomeranian
+shih tzu
+bulldog
+beagle
+dachshund
+rottweiler
+doberman
+husky
+samoyed
+corgi
+pug
+dalmatian
+boxer
+akita
+shiba inu
+border collie
+terrier
+basset

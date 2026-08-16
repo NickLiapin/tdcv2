@@ -1,0 +1,24 @@
+---
+description: School subject (Javanese). BASA JAWA is a compulsory subject in Central Java, Yogyakarta and East Java schools, taught as a MULOK — muatan lokal, the local-content slot in the national curriculum — and it is the reason Javanese children learn to write aksara Jawa at all.
+locale: jv
+---
+Basa Jawa
+Basa Indonesia
+Basa Inggris
+Matematika
+IPA
+IPS
+Fisika
+Kimia
+Biologi
+Sejarah
+Geografi
+Ekonomi
+Sosiologi
+PKn
+Pendhidhikan Agama
+Seni Budaya
+Penjaskes
+Prakarya
+TIK
+Muatan Lokal

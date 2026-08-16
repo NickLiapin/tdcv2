@@ -1,0 +1,11 @@
+---
+description: Kind of haulage route (Javanese). PANTURA is the north-coast trunk road across Java and is a route type in itself in Indonesian trucking, not merely a road name; JALUR TENGAH and JALUR SELATAN are its inland and southern alternatives.
+locale: jv
+---
+jarak cedhak
+jarak adoh
+antarkutha
+antarpulo
+pantura
+jalur tengah
+jalur kidul

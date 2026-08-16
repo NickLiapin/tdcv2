@@ -1,0 +1,46 @@
+---
+description: Building type (Javanese) — and the first block is a real architectural taxonomy that no European locale has. A Javanese house is classified by its ROOF: OMAH JOGLO has the tall steeply-pitched central roof carried on four saka guru pillars and marks status and wealth; OMAH LIMASAN is the four-sided hipped roof of a comfortable but ordinary house; OMAH KAMPUNG is the simple two-sided roof of a modest one; OMAH PANGGANG PE is a lean-to. A Javanese reads status off a roofline the way an English speaker reads it off an address. PENDHAPA is the open pillared pavilion at the front where guests are received, DALEM the enclosed inner house, and PRINGGITAN the passage between them, named for the wayang (ringgit) performed there. RUKO is a shophouse and KOST a rented room, both ubiquitous.
+locale: jv
+---
+omah
+omah joglo
+omah limasan
+omah kampung
+omah panggang pe
+omah gedhong
+pendhapa
+pringgitan
+dalem
+senthong
+gandhok
+gadri
+emper
+ruko
+toko
+warung
+kios
+los pasar
+kost
+kontrakan
+apartemen
+rusun
+vila
+gubug
+lumbung
+kandhang
+gudhang
+bengkel
+pabrik
+kantor
+sekolah
+mesjid
+langgar
+gereja
+pura
+wihara
+kelenteng
+candhi
+kraton
+balai desa
+pos ronda
+gapura

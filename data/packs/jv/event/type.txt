@@ -1,0 +1,22 @@
+---
+description: Kind of gathering (Javanese) — and the first block has no European equivalent. SLAMETAN is the communal ritual meal that marks every passage of Javanese life; TINGKEBAN is the seventh-month pregnancy ceremony, BROKOHAN the birth one, TEDHAK SITEN the ceremony where a baby first touches the ground, SUNATAN a circumcision, MITONI another name for the seventh-month rite. RUWATAN is a cleansing performed to release a person from misfortune, usually with a wayang play. NYADRAN is the pre-Ramadan grave-cleaning visit and SEKATEN the week-long Yogyakarta and Solo fair around the Prophet's birthday. WETONAN is the 35-day birthday of date/pasaran.txt. Note SLAMETAN and KENDURI are the same event named by two words, the second Arabic-derived.
+locale: jv
+---
+slametan
+kenduri
+tingkeban
+mitoni
+brokohan
+tedhak siten
+sunatan
+ruwatan
+nyadran
+sekaten
+wetonan
+manten
+resepsi
+lamaran
+midodareni
+khitanan
+aqiqah
+tahlilan

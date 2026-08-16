@@ -1,0 +1,12 @@
+---
+description: Book format (Javanese). LONTAR is a palm-leaf manuscript, the physical form Old Javanese literature was written and copied in for a thousand years, incised with a knife and blackened with soot; NASKAH is a manuscript generally, and both are still the format a classical Javanese text is catalogued under.
+locale: jv
+---
+buku
+buku tebal
+buku tipis
+e-book
+audiobook
+majalah
+naskah
+lontar

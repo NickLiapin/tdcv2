@@ -1,0 +1,16 @@
+---
+description: Status of a property listing (Javanese).
+locale: jv
+---
+didol
+disewakake
+wis kedol
+wis kesewa
+ing negosiasi
+ditahan
+ditarik
+anyar
+turun rega
+over kredit
+butuh cepet
+nego

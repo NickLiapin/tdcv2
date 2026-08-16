@@ -1,0 +1,16 @@
+---
+description: Streaming service. Brand names keep their real spelling and are not translated. Vidio, RCTI+ and MAXstream are Indonesian and carry the local content a Javanese viewer actually watches; WeTV, Viu and iQIYI carry the Chinese and Korean drama that dominates the market.
+locale: jv
+---
+Netflix
+Disney+ Hotstar
+Vidio
+Viu
+WeTV
+iQIYI
+Prime Video
+YouTube
+HBO GO
+Catchplay+
+RCTI+
+MAXstream

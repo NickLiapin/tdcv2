@@ -1,0 +1,12 @@
+---
+description: Diagnosis commonly managed by Onkologi, written as an Indonesian-language clinical record in Java would write it.
+locale: jv
+---
+kanker payudara
+kanker paru
+kanker serviks
+kanker kolorektal
+leukemia
+limfoma
+kanker nasofaring
+kanker hati

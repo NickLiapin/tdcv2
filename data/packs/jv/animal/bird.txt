@@ -1,0 +1,34 @@
+---
+description: Bird (Javanese). PERKUTUT, the zebra dove, heads the list for a reason: keeping one for its voice is a Javanese institution, and the proverb "curiga, kukila, wanita, wisma, turangga" — keris, bird, wife, house, horse — names the five things a Javanese man is traditionally meant to possess, with the BIRD second. A good perkutut sells for more than a motorcycle. GLATHIK is the Java sparrow, endemic to the island and now endangered largely because it was trapped as a cage bird. JALAK SUREN was traditionally kept as a house guard because it calls at strangers.
+locale: jv
+---
+perkutut
+derkuku
+emprit
+glathik
+jalak
+jalak suren
+branjangan
+kutilang
+prenjak
+cucak rawa
+kepodhang
+beo
+gagak
+dara
+blekok
+kuntul
+bangau
+merak
+elang
+alap-alap
+manyar
+trucukan
+sikatan
+pelatuk
+srigunting
+walet
+sriti
+bethet
+nuri
+kakatua

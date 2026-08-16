@@ -1,0 +1,23 @@
+---
+description: Mineral or fuel worked in a mine (Javanese). WESI is iron and TIMAH tin; note WESI AJI is a separate thing entirely — heirloom iron, the metal of a keris, sometimes containing meteoric nickel called PAMOR, and it belongs to nature/metal.txt rather than here.
+locale: jv
+---
+emas
+perak
+tembaga
+timah
+nikel
+bauksit
+wesi
+watu bara
+mangan
+seng
+timbal
+belerang
+gipsum
+kaolin
+pasir wesi
+marmer
+granit
+watu kapur
+intan

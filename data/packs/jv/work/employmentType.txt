@@ -1,0 +1,15 @@
+---
+description: Kind of employment contract (Javanese). BURUH HARIAN is the day-labour arrangement that most of rural Java actually works under, paid at the end of each day with no contract at all, and it is not a marginal category. Javanese is spoken natively in essentially one state, Indonesia, so the institutions these words name are Indonesian ones. That is what the words mean and there is no generic alternative to put here instead — but it is recorded so the next reader is not guessing, and if the Indonesia COUNTRY pack ever claims this address, the country pack should win.
+locale: jv
+---
+pegawe tetep
+pegawe kontrak
+pegawe lepas
+buruh harian
+buruh borongan
+magang
+paruh wektu
+wektu kebak
+musiman
+wiraswasta
+freelance

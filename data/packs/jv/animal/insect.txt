@@ -1,0 +1,24 @@
+---
+description: Insect (Javanese). JANGKRIK, the cricket, is kept in Java both for its song and for fighting, and is farmed commercially as bird feed. LARON are the winged termites that swarm around lamps on the first rainy nights of the season, an event that marks the turn of the mangsa as reliably as a calendar; they are also eaten fried.
+locale: jv
+---
+jangkrik
+walang
+kinjeng
+kupu
+tawon
+laler
+lemut
+semut
+rayap
+laron
+coro
+kutu
+tuma
+klabang
+kalajengking
+undur-undur
+kumbang
+uler
+bekicot
+gangsir

@@ -1,0 +1,32 @@
+---
+description: Tree (Javanese). JATI is teak, the tree Java is built and carved from, and a teak plantation is the classic Javanese managed forest. RINGIN, the banyan, is sacred: one stands in the centre of every alun-alun and a pair stand in the south square at Yogyakarta, and it is not felled casually. PRING is bamboo, which Javanese treats as a tree and which supplies scaffolding, walls, cages, furniture and the flute. KLAPA is the coconut palm and GLUGU its trunk used as a beam.
+locale: jv
+---
+jati
+ringin
+waru
+randhu
+asem
+gayam
+sawo
+nangka
+jambu
+klapa
+pring
+preh
+mahoni
+sengon
+akasia
+munggur
+trembesi
+kepel
+kluwih
+sukun
+tanjung
+cendhana
+sonokeling
+bendha
+pelem
+duren
+blimbing
+kesambi

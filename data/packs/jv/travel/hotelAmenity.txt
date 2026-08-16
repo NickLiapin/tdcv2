@@ -1,0 +1,34 @@
+---
+description: Hotel facility (Javanese). SARAPAN is breakfast, and note that an Indonesian hotel breakfast is rice-based; MUSHOLA is the prayer room, which every Indonesian hotel has and which is as expected as a lift.
+locale: jv
+---
+wifi
+AC
+kipas angin
+TV
+kulkas mini
+water heater
+kamar mandi njero
+shower
+bathtub
+handuk
+sabun
+sarapan
+restoran
+kolam renang
+parkir
+parkir gratis
+lift
+resepsionis 24 jam
+laundry
+antar jemput bandhara
+ruang rapat
+mushola
+CCTV
+brankas
+setrika
+dispenser
+balkon
+taman
+gazebo
+pendhapa

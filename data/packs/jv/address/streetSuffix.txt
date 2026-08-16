@@ -1,0 +1,44 @@
+---
+description: Thoroughfare type. Javanese, like Indonesian, puts it BEFORE the name — Jalan Diponegoro, Gang Mlathi — which is the opposite of English. DALAN is the Javanese word for a road and LURUNG for a lane; in practice the Indonesian JALAN and its abbreviation Jl. are what is painted on the sign and printed on the envelope, because addressing is an administrative act done in Indonesian, so both are here. DUKUH, PADUKUHAN and DUSUN are hamlets, KAMPUNG a neighbourhood, and a Javanese address stacks them above the street rather than beside it.
+locale: jv
+---
+Jalan
+Jl.
+Jln.
+Dalan
+Gang
+Gg.
+Lurung
+Lorong
+Kampung
+Kp.
+Dukuh
+Padukuhan
+Dusun
+Dsn.
+Perumahan
+Perum
+Komplek
+Blok
+Simpang
+Bulevar
+Jalan Raya
+Jl. Raya
+Jalan Lingkar
+Prapatan
+Pertigaan
+Bunderan
+Alun-alun
+Pasar
+Terminal
+Stasiun
+Lapangan
+Embong
+Kepatihan
+Kauman
+Pecinan
+Ndalem
+Beteng
+Jagalan
+Pakuwon
+Sayidan

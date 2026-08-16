@@ -1,0 +1,20 @@
+---
+description: Horse type (Javanese). JARAN KEPANG is not a horse at all but the flat woven-bamboo horse ridden in the trance dance of the same name, and it is what most Javanese think of first on hearing the word — it is listed because a config drawing "horse" in a Javanese context will meet it. Kuda Sandel and Kuda Sumba are the archipelago's own small hardy breeds.
+locale: jv
+---
+jaran kepang
+jaran sandel
+jaran sumba
+jaran bima
+jaran gayo
+jaran priangan
+arab
+thoroughbred
+quarter horse
+poni
+appaloosa
+andalusia
+friesian
+shire
+haflinger
+mustang

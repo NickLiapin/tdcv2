@@ -1,0 +1,10 @@
+---
+description: Playing position or role in Voli. Note KIWA and TENGEN for left and right — Javanese words, where Indonesian says kiri and kanan — and NGAREP and MBURI for front and back.
+locale: jv
+---
+tosser
+spiker
+libero
+blocker
+server
+pemain tengah

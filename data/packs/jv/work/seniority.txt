@@ -1,0 +1,20 @@
+---
+description: Seniority level (Javanese). The first block is the Javanese ladder of standing in a workplace, which is expressed with age and kinship words rather than with rank words — SEPUH is "elder" and does real work in an office, and being called MBAH or SESEPUH at work is a compliment about experience, not about age alone. The second block is the borrowed corporate ladder used in job advertisements.
+locale: jv
+---
+magang
+anyar
+junior
+madya
+senior
+sepuh
+sesepuh
+ahli
+pakar
+kepala
+kepala bagian
+wakil kepala
+manajer
+manajer senior
+direktur
+direktur utama

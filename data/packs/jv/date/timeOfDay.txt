@@ -1,0 +1,21 @@
+---
+description: Time of day (Javanese, ngoko). Javanese cuts the day differently from English: AWAN is not "afternoon" but the broad middle of the day around noon, SORE runs from mid-afternoon to sunset, and BENGI covers everything after dark, so there is no word matching "evening" exactly. SURUP is the moment of sunset itself and BYAR the moment it becomes light. The krama forms differ completely and are what you use to anyone you owe respect: enjing for esuk, siyang for awan, sonten for sore, dalu for bengi — this is one of the clearest small demonstrations that Javanese speech levels replace whole words rather than adding politeness particles. WAYAH means "the time of", and the wayah subuh/luhur/asar/magrib/isya block names the five Islamic prayer times, which in practice is how much of rural Java still tells the time of day.
+locale: jv
+---
+esuk
+esuk umun-umun
+awan
+sore
+bengi
+tengah wengi
+byar
+surup
+wayah subuh
+wayah luhur
+wayah asar
+wayah magrib
+wayah isya
+enjing
+siyang
+sonten
+dalu

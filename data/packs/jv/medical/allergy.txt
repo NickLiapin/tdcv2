@@ -1,0 +1,26 @@
+---
+description: Allergen (Javanese). The food block leads with URANG, YUYU and IWAK LAUT — prawn, crab and sea fish — because in coastal Java these are the commonest reported food allergies by a wide margin, well ahead of the peanut and dairy allergies that lead a European list. DEBU OMAH is house dust and SERBUK SARI pollen.
+locale: jv
+---
+urang
+yuyu
+iwak laut
+endhog
+susu sapi
+kacang
+kedhele
+gandum
+coklat
+sea food
+debu omah
+tungau
+serbuk sari
+wulu kucing
+wulu asu
+jamur
+lateks
+penisilin
+aspirin
+sulfa
+entupan tawon
+dingin

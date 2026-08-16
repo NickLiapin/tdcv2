@@ -1,0 +1,58 @@
+---
+description: Colour (Javanese). The core terms are ngoko and every one of them differs from Indonesian: ABANG red (merah), IRENG black (hitam), PUTIH white (same), KUNING yellow (same), IJO green (hijau), BIRU blue (same), WUNGU purple (ungu), KLAWU grey (abu-abu), JAMBON pink (merah muda). The KRAMA colours are separate words again — abrit for red, cemeng for black, pethak for white, jene for yellow, ijem for green — and cemeng is the word inside Giri Cemeng, the Javanese name for Montenegro. The last block is BATIK AND CLASSICAL vocabulary that has no everyday use and no Indonesian equivalent: SOGAN is the deep red-brown of Solo batik got from soga bark, WEDEL the indigo blue, GADHUNG a pale young-leaf green, WILIS a dark green, WULUNG the blue-black of an old keris blade or a mourning cloth, DADU a pale pink, and BANGKA the grey of dead ash. Core terms verified against the Javanese Wikipedia article on warna.
+locale: jv
+---
+abang
+ireng
+putih
+kuning
+ijo
+biru
+wungu
+klawu
+jambon
+soklat
+jingga
+nila
+abang tuwa
+abang enom
+ijo tuwa
+ijo enom
+biru tuwa
+biru enom
+kuning gadhing
+kuning emas
+putih susu
+putih balung
+ireng legam
+klawu tuwa
+klawu enom
+soklat tuwa
+soklat enom
+abrit
+cemeng
+pethak
+jene
+ijem
+sogan
+wedel
+gadhung
+wilis
+wulung
+dadu
+bangka
+tembaga
+perak
+emas
+perunggu
+krem
+maron
+tosca
+magenta
+lila
+zaitun
+navy
+turkis
+salem
+mustar
+terakota

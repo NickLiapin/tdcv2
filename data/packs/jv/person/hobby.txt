@@ -1,0 +1,80 @@
+---
+description: Pastime (Javanese, ngoko). A block of these are specifically Javanese and have no one-word translation. NGOPI is not simply "drinking coffee" but sitting out at a warung half the night talking. MACAPAT is chanting classical verse in its eleven metres. NGGAMEL and NYINDHEN are playing gamelan and singing over it. NGURI-URI BUDAYA — literally "keeping the culture alive" — is a named leisure category in Java, not an abstraction. NGINGU PERKUTUT, keeping a turtledove for its song, is the second of the five things a Javanese man is proverbially meant to possess (curiga, kukila, wanita, wisma, turangga — keris, bird, wife, house, horse), which is why bird-keeping sits in the hobby list and not the pet list. TIRAKAT and LELAKU are ascetic practices — fasting, night vigils, pilgrimage to graves — undertaken as a discipline rather than as worship.
+locale: jv
+---
+maca buku
+nulis
+nggambar
+nglukis
+motret
+nyanyi
+nabuh gamelan
+nggamel
+nyindhen
+macapat
+nembang
+main wayang
+ndhalang
+njoged
+nari
+main gitar
+ngrungokake musik
+nonton film
+nonton wayang
+nonton bal-balan
+main bal-balan
+main catur
+main dhakon
+main gaple
+mancing
+ngingu manuk
+ngingu perkutut
+ngingu iwak
+ngingu kucing
+ngingu pitik
+ngingu jangkrik
+nandur kembang
+ngurus kebon
+tetanen
+masak
+mbatik
+nyulam
+nganyam
+ndandani motor
+ngutak-atik komputer
+mlaku-mlaku
+munggah gunung
+mlayu
+senam
+nglangi
+sepedaan
+touring
+lelungan
+ziarah
+ngopi
+jagongan
+nglaras
+tirakat
+lelaku
+nguri-uri budaya
+kumpul kanca
+dolan
+ngumpulake barang kuna
+ngumpulake keris
+ngumpulake prangko
+ngumpulake dhuwit kuna
+main layangan
+main gasing
+egrang
+nonton jaranan
+nonton ketoprak
+nonton ludruk
+sinau basa
+nulis aksara Jawa
+ngaji
+sinau sejarah
+nggawe video
+main game
+karaoke
+blanja
+turu

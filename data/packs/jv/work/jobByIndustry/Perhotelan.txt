@@ -1,0 +1,14 @@
+---
+description: Job in the Perhotelan industry, as named in Javanese.
+locale: jv
+---
+resepsionis
+koki
+tukang masak
+pelayan
+petugas kamar
+manajer hotel
+pemandu wisata
+barista
+satpam hotel
+tukang cuci

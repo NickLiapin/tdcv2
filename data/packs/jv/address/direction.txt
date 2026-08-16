@@ -1,0 +1,19 @@
+---
+description: Directional qualifier attached to a Javanese place or street name — Jalan Malioboro Lor, Alun-alun Kidul, Pasar Kliwon Wetan. THE JAVANESE COMPASS IS ITS OWN, and this is one of the two or three cleanest tests of whether a text is Javanese or Indonesian: LOR, KIDUL, WETAN, KULON where Indonesian has Utara, Selatan, Timur, Barat. Not one of the four is shared. The words are load-bearing far beyond navigation — Jawa Wetan and Jawa Kulon are the provinces, Laut Kidul is the southern ocean of Ratu Kidul, and in Yogyakarta and Surakarta ordinary people give directions by absolute compass bearing rather than by left and right, orienting on the volcano to the north and the sea to the south, so "the shop is on the north side of the road" is normal Javanese speech. The intercardinals are formed by simple compounding with -ngetan, -ngulon and so on: lor wetan, kidul kulon.
+locale: jv
+---
+Lor
+Kidul
+Wetan
+Kulon
+Tengah
+Lor Wetan
+Lor Kulon
+Kidul Wetan
+Kidul Kulon
+Nglor
+Ngidul
+Ngetan
+Ngulon
+Ndhuwur
+Ngisor

@@ -1,0 +1,12 @@
+---
+description: Gender label. Javanese marks it lexically, not grammatically — there is no gendered pronoun, no gendered agreement and no gendered surname anywhere in the language — so these words appear on a form and almost nowhere else. lanang and wadon are NGOKO; kakung and estri are the KRAMA pair and are what an official Javanese-language document or a wedding invitation uses. priya and wanita are the Indonesian-derived formal pair, common on modern paperwork.
+locale: jv
+---
+lanang
+wadon
+kakung
+estri
+priya
+wanita
+liyane
+ora kasebut

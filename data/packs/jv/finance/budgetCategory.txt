@@ -1,0 +1,24 @@
+---
+description: Household budget line (Javanese). SEMBAKO is the nine staple foods whose price is politically watched in Indonesia and is a budget category in itself. SUMBANGAN — contributions to neighbours' weddings, funerals and slametan — is a real and substantial monthly outgoing in a Javanese household and has no equivalent line in a European budget.
+locale: jv
+---
+sembako
+panganan
+omben-omben
+kontrakan
+listrik
+banyu
+gas
+pulsa
+internet
+transportasi
+bensin
+kesehatan
+obat
+pendhidhikan
+klambi
+sumbangan
+zakat
+tabungan
+nyicil
+hiburan

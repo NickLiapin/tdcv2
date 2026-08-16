@@ -1,0 +1,32 @@
+---
+description: Technical adjective (Javanese).
+locale: jv
+---
+cepet
+alon
+aman
+ora aman
+stabil
+ora stabil
+nyambung
+pedhot
+kebak
+kosong
+anyar
+lawas
+rusak
+apik
+kebuka
+kekunci
+kaenkripsi
+kakompres
+otomatis
+manual
+sementara
+permanen
+lokal
+jarak adoh
+umum
+pribadi
+aktif
+ora aktif

@@ -1,0 +1,5 @@
+---
+description: Currency of Switserlan, named in Javanese.
+locale: jv
+---
+Franc Switserlan

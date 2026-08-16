@@ -1,0 +1,5 @@
+---
+description: Currency of Swedhen, named in Javanese.
+locale: jv
+---
+Krona Swedhen

@@ -1,0 +1,12 @@
+---
+description: Mining method (Javanese). TAMBANG RAKYAT is small-scale artisanal mining worked by villagers without a company, which in Java is a large share of all mining and has its own law and its own accidents.
+locale: jv
+---
+tambang terbuka
+tambang jero
+tambang semprot
+tambang rakyat
+kuari
+gali tangan
+pengerukan
+tambang ngisor lemah

@@ -1,0 +1,8 @@
+---
+description: Calendar quarter (Javanese). Built on tri- plus WULAN, the Javanese word for month — literally "three-months" — and numbered with Roman numerals as Indonesian business writing does. Note wulan is also the word for the moon, the two senses being the same word.
+locale: jv
+---
+triwulan I
+triwulan II
+triwulan III
+triwulan IV

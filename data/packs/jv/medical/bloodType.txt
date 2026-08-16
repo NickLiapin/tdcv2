@@ -1,0 +1,12 @@
+---
+description: ABO blood group with rhesus factor. International notation, identical in every locale; Indonesian forms write the rhesus as Rh+ and Rh-. Note that blood type is taken seriously as a personality indicator in Java as it is in Japan and Korea, so it appears on forms where a European reader would not expect it.
+locale: jv
+---
+O Rh+
+O Rh-
+A Rh+
+A Rh-
+B Rh+
+B Rh-
+AB Rh+
+AB Rh-

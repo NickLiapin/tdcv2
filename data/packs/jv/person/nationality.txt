@@ -1,0 +1,71 @@
+---
+description: Nationality, as Javanese names it. Javanese forms one with WONG (person) plus the country name — wong Jawa, wong Landa — where Indonesian uses "orang". WONG LANDA is the standing Javanese word for a Dutch person, clipped from Walanda, and by extension for any white foreigner; it long predates and is far commoner than any calque of "Belanda". Note the country names themselves are Dutch-derived and diverge sharply from Indonesian — see geo/country.txt, where the reason is set out.
+locale: jv
+---
+wong Jawa
+wong Sundha
+wong Madura
+wong Bali
+wong Batak
+wong Minang
+wong Bugis
+wong Banjar
+wong Betawi
+wong Sasak
+wong Indhonesia
+wong Malaysia
+wong Singapura
+wong Brunei
+wong Filipina
+wong Thai
+wong Vietnam
+wong Kamboja
+wong Myanmar
+wong Laos
+wong Timor Wetan
+wong Papua
+wong Cina
+wong Jepang
+wong Korea
+wong Indhi
+wong Pakistan
+wong Banggaladesa
+wong Nepal
+wong Ceylon
+wong Arab
+wong Mesir
+wong Turki
+wong Iran
+wong Irak
+wong Yaman
+wong Landa
+wong Jerman
+wong Prancis
+wong Itali
+wong Spanyol
+wong Portegal
+wong Grikenlan
+wong Polen
+wong Ruslan
+wong Ukraina
+wong Swedhen
+wong Nurwegen
+wong Dhenemarken
+wong Finlan
+wong Ostenrik
+wong Switserlan
+wong Belgi
+wong Karajan Manunggal
+wong Irlandia
+wong Amerika
+wong Kanadha
+wong Meksiko
+wong Brasil
+wong Argentina
+wong Ostrali
+wong Niu Selan
+wong Afrika Kidul
+wong Nigeria
+wong Kenya
+wong Ethiopia
+wong Suriname

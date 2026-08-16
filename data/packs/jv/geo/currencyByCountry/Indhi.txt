@@ -1,0 +1,5 @@
+---
+description: Currency of Indhi, named in Javanese.
+locale: jv
+---
+Rupee

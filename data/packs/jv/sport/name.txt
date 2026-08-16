@@ -1,0 +1,50 @@
+---
+description: Sport (Javanese). The traditional Javanese block at the end is play rather than athletics and has no European equivalent: EGRANG is stilt-walking, DHAKON the seed-sowing board game (congklak in Indonesian), BENTHIK a stick-and-peg batting game, ENGKLEK hopscotch, JAMURAN and CUBLAK-CUBLAK SUWENG singing circle games, and LAYANGAN kite-flying, which in Java is competitive and involves cutting the other kite's line. JARANAN — hobby-horse trance dance — is included with a caveat: Javanese classes it as a performance, not a sport, and it is here only because a config asking for "things people do in a field on a Sunday" will otherwise miss it.
+locale: jv
+---
+bal-balan
+voli
+basket
+bulu tangkis
+pencak silat
+tenis meja
+tenis
+kasti
+gobag sodor
+renang
+atletik
+mlayu
+lompat dhuwur
+lompat adoh
+panahan
+catur
+gulat
+tinju
+karate
+taekwondo
+judo
+sepak takraw
+balap sepedha
+balap motor
+senam
+angkat besi
+dayung
+selancar
+golf
+bowling
+biliar
+hoki
+rugbi
+bisbol
+sepatu roda
+egrang
+dhakon
+benthik
+engklek
+layangan
+gasing
+cublak-cublak suweng
+jaranan
+adu jangkrik
+pathon
+lompat tali

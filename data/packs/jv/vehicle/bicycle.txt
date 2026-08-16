@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Javanese). PIT ONTHEL is the upright steel roadster left behind by the Dutch — the name is Javanese, from the sound or the action of pedalling — and it has an enormous nostalgic following in Java, with clubs, rallies and period costume. PIT KEBO is the heavy-framed carrier bicycle.
+locale: jv
+---
+pit onthel
+pit kebo
+pit gunung
+pit balap
+pit lipat
+pit listrik
+pit anak
+pit roda telu
+BMX
+sepedha jengki
+sepedha mini
+city bike
+gravel
+fixie
+tandem
+sepedha statis
+becak sepedha

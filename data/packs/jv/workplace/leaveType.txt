@@ -1,0 +1,16 @@
+---
+description: Kind of leave (Javanese). CUTI BERSAMA is the collective leave the government declares around national holidays, applying to the whole country at once, and MUDIK — the mass return to one's home village for Idul Fitri — is the reason the largest block of it exists.
+locale: jv
+---
+cuti taunan
+cuti bersama
+cuti nglairake
+cuti nemani nglairake
+cuti lara
+cuti haid
+cuti nikah
+cuti kesripahan
+cuti besar
+cuti ibadah haji
+ijin ora mlebu
+mbolos

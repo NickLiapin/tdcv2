@@ -1,0 +1,14 @@
+---
+description: Job in the Pambangunan industry, as named in Javanese.
+locale: jv
+---
+tukang batu
+tukang kayu
+tukang las
+tukang cet
+mandhor
+kuli bangunan
+arsitek
+insinyur sipil
+operator alat berat
+juru ukur

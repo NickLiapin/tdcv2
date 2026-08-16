@@ -1,0 +1,16 @@
+---
+description: Shoe size in the EUROPEAN (Paris point) scale, which is what is printed on a shoebox in Java and what a Javanese asks for in a shop. Indonesia inherited continental sizing through the Dutch, and the whole retail chain sells in it; US numbers appear beside it on imported stock. THIS IS WHERE JAVANESE AND MALAY SPEAKERS DIVERGE BY TRADE HISTORY RATHER THAN BY LANGUAGE: Malaysia is a Commonwealth market and reads UK sizes, so the ms pack ships a completely different set of numbers for the same address. There is no Javanese or Indonesian national scale. Javanese is spoken natively in essentially one state, Indonesia, so the institutions named here are Indonesian ones — that is what the words mean, and there is no generic alternative to put instead. Recorded so the next reader is not guessing; if the Indonesia COUNTRY pack ever claims this address, the country pack should win.
+locale: jv
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

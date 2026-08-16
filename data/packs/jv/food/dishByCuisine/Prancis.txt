@@ -1,0 +1,10 @@
+---
+description: Dish belonging to Prancis cuisine, as a Javanese menu names it.
+locale: jv
+---
+croissant
+baguette
+ratatouille
+quiche
+crepe
+sup brambang

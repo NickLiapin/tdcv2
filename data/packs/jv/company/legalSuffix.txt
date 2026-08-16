@@ -1,0 +1,45 @@
+---
+description: Company legal form. These are INDONESIA'S, since that is the jurisdiction a Javanese-language business is registered in: PT is a limited company, PT Tbk a listed one, CV a limited partnership, UD a sole trader, Firma a general partnership, Koperasi a cooperative, Yayasan a foundation, Perum and Persero state enterprises, and BUMDes a village-owned enterprise, which is a Javanese village institution as much as a corporate form. Javanese is spoken natively in essentially one state, Indonesia, so the institutions named here are Indonesian ones — that is what the words mean, and there is no generic alternative to put instead. Recorded so the next reader is not guessing; if the Indonesia COUNTRY pack ever claims this address, the country pack should win.
+locale: jv
+---
+PT
+PT Tbk
+CV
+UD
+Firma
+Fa.
+Koperasi
+KSU
+KSP
+Yayasan
+Perum
+Persero
+BUMDes
+BUMD
+Perseroan Perorangan
+Maatschap
+PT PMA
+PT PMDN
+Tbk
+Grup
+Group
+Holding
+Sentra
+Sentral
+Mandiri
+Bersama
+Jaya
+Abadi
+Utama
+Perkasa
+Sejahtera
+Makmur
+Lestari
+Sentosa
+Nusantara
+Indonesia
+Internasional
+Global
+Prima
+Karya
+Mitra

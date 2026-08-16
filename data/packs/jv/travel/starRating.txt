@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Javanese). LINTANG is a star.
+locale: jv
+---
+lintang 1
+lintang 2
+lintang 3
+lintang 4
+lintang 5

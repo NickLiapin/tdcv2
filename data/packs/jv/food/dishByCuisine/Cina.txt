@@ -1,0 +1,16 @@
+---
+description: Dish belonging to Cina cuisine, as a Javanese menu names it.
+locale: jv
+---
+bakmi
+bakso
+capcay
+fuyunghai
+lumpia
+siomay
+bakpao
+kwetiau
+mi ayam
+bakcang
+sekba
+lontong cap go meh

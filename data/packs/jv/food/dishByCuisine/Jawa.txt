@@ -1,0 +1,54 @@
+---
+description: Dish belonging to Jawa cuisine, as a Javanese menu names it.
+locale: jv
+---
+gudheg
+pecel
+rawon
+soto
+sega liwet
+sega kucing
+tumpeng
+lotek
+tempe mendoan
+tahu bacem
+opor pitik
+garang asem
+brongkos
+sate klathak
+sayur lodeh
+oseng-oseng
+krecek
+sega gandul
+tahu gimbal
+mi ongklok
+soto kudus
+sate buntel
+tengkleng
+timlo
+mangut lele
+sega tiwul
+bakmi jawa
+gudangan
+urap
+trancam
+botok
+kuluban
+sega megono
+sega jagung
+pecel lele
+tahu petis
+gethuk
+klepon
+cenil
+jenang
+wajik
+jadah
+lemper
+arem-arem
+serabi
+wingko babat
+carabikang
+bakpia
+dawet
+wedang ronde

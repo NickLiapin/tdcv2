@@ -1,0 +1,12 @@
+---
+description: Diagnosis commonly managed by Neurologi, written as an Indonesian-language clinical record in Java would write it.
+locale: jv
+---
+stroke
+epilepsi
+migren
+penyakit Parkinson
+neuropati perifer
+multipel sklerosis
+demensia
+meningitis

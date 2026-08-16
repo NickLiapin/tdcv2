@@ -1,0 +1,10 @@
+---
+description: Dish belonging to Madura cuisine, as a Javanese menu names it.
+locale: jv
+---
+sate madura
+soto madura
+kaldu kokot
+bebek songkem
+rujak cingur
+campor lorjuk

@@ -1,0 +1,11 @@
+---
+description: Day of the seven-day week in Javanese, Sunday first. These are NOT the Indonesian names and the differences are systematic: Javanese has NGAHAD for Sunday where Indonesian has Minggu (Ngahad is from Arabic al-ahad, and Minggu from Portuguese domingo — the two languages borrowed the same day from opposite ends of the world), SENEN not Senin, SLASA not Selasa, REBO not Rabu, KEMIS not Kamis, JUMUWAH not Jumat, SETU not Sabtu. Diacritic spellings are Senèn and Jumuwah. Variant forms are in live use — Ngaat for Ngahad, Selasa for Slasa, Jemuwah for Jumuwah — and the Javanese Wikipedia article on the Javanese calendar uses the variants while its article titles use the forms given here. THE SEVEN-DAY WEEK IS ONLY HALF OF A JAVANESE DATE: it runs simultaneously with a five-day market week (date/pasaran.txt), and the two together make the 35-day wetonan cycle that Javanese life is actually scheduled on.
+locale: jv
+---
+Ngahad
+Senen
+Slasa
+Rebo
+Kemis
+Jumuwah
+Setu

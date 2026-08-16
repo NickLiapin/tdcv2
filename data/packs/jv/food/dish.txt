@@ -1,0 +1,44 @@
+---
+description: Dish (Javanese). Note SEGA, not nasi: Javanese calls cooked rice sega in ngoko and sekul in krama, and every rice dish in this list is built on it — sega liwet, sega kucing, sega megono, sega tiwul. SEGA KUCING is literally "cat rice", a fist-sized banana-leaf parcel sold from an angkringan cart, and SEGA TIWUL is made from dried cassava rather than rice at all, a famine food from the limestone south that is now sold as a delicacy. GUDHEG, TEMPE and SATE KLATHAK carry the retroflex dh and th that Indonesian does not have. Names of dishes are register-free — you order gudheg in ngoko or krama alike — but the verb you order it with is not.
+locale: jv
+---
+gudheg
+pecel
+rawon
+soto
+sega liwet
+sega kucing
+sega megono
+sega tiwul
+sega gandul
+tumpeng
+lotek
+tempe mendoan
+tempe bacem
+tahu bacem
+opor pitik
+garang asem
+brongkos
+sate klathak
+sate buntel
+sayur lodeh
+jangan asem
+jangan bening
+oseng-oseng
+krecek
+tahu gimbal
+mi ongklok
+bakmi jawa
+tengkleng
+timlo
+mangut lele
+gudangan
+urap
+trancam
+botok
+pecel lele
+rujak cingur
+lontong
+ketupat
+nasi goreng
+bakso

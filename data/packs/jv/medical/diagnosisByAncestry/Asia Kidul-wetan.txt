@@ -1,0 +1,9 @@
+---
+description: Condition with raised prevalence in people of Asia Kidul-wetan descent. A prevalence signal, not an exclusive one.
+locale: jv
+---
+talasemia alfa
+talasemia beta
+hemoglobin E
+defisiensi G6PD
+kanker nasofaring

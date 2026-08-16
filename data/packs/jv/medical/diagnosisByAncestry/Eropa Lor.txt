@@ -1,0 +1,8 @@
+---
+description: Condition with raised prevalence in people of Eropa Lor descent. A prevalence signal, not an exclusive one.
+locale: jv
+---
+fibrosis kistik
+hemokromatosis herediter
+defisiensi alfa-1 antitripsin
+penyakit Celiac

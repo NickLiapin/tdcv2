@@ -1,0 +1,15 @@
+---
+description: Shipping status (Javanese).
+locale: jv
+---
+durung dikirim
+lagi dikemas
+wis dikirim
+ing dalan
+tekan gudhang transit
+lagi dianter
+ditampa
+gagal dianter
+dibalekake
+ilang
+rusak

@@ -1,0 +1,26 @@
+---
+description: Company department (Javanese). Corporate vocabulary in Java is Indonesian — a Javanese-speaking office still calls the personnel department Sumber Daya Manusia — so most of these are Indonesian terms used in Javanese sentences. Note the category is workplace/ and work/, never hr/: hr is the ISO code for Croatian and an address beginning hr. resolves to the Croatian pack instead of to a department list.
+locale: jv
+---
+Sumber Daya Manusia
+Keuangan
+Akuntansi
+Pemasaran
+Penjualan
+Produksi
+Pengadaan
+Logistik
+Gudhang
+Teknologi Informasi
+Riset lan Pengembangan
+Hukum
+Umum
+Pelayanan Pelanggan
+Pengawasan Mutu
+Perawatan
+Keamanan
+Humas
+Perencanaan
+Ekspor Impor
+Administrasi
+Pelatihan

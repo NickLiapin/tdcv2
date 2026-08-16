@@ -1,0 +1,5 @@
+---
+description: Currency of Ostrali, named in Javanese.
+locale: jv
+---
+Dolar Ostrali

@@ -1,0 +1,11 @@
+---
+description: Diagnosis commonly managed by Nefrologi, written as an Indonesian-language clinical record in Java would write it.
+locale: jv
+---
+gagal ginjal kronis
+gagal ginjal akut
+batu ginjal
+glomerulonefritis
+sindrom nefrotik
+infeksi saluran kemih
+penyakit ginjal polikistik

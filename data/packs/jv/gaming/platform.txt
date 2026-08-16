@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Brand names keep their real spelling and are not translated. WARNET — warung internet, the internet cafe — and RENTAL PS, the by-the-hour PlayStation shop, are the two platforms most Javanese gamers actually played on for two decades and both are still ordinary; a console at home is comparatively rare, and mobile is dominant.
+locale: jv
+---
+Android
+iOS
+PC
+warnet
+rental PS
+PlayStation 4
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+Steam Deck
+browser

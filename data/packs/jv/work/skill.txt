@@ -1,0 +1,46 @@
+---
+description: Workplace skill (Javanese). The soft-skill block at the front is Javanese and culturally loaded: TEPA SLIRA is measuring another person by yourself before you act, EMPAN PAPAN is judging what a particular place and moment allow, and both are named virtues a Javanese employer will say out loud about a good colleague. NGEMONG is looking after junior staff in the way one looks after a child. The technical block is Indonesian and English, because that is the language it is taught and advertised in.
+locale: jv
+---
+tepa slira
+empan papan
+ngemong
+sabar
+telaten
+jujur
+tanggung jawab
+kerja bareng
+komunikasi
+kepemimpinan
+negosiasi
+presentasi
+manajemen wektu
+ngrampungake masalah
+mikir kritis
+kreatif
+adaptasi
+nulis laporan
+basa Inggris
+basa Jawa krama
+ngetik
+komputer dhasar
+spreadsheet
+basis dhata
+pemrograman
+analisis dhata
+desain grafis
+fotografi
+video editing
+pemasaran digital
+akuntansi
+pajak
+audit
+logistik
+K3
+ngelas
+mesin bubut
+listrik
+otomotif
+masak
+njahit
+mbatik

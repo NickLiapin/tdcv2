@@ -1,0 +1,16 @@
+---
+description: Western zodiac sign in Javanese spelling. The names are borrowed and the system with them — it is read in newspapers and taken about as seriously as in Europe. THE JAVANESE SYSTEM IS A DIFFERENT ONE ENTIRELY and does not fit this file: a Javanese asks your WETON, the pairing of your seven-day weekday with your five-day pasaran day (Senen Pahing, Jemuwah Kliwon), which repeats on a 35-day cycle rather than a yearly one, carries a numeric NEPTU used to pick wedding and moving dates, and is the thing actually consulted. There is also the 30-week WUKU cycle. Neither can be derived from a birth date alone by a config that only knows the Gregorian calendar; see date/pasaran.txt.
+locale: jv
+---
+Aries
+Taurus
+Gemini
+Kanker
+Leo
+Virgo
+Libra
+Skorpio
+Sagitarius
+Kaprikornus
+Akuarius
+Pisces

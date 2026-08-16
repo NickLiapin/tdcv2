@@ -1,0 +1,5 @@
+---
+description: Currency of Amerika Sarekat, named in Javanese.
+locale: jv
+---
+Dolar Amerika

@@ -1,0 +1,128 @@
+---
+description: Occupation (Javanese). TWO REGISTERS OF VOCABULARY SIT IN THIS FILE and a reader should know which is which. The traditional block is genuinely Javanese and untranslatable: DHALANG is the shadow-puppet master, who voices every character, directs the gamelan and narrates in Old Javanese through a night-long performance; PESINDHEN is the female singer who sits with the gamelan and NIYAGA or PENGRAWIT the players; EMPU is the smith who forges a keris and is a spiritual office as much as a trade, not a synonym for pandhe, the ordinary blacksmith; PAMBATIK draws batik in wax; KUNDHI throws pots; DHUKUN BAYI is the traditional birth attendant and DHUKUN PIJET the bone-setter and masseur. The village-office block — LURAH, CARIK, BAYAN, KAMITUWA, JOGOBOYO, ULU-ULU, MODIN — are Javanese words for real posts in a Javanese village: the head, the secretary, the hamlet head, the elder, the watchman, the irrigation officer and the mosque official. The words are the language's; the administrative structure they sit in belongs to the Indonesia country pack. Everything else is modern professional vocabulary, which in Java is Indonesian, because schooling, licensing and job advertising all happen in Indonesian.
+locale: jv
+---
+tani
+buruh tani
+nelayan
+peternak
+tukang kebon
+guru
+guru TK
+dosen
+kepala sekolah
+dhokter
+dhokter gigi
+dhokter kewan
+perawat
+bidhan
+apoteker
+ahli gizi
+psikolog
+terapis
+radiografer
+analis laboratorium
+pulisi
+tentara
+satpam
+pemadam kebakaran
+hakim
+jaksa
+pengacara
+notaris
+panitera
+wartawan
+pengarang
+penerjemah
+penyiar
+fotografer
+seniman
+pelukis
+penyanyi
+pemusik
+penari
+dhalang
+pesindhen
+niyaga
+pengrawit
+empu
+pandhe
+kundhi
+pambatik
+tukang ukir
+tukang emas
+tukang kayu
+tukang batu
+tukang las
+tukang cet
+tukang jahit
+tukang cukur
+tukang becak
+tukang parkir
+tukang sapu
+tukang pijet
+dhukun bayi
+dhukun pijet
+sopir
+kernet
+masinis
+pilot
+pramugari
+nahkoda
+kondektur
+ojek
+kuli
+kuli bangunan
+mandhor
+buruh pabrik
+operator mesin
+teknisi
+insinyur
+arsitek
+juru ukur
+akuntan
+kasir
+teller
+auditor
+aktuaris
+manajer
+direktur
+sekretaris
+resepsionis
+pramuniaga
+bakul
+juragan
+pedagang pasar
+sales
+koki
+tukang masak
+pelayan
+barista
+pemandu wisata
+programer
+analis dhata
+analis sistem
+desainer
+tester
+administrator jaringan
+pustakawan
+arsiparis
+penyuluh
+pengawas
+lurah
+carik
+bayan
+kamituwa
+jogoboyo
+ulu-ulu
+modin
+penjahit
+pemulung
+pengrajin
+juru gudhang
+petugas kebersihan
+penata rambut
+tukang service
+kurir
+pengemudi ojol
+penjaga warung

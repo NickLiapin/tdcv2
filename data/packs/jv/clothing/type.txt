@@ -1,0 +1,34 @@
+---
+description: Garment (Javanese). KLAMBI is a shirt, KATHOK trousers, KAOS a t-shirt. The traditional block is Javanese court and formal dress and every item is still worn: JARIK or SINJANG is the long batik wrap; BESKAP the fitted formal jacket a man wears with it; SURJAN the striped collarless jacket, a Yogyakarta form; BLANGKON the moulded batik headdress, and its unfolded ancestor UDHENG which is tied fresh each time; KEBAYA the fitted blouse worn by women; KEMBEN the wrapped breast-cloth beneath it; STAGEN the long woven sash wound round the waist to hold everything; SELENDANG the shoulder cloth; DODOT the huge ceremonial court wrap. This is not costume: a Javanese wedding, a kraton event and a Thursday at a Yogyakarta office all put people in these.
+locale: jv
+---
+klambi
+kaos
+kemeja
+kathok
+kathok cendhak
+rok
+jas
+jaket
+sweter
+rompi
+jarik
+sinjang
+beskap
+surjan
+blangkon
+udheng
+kebaya
+kemben
+stagen
+selendang
+dodot
+sarung
+sabuk
+kerudung
+jilbab
+topi
+kaos kaki
+sepatu
+sandhal
+selop

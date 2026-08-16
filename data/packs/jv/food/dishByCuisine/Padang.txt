@@ -1,0 +1,12 @@
+---
+description: Dish belonging to Padang cuisine, as a Javanese menu names it.
+locale: jv
+---
+rendang
+gulai
+dendeng balado
+sate padang
+soto padang
+pitik pop
+gulai tunjang
+asam padeh

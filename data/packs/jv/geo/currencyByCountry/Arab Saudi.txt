@@ -1,0 +1,5 @@
+---
+description: Currency of Arab Saudi, named in Javanese.
+locale: jv
+---
+Riyal

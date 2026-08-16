@@ -1,0 +1,14 @@
+---
+description: Kind of loan (Javanese). KUR is the subsidised smallholder and micro-business credit scheme; GADAI is pawning, which in Indonesia is a large regulated industry rather than a last resort; ARISAN is a rotating savings club, not a loan at all in the bank's sense but the way a great deal of Javanese household finance is actually done, and it is listed because a config modelling how a Javanese family funds a wedding will otherwise miss it.
+locale: jv
+---
+KUR
+kredit modal kerja
+kredit investasi
+KPR
+kredit kendharaan
+kredit multiguna
+kredit tanpa agunan
+gadai
+paylater
+arisan

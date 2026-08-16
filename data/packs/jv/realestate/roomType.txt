@@ -1,0 +1,20 @@
+---
+description: Room or space in a Javanese house. The traditional plan runs front to back and is a status gradient, not a floor plan: PENDHAPA the open pavilion where outsiders are received, PRINGGITAN the passage where wayang is performed, DALEM the enclosed inner house, and at its back the three SENTHONG — senthong kiwa, senthong tengen and between them SENTHONG TENGAH, which holds no bed and is nobody's room but is kept for Dewi Sri, the rice goddess. GANDHOK are the side wings and GADRI the rear verandah. A config laying out a Javanese house cannot map these onto bedroom and living room.
+locale: jv
+---
+pendhapa
+pringgitan
+dalem
+senthong
+senthong tengah
+senthong kiwa
+senthong tengen
+gandhok
+gadri
+emper
+latar
+pawon
+jedhing
+kamar mandi
+ruang tamu
+ruang keluwarga

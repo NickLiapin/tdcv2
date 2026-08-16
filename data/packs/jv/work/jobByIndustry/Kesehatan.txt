@@ -1,0 +1,14 @@
+---
+description: Job in the Kesehatan industry, as named in Javanese.
+locale: jv
+---
+dhokter
+dhokter gigi
+dhokter kewan
+perawat
+bidhan
+apoteker
+ahli gizi
+radiografer
+terapis
+analis laboratorium

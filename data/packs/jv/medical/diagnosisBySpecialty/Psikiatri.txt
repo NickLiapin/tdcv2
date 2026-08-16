@@ -1,0 +1,12 @@
+---
+description: Diagnosis commonly managed by Psikiatri, written as an Indonesian-language clinical record in Java would write it.
+locale: jv
+---
+depresi
+gangguan kecemasan
+skizofrenia
+gangguan bipolar
+gangguan stres pascatrauma
+insomnia
+gangguan obsesif kompulsif
+ketergantungan zat

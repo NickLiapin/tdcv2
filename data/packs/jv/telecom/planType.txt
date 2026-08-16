@@ -1,0 +1,16 @@
+---
+description: Kind of mobile plan (Javanese). PRABAYAR — prepaid — dominates Indonesia utterly; a postpaid contract is the minority arrangement, which is the reverse of most European markets, and PAKET DATA sold in fixed daily or weekly chunks is how most people buy connectivity.
+locale: jv
+---
+prabayar
+pascabayar
+paket data
+paket harian
+paket mingguan
+paket bulanan
+paket nelpon
+paket SMS
+paket roaming
+unlimited
+kuota malem
+paket kulawarga

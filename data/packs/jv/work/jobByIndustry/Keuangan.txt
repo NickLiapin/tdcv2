@@ -1,0 +1,14 @@
+---
+description: Job in the Keuangan industry, as named in Javanese.
+locale: jv
+---
+akuntan
+kasir
+teller
+analis kredit
+auditor
+aktuaris
+penaksir
+manajer cabang
+penagih
+konsultan pajak

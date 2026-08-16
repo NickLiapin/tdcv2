@@ -1,0 +1,15 @@
+---
+description: Stage of a hiring process (Javanese).
+locale: jv
+---
+lamaran mlebu
+seleksi berkas
+tes tulis
+tes psikologi
+wawancara HRD
+wawancara user
+tes praktik
+tes kesehatan
+cek referensi
+penawaran
+ditrima

@@ -1,0 +1,14 @@
+---
+description: Competitive rank (Javanese usage). The tier names are English because the games are, and Mobile Legends — whose ladder these follow — is the dominant competitive game in Indonesia by a wide margin.
+locale: jv
+---
+Warrior
+Elite
+Master
+Grandmaster
+Epic
+Legend
+Mythic
+Mythical Honor
+Mythical Glory
+Mythical Immortal

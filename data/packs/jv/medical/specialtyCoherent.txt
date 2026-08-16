@@ -1,0 +1,14 @@
+---
+description: Medical specialty with characteristic diagnoses — the parent of medical/diagnosisBySpecialty. The names are international and reach Javanese through Indonesian; there is no Javanese-language medical school, so a Javanese doctor trains, examines and writes notes in Indonesian. See medical/symptom.txt for the half of medicine that IS in Javanese.
+locale: jv
+---
+Kardiologi
+Neurologi
+Gastroenterologi
+Pulmonologi
+Endokrinologi
+Nefrologi
+Ortopedi
+Dermatologi
+Onkologi
+Psikiatri

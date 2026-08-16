@@ -1,0 +1,30 @@
+---
+description: Diagnosis specific to female anatomy or to pregnancy, in the Indonesian clinical vocabulary Javanese medicine is written in.
+locale: jv
+---
+kehamilan normal
+hiperemesis gravidarum
+preeklampsia
+eklampsia
+diabetes gestasional
+anemia dalam kehamilan
+abortus spontan
+kehamilan ektopik
+plasenta previa
+endometriosis
+mioma uteri
+kista ovarium
+sindrom ovarium polikistik
+menorrhagia
+dismenore
+amenore
+menopause
+vaginitis
+servisitis
+kanker serviks
+kanker payudara
+kanker ovarium
+mastitis
+infeksi saluran kemih
+osteoporosis pascamenopause
+infertilitas

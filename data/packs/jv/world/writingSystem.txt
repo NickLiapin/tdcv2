@@ -1,0 +1,26 @@
+---
+description: Writing system, as Javanese names it — AKSARA plus the name. THIS FILE RECORDS THE PACK'S OWN SCRIPT DECISION. Javanese has two scripts. AKSARA JAWA, the Hanacaraka, is a Brahmic abugida encoded at U+A980–U+A9DF; it is what Javanese was written in for a thousand years, it is taught in Central and East Java schools as part of the compulsory Javanese lesson, and it appears on street signs in Yogyakarta and Surakarta and on ceremonial documents — but almost nobody reads a book or writes a message in it. AKSARA LATIN is the everyday script and has been since the colonial period, and it is what THIS PACK SHIPS, in full, with no Hanacaraka anywhere in it. Two consequences a reader should know. First, the Latin orthography officially has THREE E-VOWELS distinguished by diacritic — é close-mid, è open-mid, and a plain e for the pepet schwa — and Javanese Wikipedia and every dictionary write them, so Wagé, Senèn, dhéwé and Dhésèmber are the marked forms of this pack's Wage, Senen, dhewe and Desember. This pack writes a PLAIN E EVERYWHERE, uniformly and deliberately: it is a permitted and extremely common orthography, it is what Indonesian civil registration, identity cards, road signs and keyboards actually produce, and a partially or wrongly accented pack would be worse than an unaccented one. Second, what the pack does NOT drop is the digraphs — DH and TH for the retroflex stops, plus ng, ny, kh and sy — because those are phonemic, distinguish real word pairs, and are the surest sign in Latin script that a text is Javanese and not Indonesian. AKSARA PEGON is Arabic script adapted to Javanese and is still used in pesantren.
+locale: jv
+---
+aksara Latin
+aksara Jawa
+Hanacaraka
+aksara Pegon
+aksara Kawi
+aksara Pallawa
+aksara Bali
+aksara Sundha
+aksara Batak
+aksara Lontara
+aksara Rejang
+aksara Arab
+aksara Dewanagari
+aksara Cina
+aksara Jepang
+aksara Hangeul
+aksara Kiril
+aksara Yunani
+aksara Ibrani
+aksara Thai
+aksara Braille
+aksara Morse

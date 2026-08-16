@@ -1,0 +1,5 @@
+---
+description: Currency of Karajan Manunggal, named in Javanese.
+locale: jv
+---
+Pound Sterling

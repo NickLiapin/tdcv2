@@ -1,0 +1,12 @@
+---
+description: Dish belonging to Jepang cuisine, as a Javanese menu names it.
+locale: jv
+---
+sushi
+ramen
+tempura
+sashimi
+katsu
+udon
+onigiri
+takoyaki

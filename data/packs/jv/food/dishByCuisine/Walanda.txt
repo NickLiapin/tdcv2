@@ -1,0 +1,15 @@
+---
+description: Dish belonging to Walanda cuisine, as a Javanese menu names it.
+locale: jv
+---
+selat solo
+bistik jawa
+klappertaart
+kroket
+pastel
+risoles
+kaastengels
+lapis legit
+semur
+sup brenebon
+ontbijtkoek

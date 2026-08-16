@@ -1,0 +1,26 @@
+---
+description: Property feature (Javanese). SUMUR — a well — is listed alongside mains water because a great many Javanese houses have both and the well is what works when the supply fails. POS RONDA is the neighbourhood watch hut, and having one nearby is a selling point.
+locale: jv
+---
+listrik
+banyu PAM
+sumur
+sumur bor
+garasi
+carport
+taman
+pekarangan
+pager
+kanopi
+AC
+kitchen set
+lemari tanem
+water heater
+CCTV
+pos ronda
+mesjid cedhak
+sekolah cedhak
+pasar cedhak
+akses jalan gedhe
+bebas banjir
+sertipikat SHM

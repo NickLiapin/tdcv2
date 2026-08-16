@@ -1,0 +1,36 @@
+---
+description: Common adverb and particle (Javanese, ngoko). The first block is what Javanese uses instead of tense: WIS already, LAGI in progress, AREP about to, DURUNG not yet, ISIH still, TAU ever. BANGET is the intensifier and goes after the word it strengthens — apik banget, good very — while RADA (somewhat) goes before it.
+locale: jv
+---
+wis
+lagi
+arep
+durung
+isih
+tau
+maneh
+mengko
+mau
+sesuk
+wingi
+saiki
+saben
+kerep
+jarang
+banget
+rada
+luwih
+paling
+meh
+mesthi
+mbokmenawa
+ora
+aja
+kudu
+bisa
+bareng
+dhewe
+alon-alon
+cepet-cepet
+ndadak
+sanalika

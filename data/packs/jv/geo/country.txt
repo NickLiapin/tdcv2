@@ -1,0 +1,78 @@
+---
+description: Country as JAVANESE names it, and the names are the single most diagnostic list in this pack. Javanese took its world through DUTCH, and it kept the Dutch form where Indonesian later renativised or re-borrowed: RUSLAN not Rusia (Dutch Rusland), POLEN not Polandia, GRIKENLAN not Yunani (Griekenland), SWITSERLAN not Swiss, OSTENRIK not Austria (Oostenrijk), NURWEGEN not Norwegia, SWEDHEN not Swedia, DHENEMARKEN not Denmark, FINLAN, ESLAN for Iceland (IJsland), ESTLAN, LETLAN and LITOWEN for the Baltics, HONGGARI, INDHI for India (Indie), CEYLON for Sri Lanka — the colonial name, still the Javanese one — OSTRALI, PORTEGAL, KANADHA with the retroflex dh. WALANDA is the Netherlands and is the oldest of them all. A second block is NATIVE CALQUE rather than borrowing, and no other language has these: AMERIKA SAREKAT for the United States, KARAJAN MANUNGGAL for the United Kingdom (literally "united kingdom"), KAAMIRAN ARAB MANUNGGAL for the UAE, GIRI CEMENG for Montenegro ("black mountain"), GIRI SIMA for Sierra Leone ("lion mountain"), PASISIR GADHING for Ivory Coast, PONGOL VERDE for Cape Verde. A third block shows the JAVANESE COMPASS doing work no Indonesian name does: KIDUL, LOR and WETAN replace Selatan, Utara and Timur in Afrika Kidul, Korea Kidul, Korea Lor, Sudan Kidul, Makedonia Lor and Timor Wetan. Names verified one by one against the Javanese Wikipedia article for each country. Weighted by population in millions.
+locale: jv
+weighted: true
+---
+Indhi,1440
+Cina,1410
+Amerika Sarekat,340
+Indhonesia,285
+Pakistan,245
+Nigeria,230
+Brasil,217
+Banggaladesa,173
+Ruslan,144
+Meksiko,129
+Ethiopia,128
+Jepang,124
+Filipina,118
+Mesir,113
+Vietnam,100
+Iran,89
+Turki,85
+Jerman,84
+Thai,72
+Prancis,68
+Karajan Manunggal,68
+Tanzania,67
+Afrika Kidul,60
+Itali,59
+Kenya,55
+Myanmar,54
+Korea Kidul,52
+Kolombia,52
+Spanyol,48
+Sudan,48
+Argentina,46
+Algir,45
+Irak,45
+Kanadha,39
+Polen,38
+Ukraina,38
+Maroko,37
+Arab Saudi,36
+Uzbekistan,35
+Malaysia,34
+Yaman,34
+Ghana,34
+Nepal,30
+Korea Lor,26
+Ostrali,27
+Taiwan,23
+Suriah,23
+Ceylon,22
+Kazakhstan,20
+Cile,20
+Walanda,18
+Kamboja,17
+Belgi,12
+Swedhen,11
+Yordania,11
+Kaamiran Arab Manunggal,10
+Grikenlan,10
+Portegal,10
+Papua Niu Guinea,10
+Switserlan,9
+Ostenrik,9
+Honggari,9
+Israel,10
+Singapura,6
+Dhenemarken,6
+Finlan,6
+Nurwegen,5
+Pulo Irlandia,5
+Niu Selan,5
+Libanon,5
+Suriname,1
+Timor Wetan,1
+Brunei Darussalam,1

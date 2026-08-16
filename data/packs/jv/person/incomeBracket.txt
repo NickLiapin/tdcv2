@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Javanese. Amounts are in RUPIAH (Rp), the currency of Indonesia, which is the only state where Javanese is spoken natively — the bracket boundaries are a country fact and a config comparing across locales must not read them as comparable to a euro or dollar band. YUTA is Javanese for million and MILIYAR for a thousand million; note Javanese and Indonesian both count in yuta/juta and miliar rather than in lakh or crore, despite the Sanskrit layer elsewhere in the vocabulary.
+locale: jv
+---
+kurang saka Rp 25 yuta
+Rp 25–50 yuta
+Rp 50–75 yuta
+Rp 75–100 yuta
+Rp 100–150 yuta
+Rp 150–250 yuta
+Rp 250–500 yuta
+luwih saka Rp 500 yuta

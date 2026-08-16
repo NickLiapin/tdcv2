@@ -1,0 +1,34 @@
+---
+description: Technical verb in progressive aspect. Javanese has no participle; ongoing action is marked with the separate word LAGI placed before the verb, exactly as English uses "is ...ing" — so "lagi ngundhuh" is downloading. The verb form itself does not change, which is why every entry here is the same word as in hacker/verb.txt with lagi in front.
+locale: jv
+---
+lagi ngundhuh
+lagi ngunggah
+lagi mbukak
+lagi nutup
+lagi nyimpen
+lagi mbusak
+lagi nyalin
+lagi mindhah
+lagi ngganti
+lagi nganyari
+lagi ndandani
+lagi ngresiki
+lagi nyambung
+lagi medhot
+lagi ngirim
+lagi nampa
+lagi milih
+lagi nggoleki
+lagi maca
+lagi nulis
+lagi ngetik
+lagi ngenkripsi
+lagi ndekripsi
+lagi ngompres
+lagi ngindeks
+lagi nyeken
+lagi ngompile
+lagi nransfer
+lagi mbackup
+lagi ngrestore

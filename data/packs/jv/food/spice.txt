@@ -1,0 +1,34 @@
+---
+description: Spice and seasoning (Javanese). UYAH is salt where Indonesian says garam, and MRICO is pepper where Indonesian says merica or lada — two of the commonest words in any kitchen and both different. GULA JAWA is the dark palm sugar that makes Central Javanese cooking sweet, and it is a defining regional trait, not an ingredient among others: Yogyakarta and Solo food is noticeably sweeter than anywhere else in Indonesia because of it. KLUWAK is the fermented seed that turns rawon black and is poisonous raw. TERASI and PETIS are fermented shrimp paste and shrimp reduction.
+locale: jv
+---
+uyah
+mrico
+gula
+gula jawa
+gula aren
+kunir
+jahe
+laos
+kencur
+temu ireng
+kapulaga
+cengkeh
+pala
+kayu manis
+ketumbar
+jinten
+adas
+sereh
+godhong salam
+jeruk purut
+kemiri
+terasi
+petis
+asem
+wijen
+kluwak
+brambang goreng
+bawang putih
+lombok rawit
+godhong jeruk

@@ -1,0 +1,17 @@
+---
+description: Kind of social post (Javanese).
+locale: jv
+---
+status
+foto
+video
+reels
+story
+siaran langsung
+utas
+komentar
+balesan
+bagikan ulang
+polling
+kutipan
+meme

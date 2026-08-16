@@ -1,0 +1,9 @@
+---
+description: Condition with raised prevalence in people of Afrika Sub-Sahara descent. This list is a PREVALENCE SIGNAL, NOT AN EXCLUSIVE ONE: every condition here occurs in every population, and nothing may be inferred about an individual from ancestry alone.
+locale: jv
+---
+anemia sel sabit
+defisiensi G6PD
+hipertensi
+nefropati terkait APOL1
+intoleransi laktosa

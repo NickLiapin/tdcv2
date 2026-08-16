@@ -1,0 +1,48 @@
+---
+description: Language name as Javanese says it. Javanese builds one with BASA — basa Jawa, basa Landa — where Indonesian says "bahasa". BASA LANDA is Dutch and BASA WALANDA the fuller form; the word is Javanese and centuries old, not a borrowing of Indonesian "Belanda". Javanese also names its OWN registers as if they were languages, and the first block does: basa ngoko, basa madya, basa krama, basa krama inggil, plus BASA BAGONGAN and BASA KEDHATON, the two court registers spoken only inside the Yogyakarta and Surakarta palaces respectively. basa kawi is Old Javanese, the language of the Ramayana and Mahabharata recensions and still the language of wayang narration.
+locale: jv
+---
+basa Jawa
+basa ngoko
+basa madya
+basa krama
+basa krama inggil
+basa bagongan
+basa kedhaton
+basa kawi
+basa Jawa Kuna
+basa Indhonesia
+basa Sundha
+basa Madura
+basa Bali
+basa Melayu
+basa Banjar
+basa Bugis
+basa Minang
+basa Betawi
+basa Sasak
+basa Inggris
+basa Landa
+basa Walanda
+basa Jerman
+basa Prancis
+basa Spanyol
+basa Portegal
+basa Itali
+basa Ruslan
+basa Arab
+basa Turki
+basa Persia
+basa Ibrani
+basa Cina
+basa Mandarin
+basa Hokkien
+basa Jepang
+basa Korea
+basa Thai
+basa Vietnam
+basa Hindi
+basa Tamil
+basa Sanskerta
+basa Latin
+basa Esperanto

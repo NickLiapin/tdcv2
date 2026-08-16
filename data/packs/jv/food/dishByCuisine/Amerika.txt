@@ -1,0 +1,10 @@
+---
+description: Dish belonging to Amerika cuisine, as a Javanese menu names it.
+locale: jv
+---
+hamburger
+hot dog
+pitik goreng tepung
+donat
+pancake
+pai apel

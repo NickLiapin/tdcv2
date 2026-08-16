@@ -1,0 +1,11 @@
+---
+description: Number of people in the household. Written as digits because that is what a form holds, but note Javanese COUNTING is one of the language's odder corners and a config that spells these out cannot just translate the digits: siji, loro, telu, papat, lima, nem, pitu, wolu, sanga, sepuluh in ngoko and setunggal, kalih, tiga, sekawan, gangsal, enem, pitu, wolu, sanga, sedasa in krama — the two series diverge for the first five and then converge. Above ten Javanese stops being decimal at all: 21 is SELIKUR and 25 SELAWE, both formed on -likur rather than on twenty; 50 is SEKET and 60 SEWIDAK, single words unrelated to lima and nem.
+locale: jv
+---
+1
+2
+3
+4
+5
+6
+7+

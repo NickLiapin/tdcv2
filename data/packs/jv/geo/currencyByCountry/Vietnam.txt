@@ -1,0 +1,5 @@
+---
+description: Currency of Vietnam, named in Javanese.
+locale: jv
+---
+Dong

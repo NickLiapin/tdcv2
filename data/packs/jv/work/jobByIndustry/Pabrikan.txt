@@ -1,0 +1,14 @@
+---
+description: Job in the Pabrikan industry, as named in Javanese.
+locale: jv
+---
+buruh pabrik
+operator mesin
+teknisi
+kepala produksi
+pengawas mutu
+tukang bubut
+perakit
+pengemas
+ahli logistik
+juru gudhang

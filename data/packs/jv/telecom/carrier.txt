@@ -1,0 +1,30 @@
+---
+description: Mobile network operator. Brand names keep their real spelling and are not translated. These are the operators in the Indonesian market. Javanese is spoken natively in essentially one state, Indonesia, so the institutions named here are Indonesian ones — that is what the words mean, and there is no generic alternative to put instead. Recorded so the next reader is not guessing; if the Indonesia COUNTRY pack ever claims this address, the country pack should win. The virtual operators at the end resell capacity on the same four networks.
+locale: jv
+---
+Telkomsel
+Indosat Ooredoo Hutchison
+IM3
+Tri
+XL Axiata
+Axis
+Smartfren
+by.U
+Telkomsel Halo
+simPATI
+Kartu As
+Live.On
+Telkom Indonesia
+IndiHome
+First Media
+Biznet
+MyRepublic
+MNC Play
+Oxygen
+Net1
+Hinet
+Iconnet
+CBN
+MegaVision
+Transvision
+K-Vision

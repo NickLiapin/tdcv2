@@ -1,0 +1,25 @@
+---
+description: Film genre (Javanese). The horror block is disproportionate on purpose: Indonesian cinema's dominant commercial genre is horror built on Javanese folk belief, and KUNTILANAK, GENDERUWO, POCONG, SUNDEL BOLONG and BABI NGEPET are specific named beings rather than generic ghosts. A Javanese audience reads them as a genre the way an English one reads slasher or ghost story.
+locale: jv
+---
+aksi
+drama
+komedi
+roman
+horor
+horor komedi
+kuntilanak
+genderuwo
+pocong
+sundel bolong
+thriller
+misteri
+petualangan
+fantasi
+fiksi ilmiah
+sejarah
+perang
+religi
+kulawarga
+animasi
+dokumenter

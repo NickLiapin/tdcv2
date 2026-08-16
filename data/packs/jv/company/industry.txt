@@ -1,0 +1,59 @@
+---
+description: Line of business (Javanese). The first block is what Javanese enterprise mostly is: TETANEN farming, TERNAK livestock, BAKULAN market trading, KERAJINAN craft, BATIK, JAMU herbal medicine, MEBEL furniture — Jepara furniture and Solo batik are export industries built on village workshops. The rest is modern sector vocabulary, which is Indonesian.
+locale: jv
+---
+tetanen
+ternak
+perikanan
+kehutanan
+pertambangan
+bakulan
+kerajinan
+batik
+jamu
+mebel
+ukir kayu
+gerabah
+tenun
+konveksi
+tekstil
+panganan
+omben-omben
+katering
+restoran
+warung
+hotel
+pariwisata
+transportasi
+logistik
+ekspedisi
+otomotif
+bengkel
+konstruksi
+properti
+bahan bangunan
+manufaktur
+kimia
+farmasi
+kesehatan
+pendhidhikan
+pelatihan
+teknologi informasi
+telekomunikasi
+media
+periklanan
+percetakan
+penerbitan
+hiburan
+olahraga
+keuangan
+asuransi
+koperasi
+konsultan
+hukum
+akuntansi
+keamanan
+kebersihan
+energi
+listrik
+lingkungan

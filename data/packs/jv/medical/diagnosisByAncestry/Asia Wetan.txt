@@ -1,0 +1,8 @@
+---
+description: Condition with raised prevalence in people of Asia Wetan descent. A prevalence signal, not an exclusive one.
+locale: jv
+---
+intoleransi alkohol aldehid dehidrogenase
+kanker nasofaring
+kanker lambung
+defisiensi G6PD

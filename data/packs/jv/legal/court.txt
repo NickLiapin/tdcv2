@@ -1,0 +1,19 @@
+---
+description: Kind of court. Javanese is spoken natively in essentially one state, Indonesia, so the institutions named here are Indonesian ones — that is what the words mean, and there is no generic alternative to put instead. Recorded so the next reader is not guessing; if the Indonesia COUNTRY pack ever claims this address, the country pack should win. PENGADILAN AGAMA is the religious court with jurisdiction over Muslim marriage, divorce and inheritance and handles an enormous volume of ordinary family business; it is not a marginal institution. The last two are NOT state courts and are listed because they resolve most Javanese disputes before any court sees them: REMBUG DESA is the village discussion in which a matter is settled by consensus, and MUSYAWARAH DESA its formalised version.
+locale: jv
+---
+pengadilan negeri
+pengadilan tinggi
+pengadilan agama
+pengadilan tinggi agama
+pengadilan tata usaha negara
+pengadilan militer
+pengadilan niaga
+pengadilan anak
+pengadilan hubungan industrial
+pengadilan pajak
+pengadilan tipikor
+Mahkamah Agung
+Mahkamah Konstitusi
+rembug desa
+musyawarah desa

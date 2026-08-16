@@ -1,0 +1,33 @@
+---
+description: What follows a Javanese name. THERE IS NO GENERATIONAL SUFFIX — no Jr., no Sr., no III — and the reason is the same one that empties person/lastName.txt: a Javanese child does not inherit the father's name, so there is no repeated name to number. What actually follows the name is an ACADEMIC OR PROFESSIONAL POST-NOMINAL, and these are written in Indonesian because that is the language degrees are conferred and printed in — S.Pd. is Sarjana Pendidikan, S.H. Sarjana Hukum, S.T. Sarjana Teknik, and Indonesia writes the bachelor's degree AFTER the name and the doctorate (Dr., Prof.) BEFORE it. Also here are the Javanese court post-nominals that follow a granted name, and the abdi dalem ranks.
+locale: jv
+---
+S.Pd.
+S.H.
+S.T.
+S.E.
+S.Sos.
+S.Kom.
+S.Si.
+S.Ag.
+S.Psi.
+S.Kep.
+S.Ked.
+S.Farm.
+S.Pt.
+S.P.
+S.IP.
+M.Pd.
+M.H.
+M.T.
+M.M.
+M.Si.
+M.Kom.
+M.Sc.
+dr.
+drg.
+drh.
+Ir.
+Ns.
+A.Md.
+S.Kar.

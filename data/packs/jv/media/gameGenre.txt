@@ -1,0 +1,21 @@
+---
+description: Video game genre (Javanese usage). Genre names are English in the Indonesian market and are not translated.
+locale: jv
+---
+aksi
+petualangan
+RPG
+MOBA
+battle royale
+FPS
+strategi
+simulasi
+balapan
+olahraga
+puzzle
+platformer
+horor
+sandbox
+kartu
+musik
+edukasi

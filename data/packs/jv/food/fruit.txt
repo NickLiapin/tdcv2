@@ -1,0 +1,42 @@
+---
+description: Fruit (Javanese). Three of these are among the sharpest single-word tests of Javanese against Indonesian, because the languages use unrelated roots for the commonest fruits of all: GEDHANG is a banana where Indonesian says pisang, PELEM is a mango where Indonesian says mangga, and KATES is a papaya where Indonesian says pepaya. A list that said pisang and mangga would be an Indonesian list in Javanese clothing. DUWET, KEPEL, GOWOK, MUNDU and CEREMAI are Javanese fruits with no English name; kepel was a palace fruit, planted in kraton gardens and eaten by court women because it perfumes the breath.
+locale: jv
+---
+gedhang
+pelem
+kates
+jeruk
+jeruk bali
+apel
+anggur
+semangka
+melon
+nanas
+sawo
+salak
+duku
+rambutan
+klengkeng
+manggis
+duren
+nangka
+cempedak
+srikaya
+sirsak
+jambu
+jambu klutuk
+jambu aer
+blimbing
+blimbing wuluh
+kesemek
+mundu
+kepel
+matoa
+duwet
+gowok
+ceremai
+kedhondhong
+markisa
+klapa
+kokosan
+kemang

@@ -1,0 +1,34 @@
+---
+description: Technical verb — and THIS is where Javanese grammar shows through the borrowed vocabulary. Javanese forms an active verb with a NASAL PREFIX that assimilates to the first sound of the stem: ng- before vowels and velars, n- before t and d, m- before p and b, ny- before s and c. So English "backup" becomes MBACKUP, "transfer" becomes NRANSFER, "index" NGINDEKS, "scan" NYEKEN, "compile" NGOMPILE. NGUNDHUH is download and NGUNGGAH upload, both native Javanese words meaning to pick fruit and to hoist. A config generating Javanese verbs cannot just prefix a fixed string: the prefix changes shape with the stem, and the stem's first consonant is often swallowed.
+locale: jv
+---
+ngundhuh
+ngunggah
+mbukak
+nutup
+nyimpen
+mbusak
+nyalin
+mindhah
+ngganti
+nganyari
+ndandani
+ngresiki
+nyambung
+medhot
+ngirim
+nampa
+milih
+nggoleki
+maca
+nulis
+ngetik
+ngenkripsi
+ndekripsi
+ngompres
+ngindeks
+nyeken
+ngompile
+nransfer
+mbackup
+ngrestore

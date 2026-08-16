@@ -1,0 +1,5 @@
+---
+description: Currency of Kanadha, named in Javanese.
+locale: jv
+---
+Dolar Kanadha

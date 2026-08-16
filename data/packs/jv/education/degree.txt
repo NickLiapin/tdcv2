@@ -1,0 +1,26 @@
+---
+description: Educational qualification. INDONESIA'S ladder, which is what a Javanese CV lists: SD primary, SMP junior secondary, SMA general senior secondary and SMK its vocational twin, then D1 to D4 diplomas, S1 bachelor, S2 master, S3 doctorate. MADRASAH IBTIDAIYAH, TSANAWIYAH and ALIYAH are the Islamic parallel school system, and PONDOK PESANTREN the residential Islamic school that is a central Javanese institution and issues no state certificate at all. Javanese is spoken natively in essentially one state, Indonesia, so the institutions named here are Indonesian ones — that is what the words mean, and there is no generic alternative to put instead. Recorded so the next reader is not guessing; if the Indonesia COUNTRY pack ever claims this address, the country pack should win.
+locale: jv
+---
+SD
+SMP
+SMA
+SMK
+Madrasah Ibtidaiyah
+Madrasah Tsanawiyah
+Madrasah Aliyah
+Pondok Pesantren
+Paket A
+Paket B
+Paket C
+D1
+D3
+D4
+S1
+S2
+S3
+Profesi
+Spesialis
+Sarjana
+Magister
+Doktor

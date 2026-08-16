@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, the parent of medical/diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. The names use the JAVANESE COMPASS: Eropa Lor, Eropa Wetan, Afrika Lor, Asia Wetan, Asia Kidul, Asia Kidul-wetan — lor, kidul and wetan where Indonesian would say utara, selatan and timur (see geo/direction.txt). Asia Kidul-wetan is the group Javanese speakers themselves belong to.
+locale: jv
+---
+Eropa Lor
+Eropa Wetan
+Mediterania
+Yahudi Ashkenazi
+Timur Tengah
+Afrika Lor
+Afrika Sub-Sahara
+Asia Wetan
+Asia Kidul
+Asia Kidul-wetan
+Pribumi Amerika
+Kapuloan Pasifik

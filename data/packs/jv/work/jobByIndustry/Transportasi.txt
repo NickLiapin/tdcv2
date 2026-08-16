@@ -1,0 +1,14 @@
+---
+description: Job in the Transportasi industry, as named in Javanese.
+locale: jv
+---
+sopir
+kernet
+masinis
+pilot
+pramugari
+nahkoda
+kondektur
+tukang becak
+ojek
+petugas bandhara

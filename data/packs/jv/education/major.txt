@@ -1,0 +1,46 @@
+---
+description: Field of university study (Javanese). SASTRA JAWA — Javanese literature — is a real degree at Gadjah Mada, Sebelas Maret and Universitas Negeri Semarang, and PENDHIDHIKAN BASA JAWA trains the teachers who deliver the compulsory Javanese-language lessons in Central and East Java schools; both exist because the language is taught, which is why the pack has a corpus problem and not a speaker problem.
+locale: jv
+---
+Sastra Jawa
+Pendhidhikan Basa Jawa
+Sastra Indonesia
+Sastra Inggris
+Sejarah
+Arkeologi
+Antropologi
+Sosiologi
+Psikologi
+Ilmu Komunikasi
+Hukum
+Ekonomi
+Manajemen
+Akuntansi
+Kedokteran
+Kedokteran Gigi
+Farmasi
+Keperawatan
+Kebidanan
+Kesehatan Masyarakat
+Teknik Sipil
+Teknik Mesin
+Teknik Elektro
+Teknik Kimia
+Teknik Industri
+Arsitektur
+Informatika
+Sistem Informasi
+Matematika
+Fisika
+Kimia
+Biologi
+Geografi
+Pertanian
+Peternakan
+Kehutanan
+Perikanan
+Seni Rupa
+Seni Karawitan
+Seni Pedalangan
+Seni Tari
+Desain Komunikasi Visual

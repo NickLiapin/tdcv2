@@ -1,0 +1,81 @@
+---
+description: Diagnosis, written as an Indonesian-language clinical record in Java writes it. There is no Javanese-language clinical vocabulary to use instead: medicine in Indonesia is taught, examined, coded and charted in Indonesian, and a Javanese doctor speaking Javanese to a patient still writes "hipertensi" in the notes. What the PATIENT says is in medical/symptom.txt, and the two lists deliberately do not match word for word, because in Java they do not.
+locale: jv
+---
+hipertensi
+diabetes melitus tipe 2
+diabetes melitus tipe 1
+asma
+PPOK
+tuberkulosis paru
+pneumonia
+bronkitis kronis
+gastritis
+tukak lambung
+refluks gastroesofageal
+hepatitis A
+hepatitis B
+sirosis hati
+demam berdarah dengue
+malaria
+tifus
+leptospirosis
+chikungunya
+diare akut
+disentri
+cacingan
+anemia defisiensi besi
+talasemia
+gagal ginjal kronis
+batu ginjal
+infeksi saluran kemih
+stroke
+epilepsi
+migren
+demensia
+penyakit Parkinson
+osteoartritis
+artritis reumatoid
+gout
+osteoporosis
+hernia nukleus pulposus
+dermatitis atopik
+psoriasis
+kusta
+kadhas
+kudhis
+jerawat
+katarak
+glaukoma
+konjungtivitis
+otitis media
+sinusitis
+tonsilitis
+karies gigi
+gagal jantung
+penyakit jantung koroner
+aritmia
+dislipidemia
+obesitas
+sindrom metabolik
+hipotiroidisme
+hipertiroidisme
+gondok endemik
+depresi
+gangguan kecemasan
+skizofrenia
+gangguan bipolar
+insomnia
+kanker payudara
+kanker paru
+kanker serviks
+kanker nasofaring
+kanker kolorektal
+leukemia
+limfoma
+demam reumatik
+campak
+cacar aer
+gizi buruk
+stunting
+keracunan makanan

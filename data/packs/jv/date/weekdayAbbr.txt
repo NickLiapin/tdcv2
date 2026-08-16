@@ -1,0 +1,11 @@
+---
+description: Abbreviated Javanese weekday, Sunday first. Three letters, following the pattern Indonesian forms use; note Sla for Slasa where an Indonesian form would read Sel.
+locale: jv
+---
+Ngh
+Sen
+Sla
+Reb
+Kem
+Jum
+Set

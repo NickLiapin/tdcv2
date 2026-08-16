@@ -1,0 +1,14 @@
+---
+description: Fuel (Javanese). BENSIN is petrol and SOLAR diesel — solar is a false friend, since it has nothing to do with the sun. Pertalite, Pertamax and Dexlite are Pertamina grade names and are what a driver actually asks for at a pump in Java, so they are here as the words rather than as brands. Javanese is spoken natively in essentially one state, Indonesia, so the institutions named here are Indonesian ones — that is what the words mean, and there is no generic alternative to put instead. Recorded so the next reader is not guessing; if the Indonesia COUNTRY pack ever claims this address, the country pack should win.
+locale: jv
+---
+bensin
+solar
+pertalite
+pertamax
+pertamax turbo
+dexlite
+biosolar
+listrik
+hibrida
+LPG

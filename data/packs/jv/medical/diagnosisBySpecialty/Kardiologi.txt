@@ -1,0 +1,12 @@
+---
+description: Diagnosis commonly managed by Kardiologi, written as an Indonesian-language clinical record in Java would write it.
+locale: jv
+---
+hipertensi
+gagal jantung
+penyakit jantung koroner
+aritmia
+infark miokard
+fibrilasi atrium
+kardiomiopati
+penyakit katup jantung

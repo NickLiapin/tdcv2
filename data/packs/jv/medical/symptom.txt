@@ -1,0 +1,42 @@
+---
+description: Symptom — and THIS is the half of medicine that is genuinely Javanese. A patient describes the complaint in Javanese and the doctor writes it up in Indonesian, so the words below are what is actually SAID in the consulting room: MUMET is dizzy, NGELU a headache, MULES a griping belly, MENCRET diarrhoea, WATUK a cough, GATEL an itch, ABUH swollen, GREGES and MRIYANG the feverish-achy feeling before an illness declares itself, SEMAPUT a faint, KESEMUTAN pins and needles, KEJU and LINU deep aches, BOYOK the lower back. MASUK ANGIN is a culture-bound complaint with no biomedical equivalent — literally "wind has entered", a bundle of chill, bloating, aching and nausea that every Javanese recognises and no ICD code covers — and it is treated with KEROKAN, scraping the back with a coin until it streaks red, which is why a Javanese patient may present with dramatic-looking marks that are treatment rather than injury. Note the register: LARA is ngoko for ill, SAKIT is krama and GERAH is krama inggil, so how a patient says they are ill already tells you who they think they are talking to.
+locale: jv
+---
+mumet
+ngelu
+gliyeng
+mules
+mencret
+muntah
+watuk
+pilek
+gatel
+abuh
+bengkak
+greges
+mriyang
+panas
+adhem panas
+lemes
+ngantuk
+semaput
+kesemutan
+keju
+linu
+pegel
+kaku
+sesek ambegan
+lara weteng
+lara boyok
+lara untu
+lara tenggorokan
+ora doyan mangan
+kembung
+masuk angin
+kesleo
+korengen
+kudhisen
+gudhigen
+mripat abang
+kuping krungu bindheng
+ngiler

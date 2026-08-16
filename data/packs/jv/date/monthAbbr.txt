@@ -1,0 +1,16 @@
+---
+description: Abbreviated Gregorian month (Javanese). Three letters throughout, matching how Javanese and Indonesian forms abbreviate; Agt for Agustus rather than Aug, and Des for Desember.
+locale: jv
+---
+Jan
+Feb
+Mar
+Apr
+Mei
+Jun
+Jul
+Agt
+Sep
+Okt
+Nov
+Des

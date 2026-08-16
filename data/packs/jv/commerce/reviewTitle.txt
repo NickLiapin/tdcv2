@@ -1,0 +1,30 @@
+---
+description: Product review headline (Javanese). MANTEP and JOSS are the two words a Javanese online review actually opens with — mantep means solid and satisfying, joss is emphatic approval — and neither has a neutral English equivalent. Note the reviews are ngoko: a customer writing about a product is not addressing anyone deferentially.
+locale: jv
+---
+Mantep tenan
+Joss gandhos
+Apik banget
+Sesuai pesenan
+Cepet tekane
+Regane murah
+Kualitase apik
+Bakal tuku maneh
+Rekomended
+Pelayanane apik
+Bungkuse rapi
+Lumayan
+Cukupan wae
+Rada kuciwa
+Ora sesuai gambar
+Barang rusak
+Telat banget
+Ora bakal tuku maneh
+Elek tenan
+Palsu
+Worth it
+Sepadan karo regane
+Awet
+Gampang dienggo
+Cocog kanggo hadiah
+Bakal takrekomendasikake

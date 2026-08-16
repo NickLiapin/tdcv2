@@ -1,0 +1,5 @@
+---
+description: Currency of Prancis, named in Javanese.
+locale: jv
+---
+Euro

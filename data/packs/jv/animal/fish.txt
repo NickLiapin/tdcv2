@@ -1,0 +1,29 @@
+---
+description: Fish (Javanese). The freshwater block is what is farmed and eaten inland — LELE catfish, WADER a small river fish eaten whole, GURAMEH, TOMBRO carp, NILA, BANDENG milkfish from brackish ponds — and the sea block is what the north coast lands. IWAK is the general word and also means any meat side dish, so "iwak" on a menu is not necessarily fish.
+locale: jv
+---
+lele
+wader
+gurameh
+tombro
+nila
+bandeng
+mujaer
+patin
+belut
+sepat
+betik
+gabus
+sidat
+tongkol
+tuna
+kembung
+teri
+layur
+kakap
+kerapu
+bawal
+cakalang
+tenggiri
+pari
+hiu

@@ -1,0 +1,21 @@
+---
+description: Cuisine, as Javanese names it — the parent of food/dishByCuisine. The first four are the archipelago's own regional traditions, and a Javanese distinguishes them as sharply as a European distinguishes French from Italian. WALANDA — Dutch — is on this list and would look wrong in any European locale: three and a half centuries of colonial kitchens left a whole naturalised Dutch-Javanese repertoire that is now ordinary Solo and Semarang food, not foreign food, and selat solo, bistik jawa, klappertaart, kroket and semur are eaten without anyone thinking of the Netherlands. INDHI, CINA and PRANCIS use the Javanese country names set out in geo/country.txt, not the Indonesian ones.
+locale: jv
+---
+Jawa
+Sundha
+Bali
+Madura
+Padang
+Cina
+Jepang
+Korea
+Indhi
+Arab
+Thai
+Vietnam
+Itali
+Prancis
+Meksiko
+Amerika
+Walanda

@@ -1,0 +1,196 @@
+---
+description: Country as JAVANESE names it, and the names are the single most diagnostic list in this pack. Javanese took its world through DUTCH, and it kept the Dutch form where Indonesian later renativised or re-borrowed: RUSLAN not Rusia (Dutch Rusland), POLEN not Polandia, GRIKENLAN not Yunani (Griekenland), SWITSERLAN not Swiss, OSTENRIK not Austria (Oostenrijk), NURWEGEN not Norwegia, SWEDHEN not Swedia, DHENEMARKEN not Denmark, FINLAN, ESLAN for Iceland (IJsland), ESTLAN, LETLAN and LITOWEN for the Baltics, HONGGARI, INDHI for India (Indie), CEYLON for Sri Lanka — the colonial name, still the Javanese one — OSTRALI, PORTEGAL, KANADHA with the retroflex dh. WALANDA is the Netherlands and is the oldest of them all. A second block is NATIVE CALQUE rather than borrowing, and no other language has these: AMERIKA SAREKAT for the United States, KARAJAN MANUNGGAL for the United Kingdom (literally "united kingdom"), KAAMIRAN ARAB MANUNGGAL for the UAE, GIRI CEMENG for Montenegro ("black mountain"), GIRI SIMA for Sierra Leone ("lion mountain"), PASISIR GADHING for Ivory Coast, PONGOL VERDE for Cape Verde. A third block shows the JAVANESE COMPASS doing work no Indonesian name does: KIDUL, LOR and WETAN replace Selatan, Utara and Timur in Afrika Kidul, Korea Kidul, Korea Lor, Sudan Kidul, Makedonia Lor and Timor Wetan. Names verified one by one against the Javanese Wikipedia article for each country. This is the full unweighted list; geo/country.txt holds the population-weighted subset used for realistic distributions.
+locale: jv
+---
+Afghanistan
+Albani
+Algir
+Andorra
+Angola
+Antigua lan Barbuda
+Argentina
+Armeni
+Ostrali
+Ostenrik
+Azerbaijan
+Bahama
+Bahrain
+Banggaladesa
+Barbadhos
+Belarus
+Belgi
+Belis
+Benin
+Bhutan
+Bolivia
+Bosni lan Herzegowina
+Botswana
+Brasil
+Brunei Darussalam
+Bulgari
+Burkina Faso
+Burundi
+Kamboja
+Kamerun
+Kanadha
+Pongol Verde
+Republik Afrika Tengah
+Chad
+Cile
+Cina
+Kolombia
+Komoro
+Republik Dhemokratik Kongo
+Republik Kongo
+Pasisir Karta
+Kroasia
+Kuba
+Siprus
+Ceko
+Dhenemarken
+Djibouti
+Dominika
+Republik Dominika
+Timor Wetan
+Ekuador
+Mesir
+El Salvador
+Guinea Katulistiwa
+Eritrea
+Estlan
+Eswatini
+Ethiopia
+Fiji
+Finlan
+Prancis
+Gabon
+Gambia
+Georgia
+Jerman
+Ghana
+Grikenlan
+Grenada
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Honggari
+Eslan
+Indhi
+Indhonesia
+Iran
+Irak
+Pulo Irlandia
+Israel
+Itali
+Pasisir Gadhing
+Jamaika
+Jepang
+Yordania
+Kazakhstan
+Kenya
+Kiribati
+Korea Lor
+Korea Kidul
+Kuwait
+Kirgizstan
+Laos
+Letlan
+Libanon
+Lesotho
+Liberia
+Libya
+Liechtenstein
+Litowen
+Luxemburg
+Madhagaskar
+Malawi
+Malaysia
+Maladewa
+Mali
+Malta
+Kapuloan Marsyal
+Mauritania
+Mauritius
+Meksiko
+Pedherasi Mikronesia
+Moldavia
+Monako
+Mongolia
+Giri Cemeng
+Maroko
+Mozambik
+Myanmar
+Namibia
+Nauru
+Nepal
+Walanda
+Niu Selan
+Nikaragua
+Niger
+Nigeria
+Republik Makedonia Lor
+Nurwegen
+Oman
+Pakistan
+Palau
+Panama
+Papua Niu Guinea
+Paraguay
+Peru
+Filipina
+Polen
+Portegal
+Qatar
+Rumeni
+Ruslan
+Rwanda
+Santa Lucia
+Samoa
+San Marino
+Arab Saudi
+Senegal
+Serbi
+Sesel
+Giri Sima
+Singapura
+Slowakie
+Slowen
+Kapuloan Solomon
+Somalia
+Afrika Kidul
+Sudan Kidul
+Spanyol
+Ceylon
+Sudan
+Suriname
+Swedhen
+Switserlan
+Suriah
+Taiwan
+Tajikistan
+Tanzania
+Thai
+Togo
+Tonga
+Trinidad lan Tobago
+Tunis
+Turki
+Turkmenistan
+Tuvalu
+Ugandha
+Ukraina
+Kaamiran Arab Manunggal
+Karajan Manunggal
+Amerika Sarekat
+Uruguay
+Uzbekistan
+Vanuatu
+Vatikan
+Venezuela
+Vietnam
+Yaman
+Zambia
+Zimbabwe

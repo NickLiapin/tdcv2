@@ -1,0 +1,10 @@
+---
+description: Dish belonging to Korea cuisine, as a Javanese menu names it.
+locale: jv
+---
+kimchi
+bulgogi
+bibimbap
+tteokbokki
+japchae
+samgyeopsal

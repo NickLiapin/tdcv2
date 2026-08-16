@@ -1,0 +1,62 @@
+---
+description: Material a product is made of (Javanese). The natural block leads because it is what Javanese craft actually uses: JATI teak, PRING bamboo, ROTAN cane, LULANG rawhide (the material a wayang puppet is cut from), MENDHONG a sedge woven into mats, ENCENG GONDOK water hyacinth now woven into bags, and GERABAH fired earthenware. KAIN LURIK is the striped hand-woven cotton of Central Java and BATIK TULIS the hand-drawn cloth, as against BATIK CAP which is stamped and BATIK PRINT which is merely printed and is not batik at all — a distinction that decides the price by a factor of fifty.
+locale: jv
+---
+kayu
+kayu jati
+kayu mahoni
+kayu sengon
+pring
+rotan
+lulang
+mendhong
+enceng gondok
+gerabah
+lemah bakar
+watu
+marmer
+wesi
+waja
+kuningan
+tembaga
+alumunium
+seng
+emas
+salaka
+kaca
+plastik
+akrilik
+karet
+busa
+kain
+katun
+kain lurik
+batik tulis
+batik cap
+batik print
+sutra
+linen
+wol
+poliester
+nilon
+denim
+kanvas
+beludru
+renda
+kulit sintetis
+kertas
+karton
+triplek
+MDF
+semen
+keramik
+porselen
+granit
+silikon
+kaca serat
+karbon
+titanium
+stainless
+melamin
+kuningan cor
+anyaman

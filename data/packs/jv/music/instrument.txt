@@ -1,0 +1,45 @@
+---
+description: Musical instrument (Javanese) — and the first and largest block is the GAMELAN, which is not a collection of instruments but a single tuned set that belongs together and is never mixed between sets, because each gamelan is tuned to itself. The three functional groups are BALUNGAN, the instruments that carry the skeleton of the melody (saron, demung, peking, slenthem); GARAP, those that elaborate it (rebab, gendher, gambang, siter, suling, bonang) and the singers (pesindhen, gerong); and STRUKTURAL, those that mark the phrase structure (gong ageng, kempul, kenong, kethuk, kempyang, kemanak) with the KENDHANG leading the whole ensemble like a conductor. Every set exists twice over, once in the five-tone SLENDRO and once in the seven-tone PELOG. Instrument names verified against the Javanese Wikipedia article on gamelan.
+locale: jv
+---
+kendhang
+saron
+demung
+peking
+saron barung
+saron panerus
+slenthem
+bonang
+bonang barung
+bonang panerus
+bonang panembung
+gendher
+gendher barung
+gendher panerus
+gambang
+siter
+clempung
+rebab
+suling
+gong ageng
+gong suwukan
+kempul
+kenong
+kethuk
+kempyang
+kemanak
+kecer
+keprak
+bedhug
+angklung
+kentongan
+gitar
+biola
+piano
+drum
+seruling
+terompet
+ukulele
+cak
+cuk
+kendhang ciblon

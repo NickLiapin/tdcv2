@@ -1,0 +1,25 @@
+---
+description: Religion (Javanese). The six state-recognised religions come first, and note KATULIK and KRISTEN are counted SEPARATELY in Indonesia, as two of the six, where a European list would have one Christianity. What follows them is the part no other locale has. KEJAWEN is Javanese mysticism — a syncretic practice blending Islam with older Hindu-Buddhist and animist layers, followed by a great many people who also give their religion as Islam on the identity card, so the two are not alternatives and a config must not treat this list as mutually exclusive. KAPITAYAN is the older indigenous monotheism it draws on. SAPTA DARMA, SUMARAH, PANGESTU and SUBUD are organised kebatinan movements with formal membership. ALIRAN KEPERCAYAAN is the legal category the state files them under, and since 2017 it may be entered on the identity card in place of one of the six. ABANGAN and SANTRI are not religions but the classic description of two Javanese Muslim styles — the syncretic and the scripturalist; they are contested as a scheme and are included because Javanese still use the words about themselves.
+locale: jv
+---
+Islam
+Kristen
+Katulik
+Hindu
+Buddha
+Konghucu
+Kejawen
+Kapitayan
+aliran kepercayaan
+kebatinan
+Sapta Darma
+Sumarah
+Pangestu
+Subud
+abangan
+santri
+Islam Kejawen
+Ahmadiyah
+Sikh
+Yahudi
+ora nganut agama

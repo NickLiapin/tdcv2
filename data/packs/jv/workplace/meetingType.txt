@@ -1,0 +1,16 @@
+---
+description: Kind of meeting (Javanese). RAPAT is the borrowed word, but REMBUGAN and MUSYAWARAH are the Javanese and Indonesian words for a discussion that must reach CONSENSUS rather than a majority — MUFAKAT — and that is the normative form of a Javanese village meeting; a vote is a last resort and something of a failure.
+locale: jv
+---
+rembugan
+musyawarah
+rapat
+rapat rutin
+rapat koordinasi
+rapat evaluasi
+briefing
+presentasi
+wawanrembug
+sarasehan
+lokakarya
+seminar

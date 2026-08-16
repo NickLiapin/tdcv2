@@ -1,0 +1,14 @@
+---
+description: Industry with named jobs — the parent of work/jobByIndustry. PENDHIDHIKAN and PAMBANGUNAN carry the retroflex dh Indonesian lacks (pendidikan, pembangunan), and BAKULAN is the Javanese word for trade, built on bakul, a market seller, where Indonesian would say perdagangan or ritel. The rest of the technical vocabulary in these fields is Indonesian in Javanese mouths, because that is the language these industries are administered in — see work/jobTitle.txt.
+locale: jv
+---
+Teknologi
+Kesehatan
+Pendhidhikan
+Keuangan
+Pambangunan
+Pabrikan
+Transportasi
+Bakulan
+Perhotelan
+Hukum

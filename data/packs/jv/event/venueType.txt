@@ -1,0 +1,20 @@
+---
+description: Where an event is held (Javanese). PENDHAPA is the open pavilion of a Javanese house or public building and is the default venue for anything formal; LATAR is the front yard, and a wedding or a wayang performance in Java is very often held in the street outside the house under a hired tent (TARUB), with the road closed for two days.
+locale: jv
+---
+pendhapa
+latar
+tarub
+balai desa
+gedhung pertemuan
+aula
+hotel
+restoran
+mesjid
+gereja
+kraton
+lapangan
+alun-alun
+taman
+stadion
+kampus

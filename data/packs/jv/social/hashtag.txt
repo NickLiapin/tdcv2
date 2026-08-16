@@ -1,0 +1,34 @@
+---
+description: Hashtag (Javanese). Javanese hashtags are written without spaces and usually without diacritics, and the language-pride block (#basajawa, #nguriuribudaya, #aksarajawa, #wongjowo) is a real and active category on Indonesian social media, used by people posting in Javanese specifically because the language is losing ground to Indonesian among the young.
+locale: jv
+---
+#basajawa
+#wongjowo
+#nguriuribudaya
+#aksarajawa
+#jawatengah
+#jawatimur
+#jogja
+#solo
+#semarang
+#gamelan
+#wayangkulit
+#batik
+#campursari
+#gudheg
+#angkringan
+#jamu
+#kulinerjawa
+#dolanjogja
+#pasarlegi
+#slametan
+#tembangjawa
+#macapat
+#kerisjawa
+#omahjoglo
+#sawah
+#mangsarendheng
+#weton
+#pasaran
+#tepaslira
+#uripiku

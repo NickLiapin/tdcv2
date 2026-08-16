@@ -1,0 +1,25 @@
+---
+description: Diagnosis for a person recorded as male — the same list as medical/diagnosisMale.txt, reachable under person/ so a config building a coherent record can draw it beside person/male/firstName.txt. Javanese has no grammatical gender, so nothing here inflects.
+locale: jv
+---
+hiperplasia prostat jinak
+kanker prostat
+prostatitis
+kanker testis
+varikokel
+hidrokel
+epididimitis
+fimosis
+disfungsi ereksi
+infertilitas pria
+hernia inguinalis
+ginekomastia
+torsio testis
+uretritis
+balanitis
+orkitis
+kriptorkidismus
+penyakit Peyronie
+kalvitia androgenik
+gout
+aneurisma aorta abdominalis

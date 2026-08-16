@@ -1,0 +1,39 @@
+---
+description: Playing position, drawn from across sports (Javanese). Use sport/positionBySport when the position must agree with the sport; this flat list is for when it need not. KIWA is left and TENGEN right, NGAREP front and MBURI back.
+locale: jv
+---
+kiper
+bek
+bek tengah
+bek kiwa
+bek tengen
+gelandang
+gelandang tengah
+gelandang serang
+gelandang tahan
+sayap kiwa
+sayap tengen
+panyerang
+kapten
+wasit
+hakim garis
+tosser
+spiker
+libero
+blocker
+server
+pemain tengah
+point guard
+shooting guard
+small forward
+power forward
+center
+pemain ngarep
+pemain mburi
+pesilat
+pendekar
+pemukul
+pelambung
+penjaga
+penangkap
+pelari

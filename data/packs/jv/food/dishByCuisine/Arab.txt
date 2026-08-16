@@ -1,0 +1,10 @@
+---
+description: Dish belonging to Arab cuisine, as a Javanese menu names it.
+locale: jv
+---
+sega kebuli
+gulai wedhus
+kebab
+roti maryam
+sega mandhi
+kurma

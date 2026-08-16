@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Javanese usage). The international grades are used untranslated in Indonesian hospitality; LOSMEN and PENGINAPAN are the cheap local lodging house and HOMESTAY the village room, which in Java is often a room in a family's own house.
+locale: jv
+---
+standar
+superior
+deluxe
+suite
+junior suite
+family room
+connecting room
+twin
+double
+single
+triple
+dormitori
+kamar kipas
+kamar AC
+losmen
+penginapan
+homestay
+joglo

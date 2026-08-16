@@ -1,0 +1,9 @@
+---
+description: Dish belonging to Meksiko cuisine, as a Javanese menu names it.
+locale: jv
+---
+taco
+burrito
+nachos
+quesadilla
+guacamole

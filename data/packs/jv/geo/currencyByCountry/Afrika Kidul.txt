@@ -1,0 +1,5 @@
+---
+description: Currency of Afrika Kidul, named in Javanese.
+locale: jv
+---
+Rand

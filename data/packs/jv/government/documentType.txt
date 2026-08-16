@@ -1,0 +1,21 @@
+---
+description: Kind of official document. Javanese is spoken natively in essentially one state, Indonesia, so the institutions named here are Indonesian ones — that is what the words mean, and there is no generic alternative to put instead. Recorded so the next reader is not guessing; if the Indonesia COUNTRY pack ever claims this address, the country pack should win. SURAT PENGANTAR is the letter of introduction from the RT and RW that must be obtained before almost any other document can be applied for, and it is the first step in every Indonesian bureaucratic errand. The identity number itself, and its format, belong to the Indonesia country pack and are deliberately not here.
+locale: jv
+---
+Kartu Tanda Penduduk
+Kartu Keluarga
+akta lair
+akta mati
+buku nikah
+akta pegatan
+paspor
+SIM
+STNK
+BPKB
+sertipikat tanah
+ijazah
+rapor
+surat pengantar
+surat keterangan
+surat kuwasa
+surat wasiat

@@ -1,0 +1,105 @@
+---
+description: What a Javanese street is named FROM — not one town's street list, which belongs to a country pack. Four sources, and the mix is diagnostic. WAYANG figures name streets all over Java (Arjuna, Werkudara, Gatotkaca, Anoman, Srikandi) and would name none anywhere else. So do the KINGDOMS and kings of Javanese history: Majapahit, Mataram, Singosari, Kediri, Kahuripan, Airlangga, Hayam Wuruk, Gajah Mada, Brawijaya, Diponegoro. The third block is FLOWERS AND TREES, and the fourth is the Indonesian civic vocabulary — Merdeka, Pahlawan, Pemuda, Veteran — that names a street in every town in the country. Note that a Javanese street name is very often a person's name with no title and no explanation, so a parser must not assume a generic word.
+locale: jv
+---
+Arjuna
+Werkudara
+Bima
+Kresna
+Yudhistira
+Nakula
+Sadewa
+Gatotkaca
+Anoman
+Srikandi
+Sembadra
+Abimanyu
+Puntadewa
+Janaka
+Rama
+Sinta
+Semar
+Petruk
+Gareng
+Bagong
+Majapahit
+Mataram
+Singosari
+Kediri
+Kahuripan
+Pajajaran
+Airlangga
+Hayam Wuruk
+Gajah Mada
+Brawijaya
+Diponegoro
+Sultan Agung
+Ronggowarsito
+Ki Hajar Dewantara
+Kartini
+Cokroaminoto
+Imam Bonjol
+Sudirman
+Gatot Subroto
+Ahmad Yani
+Slamet Riyadi
+Mlathi
+Kanthil
+Kenanga
+Mawar
+Anggrek
+Cempaka
+Flamboyan
+Bougenvil
+Seruni
+Dhalia
+Tanjung
+Jati
+Ringin
+Sawo
+Nangka
+Klapa
+Randhu
+Asem
+Pring
+Merdeka
+Kemerdekaan
+Perjuangan
+Pahlawan
+Veteran
+Pemuda
+Pelajar
+Damai
+Rukun
+Makmur
+Sejahtera
+Mulya
+Raharja
+Kencana
+Kartika
+Wijaya Kusuma
+Gamelan
+Kenong
+Gambang
+Slendro
+Pelog
+Bathik
+Kraton
+Beteng
+Kauman
+Pasar Legi
+Pasar Pon
+Pasar Kliwon
+Pasar Pahing
+Pasar Wage
+Gunung Merapi
+Gunung Lawu
+Gunung Merbabu
+Bengawan Solo
+Kali Code
+Parangtritis
+Prambanan
+Borobudur
+Nusantara
+Garuda
+Cendrawasih

@@ -1,0 +1,12 @@
+---
+description: Sport with named positions — the parent of sport/positionBySport. BAL-BALAN is the Javanese word for football, formed by reduplicating the borrowed "bal" (ball), and it is what a Javanese actually says where Indonesian says sepak bola. The last two are traditional and are still played in every Javanese primary school: KASTI is a bat-and-ball running game, and GOBAG SODOR is a team game in which one side guards a grid of lines and the other tries to run through it end to end and back — the SODOR is the guard on the long centre line who may run its whole length, and the game is the reason the word is in the language at all.
+locale: jv
+---
+Bal-balan
+Voli
+Basket
+Bulu tangkis
+Pencak silat
+Tenis meja
+Kasti
+Gobag sodor

@@ -1,0 +1,19 @@
+---
+description: Reason for returning goods (Javanese).
+locale: jv
+---
+ora cocog karo gambar
+ukurane ora pas
+warnane beda
+barang rusak
+barang cacat
+kurang jumlahe
+salah kirim
+telat tekan
+ora dibutuhake maneh
+nemu sing luwih murah
+kualitase elek
+palsu
+kadaluwarsa
+bungkuse rusak
+salah pesen

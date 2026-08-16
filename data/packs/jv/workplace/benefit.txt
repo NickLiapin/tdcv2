@@ -1,0 +1,22 @@
+---
+description: Employment benefit (Javanese). THR — Tunjangan Hari Raya — is the compulsory religious-holiday bonus every Indonesian employer must pay before Idul Fitri, worth a month's salary, and it is the single most important item on this list to a Javanese employee; the whole country's spending calendar turns on it. UANG MAKAN and UANG TRANSPORT are separate daily allowances rather than parts of salary.
+locale: jv
+---
+THR
+BPJS Kesehatan
+BPJS Ketenagakerjaan
+uang makan
+uang transport
+tunjangan omah
+tunjangan pendhidhikan
+tunjangan kulawarga
+bonus taunan
+lembur dibayar
+cuti taunan
+cuti nglairake
+pesangon
+pensiun
+seragam
+pelatihan
+koperasi karyawan
+mudik bareng

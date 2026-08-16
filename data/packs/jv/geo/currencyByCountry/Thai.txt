@@ -1,0 +1,5 @@
+---
+description: Currency of Thai, named in Javanese.
+locale: jv
+---
+Baht

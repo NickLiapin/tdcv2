@@ -1,0 +1,5 @@
+---
+description: Currency of Niu Selan, named in Javanese.
+locale: jv
+---
+Dolar Niu Selan

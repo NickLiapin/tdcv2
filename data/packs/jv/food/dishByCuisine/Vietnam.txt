@@ -1,0 +1,8 @@
+---
+description: Dish belonging to Vietnam cuisine, as a Javanese menu names it.
+locale: jv
+---
+pho
+banh mi
+goi cuon
+bun cha

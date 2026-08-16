@@ -1,0 +1,59 @@
+---
+description: Corporate self-description (Javanese). The register here is deliberately mixed and that is realistic: Indonesian marketing copy in Java reaches for Sanskrit-Javanese words (unggul, waskita, trengginas, tanggon) for gravitas and English ones for modernity, often in the same sentence.
+locale: jv
+---
+unggul
+terpercaya
+terdepan
+inovatif
+kreatif
+profesional
+handal
+tangguh
+tanggon
+trengginas
+waskita
+wicaksana
+adaptif
+dinamis
+efisien
+efektif
+produktif
+kompetitif
+strategis
+integratif
+holistik
+berkelanjutan
+ramah lingkungan
+transparan
+akuntabel
+responsif
+kolaboratif
+visioner
+progresif
+modern
+digital
+global
+lokal
+inklusif
+agile
+skalabel
+terintegrasi
+terverifikasi
+bersertifikat
+berstandar
+premium
+eksklusif
+terjangkau
+aman
+cepet
+gampang
+praktis
+lengkap
+fleksibel
+kustom
+otomatis
+cerdas
+presisi
+tanpa cacat
+nomer siji

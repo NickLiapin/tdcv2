@@ -1,0 +1,10 @@
+---
+description: Dish belonging to Itali cuisine, as a Javanese menu names it.
+locale: jv
+---
+pizza
+spageti
+lasagna
+risotto
+carbonara
+tiramisu

@@ -1,0 +1,18 @@
+---
+description: Kind of insurance (Javanese). BPJS Kesehatan and BPJS Ketenagakerjaan are Indonesia's compulsory national health and employment schemes and are what most Javanese actually hold; commercial cover sits on top of them. ASURANSI SYARIAH is takaful, structured to comply with Islamic law, and is a distinct product with its own regulator.
+locale: jv
+---
+BPJS Kesehatan
+BPJS Ketenagakerjaan
+asuransi kesehatan
+asuransi jiwa
+asuransi kacilakan
+asuransi pendhidhikan
+asuransi pensiun
+asuransi omah
+asuransi kendharaan
+asuransi perjalanan
+asuransi panen
+asuransi ternak
+asuransi syariah
+asuransi kredit

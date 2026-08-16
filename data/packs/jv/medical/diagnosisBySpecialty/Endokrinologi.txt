@@ -1,0 +1,12 @@
+---
+description: Diagnosis commonly managed by Endokrinologi, written as an Indonesian-language clinical record in Java would write it.
+locale: jv
+---
+diabetes melitus tipe 2
+diabetes melitus tipe 1
+hipotiroidisme
+hipertiroidisme
+sindrom metabolik
+osteoporosis
+gondok endemik
+sindrom Cushing

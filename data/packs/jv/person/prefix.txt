@@ -1,0 +1,66 @@
+---
+description: Javanese honorific and form of address, and the sharpest place the speech levels bite: choosing one of these wrongly is the classic foreigner's mistake, because they encode the speaker's position relative to the addressee, not the addressee's title. Three blocks. (1) KINSHIP-AS-ADDRESS — Javanese addresses strangers with family words by apparent age: Mas for a man near your age or a little older, Mbak for a woman, Dhik for anyone younger, Pak and Bu for the parental generation, Mbah or Simbah for the grandparental one, Pakdhe and Budhe for an uncle or aunt OLDER than your parent and Paklik and Bulik for one YOUNGER — a distinction Javanese marks and English does not. Le and Nduk are what you call a boy and a girl. (2) PRIYAYI AND KRATON titles: Raden (R.) marks noble descent, Raden Mas (R.M.) a nobleman, Raden Ajeng (R.A.) an UNMARRIED noblewoman and Raden Ayu (R.Ay.) a married one — Kartini is Raden Ajeng Kartini for exactly that reason — and Kanjeng, Gusti, Pangeran, Tumenggung and Ngabehi run up the court hierarchy from there. These are still printed on wedding invitations and gravestones in Yogyakarta and Surakarta. (3) RELIGIOUS: Ki and Nyi are for a respected elder or a dhalang, Kyai and Nyai for an Islamic teacher and his wife, Gus and Ning for their son and daughter, Haji and Hajjah for anyone who has made the pilgrimage. Note the abbreviations are written with full stops and stack: K.R.T., R.Ng., B.R.M.
+locale: jv
+---
+Pak
+Bapak
+Bu
+Ibu
+Mas
+Kangmas
+Kang
+Mbak
+Mbakyu
+Yu
+Dhik
+Adhik
+Lik
+Paklik
+Bulik
+Pakdhe
+Budhe
+Mbah
+Simbah
+Eyang
+Le
+Tole
+Nduk
+Genduk
+Den
+Ndara
+Raden
+Raden Mas
+Raden Ajeng
+Raden Ayu
+Raden Rara
+Raden Panji
+Bendara
+Bendara Raden Mas
+Kanjeng
+Kangjeng
+Gusti
+Gusti Raden Mas
+Pangeran
+Adipati
+Tumenggung
+Ngabehi
+Panembahan
+Susuhunan
+Sunan
+Sultan
+R.
+R.M.
+R.A.
+R.Ay.
+R.R.
+R.Ng.
+K.R.T.
+B.R.M.
+Ki
+Nyi
+Kyai
+Nyai
+Gus
+Ning
+Haji
+Hajjah

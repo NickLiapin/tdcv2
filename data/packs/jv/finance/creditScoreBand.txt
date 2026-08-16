@@ -1,0 +1,9 @@
+---
+description: Credit rating band (Javanese). Indonesia grades credit on a five-step collectibility scale, and the labels below follow it from current to bad debt.
+locale: jv
+---
+lancar
+ing pengawasan khusus
+kurang lancar
+diragukan
+macet

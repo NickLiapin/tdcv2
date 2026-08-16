@@ -1,0 +1,54 @@
+---
+description: Airline. Brand names keep their real spelling and are not translated. The Indonesian carriers are listed first because they are what a Javanese passenger actually flies; note BATIK AIR is named after Javanese batik and GARUDA after the mythical bird of Hindu-Javanese tradition that is also the national emblem, so two of the country's airlines carry Javanese cultural names.
+locale: jv
+---
+Garuda Indonesia
+Lion Air
+Batik Air
+Citilink
+Wings Air
+Super Air Jet
+Sriwijaya Air
+NAM Air
+TransNusa
+Pelita Air
+Susi Air
+Indonesia AirAsia
+AirAsia
+Malaysia Airlines
+Singapore Airlines
+Scoot
+Jetstar
+Thai Airways
+Vietnam Airlines
+Cathay Pacific
+China Airlines
+EVA Air
+Japan Airlines
+All Nippon Airways
+Korean Air
+Asiana Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Turkish Airlines
+Saudia
+Oman Air
+Qantas
+Air New Zealand
+KLM
+Lufthansa
+Air France
+British Airways
+Swiss
+Austrian Airlines
+Finnair
+Iberia
+Alitalia
+Aeroflot
+China Southern
+China Eastern
+Xiamen Air
+Philippine Airlines
+Cebu Pacific
+Royal Brunei Airlines

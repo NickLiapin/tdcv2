@@ -1,0 +1,26 @@
+---
+description: Kind of vehicle (Javanese). PIT is a bicycle, and the word is Dutch — from FIETS — one of a small set of Dutch loans that entered Javanese and not Indonesian, which says pesawat, sepeda. ANDHONG and DOKAR are horse carriages still working in Yogyakarta and Solo, the first four-wheeled and the second two. BECAK is the pedal rickshaw and OJEK the motorcycle taxi, which carries more Javanese passengers than any other vehicle on this list. ANGKOT is the shared minibus that runs a fixed route with no timetable.
+locale: jv
+---
+pit
+pit montor
+sepedha motor
+mobil
+becak
+becak motor
+ojek
+andhong
+dokar
+gerobag
+truk
+bis
+angkot
+colt
+pick up
+sepur
+kapal
+prau
+rakit
+pesawat
+traktor
+bajaj

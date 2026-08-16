@@ -1,0 +1,15 @@
+---
+description: Reaction to a post (Javanese). MANTEP and JOSS are the two Javanese words that carry approval; the rest are the standard reaction set.
+locale: jv
+---
+seneng
+ngguyu
+kaget
+sedhih
+nesu
+tresna
+mantep
+joss
+peduli
+ora setuju
+biasa wae

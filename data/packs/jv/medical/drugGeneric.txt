@@ -1,0 +1,45 @@
+---
+description: Generic drug name, spelled the Indonesian way — the international nonproprietary names re-spelled to Indonesian phonics, so paracetamol is PARASETAMOL, amoxicillin AMOKSISILIN, ciprofloxacin SIPROFLOKSASIN, and c before a front vowel becomes s throughout. This is a spelling convention, not a translation; the molecules are the same everywhere. JAMU — Javanese herbal medicine — is a separate system with its own materia medica and is not listed here, because its preparations are compounds rather than generics and none has an INN.
+locale: jv
+---
+parasetamol
+ibuprofen
+asam mefenamat
+natrium diklofenak
+amoksisilin
+ampisilin
+siprofloksasin
+levofloksasin
+azitromisin
+eritromisin
+kotrimoksazol
+metronidazol
+sefadroksil
+seftriakson
+kloramfenikol
+rifampisin
+isoniazid
+pirazinamid
+etambutol
+metformin
+glibenklamid
+insulin
+amlodipin
+kaptopril
+lisinopril
+bisoprolol
+furosemid
+hidroklorotiazid
+simvastatin
+atorvastatin
+omeprazol
+ranitidin
+antasida
+domperidon
+ondansetron
+loratadin
+setirizin
+deksametason
+prednison
+salbutamol
+alopurinol

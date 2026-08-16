@@ -1,0 +1,13 @@
+---
+description: Electrical or data cable type (Javanese trade usage). Cable trade names in Indonesia follow the Indonesian standard codes (NYA, NYM, NYY) and are not translated.
+locale: jv
+---
+NYA
+NYM
+NYY
+NYAF
+NYFGbY
+kabel serat optik
+kabel koaksial
+kabel UTP
+kabel STP

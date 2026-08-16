@@ -1,0 +1,13 @@
+---
+description: Dish belonging to Bali cuisine, as a Javanese menu names it.
+locale: jv
+---
+lawar
+sate lilit
+betutu
+jukut ares
+serombotan
+sega jinggo
+tum
+plecing kangkung
+sambel matah

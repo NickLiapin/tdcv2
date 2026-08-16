@@ -1,0 +1,29 @@
+---
+description: Gemstone (Javanese). INTEN is a diamond and SESOTYA the krama word for a jewel in general. AKIK — agate and chalcedony generally — leads because Java has an enormous ring-stone culture: men wear them daily, they are graded and named by locality, and a boom in the 2010s made kalimaya opal, bacan chrysocolla and pancawarna household words. MUSTIKA is a stone believed to carry power, which is a category rather than a mineral and may be an agate, a pearl or something found inside an animal.
+locale: jv
+---
+akik
+inten
+sesotya
+mirah
+nila
+jamrud
+safir
+zamrud
+kalimaya
+bacan
+pancawarna
+badar besi
+giok
+mutiara
+kecubung
+topas
+garnet
+pirus
+lapis lazuli
+oniks
+ametis
+zirkon
+mustika
+karang
+ambar

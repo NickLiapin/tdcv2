@@ -1,0 +1,5 @@
+---
+description: Currency of Singapura, named in Javanese.
+locale: jv
+---
+Dolar Singapura

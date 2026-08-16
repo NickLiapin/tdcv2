@@ -1,0 +1,16 @@
+---
+description: Mark or grade (Javanese). Indonesian schools mark out of 100 and universities on an A-E letter scale with a 4.00 grade point; both are shown. LULUS is a pass and ORA LULUS a fail.
+locale: jv
+---
+A
+A-
+B+
+B
+B-
+C+
+C
+D
+E
+lulus
+ora lulus
+ngulang

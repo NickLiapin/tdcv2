@@ -1,0 +1,21 @@
+---
+description: Social platform. Brand names keep their real spelling and are not translated. WhatsApp leads because in Indonesia it is not one messaging app among several but the default channel for everything from family groups to government announcements to buying vegetables.
+locale: jv
+---
+WhatsApp
+Instagram
+Facebook
+TikTok
+X
+YouTube
+Telegram
+Line
+Snapchat
+LinkedIn
+Pinterest
+Reddit
+Discord
+Threads
+Kaskus
+Shopee
+Tokopedia

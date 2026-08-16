@@ -1,0 +1,20 @@
+---
+description: Personal pronoun — THE file where Javanese speech levels bite hardest, because a pronoun cannot be register-neutral. Javanese has SPEECH LEVELS (unggah-ungguh): ngoko for equals and intimates, madya in between, and krama for a respected addressee, with a krama inggil vocabulary layer on top for the addressee's own body, acts and possessions. THIS PACK SHIPS NGOKO, the base register — it is the citation form in every Javanese dictionary, the form Javanese Wikipedia writes its running prose in, and the only register in which a general word list is register-neutral enough to be safe. The rows below are grouped by level and the level is what a config must choose, not the person. NGOKO: aku (I), kowe (you), dheweke (he/she). MADYA: kula, sampeyan. KRAMA: kula (I), panjenengan (you), piyambakipun (he/she). Getting this wrong is not a style slip: saying "kowe" to a stranger, a teacher or an elder is a real insult, and saying "panjenengan" to a small child is comic. Note aku and kula are BOTH first person — Javanese humbles the speaker and elevates the addressee at the same time, so the level changes BOTH pronouns at once and mixing them across levels is ungrammatical. Two further facts. Javanese has NO GRAMMATICAL GENDER: dheweke and piyambakipun cover he and she alike, so a config cannot derive a pronoun from a gender field. And Javanese distinguishes INCLUSIVE from EXCLUSIVE "we" — awake dhewe / kita includes the person you are talking to, aku lan kanca-kancaku excludes them — a distinction English collapses. Ingsun and sira are the archaic literary pair used in wayang, kraton speech and old texts; dalem and kawula are the deeply humble first person used to a ruler.
+locale: jv
+---
+aku
+kowe
+dheweke
+awake dhewe
+kita
+kowe kabeh
+kula
+sampeyan
+panjenengan
+piyambakipun
+kula sedaya
+panjenengan sedaya
+dalem
+kawula
+ingsun
+sira

@@ -1,0 +1,39 @@
+---
+description: Musical genre (Javanese). KARAWITAN is the whole art of gamelan music and GENDHING an individual composition in it; MACAPAT is sung classical verse (see book/genre.txt); LANGGAM JAWA is Javanese song in keroncong style and CAMPURSARI the hugely popular fusion of gamelan with keroboard and dangdut that dominates Javanese weddings; TEMBANG DOLANAN are children's play songs; GEROK and SINDHENAN are the choral and solo vocal styles that sit over a gendhing. JARANAN, KETOPRAK, LUDRUK and WAYANG KULIT are theatre forms with their own music and are listed because Javanese does not separate the music from the performance it belongs to.
+locale: jv
+---
+karawitan
+gendhing
+gamelan
+macapat
+tembang
+tembang dolanan
+langgam Jawa
+campursari
+keroncong
+sindhenan
+gerongan
+jaranan
+ketoprak
+ludruk
+wayang kulit
+wayang wong
+dangdut
+dangdut koplo
+pop
+rock
+jazz
+blues
+hip hop
+rap
+reggae
+elektronik
+klasik
+religi
+qasidah
+hadrah
+sholawat
+akustik
+indie
+metal
+punk

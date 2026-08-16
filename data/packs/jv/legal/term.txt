@@ -1,0 +1,24 @@
+---
+description: Legal term (Javanese). Legal vocabulary in Indonesia is Indonesian with a heavy Dutch substratum, and several of these are Dutch words still in daily use in court — the profession never translated them.
+locale: jv
+---
+gugatan
+tergugat
+penggugat
+terdakwa
+saksi
+bukti
+putusan
+vonis
+banding
+kasasi
+peninjauan kembali
+penetapan
+somasi
+mediasi
+perdamaian
+kuwasa hukum
+akta notaris
+sertipikat
+waris
+wasiat

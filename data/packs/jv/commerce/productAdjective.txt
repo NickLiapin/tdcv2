@@ -1,0 +1,58 @@
+---
+description: Adjective used in a product listing (Javanese, ngoko). Several carry meanings a translation loses: MANTEP is solid and dependable, AWET long-lasting, GURIH savoury-rich, ADEM cool to wear, EMPUK soft to the touch or bite, LEMES supple, PRAKTIS handy. The loanword block at the end is what an Indonesian marketplace listing actually mixes in.
+locale: jv
+---
+apik
+anyar
+asli
+awet
+mantep
+kuwat
+entheng
+abot
+alus
+empuk
+lemes
+atos
+landhep
+resik
+wangi
+adem
+anget
+amba
+ciyut
+dawa
+cendhak
+gedhe
+cilik
+kandel
+tipis
+padhang
+peteng
+murah
+larang
+lengkap
+praktis
+gampang
+aman
+sehat
+alami
+organik
+gurih
+manis
+seger
+renyah
+tahan banyu
+anti karat
+anti lecet
+bisa dilipat
+bisa diatur
+multifungsi
+ramah lingkungan
+terbatas
+eksklusif
+premium
+original
+handmade
+limited edition
+best seller

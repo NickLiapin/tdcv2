@@ -1,0 +1,12 @@
+---
+description: Diagnosis commonly managed by Pulmonologi, written as an Indonesian-language clinical record in Java would write it.
+locale: jv
+---
+asma
+PPOK
+pneumonia
+tuberkulosis paru
+bronkitis kronis
+emfisema
+efusi pleura
+fibrosis paru

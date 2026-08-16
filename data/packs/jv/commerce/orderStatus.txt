@@ -1,0 +1,18 @@
+---
+description: Order status (Javanese). E-commerce vocabulary in Indonesia is Indonesian and heavily calqued from English; the Javanese forms below are what a Javanese-language interface would print and several are ordinary Javanese words doing new work — DIKIRIM sent, DITAMPA received, DIBATALAKE cancelled.
+locale: jv
+---
+dipesen
+dibayar
+diproses
+dikemas
+dikirim
+ing dalan
+tekan kutha tujuan
+diterusake
+ditampa
+rampung
+dibatalake
+dibalekake
+gagal
+ngenteni bayaran

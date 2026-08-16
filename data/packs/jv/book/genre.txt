@@ -1,0 +1,32 @@
+---
+description: Literary genre (Javanese) — and the first eleven are the METRES OF MACAPAT, the classical Javanese sung verse form, which are genres in Javanese literature the way sonnet and elegy are in English: MASKUMAMBANG, MIJIL, SINOM, KINANTHI, ASMARADANA, GAMBUH, DHANDHANGGULA, DURMA, PANGKUR, MEGATRUH and POCUNG. Each has a fixed syllable count and vowel pattern per line, each carries a mood, and together they are read as the stages of a human life from the womb to the grave. The next block is Javanese prose and verse forms with no English equivalent: BABAD is a dynastic chronicle, SERAT a treatise, SULUK a mystical poem, PRIMBON a divination handbook, KAKAWIN Old Javanese court poetry in Sanskrit metres, GEGURITAN modern free verse, PARIKAN a two-line rhyming quip and WANGSALAN a riddle whose answer is hidden in the sound of the line. The last block is the international genres, which Javanese names with borrowings.
+locale: jv
+---
+maskumambang
+mijil
+sinom
+kinanthi
+asmaradana
+gambuh
+dhandhanggula
+durma
+pangkur
+megatruh
+pocung
+babad
+serat
+suluk
+primbon
+kakawin
+kidung
+geguritan
+parikan
+wangsalan
+dongeng
+crita cekak
+crita rakyat
+novel
+roman
+sejarah
+biografi
+puisi

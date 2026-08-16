@@ -1,0 +1,18 @@
+---
+description: Playing position or role in Bal-balan. Note KIWA and TENGEN for left and right — Javanese words, where Indonesian says kiri and kanan — and NGAREP and MBURI for front and back.
+locale: jv
+---
+kiper
+bek
+bek tengah
+bek kiwa
+bek tengen
+gelandang
+gelandang tengah
+gelandang serang
+gelandang tahan
+sayap kiwa
+sayap tengen
+panyerang
+kapten
+wasit

@@ -1,0 +1,5 @@
+---
+description: Currency of Jerman, named in Javanese.
+locale: jv
+---
+Euro

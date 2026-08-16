@@ -1,0 +1,13 @@
+---
+description: Broadcast content rating. Indonesia's classification, which is what appears in the corner of a Javanese television screen: SU is for all viewers, P pre-school, A children, R teenagers, D adults, BO means parental guidance required. Javanese is spoken natively in essentially one state, Indonesia, so the institutions named here are Indonesian ones — that is what the words mean, and there is no generic alternative to put instead. Recorded so the next reader is not guessing; if the Indonesia COUNTRY pack ever claims this address, the country pack should win.
+locale: jv
+---
+SU
+P
+A
+R
+R-BO
+D
+BO
+SU-BO
+A-BO

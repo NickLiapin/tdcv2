@@ -1,0 +1,8 @@
+---
+description: Condition with raised prevalence in people of Eropa Wetan descent. A prevalence signal, not an exclusive one.
+locale: jv
+---
+penyakit Gaucher
+sindrom Bloom
+fenilketonuria
+porfiria

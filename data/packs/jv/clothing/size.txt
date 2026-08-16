@@ -1,0 +1,12 @@
+---
+description: Clothing size label. International letter sizing, which is what an Indonesian label prints; note Indonesian sizes run notably smaller than European ones at the same letter, so an M bought in Java is not an M bought in Germany.
+locale: jv
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+All size

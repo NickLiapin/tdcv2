@@ -1,0 +1,12 @@
+---
+description: Diagnosis commonly managed by Ortopedi, written as an Indonesian-language clinical record in Java would write it.
+locale: jv
+---
+osteoartritis
+patah tulang
+hernia nukleus pulposus
+skoliosis
+artritis reumatoid
+dislokasi bahu
+tendinitis
+osteomielitis

@@ -1,0 +1,11 @@
+---
+description: Conduit a cable is run in (Javanese trade usage).
+locale: jv
+---
+pipa PVC
+pipa besi
+pipa fleksibel
+tray kabel
+ladder kabel
+ducting
+trunking

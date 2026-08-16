@@ -1,0 +1,58 @@
+---
+description: Colour as a product listing names it (Javanese). Shorter and blunter than color/name.txt: a shop lists a shirt as abang or ireng, never as sogan or wulung, and the marketing loanwords at the end (navy, tosca, maron) are what an Indonesian online listing actually prints even in a Javanese-language shop.
+locale: jv
+---
+abang
+ireng
+putih
+kuning
+ijo
+biru
+wungu
+klawu
+jambon
+soklat
+jingga
+krem
+emas
+perak
+abang tuwa
+abang enom
+ijo tuwa
+ijo enom
+biru tuwa
+biru enom
+klawu tuwa
+klawu enom
+soklat tuwa
+soklat enom
+kuning gadhing
+kuning emas
+putih susu
+ireng legam
+sogan
+wedel
+navy
+tosca
+maron
+magenta
+lila
+zaitun
+turkis
+salem
+mustar
+terakota
+silver
+gold
+rose gold
+transparan
+motif batik
+motif kotak
+motif garis
+motif kembang
+polos
+kombinasi
+gradasi
+metalik
+doff
+glossy

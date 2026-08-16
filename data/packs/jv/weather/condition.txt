@@ -1,0 +1,20 @@
+---
+description: Weather (Javanese), and another list where nearly every word differs from Indonesian: SUMUK is the heavy sticky heat before rain and has no English or Indonesian one-word equivalent; PEDHUT is fog (Indonesian kabut); GRIMIS drizzle; MENDHUNG overcast; ADHEM cold; ANGET warm; BEDHIDHING the spell of cold nights in the dry season. UDAN is rain, and UDAN RIWIS-RIWIS is fine persistent rain, the reduplication doing what English needs an adjective for.
+locale: jv
+---
+padhang
+panas
+sumuk
+anget
+adhem
+bedhidhing
+mendhung
+peteng
+udan
+udan deres
+udan riwis-riwis
+grimis
+pedhut
+angin
+angin gedhe
+sumilir

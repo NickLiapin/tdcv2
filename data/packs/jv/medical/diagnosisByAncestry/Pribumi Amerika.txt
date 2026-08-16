@@ -1,0 +1,8 @@
+---
+description: Condition with raised prevalence in people of Pribumi Amerika descent. A prevalence signal, not an exclusive one.
+locale: jv
+---
+diabetes melitus tipe 2
+batu empedu
+penyakit hati alkoholik
+artritis reumatoid

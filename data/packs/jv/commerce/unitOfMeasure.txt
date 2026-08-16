@@ -1,0 +1,34 @@
+---
+description: Unit a product is sold by (Javanese). The traditional units are still used in markets and are not metric: SET is a bunch, IKET a tied bundle, GEDHENG a large bundle of rice stalks or leaves, TAKER a scoop measure, KELIP and GANTANG old volume measures for grain. IJI is a single piece and LEMBAR a sheet.
+locale: jv
+---
+iji
+buah
+lembar
+pasang
+set
+lusin
+kodhi
+rim
+pak
+dus
+karung
+sak
+botol
+kaleng
+sachet
+bungkus
+kilogram
+gram
+ons
+kuintal
+ton
+liter
+mililiter
+meter
+sentimeter
+iket
+gedheng
+taker
+gantang
+tundhun

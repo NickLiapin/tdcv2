@@ -1,0 +1,19 @@
+---
+description: Weather or natural event (Javanese). LINDHU is an earthquake where Indonesian says gempa, and KLUWUNG a rainbow where Indonesian says pelangi — two of the clearest single-word tests in the language. LAHAR is a volcanic mudflow and is a Javanese word that English borrowed, not the other way round; Java has more active volcanoes than any comparable area on earth and the vocabulary reflects it: WEDHUS GEMBEL, literally "shaggy goat", is the Javanese name for a pyroclastic flow, from the look of the rolling ash cloud, and it is the term used on national television during an eruption.
+locale: jv
+---
+lindhu
+kluwung
+bledheg
+kilat
+lahar
+wedhus gembel
+udan awu
+banjir
+banjir bandhang
+longsor
+puting beliung
+angin lesus
+ombak gedhe
+ketiga dawa
+bun

@@ -1,0 +1,11 @@
+---
+description: Dish belonging to Indhi cuisine, as a Javanese menu names it.
+locale: jv
+---
+kari
+roti canai
+samosa
+biryani
+tandoori
+martabak
+roti naan
