@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of ប៉ាគីស្ថាន
+locale: km
+---
+PKR

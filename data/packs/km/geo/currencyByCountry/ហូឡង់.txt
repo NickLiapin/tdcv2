@@ -1,0 +1,5 @@
+---
+description: Currency of ហូឡង់, as Khmer names it
+locale: km
+---
+អឺរ៉ូ

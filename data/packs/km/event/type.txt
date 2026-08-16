@@ -1,0 +1,22 @@
+---
+description: Event type. Several are Cambodian and have no European counterpart: បុណ្យចូលឆ្នាំខ្មែរ is the April new year, បុណ្យភ្ជុំបិណ្ឌ the fifteen-day ancestor festival, បុណ្យអុំទូក the November water festival with its longboat races, and ពិធីបុណ្យសពជាការធ្វើបុណ្យ a funeral held as a merit-making rite rather than as mourning alone.
+locale: km
+---
+ពិធីមង្គលការ
+ពិធីភ្ជាប់ពាក្យ
+ពិធីបុណ្យសព
+ពិធីបុណ្យខួប
+ពិធីខួបកំណើត
+ពិធីបួសនាគ
+បុណ្យចូលឆ្នាំខ្មែរ
+បុណ្យភ្ជុំបិណ្ឌ
+បុណ្យអុំទូក
+បុណ្យកឋិន
+បុណ្យវិសាខបូជា
+ពិធីសំណេះសំណាល
+សន្និសីទ
+សិក្ខាសាលា
+ពិព័រណ៍
+ការប្រកួតកីឡា
+ការសម្តែងតន្ត្រី
+ពិធីប្រគល់សញ្ញាបត្រ

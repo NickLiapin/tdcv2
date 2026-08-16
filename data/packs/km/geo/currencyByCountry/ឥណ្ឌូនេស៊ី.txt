@@ -1,0 +1,5 @@
+---
+description: Currency of ឥណ្ឌូនេស៊ី, as Khmer names it
+locale: km
+---
+រូព្យ៉ា

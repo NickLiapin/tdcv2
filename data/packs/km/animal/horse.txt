@@ -1,0 +1,20 @@
+---
+description: Horse. Cambodia has no horse-breeding tradition and Khmer therefore names no breeds of its own: a horse is a draught and ceremonial animal, described by colour, size and job. The foreign breed names below are transliterations.
+locale: km
+---
+សេះ
+សេះព្រៃ
+សេះទាញរទេះ
+សេះជិះ
+សេះប្រណាំង
+សេះតូច
+សេះស
+សេះខ្មៅ
+សេះក្រហម
+សេះប្រផេះ
+សេះឈ្មោល
+សេះញី
+កូនសេះ
+សេះអារ៉ាប់
+សេះម៉ុងហ្គោលី
+សេះពាហនៈ

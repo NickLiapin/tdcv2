@@ -1,0 +1,5 @@
+---
+description: Capital of រុស្ស៊ី, as Khmer names it
+locale: km
+---
+មូស្គូ

@@ -1,0 +1,32 @@
+---
+description: Garment. ក្រម៉ា is the one item on this list every Cambodian owns: a checked cotton cloth used as a scarf, a towel, a sun hood, a baby sling and a bag, and it is the national garment. សំពត់ is the wrapped lower cloth and សំពត់ចងក្បិន is the version drawn between the legs to make trousers. សំពត់ហូល is the ikat silk woven for ceremony. None of these has a European equivalent and none should be translated as "skirt".
+locale: km
+---
+ក្រម៉ា
+សំពត់
+សំពត់ហូល
+សំពត់ចងក្បិន
+សំពត់សារុង
+ឈុតជាតិ
+អាវ
+អាវខ្លី
+អាវវែង
+អាវយឺត
+អាវធំ
+អាវក្រៅ
+អាវទ្រនាប់
+អាវភ្លៀង
+ខោវែង
+ខោខ្លី
+ខោខូវប៊យ
+រ៉ូប
+ឈុតសម្លៀកបំពាក់
+ស្បៃ
+មួក
+មួកសុវត្ថិភាព
+ស្រោមជើង
+ស្បែកជើង
+ស្បែកជើងផ្ទាត់
+ខ្សែក្រវាត់
+ក្រវាត់ក
+ស្រោមដៃ

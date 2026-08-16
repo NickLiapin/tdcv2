@@ -1,0 +1,16 @@
+---
+description: Kind of telecom operator. Cambodia's three real mobile networks are named institutions and belong in a Cambodia country pack, not in a language pack, so this list holds the KIND of operator instead. Worth knowing for a config: Cambodia skipped fixed-line telephony almost entirely — mobile penetration exceeds one SIM per person and many people carry two or three SIMs to stay on-net.
+locale: km
+---
+ប្រតិបត្តិករចល័ត
+ប្រតិបត្តិករអ៊ីនធឺណិត
+ប្រតិបត្តិករខ្សែកាបអុបទិក
+ប្រតិបត្តិករផ្កាយរណប
+ប្រតិបត្តិករទូរស័ព្ទលើតុ
+ប្រតិបត្តិករលក់បន្ត
+ប្រតិបត្តិករទូរទស្សន៍ខ្សែកាប
+ប្រតិបត្តិករបណ្ដាញឥតខ្សែ
+ប្រតិបត្តិករទូរគមនាគមន៍អន្តរជាតិ
+ភ្នាក់ងារលក់កាតទូរស័ព្ទ
+ប្រតិបត្តិករបណ្ដាញសាជីវកម្ម
+ប្រតិបត្តិករសេវាទិន្នន័យ

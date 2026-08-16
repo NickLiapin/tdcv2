@@ -1,0 +1,5 @@
+---
+description: Capital of ន័រវែស, as Khmer names it
+locale: km
+---
+អូស្លូ

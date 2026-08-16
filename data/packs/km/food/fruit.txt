@@ -1,0 +1,36 @@
+---
+description: Fruit. The list is tropical because Cambodia is: ធុរេន durian, មង្ឃុត mangosteen, សាវម៉ាវ rambutan, ស្រកានាគ dragon fruit and ត្នោត the sugar-palm fruit have no European counterpart, and apples, pears and strawberries are imported and priced as luxuries.
+locale: km
+---
+ស្វាយ
+ចេក
+ដូង
+ដូងខ្ចី
+ល្ហុង
+ម្នាស់
+ធុរេន
+មង្ឃុត
+សាវម៉ាវ
+គូលេន
+ខ្នុរ
+ត្នោត
+ក្រូច
+ក្រូចថ្លុង
+ក្រូចឆ្មារ
+ក្រូចសើច
+ទំពាំងបាយជូរ
+ប៉ោម
+ត្របែក
+ល្មុត
+ស្រកានាគ
+ឪឡឹក
+ត្រសក់ស្រូវ
+ទៀប
+អំពិល
+អាវ៉ូកាដូ
+ស្ត្របឺរី
+គីវី
+ព្យែរ
+ស្វាយចន្ទី
+ម្កាក់
+ចេកណាំវ៉ា

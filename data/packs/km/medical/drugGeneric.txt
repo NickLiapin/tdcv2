@@ -1,0 +1,51 @@
+---
+description: Generic drug name. These are deliberately written in the Latin INN rather than in Khmer script, and the reason is practical: a Cambodian prescription, a pharmacy shelf label and the national essential-medicines list all print the International Nonproprietary Name in Latin letters, because a wrong drug name kills people and the INN is the one spelling every pharmacist in the country reads the same way. Transliterating them into Khmer here would put a string in the pack that no Cambodian pharmacy would recognise.
+locale: km
+---
+Paracetamol
+Ibuprofen
+Aspirin
+Diclofenac
+Tramadol
+Morphine
+Amoxicillin
+Ampicillin
+Azithromycin
+Ceftriaxone
+Ciprofloxacin
+Doxycycline
+Metronidazole
+Cotrimoxazole
+Gentamicin
+Isoniazid
+Rifampicin
+Pyrazinamide
+Ethambutol
+Artemether
+Lumefantrine
+Chloroquine
+Albendazole
+Mebendazole
+Praziquantel
+Oseltamivir
+Aciclovir
+Fluconazole
+Metformin
+Glibenclamide
+Insulin
+Amlodipine
+Enalapril
+Losartan
+Atenolol
+Furosemide
+Simvastatin
+Salbutamol
+Prednisolone
+Omeprazole
+Ranitidine
+Loratadine
+Diazepam
+Amitriptyline
+Ferrous sulfate
+Folic acid
+Oral rehydration salts

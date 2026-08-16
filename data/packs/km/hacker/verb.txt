@@ -1,0 +1,34 @@
+---
+description: Technical verb. Khmer verbs carry no tense and no agreement, so each of these is the whole paradigm — the same word serves "back up", "backs up", "backed up" and "will back up".
+locale: km
+---
+បម្រុងទុក
+ស្ដារឡើងវិញ
+អ៊ិនគ្រីប
+ឌិគ្រីប
+ទាញយក
+ផ្ទុកឡើង
+ភ្ជាប់
+ផ្ដាច់
+ចាប់ផ្ដើម
+បញ្ឈប់
+ចាប់ផ្ដើមឡើងវិញ
+កំណត់រចនាសម្ព័ន្ធ
+ដំឡើង
+លុប
+ចម្លង
+ផ្លាស់ទី
+បង្ហាប់
+ពន្លា
+វិភាគ
+សម្រង់
+ចងក្រង
+ដំណើរការ
+សាកល្បង
+កែកំហុស
+ធ្វើសមកាលកម្ម
+ត្រងទិន្នន័យ
+ចាក់សោ
+ដោះសោ
+ផ្ទៀងផ្ទាត់
+ចូលប្រព័ន្ធ

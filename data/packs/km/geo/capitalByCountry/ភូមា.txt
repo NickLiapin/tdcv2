@@ -1,0 +1,5 @@
+---
+description: Capital of ភូមា, as Khmer names it
+locale: km
+---
+នេពីដោ

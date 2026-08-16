@@ -1,0 +1,5 @@
+---
+description: Currency of ស្រីលង្កា, as Khmer names it
+locale: km
+---
+រូពីស្រីលង្កា

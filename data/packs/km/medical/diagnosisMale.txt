@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: km
+---
+ក្រពេញប្រូស្តាតធំ
+មហារីកក្រពេញប្រូស្តាត
+រលាកក្រពេញប្រូស្តាត
+មហារីកពងស្វាស
+រលាកពងស្វាស
+សរសៃឈាមពងស្វាសរីក
+ពងស្វាសមិនចុះ
+ពងស្វាសរមួល
+ស្បែកស្រទាប់ក្បាលលិង្គតឹង
+រលាកក្បាលលិង្គ
+ចុះខ្សោយផ្លូវភេទ
+ភាពគ្មានកូនបុរស
+ទឹកក្នុងស្រោមពងស្វាស
+មហារីកលិង្គ
+ក្ដិតឆាប់រហ័សពេក
+ក្រពេញទឹកកាមរលាក
+ស្ទះបំពង់ទឹកកាម
+ក្រពេញសុដន់បុរសរីក
+ខ្វះអ័រម៉ូនបុរស
+ក្លនដាច់

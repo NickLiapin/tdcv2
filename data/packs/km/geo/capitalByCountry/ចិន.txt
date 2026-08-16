@@ -1,0 +1,5 @@
+---
+description: Capital of ចិន, as Khmer names it
+locale: km
+---
+ប៉េកាំង

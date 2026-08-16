@@ -1,0 +1,5 @@
+---
+description: Capital of ស្វីស, as Khmer names it
+locale: km
+---
+បឺន

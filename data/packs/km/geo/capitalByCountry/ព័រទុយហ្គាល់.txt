@@ -1,0 +1,5 @@
+---
+description: Capital of ព័រទុយហ្គាល់, as Khmer names it
+locale: km
+---
+លីស្បោន

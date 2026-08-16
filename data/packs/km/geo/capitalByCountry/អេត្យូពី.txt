@@ -1,0 +1,5 @@
+---
+description: Capital of អេត្យូពី, as Khmer names it
+locale: km
+---
+អាឌីសអាបេបា

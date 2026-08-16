@@ -1,0 +1,5 @@
+---
+description: Capital of ប៉ាគីស្ថាន, as Khmer names it
+locale: km
+---
+អ៊ីស្លាម៉ាបាដ

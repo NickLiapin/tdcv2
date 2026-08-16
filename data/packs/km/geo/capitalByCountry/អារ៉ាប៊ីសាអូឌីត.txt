@@ -1,0 +1,5 @@
+---
+description: Capital of អារ៉ាប៊ីសាអូឌីត, as Khmer names it
+locale: km
+---
+រីយ៉ាដ

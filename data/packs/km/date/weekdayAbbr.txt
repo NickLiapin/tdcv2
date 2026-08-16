@@ -1,0 +1,11 @@
+---
+description: Weekday, short form. Khmer shortens a weekday by dropping the leading ថ្ងៃ ("day"), which is a real and everyday shortening; it does not clip the remaining word. Sunday first.
+locale: km
+---
+អាទិត្យ
+ចន្ទ
+អង្គារ
+ពុធ
+ព្រហស្បតិ៍
+សុក្រ
+សៅរ៍

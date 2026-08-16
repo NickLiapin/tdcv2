@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of នូវែលហ្សេឡង់
+locale: km
+---
+NZD

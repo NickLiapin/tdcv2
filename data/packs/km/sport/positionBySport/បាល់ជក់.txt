@@ -1,0 +1,7 @@
+---
+description: Positions in បាល់ជក់
+locale: km
+---
+តេកុង
+អ្នកបញ្ជូនបាល់
+អ្នកវាយសម្លាប់

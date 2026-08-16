@@ -1,0 +1,5 @@
+---
+description: Currency of ហ្វីលីពីន, as Khmer names it
+locale: km
+---
+ប៉េសូហ្វីលីពីន

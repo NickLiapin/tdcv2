@@ -1,0 +1,11 @@
+---
+description: Dishes of ជប៉ុន cuisine, as Khmer names them
+locale: km
+---
+ស៊ូស៊ី
+រ៉ាមេន
+តេមពូរ៉ា
+សាស៊ីមី
+យ៉ាគីតូរី
+អ៊ូដុង
+ស៊ុបមីសូ

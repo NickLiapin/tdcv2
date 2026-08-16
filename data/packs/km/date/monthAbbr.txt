@@ -1,0 +1,16 @@
+---
+description: Month name in a short date. Khmer does NOT abbreviate month names: every name is already two or three syllables and no clipped or dotted form (the Thai ม.ค. or the English Jan.) exists in Khmer typography. Rather than invent twelve abbreviations that no Cambodian would read, this list repeats the full names — a short Khmer date drops to digits instead, as ០១/០១/២០២៦.
+locale: km
+---
+មករា
+កុម្ភៈ
+មីនា
+មេសា
+ឧសភា
+មិថុនា
+កក្កដា
+សីហា
+កញ្ញា
+តុលា
+វិច្ឆិកា
+ធ្នូ

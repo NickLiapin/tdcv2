@@ -1,0 +1,14 @@
+---
+description: Industry with a coherent job list. The ten are chosen for Cambodia rather than copied from the reference: កាត់ដេរ (garment manufacturing) and កសិកម្ម (agriculture) are the two sectors that actually employ the country — garments are the largest export and farming still the largest employer — and they replace the generic Manufacturing and Retail of the English pack.
+locale: km
+---
+បច្ចេកវិទ្យា
+សុខាភិបាល
+ហិរញ្ញវត្ថុ
+សំណង់
+អប់រំ
+បដិសណ្ឋារកិច្ច
+កាត់ដេរ
+កសិកម្ម
+ដឹកជញ្ជូន
+ច្បាប់

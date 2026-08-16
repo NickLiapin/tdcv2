@@ -1,0 +1,9 @@
+---
+description: Dishes of ឡាវ cuisine, as Khmer names them
+locale: km
+---
+ឡាប
+តាំម៉ាកហ៊ុង
+ខៅពូន
+បាយដំណើប
+អ័រឡាម

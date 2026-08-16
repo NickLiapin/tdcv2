@@ -1,0 +1,18 @@
+---
+description: Shipping carrier type. Cambodia has no single dominant courier and much domestic parcel traffic moves informally by inter-provincial bus or by motorbike, so this list holds the KIND of carrier rather than brand names; the actual company names are Cambodia country data.
+locale: km
+---
+សេវាប្រៃសណីយ៍
+ក្រុមហ៊ុនដឹកជញ្ជូនរហ័ស
+ដឹកជញ្ជូនតាមម៉ូតូ
+ដឹកជញ្ជូនតាមឡានក្រុង
+ដឹកជញ្ជូនតាមឡានធុនធំ
+ដឹកជញ្ជូនតាមទូក
+ដឹកជញ្ជូនតាមផ្លូវអាកាស
+ដឹកជញ្ជូនតាមកុងតឺន័រ
+សេវាដឹកជញ្ជូនអន្តរជាតិ
+សេវាដឹកជញ្ជូនក្នុងក្រុង
+សេវាដឹកជញ្ជូនអាហារ
+សេវាដឹកជញ្ជូនត្រជាក់
+អ្នកដឹកជញ្ជូនឯករាជ្យ
+សេវារត់ការ

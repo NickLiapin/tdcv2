@@ -1,0 +1,16 @@
+---
+description: Month name. The Khmer solar calendar months are the Gregorian twelve and carry these Khmer names, all of them Pali loans. In a written date they are preceded by ខែ ("month"): ថ្ងៃទី១ ខែមករា ឆ្នាំ២០២៦. Khmer ALSO keeps a separate lunar month cycle (មិគសិរ, បុស្ស, មាឃ …) used for religious dates and for Choul Chnam Thmey; those are not these months and are not interchangeable with them.
+locale: km
+---
+មករា
+កុម្ភៈ
+មីនា
+មេសា
+ឧសភា
+មិថុនា
+កក្កដា
+សីហា
+កញ្ញា
+តុលា
+វិច្ឆិកា
+ធ្នូ

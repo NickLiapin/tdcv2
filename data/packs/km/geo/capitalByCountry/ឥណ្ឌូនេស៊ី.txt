@@ -1,0 +1,5 @@
+---
+description: Capital of ឥណ្ឌូនេស៊ី, as Khmer names it
+locale: km
+---
+ហ្សាការតា

@@ -1,0 +1,5 @@
+---
+description: Currency of ប៉ាគីស្ថាន, as Khmer names it
+locale: km
+---
+រូពីប៉ាគីស្ថាន

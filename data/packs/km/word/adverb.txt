@@ -1,0 +1,36 @@
+---
+description: Common adverb. Khmer builds most adverbs by placing the plain adjective after the verb — ដើរលឿន is "walk fast" — with no -ly suffix and no change to the word, so many entries here are the same words as in word/adjective.
+locale: km
+---
+ខ្លាំង
+តិច
+ច្រើន
+លឿន
+យឺត
+ភ្លាម
+បន្តិច
+ជាញឹកញាប់
+ម្ដងម្កាល
+រហូត
+ជានិច្ច
+មិនដែល
+ឥឡូវ
+ថ្ងៃនេះ
+ម្សិលមិញ
+ស្អែក
+មុន
+ក្រោយ
+ភាគច្រើន
+ទាំងអស់
+ជាមួយគ្នា
+ដោយឡែក
+ដោយប្រុងប្រយ័ត្ន
+ដោយសប្បាយ
+ដោយស្ងាត់
+ដោយត្រឹមត្រូវ
+ពិតជា
+ប្រហែល
+ប្រាកដ
+ស្ទើរតែ
+នៅតែ
+ទើបតែ

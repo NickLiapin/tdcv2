@@ -1,0 +1,5 @@
+---
+description: Capital of ថៃ, as Khmer names it
+locale: km
+---
+បាងកក

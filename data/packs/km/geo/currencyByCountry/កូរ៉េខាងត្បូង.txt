@@ -1,0 +1,5 @@
+---
+description: Currency of កូរ៉េខាងត្បូង, as Khmer names it
+locale: km
+---
+វ៉ុន

@@ -1,0 +1,12 @@
+---
+description: Household income bracket, monthly, in US dollars. The dollar is deliberate and not an Americanism: Cambodia runs a dual-currency economy in which the riel (រៀល, KHR) circulates for small change while salaries, rent and prices above a few dollars are quoted and paid in USD. The bands are set at Cambodian levels, not Western ones. Arabic digits are used because that is what a Cambodian payslip prints, though Khmer has its own digits ០១២៣៤៥៦៧៨៩.
+locale: km
+---
+ក្រោម ២០០ ដុល្លារ
+២០០–៤០០ ដុល្លារ
+៤០០–៦០០ ដុល្លារ
+៦០០–១០០០ ដុល្លារ
+១០០០–១៥០០ ដុល្លារ
+១៥០០–២៥០០ ដុល្លារ
+២៥០០–៥០០០ ដុល្លារ
+លើស ៥០០០ ដុល្លារ

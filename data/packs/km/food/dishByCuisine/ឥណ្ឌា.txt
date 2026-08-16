@@ -1,0 +1,10 @@
+---
+description: Dishes of ឥណ្ឌា cuisine, as Khmer names them
+locale: km
+---
+ការីឥណ្ឌា
+បៀរយ៉ានី
+មាន់តាន់ឌូរី
+នំណាន់
+សាម៉ូសា
+ដាល់

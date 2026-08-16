@@ -1,0 +1,21 @@
+---
+description: Khmer honorific placed before the whole name. Khmer has NO capital letters, so a title is the only visual marker a name carries. លោក / លោកស្រី / កញ្ញា are the everyday Mr / Mrs / Miss. ឯកឧត្តម and លោកជំទាវ are the Excellency pair for a senior official and his wife; សម្ដេច is the highest civil honorific and ព្រះតេជព្រះគុណ addresses a Buddhist monk. អ្នកឧកញ៉ា is a royally conferred title held by business figures and has no European equivalent. Academic and medical titles go BEFORE the name in Khmer, never after it.
+locale: km
+---
+លោក
+លោកស្រី
+អ្នកស្រី
+កញ្ញា
+អ្នកនាង
+បណ្ឌិត
+សាស្ត្រាចារ្យ
+វេជ្ជបណ្ឌិត
+លោកគ្រូ
+អ្នកគ្រូ
+ឯកឧត្តម
+លោកជំទាវ
+សម្ដេច
+អ្នកឧកញ៉ា
+ព្រះតេជព្រះគុណ
+លោកតា
+លោកយាយ

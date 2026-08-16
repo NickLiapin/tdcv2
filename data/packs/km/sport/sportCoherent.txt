@@ -1,0 +1,12 @@
+---
+description: Sport with a coherent position list. Three of the eight are Cambodian rather than global. គុនខ្មែរ is Cambodia's kickboxing art, closely related to muay Thai and vigorously claimed as its ancestor. បាល់ជក់ is sepak takraw. ប្រណាំងទូក, longboat racing, is the country's biggest sporting event: crews of up to eighty paddlers race on the Tonle Sap in front of the royal palace at the November water festival.
+locale: km
+---
+បាល់ទាត់
+បាល់ទះ
+បាល់បោះ
+បាល់ជក់
+ប្រណាំងទូក
+បាដមីនតុន
+តេនីស
+គុនខ្មែរ

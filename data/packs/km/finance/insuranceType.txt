@@ -1,0 +1,18 @@
+---
+description: Insurance type. Insurance penetration in Cambodia is low and most of these are recent products; ធានារ៉ាប់រងខ្នាតតូច (microinsurance) is sold alongside microfinance loans and is the form many households first meet.
+locale: km
+---
+ធានារ៉ាប់រងសុខភាព
+ធានារ៉ាប់រងអាយុជីវិត
+ធានារ៉ាប់រងគ្រោះថ្នាក់
+ធានារ៉ាប់រងយានយន្ត
+ធានារ៉ាប់រងម៉ូតូ
+ធានារ៉ាប់រងអគ្គិភ័យ
+ធានារ៉ាប់រងលំនៅឋាន
+ធានារ៉ាប់រងទំនិញ
+ធានារ៉ាប់រងធ្វើដំណើរ
+ធានារ៉ាប់រងកសិកម្ម
+ធានារ៉ាប់រងខ្នាតតូច
+ធានារ៉ាប់រងទំនួលខុសត្រូវ
+ធានារ៉ាប់រងអាជីវកម្ម
+ធានារ៉ាប់រងការសិក្សា

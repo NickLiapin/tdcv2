@@ -1,0 +1,5 @@
+---
+description: Capital of សហរដ្ឋអាមេរិក, as Khmer names it
+locale: km
+---
+វ៉ាស៊ីនតោន ឌីស៊ី

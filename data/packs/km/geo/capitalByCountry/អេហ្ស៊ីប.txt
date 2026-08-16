@@ -1,0 +1,5 @@
+---
+description: Capital of អេហ្ស៊ីប, as Khmer names it
+locale: km
+---
+គែរ

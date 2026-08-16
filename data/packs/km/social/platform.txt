@@ -1,0 +1,21 @@
+---
+description: Social platform. Brand names keep their real spelling. Facebook is placed first because Cambodia is one of the countries where it functions as the internet itself — businesses trade on Facebook pages rather than on websites, and Telegram carries much of the country's commerce and news.
+locale: km
+---
+Facebook
+Facebook Messenger
+Telegram
+TikTok
+YouTube
+Instagram
+WhatsApp
+LinkedIn
+X
+Line
+WeChat
+Viber
+Discord
+Reddit
+Pinterest
+Snapchat
+Threads

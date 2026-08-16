@@ -1,0 +1,18 @@
+---
+description: Cuisine, as Khmer names it. ខ្មែរ heads the list because Cambodian food is a cuisine in its own right and not a variant of Thai — it is built on ក្រឿង (a lemongrass and turmeric paste) and ប្រហុក (fermented fish paste), and it is far less chilli-hot than its neighbours.
+locale: km
+---
+ខ្មែរ
+ថៃ
+វៀតណាម
+ចិន
+ជប៉ុន
+កូរ៉េ
+ឥណ្ឌា
+បារាំង
+អ៊ីតាលី
+អាមេរិក
+ម៉ិកស៊ិក
+ឡាវ
+ម៉ាឡេស៊ី
+អារ៉ាប់

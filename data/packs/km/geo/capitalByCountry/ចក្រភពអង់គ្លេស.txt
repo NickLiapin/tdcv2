@@ -1,0 +1,5 @@
+---
+description: Capital of ចក្រភពអង់គ្លេស, as Khmer names it
+locale: km
+---
+ឡុងដ៍

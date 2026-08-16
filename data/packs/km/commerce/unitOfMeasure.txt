@@ -1,0 +1,34 @@
+---
+description: Unit of measure. Khmer counts with a CLASSIFIER between the number and the noun, so these words are grammatical requirements rather than optional packaging labels: you cannot say "three shirts" in Khmer without one. Cambodia is metric, but the market still weighs in ជី and តំលឹង — traditional Chinese-derived units of about 3.75 g and 37.5 g — when selling gold, and rice is sold by the ថូ (a tin can of roughly 1.4 kg).
+locale: km
+---
+គ្រាប់
+ដុំ
+ដើម
+សន្លឹក
+ក្បាល
+អង្គ
+នាក់
+កញ្ចប់
+ប្រអប់
+ថង់
+ដប
+កំប៉ុង
+ពាង
+ធុង
+ចង្កោម
+ដំបង
+ស្នូល
+គូ
+ឈុត
+រមូរ
+គីឡូក្រាម
+ក្រាម
+តោន
+លីត្រ
+មីលីលីត្រ
+ម៉ែត្រ
+សង់ទីម៉ែត្រ
+ជី
+តំលឹង
+ថូ

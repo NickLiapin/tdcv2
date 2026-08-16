@@ -1,0 +1,12 @@
+---
+description: Clothing size. Cambodian ready-to-wear carries the international letter sizes, which is unsurprising: garment manufacturing is the country's largest export industry and the labels are the manufacturer's own. Khmer has no native sizing vocabulary of its own.
+locale: km
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+ទំហំទូទៅ

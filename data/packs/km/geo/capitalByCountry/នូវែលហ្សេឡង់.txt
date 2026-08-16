@@ -1,0 +1,5 @@
+---
+description: Capital of នូវែលហ្សេឡង់, as Khmer names it
+locale: km
+---
+វេលីងតោន

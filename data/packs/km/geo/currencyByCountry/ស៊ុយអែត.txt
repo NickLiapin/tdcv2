@@ -1,0 +1,5 @@
+---
+description: Currency of ស៊ុយអែត, as Khmer names it
+locale: km
+---
+គ្រូណាស៊ុយអែត

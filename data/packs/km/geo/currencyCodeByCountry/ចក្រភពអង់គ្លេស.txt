@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of ចក្រភពអង់គ្លេស
+locale: km
+---
+GBP

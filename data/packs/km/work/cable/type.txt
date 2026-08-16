@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking). International cable grades keep their Latin designations, as they do on the box.
+locale: km
+---
+ខ្សែអុបទិក
+ខ្សែកូអាក់ស្យាល់
+ខ្សែគូវេញ
+Cat5e
+Cat6
+Cat6a
+ខ្សែអ៊ីសឺរណិត
+ខ្សែព្យួរអាកាស
+ខ្សែក្រោមដី

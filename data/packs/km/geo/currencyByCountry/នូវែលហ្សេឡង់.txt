@@ -1,0 +1,5 @@
+---
+description: Currency of នូវែលហ្សេឡង់, as Khmer names it
+locale: km
+---
+ដុល្លារនូវែលហ្សេឡង់

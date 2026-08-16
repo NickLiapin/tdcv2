@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Khmer speakers fall under អាស៊ីអាគ្នេយ៍.
+locale: km
+---
+អាហ្វ្រិកក្រោមសាហារ៉ា
+អាហ្វ្រិកខាងជើង
+មេឌីទែរ៉ាណេ
+មជ្ឈិមបូព៌ា
+អឺរ៉ុបខាងជើង
+អឺរ៉ុបខាងកើត
+ជ្វីហ្វអាស្កេណាហ្ស៊ី
+អាស៊ីខាងត្បូង
+អាស៊ីខាងកើត
+អាស៊ីអាគ្នេយ៍
+ជនជាតិដើមអាមេរិក
+កោះប៉ាស៊ីហ្វិក

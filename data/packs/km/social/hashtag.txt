@@ -1,0 +1,34 @@
+---
+description: Hashtag. Khmer hashtags run the words together without spaces, which is not a stylistic choice — Khmer is written without spaces between words anyway, so a Khmer hashtag looks exactly like ordinary Khmer text with a # in front. A tokeniser that splits hashtags on word boundaries will find none here.
+locale: km
+---
+#កម្ពុជា
+#ភ្នំពេញ
+#សៀមរាប
+#អង្គរវត្ត
+#ទេសចរណ៍កម្ពុជា
+#ម្ហូបខ្មែរ
+#វប្បធម៌ខ្មែរ
+#ភាសាខ្មែរ
+#ចូលឆ្នាំខ្មែរ
+#បុណ្យអុំទូក
+#ស្រុកខ្មែរ
+#ផលិតផលខ្មែរ
+#កីឡាកម្ពុជា
+#បាល់ទាត់កម្ពុជា
+#តន្ត្រីខ្មែរ
+#សិល្បៈខ្មែរ
+#ធម្មជាតិកម្ពុជា
+#ជីវិតប្រចាំថ្ងៃ
+#សុខភាពល្អ
+#ចម្អិនអាហារ
+#ធ្វើដំណើរ
+#រៀនភាសាអង់គ្លេស
+#ការងារ
+#អាជីវកម្ម
+#បច្ចេកវិទ្យា
+#ព័ត៌មាន
+#រូបភាពថ្ងៃនេះ
+#អរគុណ
+#សុំចែករំលែក
+#គាំទ្រផលិតផលក្នុងស្រុក

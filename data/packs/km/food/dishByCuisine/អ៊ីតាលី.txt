@@ -1,0 +1,10 @@
+---
+description: Dishes of អ៊ីតាលី cuisine, as Khmer names them
+locale: km
+---
+ភីហ្សា
+ស្ប៉ាហ្គេទី
+ឡាហ្សាញ៉ា
+រីសូតូ
+រ៉ាវីយ៉ូលី
+ទីរ៉ាមីស៊ូ

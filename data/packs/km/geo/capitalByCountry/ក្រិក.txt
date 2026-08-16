@@ -1,0 +1,5 @@
+---
+description: Capital of ក្រិក, as Khmer names it
+locale: km
+---
+អាថែន

@@ -1,0 +1,5 @@
+---
+description: Currency of នេប៉ាល់, as Khmer names it
+locale: km
+---
+រូពីនេប៉ាល់

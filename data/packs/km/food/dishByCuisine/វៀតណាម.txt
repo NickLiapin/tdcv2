@@ -1,0 +1,11 @@
+---
+description: Dishes of វៀតណាម cuisine, as Khmer names them
+locale: km
+---
+ហ្វើ
+បាញ់មី
+ណែមរ៉ូឡែ
+បាញ់សេវ
+ប៊ុនចា
+គុយទាវយួន
+សម្លម្ជូរយួន

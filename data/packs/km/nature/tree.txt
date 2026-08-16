@@ -1,0 +1,28 @@
+---
+description: Tree. ដើមត្នោត, the sugar palm, is the national tree and the silhouette on the horizon of every Cambodian rice field: its sap becomes ស្ករត្នោត (palm sugar), its leaves become thatch and its trunk becomes house posts. ដើមពោធិ៍ and ដើមជ្រៃ are temple trees. ក្រញូង, បេង, ធ្នង់ and ស្រឡៅ are Cambodian hardwoods.
+locale: km
+---
+ដើមត្នោត
+ដើមដូង
+ដើមចេក
+ដើមស្វាយ
+ដើមខ្នុរ
+ដើមល្ហុង
+ដើមក្រូច
+ដើមអំពិល
+ដើមធុរេន
+ដើមជ្រៃ
+ដើមពោធិ៍
+ដើមស្តៅ
+ដើមក្រញូង
+ដើមបេង
+ដើមធ្នង់
+ដើមស្រឡៅ
+ដើមកកោះ
+ដើមចន្ទន៍
+ដើមឫស្សី
+ដើមស្លា
+ដើមរាំង
+ដើមកោងកាង
+ដើមស្នោ
+ដើមអង្គាដី

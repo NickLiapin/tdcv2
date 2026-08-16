@@ -1,0 +1,20 @@
+---
+description: Academic qualification. The Cambodian ladder is សញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ (the Bac II school-leaving certificate, the single most consequential exam in a Cambodian life), then បរិញ្ញាបត្ររង, បរិញ្ញាបត្រ, បរិញ្ញាបត្រជាន់ខ្ពស់ and បណ្ឌិត. Note that បណ្ឌិត is both the doctorate and the title worn before the name.
+locale: km
+---
+សញ្ញាបត្របឋមសិក្សា
+សញ្ញាបត្រមធ្យមសិក្សាបឋមភូមិ
+សញ្ញាបត្រមធ្យមសិក្សាទុតិយភូមិ
+វិញ្ញាបនបត្រវិជ្ជាជីវៈ
+សញ្ញាបត្របច្ចេកទេស
+បរិញ្ញាបត្ររង
+បរិញ្ញាបត្រ
+បរិញ្ញាបត្រវិទ្យាសាស្ត្រ
+បរិញ្ញាបត្រអក្សរសាស្ត្រ
+បរិញ្ញាបត្រវិស្វកម្ម
+បរិញ្ញាបត្រច្បាប់
+បរិញ្ញាបត្រគ្រប់គ្រងពាណិជ្ជកម្ម
+បរិញ្ញាបត្រជាន់ខ្ពស់
+បណ្ឌិត
+វេជ្ជបណ្ឌិត
+សញ្ញាបត្រកិត្តិយស

@@ -1,0 +1,5 @@
+---
+description: Currency of ន័រវែស, as Khmer names it
+locale: km
+---
+គ្រូនន័រវែស

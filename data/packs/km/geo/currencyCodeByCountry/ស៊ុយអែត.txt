@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of ស៊ុយអែត
+locale: km
+---
+SEK

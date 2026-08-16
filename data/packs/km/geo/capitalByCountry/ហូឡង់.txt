@@ -1,0 +1,5 @@
+---
+description: Capital of ហូឡង់, as Khmer names it
+locale: km
+---
+អាំស្ទែដាំ

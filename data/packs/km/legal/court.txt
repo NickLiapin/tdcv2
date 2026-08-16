@@ -1,0 +1,18 @@
+---
+description: Court. Khmer is the language of ONE country, so these are the courts of CAMBODIA: a three-tier system of សាលាដំបូង (courts of first instance in each province), សាលាឧទ្ធរណ៍ (appeal courts) and តុលាការកំពូល (the Supreme Court), with a ក្រុមប្រឹក្សាធម្មនុញ្ញ (Constitutional Council) beside it. There is no jury and no small-claims court, so a config that generates those for a Khmer row is generating something that does not exist here.
+locale: km
+---
+សាលាដំបូង
+សាលាដំបូងរាជធានីភ្នំពេញ
+សាលាឧទ្ធរណ៍
+តុលាការកំពូល
+ក្រុមប្រឹក្សាធម្មនុញ្ញ
+តុលាការយោធា
+តុលាការពាណិជ្ជកម្ម
+តុលាការការងារ
+អង្គជំនុំជម្រះវិសាមញ្ញ
+មជ្ឈត្តការ
+ក្រុមប្រឹក្សាអាជ្ញាកណ្ដាល
+តុលាការអន្តរជាតិ
+តុលាការកុមារ
+តុលាការរដ្ឋបាល

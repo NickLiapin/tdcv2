@@ -1,0 +1,8 @@
+---
+description: Gender label. Khmer nouns do not inflect for gender or for number, so these words modify nothing around them.
+locale: km
+---
+ប្រុស
+ស្រី
+ផ្សេងទៀត
+មិនបញ្ជាក់

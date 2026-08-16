@@ -1,0 +1,5 @@
+---
+description: Capital of កូរ៉េខាងត្បូង, as Khmer names it
+locale: km
+---
+សេអ៊ូល

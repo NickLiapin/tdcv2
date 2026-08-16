@@ -1,0 +1,5 @@
+---
+description: Currency of ម៉ិកស៊ិក, as Khmer names it
+locale: km
+---
+ប៉េសូម៉ិកស៊ិក

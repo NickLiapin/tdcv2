@@ -1,0 +1,5 @@
+---
+description: Currency of កម្ពុជា, as Khmer names it
+locale: km
+---
+រៀល

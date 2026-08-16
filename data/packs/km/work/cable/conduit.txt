@@ -1,0 +1,11 @@
+---
+description: Conduit or installation method for cable runs
+locale: km
+---
+បំពង់ PVC
+បំពង់ដែក
+បំពង់ HDPE
+កប់ក្នុងដី
+បំពង់ក្នុងបំពង់
+ថាសដាក់ខ្សែ
+ព្យួរលើបង្គោល

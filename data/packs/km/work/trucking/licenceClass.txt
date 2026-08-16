@@ -1,0 +1,11 @@
+---
+description: Cambodian driving licence class. Cambodia does NOT use the US CDL A/B/C scheme: the classes below are the ones printed on a Cambodian licence, where A covers motorcycles, B light vehicles, and C, D and E progressively heavier goods and passenger vehicles.
+locale: km
+---
+ថ្នាក់ A
+ថ្នាក់ B
+ថ្នាក់ C
+ថ្នាក់ D
+ថ្នាក់ E
+ថ្នាក់ A1
+ថ្នាក់ B1

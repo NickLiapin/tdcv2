@@ -1,0 +1,19 @@
+---
+description: Payment method as a TYPE rather than as a brand. Two entries are ordinary in Cambodia and unusual elsewhere: ការទូទាត់តាមកូដ QR is the everyday way people pay, because the central bank's Bakong system makes every wallet and bank interoperable through one printed code; and បង់ប្រាក់ពេលទទួលទំនិញ (cash on delivery) is still the default for online shopping. Cash means both riel and US dollars, which circulate side by side.
+locale: km
+---
+សាច់ប្រាក់
+ការទូទាត់តាមកូដ QR
+បង់ប្រាក់ពេលទទួលទំនិញ
+ផ្ទេរប្រាក់តាមធនាគារ
+កាតឥណពន្ធ
+កាតឥណទាន
+កាបូបលុយអេឡិចត្រូនិក
+ទូទាត់តាមទូរស័ព្ទ
+មូលប្បទានប័ត្រ
+ផ្ទេរប្រាក់ឆ្លងដែន
+បង់រំលស់
+ប័ណ្ណទូទាត់
+ការទូទាត់ជាមុន
+ការទូទាត់ជាដុំ
+ការទូទាត់ជាដំណាក់កាល

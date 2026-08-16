@@ -1,0 +1,31 @@
+---
+description: Medical diagnosis for a male row — conditions that require male anatomy, plus common general ones. Written in the clinical Khmer used in Cambodian hospital records, which coins from Pali and Sanskrit rather than borrowing English.
+locale: km
+---
+មហារីកក្រពេញប្រូស្តាត
+ក្រពេញប្រូស្តាតធំ
+សរសៃឈាមពងស្វាសរីក
+ពងស្វាសមិនចុះ
+ស្បែកស្រទាប់ក្បាលលិង្គតឹង
+រលាកក្រពេញប្រូស្តាត
+មហារីកពងស្វាស
+ចុះខ្សោយផ្លូវភេទ
+ភាពគ្មានកូន
+រលាកពងស្វាស
+លើសសម្ពាធឈាម
+ទឹកនោមផ្អែម
+លើសជាតិខ្លាញ់ក្នុងឈាម
+ជំងឺបេះដូង
+ដាច់សរសៃឈាមខួរក្បាល
+រលាកថ្លើមប្រភេទ B
+រលាកថ្លើមប្រភេទ C
+ជំងឺរបេង
+គ្រុនចាញ់
+គ្រុនឈាម
+ជំងឺហឺត
+ដំបៅក្រពះ
+ខ្សោយតម្រងនោម
+រលាកសន្លាក់
+ជំងឺរលាកទងសួត
+ជំងឺឆ្កួតជ្រូក
+ធាត់លើសទម្ងន់

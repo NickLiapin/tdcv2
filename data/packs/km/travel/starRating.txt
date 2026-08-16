@@ -1,0 +1,9 @@
+---
+description: Hotel star rating
+locale: km
+---
+១ ផ្កាយ
+២ ផ្កាយ
+៣ ផ្កាយ
+៤ ផ្កាយ
+៥ ផ្កាយ

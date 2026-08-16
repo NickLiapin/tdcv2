@@ -1,0 +1,44 @@
+---
+description: Airline. Brand names keep their real spelling in any locale, so these stay in Latin letters exactly as they appear on a Cambodian boarding pass and on the departures board at Phnom Penh International. Cambodia's own carriers are country data and are not listed here.
+locale: km
+---
+AirAsia
+Thai Airways
+Vietnam Airlines
+VietJet Air
+Lao Airlines
+Bangkok Airways
+Singapore Airlines
+Malaysia Airlines
+Scoot
+Cathay Pacific
+China Southern
+China Eastern
+Air China
+Hainan Airlines
+Korean Air
+Asiana Airlines
+Japan Airlines
+All Nippon Airways
+EVA Air
+China Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Turkish Airlines
+Air France
+Lufthansa
+KLM
+British Airways
+Qantas
+Garuda Indonesia
+Philippine Airlines
+IndiGo
+Air India
+Nok Air
+Thai Lion Air
+Jetstar Asia
+Xiamen Air
+Shenzhen Airlines
+Sichuan Airlines
+Myanmar Airways International

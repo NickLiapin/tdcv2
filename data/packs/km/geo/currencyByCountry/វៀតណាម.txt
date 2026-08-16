@@ -1,0 +1,5 @@
+---
+description: Currency of វៀតណាម, as Khmer names it
+locale: km
+---
+ដុង

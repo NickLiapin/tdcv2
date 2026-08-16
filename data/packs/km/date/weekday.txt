@@ -1,0 +1,11 @@
+---
+description: Weekday. Each is the word ថ្ងៃ ("day") plus a planet name of Indian origin, so the Khmer week is the Sanskrit planetary week: ចន្ទ is the moon, អង្គារ Mars, ពុធ Mercury. The week starts on SUNDAY. Every day also carries a traditional colour worn on it — Monday orange, Tuesday purple, and so on.
+locale: km
+---
+ថ្ងៃអាទិត្យ
+ថ្ងៃចន្ទ
+ថ្ងៃអង្គារ
+ថ្ងៃពុធ
+ថ្ងៃព្រហស្បតិ៍
+ថ្ងៃសុក្រ
+ថ្ងៃសៅរ៍

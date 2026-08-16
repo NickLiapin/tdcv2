@@ -1,0 +1,44 @@
+---
+description: Real Cambodian road name written bare — the thoroughfare word from address/streetSuffix.txt goes IN FRONT of it, giving ផ្លូវព្រះមុនីវង្ស. Two facts a config needs. First, most Cambodian streets have NO name: Phnom Penh is a numbered grid and an ordinary address reads ផ្លូវលេខ ២៧១, so a realistic generator should emit ផ្លូវលេខ + a number far more often than it draws from this list. Second, the named roads are almost all commemorative — kings (ព្រះមុនីវង្ស, ព្រះនរោត្តម, ព្រះស៊ីសុវត្ថិ), foreign countries and their leaders (សហព័ន្ធរុស្ស៊ី, ម៉ៅសេទុង, ជ្វាហារឡាល់នេរូ), and national figures. The full per-city street inventory, postcodes and province list are Cambodia country data and belong in a Cambodia country pack, not here.
+locale: km
+---
+ព្រះមុនីវង្ស
+ព្រះនរោត្តម
+ព្រះស៊ីហនុ
+ព្រះស៊ីសុវត្ថិ
+ព្រះអង្គដួង
+ព្រះមុន្នីរ៉េត
+ព្រះយុគន្ធរ
+ព្រះមហាក្សត្រិយានីកុសុមៈ
+សម្តេចប៉ាន
+សម្តេចសុធារស
+សម្តេចហ៊ុនសែន
+កម្ពុជាក្រោម
+សហព័ន្ធរុស្ស៊ី
+ម៉ៅសេទុង
+ជ្វាហារឡាល់នេរូ
+ឆាល ដឺហ្គោល
+វេងស្រេង
+ត្រសក់ផ្អែម
+អង្គរ
+ស៊ីវុត្ថា
+ជាតិលេខមួយ
+ជាតិលេខបួន
+ជាតិលេខប្រាំមួយ
+ជាតិលេខប្រាំពីរ
+ស្វាយពរ
+ចោមចៅ
+ទួលគោក
+ដូនពេញ
+ចំការមន
+ព្រែកព្នៅ
+ជ្រោយចង្វារ
+ឬស្សីកែវ
+សែនសុខ
+ពោធិ៍សែនជ័យ
+មានជ័យ
+ដង្កោ
+កំបូល
+ស្ទឹងមានជ័យ
+បឹងកេងកង
+ទន្លេបាសាក់

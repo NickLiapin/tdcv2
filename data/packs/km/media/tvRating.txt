@@ -1,0 +1,13 @@
+---
+description: Television content rating. Cambodia classifies broadcast content through the Ministry of Information rather than with a letter-code board, so these are descriptive audience labels rather than codes like PG-13.
+locale: km
+---
+សម្រាប់គ្រប់វ័យ
+សម្រាប់កុមារ
+ត្រូវមានមាតាបិតាណែនាំ
+សម្រាប់អាយុ ១៣ ឆ្នាំឡើង
+សម្រាប់អាយុ ១៦ ឆ្នាំឡើង
+សម្រាប់អាយុ ១៨ ឆ្នាំឡើង
+សម្រាប់មនុស្សពេញវ័យ
+មានឈុតហិង្សា
+មិនសមស្របសម្រាប់កុមារ

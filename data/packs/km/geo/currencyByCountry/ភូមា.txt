@@ -1,0 +1,5 @@
+---
+description: Currency of ភូមា, as Khmer names it
+locale: km
+---
+ក្យាត់

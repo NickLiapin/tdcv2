@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of នីហ្សេរីយ៉ា
+locale: km
+---
+NGN

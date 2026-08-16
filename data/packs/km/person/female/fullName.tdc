@@ -1,0 +1,10 @@
+---
+description: Khmer full female name. The FAMILY NAME COMES FIRST, exactly as for a man, and the family name is drawn from the SHARED km.person.lastName list because Khmer family names do not inflect for gender — there is no km.person.female.lastName and its absence is the design. A Cambodian woman keeps her own family name after marriage and does not take her husband's, so a married-name variant would be wrong to generate. Two parts only: no middle name, no patronymic particle.
+generator: tdc
+locale: km
+---
+<sequence name="p">
+  <gen name="l" type="template" value="km.person.lastName"/>
+  <gen name="f" type="template" value="km.person.female.firstName"/>
+</sequence>
+<data>${{p.l}} ${{p.f}}</data>

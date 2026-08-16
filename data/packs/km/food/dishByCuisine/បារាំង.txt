@@ -1,0 +1,10 @@
+---
+description: Dishes of បារាំង cuisine, as Khmer names them
+locale: km
+---
+នំបុ័ងបាហ្គែត
+ក្រូសង់
+ស៊ុបខ្ទឹមបារាំង
+ក្រែមប្រ៊ុយឡេ
+រ៉ាតាតូយ
+គ្រីប

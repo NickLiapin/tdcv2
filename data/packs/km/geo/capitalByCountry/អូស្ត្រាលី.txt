@@ -1,0 +1,5 @@
+---
+description: Capital of អូស្ត្រាលី, as Khmer names it
+locale: km
+---
+កង់បេរ៉ា

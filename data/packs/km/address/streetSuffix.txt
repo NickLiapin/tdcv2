@@ -1,0 +1,26 @@
+---
+description: Khmer thoroughfare / administrative-division word. It is written BEFORE the name it governs — ផ្លូវព្រះមុនីវង្ស, never ព្រះមុនីវង្សផ្លូវ — which is the opposite of the English street suffix, so a config that appends this to a name produces word salad. The list also holds the division words a full Khmer address runs through, from the house up: ភូមិ (village), សង្កាត់ (urban quarter) or ឃុំ (rural commune), ខណ្ឌ (urban district) or ស្រុក (rural district), ក្រុង (municipality), ខេត្ត (province). Which real provinces and districts exist is Cambodia country data, not language data, and is not in this pack.
+locale: km
+---
+ផ្លូវ
+ផ្លូវលេខ
+មហាវិថី
+វិថី
+ផ្លូវជាតិ
+ផ្លូវជាតិលេខ
+ច្រក
+គីឡូម៉ែត្រលេខ
+ស្ពាន
+ភូមិ
+សង្កាត់
+ឃុំ
+ខណ្ឌ
+ស្រុក
+ក្រុង
+ខេត្ត
+រាជធានី
+ផ្ទះលេខ
+អគារ
+ក្រុមទី
+ផ្សារ
+ចំណត

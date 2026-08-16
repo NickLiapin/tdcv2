@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are international and keep their real form; these are the types that actually work Cambodian routes, which are almost all narrow-bodies on short regional sectors.
+locale: km
+---
+A319
+A320
+A320neo
+A321
+A321neo
+A330-300
+A350-900
+B737-800
+B737 MAX 8
+B747-400
+B777-300ER
+B787-8
+B787-9
+ATR 72-500
+ATR 72-600
+Embraer E190
+Bombardier CRJ900
+Airbus A220
+Cessna 208 Caravan
+DHC-6 Twin Otter
+A330-900neo
+B767-300
+MA60
+Xian MA600
+Fokker 70
+Antonov An-24

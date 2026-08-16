@@ -1,0 +1,22 @@
+---
+description: Cat. Khmer has NO native breed vocabulary — Cambodia had no cat fancy and a cat is described by its coat, its colour and whether it lives in the house or on the street. That is what most of this list holds; the few pedigree names are transliterations that arrived with the pet trade, and they keep their foreign spelling.
+locale: km
+---
+ឆ្មាស្រុក
+ឆ្មាព្រៃ
+ឆ្មាចិញ្ចឹម
+ឆ្មាវាល
+ឆ្មាខ្មៅ
+ឆ្មាស
+ឆ្មាប្រផេះ
+ឆ្មាលឿង
+ឆ្មាឆ្នូត
+ឆ្មាត្រីពណ៌
+ឆ្មារោមវែង
+ឆ្មារោមខ្លី
+ឆ្មាកន្ទុយខ្លី
+ឆ្មាភ្នែកខៀវ
+ឆ្មាស៊ីយ៉ាម
+ឆ្មាពែរ្ស
+ឆ្មាបេងហ្គាល់
+ឆ្មាមេនឃូន

@@ -1,0 +1,18 @@
+---
+description: Khmer personal pronoun. Khmer has NO grammatical case, so there is no him/her form to pair with he/she — one word serves subject and object alike, and this list holds single words rather than the English he/him pairs. What Khmer DOES encode is register: the choice among ខ្ញុំ, ខ្ញុំបាទ and អញ is a statement about rank and intimacy, not about gender, and គាត់ covers he AND she. វា and អញ are blunt or rude between adults. Khmer also marks no number on the pronoun itself.
+locale: km
+---
+ខ្ញុំ
+ខ្ញុំបាទ
+នាងខ្ញុំ
+យើង
+អ្នក
+លោក
+លោកស្រី
+អ្នកនាង
+គាត់
+នាង
+វា
+ពួកគេ
+ឯង
+អញ

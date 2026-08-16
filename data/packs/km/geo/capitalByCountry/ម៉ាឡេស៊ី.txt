@@ -1,0 +1,5 @@
+---
+description: Capital of ម៉ាឡេស៊ី, as Khmer names it
+locale: km
+---
+គូឡាឡាំពួរ

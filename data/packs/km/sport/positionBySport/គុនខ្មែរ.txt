@@ -1,0 +1,9 @@
+---
+description: Ring roles in គុនខ្មែរ. A combat sport has no fielding positions, so these are the roles in and around the ring; a fighter is otherwise identified by weight division rather than by position.
+locale: km
+---
+អ្នកប្រដាល់
+គូប្រកួត
+គ្រូបង្វឹក
+អ្នកជួយជ្រុង
+អាជ្ញាកណ្ដាល

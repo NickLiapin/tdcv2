@@ -1,0 +1,5 @@
+---
+description: Capital of នីហ្សេរីយ៉ា, as Khmer names it
+locale: km
+---
+អាប៊ូចា

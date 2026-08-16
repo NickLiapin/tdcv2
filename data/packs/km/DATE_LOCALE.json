@@ -1,0 +1,67 @@
+{
+  "months": [
+    "មករា",
+    "កុម្ភៈ",
+    "មីនា",
+    "មេសា",
+    "ឧសភា",
+    "មិថុនា",
+    "កក្កដា",
+    "សីហា",
+    "កញ្ញា",
+    "តុលា",
+    "វិច្ឆិកា",
+    "ធ្នូ"
+  ],
+  "monthsInDate": [
+    "ខែមករា",
+    "ខែកុម្ភៈ",
+    "ខែមីនា",
+    "ខែមេសា",
+    "ខែឧសភា",
+    "ខែមិថុនា",
+    "ខែកក្កដា",
+    "ខែសីហា",
+    "ខែកញ្ញា",
+    "ខែតុលា",
+    "ខែវិច្ឆិកា",
+    "ខែធ្នូ"
+  ],
+  "monthsShort": [
+    "មករា",
+    "កុម្ភៈ",
+    "មីនា",
+    "មេសា",
+    "ឧសភា",
+    "មិថុនា",
+    "កក្កដា",
+    "សីហា",
+    "កញ្ញា",
+    "តុលា",
+    "វិច្ឆិកា",
+    "ធ្នូ"
+  ],
+  "weekdays": [
+    "ថ្ងៃអាទិត្យ",
+    "ថ្ងៃចន្ទ",
+    "ថ្ងៃអង្គារ",
+    "ថ្ងៃពុធ",
+    "ថ្ងៃព្រហស្បតិ៍",
+    "ថ្ងៃសុក្រ",
+    "ថ្ងៃសៅរ៍"
+  ],
+  "weekdaysShort": [
+    "អាទិត្យ",
+    "ចន្ទ",
+    "អង្គារ",
+    "ពុធ",
+    "ព្រហស្បតិ៍",
+    "សុក្រ",
+    "សៅរ៍"
+  ],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "Khmer month names DO change inside a date: running Khmer prefixes ខែ (\"month\") to the name, so monthsInDate is ខែមករា where months is មករា — the two arrays genuinely differ and monthsInDate is not a copy. The fully written Khmer date is ថ្ងៃទី១ ខែមករា ឆ្នាំ២០២៦ (day-marker + day, month-marker + month, year-marker + year); LL is given as the plain \"D MMMM YYYY\" because the token grammar cannot emit the ថ្ងៃទី and ឆ្នាំ markers, so a caller that needs the full official form must compose it. There are NO abbreviated month names in Khmer — monthsShort repeats the full names deliberately rather than inventing clipped forms. The week starts on SUNDAY. Khmer has its own digits ០១២៣៤៥៦៧៨៩, still standard on identity documents, signage and government paper, and a Khmer-facing renderer may want to map Arabic digits onto them; this pack does NOT convert. Cambodia uses the Gregorian year in civil and commercial life, but the Buddhist Era (ព.ស., 544 ahead of CE) appears on temple and ceremonial dates alongside it, and the traditional New Year is Choul Chnam Thmey in mid-April, not 1 January."
+}

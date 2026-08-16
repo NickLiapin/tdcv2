@@ -1,0 +1,5 @@
+---
+description: Currency of អាហ្វ្រិកខាងត្បូង, as Khmer names it
+locale: km
+---
+រ៉ង់

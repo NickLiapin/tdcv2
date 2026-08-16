@@ -1,0 +1,19 @@
+---
+description: Weather event. ព្រិល (snow) is in this list as a word, not as a Cambodian experience: snow has never been recorded anywhere in Cambodia and a Khmer speaker learns the word for a thing seen abroad or on television. What the country does get is ខ្យល់មូសុង, the monsoon, and ទឹកជំនន់ — the annual Mekong flood that reverses the flow of the Tonle Sap and is a farming calendar rather than a disaster.
+locale: km
+---
+ផ្គររន្ទះ
+រន្ទះបាញ់
+ខ្យល់មូសុង
+ព្យុះស៊ីក្លូន
+ខ្យល់កួច
+ទឹកជំនន់
+ជំនន់ទន្លេមេគង្គ
+គ្រោះរាំងស្ងួត
+អ័ព្ទ
+ទឹកសន្សើម
+ឥន្ធនូ
+រលកកម្ដៅ
+ព្រិល
+ព្រិលគ្រាប់
+ការហូរច្រាំង

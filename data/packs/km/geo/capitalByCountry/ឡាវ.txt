@@ -1,0 +1,5 @@
+---
+description: Capital of ឡាវ, as Khmer names it
+locale: km
+---
+វៀងចន្ទន៍

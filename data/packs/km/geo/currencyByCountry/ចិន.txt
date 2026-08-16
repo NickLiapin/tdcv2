@@ -1,0 +1,5 @@
+---
+description: Currency of ចិន, as Khmer names it
+locale: km
+---
+យ័ន

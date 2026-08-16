@@ -1,0 +1,5 @@
+---
+description: Capital of អៀរឡង់, as Khmer names it
+locale: km
+---
+ឌុយប្លាំង

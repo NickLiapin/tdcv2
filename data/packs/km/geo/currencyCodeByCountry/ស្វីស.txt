@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of ស្វីស
+locale: km
+---
+CHF

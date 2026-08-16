@@ -1,0 +1,14 @@
+---
+description: Medical specialty with a coherent diagnosis list. Cambodian hospitals label their departments with ផ្នែក ("section") plus the organ or the condition, rather than with a Latinate specialty noun — the ward sign reads ផ្នែកបេះដូង, "heart section", not "cardiology".
+locale: km
+---
+ផ្នែកបេះដូង
+ផ្នែកសរសៃប្រសាទ
+ផ្នែកមហារីក
+ផ្នែកសើស្បែក
+ផ្នែកក្រពះពោះវៀន
+ផ្នែកអ័រម៉ូន
+ផ្នែកសួត
+ផ្នែកឆ្អឹង
+ផ្នែកសុខភាពផ្លូវចិត្ត
+ផ្នែកតម្រងនោម

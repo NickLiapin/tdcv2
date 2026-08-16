@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of អាល្លឺម៉ង់
+locale: km
+---
+EUR

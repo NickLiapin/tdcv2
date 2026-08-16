@@ -1,0 +1,24 @@
+---
+description: Religion. Cambodia is about ninety-five per cent Theravada Buddhist and ព្រះពុទ្ធសាសនាថេរវាទ is the state religion. The important thing a config cannot infer is that these are not exclusive categories in Cambodian practice: the same household keeps the Buddhist precepts, feeds its ancestors at Pchum Ben, consults an អ្នកតា village spirit shrine and employs Brahmin ritual at a wedding, and would describe itself as Buddhist throughout. ជនជាតិចាម are Cambodia's Muslim community.
+locale: km
+---
+ព្រះពុទ្ធសាសនាថេរវាទ
+ព្រះពុទ្ធសាសនាមហាយាន
+ជំនឿអ្នកតា
+ជំនឿបុព្វបុរស
+សាសនាព្រាហ្មណ៍
+សាសនាហិណ្ឌូ
+សាសនាឥស្លាម
+គ្រិស្តសាសនា
+សាសនាកាតូលិក
+សាសនាព្រូតេស្តង់
+សាសនាយូដា
+សាសនាស៊ិក
+សាសនាកាវដាយ
+លទ្ធិខុងជឺ
+លទ្ធិតាវ
+សាសនាបាហៃ
+គ្មានសាសនា
+មិនជឿលើព្រះ
+មិនប្រកាន់សាសនា
+ជំនឿប្រពៃណី

@@ -1,0 +1,16 @@
+---
+description: Khmer zodiac animal. Cambodia does NOT read the twelve Western sun signs — the sign a Cambodian knows and states is the animal of the twelve-year cycle of the Khmer lunisolar calendar, fixed by birth YEAR rather than by birth month. A config that maps a birthday to Aries or Scorpio for a Khmer row is producing something no Cambodian would recognise as their sign. The cycle runs ជូត first and its new year falls at Choul Chnam Thmey in mid-April, not on 1 January.
+locale: km
+---
+ជូត
+ឆ្លូវ
+ខាល
+ថោះ
+រោង
+ម្សាញ់
+មមី
+មមែ
+វក
+រកា
+ច
+កុរ

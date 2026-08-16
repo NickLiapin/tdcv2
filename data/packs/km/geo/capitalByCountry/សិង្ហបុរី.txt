@@ -1,0 +1,5 @@
+---
+description: Capital of សិង្ហបុរី, as Khmer names it
+locale: km
+---
+សិង្ហបុរី

@@ -1,0 +1,5 @@
+---
+description: Currency of ឥណ្ឌា, as Khmer names it
+locale: km
+---
+រូពីឥណ្ឌា

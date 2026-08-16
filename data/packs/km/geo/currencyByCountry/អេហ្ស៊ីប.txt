@@ -1,0 +1,5 @@
+---
+description: Currency of អេហ្ស៊ីប, as Khmer names it
+locale: km
+---
+ផោនអេហ្ស៊ីប

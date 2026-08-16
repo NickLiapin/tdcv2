@@ -1,0 +1,5 @@
+---
+description: Capital of នេប៉ាល់, as Khmer names it
+locale: km
+---
+កាត់ម៉ាន់ឌូ

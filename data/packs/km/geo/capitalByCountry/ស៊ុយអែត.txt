@@ -1,0 +1,5 @@
+---
+description: Capital of ស៊ុយអែត, as Khmer names it
+locale: km
+---
+ស្តុកខុល

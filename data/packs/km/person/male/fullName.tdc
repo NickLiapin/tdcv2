@@ -1,0 +1,10 @@
+---
+description: Khmer full male name. Khmer writes the FAMILY NAME FIRST and the given name second — ហ៊ុន សែន is Mr ហ៊ុន, not Mr សែន — so the family name is drawn first here. Reversing the two produces an order that appears on no Cambodian identity document, form or database. A Khmer name is exactly two parts: there is no middle name and no patronymic particle. The single space between them is the ONLY space a Khmer name contains, and it is a phrase separator, not a word separator — Khmer does not put spaces between words.
+generator: tdc
+locale: km
+---
+<sequence name="p">
+  <gen name="l" type="template" value="km.person.lastName"/>
+  <gen name="f" type="template" value="km.person.male.firstName"/>
+</sequence>
+<data>${{p.l}} ${{p.f}}</data>

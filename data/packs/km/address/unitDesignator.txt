@@ -1,0 +1,18 @@
+---
+description: Secondary address unit label. A Cambodian address is written LARGEST FIRST in Khmer — house number, street, quarter, district, city — the reverse of the English order, and each component carries its own label word in front of it rather than after it.
+locale: km
+---
+ផ្ទះលេខ
+អគារលេខ
+បន្ទប់លេខ
+ជាន់ទី
+ល្វែងលេខ
+ច្រកលេខ
+ក្រុមទី
+ផ្នែក
+ការិយាល័យលេខ
+ប្លុក
+កន្លែងចតលេខ
+ហាងលេខ
+តូបលេខ
+ឃ្លាំងលេខ

@@ -1,0 +1,5 @@
+---
+description: Capital of ទួរគី, as Khmer names it
+locale: km
+---
+អង់ការ៉ា

@@ -1,0 +1,23 @@
+---
+description: Property type. ផ្ទះល្វែង, the shophouse, is the standard Cambodian urban building: a narrow deep lot with the shop at the front and the family above. បុរី is a developer-built gated estate of identical houses and is how most new Phnom Penh housing is sold.
+locale: km
+---
+ផ្ទះល្វែង
+ផ្ទះឈើ
+ផ្ទះខ្មែរ
+វីឡា
+វីឡាភ្លោះ
+ខុនដូ
+អាផាតមិន
+បន្ទប់ជួល
+ផ្ទះក្នុងបុរី
+ដីទទេ
+ដីស្រែ
+ដីចំការ
+អគារការិយាល័យ
+ហាងលក់ដូរ
+ឃ្លាំង
+រោងចក្រ
+សណ្ឋាគារ
+ដីធ្វើអាជីវកម្ម
+អគារពាណិជ្ជកម្ម

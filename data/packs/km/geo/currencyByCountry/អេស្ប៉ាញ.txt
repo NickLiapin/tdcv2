@@ -1,0 +1,5 @@
+---
+description: Currency of អេស្ប៉ាញ, as Khmer names it
+locale: km
+---
+អឺរ៉ូ

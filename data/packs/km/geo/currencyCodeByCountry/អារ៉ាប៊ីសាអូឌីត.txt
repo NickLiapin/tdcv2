@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of អារ៉ាប៊ីសាអូឌីត
+locale: km
+---
+SAR

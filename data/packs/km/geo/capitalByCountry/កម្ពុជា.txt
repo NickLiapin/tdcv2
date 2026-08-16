@@ -1,0 +1,5 @@
+---
+description: Capital of កម្ពុជា, as Khmer names it
+locale: km
+---
+ភ្នំពេញ

@@ -1,0 +1,12 @@
+---
+description: Blood group. Cambodia's distribution is dominated by group O, followed by B — the pattern of mainland Southeast Asia — and group AB is uncommon; a generator that spreads these evenly will misrepresent the country. Rh-negative blood is RARE in Cambodia, on the order of a fraction of one per cent, which is why the negative groups here are the ones a Cambodian blood bank struggles to source.
+locale: km
+---
+O+
+B+
+A+
+AB+
+O-
+B-
+A-
+AB-

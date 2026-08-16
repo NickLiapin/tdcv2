@@ -1,0 +1,19 @@
+---
+description: Khmer qualification written with a name. Khmer has NO generational suffix — no Jr, Sr, II or III — and the reason is structural, not stylistic: a Cambodian child does not inherit the father's family name, it takes the father's GIVEN name as its family name, so father and son share no name to number. A config that appends "Jr." to a Khmer name is simply wrong. Khmer also has no post-nominal letters: every qualification below is written BEFORE the name in normal use (បណ្ឌិត សុខ ដារ៉ា), and this list exists so a suffix column can be filled with something real rather than with an invented one.
+locale: km
+---
+បណ្ឌិត
+អនុបណ្ឌិត
+បរិញ្ញាបត្រ
+បរិញ្ញាបត្ររង
+វេជ្ជបណ្ឌិត
+ទន្តបណ្ឌិត
+ឱសថការី
+វិស្វករ
+ស្ថាបត្យករ
+មេធាវី
+សាស្ត្រាចារ្យ
+សាស្ត្រាចារ្យរង
+គ្រូបង្រៀន
+គិលានុបដ្ឋាយិកា
+គណនេយ្យករ

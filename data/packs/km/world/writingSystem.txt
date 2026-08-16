@@ -1,0 +1,26 @@
+---
+description: Writing system, as Khmer names it. Three entries are Khmer's own styles rather than separate scripts: អក្សរមូល is the heavy rounded ceremonial hand used on temple signs and book titles, អក្សរជ្រៀង the slanted everyday hand, and អក្សរខម the Khmer-derived script used to write Pali in Thai and Cambodian temples. The Khmer script itself is an abugida with the largest alphabet in the world by Guinness' count — 74 letters — and it stacks consonants into clusters with the invisible COENG mark U+17D2.
+locale: km
+---
+អក្សរខ្មែរ
+អក្សរមូល
+អក្សរជ្រៀង
+អក្សរខម
+អក្សរឡាតាំង
+អក្សរស៊ីរីលីក
+អក្សរអារ៉ាប់
+អក្សរចិន
+អក្សរទេវនាគរី
+អក្សរហាន់ហ្គូល
+អក្សរហ៊ីរ៉ាហ្គាណា
+អក្សរកាតាកាណា
+អក្សរក្រិក
+អក្សរហេប្រ៊ូ
+អក្សរថៃ
+អក្សរឡាវ
+អក្សរភូមា
+អក្សរតាមីល
+អក្សរសិង្ហល
+អក្សរទីបេ
+អក្សរចាម
+អក្សរជ្វា

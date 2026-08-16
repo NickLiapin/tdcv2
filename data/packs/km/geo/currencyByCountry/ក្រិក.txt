@@ -1,0 +1,5 @@
+---
+description: Currency of ក្រិក, as Khmer names it
+locale: km
+---
+អឺរ៉ូ

@@ -1,0 +1,5 @@
+---
+description: Capital of ប្រេស៊ីល, as Khmer names it
+locale: km
+---
+ប្រាស៊ីលីយ៉ា

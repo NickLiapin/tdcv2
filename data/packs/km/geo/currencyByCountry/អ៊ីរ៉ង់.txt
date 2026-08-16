@@ -1,0 +1,5 @@
+---
+description: Currency of អ៊ីរ៉ង់, as Khmer names it
+locale: km
+---
+រៀអាល់អ៊ីរ៉ង់

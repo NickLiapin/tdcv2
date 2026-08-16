@@ -1,0 +1,5 @@
+---
+description: Currency of អាហ្សង់ទីន, as Khmer names it
+locale: km
+---
+ប៉េសូអាហ្សង់ទីន

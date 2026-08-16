@@ -1,0 +1,26 @@
+---
+description: Vehicle. Three entries are ordinary in Cambodia and untranslatable elsewhere. រ៉ឺម៉កកង់បី is the Cambodian tuk-tuk: a passenger trailer towed behind an ordinary motorbike, not a three-wheeler like the Thai one. ម៉ូតូឌុប is a motorbike ridden as a taxi. គោយន្ត, the "iron ox", is a two-wheeled hand tractor hitched to a cart and is the commonest farm vehicle in the country.
+locale: km
+---
+ម៉ូតូ
+ម៉ូតូឌុប
+រ៉ឺម៉កកង់បី
+តុកតុក
+កង់
+កង់បី
+រថយន្ត
+រថយន្តស្គុប
+ឡានក្រុង
+ឡានតាក់ស៊ី
+ឡានដឹកទំនិញ
+ឡានធុនធំ
+ឡានចាក់ដី
+ត្រាក់ទ័រ
+គោយន្ត
+រទេះគោ
+រថយន្តសង្គ្រោះ
+រថយន្តពន្លត់អគ្គិភ័យ
+ទូក
+ទូកម៉ាស៊ីន
+កប៉ាល់
+យន្តហោះ

@@ -1,0 +1,10 @@
+---
+description: Dishes of កូរ៉េ cuisine, as Khmer names them
+locale: km
+---
+គីមឈី
+ប៊ីប៊ីមបាប់
+ប៊ុលហ្គោហ្គី
+តុកបុគី
+គីមបាប់
+សាច់ជ្រូកអាំងកូរ៉េ

@@ -1,0 +1,21 @@
+---
+description: Official document type. Two entries have no European equivalent and are central to Cambodian administrative life: សៀវភៅគ្រួសារ, the family book, records a household and is demanded for school enrolment, land dealings and voting; សៀវភៅស្នាក់នៅ, the residence book, records who lives at an address. The number formats these documents carry are Cambodia country data and are not in this pack.
+locale: km
+---
+អត្តសញ្ញាណប័ណ្ណ
+លិខិតឆ្លងដែន
+សំបុត្រកំណើត
+សំបុត្រអាពាហ៍ពិពាហ៍
+សំបុត្រមរណភាព
+សៀវភៅគ្រួសារ
+សៀវភៅស្នាក់នៅ
+ប័ណ្ណបើកបរ
+ប័ណ្ណបោះឆ្នោត
+លិខិតបញ្ជាក់ទីលំនៅ
+ប្លង់ដី
+ប័ណ្ណសម្គាល់យានយន្ត
+វិញ្ញាបនបត្រចុះបញ្ជីពាណិជ្ជកម្ម
+ទិដ្ឋាការ
+លិខិតអនុញ្ញាតសាងសង់
+លិខិតប្រកាសពន្ធ
+ប័ណ្ណការងារ

@@ -1,0 +1,10 @@
+---
+description: Crew roles in ប្រណាំងទូក, longboat racing. The drummer and the bow paddler set the stroke rate for a crew that can exceed seventy people in one hull.
+locale: km
+---
+អ្នកចែវក្បាលទូក
+អ្នកចែវកណ្ដាល
+អ្នកចែវកន្ទុយ
+អ្នកកាន់ចង្កូត
+អ្នកវាយស្គរ
+អ្នកឆ្មបទូក

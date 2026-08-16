@@ -1,0 +1,15 @@
+---
+description: Compass direction. Khmer names the four intercardinal points with SINGLE inherited Sanskrit words — ឥសាន, អាគ្នេយ៍, និរតី, ពាយ័ព្យ — rather than by compounding the cardinals as English does with north-east, and those four words are not analysable into their neighbours. Khmer has no established sixteen-point rose: there is no Khmer equivalent of "north-northeast", so this list stops at the eight points plus the centre and the vertical pair, and the sixteen-point set is deliberately absent rather than invented.
+locale: km
+---
+ខាងជើង
+ខាងត្បូង
+ខាងកើត
+ខាងលិច
+ឥសាន
+អាគ្នេយ៍
+និរតី
+ពាយ័ព្យ
+កណ្ដាល
+ខាងលើ
+ខាងក្រោម

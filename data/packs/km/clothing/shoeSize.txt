@@ -1,0 +1,15 @@
+---
+description: Shoe size on the EUROPEAN scale, which is what a Cambodian shoebox prints — usually alongside a Chinese number, because most footwear reaches Cambodia through Chinese and Vietnamese supply chains. US sizes appear only on imported Western brands and are not what a shop assistant will ask you for. The scale runs smaller than in Europe in practice: 36–41 covers most adults.
+locale: km
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45

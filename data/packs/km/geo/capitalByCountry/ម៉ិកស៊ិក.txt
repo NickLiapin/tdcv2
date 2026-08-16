@@ -1,0 +1,5 @@
+---
+description: Capital of ម៉ិកស៊ិក, as Khmer names it
+locale: km
+---
+ទីក្រុងម៉ិកស៊ិកូ

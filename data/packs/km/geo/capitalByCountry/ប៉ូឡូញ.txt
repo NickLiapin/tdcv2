@@ -1,0 +1,5 @@
+---
+description: Capital of ប៉ូឡូញ, as Khmer names it
+locale: km
+---
+វ៉ារស្សាវ៉ា

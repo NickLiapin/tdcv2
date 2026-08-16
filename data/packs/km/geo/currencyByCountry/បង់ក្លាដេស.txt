@@ -1,0 +1,5 @@
+---
+description: Currency of បង់ក្លាដេស, as Khmer names it
+locale: km
+---
+តាកា

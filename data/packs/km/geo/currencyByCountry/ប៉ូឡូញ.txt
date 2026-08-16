@@ -1,0 +1,5 @@
+---
+description: Currency of ប៉ូឡូញ, as Khmer names it
+locale: km
+---
+ស្លូទី

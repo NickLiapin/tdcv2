@@ -1,0 +1,24 @@
+---
+description: Insect and small crawler. Two entries are food, not pests: អាពីង, the fried tarantula sold by the plateful in Skuon, and ចង្រិត, crickets, are ordinary Cambodian snacks. អំពិលអំពែក is the firefly.
+locale: km
+---
+ស្រមោច
+ស្រមោចក្រហម
+ឃ្មុំ
+រុយ
+មូស
+កណ្ដូប
+ចង្រិត
+ដង្កូវ
+ដង្កូវនាង
+មេអំបៅ
+កន្លាត
+ពីងពាង
+អាពីង
+អំពិលអំពែក
+ជីងចក់
+ចៃ
+កណ្ដៀរ
+ខ្ចៅ
+ចៃឆ្កែ
+សត្វល្អិត

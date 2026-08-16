@@ -1,0 +1,19 @@
+---
+description: Direction word used with Cambodian district, road and estate names. Khmer has SINGLE inherited Sanskrit words for the four intercardinal points where English has compounds — ឥសាន northeast, អាគ្នេយ៍ southeast, និរតី southwest, ពាយ័ព្យ northwest — and they are not built from the cardinal words at all. អាគ្នេយ៍ is also the everyday Khmer name for South-East Asia. The ខាង- forms are the ordinary spoken ones.
+locale: km
+---
+ជើង
+ត្បូង
+កើត
+លិច
+ខាងជើង
+ខាងត្បូង
+ខាងកើត
+ខាងលិច
+ឥសាន
+អាគ្នេយ៍
+និរតី
+ពាយ័ព្យ
+កណ្ដាល
+លើ
+ក្រោម

@@ -1,0 +1,16 @@
+---
+description: Grade. Cambodian schools mark out of 100 and convert to the letters A to F, and the Bac II examination result is reported as a letter grade from A to E with F as a fail. The Khmer words are what a report card writes beside the letter.
+locale: km
+---
+A
+B
+C
+D
+E
+F
+ល្អប្រសើរ
+ល្អណាស់
+ល្អ
+ល្អបង្គួរ
+មធ្យម
+ធ្លាក់

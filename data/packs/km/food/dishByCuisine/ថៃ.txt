@@ -1,0 +1,11 @@
+---
+description: Dishes of ថៃ cuisine, as Khmer names them
+locale: km
+---
+ផាត់ថៃ
+តុមយាំ
+ការីបៃតង
+សាឡាដល្ហុង
+បាយដំណើបស្វាយ
+សាតេ
+ការីម៉ាសាម៉ាន់

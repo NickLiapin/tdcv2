@@ -1,0 +1,28 @@
+---
+description: Dog. As with cats, Khmer names no native breeds: ឆ្កែស្រុក, the village dog, is a description rather than a breed and is what most Cambodian dogs are. Pedigree names below are transliterations and keep their foreign spelling.
+locale: km
+---
+ឆ្កែស្រុក
+ឆ្កែព្រៃ
+ឆ្កែឆ្មាំផ្ទះ
+ឆ្កែប្រម៉ាញ់
+ឆ្កែចិញ្ចឹម
+ឆ្កែតូច
+ឆ្កែធំ
+ឆ្កែខ្មៅ
+ឆ្កែស
+ឆ្កែក្រហម
+ឆ្កែប្រផេះ
+ឆ្កែរោមវែង
+ឆ្កែហ្គោលដិនរីទ្រីវើ
+ឆ្កែឡាប្រាដ័រ
+ឆ្កែហ្សឺម៉ង់សេផឺដ
+ឆ្កែពូដល
+ឆ្កែឈីវ៉ាវ៉ា
+ឆ្កែប៊ុលដុក
+ឆ្កែហ័ស្គី
+ឆ្កែប៉ូមេរ៉ានី
+ឆ្កែប៊ិកហ្គល
+ឆ្កែរតវីល័រ
+ឆ្កែដាល់ម៉ាសៀន
+ឆ្កែស៊ីបាអ៊ីនុ

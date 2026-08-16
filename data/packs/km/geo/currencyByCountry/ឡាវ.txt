@@ -1,0 +1,5 @@
+---
+description: Currency of ឡាវ, as Khmer names it
+locale: km
+---
+គីប

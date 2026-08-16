@@ -1,0 +1,10 @@
+---
+description: Dishes of ម៉ាឡេស៊ី cuisine, as Khmer names them
+locale: km
+---
+ណាស៊ីលេម៉ាក់
+រ៉េនដាង
+ឡាក់សា
+រ៉ូទីចាណៃ
+មីហ្គោរេង
+សាតេម៉ាឡេ

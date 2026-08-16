@@ -1,0 +1,8 @@
+---
+description: Season. Cambodia is tropical and has TWO seasons, not four: រដូវវស្សា the monsoon rains from roughly May to October, and រដូវប្រាំង the dry season from November to April. There is no Khmer word that means autumn or spring as a season of the local year, and a config that maps a Cambodian date onto four European seasons is producing a fiction. The dry season is often spoken of in two halves — cool from November to February, hot in March and April — so those two are given here as well.
+locale: km
+---
+រដូវវស្សា
+រដូវប្រាំង
+រដូវប្រាំងត្រជាក់
+រដូវប្រាំងក្ដៅ

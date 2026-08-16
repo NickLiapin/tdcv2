@@ -1,0 +1,5 @@
+---
+description: Currency of ទួរគី, as Khmer names it
+locale: km
+---
+លីរ៉ាទួរគី

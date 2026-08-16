@@ -1,0 +1,32 @@
+---
+description: Technical verb in progressive form. Khmer marks the progressive with the free particle កំពុង placed BEFORE the verb, not with a suffix on it — so the "-ing" of the English list is a separate word here, and the verb itself is unchanged from hacker/verb.
+locale: km
+---
+កំពុងបម្រុងទុក
+កំពុងស្ដារឡើងវិញ
+កំពុងអ៊ិនគ្រីប
+កំពុងឌិគ្រីប
+កំពុងទាញយក
+កំពុងផ្ទុកឡើង
+កំពុងភ្ជាប់
+កំពុងផ្ដាច់
+កំពុងចាប់ផ្ដើម
+កំពុងបញ្ឈប់
+កំពុងចាប់ផ្ដើមឡើងវិញ
+កំពុងកំណត់រចនាសម្ព័ន្ធ
+កំពុងដំឡើង
+កំពុងលុប
+កំពុងចម្លង
+កំពុងផ្លាស់ទី
+កំពុងបង្ហាប់
+កំពុងពន្លា
+កំពុងវិភាគ
+កំពុងសម្រង់
+កំពុងចងក្រង
+កំពុងដំណើរការ
+កំពុងសាកល្បង
+កំពុងកែកំហុស
+កំពុងធ្វើសមកាលកម្ម
+កំពុងត្រងទិន្នន័យ
+កំពុងចាក់សោ
+កំពុងផ្ទៀងផ្ទាត់

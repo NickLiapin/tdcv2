@@ -1,0 +1,10 @@
+---
+description: Dishes of អារ៉ាប់ cuisine, as Khmer names them
+locale: km
+---
+ហ៊ូមូស
+ហ្វាឡាហ្វែល
+ក្បាប
+សាវ៉ារ៉ាម៉ា
+តាប៊ូឡេ
+ម៉ាន់ស៊ាហ្វ

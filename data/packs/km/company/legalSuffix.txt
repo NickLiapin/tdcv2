@@ -1,0 +1,24 @@
+---
+description: Cambodian legal form of a company. These come from the Law on Commercial Enterprises and are written AFTER the name, as ក្រុមហ៊ុន សុវណ្ណ ឯ.ក. The abbreviations ឯ.ក and ម.ក are what appears on a signboard and on an invoice. Note that the English "Co., Ltd" and "Plc" are used unchanged on Cambodian bilingual paperwork and are kept here for that reason.
+locale: km
+---
+ក្រុមហ៊ុនឯកជនទទួលខុសត្រូវមានកម្រិត
+ក្រុមហ៊ុនមហាជនទទួលខុសត្រូវមានកម្រិត
+ឯ.ក
+ម.ក
+សហគ្រាសឯកបុគ្គល
+ក្រុមហ៊ុនសហកម្មសិទ្ធិ
+សាខាក្រុមហ៊ុនបរទេស
+ការិយាល័យតំណាង
+សហគ្រាស
+សហករណ៍
+សមាគម
+អង្គការមិនមែនរដ្ឋាភិបាល
+មូលនិធិ
+សហគ្រាសរដ្ឋ
+ក្រុមហ៊ុនចម្រុះ
+Co., Ltd
+Plc
+Ltd
+Group
+Holding

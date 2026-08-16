@@ -1,0 +1,5 @@
+---
+description: Capital of អាហ្សង់ទីន, as Khmer names it
+locale: km
+---
+ប៊ុយណូសអៃរេស

@@ -1,0 +1,10 @@
+---
+description: Dishes of អាមេរិក cuisine, as Khmer names them
+locale: km
+---
+ហាំប៊ឺហ្គឺ
+ហត់ដក
+សាច់អាំងបាបេគ្យូ
+មាន់បំពង
+ដំឡូងបំពង
+នំផាយប៉ោម

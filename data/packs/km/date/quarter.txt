@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter. Written with KHMER digits ០១២៣៤៥៦៧៨៩, which is how a quarter label is set in Khmer running text and in government reporting; Arabic digits are equally readable in Cambodia and dominate in spreadsheets.
+locale: km
+---
+ត្រីមាសទី១
+ត្រីមាសទី២
+ត្រីមាសទី៣
+ត្រីមាសទី៤

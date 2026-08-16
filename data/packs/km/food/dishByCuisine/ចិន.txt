@@ -1,0 +1,11 @@
+---
+description: Dishes of ចិន cuisine, as Khmer names them
+locale: km
+---
+នំប៉ាវ
+ទាប៉េកាំង
+ឌីមសាំ
+មីឆា
+សាច់ជ្រូកម្ជូរផ្អែម
+ត្រីចំហុយ
+បាយឆាចិន

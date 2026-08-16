@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Hardware brand names keep their real spelling. Mobile leads because Cambodian gaming is overwhelmingly on the phone.
+locale: km
+---
+ទូរស័ព្ទដៃ
+កុំព្យូទ័រ
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+Meta Quest
+ហាងហ្គេមអ៊ីនធឺណិត
+កម្មវិធីរុករក

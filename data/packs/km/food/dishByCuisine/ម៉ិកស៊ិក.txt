@@ -1,0 +1,10 @@
+---
+description: Dishes of ម៉ិកស៊ិក cuisine, as Khmer names them
+locale: km
+---
+តាកូ
+ប៊ូរីតូ
+កេសាឌីយ៉ា
+ណាចូស
+ហ្គាកាម៉ូល
+អង់ឈីឡាដា

@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of រុស្ស៊ី
+locale: km
+---
+RUB

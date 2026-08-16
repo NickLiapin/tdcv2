@@ -1,0 +1,14 @@
+---
+description: Loan type. ឥណទានខ្នាតតូច (microfinance) is listed first because it is the form most Cambodians actually borrow through — the sector reaches a very large share of households — and ឥណទានកសិកម្ម follows the harvest cycle rather than the calendar.
+locale: km
+---
+ឥណទានខ្នាតតូច
+ឥណទានកសិកម្ម
+ឥណទានផ្ទាល់ខ្លួន
+ឥណទានលំនៅឋាន
+ឥណទានយានយន្ត
+ឥណទានអាជីវកម្ម
+ឥណទានវិនិយោគ
+ឥណទានសិក្សា
+ឥណទានបញ្ចាំ
+ឥណទានវិលជុំ

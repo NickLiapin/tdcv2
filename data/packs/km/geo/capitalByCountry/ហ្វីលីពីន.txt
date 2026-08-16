@@ -1,0 +1,5 @@
+---
+description: Capital of ហ្វីលីពីន, as Khmer names it
+locale: km
+---
+ម៉ានីល

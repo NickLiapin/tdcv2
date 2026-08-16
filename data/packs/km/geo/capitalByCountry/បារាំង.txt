@@ -1,0 +1,5 @@
+---
+description: Capital of បារាំង, as Khmer names it
+locale: km
+---
+ប៉ារីស

@@ -1,0 +1,5 @@
+---
+description: Capital of ស្រីលង្កា, as Khmer names it
+locale: km
+---
+កូឡុំបូ

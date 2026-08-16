@@ -1,0 +1,9 @@
+---
+description: Credit rating band. Cambodia has a functioning credit bureau and microfinance borrowing is widespread, so a credit band is a real thing here; the numeric scale is the bureau's and is not named in a language pack.
+locale: km
+---
+ល្អបំផុត
+ល្អ
+មធ្យម
+ខ្សោយ
+ហានិភ័យខ្ពស់

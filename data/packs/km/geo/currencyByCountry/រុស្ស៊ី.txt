@@ -1,0 +1,5 @@
+---
+description: Currency of រុស្ស៊ី, as Khmer names it
+locale: km
+---
+រូប្លិ៍
