@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the Sharqiy Osiyo ancestry group, named in Uzbek.
+locale: uz-latn
+---
+Alfa talassemiya
+Laktoza intoleransi
+Aldegiddegidrogenaza yetishmovchiligi
+Oshqozon saratoni
+Nazofaringeal saraton
+Vilson kasalligi

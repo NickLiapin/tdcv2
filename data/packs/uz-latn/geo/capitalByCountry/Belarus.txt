@@ -1,0 +1,5 @@
+---
+description: Capital of Belarus (Uzbek)
+locale: uz-latn
+---
+Minsk

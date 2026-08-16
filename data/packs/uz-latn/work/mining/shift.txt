@@ -1,0 +1,9 @@
+---
+description: Mining shift pattern (Uzbek).
+locale: uz-latn
+---
+kunduzgi smena
+tungi smena
+ertalabki smena
+kechki smena
+vaxta usuli

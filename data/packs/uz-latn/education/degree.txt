@@ -1,0 +1,20 @@
+---
+description: Academic degree (Uzbek). The system is TWO-TIERED IN A POST-SOVIET WAY: bakalavr and magistr came in with the Bologna reform, but the research degrees are still the old ones — nomzod (candidate of sciences) and fan doktori — with PhD and DSc now used alongside them. Both appear on real Uzbek CVs, sometimes on the same one.
+locale: uz-latn
+---
+oʻrta maʼlumot
+oʻrta maxsus maʼlumot
+kollej diplomi
+texnikum diplomi
+litsey attestati
+bakalavr
+magistr
+mutaxassis diplomi
+ordinatura
+aspirantura
+tayanch doktorantura
+doktorantura
+PhD
+fan nomzodi
+fan doktori
+professor

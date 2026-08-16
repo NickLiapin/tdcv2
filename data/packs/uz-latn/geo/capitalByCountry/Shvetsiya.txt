@@ -1,0 +1,5 @@
+---
+description: Capital of Shvetsiya (Uzbek)
+locale: uz-latn
+---
+Stokgolm

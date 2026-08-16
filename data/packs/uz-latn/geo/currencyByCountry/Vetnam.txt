@@ -1,0 +1,5 @@
+---
+description: Currency of Vetnam (Uzbek)
+locale: uz-latn
+---
+Vetnam dongi

@@ -1,0 +1,5 @@
+---
+description: Currency code of Avstraliya
+locale: uz-latn
+---
+AUD

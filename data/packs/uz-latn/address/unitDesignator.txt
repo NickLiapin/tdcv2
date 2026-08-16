@@ -1,0 +1,27 @@
+---
+description: Unit designator inside an Uzbek address. The order runs from the largest part inward — massiv, kvartal, mahalla, then uy, podyezd, qavat, xonadon — which is the Soviet addressing scheme and is still what a postal form asks for. MAHALLA IS NOT AN ORDINARY WORD FOR DISTRICT: it is a legally constituted neighbourhood body with an elected chairman, and it appears in an Uzbek address as a real administrative level.
+locale: uz-latn
+---
+xonadon
+kvartira
+kv.
+uy
+uy-joy
+xona
+ofis
+kabinet
+blok
+korpus
+podyezd
+qavat
+yertoʻla
+chordoq
+garaj
+omborxona
+seksiya
+qism
+mavze
+massiv
+kvartal
+mahalla
+guzar

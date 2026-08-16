@@ -1,0 +1,11 @@
+---
+description: Cable conduit type (Uzbek), for utility and construction records.
+locale: uz-latn
+---
+plastik quvur
+metall quvur
+gofrirlangan quvur
+kabel kanali
+yer osti kanali
+kabel lotogi
+havo liniyasi

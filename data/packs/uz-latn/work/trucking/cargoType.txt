@@ -1,0 +1,17 @@
+---
+description: Freight cargo type (Uzbek). Paxta tolasi — ginned cotton fibre — is a real and large freight category here, and so is the outbound gas and the inbound container traffic that reaches Uzbekistan only by rail or road, because the country is doubly landlocked and has no seaport.
+locale: uz-latn
+---
+paxta tolasi
+gʻalla
+sabzavot-meva
+qurilish materiallari
+sement
+metall prokat
+neft mahsulotlari
+suyultirilgan gaz
+kimyoviy mahsulotlar
+oziq-ovqat
+maishiy texnika
+konteyner yuki
+xavfli yuk

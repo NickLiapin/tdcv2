@@ -1,0 +1,5 @@
+---
+description: Capital of Suriya (Uzbek)
+locale: uz-latn
+---
+Damashq

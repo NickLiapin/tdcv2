@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in Pulmonologiya, in Uzbek.
+locale: uz-latn
+---
+Bronxial astma
+Surunkali obstruktiv oʻpka kasalligi
+Oʻtkir bronxit
+Pnevmoniya
+Sil kasalligi
+Bronxoektaz
+Oʻpka emfizemasi
+Plevrit
+Oʻpka fibrozi
+Uyqu apnoesi
+Allergik rinit
+Oʻpka sili asorati

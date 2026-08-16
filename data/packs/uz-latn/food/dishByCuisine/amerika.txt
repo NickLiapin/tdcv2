@@ -1,0 +1,14 @@
+---
+description: Dish of the amerika kitchen, named in Uzbek.
+locale: uz-latn
+---
+gamburger
+hot-dog
+barbekyu qovurgʻa
+chizburger
+pankeyk
+klab sendvich
+mol goʻshtli stek
+olma piroq
+chizkeyk
+donat

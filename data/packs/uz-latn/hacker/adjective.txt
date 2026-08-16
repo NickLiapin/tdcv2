@@ -1,0 +1,34 @@
+---
+description: Technical adjective (Uzbek).
+locale: uz-latn
+---
+raqamli
+analog
+avtomatik
+qoʻlda
+masofaviy
+mahalliy
+markazlashgan
+taqsimlangan
+sinxron
+asinxron
+xavfsiz
+shifrlangan
+ochiq
+yopiq
+himoyalangan
+zaxiralangan
+optimallashtirilgan
+kompilyatsiya qilingan
+interpretatsiya qilinadigan
+kengaytiriladigan
+moslashuvchan
+barqaror
+beqaror
+tezkor
+sekin
+yuqori unumli
+past kechikishli
+mos keluvchi
+mos kelmaydigan
+eskirgan

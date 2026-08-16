@@ -1,0 +1,5 @@
+---
+description: Capital of Rossiya (Uzbek)
+locale: uz-latn
+---
+Moskva

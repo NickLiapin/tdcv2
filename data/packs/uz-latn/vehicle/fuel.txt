@@ -1,0 +1,14 @@
+---
+description: Fuel type (Uzbek). METAN IS NOT AN EXOTIC OPTION HERE: Uzbekistan has its own natural gas, and a very large share of private cars, and almost all taxis, run on compressed methane from a converted tank in the boot. A dataset about Uzbek vehicles that offers only petrol and diesel is wrong about the country.
+locale: uz-latn
+---
+benzin
+AI-80
+AI-91
+AI-92
+AI-95
+dizel
+metan
+propan
+elektr
+gibrid

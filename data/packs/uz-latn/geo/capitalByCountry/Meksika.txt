@@ -1,0 +1,5 @@
+---
+description: Capital of Meksika (Uzbek)
+locale: uz-latn
+---
+Mexiko

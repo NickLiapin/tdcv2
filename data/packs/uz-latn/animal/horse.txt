@@ -1,0 +1,20 @@
+---
+description: Horse breed (Uzbek). QORABAYIR IS THE NATIONAL BREED — a compact, hard-hoofed mountain horse bred in the Zarafshon valley and the one ridden in koʻpkari, the mounted goat-carcass game that fills a winter Sunday. Lokay comes from the Tajik south, Axaltekin from Turkmenistan, and argʻumoq is the old literary word for a fine riding horse rather than a registered breed.
+locale: uz-latn
+---
+qorabayir
+lokay
+argʻumoq
+axaltekin
+yobu
+qozoq oti
+qirgʻiz oti
+mugʻul oti
+arab oti
+ingliz zotli oti
+oryol yoʻrgʻasi
+don oti
+budyonniy oti
+tarpan
+poni
+yuk oti

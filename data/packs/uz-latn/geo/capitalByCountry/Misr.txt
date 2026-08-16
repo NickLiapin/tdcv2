@@ -1,0 +1,5 @@
+---
+description: Capital of Misr (Uzbek)
+locale: uz-latn
+---
+Qohira

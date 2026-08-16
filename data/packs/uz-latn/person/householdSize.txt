@@ -1,0 +1,11 @@
+---
+description: Household size. UZBEK HOUSEHOLDS ARE LARGE by European standards — the national average is above five people and multigenerational living under one roof is the norm rather than the exception, with the youngest son traditionally staying in the parents' house. The tail of this list is therefore not decoration: a uniform draw over 1-7+ is closer to reality here than it would be in a European locale.
+locale: uz-latn
+---
+1
+2
+3
+4
+5
+6
+7+

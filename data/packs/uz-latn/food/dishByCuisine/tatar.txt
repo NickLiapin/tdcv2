@@ -1,0 +1,14 @@
+---
+description: Dish of the tatar kitchen, named in Uzbek.
+locale: uz-latn
+---
+echpochmak
+chak-chak
+belyash
+gubadiya
+kystybyy
+peremech
+toqmach
+qazilik
+talqan
+katyk

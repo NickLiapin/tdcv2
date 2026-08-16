@@ -1,0 +1,23 @@
+---
+description: Property type (Uzbek). HOVLI IS THE COMMONEST DWELLING outside the cities and is bought and sold by the sotix — a hundred square metres of land — rather than by floor area, which is why a listing here reads differently from a European one.
+locale: uz-latn
+---
+hovli
+xususiy uy
+kvartira
+studiya kvartira
+yangi qurilgan kvartira
+ikkilamchi bozor kvartirasi
+taunhaus
+kottej
+dala hovli
+yer uchastkasi
+tomorqa
+ofis
+doʻkon
+savdo maydoni
+ombor
+ishlab chiqarish binosi
+garaj
+mehmonxona binosi
+qurilishi tugallanmagan obyekt

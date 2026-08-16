@@ -1,0 +1,5 @@
+---
+description: Currency of Turkiya (Uzbek)
+locale: uz-latn
+---
+Turkiya lirasi

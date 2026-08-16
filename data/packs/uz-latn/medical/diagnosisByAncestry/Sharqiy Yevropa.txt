@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the Sharqiy Yevropa ancestry group, named in Uzbek.
+locale: uz-latn
+---
+Mukovistsidoz
+Fenilketonuriya
+Vilson kasalligi
+Gemoxromatoz
+Tugʻma qalqonsimon bez yetishmovchiligi
+Kongenital adrenal giperplaziya

@@ -1,0 +1,5 @@
+---
+description: Currency code of Janubiy Afrika Respublikasi
+locale: uz-latn
+---
+ZAR

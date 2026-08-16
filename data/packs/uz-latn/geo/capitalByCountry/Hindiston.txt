@@ -1,0 +1,5 @@
+---
+description: Capital of Hindiston (Uzbek)
+locale: uz-latn
+---
+Yangi Dehli

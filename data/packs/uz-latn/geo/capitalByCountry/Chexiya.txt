@@ -1,0 +1,5 @@
+---
+description: Capital of Chexiya (Uzbek)
+locale: uz-latn
+---
+Praga

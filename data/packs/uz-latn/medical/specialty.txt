@@ -1,0 +1,40 @@
+---
+description: Medical specialty (Uzbek).
+locale: uz-latn
+---
+Terapiya
+Oilaviy tibbiyot
+Kardiologiya
+Nevrologiya
+Neyroxirurgiya
+Umumiy jarrohlik
+Travmatologiya
+Ortopediya
+Urologiya
+Ginekologiya
+Akusherlik
+Pediatriya
+Neonatologiya
+Endokrinologiya
+Gastroenterologiya
+Gepatologiya
+Nefrologiya
+Pulmonologiya
+Ftiziatriya
+Allergologiya
+Immunologiya
+Revmatologiya
+Gematologiya
+Onkologiya
+Radiologiya
+Dermatologiya
+Venerologiya
+Oftalmologiya
+Otorinolaringologiya
+Stomatologiya
+Ortodontiya
+Psixiatriya
+Narkologiya
+Anesteziologiya
+Reanimatologiya
+Infeksion kasalliklar

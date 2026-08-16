@@ -1,0 +1,5 @@
+---
+description: Capital of Isroil (Uzbek)
+locale: uz-latn
+---
+Quddus

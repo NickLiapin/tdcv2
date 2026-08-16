@@ -1,0 +1,5 @@
+---
+description: Capital of Mongoliya (Uzbek)
+locale: uz-latn
+---
+Ulan-Bator

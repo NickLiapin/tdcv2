@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Uzbek, used as the parent of diagnosisByAncestry. These are ancestry populations as CLINICAL GENETICS defines them — geographic descent, not social race categories. Uzbeks themselves are not one of the twelve: Central Asian populations sit between the Yaqin Sharq and Sharqiy Osiyo groups, and the two findings that matter locally are beta thalassaemia, which is screened for in Khorezm and Karakalpakstan, and G6FD deficiency. The list is kept at the same twelve groups every other locale ships so that a config can move between locales.
+locale: uz-latn
+---
+Shimoliy Yevropa
+Sharqiy Yevropa
+Oʻrta yer dengizi
+Ashkenazi yahudiylari
+Yaqin Sharq
+Shimoliy Afrika
+Sahroi Kabirdan janubiy Afrika
+Sharqiy Osiyo
+Janubiy Osiyo
+Janubi-Sharqiy Osiyo
+Amerika tubjoy xalqlari
+Tinch okeani orollari

@@ -1,0 +1,24 @@
+---
+description: Job title in the Taʼlim sector, in Uzbek.
+locale: uz-latn
+---
+oʻqituvchi
+boshlangʻich sinf oʻqituvchisi
+tarbiyachi
+maktab direktori
+oʻquv ishlari boʻyicha direktor oʻrinbosari
+metodist
+professor
+dotsent
+katta oʻqituvchi
+assistent
+laborant
+ilmiy xodim
+kutubxonachi
+psixolog
+logoped
+repetitor
+tibbiyot hamshirasi
+sport murabbiyi
+til oʻqituvchisi
+dekan

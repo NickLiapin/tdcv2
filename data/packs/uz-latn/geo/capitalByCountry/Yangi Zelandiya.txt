@@ -1,0 +1,5 @@
+---
+description: Capital of Yangi Zelandiya (Uzbek)
+locale: uz-latn
+---
+Vellington

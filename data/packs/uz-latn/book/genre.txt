@@ -1,0 +1,30 @@
+---
+description: Book genre (Uzbek).
+locale: uz-latn
+---
+roman
+qissa
+hikoya
+sheʼriy toʻplam
+doston
+gʻazal
+ruboiy
+drama
+esse
+memuar
+tarjimai hol
+tarixiy roman
+detektiv
+sarguzasht
+fantastika
+fantaziya
+qoʻrqinchli adabiyot
+sevgi romani
+bolalar adabiyoti
+ertaklar
+xalq ogʻzaki ijodi
+darslik
+ilmiy adabiyot
+ilmiy-ommabop adabiyot
+lugʻat
+diniy adabiyot

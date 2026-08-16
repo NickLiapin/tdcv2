@@ -1,0 +1,5 @@
+---
+description: Capital of Yunoniston (Uzbek)
+locale: uz-latn
+---
+Afina

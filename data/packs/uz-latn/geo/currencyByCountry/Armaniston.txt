@@ -1,0 +1,5 @@
+---
+description: Currency of Armaniston (Uzbek)
+locale: uz-latn
+---
+Armaniston drami

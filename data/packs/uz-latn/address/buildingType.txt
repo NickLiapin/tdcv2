@@ -1,0 +1,44 @@
+---
+description: Building type (Uzbek). HOVLI IS THE ONE THAT DOES NOT TRANSLATE: the traditional Uzbek house faces INWARD onto a walled courtyard, so hovli names the whole property — yard, rooms and gate together — and is the commonest kind of dwelling outside the apartment blocks. Choyxona, the teahouse, is a building type in its own right and is where a mahalla meets. The Russian layer is plainly visible in kottej, dacha, sex, angar and obshchejitiye, all of which arrived in the Soviet period.
+locale: uz-latn
+---
+turar-joy binosi
+koʻp qavatli bino
+xonadon
+xususiy uy
+hovli
+dala hovli
+dacha
+villa
+kottej
+taunhaus
+yotoqxona
+obshchejitiye
+mehmonxona
+ofis binosi
+maʼmuriy bino
+savdo markazi
+doʻkon
+bozor rastasi
+choyxona
+oshxona
+omborxona
+angar
+zavod
+fabrika
+sex
+garaj
+avtoturargoh
+maktab binosi
+bogʻcha
+poliklinika
+kasalxona
+masjid
+madrasa
+cherkov
+muzey
+teatr
+kutubxona
+sport majmuasi
+hammom
+tegirmon

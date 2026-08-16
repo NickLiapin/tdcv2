@@ -1,0 +1,5 @@
+---
+description: Currency code of Efiopiya
+locale: uz-latn
+---
+ETB

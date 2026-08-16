@@ -1,0 +1,24 @@
+---
+description: School or university subject (Uzbek).
+locale: uz-latn
+---
+ona tili
+adabiyot
+matematika
+algebra
+geometriya
+fizika
+kimyo
+biologiya
+geografiya
+tarix
+Oʻzbekiston tarixi
+jahon tarixi
+huquq asoslari
+iqtisodiyot asoslari
+informatika
+chizmachilik
+ingliz tili
+rus tili
+jismoniy tarbiya
+tasviriy sanʼat

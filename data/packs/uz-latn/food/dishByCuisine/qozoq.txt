@@ -1,0 +1,14 @@
+---
+description: Dish of the qozoq kitchen, named in Uzbek.
+locale: uz-latn
+---
+beshbarmoq
+qazi
+quyrdaq
+baursak
+qurt
+shubat
+qimiz
+sorpa
+kuyrdak
+irimshik

@@ -1,0 +1,48 @@
+---
+description: Common verb (Uzbek), dictionary -moq form.
+locale: uz-latn
+---
+boʻlmoq
+qilmoq
+bermoq
+olmoq
+kelmoq
+bormoq
+ketmoq
+turmoq
+oʻtirmoq
+yotmoq
+yurmoq
+yugurmoq
+koʻrmoq
+qaramoq
+eshitmoq
+tinglamoq
+gapirmoq
+aytmoq
+soʻramoq
+javob bermoq
+bilmoq
+oʻrganmoq
+oʻqimoq
+yozmoq
+ishlamoq
+oʻynamoq
+yemoq
+ichmoq
+pishirmoq
+yuvmoq
+kiymoq
+yechmoq
+ochmoq
+yopmoq
+boshlamoq
+tugatmoq
+kutmoq
+topmoq
+yoʻqotmoq
+sotmoq
+sotib olmoq
+tashimoq
+qoʻymoq
+koʻtarmoq

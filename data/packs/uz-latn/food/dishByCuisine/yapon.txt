@@ -1,0 +1,14 @@
+---
+description: Dish of the yapon kitchen, named in Uzbek.
+locale: uz-latn
+---
+sushi
+ramen
+tempura
+udon
+miso shoʻrva
+onigiri
+yakitori
+sashimi
+gyoza
+mochi

@@ -1,0 +1,9 @@
+---
+description: Credit rating band (Uzbek). Uzbekistan has a national credit bureau and banks score borrowers, but the numeric scale is a banking-sector convention rather than a language one, so only the word bands are given here.
+locale: uz-latn
+---
+juda yuqori
+yuqori
+oʻrtacha
+past
+juda past

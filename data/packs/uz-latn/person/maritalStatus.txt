@@ -1,0 +1,18 @@
+---
+description: Marital status in Uzbek. THE VERB IS SEX-MARKED EVEN THOUGH THE LANGUAGE IS NOT: a man is uylangan (he has taken a wife) and a woman is turmushga chiqqan (she has gone into married life) — two different phrases for the same civil status, chosen by the sex of the person, in a language with no grammatical gender at all. A config that fills this column at random will produce men described with the women's phrase. Turmush qurgan is the sex-neutral form and is safe. Note also nikoh, the religious marriage contract, which is widespread and legally separate from the civil registration at the ZAGS, so a couple can hold one without the other.
+locale: uz-latn
+---
+Boʻydoq
+Turmush qurgan
+Uylangan
+Turmushga chiqqan
+Rasmiy nikohda
+Diniy nikohda
+Ajrashgan
+Beva ayol
+Beva erkak
+Alohida yashaydi
+Unashtirilgan
+Qayta turmush qurgan
+Nikohsiz birga yashaydi
+Koʻrsatilmagan

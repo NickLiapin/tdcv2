@@ -1,0 +1,23 @@
+---
+description: Film genre (Uzbek).
+locale: uz-latn
+---
+drama
+komediya
+melodrama
+tarixiy film
+biografik film
+jangari film
+detektiv
+triller
+qoʻrqinchli film
+fantastika
+fantaziya
+sarguzasht
+multfilm
+oilaviy film
+musiqiy film
+hujjatli film
+qisqa metrajli film
+harbiy film
+milliy drama

@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the Amerika tubjoy xalqlari ancestry group, named in Uzbek.
+locale: uz-latn
+---
+2-tur qandli diabet
+Oʻt-tosh kasalligi
+Semizlik
+Alkogolga qaramlik
+Revmatoid artrit
+Laktoza intoleransi

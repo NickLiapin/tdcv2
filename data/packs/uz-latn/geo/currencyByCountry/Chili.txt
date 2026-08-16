@@ -1,0 +1,5 @@
+---
+description: Currency of Chili (Uzbek)
+locale: uz-latn
+---
+Chili pesosi

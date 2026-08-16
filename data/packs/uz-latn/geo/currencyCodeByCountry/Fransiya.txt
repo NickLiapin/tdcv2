@@ -1,0 +1,5 @@
+---
+description: Currency code of Fransiya
+locale: uz-latn
+---
+EUR

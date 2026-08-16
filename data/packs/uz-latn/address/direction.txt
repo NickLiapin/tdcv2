@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with an Uzbek street, district or estate name (Shimoliy koʻcha, Quyi mahalla). Yuqori (upper) and Quyi (lower) do far more work here than in Europe, because settlements strung along an irrigation canal are routinely named by where they sit on it.
+locale: uz-latn
+---
+Shimoliy
+Janubiy
+Sharqiy
+Gʻarbiy
+Shimoli-sharqiy
+Shimoli-gʻarbiy
+Janubi-sharqiy
+Janubi-gʻarbiy
+Markaziy
+Yuqori
+Quyi
+Oʻrta
+Ichki
+Tashqi
+Yangi

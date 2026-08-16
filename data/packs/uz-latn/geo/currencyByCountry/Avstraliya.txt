@@ -1,0 +1,5 @@
+---
+description: Currency of Avstraliya (Uzbek)
+locale: uz-latn
+---
+Avstraliya dollari

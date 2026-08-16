@@ -1,0 +1,5 @@
+---
+description: Capital of Armaniston (Uzbek)
+locale: uz-latn
+---
+Yerevan

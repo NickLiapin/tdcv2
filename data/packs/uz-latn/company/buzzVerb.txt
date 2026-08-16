@@ -1,0 +1,59 @@
+---
+description: Marketing verb (Uzbek), in the dictionary -moq form.
+locale: uz-latn
+---
+optimallashtirmoq
+avtomatlashtirmoq
+raqamlashtirmoq
+integratsiyalashtirmoq
+kengaytirmoq
+tezlashtirmoq
+soddalashtirmoq
+mustahkamlamoq
+takomillashtirmoq
+rivojlantirmoq
+oshirmoq
+kamaytirmoq
+tejamoq
+boshqarmoq
+nazorat qilmoq
+kuzatmoq
+tahlil qilmoq
+baholamoq
+rejalashtirmoq
+loyihalamoq
+ishlab chiqmoq
+joriy qilmoq
+tatbiq etmoq
+sozlamoq
+moslashtirmoq
+qoʻllab-quvvatlamoq
+xizmat koʻrsatmoq
+yetkazib bermoq
+taʼminlamoq
+kafolatlamoq
+himoya qilmoq
+sertifikatlamoq
+tekshirmoq
+sinovdan oʻtkazmoq
+yangilamoq
+almashtirmoq
+birlashtirmoq
+bogʻlamoq
+ulanmoq
+sinxronlashtirmoq
+markazlashtirmoq
+taqsimlamoq
+yoʻnaltirmoq
+maqsad qilmoq
+erishmoq
+yutmoq
+gʻalaba qozonmoq
+ilgarilamoq
+yetakchilik qilmoq
+hamkorlik qilmoq
+kengaymoq
+ochmoq
+yaratmoq
+qurmoq
+mustahkam turmoq

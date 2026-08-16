@@ -1,0 +1,21 @@
+---
+description: Video game genre (Uzbek).
+locale: uz-latn
+---
+harakat
+sarguzasht
+rolli oʻyin
+strategiya
+simulyator
+sport oʻyini
+poyga
+jangari
+otishma
+jumboq
+platformer
+omon qolish
+ochiq dunyo
+koʻp oʻyinchili onlayn
+kartochka oʻyini
+mantiqiy oʻyin
+qoʻrqinchli oʻyin

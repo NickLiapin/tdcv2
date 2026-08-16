@@ -1,0 +1,5 @@
+---
+description: Currency of Nigeriya (Uzbek)
+locale: uz-latn
+---
+Nigeriya nayrasi

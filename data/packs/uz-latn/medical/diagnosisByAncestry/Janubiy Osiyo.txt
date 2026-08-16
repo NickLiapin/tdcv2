@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the Janubiy Osiyo ancestry group, named in Uzbek.
+locale: uz-latn
+---
+Beta talassemiya
+G6FD yetishmovchiligi
+2-tur qandli diabet
+Yurak ishemik kasalligi
+Laktoza intoleransi
+D vitamini yetishmovchiligi

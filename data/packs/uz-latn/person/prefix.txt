@@ -1,0 +1,36 @@
+---
+description: Uzbek honorific / form of address. THREE OF THESE GO AFTER THE GIVEN NAME, not before it, and they are the ones an Uzbek actually uses every day: aka for an older man (Sardor aka), opa for an older woman (Dilnoza opa), and domla for a teacher or scholar (Rustam domla). Janob and xonim are the formal written Mr / Ms and do precede the name. Hoji marks someone who has made the pilgrimage; qori someone who has memorised the Quran; ustoz a master or mentor. The academic, medical and military titles at the end precede the name and are Russian-mediated.
+locale: uz-latn
+---
+aka
+opa
+domla
+ustoz
+janob
+xonim
+hoji
+qori
+mulla
+eshon
+taqsir
+bek
+boy
+xon
+Dr.
+Prof.
+Dots.
+Akademik
+Muhandis
+Shifokor
+Hamshira
+Advokat
+Sudya
+Prokuror
+Kapitan
+Mayor
+Polkovnik
+General
+Serjant
+Leytenant
+Rais
+Direktor

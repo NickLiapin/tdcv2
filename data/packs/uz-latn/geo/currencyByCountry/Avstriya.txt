@@ -1,0 +1,5 @@
+---
+description: Currency of Avstriya (Uzbek)
+locale: uz-latn
+---
+yevro

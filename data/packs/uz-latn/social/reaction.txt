@@ -1,0 +1,15 @@
+---
+description: Reaction to a post (Uzbek).
+locale: uz-latn
+---
+yoqdi
+yoqmadi
+zoʻr
+kulgili
+ajablanarli
+qaygʻurdim
+gʻazablandim
+qoʻllab-quvvatlayman
+rahmat
+tabriklayman
+saqlab qoʻydim

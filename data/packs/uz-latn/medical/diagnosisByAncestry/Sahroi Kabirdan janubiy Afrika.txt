@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the Sahroi Kabirdan janubiy Afrika ancestry group, named in Uzbek. This list is a PREVALENCE SIGNAL, not an exclusive one: the conditions below occur in every population and are simply more frequent in this ancestry group.
+locale: uz-latn
+---
+Oʻroqsimon hujayrali anemiya
+G6FD yetishmovchiligi
+Alfa talassemiya
+Gipertoniya
+Prostata saratoni
+Laktoza intoleransi

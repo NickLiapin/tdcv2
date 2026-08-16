@@ -1,0 +1,44 @@
+---
+description: Technical noun (Uzbek).
+locale: uz-latn
+---
+server
+mijoz
+tarmoq
+protokol
+paket
+port
+manzil
+domen
+soʻrov
+javob
+maʼlumotlar bazasi
+jadval
+ustun
+qator
+indeks
+kalit
+qiymat
+massiv
+obyekt
+funksiya
+oʻzgaruvchi
+sinf
+modul
+kutubxona
+ramka
+interfeys
+xotira
+protsessor
+disk
+fayl
+katalog
+jarayon
+oqim
+xato
+jurnal
+zaxira nusxa
+yangilanish
+versiya
+shifrlash
+sertifikat

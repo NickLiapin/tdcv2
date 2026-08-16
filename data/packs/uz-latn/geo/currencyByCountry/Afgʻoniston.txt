@@ -1,0 +1,5 @@
+---
+description: Currency of Afgʻoniston (Uzbek)
+locale: uz-latn
+---
+afgʻoni

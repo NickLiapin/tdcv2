@@ -1,0 +1,24 @@
+---
+description: Job title in the Toʻqimachilik sector, in Uzbek.
+locale: uz-latn
+---
+toʻquvchi
+yigiruvchi
+tikuvchi
+modelyer
+konstruktor
+buyoqchi
+pillakash
+atlas ustasi
+xonatlas ustasi
+naqqosh
+tikuv sexi ustasi
+sifat nazoratchisi
+kesuvchi
+namuna ustasi
+toʻqimachilik texnologi
+kashtachi
+gilamchi
+doʻppi tikuvchi
+ombor mudiri
+brigadir

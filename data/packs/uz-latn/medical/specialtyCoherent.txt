@@ -1,0 +1,14 @@
+---
+description: Medical specialty, as the parent of diagnosisBySpecialty. The names are Russian-mediated international terms with Uzbek endings, which is how the whole clinical vocabulary of the country works — an Uzbek chart reads far closer to a Russian one than to a Turkish one.
+locale: uz-latn
+---
+Kardiologiya
+Dermatologiya
+Endokrinologiya
+Gastroenterologiya
+Nefrologiya
+Nevrologiya
+Onkologiya
+Ortopediya
+Psixiatriya
+Pulmonologiya

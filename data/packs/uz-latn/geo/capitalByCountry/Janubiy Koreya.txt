@@ -1,0 +1,5 @@
+---
+description: Capital of Janubiy Koreya (Uzbek)
+locale: uz-latn
+---
+Seul

@@ -1,0 +1,42 @@
+---
+description: Symptom (Uzbek).
+locale: uz-latn
+---
+bosh ogʻrigʻi
+bosh aylanishi
+holsizlik
+tez charchash
+isitma
+titroq
+sovqotish
+terlash
+yoʻtal
+quruq yoʻtal
+balgʻamli yoʻtal
+hansirash
+koʻkrak ogʻrigʻi
+yurak urishi tezlashuvi
+koʻngil aynishi
+qusish
+qorin ogʻrigʻi
+ich ketishi
+qabziyat
+kekirish
+jigʻildon qaynashi
+ishtaha yoʻqolishi
+vazn yoʻqotish
+shishish
+bel ogʻrigʻi
+boʻgʻim ogʻrigʻi
+mushak ogʻrigʻi
+uyqusizlik
+xotira pasayishi
+diqqat buzilishi
+teri toshmasi
+qichishish
+koʻz achishishi
+koʻrish xiralashuvi
+quloq shovqini
+tomoq ogʻrigʻi
+burun bitishi
+siydik chiqarishning ogʻriqli boʻlishi

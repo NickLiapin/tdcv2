@@ -1,0 +1,5 @@
+---
+description: Currency of Yangi Zelandiya (Uzbek)
+locale: uz-latn
+---
+Yangi Zelandiya dollari

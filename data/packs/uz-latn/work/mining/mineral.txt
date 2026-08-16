@@ -1,0 +1,23 @@
+---
+description: Mineral extracted (Uzbek). The list is Uzbekistan's actual mineral base: gold, uranium, copper, natural gas, and the industrial minerals of the Qizilqum. Uran is not decoration — the country is among the world's largest uranium producers.
+locale: uz-latn
+---
+oltin
+kumush
+mis
+uran
+tabiiy gaz
+neft
+koʻmir
+molibden
+volfram
+qoʻrgʻoshin
+rux
+marmar
+granit
+ohaktosh
+osh tuzi
+oltingugurt
+fosforit
+kaolin
+grafit

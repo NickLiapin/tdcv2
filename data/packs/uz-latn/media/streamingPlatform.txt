@@ -1,0 +1,16 @@
+---
+description: Streaming platform. Brand names keep their real spelling in any locale. The global services are what an Uzbek subscriber most often uses; Uzbekistan's own domestic services are named companies and belong to a country pack.
+locale: uz-latn
+---
+YouTube
+Netflix
+Amazon Prime Video
+Disney+
+Apple TV+
+HBO Max
+Spotify
+Apple Music
+Yandex Music
+Telegram
+TikTok
+Twitch

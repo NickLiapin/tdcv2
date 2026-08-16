@@ -1,0 +1,5 @@
+---
+description: Currency code of Niderlandiya
+locale: uz-latn
+---
+EUR

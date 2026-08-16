@@ -1,0 +1,5 @@
+---
+description: Currency of Efiopiya (Uzbek)
+locale: uz-latn
+---
+Efiopiya biri

@@ -1,0 +1,16 @@
+---
+description: Type of leave (Uzbek). Homiladorlik va tugʻish taʼtili — maternity leave — is a separate statutory category from bola parvarish taʼtili, the childcare leave that follows it and can run to three years.
+locale: uz-latn
+---
+yillik mehnat taʼtili
+qoʻshimcha taʼtil
+kasallik varaqasi
+homiladorlik va tugʻish taʼtili
+bola parvarish taʼtili
+oʻquv taʼtili
+haq toʻlanmaydigan taʼtil
+oilaviy sharoit boʻyicha taʼtil
+motam taʼtili
+harbiy yigʻin
+dam olish kuni
+bayram kuni

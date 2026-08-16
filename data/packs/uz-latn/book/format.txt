@@ -1,0 +1,12 @@
+---
+description: Book format (Uzbek).
+locale: uz-latn
+---
+qattiq muqovali
+yumshoq muqovali
+choʻntak nashri
+elektron kitob
+audiokitob
+sovgʻabop nashr
+suratli nashr
+qoʻlyozma

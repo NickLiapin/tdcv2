@@ -1,0 +1,31 @@
+---
+description: Government body — the ministries, committees and agencies of UZBEKISTAN, named for one country deliberately, because Uzbek is the state language of a single state and these words simply are the names. Two have no European counterpart: the Mahalla va oilani qoʻllab-quvvatlash vazirligi is a ministry for the neighbourhood committees, which are a real tier of administration here, and hokimlik is the office of the hokim, the appointed governor of a province or district. A config needing a generic public body should use company/industry or work/department instead.
+locale: uz-latn
+---
+Prezident Administratsiyasi
+Oliy Majlis
+Qonunchilik palatasi
+Senat
+Vazirlar Mahkamasi
+Iqtisodiyot va moliya vazirligi
+Adliya vazirligi
+Ichki ishlar vazirligi
+Mudofaa vazirligi
+Tashqi ishlar vazirligi
+Sogʻliqni saqlash vazirligi
+Maktabgacha va maktab taʼlimi vazirligi
+Oliy taʼlim, fan va innovatsiyalar vazirligi
+Qishloq xoʻjaligi vazirligi
+Suv xoʻjaligi vazirligi
+Energetika vazirligi
+Transport vazirligi
+Raqamli texnologiyalar vazirligi
+Bandlik va kambagʻallikni qisqartirish vazirligi
+Mahalla va oilani qoʻllab-quvvatlash vazirligi
+Madaniyat vazirligi
+Ekologiya va atrof-muhitni muhofaza qilish vazirligi
+Favqulodda vaziyatlar vazirligi
+Davlat soliq qoʻmitasi
+Davlat bojxona qoʻmitasi
+Statistika agentligi
+Hokimlik

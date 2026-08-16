@@ -1,0 +1,15 @@
+---
+description: Booking status (Uzbek).
+locale: uz-latn
+---
+soʻrov yuborildi
+tasdiqlanmoqda
+tasdiqlandi
+toʻlov kutilmoqda
+toʻlandi
+oʻzgartirildi
+bekor qilindi
+qaytarildi
+kutish roʻyxatida
+yakunlandi
+kelmadi

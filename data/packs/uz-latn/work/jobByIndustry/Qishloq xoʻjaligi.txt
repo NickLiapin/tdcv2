@@ -1,0 +1,24 @@
+---
+description: Job title in the Qishloq xoʻjaligi sector, in Uzbek.
+locale: uz-latn
+---
+agronom
+fermer
+paxtakor
+dehqon
+bogʻbon
+sabzavotchi
+uzumchi
+pillachi
+chorvador
+choʻpon
+veterinar
+irrigator
+suvchi
+kombayn haydovchisi
+traktorchi
+selektsioner
+agrokimyogar
+qishloq xoʻjaligi muhandisi
+don qabul qiluvchi
+issiqxona ustasi

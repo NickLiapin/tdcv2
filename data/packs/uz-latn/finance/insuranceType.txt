@@ -1,0 +1,18 @@
+---
+description: Insurance type (Uzbek).
+locale: uz-latn
+---
+tibbiy sugʻurta
+hayotni sugʻurtalash
+baxtsiz hodisadan sugʻurta
+avtomobil sugʻurtasi
+majburiy avtosugʻurta
+mulk sugʻurtasi
+uy-joy sugʻurtasi
+yongʻindan sugʻurta
+qishloq xoʻjaligi ekinlari sugʻurtasi
+chorva sugʻurtasi
+yuk sugʻurtasi
+sayohat sugʻurtasi
+kasbiy javobgarlik sugʻurtasi
+pensiya sugʻurtasi

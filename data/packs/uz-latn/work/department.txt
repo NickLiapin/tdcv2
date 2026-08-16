@@ -1,0 +1,26 @@
+---
+description: Company department (Uzbek). Boʻlim is the ordinary word for a department and boshqarma the larger directorate above it, which is a Soviet-inherited two-level structure still used in Uzbek firms.
+locale: uz-latn
+---
+kadrlar boʻlimi
+buxgalteriya
+moliya boʻlimi
+yuridik boʻlim
+savdo boʻlimi
+marketing boʻlimi
+ishlab chiqarish boʻlimi
+taʼminot boʻlimi
+logistika boʻlimi
+ombor xoʻjaligi
+axborot texnologiyalari boʻlimi
+texnik qoʻllab-quvvatlash
+sifat nazorati boʻlimi
+mehnat muhofazasi boʻlimi
+ilmiy-tadqiqot boʻlimi
+loyihalash boʻlimi
+xavfsizlik xizmati
+kotibiyat
+ish yuritish boʻlimi
+tashqi aloqalar boʻlimi
+matbuot xizmati
+ichki audit

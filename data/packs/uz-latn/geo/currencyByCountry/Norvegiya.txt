@@ -1,0 +1,5 @@
+---
+description: Currency of Norvegiya (Uzbek)
+locale: uz-latn
+---
+Norvegiya kronasi

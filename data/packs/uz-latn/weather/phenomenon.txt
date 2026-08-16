@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Uzbek). THREE OF THESE ARE LOCAL AND SEVERE. Garmsel is the hot dry wind off the desert that burns a wheat crop in a day. Afgʻon shamoli, the Afghan wind, blows dust up the Amudaryo valley for days on end. And chang boʻroni now carries salt as well as dust, because it lifts it off the Aralqum — the dry bed of the Aral Sea — and drops it on farmland hundreds of kilometres away.
+locale: uz-latn
+---
+garmsel
+afgʻon shamoli
+chang boʻroni
+qum boʻroni
+shoʻr boʻroni
+qurgʻoqchilik
+sel
+toshqin
+qor koʻchkisi
+zilzila
+sarob
+qirov
+muzlash
+issiqlik toʻlqini
+sovuq toʻlqini

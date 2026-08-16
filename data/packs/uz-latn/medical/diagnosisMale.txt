@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Uzbek that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: uz-latn
+---
+Prostata bezi giperplaziyasi
+Prostatit
+Prostata bezi saratoni
+Moyak saratoni
+Varikotsele
+Gidrotsele
+Fimoz
+Parafimoz
+Kriptorxizm
+Erektil disfunksiya
+Erkaklar bepushtligi
+Gipogonadizm
+Peyroni kasalligi
+Moyak burilishi
+Epididimit
+Orxit
+Balanit
+Priapizm
+Azoospermiya
+Ginekomastiya

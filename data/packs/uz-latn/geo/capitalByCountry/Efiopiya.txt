@@ -1,0 +1,5 @@
+---
+description: Capital of Efiopiya (Uzbek)
+locale: uz-latn
+---
+Addis-Abeba

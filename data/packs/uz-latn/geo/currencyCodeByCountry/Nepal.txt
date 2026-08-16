@@ -1,0 +1,5 @@
+---
+description: Currency code of Nepal
+locale: uz-latn
+---
+NPR

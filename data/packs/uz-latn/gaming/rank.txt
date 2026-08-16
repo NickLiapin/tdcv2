@@ -1,0 +1,14 @@
+---
+description: Competitive game rank (Uzbek).
+locale: uz-latn
+---
+yangi oʻyinchi
+bronza
+kumush
+oltin
+platina
+olmos
+usta
+katta usta
+chempion
+afsona

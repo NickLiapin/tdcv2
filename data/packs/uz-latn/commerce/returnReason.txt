@@ -1,0 +1,19 @@
+---
+description: Reason for returning goods (Uzbek).
+locale: uz-latn
+---
+oʻlchami toʻgʻri kelmadi
+rangi mos kelmadi
+sifati past
+nuqsonli mahsulot
+tavsifga mos emas
+notoʻgʻri mahsulot yuborildi
+yetkazishda shikastlangan
+toʻliq emas
+kech yetkazildi
+fikrim oʻzgardi
+arzonroq topdim
+ishlamayapti
+muddati oʻtgan
+ortiqcha buyurtma
+sovgʻa qaytarilmoqda

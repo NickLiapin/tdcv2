@@ -1,0 +1,5 @@
+---
+description: Capital of Xitoy (Uzbek)
+locale: uz-latn
+---
+Pekin

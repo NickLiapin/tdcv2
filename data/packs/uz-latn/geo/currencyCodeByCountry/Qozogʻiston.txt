@@ -1,0 +1,5 @@
+---
+description: Currency code of Qozogʻiston
+locale: uz-latn
+---
+KZT

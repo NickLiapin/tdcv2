@@ -1,0 +1,5 @@
+---
+description: Currency of Saudiya Arabistoni (Uzbek)
+locale: uz-latn
+---
+Saudiya rioli

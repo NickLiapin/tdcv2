@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Uzbek). Tushlik puli — a meal allowance — and yoʻlkira — a travel allowance — are the two benefits most commonly offered in Uzbekistan and are usually paid in cash rather than as a voucher. Note that the category directory is workplace and not hr: hr is the language code for Croatian and an address of hr.benefit could never be resolved.
+locale: uz-latn
+---
+tibbiy sugʻurta
+tushlik puli
+yoʻlkira
+mobil aloqa toʻlovi
+xizmat avtomobili
+mukofot puli
+yillik bonus
+oʻn uchinchi oylik
+malaka oshirish
+til kurslari
+sport zali obunasi
+sanatoriy yoʻllanmasi
+bolalar bogʻchasi
+uy-joy yordami
+ipoteka subsidiyasi
+qoʻshimcha taʼtil
+masofadan ishlash
+moslashuvchan ish grafigi

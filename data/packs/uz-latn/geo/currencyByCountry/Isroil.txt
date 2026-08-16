@@ -1,0 +1,5 @@
+---
+description: Currency of Isroil (Uzbek)
+locale: uz-latn
+---
+Isroil shekeli

@@ -1,0 +1,60 @@
+---
+description: Sport (Uzbek). Kurash and koʻpkari head the list because they are the national sports; belbogʻli kurash is the belt-wrestling variant, and poyga is the flat horse race that runs at the same festivals as koʻpkari.
+locale: uz-latn
+---
+kurash
+belbogʻli kurash
+koʻpkari
+poyga
+futbol
+mini-futbol
+voleybol
+basketbol
+gandbol
+regbi
+tennis
+stol tennisi
+badminton
+boks
+judo
+tekvondo
+karate
+sambo
+yunon-rum kurashi
+erkin kurash
+ogʻir atletika
+gimnastika
+badiiy gimnastika
+akrobatika
+suzish
+suvda sakrash
+suv polosi
+yengil atletika
+marafon
+uzunlikka sakrash
+balandlikka sakrash
+nayza uloqtirish
+disk uloqtirish
+velosport
+velotrek
+konkida uchish
+figurali uchish
+xokkey
+changʻi sporti
+togʻ changʻisi
+shaxmat
+shashka
+nard
+otishma
+kamondan otish
+qilichbozlik
+ogʻir atletika koʻp kurashi
+triatlon
+sport gimnastikasi
+armrestling
+bodibilding
+tayanch sakrash
+alpinizm
+sport orientatsiyasi
+kanoe
+eshkak eshish

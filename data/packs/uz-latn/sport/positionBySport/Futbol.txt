@@ -1,0 +1,16 @@
+---
+description: Position or role in Futbol, in Uzbek.
+locale: uz-latn
+---
+darvozabon
+markaziy himoyachi
+chap qanot himoyachisi
+oʻng qanot himoyachisi
+himoya yarim himoyachisi
+markaziy yarim himoyachi
+hujumkor yarim himoyachi
+chap qanot hujumchisi
+oʻng qanot hujumchisi
+markaziy hujumchi
+zaxira oʻyinchi
+jamoa sardori

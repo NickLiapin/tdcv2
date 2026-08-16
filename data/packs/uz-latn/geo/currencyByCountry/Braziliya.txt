@@ -1,0 +1,5 @@
+---
+description: Currency of Braziliya (Uzbek)
+locale: uz-latn
+---
+Braziliya reali

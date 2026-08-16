@@ -1,0 +1,5 @@
+---
+description: Currency of Indoneziya (Uzbek)
+locale: uz-latn
+---
+Indoneziya rupiyasi

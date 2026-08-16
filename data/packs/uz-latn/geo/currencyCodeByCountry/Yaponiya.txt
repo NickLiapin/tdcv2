@@ -1,0 +1,5 @@
+---
+description: Currency code of Yaponiya
+locale: uz-latn
+---
+JPY

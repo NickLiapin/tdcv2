@@ -1,0 +1,36 @@
+---
+description: Bird (Uzbek). Laylak, the white stork, nests on minarets and is protected by custom as well as by law; the burgut, the golden eagle, is still flown by hunters in the mountains; and kaklik, the chukar partridge, is kept in a cage above a courtyard for its call rather than for its meat.
+locale: uz-latn
+---
+laylak
+turna
+burgut
+qirgʻiy
+lochin
+kalxat
+boyoʻgʻli
+ukki
+kaptar
+musicha
+chumchuq
+qaldirgʻoch
+zargʻaldoq
+sassiqpopishak
+bulbul
+qora qargʻa
+zogʻcha
+hakka
+kaklik
+bedana
+qirgʻovul
+tovuq
+xoʻroz
+oʻrdak
+gʻoz
+kurka
+toʻdaqush
+tovus
+tutiqush
+qora qush
+baliqchi qush
+oqqush

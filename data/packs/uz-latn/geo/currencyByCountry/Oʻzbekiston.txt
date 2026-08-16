@@ -1,0 +1,5 @@
+---
+description: Currency of Oʻzbekiston (Uzbek)
+locale: uz-latn
+---
+Oʻzbekiston soʻmi

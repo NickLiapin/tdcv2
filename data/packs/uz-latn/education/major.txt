@@ -1,0 +1,60 @@
+---
+description: Field of study (Uzbek).
+locale: uz-latn
+---
+filologiya
+oʻzbek tili va adabiyoti
+xorijiy til va adabiyoti
+tarjimonlik
+tarix
+falsafa
+psixologiya
+pedagogika
+boshlangʻich taʼlim
+maktabgacha taʼlim
+matematika
+amaliy matematika
+fizika
+kimyo
+biologiya
+geografiya
+geologiya
+ekologiya
+tibbiyot
+stomatologiya
+farmatsevtika
+veterinariya
+agronomiya
+qishloq xoʻjaligi mexanizatsiyasi
+irrigatsiya va melioratsiya
+pillachilik va ipakchilik
+toʻqimachilik texnologiyasi
+oziq-ovqat texnologiyasi
+kompyuter injiniringi
+dasturiy injiniring
+axborot xavfsizligi
+telekommunikatsiya
+elektr energetikasi
+neft va gaz ishi
+konchilik ishi
+metallurgiya
+mashinasozlik
+avtomobil transporti
+temiryoʻl transporti
+arxitektura
+qurilish muhandisligi
+iqtisodiyot
+buxgalteriya hisobi
+bank ishi
+menejment
+marketing
+logistika
+turizm
+huquqshunoslik
+xalqaro munosabatlar
+jurnalistika
+sanʼatshunoslik
+musiqa
+tasviriy sanʼat
+dizayn
+jismoniy tarbiya va sport

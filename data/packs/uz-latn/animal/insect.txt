@@ -1,0 +1,24 @@
+---
+description: Insect (Uzbek). Ipak qurti — the silkworm — is not a wild insect here but an industry: Uzbekistan is among the world's largest raw-silk producers, and mulberry trees are planted along field edges to feed it.
+locale: uz-latn
+---
+ipak qurti
+asalari
+ari
+chumoli
+pashsha
+chivin
+kapalak
+tillaqoʻngʻiz
+qoʻngʻiz
+chigirtka
+tsikada
+bit
+burga
+kana
+oʻrgimchak
+chayon
+qoraqurt
+falanga
+qandala
+soʻna

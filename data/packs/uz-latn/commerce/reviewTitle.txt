@@ -1,0 +1,30 @@
+---
+description: Customer review headline (Uzbek).
+locale: uz-latn
+---
+Juda yaxshi mahsulot
+Tavsiya qilaman
+Narxiga arziydi
+Kutganimdan yaxshi
+Sifati aʼlo
+Tez yetkazildi
+Hammasi joyida
+Yaxshi, lekin qimmat
+Oʻrtacha
+Kutganimdek emas
+Sifati past
+Pulini afsuslanmadim
+Ikkinchi marta olyapman
+Sovgʻaga oldim
+Bolalarga yoqdi
+Qadoqlash zoʻr
+Rangi rasmdagidek emas
+Oʻlchami kichik keldi
+Ishlamadi
+Qaytardim
+Sotuvchi javob bermadi
+Yetkazish kechikdi
+Kafolat ishladi
+Arzon va yaxshi
+Yana buyurtma beraman
+Tavsiya qilmayman

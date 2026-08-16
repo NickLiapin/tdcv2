@@ -1,0 +1,14 @@
+---
+description: Dish of the eron kitchen, named in Uzbek.
+locale: uz-latn
+---
+chelov kabob
+gʻormasabzi
+fesenjon
+dizi
+tahchin
+ash-i reshte
+kuku sabzi
+mirzagʻasemi
+sholezard
+doʻgʻ

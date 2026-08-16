@@ -1,0 +1,22 @@
+---
+description: Event venue type (Uzbek).
+locale: uz-latn
+---
+toʻyxona
+choyxona
+restoran
+kafe
+mehmonxona zali
+konferensiya zali
+madaniyat uyi
+teatr
+konsert zali
+kinoteatr
+muzey
+kutubxona
+stadion
+sport majmuasi
+koʻrgazma markazi
+mahalla guzari
+hovli
+bogʻ

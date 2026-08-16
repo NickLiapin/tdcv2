@@ -1,0 +1,5 @@
+---
+description: Capital of Nepal (Uzbek)
+locale: uz-latn
+---
+Katmandu

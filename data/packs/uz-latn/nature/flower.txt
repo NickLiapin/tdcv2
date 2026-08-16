@@ -1,0 +1,32 @@
+---
+description: Flower (Uzbek). LOLA — the tulip — is native here, not Dutch: the wild tulips of the Tian Shan and Pamir-Alay foothills are the ancestors of every garden variety, they open for two weeks in April, and Lola sayli, the tulip festival, is an old spring rite. Boychechak, the snowdrop, is the flower children carry door to door singing at the start of spring.
+locale: uz-latn
+---
+lola
+boychechak
+lolaqizgʻaldoq
+atirgul
+nastarin
+chinnigul
+binafsha
+moychechak
+qoqigul
+nargis
+giatsint
+gladiolus
+xrizantema
+astra
+piyon
+jasmin
+rayhon
+sunbul
+lolagul
+kungaboqar
+qoʻngʻiroqgul
+orxideya
+tyulpan
+kaktus gullari
+gultojixoʻroz
+sachratqi
+yalpiz guli
+oq gul

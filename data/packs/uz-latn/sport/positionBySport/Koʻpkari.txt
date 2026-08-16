@@ -1,0 +1,12 @@
+---
+description: Position or role in Koʻpkari, in Uzbek. KOʻPKARI HAS NO POSITIONAL SYSTEM: every mounted competitor is a chavandoz and they all contest the same object at once, so what this list holds is the roles AROUND the field — the elders, the judges, the man who announces the prize — rather than positions on it.
+locale: uz-latn
+---
+chavandoz
+bosh chavandoz
+oqsoqol
+bosh hakam
+maydon hakami
+sovrin beruvchi
+ot boquvchi
+jarchi

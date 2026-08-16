@@ -1,0 +1,45 @@
+---
+description: Generic drug name (Uzbek transliteration). Spellings follow the Russian-mediated pharmacopoeia that Uzbek pharmacies use, so paracetamol is paratsetamol and cefazolin is sefazolin, not the English forms.
+locale: uz-latn
+---
+paratsetamol
+ibuprofen
+analgin
+aspirin
+diklofenak
+ketorolak
+nimesulid
+no-shpa
+drotaverin
+papaverin
+omeprazol
+ranitidin
+almagel
+loperamid
+mezim
+pankreatin
+ursodezoksixol kislotasi
+amoksitsillin
+azitromitsin
+sefazolin
+seftriakson
+tsiprofloksatsin
+metronidazol
+nistatin
+flukonazol
+atsiklovir
+suprastin
+loratadin
+tsetirizin
+deksametazon
+prednizolon
+salbutamol
+budesonid
+enalapril
+lizinopril
+amlodipin
+bisoprolol
+furosemid
+metformin
+insulin
+levotiroksin

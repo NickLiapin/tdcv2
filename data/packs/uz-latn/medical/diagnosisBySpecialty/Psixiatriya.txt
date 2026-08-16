@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in Psixiatriya, in Uzbek.
+locale: uz-latn
+---
+Depressiya
+Tashvish buzilishi
+Panik buzilish
+Bipolyar buzilish
+Shizofreniya
+Obsesiv-kompulsiv buzilish
+Posttravmatik stress buzilishi
+Uyqusizlik
+Alkogolga qaramlik
+Giyohvandlik
+Ovqatlanish buzilishi
+Diqqat yetishmovchiligi sindromi

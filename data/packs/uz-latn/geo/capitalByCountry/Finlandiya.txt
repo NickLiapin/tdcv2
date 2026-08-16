@@ -1,0 +1,5 @@
+---
+description: Capital of Finlandiya (Uzbek)
+locale: uz-latn
+---
+Xelsinki

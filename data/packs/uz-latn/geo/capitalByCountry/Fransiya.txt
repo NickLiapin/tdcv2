@@ -1,0 +1,5 @@
+---
+description: Capital of Fransiya (Uzbek)
+locale: uz-latn
+---
+Parij

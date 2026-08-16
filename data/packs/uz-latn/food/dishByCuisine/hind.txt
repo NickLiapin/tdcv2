@@ -1,0 +1,14 @@
+---
+description: Dish of the hind kitchen, named in Uzbek.
+locale: uz-latn
+---
+biryoni
+tikka masala
+dal
+samosa
+paneer
+karri
+naan
+chapati
+raita
+lassi

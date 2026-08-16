@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the Janubi-Sharqiy Osiyo ancestry group, named in Uzbek.
+locale: uz-latn
+---
+Alfa talassemiya
+Gemoglobin E
+G6FD yetishmovchiligi
+Laktoza intoleransi
+Nazofaringeal saraton
+Talassemiya-gemoglobin E

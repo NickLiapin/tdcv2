@@ -1,0 +1,85 @@
+---
+description: Hobby / interest (Uzbek). Several of these are national crafts with no one-word English equivalent: zardoʻzlik is gold embroidery, ganchkorlik is carved alabaster relief, kandakorlik is chased metalwork, doʻppi tikish is making the square skullcap every Uzbek man owns, and atlas toʻqish is weaving the ikat silk of Margʻilon. Kurash is the national jacket wrestling. Mahalla ishlari — neighbourhood-committee work — is a real and widespread use of free time in Uzbekistan and has no European counterpart.
+locale: uz-latn
+---
+kitob oʻqish
+sheʼr yozish
+kundalik yuritish
+shaxmat oʻynash
+nard oʻynash
+palov pishirish
+non yopish
+osh damlash
+choyxonada suhbat
+bogʻdorchilik
+uzumchilik
+gul parvarishlash
+baliq ovlash
+ov qilish
+otda yurish
+kurash tushish
+futbol oʻynash
+voleybol oʻynash
+basketbol oʻynash
+stol tennisi
+yugurish
+velosipedda yurish
+suzish
+togʻga chiqish
+sayohat qilish
+piyoda sayr
+fotosurat olish
+video montaj
+rasm chizish
+miniatyura chizish
+xattotlik
+kulolchilik
+yogʻoch oʻymakorligi
+ganchkorlik
+zardoʻzlik
+kashtachilik
+gilam toʻqish
+doʻppi tikish
+atlas toʻqish
+tikuvchilik
+kandakorlik
+zargarlik
+dutor chalish
+rubob chalish
+doira chalish
+nay chalish
+qoʻshiq aytish
+maqom tinglash
+raqsga tushish
+teatrga borish
+kino koʻrish
+musiqa tinglash
+radio eshitish
+til oʻrganish
+dasturlash
+kompyuter oʻyinlari
+robototexnika
+model yigʻish
+kolleksiya toʻplash
+tanga toʻplash
+marka toʻplash
+kitob toʻplash
+astronomiya
+tarix oʻrganish
+shajara tuzish
+xayriya ishlari
+mahalla ishlari
+koʻngilli faoliyat
+yoga
+fitnes
+sport zali
+changʻida uchish
+qushbozlik
+kaptar boqish
+asalarichilik
+parrandachilik
+chorvachilik
+tomorqa ishlari
+oshpazlik
+shirinlik tayyorlash
+mehmon kutish

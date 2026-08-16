@@ -1,0 +1,5 @@
+---
+description: Capital of Amerika Qoʻshma Shtatlari (Uzbek)
+locale: uz-latn
+---
+Vashington

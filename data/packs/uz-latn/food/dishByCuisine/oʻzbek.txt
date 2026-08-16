@@ -1,0 +1,22 @@
+---
+description: Dish of the oʻzbek kitchen, named in Uzbek.
+locale: uz-latn
+---
+palov
+toʻy oshi
+chuchvara
+manti
+somsa
+lagʻmon
+shoʻrva
+mastava
+moshxoʻrda
+dimlama
+norin
+xasip
+qozon kabob
+tandir kabob
+xonim
+achichuk
+obi non
+sumalak

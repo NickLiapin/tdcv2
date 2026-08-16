@@ -1,0 +1,33 @@
+---
+description: Technical verb (Uzbek), dictionary -moq form.
+locale: uz-latn
+---
+ulanmoq
+uzmoq
+yubormoq
+qabul qilmoq
+yuklamoq
+yuklab olmoq
+saqlamoq
+oʻchirmoq
+nusxalamoq
+koʻchirmoq
+qayta ishlamoq
+tahlil qilmoq
+tekshirmoq
+sinovdan oʻtkazmoq
+shifrlamoq
+deshifrlamoq
+kompilyatsiya qilmoq
+ishga tushirmoq
+toʻxtatmoq
+qayta ishga tushirmoq
+sozlamoq
+oʻrnatmoq
+yangilamoq
+zaxiralamoq
+tiklamoq
+indekslamoq
+filtrlamoq
+saralamoq
+birlashtirmoq

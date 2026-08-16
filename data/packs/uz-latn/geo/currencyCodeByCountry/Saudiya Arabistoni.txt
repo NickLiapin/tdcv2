@@ -1,0 +1,5 @@
+---
+description: Currency code of Saudiya Arabistoni
+locale: uz-latn
+---
+SAR

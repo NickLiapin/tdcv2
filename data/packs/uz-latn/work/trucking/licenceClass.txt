@@ -1,0 +1,11 @@
+---
+description: Driving licence category (Uzbek). The A-B-C-D-E lettering is the post-Soviet scheme, which matches the European categories closely but is not identical to them; the exact national rules belong in a country pack.
+locale: uz-latn
+---
+A
+B
+C
+D
+E
+BE
+CE

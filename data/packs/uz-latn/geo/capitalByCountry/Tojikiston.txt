@@ -1,0 +1,5 @@
+---
+description: Capital of Tojikiston (Uzbek)
+locale: uz-latn
+---
+Dushanba

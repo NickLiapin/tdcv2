@@ -1,0 +1,14 @@
+---
+description: Payment status (Uzbek).
+locale: uz-latn
+---
+toʻlanmagan
+kutilmoqda
+tasdiqlanmoqda
+toʻlandi
+qisman toʻlandi
+kechiktirilgan
+muddati oʻtgan
+qaytarildi
+rad etildi
+bekor qilindi

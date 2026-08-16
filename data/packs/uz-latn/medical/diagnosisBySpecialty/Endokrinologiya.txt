@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in Endokrinologiya, in Uzbek.
+locale: uz-latn
+---
+1-tur qandli diabet
+2-tur qandli diabet
+Gipotireoz
+Gipertireoz
+Endemik boʻqoq
+Tireoidit
+Semizlik
+Metabolik sindrom
+Buyrak usti bezi yetishmovchiligi
+Gipofiz adenomasi
+Osteoporoz
+D vitamini yetishmovchiligi

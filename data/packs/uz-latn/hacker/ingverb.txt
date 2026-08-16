@@ -1,0 +1,32 @@
+---
+description: Technical verbal noun (Uzbek). Uzbek forms these with -sh or -ish on the verb stem, which is the closest equivalent of the English -ing form: ulanish, yuklash, tekshirish.
+locale: uz-latn
+---
+ulanish
+uzilish
+yuborish
+qabul qilish
+yuklash
+yuklab olish
+saqlash
+oʻchirish
+nusxalash
+koʻchirish
+qayta ishlash
+tahlil qilish
+tekshirish
+sinash
+shifrlash
+deshifrlash
+kompilyatsiya qilish
+ishga tushirish
+toʻxtatish
+qayta ishga tushirish
+sozlash
+oʻrnatish
+yangilash
+zaxiralash
+tiklash
+indekslash
+filtrlash
+saralash

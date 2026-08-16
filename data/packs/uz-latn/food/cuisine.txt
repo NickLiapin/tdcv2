@@ -1,0 +1,21 @@
+---
+description: Cuisine as Uzbek names it — the parent of dishByCuisine. The near neighbours come first because they are what an Uzbek actually eats out: tojik, qozoq and uygʻur cooking overlap heavily with Uzbek and the boundaries between them are political rather than culinary. KOREYS IS NOT A FOREIGN CUISINE HERE: the Koryo-saram deported to Uzbekistan in 1937 sell morkovcha — Korean-style carrot salad, invented in Central Asia and unknown in Korea — in every bazaar in the country. Ethnonyms are lower case in Uzbek, so these values are too.
+locale: uz-latn
+---
+oʻzbek
+tojik
+qozoq
+uygʻur
+koreys
+rus
+tatar
+turk
+ozarbayjon
+eron
+arab
+hind
+xitoy
+yapon
+italyan
+fransuz
+amerika

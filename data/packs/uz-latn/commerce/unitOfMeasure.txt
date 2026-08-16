@@ -1,0 +1,34 @@
+---
+description: Unit of measure (Uzbek). SOTIX IS THE ONE A FOREIGN READER WILL NOT KNOW: it is one hundredth of a hectare, a hundred square metres, and it is the unit land is bought, sold and argued about in across Uzbekistan — a house plot is six sotix, not 600 square metres. Tanob is the older unit it replaced. Everything else is metric; Uzbekistan has never used imperial measures.
+locale: uz-latn
+---
+dona
+kg
+gramm
+tonna
+sentner
+litr
+millilitr
+metr
+santimetr
+millimetr
+kilometr
+kvadrat metr
+kub metr
+sotix
+gektar
+tanob
+juft
+toʻplam
+quti
+paket
+xalta
+qop
+yashik
+banka
+shisha
+rulon
+bogʻlam
+dasta
+palet
+blok

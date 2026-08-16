@@ -1,0 +1,5 @@
+---
+description: Capital of Polsha (Uzbek)
+locale: uz-latn
+---
+Varshava

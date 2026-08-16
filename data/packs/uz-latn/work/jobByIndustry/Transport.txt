@@ -1,0 +1,24 @@
+---
+description: Job title in the Transport sector, in Uzbek.
+locale: uz-latn
+---
+haydovchi
+yuk mashinasi haydovchisi
+avtobus haydovchisi
+taksi haydovchisi
+mashinist
+temiryoʻlchi
+uchuvchi
+bortprovodnik
+dispetcher
+logist
+ekspeditor
+bojxona brokeri
+avtomexanik
+shinamontaj ustasi
+kran operatori
+yuk ortuvchi
+yoʻl nazoratchisi
+transport menejeri
+marshrut tuzuvchi
+avtopark boshligʻi

@@ -1,0 +1,59 @@
+{
+  "months": [
+    "yanvar",
+    "fevral",
+    "mart",
+    "aprel",
+    "may",
+    "iyun",
+    "iyul",
+    "avgust",
+    "sentabr",
+    "oktabr",
+    "noyabr",
+    "dekabr"
+  ],
+  "monthsInDate": [
+    "yanvar",
+    "fevral",
+    "mart",
+    "aprel",
+    "may",
+    "iyun",
+    "iyul",
+    "avgust",
+    "sentabr",
+    "oktabr",
+    "noyabr",
+    "dekabr"
+  ],
+  "monthsShort": [
+    "yan",
+    "fev",
+    "mar",
+    "apr",
+    "may",
+    "iyn",
+    "iyl",
+    "avg",
+    "sen",
+    "okt",
+    "noy",
+    "dek"
+  ],
+  "weekdays": [
+    "yakshanba",
+    "dushanba",
+    "seshanba",
+    "chorshanba",
+    "payshanba",
+    "juma",
+    "shanba"
+  ],
+  "weekdaysShort": ["Yak", "Dush", "Sesh", "Chor", "Pay", "Jum", "Shan"],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D-MMMM YYYY"
+  },
+  "notes": "Five things a formatter has to know. FIRST, THE MONTH NAMES ARE RUSSIAN-DERIVED, not Turkish: yanvar, fevral, mart, aprel, not Ocak, Subat, Mart, Nisan. They arrived in the Soviet period and were not replaced after 1991. Note sentabr and oktabr WITHOUT the y that Russian and Azerbaijani write, while noyabr keeps it. SECOND, THE DAY TAKES A HYPHEN BEFORE THE MONTH. Uzbek writes 5-mart, not 5 mart, because the day number is an ordinal and the hyphen is how Uzbek attaches an ordinal suffix to a numeral. LL is therefore D-MMMM YYYY. THE FULLY IDIOMATIC FORM GOES FURTHER and cannot be expressed with these tokens alone: an Uzbek document writes 2026-yil 5-mart, year first with the literal word yil attached to it by a hyphen. If the implementation supports literal text in a pattern, LL should become YYYY-[yil] D-MMMM; if it does not, D-MMMM YYYY is the correct fallback and is what is set above. THIRD, monthsInDate is IDENTICAL to months, which is correct and not a copy-paste slip: Uzbek has no genitive or partitive month form, and the case suffix in a date attaches to the day numeral, not to the month. FOURTH, the weekday names are Persian and numbered — dushanba is day two, seshanba day three, chorshanba day four, payshanba day five — with juma (Arabic, Friday prayer) and shanba breaking the count. The array is Sunday-first because the formatter wants it that way; the Uzbek working week starts on Monday. Month and weekday names are LOWER CASE. FIFTH, the numeric format is DD.MM.YYYY with dots and leading zeros. Time is 24-hour with a colon (14:30). The decimal separator is a comma and the thousands separator a space; the currency name follows the number (1 234,56 soʻm) and is normally spelled out rather than abbreviated. Uzbek has NO grammatical gender and has lost vowel harmony, so any suffix a formatter appends has exactly one form."
+}

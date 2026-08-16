@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in Ortopediya, in Uzbek.
+locale: uz-latn
+---
+Osteoartroz
+Revmatoid artrit
+Podagra
+Skolioz
+Umurtqa churrasi
+Suyak sinishi
+Menisk shikastlanishi
+Yelka boʻgʻimi chiqishi
+Tovon shporasi
+Osteomiyelit
+Displaziya
+Kifoz

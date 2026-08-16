@@ -1,0 +1,182 @@
+---
+description: Street names found across Uzbekistan — poets and scholars first, then civic values, trades and nature. The scholarly block is the heart of it and is national rather than local: Al-Xorazmiy gave his name to the algorithm, Ibn Sino wrote the Canon of Medicine, Al-Beruniy measured the Earth, Imom Buxoriy compiled the hadith collection, Mirzo Ulugʻbek built the Samarqand observatory. Compose before a streetSuffix — Alisher Navoiy koʻchasi. The streets of one particular city, and Tashkent's district names, belong in a country pack, not here.
+locale: uz-latn
+---
+Alisher Navoiy
+Amir Temur
+Mirzo Ulugʻbek
+Zahiriddin Bobur
+Jaloliddin Manguberdi
+Ibn Sino
+Abu Rayhon Beruniy
+Al-Xorazmiy
+Ahmad al-Fargʻoniy
+Imom Buxoriy
+Imom at-Termiziy
+Bahouddin Naqshband
+Ahmad Yassaviy
+Najmiddin Kubro
+Mahmud Zamaxshariy
+Kamoliddin Behzod
+Abdulla Qodiriy
+Abdulla Oripov
+Erkin Vohidov
+Gʻafur Gʻulom
+Oybek
+Zulfiya
+Hamid Olimjon
+Said Ahmad
+Abdulla Avloniy
+Mahmudxoʻja Behbudiy
+Hamza
+Choʻlpon
+Fitrat
+Mashrab
+Muqimiy
+Furqat
+Ogahiy
+Munis
+Nodira
+Uvaysiy
+Zebuniso
+Sadriddin Ayniy
+Oʻtkir Hoshimov
+Shukur Xolmirzayev
+Tohir Malik
+Pirimqul Qodirov
+Odil Yoqubov
+Toʻmaris
+Spitamen
+Shiroq
+Mustaqillik
+Istiqlol
+Bunyodkor
+Doʻstlik
+Tinchlik
+Birlik
+Vatan
+Ozodlik
+Adolat
+Haqiqat
+Maʼrifat
+Bahor
+Navroʻz
+Yoshlik
+Kelajak
+Yangi hayot
+Obod
+Farovon
+Baxt
+Saodat
+Nur
+Quyosh
+Yulduz
+Oydin
+Guliston
+Gulzor
+Gulbogʻ
+Chorbogʻ
+Bogʻishamol
+Bogʻbon
+Chinor
+Terak
+Tol
+Qayragʻoch
+Archazor
+Bodomzor
+Olmazor
+Uzumzor
+Anorzor
+Behizor
+Shaftolizor
+Nokzor
+Tutzor
+Chinorzor
+Lolazor
+Paxtazor
+Gullola
+Rayhon
+Nasrin
+Nilufar
+Sunbula
+Buloq
+Buloqboshi
+Oqbuloq
+Koʻkbuloq
+Chashma
+Soylik
+Ariqboshi
+Suvchi
+Togʻlik
+Adirlik
+Qirlik
+Dalaobod
+Sahrobod
+Choʻlobod
+Toshkoʻprik
+Yangiyoʻl
+Yangiobod
+Yangibogʻ
+Yangiqishloq
+Eskishahar
+Kattabogʻ
+Uchquduq
+Beshariq
+Mingchinor
+Qoraqamish
+Oqtepa
+Koʻktepa
+Qizilqum
+Paxtakor
+Toʻqimachi
+Ipakchi
+Kulol
+Zargar
+Duradgor
+Temirchi
+Misgar
+Kandakor
+Naqqosh
+Xattot
+Bogʻbonlar
+Dehqonobod
+Chorvador
+Konchilar
+Neftchilar
+Gazchilar
+Metallurglar
+Quruvchilar
+Temiryoʻlchilar
+Uchuvchilar
+Muallimlar
+Ustozlar
+Olimlar
+Shifokorlar
+Talabalar
+Yoshlar
+Sportchilar
+Mehnat
+Hunarmand
+Savdogar
+Karvon
+Buyuk Ipak Yoʻli
+Registon
+Chorsu
+Labihovuz
+Ichanqalʼa
+Shohrux
+Bekobod
+Mirobod
+Sebzor
+Qoʻyliq
+Guzar
+Mahalla
+Sanoat
+Transport
+Vokzal
+Aeroport
+Bandargoh
+Ombor
+Kanal
+Zovur
+Toʻgʻon

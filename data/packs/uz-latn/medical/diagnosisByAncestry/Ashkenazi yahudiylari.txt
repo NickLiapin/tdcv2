@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the Ashkenazi yahudiylari ancestry group, named in Uzbek.
+locale: uz-latn
+---
+Tey-Saks kasalligi
+Gosher kasalligi
+Kanavan kasalligi
+Oilaviy disavtonomiya
+BRCA1 mutatsiyasi
+Nimann-Pik kasalligi

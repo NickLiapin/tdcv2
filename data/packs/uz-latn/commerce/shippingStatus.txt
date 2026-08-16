@@ -1,0 +1,15 @@
+---
+description: Shipping status (Uzbek).
+locale: uz-latn
+---
+qabul qilindi
+omborda
+qadoqlandi
+joʻnatildi
+tranzitda
+saralash markazida
+yetkazishga chiqdi
+yetkazildi
+qabul qiluvchi topilmadi
+saqlashda
+qaytarilmoqda

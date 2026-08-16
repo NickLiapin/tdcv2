@@ -1,0 +1,5 @@
+---
+description: Currency of Argentina (Uzbek)
+locale: uz-latn
+---
+Argentina pesosi

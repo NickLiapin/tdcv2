@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Uzbek for a male patient — the sex-specific conditions first, then common ones, for a single-column patient record. The clinical vocabulary is Russian-mediated Latin, which is why it reads closer to a Russian chart than to a Turkish one.
+locale: uz-latn
+---
+Prostata bezi giperplaziyasi
+Prostatit
+Prostata bezi saratoni
+Moyak saratoni
+Varikotsele
+Gidrotsele
+Fimoz
+Kriptorxizm
+Erektil disfunksiya
+Erkaklar bepushtligi
+Gipogonadizm
+Peyroni kasalligi
+Arterial gipertenziya
+Yurak ishemik kasalligi
+2-tur qandli diabet
+Surunkali gastrit
+Oshqozon yarasi
+Podagra
+Buyrak toshi kasalligi
+Surunkali bronxit
+Oʻpka emfizemasi
+Bel osteoxondrozi
+Anemiya
+Gepatit B
+Sil kasalligi
+Yogʻli gepatoz

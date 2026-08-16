@@ -1,0 +1,5 @@
+---
+description: Capital of Afgʻoniston (Uzbek)
+locale: uz-latn
+---
+Kobul

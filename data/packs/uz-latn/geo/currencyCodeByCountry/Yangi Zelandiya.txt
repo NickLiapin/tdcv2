@@ -1,0 +1,5 @@
+---
+description: Currency code of Yangi Zelandiya
+locale: uz-latn
+---
+NZD

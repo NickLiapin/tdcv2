@@ -1,0 +1,17 @@
+---
+description: Type of legal case (Uzbek).
+locale: uz-latn
+---
+fuqarolik ishi
+jinoyat ishi
+maʼmuriy ish
+iqtisodiy nizo
+mehnat nizosi
+oilaviy nizo
+ajrashish ishi
+meros ishi
+uy-joy nizosi
+yer nizosi
+soliq nizosi
+shartnoma buzilishi
+intellektual mulk nizosi

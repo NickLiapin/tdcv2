@@ -1,0 +1,5 @@
+---
+description: Currency of Polsha (Uzbek)
+locale: uz-latn
+---
+Polsha zlotiyi

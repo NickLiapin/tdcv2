@@ -1,0 +1,12 @@
+---
+description: Position or role in Voleybol, in Uzbek.
+locale: uz-latn
+---
+bogʻlovchi
+diagonal hujumchi
+markaziy blokchi
+qanot hujumchisi
+libero
+zaxira oʻyinchi
+bosh murabbiy
+hakam

@@ -1,0 +1,27 @@
+---
+description: Religion and religious current (Uzbek). THE SUFI ORDERS ARE LOCAL FOUNDATIONS, not imports: Naqshbandiya was founded in Bukhara, Yassaviya in Turkistan and Kubroviya in Khorezm, and their shrines are still visited. Zardushtiylik — Zoroastrianism — was the religion of this region before Islam and the Avesta is traditionally placed in Khorezm. Islam here is overwhelmingly Sunni of the HANAFIY school, which is a specific legal tradition and not a detail: it shapes everything from inheritance to the wedding contract.
+locale: uz-latn
+---
+islom
+sunniylik
+hanafiy mazhabi
+shialik
+soʻfiylik
+naqshbandiya
+yassaviya
+kubroviya
+qodiriya
+nasroniylik
+pravoslavlik
+katoliklik
+protestantlik
+armani cherkovi
+yahudiylik
+buxoro yahudiyligi
+zardushtiylik
+buddizm
+hinduizm
+tangrichilik
+bahoiylik
+ateizm
+dinga eʼtiqod qilmaydigan

@@ -1,0 +1,29 @@
+---
+description: Fish (Uzbek). The first block is the fish of the Amudaryo and the Sirdaryo. THE ARAL LIST IS A HISTORICAL ONE: the Aral Sea fishery collapsed with the sea itself, so oq baliq, shoʻrbaliq and the Aral sturgeon are names an Uzbek still knows without expecting to catch one. Most fish eaten today comes from ponds — zogʻora and oq amur are farmed.
+locale: uz-latn
+---
+laqqa
+zogʻora baliq
+sazan
+karp
+oq amur
+qorabaliq
+ilonbosh
+marinka
+oq baliq
+shoʻrbaliq
+zogʻora
+choʻrtan
+sudak
+kumushbaliq
+osetr
+bakra
+forel
+losos
+seld
+tulka
+skumbriya
+tunes
+treska
+kambala
+akula

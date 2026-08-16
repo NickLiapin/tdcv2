@@ -1,0 +1,31 @@
+---
+description: Name / academic suffix (Uzbek). Uzbek has NO native Jr./Sr. convention — a son is told apart by his patronymic (Sardor Anvar oʻgʻli) rather than by a generational tag — so the first two are imported and sit oddly. The degree abbreviations are the Soviet-inherited ones still printed on Uzbek diplomas: f.f.n. is candidate of philological sciences, i.f.d. doctor of economic sciences, t.f.n. candidate of technical sciences.
+locale: uz-latn
+---
+Jr.
+Sr.
+PhD
+DSc
+MBA
+MSc
+BSc
+LL.M.
+Bakalavr
+Magistr
+f.f.n.
+f.f.d.
+i.f.n.
+i.f.d.
+t.f.n.
+t.f.d.
+b.f.n.
+p.f.n.
+yu.f.n.
+tib.f.n.
+Professor
+Dotsent
+Akademik
+Nafaqador
+Faxriy doktor
+Katta ilmiy xodim
+Kichik ilmiy xodim

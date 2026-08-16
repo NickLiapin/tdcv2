@@ -1,0 +1,5 @@
+---
+description: Capital of Buyuk Britaniya (Uzbek)
+locale: uz-latn
+---
+London

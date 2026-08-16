@@ -1,0 +1,14 @@
+---
+description: Dish of the rus kitchen, named in Uzbek.
+locale: uz-latn
+---
+borsh
+shchi
+pelmen
+blin
+okroshka
+olivye salati
+seld shubada
+grechka boʻtqasi
+kotlet
+kvas

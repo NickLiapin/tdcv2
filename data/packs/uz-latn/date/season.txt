@@ -1,0 +1,8 @@
+---
+description: Season (Uzbek). WARNING FOR ANYONE PORTING FROM A TURKIC NEIGHBOUR: yoz is SUMMER in Uzbek, but the cognate yaz is SPRING in Azerbaijani. Uzbek spring is bahor, a Persian word. The year turns at Navroʻz, the spring equinox on 21 March, which is a public celebration and the real beginning of the agricultural year even though 1 January is the official one.
+locale: uz-latn
+---
+bahor
+yoz
+kuz
+qish

@@ -1,0 +1,5 @@
+---
+description: Currency of Pokiston (Uzbek)
+locale: uz-latn
+---
+Pokiston rupiyasi

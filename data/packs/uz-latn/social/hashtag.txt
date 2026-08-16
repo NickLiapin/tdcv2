@@ -1,0 +1,34 @@
+---
+description: Hashtag (Uzbek). Hashtags are written without spaces, and Uzbek compounds them the same way English does.
+locale: uz-latn
+---
+#oʻzbekiston
+#toshkent
+#samarqand
+#buxoro
+#xiva
+#navroʻz
+#milliytaom
+#palov
+#doʻppi
+#xonatlas
+#milliylibos
+#sayohat
+#tabiat
+#togʻlar
+#choʻl
+#bozor
+#hunarmandchilik
+#kurash
+#koʻpkari
+#futbol
+#oila
+#mahalla
+#taʼlim
+#kitob
+#sheʼriyat
+#musiqa
+#maqom
+#dutor
+#yoshlar
+#tadbirkorlik

@@ -1,0 +1,32 @@
+---
+description: Tree (Uzbek). THREE OF THESE ARE LOAD-BEARING IN THE COUNTRY. Chinor, the oriental plane, is the tree of the village square and the oldest ones are named and protected. Tut, the mulberry, feeds the silkworm and is planted along every field edge for that reason. Saksovul is the desert tree of the Qizilqum — leafless, slow, and planted in belts to hold down the salt and sand of the dried Aral bed.
+locale: uz-latn
+---
+chinor
+tut
+terak
+tol
+qayragʻoch
+zarang
+archa
+saksovul
+jiyda
+yongʻoq
+bodom
+pista
+olma
+oʻrik
+shaftoli
+nok
+behi
+anor
+anjir
+gilos
+akatsiya
+eman
+qaragʻay
+qayin
+kashtan
+magnoliya
+kiparis
+zaytun

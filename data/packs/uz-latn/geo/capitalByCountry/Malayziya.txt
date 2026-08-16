@@ -1,0 +1,5 @@
+---
+description: Capital of Malayziya (Uzbek)
+locale: uz-latn
+---
+Kuala-Lumpur

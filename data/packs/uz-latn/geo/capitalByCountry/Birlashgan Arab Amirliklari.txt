@@ -1,0 +1,5 @@
+---
+description: Capital of Birlashgan Arab Amirliklari (Uzbek)
+locale: uz-latn
+---
+Abu-Dabi

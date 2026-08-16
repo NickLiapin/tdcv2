@@ -1,0 +1,5 @@
+---
+description: Capital of Irlandiya (Uzbek)
+locale: uz-latn
+---
+Dublin

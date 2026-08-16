@@ -1,0 +1,5 @@
+---
+description: Currency code of Amerika Qoʻshma Shtatlari
+locale: uz-latn
+---
+USD

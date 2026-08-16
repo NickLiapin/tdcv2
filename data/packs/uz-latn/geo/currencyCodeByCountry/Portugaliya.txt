@@ -1,0 +1,5 @@
+---
+description: Currency code of Portugaliya
+locale: uz-latn
+---
+EUR

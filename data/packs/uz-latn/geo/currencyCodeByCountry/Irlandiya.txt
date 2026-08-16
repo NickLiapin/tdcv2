@@ -1,0 +1,5 @@
+---
+description: Currency code of Irlandiya
+locale: uz-latn
+---
+EUR

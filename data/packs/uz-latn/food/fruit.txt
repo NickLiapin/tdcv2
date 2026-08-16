@@ -1,0 +1,38 @@
+---
+description: Fruit (Uzbek). QOVUN — the melon — deserves its place at the top: Uzbekistan grows scores of named varieties, they are sold by variety rather than by weight, and a good one is a gift worth carrying across a border. Oʻrik (apricot) is the second national fruit and is dried into the pitted turshak that fills a winter dastarxan. Note that xurmo names BOTH the date and the persimmon, which is a genuine ambiguity in the language and not a mistake in this list.
+locale: uz-latn
+---
+qovun
+tarvuz
+uzum
+oʻrik
+shaftoli
+olma
+nok
+behi
+olcha
+gilos
+olxoʻri
+anor
+anjir
+xurmo
+tut
+jiyda
+unnob
+doʻlana
+qulupnay
+malina
+smorodina
+chakanda
+limon
+apelsin
+mandarin
+grepfrut
+banan
+ananas
+kivi
+mango
+avokado
+zaytun
+kokos
+nastarin mevasi

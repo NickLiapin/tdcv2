@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in Dermatologiya, in Uzbek.
+locale: uz-latn
+---
+Atopik dermatit
+Psoriaz
+Ekzema
+Eshakemi
+Akne
+Vitiligo
+Zamburugʻli teri kasalligi
+Chesotka
+Rozatsea
+Alopetsiya
+Teri saratoni
+Kontakt dermatit

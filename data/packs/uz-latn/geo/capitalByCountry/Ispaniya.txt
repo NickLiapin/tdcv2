@@ -1,0 +1,5 @@
+---
+description: Capital of Ispaniya (Uzbek)
+locale: uz-latn
+---
+Madrid

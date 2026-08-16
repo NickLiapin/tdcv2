@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Uzbek).
+locale: uz-latn
+---
+1 yulduz
+2 yulduz
+3 yulduz
+4 yulduz
+5 yulduz

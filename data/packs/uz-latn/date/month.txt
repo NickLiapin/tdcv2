@@ -1,0 +1,16 @@
+---
+description: Month name (Uzbek, lower case). THE MONTH NAMES ARE RUSSIAN-DERIVED, which is the fastest single-file proof that Uzbek is not Turkish: Turkish says Ocak, Şubat, Mart, Nisan; Uzbek says yanvar, fevral, mart, aprel, taken from Russian during the Soviet period and never replaced. Watch the two that a transliterator gets wrong: Uzbek writes SENTABR and OKTABR without the y that Russian and Azerbaijani have, because Uzbek orthography does not write the palatal glide there, but keeps it in noyabr. There is also a parallel Persian-Islamic solar calendar whose months (Hamal, Savr, Javzo...) survive in Uzbek as the zodiac signs in person/zodiac.txt.
+locale: uz-latn
+---
+yanvar
+fevral
+mart
+aprel
+may
+iyun
+iyul
+avgust
+sentabr
+oktabr
+noyabr
+dekabr

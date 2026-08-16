@@ -1,0 +1,5 @@
+---
+description: Currency code of Shveytsariya
+locale: uz-latn
+---
+CHF

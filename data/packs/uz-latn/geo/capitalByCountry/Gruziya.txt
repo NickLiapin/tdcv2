@@ -1,0 +1,5 @@
+---
+description: Capital of Gruziya (Uzbek)
+locale: uz-latn
+---
+Tbilisi

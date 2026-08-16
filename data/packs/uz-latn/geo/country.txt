@@ -1,0 +1,69 @@
+---
+description: Country as UZBEK names it, weighted by population in millions. Translated rather than transliterated from English — Germaniya, Fransiya, Yunoniston, Amerika Qoʻshma Shtatlari, Buyuk Britaniya — and note how many of Uzbekistan's neighbours carry the Persian -iston, land of: Qozogʻiston, Qirgʻiziston, Tojikiston, Turkmaniston, Afgʻoniston, and Oʻzbekiston itself. Several names come through Russian rather than English, which is why the capital of Egypt is Qohira but the country is Misr, and why Greece is Yunoniston, from the Arabic for Ionia. THE NEIGHBOURS ARE AT THEIR REAL WEIGHT and not boosted: Oʻzbekiston scores 37 and Qirgʻiziston 7, so a plain draw will rarely produce Central Asia and a config that wants a region-centred dataset must filter rather than hope the weighting does it. Country names take case suffixes like any other Uzbek noun — Turkiyada, Erondan, Qozogʻistonga — and because vowel harmony is lost the suffix is the same one every time.
+locale: uz-latn
+weighted: true
+---
+Xitoy,1410
+Hindiston,1400
+Amerika Qoʻshma Shtatlari,335
+Indoneziya,275
+Pokiston,240
+Nigeriya,220
+Braziliya,215
+Bangladesh,170
+Rossiya,144
+Meksika,128
+Yaponiya,125
+Efiopiya,120
+Filippin,115
+Misr,110
+Vetnam,98
+Eron,88
+Turkiya,85
+Germaniya,84
+Tailand,72
+Buyuk Britaniya,67
+Fransiya,68
+Janubiy Afrika Respublikasi,60
+Italiya,59
+Janubiy Koreya,52
+Ispaniya,47
+Argentina,46
+Afgʻoniston,40
+Kanada,39
+Polsha,38
+Ukraina,38
+Saudiya Arabistoni,36
+Oʻzbekiston,37
+Malayziya,34
+Avstraliya,26
+Qozogʻiston,20
+Niderlandiya,18
+Chili,20
+Ruminiya,19
+Nepal,30
+Iroq,45
+Suriya,22
+Tojikiston,10
+Qirgʻiziston,7
+Turkmaniston,6
+Ozarbayjon,10
+Gruziya,4
+Armaniston,3
+Belarus,9
+Isroil,9
+Birlashgan Arab Amirliklari,10
+Shvetsiya,10
+Vengriya,10
+Yunoniston,10
+Portugaliya,10
+Avstriya,9
+Shveytsariya,9
+Chexiya,11
+Singapur,6
+Daniya,6
+Finlandiya,6
+Norvegiya,5
+Irlandiya,5
+Yangi Zelandiya,5
+Mongoliya,3

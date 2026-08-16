@@ -1,0 +1,5 @@
+---
+description: Capital of Avstriya (Uzbek)
+locale: uz-latn
+---
+Vena

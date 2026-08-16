@@ -1,0 +1,5 @@
+---
+description: Capital of Oʻzbekiston (Uzbek)
+locale: uz-latn
+---
+Toshkent

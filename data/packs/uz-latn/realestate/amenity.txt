@@ -1,0 +1,26 @@
+---
+description: Property amenity (Uzbek).
+locale: uz-latn
+---
+markaziy suv taʼminoti
+quduq suvi
+kanalizatsiya
+tabiiy gaz
+markaziy isitish
+individual isitish
+konditsioner
+issiq suv
+elektr quvvati
+telefon liniyasi
+internet
+hovli
+bogʻ
+tomorqa
+uzumzor
+garaj
+avtoturargoh
+ayvon
+tandir
+sauna
+hovuz
+qoʻriqlanadigan hudud

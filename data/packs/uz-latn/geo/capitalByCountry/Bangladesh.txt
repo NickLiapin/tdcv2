@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladesh (Uzbek)
+locale: uz-latn
+---
+Dakka

@@ -1,0 +1,251 @@
+---
+description: Uzbek job titles across sectors — technology, healthcare, education, trades, agriculture, mining, transport, business, service and public. The agricultural and textile blocks are longer than a European list would carry, and deliberately so: paxtakor (cotton grower), pillachi (silkworm rearer), suvchi (the man who opens and closes the irrigation gates) and choʻpon (shepherd) are ordinary occupations here. Job titles are written lower case in Uzbek unless they begin a line.
+locale: uz-latn
+---
+dasturchi
+frontend dasturchi
+backend dasturchi
+mobil ilova dasturchisi
+oʻyin dasturchisi
+tizim administratori
+tarmoq muhandisi
+DevOps muhandisi
+maʼlumotlar bazasi administratori
+maʼlumotlar tahlilchisi
+maʼlumotlar olimi
+sunʼiy intellekt muhandisi
+mashina oʻqitish muhandisi
+kiberxavfsizlik mutaxassisi
+sifat nazorati muhandisi
+UX dizayner
+UI dizayner
+veb-dizayner
+grafik dizayner
+mahsulot menejeri
+loyiha menejeri
+biznes tahlilchi
+texnik yozuvchi
+IT qoʻllab-quvvatlash mutaxassisi
+1C dasturchisi
+bulut xizmatlari muhandisi
+integratsiya muhandisi
+skrum master
+shifokor
+oilaviy shifokor
+jarroh
+neyroxirurg
+kardiolog
+pediatr
+akusher-ginekolog
+nevropatolog
+psixiatr
+stomatolog
+ortodont
+oftalmolog
+LOR shifokori
+dermatolog
+endokrinolog
+gastroenterolog
+onkolog
+nefrolog
+pulmonolog
+revmatolog
+anesteziolog
+reanimatolog
+radiolog
+UZI mutaxassisi
+patolog
+epidemiolog
+tibbiyot hamshirasi
+feldsher
+akusherka
+farmatsevt
+sanitar
+tez yordam shifokori
+laborant
+veterinar
+oʻqituvchi
+boshlangʻich sinf oʻqituvchisi
+matematika oʻqituvchisi
+ona tili oʻqituvchisi
+ingliz tili oʻqituvchisi
+tarix oʻqituvchisi
+fizika oʻqituvchisi
+kimyo oʻqituvchisi
+biologiya oʻqituvchisi
+jismoniy tarbiya oʻqituvchisi
+tarbiyachi
+maktab direktori
+metodist
+professor
+dotsent
+katta oʻqituvchi
+assistent
+ilmiy xodim
+kutubxonachi
+psixolog
+logoped
+ijtimoiy xodim
+agronom
+fermer
+paxtakor
+dehqon
+bogʻbon
+sabzavotchi
+uzumchi
+pillachi
+chorvador
+choʻpon
+suvchi
+irrigator
+traktorchi
+kombaynchi
+zootexnik
+selektsioner
+asalarichi
+parrandachi
+baliqchi
+oʻrmonchi
+kon muhandisi
+geolog
+markshayder
+burgʻulovchi
+konchi
+metallurg
+mineralog
+gidrogeolog
+neftchi
+gazchi
+energetik
+elektrik
+elektrmontajchi
+issiqlik muhandisi
+mexanik
+tokar
+frezachi
+payvandchi
+chilangar
+duradgor
+gʻisht teruvchi
+beton quyuvchi
+suvoqchi
+boʻyoqchi
+tom yopuvchi
+kafel ustasi
+santexnik
+ganchkor
+naqqosh
+kandakor
+zargar
+kulol
+misgar
+temirchi
+toʻquvchi
+yigiruvchi
+tikuvchi
+kashtachi
+gilamchi
+doʻppi tikuvchi
+meʼmor
+qurilish muhandisi
+loyihachi
+smetachi
+prorab
+geodezist
+dizayner-interyerchi
+haydovchi
+yuk mashinasi haydovchisi
+avtobus haydovchisi
+taksi haydovchisi
+mashinist
+temiryoʻlchi
+uchuvchi
+bortprovodnik
+dispetcher
+logist
+ekspeditor
+bojxona brokeri
+avtomexanik
+kran operatori
+yuk ortuvchi
+buxgalter
+bosh buxgalter
+moliyachi
+iqtisodchi
+auditor
+soliq maslahatchisi
+kredit mutaxassisi
+risk tahlilchisi
+xazinachi
+sugʻurta agenti
+aktuariy
+investitsiya tahlilchisi
+byudjet mutaxassisi
+ish yurituvchi
+kotiba
+ofis menejeri
+kadrlar boʻlimi mutaxassisi
+rekruter
+tarjimon
+sinxron tarjimon
+muharrir
+jurnalist
+muxbir
+fotograf
+operator
+rejissyor
+prodyuser
+diktor
+dizayner
+rassom
+haykaltarosh
+bastakor
+musiqachi
+xonanda
+raqqosa
+aktyor
+sotuvchi
+kassir
+doʻkon mudiri
+merchandayzer
+savdo vakili
+marketolog
+SMM mutaxassisi
+reklama menejeri
+mijozlar bilan ishlash mutaxassisi
+call-markaz operatori
+omborchi
+qassob
+novvoy
+oshpaz
+qandolatchi
+ofitsiant
+barmen
+barista
+mehmonxona administratori
+gid
+turoperator
+sartarosh
+kosmetolog
+massajchi
+tozalovchi
+qorovul
+xavfsizlik xodimi
+oʻt oʻchiruvchi
+qutqaruvchi
+militsioner
+sudya
+advokat
+prokuror
+notarius
+sud ijrochisi
+huquqshunos
+davlat xizmatchisi
+soliq inspektori
+bojxonachi
+statistik
+arxivchi
+muzey xodimi
+sport murabbiyi
+hakam
+sportchi

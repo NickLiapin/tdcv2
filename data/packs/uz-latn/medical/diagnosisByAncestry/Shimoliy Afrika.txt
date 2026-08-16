@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the Shimoliy Afrika ancestry group, named in Uzbek.
+locale: uz-latn
+---
+G6FD yetishmovchiligi
+Beta talassemiya
+Oilaviy Oʻrta yer dengizi isitmasi
+Oʻroqsimon hujayrali belgi
+Laktoza intoleransi
+Fenilketonuriya

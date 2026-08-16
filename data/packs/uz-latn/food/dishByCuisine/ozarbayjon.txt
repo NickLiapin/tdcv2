@@ -1,0 +1,14 @@
+---
+description: Dish of the ozarbayjon kitchen, named in Uzbek.
+locale: uz-latn
+---
+dolma
+kufta bozbash
+qutab
+lavangi
+dushbara
+sabzi palov
+piti
+badimjan dolma
+paxlava
+sherbet

@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Uzbek that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: uz-latn
+---
+Endometrioz
+Bachadon miomasi
+Adenomioz
+Tuxumdon kistasi
+Polikistoz tuxumdon sindromi
+Sut bezi fibrokistoz kasalligi
+Sut bezi saratoni
+Bachadon boʻyni saratoni
+Bachadon tanasi saratoni
+Tuxumdon saratoni
+Bachadon tushishi
+Ayollar bepushtligi
+Gestatsion diabet
+Preeklampsiya
+Eklampsiya
+Homiladorlik anemiyasi
+Muddatidan oldin tugʻish xavfi
+Bachadondan tashqari homiladorlik
+Klimakterik sindrom
+Disfunksional bachadon qonashi
+Amenoreya
+Dismenoreya
+Vulvovaginit
+Mastopatiya
+Mastit
+Servitsit

@@ -1,0 +1,12 @@
+---
+description: Position or role in Basketbol, in Uzbek.
+locale: uz-latn
+---
+markaziy oʻyinchi
+ogʻir forvard
+yengil forvard
+himoya oʻyinchisi
+hujum oʻyinchisi
+razvodyashchiy
+zaxira oʻyinchi
+bosh murabbiy

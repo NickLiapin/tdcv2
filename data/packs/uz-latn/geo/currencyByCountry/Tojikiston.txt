@@ -1,0 +1,5 @@
+---
+description: Currency of Tojikiston (Uzbek)
+locale: uz-latn
+---
+Tojikiston somoniysi

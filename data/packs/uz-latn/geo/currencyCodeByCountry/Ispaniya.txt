@@ -1,0 +1,5 @@
+---
+description: Currency code of Ispaniya
+locale: uz-latn
+---
+EUR

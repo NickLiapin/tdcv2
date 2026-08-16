@@ -1,0 +1,24 @@
+---
+description: Trip purpose (Uzbek). ZIYORAT — a pilgrimage to a shrine — is a mainstream reason to travel here and covers both the Islamic shrines of Bukhara and Samarqand and the Hajj; mehmondorchilik, going to stay with relatives, is the largest category of domestic travel by far.
+locale: uz-latn
+---
+dam olish
+sayohat
+ziyorat
+haj
+umra
+mehmondorchilik
+toʻyga borish
+xizmat safari
+ish safari
+konferensiya
+koʻrgazma
+oʻqish
+malaka oshirish
+davolanish
+sanatoriy
+sport musobaqasi
+tarixiy joylarni koʻrish
+togʻ sayohati
+ekoturizm
+tranzit

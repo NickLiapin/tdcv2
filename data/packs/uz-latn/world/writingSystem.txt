@@ -1,0 +1,27 @@
+---
+description: Writing system (Uzbek). UZBEK CHANGED SCRIPT THREE TIMES IN ONE CENTURY AND HAS NOT FINISHED: Perso-Arabic until 1929, LATIN from 1929, CYRILLIC from 1940 under Soviet rule, and Latin again from 1993, reformed in 1995 and repeatedly postponed since. BOTH SCRIPTS ARE LIVE TODAY — schools teach Latin, a large part of the press and older signage is still Cyrillic, and most adults read both — which is exactly why this pack is coded uz-latn rather than uz. THE MODERN LATIN ALPHABET HAS 29 LETTERS AND THREE OF THEM DECIDE WHETHER A TEXT IS REALLY UZBEK: Oʻ oʻ and Gʻ gʻ, each written with U+02BB MODIFIER LETTER TURNED COMMA and NOT with an ASCII apostrophe or a curly quote, and the separate tutuq belgisi ʼ, U+02BC MODIFIER LETTER APOSTROPHE, which marks a glottal stop or a long vowel in Arabic loanwords (maʼno, sanʼat, Raʼno). Sh, Ch and Ng are digraphs counted as single letters, and there is no C on its own. Uzbek in Afghanistan is still written in the Perso-Arabic script, so uz-arab is a real and different orthography rather than a historical one.
+locale: uz-latn
+---
+lotin alifbosi
+kirill alifbosi
+arab alifbosi
+fors alifbosi
+chigʻatoy yozuvi
+qadimgi turkiy yozuv
+oʻrxun-enasoy yozuvi
+sugʻd yozuvi
+xorazm yozuvi
+oromiy yozuvi
+yunon alifbosi
+arman alifbosi
+gruzin alifbosi
+ibroniy alifbosi
+devanagari
+bengal yozuvi
+tamil yozuvi
+tay yozuvi
+xitoy iyeroglif yozuvi
+hiragana
+katakana
+hangul
+mixxat

@@ -1,0 +1,5 @@
+---
+description: Capital of Vetnam (Uzbek)
+locale: uz-latn
+---
+Xanoy

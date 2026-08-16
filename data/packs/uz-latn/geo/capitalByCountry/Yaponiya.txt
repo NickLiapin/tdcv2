@@ -1,0 +1,5 @@
+---
+description: Capital of Yaponiya (Uzbek)
+locale: uz-latn
+---
+Tokio

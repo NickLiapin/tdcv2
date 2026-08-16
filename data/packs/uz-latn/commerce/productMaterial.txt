@@ -1,0 +1,64 @@
+---
+description: Product material (Uzbek).
+locale: uz-latn
+---
+paxta
+ipak
+xonatlas
+adras
+beqasam
+jun
+qorakoʻl
+kashmir
+zigʻir
+kanop
+charm
+sunʼiy charm
+zamsha
+moʻyna
+sintetika
+poliester
+akril
+viskoza
+neylon
+elastan
+kauchuk
+rezina
+silikon
+plastmassa
+polietilen
+polipropilen
+akrilik shisha
+shisha
+kristall
+chinni
+sopol
+kulolchilik loyi
+metall
+temir
+poʻlat
+zanglamaydigan poʻlat
+choʻyan
+alyuminiy
+mis
+latun
+bronza
+kumush
+oltin
+titan
+yogʻoch
+qayragʻoch yogʻochi
+tut yogʻochi
+chinor yogʻochi
+bambuk
+qamish
+fanera
+DSP
+karton
+qogʻoz
+mum
+gips
+ganch
+marmar
+granit
+beton

@@ -1,0 +1,38 @@
+---
+description: Garment (Uzbek). THE FIRST BLOCK IS NATIONAL DRESS AND STILL WORN. The doʻppi is the square embroidered skullcap every Uzbek man owns, and the Chust pattern of white almonds on black is recognised across the country. The chopon is the quilted robe worn over everything and given as a gift of honour at a wedding. Xonatlas and adras are the ikat silks of Margʻilon, dyed before weaving so the pattern blurs at the edges. Mahsi are soft leather boots worn inside kavush overshoes, so a man can step out of the outer shoe at a doorway.
+locale: uz-latn
+---
+doʻppi
+chopon
+toʻn
+belbogʻ
+salla
+roʻmol
+xonatlas koʻylak
+adras koʻylak
+yaktak
+kamzul
+nimcha
+jelak
+lozim
+mahsi
+kavush
+koʻylak
+shim
+jinsi shim
+yubka
+kostyum
+kurtka
+palto
+plash
+jemper
+futbolka
+galstuk
+etik
+tufli
+krossovka
+shippak
+paypoq
+qoʻlqop
+sharf
+kepka

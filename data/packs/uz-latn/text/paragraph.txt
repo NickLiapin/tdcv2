@@ -1,0 +1,24 @@
+---
+description: uz-latn filler paragraphs, three to four sentences each. Handwritten: Project Gutenberg holds no Uzbek book at all — a search for l.uz returns "No records found" — so unlike fr/de/it/es/pt/pl these are not extracted from a public-domain corpus. The paragraphs describe ordinary life in Uzbekistan rather than translating a European scene, so the vocabulary they exercise — hashar, mahalla, atlas, koʻpkari, kurash, saksovul, vaxta — is the vocabulary the rest of this pack uses.
+locale: uz-latn
+---
+Bugun havo ochiq va quyoshli boʻldi. Ertalab butun oila bozorga chiqdi. Bozorda qovun va uzum juda arzon edi. Onam non yopish uchun un oldi, otam esa bir quti shaftoli koʻtarib qaytdi.
+Mahalla oqsoqoli hashar eʼlon qildi. Qoʻshnilar ertalab soat yettida guzarga toʻplandi. Kimdir ketmon, kimdir belkurak olib keldi. Tushga borib ariq tozalanib boʻldi va hamma choyxonada choy ichdi.
+Toʻy uch kun oldin boshlangan edi. Karnay-surnay ovozi koʻchaning boshidan eshitilardi. Kelinni kuyovnikiga olib borishdi va yosh kelin salom berdi. Mehmonlar dasturxon atrofida uzoq oʻtirishdi.
+Bahor kelishi bilan togʻ etaklari koʻkarib ketdi. Lolalar aprel oyining oʻrtasida ochildi. Bolalar boychechak terib, uyma-uy yurib qoʻshiq aytdi. Bunday kunlar yilda bir marta keladi.
+Dalada paxta terimi boshlandi. Dehqonlar quyosh chiqmasdan ishga chiqishdi. Kunduzi jazirama boʻlgani uchun peshindan keyin dam olishdi. Kechqurun brigadir hosilni tarozida oʻlchadi.
+Margʻilonda atlas hali ham qoʻlda toʻqiladi. Ip avval bogʻlanadi, keyin boʻyaladi va shundan soʻng dastgohga tortiladi. Shuning uchun naqshning cheti biroz yoyilib turadi. Ustalar buni nuqson emas, balki belgi deb biladi.
+Kitob doʻkonida yangi nashrlar paydo boʻldi. Talabalar darslik izlab keldi. Sotuvchi ularga lugʻat ham tavsiya qildi. Kechga borib javonlarda kam kitob qoldi.
+Maktabda alifbo lotin yozuvida oʻrgatiladi. Uyda esa buvim kirill yozuvida xat yozadi. Shu sababli bolalar ikkala yozuvni ham oʻqiy oladi. Bu holat oʻttiz yildan beri davom etmoqda.
+Qish qattiq keldi. Bir hafta davomida qor yogʻdi. Koʻchalarni tozalash uchun texnika chiqarildi. Uylarda gaz bosimi pasaydi va odamlar elektr isitgichdan foydalandi.
+Amudaryo boʻyida qamishzorlar bor edi. Endi u yerlarda shoʻrxok tuproq koʻrinadi. Orol qurigach, shamol tuz va changni uzoqqa uchiradi. Shuning uchun dala chetlariga saksovul ekilmoqda.
+Toshkentdan Samarqandga poyezd ikki soatda yetib boradi. Vagonda choy taklif qilinadi. Deraza ortida choʻl va paxtazor almashib turadi. Manzilga yetganda vokzalda taksichilar kutib oladi.
+Muruntov konida oltin ochiq usulda qazib olinadi. Karyer juda katta va uzoqdan koʻrinadi. Ishchilar vaxta usulida ishlaydi. Smena tugagach, avtobus ularni shaharchaga olib ketadi.
+Shifokor bemorni diqqat bilan koʻrdi. Qon tahlili natijasi ertaga tayyor boʻladi. Dori kuniga uch mahal, ovqatdan keyin ichiladi. Bir hafta oʻtib yana koʻrikka kelish kerak.
+Dasturchilar yangi ilovani ishga tushirdi. Birinchi kuni foydalanuvchilar soni kutilganidan koʻp boʻldi. Server yukni koʻtara olmay bir necha marta toʻxtadi. Jamoa tunni ofisda oʻtkazdi va ertalabga muammo hal boʻldi.
+Choyxonada keksalar nard oʻynaydi. Ular ertalabdan tushgacha suhbatlashadi. Choy quyuvchi bola piyolalarni almashtirib turadi. Bu yer mahallaning eng gavjum joyi.
+Kurash musobaqasi maktab maydonida oʻtkazildi. Polvonlar vazn boʻyicha ajratildi. Hakam halol deb baqirganda tomoshabinlar qarsak chaldi. Gʻolibga qoʻy sovgʻa qilindi.
+Koʻpkari qishda, dam olish kunlari oʻtkaziladi. Chavandozlar uzoq qishloqlardan ham keladi. Otlar oldindan tayyorlanadi va yaxshi boqiladi. Sovrinni odatda toʻy egasi beradi.
+Kuzda bogʻdan meva yigʻildi. Oʻrik quritilib turshak qilindi. Uzumdan mayiz tayyorlandi. Qish uchun zaxira sandiqqa joylandi.
+Yangi uy qurish uch yil davom etdi. Avval poydevor quyildi, keyin devor tiklandi. Tom yopilgach, ichki ishlar boshlandi. Koʻchib oʻtish kuni qoʻshnilarga osh berildi.
+Bola maktabni tugatib, universitetga hujjat topshirdi. Imtihonlardan yaxshi ball oldi. Oila uni poytaxtga kuzatib qoʻydi. Har hafta telefonda gaplashib turishga kelishildi.

@@ -1,0 +1,14 @@
+---
+description: Dish of the turk kitchen, named in Uzbek.
+locale: uz-latn
+---
+doʻner
+kebap
+lahmajun
+pide
+menemen
+baklava
+kofte
+chorba
+boʻrek
+ayron

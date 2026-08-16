@@ -1,0 +1,54 @@
+---
+description: Dish (Uzbek). PALOV IS THE CENTRE OF THE CUISINE and is counted in dozens of regional versions — Toshkent, Samarqand, Fargʻona and Buxoro each cook it differently — and toʻy oshi, the wedding pilaf, is cooked before dawn in a cauldron for hundreds of guests. Non is not a side dish: obi non and patir are baked on the wall of a tandir, stamped with a chekich, and never cut with a knife. Sumalak is made once a year, from sprouted wheat stirred overnight by the women of a mahalla, for Navroʻz.
+locale: uz-latn
+---
+palov
+toʻy oshi
+tandir palov
+chuchvara
+manti
+somsa
+koʻk somsa
+lagʻmon
+kesma
+shoʻrva
+mastava
+moshxoʻrda
+moshkichiri
+dimlama
+qovurma
+norin
+xasip
+kabob
+shashlik
+tandir kabob
+qozon kabob
+jizza
+doʻlma
+xonim
+gumma
+tuxumbarak
+halim
+sutli shoʻrva
+achichuk
+achchiq-chuchuk
+obi non
+patir
+gʻijduvon noni
+kulcha
+katlama
+chalpak
+bogʻirsoq
+sumalak
+nisholda
+holvaytar
+navvot
+parvarda
+halvo
+chak-chak
+qaymoq
+suzma
+qurt
+ayron
+koʻk choy
+qora choy

@@ -1,0 +1,16 @@
+---
+description: Meeting type (Uzbek). Yigʻilish is the general word; kengash is a formal council; and hasharga — a collective volunteer working day — is not a meeting in the office sense but is scheduled like one and is a genuine fixture of working life here.
+locale: uz-latn
+---
+yigʻilish
+kengash
+planerka
+kundalik yigʻilish
+haftalik yigʻilish
+oylik hisobot yigʻilishi
+loyiha muhokamasi
+bir-bir suhbat
+jamoa uchrashuvi
+mijoz bilan uchrashuv
+videokonferensiya
+hashar

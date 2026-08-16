@@ -1,0 +1,16 @@
+---
+description: Position or role in Kurash, in Uzbek. Wrestling has no positions either, so the list is the weight categories and the roles at the mat, which is what a record about a kurash competitor actually stores.
+locale: uz-latn
+---
+polvon
+60 kg toifasi
+66 kg toifasi
+73 kg toifasi
+81 kg toifasi
+90 kg toifasi
+100 kg toifasi
+100 kg dan yuqori
+bosh hakam
+yon hakam
+murabbiy
+sekundant

@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in Nefrologiya, in Uzbek.
+locale: uz-latn
+---
+Surunkali buyrak yetishmovchiligi
+Oʻtkir buyrak yetishmovchiligi
+Glomerulonefrit
+Pielonefrit
+Buyrak toshi kasalligi
+Nefrotik sindrom
+Polikistoz buyrak
+Buyrak amiloidozi
+Gemodializ holati
+Buyrak koʻchirib oʻtkazilgan holat
+Siydik yoʻllari infeksiyasi
+Nefropatiya

@@ -1,0 +1,29 @@
+---
+description: Dog breed (Uzbek). THE FIRST TWO ARE LOCAL: the oʻzbek ovcharkasi — the Central Asian shepherd, called alabay across the region — is a livestock guardian bred here for centuries, and the tozi is the Central Asian sighthound coursed after hare and fox. Both are working animals rather than pets.
+locale: uz-latn
+---
+oʻzbek ovcharkasi
+alabay
+tozi
+taygʻon
+nemis ovcharkasi
+qopogʻon it
+labrador
+ovcharka
+buldog
+taksa
+pudel
+spaniel
+rotveyler
+doberman
+boksyor
+xaski
+malamut
+sharpey
+mops
+chihuahua
+terer
+gonchi it
+laka
+ovchi it
+qoʻriqchi it

@@ -1,0 +1,5 @@
+---
+description: Capital of Janubiy Afrika Respublikasi (Uzbek)
+locale: uz-latn
+---
+Pretoriya

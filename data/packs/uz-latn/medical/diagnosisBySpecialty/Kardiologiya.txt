@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in Kardiologiya, in Uzbek.
+locale: uz-latn
+---
+Arterial gipertenziya
+Yurak ishemik kasalligi
+Miokard infarkti
+Stenokardiya
+Yurak yetishmovchiligi
+Aritmiya
+Boʻlmachalar fibrilatsiyasi
+Kardiomiopatiya
+Miokardit
+Yurak nuqsoni
+Ateroskleroz
+Perikardit

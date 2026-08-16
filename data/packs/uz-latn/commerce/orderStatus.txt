@@ -1,0 +1,18 @@
+---
+description: Order status (Uzbek).
+locale: uz-latn
+---
+yangi
+qabul qilindi
+toʻlov kutilmoqda
+toʻlandi
+tasdiqlandi
+yigʻilmoqda
+qadoqlandi
+joʻnatildi
+yoʻlda
+yetkazildi
+qaytarildi
+bekor qilindi
+rad etildi
+kutish rejimida

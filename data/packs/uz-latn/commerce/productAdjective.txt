@@ -1,0 +1,58 @@
+---
+description: Product adjective (Uzbek).
+locale: uz-latn
+---
+sifatli
+mustahkam
+yengil
+ogʻir
+katta
+kichik
+oʻrtacha
+keng
+tor
+uzun
+kalta
+qalin
+yupqa
+yumshoq
+qattiq
+silliq
+gʻadir-budur
+issiq
+sovuq
+quruq
+nam
+toza
+yangi
+tabiiy
+ekologik toza
+organik
+sunʼiy
+qayta ishlangan
+zamonaviy
+klassik
+milliy
+qoʻlda tikilgan
+qoʻlda yasalgan
+mashinada tikilgan
+suv oʻtkazmaydigan
+shamol oʻtkazmaydigan
+issiq saqlaydigan
+nafas oladigan
+antibakterial
+gipoallergen
+xavfsiz
+sertifikatlangan
+kafolatli
+import
+mahalliy
+arzon
+qimmat
+chegirmali
+yangi kelgan
+mashhur
+noyob
+universal
+ixcham
+yigʻiladigan

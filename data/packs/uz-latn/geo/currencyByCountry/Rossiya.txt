@@ -1,0 +1,5 @@
+---
+description: Currency of Rossiya (Uzbek)
+locale: uz-latn
+---
+Rossiya rubli

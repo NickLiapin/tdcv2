@@ -1,0 +1,19 @@
+---
+description: Court type in the judiciary of UZBEKISTAN. Named for one country deliberately: Uzbek is the state language of a single state, so these are the names of real courts rather than generic labels — unlike the Spanish or Portuguese packs, which have to stay generic across many countries. Note that Uzbekistan separates the fuqarolik (civil) and jinoyat (criminal) benches at district level, and that the Republic of Karakalpakstan has its own supreme court inside the national system.
+locale: uz-latn
+---
+tuman sudi
+shahar sudi
+fuqarolik ishlari boʻyicha sud
+jinoyat ishlari boʻyicha sud
+maʼmuriy sud
+iqtisodiy sud
+viloyat sudi
+harbiy sud
+apellyatsiya instansiyasi
+kassatsiya instansiyasi
+Oliy sud
+Konstitutsiyaviy sud
+Qoraqalpogʻiston Respublikasi Oliy sudi
+hakamlik sudi
+xalqaro arbitraj

@@ -1,0 +1,13 @@
+---
+description: Cable type (Uzbek), for utility and construction records.
+locale: uz-latn
+---
+kuch kabeli
+nazorat kabeli
+aloqa kabeli
+optik tolali kabel
+koaksial kabel
+zirhli kabel
+yer osti kabeli
+havo kabeli
+yuqori kuchlanishli kabel

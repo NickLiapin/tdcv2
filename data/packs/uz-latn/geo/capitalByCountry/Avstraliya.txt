@@ -1,0 +1,5 @@
+---
+description: Capital of Avstraliya (Uzbek)
+locale: uz-latn
+---
+Kanberra

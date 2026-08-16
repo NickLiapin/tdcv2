@@ -1,0 +1,5 @@
+---
+description: Currency of Birlashgan Arab Amirliklari (Uzbek)
+locale: uz-latn
+---
+BAA dirhami

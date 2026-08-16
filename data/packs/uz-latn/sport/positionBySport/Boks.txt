@@ -1,0 +1,12 @@
+---
+description: Position or role in Boks, in Uzbek.
+locale: uz-latn
+---
+boksyor
+yengil vazn
+oʻrta vazn
+ogʻir vazn
+bosh murabbiy
+sekundant
+ring hakami
+yon hakam

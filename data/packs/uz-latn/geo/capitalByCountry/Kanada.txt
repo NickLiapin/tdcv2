@@ -1,0 +1,5 @@
+---
+description: Capital of Kanada (Uzbek)
+locale: uz-latn
+---
+Ottava

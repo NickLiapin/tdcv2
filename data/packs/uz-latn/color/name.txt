@@ -1,0 +1,58 @@
+---
+description: Colour name (Uzbek). THE BLUE-GREEN BOUNDARY IS NOT WHERE ENGLISH PUTS IT. Koʻk covers both: koʻk osmon is the blue sky and koʻk choy is green tea, koʻkat is the green herbs on a table, and koʻkarish is what a plant does in spring. Yashil, the separate word for green, is a Persian loan and is the one used for a green traffic light or a green shirt, but koʻk is still what a speaker reaches for about growing things. Moviy and zangori are both blue and not interchangeable — moviy is the deeper sea blue, zangori the pale sky blue. Compound colour names are built with -rang, colour: jigarrang is liver-coloured, qaymoqrang the colour of clotted cream.
+locale: uz-latn
+---
+oq
+qora
+qizil
+koʻk
+yashil
+sariq
+jigarrang
+kulrang
+pushti
+binafsha
+toʻq sariq
+moviy
+zangori
+havorang
+firuza rang
+malla
+qaymoqrang
+sutrang
+kremrang
+beja rang
+qirmizi
+alvon
+qizgʻish
+oqish
+sargʻish
+koʻkish
+yashilroq
+toʻq qizil
+toʻq koʻk
+toʻq yashil
+och qizil
+och koʻk
+och yashil
+och sariq
+kumushrang
+oltinrang
+bronzarang
+misrang
+shokolad rang
+qahvarang
+gʻishtrang
+zaytunrang
+sabzarang
+gilosrang
+anorrang
+zumradrang
+lojuvard rang
+qoramtir
+kul rang
+tuproqrang
+qumrang
+qorakoʻl rang
+siyohrang
+shafaqrang

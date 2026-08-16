@@ -1,0 +1,29 @@
+---
+description: Event type (Uzbek). THE FIRST BLOCK IS THE LIFE-CYCLE OF AN UZBEK FAMILY and each is a named, separately celebrated occasion: beshik toʻyi when a baby is first put in the cradle, sunnat toʻyi for a boy's circumcision, fotiha toʻy for the engagement, nikoh toʻy for the wedding itself, and ehson, the memorial meal held on fixed days after a death. Hashar is a collective volunteer work day called by the mahalla. These are not optional social extras; they organise the calendar.
+locale: uz-latn
+---
+beshik toʻyi
+sunnat toʻyi
+fotiha toʻy
+nikoh toʻy
+toʻy
+kelin salom
+ehson
+maʼraka
+mavlud
+iftorlik
+hashar
+mahalla yigʻini
+tugʻilgan kun
+yubiley
+bitiruv kechasi
+konsert
+teatr namoyishi
+koʻrgazma
+konferensiya
+seminar
+trening
+sport musobaqasi
+festival
+yarmarka
+milliy bayram

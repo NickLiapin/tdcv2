@@ -1,0 +1,73 @@
+---
+description: uz-latn filler sentences. Handwritten: Project Gutenberg holds no Uzbek book at all — a search for l.uz returns "No records found" — so unlike fr/de/it/es/pt/pl these are not extracted from a public-domain corpus. The sentences are short, declarative and everyday, and they are written to show the grammar as well as to fill a column: Uzbek is verb-final, has no articles and no prepositions, and marks what English puts before a noun with a suffix after it — Toshkentdan, bozorga, hovlida.
+locale: uz-latn
+---
+Bugun havo ochiq va quyoshli.
+Ertalab bozorga chiqdik.
+Bozorda qovun juda arzon edi.
+Onam tandirda non yopdi.
+Otam bogʻda uzum uzdi.
+Bolalar hovlida oʻynashyapti.
+Mehmonlar kechqurun keladi.
+Dasturxonga choy va non qoʻyildi.
+Palov qozonda pishmoqda.
+Zira solmasa palov palov boʻlmaydi.
+Ustoz darsni tushuntirdi.
+Talabalar savol berishdi.
+Kutubxonadan yangi kitob oldim.
+Bu kitobni bir kechada oʻqib chiqdim.
+Sheʼrni yod olish oson emas.
+Alifbo lotin yozuvida oʻrgatiladi.
+Katta buvim kirill yozuvida yozadi.
+Ikkala yozuvni ham bilish kerak.
+Koʻchada yangi chinor ekildi.
+Daraxtlar bahorda gullaydi.
+Lola aprel oyida ochiladi.
+Togʻ tomonda hali qor bor.
+Ariqdan suv shildirab oqadi.
+Suvchi ariq ogʻzini ochdi.
+Dalada paxta terildi.
+Dehqonlar erta tongda ishga chiqdi.
+Traktor yerni haydab boʻldi.
+Hosil bu yil moʻl boʻldi.
+Qoʻylar togʻ etagida oʻtlayapti.
+Choʻpon itini chaqirdi.
+Tuya sekin yurib borardi.
+Ipak qurti tut bargini yeydi.
+Pilla oq va yumshoq.
+Margʻilonda atlas toʻqiladi.
+Doʻppi qoʻlda tikiladi.
+Bu naqsh juda nozik ishlangan.
+Kulol loydan kosa yasadi.
+Zargar kumushdan uzuk yasadi.
+Ustaning qoʻli gul ekan.
+Mahalla hasharga chiqdi.
+Qoʻshnilar birgalikda devor tikladi.
+Oqsoqol hammaga rahmat aytdi.
+Toʻyga butun mahalla taklif qilindi.
+Karnay-surnay ovozi uzoqdan eshitildi.
+Kelin va kuyov mehmonlarni kutib oldi.
+Bolaga beshik toʻyi qilindi.
+Bayramda sumalak pishirildi.
+Navroʻz yigirma birinchi martda nishonlanadi.
+Yangi yil qishda keladi.
+Qish sovuq, yoz esa jazirama.
+Kuzda bogʻdan meva yigʻiladi.
+Poyezd Toshkentdan joʻnadi.
+Yoʻl uzoq, lekin manzil yaqin.
+Samolyot ikki soatda yetib boradi.
+Mashina benzin oʻrniga metanda yuradi.
+Shifokor bemorni koʻrdi.
+Dori kuniga uch mahal ichiladi.
+Sogʻlik hamma narsadan aziz.
+Ish vaqti soat toʻqqizda boshlanadi.
+Hisobot oy oxirida topshiriladi.
+Dasturchi yangi ilova yozdi.
+Internet tez ishlayapti.
+Telefonga xabar keldi.
+Kitob doʻkonida navbat bor edi.
+Narxlar biroz koʻtarilibdi.
+Pulni ehtiyot bilan sarflash kerak.
+Sabr qilgan murodiga yetadi.
+Mehnatning tagi rohat.
+Har bir ishning oʻz vaqti bor.

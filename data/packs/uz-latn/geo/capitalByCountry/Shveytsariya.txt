@@ -1,0 +1,5 @@
+---
+description: Capital of Shveytsariya (Uzbek)
+locale: uz-latn
+---
+Bern

@@ -1,0 +1,54 @@
+---
+description: Airline. Brand names keep their real spelling in any locale. Uzbekistan Airways is named because it is the flag carrier and any Uzbek travel dataset will contain it; the rest are the carriers that actually serve Tashkent, which is why the list leans towards Russia, Turkey, the Gulf and Central Asia rather than towards western Europe.
+locale: uz-latn
+---
+Uzbekistan Airways
+Qanot Sharq
+Centrum Air
+Silk Avia
+Turkish Airlines
+Aeroflot
+S7 Airlines
+Ural Airlines
+Pobeda
+Air Astana
+FlyArystan
+Somon Air
+Turkmenistan Airlines
+Azerbaijan Airlines
+Georgian Airways
+Belavia
+flydubai
+Emirates
+Qatar Airways
+Etihad Airways
+Air Arabia
+Saudia
+Korean Air
+Asiana Airlines
+China Southern Airlines
+Air China
+Lufthansa
+Jazeera Airways
+LOT Polish Airlines
+Wizz Air
+Ryanair
+easyJet
+British Airways
+Air France
+KLM
+Iberia
+ITA Airways
+Austrian Airlines
+Swiss International Air Lines
+Finnair
+SAS
+Aegean Airlines
+Pegasus Airlines
+IndiGo
+Air India
+Thai Airways
+Singapore Airlines
+Japan Airlines
+Vietnam Airlines
+Malaysia Airlines

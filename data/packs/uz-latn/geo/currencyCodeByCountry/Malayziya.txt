@@ -1,0 +1,5 @@
+---
+description: Currency code of Malayziya
+locale: uz-latn
+---
+MYR

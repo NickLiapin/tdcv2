@@ -1,0 +1,14 @@
+---
+description: Dish of the koreys kitchen, named in Uzbek.
+locale: uz-latn
+---
+kuksu
+funchoza
+chimchi
+morkovcha
+kimchi
+pigodi
+tteok
+bulgogi
+pibimpap
+kukmul

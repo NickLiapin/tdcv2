@@ -1,0 +1,20 @@
+---
+description: Compass direction (Uzbek). The four cardinals are Turkic-Persian: shimol north, janub south, sharq east, gʻarb west — sharq and gʻarb are the Arabic pair for sunrise and sunset and are the same words that name the East and the West as regions.
+locale: uz-latn
+---
+Shimol
+Janub
+Sharq
+Gʻarb
+Shimoli-sharq
+Shimoli-gʻarb
+Janubi-sharq
+Janubi-gʻarb
+Shimoli-shimoli-sharq
+Sharqi-shimoli-sharq
+Sharqi-janubi-sharq
+Janubi-janubi-sharq
+Janubi-janubi-gʻarb
+Gʻarbi-janubi-gʻarb
+Gʻarbi-shimoli-gʻarb
+Shimoli-shimoli-gʻarb

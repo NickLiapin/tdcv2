@@ -1,0 +1,32 @@
+---
+description: Household budget category (Uzbek). TOʻY XARAJATLARI IS NOT A JOKE LINE: an Uzbek family saves for years for a wedding, and the cost of a toʻy is one of the largest single items in a household's lifetime spending — large enough that the state has legislated repeatedly to cap the guest list. Qarindoshlarga yordam, money sent to relatives, is a standing monthly item in most households.
+locale: uz-latn
+---
+oziq-ovqat
+kommunal toʻlovlar
+elektr energiyasi
+tabiiy gaz
+suv
+uy-joy ijarasi
+ipoteka toʻlovi
+transport
+yoqilgʻi
+mobil aloqa
+internet
+kiyim-kechak
+sogʻliqni saqlash
+dorilar
+taʼlim
+bolalar xarajatlari
+maishiy ehtiyojlar
+uy-roʻzgʻor buyumlari
+toʻy xarajatlari
+qarindoshlarga yordam
+sadaqa va xayriya
+dam olish
+sayohat
+sport va koʻngilochar
+jamgʻarma
+kredit toʻlovi
+sugʻurta
+soliqlar

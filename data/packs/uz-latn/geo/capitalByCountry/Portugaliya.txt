@@ -1,0 +1,5 @@
+---
+description: Capital of Portugaliya (Uzbek)
+locale: uz-latn
+---
+Lissabon

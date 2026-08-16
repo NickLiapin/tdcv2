@@ -1,0 +1,5 @@
+---
+description: Currency of Ruminiya (Uzbek)
+locale: uz-latn
+---
+Ruminiya leyi

@@ -1,0 +1,5 @@
+---
+description: Currency code of Chili
+locale: uz-latn
+---
+CLP

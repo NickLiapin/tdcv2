@@ -1,0 +1,5 @@
+---
+description: Currency of Buyuk Britaniya (Uzbek)
+locale: uz-latn
+---
+funt sterling

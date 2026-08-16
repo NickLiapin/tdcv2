@@ -1,0 +1,24 @@
+---
+description: Job title in the Savdo sector, in Uzbek.
+locale: uz-latn
+---
+sotuvchi
+kassir
+doʻkon mudiri
+merchandayzer
+savdo vakili
+tovar biluvchi
+omborchi
+yetkazib beruvchi
+xaridlar menejeri
+marketolog
+tarozichi
+qassob
+novvoy
+bozor rastachisi
+onlayn savdo menejeri
+mijozlar bilan ishlash mutaxassisi
+narx belgilovchi
+inventarizator
+kategoriya menejeri
+savdo direktori

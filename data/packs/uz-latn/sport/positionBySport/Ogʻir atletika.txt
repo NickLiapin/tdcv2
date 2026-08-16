@@ -1,0 +1,12 @@
+---
+description: Position or role in Ogʻir atletika, in Uzbek.
+locale: uz-latn
+---
+shtangachi
+yengil vazn toifasi
+oʻrta vazn toifasi
+ogʻir vazn toifasi
+bosh murabbiy
+hakam
+zaxira sportchi
+yordamchi

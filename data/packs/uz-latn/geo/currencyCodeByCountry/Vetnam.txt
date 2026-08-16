@@ -1,0 +1,5 @@
+---
+description: Currency code of Vetnam
+locale: uz-latn
+---
+VND

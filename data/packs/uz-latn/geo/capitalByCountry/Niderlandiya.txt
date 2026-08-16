@@ -1,0 +1,5 @@
+---
+description: Capital of Niderlandiya (Uzbek)
+locale: uz-latn
+---
+Amsterdam

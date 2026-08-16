@@ -1,0 +1,12 @@
+---
+description: Blood group (Uzbek). Uzbekistan uses the ABO/Rh notation, printed on a medical card in the Roman-numeral form the Soviet system used — I(0), II(A) — as well as in the international letters. The letters are given here because that is what a modern record system stores.
+locale: uz-latn
+---
+0(I) Rh+
+0(I) Rh-
+A(II) Rh+
+A(II) Rh-
+B(III) Rh+
+B(III) Rh-
+AB(IV) Rh+
+AB(IV) Rh-

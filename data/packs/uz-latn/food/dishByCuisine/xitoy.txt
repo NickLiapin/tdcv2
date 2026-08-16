@@ -1,0 +1,14 @@
+---
+description: Dish of the xitoy kitchen, named in Uzbek.
+locale: uz-latn
+---
+dimsam
+pekin oʻrdagi
+gunbao tovuq
+chumiza
+kuksi
+bao
+sichuan qozoni
+tsziaotszi
+sharbatli tovuq
+yaproqli choy

@@ -1,0 +1,20 @@
+---
+description: Weather condition (Uzbek). Uzbekistan is doubly landlocked and sharply continental, so the extremes at both ends of this list are ordinary: jazirama, blistering heat above 40 degrees, runs for weeks in July, and qattiq sovuq below minus 20 is a normal January in the north.
+locale: uz-latn
+---
+quyoshli
+ochiq
+bulutli
+yarim bulutli
+yomgʻirli
+sepalak
+jala
+momaqaldiroq
+qorli
+qor boʻroni
+doʻl
+tumanli
+shudringli
+shamolli
+jazirama
+qattiq sovuq

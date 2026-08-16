@@ -1,0 +1,14 @@
+---
+description: Industry, as the parent of jobByIndustry. These ten are chosen for UZBEKISTAN'S ECONOMY rather than for a European template: qishloq xoʻjaligi and toʻqimachilik lead because cotton is grown, ginned, spun and woven in the country and employs a large share of the workforce; konchilik is here because gold, uranium, copper and gas are the export base. A European list would put finance and services first, and for Uzbekistan that would be wrong.
+locale: uz-latn
+---
+Qishloq xoʻjaligi
+Toʻqimachilik
+Konchilik
+Qurilish
+Taʼlim
+Sogʻliqni saqlash
+Savdo
+Transport
+Axborot texnologiyalari
+Moliya

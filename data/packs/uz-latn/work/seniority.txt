@@ -1,0 +1,20 @@
+---
+description: Seniority level (Uzbek). The bosh / yetakchi / katta / kichik ladder is the local one and does not map cleanly onto junior-mid-senior: bosh is chief, yetakchi leading, katta senior and kichik junior, and they are printed on a contract as part of the job title itself.
+locale: uz-latn
+---
+stajyor
+amaliyotchi
+kichik mutaxassis
+mutaxassis
+katta mutaxassis
+yetakchi mutaxassis
+bosh mutaxassis
+guruh rahbari
+boʻlim boshligʻi
+boshqarma boshligʻi
+direktor oʻrinbosari
+direktor
+bosh direktor
+rais
+raisi oʻrinbosari
+muassis

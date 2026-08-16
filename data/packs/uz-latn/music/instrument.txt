@@ -1,0 +1,38 @@
+---
+description: Musical instrument (Uzbek). THE FIRST BLOCK IS THE UZBEK ENSEMBLE and none of it translates: the dutor is a two-stringed long lute played in the home, the tanbur is its concert relative and carries the maqom melody, the gʻijjak is a spike fiddle, the doira is the frame drum whose rhythm names the dance, and karnay and surnay are the long trumpet and shawm that announce a wedding from the street and can be heard a kilometre away.
+locale: uz-latn
+---
+dutor
+tanbur
+rubob
+gʻijjak
+sato
+qoʻbiz
+chang
+qonun
+nay
+qoʻshnay
+surnay
+karnay
+bulamon
+doira
+nogʻora
+chindovul
+safoil
+qayroq
+gitara
+skripka
+violonchel
+kontrabas
+fortepiano
+royal
+sintezator
+akkordeon
+garmon
+bayan
+fleyta
+klarnet
+truba
+saksofon
+baraban
+zarbli asboblar

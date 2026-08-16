@@ -1,0 +1,14 @@
+---
+description: Dish of the uygʻur kitchen, named in Uzbek.
+locale: uz-latn
+---
+lagʻmon
+gʻuyro lagʻmon
+suyuq osh
+polu
+kavap
+samsa
+mantu
+tunur kavap
+gʻoʻsh nan
+chuchura

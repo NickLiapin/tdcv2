@@ -1,0 +1,5 @@
+---
+description: Currency of Janubiy Afrika Respublikasi (Uzbek)
+locale: uz-latn
+---
+Janubiy Afrika rendi

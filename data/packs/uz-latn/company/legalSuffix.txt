@@ -1,0 +1,46 @@
+---
+description: Company legal form / name element used in Uzbekistan. MChJ (masʼuliyati cheklangan jamiyat) is the limited company and by far the commonest; AJ is a joint-stock company; XK a private enterprise; DUK a state unitary enterprise; and YaTT a registered individual entrepreneur. TWO OF THESE HAVE NO EUROPEAN EQUIVALENT: QK, the qoʻshma korxona or joint venture with a foreign partner, is a distinct registered form dating from the 1990s, and OK, the oilaviy korxona or family enterprise, is a legal form in which the members must be relatives. The rest are the trade words a company name is built from.
+locale: uz-latn
+---
+MChJ
+AJ
+XK
+QK
+OK
+DUK
+YaTT
+Masʼuliyati cheklangan jamiyat
+Aksiyadorlik jamiyati
+Xususiy korxona
+Qoʻshma korxona
+Oilaviy korxona
+Davlat unitar korxonasi
+Yakka tartibdagi tadbirkor
+Kooperativ
+Shirkat
+Uyushma
+Assotsiatsiya
+Ittifoq
+Palata
+Fond
+Jamgʻarma
+Holding
+Guruh
+Kompaniyalar guruhi
+Konsern
+Kontsessiya
+Kombinat
+Zavodi
+Fabrikasi
+Korxonasi
+Markazi
+Instituti
+Agentligi
+Byurosi
+Filiali
+Vakolatxonasi
+Sanoat
+Savdo
+Logistika
+Konsalting
+Texnologiyalari

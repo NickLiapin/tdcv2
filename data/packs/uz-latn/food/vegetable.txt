@@ -1,0 +1,34 @@
+---
+description: Vegetable (Uzbek). The first block is what actually goes into a cauldron of palov — sabzi, piyoz, sarimsoq — and the yellow carrot, sariq sabzi, is a separate and preferred vegetable rather than a variant of the orange one. Mosh (mung bean) and noʻxat (chickpea) carry the protein in a country where meat is expensive.
+locale: uz-latn
+---
+sabzi
+sariq sabzi
+piyoz
+sarimsoq
+kartoshka
+karam
+gulkaram
+bodring
+pomidor
+baqlajon
+bulgʻor qalampiri
+achchiq qalampir
+turp
+sholgʻom
+lavlagi
+qovoq
+oshqovoq
+qovoqcha
+mosh
+noʻxat
+loviya
+makkajoʻxori
+ismaloq
+shivit
+rayhon
+kashnich
+petrushka
+salat bargi
+koʻkat
+jambil

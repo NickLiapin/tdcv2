@@ -1,0 +1,5 @@
+---
+description: Currency of Turkmaniston (Uzbek)
+locale: uz-latn
+---
+Turkmaniston manati

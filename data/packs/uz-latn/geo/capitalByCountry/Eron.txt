@@ -1,0 +1,5 @@
+---
+description: Capital of Eron (Uzbek)
+locale: uz-latn
+---
+Tehron

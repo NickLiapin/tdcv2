@@ -1,0 +1,16 @@
+---
+description: Property listing status (Uzbek).
+locale: uz-latn
+---
+sotuvda
+ijaraga beriladi
+band qilingan
+zaxirada
+sotildi
+ijaraga berildi
+narx tushirildi
+shoshilinch sotuv
+almashtiriladi
+tekshirilmoqda
+eʼlon toʻxtatildi
+arxivda

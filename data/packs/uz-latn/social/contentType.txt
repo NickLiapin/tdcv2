@@ -1,0 +1,17 @@
+---
+description: Type of social media post (Uzbek).
+locale: uz-latn
+---
+matnli post
+rasm
+rasmlar toʻplami
+video
+qisqa video
+jonli efir
+tarix
+soʻrovnoma
+havola
+reels
+podkast
+audio xabar
+repost

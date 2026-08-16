@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Uzbek). Dumba — fat-tailed sheep fat — is the cooking fat of the classic palov and has no European equivalent; suzma is strained sour milk; qurt is dried salted curd rolled into balls that keep for a year without refrigeration and is a caravan food that predates the fridge by centuries.
+locale: uz-latn
+---
+guruch
+devzira guruchi
+qoʻy goʻshti
+mol goʻshti
+tovuq goʻshti
+qiyma
+dumba
+paxta yogʻi
+zigʻir yogʻi
+sariyogʻ
+un
+xamir
+tuxum
+sut
+qaymoq
+qatiq
+suzma
+qurt
+pishloq
+tvorog
+asal
+shakar
+tuz
+suv
+sirka
+tomat pastasi
+soya sousi
+qora murch
+zira
+kashnich urugʻi
+mayiz
+danak magʻzi
+yongʻoq
+bodom
+pista
+kunjut
+sedana
+xamirturush
+soda
+kraxmal

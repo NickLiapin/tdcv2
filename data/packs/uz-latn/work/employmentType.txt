@@ -1,0 +1,15 @@
+---
+description: Employment type (Uzbek). Mehnat shartnomasi is the standard written employment contract; fuqarolik-huquqiy shartnoma is the civil-law contract used for one-off work; and YaTT — a registered individual entrepreneur — is how a very large share of Uzbeks in trade and services are formally engaged.
+locale: uz-latn
+---
+toʻliq stavka
+yarim stavka
+mehnat shartnomasi
+muddatli shartnoma
+muddatsiz shartnoma
+fuqarolik-huquqiy shartnoma
+oʻrindoshlik
+mavsumiy ish
+vaqtinchalik ish
+amaliyotchi
+YaTT

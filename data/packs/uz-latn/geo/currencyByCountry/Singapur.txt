@@ -1,0 +1,5 @@
+---
+description: Currency of Singapur (Uzbek)
+locale: uz-latn
+---
+Singapur dollari

@@ -1,0 +1,5 @@
+---
+description: Capital of Indoneziya (Uzbek)
+locale: uz-latn
+---
+Jakarta

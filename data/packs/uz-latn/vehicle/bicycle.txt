@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Uzbek).
+locale: uz-latn
+---
+shahar velosipedi
+togʻ velosipedi
+yoʻl velosipedi
+gibrid velosiped
+elektrovelosiped
+yuk velosipedi
+bolalar velosipedi
+oʻsmirlar velosipedi
+uch gʻildirakli velosiped
+buklanadigan velosiped
+sport velosipedi
+trek velosipedi
+turistik velosiped
+BMX
+tandem
+qoʻshimcha gʻildirakli velosiped
+ijara velosipedi

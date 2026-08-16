@@ -1,0 +1,12 @@
+---
+description: Time of day (Uzbek).
+locale: uz-latn
+---
+tong
+ertalab
+tush
+tushdan keyin
+kechqurun
+kech
+tun
+yarim tun

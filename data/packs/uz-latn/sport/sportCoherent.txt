@@ -1,0 +1,12 @@
+---
+description: Sport, as the parent of positionBySport. TWO OF THESE EIGHT ARE NATIONAL AND HAVE NO EUROPEAN EQUIVALENT. Kurash is Uzbek jacket wrestling, fought standing, with its own international federation headquartered in Tashkent and its own Uzbek-language commands — halol, yonbosh, chala — used at every tournament in the world. Koʻpkari is the mounted game in which riders contest a goat carcass across open ground; it fills winter Sundays in the countryside and is organised by mahalla and by wealthy sponsors rather than by a league. Boks, judo and ogʻir atletika are here because they are where Uzbekistan actually wins Olympic medals.
+locale: uz-latn
+---
+Futbol
+Kurash
+Koʻpkari
+Boks
+Judo
+Voleybol
+Basketbol
+Ogʻir atletika

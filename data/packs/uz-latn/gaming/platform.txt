@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Hardware brand names keep their real spelling.
+locale: uz-latn
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+Android
+iOS
+brauzer
+onlayn klub

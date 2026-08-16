@@ -1,0 +1,5 @@
+---
+description: Currency code of Filippin
+locale: uz-latn
+---
+PHP

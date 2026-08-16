@@ -1,0 +1,39 @@
+---
+description: Playing position or sporting role (Uzbek), across sports.
+locale: uz-latn
+---
+darvozabon
+himoyachi
+markaziy himoyachi
+qanot himoyachisi
+yarim himoyachi
+hujumchi
+markaziy hujumchi
+qanot hujumchisi
+jamoa sardori
+zaxira oʻyinchi
+libero
+bogʻlovchi
+blokchi
+razvodyashchiy
+forvard
+markaziy oʻyinchi
+polvon
+chavandoz
+boksyor
+judochi
+shtangachi
+yuguruvchi
+sakrovchi
+uloqtiruvchi
+suzuvchi
+velosipedchi
+konkichi
+shaxmatchi
+otuvchi
+kamonchi
+qilichboz
+bosh murabbiy
+murabbiy
+yordamchi murabbiy
+sekundant

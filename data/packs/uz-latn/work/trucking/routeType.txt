@@ -1,0 +1,11 @@
+---
+description: Freight route type (Uzbek).
+locale: uz-latn
+---
+shahar ichida
+viloyat ichida
+viloyatlararo
+xalqaro
+tranzit
+qaytish reysi
+uzoq masofa

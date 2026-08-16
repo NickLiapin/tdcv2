@@ -1,0 +1,5 @@
+---
+description: Capital of Iroq (Uzbek)
+locale: uz-latn
+---
+Bagʻdod

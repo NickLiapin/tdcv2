@@ -1,0 +1,16 @@
+---
+description: Mobile tariff plan type (Uzbek).
+locale: uz-latn
+---
+oldindan toʻlov
+keyin toʻlov
+cheklanmagan internet
+paketli tarif
+kunlik paket
+haftalik paket
+oylik paket
+oilaviy tarif
+korporativ tarif
+talabalar tarifi
+xalqaro qoʻngʻiroqlar paketi
+rouming paketi

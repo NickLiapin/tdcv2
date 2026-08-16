@@ -1,0 +1,36 @@
+---
+description: Vehicle type (Uzbek).
+locale: uz-latn
+---
+yengil avtomobil
+sedan
+xetchbek
+universal
+krossover
+yoʻltanlamas avtomobil
+pikap
+mikroavtobus
+avtobus
+shahar avtobusi
+marshrut taksi
+taksi
+yuk mashinasi
+tirkama
+yarim tirkama
+sisterna
+refrijerator
+samosval
+traktor
+kombayn
+ekskavator
+avtokran
+tez yordam mashinasi
+oʻt oʻchirish mashinasi
+mototsikl
+moped
+skuter
+velosiped
+elektrosamokat
+aravacha
+ot-arava
+tramvay

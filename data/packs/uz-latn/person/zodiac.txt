@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Uzbek). THESE ARE THE ARABIC-PERSIAN NAMES, not calques of the Latin ones: Hamal is the ram, Savr the bull, Javzo the twins, Saraton the crab, Asad the lion, Sunbula the ear of grain, Mezon the scales, Aqrab the scorpion, Qavs the bow, Jadi the kid, Dalv the water-carrier and Hut the fish. They came in with the Islamic astronomical tradition — Ulugʻbek's observatory at Samarqand used exactly this set — and a translator working from English will not arrive at them.
+locale: uz-latn
+---
+Hamal
+Savr
+Javzo
+Saraton
+Asad
+Sunbula
+Mezon
+Aqrab
+Qavs
+Jadi
+Dalv
+Hut

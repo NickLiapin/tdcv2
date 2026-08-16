@@ -1,0 +1,5 @@
+---
+description: Capital of Ukraina (Uzbek)
+locale: uz-latn
+---
+Kiyev

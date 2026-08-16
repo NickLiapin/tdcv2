@@ -1,0 +1,13 @@
+---
+description: Television content rating (Uzbek). The age markers follow the post-Soviet numeric convention rather than the American letter one.
+locale: uz-latn
+---
+0+
+6+
+12+
+16+
+18+
+oilaviy koʻrish uchun
+kattalar uchun
+ota-ona nazorati tavsiya etiladi
+cheklovsiz

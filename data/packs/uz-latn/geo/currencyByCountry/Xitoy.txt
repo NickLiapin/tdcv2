@@ -1,0 +1,5 @@
+---
+description: Currency of Xitoy (Uzbek)
+locale: uz-latn
+---
+Xitoy yuani

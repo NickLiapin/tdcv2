@@ -1,0 +1,14 @@
+---
+description: Dish of the tojik kitchen, named in Uzbek.
+locale: uz-latn
+---
+qurutob
+oshi palav
+sambusa
+mantu
+lagmon
+tuxum barak
+kaklik shoʻrva
+choʻpon oshi
+nisholda
+halvo

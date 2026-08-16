@@ -1,0 +1,39 @@
+---
+description: Music genre (Uzbek). SHASHMAQOM IS THE CLASSICAL TRADITION — six modal cycles of Bukhara and Samarqand, sung in Uzbek and Tajik, listed by UNESCO — and katta ashula is the open-air song of the Fergana valley, sung by two or three men holding a plate to the mouth to project the voice. Estrada is the post-Soviet pop mainstream and is what most contemporary Uzbek music is filed under.
+locale: uz-latn
+---
+shashmaqom
+maqom
+katta ashula
+lapar
+yalla
+alla
+terma
+doston
+qoʻshiq
+xalq qoʻshigʻi
+estrada
+zamonaviy pop
+retro
+rok
+metal
+alternativ
+xip-xop
+rep
+elektron musiqa
+disko
+xaus
+tehno
+dab-step
+jaz
+blyuz
+soul
+klassik musiqa
+opera
+simfonik musiqa
+kamera musiqasi
+xor musiqasi
+bolalar qoʻshiqlari
+diniy qoʻshiqlar
+kino musiqasi
+raqs musiqasi

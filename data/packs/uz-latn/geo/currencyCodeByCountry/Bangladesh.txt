@@ -1,0 +1,5 @@
+---
+description: Currency code of Bangladesh
+locale: uz-latn
+---
+BDT

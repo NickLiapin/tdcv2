@@ -1,0 +1,14 @@
+---
+description: Loan type (Uzbek). Mikroqarz — a small loan to an individual entrepreneur — is a major product here rather than a niche one, because so much of the economy runs through YaTT sole traders.
+locale: uz-latn
+---
+isteʼmol krediti
+ipoteka krediti
+avtokredit
+taʼlim krediti
+mikroqarz
+tadbirkorlik krediti
+qishloq xoʻjaligi krediti
+lizing
+overdraft
+kredit kartasi

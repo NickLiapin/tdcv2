@@ -1,0 +1,26 @@
+---
+description: Allergy (Uzbek).
+locale: uz-latn
+---
+paxta changi
+oʻsimlik changi
+uy changi
+mogʻor zamburugʻlari
+hayvon juni
+mushuk juni
+it juni
+asalari chaqishi
+penitsillin
+sulfanilamidlar
+analgin
+aspirin
+yodli preparatlar
+tuxum
+sut oqsili
+yongʻoq
+pista
+asal
+baliq
+soya
+gluten
+lateks

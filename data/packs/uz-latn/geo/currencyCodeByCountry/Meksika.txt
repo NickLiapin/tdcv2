@@ -1,0 +1,5 @@
+---
+description: Currency code of Meksika
+locale: uz-latn
+---
+MXN

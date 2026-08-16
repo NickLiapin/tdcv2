@@ -1,0 +1,28 @@
+---
+description: Short form of an Uzbek given name. DELIBERATELY SHORT: Uzbek does not have a fixed inventory of hypocoristics the way Russian or English does — it forms address terms productively instead, by attaching -jon (soul), -bek, -xon or -oy to the full name, or by using the kinship words aka and opa after it, so Sardor becomes Sardorjon and Dilnoza becomes Dilnozaxon rather than being clipped. What follows is the clipped forms that are genuinely in general use, plus the Russian-period -ik and -ya diminutives still heard in the cities. Mamat, from Muhammad, is the oldest of them and is fossilised in surnames like Mamatov and Matyoqubov.
+locale: uz-latn
+---
+Mamat
+Abdi
+Ali
+Baxti
+Doni
+Rahmat
+Xayri
+Zulfi
+Zebi
+Nilu
+Nodi
+Shahri
+Toshi
+Xoli
+Gulya
+Dilya
+Alik
+Rustik
+Bek
+Boti
+Jonim
+Bobo
+Oyi
+Akajon

@@ -1,0 +1,22 @@
+---
+description: Cat breed (Uzbek). Breed names are international loans; there is no native Uzbek breed, and most household cats are simply called koʻcha mushugi, a street cat.
+locale: uz-latn
+---
+fors mushugi
+siyam mushugi
+britan mushugi
+mayn-kun
+sfinks
+bengal mushugi
+rus koʻk mushugi
+abissin mushugi
+turk angorasi
+shotland vislouxi
+norveg oʻrmon mushugi
+sibir mushugi
+bombey mushugi
+ragdoll
+egey mushugi
+koʻcha mushugi
+uy mushugi
+qora mushuk

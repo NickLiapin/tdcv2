@@ -1,0 +1,29 @@
+---
+description: Gemstone (Uzbek). FIRUZA AND LOJUVARD ARE NOT DECORATIVE ENTRIES: turquoise and lapis lazuli were mined and traded across this region for four thousand years, lapis coming out of Badakhshan and travelling the Silk Road to Egypt, and the turquoise blue of the Samarqand and Buxoro domes is named after the stone rather than the other way round.
+locale: uz-latn
+---
+firuza
+lojuvard
+aqiq
+yashma
+marvarid
+olmos
+zumrad
+yoqut
+laʼl
+ametist
+topaz
+granat
+malaxit
+opal
+sapfir
+oniks
+marjon
+kahrabo
+turmalin
+sitrin
+nefrit
+obsidian
+yoʻlbars koʻzi
+xrizolit
+togʻ xrustali

@@ -1,0 +1,12 @@
+---
+description: Position or role in Judo, in Uzbek.
+locale: uz-latn
+---
+judochi
+tatami hakami
+yon hakam
+bosh murabbiy
+yengil vazn
+oʻrta vazn
+ogʻir vazn
+zaxira sportchi

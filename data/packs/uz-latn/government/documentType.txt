@@ -1,0 +1,32 @@
+---
+description: Kind of official document (Uzbek). IDENTITY DOCUMENTS AND THEIR NUMBER FORMATS ARE DELIBERATELY ABSENT: the passport, the ID card, the taxpayer number and the personal identification number are national institutions with national formats and belong to a country pack, not to a language pack. What is left is the vocabulary of paperwork itself. Note farmon and qaror: a farmon is a presidential decree and a qaror a governmental resolution, and Uzbek keeps them strictly apart.
+locale: uz-latn
+---
+guvohnoma
+maʼlumotnoma
+buyruq
+qaror
+farmon
+nizom
+qoida
+yoʻriqnoma
+shartnoma
+bitim
+bayonnoma
+dalolatnoma
+ariza
+shikoyat
+tushuntirish xati
+hisobot
+litsenziya
+ruxsatnoma
+sertifikat
+diplom
+attestat
+tavsifnoma
+tavsiyanoma
+ishonchnoma
+vasiyatnoma
+nikoh guvohnomasi
+tugʻilganlik haqidagi guvohnoma
+mehnat daftarchasi

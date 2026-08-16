@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Uzbek).
+locale: uz-latn
+---
+bir kishilik xona
+ikki kishilik xona
+uch kishilik xona
+oilaviy xona
+lyuks
+yarim lyuks
+studiya
+apartament
+milliy uslubdagi xona
+hovliga qaragan xona
+bogʻga qaragan xona
+balkonli xona
+ulanadigan xonalar
+umumiy yotoqxona
+mehmon uyi xonasi
+yurta
+bir kecha uchun xona
+uzoq muddatli xona

@@ -1,0 +1,204 @@
+---
+description: Country and territory names (Uzbek). Translated, not transliterated — Germany is Germaniya, Greece is Yunoniston, the United States is Amerika Qoʻshma Shtatlari, Egypt is Misr. The -iston ending (Qozogʻiston, Hindiston, Afgʻoniston, Tojikiston) is Persian for land of and is used far more widely in Uzbek than -land is in English. Uzbekistan's own name heads the list, as it does in every Uzbek reference book.
+locale: uz-latn
+---
+Oʻzbekiston
+Afgʻoniston
+Albaniya
+Aljazoir
+Amerika Qoʻshma Shtatlari
+Andorra
+Angola
+Antigua va Barbuda
+Argentina
+Armaniston
+Avstraliya
+Avstriya
+Ozarbayjon
+Bagam orollari
+Bahrayn
+Bangladesh
+Barbados
+Belarus
+Belgiya
+Beliz
+Benin
+Butan
+Boliviya
+Bosniya va Gertsegovina
+Botsvana
+Braziliya
+Bruney
+Bolgariya
+Burkina-Faso
+Burundi
+Kabo-Verde
+Kambodja
+Kamerun
+Kanada
+Markaziy Afrika Respublikasi
+Chad
+Chili
+Xitoy
+Kolumbiya
+Komor orollari
+Kongo Respublikasi
+Kongo Demokratik Respublikasi
+Kosta-Rika
+Kot-divuar
+Xorvatiya
+Kuba
+Kipr
+Chexiya
+Daniya
+Jibuti
+Dominika
+Dominikan Respublikasi
+Ekvador
+Misr
+Salvador
+Ekvatorial Gvineya
+Eritreya
+Estoniya
+Esvatini
+Efiopiya
+Fiji
+Finlandiya
+Fransiya
+Gabon
+Gambiya
+Gruziya
+Germaniya
+Gana
+Yunoniston
+Grenada
+Gvatemala
+Gvineya
+Gvineya-Bisau
+Gayana
+Gaiti
+Gonduras
+Vengriya
+Islandiya
+Hindiston
+Indoneziya
+Eron
+Iroq
+Irlandiya
+Isroil
+Italiya
+Yamayka
+Yaponiya
+Iordaniya
+Qozogʻiston
+Keniya
+Kiribati
+Kuvayt
+Qirgʻiziston
+Laos
+Latviya
+Livan
+Lesoto
+Liberiya
+Liviya
+Lixtenshteyn
+Litva
+Lyuksemburg
+Madagaskar
+Malavi
+Malayziya
+Maldiv orollari
+Mali
+Malta
+Marshall orollari
+Mavritaniya
+Mavrikiy
+Meksika
+Mikroneziya
+Moldova
+Monako
+Mongoliya
+Chernogoriya
+Marokash
+Mozambik
+Myanma
+Namibiya
+Nauru
+Nepal
+Niderlandiya
+Yangi Zelandiya
+Nikaragua
+Niger
+Nigeriya
+Shimoliy Makedoniya
+Shimoliy Koreya
+Norvegiya
+Ummon
+Pokiston
+Palau
+Falastin
+Panama
+Papua - Yangi Gvineya
+Paragvay
+Peru
+Filippin
+Polsha
+Portugaliya
+Qatar
+Ruminiya
+Rossiya
+Ruanda
+Sent-Kits va Nevis
+Sent-Lyusiya
+Samoa
+San-Marino
+San-Tome va Prinsipi
+Saudiya Arabistoni
+Senegal
+Serbiya
+Seyshel orollari
+Syerra-Leone
+Singapur
+Slovakiya
+Sloveniya
+Solomon orollari
+Somali
+Janubiy Afrika Respublikasi
+Janubiy Koreya
+Janubiy Sudan
+Ispaniya
+Shri-Lanka
+Sudan
+Surinam
+Shvetsiya
+Shveytsariya
+Suriya
+Tojikiston
+Tanzaniya
+Tailand
+Sharqiy Timor
+Togo
+Tonga
+Trinidad va Tobago
+Tunis
+Turkiya
+Turkmaniston
+Tuvalu
+Uganda
+Ukraina
+Birlashgan Arab Amirliklari
+Buyuk Britaniya
+Urugvay
+Vanuatu
+Vatikan
+Venesuela
+Vetnam
+Yaman
+Zambiya
+Zimbabve
+Gonkong
+Makao
+Tayvan
+Puerto-Riko
+Grenlandiya
+Kosovo

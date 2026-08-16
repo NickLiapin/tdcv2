@@ -1,0 +1,14 @@
+---
+description: Dish of the italyan kitchen, named in Uzbek.
+locale: uz-latn
+---
+pitsa
+spagetti
+lazanya
+rizotto
+karbonara
+minestrone
+brusketta
+tiramisu
+ravioli
+panna kotta

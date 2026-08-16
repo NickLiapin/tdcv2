@@ -1,0 +1,5 @@
+---
+description: Currency of Daniya (Uzbek)
+locale: uz-latn
+---
+Daniya kronasi

@@ -1,0 +1,5 @@
+---
+description: Currency of Iroq (Uzbek)
+locale: uz-latn
+---
+Iroq dinori

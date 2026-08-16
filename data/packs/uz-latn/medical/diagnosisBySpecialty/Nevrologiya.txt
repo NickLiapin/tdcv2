@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in Nevrologiya, in Uzbek.
+locale: uz-latn
+---
+Migren
+Epilepsiya
+Insult
+Miya qon aylanishining oʻtkir buzilishi
+Parkinson kasalligi
+Altsgeymer kasalligi
+Tarqoq skleroz
+Nevropatiya
+Radikulit
+Bel osteoxondrozi
+Uch shoxli nerv nevralgiyasi
+Vertigo

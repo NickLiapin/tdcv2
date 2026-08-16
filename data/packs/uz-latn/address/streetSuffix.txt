@@ -1,0 +1,40 @@
+---
+description: Uzbek thoroughfare type — like Turkish, Uzbek puts it AFTER the name (Alisher Navoiy koʻchasi, Amir Temur xiyoboni, Mustaqillik maydoni). WHERE THIS DIFFERS FROM TURKISH AND AZERBAIJANI, AND IT MATTERS FOR A CONFIG: the form below is the noun plus the third-person possessive, and in Uzbek that suffix DOES NOT HARMONISE. Standard Uzbek has lost vowel harmony, so the ending is -si after a vowel and -i after a consonant and nothing else — koʻcha + si, yoʻl + i, maydon + i, xiyobon + i — where Azerbaijani has to choose between -ı, -i, -u and -ü by the last vowel of the noun. That makes Uzbek street suffixes mechanically predictable. The prospekt / massiv / kvartal block came in through Russian.
+locale: uz-latn
+---
+koʻchasi
+koʻch.
+shoh koʻchasi
+tor koʻchasi
+berk koʻchasi
+xiyoboni
+xiyob.
+prospekti
+pr.
+bulvari
+maydoni
+guzari
+mavzesi
+massivi
+kvartali
+mahallasi
+dahasi
+yoʻli
+katta yoʻli
+halqa yoʻli
+oʻtish yoʻli
+tupigi
+tarmogʻi
+koʻprigi
+bekati
+oʻrmoni
+bogʻi
+sohili
+qirgʻogʻi
+darvozasi
+qatori
+rastasi
+burchagi
+soyi
+tepasi
+yonbagʻri

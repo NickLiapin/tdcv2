@@ -1,0 +1,46 @@
+---
+description: Professional skill (Uzbek). Uzbek names a skill with a verbal noun in -sh or a possessive phrase, so most of these read as an activity rather than a label.
+locale: uz-latn
+---
+loyiha boshqaruvi
+jamoada ishlash
+muzokara olib borish
+taqdimot tayyorlash
+hisobot yozish
+maʼlumot tahlili
+statistik tahlil
+byudjet tuzish
+moliyaviy hisob
+soliq hisoboti
+mijozlar bilan muloqot
+sotuv koʻnikmalari
+marketing strategiyasi
+brend boshqaruvi
+kontent yaratish
+ijtimoiy tarmoqlar
+tahrirlash
+tarjima
+notiqlik
+vaqtni boshqarish
+muammoni hal qilish
+qaror qabul qilish
+rahbarlik
+xodimlarni oʻqitish
+ishga qabul qilish
+sifat nazorati
+xavfsizlik texnikasi
+texnik hujjatlar
+chizmachilik
+dasturlash
+maʼlumotlar bazasi
+tarmoq sozlash
+bulutli texnologiyalar
+kiberxavfsizlik
+grafik dizayn
+video montaj
+fotosurat
+logistika rejalashtirish
+ombor hisobi
+shartnoma tuzish
+huquqiy tahlil
+tadqiqot oʻtkazish

@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Uzbek. Amounts are in soʻm (UZS), the Uzbek som, which is denominated in thousands — an ordinary monthly salary runs into the millions of soʻm — so the brackets below are written in millions and the whole range covers roughly 1,000 to 30,000 US dollars a year at 2025 rates. A locale pack cannot carry an exchange rate, so it carries the local numbers a payslip actually shows.
+locale: uz-latn
+---
+15 mln soʻmdan kam
+15–30 mln soʻm
+30–50 mln soʻm
+50–80 mln soʻm
+80–120 mln soʻm
+120–200 mln soʻm
+200–350 mln soʻm
+350 mln soʻmdan yuqori

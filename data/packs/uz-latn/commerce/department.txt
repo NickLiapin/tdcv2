@@ -1,0 +1,54 @@
+---
+description: Store department (Uzbek). The first block is what a bazaar is actually divided into — Uzbek retail still runs largely through the covered bazaar, where each rasta (row) sells one thing — and the rest are the aisles of a modern supermarket.
+locale: uz-latn
+---
+oziq-ovqat
+non mahsulotlari
+goʻsht rastasi
+baliq rastasi
+sut mahsulotlari
+meva-sabzavot
+quruq mevalar
+ziravorlar
+choy va qahva
+shirinliklar
+ichimliklar
+konservalar
+yorma va un
+tuxum
+muzlatilgan mahsulotlar
+tamaki mahsulotlari
+maishiy kimyo
+gigiyena vositalari
+kosmetika
+atir-upa
+dorixona
+bolalar tovarlari
+oʻyinchoqlar
+kiyim-kechak
+erkaklar kiyimi
+ayollar kiyimi
+bolalar kiyimi
+poyabzal
+sport tovarlari
+sumka va aksessuarlar
+zargarlik buyumlari
+milliy kiyimlar
+gazlama rastasi
+uy tekstili
+idish-tovoq
+mebel
+maishiy texnika
+elektronika
+kompyuter texnikasi
+mobil telefonlar
+qurilish materiallari
+asboblar
+bogʻ tovarlari
+avtomobil ehtiyot qismlari
+kanselyariya
+kitoblar
+gullar
+hayvonlar uchun tovarlar
+antikvariat
+hunarmandchilik buyumlari

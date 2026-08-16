@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in Onkologiya, in Uzbek.
+locale: uz-latn
+---
+Oshqozon saratoni
+Oʻpka saratoni
+Sut bezi saratoni
+Bachadon boʻyni saratoni
+Yoʻgʻon ichak saratoni
+Jigar saratoni
+Qalqonsimon bez saratoni
+Prostata saratoni
+Leykoz
+Limfoma
+Teri melanomasi
+Qiziloʻngach saratoni

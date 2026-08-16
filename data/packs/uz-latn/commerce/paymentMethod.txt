@@ -1,0 +1,19 @@
+---
+description: Payment method (Uzbek). BOʻLIB TOʻLASH — paying in interest-free instalments arranged at the till — is the single most common way large purchases are made in Uzbekistan and has no direct European counterpart; nasiya is its older informal cousin, a running tab kept by a neighbourhood shopkeeper on trust. The national card schemes and the domestic payment apps are DELIBERATELY NOT LISTED HERE: they are named institutions and belong to a country pack, not to the language.
+locale: uz-latn
+---
+naqd pul
+plastik karta
+bank kartasi
+bank oʻtkazmasi
+onlayn toʻlov
+mobil ilova orqali toʻlov
+QR-kod orqali toʻlov
+toʻlov terminali
+boʻlib toʻlash
+nasiya
+kredit
+lizing
+avans
+hisob-faktura boʻyicha
+yetkazib berishda toʻlash

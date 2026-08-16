@@ -1,0 +1,24 @@
+---
+description: Job title in the Sogʻliqni saqlash sector, in Uzbek.
+locale: uz-latn
+---
+shifokor
+oilaviy shifokor
+jarroh
+pediatr
+akusher-ginekolog
+kardiolog
+nevropatolog
+stomatolog
+oftalmolog
+anesteziolog
+radiolog
+laborant
+hamshira
+feldsher
+akusherka
+farmatsevt
+sanitar
+tez yordam shifokori
+epidemiolog
+bosh vrach

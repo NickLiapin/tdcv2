@@ -1,0 +1,5 @@
+---
+description: Currency code of Singapur
+locale: uz-latn
+---
+SGD

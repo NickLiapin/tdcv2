@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Uzbek). Three or four letters with no full stop; Dush and Sesh both need four because Du- and Se- alone would not be readable.
+locale: uz-latn
+---
+Yak
+Dush
+Sesh
+Chor
+Pay
+Jum
+Shan

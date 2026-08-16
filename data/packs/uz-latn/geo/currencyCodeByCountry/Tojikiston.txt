@@ -1,0 +1,5 @@
+---
+description: Currency code of Tojikiston
+locale: uz-latn
+---
+TJS

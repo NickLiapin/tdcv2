@@ -1,0 +1,29 @@
+---
+description: Mobile and fixed carrier. UZBEKISTAN'S OWN MOBILE OPERATORS ARE DELIBERATELY NOT LISTED: telephony is a national institution — licensed operators, national numbering plan, national prefixes — and belongs to a country pack, not to a language pack. What is listed is the international carriers a roaming record would show, plus the Uzbek words for kinds of operator, which is the part that really is language data.
+locale: uz-latn
+---
+uyali aloqa operatori
+statsionar aloqa operatori
+internet-provayder
+sunʼiy yoʻldosh aloqasi operatori
+virtual operator
+optik tolali provayder
+kabelli televidenie operatori
+xalqaro operator
+Vodafone
+MTS
+Beeline
+Megafon
+Tele2
+Kcell
+Kyivstar
+T-Mobile
+Orange
+Turkcell
+China Mobile
+Etisalat
+Zain
+STC
+Airtel
+Jio
+NTT Docomo

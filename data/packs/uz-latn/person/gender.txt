@@ -1,0 +1,8 @@
+---
+description: Gender label (Uzbek). Four values, matching en and ru. Uzbek has NO grammatical gender: these are lexical labels, not agreement categories.
+locale: uz-latn
+---
+Erkak
+Ayol
+Boshqa
+Koʻrsatilmagan

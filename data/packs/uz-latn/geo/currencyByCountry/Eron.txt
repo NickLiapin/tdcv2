@@ -1,0 +1,5 @@
+---
+description: Currency of Eron (Uzbek)
+locale: uz-latn
+---
+Eron rioli

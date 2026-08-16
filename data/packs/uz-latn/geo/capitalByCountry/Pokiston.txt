@@ -1,0 +1,5 @@
+---
+description: Capital of Pokiston (Uzbek)
+locale: uz-latn
+---
+Islomobod

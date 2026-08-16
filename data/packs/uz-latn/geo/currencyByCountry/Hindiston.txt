@@ -1,0 +1,5 @@
+---
+description: Currency of Hindiston (Uzbek)
+locale: uz-latn
+---
+Hindiston rupiyasi

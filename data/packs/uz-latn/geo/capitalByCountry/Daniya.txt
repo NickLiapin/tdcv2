@@ -1,0 +1,5 @@
+---
+description: Capital of Daniya (Uzbek)
+locale: uz-latn
+---
+Kopengagen

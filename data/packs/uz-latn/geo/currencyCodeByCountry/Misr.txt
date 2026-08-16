@@ -1,0 +1,5 @@
+---
+description: Currency code of Misr
+locale: uz-latn
+---
+EGP

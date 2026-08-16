@@ -1,0 +1,37 @@
+---
+description: Common adverb (Uzbek).
+locale: uz-latn
+---
+hozir
+keyin
+avval
+bugun
+kecha
+ertaga
+doim
+hech qachon
+baʼzan
+tez-tez
+kamdan-kam
+darhol
+sekin
+tez
+birga
+alohida
+yaqin
+uzoq
+yuqorida
+pastda
+ichkarida
+tashqarida
+oldinda
+orqada
+chapda
+oʻngda
+juda
+biroz
+mutlaqo
+albatta
+balki
+shunday
+qanday

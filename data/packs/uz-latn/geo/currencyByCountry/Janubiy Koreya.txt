@@ -1,0 +1,5 @@
+---
+description: Currency of Janubiy Koreya (Uzbek)
+locale: uz-latn
+---
+Janubiy Koreya voni

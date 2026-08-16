@@ -1,0 +1,16 @@
+---
+description: Mark / grade (Uzbek). SCHOOLS USE A FIVE-POINT SCALE inherited from the Soviet system, in which 5 is the best and 2 is a fail; there is no 1 in practice. Universities have moved to a 100-point rating with letter equivalents, so a real dataset will contain both. The word forms — aʼlo, yaxshi, qoniqarli, qoniqarsiz — are what appears on a school report next to the number.
+locale: uz-latn
+---
+5
+4
+3
+2
+aʼlo
+yaxshi
+qoniqarli
+qoniqarsiz
+oʻtdi
+oʻtmadi
+hisobga olindi
+hisobga olinmadi

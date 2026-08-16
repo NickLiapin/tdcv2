@@ -1,0 +1,165 @@
+---
+description: Product noun (Uzbek).
+locale: uz-latn
+---
+stol
+stul
+kreslo
+divan
+karavot
+shkaf
+javon
+tokcha
+komod
+oyna
+gilam
+palos
+koʻrpa
+koʻrpacha
+yostiq
+choyshab
+adyol
+sandiq
+palak
+dastarxon
+choynak
+piyola
+kosa
+lagan
+tovoq
+qoshiq
+sanchqi
+pichoq
+qozon
+tova
+tagcha
+choygum
+termos
+banka
+shisha
+stakan
+chashka
+qumgʻon
+supurgi
+xoʻjalik choʻtkasi
+paqir
+tos
+elak
+oʻqlogʻi
+xamir taxtasi
+kesish taxtasi
+tarozi
+muzlatgich
+gaz plitasi
+elektr plita
+pech
+mikrotoʻlqinli pech
+choy qaynatgich
+blender
+mikser
+goʻsht maydalagich
+kir yuvish mashinasi
+idish yuvish mashinasi
+changyutgich
+dazmol
+konditsioner
+isitgich
+ventilyator
+televizor
+radio
+kolonka
+naushnik
+telefon
+smartfon
+planshet
+noutbuk
+kompyuter
+monitor
+klaviatura
+sichqoncha
+printer
+skaner
+router
+zaryadlovchi
+quvvat banki
+kabel
+fleshka
+xotira kartasi
+fotoapparat
+videokamera
+soat
+qoʻl soati
+devor soati
+budilnik
+kalkulyator
+daftar
+qalam
+ruchka
+oʻchirgʻich
+chizgʻich
+qalamdon
+sumka
+ryukzak
+chamadon
+hamyon
+kalitdon
+soyabon
+koʻzoynak
+quyoshdan saqlovchi koʻzoynak
+qalpoq
+doʻppi
+roʻmol
+sharf
+qoʻlqop
+paypoq
+koʻylak
+shim
+kurtka
+palto
+etik
+tufli
+krossovka
+shippak
+sochiq
+sovun
+shampun
+tish pastasi
+tish choʻtkasi
+ustara
+atir
+krem
+pardoz vositasi
+soch turmagi
+taroq
+oyna ramkasi
+sham
+gulchambar
+vaza
+guldon
+suv idishi
+oʻyinchoq
+qoʻgʻirchoq
+mashinacha
+konstruktor
+koptok
+velosiped
+samokat
+chana
+sport anjomlari
+gantel
+gilamcha
+palatka
+uxlash qopi
+fonar
+pichoqcha
+arqon
+asbob toʻplami
+bolgʻa
+tornavida
+kalit
+mix
+vint
+elim
+boʻyoq
+moʻyqalam
+lenta

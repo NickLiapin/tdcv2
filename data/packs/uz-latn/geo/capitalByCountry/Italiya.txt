@@ -1,0 +1,5 @@
+---
+description: Capital of Italiya (Uzbek)
+locale: uz-latn
+---
+Rim

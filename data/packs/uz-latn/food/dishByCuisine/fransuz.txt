@@ -1,0 +1,14 @@
+---
+description: Dish of the fransuz kitchen, named in Uzbek.
+locale: uz-latn
+---
+kruassan
+ratatuy
+kish
+buyabes
+piyoz shoʻrvasi
+kok-o-ven
+ekler
+krem-brule
+bagetka
+mus

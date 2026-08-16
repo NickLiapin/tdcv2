@@ -1,0 +1,15 @@
+---
+description: Recruitment interview stage (Uzbek).
+locale: uz-latn
+---
+rezyume koʻrib chiqish
+telefon suhbati
+onlayn suhbat
+HR bilan suhbat
+texnik suhbat
+test topshirigʻi
+amaliy sinov
+rahbar bilan suhbat
+yakuniy suhbat
+tavsiyanomalarni tekshirish
+taklif yuborish

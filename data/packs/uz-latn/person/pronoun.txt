@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Uzbek). UZBEK HAS NO GRAMMATICAL GENDER AT ALL: the single pronoun u covers he, she and it, and nothing in the language — no adjective, no verb, no article, of which there are none — agrees with the sex of a referent. A config that needs he or she in Uzbek output cannot get it from the pronoun and must name the person or say erkak / ayol. Uzbek is agglutinative and has NO PREPOSITIONS: what English puts before a noun, Uzbek puts after it as a case suffix or a postposition — Toshkentda (in Tashkent), Toshkentdan (from Tashkent), Toshkent uchun (for Tashkent). VOWEL HARMONY IS LARGELY LOST in the standard language, unlike Turkish or Kyrgyz: the plural is -lar everywhere, never -ler, and the locative is -da everywhere, never -de. That single fact makes Uzbek suffixes far easier to attach mechanically than Turkish ones.
+locale: uz-latn
+---
+men
+sen
+u
+biz
+siz
+ular
+oʻz
+oʻzi

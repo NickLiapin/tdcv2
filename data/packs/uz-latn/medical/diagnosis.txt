@@ -1,0 +1,86 @@
+---
+description: Medical diagnosis in Uzbek that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale / diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. The clinical vocabulary is Russian-mediated Latin, which is why it reads closer to a Russian chart than to a Turkish one. Sil kasalligi (tuberculosis), echinococcosis and brucellosis stay on a working Uzbek list in a way they no longer do on a Western European one.
+locale: uz-latn
+---
+Arterial gipertenziya
+Yurak ishemik kasalligi
+Miokard infarkti
+Stenokardiya
+Yurak yetishmovchiligi
+Aritmiya
+Ateroskleroz
+Insult
+Migren
+Epilepsiya
+Nevropatiya
+Radikulit
+Bel osteoxondrozi
+Vertigo
+1-tur qandli diabet
+2-tur qandli diabet
+Gipotireoz
+Gipertireoz
+Endemik boʻqoq
+Semizlik
+Metabolik sindrom
+Podagra
+Osteoporoz
+Osteoartroz
+Revmatoid artrit
+Skolioz
+Umurtqa churrasi
+Suyak sinishi
+Surunkali gastrit
+Oshqozon yarasi
+Gastroezofageal reflyuks
+Oʻt-tosh kasalligi
+Xoletsistit
+Pankreatit
+Yogʻli gepatoz
+Jigar sirrozi
+Gepatit A
+Gepatit B
+Gepatit C
+Yaraviy kolit
+Surunkali buyrak yetishmovchiligi
+Glomerulonefrit
+Pielonefrit
+Buyrak toshi kasalligi
+Siydik yoʻllari infeksiyasi
+Bronxial astma
+Surunkali obstruktiv oʻpka kasalligi
+Oʻtkir bronxit
+Pnevmoniya
+Sil kasalligi
+Oʻpka emfizemasi
+Plevrit
+Allergik rinit
+Sinusit
+Otit
+Tonzillit
+Faringit
+Gripp
+Oʻtkir respirator infeksiya
+Kovid-19
+Ich terlama
+Dizenteriya
+Salmonellyoz
+Bruselyoz
+Exinokokkoz
+Gijja invaziyasi
+Kuydirgi
+Anemiya
+Temir tanqisligi anemiyasi
+Leykoz
+Limfoma
+Depressiya
+Tashvish buzilishi
+Uyqusizlik
+Atopik dermatit
+Psoriaz
+Ekzema
+Konyunktivit
+Katarakta
+Glaukoma
+Miyopiya
+Karlik

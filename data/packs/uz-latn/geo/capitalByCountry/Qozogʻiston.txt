@@ -1,0 +1,5 @@
+---
+description: Capital of Qozogʻiston (Uzbek)
+locale: uz-latn
+---
+Ostona

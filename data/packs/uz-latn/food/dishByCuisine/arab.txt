@@ -1,0 +1,14 @@
+---
+description: Dish of the arab kitchen, named in Uzbek.
+locale: uz-latn
+---
+hummus
+falafel
+shaurma
+kabsa
+mansaf
+tabbula
+mutabbal
+mahshi
+knafe
+kunafa

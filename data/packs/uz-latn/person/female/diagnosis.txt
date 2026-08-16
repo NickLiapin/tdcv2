@@ -1,0 +1,31 @@
+---
+description: Medical diagnosis in Uzbek for a female patient — the sex-specific conditions first, then common ones, for a single-column patient record.
+locale: uz-latn
+---
+Endometrioz
+Bachadon miomasi
+Adenomioz
+Tuxumdon kistasi
+Polikistoz tuxumdon sindromi
+Sut bezi fibrokistoz kasalligi
+Sut bezi saratoni
+Bachadon boʻyni saratoni
+Tuxumdon saratoni
+Bachadon tushishi
+Ayollar bepushtligi
+Gestatsion diabet
+Preeklampsiya
+Homiladorlik anemiyasi
+Klimakterik sindrom
+Osteoporoz
+Disfunksional bachadon qonashi
+Vulvovaginit
+Mastopatiya
+Arterial gipertenziya
+Qalqonsimon bez giperplaziyasi
+Temir tanqisligi anemiyasi
+Surunkali sistit
+Migren
+Revmatoid artrit
+Venalar varikozi
+2-tur qandli diabet

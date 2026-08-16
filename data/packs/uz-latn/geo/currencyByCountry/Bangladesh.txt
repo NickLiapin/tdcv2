@@ -1,0 +1,5 @@
+---
+description: Currency of Bangladesh (Uzbek)
+locale: uz-latn
+---
+Bangladesh takasi

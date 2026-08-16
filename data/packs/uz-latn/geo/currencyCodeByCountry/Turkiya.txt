@@ -1,0 +1,5 @@
+---
+description: Currency code of Turkiya
+locale: uz-latn
+---
+TRY

@@ -1,0 +1,23 @@
+---
+description: Legal term (Uzbek).
+locale: uz-latn
+---
+daʼvo
+daʼvogar
+javobgar
+guvoh
+advokat
+prokuror
+sudya
+hakamlar hayʼati
+sud majlisi
+hukm
+qaror
+ajrim
+apellyatsiya shikoyati
+kassatsiya shikoyati
+ijro varaqasi
+sud ijrochisi
+notarial tasdiqlash
+ishonchnoma
+davlat boji

@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Uzbek, chorak).
+locale: uz-latn
+---
+I chorak
+II chorak
+III chorak
+IV chorak

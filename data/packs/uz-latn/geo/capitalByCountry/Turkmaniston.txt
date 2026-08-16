@@ -1,0 +1,5 @@
+---
+description: Capital of Turkmaniston (Uzbek)
+locale: uz-latn
+---
+Ashxobod

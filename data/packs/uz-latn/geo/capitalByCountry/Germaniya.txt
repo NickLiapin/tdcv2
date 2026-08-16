@@ -1,0 +1,5 @@
+---
+description: Capital of Germaniya (Uzbek)
+locale: uz-latn
+---
+Berlin

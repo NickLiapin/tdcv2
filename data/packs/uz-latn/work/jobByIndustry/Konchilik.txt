@@ -1,0 +1,24 @@
+---
+description: Job title in the Konchilik sector, in Uzbek.
+locale: uz-latn
+---
+kon muhandisi
+geolog
+markshayder
+burgʻulovchi
+portlatuvchi
+boyitish operatori
+konchi
+karyer ustasi
+laborant
+metallurg
+mineralog
+gidrogeolog
+kon elektrchisi
+ekskavator mashinisti
+samosval haydovchisi
+texnika xavfsizligi muhandisi
+smena boshligʻi
+konchilik texnologi
+namuna oluvchi
+kon dispetcheri

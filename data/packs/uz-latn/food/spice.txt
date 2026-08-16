@@ -1,0 +1,34 @@
+---
+description: Spice (Uzbek). ZIRA IS THE ONE THAT DEFINES THE CUISINE: cumin seed, crushed between the palms and dropped into palov, and an Uzbek cook will tell you a pilaf without it is not a pilaf. Sedana (nigella) goes on the bread, barbaris (barberry) into the rice, and sumalak is unrelated — that is a dish, not a spice.
+locale: uz-latn
+---
+zira
+qora murch
+oq murch
+qizil qalampir
+achchiq qalampir
+kashnich urugʻi
+sedana
+barbaris
+zanjabil
+doljin
+mixak
+hil
+zafaron
+kurkuma
+lavr bargi
+jambil
+rayhon
+ukrop urugʻi
+xantal
+sumak
+kunjut
+tuz
+sirka
+qora zira
+anzur piyoz
+yalpiz
+bodiyon
+muskat yongʻogʻi
+ziravor aralashmasi
+qizilmiya

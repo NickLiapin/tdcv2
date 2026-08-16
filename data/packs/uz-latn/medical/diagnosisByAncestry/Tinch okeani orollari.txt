@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the Tinch okeani orollari ancestry group, named in Uzbek.
+locale: uz-latn
+---
+2-tur qandli diabet
+Semizlik
+Podagra
+Revmatik isitma
+Yurak-qon tomir kasalliklari
+Buyrak yetishmovchiligi

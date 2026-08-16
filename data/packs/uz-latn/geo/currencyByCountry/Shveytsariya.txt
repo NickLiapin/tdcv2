@@ -1,0 +1,5 @@
+---
+description: Currency of Shveytsariya (Uzbek)
+locale: uz-latn
+---
+Shveytsariya franki

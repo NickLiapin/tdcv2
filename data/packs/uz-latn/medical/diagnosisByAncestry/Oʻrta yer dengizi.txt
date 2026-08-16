@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the Oʻrta yer dengizi ancestry group, named in Uzbek.
+locale: uz-latn
+---
+Beta talassemiya
+Oʻroqsimon hujayrali anemiya
+G6FD yetishmovchiligi
+Oilaviy Oʻrta yer dengizi isitmasi
+Laktoza intoleransi
+Gemoxromatoz

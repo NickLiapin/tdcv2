@@ -1,0 +1,28 @@
+---
+description: Game character class (Uzbek).
+locale: uz-latn
+---
+jangchi
+polvon
+kamonchi
+qilichboz
+nayzabor
+otliq
+choʻpon
+ovchi
+sehrgar
+folbin
+tabib
+shifokor
+qoʻriqchi
+himoyachi
+oʻgʻri
+josus
+savdogar
+karvonboshi
+hunarmand
+temirchi
+meʼmor
+bahodir
+alp
+sardor

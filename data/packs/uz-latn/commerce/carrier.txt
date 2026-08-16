@@ -1,0 +1,24 @@
+---
+description: Delivery carrier. The international couriers keep their real spelling, as brand names do in any locale; the rest are the Uzbek words for kinds of carrier. UZBEKISTAN'S OWN POSTAL OPERATOR AND ITS DOMESTIC DELIVERY COMPANIES ARE NOT LISTED: they are named national institutions and belong to a country pack.
+locale: uz-latn
+---
+DHL
+FedEx
+UPS
+TNT
+EMS
+DPD
+GLS
+Aramex
+SF Express
+Cainiao
+pochta xizmati
+kuryer xizmati
+tezkor yetkazib berish
+shahar ichi kuryeri
+yuk tashish kompaniyasi
+avtomobil tashuvchi
+temiryoʻl tashuvchi
+havo yuk tashuvchi
+ekspeditorlik kompaniyasi
+oʻz kuryerimiz

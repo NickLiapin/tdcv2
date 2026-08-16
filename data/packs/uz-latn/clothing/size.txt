@@ -1,0 +1,12 @@
+---
+description: Clothing size as an Uzbek label shows it. UZBEKISTAN USES THE POST-SOVIET NUMERIC SCALE, not the European 34-46 and not S/M/L: the number is roughly half the chest measurement in centimetres, so 48 is a medium man's shirt. Imported and online clothing carries S/M/L as well, so both are current and a real dataset will contain a mixture; the numeric run is listed here because it is what a domestic label prints.
+locale: uz-latn
+---
+42
+44
+46
+48
+50
+52
+54
+56

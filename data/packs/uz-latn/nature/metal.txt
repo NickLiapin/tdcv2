@@ -1,0 +1,27 @@
+---
+description: Metal (Uzbek). Oltin heads the list for a reason: Uzbekistan is among the world's ten largest gold producers and Muruntov in the Qizilqum is one of the largest open pits on earth. Uran and mis are the other two that matter to the economy.
+locale: uz-latn
+---
+oltin
+kumush
+mis
+temir
+poʻlat
+choʻyan
+qalay
+qoʻrgʻoshin
+rux
+alyuminiy
+nikel
+xrom
+volfram
+molibden
+titan
+platina
+palladiy
+uran
+simob
+marganets
+magniy
+latun
+bronza

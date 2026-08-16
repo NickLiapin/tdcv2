@@ -1,0 +1,12 @@
+---
+description: Mining method (Uzbek). Ochiq usul — open-pit — dominates in Uzbekistan: Muruntov, the country's main gold mine, is one of the largest open pits in the world, and kuydirish-eritish work happens on the same site.
+locale: uz-latn
+---
+ochiq usul
+yer osti usuli
+karyer usuli
+shaxta usuli
+burgʻulash va portlatish
+yer osti yuvish
+kimyoviy yuvish
+qumdan ajratish

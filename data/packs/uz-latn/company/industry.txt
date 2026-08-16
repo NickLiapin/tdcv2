@@ -1,0 +1,59 @@
+---
+description: Industry sector as an Uzbek company describes itself.
+locale: uz-latn
+---
+qishloq xoʻjaligi
+paxtachilik
+pillachilik
+chorvachilik
+bogʻdorchilik
+oziq-ovqat sanoati
+toʻqimachilik
+tikuvchilik
+charm va poyabzal
+kimyo sanoati
+neft-gaz sanoati
+gaz kimyosi
+energetika
+qayta tiklanuvchi energiya
+konchilik
+metallurgiya
+mashinasozlik
+avtomobilsozlik
+elektronika
+qurilish
+qurilish materiallari
+koʻchmas mulk
+transport
+temiryoʻl transporti
+havo transporti
+logistika
+ombor xizmatlari
+ulgurji savdo
+chakana savdo
+elektron tijorat
+bank ishi
+sugʻurta
+lizing
+investitsiya
+audit
+konsalting
+huquqiy xizmatlar
+axborot texnologiyalari
+dasturiy taʼminot
+telekommunikatsiya
+media
+nashriyot
+reklama
+marketing
+taʼlim
+sogʻliqni saqlash
+farmatsevtika
+turizm
+mehmonxona xizmati
+umumiy ovqatlanish
+sport
+madaniyat
+hunarmandchilik
+ekologiya
+davlat boshqaruvi

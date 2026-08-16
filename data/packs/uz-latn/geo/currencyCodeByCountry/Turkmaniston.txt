@@ -1,0 +1,5 @@
+---
+description: Currency code of Turkmaniston
+locale: uz-latn
+---
+TMT

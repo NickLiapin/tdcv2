@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Uzbek).
+locale: uz-latn
+---
+bepul Wi-Fi
+konditsioner
+isitish
+nonushta
+nonushta narxga kiritilgan
+milliy taomlar
+restoran
+choyxona
+bar
+avtoturargoh
+transfer
+aeroportga transfer
+lift
+xizmat koʻrsatish 24 soat
+xonaga xizmat
+kir yuvish xizmati
+utuklash
+seyf
+minibar
+televizor
+issiq suv
+hovli
+bogʻ
+basseyn
+sauna
+hammom
+fitnes zali
+konferensiya zali
+oilaviy xonalar
+nogironlar uchun sharoit

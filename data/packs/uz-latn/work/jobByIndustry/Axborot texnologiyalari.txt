@@ -1,0 +1,24 @@
+---
+description: Job title in the Axborot texnologiyalari sector, in Uzbek.
+locale: uz-latn
+---
+dasturchi
+frontend dasturchi
+backend dasturchi
+mobil ilova dasturchisi
+maʼlumotlar bazasi mutaxassisi
+tizim administratori
+tarmoq muhandisi
+DevOps muhandisi
+sifat nazorati muhandisi
+maʼlumotlar tahlilchisi
+sunʼiy intellekt muhandisi
+kiberxavfsizlik mutaxassisi
+UX dizayner
+veb-dizayner
+mahsulot menejeri
+loyiha menejeri
+texnik yozuvchi
+IT qoʻllab-quvvatlash mutaxassisi
+1C dasturchisi
+bosh texnologiya direktori

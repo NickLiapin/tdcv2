@@ -1,0 +1,11 @@
+---
+description: Weekday name (Uzbek), Sunday first as the formatter wants it; the Uzbek working week starts on Monday. THESE ARE PERSIAN AND THEY COUNT: -shanba is the Persian shanbe, day, and the number in front of it is the position in the week — dushanba is day two (Monday), seshanba day three, chorshanba day four, payshanba day five. That is why the capital of Tajikistan is called Dushanbe: it was the site of a Monday market. Only two days break the pattern, both borrowed rather than counted: juma, the Arabic name for the Friday congregational prayer, and yakshanba, day one.
+locale: uz-latn
+---
+yakshanba
+dushanba
+seshanba
+chorshanba
+payshanba
+juma
+shanba

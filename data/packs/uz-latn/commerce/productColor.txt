@@ -1,0 +1,58 @@
+---
+description: Colour as printed on a product label (Uzbek). Shorter and blunter than nature-derived colour vocabulary in color/name.txt, because a label must be unambiguous.
+locale: uz-latn
+---
+oq
+qora
+kulrang
+toʻq kulrang
+och kulrang
+qizil
+toʻq qizil
+och qizil
+qirmizi
+pushti
+och pushti
+toʻq pushti
+sariq
+och sariq
+toʻq sariq
+oltinrang
+jigarrang
+och jigarrang
+toʻq jigarrang
+qahvarang
+bej
+qaymoqrang
+sutrang
+koʻk
+toʻq koʻk
+och koʻk
+moviy
+zangori
+havorang
+firuza rang
+yashil
+toʻq yashil
+och yashil
+zaytunrang
+sabzarang
+binafsha
+toʻq binafsha
+siyohrang
+lojuvard rang
+kumushrang
+bronzarang
+misrang
+shaffof
+rangsiz
+koʻp rangli
+chizmali
+gulli
+katakli
+yoʻl-yoʻl
+xonatlas naqshli
+milliy naqshli
+metallik
+mat
+yaltiroq

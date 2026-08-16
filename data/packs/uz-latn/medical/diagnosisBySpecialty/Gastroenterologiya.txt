@@ -1,0 +1,16 @@
+---
+description: Diagnosis seen in Gastroenterologiya, in Uzbek.
+locale: uz-latn
+---
+Surunkali gastrit
+Oshqozon yarasi
+Oʻn ikki barmoqli ichak yarasi
+Gastroezofageal reflyuks
+Oʻt-tosh kasalligi
+Xoletsistit
+Pankreatit
+Yogʻli gepatoz
+Jigar sirrozi
+Virusli gepatit
+Yaraviy kolit
+Ichak disbakteriozi
