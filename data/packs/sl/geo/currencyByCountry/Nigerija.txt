@@ -1,0 +1,5 @@
+---
+description: Currency of Nigerija, named in Slovene
+locale: sl
+---
+nigerijska naira

@@ -1,0 +1,7 @@
+---
+address: philippines.docs.gsis
+description: GSIS Business Partner (BP) number — the identifier of a Philippine GOVERNMENT employee in the Government Service Insurance System, the state counterpart of the SSS. Eleven digits, which is the length printed under the holder's name on the GSIS eCard and the length the eGSISMO portal and the GSIS Touch app take at login. The name is a leftover from the SAP system GSIS runs on, where every registered party is a "business partner"; nobody outside GSIS calls it anything else, and a Filipino asked for a "BP number" knows immediately which agency is asking. GSIS AND SSS ARE MUTUALLY EXCLUSIVE, NOT ALTERNATIVES: a teacher, soldier or civil servant is in GSIS and cannot be in SSS for the same job, and moving between the public and private sector means acquiring the other number and leaving contributions stranded in the first, which is why portability between the two funds is a standing political issue. Judges, the military and the police have their own separate pension arrangements again and may hold neither. NO PUBLISHED CHECK DIGIT — GSIS publishes no validation rule for the BP number, so all eleven digits are drawn. Sources also disagree on the length, some saying ten; eleven is used here because that is what GSIS's own eCard description gives, and a system taking these should accept both lengths rather than pad.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{11}"/>

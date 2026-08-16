@@ -1,0 +1,5 @@
+---
+description: Capital of Saūda Arābija, in the Latvian spelling.
+locale: lv
+---
+Rijāda

@@ -1,0 +1,9 @@
+---
+description: Work shift (Slovene)
+locale: sl
+---
+dopoldanska izmena
+popoldanska izmena
+nočna izmena
+dvanajsturna izmena
+prosti dan

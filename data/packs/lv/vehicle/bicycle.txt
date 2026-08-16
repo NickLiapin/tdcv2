@@ -1,0 +1,21 @@
+---
+description: Bicycle type.
+locale: lv
+---
+Šosejas velosipēds
+Kalnu velosipēds
+Hibrīda velosipēds
+Pilsētas velosipēds
+Grants velosipēds
+BMX velosipēds
+Elektrovelosipēds
+Salokāms velosipēds
+Tūrisma velosipēds
+Ciklokrosa velosipēds
+Resnriteņu velosipēds
+Guļus velosipēds
+Bērnu velosipēds
+Tandēms
+Kravas velosipēds
+Trīsritenis
+Treka velosipēds

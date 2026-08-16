@@ -1,0 +1,69 @@
+---
+description: Sport (Slovene). Note ROKOMET, where Croatian and Serbian say rukomet — the same o/u alternation runs through the whole vocabulary. The sports Slovenia is actually known for are the individual ones: smučarski skoki (Planica holds the ski-flying hill and the world record was set there), alpsko smučanje, cestno kolesarstvo, športno plezanje and veslanje, all of them from a country of two million.
+locale: sl
+---
+nogomet
+košarka
+rokomet
+odbojka
+odbojka na mivki
+hokej na ledu
+hokej na travi
+vaterpolo
+ragbi
+bejzbol
+ameriški nogomet
+smučanje
+alpsko smučanje
+smučarski skoki
+nordijska kombinacija
+tek na smučeh
+biatlon
+deskanje na snegu
+turno smučanje
+sankanje
+bob
+drsanje
+umetnostno drsanje
+hitrostno drsanje
+curling
+kolesarstvo
+cestno kolesarstvo
+gorsko kolesarstvo
+atletika
+maraton
+tek
+plavanje
+skoki v vodo
+veslanje
+kajak na divjih vodah
+kanu
+jadranje
+surfanje
+potapljanje
+športno plezanje
+alpinizem
+tenis
+namizni tenis
+badminton
+squash
+golf
+konjeništvo
+lokostrelstvo
+streljanje
+sabljanje
+judo
+karate
+boks
+rokoborba
+gimnastika
+ritmična gimnastika
+športni ples
+balinanje
+kegljanje
+šah
+triatlon
+orientacijski tek
+jadralno padalstvo
+avtomobilizem
+motociklizem

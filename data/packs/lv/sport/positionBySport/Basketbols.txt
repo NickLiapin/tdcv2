@@ -1,0 +1,9 @@
+---
+description: Positions in Basketbols.
+locale: lv
+---
+Saspēles vadītājs
+Aizsargs metējs
+Vieglais uzbrucējs
+Smagais uzbrucējs
+Centrs

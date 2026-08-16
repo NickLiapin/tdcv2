@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of aškenaška judovska ancestry, named in Slovene.
+locale: sl
+---
+Tay-Sachsova bolezen
+Gaucherjeva bolezen tipa 1
+Canavanova bolezen
+družinska disavtonomija
+Niemann-Pickova bolezen tipa A
+mutaciji BRCA1 in BRCA2
+Bloomov sindrom
+pomanjkanje faktorja XI

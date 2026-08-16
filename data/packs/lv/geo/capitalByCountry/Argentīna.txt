@@ -1,0 +1,5 @@
+---
+description: Capital of Argentīna, in the Latvian spelling.
+locale: lv
+---
+Buenosairesa

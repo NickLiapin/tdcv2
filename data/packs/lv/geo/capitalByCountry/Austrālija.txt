@@ -1,0 +1,5 @@
+---
+description: Capital of Austrālija, in the Latvian spelling.
+locale: lv
+---
+Kanbera

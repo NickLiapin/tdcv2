@@ -1,0 +1,54 @@
+---
+description: Airline. airBaltic is the Latvian flag carrier and SmartLynx and RAF-Avia are the other Latvian operators; the rest are the airlines that actually serve Rīga, Liepāja and Ventspils. Airline names are brand names and keep their real spelling in every locale — a Latvian ticket reads Lufthansa and Wizz Air, never a translation.
+locale: lv
+---
+airBaltic
+SmartLynx Airlines
+RAF-Avia
+Lufthansa
+Finnair
+SAS
+LOT Polish Airlines
+KLM
+Air France
+British Airways
+Turkish Airlines
+Ryanair
+Wizz Air
+easyJet
+Norwegian
+Austrian Airlines
+SWISS
+Brussels Airlines
+TAP Air Portugal
+Iberia
+Vueling
+ITA Airways
+Aegean Airlines
+airBaltic Cargo
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Cathay Pacific
+Qantas
+ANA
+Japan Airlines
+Korean Air
+Air China
+Delta Air Lines
+United Airlines
+American Airlines
+Air Canada
+LATAM
+Aerolineas Argentinas
+Ethiopian Airlines
+EgyptAir
+Royal Air Maroc
+El Al
+Pegasus Airlines
+Eurowings
+Transavia
+Condor
+Icelandair
+Nordwind Airlines

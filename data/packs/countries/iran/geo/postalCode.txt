@@ -1,0 +1,27 @@
+---
+address: iran.geo.postalCode
+description: Iranian postal code (کد پستی) — TEN digits, not five, written as two groups of five and often printed with a hyphen (1968833411 or 19688-33411). It is not an area code but a delivery-point code: the ten digits identify a single building, so two flats in the same block share it and two neighbouring blocks do not, which is why an Iranian address form asks for it and why it is treated as personally identifying. The digit set is restricted by Iran Post's own rules, and the restriction is real rather than a convention: the digit 2 appears NOWHERE in a valid code, the digit 0 cannot appear in the first five positions, the fifth digit is additionally never 0, 2 or 5, and the first four digits are never all identical. All four rules are enforced here — the last by reject-and-retry, the rest by the character classes — so a code from this file passes the standard validator that a naively generated \d{10} fails about a quarter of the time. ON DIGITS: an Iranian envelope, ID card or utility bill prints this code in PERSIAN digits ۰۱۲۳۴۵۶۷۸۹, not ASCII, and Persian digits are NOT the Arabic-Indic set Arabic uses — four of the ten differ in shape (Persian ۴ ۵ ۶ against Arabic ٤ ٥ ٦) and they are different Unicode characters (U+06F0-U+06F9 against U+0660-U+0669). Code that normalises Persian input with an Arabic-Indic table gets 4, 5 and 6 wrong and leaves the rest right, which is the worst possible failure because it looks like it worked. This pack emits ASCII digits, the form Iranian systems store and transmit; converting to Persian digits for display is the config's job. Not modelled: which building a code belongs to. The prefix is geographic — Tehran codes begin 1 — but this file does not tie a code to iran.geo.city or iran.geo.province, so a generated code is well-formed and rule-correct without being a place.
+generator: tdc
+---
+<sequence name="p"><gen type="regex" value="[13-9]{4}[1346-9][013-9]{5}"/></sequence>
+<!-- Sum of squared differences from the first digit: zero only when the first
+     four digits are all identical, which Iran Post does not issue. -->
+<sequence name="spread"><compute>
+  <let name="c"><each><over><field name="p"/></over><do><current/></do></each></let>
+  <let name="a"><at><in><use name="c"/></in><index><int v="0"/></index></at></let>
+  <let name="b"><at><in><use name="c"/></in><index><int v="1"/></index></at></let>
+  <let name="d"><at><in><use name="c"/></in><index><int v="2"/></index></at></let>
+  <let name="e"><at><in><use name="c"/></in><index><int v="3"/></index></at></let>
+  <let name="ab"><subtract><use name="a"/><use name="b"/></subtract></let>
+  <let name="ad"><subtract><use name="a"/><use name="d"/></subtract></let>
+  <let name="ae"><subtract><use name="a"/><use name="e"/></subtract></let>
+  <result><add>
+    <multiply><use name="ab"/><use name="ab"/></multiply>
+    <add>
+      <multiply><use name="ad"/><use name="ad"/></multiply>
+      <multiply><use name="ae"/><use name="ae"/></multiply>
+    </add>
+  </add></result>
+</compute></sequence>
+<valid><greater_than><to_number><field name="spread"/></to_number><int v="0"/></greater_than></valid>
+<data>${{p}}</data>

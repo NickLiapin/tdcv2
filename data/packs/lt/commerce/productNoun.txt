@@ -1,0 +1,159 @@
+---
+description: Product noun (Lithuanian), nominative singular. Grammatical gender varies (stalas is masculine, kėdė feminine) and adjectives must agree, so compose with commerce/productAdjective carefully.
+locale: lt
+---
+Stalas
+Kėdė
+Krėslas
+Sofa
+Fotelis
+Lova
+Čiužinys
+Spinta
+Komoda
+Lentyna
+Knygų lentyna
+Naktinis staliukas
+Rašomasis stalas
+Taburetė
+Suoliukas
+Veidrodis
+Kilimas
+Užuolaidos
+Pagalvė
+Antklodė
+Patalynė
+Rankšluostis
+Staltiesė
+Servetėlė
+Puodelis
+Lėkštė
+Dubuo
+Stiklinė
+Taurė
+Buteliukas
+Termosas
+Puodas
+Keptuvė
+Virdulys
+Kavavirė
+Šaldytuvas
+Šaldiklis
+Viryklė
+Orkaitė
+Mikrobangų krosnelė
+Indaplovė
+Skalbimo mašina
+Džiovyklė
+Dulkių siurblys
+Lygintuvas
+Ventiliatorius
+Oro kondicionierius
+Šildytuvas
+Oro drėkintuvas
+Oro valytuvas
+Šviestuvas
+Lempa
+Stalinė lempa
+Prožektorius
+Žibintuvėlis
+Elektros lemputė
+Ilgintuvas
+Kabelis
+Įkroviklis
+Baterija
+Akumuliatorius
+Televizorius
+Monitorius
+Kompiuteris
+Nešiojamasis kompiuteris
+Planšetė
+Išmanusis telefonas
+Klaviatūra
+Pelė
+Spausdintuvas
+Skeneris
+Maršrutizatorius
+Ausinės
+Kolonėlė
+Mikrofonas
+Fotoaparatas
+Objektyvas
+Trikojis
+Išmanusis laikrodis
+Laikrodis
+Žadintuvas
+Svarstyklės
+Termometras
+Barometras
+Kuprinė
+Rankinė
+Piniginė
+Lagaminas
+Krepšys
+Skėtis
+Akiniai
+Akiniai nuo saulės
+Kepurė
+Šalikas
+Pirštinės
+Batai
+Sportbačiai
+Guminiai batai
+Šlepetės
+Marškinėliai
+Megztinis
+Striukė
+Kelnės
+Sijonas
+Suknelė
+Diržas
+Kojinės
+Dviratis
+Paspirtukas
+Riedučiai
+Slidės
+Snieglentė
+Pačiūžos
+Kamuolys
+Raketė
+Hantelis
+Treniruoklis
+Jogos kilimėlis
+Palapinė
+Miegmaišis
+Turistinis kilimėlis
+Meškerė
+Valties irklas
+Valtis
+Grilis
+Kepsninė
+Vejapjovė
+Trimeris
+Laistytuvas
+Žarna
+Kastuvas
+Grėblys
+Kirvis
+Pjūklas
+Grąžtas
+Atsuktuvas
+Plaktukas
+Replės
+Raktas
+Matavimo juosta
+Gulsčiukas
+Dažai
+Teptukas
+Volelis
+Klijai
+Juosta
+Vinys
+Varžtai
+Įrankių dėžė
+Knyga
+Sąsiuvinis
+Rašiklis
+Pieštukas
+Trintukas
+Liniuotė

@@ -1,0 +1,76 @@
+---
+address: kenya.geo.city
+description: Kenyan cities and principal towns, roughly ordered by population. Only five places hold city charters — Nairobi, Mombasa, Kisumu, Nakuru (2021) and Eldoret (2024); everything below them is a municipality or town, so "city" here is the pack's ordinary sense of a populated place, not the Kenyan legal status. The list is Nairobi-heavy at the top because the country is: greater Nairobi and its satellite towns (Ruiru, Kikuyu, Kitengela, Ongata Rongai, Juja, Ruaka) hold a large share of the urban population.
+locale: en
+---
+Nairobi
+Mombasa
+Nakuru
+Ruiru
+Eldoret
+Kisumu
+Kikuyu
+Thika
+Naivasha
+Kitengela
+Ongata Rongai
+Malindi
+Machakos
+Kakamega
+Kericho
+Nyeri
+Kisii
+Garissa
+Kilifi
+Bungoma
+Meru
+Embu
+Kitale
+Athi River
+Juja
+Ruaka
+Limuru
+Karuri
+Mumias
+Migori
+Homa Bay
+Busia
+Webuye
+Nanyuki
+Voi
+Narok
+Kitui
+Isiolo
+Wajir
+Mandera
+Marsabit
+Lodwar
+Siaya
+Nyamira
+Bomet
+Kapsabet
+Kabarnet
+Kapenguria
+Maralal
+Iten
+Chuka
+Kerugoya
+Murang'a
+Ol Kalou
+Wote
+Hola
+Kwale
+Lamu
+Mtwapa
+Diani
+Ukunda
+Molo
+Gilgil
+Sotik
+Githunguri
+Rumuruti
+Mbale
+Kathwana
+Mwatate
+Nyahururu
+Awendo

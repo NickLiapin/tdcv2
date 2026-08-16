@@ -1,0 +1,87 @@
+---
+address: singapore.geo.streetName
+description: Real Singapore road names, written the way the signs write them. Two things a schema should know before using this list. First, a large share of Singapore's road names are NUMBERED rather than named - Ang Mo Kio Avenue 3, Tampines Street 11, Jurong West Street 41, Toa Payoh Lorong 4 - because the HDB towns were laid out as grids and the roads inside them are numbered off the town name, so the "street" of an address often carries the district name inside it. Second, the generic word is not always English: "Jalan" is road and "Lorong" is lane (Malay), "Kampong" is village, and these are part of the proper name, not a translatable suffix. Do not run a Singapore street name through a "detect the street-type word and strip it" step - it will take Jalan Besar down to Besar, which is not a place. The names themselves stay put whatever language you write the rest of the record in, which is why they are country data and not language data; the WORDS for street, road and avenue live in the language packs.
+locale: en
+---
+Orchard Road
+Bukit Timah Road
+Serangoon Road
+Upper Serangoon Road
+North Bridge Road
+South Bridge Road
+Beach Road
+Victoria Street
+Bras Basah Road
+Scotts Road
+Tanglin Road
+Holland Road
+River Valley Road
+Havelock Road
+Alexandra Road
+Commonwealth Avenue
+Queensway
+Telok Blangah Road
+Pasir Panjang Road
+West Coast Road
+Clementi Avenue 2
+Clementi Road
+Dunearn Road
+Sixth Avenue
+Newton Road
+Cairnhill Road
+Cecil Street
+Robinson Road
+Shenton Way
+Raffles Place
+Battery Road
+Collyer Quay
+Marina Boulevard
+Nicoll Highway
+Rochor Road
+Selegie Road
+Jalan Besar
+Jalan Sultan
+Kallang Road
+Sims Avenue
+Geylang Road
+Paya Lebar Road
+Eunos Link
+Changi Road
+Upper Changi Road
+East Coast Road
+Joo Chiat Road
+Marine Parade Road
+Bedok North Avenue 1
+Tampines Street 11
+Pasir Ris Drive 1
+Loyang Avenue
+Airport Boulevard
+Balestier Road
+Thomson Road
+Upper Thomson Road
+Braddell Road
+Lorong Chuan
+Marymount Road
+Bishan Street 22
+Ang Mo Kio Avenue 3
+Ang Mo Kio Avenue 6
+Yio Chu Kang Road
+Hougang Avenue 8
+Sengkang East Way
+Punggol Field
+Yishun Ring Road
+Sembawang Road
+Woodlands Avenue 6
+Mandai Road
+Kranji Road
+Choa Chu Kang Loop
+Bukit Batok West Avenue 5
+Bukit Panjang Ring Road
+Jurong East Street 21
+Jurong West Street 41
+Boon Lay Way
+Corporation Road
+Pioneer Road
+Tuas Avenue 1
+Toa Payoh Lorong 4
+Kampong Bahru Road

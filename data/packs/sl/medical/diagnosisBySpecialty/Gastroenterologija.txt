@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in gastroenterologija, named in Slovene
+locale: sl
+---
+gastritis
+razjeda želodca
+refluksna bolezen požiralnika
+sindrom razdražljivega črevesa
+Crohnova bolezen
+ulcerozni kolitis
+celiakija
+žolčni kamni
+maščobna jetra
+ciroza jeter
+hemoroidi

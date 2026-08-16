@@ -1,0 +1,11 @@
+---
+description: Driving licence category for trucks (Lithuanian). These are the EU harmonised categories as written on a Lithuanian licence; the two-letter code 95 is the professional-driver qualification, not a vehicle class.
+locale: lt
+---
+B
+BE
+C1
+C1E
+C
+CE
+95 kodas

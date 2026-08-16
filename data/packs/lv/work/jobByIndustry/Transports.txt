@@ -1,0 +1,12 @@
+---
+description: Jobs in Transports.
+locale: lv
+---
+Kravas automašīnas vadītājs
+Loģistikas koordinators
+Dispečers
+Lidojumu dispečers
+Pilots
+Mašīnists
+Autobusa vadītājs
+Ekspeditors

@@ -1,0 +1,15 @@
+---
+description: Booking status.
+locale: lv
+---
+Apstiprināts
+Gaida apstiprinājumu
+Atcelts
+Reģistrēts
+Izrakstījies
+Neieradās
+Mainīts
+Nauda atmaksāta
+Gaidīšanas sarakstā
+Apmaksāts
+Daļēji apmaksāts

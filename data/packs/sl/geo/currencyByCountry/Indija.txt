@@ -1,0 +1,5 @@
+---
+description: Currency of Indija, named in Slovene
+locale: sl
+---
+indijska rupija

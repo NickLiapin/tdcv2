@@ -1,0 +1,52 @@
+---
+description: Cooking ingredient.
+locale: lv
+---
+Milti
+Rudzu milti
+Cukurs
+Sāls
+Sviests
+Olas
+Piens
+Krējums
+Skābais krējums
+Biezpiens
+Kefīrs
+Siers
+Rūgušpiens
+Sīpols
+Ķiploks
+Tomāts
+Kartupelis
+Burkāns
+Bietes
+Kāposts
+Skābēti kāposti
+Rīsi
+Grūbas
+Auzu pārslas
+Griķi
+Manna
+Zirņi
+Pupiņas
+Vistas krūtiņa
+Cūkgaļa
+Liellopa gaļa
+Speķis
+Malta gaļa
+Desa
+Siļķe
+Reņģes
+Lasis
+Olīveļļa
+Rapšu eļļa
+Melnie pipari
+Rīvmaize
+Raugs
+Medus
+Ievārījums
+Rozīnes
+Valrieksti
+Spināti
+Dilles

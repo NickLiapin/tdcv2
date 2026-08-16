@@ -1,0 +1,10 @@
+---
+address: philippines.docs.sss
+description: Social Security System number — 10 digits, written XX-XXXXXXX-X, the number every private-sector worker, self-employed person and overseas Filipino worker is registered under. A FILIPINO CARRIES FOUR SEPARATE SOCIAL-INSURANCE NUMBERS AT ONCE, and this is the first of them: SSS for private-sector pension and sickness cover, GSIS for government employees (philippines.docs.gsis), PhilHealth for health insurance (philippines.docs.philhealth) and Pag-IBIG for housing and provident savings (philippines.docs.pagibig). The four are separate agencies with separate laws, separate registries and separate numbers, all four are compulsory, and all four are deducted from the same payslip every month — so a Philippine employee record that carries only one government number is incomplete, and a payroll system built for a country with a single social-insurance number has nowhere to put the other three. SSS and GSIS are mutually exclusive by employment sector, PhilHealth and Pag-IBIG are universal, so a person normally holds three of the four. NO PUBLISHED CHECK DIGIT. The last digit is widely described as a check digit and the SSS does not publish the rule that computes it, so it is drawn here rather than calculated; nothing is invented. The first two digits are commonly said to encode the year or branch of issue, but no published table maps them, so they are drawn too. Note also that the SSS number doubles as the Common Reference Number on a UMID card for SSS members, so "UMID number" and "SSS number" are frequently the same ten digits — the UMID is a card, not a fifth registry.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="last"><gen type="regex" value="[0-9]"/></sequence>
+<data>${{prefix}}${{serial}}${{last}}</data>

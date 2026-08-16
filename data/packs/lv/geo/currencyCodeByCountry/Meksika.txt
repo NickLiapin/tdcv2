@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Meksika.
+locale: lv
+---
+MXN

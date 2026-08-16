@@ -1,0 +1,22 @@
+---
+description: Cat breed (Lithuanian).
+locale: lt
+---
+Persų katė
+Siamo katė
+Meino miško katė
+Britų trumpaplaukė
+Rusų mėlynoji
+Bengalinė katė
+Sfinksas
+Ragdolas
+Abisinų katė
+Norvegų miško katė
+Škotų vislaausė
+Birmos katė
+Somalio katė
+Devono reksas
+Kornvalio reksas
+Sibiro katė
+Turkijos angora
+Naminė katė

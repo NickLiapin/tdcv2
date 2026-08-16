@@ -1,0 +1,34 @@
+---
+address: pakistan.finance.amountPkr
+description: A Pakistani rupee amount written the way Pakistan writes one — 12,34,567.00 and not 1,234,567.00. The last THREE digits are one group and every group above them is TWO wide, because the place names go thousand, lakh (1,00,000), crore (1,00,00,000), arab; the international convention groups by threes all the way up because its names go thousand, million, billion. This is the one thing on this whole list that did NOT diverge at Partition. Pakistan and India took the same currency, the same grouping and the same words out of British India in 1947, and while almost everything else in the two countries' paperwork has drifted apart — different identity numbers, different tax numbers, one in the IBAN registry and one not — a Pakistani bank statement and an Indian one still break their digits in exactly the same places and still say lakh and crore for the same quantities. The two rupees themselves started at par in 1947 and are nowhere near it now, so the grouping is shared and the value is not: a crore of rupees is a very different sum on the two sides of the border. The rule implemented below is: put a separator before a digit when at least three digits follow it including itself and the count of remaining digits minus three is even. The rupee sign is left off so the value drops straight into a numeric column; prefix Rs or ₨ in the config if the output wants one. Amounts run from four to nine digits before the decimal, so the set spans thousands to tens of crores. The paisa exists in law but has been out of circulation for decades and prices are quoted in whole rupees, so the two trailing digits after the point are there for column shape rather than for realism.
+generator: tdc
+locale: en
+---
+<sequence name="digits"><gen type="regex" value="[1-9][0-9]{3,8}"/></sequence>
+<sequence name="paisa"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="amount"><compute>
+  <let name="len"><length><field name="digits"/></length></let>
+  <let name="grouped"><join><each>
+    <over><field name="digits"/></over>
+    <do>
+      <!-- Digits still to come, counting this one. -->
+      <let name="rem"><subtract><use name="len"/><current_index/></subtract></let>
+      <choose>
+        <!-- Never a separator before the very first digit. -->
+        <when><test><equals><current_index/><int v="0"/></equals></test><then><current/></then></when>
+        <otherwise><choose>
+          <!-- The last three digits are one group: no separator inside them. -->
+          <when><test><less_than><use name="rem"/><int v="3"/></less_than></test><then><current/></then></when>
+          <!-- Above those three the groups are TWO wide, so a separator lands
+               wherever (rem - 3) is even: 3 -> the thousand mark, 5 -> the lakh
+               mark, 7 -> the crore mark, and so on. -->
+          <when><test><equals><mod><subtract><use name="rem"/><int v="3"/></subtract><int v="2"/></mod><int v="0"/></equals></test>
+            <then><concat><str v=","/><current/></concat></then></when>
+          <otherwise><current/></otherwise>
+        </choose></otherwise>
+      </choose>
+    </do>
+  </each></join></let>
+  <result><concat><use name="grouped"/><str v="."/><field name="paisa"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

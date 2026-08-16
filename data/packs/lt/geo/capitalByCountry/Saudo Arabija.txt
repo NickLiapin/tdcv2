@@ -1,0 +1,5 @@
+---
+description: Capital of Saudo Arabija (Lithuanian).
+locale: lt
+---
+Rijadas

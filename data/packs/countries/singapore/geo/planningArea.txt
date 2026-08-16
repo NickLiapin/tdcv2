@@ -1,0 +1,60 @@
+---
+address: singapore.geo.planningArea
+description: The 55 URA planning areas — the layer this pack ships as Singapore's sub-national geography, because it is the one the country actually divides itself by. A planning area is an Urban Redevelopment Authority land-use and census division, and it is NOT a tier of government: it has no council, no elected head, no budget and no legal boundary of the kind a county or a voivodeship has. It is nevertheless the division Singapore uses in practice - the Department of Statistics reports by it, HDB towns are built on it, and it is what a resident means by "which part of Singapore". The 55 group into five URA regions (Central 22, East 6, North 8, North-East 7, West 12), and the 11 Central ones nearest the water (Downtown Core, Marina East, Marina South, Museum, Newton, Orchard, Outram, River Valley, Rochor, Singapore River, Straits View) together form what is called the Central Area - a name that is a grouping, not a 56th area. Several here hold almost nobody: Marina East, Straits View, Simpang, Changi Bay, Lim Chu Kang, Tengah (only now being built), the two water catchments and the three island groups. The other division that exists, the 5 Community Development Council districts, is singapore.geo.cdcDistrict.
+locale: en
+---
+Ang Mo Kio
+Bedok
+Bishan
+Boon Lay
+Bukit Batok
+Bukit Merah
+Bukit Panjang
+Bukit Timah
+Central Water Catchment
+Changi
+Changi Bay
+Choa Chu Kang
+Clementi
+Downtown Core
+Geylang
+Hougang
+Jurong East
+Jurong West
+Kallang
+Lim Chu Kang
+Mandai
+Marina East
+Marina South
+Marine Parade
+Museum
+Newton
+North-Eastern Islands
+Novena
+Orchard
+Outram
+Pasir Ris
+Paya Lebar
+Pioneer
+Punggol
+Queenstown
+River Valley
+Rochor
+Seletar
+Sembawang
+Sengkang
+Serangoon
+Simpang
+Singapore River
+Southern Islands
+Straits View
+Sungei Kadut
+Tampines
+Tanglin
+Tengah
+Toa Payoh
+Tuas
+Western Islands
+Western Water Catchment
+Woodlands
+Yishun

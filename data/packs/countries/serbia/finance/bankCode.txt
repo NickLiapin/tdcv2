@@ -1,0 +1,25 @@
+---
+address: serbia.finance.bankCode
+description: Serbian bank code (шифра банке, or vodeći broj) — the three digits the National Bank of Serbia assigns each bank and the first block of every domestic account number and RS IBAN. Three digits where Slovenia takes two and Croatia seven. Every code here was read off that bank's own NBS giro account, which the NBS publishes in the form 908-BBB01-KK — so 908-16001-87 is Banca Intesa's account at the central bank and 160 is Banca Intesa's code; all 21 of those accounts verify MOD-97, which is as close to a primary source as this gets. The codes: 105 AIK banka, 115 Yettel banka (the old Mobi banka block), 145 Adriatic Bank (ex Expobank), 155 Halkbank, 160 Banca Intesa, 165 Addiko Bank, 170 UniCredit Bank Srbija, 190 Alta banka, 200 Banka Poštanska štedionica, 205 NLB Komercijalna banka, 220 ProCredit Bank, 250 Eurobank Direktna, 265 Raiffeisen banka, 295 Srpska banka, 325 OTP banka Srbija, 330 RBA banka, 340 Erste Bank, 370 3 Banka (the old Opportunity banka block), 375 API Bank, 380 Mirabank, 385 Bank of China Srbija. Two codes are NOT banks and are deliberately absent from the pool: 840 is the budget of the Republic of Serbia, the prefix on every account you pay a state fee into, and 908 is the National Bank of Serbia itself, whose block holds the giro accounts above. Codes travel with the licence, not the brand — 325 was Vojvođanska banka before OTP absorbed it and 115 was Telenor banka before it became Mobi and then Yettel — so a retired NAME does not retire its code, and consolidation in Serbian banking has been fast enough that the name beside a code is the part likelier to be out of date.
+---
+105
+115
+145
+155
+160
+165
+170
+190
+200
+205
+220
+250
+265
+295
+325
+330
+340
+370
+375
+380
+385

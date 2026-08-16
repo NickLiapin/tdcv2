@@ -1,0 +1,45 @@
+---
+description: Legal form or trailing element of a Slovene company name. The registered forms are d. o. o. (družba z omejeno odgovornostjo, limited liability, by far the commonest), d. d. (delniška družba, joint stock), d. n. o., k. d., k. d. d., and s. p. — the samostojni podjetnik, the sole trader, which in Slovenia is written after the person's own name and is the legal form roughly a fifth of Slovene businesses use. Zavod is the institute form used by non-profits and much of the public sector, and zadruga the cooperative. The rest are descriptive words that Slovene company names habitually end in (Alpetour turizem, Gorenje gospodinjski aparati), not legal forms.
+locale: sl
+---
+d. o. o.
+d. d.
+d. n. o.
+k. d.
+k. d. d.
+s. p.
+z. o. o.
+GIZ
+zavod
+javni zavod
+zadruga
+društvo
+ustanova
+podružnica
+trgovina
+trgovina in storitve
+storitve
+gradnje
+gradbeništvo
+inženiring
+projektiranje
+proizvodnja
+predelava
+servis
+vzdrževanje
+transport
+logistika
+promet
+turizem
+gostinstvo
+tehnika
+sistemi
+rešitve
+informatika
+svetovanje
+invest
+holding
+group
+tim
+plus
+komerc

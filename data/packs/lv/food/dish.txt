@@ -1,0 +1,46 @@
+---
+description: Dish. A mixed list — the Latvian entries at the head are what a Latvian actually eats at home, the rest are the international dishes on any Rīga menu.
+locale: lv
+---
+Pelēkie zirņi ar speķi
+Rupjmaize ar sviestu
+Sklandrausis
+Aukstā zupa
+Rasols
+Skābputra
+Maizes zupa
+Jāņu siers
+Rīgas šprotes
+Siļķe kažokā
+Kartupeļu pankūkas
+Karbonāde
+Frikadeļu zupa
+Speķa rauši
+Piparkūkas
+Ceptas reņģes
+Biezpiena sacepums
+Skābu kāpostu zupa
+Cepta menca
+Grūbu putra
+Kotletes ar kartupeļiem
+Pica
+Suši
+Tako
+Siera burgers
+Spageti karbonāra
+Ramens
+Vistas karijs
+Ribeye steiks
+Cēzara salāti
+Klubsendvičs
+Lazanja
+Sēņu rizoto
+Paelja
+Pelmeņi
+Pad Thai
+Cepta zivs ar kartupeļiem
+Liellopu sautējums
+Pankūkas
+Falafela rullītis
+Fo zupa
+Burito

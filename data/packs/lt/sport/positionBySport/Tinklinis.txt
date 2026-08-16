@@ -1,0 +1,9 @@
+---
+description: Positions in tinklinis (Lithuanian).
+locale: lt
+---
+Pakėlėjas
+Kraštinis puolėjas
+Centro blokuotojas
+Diagonalusis puolėjas
+Libero

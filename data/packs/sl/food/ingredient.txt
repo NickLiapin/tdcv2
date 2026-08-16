@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Slovene). Note the Slovene words where the neighbours differ: mleko for milk (Croatian mlijeko, and Slovene has no ije reflex at all), kruh for bread, smetana for cream, skuta for the fresh curd cheese that fills a štrukelj, and ajdova moka — buckwheat flour — which is a staple rather than a health-food item.
+locale: sl
+---
+moka
+ajdova moka
+koruzna moka
+pšenična moka
+zdrob
+kruh
+kvas
+sladkor
+sol
+olje
+oljčno olje
+bučno olje
+maslo
+mast
+ocvirki
+zaseka
+smetana
+kisla smetana
+mleko
+jogurt
+skuta
+sir
+trdi sir
+jajce
+med
+kis
+jabolčni kis
+gorčica
+paradižnikova mezga
+juha v prahu
+riž
+testenine
+krompir
+fižol
+leča
+ajdova kaša
+proso
+orehi
+lešniki
+mandlji

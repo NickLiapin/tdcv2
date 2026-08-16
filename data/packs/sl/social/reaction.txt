@@ -1,0 +1,15 @@
+---
+description: Reaction to a post (Slovene)
+locale: sl
+---
+všeč mi je
+super
+obožujem
+smeško
+presenečenje
+žalost
+jeza
+podpora
+čestitke
+hvala
+zanimivo

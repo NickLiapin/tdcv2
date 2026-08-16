@@ -1,0 +1,10 @@
+---
+address: thailand.geo.province
+description: The first-level division of Thailand, written in Thai. NOT a hand-kept list — it is sliced out of thailand.geo.provinceWithPostalPrefix, so it can never fall out of step with the postcode that belongs to it. There are 77 values and they are NOT 77 provinces. Thailand has 76 จังหวัด (changwat, provinces) plus กรุงเทพมหานคร, which is not one of them: Bangkok is a special administrative area governed under its own 1985 act, with an ELECTED governor rather than an appointed one, and it is subdivided into 50 เขต (khet, districts — see thailand.geo.bangkokDistrict) where a province is subdivided into อำเภอ (amphoe). Government forms that say "จังหวัด" still expect กรุงเทพมหานคร in the box, which is why it belongs in this list and why flattening it into "77 provinces" is the wrong simplification rather than a harmless one. WRITING SYSTEM, and this applies to every Thai-valued file in this pack: Thai has NO SPACES BETWEEN WORDS and NO CAPITAL LETTERS. "นครศรีธรรมราช" is one unbroken run of five words. Any code that splits on whitespace to count words, truncates on a space, title-cases, upper-cases, or checks that a name "starts with a capital" will get the wrong answer here, and a length check in bytes will be roughly three times the length in characters because Thai is three bytes per character in UTF-8. Thai also stacks combining vowel and tone marks above and below the consonant line, so a rendered column of these names is taller than a Latin one.
+generator: tdc
+locale: th
+---
+<!-- Slice off the 2-digit postal prefix and the space after it; the rest is the name. -->
+<sequence name="entry"><gen type="template" value="thailand.geo.provinceWithPostalPrefix"/></sequence>
+<sequence name="bare"><compute><result><slice from="3"><field name="entry"/></slice></result></compute></sequence>
+<data>${{bare}}</data>

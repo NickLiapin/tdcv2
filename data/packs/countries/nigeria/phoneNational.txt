@@ -1,0 +1,9 @@
+---
+address: nigeria.phoneNational
+description: Nigerian mobile number in the domestic form Nigerians actually write and read aloud — the trunk 0, then the 3-digit network prefix, then seven digits: 08031234567, eleven digits in total. This is what goes on a business card, into a bank's records and into a *USSD# menu; the +234 form in nigeria.phone is the same number for an international dialler, with this leading 0 removed. Both draw their prefix from nigeria.phonePrefix so they cannot drift apart. Emitted unspaced because that is how it is stored; when a Nigerian writes it by hand the grouping is usually 0803 123 4567.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="template" value="nigeria.phonePrefix"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>0${{prefix}}${{rest}}</data>

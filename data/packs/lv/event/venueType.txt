@@ -1,0 +1,22 @@
+---
+description: Venue type.
+locale: lv
+---
+Viesnīcas zāle
+Konferenču centrs
+Stadions
+Sporta halle
+Teātris
+Koncertzāle
+Banketu zāle
+Kultūras nams
+Muiža
+Pils
+Jumta terase
+Dārzs
+Estrāde
+Noliktava
+Auditorija
+Naktsklubs
+Sanāksmju telpa
+Lauku māja

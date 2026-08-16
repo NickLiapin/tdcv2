@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective, masculine singular indefinite. Latvian corporate prose borrows its jargon from English but bends it to Latvian morphology: scalable becomes mērogojams, agile becomes veikls, resilient becomes noturīgs. Where no calque took hold the loan is naturalised with a Latvian ending instead (digitāls, hibrīda, agile-loving elastīgs).
+locale: lv
+---
+mērogojams
+veikls
+elastīgs
+nevainojams
+robusts
+integrēts
+racionalizēts
+izkliedēts
+mākoņbāzēts
+uz datiem balstīts
+klientorientēts
+pilna cikla
+nākamās paaudzes
+reāllaika
+starpplatformu
+uzņēmuma līmeņa
+modulārs
+bezšuvju
+gatavs lietošanai
+klases labākais
+nākotnes drošs
+holistisks
+dinamisks
+proaktīvs
+adaptīvs
+optimizēts
+drošs
+intelektuāls
+automatizēts
+vienots
+sadarbīgs
+inovatīvs
+revolucionārs
+izjaucošs
+racionāls
+individualizēts
+komponējams
+noturīgs
+paplašināms
+rīcībspējīgs
+pievienotās vērtības
+digitāls
+virtuāls
+hibrīda
+atvērtā koda
+ilgtspējīgs
+efektīvs
+caurskatāms
+pielāgojams
+intuitīvs
+uzticams
+produktīvs
+konkurētspējīgs
+sinerģisks
+stratēģisks

@@ -1,0 +1,54 @@
+---
+description: Store department / category (Lithuanian).
+locale: lt
+---
+Maisto prekės
+Gėrimai
+Šviežia mėsa
+Žuvis
+Pieno produktai
+Duona ir kepiniai
+Vaisiai ir daržovės
+Šaldyti produktai
+Konservai
+Saldumynai
+Kūdikių prekės
+Higienos prekės
+Kosmetika
+Vaistinė
+Buitinė chemija
+Namų apyvokos prekės
+Virtuvės reikmenys
+Indai
+Tekstilė
+Baldai
+Apšvietimas
+Buitinė technika
+Elektronika
+Kompiuteriai
+Mobilieji telefonai
+Televizoriai
+Garso technika
+Fototechnika
+Žaislai
+Vaikų prekės
+Knygos
+Kanceliarinės prekės
+Sporto prekės
+Turizmo prekės
+Dviračiai
+Automobilių prekės
+Sodo prekės
+Statybinės medžiagos
+Įrankiai
+Santechnika
+Elektros prekės
+Gyvūnų prekės
+Drabužiai
+Avalynė
+Aksesuarai
+Papuošalai
+Laikrodžiai
+Optika
+Dovanos
+Gėlės

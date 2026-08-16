@@ -1,0 +1,12 @@
+---
+address: nigeria.geo.streetName
+description: A Nigerian street — a name from nigeria.geo.streetNamed plus a designation. The designations are the English ones, because Nigerian street signage is in English, but the MIX is Nigerian rather than British: Close and Crescent are far commoner in Nigeria than in England, especially across Abuja's planned districts where whole neighbourhoods are Closes off a Crescent, and Way carries major urban arteries that a British city would call a Road. Expressway is included because Nigerian addresses genuinely sit on them (Lekki-Epe Expressway, Lagos-Ibadan Expressway). Note the Nigerian house-number habit this file does not encode: an address is very often "Plot 740" or "No. 15" rather than a bare number, and in unplanned areas there may be no number at all and the address is a landmark — "opposite the filling station" — which is a real property of Nigerian addressing and not something a generator should pretend away.
+generator: tdc
+locale: en
+---
+<sequence name="named"><gen type="template" value="nigeria.geo.streetNamed"/></sequence>
+<sequence name="kind"><gen type="text" value="Street,Road,Avenue,Close,Crescent,Way,Drive,Lane,Boulevard,Expressway"/></sequence>
+<sequence name="street"><compute>
+  <result><concat><field name="named"/><str v=" "/><field name="kind"/></concat></result>
+</compute></sequence>
+<data>${{street}}</data>

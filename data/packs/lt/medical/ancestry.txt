@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Lithuanian, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Adjectival or genitive attributes, as Lithuanian names a descent group.
+locale: lt
+---
+Subsacharinė
+Šiaurės Afrikos
+Viduržemio jūros
+Artimųjų Rytų
+Šiaurės Europos
+Rytų Europos
+Aškenazių
+Pietų Azijos
+Rytų Azijos
+Pietryčių Azijos
+Vietinių amerikiečių
+Ramiojo vandenyno salų

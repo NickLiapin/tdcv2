@@ -1,0 +1,12 @@
+---
+description: Diagnoses seen in Pulmonoloģija.
+locale: lv
+---
+Astma
+Hroniska obstruktīva plaušu slimība
+Pneimonija
+Plaušu artērijas trombembolija
+Tuberkuloze
+Obstruktīva miega apnoja
+Bronhektāzes
+Sarkoidoze

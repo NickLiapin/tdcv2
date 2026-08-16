@@ -1,0 +1,82 @@
+---
+description: Hobby / interest (Lithuanian). Basketball and the midsummer Rasos / Joninės bonfire are here because they are national habits rather than pastimes; folk singing (sutartinės) is on the UNESCO list. Nouns in the nominative.
+locale: lt
+---
+Krepšinis
+Bėgimas
+Dviračių sportas
+Plaukimas
+Žygiai pėsčiomis
+Slidinėjimas
+Irklavimas
+Baidarių sportas
+Žvejyba
+Medžioklė
+Grybavimas
+Uogavimas
+Sodininkystė
+Daržininkystė
+Bitininkystė
+Fotografija
+Tapyba
+Piešimas
+Keramika
+Medžio drožyba
+Gintaro dirbiniai
+Audimas
+Mezgimas
+Siuvinėjimas
+Nėrimas
+Verbų rišimas
+Margučių marginimas
+Šokiai
+Liaudies šokiai
+Dainavimas
+Choro dainavimas
+Sutartinių giedojimas
+Kanklių muzika
+Gitaros grojimas
+Fortepijonas
+Skaitymas
+Rašymas
+Poezija
+Teatras
+Kinas
+Šachmatai
+Stalo žaidimai
+Kompiuteriniai žaidimai
+Programavimas
+Robotika
+Modeliavimas
+Astronomija
+Paukščių stebėjimas
+Gamtos pažinimas
+Kraštotyra
+Genealogija
+Istorija
+Numizmatika
+Filatelija
+Kolekcionavimas
+Kelionės
+Kempingas
+Orientavimosi sportas
+Alpinizmas
+Nardymas
+Buriavimas
+Jodinėjimas
+Joga
+Meditacija
+Sportas salėje
+Bėgimas maratonais
+Futbolas
+Ledo ritulys
+Tinklinis
+Stalo tenisas
+Badmintonas
+Golfas
+Maisto gaminimas
+Kepimas
+Duonos kepimas
+Vyndarystė
+Alaus darymas
+Podcast'ų klausymas

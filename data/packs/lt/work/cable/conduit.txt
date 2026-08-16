@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Lithuanian).
+locale: lt
+---
+Gofruotas vamzdis
+Kabelių kanalas
+Kabelių lovys
+Kabelių kopėčios
+Įleista į sieną
+Požeminė kanalizacija
+Oro linija

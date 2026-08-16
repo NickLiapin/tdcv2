@@ -1,0 +1,11 @@
+---
+description: Positions in Beisbols.
+locale: lv
+---
+Metējs
+Ķērājs
+Pirmās bāzes spēlētājs
+Otrās bāzes spēlētājs
+Trešās bāzes spēlētājs
+Īsais starpnieks
+Ārlaukuma spēlētājs

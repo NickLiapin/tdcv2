@@ -1,0 +1,18 @@
+---
+description: Order status (Lithuanian).
+locale: lt
+---
+Užsakymas gautas
+Laukiama apmokėjimo
+Apmokėta
+Patvirtinta
+Ruošiama
+Surinkta
+Perduota kurjeriui
+Išsiųsta
+Pristatoma
+Pristatyta
+Atsiimta
+Atšaukta
+Grąžinta
+Vykdymas sustabdytas

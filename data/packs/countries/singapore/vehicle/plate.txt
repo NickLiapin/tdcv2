@@ -1,0 +1,50 @@
+---
+address: singapore.vehicle.plate
+description: Singapore vehicle registration plate — a three-letter prefix, one to four digits, and a check LETTER, e.g. SNB 9538 E. The check letter is real and the algorithm is published. Convert the LAST TWO letters of the prefix to numbers (A=1 .. Z=26), take the number zero-padded to four digits, multiply the six values by the weights 9,4,5,4,3,2, sum, take the remainder mod 19, and index it into A,Z,Y,X,U,T,S,R,P,M,L,K,J,H,G,E,D,C,B. Nineteen letters, not twenty-six - F, I, N, O, Q, V and W never appear as a check letter. Two things trip people up. The first is that the LEADING letter of the prefix takes no part in the sum at all - only the last two do - so any two prefixes ending in the same pair produce the same check letter for the same digits. The second is the padding: the number is PRINTED without leading zeros (SNB 9 A, never SNB 0009 A) but is padded to four digits BEFORE the weights are applied, so a checker that feeds the digits in unpadded lines them up against the wrong weights and gets the wrong letter for every plate under 1000. Worked examples, verifiable by hand: SBS 9889 U (a bus prefix, and the example the published description uses) and SNB 9538 E, whose neighbour SNB 9538 F is invalid. This file emits the private-car family: S + two letters, currently being issued in the SP_ range. Other classes have their own prefixes and are NOT generated here - SH_ taxis, SG_ public buses, P_ private buses, F__ motorcycles, G__ light goods, Y_ heavy goods, X_ very heavy goods, QX emergency and law enforcement. Not modelled: LTA skipped a handful of specific combinations that spell words (SKY, SLY, SPA, SPY are documented), and no public registry says which prefixes are live, so a generated prefix is structurally valid rather than certainly issued. The check letter is correct either way.
+generator: tdc
+locale: en
+---
+<!-- Second letter: the private-car series has run from SB_ up to the current SP_.
+     E and I are avoided by LTA, G is public buses, H is taxis. -->
+<sequence name="l1"><gen type="text" value="B,C,D,F,J,K,L,M,N,P"/></sequence>
+<!-- Third letter: I and O are skipped everywhere, being 1 and 0 at a glance. -->
+<sequence name="l2"><gen type="text" value="A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,U,V,W,X,Y,Z"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999"/></sequence>
+<sequence name="plate"><compute>
+  <!-- A=1 .. Z=26. 'A' is code point 65, so the letter's value is its code minus 64. -->
+  <let name="a1"><subtract>
+    <to_number><encode as="unicode"><field name="l1"/></encode></to_number><int v="64"/>
+  </subtract></let>
+  <let name="a2"><subtract>
+    <to_number><encode as="unicode"><field name="l2"/></encode></to_number><int v="64"/>
+  </subtract></let>
+  <!-- Padded to four for the arithmetic; printed unpadded in the result. -->
+  <let name="num4"><pad width="4"><field name="serial"/></pad></let>
+  <let name="dsum"><reduce>
+    <over><use name="num4"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="total"><add>
+    <add>
+      <multiply><use name="a1"/><int v="9"/></multiply>
+      <multiply><use name="a2"/><int v="4"/></multiply>
+    </add>
+    <use name="dsum"/>
+  </add></let>
+  <let name="check"><at>
+    <in><list>
+      <str v="A"/><str v="Z"/><str v="Y"/><str v="X"/><str v="U"/><str v="T"/>
+      <str v="S"/><str v="R"/><str v="P"/><str v="M"/><str v="L"/><str v="K"/>
+      <str v="J"/><str v="H"/><str v="G"/><str v="E"/><str v="D"/><str v="C"/>
+      <str v="B"/>
+    </list></in>
+    <index><mod><use name="total"/><int v="19"/></mod></index>
+  </at></let>
+  <result><concat>
+    <str v="S"/><field name="l1"/><field name="l2"/><field name="serial"/><use name="check"/>
+  </concat></result>
+</compute></sequence>
+<data>${{plate}}</data>

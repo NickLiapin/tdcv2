@@ -1,0 +1,23 @@
+---
+address: nigeria.language
+description: Languages of Nigeria, in their English names — the three major national languages first, then the larger of the rest. WHY EVERY VALUE IN THIS PACK IS WRITTEN IN ENGLISH, stated here rather than left implicit. English is the SOLE official language of Nigeria, and it is not a colonial leftover in the records sense: it is what the constitution, the courts, the National Assembly, the NIN and BVN registries, bank statements, tax notices, postal addresses, number plates and university transcripts are actually written in. A Nigerian identity document is in English regardless of what its holder speaks at home, so an English pack is the correct pack for the PLACE. Hausa, Yoruba and Igbo are the three languages the 1999 Constitution names alongside English for the business of the National Assembly, and each has tens of millions of speakers and a full literature — they deserve LANGUAGE packs of their own (data/packs/ha/, yo/, ig/), and none exists yet. Rather than half-ship them by scattering a few Yoruba or Hausa strings through a country pack, this pack ships none: a country pack holds what is true of the place, and the language a value is written in is a property of a language pack. Nigeria has upwards of 500 living languages, more than almost anywhere on earth, so any short list is a selection and this one is by speaker count. Nigerian Pidgin is included and is not a mistake: it is nobody's official anything, it is the everyday lingua franca of tens of millions across the south and the cities, and it is what Nigerian broadcasting and advertising increasingly use.
+locale: en
+---
+English
+Hausa
+Yoruba
+Igbo
+Nigerian Pidgin
+Fulfulde
+Kanuri
+Ibibio
+Tiv
+Ijaw
+Edo
+Nupe
+Efik
+Urhobo
+Igala
+Idoma
+Gbagyi
+Ebira

@@ -1,0 +1,41 @@
+---
+description: Technical noun (Slovene). Slovene coins its own computing words rather than borrowing them, and its coinages differ from the Croatian ones even where both languages refused the English: računalnik not računalo and not kompjuter, strežnik not poslužitelj, brskalnik not preglednik, tipkovnica for the keyboard, datoteka for the file, and mapa for the folder. Slovene forms almost all of them with the agent suffix -nik or -alnik on a verb, so the vocabulary is transparent to a Slovene reader in a way the borrowed one is not.
+locale: sl
+---
+računalnik
+prenosnik
+strežnik
+omrežje
+datoteka
+mapa
+imenik
+podatkovna zbirka
+poizvedba
+zapis
+polje
+ključ
+geslo
+uporabnik
+uporabniško ime
+dovoljenje
+brskalnik
+spletna stran
+spletišče
+povezava
+naslov
+vmesnik
+gonilnik
+prevajalnik
+razhroščevalnik
+urejevalnik
+jedro
+pomnilnik
+trdi disk
+zaslon
+tipkovnica
+miška
+tiskalnik
+usmerjevalnik
+oblak
+varnostna kopija
+požarni zid

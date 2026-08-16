@@ -1,0 +1,42 @@
+---
+address: nigeria.geo.stateOrFct
+description: The 37 first-level units of Nigeria — the 36 states in alphabetical order, then the Federal Capital Territory LAST. This is the practical list: what a State of Origin field, a postal address, a driving licence and an NYSC posting actually draw from, because a person can be from the FCT even though the FCT is not a state. The FCT is appended at the end rather than interleaved at F precisely so the pack never implies it is one of them — and so that the first 36 lines are byte-identical to nigeria.geo.state, which lets index alignment hold for both files at once. nigeria.geo.stateCode (ISO 3166-2:NG) and nigeria.geo.stateCapital are aligned with THIS file, all 37 lines. Nigerians usually write the last one "FCT" or "FCT, Abuja"; the full form is used here because that is what appears on forms and in legislation. Note that Abuja is the FCT's seat but is not the FCT — the territory is larger than the city and contains six area councils.
+locale: en
+---
+Abia
+Adamawa
+Akwa Ibom
+Anambra
+Bauchi
+Bayelsa
+Benue
+Borno
+Cross River
+Delta
+Ebonyi
+Edo
+Ekiti
+Enugu
+Gombe
+Imo
+Jigawa
+Kaduna
+Kano
+Katsina
+Kebbi
+Kogi
+Kwara
+Lagos
+Nasarawa
+Niger
+Ogun
+Ondo
+Osun
+Oyo
+Plateau
+Rivers
+Sokoto
+Taraba
+Yobe
+Zamfara
+Federal Capital Territory

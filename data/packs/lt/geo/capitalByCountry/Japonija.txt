@@ -1,0 +1,5 @@
+---
+description: Capital of Japonija (Lithuanian).
+locale: lt
+---
+Tokijas

@@ -1,0 +1,6 @@
+---
+description: Gender label (Lithuanian). Two values, matching en, ru and pl — this list is what `parent="Gender.Vyras"` filters on, so a longer one silently leaves most rows without a name. Identity options beyond the pair belong in a file of their own.
+locale: lt
+---
+Vyras
+Moteris

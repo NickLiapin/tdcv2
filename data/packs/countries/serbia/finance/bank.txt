@@ -1,0 +1,24 @@
+---
+address: serbia.finance.bank
+description: Banks licensed in Serbia, as listed by the Udruženje banaka Srbije, written in CYRILLIC — which is what this whole country pack does, following the sr language pack; see serbia.geo.city for why. The transliteration is not this pack's invention: the National Bank of Serbia's own Cyrillic pages write Рајфајзен банка, Ерсте банка, Уникредит банка and Адико банка for institutions whose Latin registered names are Raiffeisen, Erste, UniCredit and Addiko, and a Serbian reader meets both forms daily. Serbian banking has consolidated hard and fast, so a name here dates faster than a code does: Комерцијална банка became НЛБ Комерцијална банка in 2021, Војвођанска was absorbed by ОТП, Теленор банка became Моби and then Јетел, Експобанк became Адриатик банк, and Опортјунити банка became 3 Банка. That is why serbia.finance.bankCode carries the numbers separately — the number survives the rebrand. The Народна банка Србије is not in this list: it is the central bank and holds no retail customers, though it does hold a code (908) and every other bank's giro account.
+locale: sr
+---
+Банка Интеза
+НЛБ Комерцијална банка
+ОТП банка Србија
+Рајфајзен банка
+Уникредит банк Србија
+Ерсте банка
+АИК банка
+Банка Поштанска штедионица
+Адико банка
+Халкбанк
+ПроКредит банк
+Алта банка
+Адриатик банк
+Јетел банка
+3 Банка
+Српска банка
+АПИ банк
+Мирабанк
+Банк оф Чајна Србија

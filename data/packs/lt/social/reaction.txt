@@ -1,0 +1,15 @@
+---
+description: Social reaction (Lithuanian).
+locale: lt
+---
+Patinka
+Labai patinka
+Juokinga
+Nuostabu
+Liūdna
+Pykstu
+Palaikau
+Sveikinu
+Dalinuosi
+Išsaugoju
+Komentuoju

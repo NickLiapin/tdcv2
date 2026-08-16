@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Lithuanian that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: lt
+---
+Endometriozė
+Gimdos mioma
+Policistinių kiaušidžių sindromas
+Krūties vėžys
+Gimdos kaklelio vėžys
+Gimdos kūno vėžys
+Kiaušidžių vėžys
+Kiaušidės cista
+Adenomiozė
+Dismenorėja
+Amenorėja
+Menoragija
+Premenstruacinis sindromas
+Menopauzė
+Priešlaikinis kiaušidžių nepakankamumas
+Gestacinis diabetas
+Preeklampsija
+Eklampsija
+Nėštumo cholestazė
+Persileidimas
+Negimdinis nėštumas
+Mastitas
+Mastopatija
+Vulvovaginitas
+Bakterinė vaginozė
+Dubens organų nusileidimas

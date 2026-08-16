@@ -1,0 +1,45 @@
+---
+description: Generic drug name in its Slovene spelling. These are INNs, so the stem is international, but Slovene adapts the orthography — ciprofloksacin not ciprofloxacin, levotiroksin not levothyroxine, amoksicilin not amoxicillin — because Slovene has no x and writes the sound as ks. That adapted form is what appears on a Slovene prescription and in the Slovene register of medicines.
+locale: sl
+---
+paracetamol
+ibuprofen
+acetilsalicilna kislina
+naproksen
+diklofenak
+metamizol
+tramadol
+morfin
+amoksicilin
+azitromicin
+ciprofloksacin
+klaritromicin
+cefuroksim
+doksiciklin
+nitrofurantoin
+metformin
+gliklazid
+empagliflozin
+insulin
+atorvastatin
+simvastatin
+rosuvastatin
+ramipril
+perindopril
+bisoprolol
+metoprolol
+amlodipin
+furosemid
+hidroklorotiazid
+varfarin
+klopidogrel
+rivaroksaban
+omeprazol
+pantoprazol
+levotiroksin
+prednizolon
+metilprednizolon
+salbutamol
+budezonid
+sertralin
+escitalopram

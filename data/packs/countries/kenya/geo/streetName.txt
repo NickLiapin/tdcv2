@@ -1,0 +1,65 @@
+---
+address: kenya.geo.streetName
+description: Real Kenyan road names, mostly Nairobi and Mombasa, given in full because a Kenyan road name is not a name plus a separable type word — "Ngong Road", "Uhuru Highway" and "Waiyaki Way" each carry their own generic and are not interchangeable, so slicing them the way usa.geo.streetNamed does would produce roads nobody could direct you to. The set mixes English generics (Avenue, Road, Street, Way, Drive, Highway, Lane) with Swahili and Kenyan proper nouns (Uhuru = freedom, Harambee = pulling together, Biashara = business, Jogoo = cockerel), which is exactly how Nairobi street signs read. Note that a Kenyan postal address is normally a P.O. Box and a postal code, not a street and a house number, so a street name here is a locator rather than a delivery address.
+locale: en
+---
+Kenyatta Avenue
+Moi Avenue
+Haile Selassie Avenue
+Harambee Avenue
+Uhuru Highway
+Ngong Road
+Waiyaki Way
+Thika Road
+Mombasa Road
+Langata Road
+Jogoo Road
+Outer Ring Road
+Kimathi Street
+Tom Mboya Street
+Muindi Mbingu Street
+Biashara Street
+Koinange Street
+Standard Street
+Banda Street
+Wabera Street
+Parliament Road
+City Hall Way
+University Way
+State House Road
+Valley Road
+Argwings Kodhek Road
+Dennis Pritt Road
+James Gichuru Road
+Rhapta Road
+Westlands Road
+Peponi Road
+Riverside Drive
+Limuru Road
+Kiambu Road
+Juja Road
+Enterprise Road
+Lusaka Road
+Likoni Road
+Gitanga Road
+Karen Road
+Bogani Road
+Magadi Road
+Ronald Ngala Street
+Nkrumah Road
+Digo Road
+Mama Ngina Drive
+Nyerere Avenue
+Mbaraki Road
+Links Road
+Malindi Road
+Oginga Odinga Street
+Achieng Oneko Road
+Jomo Kenyatta Highway
+Kisumu-Busia Road
+Kakamega Road
+Nakuru-Eldoret Highway
+Kenyatta Highway
+Kabarnet Road
+Elgeyo Marakwet Road
+Nandi Road

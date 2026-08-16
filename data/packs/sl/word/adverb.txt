@@ -1,0 +1,36 @@
+---
+description: Common adverb (Slovene)
+locale: sl
+---
+hitro
+počasi
+zelo
+malo
+veliko
+dovolj
+premalo
+preveč
+vedno
+nikoli
+pogosto
+redko
+včasih
+zdaj
+prej
+pozneje
+danes
+jutri
+včeraj
+kmalu
+takoj
+tukaj
+tam
+povsod
+nikjer
+gor
+dol
+naprej
+nazaj
+skupaj
+posebej
+morda

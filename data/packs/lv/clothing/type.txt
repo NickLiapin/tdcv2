@@ -1,0 +1,34 @@
+---
+description: Garment type. Tautastērps is the Latvian national costume and belongs in an ordinary clothing list rather than a museum one: something over 40 000 people wear it at the Song and Dance Celebration, and the regional variants (Nīca, Alsunga, Bārta, Krustpils) are distinguished by pattern and by the sakta, the disc brooch that fastens the shawl.
+locale: lv
+---
+T-krekls
+Krekls
+Blūze
+Džemperis
+Adīts džemperis
+Jaka
+Jaka ar kapuci
+Mētelis
+Puspaltis
+Veste
+Kleita
+Svārki
+Bikses
+Džinsi
+Šorti
+Uzvalks
+Sporta tērps
+Peldkostīms
+Halāts
+Naktskrekls
+Zeķes
+Vilnas zeķes
+Cimdi
+Rakstainie cimdi
+Šalle
+Cepure
+Sporta apavi
+Zābaki
+Pastalas
+Tautastērps

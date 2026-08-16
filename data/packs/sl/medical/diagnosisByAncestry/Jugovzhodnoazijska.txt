@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of jugovzhodnoazijska ancestry, named in Slovene.
+locale: sl
+---
+alfa talasemija
+hemoglobin E
+pomanjkanje G6PD
+nazofaringealni karcinom
+kronični hepatitis B
+sladkorna bolezen tipa 2
+talasemija HbE/beta
+laktozna intoleranca

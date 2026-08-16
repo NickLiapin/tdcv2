@@ -1,0 +1,27 @@
+---
+description: Slovene address unit or interior designator, in the abbreviated shape used before a number. A Slovene address writes the house number AFTER the street (Prešernova cesta 12) and the flat after that, either as 12/3 or as 12, stan. 3. Letters are appended to the house number itself for a subdivided plot (12a, 12b), which is not a unit designator and so is not here.
+locale: sl
+---
+stan.
+št.
+pritl.
+nadstr.
+1. nadstropje
+2. nadstropje
+mans.
+kl.
+med.
+vh.
+vhod
+blok
+objekt
+soba
+pisarna
+lokal
+gar.
+parkirno mesto
+shramba
+podstrešje
+nivo
+krilo
+p. p.

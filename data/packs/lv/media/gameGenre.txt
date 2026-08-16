@@ -1,0 +1,21 @@
+---
+description: Video game genre.
+locale: lv
+---
+Darbības
+Piedzīvojumu
+Lomu spēle
+Stratēģija
+Simulators
+Sporta
+Mīklu
+Šaušanas
+Platformas
+Braukšanas
+Cīņas
+Izdzīvošanas
+Smilškaste
+Daudzspēlētāju tiešsaistes
+Rogue tipa
+Šausmu
+Mūzikas

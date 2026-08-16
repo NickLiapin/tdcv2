@@ -1,0 +1,26 @@
+---
+description: Company department / function (Lithuanian).
+locale: lt
+---
+Vadovybė
+Administracija
+Personalo skyrius
+Buhalterija
+Finansų skyrius
+Teisės skyrius
+Pardavimų skyrius
+Rinkodaros skyrius
+Klientų aptarnavimo skyrius
+Pirkimų skyrius
+Logistikos skyrius
+Sandėlis
+Gamybos skyrius
+Kokybės skyrius
+Techninės priežiūros skyrius
+Informacinių technologijų skyrius
+Plėtros skyrius
+Tyrimų skyrius
+Projektų skyrius
+Komunikacijos skyrius
+Darbų saugos skyrius
+Vidaus audito skyrius

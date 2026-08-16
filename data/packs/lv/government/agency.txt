@@ -1,0 +1,36 @@
+---
+description: Government body. Latvian is the official language of ONE country, so these are the ministries and public offices of the Republic of Latvia — that is what the words name. VID is the state revenue service every taxpayer and business files through, PMLP the office that keeps the population register and issues passports, CSDD the road-traffic directorate that registers vehicles and issues licences, and VSAA the social-insurance agency that pays pensions and benefits. All four are known in speech by their initials rather than their full names.
+locale: lv
+---
+Valsts ieņēmumu dienests
+Pilsonības un migrācijas lietu pārvalde
+Valsts sociālās apdrošināšanas aģentūra
+Ceļu satiksmes drošības direkcija
+Nodarbinātības valsts aģentūra
+Valsts policija
+Valsts robežsardze
+Valsts ugunsdzēsības un glābšanas dienests
+Valsts darba inspekcija
+Veselības inspekcija
+Pārtikas un veterinārais dienests
+Valsts vides dienests
+Valsts zemes dienests
+Uzņēmumu reģistrs
+Valsts kase
+Centrālā statistikas pārvalde
+Konkurences padome
+Patērētāju tiesību aizsardzības centrs
+Finanšu ministrija
+Iekšlietu ministrija
+Tieslietu ministrija
+Aizsardzības ministrija
+Ārlietu ministrija
+Ekonomikas ministrija
+Satiksmes ministrija
+Veselības ministrija
+Labklājības ministrija
+Izglītības un zinātnes ministrija
+Kultūras ministrija
+Zemkopības ministrija
+Klimata un enerģētikas ministrija
+Viedās administrācijas un reģionālās attīstības ministrija

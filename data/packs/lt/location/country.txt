@@ -1,0 +1,243 @@
+---
+description: Country and territory names (Lithuanian). Lithuanian TRANSLATES rather than transliterates, and then forces the result into a Lithuanian declension — Germany is Vokietija, Poland is Lenkija, and the -ija ending marks a country the way -land does in English. Nominative.
+locale: lt
+---
+Lietuva
+Latvija
+Estija
+Lenkija
+Baltarusija
+Rusija
+Ukraina
+Vokietija
+Austrija
+Šveicarija
+Prancūzija
+Belgija
+Nyderlandai
+Liuksemburgas
+Jungtinė Karalystė
+Airija
+Islandija
+Norvegija
+Švedija
+Suomija
+Danija
+Ispanija
+Portugalija
+Italija
+Graikija
+Malta
+Kipras
+Čekija
+Slovakija
+Vengrija
+Rumunija
+Bulgarija
+Slovėnija
+Kroatija
+Serbija
+Bosnija ir Hercegovina
+Juodkalnija
+Šiaurės Makedonija
+Albanija
+Kosovas
+Moldova
+Turkija
+Gruzija
+Armėnija
+Azerbaidžanas
+Kazachstanas
+Uzbekistanas
+Turkmėnistanas
+Kirgizija
+Tadžikija
+Mongolija
+Kinija
+Japonija
+Pietų Korėja
+Šiaurės Korėja
+Taivanas
+Vietnamas
+Tailandas
+Kambodža
+Laosas
+Mianmaras
+Malaizija
+Singapūras
+Indonezija
+Filipinai
+Brunėjus
+Indija
+Pakistanas
+Bangladešas
+Šri Lanka
+Nepalas
+Butanas
+Maldyvai
+Afganistanas
+Iranas
+Irakas
+Sirija
+Libanas
+Izraelis
+Palestina
+Jordanija
+Saudo Arabija
+Jungtiniai Arabų Emyratai
+Kataras
+Bahreinas
+Kuveitas
+Omanas
+Jemenas
+Egiptas
+Libija
+Tunisas
+Alžyras
+Marokas
+Sudanas
+Pietų Sudanas
+Etiopija
+Eritrėja
+Džibutis
+Somalis
+Kenija
+Uganda
+Tanzanija
+Ruanda
+Burundis
+Kongo Demokratinė Respublika
+Kongo Respublika
+Gabonas
+Kamerūnas
+Nigerija
+Nigeris
+Čadas
+Centrinės Afrikos Respublika
+Ghana
+Togas
+Beninas
+Burkina Fasas
+Malis
+Senegalas
+Gambija
+Bisau Gvinėja
+Gvinėja
+Siera Leonė
+Liberija
+Dramblio Kaulo Krantas
+Mauritanija
+Angola
+Zambija
+Zimbabvė
+Malavis
+Mozambikas
+Botsvana
+Namibija
+Pietų Afrikos Respublika
+Lesotas
+Esvatinis
+Madagaskaras
+Mauricijus
+Seišeliai
+Komorai
+Žaliasis Kyšulys
+San Tomė ir Prinsipė
+Pusiaujo Gvinėja
+Jungtinės Amerikos Valstijos
+Kanada
+Meksika
+Gvatemala
+Belizas
+Salvadoras
+Hondūras
+Nikaragva
+Kosta Rika
+Panama
+Kuba
+Jamaika
+Haitis
+Dominikos Respublika
+Bahamos
+Barbadosas
+Trinidadas ir Tobagas
+Grenada
+Sent Lusija
+Dominika
+Antigva ir Barbuda
+Sent Kitsas ir Nevis
+Sent Vinsentas ir Grenadinai
+Kolumbija
+Venesuela
+Gajana
+Surinamas
+Brazilija
+Ekvadoras
+Peru
+Bolivija
+Paragvajus
+Urugvajus
+Argentina
+Čilė
+Australija
+Naujoji Zelandija
+Papua Naujoji Gvinėja
+Fidžis
+Saliamono Salos
+Vanuatu
+Samoa
+Tonga
+Kiribatis
+Tuvalu
+Nauru
+Maršalo Salos
+Mikronezija
+Palau
+Vatikanas
+San Marinas
+Monakas
+Lichtenšteinas
+Andora
+Grenlandija
+Farerų Salos
+Gibraltaras
+Guernsis
+Džersis
+Meno Sala
+Alandų Salos
+Svalbardas
+Puerto Rikas
+Jungtinės Valstijos Mergelių Salos
+Bermuda
+Kaimanų Salos
+Britanijos Mergelių Salos
+Terksas ir Kaikosas
+Aruba
+Kiurasao
+Sint Martenas
+Prancūzijos Polinezija
+Naujoji Kaledonija
+Volisas ir Futūna
+Gvadelupa
+Martinika
+Prancūzijos Gviana
+Reunjonas
+Majotas
+Šventoji Elena
+Folklandai
+Vakarų Sachara
+Honkongas
+Makao
+Timoras Lestė
+Kuko Salos
+Niujė
+Tokelau
+Anguilija
+Montseratas
+Pitkerno Salos
+Norfolko Sala
+Kokosų Salos
+Kalėdų Sala
+Gvamas
+Šiaurės Marianos
+Amerikos Samoa

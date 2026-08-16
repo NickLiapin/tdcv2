@@ -1,0 +1,55 @@
+---
+address: serbia.docs.jmbg
+description: Serbian JMBG (јединствени матични број грађана) — 13 digits, the Yugoslav federal number of 1976, and Serbia is the largest country still issuing it unchanged. Structure DDMMGGG RR BBB K: day, month, then only the LAST THREE digits of the year (1939 is 939, 2006 is 006), a two-digit register code, a three-digit serial and a weighted mod-11 check. The serial encodes sex — 000-499 male, 500-999 female — so a JMBG leaks birth date, sex and birth region, which is exactly why Croatia dropped it for the opaque OIB in 2009 and why Serbia's Commissioner for Information has argued for the same. It has not happened: the Zakon o јединственом матичном броју грађана of 2018 keeps the number as it stands, so THE JMBG IS CURRENT, NOT LEGACY. What Serbia does issue alongside it is the evidencijski broj stranca — see serbia.docs.ebs — which took the JMBG's place for foreign residents; among Serbian CITIZENS the JMBG has no successor. The register digits are the Yugoslav federal blocks: 71-79 central Serbia (71 Belgrade, 72 Kragujevac and Jagodina, 73 Niš and Pirot, 74 Leskovac and Vranje, 75 Zaječar and Bor, 76 Smederevo and Požarevac, 77 Šabac and Valjevo, 78 Kraljevo, Čačak and Kruševac, 79 Užice), 80-89 Vojvodina (80 Novi Sad, 81 Sombor, 82 Subotica, 83 Vrbas, 84 Kikinda, 85 Zrenjanin, 86 Pančevo, 87 Vršac, 88-89 Sremska Mitrovica) and 90-99 Kosovo and Metohija (91 Priština, 92 Kosovska Mitrovica, 93 Peć, 94 Đakovica, 95 Prizren, 96 Uroševac, 97 Gnjilane). 70 is for citizens registered at a diplomatic post abroad. This generator draws only 71-89: the Kosovo block is described here but not generated, for the same reason the city and postcode lists stop at the administrative boundary — see serbia.geo.city. The check is the shared "Modul 11": weights 2,3,4,5,6,7 repeating from the RIGHT, which read left to right over the twelve base digits is 7,6,5,4,3,2,7,6,5,4,3,2; then 11 minus the remainder mod 11. Remainder 0 gives a check digit of 0; remainder 1 would give 10, and the register never issues that serial, so this generator redraws. Verified against both worked examples in ZPIZ Priloga 6 "Kontrolna številka - Modul 11", which govern the same federal arithmetic: 1001939010017 and 2001939010010, the second being the remainder-0 case.
+generator: tdc
+---
+<sequence name="dob"><gen type="date" from="1935-01-01" to="2010-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="reg"><gen type="text" value="71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="check"><compute>
+  <!-- The drawn date arrives as YYYYMMDD; the JMBG wants DD MM GGG. -->
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <let name="body"><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <field name="reg"/>
+    <field name="serial"/>
+  </concat></let>
+  <let name="sum"><reduce>
+    <over><use name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,6,5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
+  <result>
+    <choose>
+      <when><test><equals><use name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<!-- Remainder 1 would make the check 10; the register skips that serial, so redraw. -->
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<sequence name="jmbg"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <result><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <field name="reg"/>
+    <field name="serial"/>
+    <field name="check"/>
+  </concat></result>
+</compute></sequence>
+<data>${{jmbg}}</data>

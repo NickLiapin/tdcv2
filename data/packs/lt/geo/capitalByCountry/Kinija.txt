@@ -1,0 +1,5 @@
+---
+description: Capital of Kinija (Lithuanian).
+locale: lt
+---
+Pekinas

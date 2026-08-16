@@ -1,0 +1,5 @@
+---
+description: ISO currency code of Tailandas.
+locale: lt
+---
+THB

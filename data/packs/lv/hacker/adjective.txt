@@ -1,0 +1,32 @@
+---
+description: Technology adjective, masculine singular indefinite.
+locale: lv
+---
+digitāls
+virtuāls
+mākoņbāzēts
+bezvadu
+optisks
+neironu
+kvantu
+atvērtā koda
+slēgtā koda
+starpplatformu
+iebūvēts
+attālināts
+lokāls
+sadalīts
+rezerves
+primārs
+sekundārs
+redundants
+šifrēts
+autentificēts
+asinhrons
+sinhrons
+daudzpavedienu
+ātrgaitas
+reāllaika
+mobils
+cietvielu
+hibrīda

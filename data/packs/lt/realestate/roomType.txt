@@ -1,0 +1,20 @@
+---
+description: Room type (Lithuanian).
+locale: lt
+---
+Svetainė
+Miegamasis
+Vaikų kambarys
+Virtuvė
+Valgomasis
+Vonios kambarys
+Tualetas
+Prieškambaris
+Koridorius
+Darbo kambarys
+Svečių kambarys
+Skalbykla
+Sandėliukas
+Rūsys
+Palėpė
+Veranda

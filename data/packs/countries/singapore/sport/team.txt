@@ -1,0 +1,13 @@
+---
+address: singapore.sport.team
+description: The clubs of the Singapore Premier League, the country's top football division — all eight of them, which is the entire professional league and one of the smallest top flights anywhere. Two of the eight are unusual enough to be worth knowing before using this list as ordinary club data. Albirex Niigata (S) is a satellite of the Japanese club Albirex Niigata, fielded in a foreign country's league, and it has won the title. Young Lions is not a club at all in the usual sense - it is the national under-23 development squad entered into the league as a team, with no supporters, no home town and no independent existence. Several of the others are older than the country: Geylang International and Tanjong Pagar United descend from clubs founded in the 1970s and earlier, and Balestier Khalsa carries the name of a Sikh sports association. Not listed here: Singapore's clubs in other sports, of which the Singapore Slingers (basketball) is the only comparable professional side, and the Lions, which is the national football team rather than a club.
+locale: en
+---
+Lion City Sailors
+BG Tampines Rovers
+Albirex Niigata (S)
+Hougang United
+Geylang International
+Balestier Khalsa
+Tanjong Pagar United
+Young Lions

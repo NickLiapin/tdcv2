@@ -1,0 +1,57 @@
+---
+address: ukraine.finance.bank
+description: Banks holding a licence from the National Bank of Ukraine, in the short names Ukrainians actually use rather than the registered "АТ КБ ..." forms. The sector is unusually state-heavy for Europe: Ощадбанк and Укрексімбанк have always been state banks, ПриватБанк was nationalised in 2016 and Сенс Банк in 2023, and those four alone hold most of the retail deposits. Універсал Банк is the licence behind monobank, which has no branches at all. Not positionally paired with ukraine.finance.mfo — that file lists real codes, this one real names, but line N of one is not the bank on line N of the other.
+locale: uk
+---
+ПриватБанк
+Ощадбанк
+Райффайзен Банк
+Укрексімбанк
+Укргазбанк
+ПУМБ
+Універсал Банк
+Сенс Банк
+ОТП Банк
+Креді Агріколь Банк
+УкрСиббанк
+Кредобанк
+ПроКредит Банк
+ТАСкомбанк
+А-Банк
+Банк Кредит Дніпро
+Правекс Банк
+Ідея Банк
+Піреус Банк МКБ
+Банк Альянс
+Південний
+Індустріалбанк
+МТБ Банк
+Полтава-банк
+Кристалбанк
+Мотор-Банк
+Асвіо Банк
+Скай Банк
+Банк Глобус
+Сітібанк
+ІНГ Банк Україна
+Дойче Банк ДБУ
+Перший Інвестиційний Банк
+ОКСІ Банк
+Агропросперіс Банк
+Кліринговий дім
+Радабанк
+Полікомбанк
+Банк Авангард
+Банк Грант
+Банк Фамільний
+Юнекс Банк
+Комінбанк
+Кредитвест Банк
+Альтбанк
+Банк 3/4
+ВСТ Банк
+МетаБанк
+Банк Львів
+БТА Банк
+Банк Траст-Капітал
+Український капітал

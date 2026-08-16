@@ -1,0 +1,8 @@
+---
+address: iran.tax.economicCode
+description: کد اقتصادی — the economic (taxpayer) code of an Iranian NATURAL person: fourteen digits, of which the first ten are that person's کد ملی exactly as issued, and the last four are a discriminator assigned by the tax authority (سازمان امور مالیاتی). The four-digit tail has no published check rule and is not derived from the ten digits in front of it, so it is drawn at random here and only the first ten carry a verifiable checksum — the ten-digit head is a real کد ملی from iran.docs.codeMelli and passes the mod-11 test on its own. This is one of the places where Iran does not behave like its neighbours: a Turkish or Israeli sole trader files under a number that is simply their personal ID, whereas an Iranian one files under their personal ID PLUS a four-digit suffix, so a system that stores the taxpayer code in a 10- or 11-character column truncates it. A legal person has no fourteen-digit code at all — its economic code is the eleven-digit شناسه ملی, see iran.tax.shenaseMelli.
+generator: tdc
+---
+<sequence name="person"><gen type="template" value="iran.docs.codeMelli"/></sequence>
+<sequence name="suffix"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>${{person}}${{suffix}}</data>

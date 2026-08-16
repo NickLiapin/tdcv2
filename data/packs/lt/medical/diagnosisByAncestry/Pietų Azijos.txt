@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of this ancestry (Pietų Azijos), in Lithuanian. A prevalence signal, not an exclusive one.
+locale: lt
+---
+Anksti prasidedantis 2 tipo cukrinis diabetas
+Ankstyva išeminė širdies liga
+Pilvinis nutukimas esant normaliam kūno masės indeksui
+Vitamino D stoka
+Beta talasemijos nešiotojo požymis
+Metabolinis sindromas
+Gliukozės-6-fosfato dehidrogenazės stoka
+Reumatinė širdies liga

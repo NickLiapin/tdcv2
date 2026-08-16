@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in nevrologija, named in Slovene
+locale: sl
+---
+migrena
+epilepsija
+možganska kap
+multipla skleroza
+Parkinsonova bolezen
+Alzheimerjeva bolezen
+polinevropatija
+išias
+sindrom karpalnega kanala
+klopni meningoencefalitis
+tremor

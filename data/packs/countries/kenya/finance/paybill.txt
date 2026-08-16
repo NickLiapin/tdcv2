@@ -1,0 +1,7 @@
+---
+address: kenya.finance.paybill
+description: M-Pesa Paybill number — the six-digit short code a Kenyan business, landlord, school or utility is paid on, and in practice the most-used account identifier in the country: far more Kenyans know a Paybill number by heart than know a bank account number. A Paybill is paired with an account number chosen by the payee (a tenant's house number, a student's admission number), which is why "Paybill and account" is the ordinary Kenyan billing instruction. It is issued by Safaricom, not by any regulator; it carries NO CHECK DIGIT, and a mistyped Paybill either fails or pays a stranger, which is exactly why Safaricom shows the payee's registered name for confirmation before the transaction completes. Buy Goods (till) numbers are the sibling short code, typically five or six digits, used at a counter where no account number is needed. Short codes here are well-formed but do not name real businesses; real ones are allocated from Safaricom's register and the well-known ones (KPLC, water companies, the big schools) are public knowledge.
+generator: tdc
+locale: en
+---
+<gen type="number" value="100000..999999" length="6"/>

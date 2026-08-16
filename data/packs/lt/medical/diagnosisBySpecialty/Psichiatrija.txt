@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psichiatrija (Lithuanian).
+locale: lt
+---
+Pasikartojantis depresijos sutrikimas
+Generalizuotas nerimo sutrikimas
+Bipolinis afektinis sutrikimas
+Šizofrenija
+Potrauminio streso sutrikimas
+Aktyvumo ir dėmesio sutrikimas
+Obsesinis kompulsinis sutrikimas
+Nervinė anoreksija
+Panikos sutrikimas
+Priklausomybė nuo alkoholio

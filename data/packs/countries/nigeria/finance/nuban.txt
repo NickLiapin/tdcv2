@@ -1,0 +1,9 @@
+---
+address: nigeria.finance.nuban
+description: Nigerian bank account number — the 10-digit NUBAN, the only account number a Nigerian ever quotes. It carries a REAL check digit, computed here, not a plausible-looking one: nine serial digits plus one check digit derived from the CBN's published 3,7,3-repeating weighted mod-10 over the bank code and the serial together. Sliced out of nigeria.finance.nubanWithBank, which is where the algorithm and its two published test vectors are documented, so the value below always belongs to a real CBN bank code even though that code is not printed. THAT IS THE CATCH, and it is a property of the scheme rather than of this pack: because the bank code is an input to the check digit but is not part of the printed number, a bare NUBAN cannot be validated on its own — the same ten digits verify at one bank and fail at another. Use nigeria.finance.nubanWithBank when you need the pair. NIGERIA HAS NO IBAN: it is not in the ISO 13616 registry, so there is deliberately no nigeria.finance.iban to sit beside Poland's or Egypt's, and an inbound international wire is addressed by the bank's SWIFT/BIC plus this number. Domestically the NUBAN is enough on its own — NIBSS Instant Payment resolves the account holder's name from the bank code and NUBAN before the sender confirms, which is why Nigerians paste account numbers around with a confidence that would be reckless elsewhere.
+generator: tdc
+locale: en
+---
+<sequence name="entry"><gen type="template" value="nigeria.finance.nubanWithBank"/></sequence>
+<sequence name="account"><compute><result><slice from="4"><field name="entry"/></slice></result></compute></sequence>
+<data>${{account}}</data>

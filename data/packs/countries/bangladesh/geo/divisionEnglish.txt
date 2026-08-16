@@ -1,0 +1,13 @@
+---
+address: bangladesh.geo.divisionEnglish
+description: The 8 divisions of Bangladesh in their current official English spelling, index-aligned line for line with bangladesh.geo.division, which carries the same eight in Bengali. Two of these spellings were changed by government order in 2018 — Chittagong became Chattogram and Barisal became Barishal — and the change was legal rather than cosmetic, so a dataset still spelling them the old way is a dataset from before 2018. The romanisation is what appears on a passport, a bank form and every English-language government document; the Bengali in the companion file is what appears on a Bengali one. Both are correct, and which a config wants depends on which language the record is in.
+locale: en
+---
+Barishal
+Chattogram
+Dhaka
+Khulna
+Mymensingh
+Rajshahi
+Rangpur
+Sylhet

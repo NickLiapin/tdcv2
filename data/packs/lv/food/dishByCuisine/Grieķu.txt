@@ -1,0 +1,14 @@
+---
+description: Dishes of Grieķu cuisine as a Latvian menu names them.
+locale: lv
+---
+Musaka
+Suvlaki
+Gyros
+Grieķu salāti
+Spanakopita
+Baklava
+Dzadziki
+Dolmades
+Sagenaki
+Pastitsio

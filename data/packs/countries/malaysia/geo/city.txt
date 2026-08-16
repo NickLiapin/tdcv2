@@ -1,0 +1,41 @@
+---
+address: malaysia.geo.city
+description: Malaysian cities and towns weighted by their 2020 census population (Jabatan Perangkaan Malaysia / DOSM, Banci Penduduk dan Perumahan 2020). Read the weights carefully before trusting them as city sizes: DOSM publishes population by LOCAL AUTHORITY AREA, not by settlement, so each figure covers everything the council administers. That is why Kajang appears at just over a million — the Majlis Perbandaran Kajang area takes in Bangi, Semenyih and a long stretch of the Langat valley — and why Kuala Lumpur, whose boundary has not moved since 1974, is smaller than the conurbation anyone means by "KL". Seberang Perai is the mainland half of Pulau Pinang and George Town the island half. The list is the 34 areas the census puts above 250,000, plus Putrajaya, which is far below the threshold but is the federal administrative capital and a federal territory in its own right. That threshold is why several genuinely well-known places are missing — Miri, Sibu, Bintulu, Taiping, Sitiawan and Kuala Kangsar all fall under it. Names are the official Malay forms: Melaka, not Malacca. George Town is spelled as two words with a capital T, which is its legal name.
+locale: ms
+weighted: true
+---
+Kuala Lumpur,1982112
+Kajang,1047356
+Seberang Perai,946092
+Subang Jaya,902086
+Klang,902025
+Johor Bahru,858118
+Shah Alam,812327
+George Town,794313
+Petaling Jaya,771687
+Selayang,764327
+Ipoh,759952
+Seremban,681541
+Iskandar Puteri,575977
+Kuantan,548014
+Sungai Petani,545053
+Ampang Jaya,531904
+Kota Kinabalu,500425
+Melaka,453904
+Sandakan,439050
+Alor Setar,423868
+Tawau,420806
+Batu Pahat,401210
+Kota Bharu,396193
+Kuala Terengganu,375424
+Kuching,349147
+Sepang,324585
+Kulim,319056
+Muar,314776
+Pasir Gudang,312437
+Kuala Langat,307418
+Kulai,294156
+Kangar,284853
+Kuala Selangor,281717
+Padawan,260058
+Putrajaya,109202

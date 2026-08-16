@@ -1,0 +1,14 @@
+---
+description: Dishes of Spāņu cuisine as a Latvian menu names them.
+locale: lv
+---
+Paelja
+Tapas
+Gaspačo
+Spāņu tortilja
+Čuros
+Patatas bravas
+Ibērijas šķiņķis
+Pulpo a la gallega
+Krēmīgas krokete
+Sangrija

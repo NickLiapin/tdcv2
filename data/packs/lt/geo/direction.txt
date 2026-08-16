@@ -1,0 +1,20 @@
+---
+description: Compass direction (Lithuanian). The four cardinals are PLURAL nouns in Lithuanian — Pietūs, Rytai, Vakarai — while Šiaurė is singular, and the same words double as 'lunch', 'east/morning' and 'west/evening', so context decides. Intercardinals are single compound words.
+locale: lt
+---
+Šiaurė
+Pietūs
+Rytai
+Vakarai
+Šiaurės rytai
+Šiaurės vakarai
+Pietryčiai
+Pietvakariai
+Šiaurės šiaurės rytai
+Rytų šiaurės rytai
+Rytų pietryčiai
+Pietų pietryčiai
+Pietų pietvakariai
+Vakarų pietvakariai
+Vakarų šiaurės vakarai
+Šiaurės šiaurės vakarai

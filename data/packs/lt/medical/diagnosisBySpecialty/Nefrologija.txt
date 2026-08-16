@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nefrologija (Lithuanian).
+locale: lt
+---
+Lėtinė inkstų liga
+Inkstų akmenligė
+Glomerulonefritas
+Ūminis inkstų pažeidimas
+Policistinė inkstų liga
+Nefrozinis sindromas
+Pielonefritas
+Diabetinė nefropatija
+Renovaskulinė hipertenzija
+Galutinės stadijos inkstų nepakankamumas

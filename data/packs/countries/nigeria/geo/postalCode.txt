@@ -1,0 +1,7 @@
+---
+address: nigeria.geo.postalCode
+description: Nigerian postal code — six digits, issued by NIPOST. SAY THE HONEST THING FIRST: Nigerian postal codes are very largely ignored in practice. Mail is not delivered to the door in most of the country, people collect from post office boxes or, far more often, use couriers and dispatch riders who navigate by landmark and phone call; a great many Nigerians do not know their code, and a form that demands one is routinely filled with 100001 or with zeros. Any system treating a Nigerian postal code as a reliable geographic key is going to be disappointed. THE STRUCTURE IS REAL EVEN IF THE USAGE IS NOT: the first digit is one of nine NIPOST regions (1 Lagos, 2 the Ibadan region, 4 Enugu, 5 Port Harcourt, 9 Abuja are the ones confirmed here), the first three digits together are the dispatch district used for outgoing sorting, and the last three identify the delivery location, with a region's main post office ending 0001 — Ikeja HO is 100001, Garki HO in Abuja is 900001, Port Harcourt is 500001, Lokoja is 270001. Real codes run from 100001 to 982002. STRUCTURAL DRAW: the leading digit here is always in the real 1-9 range, but the middle pair is not restricted to dispatch districts NIPOST actually assigned, so a generated code has the right shape without being guaranteed to name a real district. Nigeria has no alphabetic component and no space — it is not a UK postcode and not a US ZIP+4.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[1-9][0-9]{5}"/>

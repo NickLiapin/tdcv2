@@ -1,0 +1,41 @@
+---
+address: kenya.finance.bankCode
+description: Central Bank of Kenya bank codes — TWO digits, not three, and they are a fixed enumeration rather than a range, so a random two-digit draw would be wrong roughly half the time (there is no bank 04, 13, 21 or 99). Index-aligned with kenya.finance.bank. The code identifies the institution and is the same at every branch; the branch adds a further three digits, and bank code + branch code together make the five-digit clearing code that routes a cheque, an EFT or an RTGS transfer — see kenya.finance.sortCode. The code is stable across rebrands and mergers, which is why Absa still clears on Barclays' 03 and NCBA on CBA's 07. Leading zeros are part of the code: KCB is 01, and writing it 1 breaks the five-digit form.
+locale: en
+---
+01
+02
+03
+05
+06
+07
+10
+11
+12
+14
+16
+17
+18
+19
+23
+25
+26
+31
+35
+43
+50
+51
+53
+54
+55
+57
+59
+60
+63
+66
+68
+70
+72
+74
+75
+76

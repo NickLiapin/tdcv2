@@ -1,0 +1,30 @@
+---
+address: iran.finance.bank
+description: Banks and credit institutions operating in Iran, Persian names, index-aligned with iran.finance.bankCode so the name and the IBAN code in one record can be made to agree. The first eleven are state-owned or specialised (بانک ملی ایران is the largest; بانک مسکن lends for housing, بانک کشاورزی for agriculture, بانک توسعه صادرات for export finance), the rest are private banks licensed from the late 1990s onward. All of them operate under Islamic banking law: an Iranian account pays سود (a declared profit rate on a contract) rather than بهره (interest), which is not a translation choice but a different instrument, so a schema with an interest_rate column is describing something Iranian banks do not sell. The five banks merged into بانک سپه in 2019 — انصار، قوامین، حکمت ایرانیان، مهر اقتصاد and the کوثر credit institution — are not listed: they no longer exist, though they appear throughout historic Iranian data.
+locale: fa
+---
+بانک ملی ایران
+بانک ملت
+بانک صادرات ایران
+بانک تجارت
+بانک سپه
+بانک کشاورزی
+بانک مسکن
+بانک رفاه کارگران
+بانک صنعت و معدن
+بانک توسعه صادرات ایران
+پست بانک ایران
+بانک پارسیان
+بانک پاسارگاد
+بانک اقتصاد نوین
+بانک سامان
+بانک سینا
+بانک سرمایه
+بانک کارآفرین
+بانک شهر
+بانک آینده
+بانک دی
+بانک ایران زمین
+بانک خاورمیانه
+بانک قرض‌الحسنه مهر ایران
+بانک قرض‌الحسنه رسالت

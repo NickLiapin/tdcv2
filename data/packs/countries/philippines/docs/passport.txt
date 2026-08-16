@@ -1,0 +1,7 @@
+---
+address: philippines.docs.passport
+description: Philippine passport number — 9 characters in the current electronic passport: one letter, seven digits, one letter, e.g. P1234567A. The Department of Foreign Affairs issues it; the letters and the series are booklet stock allocation and encode nothing about the holder or the issuing post. NO CHECK DIGIT INSIDE THE NUMBER. The check digit an inspector's reader validates is the ICAO 9303 7-3-1 digit that sits in the machine-readable zone AFTER the number, which belongs to the document format rather than to the number, and is not generated here — common.docs.mrz.passport_td3 is where an MRZ lives. Older green-cover machine-readable passports carried a different layout, commonly two letters and seven digits, and remain in circulation until they expire, so Philippine passport data spans more than one shape. The passport is the most-used identity document in the country by a wide margin, because it is the one government ID a Filipino without a driving licence, without formal employment and without a bank account can still obtain — which is why passport data in Philippine systems appears far more often than the travel rate would suggest.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[A-Z][0-9]{7}[A-Z]"/>

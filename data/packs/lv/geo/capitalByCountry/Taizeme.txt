@@ -1,0 +1,5 @@
+---
+description: Capital of Taizeme, in the Latvian spelling.
+locale: lv
+---
+Bangkoka

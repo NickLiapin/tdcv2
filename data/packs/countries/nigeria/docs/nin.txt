@@ -1,0 +1,7 @@
+---
+address: nigeria.docs.nin
+description: National Identification Number — 11 digits, issued by NIMC (National Identity Management Commission) and by now the spine of Nigerian identity: the NIN is what a SIM card, a bank account, a passport, a driving licence and, since January 2026, a tax ID are all keyed to. NO CHECK DIGIT IS COMPUTED HERE, AND THAT IS THE ACCURATE ANSWER, NOT A GAP. NIMC describes the NIN as randomly generated and non-intelligible — it deliberately encodes nothing about the holder, no birth date, no sex, no state of origin — and publishes no checksum. Every third-party NIN validator on offer does exactly one arithmetic thing, which is count to eleven; verification means asking NIMC's service whether the number was issued and matches a person, not doing sums on it. Inventing a mod-11 here would produce numbers that look more trustworthy than real ones, which is worse than no checksum at all. Contrast nigeria.finance.nuban, where the check digit is real and published. One further wrinkle worth knowing before storing these: NIMC has been pushing holders and verifiers onto a tokenised virtual NIN (vNIN) precisely so the raw 11 digits stop circulating, so a system that hoards raw NINs is moving against the direction of Nigerian law.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{11}"/>

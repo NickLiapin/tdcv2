@@ -1,0 +1,5 @@
+---
+description: Currency of Vengrija (Lithuanian).
+locale: lt
+---
+Forintas

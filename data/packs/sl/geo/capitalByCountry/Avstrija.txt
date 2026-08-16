@@ -1,0 +1,5 @@
+---
+description: Capital of Avstrija, as Slovene names it
+locale: sl
+---
+Dunaj

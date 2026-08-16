@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Aškenazi ebreju descent.
+locale: lv
+---
+Teja-Saksa slimība
+Gošē slimība
+Kanavana slimība
+Ģimenes disautonomija
+BRCA1 mutācija
+BRCA2 mutācija
+Nīmaņa-Pika slimība
+Blūma sindroms
+Fankoni anēmija
+Mukolipidoze IV

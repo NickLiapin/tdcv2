@@ -1,0 +1,8 @@
+---
+address: serbia.phone
+description: Serbian mobile number in E.164 form — +381 then a two-digit network code beginning 6 and six or seven subscriber digits. The whole mobile plan sits under 6, with no other leading digit and no gaps except 67: 060, 061 and 068 are A1 Srbija, 062, 063 and 069 are Yettel, 064, 065 and 066 are Telekom Srbija (mts). Serbia is one country where the network code still tells you the operator to a useful degree, even after number portability; 063 and 064 are the two oldest and by far the commonest, so drawing the nine codes equally gives the right SET and not the real market split. Written nationally the number carries a trunk zero — 063 123 456. Landlines are not generated here, and the reason is that Serbia's geographic codes deliberately echo the postal ones: Belgrade is 11 in the phone plan and 11xxx in the post, Novi Sad 21 and 21xxx, Niš 18 and 18xxx, Kragujevac 34 and 34xxx. Both grids were laid out in Yugoslavia against the same map, which is why the two agree across the country and why neither Slovenia (single-digit area codes) nor Croatia (Zagreb alone on one digit) shows the same pattern. Subscriber length is not fixed: a Serbian mobile number is +381 plus eight or nine digits, so unlike Slovenia's rigid eight the length varies within the same operator.
+generator: tdc
+---
+<sequence name="network"><gen type="text" value="60,61,62,63,64,65,66,68,69"/></sequence>
+<sequence name="subscriber"><gen type="regex" value="[0-9]{6,7}"/></sequence>
+<data>+381${{network}}${{subscriber}}</data>

@@ -1,0 +1,30 @@
+---
+description: Mobile or fixed-line operator. LMT, Tele2 and Bite are the three Latvian mobile networks and Tet the incumbent fixed-line and broadband operator; the rest are the European groups a Latvian roams onto. Operator names are brands and keep their real spelling.
+locale: lv
+---
+LMT
+Tele2
+Bite
+Tet
+Amigo
+Zelta Zivtiņa
+Baltcom
+Balticom
+Telia
+Telenor
+Elisa
+Vodafone
+Orange
+O2
+T-Mobile
+Deutsche Telekom
+A1
+Play
+Orange Polska
+Plus
+Telefonica
+Three
+EE
+Swisscom
+Proximus
+Iliad

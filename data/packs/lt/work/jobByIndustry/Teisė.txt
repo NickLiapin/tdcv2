@@ -1,0 +1,16 @@
+---
+description: Jobs in Teisė (Lithuanian).
+locale: lt
+---
+Advokatas
+Advokato padėjėjas
+Notaras
+Teisėjas
+Prokuroras
+Antstolis
+Teisininkas
+Teismo posėdžių sekretorius
+Teisinis konsultantas
+Atitikties specialistas
+Patentinis patikėtinis
+Juristas

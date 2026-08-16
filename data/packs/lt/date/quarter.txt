@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Lithuanian, ketvirtis).
+locale: lt
+---
+I ketv.
+II ketv.
+III ketv.
+IV ketv.

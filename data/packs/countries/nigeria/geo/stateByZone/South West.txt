@@ -1,0 +1,11 @@
+---
+address: nigeria.geo.stateByZone.South West
+description: The six states of Nigeria's South West zone, including Lagos. Keyed by nigeria.geo.zone, so a config can draw a zone and then a state that really belongs to it.
+locale: en
+---
+Ekiti
+Lagos
+Ogun
+Ondo
+Osun
+Oyo

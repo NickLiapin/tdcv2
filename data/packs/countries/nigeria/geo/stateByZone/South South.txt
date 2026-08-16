@@ -1,0 +1,11 @@
+---
+address: nigeria.geo.stateByZone.South South
+description: The six states of Nigeria's South South zone — the Niger Delta, where the oil is. The name really is the word twice; it is not a truncation of anything. Keyed by nigeria.geo.zone, so a config can draw a zone and then a state that really belongs to it.
+locale: en
+---
+Akwa Ibom
+Bayelsa
+Cross River
+Delta
+Edo
+Rivers

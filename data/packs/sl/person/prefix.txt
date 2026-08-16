@@ -1,0 +1,36 @@
+---
+description: Slovene honorific or form of address, in the abbreviated shape used before a name. Slovene academic titles are written LOWERCASE and precede the name (dr. Ana Novak, prof. dr. Marko Kos), which is the opposite of the English convention; g. and ga. are gospod and gospa, and gdč. for an unmarried woman is now dated and rarely used.
+locale: sl
+---
+g.
+ga.
+gdč.
+dr.
+prof. dr.
+izr. prof. dr.
+doc. dr.
+asist. dr.
+asist.
+mag.
+univ. dipl. inž.
+dipl. inž.
+inž.
+prof.
+akad.
+akad. prof. dr.
+prim.
+prim. dr.
+spec.
+spec. dr. med.
+dr. med.
+dr. dent. med.
+mag. farm.
+univ. dipl. prav.
+univ. dipl. ekon.
+univ. dipl. psih.
+predsednik
+direktor
+ravnatelj
+župan
+minister
+poslanec

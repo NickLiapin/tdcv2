@@ -1,0 +1,14 @@
+---
+description: Loan type (Lithuanian).
+locale: lt
+---
+Būsto paskola
+Vartojimo paskola
+Automobilio paskola
+Studijų paskola
+Lizingas
+Kredito linija
+Kreditinė kortelė
+Verslo paskola
+Refinansavimo paskola
+Greitasis kreditas

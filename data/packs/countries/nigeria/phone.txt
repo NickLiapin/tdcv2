@@ -1,0 +1,9 @@
+---
+address: nigeria.phone
+description: Nigerian mobile number in international E.164 form — +234, then the 10-digit national significant number. THE LEADING 0 IS DROPPED: a Nigerian writes their number domestically as 0803 123 4567, eleven digits with the trunk prefix, and internationally as +234 803 123 4567, thirteen characters with that 0 gone. Writing +2340803... is the classic error and produces a number that is one digit too long and dials nothing; see nigeria.phoneNational for the domestic form of the same thing. The 3-digit block comes from nigeria.phonePrefix, so it is one the NCC really allocated, and the remaining seven digits are free. Nigeria is a mobile country to an extent that matters for data design — fixed lines effectively collapsed and were rebuilt as mobile, so a Nigerian record usually has a mobile number where a European one might have a landline, and many people carry two SIMs on different networks because coverage is uneven. Every SIM is now tied to the holder's NIN.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="template" value="nigeria.phonePrefix"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+234${{prefix}}${{rest}}</data>

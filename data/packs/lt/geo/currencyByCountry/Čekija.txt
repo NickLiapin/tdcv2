@@ -1,0 +1,5 @@
+---
+description: Currency of Čekija (Lithuanian).
+locale: lt
+---
+Krona

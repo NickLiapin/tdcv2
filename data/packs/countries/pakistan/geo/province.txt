@@ -1,0 +1,9 @@
+---
+address: pakistan.geo.province
+description: The four PROVINCES of Pakistan, largest first by population. Four is the whole list — Article 1 of the Constitution names Punjab, Sindh, Khyber Pakhtunkhwa and Balochistan as the provinces, and nothing else in the country is one. Islamabad Capital Territory, Azad Jammu and Kashmir and Gilgit-Baltistan are administered on three different footings that are not provincial, and they are kept out of this file and listed in pakistan.geo.territory instead, because folding seven names into one "region" column would make the pack assert something about Pakistan's constitutional structure that is not true. Two of the four names are recent: Khyber Pakhtunkhwa was called the North-West Frontier Province until the 18th Amendment renamed it in 2010, so a test set that still says NWFP is a test set from before then, and the former Federally Administered Tribal Areas were merged into it in 2018, which is why the province now reaches the Afghan border. Balochistan is much the largest of the four by area and much the smallest by population.
+locale: en
+---
+Punjab
+Sindh
+Khyber Pakhtunkhwa
+Balochistan

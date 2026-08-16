@@ -1,0 +1,21 @@
+---
+description: Cuisine. The names are genitive plurals of the people, which is how Latvian builds this kind of attribute: latviešu virtuve is "the kitchen of the Latvians". Krievu and gruzīnu are on the list because Russian and Georgian restaurants are an ordinary part of the Latvian eating-out landscape, not an exotic one — about a quarter of the country speaks Russian at home, and Georgian cellars are a Rīga staple.
+locale: lv
+---
+Latviešu
+Itāļu
+Japāņu
+Meksikāņu
+Ķīniešu
+Indiešu
+Franču
+Taju
+Grieķu
+Spāņu
+Amerikāņu
+Korejiešu
+Vjetnamiešu
+Turku
+Libāniešu
+Krievu
+Gruzīnu

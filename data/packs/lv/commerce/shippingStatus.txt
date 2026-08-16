@@ -1,0 +1,15 @@
+---
+description: Shipping status.
+locale: lv
+---
+Izveidota pavadzīme
+Nodots kurjeram
+Ceļā
+Šķirošanas centrā
+Nodots piegādei
+Piegādāts
+Gaida pakomātā
+Gaida izsniegšanas punktā
+Neizdevās piegādāt
+Atgriezts sūtītājam
+Aizkavējas

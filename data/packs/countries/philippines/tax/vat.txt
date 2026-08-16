@@ -1,0 +1,8 @@
+---
+address: philippines.tax.vat
+description: VAT registration identifier for the Philippines — WHICH IS THE TIN, because the Philippines issues no separate VAT number. The country has had a value-added tax since 1988 and charges 12 per cent, but a business that crosses the registration threshold does not receive a second number: it is issued a BIR Certificate of Registration marking its existing TIN as VAT-registered, and that same TIN is what must be printed on every VAT official receipt and sales invoice. So there is deliberately no distinct philippines.tax.vat format here, and this address resolves to the full TIN with its branch code, which is the string that actually appears in the "TIN" box of a Philippine VAT invoice. THE STATUS IS THE DATA, NOT THE NUMBER. What tells you whether a Philippine counterparty charges VAT is the VAT / non-VAT flag beside the TIN, not anything inside the digits — real supplier lists are written "005-160-067 VAT" and "109-102-132 NV", with the status appended by hand. SAP's Philippine localisation formalises the same habit by storing the TIN with a trailing V or N, which is an ERP convention and not a BIR format; do not treat that letter as part of the number. This also means a Philippine TIN cannot be checked for VAT registration by inspection, and there is no VIES-style arithmetic to run: the base TIN's ninth digit is a check digit whose algorithm the BIR does not publish, as philippines.tax.tin sets out in full.
+generator: tdc
+locale: en
+---
+<sequence name="tin"><gen type="template" value="philippines.tax.tinWithBranch"/></sequence>
+<data>${{tin}}</data>

@@ -1,0 +1,9 @@
+---
+address: kenya.phone
+description: Kenyan mobile number in E.164 form — +254 followed by nine digits, of which the first three are the operator prefix. Written nationally the same number starts 0 instead of +254, so +254722123456 is dialled 0722123456; the leading 0 is a trunk prefix and is dropped, never both. The prefixes here are the real allocation and not a range: Safaricom holds 070x, 071x, 072x, 0740-0746, 0748, 0757-0759, 0768, 0769, 079x and the newer 0110-0115; Airtel holds 0730-0739, 0750-0756, 0762, 0785-0789 and 0100-0102; Telkom holds 0770-0779; Equitel (Finserve, Equity Bank's MVNO) holds 0763-0766; Jamii Telecom (Faiba) holds 0747. The 01xx block was opened by the Communications Authority because the 07xx block ran out. Drawing uniformly over these hundred prefixes puts about 59% of numbers on Safaricom, which lands close to its real subscriber share — and that matters more here than in most countries, because a Kenyan phone number is also a payment address: the number IS the M-Pesa account.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="700,701,702,703,704,705,706,707,708,709,710,711,712,713,714,715,716,717,718,719,720,721,722,723,724,725,726,727,728,729,740,741,742,743,744,745,746,748,757,758,759,768,769,790,791,792,793,794,795,796,797,798,799,110,111,112,113,114,115,730,731,732,733,734,735,736,737,738,739,750,751,752,753,754,755,756,762,785,786,787,788,789,100,101,102,770,771,772,773,774,775,776,777,778,779,763,764,765,766,747"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>+254${{prefix}}${{line}}</data>

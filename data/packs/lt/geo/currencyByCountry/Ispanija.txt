@@ -1,0 +1,5 @@
+---
+description: Currency of Ispanija (Lithuanian).
+locale: lt
+---
+Euras

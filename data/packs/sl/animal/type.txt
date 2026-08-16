@@ -1,0 +1,42 @@
+---
+description: Animal (Slovene). Slovenia keeps a live population of all three large European carnivores — medved, volk and ris — in the Dinaric forests of Kočevje and Notranjska, so the words are everyday ones rather than zoo words. The človeška ribica, the olm of the Postojna and Škocjan cave systems, is the world's only cave-dwelling vertebrate of its kind and is on the Slovene tolar coin and now on the euro cent; Slovene names it a little human fish because of its pale skin.
+locale: sl
+---
+pes
+mačka
+konj
+krava
+bik
+tele
+prašič
+ovca
+koza
+kokoš
+petelin
+raca
+gos
+puran
+zajec
+kunec
+miš
+podgana
+veverica
+polh
+jež
+krt
+lisica
+volk
+medved
+ris
+divja mačka
+kuna
+jazbec
+vidra
+bober
+srna
+jelen
+gams
+kozorog
+divji prašič
+kača
+človeška ribica

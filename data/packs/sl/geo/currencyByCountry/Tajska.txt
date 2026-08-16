@@ -1,0 +1,5 @@
+---
+description: Currency of Tajska, named in Slovene
+locale: sl
+---
+tajski baht

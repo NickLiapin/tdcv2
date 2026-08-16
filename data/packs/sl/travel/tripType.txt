@@ -1,0 +1,24 @@
+---
+description: Type of trip (Slovene). Termalni oddih — a spa break — is one of Slovenia's largest tourism categories, and vinska cesta is the marked wine road, of which the country has some twenty.
+locale: sl
+---
+počitnice
+vikend oddih
+termalni oddih
+wellness oddih
+smučarske počitnice
+pohodniški izlet
+planinska tura
+kolesarski izlet
+izlet v naravo
+obisk mesta
+kulturni izlet
+vinska cesta
+kulinarični izlet
+romanje
+šola v naravi
+službena pot
+poslovna konferenca
+obisk sorodnikov
+križarjenje
+avanturistično potovanje

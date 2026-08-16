@@ -1,0 +1,10 @@
+---
+address: philippines.docs.philhealth
+description: PhilHealth Identification Number (PIN) — 12 digits, written XX-XXXXXXXXX-X, issued by the Philippine Health Insurance Corporation. Since the Universal Health Care Act of 2019 every Filipino is a PhilHealth member automatically, so unlike SSS or GSIS this number is not tied to employment: it covers the employed, the self-employed, the indigent, senior citizens and overseas workers alike, and a person who has never worked still has one. It is the third of the four social-insurance numbers a Filipino carries at once — see philippines.docs.sss for why there are four. NO PUBLISHED CHECK DIGIT. The trailing digit is separated off in the printed form the way a check digit usually is, and PhilHealth publishes no rule for computing it, so it is drawn here and not calculated. Note the collision risk with philippines.docs.philsysNumber: the PhilSys Number is ALSO 12 digits, so length alone cannot tell a PhilHealth PIN from a national ID number, and a field labelled only "12-digit government number" in Philippine data is genuinely ambiguous. Historically PhilHealth also issued 12-digit numbers with different internal groupings and some members hold cards printed in older layouts; the digits are the same, the hyphens moved.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="last"><gen type="regex" value="[0-9]"/></sequence>
+<data>${{prefix}}${{serial}}${{last}}</data>

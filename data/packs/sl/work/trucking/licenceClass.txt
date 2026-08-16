@@ -1,0 +1,11 @@
+---
+description: Driving licence category for freight and passenger transport. These are the EU categories as they appear on a Slovene licence.
+locale: sl
+---
+B
+BE
+C1
+C1E
+C
+CE
+D

@@ -1,0 +1,29 @@
+---
+description: Fish (Lithuanian). Baltic and inland-water species, plus the smoked Curonian Lagoon fish Lithuanians actually eat.
+locale: lt
+---
+Lydeka
+Ešerys
+Karpis
+Karosas
+Lynas
+Kuoja
+Plakis
+Šamas
+Unguriai
+Ungurys
+Lašiša
+Šlakys
+Upėtakis
+Sykas
+Seliava
+Stinta
+Menkė
+Strimelė
+Bretlingis
+Otas
+Plekšnė
+Starkis
+Vėgėlė
+Salatis
+Aukšlė

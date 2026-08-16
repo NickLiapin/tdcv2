@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Lithuanian that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: lt
+---
+Gerybinė priešinės liaukos hiperplazija
+Priešinės liaukos vėžys
+Prostatitas
+Sėklidžių vėžys
+Sėklidės sukimasis
+Varikocelė
+Hidrocelė
+Epididimitas
+Orchitas
+Fimozė
+Parafimozė
+Balanitas
+Erekcijos sutrikimas
+Priešlaikinė ejakuliacija
+Ginekomastija
+Vyrų nevaisingumas
+Hipogonadizmas
+Peironio liga
+Kriptorchizmas
+Vyrų krūties vėžys

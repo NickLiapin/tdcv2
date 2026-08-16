@@ -1,0 +1,59 @@
+{
+  "months": [
+    "sausis",
+    "vasaris",
+    "kovas",
+    "balandis",
+    "gegužė",
+    "birželis",
+    "liepa",
+    "rugpjūtis",
+    "rugsėjis",
+    "spalis",
+    "lapkritis",
+    "gruodis"
+  ],
+  "monthsInDate": [
+    "sausio",
+    "vasario",
+    "kovo",
+    "balandžio",
+    "gegužės",
+    "birželio",
+    "liepos",
+    "rugpjūčio",
+    "rugsėjo",
+    "spalio",
+    "lapkričio",
+    "gruodžio"
+  ],
+  "monthsShort": [
+    "saus.",
+    "vas.",
+    "kov.",
+    "bal.",
+    "geg.",
+    "birž.",
+    "liep.",
+    "rugp.",
+    "rugs.",
+    "spal.",
+    "lapkr.",
+    "gruod."
+  ],
+  "weekdays": [
+    "sekmadienis",
+    "pirmadienis",
+    "antradienis",
+    "trečiadienis",
+    "ketvirtadienis",
+    "penktadienis",
+    "šeštadienis"
+  ],
+  "weekdaysShort": ["sk", "pr", "an", "tr", "kt", "pn", "št"],
+  "formats": {
+    "L": "YYYY-MM-DD",
+    "LL": "YYYY [m.] MMMM D [d.]"
+  },
+  "notes": "monthsInDate is load-bearing, not decoration. Lithuanian puts the month into the GENITIVE inside a date: the month is sausis, but the date reads 2026 m. sausio 18 d. LL must draw MMMM from monthsInDate, exactly as Czech and Finnish do. The month names themselves are native nature words rather than the Latin set — birželis is the birch month, rugpjutis the rye-cutting month, lapkritis the leaf-fall month. The numeric format is ISO YYYY-MM-DD with hyphens: Lithuania is one of the few European countries where big-endian ISO order is the NATIONAL standard, so 2026-01-18, never 18.01.2026 and never 01/18/2026. The long form is bracketed by two abbreviations that are not optional in official writing: m. for metai (year) after the year and d. for diena (day) after the day number. Weekday names are transparently numbered — pirmadienis is 'first-day' through to sestadienis 'sixth-day' — and sekmadienis, Sunday, is 'seventh-day' from an archaic form of septintas, not a saint's name. The weekdays array above is SUNDAY-first because the formatter wants it that way, while date/weekday.txt in the pack is Monday-first as a Lithuanian would list them; the week starts on Monday. Month and weekday names are written in LOWER CASE. Weekday abbreviations are two letters with no full stop; month abbreviations carry one. Time is 24-hour with a colon (14:30). The decimal separator is a comma and the thousands separator a space (1 234,56). Currency is the euro, adopted 1 January 2015, written after the amount (12,50 EUR)."
+}

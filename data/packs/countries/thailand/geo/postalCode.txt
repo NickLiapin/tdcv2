@@ -1,0 +1,8 @@
+---
+address: thailand.geo.postalCode
+description: Thai postcode (รหัสไปรษณีย์) — five digits, no letters and no separator, written bare (10110, 50200, 83000). The FIRST TWO DIGITS ARE THE PROVINCE and are drawn from the real set in thailand.geo.postalCodePrefix, so the province half of every value generated here exists. The last three identify the delivery post office within that province and are drawn at random from 000 to 999, so the value as a whole is a well-formed postcode in a real province but usually not a postcode that any post office actually serves — a province has tens of offices, not a thousand. What is modelled: the length, the digits-only shape, and a real province prefix. What is not: which office. If you need the two halves to agree with a printed province, draw thailand.geo.provinceWithPostalPrefix once and split it yourself; drawing this address and thailand.geo.province separately gives you two independent provinces. The provincial capital conventionally takes NN000 (เชียงใหม่ 50000, ภูเก็ต 83000) and Bangkok runs 101xx to 109xx.
+generator: tdc
+---
+<sequence name="prefix"><gen type="template" value="thailand.geo.postalCodePrefix"/></sequence>
+<sequence name="office"><gen type="regex" value="[0-9]{3}"/></sequence>
+<data>${{prefix}}${{office}}</data>

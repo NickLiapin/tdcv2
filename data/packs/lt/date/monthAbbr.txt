@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Lithuanian), with the full stop Lithuanian abbreviations carry.
+locale: lt
+---
+saus.
+vas.
+kov.
+bal.
+geg.
+birž.
+liep.
+rugp.
+rugs.
+spal.
+lapkr.
+gruod.

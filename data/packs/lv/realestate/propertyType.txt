@@ -1,0 +1,23 @@
+---
+description: Property type. Sērijveida dzīvoklis is the Soviet-era system-built flat — the 103., 104., 119. and 602. series are named in Latvian adverts as ordinary shorthand for age, layout and ceiling height — and jaunais projekts is anything built after 1991. Together they are the first thing a Latvian listing states.
+locale: lv
+---
+Dzīvoklis
+Sērijveida dzīvoklis
+Jaunais projekts
+Privātmāja
+Rindu māja
+Dvīņu māja
+Daudzdzīvokļu māja
+Vasarnīca
+Lauku māja
+Viensēta
+Muiža
+Studija
+Bēniņu dzīvoklis
+Penthauss
+Komerctelpas
+Birojs
+Noliktava
+Ražošanas telpas
+Zemes gabals

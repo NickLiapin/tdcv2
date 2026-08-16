@@ -1,0 +1,5 @@
+---
+description: Capital of Īrija, in the Latvian spelling.
+locale: lv
+---
+Dublina

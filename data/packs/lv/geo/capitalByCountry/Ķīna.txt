@@ -1,0 +1,5 @@
+---
+description: Capital of Ķīna, in the Latvian spelling.
+locale: lv
+---
+Pekina

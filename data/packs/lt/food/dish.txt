@@ -1,0 +1,44 @@
+---
+description: Dish (Lithuanian). A mix of the Lithuanian everyday table and internationally common dishes; the potato dishes at the top are the national ones.
+locale: lt
+---
+Cepelinai
+Šaltibarščiai
+Kugelis
+Bulviniai blynai
+Vėdarai
+Kibinai
+Koldūnai
+Balandėliai
+Kotletai
+Karbonadas
+Kepta kiauliena
+Kepta vištiena
+Troškinta jautiena
+Kepta žuvis
+Rūkyta žuvis
+Silkė su bulvėmis
+Šalta silkė
+Grybų sriuba
+Burokėlių sriuba
+Kopūstų sriuba
+Žirnių sriuba
+Vištienos sultinys
+Bulvių košė
+Keptos bulvės
+Virtos bulvės
+Grikių košė
+Perlinių kruopų košė
+Makaronai
+Ryžiai su daržovėmis
+Daržovių troškinys
+Salotos su sūriu
+Burokėlių salotos
+Varškėčiai
+Blynai su varške
+Sūrio pyragas
+Obuolių pyragas
+Šakotis
+Grietinės padažas
+Duona su lašiniais
+Kepta duona su česnaku

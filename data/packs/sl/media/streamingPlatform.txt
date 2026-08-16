@@ -1,0 +1,16 @@
+---
+description: Streaming service available in Slovenia. RTV 4D is the public broadcaster's own catch-up service, VOYO belongs to the commercial POP TV, and EON is Telemach's; these are brand names and keep their spelling.
+locale: sl
+---
+Netflix
+Disney+
+HBO Max
+Amazon Prime Video
+Apple TV+
+SkyShowtime
+VOYO
+RTV 4D
+EON
+YouTube
+Spotify
+Deezer

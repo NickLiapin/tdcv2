@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Lithuanian (female-specific + common).
+locale: lt
+---
+Endometriozė
+Gimdos mioma
+Policistinių kiaušidžių sindromas
+Krūties vėžys
+Gimdos kaklelio vėžys
+Kiaušidžių vėžys
+Menopauzė
+Gestacinis diabetas
+Preeklampsija
+Nevaisingumas
+Dismenorėja
+Gimdos gleivinės uždegimas
+Mastopatija
+Vulvovaginitas
+Osteoporozė
+Skydliaukės funkcijos nepakankamumas
+Geležies stokos anemija
+Arterinė hipertenzija
+2 tipo cukrinis diabetas
+Migrena
+Bronchinė astma
+Osteoartritas
+Depresijos epizodas
+Generalizuotas nerimo sutrikimas
+Šlapimo takų infekcija
+Tulžies akmenligė
+Hašimoto tiroiditas

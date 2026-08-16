@@ -1,0 +1,5 @@
+---
+description: Capital of Vengrija (Lithuanian).
+locale: lt
+---
+Budapeštas

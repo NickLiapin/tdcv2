@@ -1,0 +1,5 @@
+---
+description: Currency of Itālija, named in Latvian.
+locale: lv
+---
+eiro

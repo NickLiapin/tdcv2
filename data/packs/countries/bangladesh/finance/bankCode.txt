@@ -1,0 +1,43 @@
+---
+address: bangladesh.finance.bankCode
+description: The 3-digit Bangladesh Bank code that opens every 9-digit routing number, index-aligned line for line with bangladesh.finance.bank. Every code here was read off real published routing numbers rather than taken from a list, so each one is a code the clearing system actually carries. Two facts about these codes matter to anyone computing the routing check digit. First, they are allotted in steps of 5 — 010, 020, 035, 055, 060, 065 and so on — so the THIRD digit of a real Bangladeshi bank code is always 0 or 5 and never anything else. Second, that has a consequence: the check-digit weight on the third position multiplies a digit that can only be 0 or 5, so no published routing number can distinguish an odd weight there from any other odd weight, and the value used in bangladesh.finance.routingNumber is the one that fits the repeating pattern rather than one the data could pin down. The codes are not contiguous and not sortable into any meaning — 200 is Sonali, the largest state bank, and 305 is Shimanto, a small one founded in 2016; the number is issue order with gaps, not size.
+locale: en
+---
+010
+020
+035
+055
+060
+065
+070
+075
+080
+085
+090
+095
+100
+105
+120
+125
+130
+135
+150
+160
+170
+175
+180
+190
+200
+205
+210
+220
+225
+235
+240
+250
+265
+275
+290
+300
+305
+320

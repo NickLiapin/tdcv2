@@ -1,0 +1,12 @@
+---
+description: Diagnoses seen in Kardioloģija.
+locale: lv
+---
+Hipertensija
+Koronārā sirds slimība
+Priekškambaru mirdzēšana
+Sirds mazspēja
+Miokarda infarkts
+Hiperlipidēmija
+Sirds vārstuļu slimība
+Kardiomiopātija

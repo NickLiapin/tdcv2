@@ -1,0 +1,29 @@
+---
+description: Dog breed (Lithuanian). Lietuvių skalikas and Žemaitukas-adjacent working breeds are native ones.
+locale: lt
+---
+Lietuvių skalikas
+Vokiečių aviganis
+Labradoro retriveris
+Auksaspalvis retriveris
+Prancūzų buldogas
+Anglų buldogas
+Taksas
+Pudelis
+Rotveileris
+Bokseris
+Dobermanas
+Bigl
+Mopsas
+Čihuahua
+Jorkšyro terjeras
+Šoti aviganis
+Sibiro haskis
+Aliaskos malamutas
+Berno zenenhundas
+Sen Bernaras
+Airių seteris
+Vokiečių kurcharas
+Kaukazo aviganis
+Bordo dogas
+Mišrūnas

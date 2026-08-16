@@ -1,0 +1,24 @@
+---
+description: Parcel carrier operating in Latvia. Latvijas Pasts is the state postal operator and Omniva, DPD and Venipak run the parcel-locker networks (pakomāts) that most Latvian online orders actually arrive through; the rest are international carriers and forwarders with a Latvian network. These are company names and keep their real spelling.
+locale: lv
+---
+Latvijas Pasts
+Omniva
+DPD
+Venipak
+DHL Express
+FedEx
+UPS
+GLS
+TNT
+Aramex
+PostNord
+Bring
+Itella
+Schenker
+Kuehne + Nagel
+Rhenus Logistics
+Girteka
+Kreiss
+Cargobus
+Baltic Post

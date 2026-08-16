@@ -1,0 +1,21 @@
+---
+description: Official document type (Slovene). The words name kinds of document rather than one country's forms, but the set is the one a resident of Slovenia meets: the osebna izkaznica is the identity card, the izpisek iz matičnega registra the civil-register extract that replaced the separate birth and marriage certificates, and the potrdilo o stalnem prebivališču the residence certificate an administrative office issues on request. The NUMBERS these documents carry — EMŠO, davčna številka — belong to the Slovenia country pack, not here.
+locale: sl
+---
+osebna izkaznica
+potni list
+vozniško dovoljenje
+prometno dovoljenje
+rojstni list
+poročni list
+izpisek iz matičnega registra
+potrdilo o državljanstvu
+potrdilo o stalnem prebivališču
+zdravstvena kartica
+delovna knjižica
+potrdilo o nekaznovanosti
+gradbeno dovoljenje
+uporabno dovoljenje
+zemljiškoknjižni izpisek
+orožni list
+izpisek iz sodnega registra

@@ -1,0 +1,16 @@
+---
+description: Jobs in Technologijos (Lithuanian).
+locale: lt
+---
+Programinės įrangos inžinierius
+Front-end programuotojas
+Back-end programuotojas
+DevOps inžinierius
+Duomenų mokslininkas
+Duomenų analitikas
+Produkto vadovas
+UX dizaineris
+Programinės įrangos testuotojas
+Sistemų administratorius
+Debesų architektas
+Kibernetinio saugumo specialistas

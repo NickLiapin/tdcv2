@@ -1,0 +1,30 @@
+---
+description: Book genre (Slovene)
+locale: sl
+---
+roman
+kratka proza
+novela
+poezija
+drama
+esej
+biografija
+avtobiografija
+zgodovinski roman
+kriminalka
+triler
+znanstvena fantastika
+fantazija
+grozljivka
+ljubezenski roman
+pustolovski roman
+mladinski roman
+slikanica
+pravljica
+strip
+potopis
+kuharska knjiga
+priročnik
+učbenik
+leksikon
+znanstvena monografija

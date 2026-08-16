@@ -1,0 +1,5 @@
+---
+description: Capital of Francija, in the Latvian spelling.
+locale: lv
+---
+Parīze

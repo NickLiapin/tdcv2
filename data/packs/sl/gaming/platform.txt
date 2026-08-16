@@ -1,0 +1,15 @@
+---
+description: Gaming platform. These are product names and keep their real spelling in every locale.
+locale: sl
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Android
+iOS
+spletni brskalnik
+VR

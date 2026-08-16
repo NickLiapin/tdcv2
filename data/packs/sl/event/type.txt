@@ -1,0 +1,22 @@
+---
+description: Event type (Slovene)
+locale: sl
+---
+konferenca
+posvet
+seminar
+delavnica
+predavanje
+okrogla miza
+sejem
+razstava
+koncert
+festival
+gledališka predstava
+filmska projekcija
+otvoritev
+podelitev nagrad
+sprejem
+poroka
+obletnica
+veselica

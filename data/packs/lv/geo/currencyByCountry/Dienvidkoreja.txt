@@ -1,0 +1,5 @@
+---
+description: Currency of Dienvidkoreja, named in Latvian.
+locale: lv
+---
+Dienvidkorejas vona

@@ -1,0 +1,34 @@
+---
+description: Unit of measure. Latvia is fully metric — a Latvian label carries kilograms, litres and metres and never pounds, ounces or gallons, so those are deliberately absent. Gabals is the "each" of a Latvian invoice and is abbreviated gab.
+locale: lv
+---
+gabals
+gab.
+kastē
+iepakojumā
+komplektā
+pāris
+duci
+rullis
+saišķis
+paka
+kaste
+kārba
+maiss
+paplāte
+tūbiņa
+burka
+pudele
+kilograms
+grams
+tonna
+litrs
+mililitrs
+metrs
+centimetrs
+milimetrs
+kvadrātmetrs
+kubikmetrs
+kilometrs
+hektārs
+stunda

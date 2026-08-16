@@ -1,0 +1,251 @@
+---
+description: Slovene job titles across sectors (tech, healthcare, trades, transport, business, service, public). Given in the MASCULINE, which is the citation form; Slovene has a distinct feminine title for nearly all of them — učitelj / učiteljica, zdravnik / zdravnica, natakar / natakarica, prodajalec / prodajalka — so a config writing about a woman needs the feminine, not this list. Slovene job adverts are legally required to name both forms or to state that the masculine covers both, which is why a real Slovene vacancy reads "prodajalec (m/ž)".
+locale: sl
+---
+razvijalec programske opreme
+programer
+spletni razvijalec
+mobilni razvijalec
+sistemski administrator
+omrežni inženir
+podatkovni analitik
+podatkovni znanstvenik
+podatkovni inženir
+testni inženir
+produktni vodja
+projektni vodja
+skrbnik izdelka
+oblikovalec uporabniške izkušnje
+grafični oblikovalec
+varnostni inženir
+arhitekt informacijskih sistemov
+tehnik za informatiko
+skrbnik podatkovnih zbirk
+vodja informatike
+zdravnik
+družinski zdravnik
+zdravnik specialist
+kirurg
+anesteziolog
+pediater
+ginekolog
+internist
+nevrolog
+psihiater
+radiolog
+patolog
+zobozdravnik
+ustni higienik
+farmacevt
+farmacevtski tehnik
+diplomirana medicinska sestra
+zdravstveni tehnik
+reševalec
+babica
+fizioterapevt
+delovni terapevt
+logoped
+radiološki inženir
+laboratorijski tehnik
+veterinar
+veterinarski tehnik
+psiholog
+psihoterapevt
+socialni delavec
+socialni oskrbovalec
+negovalec
+varuška
+učitelj razrednega pouka
+učitelj predmetnega pouka
+profesor
+vzgojitelj
+pomočnik vzgojitelja
+ravnatelj
+šolski svetovalni delavec
+knjižničar
+raziskovalec
+asistent
+docent
+izredni profesor
+redni profesor
+prevajalec
+tolmač
+lektor
+novinar
+urednik
+fotograf
+snemalec
+montažer
+radijski voditelj
+televizijski voditelj
+oblikovalec
+arhitekt
+krajinski arhitekt
+gradbeni inženir
+strojni inženir
+elektroinženir
+kemijski inženir
+geodet
+gradbeni tehnik
+gradbeni nadzornik
+vodja gradbišča
+projektant
+zidar
+tesar
+mizar
+ključavničar
+varilec
+strugar
+orodjar
+elektrikar
+elektroinštalater
+vodovodni inštalater
+inštalater ogrevanja
+klimatizacijski tehnik
+pleskar
+krovec
+keramičar
+parketar
+steklar
+kamnosek
+dimnikar
+avtomehanik
+avtoličar
+avtoelektričar
+serviser
+vzdrževalec
+strojnik
+viličarist
+žerjavist
+voznik
+voznik tovornjaka
+voznik avtobusa
+taksist
+kurir
+dostavljavec
+skladiščnik
+logist
+špediter
+carinski deklarant
+strojevodja
+sprevodnik
+kontrolor zračnega prometa
+pilot
+stevard
+mornar
+kapitan
+ribič
+kmet
+gozdar
+sekač
+vrtnar
+cvetličar
+čebelar
+vinogradnik
+enolog
+mesar
+pek
+slaščičar
+kuhar
+glavni kuhar
+natakar
+barman
+receptor
+turistični vodnik
+animator
+čistilec
+varnostnik
+policist
+gasilec
+vojak
+inšpektor
+carinik
+sodnik
+odvetnik
+notar
+državni tožilec
+pravnik
+pravni svetovalec
+sodni tolmač
+računovodja
+knjigovodja
+revizor
+davčni svetovalec
+finančni analitik
+bančni uslužbenec
+kreditni referent
+zavarovalni zastopnik
+aktuar
+borzni posrednik
+ekonomist
+tržnik
+prodajalec
+komercialist
+trgovski potnik
+blagajnik
+vodja prodaje
+nabavnik
+kadrovnik
+referent
+tajnik
+poslovni sekretar
+administrator
+vodja pisarne
+direktor
+izvršni direktor
+finančni direktor
+vodja oddelka
+poslovodja
+podjetnik
+svetovalec
+poslovni analitik
+prokurist
+statistik
+matematik
+fizik
+kemik
+biolog
+geolog
+meteorolog
+ekolog
+agronom
+živilski tehnolog
+tekstilni tehnolog
+kemijski tehnik
+laborant
+operater stroja
+monter
+kontrolor kakovosti
+tehnolog
+konstruktor
+energetik
+rudar
+glasbenik
+dirigent
+pevec
+igralec
+plesalec
+koreograf
+režiser
+scenarist
+kostumograf
+scenograf
+kustos
+arhivar
+restavrator
+kipar
+slikar
+zlatar
+urar
+čevljar
+krojač
+šivilja
+frizer
+kozmetik
+maser
+optik
+pogrebnik
+poštar
+komunalni delavec
+cestar
+hišnik

@@ -1,0 +1,43 @@
+---
+description: Lithuanian thoroughfare type — goes AFTER the street name (Gedimino prospektas, Pilies gatvė, Katedros aikštė), which is the opposite of the Polish order and the reason this file must not be composed like pl/address/streetSuffix. The short forms (g., pr., al., a.) are what an address line actually carries.
+locale: lt
+---
+gatvė
+g.
+prospektas
+pr.
+alėja
+al.
+aikštė
+a.
+skersgatvis
+skg.
+takas
+tak.
+kelias
+kel.
+plentas
+pl.
+krantinė
+krant.
+bulvaras
+tiltas
+laiptai
+skveras
+parkas
+viadukas
+kvartalas
+mikrorajonas
+gyvenvietė
+kaimas
+k.
+miestelis
+mstl.
+vienkiemis
+sodyba
+sodų bendrija
+sodai
+rajonas
+seniūnija
+sen.
+priemiestis

@@ -1,0 +1,13 @@
+---
+description: TV / film content rating in descriptive Lithuanian. Lithuania's actual index codes (N-7, N-13, N-16, N-18, S) are country data and belong to the country pack.
+locale: lt
+---
+Visai šeimai
+Be amžiaus apribojimų
+Nerekomenduojama jaunesniems nei 7 metų
+Nerekomenduojama jaunesniems nei 13 metų
+Nerekomenduojama jaunesniems nei 16 metų
+Suaugusiesiems
+Su tėvų palyda
+Smurtinis turinys
+Necenzūrinė kalba

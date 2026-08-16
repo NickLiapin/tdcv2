@@ -1,0 +1,39 @@
+---
+description: Playing position (Slovene), across sports
+locale: sl
+---
+vratar
+branilec
+osrednji branilec
+levi bočni branilec
+desni bočni branilec
+zvezni igralec
+defenzivni vezist
+osrednji vezist
+ofenzivni vezist
+levo krilo
+desno krilo
+napadalec
+konica napada
+organizator igre
+branilec za met
+nizko krilo
+visoko krilo
+center
+levi zunanji
+srednji zunanji
+desni zunanji
+krožni napadalec
+podajalec
+korektor
+sprejemalec
+srednji bloker
+prosti igralec
+levi branilec
+desni branilec
+zunanji igralec
+pokrivalec centra
+kapetan
+rezerva
+trener
+pomočnik trenerja

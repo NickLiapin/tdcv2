@@ -1,0 +1,240 @@
+---
+description: Lithuanian job titles across sectors (tech, healthcare, trades, transport, business, service, public). Masculine singular nominative, which is the citation form; a job title said of a woman takes the feminine ending (mokytojas / mokytoja, gydytojas / gydytoja, vadovas / vadovė) and Lithuanian uses it consistently rather than treating the masculine as neutral.
+locale: lt
+---
+Programinės įrangos inžinierius
+Programuotojas
+Front-end programuotojas
+Back-end programuotojas
+Mobiliųjų programėlių kūrėjas
+DevOps inžinierius
+Sistemų administratorius
+Tinklo administratorius
+Duomenų bazių administratorius
+Duomenų analitikas
+Duomenų mokslininkas
+Duomenų inžinierius
+Dirbtinio intelekto inžinierius
+Programinės įrangos testuotojas
+Kokybės inžinierius
+Sistemų analitikas
+Verslo analitikas
+Produkto vadovas
+Projektų vadovas
+Scrum vadovas
+UX dizaineris
+UI dizaineris
+Grafikos dizaineris
+Kibernetinio saugumo specialistas
+Debesų architektas
+Sprendimų architektas
+IT vadovas
+Techninės pagalbos specialistas
+Gydytojas
+Šeimos gydytojas
+Vidaus ligų gydytojas
+Chirurgas
+Anesteziologas
+Kardiologas
+Neurologas
+Psichiatras
+Pediatras
+Ginekologas
+Urologas
+Oftalmologas
+Dermatologas
+Onkologas
+Radiologas
+Odontologas
+Burnos higienistas
+Vaistininkas
+Vaistininko padėjėjas
+Slaugytojas
+Bendrosios praktikos slaugytojas
+Akušeris
+Kineziterapeutas
+Ergoterapeutas
+Logopedas
+Dietologas
+Psichologas
+Klinikinis psichologas
+Paramedikas
+Greitosios pagalbos felčeris
+Veterinaras
+Veterinaro padėjėjas
+Mokytojas
+Pradinių klasių mokytojas
+Matematikos mokytojas
+Lietuvių kalbos mokytojas
+Užsienio kalbos mokytojas
+Fizikos mokytojas
+Kūno kultūros mokytojas
+Muzikos mokytojas
+Dailės mokytojas
+Auklėtojas
+Specialusis pedagogas
+Socialinis pedagogas
+Mokyklos direktorius
+Dėstytojas
+Docentas
+Profesorius
+Mokslo darbuotojas
+Bibliotekininkas
+Archyvaras
+Muziejininkas
+Restauratorius
+Advokatas
+Notaras
+Teisėjas
+Prokuroras
+Antstolis
+Teisininkas
+Juristas
+Patentinis patikėtinis
+Buhalteris
+Vyriausiasis buhalteris
+Auditorius
+Mokesčių konsultantas
+Finansų analitikas
+Finansų direktorius
+Ekonomistas
+Aktuaras
+Draudimo brokeris
+Banko kasininkas
+Kredito vadybininkas
+Investicijų valdytojas
+Rizikos analitikas
+Vadybininkas
+Pardavimų vadybininkas
+Pirkimų vadybininkas
+Rinkodaros vadybininkas
+Personalo vadybininkas
+Personalo specialistas
+Atlygio specialistas
+Mokymų specialistas
+Ryšių su visuomene specialistas
+Komunikacijos specialistas
+Turinio kūrėjas
+Tekstų rašytojas
+Vertėjas
+Redaktorius
+Žurnalistas
+Fotografas
+Operatorius
+Montuotojas
+Režisierius
+Prodiuseris
+Dizaineris
+Architektas
+Kraštovaizdžio architektas
+Interjero dizaineris
+Statybos inžinierius
+Konstruktorius
+Geodezininkas
+Statybos vadovas
+Techninės priežiūros inžinierius
+Sąmatininkas
+Elektrikas
+Elektros inžinierius
+Santechnikas
+Šildymo ir vėdinimo specialistas
+Mūrininkas
+Stalius
+Dailidė
+Stogdengys
+Tinkuotojas
+Dažytojas
+Plytelių klojėjas
+Suvirintojas
+Šaltkalvis
+Tekintojas
+Frezuotojas
+CNC operatorius
+Mechanikas
+Automechanikas
+Autoelektrikas
+Kėbulo remontininkas
+Mechanikos inžinierius
+Technologas
+Gamybos vadovas
+Meistras
+Kokybės kontrolierius
+Sandėlininkas
+Autokrautuvo vairuotojas
+Logistikos vadybininkas
+Ekspeditorius
+Dispečeris
+Vilkiko vairuotojas
+Sunkvežimio vairuotojas
+Autobuso vairuotojas
+Troleibuso vairuotojas
+Taksi vairuotojas
+Kurjeris
+Traukinio mašinistas
+Geležinkelio dispečeris
+Jūrininkas
+Kapitonas
+Uosto krovėjas
+Oro linijų pilotas
+Skrydžio palydovas
+Skrydžių vadovas
+Aviacijos technikas
+Muitinės tarpininkas
+Muitinės inspektorius
+Virėjas
+Virtuvės šefas
+Konditeris
+Kepėjas
+Mėsininkas
+Padavėjas
+Barmenas
+Baristas
+Indų plovėjas
+Viešbučio registratorius
+Viešbučio vadovas
+Kambarinė
+Valytojas
+Turizmo vadybininkas
+Kelionių gidas
+Renginių organizatorius
+Pardavėjas
+Kasininkas
+Parduotuvės vadovas
+Prekių išdėliotojas
+Klientų konsultantas
+Klientų aptarnavimo specialistas
+Skambučių centro operatorius
+Kirpėjas
+Kosmetologas
+Manikiūrininkas
+Masažuotojas
+Asmeninis treneris
+Sporto treneris
+Siuvėjas
+Batsiuvys
+Laikrodininkas
+Juvelyras
+Ūkininkas
+Agronomas
+Zootechnikas
+Traktorininkas
+Miškininkas
+Eigulys
+Bitininkas
+Žvejys
+Sodininkas
+Kraštovaizdžio tvarkytojas
+Policijos pareigūnas
+Ugniagesys gelbėtojas
+Kariškis
+Pasienietis
+Apsaugos darbuotojas
+Kalėjimo prižiūrėtojas
+Valstybės tarnautojas
+Savivaldybės specialistas
+Socialinis darbuotojas
+Sekretorius
+Administratorius
+Archyvo darbuotojas
+Kurjeris pašte
+Paštininkas

@@ -1,0 +1,31 @@
+---
+address: nigeria.vehicle.plateCode
+description: The three-letter code that opens a Nigerian plate — the Local Government Area or licensing office where the vehicle was registered, NOT the state. That is the point to grasp: Nigeria has 774 LGAs and the plate names one of them, so the state appears on the plate as WORDS across the top ("LAGOS", "RIVERS", plus the state's slogan) while the letters encode a district inside it. A code is therefore much finer-grained than a European regional letter — KJA and APP and EPE are all Lagos State. Listed here are the well-attested Lagos codes, the seven FCT area councils, and PHC for Port Harcourt; the complete national set of 774 is not published in one authoritative place, so this is a real subset rather than a claimed whole, and a config wanting a code for a specific other state should not assume one from this list. Nigerians read these fluently: FST is Festac, KRD Ikorodu, EKY Eti-Osa, ABC Abuja Municipal Area Council. Note that the FCT's councils are Area Councils, not LGAs — the same distinction that keeps the FCT out of nigeria.geo.state.
+locale: en
+---
+KJA
+APP
+AAA
+LND
+LSR
+LSD
+KSF
+AGL
+KTU
+BDG
+EKY
+KRD
+EPE
+MUS
+GGE
+FKJ
+AKD
+FST
+ABC
+ABJ
+BWR
+KUJ
+KWL
+RBC
+RSH
+PHC

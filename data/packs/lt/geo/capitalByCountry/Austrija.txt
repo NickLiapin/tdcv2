@@ -1,0 +1,5 @@
+---
+description: Capital of Austrija (Lithuanian).
+locale: lt
+---
+Viena

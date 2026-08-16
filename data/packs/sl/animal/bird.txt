@@ -1,0 +1,44 @@
+---
+description: Bird (Slovene). The bela štorklja nests on the chimneys of Prekmurje and is the bird a Slovene village counts every spring; the divji petelin and the triprsti detel are the Alpine forest birds Slovenia is watched for internationally. The names are native Slovene words rather than Latin borrowings.
+locale: sl
+---
+kos
+taščica
+lastovka
+vrabec
+sinica
+velika sinica
+škorec
+sraka
+vrana
+krokar
+šoja
+golob
+grlica
+kukavica
+slavec
+škrjanec
+ščinkavec
+zelenec
+žolna
+detel
+veliki detel
+triprsti detel
+čuk
+sova
+kozača
+velika uharica
+kanja
+postovka
+planinski orel
+sokol selec
+bela štorklja
+siva čaplja
+divji petelin
+ruševec
+jerebica
+fazan
+raca mlakarica
+labod
+galeb
+kormoran

@@ -1,0 +1,9 @@
+---
+description: Credit rating band as a Latvian lender labels it.
+locale: lv
+---
+Ļoti zems
+Zems
+Vidējs
+Augsts
+Ļoti augsts

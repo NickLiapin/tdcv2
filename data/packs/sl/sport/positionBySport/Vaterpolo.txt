@@ -1,0 +1,10 @@
+---
+description: Playing positions in vaterpolo, named in Slovene
+locale: sl
+---
+vratar
+zunanji igralec
+krilo
+center
+pokrivalec centra
+branilec

@@ -1,0 +1,20 @@
+---
+description: Event venue type (Slovene). The kulturni dom is the culture house that every Slovene town and many villages have and that hosts most local events; the gasilski dom, the volunteer fire brigade's hall, is the other one, and a Slovene village wedding or veselica is as likely to be held there as anywhere.
+locale: sl
+---
+kulturni dom
+gasilski dom
+zadružni dom
+dvorana
+športna dvorana
+kongresni center
+gledališče
+kinodvorana
+galerija
+muzej
+grad
+samostan
+cerkev
+hotel
+gostilna
+prireditveni prostor

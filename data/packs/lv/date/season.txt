@@ -1,0 +1,8 @@
+---
+description: Season. Latvia has four sharply separated ones and the language marks it: ziema runs December to March with real snow cover, and vasara is short enough that the midsummer solstice, Jāņi, is the largest holiday of the year.
+locale: lv
+---
+pavasaris
+vasara
+rudens
+ziema

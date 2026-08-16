@@ -1,0 +1,5 @@
+---
+description: Currency of Kanada (Lithuanian).
+locale: lt
+---
+Kanados doleris

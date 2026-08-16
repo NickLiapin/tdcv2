@@ -1,0 +1,28 @@
+---
+description: School subject as a Latvian timetable names it.
+locale: lv
+---
+Matemātika
+Fizika
+Ķīmija
+Bioloģija
+Ģeogrāfija
+Datorika
+Programmēšana
+Latviešu valoda
+Latviešu literatūra
+Angļu valoda
+Vācu valoda
+Krievu valoda
+Franču valoda
+Vēsture
+Latvijas vēsture
+Sociālās zinības
+Ekonomika
+Filozofija
+Psiholoģija
+Vizuālā māksla
+Mūzika
+Sports
+Mājturība
+Dabaszinības

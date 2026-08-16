@@ -1,0 +1,6 @@
+---
+address: singapore.geo.city
+description: There is one. Singapore is a city-state — the city, the island and the country are the same thing, and this file has exactly one value because padding it would be a lie. A Singapore postal address carries no city line the way a European one does: it ends "Singapore 560123", where "Singapore" is the country and the six digits are the building. What people call the towns - Ang Mo Kio, Tampines, Jurong West, Bedok - are HDB towns and URA planning areas, not municipalities with their own councils, mayors or boundaries in law; those are singapore.geo.planningArea. Anyone reaching for a second value here is looking for that file. There are also no states, provinces, counties, regions or municipalities to ship: see singapore.geo.planningArea and singapore.geo.cdcDistrict for the two layers that do exist, neither of which is a tier of government of the usual kind.
+locale: en
+---
+Singapore

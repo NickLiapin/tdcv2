@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Lithuanian; brand names kept as-is).
+locale: lt
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+Mobilusis telefonas
+Planšetė
+Naršyklė
+VR ausinės

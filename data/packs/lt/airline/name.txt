@@ -1,0 +1,54 @@
+---
+description: Airline (carriers serving the Lithuanian market plus major international ones). Brand names keep their real spelling and are not naturalised, unlike ordinary loanwords.
+locale: lt
+---
+airBaltic
+Ryanair
+Wizz Air
+LOT Polish Airlines
+Lufthansa
+SAS
+Finnair
+KLM
+Air France
+British Airways
+Turkish Airlines
+Norwegian
+Aegean Airlines
+Austrian Airlines
+Swiss International Air Lines
+Iberia
+Vueling
+easyJet
+TAP Air Portugal
+ITA Airways
+Aer Lingus
+Eurowings
+Transavia
+Pegasus Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Delta Air Lines
+United Airlines
+American Airlines
+Air Canada
+El Al
+Singapore Airlines
+Cathay Pacific
+Japan Airlines
+ANA
+Korean Air
+Qantas
+Air India
+China Southern Airlines
+Croatia Airlines
+Air Serbia
+Czech Airlines
+Air Baltic Cargo
+Avion Express
+GetJet Airlines
+KlasJet
+Heston Airlines
+SmartLynx
+DHL Aviation

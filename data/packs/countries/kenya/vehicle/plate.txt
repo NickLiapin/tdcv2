@@ -1,0 +1,11 @@
+---
+address: kenya.vehicle.plate
+description: Kenyan civilian number plate — three letters, three digits, one letter, written with a space after the letter block (KDA 123A). THE LETTERS CARRY NO REGIONAL MEANING, which is the opposite of what a reader coming from Poland, Germany or Spain will assume: Kenya centralised registration in 1980, and since then plates have been issued in one national sequence by what is now the NTSA, in the order vehicles are registered. KDA 123A tells you roughly WHEN a vehicle was registered and nothing at all about WHERE. The current fifth-generation series opened at KDA 001A in early 2020 and runs to KDZ 999Z; the letters I and O are skipped throughout to keep them from being read as 1 and 0, which is why this file draws from a 24-letter alphabet rather than 26. Fixing the first letter at K is not a simplification — every civilian plate in this generation begins with K. The SECOND letter is restricted to A-D on purpose: the sequence has worked through KAA-KAZ, KBA-KBZ and KCA-KCZ and is now inside KDA-KDZ, so those four blocks are the plates on Kenyan roads today and anything from KEA upwards has not been issued yet. Drawing the second letter freely from A-Z would emit registrations that do not exist, which is a different and worse kind of wrong than an unlikely one. Special series are outside this format and are not generated: GK for national government, CG for county governments, KA/KAF/KN for the Army, Air Force and Navy, KMCA for motorcycles, KTWC for tricycles, KHMA for heavy machinery, EVA/EMAA for electric vehicles and motorcycles (white on green, since March 2024), and numbered CD and UN plates (red on white) for diplomatic missions. There is no check character anywhere in a Kenyan plate.
+generator: tdc
+locale: en
+---
+<sequence name="second"><gen type="text" value="A,B,C,D"/></sequence>
+<sequence name="third"><gen type="text" value="A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,U,V,W,X,Y,Z"/></sequence>
+<sequence name="serial"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<sequence name="suffix"><gen type="text" value="A,B,C,D,E,F,G,H,J,K,L,M,N,P,Q,R,S,T,U,V,W,X,Y,Z"/></sequence>
+<data>K${{second}}${{third}} ${{serial}}${{suffix}}</data>

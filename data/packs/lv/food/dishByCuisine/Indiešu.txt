@@ -1,0 +1,14 @@
+---
+description: Dishes of Indiešu cuisine as a Latvian menu names them.
+locale: lv
+---
+Sviesta vista
+Birjani
+Tikka masala
+Samosa
+Dal makhani
+Nāna maize
+Palak paneer
+Rogan džoš
+Vindaloo
+Čatnijs

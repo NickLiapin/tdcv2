@@ -1,0 +1,5 @@
+---
+description: Currency of Kanāda, named in Latvian.
+locale: lv
+---
+Kanādas dolārs

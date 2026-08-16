@@ -1,0 +1,64 @@
+---
+description: Business buzz noun, nominative singular.
+locale: lv
+---
+sinerģija
+paradigma
+ekosistēma
+ietvars
+arhitektūra
+infrastruktūra
+platforma
+risinājums
+stratēģija
+ceļvedis
+iniciatīva
+metodoloģija
+darbplūsma
+konveijers
+process
+cikls
+pieeja
+modelis
+kanāls
+segments
+tirgus
+auditorija
+portfelis
+jauda
+caurlaidspēja
+saskaņošana
+sviras efekts
+pievienotā vērtība
+rezultāts
+iznākums
+saskarsmes punkts
+etalons
+atskaites punkts
+iesaiste
+orķestrēšana
+integrācija
+migrācija
+transformācija
+optimizācija
+mērogojamība
+sadarbspēja
+pārvaldība
+atbilstība
+noturība
+novērojamība
+telemetrija
+ritms
+atpazīstamība
+vertikāle
+resursi
+potenciāls
+vīzija
+misija
+kompetence
+prakse
+kultūra
+komanda
+produkts
+pakalpojums
+vērtība

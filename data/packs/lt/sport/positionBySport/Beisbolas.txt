@@ -1,0 +1,14 @@
+---
+description: Positions in beisbolas (Lithuanian).
+locale: lt
+---
+Metikas
+Gaudytojas
+Pirmosios bazės gynėjas
+Antrosios bazės gynėjas
+Trečiosios bazės gynėjas
+Trumpasis stabdytojas
+Kairysis lauko gynėjas
+Centrinis lauko gynėjas
+Dešinysis lauko gynėjas
+Paskirtasis mušėjas

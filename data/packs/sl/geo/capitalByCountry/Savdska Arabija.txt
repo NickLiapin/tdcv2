@@ -1,0 +1,5 @@
+---
+description: Capital of Savdska Arabija, as Slovene names it
+locale: sl
+---
+Rijad

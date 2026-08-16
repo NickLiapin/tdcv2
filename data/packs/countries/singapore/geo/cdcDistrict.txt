@@ -1,0 +1,10 @@
+---
+address: singapore.geo.cdcDistrict
+description: The 5 Community Development Council districts — the closest thing Singapore has to local government, and still not local government in the sense a European or American schema assumes. A CDC is a body that administers social assistance, welfare schemes and community programmes for the residents of its district on funding from the central government; it has a mayor, but no legislature, no tax-raising power and no law-making power, and its boundaries follow groups of parliamentary constituencies rather than any geographic line. Nine CDCs were created in 1997 and reorganised into these five in 2001. Ship this when a schema needs a coarse five-way split of Singapore residents; ship singapore.geo.planningArea (55 values) when it needs a place name. Note the two layers do not nest - a CDC district is not a union of whole planning areas, and joining one to the other is not a thing you can do correctly.
+locale: en
+---
+Central Singapore
+North East
+North West
+South East
+South West

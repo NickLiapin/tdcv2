@@ -1,0 +1,58 @@
+---
+description: Marketing adjective for a product (Slovene, masculine nominative singular — the citation form). Slovene adjectives agree with the noun in gender, number and case, and Slovene has THREE numbers, so a config joining one of these to commerce/productNoun may need the feminine, the neuter, the dual or the plural instead: nov izdelek, nova torba, novo ogledalo, and for exactly two, nova izdelka.
+locale: sl
+---
+nov
+sodoben
+klasičen
+eleganten
+praktičen
+udoben
+zanesljiv
+kakovosten
+vrhunski
+trpežen
+lahek
+kompakten
+prostoren
+zmogljiv
+varčen
+tih
+hiter
+močan
+natančen
+prilagodljiv
+univerzalen
+profesionalen
+ročno izdelan
+naraven
+ekološki
+trajnosten
+recikliran
+biorazgradljiv
+domač
+slovenski
+uvožen
+originalen
+unikaten
+omejena serija
+priljubljen
+nagrajen
+preizkušen
+certificiran
+varen
+otroku prijazen
+vodoodporen
+odporen proti praskam
+protizdrsen
+zložljiv
+prenosen
+brezžičen
+pameten
+avtomatski
+enostaven za uporabo
+cenovno ugoden
+luksuzen
+minimalističen
+barvit
+prozoren

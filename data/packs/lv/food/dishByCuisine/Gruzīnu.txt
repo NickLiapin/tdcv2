@@ -1,0 +1,14 @@
+---
+description: Dishes of Gruzīnu cuisine as a Latvian menu names them.
+locale: lv
+---
+Hačapuri
+Hinkali
+Satsivi
+Lobio
+Badridžani
+Šašliks
+Čahohbili
+Pkhali
+Adžika
+Čurčhela

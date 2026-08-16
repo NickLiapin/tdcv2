@@ -1,0 +1,5 @@
+---
+description: Capital of Danija (Lithuanian).
+locale: lt
+---
+Kopenhaga

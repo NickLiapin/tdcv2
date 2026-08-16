@@ -1,0 +1,24 @@
+---
+description: Insect (Lithuanian).
+locale: lt
+---
+Bitė
+Kamanė
+Vapsva
+Širšė
+Skruzdėlė
+Musė
+Uodas
+Drugelis
+Naktinis drugys
+Boružė
+Vabalas
+Elniavabalis
+Ūsuotis
+Žiogas
+Svirplys
+Laumžirgis
+Blakė
+Amaras
+Blusa
+Utėlė

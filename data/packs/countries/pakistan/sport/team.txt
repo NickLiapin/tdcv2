@@ -1,0 +1,35 @@
+---
+address: pakistan.sport.team
+description: Pakistani club and departmental teams. The six Pakistan Super League cricket franchises come first: they are the country's most recognised team names, they are city franchises created in 2016 rather than clubs with a history, and the six have been stable since Multan Sultans joined in 2018. Then football and hockey, where Pakistan looks nothing like Europe and the difference is the interesting part — most of the serious teams are DEPARTMENTAL, owned by a state utility, a bank, an airline or an armed service and staffed by its employees, so the names below are the names of institutions rather than of places. WAPDA is the water and power authority, K-Electric the Karachi power utility, SSGC and SNGPL the two gas companies, KRL the Khan Research Laboratories, and their squads are on a payroll rather than on a transfer market. Pakistan's domestic FIRST-CLASS cricket teams are deliberately absent: the Cricket Board reorganised them from regional associations into six provincial sides in 2019, reversed that in 2023, and has run further formats since, so any list of them describes one season rather than the country, while the PSL six and the departmental clubs have outlasted every one of those rounds.
+locale: en
+---
+Islamabad United
+Karachi Kings
+Lahore Qalandars
+Multan Sultans
+Peshawar Zalmi
+Quetta Gladiators
+K-Electric FC
+WAPDA FC
+Khan Research Laboratories FC
+Pakistan Army FC
+Pakistan Navy FC
+Pakistan Air Force FC
+Sui Southern Gas Company FC
+Sui Northern Gas Pipelines FC
+Pakistan Railways FC
+Karachi United FC
+Muslim FC Chaman
+Afghan FC Chaman
+Baloch FC Quetta
+Civil Aviation Authority FC
+Higher Education Commission FC
+Masha United FC
+Pakistan Television FC
+Ashraf Sugar Mills FC
+WAPDA Hockey Club
+National Bank of Pakistan Hockey Club
+Pakistan International Airlines Hockey Club
+Sui Northern Gas Pipelines Hockey Club
+Pakistan Army Hockey Club
+Pakistan Navy Hockey Club

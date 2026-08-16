@@ -1,0 +1,23 @@
+---
+address: malaysia.tax.tin
+description: Malaysian income tax number — the nombor cukai pendapatan, called the TIN since Lembaga Hasil Dalam Negeri (LHDN) aligned the name with the international term. A letter prefix identifies the class of taxpayer and digits follow: IG for an individual, C for a company, D for a partnership, E for an employer, F for an association, PT for a limited liability partnership, TA for a trust body, CS for a cooperative society. There is NO CHECK DIGIT; LHDN validates through the MyTax portal and nothing in the number checks the number. Two changes landed on 2 January 2023 and both are modelled here. The individual prefixes SG (non-business income) and OG (business income) were merged into a single IG, so an SG or OG number in current data is stale rather than wrong — the digits did not change, only the letters. And every NON-individual number had a trailing 0 appended to bring it to a common length, which is why a company, partnership or association number generated here always ends in 0 while an individual number does not. That trailing zero is the one piece of structure in the whole identifier and it is not a checksum. Legacy numbers with nine or ten digits are still in circulation on old correspondence and are deliberately not generated. The number is not the same as the e-invoicing identifier: since the MyInvois rollout LHDN requires the TIN to be quoted together with the MyKad number or the SSM business registration number, because the TIN alone does not identify the taxpayer well enough to match a record. Formats verified against LHDN's published prefix list and two independent tax-ID references, both of which record no check digit for any Malaysian tax identifier.
+generator: tdc
+---
+<sequence name="kind"><gen type="text" value="I,B" percent="68,32"/></sequence>
+<sequence name="entity"><gen type="text" value="C,D,E,F,PT,TA,CS" percent="45,14,20,9,6,3,3"/></sequence>
+<sequence name="body10"><gen type="regex" value="[0-9]{10}"/></sequence>
+<sequence name="body11"><gen type="regex" value="[0-9]{11}"/></sequence>
+<sequence name="tin"><compute>
+  <!-- I is 18 in base 36: an individual, prefix IG, no trailing-zero rule.
+       Everything else is a non-individual and carries the 2023 trailing 0. -->
+  <result>
+    <choose>
+      <when>
+        <test><equals><to_number><encode as="base36"><field name="kind"/></encode></to_number><int v="18"/></equals></test>
+        <then><concat><str v="IG"/><field name="body11"/></concat></then>
+      </when>
+      <otherwise><concat><field name="entity"/><field name="body10"/><str v="0"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{tin}}</data>

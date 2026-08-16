@@ -1,0 +1,11 @@
+---
+description: Cable conduit or containment type (Slovene)
+locale: sl
+---
+elektroinštalacijska cev
+gibljiva cev
+kabelski kanal
+kabelska polica
+kabelski jašek
+podometna doza
+nadometna letev

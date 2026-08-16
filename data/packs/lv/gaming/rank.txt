@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier.
+locale: lv
+---
+Dzelzs
+Bronza
+Sudrabs
+Zelts
+Platīns
+Smaragds
+Dimants
+Meistars
+Lielmeistars
+Izaicinātājs

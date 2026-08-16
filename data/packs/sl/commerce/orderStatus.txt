@@ -1,0 +1,18 @@
+---
+description: Order status (Slovene)
+locale: sl
+---
+oddano
+v obdelavi
+potrjeno
+plačano
+čaka na plačilo
+v pripravi
+pripravljeno
+odposlano
+na poti
+dostavljeno
+prevzeto
+preklicano
+vrnjeno
+zavrnjeno

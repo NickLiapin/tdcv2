@@ -1,0 +1,34 @@
+---
+description: Unit of measure (Slovene). Slovenia is metric; the abbreviations are the ones printed on a Slovene price label. Note the Slovene decimal comma — 1,5 l, not 1.5 l.
+locale: sl
+---
+kos
+par
+komplet
+paket
+zavitek
+vrečka
+škatla
+karton
+paleta
+steklenica
+pločevinka
+kozarec
+tuba
+g
+dag
+kg
+t
+ml
+dl
+l
+hl
+mm
+cm
+dm
+m
+km
+m²
+m³
+ura
+dan

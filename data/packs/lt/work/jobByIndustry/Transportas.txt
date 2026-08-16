@@ -1,0 +1,16 @@
+---
+description: Jobs in Transportas (Lithuanian).
+locale: lt
+---
+Vilkiko vairuotojas
+Autobuso vairuotojas
+Kurjeris
+Ekspeditorius
+Dispečeris
+Logistikos koordinatorius
+Sandėlininkas
+Autokrautuvo vairuotojas
+Traukinio mašinistas
+Skrydžių vadovas
+Oro linijų pilotas
+Muitinės tarpininkas

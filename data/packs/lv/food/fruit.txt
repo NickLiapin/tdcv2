@@ -1,0 +1,42 @@
+---
+description: Fruit and berry. Latvian does not separate the two the way English does, and the second half of this list is what actually grows in Latvia: dzērvene and lācene come off the raised bogs, brūklene and mellene off the forest floor, and picking them is a national pastime rather than a hobby. Smiltsērkšķis (sea buckthorn) grows on the coastal dunes.
+locale: lv
+---
+Ābols
+Bumbieris
+Plūme
+Ķirsis
+Skābais ķirsis
+Aprikoze
+Persiks
+Vīnoga
+Banāns
+Apelsīns
+Mandarīns
+Citrons
+Laims
+Greipfrūts
+Kivi
+Mango
+Ananāss
+Arbūzs
+Melone
+Granātābols
+Vīģe
+Papaija
+Kokosrieksts
+Zemene
+Meža zemene
+Avene
+Kazene
+Mellene
+Brūklene
+Dzērvene
+Lācene
+Upene
+Jāņoga
+Ērkšķoga
+Smiltsērkšķis
+Pīlādzis
+Irbene
+Cidonija

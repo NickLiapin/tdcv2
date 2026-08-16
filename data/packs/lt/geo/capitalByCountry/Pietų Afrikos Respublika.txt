@@ -1,0 +1,5 @@
+---
+description: Capital of Pietų Afrikos Respublika (Lithuanian).
+locale: lt
+---
+Pretorija

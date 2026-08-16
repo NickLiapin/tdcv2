@@ -1,0 +1,18 @@
+---
+address: malaysia.geo.state
+description: The 13 states of Malaysia (negeri), alphabetically. Thirteen is the whole list — the three federal territories are NOT states and are in malaysia.geo.federalTerritory, because the distinction is constitutional rather than clerical: a state has its own constitution, its own legislative assembly and its own head of state, while a federal territory is administered directly by the federal government and has none of the three. Nine of the thirteen (Johor, Kedah, Kelantan, Negeri Sembilan, Pahang, Perak, Perlis, Selangor, Terengganu) have hereditary rulers and elect the King among themselves; the other four (Melaka, Pulau Pinang, Sabah, Sarawak) have governors appointed by him — see malaysia.government.headOfState. Sabah and Sarawak, the two states on Borneo, are not simply two more states: they joined the federation in 1963 by a separate agreement rather than being part of the 1957 Malayan independence, and each keeps its own immigration control, so a Malaysian from the peninsula is admitted to Sabah or Sarawak on presentation of a MyKad and may be refused entry or limited in the length of stay, and each has powers over land, forestry and native law the peninsular states do not. Names are the official Malay ones, which are also the legal English ones: Melaka not Malacca, Pulau Pinang not Penang. Several states carry a formal honorific that is part of the ceremonial title but not of the address — Johor Darul Ta'zim, Kedah Darul Aman, Kelantan Darul Naim, Negeri Sembilan Darul Khusus, Pahang Darul Makmur, Perak Darul Ridzuan, Perlis Indera Kayangan, Selangor Darul Ehsan, Terengganu Darul Iman — and those honorifics are deliberately not in the values.
+locale: ms
+---
+Johor
+Kedah
+Kelantan
+Melaka
+Negeri Sembilan
+Pahang
+Perak
+Perlis
+Pulau Pinang
+Sabah
+Sarawak
+Selangor
+Terengganu

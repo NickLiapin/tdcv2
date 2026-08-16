@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Lithuanian).
+locale: lt
+---
+Praktikantas
+Stažuotojas
+Pradedantysis
+Jaunesnysis specialistas
+Specialistas
+Vyresnysis specialistas
+Vyriausiasis specialistas
+Ekspertas
+Vadovaujantysis specialistas
+Komandos vadovas
+Grupės vadovas
+Skyriaus vadovas
+Departamento vadovas
+Direktoriaus pavaduotojas
+Direktorius
+Generalinis direktorius

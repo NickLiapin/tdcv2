@@ -1,0 +1,34 @@
+---
+address: pakistan.docs.cnic
+description: CNIC — the Computerised National Identity Card number issued by NADRA, 13 digits, printed with hyphens as XXXXX-XXXXXXX-X. It is generated here in the plain 13-digit form; insert the hyphens in the config if the output wants them. The number is HIGHLY structured and a generated one reveals two real things about its holder. First five digits — the LOCALITY where the card was first registered, read outward: digit 1 is the province or administrative unit (1 Khyber Pakhtunkhwa, 2 the former FATA, 3 Punjab, 4 Sindh, 5 Balochistan, 6 Islamabad Capital Territory, 7 Gilgit-Baltistan, 8 Azad Jammu and Kashmir), digit 2 the division, and digits 3-5 the district, tehsil and union council in that order. Digit 1 is drawn here weighted by population, so the province a generated CNIC claims is realistic, and province="6" or any other of those eight codes pins it; digits 2-5 are well-formed but not looked up, because NADRA does not publish the division/district/tehsil allotment as a table. Code 2 is a scar worth keeping — the Federally Administered Tribal Areas were merged into Khyber Pakhtunkhwa in 2018, so no new card is issued under it, but every card issued before then still carries it. Middle seven digits — the family number and the holder's place within that family, which is why siblings' CNICs differ only in their tail. Last digit — SEX, and nothing else: odd (1,3,5,7,9) for a man, even (0,2,4,6,8) for a woman. So a generated CNIC states a province and a sex, and a test row pairing pakistan.docs.cnic with a person's gender will contradict itself unless the sex parameter is set to match — pass sex="m" or sex="f" and the last digit is drawn from the right half; leave it and either is possible. There is NO check digit. NADRA has never published a checksum over the 13 digits, and the last digit is spent on sex rather than on verification, so the number cannot be validated arithmetically at all — a CNIC is verified by looking it up in NADRA's database or by biometrics. Two real cards can agree in their first twelve digits and differ only in the thirteenth, which no checksum would allow. Nothing is invented here to fill that gap: a plausible mod-11 would make every generated CNIC fail against the real thing while looking rigorous.
+generator: tdc
+locale: en
+---
+<sequence name="province"><gen type="text" value="3,4,1,5,8,6,7,2" percent="52,22,15,6,2,1,1,1"/></sequence>
+<sequence name="division"><gen type="regex" value="[1-9]"/></sequence>
+<sequence name="locality"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="family"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="sex"><gen type="text" value="any"/></sequence>
+<sequence name="sexraw"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="cnic"><compute>
+  <!-- The sex parameter arrives as text: "m", "f", or the default "any".
+       Read its first character's code point — 109 is m, 102 is f. -->
+  <let name="schars"><each><over><field name="sex"/></over><do><current/></do></each></let>
+  <let name="sexcode"><to_number><encode as="unicode"><at><in><use name="schars"/></in><index><int v="0"/></index></at></encode></to_number></let>
+  <!-- A drawn digit folded to 0-4, so doubling it lands inside 0-9. -->
+  <let name="base5"><mod><field name="sexraw"/><int v="5"/></mod></let>
+  <let name="sexdigit">
+    <choose>
+      <!-- male: odd, so 1,3,5,7,9 -->
+      <when><test><equals><use name="sexcode"/><int v="109"/></equals></test>
+        <then><add><multiply><use name="base5"/><int v="2"/></multiply><int v="1"/></add></then></when>
+      <!-- female: even, so 0,2,4,6,8 -->
+      <when><test><equals><use name="sexcode"/><int v="102"/></equals></test>
+        <then><multiply><use name="base5"/><int v="2"/></multiply></then></when>
+      <!-- "any": the raw digit, either parity -->
+      <otherwise><field name="sexraw"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><field name="province"/><field name="division"/><field name="locality"/><field name="family"/><use name="sexdigit"/></concat></result>
+</compute></sequence>
+<data>${{cnic}}</data>

@@ -1,0 +1,5 @@
+---
+description: Currency of Italija (Lithuanian).
+locale: lt
+---
+Euras

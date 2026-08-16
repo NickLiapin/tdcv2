@@ -1,0 +1,8 @@
+---
+address: iran.phone
+description: Iranian mobile number in E.164 form — +98 then ten digits, the first three being the mobile prefix, which always starts with 9. The trunk 0 written at home is DROPPED internationally: 0912 345 6789 is +98 912 345 6789, and +980912... is the standard mistake and is not dialable. The prefix blocks are real allocations — 091x and 099x are همراه اول (MCI, the incumbent), 090x, 093x and 0941 are ایرانسل (Irancell), 092x is رایتل (RighTel), 0998 is شاتل موبایل and 0999 is سامانتل — and 0912 is worth knowing about: it is the oldest MCI block, was never widely reissued, and an 0912 number is read in Iran as a mark of long residence in Tehran, so it changes hands for money. Prefixes are drawn from an explicit list rather than a regex range, so each allocated prefix is equally likely and unallocated ones such as 0932, 0934 and 0997 are never emitted. Number portability has operated since 2018, so a prefix no longer proves which network a number is on — treat it as a block, not as a carrier.
+generator: tdc
+---
+<sequence name="prefix"><gen type="text" value="901,902,903,904,905,910,911,912,913,914,915,916,917,918,919,920,921,922,930,931,933,935,936,937,938,939,941,990,991,992,993,994,995,996,998,999"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{7}"/></sequence>
+<data>+98${{prefix}}${{line}}</data>

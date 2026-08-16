@@ -1,0 +1,12 @@
+---
+description: Mining method (Slovene)
+locale: sl
+---
+dnevni kop
+podzemno pridobivanje
+komorno pridobivanje
+širokočelno pridobivanje
+zasipavanje
+vrtanje in miniranje
+izpiranje
+izkopavanje z bagrom

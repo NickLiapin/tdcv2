@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Lithuania. The system is the Bologna three-cycle one: bakalauras, magistras, daktaras. Habilitated doctor is no longer awarded but is still held by older academics.
+locale: lt
+---
+Pradinis išsilavinimas
+Pagrindinis išsilavinimas
+Vidurinis išsilavinimas
+Profesinė kvalifikacija
+Aukštasis koleginis išsilavinimas
+Profesinis bakalauras
+Bakalauras
+Magistras
+Vientisosios studijos
+Daktaras
+Habilituotas daktaras
+Meno licenciatas
+Rezidentūra
+Podiplominės studijos
+Kvalifikacijos pažymėjimas
+Neformaliojo mokymo pažymėjimas

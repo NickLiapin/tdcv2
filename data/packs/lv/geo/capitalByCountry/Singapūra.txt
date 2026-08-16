@@ -1,0 +1,5 @@
+---
+description: Capital of Singapūra, in the Latvian spelling.
+locale: lv
+---
+Singapūra

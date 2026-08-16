@@ -1,0 +1,24 @@
+---
+description: School subject (Lithuanian).
+locale: lt
+---
+Lietuvių kalba ir literatūra
+Matematika
+Fizika
+Chemija
+Biologija
+Informatika
+Istorija
+Geografija
+Anglų kalba
+Rusų kalba
+Vokiečių kalba
+Prancūzų kalba
+Dailė
+Muzika
+Technologijos
+Kūno kultūra
+Etika
+Tikyba
+Ekonomika ir verslumas
+Pilietiškumo pagrindai

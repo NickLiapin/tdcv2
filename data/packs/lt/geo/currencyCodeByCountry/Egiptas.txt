@@ -1,0 +1,5 @@
+---
+description: ISO currency code of Egiptas.
+locale: lt
+---
+EGP

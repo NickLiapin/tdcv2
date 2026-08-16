@@ -1,0 +1,5 @@
+---
+description: Currency of Krievija, named in Latvian.
+locale: lv
+---
+Krievijas rublis

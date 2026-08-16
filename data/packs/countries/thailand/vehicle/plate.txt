@@ -1,0 +1,23 @@
+---
+address: thailand.vehicle.plate
+description: Thai vehicle registration plate as it actually reads — Thai consonants, a serial, and THE PROVINCE OF REGISTRATION SPELLED OUT IN THAI on the line below the number, e.g. "กข 1234 กรุงเทพมหานคร". The province is not a code and not an abbreviation: the plate carries the full Thai name, which is why the same plate cannot be transcribed into ASCII without losing half of it, and why plate text is one of the places a naive Latin-only field length gets caught out. Private cars carry two Thai letters and a serial of one to four digits with NO leading zeros, so 0001 does not exist and 1 to 9999 is the whole range. Bangkok exhausted its two-letter combinations in 2012 and now prefixes a digit, giving the three-character form "1กข 1234"; this pack draws that form for a quarter of plates and does NOT restrict it to Bangkok, which is a simplification — the prefixed form is a big-city phenomenon, and a province that issues a few thousand plates a year has not run out. Motorcycles use the same prefixed form on a taller three-row plate and are not distinguished here. The letters are drawn from the consonants the Department of Land Transport actually uses; the second letter excludes น and ด so that the combinations ชน ("crash") and ตด ("fart") cannot be produced, which are among the pairs the department itself skips. Not modelled: the coloured plates that encode use rather than ownership — yellow for taxis and public transport, green for tour vehicles, red temporary plates for a car not yet registered, and the white-on-blue diplomatic series — and the auction plates whose whole point is a lucky number.
+generator: tdc
+locale: th
+---
+<sequence name="lead"><gen type="number" value="1..9"/></sequence>
+<sequence name="first"><gen type="text" value="ก,ข,ค,ง,จ,ฉ,ช,ฌ,ญ,ฎ,ฐ,ต,ท,ธ,น,บ,ป,ผ,พ,ภ,ม,ย,ร,ล,ว,ศ,ษ,ส,ห,อ,ฮ"/></sequence>
+<sequence name="second"><gen type="text" value="ก,ข,ค,ง,จ,ฉ,ช,ฌ,ญ,ฎ,ฐ,ต,ท,ธ,บ,ป,ผ,พ,ภ,ม,ย,ร,ล,ว,ศ,ษ,ส,ห,อ,ฮ"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999"/></sequence>
+<sequence name="province"><gen type="template" value="thailand.geo.province"/></sequence>
+<!-- 1 = the classic two-letter plate, 2 = the digit-prefixed form Bangkok moved to in 2012. -->
+<sequence name="shape"><gen type="text" value="1,2" percent="75,25"/></sequence>
+<sequence name="code"><compute>
+  <result>
+    <choose>
+      <when><test><equals><field name="shape"/><int v="2"/></equals></test>
+        <then><concat><field name="lead"/><field name="first"/><field name="second"/></concat></then></when>
+      <otherwise><concat><field name="first"/><field name="second"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{code}} ${{serial}} ${{province}}</data>

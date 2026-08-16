@@ -1,0 +1,9 @@
+---
+description: Credit score band (Lithuanian).
+locale: lt
+---
+Labai bloga
+Bloga
+Vidutinė
+Gera
+Puiki

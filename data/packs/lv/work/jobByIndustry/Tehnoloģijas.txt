@@ -1,0 +1,12 @@
+---
+description: Jobs in Tehnoloģijas.
+locale: lv
+---
+Programmētājs
+Datu zinātnieks
+DevOps inženieris
+Produkta vadītājs
+Lietotāju pieredzes dizainers
+Testēšanas inženieris
+Sistēmu administrators
+Datubāzu administrators

@@ -1,0 +1,72 @@
+---
+address: bangladesh.vehicle.plateArea
+description: The place name that opens a Bangladeshi number plate, in Bengali — the BRTA circle that registered the vehicle, which is a district, not the owner's town. Two entries carry মেট্রো — ঢাকা মেট্রো and চট্টগ্রাম মেট্রো — and those are the metropolitan registration areas of the two largest cities; the মেট্রো form and the plain district form are different registration areas and a plate never mixes them, so ঢাকা মেট্রো-গ and ঢাকা-গ are both real and mean different offices. BRTA also issues plates in other metropolitan areas, but the exact set of মেট্রো names in use could not be verified, so only the two that are documented are listed rather than inventing seven more. The weights are a coarse fleet-share estimate and not BRTA statistics: they exist so that a uniform draw does not make বান্দরবান as common as ঢাকা মেট্রো, which would be wrong by a factor of a hundred — a very large share of Bangladesh's registered vehicles sit in greater Dhaka, and the ঢাকা মেট্রো plate is what a photograph of Bangladeshi traffic is mostly made of. The names are written in Bengali because the plate is: the whole plate, place name, class letter and both numbers, is Bengali script and Bengali numerals, and a romanised Bangladeshi plate is not a Bangladeshi plate.
+weighted: true
+locale: bn
+---
+ঢাকা মেট্রো,400
+চট্টগ্রাম মেট্রো,90
+ঢাকা,40
+গাজীপুর,26
+নারায়ণগঞ্জ,24
+চট্টগ্রাম,22
+কুমিল্লা,18
+খুলনা,16
+রাজশাহী,14
+সিলেট,14
+বগুড়া,12
+রংপুর,12
+ময়মনসিংহ,12
+বরিশাল,10
+টাঙ্গাইল,8
+দিনাজপুর,8
+যশোর,8
+পাবনা,8
+কক্সবাজার,8
+নোয়াখালী,8
+ব্রাহ্মণবাড়িয়া,7
+ফরিদপুর,7
+কুষ্টিয়া,7
+সিরাজগঞ্জ,7
+জামালপুর,7
+নরসিংদী,7
+চাঁদপুর,7
+ফেনী,7
+মুন্সিগঞ্জ,6
+মানিকগঞ্জ,6
+কিশোরগঞ্জ,6
+নেত্রকোণা,6
+শেরপুর,6
+গোপালগঞ্জ,6
+মাদারীপুর,6
+শরীয়তপুর,6
+রাজবাড়ী,6
+নাটোর,6
+নওগাঁ,6
+চাঁপাইনবাবগঞ্জ,6
+জয়পুরহাট,6
+ঠাকুরগাঁও,6
+পঞ্চগড়,6
+নীলফামারী,6
+লালমনিরহাট,6
+কুড়িগ্রাম,6
+গাইবান্ধা,6
+বাগেরহাট,6
+সাতক্ষীরা,6
+ঝিনাইদহ,6
+মাগুরা,6
+নড়াইল,6
+মেহেরপুর,6
+চুয়াডাঙ্গা,6
+পটুয়াখালী,6
+ভোলা,6
+পিরোজপুর,6
+ঝালকাঠি,6
+বরগুনা,6
+লক্ষ্মীপুর,6
+সুনামগঞ্জ,6
+হবিগঞ্জ,6
+মৌলভীবাজার,6
+রাঙ্গামাটি,4
+খাগড়াছড়ি,4
+বান্দরবান,4

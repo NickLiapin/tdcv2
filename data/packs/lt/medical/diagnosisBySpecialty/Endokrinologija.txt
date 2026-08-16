@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endokrinologija (Lithuanian).
+locale: lt
+---
+2 tipo cukrinis diabetas
+Hipotirozė
+Hipertirozė
+Osteoporozė
+Kušingo sindromas
+Policistinių kiaušidžių sindromas
+Hašimoto tiroiditas
+Greivso liga
+Antinksčių nepakankamumas
+1 tipo cukrinis diabetas

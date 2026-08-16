@@ -1,0 +1,21 @@
+---
+address: serbia.sport.team
+description: The sixteen clubs of the Superliga Srbije, Serbia's top football division, in the 2025/26 season, written in Cyrillic. Sponsor names are stripped: the league registers ОФК Београд Моцарт бет, Спартак Ждрепчева крв and Јавор Матис, and the clubs are ОФК Београд, Спартак and Јавор. Two of these are not football clubs but sports societies with a football section — Црвена звезда and Партизан each field basketball, water polo, volleyball and a dozen more sports under the same name and the same crest, and in basketball both play in the EuroLeague, so a config that draws Црвена звезда into a basketball column is not wrong. That structure is a direct inheritance of the Yugoslav omnisport society and has no counterpart in the Polish or Croatian packs. Club names are place-bound in the usual way: Раднички Ниш and Раднички 1923 (Kragujevac) are different clubs sharing the commonest club name in the country, which is why the 1923 is part of the name and not a footnote. The league is being cut to fourteen clubs from summer 2026, so five of the sixteen here are relegated at the end of this season.
+locale: sr
+---
+Црвена звезда
+Партизан
+Војводина
+Чукарички
+ТСЦ Бачка Топола
+Раднички Ниш
+Раднички 1923
+Напредак Крушевац
+Нови Пазар
+Младост Лучани
+ОФК Београд
+Спартак Суботица
+Јавор Ивањица
+ИМТ
+Железничар Панчево
+Радник Сурдулица

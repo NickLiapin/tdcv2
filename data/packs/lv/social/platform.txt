@@ -1,0 +1,21 @@
+---
+description: Social media platform. Brand names keep their real spelling. Draugiem.lv is the Latvian network that predated Facebook locally and is still used, chiefly by older users.
+locale: lv
+---
+Facebook
+Instagram
+TikTok
+X
+LinkedIn
+YouTube
+Reddit
+Snapchat
+Pinterest
+Threads
+Discord
+Telegram
+WhatsApp
+Signal
+Draugiem.lv
+Mastodon
+Twitch

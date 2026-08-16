@@ -1,0 +1,9 @@
+---
+address: singapore.geo.unitNumber
+description: The Singapore unit number — #12-34, meaning floor 12, unit 34, and written with the hash and the hyphen as part of the value. It is a required line of nearly every residential address here, because most of the country lives in flats, and it sits between the street and the postal code: "Blk 123 Ang Mo Kio Avenue 3, #12-34, Singapore 560123". Two conventions to keep: the floor is written with a leading zero below ten (#05-12, not #5-12), and the ground floor is 01, not 0 - there is no floor zero. Storage buildings and shophouses use the same shape. This generator draws floors 01-40 and units 01-99, which covers HDB blocks and most condominiums; the tallest residential towers run past 60 floors and are not modelled, and neither is the trailing letter some mixed-use buildings add (#02-15A).
+generator: tdc
+locale: en
+---
+<sequence name="floor"><gen type="number" value="1..40" length="2" first_zero="true"/></sequence>
+<sequence name="unit"><gen type="number" value="1..99" length="2" first_zero="true"/></sequence>
+<data>#${{floor}}-${{unit}}</data>

@@ -1,0 +1,5 @@
+---
+description: Currency of Kitajska, named in Slovene
+locale: sl
+---
+kitajski juan

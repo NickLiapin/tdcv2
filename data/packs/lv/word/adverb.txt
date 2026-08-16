@@ -1,0 +1,36 @@
+---
+description: Adverb. Latvian adverbs of manner end in -i and are formed straight off the adjective (ātrs -> ātri), which makes them fully productive.
+locale: lv
+---
+ātri
+lēni
+uzmanīgi
+viegli
+klusi
+skaļi
+vienmēr
+nekad
+bieži
+dažreiz
+reti
+pēkšņi
+maigi
+skaidri
+vienkārši
+gandrīz
+pilnīgi
+tikko
+galvenokārt
+patiesi
+dziļi
+plaši
+brīvi
+drosmīgi
+mierīgi
+dedzīgi
+stingri
+labprāt
+laipni
+strauji
+tūlīt
+vēlāk

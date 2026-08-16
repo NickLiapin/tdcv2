@@ -1,0 +1,87 @@
+---
+address: philippines.geo.provinceWithRegion
+description: THE SOURCE OF TRUTH for Philippine provinces. Each line is the province name, a pipe, then the region it belongs to — "Cebu | Central Visayas". philippines.geo.province is sliced out of this list, so a province can never appear without the region that contains it. THERE ARE 82, and unlike the region a province IS a tier of elected government: it has a governor, a board, a share of national tax revenue, and it is the level at which a Filipino's home address is normally identified. TWO ENTRIES WILL LOOK WRONG TO ANYONE WORKING FROM A PRE-2024 MAP AND ARE CORRECT HERE. First, Negros Occidental, Negros Oriental and Siquijor sit under the Negros Island Region, re-created by RA 12000 on 11 June 2024 and taken out of Western and Central Visayas. Second, SULU IS UNDER ZAMBOANGA PENINSULA, NOT BARMM: the Supreme Court ruled on 9 September 2024 that Sulu was never validly part of the Bangsamoro region because it voted against the Bangsamoro Organic Law in the 2019 plebiscite, and Executive Order 91 of 30 July 2025 formally placed it in Region IX. That leaves BARMM with five provinces. Maguindanao is likewise gone as a single province: RA 11550 split it into Maguindanao del Norte and Maguindanao del Sur in 2022. HIGHLY URBANISED CITIES DO NOT APPEAR UNDER THEIR PROVINCE ANYWHERE IN THIS PACK, because they are legally outside it — see philippines.geo.highlyUrbanizedCity. And the National Capital Region has no province at all, so no line here names it; see philippines.geo.metroManilaCity. Values are in English, the language of the PSGC and of the statutes that create and rename provinces.
+locale: en
+---
+Ilocos Norte | Ilocos Region
+Ilocos Sur | Ilocos Region
+La Union | Ilocos Region
+Pangasinan | Ilocos Region
+Batanes | Cagayan Valley
+Cagayan | Cagayan Valley
+Isabela | Cagayan Valley
+Nueva Vizcaya | Cagayan Valley
+Quirino | Cagayan Valley
+Aurora | Central Luzon
+Bataan | Central Luzon
+Bulacan | Central Luzon
+Nueva Ecija | Central Luzon
+Pampanga | Central Luzon
+Tarlac | Central Luzon
+Zambales | Central Luzon
+Batangas | Calabarzon
+Cavite | Calabarzon
+Laguna | Calabarzon
+Quezon | Calabarzon
+Rizal | Calabarzon
+Marinduque | Mimaropa Region
+Occidental Mindoro | Mimaropa Region
+Oriental Mindoro | Mimaropa Region
+Palawan | Mimaropa Region
+Romblon | Mimaropa Region
+Albay | Bicol Region
+Camarines Norte | Bicol Region
+Camarines Sur | Bicol Region
+Catanduanes | Bicol Region
+Masbate | Bicol Region
+Sorsogon | Bicol Region
+Aklan | Western Visayas
+Antique | Western Visayas
+Capiz | Western Visayas
+Guimaras | Western Visayas
+Iloilo | Western Visayas
+Bohol | Central Visayas
+Cebu | Central Visayas
+Negros Occidental | Negros Island Region
+Negros Oriental | Negros Island Region
+Siquijor | Negros Island Region
+Biliran | Eastern Visayas
+Eastern Samar | Eastern Visayas
+Leyte | Eastern Visayas
+Northern Samar | Eastern Visayas
+Samar | Eastern Visayas
+Southern Leyte | Eastern Visayas
+Sulu | Zamboanga Peninsula
+Zamboanga del Norte | Zamboanga Peninsula
+Zamboanga del Sur | Zamboanga Peninsula
+Zamboanga Sibugay | Zamboanga Peninsula
+Bukidnon | Northern Mindanao
+Camiguin | Northern Mindanao
+Lanao del Norte | Northern Mindanao
+Misamis Occidental | Northern Mindanao
+Misamis Oriental | Northern Mindanao
+Davao de Oro | Davao Region
+Davao del Norte | Davao Region
+Davao del Sur | Davao Region
+Davao Occidental | Davao Region
+Davao Oriental | Davao Region
+Cotabato | Soccsksargen
+Sarangani | Soccsksargen
+South Cotabato | Soccsksargen
+Sultan Kudarat | Soccsksargen
+Agusan del Norte | Caraga
+Agusan del Sur | Caraga
+Dinagat Islands | Caraga
+Surigao del Norte | Caraga
+Surigao del Sur | Caraga
+Abra | Cordillera Administrative Region
+Apayao | Cordillera Administrative Region
+Benguet | Cordillera Administrative Region
+Ifugao | Cordillera Administrative Region
+Kalinga | Cordillera Administrative Region
+Mountain Province | Cordillera Administrative Region
+Basilan | Bangsamoro Autonomous Region in Muslim Mindanao
+Lanao del Sur | Bangsamoro Autonomous Region in Muslim Mindanao
+Maguindanao del Norte | Bangsamoro Autonomous Region in Muslim Mindanao
+Maguindanao del Sur | Bangsamoro Autonomous Region in Muslim Mindanao
+Tawi-Tawi | Bangsamoro Autonomous Region in Muslim Mindanao

@@ -1,0 +1,44 @@
+---
+address: malaysia.vehicle.plate
+description: Malaysian number plate, in the four shapes the Road Transport Department (JPJ) actually issues. A peninsular state plate is a state prefix, two running letters and one to four digits with no leading zero — BSS 1234, APK 77, VRX 2468 — and the letters advance only when the digits reach 9999, which is why a plate's letters date it. Putrajaya (F) and Labuan (L) are only one running letter deep so far and read FH 1287, LH 4021. Sarawak and Sabah append a SUFFIX letter after the number instead of adding a third letter in front — QAB 2397 L, SJT 4821 A — and Langkawi does the same without a running letter, KV 2926 E. All four shapes are generated here, chosen by the prefix drawn from malaysia.vehicle.plateCode rather than by an independent draw, so the shape always matches the region. I and O are never used because they read as 1 and 0; Z is never used because it is reserved for the armed forces; Q and S never open a peninsular plate and never appear in a Bornean suffix. Private plates have been black-on-white since the 2022 changeover to a reflective standard; taxis, commercial and diplomatic vehicles use other grounds and other algorithms and are not modelled. Bid plates, the ones sold at JPJ eBid for numbers people want, follow the same format — the whole trade is in which digits you get, not in a different shape.
+generator: tdc
+---
+<sequence name="code"><gen type="template" value="malaysia.vehicle.plateCode"/></sequence>
+<sequence name="letters"><gen type="regex" value="[A-HJ-NP-Y]{2}"/></sequence>
+<sequence name="suffix"><gen type="regex" value="[A-HJ-NPRT-Y]"/></sequence>
+<sequence name="number"><gen type="number" value="1..9999"/></sequence>
+<sequence name="plate"><compute>
+  <let name="head"><to_number><encode as="base36"><slice from="0" to="1"><field name="code"/></slice></encode></to_number></let>
+  <let name="wide"><length><field name="code"/></length></let>
+  <let name="l1"><slice from="0" to="1"><field name="letters"/></slice></let>
+  <let name="digits"><concat><field name="number"/></concat></let>
+  <result>
+    <choose>
+      <when><test><equals><use name="wide"/><int v="2"/></equals></test>
+        <then>
+          <choose>
+            <!-- KV, Langkawi (K is 20 in base 36): no running letter, but a suffix. -->
+            <when><test><equals><use name="head"/><int v="20"/></equals></test>
+              <then><concat>
+                <field name="code"/><str v=" "/><use name="digits"/><str v=" "/><field name="suffix"/>
+              </concat></then>
+            </when>
+            <!-- Q Sarawak / S Sabah: division prefix, one running letter, suffix. -->
+            <otherwise><concat>
+              <field name="code"/><use name="l1"/><str v=" "/><use name="digits"/><str v=" "/><field name="suffix"/>
+            </concat></otherwise>
+          </choose>
+        </then>
+      </when>
+      <!-- F Putrajaya is 15 and L Labuan is 21: one running letter, no suffix. -->
+      <when><test><equals><use name="head"/><int v="15"/></equals></test>
+        <then><concat><field name="code"/><use name="l1"/><str v=" "/><use name="digits"/></concat></then>
+      </when>
+      <when><test><equals><use name="head"/><int v="21"/></equals></test>
+        <then><concat><field name="code"/><use name="l1"/><str v=" "/><use name="digits"/></concat></then>
+      </when>
+      <otherwise><concat><field name="code"/><field name="letters"/><str v=" "/><use name="digits"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{plate}}</data>

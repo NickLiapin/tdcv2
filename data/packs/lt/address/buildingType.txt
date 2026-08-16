@@ -1,0 +1,36 @@
+---
+description: Building type (Lithuanian). Nominative singular; the word inflects through all seven cases in an address line.
+locale: lt
+---
+Gyvenamasis namas
+Daugiabutis namas
+Individualus namas
+Sublokuotas namas
+Kotedžas
+Dvibutis
+Sodo namas
+Vasarnamis
+Sodyba
+Vienkiemis
+Bendrabutis
+Biurų pastatas
+Administracinis pastatas
+Prekybos centras
+Parduotuvė
+Sandėlis
+Gamybinis pastatas
+Cechas
+Angaras
+Garažas
+Ūkinis pastatas
+Klėtis
+Tvartas
+Daržinė
+Pirtis
+Malūnas
+Mokyklos pastatas
+Ligoninė
+Bažnyčia
+Koplyčia
+Viešbutis
+Kultūros namai

@@ -1,0 +1,34 @@
+---
+description: Hashtag word; prefix with # in a template. Latvian hashtags are written without diacritics as often as with them, because the keyboard is the barrier — a config that strips ā ē ī ū č ģ ķ ļ ņ š ž is producing a realistic Latvian tag, not a broken one.
+locale: lv
+---
+latvija
+riga
+jurmala
+kurzeme
+vidzeme
+zemgale
+latgale
+daba
+mezs
+jura
+saule
+vasara
+ziema
+rudens
+pavasaris
+jani
+ligo
+dziesmusvetki
+ceļojums
+sports
+veselība
+ēdiens
+kafija
+maize
+mājas
+dārzs
+mūzika
+fotogrāfija
+iedvesma
+prieks

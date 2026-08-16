@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterologija (Lithuanian).
+locale: lt
+---
+Gastroezofaginio refliukso liga
+Krono liga
+Opinis kolitas
+Skrandžio ir dvylikapirštės žarnos opa
+Dirgliosios žarnos sindromas
+Kepenų cirozė
+Celiakija
+Ūminis pankreatitas
+Divertikulitas
+Tulžies akmenligė

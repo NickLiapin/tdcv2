@@ -1,0 +1,14 @@
+---
+description: Dishes of Turku cuisine as a Latvian menu names them.
+locale: lv
+---
+Kebabs
+Baklava
+Meze
+Lahmadžuns
+Dolma
+Kefte
+Pide
+Menemens
+Iskender kebabs
+Simits

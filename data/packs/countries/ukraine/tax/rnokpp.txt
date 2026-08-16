@@ -1,0 +1,65 @@
+---
+address: ukraine.tax.rnokpp
+description: РНОКПП — реєстраційний номер облікової картки платника податків, the number nearly every Ukrainian carries and still commonly called ІПН. Ten digits, and it is a TAX number doing the work a civil-registry number does elsewhere: Ukraine has no PESEL and no Soviet-style personal number, so where a Pole is identified by a birth register and a Belarusian by a passport register, a Ukrainian is identified by the tax roll. That is the single biggest thing this pack does not share with its neighbours. It leaks two facts about its holder. Digits 1-5 are the number of days from 31 December 1899, so 00001 is 1 January 1900, 25568 is 1 January 1970 and the exact birth date is recoverable by arithmetic alone — no century trick, no month offset, unlike the PESEL next door. Digits 6-8 are a serial separating people born the same day. Digit 9 encodes sex: odd male, even female. Digit 10 is the check digit, sum of the first nine under weights -1,5,7,9,4,6,10,5,7 taken mod 11 then mod 10. This file writes that first weight as 10 rather than -1: -1 and 10 are the same residue mod 11, so the sum differs by a multiple of 11 and the check digit does not, which keeps every weight positive. Birth dates are drawn 1940-01-01..2007-12-31, day numbers 14610..39446.
+generator: tdc
+---
+<sequence name="dob"><gen type="date" from="1940-01-01" to="2007-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="sexdigit"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="rnokpp"><compute>
+  <!-- The drawn calendar date arrives as YYYYMMDD. -->
+  <let name="y0"><to_number><slice from="0" to="4"><field name="dob"/></slice></to_number></let>
+  <let name="mo"><to_number><slice from="4" to="6"><field name="dob"/></slice></to_number></let>
+  <let name="dd"><to_number><slice from="6" to="8"><field name="dob"/></slice></to_number></let>
+  <!-- Calendar date to day number. Standard civil-to-days conversion: shift the
+       year start to March so the leap day lands last, count 400-year eras, then
+       rebase. Every division here is a floor division on non-negative values. -->
+  <let name="y">
+    <choose>
+      <when><test><less_than><use name="mo"/><int v="3"/></less_than></test>
+        <then><subtract><use name="y0"/><int v="1"/></subtract></then></when>
+      <otherwise><use name="y0"/></otherwise>
+    </choose>
+  </let>
+  <let name="era"><divide><use name="y"/><int v="400"/></divide></let>
+  <let name="yoe"><subtract><use name="y"/><multiply><use name="era"/><int v="400"/></multiply></subtract></let>
+  <let name="ms">
+    <choose>
+      <when><test><greater_than><use name="mo"/><int v="2"/></greater_than></test>
+        <then><subtract><use name="mo"/><int v="3"/></subtract></then></when>
+      <otherwise><add><use name="mo"/><int v="9"/></add></otherwise>
+    </choose>
+  </let>
+  <let name="doy"><add>
+    <divide><add><multiply><int v="153"/><use name="ms"/></multiply><int v="2"/></add><int v="5"/></divide>
+    <subtract><use name="dd"/><int v="1"/></subtract>
+  </add></let>
+  <let name="doe"><subtract>
+    <add>
+      <multiply><use name="yoe"/><int v="365"/></multiply>
+      <divide><use name="yoe"/><int v="4"/></divide>
+      <use name="doy"/>
+    </add>
+    <divide><use name="yoe"/><int v="100"/></divide>
+  </subtract></let>
+  <!-- 719468 rebases to 1970-01-01; 25568 more moves the epoch to 1899-12-31. -->
+  <let name="days"><subtract>
+    <add><multiply><use name="era"/><int v="146097"/></multiply><use name="doe"/></add>
+    <int v="693900"/>
+  </subtract></let>
+  <let name="base"><concat>
+    <pad width="5"><use name="days"/></pad>
+    <field name="serial"/>
+    <field name="sexdigit"/>
+  </concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="10,5,7,9,4,6,10,5,7"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><mod><mod><use name="sum"/><int v="11"/></mod><int v="10"/></mod></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{rnokpp}}</data>

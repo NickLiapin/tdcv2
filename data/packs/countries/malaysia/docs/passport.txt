@@ -1,0 +1,8 @@
+---
+address: malaysia.docs.passport
+description: Malaysian passport number — nine characters, one letter followed by eight digits, and no check digit of its own. The published pattern admits three letters, A, H and K. A opens the ordinary international passport and is nearly all of them; H and K are rare and this file draws them rarely, but what distinguishes them — an older series, a restricted or limited-validity book, some other class — is not something I could verify, so no meaning is claimed for them here. A number is unique to the BOOK, not to the person: a Malaysian who renews gets a new number, which is why systems that key a customer on the passport number rather than on the MyKad number break every five years. The passport itself does carry a checksum, but not here — ICAO Doc 9303 puts a weighted 7-3-1 check digit after the document number in the machine-readable zone at the bottom of the data page, and that digit belongs to the MRZ line rather than to the number, so it never appears when the number is quoted, printed on a form or stored in a field. Malaysia was the first country in the world to issue a biometric passport, in March 1998. Pattern verified against the ICAO-conformant nine-character format and Microsoft Purview's Malaysia passport definition, which records the same A/H/K letter set and, explicitly, no checksum.
+generator: tdc
+---
+<sequence name="series"><gen type="text" value="A,H,K" percent="92,5,3"/></sequence>
+<sequence name="digits"><gen type="regex" value="[0-9]{8}"/></sequence>
+<data>${{series}}${{digits}}</data>

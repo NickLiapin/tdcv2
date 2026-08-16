@@ -1,0 +1,41 @@
+---
+address: kenya.finance.bank
+description: Commercial banks licensed by the Central Bank of Kenya, index-aligned with kenya.finance.bankCode. Ordered by CBK bank code, which is issue order rather than size, so KCB is first and UBA last while Equity — the largest by customer numbers — sits well down the list. Two banks on the CBK register are deliberately absent: Commercial International Bank Kenya, whose bank code could not be traced to a published source, and Spire Bank, wound down after Equity acquired its assets in 2023. The Central Bank itself holds code 09 and appears in the clearing system but is not a retail bank, so it is not here either. Names follow the current brand: several codes outlived a rebrand and keep working under the new name — 03 was Barclays before Absa, 07 was CBA before the NCBA merger, 51 was Jamii Bora before Kingdom, 53 was Fina before Guaranty Trust, 60 was Fidelity Commercial before SBM, 66 was K-Rep before Sidian, 74 was First Community before Premier.
+locale: en
+---
+KCB Bank Kenya
+Standard Chartered Bank Kenya
+Absa Bank Kenya
+Bank of India
+Bank of Baroda (Kenya)
+NCBA Bank Kenya
+Prime Bank
+Co-operative Bank of Kenya
+National Bank of Kenya
+M Oriental Bank
+Citibank N.A. Kenya
+Habib Bank AG Zurich
+Middle East Bank (Kenya)
+Bank of Africa Kenya
+Consolidated Bank of Kenya
+Credit Bank
+Access Bank (Kenya)
+Stanbic Bank Kenya
+African Banking Corporation
+Ecobank Kenya
+Paramount Bank
+Kingdom Bank
+Guaranty Trust Bank (Kenya)
+Victoria Commercial Bank
+Guardian Bank
+I&M Bank
+Development Bank of Kenya
+SBM Bank Kenya
+Diamond Trust Bank Kenya
+Sidian Bank
+Equity Bank Kenya
+Family Bank
+Gulf African Bank
+Premier Bank Kenya
+DIB Bank Kenya
+UBA Kenya

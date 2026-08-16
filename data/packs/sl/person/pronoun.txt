@@ -1,0 +1,21 @@
+---
+description: Personal pronoun (Slovene). This list is LONGER than the other locales' and that is the point: Slovene keeps the DUAL, a full third grammatical number used for exactly two people, so every person of the pronoun has three forms rather than two — jaz / midva / mi, ti / vidva / vi, on / onadva / oni. The dual also has its own feminine (medve, vedve, onidve), which the plural distinguishes too (me, ve, one). Almost no other living Indo-European language kept this; Slovene and Sorbian are the exceptions. Slovene is also pro-drop — the verb ending already carries person AND number, including the dual — so these appear mostly for emphasis or contrast, and a Slovene sentence about two people is marked as dual by the verb whether the pronoun is there or not.
+locale: sl
+---
+jaz
+ti
+on
+ona
+ono
+midva
+medve
+vidva
+vedve
+onadva
+onidve
+mi
+me
+vi
+ve
+oni
+one

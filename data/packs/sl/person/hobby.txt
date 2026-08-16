@@ -1,0 +1,83 @@
+---
+description: Hobby or leisure interest (Slovene). Four on this list are Slovene mass movements rather than pastimes: PLANINSTVO — the Alpine Association is the largest voluntary organisation in the country and roughly one Slovene in twenty is a member; GASILSTVO — over 1.300 volunteer fire brigades, so a village keeps one even where nothing burns; ČEBELARSTVO — beekeeping, with one beekeeper for every two hundred people, the highest density in Europe; and PETJE V ZBORU — Slovenia has one of the world's highest densities of amateur choirs. TAROK is the national card game, played with a 54-card Tarock deck and nothing like the fortune-telling one. JAMARSTVO is caving, which began as a discipline in the Slovene karst.
+locale: sl
+---
+planinstvo
+pohodništvo
+turno smučanje
+alpinizem
+športno plezanje
+jamarstvo
+gorsko kolesarjenje
+kolesarjenje
+tek
+maraton
+triatlon
+orientacijski tek
+smučanje
+deskanje na snegu
+tek na smučeh
+sankanje
+drsanje
+plavanje
+veslanje
+kajakaštvo
+rafting
+jadranje
+potapljanje
+surfanje
+padalstvo
+jadralno padalstvo
+ribolov
+lov
+čebelarstvo
+vrtnarjenje
+sadjarstvo
+vinogradništvo
+nabiranje gob
+nabiranje zelišč
+kmetovanje
+gasilstvo
+petje v zboru
+igranje harmonike
+igranje kitare
+igranje klavirja
+folklora
+ples
+gledališče
+branje
+pisanje
+slikanje
+risanje
+fotografiranje
+snemanje videa
+kuhanje
+peka
+kuhanje žganja
+šivanje
+pletenje
+kvačkanje
+ročna dela
+keramika
+lončarstvo
+rezbarjenje
+mizarstvo
+modelarstvo
+zbirateljstvo
+filatelija
+numizmatika
+astronomija
+opazovanje ptic
+šah
+tarok
+kartanje
+balinanje
+kegljanje
+lokostrelstvo
+streljanje
+joga
+fitnes
+potovanja
+kampiranje
+programiranje
+videoigre

@@ -1,0 +1,12 @@
+---
+description: Diagnoses seen in Ortopēdija.
+locale: lv
+---
+Osteoartrīts
+Reimatoīdais artrīts
+Starpskriemeļu diska trūce
+Karpālā kanāla sindroms
+Išiass
+Rotatoru manšetes plīsums
+Osteoporotisks lūzums
+Meniska bojājums

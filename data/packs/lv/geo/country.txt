@@ -1,0 +1,44 @@
+---
+description: Country as Latvian names it, weighted by population in millions. Latvian TRANSLATES a country name where it has a word for it (Vācija for Germany, Krievija for Russia, Apvienotā Karaliste for the United Kingdom, Amerikas Savienotās Valstis for the United States), and where it does not, it still does not leave the name alone: Latvian grammar requires every noun to end in a declinable Latvian ending, so Brazil becomes Brazīlija, Pakistan becomes Pakistāna and Bangladesh becomes Bangladeša. This is the same rule that Latvianises personal names — see person/lastName.txt — applied to geography, and it is why almost no entry in this list is spelled the way the country spells itself.
+weighted: true
+locale: lv
+---
+Ķīna,1410
+Indija,1400
+Amerikas Savienotās Valstis,335
+Indonēzija,275
+Pakistāna,240
+Nigērija,220
+Brazīlija,215
+Bangladeša,170
+Krievija,144
+Meksika,128
+Japāna,125
+Ēģipte,110
+Vjetnama,98
+Turcija,85
+Vācija,84
+Taizeme,72
+Francija,68
+Apvienotā Karaliste,67
+Dienvidāfrika,60
+Itālija,59
+Dienvidkoreja,52
+Spānija,47
+Argentīna,46
+Kanāda,39
+Polija,38
+Saūda Arābija,36
+Austrālija,26
+Nīderlande,18
+Zviedrija,10
+Grieķija,10
+Portugāle,10
+Šveice,9
+Singapūra,6
+Norvēģija,5
+Īrija,5
+Jaunzēlande,5
+Lietuva,3
+Latvija,2
+Igaunija,1

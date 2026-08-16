@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter. Latvian writes the ordinal with a trailing full stop, because a Latvian ordinal always carries one.
+locale: lv
+---
+1. ceturksnis
+2. ceturksnis
+3. ceturksnis
+4. ceturksnis

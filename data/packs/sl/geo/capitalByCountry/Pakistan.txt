@@ -1,0 +1,5 @@
+---
+description: Capital of Pakistan, as Slovene names it
+locale: sl
+---
+Islamabad

@@ -1,0 +1,64 @@
+---
+description: Handwritten: Project Gutenberg holds no Lithuanian book at all — its single Lithuanian record, ebook 10264 "Skamba kankliai ir trimitai", is a 1925 MP3 recording of folk songs filed under Category: Sound, with no text edition, so there is nothing for data/scripts/build-text-corpus.mjs to download. So these 60 Lithuanian filler sentences were written by hand for this pack rather than extracted from a corpus, and a reader comparing locales should know that: pl, fr, de and the rest have real public-domain prose behind them, lt does not.
+locale: lt
+---
+Rytas buvo giedras, ir saulė pakilo virš miško.
+Vaikai bėgo per pievą, o šuo lakstė paskui juos.
+Senelis sėdėjo prie lango ir žiūrėjo į kiemą.
+Ant stalo gulėjo duona, sūris ir ąsotis pieno.
+Vakare pradėjo lyti, todėl visi grįžo namo.
+Upė tekėjo lėtai, o vanduo buvo šaltas ir skaidrus.
+Moteris nešė krepšį obuolių iš sodo.
+Kaimo gatvėje niekas nesikalbėjo, tik girdėjosi vėjas.
+Mokytoja atvėrė knygą ir pradėjo skaityti garsiai.
+Berniukas ilgai ieškojo rakto, bet taip ir nerado.
+Žiemą ežeras užšaldavo, ir žmonės eidavo per ledą.
+Tėvas kirto malkas, o sūnus jas nešė į klėtį.
+Miške augo grybai, ir visa šeima ėjo jų rinkti.
+Naktį danguje matėsi daug žvaigždžių.
+Ji atsistojo, priėjo prie durų ir tyliai jas uždarė.
+Kelias vedė per lauką iki mažo miestelio.
+Kaimynas pasakojo seną istoriją apie kunigaikštį.
+Duona kvepėjo taip, kaip kvepėdavo vaikystėje.
+Rugpjūtį prasidėjo derliaus nuėmimas.
+Traukinys pavėlavo, todėl teko laukti stotyje.
+Miestas naktį atrodė visai kitaip nei dieną.
+Ant lango buvo susikaupę dulkių, ir ji jas nušluostė.
+Jie kalbėjo ilgai, bet niekas nesutarė.
+Gandras sugrįžo į savo lizdą ant stulpo.
+Pavasarį beržai pirmieji išleido lapus.
+Darbas buvo sunkus, tačiau atlyginimas nedidelis.
+Vaikas nusijuokė ir pabėgo į kitą kambarį.
+Prie kelio stovėjo senas medinis kryžius.
+Vanduo šulinyje buvo gilus ir labai šaltas.
+Rytoj reikės anksti keltis ir važiuoti į miestą.
+Ji rašė laišką visą vakarą, o paskui jį sudegino.
+Sodyboje niekas negyveno jau daug metų.
+Vėjas nešė lapus per tuščią aikštę.
+Mokykloje buvo tylu, nes visi mokiniai jau išėjo.
+Jis padėjo knygą ant lentynos ir užgesino lempą.
+Turguje pardavėjai siūlė šviežias daržoves.
+Šuo gulėjo prie durų ir laukė šeimininko.
+Sniegas krito visą naktį, ir rytą kiemas buvo baltas.
+Ant sienos kabojo laikrodis, kuris jau seniai nebeėjo.
+Jie susitiko prie tilto, kaip buvo sutarę.
+Motina virė sriubą ir kalbėjosi su dukterimi.
+Iš tolo buvo girdėti bažnyčios varpai.
+Kambaryje buvo šilta, nes krosnis dar neatvėso.
+Jis niekada nepamiršo, ką jam pasakė senelis.
+Laukai driekėsi iki pat horizonto.
+Automobilis sustojo prie namo, ir iš jo išlipo du vyrai.
+Vaikai piešė kreidelėmis ant asfalto.
+Rudenį miškas nusidažo geltona ir raudona spalva.
+Ji atidarė langą, ir kambarį užliejo šaltas oras.
+Darbininkai statė naują tiltą per upę.
+Knyga buvo sena, jos lapai pageltę ir trapūs.
+Jis ilgai galvojo, bet nieko neatsakė.
+Vasarą dienos ilgos, o naktys trumpos ir šviesios.
+Ant kalno stovėjo pilis, iš kurios matėsi visas slėnis.
+Jie kartu dainavo senas dainas iki vėlyvos nakties.
+Gydytojas apžiūrėjo ligonį ir išrašė vaistų.
+Šeima susirinko prie stalo švęsti gimtadienio.
+Kelionė truko tris dienas, ir visi labai pavargo.
+Ji padėkojo ir tyliai išėjo pro duris.
+Kai išaušo, viskas atrodė paprasčiau.

@@ -1,0 +1,61 @@
+---
+description: Colour name. Latvian colour adjectives inflect for gender and number like every other adjective, so these are the MASCULINE singular indefinite citation forms; before a feminine noun sarkans becomes sarkana, zaļš becomes zaļa. Three entries do not inflect at all — rozā, bēšs and the borrowed tirkīza — because they are indeclinable loans. Dzintara (amber) is a colour word in Latvian in a way it is not in English: Baltic amber washes up on the Kurzeme coast and gives its name to everything from a shade to a shipping company.
+locale: lv
+---
+sarkans
+zils
+zaļš
+dzeltens
+oranžs
+violets
+rozā
+brūns
+melns
+balts
+pelēks
+sudrabains
+zeltains
+bēšs
+krēmkrāsas
+tirkīza
+ciāns
+madženta
+purpursarkans
+tumši sarkans
+tumši zils
+debeszils
+gaiši zils
+tumši zaļš
+gaiši zaļš
+olīvzaļš
+laima zaļš
+smaragdzaļš
+zaļgans
+zilgans
+sārts
+koraļļu
+laša
+ķiršu
+vīnsarkans
+sarkanbrūns
+kastaņbrūns
+dzintara
+medus
+sinepju
+aploksnes
+šokolādes
+kafijas
+smilšu
+māla
+ogļu
+grafīta
+šīfera
+pelēkbrūns
+sniegbalts
+ziloņkaula
+pērļu
+piparmētru
+lavandas
+indigo
+rubīna
+safīra

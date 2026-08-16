@@ -1,0 +1,28 @@
+---
+description: RPG character class.
+locale: lv
+---
+Karavīrs
+Burvis
+Zaglis
+Paladīns
+Mednieks
+Priesteris
+Nekromants
+Druīds
+Mūks
+Loka šāvējs
+Barbars
+Bards
+Slepkava
+Klerks
+Burvestnieks
+Šamanis
+Alķīmiķis
+Inženieris
+Sargs
+Ceļotājs
+Rūnu meistars
+Vilkacis
+Ragana
+Vaidelotis

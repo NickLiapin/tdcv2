@@ -1,0 +1,29 @@
+---
+description: Gemstone (Slovene)
+locale: sl
+---
+diamant
+rubin
+safir
+smaragd
+ametist
+topaz
+granat
+turmalin
+opal
+akvamarin
+citrin
+peridot
+cirkon
+spinel
+turkiz
+lapis lazuli
+malahit
+oniks
+ahat
+jaspis
+karneol
+kremen
+gorski kristal
+biser
+jantar

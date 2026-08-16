@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in psihiatrija, named in Slovene
+locale: sl
+---
+depresija
+anksiozna motnja
+panična motnja
+bipolarna motnja
+shizofrenija
+posttravmatska stresna motnja
+obsesivno-kompulzivna motnja
+motnja hranjenja
+odvisnost od alkohola
+nespečnost
+motnja pozornosti s hiperaktivnostjo

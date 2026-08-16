@@ -1,0 +1,13 @@
+---
+description: Content rating. Latvia uses an age-based system rather than letter grades: U means unrestricted, and the numbered ratings are the minimum age. N-18 material may only be broadcast between 23:00 and 07:00.
+locale: lv
+---
+U
+7+
+12+
+16+
+18+
+N-7
+N-12
+N-16
+N-18

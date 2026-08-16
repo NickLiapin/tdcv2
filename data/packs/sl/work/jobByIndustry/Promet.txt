@@ -1,0 +1,16 @@
+---
+description: Job titles in the Slovene promet sector
+locale: sl
+---
+voznik tovornjaka
+voznik avtobusa
+taksist
+kurir
+dostavljavec
+strojevodja
+sprevodnik
+špediter
+carinski deklarant
+logist
+viličarist
+žerjavist

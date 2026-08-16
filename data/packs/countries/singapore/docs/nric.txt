@@ -1,0 +1,39 @@
+---
+address: singapore.docs.nric
+description: Singapore NRIC number — nine characters: one prefix LETTER, seven digits, and one check LETTER. Unlike almost every other national identifier in this collection the check character is not a digit. The arithmetic is published: multiply the seven digits by the weights 2,7,6,5,4,3,2, sum them, add an offset that depends on the prefix (S=0, T=4), take the remainder mod 11, subtract it from 10, and index that into the alphabet A,B,C,D,E,F,G,H,I,Z,J. The prefix encodes the era, not the person - S is a citizen or permanent resident born (or registered) before 1 January 2000, T is 2000 onward. Foreigners get a FIN instead, which is singapore.docs.fin - a different prefix family AND a different check alphabet, which is why the two are separate files and why a validator written for one silently rejects the other. Nothing else is encoded: no birth date, no sex, no district. The seven digits are close to sequential by issue order, so a number tells you roughly when it was issued and nothing more. Worked example, verifiable by hand: S1234567 gives 1*2+2*7+3*6+4*5+5*4+6*3+7*2 = 106, 106 mod 11 = 7, 10-7 = 3, and the fourth letter of the alphabet above is D - so S1234567D is a well-formed NRIC and S1234567A is not. Well-formed is not the same as real: ICA issues these, this file only computes the check.
+generator: tdc
+locale: en
+---
+<!-- 0 = S (born/registered before 2000), 1 = T (2000 onward). The living
+     population still skews heavily to S, so the split is weighted rather than even. -->
+<sequence name="era"><gen type="text" value="0,1" percent="82,18"/></sequence>
+<sequence name="digits"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="nric"><compute>
+  <let name="prefix"><at>
+    <in><list><str v="S"/><str v="T"/></list></in>
+    <index><field name="era"/></index>
+  </at></let>
+  <!-- The T series carries a +4 offset so that an S number and the T number with
+       the same seven digits get different check letters. -->
+  <let name="offset"><at><in><list v="0,4"/></in><index><field name="era"/></index></at></let>
+  <let name="sum"><reduce>
+    <over><field name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="d"><subtract><int v="10"/>
+    <mod><add><use name="sum"/><use name="offset"/></add><int v="11"/></mod>
+  </subtract></let>
+  <!-- The S/T alphabet. Note Z at position 9 and J at 10 - it is not A..K. -->
+  <let name="check"><at>
+    <in><list>
+      <str v="A"/><str v="B"/><str v="C"/><str v="D"/><str v="E"/><str v="F"/>
+      <str v="G"/><str v="H"/><str v="I"/><str v="Z"/><str v="J"/>
+    </list></in>
+    <index><use name="d"/></index>
+  </at></let>
+  <result><concat><use name="prefix"/><field name="digits"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{nric}}</data>

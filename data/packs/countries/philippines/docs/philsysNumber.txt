@@ -1,0 +1,7 @@
+---
+address: philippines.docs.philsysNumber
+description: PhilSys Number (PSN) — the Philippine national identity number created by Republic Act 11055 (2018) and assigned by the Philippine Statistics Authority. TWELVE DIGITS, RANDOMLY GENERATED, AND WITH NO PUBLISHED CHECK DIGIT. The PSA describes the PSN as "unique and randomly-generated" and permanent; it publishes no structure inside it — no birth date, no sex, no place of registration, no checksum — so nothing is computed here and no check digit is invented. If you need a number that a validator can accept, the Philippines does not give you one; the only way to test a PSN is to ask PhilSys. DO NOT PUT THIS NUMBER ON A CARD. The PSN is microprinted on the BACK of the PhilID precisely so that it is hard to read or photograph, and the PSA instructs holders to keep it confidential and to quote the 16-digit PhilSys Card Number instead for everyday transactions — see philippines.docs.philIdCardNumber, which is the tokenised public form of this number and the one you almost certainly want. Treating a PSN like a public account number is the exact misuse the two-number design exists to prevent. This is also the newest of the six national numbers a Filipino carries: it does not replace the TIN, SSS, GSIS, PhilHealth or Pag-IBIG number, it was added alongside them.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{12}"/>

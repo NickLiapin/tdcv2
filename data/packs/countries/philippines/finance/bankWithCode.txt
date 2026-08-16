@@ -1,0 +1,47 @@
+---
+address: philippines.finance.bankWithCode
+description: THE SOURCE OF TRUTH for Philippine banks. Each line is the bank's 9-digit BRSTN, one space, then its name — "010530667 BDO Unibank". philippines.finance.bank and philippines.finance.bankCode are both sliced out of this list, so a name and its routing number cannot drift apart. The BRSTN (Bank Routing Symbol Transit Number) is assigned by the Bangko Sentral ng Pilipinas and is what routes a domestic transfer through PESONet or InstaPay — the nearest Philippine equivalent of a sort code, and NOT a SWIFT/BIC, which is a separate identifier the same banks also hold for inbound international payments. EVERY CODE HERE CARRIES THE AMERICAN ABA CHECK DIGIT, WHICH IS NOT A COINCIDENCE: the Philippines took its clearing apparatus from the United States, and the BRSTN is nine digits validated by the same modulo-10 3-7-1 rule as a US routing number. All 42 codes below were verified against it — see philippines.finance.brstn, which computes it. The list is current banks only: Allied Bank, iBank, Prudential Bank, Export & Industry Bank, Sterling Bank of Asia, UCPB and Robinsons Bank all appear in circulating BRSTN tables and were dropped because they have since merged or closed, and PSBank was dropped because the published tables give it Metrobank's code, which cannot be right and could not be resolved. Foreign banks' Manila branches are included, because they hold BRSTNs and clear domestically on the same terms. GCash also holds a BRSTN (018040010) and is deliberately absent: it is an electronic money issuer rather than a bank, and it moves more retail transfers in the Philippines than most of the banks here.
+locale: en
+---
+010530667 BDO Unibank
+010040018 Bank of the Philippine Islands
+010269996 Metropolitan Bank and Trust Company
+010350025 Land Bank of the Philippines
+010080010 Philippine National Bank
+010590018 Development Bank of the Philippines
+010140015 Security Bank Corporation
+010100013 China Banking Corporation
+010280014 Rizal Commercial Banking Corporation
+010419995 Union Bank of the Philippines
+010620014 East West Banking Corporation
+011020011 Asia United Bank
+010440016 Bank of Commerce
+010110016 Philippine Bank of Communications
+010330016 Philippine Veterans Bank
+010090039 Philippine Trust Company
+010220016 Maybank Philippines
+010060014 HSBC Philippines
+010070017 Citibank Philippines
+010050011 Standard Chartered Bank Philippines
+018010011 CIMB Bank Philippines
+011570011 Tonik Digital Bank
+011129996 China Bank Savings
+010960017 Equicom Savings Bank
+011130011 Yuanta Savings Bank
+020780012 First Consolidated Bank
+010640010 Mizuho Bank Manila
+010460012 MUFG Bank Manila
+010650013 Deutsche Bank Manila
+010660029 ING Bank Manila
+010720011 JP Morgan Chase Bank Manila
+010120019 Bank of America Manila
+010670019 Bangkok Bank Manila
+011140014 Bank of China Manila
+010700015 Australia and New Zealand Banking Group Manila
+010270189 United Overseas Bank Manila
+010710018 KEB Hana Bank Manila
+011300016 Shinhan Bank Manila
+011310019 Industrial Bank of Korea Manila
+011280013 Sumitomo Mitsui Banking Corporation Manila
+010690015 CTBC Bank Philippines
+010560019 Mega International Commercial Bank Manila

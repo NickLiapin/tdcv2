@@ -1,0 +1,5 @@
+---
+description: Currency of Savdska Arabija, named in Slovene
+locale: sl
+---
+savdski rial

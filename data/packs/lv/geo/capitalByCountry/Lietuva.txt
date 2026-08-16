@@ -1,0 +1,5 @@
+---
+description: Capital of Lietuva, in the Latvian spelling.
+locale: lv
+---
+Viļņa

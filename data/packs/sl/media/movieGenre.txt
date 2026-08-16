@@ -1,0 +1,23 @@
+---
+description: Film genre (Slovene)
+locale: sl
+---
+drama
+komedija
+romantična komedija
+akcijski film
+pustolovski film
+triler
+kriminalka
+grozljivka
+znanstvena fantastika
+fantazijski film
+vestern
+vojni film
+zgodovinski film
+biografski film
+glasbeni film
+animirani film
+dokumentarni film
+kratki film
+družinski film

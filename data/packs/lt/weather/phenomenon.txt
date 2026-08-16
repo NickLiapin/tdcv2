@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Lithuanian).
+locale: lt
+---
+Šalna
+Plikledis
+Ledainis
+Šerkšnas
+Rasa
+Speigas
+Atlydys
+Potvynis
+Sausra
+Škvalas
+Viesulas
+Audra
+Žaibas
+Vaivorykštė
+Šiaurės pašvaistė

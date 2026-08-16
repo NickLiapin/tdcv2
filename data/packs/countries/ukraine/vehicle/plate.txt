@@ -1,0 +1,9 @@
+---
+address: ukraine.vehicle.plate
+description: Ukrainian vehicle plate in the standard in force since 2004 — two letters, four digits, two letters, written AA 1234 BC. The first pair is the region of registration: AA Київ, AB Вінницька, AC Волинська, AE Дніпропетровська, AH Донецька, AI Київська, AK АР Крим, AM Житомирська, AO Закарпатська, AP Запорізька, AT Івано-Франківська, AX Харківська, BA Кіровоградська, BB Луганська, BC Львівська, BE Миколаївська, BH Одеська, BI Полтавська, BK Рівненська, BM Сумська, BO Тернопільська, BT Херсонська, BX Хмельницька, CA Черкаська, CB Чернігівська, CE Чернівецька, CH Севастополь. The letters are Cyrillic in the standard, but only the twelve that share a glyph with Latin (А В С Е Н І К М О Р Т Х) are allowed, precisely so the plate reads identically to a foreign eye and to an ANPR camera; they are written here in their Latin counterparts, which is also what registries and OCR emit. Only the 2004 code pairs are drawn. Each region has since been given a second pair in 2013 (Київ KA, Львівська HC) and a third in 2021 (Київ TT, Львівська CC) as series ran out, and those plates are equally real, but they are left out here so that the first pair of every generated plate maps to exactly one region. The final pair is a free series with no regional meaning.
+generator: tdc
+---
+<sequence name="region"><gen type="text" value="AA,AB,AC,AE,AH,AI,AK,AM,AO,AP,AT,AX,BA,BB,BC,BE,BH,BI,BK,BM,BO,BT,BX,CA,CB,CE,CH"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<sequence name="series"><gen type="regex" value="[ABCEHIKMOPTX]{2}"/></sequence>
+<data>${{region}} ${{serial}} ${{series}}</data>

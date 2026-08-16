@@ -1,0 +1,88 @@
+---
+description: Medical diagnosis that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale and diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. Two entries are here because of where Latvia is rather than because of the language: ērču encefalīts (tick-borne encephalitis) and Laimas slimība (Lyme borreliosis) are endemic across the country and Latvia reports among the highest tick-borne encephalitis incidence in the European Union, so a Latvian patient record that never mentions them is not realistic. Tuberkuloze likewise remains a live clinical category in Latvia rather than a historical one.
+locale: lv
+---
+Hipertensija
+2. tipa cukura diabēts
+1. tipa cukura diabēts
+Astma
+Akūts bronhīts
+Gripa
+Migrēna
+Ģeneralizēti trauksmes traucējumi
+Depresija
+Osteoartrīts
+Reimatoīdais artrīts
+Gastroezofageālā atviļņa slimība
+Dzelzs deficīta anēmija
+Hipotireoze
+Hipertireoze
+Urīnceļu infekcija
+Pneimonija
+Hroniska nieru slimība
+Koronārā sirds slimība
+Priekškambaru mirdzēšana
+Sirds mazspēja
+Išēmisks insults
+Epilepsija
+Parkinsona slimība
+Alcheimera slimība
+Multiplā skleroze
+Psoriāze
+Atopiskais dermatīts
+Alerģisks rinīts
+Hronisks sinusīts
+Vidusauss iekaisums
+Konjunktivīts
+Katarakta
+Glaukoma
+Apendicīts
+Holecistīts
+Divertikulīts
+Kairinātās zarnas sindroms
+Krona slimība
+Čūlainais kolīts
+Hronisks B hepatīts
+Hronisks C hepatīts
+Aknu ciroze
+Akūts pankreatīts
+Podagra
+Osteoporoze
+Fibromialģija
+Išiass
+Starpskriemeļu diska trūce
+Karpālā kanāla sindroms
+Tendinīts
+Hroniska obstruktīva plaušu slimība
+Tuberkuloze
+Ērču encefalīts
+Laimas slimība
+Leikēmija
+Limfoma
+Melanoma
+Plaušu vēzis
+Resnās zarnas vēzis
+Kuņģa vēzis
+Hiperlipidēmija
+Aptaukošanās
+Obstruktīva miega apnoja
+Bezmiegs
+Bipolāri afektīvie traucējumi
+Uzmanības deficīta un hiperaktivitātes sindroms
+Celiakija
+Sistēmiskā sarkanā vilkēde
+Vertigo
+Troksnis ausīs
+Hemoroīdi
+Varikozas vēnas
+Dziļo vēnu tromboze
+Plaušu artērijas trombembolija
+Nefrolitiāze
+Anēmija
+Peptiska čūla
+Gastrīts
+Celulīts
+Sepse
+Akūts gastroenterīts
+D vitamīna deficīts
+Hroniska vēnu mazspēja

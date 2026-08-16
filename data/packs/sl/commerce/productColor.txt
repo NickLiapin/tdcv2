@@ -1,0 +1,58 @@
+---
+description: Colour as it appears in a Slovene product listing (feminine adjectival form, agreeing with barva)
+locale: sl
+---
+bela
+črna
+siva
+antracitna
+srebrna
+zlata
+bakrena
+bronasta
+rdeča
+temno rdeča
+bordo
+rožnata
+lila
+vijolična
+modra
+temno modra
+svetlo modra
+kraljevsko modra
+turkizna
+petrolejsko modra
+zelena
+temno zelena
+svetlo zelena
+olivna
+mahovno zelena
+rumena
+gorčična
+oker
+oranžna
+koralna
+breskova
+marelična
+rjava
+svetlo rjava
+temno rjava
+kostanjeva
+čokoladna
+karamelna
+bež
+peščena
+kremna
+slonokoščena
+mlečna
+prosojna
+grafitna
+kovinsko siva
+mat črna
+sijajno bela
+naravni les
+hrastova
+orehova
+smrekova
+marmornata
+večbarvna

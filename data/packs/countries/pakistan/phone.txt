@@ -1,0 +1,7 @@
+---
+address: pakistan.phone
+description: Pakistani mobile number in E.164 form — +92 then ten digits, the first of which is always 3. The Pakistan Telecommunication Authority reserves the whole 3 block for mobile access: a subscriber writes the number 03xx-xxxxxxx with a trunk 0 in front, an international caller writes +92 3xx xxxxxxx with the 0 dropped, and it is the same ten digits either way. The two digits after the 3 name the operator — 300-309 and 320-329 Jazz, 310-319 Zong, 330-339 Ufone, 340-349 Telenor Pakistan — and that whole 300-349 span is what is generated here, so every value belongs to a real network. Two allocations are deliberately left out. 355 belongs to SCO, the Special Communications Organisation, which is the army-run operator with the licence for Azad Jammu and Kashmir and Gilgit-Baltistan and serves nowhere else, so a number in it asserts a location and would be wrong for a row anywhere in the four provinces. The later 37x blocks were opened when the original range began to fill and are only partly allotted. Landlines are a different shape and are not generated here: a 2-3 digit area code with a trunk 0 (021 Karachi, 042 Lahore, 051 Islamabad and Rawalpindi, 041 Faisalabad, 061 Multan, 081 Quetta, 091 Peshawar) plus a 7-8 digit subscriber number, the two together always totalling ten digits after the trunk prefix — the same total a mobile number reaches, which is why length alone will not tell a Pakistani mobile from a landline but a leading 3 will.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="\+923[0-4][0-9]{8}"/>

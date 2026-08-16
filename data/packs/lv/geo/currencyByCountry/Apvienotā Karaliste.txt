@@ -1,0 +1,5 @@
+---
+description: Currency of Apvienotā Karaliste, named in Latvian.
+locale: lv
+---
+sterliņu mārciņa

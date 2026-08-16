@@ -1,0 +1,14 @@
+---
+description: Fuel type (Lithuanian).
+locale: lt
+---
+Benzinas
+Dyzelinas
+Dujos
+Suslėgtos gamtinės dujos
+Elektra
+Hibridas
+Kištukinis hibridas
+Vandenilis
+Etanolis
+Biodyzelinas

@@ -1,0 +1,11 @@
+---
+address: nigeria.geo.stateByZone.North East
+description: The six states of Nigeria's North East zone. Keyed by nigeria.geo.zone, so a config can draw a zone and then a state that really belongs to it.
+locale: en
+---
+Adamawa
+Bauchi
+Borno
+Gombe
+Taraba
+Yobe

@@ -1,0 +1,7 @@
+---
+address: pakistan.tax.strn
+description: STRN — Sales Tax Registration Number, 13 digits, issued by the Federal Board of Revenue to a business registered for sales tax and quoted on every tax invoice it raises. This is the number a European dataset would call a VAT number, and it is why there is no pakistan.tax.vat in this pack: Pakistan levies sales tax in VAT mode under the Sales Tax Act 1990 but registers taxpayers under the STRN, so a separate VAT identifier would be an invention rather than a second real number. Two things are worth knowing before a column is filled with these. First, the STRN is 13 digits and so is the CNIC, so "thirteen digits" does not identify which of the two a Pakistani field holds — the STRN belongs to a business, the CNIC to a person, and only the surrounding column tells them apart. Second, individuals and sole proprietors are now registered for sales tax on their CNIC rather than on a separate STRN, so a modern STRN in a realistic test set belongs to a company or an association of persons. The FBR publishes neither an internal structure for the 13 digits nor a checksum over them, and none is invented here; an STRN is checked by looking it up in the FBR's Active Taxpayer List, not by arithmetic.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{13}"/>

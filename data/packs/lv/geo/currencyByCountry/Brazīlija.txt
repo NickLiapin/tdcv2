@@ -1,0 +1,5 @@
+---
+description: Currency of Brazīlija, named in Latvian.
+locale: lv
+---
+Brazīlijas reāls

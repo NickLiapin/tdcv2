@@ -1,0 +1,14 @@
+---
+description: Dishes of Japāņu cuisine as a Latvian menu names them.
+locale: lv
+---
+Suši
+Ramens
+Tempura
+Udons
+Terijaki vista
+Miso zupa
+Katsu karijs
+Onigiri
+Gjodza
+Jakitori

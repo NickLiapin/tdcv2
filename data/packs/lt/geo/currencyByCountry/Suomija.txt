@@ -1,0 +1,5 @@
+---
+description: Currency of Suomija (Lithuanian).
+locale: lt
+---
+Euras

@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Lithuanian).
+locale: lt
+---
+Vietiniai reisai
+Regioniniai reisai
+Tarpmiestiniai reisai
+Tarptautiniai reisai
+Reisai į Vakarų Europą
+Reisai į Skandinaviją
+Reisai į Rytus

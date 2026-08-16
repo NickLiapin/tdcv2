@@ -1,0 +1,19 @@
+---
+description: Court. Slovene is the official language of ONE country, so this is the judiciary of the Republic of Slovenia rather than a generic set of court words — compare the Spanish and Portuguese packs, which must stay generic because their language spans many judiciaries. Slovenia runs a four-tier general judiciary (okrajno, okrožno, višje, vrhovno) with SEPARATE labour-and-social and administrative branches, and the Ustavno sodišče outside all of them.
+locale: sl
+---
+Ustavno sodišče Republike Slovenije
+Vrhovno sodišče Republike Slovenije
+višje sodišče
+okrožno sodišče
+okrajno sodišče
+Upravno sodišče Republike Slovenije
+delovno in socialno sodišče
+Višje delovno in socialno sodišče
+gospodarski oddelek
+kazenski oddelek
+civilni oddelek
+Računsko sodišče Republike Slovenije
+Državno odvetništvo
+Sodišče Evropske unije
+Evropsko sodišče za človekove pravice

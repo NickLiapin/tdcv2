@@ -1,0 +1,7 @@
+---
+address: singapore.finance.branchCode
+description: Singapore branch code — three digits, the second half of the bank-code/branch-code pair that addresses a domestic transfer (7171-081). Structural only: each bank numbers its own branches, there is no national registry to check a generated one against, and this draws 001-999 without claiming the branch exists at any particular bank. Several banks have collapsed the branch code in practice - DBS and OCBC accept a transfer with the branch code left off or set to a default, because the account number is unique across the bank - so a Singapore payment form asking for one is often asking out of habit. There is no check digit, here or in the bank code.
+generator: tdc
+locale: en
+---
+<gen type="number" value="1..999" length="3" first_zero="true"/>

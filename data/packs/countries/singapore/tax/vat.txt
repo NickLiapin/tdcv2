@@ -1,0 +1,8 @@
+---
+address: singapore.tax.vat
+description: Singapore GST registration number — the nearest thing Singapore has to a VAT number, and since 1 January 2019 it is simply the entity's UEN, which is why this file draws singapore.tax.uen rather than defining a format of its own. Singapore levies GST (Goods and Services Tax), not VAT; registration is compulsory above a S$1 million annual turnover and optional below it, so most small businesses have a UEN and no GST registration at all - a GST number column is legitimately null for a large share of real companies, which is the modelling point worth carrying away. Before 2019 a GST number was a separate string of the shape M2-1234567-X or MR-1234567-X, and entities that have no UEN because they are not ACRA-registered - notably overseas sellers under the Overseas Vendor Registration regime - still carry an M-prefixed number instead. That M form is NOT generated here: IRAS publishes neither its exact structure nor any check algorithm, and a plausible-looking invention would be worse than its absence. The UEN this file emits carries no verified check letter either, for the reason set out in singapore.tax.uen. Registrations are public and searchable on IRAS's GST-registered business search. There is no separate personal tax number: an individual's IRAS tax reference IS their NRIC or FIN.
+generator: tdc
+locale: en
+---
+<sequence name="uen"><gen type="template" value="singapore.tax.uen"/></sequence>
+<data>${{uen}}</data>

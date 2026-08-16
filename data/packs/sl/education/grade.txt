@@ -1,0 +1,16 @@
+---
+description: Grade or mark (Slovene). Slovene schools mark on a FIVE-point scale where 5 is the best and 1 is a fail — odlično (5), prav dobro (4), dobro (3), zadostno (2), nezadostno (1) — the reverse of the American letter order. Slovene universities then use a TEN-point scale on top of it, where 6 to 10 pass and 1 to 5 fail, so the same number means opposite things at school and at university: a 5 is the top mark in a Slovene classroom and a fail in a Slovene lecture hall.
+locale: sl
+---
+odlično (5)
+prav dobro (4)
+dobro (3)
+zadostno (2)
+nezadostno (1)
+10 (odlično)
+9 (prav dobro)
+8 (prav dobro)
+7 (dobro)
+6 (zadostno)
+opravil
+ni opravil

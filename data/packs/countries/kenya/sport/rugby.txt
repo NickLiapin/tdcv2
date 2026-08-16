@@ -1,0 +1,17 @@
+---
+address: kenya.sport.rugby
+description: Clubs of the Kenya Cup, the national fifteen-a-side rugby championship. Rugby matters more in Kenya than a glance at the football table suggests — the Kenya Sevens side has been a World Series regular and the Safari Sevens is a fixture on the African calendar — and the club game is concentrated in Nairobi, western Kenya and Nakuru rather than spread nationally. As in football, several sides are institutional: Kabras Sugar is a sugar miller's team, KCB a bank's, Menengai Oilers an oil refiner's, Blak Blad is Kenyatta University and Strathmore Leos is Strathmore University.
+locale: en
+---
+Kabras Sugar
+KCB Rugby
+Menengai Oilers
+Kenya Harlequin
+Nondescripts
+Impala Saracens
+Nakuru RFC
+Mwamba RFC
+Strathmore Leos
+Blak Blad
+Kisumu RFC
+South Coast Pirates

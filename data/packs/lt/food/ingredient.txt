@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Lithuanian).
+locale: lt
+---
+Bulvės
+Miltai
+Ruginiai miltai
+Kviečiai
+Grikiai
+Ryžiai
+Avižos
+Miežiai
+Kiaušiniai
+Pienas
+Grietinė
+Grietinėlė
+Sviestas
+Varškė
+Sūris
+Jogurtas
+Kefyras
+Kiauliena
+Jautiena
+Vištiena
+Kalakutiena
+Aviena
+Žuvis
+Silkė
+Lašiša
+Lašiniai
+Dešra
+Kumpis
+Aliejus
+Alyvuogių aliejus
+Actas
+Druska
+Cukrus
+Medus
+Mielės
+Kepimo milteliai
+Krakmolas
+Riešutai
+Sėklos
+Duona

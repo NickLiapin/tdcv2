@@ -1,0 +1,52 @@
+---
+address: kenya.geo.county
+description: The 47 counties of Kenya, in official county-code order 001-047. Counties are the first-level division and the ONLY one — they were created by the 2010 Constitution and took office after the March 2013 general election, replacing the eight colonial-era provinces (Central, Coast, Eastern, Nairobi, North Eastern, Nyanza, Rift Valley, Western) which no longer exist as units of government. A Kenyan address, a voter roll or a devolved budget is organised by county, never by province, so a pack that shipped the eight provinces would be modelling a country that ended in 2013. Index-aligned with kenya.geo.countyCode and kenya.geo.countyCapital. Nairobi is formally Nairobi City County.
+locale: en
+---
+Mombasa
+Kwale
+Kilifi
+Tana River
+Lamu
+Taita-Taveta
+Garissa
+Wajir
+Mandera
+Marsabit
+Isiolo
+Meru
+Tharaka-Nithi
+Embu
+Kitui
+Machakos
+Makueni
+Nyandarua
+Nyeri
+Kirinyaga
+Murang'a
+Kiambu
+Turkana
+West Pokot
+Samburu
+Trans-Nzoia
+Uasin Gishu
+Elgeyo-Marakwet
+Nandi
+Baringo
+Laikipia
+Nakuru
+Narok
+Kajiado
+Kericho
+Bomet
+Kakamega
+Vihiga
+Bungoma
+Busia
+Siaya
+Kisumu
+Homa Bay
+Migori
+Kisii
+Nyamira
+Nairobi

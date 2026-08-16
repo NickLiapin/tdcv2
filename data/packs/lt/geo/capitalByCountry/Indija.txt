@@ -1,0 +1,5 @@
+---
+description: Capital of Indija (Lithuanian).
+locale: lt
+---
+Naujasis Delis

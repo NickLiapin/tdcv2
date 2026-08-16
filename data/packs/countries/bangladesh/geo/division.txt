@@ -1,0 +1,13 @@
+---
+address: bangladesh.geo.division
+description: The 8 DIVISIONS (বিভাগ) of Bangladesh, alphabetically by their official English name, index-aligned with bangladesh.geo.divisionEnglish. The division is the FIRST-level administrative unit and the district (bangladesh.geo.district, 64 of them) is the second — the two are different layers and are kept in different files, because a Bangladeshi address, a court's jurisdiction and every government statistic is reported at one or the other and flattening them into a single "region" list would make the pack say something about the country that is not true. Every division is named after its headquarters city, so the eight names are also eight of the largest cities. The count has grown twice in living memory: Rangpur was carved out of Rajshahi in 2010 and Mymensingh out of Dhaka in 2015, which is why a dataset with six divisions is a dataset from before 2010. Two more (Padma, from Faridpur, and Meghna, from Cumilla) have been announced repeatedly and neither exists yet, so neither is here.
+locale: bn
+---
+বরিশাল
+চট্টগ্রাম
+ঢাকা
+খুলনা
+ময়মনসিংহ
+রাজশাহী
+রংপুর
+সিলেট

@@ -1,0 +1,5 @@
+---
+description: Currency of Južna Koreja, named in Slovene
+locale: sl
+---
+južnokorejski von

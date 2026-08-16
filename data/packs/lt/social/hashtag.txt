@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Lithuanian (prefix with # in a template). Lithuanian hashtags are usually written without the diacritics because keyboards make them awkward, so both forms circulate; these keep them.
+locale: lt
+---
+Lietuva
+Vilnius
+Kaunas
+Klaipėda
+gamta
+kelionės
+maistas
+receptai
+sportas
+krepšinis
+sveikata
+grožis
+mada
+muzika
+menas
+fotografija
+knygos
+kinas
+technologijos
+verslas
+startuolis
+darbas
+mokslas
+šeima
+vaikai
+namai
+sodas
+šuo
+katė
+vasara

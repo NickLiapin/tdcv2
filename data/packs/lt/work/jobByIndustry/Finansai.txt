@@ -1,0 +1,16 @@
+---
+description: Jobs in Finansai (Lithuanian).
+locale: lt
+---
+Finansų analitikas
+Buhalteris
+Vyriausiasis buhalteris
+Vidaus auditorius
+Aktuaras
+Kredito konsultantas
+Mokesčių konsultantas
+Vertybinių popierių brokeris
+Rizikos valdymo specialistas
+Finansų kontrolierius
+Banko kasininkas
+Investicijų analitikas

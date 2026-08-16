@@ -1,0 +1,20 @@
+---
+address: philippines.tax.tinWithBranch
+description: Full Philippine TIN with its branch code — the 9-digit base from philippines.tax.tin followed by a branch suffix, written 123-456-789-000. THE SUFFIX IS 3 DIGITS OR 5, AND BOTH ARE CURRENT. It was 3 digits for thirty years, with 000 meaning the head office and 001 upward the branches, which is why almost every Philippine TIN in the wild ends in 000 and why a 12-digit TIN is the familiar form. The BIR then widened it to 5 digits — the field became XXXXX across the eBIRForms package with version 7.9.6.0 in April 2026 — raising the ceiling from 999 branches to 99,999 and making the full number 14 digits. Neither form is wrong: an individual's TIN is still written with -000, and a large chain's may now carry a 5-digit code, so a column sized for 12 characters will silently truncate the new form and a validator that insists on 14 will reject nearly all real data. This generator draws 3-digit suffixes far more often than 5-digit ones, which is the real distribution, and weights the head-office 000 heaviest. THE SUFFIX CARRIES NO CHECK OF ITS OWN — it is simply the order in which the taxpayer registered its branches, and the base TIN's own ninth digit is drawn rather than computed because the BIR does not publish the rule; see philippines.tax.tin for the evidence behind that. The hyphens are how the BIR prints it and how it appears on an official receipt, but plenty of systems store the digits unseparated, so strip them if your target does rather than assuming they are absent.
+generator: tdc
+locale: en
+---
+<sequence name="base"><gen type="template" value="philippines.tax.tin"/></sequence>
+<sequence name="short"><gen type="text" value="000,000,000,000,000,000,001,002,003,004,005,006,007,008,010,012,015,018,020,025,031,044,057,063,078,091,104,127,150,199,246,301,377,428,505,613,742,888,999"/></sequence>
+<sequence name="long"><gen type="number" value="0..99999" length="5" first_zero="true"/></sequence>
+<!-- 3-digit suffixes dominate: the 5-digit field only arrived in 2026 and only
+     a taxpayer past 999 branches needs it. Draw 5-digit one time in eight. -->
+<sequence name="pick"><gen type="number" value="1..8"/></sequence>
+<sequence name="branch"><compute><result>
+  <choose>
+    <when><test><equals><to_number><field name="pick"/></to_number><int v="8"/></equals></test>
+      <then><field name="long"/></then></when>
+    <otherwise><field name="short"/></otherwise>
+  </choose>
+</result></compute></sequence>
+<data>${{base}}-${{branch}}</data>

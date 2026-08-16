@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Slovene, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: sl
+---
+Podsaharska
+Severnoafriška
+Sredozemska
+Bližnjevzhodna
+Severnoevropska
+Vzhodnoevropska
+Aškenaška judovska
+Južnoazijska
+Vzhodnoazijska
+Jugovzhodnoazijska
+Domorodna ameriška
+Pacifiška otoška

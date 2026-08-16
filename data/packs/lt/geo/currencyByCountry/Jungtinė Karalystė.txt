@@ -1,0 +1,5 @@
+---
+description: Currency of Jungtinė Karalystė (Lithuanian).
+locale: lt
+---
+Svaras sterlingų

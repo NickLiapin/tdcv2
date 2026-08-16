@@ -1,0 +1,5 @@
+---
+description: Currency of Saūda Arābija, named in Latvian.
+locale: lv
+---
+Saūda Arābijas riāls

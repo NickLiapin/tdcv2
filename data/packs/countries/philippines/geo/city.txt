@@ -1,0 +1,82 @@
+---
+address: philippines.geo.city
+description: Cities of the Philippines, roughly ordered by population (2024 POPCEN). Only chartered CITIES appear here — of the 1,642 local government units below the province, only 149 are cities and the other 1,493 are municipalities, so a Philippine address is far more often a municipality than a city and this list is not a sample of where Filipinos live. The order is approximate on purpose: exact 2024 counts are not carried, because a weighted list would claim a precision the published figures do not support at this granularity. A city name is NOT unique in the Philippines — there is a Naga in Camarines Sur and a Naga in Cebu, a Talisay in Cebu and a Talisay in Negros Occidental, an Isabela city in Basilan and an Isabela province in Cagayan Valley, and San Fernando is both a city in Pampanga and a city in La Union. Treat a bare city name as ambiguous and keep the province beside it, except where the city has no province because it is highly urbanised (philippines.geo.highlyUrbanizedCity). "City" is part of several official names and is written where it belongs: Cebu City, Davao City, Quezon City, Iloilo City and Batangas City carry it because the bare name is the province; Manila, Makati and Baguio do not.
+locale: en
+---
+Quezon City
+Manila
+Davao City
+Caloocan
+Taguig
+Cebu City
+Zamboanga City
+Antipolo
+Pasig
+Cagayan de Oro
+Valenzuela
+Parañaque
+Dasmariñas
+General Santos
+San Jose del Monte
+Bacolod
+Bacoor
+Makati
+Las Piñas
+Calamba
+Muntinlupa
+Lapu-Lapu
+General Trias
+Imus
+Marikina
+Iloilo City
+Angeles
+Mandaluyong
+Santa Rosa
+Pasay
+Tarlac City
+Lipa
+Butuan
+Malabon
+Baguio
+San Fernando
+Iligan
+Mandaue
+Batangas City
+Cabanatuan
+Puerto Princesa
+Cotabato City
+Tagum
+San Pablo
+Malolos
+Talisay
+Naga
+Navotas
+Tacloban
+Olongapo
+Ormoc
+Meycauayan
+Trece Martires
+Valencia
+Legazpi
+Marawi
+Toledo
+Panabo
+Koronadal
+Roxas
+Digos
+Dagupan
+Surigao City
+Tuguegarao
+Danao
+Kidapawan
+Santiago
+Isabela
+Cauayan
+Tabaco
+Carcar
+Dumaguete
+Tagbilaran
+San Juan
+Lucena
+Laoag
+Vigan

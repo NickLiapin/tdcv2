@@ -1,0 +1,12 @@
+---
+description: Book format (Slovene)
+locale: sl
+---
+trda vezava
+mehka vezava
+žepnica
+elektronska knjiga
+zvočna knjiga
+revija
+zbornik
+faksimile

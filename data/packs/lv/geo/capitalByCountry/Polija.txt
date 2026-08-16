@@ -1,0 +1,5 @@
+---
+description: Capital of Polija, in the Latvian spelling.
+locale: lv
+---
+Varšava

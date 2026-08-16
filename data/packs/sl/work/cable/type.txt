@@ -1,0 +1,13 @@
+---
+description: Electrical or data cable type (Slovene). The type codes (PP-Y, NYM, UTP, Cat 6) are international and keep their spelling.
+locale: sl
+---
+PP-Y
+PP-L
+NYM
+NYY
+H07RN-F
+UTP Cat 5e
+UTP Cat 6
+koaksialni kabel
+optični kabel

@@ -1,0 +1,30 @@
+---
+address: kenya.geo.postalCodeMajor
+description: Real, published Kenyan postal codes of major post offices, for when a generated code is not good enough and the value has to be one that actually exists. In order — 00100 Nairobi GPO, 00200 Nairobi City Square, 00204 Athi River, 00800 Westlands, 01000 Thika, 10100 Nyeri, 20100 Nakuru, 20200 Kericho, 20500 Narok, 30100 Eldoret GPO, 30200 Kitale, 40100 Kisumu, 40101 Ahero, 40200 Kisii, 40601 Bondo, 50100 Kakamega, 50200 Bungoma, 50413 Adungosi, 60100 Embu, 60400 Chuka, 70100 Garissa, 80100 Mombasa, 80101 Bamburi, 80300 Voi, 90100 Machakos. Kept short on purpose: Kenya has over 900 post-office codes and only the ones traced to a published source are listed here. Not index-aligned with kenya.geo.city — a Kenyan town can have several codes and a code can serve several places, so pairing the two lists one-to-one would assert something false.
+locale: en
+---
+00100
+00200
+00204
+00800
+01000
+10100
+20100
+20200
+20500
+30100
+30200
+40100
+40101
+40200
+40601
+50100
+50200
+50413
+60100
+60400
+70100
+80100
+80101
+80300
+90100

@@ -1,0 +1,11 @@
+---
+description: Weekday name (Slovene, lowercase per Slovene orthography). The week starts on Monday in Slovene usage; the Sunday-first order that DATE_LOCALE.json needs is a convention of the date formatter, not of this list. Note torek and četrtek, where Croatian has utorak and četvrtak, and sreda without the Croatian ije — Slovene has no ije/je reflex at all, which is one of the quickest ways to tell the two languages apart in running text.
+locale: sl
+---
+ponedeljek
+torek
+sreda
+četrtek
+petek
+sobota
+nedelja

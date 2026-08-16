@@ -1,0 +1,5 @@
+---
+description: Currency of Pietų Korėja (Lithuanian).
+locale: lt
+---
+Vona

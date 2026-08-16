@@ -1,0 +1,7 @@
+---
+address: bangladesh.tax.vat
+description: The number that fills the "VAT number" field on a Bangladeshi invoice. Bangladesh levies VAT — it has since 1991, and the current law is the Value Added Tax and Supplementary Duty Act 2012 which came into force in July 2019 — but it issues NO separate VAT identifier the way an EU member state does. What a Bangladeshi VAT invoice (মূসক ৬.৩) carries is the BIN, the Business Identification Number, so this address resolves to bangladesh.tax.bin and is the same thirteen digits rather than a second number that does not exist. There is no country prefix either: nothing here is ever written BD1234567890123, and a validator written for the EU shape of "two letters plus digits" will reject every genuine Bangladeshi VAT registration. Registration is per BUSINESS UNIT rather than per company, which is why a company with several factories or branches can hold several BINs and why the last four digits of the thirteen identify which unit. Note also that a BIN is not what a small trader has — a large share of Bangladeshi businesses fall under the turnover threshold or pay turnover tax instead, so a config that gives every generated company a VAT number is describing a more formalised economy than the real one.
+generator: tdc
+---
+<sequence name="bin"><gen type="template" value="bangladesh.tax.bin"/></sequence>
+<data>${{bin}}</data>

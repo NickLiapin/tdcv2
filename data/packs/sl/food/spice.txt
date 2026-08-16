@@ -1,0 +1,34 @@
+---
+description: Spice or seasoning (Slovene). Bučno olje — the dark, thick roasted pumpkin-seed oil of Styria and Prekmurje — is a protected Slovene product and is used as a seasoning rather than a cooking fat, poured over salad and even over vanilla ice cream. Pehtran, tarragon, is the filling of the sweetest Slovene potica and is a dessert herb here rather than a savoury one.
+locale: sl
+---
+sol
+morska sol
+piranska sol
+poper
+črni poper
+rdeča paprika
+čili
+lovor
+timijan
+rožmarin
+origano
+majaron
+bazilika
+peteršilj
+drobnjak
+šetraj
+pehtran
+kumina
+koriander
+janež
+koper
+brinove jagode
+muškatni orešček
+cimet
+klinčki
+ingver
+kurkuma
+vanilja
+žafran
+bučno olje

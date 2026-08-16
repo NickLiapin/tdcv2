@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Slovene. Amounts are in EURO (EUR): Slovenia adopted the euro on 1 January 2007, the FIRST of the ten countries that joined the EU in 2004 to do so, replacing the tolar at 239,640 SIT to the euro — so a Slovene dataset dated before 2007 carries tolarji and one after it carries euros. The bands are set around Slovene earnings rather than translated from a Western pack: the median net monthly wage is roughly 1.500 EUR, so a household in the middle of this list is an ordinary two-earner one. Note the Slovene number format — a full stop groups thousands and a comma marks the decimal, the opposite of English.
+locale: sl
+---
+do 10.000 EUR
+10.000–18.000 EUR
+18.000–26.000 EUR
+26.000–36.000 EUR
+36.000–50.000 EUR
+50.000–70.000 EUR
+70.000–100.000 EUR
+nad 100.000 EUR

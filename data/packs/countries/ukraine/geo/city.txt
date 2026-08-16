@@ -1,0 +1,63 @@
+---
+address: ukraine.geo.city
+description: Cities of Ukraine in their official Ukrainian names, roughly ordered by population before 2022. The names are the current register forms, which for many cities are not the ones a decade-old dataset carries — Дніпро was Дніпропетровськ until 2016, Кропивницький was Кіровоград, Кам'янське was Дніпродзержинськ. Renaming has not stopped, so a name here can be superseded by a later act of parliament. Cities in areas the government does not currently control are kept, because Ukrainian registers keep them. See ukraine.geo.cityLatin for the same list under the state's official 2010 romanisation.
+locale: uk
+---
+Київ
+Харків
+Одеса
+Дніпро
+Донецьк
+Запоріжжя
+Львів
+Кривий Ріг
+Миколаїв
+Маріуполь
+Луганськ
+Вінниця
+Макіївка
+Севастополь
+Сімферополь
+Херсон
+Полтава
+Чернігів
+Черкаси
+Житомир
+Суми
+Хмельницький
+Чернівці
+Горлівка
+Рівне
+Кам'янське
+Кропивницький
+Івано-Франківськ
+Кременчук
+Тернопіль
+Луцьк
+Біла Церква
+Краматорськ
+Мелітополь
+Керч
+Нікополь
+Бердянськ
+Слов'янськ
+Ужгород
+Алчевськ
+Павлоград
+Сєвєродонецьк
+Євпаторія
+Лисичанськ
+Кам'янець-Подільський
+Бровари
+Дрогобич
+Конотоп
+Умань
+Мукачево
+Ялта
+Бердичів
+Шостка
+Ізмаїл
+Ніжин
+Стрий
+Ковель
+Лозова

@@ -1,0 +1,19 @@
+---
+description: Court type (Lithuanian judiciary). Lithuanian is official in one country, so these are the real Lithuanian court tiers rather than a generic set: apylinkės teismas at the bottom, apygardos teismas above it, then the Court of Appeal and the Supreme Court, with a separate administrative branch and the Constitutional Court standing outside both.
+locale: lt
+---
+Apylinkės teismas
+Apygardos teismas
+Lietuvos apeliacinis teismas
+Lietuvos Aukščiausiasis Teismas
+Regionų administracinis teismas
+Lietuvos vyriausiasis administracinis teismas
+Konstitucinis Teismas
+Apygardos administracinis teismas
+Ikiteisminio tyrimo teisėjas
+Arbitražas
+Komercinis arbitražas
+Darbo ginčų komisija
+Mokestinių ginčų komisija
+Europos Sąjungos Teisingumo Teismas
+Europos Žmogaus Teisių Teismas

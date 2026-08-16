@@ -1,0 +1,23 @@
+---
+description: Film genre.
+locale: lv
+---
+Darbības
+Komēdija
+Drāma
+Šausmu
+Trilleris
+Romantiska
+Zinātniskā fantastika
+Fantāzija
+Dokumentālā
+Animācija
+Piedzīvojumu
+Kriminālā
+Detektīvs
+Vesterns
+Mūzikls
+Kara
+Biogrāfiska
+Ģimenes
+Vēsturiska

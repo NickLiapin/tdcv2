@@ -1,0 +1,22 @@
+---
+address: pakistan.holiday
+description: Public holidays observed in Pakistan, in English, as notified each year by the Cabinet Division. The first six have fixed Gregorian dates; everything after them is Islamic and moves. Kashmir Solidarity Day is 5 February, Pakistan Day 23 March (the 1940 Lahore Resolution), Labour Day 1 May, Independence Day 14 August, Iqbal Day 9 November (dropped as a closure in 2015 and restored in 2022), and 25 December is a single closure that two communities keep for two reasons: it is Quaid-e-Azam Day, Muhammad Ali Jinnah's birthday, and it is Christmas. The religious holidays follow the Hijri calendar, which is lunar and about eleven days shorter than the Gregorian year, so Eid ul-Fitr, Eid ul-Adha, Ashura and Eid Milad un-Nabi drift backwards through the seasons and land on a different Gregorian date every year — a config that pins one of them to a calendar day is wrong for every year but one. They also depend on a moon sighting confirmed by the Ruet-e-Hilal Committee, which means the date is not merely variable but is not finally known until a day or two before, and Eid ul-Fitr and Eid ul-Adha are each three-day closures rather than single days. Easter, Diwali and Holi are optional holidays a Christian or Hindu employee may take rather than days on which the country closes. Defence Day (6 September) is commemorated nationally and is not a holiday.
+locale: en
+---
+Kashmir Solidarity Day
+Pakistan Day
+Labour Day
+Independence Day
+Iqbal Day
+Quaid-e-Azam Day
+Christmas
+Eid ul-Fitr
+Eid ul-Adha
+Ashura
+Eid Milad un-Nabi
+Shab-e-Barat
+Shab-e-Miraj
+Jumat-ul-Wida
+Easter
+Diwali
+Holi

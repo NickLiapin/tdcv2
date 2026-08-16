@@ -1,0 +1,60 @@
+---
+description: Industry sector (Lithuanian).
+locale: lt
+---
+Informacinės technologijos
+Programinė įranga
+Telekomunikacijos
+Elektronika
+Bankininkystė
+Draudimas
+Finansinės technologijos
+Investicijos
+Apskaita
+Teisė
+Konsultacijos
+Rinkodara
+Reklama
+Žiniasklaida
+Leidyba
+Kinas
+Muzika
+Dizainas
+Architektūra
+Statyba
+Nekilnojamasis turtas
+Nekilnojamojo turto valdymas
+Gamyba
+Mašinų gamyba
+Metalo apdirbimas
+Medienos pramonė
+Baldų gamyba
+Tekstilės pramonė
+Chemijos pramonė
+Farmacija
+Biotechnologijos
+Maisto pramonė
+Gėrimų gamyba
+Žemės ūkis
+Miškininkystė
+Žuvininkystė
+Energetika
+Atsinaujinančioji energetika
+Naftos perdirbimas
+Kasyba
+Vandentvarka
+Atliekų tvarkymas
+Transportas
+Logistika
+Krovinių vežimas
+Jūrų transportas
+Aviacija
+Geležinkeliai
+Didmeninė prekyba
+Mažmeninė prekyba
+Elektroninė prekyba
+Turizmas
+Apgyvendinimas
+Maitinimas
+Sveikatos priežiūra
+Švietimas

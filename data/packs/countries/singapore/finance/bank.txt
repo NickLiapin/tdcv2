@@ -1,0 +1,41 @@
+---
+address: singapore.finance.bank
+description: Banks operating in Singapore, index-aligned with singapore.finance.bankCode so row N of each file is the same bank. Three local banking groups (DBS with its consumer brand POSB, OCBC and UOB) alongside the foreign banks that hold a Singapore clearing code. The list is taken from a published bank-and-branch-code guide, so every name here has a real four-digit code beside it; that is also why the list stops where it does. Not included, for want of a published code from the same source: the digital banks licensed from 2020 - GXS Bank, Trust Bank, MariBank, ANEXT Bank and Green Link Digital Bank - which exist and take deposits but were not in the source used, and are left out rather than given an invented code.
+locale: en
+---
+DBS Bank
+POSB
+Oversea-Chinese Banking Corporation
+United Overseas Bank
+Standard Chartered Bank
+The Hongkong and Shanghai Banking Corporation
+Citibank
+Maybank
+Bank of China
+CIMB Bank Berhad
+RHB Bank Berhad
+BNP Paribas
+Deutsche Bank
+Sumitomo Mitsui Banking Corporation
+Australia and New Zealand Banking Group
+Bangkok Bank
+The Bank of East Asia
+Bank of India
+Credit Agricole Corporate and Investment Bank
+Indian Bank
+Indian Overseas Bank
+HL Bank
+UCO Bank
+State Bank of India
+DNB Bank
+First Commercial Bank
+Societe Generale
+National Australia Bank
+Bank of New Zealand
+Intesa Sanpaolo
+Svenska Handelsbanken
+Skandinaviska Enskilda Banken
+Commerzbank
+Landesbank Baden-Wurttemberg
+ICICI Bank
+China CITIC Bank International

@@ -1,0 +1,37 @@
+---
+description: Garment type (Slovene). Note the Slovene words where the neighbours differ: hlače for trousers, majica for a T-shirt, srajca for a shirt, copati for indoor slippers — a Slovene household changes into copati at the door — and nogavice for socks. Superge is the everyday word for trainers, where Croatian says tenisice and Serbian patike.
+locale: sl
+---
+srajca
+bluza
+majica
+majica s kratkimi rokavi
+pulover
+jopica
+jopa
+hlače
+kratke hlače
+kavbojke
+krilo
+obleka
+suknjič
+jakna
+bunda
+plašč
+brezrokavnik
+trenirka
+pižama
+kopalke
+spodnje perilo
+nogavice
+hlačne nogavice
+rokavice
+šal
+kapa
+klobuk
+pas
+čevlji
+superge
+škornji
+sandali
+copati

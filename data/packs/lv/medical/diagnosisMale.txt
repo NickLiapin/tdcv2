@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: lv
+---
+Labdabīga prostatas hiperplāzija
+Prostatīts
+Prostatas vēzis
+Sēklinieku vēzis
+Sēklinieka vērpe
+Varikocēle
+Hidrocēle
+Epididimīts
+Kriptorhisms
+Fimoze
+Balanīts
+Erektilā disfunkcija
+Peironī slimība
+Vīriešu neauglība
+Ginekomastija
+Vīriešu hipogonādisms
+Priapisms
+Spermatocēle
+Vīriešu tipa plikpaurība
+Sēklinieku maisiņa trūce

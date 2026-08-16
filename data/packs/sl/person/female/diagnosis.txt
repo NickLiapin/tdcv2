@@ -1,0 +1,31 @@
+---
+description: Diagnosis found only in, or overwhelmingly in, women (Slovene). Terms follow Slovene clinical usage.
+locale: sl
+---
+rak dojke
+rak materničnega vratu
+rak jajčnikov
+rak maternice
+endometrioza
+sindrom policističnih jajčnikov
+miom maternice
+cista na jajčniku
+vnetje medeničnih organov
+zunajmaternična nosečnost
+spontani splav
+preeklampsija
+nosečnostna sladkorna bolezen
+placenta previa
+poporodna depresija
+mastitis
+fibrocistična bolezen dojk
+menopavza
+predmenstrualni sindrom
+dismenoreja
+amenoreja
+neplodnost
+vaginalna kandidoza
+bakterijska vaginoza
+prolaps maternice
+urinska inkontinenca
+osteoporoza po menopavzi

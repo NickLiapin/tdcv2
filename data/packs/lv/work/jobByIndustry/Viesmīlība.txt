@@ -1,0 +1,12 @@
+---
+description: Jobs in Viesmīlība.
+locale: lv
+---
+Pavārs
+Šefpavārs
+Viesnīcas vadītājs
+Bārmenis
+Viesmīlis
+Konsjeržs
+Istabene
+Pasākumu koordinators

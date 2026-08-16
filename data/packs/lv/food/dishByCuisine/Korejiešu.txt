@@ -1,0 +1,14 @@
+---
+description: Dishes of Korejiešu cuisine as a Latvian menu names them.
+locale: lv
+---
+Bibimbaps
+Bulgogi
+Kimči sautējums
+Japčae
+Tteokbokki
+Korejiešu ceptā vista
+Galbi
+Sundubu čigae
+Kimbap
+Pajeon

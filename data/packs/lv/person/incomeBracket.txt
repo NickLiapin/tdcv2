@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, in EURO (EUR). Latvia adopted the euro on 1 January 2014, replacing the lats at the fixed rate of 0,702804 LVL to the euro, so a Latvian dataset dated before 2014 carries lati and one dated after it carries euro. The bands are set around Latvian earnings rather than translated from a Western pack: the average net monthly wage is roughly 1 100 EUR, so a household in the middle of this list is an ordinary two-earner one. Note the Latvian number format — a space groups thousands and a comma marks the decimal, which is the opposite of English on both counts.
+locale: lv
+---
+Zem 10 000 EUR
+10 000–15 000 EUR
+15 000–22 000 EUR
+22 000–30 000 EUR
+30 000–45 000 EUR
+45 000–70 000 EUR
+70 000–120 000 EUR
+Virs 120 000 EUR

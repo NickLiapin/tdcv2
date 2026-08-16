@@ -1,0 +1,18 @@
+---
+description: Marital status in Lithuanian. Every form is gendered (nevedęs for a man, netekėjusi for a woman; našlys / našlė), and the language marks marital status a second time in the SURNAME itself — a Kazlauskienė is married and a Kazlauskaitė is not — which is why person/female/lastName carries a long note about it.
+locale: lt
+---
+Nevedęs
+Netekėjusi
+Vedęs
+Ištekėjusi
+Išsituokęs
+Išsituokusi
+Našlys
+Našlė
+Gyvena skyrium
+Partnerystėje
+Susižadėjęs
+Susižadėjusi
+Sudaryta civilinė santuoka
+Nenurodyta

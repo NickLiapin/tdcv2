@@ -1,0 +1,13 @@
+---
+description: Cable type in telecoms and networking.
+locale: lv
+---
+Optiskā šķiedra
+Koaksiālais
+Vītais pāris
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Gaisvadu
+Pazemes

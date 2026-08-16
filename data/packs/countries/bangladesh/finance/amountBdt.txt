@@ -1,0 +1,34 @@
+---
+address: bangladesh.finance.amountBdt
+description: A taka amount written the way Bangladesh writes one — ৳১২,৩৪,৫৬৭.০০ in the sense of the GROUPING, which is 12,34,567.00 and not 1,234,567.00. Bangladesh uses the South Asian system, in which the last THREE digits are one group and every group above them is TWO wide, because the place names run thousand, lakh (1,00,000), crore (1,00,00,000); the international system groups by threes all the way up because its names run thousand, million, billion. This is not a display preference — a Bangladeshi bank statement, an NBR return, a newspaper and the national budget are all grouped this way, "10,00,000" and "1,000,000" are the same number written by two conventions, and BTRC press releases counting SIM cards in crore are the ordinary register rather than a flourish. The sign is ৳ (U+09F3, BENGALI RUPEE SIGN), written before the number with no space, and the ISO code is BDT; the subunit is the poisha, 100 to the taka, and it is effectively dead in retail — nothing has cost a fraction of a taka for years — so the two decimal places here are the accounting convention, not real change. Amounts run from four to nine digits before the point, which spans a few thousand taka to a few hundred crore. Western digits are used, which is what a bank statement, an invoice and a spreadsheet carry; Bengali numerals (০১২৩৪৫৬৭৮৯) appear on number plates and in printed Bengali prose, and bangladesh.vehicle.plate is where this pack emits them. The file declares locale bn only because the ৳ it emits is a Bengali-block codepoint — everything else in the value is ASCII.
+generator: tdc
+locale: bn
+---
+<sequence name="digits"><gen type="regex" value="[1-9][0-9]{3,8}"/></sequence>
+<sequence name="poisha"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="amount"><compute>
+  <let name="len"><length><field name="digits"/></length></let>
+  <let name="grouped"><join><each>
+    <over><field name="digits"/></over>
+    <do>
+      <!-- Digits still to come, counting this one. -->
+      <let name="rem"><subtract><use name="len"/><current_index/></subtract></let>
+      <choose>
+        <!-- Never a separator before the very first digit. -->
+        <when><test><equals><current_index/><int v="0"/></equals></test><then><current/></then></when>
+        <otherwise><choose>
+          <!-- The last three digits are one group: no separator inside them. -->
+          <when><test><less_than><use name="rem"/><int v="3"/></less_than></test><then><current/></then></when>
+          <!-- Above those three the groups are TWO wide, so a separator lands
+               wherever (rem - 3) is even: 3 -> the thousand mark, 5 -> the lakh
+               mark, 7 -> the crore mark, and so on. -->
+          <when><test><equals><mod><subtract><use name="rem"/><int v="3"/></subtract><int v="2"/></mod><int v="0"/></equals></test>
+            <then><concat><str v=","/><current/></concat></then></when>
+          <otherwise><current/></otherwise>
+        </choose></otherwise>
+      </choose>
+    </do>
+  </each></join></let>
+  <result><concat><str v="৳"/><use name="grouped"/><str v="."/><field name="poisha"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

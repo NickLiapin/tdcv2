@@ -1,0 +1,41 @@
+---
+address: nigeria.geo.state
+description: The 36 STATES of Nigeria, alphabetically. The Federal Capital Territory is NOT in this file and that is deliberate — the FCT is not a state and Nigerian constitutional practice never calls it one. A state has an elected governor and a House of Assembly; the FCT has neither, is administered by a Minister appointed by the President under s.299 of the 1999 Constitution, and its residents elect no governor at all, a grievance that surfaces in Nigerian politics regularly. Flattening 36 and 1 into a single 37-line "region" list would make the pack assert something about Nigeria that Nigerians do not accept. For the practical 37-line set that a State of Origin field or a postal address actually draws from, see nigeria.geo.stateOrFct, which is this list in this order with the FCT appended last so that index alignment holds for both. nigeria.geo.stateCode and nigeria.geo.stateCapital are aligned with that 37-line file. Names are as the states style themselves: "Akwa Ibom" and "Cross River" carry no hyphen, "Nasarawa" is spelled with an s and not the Arabic-derived z, and Niger the Nigerian state is not Niger the neighbouring republic.
+locale: en
+---
+Abia
+Adamawa
+Akwa Ibom
+Anambra
+Bauchi
+Bayelsa
+Benue
+Borno
+Cross River
+Delta
+Ebonyi
+Edo
+Ekiti
+Enugu
+Gombe
+Imo
+Jigawa
+Kaduna
+Kano
+Katsina
+Kebbi
+Kogi
+Kwara
+Lagos
+Nasarawa
+Niger
+Ogun
+Ondo
+Osun
+Oyo
+Plateau
+Rivers
+Sokoto
+Taraba
+Yobe
+Zamfara

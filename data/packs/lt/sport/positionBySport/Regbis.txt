@@ -1,0 +1,14 @@
+---
+description: Positions in regbis (Lithuanian).
+locale: lt
+---
+Priekinės eilės žaidėjas
+Kabliukas
+Antrosios eilės žaidėjas
+Trečiosios eilės žaidėjas
+Aštuntasis numeris
+Sujungiantis puolėjas
+Atakos pradininkas
+Centras
+Kraštinis
+Galinis

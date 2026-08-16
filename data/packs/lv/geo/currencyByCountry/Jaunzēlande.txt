@@ -1,0 +1,5 @@
+---
+description: Currency of Jaunzēlande, named in Latvian.
+locale: lv
+---
+Jaunzēlandes dolārs

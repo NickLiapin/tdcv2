@@ -1,0 +1,36 @@
+---
+description: Spice and herb. Ķimenes — caraway — is the Latvian spice: it goes into rupjmaize, into sauerkraut, and above all into Jāņu siers, the caraway cheese eaten at midsummer. Dilles (dill) is used in a quantity that surprises visitors, on potatoes, herring and almost every soup.
+locale: lv
+---
+Ķimenes
+Dilles
+Pētersīļi
+Mārrutki
+Sinepes
+Melnie pipari
+Baltie pipari
+Sāls
+Lauru lapa
+Timiāns
+Rozmarīns
+Baziliks
+Oregano
+Majorāns
+Estragons
+Salvija
+Piparmētra
+Melisa
+Loks
+Kanēlis
+Krustnagliņas
+Muskatrieksts
+Kardamons
+Ingvers
+Kurkuma
+Paprika
+Čili
+Koriandrs
+Kumīns
+Vaniļa
+Safrāns
+Anīss

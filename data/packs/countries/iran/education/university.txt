@@ -1,0 +1,49 @@
+---
+address: iran.education.university
+description: Universities of Iran, Persian names. The system splits three ways and the split matters for any record about a student: the state universities (دانشگاه تهران، شریف، امیرکبیر and the provincial ones), دانشگاه آزاد اسلامی — a single fee-paying institution with hundreds of branches and over a million students, so "دانشگاه آزاد اسلامی" in a record names a network rather than a campus — and دانشگاه پیام نور, the state distance-learning university, likewise nationwide. Separately, every medical faculty in Iran was moved out of the universities in 1985 and put under the Ministry of Health as its own دانشگاه علوم پزشکی, so دانشگاه تهران and دانشگاه علوم پزشکی تهران are two different institutions with different rectors on different campuses, and a medical student in Iran does not attend the university that shares the city's name. Names beginning دانشگاه صنعتی are the technical universities; the شریف، امیرکبیر (the former Tehran Polytechnic) and علم و صنعت trio are the ones an Iranian CV expects to be recognised.
+locale: fa
+---
+دانشگاه تهران
+دانشگاه صنعتی شریف
+دانشگاه صنعتی امیرکبیر
+دانشگاه علم و صنعت ایران
+دانشگاه شهید بهشتی
+دانشگاه تربیت مدرس
+دانشگاه علامه طباطبائی
+دانشگاه خوارزمی
+دانشگاه الزهرا
+دانشگاه صنعتی خواجه نصیرالدین طوسی
+دانشگاه علوم پزشکی تهران
+دانشگاه علوم پزشکی شهید بهشتی
+دانشگاه علوم پزشکی ایران
+دانشگاه فردوسی مشهد
+دانشگاه اصفهان
+دانشگاه صنعتی اصفهان
+دانشگاه شیراز
+دانشگاه صنعتی شیراز
+دانشگاه تبریز
+دانشگاه صنعتی سهند
+دانشگاه شهید مدنی آذربایجان
+دانشگاه ارومیه
+دانشگاه شهید چمران اهواز
+دانشگاه شهید باهنر کرمان
+دانشگاه بوعلی سینا
+دانشگاه رازی
+دانشگاه گیلان
+دانشگاه مازندران
+دانشگاه صنعتی نوشیروانی بابل
+دانشگاه یزد
+دانشگاه کاشان
+دانشگاه سیستان و بلوچستان
+دانشگاه سمنان
+دانشگاه زنجان
+دانشگاه کردستان
+دانشگاه لرستان
+دانشگاه ایلام
+دانشگاه هرمزگان
+دانشگاه بین‌المللی امام خمینی
+دانشگاه صنعتی شاهرود
+دانشگاه گلستان
+دانشگاه بیرجند
+دانشگاه آزاد اسلامی
+دانشگاه پیام نور

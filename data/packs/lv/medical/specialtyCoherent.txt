@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list under diagnosisBySpecialty.
+locale: lv
+---
+Kardioloģija
+Neiroloģija
+Onkoloģija
+Dermatoloģija
+Gastroenteroloģija
+Endokrinoloģija
+Pulmonoloģija
+Ortopēdija
+Psihiatrija
+Nefroloģija

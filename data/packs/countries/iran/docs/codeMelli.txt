@@ -1,0 +1,35 @@
+---
+address: iran.docs.codeMelli
+description: کد ملی — the ten-digit Iranian national code, issued once by the Civil Registration Organisation (سازمان ثبت احوال) and printed on the کارت ملی. The first three digits are the office that issued the holder's شناسنامه, so they encode place of registration, not birth date and not sex — nothing about the person can be read back out of the remaining six. The tenth digit is a mod-11 check whose rule is NOT the usual one, and a validator written for a European mod-11 will reject about a fifth of all real Iranian codes. Weights run 10 down to 2 over the first nine digits (10,9,8,7,6,5,4,3,2), r = sum mod 11, and then the rule forks: if r < 2 the check digit IS r, otherwise it is 11 − r. The r < 2 branch is what makes it unusual — the common pattern of always taking 11 − r yields 11 for r = 0 and 10 for r = 1, both impossible as a single digit, and packs that paper over that with (11 − r) mod 11 silently break every code whose remainder is 1. Leading zeros are normal (0499370899 is valid) so this is a string and never an integer. On the ten repeated-digit codes: 0000000000, 1111111111 … 9999999999 all PASS the arithmetic, because each digit d times the weight total 54 is congruent to −d mod 11, giving r = 11 − d and a check digit of exactly d. They are nonetheless not issued, and validator libraries disagree about them — persian-tools accepts them, OkhtayMp/iran-national-id rejects them explicitly. This pack EXCLUDES them, structurally rather than by a filter: the issuing-office prefix is drawn from a list of real three-digit office codes and no repeated-digit prefix (000, 111, … 999) appears in it, so a repeated-digit code cannot be produced at all. The prefixes here are real office codes but the list is a sample, not the full registry, and the six-digit serial behind a prefix is not checked against what that office has actually issued.
+generator: tdc
+---
+<!-- Real issuing-office prefixes: 001-008 central Tehran, 011/015/020/025 the
+     Tehran districts, 096-098 Mashhad, 127-129 Isfahan, 136-138 Tabriz,
+     228-230 Shiraz, 183-184 Ahvaz, 274-275 Urmia, 298-299 Kerman,
+     400-401 Hamadan, 442-443 Yazd, 508 Qazvin, 181 Abadan, 213-214 Amol,
+     105-106 Nishapur, 089-090 Quchan, 092-094 Gonabad.
+     110 is kept, 111 is deliberately NOT: dropping it is what makes the
+     repeated-digit code 1111111111 unreachable. -->
+<sequence name="office"><gen type="text" value="001,002,003,004,005,006,007,008,011,015,020,025,031,032,041,042,043,044,045,072,073,089,090,092,093,094,096,097,098,105,106,110,118,127,128,129,136,137,138,181,183,184,213,214,228,229,230,274,275,298,299,400,401,442,443,508"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="codeMelli"><compute>
+  <let name="base"><concat><field name="office"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="10,9,8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
+  <!-- The fork: r < 2 keeps r, everything else takes 11 - r. -->
+  <let name="check">
+    <choose>
+      <when><test><less_than><use name="r"/><int v="2"/></less_than></test>
+        <then><use name="r"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
+    </choose>
+  </let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{codeMelli}}</data>

@@ -1,0 +1,34 @@
+---
+description: Bird (Lithuanian). Gandras, the white stork, is the national bird and nests on poles in every Lithuanian village.
+locale: lt
+---
+Gandras
+Juodasis gandras
+Gervė
+Gulbė
+Antis
+Žąsis
+Vištvanagis
+Erelis
+Jūrinis erelis
+Sakalas
+Pelėda
+Naminė pelėda
+Genys
+Kėkštas
+Šarka
+Varna
+Kranklys
+Žvirblis
+Zylė
+Kregždė
+Lakštingala
+Strazdas
+Vieversys
+Volungė
+Gegutė
+Balandis
+Kuosa
+Pempė
+Perkūno oželis
+Tetervinas

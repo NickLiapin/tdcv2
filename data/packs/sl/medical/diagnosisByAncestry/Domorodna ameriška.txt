@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of domorodna ameriška ancestry, named in Slovene.
+locale: sl
+---
+sladkorna bolezen tipa 2
+žolčni kamni
+revmatoidni artritis
+alkoholna bolezen jeter
+debelost
+kronična ledvična bolezen
+tuberkuloza
+avtoimunski hepatitis

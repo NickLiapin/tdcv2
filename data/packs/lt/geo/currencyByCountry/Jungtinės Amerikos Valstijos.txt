@@ -1,0 +1,5 @@
+---
+description: Currency of Jungtinės Amerikos Valstijos (Lithuanian).
+locale: lt
+---
+JAV doleris

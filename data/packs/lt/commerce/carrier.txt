@@ -1,0 +1,24 @@
+---
+description: Parcel carriers commonly used in Lithuania. Omniva and LP Express run the parcel-locker networks Lithuanians default to.
+locale: lt
+---
+Lietuvos paštas
+LP Express
+Omniva
+DPD
+Venipak
+Itella SmartPOST
+DHL
+UPS
+FedEx
+TNT
+GLS
+Post11
+Hurry Up
+Rhenus
+Cargobus
+Girteka
+Bolt Food
+Wolt
+Barbora
+Pigu.lt kurjeris

@@ -1,0 +1,5 @@
+---
+description: Capital of Mehika, as Slovene names it
+locale: sl
+---
+Ciudad de México

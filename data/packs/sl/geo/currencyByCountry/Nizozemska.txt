@@ -1,0 +1,5 @@
+---
+description: Currency of Nizozemska, named in Slovene
+locale: sl
+---
+evro

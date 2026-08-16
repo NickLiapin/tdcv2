@@ -1,0 +1,58 @@
+---
+description: Human-readable colour name (Lithuanian, lowercase per Lithuanian orthography). Lithuanian builds shades with the prefixes šviesiai- (light) and tamsiai- (dark) written together with the colour, which is why those entries are one word.
+locale: lt
+---
+baltas
+juodas
+pilkas
+sidabrinis
+raudonas
+tamsiai raudonas
+šviesiai raudonas
+rožinis
+purpurinis
+violetinis
+alyvinis
+mėlynas
+tamsiai mėlynas
+šviesiai mėlynas
+žydras
+melsvas
+turkio
+žalias
+tamsiai žalias
+šviesiai žalias
+salotinis
+žalsvas
+geltonas
+citrinos
+auksinis
+gintarinis
+oranžinis
+morkinis
+rudas
+šviesiai rudas
+tamsiai rudas
+kaštoninis
+smėlio
+smėlinis
+kreminis
+dramblio kaulo
+vyšninis
+bordo
+raudonmedžio
+vario
+bronzinis
+žalvarinis
+švininis
+grafito
+antracito
+chaki
+alyvuogių
+smaragdinis
+safyro
+rubino
+perlamutrinis
+matinis
+blizgus
+permatomas

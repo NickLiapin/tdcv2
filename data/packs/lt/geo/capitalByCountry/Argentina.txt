@@ -1,0 +1,5 @@
+---
+description: Capital of Argentina (Lithuanian).
+locale: lt
+---
+Buenos Airės

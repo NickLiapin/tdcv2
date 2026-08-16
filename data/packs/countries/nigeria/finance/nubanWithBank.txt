@@ -1,0 +1,24 @@
+---
+address: nigeria.finance.nubanWithBank
+description: A Nigerian bank account written the only way its check digit can actually be checked — the 3-digit CBN bank code, a space, then the 10-digit NUBAN — "058 0016563228". THE SOURCE OF TRUTH for nigeria.finance.nuban, which is this value with the bank code sliced off. The reason this file exists at all is the one real trap in the NUBAN scheme: the check digit is computed over the bank code PLUS the serial, but the bank code is not printed in the account number, so a bare 10-digit NUBAN is only verifiable once you know which bank issued it, and the same 10 digits can be valid at one bank and invalid at another. THE ALGORITHM (CBN, Nigeria Uniform Bank Account Number Standards, 2010; restated in the 2018/2020 revision): take the 3-digit bank code ABC and the 9-digit serial DEFGHIJKL, weight all twelve digits 3,7,3 repeating — A*3+B*7+C*3+D*3+E*7+F*3+G*3+H*7+I*3+J*3+K*7+L*3 — take the sum modulo 10, subtract it from 10, and if the answer is 10 use 0. The NUBAN is the 9-digit serial followed by that check digit. The 2018/2020 revision widened the institution field to 6 digits so microfinance banks and mobile-money operators could join, and zero-padded the old codes to fit; because the two leading zeros of 000058 fall on weights 3 and 7 and contribute nothing, the wider scheme yields an identical check digit and the two are the same arithmetic. Verified against two independently published numbers: bank 058 with serial 001656322 gives 0016563228, and the CBN's own worked example, institution 000011 with serial 000001457, gives 0000014579. This is the strongest checkable identifier Nigeria has — the NIN, the BVN and the TIN all carry no published check digit at all.
+generator: tdc
+locale: en
+---
+<sequence name="entry"><gen type="template" value="nigeria.finance.bankWithCode"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{9}"/></sequence>
+<sequence name="pair"><compute>
+  <let name="code"><slice from="0" to="3"><field name="entry"/></slice></let>
+  <!-- The check digit runs over bank code + serial: twelve digits, weights 3,7,3 repeating. -->
+  <let name="base"><concat><use name="code"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,7,3,3,7,3,3,7,3,3,7,3"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <!-- check = 10 - (sum mod 10), and a result of 10 becomes 0 — the outer mod does both. -->
+  <let name="check"><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><use name="code"/><str v=" "/><field name="serial"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{pair}}</data>

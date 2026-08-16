@@ -1,0 +1,85 @@
+---
+description: Medical diagnosis in Lithuanian that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: lt
+---
+Arterinė hipertenzija
+2 tipo cukrinis diabetas
+1 tipo cukrinis diabetas
+Hiperlipidemija
+Nutukimas
+Metabolinis sindromas
+Išeminė širdies liga
+Miokardo infarktas
+Širdies nepakankamumas
+Prieširdžių virpėjimas
+Aritmija
+Išeminis galvos smegenų insultas
+Praeinantis smegenų išemijos priepuolis
+Bronchinė astma
+Lėtinė obstrukcinė plaučių liga
+Pneumonija
+Ūminis bronchitas
+Lėtinis bronchitas
+Tuberkuliozė
+Plaučių arterijos embolija
+Obstrukcinė miego apnėja
+Gastroezofaginio refliukso liga
+Gastritas
+Skrandžio opa
+Dirgliosios žarnos sindromas
+Celiakija
+Krono liga
+Opinis kolitas
+Divertikulitas
+Ūminis apendicitas
+Tulžies akmenligė
+Ūminis pankreatitas
+Kepenų cirozė
+Riebalinė kepenų liga
+Virusinis hepatitas B
+Virusinis hepatitas C
+Lėtinė inkstų liga
+Inkstų akmenligė
+Šlapimo takų infekcija
+Pielonefritas
+Cistitas
+Glomerulonefritas
+Osteoartritas
+Reumatoidinis artritas
+Osteoporozė
+Podagra
+Išialgija
+Nugaros skausmas
+Tarpslankstelinio disko išvarža
+Riešo kanalo sindromas
+Skoliozė
+Fibromialgija
+Migrena
+Įtampos tipo galvos skausmas
+Epilepsija
+Parkinsono liga
+Alzheimerio liga
+Išsėtinė sklerozė
+Periferinė neuropatija
+Vertigo
+Pasikartojantis depresijos sutrikimas
+Generalizuotas nerimo sutrikimas
+Panikos sutrikimas
+Bipolinis afektinis sutrikimas
+Nemiga
+Hipotirozė
+Hipertirozė
+Hašimoto tiroiditas
+Geležies stokos anemija
+Vitamino D stoka
+B12 vitamino stoka
+Psoriazė
+Atopinis dermatitas
+Dilgėlinė
+Alerginis rinitas
+Konjunktyvitas
+Vidurinės ausies uždegimas
+Sinusitas
+Katarakta
+Glaukoma
+Melanoma

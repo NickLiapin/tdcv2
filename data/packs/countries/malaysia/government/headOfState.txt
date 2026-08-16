@@ -1,0 +1,19 @@
+---
+address: malaysia.government.headOfState
+description: The offices of head of state in Malaysia — the federal one first, then the thirteen state ones — and the arrangement they belong to, which exists nowhere else on earth. Malaysia is a ROTATING ELECTIVE MONARCHY. Nine of the thirteen states have their own hereditary ruler, and those nine rulers, sitting as the Majlis Raja-Raja (the Conference of Rulers), elect one of their own number as Yang di-Pertuan Agong, the King of Malaysia, for a fixed FIVE-YEAR TERM. He is not a president in a crown: he remains the sovereign of his own state throughout, returns to it when the term ends, and cannot be re-elected until every other eligible ruler has had a turn — so the throne has moved round the nine states in a settled order since 1957, and any given state's ruler can expect it roughly twice in a lifetime. The election is a real ballot among the rulers, held in secret at the Conference, and the title is elective in law even though the candidate pool is nine hereditary monarchs. Eight of the nine rulers are styled Sultan; Perlis has a Raja and Negeri Sembilan a Yang di-Pertuan Besar, who is himself elected by the four Undangs, the territorial chiefs of the state's Minangkabau districts — an elective monarchy inside an elective monarchy. The other four states — Melaka, Pulau Pinang, Sabah and Sarawak — have no ruler and no royal house. Their head of state is a Yang di-Pertua Negeri, a governor appointed for four years by the Agong on the advice of the state's chief minister. They sit in the Conference of Rulers and take part in its business, but they may neither vote in the election nor stand in it, so the four states that were British colonies or joined in 1963 are permanently outside the rotation. Titles are given here in their official Malay form, naming the OFFICE rather than any incumbent, so the list does not go stale when a ruler dies or a term ends.
+locale: ms
+---
+Yang di-Pertuan Agong
+Sultan Johor
+Sultan Kedah
+Sultan Kelantan
+Yang di-Pertuan Besar Negeri Sembilan
+Sultan Pahang
+Sultan Perak
+Raja Perlis
+Sultan Selangor
+Sultan Terengganu
+Yang di-Pertua Negeri Melaka
+Yang di-Pertua Negeri Pulau Pinang
+Yang di-Pertua Negeri Sabah
+Yang di-Pertua Negeri Sarawak

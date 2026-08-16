@@ -1,0 +1,17 @@
+---
+description: Social media content type.
+locale: lv
+---
+Ieraksts
+Komentārs
+Atbilde
+Stāsts
+Rullītis
+Aptauja
+Tiešraide
+Kopīgošana
+Pavediens
+Pieminēšana
+Privātā ziņa
+Attēls
+Video

@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Lithuanian).
+locale: lt
+---
+CV atranka
+Telefoninis pokalbis
+Pokalbis su personalo specialistu
+Pokalbis su vadovu
+Techninė užduotis
+Testavimas
+Praktinė užduotis
+Pokalbis su komanda
+Galutinis pokalbis
+Rekomendacijų tikrinimas
+Pasiūlymas

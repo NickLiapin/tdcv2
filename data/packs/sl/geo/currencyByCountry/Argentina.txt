@@ -1,0 +1,5 @@
+---
+description: Currency of Argentina, named in Slovene
+locale: sl
+---
+argentinski peso

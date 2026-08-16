@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatologija (Lithuanian).
+locale: lt
+---
+Psoriazė
+Atopinis dermatitas
+Paprastieji spuogai
+Melanoma
+Rožinė
+Kontaktinis dermatitas
+Dilgėlinė
+Odos grybelis
+Vitiligo
+Seborėjinis dermatitas

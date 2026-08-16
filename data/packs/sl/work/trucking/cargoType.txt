@@ -1,0 +1,17 @@
+---
+description: Freight cargo type (Slovene)
+locale: sl
+---
+paletirano blago
+razsuti tovor
+tekoči tovor
+hlajeni tovor
+zamrznjeni tovor
+nevarni tovor
+izredni tovor
+kosovni tovor
+kontejnerski tovor
+gradbeni material
+les
+živila
+živali

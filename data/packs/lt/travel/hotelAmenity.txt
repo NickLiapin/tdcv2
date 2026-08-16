@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Lithuanian). Wi-Fi and SPA keep their international spelling, w included, even though w is not a Lithuanian letter.
+locale: lt
+---
+Nemokamas Wi-Fi
+Pusryčiai
+Automobilių stovėjimo aikštelė
+Nemokamas parkavimas
+Baseinas
+SPA centras
+Pirtis
+Garinė pirtis
+Sūkurinė vonia
+Sporto salė
+Restoranas
+Baras
+Kambarių aptarnavimas
+Skalbimo paslaugos
+Bagažo saugykla
+Registratūra visą parą
+Liftas
+Oro kondicionierius
+Šildymas
+Seifas
+Minibaras
+Virdulys
+Televizorius
+Vonios reikmenys
+Plaukų džiovintuvas
+Balkonas
+Vaizdas į jūrą
+Leidžiama su gyvūnais
+Nerūkomasis kambarys
+Pritaikyta neįgaliesiems

@@ -1,0 +1,9 @@
+---
+description: Hotel star rating.
+locale: lv
+---
+1 zvaigzne
+2 zvaigznes
+3 zvaigznes
+4 zvaigznes
+5 zvaigznes

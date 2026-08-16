@@ -1,0 +1,22 @@
+---
+description: Cat breed (Slovene). Breed names are international and keep their real spelling; only the descriptive parts are Slovene.
+locale: sl
+---
+perzijska mačka
+siamska mačka
+maine coon
+britanska kratkodlaka
+ruska modra
+bengalska mačka
+sfinga
+ragdoll
+norveška gozdna mačka
+sibirska mačka
+abesinska mačka
+burmanska mačka
+škotska klapouha
+devon rex
+kartuzijanska mačka
+turška angora
+somalska mačka
+domača mačka

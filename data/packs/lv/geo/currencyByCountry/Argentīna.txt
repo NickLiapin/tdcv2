@@ -1,0 +1,5 @@
+---
+description: Currency of Argentīna, named in Latvian.
+locale: lv
+---
+Argentīnas peso

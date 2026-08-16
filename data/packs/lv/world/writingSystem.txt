@@ -1,0 +1,24 @@
+---
+description: Writing system. Latvian uses the LATIN alphabet with thirty-three letters: eleven carry diacritics — ā ē ī ū with the macron for a long vowel, and č ģ ķ ļ ņ š ž with the caron or comma — and three Latin letters, w x q y, are absent from Latvian words entirely and appear only in untranslated foreign names. The macron is not decoration: it is the whole difference between kazas, goats, and kāzas, a wedding, and between pile, a drop, and pīle, a duck.
+locale: lv
+---
+Latīņu
+Kirilica
+Arābu
+Ķīniešu
+Devanāgari
+Hangils
+Grieķu
+Ivrits
+Taju
+Gruzīnu
+Armēņu
+Hiragana
+Katakana
+Kandži
+Etiopu
+Tibetiešu
+Khmeru
+Birmiešu
+Sinhaliešu
+Rūnu raksts

@@ -1,0 +1,16 @@
+---
+description: Listing status (Lithuanian).
+locale: lt
+---
+Parduodama
+Nuomojama
+Rezervuota
+Užstatyta
+Parduota
+Išnuomota
+Sustabdytas skelbimas
+Naujas skelbimas
+Kaina sumažinta
+Derinamos sąlygos
+Statoma
+Netaikoma

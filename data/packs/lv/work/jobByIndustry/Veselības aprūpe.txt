@@ -1,0 +1,12 @@
+---
+description: Jobs in Veselības aprūpe.
+locale: lv
+---
+Ārsts
+Ģimenes ārsts
+Medicīnas māsa
+Farmaceits
+Fizioterapeits
+Ārsta palīgs
+Radiologs
+Neatliekamās palīdzības brigādes vadītājs

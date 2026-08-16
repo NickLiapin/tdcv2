@@ -1,0 +1,10 @@
+---
+description: Sport that has a coherent position list (Slovene). SIX, not the eight the other packs carry, and the two that are missing are missing on purpose: ragbi and bejzbol are marginal sports in Slovenia and Slovene has no settled native position vocabulary for either — clubs use the English terms — so the choice was between inventing Slovene calques for a dozen positions and leaving the two sports out. Inventing them would have produced words no Slovene player uses, which is worse than a shorter list. Tennis and athletics are absent for the same reason the other packs leave them out: they have no fixed playing positions at all.
+locale: sl
+---
+Nogomet
+Košarka
+Rokomet
+Odbojka
+Hokej na ledu
+Vaterpolo

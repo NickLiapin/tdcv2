@@ -1,0 +1,8 @@
+---
+address: malaysia.geo.federalTerritory
+description: The three federal territories (Wilayah Persekutuan) of Malaysia, in the order they were created — Kuala Lumpur (1974, carved out of Selangor), Labuan (1984, ceded by Sabah) and Putrajaya (2001, again from Selangor). They are kept in their own file rather than appended to malaysia.geo.state because they are not states: they have no constitution, no legislative assembly and no head of state of their own, are legislated for by Parliament and administered by a federal minister, and their residents elect members of the federal Parliament but have no state assembly to elect. A generator that wants "the first-level division of Malaysia" wants both files, sixteen values; a generator that wants "a state" wants thirteen. The full official name carries the Wilayah Persekutuan prefix, which is what an address, a gazette and a MyKad place-of-birth table all use; in ordinary writing the prefix is dropped and they are just Kuala Lumpur, Labuan and Putrajaya.
+locale: ms
+---
+Wilayah Persekutuan Kuala Lumpur
+Wilayah Persekutuan Labuan
+Wilayah Persekutuan Putrajaya

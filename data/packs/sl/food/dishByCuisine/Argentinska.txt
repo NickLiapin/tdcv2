@@ -1,0 +1,14 @@
+---
+description: Dishes of the argentinska kitchen, named as a Slovene menu names them. Borrowed dish names keep their original spelling, which is what a Slovene restaurant prints.
+locale: sl
+---
+asado
+empanadas
+chimichurri
+milanesa
+provoleta
+locro
+choripán
+dulce de leche
+alfajores
+matambre

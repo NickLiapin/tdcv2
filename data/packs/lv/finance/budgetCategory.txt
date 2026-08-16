@@ -1,0 +1,26 @@
+---
+description: Household budget or spending category.
+locale: lv
+---
+Īre
+Hipotēka
+Komunālie maksājumi
+Apkure
+Elektrība
+Pārtika
+Transports
+Degviela
+Sabiedriskais transports
+Veselība
+Apdrošināšana
+Izklaide
+Ēdināšana ārpus mājas
+Abonementi
+Ceļojumi
+Izglītība
+Apģērbs
+Dāvanas
+Bērnu aprūpe
+Uzkrājumi
+Kredīta maksājumi
+Mājdzīvnieki

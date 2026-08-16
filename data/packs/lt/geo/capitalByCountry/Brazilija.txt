@@ -1,0 +1,5 @@
+---
+description: Capital of Brazilija (Lithuanian).
+locale: lt
+---
+Brazilija

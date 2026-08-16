@@ -1,0 +1,30 @@
+---
+description: Aircraft type (manufacturer designations, used unchanged in Lithuanian).
+locale: lt
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330
+Airbus A350
+Airbus A380
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 747-400
+Boeing 757-200
+Boeing 767-300
+Boeing 777-300ER
+Boeing 787-9
+Embraer E175
+Embraer E190
+Embraer E195
+Bombardier CRJ900
+ATR 72-600
+ATR 42
+De Havilland Dash 8 Q400
+Sukhoi Superjet 100
+Cessna 172
+Antonov An-2
+Let L-410
+Saab 340

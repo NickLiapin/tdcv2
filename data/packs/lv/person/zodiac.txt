@@ -1,0 +1,16 @@
+---
+description: Zodiac sign.
+locale: lv
+---
+Auns
+Vērsis
+Dvīņi
+Vēzis
+Lauva
+Jaunava
+Svari
+Skorpions
+Strēlnieks
+Mežāzis
+Ūdensvīrs
+Zivis

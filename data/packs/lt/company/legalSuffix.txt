@@ -1,0 +1,44 @@
+---
+description: Company legal form used in Lithuania. UAB (uždaroji akcinė bendrovė) is by far the commonest and, unlike the English suffix, it goes BEFORE the company name: UAB "Girteka Logistics". AB is the public form, MB the small-partnership form, VšĮ a non-profit and IĮ a sole trader.
+locale: lt
+---
+UAB
+AB
+MB
+IĮ
+VšĮ
+ŽŪB
+KB
+TŪB
+KŪB
+SĮ
+VĮ
+BĮ
+UAB ""
+AB ""
+Uždaroji akcinė bendrovė
+Akcinė bendrovė
+Mažoji bendrija
+Individuali įmonė
+Viešoji įstaiga
+Žemės ūkio bendrovė
+Kooperatinė bendrovė
+Tikroji ūkinė bendrija
+Komanditinė ūkinė bendrija
+Valstybės įmonė
+Savivaldybės įmonė
+Biudžetinė įstaiga
+Asociacija
+Labdaros ir paramos fondas
+Profesinė sąjunga
+Filialas
+Atstovybė
+SE
+SCE
+EEIG
+GmbH
+Sp. z o.o.
+OÜ
+SIA
+Oy
+AS

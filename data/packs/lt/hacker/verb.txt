@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (Lithuanian).
+locale: lt
+---
+kompiliuoti
+vykdyti
+derinti
+testuoti
+diegti
+atnaujinti
+šifruoti
+iššifruoti
+indeksuoti
+kešuoti
+sinchronizuoti
+dubliuoti
+kopijuoti
+atkurti
+migruoti
+konvertuoti
+analizuoti
+stebėti
+žurnaluoti
+profiliuoti
+optimizuoti
+refaktorinti
+skenuoti
+filtruoti
+rūšiuoti
+maršrutizuoti
+autentifikuoti
+autorizuoti

@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of vzhodnoevropska ancestry, named in Slovene.
+locale: sl
+---
+cistična fibroza
+fenilketonurija
+Wilsonova bolezen
+familiarna hiperholesterolemija
+hemokromatoza
+ustanoviteljske mutacije BRCA1
+pomanjkanje alfa-1-antitripsina
+alkoholna bolezen jeter

@@ -1,0 +1,58 @@
+---
+description: Colour name (Slovene, feminine adjectival form — Slovene names a colour with an adjective that agrees with barva, "colour", which is feminine). The adjective also inflects for the DUAL: two red houses are dve rdeči hiši, not dve rdeče hiše, so a config that pairs a colour with a count of exactly two needs a different form again.
+locale: sl
+---
+bela
+črna
+rdeča
+modra
+zelena
+rumena
+oranžna
+vijolična
+rožnata
+rjava
+siva
+srebrna
+zlata
+bež
+kremna
+slonokoščena
+turkizna
+škrlatna
+bordo
+temno modra
+svetlo modra
+temno zelena
+svetlo zelena
+temno rdeča
+svetlo rjava
+temno siva
+svetlo siva
+olivna
+oker
+kostanjeva
+peščena
+opečna
+koralna
+marelična
+breskova
+limonina
+malinova
+jagodna
+češnjeva
+slivova
+borovničeva
+smaragdna
+safirna
+rubinasta
+ametistna
+bakrena
+bronasta
+grafitna
+antracitna
+mlečna
+sivo modra
+lila
+indigo
+cian

@@ -1,0 +1,11 @@
+---
+address: philippines.docs.driversLicense
+description: Philippine driver's licence number issued by the Land Transportation Office — written A00-00-000000: one letter, two digits, then two more groups. The leading letter is the region of issue and the two digits after it are the year, which is why the number is not opaque and why licences issued in the same office in the same year cluster. NO CHECK DIGIT — the LTO publishes none, so nothing is computed. The licence card also carries a separate 10-character alphanumeric "licence number" in some series and the two are confused constantly in Philippine data; the hyphenated form here is the one printed under "License No." on the card. WORTH KNOWING FOR RECORD GENERATION: the Philippines has a restriction-code system rather than the European letter classes, and a professional licence — the class needed to drive anything for hire, including a jeepney, a tricycle or a truck — is a different document from a non-professional one, held by a large share of the workforce. Licence validity became five years in 2017 and ten years for clean records in 2021, so expiry dates in Philippine data span three different regimes.
+generator: tdc
+locale: en
+---
+<sequence name="region"><gen type="text" value="A,B,C,D,E,F,G,H,I,J,K,L,N,P,R,S,T,U,V,W"/></sequence>
+<sequence name="year"><gen type="number" value="0..99" length="2" first_zero="true"/></sequence>
+<sequence name="mid"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{6}"/></sequence>
+<data>${{region}}${{year}}-${{mid}}-${{serial}}</data>

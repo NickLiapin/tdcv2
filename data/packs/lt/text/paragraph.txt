@@ -1,0 +1,24 @@
+---
+description: Handwritten: Project Gutenberg holds no Lithuanian book at all — its single Lithuanian record, ebook 10264 "Skamba kankliai ir trimitai", is a 1925 MP3 recording of folk songs filed under Category: Sound, with no text edition, so there is nothing for data/scripts/build-text-corpus.mjs to download. So these 20 Lithuanian filler paragraphs were written by hand for this pack rather than extracted from a corpus. They are shorter and fewer than the corpus-built locales' files on purpose: padding handwritten prose to 150 paragraphs would make the shortfall harder to see, not smaller.
+locale: lt
+---
+Rytas prasidėjo anksti. Saulė dar tik kilo virš miško, o kieme jau girdėjosi balsai. Vaikai skubėjo į mokyklą, o senelis sėdo prie lango su laikraščiu. Diena žadėjo būti giedra.
+Kaimas stovėjo prie upės, kurios vanduo net vasarą būdavo šaltas. Namai buvo mediniai, o jų stogai raudonų čerpių. Kiekvienoje sodyboje augo obelys ir kelios liepos. Vasarą čia kvepėdavo šienu ir dūmais.
+Ji dirbo mokykloje daugiau nei trisdešimt metų. Mokiniai keitėsi, o kabinetas liko toks pat. Ant lentynos stovėjo tos pačios knygos, tik jų viršeliai jau buvo nublukę. Kartais ji pagalvodavo, kad laikas čia sustojo.
+Miške buvo tylu. Tik retkarčiais nukrisdavo šaka arba prabėgdavo voverė. Grybautojai ėjo lėtai, žiūrėdami po kojomis. Iki vidudienio krepšiai jau būdavo pilni.
+Miestas keitėsi greitai. Ten, kur anksčiau stovėjo sena gamykla, dabar buvo biurų pastatai. Gatvės tapo platesnės, o automobilių daugiau. Seni gyventojai vis dar prisimindavo, kaip čia atrodė prieš dvidešimt metų.
+Žiema buvo ilga ir šalta. Ežeras užšalo jau lapkritį, ir ledas laikėsi iki kovo. Vaikai čiuožinėjo netoli kranto, o suaugusieji žvejojo per eketes. Vakarais languose degdavo šviesos, ir kaimas atrodydavo jaukus.
+Jis grįžo į gimtinę po daugelio metų. Namas dar stovėjo, bet stogas jau buvo įgriuvęs. Sode augo aukšta žolė, o takas visiškai užžėlė. Vis dėlto jis atpažino kiekvieną medį.
+Turgus atsidarydavo anksti rytą. Pardavėjai išdėliodavo daržoves, uogas ir naminį sūrį. Pirkėjai derėdavosi, juokdavosi ir kalbėdavosi apie orą. Iki pietų didžioji dalis prekių jau būdavo išparduota.
+Darbo diena baigėsi vėlai. Jis išjungė kompiuterį, apsivilko striukę ir išėjo į lauką. Lauke lijo, o gatvės žibintai atsispindėjo šlapiame asfalte. Iki namų reikėjo eiti dvidešimt minučių.
+Vasarą visa šeima susirinkdavo sodyboje. Vieni gamindavo maistą, kiti tvarkydavo kiemą. Vakare visi sėsdavo prie ilgo stalo po obelimi. Kalbos tęsdavosi iki pat vidurnakčio.
+Knyga gulėjo ant palangės jau kelias savaites. Niekas jos neatvertė, tik saulė lėtai blukino viršelį. Kartą ji paėmė knygą į rankas ir perskaitė pirmą puslapį. Po to nebegalėjo sustoti.
+Kelias vingiavo per laukus. Iš abiejų pusių plytėjo javų plotai, o toliau tamsavo miškas. Retkarčiais pravažiuodavo traktorius arba dviratininkas. Iki artimiausio miestelio buvo dar penki kilometrai.
+Ligoninėje buvo ramu. Koridoriuje kvepėjo vaistais, o languose atsispindėjo vakaro šviesa. Slaugytoja tyliai vaikščiojo nuo durų prie durų. Ligoniai laukė ryto.
+Jie susipažino universitete. Iš pradžių tik kartu mokydavosi, paskui pradėjo vaikščioti po miestą. Po dvejų metų nusprendė gyventi kartu. Draugai sakė, kad taip ir turėjo būti.
+Pavasaris atėjo staiga. Per savaitę ištirpo sniegas, o pievose pasirodė pirmosios gėlės. Paukščiai sugrįžo ir pradėjo sukti lizdus. Oras kvepėjo drėgna žeme.
+Senelis mokėjo daug amatų. Jis pats statė namus, taisė ratus ir drožė medį. Vakarais sėdėdavo prie stalo ir pasakodavo, kaip buvo anksčiau. Vaikai klausydavosi tylėdami.
+Uostas dirbo be pertraukos. Laivai plaukė dieną ir naktį, kranai kėlė konteinerius. Darbininkai dirbo pamainomis, po dvylika valandų. Jūra dažnai būdavo nerami.
+Rudenį miškas keitė spalvas. Beržai pageltonavo pirmieji, paskui parudavo ąžuolai. Takai pasidengė lapais, o oras tapo vėsus ir drėgnas. Netrukus prasidėjo lietūs.
+Ji ilgai ruošėsi kelionei. Susidėjo drabužius, dokumentus ir keletą knygų. Ryte atvažiavo taksi, ir ji išvažiavo į oro uostą. Grįžti planavo tik po mėnesio.
+Naktis buvo šviesi. Mėnulis kabojo virš miško, o žvaigždės atsispindėjo ežere. Iš toli buvo girdėti šuns lojimas. Paskui viskas nutilo.

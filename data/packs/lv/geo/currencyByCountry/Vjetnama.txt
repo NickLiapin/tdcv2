@@ -1,0 +1,5 @@
+---
+description: Currency of Vjetnama, named in Latvian.
+locale: lv
+---
+Vjetnamas donga

@@ -1,0 +1,26 @@
+---
+description: Vehicle body type.
+locale: lv
+---
+Sedans
+Kupeja
+Hečbeks
+Universālis
+Apvidus auto
+Krosovers
+Kabriolets
+Minivens
+Pikaps
+Rodsters
+Furgons
+Mikroautobuss
+Autobuss
+Kravas automašīna
+Puspiekabe
+Traktors
+Kvadricikls
+Motocikls
+Mopēds
+Skrejritenis
+Sporta automašīna
+Luksusa automašīna

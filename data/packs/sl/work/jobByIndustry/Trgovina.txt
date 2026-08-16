@@ -1,0 +1,16 @@
+---
+description: Job titles in the Slovene trgovina sector
+locale: sl
+---
+prodajalec
+blagajnik
+komercialist
+vodja prodaje
+nabavnik
+trgovski poslovodja
+skladiščnik
+referent za reklamacije
+vodja trgovine
+aranžer
+prodajni svetovalec
+trgovski potnik

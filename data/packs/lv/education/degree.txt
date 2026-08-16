@@ -1,0 +1,20 @@
+---
+description: Academic qualification in the Latvian system. Latvia follows the Bologna three-cycle structure, so bakalaurs / maģistrs / doktors map onto Bachelor / Master / PhD, but the field is named in the qualification itself and always in the genitive plural — humanitāro zinātņu bakalaurs is "bachelor of the humanities". Vidējā profesionālā izglītība from an arodvidusskola or a tehnikums is a full secondary qualification, not a lesser one.
+locale: lv
+---
+Pamatizglītība
+Vispārējā vidējā izglītība
+Vidējā profesionālā izglītība
+1. līmeņa profesionālā augstākā izglītība
+Humanitāro zinātņu bakalaurs
+Sociālo zinātņu bakalaurs
+Dabaszinātņu bakalaurs
+Inženierzinātņu bakalaurs
+Veselības zinātņu bakalaurs
+Humanitāro zinātņu maģistrs
+Sociālo zinātņu maģistrs
+Dabaszinātņu maģistrs
+Inženierzinātņu maģistrs
+Biznesa vadības maģistrs
+Zinātņu doktors
+Habilitētais doktors

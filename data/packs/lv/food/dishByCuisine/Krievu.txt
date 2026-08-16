@@ -1,0 +1,14 @@
+---
+description: Dishes of Krievu cuisine as a Latvian menu names them.
+locale: lv
+---
+Boršču zupa
+Pelmeņi
+Blīņi
+Siļķe zem kažoka
+Olivjē salāti
+Soļanka
+Golubci
+Beļaši
+Vareņiki
+Medus kūka

@@ -1,0 +1,20 @@
+---
+description: Compass direction (Slovene). The four cardinal points are single words and the intercardinals are compounded from them without a hyphen (sever + vzhod = severovzhod), unlike the hyphenated English pattern.
+locale: sl
+---
+sever
+jug
+vzhod
+zahod
+severovzhod
+severozahod
+jugovzhod
+jugozahod
+severnoseverovzhod
+vzhodnoseverovzhod
+vzhodnojugovzhod
+južnojugovzhod
+južnojugozahod
+zahodnojugozahod
+zahodnoseverozahod
+severnoseverozahod

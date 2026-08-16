@@ -1,0 +1,14 @@
+---
+description: Dishes of the kitajska kitchen, named as a Slovene menu names them. Borrowed dish names keep their original spelling, which is what a Slovene restaurant prints.
+locale: sl
+---
+pekinška raca
+svinjina v sladko-kisli omaki
+dim sum
+chow mein
+wonton juha
+piščanec kung pao
+pomladni zavitki
+mapo tofu
+ocvrt riž
+govedina z brokolijem

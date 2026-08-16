@@ -1,0 +1,42 @@
+---
+address: nigeria.geo.stateCode
+description: ISO 3166-2:NG subdivision codes, index-aligned with nigeria.geo.stateOrFct — all 37 lines, the 36 states in alphabetical order then NG-FC for the Federal Capital Territory last. Because the first 36 lines match nigeria.geo.state exactly, the alignment holds against either file. ISO itself keeps the distinction this pack keeps: the 36 carry the category "state" and NG-FC alone carries "capital territory", and ISO's name for it is "Abuja Federal Capital Territory". The codes are NOT simply the first two letters of the name — Katsina is NG-KT and not NG-KA, Kaduna is NG-KD, Kebbi is NG-KE, Bayelsa is NG-BY against Bauchi's NG-BA, and Zamfara is NG-ZA — so they have to be enumerated rather than derived. The two-letter part is also not what a vehicle plate or a postal code uses; see nigeria.vehicle.plateCode and nigeria.geo.postalCode.
+locale: en
+---
+NG-AB
+NG-AD
+NG-AK
+NG-AN
+NG-BA
+NG-BY
+NG-BE
+NG-BO
+NG-CR
+NG-DE
+NG-EB
+NG-ED
+NG-EK
+NG-EN
+NG-GO
+NG-IM
+NG-JI
+NG-KD
+NG-KN
+NG-KT
+NG-KE
+NG-KO
+NG-KW
+NG-LA
+NG-NA
+NG-NI
+NG-OG
+NG-ON
+NG-OS
+NG-OY
+NG-PL
+NG-RI
+NG-SO
+NG-TA
+NG-YO
+NG-ZA
+NG-FC

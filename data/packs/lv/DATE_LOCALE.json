@@ -1,0 +1,67 @@
+{
+  "_comment": "Latvian month names are international loans (janvāris, februāris) and NOT the Slavic set — that is one quick test that a pack is not Polish or Croatian. The decisive field is monthsInDate: a Latvian date puts the month in the LOCATIVE case, not the genitive that Slavic languages use. 2026. gada 15. augustā is correct; 15. augusts is not, and 15. augusta is the genitive a Slavic-trained writer would reach for and is also wrong. Latvian has seven cases and the locative is one of them. Note the -ī endings (janvārī, septembrī, oktobrī, novembrī, decembrī) against the -ā ones (martā, maijā, augustā): they follow the noun's declension class, not the calendar. The year carries a trailing full stop because it too is an ordinal — 2026. gada, 'of the 2026th year'. Weekdays are numbered words: pirmdiena is literally 'first-day', and svētdiena, 'holy-day', is the only one that is not a number.",
+  "months": [
+    "janvāris",
+    "februāris",
+    "marts",
+    "aprīlis",
+    "maijs",
+    "jūnijs",
+    "jūlijs",
+    "augusts",
+    "septembris",
+    "oktobris",
+    "novembris",
+    "decembris"
+  ],
+  "monthsInDate": [
+    "janvārī",
+    "februārī",
+    "martā",
+    "aprīlī",
+    "maijā",
+    "jūnijā",
+    "jūlijā",
+    "augustā",
+    "septembrī",
+    "oktobrī",
+    "novembrī",
+    "decembrī"
+  ],
+  "monthsShort": [
+    "janv.",
+    "febr.",
+    "marts",
+    "apr.",
+    "maijs",
+    "jūn.",
+    "jūl.",
+    "aug.",
+    "sept.",
+    "okt.",
+    "nov.",
+    "dec."
+  ],
+  "weekdays": [
+    "svētdiena",
+    "pirmdiena",
+    "otrdiena",
+    "trešdiena",
+    "ceturtdiena",
+    "piektdiena",
+    "sestdiena"
+  ],
+  "weekdaysShort": [
+    "svētd.",
+    "pirmd.",
+    "otrd.",
+    "trešd.",
+    "ceturtd.",
+    "piektd.",
+    "sestd."
+  ],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "YYYY. [gada] D. MMMM"
+  }
+}

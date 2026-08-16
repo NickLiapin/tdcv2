@@ -1,0 +1,28 @@
+---
+description: Name or academic suffix (Slovene). Slovene degrees normally PRECEDE the name (see person/prefix), so most of these read as trailing qualifiers in a formal signature block or on a letterhead. Ml. and st. — mlajši and starejši — are the Slovene junior and senior and DO follow the name.
+locale: sl
+---
+ml.
+st.
+dr.
+mag.
+univ. dipl. inž.
+dipl. inž.
+inž.
+spec.
+dr. med.
+dr. dent. med.
+mag. farm.
+univ. dipl. prav.
+univ. dipl. ekon.
+univ. dipl. psih.
+univ. dipl. soc.
+prof.
+akad.
+dipl. m. s.
+dipl. upr. org.
+mag. inž.
+dipl. ekon.
+dipl. prav.
+B. Sc.
+M. Sc.

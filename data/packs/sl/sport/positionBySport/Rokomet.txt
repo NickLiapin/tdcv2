@@ -1,0 +1,11 @@
+---
+description: Playing positions in rokomet, named in Slovene
+locale: sl
+---
+vratar
+levo krilo
+desno krilo
+levi zunanji
+srednji zunanji
+desni zunanji
+krožni napadalec

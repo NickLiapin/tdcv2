@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of severnoafriška ancestry, named in Slovene.
+locale: sl
+---
+beta talasemija
+pomanjkanje G6PD
+družinska sredozemska vročica
+familiarna hiperholesterolemija
+sladkorna bolezen tipa 2
+laktozna intoleranca
+cistinurija
+favizem

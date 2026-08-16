@@ -1,0 +1,19 @@
+---
+description: Order return reason (Lithuanian).
+locale: lt
+---
+Netiko dydis
+Netiko spalva
+Prekė sugadinta
+Prekė su defektu
+Atsiųsta ne ta prekė
+Trūksta dalių
+Neatitinka aprašymo
+Neveikia
+Kokybė prastesnė nei tikėtasi
+Persigalvojau
+Rasta pigiau
+Užsakyta per klaidą
+Pristatyta per vėlai
+Dublikuotas užsakymas
+Nebereikia

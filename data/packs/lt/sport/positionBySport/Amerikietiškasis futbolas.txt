@@ -1,0 +1,15 @@
+---
+description: Positions in amerikietiškasis futbolas (Lithuanian).
+locale: lt
+---
+Kvoterbekas
+Bėgikas
+Plačiasis gaudytojas
+Uždarasis gaudytojas
+Puolimo linijos žaidėjas
+Gynybos linijos žaidėjas
+Laibekeris
+Kornerbekas
+Seifis
+Spardytojas
+Pantininkas

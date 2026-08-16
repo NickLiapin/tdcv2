@@ -1,0 +1,5 @@
+---
+description: Capital of Južnoafriška republika, as Slovene names it
+locale: sl
+---
+Pretoria

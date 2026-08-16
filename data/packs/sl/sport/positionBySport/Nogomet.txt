@@ -1,0 +1,15 @@
+---
+description: Playing positions in nogomet, named in Slovene
+locale: sl
+---
+vratar
+osrednji branilec
+levi bočni branilec
+desni bočni branilec
+defenzivni vezist
+osrednji vezist
+ofenzivni vezist
+levo krilo
+desno krilo
+napadalec
+konica napada

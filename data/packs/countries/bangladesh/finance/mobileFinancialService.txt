@@ -1,0 +1,14 @@
+---
+address: bangladesh.finance.mobileFinancialService
+description: Mobile financial services licensed by Bangladesh Bank, weighted by roughly how much of the market each carries. This file matters more than a card list would, because in Bangladesh mobile money IS the retail payment system — bKash alone has more accounts than every credit card in the country by a wide margin, and "bKash" is used as a verb the way "Google" is in English. The account identifier is a MOBILE NUMBER, not a card number and not an IBAN, so in a Bangladeshi payment record the wallet column and the phone column (bangladesh.phone) are frequently the same eleven digits, and a config that models a payment as card-plus-expiry will describe almost none of the country's retail flow. Who owns what matters for a realistic record — bKash is BRAC Bank's, Rocket is Dutch-Bangla Bank's, Upay is United Commercial Bank's, mCash is Islami Bank's, OK Wallet is One Bank's, and Nagad is the Bangladesh POST OFFICE's, which is why it reaches places a bank branch does not. Nagad is also why the market is a duopoly rather than a monopoly — it entered in 2019 and took a large share within a few years. The weights are a market-shape estimate rather than a published statistic, and they are here to stop a uniform draw from making SureCash as common as bKash, which would be wrong by two orders of magnitude. Cash on delivery is still the default for online shopping and cash is still the default everywhere else, so a config generating Bangladeshi transactions should not assume every one of them is electronic.
+weighted: true
+locale: en
+---
+bKash,62
+Nagad,24
+Rocket,6
+Upay,3
+mCash,2
+tap,1
+SureCash,1
+OK Wallet,1

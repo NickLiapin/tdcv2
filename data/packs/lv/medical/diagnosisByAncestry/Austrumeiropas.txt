@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of Austrumeiropas descent.
+locale: lv
+---
+Iedzimta hemohromatoze
+Celiakija
+Fenilketonūrija
+Alfa-1 antitripsīna deficīts
+Vilsona slimība
+1. tipa cukura diabēts
+Multiplā skleroze
+BRCA1 mutācija

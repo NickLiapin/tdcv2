@@ -1,0 +1,32 @@
+---
+description: Flower (Slovene). Blagajev volčin — Daphne blagayana — was found above Polhov Gradec in 1837, named after the Slovene count Blagaj who reported it, and is a Slovene botanical emblem; the planika, the edelweiss, is the flower of the Julian Alps and of the Alpine Association's badge; and the nagelj, the carnation, is what stands in the window boxes of a Slovene farmhouse.
+locale: sl
+---
+planika
+blagajev volčin
+encijan
+svišč
+murka
+zvonček
+trobentica
+teloh
+žafran
+vijolica
+marjetica
+regrat
+mak
+sončnica
+nagelj
+vrtnica
+tulipan
+narcisa
+lilija
+perunika
+potonika
+hortenzija
+krizantema
+astra
+ciklama
+orhideja
+sivka
+resje

@@ -1,0 +1,27 @@
+---
+description: Address unit designator. A Latvian address writes the house number AFTER the street (Brīvības iela 12) and the flat after that, joined by a hyphen and with no word at all — Brīvības iela 12-34, LV-1010. So the commonest "designator" in Latvia is nothing; dz. is used only when the hyphen would be ambiguous. The remaining entries are the interior labels used on plans and in commercial leases.
+locale: lv
+---
+dz.
+dzīvoklis
+korpuss
+k.
+stāvs
+telpa
+kabinets
+birojs
+ieeja
+kāpņu telpa
+bloks
+sekcija
+garāža
+bokss
+angārs
+noliktava
+pagrabs
+bēniņi
+mansards
+māja
+nams
+būve
+stāvvieta

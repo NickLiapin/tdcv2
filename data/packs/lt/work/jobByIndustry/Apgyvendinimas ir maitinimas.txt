@@ -1,0 +1,16 @@
+---
+description: Jobs in Apgyvendinimas ir maitinimas (Lithuanian).
+locale: lt
+---
+Virtuvės šefas
+Šefo pavaduotojas
+Virėjas
+Padavėjas
+Barmenas
+Baristas
+Viešbučio registratorius
+Viešbučio vadybininkas
+Konsjeržas
+Kambarinė
+Renginių koordinatorius
+Turizmo gidas

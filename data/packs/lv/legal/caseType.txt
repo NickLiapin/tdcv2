@@ -1,0 +1,17 @@
+---
+description: Type of legal case.
+locale: lv
+---
+Civillieta
+Krimināllieta
+Administratīvā lieta
+Ģimenes lieta
+Maksātnespējas lieta
+Darba strīds
+Līguma strīds
+Intelektuālā īpašuma lieta
+Nekustamā īpašuma lieta
+Mantojuma lieta
+Nodokļu lieta
+Migrācijas lieta
+Personas kaitējuma lieta

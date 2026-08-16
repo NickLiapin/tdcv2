@@ -1,0 +1,42 @@
+---
+description: Symptom (Slovene)
+locale: sl
+---
+povišana telesna temperatura
+mrzlica
+utrujenost
+slabost
+bruhanje
+driska
+zaprtje
+bolečina v trebuhu
+zgaga
+napihnjenost
+izguba apetita
+izguba telesne teže
+glavobol
+omotica
+omedlevica
+motnje vida
+dvojni vid
+zvonjenje v ušesih
+boleče grlo
+zamašen nos
+izcedek iz nosu
+kašelj
+suh kašelj
+izkašljevanje
+težko dihanje
+piskanje v prsih
+bolečina v prsih
+razbijanje srca
+otekanje nog
+bolečina v križu
+bolečina v sklepih
+mišična oslabelost
+mravljinčenje
+otrplost
+srbenje
+izpuščaj
+nespečnost
+nočno potenje

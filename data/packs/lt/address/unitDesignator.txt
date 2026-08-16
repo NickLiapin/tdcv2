@@ -1,0 +1,27 @@
+---
+description: Lithuanian address unit / interior designator, in the abbreviated form used before a number. A Lithuanian address writes the flat after the house number separated by a dash — Gedimino pr. 15-24 — so the abbreviation is often dropped entirely.
+locale: lt
+---
+b.
+butas
+kamb.
+kambarys
+korp.
+korpusas
+aukšt.
+aukštas
+laipt.
+laiptinė
+įėj.
+įėjimas
+kab.
+kabinetas
+biuras
+patalpa
+blokas
+sekcija
+boksas
+vieta
+sandėliukas
+a/d
+pašto dėžutė

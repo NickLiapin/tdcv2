@@ -1,0 +1,5 @@
+---
+description: Currency of Nigērija, named in Latvian.
+locale: lv
+---
+Nigērijas naira

@@ -1,0 +1,54 @@
+---
+description: Store department or product category.
+locale: lv
+---
+Grāmatas
+Filmas
+Mūzika
+Spēles
+Elektronika
+Datortehnika
+Mobilie telefoni
+Fototehnika
+Sadzīves tehnika
+Mājai
+Mēbeles
+Tekstils
+Trauki
+Virtuvei
+Vannas istabai
+Apgaismojums
+Dārzam
+Dārza tehnika
+Instrumenti
+Būvniecība
+Santehnika
+Krāsas
+Remonts
+Pārtika
+Maize
+Piena produkti
+Gaļa un zivis
+Dzērieni
+Saldumi
+Veselība
+Aptieka
+Skaistumkopšana
+Sadzīves ķīmija
+Rotaļlietas
+Bērniem
+Mazuļiem
+Apģērbs
+Apavi
+Rotaslietas
+Pulksteņi
+Sports
+Velosipēdi
+Aktīvā atpūta
+Tūrisms
+Zveja
+Medības
+Auto un moto
+Dzīvniekiem
+Kancelejas preces
+Mūzikas instrumenti

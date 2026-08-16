@@ -1,0 +1,15 @@
+---
+description: Stage of a hiring process (Slovene)
+locale: sl
+---
+oddaja prijave
+pregled prijav
+telefonski razgovor
+prvi razgovor
+drugi razgovor
+razgovor s kadrovsko službo
+strokovni preizkus
+psihološko testiranje
+preverjanje referenc
+ponudba za zaposlitev
+podpis pogodbe

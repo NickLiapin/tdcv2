@@ -1,0 +1,27 @@
+---
+address: iran.sport.team
+description: Football clubs of Iran, Persian names — the Persian Gulf Pro League (لیگ برتر خلیج فارس) and the best-known clubs below it. پرسپولیس and استقلال are both from Tehran, both state-linked, and between them hold most of the country's support; their derby (داربی پایتخت) is the fixture the calendar is built around. Iranian club names often carry the industry that owns them rather than a place — ذوب‌آهن is a steelworks, مس رفسنجان a copper mine, صنعت نفت آبادان and پارس جنوبی جم the oil and gas industry, ماشین‌سازی a machine-tool plant — so a club name is not a city name and cannot be parsed as one. Several famous clubs also carry a place that is NOT where the club plays: استقلال خوزستان is in Ahvaz. Names are given in the short form Iranian media use, without the "باشگاه فرهنگی ورزشی" prefix that appears in official registrations.
+locale: fa
+---
+پرسپولیس
+استقلال
+سپاهان
+تراکتور
+فولاد خوزستان
+ذوب‌آهن اصفهان
+گل‌گهر سیرجان
+مس رفسنجان
+نساجی مازندران
+ملوان بندر انزلی
+پیکان
+هوادار
+آلومینیوم اراک
+چادرملو اردکان
+شمس آذر قزوین
+صنعت نفت آبادان
+پارس جنوبی جم
+استقلال خوزستان
+سایپا
+ماشین‌سازی تبریز
+نفت مسجد سلیمان
+شهرداری همدان

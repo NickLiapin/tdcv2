@@ -1,0 +1,5 @@
+---
+description: Currency of Portugalska, named in Slovene
+locale: sl
+---
+evro

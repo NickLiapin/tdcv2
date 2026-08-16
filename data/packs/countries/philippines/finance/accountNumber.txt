@@ -1,0 +1,7 @@
+---
+address: philippines.finance.accountNumber
+description: Philippine bank account number — digits only, no check digit, no national standard, and THE PHILIPPINES HAS NO IBAN. It is not in the IBAN registry, so there is deliberately no philippines.finance.iban to sit alongside Poland's or Italy's, and none is invented. A domestic transfer is addressed by the receiving bank's 9-digit BRSTN (philippines.finance.bankCode) plus the bare account number; an inbound international transfer needs the bank's SWIFT/BIC plus the account number instead. Anyone told to "enter the Philippine IBAN" has been asked for something that does not exist, and a form that requires one cannot be completed truthfully. Length is set by each bank rather than by the country: BDO issues 10 or 12 digits, BPI 10, Metrobank 13, Land Bank 10, UnionBank 12, and 9 to 16 covers what banks actually hand out, which is why a fixed-width account-number column will be wrong for some Philippine bank. Nothing here is verifiable — there is no checksum to get right or wrong, and no way to tell a real account number from a drawn one by inspection. WORTH KNOWING: a large share of Philippine money movement never touches an account number at all. GCash and Maya address transfers by mobile number, and for tens of millions of Filipinos the mobile number IS the payment identifier, so a Philippine payments dataset with an empty bank-account column is normal rather than incomplete.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{9,16}"/>

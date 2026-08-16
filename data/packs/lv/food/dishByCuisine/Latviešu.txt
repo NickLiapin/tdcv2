@@ -1,0 +1,32 @@
+---
+description: Dishes of Latviešu cuisine as a Latvian menu names them.
+locale: lv
+---
+Pelēkie zirņi ar speķi
+Rupjmaize
+Sklandrausis
+Aukstā zupa
+Rasols
+Skābputra
+Maizes zupa
+Jāņu siers
+Rīgas šprotes
+Siļķe kažokā
+Kartupeļu pankūkas
+Bukstiņputra
+Karbonāde
+Frikadeļu zupa
+Zirņu pikas
+Speķa rauši
+Piparkūkas
+Debessmanna
+Biezpiena sacepums
+Asins desa
+Grūbu putra
+Skābu kāpostu zupa
+Cepta menca
+Klingeris
+Ceptas reņģes
+Kūpināts zutis
+Aukstā gaļa
+Pīrādziņi ar speķi

@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of južnoazijska ancestry, named in Slovene.
+locale: sl
+---
+sladkorna bolezen tipa 2
+koronarna bolezen
+beta talasemija
+pomanjkanje G6PD
+laktozna intoleranca
+revmatska bolezen srca
+tuberkuloza
+pomanjkanje vitamina D

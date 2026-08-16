@@ -1,0 +1,20 @@
+---
+description: Weather condition (Lithuanian).
+locale: lt
+---
+Giedra
+Mažai debesuota
+Debesuota su pragiedruliais
+Debesuota
+Apsiniaukę
+Lietus
+Smulkus lietus
+Liūtis
+Šlapdriba
+Sniegas
+Snygis
+Pūga
+Rūkas
+Migla
+Perkūnija
+Kruša

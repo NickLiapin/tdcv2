@@ -1,0 +1,20 @@
+---
+description: Seniority or level label attached to a role.
+locale: lv
+---
+Praktikants
+Māceklis
+Jaunākais
+Asistents
+Speciālists
+Vecākais speciālists
+Vadošais speciālists
+Eksperts
+Galvenais
+Komandas vadītājs
+Nodaļas vadītājs
+Vadītājs
+Vecākais vadītājs
+Direktors
+Valdes loceklis
+Valdes priekšsēdētājs

@@ -1,0 +1,46 @@
+---
+description: Job skill: technical, trade and soft. Programming languages and tool names are proper nouns and keep their real spelling; the human skills are translated.
+locale: lv
+---
+Python
+JavaScript
+SQL
+Java
+C++
+Mākoņtehnoloģijas
+Mašīnmācīšanās
+Datu analīze
+Projektu vadība
+Agile
+Publiskā uzstāšanās
+Tehniskā rakstīšana
+Klientu apkalpošana
+Pārdošana
+Grāmatvedība
+Finanšu modelēšana
+CAD
+3D modelēšana
+Grafiskais dizains
+Tekstu rakstīšana
+Metināšana
+Elektroinstalācija
+Santehnikas darbi
+Galdniecība
+Rasējumu lasīšana
+Metālapstrāde
+Lodēšana
+Autoiekrāvēja vadīšana
+Smagās tehnikas vadīšana
+C kategorijas autovadītāja apliecība
+Pirmā palīdzība
+Reanimācija
+Pārtikas drošība
+Latviešu valoda
+Angļu valoda
+Krievu valoda
+Vācu valoda
+Sarunu vešana
+Komandas vadība
+Laika plānošana
+Problēmu risināšana
+Kvalitātes kontrole

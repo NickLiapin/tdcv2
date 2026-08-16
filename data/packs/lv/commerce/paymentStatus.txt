@@ -1,0 +1,14 @@
+---
+description: Payment status.
+locale: lv
+---
+Gaida
+Autorizēts
+Apmaksāts
+Daļēji apmaksāts
+Neizdevās
+Atmaksāts
+Daļēji atmaksāts
+Apstrīdēts
+Anulēts
+Noraidīts

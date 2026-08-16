@@ -1,0 +1,5 @@
+---
+description: Currency of Ķīna, named in Latvian.
+locale: lv
+---
+Ķīnas juaņa

@@ -1,0 +1,29 @@
+---
+address: serbia.tax.vat
+description: Serbian VAT identification — and the fact worth carrying is that there is no separate number to identify. Serbia charges PDV (порез на додату вредност) but is not in the EU, so it issues nothing like an EU VAT ID: a company that crosses the registration threshold is entered in the PDV register and keeps quoting the PIB it already had, with a certificate (потврда о извршеном евидентирању за ПДВ) as evidence of registration rather than a new number. So this file and serbia.tax.pib produce the SAME arithmetic and, unlike Croatia's HR+OIB or Slovenia's SI+davčna, the same string: there is no RS prefix on a Serbian VAT number, because there is no Serbian VAT number to prefix. Writing "RS100002887" on an invoice would be wrong. VAT is charged in DINARS — the euro is not legal tender in Serbia and the dinar is not pegged to it, which is where Serbia parts company with Croatia (euro since 2023) and Slovenia (euro since 2007). Kept as its own address so a config that asks a country for its VAT number gets a valid one rather than an error; the description is the answer.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="1[0-9]{7}"/></sequence>
+<sequence name="vat"><compute>
+  <let name="product">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="10"/></init>
+      <do>
+        <let name="s"><mod><add><current/><acc/></add><int v="10"/></mod></let>
+        <mod>
+          <multiply><int v="2"/>
+            <choose>
+              <when><test><equals><use name="s"/><int v="0"/></equals></test><then><int v="10"/></then></when>
+              <otherwise><use name="s"/></otherwise>
+            </choose>
+          </multiply>
+          <int v="11"/>
+        </mod>
+      </do>
+    </reduce>
+  </let>
+  <let name="check"><mod><subtract><int v="11"/><use name="product"/></subtract><int v="10"/></mod></let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{vat}}</data>

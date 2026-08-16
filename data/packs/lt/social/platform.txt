@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Lithuania.
+locale: lt
+---
+Facebook
+Instagram
+TikTok
+YouTube
+LinkedIn
+X
+Snapchat
+Pinterest
+Reddit
+Telegram
+WhatsApp
+Messenger
+Viber
+Discord
+Twitch
+Threads
+Spotify

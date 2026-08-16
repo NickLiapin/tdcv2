@@ -1,0 +1,20 @@
+---
+description: Weather condition (Slovene)
+locale: sl
+---
+jasno
+pretežno jasno
+delno oblačno
+pretežno oblačno
+oblačno
+megleno
+deževno
+rahel dež
+močan dež
+ploha
+nevihta
+sneženje
+snežna ploha
+babje pšeno
+sodra
+vetrovno

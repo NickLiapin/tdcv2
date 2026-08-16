@@ -1,0 +1,29 @@
+---
+address: singapore.education.university
+description: Degree-granting institutions in Singapore, in English — which is not a simplification but the fact: English is the language of administration, law, business and instruction in Singapore, so these institutions have no other official name to translate from. Malay, Mandarin and Tamil are the other three official languages and none of the six autonomous universities teaches in them (Nanyang Technological University's name is a legacy of the Chinese-medium Nanyang University that closed in 1980, not a description of its language today). The first six rows are the autonomous universities - publicly funded, degree-granting, and the ones a Singapore CV means by "university". The five polytechnics and the Institute of Technical Education below them award diplomas rather than degrees and are a distinct tier; a schema that flattens them into "university" loses the distinction Singapore employers read off a CV immediately. The rest are the private and foreign-campus institutions. Yale-NUS College is deliberately absent: it enrolled its last cohort and closed, folding into NUS College.
+locale: en
+---
+National University of Singapore
+Nanyang Technological University
+Singapore Management University
+Singapore University of Technology and Design
+Singapore Institute of Technology
+Singapore University of Social Sciences
+Duke-NUS Medical School
+Singapore Polytechnic
+Ngee Ann Polytechnic
+Temasek Polytechnic
+Nanyang Polytechnic
+Republic Polytechnic
+Institute of Technical Education
+LASALLE College of the Arts
+Nanyang Academy of Fine Arts
+Singapore Institute of Management
+INSEAD Asia Campus
+ESSEC Business School Asia-Pacific
+James Cook University Singapore
+Curtin Singapore
+PSB Academy
+Kaplan Higher Education Academy
+Management Development Institute of Singapore
+S P Jain School of Global Management

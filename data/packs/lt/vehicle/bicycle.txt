@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Lithuanian).
+locale: lt
+---
+Miesto dviratis
+Kalnų dviratis
+Plento dviratis
+Gravel dviratis
+Turistinis dviratis
+Hibridinis dviratis
+Elektrinis dviratis
+Sulankstomas dviratis
+BMX dviratis
+Vaikiškas dviratis
+Trikeris
+Krovininis dviratis
+Tandemas
+Fiksuotos pavaros dviratis
+Trekinis dviratis
+Riedis
+Balansinis dviratukas

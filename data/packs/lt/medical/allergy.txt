@@ -1,0 +1,26 @@
+---
+description: Common allergies (Lithuanian). Beržo žiedadulkės — birch pollen — is the dominant seasonal allergen in Lithuania, not grass or olive.
+locale: lt
+---
+Beržo žiedadulkės
+Alksnio žiedadulkės
+Lazdyno žiedadulkės
+Pelynų žiedadulkės
+Ambrozijos žiedadulkės
+Žolių žiedadulkės
+Namų dulkių erkutės
+Pelėsiai
+Kačių plaukai
+Šunų plaukai
+Bičių nuodai
+Vapsvų nuodai
+Penicilinas
+Nesteroidiniai vaistai nuo uždegimo
+Karvės pienas
+Kiaušiniai
+Riešutai
+Žemės riešutai
+Žuvis
+Vėžiagyviai
+Sojos
+Glitimas

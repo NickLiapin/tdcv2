@@ -1,0 +1,28 @@
+---
+description: Name / academic suffix (Lithuanian). Lithuanian degrees and titles normally PRECEDE the name (see person/prefix), so these read as trailing qualifiers on a document line. Generational suffixes are not a Lithuanian habit: vyresnysis / jaunesnysis are used, but there is no numbered III / IV series as in English.
+locale: lt
+---
+dr.
+habil. dr.
+prof.
+doc.
+mgr.
+bak.
+inž.
+PhD
+MD
+MBA
+LL.M.
+vyresnysis
+jaunesnysis
+emeritas
+akad.
+m. dr.
+tech. m. dr.
+hum. m. dr.
+soc. m. dr.
+biomed. m. dr.
+MSc
+BSc
+CFA
+CPA

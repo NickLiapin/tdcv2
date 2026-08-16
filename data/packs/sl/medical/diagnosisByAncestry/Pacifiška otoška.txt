@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of pacifiška otoška ancestry, named in Slovene.
+locale: sl
+---
+sladkorna bolezen tipa 2
+debelost
+protin
+revmatska vročica
+kronična ledvična bolezen
+koronarna bolezen
+rak jeter
+kronični hepatitis B

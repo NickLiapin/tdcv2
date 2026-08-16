@@ -1,0 +1,5 @@
+---
+description: Currency of Nigerija (Lithuanian).
+locale: lt
+---
+Naira

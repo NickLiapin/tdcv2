@@ -1,0 +1,69 @@
+---
+address: pakistan.education.university
+description: Pakistani universities and degree-awarding institutions in their official English names, which is the form that appears on the degree itself. The list mixes the three kinds a student record actually cites — federal and provincial public universities chartered by an act of the National Assembly or a provincial assembly, the specialised public institutes (PIEAS, the Institute of Space Technology, NUST, GIK), and the chartered private universities (LUMS, Aga Khan, Habib, Riphah, Hamdard) — because a transcript names whichever body issued the degree. A few are worth knowing apart from their names: Allama Iqbal Open University is a distance university with one of the largest enrolments in the world, the University of the Punjab was founded in 1882 and predates the country by 65 years, Forman Christian College and Gordon College are missionary foundations older still that were nationalised in 1972 and returned to their trusts decades later, and the Aga Khan University is a private medical university whose teaching hospital is the reference laboratory for much of the region. Universities of Azad Jammu and Kashmir and Gilgit-Baltistan are included; the Higher Education Commission recognises their degrees on the same footing.
+locale: en
+---
+Quaid-i-Azam University
+University of the Punjab
+National University of Sciences and Technology
+Lahore University of Management Sciences
+Aga Khan University
+University of Karachi
+University of Engineering and Technology Lahore
+Ghulam Ishaq Khan Institute of Engineering Sciences and Technology
+COMSATS University Islamabad
+International Islamic University Islamabad
+University of Agriculture Faisalabad
+University of Peshawar
+University of Sindh
+University of Balochistan
+Mehran University of Engineering and Technology
+NED University of Engineering and Technology
+Dow University of Health Sciences
+King Edward Medical University
+Allama Iqbal Open University
+Bahauddin Zakariya University
+Islamia University of Bahawalpur
+Government College University Lahore
+Government College University Faisalabad
+University of Sargodha
+University of Gujrat
+Pakistan Institute of Engineering and Applied Sciences
+Institute of Space Technology
+National University of Computer and Emerging Sciences
+Air University
+Bahria University
+Riphah International University
+Hamdard University
+Institute of Business Administration Karachi
+Sukkur IBA University
+Shaheed Zulfiqar Ali Bhutto Institute of Science and Technology
+University of Health Sciences Lahore
+University of Veterinary and Animal Sciences Lahore
+Sindh Agriculture University Tandojam
+Liaquat University of Medical and Health Sciences
+Quaid-e-Awam University of Engineering Science and Technology
+Shah Abdul Latif University
+Shaheed Benazir Bhutto University
+Lahore College for Women University
+Fatima Jinnah Women University
+Forman Christian College
+Beaconhouse National University
+University of Central Punjab
+University of Lahore
+Abdul Wali Khan University Mardan
+Khyber Medical University
+University of Malakand
+University of Swat
+Hazara University
+University of Haripur
+Kohat University of Science and Technology
+University of Science and Technology Bannu
+Gomal University
+Balochistan University of Information Technology, Engineering and Management Sciences
+University of Turbat
+Lasbela University of Agriculture, Water and Marine Sciences
+University of Azad Jammu and Kashmir
+Mirpur University of Science and Technology
+Karakoram International University
+University of Baltistan Skardu

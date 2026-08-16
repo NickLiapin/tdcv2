@@ -1,0 +1,13 @@
+---
+address: philippines.tax.tin
+description: Taxpayer Identification Number (TIN) issued by the Bureau of Internal Revenue — the 9-digit base, written XXX-XXX-XXX. The first digit is the taxpayer type, 0 for a corporation or partnership and 1-9 for an individual; the next seven are sequential; THE NINTH DIGIT IS A CHECK DIGIT AND ITS ALGORITHM IS NOT PUBLISHED, SO IT IS NOT COMPUTED HERE. That the ninth digit is a check digit is stated plainly — by the National Tax Research Center's own account of the TIN's structure, and by the BIR's ORUS portal, which says only that it validates the last digit as "mathematically consistent with the preceding digits" and does not say how. No BIR issuance, revenue regulation or memorandum order that gives the weights or the modulus could be found, and there is no implementation in python-stdnum, whose open feature request for Philippine TIN support has sat unsolved for exactly this reason. So the rule was tested for rather than assumed: 89 distinct real published TINs, taken from a Court of Tax Appeals decision, a DOST-PCHRD procurement plan and a University of Southeastern Philippines supplier list, were solved as a linear system over every modulus a national ID plausibly uses. Every weighted rule modulo 2, 3, 5, 7, 10, 11 and 13 is INCONSISTENT with the corpus — not a poor fit, algebraically impossible — and so is the mod-11 variant that collapses a remainder of 10 to zero, and so is Luhn in both phasings (8 and 12 of 89, which is chance). A plausible-looking mod-11 was therefore not shipped: a fabricated checksum is worse than none, because it looks verified. THE PRACTICAL CONSEQUENCE IS THAT A GENERATED TIN WILL FAIL BIR VALIDATION, and there is no way to generate one that passes without the rule. If you need a TIN that a real system accepts, this pack cannot give you one. See philippines.tax.tinWithBranch for the branch-code suffix, and philippines.tax.vat for why there is no separate VAT number.
+generator: tdc
+locale: en
+---
+<!-- 0 = corporation or partnership, 1-9 = individual. Digits 2-8 are the
+     sequential serial. Digit 9 is a check digit whose rule the BIR does not
+     publish; it is drawn, not computed. See the description. -->
+<sequence name="kind"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="check"><gen type="regex" value="[0-9]"/></sequence>
+<data>${{kind}}${{serial}}${{check}}</data>

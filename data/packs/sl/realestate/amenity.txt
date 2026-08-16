@@ -1,0 +1,26 @@
+---
+description: Property feature as a Slovene listing advertises it. Pogled na morje moves a price on the 46 kilometres of Slovene coast; klet and drvarnica — a cellar and a woodshed — are ordinary expectations in a country where a third of homes still heat with wood.
+locale: sl
+---
+balkon
+terasa
+vrt
+atrij
+garaža
+parkirno mesto
+klet
+shramba
+drvarnica
+dvigalo
+centralno ogrevanje
+toplotna črpalka
+kamin
+krušna peč
+klima
+sončne celice
+novogradnja
+obnovljeno
+pogled na morje
+pogled na gore
+mirna lega
+energijska izkaznica

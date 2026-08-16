@@ -1,0 +1,34 @@
+---
+address: serbia.finance.iban
+description: Serbian IBAN — 22 characters: RS + 2 ISO 7064 MOD-97 check digits + a 3-digit bank code + a 13-digit account number + 2 national control digits. Those last two are themselves ISO 7064 MOD 97-10 over the 16 digits in front of them, so a correctly formed Serbian BBAN always leaves remainder 1 mod 97 — the same double-check Slovenia builds into its BBAN. That has a consequence worth knowing: with the BBAN pinned at remainder 1, the outer check can only ever come out one way, and EVERY valid Serbian IBAN begins RS35, exactly as every Slovenian one begins SI56. The 35 is still COMPUTED here rather than written in, so a wrong national control would show up immediately as a different pair. That 18-digit BBAN is not an IBAN-only construct: it is the ordinary domestic account number a Serb reads off a card, printed 160-0000000123456-78, which is why serbia.finance.account exists beside this file. Accounts are denominated in DINARS. Serbia is not in the euro area and not in the EU, so unlike Croatia (euro 2023) and Slovenia (euro 2007) the currency behind the IBAN is the RSD; Serbia does sit in SEPA, which it joined in 2025, and that is why the IBAN matters domestically at all. Bank codes drawn here are the live three-digit codes from the National Bank of Serbia's register, each confirmed against that bank's published NBS giro account (908-BBB01-KK), and each of those 21 accounts verifies MOD-97. Verified against the published IBAN RS35260005601001611379.
+generator: tdc
+---
+<sequence name="bank"><gen type="text" value="105,115,145,155,160,165,170,190,200,205,220,250,265,295,325,330,340,370,375,380,385"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{13}"/></sequence>
+<sequence name="iban"><compute>
+  <let name="n16"><concat><field name="bank"/><field name="account"/></concat></let>
+  <!-- National control: ISO 7064 MOD 97-10 over the 16 digits, so that BBAN mod 97 == 1. -->
+  <let name="r16"><reduce>
+    <over><use name="n16"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="nat"><pad width="2" fill="0">
+    <mod><subtract><int v="98"/><mod><multiply><use name="r16"/><int v="3"/></multiply><int v="97"/></mod></subtract><int v="97"/></mod>
+  </pad></let>
+  <let name="bban"><concat><use name="n16"/><use name="nat"/></concat></let>
+  <!-- IBAN check: the usual MOD-97 over BBAN + RS + 00. -->
+  <let name="rearranged"><concat><use name="bban"/><str v="RS"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="RS"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

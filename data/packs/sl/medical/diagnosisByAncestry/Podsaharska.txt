@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of podsaharska ancestry, named in Slovene. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: sl
+---
+srpastocelična anemija
+pomanjkanje G6PD
+sarkoidoza
+kronična ledvična bolezen (APOL1)
+arterijska hipertenzija
+keloidne brazgotine
+laktozna intoleranca
+miom maternice
+rak prostate
+glavkom odprtega zakotja
+sladkorna bolezen tipa 2
+pomanjkanje vitamina D

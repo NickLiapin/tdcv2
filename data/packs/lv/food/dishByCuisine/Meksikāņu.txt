@@ -1,0 +1,14 @@
+---
+description: Dishes of Meksikāņu cuisine as a Latvian menu names them.
+locale: lv
+---
+Tako
+Burito
+Enčiladas
+Kesadilja
+Gvakamole
+Tamales
+Načo
+Fahitas
+Čili con carne
+Salsa

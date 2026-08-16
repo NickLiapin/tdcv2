@@ -1,0 +1,59 @@
+---
+description: Corporate buzz verb (Slovene, infinitive)
+locale: sl
+---
+optimizirati
+digitalizirati
+avtomatizirati
+transformirati
+integrirati
+povezati
+nadgraditi
+posodobiti
+razviti
+zasnovati
+načrtovati
+uvesti
+vpeljati
+implementirati
+prilagoditi
+poenostaviti
+pospešiti
+izboljšati
+okrepiti
+razširiti
+poglobiti
+utrditi
+zagotoviti
+omogočiti
+podpreti
+usmerjati
+voditi
+upravljati
+koordinirati
+nadzorovati
+spremljati
+meriti
+analizirati
+ovrednotiti
+preveriti
+certificirati
+standardizirati
+uskladiti
+sinhronizirati
+centralizirati
+decentralizirati
+razbremeniti
+znižati stroške
+povečati donos
+ustvariti vrednost
+prodreti na trg
+pridobiti stranke
+obdržati stranke
+graditi znamko
+krepiti ugled
+spodbujati inovacije
+deliti znanje
+usposabljati
+sodelovati
+partnerirati

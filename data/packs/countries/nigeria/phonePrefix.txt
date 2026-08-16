@@ -1,0 +1,41 @@
+---
+address: nigeria.phonePrefix
+description: THE SOURCE OF TRUTH for Nigerian mobile prefixes — the three digits that open the 10-digit national significant number, written WITHOUT the trunk 0. nigeria.phone and nigeria.phoneNational both draw from here, so the two forms of the same number cannot disagree about which blocks exist. These are allocations, not a pattern: the NCC handed specific blocks to specific networks, so 0803 is MTN and 0805 is Glo and 0809 is 9mobile, and a Nigerian reads the network off the prefix instantly. Listed as allocated — MTN 703 704 706 707 803 806 810 813 814 816 903 906 913 916; Airtel 701 708 802 808 901 902 904 907 911; Glo 705 805 807 811 815 905 915; 9mobile 809 817 818 908 909. MTN's share of the list reflects its share of the market. Number portability exists, so the prefix is a strong hint about the network and not a guarantee. This is deliberately a plain list rather than a regex alternation: a `[78]0[0-9]` style pattern would generate blocks the NCC never allocated and would skew the distribution across those it did.
+locale: en
+---
+701
+703
+704
+705
+706
+707
+708
+801
+802
+803
+805
+806
+807
+808
+809
+810
+811
+813
+814
+815
+816
+817
+818
+901
+902
+903
+904
+905
+906
+907
+908
+909
+911
+913
+915
+916

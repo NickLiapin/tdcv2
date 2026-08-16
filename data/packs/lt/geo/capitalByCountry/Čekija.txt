@@ -1,0 +1,5 @@
+---
+description: Capital of Čekija (Lithuanian).
+locale: lt
+---
+Praha

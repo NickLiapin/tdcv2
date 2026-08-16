@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Lithuanian).
+locale: lt
+---
+Vienvietis kambarys
+Dvivietis kambarys
+Dvivietis su dviem lovomis
+Trivietis kambarys
+Keturvietis kambarys
+Šeimos kambarys
+Studija
+Apartamentai
+Liuksas
+Prezidentinis liuksas
+Standartinis kambarys
+Aukštesnės klasės kambarys
+Kambarys su balkonu
+Kambarys su vaizdu į jūrą
+Mansardinis kambarys
+Bendras kambarys
+Kambarys neįgaliesiems
+Kambarys su pirtimi

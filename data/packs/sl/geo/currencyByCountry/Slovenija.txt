@@ -1,0 +1,5 @@
+---
+description: Currency of Slovenija, named in Slovene
+locale: sl
+---
+evro

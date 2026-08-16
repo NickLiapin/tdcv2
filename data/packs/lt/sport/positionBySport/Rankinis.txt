@@ -1,0 +1,11 @@
+---
+description: Positions in rankinis (Lithuanian).
+locale: lt
+---
+Vartininkas
+Kairysis saugas
+Centrinis saugas
+Dešinysis saugas
+Kairysis kraštinis
+Dešinysis kraštinis
+Linijos žaidėjas

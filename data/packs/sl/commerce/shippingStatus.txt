@@ -1,0 +1,15 @@
+---
+description: Shipment status (Slovene)
+locale: sl
+---
+pripravljeno za oddajo
+prevzeto
+v sortirnem centru
+na poti
+v dostavi
+poskus dostave neuspešen
+čaka na prevzem
+dostavljeno
+vrnjeno pošiljatelju
+izgubljeno
+zadržano na carini

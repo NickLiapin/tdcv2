@@ -1,0 +1,16 @@
+---
+description: Month abbreviation. Latvian abbreviations end in a full stop, except marts and maijs, which are short enough to be written out.
+locale: lv
+---
+janv.
+febr.
+marts
+apr.
+maijs
+jūn.
+jūl.
+aug.
+sept.
+okt.
+nov.
+dec.

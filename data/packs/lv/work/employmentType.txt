@@ -1,0 +1,15 @@
+---
+description: Employment or contract type.
+locale: lv
+---
+Pilna slodze
+Nepilna slodze
+Uzņēmuma līgums
+Terminēts līgums
+Prakse
+Brīvmākslinieks
+Sezonas darbs
+Gabaldarbs
+Mācekļa līgums
+Pašnodarbinātais
+Mikrouzņēmuma darbinieks

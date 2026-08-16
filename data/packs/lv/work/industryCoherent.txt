@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list under jobByIndustry.
+locale: lv
+---
+Tehnoloģijas
+Veselības aprūpe
+Finanses
+Būvniecība
+Izglītība
+Viesmīlība
+Ražošana
+Mazumtirdzniecība
+Transports
+Jurisprudence

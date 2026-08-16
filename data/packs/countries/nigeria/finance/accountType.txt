@@ -1,0 +1,14 @@
+---
+address: nigeria.finance.accountType
+description: Nigerian bank account types as they appear on statements and account-opening forms. Savings and Current are the everyday pair. Domiciliary is specifically Nigerian in weight rather than in kind — a foreign-currency account, usually USD, held onshore, and common enough among ordinary people that no Nigerian bank's form omits it. The tiered accounts (Tier 1/2/3) are the CBN's KYC ladder: a Tier 1 account can be opened with almost no documentation and is capped hard on balance and transaction size, and the tiers exist to bring the unbanked in rather than to segment the wealthy.
+locale: en
+---
+Savings Account
+Current Account
+Domiciliary Account
+Fixed Deposit Account
+Corporate Current Account
+Tier 1 Savings Account
+Tier 2 Savings Account
+Tier 3 Savings Account
+Joint Account

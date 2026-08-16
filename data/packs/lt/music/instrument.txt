@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Lithuanian). Kanklės, the plucked zither, is the Lithuanian national instrument; skudučiai and ragai are the panpipes and wooden trumpets used to play sutartinės.
+locale: lt
+---
+Kanklės
+Skudučiai
+Ragai
+Birbynė
+Lumzdelis
+Daudytė
+Smuikas
+Altas
+Violončelė
+Kontrabosas
+Arfa
+Gitara
+Bosinė gitara
+Mandolina
+Bandža
+Fortepijonas
+Pianinas
+Vargonai
+Sintezatorius
+Akordeonas
+Armonika
+Fleita
+Klarnetas
+Obojus
+Fagotas
+Saksofonas
+Trimitas
+Trombonas
+Valtorna
+Tūba
+Būgnai

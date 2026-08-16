@@ -1,0 +1,5 @@
+---
+description: Capital of Baltarusija (Lithuanian).
+locale: lt
+---
+Minskas

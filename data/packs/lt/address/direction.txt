@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Lithuanian street, district or estate name (Šiaurės miestelis, Vakarų pramonės rajonas). Genitive, because a Lithuanian qualifier of this kind governs the noun it stands before.
+locale: lt
+---
+Šiaurės
+Pietų
+Rytų
+Vakarų
+Šiaurės rytų
+Šiaurės vakarų
+Pietryčių
+Pietvakarių
+Centrinis
+Aukštutinis
+Žemutinis
+Vidurinis
+Naujasis
+Senasis
+Užmiesčio

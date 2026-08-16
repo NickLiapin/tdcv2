@@ -1,0 +1,24 @@
+---
+description: Trip type (Lithuanian).
+locale: lt
+---
+Poilsinė kelionė
+Pažintinė kelionė
+Kelionė su vaikais
+Vestuvinė kelionė
+Verslo kelionė
+Komandiruotė
+Konferencinė kelionė
+Savaitgalio išvyka
+Dienos ekskursija
+Kruizas
+Autobusinė kelionė
+Kelionė automobiliu
+Kelionė nameliu ant ratų
+Žygis pėsčiomis
+Dviračių žygis
+Baidarių žygis
+Kalnų slidinėjimo kelionė
+Sveikatinimo kelionė
+Piligriminė kelionė
+Studijų mainų kelionė

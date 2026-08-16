@@ -1,0 +1,26 @@
+---
+description: Vehicle type (Slovene)
+locale: sl
+---
+osebni avtomobil
+limuzina
+karavan
+hečbek
+kupe
+kabriolet
+športni terenec
+terensko vozilo
+enoprostorec
+kombi
+dostavno vozilo
+tovornjak
+vlačilec
+prikolica
+polprikolica
+avtobus
+avtodom
+motorno kolo
+skuter
+kolo
+traktor
+delovni stroj

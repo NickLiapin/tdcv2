@@ -1,0 +1,12 @@
+---
+description: Diagnoses seen in Neiroloģija.
+locale: lv
+---
+Migrēna
+Epilepsija
+Parkinsona slimība
+Multiplā skleroze
+Išēmisks insults
+Perifēra neiropātija
+Ērču encefalīts
+Alcheimera slimība

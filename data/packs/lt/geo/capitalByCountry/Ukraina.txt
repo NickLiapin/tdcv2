@@ -1,0 +1,5 @@
+---
+description: Capital of Ukraina (Lithuanian).
+locale: lt
+---
+Kyjivas

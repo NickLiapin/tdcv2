@@ -1,0 +1,34 @@
+---
+description: Fish. The second half of this list is what a Latvian actually eats or catches. Reņģe is the Baltic herring, brētliņa the sprat that goes into the smoked tins sold as Rīgas šprotes, and nēģis the river lamprey — a Latvian delicacy caught in weirs on the Salaca and the Gauja and sold grilled at Carnikava, where it carries an EU protected designation. Zandarts, līdaka and plaudis are the standard inland catch.
+locale: lv
+---
+Lasis
+Tuncis
+Forele
+Menca
+Asaris
+Līdaka
+Zandarts
+Plaudis
+Rauda
+Vimba
+Karpa
+Sams
+Store
+Repsis
+Sīga
+Reņģe
+Brētliņa
+Nēģis
+Butes
+Akmeņplekste
+Zutis
+Ālants
+Vēdzele
+Skumbrija
+Paltuss
+Zobenzivs
+Marlīns
+Zelta zivtiņa
+Klaunzivs
+Gupijs

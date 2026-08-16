@@ -1,0 +1,11 @@
+---
+address: nigeria.vehicle.plate
+description: Nigerian vehicle registration plate in the format introduced in 2011 — ABC-123DE. The three leading letters are the Local Government Area or licensing office and are drawn from nigeria.vehicle.plateCode, so they are codes that really exist; the three digits are the position within a batch of a thousand; of the two trailing letters the FIRST encodes the year of registration, A for 2011, B for 2012 and onward, and the SECOND identifies the batch. This reverses the pre-2011 layout, which put the LGA letters at the END (AB123-CDE), so an older Nigerian plate reads the other way round and both are on the roads. THE YEAR LETTER IS DRAWN, NOT COMPUTED: A=2011 is published, but whether the sequence skips I, O and Q is not, so this file draws the year letter from A-P — the range that covers 2011 to the present if nothing is skipped — and does not claim any particular value means any particular year. Colour, which a plate carries and a string cannot: private plates are black on white with blue numerals, commercial are red, government green, diplomatic purple and green marked CORPS DIPLOMATIQUE. The state name and its slogan are printed as words across the top of the plate, which is why the letters encode an LGA and not a state.
+generator: tdc
+locale: en
+---
+<sequence name="lga"><gen type="template" value="nigeria.vehicle.plateCode"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="year"><gen type="regex" value="[A-P]"/></sequence>
+<sequence name="batch"><gen type="regex" value="[A-Z]"/></sequence>
+<data>${{lga}}-${{serial}}${{year}}${{batch}}</data>

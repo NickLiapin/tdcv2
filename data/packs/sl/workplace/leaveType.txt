@@ -1,0 +1,16 @@
+---
+description: Type of leave from work (Slovene). Slovene law keeps THREE parental leaves apart and a config that merges them will misdescribe a Slovene personnel record: materinski dopust is the 105 days reserved for the mother, očetovski dopust the 30 days reserved for the father and not transferable, and starševski dopust the 260 days the parents share afterwards. Krvodajalski dopust — a paid day off for donating blood — is a separate statutory entitlement.
+locale: sl
+---
+letni dopust
+bolniška odsotnost
+materinski dopust
+očetovski dopust
+starševski dopust
+dopust za nego družinskega člana
+izredni dopust
+neplačan dopust
+študijski dopust
+krvodajalski dopust
+praznik
+kolektivni dopust

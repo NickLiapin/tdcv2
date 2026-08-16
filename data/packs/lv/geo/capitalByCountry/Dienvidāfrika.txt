@@ -1,0 +1,5 @@
+---
+description: Capital of Dienvidāfrika, in the Latvian spelling.
+locale: lv
+---
+Pretorija

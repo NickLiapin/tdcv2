@@ -1,0 +1,16 @@
+---
+description: Job titles in the Slovene gostinstvo sector
+locale: sl
+---
+kuhar
+glavni kuhar
+pomočnik kuharja
+slaščičar
+natakar
+barman
+receptor
+hotelski gospodinjec
+vodja restavracije
+turistični vodnik
+animator
+sommelier

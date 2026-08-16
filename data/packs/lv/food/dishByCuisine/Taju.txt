@@ -1,0 +1,14 @@
+---
+description: Dishes of Taju cuisine as a Latvian menu names them.
+locale: lv
+---
+Pad Thai
+Zaļais karijs
+Tom Yum zupa
+Masaman karijs
+Papaijas salāti
+Mango ar lipīgajiem rīsiem
+Satai
+Tom Kha zupa
+Cepti nūdeļi ar bazilika lapām
+Larb salāti

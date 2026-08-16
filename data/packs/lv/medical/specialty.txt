@@ -1,0 +1,40 @@
+---
+description: Medical specialty as the Latvian register of medical practitioners names it.
+locale: lv
+---
+Ģimenes medicīna
+Internā medicīna
+Kardioloģija
+Dermatoloģija
+Endokrinoloģija
+Gastroenteroloģija
+Neiroloģija
+Onkoloģija
+Oftalmoloģija
+Ortopēdija
+Pediatrija
+Psihiatrija
+Pulmonoloģija
+Radioloģija
+Reimatoloģija
+Uroloģija
+Nefroloģija
+Hematoloģija
+Imunoloģija
+Alergoloģija
+Anestezioloģija
+Neatliekamā medicīna
+Ginekoloģija un dzemdniecība
+Otorinolaringoloģija
+Patoloģija
+Plastiskā ķirurģija
+Vispārējā ķirurģija
+Asinsvadu ķirurģija
+Neiroķirurģija
+Sirds ķirurģija
+Infektoloģija
+Ģeriatrija
+Neonatoloģija
+Rehabilitācijas medicīna
+Arodveselība
+Sporta medicīna

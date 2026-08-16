@@ -1,0 +1,20 @@
+---
+description: Compass direction. Latvian compass points are PLURAL nouns — ziemeļi, dienvidi, austrumi, rietumi are all plural in form and take a plural verb, which no config should try to singularise. The sixteen-point names compound without a hyphen and without a space, so they run long: ziemeļziemeļaustrumi is one word.
+locale: lv
+---
+Ziemeļi
+Dienvidi
+Austrumi
+Rietumi
+Ziemeļaustrumi
+Ziemeļrietumi
+Dienvidaustrumi
+Dienvidrietumi
+Ziemeļziemeļaustrumi
+Austrumziemeļaustrumi
+Austrumdienvidaustrumi
+Dienviddienvidaustrumi
+Dienviddienvidrietumi
+Rietumdienvidrietumi
+Rietumziemeļrietumi
+Ziemeļziemeļrietumi

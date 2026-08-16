@@ -1,0 +1,5 @@
+---
+description: Capital of Združeno kraljestvo, as Slovene names it
+locale: sl
+---
+London

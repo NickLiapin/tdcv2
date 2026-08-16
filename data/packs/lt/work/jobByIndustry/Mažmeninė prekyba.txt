@@ -1,0 +1,16 @@
+---
+description: Jobs in Mažmeninė prekyba (Lithuanian).
+locale: lt
+---
+Pardavėjas
+Kasininkas
+Parduotuvės vadovas
+Parduotuvės vadovo pavaduotojas
+Prekių išdėliotojas
+Pirkimų vadybininkas
+Klientų konsultantas
+Prekybos vietų prižiūrėtojas
+Nuostolių prevencijos specialistas
+Klientų aptarnavimo darbuotojas
+Regiono vadovas
+Inventorizacijos specialistas

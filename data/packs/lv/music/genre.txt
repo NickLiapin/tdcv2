@@ -1,0 +1,38 @@
+---
+description: Music genre. Genre names are largely international loans given a Latvian ending. Two are not: tautasdziesmas are the folk songs of the dainas corpus, and kordziesma — choral song — is a genre in its own right in Latvia, sustained by the Song Celebration and by hundreds of standing amateur choirs.
+locale: lv
+---
+Roks
+Popmūzika
+Džezs
+Klasiskā mūzika
+Kordziesma
+Tautasdziesmas
+Folkmūzika
+Hiphops
+Repis
+Kantrī
+Elektroniskā
+Blūzs
+Regejs
+Metāls
+Smagais metāls
+Pankroks
+Indie
+Alternatīvā
+Souls
+Fanks
+Disko
+House
+Tehno
+Trance
+Ambientā
+Eksperimentālā
+Baznīcas mūzika
+Opera
+Operete
+Mūzikls
+Kamermūzika
+Simfoniskā mūzika
+Latīņamerikas
+Šansons

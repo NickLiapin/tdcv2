@@ -1,0 +1,26 @@
+---
+description: Property amenity (Lithuanian). Pirtis (a sauna) is a normal feature of a Lithuanian house, not a luxury item.
+locale: lt
+---
+Balkonas
+Terasa
+Lodžija
+Rūsys
+Palėpė
+Garažas
+Parkavimo vieta
+Sandėliukas
+Liftas
+Šarvo durys
+Signalizacija
+Vaizdo stebėjimas
+Centrinis šildymas
+Geoterminis šildymas
+Židinys
+Pirtis
+Vonia
+Dušas
+Įrengta virtuvė
+Baldai
+Sodas
+Kiemas

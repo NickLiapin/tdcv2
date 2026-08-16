@@ -1,0 +1,16 @@
+---
+address: nigeria.holiday
+description: Nigerian public holidays, in the names the Federal Government's declarations use. Nigeria observes the Christian AND the Muslim calendar as a matter of federal law rather than of local option, which is the single most important thing about this list: the country is split roughly in half between a Muslim-majority north and a Christian-majority south, and the federal holiday calendar recognises both everywhere, so Eid is a public holiday in Lagos and Christmas is a public holiday in Kano. FOUR OF THESE HAVE NO FIXED DATE. Eid al-Fitr, Eid al-Adha and Id el-Maulud follow the lunar Hijri calendar and move about eleven days earlier each Gregorian year, and their exact dates are announced by the Ministry of Interior on moon sighting, sometimes only a day or two ahead — so a Nigerian calendar cannot be computed a year in advance the way a European one can. Good Friday and Easter Monday move with the Western Easter. Eid al-Fitr and Eid al-Adha are each declared over two days. Democracy Day is 12 June, moved there from 29 May in 2018 to mark the annulled 1993 election rather than the 1999 handover; a data set using 29 May is using the pre-2018 date. Names in official use are the Nigerian spellings — Id el-Kabir for Eid al-Adha and Id el-Maulud for the Prophet's birthday are what the gazette says.
+locale: en
+---
+New Year's Day
+Good Friday
+Easter Monday
+Workers' Day
+Eid al-Fitr
+Democracy Day
+Id el-Kabir
+Id el-Maulud
+Independence Day
+Christmas Day
+Boxing Day

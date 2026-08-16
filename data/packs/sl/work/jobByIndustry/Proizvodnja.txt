@@ -1,0 +1,16 @@
+---
+description: Job titles in the Slovene proizvodnja sector
+locale: sl
+---
+strojni tehnik
+orodjar
+strugar
+varilec
+ključavničar
+monter
+operater stroja
+kontrolor kakovosti
+tehnolog
+konstruktor
+vodja proizvodnje
+vzdrževalec

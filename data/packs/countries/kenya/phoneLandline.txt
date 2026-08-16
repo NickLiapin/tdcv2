@@ -1,0 +1,7 @@
+---
+address: kenya.phoneLandline
+description: Kenyan fixed-line number in E.164 form, restricted to Nairobi (+254 20 followed by seven digits), the one area whose subscriber-number length is unambiguous. The other area codes are real and are recorded here rather than generated, because the subscriber-number length outside Nairobi could not be confirmed and guessing it would produce numbers of the wrong shape: 41 Mombasa, 42 Malindi, 43 Voi, 44 Machakos, 45 Kajiado, 50 Naivasha, 51 Nakuru, 52 Kericho, 53 Eldoret, 54 Kitale, 55 Bungoma, 56 Kakamega, 57 Kisumu, 58 Kisii, 59 Homa Bay, 60 Murang'a, 61 Nyeri, 62 Nanyuki, 64 Meru, 65 Nyahururu, 67 Thika, 68 Embu. Dialled nationally an area code takes a leading 0 (020, 041, 051). Fixed lines are a small and shrinking part of Kenyan telephony — the country skipped most of the copper era — so kenya.phone, not this address, is what a Kenyan record normally holds.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="\+25420[0-9]{7}"/>

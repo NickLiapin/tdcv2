@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Lithuanian product listing (masculine singular; borrowed colour names such as bordo and chaki stay invariable and take no ending).
+locale: lt
+---
+baltas
+juodas
+pilkas
+tamsiai pilkas
+šviesiai pilkas
+sidabrinis
+grafito
+antracito
+raudonas
+tamsiai raudonas
+vyšninis
+bordo
+rožinis
+purpurinis
+violetinis
+alyvinis
+mėlynas
+tamsiai mėlynas
+šviesiai mėlynas
+žydras
+turkio
+melsvai žalias
+žalias
+tamsiai žalias
+šviesiai žalias
+salotinis
+alyvuogių
+chaki
+geltonas
+citrinos
+auksinis
+gintarinis
+oranžinis
+koralinis
+rudas
+šviesiai rudas
+tamsiai rudas
+kaštoninis
+riešuto
+smėlio
+kreminis
+dramblio kaulo
+kapučino
+vario
+bronzinis
+žalvarinis
+titano
+perlamutrinis
+skaidrus
+matinis juodas
+blizgus baltas
+natūralios spalvos
+ąžuolo spalvos
+riešutmedžio spalvos

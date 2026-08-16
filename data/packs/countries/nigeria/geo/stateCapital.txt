@@ -1,0 +1,42 @@
+---
+address: nigeria.geo.stateCapital
+description: Capitals of the 36 states, index-aligned with nigeria.geo.stateOrFct, with Abuja last as the seat of the Federal Capital Territory. Two lines are the ones people get wrong. LAGOS STATE'S CAPITAL IS IKEJA, NOT LAGOS — Lagos city is the commercial capital of the country and the state government sits at Ikeja, so a record pairing "Lagos" with "Lagos" is wrong even though it looks obviously right. And ABUJA IS NOT A STATE CAPITAL: it is the federal capital and the seat of the FCT, which is why it appears only on the last line, opposite the territory rather than opposite a state. Several capitals share their state's name (Bauchi, Enugu, Gombe, Kaduna, Kano, Katsina, Sokoto), which is correct and not a copy error. Kebbi's capital is Birnin Kebbi, Ekiti's is Ado Ekiti, Osun's is Osogbo and Edo's is Benin City — the Nigerian one, no relation to the Republic of Benin next door.
+locale: en
+---
+Umuahia
+Yola
+Uyo
+Awka
+Bauchi
+Yenagoa
+Makurdi
+Maiduguri
+Calabar
+Asaba
+Abakaliki
+Benin City
+Ado Ekiti
+Enugu
+Gombe
+Owerri
+Dutse
+Kaduna
+Kano
+Katsina
+Birnin Kebbi
+Lokoja
+Ilorin
+Ikeja
+Lafia
+Minna
+Abeokuta
+Akure
+Osogbo
+Ibadan
+Jos
+Port Harcourt
+Sokoto
+Jalingo
+Damaturu
+Gusau
+Abuja

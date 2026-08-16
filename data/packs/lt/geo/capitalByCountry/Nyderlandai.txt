@@ -1,0 +1,5 @@
+---
+description: Capital of Nyderlandai (Lithuanian).
+locale: lt
+---
+Amsterdamas

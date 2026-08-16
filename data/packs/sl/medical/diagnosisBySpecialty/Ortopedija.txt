@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in ortopedija, named in Slovene
+locale: sl
+---
+osteoartroza kolena
+osteoartroza kolka
+hernija medvretenčne ploščice
+zlom stegnenice
+izpah rame
+poškodba meniskusa
+pretrganje sprednje križne vezi
+skolioza
+hallux valgus
+tenisov komolec
+petni trn

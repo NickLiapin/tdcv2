@@ -1,0 +1,5 @@
+---
+description: Capital of Pietų Korėja (Lithuanian).
+locale: lt
+---
+Seulas

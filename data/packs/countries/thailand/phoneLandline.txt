@@ -1,0 +1,17 @@
+---
+address: thailand.phoneLandline
+description: Thai fixed-line number in E.164 form. Thailand's landline area codes are ONE digit in the Bangkok metropolitan area (2, giving +66 2 nnnnnnn with a seven-digit subscriber number) and TWO digits everywhere else (3x, 4x, 5x, 7x, giving +66 44 nnnnnn with six digits) — so a Thai landline is eight or nine digits after the country code depending on where it is, and a fixed-length check will reject half the country. The trunk 0 is dropped internationally, exactly as for mobiles. The area code is compulsory even for a local call: Thailand went to closed dialling in 1997, so a Bangkok number dialled from Bangkok still starts 02. Roughly, 3x is the east and the near south-west, 4x the northeast, 5x the north, 7x the south. This file draws Bangkok about a third of the time, which is close to the real share of fixed lines.
+generator: tdc
+---
+<sequence name="kind"><gen type="text" value="1,2" percent="35,65"/></sequence>
+<sequence name="bkk"><gen type="regex" value="\+662[0-9]{7}"/></sequence>
+<sequence name="prov"><gen type="regex" value="\+66[3457][2-7][0-9]{6}"/></sequence>
+<sequence name="number"><compute>
+  <result>
+    <choose>
+      <when><test><equals><field name="kind"/><int v="1"/></equals></test><then><field name="bkk"/></then></when>
+      <otherwise><field name="prov"/></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{number}}</data>

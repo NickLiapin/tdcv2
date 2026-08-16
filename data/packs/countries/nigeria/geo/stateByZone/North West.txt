@@ -1,0 +1,12 @@
+---
+address: nigeria.geo.stateByZone.North West
+description: The seven states of Nigeria's North West zone, the most populous of the six. Keyed by nigeria.geo.zone, so a config can draw a zone and then a state that really belongs to it.
+locale: en
+---
+Jigawa
+Kaduna
+Kano
+Katsina
+Kebbi
+Sokoto
+Zamfara

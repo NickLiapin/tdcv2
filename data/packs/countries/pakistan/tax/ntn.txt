@@ -1,0 +1,7 @@
+---
+address: pakistan.tax.ntn
+description: NTN — National Tax Number, issued by the Federal Board of Revenue, SEVEN digits. Seven digits is what this file generates, and the qualification matters more than the format does: since the FBR moved onto the IRIS system the NTN for an INDIVIDUAL and a sole proprietor is simply that person's 13-digit CNIC, and only companies, associations of persons and other registered entities carry a distinct 7-digit number. So a payroll or citizen test set does not want this generator at all — it wants pakistan.docs.cnic in the tax-number column, which is the same value the person's identity card carries, and that collapse of two identifiers into one is the point. A company or vendor test set wants the 7 digits generated here. Rendering varies and none of the variants add information: the FBR prints the bare seven digits, older certificates and third-party guides show a hyphen and a further code after it (1234567-001), and that tail is a taxpayer-unit or branch code, not a checksum. NO check digit is published for the NTN, and none is computed here — a made-up one would make every generated number fail against the FBR's own register while looking as though it had been verified.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{7}"/>

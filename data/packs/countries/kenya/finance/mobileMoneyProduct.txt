@@ -1,0 +1,14 @@
+---
+address: kenya.finance.mobileMoneyProduct
+description: Kenyan mobile-money products, and THE ONE FILE IN THIS PACK WHOSE VALUES ARE SWAHILI — hence locale: sw while everything else here is en. Each name is an ordinary Swahili word doing service as a brand: pesa is money, shwari is calm, fuliza means to carry on past the end (an overdraft), mali is wealth, ziidi is let-it-increase, lipa is pay, pochi la biashara is a business purse, okoa jahazi is rescue the vessel (an airtime advance), sambaza is to spread around (sending airtime on). They belong in the COUNTRY pack and not in data/packs/sw, because they are Kenyan products and not Swahili vocabulary: Tanzania runs M-Pesa too, in the same language, under different product names, and a Tanzanian would recognise the words while not recognising the services. M-Shwari and Fuliza are run with NCBA (Fuliza also with KCB and Sidian), Mali and Ziidi are money-market funds; the English-named siblings such as KCB M-Pesa are deliberately left out so that this file's locale claim stays true of every line in it. Rendered order-of-magnitude: Fuliza alone disbursed KES 1.47 trillion in Safaricom's 2025/26 year to 17.7 million distinct borrowers.
+locale: sw
+---
+M-Pesa
+M-Shwari
+Fuliza
+Mali
+Ziidi
+Lipa na M-Pesa
+Pochi la Biashara
+Okoa Jahazi
+Sambaza

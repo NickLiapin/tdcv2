@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonologija (Lithuanian).
+locale: lt
+---
+Bronchinė astma
+Lėtinė obstrukcinė plaučių liga
+Pneumonija
+Plaučių arterijos embolija
+Tuberkuliozė
+Obstrukcinė miego apnėja
+Bronchektazės
+Plaučių sarkoidozė
+Plaučių fibrozė
+Lėtinis bronchitas

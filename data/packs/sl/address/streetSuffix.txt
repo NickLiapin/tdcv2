@@ -1,0 +1,44 @@
+---
+description: Slovene thoroughfare type. It goes AFTER a possessive-adjectival street name (Prešernova cesta, Cankarjeva ulica) and BEFORE a genitive one (Ulica talcev, Trg svobode). Ulica is the town street, cesta the larger road, pot the footpath or lane, and nabrežje the embankment along a river — Ljubljana's are all nabrežja.
+locale: sl
+---
+ulica
+cesta
+trg
+pot
+steza
+nabrežje
+drevored
+obala
+aleja
+park
+promenada
+sprehajališče
+prehod
+ploščad
+most
+brv
+klanec
+breg
+vas
+naselje
+soseska
+dvorišče
+stopnice
+prelaz
+krožišče
+obvoznica
+avtocesta
+hitra cesta
+regionalna cesta
+lokalna cesta
+kolesarska steza
+gozdna pot
+kolovoz
+planinska pot
+sprehajalna pot
+ulica v naselju
+slepa ulica
+glavna cesta
+stranska cesta
+servisna cesta

@@ -1,0 +1,62 @@
+---
+description: Product material (Lithuanian), as a noun in the genitive so it composes directly onto the product noun (ąžuolo stalas, nerūdijančio plieno kriauklė) — Lithuanian expresses 'made of X' with the bare genitive and no preposition, unlike Polish z or German aus.
+locale: lt
+---
+ąžuolo
+beržo
+pušies
+eglės
+uosio
+klevo
+riešutmedžio
+buko
+maumedžio
+faneros
+medžio drožlių plokštės
+MDF
+bambuko
+korkinės medienos
+plieno
+nerūdijančio plieno
+anglinio plieno
+ketaus
+aliuminio
+vario
+žalvario
+bronzos
+titano
+cinko
+švino
+sidabro
+aukso
+platinos
+plastiko
+polipropileno
+polikarbonato
+akrilo
+silikono
+gumos
+latekso
+stiklo
+grūdinto stiklo
+keramikos
+porceliano
+akmens masės
+granito
+marmuro
+betono
+gipso
+odos
+dirbtinės odos
+zomšos
+medvilnės
+lino
+vilnos
+šilko
+poliesterio
+nailono
+viskozės
+džinsinio audinio
+veltinio
+popieriaus
+kartono

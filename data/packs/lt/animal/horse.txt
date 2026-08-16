@@ -1,0 +1,20 @@
+---
+description: Horse breed (Lithuanian). Žemaitukas is the native Lithuanian breed, one of the oldest in Europe.
+locale: lt
+---
+Žemaitukas
+Stambusis žemaitukas
+Lietuvos sunkusis vežimo arklys
+Trakėnų veislė
+Hanoverio veislė
+Arabų veislė
+Grynakraujis jojamasis
+Frizų veislė
+Andalūzų veislė
+Ardėnų veislė
+Šetlando ponis
+Velso ponis
+Haflingerų veislė
+Apalūzų veislė
+Mustangas
+Poni

@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Lithuanian).
+locale: lt
+---
+Sveikatos draudimas
+Papildomas sveikatos draudimas
+III pakopos pensijų kaupimas
+Gyvybės draudimas
+Sporto klubo abonementas
+Maitinimo kompensacija
+Kuro kompensacija
+Tarnybinis automobilis
+Nešiojamasis kompiuteris
+Mobilusis telefonas
+Nuotolinis darbas
+Lankstus darbo grafikas
+Papildomos atostogų dienos
+Mokymai ir kvalifikacijos kėlimas
+Kalbų kursai
+Vaikų priežiūros parama
+Psichologo konsultacijos
+Metinė premija

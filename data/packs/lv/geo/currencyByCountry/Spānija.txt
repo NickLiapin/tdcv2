@@ -1,0 +1,5 @@
+---
+description: Currency of Spānija, named in Latvian.
+locale: lv
+---
+eiro

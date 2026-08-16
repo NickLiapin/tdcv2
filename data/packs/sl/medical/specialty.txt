@@ -1,0 +1,40 @@
+---
+description: Medical specialty (Slovene). These are the specialisation titles the Slovene Medical Chamber recognises. Note družinska medicina — family medicine — which in Slovenia is the gatekeeping specialty every patient is registered with, and medicina dela, prometa in športa, a single Slovene specialty covering occupational, traffic and sports medicine that has no one-word equivalent elsewhere.
+locale: sl
+---
+družinska medicina
+interna medicina
+kardiologija
+pulmologija
+gastroenterologija
+endokrinologija
+nefrologija
+hematologija
+revmatologija
+infektologija
+onkologija
+radioterapija
+nevrologija
+psihiatrija
+otroška in mladostniška psihiatrija
+pediatrija
+neonatologija
+ginekologija in porodništvo
+kirurgija
+abdominalna kirurgija
+travmatologija
+ortopedska kirurgija
+nevrokirurgija
+kardiokirurgija
+žilna kirurgija
+plastična kirurgija
+urologija
+otorinolaringologija
+oftalmologija
+dermatovenerologija
+anesteziologija
+radiologija
+nuklearna medicina
+patologija
+laboratorijska medicina
+medicina dela, prometa in športa

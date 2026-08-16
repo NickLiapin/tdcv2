@@ -1,0 +1,23 @@
+---
+description: Property type (Slovene). A garsonjera is the single-room studio flat; a zidanica is the vineyard cottage of Styria and Lower Carniola, sold and priced as its own category; and vikend is a Slovene noun for a weekend house, not a borrowing of the English "weekend" in its English sense.
+locale: sl
+---
+stanovanje
+garsonjera
+enosobno stanovanje
+dvosobno stanovanje
+trisobno stanovanje
+mansardno stanovanje
+hiša
+enodružinska hiša
+dvojček
+vrstna hiša
+vila
+kmetija
+zidanica
+vikend
+poslovni prostor
+lokal
+pisarna
+skladišče
+zemljišče

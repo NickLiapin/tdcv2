@@ -1,0 +1,5 @@
+---
+description: Capital of Švica, as Slovene names it
+locale: sl
+---
+Bern

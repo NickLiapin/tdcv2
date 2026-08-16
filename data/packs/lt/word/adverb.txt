@@ -1,0 +1,36 @@
+---
+description: Common adverb (Lithuanian). Most are formed from an adjective with -ai, which is fully productive.
+locale: lt
+---
+gerai
+blogai
+greitai
+lėtai
+labai
+šiek tiek
+visai
+beveik
+tikrai
+galbūt
+visada
+niekada
+dažnai
+retai
+kartais
+dabar
+vakar
+šiandien
+rytoj
+anksti
+vėlai
+čia
+ten
+visur
+niekur
+aukštai
+žemai
+toli
+arti
+kartu
+atskirai
+staiga

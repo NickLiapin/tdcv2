@@ -1,0 +1,24 @@
+---
+description: Writing system (Slovene). Slovene itself is written in LATINICA — specifically GAJICA, Gaj's Latin alphabet, 25 letters: a b c č d e f g h i j k l m n o p r s š t u v z ž. It has NO q, w, x or y, and — the letters that separate it from its southern neighbours — no ć and no đ, which belong to Croatian and Serbian. Slovene reached that alphabet through a fight: BOHORIČICA, devised by Adam Bohorič in 1584, served for 250 years, and in the 1830s DAJNČICA and METELČICA were each proposed to replace it, in a public quarrel Slovene literary history calls the abecedna vojna, the alphabet war. Gajica won in 1845 and neither loser was ever used again. GLAGOLICA is the older Slavic script, and the Freising manuscripts — the first Slovene text of any kind, around 1000 AD — are in LATIN letters, not in it.
+locale: sl
+---
+latinica
+gajica
+bohoričica
+dajnčica
+metelčica
+cirilica
+glagolica
+grška pisava
+arabska pisava
+hebrejska pisava
+kitajska pisava
+japonska pisava
+korejska pisava
+devanagari
+tajska pisava
+armenska pisava
+gruzijska pisava
+etiopska pisava
+klinopis
+hieroglifi

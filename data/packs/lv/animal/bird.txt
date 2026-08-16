@@ -1,0 +1,38 @@
+---
+description: Bird. Baltā cielava, the white wagtail, is the national bird of Latvia, chosen in 1960; the white stork is not official but nests on a Latvian power pole in numbers found almost nowhere else in Europe. Lakstīgala, dzeguze and cīrulis carry more weight in Latvian than their English names do, because all three are stock figures of the dainas, the folk-song corpus.
+locale: lv
+---
+Baltā cielava
+Baltais stārķis
+Melnais stārķis
+Zvirbulis
+Sarkanrīklīte
+Ērglis
+Jūras ērglis
+Vanags
+Piekūns
+Pūce
+Ūpis
+Dzenis
+Melnā dzilna
+Dzeguze
+Lakstīgala
+Cīrulis
+Bezdelīga
+Strazds
+Zīlīte
+Žubīte
+Vārna
+Krauklis
+Kaija
+Gārnis
+Dzērve
+Gulbis
+Pīle
+Zoss
+Balodis
+Ķīvīte
+Zivju dzenītis
+Mežirbe
+Rubenis
+Medņi

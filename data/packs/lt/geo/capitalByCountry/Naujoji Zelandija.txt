@@ -1,0 +1,5 @@
+---
+description: Capital of Naujoji Zelandija (Lithuanian).
+locale: lt
+---
+Velingtonas

@@ -1,0 +1,35 @@
+---
+description: Musical instrument. Kokle is the Latvian box zither and the national instrument, the Baltic cousin of the Lithuanian kanklės and Finnish kantele; ģīga is the folk fiddle and stabule the wooden whistle. The rest are the standard orchestral and popular instruments.
+locale: lv
+---
+Kokle
+Ģīga
+Stabule
+Dūdas
+Trīdeksnis
+Ģitāra
+Elektriskā ģitāra
+Basģitāra
+Klavieres
+Ērģeles
+Akordeons
+Vijole
+Alts
+Čells
+Kontrabass
+Arfa
+Flauta
+Oboja
+Klarnete
+Fagots
+Saksofons
+Trompete
+Trombons
+Mežrags
+Tuba
+Bungas
+Sitaminstrumenti
+Ksilofons
+Timpāni
+Cītara
+Mandolīna

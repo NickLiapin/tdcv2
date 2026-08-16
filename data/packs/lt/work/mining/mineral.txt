@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Lithuanian). Lithuania's actual resources: peat, dolomite, limestone, sand, gravel, clay, gypsum, a little oil, and amber washed from the seabed.
+locale: lt
+---
+Durpės
+Dolomitas
+Klintis
+Smėlis
+Žvyras
+Molis
+Gipsas
+Kreida
+Opoka
+Sapropelis
+Nafta
+Gintaras
+Geležies rūda
+Anhidritas
+Mineralinis vanduo
+Geoterminis vanduo
+Kvarcinis smėlis
+Titnagas
+Granitas

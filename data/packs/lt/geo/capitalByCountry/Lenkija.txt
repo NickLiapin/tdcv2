@@ -1,0 +1,5 @@
+---
+description: Capital of Lenkija (Lithuanian).
+locale: lt
+---
+Varšuva

@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladeša, in the Latvian spelling.
+locale: lv
+---
+Daka

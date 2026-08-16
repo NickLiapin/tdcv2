@@ -1,0 +1,9 @@
+---
+description: Work shift.
+locale: lv
+---
+Dienas maiņa
+Nakts maiņa
+Vakara maiņa
+Maiņu grafiks
+Diennakts maiņa

@@ -1,0 +1,12 @@
+---
+description: Diagnoses seen in Psihiatrija.
+locale: lv
+---
+Depresija
+Ģeneralizēti trauksmes traucējumi
+Bipolāri afektīvie traucējumi
+Šizofrēnija
+Posttraumatiskā stresa sindroms
+Uzmanības deficīta un hiperaktivitātes sindroms
+Bezmiegs
+Alkohola atkarība

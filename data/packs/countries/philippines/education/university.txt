@@ -1,0 +1,61 @@
+---
+address: philippines.education.university
+description: Universities of the Philippines that exist, in English — which is not a translation choice but the fact of the matter: Philippine higher education is conducted in English, degrees, transcripts and diplomas are issued in English, and these are the institutions' own registered names. THE UNIVERSITY OF SANTO TOMAS, FOUNDED IN 1611, IS THE OLDEST UNIVERSITY IN ASIA — older than Harvard, and still operating on its own campus in Manila. The list mixes three systems that behave differently and are worth keeping apart when generating records: the University of the Philippines, the national university, whose constituent campuses (Diliman, Los Baños, Manila, Visayas, Mindanao) are separate institutions with separate admissions and are named that way here; the Catholic universities founded by religious orders — Santo Tomas by the Dominicans, Ateneo and Xavier by the Jesuits, De La Salle by the Christian Brothers, San Carlos by the Society of the Divine Word — which are among the most selective in the country; and the state universities and colleges, one or more per province, which teach most Philippine students. Names carry Spanish word order and Spanish articles because the orders that founded them were Spanish ("Ateneo de Manila", "Pamantasan ng Lungsod ng Maynila" being the Tagalog exception), so alphabetising these by first word puts a dozen institutions under A and D.
+locale: en
+---
+University of the Philippines Diliman
+University of the Philippines Los Baños
+University of the Philippines Manila
+University of the Philippines Visayas
+University of the Philippines Mindanao
+Ateneo de Manila University
+De La Salle University
+University of Santo Tomas
+Mapúa University
+Polytechnic University of the Philippines
+Far Eastern University
+University of the East
+National University
+Adamson University
+San Beda University
+Lyceum of the Philippines University
+Technological Institute of the Philippines
+Technological University of the Philippines
+Philippine Normal University
+Pamantasan ng Lungsod ng Maynila
+Silliman University
+University of San Carlos
+Cebu Institute of Technology - University
+University of San Jose-Recoletos
+Cebu Normal University
+Xavier University - Ateneo de Cagayan
+Ateneo de Davao University
+Ateneo de Naga University
+Ateneo de Zamboanga University
+Saint Louis University
+University of Baguio
+Benguet State University
+Mindanao State University
+Mindanao State University - Iligan Institute of Technology
+Western Mindanao State University
+University of Southeastern Philippines
+University of Mindanao
+Central Mindanao University
+Notre Dame University
+Central Luzon State University
+Bulacan State University
+Batangas State University
+Bicol University
+Visayas State University
+Palawan State University
+Cagayan State University
+Isabela State University
+Nueva Vizcaya State University
+Holy Angel University
+Angeles University Foundation
+University of Negros Occidental-Recoletos
+West Visayas State University
+Central Philippine University
+University of San Agustin
+Leyte Normal University
+Caraga State University

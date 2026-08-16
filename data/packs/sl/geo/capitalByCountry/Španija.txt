@@ -1,0 +1,5 @@
+---
+description: Capital of Španija, as Slovene names it
+locale: sl
+---
+Madrid

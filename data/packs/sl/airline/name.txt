@@ -1,0 +1,54 @@
+---
+description: Airline. Adria Airways was the Slovene national carrier from 1961 until it collapsed in 2019, and Slovenia has had no flag carrier since — Ljubljana is served entirely by foreign airlines, which is why this list is almost all foreign. Airline names are brand names and keep their real spelling in every locale — a Slovene ticket says Lufthansa, not a translation.
+locale: sl
+---
+Adria Airways
+Lufthansa
+Austrian Airlines
+Swiss International Air Lines
+Air France
+KLM
+British Airways
+Turkish Airlines
+Air Serbia
+Croatia Airlines
+LOT Polish Airlines
+Aeroflot
+Iberia
+Alitalia
+ITA Airways
+Finnair
+SAS
+Norwegian
+Ryanair
+Wizz Air
+easyJet
+Eurowings
+Transavia
+Vueling
+Brussels Airlines
+TAP Air Portugal
+Aegean Airlines
+Montenegro Airlines
+Air Montenegro
+Tarom
+Bulgaria Air
+Czech Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Turkish Cargo
+Air Canada
+Delta Air Lines
+United Airlines
+American Airlines
+Singapore Airlines
+Cathay Pacific
+Japan Airlines
+All Nippon Airways
+Korean Air
+China Southern Airlines
+Air China
+Qantas
+Ethiopian Airlines
+El Al

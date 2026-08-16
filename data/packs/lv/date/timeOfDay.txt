@@ -1,0 +1,12 @@
+---
+description: Time of day.
+locale: lv
+---
+rīts
+priekšpusdiena
+pusdienlaiks
+pēcpusdiena
+vakars
+nakts
+rītausma
+krēsla

@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Lithuanian). Krepšinis leads the list rather than football because basketball is the Lithuanian national sport by a wide margin — the phrase krepšinis yra antroji religija is not a joke anyone in Lithuania has to explain.
+locale: lt
+---
+Krepšinis
+Futbolas
+Tinklinis
+Rankinis
+Ledo ritulys
+Regbis
+Beisbolas
+Amerikietiškasis futbolas

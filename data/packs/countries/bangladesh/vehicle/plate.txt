@@ -1,0 +1,12 @@
+---
+address: bangladesh.vehicle.plate
+description: A Bangladeshi registration plate as it is written, e.g. ঢাকা মেট্রো-গ ১১-১২৩৪. Every character on a Bangladeshi plate is Bengali — the place name in Bengali script, the class letter a Bengali consonant, and BOTH numbers in Bengali numerals ০১২৩৪৫৬৭৮৯ rather than Western digits. That is the thing most datasets get wrong about this country, and it is why this file emits Bengali digits and not ASCII ones; a plate rendered 'DHAKA METRO-GA 11-1234' is a transliteration, not a plate. Four parts, all meaningful — the place (bangladesh.vehicle.plateArea) is the BRTA circle that registered the vehicle, the letter (bangladesh.vehicle.plateClass) is the vehicle CLASS and for cars encodes engine displacement, then a two-digit series 11-99, then the four-digit vehicle number 0001-9999. When a series fills, BRTA advances to the next, which is why the series digits are not a random spread in the real fleet even though they are drawn as one here. On the metal the plate is TWO LINES — place name and class letter on the first, series and number on the second — and the single-line form written here with a hyphen after the place is how it is quoted in news reports, insurance papers and police records. Older vehicles carry plates with no series number at all; those are not generated. Nothing on a Bangladeshi plate is a check digit, and nothing verifies anything else: the plate is an allocation, and validating one means asking BRTA.
+generator: tdc
+locale: bn
+---
+<sequence name="area"><gen type="template" value="bangladesh.vehicle.plateArea"/></sequence>
+<sequence name="class"><gen type="template" value="bangladesh.vehicle.plateClass"/></sequence>
+<!-- Series 11-99 and vehicle number 0001-9999, in Bengali numerals (U+09E6..U+09EF). -->
+<sequence name="series"><gen type="regex" value="(১[১-৯]|[২-৯][০-৯])"/></sequence>
+<sequence name="number"><gen type="regex" value="(০০০[১-৯]|০০[১-৯][০-৯]|০[১-৯][০-৯][০-৯]|[১-৯][০-৯][০-৯][০-৯])"/></sequence>
+<data>${{area}}-${{class}} ${{series}}-${{number}}</data>

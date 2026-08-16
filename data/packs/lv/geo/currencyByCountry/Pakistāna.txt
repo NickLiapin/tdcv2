@@ -1,0 +1,5 @@
+---
+description: Currency of Pakistāna, named in Latvian.
+locale: lv
+---
+Pakistānas rūpija

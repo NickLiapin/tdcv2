@@ -1,0 +1,5 @@
+---
+description: Capital of Indonēzija, in the Latvian spelling.
+locale: lv
+---
+Džakarta

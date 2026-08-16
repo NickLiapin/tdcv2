@@ -1,0 +1,45 @@
+---
+description: Company legal form or name element. Latvian puts the legal form BEFORE the name, not after it — SIA "Latvijas Finieris", AS "Latvenergo" — which is the opposite of English Inc or Ltd, so a template must prepend rather than append. SIA (sabiedrība ar ierobežotu atbildību, a limited company) covers the overwhelming majority of Latvian firms; AS is the joint-stock company, IK the sole trader, ZS the farm holding, VAS the state-owned joint-stock company. The remaining entries are descriptive words that really do trail a Latvian company name.
+locale: lv
+---
+SIA
+AS
+IK
+ZS
+PS
+KS
+VAS
+VSIA
+biedrība
+nodibinājums
+kooperatīvā sabiedrība
+filiāle
+pārstāvniecība
+Grupa
+Holdings
+Partneri
+Serviss
+Tehnoloģijas
+Sistēmas
+Risinājumi
+Investīcijas
+Konsultācijas
+Projekti
+Ražotne
+Rūpnīca
+Būve
+Celtne
+Tirdzniecība
+Loģistika
+Transports
+Baltija
+Latvija
+Grupa Baltija
+Nams
+Centrs
+Studija
+Aģentūra
+Fonds
+Alianse
+Apvienība
+Kompānija

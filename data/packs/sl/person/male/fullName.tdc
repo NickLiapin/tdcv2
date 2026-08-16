@@ -1,0 +1,10 @@
+---
+description: Slovene full male name — one given name and one surname (Marko Novak). Slovene carries a single surname, given name first, unlike the two-surname Spanish form and unlike the family-name-first order of Hungarian.
+generator: tdc
+locale: sl
+---
+<sequence name="p">
+  <gen name="f" type="template" value="sl.person.male.firstName"/>
+  <gen name="l" type="template" value="sl.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in onkologija, named in Slovene
+locale: sl
+---
+rak dojke
+rak pljuč
+rak debelega črevesa in danke
+rak prostate
+rak želodca
+rak trebušne slinavke
+melanom
+limfom
+levkemija
+rak materničnega vratu
+rak ščitnice

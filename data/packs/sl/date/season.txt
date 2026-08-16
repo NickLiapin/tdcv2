@@ -1,0 +1,8 @@
+---
+description: Season (Slovene, lowercase per Slovene orthography). Slovenia has four and they are sharply marked: the country runs from the Alps to the Adriatic in 150 kilometres, so the same calendar season is snow at Kranjska Gora and figs in Piran.
+locale: sl
+---
+pomlad
+poletje
+jesen
+zima

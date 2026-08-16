@@ -1,0 +1,14 @@
+---
+description: Medical specialty (has a coherent diagnosis list). Note the Slovene spellings: NEVROLOGIJA with a v, and PSIHIATRIJA without the -ij- that Croatian and Serbian put in psihijatrija — Slovene takes these Greek stems through a different path and the difference runs across the whole medical vocabulary.
+locale: sl
+---
+Kardiologija
+Nevrologija
+Onkologija
+Dermatologija
+Gastroenterologija
+Endokrinologija
+Pulmologija
+Ortopedija
+Psihiatrija
+Nefrologija

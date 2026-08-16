@@ -1,0 +1,37 @@
+---
+description: Vegetable. Kartupelis heads the list because it heads the Latvian plate; skābēti kāposti (sauerkraut) is a vegetable in its own right in Latvia and not a condiment, fermented in barrels through the winter. Sēnes — mushrooms — are counted with the vegetables here because Latvian shopping and cooking treat them that way, and autumn mushroom picking is close to a national sport.
+locale: lv
+---
+Kartupelis
+Burkāns
+Bietes
+Kāposts
+Skābēti kāposti
+Ziedkāposti
+Brokoļi
+Rutki
+Redīsi
+Kāļi
+Rāceņi
+Sīpols
+Loks
+Puravs
+Ķiploks
+Gurķis
+Tomāts
+Paprika
+Baklažāns
+Kabacis
+Ķirbis
+Salāti
+Spināti
+Skābenes
+Selerija
+Sparģeļi
+Zirņi
+Pupas
+Pupiņas
+Kukurūza
+Sēnes
+Gailenes
+Baravikas

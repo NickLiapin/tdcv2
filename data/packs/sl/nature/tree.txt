@@ -1,0 +1,32 @@
+---
+description: Tree (Slovene). Slovenia is about 58 percent forest, the third most wooded country in Europe, so these are everyday words rather than botanical ones. The first block is the beech-and-fir forest of the Dinaric interior and the Alps, the second what grows on the karst and along the coast. The lipa, the linden, is the Slovene national tree and the village one is where a community met.
+locale: sl
+---
+bukev
+hrast
+dob
+graden
+gaber
+javor
+jesen
+brest
+lipa
+breza
+topol
+vrba
+jelša
+kostanj
+oreh
+češnja
+jablana
+hruška
+smreka
+jelka
+macesen
+bor
+črni bor
+tisa
+brin
+cipresa
+oljka
+figovec

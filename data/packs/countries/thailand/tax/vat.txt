@@ -1,0 +1,7 @@
+---
+address: thailand.tax.vat
+description: Thai VAT registration number (เลขประจำตัวผู้เสียภาษีมูลค่าเพิ่ม). Thailand DOES levy VAT — ภาษีมูลค่าเพิ่ม, 7% since 1997, registration compulsory above 1.8 million baht of annual turnover — but there is NO separate VAT number and no country-letter prefix. Since 2012 the VAT registration number of a juristic person IS its 13-digit DBD registration number, unchanged: the same digits as thailand.tax.corporateTin, the same mod-11 check, no "TH" in front. So do not build a Thai VAT number the way an EU one is built, and do not expect a Thai tax invoice to show two different numbers — it shows one, labelled เลขประจำตัวผู้เสียภาษีอากร, with the words สำนักงานใหญ่ or a five-digit branch code beside it to say which establishment issued it. This address emits that number for a juristic registrant. A VAT-registered individual or sole trader uses their 13-digit personal TIN instead, which is thailand.tax.tin. The branch suffix is not modelled here.
+generator: tdc
+---
+<sequence name="vat"><gen type="template" value="thailand.tax.corporateTin"/></sequence>
+<data>${{vat}}</data>

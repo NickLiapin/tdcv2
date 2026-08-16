@@ -1,0 +1,19 @@
+---
+description: Court. Latvian is the official language of ONE country, so this is the judiciary of the Republic of Latvia rather than a generic set of court words — compare the Spanish and Portuguese packs, which must stay generic because their language spans many judiciaries. Two entries have no English equivalent: bāriņtiesa is the local orphan's court, a municipal body that handles guardianship and child protection, and zemesgrāmatu nodaļa is the land-register division. Latvia has NO jury trial at all; serious criminal cases are heard by a professional judge, so no Latvian court list contains a jury.
+locale: lv
+---
+Satversmes tiesa
+Augstākā tiesa
+Senāts
+Apgabaltiesa
+Rīgas apgabaltiesa
+Rajona (pilsētas) tiesa
+Administratīvā rajona tiesa
+Administratīvā apgabaltiesa
+Ekonomisko lietu tiesa
+Bāriņtiesa
+Zemesgrāmatu nodaļa
+Šķīrējtiesa
+Disciplinārtiesa
+Eiropas Savienības Tiesa
+Eiropas Cilvēktiesību tiesa

@@ -1,0 +1,26 @@
+---
+description: Allergy (Slovene). Ambrozija — ragweed — is the dominant late-summer pollen allergy in eastern Slovenia and is a notifiable invasive plant that landowners are legally required to remove; breza, the birch, is the spring one across the rest of the country.
+locale: sl
+---
+cvetni prah
+breza
+ambrozija
+trave
+pelin
+leska
+jelša
+pršica
+plesen
+dlaka mačke
+dlaka psa
+čebelji pik
+osji pik
+arašidi
+oreški
+mleko
+jajca
+soja
+pšenica
+gluten
+morski sadeži
+penicilin

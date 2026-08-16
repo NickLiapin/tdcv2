@@ -1,0 +1,17 @@
+---
+description: Type of legal case (Slovene)
+locale: sl
+---
+kazenska zadeva
+prekrškovna zadeva
+civilna pravda
+gospodarski spor
+delovni spor
+socialni spor
+upravni spor
+zapuščinski postopek
+izvršilni postopek
+stečajni postopek
+nepravdni postopek
+ustavna pritožba
+arbitraža

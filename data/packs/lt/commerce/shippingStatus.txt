@@ -1,0 +1,15 @@
+---
+description: Shipping status (Lithuanian).
+locale: lt
+---
+Ruošiama siuntai
+Perduota vežėjui
+Išsiųsta
+Kelyje
+Rūšiavimo centre
+Pristatoma šiandien
+Pristatyta
+Laukia paštomate
+Nepavyko pristatyti
+Grąžinama siuntėjui
+Dingusi

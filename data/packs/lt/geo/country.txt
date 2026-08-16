@@ -1,0 +1,52 @@
+---
+description: Country, weighted by population (millions), as the LITHUANIAN language names it. Lithuanian translates and then declines a country name rather than transliterating it — Germany is Vokietija, Poland is Lenkija, Sweden is Švedija — and the -ija ending marks a country the way -land does in English. These names are the keys of capitalByCountry, currencyByCountry and currencyCodeByCountry, so they must match those filenames character for character.
+locale: lt
+weighted: true
+---
+Kinija,1410
+Indija,1400
+Jungtinės Amerikos Valstijos,335
+Indonezija,275
+Pakistanas,240
+Nigerija,220
+Brazilija,215
+Bangladešas,170
+Rusija,144
+Meksika,128
+Japonija,125
+Egiptas,110
+Vietnamas,98
+Turkija,85
+Vokietija,84
+Tailandas,72
+Prancūzija,68
+Jungtinė Karalystė,67
+Pietų Afrikos Respublika,60
+Italija,59
+Pietų Korėja,52
+Ispanija,47
+Argentina,46
+Kanada,39
+Lenkija,38
+Saudo Arabija,36
+Ukraina,36
+Australija,26
+Nyderlandai,18
+Čekija,11
+Belgija,12
+Švedija,10
+Graikija,10
+Portugalija,10
+Vengrija,10
+Baltarusija,9
+Austrija,9
+Šveicarija,9
+Singapūras,6
+Danija,6
+Suomija,6
+Norvegija,5
+Airija,5
+Naujoji Zelandija,5
+Lietuva,3
+Latvija,2
+Estija,1

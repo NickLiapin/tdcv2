@@ -1,0 +1,32 @@
+---
+description: Tree. Ozols and liepa — the oak and the lime — are the two Latvian national trees, and the pairing is gendered in folk symbolism: the oak stands for the man and the lime for the woman, which is why a Jāņi wreath of oak leaves goes to a Jānis and one of flowers to a Līga. Priede, egle and bērzs are what actually covers the country: Latvia is a bit over half forest, and the birch and Scots pine dominate it.
+locale: lv
+---
+Ozols
+Liepa
+Bērzs
+Priede
+Egle
+Apse
+Alksnis
+Osis
+Kļava
+Vītols
+Kārkls
+Lazda
+Ieva
+Pīlādzis
+Ābele
+Ķirsis
+Plūme
+Bumbiere
+Goba
+Vīksna
+Skābardis
+Dižskābardis
+Ciedrs
+Lapegle
+Paeglis
+Riekstkoks
+Kastaņa
+Papele

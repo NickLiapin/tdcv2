@@ -1,0 +1,14 @@
+---
+description: Dishes of Libāniešu cuisine as a Latvian menu names them.
+locale: lv
+---
+Hummuss
+Falafels
+Šaverma
+Tabūle
+Kibbeh
+Fattoush
+Manakiš
+Baba ganuš
+Sfīha
+Labneh

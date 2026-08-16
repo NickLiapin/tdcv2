@@ -1,0 +1,6 @@
+---
+address: ukraine.phone
+description: Ukrainian mobile number in E.164 form — +380, a two-digit operator code, seven subscriber digits, twelve digits in all. The codes drawn here are the ones actually allocated: 67, 68, 96, 97, 98 Київстар; 50, 66, 95, 99 Vodafone Україна; 63, 73, 93 lifecell; 39 Utel; 91 TriMob; 92 PEOPLEnet; 94 Інтертелеком. Number portability has been live since 2019, so the code no longer tells you which operator a subscriber is on, only which one issued the number. Written without the trunk 0: a Ukrainian dialling at home types 067..., but the 0 is not part of the international number.
+generator: tdc
+---
+<gen type="regex" value="\+380(39|50|63|66|67|68|73|91|92|93|94|95|96|97|98|99)[0-9]{7}"/>

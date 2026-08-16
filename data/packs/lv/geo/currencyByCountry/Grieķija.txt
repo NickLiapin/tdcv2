@@ -1,0 +1,5 @@
+---
+description: Currency of Grieķija, named in Latvian.
+locale: lv
+---
+eiro

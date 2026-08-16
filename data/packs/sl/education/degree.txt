@@ -1,0 +1,20 @@
+---
+description: Academic degree or level of education (Slovene). These are the qualifications the Slovene system awards after the Bologna reform: dipl. from a first-cycle programme, mag. from a second-cycle one, dr. from a doctorate. The older univ. dipl. titles are still carried by everyone who graduated before 2009 and still appear on Slovene business cards. Slovenia also labels education by ROMAN NUMERAL level, I. to VIII., and a Slovene job advert states the level rather than the title — V. stopnja means a completed secondary education.
+locale: sl
+---
+osnovnošolska izobrazba
+nižja poklicna izobrazba
+srednja poklicna izobrazba
+srednja strokovna izobrazba
+gimnazijski maturant
+poklicna matura
+splošna matura
+višja strokovna izobrazba
+diplomant
+diplomirani inženir
+univerzitetni diplomant
+magister stroke
+magister znanosti
+doktor znanosti
+specialist
+akademik

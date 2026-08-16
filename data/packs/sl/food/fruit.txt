@@ -1,0 +1,38 @@
+---
+description: Fruit (Slovene). Apples, pears and plums come from the orchards of Styria and Lower Carniola; figs, persimmons, olives and kaki from the Vipava valley and the coast, which is Mediterranean; and Slovenia grows enough hops and grapes that both have their own vocabulary. Kaki is the everyday Slovene word for the persimmon and is on every autumn market stall on the coast.
+locale: sl
+---
+jabolko
+hruška
+sliva
+češplja
+češnja
+višnja
+breskev
+nektarina
+marelica
+grozdje
+jagoda
+malina
+borovnica
+robida
+ribez
+kosmulja
+brusnica
+bezeg
+šipek
+lubenica
+melona
+kaki
+figa
+granatno jabolko
+kivi
+limona
+pomaranča
+mandarina
+grenivka
+banana
+ananas
+mango
+avokado
+oreh

@@ -1,0 +1,38 @@
+---
+address: thailand.education.university
+description: Universities of Thailand, Thai names, the older and larger first. จุฬาลงกรณ์มหาวิทยาลัย is the only one whose name does not begin with the word มหาวิทยาลัย ("university"), because it is named for King Chulalongkorn and predates the convention — it is Thailand's first university, founded 1917. Two of these are open-admission universities on a scale that surprises people: มหาวิทยาลัยรามคำแหง and มหาวิทยาลัยสุโขทัยธรรมาธิราช each enrol students in the hundreds of thousands and admit without entrance examination. The three พระจอมเกล้า institutions are the technological universities and are separate universities despite the shared name, distinguished by their locations — ลาดกระบัง, ธนบุรี and พระนครเหนือ. Thai script: no spaces between words, no capital letters, so มหาวิทยาลัยเกษตรศาสตร์ is a single unbroken token.
+locale: th
+---
+จุฬาลงกรณ์มหาวิทยาลัย
+มหาวิทยาลัยมหิดล
+มหาวิทยาลัยธรรมศาสตร์
+มหาวิทยาลัยเกษตรศาสตร์
+มหาวิทยาลัยเชียงใหม่
+มหาวิทยาลัยขอนแก่น
+มหาวิทยาลัยสงขลานครินทร์
+สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
+มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ
+มหาวิทยาลัยศิลปากร
+มหาวิทยาลัยศรีนครินทรวิโรฒ
+มหาวิทยาลัยบูรพา
+มหาวิทยาลัยนเรศวร
+มหาวิทยาลัยแม่โจ้
+มหาวิทยาลัยมหาสารคาม
+มหาวิทยาลัยอุบลราชธานี
+มหาวิทยาลัยนครพนม
+มหาวิทยาลัยวลัยลักษณ์
+มหาวิทยาลัยแม่ฟ้าหลวง
+มหาวิทยาลัยเทคโนโลยีสุรนารี
+มหาวิทยาลัยพะเยา
+มหาวิทยาลัยทักษิณ
+มหาวิทยาลัยรามคำแหง
+มหาวิทยาลัยสุโขทัยธรรมาธิราช
+สถาบันบัณฑิตพัฒนบริหารศาสตร์
+มหาวิทยาลัยเทคโนโลยีราชมงคลธัญบุรี
+มหาวิทยาลัยศรีปทุม
+มหาวิทยาลัยอัสสัมชัญ
+มหาวิทยาลัยกรุงเทพ
+มหาวิทยาลัยรังสิต
+มหาวิทยาลัยหอการค้าไทย
+มหาวิทยาลัยธุรกิจบัณฑิตย์

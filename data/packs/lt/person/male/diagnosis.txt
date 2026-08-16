@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Lithuanian (male-specific + common).
+locale: lt
+---
+Prostatos hiperplazija
+Prostatos vėžys
+Prostatitas
+Sėklidžių vėžys
+Varikocelė
+Hidrocelė
+Erekcijos sutrikimas
+Fimozė
+Sėklidės sukimasis
+Ginekomastija
+Vyrų nevaisingumas
+Arterinė hipertenzija
+2 tipo cukrinis diabetas
+Išeminė širdies liga
+Miokardo infarktas
+Podagra
+Inkstų akmenligė
+Lėtinė obstrukcinė plaučių liga
+Nutukimas
+Hiperlipidemija
+Migrena
+Bronchinė astma
+Osteoartritas
+Depresijos epizodas
+Miego apnėja
+Skrandžio opa

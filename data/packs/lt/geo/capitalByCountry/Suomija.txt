@@ -1,0 +1,5 @@
+---
+description: Capital of Suomija (Lithuanian).
+locale: lt
+---
+Helsinkis

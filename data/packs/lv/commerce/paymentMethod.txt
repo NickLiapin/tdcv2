@@ -1,0 +1,19 @@
+---
+description: Payment method. Internetbanka — paying by a bank-link redirect straight into Swedbank, SEB or Citadele — is the default way a Latvian pays online, ahead of card, which is the reverse of the Anglophone habit. Skaidra nauda saņemot is cash on delivery, and remains common for parcel-locker orders.
+locale: lv
+---
+Kredītkarte
+Debetkarte
+Internetbanka
+Bankas pārskaitījums
+Skaidra nauda saņemot
+Skaidra nauda
+PayPal
+Apple Pay
+Google Pay
+Mobilais maksājums
+Dāvanu karte
+Līzings
+Pēcapmaksa
+Kriptovalūta
+Pirkt tagad, maksāt vēlāk

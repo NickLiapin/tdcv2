@@ -1,0 +1,28 @@
+---
+description: Payment method (Slovene). Flik is the Slovene instant payment scheme run through the banks, and mBills and Valú are the two Slovene mobile wallets; the UPN nalog is the universal payment order, the standardised paper slip with a QR code that a Slovene still pays at a bank or post office counter. Card scheme names are brands and keep their spelling.
+locale: sl
+---
+gotovina
+plačilna kartica
+debetna kartica
+kreditna kartica
+Visa
+Mastercard
+Maestro
+BA/Activa
+Diners Club
+American Express
+bančno nakazilo
+UPN nalog
+trajnik
+e-račun
+Flik
+mBills
+Valú
+PayPal
+Apple Pay
+Google Pay
+plačilo po povzetju
+darilni bon
+obročno plačilo
+leasing

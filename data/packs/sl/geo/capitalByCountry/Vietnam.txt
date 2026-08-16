@@ -1,0 +1,5 @@
+---
+description: Capital of Vietnam, as Slovene names it
+locale: sl
+---
+Hanoj

@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective (Lithuanian, for catch-phrases). Masculine singular nominative; agrees with the noun it precedes.
+locale: lt
+---
+inovatyvus
+pažangus
+integruotas
+modernus
+efektyvus
+veiksmingas
+lankstus
+patikimas
+saugus
+skaidrus
+tvarus
+žaliasis
+ekologiškas
+skaitmeninis
+automatizuotas
+išmanusis
+intelektualus
+adaptyvus
+modulinis
+mastelinis
+pasaulinis
+vietinis
+regioninis
+strateginis
+operatyvinis
+orientuotas
+klientui orientuotas
+duomenimis grįstas
+į rezultatą orientuotas
+sinergiškas
+holistinis
+proaktyvus
+dinamiškas
+konkurencingas
+kokybiškas
+sertifikuotas
+standartizuotas
+optimizuotas
+supaprastintas
+centralizuotas
+decentralizuotas
+paskirstytas
+debesų
+hibridinis
+atviras
+sąveikus
+universalus
+specializuotas
+sisteminis
+kompleksinis
+vertikalus
+horizontalus
+perspektyvus
+novatoriškas
+ilgalaikis

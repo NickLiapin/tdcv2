@@ -1,0 +1,21 @@
+---
+description: Cuisine (Lithuanian). Each value has a dishByCuisine child file. The names are masculine plural genitives (italų = 'of the Italians'), which is how Lithuanian names a cuisine; Lietuviška is the odd one out because it is a straight adjective.
+locale: lt
+---
+Lietuviška
+Italų
+Japonų
+Meksikiečių
+Kinų
+Indų
+Prancūzų
+Tajų
+Graikų
+Ispanų
+Amerikiečių
+Korėjiečių
+Vietnamiečių
+Turkų
+Libaniečių
+Lenkų
+Gruzinų

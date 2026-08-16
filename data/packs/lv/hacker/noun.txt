@@ -1,0 +1,41 @@
+---
+description: Technology noun, nominative singular.
+locale: lv
+---
+draiveris
+protokols
+joslas platums
+panelis
+mikroshēma
+programma
+ports
+karte
+masīvs
+saskarne
+sistēma
+sensors
+ugunsmūris
+cietais disks
+pikselis
+trauksme
+plūsma
+monitors
+lietotne
+raidītājs
+kopne
+shēma
+kondensators
+matrica
+datubāze
+konveijers
+serveris
+klients
+atslēga
+marķieris
+žurnāls
+kešatmiņa
+rinda
+pavediens
+process
+kodols
+skripts

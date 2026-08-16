@@ -1,0 +1,11 @@
+---
+description: Driving licence category. Latvia uses the EU categories: B is a car, C a lorry over 3,5 tonnes, D a bus, and the E suffix adds a trailer.
+locale: lv
+---
+B
+BE
+C
+CE
+C1
+D
+DE

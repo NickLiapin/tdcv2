@@ -1,0 +1,32 @@
+---
+description: Technology verb, infinitive.
+locale: lv
+---
+dublēt
+apiet
+uzlauzt
+pārrakstīt
+saspiest
+kopēt
+navigēt
+indeksēt
+savienot
+ģenerēt
+kvantificēt
+aprēķināt
+sintezēt
+ievadīt
+pārraidīt
+programmēt
+pārstartēt
+parsēt
+šifrēt
+atšifrēt
+izvietot
+kompilēt
+atkļūdot
+testēt
+migrēt
+sinhronizēt
+optimizēt
+monitorēt

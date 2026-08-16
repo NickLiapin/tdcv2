@@ -1,0 +1,7 @@
+---
+address: singapore.phoneLandline
+description: Singapore fixed-line number in E.164 form (+65 6 followed by seven digits). Same eight-digit closed plan as the mobile numbers, same absence of area codes - the 6 marks the service, not a region, so a 6 number in Jurong and a 6 number in Changi are indistinguishable and nothing in a Singapore fixed-line number locates it. This is the fact most likely to break a schema ported from a country with area codes: there is no field to store one and no substring to derive a city from. See singapore.phone for mobile numbers, which start 8 or 9.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="\+656[0-9]{7}"/>

@@ -1,0 +1,17 @@
+---
+address: thailand.finance.promptPayId
+description: A PromptPay handle (พร้อมเพย์) — the identifier a Thai instant transfer is addressed to instead of a bank account number. It is not a new number: it is EITHER the payee's 13-digit national ID (thailand.docs.nationalId, or the 13-digit juristic person number for a business) OR their 10-digit mobile number written nationally with its trunk 0. That reuse is the point of the scheme and it is also its consequence — the national ID doubles as a payment address, so a PromptPay ID drawn here carries the same real mod-11 check digit as the ID it is, and the same sensitivity. Mobile-form handles are emitted in the national 0-prefixed form (0812345678) because that is how PromptPay registers and displays them, unlike thailand.phone which is E.164. Not modelled: the 15-digit e-wallet handles and the national-ID-plus-suffix corporate branch handles. Thailand routes almost all of its retail payments through this system and through the Thai QR standard built on it, which is why account numbers appear less often in Thai transaction data than a European pack would lead you to expect.
+generator: tdc
+---
+<sequence name="kind"><gen type="text" value="1,2" percent="45,55"/></sequence>
+<sequence name="citizen"><gen type="template" value="thailand.docs.nationalId"/></sequence>
+<sequence name="mobile"><gen type="regex" value="0[689][0-9]{8}"/></sequence>
+<sequence name="handle"><compute>
+  <result>
+    <choose>
+      <when><test><equals><field name="kind"/><int v="1"/></equals></test><then><field name="citizen"/></then></when>
+      <otherwise><field name="mobile"/></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{handle}}</data>

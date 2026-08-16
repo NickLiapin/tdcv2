@@ -1,0 +1,202 @@
+---
+description: Latvian job titles across sectors. Job titles are grammatically gendered in Latvian — skolotājs is a male teacher and skolotāja a female one, ārsts and ārste, pārdevējs and pārdevēja — and this list carries the MASCULINE forms, which is what a job advertisement and a classifier use. A dataset that pairs these with female rows is producing the form a Latvian job advert uses rather than the form the woman herself would write on a business card; the distinction is real and no ending in this list should be taken as sex-neutral.
+locale: lv
+---
+Programmētājs
+Vecākais programmētājs
+Datu analītiķis
+Datu zinātnieks
+DevOps inženieris
+Sistēmu inženieris
+Testēšanas inženieris
+Produkta vadītājs
+Lietotāju pieredzes dizainers
+Saskarnes dizainers
+Sistēmu administrators
+Tīklu inženieris
+Datubāzu administrators
+Informācijas drošības speciālists
+Mākoņrisinājumu arhitekts
+Mobilo lietotņu izstrādātājs
+Priekšgala izstrādātājs
+Aizmugures izstrādātājs
+Mākslīgā intelekta inženieris
+IT atbalsta speciālists
+Ārsts
+Ģimenes ārsts
+Ķirurgs
+Anesteziologs
+Pediatrs
+Medicīnas māsa
+Vecmāte
+Farmaceits
+Neatliekamās palīdzības ārsts
+Fizioterapeits
+Ergoterapeits
+Zobārsts
+Zobu higiēnists
+Radiologs
+Ārsta palīgs
+Laborants
+Optometrists
+Veterinārārsts
+Aprūpētājs
+Sociālais darbinieks
+Elektriķis
+Santehniķis
+Metinātājs
+Namdaris
+Galdnieks
+Ventilācijas sistēmu tehniķis
+Virpotājs
+Atslēdznieks
+Cauruļvadu montētājs
+Skārdnieks
+Mūrnieks
+Jumiķis
+Krāsotājs
+Apdares darbu strādnieks
+Stiklinieks
+Liftu mehāniķis
+Automehāniķis
+Dīzeļmotoru mehāniķis
+Aviācijas tehniķis
+Kalnraču brigadieris
+Urbšanas iekārtas operators
+Smagās tehnikas operators
+Celtņa operators
+Ekskavatora operators
+Kūdras ieguves operators
+Mērnieks
+Kravas automašīnas vadītājs
+Tālbraucējs
+Piegādes kurjers
+Autobusa vadītājs
+Autoiekrāvēja operators
+Noliktavas darbinieks
+Loģistikas koordinators
+Dispečers
+Ekspeditors
+Lidojumu dispečers
+Pilots
+Stjuarts
+Kuģa kapteinis
+Mašīnists
+Ostas strādnieks
+Līniju montētājs
+Telekomunikāciju tehniķis
+Optiskās šķiedras tehniķis
+Elektrostacijas operators
+Ūdens attīrīšanas operators
+Vēja turbīnu tehniķis
+Saules paneļu montētājs
+Gāzes saimniecības darbinieks
+Skaitītāju rādījumu vācējs
+Grāmatvedis
+Galvenais grāmatvedis
+Finanšu analītiķis
+Revidents
+Aktuārs
+Nodokļu konsultants
+Pārdošanas pārstāvis
+Klientu vadītājs
+Mārketinga vadītājs
+Mārketinga speciālists
+Zīmola vadītājs
+Personāla speciālists
+Personāla atlases speciālists
+Operāciju vadītājs
+Projektu vadītājs
+Biznesa analītiķis
+Izpilddirektora asistents
+Biroja vadītājs
+Administrators
+Datu ievades operators
+Iepirkumu speciālists
+Pavārs
+Šefpavārs
+Pavāra palīgs
+Maiznieks
+Konditors
+Bārmenis
+Baristas
+Viesmīlis
+Trauku mazgātājs
+Viesnīcas vadītājs
+Istabene
+Konsjeržs
+Pārdevējs konsultants
+Veikala vadītājs
+Kasieris
+Klientu apkalpošanas speciālists
+Zvanu centra operators
+Apsargs
+Apkopējs
+Sētnieks
+Sākumskolas skolotājs
+Vidusskolas skolotājs
+Speciālās izglītības skolotājs
+Pirmsskolas skolotājs
+Profesors
+Docents
+Lektors
+Skolotāja palīgs
+Skolas psihologs
+Bibliotekārs
+Skolas direktors
+Repetitors
+Zinātniskais asistents
+Policists
+Ugunsdzēsējs glābējs
+Izmeklētājs
+Robežsargs
+Ieslodzījuma vietas uzraugs
+Muitnieks
+Karavīrs
+Pasta darbinieks
+Pastnieks
+Atkritumu apsaimniekošanas darbinieks
+Ierēdnis
+Grafiskais dizainers
+Fotogrāfs
+Videooperators
+Tekstu autors
+Satura veidotājs
+Žurnālists
+Redaktors
+Tulkotājs
+Tulks
+Korektors
+Arhitekts
+Interjera dizainers
+Būvinženieris
+Mašīnbūves inženieris
+Elektroinženieris
+Vides inženieris
+Jurists
+Zvērināts advokāts
+Jurista palīgs
+Tiesnesis
+Prokurors
+Zvērināts notārs
+Tiesu izpildītājs
+Tiesas sekretārs
+Lauksaimnieks
+Zemnieks
+Lauku strādnieks
+Traktorists
+Agronoms
+Mežsargs
+Mežstrādnieks
+Kokzāģētavas operators
+Arborists
+Ainavu arhitekts
+Dārznieks
+Biškopis
+Zvejnieks
+Zivkopis
+Būvstrādnieks
+Būvdarbu vadītājs
+Būvuzraugs
+Demontāžas strādnieks
+Tāmētājs

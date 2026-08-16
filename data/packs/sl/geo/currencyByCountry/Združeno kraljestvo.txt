@@ -1,0 +1,5 @@
+---
+description: Currency of Združeno kraljestvo, named in Slovene
+locale: sl
+---
+britanski funt

@@ -1,0 +1,21 @@
+---
+address: kenya.finance.paymentMethod
+description: How money actually changes hands in Kenya, in honest order. THIS LIST EXISTS BECAUSE THE ORDER IS THE POINT. The generic payment-method list in a language pack starts with Credit Card, Debit Card, PayPal — that ordering is wrong for Kenya, and not marginally. M-Pesa is not a payment option here, it is the payment system: Safaricom's platform carried 46.4 billion transactions worth KES 41.7 trillion in its 2025/26 financial year, several times the country's annual GDP, across more than 30 million active users. A Kenyan buys vegetables, pays rent, settles a hospital bill, splits a matatu fare and receives a salary over it. Cards exist but are a minority instrument concentrated in supermarkets, hotels and e-commerce, and cash sits below mobile money rather than above it. So: M-Pesa first, then Lipa na M-Pesa (the merchant rails — Paybill for bills and accounts, Buy Goods for a till), then the rival wallets, then bank rails, then cash, then cards. A config that generates Kenyan transactions off the generic list will produce a plausible-looking dataset describing a country that does not exist. The file is marked locale: en because most entries are English, but two of the top four are Swahili product names — see kenya.finance.mobileMoneyProduct, which is marked sw.
+locale: en
+---
+M-Pesa
+Lipa na M-Pesa (Paybill)
+Lipa na M-Pesa (Buy Goods)
+M-Pesa Pochi la Biashara
+Airtel Money
+Equitel
+T-Kash
+PesaLink
+Bank transfer (EFT)
+RTGS transfer
+Cash
+Cheque
+Debit card
+Credit card
+Standing order
+Direct debit

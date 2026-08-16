@@ -1,0 +1,16 @@
+---
+description: Month name (Lithuanian, NOMINATIVE, lowercase per Lithuanian orthography). This is the citation form, and it is NOT the form a date uses: inside a date the month goes into the genitive, so the month is sausis but the date reads 2026 m. sausio 18 d. The genitive set is in DATE_LOCALE.json as monthsInDate. Lithuanian month names are native nature words like the Polish and Czech ones, not the Latin set — birželis is the birch month, rugpjūtis the rye-harvest month.
+locale: lt
+---
+sausis
+vasaris
+kovas
+balandis
+gegužė
+birželis
+liepa
+rugpjūtis
+rugsėjis
+spalis
+lapkritis
+gruodis

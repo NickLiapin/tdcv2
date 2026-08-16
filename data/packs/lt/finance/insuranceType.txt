@@ -1,0 +1,18 @@
+---
+description: Insurance type (Lithuanian).
+locale: lt
+---
+Gyvybės draudimas
+Sveikatos draudimas
+Privalomasis sveikatos draudimas
+Civilinės atsakomybės draudimas
+Transporto priemonių valdytojų civilinės atsakomybės draudimas
+Kasko draudimas
+Būsto draudimas
+Turto draudimas
+Kelionių draudimas
+Nelaimingų atsitikimų draudimas
+Profesinės atsakomybės draudimas
+Kredito draudimas
+Žemės ūkio draudimas
+Gyvūnų draudimas

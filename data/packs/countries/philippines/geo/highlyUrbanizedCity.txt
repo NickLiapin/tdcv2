@@ -1,0 +1,38 @@
+---
+address: philippines.geo.highlyUrbanizedCity
+description: The 33 highly urbanised cities (HUCs) of the Philippines. A HUC IS NOT PART OF ITS PROVINCE, and that is the whole point of the classification. Under the Local Government Code a city with at least 200,000 residents and 50 million pesos of annual income (in 1991 prices) is declared highly urbanised by the President, and from that moment its ordinances stop going to the provincial board for review, it stops sharing its taxes with the province, its residents stop voting for the governor, and it answers to the President's office directly. Cebu City, Iloilo City, Davao City, Baguio and Zamboanga City are all inside a province on a map and outside it in law — so "Cebu City, Cebu" is a geographic sentence, not an administrative one, and a database that filters cities by province will simply lose these 33. Sixteen of them are the cities of Metro Manila, which has no province at all (see philippines.geo.metroManilaCity); the other seventeen are listed here after them. FIVE MORE CITIES ARE ALSO INDEPENDENT OF THEIR PROVINCE WITHOUT BEING HUCs — the independent component cities Dagupan, Naga, Ormoc, Santiago and Cotabato City, whose charters bar their residents from voting for provincial officials. They are not in this list because they are a different class; count 38 province-independent cities in total. The count 33 follows the PSA's Second Quarter 2026 PSGC (33 HUCs, 5 ICCs, 111 component cities); Wikipedia currently says 34 HUCs and 4 ICCs, moving one city across the same line, so the total of 38 agrees either way.
+locale: en
+---
+Quezon City
+Manila
+Caloocan
+Taguig
+Pasig
+Parañaque
+Valenzuela
+Las Piñas
+Makati
+Muntinlupa
+Marikina
+Pasay
+Malabon
+Mandaluyong
+Navotas
+San Juan
+Davao City
+Cebu City
+Zamboanga City
+Cagayan de Oro
+General Santos
+Bacolod
+Iloilo City
+Lapu-Lapu
+Baguio
+Butuan
+Iligan
+Angeles
+Mandaue
+Tacloban
+Puerto Princesa
+Olongapo
+Lucena

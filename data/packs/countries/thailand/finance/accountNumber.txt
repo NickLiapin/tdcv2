@@ -1,0 +1,6 @@
+---
+address: thailand.finance.accountNumber
+description: Thai bank account number — ten digits, emitted bare, and grouped 3-1-5-1 on a passbook or a transfer slip (123-4-56789-0). THAILAND HAS NO IBAN. It is not in the IBAN registry, no Thai bank issues one, and a 26-or-so-character string beginning TH is an invention with nothing to validate it against — if a form demands an IBAN for a Thai account the honest answer is that there is not one, and what a cross-border transfer actually needs is the bank's SWIFT/BIC (BKKBTHBK, KASITHBK, SICOTHBK) plus this account number. There is also NO PUBLISHED CHECK DIGIT: the ten digits are a branch prefix, an account-type digit and a serial, each bank allocating its own, and no bank documents a checksum, so these values are correctly shaped and cannot be validated by arithmetic — this file claims nothing more. Ten digits is the commercial-bank norm (กรุงเทพ, กสิกรไทย, ไทยพาณิชย์, กรุงไทย, กรุงศรีอยุธยา); ธนาคารออมสิน and ธ.ก.ส. use twelve, which is not modelled here. The counterpart routing identifier is thailand.finance.bankCode, three digits.
+generator: tdc
+---
+<gen type="regex" value="[0-9]{10}"/>

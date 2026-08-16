@@ -1,0 +1,9 @@
+---
+address: philippines.finance.bankCode
+description: BRSTN — Bank Routing Symbol Transit Number, 9 digits, assigned by the Bangko Sentral ng Pilipinas. These are REAL, PUBLISHED, COMPLETE routing numbers for real banks, sliced out of philippines.finance.bankWithCode so they cannot drift from the bank they belong to. This is what actually addresses a domestic Philippine transfer: PESONet for batch and InstaPay for real-time both route by BRSTN, and it is the number a remittance form or a payout API asks for. It is not a SWIFT/BIC and not an IBAN — the Philippines has no IBAN at all, see philippines.finance.accountNumber. Structurally the first two digits are the clearing region (01 is Metro Manila; a provincial bank such as First Consolidated carries 02), the middle digits identify the institution and its clearing branch, and the ninth digit is a check digit computed by the United States ABA modulo-10 3-7-1 rule — the Philippines adopted the American routing-number format wholesale, so a US routing-number validator will accept a Philippine BRSTN unchanged. Every entry here was verified against that rule. If you want structurally valid routing numbers in volume rather than this fixed enumeration of real banks, use philippines.finance.brstn, which recomputes the check digit over a drawn branch.
+generator: tdc
+locale: en
+---
+<sequence name="entry"><gen type="template" value="philippines.finance.bankWithCode"/></sequence>
+<sequence name="code"><compute><result><slice from="0" to="9"><field name="entry"/></slice></result></compute></sequence>
+<data>${{code}}</data>

@@ -1,0 +1,5 @@
+---
+description: Capital of Norveška, as Slovene names it
+locale: sl
+---
+Oslo

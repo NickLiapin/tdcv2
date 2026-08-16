@@ -1,0 +1,23 @@
+---
+description: Property type (Lithuanian).
+locale: lt
+---
+Butas
+Vieno kambario butas
+Studija
+Namas
+Individualus namas
+Sublokuotas namas
+Kotedžas
+Dvibutis
+Sodo namas
+Sodyba
+Vasarnamis
+Patalpos
+Biuras
+Prekybinės patalpos
+Sandėlis
+Gamybinės patalpos
+Garažas
+Sklypas
+Žemės ūkio paskirties sklypas

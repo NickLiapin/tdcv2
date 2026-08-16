@@ -1,0 +1,13 @@
+---
+address: nigeria.finance.banknote
+description: Naira banknote denominations in circulation, written as Nigerians write them — the ₦ sign hard against the figure, no space. The currency is the naira (ISO 4217 NGN), divided into 100 kobo; kobo coins and the ₦1 and ₦2 coins are legal tender on paper and absent from life, so nothing below ₦5 is listed and even ₦5 to ₦20 notes are now scarce and filthy. THE 2023 REDESIGN is the thing to know: on 26 October 2022 the CBN announced redesigned ₦200, ₦500 and ₦1000 notes and a swap deadline that would have made the old ones worthless in weeks, in a country that runs on cash. The new notes were never printed in anything like sufficient volume, cash vanished, and the crisis landed in the middle of the February 2023 general election. Three state governments sued; the Supreme Court suspended the deadline in February 2023, then in March nullified the policy and ordered the old notes to remain legal tender to 31 December 2023, and the CBN afterwards confirmed they stay legal tender indefinitely. So both designs of ₦200, ₦500 and ₦1000 circulate side by side, and a data set that assumes one series replaced the other is wrong about Nigeria. Only three denominations were ever redesigned; ₦5 through ₦100 were untouched.
+locale: en
+---
+₦5
+₦10
+₦20
+₦50
+₦100
+₦200
+₦500
+₦1000

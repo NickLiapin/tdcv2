@@ -1,0 +1,16 @@
+---
+description: Grade / mark on the Lithuanian school and university scale. Lithuania marks on TEN points, not on the Polish 2-5 or the German 1-6: 10 is the top and 4 the pass, which is why a config ported from another locale will mis-score Lithuanian rows.
+locale: lt
+---
+10 (puikiai)
+9 (labai gerai)
+8 (gerai)
+7 (pakankamai gerai)
+6 (patenkinamai)
+5 (silpnai)
+4 (patenkinamai, žemiausias teigiamas)
+3 (nepatenkinamai)
+2 (blogai)
+1 (labai blogai)
+Įskaityta
+Neįskaityta

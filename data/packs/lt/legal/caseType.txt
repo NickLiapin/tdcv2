@@ -1,0 +1,17 @@
+---
+description: Legal case type (Lithuanian).
+locale: lt
+---
+Civilinė byla
+Baudžiamoji byla
+Administracinė byla
+Administracinio nusižengimo byla
+Darbo ginčas
+Šeimos byla
+Paveldėjimo byla
+Bankroto byla
+Restruktūrizavimo byla
+Mokestinis ginčas
+Viešųjų pirkimų ginčas
+Intelektinės nuosavybės byla
+Konstitucinės justicijos byla

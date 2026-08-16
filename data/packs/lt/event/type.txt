@@ -1,0 +1,22 @@
+---
+description: Event type (Lithuanian). The Dainų šventė, the mass song festival held every four years, is on the UNESCO list and is the largest event Lithuania holds.
+locale: lt
+---
+Konferencija
+Seminaras
+Mokymai
+Dirbtuvės
+Paskaita
+Diskusija
+Paroda
+Mugė
+Koncertas
+Festivalis
+Dainų šventė
+Spektaklis
+Kino peržiūra
+Sporto varžybos
+Vestuvės
+Krikštynos
+Jubiliejus
+Laidotuvės

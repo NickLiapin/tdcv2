@@ -1,0 +1,5 @@
+---
+description: Currency of Portugalija (Lithuanian).
+locale: lt
+---
+Euras

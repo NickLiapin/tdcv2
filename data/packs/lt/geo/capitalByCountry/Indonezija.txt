@@ -1,0 +1,5 @@
+---
+description: Capital of Indonezija (Lithuanian).
+locale: lt
+---
+Džakarta

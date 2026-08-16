@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Slovene)
+locale: sl
+---
+oven
+bik
+dvojčka
+rak
+lev
+devica
+tehtnica
+škorpijon
+strelec
+kozorog
+vodnar
+ribi

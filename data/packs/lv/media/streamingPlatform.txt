@@ -1,0 +1,16 @@
+---
+description: Streaming platform. Brand names keep their real spelling; TV3 Play and Replay are the Latvian services and Tet is the incumbent telecoms operator's platform.
+locale: lv
+---
+Netflix
+Disney+
+Amazon Prime Video
+HBO Max
+Apple TV+
+YouTube
+Spotify
+Twitch
+TV3 Play
+Replay
+Tet TV+
+Go3

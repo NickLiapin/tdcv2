@@ -1,0 +1,5 @@
+---
+description: Capital of Vokietija (Lithuanian).
+locale: lt
+---
+Berlynas

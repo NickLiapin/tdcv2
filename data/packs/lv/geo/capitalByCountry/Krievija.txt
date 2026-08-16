@@ -1,0 +1,5 @@
+---
+description: Capital of Krievija, in the Latvian spelling.
+locale: lv
+---
+Maskava

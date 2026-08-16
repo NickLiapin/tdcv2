@@ -1,0 +1,46 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Lithuanian).
+locale: lt
+---
+Programavimas
+Duomenų analizė
+Duomenų bazių valdymas
+Debesų technologijos
+Kibernetinis saugumas
+Tinklų administravimas
+Testavimas
+Versijų valdymas
+Projektų valdymas
+Agile metodikos
+Verslo analizė
+Procesų valdymas
+Rizikos valdymas
+Finansinė analizė
+Apskaita
+Mokesčių planavimas
+Derybos
+Pardavimai
+Klientų aptarnavimas
+Rinkodara
+Turinio kūrimas
+Grafinis dizainas
+Fotografavimas
+Vertimas
+Teksto redagavimas
+Suvirinimas
+Metalo apdirbimas
+Staliaus darbai
+Elektros montavimas
+Santechnikos darbai
+Statybos darbai
+Sunkiosios technikos valdymas
+Vairavimas
+Logistikos planavimas
+Sandėlio valdymas
+Komandinis darbas
+Lyderystė
+Komunikacija
+Problemų sprendimas
+Laiko planavimas
+Kritinis mąstymas
+Prisitaikymas

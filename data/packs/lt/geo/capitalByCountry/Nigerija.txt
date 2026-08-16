@@ -1,0 +1,5 @@
+---
+description: Capital of Nigerija (Lithuanian).
+locale: lt
+---
+Abudža

@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Lithuanian).
+locale: lt
+---
+Karščiavimas
+Šaltkrėtis
+Silpnumas
+Nuovargis
+Galvos skausmas
+Svaigulys
+Alpimas
+Pykinimas
+Vėmimas
+Viduriavimas
+Vidurių užkietėjimas
+Pilvo skausmas
+Rėmuo
+Apetito stoka
+Svorio kritimas
+Svorio augimas
+Kosulys
+Dusulys
+Švokštimas
+Krūtinės skausmas
+Širdies plakimas
+Aukštas kraujospūdis
+Patinimas
+Sąnarių skausmas
+Raumenų skausmas
+Nugaros skausmas
+Gerklės skausmas
+Sloga
+Čiaudulys
+Ausies skausmas
+Regos sutrikimas
+Bėrimas
+Niežulys
+Nemiga
+Nerimas
+Prislėgta nuotaika
+Atminties sutrikimas
+Dažnas šlapinimasis

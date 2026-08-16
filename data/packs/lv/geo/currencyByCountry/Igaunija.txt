@@ -1,0 +1,5 @@
+---
+description: Currency of Igaunija, named in Latvian.
+locale: lv
+---
+eiro

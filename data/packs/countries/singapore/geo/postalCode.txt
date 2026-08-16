@@ -1,0 +1,9 @@
+---
+address: singapore.geo.postalCode
+description: Singapore postal code — six digits, and the most precise postal code of any country in this collection. The first two digits are the postal SECTOR (drawn from singapore.geo.postalSector, so every one is real); the last four are the DELIVERY POINT, and they identify ONE BUILDING. Not a street, not a block of streets, not a range of house numbers - a single HDB block, a single condominium, a single office tower. That is why a Singapore address can be written as nothing but a block number and a postal code and still be deliverable, and why a courier form here asks for the postal code first and fills the rest in from it. The consequences for a data schema are real: the code is NOT a coarse area key the way a UK outward code or a US ZIP is - it is close to a primary key on the building, so treating it as a low-cardinality grouping column is a modelling mistake, and a postal code plus a unit number is close to a full address on its own. The system has been six digits since 1995, replacing a four-digit scheme from 1979. The four trailing digits here are structural: the code is well-formed but does not name a real building.
+generator: tdc
+locale: en
+---
+<sequence name="sector"><gen type="template" value="singapore.geo.postalSector"/></sequence>
+<sequence name="point"><gen type="regex" value="[0-9]{4}"/></sequence>
+<data>${{sector}}${{point}}</data>

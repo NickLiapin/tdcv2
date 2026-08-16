@@ -1,0 +1,48 @@
+---
+address: singapore.docs.fin
+description: Singapore FIN (Foreign Identification Number) — the identifier a foreigner on a long-term pass carries instead of an NRIC, and the same nine-character shape: one prefix LETTER, seven digits, one check LETTER. Same weights as the NRIC (2,7,6,5,4,3,2) and the same "10 minus the remainder mod 11" step, but a DIFFERENT check alphabet, which is the whole point of keeping the two apart: run a FIN through the NRIC alphabet and it fails, run an NRIC through this one and it fails, and a validator that knows only one family will quietly reject half the population. The prefix marks when the pass was issued: F before 1 January 2000, G from 2000 to 31 December 2021, M from 1 January 2022 - ICA introduced M because a FIN is never re-assigned after its holder leaves, so the G pool ran down. F and G share the alphabet K,L,M,N,P,Q,R,T,U,W,X. M uses K,L,J,N,P,Q,R,T,U,W,X - identical except that position 2 is J rather than M, so an M-series FIN can never end in the same letter as its own prefix. The offsets are F=0, G=4, M=3. Worked example from SAP note 2572734, verifiable by hand: G5872776 gives 5*2+8*7+7*6+2*5+7*4+7*3+6*2 = 179, plus the G offset 4 = 183, 183 mod 11 = 7, 10-7 = 3, and the fourth letter of the F/G alphabet is N - so G5872776N is well-formed. See singapore.docs.nric for citizens and permanent residents.
+generator: tdc
+locale: en
+---
+<!-- 0 = F (pre-2000), 1 = G (2000-2021), 2 = M (2022 onward). Weighted toward the
+     live series: F holders are now rare, M is what every new pass gets. -->
+<sequence name="series"><gen type="text" value="0,1,2" percent="5,40,55"/></sequence>
+<sequence name="digits"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="fin"><compute>
+  <let name="prefix"><at>
+    <in><list><str v="F"/><str v="G"/><str v="M"/></list></in>
+    <index><field name="series"/></index>
+  </at></let>
+  <let name="offset"><at><in><list v="0,4,3"/></in><index><field name="series"/></index></at></let>
+  <let name="sum"><reduce>
+    <over><field name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="d"><subtract><int v="10"/>
+    <mod><add><use name="sum"/><use name="offset"/></add><int v="11"/></mod>
+  </subtract></let>
+  <!-- Two alphabets that differ in exactly one place: position 2 is M for F/G
+       and J for the M series. -->
+  <let name="check"><choose>
+    <when><test><equals><field name="series"/><int v="2"/></equals></test>
+      <then><at>
+        <in><list>
+          <str v="K"/><str v="L"/><str v="J"/><str v="N"/><str v="P"/><str v="Q"/>
+          <str v="R"/><str v="T"/><str v="U"/><str v="W"/><str v="X"/>
+        </list></in>
+        <index><use name="d"/></index>
+      </at></then></when>
+    <otherwise><at>
+      <in><list>
+        <str v="K"/><str v="L"/><str v="M"/><str v="N"/><str v="P"/><str v="Q"/>
+        <str v="R"/><str v="T"/><str v="U"/><str v="W"/><str v="X"/>
+      </list></in>
+      <index><use name="d"/></index>
+    </at></otherwise>
+  </choose></let>
+  <result><concat><use name="prefix"/><field name="digits"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{fin}}</data>

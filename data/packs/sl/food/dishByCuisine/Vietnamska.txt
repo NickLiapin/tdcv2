@@ -1,0 +1,14 @@
+---
+description: Dishes of the vietnamska kitchen, named as a Slovene menu names them. Borrowed dish names keep their original spelling, which is what a Slovene restaurant prints.
+locale: sl
+---
+pho
+banh mi
+poletni zavitki
+bun cha
+com tam
+banh xeo
+cha ca
+vietnamska kava
+goi cuon
+bo kho

@@ -1,0 +1,12 @@
+---
+description: Diagnoses seen in Onkoloģija.
+locale: lv
+---
+Krūts vēzis
+Plaušu vēzis
+Resnās zarnas vēzis
+Kuņģa vēzis
+Prostatas vēzis
+Leikēmija
+Limfoma
+Melanoma

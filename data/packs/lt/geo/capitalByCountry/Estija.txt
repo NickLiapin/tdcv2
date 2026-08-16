@@ -1,0 +1,5 @@
+---
+description: Capital of Estija (Lithuanian).
+locale: lt
+---
+Talinas

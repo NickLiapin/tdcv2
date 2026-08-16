@@ -1,0 +1,43 @@
+---
+address: bangladesh.finance.bank
+description: Banks operating in Bangladesh, ordered by their Bangladesh Bank code so the file is index-aligned line for line with bangladesh.finance.bankCode. Every entry here is a bank whose 3-digit code was read off real published routing numbers, which is why the list is 38 long rather than the ~61 scheduled banks — a bank whose code could not be verified was left out instead of guessed at. The mix is the real Bangladeshi one: six state-owned commercial and specialised banks (Sonali, Janata, Agrani, BASIC, Bangladesh Krishi Bank and Rajshahi Krishi Unnayan Bank, the last two lending to farmers and holding a large share of rural accounts), a long list of private commercial banks, and a set of full Shariah-compliant banks — Islami Bank Bangladesh, First Security Islami, Shahjalal Islami, EXIM, Union, Global Islami, Standard — which together hold roughly a quarter of all deposits, so a Bangladeshi banking dataset that has no Islamic bank in it is not describing Bangladesh. Foreign banks (Citibank N.A., Commercial Bank of Ceylon, Bank Alfalah, State Bank of India) are here because they hold Bangladeshi routing codes and appear in domestic transfers. Names are given without a legal suffix on purpose — almost every Bangladeshi bank changed from "Limited" to "PLC" in 2023 when the Companies Act was amended, so a list carrying either suffix dates itself, and the bare name is what a payment record uses anyway. Note what is NOT in this file — bKash, Nagad and Rocket. They are not banks and they are where most Bangladeshi retail money actually moves; see bangladesh.finance.mobileFinancialService.
+locale: en
+---
+Agrani Bank
+AB Bank
+Bangladesh Krishi Bank
+BASIC Bank
+BRAC Bank
+Bank Alfalah
+Bank Asia
+Citibank N.A.
+Commercial Bank of Ceylon
+Dhaka Bank
+Dutch-Bangla Bank
+Eastern Bank
+EXIM Bank
+First Security Islami Bank
+IFIC Bank
+Islami Bank Bangladesh
+Jamuna Bank
+Janata Bank
+National Bank
+NCC Bank
+Prime Bank
+Pubali Bank
+Rajshahi Krishi Unnayan Bank
+Shahjalal Islami Bank
+Sonali Bank
+Southeast Bank
+Standard Bank
+State Bank of India
+City Bank
+Premier Bank
+Trust Bank
+Uttara Bank
+Union Bank
+Meghna Bank
+NRB Bank
+Global Islami Bank
+Shimanto Bank
+Citizens Bank

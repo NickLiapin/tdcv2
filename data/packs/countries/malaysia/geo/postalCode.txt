@@ -1,0 +1,8 @@
+---
+address: malaysia.geo.postalCode
+description: Malaysian poskod — five digits, written with no space and no hyphen, and placed BEFORE the town on an address line (43650 Bandar Baru Bangi, Selangor). The first two digits come from malaysia.geo.postalCodePrefix, so every generated code opens on a prefix that really exists and lands in the right state; the last three are structural, drawn uniformly, and are not guaranteed to name a delivery office that exists. That is the honest limit of a five-digit code built from a two-digit table: within Pulau Pinang, for instance, 14000-14400 are live and 14401-14999 are not, so about half of the codes generated under prefix 14 are well-formed but undeliverable. Codes are correct at state level and no finer. There is also no join in this pack between a postcode and a city — malaysia.geo.city draws independently, so a config that emits both will pair them at random. Pos Malaysia introduced the five-digit system in 1974; there is no check digit and no alphabetic component, unlike the neighbouring Singaporean and Bruneian schemes.
+generator: tdc
+---
+<sequence name="prefix"><gen type="template" value="malaysia.geo.postalCodePrefix"/></sequence>
+<sequence name="tail"><gen type="regex" value="[0-9]{3}"/></sequence>
+<data>${{prefix}}${{tail}}</data>

@@ -1,0 +1,12 @@
+---
+description: Mining method. Latvia has no metal mining: what is extracted is peat (kūdra), dolomite, gravel, sand, clay and gypsum, so the surface methods at the head of this list are the real ones and the deep-shaft entries are vocabulary rather than local practice.
+locale: lv
+---
+Karjera ieguve
+Virsējā noņemšana
+Kūdras frēzēšana
+Kūdras griešana
+Gruntsūkņa ieguve
+Pazemes ieguve
+Šahtas ieguve
+Garenizstrāde

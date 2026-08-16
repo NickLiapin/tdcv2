@@ -1,0 +1,24 @@
+---
+address: malaysia.sport.team
+description: Malaysian football clubs — the twelve competing in the 2025-26 Malaysia Super League first, then well-known clubs of the second tier and the recent past. One club in that league is deliberately ABSENT: DPMM FC plays in the Malaysian top flight but is based in Bandar Seri Begawan and is Bruneian, and a country pack that listed it would be recording a fact about a league rather than about a country. Malaysian club football is organised by state rather than by city, which is why so many are named for a state and not a town — Selangor FC, Terengganu FC, Sabah FC, Penang FC, Negeri Sembilan FC — and why a club's home ground can move within the state without the name changing. Johor Darul Ta'zim, named with the honorific of the state of Johor and owned by its royal family, has dominated the era, winning eleven Super League titles including every one from 2014 to 2025. Two are institutional rather than territorial: PDRM FC is the Royal Malaysia Police and Immigration FC the immigration department, a survival of the government-department teams that once made up much of the league. Kedah Darul Aman and Sri Pahang, both major clubs, are in the second block because they did not take their places in 2025-26 under the club licensing rules — a recurring feature of the Malaysian game rather than an accident, several established clubs having withdrawn or been refused a licence in recent seasons. The top division was renamed the Malaysia Super League in 2004 and the whole competition has been run by the Malaysian Football League, a private company, since 2015.
+---
+Johor Darul Ta'zim
+Selangor FC
+Terengganu FC
+Sabah FC
+Kuala Lumpur City FC
+Penang FC
+Negeri Sembilan FC
+Kuching City FC
+PDRM FC
+Melaka FC
+Immigration FC
+Kelantan The Real Warriors FC
+Kedah Darul Aman FC
+Sri Pahang FC
+Perak FC
+Sarawak United FC
+Petaling Jaya City FC
+Felda United FC
+UiTM FC
+Kelantan FC

@@ -1,0 +1,25 @@
+---
+description: Religion or belief (Slovene). Slovenia is historically Roman Catholic, but the EVANGELIČANSKA — Lutheran — minority of Prekmurje carries a weight out of all proportion to its size, because the Slovene literary language exists because of the Reformation: Primož Trubar, a Protestant, printed the first two Slovene books in 1550 and Jurij Dalmatin translated the whole Bible into Slovene in 1584, which fixed the written language a century before any Catholic institution took it up. Slovenia also has one of Europe's larger shares of people declaring no religion.
+locale: sl
+---
+rimskokatoliška vera
+evangeličanska vera
+protestantizem
+pravoslavje
+islam
+judovstvo
+budizem
+hinduizem
+adventizem
+binkoštna cerkev
+Jehovove priče
+krščanstvo
+grkokatoliška vera
+starokatoliška vera
+sikhizem
+džainizem
+poganstvo
+agnosticizem
+ateizem
+brez veroizpovedi
+neopredeljeno

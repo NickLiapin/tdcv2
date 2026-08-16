@@ -1,0 +1,32 @@
+---
+description: Dishes of the Slovene kitchen. Slovenia is the only country where the Alps, the Mediterranean, the Pannonian plain and the Karst meet, and each of the four cooks differently with almost no shared vocabulary: the Alpine north eats žganci, štruklji, obara and potica; the Karst and the coast eat jota, kraški pršut, frika and ocvirkovka; the Pannonian east eats prekmurska gibanica, bograč, bujta repa and prleška tünka; and Idrija, a mining town in between, has žlikrofi and nothing else does. Potica — a rolled yeast cake with a walnut, tarragon or crackling filling — is the one dish the whole country claims, and it is protected as a Slovene speciality in the EU register.
+locale: sl
+---
+potica
+orehova potica
+prekmurska gibanica
+štruklji
+sirovi štruklji
+ajdovi žganci
+ričet
+jota
+obara
+bujta repa
+matevž
+idrijski žlikrofi
+kranjska klobasa
+krvavica
+zaseka
+kraški pršut
+bograč
+mlinci
+kremna rezina
+flancati
+miške
+čežana
+belokranjska pogača
+prleška tünka
+frika
+gobova juha
+kisla juha
+praženi krompir

@@ -1,0 +1,63 @@
+---
+address: nigeria.geo.city
+description: Cities of Nigeria, roughly by population. Africa's most populous country, past 200 million people, and the ranking below is rough on purpose — Nigeria has not completed a census since 2006 and every figure in circulation is a projection or a dispute, so treat the order as indicative and the membership as solid. Lagos is far larger than anything else and is one of the largest cities on earth; Abuja is the federal capital but not the largest city, a split Nigeria shares with Brazil and Turkey. Some names carry a second form in ordinary use: Ife is also Ile-Ife, Osogbo is also Oshogbo, Zaria's Hausa name is Zazzau, and Port Harcourt is universally shortened to PH.
+locale: en
+---
+Lagos
+Kano
+Ibadan
+Abuja
+Port Harcourt
+Benin City
+Kaduna
+Maiduguri
+Zaria
+Aba
+Jos
+Ilorin
+Onitsha
+Enugu
+Abeokuta
+Warri
+Sokoto
+Ikeja
+Osogbo
+Calabar
+Katsina
+Akure
+Bauchi
+Ado Ekiti
+Ogbomoso
+Makurdi
+Minna
+Owerri
+Uyo
+Umuahia
+Yola
+Gombe
+Nnewi
+Ife
+Ikorodu
+Iwo
+Ilesa
+Asaba
+Awka
+Lokoja
+Sapele
+Abakaliki
+Lafia
+Jalingo
+Yenagoa
+Damaturu
+Dutse
+Birnin Kebbi
+Gusau
+Nsukka
+Ede
+Offa
+Sagamu
+Mubi
+Gboko
+Okene
+Bida
+Ondo

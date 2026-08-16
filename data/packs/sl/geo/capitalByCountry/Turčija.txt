@@ -1,0 +1,5 @@
+---
+description: Capital of Turčija, as Slovene names it
+locale: sl
+---
+Ankara

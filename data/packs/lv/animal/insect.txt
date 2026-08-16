@@ -1,0 +1,24 @@
+---
+description: Insect. Divpunktu mārīte, the two-spot ladybird, is the national insect of Latvia. The Jāņtārpiņš is the glow-worm and is not incidental vocabulary: it is named after Jāņi, the midsummer festival, because that is the short northern week when it glows.
+locale: lv
+---
+Divpunktu mārīte
+Jāņtārpiņš
+Skudra
+Bite
+Kamene
+Lapsene
+Tauriņš
+Vabole
+Spāre
+Sisenis
+Circenis
+Kode
+Dievlūdzējs
+Cikāde
+Termīts
+Ods
+Muša
+Dunduris
+Blakts
+Blusa

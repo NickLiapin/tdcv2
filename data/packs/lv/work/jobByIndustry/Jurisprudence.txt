@@ -1,0 +1,12 @@
+---
+description: Jobs in Jurisprudence.
+locale: lv
+---
+Jurists
+Zvērināts advokāts
+Jurista palīgs
+Tiesnesis
+Prokurors
+Zvērināts notārs
+Tiesas sekretārs
+Atbilstības speciālists

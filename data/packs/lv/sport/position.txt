@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports.
+locale: lv
+---
+Vārtsargs
+Aizsargs
+Centra aizsargs
+Malas aizsargs
+Pussargs
+Centra pussargs
+Aizsardzības pussargs
+Uzbrucējs
+Centra uzbrucējs
+Malas uzbrucējs
+Kreisais malējais
+Labais malējais
+Saspēles vadītājs
+Aizsargs metējs
+Vieglais uzbrucējs
+Smagais uzbrucējs
+Centrs
+Saspēlētājs
+Libero
+Diagonālais uzbrucējs
+Centra bloķētājs
+Metējs
+Ķērājs
+Īsais starpnieks
+Ārlaukuma spēlētājs
+Pirmās bāzes spēlētājs
+Loka spēlētājs
+Balsts
+Āķeris
+Slēdzējs
+Jaucējs
+Pēdējais aizsargs
+Pilots
+Stūmējs
+Bremzētājs

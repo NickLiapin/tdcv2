@@ -1,0 +1,51 @@
+---
+address: malaysia.finance.bank
+description: Banks licensed to operate in Malaysia, index-aligned with malaysia.finance.bankCode. Grouped rather than ranked: the eight domestic commercial banks first, in the order they are usually cited by size, then the Islamic banks, then the three development and cooperative institutions, then the foreign-owned commercial banks, then the two digital banks. The Islamic block is not a curiosity to be folded into the others — Malaysia runs a dual banking system in which a conventional bank's Islamic business must sit in a SEPARATELY LICENSED subsidiary with its own board and its own SWIFT code, which is why Maybank and Maybank Islamic, CIMB Bank and CIMB Islamic, Public Bank and Public Islamic each appear twice here under different names and different codes. They are different legal entities, not brands. Names are the legal ones as registered, so Berhad is dropped for readability but the entity is otherwise as licensed. Two absences worth stating. Bank Simpanan Nasional, the national savings bank and one of the most widely held retail accounts in the country, is not here because it is a statutory body rather than a licensed bank under the Financial Services Act and carries no BIC in the SWIFT directory this list was checked against. Several newly licensed digital banks (AEON Bank, Ryt Bank, KAF Digital) are likewise absent, having no verified BIC at the time of writing; GX Bank and Boost Bank do and are included. Citibank Berhad remains as its institutional entity after selling its Malaysian consumer business to UOB Malaysia in 2022.
+---
+Malayan Banking (Maybank)
+CIMB Bank
+Public Bank
+RHB Bank
+Hong Leong Bank
+AmBank (M)
+Affin Bank
+Alliance Bank Malaysia
+Maybank Islamic
+CIMB Islamic Bank
+Bank Islam Malaysia
+Public Islamic Bank
+RHB Islamic Bank
+Hong Leong Islamic Bank
+AmBank Islamic
+Affin Islamic Bank
+Alliance Islamic Bank
+Bank Muamalat Malaysia
+MBSB Bank
+Kuwait Finance House (Malaysia)
+Al Rajhi Banking and Investment Corporation (Malaysia)
+HSBC Amanah Malaysia
+OCBC Al-Amin Bank
+Standard Chartered Saadiq
+Bank Kerjasama Rakyat Malaysia (Bank Rakyat)
+Bank Pertanian Malaysia (Agrobank)
+Export-Import Bank of Malaysia
+HSBC Bank Malaysia
+Standard Chartered Bank Malaysia
+OCBC Bank (Malaysia)
+United Overseas Bank (Malaysia)
+Citibank
+Deutsche Bank (Malaysia)
+Bank of China (Malaysia)
+Industrial and Commercial Bank of China (Malaysia)
+China Construction Bank (Malaysia)
+MUFG Bank (Malaysia)
+Mizuho Bank (Malaysia)
+Sumitomo Mitsui Banking Corporation Malaysia
+BNP Paribas Malaysia
+Bank of America Malaysia
+J.P. Morgan Chase Bank
+Bangkok Bank
+India International Bank (Malaysia)
+The Bank of Nova Scotia
+GX Bank
+Boost Bank

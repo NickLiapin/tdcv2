@@ -1,0 +1,5 @@
+---
+description: Capital of Rusija (Lithuanian).
+locale: lt
+---
+Maskva

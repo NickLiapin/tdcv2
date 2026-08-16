@@ -1,0 +1,18 @@
+---
+address: philippines.vehicle.plate
+description: Philippine vehicle registration plate issued by the Land Transportation Office. The current private-car series, running since 2014, is three letters, a space, four digits — "ABC 1234", black on white. Motorcycles are a different shape entirely and are generated here too, in the three layouts the LTO has used since 2020: three digits then three letters, a letter then three digits then two letters, or two letters then three digits then a letter. THE COLOUR IS THE CLASSIFICATION, NOT THE CHARACTERS. A plate's background says what the vehicle is licensed to do: white for private, YELLOW FOR PUBLIC UTILITY — every jeepney, taxi, tricycle and bus for hire — red on white for government, green on white for electric and hybrid, blue on white for diplomatic. That yellow-plate distinction matters more in the Philippines than in most countries, because public utility vehicles are the backbone of transport and a for-hire vehicle on a white plate is committing an offence, so "plate number" alone loses information a Philippine record usually needs. Diplomatic plates are seven digits with the first three a country code, not letters at all, and are not generated here. NO CHECK DIGIT — the series is sequential stock allocation and encodes nothing verifiable. The first letter reflects the region of original registration (A Ilocos, D Calabarzon, N Metro Manila and so on), but a vehicle keeps its plate when it moves, so the letter is where it was first registered rather than where it is.
+generator: tdc
+locale: en
+---
+<sequence name="car"><gen type="regex" value="[A-Z]{3} [0-9]{4}"/></sequence>
+<sequence name="moto"><gen type="regex" value="([0-9]{3}[A-Z]{3}|[A-Z][0-9]{3}[A-Z]{2}|[A-Z]{2}[0-9]{3}[A-Z])"/></sequence>
+<!-- Cars dominate the plate stock people meet in records; motorcycles get one draw in four. -->
+<sequence name="pick"><gen type="number" value="1..4"/></sequence>
+<sequence name="plate"><compute><result>
+  <choose>
+    <when><test><equals><to_number><field name="pick"/></to_number><int v="4"/></equals></test>
+      <then><field name="moto"/></then></when>
+    <otherwise><field name="car"/></otherwise>
+  </choose>
+</result></compute></sequence>
+<data>${{plate}}</data>

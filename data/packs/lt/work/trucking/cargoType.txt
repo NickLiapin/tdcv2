@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Lithuanian). Lithuania runs one of the largest road-haulage fleets in the EU, so this vocabulary is everyday industry language.
+locale: lt
+---
+Tentinė puspriekabė
+Furgonas
+Šaldytuvas
+Izoterminis krovinys
+Cisterna
+Savivartis
+Konteineris
+Platforma
+Autovežis
+Gyvulių vežimas
+Pavojingi kroviniai
+Negabaritinis krovinys
+Miltelinių krovinių cisterna

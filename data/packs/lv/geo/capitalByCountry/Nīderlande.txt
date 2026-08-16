@@ -1,0 +1,5 @@
+---
+description: Capital of Nīderlande, in the Latvian spelling.
+locale: lv
+---
+Amsterdama

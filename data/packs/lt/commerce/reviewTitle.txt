@@ -1,0 +1,30 @@
+---
+description: Product review title (Lithuanian).
+locale: lt
+---
+Puiki prekė
+Verta savo kainos
+Rekomenduoju
+Nerekomenduoju
+Tikėjausi daugiau
+Tiksliai kaip aprašyme
+Greitas pristatymas
+Pristatymas vėlavo
+Gera kokybė
+Prasta kokybė
+Patogu naudotis
+Sudėtinga surinkti
+Tvirta ir patvari
+Sulūžo po savaitės
+Gražiai atrodo
+Netiko dydis
+Pirkčiau dar kartą
+Kaina per didelė
+Puikus pirkinys
+Vidutiniška
+Nusivyliau
+Viršijo lūkesčius
+Tinka dovanai
+Naudoju kasdien
+Geras santykis kaina ir kokybė
+Grąžinau

@@ -1,0 +1,22 @@
+---
+description: Hotel room type.
+locale: lv
+---
+Standarta numurs
+Komforta numurs
+Uzlabotais numurs
+Luksusa numurs
+Apartamenti
+Studija
+Vienvietīgs numurs
+Divvietīgs numurs
+Divvietīgs ar atsevišķām gultām
+Trīsvietīgs numurs
+Ģimenes numurs
+Prezidenta apartamenti
+Junior apartamenti
+Numurs ar skatu uz jūru
+Numurs ar balkonu
+Bēniņu numurs
+Numurs ar pirti
+Pieejams cilvēkiem ar kustību traucējumiem

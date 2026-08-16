@@ -1,0 +1,7 @@
+---
+address: nigeria.tax.tinCorporate
+description: Nigerian corporate TIN in the legacy FIRS written form — eight digits, a hyphen, then a four-digit site suffix, 12345678-0001. This is the shape printed on Nigerian company invoices and VAT receipts up to the end of 2025, and it is a different animal from the plain 10-digit JTB TIN in nigeria.tax.tin even though both were called "the TIN": the eight-digit block identifies the taxpayer and the suffix identifies the branch or site, with 0001 the head office and what nearly every real number carries. Issued by FIRS to companies and also to the armed forces, the police and diplomats. NO CHECK DIGIT is published for either block. Superseded from 1 January 2026 by the 13-digit Tax ID (nigeria.tax.taxId), but present in years of records.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{8}-0001"/>

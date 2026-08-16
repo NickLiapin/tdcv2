@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Kardiologija (Lithuanian).
+locale: lt
+---
+Arterinė hipertenzija
+Išeminė širdies liga
+Prieširdžių virpėjimas
+Širdies nepakankamumas
+Miokardo infarktas
+Hiperlipidemija
+Išsiplėtusi kardiomiopatija
+Miokarditas
+Aortos vožtuvo stenozė
+Supraventrikulinė tachikardija

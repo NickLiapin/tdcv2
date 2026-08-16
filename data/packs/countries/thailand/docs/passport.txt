@@ -1,0 +1,6 @@
+---
+address: thailand.docs.passport
+description: Thai passport number (หมายเลขหนังสือเดินทาง) as printed by the Ministry of Foreign Affairs — two Latin letters followed by seven digits, e.g. AA1234567. Latin, not Thai: the passport is an ICAO travel document and its number is machine-readable, so the one document a Thai citizen carries that is written in Latin script is this one. Older books issued before the e-passport carry the shorter forms A123456 and AA123456 and are still encountered on archived records; only the current two-letter, seven-digit form is generated. There is NO published check digit inside the number itself — the check digits that exist are the ICAO 9303 ones computed over the machine-readable zone, which is a property of the printed MRZ and not of the number, so nothing here is verifiable and nothing is claimed. The passport number is not derived from and does not contain the national ID.
+generator: tdc
+---
+<gen type="regex" value="[A-Z]{2}[0-9]{7}"/>

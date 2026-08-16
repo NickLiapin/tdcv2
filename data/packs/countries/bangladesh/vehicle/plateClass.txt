@@ -1,0 +1,18 @@
+---
+address: bangladesh.vehicle.plateClass
+description: The single Bengali letter that follows the place name on a Bangladeshi number plate, and it is a VEHICLE CLASS rather than a serial letter — BRTA assigns it by what the vehicle is, and for cars by engine displacement, so the letter alone tells a traffic officer the class and the tax band. The documented meanings, which is the set generated here — এ motorcycle up to 100cc, হ motorcycle 101-125cc, ল motorcycle 126-165cc, ক car up to 1000cc, খ car 1001-1300cc, গ car 1301-2000cc, ভ car above 2001cc, ঘ SUV or crossover, চ microbus or MPV, প taxicab, ব intercity bus, ম delivery van or mini truck. The weighting is by fleet shape and it is the fact worth carrying away: motorcycles are the overwhelming majority of registered vehicles in Bangladesh, so এ, হ and ল together take most of the draw and গ — an ordinary 1300-2000cc private car, the default assumption of a European dataset — is a minority plate. BRTA uses around 33 Bengali letters in all; the ones whose class could not be verified are left out rather than guessed. Two are deliberately excluded even though their meaning IS documented: য is reserved for the Prime Minister's office and র for the President's office, and neither belongs in generated civilian data.
+weighted: true
+locale: bn
+---
+হ,260
+এ,240
+ল,150
+গ,80
+ক,55
+খ,50
+ঘ,45
+চ,40
+ম,35
+ভ,25
+ব,12
+প,8

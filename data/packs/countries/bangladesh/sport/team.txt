@@ -1,0 +1,35 @@
+---
+address: bangladesh.sport.team
+description: Sports clubs and teams of Bangladesh, cricket first because that is the order the country puts them in — cricket is the national obsession and football, which was dominant into the 1980s, is a distant second. Three different things are listed and they are not interchangeable. The first eight are BANGLADESH PREMIER LEAGUE cricket franchises, city-branded and privately owned, and they churn: teams are sold, renamed and dropped between seasons far more than in an established league, so a franchise list is a snapshot of one season rather than a stable roster, and any config asserting a franchise for a past year should check the year. The next eight are the NATIONAL CRICKET LEAGUE sides, the first-class teams, and those are stable because they are the administrative divisions themselves plus Dhaka Metropolis — which is why "Dhaka Division" and "Dhaka Metropolis" are two teams and both are correct. The rest are FOOTBALL clubs of the Bangladesh Premier League (the football one; both sports use the name, which is a genuine ambiguity in Bangladeshi sports data). Several football clubs are far older than the state — Mohammedan Sporting Club and Dhaka Wanderers date to the 1930s and 1940s — and several are institutional rather than commercial: Bangladesh Police FC, PWD Sports Club and Brothers Union belong to a police force, a public works department and a neighbourhood club respectively, which is a pattern a European league does not have. Kabaddi, played in villages as হা-ডু-ডু, is the declared national sport and has no professional club structure to list.
+locale: en
+---
+Comilla Victorians
+Fortune Barishal
+Rangpur Riders
+Khulna Tigers
+Chattogram Challengers
+Sylhet Strikers
+Dhaka Capitals
+Durbar Rajshahi
+Dhaka Division
+Dhaka Metropolis
+Chattogram Division
+Khulna Division
+Rajshahi Division
+Rangpur Division
+Barishal Division
+Sylhet Division
+Bashundhara Kings
+Dhaka Abahani
+Mohammedan Sporting Club
+Bangladesh Police FC
+Sheikh Russel Krira Chakra
+Sheikh Jamal Dhanmondi Club
+Chittagong Abahani
+Rahmatganj MFS
+Fortis FC
+Brothers Union
+Dhaka Wanderers Club
+Arambagh Krira Sangha
+Fakirerpool Young Men's Club
+PWD Sports Club

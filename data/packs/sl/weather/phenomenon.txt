@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Slovene). Two need naming. BURJA is the cold north-easterly that falls off the Karst rim into the Vipava valley in gusts over 200 km/h — the motorway there closes to caravans and lorries when it blows, and no other Slovene weather word is as consequential. ŽLED is freezing rain that coats everything in clear ice; Slovene has a single ordinary word for it because the February 2014 žled damaged around half of the country's forests and cut power to a quarter of it, and the word is now a national memory rather than a meteorological term.
+locale: sl
+---
+burja
+jugo
+maestral
+žled
+poledica
+slana
+ivje
+megla
+toča
+neurje
+vetrolom
+snežni plaz
+suša
+poplava
+vročinski val

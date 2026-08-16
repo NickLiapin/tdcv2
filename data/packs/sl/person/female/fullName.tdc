@@ -1,0 +1,10 @@
+---
+description: Slovene full female name — one given name and one surname (Ana Novak). It draws from the SAME surname list as the male form, because a Slovene surname does not inflect for sex in official use; there is no person/female/lastName.txt to draw from and its absence is the design.
+generator: tdc
+locale: sl
+---
+<sequence name="p">
+  <gen name="f" type="template" value="sl.person.female.firstName"/>
+  <gen name="l" type="template" value="sl.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

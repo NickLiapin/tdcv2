@@ -1,0 +1,17 @@
+---
+description: Type of social media content (Slovene)
+locale: sl
+---
+objava
+fotografija
+video
+zgodba
+kolut
+prenos v živo
+anketa
+komentar
+delitev
+citat
+povezava
+album
+dogodek

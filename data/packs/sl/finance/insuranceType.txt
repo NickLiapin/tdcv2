@@ -1,0 +1,18 @@
+---
+description: Insurance type (Slovene). Two entries need dating: dopolnilno zdravstveno zavarovanje, the supplementary health policy that covered the statutory co-payment, was ABOLISHED on 1 January 2024 and replaced by the obvezni zdravstveni prispevek, a compulsory flat contribution — so a Slovene dataset dated before 2024 carries the first and one dated after it carries the second, and a config that mixes them describes a policy that never existed at that date.
+locale: sl
+---
+obvezno zdravstveno zavarovanje
+dopolnilno zdravstveno zavarovanje
+obvezni zdravstveni prispevek
+življenjsko zavarovanje
+nezgodno zavarovanje
+obvezno avtomobilsko zavarovanje
+kasko zavarovanje
+premoženjsko zavarovanje
+zavarovanje doma
+potovalno zavarovanje
+pokojninsko zavarovanje
+dodatno pokojninsko zavarovanje
+zavarovanje odgovornosti
+zavarovanje pravne zaščite

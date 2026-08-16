@@ -1,0 +1,18 @@
+---
+description: Marital status. Latvian marks it on the person, so the status word itself is gendered: a man is neprecējies and a woman neprecējusies, a man is šķīries and a woman šķīrusies, a widower is atraitnis and a widow atraitne. Both forms are listed as pairs, masculine first, and a config that knows the row's sex should pick the matching one rather than drawing at random.
+locale: lv
+---
+neprecējies
+neprecējusies
+precējies
+precējusies
+šķīries
+šķīrusies
+atraitnis
+atraitne
+dzīvo šķirti
+saderinājies
+saderinājusies
+kopdzīvē
+nav norādīts
+reģistrētās partnerattiecībās

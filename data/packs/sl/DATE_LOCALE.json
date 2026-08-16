@@ -1,0 +1,67 @@
+{
+  "_comment": "Slovene uses the INTERNATIONAL month names — januar, februar, marec — not the Slavic nature-names Croatian kept (siječanj, veljača, ožujak). That is the sharpest single test that a Slovene locale was not copied from a Croatian one. Slovene DID once have its own set (prosinec, svečan, sušec, mali traven, veliki traven, rožnik, mali srpan, veliki srpan, kimavec, vinotok, listopad, gruden), revived in the nineteenth century and still printed on painted beehive panels, but nothing official uses them. months is the nominative citation form; monthsInDate is the GENITIVE, which is what a Slovene date actually contains: 15. avgusta 2026, never 15. avgust 2026. maj is the one month with no abbreviation and therefore no trailing dot, because nothing is left out of it. The numeric format is written with spaces after the dots (15. 8. 2026) in careful Slovene, and the day is an ordinal, which is why it carries a dot; the year does not.",
+  "months": [
+    "januar",
+    "februar",
+    "marec",
+    "april",
+    "maj",
+    "junij",
+    "julij",
+    "avgust",
+    "september",
+    "oktober",
+    "november",
+    "december"
+  ],
+  "monthsInDate": [
+    "januarja",
+    "februarja",
+    "marca",
+    "aprila",
+    "maja",
+    "junija",
+    "julija",
+    "avgusta",
+    "septembra",
+    "oktobra",
+    "novembra",
+    "decembra"
+  ],
+  "monthsShort": [
+    "jan.",
+    "feb.",
+    "mar.",
+    "apr.",
+    "maj",
+    "jun.",
+    "jul.",
+    "avg.",
+    "sep.",
+    "okt.",
+    "nov.",
+    "dec."
+  ],
+  "weekdays": [
+    "nedelja",
+    "ponedeljek",
+    "torek",
+    "sreda",
+    "\u010detrtek",
+    "petek",
+    "sobota"
+  ],
+  "weekdaysShort": [
+    "ned.",
+    "pon.",
+    "tor.",
+    "sre.",
+    "\u010det.",
+    "pet.",
+    "sob."
+  ],
+  "formats": {
+    "L": "DD. MM. YYYY",
+    "LL": "D. MMMM YYYY"
+  }
+}

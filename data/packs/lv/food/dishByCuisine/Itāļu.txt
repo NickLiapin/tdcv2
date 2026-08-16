@@ -1,0 +1,14 @@
+---
+description: Dishes of Itāļu cuisine as a Latvian menu names them.
+locale: lv
+---
+Margaritas pica
+Spageti karbonāra
+Lazanja
+Rizoto
+Njoki
+Oso buko
+Tiramisu
+Minestrones zupa
+Bruskete
+Fokačija

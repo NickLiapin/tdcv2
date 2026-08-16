@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Each name is a genitive attribute in Latvian and expects a following noun: Ziemeļeiropas izcelsme, "Northern European descent".
+locale: lv
+---
+Subsahāras Āfrikas
+Ziemeļāfrikas
+Vidusjūras reģiona
+Tuvo Austrumu
+Ziemeļeiropas
+Austrumeiropas
+Aškenazi ebreju
+Dienvidāzijas
+Austrumāzijas
+Dienvidaustrumāzijas
+Amerikas pamatiedzīvotāju
+Klusā okeāna salu

@@ -1,0 +1,26 @@
+---
+address: malaysia.tax.brn
+description: The Malaysian business registration number issued by the Companies Commission (Suruhanjaya Syarikat Malaysia, SSM). This file generates the TWELVE-DIGIT format that took effect on 11 October 2019, not the old one. The layout is YYYY + EE + NNNNNN: four digits for the year the entity was registered, two for the entity type, six for that year's running number. Entity types are 01 local company, 02 foreign company, 03 business (a sole proprietorship or partnership under the Registration of Businesses Act 1956), 04 local limited liability partnership, 05 foreign LLP, 06 LLP for professional practice. The point most people get wrong is what the year means. It is NOT 2019 or later for everyone: SSM reissued a twelve-digit number to every entity already on the register, built from its ORIGINAL year of incorporation, so a long-established company has a 12-digit number opening on a mid-century year. Malayan Banking Berhad, incorporated on 31 May 1960, is 196001000142 — 1960, type 01, running number 000142 — and still prints its old-format number 3813-K beside it, which is the transitional convention: an entity registered before the changeover quotes both, as 196001000142 (3813-K). The old format was a running number and a letter suffix with no year and no type in it. There is NO CHECK DIGIT in either format, old or new; SSM validates by lookup through e-Info or MyData and nothing in the number checks the number. Because LLPs did not exist before the Limited Liability Partnerships Act 2012, codes 04, 05 and 06 are generated only with years from 2012 onward, which the twelve-digit format quietly guarantees in real data too. Two things here are deliberate approximations rather than facts: the year is drawn uniformly from 1950 onward, where the real register is heavily weighted to the last twenty years, and the split between company (01) and business (03) is set to roughly reflect that registered businesses outnumber registered companies on SSM's books without claiming a measured ratio.
+generator: tdc
+---
+<sequence name="kind"><gen type="text" value="01,02,03,04,05,06" percent="45,2,50,1,1,1"/></sequence>
+<sequence name="yearAny"><gen type="number" value="1950..2026"/></sequence>
+<sequence name="yearLlp"><gen type="number" value="2012..2026"/></sequence>
+<sequence name="seq"><gen type="number" value="1..999999"/></sequence>
+<sequence name="brn"><compute>
+  <!-- Types 04, 05 and 06 are LLPs, which the 2012 Act created; they cannot
+       carry an earlier year, so they take the restricted draw. -->
+  <let name="k"><to_number><field name="kind"/></to_number></let>
+  <let name="year">
+    <choose>
+      <when><test><greater_than><use name="k"/><int v="3"/></greater_than></test>
+        <then><field name="yearLlp"/></then>
+      </when>
+      <otherwise><field name="yearAny"/></otherwise>
+    </choose>
+  </let>
+  <result><concat>
+    <use name="year"/><field name="kind"/><pad width="6"><field name="seq"/></pad>
+  </concat></result>
+</compute></sequence>
+<data>${{brn}}</data>

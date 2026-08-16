@@ -1,0 +1,5 @@
+---
+description: Currency of Mehika, named in Slovene
+locale: sl
+---
+mehiški peso

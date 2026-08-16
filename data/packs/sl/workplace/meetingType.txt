@@ -1,0 +1,16 @@
+---
+description: Type of workplace meeting (Slovene)
+locale: sl
+---
+sestanek
+jutranji sestanek
+tedenski sestanek
+kolegij
+delovni sestanek
+sestanek s stranko
+predstavitev
+delavnica
+letni razgovor
+razgovor o uspešnosti
+seja uprave
+zbor delavcev

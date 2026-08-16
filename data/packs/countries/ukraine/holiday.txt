@@ -1,0 +1,16 @@
+---
+address: ukraine.holiday
+description: Public holidays of Ukraine, exactly the list Article 73 of the Labour Code holds after the 2023 amendments — the nine fixed dates plus the two movable church feasts, and nothing else. Four of the eleven were deliberately moved in a single year to break with the Moscow-Patriarchate and Soviet calendar, which is the sharpest place this pack parts company with its neighbours: Різдво Христове moved from 7 January to 25 December (law No. 3258-IX, 14 July 2023, which abolished the January date outright rather than keeping both), Victory Day moved from 9 May to 8 May and was renamed День пам'яті та перемоги над нацизмом, День Української Державності moved from 28 July to 15 July, and День захисників і захисниць України from 14 October to 1 October. A dataset built from a 2020 calendar will disagree with every one of those. Widely marked days that are not holidays in law — Соборності 22 January, Гідності та Свободи 21 November, Святого Миколая 6 December — are not here, because Article 73 does not list them.
+locale: uk
+---
+Новий рік
+Міжнародний жіночий день
+День праці
+День пам'яті та перемоги над нацизмом у Другій світовій війні
+День Конституції України
+День Української Державності
+День незалежності України
+День захисників і захисниць України
+Різдво Христове
+Пасха (Великдень)
+Трійця

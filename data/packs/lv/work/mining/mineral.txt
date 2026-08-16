@@ -1,0 +1,23 @@
+---
+description: Mined mineral or commodity. The first six are what Latvia actually extracts; the rest are the world's commodities as Latvian names them.
+locale: lv
+---
+Kūdra
+Dolomīts
+Smilts
+Grants
+Māls
+Ģipsis
+Kaļķakmens
+Sapropelis
+Ogles
+Varš
+Zelts
+Sudrabs
+Dzelzsrūda
+Cinks
+Svins
+Boksīts
+Niķelis
+Urāns
+Litijs

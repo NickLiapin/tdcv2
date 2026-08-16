@@ -1,0 +1,25 @@
+---
+address: thailand.tax.corporateTin
+description: Thai juristic person registration number (เลขทะเบียนนิติบุคคล) — 13 digits issued by the Department of Business Development, and since 2012 it IS the company's taxpayer identification number and its VAT registration number too, so a Thai company has one 13-digit number rather than a company number and a tax number. It carries the SAME mod-11 check as the citizen's national ID: weights 13 down to 2 over the first twelve digits, check = (11 - sum mod 11) mod 10, blind spot on digit 3 included — see thailand.docs.nationalId for what that check does and does not catch. Structure: digit 1 is always 0, marking the DBD as the issuer; digits 2-3 are the administrative province code of the head office (thailand.geo.provinceCode — Bangkok 10, เชียงใหม่ 50); digit 4 is the kind of juristic person (2 registered ordinary partnership, 3 limited partnership, 4 foreign ordinary partnership, 5 private limited company, 6 foreign limited company, 7 public limited company, 8 chamber of commerce, 9 trade association, 0 a body registered under the Foreign Business Act B.E. 2542); digits 5-7 ARE THE LAST THREE DIGITS OF THE BUDDHIST-ERA YEAR OF REGISTRATION, so a company registered in 2001 CE carries 544 for พ.ศ. 2544 and the leading 2 of the era is simply dropped; digits 8-12 are a running number from 00001; digit 13 is the check. This pack generates BE 530 to 568, that is 1987 to 2025 CE, and weights the kind digit towards 3, 5 and 7 because partnerships and limited companies are almost all of the register. Unlike the citizen's number this one is PUBLIC by design — it is printed on every tax invoice and searchable on the DBD's own site — which is why the check digit here could be verified against real published numbers.
+generator: tdc
+---
+<sequence name="prov"><gen type="template" value="thailand.geo.provinceCode"/></sequence>
+<sequence name="kind"><gen type="text" value="2,3,4,5,6,7,8,9" percent="4,30,1,55,2,5,1,2"/></sequence>
+<!-- Digits 5-7: the Buddhist-Era year with its leading 2 dropped. 530 = พ.ศ. 2530 = 1987 CE. -->
+<sequence name="year"><gen type="number" value="530..568"/></sequence>
+<sequence name="serial"><gen type="number" value="1..99999" length="5" first_zero="true"/></sequence>
+<sequence name="tin"><compute>
+  <let name="base"><concat>
+    <str v="0"/><field name="prov"/><field name="kind"/><field name="year"/><field name="serial"/>
+  </concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="13,12,11,10,9,8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{tin}}</data>

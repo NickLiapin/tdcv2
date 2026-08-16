@@ -1,0 +1,31 @@
+---
+address: pakistan.vehicle.plate
+description: Pakistani number plate. There is no national format — registration is a PROVINCIAL function, each excise and taxation department runs its own series, and the layouts genuinely differ in how many letters and how many digits they carry. What this file models is that difference: an issuer is drawn first, weighted by where the country's vehicles are registered, and the shape follows from it. Punjab and Sindh issue three letters and three digits (ABC-123), Khyber Pakhtunkhwa two letters and four digits (AB-1234), Islamabad Capital Territory, Balochistan and Azad Jammu and Kashmir two letters and three digits (AB-123), and Gilgit-Baltistan three letters and two digits (ABC-12). The letters exclude I, O and U throughout, because they read as 1, 0 and V. Pass issuer="1" through issuer="7" to pin one — 1 Punjab, 2 Sindh, 3 Khyber Pakhtunkhwa, 4 Islamabad Capital Territory, 5 Balochistan, 6 Azad Jammu and Kashmir, 7 Gilgit-Baltistan — otherwise the weights apply. What the plate does NOT carry is a code for the province, the way an Indian plate opens with MH or a German one with M: the province is named in words along the top of the plate and is coloured (Sindh yellow, Gilgit-Baltistan black on white lettering, the rest black on white) and it is carried by symbols — the datura flower on Punjab plates since 2007, the Faisal Mosque on Islamabad's, a chinar leaf on Azad Jammu and Kashmir's, a markhor on Gilgit-Baltistan's — none of which survives into a text column. So a Pakistani plate as a STRING localises a vehicle only as far as its shape does, which is the honest limit of this generator. One historical shape is deliberately not produced: until 2020 Punjab plates opened with a city code and closed with the year of registration (LEA-1234 for Lahore, and the LHR-07-1111 form), and the universal province-wide series that replaced it dropped both, so the older plates on the road are a different scheme rather than a variant of this one.
+generator: tdc
+locale: en
+---
+<sequence name="issuer"><gen type="text" value="1,2,3,4,5,6,7" percent="57,23,9,4,4,2,1"/></sequence>
+<sequence name="letters2"><gen type="regex" value="[A-HJ-NP-TV-Z]{2}"/></sequence>
+<sequence name="letters3"><gen type="regex" value="[A-HJ-NP-TV-Z]{3}"/></sequence>
+<sequence name="digits2"><gen type="number" value="1..99" length="2" first_zero="true"/></sequence>
+<sequence name="digits3"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<sequence name="digits4"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<sequence name="plate"><compute>
+  <let name="i"><to_number><field name="issuer"/></to_number></let>
+  <result>
+    <choose>
+      <!-- 1 Punjab, 2 Sindh: three letters, three digits. -->
+      <when><test><less_than><use name="i"/><int v="3"/></less_than></test>
+        <then><concat><field name="letters3"/><str v="-"/><field name="digits3"/></concat></then></when>
+      <!-- 3 Khyber Pakhtunkhwa: two letters, four digits. -->
+      <when><test><equals><use name="i"/><int v="3"/></equals></test>
+        <then><concat><field name="letters2"/><str v="-"/><field name="digits4"/></concat></then></when>
+      <!-- 7 Gilgit-Baltistan: three letters, two digits. -->
+      <when><test><equals><use name="i"/><int v="7"/></equals></test>
+        <then><concat><field name="letters3"/><str v="-"/><field name="digits2"/></concat></then></when>
+      <!-- 4 Islamabad, 5 Balochistan, 6 Azad Jammu and Kashmir: two letters, three digits. -->
+      <otherwise><concat><field name="letters2"/><str v="-"/><field name="digits3"/></concat></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{plate}}</data>

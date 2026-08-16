@@ -1,0 +1,82 @@
+---
+description: Diagnosis (Slovene), across specialties. Slovene names diabetes SLADKORNA BOLEZEN, literally the sugar disease, and cataract and glaucoma SIVA MRENA and ZELENA MRENA, the grey and the green film — the everyday Slovene terms are native compounds rather than Latin, and they are what a Slovene discharge letter puts beside the Latin. Klopni meningoencefalitis is here because Slovenia has one of the highest tick-borne encephalitis rates in Europe and vaccination against it is an ordinary part of Slovene primary care.
+locale: sl
+---
+arterijska hipertenzija
+sladkorna bolezen tipa 2
+sladkorna bolezen tipa 1
+debelost
+hiperholesterolemija
+metabolni sindrom
+angina pektoris
+miokardni infarkt
+srčno popuščanje
+atrijska fibrilacija
+možganska kap
+periferna arterijska bolezen
+globoka venska tromboza
+pljučna embolija
+astma
+kronična obstruktivna pljučna bolezen
+pljučnica
+akutni bronhitis
+sinuzitis
+gripa
+covid-19
+klopni meningoencefalitis
+lymska borelioza
+anemija
+pomanjkanje železa
+revmatoidni artritis
+osteoartroza
+osteoporoza
+protin
+fibromialgija
+hernija medvretenčne ploščice
+išias
+sindrom karpalnega kanala
+migrena
+epilepsija
+demenca
+Alzheimerjeva bolezen
+Parkinsonova bolezen
+multipla skleroza
+depresija
+anksiozna motnja
+nespečnost
+panična motnja
+gastritis
+razjeda želodca
+refluksna bolezen požiralnika
+sindrom razdražljivega črevesa
+Crohnova bolezen
+ulcerozni kolitis
+celiakija
+žolčni kamni
+maščobna jetra
+ciroza jeter
+ledvični kamni
+okužba sečil
+kronična ledvična bolezen
+hipotiroza
+hipertiroza
+Hashimotov tiroiditis
+alergijski rinitis
+atopijski dermatitis
+luskavica
+ekcem
+urtikarija
+akne
+siva mrena
+zelena mrena
+starostna degeneracija rumene pege
+naglušnost
+tinitus
+rak dojke
+rak debelega črevesa in danke
+rak pljuč
+rak prostate
+melanom
+limfom
+levkemija
+obstruktivna apneja med spanjem

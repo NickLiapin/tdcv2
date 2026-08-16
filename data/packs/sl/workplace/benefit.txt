@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Slovene). Three of these are Slovene statutory institutions rather than perks. REGRES ZA LETNI DOPUST is a holiday allowance every employer must pay every employee once a year, at least the minimum wage, by 1 July — it is a legal right, not a bonus, and there is no English equivalent. MALICA is the meal allowance paid for every day worked, also compulsory. POVRAČILO STROŠKOV PREVOZA NA DELO, the commuting allowance, is the third. Božičnica, the thirteenth salary, is the one on this list that genuinely is discretionary.
+locale: sl
+---
+regres za letni dopust
+malica
+povračilo stroškov prevoza na delo
+božičnica
+jubilejna nagrada
+odpravnina ob upokojitvi
+dodatno pokojninsko zavarovanje
+dodatno zdravstveno zavarovanje
+delo od doma
+gibljiv delovni čas
+službeni avtomobil
+službeni telefon
+službeni prenosnik
+izobraževanje in usposabljanje
+dodatni dnevi dopusta
+plačan študijski dopust
+preventivni zdravstveni pregled
+športna kartica

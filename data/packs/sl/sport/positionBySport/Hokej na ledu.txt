@@ -1,0 +1,10 @@
+---
+description: Playing positions in hokej na ledu, named in Slovene
+locale: sl
+---
+vratar
+levi branilec
+desni branilec
+levo krilo
+desno krilo
+center

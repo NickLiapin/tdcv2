@@ -1,0 +1,7 @@
+---
+address: nigeria.tax.taxId
+description: Nigerian Tax ID — 13 digits, the number that replaced the TIN on 1 January 2026 under the Nigeria Tax Administration Act 2025, issued by the Nigeria Revenue Service (the renamed FIRS). The change is not cosmetic: there is now ONE tax number per person or entity for every tax, and it is not applied for but retrieved, because it is derived from an identity the holder already has — the 11-digit NIN for an individual, the CAC registration number for a company. That is the same consolidation move as the BVN in banking and the NIN in identity, and it is the pattern to expect from Nigerian systems generally. STRUCTURAL ONLY: 13 digits and the derivation from NIN or RC number are published, but the derivation RULE is not, and no check digit is published, so the digits here are drawn rather than computed and a value will not reconcile against any particular NIN. Legacy numbers live on in older records — see nigeria.tax.tin for the 10-digit JTB form and nigeria.tax.tinCorporate for the FIRS 12345678-0001 form.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{13}"/>

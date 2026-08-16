@@ -1,0 +1,12 @@
+---
+description: Clothing size (international letters, as printed on labels in Slovenia)
+locale: sl
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

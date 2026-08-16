@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Slovene)
+locale: sl
+---
+mestno kolo
+trekking kolo
+cestno kolo
+gorsko kolo
+kolo za spust
+gravel kolo
+kolo za kros
+električno kolo
+zložljivo kolo
+otroško kolo
+tandem
+ležeče kolo
+kolo z enim prestavnim razmerjem
+tovorno kolo
+kolo s prikolico
+BMX kolo
+kolo za dirkališče

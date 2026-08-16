@@ -1,0 +1,11 @@
+---
+description: Positions in Handbols.
+locale: lv
+---
+Vārtsargs
+Kreisais malējais
+Labais malējais
+Kreisais pussargs
+Centra pussargs
+Labais pussargs
+Loka spēlētājs

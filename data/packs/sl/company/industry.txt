@@ -1,0 +1,59 @@
+---
+description: Industry a company operates in (Slovene)
+locale: sl
+---
+informacijska tehnologija
+programska oprema
+telekomunikacije
+elektronika
+avtomobilska industrija
+strojegradnja
+kovinska industrija
+elektroindustrija
+kemična industrija
+farmacija
+biotehnologija
+medicinska oprema
+živilska industrija
+pijače
+kmetijstvo
+gozdarstvo
+lesna industrija
+pohištvena industrija
+papirna industrija
+tekstilna industrija
+usnjarstvo
+gradbeništvo
+nepremičnine
+arhitektura
+inženiring
+energetika
+obnovljivi viri
+rudarstvo
+gospodarske javne službe
+ravnanje z odpadki
+vodooskrba
+promet in logistika
+železniški promet
+cestni promet
+letalstvo
+pomorstvo
+trgovina na drobno
+trgovina na debelo
+e-trgovina
+gostinstvo
+turizem
+hotelirstvo
+bančništvo
+zavarovalništvo
+finančne storitve
+računovodstvo
+svetovanje
+pravne storitve
+oglaševanje
+mediji
+založništvo
+izobraževanje
+zdravstvo
+socialno varstvo
+javna uprava

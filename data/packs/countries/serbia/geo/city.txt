@@ -1,0 +1,77 @@
+---
+address: serbia.geo.city
+description: Cities and towns of Serbia, roughly by 2022 census population. CYRILLIC, and the choice is deliberate. Serbia is officially digraphic: article 10 of the Constitution makes Cyrillic the official script, Latin is in ordinary everyday use, and the two map one to one — ђ=đ, ж=ž, љ=lj, њ=nj, ћ=ć, џ=dž, ш=š, ч=č, ц=c, ј=j — so Београд and Beograd are the same word written twice and neither is a translation of the other. A generator has to pick one, because mixing them inside a single column would produce something no Serbian document ever looks like. This pack picks Cyrillic, for two reasons: it is what the state's own registers, the census and Pošta Srbije publish, and it is what the sr LANGUAGE pack already chose, so a config that draws a Serbian surname and a Serbian city gets one script rather than two. The one place this pack writes Latin is serbia.vehicle.plate, and that is not an exception to the rule but an application of it — the plate itself is Latin. Scope: towns Serbia administers. Приштина, Призрен, Пећ, Ђаковица, Косовска Митровица and Урошевац are absent. They are in Serbia's administrative law, their districts are still listed in serbia.geo.district and their JMBG register codes are described in serbia.docs.jmbg, but Kosovo declared independence in 2008, its status is disputed and this pack takes no position on it; what it records is operational — Pošta Srbije does not deliver to those towns, so no address there would round-trip through serbia.geo.postalCode.
+locale: sr
+---
+Београд
+Нови Сад
+Ниш
+Крагујевац
+Суботица
+Лесковац
+Панчево
+Крушевац
+Краљево
+Нови Пазар
+Зрењанин
+Чачак
+Шабац
+Смедерево
+Ваљево
+Врање
+Сремска Митровица
+Лозница
+Сомбор
+Ужице
+Пожаревац
+Јагодина
+Пирот
+Кикинда
+Зајечар
+Вршац
+Бор
+Прокупље
+Параћин
+Аранђеловац
+Врбас
+Бачка Паланка
+Стара Пазова
+Рума
+Инђија
+Смедеревска Паланка
+Велика Плана
+Апатин
+Ћуприја
+Бечеј
+Сента
+Кула
+Ковин
+Алексинац
+Трстеник
+Горњи Милановац
+Књажевац
+Неготин
+Прибој
+Пријепоље
+Ивањица
+Бајина Башта
+Пожега
+Владичин Хан
+Бујановац
+Прешево
+Куршумлија
+Александровац
+Врњачка Бања
+Рашка
+Тутин
+Сјеница
+Кладово
+Мајданпек
+Бела Паланка
+Димитровград
+Топола
+Кањижа
+Ада
+Темерин
+Бачка Топола
+Шид

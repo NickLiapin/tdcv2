@@ -1,0 +1,26 @@
+---
+description: Metal.
+locale: lv
+---
+Zelts
+Sudrabs
+Platīns
+Varš
+Dzelzs
+Alumīnijs
+Titāns
+Cinks
+Niķelis
+Svins
+Alva
+Bronza
+Misiņš
+Tērauds
+Čuguns
+Pallādijs
+Kobalts
+Hroms
+Volframs
+Magnijs
+Litijs
+Dzīvsudrabs

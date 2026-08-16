@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Lithuanian. Amounts are in EUR: Lithuania adopted the euro on 1 January 2015, replacing the litas, so any pre-2015 synthetic record wanting period accuracy needs litas, not these. The bands are set for Lithuanian net household incomes, which are well below the euro-area average, not copied from a Western European scale.
+locale: lt
+---
+Iki 10 000 EUR
+10 000–15 000 EUR
+15 000–20 000 EUR
+20 000–30 000 EUR
+30 000–45 000 EUR
+45 000–65 000 EUR
+65 000–100 000 EUR
+Daugiau kaip 100 000 EUR

@@ -1,0 +1,59 @@
+---
+description: Sport. Novuss is the entry no other pack has: it is a Latvian board game played with a cue on a square wooden board, invented in the 1920s, with a national federation, a championship and a place in almost every school and holiday house. Bobslejs, skeletons and kamaniņu sports are on the list for a plainer reason — the Sigulda track has made Latvia a sliding-sports country out of proportion to its size — and hokejs is the national obsession.
+locale: lv
+---
+Hokejs
+Basketbols
+3x3 basketbols
+Futbols
+Volejbols
+Pludmales volejbols
+Florbols
+Handbols
+Novuss
+Dambrete
+Šahs
+Bobslejs
+Skeletons
+Kamaniņu sports
+Distanču slēpošana
+Kalnu slēpošana
+Biatlons
+Snovbords
+Daiļslidošana
+Ātrslidošana
+Vieglatlētika
+Skriešana
+Maratons
+Orientēšanās
+Riteņbraukšana
+BMX
+Kalnu riteņbraukšana
+Peldēšana
+Ziemas peldēšana
+Airēšana
+Kanoe
+Burāšana
+Vindsērfings
+Makšķerēšana
+Loka šaušana
+Šaušana
+Paukošana
+Cīņas
+Bokss
+Džudo
+Karatē
+Svarcelšana
+Vingrošana
+Teniss
+Galda teniss
+Badmintons
+Golfs
+Regbijs
+Beisbols
+Kērlings
+Motosports
+Autosports
+Rallijs
+Skeitbords
+Alpīnisms

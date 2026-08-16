@@ -1,0 +1,10 @@
+---
+description: Lithuanian full male name — a single given name and a single surname (Tomas Kazlauskas). Both parts end in -as/-is/-ys/-us/-ius, and both inflect together through all seven cases in running text.
+generator: tdc
+locale: lt
+---
+<sequence name="p">
+  <gen name="f" type="template" value="lt.person.male.firstName"/>
+  <gen name="l" type="template" value="lt.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

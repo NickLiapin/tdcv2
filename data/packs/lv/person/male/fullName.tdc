@@ -1,0 +1,10 @@
+---
+description: Latvian full male name — one given name and one surname (Jānis Bērziņš), given name first. Latvian carries a single surname, never the two-surname Spanish form. The surname is drawn from the masculine list, which is the only correct one for a male row.
+generator: tdc
+locale: lv
+---
+<sequence name="p">
+  <gen name="f" type="template" value="lv.person.male.firstName"/>
+  <gen name="l" type="template" value="lv.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

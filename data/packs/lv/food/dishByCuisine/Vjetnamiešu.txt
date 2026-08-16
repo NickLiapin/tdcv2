@@ -1,0 +1,14 @@
+---
+description: Dishes of Vjetnamiešu cuisine as a Latvian menu names them.
+locale: lv
+---
+Fo zupa
+Banh mi
+Pavasara rullīši
+Bun cha
+Com tam
+Vjetnamiešu kafija
+Cao lau
+Banh xeo
+Goi cuon
+Bo kho

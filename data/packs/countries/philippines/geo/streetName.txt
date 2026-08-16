@@ -1,0 +1,65 @@
+---
+address: philippines.geo.streetName
+description: Street names that exist in the Philippines, in the bare form the type word attaches to — "Rizal" becomes "Rizal Street" or "Rizal Avenue". ALMOST EVERY PHILIPPINE TOWN HAS THE SAME STREETS, because the standard practice is to name them after the heroes of the revolution against Spain and the presidents after it: Rizal, Bonifacio, Mabini, Del Pilar, Luna, Jacinto, Aguinaldo, Burgos, Gomez and Zamora recur in municipality after municipality, and a bare "Rizal Street" locates nothing without the town. That repetition is a real property of Philippine address data, not a weakness of this list. Also here are the Metro Manila arterials that are place-bound and famous in their own right: EDSA (always the acronym — its legal name is Epifanio de los Santos Avenue and nobody says it), Ayala, Ortigas, Katipunan, Commonwealth, España, Taft, Recto, Shaw, Roxas Boulevard, and Session Road in Baguio. A PHILIPPINE ADDRESS NEEDS A BARANGAY AND THIS FILE IS NOT IT: the full form runs house number, street, barangay, city or municipality, province, ZIP, and the barangay is the smallest unit of government — there are about 42,000 of them — with no equivalent in most address schemas. Addresses in dense areas often replace the street entirely with a subdivision or compound name plus a block and lot number ("Blk 12 Lot 4"), so a record with no street at all is normal Philippine data rather than a missing field. Values are in English and Spanish, which is what is painted on the signs.
+locale: en
+---
+Rizal
+Bonifacio
+Mabini
+Del Pilar
+Aguinaldo
+Luna
+Jacinto
+Burgos
+Gomez
+Zamora
+Quezon
+Osmeña
+Roxas
+Magsaysay
+Laurel
+Recto
+Legarda
+Taft
+Katipunan
+Ayala
+EDSA
+España
+Ortigas
+Shaw
+Commonwealth
+Aurora
+Session Road
+Colon
+Lacson
+Escolta
+Balete
+Kalayaan
+Maginhawa
+Timog
+Tomas Morato
+Buendia
+Pioneer
+Julia Vargas
+McKinley
+Bagtikan
+Malvar
+Dagohoy
+Sikatuna
+Lapu-Lapu
+Datu Puti
+Katipunero
+Bayani
+Maharlika
+Sampaguita
+Ilang-Ilang
+Acacia
+Narra
+Molave
+Kamagong
+Mahogany
+Camia
+Champaca
+Dahlia
+Gumamela
+Santan

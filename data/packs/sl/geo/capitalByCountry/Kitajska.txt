@@ -1,0 +1,5 @@
+---
+description: Capital of Kitajska, as Slovene names it
+locale: sl
+---
+Peking

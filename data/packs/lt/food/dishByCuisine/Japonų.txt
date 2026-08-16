@@ -1,0 +1,13 @@
+---
+description: Dishes of japonų cuisine as named in Lithuanian. Borrowed dish names are naturalised into Lithuanian spelling and given a Lithuanian ending, which is why they look nothing like the original (pizza -> pica, sushi -> sušis).
+locale: lt
+---
+Sušis
+Sašimis
+Ramenas
+Tempura
+Udonas
+Jakitori
+Miso sriuba
+Gyoza
+Katsu

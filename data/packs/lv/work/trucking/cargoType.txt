@@ -1,0 +1,17 @@
+---
+description: Truck cargo or trailer type. Latvia sits on the road corridor between Scandinavia, Russia and Central Europe, so refrigerated and timber haulage dominate the domestic fleet.
+locale: lv
+---
+Tents
+Refrižerators
+Platforma
+Cisterna
+Dzīvnieku pārvadāšana
+Bīstamās kravas
+Konteiners
+Autovedējs
+Zemā platforma
+Pakāpienveida platforma
+Pašizgāzējs
+Beramkravas
+Kokmateriāli

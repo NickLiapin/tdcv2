@@ -1,0 +1,9 @@
+---
+description: Positions in ledo ritulys (Lithuanian).
+locale: lt
+---
+Vartininkas
+Gynėjas
+Centro puolėjas
+Kairysis kraštinis
+Dešinysis kraštinis

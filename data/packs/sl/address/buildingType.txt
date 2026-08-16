@@ -1,0 +1,41 @@
+---
+description: Building type (Slovene). Kozolec is the free-standing slatted hayrack of the Slovene countryside — a drying frame built as a permanent structure, found in this form nowhere else in Europe and protected as heritage. Zidanica is the vineyard cottage of Styria and Lower Carniola, where a family presses its own wine, and hram is its eastern name; both are ordinary Slovene building types with no English equivalent.
+locale: sl
+---
+hiša
+stanovanjska hiša
+enodružinska hiša
+dvojček
+vrstna hiša
+vila
+blok
+stolpnica
+stanovanjski blok
+kmečka hiša
+domačija
+gospodarsko poslopje
+hlev
+skedenj
+kozolec
+zidanica
+hram
+koča
+planinska koča
+brunarica
+počitniška hiša
+garaža
+lopa
+drvarnica
+delavnica
+skladišče
+hala
+poslovna stavba
+trgovski center
+šola
+vrtec
+cerkev
+gasilski dom
+zadružni dom
+mlin
+žaga
+silos

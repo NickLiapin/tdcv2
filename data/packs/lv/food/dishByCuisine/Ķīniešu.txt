@@ -1,0 +1,14 @@
+---
+description: Dishes of Ķīniešu cuisine as a Latvian menu names them.
+locale: lv
+---
+Gunbao vista
+Cepti rīsi
+Pelmeņi jiaozi
+Čau mein
+Saldskāba cūkgaļa
+Mapo tofu
+Pekinas pīle
+Vontonu zupa
+Dimsam
+Cepti nūdeļi

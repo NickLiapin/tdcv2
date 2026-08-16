@@ -1,0 +1,32 @@
+---
+description: Technical verb (Slovene, infinitive)
+locale: sl
+---
+naložiti
+prenesti
+prevesti
+razhroščevati
+šifrirati
+dešifrirati
+stisniti
+razširiti
+namestiti
+posodobiti
+izbrisati
+kopirati
+premakniti
+poiskati
+urediti
+natisniti
+pognati
+preveriti
+povezati
+prijaviti se
+odjaviti se
+sinhronizirati
+arhivirati
+obnoviti
+testirati
+načrtovati
+programirati
+razvrstiti

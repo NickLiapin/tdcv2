@@ -1,0 +1,29 @@
+---
+description: Gemstone (Lithuanian). Gintaras — Baltic amber — heads the list because it is fossil resin washed up on the Lithuanian coast, and it is what Lithuania is known for abroad.
+locale: lt
+---
+Gintaras
+Deimantas
+Rubinas
+Safyras
+Smaragdas
+Ametistas
+Topazas
+Opalas
+Granatas
+Turmalinas
+Akvamarinas
+Citrinas
+Peridotas
+Turkis
+Lazuritas
+Malachitas
+Jaspis
+Agatas
+Oniksas
+Chalcedonas
+Kalnų krištolas
+Rausvasis kvarcas
+Mėnulio akmuo
+Perlas
+Nefritas

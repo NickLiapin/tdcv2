@@ -1,0 +1,16 @@
+---
+description: Meeting type (Lithuanian).
+locale: lt
+---
+Kasdienis aptarimas
+Savaitinis susirinkimas
+Komandos susirinkimas
+Individualus pokalbis
+Projekto peržiūra
+Planavimo susirinkimas
+Retrospektyva
+Pristatymas
+Mokymai
+Valdybos posėdis
+Susitikimas su klientu
+Nuotolinis susitikimas

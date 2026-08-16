@@ -1,0 +1,6 @@
+---
+address: thailand.phone
+description: Thai mobile number in E.164 form (+66 followed by nine digits). Country code is 66. A Thai mobile is written nationally as ten digits beginning with a trunk 0 — 08x, 09x and, since the blocks filled up, 06x — and internationally the trunk 0 is DROPPED, so 081 234 5678 becomes +66812345678 and never +660812345678. That leading zero is the single most common error in Thai phone data. Nine digits after the country code is the mobile length; landlines are eight or nine and live at thailand.phoneLandline. 06, 08 and 09 are all live mobile prefixes and none of them identifies a carrier any more, because number portability has been in force since 2011 — a number starting 081 is not necessarily AIS. Not modelled: 02 5xx numbers reassigned to VoIP, and the 14xx and 11xx short codes.
+generator: tdc
+---
+<gen type="regex" value="\+66[689][0-9]{8}"/>

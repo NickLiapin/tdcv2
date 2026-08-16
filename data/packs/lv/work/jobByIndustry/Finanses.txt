@@ -1,0 +1,12 @@
+---
+description: Jobs in Finanses.
+locale: lv
+---
+Finanšu analītiķis
+Grāmatvedis
+Investīciju baņķieris
+Revidents
+Aktuārs
+Kredītu speciālists
+Kasieris
+Nodokļu konsultants

@@ -1,0 +1,16 @@
+---
+description: Month name (Slovene, nominative, lowercase per Slovene orthography). Slovene uses the INTERNATIONAL Latin month names — januar, februar, marec — and NOT the Slavic nature-names, which is the single sharpest difference from Croatian, where the same twelve months are siječanj, veljača and ožujak. Slovene did once have its own set (prosinec, svečan, sušec, mali traven, veliki traven, rožnik, mali srpan, veliki srpan, kimavec, vinotok, listopad, gruden), revived by the nineteenth-century writers and still printed on beehive panels and in almanacs, but no Slovene calendar, form or newspaper uses them today. Inside a date the GENITIVE is used instead — 15. januarja 2026 — which is why DATE_LOCALE.json carries a separate monthsInDate array; this list holds the nominative citation form only.
+locale: sl
+---
+januar
+februar
+marec
+april
+maj
+junij
+julij
+avgust
+september
+oktober
+november
+december

@@ -1,0 +1,7 @@
+---
+address: thailand.tax.tin
+description: Thai taxpayer identification number (เลขประจำตัวผู้เสียภาษีอากร) for an INDIVIDUAL — and for a Thai national it is not a separate number at all: the Revenue Department uses the 13-digit national ID card number as the TIN, so this address generates exactly thailand.docs.nationalId and carries exactly its mod-11 check digit. Nothing is added and nothing is prefixed. WHICH NUMBER YOU GET: this one is the personal TIN. A company, partnership or association does not use it — a juristic person's TIN is its 13-digit DBD registration number, which is a different construction with the same checksum, and lives at thailand.tax.corporateTin. Two populations are not modelled here: a foreigner without a Thai ID card who is issued a 13-digit TIN by the Revenue Department directly (the leading digit is not a citizen category), and the legacy 10-digit TINs issued before the 13-digit scheme, which are still quoted on old paperwork and have no relation to this checksum.
+generator: tdc
+---
+<sequence name="tin"><gen type="template" value="thailand.docs.nationalId"/></sequence>
+<data>${{tin}}</data>

@@ -1,0 +1,16 @@
+---
+description: Jobs in Gamyba (Lithuanian).
+locale: lt
+---
+CNC staklių operatorius
+Suvirintojas
+Tekintojas
+Frezuotojas
+Kokybės kontrolierius
+Gamybos vadovas
+Surinkėjas
+Įrangos priežiūros mechanikas
+Gamybos technologas
+Gamybos linijos operatorius
+Meistras
+Sandėlininkas

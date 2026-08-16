@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurologija (Lithuanian).
+locale: lt
+---
+Migrena
+Epilepsija
+Parkinsono liga
+Išsėtinė sklerozė
+Išeminis galvos smegenų insultas
+Periferinė neuropatija
+Alzheimerio liga
+Trišakio nervo neuralgija
+Sunkioji miastenija
+Praeinantis smegenų išemijos priepuolis

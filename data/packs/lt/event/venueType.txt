@@ -1,0 +1,20 @@
+---
+description: Venue type (Lithuanian).
+locale: lt
+---
+Konferencijų centras
+Kongresų rūmai
+Viešbučio salė
+Kultūros namai
+Teatras
+Koncertų salė
+Arena
+Stadionas
+Sporto salė
+Muziejus
+Galerija
+Biblioteka
+Universiteto auditorija
+Restoranas
+Sodyba
+Lauko estrada

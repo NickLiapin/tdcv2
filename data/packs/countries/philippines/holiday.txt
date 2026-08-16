@@ -1,0 +1,26 @@
+---
+address: philippines.holiday
+description: Philippine public holidays, in English — the language every proclamation, payslip and holiday-pay computation uses. Two classes are mixed here and the distinction is a pay rule, not a formality: a REGULAR HOLIDAY is paid at 200 per cent if worked and paid in full if not, while a SPECIAL (NON-WORKING) DAY follows no-work-no-pay and 130 per cent if worked, so Philippine payroll cannot treat the list as uniform. The regular holidays are New Year's Day, Araw ng Kagitingan, Maundy Thursday, Good Friday, Labor Day, Independence Day, National Heroes Day, Eid'l Fitr, Eid'l Adha, Bonifacio Day, Christmas Day and Rizal Day; the rest below are special days. TWO ISLAMIC HOLIDAYS ARE NATIONAL REGULAR HOLIDAYS IN A COUNTRY THAT IS ABOUT 80 PER CENT CATHOLIC — Eid'l Fitr and Eid'l Adha are observed across the whole archipelago, not only in Muslim Mindanao, and being lunar they move every year and are proclaimed only weeks ahead, so a Philippine holiday calendar cannot be computed a year in advance the way a European one can. The Easter dates move too. Araw ng Kagitingan (Day of Valor) marks the fall of Bataan in 1942 and Ninoy Aquino Day the 1983 assassination that began the end of the Marcos dictatorship; both are specific to this country. Several names keep their Tagalog form because that is their legal name and no English version is used in practice. Note that Philippine holidays are declared annually by presidential proclamation, and extra special days are added most years for local feasts, elections and "holiday economics" long weekends, so this is the standing list and not a complete year.
+locale: en
+---
+New Year's Day
+Araw ng Kagitingan
+Maundy Thursday
+Good Friday
+Labor Day
+Independence Day
+National Heroes Day
+Eid'l Fitr
+Eid'l Adha
+Bonifacio Day
+Christmas Day
+Rizal Day
+Chinese New Year
+EDSA People Power Revolution Anniversary
+Black Saturday
+Ninoy Aquino Day
+All Saints' Day
+All Souls' Day
+Feast of the Immaculate Conception of Mary
+Christmas Eve
+Last Day of the Year

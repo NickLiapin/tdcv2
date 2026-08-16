@@ -1,0 +1,10 @@
+---
+address: singapore.docs.passport
+description: Singapore passport number — nine characters: one prefix letter, seven digits, one trailing letter. E is the ordinary BioPass series introduced in 2006; K followed when E ran down. The trailing letter is a check character, but ICA does not publish how it is computed, so it is drawn at random here and is NOT verified - unlike singapore.docs.nric and singapore.vehicle.plate in this pack, whose check letters are real. Do not use this file as a checksum example. The historical point matters for old data: before the biometric passport, a Singapore passport number WAS the holder's NRIC number, so a pre-2006 record can legitimately hold the same value in a passport column and an identity column, and a migration that assumes the two are always different will find rows that disagree. A passport number also changes on renewal, which the NRIC never does - joining on passport number across time is wrong for that reason alone.
+generator: tdc
+locale: en
+---
+<sequence name="prefix"><gen type="text" value="E,K" percent="55,45"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="tail"><gen type="regex" value="[A-Z]"/></sequence>
+<data>${{prefix}}${{serial}}${{tail}}</data>

@@ -1,0 +1,24 @@
+---
+description: Insect (Slovene). The kranjska čebela — the Carniolan honey bee, Apis mellifera carnica — is native to Slovenia and is the second most kept honey bee subspecies in the world; beekeeping is a national tradition, one Slovene in two hundred keeps bees, and Slovenia proposed World Bee Day to the United Nations. The human fish of the karst caves is an amphibian and lives in animal/type, not here.
+locale: sl
+---
+čebela
+kranjska čebela
+čmrlj
+osa
+sršen
+mravlja
+muha
+komar
+metulj
+apolon
+pikapolonica
+hrošč
+rogač
+kobilica
+murn
+škržat
+kačji pastir
+pajek
+klop
+ščurek

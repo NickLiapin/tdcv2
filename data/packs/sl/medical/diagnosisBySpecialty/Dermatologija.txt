@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in dermatologija, named in Slovene
+locale: sl
+---
+atopijski dermatitis
+luskavica
+akne
+urtikarija
+kontaktni ekcem
+rozacea
+seboroični dermatitis
+glivična okužba kože
+bradavice
+melanom
+bazalnocelični karcinom

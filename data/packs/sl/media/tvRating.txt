@@ -1,0 +1,13 @@
+---
+description: Broadcast age rating (Slovene). Slovene television marks a programme with the minimum age, so the ratings are numbers rather than letter codes.
+locale: sl
+---
+primerno za vse
+12+
+15+
+18+
+VS (vodstvo staršev)
+neprimerno za otroke
+nasilje
+neprimeren jezik
+prizori za odrasle

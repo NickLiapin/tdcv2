@@ -1,0 +1,5 @@
+---
+description: Capital of Jungtinės Amerikos Valstijos (Lithuanian).
+locale: lt
+---
+Vašingtonas

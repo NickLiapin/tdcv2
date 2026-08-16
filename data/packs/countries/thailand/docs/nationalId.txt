@@ -1,0 +1,27 @@
+---
+address: thailand.docs.nationalId
+description: Thai national identification number (เลขประจำตัวประชาชน) — 13 digits carrying a REAL mod-11 check digit, printed on the บัตรประชาชน as 1-2345-67890-12-3 and emitted here bare. The check is the published rule: multiply the first twelve digits by the descending weights 13,12,11,10,9,8,7,6,5,4,3,2, sum, and the thirteenth digit is (11 - sum mod 11) mod 10 — the outer mod 10 is what turns a remainder of 0 or 1 into a printable 1 or 0 instead of 11 or 10, and dropping it is the usual way this algorithm is got wrong. THE RULE HAS A BLIND SPOT and it is worth knowing before you rely on it: digit 3 is multiplied by 11, and 11 times anything is 0 modulo 11, so the third digit contributes NOTHING to the check and any error in it passes silently. Digit 3 is the second digit of the province code, so a Thai ID that names the wrong province validates perfectly. Every other single-digit error, and every transposition of two adjacent digits, is caught. Structure, all of it modelled except where said: digit 1 is the person's registration category (1 Thai born from 1984 registered on time, 2 Thai born from 1984 registered late, 3 Thai already in the household register before the 1984 reform, 4 added at the 1984 census, 5 a Thai the census missed, 6 and 7 foreigners resident temporarily and their children, 8 naturalised citizens and permanent residents); digits 2-3 are the ADMINISTRATIVE province code of the district office that issued it, drawn from the real set in thailand.geo.provinceCode and NOT the postcode prefix; digits 4-5 are that province's district (อำเภอ) and are drawn from 01 to 30 as a plausible range rather than a real อำเภอ table, so the province half of the number is real and the district half is not; digits 6-10 are the household registration book and the entry in it; digits 11-12 are a serial; digit 13 is the check. The number is a Thai person's primary key: it is the tax ID (thailand.tax.tin), it is the PromptPay handle, it is what a hospital, a bank and a SIM registration all ask for, and it is protected personal data under the PDPA — which is why no real citizen's number appears anywhere in this pack. The check rule was verified against published 13-digit numbers of the same scheme rather than against anyone's ID card; see thailand.tax.corporateTin.
+generator: tdc
+---
+<sequence name="kind"><gen type="text" value="1,2,3,4,5,8" percent="55,5,25,5,5,5"/></sequence>
+<sequence name="prov"><gen type="template" value="thailand.geo.provinceCode"/></sequence>
+<sequence name="district"><gen type="number" value="1..30" length="2" first_zero="true"/></sequence>
+<sequence name="household"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="id"><compute>
+  <let name="base"><concat>
+    <field name="kind"/><field name="prov"/><field name="district"/>
+    <field name="household"/><field name="serial"/>
+  </concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="13,12,11,10,9,8,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <!-- The outer mod 10 folds a remainder of 0 or 1 back to a single digit. -->
+  <let name="check"><mod><subtract><int v="11"/><mod><use name="sum"/><int v="11"/></mod></subtract><int v="10"/></mod></let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{id}}</data>

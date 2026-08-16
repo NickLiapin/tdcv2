@@ -1,0 +1,16 @@
+---
+description: Leave type. Bērna kopšanas atvaļinājums is the Latvian parental leave and runs to the child's eighteen months; paternitātes atvaļinājums is the ten working days a father takes at the birth. Mācību atvaļinājums, study leave, is a statutory entitlement in Latvia rather than a discretionary one.
+locale: lv
+---
+Ikgadējais apmaksātais atvaļinājums
+Slimības lapa
+Grūtniecības un dzemdību atvaļinājums
+Bērna kopšanas atvaļinājums
+Paternitātes atvaļinājums
+Mācību atvaļinājums
+Bezalgas atvaļinājums
+Radošais atvaļinājums
+Brīvdiena ģimenes apstākļu dēļ
+Atvaļinājums sakarā ar tuvinieka nāvi
+Donora diena
+Papildatvaļinājums

@@ -1,0 +1,30 @@
+---
+description: Product review headline (Slovene)
+locale: sl
+---
+Odlično
+Zelo zadovoljen
+Priporočam
+Vredno denarja
+Boljše, kot sem pričakoval
+Točno to, kar sem iskal
+Hitra dostava
+Lepo pakirano
+Kakovostna izdelava
+Deluje brezhibno
+Solidno za ceno
+Povprečno
+Nekaj pomanjkljivosti
+Ni tako, kot na sliki
+Premajhno
+Preveliko
+Slaba kakovost
+Pokvarilo se je po enem mesecu
+Razočaran
+Ne priporočam
+Denar vržen stran
+Dolga dostava
+Slaba podpora
+Bom še naročil
+Popolno darilo
+Uporabljam vsak dan

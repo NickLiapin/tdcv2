@@ -1,0 +1,29 @@
+---
+description: Gemstone. Dzintars, Baltic amber, heads the list because it is not a gemstone Latvia imports but one the sea delivers: it washes up on the Kurzeme shore after autumn storms, and the Latvian word gives its name to shops, ships and a perfume house.
+locale: lv
+---
+Dzintars
+Dimants
+Rubīns
+Safīrs
+Smaragds
+Ametists
+Topāzs
+Opāls
+Granāts
+Akvamarīns
+Peridots
+Tirkīzs
+Nefrīts
+Ahāts
+Oniks
+Pērle
+Citrīns
+Tanzanīts
+Turmalīns
+Mēnessakmens
+Cirkons
+Lazurīts
+Jašma
+Kalnu kristāls
+Malahīts

@@ -1,0 +1,14 @@
+---
+description: Loan type.
+locale: lv
+---
+Hipotekārais kredīts
+Auto līzings
+Patēriņa kredīts
+Studiju kredīts
+Studējošā kredīts
+Mājokļa uzlabošanas kredīts
+Uzņēmuma kredīts
+Ātrais kredīts
+Kredītlīnija
+Kredītu apvienošana

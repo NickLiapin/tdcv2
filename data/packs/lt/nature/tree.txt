@@ -1,0 +1,32 @@
+---
+description: Tree (Lithuanian). The oak is the national tree, and the birch and pine are what most of Lithuania's forest actually is.
+locale: lt
+---
+Ąžuolas
+Beržas
+Pušis
+Eglė
+Liepa
+Klevas
+Uosis
+Guoba
+Skroblas
+Bukas
+Alksnis
+Drebulė
+Tuopa
+Gluosnis
+Karklas
+Blindė
+Šermukšnis
+Ieva
+Lazdynas
+Kadagys
+Maumedis
+Kėnis
+Obelis
+Kriaušė
+Slyva
+Vyšnia
+Riešutmedis
+Kaštonas

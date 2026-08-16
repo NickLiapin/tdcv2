@@ -1,0 +1,12 @@
+---
+description: Book format (Lithuanian).
+locale: lt
+---
+Kietas viršelis
+Minkštas viršelis
+Kišeninė knyga
+Elektroninė knyga
+Garso knyga
+Iliustruotas leidimas
+Kolekcinis leidimas
+Žurnalas

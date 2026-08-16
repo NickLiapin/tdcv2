@@ -1,0 +1,17 @@
+---
+description: Job titles in the Slovene gradbeništvo sector
+locale: sl
+---
+gradbeni inženir
+projektant
+gradbeni nadzornik
+vodja gradbišča
+geodet
+arhitekt
+zidar
+tesar
+krovec
+keramičar
+pleskar
+elektroinštalater
+vodovodni inštalater

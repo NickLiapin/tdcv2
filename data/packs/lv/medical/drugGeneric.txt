@@ -1,0 +1,48 @@
+---
+description: Generic drug name, in the Latvian spelling used on a prescription and in the state medicines register.
+locale: lv
+---
+Paracetamols
+Ibuprofēns
+Aspirīns
+Metamizols
+Amoksicilīns
+Amoksicilīns ar klavulānskābi
+Azitromicīns
+Ciprofloksacīns
+Doksiciklīns
+Cefuroksīms
+Metronidazols
+Nitrofurantoīns
+Lizinoprils
+Ramiprils
+Metoprolols
+Bisoprolols
+Amlodipīns
+Losartāns
+Hidrohlortiazīds
+Furosemīds
+Spironolaktons
+Atorvastatīns
+Simvastatīns
+Rosuvastatīns
+Klopidogrels
+Varfarīns
+Rivaroksabāns
+Metformīns
+Glikazīds
+Insulīns glargīns
+Levotiroksīns
+Omeprazols
+Pantoprazols
+Salbutamols
+Budezonīds
+Montelukasts
+Prednizolons
+Sertralīns
+Escitaloprams
+Fluoksetīns
+Gabapentīns
+Tramadols
+Naproksēns
+Diklofenaks

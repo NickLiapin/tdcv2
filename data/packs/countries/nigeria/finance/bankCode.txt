@@ -1,0 +1,9 @@
+---
+address: nigeria.finance.bankCode
+description: Nigerian 3-digit CBN bank code — the value that names the destination bank in an interbank transfer, the first three digits of that bank's 9-digit sort code, and the input the NUBAN check digit is computed over. Sliced out of nigeria.finance.bankWithCode, so it cannot drift from nigeria.finance.bank. The real codes are scattered and clustered (011-107, then 214-232, then the 30x block held by the non-interest banks), which is why a random 3-digit draw would look wrong to anyone Nigerian and this is the actual enumeration instead. Not the 6-digit NIBSS institution code and not a SWIFT/BIC — see nigeria.finance.bankWithCode for why all three exist.
+generator: tdc
+locale: en
+---
+<sequence name="entry"><gen type="template" value="nigeria.finance.bankWithCode"/></sequence>
+<sequence name="code"><compute><result><slice from="0" to="3"><field name="entry"/></slice></result></compute></sequence>
+<data>${{code}}</data>

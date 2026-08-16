@@ -1,0 +1,9 @@
+---
+description: Work shift (Lithuanian).
+locale: lt
+---
+Dieninė pamaina
+Vakarinė pamaina
+Naktinė pamaina
+Parinė pamaina
+Poilsio diena

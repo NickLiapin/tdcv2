@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of this ancestry (Rytų Europos), in Lithuanian. A prevalence signal, not an exclusive one.
+locale: lt
+---
+Paveldimoji hemochromatozė
+Fenilketonurija
+Šeiminė hipercholesterolemija
+Alkoholinė kepenų liga
+Cistinė fibrozė
+Vilsono liga

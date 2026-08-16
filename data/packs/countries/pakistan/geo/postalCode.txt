@@ -1,0 +1,7 @@
+---
+address: pakistan.geo.postalCode
+description: Pakistan Post postcode — five digits, and the digits are geography rather than filler. The first two are the routing district, which is a city or a group of districts, and the last three are the delivery post office inside it. The routing districts are allotted in one sweep from the north-east to the south-west, so the leading digits band cleanly by administrative unit: 10000-13999 Azad Jammu and Kashmir (Mirpur 10250, Muzaffarabad 13100), 14000-16999 Gilgit-Baltistan (Gilgit 15100), 17000-29999 Khyber Pakhtunkhwa (Mingora 19130, Abbottabad 22010, Mardan 23200, Peshawar 25000, Kohat 26000, Dera Ismail Khan 29050), 30000-64999 Punjab and, sitting inside that range rather than beside it, Islamabad Capital Territory (Faisalabad 38000, Islamabad 44000, Rawalpindi 46000, Lahore 54000, Multan 60000, Bahawalpur 63100), 65000-79999 Sindh (Sukkur 65200, Hyderabad 71000, Karachi 74000, Larkana 77150), 80000-96999 Balochistan (Quetta 87300, Khuzdar 89100, Turbat 92600). Because the bands tile the range without gaps, a value drawn anywhere in 10000-96999 always falls inside a real administrative unit's block, though not necessarily on a routing district that has been allotted or a post office that exists. Nothing is issued below 10000. The postcode has no check digit and Pakistan Post publishes none.
+generator: tdc
+locale: en
+---
+<gen type="number" value="10000..96999"/>

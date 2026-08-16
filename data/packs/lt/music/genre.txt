@@ -1,0 +1,39 @@
+---
+description: Music genre (Lithuanian). Sutartinės, the polyphonic chant sung in seconds, is a Lithuanian genre with no equivalent elsewhere and is on the UNESCO list.
+locale: lt
+---
+Klasikinė muzika
+Opera
+Simfoninė muzika
+Kamerinė muzika
+Choro muzika
+Liaudies muzika
+Sutartinės
+Kanklių muzika
+Etno
+Folk
+Rokas
+Sunkusis metalas
+Pankas
+Alternatyvusis rokas
+Indie
+Popmuzika
+Estradinė muzika
+Šansonas
+Džiazas
+Bliuzas
+Fankas
+Soulas
+Regis
+Hiphopas
+Repas
+Elektroninė muzika
+Techno
+Hausas
+Drum and bass
+Trance
+Ambient
+Šokių muzika
+Bardų daina
+Religinė muzika
+Kino muzika

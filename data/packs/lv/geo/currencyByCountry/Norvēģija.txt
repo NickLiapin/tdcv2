@@ -1,0 +1,5 @@
+---
+description: Currency of Norvēģija, named in Latvian.
+locale: lv
+---
+Norvēģijas krona

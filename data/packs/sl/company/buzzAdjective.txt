@@ -1,0 +1,59 @@
+---
+description: Corporate buzz adjective (Slovene, masculine nominative singular — inflect to match the noun it precedes, including into the dual for exactly two)
+locale: sl
+---
+inovativen
+digitalen
+trajnosten
+agilen
+celovit
+integriran
+prilagodljiv
+razširljiv
+robusten
+zanesljiv
+varen
+učinkovit
+optimiziran
+avtomatiziran
+pameten
+napreden
+vodilen
+strateški
+globalen
+lokalen
+regionalen
+usmerjen
+osredotočen
+dinamičen
+proaktiven
+odziven
+transparenten
+odgovoren
+etičen
+zelen
+ogljično nevtralen
+krožen
+odprt
+povezan
+modularen
+sinergičen
+podatkovno voden
+uporabniško usmerjen
+sodoben
+prodoren
+konkurenčen
+donosen
+stroškovno učinkovit
+kakovosten
+certificiran
+preverjen
+izkušen
+strokoven
+predan
+ambiciozen
+vizionarski
+kreativen
+iznajdljiv
+prilagojen
+specializiran

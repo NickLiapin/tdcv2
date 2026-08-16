@@ -1,0 +1,16 @@
+---
+description: Jobs in Statyba (Lithuanian).
+locale: lt
+---
+Elektrikas
+Santechnikas
+Mūrininkas
+Stalius
+Statybos vadovas
+Sunkiosios technikos operatorius
+Geodezininkas
+Stogdengys
+Armatūrininkas
+Tinkuotojas
+Statybos techninės priežiūros inžinierius
+Statybininkas

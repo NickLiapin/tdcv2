@@ -1,0 +1,7 @@
+---
+description: Positions in Bobslejs.
+locale: lv
+---
+Pilots
+Stūmējs
+Bremzētājs

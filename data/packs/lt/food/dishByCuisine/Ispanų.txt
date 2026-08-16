@@ -1,0 +1,14 @@
+---
+description: Dishes of ispanų cuisine as named in Lithuanian. Borrowed dish names are naturalised into Lithuanian spelling and given a Lithuanian ending, which is why they look nothing like the original (pizza -> pica, sushi -> sušis).
+locale: lt
+---
+Paelija
+Tapos
+Gaspačas
+Tortilja
+Churrai
+Jamon serrano
+Patatas bravas
+Pulpo a la gallega
+Sangrija
+Krokietės

@@ -1,0 +1,11 @@
+---
+address: nigeria.geo.zone
+description: The six geopolitical zones of Nigeria. THESE ARE REAL AND CONSTANTLY USED BUT THEY ARE NOT A TIER OF GOVERNMENT — no zone has a government, a budget, an assembly or a legal existence in the 1999 Constitution, which knows only the Federation, the states, the FCT and the local government areas. They were drawn in the 1990s and they run the country's informal politics anyway: federal appointments, party tickets, university admissions, the unwritten rotation of the presidency between north and south, and every published statistic about Nigerian regions are all argued in these six names. So a data set about Nigeria that omits them is missing how Nigerians actually group themselves, and one that treats them as an administrative level above the states is asserting something false. Membership is fixed and is given per zone in nigeria.geo.stateByZone, which lets a config draw a zone and then a state that really belongs to it. The FCT sits in North Central. "South South" is not a typo — it is the zone's name, the oil-producing Niger Delta states, and it is written with the word twice.
+locale: en
+---
+North Central
+North East
+North West
+South East
+South South
+South West

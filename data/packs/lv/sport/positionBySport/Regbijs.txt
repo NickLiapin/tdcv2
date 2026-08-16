@@ -1,0 +1,11 @@
+---
+description: Positions in Regbijs.
+locale: lv
+---
+Balsts
+Āķeris
+Slēdzējs
+Jaucējs
+Pussargs
+Malējais
+Pēdējais aizsargs

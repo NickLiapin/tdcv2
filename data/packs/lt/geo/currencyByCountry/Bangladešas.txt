@@ -1,0 +1,5 @@
+---
+description: Currency of Bangladešas (Lithuanian).
+locale: lt
+---
+Taka

@@ -1,0 +1,8 @@
+---
+address: thailand.geo.postalCodePrefix
+description: The two leading digits of a Thai postcode, which identify the province. Sliced out of thailand.geo.provinceWithPostalPrefix so the set is exactly the set of prefixes that exist. 10 is drawn twice as often as any other value because two places share it — Bangkok and สมุทรปราการ — and that is a fact about Thailand Post, not a weighting choice. This is NOT the province code that appears inside a Thai identity number; for that see thailand.geo.provinceCode.
+generator: tdc
+---
+<sequence name="entry"><gen type="template" value="thailand.geo.provinceWithPostalPrefix"/></sequence>
+<sequence name="prefix"><compute><result><slice to="2"><field name="entry"/></slice></result></compute></sequence>
+<data>${{prefix}}</data>

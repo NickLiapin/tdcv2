@@ -1,0 +1,5 @@
+---
+description: Capital of Prancūzija (Lithuanian).
+locale: lt
+---
+Paryžius

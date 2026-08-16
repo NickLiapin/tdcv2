@@ -1,0 +1,17 @@
+---
+address: serbia.holiday
+description: Public holidays of Serbia under the Zakon o državnim i drugim praznicima u Republici Srbiji, in Cyrillic. The non-working ones are the first eight: Нова година (1 and 2 January), Божић (7 January, Orthodox, because the Serbian Church keeps the Julian calendar and Christmas falls thirteen days after the Western one), Дан државности Србије (15 and 16 February, Сретење — the Orašac uprising of 1804 and the Sretenje constitution of 1835 on the same date), the four moving Easter days from Велики петак to Васкрсни понедељак, Празник рада (1 and 2 May) and Дан примирја у Првом светском рату (11 November). Several of them are TWO days, which is unusual in Europe and is why a Serbian January and a Serbian May both open with a two-day stop. The last four are marked but working: Свети Сава on 27 January is the schools' patron day, Дан победе on 9 May, Видовдан on 28 June, and Дан сећања на српске жртве у Другом светском рату on 21 October. Serbia also gives each religious community its own day off rather than legislating a common list — Orthodox believers take their family slava, Catholics take Catholic Christmas and Easter, Muslims the first day of Ramazanski and Kurban-bajram, Jews Yom Kippur — and the slava in particular has no counterpart in the neighbours' calendars: it is a household's own saint's day, so the date differs from family to family and cannot be listed here. If a non-religious state holiday falls on a Sunday the following Monday is non-working.
+locale: sr
+---
+Нова година
+Божић
+Дан државности Србије
+Велики петак
+Васкрс
+Васкрсни понедељак
+Празник рада
+Дан примирја у Првом светском рату
+Свети Сава
+Дан победе
+Видовдан
+Дан сећања на српске жртве у Другом светском рату

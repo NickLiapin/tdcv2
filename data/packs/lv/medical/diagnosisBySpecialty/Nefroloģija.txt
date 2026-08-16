@@ -1,0 +1,12 @@
+---
+description: Diagnoses seen in Nefroloģija.
+locale: lv
+---
+Hroniska nieru slimība
+Nefrolitiāze
+Glomerulonefrīts
+Akūts nieru bojājums
+Policistisko nieru slimība
+Nefrotiskais sindroms
+Diabētiskā nefropātija
+Pielonefrīts

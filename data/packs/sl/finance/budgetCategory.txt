@@ -1,0 +1,24 @@
+---
+description: Household budget category (Slovene)
+locale: sl
+---
+stanovanje
+najemnina
+kredit
+elektrika
+ogrevanje
+voda in komunala
+internet in telefon
+hrana
+gospodinjske potrebščine
+prevoz
+gorivo
+avto
+zdravje
+zavarovanje
+otroci in šola
+oblačila
+prosti čas
+dopust
+varčevanje
+drugo

@@ -1,0 +1,41 @@
+---
+description: Tech noun (Lithuanian).
+locale: lt
+---
+serveris
+klientas
+duomenų bazė
+lentelė
+įrašas
+laukas
+raktas
+indeksas
+užklausa
+atsakas
+protokolas
+prievadas
+adresas
+paketas
+srautas
+gija
+procesas
+atmintis
+talpykla
+failas
+aplankas
+diskas
+tinklas
+ugniasienė
+šliuzas
+maršrutizatorius
+komutatorius
+branduolys
+biblioteka
+modulis
+funkcija
+kintamasis
+masyvas
+sąrašas
+klasė
+objektas
+sąsaja

@@ -1,0 +1,59 @@
+---
+description: Industry sector.
+locale: lv
+---
+Lauksaimniecība
+Mežsaimniecība
+Kokrūpniecība
+Zvejniecība
+Pārtikas ražošana
+Dzērienu ražošana
+Ieguves rūpniecība
+Kūdras ieguve
+Būvniecība
+Ražošana
+Metālapstrāde
+Mašīnbūve
+Elektronika
+Ķīmiskā rūpniecība
+Farmācija
+Biotehnoloģijas
+Tekstilrūpniecība
+Mēbeļu ražošana
+Poligrāfija
+Enerģētika
+Atjaunīgā enerģija
+Siltumapgāde
+Ūdensapgāde
+Atkritumu apsaimniekošana
+Vairumtirdzniecība
+Mazumtirdzniecība
+E-komercija
+Transports
+Loģistika
+Kravu pārvadājumi
+Jūras pārvadājumi
+Aviācija
+Dzelzceļš
+Informācijas tehnoloģijas
+Programmatūras izstrāde
+Telekomunikācijas
+Datu centri
+Finanses
+Banku pakalpojumi
+Apdrošināšana
+Nekustamais īpašums
+Veselības aprūpe
+Farmaceitiskā tirdzniecība
+Izglītība
+Zinātne
+Viesmīlība
+Tūrisms
+Sabiedriskā ēdināšana
+Izklaide
+Mediji
+Reklāma
+Konsultācijas
+Juridiskie pakalpojumi
+Grāmatvedība
+Nevalstiskais sektors

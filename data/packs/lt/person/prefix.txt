@@ -1,0 +1,36 @@
+---
+description: Lithuanian honorific / form of address, in the abbreviated form used before a name. Ponas / Ponia / Panelė are the everyday three; the rest are academic and professional titles. Note that a Lithuanian address form goes into the VOCATIVE when speaking to someone (ponas -> pone, gerbiamasis -> gerbiamasai), which no other case system in the region still does this consistently.
+locale: lt
+---
+P.
+Ponas
+Ponia
+Panelė
+Dr.
+Doc.
+Prof.
+Habil. dr.
+Prof. dr.
+Doc. dr.
+Mgr.
+Inž.
+Gerb.
+Kun.
+Mons.
+Vysk.
+Arkivysk.
+Kard.
+Br.
+Ses.
+Adv.
+Notaras
+Teisėjas
+Gyd.
+Med. gyd.
+Vet. gyd.
+Mokyt.
+Dir.
+Plk.
+Mjr.
+Kpt.
+Ltn.

@@ -1,0 +1,20 @@
+---
+description: Horse breed (Slovene). The lipicanec is named after LIPICA, the stud farm on the Slovene Karst founded in 1580 and still working — the breed's home is in Slovenia, not in Vienna or in Croatia, and the Lipica stud is Slovene state property and a UNESCO site. The slovenski hladnokrvni konj and the ljutomerski kasač are Slovenia's two other native breeds.
+locale: sl
+---
+lipicanec
+slovenski hladnokrvni konj
+ljutomerski kasač
+posavski konj
+haflinger
+arabski konj
+angleški polnokrvni konj
+andaluzijski konj
+friz
+islandski konj
+kladrubski konj
+shetlandski poni
+welsh poni
+quarter horse
+trakenec
+hanoveranec

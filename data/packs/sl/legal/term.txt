@@ -1,0 +1,23 @@
+---
+description: Legal term (Slovene). Note odvetnik for a lawyer in private practice and notar for a notary; a Slovene tožilec is the state prosecutor and a tožnik the plaintiff, two words a config must not confuse.
+locale: sl
+---
+tožba
+toženec
+tožnik
+tožilec
+obtožnica
+sodba
+sklep
+pritožba
+revizija
+izvršba
+zastaranje
+odvetnik
+notar
+sodnik
+porota
+priča
+izvedenec
+pooblastilo
+pravnomočnost

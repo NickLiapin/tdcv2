@@ -1,0 +1,150 @@
+---
+description: Product noun (Slovene). Grammatical gender varies across this list — miza is feminine, stol masculine, ogledalo neuter — so a config composing an adjective in front of one of these must inflect the adjective to match. NOTE the false friend with the neighbours: in Slovene miza is the TABLE and stol the CHAIR, while Croatian and Serbian stol is the table and stolica the chair. A pack copied from Croatian gets the furniture the wrong way round and nothing downstream notices.
+locale: sl
+---
+miza
+stol
+fotelj
+kavč
+postelja
+omara
+predalnik
+polica
+regal
+klop
+pisalna miza
+nočna omarica
+ogledalo
+svetilka
+luč
+lestenec
+preproga
+zavesa
+blazina
+odeja
+rjuha
+brisača
+prt
+krožnik
+skodelica
+kozarec
+vrč
+steklenica
+žlica
+vilica
+nož
+deska za rezanje
+ponev
+lonec
+pekač
+posoda
+pladenj
+košara
+vedro
+metla
+krtača
+sesalnik
+likalnik
+pralni stroj
+sušilni stroj
+pomivalni stroj
+hladilnik
+zamrzovalnik
+štedilnik
+pečica
+mikrovalovna pečica
+napa
+kuhalnik
+kavni aparat
+mešalnik
+sokovnik
+opekač
+grelnik vode
+žar
+televizor
+radio
+zvočnik
+slušalke
+mikrofon
+kamera
+fotoaparat
+objektiv
+stativ
+projektor
+računalnik
+prenosnik
+tablica
+telefon
+pametna ura
+tipkovnica
+miška
+zaslon
+tiskalnik
+optični bralnik
+usmerjevalnik
+polnilnik
+baterija
+kabel
+adapter
+torba
+nahrbtnik
+kovček
+denarnica
+pas
+ura
+očala
+sončna očala
+dežnik
+ključavnica
+svinčnik
+pero
+zvezek
+beležnica
+mapa
+knjiga
+slovar
+zemljevid
+koledar
+škarje
+ravnilo
+kalkulator
+kladivo
+izvijač
+klešče
+vrtalnik
+žaga
+brusilnik
+meter
+vodna tehtnica
+lestev
+lopata
+grablje
+motika
+kosilnica
+škropilnica
+cev za zalivanje
+lonček za rože
+kolo
+gorsko kolo
+skiro
+smuči
+deska za sneg
+smučarski čevlji
+čelada
+nahrbtnik za pohodništvo
+šotor
+spalna vreča
+pohodne palice
+plavutke
+žoga
+lopar
+smučarske palice
+cepin
+vrv
+plezalni pas
+kompas
+svetilka za na glavo
+termovka
+steklenica za vodo
+pribor za prvo pomoč
+sončna krema

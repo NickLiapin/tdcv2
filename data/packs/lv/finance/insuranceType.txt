@@ -1,0 +1,18 @@
+---
+description: Insurance type. OCTA is the compulsory motor third-party policy every Latvian vehicle must carry and KASKO the optional comprehensive one; both names are used as ordinary words, unabbreviated and untranslated, in Latvian speech.
+locale: lv
+---
+Veselības apdrošināšana
+Dzīvības apdrošināšana
+OCTA
+KASKO
+Īpašuma apdrošināšana
+Mājokļa apdrošināšana
+Īrnieka apdrošināšana
+Ceļojumu apdrošināšana
+Nelaimes gadījumu apdrošināšana
+Civiltiesiskās atbildības apdrošināšana
+Darbnespējas apdrošināšana
+Zobārstniecības apdrošināšana
+Mājdzīvnieku apdrošināšana
+Kravas apdrošināšana

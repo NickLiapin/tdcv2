@@ -1,0 +1,5 @@
+---
+description: Capital of Tailandas (Lithuanian).
+locale: lt
+---
+Bankokas

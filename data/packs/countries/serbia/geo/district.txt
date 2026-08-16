@@ -1,0 +1,35 @@
+---
+address: serbia.geo.district
+description: The 29 administrative districts (управни окрузи) of Serbia, the country's first-level division below the republic, set by the Uredba o upravnim okruzima. A district is a deconcentrated arm of the ministries rather than a self-governing tier, which is why it has an administrator and no assembly — the elected tier below it is the opština. Grad Beograd is FIRST in this list and is not one of the 29: the capital belongs to no district at all and has the status of a district-equivalent city in its own right, so a list of exactly 29 would leave a fifth of the population unplaceable. Vojvodina supplies seven (Севернобачки, Западнобачки, Јужнобачки, Севернобанатски, Средњобанатски, Јужнобанатски, Сремски) and is itself an autonomous province sitting above them, a layer central Serbia has no counterpart to. The last five — Косовски, Косовскомитровачки, Косовскопоморавски, Пећки, Призренски — are here because Serbia's own законодавство still constitutes them, in the same way the Cyprus pack keeps Ammochostos and Kyrenia in its district list while leaving those towns out of its city list. Kosovo declared independence in 2008, some states recognise it and others do not, and this pack adjudicates none of that; it records only that Serbia's district law names them and that Serbia's postal and municipal systems do not reach them, which is why serbia.geo.city and serbia.geo.postalCode stop short of them.
+locale: sr
+---
+Град Београд
+Јужнобачки округ
+Нишавски округ
+Шумадијски округ
+Јужнобанатски округ
+Мачвански округ
+Расински округ
+Средњобанатски округ
+Рашки округ
+Сремски округ
+Моравички округ
+Подунавски округ
+Јабланички округ
+Колубарски округ
+Пчињски округ
+Западнобачки округ
+Севернобачки округ
+Севернобанатски округ
+Златиборски округ
+Браничевски округ
+Поморавски округ
+Зајечарски округ
+Борски округ
+Пиротски округ
+Топлички округ
+Косовски округ
+Косовскомитровачки округ
+Косовскопоморавски округ
+Пећки округ
+Призренски округ

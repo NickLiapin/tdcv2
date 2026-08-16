@@ -1,0 +1,38 @@
+---
+address: philippines.sport.team
+description: Philippine sports teams that exist. BASKETBALL IS THE NATIONAL SPORT IN EVERYTHING BUT LAW, and the list reflects it: the Philippine Basketball Association, founded in 1975, is the oldest professional basketball league in the world outside the NBA and the second-oldest anywhere. Its teams are named for their corporate owners rather than for cities — Barangay Ginebra San Miguel is a gin brand, Meralco is the Manila electricity utility, NLEX is a toll road, TNT is a mobile brand — so a PBA team can move, rebrand or be sold and the "city" a foreign schema expects simply is not there. The volleyball clubs of the Premier Volleyball League are here because women's volleyball now outdraws much of the men's basketball calendar, and the UAAP university teams because Philippine college sport carries a following that in most countries only professional clubs get: an Ateneo-La Salle basketball final fills a 20,000-seat arena. Football clubs are few and thin by comparison. Values are in English with Tagalog and Spanish brand words left as they are written — Ginebra, Tropang Giga, Batang Pier, Gilas Pilipinas — because those are the registered names, not translations.
+locale: en
+---
+Barangay Ginebra San Miguel
+San Miguel Beermen
+TNT Tropang Giga
+Magnolia Hotshots
+Meralco Bolts
+Rain or Shine Elasto Painters
+NLEX Road Warriors
+NorthPort Batang Pier
+Converge FiberXers
+Phoenix Super LPG Fuel Masters
+Blackwater Bossing
+Terrafirma Dyip
+Creamline Cool Smashers
+Petro Gazz Angels
+Chery Tiggo Crossovers
+Cignal HD Spikers
+Choco Mucho Flying Titans
+F2 Logistics Cargo Movers
+Akari Chargers
+Ateneo Blue Eagles
+De La Salle Green Archers
+UST Growling Tigers
+UP Fighting Maroons
+FEU Tamaraws
+NU Bulldogs
+Adamson Soaring Falcons
+UE Red Warriors
+San Beda Red Lions
+Letran Knights
+Kaya FC-Iloilo
+Stallion Laguna FC
+Gilas Pilipinas
+Philippine Azkals

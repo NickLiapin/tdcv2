@@ -1,0 +1,23 @@
+---
+description: Movie genre (Lithuanian).
+locale: lt
+---
+Drama
+Komedija
+Veiksmo filmas
+Trileris
+Detektyvas
+Siaubo filmas
+Mokslinė fantastika
+Fantastinis filmas
+Nuotykių filmas
+Istorinis filmas
+Karinis filmas
+Vesternas
+Miuziklas
+Romantinė komedija
+Melodrama
+Animacinis filmas
+Dokumentinis filmas
+Biografinis filmas
+Trumpametražis filmas

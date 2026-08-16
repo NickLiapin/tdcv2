@@ -1,0 +1,8 @@
+---
+address: singapore.docs.driversLicense
+description: Singapore driving licence number. Singapore mints no licence number of its own: the number on the licence IS the holder's NRIC, or their FIN if they are a foreigner, so this file draws from singapore.docs.nric. That is worth knowing before designing a schema - a driving-licence column and an identity column hold the same value, joining on either gives the same answer, and a "licence number" is therefore just as identifying as the NRIC and should be protected the same way. It also means the number does not change when the licence is renewed or replaced, and that a foreigner who becomes a citizen has to apply for a replacement licence purely because the number underneath it changed from a FIN to an NRIC. Only the citizen/PR case is generated here; for a foreign-held licence, draw singapore.docs.fin instead.
+generator: tdc
+locale: en
+---
+<sequence name="nric"><gen type="template" value="singapore.docs.nric"/></sequence>
+<data>${{nric}}</data>

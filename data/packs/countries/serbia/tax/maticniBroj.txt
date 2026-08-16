@@ -1,0 +1,25 @@
+---
+address: serbia.tax.maticniBroj
+description: Serbian matični broj (матични број правног лица) — the 8-digit register number the Republički zavod za statistiku assigns every business entity and the Agencija za privredne registre prints beside the PIB: a 7-digit base plus a mod-11 check. It is the SAME Modul 11 the JMBG uses — weights 2,3,4,5,6,7 repeating from the right, so over seven digits they read 2,7,6,5,4,3,2 left to right — but the edge rule is the opposite of the personal number's: where a JMBG whose difference comes out 10 is simply never issued, here 10 and 11 both collapse to a check digit of 0, so no base is excluded and no redraw is needed. That single difference is the reason this file and serbia.docs.jmbg cannot share one generator. Do not confuse it with Croatia's numbers: Croatia's MBS is the 9-digit COURT register number and its own 8-digit statistical MB is deliberately not shipped there because no published number could be found to check it against; Serbia's is the statistical number and there are plenty. Verified against all 21 matični brojevi in the National Bank of Serbia's published register of bank giro accounts, which pass 21 out of 21 — among them Banca Intesa 07759231, NLB Komercijalna banka 07737068, Raiffeisen banka 17335600, Erste Bank 08063818, UniCredit Bank Srbija 17324918 and Bank of China Srbija 21251640 — and additionally against Telekom Srbija 17162543, NIS a.d. Novi Sad 20084693 and Elektroprivreda Srbije 20053658. The base is drawn 0-2 in the leading digit because that is the whole issued span: the oldest entities carry 06-08, the 1990s carry 17, and entities registered from 2005 onward carry 20-21.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-2][0-9]{6}"/></sequence>
+<sequence name="check"><compute>
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
+  <let name="m"><subtract><int v="11"/><use name="r"/></subtract></let>
+  <!-- 10 and 11 both become 0 here; the personal number instead skips the serial. -->
+  <result>
+    <choose>
+      <when><test><greater_than><use name="m"/><int v="9"/></greater_than></test><then><int v="0"/></then></when>
+      <otherwise><use name="m"/></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>${{base}}${{check}}</data>

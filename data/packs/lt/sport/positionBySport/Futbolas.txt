@@ -1,0 +1,15 @@
+---
+description: Positions in futbolas (Lithuanian).
+locale: lt
+---
+Vartininkas
+Centrinis gynėjas
+Dešinysis gynėjas
+Kairysis gynėjas
+Saugantis puolėjas
+Centrinis saugas
+Atakuojantis saugas
+Dešinysis kraštinis
+Kairysis kraštinis
+Puolėjas
+Centrinis puolėjas

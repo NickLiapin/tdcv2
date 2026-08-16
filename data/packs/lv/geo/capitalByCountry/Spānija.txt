@@ -1,0 +1,5 @@
+---
+description: Capital of Spānija, in the Latvian spelling.
+locale: lv
+---
+Madride

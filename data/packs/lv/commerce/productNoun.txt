@@ -1,0 +1,168 @@
+---
+description: Product, as a noun. Nominative singular unless the object is inherently a pair or a set (Cimdi, Zeķes, Brilles, Dvieļi), which Latvian keeps plural.
+locale: lv
+---
+Krēsls
+Galds
+Rakstāmgalds
+Skapis
+Plaukts
+Grāmatplaukts
+Dīvāns
+Atpūtas krēsls
+Gulta
+Matracis
+Naktsskapītis
+Spogulis
+Paklājs
+Aizkari
+Žalūzijas
+Spilvens
+Sega
+Palags
+Gultas veļa
+Dvieļi
+Vāze
+Svečturis
+Glezna
+Pulkstenis
+Sienas pulkstenis
+Lampa
+Galda lampa
+Griestu lampa
+Ventilators
+Sildītājs
+Gaisa mitrinātājs
+Putekļsūcējs
+Ledusskapis
+Plīts
+Cepeškrāsns
+Mikroviļņu krāsns
+Trauku mazgājamā mašīna
+Veļas mašīna
+Tējkanna
+Kafijas automāts
+Tosteris
+Blenderis
+Mikseris
+Gaļas mašīna
+Katls
+Panna
+Nazis
+Naža komplekts
+Dakšiņa
+Karote
+Šķīvis
+Bļoda
+Krūze
+Glāze
+Termokrūze
+Pudele
+Grozs
+Paplāte
+Griešanas dēlītis
+Sietiņš
+Dators
+Portatīvais dators
+Planšetdators
+Monitors
+Klaviatūra
+Datorpele
+Austiņas
+Skaļrunis
+Mikrofons
+Tīmekļa kamera
+Printeris
+Skeneris
+Maršrutētājs
+Cietais disks
+Zibatmiņa
+Lādētājs
+Ārējais akumulators
+Kabelis
+Adapteris
+Viedtālrunis
+Viedpulkstenis
+Fotoaparāts
+Objektīvs
+Statīvs
+Televizors
+Projektors
+Spēļu konsole
+Krekls
+T-krekls
+Bikses
+Džinsi
+Kleita
+Svārki
+Jaka
+Mētelis
+Džemperis
+Veste
+Šorti
+Zeķes
+Cimdi
+Šalle
+Cepure
+Josta
+Apavi
+Zābaki
+Sporta apavi
+Čības
+Soma
+Mugursoma
+Ceļojumu soma
+Koferis
+Maks
+Brilles
+Saulesbrilles
+Lietussargs
+Rotaslieta
+Gredzens
+Kaklarota
+Aproce
+Auskari
+Sakta
+Velosipēds
+Skrejritenis
+Slēpes
+Slidas
+Ragavas
+Bumba
+Hantele
+Paklājiņš
+Telts
+Guļammaiss
+Termoss
+Makšķere
+Airi
+Ķivere
+Ziepes
+Šampūns
+Zobu pasta
+Krēms
+Smaržas
+Sveces
+Dāvanu karte
+Piezīmju grāmatiņa
+Pildspalva
+Zīmulis
+Mape
+Kalendārs
+Grāmata
+Puzle
+Galda spēle
+Rotaļlieta
+Lelle
+Konstruktors
+Krāsas
+Otas
+Maize
+Siers
+Bekons
+Pica
+Salāti
+Čipsi
+Kafija
+Tēja
+Medus

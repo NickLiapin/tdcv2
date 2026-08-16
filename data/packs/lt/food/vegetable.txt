@@ -1,0 +1,34 @@
+---
+description: Vegetable (Lithuanian).
+locale: lt
+---
+Bulvė
+Morka
+Burokėlis
+Kopūstas
+Raugintas kopūstas
+Žiedinis kopūstas
+Brokolis
+Svogūnas
+Česnakas
+Poras
+Ropė
+Griežtis
+Ridikas
+Ridikėlis
+Salierai
+Petražolės šaknis
+Pastarnokas
+Agurkas
+Pomidoras
+Paprika
+Baklažanas
+Cukinija
+Moliūgas
+Žirniai
+Pupelės
+Pupos
+Lęšiai
+Špinatai
+Salotos
+Grybai

@@ -1,0 +1,12 @@
+---
+description: Diagnoses seen in Endokrinoloģija.
+locale: lv
+---
+2. tipa cukura diabēts
+1. tipa cukura diabēts
+Hipotireoze
+Hipertireoze
+Osteoporoze
+Kušinga sindroms
+Policistisko olnīcu sindroms
+D vitamīna deficīts

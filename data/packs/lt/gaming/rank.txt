@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Lithuanian).
+locale: lt
+---
+Geležis
+Bronza
+Sidabras
+Auksas
+Platina
+Smaragdas
+Deimantas
+Meistras
+Didysis meistras
+Pretendentas

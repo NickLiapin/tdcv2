@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation. The single-letter forms (P, O, T, C, Pk, S, Sv) appear on wall calendars; these longer ones are what a form or a timetable uses.
+locale: lv
+---
+pirmd.
+otrd.
+trešd.
+ceturtd.
+piektd.
+sestd.
+svētd.

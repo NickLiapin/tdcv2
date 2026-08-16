@@ -1,0 +1,29 @@
+---
+description: Dog breed. Retrīvers, terjers and špics are naturalised loanwords and take a Latvian -s; the descriptive breeds translate outright (Vācu aitu suns is literally "German sheep dog"). Latvia has no native recognised dog breed, which is why every entry here is an import — that is the honest state of the list, not a gap.
+locale: lv
+---
+Labradora retrīvers
+Vācu aitu suns
+Zeltainais retrīvers
+Franču buldogs
+Angļu buldogs
+Pūdelis
+Bīgls
+Rotveilers
+Takss
+Bokseris
+Sibīrijas haskijs
+Lielais dānis
+Dobermanis
+Austrālijas aitu suns
+Robežkollijs
+Čivava
+Šitcu
+Pomerānijas špics
+Velsas korgijs
+Berna ganu suns
+Jorkšīras terjers
+Mopsis
+Dalmācietis
+Sanbernārs
+Krievu kurts

@@ -1,0 +1,5 @@
+---
+description: Capital of Vācija, in the Latvian spelling.
+locale: lv
+---
+Berlīne

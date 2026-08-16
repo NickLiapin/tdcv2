@@ -1,0 +1,44 @@
+---
+description: Dish (Slovene), drawn from across the country. Slovenia has 24 gastronomic regions in an area smaller than Wales, and the cooking changes completely between them: potica and žganci in the Alpine north, jota and pršut on the Karst and the coast, prekmurska gibanica and bograč in the Pannonian east, and žlikrofi in the mining town of Idrija. A dataset that mixes them at random will look wrong to a Slovene reader; food/dishByCuisine/Slovenska.txt carries the same split with a note.
+locale: sl
+---
+potica
+orehova potica
+prekmurska gibanica
+štruklji
+sirovi štruklji
+ajdovi žganci
+koruzni žganci
+ričet
+jota
+obara
+telečja obara
+goveja juha z rezanci
+gobova juha
+kisla juha
+bujta repa
+matevž
+idrijski žlikrofi
+kranjska klobasa
+krvavica
+pečenica
+zaseka
+kraški pršut
+bograč
+golaž
+sarma
+polnjena paprika
+mlinci
+pečen krompir
+praženi krompir
+zeljne krpice
+štruklji z drobtinami
+kremna rezina
+flancati
+miške
+čežana
+belokranjska pogača
+prleška tünka
+frika
+žlinkrofi z bakalco
+ocvirkovka

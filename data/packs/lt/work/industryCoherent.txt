@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child).
+locale: lt
+---
+Technologijos
+Sveikatos priežiūra
+Finansai
+Statyba
+Švietimas
+Apgyvendinimas ir maitinimas
+Gamyba
+Mažmeninė prekyba
+Transportas
+Teisė

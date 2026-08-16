@@ -1,0 +1,7 @@
+---
+address: pakistan.docs.passport
+description: Pakistani passport number — 9 characters, two letters followed by seven digits, issued by the Directorate General of Immigration and Passports. It is the number printed on the data page and repeated in the machine-readable zone, where the official specimen line reads AB1234567. The two letters are booklet-stock allocation and are not a code for the issuing office, the passport type or the holder — Pakistan issues ordinary (green), official (blue) and diplomatic (red) passports, and the type is carried by the P/S/D code in the MRZ and by the cover, not by the serial. The Directorate does not publish which letter pairs are in issue, so they are drawn rather than taken from a table. There is no check digit in the number itself: the check character that follows it in the machine-readable zone belongs to the ICAO document format, is computed over the padded 9 characters together with the rest of the MRZ line, and is a property of the booklet rather than of the number, so it is not generated here.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[A-Z]{2}[0-9]{7}"/>

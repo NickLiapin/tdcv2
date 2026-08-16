@@ -1,0 +1,29 @@
+---
+address: iran.finance.bankCode
+description: The three-digit bank code that occupies positions 5-7 of an Iranian IBAN (شماره شبا), index-aligned with iran.finance.bank. The block tells you what kind of institution it is: 011-022 are the state-owned and specialised banks assigned in the original Central Bank scheme (017 Bank Melli, 012 Bank Mellat, 019 Bank Saderat, 015 Bank Sepah), while 053 upward were issued to the private banks licensed from the late 1990s on (054 Parsian, 057 Pasargad, 053 Karafarin). The leading zero is part of the code and never dropped — 017, not 17. Codes 010 (the Central Bank itself) is deliberately absent: it holds no retail accounts, so no personal IBAN begins IR__010. Five institutions that once had their own codes were absorbed into Bank Sepah in 2019 — Ansar, Ghavamin, Hekmat Iranian, Mehr Eghtesad and the Kowsar credit institution — and their codes are not listed here, so an IBAN generated from this file names a bank that exists today rather than one whose accounts were migrated years ago. Historic Iranian data will still contain those codes.
+---
+017
+012
+019
+018
+015
+016
+014
+013
+011
+020
+021
+054
+057
+055
+056
+059
+058
+053
+061
+062
+066
+069
+078
+060
+070

@@ -1,0 +1,30 @@
+---
+description: Book genre (Lithuanian).
+locale: lt
+---
+Romanas
+Apysaka
+Novelė
+Poezija
+Drama
+Detektyvas
+Trileris
+Mokslinė fantastika
+Fantasy
+Siaubo literatūra
+Meilės romanas
+Istorinis romanas
+Biografija
+Autobiografija
+Memuarai
+Esė
+Publicistika
+Populiarusis mokslas
+Filosofija
+Psichologija
+Kelionių literatūra
+Vaikų literatūra
+Paauglių literatūra
+Vadovėlis
+Žinynas
+Tautosaka

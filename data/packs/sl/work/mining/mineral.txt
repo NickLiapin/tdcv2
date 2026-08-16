@@ -1,0 +1,23 @@
+---
+description: Mineral or extracted material (Slovene). Slovenia's own extraction is dominated by limestone, gravel, clay and lignite rather than metal ore, and two of its historic mines are UNESCO sites: Idrija held the world's second largest ŽIVO SREBRO — mercury — deposit for five centuries, and the Škofja Loka and Mežica lead-and-zinc workings are museums now. The Velenje lignite mine still runs and still fuels the country's largest power station.
+locale: sl
+---
+apnenec
+dolomit
+gramoz
+pesek
+glina
+kremenov pesek
+kamnina
+granit
+marmor
+lignit
+rjavi premog
+šota
+živo srebro
+svinec
+cink
+boksit
+železova ruda
+sol
+nafta

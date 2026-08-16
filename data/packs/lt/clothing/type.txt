@@ -1,0 +1,30 @@
+---
+description: Garment type (Lithuanian).
+locale: lt
+---
+Marškiniai
+Marškinėliai
+Palaidinė
+Megztinis
+Džemperis
+Švarkas
+Striukė
+Paltas
+Lietpaltis
+Kelnės
+Džinsai
+Šortai
+Sijonas
+Suknelė
+Kostiumas
+Liemenė
+Chalatas
+Pižama
+Apatiniai
+Kojinės
+Pirštinės
+Šalikas
+Kepurė
+Skrybėlė
+Diržas
+Batai

@@ -1,0 +1,20 @@
+---
+address: malaysia.phone
+description: Malaysian mobile number in E.164 form. Country code +60, then a mobile prefix 1X, then the subscriber digits. Written nationally the same number carries a leading 0 in place of the +60, so +60123456789 is dialled 012-345 6789 — and note that the national trunk 0 is dropped, not kept, which is the mistake most non-Malaysian systems make when they store a number as +600123456789. Subscriber length is not uniform and this is the part worth getting right: 011 carries EIGHT subscriber digits, giving an eleven-digit national number, while 010, 012, 013, 014, 016, 017, 018 and 019 carry seven, giving ten. Both are modelled. The prefixes were originally one operator each — 012, 014 and 017 Maxis, 013 and 019 Celcom, 016 Digi, 018 U Mobile — but number portability since 2008 and the CelcomDigi merger in 2022 have loosened that to the point where a prefix no longer reliably names a network, and 010 and 011 were shared blocks from the start. The prefixes are drawn uniformly here: no per-prefix subscriber counts are published, and an equal draw is at least visibly a modelling choice rather than an invented market share. 015 is deliberately excluded — it exists and is an eight-digit block, but it is assigned to broadband and VoIP services rather than to mobile voice, so a generated 015 number would not be a mobile phone. Landline numbers are a different scheme not modelled here: area codes 03 for the Klang Valley, 04 through 09 across the peninsula, and 082 to 089 for Sarawak and Sabah, with a subscriber part that varies in length by area.
+generator: tdc
+---
+<sequence name="prefix"><gen type="text" value="10,11,12,13,14,16,17,18,19"/></sequence>
+<sequence name="line"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="number"><compute>
+  <!-- 011 subscribers have 8 digits; every other mobile prefix has 7. -->
+  <let name="p"><to_number><field name="prefix"/></to_number></let>
+  <result>
+    <choose>
+      <when><test><equals><use name="p"/><int v="11"/></equals></test>
+        <then><field name="line"/></then>
+      </when>
+      <otherwise><slice from="0" to="7"><field name="line"/></slice></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<data>+60${{prefix}}${{number}}</data>

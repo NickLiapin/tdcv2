@@ -1,0 +1,14 @@
+---
+description: Fuel type.
+locale: lv
+---
+Benzīns
+Dīzeļdegviela
+Elektrība
+Hibrīds
+Uzlādējams hibrīds
+Ūdeņradis
+Etanols
+Dabasgāze
+Sašķidrinātā gāze
+Biodīzelis

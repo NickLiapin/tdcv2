@@ -1,0 +1,12 @@
+---
+description: Personal pronoun. Latvian has NO gender-neutral third-person pronoun: every third person is either masculine or feminine, and the split survives into the plural, where viņi is a group of men or a mixed group and viņas a group of women only. There is no Latvian equivalent of singular "they", and none has gained currency, so a config that needs a neutral form has to rewrite the sentence rather than pick a word. Tas and tā are the demonstratives used for things and, in colloquial speech, for people.
+locale: lv
+---
+viņš
+viņa
+viņi
+viņas
+tas
+tā
+es
+tu

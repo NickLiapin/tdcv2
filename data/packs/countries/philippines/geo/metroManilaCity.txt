@@ -1,0 +1,21 @@
+---
+address: philippines.geo.metroManilaCity
+description: The 16 cities of Metro Manila. THE NATIONAL CAPITAL REGION CONTAINS NO PROVINCE — it is the only Philippine region of which that is true, and it is why a Metro Manila address stops at the city and has no province line, while every other Philippine address has one. All 16 are highly urbanised cities, so none of them belongs to a province either; the region is a bare list of 16 cities plus ONE MUNICIPALITY, Pateros, which is deliberately absent from this list because it is not a city. Pateros is the last municipality in Metro Manila and the only local government there still headed by a mayor of a municipality rather than a city — a database that assumes every NCR unit is a city will be wrong exactly once. Note also that "Manila" is a city of 1.8 million inside the region, not a name for the region: the metropolis of about 14 million is Metro Manila or NCR, and Quezon City, not Manila, is the largest city in it. Metro Manila is a region for administration only, coordinated by the Metropolitan Manila Development Authority, whose chairman is appointed rather than elected — there is no mayor of Metro Manila.
+locale: en
+---
+Quezon City
+Manila
+Caloocan
+Taguig
+Pasig
+Parañaque
+Valenzuela
+Las Piñas
+Makati
+Muntinlupa
+Marikina
+Pasay
+Malabon
+Mandaluyong
+Navotas
+San Juan

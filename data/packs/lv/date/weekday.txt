@@ -1,0 +1,11 @@
+---
+description: Weekday name. Latvian weekdays are transparently numbered — pirmdiena is "first day", otrdiena "second day", trešdiena "third", ceturtdiena "fourth", piektdiena "fifth" — and only the weekend breaks the pattern: sestdiena is "sixth day" but svētdiena is "holy day". The week starts on Monday.
+locale: lv
+---
+pirmdiena
+otrdiena
+trešdiena
+ceturtdiena
+piektdiena
+sestdiena
+svētdiena

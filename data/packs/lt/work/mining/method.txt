@@ -1,0 +1,12 @@
+---
+description: Mining method (Lithuanian). Lithuania has no deep-shaft mining industry; the country's extraction is open-pit peat, dolomite, sand, gravel, clay and a small amount of oil, so those are the methods that actually apply.
+locale: lt
+---
+Atviras kasimas
+Karjerinis kasimas
+Durpių frezavimas
+Durpių pjovimas
+Gręžimas ir sprogdinimas
+Hidraulinis kasimas
+Gręžinių eksploatacija
+Požeminis kasimas

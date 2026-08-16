@@ -1,0 +1,5 @@
+---
+description: Capital of Dienvidkoreja, in the Latvian spelling.
+locale: lv
+---
+Seula

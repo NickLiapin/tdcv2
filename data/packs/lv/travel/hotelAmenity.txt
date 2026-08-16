@@ -1,0 +1,34 @@
+---
+description: Hotel amenity. Pirts appears here for the same reason it appears on a property listing: a Latvian country hotel without a sauna is the exception.
+locale: lv
+---
+Bezmaksas Wi-Fi
+Pirts
+Sauna
+Baseins
+SPA
+Trenažieru zāle
+Restorāns
+Bārs
+Numura apkalpošana
+Bezmaksas brokastis
+Bezmaksas autostāvvieta
+Lidostas transfērs
+Atļauts ar mājdzīvniekiem
+Konferenču telpas
+Biznesa centrs
+Konsjeržs
+Veļas mazgāšana
+Bagāžas glabātuve
+Gaisa kondicionieris
+Jumta terase
+Kamīns
+Rotaļu laukums
+Velosipēdu noma
+Elektroauto uzlāde
+Lifts
+Pieejams cilvēkiem ar kustību traucējumiem
+Nesmēķētāju numuri
+Seifs
+Minibārs
+Tējas un kafijas piederumi

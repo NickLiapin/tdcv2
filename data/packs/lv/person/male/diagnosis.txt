@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses for a male patient — the male-only conditions plus the general ones that present most often in men. Draw from this for male rows.
+locale: lv
+---
+Labdabīga prostatas hiperplāzija
+Prostatīts
+Prostatas vēzis
+Sēklinieku vēzis
+Varikocēle
+Epididimīts
+Erektilā disfunkcija
+Vīriešu neauglība
+Ginekomastija
+Vīriešu hipogonādisms
+Vīriešu tipa plikpaurība
+Cirkšņa trūce
+Koronārā sirds slimība
+Miokarda infarkts
+Hipertensija
+Podagra
+Aknu ciroze
+Alkohola atkarība
+Hroniska obstruktīva plaušu slimība
+Plaušu vēzis
+Urīnpūšļa vēzis
+Sirds mazspēja
+Obstruktīva miega apnoja
+Nefrolitiāze
+Muguras sāpes
+2. tipa cukura diabēts

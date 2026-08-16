@@ -1,0 +1,16 @@
+---
+description: Mobile plan type.
+locale: lv
+---
+Priekšapmaksas
+Pēcapmaksas
+Neierobežots
+Ģimenes
+Biznesa
+Maksā, cik lieto
+Tikai dati
+Studentu
+Senioru
+Viesabonēšanas
+Ierobežots datu apjoms
+Papildkarte

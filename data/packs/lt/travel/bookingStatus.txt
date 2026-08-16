@@ -1,0 +1,15 @@
+---
+description: Booking status (Lithuanian, agrees with "rezervacija").
+locale: lt
+---
+Patvirtinta
+Laukiama patvirtinimo
+Apmokėta
+Neapmokėta
+Atšaukta
+Pakeista
+Atvykta
+Išvykta
+Neatvyko
+Pasibaigusi
+Grąžinta

@@ -1,0 +1,23 @@
+---
+address: kenya.sport.team
+description: Clubs of the FKF Premier League, Kenya's top football division. Gor Mahia and AFC Leopards are the two big historic clubs and their rivalry is the fixture the country stops for. What has no European counterpart is how many of the rest are institutional sides rather than city clubs: Tusker is the brewery's team, KCB the bank's, Kenya Police and Ulinzi Stars belong to the police and the armed forces, Posta Rangers to the postal corporation, Bandari to the Kenya Ports Authority in Mombasa, Bidco United and Mara Sugar to manufacturers. A Kenyan supporter is often supporting an employer. Company sides show up in kenya.sport.rugby for the same reason.
+locale: en
+---
+Gor Mahia
+AFC Leopards
+Tusker
+Kenya Police
+Bandari
+Kakamega Homeboyz
+Sofapaka
+Ulinzi Stars
+Kenya Commercial Bank
+Nairobi City Stars
+Posta Rangers
+Mathare United
+Shabana
+Murang'a SEAL
+Kariobangi Sharks
+Bidco United
+Talanta
+Mara Sugar

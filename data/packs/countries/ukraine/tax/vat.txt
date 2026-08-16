@@ -1,0 +1,9 @@
+---
+address: ukraine.tax.vat
+description: Ukrainian VAT registration number — індивідуальний податковий номер платника ПДВ. Ukraine is not in the EU, so there is no "UA" prefix and no VIES entry; the number is written bare and validated against the tax service's own register of ПДВ payers. For a LEGAL ENTITY it is twelve digits, generated here: positions 1-7 are the first seven digits of the company's ЄДРПОУ with its check digit dropped, 8-9 a region code, 10-11 a district code, 12 a control digit. For a SOLE TRADER (ФОП) there is no separate number at all — the VAT number is simply that person's ten-digit РНОКПП, which is at ukraine.tax.rnokpp, so this address deliberately emits only the twelve-digit corporate shape rather than mixing two lengths. WHAT IS NOT REAL HERE, stated plainly: the region and district code tables are the tax service's internal ones and I found no published version to draw them from, so those four digits are plain digits; and the twelfth digit's algorithm is set by the tax authority and has never been published, so it is a drawn digit and not a computed check. That is why this file carries no <compute> while ukraine.tax.rnokpp and ukraine.tax.edrpou do — the difference is deliberate and marks exactly where the verifiable arithmetic stops.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="area"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="control"><gen type="regex" value="[0-9]"/></sequence>
+<data>${{base}}${{area}}${{control}}</data>

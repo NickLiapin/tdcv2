@@ -1,0 +1,45 @@
+---
+address: malaysia.vehicle.plateCode
+description: The regional prefix that opens a Malaysian number plate, weighted by the 2020 census population of the area it covers. Peninsular Malaysia uses one letter per state — A Perak, B Selangor, C Pahang, D Kelantan, J Johor, K Kedah, M Melaka, N Negeri Sembilan, P Pulau Pinang, R Perlis, T Terengganu — plus F for Putrajaya (F for Federal, issued since 2016 in place of the older plates that spelled the word Putrajaya out), L for Labuan, and V and W for Kuala Lumpur, W having been exhausted in 2016 and V issued since. KV is Langkawi, split out of Kedah when the island became duty-free. Borneo does not work that way and this is the departure worth knowing: Sarawak and Sabah are divided BY DIVISION rather than by state, so Q and S are constant and the second letter names the division — QA Kuching, QB Sri Aman, QC Kota Samarahan, QD Bintulu, QE and QS Sibu, QK Kuching, QL Limbang, QM Miri, QP Kapit, QR Sarikei, QT Bintulu; SA, SJ and SY Kota Kinabalu, SB Beaufort, SD and SP Lahad Datu, SK Kudat, SM and SS Sandakan, ST and SW Tawau, SU Keningau. Several of those (QK, QR, QS, QT, SA, SD, SS, ST, SY) are exhausted series no longer issued, but the vehicles carrying them are still on the road and they are kept. That division scheme is why the weights matter: 24 of the 40 prefixes here are Bornean while Borneo holds about a fifth of Malaysians, so an unweighted draw would put three plates in five on an island that has one in five of the cars. Weights are the state's census population divided evenly among its prefixes, which is an approximation twice over — Sarawak's divisions are nothing like equal, and Kuching's share is far larger than Kapit's. Kedah's weight is reduced by roughly Langkawi's population, which is given to KV. Q and S never appear as a peninsular state prefix, and I, O and Z never appear anywhere: I and O because they read as 1 and 0, Z because it is reserved for military vehicles.
+weighted: true
+---
+A,2496
+B,6994
+C,1590
+D,1793
+F,109
+J,4010
+K,2031
+KV,100
+L,95
+M,998
+N,1200
+P,1740
+R,285
+T,1149
+V,991
+W,991
+QA,205
+QB,205
+QC,205
+QD,205
+QE,205
+QK,205
+QL,205
+QM,205
+QP,205
+QR,205
+QS,205
+QT,205
+SA,285
+SB,285
+SD,285
+SJ,285
+SK,285
+SM,285
+SP,285
+SS,285
+ST,285
+SU,285
+SW,285
+SY,285

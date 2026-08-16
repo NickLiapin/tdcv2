@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Onkologija (Lithuanian).
+locale: lt
+---
+Krūties vėžys
+Plaučių vėžys
+Storosios žarnos vėžys
+Leukemija
+Limfoma
+Melanoma
+Priešinės liaukos vėžys
+Skrandžio vėžys
+Kasos vėžys
+Daugybinė mieloma

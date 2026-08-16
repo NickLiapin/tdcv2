@@ -1,0 +1,11 @@
+---
+address: philippines.geo.region
+description: Administrative region of the Philippines — the 18 first-level groupings. NOT a hand-kept list: sliced out of philippines.geo.regionWithCode, so it cannot fall out of step with philippines.geo.regionCode. A region is a grouping for national-agency administration, not a tier of elected government, so unlike a province it issues nothing and registers nobody; BARMM is the one genuinely autonomous exception. Count 18 rather than the widely-quoted 17 — see philippines.geo.regionWithCode for the 2024 Negros Island Region law that changed it.
+generator: tdc
+locale: en
+---
+<sequence name="entry"><gen type="template" value="philippines.geo.regionWithCode"/></sequence>
+<sequence name="label"><compute><result>
+  <trim><at><in><split sep="|"><field name="entry"/></split></in><index><int v="1"/></index></at></trim>
+</result></compute></sequence>
+<data>${{label}}</data>

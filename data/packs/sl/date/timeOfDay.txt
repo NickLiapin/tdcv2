@@ -1,0 +1,12 @@
+---
+description: Time of day (Slovene). Slovene splits the day around poldne — dopoldne and popoldne are single words and are the ordinary way to say a.m. and p.m.
+locale: sl
+---
+zora
+jutro
+dopoldne
+poldne
+popoldne
+večer
+mrak
+noč

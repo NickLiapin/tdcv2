@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Slovene), Monday first
+locale: sl
+---
+pon.
+tor.
+sre.
+čet.
+pet.
+sob.
+ned.

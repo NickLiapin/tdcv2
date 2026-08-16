@@ -1,0 +1,15 @@
+---
+description: Travel booking status (Slovene)
+locale: sl
+---
+v pripravi
+potrjeno
+plačano
+delno plačano
+čaka na potrditev
+spremenjeno
+preklicano
+vračilo v obdelavi
+vrnjeno
+zaključeno
+neprevzeto

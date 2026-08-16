@@ -1,0 +1,28 @@
+---
+address: thailand.finance.bankWithCode
+description: The paired table behind thailand.finance.bank and thailand.finance.bankCode — the THREE-DIGIT bank code, a space, then the bank's Thai name. Thai bank codes are three digits and always written with their leading zero (002, not 2); they are the Bank of Thailand / SMART member codes, they are what a domestic transfer form and every PromptPay integration ask for, and they are NOT SWIFT codes and NOT part of an IBAN, because Thailand has none. Kept as one file so a name and its code cannot drift apart. The list is the banks trading today: 065 ธนาคารธนชาต is deliberately absent because Thanachart merged into ธนาคารทหารไทยธนชาต (ttb) in 2021 and the code is retired, and 079 ANZ (Thai) is absent for the same reason. Codes are not reissued when a bank is renamed — 011 was TMB before the merger and 070 was ACL before ICBC bought it — so the code outlives the name and a code that no longer matches a bank you know is usually history rather than an error.
+locale: th
+---
+002 ธนาคารกรุงเทพ
+004 ธนาคารกสิกรไทย
+006 ธนาคารกรุงไทย
+011 ธนาคารทหารไทยธนชาต
+014 ธนาคารไทยพาณิชย์
+017 ธนาคารซิตี้แบงก์
+020 ธนาคารสแตนดาร์ดชาร์เตอร์ด (ไทย)
+022 ธนาคารซีไอเอ็มบี ไทย
+024 ธนาคารยูโอบี
+025 ธนาคารกรุงศรีอยุธยา
+030 ธนาคารออมสิน
+031 ธนาคารเอชเอสบีซี
+033 ธนาคารอาคารสงเคราะห์
+034 ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร
+039 ธนาคารมิซูโฮ
+066 ธนาคารอิสลามแห่งประเทศไทย
+067 ธนาคารทิสโก้
+069 ธนาคารเกียรตินาคินภัทร
+070 ธนาคารไอซีบีซี (ไทย)
+071 ธนาคารไทยเครดิต
+073 ธนาคารแลนด์ แอนด์ เฮ้าส์
+080 ธนาคารซูมิโตโม มิตซุย ทรัสต์ (ไทย)
+098 ธนาคารพัฒนาวิสาหกิจขนาดกลางและขนาดย่อมแห่งประเทศไทย

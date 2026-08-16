@@ -1,0 +1,16 @@
+---
+description: School mark. Latvia grades on a TEN-point scale where 10 is the top and 4 is the pass — not the A to F letters of the English-speaking world and not the 1-to-5 of its Slavic neighbours. Each number has a fixed verbal label, given here beside it. Some subjects are assessed pass/fail instead, which is the ieskaitīts / neieskaitīts pair.
+locale: lv
+---
+10 (izcili)
+9 (teicami)
+8 (ļoti labi)
+7 (labi)
+6 (gandrīz labi)
+5 (viduvēji)
+4 (gandrīz viduvēji)
+3 (vāji)
+2 (ļoti vāji)
+1 (ļoti, ļoti vāji)
+ieskaitīts
+neieskaitīts

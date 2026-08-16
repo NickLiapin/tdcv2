@@ -1,0 +1,45 @@
+---
+description: Country as Slovene names it, weighted by population in millions. Slovene TRANSLATES a country name rather than respelling it — Nemčija for Germany, Madžarska for Hungary, Nizozemska for the Netherlands, Združene države Amerike for the United States, Dunaj for Vienna — and only keeps the local form where Slovene never coined one (Brazilija, Kanada, Singapur). Note that many Slovene country names are ADJECTIVES used as nouns — Kitajska, Hrvaška, Madžarska, Švedska, Nizozemska — and they decline like adjectives rather than like nouns: the locative of Hrvaška is na Hrvaškem, not v Hrvaški.
+weighted: true
+locale: sl
+---
+Kitajska,1410
+Indija,1400
+Združene države Amerike,335
+Indonezija,275
+Pakistan,240
+Nigerija,220
+Brazilija,215
+Bangladeš,170
+Rusija,144
+Mehika,128
+Japonska,125
+Egipt,110
+Vietnam,98
+Turčija,85
+Nemčija,84
+Tajska,72
+Francija,68
+Združeno kraljestvo,67
+Južnoafriška republika,60
+Italija,59
+Južna Koreja,52
+Španija,47
+Argentina,46
+Kanada,39
+Poljska,38
+Savdska Arabija,36
+Avstralija,26
+Nizozemska,18
+Grčija,10
+Portugalska,10
+Švedska,10
+Madžarska,10
+Švica,9
+Avstrija,9
+Singapur,6
+Irska,5
+Norveška,5
+Nova Zelandija,5
+Hrvaška,4
+Slovenija,2

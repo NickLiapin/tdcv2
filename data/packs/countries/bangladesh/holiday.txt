@@ -1,0 +1,23 @@
+---
+address: bangladesh.holiday
+description: Public holidays in Bangladesh, in Bengali, as gazetted by the Ministry of Public Administration. Only the first seven have a FIXED Gregorian date — একুশে ফেব্রুয়ারি (21 February, Language Martyrs' Day, which UNESCO adopted as International Mother Language Day and which is the day the country was arguably founded on), স্বাধীনতা ও জাতীয় দিবস (26 March), পহেলা বৈশাখ (14 April, the Bengali new year and the largest secular festival of the year), মে দিবস (1 May), জুলাই গণ-অভ্যুত্থান দিবস (5 August), বিজয় দিবস (16 December) and বড়দিন (25 December). Everything after them moves every year: the Islamic days follow the lunar Hijri calendar and shift about eleven days earlier each Gregorian year, and দুর্গাপূজা, জন্মাষ্টমী and বুদ্ধ পূর্ণিমা follow luni-solar calendars of their own, so a config that pins any of them to a calendar date is wrong for every year but one. Several of the Islamic holidays are also declared only on the evening the moon is actually sighted, which is why a Bangladeshi holiday calendar published in January still carries "subject to moon sighting" against ঈদুল ফিতর and ঈদুল আজহা. Two entries record recent political change rather than religion — জুলাই গণ-অভ্যুত্থান দিবস was created for 5 August and first observed in 2025, marking the 2024 uprising, and জাতীয় শোক দিবস (15 August) was REMOVED as a public holiday by the interim government in 2024 and is deliberately absent here, as is the 17 March holiday which was dropped and then restored, so any Bangladeshi holiday list is a snapshot with a date on it. পহেলা বৈশাখ is the one to notice if you are used to a European calendar — it falls in mid-April, not in January, and the Bengali year (বঙ্গাব্দ) is currently in the 1430s, not the 2020s.
+locale: bn
+---
+একুশে ফেব্রুয়ারি
+স্বাধীনতা ও জাতীয় দিবস
+পহেলা বৈশাখ
+মে দিবস
+জুলাই গণ-অভ্যুত্থান দিবস
+বিজয় দিবস
+বড়দিন
+শবে বরাত
+শবে কদর
+জুমাতুল বিদা
+ঈদুল ফিতর
+ঈদুল আজহা
+আশুরা
+ঈদে মিলাদুন্নবী
+শব-ই-মেরাজ
+দুর্গাপূজা
+জন্মাষ্টমী
+বুদ্ধ পূর্ণিমা

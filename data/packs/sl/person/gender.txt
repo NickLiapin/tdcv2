@@ -1,0 +1,6 @@
+---
+description: Gender label (Slovene). Two values, matching en and ru — this list is what parent="Gender.Moški" filters on, so a longer one silently leaves most rows without a name. Identity options beyond the pair belong in a file of their own. Both words are adjectives used as nouns and both are singular; Slovene would need a third form again for a group of exactly two.
+locale: sl
+---
+Moški
+Ženski

@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Lithuanian). Lithuanian numerals govern the case of the noun, so it is 1 žvaigždutė, 2 žvaigždutės but 10 žvaigždučių — the ending changes with the number, which a naive template will get wrong.
+locale: lt
+---
+1 žvaigždutė
+2 žvaigždutės
+3 žvaigždutės
+4 žvaigždutės
+5 žvaigždutės

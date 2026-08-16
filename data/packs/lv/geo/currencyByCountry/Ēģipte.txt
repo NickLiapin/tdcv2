@@ -1,0 +1,5 @@
+---
+description: Currency of Ēģipte, named in Latvian.
+locale: lv
+---
+Ēģiptes mārciņa

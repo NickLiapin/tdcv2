@@ -1,0 +1,34 @@
+---
+description: Vegetable (Slovene). Repa and zelje, turnip and cabbage, are the two the Slovene winter is built on — soured in a barrel as kisla repa and kislo zelje, and eaten with beans as jota. Both are ordinary staples, not curiosities.
+locale: sl
+---
+krompir
+korenje
+čebula
+česen
+por
+zelje
+kislo zelje
+rdeče zelje
+repa
+kisla repa
+koleraba
+brokoli
+cvetača
+ohrovt
+špinača
+blitva
+solata
+radič
+motovilec
+rukola
+paradižnik
+paprika
+kumara
+bučka
+buča
+jajčevec
+fižol
+grah
+bob
+gobe

@@ -1,0 +1,22 @@
+---
+description: Cat breed. Breed names are Latvianised rather than kept in English: the qualifier goes into the genitive plural of the people or place it names (persiešu = "of the Persians", Britu = "of the British"), which is the same construction Latvian uses for languages.
+locale: lv
+---
+Persiešu
+Meinkūns
+Siāmas
+Ragdolla
+Bengālijas
+Sfinksa
+Britu īsspalvainais
+Abisīnijas
+Skotu klapausu
+Norvēģu meža
+Krievu zilais
+Birmas
+Amerikas īsspalvainais
+Devona reks
+Turku angora
+Somālijas
+Bombejas
+Bezastes

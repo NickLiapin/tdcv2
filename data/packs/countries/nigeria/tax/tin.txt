@@ -1,0 +1,7 @@
+---
+address: nigeria.tax.tin
+description: Nigerian Tax Identification Number in its legacy Joint Tax Board form — 10 digits, plain, no hyphen. This is the number on Nigerian tax records up to the end of 2025 and it will be in historical data for a long time, which is why it is kept rather than dropped; for the number issued from 1 January 2026 see nigeria.tax.taxId. Two legacy formats existed side by side and are often confused: the JTB TIN, 10 digits, issued to individuals through the State Boards of Internal Revenue and the FCT-IRS, which is what this file emits; and the older FIRS corporate form written as eight digits, a hyphen and a four-digit branch suffix, 12345678-0001, issued to companies and to the armed forces, police and diplomats. NO CHECK DIGIT — neither the JTB nor FIRS publishes a checksum for either form, and validation means a lookup against the JTB or FIRS verification portal. Nothing is invented here. Nigeria also issues NO SEPARATE VAT NUMBER: see nigeria.tax.vat, which resolves to this address for exactly that reason.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{10}"/>

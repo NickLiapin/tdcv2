@@ -1,0 +1,30 @@
+---
+description: Dog breed (Slovene). The kraški ovčar is Slovenia's only internationally recognised native breed — the shepherd dog of the Karst, and the first breed the young state registered under its own name; the posavski gonič and the two istrski goniči are the hunting hounds of the Sava valley and Istria.
+locale: sl
+---
+kraški ovčar
+posavski gonič
+istrski kratkodlaki gonič
+istrski resasti gonič
+nemški ovčar
+belgijski ovčar
+labradorec
+zlati prinašalec
+pudelj
+jazbečar
+nemški prepeličar
+koker španjel
+beagle
+border koli
+šarplaninec
+bernski planšarski pes
+bernardinec
+rotvajler
+doberman
+boksar
+buldog
+francoski buldog
+mops
+čivava
+jack russell terier
+malteški psiček

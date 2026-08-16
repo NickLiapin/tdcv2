@@ -1,0 +1,5 @@
+---
+description: Capital of Apvienotā Karaliste, in the Latvian spelling.
+locale: lv
+---
+Londona

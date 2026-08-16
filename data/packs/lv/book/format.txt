@@ -1,0 +1,12 @@
+---
+description: Book format.
+locale: lv
+---
+Cietos vākos
+Mīkstos vākos
+E-grāmata
+Audiogrāmata
+Kabatas formāts
+Bibliotēkas iesējums
+Ilustrēts izdevums
+Komplekts

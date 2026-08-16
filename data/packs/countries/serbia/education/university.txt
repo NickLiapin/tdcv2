@@ -1,0 +1,21 @@
+---
+address: serbia.education.university
+description: Universities of Serbia in Cyrillic — the eight state universities first, then accredited private ones. The state list is short and stable: Београд (1808 as the Velika škola, 1905 as a university, and the largest in the region), Нови Сад, Ниш, Крагујевац, the Универзитет уметности in Belgrade, the Државни универзитет у Новом Пазару, the Универзитет одбране under the Ministry of Defence, and the Универзитет у Приштини. That last name is not a slip: the university evacuated from Priština in 1999 and has operated from Kosovska Mitrovica ever since under Serbia's ministry, and its legal name still carries "са привременим седиштем у Косовској Митровици" — the seat is temporary in the statute a quarter of a century on. A separate University of Prishtina exists in Priština under Kosovo's authorities; that one is not in this list, which covers institutions accredited by Serbia's national accreditation body. A Serbian university is a federation of largely autonomous факултети, each with its own legal personality — the Universitet u Beogradu has thirty-one of them — so in ordinary speech a Serb names the faculty, not the university, and says Правни факултет rather than Универзитет у Београду.
+locale: sr
+---
+Универзитет у Београду
+Универзитет у Новом Саду
+Универзитет у Нишу
+Универзитет у Крагујевцу
+Универзитет уметности у Београду
+Државни универзитет у Новом Пазару
+Универзитет одбране у Београду
+Универзитет у Приштини са привременим седиштем у Косовској Митровици
+Универзитет Сингидунум
+Универзитет Метрополитан
+Универзитет Унион
+Универзитет Едуконс
+Универзитет Привредна академија у Новом Саду
+Универзитет Мегатренд
+Алфа БК универзитет
+Универзитет Унион – Никола Тесла

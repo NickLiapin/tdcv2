@@ -1,0 +1,34 @@
+---
+description: Fish (Slovene). The first block is what a Slovene fish market on the coast sells — the Slovene sea is only 46 kilometres of Adriatic coast, so sea fish is a small trade; the second is the freshwater catch of the Sava, Drava, Mura and Soča. The soška postrv, the marble trout of the Soča, is endemic to that river system and is the fish Slovenia is known for among anglers.
+locale: sl
+---
+brancin
+orada
+list
+sardela
+inčun
+skuša
+cipelj
+ugor
+morski pes
+tuna
+girica
+škarpena
+romb
+morska plošča
+postrv
+soška postrv
+šarenka
+potočna postrv
+lipan
+sulec
+ščuka
+krap
+som
+smuč
+linj
+klen
+menek
+jegulja
+platnica
+babica

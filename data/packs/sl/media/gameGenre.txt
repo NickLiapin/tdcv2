@@ -1,0 +1,21 @@
+---
+description: Video game genre (Slovene)
+locale: sl
+---
+akcijska igra
+pustolovščina
+igra vlog
+strategija
+strategija v realnem času
+potezna strategija
+simulacija
+športna igra
+dirkalna igra
+prvoosebna streljačina
+platformna igra
+logična igra
+grozljivka
+peskovnik
+preživetvena igra
+večigralska spletna igra
+glasbena igra

@@ -1,0 +1,24 @@
+---
+description: Writing system (Lithuanian). Lithuanian is written in the LATIN alphabet with ą č ę ė į š ų ū ž and without w, x or q — which is the quickest way to tell Lithuanian text from Polish (ł ń ó ś ż ź) or Latvian (ā ē ī ģ ķ ļ ņ). The Cyrillic entry carries its own history here: between 1864 and 1904 the Russian Empire BANNED the Latin alphabet for Lithuanian and tried to force Cyrillic on it, and the books were smuggled in from East Prussia by knygnešiai, book-carriers — a word no other language has.
+locale: lt
+---
+Lotynų
+Lietuvių lotynų
+Kirilica
+Graikų
+Arabų
+Hebrajų
+Kinų hieroglifai
+Japonų kana
+Korėjiečių hangulis
+Devanagari
+Bengalų
+Tamilų
+Tajų
+Gruzinų
+Armėnų
+Etiopų
+Runos
+Gotų
+Brailio raštas
+Piktogramos

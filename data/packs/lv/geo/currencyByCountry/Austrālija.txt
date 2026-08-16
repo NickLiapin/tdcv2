@@ -1,0 +1,5 @@
+---
+description: Currency of Austrālija, named in Latvian.
+locale: lv
+---
+Austrālijas dolārs

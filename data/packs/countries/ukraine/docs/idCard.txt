@@ -1,0 +1,6 @@
+---
+address: ukraine.docs.idCard
+description: Number of the паспорт громадянина України у формі картки — the internal ID card issued since 2016. Nine digits, no series letters, no check digit and no encoded meaning: it is a plain serial, which is why it changes every time the card is reissued while the holder's УНЗР does not. The book passport it replaced numbered differently, two Cyrillic series letters encoding the region of issue plus six digits, and those books remain valid for their holders until they are exchanged; they are not generated here because the series-to-region table is not published anywhere I could verify.
+generator: tdc
+---
+<gen type="number" value="1..999999999" length="9" first_zero="true"/>

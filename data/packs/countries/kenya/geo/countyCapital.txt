@@ -1,0 +1,52 @@
+---
+address: kenya.geo.countyCapital
+description: The county headquarters (the seat of each county government), index-aligned with kenya.geo.county and kenya.geo.countyCode. Several are not the largest town in the county and several are not named after it — Tana River is governed from Hola, Makueni from Wote, Tharaka-Nithi from Kathwana, Nyandarua from Ol Kalou, Kirinyaga from Kerugoya, Turkana from Lodwar, West Pokot from Kapenguria, Samburu from Maralal, Trans-Nzoia from Kitale, Uasin Gishu from Eldoret, Elgeyo-Marakwet from Iten, Nandi from Kapsabet, Baringo from Kabarnet, Laikipia from Rumuruti, Vihiga from Mbale and Taita-Taveta from Mwatate. Guessing the headquarters from the county name is therefore wrong about a third of the time, which is why this is a list and not a rule.
+locale: en
+---
+Mombasa
+Kwale
+Kilifi
+Hola
+Lamu
+Mwatate
+Garissa
+Wajir
+Mandera
+Marsabit
+Isiolo
+Meru
+Kathwana
+Embu
+Kitui
+Machakos
+Wote
+Ol Kalou
+Nyeri
+Kerugoya
+Murang'a
+Kiambu
+Lodwar
+Kapenguria
+Maralal
+Kitale
+Eldoret
+Iten
+Kapsabet
+Kabarnet
+Rumuruti
+Nakuru
+Narok
+Kajiado
+Kericho
+Bomet
+Kakamega
+Mbale
+Bungoma
+Busia
+Siaya
+Kisumu
+Homa Bay
+Migori
+Kisii
+Nyamira
+Nairobi

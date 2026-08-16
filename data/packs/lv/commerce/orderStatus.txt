@@ -1,0 +1,18 @@
+---
+description: Order status.
+locale: lv
+---
+Gaida apstrādi
+Tiek apstrādāts
+Apstiprināts
+Komplektēšanā
+Nodots piegādei
+Nosūtīts
+Ceļā
+Gaida pakomātā
+Piegādāts
+Atcelts
+Atgriezts
+Nauda atmaksāta
+Aizturēts
+Neizdevās

@@ -1,0 +1,16 @@
+---
+description: Job titles in the Slovene izobraževanje sector
+locale: sl
+---
+učitelj razrednega pouka
+učitelj predmetnega pouka
+profesor
+vzgojitelj
+pomočnik vzgojitelja
+ravnatelj
+šolski svetovalni delavec
+knjižničar
+asistent
+docent
+izredni profesor
+redni profesor

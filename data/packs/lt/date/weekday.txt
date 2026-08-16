@@ -1,0 +1,11 @@
+---
+description: Weekday name (Lithuanian, lowercase per Lithuanian orthography), MONDAY first as a Lithuanian would list them. The names are transparently numbered — pirmadienis is 'first-day', antradienis 'second-day' — through to the odd pair out, šeštadienis ('sixth-day') and sekmadienis, which is 'seventh-day' from an old form of septintas, not a saint's name.
+locale: lt
+---
+pirmadienis
+antradienis
+trečiadienis
+ketvirtadienis
+penktadienis
+šeštadienis
+sekmadienis

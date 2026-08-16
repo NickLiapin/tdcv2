@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Slovene). Slovene categorisation writes it as a number of stars, and a Slovene sign reads "hotel 4 zvezdice". Note the Slovene counting form: 1 zvezdica, 2 zvezdici in the DUAL, 3 and 4 zvezdice, 5 zvezdic — four different endings depending on the number, which is a config trap unique to a dual language.
+locale: sl
+---
+1 zvezdica
+2 zvezdici
+3 zvezdice
+4 zvezdice
+5 zvezdic

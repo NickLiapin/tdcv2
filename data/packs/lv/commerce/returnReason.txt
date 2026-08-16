@@ -1,0 +1,19 @@
+---
+description: Reason an order was returned.
+locale: lv
+---
+Pienāca bojāta
+Nosūtīta nepareiza prece
+Prece neatbilst aprakstam
+Nepareizs izmērs
+Neder
+Pārdomāju
+Atradu lētāk citur
+Ražošanas defekts
+Trūkst daļu
+Nepilnīgs komplekts
+Kavēta piegāde
+Vairs nav vajadzīgs
+Pasūtīju kļūdas pēc
+Kvalitāte zemāka nekā gaidīts
+Neatbilst krāsa

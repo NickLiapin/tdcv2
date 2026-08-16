@@ -1,0 +1,7 @@
+---
+address: kenya.tax.vat
+description: Kenyan VAT registration number — there ISN'T ONE, and that is the whole content of this file. Kenya charges VAT (16% standard rate, registration compulsory above KES 5 million of annual taxable turnover), but registering for it issues no new identifier: VAT is added as an obligation against the taxpayer's existing KRA PIN on iTax, and it is the PIN that appears on the tax invoice, on the eTIMS record and on customs entries. So a Kenyan "VAT number" is the KRA PIN, and this address deliberately delegates to kenya.tax.kraPin rather than inventing a second format. Anyone porting an EU-shaped model to Kenya should expect a separate VAT identifier with its own checksum and will not find one; the PIN's trailing check letter is the only check character in play, and its algorithm is unpublished — see kenya.tax.kraPin.
+generator: tdc
+---
+<sequence name="pin"><gen type="template" value="kenya.tax.kraPin"/></sequence>
+<data>${{pin}}</data>

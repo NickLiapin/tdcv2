@@ -1,0 +1,26 @@
+---
+description: Company department or function.
+locale: lv
+---
+Izstrāde
+Produkts
+Dizains
+Pārdošana
+Mārketings
+Finanses
+Grāmatvedība
+Personāla daļa
+Operatīvā daļa
+Juridiskā daļa
+Klientu atbalsts
+Informācijas tehnoloģijas
+Pētniecība un attīstība
+Iepirkumi
+Kvalitātes kontrole
+Loģistika
+Administrācija
+Saimniecības daļa
+Drošība
+Atbilstības kontrole
+Ražošana
+Noliktava

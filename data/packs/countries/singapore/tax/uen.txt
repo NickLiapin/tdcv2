@@ -1,0 +1,28 @@
+---
+address: singapore.tax.uen
+description: Singapore UEN (Unique Entity Number) — the one number an entity carries across every government agency, and the reason Singapore has no separate company number, tax number and statistics number the way most countries do. Three formats, all shipped here. (A) nnnnnnnnX, 9 characters, for a business registered with ACRA - a sole proprietorship or partnership. (B) yyyynnnnnX, 10 characters, for a local company: the four-digit year of incorporation, five running digits, a check letter. (C) TyyPQnnnnX, 10 characters, for everything else - a leading T, two year digits, a TWO-LETTER agency code, four running digits, a check letter. The two-letter codes are real and each belongs to the agency that issues that kind of entity: LP LL FC PF from ACRA, RF from Enterprise Singapore, MQ MM from MUIS, CC CS MB from MCCY, GA GB from the digital government office, GS from MOE, SS from the Registry of Societies, TU from MOM, TC from MND, DP CP NR from MFA, CM CD MD HS VH CH MH CL XL CX from MOH, FB FN from MAS, PA PB from the People's Association, MC SM from SLA, NB from MCI, FM from MINDEF, RP from MinLaw. WHAT IS NOT REAL HERE IS THE CHECK LETTER. ACRA publishes the FORMATS but not the check-alphabet algorithm, and no verifiable specification of it exists, so the last character is drawn at random and this file makes no checksum claim - unlike singapore.docs.nric, singapore.docs.fin and singapore.vehicle.plate, whose check letters are computed from published algorithms and verified. Only the T variant of format C is generated: the official annex documents T and nothing else, and S- or R-prefixed variants were not confirmed, so they are not invented.
+generator: tdc
+locale: en
+---
+<!-- 0 = business (9 chars), 1 = local company (10), 2 = other entity (10). -->
+<sequence name="kind"><gen type="text" value="0,1,2" percent="35,50,15"/></sequence>
+<sequence name="biz"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<sequence name="year"><gen type="number" value="1970..2026"/></sequence>
+<sequence name="coSerial"><gen type="regex" value="[0-9]{5}"/></sequence>
+<sequence name="yy"><gen type="number" value="0..25" length="2" first_zero="true"/></sequence>
+<sequence name="pq"><gen type="text" value="LP,LL,FC,PF,RF,MQ,MM,NB,CC,CS,MB,FM,GS,DP,CP,NR,CM,CD,MD,HS,VH,CH,MH,CL,XL,CX,RP,TU,TC,FB,FN,PA,PB,SS,MC,SM,GA,GB"/></sequence>
+<sequence name="pqSerial"><gen type="regex" value="[0-9]{4}"/></sequence>
+<!-- Not a checksum: ACRA does not publish one. See the description. -->
+<sequence name="tail"><gen type="regex" value="[A-Z]"/></sequence>
+<sequence name="uen"><compute><result>
+  <choose>
+    <when><test><equals><field name="kind"/><int v="0"/></equals></test>
+      <then><concat><field name="biz"/><field name="tail"/></concat></then></when>
+    <when><test><equals><field name="kind"/><int v="1"/></equals></test>
+      <then><concat><field name="year"/><field name="coSerial"/><field name="tail"/></concat></then></when>
+    <otherwise>
+      <concat><str v="T"/><field name="yy"/><field name="pq"/><field name="pqSerial"/><field name="tail"/></concat>
+    </otherwise>
+  </choose>
+</result></compute></sequence>
+<data>${{uen}}</data>

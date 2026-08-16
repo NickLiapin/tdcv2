@@ -1,0 +1,5 @@
+---
+description: Currency of Nyderlandai (Lithuanian).
+locale: lt
+---
+Euras

@@ -1,0 +1,11 @@
+---
+address: philippines.geo.province
+description: Province of the Philippines — all 82. Sliced out of philippines.geo.provinceWithRegion, so it cannot drift from the region each province sits in. The province is the first tier of local government that actually governs: it elects a governor and a provincial board, and it is the unit a Philippine address is filed under. A CITY DRAWN FROM philippines.geo.city IS NOT NECESSARILY INSIDE ONE OF THESE. Thirty-three highly urbanised cities and five independent component cities are legally outside any province, and the sixteen cities of Metro Manila have no province to be outside of, so pairing a random city with a random province here will produce addresses that cannot exist. Draw the pair from philippines.geo.provinceWithRegion, or keep the two columns independent on purpose.
+generator: tdc
+locale: en
+---
+<sequence name="entry"><gen type="template" value="philippines.geo.provinceWithRegion"/></sequence>
+<sequence name="label"><compute><result>
+  <trim><at><in><split sep="|"><field name="entry"/></split></in><index><int v="0"/></index></at></trim>
+</result></compute></sequence>
+<data>${{label}}</data>

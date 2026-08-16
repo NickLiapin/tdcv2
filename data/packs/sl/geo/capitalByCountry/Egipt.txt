@@ -1,0 +1,5 @@
+---
+description: Capital of Egipt, as Slovene names it
+locale: sl
+---
+Kairo

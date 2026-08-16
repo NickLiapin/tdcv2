@@ -1,0 +1,33 @@
+---
+address: thailand.sport.team
+description: Thai football clubs — Thai League 1 and Thai League 2 sides, Thai names. Thai club names are written the way Thai writes any borrowed word: the English part is transliterated into Thai script and a space IS used between the transliterated words, so บุรีรัมย์ ยูไนเต็ด is "Buriram United" spelled out phonetically rather than translated. That makes club names one of the few Thai lists with internal spaces, which is the opposite of the problem the rest of this pack has. Most clubs are named for a province or a city, so a value here often contains a value from thailand.geo.province. Sponsor names get bolted onto club names and come off again when the sponsor leaves, so this list ages faster than any other file in the pack.
+locale: th
+---
+บุรีรัมย์ ยูไนเต็ด
+บีจี ปทุม ยูไนเต็ด
+การท่าเรือ เอฟซี
+เมืองทอง ยูไนเต็ด
+ทรู แบงค็อก ยูไนเต็ด
+ชลบุรี เอฟซี
+ราชบุรี เอฟซี
+นครราชสีมา มาสด้า เอฟซี
+สุพรรณบุรี เอฟซี
+ขอนแก่น ยูไนเต็ด
+ลำพูน วอริเออร์
+ตราด เอฟซี
+ระยอง เอฟซี
+อุทัยธานี เอฟซี
+พีที ประจวบ เอฟซี
+ชัยนาท ฮอร์นบิล
+นครปฐม ยูไนเต็ด
+สุโขทัย เอฟซี
+เชียงราย ยูไนเต็ด
+เชียงใหม่ ยูไนเต็ด
+โปลิศ เทโร เอฟซี
+หนองบัว พิชญ เอฟซี
+อยุธยา ยูไนเต็ด
+ระนอง ยูไนเต็ด
+กระบี่ เอฟซี
+พัทยา ยูไนเต็ด
+สมุทรปราการ ซิตี้
+อ่างทอง เอฟซี

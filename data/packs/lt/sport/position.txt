@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Lithuanian).
+locale: lt
+---
+Vartininkas
+Gynėjas
+Centrinis gynėjas
+Kraštinis gynėjas
+Saugas
+Centrinis saugas
+Atakuojantis saugas
+Puolėjas
+Centrinis puolėjas
+Kraštinis
+Įžaidėjas
+Atakuojantis gynėjas
+Lengvasis kraštas
+Sunkusis kraštas
+Vidurio puolėjas
+Pakėlėjas
+Libero
+Centro blokuotojas
+Diagonalusis puolėjas
+Linijos žaidėjas
+Kabliukas
+Aštuntasis numeris
+Centras
+Galinis
+Metikas
+Gaudytojas
+Trumpasis stabdytojas
+Paskirtasis mušėjas
+Kvoterbekas
+Bėgikas
+Laibekeris
+Kornerbekas
+Spardytojas
+Kapitonas
+Atsarginis

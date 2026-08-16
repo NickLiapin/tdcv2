@@ -1,0 +1,20 @@
+---
+description: Weather condition.
+locale: lv
+---
+Saulains
+Daļēji mākoņains
+Mākoņains
+Apmācies
+Lietains
+Smidzina
+Pērkona negaiss
+Sniegs
+Slapjdraņķis
+Miglains
+Vējains
+Dūmakains
+Skaidrs
+Krusa
+Apledojums
+Sals

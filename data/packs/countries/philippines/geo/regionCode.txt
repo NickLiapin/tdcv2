@@ -1,0 +1,11 @@
+---
+address: philippines.geo.regionCode
+description: Short designation of a Philippine region as it is actually written on forms and signage — "III", "IV-A", "NCR", "Mimaropa", "BARMM". Sliced out of philippines.geo.regionWithCode so it cannot drift from philippines.geo.region. THIS IS NOT A NUMERIC CODE and it is not the PSGC region code: the PSGC assigns each region a 9-digit geographic code, and those are deliberately not shipped here because the code assigned to the Negros Island Region after RA 12000 could not be verified against a published PSA table. Do not pad, sort or parse these as integers — they are Roman numerals, an acronym, and a hyphenated split, all in one column, and Region IV has no plain form at all because it was divided into IV-A and Mimaropa in 2002.
+generator: tdc
+locale: en
+---
+<sequence name="entry"><gen type="template" value="philippines.geo.regionWithCode"/></sequence>
+<sequence name="code"><compute><result>
+  <trim><at><in><split sep="|"><field name="entry"/></split></in><index><int v="0"/></index></at></trim>
+</result></compute></sequence>
+<data>${{code}}</data>

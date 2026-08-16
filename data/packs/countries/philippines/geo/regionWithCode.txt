@@ -1,0 +1,23 @@
+---
+address: philippines.geo.regionWithCode
+description: THE SOURCE OF TRUTH for Philippine regions. Each line is the region's short designation, a pipe, then its name — "IV-A | Calabarzon". philippines.geo.region and philippines.geo.regionCode are both sliced out of this one list, so a designation can never drift away from its name. THERE ARE 18 REGIONS, NOT 17. Every pre-2024 reference says 17, and most software still does, because Republic Act 12000 re-created the Negros Island Region on 11 June 2024, pulling Negros Occidental out of Western Visayas and Negros Oriental plus Siquijor out of Central Visayas. The Philippine Statistics Authority's Second Quarter 2026 Philippine Standard Geographic Code counts 18 regions, 82 provinces, 33 highly urbanised cities and 116 other cities, and that is the count this pack follows. A REGION IS NOT A TIER OF GOVERNMENT. Unlike a province or a city, an ordinary Philippine region has no governor, no legislature and no elections: it is a grouping for administering national agencies, and nothing is issued or registered at regional level. The two exceptions are real and matter — BARMM is genuinely autonomous, with its own parliament and chief minister, and CAR is administrative but historically the failed candidate for the same status. The designations are a mess on purpose and reproduced as they are actually written: eight regions are Roman numerals, Region IV split into IV-A and the un-numbered Mimaropa in 2002, and four (NCR, CAR, BARMM, NIR) are acronyms with no numeral at all. Mimaropa is an acronym of its provinces (MIndoro, MArinduque, ROmblon, PAlawan) that was later given the formal name "Southwestern Tagalog Region", which almost nobody uses. Values are in English, which is what the enabling laws, the PSGC and every government form are printed in.
+locale: en
+---
+NCR | National Capital Region
+CAR | Cordillera Administrative Region
+I | Ilocos Region
+II | Cagayan Valley
+III | Central Luzon
+IV-A | Calabarzon
+Mimaropa | Mimaropa Region
+V | Bicol Region
+VI | Western Visayas
+VII | Central Visayas
+NIR | Negros Island Region
+VIII | Eastern Visayas
+IX | Zamboanga Peninsula
+X | Northern Mindanao
+XI | Davao Region
+XII | Soccsksargen
+XIII | Caraga
+BARMM | Bangsamoro Autonomous Region in Muslim Mindanao

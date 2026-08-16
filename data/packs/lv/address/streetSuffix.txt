@@ -1,0 +1,30 @@
+---
+description: Latvian thoroughfare type. It goes AFTER the street name — Brīvības iela, Uzvaras bulvāris, Zaļā gatve — which is the reverse of the Croatian Ulica Nikole Tesle. Written lowercase inside a full address. Iela covers nearly every urban street; līnija is the numbered-street word peculiar to Rīga's Pārdaugava and Ķīpsala; dambis is a causeway across wet ground and appears wherever a road crosses the Daugava floodplain.
+locale: lv
+---
+iela
+bulvāris
+gatve
+prospekts
+ceļš
+šoseja
+laukums
+aleja
+dambis
+krastmala
+līnija
+taka
+celiņš
+tilts
+pasāža
+apvedceļš
+strupceļš
+skvērs
+parks
+kvartāls
+apkaime
+pagalms
+sēta
+priekšpilsēta
+mikrorajons
+ciemats

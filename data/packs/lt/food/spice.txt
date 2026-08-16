@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Lithuanian). Krapai (dill) and kmynai (caraway) do the heavy lifting in Lithuanian cooking; chilli barely appears.
+locale: lt
+---
+Krapai
+Petražolės
+Kmynai
+Česnakas
+Svogūnas
+Krienai
+Garstyčios
+Juodieji pipirai
+Baltieji pipirai
+Kvapieji pipirai
+Paprika
+Aitrioji paprika
+Lauro lapas
+Čiobrelis
+Mairūnas
+Raudonėlis
+Bazilikas
+Rozmarinas
+Šalavijas
+Mėta
+Melisa
+Krapų sėklos
+Kalendra
+Kmynų sėklos
+Cinamonas
+Gvazdikėliai
+Muskatas
+Imbieras
+Vanilė
+Šafranas

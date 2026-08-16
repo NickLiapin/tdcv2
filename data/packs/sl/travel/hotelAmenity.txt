@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Slovene). Wi-Fi keeps its real spelling in every locale. Wellness and terme are the two that sell a Slovene hotel: Slovenia has fifteen natural thermal spas and a spa hotel is an ordinary holiday rather than a luxury one.
+locale: sl
+---
+brezplačen Wi-Fi
+parkirišče
+garaža
+zajtrk
+polpenzion
+polni penzion
+restavracija
+bar
+bazen
+notranji bazen
+zunanji bazen
+termalni bazen
+wellness
+savna
+masaža
+fitnes
+otroško igrišče
+varstvo otrok
+hišni ljubljenčki dovoljeni
+klimatska naprava
+sef
+mini bar
+sušilnik za lase
+likalnik
+pralnica
+recepcija 24 ur
+prevoz z letališča
+izposoja koles
+smučarnica
+polnilnica za električna vozila

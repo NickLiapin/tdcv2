@@ -1,0 +1,7 @@
+---
+address: nigeria.docs.bvn
+description: Bank Verification Number — 11 digits, issued by NIBSS (Nigeria Inter-Bank Settlement System) for the CBN since 14 February 2014. THIS IS THE NUMBER THAT ACTUALLY MATTERS IN NIGERIAN FINANCE, and it has no clean equivalent in most countries, so it is worth stating plainly what it does. A Nigerian gets ONE BVN, ever, at first enrolment, against their fingerprints and photograph — and every account they hold, at every bank in the country, is linked to it. The customer number is per-bank; the BVN is per-person and national. That single fact is the design: before 2014 a person could be ten unrelated customers at ten banks, so a defaulter simply moved, and a fraudster simply multiplied. After it, a bank opening an account learns that the same human already banks in four other places, credit history follows the person rather than the institution, and a restriction placed on one account can be placed on all of them at once — which is also why BVN-linked freezes are a live political subject in Nigeria, since the same wiring that stops fraud stops anyone the state names. Note carefully what it is NOT: not an account number (that is the 10-digit NUBAN, and one BVN owns many), and not the NIN, though the two are separately mandatory and are being reconciled against each other. NO PUBLISHED CHECK DIGIT — like the NIN, an 11-digit BVN is validated by asking NIBSS, not by arithmetic, so none is invented here.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{11}"/>

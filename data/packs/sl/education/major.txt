@@ -1,0 +1,32 @@
+---
+description: University field of study (Slovene)
+locale: sl
+---
+računalništvo in informatika
+elektrotehnika
+strojništvo
+gradbeništvo
+arhitektura
+kemijsko inženirstvo
+kemija
+fizika
+matematika
+biologija
+biotehnologija
+medicina
+dentalna medicina
+farmacija
+veterina
+zdravstvena nega
+psihologija
+sociologija
+politologija
+pravo
+ekonomija
+poslovne vede
+management
+novinarstvo
+slovenistika
+zgodovina
+geografija
+pedagogika

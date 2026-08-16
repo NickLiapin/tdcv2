@@ -1,0 +1,32 @@
+---
+description: Technology verb, present participle (Latvian -ot form, which does duty for the English -ing).
+locale: lv
+---
+dublējot
+apejot
+uzlaužot
+pārrakstot
+saspiežot
+kopējot
+navigējot
+indeksējot
+savienojot
+ģenerējot
+kvantificējot
+aprēķinot
+sintezējot
+pārraidot
+programmējot
+pārstartējot
+parsējot
+šifrējot
+atšifrējot
+izvietojot
+kompilējot
+atkļūdojot
+testējot
+migrējot
+sinhronizējot
+optimizējot
+kešojot
+monitorējot

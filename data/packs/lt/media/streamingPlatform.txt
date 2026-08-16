@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Lithuanian market. Go3 and Telia Play are the local ones; LRT Mediateka is the public broadcaster's archive.
+locale: lt
+---
+Netflix
+HBO Max
+Disney+
+Amazon Prime Video
+Apple TV+
+Go3
+Telia Play
+LRT Mediateka
+YouTube
+Spotify
+Viaplay
+SkyShowtime

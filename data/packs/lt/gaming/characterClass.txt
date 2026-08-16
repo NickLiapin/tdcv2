@@ -1,0 +1,28 @@
+---
+description: RPG character class (Lithuanian).
+locale: lt
+---
+Karys
+Riteris
+Barbaras
+Samdinys
+Šaulys
+Lankininkas
+Medžiotojas
+Žvalgas
+Vagis
+Šešėlis
+Žudikas
+Burtininkas
+Magas
+Kerėtojas
+Nekromantas
+Elementalistas
+Druidas
+Šamanas
+Žynys
+Kunigas
+Gydytojas
+Paladinas
+Vienuolis
+Bardas

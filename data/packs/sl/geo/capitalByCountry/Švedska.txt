@@ -1,0 +1,5 @@
+---
+description: Capital of Švedska, as Slovene names it
+locale: sl
+---
+Stockholm

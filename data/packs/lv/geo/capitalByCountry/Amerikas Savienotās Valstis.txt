@@ -1,0 +1,5 @@
+---
+description: Capital of Amerikas Savienotās Valstis, in the Latvian spelling.
+locale: lv
+---
+Vašingtona

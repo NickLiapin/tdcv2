@@ -1,0 +1,12 @@
+---
+description: Dishes of lenkų cuisine as named in Lithuanian. Borrowed dish names are naturalised into Lithuanian spelling and given a Lithuanian ending, which is why they look nothing like the original (pizza -> pica, sushi -> sušis).
+locale: lt
+---
+Koldūnai su varške
+Bigosas
+Barščiai
+Kotletas schabowy
+Žurekas
+Placki ziemniaczane
+Pyragėliai su grybais
+Makowiec

@@ -1,0 +1,5 @@
+---
+description: Currency of Meksika (Lithuanian).
+locale: lt
+---
+Pesas

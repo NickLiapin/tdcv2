@@ -1,0 +1,12 @@
+---
+description: Diagnoses seen in Gastroenteroloģija.
+locale: lv
+---
+Gastroezofageālā atviļņa slimība
+Krona slimība
+Čūlainais kolīts
+Peptiska čūla
+Kairinātās zarnas sindroms
+Aknu ciroze
+Celiakija
+Gastrīts

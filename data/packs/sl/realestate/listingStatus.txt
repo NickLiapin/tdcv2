@@ -1,0 +1,16 @@
+---
+description: Property listing status (Slovene)
+locale: sl
+---
+v prodaji
+v najemu
+rezervirano
+v postopku
+prodano
+oddano
+umaknjeno
+nova cena
+znižana cena
+ekskluzivno
+na ogled
+v izgradnji

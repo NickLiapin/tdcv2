@@ -1,0 +1,5 @@
+---
+description: Currency of Meksika, named in Latvian.
+locale: lv
+---
+Meksikas peso

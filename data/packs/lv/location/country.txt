@@ -1,0 +1,237 @@
+---
+description: Country names in Latvian, alphabetical. Every name carries a Latvian ending because Latvian nouns must decline: Afganistāna, Bangladeša, Zimbabve. A handful of indeclinable short names (Fidži, Haiti, Nauru, Niue, Tonga, Tuvalu, Vanuatu, Palau, Mali, Samoa, Tokelau) are the exception the grammar allows and are left as they are. Compare geo/country.txt, which holds the same names weighted by population for realistic sampling — this list is the flat alphabetical reference.
+locale: lv
+---
+Afganistāna
+Albānija
+Alžīrija
+Amerikāņu Samoa
+Amerikas Savienotās Valstis
+Andora
+Angilja
+Angola
+Antarktika
+Antigva un Barbuda
+Apvienotā Karaliste
+Apvienotie Arābu Emirāti
+Argentīna
+Armēnija
+Aruba
+ASV Virdžīnu salas
+Austrālija
+Austrija
+Austrumtimora
+Azerbaidžāna
+Bahamu salas
+Bahreina
+Baltkrievija
+Bangladeša
+Barbadosa
+Beļģija
+Beliza
+Benina
+Bermudu salas
+Bolīvija
+Bosnija un Hercegovina
+Botsvāna
+Brazīlija
+Britu Virdžīnu salas
+Bruneja
+Bulgārija
+Burkinafaso
+Burundija
+Butāna
+Centrālāfrikas Republika
+Čada
+Čehija
+Čīle
+Dānija
+Dienvidāfrika
+Dienvidkoreja
+Dienvidsudāna
+Dominika
+Dominikānas Republika
+Džibutija
+Ekvadora
+Ekvatoriālā Gvineja
+Eritreja
+Esvatini
+Etiopija
+Ēģipte
+Fēru salas
+Fidži
+Filipīnas
+Folklenda salas
+Francija
+Franču Gviāna
+Franču Polinēzija
+Francijas Dienvidjūru teritorijas
+Gabona
+Gajāna
+Gambija
+Gana
+Gibraltārs
+Grenāda
+Grenlande
+Grieķija
+Gruzija
+Guama
+Gvadelupa
+Gvatemala
+Gvineja
+Gvineja-Bisava
+Haiti
+Hondurasa
+Honkonga
+Horvātija
+Igaunija
+Indija
+Indonēzija
+Irāka
+Irāna
+Islande
+Itālija
+Izraēla
+Īrija
+Jamaika
+Japāna
+Jaunkaledonija
+Jaunzēlande
+Jemena
+Jordānija
+Kaboverde
+Kaimanu salas
+Kambodža
+Kamerūna
+Kanāda
+Katara
+Kazahstāna
+Kenija
+Kipra
+Kiribati
+Kirgizstāna
+Kokosu salas
+Kolumbija
+Komoru salas
+Kongo Demokrātiskā Republika
+Kongo Republika
+Kosova
+Kostarika
+Kotdivuāra
+Krievija
+Kuba
+Kuka salas
+Kuveita
+Ķīna
+Laosa
+Latvija
+Lesoto
+Libāna
+Libērija
+Lietuva
+Lihtenšteina
+Luksemburga
+Lībija
+Madagaskara
+Majota
+Makao
+Malaizija
+Malāvija
+Maldīvija
+Mali
+Malta
+Maroka
+Māršala salas
+Martinika
+Maurīcija
+Mauritānija
+Meksika
+Melnkalne
+Mikronēzija
+Mjanma
+Moldova
+Monako
+Mongolija
+Montserrata
+Mozambika
+Namībija
+Nauru
+Nepāla
+Nigēra
+Nigērija
+Nikaragva
+Niue
+Norvēģija
+Nīderlande
+Omāna
+Pakistāna
+Palau
+Palestīna
+Panama
+Papua-Jaungvineja
+Paragvaja
+Peru
+Pitkērna
+Polija
+Portugāle
+Puertoriko
+Reinjona
+Rietumsahāra
+Rumānija
+Ruanda
+Salvadora
+Samoa
+Sanmarīno
+Santome un Prinsipi
+Saūda Arābija
+Seišelu salas
+Senegāla
+Sentkitsa un Nevisa
+Sentlūsija
+Sentvinsenta un Grenadīnas
+Serbija
+Singapūra
+Sīrija
+Sjerraleone
+Slovākija
+Slovēnija
+Somālija
+Somija
+Spānija
+Sudāna
+Surinama
+Svētais Krēsls
+Šrilanka
+Šveice
+Tadžikistāna
+Taivāna
+Taizeme
+Tanzānija
+Tērksas un Kaikosas salas
+Togo
+Tokelau
+Tonga
+Trinidāda un Tobāgo
+Tunisija
+Turcija
+Turkmenistāna
+Tuvalu
+Uganda
+Ukraina
+Ungārija
+Urugvaja
+Uzbekistāna
+Vācija
+Vanuatu
+Vatikāns
+Venecuēla
+Vjetnama
+Volisa un Futuna
+Zālamana salas
+Zambija
+Ziemassvētku sala
+Ziemeļkoreja
+Ziemeļmaķedonija
+Ziemeļu Marianas salas
+Zimbabve
+Zviedrija

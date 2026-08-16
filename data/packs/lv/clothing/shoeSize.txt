@@ -1,0 +1,16 @@
+---
+description: Shoe size on the EUROPEAN (Paris point) scale. That is the number printed on a shoebox in Latvia and the only one a Latvian shopper quotes; UK and US numbers appear beside it on imported boxes but are never used alone.
+locale: lv
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

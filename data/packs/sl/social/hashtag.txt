@@ -1,0 +1,34 @@
+---
+description: Hashtag as Slovene users write it: lowercase and with the diacritics STRIPPED, which is what Slovene practice does — č becomes c, š becomes s, ž becomes z, so #smucanje rather than #smučanje. That fold is the standard Slovene ASCII mapping and a config generating a slug or a username from any other list in this pack should apply the same three substitutions.
+locale: sl
+---
+#slovenija
+#ljubezen
+#druzina
+#prijatelji
+#potovanje
+#narava
+#gore
+#morje
+#hrana
+#kava
+#vikend
+#poletje
+#zima
+#sneg
+#smucanje
+#pohodnistvo
+#kolesarjenje
+#tek
+#fitnes
+#zdravje
+#motivacija
+#delo
+#ucenje
+#knjige
+#glasba
+#film
+#umetnost
+#fotografija
+#moda
+#dom

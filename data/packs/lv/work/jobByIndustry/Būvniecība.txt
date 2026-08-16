@@ -1,0 +1,12 @@
+---
+description: Jobs in Būvniecība.
+locale: lv
+---
+Elektriķis
+Santehniķis
+Namdaris
+Būvdarbu vadītājs
+Smagās tehnikas operators
+Mērnieks
+Mūrnieks
+Jumiķis

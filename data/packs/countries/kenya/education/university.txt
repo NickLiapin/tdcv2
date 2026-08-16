@@ -1,0 +1,73 @@
+---
+address: kenya.education.university
+description: Chartered universities in Kenya — the 36 public ones first, in charter order, then the private chartered ones. All are accredited by the Commission for University Education; "chartered" is the operative word, since Kenya also has a tier of university colleges and institutions holding letters of interim authority that are not full universities and are not listed. The public list is heavily devolved by design: after 2013 most counties acquired a university, which is why Garissa, Taita Taveta, Tharaka, Bomet, Alupe and Tom Mboya sit alongside Nairobi and Kenyatta. Several private ones are church foundations (Baraton is Adventist, the Catholic University of Eastern Africa, Scott Christian, St Paul's, Tangaza) and Aga Khan and Amref are health-sciences institutions.
+locale: en
+---
+University of Nairobi
+Moi University
+Kenyatta University
+Egerton University
+Jomo Kenyatta University of Agriculture and Technology
+Maseno University
+Masinde Muliro University of Science and Technology
+Dedan Kimathi University of Technology
+Chuka University
+Technical University of Kenya
+Technical University of Mombasa
+Pwani University
+Kisii University
+University of Eldoret
+Maasai Mara University
+Jaramogi Oginga Odinga University of Science and Technology
+Laikipia University
+South Eastern Kenya University
+Meru University of Science and Technology
+Multimedia University of Kenya
+University of Kabianga
+Karatina University
+Kibabii University
+Rongo University
+The Co-operative University of Kenya
+Taita Taveta University
+Murang'a University of Technology
+University of Embu
+Machakos University
+Kirinyaga University
+Garissa University
+Alupe University
+Kaimosi Friends University
+Tom Mboya University
+Tharaka University
+Bomet University
+University of Eastern Africa, Baraton
+Catholic University of Eastern Africa
+Daystar University
+Scott Christian University
+United States International University
+Africa Nazarene University
+Kenya Methodist University
+St. Paul's University
+Pan Africa Christian University
+Strathmore University
+Kabarak University
+Mount Kenya University
+Africa International University
+Kenya Highlands Evangelical University
+Great Lakes University of Kisumu
+KCA University
+Adventist University of Africa
+KAG EAST University
+Umma University
+Presbyterian University of East Africa
+Aga Khan University
+Kiriri Women's University of Science and Technology
+The East African University
+Zetech University
+Lukenya University
+Management University of Africa
+Tangaza University
+Islamic University of Kenya
+Riara University
+Uzima University
+Gretsa University
+Amref International University

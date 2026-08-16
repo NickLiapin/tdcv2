@@ -1,0 +1,32 @@
+---
+address: ukraine.geo.oblast
+description: The first-level administrative units of Ukraine as Article 133 of the Constitution names them — 24 oblasts, the Autonomous Republic of Crimea, and two cities with special status, Kyiv and Sevastopol. All 27 are shipped because all 27 are what the state's own registers hold: postal codes, plate codes and court jurisdictions are still issued against them, and an address in Simferopol is still written to the Autonomous Republic of Crimea in Ukrainian records. Several of these units are wholly or partly outside the government's effective control, and Ukrainian law calls those areas temporarily occupied; the list describes the register, not the front line. Note that "oblast" is the level, not the whole story — Crimea is an autonomous republic and Kyiv and Sevastopol are neither, which is why this file is not called geo.region.
+locale: uk
+---
+Автономна Республіка Крим
+Вінницька область
+Волинська область
+Дніпропетровська область
+Донецька область
+Житомирська область
+Закарпатська область
+Запорізька область
+Івано-Франківська область
+Київська область
+Кіровоградська область
+Луганська область
+Львівська область
+Миколаївська область
+Одеська область
+Полтавська область
+Рівненська область
+Сумська область
+Тернопільська область
+Харківська область
+Херсонська область
+Хмельницька область
+Черкаська область
+Чернівецька область
+Чернігівська область
+місто Київ
+місто Севастополь

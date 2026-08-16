@@ -1,0 +1,30 @@
+---
+description: Mobile or fixed-line operator. The Slovene market is Telekom Slovenije, A1 Slovenija, Telemach and T-2, plus their low-cost brands (Bob, HoT, Izi mobil) and Hofer Telekom, the discount supermarket's MVNO, which is unusually large here. Mobitel and Si.mobil are the former names of the first two and still appear in older records. Brand names keep their spelling.
+locale: sl
+---
+Telekom Slovenije
+A1 Slovenija
+Telemach
+T-2
+Bob
+HoT
+Izi mobil
+Hofer Telekom
+Mobitel
+Si.mobil
+Tušmobil
+Debitel
+Mega M
+Amis
+SiOL
+Deutsche Telekom
+A1 Telekom Austria
+Magenta Telekom
+Vodafone
+Orange
+Hrvatski Telekom
+Telekom Srbija
+Iskratel
+GVO
+Detel
+Softnet

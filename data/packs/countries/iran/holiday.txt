@@ -1,0 +1,28 @@
+---
+address: iran.holiday
+description: Iranian public holidays, Persian names. WHAT THIS LIST IS: names. WHAT IT IS NOT: dates, and Iran is the country where that distinction bites hardest, because it runs THREE calendars at once. The civil calendar is the SOLAR HIJRI one (گاه‌شماری هجری شمسی) — the official calendar of the state, dated from the Hijra but solar, so its year is the same length as the Gregorian year and its months do not drift. It begins at the March equinox, نوروز, and the year 1404 runs from about 21 March 2025 to about 20 March 2026; a Solar Hijri year therefore straddles two Gregorian years and no Solar Hijri month starts on the first of a Gregorian one. It is NOT the lunar Hijri calendar that Saudi Arabia and the Gulf use: those years are eleven days shorter, so 1404 SH and 1404 AH are more than six centuries apart and a converter written for the Arabic calendar gives an answer that is wrong by a lifetime. The national holidays here are fixed to Solar Hijri dates and so land on nearly the same Gregorian day each year — نوروز about 21 March, پیروزی انقلاب اسلامی on 22 بهمن which is about 11 February, ملی شدن صنعت نفت on 29 اسفند about 20 March. The religious ones are fixed to LUNAR Hijri dates and move about eleven days earlier every solar year, so عید فطر, عاشورا and اربعین fall in a different season each decade and two of them can fall in the same Solar Hijri year and then in neither. Several lunar dates are additionally set by sighting the moon and are announced days ahead, not years, so even the lunar date does not give a fixed Gregorian one. NO CONVERSION IS ATTEMPTED IN THIS PACK and none should be inferred from the order of these lines; a config needing the actual date of عید فطر in a given year must get it from a calendar library, not from here. Also not modelled: the working week. Iran's weekend is جمعه (Friday) alone — Thursday is a half or full working day depending on the employer — so a report that treats Saturday and Sunday as the weekend is wrong for Iran on every row. Iran has more public holidays than any other country, around 26 days a year, and most of them are religious mourning days rather than celebrations, which changes what "holiday" means for retail or traffic data.
+locale: fa
+---
+نوروز
+سیزده به در
+روز جمهوری اسلامی
+رحلت امام خمینی
+قیام ۱۵ خرداد
+پیروزی انقلاب اسلامی
+ملی شدن صنعت نفت
+عید فطر
+عید قربان
+عید غدیر خم
+تاسوعای حسینی
+عاشورای حسینی
+اربعین حسینی
+رحلت پیامبر اکرم و شهادت امام حسن مجتبی
+شهادت امام رضا
+شهادت امام حسن عسکری
+ولادت پیامبر اکرم و امام جعفر صادق
+شهادت حضرت فاطمه زهرا
+ولادت امام علی
+مبعث پیامبر اکرم
+ولادت امام زمان
+شهادت امام علی
+شهادت امام جعفر صادق

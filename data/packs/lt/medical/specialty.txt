@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Lithuanian).
+locale: lt
+---
+Šeimos medicina
+Vidaus ligos
+Kardiologija
+Pulmonologija
+Gastroenterologija
+Hepatologija
+Nefrologija
+Endokrinologija
+Reumatologija
+Hematologija
+Onkologija
+Radioterapija
+Infekcinės ligos
+Alergologija ir klinikinė imunologija
+Neurologija
+Neurochirurgija
+Psichiatrija
+Vaikų psichiatrija
+Dermatovenerologija
+Oftalmologija
+Otorinolaringologija
+Chirurgija
+Krūtinės chirurgija
+Kraujagyslių chirurgija
+Plastinė chirurgija
+Ortopedija ir traumatologija
+Urologija
+Akušerija ir ginekologija
+Vaikų ligos
+Neonatologija
+Anesteziologija
+Intensyvioji terapija
+Skubioji medicina
+Radiologija
+Laboratorinė medicina
+Patologija

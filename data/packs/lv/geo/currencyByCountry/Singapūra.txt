@@ -1,0 +1,5 @@
+---
+description: Currency of Singapūra, named in Latvian.
+locale: lv
+---
+Singapūras dolārs

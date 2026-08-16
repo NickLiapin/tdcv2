@@ -1,0 +1,30 @@
+---
+description: Event type. Vārda diena — name day — is the entry a non-Latvian pack would not have. The Latvian calendar assigns one to three given names to almost every day of the year, the list is set by the state Language Agency, and in many families the name day is celebrated more than the birthday: colleagues bring cake to the office, and the newspaper prints the day's names beside the weather. Dziesmu un deju svētki is the Song and Dance Celebration, held every five years since 1873 and on the UNESCO intangible-heritage list, and Jāņi is midsummer, the year's largest public holiday.
+locale: lv
+---
+Vārda diena
+Dzimšanas diena
+Jubileja
+Kāzas
+Kāzu jubileja
+Kristības
+Iesvētības
+Bēres
+Jāņi
+Līgo vakars
+Dziesmu un deju svētki
+Absolvēšana
+Izlaidums
+Zinību diena
+Konference
+Seminārs
+Darbnīca
+Vebinārs
+Izstāde
+Gadatirgus
+Koncerts
+Festivāls
+Labdarības pasākums
+Produkta prezentācija
+Komandas saliedēšanās
+Atklāšana

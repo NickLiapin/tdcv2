@@ -1,0 +1,16 @@
+---
+description: Jobs in Švietimas (Lithuanian).
+locale: lt
+---
+Pradinių klasių mokytojas
+Vidurinės mokyklos mokytojas
+Dėstytojas
+Socialinis pedagogas
+Bibliotekininkas
+Mokytojo padėjėjas
+Mokyklos direktorius
+Ikimokyklinio ugdymo auklėtojas
+Specialusis pedagogas
+Logopedas
+Korepetitorius
+Ugdymo metodininkas

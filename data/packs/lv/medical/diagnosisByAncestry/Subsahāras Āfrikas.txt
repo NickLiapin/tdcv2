@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Subsahāras Āfrikas descent. Šis ir izplatības signāls, nevis ekskluzīvs saraksts. This list is a prevalence signal, not an exclusive one: every condition here occurs in other populations too, and ancestry only shifts the prior probability.
+locale: lv
+---
+Sirpjveida šūnu anēmija
+Sirpjveida šūnu pazīme
+Glikozes-6-fosfāta dehidrogenāzes deficīts
+Alfa talasēmija
+Fokāli segmentāla glomeruloskleroze
+Sarkoidoze
+Dzemdes miomas
+Keloīdu rētas
+Laktozes nepanesība
+Hipertensija

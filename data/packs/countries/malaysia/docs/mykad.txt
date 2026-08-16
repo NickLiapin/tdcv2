@@ -1,0 +1,44 @@
+---
+address: malaysia.docs.mykad
+description: The Malaysian identity card number — the NRIC number, universally called the MyKad number after the smart card that has carried it since 2001. Twelve digits, printed on the card as YYMMDD-PB-###G and stored in most databases as the same twelve digits with the hyphens dropped; this file emits the printed form. It has NO CHECK DIGIT. Not a weighted mod-11, not a Luhn, not an ISO 7064 residue — nothing in the number verifies the number, so any twelve well-formed digits pass every structural test and only a JPN lookup distinguishes a real one from a made-up one. An ISO 7064 MOD 11,2 algorithm circulates in open-source validators; its own author records that it was found by trial and error against public numbers, that JPN has never acknowledged a checksum, and that it should not be relied on. This file therefore computes no check digit and invents none. What the number carries instead is meaning, all of it personal. YYMMDD is the date of birth, with no century digit, so 000101 is both 1 January 1900 and 1 January 2000 and the century has to come from context. PB is the place of birth, drawn here from the real malaysia.docs.placeOfBirthCode table, so it names a state, a federal territory, a neighbouring country or a whole continent. ### is a serial issued by the NRD's system; the leading digit is not random in practice — numbers issued for births up to 1999 mostly start 5, 6 or 7 and those from 2000 onward start 0, reaching 1, 2 or 3 in high-birth-rate districts, and that is modelled here as an observed regularity described by the NRD account of the scheme rather than as a published rule. G, the final digit, encodes sex: ODD FOR MALE, EVEN FOR FEMALE, which is modelled here. Two caveats on that last digit. It is a convention of the issuing system rather than a stated rule — in 2017 a Sarawakian woman was found holding a number ending odd, and the Deputy Home Minister answered that the last four digits are computer-generated and do not indicate gender — but the convention holds for the overwhelming majority of cards and is what every Malaysian system assumes. So read what a generated number gives away: an exact date of birth, a sex, and a state of birth, all three legible to anyone who can read the format. Treat these values with the care you would give real ones. The current format dates from 1990, replacing the card introduced under British administration in 1949; the driving licence carries the same number rather than one of its own, and the back of the card adds a separate two-digit count of how many MyKads the holder has previously been issued, which is not part of the number. Structure verified against the archived JPN kod-negeri and kod-negara tables and the published format description; there is no check-digit algorithm to verify because there is no check digit.
+generator: tdc
+---
+<sequence name="dob"><gen type="date" from="1930-01-01" to="2012-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="pb"><gen type="template" value="malaysia.docs.placeOfBirthCode"/></sequence>
+<sequence name="leadRaw"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="rest"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="sex"><gen type="text" value="M,F"/></sequence>
+<sequence name="sexRaw"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="mykad"><compute>
+  <let name="year"><to_number><slice from="0" to="4"><field name="dob"/></slice></to_number></let>
+  <let name="yymmdd"><slice from="2" to="8"><field name="dob"/></slice></let>
+  <!-- Serial leading digit: 5-7 for births to 1999, 0-3 from 2000. Folded from a
+       uniform draw rather than written as a regex alternation, which would weight
+       the branches instead of the digits. -->
+  <let name="lead">
+    <choose>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test>
+        <then><mod><to_number><field name="leadRaw"/></to_number><int v="4"/></mod></then>
+      </when>
+      <otherwise><add><int v="5"/><mod><to_number><field name="leadRaw"/></to_number><int v="3"/></mod></add></otherwise>
+    </choose>
+  </let>
+  <!-- Sex digit: odd male, even female. Halve a uniform digit, then double it and
+       add the parity, so both sexes draw from five values rather than from a
+       lopsided split. M is 22 in base 36. -->
+  <let name="half"><mod><to_number><field name="sexRaw"/></to_number><int v="5"/></mod></let>
+  <let name="sexDigit">
+    <choose>
+      <when>
+        <test><equals><to_number><encode as="base36"><field name="sex"/></encode></to_number><int v="22"/></equals></test>
+        <then><add><multiply><use name="half"/><int v="2"/></multiply><int v="1"/></add></then>
+      </when>
+      <otherwise><multiply><use name="half"/><int v="2"/></multiply></otherwise>
+    </choose>
+  </let>
+  <result><concat>
+    <use name="yymmdd"/><str v="-"/><field name="pb"/><str v="-"/>
+    <use name="lead"/><field name="rest"/><use name="sexDigit"/>
+  </concat></result>
+</compute></sequence>
+<data>${{mykad}}</data>

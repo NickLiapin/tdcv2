@@ -1,0 +1,25 @@
+---
+description: World religion. Latvia's own three are luterānisms, Roman Catholicism and Russian Orthodoxy, and they divide the country geographically rather than randomly: the Lutheran majority in Kurzeme and Vidzeme, the Catholic majority in Latgale, and the Orthodox population largely Russian-speaking. Dievturība is the reconstructed Latvian pagan faith, founded in 1925 and drawing on the dainas — small, but registered and Latvia's own.
+locale: lv
+---
+Luterānisms
+Katolicisms
+Pareizticība
+Vecticībnieki
+Baptisms
+Adventisms
+Vasarsvētku draudze
+Dievturība
+Kristietība
+Islāms
+Jūdaisms
+Budisms
+Hinduisms
+Sikhisms
+Bahāisms
+Džainisms
+Šintoisms
+Daoisms
+Ateisms
+Agnosticisms
+Nereliģiozs

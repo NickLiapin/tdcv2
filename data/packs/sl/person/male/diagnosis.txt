@@ -1,0 +1,30 @@
+---
+description: Diagnosis found only in, or overwhelmingly in, men (Slovene). Terms follow Slovene clinical usage; the Latin form appears beside the Slovene on a Slovene discharge letter, so both are recognisable to a reader.
+locale: sl
+---
+rak prostate
+benigna hiperplazija prostate
+prostatitis
+erektilna disfunkcija
+rak mod
+torzija testisa
+hidrokela
+varikokela
+fimoza
+parafimoza
+epididimitis
+moška neplodnost
+hipogonadizem
+ginekomastija
+androgena alopecija
+Peyroniejeva bolezen
+balanitis
+hemofilija A
+barvna slepota
+Duchennova mišična distrofija
+Klinefelterjev sindrom
+obstruktivna apneja med spanjem
+anevrizma trebušne aorte
+protin
+rak sečnega mehurja
+hipospadija

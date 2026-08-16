@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list under positionBySport. Bobslejs takes the slot that an English pack gives to American football, because Latvian has settled, ordinary words for a bob crew (pilots, stūmējs, bremzētājs) and no settled terminology for gridiron at all — inventing one would have been a guess.
+locale: lv
+---
+Futbols
+Basketbols
+Hokejs
+Volejbols
+Handbols
+Regbijs
+Beisbols
+Bobslejs

@@ -1,0 +1,42 @@
+---
+description: Symptom or presenting complaint, in the words a Latvian patient uses.
+locale: lv
+---
+Drudzis
+Galvassāpes
+Nogurums
+Slikta dūša
+Vemšana
+Caureja
+Aizcietējums
+Vēdersāpes
+Sāpes krūtīs
+Elpas trūkums
+Klepus
+Iekaisis kakls
+Iesnas
+Aizlikts deguns
+Šķaudīšana
+Reibonis
+Neskaidra redze
+Muskuļu sāpes
+Locītavu sāpes
+Muguras sāpes
+Kakla sāpes
+Izsitumi
+Nieze
+Pietūkums
+Nejutīgums
+Tirpšana
+Sirdsklauves
+Apetītes zudums
+Neplānots svara zudums
+Svīšana naktīs
+Drebuļi
+Grēmas
+Uzpūšanās
+Krampji
+Vājums
+Apjukums
+Miega traucējumi
+Asiņošana

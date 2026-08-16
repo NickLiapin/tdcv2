@@ -1,0 +1,11 @@
+---
+description: Trucking route type.
+locale: lv
+---
+Starptautiskie pārvadājumi
+Tālbraucieni
+Reģionālie pārvadājumi
+Vietējie pārvadājumi
+Piesaistīts maršruts
+Divu vadītāju maršruts
+Pēdējās jūdzes piegāde

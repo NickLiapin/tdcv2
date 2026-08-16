@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in pulmologija, named in Slovene
+locale: sl
+---
+astma
+kronična obstruktivna pljučna bolezen
+pljučnica
+akutni bronhitis
+pljučna embolija
+pljučna fibroza
+sarkoidoza
+tuberkuloza
+obstruktivna apneja med spanjem
+plevritis
+rak pljuč

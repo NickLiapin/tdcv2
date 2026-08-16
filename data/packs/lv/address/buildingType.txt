@@ -1,0 +1,44 @@
+---
+description: Building type as Latvian names it. Viensēta, klēts, rija and pirts have no English equivalent and are ordinary Latvian building types: a viensēta is the single isolated farmstead that is the classic Latvian rural settlement pattern (Latvia never had the nucleated village of its neighbours), a klēts is the granary that doubled as the summer sleeping house, a rija is the threshing barn, and a pirts is the bathhouse, still built beside a new house today. Muiža is the Baltic German manor estate, of which several hundred survive.
+locale: lv
+---
+Dzīvoklis
+Privātmāja
+Daudzdzīvokļu māja
+Rindu māja
+Dvīņu māja
+Viensēta
+Lauku māja
+Vasarnīca
+Dārza mājiņa
+Pirts
+Klēts
+Rija
+Šķūnis
+Kūts
+Garāža
+Birojs
+Biroju ēka
+Noliktava
+Veikals
+Tirdzniecības centrs
+Rūpnīca
+Ražotne
+Darbnīca
+Slimnīca
+Poliklīnika
+Aptieka
+Skola
+Bērnudārzs
+Universitāte
+Viesnīca
+Restorāns
+Kafejnīca
+Stadions
+Sporta halle
+Bibliotēka
+Baznīca
+Muiža
+Pils
+Kultūras nams
+Ūdenstornis

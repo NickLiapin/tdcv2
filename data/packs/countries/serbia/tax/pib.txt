@@ -1,0 +1,30 @@
+---
+address: serbia.tax.pib
+description: Serbian PIB (порески идентификациони број) — 9 digits: an 8-digit base plus an ISO 7064 MOD 11,10 check digit, the same procedure Croatia's OIB uses, and the Pravilnik o poreskom identifikacionom broju names the standard outright. The Poreska uprava issues it to every legal entity and every entrepreneur, and it is the number quoted on every Serbian invoice. Two things separate it from the neighbours. First, it is NOT a personal number: a natural person's tax identifier in Serbia is the JMBG, so unlike Croatia — where one OIB serves people and companies alike — Serbia keeps the two apart, and a Serbian invoice carries a PIB where a Croatian one carries an OIB. Second, it never travels alone: a Serbian company is identified by the PIB together with the matični broj (serbia.tax.maticniBroj), which is a different number from a different register with a different check digit. The base is drawn beginning with 1 because that is where the issued range sits — every PIB in the Tax Administration's public register begins 10, 11 or higher, with no 0-leading number in circulation. Verified against the published PIBs of Telekom Srbija 100002887, NIS a.d. Novi Sad 104052135, Elektroprivreda Srbije 103920327, NLB Komercijalna banka 100001931, Banca Intesa 100001159, and against the worked examples 113112332 and 101134702.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="1[0-9]{7}"/></sequence>
+<sequence name="pib"><compute>
+  <!-- ISO 7064 MOD 11,10: a running product folded over the base digits. -->
+  <let name="product">
+    <reduce>
+      <over><field name="base"/></over>
+      <init><int v="10"/></init>
+      <do>
+        <let name="s"><mod><add><current/><acc/></add><int v="10"/></mod></let>
+        <mod>
+          <multiply><int v="2"/>
+            <choose>
+              <when><test><equals><use name="s"/><int v="0"/></equals></test><then><int v="10"/></then></when>
+              <otherwise><use name="s"/></otherwise>
+            </choose>
+          </multiply>
+          <int v="11"/>
+        </mod>
+      </do>
+    </reduce>
+  </let>
+  <let name="check"><mod><subtract><int v="11"/><use name="product"/></subtract><int v="10"/></mod></let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{pib}}</data>

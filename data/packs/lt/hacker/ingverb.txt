@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Lithuanian). Lithuanian has no -ing form, so the English gerund is rendered as a verbal noun in -imas / -inimas — that suffix is the closest thing the language has and it is fully productive.
+locale: lt
+---
+kompiliavimas
+vykdymas
+derinimas
+testavimas
+diegimas
+atnaujinimas
+šifravimas
+iššifravimas
+indeksavimas
+kešavimas
+sinchronizavimas
+dubliavimas
+kopijavimas
+atkūrimas
+migravimas
+konvertavimas
+analizavimas
+stebėjimas
+žurnalavimas
+profiliavimas
+optimizavimas
+refaktorinimas
+skenavimas
+filtravimas
+rūšiavimas
+maršrutizavimas
+autentifikavimas
+autorizavimas

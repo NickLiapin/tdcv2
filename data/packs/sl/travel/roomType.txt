@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Slovene)
+locale: sl
+---
+enoposteljna soba
+dvoposteljna soba
+dvoposteljna soba z zakonsko posteljo
+triposteljna soba
+štiriposteljna soba
+družinska soba
+apartma
+studio
+soba z balkonom
+soba s teraso
+soba s pogledom na morje
+soba s pogledom na gore
+mansardna soba
+povezani sobi
+soba za invalide
+nekadilska soba
+deluxe soba
+predsedniški apartma

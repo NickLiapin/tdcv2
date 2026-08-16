@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Lithuanian). Individuali veikla and verslo liudijimas are the two Lithuanian self-employment regimes and are not interchangeable with a plain contract.
+locale: lt
+---
+Neterminuota darbo sutartis
+Terminuota darbo sutartis
+Visa darbo diena
+Ne visas darbo laikas
+Pameistrystės sutartis
+Projektinio darbo sutartis
+Laikinojo darbo sutartis
+Individuali veikla
+Verslo liudijimas
+Autorinė sutartis
+Savanoriška veikla

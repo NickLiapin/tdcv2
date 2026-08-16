@@ -1,0 +1,12 @@
+---
+description: Jobs in Mazumtirdzniecība.
+locale: lv
+---
+Veikala vadītājs
+Kasieris
+Pārdevējs konsultants
+Preču izvietotājs
+Noliktavas darbinieks
+Iepirkumu speciālists
+Zudumu novēršanas speciālists
+Kategoriju vadītājs

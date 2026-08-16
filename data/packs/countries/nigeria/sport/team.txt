@@ -1,0 +1,25 @@
+---
+address: nigeria.sport.team
+description: Football clubs of the Nigeria Premier Football League — the twenty of the 2025/26 season. Football means football here; Nigeria has no rival domestic sport with a professional league of this size, and the national team, the Super Eagles, carries more public attention than every club combined. THE CLUB NAMES ARE STATE NAMES for a reason worth knowing before treating them as ordinary brands: most NPFL clubs are owned and funded by their state governments rather than by private owners, which is why so many are simply a state or city plus a word — Rivers United, Nasarawa United, Bayelsa United, Kwara United, Katsina United, Plateau United. That also makes the league table unstable between seasons, since a change of governor can change a club's budget. The exceptions are the old independents and the newer private clubs: Enyimba of Aba, twice African champions and the most decorated Nigerian side; Enugu Rangers, the oldest and the 2025/26 champions; Shooting Stars of Ibadan; and Remo Stars, privately run, who won their first title in 2024/25.
+locale: en
+---
+Enyimba
+Enugu Rangers
+Rivers United
+Remo Stars
+Shooting Stars
+Kano Pillars
+Plateau United
+Bendel Insurance
+Kwara United
+Nasarawa United
+Abia Warriors
+Bayelsa United
+Katsina United
+Niger Tornadoes
+El-Kanemi Warriors
+Wikki Tourists
+Warri Wolves
+Ikorodu City
+Barau
+Kun Khalifat

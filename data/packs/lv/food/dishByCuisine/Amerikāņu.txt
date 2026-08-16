@@ -1,0 +1,14 @@
+---
+description: Dishes of Amerikāņu cuisine as a Latvian menu names them.
+locale: lv
+---
+Siera burgers
+BBQ ribiņas
+Makaroni ar sieru
+Bufalo spārniņi
+Gliemeņu zupa
+Ābolu pīrāgs
+Kukurūzas maize
+Hotdogs
+Cepta vista
+Pankūkas ar kļavu sīrupu

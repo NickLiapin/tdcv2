@@ -1,0 +1,15 @@
+---
+description: Social reaction.
+locale: lv
+---
+Patīk
+Mīlu
+Haha
+Oho
+Skumji
+Dusmīgs
+Rūpes
+Sveicu
+Atbalstu
+Vērtīgi
+Interesanti

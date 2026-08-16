@@ -1,0 +1,26 @@
+---
+description: Common allergy. Bērzu putekšņi leads the list because it is the dominant seasonal allergen in Latvia: the birch is the country's most abundant broadleaf tree and its pollen season in late April drives more clinic visits than any other allergen.
+locale: lv
+---
+Bērzu putekšņi
+Zāles putekšņi
+Vērmeles putekšņi
+Mājas putekļu ērcītes
+Dzīvnieku spalvas
+Pelējuma sēnītes
+Penicilīns
+Sulfonamīdi
+Aspirīns
+Jods
+Lateksa
+Zemesrieksti
+Koku rieksti
+Vēžveidīgie
+Zivis
+Olas
+Piens
+Soja
+Kvieši
+Sezams
+Bišu dzēliens
+Nikelis

@@ -1,0 +1,5 @@
+---
+description: Capital of Šveicarija (Lithuanian).
+locale: lt
+---
+Bernas

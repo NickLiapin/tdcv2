@@ -1,0 +1,39 @@
+---
+description: Music genre (Slovene). Narodnozabavna glasba is Slovenia's own invention — the accordion-led polka and waltz sound created by Ansambel bratov Avsenik in the 1950s, exported across the Alps under the German name Oberkrainer, and still the biggest live music in the country. Slovenska popevka is the sung-in-Slovene festival pop that has run since 1962, and zborovska glasba is not a minority taste here: Slovenia has one of the highest densities of amateur choirs in the world.
+locale: sl
+---
+narodnozabavna glasba
+ljudska glasba
+slovenska popevka
+zabavna glasba
+zborovska glasba
+klasična glasba
+opera
+opereta
+komorna glasba
+simfonična glasba
+sakralna glasba
+pop
+rock
+punk
+hardcore
+metal
+alternativni rock
+indie
+industrial
+elektronska glasba
+techno
+house
+drum and bass
+ambient
+hip hop
+rap
+jazz
+blues
+funk
+soul
+reggae
+country
+šanson
+etno glasba
+world music

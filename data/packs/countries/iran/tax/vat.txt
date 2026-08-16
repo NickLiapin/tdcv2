@@ -1,0 +1,7 @@
+---
+address: iran.tax.vat
+description: The number that fills the "VAT number" field on an Iranian invoice. Iran levies VAT (مالیات بر ارزش افزوده) and has done since 1387 SH / 2008, but it issues NO separate VAT registration number — there is nothing here like a Polish PL-prefixed NIP or a German USt-IdNr, Iran is outside the EU VAT area and does not appear in VIES, so a country prefix on this value would be an invention. What an Iranian invoice actually carries is the کد اقتصادی, the economic code held in the tax authority's مودیان system, and since the modern rollout that code IS the taxpayer's existing identifier rather than a new number: for a legal person it is the eleven-digit شناسه ملی, unchanged and un-prefixed, which is what this generator emits. For a natural person it is a fourteen-digit code whose first ten digits are that person's کد ملی — see iran.tax.economicCode. Address iran.tax.shenaseMelli directly when the record is explicitly a company, and iran.tax.economicCode when it is a sole trader; this file exists so that a config with a generic "vat" column gets the right thing for Iran instead of a fabricated prefix.
+generator: tdc
+---
+<sequence name="vat"><gen type="template" value="iran.tax.shenaseMelli"/></sequence>
+<data>${{vat}}</data>

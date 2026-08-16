@@ -1,0 +1,14 @@
+---
+description: Dishes of the indijska kitchen, named as a Slovene menu names them. Borrowed dish names keep their original spelling, which is what a Slovene restaurant prints.
+locale: sl
+---
+piščanec tikka masala
+butter chicken
+biryani
+samosa
+naan
+dal
+rogan josh
+palak paneer
+vindaloo
+korma

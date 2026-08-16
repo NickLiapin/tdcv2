@@ -1,0 +1,33 @@
+---
+address: iran.tax.shenaseMelli
+description: شناسه ملی اشخاص حقوقی — the eleven-digit national identifier of an Iranian LEGAL person (company, institute, association, government body), issued by the registry of companies and industrial property. It is the corporate counterpart of the کد ملی and the two are not interchangeable: a person's is 10 digits, a company's is 11, and a column that must hold both is 11 wide. The first four digits are the code of the city where the entity was registered, the next five a serial, and the tenth digit encodes the TYPE of legal person — so the tenth digit is not free-running in reality, which is also why the algorithm singles it out. The eleventh is the check. The rule is unlike any European one and cannot be reduced to a plain weighted sum: first take z = (tenth digit + 2), then ADD z to every one of the first ten digits before weighting them, with the weights 29, 27, 23, 19, 17 cycling twice across the ten positions; sum, take mod 11, and a remainder of 10 becomes 0. Adding a constant to every digit is the part that is easy to miss — it is not a normalisation, it changes the result, and dropping it produces numbers that look right and validate nowhere. The all-zero serial is rejected, matching the widely used persian-tools validator. One consequence of making the tenth digit both payload and seed is that the check is NOT a clean single-digit-error detector on that position: changing only the tenth digit shifts z and the weighted sum together, and about 1.9% of such changes land back on the same remainder — 10380284790 and 10380284700 both validate. A single-digit change anywhere in the first nine is caught normally. Do not treat this checksum as proof that a corporate ID was transcribed correctly. Where this departs from reality: the four-digit city code is drawn from the 10xx and 14xx blocks that real numbers fall in (Iran Khodro is 10100360794, registered in Tehran under 1010; 14xx is the block used since the 2010s rollout), but the full city-code table is not published in a form this pack could verify, so a generated prefix is well-formed and in the right range without being guaranteed to be a registry office that exists. The tenth digit is drawn uniformly rather than from the real distribution of entity types.
+generator: tdc
+---
+<sequence name="city"><gen type="regex" value="1[04][0-9]{2}"/></sequence>
+<!-- Five serial digits, first one non-zero so the serial is never 00000x and
+     the "legalId.slice(3,9) === 0" rejection can never fire. -->
+<sequence name="serial"><gen type="regex" value="[1-9][0-9]{4}"/></sequence>
+<!-- The tenth digit: the legal-person type code, and the seed for z. -->
+<sequence name="kind"><gen type="regex" value="[0-9]"/></sequence>
+<sequence name="shenase"><compute>
+  <let name="base"><concat><field name="city"/><field name="serial"/><field name="kind"/></concat></let>
+  <let name="z"><add><field name="kind"/><int v="2"/></add></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply>
+      <add><current/><use name="z"/></add>
+      <at><in><list v="29,27,23,19,17,29,27,23,19,17"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
+  <!-- A remainder of 10 is written as 0. -->
+  <let name="check">
+    <choose>
+      <when><test><equals><use name="r"/><int v="10"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><use name="r"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><use name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{shenase}}</data>

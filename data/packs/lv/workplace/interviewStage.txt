@@ -1,0 +1,15 @@
+---
+description: Hiring or interview stage.
+locale: lv
+---
+Pieteikuma izskatīšana
+Telefonintervija
+Tehniskā intervija
+Klātienes intervija
+Intervija ar komandu
+Testa uzdevums
+Noslēguma intervija
+Atsauksmju pārbaude
+Darba piedāvājums
+Noraidīts
+Pieņemts darbā

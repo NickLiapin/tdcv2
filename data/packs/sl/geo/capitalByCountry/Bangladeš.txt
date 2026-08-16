@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladeš, as Slovene names it
+locale: sl
+---
+Daka

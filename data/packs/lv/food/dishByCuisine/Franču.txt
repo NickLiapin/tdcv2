@@ -1,0 +1,14 @@
+---
+description: Dishes of Franču cuisine as a Latvian menu names them.
+locale: lv
+---
+Vistas gaļa vīnā
+Liellopu gaļa burgundiešu gaumē
+Ratatuijs
+Kruasāns
+Lotringas kīšs
+Buijabess
+Krepi
+Kasulē
+Sīpolu zupa
+Krēmbrilē

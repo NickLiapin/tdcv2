@@ -1,0 +1,9 @@
+---
+address: kenya.finance.sortCode
+description: Kenyan clearing code — five digits, the two-digit CBK bank code followed by the three-digit branch code, written as one string. 02006 is Standard Chartered (02) Kenyatta Avenue (006); 01325 is KCB (01) Garden City Mall (325). This is the number a Kenyan cheque, EFT or RTGS instruction is routed on, and it is the closest thing Kenya has to a sort code or a routing number. There is NO check digit in it — the five digits are two lookups concatenated, and a wrong branch code simply names a different branch or none at all. The bank half here is drawn from the real enumeration in kenya.finance.bankCode; the branch half is well-formed but not guaranteed to name a branch that exists, since branch codes are allocated per bank and CBK publishes no single machine-readable directory of them. Head-office branches conventionally sit at 000 or 001.
+generator: tdc
+locale: en
+---
+<sequence name="bank"><gen type="template" value="kenya.finance.bankCode"/></sequence>
+<sequence name="branch"><gen type="number" value="0..999" length="3" first_zero="true"/></sequence>
+<data>${{bank}}${{branch}}</data>

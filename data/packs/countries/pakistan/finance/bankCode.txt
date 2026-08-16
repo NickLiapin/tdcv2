@@ -1,0 +1,33 @@
+---
+address: pakistan.finance.bankCode
+description: The four-letter institution code that occupies characters 5-8 of a Pakistani IBAN, index-aligned with pakistan.finance.bank. It is the first four characters of the bank's SWIFT/BIC — HABBPKKA gives HABB — which is why one code serves both the domestic IBAN and the international wire, and why Pakistan needs no separate sort code or routing number the way the United States and India do. The codes are not abbreviations of the current names and cannot be derived from them: MCB Bank is MUCB because it was Muslim Commercial Bank until 1991, Allied Bank is ABPA, Al Baraka is AIIN, and MUFG Bank is still BOTK from Bank of Tokyo-Mitsubishi UFJ, the name it dropped in 2018. Used by pakistan.finance.iban.
+locale: en
+---
+NBPA
+HABB
+UNIL
+MUCB
+ABPA
+MEZN
+ALFH
+BAHL
+MPBL
+ASCM
+FAYS
+SONE
+JSBL
+SAMB
+SCBL
+BPUN
+SIND
+KHYB
+FWOM
+DUIB
+BKIP
+MCIB
+AIIN
+CITI
+DEUT
+ICBK
+BKCH
+BOTK

@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Slovene). Each is a clipped nominative followed by a full stop, which Slovene orthography requires on an abbreviation that ends before the end of the word. Maj is not abbreviated because it is already three letters and nothing is left out, so it carries no dot.
+locale: sl
+---
+jan.
+feb.
+mar.
+apr.
+maj
+jun.
+jul.
+avg.
+sep.
+okt.
+nov.
+dec.

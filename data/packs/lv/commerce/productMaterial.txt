@@ -1,0 +1,65 @@
+---
+description: Product material. Latvian names a material with the GENITIVE of the noun and not with an adjective: koka galds is literally "table of wood", ādas soma "bag of leather". So every entry here is already a genitive and a template simply puts it in front of the noun with a space — no agreement, no ending change, whatever the noun's gender. That is why a Latvian material list is easier to compose than a Latvian colour list.
+locale: lv
+---
+koka
+ozola
+bērza
+priedes
+egles
+apses
+alkšņa
+oša
+riekstkoka
+bambusa
+korķa
+saplākšņa
+finiera
+papīra
+kartona
+metāla
+tērauda
+nerūsējošā tērauda
+čuguna
+alumīnija
+vara
+misiņa
+bronzas
+cinka
+titāna
+sudraba
+zelta
+skārda
+emaljas
+stikla
+kristāla
+keramikas
+porcelāna
+māla
+akmens
+granīta
+marmora
+betona
+ģipša
+plastmasas
+silikona
+gumijas
+neoprēna
+akrila
+poliestera
+viskozes
+oglekļa šķiedras
+stikla šķiedras
+mikrošķiedras
+ādas
+mākslīgās ādas
+zamšādas
+kokvilnas
+lina
+vilnas
+kašmira
+zīda
+samta
+filca
+brezenta
+dzintara

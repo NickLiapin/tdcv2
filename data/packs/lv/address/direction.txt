@@ -1,0 +1,19 @@
+---
+description: Compass and district qualifier used in a Latvian address or neighbourhood name. The four bare plural forms (Ziemeļi, Dienvidi, Austrumi, Rietumi) are the compass points and are plural in Latvian, never singular; the genitive forms beside them (Ziemeļu, Dienvidu) are what actually attaches to a following noun — Ziemeļu rajons, not Ziemeļi rajons.
+locale: lv
+---
+Ziemeļi
+Dienvidi
+Austrumi
+Rietumi
+Ziemeļaustrumi
+Ziemeļrietumi
+Dienvidaustrumi
+Dienvidrietumi
+Ziemeļu
+Dienvidu
+Austrumu
+Rietumu
+Centrs
+Augša
+Leja

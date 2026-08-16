@@ -1,0 +1,5 @@
+---
+description: Currency of Amerikas Savienotās Valstis, named in Latvian.
+locale: lv
+---
+ASV dolārs

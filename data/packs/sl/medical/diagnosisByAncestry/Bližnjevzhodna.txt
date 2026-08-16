@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of bližnjevzhodna ancestry, named in Slovene.
+locale: sl
+---
+družinska sredozemska vročica
+beta talasemija
+pomanjkanje G6PD
+Behçetova bolezen
+sladkorna bolezen tipa 2
+spinalna mišična atrofija
+prirojena naglušnost (GJB2)
+familiarna hiperholesterolemija

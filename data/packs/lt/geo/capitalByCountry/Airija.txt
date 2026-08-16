@@ -1,0 +1,5 @@
+---
+description: Capital of Airija (Lithuanian).
+locale: lt
+---
+Dublinas

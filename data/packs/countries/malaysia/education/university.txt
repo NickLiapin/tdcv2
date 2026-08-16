@@ -1,0 +1,44 @@
+---
+address: malaysia.education.university
+description: Universities of Malaysia — the twenty public ones (IPTA, institusi pengajian tinggi awam) first in roughly the order they were founded and are cited, then the well-known private and foreign-branch ones. The naming repays a moment's attention. Every public university is a Universiti, never a University, even in English documents, and the Malay word order puts the qualifier after: Universiti Sains Malaysia, not Malaysia Science University. Five of the twenty are named for the state they serve (Universiti Malaysia Sabah, Sarawak, Terengganu, Perlis, Kelantan) and are a different institution from any similarly named private one. Universiti Teknologi MARA is the largest university in the country by enrolment and, unusually, is reserved by statute for Bumiputera students. The International Islamic University Malaysia is bilingual by design and is equally correctly called Universiti Islam Antarabangsa Malaysia; both forms appear on its own documents. Two recent renamings are in here because a list copied from an older source will have them wrong: Universiti Malaysia Pahang became Universiti Malaysia Pahang Al-Sultan Abdullah in 2023, and Universiti Darul Iman Malaysia became Universiti Sultan Zainal Abidin in 2010. The private side is where Malaysia's higher education is most distinctive: Monash, Nottingham, Heriot-Watt, Swinburne and Curtin all run full branch campuses awarding the home degree, a concentration of foreign branch campuses matched almost nowhere else, and Universiti Teknologi PETRONAS and Universiti Tenaga Nasional are corporate universities founded by the national oil and electricity companies. Multimedia University keeps its English name rather than a Malay one, being a private institution founded by Telekom Malaysia.
+locale: ms
+---
+Universiti Malaya
+Universiti Sains Malaysia
+Universiti Kebangsaan Malaysia
+Universiti Putra Malaysia
+Universiti Teknologi Malaysia
+Universiti Teknologi MARA
+Universiti Islam Antarabangsa Malaysia
+Universiti Utara Malaysia
+Universiti Malaysia Sarawak
+Universiti Malaysia Sabah
+Universiti Pendidikan Sultan Idris
+Universiti Sains Islam Malaysia
+Universiti Malaysia Terengganu
+Universiti Tun Hussein Onn Malaysia
+Universiti Teknikal Malaysia Melaka
+Universiti Malaysia Pahang Al-Sultan Abdullah
+Universiti Malaysia Perlis
+Universiti Sultan Zainal Abidin
+Universiti Malaysia Kelantan
+Universiti Pertahanan Nasional Malaysia
+Universiti Teknologi PETRONAS
+Universiti Tenaga Nasional
+Multimedia University
+Universiti Tunku Abdul Rahman
+Universiti Kuala Lumpur
+Taylor's University
+Sunway University
+UCSI University
+Management and Science University
+Asia Pacific University of Technology and Innovation
+International Medical University
+HELP University
+Universiti Tun Abdul Razak
+Monash University Malaysia
+University of Nottingham Malaysia
+Heriot-Watt University Malaysia
+Swinburne University of Technology Sarawak
+Curtin University Malaysia
+Universiti Selangor

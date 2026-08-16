@@ -1,0 +1,20 @@
+---
+description: Horse breed. Latvijas braucamā šķirne, the Latvian Warmblood, is a genuine native breed bred at Okte and Burtnieki from the early twentieth century for draught and carriage work and now ridden in showjumping; it is the one entry here that is Latvia's own.
+locale: lv
+---
+Latvijas braucamā šķirne
+Latvijas siltasiņu
+Arābu
+Angļu tīrasiņu
+Mustangs
+Klaidsdeilas
+Apalūza
+Kvartārzirgs
+Frīzu
+Šīra
+Andalūziešu
+Morgana
+Palomīno
+Peršerons
+Šetlendes ponijs
+Ahaltekīnas

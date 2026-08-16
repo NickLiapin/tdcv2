@@ -1,0 +1,35 @@
+---
+address: iran.geo.areaCode
+description: Iranian landline area codes, in the domestic form with the trunk 0 — 021, 051, 031. Iran is unusual in that after the numbering plan was reorganised there is exactly ONE code per province and 31 of them, so an area code identifies a province rather than a city: 051 is the whole of خراسان رضوی, not just Mashhad, and 021 covers تهران province while neighbouring البرز, split off in 2010, got its own 026. Codes are ordered here to match iran.geo.province, so a record can pair a province with the code that really serves it. The leading 0 is the national trunk prefix and is DROPPED in international form: 021 12345678 dials as +98 21 12345678, and writing +980211234 5678 gives a number that cannot be connected — see iran.phoneLandline, which strips it. Subscriber numbers behind the code are 8 digits everywhere, so an Iranian national number is always 10 digits whether it is a landline or a mobile.
+---
+041
+044
+045
+031
+026
+084
+077
+021
+038
+056
+051
+058
+061
+024
+023
+054
+071
+028
+025
+087
+034
+083
+074
+017
+013
+066
+011
+086
+076
+081
+035

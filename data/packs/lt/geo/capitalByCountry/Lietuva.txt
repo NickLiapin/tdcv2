@@ -1,0 +1,5 @@
+---
+description: Capital of Lietuva (Lithuanian).
+locale: lt
+---
+Vilnius

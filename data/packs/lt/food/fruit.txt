@@ -1,0 +1,38 @@
+---
+description: Fruit (Lithuanian). The berries at the end grow wild in Lithuanian forests and are picked, not bought.
+locale: lt
+---
+Obuolys
+Kriaušė
+Slyva
+Vyšnia
+Trešnė
+Persikas
+Abrikosas
+Vynuogė
+Braškė
+Avietė
+Gervuogė
+Mėlynė
+Juodasis serbentas
+Raudonasis serbentas
+Agrastas
+Šilkmedis
+Spanguolė
+Bruknė
+Šermukšnis
+Erškėtuogė
+Šaltalankis
+Svarainis
+Kaulenis
+Bananas
+Apelsinas
+Mandarinas
+Citrina
+Greipfrutas
+Kivis
+Ananasas
+Mangas
+Granatas
+Melionas
+Arbūzas

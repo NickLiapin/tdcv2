@@ -1,0 +1,5 @@
+---
+description: Currency of Kanada, named in Slovene
+locale: sl
+---
+kanadski dolar

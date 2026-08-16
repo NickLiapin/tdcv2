@@ -1,0 +1,8 @@
+---
+address: thailand.finance.bankCode
+description: Thai bank code — THREE DIGITS, always with its leading zero (002 ธนาคารกรุงเทพ, 004 ธนาคารกสิกรไทย, 014 ธนาคารไทยพาณิชย์). Sliced out of thailand.finance.bankWithCode, so every value names a bank that exists. Store it as text, never as an integer: 002 becomes 2 the moment anything parses it as a number, and a three-digit field is exactly the size at which that mistake is easy to miss. This is the domestic routing identifier used by the SMART and PromptPay systems; it is not a SWIFT/BIC code and it is not embedded in an account number.
+generator: tdc
+---
+<sequence name="entry"><gen type="template" value="thailand.finance.bankWithCode"/></sequence>
+<sequence name="code"><compute><result><slice to="3"><field name="entry"/></slice></result></compute></sequence>
+<data>${{code}}</data>

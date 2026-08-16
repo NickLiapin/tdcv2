@@ -1,0 +1,32 @@
+---
+description: Flower. Pīpene, the ox-eye daisy, is the national flower of Latvia. Rudzupuķe, the cornflower, and āboliņš, the clover, are the flowers of the Jāņi wreath, along with the oak leaves the men wear.
+locale: lv
+---
+Pīpene
+Rudzupuķe
+Āboliņš
+Roze
+Tulpe
+Narcise
+Saulespuķe
+Lilija
+Orhideja
+Magone
+Gaiļbiksīte
+Vizbulīte
+Sniegpulkstenīte
+Kliņģerīte
+Peonija
+Neļķe
+Krizantēma
+Vijolīte
+Jasmīns
+Ceriņi
+Dālija
+Begonija
+Lavanda
+Īriss
+Zvaniņš
+Miķelītes
+Purenes
+Ūdensroze

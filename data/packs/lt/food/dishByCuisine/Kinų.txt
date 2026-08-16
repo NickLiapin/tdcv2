@@ -1,0 +1,12 @@
+---
+description: Dishes of kinų cuisine as named in Lithuanian. Borrowed dish names are naturalised into Lithuanian spelling and given a Lithuanian ending, which is why they look nothing like the original (pizza -> pica, sushi -> sušis).
+locale: lt
+---
+Dim samas
+Pekino antis
+Kepti makaronai
+Kepti ryžiai
+Vasarėlės
+Kung Pao vištiena
+Saldžiarūgštė kiauliena
+Mapo tofu

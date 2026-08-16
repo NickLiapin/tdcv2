@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon. Atkala — the glaze of ice that forms when rain falls onto a frozen surface — has no single-word English equivalent and is an ordinary Latvian forecast term between November and March. Plūdi, the spring flood when the Daugava ice breaks up, is the country's recurring natural hazard. The tropical entries are on the list as vocabulary, not as Latvian weather.
+locale: lv
+---
+Atkala
+Apledojums
+Sniegputenis
+Putenis
+Plūdi
+Ledus sastrēgums
+Karstuma vilnis
+Sals
+Salnas
+Sausums
+Vētra
+Brāzmains vējš
+Meža ugunsgrēks
+Viesuļvētra
+Tornado

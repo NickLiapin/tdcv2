@@ -1,0 +1,20 @@
+---
+description: Seniority level (Slovene)
+locale: sl
+---
+pripravnik
+praktikant
+začetnik
+mlajši sodelavec
+samostojni sodelavec
+izkušeni sodelavec
+višji sodelavec
+specialist
+vodja skupine
+vodja projekta
+vodja oddelka
+vodja sektorja
+direktor
+izvršni direktor
+član uprave
+predsednik uprave

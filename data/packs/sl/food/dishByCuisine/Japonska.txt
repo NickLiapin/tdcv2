@@ -1,0 +1,14 @@
+---
+description: Dishes of the japonska kitchen, named as a Slovene menu names them. Borrowed dish names keep their original spelling, which is what a Slovene restaurant prints.
+locale: sl
+---
+suši
+sašimi
+ramen
+tempura
+udon
+jakitori
+gjoza
+okonomijaki
+misojuha
+donburi

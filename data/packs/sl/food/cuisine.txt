@@ -1,0 +1,21 @@
+---
+description: Cuisine (Slovene). Each value has a dishByCuisine child file. The adjectives are feminine to agree with kuhinja, "cuisine", which is feminine in Slovene.
+locale: sl
+---
+Italijanska
+Japonska
+Mehiška
+Kitajska
+Indijska
+Francoska
+Tajska
+Grška
+Španska
+Ameriška
+Korejska
+Vietnamska
+Turška
+Libanonska
+Perujska
+Argentinska
+Slovenska

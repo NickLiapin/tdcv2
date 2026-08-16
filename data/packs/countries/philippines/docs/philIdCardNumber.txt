@@ -1,0 +1,7 @@
+---
+address: philippines.docs.philIdCardNumber
+description: PhilSys Card Number (PCN) — the 16-digit number printed on the front of the PhilID card, written in four groups of four. THIS IS THE ONE THAT GETS QUOTED. The PCN is a token standing in for the 12-digit PhilSys Number (philippines.docs.philsysNumber): the PSA generates it from the PSN, prints it conspicuously so it can be read and typed, and tells holders to use it for transactions with government and private institutions while keeping the PSN itself confidential. So the same person has two national identity numbers of different lengths, one public and one secret, and a system that stores "the national ID number" has to decide which. NO PUBLISHED CHECK DIGIT. Sixteen digits in groups of four looks like a payment card and invites a Luhn check; the PSA publishes no such rule for the PCN and none is invented here, so a generated PCN will not satisfy a Luhn validator and neither will a real one. Whether the tokenisation is reversible without PSA keys is not published either. The grouping is written with spaces on the card itself; this generator emits the 16 digits unseparated, because that is what fits a field, and the spaces are formatting to add where you display it.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{16}"/>

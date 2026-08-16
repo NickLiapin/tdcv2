@@ -1,0 +1,27 @@
+---
+description: Government body. Slovene is the official language of ONE country, so these are the ministries and public offices of the Republic of Slovenia — that is what the words name. FURS is the financial administration every taxpayer files through, AJPES the public-records agency every company files its accounts with, and ZZZS, ZPIZ and ZRSZ the health, pension and employment funds. The upravna enota is the district office where a Slovene renews an ID card or registers an address, and it has no single-word English equivalent.
+locale: sl
+---
+Državni zbor
+Državni svet
+Vlada Republike Slovenije
+Ministrstvo za finance
+Ministrstvo za notranje zadeve
+Ministrstvo za zunanje zadeve
+Ministrstvo za pravosodje
+Ministrstvo za zdravje
+Ministrstvo za obrambo
+Finančna uprava Republike Slovenije
+Agencija Republike Slovenije za javnopravne evidence in storitve
+Zavod za zdravstveno zavarovanje Slovenije
+Zavod za pokojninsko in invalidsko zavarovanje Slovenije
+Zavod Republike Slovenije za zaposlovanje
+Statistični urad Republike Slovenije
+Geodetska uprava Republike Slovenije
+upravna enota
+Policija
+Slovenska vojska
+Banka Slovenije
+Računsko sodišče
+Varuh človekovih pravic
+Uprava za zaščito in reševanje

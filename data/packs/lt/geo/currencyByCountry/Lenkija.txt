@@ -1,0 +1,5 @@
+---
+description: Currency of Lenkija (Lithuanian).
+locale: lt
+---
+Zlotas

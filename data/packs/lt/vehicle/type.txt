@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Lithuanian).
+locale: lt
+---
+Sedanas
+Hečbekas
+Universalas
+Visureigis
+Krosoveris
+Kupė
+Kabrioletas
+Rodsteris
+Vienatūris
+Mikroautobusas
+Furgonas
+Pikapas
+Sunkvežimis
+Vilkikas
+Savivartis
+Autobusas
+Troleibusas
+Motociklas
+Motoroleris
+Keturratis
+Traktorius
+Priekaba

@@ -1,0 +1,5 @@
+---
+description: Capital of Združene države Amerike, as Slovene names it
+locale: sl
+---
+Washington

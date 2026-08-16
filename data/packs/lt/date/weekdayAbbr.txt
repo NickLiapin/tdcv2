@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Lithuanian), two letters, Monday first.
+locale: lt
+---
+pr
+an
+tr
+kt
+pn
+št
+sk

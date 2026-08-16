@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Lithuanian). Lowercase per Lithuanian orthography.
+locale: lt
+---
+avinas
+jautis
+dvyniai
+vėžys
+liūtas
+mergelė
+svarstyklės
+skorpionas
+šaulys
+ožiaragis
+vandenis
+žuvys

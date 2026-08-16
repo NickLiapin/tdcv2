@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Lithuanian). Metric throughout — Lithuania has used the metric system since it was independent, and there is no imperial fallback anywhere in retail.
+locale: lt
+---
+vnt.
+pak.
+dėž.
+kompl.
+pora
+g
+kg
+t
+mg
+ml
+l
+cl
+dl
+mm
+cm
+m
+km
+m²
+m³
+val.
+min.
+para
+W
+kW
+kWh
+V
+A
+°C
+%
+rulonas

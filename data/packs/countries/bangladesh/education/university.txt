@@ -1,0 +1,56 @@
+---
+address: bangladesh.education.university
+description: Universities in Bangladesh that exist, public first and then private, in English — which is the language a Bangladeshi degree certificate, transcript and university website are actually written in, even though teaching is largely in Bengali. Note the spelling: most of these institutions kept the PRE-2018 romanisation of their city after the districts were renamed, so it is still the University of Chittagong and Chittagong University of Engineering and Technology in a country whose district is now Chattogram, while a few newer ones such as Chattogram Veterinary and Animal Sciences University did adopt the new spelling — a config must not normalise one into the other. Two entries are not campuses at all and are the largest in the country by enrolment: National University affiliates roughly two thousand colleges and awards their degrees, so a very large share of Bangladeshi graduates hold a National University degree and never attended anything called a university, and Bangladesh Open University is the distance-learning body. The engineering group (BUET and the four regional ETs, plus IUT) is the most competitive admission in the country, and the ten-odd "Science and Technology University" entries are a deliberate government programme of one per region rather than a naming coincidence. The list stops short of the full set — there are around 55 public and over 110 private universities — and it leaves out institutions whose names were changed in the political renamings after 2024, because a name that is being litigated is not a name a test set should assert.
+locale: en
+---
+University of Dhaka
+University of Rajshahi
+University of Chittagong
+Jahangirnagar University
+Bangladesh University of Engineering and Technology
+Bangladesh Agricultural University
+Islamic University, Kushtia
+Shahjalal University of Science and Technology
+Khulna University
+Jagannath University
+Comilla University
+University of Barishal
+Begum Rokeya University, Rangpur
+Jatiya Kabi Kazi Nazrul Islam University
+National University
+Bangladesh Open University
+Bangladesh University of Professionals
+Chittagong University of Engineering and Technology
+Khulna University of Engineering and Technology
+Rajshahi University of Engineering and Technology
+Dhaka University of Engineering and Technology
+Islamic University of Technology
+Hajee Mohammad Danesh Science and Technology University
+Mawlana Bhashani Science and Technology University
+Noakhali Science and Technology University
+Jashore University of Science and Technology
+Pabna University of Science and Technology
+Patuakhali Science and Technology University
+Rangamati Science and Technology University
+Sher-e-Bangla Agricultural University
+Sylhet Agricultural University
+Chattogram Veterinary and Animal Sciences University
+Bangladesh University of Textiles
+Islamic Arabic University
+North South University
+BRAC University
+Independent University, Bangladesh
+East West University
+American International University-Bangladesh
+Ahsanullah University of Science and Technology
+United International University
+Daffodil International University
+University of Liberal Arts Bangladesh
+Bangladesh University of Business and Technology
+Green University of Bangladesh
+Stamford University Bangladesh
+Southeast University
+International Islamic University Chittagong
+Northern University Bangladesh
+Primeasia University
+World University of Bangladesh

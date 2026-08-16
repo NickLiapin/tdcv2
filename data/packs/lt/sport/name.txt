@@ -1,0 +1,59 @@
+---
+description: Sport (Lithuanian).
+locale: lt
+---
+Krepšinis
+Futbolas
+Tinklinis
+Rankinis
+Ledo ritulys
+Regbis
+Beisbolas
+Amerikietiškasis futbolas
+Lengvoji atletika
+Bėgimas
+Maratonas
+Šuolis į aukštį
+Šuolis į tolį
+Disko metimas
+Ieties metimas
+Rutulio stūmimas
+Kūjo metimas
+Dešimtkovė
+Plaukimas
+Šuoliai į vandenį
+Buriavimas
+Irklavimas
+Baidarės ir kanojos
+Dviračių sportas
+Kalnų dviračiai
+Triatlonas
+Šiuolaikinė penkiakovė
+Imtynės
+Graikų-romėnų imtynės
+Laisvosios imtynės
+Dziudo
+Sambo
+Boksas
+Kikboksas
+Sunkioji atletika
+Fechtavimas
+Šaudymas
+Šaudymas iš lanko
+Gimnastika
+Meninė gimnastika
+Akrobatika
+Dailusis čiuožimas
+Greitasis čiuožimas
+Slidinėjimas
+Kalnų slidinėjimas
+Biatlonas
+Kerlingas
+Stalo tenisas
+Tenisas
+Badmintonas
+Skvošas
+Golfas
+Žirginis sportas
+Automobilių sportas
+Šachmatai

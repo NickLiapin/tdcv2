@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Lithuanian). Amounts in a Lithuanian budget are in euro — Lithuania joined the euro on 1 January 2015, the last of the three Baltic states to do so.
+locale: lt
+---
+Būstas
+Nuoma
+Paskolos įmoka
+Komunaliniai mokesčiai
+Šildymas
+Elektra
+Vanduo
+Internetas ir ryšys
+Maistas
+Transportas
+Degalai
+Automobilio priežiūra
+Sveikata
+Vaistai
+Draudimas
+Vaikai ir švietimas
+Laisvalaikis
+Kelionės
+Drabužiai
+Santaupos

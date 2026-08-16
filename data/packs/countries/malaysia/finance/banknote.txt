@@ -1,0 +1,10 @@
+---
+address: malaysia.finance.banknote
+description: The six banknote denominations in circulation, written the way a price is written in Malaysia — RM before the figure, no space. The currency is the ringgit Malaysia, ISO 4217 MYR, symbol RM, divided into 100 sen; the name means "jagged" and is the old Malay word for the milled edge of the Spanish silver dollars that circulated in the Straits. Three things about it are worth a generator's attention. The 1 sen coin was withdrawn in 2008 and every cash total is rounded to the nearest 5 sen, so a cash amount ending in 1, 2, 3, 4, 6, 7, 8 or 9 sen cannot be paid in cash even though it can be invoiced and can be paid by card — a rule that catches out any test fixture that generates prices to the cent. The RM500 and RM1000 notes were demonetised in 1999 and are not legal tender; a config generating "large Malaysian banknotes" is generating history. And the ringgit is a NON-INTERNATIONALISED currency: Bank Negara Malaysia does not permit it to be traded offshore, so there is no deliverable MYR market outside the country and offshore exposure is settled in dollars, a policy dating from the capital controls of September 1998, when the ringgit was pegged at RM3.80 to the US dollar. The peg was lifted in July 2005 and the currency has floated since. The notes here are the fourth series, issued from 16 July 2012 and still current.
+---
+RM1
+RM5
+RM10
+RM20
+RM50
+RM100

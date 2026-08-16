@@ -1,0 +1,54 @@
+---
+description: Shop or webshop department (Slovene)
+locale: sl
+---
+živila
+sadje in zelenjava
+meso in mesnine
+ribe
+mlečni izdelki
+pekarna
+slaščice
+pijača
+vino
+žgane pijače
+kava in čaj
+zamrznjena hrana
+zdrava prehrana
+gospodinjstvo
+čistila
+osebna nega
+kozmetika
+lekarna
+otroški program
+igrače
+oblačila
+moda
+obutev
+športna oprema
+šport in prosti čas
+pohištvo
+dom in vrt
+vrtnarstvo
+gradbeni material
+orodje
+avtodeli
+elektronika
+bela tehnika
+računalništvo
+mobilni telefoni
+avdio in video
+fotografija
+knjige
+papirnica
+glasba in film
+hišni ljubljenčki
+nakit in ure
+torbe in kovčki
+razsvetljava
+tekstil za dom
+barve in laki
+kmetijski program
+sezonski program
+darila
+razprodaja

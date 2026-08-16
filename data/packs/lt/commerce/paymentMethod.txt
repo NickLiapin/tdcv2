@@ -1,0 +1,19 @@
+---
+description: Payment method (Lithuanian). Euro since 1 January 2015.
+locale: lt
+---
+Mokėjimo kortelė
+Debeto kortelė
+Kredito kortelė
+Bankinis pavedimas
+Elektroninė bankininkystė
+Paysera
+PayPal
+Apple Pay
+Google Pay
+Grynieji
+Grynieji atsiimant
+Mokėjimas dalimis
+Lizingas
+Dovanų kuponas
+Kuponas

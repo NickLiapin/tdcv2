@@ -1,0 +1,23 @@
+---
+description: Legal term.
+locale: lv
+---
+Prasītājs
+Atbildētājs
+Apsūdzētais
+Cietušais
+Liecinieks
+Pavēste
+Liecība
+Nopratināšana
+Apliecinājums
+Pagaidu aizsardzība
+Spriedums
+Lēmums
+Izlīgums
+Tiesvedība
+Apelācija
+Kasācija
+Jurisdikcija
+Prokurors
+Zvērināts advokāts

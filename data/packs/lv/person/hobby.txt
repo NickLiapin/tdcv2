@@ -1,0 +1,86 @@
+---
+description: Hobby or interest. Sēņošana and ogošana — mushroom picking and berry picking — are single verbs in Latvian and are genuine mass pastimes rather than curiosities: half the country goes to the forest in September. Dziedāšana korī, choir singing, belongs on any Latvian list of this kind, because the Song Celebration draws tens of thousands of amateur singers, and pirtošanās, the sauna ritual, is a scheduled social activity and not merely washing.
+locale: lv
+---
+Lasīšana
+Pārgājieni
+Fotografēšana
+Ēdiena gatavošana
+Dārzkopība
+Gleznošana
+Zīmēšana
+Riteņbraukšana
+Datorspēles
+Joga
+Ceļošana
+Makšķerēšana
+Medības
+Adīšana
+Tamborēšana
+Šūšana
+Aušana
+Skriešana
+Nūjošana
+Cepšana
+Kokapstrāde
+Šahs
+Novuss
+Dambrete
+Dejošana
+Tautas dejas
+Dziedāšana korī
+Sērfošana
+Kempings
+Putnu vērošana
+Keramika
+Astronomija
+Sēņošana
+Ogošana
+Pirtošanās
+Peldēšana
+Ziemas peldēšana
+Slēpošana
+Distanču slēpošana
+Slidošana
+Airēšana
+Kajaki
+Burāšana
+Orientēšanās
+Basketbols
+Volejbols
+Hokejs
+Futbols
+Florbols
+Vieglatlētika
+Svarcelšana
+Fitness
+Cīņas sports
+Loka šaušana
+Šaušana
+Golfs
+Teniss
+Galda teniss
+Badmintons
+Motosports
+Automobiļu remonts
+Modelisms
+Kolekcionēšana
+Numismātika
+Filatēlija
+Ģenealoģija
+Vēsture
+Arheoloģija
+Programmēšana
+Robotika
+Elektronika
+3D druka
+Podcast klausīšanās
+Rakstīšana
+Dzejas lasīšana
+Teātris
+Kino
+Mūzikas instrumenta spēle
+Kokle
+Ģitāra
+Klavieres
+Brīvprātīgais darbs

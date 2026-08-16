@@ -1,0 +1,238 @@
+---
+description: Country and territory names as Slovene names them. These are TRANSLATIONS, not transliterations: Germany is Nemčija, Hungary Madžarska, Austria Avstrija, Greece Grčija, Egypt Egipt, the United States Združene države Amerike. Slovene keeps its own exonyms for its neighbours and for the countries it has long dealt with, and adopts the local spelling only where it never had one. Many of them are ADJECTIVES used as nouns — Kitajska, Hrvaška, Madžarska, Švedska, Nizozemska, Portugalska, Slovaška — and decline like adjectives rather than like nouns, which a config building a prepositional phrase has to respect.
+locale: sl
+---
+Afganistan
+Albanija
+Alžirija
+Ameriška Samoa
+Andora
+Angola
+Angvila
+Antarktika
+Antigva in Barbuda
+Argentina
+Armenija
+Aruba
+Avstralija
+Avstrija
+Azerbajdžan
+Bahami
+Bahrajn
+Bangladeš
+Barbados
+Belorusija
+Belgija
+Belize
+Benin
+Bermudi
+Butan
+Bolivija
+Bosna in Hercegovina
+Bocvana
+Brazilija
+Brunej
+Bolgarija
+Burkina Faso
+Burundi
+Kambodža
+Kamerun
+Kanada
+Zelenortski otoki
+Kajmanski otoki
+Srednjeafriška republika
+Čad
+Čile
+Kitajska
+Božični otok
+Kokosovi otoki
+Kolumbija
+Komori
+Demokratična republika Kongo
+Republika Kongo
+Cookovi otoki
+Kostarika
+Slonokoščena obala
+Hrvaška
+Kuba
+Ciper
+Češka
+Danska
+Džibuti
+Dominika
+Dominikanska republika
+Vzhodni Timor
+Ekvador
+Egipt
+Salvador
+Ekvatorialna Gvineja
+Eritreja
+Estonija
+Etiopija
+Falklandski otoki
+Ferski otoki
+Fidži
+Finska
+Francija
+Francoska Gvajana
+Francoska Polinezija
+Francosko južno ozemlje
+Gabon
+Gambija
+Gruzija
+Nemčija
+Gana
+Gibraltar
+Grčija
+Grenlandija
+Grenada
+Gvadelup
+Guam
+Gvatemala
+Gvineja
+Gvineja Bissau
+Gvajana
+Haiti
+Sveti sedež
+Honduras
+Hongkong
+Madžarska
+Islandija
+Indija
+Indonezija
+Iran
+Irak
+Irska
+Izrael
+Italija
+Jamajka
+Japonska
+Jordanija
+Kazahstan
+Kenija
+Kiribati
+Severna Koreja
+Južna Koreja
+Kosovo
+Kuvajt
+Kirgizistan
+Laos
+Latvija
+Libanon
+Lesoto
+Liberija
+Libija
+Lihtenštajn
+Litva
+Luksemburg
+Macao
+Madagaskar
+Malavi
+Malezija
+Maldivi
+Mali
+Malta
+Marshallovi otoki
+Martinik
+Mavretanija
+Mauritius
+Mayotte
+Mehika
+Mikronezija
+Moldavija
+Monako
+Mongolija
+Črna gora
+Montserrat
+Maroko
+Mozambik
+Mjanmar
+Namibija
+Nauru
+Nepal
+Nizozemska
+Nova Kaledonija
+Nova Zelandija
+Nikaragva
+Niger
+Nigerija
+Niue
+Severna Makedonija
+Severni Marianski otoki
+Norveška
+Oman
+Pakistan
+Palau
+Palestina
+Panama
+Papua Nova Gvineja
+Paragvaj
+Peru
+Filipini
+Pitcairn
+Poljska
+Portugalska
+Portoriko
+Katar
+Reunion
+Romunija
+Rusija
+Ruanda
+Saint Kitts in Nevis
+Sveta Lucija
+Saint Vincent in Grenadine
+Samoa
+San Marino
+Sao Tome in Principe
+Savdska Arabija
+Senegal
+Srbija
+Sejšeli
+Sierra Leone
+Singapur
+Slovaška
+Slovenija
+Salomonovi otoki
+Somalija
+Južnoafriška republika
+Južni Sudan
+Španija
+Šrilanka
+Sudan
+Surinam
+Esvatini
+Švedska
+Švica
+Sirija
+Tajvan
+Tadžikistan
+Tanzanija
+Tajska
+Tibet
+Togo
+Tokelau
+Tonga
+Trinidad in Tobago
+Tunizija
+Turčija
+Turkmenistan
+Otoki Turks in Caicos
+Tuvalu
+Uganda
+Ukrajina
+Združeni arabski emirati
+Združeno kraljestvo
+Združene države Amerike
+Urugvaj
+Uzbekistan
+Vanuatu
+Vatikan
+Venezuela
+Vietnam
+Britanski Deviški otoki
+Ameriški Deviški otoki
+Wallis in Futuna
+Zahodna Sahara
+Jemen
+Zambija
+Zimbabve

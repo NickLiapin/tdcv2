@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in endokrinologija, named in Slovene
+locale: sl
+---
+sladkorna bolezen tipa 1
+sladkorna bolezen tipa 2
+hipotiroza
+hipertiroza
+Hashimotov tiroiditis
+golša
+osteoporoza
+Cushingov sindrom
+Addisonova bolezen
+debelost
+sindrom policističnih jajčnikov

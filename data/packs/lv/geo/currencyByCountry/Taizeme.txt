@@ -1,0 +1,5 @@
+---
+description: Currency of Taizeme, named in Latvian.
+locale: lv
+---
+Taizemes bats

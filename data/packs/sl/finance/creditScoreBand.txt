@@ -1,0 +1,9 @@
+---
+description: Creditworthiness band (Slovene). Slovenia has no consumer credit score the way the United States does — a bank reads the SISBON credit register, which records only whether a person has debts and whether they are being repaid, together with the salary history — so these are descriptive bands, not a numeric score.
+locale: sl
+---
+odlična kreditna sposobnost
+dobra kreditna sposobnost
+povprečna kreditna sposobnost
+šibka kreditna sposobnost
+brez kreditne sposobnosti

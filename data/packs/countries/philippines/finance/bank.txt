@@ -1,0 +1,9 @@
+---
+address: philippines.finance.bank
+description: Banks operating in the Philippines. Sliced out of philippines.finance.bankWithCode rather than kept as a second list, so a bank can never appear here without its BRSTN or under a name the routing table does not use. The set is the universal and commercial banks — the private big three (BDO, BPI, Metrobank), the two state banks (Land Bank and DBP, which between them hold most government payroll and agricultural lending), the mid-sized commercial banks, a digital bank, three savings banks and the Manila branches of foreign banks, which clear domestically on the same terms as anyone else. Land Bank and DBP being state-owned is not incidental: government salaries, pensions and subsidy payments land in Land Bank accounts by default, so a Philippine payroll dataset will over-represent it in a way no private-sector list predicts. Missing on purpose are the roughly 400 rural and cooperative banks, which are numerous, small and local, and the electronic money issuers GCash and Maya, which are not banks and yet carry a larger share of everyday Philippine transfers than most of these institutions.
+generator: tdc
+locale: en
+---
+<sequence name="entry"><gen type="template" value="philippines.finance.bankWithCode"/></sequence>
+<sequence name="bare"><compute><result><slice from="10"><field name="entry"/></slice></result></compute></sequence>
+<data>${{bare}}</data>

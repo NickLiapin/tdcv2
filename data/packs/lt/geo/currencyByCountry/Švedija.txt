@@ -1,0 +1,5 @@
+---
+description: Currency of Švedija (Lithuanian).
+locale: lt
+---
+Krona

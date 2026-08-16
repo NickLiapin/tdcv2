@@ -1,0 +1,12 @@
+---
+address: nigeria.geo.stateByZone.North Central
+description: First-level units in Nigeria's North Central zone, also called the Middle Belt — six states plus the Federal Capital Territory, which is the only zone file containing a non-state and is why it has seven lines. Keyed by nigeria.geo.zone, so a config can draw a zone and then a unit that really belongs to it.
+locale: en
+---
+Benue
+Federal Capital Territory
+Kogi
+Kwara
+Nasarawa
+Niger
+Plateau

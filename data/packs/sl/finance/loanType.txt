@@ -1,0 +1,14 @@
+---
+description: Loan type (Slovene)
+locale: sl
+---
+stanovanjski kredit
+hipotekarni kredit
+potrošniški kredit
+gotovinski kredit
+avtomobilski kredit
+premostitveni kredit
+študentski kredit
+limit na računu
+kreditna kartica na obroke
+podjetniški kredit

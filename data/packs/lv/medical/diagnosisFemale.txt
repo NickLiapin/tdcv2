@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: lv
+---
+Endometrioze
+Policistisko olnīcu sindroms
+Dzemdes miomas
+Olnīcu cista
+Olnīcu vēzis
+Dzemdes kakla vēzis
+Dzemdes kakla displāzija
+Cervicīts
+Endometrīts
+Endometrija vēzis
+Iegurņa iekaisuma slimība
+Bakteriāla vaginoze
+Vulvovagināla kandidoze
+Menorāģija
+Dismenoreja
+Amenoreja
+Preeklampsija
+Gestācijas cukura diabēts
+Grūtnieču pārmērīga vemšana
+Ārpusdzemdes grūtniecība
+Pēcdzemdību asiņošana
+Mastīts
+Fibrocistiskas krūts izmaiņas
+Menopauzes sindroms
+Premenstruālie disforiskie traucējumi
+Dzemdes noslīdējums

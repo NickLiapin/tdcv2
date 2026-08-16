@@ -1,0 +1,22 @@
+---
+description: Employee benefit. Veselības apdrošināšana is the standard Latvian perk and the one an advert names first, because the state system is thin and a private policy is what an employer competes on. There is no equivalent of a 401(k): the second pension pillar is compulsory and state-run, so a private pension contribution (III pensiju līmenis) is the optional one an employer may add.
+locale: lv
+---
+Veselības apdrošināšana
+Zobārstniecības apdrošināšana
+Nelaimes gadījumu apdrošināšana
+Dzīvības apdrošināšana
+III pensiju līmeņa iemaksas
+Apmaksāts atvaļinājums
+Attālinātais darbs
+Elastīgs darba laiks
+Darba dators un telefons
+Sporta kluba abonements
+Apmaksātas mācības
+Valodu kursi
+Transporta kompensācija
+Pusdienu kompensācija
+Bērna piedzimšanas pabalsts
+Papildu brīvdienas
+Komandas pasākumi
+Veselības dienas

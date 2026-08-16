@@ -1,0 +1,16 @@
+---
+description: Month name, nominative singular — the citation form, which is what a standalone list or a dropdown shows. Inside an actual Latvian date the month goes into the LOCATIVE instead: 2026. gada 15. augustā, never 15. augusts. See DATE_LOCALE.json, where the two sets sit side by side.
+locale: lv
+---
+janvāris
+februāris
+marts
+aprīlis
+maijs
+jūnijs
+jūlijs
+augusts
+septembris
+oktobris
+novembris
+decembris

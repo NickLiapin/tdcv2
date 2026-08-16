@@ -1,0 +1,30 @@
+---
+description: Aircraft type. These are manufacturer designations and keep their real spelling in every locale — a Slovene timetable prints A320 and 737, not a translation.
+locale: sl
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330
+Airbus A350
+Airbus A380
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 747
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+Embraer E170
+Embraer E190
+Embraer E195
+Bombardier CRJ700
+Bombardier CRJ900
+ATR 42
+ATR 72
+De Havilland Dash 8
+Cessna 172
+Pilatus PC-12
+Let L-410
+Sukhoi Superjet 100

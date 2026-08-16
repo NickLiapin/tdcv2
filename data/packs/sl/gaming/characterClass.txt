@@ -1,0 +1,28 @@
+---
+description: Player character class (Slovene)
+locale: sl
+---
+bojevnik
+vitez
+paladin
+barbar
+lokostrelec
+lovec
+vohun
+morilec
+tat
+čarovnik
+čarodej
+urok
+duhovnik
+menih
+druid
+šaman
+nekromant
+prizivalec
+zdravilec
+branilec
+berserk
+plačanec
+gusar
+alkimist

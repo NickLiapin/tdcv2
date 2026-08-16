@@ -1,0 +1,33 @@
+---
+address: nigeria.finance.bankWithCode
+description: THE SOURCE OF TRUTH for Nigeria's banks. Each line is the 3-digit CBN bank code, one space, then the bank's common name — "058 Guaranty Trust Bank". nigeria.finance.bank and nigeria.finance.bankCode are both sliced out of this list, so a name and its code cannot drift apart, and nigeria.finance.nubanWithBank computes its check digit over the code taken from here. This 3-digit code is the one that matters: it is what a banking app or a *USSD# transfer menu names the destination bank by, it is the first three digits of every one of that bank's 9-digit sort codes, and it is the value the NUBAN check digit is computed over. Do NOT confuse it with the 6-digit NIBSS institution code (First Bank is 011 here and 000011 there) — that longer code exists because the 2018/2020 NUBAN revision widened the field to admit microfinance banks, mobile-money operators and payment service banks, and it is deliberately zero-padded so that 000011 and 011 produce the SAME check digit. Also not a SWIFT/BIC: GTBank is 058 here and GTBINGLA there. Only licensed commercial and non-interest (Islamic) banks are listed; Nigeria has hundreds of microfinance banks and fintech wallets with their own 6-digit codes, and none of them is here. Ordered by code, which is also why the list is not ordered by size. Heritage Bank is absent on purpose: its licence was revoked and it was liquidated in June 2024, so its code no longer routes anything.
+locale: en
+---
+011 First Bank of Nigeria
+023 Citibank Nigeria
+032 Union Bank of Nigeria
+033 United Bank for Africa
+035 Wema Bank
+044 Access Bank
+050 Ecobank Nigeria
+057 Zenith Bank
+058 Guaranty Trust Bank
+068 Standard Chartered Bank Nigeria
+070 Fidelity Bank
+076 Polaris Bank
+082 Keystone Bank
+100 SunTrust Bank
+101 Providus Bank
+102 Titan Trust Bank
+103 Globus Bank
+104 Parallex Bank
+105 PremiumTrust Bank
+106 Signature Bank
+107 Optimus Bank
+214 First City Monument Bank
+215 Unity Bank
+221 Stanbic IBTC Bank
+232 Sterling Bank
+301 Jaiz Bank
+302 TAJ Bank
+303 Lotus Bank

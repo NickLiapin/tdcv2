@@ -1,0 +1,16 @@
+---
+description: Listing status.
+locale: lv
+---
+Pārdod
+Izīrē
+Rezervēts
+Pārdots
+Izīrēts
+Gaida darījumu
+Noņemts no tirgus
+Drīzumā
+Jaunbūve
+Cena pazemināta
+Izsole
+Maiņa

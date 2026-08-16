@@ -1,0 +1,21 @@
+---
+description: Video game genre (Lithuanian).
+locale: lt
+---
+Veiksmo
+Nuotykių
+Vaidmenų
+Strateginis
+Šaudyklė
+Platformeris
+Galvosūkis
+Simuliatorius
+Sportinis
+Lenktynių
+Kovinis
+Siaubo
+Išgyvenimo
+Smėlio dėžė
+Muzikinis
+Nuotykių tekstinis
+Kelių žaidėjų internetinis

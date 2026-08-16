@@ -1,0 +1,17 @@
+---
+description: Social content type (Lithuanian).
+locale: lt
+---
+Įrašas
+Nuotrauka
+Vaizdo įrašas
+Trumpasis vaizdo įrašas
+Tiesioginė transliacija
+Istorija
+Apklausa
+Komentaras
+Dalinimasis
+Nuoroda
+Straipsnis
+Tinklaraštis
+Podkastas

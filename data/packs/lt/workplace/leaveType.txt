@@ -1,0 +1,16 @@
+---
+description: Leave type (Lithuanian). Vaiko priežiūros atostogos, the childcare leave, can run to two years in Lithuania and is taken by either parent, so it is a normal row in a Lithuanian HR dataset rather than an edge case.
+locale: lt
+---
+Kasmetinės atostogos
+Papildomos atostogos
+Nemokamos atostogos
+Nedarbingumas
+Motinystės atostogos
+Tėvystės atostogos
+Vaiko priežiūros atostogos
+Mokymosi atostogos
+Kūrybinės atostogos
+Laisva diena dėl kraujo donorystės
+Atostogos šeimos nariui slaugyti
+Laisvos dienos daugiavaikiams tėvams

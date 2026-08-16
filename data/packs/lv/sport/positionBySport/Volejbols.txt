@@ -1,0 +1,9 @@
+---
+description: Positions in Volejbols.
+locale: lv
+---
+Saspēlētājs
+Malas uzbrucējs
+Centra bloķētājs
+Libero
+Diagonālais uzbrucējs

@@ -1,0 +1,10 @@
+---
+address: thailand.finance.bank
+description: Banks operating in Thailand, Thai names, sliced out of thailand.finance.bankWithCode so a bank can never drift away from its own three-digit code. The first six are the ones that hold most retail accounts (กรุงเทพ, กสิกรไทย, กรุงไทย, ไทยพาณิชย์, กรุงศรีอยุธยา, ทหารไทยธนชาต); ออมสิน, อาคารสงเคราะห์ and ธ.ก.ส. are state banks with a specific mandate rather than commercial rivals, and ธนาคารอิสลามแห่งประเทศไทย is the Sharia-compliant one. Values are Thai script: no spaces between words, no capital letters, so "ธนาคารเพื่อการเกษตรและสหกรณ์การเกษตร" is one unbroken token to anything that splits on whitespace — see thailand.geo.province for what that breaks. The spaces that do appear (ซีไอเอ็มบี ไทย, แลนด์ แอนด์ เฮ้าส์) are inside transliterated foreign names, which is where Thai does use a space.
+generator: tdc
+locale: th
+---
+<!-- Slice off the 3-digit bank code and the space after it; the rest is the name. -->
+<sequence name="entry"><gen type="template" value="thailand.finance.bankWithCode"/></sequence>
+<sequence name="bare"><compute><result><slice from="4"><field name="entry"/></slice></result></compute></sequence>
+<data>${{bare}}</data>

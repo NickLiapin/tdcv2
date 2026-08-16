@@ -1,0 +1,5 @@
+---
+description: Currency of Indija, named in Latvian.
+locale: lv
+---
+Indijas rūpija

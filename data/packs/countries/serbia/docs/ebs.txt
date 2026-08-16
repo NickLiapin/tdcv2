@@ -1,0 +1,53 @@
+---
+address: serbia.docs.ebs
+description: Serbian EBS (евиденцијски број странца), the number a foreign resident carries where a citizen carries a JMBG — 13 digits with the JMBG's own structure and the JMBG's own mod-11 check. Article 7 of the Zakon o strancima is explicit about both halves of it: "Struktura evidencijskog broja stranca se određuje shodno odredbama Zakona o jedinstvenom matičnom broju građana, na način da se stalno nastanjenom strancu i strancu kome je odobren azil u Republici Srbiji određuje broj registra 06, a ostalim kategorijama stranaca broj registra 66." So the two register codes are the whole difference: 06 for a permanently settled foreigner or an asylum holder, 66 for every other category — a residence permit, a work permit, a temporary stay. Everything else is the JMBG: DDMMGGG, the same three-digit serial with the same sex split at 500, the same weights 2-7 from the right, the same rule that remainder 1 is never issued. THIS is the number that is current for foreigners and the JMBG that is legacy for them; for Serbian citizens it is the other way round and the JMBG is untouched — see serbia.docs.jmbg. The two blocks are not arbitrary: they sit inside the Yugoslav federal ranges the JMBG reserved for people without a republican citizenship (00-09) and for temporary residence (60-69), which is why an EBS is well-formed as a JMBG and still cannot collide with one. It is issued by the regional police administration of the Ministry of the Interior, not by the Tax Administration, and it is what a foreigner quotes to open a bank account or sign an employment contract.
+generator: tdc
+---
+<sequence name="dob"><gen type="date" from="1940-01-01" to="2010-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="reg"><gen type="text" value="06,66"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="check"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <let name="body"><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <field name="reg"/>
+    <field name="serial"/>
+  </concat></let>
+  <let name="sum"><reduce>
+    <over><use name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,6,5,4,3,2,7,6,5,4,3,2"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="r"><mod><use name="sum"/><int v="11"/></mod></let>
+  <result>
+    <choose>
+      <when><test><equals><use name="r"/><int v="0"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><subtract><int v="11"/><use name="r"/></subtract></otherwise>
+    </choose>
+  </result>
+</compute></sequence>
+<valid><less_than><to_number><field name="check"/></to_number><int v="10"/></less_than></valid>
+<sequence name="ebs"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <result><concat>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <field name="reg"/>
+    <field name="serial"/>
+    <field name="check"/>
+  </concat></result>
+</compute></sequence>
+<data>${{ebs}}</data>

@@ -1,0 +1,20 @@
+---
+description: Suffix written after a name. Latvian barely uses generational suffixes — jaunākais and vecākais (younger, elder) appear only where a father and son share a name and must be told apart, and Roman numerals are reserved for monarchs and popes. Academic degrees normally PRECEDE the name in Latvian (see person/prefix), so the degrees repeated here read as trailing qualifiers in a signature block or a conference badge rather than as the default. This list is deliberately short: Latvian has no equivalent of the English Jr / III / Esq apparatus, and padding it would misrepresent the language.
+locale: lv
+---
+jaunākais
+vecākais
+jun.
+sen.
+I
+II
+III
+IV
+V
+Dr.
+Dr. habil.
+Mg.
+Bc.
+PhD
+MBA
+LL.M.

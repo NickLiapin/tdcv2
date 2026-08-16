@@ -1,0 +1,23 @@
+---
+address: thailand.holiday
+description: Public holidays of Thailand (วันหยุดราชการ), Thai names. Two things make this list unlike a European one. First, the Buddhist holidays — มาฆบูชา, วิสาขบูชา, อาสาฬหบูชา and เข้าพรรษา — fall on lunar dates, so their Gregorian date moves by weeks from year to year and there is no fixed rule to compute them from a Common Era calendar; the official dates are published annually by the government in Buddhist-Era years. Second, several dates are royal and therefore change with the reign: วันฉัตรมงคล moved from 5 May to 4 May at the 2019 coronation, the King's birthday holiday is now 28 July rather than 5 December, and วันนวมินทรมหาราช on 13 October was created in 2017 for the death of King Bhumibol. So a Thai holiday calendar is not stable across decades, and one copied from an old source will be wrong in a way that looks plausible. สงกรานต์, the Thai new year, is 13 to 15 April and is the one holiday when the country genuinely stops. This file lists the days; it does not carry their dates, and no date in this pack is converted between the Buddhist and Common eras — see thailand.calendar.buddhistYear.
+locale: th
+---
+วันขึ้นปีใหม่
+วันมาฆบูชา
+วันจักรี
+วันสงกรานต์
+วันแรงงานแห่งชาติ
+วันฉัตรมงคล
+วันพืชมงคล
+วันวิสาขบูชา
+วันเฉลิมพระชนมพรรษาสมเด็จพระนางเจ้าฯ พระบรมราชินี
+วันอาสาฬหบูชา
+วันเข้าพรรษา
+วันเฉลิมพระชนมพรรษาพระบาทสมเด็จพระเจ้าอยู่หัว
+วันแม่แห่งชาติ
+วันนวมินทรมหาราช
+วันปิยมหาราช
+วันพ่อแห่งชาติ
+วันรัฐธรรมนูญ
+วันสิ้นปี

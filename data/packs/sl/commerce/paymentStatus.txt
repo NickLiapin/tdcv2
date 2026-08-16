@@ -1,0 +1,14 @@
+---
+description: Payment status (Slovene)
+locale: sl
+---
+neplačano
+v obdelavi
+avtorizirano
+plačano
+delno plačano
+zapadlo
+zavrnjeno
+vrnjeno
+preklicano
+v reklamaciji

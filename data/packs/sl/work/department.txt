@@ -1,0 +1,26 @@
+---
+description: Company department (Slovene)
+locale: sl
+---
+uprava
+kadrovska služba
+računovodstvo
+finance
+kontroling
+pravna služba
+nabava
+prodaja
+marketing
+razvoj
+raziskave in razvoj
+proizvodnja
+tehnologija
+kakovost
+vzdrževanje
+logistika
+skladišče
+informatika
+podpora uporabnikom
+varnost pri delu
+notranja revizija
+odnosi z javnostmi

@@ -1,0 +1,17 @@
+---
+description: Job titles in the Slovene zdravstvo sector
+locale: sl
+---
+zdravnik
+družinski zdravnik
+zdravnik specialist
+kirurg
+pediater
+zobozdravnik
+farmacevt
+diplomirana medicinska sestra
+zdravstveni tehnik
+fizioterapevt
+reševalec
+babica
+radiološki inženir

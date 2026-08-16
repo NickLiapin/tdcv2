@@ -1,0 +1,9 @@
+---
+description: Positions in Hokejs.
+locale: lv
+---
+Vārtsargs
+Aizsargs
+Centra uzbrucējs
+Kreisais malējais uzbrucējs
+Labais malējais uzbrucējs

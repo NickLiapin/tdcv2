@@ -1,0 +1,30 @@
+---
+description: Product review title, in the register a Latvian shopper actually writes in.
+locale: lv
+---
+Lieliska prece!
+Ļoti iesaku
+Nav vērts
+Pārsniedza gaidīto
+Tā nekas
+Pirktu vēlreiz
+Vīlos
+Izcila kvalitāte
+Saplīsa par ātru
+Lieliski par šo cenu
+Labāk nekā gaidīju
+Neiesaku
+Ļoti patīk!
+Mazliet par dārgu
+Tieši kā aprakstīts
+Ātra piegāde
+Kvalitāte atbilst cenai
+Neatbilst aprakstam
+Der ikdienai
+Iesaku visiem
+Varēja būt labāk
+Pilnīgi apmierināts
+Naudas izšķiešana
+Kalpo jau gadu
+Skaists dizains
+Neērti lietot

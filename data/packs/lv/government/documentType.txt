@@ -1,0 +1,24 @@
+---
+description: Official document type. Personas apliecība is the Latvian eID card and has been compulsory for every citizen since 2023, so it and not the passport is the everyday identity document; the passport is for travel. Zemesgrāmatas apliecība is the land-register certificate, and the land register itself is the Latvian proof of ownership.
+locale: lv
+---
+Personas apliecība
+Pase
+Dzimšanas apliecība
+Laulības apliecība
+Miršanas apliecība
+Uzvārda maiņas apliecība
+Autovadītāja apliecība
+Transportlīdzekļa reģistrācijas apliecība
+Uzturēšanās atļauja
+Vīza
+Diploms
+Sekmju izraksts
+Kvalifikācijas apliecība
+Izziņa
+Būvatļauja
+Zemesgrāmatas apliecība
+Nodokļu deklarācija
+Darba līgums
+Pilnvara
+Testaments

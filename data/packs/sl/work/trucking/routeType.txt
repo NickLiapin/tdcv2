@@ -1,0 +1,11 @@
+---
+description: Type of haulage route (Slovene)
+locale: sl
+---
+mestna dostava
+regionalna vožnja
+notranji promet
+mednarodni promet
+vožnja po EU
+tranzit
+zbirni prevoz

@@ -1,0 +1,5 @@
+---
+description: Currency of Dienvidāfrika, named in Latvian.
+locale: lv
+---
+Dienvidāfrikas rands

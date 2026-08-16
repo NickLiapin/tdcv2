@@ -1,0 +1,10 @@
+---
+description: Lithuanian full female name — a single given name and a single surname (Rasa Kazlauskienė). The surname is drawn from the feminine list, which holds the MARRIED -ienė form; a maiden-name row would read Rasa Kazlauskaitė and a marital-status-neutral one Rasa Kazlauskė. See person/female/lastName for the derivation rules.
+generator: tdc
+locale: lt
+---
+<sequence name="p">
+  <gen name="f" type="template" value="lt.person.female.firstName"/>
+  <gen name="l" type="template" value="lt.person.female.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

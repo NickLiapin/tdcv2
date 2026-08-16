@@ -1,0 +1,19 @@
+---
+address: serbia.finance.account
+description: Serbian domestic account number (текући рачун) — 18 digits, written with two dashes as 160-0000000123456-78: a 3-digit bank code, a 13-digit account and 2 control digits. This is the number Serbs actually quote to each other; the IBAN is that same BBAN with RS and two more check digits in front of it (serbia.finance.iban). The control digits are ISO 7064 MOD 97-10 over the 16 preceding digits, so the whole 18-digit string leaves remainder 1 mod 97 — the arithmetic is verifiable without touching the IBAN layer at all, and this generator computes it. In everyday use the middle block is written without its leading zeros — 160-123456-78 for the same account — and banks fill them back in; the electronic form is always the full eighteen digits, which is the form generated here. Verified against the National Bank of Serbia's published register of bank giro accounts: all 21 of them pass MOD-97, among them Banca Intesa 908-16001-87, NLB Komercijalna banka 908-20501-70 and UniCredit Bank Srbija 908-17001-94.
+generator: tdc
+---
+<sequence name="bank"><gen type="text" value="105,115,145,155,160,165,170,190,200,205,220,250,265,295,325,330,340,370,375,380,385"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{13}"/></sequence>
+<sequence name="control"><compute>
+  <let name="n16"><concat><field name="bank"/><field name="account"/></concat></let>
+  <let name="r16"><reduce>
+    <over><use name="n16"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <result><pad width="2" fill="0">
+    <mod><subtract><int v="98"/><mod><multiply><use name="r16"/><int v="3"/></multiply><int v="97"/></mod></subtract><int v="97"/></mod>
+  </pad></result>
+</compute></sequence>
+<data>${{bank}}-${{account}}-${{control}}</data>

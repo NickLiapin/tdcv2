@@ -1,0 +1,19 @@
+---
+description: Reason a customer returns an item (Slovene)
+locale: sl
+---
+napačna velikost
+napačna barva
+ne ustreza opisu
+poškodovano ob dostavi
+napaka na izdelku
+ne deluje
+manjkajoči deli
+prejet napačen izdelek
+prepozna dostava
+premislil sem si
+našel ceneje drugje
+slaba kakovost
+podvojeno naročilo
+odstop od pogodbe v 14 dneh
+garancijski zahtevek

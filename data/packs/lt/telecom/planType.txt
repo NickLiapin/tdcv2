@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Lithuanian).
+locale: lt
+---
+Išankstinio mokėjimo
+Mėnesinis planas
+Neriboto interneto planas
+Šeimos planas
+Jaunimo planas
+Verslo planas
+Duomenų planas
+Tik skambučiai
+Tarptautinis planas
+Tarptinklinio ryšio planas
+Papildomas SIM
+eSIM

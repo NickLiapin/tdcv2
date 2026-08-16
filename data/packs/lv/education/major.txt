@@ -1,0 +1,44 @@
+---
+description: Field of study.
+locale: lv
+---
+Datorzinātne
+Programmatūras inženierija
+Informācijas tehnoloģijas
+Elektronika
+Mehatronika
+Būvniecība
+Arhitektūra
+Mašīnbūve
+Elektroinženierija
+Vides zinātne
+Mežzinātne
+Lauksaimniecība
+Pārtikas tehnoloģija
+Bioloģija
+Ķīmija
+Fizika
+Matemātika
+Medicīna
+Zobārstniecība
+Farmācija
+Māszinības
+Veterinārmedicīna
+Psiholoģija
+Pedagoģija
+Vēsture
+Filoloģija
+Baltu filoloģija
+Tulkošana
+Žurnālistika
+Komunikācijas zinātne
+Tiesības
+Ekonomika
+Finanses
+Grāmatvedība
+Uzņēmējdarbības vadība
+Mārketings
+Politikas zinātne
+Socioloģija
+Dizains
+Mūzika

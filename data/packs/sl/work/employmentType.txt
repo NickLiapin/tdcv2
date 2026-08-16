@@ -1,0 +1,15 @@
+---
+description: Type of employment contract (Slovene). Two are Slovene institutions with no direct equivalent: ŠTUDENTSKO DELO, student work done on a napotnica issued by an authorised agency, which is how most Slovenes under 26 first work and which is taxed and insured quite differently from employment; and S. P., the samostojni podjetnik, a sole trader who is not a company but trades under a registered name — around a fifth of Slovene businesses. Podjemna pogodba and avtorska pogodba are civil-law contracts for one-off work outside any employment relationship, and a Slovene payroll treats them differently again.
+locale: sl
+---
+pogodba o zaposlitvi za nedoločen čas
+pogodba o zaposlitvi za določen čas
+delo s krajšim delovnim časom
+podjemna pogodba
+avtorska pogodba
+študentsko delo
+samostojni podjetnik
+agencijsko delo
+javna dela
+pripravništvo
+osebno dopolnilno delo

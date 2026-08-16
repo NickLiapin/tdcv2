@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Lithuanian), masculine singular nominative.
+locale: lt
+---
+skaitmeninis
+virtualus
+nuotolinis
+vietinis
+paskirstytas
+lygiagretus
+asinchroninis
+sinchroninis
+šifruotas
+atviras
+uždaras
+saugus
+pažeidžiamas
+greitas
+lėtas
+optimizuotas
+sugedęs
+stabilus
+nestabilus
+suderinamas
+nesuderinamas
+automatinis
+rankinis
+modulinis
+mastelinis
+belaidis
+laidinis
+įterptinis

@@ -1,0 +1,11 @@
+---
+description: Positions in Futbols.
+locale: lv
+---
+Vārtsargs
+Centra aizsargs
+Malas aizsargs
+Aizsardzības pussargs
+Centra pussargs
+Malas uzbrucējs
+Uzbrucējs

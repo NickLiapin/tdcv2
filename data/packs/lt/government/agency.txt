@@ -1,0 +1,27 @@
+---
+description: Government body (Lithuanian ministries and public offices). Lithuanian is spoken as an official language in exactly one country, so these are named after the real institutions of the Republic of Lithuania rather than kept generic. Individual registers, ID numbers and tax formats belong to the country pack, not here.
+locale: lt
+---
+Seimas
+Vyriausybė
+Prezidentūra
+Konstitucinis Teismas
+Finansų ministerija
+Teisingumo ministerija
+Vidaus reikalų ministerija
+Užsienio reikalų ministerija
+Krašto apsaugos ministerija
+Švietimo, mokslo ir sporto ministerija
+Sveikatos apsaugos ministerija
+Socialinės apsaugos ir darbo ministerija
+Ekonomikos ir inovacijų ministerija
+Susisiekimo ministerija
+Aplinkos ministerija
+Žemės ūkio ministerija
+Kultūros ministerija
+Energetikos ministerija
+Valstybinė mokesčių inspekcija
+Muitinės departamentas
+Registrų centras
+Valstybinė darbo inspekcija
+Savivaldybės administracija

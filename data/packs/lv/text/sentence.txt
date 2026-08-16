@@ -1,0 +1,64 @@
+---
+description: Latvian filler sentences. Handwritten: Project Gutenberg holds no Latvian book at all, so there is no corpus behind this locale and these were written for the pack rather than harvested. They are deliberately plain descriptive prose and deliberately Latvian rather than generically Baltic: rupjmaize, pirts, klēts, viensēta, reņģes, dzintars, Jāņu siers, kokle, novuss, daina, brūklenes, baravikas, stārķis and sarma all appear, and every one of them is a word Lithuanian would spell differently or not use at all. The letters ģ ķ ļ ņ, which Lithuanian does not have, occur throughout, as do the long vowels ā ē ī ū that carry meaning rather than stress.
+locale: lv
+---
+Rīts bija skaidrs, un sniegs zem kājām čirkstēja kā sausas skujas.
+Pār pļavu vilkās migla, un tālumā tikko varēja saskatīt meža malu.
+Ceļš uz viensētu bija apsnidzis, tāpēc mašīnu atstājām pie lielceļa.
+Vecmāmiņa kurināja krāsni un cepa rupjmaizi ar ķimenēm.
+Uz galda stāvēja māla bļoda ar brūklenēm un liela krūze piena.
+Suns gulēja pie sliekšņa un pacēla galvu tikai tad, kad atvērās durvis.
+Ezers vēl bija aizsalis, bet pie krasta ledus jau kļuva plāns un pelēks.
+Tēvs sazāģēja bērzu malku un salika to zem šķūņa jumta.
+Pirtī bija karsts, un no lāvas smaržoja pēc bērzu slotas.
+Bērni skrēja pa taku uz upi, kur pavasarī plūda dzidrs ūdens.
+Pie ceļa auga vecs ozols, kura zari sniedzās pāri grāvim.
+Sēņu grozs bija pilns ar baravikām un dažām gailenēm.
+Rudens lietus līst jau trešo dienu, un lauki ir pilni ar ūdeni.
+Tirgū sievas pārdeva skābētus kāpostus, medu un kaltētas zivis.
+Vecais zvejnieks stāstīja, ka reņģes šogad nāk vēlāk nekā parasti.
+Jūrmalā vējš bija tik stiprs, ka smiltis sitās pret sejām.
+Pēc vētras krastā bija izskalojis dzintara gabaliņus.
+Kaimiņš atnāca aizņemties zāģi un palika sarunāties līdz vakaram.
+Klētī glabājās graudi, un pa sienu skraidīja peles.
+Vasaras vakarā pļavā dega ugunskurs, un ap to sēdēja ļaudis.
+Jāņos meitas pina vainagus no puķēm, bet vīri no ozola lapām.
+Uz galda bija Jāņu siers, alus un liela maize.
+Koris dziedāja vecu dainu, un balsis skanēja pār visu lauku.
+Kokles skaņa bija klusa, tomēr to varēja dzirdēt līdz meža malai.
+Zēni spēlēja novusu uz vecā koka galda pie sienas.
+Skolotāja lika uzrakstīt stāstu par to, kā pavadīta vasara.
+Bibliotēkā bija silti, un pa logu krita zema saules gaisma.
+Vilciens uz Rīgu kavējās, tāpēc stacijā pulcējās daudz cilvēku.
+Autobuss brauca gar ezeru, un kokiem jau bija dzelteni zari.
+Pilsētā ielas bija slapjas, un pār bruģi tecēja lietus straumītes.
+Kafejnīcā smaržoja pēc svaigi maltas kafijas un siltiem pīrādziņiem.
+Viesmīlis atnesa zupu un maizes grozu, kas vēl bija silts.
+Vecpilsētā jumti bija sarkani, un starp tiem pacēlās baznīcas tornis.
+Pie tirgus stāvēja veca sieviete un pārdeva pļavas puķes.
+Darbadiena beidzās vēlu, un birojā palika degot tikai viena lampa.
+Sapulce ievilkās, jo visi gribēja pateikt savu domu.
+Datora ekrāns rādīja garu tabulu ar skaitļiem un datumiem.
+Vēstule pienāca pēc nedēļas, un tajā bija tikai dažas rindas.
+Ārsts teica, ka jāatpūšas un jādzer daudz siltas tējas.
+Aptiekā bija rinda, tomēr tā virzījās ātri.
+Slimnīcas logi rādīja uz parku, kur staigāja cilvēki ar suņiem.
+Bērns aizmiga uzreiz, tiklīdz galva pieskārās spilvenam.
+No rīta uz loga stikla bija sarma ar smalkiem rakstiem.
+Ziemas diena bija īsa, un jau četros kļuva tumšs.
+Uz ezera slidoja bērni, un ledus dūca zem viņu slidām.
+Meža ceļš bija pilns ar stirnu pēdām.
+Vilks nakti staigājis gar lauku malu, jo sniegā palikušas skaidras pēdas.
+Stārķis atgriezās aprīlī un uzreiz sāka labot veco ligzdu.
+Dzeguze kūkoja meža dziļumā, un skaņa atbalsojās pār upi.
+Bites strādāja visu dienu, un no stropa nāca klusa dūkoņa.
+Dārzā ziedēja ābeles, un vējš nesa ziedlapas pāri sētai.
+Kartupeļi šogad bija labi, un pagrabs pilns līdz pašai augšai.
+Sieva ievārīja upenes un salika burkas uz plaukta.
+Rudenī tēvs kūla graudus un veda tos uz dzirnavām.
+Ganībās govis stāvēja pie žoga un skatījās uz ceļu.
+Zirgs bija vecs, tomēr joprojām labprāt vilka ratus.
+Pa laukiem gāja mērnieks un lika mietus zemē.
+Būvlaukumā strādnieki lika jaunu jumtu, un āmuru skaņa nesās tālu.
+Elektriķis nomainīja vadus un teica, ka tagad būs droši.
+Vakarā visi sanāca pie galda, un saruna vilkās līdz pusnaktij.

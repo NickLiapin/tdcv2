@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in kardiologija, named in Slovene
+locale: sl
+---
+arterijska hipertenzija
+angina pektoris
+miokardni infarkt
+srčno popuščanje
+atrijska fibrilacija
+aortna stenoza
+mitralna insuficienca
+perikarditis
+kardiomiopatija
+hiperholesterolemija
+periferna arterijska bolezen

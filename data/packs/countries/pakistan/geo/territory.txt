@@ -1,0 +1,8 @@
+---
+address: pakistan.geo.territory
+description: The three parts of Pakistan that are administered outside the provincial structure. They are three different things and are not interchangeable. Islamabad Capital Territory is federal territory under Article 1 of the Constitution, carved out of Rawalpindi district in 1960 and run directly by the federal government — it is uncontested and it is simply not a province. Azad Jammu and Kashmir and Gilgit-Baltistan are administered separately from the four provinces and are not named as provinces in the Constitution; Azad Jammu and Kashmir has its own interim constitution, president, prime minister and assembly, and Gilgit-Baltistan is run under a 2018 presidential order with its own assembly. Both lie within the former princely state of Jammu and Kashmir, whose status is disputed between Pakistan, India and China and has never been settled; Pakistan's own position is that their final status awaits that settlement, which is why they were never absorbed as provinces. This file describes what Pakistan's own registers, postcodes, identity numbers and number plates actually cover — a CNIC beginning 8 is issued in Azad Jammu and Kashmir and one beginning 7 in Gilgit-Baltistan, a postcode in 10000-13999 is delivered in the first and one in 14000-16999 in the second — and it does not take a position on the dispute. See pakistan.geo.province for the four provinces.
+locale: en
+---
+Islamabad Capital Territory
+Azad Jammu and Kashmir
+Gilgit-Baltistan

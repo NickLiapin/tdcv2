@@ -1,0 +1,23 @@
+---
+description: Legal term (Lithuanian).
+locale: lt
+---
+Ieškinys
+Atsakovas
+Ieškovas
+Kaltinamasis
+Nukentėjusysis
+Liudytojas
+Advokatas
+Prokuroras
+Teisėjas
+Antstolis
+Notaras
+Sutartis
+Įgaliojimas
+Nuosprendis
+Nutartis
+Apeliacinis skundas
+Kasacinis skundas
+Senaties terminas
+Žalos atlyginimas

@@ -1,0 +1,14 @@
+---
+description: Payment status (Lithuanian).
+locale: lt
+---
+Laukiama
+Apdorojama
+Patvirtinta
+Apmokėta
+Nepavyko
+Atmesta
+Grąžinta
+Dalinai grąžinta
+Atšaukta
+Pradelsta

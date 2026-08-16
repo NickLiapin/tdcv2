@@ -1,0 +1,68 @@
+---
+address: ukraine.tax.edrpou
+description: ЄДРПОУ — the code every legal entity in Ukraine gets from the Unified State Register of Enterprises and Organisations. Eight digits, the last a check digit, and leading zeros are part of the code, not decoration: Ощадбанк is 00032129 and writing it 32129 makes it a different company. The check is a weighted mod 11 with a twist no neighbour shares — the weight vector depends on the value of the code itself. Codes in the band 30000000-60000000 use 7,1,2,3,4,5,6 over the first seven digits; everything below the band and everything above it uses 1,2,3,4,5,6,7. That split is a fossil of the register's own history, the low band holding Soviet-era and early-1990s registrations. If the remainder is 10 the whole sum is recomputed with every weight raised by 2 (so 3,4,5,6,7,8,9 or 9,3,4,5,6,7,8) and the result taken mod 11 then mod 10, which is why a second pass appears below. The boundary case is written here as "below 6000000 in the first seven digits", because the published rule states the band on the full eight-digit code and the check digit is exactly what is not yet known when the band has to be chosen; the ambiguity covers one prefix in nine million.
+generator: tdc
+---
+<sequence name="base"><gen type="regex" value="[0-9]{7}"/></sequence>
+<sequence name="edrpou"><compute>
+  <let name="lead"><to_number><field name="base"/></to_number></let>
+  <let name="shifted">
+    <choose>
+      <when><test><less_than><use name="lead"/><int v="3000000"/></less_than></test><then><int v="0"/></then></when>
+      <when><test><greater_than><use name="lead"/><int v="5999999"/></greater_than></test><then><int v="0"/></then></when>
+      <otherwise><int v="1"/></otherwise>
+    </choose>
+  </let>
+  <!-- Pass 1. -->
+  <let name="s1a"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="1,2,3,4,5,6,7"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="s1b"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,1,2,3,4,5,6"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="c1"><mod>
+    <choose>
+      <when><test><equals><use name="shifted"/><int v="1"/></equals></test><then><use name="s1b"/></then></when>
+      <otherwise><use name="s1a"/></otherwise>
+    </choose>
+    <int v="11"/>
+  </mod></let>
+  <!-- Pass 2, reached only when pass 1 lands on 10: every weight raised by 2. -->
+  <let name="s2a"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,4,5,6,7,8,9"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="s2b"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="9,3,4,5,6,7,8"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="c2"><mod><mod>
+    <choose>
+      <when><test><equals><use name="shifted"/><int v="1"/></equals></test><then><use name="s2b"/></then></when>
+      <otherwise><use name="s2a"/></otherwise>
+    </choose>
+    <int v="11"/>
+  </mod><int v="10"/></mod></let>
+  <let name="check">
+    <choose>
+      <when><test><equals><use name="c1"/><int v="10"/></equals></test><then><use name="c2"/></then></when>
+      <otherwise><use name="c1"/></otherwise>
+    </choose>
+  </let>
+  <result><concat><field name="base"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{edrpou}}</data>

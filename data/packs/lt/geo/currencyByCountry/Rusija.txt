@@ -1,0 +1,5 @@
+---
+description: Currency of Rusija (Lithuanian).
+locale: lt
+---
+Rublis

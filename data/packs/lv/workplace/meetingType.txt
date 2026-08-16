@@ -1,0 +1,16 @@
+---
+description: Meeting type.
+locale: lv
+---
+Stāvsapulce
+Individuālā saruna
+Kopsapulce
+Retrospektīva
+Sprinta plānošana
+Projekta uzsākšana
+Sinhronizācija
+Izskatīšana
+Darbnīca
+Ideju vētra
+Statusa sanāksme
+Secinājumu apspriede

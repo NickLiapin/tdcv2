@@ -1,0 +1,31 @@
+---
+description: Book genre. Dainas is not a translation of anything: it is the Latvian folk-song quatrain, of which Krišjānis Barons catalogued about 218 000 texts in the Cabinet of Folksongs, now on the UNESCO Memory of the World register, and it is a shelf category in a Latvian bookshop the way poetry is elsewhere.
+locale: lv
+---
+Daiļliteratūra
+Dokumentālā literatūra
+Detektīvs
+Trilleris
+Mīlas romāns
+Zinātniskā fantastika
+Fantāzija
+Šausmu literatūra
+Biogrāfija
+Memuāri
+Vēsture
+Vēsturisks romāns
+Kriminālromāns
+Piedzīvojumu literatūra
+Pašattīstība
+Dzeja
+Dainas
+Pasakas
+Jauniešu literatūra
+Bērnu literatūra
+Filozofija
+Ceļojumu apraksti
+Pavārgrāmata
+Grafiskais romāns
+Distopija
+Eseja
+Lugas

@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Aircraft designations are manufacturer product codes and keep their real spelling in every locale — a Latvian boarding pass says Airbus A220-300, not a translation. The A220-300 heads the list because airBaltic operates an all-A220 fleet and is the largest single A220 operator in Europe, so it is the aircraft a passenger flying out of Rīga is most likely to board.
+locale: lv
+---
+Airbus A220-300
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330-300
+Airbus A350-900
+Airbus A380-800
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 757-200
+Boeing 767-300
+Boeing 777-300ER
+Boeing 787-9 Dreamliner
+Embraer E175
+Embraer E190
+Embraer E195-E2
+ATR 72-600
+Bombardier CRJ900
+De Havilland Dash 8 Q400
+Saab 340
+Cessna 172
+Antonov An-2
+Let L-410 Turbolet
+Pilatus PC-12

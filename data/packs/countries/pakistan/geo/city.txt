@@ -1,0 +1,112 @@
+---
+address: pakistan.geo.city
+description: Cities of Pakistan, roughly by population, followed by the smaller district and divisional headquarters that keep every province and territory represented. English spellings, which is what Pakistan's own postal directories, land records and road signs use alongside Urdu. Several names are post-1947 replacements for British ones and the new name is the only correct one now — Lyallpur became Faisalabad in 1977, Montgomery became Sahiwal in 1966, Campbellpur became Attock in 1978 — while Jacobabad and Abbottabad kept theirs, so the pattern is not a rule and a list that "corrects" those two is wrong. Nawabshah is listed under its own name: the DISTRICT was renamed Shaheed Benazirabad in 2008, the city was not. Wah Cantonment is a cantonment rather than a municipality, which is why it is administered by the military and not by a mayor, and it is large enough to belong on the list anyway. Towns of Azad Jammu and Kashmir (Muzaffarabad, Mirpur, Rawalakot, Kotli, Bhimber) and Gilgit-Baltistan (Gilgit, Skardu, Chilas) are included because Pakistan Post delivers to them and NADRA registers there — see pakistan.geo.territory for what that does and does not mean.
+locale: en
+---
+Karachi
+Lahore
+Faisalabad
+Rawalpindi
+Gujranwala
+Peshawar
+Multan
+Hyderabad
+Islamabad
+Quetta
+Bahawalpur
+Sargodha
+Sialkot
+Sukkur
+Larkana
+Sheikhupura
+Rahim Yar Khan
+Jhang
+Dera Ghazi Khan
+Gujrat
+Sahiwal
+Wah Cantonment
+Mardan
+Kasur
+Okara
+Mingora
+Nawabshah
+Chiniot
+Kamoke
+Hafizabad
+Sadiqabad
+Burewala
+Jacobabad
+Muzaffargarh
+Muridke
+Jhelum
+Shikarpur
+Khanewal
+Dera Ismail Khan
+Turbat
+Khuzdar
+Abbottabad
+Mirpur Khas
+Kohat
+Khairpur
+Nowshera
+Chishtian
+Daska
+Bhalwal
+Attock
+Vehari
+Charsadda
+Kandhkot
+Chaman
+Gwadar
+Muzaffarabad
+Mirpur
+Gilgit
+Skardu
+Bannu
+Swabi
+Mansehra
+Haripur
+Timergara
+Batkhela
+Tando Adam
+Tando Allahyar
+Badin
+Thatta
+Dadu
+Ghotki
+Umerkot
+Sanghar
+Layyah
+Bhakkar
+Mianwali
+Toba Tek Singh
+Pakpattan
+Narowal
+Mandi Bahauddin
+Lodhran
+Rajanpur
+Chakwal
+Khushab
+Gojra
+Kot Addu
+Arifwala
+Kamalia
+Jaranwala
+Hasilpur
+Ahmadpur East
+Khanpur
+Kabirwala
+Zhob
+Loralai
+Sibi
+Hub
+Usta Muhammad
+Kharan
+Panjgur
+Nushki
+Shahdadkot
+Ratodero
+Rawalakot
+Kotli
+Bhimber
+Chilas

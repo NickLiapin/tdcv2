@@ -1,0 +1,32 @@
+---
+description: Flower (Lithuanian). Rūta, common rue, is the Lithuanian national plant and the flower of Lithuanian wedding songs.
+locale: lt
+---
+Rūta
+Rožė
+Tulpė
+Narcizas
+Lelija
+Bijūnas
+Jurginas
+Astras
+Chrizantema
+Gvazdikas
+Ramunė
+Rugiagėlė
+Aguona
+Našlaitė
+Žibutė
+Snieguolė
+Pakalnutė
+Pienė
+Purienа
+Vilkdalgis
+Alyva
+Jazminas
+Levanda
+Saulėgrąža
+Kaktusas
+Orchidėja
+Begonija
+Pelargonija

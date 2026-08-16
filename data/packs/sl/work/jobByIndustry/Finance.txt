@@ -1,0 +1,16 @@
+---
+description: Job titles in the Slovene finance sector
+locale: sl
+---
+računovodja
+knjigovodja
+revizor
+davčni svetovalec
+finančni analitik
+bančni uslužbenec
+kreditni referent
+zavarovalni zastopnik
+aktuar
+borzni posrednik
+kontroler
+finančni direktor

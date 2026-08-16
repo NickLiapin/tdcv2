@@ -1,0 +1,7 @@
+---
+address: singapore.phone
+description: Singapore mobile number in E.164 form (+65 followed by eight digits, the first of which is 8 or 9). There are NO area codes. Singapore runs a closed eight-digit numbering plan across the whole country, there is no trunk prefix, and there is no leading zero to drop when dialling from abroad - +65 goes straight onto the eight digits, which makes Singapore one of the few places where the national and international forms of a number differ by nothing but the country code. The leading digit is the service, not the place: 8 and 9 are mobile, 6 is fixed line (singapore.phoneLandline), 3 is IP telephony, and 1800 is toll-free. Because 8 and 9 are the only mobile heads, a Singapore mobile number carries no operator or geographic information whatsoever - number portability has been in place since 2008, so even the old operator blocks tell you nothing.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="\+65[89][0-9]{7}"/>

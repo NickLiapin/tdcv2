@@ -1,0 +1,9 @@
+---
+address: kenya.geo.postalCode
+description: Kenyan postal code — five digits, no letters, no separator, and leading zeros are part of the code (00100 is Nairobi GPO and must never be written 100). The first two digits are the postal region and are a real enumeration, not a free range: 00 and 01 Nairobi and Kiambu, 10 the Mount Kenya west side, 20 Nakuru and the central Rift, 30 the north Rift, 40 Nyanza, 50 Western, 60 the Mount Kenya east side, 70 the north east, 80 the coast, 90 Ukambani. The remaining three digits address a specific post office, so a code names a POST OFFICE rather than a delivery area — Kenyan mail is addressed to a P.O. Box, and a code cannot be derived from a street address the way a British or German one can. That also means one town can sit behind several codes: Nairobi alone uses roughly 45 of them. Real anchors are in kenya.geo.postalCodeMajor; this generator produces well-formed codes in the real regions, not codes that are certain to exist.
+generator: tdc
+locale: en
+---
+<sequence name="region"><gen type="text" value="00,01,10,20,30,40,50,60,70,80,90"/></sequence>
+<sequence name="office"><gen type="number" value="100..999" length="3" first_zero="true"/></sequence>
+<data>${{region}}${{office}}</data>

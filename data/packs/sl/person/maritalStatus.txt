@@ -1,0 +1,18 @@
+---
+description: Marital status in Slovene. Most forms are GENDERED — a man is samski / poročen / ločen / vdovec, a woman samska / poročena / ločena / vdova — so a config must pick the form that matches the row's gender rather than draw blind. Slovenia recognises the zunajzakonska skupnost, the unregistered cohabitation, as legally equivalent to marriage for most purposes without any registration step, so it is a real civil status here and not a description.
+locale: sl
+---
+samski
+samska
+poročen
+poročena
+ločen
+ločena
+vdovec
+vdova
+v zunajzakonski skupnosti
+v registrirani partnerski zvezi
+razvezan
+razvezana
+živi ločeno
+neznano

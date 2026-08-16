@@ -1,0 +1,8 @@
+---
+address: nigeria.tax.vat
+description: Nigerian VAT registration identifier. NIGERIA ISSUES NO SEPARATE VAT NUMBER, and saying so is the answer here rather than inventing one. Nigeria does levy VAT — 7.5% since 2020, up from 5% — but registration is administered on the taxpayer's existing tax number, so a Nigerian VAT invoice carries the TIN where a European one would carry a country-prefixed VAT ID. This address therefore resolves to nigeria.tax.tin rather than fabricating a second number. There is no NG prefix either: nothing in Nigeria is ever written NG1234567890, and a validator that expects an EU-shaped VAT ID will reject every real Nigerian invoice. From 1 January 2026 the same logic points at the 13-digit Tax ID in nigeria.tax.taxId, which likewise serves every tax at once. Nigeria has no VIES-equivalent public registry; a number is checked at the Nigeria Revenue Service's own portal.
+generator: tdc
+locale: en
+---
+<sequence name="tin"><gen type="template" value="nigeria.tax.tin"/></sequence>
+<data>${{tin}}</data>

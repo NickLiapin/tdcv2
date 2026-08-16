@@ -1,0 +1,5 @@
+---
+description: Capital of Šveice, in the Latvian spelling.
+locale: lv
+---
+Berne

@@ -1,0 +1,8 @@
+---
+description: Season (Lithuanian, lowercase per Lithuanian orthography). Four seasons — Lithuania is at 55°N and the winter is the real thing.
+locale: lt
+---
+pavasaris
+vasara
+ruduo
+žiema

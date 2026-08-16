@@ -1,0 +1,12 @@
+---
+description: Jobs in Izglītība.
+locale: lv
+---
+Skolotājs
+Pasniedzējs
+Profesors
+Skolas psihologs
+Bibliotekārs
+Skolotāja palīgs
+Direktors
+Pirmsskolas skolotājs

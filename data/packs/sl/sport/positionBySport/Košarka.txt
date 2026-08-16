@@ -1,0 +1,9 @@
+---
+description: Playing positions in košarka, named in Slovene
+locale: sl
+---
+organizator igre
+branilec za met
+nizko krilo
+visoko krilo
+center

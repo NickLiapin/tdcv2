@@ -1,0 +1,14 @@
+---
+description: Fuel or drivetrain (Slovene). Avtoplin — LPG — conversion is common in Slovenia and is recorded on the prometno dovoljenje, the vehicle registration document.
+locale: sl
+---
+bencin
+dizel
+avtoplin
+zemeljski plin
+hibrid
+priključni hibrid
+elektrika
+vodik
+biodizel
+etanol

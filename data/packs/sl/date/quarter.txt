@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Slovene calls it a četrtletje, literally a quarter-year; the ordinal is written with a trailing dot, as every Slovene ordinal is)
+locale: sl
+---
+1. četrtletje
+2. četrtletje
+3. četrtletje
+4. četrtletje

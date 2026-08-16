@@ -1,0 +1,24 @@
+---
+address: pakistan.language
+description: The languages of Pakistan in their English names — the national language, the official language, the four provincial languages and the regional languages of the territories and the smaller valleys. Article 251 of the Constitution names URDU the national language and lets ENGLISH continue to be used for official purposes, and that division is the reason every value in this Pakistan pack is written in English rather than in Urdu. English is what a CNIC, a passport, an NTN certificate, a bank statement, a court record, a postcode directory and a number plate are actually printed in; Urdu is what people speak and read, and it has its own place in the project as a LANGUAGE pack. That pack (data/packs/ur/) is an empty stub today, so writing this country pack half in Urdu would ship a broken half of something rather than a finished whole of anything, and the country pack holds only what is true of the PLACE in any case. Urdu is also nobody's provincial language: it is the mother tongue of a small minority, mostly Muhajir families who came from India in 1947, and was made national precisely because it belonged to no province and so favoured none. Punjabi has by a long way the most speakers and no official status at all. Saraiki and Hindko are counted here as languages in their own right, which is how Pakistan's census counts them and which some linguists dispute; Brahui is Dravidian, an island of the family that otherwise lives 1500 km south in India, and is spoken in Balochistan.
+locale: en
+---
+Urdu
+English
+Punjabi
+Pashto
+Sindhi
+Saraiki
+Balochi
+Hindko
+Brahui
+Kashmiri
+Shina
+Balti
+Burushaski
+Khowar
+Wakhi
+Pahari-Pothwari
+Gojri
+Torwali
+Kalasha

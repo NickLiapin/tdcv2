@@ -1,0 +1,9 @@
+---
+address: nigeria.finance.bank
+description: Banks licensed to operate in Nigeria, in the names they trade under. Sliced out of nigeria.finance.bankWithCode rather than kept as a second list, so a bank can never appear here without the CBN code that routes money to it. The set is the commercial banks — international, national and regional authorisation alike, a distinction that governs where a bank may operate but not how a transfer reaches it — plus the four non-interest (Islamic) banks, which take deposits on the same NUBAN scheme as everyone else. Nigerians overwhelmingly say the short form: GTBank or just GTB, UBA, FCMB, Zenith, First Bank.
+generator: tdc
+locale: en
+---
+<sequence name="entry"><gen type="template" value="nigeria.finance.bankWithCode"/></sequence>
+<sequence name="bare"><compute><result><slice from="4"><field name="entry"/></slice></result></compute></sequence>
+<data>${{bare}}</data>

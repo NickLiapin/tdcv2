@@ -1,0 +1,15 @@
+---
+address: singapore.holiday
+description: Singapore's gazetted public holidays, in the English names the Ministry of Manpower gazettes them under. There are ELEVEN days but only ten names - Chinese New Year is two consecutive days under one name - and that is the whole list: Singapore gazettes fewer public holidays than almost anywhere in the region, and this file is short because the real list is short, not because it is unfinished. The set is deliberately balanced across the four communities: two Chinese, two Muslim, one Hindu, two Christian, one Buddhist, plus New Year's Day, Labour Day and National Day on 9 August. Only four have fixed dates (1 January, 1 May, 9 August, 25 December); the rest move with the lunar, Islamic and Hindu calendars, so a date table for Singapore cannot be generated arithmetically the way a European one can and has to be gazetted year by year. When a holiday falls on a Sunday the following Monday is a holiday too, which is why a Singapore year sometimes shows twelve non-working days. Deliberately NOT listed here, because they are widely observed but are not public holidays: Thaipusam, the Mid-Autumn Festival, Qingming, Chinese New Year's Eve and Christmas Eve.
+locale: en
+---
+New Year's Day
+Chinese New Year
+Good Friday
+Hari Raya Puasa
+Labour Day
+Vesak Day
+Hari Raya Haji
+National Day
+Deepavali
+Christmas Day

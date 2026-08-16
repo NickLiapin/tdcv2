@@ -1,0 +1,17 @@
+---
+address: kenya.holiday
+description: Kenyan public holidays, in the gazetted forms. Eight are fixed — 1 January New Year's Day, 1 May Labour Day, 1 June Madaraka Day (self-rule, 1963), 10 October Mazingira Day, 20 October Mashujaa Day (heroes; it was Kenyatta Day until 2010), 12 December Jamhuri Day (the republic, 1964), 25 December Christmas, 26 December Boxing Day — and four move: Good Friday, Easter Monday and the two Idds, which follow the lunar sighting. The 10 October holiday has been renamed more than any other date in the country: Moi Day, then Huduma Day, then Utamaduni Day, now Mazingira Day, so a dataset generated a few years ago will disagree with this file and both can be right for their moment. The file is marked locale: en, not sw, on purpose. Four names carry an untranslated Swahili noun — madaraka (self-rule), mashujaa (heroes), jamhuri (republic), mazingira (environment) — but the strings as a whole are the English-language official forms the Gazette prints, sitting beside plainly English names like Boxing Day. Marking the file sw would claim these twelve strings are Swahili, and eight of them are not.
+locale: en
+---
+New Year's Day
+Good Friday
+Easter Monday
+Labour Day
+Madaraka Day
+Idd-ul-Fitr
+Idd-ul-Azha
+Mazingira Day
+Mashujaa Day
+Jamhuri Day
+Christmas Day
+Boxing Day

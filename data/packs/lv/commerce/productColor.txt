@@ -1,0 +1,61 @@
+---
+description: Product colour as it is printed on a Latvian product page. Note two shapes: the plain adjectives (sarkans, zaļš) inflect to agree with the product noun, while the entries formed from a noun in the genitive (dzintara, ķiršu, grafīta, tērauda) never change at all, which makes them the safer ones for a template to concatenate.
+locale: lv
+---
+sarkans
+tumši sarkans
+vīnsarkans
+sārts
+rozā
+koraļļu
+laša
+oranžs
+aprikožu
+dzeltens
+sinepju
+zeltains
+dzintara
+medus
+smilšu
+bēšs
+krēmkrāsas
+ziloņkaula
+balts
+sniegbalts
+pērļu
+gaiši pelēks
+pelēks
+grafīta
+ogļu
+šīfera
+melns
+antracīta
+brūns
+kastaņbrūns
+šokolādes
+kafijas
+māla
+haki
+olīvzaļš
+zaļš
+tumši zaļš
+gaiši zaļš
+laima zaļš
+smaragdzaļš
+piparmētru
+tirkīza
+ciāns
+debeszils
+gaiši zils
+zils
+tumši zils
+indigo
+safīra
+violets
+lavandas
+ceriņu
+purpursarkans
+madženta
+sudrabains
+vara
+bronzas

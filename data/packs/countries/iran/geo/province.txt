@@ -1,0 +1,36 @@
+---
+address: iran.geo.province
+description: The 31 provinces (استان) of Iran, the country's first-level division, in the Persian alphabetical order the government's own tables use. The count is 31 and has been since 2010, when البرز was split out of تهران — a list of 30 is pre-2010 data and a list of 28 is pre-2004, before خراسان was divided into رضوی، شمالی and جنوبی, so the number of provinces dates a dataset. Six names are two-part and the second part is not a suffix that can be stripped: آذربایجان شرقی and آذربایجان غربی are different provinces, as are خراسان رضوی، خراسان شمالی and خراسان جنوبی, and چهارمحال و بختیاری، سیستان و بلوچستان and کهگیلویه و بویراحمد each join two historic regions with و. Several provinces share a name with their capital (اصفهان، کرمان، همدان، بوشهر، زنجان، سمنان، قم، ایلام، اردبیل، یزد، مرکزی is the exception), so a column holding "اصفهان" is ambiguous between the province and the city unless the schema says which.
+locale: fa
+---
+آذربایجان شرقی
+آذربایجان غربی
+اردبیل
+اصفهان
+البرز
+ایلام
+بوشهر
+تهران
+چهارمحال و بختیاری
+خراسان جنوبی
+خراسان رضوی
+خراسان شمالی
+خوزستان
+زنجان
+سمنان
+سیستان و بلوچستان
+فارس
+قزوین
+قم
+کردستان
+کرمان
+کرمانشاه
+کهگیلویه و بویراحمد
+گلستان
+گیلان
+لرستان
+مازندران
+مرکزی
+هرمزگان
+همدان
+یزد

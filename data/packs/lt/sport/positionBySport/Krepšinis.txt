@@ -1,0 +1,10 @@
+---
+description: Positions in krepšinis (Lithuanian).
+locale: lt
+---
+Įžaidėjas
+Gynėjas
+Atakuojantis gynėjas
+Lengvasis kraštas
+Sunkusis kraštas
+Vidurio puolėjas

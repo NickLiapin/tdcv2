@@ -1,0 +1,63 @@
+---
+description: Corporate buzz noun (Slovene)
+locale: sl
+---
+rešitev
+platforma
+ekosistem
+storitev
+izdelek
+portfelj
+strategija
+vizija
+poslanstvo
+vrednote
+sinergija
+partnerstvo
+sodelovanje
+mreža
+veriga vrednosti
+dobavna veriga
+proces
+delovni tok
+arhitektura
+infrastruktura
+podatki
+analitika
+vpogled
+kazalnik
+učinkovitost
+produktivnost
+kakovost
+standard
+certifikat
+skladnost
+tveganje
+priložnost
+rast
+širitev
+prodor
+trg
+segment
+niša
+stranka
+uporabnik
+izkušnja
+zadovoljstvo
+zvestoba
+blagovna znamka
+ugled
+prepoznavnost
+komunikacija
+kampanja
+kanal
+prodaja
+prihodek
+donos
+naložba
+kapital
+proračun
+optimizacija
+transformacija
+digitalizacija
+avtomatizacija

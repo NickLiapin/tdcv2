@@ -1,0 +1,5 @@
+---
+description: Currency of Vietnam, named in Slovene
+locale: sl
+---
+vietnamski dong

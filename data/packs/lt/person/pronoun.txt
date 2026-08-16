@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Lithuanian). Lithuanian has no neuter personal pronoun for people — jis / ji is the whole system — and it keeps a DUAL number alongside singular and plural (judu, mudu), a category most Indo-European languages lost; the dual forms are listed here because they are still taught and still used.
+locale: lt
+---
+jis
+ji
+jis/jo
+ji/jos
+jie
+jos
+judu
+mudu

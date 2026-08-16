@@ -1,0 +1,41 @@
+---
+address: singapore.finance.bankCode
+description: The four-digit Singapore bank code, index-aligned with singapore.finance.bank so row N of each file is the same bank. SINGAPORE HAS NO IBAN. It is not in the IBAN registry, no Singapore bank issues one, and an SG-prefixed IBAN found anywhere is fabricated - nothing in this pack invents one. A domestic transfer is addressed by this four-digit bank code plus a three-digit branch code (singapore.finance.branchCode), written together as 7171-081, plus the account number; an inbound international transfer uses a SWIFT BIC instead; and PayNow, which most people actually use, addresses the payee by mobile number, NRIC/FIN or UEN and never touches the bank code at all. DBS and POSB share 7171 - POSB is a brand inside DBS, not a separate bank, so two rows here carry the same code on purpose. The account number itself has no national format: DBS and UOB use 10 digits, OCBC 7, others differ, and there is no check digit and no registry, which is why this pack ships no account-number generator. Codes are from a published bank-and-branch-code guide; entries whose bank has since been wound up or merged away have been dropped rather than shipped stale.
+locale: en
+---
+7171
+7171
+7339
+7375
+7144
+7232
+7214
+7302
+7083
+7986
+7366
+7418
+7463
+7472
+7931
+7047
+7092
+7108
+7135
+7241
+7250
+7287
+7357
+7791
+7737
+7764
+7852
+8077
+8129
+8350
+8493
+8527
+8606
+8873
+9186
+9423

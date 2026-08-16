@@ -1,0 +1,36 @@
+---
+description: Title placed before a name. Latvian abbreviates kungs (Mr) as k-gs and kundze (Mrs/Ms) as k-dze, with a hyphen and no full stop, which is a Latvian punctuation habit rather than a typo. Latvian has no separate Miss/Mrs distinction in current use: jaunkundze is archaic and kundze covers every adult woman. Academic and clerical titles PRECEDE the name in Latvian, so this is where a degree such as Dr. or Prof. belongs and not in person/suffix.
+locale: lv
+---
+K-gs
+K-dze
+Kungs
+Kundze
+Jaunkundze
+God.
+Cien.
+Dr.
+Dr. med.
+Dr. sc. ing.
+Dr. iur.
+Dr. philol.
+Dr. habil.
+Prof.
+Asoc. prof.
+Doc.
+Mg.
+Bc.
+Inž.
+Zvērināts advokāts
+Zvērināts notārs
+Zvērināts revidents
+Mācītājs
+Prāvests
+Bīskaps
+Arhibīskaps
+Tēvs
+Māsa
+Kapteinis
+Leitnants
+Pulkvedis
+Ģenerālis

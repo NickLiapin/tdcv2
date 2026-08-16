@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of severnoevropska ancestry, named in Slovene.
+locale: sl
+---
+cistična fibroza
+hemokromatoza
+celiakija
+pomanjkanje alfa-1-antitripsina
+multipla skleroza
+melanom
+fenilketonurija
+sladkorna bolezen tipa 1

@@ -1,0 +1,7 @@
+---
+address: philippines.docs.pagibig
+description: Pag-IBIG MID number — 12 digits, written in three groups of four, issued by the Home Development Mutual Fund. The fourth of the four compulsory national numbers a Filipino carries at once (see philippines.docs.sss). Pag-IBIG is a provident and housing fund rather than an insurer: contributions accumulate in the member's own account, earn a dividend, are withdrawable at maturity, and are the basis of the housing loan most Filipinos who buy a home use — so of the four funds it is the one whose number appears on a mortgage rather than a medical claim. The name is an acronym engineered to spell the Tagalog word for "love": Pagtutulungan sa Kinabukasan — Ikaw, Bangko, Industriya at Gobyerno. It is one of the very few Philippine government identifiers whose name is not English, and the fund's own English materials keep the Tagalog acronym untranslated, which is why it appears here rather than being rendered. "MID" is Membership Identification. NO PUBLISHED CHECK DIGIT — the fund publishes no validation rule, so all twelve digits are drawn. Members who registered before the MID existed were issued a 19-digit Registration Tracking Number (RTN) and had to convert; a 19-digit Pag-IBIG number in old data is an RTN, not a MID, and is not this format.
+generator: tdc
+locale: en
+---
+<gen type="regex" value="[0-9]{12}"/>

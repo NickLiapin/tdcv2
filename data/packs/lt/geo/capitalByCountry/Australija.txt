@@ -1,0 +1,5 @@
+---
+description: Capital of Australija (Lithuanian).
+locale: lt
+---
+Kanbera

@@ -1,0 +1,5 @@
+---
+description: Currency of Bangladeša, named in Latvian.
+locale: lv
+---
+Bangladešas taka

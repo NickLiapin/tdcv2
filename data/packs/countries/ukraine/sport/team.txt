@@ -1,0 +1,41 @@
+---
+address: ukraine.sport.team
+description: Football clubs of the Українська Прем'єр-ліга and Перша ліга. The name a Ukrainian club carries is often no longer the town it plays in: Шахтар has not played a home match in Донецьк since 2014, Зоря has not played in Луганськ, and Маріуполь, Олімпік and Десна were all displaced again after 2022. Clubs are listed by their registered name, which is what the league table prints, not by where the fixture is currently staged.
+locale: uk
+---
+Динамо Київ
+Шахтар Донецьк
+Дніпро-1
+Зоря Луганськ
+Ворскла Полтава
+Колос Ковалівка
+Рух Львів
+Кривбас Кривий Ріг
+Олександрія
+Верес Рівне
+Оболонь Київ
+Полісся Житомир
+ЛНЗ Черкаси
+Інгулець Петрове
+Чорноморець Одеса
+Металіст 1925 Харків
+Металіст Харків
+Карпати Львів
+Минай
+Нива Тернопіль
+Прикарпаття Івано-Франківськ
+Агробізнес Волочиськ
+Буковина Чернівці
+Гірник-Спорт Горішні Плавні
+Епіцентр Кам'янець-Подільський
+Лівий Берег Київ
+Фенікс-Маріуполь
+Кудрівка
+Десна Чернігів
+Маріуполь
+Олімпік Донецьк
+Житомир
+Волинь Луцьк
+Поділля Хмельницький
+Чернігів
+Локомотив Київ

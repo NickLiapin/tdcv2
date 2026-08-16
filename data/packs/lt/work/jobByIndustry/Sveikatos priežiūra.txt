@@ -1,0 +1,16 @@
+---
+description: Jobs in Sveikatos priežiūra (Lithuanian).
+locale: lt
+---
+Slaugytoja
+Šeimos gydytojas
+Chirurgas
+Vaistininkas
+Kineziterapeutas
+Greitosios pagalbos paramedikas
+Radiologijos technologas
+Akušerė
+Medicinos laboratorijos specialistas
+Slaugytojo padėjėjas
+Dietologas
+Klinikinis psichologas

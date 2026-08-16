@@ -1,0 +1,24 @@
+---
+description: School or university subject (Slovene). Note the Slovene forms: zgodovina not istorija, glasbena umetnost, kemija, geografija, and slovenščina — the mother tongue is a subject in its own name, and the language names all end in -ščina.
+locale: sl
+---
+slovenščina
+matematika
+angleščina
+nemščina
+italijanščina
+madžarščina
+zgodovina
+geografija
+biologija
+kemija
+fizika
+naravoslovje
+spoznavanje okolja
+družba
+državljanska vzgoja
+glasbena umetnost
+likovna umetnost
+športna vzgoja
+tehnika in tehnologija
+gospodinjstvo

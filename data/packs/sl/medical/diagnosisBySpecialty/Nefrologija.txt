@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in nefrologija, named in Slovene
+locale: sl
+---
+kronična ledvična bolezen
+akutna ledvična odpoved
+ledvični kamni
+okužba sečil
+glomerulonefritis
+policistična bolezen ledvic
+nefrotski sindrom
+hipertenzivna nefropatija
+diabetična nefropatija
+pielonefritis
+ledvična odpoved na dializi

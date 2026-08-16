@@ -1,0 +1,41 @@
+---
+description: Trailing qualifier of a Slovene place name (Rogaška Slatina, Moravske Toplice, Šmarje pri Jelšah, Radovljica ob Savi). Two shapes are mixed: bare nouns that finish a compound name (Toplice, Slatina, Gorica, Loka) and PREPOSITIONAL phrases in the locative or instrumental case (ob Savi, pri Ljubljani, na Pohorju), which are already inflected and must not be inflected again. The regional adjectives name the historic Slovene lands, not the modern statistical regions, which live in the Slovenia country pack.
+locale: sl
+---
+Toplice
+Slatina
+Gorica
+Loka
+Bistrica
+Gradec
+mesto
+vas
+Vas
+Selo
+Polje
+Dolina
+Planina
+Gora
+Vrh
+Log
+Breg
+Brdo
+Dol
+Most
+Jezero
+Studenec
+ob Savi
+ob Dravi
+ob Muri
+ob Soči
+ob Krki
+ob Kolpi
+pri Ljubljani
+pri Kamniku
+pri Jelšah
+na Krasu
+na Pohorju
+v Brdih
+Slovenske
+Kranjska
+Ilirska

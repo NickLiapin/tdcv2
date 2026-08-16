@@ -1,0 +1,16 @@
+---
+description: Mobile or internet plan type (Slovene). Predplačniški is the prepaid plan and naročniški the contract one; a Slovene tops up a prepaid line with a bon.
+locale: sl
+---
+predplačniški paket
+naročniški paket
+neomejeni paket
+družinski paket
+poslovni paket
+podatkovni paket
+paket za mlade
+paket za upokojence
+gostovanje v EU
+optični internet
+kabelski internet
+mobilni internet

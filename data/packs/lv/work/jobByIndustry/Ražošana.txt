@@ -1,0 +1,12 @@
+---
+description: Jobs in Ražošana.
+locale: lv
+---
+Metinātājs
+Virpotājs
+Kvalitātes inspektors
+Ražošanas meistars
+Montētājs
+Iekārtu mehāniķis
+Operators
+Tehnologs

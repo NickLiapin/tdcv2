@@ -1,0 +1,21 @@
+---
+description: Official document type (Lithuanian) — the NAMES of kinds of document, not one country's form numbers. Note that the Lithuanian personal identity card is asmens tapatybės kortelė and the personal code on it is the asmens kodas, whose format lives in the Lithuania country pack.
+locale: lt
+---
+Asmens tapatybės kortelė
+Pasas
+Vairuotojo pažymėjimas
+Gimimo liudijimas
+Santuokos liudijimas
+Ištuokos liudijimas
+Mirties liudijimas
+Diplomas
+Atestatas
+Pažymėjimas
+Leidimas gyventi
+Darbo sutartis
+Draudimo polisas
+Nuosavybės pažymėjimas
+Įgaliojimas
+Teismo sprendimas
+Notaro patvirtinimas

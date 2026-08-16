@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Slovene)
+locale: sl
+---
+železo
+bron
+srebro
+zlato
+platina
+diamant
+mojster
+veliki mojster
+izzivalec
+legenda

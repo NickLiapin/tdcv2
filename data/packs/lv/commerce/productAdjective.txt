@@ -1,0 +1,58 @@
+---
+description: Product adjective. These are the MASCULINE singular indefinite forms; before a feminine noun the ending changes (izturīgs galds but izturīga soma), and before a definite noun phrase Latvian switches to the definite adjective (izturīgais), so a config that glues an adjective to a random noun will sometimes produce a form a Latvian would not write. That is a property of the language, not of the list.
+locale: lv
+---
+mazs
+liels
+kompakts
+ergonomisks
+praktisks
+ērts
+izturīgs
+viegls
+smags
+plāns
+biezs
+moderns
+klasisks
+elegants
+izsmalcināts
+vienkāršs
+minimālistisks
+rustikāls
+vintāžas
+rokām darināts
+amatnieku darināts
+licencēts
+bez zīmola
+augstākās kvalitātes
+luksusa
+profesionāls
+universāls
+daudzfunkcionāls
+pārnēsājams
+salokāms
+regulējams
+bezvadu
+uzlādējams
+ūdensizturīgs
+ūdensnecaurlaidīgs
+siltināts
+elpojošs
+pārstrādāts
+ekoloģisks
+ilgtspējīgs
+dabīgs
+krāsains
+spilgts
+matēts
+spīdīgs
+mīksts
+ciets
+silts
+vēss
+kluss
+ātrs
+drošs
+stilīgs
+unikāls

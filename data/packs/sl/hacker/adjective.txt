@@ -1,0 +1,32 @@
+---
+description: Technical adjective (Slovene, masculine nominative singular)
+locale: sl
+---
+digitalen
+binaren
+šifriran
+stisnjen
+porazdeljen
+vzporeden
+sinhron
+asinhron
+prehoden
+trajen
+začasen
+oddaljen
+lokalen
+brezžičen
+žičen
+navidezen
+fizičen
+logičen
+redundanten
+odporen
+varen
+ranljiv
+zastarel
+posodobljen
+nameščen
+preveden
+izvoren
+izvedljiv

@@ -1,0 +1,11 @@
+---
+address: thailand.geo.region
+description: The regions of Thailand (ภาค). Two schemes are in use and they disagree, so pick one deliberately. Shipped here is the six-region scheme of the National Research Council, which is the official one for statistics and planning. Everyday speech and most news use a four-region split instead — เหนือ, อีสาน, กลาง, ใต้ — which folds ตะวันออก and ตะวันตก into กลาง, and ภาคอีสาน is the ordinary name for what the formal scheme calls ภาคตะวันออกเฉียงเหนือ, the northeast: the same place, one syllable against seven. A province belongs to exactly one region in either scheme, but not always the same one, so a region column copied between two Thai datasets is a common source of quiet disagreement.
+locale: th
+---
+ภาคเหนือ
+ภาคตะวันออกเฉียงเหนือ
+ภาคกลาง
+ภาคตะวันออก
+ภาคตะวันตก
+ภาคใต้

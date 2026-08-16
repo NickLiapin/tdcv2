@@ -1,0 +1,62 @@
+---
+description: Material a product is made of (Slovene)
+locale: sl
+---
+bombaž
+lan
+volna
+svila
+poliester
+viskoza
+elastan
+poliamid
+akril
+flis
+žamet
+usnje
+umetno usnje
+semiš
+krzno
+gumi
+silikon
+plastika
+polipropilen
+polikarbonat
+akrilno steklo
+steklo
+kaljeno steklo
+porcelan
+keramika
+glina
+kamen
+granit
+marmor
+beton
+les
+hrast
+bukev
+smreka
+bor
+oreh
+češnja
+javor
+macesen
+vezana plošča
+iverna plošča
+bambus
+pluta
+papir
+karton
+jeklo
+nerjavno jeklo
+aluminij
+baker
+medenina
+bron
+železo
+litina
+cink
+titan
+srebro
+zlato
+karbonska vlakna

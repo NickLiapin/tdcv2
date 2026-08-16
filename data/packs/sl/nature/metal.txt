@@ -1,0 +1,26 @@
+---
+description: Metal (Slovene). Živo srebro — quicksilver, literally living silver — names mercury, and it is not a neutral word here: Idrija held the world's second largest mercury mine for five centuries and is a UNESCO site because of it.
+locale: sl
+---
+železo
+jeklo
+litina
+baker
+aluminij
+cink
+svinec
+kositer
+nikelj
+krom
+mangan
+titan
+volfram
+magnezij
+srebro
+zlato
+platina
+paladij
+živo srebro
+medenina
+bron
+uran

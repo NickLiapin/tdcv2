@@ -1,0 +1,16 @@
+---
+description: Shoe size as printed on a shoebox in Lithuania: the European (Paris point) scale, the same numbers as Germany, Poland and France. Not UK, not US, not Japanese centimetres.
+locale: lt
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

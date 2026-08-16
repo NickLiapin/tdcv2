@@ -1,0 +1,24 @@
+---
+description: Trip type.
+locale: lv
+---
+Darījumu brauciens
+Atpūta
+Ģimenes atvaļinājums
+Medusmēnesis
+Piedzīvojumu ceļojums
+Autoceļojums
+Kruīzs
+Mugursomas ceļojums
+Pilsētas brīvdienas
+Jūrmalas atpūta
+Grupas tūre
+Ceļojums vienatnē
+Kempings
+Lauku tūrisms
+Pirts brauciens
+Slēpošanas brauciens
+Kultūras ceļojums
+Gastronomiskais tūrisms
+Konference
+Apciemot radus

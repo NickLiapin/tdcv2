@@ -1,0 +1,12 @@
+---
+description: Diagnoses seen in Dermatoloģija.
+locale: lv
+---
+Psoriāze
+Atopiskais dermatīts
+Pinnes
+Melanoma
+Rozācija
+Kontaktdermatīts
+Nātrene
+Vitiligo

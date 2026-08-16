@@ -1,0 +1,25 @@
+---
+description: World religion (Lithuanian). Lithuania is the northernmost predominantly Roman Catholic country in Europe — it was also the LAST country in Europe to be Christianised, in 1387 — and Romuva, the revived Baltic pagan tradition, is a recognised religious community here.
+locale: lt
+---
+Romos katalikai
+Stačiatikiai
+Sentikiai
+Evangelikai liuteronai
+Evangelikai reformatai
+Protestantai
+Baptistai
+Sekmininkai
+Jehovos liudytojai
+Adventistai
+Graikų apeigų katalikai
+Judaizmas
+Karaimai
+Islamas
+Sunitai
+Budizmas
+Hinduizmas
+Romuva
+Pagonybė
+Agnostikai
+Netikintys

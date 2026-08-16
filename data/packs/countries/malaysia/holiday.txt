@@ -1,0 +1,17 @@
+---
+address: malaysia.holiday
+description: The twelve FEDERAL public holidays of Malaysia, by name only — this file deliberately models no dates, because most of them have none that hold from year to year. Five follow a religious calendar that is not the Gregorian one: the four Islamic dates walk backwards about eleven days a year and are confirmed only after the official moon sighting, and Tahun Baru Cina follows the Chinese calendar while Hari Wesak and Deepavali follow their own. Even the Agong's birthday is movable — it is the first Monday of June, and it marks the office rather than the man, so it does not move when a new king is installed. Only four are truly fixed: Hari Pekerja (1 May), Hari Kebangsaan (31 August), Hari Malaysia (16 September) and Hari Krismas (25 December). Twelve names cover FOURTEEN days in most of the country, because Hari Raya Aidilfitri runs two days everywhere and Tahun Baru Cina runs two days outside Kelantan and Terengganu. Sarawak observes thirteen: it is the one state that does not take Deepavali. On top of these, each state gazettes its own — the ruler's birthday in the nine states that have one, the governor's in the four that do not, Thaipusam in the states with large Tamil populations, Hari Gawai in Sarawak, Pesta Kaamatan in Sabah and Labuan — so no two states have the same calendar, and the total in any given state runs to the high teens. Names are the official Malay ones. Hari Kebangsaan and Hari Merdeka are the same day under two names: 31 August 1957 is the independence of Malaya, and 16 September 1963 is the formation of Malaysia when Sabah, Sarawak and Singapore joined it, which is why the country celebrates two national days a fortnight apart and why Hari Malaysia matters far more in Sabah and Sarawak than on the peninsula. Verified against the federal list under the Holidays Act 1951.
+locale: ms
+---
+Tahun Baru Cina
+Hari Pekerja
+Hari Wesak
+Hari Keputeraan Yang di-Pertuan Agong
+Hari Kebangsaan
+Hari Malaysia
+Deepavali
+Hari Krismas
+Awal Muharram
+Maulidur Rasul
+Hari Raya Aidilfitri
+Hari Raya Aidiladha

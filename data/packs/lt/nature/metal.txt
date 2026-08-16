@@ -1,0 +1,26 @@
+---
+description: Metal (Lithuanian).
+locale: lt
+---
+Auksas
+Sidabras
+Platina
+Paladis
+Varis
+Geležis
+Plienas
+Ketus
+Aliuminis
+Cinkas
+Alavas
+Švinas
+Nikelis
+Chromas
+Titanas
+Volframas
+Manganas
+Magnis
+Kobaltas
+Žalvaris
+Bronza
+Gyvsidabris

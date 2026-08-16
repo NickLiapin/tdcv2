@@ -1,0 +1,5 @@
+---
+description: Capital of Tajska, as Slovene names it
+locale: sl
+---
+Bangkok

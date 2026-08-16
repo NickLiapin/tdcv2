@@ -1,0 +1,33 @@
+---
+address: pakistan.finance.bank
+description: Banks operating in Pakistan under a State Bank of Pakistan licence — the state-owned and provincial banks, the large private commercial banks, the full-fledged Islamic banks, and the foreign banks with a Pakistani branch. Index-aligned with pakistan.finance.bankCode, which carries each bank's four-letter institution code on the same line. Islamic banks are listed as their own group rather than folded into the private banks because in Pakistan that is a licence category, not a marketing label: Meezan is the largest bank of its kind in the country, MCB Islamic and BankIslami are separate legal entities from their conventional namesakes, and Faysal Bank converted its whole balance sheet in 2023. Silkbank is deliberately absent — it ceased to exist on 11 March 2025 when it was amalgamated into United Bank Limited — and so is any microfinance or digital-only bank, which are licensed under different rules and do not hold the four-letter code this list is paired with.
+locale: en
+---
+National Bank of Pakistan
+Habib Bank Limited
+United Bank Limited
+MCB Bank Limited
+Allied Bank Limited
+Meezan Bank Limited
+Bank Alfalah Limited
+Bank Al Habib Limited
+Habib Metropolitan Bank Limited
+Askari Bank Limited
+Faysal Bank Limited
+Soneri Bank Limited
+JS Bank Limited
+Samba Bank Limited
+Standard Chartered Bank (Pakistan) Limited
+The Bank of Punjab
+Sindh Bank Limited
+The Bank of Khyber
+First Women Bank Limited
+Dubai Islamic Bank Pakistan Limited
+BankIslami Pakistan Limited
+MCB Islamic Bank Limited
+Al Baraka Bank (Pakistan) Limited
+Citibank N.A.
+Deutsche Bank AG
+Industrial and Commercial Bank of China Limited
+Bank of China Limited
+MUFG Bank, Ltd.

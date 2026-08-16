@@ -1,0 +1,49 @@
+---
+address: nigeria.education.university
+description: Nigerian universities in their official English names. The list keeps the three kinds a Nigerian record distinguishes, because which one issued a degree matters: FEDERAL universities, funded by the Federation and the ones a national record most often cites — including the six "first generation" institutions founded between 1948 and 1970 (Ibadan, Nigeria Nsukka, Ahmadu Bello, Lagos, Obafemi Awolowo, Benin), whose alumni still use that phrase about themselves; STATE universities, owned by a single state government; and PRIVATE universities, mostly founded since 2000 and mostly church-backed, which now outnumber both. All are licensed by the National Universities Commission. NAMES CHURN, and unusually fast: in December 2024 the Federal Executive Council renamed the University of Abuja to Yakubu Gowon University, with a further twenty renamings announced, and several such changes have been contested or walked back — so the safe assumption for Nigerian education data is that an institution's name in an old record may not be its name now. Nigerians almost always use the contraction in speech and often in writing: UNILAG, UI, OAU, ABU, UNN, UNIBEN, BUK, UNIPORT, FUTA, LASU.
+locale: en
+---
+University of Ibadan
+University of Nigeria, Nsukka
+Obafemi Awolowo University
+Ahmadu Bello University
+University of Lagos
+University of Benin
+Bayero University, Kano
+University of Ilorin
+University of Jos
+University of Calabar
+University of Maiduguri
+University of Port Harcourt
+Usmanu Danfodiyo University
+Nnamdi Azikiwe University
+Yakubu Gowon University
+Federal University of Technology, Akure
+Federal University of Technology, Minna
+Federal University of Technology, Owerri
+Federal University of Agriculture, Abeokuta
+Michael Okpara University of Agriculture, Umudike
+Modibbo Adama University
+Federal University, Oye-Ekiti
+Federal University, Lafia
+Federal University, Dutse
+Nigerian Defence Academy
+National Open University of Nigeria
+Lagos State University
+Rivers State University
+Ekiti State University
+Kaduna State University
+Delta State University, Abraka
+Olabisi Onabanjo University
+Ambrose Alli University
+Ladoke Akintola University of Technology
+Enugu State University of Science and Technology
+Covenant University
+Babcock University
+Afe Babalola University
+Landmark University
+Bowen University
+Redeemer's University
+Pan-Atlantic University
+American University of Nigeria
+Igbinedion University

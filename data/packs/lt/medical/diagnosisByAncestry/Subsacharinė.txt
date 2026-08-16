@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of this ancestry (Subsacharinė), in Lithuanian. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: lt
+---
+Pjautuvinė anemija
+Pjautuvinės anemijos nešiotojo požymis
+Gliukozės-6-fosfato dehidrogenazės stoka
+Su APOL1 susijusi nefropatija
+Keloidai
+Sarkoidozė
+Hipertenzinė nefrosklerozė
+Gimdos miomos
+Gerybinė etninė neutropenija
+Suaugusiųjų laktazės stoka
+Barzdos pseudofolikulitas
+Vitiligo

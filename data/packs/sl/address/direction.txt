@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Slovene street, district or housing estate name (naselje Jug, soseska Sever). The bare compass words double as district names; the adjectival forms (severni, južni) agree with the noun they qualify.
+locale: sl
+---
+sever
+jug
+vzhod
+zahod
+severovzhod
+severozahod
+jugovzhod
+jugozahod
+severni
+južni
+vzhodni
+zahodni
+zgornji
+spodnji
+srednji

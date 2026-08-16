@@ -1,0 +1,18 @@
+---
+address: malaysia.tax.vat
+description: MALAYSIA HAS NO VAT NUMBER, and this file exists to say so rather than to invent one. It had a VAT in all but name for three years — GST at 6% from 1 April 2015, with a 12-digit GST registration number — and abolished it: the rate was cut to zero on 1 June 2018 and the Goods and Services Tax Act was repealed on 1 September 2018, making Malaysia the only country to have introduced a full VAT and then withdrawn it. What replaced it is the older Sales and Service Tax, two separate single-stage taxes rather than one multi-stage one: sales tax on manufactured and imported goods, service tax on listed taxable services. There is no input credit, so an SST number is not a VAT number doing business under another name, and there is no EU-style country prefix because Malaysia is not in the EU VAT system. What this file generates is therefore the SST registration number issued by the Royal Malaysian Customs Department (Jabatan Kastam Diraja Malaysia), in the shape ANN-YYMM-NNNNNNNN: a letter, a two-digit taxable-category code, the year and month of registration, and an eight-digit serial — fifteen alphanumeric characters written with two hyphens. W opens a service tax number and B a sales tax number. It carries no check digit, and RMCD's own guidance is that the only way to verify one is the MySST portal. Be precise about what is verified here and what is not. The overall ANN-YYMM-NNNNNNNN layout is confirmed by RMCD's public-user registration manual, whose worked sample is W10-1808-30000001, and independently by a tax-identifier reference giving the same fifteen-character pattern; the year-month block is real, which is why nothing before 1809 is generated. The two-digit category code is NOT verified — RMCD has not published the code set, so it is drawn freely here and a generated number may name a category that does not exist. The eight-digit serial's internal meaning is likewise unpublished and is drawn freely. A generated SST number is the right shape and the right length and will not be found in MySST.
+generator: tdc
+---
+<sequence name="kind"><gen type="text" value="W,B" percent="70,30"/></sequence>
+<sequence name="category"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="registered"><gen type="date" from="2018-09-01" to="2026-08-01" format="YYYYMMDD"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{8}"/></sequence>
+<sequence name="sst"><compute>
+  <!-- SST began on 1 September 2018, so the YYMM block never predates 1809. -->
+  <let name="yymm"><slice from="2" to="6"><field name="registered"/></slice></let>
+  <result><concat>
+    <field name="kind"/><field name="category"/><str v="-"/>
+    <use name="yymm"/><str v="-"/><field name="serial"/>
+  </concat></result>
+</compute></sequence>
+<data>${{sst}}</data>

@@ -1,0 +1,16 @@
+---
+description: Job titles in the Slovene tehnologija sector
+locale: sl
+---
+razvijalec programske opreme
+programer
+sistemski administrator
+omrežni inženir
+podatkovni analitik
+podatkovni znanstvenik
+testni inženir
+produktni vodja
+oblikovalec uporabniške izkušnje
+varnostni inženir
+arhitekt informacijskih sistemov
+tehnik za informatiko

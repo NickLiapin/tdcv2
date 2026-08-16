@@ -1,0 +1,36 @@
+---
+description: Musical instrument (Slovene). The first block is Slovenia's own: the diatonična harmonika — the button accordion universally called the frajtonarica — is the national instrument and the engine of narodnozabavna glasba; the citre are the Alpine zither of Gorenjska; the oprekelj is the hammered dulcimer; the trstenke are panpipes; the žvegla is the transverse wooden flute of Prekmurje; and the drumlica is the jew's harp. All six are played, not merely remembered.
+locale: sl
+---
+diatonična harmonika
+klavirska harmonika
+citre
+oprekelj
+trstenke
+žvegla
+drumlica
+lončeni bas
+okarina
+klavir
+orgle
+čembalo
+violina
+viola
+violončelo
+kontrabas
+kitara
+električna kitara
+bas kitara
+harfa
+mandolina
+flavta
+kljunasta flavta
+klarinet
+oboa
+fagot
+saksofon
+trobenta
+pozavna
+rog
+tuba
+bobni

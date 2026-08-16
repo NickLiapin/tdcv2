@@ -1,0 +1,28 @@
+---
+address: pakistan.finance.iban
+description: Pakistani IBAN — 24 characters: PK, two ISO 7064 MOD-97-10 check digits, a four-LETTER bank code (pakistan.finance.bankCode, the first four characters of the bank's BIC), then a 16-character account identifier. Pakistan IS in the IBAN registry and has been since 2012, when the State Bank made IBAN mandatory for domestic transfers, and that is the sharpest financial difference between this pack and its eastern neighbour's: India never joined the scheme, has no IBAN at all, and addresses a domestic payment by IFSC plus account number instead, so india.finance.iban deliberately does not exist while this file does. Two countries with a shared banking ancestry, one of which can be validated offline by arithmetic and one of which cannot. The registry allows the account identifier to be alphanumeric (4!a16!c); Pakistani banks issue it as sixteen digits, usually a four-digit branch code followed by a twelve-digit account number, and that is what is generated here. The check digits are computed, not drawn: the BBAN is followed by PK and 00, every letter is replaced by its base-36 value (P=25, K=20), the whole string is reduced modulo 97, and the check is 98 minus that remainder. Verified against the published registry example PK36SCBL0000001123456702 — recomputing its check digits from the BBAN gives 36, and reading the whole number modulo 97 gives 1, which is what a valid IBAN must give. Verified again against the published Habib Metropolitan number PK11MPBL0101027140559861, which also reduces to 1. Changing one character rejects: PK36SCBL0000001123456703 gives 28, PK37SCBL0000001123456702 gives 2, PK36SCBL0000001123457602 gives 51, and mutating the bank code itself to PK36SCBM0000001123456702 gives 26.
+generator: tdc
+locale: en
+---
+<sequence name="bank"><gen type="template" value="pakistan.finance.bankCode"/></sequence>
+<sequence name="branch"><gen type="regex" value="[0-9]{4}"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{12}"/></sequence>
+<sequence name="iban"><compute>
+  <let name="bban"><concat><field name="bank"/><field name="branch"/><field name="account"/></concat></let>
+  <!-- ISO 13616: move the country code and the (still unknown) check digits to the end. -->
+  <let name="rearranged"><concat><use name="bban"/><str v="PK"/><str v="00"/></concat></let>
+  <!-- Every letter becomes its base-36 value, so A..Z read as 10..35. -->
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <!-- The number is far too long for one integer, so fold it digit by digit. -->
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="PK"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

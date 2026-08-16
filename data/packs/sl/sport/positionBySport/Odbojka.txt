@@ -1,0 +1,9 @@
+---
+description: Playing positions in odbojka, named in Slovene
+locale: sl
+---
+podajalec
+korektor
+sprejemalec
+srednji bloker
+prosti igralec

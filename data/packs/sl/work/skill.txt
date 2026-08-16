@@ -1,0 +1,46 @@
+---
+description: Workplace skill (Slovene)
+locale: sl
+---
+timsko delo
+komunikacija
+vodenje
+organizacija dela
+reševanje problemov
+kritično mišljenje
+odločanje
+pogajanja
+prilagodljivost
+samostojnost
+odgovornost
+natančnost
+zanesljivost
+ustvarjalnost
+iniciativnost
+obvladovanje stresa
+upravljanje časa
+delo s strankami
+javno nastopanje
+pisno izražanje
+poslovni bonton
+mentorstvo
+usposabljanje
+projektno vodenje
+analitično razmišljanje
+delo s podatki
+poznavanje zakonodaje
+računalniška pismenost
+delo v pisarniških programih
+programiranje
+podatkovne zbirke
+statistika
+računovodska znanja
+tuji jeziki
+angleščina
+nemščina
+italijanščina
+vozniško dovoljenje B
+varno delo z viličarjem
+prva pomoč
+varstvo pri delu
+poznavanje standardov kakovosti

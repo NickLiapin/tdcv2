@@ -1,0 +1,5 @@
+---
+description: Currency of Portugāle, named in Latvian.
+locale: lv
+---
+eiro

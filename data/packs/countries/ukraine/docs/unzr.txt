@@ -1,0 +1,20 @@
+---
+address: ukraine.docs.unzr
+description: УНЗР — унікальний номер запису в Єдиному державному демографічному реєстрі, the lifetime record number printed on the ID card and in the biometric passport. Written РРРРММДД-ННННК: the birth date in full ISO order, a hyphen, a four-digit serial whose parity carries sex (odd male, even female, so the first codes issued for a given day are 0001 and 0002), and one check digit. It is assigned once, at the first biometric document, and never changes — not on marriage, not on a change of name, not when the card itself is reissued with a new number. Note that Ukraine therefore has TWO lifetime personal numbers, the tax РНОКПП and this one, and they encode the same birth date in two different ways: РНОКПП as a day count from 1899, УНЗР as plain calendar digits. CAVEAT, and it is the one soft spot in this pack: the check digit here is the ICAO 9303 weighted mod-10 (weights 7,3,1 repeating, sum mod 10) over the twelve preceding digits, which is the method the state's own explanations name, but unlike the РНОКПП and ЄДРПОУ in this pack I could not find a single published УНЗР to test it against in either direction. Treat this digit as documented-but-unverified.
+generator: tdc
+---
+<sequence name="dob"><gen type="date" from="1940-01-01" to="2007-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<sequence name="unzr"><compute>
+  <let name="base"><concat><field name="dob"/><field name="serial"/></concat></let>
+  <let name="sum"><reduce>
+    <over><use name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,3,1,7,3,1,7,3,1,7,3,1"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <let name="check"><mod><use name="sum"/><int v="10"/></mod></let>
+  <result><concat><field name="dob"/><str v="-"/><field name="serial"/><use name="check"/></concat></result>
+</compute></sequence>
+<data>${{unzr}}</data>

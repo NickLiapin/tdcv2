@@ -1,0 +1,63 @@
+---
+address: nigeria.geo.streetNamed
+description: Bare Nigerian street names, without the Street / Road / Close designation that nigeria.geo.streetName appends. Overwhelmingly personal names, because that is how Nigerian streets are named — nationalists and first-republic politicians (Herbert Macaulay, Nnamdi Azikiwe, Obafemi Awolowo, Ahmadu Bello, Tafawa Balewa), heads of state (Murtala Muhammed, Yakubu Gowon, Shehu Shagari), and local benefactors and chiefs whose names are known on one street and nowhere else. The mix is deliberately drawn from Lagos (Adeola Odeku, Akin Adesola, Saka Tinubu, Allen, Opebi, Broad, Marina, Awolowo), Abuja (Aminu Kano, Adetokunbo Ademola, Gimbiya, Gana, Ribadu), Port Harcourt (Aba, Ikwerre, Trans Amadi) and the east (Okpara, Zik, Ogui), so the pack is not silently a Lagos-only pack. Note what these names are NOT: they are English-language forms in Latin script but the personal names inside them are Yoruba, Igbo and Hausa, which is exactly how Nigerian streets are signposted.
+locale: en
+---
+Herbert Macaulay
+Nnamdi Azikiwe
+Obafemi Awolowo
+Awolowo
+Ahmadu Bello
+Tafawa Balewa
+Murtala Muhammed
+Yakubu Gowon
+Shehu Shagari
+Ozumba Mbadiwe
+Adetokunbo Ademola
+Aminu Kano
+Adeola Odeku
+Akin Adesola
+Saka Tinubu
+Idowu Taylor
+Karimu Kotun
+Muri Okunola
+Sanusi Fafunwa
+Adeniran Ogunsanya
+Adeniyi Jones
+Bode Thomas
+Isaac John
+Ladoke Akintola
+Michael Okpara
+Okpara
+Zik
+Ogui
+Trans Amadi
+Ikwerre
+Aba
+Allen
+Opebi
+Toyin
+Broad
+Marina
+Balogun
+Kingsway
+Alfred Rewane
+Gimbiya
+Ribadu
+Gana
+Sultan Abubakar
+Bank Anthony
+Oba Akran
+Ajose Adeogun
+Admiralty
+Airport
+Ring
+Independence
+Constitution
+Unity
+Church
+Market
+School
+Hospital
+New Market
+Old Aba

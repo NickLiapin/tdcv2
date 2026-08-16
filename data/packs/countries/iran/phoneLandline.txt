@@ -1,0 +1,16 @@
+---
+address: iran.phoneLandline
+description: Iranian fixed-line number in E.164 form, built from a real provincial area code with the trunk 0 stripped: the number written 021 12345678 at home becomes +98 21 12345678 abroad. The area code comes from iran.geo.areaCode, so the number belongs to a province that exists, and because Iran allocates exactly one code per province a fixed line placed in فارس really does begin +9871 and one in خراسان رضوی +9851. Subscriber numbers are 8 digits nationwide, so an Iranian landline and an Iranian mobile are the SAME total length — ten digits after +98 — which is unusual; in most countries the landline is shorter. That means length alone cannot tell the two apart in Iranian data, only the leading 9 of a mobile prefix can.
+generator: tdc
+---
+<sequence name="code"><gen type="template" value="iran.geo.areaCode"/></sequence>
+<sequence name="line"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<!-- Drop the domestic trunk 0: 021 becomes 21. -->
+<sequence name="trunkless"><compute>
+  <let name="c"><each><over><field name="code"/></over><do><current/></do></each></let>
+  <result><concat>
+    <at><in><use name="c"/></in><index><int v="1"/></index></at>
+    <at><in><use name="c"/></in><index><int v="2"/></index></at>
+  </concat></result>
+</compute></sequence>
+<data>+98${{trunkless}}${{line}}</data>

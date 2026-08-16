@@ -1,0 +1,10 @@
+---
+address: nigeria.geo.stateByZone.South East
+description: The five states of Nigeria's South East zone, the smallest of the six by number of states — a standing grievance in Nigerian politics, since every other zone has six or seven and federal allocations follow state counts. Keyed by nigeria.geo.zone, so a config can draw a zone and then a state that really belongs to it.
+locale: en
+---
+Abia
+Anambra
+Ebonyi
+Enugu
+Imo

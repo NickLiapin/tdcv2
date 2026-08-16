@@ -1,0 +1,12 @@
+---
+description: Time of day (Lithuanian).
+locale: lt
+---
+rytas
+priešpietis
+vidurdienis
+popietė
+vakaras
+sutemos
+naktis
+vidurnaktis

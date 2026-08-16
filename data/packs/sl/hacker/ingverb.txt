@@ -1,0 +1,32 @@
+---
+description: Technical activity as a Slovene VERBAL NOUN. Slovene has no present participle used the way English uses -ing, so the natural equivalent is a noun in -nje or -anje; a config translating "compiling the kernel" gets prevajanje jedra.
+locale: sl
+---
+nalaganje
+prenašanje
+prevajanje
+razhroščevanje
+šifriranje
+dešifriranje
+stiskanje
+razširjanje
+nameščanje
+posodabljanje
+brisanje
+kopiranje
+premikanje
+iskanje
+urejanje
+tiskanje
+poganjanje
+preverjanje
+povezovanje
+prijavljanje
+odjavljanje
+sinhroniziranje
+arhiviranje
+obnavljanje
+testiranje
+načrtovanje
+programiranje
+razvrščanje

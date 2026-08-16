@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Ortopedija (Lithuanian).
+locale: lt
+---
+Osteoartritas
+Reumatoidinis artritas
+Tarpslankstelinio disko išvarža
+Riešo kanalo sindromas
+Išialgija
+Rotatorių manžetės pažeidimas
+Šlaunikaulio kaklelio lūžis
+Skoliozė
+Achilo sausgyslės uždegimas
+Priekinio kryžminio raiščio plyšimas

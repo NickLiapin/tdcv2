@@ -1,0 +1,32 @@
+---
+description: Property feature. Pirts on a Latvian listing means a real sauna building or room and is an ordinary expectation rather than a luxury; siltumsūknis (heat pump) and rekuperācija (heat-recovery ventilation) appear on Latvian listings because heating through a five-month winter is what a Latvian buyer reads the advert for.
+locale: lv
+---
+Pirts
+Kamīns
+Siltumsūknis
+Rekuperācija
+Centrālapkure
+Gāzes apkure
+Malkas apkure
+Zemes gāze
+Saules paneļi
+Trauku mazgājamā mašīna
+Veļas mašīna dzīvoklī
+Balkons
+Terase
+Lodžija
+Dārzs
+Garāža
+Autostāvvieta
+Lifts
+Pagrabs
+Bēniņi
+Apsardze
+Videonovērošana
+Sporta zāle
+Peldbaseins
+Atļauts ar mājdzīvniekiem
+Mēbelēts
+Parkets
+Iebūvēti skapji
