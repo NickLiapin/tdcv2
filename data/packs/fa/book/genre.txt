@@ -1,0 +1,31 @@
+---
+description: Book genre (Persian). ادبیات دفاع مقدس is a genre with no European equivalent — memoir and fiction of the 1980-88 Iran-Iraq war, a whole publishing category with its own prizes and imprints.
+locale: fa
+---
+ادبیات داستانی
+غیرداستانی
+رمان
+داستان کوتاه
+شعر
+رمان تاریخی
+جنایی
+معمایی
+دلهره‌آور
+عاشقانه
+علمی‌تخیلی
+فانتزی
+وحشت
+زندگی‌نامه
+خودزندگی‌نامه
+تاریخ
+فلسفه
+روان‌شناسی
+خودیاری
+سفرنامه
+کتاب آشپزی
+ادبیات کودک
+ادبیات نوجوان
+رمان گرافیکی
+جستار
+ادبیات دفاع مقدس
+عرفان

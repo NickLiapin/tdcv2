@@ -1,0 +1,24 @@
+---
+description: Trip type (Persian). Iranian travel is dominated by two categories a European list does not have: زیارتی — pilgrimage, above all to Mashhad — and اربعین, the walk to Karbala forty days after Ashura, which moves millions of Iranians across the Iraqi border in a single week and is the largest annual gathering on earth. بوم‌گردی is stay-with-a-family village tourism, a licensed category in Iran.
+locale: fa
+---
+زیارتی
+اربعین
+حج
+عمره
+سیاحتی
+تفریحی
+کاری
+تجاری
+خانوادگی
+ماه عسل
+گروهی
+انفرادی
+ماجراجویی
+طبیعت‌گردی
+بوم‌گردی
+کوهنوردی
+اسکی
+ساحلی
+درمانی
+نمایشگاهی

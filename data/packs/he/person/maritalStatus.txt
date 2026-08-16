@@ -1,0 +1,18 @@
+---
+description: Marital status in Hebrew. Every form is GENDERED — נשוי for a man, נשואה for a woman — so a row's status must agree with its row's gender, and both members of each pair are listed here. ידוע בציבור deserves its own note: Israel has no civil marriage, only religious marriage through the rabbinic, sharia or church courts, so couples who cannot or will not marry that way register as ידועים בציבור, a status with most of the legal effects of marriage. It is common and it is not a European 'cohabiting' equivalent.
+locale: he
+---
+רווק
+רווקה
+נשוי
+נשואה
+גרוש
+גרושה
+אלמן
+אלמנה
+פרוד
+פרודה
+ידוע בציבור
+ידועה בציבור
+מאורס
+מאורסת

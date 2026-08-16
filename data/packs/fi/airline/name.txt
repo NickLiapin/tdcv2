@@ -1,0 +1,54 @@
+---
+description: Airline (Finnish carriers and the international ones that serve Finland). Finnair is the national carrier and one of the oldest airlines still operating; Norra — Nordic Regional Airlines — flies its domestic and regional routes under the Finnair brand.
+locale: fi
+---
+Finnair
+Norra
+Nordic Regional Airlines
+Jetflite
+SAS
+Norwegian
+Widerøe
+airBaltic
+Wizz Air
+Ryanair
+easyJet
+Lufthansa
+Swiss International Air Lines
+Austrian Airlines
+Brussels Airlines
+Air France
+KLM
+British Airways
+Iberia
+Vueling
+Eurowings
+Condor
+TAP Air Portugal
+ITA Airways
+Aegean Airlines
+LOT
+Czech Airlines
+Turkish Airlines
+Pegasus Airlines
+Aer Lingus
+Icelandair
+Play
+Air Serbia
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Cathay Pacific
+Japan Airlines
+All Nippon Airways
+Korean Air
+Air China
+American Airlines
+United Airlines
+Delta Air Lines
+JetBlue Airways
+Air Canada
+Qantas
+Ethiopian Airlines
+El Al

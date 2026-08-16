@@ -1,0 +1,25 @@
+---
+description: Israeli address unit / interior designator (דירה 12, קומה 3, כניסה ב). Bidi note for anyone composing a full address: Hebrew runs right to left but the house number, flat number and postcode inside it are still written left to right, so a rendered address mixes both directions in one line — this is correct, not a bug, and no marker characters are stored in the data.
+locale: he
+---
+דירה
+קומה
+כניסה
+בניין
+מבנה
+חדר
+משרד
+יחידה
+מגרש
+בית
+צריף
+מחסן
+חנות
+קומת קרקע
+קומת מרתף
+גג
+אגף
+בלוק
+שער
+תא דואר
+ת.ד.

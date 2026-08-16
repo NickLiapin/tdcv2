@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Finnish). Note keuhkosairaudet, ihotaudit and munuaistaudit: those are the names Finnish medicine actually uses for the specialities, not pulmonologia, dermatologia and nefrologia, which are recognised words but not speciality titles.
+locale: fi
+---
+Kardiologia
+Neurologia
+Onkologia
+Ihotaudit
+Gastroenterologia
+Endokrinologia
+Keuhkosairaudet
+Ortopedia
+Psykiatria
+Munuaistaudit

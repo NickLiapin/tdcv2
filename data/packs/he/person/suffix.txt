@@ -1,0 +1,14 @@
+---
+description: Name suffix (Hebrew). SHORT on purpose: Hebrew has no Jr / Sr / III tradition at all — a son named after a living father is in fact avoided in Ashkenazi custom — and Israeli academic titles are PREFIXES (ד״ר, פרופ׳, עו״ד), so almost nothing trails a name. What genuinely does is the honorific for the dead and, in religious writing, for the living rabbinic authorities. Nothing was invented to reach a European-sized list.
+locale: he
+---
+ז״ל
+ע״ה
+זצ״ל
+זיע״א
+הי״ד
+שליט״א
+נר״ו
+ב.א.
+מ.א.
+ד״ר

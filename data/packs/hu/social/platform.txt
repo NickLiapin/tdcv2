@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Hungary. Viber is on this list because it is genuinely widespread here, unlike in western Europe.
+locale: hu
+---
+WhatsApp
+Facebook
+Instagram
+TikTok
+YouTube
+X
+LinkedIn
+Telegram
+Snapchat
+Pinterest
+Reddit
+Twitch
+Discord
+Threads
+Messenger
+Mastodon
+Viber

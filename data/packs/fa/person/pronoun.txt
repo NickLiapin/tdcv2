@@ -1,0 +1,12 @@
+---
+description: Personal pronoun (Persian). Persian is a genderless language — او is he AND she, and there is no equivalent of the he/she split at all. ایشان is the respectful form and takes a plural verb; وی is the written-register third person used in news copy.
+locale: fa
+---
+او
+وی
+ایشان
+آن
+آنها
+آن‌ها
+خودش
+خود

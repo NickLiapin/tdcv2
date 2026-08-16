@@ -1,0 +1,28 @@
+---
+description: RPG character class (Hungarian).
+locale: hu
+---
+Harcos
+Mágus
+Tolvaj
+Paladin
+Vadász
+Pap
+Boszorkánymester
+Druida
+Szerzetes
+Sámán
+Halállovag
+Démonvadász
+Barbár
+Nekromanta
+Bárd
+Orgyilkos
+Klerikus
+Varázsló
+Felderítő
+Templomos
+Berzerker
+Idéző
+Alkimista
+Mérnök

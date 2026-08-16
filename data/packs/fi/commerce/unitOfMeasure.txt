@@ -1,0 +1,37 @@
+---
+description: Unit of measure for products (Finnish). Finnish uses the SI abbreviations without a full stop; note that a Finnish decimal is written with a comma, so half a kilo is 0,5 kg.
+locale: fi
+---
+kappale
+kpl
+pari
+pakkaus
+pkt
+laatikko
+ltk
+pussi
+säkki
+purkki
+tölkki
+pullo
+tuubi
+rulla
+arkki
+nippu
+kilo
+kg
+hehtogramma
+hg
+gramma
+g
+litra
+l
+desilitra
+dl
+senttilitra
+cl
+millilitra
+ml
+metri
+m
+neliömetri

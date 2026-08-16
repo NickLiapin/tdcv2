@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Serbian). Алева паприка, the sweet ground pepper of Horgoš and Mučanj, is the defining Serbian spice — it is what makes ајвар and ђувеч look and taste the way they do.
+locale: sr
+---
+алева паприка
+љута алева паприка
+бибер
+со
+ловоров лист
+першун
+целер
+мирођија
+оригано
+босиљак
+рузмарин
+мајчина душица
+жалфија
+нана
+матичњак
+ким
+анис
+коријандер
+куркума
+цимет
+каранфилић
+мушкатни орашчић
+ђумбир
+вегета
+чубар
+слачица
+шафран
+кари
+чили
+сусам

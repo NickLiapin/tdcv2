@@ -1,0 +1,13 @@
+---
+description: Dishes of Mexican cuisine (Serbian)
+locale: sr
+---
+Такос
+Бурито
+Кесадиља
+Начос
+Гвакамоле
+Енчиладе
+Фахитас
+Тамале
+Чили кон карне

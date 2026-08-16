@@ -1,0 +1,11 @@
+---
+description: Driving licence category for trucks (Persian). Iran grades its licences downwards: پایه سوم is the ordinary car licence, پایه دوم takes light goods vehicles and minibuses, پایه یکم the heavy lorries, and ویژه covers cranes, excavators and other machinery.
+locale: fa
+---
+پایه سوم
+پایه دوم
+پایه یکم
+ویژه
+موتورسیکلت
+کارت هوشمند راننده
+گواهینامه بین‌المللی

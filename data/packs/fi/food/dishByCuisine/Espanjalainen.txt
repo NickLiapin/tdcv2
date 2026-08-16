@@ -1,0 +1,13 @@
+---
+description: Dishes of espanjalainen cuisine, in Finnish
+locale: fi
+---
+Paella
+Tortilla española
+Gazpacho
+Tapakset
+Patatas bravas
+Jamón ibérico
+Pulpo a la gallega
+Churrot suklaan kera
+Crema catalana

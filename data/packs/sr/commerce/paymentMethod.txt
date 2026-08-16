@@ -1,0 +1,19 @@
+---
+description: Payment method (Serbian). Three of these are specific to Serbia and have no equivalent in the Polish or English list: ДинаКард is the domestic card scheme, IPS QR is the national instant-payment QR standard, and уплатница is the paper giro slip still used at any post office or bank counter.
+locale: sr
+---
+Готовина
+Платна картица
+Дебитна картица
+Кредитна картица
+ДинаКард
+Виза
+Мастеркард
+Плаћање поузећем
+Уплатница
+Инстант плаћање (IPS)
+IPS QR код
+Банковни трансфер
+Електронско банкарство
+Мобилно банкарство
+Плаћање на рате

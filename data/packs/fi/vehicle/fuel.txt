@@ -1,0 +1,15 @@
+---
+description: Fuel type (Finnish). Finland runs a high-blend biofuel mandate, so 95E10 and the renewable diesel HVO are ordinary pump grades rather than specialities, and ladattava hybridi is the plug-in hybrid category the vehicle register uses.
+locale: fi
+---
+bensiini 95E10
+bensiini 98E5
+diesel
+sähkö
+ladattava hybridi
+hybridi
+etanoli E85
+biokaasu
+maakaasu
+HVO-diesel
+vety

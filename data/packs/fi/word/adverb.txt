@@ -1,0 +1,37 @@
+---
+description: Common adverb (Finnish)
+locale: fi
+---
+paljon
+vähän
+melko
+hyvin
+usein
+harvoin
+aina
+ei koskaan
+joskus
+nyt
+sitten
+pian
+jo
+vielä
+heti
+hitaasti
+nopeasti
+mielellään
+tuskin
+melkein
+juuri
+noin
+erityisesti
+ennen kaikkea
+sen sijaan
+lisäksi
+siksi
+ehkä
+todella
+valitettavasti
+onneksi
+kaikkialla
+yhdessä

@@ -1,0 +1,16 @@
+---
+description: Jobs in rahoitus, in Finnish
+locale: fi
+---
+kirjanpitäjä
+tilintarkastaja
+controller
+talousjohtaja
+palkanlaskija
+rahoitusanalyytikko
+luottoanalyytikko
+pankkitoimihenkilö
+vakuutusneuvoja
+varainhoitaja
+sijoitusneuvoja
+aktuaari

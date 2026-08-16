@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Hungarian. A prevalence signal, not an exclusive one.
+locale: hu
+---
+E-hemoglobinopátia
+Alfa-talasszémia
+Glükóz-6-foszfát-dehidrogenáz-hiány
+Orrgaratrák
+Béta-talasszémia
+Brugada-szindróma
+Felnőttkori laktózérzékenység

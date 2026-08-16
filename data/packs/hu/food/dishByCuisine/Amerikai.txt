@@ -1,0 +1,12 @@
+---
+description: Dishes of American cuisine (Hungarian).
+locale: hu
+---
+Sajtburger
+Grillezett oldalas
+Sajtos makaróni
+Buffalo csirkeszárny
+Kagylóleves
+Almás pite
+Kukoricakenyér
+Hot dog

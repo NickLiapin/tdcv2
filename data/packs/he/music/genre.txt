@@ -1,0 +1,41 @@
+---
+description: Music genre (Hebrew), including the ones that exist only in Israel: מוזיקה מזרחית and its pop form מוזיקה ים תיכונית are the country's biggest commercial genre, זמר עברי and שירי ארץ ישראל are the older canon, and פסיטראנס is an Israeli export — Israel is one of the genre's two founding scenes.
+locale: he
+---
+פופ
+רוק
+מוזיקה מזרחית
+מוזיקה ים תיכונית
+זמר עברי
+שירי ארץ ישראל
+מוזיקה חסידית
+פסיטראנס
+טראנס
+היפ הופ
+ראפ
+אלקטרונית
+טכנו
+האוס
+דראם אנד בייס
+דאבסטפ
+ג׳אז
+ג׳אז ישראלי
+בלוז
+סול
+פאנק
+ריתם אנד בלוז
+רגאיי
+מטאל
+פאנק רוק
+אינדי
+אלטרנטיבי
+קאנטרי
+פולק
+קלאסית
+אופרה
+אמביינט
+מוזיקת עולם
+מוזיקה ערבית
+מוזיקה אתיופית
+מוזיקה רוסית
+פיוט

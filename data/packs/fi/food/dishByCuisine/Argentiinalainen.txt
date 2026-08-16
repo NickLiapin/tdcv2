@@ -1,0 +1,13 @@
+---
+description: Dishes of argentiinalainen cuisine, in Finnish
+locale: fi
+---
+Asado
+Empanadat
+Milanesa
+Choripán
+Provoleta
+Locro
+Matambre
+Dulce de leche
+Alfajores

@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Finnish (male-specific + common)
+locale: fi
+---
+Eturauhasen hyvänlaatuinen liikakasvu
+Eturauhastulehdus
+Eturauhassyöpä
+Kivessyöpä
+Erektiohäiriö
+Esinahan ahtauma
+Kiveskierukka
+Lisäkivestulehdus
+Kivespussin suonikohju
+Vesikives
+Rintarauhasen liikakasvu miehellä
+Peniksen syöpä
+Testosteronin puutos
+Kohonnut verenpaine
+Tyypin 2 diabetes
+Tyypin 1 diabetes
+Rasva-aineenvaihdunnan häiriö
+Lihavuus
+Astma
+Keuhkoahtaumatauti
+Allerginen nuha
+Krooninen keuhkoputkentulehdus
+Keuhkokuume
+Uniapnea
+Sydämen vajaatoiminta
+Eteisvärinä

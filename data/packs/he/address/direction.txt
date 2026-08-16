@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with an Israeli street, district or neighbourhood name (רמת אביב צפון, הקריה המזרחית)
+locale: he
+---
+צפון
+דרום
+מזרח
+מערב
+מרכז
+צפון מזרח
+צפון מערב
+דרום מזרח
+דרום מערב
+הצפוני
+הדרומי
+המזרחי
+המערבי
+עילית
+תחתית

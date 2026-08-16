@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Hungarian). The full stop is part of the abbreviation, and may (maj) is short enough that it is never shortened.
+locale: hu
+---
+jan.
+febr.
+márc.
+ápr.
+máj.
+jún.
+júl.
+aug.
+szept.
+okt.
+nov.
+dec.

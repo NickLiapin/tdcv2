@@ -1,0 +1,14 @@
+---
+description: Loan type (Hungarian).
+locale: hu
+---
+Lakáshitel
+Autóhitel
+Személyi kölcsön
+Diákhitel
+Szabad felhasználású jelzáloghitel
+Vállalkozói hitel
+Folyószámlahitel
+Adósságrendező hitel
+Zálogkölcsön
+Áruhitel

@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Hungarian. A prevalence signal, not an exclusive one.
+locale: hu
+---
+Béta-talasszémia
+Béta-talasszémia-hordozó állapot
+Glükóz-6-foszfát-dehidrogenáz-hiány
+Familiáris mediterrán láz
+Behçet-betegség
+Alfa-talasszémia
+Favizmus

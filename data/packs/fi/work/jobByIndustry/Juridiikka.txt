@@ -1,0 +1,16 @@
+---
+description: Jobs in juridiikka, in Finnish
+locale: fi
+---
+asianajaja
+lakimies
+yhtiölakimies
+tuomari
+käräjätuomari
+syyttäjä
+notaari
+ulosottomies
+oikeusavustaja
+lakiasiaintoimiston assistentti
+sopimusasiantuntija
+tietosuojavastaava

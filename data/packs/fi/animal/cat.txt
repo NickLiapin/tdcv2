@@ -1,0 +1,24 @@
+---
+description: Cat breed (Finnish)
+locale: fi
+---
+Persialainen
+Maine coon
+Siamilainen
+Ragdoll
+Bengali
+Sphynx
+Britannialainen lyhytkarva
+Abessinialainen
+Scottish fold
+Norjalainen metsäkissa
+Venäjänsininen
+Birma
+Amerikkalainen lyhytkarva
+Devon rex
+Burma
+Turkkilainen angora
+Somali
+Manx
+Pyhä birma
+Siperiankissa

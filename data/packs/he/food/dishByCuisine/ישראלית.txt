@@ -1,0 +1,24 @@
+---
+description: Dishes of Israeli cuisine (Hebrew). These are the dishes an Israeli eats, not a generic Middle Eastern selection.
+locale: he
+---
+חומוס
+פלאפל
+שקשוקה
+סביח
+סלט ישראלי
+טחינה
+מטבוחה
+בורקס
+שווארמה
+פרגית בלאפה
+שניצל
+פתיתים
+חמין
+מלאווח
+ג׳חנון
+קובנה
+חציל בטחינה
+קובה
+מרק עוף עם קניידלך
+סלט חצילים

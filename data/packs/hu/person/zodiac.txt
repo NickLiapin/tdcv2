@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Hungarian).
+locale: hu
+---
+Kos
+Bika
+Ikrek
+Rák
+Oroszlán
+Szűz
+Mérleg
+Skorpió
+Nyilas
+Bak
+Vízöntő
+Halak

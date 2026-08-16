@@ -1,0 +1,19 @@
+---
+description: Court type (Israeli judiciary, Hebrew). The thing a config cannot infer: Israel has NO civil marriage or divorce, so בית דין רבני and בית דין שרעי are not ceremonial — they hold exclusive jurisdiction over the marriage and divorce of Jews and Muslims respectively, and a family-law dataset that only lists the civil courts is wrong.
+locale: he
+---
+בית משפט השלום
+בית משפט מחוזי
+בית המשפט העליון
+בג״ץ
+בית הדין לעבודה
+בית הדין הארצי לעבודה
+בית משפט לענייני משפחה
+בית משפט לתביעות קטנות
+בית משפט לתעבורה
+בית משפט לנוער
+בית דין רבני אזורי
+בית הדין הרבני הגדול
+בית דין שרעי
+בית משפט צבאי
+בית דין למשמעת

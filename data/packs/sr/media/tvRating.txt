@@ -1,0 +1,13 @@
+---
+description: TV / film content rating as the Serbian regulator REM labels it — an age marker plus a spoken advisory. Serbia has no letter-code system like the American G/PG/R, so these are descriptive rather than coded.
+locale: sr
+---
+Дозвољено свим узрастима
+Препоручује се родитељски надзор
+12+
+16+
+18+
+Није препоручљиво за децу
+Садржи сцене насиља
+Садржи непримерен језик
+Садржи сцене сексуалног садржаја

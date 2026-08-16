@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Hungary.
+locale: hu
+---
+Általános iskolai végzettség
+Szakiskolai végzettség
+Szakmunkás-bizonyítvány
+Érettségi
+Technikusi oklevél
+Felsőfokú szakképzés
+Alapdiploma (BA)
+Alapdiploma (BSc)
+Mesterdiploma (MA)
+Mesterdiploma (MSc)
+Osztatlan mesterképzés
+Szakirányú továbbképzés
+MBA
+Doktori fokozat (PhD)
+DLA
+MTA doktora

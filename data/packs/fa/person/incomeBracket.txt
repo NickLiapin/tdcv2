@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Persian. THE CURRENCY TRAP: Iran's official currency is the rial (ریال), but nobody quotes a price in rials — Iranians speak, advertise and negotiate in tomans (تومان), and one toman is ten rials. A figure read off an Iranian price tag or salary advert is a toman figure; the same amount on a bank statement is ten times larger because it is in rials. These brackets are in TOMANS and say so on every line. Digits are Persian-Indic (۰۱۲۳۴۵۶۷۸۹, U+06F0-U+06F9), which is what Persian text uses — they are NOT the Arabic-Indic ٠١٢٣٤٥٦٧٨٩ of the ar pack.
+locale: fa
+---
+کمتر از ۱۰۰ میلیون تومان
+۱۰۰ تا ۲۰۰ میلیون تومان
+۲۰۰ تا ۳۵۰ میلیون تومان
+۳۵۰ تا ۵۰۰ میلیون تومان
+۵۰۰ تا ۷۵۰ میلیون تومان
+۷۵۰ میلیون تا ۱ میلیارد تومان
+۱ تا ۲ میلیارد تومان
+بیش از ۲ میلیارد تومان

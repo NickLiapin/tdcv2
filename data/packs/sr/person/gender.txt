@@ -1,0 +1,6 @@
+---
+description: Gender label (Serbian). Two values, matching en and ru — this list is what a parent= filter selects on, so a longer one silently leaves most rows without a name. The forms agree with пол, a masculine noun, which is why they read Мушки / Женски and not Мушко / Женско.
+locale: sr
+---
+Мушки
+Женски

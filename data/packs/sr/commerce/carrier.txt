@@ -1,0 +1,24 @@
+---
+description: Parcel carriers commonly used in Serbia. The domestic couriers keep the Latin brand spelling they trade under; Пошта Србије, the state post, is the one written in Cyrillic because that is its own name for itself.
+locale: sr
+---
+Пошта Србије
+Post Express
+BEX Express
+City Express
+D Express
+AKS Express
+Daily Express
+Aduna Express
+DHL
+DHL Express
+FedEx
+UPS
+TNT
+GLS
+DPD
+Overseas Express
+Milšped
+DB Schenker
+Gebrüder Weiss
+Kuehne+Nagel

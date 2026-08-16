@@ -1,0 +1,26 @@
+---
+description: World religion (Finnish). Two Finnish specifics: the Evankelis-luterilainen kirkko is a national church with the right to levy a church tax and still counts around two thirds of Finns as members, and Suomen ortodoksinen kirkko is the second national church, a legacy of Karelia and unusual in western Europe. Lestadiolaisuus is a revivalist Lutheran movement concentrated in the north with its own distinct demography.
+locale: fi
+---
+evankelis-luterilainen kirkko
+luterilaisuus
+lestadiolaisuus
+ortodoksinen kirkko
+kristinusko
+katolisuus
+helluntailaisuus
+vapaakirkko
+Jehovan todistajat
+adventismi
+islam
+sunnalaisuus
+šiialaisuus
+juutalaisuus
+hindulaisuus
+buddhalaisuus
+sikhiläisyys
+bahai
+suomenusko
+ateismi
+agnostisismi
+uskonnoton

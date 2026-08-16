@@ -1,0 +1,15 @@
+---
+description: Positions in association football (Hungarian).
+locale: hu
+---
+Kapus
+Középhátvéd
+Jobb hátvéd
+Bal hátvéd
+Védekező középpályás
+Középpályás
+Támadó középpályás
+Jobbszélső
+Balszélső
+Csatár
+Középcsatár

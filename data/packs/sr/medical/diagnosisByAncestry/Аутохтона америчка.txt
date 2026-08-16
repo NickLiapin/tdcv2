@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry, in Serbian. A prevalence signal, not an exclusive one.
+locale: sr
+---
+Дијабетес мелитус тип 2
+Каменци у жучној кеси
+Дијабетесна нефропатија
+Реуматоидни артритис
+Неалкохолна масна болест јетре
+Метаболички синдром

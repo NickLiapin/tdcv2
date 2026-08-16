@@ -1,0 +1,17 @@
+---
+description: Dishes of Moroccan cuisine (Hebrew). As cooked by Moroccan Jews in Israel: מופלטה is eaten at Mimouna, the night Passover ends.
+locale: he
+---
+טאג׳ין
+קוסקוס
+חריימה
+זעלוק
+פסטייה
+סלט קרוט
+מופלטה
+סיגר בקר
+טאג׳ין עוף עם זיתים
+בריוואט
+מסמן
+חמין מרוקאי
+סלט מטבוחה

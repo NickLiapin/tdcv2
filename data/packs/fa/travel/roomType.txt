@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Persian). اقامتگاه بوم‌گردی is a licensed village guesthouse, and سیاه‌چادر is a nomad's black tent let to travellers in the Zagros.
+locale: fa
+---
+اتاق یک‌تخته
+اتاق دوتخته
+اتاق دوتخته توئین
+اتاق سه‌تخته
+اتاق چهارتخته
+اتاق خانوادگی
+اتاق استاندارد
+اتاق لوکس
+اتاق اکونومی
+اتاق با چشم‌انداز
+اتاق کانکت
+سوئیت
+سوئیت رویال
+آپارتمان
+کلبه
+اقامتگاه بوم‌گردی
+سیاه‌چادر
+کمپ

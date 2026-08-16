@@ -1,0 +1,16 @@
+---
+description: Jobs in matkailu- ja ravintola-ala, in Finnish
+locale: fi
+---
+kokki
+kylmäkkö
+kondiittori
+leipuri
+tarjoilija
+hovimestari
+baarimestari
+barista
+ravintolapäällikkö
+vastaanottovirkailija
+hotellipäällikkö
+matkaopas

@@ -1,0 +1,26 @@
+---
+description: Company department / function (Hungarian).
+locale: hu
+---
+Fejlesztés
+Termék
+Design
+Értékesítés
+Marketing
+Pénzügy
+Könyvelés
+Humánerőforrás
+Üzemeltetés
+Jogi osztály
+Ügyfélszolgálat
+Informatika
+Kutatás-fejlesztés
+Beszerzés
+Minőségellenőrzés
+Logisztika
+Adminisztráció
+Karbantartás
+Biztonság
+Megfelelőség
+Kommunikáció
+Képzés

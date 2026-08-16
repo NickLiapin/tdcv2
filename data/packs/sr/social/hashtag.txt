@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Serbian (prefix with # in a template). Serbian hashtags are normally written in LATIN even by people who write everything else in Cyrillic, because a Cyrillic hashtag reaches a smaller audience — these are given in Cyrillic for consistency with the pack, and a config targeting real social copy should transliterate them.
+locale: sr
+---
+Србија
+Београд
+НовиСад
+Ниш
+Балкан
+Путовање
+Природа
+Планина
+Море
+Лето
+Зима
+Храна
+Кафа
+Ракија
+Роштиљ
+Породица
+Пријатељи
+Љубав
+Срећа
+Живот
+Музика
+Фолклор
+Спорт
+Фудбал
+Кошарка
+Фитнес
+Мода
+Стил
+Посао
+Технологија

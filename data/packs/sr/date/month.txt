@@ -1,0 +1,16 @@
+---
+description: Month name (Serbian, nominative, lowercase — Serbian orthography does not capitalise month names). Serbian uses the INTERNATIONAL Latin-derived month names, unlike Croatian (siječanj, veljača) and Czech (leden, únor), which kept the Slavic ones. The old Slavic Serbian names (коложег, сечко, дерикожа) are archaic and appear only in calendars printed as curiosities, so they are deliberately not here. This is one of the clearest points where Serbian and Croatian, otherwise so close, diverge.
+locale: sr
+---
+јануар
+фебруар
+март
+април
+мај
+јун
+јул
+август
+септембар
+октобар
+новембар
+децембар

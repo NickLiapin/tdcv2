@@ -1,0 +1,24 @@
+---
+description: Event type (Hebrew). בר מצווה, בת מצווה, ברית and חינה are life-cycle events with no European equivalent; the חינה is the pre-wedding party of Mizrahi and Sephardi families and is celebrated as its own occasion.
+locale: he
+---
+חתונה
+בר מצווה
+בת מצווה
+ברית מילה
+זבד הבת
+חינה
+אירוסין
+יום הולדת
+כנס
+השקה
+מסיבה
+הופעה
+פסטיבל
+טקס
+אזכרה
+מפגש
+סדנה
+תערוכה
+טורניר
+ערב גיבוש

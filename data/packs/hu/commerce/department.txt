@@ -1,0 +1,54 @@
+---
+description: Store department / category (Hungarian).
+locale: hu
+---
+Könyvek
+Filmek
+Zene
+Videojátékok
+Elektronika
+Számítástechnika
+Mobiltelefon
+Otthon
+Kert
+Szerszám
+Vasáru
+Élelmiszer
+Italok
+Egészség
+Gyógyszertár
+Szépségápolás
+Parfüméria
+Játék
+Gyermek
+Baba
+Ruházat
+Lábbeli
+Ékszer
+Óra
+Kiegészítők
+Sport
+Turisztika
+Autó-motor
+Motorkerékpár
+Ipari cikkek
+Iroda
+Papír-írószer
+Állateledel
+Bútor
+Lakásdekoráció
+Háztartási gépek
+Világítás
+Lakástextil
+Konyhafelszerelés
+Barkács
+Építőanyag
+Fotó
+Hangszerek
+Bőrönd
+Optika
+Tisztítószer
+Ajándék
+Kreatív hobbi
+Horgászat
+Vadászat

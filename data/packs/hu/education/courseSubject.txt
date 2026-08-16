@@ -1,0 +1,24 @@
+---
+description: School subject (Hungarian).
+locale: hu
+---
+Matematika
+Fizika
+Kémia
+Biológia
+Informatika
+Történelem
+Földrajz
+Magyar nyelv és irodalom
+Rajz és vizuális kultúra
+Ének-zene
+Testnevelés
+Közgazdaságtan
+Filozófia
+Pszichológia
+Idegen nyelv
+Statisztika
+Természetismeret
+Társadalomismeret
+Állampolgári ismeretek
+Technika és tervezés

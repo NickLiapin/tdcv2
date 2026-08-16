@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Finnish, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: fi
+---
+Saharan eteläpuolinen Afrikka
+Pohjois-Afrikka
+Välimeren alue
+Lähi-itä
+Pohjois-Eurooppa
+Itä-Eurooppa
+Aškenasijuutalaiset
+Etelä-Aasia
+Itä-Aasia
+Kaakkois-Aasia
+Amerikan alkuperäiskansat
+Tyynenmeren saaret

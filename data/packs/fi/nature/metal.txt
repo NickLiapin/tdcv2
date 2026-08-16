@@ -1,0 +1,26 @@
+---
+description: Metal (Finnish)
+locale: fi
+---
+rauta
+teräs
+ruostumaton teräs
+valurauta
+kupari
+messinki
+pronssi
+tina
+lyijy
+sinkki
+alumiini
+titaani
+nikkeli
+kromi
+volframi
+koboltti
+magnesium
+hopea
+kulta
+platina
+palladium
+elohopea

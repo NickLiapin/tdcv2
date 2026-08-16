@@ -1,0 +1,32 @@
+---
+description: Government body (Finnish agencies and public offices). Kela pays every social benefit from student aid to pensions and is the single agency a Finn deals with most. Digi- ja väestötietovirasto keeps the population register and issues the personal identity code. Hyvinvointialue is new and important: since 2023 healthcare and social services moved from the 300-odd municipalities to 21 wellbeing services counties, so a Finnish health record after that date belongs to a hyvinvointialue and not to a kunta.
+locale: fi
+---
+Kela
+Verohallinto
+Digi- ja väestötietovirasto
+Työ- ja elinkeinotoimisto
+Maahanmuuttovirasto
+Poliisi
+Rajavartiolaitos
+Tulli
+Ulosottolaitos
+Rikosseuraamuslaitos
+Traficom
+Väylävirasto
+Maanmittauslaitos
+Patentti- ja rekisterihallitus
+Ruokavirasto
+Terveyden ja hyvinvoinnin laitos
+Valvira
+Kilpailu- ja kuluttajavirasto
+Tilastokeskus
+Suomen Pankki
+Finanssivalvonta
+Ilmatieteen laitos
+Aluehallintovirasto
+ELY-keskus
+hyvinvointialue
+kunta
+Eduskunta
+Valtioneuvosto

@@ -1,0 +1,32 @@
+---
+description: Property amenity (Finnish). Three are Finnish and unremarkable here while being unheard-of elsewhere. Sauna: nearly every Finnish flat block has one, many flats have their own, and a listing without a sauna says so as a drawback. Lämmitystolppa: the post beside a parking space that a car's block heater is plugged into, without which a Finnish car does not reliably start in February. Väestönsuoja: the civil defence shelter that Finnish law requires in larger buildings, used the rest of the time as a storage cage — Finland has shelter places for some 4.8 million people.
+locale: fi
+---
+oma sauna
+taloyhtiön sauna
+parveke
+lasitettu parveke
+terassi
+piha
+takka
+leivinuuni
+lattialämmitys
+hissi
+pesutupa
+kuivaushuone
+mankeli
+häkkivarasto
+ullakkokomero
+kellarikomero
+väestönsuoja
+autotalli
+autokatos
+lämmitystolppa
+kuituliittymä
+järvinäköala
+merinäköala
+ranta
+laituri
+puutarha
+esteettömyys
+polkupyörävarasto

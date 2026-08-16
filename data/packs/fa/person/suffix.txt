@@ -1,0 +1,28 @@
+---
+description: Persian family-name ending. Persian has NO generational suffix — there is no Jr., no Senior, no II or III after an Iranian name, and academic titles precede the name instead of trailing it (see person/prefix). What does sit at the end of a Persian name is the element that BUILT the surname: زاده born-of, پور son-of, نژاد lineage, فر glory, نیا descent, وند and لو tribal, یان plural/Armenian. Use these to compose a family name, not to append a generation to one.
+locale: fa
+---
+زاده
+پور
+نژاد
+فر
+نیا
+یان
+کیا
+وند
+لو
+منش
+دوست
+خواه
+مهر
+بخش
+پرست
+شناس
+کار
+گر
+چی
+بان
+دار
+ی
+الدین
+الملک

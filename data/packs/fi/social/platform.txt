@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Finland. Three are Finnish and have no international equivalent in this list: Suomi24 is the country's large anonymous discussion forum, Vauva.fi began as a parenting site and became a national gossip board in its own right, and Tori.fi is the classifieds site every Finn uses for second-hand goods. Jodel, though German, took hold in Finland far more strongly than almost anywhere else.
+locale: fi
+---
+Facebook
+Instagram
+TikTok
+Snapchat
+YouTube
+LinkedIn
+X
+Reddit
+Pinterest
+Discord
+Twitch
+WhatsApp
+Telegram
+Jodel
+Suomi24
+Vauva.fi
+Tori.fi

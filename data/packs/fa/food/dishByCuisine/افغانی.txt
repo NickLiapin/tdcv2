@@ -1,0 +1,16 @@
+---
+description: Dishes of Afghan cuisine, cooked in Iran by a large resident Afghan community (Persian). Afghans speak a variety of Persian (دری), so these names read as Persian.
+locale: fa
+---
+قابلی پلو
+منتو
+آشک
+بولانی
+شوربا
+کباب چوپان
+چلو نخود
+لندی
+برنج قابلی
+نان افغانی
+سمنک
+فرنی افغانی

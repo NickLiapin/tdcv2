@@ -1,0 +1,13 @@
+---
+description: Dishes of Italian cuisine (Hungarian).
+locale: hu
+---
+Pizza margherita
+Spagetti carbonara
+Lasagne
+Rizottó
+Ossobuco
+Tiramisu
+Gnocchi
+Minestrone
+Fettuccine Alfredo

@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Serbian). The English loans приправник → јуниор → сениор are what a Serbian job advertisement actually prints, and the Serbian-formed ones beside them are what a public-sector systematisation uses.
+locale: sr
+---
+Приправник
+Волонтер
+Јуниор
+Медиор
+Сениор
+Самостални
+Виши
+Водећи
+Главни
+Шеф
+Руководилац
+Координатор
+Менаџер
+Директор сектора
+Извршни директор
+Генерални директор

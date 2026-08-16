@@ -1,0 +1,249 @@
+---
+description: Country and territory names (Finnish). Finnish keeps its own forms for a great many of them — Saksa, Ranska, Britannia, Alankomaat, Venäjä, Ruotsi, Viro, Norsunluurannikko — and uses no article. Note that Finnish country names take case endings like any other noun: Suomessa is "in Finland", Ruotsiin "to Sweden", so a config that puts one in a sentence must inflect it.
+locale: fi
+---
+Afganistan
+Alankomaat
+Albania
+Algeria
+Andorra
+Angola
+Antigua ja Barbuda
+Arabiemiirikunnat
+Argentiina
+Armenia
+Australia
+Azerbaidžan
+Bahama
+Bahrain
+Bangladesh
+Barbados
+Belgia
+Belize
+Benin
+Bhutan
+Bolivia
+Bosnia ja Hertsegovina
+Botswana
+Brasilia
+Brunei
+Bulgaria
+Burkina Faso
+Burundi
+Chile
+Costa Rica
+Djibouti
+Dominica
+Dominikaaninen tasavalta
+Ecuador
+Egypti
+El Salvador
+Eritrea
+Espanja
+Eswatini
+Etelä-Afrikka
+Etelä-Korea
+Etelä-Sudan
+Etiopia
+Fidži
+Filippiinit
+Gabon
+Gambia
+Georgia
+Ghana
+Grenada
+Grönlanti
+Guatemala
+Guinea
+Guinea-Bissau
+Guyana
+Haiti
+Honduras
+Indonesia
+Intia
+Irak
+Iran
+Irlanti
+Islanti
+Israel
+Italia
+Itä-Timor
+Itävalta
+Jamaika
+Japani
+Jemen
+Jordania
+Kambodža
+Kamerun
+Kanada
+Kap Verde
+Kazakstan
+Kenia
+Keski-Afrikan tasavalta
+Kiina
+Kirgisia
+Kiribati
+Kolumbia
+Komorit
+Kongon demokraattinen tasavalta
+Kongon tasavalta
+Kosovo
+Kreikka
+Kroatia
+Kuuba
+Kuwait
+Kypros
+Laos
+Latvia
+Lesotho
+Libanon
+Liberia
+Libya
+Liechtenstein
+Liettua
+Luxemburg
+Madagaskar
+Malawi
+Malediivit
+Malesia
+Mali
+Malta
+Marokko
+Marshallinsaaret
+Mauritania
+Mauritius
+Meksiko
+Mikronesia
+Moldova
+Monaco
+Mongolia
+Montenegro
+Mosambik
+Myanmar
+Namibia
+Nauru
+Nepal
+Nicaragua
+Niger
+Nigeria
+Norja
+Norsunluurannikko
+Oman
+Pakistan
+Palau
+Palestiina
+Panama
+Papua-Uusi-Guinea
+Paraguay
+Peru
+Pohjois-Korea
+Pohjois-Makedonia
+Portugali
+Puola
+Päiväntasaajan Guinea
+Qatar
+Ranska
+Romania
+Ruanda
+Ruotsi
+Saint Kitts ja Nevis
+Saint Lucia
+Saint Vincent ja Grenadiinit
+Saksa
+Salomonsaaret
+Sambia
+Samoa
+San Marino
+São Tomé ja Príncipe
+Saudi-Arabia
+Senegal
+Serbia
+Seychellit
+Sierra Leone
+Singapore
+Slovakia
+Slovenia
+Somalia
+Sri Lanka
+Sudan
+Suomi
+Suriname
+Sveitsi
+Syyria
+Tadžikistan
+Taiwan
+Tansania
+Tanska
+Thaimaa
+Togo
+Tonga
+Trinidad ja Tobago
+Tšad
+Tšekki
+Tunisia
+Turkki
+Turkmenistan
+Tuvalu
+Uganda
+Ukraina
+Unkari
+Uruguay
+Uusi-Seelanti
+Uzbekistan
+Valko-Venäjä
+Vanuatu
+Vatikaani
+Venezuela
+Venäjä
+Vietnam
+Viro
+Yhdistynyt kuningaskunta
+Yhdysvallat
+Zimbabwe
+Ahvenanmaa
+Färsaaret
+Gibraltar
+Guam
+Hongkong
+Macao
+Mansaari
+Bermuda
+Caymansaaret
+Neitsytsaaret
+Brittiläiset Neitsytsaaret
+Puerto Rico
+Uusi-Kaledonia
+Anguilla
+Aruba
+Curaçao
+Sint Maarten
+Bonaire
+Ranskan Guayana
+Ranskan Polynesia
+Guadeloupe
+Martinique
+Réunion
+Mayotte
+Saint-Martin
+Saint-Barthélemy
+Saint-Pierre ja Miquelon
+Falklandinsaaret
+Etelä-Georgia
+Antarktis
+Huippuvuoret
+Länsi-Sahara
+Norfolkinsaari
+Joulusaari
+Kookossaaret
+Cookinsaaret
+Niue
+Tokelau
+Wallis ja Futuna
+Amerikan Samoa
+Pohjois-Mariaanit
+Montserrat
+Turks- ja Caicossaaret
+Pitcairn
+Saint Helena
+Bouvet'nsaari
+Tristan da Cunha

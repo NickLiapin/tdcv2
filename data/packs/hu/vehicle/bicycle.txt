@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Hungarian).
+locale: hu
+---
+Országúti kerékpár
+Mountain bike
+Trekking kerékpár
+Városi kerékpár
+Gravel kerékpár
+BMX
+Elektromos kerékpár
+Összecsukható kerékpár
+Túrakerékpár
+Cyclocross kerékpár
+Pályakerékpár
+Fekvőkerékpár
+Teherszállító kerékpár
+Downhill kerékpár
+Gyermekkerékpár
+Háromkerekű
+Tandem

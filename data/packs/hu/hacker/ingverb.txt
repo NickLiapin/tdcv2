@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Hungarian). Every one is built with the same suffix, which has two shapes chosen by vowel harmony: back-vowel stems take -AS (archivalas, masolas), front-vowel stems take -ES (tomorites, elemzes). A config must not manufacture new ones by gluing on a fixed ending.
+locale: hu
+---
+archiválás
+megkerülés
+feltörés
+felülírás
+tömörítés
+másolás
+navigálás
+indexelés
+összekapcsolás
+generálás
+számszerűsítés
+számítás
+szintetizálás
+bevitel
+továbbítás
+programozás
+újraindítás
+elemzés
+titkosítás
+visszafejtés
+telepítés
+fordítás
+hibakeresés
+optimalizálás
+szinkronizálás
+virtualizálás
+útválasztás
+felügyelet

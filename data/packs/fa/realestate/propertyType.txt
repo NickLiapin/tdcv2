@@ -1,0 +1,23 @@
+---
+description: Property type (Persian). کلنگی has no English equivalent: an old house sold purely for the land under it, priced by the metre and expected to be demolished. باغ‌ویلا is a walled orchard with a house in it, bought as a weekend place outside the city.
+locale: fa
+---
+آپارتمان
+خانه ویلایی
+ویلا
+کلنگی
+زمین
+مغازه
+دفتر کار
+انبار
+سوله
+باغ
+باغ‌ویلا
+پنت‌هاوس
+دوبلکس
+سوئیت
+برج
+مجتمع مسکونی
+کارگاه
+مزرعه
+مستغلات

@@ -1,0 +1,46 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Serbian). Programming languages and tool names stay in Latin, which is how a Serbian CV writes them.
+locale: sr
+---
+Python
+JavaScript
+SQL
+Java
+C++
+C#
+PHP
+React
+Node.js
+Docker
+Kubernetes
+Linux
+Клауд рачунарство
+Машинско учење
+Анализа података
+Пословна аналитика
+Управљање пројектима
+Agile
+Scrum
+Јавни наступ
+Техничко писање
+Корисничка подршка
+Продаја
+Преговарање
+Књиговодство
+Финансијско моделовање
+CAD
+3Д моделовање
+Графички дизајн
+Копирајтинг
+Заваривање
+Електроинсталације
+Водоинсталатерски радови
+Столарија
+Читање нацрта
+Машинска обрада
+Лемљење
+Управљање виљушкаром
+Управљање грађевинском машином
+Вожња C категорије
+Прва помоћ
+Безбедност хране

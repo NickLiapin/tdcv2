@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Hebrew)
+locale: he
+---
+כדורגל
+כדורסל
+כדורעף
+כדוריד
+בייסבול
+הוקי קרח
+פוטבול אמריקאי
+רוגבי

@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Hungarian).
+locale: hu
+---
+Ingyenes wifi
+Medence
+Fűtött medence
+Wellnessrészleg
+Konditerem
+Étterem
+Bár
+Szobaszerviz
+Reptéri transzfer
+Reggeli az árban
+Ingyenes parkolás
+Kisállatbarát
+Üzleti központ
+Concierge-szolgálat
+Mosodai szolgáltatás
+Jakuzzi
+Tetőterasz
+Légkondicionálás
+Széf
+Éjjel-nappali recepció
+Konferenciaterem
+Lift
+Minibár
+Akadálymentesített
+Csomagmegőrző
+Kerékpárkölcsönzés
+Gyerekjátszósarok
+Szauna
+Tengerre néző kilátás
+Konyhasarok

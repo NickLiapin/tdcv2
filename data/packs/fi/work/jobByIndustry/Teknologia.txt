@@ -1,0 +1,16 @@
+---
+description: Jobs in teknologia, in Finnish
+locale: fi
+---
+ohjelmistokehittäjä
+web-kehittäjä
+frontend-kehittäjä
+backend-kehittäjä
+ohjelmistoarkkitehti
+testausinsinööri
+IT-tukihenkilö
+verkkoasiantuntija
+data-analyytikko
+tietoturva-asiantuntija
+tuoteomistaja
+scrum master

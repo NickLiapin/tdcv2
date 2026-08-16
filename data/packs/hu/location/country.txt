@@ -1,0 +1,237 @@
+---
+description: Country and territory names (Hungarian).
+locale: hu
+---
+Afganisztán
+Albánia
+Németország
+Andorra
+Angola
+Anguilla
+Antarktisz
+Antigua és Barbuda
+Szaúd-Arábia
+Algéria
+Argentína
+Örményország
+Aruba
+Ausztrália
+Ausztria
+Azerbajdzsán
+Bahama-szigetek
+Banglades
+Barbados
+Bahrein
+Belgium
+Belize
+Benin
+Bermuda
+Fehéroroszország
+Bolívia
+Bosznia-Hercegovina
+Botswana
+Brazília
+Brunei
+Bulgária
+Burkina Faso
+Burundi
+Bhután
+Zöld-foki Köztársaság
+Kambodzsa
+Kamerun
+Kanada
+Katar
+Csád
+Csehország
+Chile
+Kína
+Ciprus
+Vatikán
+Kolumbia
+Comore-szigetek
+Észak-Korea
+Dél-Korea
+Elefántcsontpart
+Costa Rica
+Horvátország
+Kuba
+Curaçao
+Dánia
+Dominika
+Ecuador
+Egyiptom
+Salvador
+Egyesült Arab Emírségek
+Eritrea
+Szlovákia
+Szlovénia
+Spanyolország
+Amerikai Egyesült Államok
+Észtország
+Eswatini
+Etiópia
+Fülöp-szigetek
+Finnország
+Fidzsi-szigetek
+Franciaország
+Gabon
+Gambia
+Grúzia
+Ghána
+Gibraltár
+Grenada
+Görögország
+Grönland
+Guadeloupe
+Guam
+Guatemala
+Francia Guyana
+Guinea
+Bissau-Guinea
+Egyenlítői-Guinea
+Guyana
+Haiti
+Honduras
+Hongkong
+Magyarország
+India
+Indonézia
+Irak
+Irán
+Írország
+Karácsony-sziget
+Izland
+Kajmán-szigetek
+Kókusz-szigetek
+Cook-szigetek
+Feröer
+Falkland-szigetek
+Északi-Mariana-szigetek
+Marshall-szigetek
+Pitcairn-szigetek
+Salamon-szigetek
+Turks- és Caicos-szigetek
+Brit Virgin-szigetek
+Amerikai Virgin-szigetek
+Izrael
+Olaszország
+Jamaica
+Japán
+Jordánia
+Kazahsztán
+Kenya
+Kirgizisztán
+Kiribati
+Koszovó
+Kuvait
+Laosz
+Lesotho
+Lettország
+Libanon
+Libéria
+Líbia
+Liechtenstein
+Litvánia
+Luxemburg
+Makaó
+Észak-Macedónia
+Madagaszkár
+Malajzia
+Malawi
+Maldív-szigetek
+Mali
+Málta
+Marokkó
+Martinique
+Mauritius
+Mauritánia
+Mayotte
+Mexikó
+Mikronézia
+Moldova
+Monaco
+Mongólia
+Montenegró
+Montserrat
+Mozambik
+Mianmar
+Namíbia
+Nauru
+Nepál
+Nicaragua
+Niger
+Nigéria
+Niue
+Norvégia
+Új-Kaledónia
+Új-Zéland
+Omán
+Hollandia
+Pakisztán
+Palau
+Palesztina
+Panama
+Pápua Új-Guinea
+Paraguay
+Peru
+Francia Polinézia
+Lengyelország
+Portugália
+Puerto Rico
+Egyesült Királyság
+Közép-afrikai Köztársaság
+Kongói Köztársaság
+Kongói Demokratikus Köztársaság
+Dominikai Köztársaság
+Réunion
+Ruanda
+Románia
+Oroszország
+Nyugat-Szahara
+Szamoa
+Amerikai Szamoa
+Saint Kitts és Nevis
+San Marino
+Saint Vincent és a Grenadine-szigetek
+Saint Lucia
+São Tomé és Príncipe
+Szenegál
+Szerbia
+Seychelle-szigetek
+Sierra Leone
+Szingapúr
+Szíria
+Szomália
+Srí Lanka
+Dél-afrikai Köztársaság
+Szudán
+Dél-Szudán
+Svédország
+Svájc
+Suriname
+Thaiföld
+Tajvan
+Tanzánia
+Tádzsikisztán
+Francia Déli Területek
+Kelet-Timor
+Togo
+Tokelau
+Tonga
+Trinidad és Tobago
+Tunézia
+Türkmenisztán
+Törökország
+Tuvalu
+Ukrajna
+Uganda
+Uruguay
+Üzbegisztán
+Vanuatu
+Venezuela
+Vietnam
+Wallis és Futuna
+Jemen
+Dzsibuti
+Zambia
+Zimbabwe

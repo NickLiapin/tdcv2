@@ -45,8 +45,23 @@ class DateLocaleTest {
   void anUnknownLanguageFallsBackRatherThanFailingTheRun() {
     // A country pack may name a language with no date table yet. English month names are a worse
     // answer than the right ones and a far better answer than no data at all.
-    assertEquals("10/18/2026", DateFormatter.format(OCT_18, "L", "cs"));
+    //
+    // The code checked here is deliberately not a real language. This test used to pass "cs", and
+    // "cs" was a real language whose table existed and had simply never been put in the lookup map
+    // — so the assertion was recording a bug as if it were the design, and it went on passing for
+    // as long as the bug lasted. Any real code can acquire a table tomorrow; "qq" cannot.
+    assertEquals("10/18/2026", DateFormatter.format(OCT_18, "L", "qq"));
     assertEquals("10/18/2026", DateFormatter.format(OCT_18, "L", null));
+  }
+
+  @Test
+  void everyTableThatExistsIsReachable() {
+    // The gap the test above was hiding: CS, TH and HI were defined in DateLocales and never
+    // registered, so `local="cs"` silently rendered English. Counting the tables against the
+    // lookup is what catches a table that exists and cannot be reached.
+    for (String name : new String[] {"cs", "th", "hi", "vi", "hu", "fi"}) {
+      assertTrue(DateLocales.isKnown(name), name + " has a table but no entry in the lookup");
+    }
   }
 
   @Test

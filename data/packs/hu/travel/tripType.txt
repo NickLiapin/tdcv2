@@ -1,0 +1,24 @@
+---
+description: Trip type (Hungarian).
+locale: hu
+---
+Üzleti út
+Pihenés
+Családi nyaralás
+Nászút
+Kalandtúra
+Autós körút
+Hajóút
+Hátizsákos utazás
+Városlátogatás
+Tengerparti nyaralás
+Csoportos utazás
+Egyéni utazás
+Kulturális utazás
+Ökoturizmus
+Zarándoklat
+Osztálykirándulás
+Gasztroturizmus
+Síelés
+Rokonlátogatás
+Konferencia vagy vásár

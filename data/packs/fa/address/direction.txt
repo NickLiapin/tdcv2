@@ -1,0 +1,20 @@
+---
+description: Directional qualifier used with an Iranian street, district or estate name (خیابان ولیعصر شمالی, منطقه ۵ غربی). بالاشهر and پایین‌شهر are directions in practice as well as in name: in Tehran the city climbs northwards towards the Alborz, so 'uptown' is literally uphill and north.
+locale: fa
+---
+شمال
+جنوب
+شرق
+غرب
+شمال شرقی
+شمال غربی
+جنوب شرقی
+جنوب غربی
+شمالی
+جنوبی
+شرقی
+غربی
+مرکزی
+مرکز شهر
+بالاشهر
+پایین‌شهر

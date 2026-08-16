@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Finnish (prefix with # in a template). Two need translating for anyone outside Finland: sisu is the national self-concept, a stubborn endurance that keeps going after sense says stop, and kalsarikännit is the Finnish word — recognised officially enough that Finland issued it as a national emoji — for drinking at home alone in your underwear with no intention of going out.
+locale: fi
+---
+sisu
+sauna
+löyly
+avanto
+mökki
+kesämökki
+kaamos
+revontulet
+ruska
+yötönyö
+joulupukki
+vappu
+juhannus
+pikkujoulut
+laskiainen
+itsenäisyyspäivä
+salmiakki
+ruisleipä
+korvapuusti
+karjalanpiirakka
+kalsarikännit
+luonto
+marjastus
+sienestys
+jokamiehenoikeudet
+hiihtoloma
+järvimaisema
+talviuinti
+pyöräily
+lähiruoka

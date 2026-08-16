@@ -1,0 +1,25 @@
+---
+description: World religion (Hungarian).
+locale: hu
+---
+Kereszténység
+Katolicizmus
+Reformátusság
+Evangélikusság
+Ortodox kereszténység
+Unitarizmus
+Iszlám
+Hinduizmus
+Buddhizmus
+Judaizmus
+Szikhizmus
+Dzsainizmus
+Bahá'í hit
+Sintoizmus
+Taoizmus
+Konfucianizmus
+Zoroasztrizmus
+Animizmus
+Ateizmus
+Agnoszticizmus
+Felekezeten kívüli

@@ -1,0 +1,13 @@
+---
+description: Film and TV age rating in Finland. KAVI, the National Audiovisual Institute, classifies by age with four limits — S, 7, 12, 16, 18 — and by content symbol: väkivalta, seksi, ahdistus and päihteet are the four grounds that raise the limit, and the symbol is shown alongside the number. A Finnish rating is therefore two facts, an age and a reason.
+locale: fi
+---
+S
+K-7
+K-12
+K-16
+K-18
+väkivalta
+seksi
+ahdistus
+päihteet

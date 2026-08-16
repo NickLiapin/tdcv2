@@ -1,0 +1,34 @@
+---
+description: Tree (Persian). چنار, the oriental plane, is the tree of Iranian city squares and lives for centuries; سرو, the cypress, is the standing figure of Persian poetry and carpet design; کهور is the desert mesquite of the south.
+locale: fa
+---
+چنار
+سرو
+بید
+بید مجنون
+صنوبر
+تبریزی
+نارون
+بلوط
+گردو
+توت
+انجیر
+انار
+زیتون
+نخل
+پسته
+بادام
+سنجد
+عناب
+اقاقیا
+کاج
+سدر
+ارس
+ازگیل
+افرا
+زبان‌گنجشک
+شمشاد
+راش
+ممرز
+توسکا
+کهور

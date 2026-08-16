@@ -1,0 +1,18 @@
+---
+description: Leave type (Finnish). Two are statutory Finnish rights with no equivalent in most of Europe. Opintovapaa lets an employee with a year's service take up to two years off to study and return to the same job. Vuorotteluvapaa — job alternation leave — lets a long-serving employee take three to six months off on partial pay, on condition that the employer hires an unemployed jobseeker for the period; it is a labour-market instrument disguised as a holiday. Tilapäinen hoitovapaa is up to four days' leave to care for a child under ten who has fallen ill, and lomautus is temporary lay-off, a normal and heavily regulated Finnish employment state rather than dismissal.
+locale: fi
+---
+vuosiloma
+vanhempainvapaa
+raskausvapaa
+hoitovapaa
+osittainen hoitovapaa
+tilapäinen hoitovapaa
+sairausloma
+opintovapaa
+vuorotteluvapaa
+palkaton vapaa
+lomautus
+vapaapäivä
+isyysvapaa
+omaishoitovapaa

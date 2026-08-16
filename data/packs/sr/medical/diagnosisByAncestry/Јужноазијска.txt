@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Serbian. A prevalence signal, not an exclusive one.
+locale: sr
+---
+Рани дијабетес мелитус тип 2
+Прерана коронарна болест срца
+Централна гојазност при нормалном индексу телесне масе
+Дефицит витамина Д
+Носилаштво бета-таласемије
+Метаболички синдром
+Дефицит глукоза-6-фосфат дехидрогеназе
+Реуматска болест срца

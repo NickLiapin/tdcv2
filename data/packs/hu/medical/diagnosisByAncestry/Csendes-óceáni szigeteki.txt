@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Hungarian. A prevalence signal, not an exclusive one.
+locale: hu
+---
+2-es típusú cukorbetegség
+Elhízáshoz társuló magas vérnyomás
+Köszvény
+Reumás szívbetegség
+Krónikus veseelégtelenség
+Emelkedett húgysavszint

@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Serbia. Serbia grades qualifications by степен стручне спреме (I–VIII), a level ladder the Polish and English lists have no equivalent for, so both the ladder rung and the modern Bologna degree are listed.
+locale: sr
+---
+Основна школа
+Средња школа
+Гимназија
+Средња стручна школа
+III степен стручне спреме
+IV степен стручне спреме
+Основне струковне студије
+Струковни специјалиста
+Основне академске студије
+Дипломирани
+Мастер академске студије
+Мастер инжењер
+Специјалистичке академске студије
+Магистар наука
+Докторске академске студије
+Доктор наука

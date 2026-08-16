@@ -1,0 +1,24 @@
+---
+description: Payment method (Finnish). Verkkopankkimaksu leads because it is the Finnish default: at a Finnish checkout you are sent to your own bank's online bank and authorise the transfer there, rather than typing a card number. MobilePay is the instant person-to-person app, Pivo is OP's and Siirto the interbank instant transfer. ePassi, Smartum and Edenred are the employee benefit cards Finns pay for lunch and gym visits with, and they are a real payment method at a Finnish till.
+locale: fi
+---
+verkkopankkimaksu
+MobilePay
+Pivo
+Siirto
+korttimaksu
+lähimaksu
+Visa
+Mastercard
+pankkikortti
+luottokortti
+Apple Pay
+Google Pay
+Klarna
+Walley
+lasku
+osamaksu
+ePassi
+Smartum
+Edenred
+käteinen

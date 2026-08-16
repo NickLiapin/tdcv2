@@ -1,0 +1,10 @@
+---
+description: Hungarian full female name. The FAMILY NAME COMES FIRST, exactly as for a man (Kovacs Anna is Ms Kovacs), and the surname is drawn from the SHARED hu.person.lastName list because Hungarian surnames do not inflect for gender — there is no separate feminine surname list, and its absence is the design. A married woman may instead carry the traditional -ne form built on her husband's whole name (Nagy Peterne = Mrs Peter Nagy), which is derived from his name rather than drawn from any list, so it is not generated here.
+generator: tdc
+locale: hu
+---
+<sequence name="p">
+  <gen name="l" type="template" value="hu.person.lastName"/>
+  <gen name="f" type="template" value="hu.person.female.firstName"/>
+</sequence>
+<data>${{p.l}} ${{p.f}}</data>

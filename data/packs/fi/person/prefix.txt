@@ -1,0 +1,36 @@
+---
+description: Finnish form of address. The everyday list is short, and that is the Finnish fact worth recording: Finland never had a formal du-reform the way Sweden did, but teitittely — addressing someone with the plural te — quietly went out of use over the same decades, and a Finn says sinä to a stranger, to a minister and to their doctor. Herra, Rouva and Neiti survive on envelopes and in ceremony (Neiti is additionally dated, since it marks an unmarried woman). The block of -neuvos titles is genuinely Finnish and has no equivalent in the neighbouring locales. These are arvonimet, honorary titles conferred by the President of the Republic on the recommendation of a state committee; the recipient pays a fee to the state for the honour, several hundred are granted a year, and the title is then used in front of the name for life. Vuorineuvos, literally "mining councillor", is the senior one and goes to industrial leaders; kauppaneuvos to merchants, opetusneuvos to educators, lääkintöneuvos to doctors. A Finnish record with vuorineuvos in front of the name is not a job description, it is a decoration.
+locale: fi
+---
+Herra
+Rouva
+Neiti
+Tohtori
+Professori
+Dosentti
+Diplomi-insinööri
+Maisteri
+Insinööri
+Arkkitehti
+Ylilääkäri
+Ministeri
+Presidentti
+Piispa
+Rovasti
+Kirkkoherra
+Pastori
+Eversti
+Kenraali
+Vuorineuvos
+Kauppaneuvos
+Teollisuusneuvos
+Talousneuvos
+Opetusneuvos
+Rakennusneuvos
+Lääkintöneuvos
+Maatalousneuvos
+Merenkulkuneuvos
+Sosiaalineuvos
+Valtioneuvos
+Kunnallisneuvos
+Ministerineuvos

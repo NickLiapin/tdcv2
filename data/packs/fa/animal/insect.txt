@@ -1,0 +1,28 @@
+---
+description: Insect and other small invertebrate (Persian). کرم ابریشم, the silkworm, is a Gilan industry, not a curiosity.
+locale: fa
+---
+مورچه
+زنبور عسل
+زنبور
+مگس
+پشه
+سوسک
+سوسری
+ملخ
+سنجاقک
+پروانه
+شب‌پره
+کفشدوزک
+عنکبوت
+عقرب
+کرم ابریشم
+شپش
+کک
+موریانه
+آخوندک
+شته
+هزارپا
+جیرجیرک
+زنجره
+کنه

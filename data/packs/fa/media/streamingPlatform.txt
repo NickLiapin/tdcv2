@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in Iran. The first seven are Iranian and are what people actually use: فیلیمو and نماوا are the two big subscription services, آپارات is the domestic video host that stands in for YouTube, and تلوبیون streams state television. Netflix, Spotify and the rest are unavailable in Iran — blocked at one end, sanctioned at the other — and are reached only through a VPN, so a config generating Iranian viewing data should weight them very low or leave them out.
+locale: fa
+---
+فیلیمو
+نماوا
+فیلم‌نت
+آپارات
+تماشا
+روبیکا
+تلوبیون
+لنز
+یوتیوب
+نتفلیکس
+اسپاتیفای
+تلگرام

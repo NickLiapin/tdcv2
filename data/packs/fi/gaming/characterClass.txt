@@ -1,0 +1,29 @@
+---
+description: RPG character class (Finnish)
+locale: fi
+---
+soturi
+ritari
+barbaari
+paladiini
+vartija
+metsästäjä
+jousimies
+varas
+salamurhaaja
+veijari
+tiedustelija
+maagi
+velho
+loitsija
+noita
+druidi
+pappi
+munkki
+bardi
+manaaja
+alkemisti
+seppä
+parantaja
+tietäjä
+shamaani

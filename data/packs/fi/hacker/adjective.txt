@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Finnish, nominative singular)
+locale: fi
+---
+digitaalinen
+langaton
+salattu
+hajautettu
+redundantti
+skaalautuva
+pilvipohjainen
+virtuaalinen
+kontitettu
+asynkroninen
+synkroninen
+optinen
+sarjamuotoinen
+rinnakkainen
+sulautettu
+modulaarinen
+avoin
+suljettu
+ensisijainen
+toissijainen
+hierarkkinen
+neuroverkkopohjainen
+ohjelmoitava
+automatisoitu
+responsiivinen
+pysyvä
+haihtuva
+eristetty

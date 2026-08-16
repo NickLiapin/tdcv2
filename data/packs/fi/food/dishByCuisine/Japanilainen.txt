@@ -1,0 +1,13 @@
+---
+description: Dishes of japanilainen cuisine, in Finnish
+locale: fi
+---
+Sushi
+Sashimi
+Ramen
+Udon
+Tempura
+Yakitori
+Okonomiyaki
+Katsukari
+Misokeitto

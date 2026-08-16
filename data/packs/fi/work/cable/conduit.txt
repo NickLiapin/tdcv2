@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Finnish)
+locale: fi
+---
+kaapelihylly
+kaapelitikas
+asennusputki
+suojaputki
+johtokanava
+maa-asennus
+ilmajohto

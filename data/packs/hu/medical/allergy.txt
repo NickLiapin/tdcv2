@@ -1,0 +1,27 @@
+---
+description: Common allergies (Hungarian).
+locale: hu
+---
+Penicillin
+Földimogyoró
+Diófélék
+Rákfélék
+Tojás
+Tej
+Szója
+Búza
+Latex
+Virágpor
+Házipor-atka
+Állatszőr
+Méhcsípés
+Aszpirin
+Szulfonamidok
+Jód
+Szezámmag
+Glutén
+Penészgomba
+Nikkel
+Eper
+Jódos kontrasztanyag
+Parlagfű

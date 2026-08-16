@@ -1,0 +1,58 @@
+{
+  "months": [
+    "január",
+    "február",
+    "március",
+    "április",
+    "május",
+    "június",
+    "július",
+    "augusztus",
+    "szeptember",
+    "október",
+    "november",
+    "december"
+  ],
+  "monthsInDate": [
+    "január",
+    "február",
+    "március",
+    "április",
+    "május",
+    "június",
+    "július",
+    "augusztus",
+    "szeptember",
+    "október",
+    "november",
+    "december"
+  ],
+  "monthsShort": [
+    "jan.",
+    "febr.",
+    "márc.",
+    "ápr.",
+    "máj.",
+    "jún.",
+    "júl.",
+    "aug.",
+    "szept.",
+    "okt.",
+    "nov.",
+    "dec."
+  ],
+  "weekdays": [
+    "vasárnap",
+    "hétfő",
+    "kedd",
+    "szerda",
+    "csütörtök",
+    "péntek",
+    "szombat"
+  ],
+  "weekdaysShort": ["V", "H", "K", "Sze", "Cs", "P", "Szo"],
+  "formats": {
+    "L": "YYYY.MM.DD.",
+    "LL": "YYYY. MMMM D."
+  }
+}

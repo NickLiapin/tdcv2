@@ -1,0 +1,34 @@
+---
+description: Fish (Hungarian).
+locale: hu
+---
+Lazac
+Tonhal
+Pisztráng
+Sügér
+Tőkehal
+Harcsa
+Aranyhal
+Bohóchal
+Guppi
+Makréla
+Laposhal
+Csattogóhal
+Kardhal
+Marlin
+Vitorláshal
+Sziámi harcos hal
+Ponty
+Folyami sügér
+Szardínia
+Szardella
+Szürke tőkehal
+Csuka
+Tilápia
+Aranydurbincs
+Nagy rombuszhal
+Fogas
+Kecsege
+Compó
+Keszeg
+Menyhal

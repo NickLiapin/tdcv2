@@ -1,0 +1,24 @@
+---
+description: Official document type (Hebrew). Several have no European counterpart: תעודת עולה is issued on immigration under the Law of Return, תעודת שחרור on discharge from the army, and טופס 101 / טופס 106 are the annual tax declaration and the employer's annual pay summary that every Israeli employee sees.
+locale: he
+---
+תעודת זהות
+ספח תעודת זהות
+דרכון
+רישיון נהיגה
+רישיון רכב
+תעודת לידה
+תעודת נישואין
+תעודת גירושין
+תעודת פטירה
+תעודת עולה
+אישור תושב
+רישיון עסק
+תעודת בגרות
+תעודת שחרור
+פנקס מילואים
+טופס 101
+טופס 106
+אישור ניכוי מס במקור
+תלוש שכר
+אשרת עבודה

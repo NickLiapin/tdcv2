@@ -1,0 +1,39 @@
+---
+description: Music genre (Serbian, including the genres particular to Serbia). Изворна музика is unaccompanied village singing, староградска is the urban song of the late Ottoman and early-modern towns, трубачка is the brass-band music of Guča, and турбо-фолк is the folk-pop hybrid of the 1990s — none of the four has a real equivalent outside the region.
+locale: sr
+---
+Народна музика
+Изворна музика
+Новокомпонована народна музика
+Староградска музика
+Севдалинка
+Трубачка музика
+Турбо-фолк
+Поп
+Рок
+Панк
+Метал
+Хеви метал
+Хард рок
+Алтернативни рок
+Инди
+Џез
+Блуз
+Соул
+Фанк
+Диско
+Хип-хоп
+Реп
+Реге
+Електронска музика
+Хаус
+Техно
+Транс
+Драм ен бејс
+Амбијентална музика
+Класична музика
+Опера
+Хорска музика
+Црквена музика
+Филмска музика
+Дечја музика

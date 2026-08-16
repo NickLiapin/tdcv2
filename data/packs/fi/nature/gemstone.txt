@@ -1,0 +1,31 @@
+---
+description: Gemstone (Finnish). Spektroliitti is Finland's own: a labradorite from Ylämaa in South Karelia that flashes the whole spectrum, found nowhere else and cut as a national stone.
+locale: fi
+---
+spektroliitti
+timantti
+rubiini
+safiiri
+smaragdi
+topaasi
+ametisti
+akvamariini
+opaali
+granaatti
+turmaliini
+peridootti
+sitriini
+vuorikristalli
+ruusukvartsi
+savukvartsi
+jaspis
+onyksi
+akaatti
+turkoosi
+lapislatsuli
+malakiitti
+meripihka
+koralli
+helmi
+kuukivi
+serpentiini

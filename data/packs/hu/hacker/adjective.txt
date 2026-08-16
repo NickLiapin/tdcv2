@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Hungarian).
+locale: hu
+---
+kisegítő
+elsődleges
+másodlagos
+digitális
+virtuális
+redundáns
+vezeték nélküli
+optikai
+neurális
+érintőképernyős
+többplatformos
+elosztott
+titkosított
+távoli
+mobil
+beágyazott
+skálázható
+aszinkron
+kétirányú
+nyílt forráskódú
+félvezető
+nagy sebességű
+hatékony
+felhőalapú
+hálózati
+kapcsolat nélküli
+64 bites
+8 bites

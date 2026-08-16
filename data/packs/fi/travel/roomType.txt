@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Finnish). Lasi-iglu is a Lapland room type of its own — a glass-roofed cabin sold specifically so guests can watch the aurora from bed — and mökki is an ordinary unit of Finnish accommodation, not a novelty.
+locale: fi
+---
+yhden hengen huone
+kahden hengen huone
+kahden erillisen vuoteen huone
+kolmen hengen huone
+perhehuone
+sviitti
+juniorsviitti
+superior-huone
+standardhuone
+economy-huone
+jaettu huone
+makuusali
+mökki
+huoneisto
+hytti
+lasi-iglu
+esteetön huone
+huone parvekkeella

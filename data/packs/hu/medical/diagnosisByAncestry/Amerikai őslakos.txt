@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry, in Hungarian. A prevalence signal, not an exclusive one.
+locale: hu
+---
+2-es típusú cukorbetegség
+Epekő
+Cukorbetegséghez társuló vesekárosodás
+Reumatoid artritisz
+Nem alkoholos zsírmáj
+Metabolikus szindróma

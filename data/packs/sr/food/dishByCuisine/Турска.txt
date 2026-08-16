@@ -1,0 +1,12 @@
+---
+description: Dishes of Turkish cuisine (Serbian)
+locale: sr
+---
+Денер кебаб
+Ћевап
+Лахмаџун
+Пиде
+Баклава
+Долма
+Менемен
+Ћуфте

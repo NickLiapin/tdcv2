@@ -1,0 +1,8 @@
+---
+description: Season (Persian). Iranian seasons are not approximate: each is exactly three Solar Hijri months, and spring begins at the equinox with the new year, so بهار is فروردین + اردیبهشت + خرداد to the day.
+locale: fa
+---
+بهار
+تابستان
+پاییز
+زمستان

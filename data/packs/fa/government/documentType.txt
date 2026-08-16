@@ -1,0 +1,22 @@
+---
+description: Official document type (Persian). Three have no European equivalent. شناسنامه is a bound birth-certificate booklet that follows a person for life — marriages, children and death are all written into it. کارت ملی carries the ten-digit کد ملی that every transaction in Iran asks for. کارت پایان خدمت proves military service is completed or exempted, and without it an Iranian man cannot be hired, get a passport or leave the country.
+locale: fa
+---
+شناسنامه
+کارت ملی
+گذرنامه
+گواهینامه رانندگی
+کارت پایان خدمت
+دفترچه بیمه
+سند ازدواج
+سند طلاق
+گواهی فوت
+سند مالکیت
+سند تک‌برگ
+پروانه ساختمان
+جواز کسب
+ویزا
+اظهارنامه مالیاتی
+کارت بازرگانی
+گواهی عدم سوءپیشینه
+مدرک تحصیلی

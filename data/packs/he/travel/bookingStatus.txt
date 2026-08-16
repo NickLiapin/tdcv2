@@ -1,0 +1,15 @@
+---
+description: Booking status (Hebrew, agreeing with the feminine noun הזמנה)
+locale: he
+---
+אושרה
+ממתינה לאישור
+שולמה
+בוטלה
+הושלמה
+בהמתנה
+נדחתה
+שונתה
+לא הגיע
+הוחזר תשלום
+בתהליך

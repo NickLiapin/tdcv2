@@ -1,0 +1,13 @@
+---
+description: Cable type, telecom and networking (Persian)
+locale: fa
+---
+فیبر نوری
+کواکسیال
+زوج به‌هم‌تابیده
+Cat5e
+Cat6
+Cat6a
+اترنت
+هوایی
+زمینی

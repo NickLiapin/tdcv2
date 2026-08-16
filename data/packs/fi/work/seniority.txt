@@ -1,0 +1,22 @@
+---
+description: Seniority / level label for a role (Finnish)
+locale: fi
+---
+harjoittelija
+trainee
+junior
+avustava
+työntekijä
+toimihenkilö
+asiantuntija
+kokenut asiantuntija
+senior
+erityisasiantuntija
+johtava asiantuntija
+tiiminvetäjä
+esihenkilö
+päällikkö
+yksikön päällikkö
+osastopäällikkö
+johtaja
+toimialajohtaja

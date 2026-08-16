@@ -1,0 +1,16 @@
+---
+description: Month name (Finnish, lowercase — Finnish writes months, weekdays and seasons in lower case). Every Finnish month name is a transparent compound ending in -kuu, "moon": tammikuu is the oak month, heinäkuu the hay month, marraskuu the month of the dead. These are the NOMINATIVE forms. Inside a date Finnish puts the month in the partitive — 5. tammikuuta 2026 — and those forms are in DATE_LOCALE.json under monthsInDate.
+locale: fi
+---
+tammikuu
+helmikuu
+maaliskuu
+huhtikuu
+toukokuu
+kesäkuu
+heinäkuu
+elokuu
+syyskuu
+lokakuu
+marraskuu
+joulukuu

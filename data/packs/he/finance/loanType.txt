@@ -1,0 +1,14 @@
+---
+description: Loan type (Hebrew). Two Israeli specifics: קרן השתלמות and קופת גמל are tax-advantaged savings funds an employee can borrow against, and הלוואה חוץ בנקאית is the regulated non-bank credit market.
+locale: he
+---
+משכנתה
+הלוואה אישית
+הלוואת רכב
+הלוואה לעסק
+מסגרת אשראי
+הלוואה מקרן השתלמות
+הלוואה מקופת גמל
+הלוואה חוץ בנקאית
+הלוואת גישור
+אשראי מתחדש

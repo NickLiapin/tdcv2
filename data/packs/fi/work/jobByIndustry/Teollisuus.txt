@@ -1,0 +1,16 @@
+---
+description: Jobs in teollisuus, in Finnish
+locale: fi
+---
+koneenkäyttäjä
+CNC-koneistaja
+prosessinhoitaja
+hitsaaja
+levyseppä
+kunnossapitoasentaja
+automaatioasentaja
+työnjohtaja
+tuotantopäällikkö
+laatuinsinööri
+koneinsinööri
+paperikoneenhoitaja

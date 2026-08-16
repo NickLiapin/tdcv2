@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Persian). Iran's split is اعتباری (prepaid, the overwhelming majority of lines) against دائمی (postpaid, contract). SIM cards are registered against the buyer's کد ملی, so anonymous prepaid does not exist.
+locale: fa
+---
+اعتباری
+دائمی
+نامحدود
+بسته اینترنت
+بسته مکالمه
+بسته پیامک
+طرح خانواده
+طرح سازمانی
+بسته شبانه
+بسته هفتگی
+بسته ماهانه
+بسته سالانه

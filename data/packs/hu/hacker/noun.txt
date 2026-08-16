@@ -1,0 +1,41 @@
+---
+description: Tech noun (Hungarian).
+locale: hu
+---
+illesztőprogram
+protokoll
+sávszélesség
+vezérlőpult
+mikrochip
+program
+port
+kártya
+mátrix
+interfész
+rendszer
+érzékelő
+tűzfal
+merevlemez
+képpont
+riasztás
+adatfolyam
+monitor
+alkalmazás
+adó
+busz
+áramkör
+kondenzátor
+adatbázis
+feldolgozósor
+kiszolgáló
+útválasztó
+kapcsoló
+gyorsítótár
+rendszermag
+programkönyvtár
+bővítmény
+konténer
+biztonsági mentés
+neurális hálózat
+titkosítókulcs
+hálózati csomag

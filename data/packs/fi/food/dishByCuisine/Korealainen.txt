@@ -1,0 +1,13 @@
+---
+description: Dishes of korealainen cuisine, in Finnish
+locale: fi
+---
+Bibimbap
+Bulgogi
+Kimchi
+Kimchijjigae
+Japchae
+Tteokbokki
+Samgyeopsal
+Korealainen friteerattu kana
+Sundubu jjigae

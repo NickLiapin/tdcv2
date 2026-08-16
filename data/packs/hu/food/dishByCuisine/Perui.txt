@@ -1,0 +1,13 @@
+---
+description: Dishes of Peruvian cuisine (Hungarian).
+locale: hu
+---
+Ceviche
+Lomo saltado
+Ají de gallina
+Causa limeña
+Anticuchos
+Papa a la huancaína
+Arroz chaufa
+Rocoto relleno
+Tiradito

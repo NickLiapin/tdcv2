@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Serbian. A prevalence signal, not an exclusive one.
+locale: sr
+---
+Дијабетес мелитус тип 2
+Хипертензија повезана са гојазношћу
+Гихт
+Реуматска болест срца
+Хронична болест бубрега
+Хиперурикемија

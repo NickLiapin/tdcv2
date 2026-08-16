@@ -1,0 +1,15 @@
+---
+description: Booking status (Finnish)
+locale: fi
+---
+tiedustelu
+alustava
+vahvistettu
+maksettu
+osittain maksettu
+sisäänkirjattu
+uloskirjattu
+muutettu
+peruttu
+saapumatta
+jonossa

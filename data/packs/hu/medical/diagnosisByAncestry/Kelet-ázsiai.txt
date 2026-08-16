@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, in Hungarian. A prevalence signal, not an exclusive one.
+locale: hu
+---
+Alfa-talasszémia
+2-es aldehid-dehidrogenáz hiánya
+Felnőttkori laktózérzékenység
+Orrgaratrák
+Gyomorrák
+Zárt zugú zöldhályog
+Kawasaki-betegség
+Moyamoya-betegség
+Karbamazepin-túlérzékenység
+Kóros rövidlátás

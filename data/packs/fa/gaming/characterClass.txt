@@ -1,0 +1,28 @@
+---
+description: Game character class (Persian). پهلوان and عیار are Iranian archetypes rather than translations: a پهلوان is the wrestler-champion of the zurkhaneh and the Shahnameh, strong and honourable; an عیار is the chivalrous outlaw of Persian romance, closer to a rogue with a code than to a thief.
+locale: fa
+---
+جنگجو
+شمشیرزن
+کماندار
+جادوگر
+ساحر
+شفادهنده
+راهب
+دزد
+قاتل
+شوالیه
+محافظ
+بربر
+شکارچی
+نگهبان
+احضارکننده
+جادوگر سیاه
+تانک
+پشتیبان
+مهندس
+تک‌تیرانداز
+خلبان
+فرمانده
+پهلوان
+عیار

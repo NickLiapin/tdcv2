@@ -1,0 +1,10 @@
+---
+description: Serbian full female name — a single given name and a single surname (Ана Петровић). Note that the surname is drawn from sr.person.lastName, the SAME list a man's is drawn from, not from a feminine list: Serbian surnames do not inflect for gender, so Ана and her brother Марко are both Петровић. That is the whole reason this pack has no person/female/lastName — compare pl, where the equivalent file must read the feminine -ska list.
+generator: tdc
+locale: sr
+---
+<sequence name="p">
+  <gen name="f" type="template" value="sr.person.female.firstName"/>
+  <gen name="l" type="template" value="sr.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

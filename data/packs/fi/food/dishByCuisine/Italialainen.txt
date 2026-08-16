@@ -1,0 +1,13 @@
+---
+description: Dishes of italialainen cuisine, in Finnish
+locale: fi
+---
+Pizza margherita
+Spaghetti carbonara
+Lasagne
+Risotto
+Ossobuco
+Vitello tonnato
+Caprese
+Tiramisu
+Panna cotta

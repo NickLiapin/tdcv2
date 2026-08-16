@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Finnish). The first four are pesäpallo positions and have no equivalent anywhere else: lukkari is the pitcher who stands beside the batter and throws the ball vertically, koppari fields behind, and jokeri is a substitute batter who can be sent in at any point in the innings.
+locale: fi
+---
+lukkari
+koppari
+jokeri
+lyöjä
+maalivahti
+puolustaja
+keskuspuolustaja
+laitapuolustaja
+libero
+keskikenttäpelaaja
+defensiivinen keskikenttäpelaaja
+hyökkäävä keskikenttäpelaaja
+laitapelaaja
+hyökkääjä
+keskushyökkääjä
+laitahyökkääjä
+oikea laitahyökkääjä
+vasen laitahyökkääjä
+sentteri
+pelinrakentaja
+heittävä takamies
+pieni laitahyökkääjä
+vahva laitahyökkääjä
+passari
+hakkuri
+keskitorjuja
+yleispelaaja
+kärkipelaaja
+sisäpelaaja
+ykköspesän vahti
+kakkospesän vahti
+kolmospesän vahti
+etukenttäpelaaja
+takakenttäpelaaja
+kapteeni

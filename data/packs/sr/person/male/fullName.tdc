@@ -1,0 +1,10 @@
+---
+description: Serbian full male name — a single given name and a single surname (Марко Петровић). Serbian writes the given name first. Serbian names carry one surname, unlike the two-surname Spanish form.
+generator: tdc
+locale: sr
+---
+<sequence name="p">
+  <gen name="f" type="template" value="sr.person.male.firstName"/>
+  <gen name="l" type="template" value="sr.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

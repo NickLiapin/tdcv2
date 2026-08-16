@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Persian)
+locale: fa
+---
+پی‌وی‌سی
+لوله فولادی
+پلی‌اتیلن
+دفن مستقیم در خاک
+داکت
+سینی کابل
+خط هوایی

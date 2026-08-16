@@ -1,0 +1,25 @@
+---
+description: Budget / spending category (Finnish). Vastike is the monthly charge a flat-owner pays to the asunto-osakeyhtiö, the housing company — in Finland you own shares in the company rather than the flat, so this is a line every Finnish household budget has and most European ones do not.
+locale: fi
+---
+asuminen
+vuokra
+vastike
+asuntolainan korko
+lyhennys
+sähkö
+lämmitys
+vesi
+kotivakuutus
+ruoka
+ravintolat
+liikenne
+joukkoliikenne
+polttoaine
+auton kulut
+puhelin ja internet
+terveydenhuolto
+varhaiskasvatus
+vaatteet
+harrastukset
+säästäminen

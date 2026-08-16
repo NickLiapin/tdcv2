@@ -1,0 +1,14 @@
+---
+description: Dishes of Spanish cuisine (Hungarian).
+locale: hu
+---
+Paella
+Tapas
+Gazpacho
+Spanyol tortilla
+Churros
+Patatas bravas
+Ibériai sonka
+Galiciai polip
+Fabada asturiana
+Salmorejo

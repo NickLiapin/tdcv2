@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Finnish). Puutavarakuljetus leads because Finnish forestry moves an enormous volume of timber by road, and Finland runs the heaviest and longest trucks in the EU — up to 76 tonnes and 34,5 metres — under a national derogation, which is why the trailer categories here are not directly comparable to other European lists.
+locale: fi
+---
+puutavarakuljetus
+kuivakuorma
+kylmäkuljetus
+pakastekuljetus
+kappaletavara
+kokokuorma
+bulk-kuljetus
+säiliökuljetus
+vaarallisten aineiden kuljetus (ADR)
+konttikuljetus
+autonkuljetus
+maansiirto
+muuttokuljetus

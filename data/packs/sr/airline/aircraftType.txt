@@ -1,0 +1,30 @@
+---
+description: Aircraft type (manufacturer designations, used unchanged in Serbian — they are not transcribed into Cyrillic on a ticket or a manifest)
+locale: sr
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A220-300
+Airbus A330-200
+Airbus A330-900neo
+Airbus A350-900
+Airbus A380-800
+Boeing 737-700
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 757-200
+Boeing 767-300ER
+Boeing 777-300ER
+Boeing 787-9 Dreamliner
+Boeing 747-400
+ATR 72-600
+Embraer E190
+Embraer E195
+Bombardier CRJ900
+De Havilland Dash 8 Q400
+Fokker 100
+Cessna 172
+Let L-410 Turbolet

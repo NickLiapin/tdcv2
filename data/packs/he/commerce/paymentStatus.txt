@@ -1,0 +1,14 @@
+---
+description: Payment status (Hebrew)
+locale: he
+---
+ממתין
+אושר
+נדחה
+בוצע
+הוחזר
+בוטל
+נכשל
+בבדיקה
+חלקי
+פג תוקף

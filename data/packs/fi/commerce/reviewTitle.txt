@@ -1,0 +1,30 @@
+---
+description: Product review title (Finnish)
+locale: fi
+---
+Erittäin tyytyväinen
+Juuri kuten kuvattu
+Hyvä laatu hintaan nähden
+Suosittelen lämpimästi
+Ylitti odotukset
+Nopea toimitus
+Hyvä mutta ei täydellinen
+Täyttää tehtävänsä
+Hinta-laatusuhde kohdallaan
+Helppo käyttää
+Tyylikäs muotoilu
+Tukeva ja laadukas
+Toimii erinomaisesti
+Hyvä mutta kallis
+Menettelee
+Ei vastannut odotuksia
+Odotettua heikompi
+Hajosi heti
+Väärä koko
+Kuva harhaanjohtava
+Pitkä toimitusaika
+Huono asiakaspalvelu
+En ostaisi uudelleen
+Ristiriitaiset tunteet
+Hyvä aloittelijalle
+Löytö

@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Serbian. A prevalence signal, not an exclusive one.
+locale: sr
+---
+Болест хемоглобина Е
+Алфа-таласемија
+Дефицит глукоза-6-фосфат дехидрогеназе
+Карцином назофаринкса
+Бета-таласемија
+Бругада синдром
+Неперзистенција лактазе

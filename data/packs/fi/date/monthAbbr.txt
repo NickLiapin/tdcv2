@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Finnish). Finnish abbreviates by dropping -kuu, so the stem alone is the abbreviation and its length varies from four letters to six. In numeric dates Finland writes the month as a plain number instead: 5.1.2026.
+locale: fi
+---
+tammi
+helmi
+maalis
+huhti
+touko
+kesä
+heinä
+elo
+syys
+loka
+marras
+joulu

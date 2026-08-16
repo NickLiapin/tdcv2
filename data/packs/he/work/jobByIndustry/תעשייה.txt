@@ -1,0 +1,20 @@
+---
+description: Jobs in Manufacturing (Hebrew, masculine singular — see work/jobTitle.txt on gender)
+locale: he
+---
+מהנדס מכונות
+מהנדס תעשייה וניהול
+טכנאי מכונות
+מפעיל מכונה
+מנהל ייצור
+מנהל תפעול
+בקר איכות
+מנהל מחסן
+מלגזן
+מסגר
+חרט
+רתך
+מתכנת CNC
+מנהל תחזוקה
+מהנדס תהליך
+לוגיסטיקאי

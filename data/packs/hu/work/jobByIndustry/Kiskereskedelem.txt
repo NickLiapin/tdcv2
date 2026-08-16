@@ -1,0 +1,16 @@
+---
+description: Jobs in Retail (Hungarian).
+locale: hu
+---
+Eladó
+Pénztáros
+Boltvezető
+Boltvezető-helyettes
+Árufeltöltő
+Beszerző
+Ügyféltanácsadó
+Merchandiser
+Veszteségmegelőzési szakértő
+Ügyfélszolgálati munkatárs
+Régióvezető
+Leltározó

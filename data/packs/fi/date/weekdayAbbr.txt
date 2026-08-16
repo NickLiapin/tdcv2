@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Finnish, Monday-first). Finnish abbreviates weekdays to two letters with no full stop.
+locale: fi
+---
+ma
+ti
+ke
+to
+pe
+la
+su

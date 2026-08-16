@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Serbian. A prevalence signal, not an exclusive one.
+locale: sr
+---
+Породична медитеранска грозница
+Бета-таласемија
+Дефицит глукоза-6-фосфат дехидрогеназе
+Бехчетова болест
+Дефицит витамина Д
+Носилаштво српасте ћелије

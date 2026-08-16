@@ -1,0 +1,16 @@
+---
+description: Jobs in terveydenhuolto, in Finnish
+locale: fi
+---
+lääkäri
+erikoislääkäri
+terveyskeskuslääkäri
+sairaanhoitaja
+lähihoitaja
+kätilö
+terveydenhoitaja
+fysioterapeutti
+toimintaterapeutti
+psykologi
+hammaslääkäri
+ensihoitaja

@@ -1,0 +1,24 @@
+---
+description: Parcel carriers used in Finland. Posti is the former state post office and runs the pakettiautomaatti locker network that most Finnish e-commerce is delivered to; Matkahuolto is unusual — it is the bus companies' own parcel service, so a parcel travels on a scheduled coach and is collected at the bus station, which is how rural Finland gets its post. Kaukokiito is the Finnish freight co-operative.
+locale: fi
+---
+Posti
+Matkahuolto
+Kaukokiito
+PostNord
+DHL Express
+DHL Freight
+DB Schenker
+UPS
+FedEx
+GLS
+Bring
+DSV
+Budbee
+Airmee
+Transval
+Postin pakettiautomaatti
+Posti Express
+Jakeluyhtiö Suomi
+TNT
+Schenker Cargo

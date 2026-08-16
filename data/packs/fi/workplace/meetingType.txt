@@ -1,0 +1,16 @@
+---
+description: Meeting type (Finnish). Kahvitauko is a real workplace fixture and in many collective agreements a contractual right, not a courtesy. Kehityskeskustelu is the annual development discussion every Finnish employee has with their manager, and saunailta — the whole team going to the sauna together after work, sometimes with clients — is an ordinary business occasion here and a genuinely bewildering one to visitors.
+locale: fi
+---
+kahvitauko
+aamupalaveri
+viikkopalaveri
+kuukausipalaveri
+tiimipalaveri
+henkilöstökokous
+kehityskeskustelu
+palkkakeskustelu
+hallituksen kokous
+työpaja
+kick-off
+saunailta

@@ -1,0 +1,16 @@
+---
+description: Property listing status (Persian). Iranian renting works on رهن: the tenant hands the landlord a large lump sum, refundable in full at the end, and pays reduced or no monthly rent — رهن کامل is the all-deposit-no-rent version and رهن و اجاره the mixed one. مشارکت در ساخت is the standard Iranian development deal, land swapped for finished flats.
+locale: fa
+---
+فروش
+رهن و اجاره
+رهن کامل
+اجاره
+پیش‌فروش
+معاوضه
+مشارکت در ساخت
+رزرو شده
+فروخته شده
+اجاره داده شده
+در حال ساخت
+آماده تحویل

@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (Finnish operators and international brands). Elisa, Telia Finland and DNA own the three Finnish networks; Saunalahti is Elisa's budget brand and its name means "sauna bay", Moi Mobiili and Tele Finland are the other domestic budget brands. Worth knowing for any Finnish telecom dataset: unlimited-data subscriptions priced by speed rather than by gigabyte are the Finnish norm, and Finns use more mobile data per head than almost anyone in the world because of it.
+locale: fi
+---
+Elisa
+Telia
+DNA
+Saunalahti
+Moi Mobiili
+Tele Finland
+Lounea
+Telemore
+Vaasan Läänin Puhelin
+Ålcom
+Lyca Mobile
+Telenor
+Telia Sverige
+Tele2
+Ice
+Vodafone
+Orange
+O2
+T-Mobile
+Deutsche Telekom
+airBaltic Mobile
+Bite
+Tele2 Eesti
+Telia Eesti
+Elisa Eesti
+MTS

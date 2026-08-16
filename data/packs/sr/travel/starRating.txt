@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Serbian). Serbian counts differently from English: звездица after 1, звездице after 2–4, and звездица again after 5, because the noun takes the genitive plural from five upward.
+locale: sr
+---
+1 звездица
+2 звездице
+3 звездице
+4 звездице
+5 звездица

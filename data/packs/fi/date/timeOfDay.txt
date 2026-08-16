@@ -1,0 +1,13 @@
+---
+description: Time of day (Finnish). Finnish splits the morning into aamu and aamupäivä and the evening into ilta and yö, and keskipäivä is noon itself rather than a meal.
+locale: fi
+---
+aamuyö
+aamunkoitto
+aamu
+aamupäivä
+keskipäivä
+iltapäivä
+ilta
+yö
+keskiyö

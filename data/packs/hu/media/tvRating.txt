@@ -1,0 +1,13 @@
+---
+description: TV / film content rating in descriptive Hungarian. The Hungarian broadcast categories run I, II, III, IV, V, VI (unrestricted up to adults only) and are shown on screen as a coloured circle with the age in it.
+locale: hu
+---
+Korhatár nélkül megtekinthető
+Hat éven aluliak számára nem ajánlott
+Tizenkét éven aluliak számára nem ajánlott
+Tizenhat éven aluliak számára nem ajánlott
+Tizennyolc éven aluliak számára nem ajánlott
+Szülői felügyelet ajánlott
+Csak felnőtteknek
+Gyermekeknek
+Fiatal felnőtteknek

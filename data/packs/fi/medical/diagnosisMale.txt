@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Finnish that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: fi
+---
+Eturauhasen hyvänlaatuinen liikakasvu
+Eturauhastulehdus
+Eturauhassyöpä
+Kivessyöpä
+Erektiohäiriö
+Esinahan ahtauma
+Kiveskierukka
+Lisäkivestulehdus
+Kivespussin suonikohju
+Vesikives
+Rintarauhasen liikakasvu miehellä
+Peniksen syöpä
+Testosteronin puutos
+Peyronien tauti
+Miehen hedelmättömyys
+Terskan tulehdus
+Virtsaumpi
+Lisäkiveksen kysta
+Virtsaputken alahalkio
+Laskeutumaton kives

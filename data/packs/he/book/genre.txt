@@ -1,0 +1,32 @@
+---
+description: Book genre (Hebrew). ספרות שואה and ספרות קודש are shelf categories in their own right in an Israeli bookshop and have no one-word English equivalent.
+locale: he
+---
+רומן
+מתח
+בלש
+מדע בדיוני
+פנטזיה
+אימה
+רומנטיקה
+היסטורי
+ביוגרפיה
+אוטוביוגרפיה
+זיכרונות
+עיון
+מסה
+שירה
+מחזה
+ספרות ילדים
+ספרות נוער
+קומיקס
+רומן גרפי
+ספר בישול
+מדריך
+הגות
+פילוסופיה
+פסיכולוגיה
+ספרות מסע
+ספרות שואה
+ספרות קודש
+יהדות

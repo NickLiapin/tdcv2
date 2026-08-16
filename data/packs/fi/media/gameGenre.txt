@@ -1,0 +1,22 @@
+---
+description: Video game genre (Finnish)
+locale: fi
+---
+toimintapeli
+seikkailupeli
+roolipeli
+strategiapeli
+reaaliaikastrategia
+vuoropohjainen strategia
+tasohyppely
+pulmapeli
+ammuntapeli
+ensimmäisen persoonan ammuntapeli
+simulaattori
+urheilupeli
+ajopeli
+selviytymispeli
+kauhupeli
+hiekkalaatikkopeli
+musiikkipeli
+kaupunginrakennuspeli

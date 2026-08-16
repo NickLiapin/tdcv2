@@ -1,0 +1,44 @@
+---
+description: Dish (Hungarian). Note gulyasleves: in Hungary gulyas is a thin paprika SOUP eaten with a spoon, and the thick stew that English, German and Czech call goulash is porkolt, which is a different dish and is listed separately.
+locale: hu
+---
+Pizza
+Szusi
+Tacos
+Sajtburger
+Spagetti carbonara
+Rámen
+Currys csirke
+Grillezett steak
+Cézár-saláta
+Klubszendvics
+Lasagne
+Gombás rizottó
+Paella
+Empanada
+Pad thai
+Sült hal sült krumplival
+Marhapörkölt
+Burrito
+Gnocchi
+Sült rizs
+Ceviche
+Gulyásleves
+Töltött káposzta
+Halászlé
+Rántott hús
+Paprikás csirke
+Lecsó
+Lángos
+Túrós csusza
+Rakott krumpli
+Hortobágyi húsos palacsinta
+Gazpacho
+Görög saláta
+Quesadilla
+Paradicsomleves
+Húsgombóc
+Sült csirke
+Bableves
+Töltött paprika
+Palacsinta

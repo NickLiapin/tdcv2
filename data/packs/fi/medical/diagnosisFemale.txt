@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Finnish that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: fi
+---
+Endometrioosi
+Monirakkulaisten munasarjojen oireyhtymä
+Kohdun myooma
+Munasarjakysta
+Kivulias kuukautisvuoto
+Runsas kuukautisvuoto
+Premenstruaalioireyhtymä
+Premenstruaalinen dysforinen häiriö
+Vaihdevuosioireet
+Kohdunkaulan syöpä
+Munasarjasyöpä
+Kohdunrungon syöpä
+Rintasyöpä
+Rintatulehdus
+Kohdun laskeuma
+Lantionpohjan toimintahäiriö
+Vulvodynia
+Bakteerivaginoosi
+Emättimen hiivatulehdus
+Raskausdiabetes
+Pre-eklampsia
+Synnytyksen jälkeinen masennus
+Raskauspahoinvointi
+Keskenmeno
+Kohdunulkoinen raskaus
+Kohdunkaulan solumuutokset

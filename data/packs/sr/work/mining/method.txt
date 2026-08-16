@@ -1,0 +1,12 @@
+---
+description: Mining method (Serbian). Serbia's copper basin at Bor works both ways — the Велики кривељ open pit and the Јама underground mine sit a few kilometres apart.
+locale: sr
+---
+Површинска експлоатација
+Подземна експлоатација
+Коморно-стубна метода
+Дуга чела
+Етажно откопавање
+Бушење и минирање
+Испирање
+Каменолом

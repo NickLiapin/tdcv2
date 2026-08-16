@@ -1,0 +1,24 @@
+---
+description: Mined mineral / commodity (Hungarian). Bauxit, lignit and mangan are what Hungary itself actually mines or mined; the rest are here for completeness.
+locale: hu
+---
+Feketekőszén
+Barnakőszén
+Lignit
+Bauxit
+Réz
+Arany
+Ezüst
+Vasérc
+Cink
+Ólom
+Mészkő
+Nikkel
+Urán
+Kálisó
+Foszfát
+Lítium
+Kobalt
+Gipsz
+Kősó
+Mangán

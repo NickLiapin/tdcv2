@@ -1036,6 +1036,18 @@
         "lines": ["2024-02-28", "2024-02-29", "2024-03-01"]
       }
     },
+    "dates/every-date-locale-renders-its-own-names": {
+      "engine2": {
+        "lines": [
+          "18 أكتوبر 2026|18. října 2026|18. Oktober 2026|18 Οκτωβρίου 2026|October 18, 2026|18 de octubre de 2026|18. lokakuuta 2026|18 octobre 2026|2026. október 18.|18 Oktober 2026|18 ottobre 2026|2026年10月18日|2026년 10월 18일|18 अक्तूबर 2026|18 oktober 2026|18 października 2026|18 de outubro de 2026|18 октября 2026 г.|18 oktober 2026|18 ตุลาคม 2026|18 Ekim 2026|18 жовтня 2026|ngày 18 tháng 10 năm 2026|2026年10月18日"
+        ]
+      },
+      "engine3": {
+        "lines": [
+          "18 أكتوبر 2026|18. října 2026|18. Oktober 2026|18 Οκτωβρίου 2026|October 18, 2026|18 de octubre de 2026|18. lokakuuta 2026|18 octobre 2026|2026. október 18.|18 Oktober 2026|18 ottobre 2026|2026年10月18日|2026년 10월 18일|18 अक्तूबर 2026|18 oktober 2026|18 października 2026|18 de outubro de 2026|18 октября 2026 г.|18 oktober 2026|18 ตุลาคม 2026|18 Ekim 2026|18 жовтня 2026|ngày 18 tháng 10 năm 2026|2026年10月18日"
+        ]
+      }
+    },
     "derived-columns/a-formula-over-two-columns": {
       "engine2": {
         "lines": [

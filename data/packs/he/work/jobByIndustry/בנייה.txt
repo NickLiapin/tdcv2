@@ -1,0 +1,24 @@
+---
+description: Jobs in Construction (Hebrew, masculine singular — see work/jobTitle.txt on gender)
+locale: he
+---
+מהנדס אזרחי
+מהנדס בניין
+אדריכל
+מנהל עבודה
+מנהל פרויקטים
+שרטט
+מודד
+קונסטרוקטור
+טפסן
+ברזלן
+רצף
+טייח
+צבע
+חשמלאי
+אינסטלטור
+מסגר
+נגר
+מפעיל מנוף
+מפעיל טרקטור
+ממונה בטיחות

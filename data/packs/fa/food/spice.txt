@@ -1,0 +1,35 @@
+---
+description: Spice and seasoning (Persian). زعفران — saffron — is the one Iran is known for and is used by the pinch in rice, sweets and drinks. سماق (ground sumac, dusted over kebab), گلپر (Persian hogweed seed, on broad beans and pomegranate), لیمو عمانی (whole dried limes dropped into stews) and ادویه پلویی (the rice-spice blend) have no English equivalent.
+locale: fa
+---
+زعفران
+زردچوبه
+دارچین
+هل
+زیره سبز
+زیره سیاه
+فلفل سیاه
+فلفل قرمز
+فلفل سفید
+پاپریکا
+سماق
+گلپر
+لیمو عمانی
+زنجبیل
+میخک
+جوز هندی
+رازیانه
+انیسون
+بادیان
+آویشن
+مرزه
+نعنا خشک
+ریحان خشک
+برگ بو
+پودر سیر
+پودر پیاز
+خردل
+ادویه کاری
+ادویه پلویی
+گل محمدی
+وانیل

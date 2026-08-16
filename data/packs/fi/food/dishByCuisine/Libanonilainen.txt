@@ -1,0 +1,13 @@
+---
+description: Dishes of libanonilainen cuisine, in Finnish
+locale: fi
+---
+Hummus
+Baba ganoush
+Tabbouleh
+Fattoush
+Falafel
+Shawarma
+Kibbeh
+Manakish
+Knafeh

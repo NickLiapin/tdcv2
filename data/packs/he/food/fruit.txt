@@ -1,0 +1,42 @@
+---
+description: Fruit (Hebrew). Four are Israeli specifics: סברס is the prickly pear whose name is also the word for a native-born Israeli, פומלית is a citrus bred in Israel, אתרוג is the citron used at Sukkot, and שסק is the loquat, a common garden tree there.
+locale: he
+---
+תפוח
+אגס
+בננה
+תפוז
+קלמנטינה
+מנדרינה
+אשכולית
+פומלה
+פומלית
+לימון
+ליים
+רימון
+תאנה
+תמר
+ענבים
+אבטיח
+מלון
+אפרסק
+נקטרינה
+שזיף
+משמש
+דובדבן
+תות שדה
+פטל
+אוכמנית
+קיווי
+אננס
+מנגו
+אבוקדו
+פסיפלורה
+ליצ׳י
+שסק
+חבוש
+אפרסמון
+סברס
+אתרוג
+גויאבה
+קרמבולה

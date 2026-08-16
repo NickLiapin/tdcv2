@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Hungarian).
+locale: hu
+---
+Vas
+Bronz
+Ezüst
+Arany
+Platina
+Smaragd
+Gyémánt
+Mester
+Nagymester
+Kihívó

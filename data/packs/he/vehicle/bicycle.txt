@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Hebrew). אופניים חשמליים and קורקינט חשמלי are listed because electric bikes and scooters are a dominant form of urban transport in Israel, regulated as vehicles.
+locale: he
+---
+אופני עיר
+אופני הרים
+אופני כביש
+אופניים חשמליים
+אופני שטח
+אופניים היברידיים
+אופני BMX
+אופניים מתקפלים
+אופני ילדים
+קורקינט חשמלי
+אופני מרוץ
+פיקסי
+טנדם
+אופני גרבל
+אופני מסע
+אופני כושר
+תלת אופן

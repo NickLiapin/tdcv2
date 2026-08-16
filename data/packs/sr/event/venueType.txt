@@ -1,0 +1,20 @@
+---
+description: Venue type (Serbian). Кафана and салаш are local venue kinds with no clean English equivalent — a кафана is a tavern that is as much a social institution as a restaurant, and a салаш is a Vojvodina farmstead now often hired for weddings.
+locale: sr
+---
+Хотел
+Конгресни центар
+Свечана сала
+Ресторан
+Кафана
+Клуб
+Позориште
+Биоскоп
+Концертна дворана
+Спортска хала
+Стадион
+Дом културе
+Галерија
+Музеј
+Сајамски простор
+Салаш

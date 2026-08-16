@@ -1,0 +1,15 @@
+---
+description: Social reaction (Hungarian).
+locale: hu
+---
+Tetszik
+Imádom
+Ha-ha
+Hűha
+Szomorú
+Dühítő
+Vigyázz magadra
+Ünneplem
+Támogatom
+Érdekes
+Meglepő

@@ -1,0 +1,14 @@
+---
+description: Fuel type (Serbian). ТНГ — autogas — deserves its place near the top: LPG conversion is unusually common in Serbia because the fuel is far cheaper than petrol, and a large share of older cars run on it.
+locale: sr
+---
+Бензин
+Дизел
+ТНГ
+Метан
+Хибрид
+Плуг-ин хибрид
+Електрични погон
+Водоник
+Бензин и ТНГ
+Етанол

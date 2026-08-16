@@ -1,0 +1,50 @@
+---
+description: Cooking ingredient (Persian). کشک is drained fermented whey, sold as a thick sour paste; دوغ is salted yoghurt drink; آبغوره is verjuice, the sour juice of unripe grapes, used where a French recipe would use vinegar; نبات is crystallised sugar on a stick, stirred into tea.
+locale: fa
+---
+برنج
+آرد
+نان
+تخم‌مرغ
+شیر
+ماست
+پنیر
+کره
+خامه
+کشک
+دوغ
+روغن
+روغن زیتون
+روغن کرمانشاهی
+گوشت گوسفند
+گوشت گاو
+گوشت چرخ‌کرده
+مرغ
+ماهی
+میگو
+لوبیا قرمز
+لوبیا چیتی
+نخود
+عدس
+ماش
+لپه
+گندم
+جو
+بلغور
+رشته
+ماکارونی
+سبزی خوردن
+سبزی قورمه
+رب گوجه‌فرنگی
+رب انار
+آبلیمو
+آبغوره
+سرکه
+شکر
+نبات
+عسل
+گردو
+بادام
+پسته
+فندق
+کنجد

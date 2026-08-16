@@ -1,0 +1,39 @@
+---
+description: Vegetable and cooking herb (Persian). موسیر is the Persian shallot, dried and soaked and stirred into yoghurt; the herbs from جعفری to ترخون are eaten raw by the handful as سبزی خوردن at every meal.
+locale: fa
+---
+پیاز
+سیر
+گوجه‌فرنگی
+خیار
+بادمجان
+کدو
+کدو حلوایی
+هویج
+سیب‌زمینی
+شلغم
+چغندر
+تربچه
+کلم
+کلم بروکلی
+گل‌کلم
+اسفناج
+کاهو
+جعفری
+گشنیز
+شوید
+ترخون
+ریحان
+نعنا
+تره
+پیازچه
+فلفل دلمه‌ای
+فلفل تند
+لوبیا سبز
+نخود فرنگی
+ذرت
+بامیه
+کرفس
+مارچوبه
+قارچ
+موسیر

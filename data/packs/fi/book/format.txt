@@ -1,0 +1,12 @@
+---
+description: Book format (Finnish)
+locale: fi
+---
+Kovakantinen
+Pehmeäkantinen
+Nidottu
+Sidottu
+E-kirja
+Äänikirja
+Pokkari
+Kuvitettu laitos

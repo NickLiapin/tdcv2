@@ -1,0 +1,14 @@
+---
+description: Loan type (Serbian). Готовински кредит, the unsecured cash loan, is the commonest retail credit product in Serbia; дозвољени минус is the current-account overdraft.
+locale: sr
+---
+Готовински кредит
+Стамбени кредит
+Субвенционисани стамбени кредит
+Ауто кредит
+Потрошачки кредит
+Кредит за рефинансирање
+Дозвољени минус
+Пољопривредни кредит
+Инвестициони кредит
+Кредит за ликвидност

@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Hebrew)
+locale: he
+---
+ברונזה
+כסף
+זהב
+פלטינה
+יהלום
+אלוף
+אלוף על
+מאסטר
+גרנדמאסטר
+אגדה

@@ -1,0 +1,20 @@
+---
+description: Event venue type (Persian). A باغ‌تالار is an Iranian institution: a walled garden with a banqueting hall in it, on the edge of a city, hired for a wedding.
+locale: fa
+---
+تالار پذیرایی
+باغ‌تالار
+هتل
+سالن همایش
+مرکز همایش‌ها
+سالن اجتماعات
+مسجد
+حسینیه
+ورزشگاه
+سالن ورزشی
+نمایشگاه بین‌المللی
+فرهنگسرا
+آمفی‌تئاتر
+رستوران
+کافه
+بوستان

@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Hebrew). ג׳וניור and סיניור are used in Hebrew exactly as borrowed, especially in tech; the Hebrew זוטר / בכיר pair belongs to more formal registers.
+locale: he
+---
+מתמחה
+סטאז׳ר
+ג׳וניור
+זוטר
+בינוני
+סיניור
+בכיר
+מומחה
+ארכיטקט
+מוביל טכני
+ראש צוות
+מנהל
+מנהל בכיר
+סמנכ״ל
+מנכ״ל
+שותף

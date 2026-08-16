@@ -1,0 +1,25 @@
+---
+description: World religion (Serbian). Православље leads because the Serbian Orthodox Church is the confession of the large majority in Serbia, and it is listed both generally and by its own name, as a Serbian form would ask it.
+locale: sr
+---
+Православље
+Српска православна црква
+Католичанство
+Гркокатоличанство
+Протестантизам
+Евангелистичка црква
+Реформатска црква
+Баптизам
+Адвентизам
+Ислам
+Сунитски ислам
+Јудаизам
+Будизам
+Хиндуизам
+Сикизам
+Џаинизам
+Шинтоизам
+Таоизам
+Конфучијанство
+Атеизам
+Агностицизам

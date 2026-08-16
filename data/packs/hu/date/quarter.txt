@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Hungarian). Hungarian numbers its quarters with Roman numerals followed by negyedev, not with a Q.
+locale: hu
+---
+I. negyedév
+II. negyedév
+III. negyedév
+IV. negyedév

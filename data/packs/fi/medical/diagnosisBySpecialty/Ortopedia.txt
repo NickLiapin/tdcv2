@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in ortopedia, in Finnish
+locale: fi
+---
+Nivelrikko
+Nivelreuma
+Välilevyn pullistuma
+Olkapään jännevaiva
+Polven nivelkierukan repeämä
+Eturistisiteen repeämä
+Reisiluun kaulan murtuma
+Nilkan nyrjähdys
+Selkärangan ahtauma
+Kihti

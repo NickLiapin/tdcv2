@@ -1,0 +1,9 @@
+---
+description: Work shift (Hebrew)
+locale: he
+---
+משמרת בוקר
+משמרת צהריים
+משמרת ערב
+משמרת לילה
+משמרת סופ״ש

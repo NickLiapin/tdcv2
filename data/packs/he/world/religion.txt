@@ -1,0 +1,25 @@
+---
+description: World religion (Hebrew). דרוזים, בהאים, שומרונים and קראים are on the list because they are recognised religious communities in Israel with their own courts or world centre there — the Baháʼí world centre is in Haifa and the Samaritan community numbers under a thousand people. One thing a config almost certainly wants instead: Israeli datasets classify Jews not by religion but by level of observance, on the four-way scale חילוני / מסורתי / דתי / חרדי, which is what the Central Bureau of Statistics asks and what any social dataset about Israel will be keyed on. That scale is not a religion list and is not mixed into this one.
+locale: he
+---
+יהדות
+איסלאם
+נצרות
+דרוזים
+בהאים
+שומרונים
+קראים
+בודהיזם
+הינדואיזם
+סיקהיזם
+שינטו
+טאואיזם
+קונפוציאניזם
+ג׳ייניזם
+זורואסטריות
+יזידים
+עלווים
+אחמדים
+ללא דת
+אתאיזם
+אגנוסטיות

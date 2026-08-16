@@ -1,0 +1,9 @@
+---
+description: Credit standing band (Serbian). Serbia has no consumer credit SCORE in the American sense: the Кредитни биро of the Association of Serbian Banks issues a report of a person's obligations and any delinquency, and a bank reads it as a standing, not as a number. These are therefore standing labels, and a config that renders them next to a three-digit number is inventing a Serbian institution that does not exist.
+locale: sr
+---
+Лоша
+Испод просека
+Просечна
+Добра
+Одлична

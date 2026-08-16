@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Finnish). Farmari — the estate car — is a category of its own in Finland and long the default family car. Mönkijä is the quad bike and moottorikelkka the snowmobile, and in Lapland the snowmobile is registered transport rather than a toy: there is a national network of marked snowmobile routes.
+locale: fi
+---
+farmari
+viistoperä
+sedan
+maastoauto
+katumaasturi
+coupé
+avoauto
+tila-auto
+pikkubussi
+pakettiauto
+kevytkuorma-auto
+kuorma-auto
+vetoauto
+linja-auto
+matkailuauto
+matkailuvaunu
+perävaunu
+traktori
+mönkijä
+moottorikelkka
+moottoripyörä
+mopo

@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type as written in Finland. The fourth group is the DIGIT ZERO, 0, not the letter O — Finnish (like Swedish, German and most of continental Europe) writes veriryhmä 0, and a Finnish record showing "O+" is following the English convention rather than the Finnish one. Finland has an unusually high share of A: roughly 44 % of Finns are group A and only about 6 % are AB.
+locale: fi
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+0+
+0-

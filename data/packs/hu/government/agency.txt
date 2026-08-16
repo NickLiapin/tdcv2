@@ -1,0 +1,27 @@
+---
+description: Government body (Hungarian ministries and public offices).
+locale: hu
+---
+Belügyminisztérium
+Külgazdasági és Külügyminisztérium
+Nemzetgazdasági Minisztérium
+Pénzügyminisztérium
+Igazságügyi Minisztérium
+Honvédelmi Minisztérium
+Agrárminisztérium
+Építési és Közlekedési Minisztérium
+Energiaügyi Minisztérium
+Kulturális és Innovációs Minisztérium
+Közigazgatási és Területfejlesztési Minisztérium
+Miniszterelnökség
+Miniszterelnöki Kabinetiroda
+Nemzeti Adó- és Vámhivatal
+Magyar Államkincstár
+Nemzeti Egészségbiztosítási Alapkezelő
+Központi Statisztikai Hivatal
+Országos Meteorológiai Szolgálat
+Kormányablak
+Anyakönyvi Hivatal
+Polgármesteri Hivatal
+Kormányhivatal
+Közterület-felügyelet

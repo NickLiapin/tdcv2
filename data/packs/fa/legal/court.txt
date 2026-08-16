@@ -1,0 +1,19 @@
+---
+description: Court (Persian — the Iranian judiciary). دادگاه انقلاب hears security, narcotics and economic-crime cases and is a parallel track to the ordinary courts; شورای حل اختلاف is a mandatory conciliation council small claims must pass through first; دادگاه ویژه روحانیت tries clerics and answers to the Leader rather than to the judiciary.
+locale: fa
+---
+دادگاه عمومی حقوقی
+دادگاه عمومی کیفری
+دادگاه کیفری یک
+دادگاه کیفری دو
+دادگاه انقلاب
+دادگاه خانواده
+دادگاه اطفال و نوجوانان
+دادگاه تجدیدنظر استان
+دیوان عالی کشور
+دیوان عدالت اداری
+دادسرای عمومی و انقلاب
+شورای حل اختلاف
+دادگاه نظامی
+دادگاه ویژه روحانیت
+مجتمع قضایی

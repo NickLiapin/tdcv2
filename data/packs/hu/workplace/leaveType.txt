@@ -1,0 +1,16 @@
+---
+description: Leave type (Hungarian).
+locale: hu
+---
+Éves szabadság
+Táppénz
+Szülői szabadság
+Szülési szabadság
+Apasági szabadság
+Rendkívüli szabadság
+Fizetés nélküli szabadság
+Alkotói szabadság
+Igény szerinti szabadnap
+Egészségügyi szabadság
+Házassági szabadság
+Tanulmányi szabadság

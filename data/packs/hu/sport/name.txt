@@ -1,0 +1,59 @@
+---
+description: Sport (Hungarian). Vizilabda (water polo), ottusa (modern pentathlon), kajak-kenu, vivas and birkozas are where Hungary's Olympic record actually lies, so they are not a token addition here.
+locale: hu
+---
+Labdarúgás
+Futsal
+Amerikai futball
+Kosárlabda
+Baseball
+Röplabda
+Strandröplabda
+Kézilabda
+Rögbi
+Jégkorong
+Gyeplabda
+Krikett
+Tenisz
+Padel
+Asztalitenisz
+Tollaslabda
+Fallabda
+Golf
+Úszás
+Vízilabda
+Műugrás
+Atlétika
+Kerékpározás
+Hegyikerékpározás
+Ökölvívás
+Birkózás
+Cselgáncs
+Karate
+Taekwondo
+Vívás
+Öttusa
+Torna
+Ritmikus gimnasztika
+Súlyemelés
+Triatlon
+Evezés
+Kajak-kenu
+Vitorlázás
+Szörfözés
+Alpesi sízés
+Sífutás
+Snowboard
+Műkorcsolya
+Gyorskorcsolya
+Sportmászás
+Íjászat
+Sportlövészet
+Lovaglás
+Autósport
+Motorsport
+Gördeszkázás
+Tekézés
+Biliárd
+Salakmotorozás
+Síugrás

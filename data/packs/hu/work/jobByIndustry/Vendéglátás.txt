@@ -1,0 +1,16 @@
+---
+description: Jobs in Hospitality (Hungarian).
+locale: hu
+---
+Séf
+Konyhafőnök-helyettes
+Szakács
+Felszolgáló
+Pultos
+Barista
+Szállodai recepciós
+Szállodaigazgató
+Concierge
+Szobalány
+Rendezvényszervező
+Idegenvezető

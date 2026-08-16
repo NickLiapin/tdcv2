@@ -1,0 +1,16 @@
+---
+description: Grade / mark on the Serbian scale. Serbian marks run the OPPOSITE way to the Polish ones the reference pack carries: in school the scale is 1–5 with 5 the best (одличан) and 1 a fail (недовољан), and at university it is 6–10 with 10 the best and 5 a fail. Both scales are here, so a config must pick one and not mix them.
+locale: sr
+---
+одличан (5)
+врло добар (4)
+добар (3)
+довољан (2)
+недовољан (1)
+10
+9
+8
+7
+6
+положио
+није положио

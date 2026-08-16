@@ -1,0 +1,59 @@
+---
+description: Industry sector (Hungarian).
+locale: hu
+---
+Mezőgazdaság
+Állattenyésztés
+Halászat
+Erdőgazdálkodás
+Bányászat
+Építőipar
+Feldolgozóipar
+Kiskereskedelem
+Nagykereskedelem
+Szállítmányozás
+Informatika
+Pénzügy
+Bankszektor
+Biztosítás
+Ingatlan
+Egészségügy
+Oktatás
+Vendéglátás
+Turizmus
+Szórakoztatóipar
+Energetika
+Kőolaj és földgáz
+Megújuló energia
+Távközlés
+Járműipar
+Repülőgépipar
+Gyógyszeripar
+Biotechnológia
+Logisztika
+Média
+Reklám
+Tanácsadás
+Jogi szolgáltatás
+Könyvelés
+Humánerőforrás
+Élelmiszer és ital
+Textilipar
+Vegyipar
+Kohászat
+Papíripar
+Elektronika
+Szoftverfejlesztés
+Elektronikus kereskedelem
+Videojáték-ipar
+Sport
+Kultúra
+Tudományos kutatás
+Közigazgatás
+Honvédelem
+Vagyonvédelem
+Civil szervezetek
+Hulladékgazdálkodás
+Víz- és csatornaszolgáltatás
+Építészet
+Mérnöki szolgáltatás

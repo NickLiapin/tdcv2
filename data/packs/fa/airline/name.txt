@@ -1,0 +1,54 @@
+---
+description: Airline (Persian). The first eighteen are Iranian; ایران‌ایر still trades under the name هما, the mythical bird on its tail. The European carriers that used to serve Tehran — Lufthansa, British Airways, Air France, KLM — all withdrew after sanctions returned in 2018, so the foreign airlines listed here are the ones that actually still fly to Iran: Turkish, the Gulf carriers, and the neighbours.
+locale: fa
+---
+ایران‌ایر
+ماهان‌ایر
+آسمان
+قشم‌ایر
+کاسپین
+کیش‌ایر
+تابان
+زاگرس
+وارش
+سپهران
+آتا
+معراج
+پویا ایر
+کارون
+چابهار ایرلاینز
+ایران‌ایرتور
+ساها
+فلای پرشیا
+ترکیش ایرلاینز
+پگاسوس
+قطر ایرویز
+امارات
+فلای‌دبی
+اتحاد
+عمان ایر
+کویت ایرویز
+الجزیره
+ایر عربیا
+عراقی ایرویز
+آذربایجان ایرلاینز
+آرمنیا
+آئروفلوت
+اورال ایرلاینز
+چاینا سادرن
+ازبکستان ایرویز
+ترکمنستان ایرلاینز
+پاکستان ایرلاینز
+ایر آستانا
+سالام ایر
+بدر ایرلاینز
+شام وینگز
+میدل ایست ایرلاینز
+اتریشی
+لوفت‌هانزا
+بریتیش ایرویز
+ایر فرانس
+کی‌ال‌ام
+آلیتالیا
+آئروفلوت روسیه
+ایر ایندیا

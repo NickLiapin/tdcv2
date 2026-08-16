@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Persian)
+locale: fa
+---
+آهن
+برنز
+نقره
+طلا
+پلاتین
+الماس
+استاد
+استاد بزرگ
+افسانه‌ای
+قهرمان

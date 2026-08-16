@@ -1,0 +1,15 @@
+---
+description: Payment status (Finnish). Perintä and ulosotto are the two escalation steps: perintä is a collection agency, ulosotto is the state enforcement authority, and only the second can attach wages.
+locale: fi
+---
+maksamatta
+odottaa
+varattu
+maksettu
+osittain maksettu
+myöhässä
+muistutettu
+perinnässä
+ulosotossa
+hyvitetty
+peruutettu

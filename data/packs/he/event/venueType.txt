@@ -1,0 +1,22 @@
+---
+description: Venue type (Hebrew). גן אירועים — an outdoor garden built specifically to host weddings — is the standard Israeli wedding venue and is not the same thing as an אולם אירועים.
+locale: he
+---
+אולם אירועים
+גן אירועים
+בית מלון
+מסעדה
+בר
+מועדון
+אמפיתיאטרון
+היכל תרבות
+מרכז כנסים
+בית כנסת
+גלריה
+מוזיאון
+פארק
+חוף
+אולם ספורט
+אודיטוריום
+גג
+מתנ״ס

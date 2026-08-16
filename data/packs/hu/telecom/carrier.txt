@@ -1,0 +1,30 @@
+---
+description: Mobile and fixed-line carrier (Hungarian operators and international brands).
+locale: hu
+---
+Magyar Telekom
+Telekom
+Yettel
+One
+Vodafone Magyarország
+DIGI
+Invitech
+Antenna Hungária
+MVM Next
+Tarr
+Netfone
+Blue Mobile
+Vidanet
+PR-Telecom
+Externet
+UPC Magyarország
+Telenor
+Vodafone
+Orange
+T-Mobile
+O2
+Lycamobile
+A1
+Deutsche Telekom
+Iliad
+Three

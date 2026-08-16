@@ -1,0 +1,32 @@
+---
+description: Tree (Serbian). Храст лужњак is the oak of the Serbian badnjak, the Christmas Eve log, which is why oak appears twice under two species names.
+locale: sr
+---
+храст
+храст лужњак
+цер
+буква
+граб
+брест
+јасен
+јавор
+клен
+липа
+бреза
+топола
+јаблан
+врба
+јова
+дивљи кестен
+питоми кестен
+орах
+леска
+бор
+црни бор
+смрча
+јела
+ариш
+клека
+тиса
+багрем
+дуд

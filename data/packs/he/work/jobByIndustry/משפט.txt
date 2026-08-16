@@ -1,0 +1,19 @@
+---
+description: Jobs in Legal (Hebrew, masculine singular — see work/jobTitle.txt on gender)
+locale: he
+---
+עורך דין
+שותף במשרד
+מתמחה
+עוזר משפטי
+פרקליט
+סנגור ציבורי
+שופט
+רשם
+נוטריון
+מגשר
+בורר
+חוקר משפטי
+מזכיר משפטי
+יועץ משפטי
+עורך פטנטים

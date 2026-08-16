@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Serbian), Monday first
+locale: sr
+---
+пон.
+уто.
+сре.
+чет.
+пет.
+суб.
+нед.

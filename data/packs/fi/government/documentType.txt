@@ -1,0 +1,23 @@
+---
+description: Official document type (Finnish). Verokortti is the one with no European equivalent: the Tax Administration issues every wage-earner a tax card carrying their personal withholding rate, and an employer without it must withhold at 60 %. Kela-kortti is the health insurance card used at every pharmacy. Virkatodistus is the certificate of civil status drawn from the population register — Finnish life asks for it constantly.
+locale: fi
+---
+passi
+henkilökortti
+ajokortti
+verokortti
+Kela-kortti
+virkatodistus
+väestörekisteriote
+oleskelulupakortti
+rikosrekisteriote
+veroilmoitus
+kaupparekisteriote
+Y-tunnus
+rakennuslupa
+työtodistus
+päättötodistus
+ylioppilastodistus
+vihkitodistus
+kuolintodistus
+lääkärintodistus

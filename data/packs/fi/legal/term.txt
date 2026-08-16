@@ -1,0 +1,24 @@
+---
+description: Legal term (Finnish). Ulosotto is worth noting: it is enforcement by a state authority, not a private bailiff, and it can attach wages directly. Asianomistaja — the injured party — has a formal standing in a Finnish criminal trial that the English "complainant" does not carry.
+locale: fi
+---
+haastehakemus
+kantaja
+vastaaja
+asianomistaja
+syytetty
+asiamies
+avustaja
+julkinen oikeusavustaja
+pääkäsittely
+todistelu
+todistajanlausunto
+tuomio
+päätös
+valitus
+valituslupa
+lainvoima
+vanhentuminen
+vahingonkorvaus
+ulosotto
+rangaistusmääräys

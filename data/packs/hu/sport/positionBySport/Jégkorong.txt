@@ -1,0 +1,9 @@
+---
+description: Positions in ice hockey (Hungarian).
+locale: hu
+---
+Kapus
+Hátvéd
+Center
+Balszélső
+Jobbszélső

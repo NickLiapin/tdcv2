@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Hungarian).
+locale: hu
+---
+Visszatérő depresszió
+Generalizált szorongásos zavar
+Bipoláris zavar
+Skizofrénia
+Poszttraumás stressz zavar
+Figyelemhiányos hiperaktivitás-zavar
+Kényszerbetegség
+Anorexia nervosa
+Pánikbetegség
+Alkoholfüggőség

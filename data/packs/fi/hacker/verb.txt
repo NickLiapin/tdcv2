@@ -1,0 +1,32 @@
+---
+description: Tech verb, first infinitive (Finnish)
+locale: fi
+---
+kääntää
+ajaa
+asentaa
+poistaa
+päivittää
+konfiguroida
+käynnistää uudelleen
+yhdistää
+katkaista yhteys
+kirjautua sisään
+kirjautua ulos
+salata
+purkaa salaus
+pakata
+purkaa pakkaus
+indeksoida
+hakea
+suodattaa
+lajitella
+tallentaa
+ladata
+korvata
+poistaa pysyvästi
+palauttaa
+peilata
+jakaa
+ottaa käyttöön
+etsiä vikaa

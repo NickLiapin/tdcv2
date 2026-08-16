@@ -1,0 +1,64 @@
+---
+description: Business buzz noun (Hungarian).
+locale: hu
+---
+szinergia
+paradigma
+ökoszisztéma
+működési modell
+munkafolyamat
+architektúra
+infrastruktúra
+platform
+megoldás
+stratégia
+ütemterv
+kezdeményezés
+módszertan
+illeszkedés
+mozgatórugó
+teljesítmény
+végtermék
+érintkezési pont
+viszonyítási alap
+mérföldkő
+elköteleződés
+vezénylés
+integráció
+migráció
+átalakulás
+optimalizálás
+skálázhatóság
+interoperabilitás
+vállalatirányítás
+megfelelőség
+ellenállóképesség
+megfigyelhetőség
+telemetria
+ütem
+vertikum
+csatorna
+tőkeáttétel
+hozzáadott érték
+értékajánlat
+versenyelőny
+piaci részesedés
+szegmens
+piaci rés
+portfólió
+állomány
+beruházás
+megtérülés
+termelékenység
+eredményesség
+innováció
+diszrupció
+digitalizáció
+automatizálás
+analitika
+üzleti intelligencia
+életciklus
+piacra jutási idő
+méretgazdaságosság
+folyamatos fejlesztés
+változáskezelés

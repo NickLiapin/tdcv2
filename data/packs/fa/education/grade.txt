@@ -1,0 +1,16 @@
+---
+description: Grade / mark (Persian). Iran marks out of TWENTY, not out of a hundred and not on letters: 20 is perfect, 10 is the pass mark, and a معدل (grade point average) of 17 is a strong student. Primary schools use a separate four-step descriptive scale instead of numbers — خیلی خوب، خوب، قابل قبول، نیازمند تلاش بیشتر — and both are in this list.
+locale: fa
+---
+ممتاز
+عالی
+خیلی خوب
+بسیار خوب
+خوب
+متوسط
+قابل قبول
+نیازمند تلاش بیشتر
+ضعیف
+قبول
+مردود
+غایب

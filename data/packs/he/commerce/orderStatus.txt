@@ -1,0 +1,18 @@
+---
+description: Order status (Hebrew, agreeing with the feminine noun הזמנה)
+locale: he
+---
+התקבלה
+אושרה
+בטיפול
+בהכנה
+נארזה
+נשלחה
+בדרך
+יצאה למשלוח
+נמסרה
+ממתינה לאיסוף
+ממתינה לתשלום
+בוטלה
+הוחזרה
+נדחתה

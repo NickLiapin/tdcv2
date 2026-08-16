@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Serbian; brand names kept in their registered Latin spelling, as Serbian gaming press writes them)
+locale: sr
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+Steam Deck
+Android
+iOS
+Веб прегледач

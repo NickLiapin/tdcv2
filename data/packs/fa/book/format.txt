@@ -1,0 +1,12 @@
+---
+description: Book format (Persian). Persian publishing names a format by PAGE SIZE rather than by binding: رقعی is roughly 14x21 cm and the default for novels, وزیری 17x24 cm for textbooks, رحلی the large art-book size, جیبی pocket. The binding words (جلد سخت / جلد شومیز) exist alongside them, not instead.
+locale: fa
+---
+جلد سخت
+جلد شومیز
+کتاب الکترونیکی
+کتاب صوتی
+جیبی
+رقعی
+وزیری
+رحلی

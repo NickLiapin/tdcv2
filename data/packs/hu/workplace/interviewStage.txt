@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Hungarian).
+locale: hu
+---
+Jelentkezés átnézése
+Telefonos interjú
+Szakmai interjú
+Személyes interjú
+Panelinterjú
+Utolsó forduló
+Referenciaellenőrzés
+Ajánlat
+Elutasítva
+Felvéve
+Visszalépett

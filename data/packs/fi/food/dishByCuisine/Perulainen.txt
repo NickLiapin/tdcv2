@@ -1,0 +1,13 @@
+---
+description: Dishes of perulainen cuisine, in Finnish
+locale: fi
+---
+Ceviche
+Lomo saltado
+Aji de gallina
+Causa limeña
+Anticuchos
+Papa a la huancaína
+Rocoto relleno
+Arroz chaufa
+Suspiro limeño

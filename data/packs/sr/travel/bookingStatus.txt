@@ -1,0 +1,15 @@
+---
+description: Booking status (Serbian, agreeing with the feminine noun резервација)
+locale: sr
+---
+Креирана
+На чекању
+Потврђена
+Гарантована
+Плаћена
+Делимично плаћена
+Измењена
+Отказана
+Истекла
+Реализована
+Одбијена

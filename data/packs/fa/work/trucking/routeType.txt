@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Persian)
+locale: fa
+---
+مسیر بلند
+بین‌شهری
+منطقه‌ای
+محلی
+اختصاصی
+دو راننده
+تحویل آخرین مایل

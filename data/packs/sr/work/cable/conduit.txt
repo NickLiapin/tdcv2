@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Serbian)
+locale: sr
+---
+Цев
+Каналица
+Регал
+Кабловско окно
+Подземни ров
+Ваздушни вод
+Подна кутија

@@ -1,0 +1,27 @@
+---
+description: Common allergy (Persian). ریزگرد — the fine dust blown in over Khuzestan and the west — is a mass respiratory trigger in Iran rather than an individual allergy.
+locale: fa
+---
+پنی‌سیلین
+بادام زمینی
+آجیل
+صدف و میگو
+تخم‌مرغ
+شیر
+سویا
+گندم
+لاتکس
+گرده گیاهان
+کنه گرد و غبار خانگی
+پشم و موی حیوانات
+نیش زنبور
+آسپرین
+سولفونامیدها
+ید
+کنجد
+گلوتن
+کپک
+نیکل
+توت‌فرنگی
+ماده حاجب یددار
+ریزگرد

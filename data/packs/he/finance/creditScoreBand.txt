@@ -1,0 +1,9 @@
+---
+description: Credit score band (Hebrew). Israel's credit-data register at the Bank of Israel only began operating in 2019 and its score is far less visible in daily life than a FICO score is in the United States — most Israelis have never seen theirs. The bands below are the descriptive labels lenders use, not a published national scale.
+locale: he
+---
+מצוין
+טוב מאוד
+טוב
+בינוני
+נמוך

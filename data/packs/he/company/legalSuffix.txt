@@ -1,0 +1,19 @@
+---
+description: Company legal form used in Israel. This list is SHORT and that is the finding: Israeli company law recognises far fewer forms than Poland's forty-one, and בע״מ covers the overwhelming majority of registered companies. אגודה שיתופית is the kibbutz and moshav form and has no European counterpart. Nothing was invented to reach a European-sized list.
+locale: he
+---
+בע״מ
+חברה בע״מ
+חברה פרטית בע״מ
+חברה ציבורית בע״מ
+שותפות רשומה
+שותפות מוגבלת
+אגודה שיתופית
+עמותה
+חברה לתועלת הציבור
+חל״צ
+עוסק מורשה
+עוסק פטור
+חברה זרה
+קרן
+הקדש

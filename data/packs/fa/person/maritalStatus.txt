@@ -1,0 +1,18 @@
+---
+description: Marital status (Persian). Iran distinguishes states European forms do not: عقدکرده is legally married but not yet living together — the contract (عقد) and the wedding (عروسی) are separate events months apart — and ازدواج موقت (صیغه) is a fixed-term marriage recognised in Shia law. مطلقه is said of a divorced woman, مطلق of a man.
+locale: fa
+---
+مجرد
+متأهل
+عقدکرده
+نامزد
+مطلقه
+مطلق
+جدا از همسر
+بیوه
+همسر فوت‌شده
+ازدواج موقت
+متارکه‌کرده
+در حال طلاق
+ازدواج نکرده
+سرپرست خانوار

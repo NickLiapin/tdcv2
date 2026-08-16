@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Serbian. A prevalence signal, not an exclusive one.
+locale: sr
+---
+Наследна хемохроматоза
+Фенилкетонурија
+Породична хиперхолестеролемија
+Алкохолна болест јетре
+Цистична фиброза
+Вилсонова болест

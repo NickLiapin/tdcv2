@@ -1,0 +1,29 @@
+---
+description: Legal term (Persian). کارشناس رسمی دادگستری is a court-appointed licensed expert whose valuation is binding unless successfully challenged.
+locale: fa
+---
+خواهان
+خوانده
+شاکی
+متهم
+وکیل
+قاضی
+دادستان
+بازپرس
+احضاریه
+ابلاغیه
+دادخواست
+شکواییه
+لایحه
+رأی
+حکم
+قرار
+اجرائیه
+تجدیدنظرخواهی
+اعاده دادرسی
+سند رسمی
+وکالتنامه
+کارشناس رسمی
+شهادت شهود
+سوگند
+صلح‌نامه

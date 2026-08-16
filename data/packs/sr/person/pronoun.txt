@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Serbian). Serbian marks gender on the verb as well as on the pronoun, and drops the pronoun altogether in ordinary speech, so these read as form-field labels rather than as running text.
+locale: sr
+---
+он
+она
+оно
+он/његов
+она/њен
+оно/његово
+он/она
+она/оно

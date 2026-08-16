@@ -1,0 +1,59 @@
+{
+  "months": [
+    "ינואר",
+    "פברואר",
+    "מרץ",
+    "אפריל",
+    "מאי",
+    "יוני",
+    "יולי",
+    "אוגוסט",
+    "ספטמבר",
+    "אוקטובר",
+    "נובמבר",
+    "דצמבר"
+  ],
+  "monthsInDate": [
+    "בינואר",
+    "בפברואר",
+    "במרץ",
+    "באפריל",
+    "במאי",
+    "ביוני",
+    "ביולי",
+    "באוגוסט",
+    "בספטמבר",
+    "באוקטובר",
+    "בנובמבר",
+    "בדצמבר"
+  ],
+  "monthsShort": [
+    "ינו׳",
+    "פבר׳",
+    "מרץ",
+    "אפר׳",
+    "מאי",
+    "יוני",
+    "יולי",
+    "אוג׳",
+    "ספט׳",
+    "אוק׳",
+    "נוב׳",
+    "דצמ׳"
+  ],
+  "weekdays": [
+    "יום ראשון",
+    "יום שני",
+    "יום שלישי",
+    "יום רביעי",
+    "יום חמישי",
+    "יום שישי",
+    "שבת"
+  ],
+  "weekdaysShort": ["א׳", "ב׳", "ג׳", "ד׳", "ה׳", "ו׳", "שבת"],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "monthsInDate is NOT decoration here: Hebrew glues the preposition ב־ onto the month name inside a written date. 15 באוגוסט 2026, never 15 אוגוסט 2026. The prefix is part of the word, so LL stays \"D MMMM YYYY\" and the ב comes from monthsInDate. The vowel-less forms are correct as written (ב+אוגוסט = באוגוסט, ב+ינואר = בינואר). The week starts on SUNDAY and the weekend is FRIDAY-SATURDAY; Sunday is a full working day. Six weekdays are counted rather than named (יום ראשון = day one) and only שבת has a name. TWO CALENDARS: Israel runs the Gregorian calendar for all civil purposes and the Hebrew lunisolar calendar for religion and holidays, and official documents print both. The Hebrew year is counted from creation (2026 CE spans 5786-5787), begins in autumn at תשרי, and has 12 or 13 months - a leap year, 7 in every 19, splits אדר into אדר א and אדר ב. Hebrew dates are also written with letters rather than digits (כ\"ט בכסלו תשפ\"ו). This pack does NOT convert: a date implementation should format Gregorian only, and the Hebrew month names are shipped as data in date/hebrewMonth.txt for a caller that wants them. Hebrew is written RIGHT TO LEFT but numbers inside it run left to right, so a formatted date is a bidirectional string; no directional marker characters are stored in this file. Modern Hebrew is written WITHOUT vowel points, and every value here is unpointed, as a newspaper prints it."
+}

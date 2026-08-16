@@ -1,0 +1,9 @@
+---
+description: Work shift (Hungarian).
+locale: hu
+---
+Nappali
+Éjszakai
+Délutáni
+Váltott
+Reggeli

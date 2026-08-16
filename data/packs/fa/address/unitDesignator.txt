@@ -1,0 +1,27 @@
+---
+description: Iranian address unit / interior designator. An Iranian address is written largest-to-smallest and ends with پلاک (the street number) and واحد (the flat), in that order — خیابان X، کوچه Y، پلاک ۱۲، واحد ۳ — which is the reverse of the Anglo-American order.
+locale: fa
+---
+واحد
+پلاک
+طبقه
+بلوک
+ساختمان
+ورودی
+راه‌پله
+آپارتمان
+سوئیت
+اتاق
+دفتر
+انباری
+پارکینگ
+حیاط
+زیرزمین
+همکف
+نیم‌طبقه
+پشت‌بام
+مجتمع
+فاز
+برج
+صندوق پستی
+کدپستی

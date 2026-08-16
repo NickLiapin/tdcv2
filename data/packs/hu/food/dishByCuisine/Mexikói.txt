@@ -1,0 +1,13 @@
+---
+description: Dishes of Mexican cuisine (Hungarian).
+locale: hu
+---
+Tacos
+Burrito
+Enchilada
+Quesadilla
+Guacamole
+Tamales
+Töltött chilipaprika
+Pozole
+Mole poblano

@@ -1,0 +1,11 @@
+---
+description: Weekday name (Hungarian, lowercase). Hetfo is literally "head of the week"; the week starts on Monday.
+locale: hu
+---
+hétfő
+kedd
+szerda
+csütörtök
+péntek
+szombat
+vasárnap

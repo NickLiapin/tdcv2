@@ -1,0 +1,19 @@
+---
+description: Legal case type (Finnish). Finnish splits cases into rikosasia (criminal) and riita-asia (civil), with hakemusasia — a petition, such as a divorce or an estate matter — as a third category that needs no opposing party.
+locale: fi
+---
+rikosasia
+riita-asia
+hakemusasia
+perheoikeudellinen asia
+huoltajuusriita
+avioero
+ositus
+perintöriita
+vuokrariita
+työriita
+hallintoasia
+turvapaikka-asia
+ympäristöasia
+konkurssiasia
+velkajärjestely

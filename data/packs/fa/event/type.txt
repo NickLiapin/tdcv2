@@ -1,0 +1,24 @@
+---
+description: Event type (Persian). Four are Iranian and pre-Islamic: نوروز is new year at the spring equinox, چهارشنبه‌سوری the fire-jumping night before it, سیزده‌بدر the thirteenth day spent outdoors, and شب یلدا the longest night of the year, sat out with pomegranates and Hafez. عقد and عروسی are two separate weddings — the contract and the celebration — often months apart.
+locale: fa
+---
+عروسی
+عقد
+نامزدی
+جشن تولد
+سالگرد
+مراسم ترحیم
+مجلس عزا
+افتتاحیه
+همایش
+کنفرانس
+سمینار
+کارگاه
+نمایشگاه
+جشنواره
+کنسرت
+نوروز
+شب یلدا
+چهارشنبه‌سوری
+سیزده‌بدر
+مهمانی

@@ -1,0 +1,21 @@
+---
+description: Cuisine (Persian). Each value has a dishByCuisine child file. افغانی and ارمنی are here because both are cooked and eaten in Iran — Afghan food by a large resident community, Armenian by an old Iranian minority with its own restaurants in Tehran and Isfahan.
+locale: fa
+---
+ایرانی
+ایتالیایی
+ژاپنی
+مکزیکی
+چینی
+هندی
+فرانسوی
+تایلندی
+یونانی
+اسپانیایی
+آمریکایی
+کره‌ای
+ویتنامی
+ترکی
+لبنانی
+افغانی
+ارمنی

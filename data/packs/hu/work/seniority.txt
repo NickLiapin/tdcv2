@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Hungarian).
+locale: hu
+---
+Gyakornok
+Szakmai gyakornok
+Junior munkatárs
+Fiatal szakértő
+Szakértő
+Vezető szakértő
+Csapatvezető
+Szaktanácsadó
+Főszakértő
+Koordinátor
+Osztályvezető
+Vezető menedzser
+Igazgató
+Vezérigazgató-helyettes
+Divízióvezető
+Vezérigazgató

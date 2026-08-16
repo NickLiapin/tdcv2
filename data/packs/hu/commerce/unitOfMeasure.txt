@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Hungarian). Mazsa is a Hungarian hundredweight of exactly 100 kg, still the everyday unit for produce and grain.
+locale: hu
+---
+darab
+karton
+csomag
+doboz
+tucat
+pár
+készlet
+tekercs
+bála
+köteg
+kilogramm
+gramm
+mázsa
+tonna
+liter
+milliliter
+méter
+centiméter
+négyzetméter
+köbméter
+zsák
+tálca
+konzerv
+üveg
+befőttesüveg
+tubus
+raklap
+boríték
+garnitúra
+tétel

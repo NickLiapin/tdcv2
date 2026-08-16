@@ -1,0 +1,40 @@
+---
+description: Playing position, mixed sports (Hungarian).
+locale: hu
+---
+Kapus
+Középhátvéd
+Szélső hátvéd
+Védekező középpályás
+Középpályás
+Szélső
+Csatár
+Támadó középpályás
+Irányító
+Dobóhátvéd
+Alacsony bedobó
+Erőcsatár
+Center
+Dobójátékos
+Elkapó
+Rövid megállító
+Első bázisvédő
+Középső külső védő
+Kijelölt ütőjátékos
+Feladó
+Liberó
+Középső blokkoló
+Ütő
+Tolóember
+Ékelő
+Összekötő
+Nyitóember
+Hátvéd
+Irányító hátvéd
+Elkapójátékos
+Támadósori játékos
+Védősori játékos
+Bal szélső
+Jobb szélső
+Beálló
+Bekk

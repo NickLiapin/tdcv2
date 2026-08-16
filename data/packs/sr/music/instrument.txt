@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Serbian). The first block is the Serbian folk set — гусле is the single-string bowed instrument that carries epic poetry, фрула is the shepherd's flute, and труба names the Guča brass tradition rather than the orchestral trumpet.
+locale: sr
+---
+гусле
+фрула
+двојнице
+кавал
+гајде
+тамбура
+тамбурица
+хармоника
+труба
+тапан
+даире
+дудук
+шаргија
+виолина
+виола
+виолончело
+контрабас
+гитара
+бас-гитара
+клавир
+оргуље
+клавијатура
+оргуљице
+флаута
+кларинет
+обоа
+фагот
+саксофон
+тромбон
+хорна
+бубњеви

@@ -1,0 +1,29 @@
+---
+description: Fish (Persian). Iran fishes two very different waters: the Caspian in the north (ماهی سفید, and the sturgeons فیل‌ماهی، تاس‌ماهی، ازون‌برون that yield Iranian caviar) and the Persian Gulf in the south (حلوا، سنگسر، سرخو، هامور، صبور).
+locale: fa
+---
+قزل‌آلا
+ماهی سفید
+کپور
+سوف
+اردک‌ماهی
+سیم
+تاس‌ماهی
+فیل‌ماهی
+ازون‌برون
+شیپ
+ماهی آزاد
+هامور
+شیرماهی
+حلوا سفید
+حلوا سیاه
+سنگسر
+سرخو
+کفشک
+ساردین
+صبور
+قباد
+ماهی قرمز
+گوپی
+فایتر
+آنجل

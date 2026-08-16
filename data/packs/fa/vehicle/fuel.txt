@@ -1,0 +1,14 @@
+---
+description: Fuel type (Persian). دوگانه‌سوز — bi-fuel, petrol plus compressed natural gas on a switch — is not a niche in Iran: the state converted much of the fleet to CNG to cut petrol imports, and it is the ordinary specification of an Iranian taxi.
+locale: fa
+---
+بنزین
+گازوئیل
+سی‌ان‌جی
+ال‌پی‌جی
+دوگانه‌سوز
+برقی
+هیبریدی
+هیدروژنی
+اتانول
+بیودیزل

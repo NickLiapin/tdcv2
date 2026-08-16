@@ -1,0 +1,16 @@
+---
+description: Month name (Hebrew) — the GREGORIAN month, which is what Israel uses for every civil purpose: banking, government forms, school terms, contracts. The Hebrew lunisolar calendar is a SECOND calendar that runs alongside it and governs religion, holidays and the Jewish date on official documents; its month names are in date/hebrewMonth.txt. The engine generates Gregorian dates and CONVERTS NOTHING between the two — a config that wants a Hebrew-calendar date must supply it itself. Inside a written date the month takes the prefix ב־ (15 באוגוסט 2026); the bare forms below are the citation forms, and the prefixed ones are in DATE_LOCALE.json under monthsInDate.
+locale: he
+---
+ינואר
+פברואר
+מרץ
+אפריל
+מאי
+יוני
+יולי
+אוגוסט
+ספטמבר
+אוקטובר
+נובמבר
+דצמבר

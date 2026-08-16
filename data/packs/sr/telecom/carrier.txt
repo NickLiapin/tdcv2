@@ -1,0 +1,24 @@
+---
+description: Mobile and fixed-line carrier operating in Serbia. мтс is the retail brand of the state operator Телеком Србија; Yettel and A1 Србија are the two private mobile networks, both renamed in the last few years (from Telenor and Vip mobile), so a pack still carrying the old names is out of date.
+locale: sr
+---
+мтс
+Телеком Србија
+Yettel
+A1 Србија
+Globaltel
+Orion telekom
+SBB
+Supernova
+Sat-Trakt
+Radijus Vektor
+BeotelNet
+Telemach
+Telekom Austria Group
+PPF Group
+United Group
+Vodafone
+Deutsche Telekom
+Orange
+Turkcell
+Magyar Telekom

@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Finnish). Finland has no official state hotel classification — stars on a Finnish listing come from the booking site or the chain, not from an authority.
+locale: fi
+---
+1 tähti
+2 tähteä
+3 tähteä
+4 tähteä
+5 tähteä

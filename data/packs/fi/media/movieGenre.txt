@@ -1,0 +1,23 @@
+---
+description: Movie genre (Finnish)
+locale: fi
+---
+draama
+komedia
+romanttinen komedia
+toiminta
+seikkailu
+trilleri
+rikoselokuva
+dekkari
+kauhu
+tieteiselokuva
+fantasia
+sotaelokuva
+lännenelokuva
+historiallinen elokuva
+elämäkertaelokuva
+musikaali
+animaatio
+perhe-elokuva
+dokumentti

@@ -1,0 +1,36 @@
+---
+description: Flower (Finnish). Kielo, the lily of the valley, is Finland's national flower. Valkovuokko and sinivuokko are what a Finnish spring looks like on the forest floor, and maitohorsma is the tall pink fireweed that takes over every clearing, roadside and burnt patch in the country in July.
+locale: fi
+---
+kielo
+valkovuokko
+sinivuokko
+kevätesikko
+voikukka
+päivänkakkara
+kissankello
+ruiskaunokki
+apila
+maitohorsma
+niittyleinikki
+lemmikki
+orvokki
+keto-orvokki
+kanerva
+suopursu
+rentukka
+ojakellukka
+metsätähti
+vuokko
+ruusu
+tulppaani
+narsissi
+krookus
+lilja
+auringonkukka
+unikko
+syreeni
+jasmiini
+hortensia
+daalia
+orkidea

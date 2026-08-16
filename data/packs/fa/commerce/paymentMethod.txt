@@ -1,0 +1,19 @@
+---
+description: Payment method (Persian). Several are Iran-only and have no foreign equivalent because Iran is cut off from the international card networks: کارت به کارت is a direct card-to-card transfer typed into a cash machine or banking app and is how private sales are paid; شاپرک is the national payment switch every Iranian online payment runs through; ساتنا and پایا are the large-value and batch interbank transfer systems; چک صیادی is the registered cheque that replaced the old cheque book in 2019. Visa, Mastercard and PayPal do not work in Iran at all.
+locale: fa
+---
+کارت بانکی
+کارت به کارت
+درگاه پرداخت اینترنتی
+شاپرک
+پرداخت در محل
+نقدی
+چک
+چک صیادی
+حواله بانکی
+ساتنا
+پایا
+کیف پول الکترونیکی
+اعتباری
+اقساطی
+کارت هدیه

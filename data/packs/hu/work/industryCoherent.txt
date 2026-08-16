@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child).
+locale: hu
+---
+Technológia
+Egészségügy
+Pénzügy
+Építőipar
+Oktatás
+Vendéglátás
+Feldolgozóipar
+Kiskereskedelem
+Szállítmányozás
+Jog

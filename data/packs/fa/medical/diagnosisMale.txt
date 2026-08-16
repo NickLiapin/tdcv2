@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Persian that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: fa
+---
+بزرگی خوش‌خیم پروستات
+پروستاتیت
+سرطان پروستات
+سرطان بیضه
+پیچ‌خوردگی بیضه
+واریکوسل
+هیدروسل
+اپیدیدیمیت
+بیضه نزول‌نکرده
+فیموزیس
+بالانیت
+اختلال نعوظ
+بیماری پیرونی
+ناباروری مردان
+ژنیکوماستی
+هیپوگنادیسم مردانه
+پریاپیسم
+کیست اپیدیدیم
+طاسی با الگوی مردانه
+فتق اسکروتال

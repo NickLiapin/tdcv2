@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Persian). Iran's financial year runs with the Solar Hijri year — 1 Farvardin to the end of Esfand — so an Iranian Q1 is spring (late March to late June), not January to March.
+locale: fa
+---
+سه‌ماهه اول
+سه‌ماهه دوم
+سه‌ماهه سوم
+سه‌ماهه چهارم

@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Persian). The first fourteen are Iranian: تار and سه‌تار are long-necked lutes, سنتور a struck box zither, کمانچه a spike fiddle, نی an end-blown reed flute, دف a large frame drum, تنبک the goblet drum that keeps the rhythm of Persian classical music, and کرنا / دهل / نقاره are the outdoor ceremonial set.
+locale: fa
+---
+تار
+سه‌تار
+سنتور
+کمانچه
+نی
+دف
+تنبک
+عود
+قانون
+رباب
+دوتار
+سرنا
+کرنا
+دهل
+نقاره
+تنبور
+قیچک
+پیانو
+گیتار
+ویولن
+ویولنسل
+فلوت
+کلارینت
+ساکسیفون
+ترومپت
+ترومبون
+درام
+ارگ
+آکاردئون
+هارمونیکا
+چنگ

@@ -1,0 +1,32 @@
+---
+description: Tech verb (Hebrew, infinitive — the ל־ prefix is part of the word). A Hebrew dictionary would list these under their third-person masculine singular past form instead.
+locale: he
+---
+לפרוץ
+להצפין
+לפענח
+לסרוק
+לאתחל
+לגבות
+לשחזר
+לנטר
+לקמפל
+לפרוס
+לסנכרן
+לנתב
+לדחוס
+לאמת
+למפות
+לשכפל
+למזג
+לרענן
+לעדכן
+לשדרג
+להתקין
+להסיר
+לנפות
+לייעל
+לתכנת
+לקודד
+לבדוק
+להריץ

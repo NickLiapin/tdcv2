@@ -1,0 +1,25 @@
+---
+description: Employee benefit (Hebrew). Half of this list has no European counterpart. קרן השתלמות is a tax-advantaged savings fund an employer co-pays into and the employee may withdraw tax-free after six years — it is the benefit Israelis negotiate hardest for. דמי הבראה is a 'recuperation payment', a legally mandated annual sum per year of service. החזר נסיעות, reimbursement of the cost of getting to work, is likewise a legal entitlement rather than a perk. תלושי שי לחג are the vouchers handed out before Rosh Hashanah and Passover, and סיבוס / תן ביס are the prepaid lunch cards that most Israeli offices run on.
+locale: he
+---
+קרן השתלמות
+קופת גמל
+פנסיה
+ביטוח מנהלים
+דמי הבראה
+החזר נסיעות
+תלושי שי לחג
+כרטיס סיבוס
+כרטיס תן ביס
+ארוחות
+רכב חברה
+טלפון נייד
+ימי חופשה
+ימי מחלה
+עבודה היברידית
+עבודה מהבית
+ביטוח בריאות
+חדר כושר
+השתלמויות
+מענק שנתי
+אופציות

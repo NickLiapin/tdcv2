@@ -1,0 +1,23 @@
+---
+description: Property type (Serbian). Гарсоњера is a single-room flat and једнособан / двособан count ROOMS excluding the kitchen, so a двособан stан is not a two-bedroom flat in the English sense.
+locale: sr
+---
+Гарсоњера
+Једнособан стан
+Једноипособан стан
+Двособан стан
+Двоипособан стан
+Трособан стан
+Четворособан стан
+Пентхаус
+Дуплекс
+Кућа
+Кућа у низу
+Вила
+Викендица
+Салаш
+Плац
+Пољопривредно земљиште
+Пословни простор
+Локал
+Магацин

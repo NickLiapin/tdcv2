@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Pulmonology (Serbian)
+locale: sr
+---
+Астма
+Хронична опструктивна болест плућа
+Пнеумонија
+Плућна емболија
+Туберкулоза
+Апнеја у сну

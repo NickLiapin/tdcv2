@@ -1,0 +1,16 @@
+---
+description: Jobs in kauppa, in Finnish
+locale: fi
+---
+myyjä
+myymäläpäällikkö
+kassanhoitaja
+ostaja
+tuoteryhmäpäällikkö
+myyntineuvottelija
+asiakaspalvelija
+verkkokauppavastaava
+somistaja
+tuoteasiantuntija
+aluepäällikkö
+myyntijohtaja

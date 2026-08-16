@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Hungarian).
+locale: hu
+---
+Nemzetközi
+Belföldi távolsági
+Regionális
+Helyi
+Dedikált
+Kétfős vezetés
+Utolsó kilométer

@@ -1,0 +1,16 @@
+---
+description: Jobs in Legal (Hungarian).
+locale: hu
+---
+Ügyvéd
+Jogtanácsos
+Közjegyző
+Bíró
+Ügyész
+Bírósági végrehajtó
+Jogi asszisztens
+Bírósági titkár
+Ügyvédjelölt
+Megfelelőségi szakértő
+Jogi tanácsadó
+Szabadalmi ügyvivő

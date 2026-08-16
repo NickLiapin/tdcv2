@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child), in Finnish
+locale: fi
+---
+Teknologia
+Terveydenhuolto
+Rahoitus
+Rakentaminen
+Koulutus
+Matkailu- ja ravintola-ala
+Teollisuus
+Kauppa
+Kuljetus
+Juridiikka

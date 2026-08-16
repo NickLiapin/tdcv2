@@ -1,0 +1,14 @@
+---
+description: Dishes of Iraqi cuisine (Hebrew). As cooked by Iraqi Jews in Israel; טביט is their Sabbath dish, the counterpart of חמין.
+locale: he
+---
+טביט
+קובה חמוסטה
+קובה סלק
+קובה בורגול
+סמבוסק
+אמבה
+באמיה בשר
+כובה מוצלאיה
+עמבה עם פלאפל
+סלט אמבה

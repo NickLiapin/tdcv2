@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Hungarian).
+locale: hu
+---
+Feltöltőkártyás
+Előfizetéses
+Korlátlan
+Családi csomag
+Céges csomag
+Forgalom alapú
+Csak adat
+Megosztott csomag
+Egységes tarifa
+Kombinált csomag
+Feltöltés
+Diákcsomag

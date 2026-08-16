@@ -1,0 +1,13 @@
+---
+description: Dishes of French cuisine (Serbian)
+locale: sr
+---
+Кроасан
+Кок о вен
+Рататуј
+Киш лорен
+Беф бургињон
+Крем брле
+Супа од лука
+Багет
+Еклер

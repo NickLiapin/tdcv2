@@ -1,0 +1,12 @@
+---
+description: Dishes of Vietnamese cuisine (Hungarian).
+locale: hu
+---
+Pho
+Bánh mì
+Vietnami tavaszi tekercs
+Bún chả
+Cơm tấm
+Vietnami kávé
+Gỏi cuốn
+Bánh xèo

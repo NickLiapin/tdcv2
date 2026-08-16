@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Israel. הנדסאי and טכנאי are practical-engineering certificates below a bachelor's degree with no direct European equivalent; תעודת בגרות is the school-leaving matriculation certificate.
+locale: he
+---
+תעודת בגרות
+תעודת גמר
+טכנאי
+הנדסאי
+תעודת מקצוע
+תואר ראשון
+בוגר במדעי הרוח
+בוגר במדעי הטבע
+תואר שני
+מוסמך
+MBA
+תעודת הוראה
+תואר ראשון במשפטים
+תואר שני במשפטים
+דוקטורט
+פוסט דוקטורט

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in neurologia, in Finnish
+locale: fi
+---
+Migreeni
+Epilepsia
+MS-tauti
+Parkinsonin tauti
+Aivoinfarkti
+TIA-kohtaus
+Alzheimerin tauti
+Ääreishermovaurio
+Rannekanavaoireyhtymä
+Iskias

@@ -1,0 +1,36 @@
+---
+description: Israeli honorific / form of address, in the abbreviated form used before a name. Two notes. Hebrew acronyms are written with a gershayim ״ (U+05F4) before the last letter — ד״ר, עו״ד, רו״ח, ח״כ — and single-letter abbreviations with a geresh ׳ (U+05F3); everyday typing substitutes ASCII " and '. And military rank is a normal civilian form of address in Israel in a way it is not in Europe: reserve and retired officers are routinely introduced by rank.
+locale: he
+---
+מר
+גברת
+גב׳
+ד״ר
+פרופ׳
+עו״ד
+רו״ח
+אדר׳
+מהנדס
+הרב
+הרבנית
+הרב הראשי
+כבוד השופט
+כבוד השופטת
+ח״כ
+השר
+השרה
+ראש הממשלה
+ראש העיר
+אלוף
+תא״ל
+אל״מ
+סא״ל
+רס״ן
+סרן
+סגן
+רס״ל
+רב״ט
+טוראי
+ניצב
+סנ״צ
+פקד

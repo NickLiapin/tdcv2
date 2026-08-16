@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Hungarian).
+locale: hu
+---
+Ponyvás félpótkocsi
+Hűtőkocsi
+Platós félpótkocsi
+Tartálykocsi
+Élőállat-szállító
+Veszélyes áru
+Intermodális konténer
+Autószállító
+Mélybölcsős félpótkocsi
+Lépcsős platós félpótkocsi
+Billenőkocsi
+Ömlesztettáru-szállító
+Rönkszállító

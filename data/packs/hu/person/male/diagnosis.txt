@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Hungarian (male-specific + common).
+locale: hu
+---
+Herevisszér-tágulat
+Rejtettheréjűség
+Fitymaszűkület
+Merevedési zavar
+Prosztatagyulladás
+Jóindulatú prosztata-megnagyobbodás
+Herevízsérv
+Heregyulladás
+Mellékhere-gyulladás
+Prosztatarák
+Hererák
+Krónikus hasnyálmirigy-gyulladás
+Chlamydia-fertőzés
+Krónikus ízületi gyulladás
+Krónikus gyomorhurut
+Magas vérnyomás
+2-es típusú cukorbetegség
+Asztma
+Krónikus hörghurut
+Migrén
+Vashiányos vérszegénység
+Pajzsmirigy-alulműködés
+Vesekő
+Lágyéksérv
+Végbélrák
+Retina-központi artéria elzáródása

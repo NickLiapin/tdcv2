@@ -1,0 +1,15 @@
+---
+description: Social reaction (Hebrew)
+locale: he
+---
+לייק
+אהבתי
+אהבה
+חיבוק
+מצחיק
+וואו
+עצוב
+כועס
+מדהים
+חוגג
+תודה

@@ -1,0 +1,21 @@
+---
+description: Official document type (Hungarian). Lakcimkartya (the address card) and TAJ-kartya (the health-insurance card) have no equivalent abroad: Hungary splits identity, address and health cover across three separate plastic cards.
+locale: hu
+---
+Útlevél
+Születési anyakönyvi kivonat
+Házassági anyakönyvi kivonat
+Halotti anyakönyvi kivonat
+Vezetői engedély
+Személyazonosító igazolvány
+Lakcímkártya
+TAJ-kártya
+Adóigazolvány
+Tartózkodási engedély
+Adóbevallás
+Építési engedély
+Működési engedély
+Vízum
+Erkölcsi bizonyítvány
+Érettségi bizonyítvány
+Diákigazolvány

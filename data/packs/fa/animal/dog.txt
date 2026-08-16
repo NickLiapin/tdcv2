@@ -1,0 +1,29 @@
+---
+description: Dog breed (Persian). The first four are Iranian: سرابی is the Iranian mastiff bred as a livestock guardian, تازی is the Persian saluki (a sighthound, not a greyhound), قهدریجانی is an Isfahani guard breed and پژدر a Kurdish one.
+locale: fa
+---
+سرابی
+تازی
+قهدریجانی
+پژدر
+ژرمن شپرد
+لابرادور
+گلدن رتریور
+هاسکی سیبرین
+پاگ
+شیتزو
+پامرانین
+چیواوا
+بولداگ
+روتوایلر
+دوبرمن
+باکسر
+بیگل
+پودل
+کوکر اسپانیل
+تریر
+پیت‌بول
+ماستیف
+دالماسین
+بردر کولی
+آکیتا

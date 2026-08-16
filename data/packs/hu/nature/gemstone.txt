@@ -1,0 +1,29 @@
+---
+description: Gemstone (Hungarian).
+locale: hu
+---
+Gyémánt
+Rubin
+Zafír
+Smaragd
+Ametiszt
+Topáz
+Opál
+Gránát
+Akvamarin
+Peridot
+Türkiz
+Jáde
+Ónix
+Gyöngy
+Citrin
+Tanzanit
+Turmalin
+Holdkő
+Cirkon
+Lazurit
+Borostyán
+Korall
+Malachit
+Rózsakvarc
+Obszidián

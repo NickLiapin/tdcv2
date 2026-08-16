@@ -1,0 +1,20 @@
+---
+description: Legal case type (Persian). Four are Islamic-law categories with no European counterpart: مهریه is the dower a husband owes his wife and the single commonest civil suit in Iran, دیه is the tariffed blood money paid for death or injury, قصاص is retribution in kind, and تعزیرات covers offences the judge punishes at discretion. چک برگشتی — a bounced cheque — is its own well-worn category.
+locale: fa
+---
+حقوقی
+کیفری
+خانواده
+مطالبه وجه
+چک برگشتی
+ملکی
+ارث و وصیت
+طلاق
+مهریه
+نفقه
+تخلیه ملک
+دیه
+قصاص
+تعزیرات
+مالیاتی
+کار

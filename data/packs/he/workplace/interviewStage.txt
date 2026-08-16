@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Hebrew). מכון אבחון is the Israeli specific: an external assessment institute where a candidate spends most of a day on psychometric tests, group exercises and a personal interview, and its report often decides the hire. It is a normal step for management and public-sector roles.
+locale: he
+---
+הגשת קורות חיים
+סינון טלפוני
+ראיון משאבי אנוש
+ראיון מקצועי
+ראיון טכני
+מבחן בית
+מבחני התאמה
+מכון אבחון
+ראיון עם מנהל
+בדיקת המלצות
+הצעת עבודה

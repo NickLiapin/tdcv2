@@ -1,0 +1,28 @@
+---
+description: Name / academic suffix (Serbian). Serbian academic titles normally PRECEDE the name — Др Марко Петровић, not Марко Петровић, др — so these read as trailing qualifiers on a form rather than as natural Serbian.
+locale: sr
+---
+Мл.
+Ст.
+II
+III
+IV
+V
+др
+мр
+проф. др
+доц. др
+ред. проф.
+ванр. проф.
+дипл. инж.
+дипл. екон.
+дипл. правник
+мастер инж.
+спец.
+прим.
+академик
+адв.
+судија
+PhD
+MBA
+MSc

@@ -1,0 +1,13 @@
+---
+description: Dishes of Ethiopian cuisine (Hebrew). As cooked by Ethiopian Jews in Israel.
+locale: he
+---
+אינג׳רה
+דורו ווט
+שירו
+קיטפו
+טיבס
+אליצ׳ה
+גומן
+מיסיר ווט
+אטקילט ווט

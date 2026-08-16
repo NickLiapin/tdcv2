@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Finnish district, estate or road name (Itäkeskus, Pohjois-Haaga, Länsi-Pasila). Finnish has single native words for the intermediate compass points — koillinen, luode, kaakko, lounas — instead of compounding north with east the way Germanic languages do. The hyphenated forms are the bound stems that go in front of a place name.
+locale: fi
+---
+pohjoinen
+etelä
+itä
+länsi
+koillinen
+luode
+kaakko
+lounas
+Pohjois-
+Etelä-
+Itä-
+Länsi-
+Keski-
+keskusta
+ydinkeskusta

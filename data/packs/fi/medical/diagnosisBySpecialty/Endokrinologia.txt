@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in endokrinologia, in Finnish
+locale: fi
+---
+Tyypin 1 diabetes
+Tyypin 2 diabetes
+Kilpirauhasen vajaatoiminta
+Kilpirauhasen liikatoiminta
+Struuma
+Osteoporoosi
+Lisämunuaisen vajaatoiminta
+Cushingin oireyhtymä
+D-vitamiinin puutos
+Rasva-aineenvaihdunnan häiriö

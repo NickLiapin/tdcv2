@@ -1,0 +1,9 @@
+---
+description: Work shift (Persian)
+locale: fa
+---
+صبح
+عصر
+شب
+چرخشی
+روزکار

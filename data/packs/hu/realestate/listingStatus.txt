@@ -1,0 +1,16 @@
+---
+description: Listing status (Hungarian).
+locale: hu
+---
+Eladó
+Kiadó
+Függőben
+Eladva
+Előszerződés
+Visszavonva
+Hamarosan
+Árverés
+Új építésű
+Árcsökkentve
+Foglalva
+Kiadva

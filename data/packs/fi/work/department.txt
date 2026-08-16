@@ -1,0 +1,26 @@
+---
+description: Company department / function (Finnish)
+locale: fi
+---
+johto
+talous
+kirjanpito
+palkanlaskenta
+henkilöstöhallinto
+rekrytointi
+tietohallinto
+tuotekehitys
+tuotanto
+laatu
+hankinta
+logistiikka
+varasto
+myynti
+markkinointi
+viestintä
+asiakaspalvelu
+lakiasiat
+kiinteistöt
+työsuojelu
+tutkimus ja kehitys
+kunnossapito

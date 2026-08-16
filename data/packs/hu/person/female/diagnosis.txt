@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Hungarian (female-specific + common).
+locale: hu
+---
+Méhnyak-diszplázia
+Méhmióma
+Hüvelyi gombás fertőzés
+Emlő-fibroadenóma
+Policisztás ovárium szindróma
+Méhnyak-hámelváltozás
+Méhnyálkahártya-gyulladás
+Endometriózis
+Méhnyakgyulladás
+Bakteriális vaginózis
+Emlőrák
+Méhnyakrák
+Petefészekciszta
+Korai menopauza
+Krónikus hasnyálmirigy-gyulladás
+Chlamydia-fertőzés
+Krónikus ízületi gyulladás
+Krónikus gyomorhurut
+Magas vérnyomás
+2-es típusú cukorbetegség
+Asztma
+Migrén
+Vashiányos vérszegénység
+Pajzsmirigy-alulműködés
+Csontritkulás
+Végbélrák
+Retina-központi artéria elzáródása

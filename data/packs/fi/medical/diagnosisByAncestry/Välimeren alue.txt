@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Välimeren alue, in Finnish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: fi
+---
+Beetatalassemia
+G6PD-puutos
+Familiaalinen Välimeren kuume
+Sirppisolukantajuus
+Laktoosi-intoleranssi
+Perinnöllinen hemokromatoosi
+Wilsonin tauti
+Tyypin 2 diabetes
+Keliakia
+Behcetin tauti

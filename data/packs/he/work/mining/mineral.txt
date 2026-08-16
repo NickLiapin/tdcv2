@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Hebrew). Weighted towards what Israel actually extracts: potash, bromine and magnesium from the Dead Sea, phosphate from the Negev, copper at Timna, and natural gas from the offshore fields.
+locale: he
+---
+אשלג
+ברום
+מגנזיום
+מלח
+פוספט
+נחושת
+אבן גיר
+דולומיט
+גבס
+חול
+חצץ
+חרסית
+בזלת
+צור
+קאולין
+גז טבעי
+נפט
+פצלי שמן
+ביטומן

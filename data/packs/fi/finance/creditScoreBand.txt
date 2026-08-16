@@ -1,0 +1,9 @@
+---
+description: Credit standing band (Finnish). Finland has no consumer-facing credit score like FICO. What matters is a single binary fact — the maksuhäiriömerkintä, a registered payment default held by Suomen Asiakastieto — and lenders build their own risk estimate around it. These bands are descriptive labels for that, not a numeric scale.
+locale: fi
+---
+erittäin matala riski
+matala riski
+normaali riski
+kohonnut riski
+maksuhäiriömerkintä

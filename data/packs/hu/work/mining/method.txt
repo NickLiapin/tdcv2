@@ -1,0 +1,12 @@
+---
+description: Mining method (Hungarian).
+locale: hu
+---
+Külszíni fejtés
+Mélyművelés
+Sávos fejtés
+Hordalékos kitermelés
+Hegytető-lefejtés
+Aknás művelés
+Tárós művelés
+Frontfejtés

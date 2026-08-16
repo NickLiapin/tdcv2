@@ -1,0 +1,38 @@
+---
+description: Field of study / major (Finnish)
+locale: fi
+---
+tietojenkäsittelytiede
+tietotekniikka
+ohjelmistotekniikka
+tietoliikennetekniikka
+matematiikka
+tilastotiede
+fysiikka
+kemia
+biologia
+molekyylibiologia
+ympäristötiede
+geotieteet
+metsätiede
+maatalous
+konetekniikka
+sähkötekniikka
+rakennustekniikka
+prosessitekniikka
+tuotantotalous
+kauppatieteet
+taloustiede
+oikeustiede
+valtio-oppi
+sosiologia
+psykologia
+kasvatustiede
+sosiaalityö
+lääketiede
+hoitotiede
+terveystieteet
+historia
+kirjallisuustiede
+suomen kieli
+kielitiede

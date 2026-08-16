@@ -1,0 +1,36 @@
+---
+description: Hungarian honorific / form of address. The academic and generational ones (Dr., Prof., Ifj., Id., Ozv.) genuinely PRECEDE the name. The courtesy words at the end of the list do not: ur, holgy, asszony and urno FOLLOW the full name in Hungarian — Nagy Peter ur, Kovacs Anna asszony — so a config that puts them in front produces the wrong thing. Ifj. and id. (younger / elder) are how a Hungarian father and son of the same name are told apart, in place of Jr. and Sr.
+locale: hu
+---
+Dr.
+Dr. habil.
+Prof.
+Prof. Dr.
+Dr. h. c.
+Ifj.
+Id.
+Özv.
+Néhai
+Okl.
+Ny.
+Mb.
+Ft.
+Főtisztelendő
+Tisztelendő
+Nagytiszteletű
+Atya
+Testvér
+Nővér
+Rabbi
+Vitéz
+Nemes
+Gróf
+Báró
+úr
+hölgy
+asszony
+úrnő
+kisasszony
+tanár úr
+tanárnő
+doktor úr

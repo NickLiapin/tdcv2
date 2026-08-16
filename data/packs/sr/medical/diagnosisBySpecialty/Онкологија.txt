@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Oncology (Serbian)
+locale: sr
+---
+Карцином дојке
+Карцином плућа
+Колоректални карцином
+Леукемија
+Лимфом
+Меланом

@@ -1,0 +1,20 @@
+---
+description: Room type (Persian). Iranian flats have both a توالت ایرانی (squat) and a توالت فرنگی (seated); a پذیرایی is the formal reception room, distinct from the everyday نشیمن.
+locale: fa
+---
+اتاق خواب
+اتاق خواب مستر
+نشیمن
+پذیرایی
+آشپزخانه
+آشپزخانه اپن
+ناهارخوری
+سرویس بهداشتی
+حمام
+توالت ایرانی
+توالت فرنگی
+رختکن
+انباری
+بالکن
+تراس
+زیرشیروانی

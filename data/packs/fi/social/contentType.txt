@@ -1,0 +1,17 @@
+---
+description: Social content type (Finnish)
+locale: fi
+---
+julkaisu
+kuva
+kuvakaruselli
+video
+lyhytvideo
+tarina
+suoralähetys
+kommentti
+jako
+äänestys
+ketju
+artikkeli
+podcast

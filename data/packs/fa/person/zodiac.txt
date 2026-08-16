@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Persian, traditional Arabic-derived names). These line up exactly with the Solar Hijri months: the year opens at the spring equinox, so فروردین IS حمل (Aries) and the twelve signs and the twelve months run in step — a coincidence no Gregorian locale has. The everyday Persian translations (بره ram, گاو bull, دوپیکر twins, خرچنگ crab, شیر lion, خوشه ear-of-grain, ترازو scales, کژدم scorpion, کمان bow, بز goat, دلو pail, ماهی fish) are also heard.
+locale: fa
+---
+حمل
+ثور
+جوزا
+سرطان
+اسد
+سنبله
+میزان
+عقرب
+قوس
+جدی
+دلو
+حوت

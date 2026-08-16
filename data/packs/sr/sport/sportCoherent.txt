@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Serbian)
+locale: sr
+---
+Фудбал
+Кошарка
+Одбојка
+Рукомет
+Бејзбол
+Рагби
+Амерички фудбал
+Хокеј на леду

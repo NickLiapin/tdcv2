@@ -1,0 +1,16 @@
+---
+description: Jobs in Transportation (Hungarian).
+locale: hu
+---
+Tehergépkocsi-vezető
+Autóbusz-vezető
+Futár
+Szállítmányozó
+Diszpécser
+Logisztikai koordinátor
+Raktáros
+Targoncavezető
+Mozdonyvezető
+Légiforgalmi irányító
+Forgalmi pilóta
+Vámügyintéző

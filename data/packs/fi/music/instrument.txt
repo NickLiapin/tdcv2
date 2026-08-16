@@ -1,0 +1,37 @@
+---
+description: Musical instrument (Finnish). Kantele is the national instrument — the plucked box zither that Väinämöinen builds from a pike's jawbone in the Kalevala — and jouhikko is the older bowed lyre it partly replaced. Haitari, the accordion, carries humppa and the dance-pavilion repertoire, and paimenhuilu and tuohitorvi are the herding instruments of the forest.
+locale: fi
+---
+kantele
+jouhikko
+haitari
+harmonikka
+viulu
+alttoviulu
+sello
+kontrabasso
+kitara
+sähkökitara
+bassokitara
+mandoliini
+banjo
+harppu
+piano
+flyygeli
+urut
+harmoni
+syntetisaattori
+huilu
+nokkahuilu
+paimenhuilu
+tuohitorvi
+klarinetti
+oboe
+fagotti
+saksofoni
+trumpetti
+pasuuna
+käyrätorvi
+tuuba
+rummut
+lyömäsoittimet

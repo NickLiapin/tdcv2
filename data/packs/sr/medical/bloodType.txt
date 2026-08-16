@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type as written in Serbia. Note the ZERO: Serbian, like most of continental Europe, writes the O group as the digit 0 (нула крвна група), not the letter O. A pack that ships "O+" is writing the American convention.
+locale: sr
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+0+
+0-

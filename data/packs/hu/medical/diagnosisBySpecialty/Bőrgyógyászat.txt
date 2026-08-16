@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Hungarian).
+locale: hu
+---
+Pikkelysömör
+Atópiás bőrgyulladás
+Pattanásos bőr
+Melanóma
+Rozácea
+Kontakt bőrgyulladás
+Csalánkiütés
+Bőrgombásodás
+Szerzett festékhiány
+Faggyúmirigyes bőrgyulladás

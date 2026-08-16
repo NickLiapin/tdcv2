@@ -1,0 +1,26 @@
+---
+description: Property amenity (Hebrew). Three of these exist only here: ממ״ד is the reinforced safe room that Israeli law has required in every new flat since 1992 and is the single most quoted feature in a listing, דוד שמש is the rooftop solar water heater that another law makes compulsory, and מרפסת סוכה is a balcony built without anything overhead so a sukkah can stand on it at Sukkot.
+locale: he
+---
+ממ״ד
+דוד שמש
+מרפסת
+מרפסת שמש
+מרפסת סוכה
+מעלית
+חניה
+חניה בטאבו
+מחסן
+מיזוג מרכזי
+מזגן
+סורגים
+גינה
+בריכה
+חדר כושר
+לובי
+שומר
+אינטרקום
+גישה לנכים
+ריהוט
+מטבח מאובזר
+משופצת

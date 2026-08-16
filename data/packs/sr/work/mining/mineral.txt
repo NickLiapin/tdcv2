@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Serbian). Бакар heads the list because it is what Serbian mining means — Бор and Мајданпек — and литијум is here because the Јадар deposit near Loznica is the most disputed mining question in the country.
+locale: sr
+---
+Бакар
+Злато
+Сребро
+Олово
+Цинк
+Молибден
+Антимон
+Литијум
+Бор
+Никл
+Гвоздена руда
+Боксит
+Манганска руда
+Мрки угаљ
+Лигнит
+Кречњак
+Мермер
+Кварцни песак
+Гипс

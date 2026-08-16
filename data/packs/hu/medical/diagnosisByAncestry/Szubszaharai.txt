@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, in Hungarian. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: hu
+---
+Sarlósejtes vérszegénység
+Sarlósejt-hordozó állapot
+Glükóz-6-foszfát-dehidrogenáz-hiány
+APOL1-hez kötött vesebetegség
+Hipertrófiás heg
+Szarkoidózis
+Magas vérnyomás okozta vesekeményedés
+Méhmióma
+Jóindulatú etnikai fehérvérsejtszám-csökkenés
+Felnőttkori laktózérzékenység
+Szakállszőrtüsző-gyulladás
+Szerzett festékhiány

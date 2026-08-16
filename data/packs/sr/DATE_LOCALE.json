@@ -1,0 +1,59 @@
+{
+  "_comment": "Serbian month names are the INTERNATIONAL Latin-derived set, unlike Croatian (siječanj) and Czech (leden), which kept the Slavic names — this is one of the sharpest points where Serbian and Croatian diverge. monthsInDate is therefore identical to months: Serbian writes the nominative inside a date (15. август 2026.), where Czech switches to the genitive. Note the trailing full stop in both formats: a Serbian numeric date closes with a dot after the year, because each element is an ordinal.",
+  "months": [
+    "јануар",
+    "фебруар",
+    "март",
+    "април",
+    "мај",
+    "јун",
+    "јул",
+    "август",
+    "септембар",
+    "октобар",
+    "новембар",
+    "децембар"
+  ],
+  "monthsInDate": [
+    "јануар",
+    "фебруар",
+    "март",
+    "април",
+    "мај",
+    "јун",
+    "јул",
+    "август",
+    "септембар",
+    "октобар",
+    "новембар",
+    "децембар"
+  ],
+  "monthsShort": [
+    "јан.",
+    "феб.",
+    "мар.",
+    "апр.",
+    "мај",
+    "јун",
+    "јул",
+    "авг.",
+    "сеп.",
+    "окт.",
+    "нов.",
+    "дец."
+  ],
+  "weekdays": [
+    "недеља",
+    "понедељак",
+    "уторак",
+    "среда",
+    "четвртак",
+    "петак",
+    "субота"
+  ],
+  "weekdaysShort": ["нед.", "пон.", "уто.", "сре.", "чет.", "пет.", "суб."],
+  "formats": {
+    "L": "DD.MM.YYYY.",
+    "LL": "D. MMMM YYYY."
+  }
+}

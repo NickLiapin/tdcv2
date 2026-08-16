@@ -1,0 +1,28 @@
+---
+description: Budget / spending category (Hebrew). ארנונה is the municipal property tax every household pays, and ועד בית the monthly building-committee fee — both are fixed line items in an Israeli budget and neither maps onto a single European category.
+locale: he
+---
+שכר דירה
+משכנתה
+ארנונה
+חשמל
+מים
+גז
+ועד בית
+אינטרנט
+סלולר
+מזון
+קניות
+דלק
+תחבורה ציבורית
+ביטוח
+בריאות
+חינוך
+גן ילדים
+חוגים
+בילויים
+ביגוד
+חופשה
+חיסכון
+תרומות
+מיסים

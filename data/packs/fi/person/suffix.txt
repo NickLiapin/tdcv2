@@ -1,0 +1,36 @@
+---
+description: Finnish post-nominal / name suffix. Finnish has no Jr / Sr — the equivalents are vanhempi and nuorempi, abbreviated vanh. and nuor. and written after the name, and they are rare. Everything else here is a Finnish degree abbreviation, and Finns use them after the name far more readily than Swedes or Britons do: FM is filosofian maisteri, DI diplomi-insinööri, VTM valtiotieteiden maisteri, LL lääketieteen lisensiaatti. The doctorate abbreviations end in -T and the licentiate ones in -L.
+locale: fi
+---
+vanh.
+nuor.
+FM
+FL
+FT
+KTM
+KTL
+KTT
+DI
+TkL
+TkT
+OTM
+OTT
+VTM
+VTT
+YTM
+YTT
+HTM
+TtM
+TtT
+KM
+KT
+MMM
+LL
+LT
+LKT
+ins.
+ekonomi
+arkkit.
+dos.
+prof.
+professori emeritus

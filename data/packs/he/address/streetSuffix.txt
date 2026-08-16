@@ -1,0 +1,28 @@
+---
+description: Israeli thoroughfare type — goes BEFORE the street name (רחוב הרצל, שדרות רוטשילד, סמטת הזית). Shorter than the European sets on purpose: Israeli addressing really does use only these, and the brief asks for the real list rather than a padded one. The abbreviated forms רח׳ and שד׳ are what appears on most signs and forms.
+locale: he
+---
+רחוב
+רח׳
+שדרות
+שד׳
+סמטת
+סמטה
+דרך
+כיכר
+ככר
+מעלה
+מורד
+נתיב
+משעול
+טיילת
+שביל
+מבוא
+רחבת
+גשר
+מנהרת
+מחלף
+כביש
+צומת
+מדרחוב
+פסאז׳

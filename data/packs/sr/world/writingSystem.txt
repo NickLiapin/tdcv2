@@ -1,0 +1,24 @@
+---
+description: Writing system (Serbian). Serbian's own entry is the striking one: Serbian is DIGRAPHIC, written in both ћирилица and латиница, both fully standard and mapped one to one — no other language in this pack has that, and this pack is written in Cyrillic because it is the script the constitution names as official.
+locale: sr
+---
+ћирилица
+српска ћирилица
+латиница
+гајица
+латинично писмо
+грчко писмо
+арапско писмо
+хебрејско писмо
+јерменско писмо
+грузијско писмо
+деванагари
+бенгалско писмо
+тамилско писмо
+тајландско писмо
+кинески знакови
+хирагана
+катакана
+хангул
+глагољица
+клинасто писмо

@@ -1,0 +1,15 @@
+---
+description: Positions in pesäpallo, in Finnish.
+locale: fi
+---
+lukkari
+koppari
+ykköspesän vahti
+kakkospesän vahti
+kolmospesän vahti
+oikea etukenttä
+vasen etukenttä
+oikea takakenttä
+vasen takakenttä
+jokeri
+lyöjä

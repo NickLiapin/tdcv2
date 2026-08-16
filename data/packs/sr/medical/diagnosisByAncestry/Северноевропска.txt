@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Serbian. A prevalence signal, not an exclusive one.
+locale: sr
+---
+Цистична фиброза
+Наследна хемохроматоза
+Дефицит алфа-1 антитрипсина
+Фенилкетонурија
+Целијакија
+Мултипла склероза
+Дијабетес мелитус тип 1
+Дипитренова контрактура
+Базоцелуларни карцином
+Перзистенција лактазе

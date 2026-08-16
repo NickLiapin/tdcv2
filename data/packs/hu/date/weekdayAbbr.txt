@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Hungarian). Sze and Szo need two letters because sz is a single Hungarian letter and both days start with it.
+locale: hu
+---
+H
+K
+Sze
+Cs
+P
+Szo
+V

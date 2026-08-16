@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Hebrew). The counted days shorten to their Hebrew numeral letter with a geresh; שבת has a name and keeps it. Sunday first.
+locale: he
+---
+א׳
+ב׳
+ג׳
+ד׳
+ה׳
+ו׳
+שבת

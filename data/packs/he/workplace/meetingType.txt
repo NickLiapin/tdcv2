@@ -1,0 +1,16 @@
+---
+description: Meeting type (Hebrew). יום גיבוש — a whole team day out, organised by the employer — is an Israeli workplace fixture rather than an occasional away-day.
+locale: he
+---
+ישיבת צוות
+סטנדאפ
+ישיבת מנהלים
+שיחת משוב
+אחד על אחד
+סיכום רבעון
+ישיבת פרויקט
+סיעור מוחות
+רטרוספקטיבה
+כנס חברה
+יום גיבוש
+ישיבת דירקטוריון

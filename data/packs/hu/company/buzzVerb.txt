@@ -1,0 +1,59 @@
+---
+description: Business buzz verb (Hungarian, infinitive — the -ni ending harmonises with the stem vowels: optimalizALNI but fejleszTENI).
+locale: hu
+---
+kihasználni
+optimalizálni
+észszerűsíteni
+vezényelni
+megerősíteni
+lehetővé tenni
+skálázni
+átalakítani
+felforgatni
+innoválni
+iterálni
+integrálni
+bevezetni
+felszabadítani
+felgyorsítani
+megsokszorozni
+megtervezni
+összemérni
+fejleszteni
+hajtani
+továbbfejlődni
+megkönnyíteni
+generálni
+motiválni
+monetizálni
+operacionalizálni
+újradefiniálni
+átértékelni
+forradalmasítani
+vezetni
+szabványosítani
+migrálni
+egységesíteni
+maximalizálni
+minimalizálni
+konszolidálni
+szinergiát teremteni
+digitalizálni
+automatizálni
+kiszervezni
+beszervezni
+szegmentálni
+rangsorolni
+illeszteni
+megfogalmazni
+tőkésíteni
+dinamizálni
+lojalitást építeni
+pozicionálni
+felnagyítani
+jövedelmezőbbé tenni
+rendszerezni
+professzionalizálni
+láthatóvá tenni
+tanúsítani

@@ -1,0 +1,10 @@
+---
+description: Hungarian full male name. Hungarian writes the FAMILY NAME FIRST — Nagy Peter is Mr Nagy, not Mr Peter — so the surname is drawn first here and the given name second. Reversing the two produces an order no Hungarian document, form or database uses. A Hungarian name carries one given name and one surname; a second given name exists on documents but is rarely written.
+generator: tdc
+locale: hu
+---
+<sequence name="p">
+  <gen name="l" type="template" value="hu.person.lastName"/>
+  <gen name="f" type="template" value="hu.person.male.firstName"/>
+</sequence>
+<data>${{p.l}} ${{p.f}}</data>

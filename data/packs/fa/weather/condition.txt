@@ -1,0 +1,20 @@
+---
+description: Weather condition (Persian). شرجی is the specific sticky heat of the Persian Gulf coast; غبارآلود is a routine forecast word in the west and south-west.
+locale: fa
+---
+آفتابی
+صاف
+نیمه‌ابری
+ابری
+بارانی
+رگباری
+برفی
+مه‌آلود
+غبارآلود
+شرجی
+گرم
+سرد
+معتدل
+بادی
+طوفانی
+یخبندان

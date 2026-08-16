@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Hebrew)
+locale: he
+---
+צינור שרשורי
+תעלת כבלים
+סולם כבלים
+מגש כבלים
+מובל תת קרקעי
+שרוול
+תעלת רצפה

@@ -1,0 +1,16 @@
+---
+description: Month name (Persian, SOLAR HIJRI — the months Iran actually uses). Iran runs on the SOLAR HIJRI calendar (گاه‌شماری هجری شمسی), not the Gregorian one. Its year begins at the March equinox — Nowruz, نوروز, about 21 March — so 2026 CE spans 1404 and 1405 SH, and no Solar Hijri month starts on the first of a Gregorian one: فروردین runs roughly 21 March to 20 April. This pack does NOT convert anything. The engine generates Gregorian dates and emits the year and month a config supplies, exactly as given; a caller that wants a Solar Hijri date must convert it itself. The Persian names for the GREGORIAN months are a different set entirely (ژانویه، فوریه، مارس، آوریل، مه، ژوئن، ژوئیه، اوت، سپتامبر، اکتبر، نوامبر، دسامبر) and live in DATE_LOCALE.json, where they are index-bound to the Gregorian month number the engine produces. Do not pair this list with a Gregorian month index: the result labels January فروردین, which is three months wrong.
+locale: fa
+---
+فروردین
+اردیبهشت
+خرداد
+تیر
+مرداد
+شهریور
+مهر
+آبان
+آذر
+دی
+بهمن
+اسفند

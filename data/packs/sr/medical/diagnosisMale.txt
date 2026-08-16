@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Serbian that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: sr
+---
+Бенигна хиперплазија простате
+Простатитис
+Карцином простате
+Карцином тестиса
+Торзија тестиса
+Варикокела
+Хидрокела
+Епидидимитис
+Крипторхизам
+Фимоза
+Баланитис
+Еректилна дисфункција
+Пејронијева болест
+Мушки фактор неплодности
+Гинекомастија
+Мушки хипогонадизам
+Пријапизам
+Сперматокела
+Андрогена алопеција
+Скротална хернија

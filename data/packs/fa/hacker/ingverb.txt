@@ -1,0 +1,32 @@
+---
+description: Technical verbal noun (Persian). Persian has no participle that works like English -ing: the verbal noun does that job, so 'compressing the buffer' comes out as فشرده‌سازی بافر. These are the forms to use where a template wants the -ing slot.
+locale: fa
+---
+فشرده‌سازی
+رمزگذاری
+رمزگشایی
+نمایه‌سازی
+تجزیه
+همگام‌سازی
+پشتیبان‌گیری
+بازیابی
+پیمایش
+تحلیل
+پردازش
+انتقال
+بارگذاری
+دریافت
+ارسال
+اتصال
+قطع اتصال
+راه‌اندازی
+پیکربندی
+نصب
+حذف
+به‌روزرسانی
+پویش
+پالایش
+مسیریابی
+ذخیره‌سازی
+خوشه‌بندی
+بافرگیری

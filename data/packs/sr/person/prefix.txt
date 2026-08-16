@@ -1,0 +1,36 @@
+---
+description: Serbian honorific / form of address, as written before a name. The clergy block is Serbian Orthodox and has no counterpart in the Polish or English pack: a јереј is a parish priest, a протојереј-ставрофор a senior one, a владика a bishop, and an игуман the head of a monastery.
+locale: sr
+---
+Господин
+Госпођа
+Госпођица
+Г.
+Гђа
+Гђица
+Др
+Проф. др
+Проф.
+Доц. др
+Мр
+Дипл. инж.
+Инж.
+Прим. др
+Спец. др мед.
+Академик
+Ред. проф.
+Ванр. проф.
+Јереј
+Протојереј
+Протојереј-ставрофор
+Ђакон
+Владика
+Игуман
+Архимандрит
+Патријарх
+Мати
+Сестра
+Брат
+Адв.
+Судија
+Ген.

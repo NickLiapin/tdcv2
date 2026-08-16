@@ -1,0 +1,23 @@
+---
+description: Mineral mined in Iran (Persian). Iran's big three are copper at Sarcheshmeh, iron ore at Chadormalu and the decorative stone — travertine and marble — quarried across the centre of the country. فیروزه, turquoise, has been mined at Neyshabur for two thousand years.
+locale: fa
+---
+مس
+سنگ آهن
+زغال‌سنگ
+طلا
+نقره
+سرب
+روی
+منگنز
+کرومیت
+بوکسیت
+فسفات
+گچ
+سنگ آهک
+نمک
+فیروزه
+سنگ مرمر
+تراورتن
+خاک نسوز
+باریت

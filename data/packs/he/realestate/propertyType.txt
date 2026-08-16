@@ -1,0 +1,23 @@
+---
+description: Property type (Hebrew). נחלה is the farm plot of a moshav member — land, house and agricultural rights in one legal unit — and has no European counterpart.
+locale: he
+---
+דירה
+דירת גן
+פנטהאוז
+דופלקס
+טריפלקס
+סטודיו
+יחידת דיור
+בית פרטי
+קוטג׳
+בית דו משפחתי
+וילה
+מגרש
+נחלה
+משק חקלאי
+מחסן
+חנות
+משרד
+מבנה תעשייה
+דירת נופש

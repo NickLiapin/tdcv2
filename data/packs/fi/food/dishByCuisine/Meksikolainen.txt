@@ -1,0 +1,13 @@
+---
+description: Dishes of meksikolainen cuisine, in Finnish
+locale: fi
+---
+Tacot
+Burrito
+Quesadilla
+Enchilada
+Guacamole
+Chili con carne
+Fajitas
+Nachot
+Churrot

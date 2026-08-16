@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Serbian street, district or housing-estate name (насеље Југ, блок Исток)
+locale: sr
+---
+Север
+Југ
+Исток
+Запад
+Североисток
+Северозапад
+Југоисток
+Југозапад
+Северни
+Јужни
+Источни
+Западни
+Центар
+Централни
+Стари град

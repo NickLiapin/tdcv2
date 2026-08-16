@@ -1,0 +1,12 @@
+---
+description: Dishes of Indian cuisine (Hungarian).
+locale: hu
+---
+Vajas csirke
+Birjáni
+Tikka masala
+Szamosza
+Dal makhani
+Naan kenyér
+Palak paneer
+Rogan josh

@@ -1,0 +1,13 @@
+---
+description: Personal pronoun set (Finnish), given as nominative/accusative/genitive. This is the file where Finnish differs most sharply from every Indo-European locale in this pack. Finnish is Finno-Ugric — a relative of Estonian, Hungarian and Sámi, and not related to Swedish, Russian or English at all — and it has NO GRAMMATICAL GENDER of any kind. There is one third-person pronoun, hän, and it covers he and she alike. A Finn choosing a pronoun is not choosing a gender, because there is nothing to choose: hän is not a coined neutral form like Swedish hen, it is simply the only word there is, and it has been for as long as the language has been written. Nor is there any gendered agreement anywhere else in the grammar: no gendered adjectives, no gendered articles (there are no articles at all), and no gendered job titles — a Finnish nurse and a Finnish chairman are sairaanhoitaja and puheenjohtaja whoever holds the post. Two further facts a config cannot infer. Spoken Finnish uses se, formally the inanimate "it", for people at least as often as hän, and this is neutral rather than rude. And the forms here are only three of fifteen cases: Finnish has no prepositions, so relations that English puts in front of a pronoun are suffixes on the end of it — hänellä is "he/she has", hänestä is "about him/her", häneen is "into him/her".
+locale: fi
+---
+hän
+hän/hänet/hänen
+se
+se/sen/sen
+minä/minut/minun
+sinä/sinut/sinun
+me/meidät/meidän
+te/teidät/teidän
+he/heidät/heidän

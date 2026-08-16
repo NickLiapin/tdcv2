@@ -1,0 +1,24 @@
+---
+description: Parcel carrier used in Iran. پست ایران is the state post; تیپاکس، چاپار and ماهکس are the private couriers; الوپیک and اسنپ‌باکس are app-hailed motorbike couriers, the standard way to send anything across a big Iranian city the same day.
+locale: fa
+---
+پست ایران
+پست پیشتاز
+پست سفارشی
+تیپاکس
+چاپار
+ماهکس
+الوپیک
+اسنپ‌باکس
+میهن‌پست
+پیک موتوری
+باربری
+اتوبار
+حمل و نقل زمینی
+حمل و نقل هوایی
+حمل و نقل ریلی
+آرامکس
+دی‌اچ‌ال
+تی‌ان‌تی
+فدکس
+یو‌پی‌اس

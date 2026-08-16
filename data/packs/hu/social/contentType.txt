@@ -1,0 +1,17 @@
+---
+description: Social content type (Hungarian).
+locale: hu
+---
+Bejegyzés
+Hozzászólás
+Válasz
+Történet
+Reels
+Szavazás
+Élő adás
+Megosztás
+Téma
+Említés
+Privát üzenet
+Rövid videó
+Fotóalbum

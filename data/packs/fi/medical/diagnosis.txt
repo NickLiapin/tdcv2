@@ -1,0 +1,84 @@
+---
+description: Medical diagnosis in Finnish that can occur in any patient — no sex or ancestry restriction. Three are specifically Finnish clinical facts: borrelioosi and puutiaisaivotulehdus are tick-borne and routine in Finnish primary care, with TBE covered by a regional vaccination programme, and D-vitamiinin puutos is common enough at this latitude that Finland fortifies milk and margarine by national decision. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: fi
+---
+Kohonnut verenpaine
+Tyypin 2 diabetes
+Tyypin 1 diabetes
+Rasva-aineenvaihdunnan häiriö
+Lihavuus
+Astma
+Keuhkoahtaumatauti
+Allerginen nuha
+Krooninen keuhkoputkentulehdus
+Keuhkokuume
+Uniapnea
+Sydämen vajaatoiminta
+Eteisvärinä
+Angina pectoris
+Sydäninfarkti
+Aivoinfarkti
+TIA-kohtaus
+Syvä laskimotukos
+Keuhkoembolia
+Suonikohjut
+Migreeni
+Jännityspäänsärky
+Epilepsia
+Huimaus
+Tinnitus
+Kuulon alenema
+Harmaakaihi
+Glaukooma
+Kuivasilmäisyys
+Masennus
+Yleistynyt ahdistuneisuushäiriö
+Paniikkihäiriö
+Työuupumus
+Unettomuus
+ADHD
+Autismikirjon häiriö
+Muistisairaus
+Alzheimerin tauti
+Parkinsonin tauti
+MS-tauti
+Nivelreuma
+Nivelrikko
+Osteoporoosi
+Kihti
+Fibromyalgia
+Iskias
+Välilevyn pullistuma
+Rannekanavaoireyhtymä
+Atooppinen ihottuma
+Psoriaasi
+Akne
+Ruusufinni
+Nokkosihottuma
+Vyöruusu
+Vesirokko
+Mononukleoosi
+Influenssa
+Covid-19
+Nielutulehdus
+Poskiontelotulehdus
+Välikorvatulehdus
+Virtsatietulehdus
+Munuaiskivi
+Krooninen munuaisten vajaatoiminta
+Sappikivi
+Mahahaava
+Mahakatarri
+Refluksitauti
+Keliakia
+Crohnin tauti
+Haavainen paksusuolentulehdus
+Ärtyvän suolen oireyhtymä
+Kilpirauhasen vajaatoiminta
+Kilpirauhasen liikatoiminta
+Raudanpuuteanemia
+B12-vitamiinin puutos
+D-vitamiinin puutos
+Borrelioosi
+Puutiaisaivotulehdus
+Norovirusinfektio

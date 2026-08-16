@@ -1,0 +1,12 @@
+---
+description: Dishes of Vietnamese cuisine (Serbian)
+locale: sr
+---
+Фо
+Бан ми
+Гои куон
+Бун ча
+Ча ђо
+Ком там
+Бан сео
+Вијетнамска кафа

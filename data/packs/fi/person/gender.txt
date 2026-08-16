@@ -1,0 +1,6 @@
+---
+description: Gender label (Finnish). Two values, matching en, pl and sv — this list is what `parent="Gender.Mies"` filters on, so a longer one silently leaves most rows without a name. Identity options beyond the pair belong in a file of their own. Note that Finnish has no grammatical gender: unlike Polish or Swedish, nothing else in a Finnish row has to agree with this value.
+locale: fi
+---
+Mies
+Nainen

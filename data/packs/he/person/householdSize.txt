@@ -1,0 +1,11 @@
+---
+description: Household size. Israeli households are markedly LARGER than European ones — the national average is above three people, and Haredi and Arab households commonly reach seven or more — so an even spread over these values will not resemble Israel.
+locale: he
+---
+1
+2
+3
+4
+5
+6
+7+

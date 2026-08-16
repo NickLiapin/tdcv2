@@ -1,0 +1,8 @@
+---
+description: Season (Hebrew). All four names are in normal use, but the Israeli climate really has two: עונת הגשמים roughly October to April and a long dry summer. Autumn and spring are short and a weather dataset built on an even four-way split will not match Israeli reality.
+locale: he
+---
+אביב
+קיץ
+סתיו
+חורף

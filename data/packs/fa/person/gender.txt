@@ -1,0 +1,6 @@
+---
+description: Gender label (Persian). Two values, matching en and ru — this list is what `parent="Gender.مرد"` filters on, so a longer one silently leaves most rows without a name. Note that Persian grammar itself has NO gender: the pronoun او covers he and she alike, and no adjective, verb or surname changes shape for it.
+locale: fa
+---
+مرد
+زن

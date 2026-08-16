@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Hungarian).
+locale: hu
+---
+PVC-cső
+Merev acélcső
+Nagy sűrűségű polietilén
+Közvetlen földbe fektetés
+Beltéri kábelcsatorna
+Kábeltálca
+Légvezetékes kifeszítés

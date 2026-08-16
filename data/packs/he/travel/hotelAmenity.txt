@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Hebrew). Three Israeli specifics: ארוחת בוקר ישראלית is a named institution — a full buffet of salads, cheeses, eggs and fish, not a continental breakfast; מטבח כשר means the kitchen is under rabbinic supervision; and מעלית שבת is a lift set to stop automatically on every floor so that observant guests need not press a button on the Sabbath.
+locale: he
+---
+ארוחת בוקר ישראלית
+מטבח כשר
+מעלית שבת
+חדר אוכל
+בריכה
+בריכה מחוממת
+ספא
+חדר כושר
+וויפי חינם
+חניה
+מיזוג
+מרפסת
+נוף לים
+קרבה לים
+חדרי משפחה
+מועדון ילדים
+כניסה לנכים
+שירות חדרים
+מיני בר
+כספת
+מכבסה
+בר
+לובי
+קבלה 24 שעות
+העברה משדה התעופה
+טיולים מאורגנים
+השכרת אופניים
+חדרי ישיבות
+בית כנסת
+חצר

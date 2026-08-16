@@ -1,0 +1,24 @@
+---
+description: Insect (Hebrew). פרת משה רבנו is the ladybird — the Hebrew name is idiomatic and does not translate literally.
+locale: he
+---
+נמלה
+דבורה
+צרעה
+זבוב
+יתוש
+פרפר
+עש
+חיפושית
+חגב
+ארבה
+צרצר
+תיקן
+פשפש
+כינה
+פרעוש
+חרגול
+שפירית
+גמל שלמה
+חדקונית
+פרת משה רבנו

@@ -1,0 +1,25 @@
+---
+description: Mined mineral / commodity (Finnish). Finland's mines are real and specific: nikkeli and koboltti come from Sotkamo and the Kainuu belt, kromi from Kemi — the only chromium mine in the EU — kulta from Kittilä, the largest gold mine in Europe, and vuolukivi, soapstone, is quarried in North Karelia and made into fireplaces.
+locale: fi
+---
+nikkeli
+koboltti
+kupari
+sinkki
+kulta
+hopea
+kromi
+rautamalmi
+magnetiitti
+apatiitti
+litium
+platinametallit
+harvinaiset maametallit
+talkki
+vuolukivi
+kalkkikivi
+dolomiitti
+kvartsi
+maasälpä
+graniitti
+turve

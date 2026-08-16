@@ -1,0 +1,16 @@
+---
+description: Dishes of Armenian cuisine as cooked by Iran's Armenian community (Persian)
+locale: fa
+---
+خاشلاما
+دلمه ارمنی
+هاریسا
+لواش
+بورک ارمنی
+کوفته ارمنی
+گاتا
+باسترما
+سوجوق
+خاش
+تولما
+ماتسون

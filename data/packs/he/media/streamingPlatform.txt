@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Israeli market. יס, הוט, סלקום TV, פרטנר TV and כאן 11 are Israeli services; the rest are the international ones that operate there.
+locale: he
+---
+נטפליקס
+דיסני פלוס
+אמזון פריים וידאו
+אפל TV+
+HBO Max
+יס
+הוט
+סלקום TV
+פרטנר TV
+STINGTV
+כאן 11
+יוטיוב

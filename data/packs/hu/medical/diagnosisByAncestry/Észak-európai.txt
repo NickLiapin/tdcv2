@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Hungarian. A prevalence signal, not an exclusive one.
+locale: hu
+---
+Cisztás fibrózis
+Örökletes vas-túlterhelés
+Alfa-1-antitripszin-hiány
+Fenilketonúria
+Cöliákia
+Szklerózis multiplex
+1-es típusú cukorbetegség
+Dupuytren-kontraktúra
+Bazálsejtes bőrrák
+Felnőttkori laktóztűrés

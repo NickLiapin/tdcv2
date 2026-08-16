@@ -1,0 +1,14 @@
+---
+description: Fuel type (Hungarian).
+locale: hu
+---
+Benzin
+Dízel
+Elektromos
+Hibrid
+Plug-in hibrid
+Hidrogén
+Etanol
+Sűrített földgáz
+LPG-gáz
+Biodízel

@@ -1,0 +1,20 @@
+---
+description: Legal case type (Hebrew). עתירה לבג״ץ — a petition straight to the Supreme Court sitting as High Court of Justice — is a route with no equivalent in most legal systems.
+locale: he
+---
+תביעה אזרחית
+תביעה קטנה
+תביעת נזיקין
+תביעת לשון הרע
+סכסוך עבודה
+גירושין
+מזונות
+משמורת
+ירושה
+צוואה
+פשיטת רגל
+חדלות פירעון
+הליך פלילי
+עתירה מנהלית
+עתירה לבג״ץ
+תובענה ייצוגית

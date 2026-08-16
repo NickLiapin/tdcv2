@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Hungarian that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: hu
+---
+Endometriózis
+Policisztás ovárium szindróma
+Méhmióma
+Petefészekciszta
+Petefészekrák
+Méhnyakrák
+Méhnyak-diszplázia
+Méhnyakgyulladás
+Méhnyálkahártya-gyulladás
+Méhtestrák
+Kismedencei gyulladás
+Bakteriális vaginózis
+Hüvelyi gombás fertőzés
+Erős menstruációs vérzés
+Fájdalmas menstruáció
+Menstruáció elmaradása
+Preeklampszia
+Terhességi cukorbetegség
+Terhességi túlzott hányás
+Méhen kívüli terhesség
+Szülés utáni vérzés
+Emlőgyulladás
+Fibrocisztás emlőelváltozás
+Klimaxos tünetegyüttes
+Premenstruációs diszfóriás zavar
+Méhsüllyedés

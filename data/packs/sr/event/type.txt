@@ -1,0 +1,24 @@
+---
+description: Event type (Serbian). Крсна слава heads the list on purpose: it is the household patron-saint feast, inherited down the male line and celebrated on the saint's day rather than on a birthday, and it is the single most distinctive Serbian family occasion — no other pack in this repo has an equivalent. Даћа, the memorial meal held for the dead, is the other entry with no Western counterpart.
+locale: sr
+---
+Крсна слава
+Свадба
+Веридба
+Крштење
+Рођендан
+Годишњица брака
+Матурско вече
+Дочек Нове године
+Конференција
+Конгрес
+Семинар
+Радионица
+Вебинар
+Сајам
+Изложба
+Концерт
+Фестивал
+Хуманитарна акција
+Промоција књиге
+Даћа

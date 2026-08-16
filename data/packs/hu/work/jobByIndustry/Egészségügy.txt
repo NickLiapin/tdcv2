@@ -1,0 +1,16 @@
+---
+description: Jobs in Healthcare (Hungarian).
+locale: hu
+---
+Ápoló
+Háziorvos
+Sebész
+Gyógyszerész
+Gyógytornász
+Mentőtiszt
+Radiográfus
+Szülésznő
+Laboratóriumi diagnosztikus
+Szociális gondozó
+Dietetikus
+Klinikai szakpszichológus

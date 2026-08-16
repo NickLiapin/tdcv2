@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Hungarian).
+locale: hu
+---
+Kapus
+Balátlövő
+Irányító
+Jobbátlövő
+Balszélső
+Jobbszélső
+Beálló

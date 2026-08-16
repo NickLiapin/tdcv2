@@ -1,0 +1,11 @@
+---
+description: Positions in käsipallo, in Finnish.
+locale: fi
+---
+maalivahti
+oikea laitapelaaja
+vasen laitapelaaja
+oikea sisäpelaaja
+vasen sisäpelaaja
+pelinrakentaja
+kärkipelaaja

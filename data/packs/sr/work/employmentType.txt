@@ -1,0 +1,15 @@
+---
+description: Employment / contract type as Serbian labour law names it. Уговор о делу and уговор о привременим и повременим пословима are the two service contracts that stand outside an employment relationship, and студентска задруга is the student-cooperative arrangement that carries a large share of casual work in Serbia.
+locale: sr
+---
+Уговор на неодређено време
+Уговор на одређено време
+Пробни рад
+Скраћено радно време
+Допунски рад
+Уговор о делу
+Уговор о привременим и повременим пословима
+Студентска задруга
+Приправник
+Волонтерски рад
+Ангажовање преко агенције

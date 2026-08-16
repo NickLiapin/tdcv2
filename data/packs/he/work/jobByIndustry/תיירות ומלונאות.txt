@@ -1,0 +1,21 @@
+---
+description: Jobs in Hospitality (Hebrew, masculine singular — see work/jobTitle.txt on gender)
+locale: he
+---
+מנהל מלון
+פקיד קבלה
+קונסיירז׳
+עוזרת בית
+מנהל משק בית
+שף
+סו שף
+טבח
+קונדיטור
+מלצר
+ברמן
+דייל
+מדריך טיולים
+סוכן נסיעות
+מנהל אירועים
+מפעיל ספא
+שומר

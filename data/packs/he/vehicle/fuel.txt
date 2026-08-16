@@ -1,0 +1,13 @@
+---
+description: Fuel type (Hebrew). Israeli pumps sell 95 and 98 octane petrol and diesel; 95 is the default.
+locale: he
+---
+בנזין 95
+בנזין 98
+סולר
+חשמלי
+היברידי
+היברידי נטען
+גז
+LPG
+מימן

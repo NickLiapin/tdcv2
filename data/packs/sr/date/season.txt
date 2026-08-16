@@ -1,0 +1,8 @@
+---
+description: Season (Serbian, lowercase per Serbian orthography). Four seasons: Serbia is fully continental.
+locale: sr
+---
+пролеће
+лето
+јесен
+зима

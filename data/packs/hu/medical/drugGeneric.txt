@@ -1,0 +1,45 @@
+---
+description: Common generic drug names (Hungarian spelling of the INN).
+locale: hu
+---
+Paracetamol
+Ibuprofén
+Acetilszalicilsav
+Amoxicillin
+Amoxicillin-klavulánsav
+Azitromicin
+Ciprofloxacin
+Doxiciklin
+Lizinopril
+Enalapril
+Lozartán
+Amlodipin
+Metoprolol
+Hidroklorotiazid
+Furoszemid
+Spironolakton
+Metformin
+Glibenklamid
+Glargin inzulin
+Atorvasztatin
+Szimvasztatin
+Omeprazol
+Pantoprazol
+Levotiroxin
+Szalbutamol
+Montelukaszt
+Prednizon
+Dexametazon
+Loratadin
+Gabapentin
+Szertralin
+Fluoxetin
+Escitaloprám
+Citaloprám
+Duloxetin
+Warfarin
+Klopidogrél
+Tramadol
+Naproxén
+Diklofenák
+Allopurinol

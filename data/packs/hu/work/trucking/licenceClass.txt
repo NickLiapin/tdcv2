@@ -1,0 +1,11 @@
+---
+description: Driving licence category for trucks (Hungarian categories). GKI is the Hungarian professional driver qualification card, required on top of the licence itself for driving commercially.
+locale: hu
+---
+B kategória
+B+E kategória
+C1 kategória
+C kategória
+C+E kategória
+D kategória
+GKI-kártya

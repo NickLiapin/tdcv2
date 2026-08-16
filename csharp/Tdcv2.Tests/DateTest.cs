@@ -52,10 +52,16 @@ public class DateTest
         foreach (string name in DateLocales.Names)
         {
             Assert.True(DateLocales.IsKnown(name), name);
-            seen.Add(DateLocales.Resolve(name).Months[1]);
+            // The WHOLE table, not one month. This compared Months[1] alone and so claimed every
+            // language has its own word for February — Dutch and Swedish both write "februari",
+            // and the two have been shipping side by side ever since Swedish was added. The point
+            // of the check is that no table is a copy of another, and only the full year says that.
+            seen.Add(
+                string.Join('|', DateLocales.Resolve(name).Months)
+                    + "//"
+                    + string.Join('|', DateLocales.Resolve(name).Weekdays));
         }
 
-        // Eleven languages, eleven different words for February — no table is a copy of another.
         Assert.Equal(DateLocales.Names.Count, seen.Count);
     }
 

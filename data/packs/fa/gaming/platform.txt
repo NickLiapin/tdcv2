@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Persian; brand names kept as-is)
+locale: fa
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+رایانه
+Steam Deck
+Meta Quest
+موبایل
+مرورگر

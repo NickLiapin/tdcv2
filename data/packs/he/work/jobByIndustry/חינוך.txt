@@ -1,0 +1,20 @@
+---
+description: Jobs in Education (Hebrew, masculine singular — see work/jobTitle.txt on gender)
+locale: he
+---
+מורה
+מורה לחינוך מיוחד
+גננת
+סייעת
+מחנך
+רכז מקצוע
+יועץ חינוכי
+פסיכולוג חינוכי
+מנהל בית ספר
+סגן מנהל
+מדריך חוגים
+מרצה
+עוזר הוראה
+ספרן
+מדריך טיולים
+רכז שכבה

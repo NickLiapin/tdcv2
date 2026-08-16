@@ -1,0 +1,24 @@
+---
+description: Household budget category (Persian). Two are specific to Iran: شارژ ساختمان is the monthly service charge every flat pays its building, and خمس و زکات is the religious levy a practising household sets aside, a real line in a real Iranian budget.
+locale: fa
+---
+مسکن
+اجاره
+قبوض
+خوراک
+حمل و نقل
+بنزین
+بهداشت و درمان
+آموزش
+پوشاک
+سرگرمی
+سفر
+پس‌انداز
+سرمایه‌گذاری
+بیمه
+بدهی
+وام
+خیریه
+هدیه
+شارژ ساختمان
+خمس و زکات

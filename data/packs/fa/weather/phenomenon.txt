@@ -1,0 +1,21 @@
+---
+description: Weather phenomenon (Persian). Two are Iranian and appear in ordinary forecasts: ریزگرد is the fine airborne dust that closes schools in Khuzestan for days at a time, and بادهای صد و بیست روزه are the 120-day winds that blow over Sistan every summer without stopping.
+locale: fa
+---
+رعد و برق
+تگرگ
+شبنم
+مه
+غبار
+ریزگرد
+گرد و خاک
+طوفان شن
+بادهای صد و بیست روزه
+نسیم
+گردباد
+سیل
+خشکسالی
+موج گرما
+سرمازدگی
+رنگین‌کمان
+سراب

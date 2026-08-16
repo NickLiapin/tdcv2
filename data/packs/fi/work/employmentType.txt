@@ -1,0 +1,17 @@
+---
+description: Employment / contract type (Finnish). Toistaiseksi voimassa oleva työsuhde is the Finnish default — the työsopimuslaki treats every hire as permanent unless a stated ground justifies a fixed term — and koeaika is the trial period of up to six months that may precede it. Kevytyrittäjä is a Finnish invention of the last decade: you work as a self-employed person but invoice through a service company that handles the tax and the pension, without founding a business of your own.
+locale: fi
+---
+toistaiseksi voimassa oleva työsuhde
+määräaikainen työsuhde
+koeaika
+osa-aikatyö
+vuokratyö
+kausityö
+tuntityö
+oppisopimus
+harjoittelu
+freelancer
+kevytyrittäjä
+toiminimiyrittäjä
+nollatuntisopimus

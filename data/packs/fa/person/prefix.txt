@@ -1,0 +1,36 @@
+---
+description: Persian honorific / form of address, placed BEFORE the name. آقا and خانم are the everyday pair; جناب آقای and سرکار خانم are their formal written forms; دکتر and مهندس are used as social titles far more freely in Iran than in Europe. حاج آقا / حاجیه خانم mark someone who has made the hajj, سید / سیده marks claimed descent from the Prophet, and امیر is a general-officer rank in the Iranian armed forces, not a given name in this position.
+locale: fa
+---
+آقا
+خانم
+جناب
+جناب آقای
+سرکار خانم
+دکتر
+مهندس
+استاد
+حاج آقا
+حاج خانم
+حاجیه خانم
+سید
+سیده
+شیخ
+آیت‌الله
+حجت‌الاسلام
+پروفسور
+سرهنگ
+سرگرد
+سروان
+ستوان
+تیمسار
+امیر
+قاضی
+دکتر مهندس
+کربلایی
+مشهدی
+ملا
+بانو
+دوشیزه
+برادر
+خواهر

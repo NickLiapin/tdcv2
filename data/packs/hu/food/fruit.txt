@@ -1,0 +1,38 @@
+---
+description: Fruit (Hungarian).
+locale: hu
+---
+Alma
+Banán
+Narancs
+Eper
+Szőlő
+Mangó
+Ananász
+Görögdinnye
+Őszibarack
+Körte
+Meggy
+Áfonya
+Málna
+Kivi
+Citrom
+Lime
+Szilva
+Sárgabarack
+Gránátalma
+Füge
+Papaja
+Kókusz
+Sárgadinnye
+Mandarin
+Maracuja
+Cseresznye
+Szeder
+Nektarin
+Grapefruit
+Datolya
+Birsalma
+Egres
+Ribizli
+Vörös áfonya

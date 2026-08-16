@@ -1,0 +1,26 @@
+---
+description: Insect (Finnish). Hyttynen leads the list on purpose: the Lapland mosquito season is a fact of Finnish summer rather than a nuisance in the abstract, and puutiainen — the tick — carries both borreliosis and TBE, for which Finland runs a regional vaccination programme.
+locale: fi
+---
+Hyttynen
+Puutiainen
+Muurahainen
+Mehiläinen
+Kimalainen
+Perhonen
+Kovakuoriainen
+Sudenkorento
+Heinäsirkka
+Leppäkerttu
+Yöperhonen
+Sirkka
+Ampiainen
+Kiiltomato
+Rukoilijasirkka
+Kaskas
+Termiitti
+Kärpänen
+Torakka
+Kirppu
+Lude
+Mäkärä

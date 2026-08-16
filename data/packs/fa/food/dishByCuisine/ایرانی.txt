@@ -1,0 +1,67 @@
+---
+description: Dishes of Persian cuisine. The ZWNJ (U+200C, نیم‌فاصله) inside قورمه‌سبزی، ته‌چین، باقالی‌پلو and the rest is REQUIRED — it joins the compound without joining the letterforms, and replacing it with a space or deleting it gives a different, wrong word. خورش is a stew served over rice; پلو is rice cooked with something layered into it; آش is a thick soup; کباب covers everything grilled on a skewer.
+locale: fa
+---
+چلوکباب
+کباب کوبیده
+جوجه‌کباب
+کباب برگ
+کباب بختیاری
+کباب چنجه
+شیشلیک
+قورمه‌سبزی
+قیمه
+قیمه‌بادمجان
+فسنجان
+خورش بادمجان
+خورش کرفس
+خورش آلو اسفناج
+خورش به
+آبگوشت
+دیزی
+ته‌چین
+ته‌دیگ
+باقالی‌پلو
+زرشک‌پلو
+لوبیاپلو
+عدس‌پلو
+آلبالوپلو
+سبزی‌پلو با ماهی
+شیرین‌پلو
+استانبولی‌پلو
+کلم‌پلو
+کته
+چلو
+آش رشته
+آش دوغ
+آش شله‌قلمکار
+آش انار
+سوپ جو
+حلیم
+کله‌پاچه
+میرزاقاسمی
+کشک بادمجان
+حلیم بادمجان
+دلمه برگ مو
+دلمه فلفل
+کوکو سبزی
+کوکو سیب‌زمینی
+شامی
+کتلت
+کوفته تبریزی
+بریانی اصفهانی
+ماست و خیار
+ماست و موسیر
+سالاد شیرازی
+ترشی
+شله‌زرد
+فرنی
+حلوا
+باقلوا
+زولبیا و بامیه
+بستنی سنتی
+فالوده
+نان سنگک
+نان بربری
+نان تافتون
+نان لواش

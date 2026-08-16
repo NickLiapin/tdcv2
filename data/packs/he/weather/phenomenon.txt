@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Hebrew). אובך is the dust haze that arrives with the desert wind, and שיטפון here means the flash flood that fills a dry wadi within minutes — the standard winter hazard in the Negev and the Judean desert.
+locale: he
+---
+גשם
+ממטרים
+סופת רעמים
+ברד
+שלג
+טל
+ערפל
+אובך
+סופת חול
+שרב
+רוח מזרחית
+רוח ים
+סערה
+שיטפון
+קשת

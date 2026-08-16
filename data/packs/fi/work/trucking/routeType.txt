@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Finnish)
+locale: fi
+---
+paikallisliikenne
+aluekuljetus
+kaukoliikenne
+kansainvälinen liikenne
+jakelureitti
+maansiirtoajo
+talvitiekuljetus

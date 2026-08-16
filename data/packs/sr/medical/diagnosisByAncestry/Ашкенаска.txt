@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Serbian. Founder mutations are unusually well characterised in this population.
+locale: sr
+---
+Тај-Саксова болест
+Гошеова болест тип 1
+Породична дисаутономија
+Канаванова болест
+Ниман-Пикова болест тип А
+Блумов синдром
+Дефицит фактора XI
+BRCA1 оснивачка мутација
+BRCA2 оснивачка мутација
+Муколипидоза тип IV
+Кронова болест
+Торзиона дистонија

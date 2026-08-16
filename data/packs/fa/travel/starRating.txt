@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Persian, written with Persian-Indic digits)
+locale: fa
+---
+۱ ستاره
+۲ ستاره
+۳ ستاره
+۴ ستاره
+۵ ستاره

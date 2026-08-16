@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Hungarian).
+locale: hu
+---
+Kardiológia
+Bőrgyógyászat
+Endokrinológia
+Gasztroenterológia
+Neurológia
+Onkológia
+Szemészet
+Ortopédia
+Traumatológia
+Gyermekgyógyászat
+Pszichiátria
+Tüdőgyógyászat
+Radiológia
+Reumatológia
+Urológia
+Nefrológia
+Hematológia
+Immunológia
+Allergológia
+Aneszteziológia
+Sürgősségi orvostan
+Háziorvostan
+Belgyógyászat
+Szülészet-nőgyógyászat
+Fül-orr-gégészet
+Patológia
+Általános sebészet
+Plasztikai sebészet
+Érsebészet
+Szívsebészet
+Infektológia
+Geriátria
+Neonatológia
+Rehabilitációs medicina
+Nukleáris medicina
+Klinikai dietetika

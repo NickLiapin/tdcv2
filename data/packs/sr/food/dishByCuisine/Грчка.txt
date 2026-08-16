@@ -1,0 +1,12 @@
+---
+description: Dishes of Greek cuisine (Serbian)
+locale: sr
+---
+Мусака
+Гирос
+Сувлаки
+Цацики
+Грчка салата
+Спанакопита
+Долмадес
+Баклава

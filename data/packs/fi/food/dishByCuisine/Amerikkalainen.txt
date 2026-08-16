@@ -1,0 +1,13 @@
+---
+description: Dishes of amerikkalainen cuisine, in Finnish
+locale: fi
+---
+Hampurilainen
+Grillikylki
+Pulled pork
+Mac and cheese
+Buffalo wings
+Clam chowder
+Caesar-salaatti
+New York -juustokakku
+Omenapiirakka

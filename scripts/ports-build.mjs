@@ -5,13 +5,21 @@
  * `npm run check` is the command everyone runs, and it only ever knew TypeScript:
  * the root `workspaces` array holds one entry, so Python, Rust, C# and Java were
  * invisible to it. The full cross-language suites live in `npm run parity`
- * (`five-ways.mjs`) and take about a minute and a half — too long to put in front
- * of every commit.
+ * (`five-ways.mjs`) and take about a minute and a half.
  *
- * This is the cheap half of that: build each port and run none of its tests. It
- * answers one question — "did I just break a port so badly it no longer builds?"
- * — which is the failure that used to survive a green `check`. Anything subtler
- * is what `parity` and the `five-ways` CI workflow are for.
+ * This script used to stand IN for that inside `check` — build each port, run
+ * none of its tests — on the grounds that a minute and a half was too long. It
+ * cost more than it saved. Three ports were each sitting on a failing date test
+ * that `check` could not see: Java advertised cs, th and hi as supported date
+ * locales and had never put them in the lookup, Python asserted that Czech falls
+ * back to English when Czech has worked for months, and C# claimed no two
+ * languages share a word for February when Dutch and Swedish both write
+ * "februari". Every one of those is a test that was written correctly, kept
+ * passing while it was right, started failing when it went wrong, and was never
+ * run again. So `check` now runs `parity` and gets the real answer.
+ *
+ * What stays here is the fast standalone question — "did I just break a port so
+ * badly it no longer builds?" — for when you want it without the full suite.
  *
  * A missing toolchain is NOT a failure. Not everyone has a JDK and a .NET SDK on
  * the machine where they edit documentation, and a gate that punishes that would

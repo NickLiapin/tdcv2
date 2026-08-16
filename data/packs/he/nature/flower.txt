@@ -1,0 +1,32 @@
+---
+description: Flower (Hebrew). כלנית is the anemone, voted Israel's national flower; רקפת, חצב and נורית are the wild flowers of the Israeli winter and spring, protected by law.
+locale: he
+---
+כלנית
+רקפת
+נרקיס
+סביון
+חצב
+איריס
+פרג
+נורית
+מרגנית
+חרצית
+צבעוני
+ורד
+חמנייה
+סחלב
+לילך
+יסמין
+גרניום
+פטוניה
+ציפורן
+גרברה
+שושן
+חבצלת
+כרכום
+לוע הארי
+בת חצב
+פעמונית
+אמנון ותמר
+דבורנית

@@ -1,0 +1,16 @@
+---
+description: Jobs in rakentaminen, in Finnish
+locale: fi
+---
+kirvesmies
+muurari
+betonityöntekijä
+rakennusmies
+kattoasentaja
+laatoittaja
+maalari
+sähköasentaja
+putkiasentaja
+LVI-asentaja
+rakennusinsinööri
+työmaapäällikkö

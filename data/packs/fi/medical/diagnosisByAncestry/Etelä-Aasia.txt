@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Etelä-Aasia, in Finnish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: fi
+---
+Beetatalassemia
+G6PD-puutos
+Sirppisolukantajuus
+Tyypin 2 diabetes
+Sepelvaltimotauti
+D-vitamiinin puutos
+Laktoosi-intoleranssi
+Aineenvaihdunnan oireyhtymä
+Perinnöllinen kuurous
+Tuberkuloosialttius

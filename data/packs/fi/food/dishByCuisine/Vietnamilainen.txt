@@ -1,0 +1,13 @@
+---
+description: Dishes of vietnamilainen cuisine, in Finnish
+locale: fi
+---
+Pho
+Banh mi
+Kevätkääryleet
+Bun cha
+Ca kho to
+Vietnamilainen kanasalaatti
+Banh xeo
+Nuudelikulho
+Vietnamilainen kahvi

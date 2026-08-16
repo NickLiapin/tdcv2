@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Finnish. Amounts are in EUR — Finland is the only Nordic country in the euro area, and adopted the euro at the start in 1999. Finnish writes thousands with a space and the decimal with a comma, so 45 000,50 €, and the symbol goes after the number with a space. One Finnish fact a dataset built on this file should know: taxable incomes in Finland are PUBLIC. Every year in early November the Tax Administration releases the taxable income of every person who earned above a threshold, newspapers publish the lists, and Finns call the day kansallinen kateuspäivä, national envy day. Income is not a private field here in the way it is elsewhere.
+locale: fi
+---
+Alle 15 000 €
+15 000–25 000 €
+25 000–35 000 €
+35 000–45 000 €
+45 000–60 000 €
+60 000–80 000 €
+80 000–120 000 €
+Yli 120 000 €

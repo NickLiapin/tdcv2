@@ -1,0 +1,13 @@
+---
+description: Dishes of Georgian cuisine (Hebrew). As cooked by Georgian Jews in Israel.
+locale: he
+---
+חצ׳פורי
+חינקלי
+לוביו
+בדריג׳ני
+פחלי
+צ׳אכוחבילי
+שקמרולי
+אג׳פסנדלי
+חרצ׳ו

@@ -1,0 +1,14 @@
+---
+description: Dishes of Yemenite cuisine (Hebrew). As cooked by Yemenite Jews in Israel; ג׳חנון and מלאווח are national Israeli foods now.
+locale: he
+---
+ג׳חנון
+מלאווח
+לחוח
+קובנה
+מרק תימני
+מרק רגל
+חילבה
+סחוג
+סלתה
+זעתר בשמן

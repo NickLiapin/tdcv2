@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Hungarian).
+locale: hu
+---
+Refluxbetegség
+Crohn-betegség
+Fekélyes vastagbélgyulladás
+Gyomorfekély
+Irritábilis bél szindróma
+Májzsugorodás
+Cöliákia
+Heveny hasnyálmirigy-gyulladás
+Vastagbél-divertikulitisz
+Epekő

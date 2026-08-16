@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Hebrew). Israel's fiscal year is the calendar year, so Q1 is January-March.
+locale: he
+---
+רבעון ראשון
+רבעון שני
+רבעון שלישי
+רבעון רביעי

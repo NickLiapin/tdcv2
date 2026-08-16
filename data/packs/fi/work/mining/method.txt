@@ -1,0 +1,12 @@
+---
+description: Mining method (Finnish)
+locale: fi
+---
+avolouhinta
+maanalainen louhinta
+levysorroslouhinta
+täyttölouhinta
+pilarilouhinta
+välitasolouhinta
+poraus ja panostus
+liuotus

@@ -1,0 +1,36 @@
+---
+description: Common adverb (Hungarian).
+locale: hu
+---
+gyorsan
+lassan
+óvatosan
+könnyen
+csendesen
+hangosan
+mindig
+soha
+gyakran
+néha
+ritkán
+hirtelen
+gyengéden
+világosan
+egyszerűen
+majdnem
+teljesen
+alig
+többnyire
+valóban
+mélyen
+szélesen
+szabadon
+bátran
+határozottan
+szívesen
+udvariasan
+hamarosan
+későn
+korán
+talán
+még

@@ -1,0 +1,221 @@
+---
+description: Hungarian job titles across sectors (tech, healthcare, trades, transport, business, service, public). Hungarian job titles have NO gendered forms: apolo, tanar, szinesz and igazgato name a woman and a man alike, and there is no feminine ending to add — unlike German, Polish or Czech, where a feminine title is expected. The few -no titles that do exist (tanarno, szineszno) are optional and increasingly avoided.
+locale: hu
+---
+Szoftverfejlesztő
+Vezető szoftverfejlesztő
+Adatelemző
+Adattudós
+DevOps mérnök
+Rendszermegbízhatósági mérnök
+Szoftvertesztelő
+Termékmenedzser
+UX-tervező
+UI-tervező
+Rendszergazda
+Hálózati mérnök
+Adatbázis-adminisztrátor
+Informatikai biztonsági elemző
+Felhőarchitekt
+Mobilalkalmazás-fejlesztő
+Frontend fejlesztő
+Backend fejlesztő
+Gépi tanulási mérnök
+Informatikai ügyfélszolgálatos
+Webfejlesztő
+Rendszerelemző
+Adatmérnök
+Ápoló
+Szakápoló
+Háziorvos
+Sebész
+Aneszteziológus
+Gyermekorvos
+Gyógyszerész
+Mentőtiszt
+Mentőápoló
+Gyógytornász
+Ergoterapeuta
+Dentálhigiénikus
+Fogorvos
+Radiográfus
+Orvosi asszisztens
+Laboratóriumi diagnosztikus
+Gyógyszertári asszisztens
+Optometrista
+Állatorvos
+Szociális gondozó
+Szülész-nőgyógyász
+Kardiológus
+Pszichológus
+Pszichiáter
+Dietetikus
+Villanyszerelő
+Vízvezeték-szerelő
+Hegesztő
+Asztalos
+Klímatechnikus
+Esztergályos
+Ipari gépszerelő
+Csőszerelő
+Bádogos
+Kovács
+Kőműves
+Tetőfedő
+Szobafestő
+Gipszkartonozó
+Autószerelő
+Dízelmotor-szerelő
+Repülőgép-szerelő
+Lakatos
+Üveges
+Vakoló
+Hűtéstechnikus
+Liftkarbantartó
+Bányász
+Vájár
+Fúróberendezés-kezelő
+Nehézgépkezelő
+Darukezelő
+Markolókezelő
+Robbantómester
+Bányamérő
+Kőfejtő munkás
+Tehergépkocsi-vezető
+Nemzetközi kamionsofőr
+Futár
+Autóbusz-vezető
+Targoncavezető
+Raktáros
+Logisztikai koordinátor
+Diszpécser
+Szállítmányozó
+Légiforgalmi irányító
+Forgalmi pilóta
+Légiutas-kísérő
+Hajóskapitány
+Mozdonyvezető
+Kerékpáros futár
+Taxisofőr
+Hálózatszerelő
+Távközlési technikus
+Kábelszerelő
+Optikaihálózat-technikus
+Erőműkezelő
+Szennyvíztisztító-kezelő
+Szélturbina-technikus
+Napelemszerelő
+Gáztechnikus
+Mérőóra-leolvasó
+Könyvelő
+Könyvelőasszisztens
+Pénzügyi elemző
+Auditor
+Aktuárius
+Adótanácsadó
+Értékesítési képviselő
+Ügyfélkapcsolati menedzser
+Marketingmenedzser
+Marketingszakértő
+Márkamenedzser
+HR-szakértő
+Toborzó
+Üzemeltetési vezető
+Projektvezető
+Üzleti elemző
+Vezetői asszisztens
+Irodavezető
+Recepciós
+Adminisztrátor
+Beszerzési szakértő
+Közgazdász
+Biztosítási ügynök
+Ingatlanközvetítő
+Tőzsdeügynök
+Séf
+Konyhafőnök-helyettes
+Szakács
+Pék
+Cukrász
+Pultos
+Barista
+Felszolgáló
+Hostess
+Konyhai kisegítő
+Szállodaigazgató
+Takarító
+Concierge
+Szállodai recepciós
+Rendezvényszervező
+Idegenvezető
+Eladó
+Boltvezető
+Pénztáros
+Árufeltöltő
+Veszteségmegelőzési szakértő
+Beszerző
+Ügyféltanácsadó
+Telefonos ügyintéző
+Biztonsági őr
+Kertész
+Általános iskolai tanító
+Középiskolai tanár
+Gyógypedagógus
+Egyetemi oktató
+Kutató
+Pedagógiai asszisztens
+Iskolapszichológus
+Könyvtáros
+Iskolaigazgató
+Magántanár
+Óvodapedagógus
+Rendőr
+Tűzoltó
+Nyomozó
+Büntetés-végrehajtási tiszt
+Vámtiszt
+Szociális munkás
+Családsegítő
+Postás
+Postai ügyintéző
+Köztisztasági dolgozó
+Katona
+Bíró
+Ügyész
+Közjegyző
+Ügyvéd
+Jogi asszisztens
+Bírósági titkár
+Grafikus
+Fényképész
+Operatőr
+Szövegíró
+Tartalomkészítő
+Újságíró
+Szerkesztő
+Építész
+Belsőépítész
+Építőmérnök
+Gépészmérnök
+Villamosmérnök
+Vegyészmérnök
+Ipari mérnök
+Fordító
+Tolmács
+Zenész
+Színész
+Gazdálkodó
+Állattenyésztő
+Mezőgazdasági munkás
+Tájépítész
+Faápoló
+Halász
+Erdész
+Méhész
+Borász
+Építőipari munkás
+Építésvezető
+Földmérő
+Építésügyi ellenőr
+Bontómunkás
+Zsaluzó ács

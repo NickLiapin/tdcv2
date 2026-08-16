@@ -1,0 +1,39 @@
+---
+description: Music genre (Hungarian, including Hungarian genres). Verbunkos and csardas are the eighteenth- and nineteenth-century Hungarian dance forms Liszt and Brahms borrowed; mulatos is the modern party-song genre; ciganyzene is the restaurant band tradition, which is Romani-played but Hungarian repertoire.
+locale: hu
+---
+Rock
+Pop
+Dzsessz
+Komolyzene
+Hiphop
+Country
+Elektronikus zene
+Blues
+Reggae
+Heavy metal
+Folk
+R&B
+Soul
+Funk
+Punk
+Diszkó
+House
+Techno
+Indie
+Gospel
+Ambient
+Ska
+Magyar nóta
+Csárdás
+Verbunkos
+Népzene
+Táncház
+Mulatós
+Magyar rap
+Cigányzene
+Filmzene
+Progresszív metal
+Drum and bass
+Trance
+Alternatív rock

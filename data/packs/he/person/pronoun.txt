@@ -1,0 +1,8 @@
+---
+description: Personal pronoun set (Hebrew). The fact a config cannot infer: standard Hebrew has NO gender-neutral third-person singular pronoun, and no way to add one cheaply, because gender is marked on the verb and the adjective as well as on the pronoun — הוא הלך / היא הלכה, and every word around the pronoun has to agree. So there is no Hebrew 'singular they'. Non-binary Israelis in practice write הוא/היא, alternate forms between sentences, or use the plural; those are conventions in use, not grammar, and none of them is standard, so only the four grammatical sets are shipped here rather than inventing a fifth.
+locale: he
+---
+הוא / שלו
+היא / שלה
+הם / שלהם
+הן / שלהן

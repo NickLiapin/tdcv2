@@ -1,0 +1,21 @@
+---
+description: Cuisine (Finnish). The values are the -lainen/-läinen adjective, which in Finnish serves as both adjective and noun and carries no gender: italialainen keittiö, and a menu simply writes Italialainen. Each value has a dishByCuisine child file.
+locale: fi
+---
+Italialainen
+Japanilainen
+Meksikolainen
+Kiinalainen
+Intialainen
+Ranskalainen
+Thaimaalainen
+Kreikkalainen
+Espanjalainen
+Amerikkalainen
+Korealainen
+Vietnamilainen
+Turkkilainen
+Libanonilainen
+Perulainen
+Argentiinalainen
+Suomalainen

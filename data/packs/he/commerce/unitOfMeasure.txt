@@ -1,0 +1,35 @@
+---
+description: Unit of measure for products (Hebrew). Israel is fully metric. The abbreviations are written with the Hebrew gershayim ״ (U+05F4) — ק״ג, ס״מ, מ״ל — which is the typographically correct mark; everyday typing substitutes an ASCII double quote.
+locale: he
+---
+יחידה
+יח׳
+גרם
+ק״ג
+קילוגרם
+מ״ג
+ליטר
+מ״ל
+מטר
+ס״מ
+מ״מ
+קילומטר
+מ״ר
+מ״ק
+זוג
+חבילה
+קופסה
+שקית
+בקבוק
+פחית
+קרטון
+מארז
+גליל
+יריעה
+טון
+כף
+כפית
+כוס
+מנה
+פרוסה
+שק

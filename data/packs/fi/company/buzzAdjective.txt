@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective (Finnish, nominative singular)
+locale: fi
+---
+kestävä
+skaalautuva
+datavetoinen
+asiakaslähtöinen
+innovatiivinen
+digitaalinen
+ketterä
+älykäs
+verkottunut
+pilvipohjainen
+automatisoitu
+integroitu
+saumaton
+modulaarinen
+joustava
+vankka
+tehokas
+kustannustehokas
+resurssitehokas
+ilmastoneutraali
+fossiiliton
+kiertotalouden mukainen
+vihreä
+läpinäkyvä
+jäljitettävä
+turvallinen
+vaatimustenmukainen
+globaali
+paikallinen
+pohjoismainen
+markkinajohtava
+palkittu
+sertifioitu
+laatuvarmennettu
+käyttäjäystävällinen
+intuitiivinen
+saavutettava
+osallistava
+henkilökohtainen
+räätälöity
+ennakoiva
+strateginen
+operatiivinen
+tulevaisuudenkestävä
+uraauurtava
+koeteltu
+luotettava
+nopealiikkeinen
+kannattava
+arvoa tuottava
+liiketoimintakriittinen
+rajat ylittävä
+poikkitoiminnallinen
+näyttöön perustuva
+mitattava

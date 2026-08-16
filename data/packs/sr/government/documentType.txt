@@ -1,0 +1,21 @@
+---
+description: Official document type (Serbian). Лична карта is compulsory from age 16, and ЈМБГ — the thirteen-digit unique citizen number encoding date of birth, region and sex — appears on nearly all of these, which is why a config generating Serbian paperwork usually needs it. Радна књижица is listed because it is still asked for, though Serbia abolished it in 2016.
+locale: sr
+---
+Лична карта
+Пасош
+Возачка дозвола
+Саобраћајна дозвола
+Извод из матичне књиге рођених
+Извод из матичне књиге венчаних
+Извод из матичне књиге умрлих
+Уверење о држављанству
+Здравствена књижица
+Радна књижица
+Пореска пријава
+Уверење о некажњавању
+Потврда о пребивалишту
+Боравишна дозвола
+Радна дозвола
+Оружани лист
+Диплома

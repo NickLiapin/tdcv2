@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Hebrew; brand names kept in Latin as Israeli shops and players write them)
+locale: he
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+מחשב אישי
+מובייל
+אנדרואיד
+iOS
+מציאות מדומה

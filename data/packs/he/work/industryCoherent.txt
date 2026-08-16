@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: he
+---
+טכנולוגיה
+בריאות
+פיננסים
+בנייה
+חינוך
+תיירות ומלונאות
+תעשייה
+קמעונאות
+תחבורה
+משפט

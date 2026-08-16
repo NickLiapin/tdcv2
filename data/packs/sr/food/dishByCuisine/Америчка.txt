@@ -1,0 +1,12 @@
+---
+description: Dishes of American cuisine (Serbian)
+locale: sr
+---
+Хамбургер
+Чизбургер
+Хот-дог
+Помфрит
+Барбикју ребарца
+Макароне са сиром
+Палачинке
+Чизкејк

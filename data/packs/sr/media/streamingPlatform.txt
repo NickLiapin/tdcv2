@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Serbian market (brand names kept in Latin, as they appear on screen and in Serbian press)
+locale: sr
+---
+Netflix
+HBO Max
+Disney+
+Amazon Prime Video
+Apple TV+
+YouTube
+YouTube Premium
+SkyShowtime
+EON TV
+Arena Cloud
+Pickbox NOW
+Spotify

@@ -1,0 +1,16 @@
+---
+description: Jobs in Technology (Hungarian).
+locale: hu
+---
+Szoftverfejlesztő
+Frontend fejlesztő
+Backend fejlesztő
+DevOps mérnök
+Adattudós
+Adatelemző
+Termékmenedzser
+UX-tervező
+Szoftvertesztelő
+Rendszergazda
+Felhőarchitekt
+Informatikai biztonsági szakértő

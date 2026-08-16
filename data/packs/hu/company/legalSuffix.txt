@@ -1,0 +1,45 @@
+---
+description: Company legal / name suffix used in Hungary. Kft. (limited liability) is by far the commonest form; Zrt. and Nyrt. are the closed and public joint-stock companies, and unlike English the suffix is separated by a space and keeps its full stop.
+locale: hu
+---
+Kft.
+Zrt.
+Nyrt.
+Bt.
+Kkt.
+Nonprofit Kft.
+Szövetkezet
+Egyéni vállalkozó
+Alapítvány
+Egyesület
+Közhasznú Alapítvány
+Csoport
+Cégcsoport
+Holding
+Konzorcium
+Vállalat
+Vállalkozás
+Üzem
+Gyár
+Művek
+Ipari Park
+Szolgáltató
+Megoldások
+Rendszerek
+Technológia
+Szerviz
+Kereskedelmi
+Kereskedőház
+Forgalmazó
+Befektetési
+Laboratórium
+Tanácsadó
+Központ
+Ügynökség
+Iroda
+Intézet
+Magyarország
+és Társa
+és Fiai
+Testvérek
+Nemzetközi

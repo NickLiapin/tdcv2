@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Hungarian).
+locale: hu
+---
+Láz
+Fejfájás
+Fáradtság
+Hányinger
+Hányás
+Hasmenés
+Székrekedés
+Hasfájás
+Mellkasi fájdalom
+Nehézlégzés
+Köhögés
+Torokfájás
+Orrfolyás
+Orrdugulás
+Szédülés
+Homályos látás
+Izomfájdalom
+Ízületi fájdalom
+Derékfájás
+Bőrkiütés
+Viszketés
+Duzzanat
+Zsibbadás
+Bizsergés
+Szívdobogásérzés
+Étvágytalanság
+Akaratlan fogyás
+Éjszakai izzadás
+Hidegrázás
+Tüsszögés
+Gyomorégés
+Puffadás
+Izomgörcs
+Gyengeség
+Zavartság
+Álmatlanság
+Fülzúgás
+Orrvérzés

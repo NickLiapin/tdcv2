@@ -1,0 +1,18 @@
+---
+description: Insurance type (Hungarian).
+locale: hu
+---
+Egészségbiztosítás
+Kötelező gépjármű-felelősségbiztosítás
+Casco
+Lakásbiztosítás
+Életbiztosítás
+Bérlői biztosítás
+Utasbiztosítás
+Állatbiztosítás
+Rokkantsági biztosítás
+Fogászati biztosítás
+Szemüveg-biztosítás
+Felelősségbiztosítás
+Baleset-biztosítás
+Mezőgazdasági biztosítás

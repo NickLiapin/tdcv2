@@ -1,0 +1,30 @@
+---
+description: Book genre (Hungarian).
+locale: hu
+---
+Szépirodalom
+Tényirodalom
+Krimi
+Thriller
+Romantikus regény
+Tudományos-fantasztikus
+Fantasy
+Horror
+Életrajz
+Történelem
+Ismeretterjesztő
+Költészet
+Ifjúsági regény
+Történelmi regény
+Feketekrimi
+Kalandregény
+Emlékirat
+Filozófia
+Útleírás
+Szakácskönyv
+Képregényregény
+Disztópia
+Esszé
+Novella
+Mágikus realizmus
+Gyermekirodalom

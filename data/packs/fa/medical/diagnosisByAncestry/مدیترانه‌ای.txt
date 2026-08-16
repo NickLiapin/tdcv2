@@ -1,0 +1,14 @@
+---
+description: Conditions more frequent in people of Mediterranean ancestry (Persian)
+locale: fa
+---
+تالاسمی بتا
+تالاسمی آلفا
+کمبود G6PD
+تب مدیترانه‌ای فامیلی
+هموکروماتوز
+بیماری بهجت
+سنگ صفراوی
+کم‌خونی فقر آهن
+بیماری ویلسون
+آمیلوئیدوز

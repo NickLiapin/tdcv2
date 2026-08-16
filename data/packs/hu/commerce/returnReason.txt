@@ -1,0 +1,19 @@
+---
+description: Order return reason (Hungarian).
+locale: hu
+---
+Sérülten érkezett
+Nem a megrendelt termék érkezett
+Nem felel meg a leírásnak
+Nem jó méret
+Meggondoltam magam
+Máshol olcsóbban megtaláltam
+Gyári hiba
+Hiányos tartozékok
+Késve érkezett
+Már nincs rá szükségem
+Tévedésből rendeltem
+A vártnál gyengébb minőség
+A színe eltér a képen látottól
+Nem kompatibilis
+Duplán megrendelve

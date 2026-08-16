@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Hungarian).
+locale: hu
+---
+Krónikus veseelégtelenség
+Vesekő
+Vesegyulladás
+Heveny vesekárosodás
+Policisztás vesebetegség
+Nefrózis-szindróma
+Vesemedence-gyulladás
+Cukorbetegséghez társuló vesekárosodás
+Vese eredetű magas vérnyomás
+Végstádiumú veseelégtelenség

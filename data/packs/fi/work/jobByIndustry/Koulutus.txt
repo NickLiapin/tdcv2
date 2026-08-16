@@ -1,0 +1,16 @@
+---
+description: Jobs in koulutus, in Finnish
+locale: fi
+---
+luokanopettaja
+aineenopettaja
+lehtori
+varhaiskasvatuksen opettaja
+lastenhoitaja
+erityisopettaja
+rehtori
+opinto-ohjaaja
+yliopistonlehtori
+tutkija
+tohtorikoulutettava
+kouluterveydenhoitaja

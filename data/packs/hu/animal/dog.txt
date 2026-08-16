@@ -1,0 +1,34 @@
+---
+description: Dog breed (Hungarian). The nine Hungarian native breeds — puli, pumi, komondor, kuvasz, mudi, vizsla, drotszoru vizsla, erdelyi kopo, agar — are listed under their own names, which are also their international names.
+locale: hu
+---
+Labrador retriever
+Német juhász
+Golden retriever
+Francia bulldog
+Angol bulldog
+Uszkár
+Beagle
+Rottweiler
+Tacskó
+Boxer
+Szibériai husky
+Német dog
+Dobermann
+Ausztrál juhász
+Border collie
+Csivava
+Shih tzu
+Törpespicc
+Corgi
+Berni pásztorkutya
+Puli
+Pumi
+Komondor
+Kuvasz
+Mudi
+Magyar vizsla
+Drótszőrű magyar vizsla
+Erdélyi kopó
+Magyar agár
+Dalmata

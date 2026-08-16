@@ -1,0 +1,11 @@
+---
+description: Weekday name (Serbian, lowercase per Serbian orthography), Monday first — the Serbian week starts on Monday. недеља is both "Sunday" and "week", which a config joining a weekday to a date should know.
+locale: sr
+---
+понедељак
+уторак
+среда
+четвртак
+петак
+субота
+недеља

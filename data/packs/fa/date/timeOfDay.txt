@@ -1,0 +1,13 @@
+---
+description: Time of day (Persian). بامداد and سحر are both before dawn — سحر is the specific pre-dawn hour that matters in Ramadan, when the last meal is eaten before the fast.
+locale: fa
+---
+بامداد
+سحر
+صبح
+ظهر
+بعدازظهر
+عصر
+غروب
+شب
+نیمه‌شب

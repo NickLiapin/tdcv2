@@ -1,0 +1,12 @@
+---
+description: Dishes of Chinese cuisine (Hungarian).
+locale: hu
+---
+Kung pao csirke
+Sült rizs
+Chow mein
+Édes-savanyú sertés
+Mapo tofu
+Pekingi kacsa
+Wonton leves
+Tavaszi tekercs

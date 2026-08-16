@@ -1,0 +1,59 @@
+{
+  "months": [
+    "ژانویه",
+    "فوریه",
+    "مارس",
+    "آوریل",
+    "مه",
+    "ژوئن",
+    "ژوئیه",
+    "اوت",
+    "سپتامبر",
+    "اکتبر",
+    "نوامبر",
+    "دسامبر"
+  ],
+  "monthsInDate": [
+    "ژانویه",
+    "فوریه",
+    "مارس",
+    "آوریل",
+    "مه",
+    "ژوئن",
+    "ژوئیه",
+    "اوت",
+    "سپتامبر",
+    "اکتبر",
+    "نوامبر",
+    "دسامبر"
+  ],
+  "monthsShort": [
+    "ژانو",
+    "فور",
+    "مارس",
+    "آور",
+    "مه",
+    "ژوئن",
+    "ژوئیه",
+    "اوت",
+    "سپت",
+    "اکت",
+    "نوا",
+    "دسا"
+  ],
+  "weekdays": [
+    "یکشنبه",
+    "دوشنبه",
+    "سه‌شنبه",
+    "چهارشنبه",
+    "پنجشنبه",
+    "جمعه",
+    "شنبه"
+  ],
+  "weekdaysShort": ["ی", "د", "س", "چ", "پ", "ج", "ش"],
+  "formats": {
+    "L": "YYYY/MM/DD",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "THE MONTHS IN THIS FILE ARE THE GREGORIAN ONES, IN PERSIAN. That is deliberate and it is the whole point of this note. months[0] must be whatever the engine's month number 0 actually is, and the engine generates Gregorian dates, so months[0] is January = ژانویه. Iran itself does not use these months. Iran runs on the SOLAR HIJRI calendar (هجری شمسی): the year opens at the March equinox with Nowruz (نوروز, about 21 March), the twelve months are فروردین، اردیبهشت، خرداد، تیر، مرداد، شهریور، مهر، آبان، آذر، دی، بهمن، اسفند, the first six have 31 days, the next five 30 and اسفند 29 or 30, and 2026 CE spans 1404-1405 SH. No Solar Hijri month boundary coincides with a Gregorian one, so the two sets cannot be swapped index for index; فروردین is roughly 21 March to 20 April, not January. Those Solar Hijri names ship in data/packs/fa/date/month.txt, which is a plain list and not indexed by anything. This pack does NOT convert between the calendars, exactly as the Thai pack does not add 543 to the year: the year a config supplies is emitted as given. Persian also has its OWN digits, ۰۱۲۳۴۵۶۷۸۹ (U+06F0-U+06F9), used in ordinary Persian text and on Iranian documents; they are NOT the Arabic-Indic digits ٠١٢٣٤٥٦٧٨٩ of the ar locale, and ۴ ۵ ۶ are drawn differently from ٤ ٥ ٦. The week starts on SATURDAY (شنبه) and the weekend is THURSDAY-FRIDAY, so weekdays[] here is rotated into the Sunday-first order this file's contract requires. Persian names its weekdays by counting from شنبه — یکشنبه، دوشنبه، سه‌شنبه، چهارشنبه، پنجشنبه — and only جمعه has an independent name. The everyday Iranian date format is year first with slashes, ۱۴۰۴/۰۵/۲۴, which is why L is YYYY/MM/DD rather than DD/MM/YYYY."
+}

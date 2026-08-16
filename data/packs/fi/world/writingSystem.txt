@@ -1,0 +1,24 @@
+---
+description: Writing system (Finnish). Note what the Finnish alphabet itself does: it adds å, ä and ö after z, and ä and ö are LETTERS IN THEIR OWN RIGHT rather than accented a and o — Finnish sorts them at the end of the alphabet, so Ähtäri comes after Zürich, and a system that folds them into a and o will sort a Finnish list wrongly. Å exists only in names of Swedish origin.
+locale: fi
+---
+latinalainen kirjaimisto
+kyrillinen kirjaimisto
+kreikkalainen kirjaimisto
+riimukirjoitus
+arabialainen kirjaimisto
+heprealainen kirjaimisto
+armenialainen kirjaimisto
+georgialainen kirjaimisto
+devanagari
+bengalilainen kirjoitus
+tamililainen kirjoitus
+thaimaalainen kirjoitus
+khmerkirjoitus
+burmalainen kirjoitus
+kiinalaiset merkit
+hiragana
+katakana
+hangul
+etiopialainen kirjoitus
+pistekirjoitus

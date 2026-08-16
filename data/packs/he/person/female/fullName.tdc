@@ -1,0 +1,10 @@
+---
+description: Israeli full female name — one given name and one surname (נועה לוי). The surname comes from the SAME list as the male one: Israeli surnames do not inflect for gender, so there is no feminine surname list in this pack and its absence is the design.
+generator: tdc
+locale: he
+---
+<sequence name="p">
+  <gen name="f" type="template" value="he.person.female.firstName"/>
+  <gen name="l" type="template" value="he.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

@@ -1,0 +1,32 @@
+---
+description: Tree (Finnish). Kuusi, mänty and koivu are three quarters of Finland's growing stock between them, and Finland is the most forested country in Europe — three quarters of its land area. Visakoivu is curly birch, a figured form of the silver birch grown deliberately for its marbled wood, and tunturikoivu is the stunted mountain birch that marks the tree line in Lapland.
+locale: fi
+---
+kuusi
+mänty
+koivu
+rauduskoivu
+hieskoivu
+visakoivu
+tunturikoivu
+haapa
+leppä
+tervaleppä
+harmaaleppä
+pihlaja
+raita
+paju
+tuomi
+tammi
+saarni
+vaahtera
+lehmus
+jalava
+kataja
+marjakuusi
+lehtikuusi
+orapihlaja
+omenapuu
+kirsikkapuu
+luumupuu
+pähkinäpensas

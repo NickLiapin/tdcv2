@@ -1,0 +1,11 @@
+---
+description: Driving licence category for trucks (Serbian categories, which follow the EU scheme, plus the professional competence certificate every commercial driver must hold)
+locale: sr
+---
+Категорија B
+Категорија B+E
+Категорија C1
+Категорија C1+E
+Категорија C
+Категорија C+E
+Сертификат о професионалној оспособљености (CPC)

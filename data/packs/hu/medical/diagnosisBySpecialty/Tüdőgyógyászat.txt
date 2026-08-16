@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Hungarian).
+locale: hu
+---
+Asztma
+Krónikus obstruktív tüdőbetegség
+Tüdőgyulladás
+Tüdőembólia
+Tuberkulózis
+Obstruktív alvási apnoé
+Hörgőtágulat
+Tüdőszarkoidózis
+Tüdőfibrózis
+Krónikus hörghurut

@@ -1,0 +1,17 @@
+---
+description: Marital status (Finnish). Avoliitto — cohabitation — is not merely a description here: Finnish law recognises avopuolisot who have lived together for five years or share a child, and gives them rights over the shared household. Rekisteröity parisuhde was the same-sex partnership form used from 2002; since equal marriage came into force in March 2017 no new ones are registered, but existing registrations remain valid, which is why the value stays in the list.
+locale: fi
+---
+naimaton
+naimisissa
+avoliitossa
+rekisteröidyssä parisuhteessa
+kihloissa
+asumuserossa
+eronnut
+leski
+uudelleen avioitunut
+purettu parisuhde
+leskeksi jäänyt puoliso
+avoeronnut
+tieto puuttuu

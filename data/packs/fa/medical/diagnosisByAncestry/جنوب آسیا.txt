@@ -1,0 +1,14 @@
+---
+description: Conditions more frequent in people of South Asian ancestry (Persian)
+locale: fa
+---
+دیابت نوع ۲
+بیماری عروق کرونر زودرس
+سندرم متابولیک
+کمبود ویتامین D
+تالاسمی بتا
+کمبود G6PD
+کم‌خونی فقر آهن
+سل
+چاقی مرکزی
+نارسایی مزمن کلیه

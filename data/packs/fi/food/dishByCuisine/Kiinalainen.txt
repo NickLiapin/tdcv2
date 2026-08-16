@@ -1,0 +1,13 @@
+---
+description: Dishes of kiinalainen cuisine, in Finnish
+locale: fi
+---
+Wokattu kana
+Peking-ankka
+Kevätkääryleet
+Dim sum
+Mapo tofu
+Gong bao -kana
+Nuudelit
+Paistettu riisi
+Hapanimelä possu

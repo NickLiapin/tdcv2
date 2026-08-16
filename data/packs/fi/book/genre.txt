@@ -1,0 +1,31 @@
+---
+description: Book genre (Finnish)
+locale: fi
+---
+Kaunokirjallisuus
+Tietokirjallisuus
+Dekkari
+Rikosromaani
+Jännitys
+Romantiikka
+Tieteiskirjallisuus
+Fantasia
+Kauhu
+Elämäkerta
+Historia
+Opas
+Runous
+Nuortenkirjallisuus
+Historiallinen romaani
+Seikkailukertomus
+Muistelmat
+Filosofia
+Matkakirjallisuus
+Keittokirja
+Sarjakuvaromaani
+Dystopia
+Essee
+Novelli
+Maaginen realismi
+Lastenkirjallisuus
+Sotaromaani

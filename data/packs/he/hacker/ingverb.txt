@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Hebrew). Hebrew has no -ing form; the equivalent is the verbal noun (שם פעולה), a separate noun built from the verb root — כתב becomes כתיבה, הצפין becomes הצפנה. That is what this list holds, and it behaves as a noun grammatically, not as a participle.
+locale: he
+---
+הצפנה
+פענוח
+פריצה
+סריקה
+אתחול
+גיבוי
+שחזור
+ניטור
+אינדוקס
+קימפול
+פריסה
+סנכרון
+ניתוב
+דחיסה
+אימות
+הרשאה
+מיפוי
+שכפול
+מיזוג
+ריענון
+עדכון
+שדרוג
+התקנה
+הסרה
+ניפוי שגיאות
+אופטימיזציה
+וירטואליזציה
+תעדוף

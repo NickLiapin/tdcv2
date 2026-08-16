@@ -1,0 +1,59 @@
+---
+description: Sport (Persian). کشتی is the Iranian national sport and its two Olympic styles are listed separately; ورزش زورخانه‌ای is the ritual strength training of the زورخانه, the 'house of strength', performed to a drum and recited verse; چوگان is polo, played in Iran for two thousand years and inscribed by UNESCO as Iranian heritage.
+locale: fa
+---
+فوتبال
+فوتسال
+والیبال
+بسکتبال
+هندبال
+کشتی
+کشتی آزاد
+کشتی فرنگی
+وزنه‌برداری
+تکواندو
+کاراته
+جودو
+بوکس
+ووشو
+کیک‌بوکسینگ
+موی‌تای
+ورزش زورخانه‌ای
+چوگان
+تیراندازی با کمان
+تیراندازی
+شمشیربازی
+شطرنج
+دو و میدانی
+ماراتن
+سه‌گانه
+شنا
+واترپلو
+شیرجه
+دوچرخه‌سواری
+موتورسواری
+اتومبیل‌رانی
+اسکی
+اسنوبرد
+کوهنوردی
+سنگ‌نوردی
+غارنوردی
+پاراگلایدر
+اسب‌دوانی
+تنیس
+تنیس روی میز
+بدمینتون
+اسکواش
+گلف
+بولینگ
+بیلیارد
+اسنوکر
+دارت
+ژیمناستیک
+قایقرانی
+بادبانی
+بیسبال
+راگبی
+هاکی روی یخ
+هاکی روی چمن
+اسکیت

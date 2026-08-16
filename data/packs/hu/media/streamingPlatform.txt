@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Hungarian market.
+locale: hu
+---
+Netflix
+Disney+
+Amazon Prime Video
+Max
+Apple TV+
+SkyShowtime
+YouTube
+RTL+
+Filmio
+MédiaKlikk
+Spotify
+Twitch

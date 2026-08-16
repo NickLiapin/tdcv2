@@ -1,0 +1,32 @@
+---
+description: Flower (Persian). گل محمدی is the damask rose grown around Kashan and distilled into گلاب, rosewater — the harvest is a national event. لاله, the tulip, is Iranian in origin and is also the emblem of the war dead.
+locale: fa
+---
+گل محمدی
+رز
+لاله
+نرگس
+بنفشه
+شقایق
+یاس
+یاسمن
+مریم
+ارغوان
+اطلسی
+شمعدانی
+میخک
+داوودی
+آفتابگردان
+ختمی
+نیلوفر آبی
+سنبل
+زنبق
+سوسن
+گل ناز
+گل یخ
+رازقی
+شب‌بو
+همیشه‌بهار
+پامچال
+گلایول
+ارکیده

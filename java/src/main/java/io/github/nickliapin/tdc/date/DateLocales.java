@@ -1145,6 +1145,113 @@ public final class DateLocales {
               "LLL", "D. MMMM YYYY HH:mm",
               "LLLL", "dddd D. MMMM YYYY HH:mm"));
 
+  // Hungarian writes a date big-endian — year, month, day — and puts a full stop after EVERY part,
+  // the day included: "2026. 10. 09." is a complete date and "2026. 10. 09" is a typo. Month and
+  // weekday names are lower case, and the weekday follows the date rather than leading it.
+  static final DateFormatter.DateLocale HU =
+      new DateFormatter.DateLocale(
+          List.of(
+              "január",
+              "február",
+              "március",
+              "április",
+              "május",
+              "június",
+              "július",
+              "augusztus",
+              "szeptember",
+              "október",
+              "november",
+              "december"),
+          List.of(
+              "jan.",
+              "febr.",
+              "márc.",
+              "ápr.",
+              "máj.",
+              "jún.",
+              "júl.",
+              "aug.",
+              "szept.",
+              "okt.",
+              "nov.",
+              "dec."),
+          List.of(
+              "vasárnap",
+              "hétfő",
+              "kedd",
+              "szerda",
+              "csütörtök",
+              "péntek",
+              "szombat"),
+          List.of(
+              "V",
+              "H",
+              "K",
+              "Sze",
+              "Cs",
+              "P",
+              "Szo"),
+          Map.of(
+              "L", "YYYY.MM.DD.",
+              "LL", "YYYY. MMMM D.",
+              "LLL", "YYYY. MMMM D. HH:mm",
+              "LLLL", "YYYY. MMMM D., dddd HH:mm"));
+
+  // Finnish, like Czech, inflects the month name inside a date: the month is "tammikuu" but the
+  // date reads "5. tammikuuta 2026". These are the partitive forms the formatter needs; the
+  // nominative list lives in the pack at fi/date/month.txt. The day number keeps a full stop after
+  // it because it is an ordinal, and the time separator is a full stop rather than a colon — 14.30.
+  static final DateFormatter.DateLocale FI =
+      new DateFormatter.DateLocale(
+          List.of(
+              "tammikuuta",
+              "helmikuuta",
+              "maaliskuuta",
+              "huhtikuuta",
+              "toukokuuta",
+              "kesäkuuta",
+              "heinäkuuta",
+              "elokuuta",
+              "syyskuuta",
+              "lokakuuta",
+              "marraskuuta",
+              "joulukuuta"),
+          List.of(
+              "tammi",
+              "helmi",
+              "maalis",
+              "huhti",
+              "touko",
+              "kesä",
+              "heinä",
+              "elo",
+              "syys",
+              "loka",
+              "marras",
+              "joulu"),
+          List.of(
+              "sunnuntai",
+              "maanantai",
+              "tiistai",
+              "keskiviikko",
+              "torstai",
+              "perjantai",
+              "lauantai"),
+          List.of(
+              "su",
+              "ma",
+              "ti",
+              "ke",
+              "to",
+              "pe",
+              "la"),
+          Map.of(
+              "L", "D.M.YYYY",
+              "LL", "D. MMMM YYYY",
+              "LLL", "D. MMMM YYYY HH.mm",
+              "LLLL", "dddd D. MMMM YYYY HH.mm"));
+
   private static final Map<String, DateFormatter.DateLocale> BY_NAME =
       Map.ofEntries(
           Map.entry("en", EN),
@@ -1182,7 +1289,20 @@ public final class DateLocales {
           Map.entry("kor", KO),
           Map.entry("nl", NL),
           Map.entry("nld", NL),
-          Map.entry("sv", SV)
+          Map.entry("sv", SV),
+          // CS, TH and HI were defined here and never registered, so `local="cs"`,
+          // `local="th"` and `local="hi"` fell through to English month names while
+          // NAMES below advertised all three as supported — a config asking for a
+          // Czech date silently got an English one. NAMES also omitted "vi", which
+          // has worked since it was added.
+          Map.entry("cs", CS),
+          Map.entry("ces", CS),
+          Map.entry("th", TH),
+          Map.entry("hi", HI),
+          Map.entry("hu", HU),
+          Map.entry("hun", HU),
+          Map.entry("fi", FI),
+          Map.entry("fin", FI)
       );
 
   /** The advertised names, for the validator's "did you mean" list. */
@@ -1194,7 +1314,9 @@ public final class DateLocales {
           "el",
           "en",
           "es",
+          "fi",
           "fr",
+          "hu",
           "id",
           "it",
           "ja",
@@ -1208,6 +1330,7 @@ public final class DateLocales {
           "th",
           "tr",
           "uk",
+          "vi",
           "zh-cn");
 
   /**

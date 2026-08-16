@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Finnish). Finnish translates the signs into native words rather than keeping the Latin — Oinas is a ram, Härkä a bull, Rapu a crab, Vaaka a pair of scales — and only Skorpioni is a loan.
+locale: fi
+---
+Oinas
+Härkä
+Kaksoset
+Rapu
+Leijona
+Neitsyt
+Vaaka
+Skorpioni
+Jousimies
+Kauris
+Vesimies
+Kalat

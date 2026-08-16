@@ -1,0 +1,16 @@
+---
+description: Jobs in Manufacturing (Hungarian).
+locale: hu
+---
+CNC-gépkezelő
+Hegesztő
+Esztergályos
+Marós
+Minőségellenőr
+Termelésvezető
+Összeszerelő
+Karbantartó műszerész
+Gyártástechnológus
+Gyártósori operátor
+Művezető
+Raktáros

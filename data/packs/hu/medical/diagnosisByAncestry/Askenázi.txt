@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Hungarian. A prevalence signal, not an exclusive one.
+locale: hu
+---
+Tay-Sachs-betegség
+1-es típusú Gaucher-betegség
+Familiáris diszautonómia
+Canavan-betegség
+A típusú Niemann-Pick-betegség
+Bloom-szindróma
+XI-es faktor hiánya
+BRCA1 alapító mutáció
+BRCA2 alapító mutáció
+IV-es típusú mukolipidózis
+Crohn-betegség
+Torziós disztónia

@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Hungarian). The cafeteria system and the SZEP kartya are the Hungarian fringe-benefit machinery: an employer loads a tax-favoured card the employee spends on food, leisure or accommodation.
+locale: hu
+---
+Magánegészségügyi ellátás
+Fogászati ellátás
+Szemüvegtámogatás
+Önkéntes nyugdíjpénztár
+Fizetett szabadság
+Távmunka
+Rugalmas munkaidő
+Részvényopció
+Életbiztosítás
+Szülői szabadság
+SZÉP kártya
+Cafeteria-keret
+Sportbérlet
+Tanulmányi támogatás
+Utazási támogatás
+Éves bónusz
+Szakmai képzés
+Munkahelyi étkezés

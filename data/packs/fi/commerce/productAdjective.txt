@@ -1,0 +1,58 @@
+---
+description: Product adjective (Finnish), nominative singular. Finnish adjectives agree with their noun in case and number, so a listing that puts one in a phrase must inflect it: kokoontaittuva pöytä but kokoontaittuvassa pöydässä.
+locale: fi
+---
+kokoontaittuva
+säädettävä
+ergonominen
+käsintehty
+konepestävä
+vedenpitävä
+vettähylkivä
+tuulenpitävä
+hengittävä
+eristetty
+vuorattu
+heijastava
+liukumaton
+naarmuuntumaton
+kulutusta kestävä
+kestävä
+kierrätetty
+ympäristömerkitty
+luomu
+myrkytön
+allergiaystävällinen
+hajusteeton
+kevyt
+kompakti
+kannettava
+langaton
+ladattava
+älykäs
+verkkoon liitettävä
+hiljainen
+energiatehokas
+huoltovapaa
+pinottava
+ulosvedettävä
+käännettävä
+modulaarinen
+klassinen
+moderni
+skandinaavinen
+minimalistinen
+ajaton
+matta
+kiiltävä
+harjattu
+lakattu
+öljytty
+käsittelemätön
+astianpesukoneen kestävä
+uuninkestävä
+pakastuksen kestävä
+UV-suojattu
+ruostumaton
+kotimainen
+talvikäyttöön sopiva

@@ -1,0 +1,10 @@
+---
+description: Positions in salibandy, in Finnish.
+locale: fi
+---
+maalivahti
+oikea puolustaja
+vasen puolustaja
+keskushyökkääjä
+oikea laitahyökkääjä
+vasen laitahyökkääjä

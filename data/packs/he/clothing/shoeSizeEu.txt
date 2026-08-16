@@ -1,0 +1,16 @@
+---
+description: Shoe size (European sizing — Israel uses the EU scale unchanged, on both shoes and the size labels in shops)
+locale: he
+---
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47

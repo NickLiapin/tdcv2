@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type. Hungarian medicine writes the O group as the DIGIT ZERO — 0+ and 0-, read "nulla" — not as the letter O, so a config comparing Hungarian records against English ones must normalise the two.
+locale: hu
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+0+
+0-

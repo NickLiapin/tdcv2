@@ -1,0 +1,24 @@
+---
+description: Parcel carriers commonly used in Hungary. Brand names keep their own spelling.
+locale: hu
+---
+Magyar Posta
+MPL
+GLS
+DPD
+FoxPost
+Packeta
+Express One
+Sprinter
+DHL Express
+UPS
+FedEx
+TNT
+Trans-o-flex
+Waberer's
+Royal Sprint
+Alza Box
+Raben
+Gebrüder Weiss
+Dachser
+DB Schenker

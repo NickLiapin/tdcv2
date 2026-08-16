@@ -1,0 +1,45 @@
+---
+description: Company legal form and name element used in Iran. سهامی خاص (private joint stock) and با مسئولیت محدود (limited liability) are the two ordinary forms; سهامی عام is the public one required for a Tehran Stock Exchange listing. Unlike German or Polish practice the form usually PRECEDES nothing and follows the name: شرکت X (سهامی خاص).
+locale: fa
+---
+سهامی خاص
+سهامی عام
+با مسئولیت محدود
+تضامنی
+نسبی
+مختلط سهامی
+مختلط غیرسهامی
+تعاونی
+شرکت تعاونی
+مؤسسه
+بنیاد
+هلدینگ
+گروه
+گروه صنعتی
+صنایع
+کارخانجات
+بازرگانی
+تجارت
+خدمات
+فناوری
+مهندسی
+ساختمانی
+پتروشیمی
+صنعتی
+تولیدی
+پخش
+توزیع
+صادرات
+واردات
+بین‌المللی
+سرمایه‌گذاری
+توسعه
+کشت و صنعت
+حمل و نقل
+کارگزاری
+بیمه
+بانک
+و شرکا
+و پسران
+برادران
+ایران

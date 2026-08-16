@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Finnish market. Yle Areena is the free public-service service funded by the yle-vero, a separate tax, and it carries the national archive; Ruutu and MTV Katsomo belong to the two commercial broadcasters and Elisa Viihde to a telecom operator.
+locale: fi
+---
+Yle Areena
+Ruutu
+MTV Katsomo
+Elisa Viihde
+Viaplay
+Netflix
+HBO Max
+Disney+
+Prime Video
+Apple TV+
+Spotify
+YouTube

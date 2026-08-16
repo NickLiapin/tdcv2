@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Persian). فوتسال is here because Iran is one of the strongest futsal nations in the world, not as a variant of football.
+locale: fa
+---
+فوتبال
+فوتسال
+بسکتبال
+والیبال
+هندبال
+بیسبال
+راگبی
+هاکی روی یخ

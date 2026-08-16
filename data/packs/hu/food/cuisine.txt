@@ -1,0 +1,21 @@
+---
+description: Cuisine (Hungarian). Each value has a dishByCuisine child file. Hungarian writes these lowercase inside a sentence (olasz konyha); they are capitalised here because they are list labels.
+locale: hu
+---
+Olasz
+Japán
+Mexikói
+Kínai
+Indiai
+Francia
+Thai
+Görög
+Spanyol
+Amerikai
+Koreai
+Vietnami
+Török
+Libanoni
+Perui
+Argentin
+Magyar

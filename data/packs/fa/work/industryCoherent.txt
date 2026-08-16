@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: fa
+---
+فناوری
+سلامت
+مالی
+ساختمان
+آموزش
+هتلداری و پذیرایی
+صنعت
+خرده‌فروشی
+حمل و نقل
+حقوقی

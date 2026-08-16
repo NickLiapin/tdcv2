@@ -114,3 +114,11 @@ select = ["E", "F", "W", "I", "N", "UP", "B", "SIM", "RUF"]
 # job is multilingual data they fire on every alphabet we ship on purpose — Cyrillic, fullwidth
 # digits, Greek — and there is no true positive among them.
 ignore = ["RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.per-file-ignores]
+# One date table per language, one line per field, so the tables diff line-for-line against the
+# same tables in the TypeScript, Rust, C# and Java implementations — that alignment is how a
+# missing month is spotted at all. Twelve month names in a language that writes long ones do not
+# fit in 100 columns and wrapping them would break it. This was going unreported rather than
+# passing: `ruff check` had 28 of these against the file and nothing in `npm run check` ran it.
+"src/tdcv2/date/locales.py" = ["E501"]

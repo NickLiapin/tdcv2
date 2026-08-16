@@ -1,0 +1,10 @@
+---
+description: Positions in handball (Hebrew)
+locale: he
+---
+שוער
+כנף ימנית
+כנף שמאלית
+מרכז
+פיבוט
+בונה משחק

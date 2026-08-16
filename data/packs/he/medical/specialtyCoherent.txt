@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Hebrew)
+locale: he
+---
+קרדיולוגיה
+נוירולוגיה
+אונקולוגיה
+דרמטולוגיה
+גסטרואנטרולוגיה
+אנדוקרינולוגיה
+פולמונולוגיה
+אורתופדיה
+פסיכיאטריה
+נפרולוגיה

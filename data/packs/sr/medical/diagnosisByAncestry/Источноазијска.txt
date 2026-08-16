@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, in Serbian. A prevalence signal, not an exclusive one.
+locale: sr
+---
+Алфа-таласемија
+Дефицит алдехид дехидрогеназе 2
+Неперзистенција лактазе
+Карцином назофаринкса
+Карцином желуца
+Примарни глауком затвореног угла
+Кавасакијева болест
+Мојамоја болест
+Преосетљивост на карбамазепин
+Патолошка миопија

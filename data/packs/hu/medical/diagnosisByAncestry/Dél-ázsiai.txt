@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Hungarian. A prevalence signal, not an exclusive one.
+locale: hu
+---
+Korán jelentkező 2-es típusú cukorbetegség
+Korai koszorúér-betegség
+Hasi elhízás normális testtömegindex mellett
+D-vitamin-hiány
+Béta-talasszémia-hordozó állapot
+Metabolikus szindróma
+Glükóz-6-foszfát-dehidrogenáz-hiány
+Reumás szívbetegség

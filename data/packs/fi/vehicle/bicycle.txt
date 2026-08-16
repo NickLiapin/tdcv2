@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Finnish). Talvipyörä and nastarengaspyörä are genuine Finnish categories: studded winter tyres for bicycles are sold in every Finnish shop and cities like Oulu plough their cycle paths first, so year-round winter cycling is ordinary rather than heroic.
+locale: fi
+---
+kaupunkipyörä
+hybridipyörä
+työmatkapyörä
+maantiepyörä
+gravel-pyörä
+maastopyörä
+täysjousitettu maastopyörä
+läskipyörä
+talvipyörä
+nastarengaspyörä
+sähköpyörä
+tavarapyörä
+kolmipyörä
+lastenpyörä
+taittopyörä
+tandempyörä
+cyclocross-pyörä

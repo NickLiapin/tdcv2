@@ -1,0 +1,20 @@
+---
+description: Weather condition (Finnish), as the Finnish Meteorological Institute words a forecast
+locale: fi
+---
+selkeää
+aurinkoista
+vaihtelevaa pilvisyyttä
+puolipilvistä
+pilvistä
+verrattain pilvistä
+sumua
+tihkusadetta
+vesisadetta
+sadekuuroja
+ukkosta
+räntäsadetta
+lumisadetta
+lumikuuroja
+tuulista
+myrskyä

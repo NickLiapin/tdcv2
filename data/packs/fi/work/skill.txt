@@ -1,0 +1,51 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Finnish). Ajokortti B is the ordinary car licence and appears on Finnish CVs as a skill; hygieniapassi and työturvallisuuskortti are certificates Finnish employers require by name — the first for anyone handling unpackaged food, the second for anyone entering a shared industrial or construction site.
+locale: fi
+---
+projektinhallinta
+ketterät menetelmät
+scrum
+vaatimusmäärittely
+ohjelmistokehitys
+ohjelmointi
+tietokannat
+pilvipalvelut
+tietoturva
+verkkojen ylläpito
+data-analytiikka
+tilastotiede
+koneoppiminen
+budjetointi
+kirjanpito
+tilinpäätös
+sopimusoikeus
+julkiset hankinnat
+neuvottelutaidot
+myyntityö
+asiakaspalvelu
+markkinointi
+sosiaalinen media
+copywriting
+graafinen suunnittelu
+valokuvaus
+hitsaus
+CNC-ohjelmointi
+sähköasennukset
+LVI-asennukset
+koneiden kunnossapito
+trukin ajo
+varastonhallinta
+ajokortti B
+ensiapu
+hätäensiapu
+elvytys
+työturvallisuuskortti
+tulityökortti
+hygieniapassi
+anniskelupassi
+työsuojelu
+pedagogiikka
+ohjaustaidot
+johtaminen
+viestintä
+ongelmanratkaisu

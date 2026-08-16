@@ -1,0 +1,10 @@
+---
+description: Positions in lentopallo, in Finnish.
+locale: fi
+---
+passari
+hakkuri
+keskitorjuja
+yleispelaaja
+libero
+laitahyökkääjä

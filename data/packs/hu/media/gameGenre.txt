@@ -1,0 +1,21 @@
+---
+description: Video game genre (Hungarian).
+locale: hu
+---
+Akció
+Kaland
+Szerepjáték
+Stratégia
+Szimuláció
+Sport
+Logikai
+Lövöldözős
+Platformer
+Autóverseny
+Verekedős
+Túlélő
+Nyílt világú
+MMORPG
+Roguelike
+Horror
+Zenei

@@ -1,0 +1,27 @@
+---
+description: School subject (Finnish, as the national core curriculum names them). Note the two mother-tongue lines: äidinkieli ja kirjallisuus is taught in the pupil's own language, and every Finnish pupil also studies the other national language — Swedish for Finnish-speakers, Finnish for Swedish-speakers — which is why toinen kotimainen kieli is a subject in its own right.
+locale: fi
+---
+äidinkieli ja kirjallisuus
+toinen kotimainen kieli
+suomi toisena kielenä
+englanti
+matematiikka
+fysiikka
+kemia
+biologia
+maantieto
+historia
+yhteiskuntaoppi
+uskonto
+elämänkatsomustieto
+terveystieto
+liikunta
+kuvataide
+musiikki
+käsityö
+kotitalous
+ympäristöoppi
+opinto-ohjaus
+psykologia
+filosofia

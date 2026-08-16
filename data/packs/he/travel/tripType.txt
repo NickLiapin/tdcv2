@@ -1,0 +1,24 @@
+---
+description: Trip type (Hebrew). Three are Israeli institutions rather than trip categories: טיול אחרי צבא is the long overland journey most Israelis take after military service, מסע לפולין is the state-organised school trip to the death camps, and טיול שורשים is a visit to the country a family emigrated from.
+locale: he
+---
+טיול משפחתי
+ירח דבש
+נופש
+טיול שטח
+טיול תרמילאים
+טיול אחרי צבא
+מסע לפולין
+טיול שורשים
+נסיעת עסקים
+סוף שבוע
+חופשה בחו״ל
+עלייה לרגל
+קמפינג
+שיט
+קרוז
+חילופי סטודנטים
+טיול בית ספר
+טיול ג׳יפים
+חופשת סקי
+נופש ספא

@@ -1,0 +1,16 @@
+---
+description: Leave type (Persian). مرخصی زایمان is nine months in Iran, and مرخصی حج is a statutory leave for the pilgrimage.
+locale: fa
+---
+مرخصی استحقاقی
+مرخصی استعلاجی
+مرخصی بدون حقوق
+مرخصی ساعتی
+مرخصی زایمان
+مرخصی پدر
+مرخصی ازدواج
+مرخصی فوت بستگان
+مرخصی حج
+مرخصی تشویقی
+مرخصی آموزشی
+تعطیلات رسمی

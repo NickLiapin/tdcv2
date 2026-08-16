@@ -1,0 +1,26 @@
+---
+description: Common allergies (Serbian). Амброзија — ragweed — heads any Serbian allergy list in late summer: it is an invasive species across Vojvodina and the single most reported seasonal allergen in the country.
+locale: sr
+---
+Амброзија
+Полен трава
+Полен брезе
+Гриње
+Буђ
+Длака кућних љубимаца
+Пеницилин
+Сулфонамиди
+Аспирин
+Јод
+Кикирики
+Језграсто воће
+Сусам
+Соја
+Пшеница
+Јаја
+Млеко
+Риба
+Шкољке
+Ракови
+Латекс
+Убод пчеле или осе

@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Hungarian). The cimbalom (a large hammered dulcimer on legs), the tarogato, the citera and the tekerolant are Hungarian instruments still played in folk and orchestral music.
+locale: hu
+---
+Gitár
+Zongora
+Hegedű
+Dob
+Basszusgitár
+Szaxofon
+Trombita
+Fuvola
+Cselló
+Klarinét
+Harsona
+Hárfa
+Ukulele
+Bendzsó
+Harmonika
+Szintetizátor
+Oboa
+Nagybőgő
+Szájharmonika
+Xilofon
+Klasszikus gitár
+Pianínó
+Brácsa
+Orgona
+Cimbalom
+Tárogató
+Citera
+Duda
+Tekerőlant
+Furulya
+Kürt

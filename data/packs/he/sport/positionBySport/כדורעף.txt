@@ -1,0 +1,10 @@
+---
+description: Positions in volleyball (Hebrew)
+locale: he
+---
+מעביר
+חובט חיצוני
+חובט אלכסוני
+סוגר מרכזי
+ליברו
+מגיש

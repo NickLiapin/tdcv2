@@ -1,0 +1,81 @@
+---
+description: Medical diagnosis in Hungarian that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale; ancestry-linked ones in diagnosisByAncestry. Hungarian clinical practice writes many of these in Latin as well; the everyday Hungarian form is used here.
+locale: hu
+---
+Magas vérnyomás
+2-es típusú cukorbetegség
+Asztma
+Heveny hörghurut
+Influenza
+Migrén
+Generalizált szorongásos zavar
+Visszatérő depresszió
+Ízületi kopás
+Reumatoid artritisz
+Refluxbetegség
+Vashiányos vérszegénység
+Pajzsmirigy-alulműködés
+Húgyúti fertőzés
+Tüdőgyulladás
+Krónikus veseelégtelenség
+Koszorúér-betegség
+Pitvarfibrilláció
+Szívelégtelenség
+Iszkémiás stroke
+Epilepszia
+Parkinson-kór
+Alzheimer-kór
+Szklerózis multiplex
+Pikkelysömör
+Atópiás bőrgyulladás
+Allergiás nátha
+Krónikus arcüreggyulladás
+Középfülgyulladás
+Kötőhártya-gyulladás
+Szürkehályog
+Zöldhályog
+Vakbélgyulladás
+Epehólyag-gyulladás
+Vastagbél-divertikulitisz
+Irritábilis bél szindróma
+Crohn-betegség
+Fekélyes vastagbélgyulladás
+Krónikus B-hepatitis
+Májzsugorodás
+Heveny hasnyálmirigy-gyulladás
+Köszvény
+Csontritkulás
+Fibromialgia
+Isiász
+Porckorongsérv
+Kéztőalagút-szindróma
+Ínhüvelygyulladás
+Krónikus obstruktív tüdőbetegség
+Tuberkulózis
+Leukémia
+Limfóma
+Melanóma
+Magas koleszterinszint
+Elhízás
+Obstruktív alvási apnoé
+Álmatlanság
+Bipoláris zavar
+Figyelemhiányos hiperaktivitás-zavar
+Cöliákia
+Szisztémás lupusz
+Egyensúlyszervi szédülés
+Fülzúgás
+Aranyér
+Visszértágulat
+Mélyvénás trombózis
+Tüdőembólia
+Vesekő
+Vérszegénység
+Pajzsmirigy-túlműködés
+Gyomorfekély
+Gyomorhurut
+Bőr alatti kötőszövet gyulladása
+Szepszis
+Emlőrák
+Heveny gyomor-bélhurut
+D-vitamin-hiány

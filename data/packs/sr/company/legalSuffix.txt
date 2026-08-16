@@ -1,0 +1,45 @@
+---
+description: Company legal form and name tail used in Serbia. The genuinely legal forms are the first block — д.о.о., а.д., о.д., к.д., ПР, задруга, ЈП and their spelled-out variants, as the Business Registers Agency records them. The rest are name tails that trade alongside the form (Група, Инжењеринг, Промет), because Serbian company names carry those far more often than they carry a second legal marker. Fewer strictly legal forms than the Polish list because Serbian company law simply has fewer.
+locale: sr
+---
+д.о.о.
+ДОО
+друштво с ограниченом одговорношћу
+а.д.
+АД
+акционарско друштво
+о.д.
+ортачко друштво
+к.д.
+командитно друштво
+ПР
+предузетник
+задруга
+земљорадничка задруга
+ЈП
+јавно предузеће
+јавно комунално предузеће
+установа
+фондација
+удружење
+огранак
+представништво
+Група
+Холдинг
+Систем
+Компанија
+Инжењеринг
+Пројект
+Промет
+Трговина
+Комерц
+Инвест
+Консалтинг
+Технологије
+Продукција
+Индустрија
+Група д.о.о.
+Инжењеринг д.о.о.
+Промет д.о.о.
+Инвест а.д.
+Индустрија а.д.

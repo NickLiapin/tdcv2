@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Hungarian).
+locale: hu
+---
+Emlőrák
+Tüdőrák
+Vastagbélrák
+Leukémia
+Limfóma
+Melanóma
+Prosztatarák
+Gyomorrák
+Hasnyálmirigyrák
+Mielóma multiplex

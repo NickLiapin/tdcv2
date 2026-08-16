@@ -1,0 +1,14 @@
+---
+description: Conditions more frequent in people of Ashkenazi Jewish ancestry (Persian)
+locale: fa
+---
+بیماری تی‌ساکس
+بیماری گوشه
+بیماری کانوان
+دیس‌اتونومی فامیلی
+جهش BRCA1
+جهش BRCA2
+کمبود فاکتور XI
+بیماری نیمن-پیک
+موکولیپیدوز نوع ۴
+بیماری کرون

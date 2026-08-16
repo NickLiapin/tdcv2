@@ -1,0 +1,12 @@
+---
+description: Clothing size (Persian market). Iran sells by the international letters AND by even numbers — women's 36 to 52, men's shirts by collar 38 to 48 — often on the same rail, so a size field for Iran should expect either.
+locale: fa
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

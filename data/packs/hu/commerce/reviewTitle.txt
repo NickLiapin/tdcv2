@@ -1,0 +1,30 @@
+---
+description: Product review title (Hungarian).
+locale: hu
+---
+Nagyszerű termék!
+Csak ajánlani tudom
+Nem éri meg az árát
+Felülmúlta a várakozásaimat
+Megteszi
+Újra megvenném
+Csalódás
+Kiváló minőség
+Hamar tönkrement
+Ezért az árért tökéletes
+Jobb, mint amire számítottam
+Nem ajánlom
+El vagyok ragadtatva!
+Kicsit drága
+Pontosan olyan, mint a leírásban
+Ellátja a feladatát
+Jó ár-érték arány
+A vártnál hamarabb megérkezett
+Gyenge anyagok
+Pontosan ezt kerestem
+Érthetetlen használati útmutató
+Nagyon egyszerű a használata
+Nem erre számítottam
+Biztosan rendelek még
+Kifogástalan ügyfélszolgálat
+Masszív kivitel

@@ -1,0 +1,13 @@
+---
+description: Dishes of ranskalainen cuisine, in Finnish
+locale: fi
+---
+Sipulikeitto
+Coq au vin
+Ratatouille
+Bouillabaisse
+Quiche lorraine
+Confit de canard
+Crème brûlée
+Suklaamousse
+Tarte tatin

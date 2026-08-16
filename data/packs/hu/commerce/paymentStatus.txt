@@ -1,0 +1,14 @@
+---
+description: Payment status (Hungarian).
+locale: hu
+---
+Függőben
+Engedélyezve
+Kifizetve
+Sikertelen
+Visszatérítve
+Részben visszatérítve
+Visszaterhelve
+Törölve
+Elutasítva
+Ellenőrzés alatt

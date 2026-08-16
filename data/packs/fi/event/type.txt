@@ -1,0 +1,30 @@
+---
+description: Event type (Finnish). Most of these are fixed points in the Finnish year rather than generic occasions: vappu on 1 May is a students' and workers' carnival, juhannus is the midsummer weekend when the cities empty for the lakes, pikkujoulut is the whole December season of workplace Christmas parties, and itsenäisyyspäivä on 6 December is spent watching the President shake 1 800 hands on television. Two are school rituals with no equivalent abroad: penkkarit, when school-leavers ride through town on decorated lorries throwing sweets, and vanhojen tanssit, the formal ballroom dance the year below them performs the next day. Nimipäivä matters here — Finnish name days are printed in every calendar and genuinely celebrated.
+locale: fi
+---
+häät
+ristiäiset
+nimenantojuhla
+rippijuhla
+konfirmaatio
+ylioppilasjuhla
+penkkarit
+vanhojen tanssit
+valmistujaiset
+syntymäpäivät
+nimipäivä
+tupaantuliaiset
+saunailta
+vappu
+juhannus
+laskiainen
+pääsiäinen
+pikkujoulut
+joulu
+uudenvuodenaatto
+itsenäisyyspäivä
+hautajaiset
+vuosijuhla
+konferenssi
+messut
+kesäjuhlat

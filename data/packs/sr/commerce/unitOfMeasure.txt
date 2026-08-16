@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Serbian). Serbia is metric throughout — there is no local non-metric unit the way the en pack carries pounds and inches.
+locale: sr
+---
+комад
+ком.
+пар
+сет
+кутија
+паковање
+пак.
+кеса
+врећа
+палета
+боца
+лименка
+тегла
+туба
+ролна
+метар
+центиметар
+милиметар
+квадратни метар
+кубни метар
+литар
+милилитар
+децилитар
+килограм
+грам
+тона
+дужни метар
+сат
+дан
+месец

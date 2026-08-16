@@ -1,0 +1,12 @@
+---
+description: Household income bracket, labelled in Hebrew. Amounts are MONTHLY and in shekels (₪, ILS), the currency of Israel. The monthly framing is the locale fact here: Israeli pay, rent, benefits and statistics are all quoted per month, never per year, so an annual bracket of the European kind would read as foreign. The ₪ sign is written before the number even though the text runs right to left.
+locale: he
+---
+עד ₪5,000 לחודש
+₪5,000-10,000 לחודש
+₪10,000-15,000 לחודש
+₪15,000-20,000 לחודש
+₪20,000-30,000 לחודש
+₪30,000-45,000 לחודש
+₪45,000-70,000 לחודש
+מעל ₪70,000 לחודש

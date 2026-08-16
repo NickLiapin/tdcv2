@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Hebrew, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. One note a config cannot infer: Israeli clinical genetics routinely works at a finer grain than this twelve-way split, screening by community of origin (אשכנזי, ספרדי, מזרחי, תימני, בוכרי, אתיופי, כורדי) because founder mutations differ sharply between them. The twelve groups here are kept to stay aligned with the other locales.
+locale: he
+---
+אפריקה שמדרום לסהרה
+צפון אפריקה
+אגן הים התיכון
+המזרח התיכון
+צפון אירופה
+מזרח אירופה
+יהדות אשכנז
+דרום אסיה
+מזרח אסיה
+דרום מזרח אסיה
+ילידי אמריקה
+איי האוקיינוס השקט

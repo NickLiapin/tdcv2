@@ -1,0 +1,16 @@
+---
+description: Listing status (Finnish)
+locale: fi
+---
+tulossa myyntiin
+myynnissä
+esittely sovittu
+tarjouksia saatu
+varattu
+kaupat tehty
+myyty
+hallinnan luovutus sovittu
+vuokrattavana
+vuokrattu
+poistettu myynnistä
+kohde peruttu

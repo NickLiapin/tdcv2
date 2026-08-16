@@ -1,0 +1,41 @@
+---
+description: Trailing element of a Serbian place name (Соко Бања, Велико Градиште, Смедеревска Паланка, Београд на води). Fewer values than the Polish equivalent on purpose: Serbian carries the regional qualifier BEFORE the name (Сремска Митровица, Бачка Топола), so the genuinely trailing elements are landscape nouns and river phrases, and inventing adjectival suffixes to pad the list would invent place names.
+locale: sr
+---
+Бања
+Град
+Градиште
+Паланка
+Поље
+Село
+Брдо
+Врх
+Вис
+Луг
+Гај
+Дол
+Долина
+Поток
+Река
+Врело
+Извор
+Бара
+Језеро
+Кула
+Ћуприја
+Брод
+Мост
+Клисура
+Планина
+Камен
+Топола
+Ливада
+на Дунаву
+на Сави
+на Морави
+на Дрини
+на Тиси
+на Тимоку
+на Ибру
+на Лиму
+на Нишави

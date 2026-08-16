@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Finnish; brand names kept as-is). Finland's games industry is out of proportion to its size — Rovio, Supercell, Remedy and Housemarque are all Finnish — and mobiili sits high on this list for that reason.
+locale: fi
+---
+PC
+Steam
+Steam Deck
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Nintendo Switch
+mobiili
+tabletti
+VR

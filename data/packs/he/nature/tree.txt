@@ -1,0 +1,32 @@
+---
+description: Tree (Hebrew). The first six are among the שבעת המינים, the seven species by which the Bible describes the land, and they are still the trees an Israeli landscape is made of; אקליפטוס was planted in bulk from the 1880s and is now everywhere.
+locale: he
+---
+זית
+תמר
+תאנה
+רימון
+גפן
+שקד
+ארז
+אלון
+אורן
+ברוש
+שקמה
+חרוב
+אקליפטוס
+פיקוס
+דקל
+אלה
+אשל
+ערבה
+צפצפה
+דולב
+אדר
+ליבנה
+אגוז
+ערמון
+לימון
+אבוקדו
+מנגו
+עץ פקאן

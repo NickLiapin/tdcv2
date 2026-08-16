@@ -1,0 +1,32 @@
+---
+description: Tree (Hungarian).
+locale: hu
+---
+Tölgy
+Juhar
+Fenyő
+Nyír
+Cédrus
+Fűzfa
+Mamutfenyő
+Lucfenyő
+Szil
+Kőris
+Bükk
+Cseresznyefa
+Diófa
+Nyárfa
+Ciprus
+Jegenyefenyő
+Platán
+Rezgő nyár
+Liliomfa
+Som
+Hárs
+Vörösfenyő
+Berkenye
+Eukaliptusz
+Vadgesztenye
+Pálma
+Gyertyán
+Éger

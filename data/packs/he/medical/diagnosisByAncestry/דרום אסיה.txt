@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Hebrew. A prevalence signal, not an exclusive one.
+locale: he
+---
+מחלת לב כלילית בגיל צעיר
+סוכרת סוג 2
+תלסמיה בטא
+חסר G6PD
+אנמיה חרמשית
+חסר ויטמין D
+מחלת כבד שומני

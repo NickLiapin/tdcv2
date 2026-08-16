@@ -1,0 +1,20 @@
+---
+description: Weather condition (Hebrew). שרבי describes the sharav — the hot dry desert wind that raises the temperature sharply for a few days at a time, mostly in spring and autumn; חמסין is the same thing under its Arabic name and both words are in everyday use.
+locale: he
+---
+בהיר
+שמשי
+מעונן
+מעונן חלקית
+גשום
+סוער
+שרבי
+חמסין
+לח
+יבש
+קר
+חם
+ערפילי
+אביך
+מושלג
+נעים

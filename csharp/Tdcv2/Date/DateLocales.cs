@@ -1332,6 +1332,126 @@ public static class DateLocales
             ["LLLL"] = "dddd D. MMMM YYYY HH:mm",
         });
 
+    // Hungarian writes a date big-endian — year, month, day — and puts a full stop after EVERY part, the day included: "2026. 10. 09." is a complete date and "2026. 10. 09" is a typo. Month and weekday names are lower case, and the weekday follows the date rather than leading it.
+    internal static readonly DateLocale HU = new(
+        new[]
+        {
+            "január",
+            "február",
+            "március",
+            "április",
+            "május",
+            "június",
+            "július",
+            "augusztus",
+            "szeptember",
+            "október",
+            "november",
+            "december",
+        },
+        new[]
+        {
+            "jan.",
+            "febr.",
+            "márc.",
+            "ápr.",
+            "máj.",
+            "jún.",
+            "júl.",
+            "aug.",
+            "szept.",
+            "okt.",
+            "nov.",
+            "dec.",
+        },
+        new[]
+        {
+            "vasárnap",
+            "hétfő",
+            "kedd",
+            "szerda",
+            "csütörtök",
+            "péntek",
+            "szombat",
+        },
+        new[]
+        {
+            "V",
+            "H",
+            "K",
+            "Sze",
+            "Cs",
+            "P",
+            "Szo",
+        },
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["L"] = "YYYY.MM.DD.",
+            ["LL"] = "YYYY. MMMM D.",
+            ["LLL"] = "YYYY. MMMM D. HH:mm",
+            ["LLLL"] = "YYYY. MMMM D., dddd HH:mm",
+        });
+
+    // Finnish, like Czech, inflects the month name inside a date: the month is "tammikuu" but the date reads "5. tammikuuta 2026". These are the partitive forms the formatter needs; the nominative list lives in the pack at fi/date/month.txt. The day number keeps a full stop after it because it is an ordinal, and the time separator is a full stop rather than a colon — 14.30, not 14:30.
+    internal static readonly DateLocale FI = new(
+        new[]
+        {
+            "tammikuuta",
+            "helmikuuta",
+            "maaliskuuta",
+            "huhtikuuta",
+            "toukokuuta",
+            "kesäkuuta",
+            "heinäkuuta",
+            "elokuuta",
+            "syyskuuta",
+            "lokakuuta",
+            "marraskuuta",
+            "joulukuuta",
+        },
+        new[]
+        {
+            "tammi",
+            "helmi",
+            "maalis",
+            "huhti",
+            "touko",
+            "kesä",
+            "heinä",
+            "elo",
+            "syys",
+            "loka",
+            "marras",
+            "joulu",
+        },
+        new[]
+        {
+            "sunnuntai",
+            "maanantai",
+            "tiistai",
+            "keskiviikko",
+            "torstai",
+            "perjantai",
+            "lauantai",
+        },
+        new[]
+        {
+            "su",
+            "ma",
+            "ti",
+            "ke",
+            "to",
+            "pe",
+            "la",
+        },
+        new Dictionary<string, string>(StringComparer.Ordinal)
+        {
+            ["L"] = "D.M.YYYY",
+            ["LL"] = "D. MMMM YYYY",
+            ["LLL"] = "D. MMMM YYYY HH.mm",
+            ["LLLL"] = "dddd D. MMMM YYYY HH.mm",
+        });
+
     private static readonly Dictionary<string, DateLocale> ByName =
         new(StringComparer.Ordinal)
         {
@@ -1375,6 +1495,10 @@ public static class DateLocales
             ["th"] = TH,
             ["hi"] = HI,
             ["sv"] = SV,
+            ["hu"] = HU,
+            ["hun"] = HU,
+            ["fi"] = FI,
+            ["fin"] = FI,
         };
 
     /// <summary>The advertised names, for the validator's "did you mean" list.</summary>
@@ -1386,7 +1510,9 @@ public static class DateLocales
         "el",
         "en",
         "es",
+        "fi",
         "fr",
+        "hu",
         "id",
         "it",
         "ja",

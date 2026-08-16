@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Hungarian).
+locale: hu
+---
+Hurrikán
+Tornádó
+Hóvihar
+Hőhullám
+Fagyhullám
+Árvíz
+Aszály
+Monszun
+Homokvihar
+Ónos eső
+Erdőtűz
+Ciklon
+Talajmenti fagy
+Jégverés
+Szélvihar

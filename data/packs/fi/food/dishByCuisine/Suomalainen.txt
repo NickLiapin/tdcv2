@@ -1,0 +1,24 @@
+---
+description: Dishes of suomalainen cuisine, in Finnish
+locale: fi
+---
+Karjalanpiirakka munavoin kera
+Lohikeitto
+Hernekeitto ja pannukakku
+Karjalanpaisti
+Lihapullat ja perunamuusia
+Maksalaatikko
+Kaalilaatikko
+Poronkäristys ja puolukkasurvos
+Paistetut muikut
+Graavilohi
+Kalakukko
+Mustamakkara
+Silakkapihvit
+Leipäjuusto ja lakkahillo
+Rosolli
+Mämmi
+Korvapuusti
+Mustikkapiirakka
+Vispipuuro
+Ruisleipä ja voi

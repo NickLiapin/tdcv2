@@ -1,0 +1,18 @@
+---
+description: Insurance type (Hebrew). ביטוח לאומי is the compulsory state National Insurance scheme, not a private product; ביטוח חובה is the compulsory motor third-party cover without which a vehicle may not be driven.
+locale: he
+---
+ביטוח לאומי
+ביטוח חובה
+ביטוח מקיף
+ביטוח צד ג׳
+ביטוח דירה
+ביטוח תכולה
+ביטוח בריאות
+ביטוח סיעודי
+ביטוח נסיעות לחו״ל
+ביטוח חיים
+ביטוח משכנתה
+ביטוח שיניים
+ביטוח אובדן כושר עבודה
+ביטוח אחריות מקצועית

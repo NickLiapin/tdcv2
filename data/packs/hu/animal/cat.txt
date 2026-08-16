@@ -1,0 +1,22 @@
+---
+description: Cat breed (Hungarian).
+locale: hu
+---
+Perzsa
+Maine coon
+Sziámi
+Ragdoll
+Bengáli
+Sphynx
+Brit rövidszőrű
+Abesszin
+Skót lógófülű
+Norvég erdei
+Orosz kék
+Birman
+Amerikai rövidszőrű
+Devon rex
+Burmai
+Török angóra
+Szomáli
+Manx

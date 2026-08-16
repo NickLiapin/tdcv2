@@ -1,0 +1,12 @@
+---
+description: Dishes of Thai cuisine (Hungarian).
+locale: hu
+---
+Pad thai
+Zöld curry
+Tom yum leves
+Massaman curry
+Zöldpapaja-saláta
+Ragadós rizs mangóval
+Szatéj
+Tom kha leves

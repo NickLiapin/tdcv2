@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Finnish (female-specific + common)
+locale: fi
+---
+Endometrioosi
+Monirakkulaisten munasarjojen oireyhtymä
+Kohdun myooma
+Munasarjakysta
+Kivulias kuukautisvuoto
+Runsas kuukautisvuoto
+Premenstruaalioireyhtymä
+Premenstruaalinen dysforinen häiriö
+Vaihdevuosioireet
+Kohdunkaulan syöpä
+Munasarjasyöpä
+Kohdunrungon syöpä
+Rintasyöpä
+Rintatulehdus
+Kohonnut verenpaine
+Tyypin 2 diabetes
+Tyypin 1 diabetes
+Rasva-aineenvaihdunnan häiriö
+Lihavuus
+Astma
+Keuhkoahtaumatauti
+Allerginen nuha
+Krooninen keuhkoputkentulehdus
+Keuhkokuume
+Uniapnea
+Sydämen vajaatoiminta
+Eteisvärinä

@@ -1,0 +1,19 @@
+---
+description: Court and prosecution body in the Serbian judiciary. Врховни суд carries that name since the 2023 constitutional amendments renamed the former Врховни касациони суд, so a pack still saying касациони is out of date.
+locale: sr
+---
+Основни суд
+Виши суд
+Апелациони суд
+Врховни суд
+Уставни суд
+Привредни суд
+Привредни апелациони суд
+Прекршајни суд
+Прекршајни апелациони суд
+Управни суд
+Основно јавно тужилаштво
+Више јавно тужилаштво
+Апелационо јавно тужилаштво
+Врховно јавно тужилаштво
+Тужилаштво за организовани криминал

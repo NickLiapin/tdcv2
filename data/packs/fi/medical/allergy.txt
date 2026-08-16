@@ -1,0 +1,27 @@
+---
+description: Common allergies (Finnish). Koivun siitepöly is the dominant spring allergen in Finland and cross-reacts with apple, carrot and stone fruit — the oral allergy syndrome that a very large share of allergic Finns have. Punkinpurema is here because of alfa-gal, the red-meat allergy a tick bite can trigger, and ticks are widespread in southern Finland.
+locale: fi
+---
+koivun siitepöly
+lepän siitepöly
+pähkinäpensaan siitepöly
+heinän siitepöly
+pujon siitepöly
+eläinpöly
+kissa
+koira
+hevonen
+pölypunkki
+home
+pähkinät
+maapähkinä
+manteli
+soija
+maitoproteiini
+laktoosi-intoleranssi
+gluteeni
+kananmuna
+äyriäiset
+kala
+ampiaisen pisto
+punkinpurema

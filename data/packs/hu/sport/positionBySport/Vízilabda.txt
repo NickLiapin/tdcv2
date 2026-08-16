@@ -1,0 +1,11 @@
+---
+description: Positions in water polo (Hungarian).
+locale: hu
+---
+Kapus
+Bekk
+Center
+Centervédő
+Bal szélső
+Jobb szélső
+Irányító

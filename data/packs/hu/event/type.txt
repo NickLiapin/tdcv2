@@ -1,0 +1,22 @@
+---
+description: Event type (Hungarian).
+locale: hu
+---
+Konferencia
+Kongresszus
+Esküvő
+Koncert
+Fesztivál
+Műhelyfoglalkozás
+Szeminárium
+Webinárium
+Szakvásár
+Kiállítás
+Jótékonysági est
+Szakmai találkozó
+Termékbemutató
+Gálaest
+Születésnap
+Diplomaosztó
+Keresztelő
+Évforduló

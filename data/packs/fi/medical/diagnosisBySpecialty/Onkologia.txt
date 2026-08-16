@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in onkologia, in Finnish
+locale: fi
+---
+Rintasyöpä
+Eturauhassyöpä
+Keuhkosyöpä
+Paksusuolen syöpä
+Melanooma
+Haimasyöpä
+Munuaissyöpä
+Lymfooma
+Leukemia
+Mahasyöpä

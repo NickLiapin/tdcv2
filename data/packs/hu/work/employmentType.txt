@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Hungarian).
+locale: hu
+---
+Teljes munkaidő
+Részmunkaidő
+Megbízási szerződés
+Vállalkozói szerződés
+Alkalmi munka
+Gyakornoki program
+Szakmai gyakorlat
+Egyéni vállalkozó
+Idénymunka
+Határozatlan idejű munkaszerződés
+Határozott idejű munkaszerződés

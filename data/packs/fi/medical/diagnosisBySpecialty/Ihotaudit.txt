@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in ihotaudit, in Finnish
+locale: fi
+---
+Atooppinen ihottuma
+Psoriaasi
+Akne
+Ruusufinni
+Nokkosihottuma
+Vyöruusu
+Kosketusihottuma
+Seborrooinen ihottuma
+Melanooma
+Sienitulehdus

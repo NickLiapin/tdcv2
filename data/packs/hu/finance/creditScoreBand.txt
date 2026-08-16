@@ -1,0 +1,9 @@
+---
+description: Credit score band (Hungarian).
+locale: hu
+---
+Gyenge
+Átlagos
+Jó
+Nagyon jó
+Kiváló

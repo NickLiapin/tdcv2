@@ -1,0 +1,29 @@
+---
+description: Fish (Hebrew). אמנון is the tilapia — the Sea of Galilee fish sold abroad as St Peter's fish.
+locale: he
+---
+אמנון
+דניס
+לברק
+בורי
+מוסר ים
+פורל
+סלמון
+טונה
+סרדין
+מקרל
+אנשובי
+קרפיון
+שפמנון
+בקלה
+הליבוט
+דג חרב
+פלמידה
+ברקודה
+כריש
+מולית
+דג זהב
+סוסון ים
+דג ליצן
+טרית
+צלופח

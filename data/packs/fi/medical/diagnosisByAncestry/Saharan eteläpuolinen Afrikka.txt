@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Saharan eteläpuolinen Afrikka, in Finnish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: fi
+---
+Sirppisoluanemia
+Sirppisolukantajuus
+Alfatalassemia
+G6PD-puutos
+Glaukooma
+Kohonnut verenpaine
+Tyypin 2 diabetes
+Sarkoidoosi
+Keloidiarpi
+Laktoosi-intoleranssi
+Eturauhassyöpä
+Krooninen munuaisten vajaatoiminta

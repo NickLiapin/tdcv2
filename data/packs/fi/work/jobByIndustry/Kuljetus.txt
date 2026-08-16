@@ -1,0 +1,16 @@
+---
+description: Jobs in kuljetus, in Finnish
+locale: fi
+---
+kuorma-autonkuljettaja
+jakeluautonkuljettaja
+linja-autonkuljettaja
+taksinkuljettaja
+veturinkuljettaja
+konduktööri
+lentäjä
+lennonjohtaja
+merikapteeni
+perämies
+trukinkuljettaja
+varastotyöntekijä

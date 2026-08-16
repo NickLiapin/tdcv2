@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in gastroenterologia, in Finnish
+locale: fi
+---
+Refluksitauti
+Mahahaava
+Mahakatarri
+Keliakia
+Crohnin tauti
+Haavainen paksusuolentulehdus
+Ärtyvän suolen oireyhtymä
+Sappikivi
+Rasvamaksa
+Divertikuliitti

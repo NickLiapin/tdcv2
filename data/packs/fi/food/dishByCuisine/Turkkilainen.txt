@@ -1,0 +1,13 @@
+---
+description: Dishes of turkkilainen cuisine, in Finnish
+locale: fi
+---
+Kebab
+Lahmacun
+Pide
+Menemen
+Imam bayildi
+Dolma
+Köfte
+Baklava
+Künefe

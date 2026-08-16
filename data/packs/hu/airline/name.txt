@@ -1,0 +1,54 @@
+---
+description: Airline (carriers serving Hungary and major international ones). Brand names keep their own spelling.
+locale: hu
+---
+Wizz Air
+Ryanair
+easyJet
+Lufthansa
+Austrian Airlines
+Swiss International Air Lines
+Eurowings
+Air France
+KLM
+British Airways
+Iberia
+Brussels Airlines
+SAS Scandinavian Airlines
+Finnair
+Norwegian
+airBaltic
+LOT Polskie Linie Lotnicze
+TAP Air Portugal
+ITA Airways
+Aegean Airlines
+Turkish Airlines
+Pegasus Airlines
+Smartwings
+Air Serbia
+Croatia Airlines
+Tarom
+Bulgaria Air
+Aer Lingus
+Vueling
+Condor
+Transavia
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Qantas
+Cathay Pacific
+Japan Airlines
+All Nippon Airways
+Korean Air
+Air China
+China Southern Airlines
+American Airlines
+United Airlines
+Delta Air Lines
+Air Canada
+Ethiopian Airlines
+El Al
+Aeroflot
+Malév

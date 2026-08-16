@@ -1,0 +1,168 @@
+---
+description: Street names found all over Hungary (nature, trades, national figures, dates). The thoroughfare type goes AFTER the name in Hungarian, so compose name + streetSuffix (Kossuth Lajos utca), the reverse of the German or Polish order. City-specific streets belong in a country pack.
+locale: hu
+---
+Virág
+Erdő
+Mező
+Rét
+Kert
+Napsugár
+Rövid
+Hosszú
+Széles
+Keskeny
+Zöld
+Csendes
+Nyugalom
+Vidám
+Szép
+Magas
+Fő
+Mellék
+Közép
+Felső
+Alsó
+Határ
+Vasút
+Állomás
+Gyár
+Ipar
+Kereskedő
+Vásár
+Iskola
+Templom
+Temető
+Malom
+Híd
+Folyó
+Patak
+Tó
+Tenger
+Kikötő
+Homok
+Kő
+Szikla
+Bánya
+Kohó
+Szántó
+Falu
+Vár
+Kolostor
+Gyümölcsös
+Liget
+Akácfa
+Hársfa
+Tölgyfa
+Nyárfa
+Fűzfa
+Diófa
+Cseresznyefa
+Gesztenyefa
+Fenyves
+Nyírfa
+Juharfa
+Bükkfa
+Szilfa
+Kőrisfa
+Almafa
+Körtefa
+Szilvafa
+Barackfa
+Meggyfa
+Málna
+Eper
+Szeder
+Áfonya
+Rózsa
+Ibolya
+Gyöngyvirág
+Tulipán
+Pipacs
+Búzavirág
+Liliom
+Orchidea
+Orgona
+Jázmin
+Nefelejcs
+Muskátli
+Napraforgó
+Sólyom
+Fecske
+Csalogány
+Veréb
+Gólya
+Daru
+Hattyú
+Őz
+Szarvas
+Farkas
+Róka
+Nyúl
+Méhész
+Komló
+Szőlő
+Bor
+Kossuth Lajos
+Petőfi Sándor
+Ady Endre
+Arany János
+József Attila
+Vörösmarty Mihály
+Jókai Mór
+Móricz Zsigmond
+Mikszáth Kálmán
+Radnóti Miklós
+Babits Mihály
+Kosztolányi Dezső
+Bartók Béla
+Kodály Zoltán
+Liszt Ferenc
+Erkel Ferenc
+Munkácsy Mihály
+Semmelweis Ignác
+Eötvös Loránd
+Bolyai János
+Széchenyi István
+Deák Ferenc
+Batthyány Lajos
+Damjanich János
+Bem József
+Klapka György
+Görgey Artúr
+Zrínyi Miklós
+Rákóczi Ferenc
+Hunyadi János
+Mátyás király
+Szent István
+Szent László
+Szent Imre
+Árpád
+Béla király
+Dózsa György
+Táncsics Mihály
+Nagy Imre
+Wesselényi Miklós
+Kölcsey Ferenc
+Csokonai Vitéz Mihály
+Berzsenyi Dániel
+Katona József
+Madách Imre
+Krúdy Gyula
+Váci Mihály
+Béke
+Szabadság
+Kossuth
+Hősök
+Március 15.
+Október 23.
+Augusztus 20.
+Ezredéves
+Millennium
+Honvéd
+Vörösmarty
+Dobó István
+Gárdonyi Géza
+Ságvári Endre
+Bocskai István
+Bethlen Gábor

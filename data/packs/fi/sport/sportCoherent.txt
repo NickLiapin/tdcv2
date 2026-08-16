@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Finnish). Pesäpallo and jääpallo are here because they are Finnish and Nordic mass sports: pesäpallo is the national game and has its own professional leagues for men and women, and salibandy has more licensed players in Finland than ice hockey does.
+locale: fi
+---
+Jalkapallo
+Jääkiekko
+Pesäpallo
+Salibandy
+Koripallo
+Lentopallo
+Käsipallo
+Jääpallo

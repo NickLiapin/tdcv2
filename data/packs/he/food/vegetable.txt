@@ -1,0 +1,36 @@
+---
+description: Vegetable (Hebrew). במיה, חובזה and עלי גפן are cooked routinely in Israel and rarely in northern Europe; חובזה is the wild mallow gathered in winter.
+locale: he
+---
+עגבנייה
+מלפפון
+פלפל
+חציל
+קישוא
+בצל
+בצל ירוק
+שום
+גזר
+תפוח אדמה
+בטטה
+כרוב
+כרובית
+ברוקולי
+חסה
+תרד
+מנגולד
+סלק
+צנון
+לפת
+קולורבי
+שעועית ירוקה
+אפונה
+תירס
+דלעת
+דלורית
+ארטישוק
+כרשה
+סלרי
+במיה
+חובזה
+עלי גפן

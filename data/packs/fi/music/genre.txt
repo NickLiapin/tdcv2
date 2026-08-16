@@ -1,0 +1,42 @@
+---
+description: Music genre (Finnish). Four of these are Finnish institutions. Iskelmä is the domestic popular song; humppa is a fast two-beat dance music with its own bands; suomalainen tango is a genre of its own, in a minor key and far more melancholy than the Argentine kind, with an annual festival in Seinäjoki that crowns a Tango King and Queen; and rautalanka is the instrumental guitar rock of the early 1960s. Metal is not a joke entry either — Finland has more metal bands per head of population than any other country. Joiku is the Sámi vocal tradition and is not Finnish music but Sámi.
+locale: fi
+---
+iskelmä
+humppa
+suomalainen tango
+rautalanka
+suomirock
+suomirap
+kansanmusiikki
+pelimannimusiikki
+joiku
+virsi
+hengellinen musiikki
+kuorolaulu
+klassinen musiikki
+ooppera
+kamarimusiikki
+sinfoninen musiikki
+jazz
+blues
+soul
+funk
+pop
+indiepop
+rock
+progressiivinen rock
+raskas rock
+heavy metal
+death metal
+black metal
+folk metal
+punk
+hiphop
+rap
+R&B
+reggae
+house
+tekno
+elektroninen musiikki
+ambient

@@ -1,0 +1,32 @@
+---
+description: Fish (Serbian). Mostly the freshwater catch of the Danube, Sava, Tisa and Morava — Serbia is landlocked, so the sea fish at the end are market names rather than local catch.
+locale: sr
+---
+шаран
+сом
+штука
+смуђ
+деверика
+кечига
+јесетра
+моруна
+пастрмка
+липљен
+младица
+караш
+бабушка
+клен
+скобаљ
+мрена
+гргеч
+јегуља
+буцов
+амур
+толстолобик
+ослић
+туна
+сардина
+скуша
+лосос
+орада
+бранцин

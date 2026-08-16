@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Hungarian).
+locale: hu
+---
+Migrén
+Epilepszia
+Parkinson-kór
+Szklerózis multiplex
+Iszkémiás stroke
+Perifériás idegkárosodás
+Alzheimer-kór
+Trigeminusz-neuralgia
+Myasthenia gravis
+Átmeneti agyi vérellátási zavar

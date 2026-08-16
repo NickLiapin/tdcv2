@@ -1,0 +1,22 @@
+---
+description: Venue type (Finnish). Seurantalo, työväentalo and nuorisoseurantalo are Finland's village halls — associations own some 2 500 of them and they host weddings, funerals, band practice and council meetings alike. A kesämökki is a perfectly ordinary place to hold a party, and so is a laavu, the open lean-to shelter found on hiking routes.
+locale: fi
+---
+seurantalo
+työväentalo
+nuorisoseurantalo
+kylätalo
+juhlasali
+kartano
+hotelli
+ravintola
+juhlatila
+liikuntahalli
+urheiluhalli
+areena
+konserttitalo
+teatteri
+kirkko
+kesämökki
+laavu
+leirikeskus

@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Hungarian).
+locale: hu
+---
+Irányító
+Dobóhátvéd
+Alacsony bedobó
+Erőcsatár
+Center

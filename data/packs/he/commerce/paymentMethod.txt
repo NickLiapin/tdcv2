@@ -1,0 +1,21 @@
+---
+description: Payment method (Hebrew). Two entries have no European counterpart: תשלומים is the interest-free instalment split that Israeli shops offer by default on almost any purchase, and ביט / פייבוקס are the phone-to-phone transfer apps that carry most person-to-person payment in Israel.
+locale: he
+---
+כרטיס אשראי
+כרטיס חיוב
+ויזה
+מאסטרקארד
+אמריקן אקספרס
+ישראכרט
+תשלומים
+ביט
+פייבוקס
+פייפאל
+אפל פיי
+גוגל פיי
+העברה בנקאית
+מזומן
+המחאה
+הוראת קבע
+כרטיס מתנה

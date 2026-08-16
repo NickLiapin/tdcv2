@@ -1,0 +1,8 @@
+---
+description: Season (Finnish, lowercase). Finland stretches over a thousand kilometres north to south, and the Finnish Meteorological Institute defines the seasons by temperature rather than by date — so spring reaches the south weeks before it reaches Lapland, and the difference in the start of the growing season between Hanko and Utsjoki is close to two months. Above the Arctic Circle two of the four are barely seasons in the ordinary sense: kaamos, the polar night, keeps the sun below the horizon for up to 51 days at Utsjoki, and in summer yötön yö, the nightless night, keeps it above the horizon for just as long. The autumn colour season in the north has its own name, ruska, and people travel to Lapland for it.
+locale: fi
+---
+kevät
+kesä
+syksy
+talvi

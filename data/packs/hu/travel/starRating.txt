@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Hungarian).
+locale: hu
+---
+1 csillag
+2 csillag
+3 csillag
+4 csillag
+5 csillag

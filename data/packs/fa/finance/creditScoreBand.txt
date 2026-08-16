@@ -1,0 +1,9 @@
+---
+description: Credit rating band (Persian). Iran has no FICO score. Its اعتبارسنجی system, run since 2018, grades borrowers on a lettered scale from A1 down to E2; these five bands are the plain-language labels a bank shows the customer.
+locale: fa
+---
+ضعیف
+متوسط
+خوب
+بسیار خوب
+عالی

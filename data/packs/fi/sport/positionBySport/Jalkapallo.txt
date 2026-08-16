@@ -1,0 +1,15 @@
+---
+description: Positions in jalkapallo, in Finnish.
+locale: fi
+---
+maalivahti
+oikea laitapuolustaja
+vasen laitapuolustaja
+keskuspuolustaja
+libero
+defensiivinen keskikenttäpelaaja
+keskikenttäpelaaja
+hyökkäävä keskikenttäpelaaja
+oikea laitahyökkääjä
+vasen laitahyökkääjä
+hyökkääjä

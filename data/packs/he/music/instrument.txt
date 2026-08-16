@@ -1,0 +1,36 @@
+---
+description: Musical instrument (Hebrew). דרבוקה, עוד and קאנון came with the Middle Eastern communities and are ordinary instruments in Israeli music; שופר is the ram's horn, a ritual instrument rather than a musical one.
+locale: he
+---
+פסנתר
+גיטרה
+גיטרה חשמלית
+גיטרה בס
+כינור
+ויולה
+צ׳לו
+קונטרבס
+חליל
+חלילית
+קלרינט
+אבוב
+בסון
+סקסופון
+חצוצרה
+טרומבון
+קרן יער
+טובה
+תופים
+דרבוקה
+תוף מרים
+מצילתיים
+קסילופון
+נבל
+עוד
+קאנון
+בוזוקי
+מפוחית
+אקורדיון
+עוגב
+סינתיסייזר
+שופר

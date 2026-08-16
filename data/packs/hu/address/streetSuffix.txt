@@ -1,0 +1,44 @@
+---
+description: Hungarian thoroughfare type — it goes AFTER the street name (Vaci utca, Andrassy ut, Hosok tere), the opposite of the German, Polish or Russian order. Lowercase, and it does not take a comma.
+locale: hu
+---
+utca
+út
+tér
+körút
+sétány
+köz
+sor
+dűlő
+park
+rakpart
+fasor
+lejtő
+lépcső
+udvar
+sugárút
+körönd
+liget
+part
+forduló
+hegy
+domb
+árok
+gát
+sziget
+major
+telep
+puszta
+kert
+mező
+völgy
+oldal
+átjáró
+átjáró híd
+aluljáró
+híd
+rév
+állás
+kapu
+vár
+bástya

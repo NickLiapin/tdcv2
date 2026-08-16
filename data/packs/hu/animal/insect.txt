@@ -1,0 +1,24 @@
+---
+description: Insect (Hungarian).
+locale: hu
+---
+Hangya
+Méh
+Lepke
+Bogár
+Szitakötő
+Szöcske
+Katicabogár
+Moly
+Tücsök
+Darázs
+Szentjánosbogár
+Imádkozó sáska
+Kabóca
+Termesz
+Szúnyog
+Légy
+Csótány
+Bolha
+Százlábú
+Poloska

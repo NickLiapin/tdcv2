@@ -1,0 +1,34 @@
+---
+description: Bird (Hungarian).
+locale: hu
+---
+Veréb
+Vörösbegy
+Sas
+Sólyom
+Bagoly
+Papagáj
+Pingvin
+Vércse
+Kardinálispinty
+Szajkó
+Kolibri
+Harkály
+Pelikán
+Flamingó
+Hattyú
+Holló
+Varjú
+Tengelic
+Gém
+Jégmadár
+Sirály
+Galamb
+Fecske
+Csalogány
+Kondorkeselyű
+Tukán
+Strucc
+Gólya
+Gyöngybagoly
+Kvézál

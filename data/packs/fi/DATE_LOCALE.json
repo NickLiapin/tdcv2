@@ -1,0 +1,59 @@
+{
+  "months": [
+    "tammikuu",
+    "helmikuu",
+    "maaliskuu",
+    "huhtikuu",
+    "toukokuu",
+    "kesäkuu",
+    "heinäkuu",
+    "elokuu",
+    "syyskuu",
+    "lokakuu",
+    "marraskuu",
+    "joulukuu"
+  ],
+  "monthsInDate": [
+    "tammikuuta",
+    "helmikuuta",
+    "maaliskuuta",
+    "huhtikuuta",
+    "toukokuuta",
+    "kesäkuuta",
+    "heinäkuuta",
+    "elokuuta",
+    "syyskuuta",
+    "lokakuuta",
+    "marraskuuta",
+    "joulukuuta"
+  ],
+  "monthsShort": [
+    "tammi",
+    "helmi",
+    "maalis",
+    "huhti",
+    "touko",
+    "kesä",
+    "heinä",
+    "elo",
+    "syys",
+    "loka",
+    "marras",
+    "joulu"
+  ],
+  "weekdays": [
+    "sunnuntai",
+    "maanantai",
+    "tiistai",
+    "keskiviikko",
+    "torstai",
+    "perjantai",
+    "lauantai"
+  ],
+  "weekdaysShort": ["su", "ma", "ti", "ke", "to", "pe", "la"],
+  "formats": {
+    "L": "D.M.YYYY",
+    "LL": "D. MMMM YYYY"
+  },
+  "notes": "monthsInDate is load-bearing here, not decoration. Finnish puts the month into the PARTITIVE case inside a date: the month is tammikuu, but the date is 5. tammikuuta 2026. LL must therefore draw MMMM from monthsInDate, exactly as Czech does with its genitive. The numeric format is D.M.YYYY with dots and NO leading zeros — 5.1.2026, not 05.01.2026 — and the day number always carries a full stop after it because it is an ordinal: 5. is 'viides', the fifth. ISO 8601 (2026-01-05) is also fully standard in Finnish official use. The week starts on MONDAY; the weekdays array above is Sunday-first because the formatter wants it that way, while date/weekday.txt in the pack is Monday-first as a Finn would list it. Month and weekday names are written in LOWER CASE. Finnish weekday abbreviations are two letters with no full stop; month abbreviations drop the -kuu and vary in length. Time is 24-hour, and the separator is a full stop rather than a colon: 14.30, not 14:30. The decimal separator is a comma and the thousands separator a space (1 234,56)."
+}

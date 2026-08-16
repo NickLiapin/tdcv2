@@ -1,0 +1,13 @@
+---
+description: Sport that has a coherent position list (Hungarian).
+locale: hu
+---
+Labdarúgás
+Kosárlabda
+Röplabda
+Kézilabda
+Vízilabda
+Baseball
+Rögbi
+Amerikai futball
+Jégkorong

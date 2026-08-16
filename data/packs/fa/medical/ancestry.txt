@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Persian, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Most Iranians fall under خاورمیانه‌ای.
+locale: fa
+---
+زیرصحرایی آفریقا
+شمال آفریقا
+مدیترانه‌ای
+خاورمیانه‌ای
+شمال اروپا
+شرق اروپا
+اشکنازی
+جنوب آسیا
+شرق آسیا
+جنوب شرق آسیا
+بومی آمریکا
+جزایر اقیانوس آرام

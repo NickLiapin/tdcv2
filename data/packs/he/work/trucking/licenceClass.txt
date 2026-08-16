@@ -1,0 +1,11 @@
+---
+description: Israeli driving licence categories for goods and passenger vehicles. Israel uses the European letter series: C1 up to 12 tonnes, C above it, C+E for an articulated combination, D for buses. כרטיס נהג is the tachograph card, required alongside the licence.
+locale: he
+---
+C1
+C
+C+E
+D1
+D3
+D
+כרטיס נהג

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in munuaistaudit, in Finnish
+locale: fi
+---
+Krooninen munuaisten vajaatoiminta
+Munuaiskivi
+Virtsatietulehdus
+Munuaiskerästulehdus
+Nefroottinen oireyhtymä
+Munuaisten monirakkulatauti
+Diabeettinen nefropatia
+Akuutti munuaisvaurio
+Munuaisvaltimon ahtauma
+Virtsarakon toimintahäiriö

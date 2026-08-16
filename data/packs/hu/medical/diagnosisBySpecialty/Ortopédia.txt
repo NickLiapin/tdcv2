@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Hungarian).
+locale: hu
+---
+Ízületi kopás
+Reumatoid artritisz
+Porckorongsérv
+Kéztőalagút-szindróma
+Isiász
+Forgómandzsetta-szakadás
+Combnyaktörés
+Gerincferdülés
+Akhilleszín-gyulladás
+Elülső keresztszalag-szakadás

@@ -1,0 +1,30 @@
+---
+description: Aircraft type (manufacturer designations, unchanged in Persian). Iran's fleet is unlike anyone else's because sanctions have blocked new aircraft since 1979: Fokker 100s, MD-80s, Boeing 727s and Tupolev 154s stayed in service here decades after they were retired everywhere else, and the IrAn-140 was an Antonov assembled under licence in Isfahan.
+locale: fa
+---
+Airbus A300
+Airbus A310
+Airbus A319
+Airbus A320
+Airbus A321
+Airbus A330
+Airbus A340
+Boeing 707
+Boeing 727
+Boeing 737
+Boeing 737-500
+Boeing 747
+Boeing 747SP
+Boeing 757
+Boeing 767
+Boeing 777
+Fokker 100
+McDonnell Douglas MD-82
+McDonnell Douglas MD-83
+Tupolev Tu-154
+Antonov An-140
+ATR 72
+ATR 42
+Embraer E145
+Bombardier CRJ200
+Airbus A350

@@ -1,0 +1,13 @@
+---
+description: Dishes of kreikkalainen cuisine, in Finnish
+locale: fi
+---
+Moussaka
+Souvlaki
+Gyros
+Kreikkalainen salaatti
+Tzatziki
+Spanakopita
+Dolmadet
+Pastitsio
+Baklava

@@ -1,0 +1,19 @@
+---
+description: Social platform popular in Israel. ווטסאפ leads by a wide margin — it is the default channel for family, school, work and municipal groups — and ווייז, the navigation app, was built in Israel and is used socially there.
+locale: he
+---
+ווטסאפ
+פייסבוק
+אינסטגרם
+טיקטוק
+X
+לינקדאין
+טלגרם
+יוטיוב
+סנאפצ׳אט
+פינטרסט
+רדיט
+דיסקורד
+ת׳רדס
+ווייז
+טוויץ׳

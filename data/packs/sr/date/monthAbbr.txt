@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Serbian). Serbian abbreviations take a full stop, except мај, јун and јул, which are already short enough not to be abbreviated at all.
+locale: sr
+---
+јан.
+феб.
+мар.
+апр.
+мај
+јун
+јул
+авг.
+сеп.
+окт.
+нов.
+дец.

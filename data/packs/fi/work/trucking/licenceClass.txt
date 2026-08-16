@@ -1,0 +1,11 @@
+---
+description: Finnish driving licence category for trucks, as Traficom issues them. Ammattipätevyys is not a licence class but a separate mandatory professional qualification renewed every five years — without it a C or D licence does not permit commercial driving at all.
+locale: fi
+---
+B-luokka
+BE-luokka
+C1-luokka
+C1E-luokka
+C-luokka
+CE-luokka
+ammattipätevyys

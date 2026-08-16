@@ -1,0 +1,44 @@
+---
+description: Persian thoroughfare type — it goes BEFORE the name, as in خیابان ولیعصر, بلوار کشاورز, کوچه شهید احمدی. Iranian addresses also nest: a کوچه opens off a خیابان, and a بن‌بست off the کوچه, so a full address often names two or three of these in sequence, largest first.
+locale: fa
+---
+خیابان
+بلوار
+کوچه
+میدان
+بزرگراه
+اتوبان
+آزادراه
+جاده
+بن‌بست
+گذر
+فلکه
+سه‌راه
+چهارراه
+دوراهی
+تقاطع
+پل
+زیرگذر
+روگذر
+تونل
+شهرک
+کوی
+محله
+منطقه
+ناحیه
+فاز
+بلوک
+بازار
+راسته
+تیمچه
+سرا
+کاروانسرا
+پاساژ
+پارک
+بوستان
+باغ
+پیاده‌راه
+خیابان اصلی
+خیابان فرعی
+میدانگاه
+دروازه

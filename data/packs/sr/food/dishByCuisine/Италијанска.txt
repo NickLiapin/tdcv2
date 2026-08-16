@@ -1,0 +1,13 @@
+---
+description: Dishes of Italian cuisine (Serbian)
+locale: sr
+---
+Пица
+Паста карбонара
+Лазање
+Ризото
+Њоки
+Брускете
+Минестроне
+Тирамису
+Осо буко

@@ -1,0 +1,20 @@
+---
+description: Social platform popular in Serbia (brand names kept in Latin, as Serbian users and press write them)
+locale: sr
+---
+Instagram
+Facebook
+TikTok
+YouTube
+X
+Viber
+WhatsApp
+Telegram
+Snapchat
+LinkedIn
+Pinterest
+Reddit
+Discord
+Twitch
+Threads
+Signal

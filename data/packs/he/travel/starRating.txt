@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Hebrew)
+locale: he
+---
+כוכב אחד
+שני כוכבים
+שלושה כוכבים
+ארבעה כוכבים
+חמישה כוכבים

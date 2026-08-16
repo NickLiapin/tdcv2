@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Hungarian).
+locale: hu
+---
+Magas vérnyomás
+Koszorúér-betegség
+Pitvarfibrilláció
+Szívelégtelenség
+Szívinfarktus
+Magas koleszterinszint
+Tágult szívizombántalom
+Szívizomgyulladás
+Aortabillentyű-szűkület
+Szupraventrikuláris tachikardia

@@ -1,0 +1,13 @@
+---
+description: Dishes of Japanese cuisine (Hungarian).
+locale: hu
+---
+Szusi
+Rámen
+Tempura
+Udon
+Teriyaki csirke
+Miszoleves
+Katsu curry
+Onigiri
+Szasimi

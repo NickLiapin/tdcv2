@@ -1,0 +1,23 @@
+---
+description: Legal term (Hungarian).
+locale: hu
+---
+Felperes
+Alperes
+Idézés
+Eskü alatt tett nyilatkozat
+Tanúvallomás
+Vallomás
+Biztosítási intézkedés
+Ítélet
+Egyezség
+Bírósági eljárás
+Előkészítő ülés
+Illetékesség
+Fellebbezés
+Ügyész
+Védőügyvéd
+Bizonyíték
+Alkotmányjogi panasz
+Kézbesítés
+Közjegyzői meghatalmazás

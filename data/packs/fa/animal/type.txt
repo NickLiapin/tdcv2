@@ -1,0 +1,44 @@
+---
+description: Animal type (Persian). The Persian leopard, Asiatic cheetah and wild goat are Iranian wildlife, not exotica.
+locale: fa
+---
+سگ
+گربه
+اسب
+گاو
+گوسفند
+بز
+شتر
+الاغ
+قاطر
+مرغ
+خروس
+اردک
+غاز
+بوقلمون
+کبوتر
+خرگوش
+موش
+همستر
+خوکچه هندی
+طوطی
+قناری
+ماهی
+لاک‌پشت
+مار
+مارمولک
+عقاب
+شاهین
+گرگ
+روباه
+شغال
+خرس
+پلنگ
+یوزپلنگ
+شیر
+آهو
+بز کوهی
+قوچ
+گراز
+خارپشت
+سنجاب

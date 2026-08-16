@@ -1,0 +1,18 @@
+---
+description: Order status (Hungarian).
+locale: hu
+---
+Függőben
+Feldolgozás alatt
+Visszaigazolva
+Csomagolás alatt
+Feladva
+Kiszállítás alatt
+Kézbesítve
+Törölve
+Visszaküldve
+Visszatérítve
+Felfüggesztve
+Fizetésre vár
+Nincs készleten
+Sikertelen

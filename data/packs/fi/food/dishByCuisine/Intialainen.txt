@@ -1,0 +1,13 @@
+---
+description: Dishes of intialainen cuisine, in Finnish
+locale: fi
+---
+Butter chicken
+Tikka masala
+Rogan josh
+Biryani
+Dahl
+Samosa
+Naan
+Tandoori-kana
+Palak paneer

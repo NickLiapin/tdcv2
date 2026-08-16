@@ -1,0 +1,27 @@
+---
+description: Serbian address unit / interior designator (the forms written before a number). Note that a Serbian flat number follows the building number after a slash — Немањина 22/14 — so a config that joins these with a space is writing the formal register, not the everyday one.
+locale: sr
+---
+стан
+ст.
+спрат
+спр.
+улаз
+ламела
+зграда
+зг.
+локал
+лок.
+канцеларија
+канц.
+соба
+апартман
+приземље
+поткровље
+подрум
+гаража
+гаражно место
+паркинг место
+остава
+помоћна просторија
+сегмент

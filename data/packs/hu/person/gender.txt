@@ -1,0 +1,6 @@
+---
+description: Gender label (Hungarian). Two values, matching en and ru — this list is what `parent="Gender.Ferfi"` filters on, so a longer one silently leaves most rows without a name. Identity options beyond the pair belong in a file of their own. Note that Hungarian marks sex only in words like these; the grammar itself has no gender anywhere.
+locale: hu
+---
+Férfi
+Nő

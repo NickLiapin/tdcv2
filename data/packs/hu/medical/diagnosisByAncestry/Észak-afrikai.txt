@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Hungarian. A prevalence signal, not an exclusive one.
+locale: hu
+---
+Glükóz-6-foszfát-dehidrogenáz-hiány
+Béta-talasszémia-hordozó állapot
+Familiáris mediterrán láz
+Behçet-betegség
+Felnőttkori laktózérzékenység
+Xeroderma pigmentosum

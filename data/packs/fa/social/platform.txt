@@ -1,0 +1,21 @@
+---
+description: Social platform used in Iran. ایتا، بله، روبیکا، سروش and گپ are Iranian-built messengers, promoted by the state and used for official and school communication; دیوار is the classifieds app everything second-hand goes through. Telegram, X, Facebook and YouTube are OFFICIALLY BLOCKED in Iran and are nonetheless among the most used, reached through a VPN — so a config modelling Iranian usage should not treat 'blocked' as 'absent'.
+locale: fa
+---
+تلگرام
+اینستاگرام
+واتساپ
+ایتا
+بله
+روبیکا
+سروش
+گپ
+آپارات
+دیوار
+ویرگول
+ایکس
+لینکدین
+یوتیوب
+تیک‌تاک
+فیسبوک
+دیسکورد

@@ -88,8 +88,14 @@ def test_a_time_in_the_text_is_remembered_because_it_decides_the_precision() -> 
         ("el", "LL", "18 Οκτωβρίου 2026"),
         ("zh-cn", "LL", "2026年10月18日"),
         ("ar", "LL", "18 أكتوبر 2026"),
-        # A language with no table of its own falls back rather than failing the run.
-        ("cs", "L", "10/18/2026"),
+        ("cs", "LL", "18. října 2026"),
+        ("hu", "LL", "2026. október 18."),
+        ("fi", "LL", "18. lokakuuta 2026"),
+        # A language with no table of its own falls back rather than failing the run. The code
+        # here is deliberately not a real language: this row used to read ("cs", "L", "10/18/2026")
+        # back when Czech HAD a table and it simply worked, so the row was asserting the fallback
+        # against a language that never took it. Any real code can gain a table; "qq" cannot.
+        ("qq", "L", "10/18/2026"),
     ],
 )
 def test_a_locale_prints_its_own_names(locale: str, fmt: str, expected: str) -> None:

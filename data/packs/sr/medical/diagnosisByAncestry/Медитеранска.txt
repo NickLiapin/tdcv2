@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Serbian. A prevalence signal, not an exclusive one.
+locale: sr
+---
+Бета-таласемија
+Носилаштво бета-таласемије
+Дефицит глукоза-6-фосфат дехидрогеназе
+Породична медитеранска грозница
+Бехчетова болест
+Алфа-таласемија
+Фавизам

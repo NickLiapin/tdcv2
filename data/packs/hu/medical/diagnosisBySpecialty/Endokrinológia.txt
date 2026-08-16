@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Hungarian).
+locale: hu
+---
+2-es típusú cukorbetegség
+Pajzsmirigy-alulműködés
+Pajzsmirigy-túlműködés
+Csontritkulás
+Cushing-szindróma
+Policisztás ovárium szindróma
+Hashimoto-betegség
+Basedow-Graves-kór
+Mellékvesekéreg-elégtelenség
+1-es típusú cukorbetegség

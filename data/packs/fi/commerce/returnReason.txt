@@ -1,0 +1,19 @@
+---
+description: Order return reason (Finnish). Peruuttamisoikeus is the statutory 14-day right of withdrawal on every distance sale under the kuluttajansuojalaki; avokauppa is a separate voluntary return period a Finnish retailer may offer on top of it.
+locale: fi
+---
+peruuttamisoikeus
+avokauppa
+väärä koko
+liian pieni
+liian suuri
+ei vastannut kuvausta
+väärä väri
+väärä tuote toimitettu
+vaurioitunut kuljetuksessa
+viallinen tuote
+osia puuttuu
+laatu odotettua heikompi
+löysin halvemmalla
+tilasin vahingossa
+toimitus myöhästyi

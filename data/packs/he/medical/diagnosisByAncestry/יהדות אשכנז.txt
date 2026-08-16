@@ -1,0 +1,18 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Hebrew. The founder mutations of this population are unusually well characterised, which is why the list is longer than the others. A prevalence signal, not an exclusive one.
+locale: he
+---
+מחלת טיי זקס
+מחלת גושה
+דיסאוטונומיה משפחתית
+מחלת קנוואן
+מחלת ניימן פיק סוג A
+מחלת בלום
+אנמיה ע״ש פנקוני סוג C
+מוקוליפידוזיס סוג IV
+חסר פקטור XI
+תסמונת אשר סוג III
+מוטציות מייסד ב־BRCA1
+מוטציות מייסד ב־BRCA2
+ציסטיק פיברוזיס
+מחלת קרוהן

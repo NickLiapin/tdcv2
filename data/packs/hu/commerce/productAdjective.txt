@@ -1,0 +1,58 @@
+---
+description: Product adjective (Hungarian). Hungarian adjectives precede the noun and — unlike every neighbouring language — never agree with it in gender, number or case, so any entry here drops straight in front of any productNoun unchanged.
+locale: hu
+---
+elegáns
+hordozható
+sokoldalú
+strapabíró
+vízálló
+okos
+kézműves
+praktikus
+ergonomikus
+összecsukható
+állítható
+akkumulátoros
+vezeték nélküli
+könnyű
+kompakt
+tartós
+kétoldalas
+csúszásmentes
+lélegző
+szigetelt
+újrahasznosított
+környezetbarát
+fenntartható
+prémium
+klasszikus
+modern
+letisztult
+rusztikus
+vintage
+ipari stílusú
+sportos
+többfunkciós
+egymásba rakható
+szétszedhető
+géppel mosható
+antibakteriális
+foltálló
+hőszigetelt
+steppelt
+megerősített
+halk
+automata
+programozható
+kompatibilis
+univerzális
+professzionális
+gazdaságos
+kézzel készített
+luxus
+designer
+csúcskategóriás
+márka nélküli
+limitált kiadású
+energiatakarékos

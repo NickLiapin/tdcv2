@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Finnish — Finnish forms these with -minen or a verbal noun in -us/-ys, never with an -ing participle, because Finnish has no participle of that shape)
+locale: fi
+---
+kääntäminen
+indeksointi
+salaus
+salauksen purku
+pakkaus
+purkaminen
+vianetsintä
+virheenkorjaus
+lokitus
+valvonta
+kuormantasaus
+välimuistitus
+peilaus
+varmuuskopiointi
+palautus
+migraatio
+jakelu
+käyttöönotto
+versionhallinta
+todentaminen
+valtuutus
+validointi
+renderöinti
+suoratoisto
+synkronointi
+jäsentäminen
+reititys
+skaalaus

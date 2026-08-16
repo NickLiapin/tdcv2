@@ -1,0 +1,36 @@
+---
+description: Vegetable (Finnish). Root vegetables lead because they are what grows this far north; lanttu, nauris and palsternakka are ordinary here and half-forgotten further south. The three at the end are wild mushrooms picked in the forest, and kantarelli and suppilovahvero are gathered in quantity every autumn.
+locale: fi
+---
+peruna
+porkkana
+sipuli
+punasipuli
+purjo
+valkosipuli
+lanttu
+nauris
+palsternakka
+punajuuri
+mukulaselleri
+valkokaali
+punakaali
+lehtikaali
+ruusukaali
+kukkakaali
+parsakaali
+pinaatti
+salaatti
+jäävuorisalaatti
+kurkku
+tomaatti
+paprika
+kesäkurpitsa
+munakoiso
+herne
+sokeriherne
+maissi
+herkkusieni
+kantarelli
+herkkutatti
+suppilovahvero

@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Hungarian).
+locale: hu
+---
+Szedán
+Kupé
+Ferdehátú
+SUV
+Crossover
+Terepjáró
+Kabrió
+Egyterű
+Kombi
+Furgon
+Pickup
+Kisbusz
+Haszongépjármű
+Sportautó
+Roadster
+Városi autó
+Luxusautó
+Limuzin
+Mikrobusz
+Autóbusz
+Tehergépkocsi
+Motorkerékpár

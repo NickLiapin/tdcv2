@@ -1,0 +1,38 @@
+---
+description: Dishes of Hungarian cuisine (Hungarian). Two warnings a foreign config cannot infer: gulyasleves is a SOUP, not the thick stew the word goulash names abroad — that is porkolt — and halaszle is a fiery paprika fish soup, nothing like a French fish stew.
+locale: hu
+---
+Gulyásleves
+Pörkölt
+Halászlé
+Lecsó
+Töltött káposzta
+Lángos
+Paprikás csirke
+Hortobágyi húsos palacsinta
+Rakott krumpli
+Túrós csusza
+Körözött
+Jókai bableves
+Újházi tyúkhúsleves
+Palócleves
+Meggyleves
+Székelykáposzta
+Töltött paprika
+Rántott hús
+Kocsonya
+Fatányéros
+Dobostorta
+Kürtőskalács
+Somlói galuska
+Mákos guba
+Bejgli
+Szilvás gombóc
+Túrógombóc
+Gundel palacsinta
+Rétes
+Zserbó
+Flódni
+Krémes
+Madártej
+Pogácsa

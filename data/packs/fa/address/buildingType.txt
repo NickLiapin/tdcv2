@@ -1,0 +1,40 @@
+---
+description: Building type (Persian). حسینیه and امامزاده have no European equivalent: a حسینیه is a hall built for Muharram mourning ceremonies, an امامزاده is the shrine-tomb of a descendant of an Imam, and both are ordinary landmarks used to locate an address.
+locale: fa
+---
+خانه
+آپارتمان
+ویلا
+برج
+ساختمان
+مجتمع مسکونی
+شهرک مسکونی
+دفتر
+اداره
+مغازه
+فروشگاه
+مرکز خرید
+انبار
+کارگاه
+کارخانه
+سوله
+بیمارستان
+درمانگاه
+داروخانه
+مدرسه
+دبیرستان
+دانشگاه
+هتل
+مسافرخانه
+رستوران
+مسجد
+حسینیه
+امامزاده
+کتابخانه
+موزه
+سینما
+ورزشگاه
+پارکینگ
+حمام
+کاروانسرا
+باغ

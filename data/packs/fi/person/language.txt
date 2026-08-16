@@ -1,0 +1,54 @@
+---
+description: Language name (Finnish). The order at the top is constitutional, not editorial. Finland has TWO national languages, suomi and ruotsi, with equal status — every citizen may deal with the state in either, laws are published in both, and Swedish-speakers are about 5.2 % of the population. Below them sit the languages the constitution and the saamen kielilaki name separately: three Sámi languages (pohjoissaame, inarinsaame and koltansaame, the last two spoken by only a few hundred people each and only in Finland), romanikieli, karjala and suomalainen viittomakieli — Finnish Sign Language is a language in its own right and is protected by name in the constitution, alongside a separate Finland-Swedish sign language.
+locale: fi
+---
+suomi
+ruotsi
+pohjoissaame
+inarinsaame
+koltansaame
+romanikieli
+karjala
+suomalainen viittomakieli
+suomenruotsalainen viittomakieli
+englanti
+viro
+venäjä
+norja
+tanska
+islanti
+saksa
+hollanti
+ranska
+espanja
+portugali
+italia
+kreikka
+puola
+ukraina
+latvia
+liettua
+tšekki
+slovakki
+unkari
+romania
+bulgaria
+serbia
+kroatia
+albania
+turkki
+arabia
+persia
+kurdi
+somali
+tigrinja
+amhara
+swahili
+hindi
+urdu
+bengali
+kiina
+japani
+korea
+vietnam
+thai

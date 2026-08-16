@@ -1,0 +1,18 @@
+---
+description: Jobs in Retail (Hebrew, masculine singular — see work/jobTitle.txt on gender)
+locale: he
+---
+מוכר
+קופאי
+סדרן סחורה
+מנהל חנות
+סגן מנהל חנות
+מנהל אזור
+קניין
+מנהל מחסן
+מעצב חלונות ראווה
+נציג שירות
+מנהל מכירות
+מחסנאי
+שליח
+מנהל קטגוריה

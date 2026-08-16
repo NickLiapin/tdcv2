@@ -1,0 +1,34 @@
+---
+description: Fish (Finnish). The first block is what a Finn actually eats or catches: muikku (vendace) is netted in the lakes and fried whole, silakka (Baltic herring) is the fish of the coast, and kuha, hauki, ahven and made are the ordinary catch of an inland summer.
+locale: fi
+---
+Lohi
+Kirjolohi
+Taimen
+Siika
+Muikku
+Silakka
+Kuha
+Ahven
+Hauki
+Made
+Kiiski
+Säyne
+Lahna
+Särki
+Harjus
+Nieriä
+Turska
+Kampela
+Sardiini
+Tonnikala
+Makrilli
+Ankerias
+Monni
+Kultakala
+Guppi
+Miekkakala
+Marliini
+Pallokala
+Rausku
+Hai

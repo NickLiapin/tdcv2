@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Persian), Saturday first. Persian calendars abbreviate to the single distinguishing letter.
+locale: fa
+---
+ش
+ی
+د
+س
+چ
+پ
+ج

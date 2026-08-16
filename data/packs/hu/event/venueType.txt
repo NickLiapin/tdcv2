@@ -1,0 +1,20 @@
+---
+description: Venue type (Hungarian).
+locale: hu
+---
+Szállodai terem
+Kongresszusi központ
+Stadion
+Színház
+Bankettterem
+Terasz
+Kert
+Ipari csarnok
+Előadóterem
+Éjszakai klub
+Tárgyaló
+Kúria
+Borászat
+Strand
+Múzeum
+Művelődési ház

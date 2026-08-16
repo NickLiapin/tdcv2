@@ -1,0 +1,17 @@
+---
+description: Legal case type (Hungarian).
+locale: hu
+---
+Polgári per
+Büntetőügy
+Családjogi ügy
+Felszámolási eljárás
+Kártérítési per
+Munkaügyi per
+Szerződéses jogvita
+Szellemitulajdon-jogi ügy
+Ingatlanügy
+Idegenrendészeti ügy
+Adóügy
+Közigazgatási per
+Gazdasági per

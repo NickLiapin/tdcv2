@@ -1,0 +1,19 @@
+---
+description: Court type (Hungarian judiciary). Hungary's supreme court is called the Kuria — the old name was restored in 2012, so a config translating "supreme court" must not produce Legfelsobb Birosag.
+locale: hu
+---
+Kúria
+Alkotmánybíróság
+Fővárosi Ítélőtábla
+Ítélőtábla
+Törvényszék
+Fővárosi Törvényszék
+Járásbíróság
+Kerületi bíróság
+Cégbíróság
+Büntetőbíróság
+Polgári bíróság
+Munkaügyi bíróság
+Közigazgatási bíróság
+Választottbíróság
+Békéltető testület

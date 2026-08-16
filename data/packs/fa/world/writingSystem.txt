@@ -1,0 +1,24 @@
+---
+description: Writing system (Persian). Three are Iranian: خط میخی is Old Persian cuneiform, cut at Persepolis and Bisotun; خط پهلوی wrote Middle Persian under the Sasanians; خط اوستایی was invented purely to record the Avesta and marks every vowel, which the others do not. خط فارسی itself is the Arabic alphabet plus the four letters پ چ ژ گ that Arabic does not have.
+locale: fa
+---
+خط فارسی
+الفبای عربی
+الفبای لاتین
+الفبای سیریلیک
+الفبای یونانی
+الفبای عبری
+الفبای ارمنی
+الفبای گرجی
+خط چینی
+هیراگانا
+کاتاکانا
+هانگول
+دواناگری
+خط تایلندی
+خط تبتی
+خط سریانی
+الفبای اتیوپیایی
+خط میخی
+خط پهلوی
+خط اوستایی

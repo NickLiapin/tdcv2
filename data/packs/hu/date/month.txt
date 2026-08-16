@@ -1,0 +1,16 @@
+---
+description: Month name (Hungarian, lowercase — Hungarian never capitalises month or weekday names). Hungarian writes dates big-endian, year first: 2026. augusztus 15.
+locale: hu
+---
+január
+február
+március
+április
+május
+június
+július
+augusztus
+szeptember
+október
+november
+december

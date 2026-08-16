@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Hungarian). Tejfol (soured cream), serteszsir (lard) and orolt pirospaprika (ground sweet paprika) carry most of what makes a Hungarian dish taste Hungarian.
+locale: hu
+---
+Liszt
+Cukor
+Só
+Vaj
+Tojás
+Tej
+Hagyma
+Fokhagyma
+Paradicsom
+Csirkemell
+Rizs
+Sajt
+Olívaolaj
+Feketebors
+Sárgarépa
+Burgonya
+Paprika
+Darált hús
+Zsemlemorzsa
+Citrom
+Méz
+Élesztő
+Tejföl
+Sertészsír
+Őrölt pirospaprika
+Spenót
+Ecet
+Csirkealaplé
+Bab
+Lencse
+Tészta
+Tonhal
+Joghurt
+Reszelt sajt
+Petrezselyem
+Napraforgóolaj
+Paradicsompüré
+Fehérbor
+Mandula
+Dió

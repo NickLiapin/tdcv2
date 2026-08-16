@@ -1,0 +1,9 @@
+---
+description: Work shift (Serbian)
+locale: sr
+---
+Прва смена
+Друга смена
+Трећа смена
+Ноћна смена
+Дежурство

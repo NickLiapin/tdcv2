@@ -1,0 +1,44 @@
+---
+description: Language name (Persian). The first block is the languages actually spoken inside Iran — Persian is the state language but the country is multilingual, with Azerbaijani Turkish, Kurdish, Luri, Gilaki, Mazandarani, Arabic, Balochi, Turkmen, Armenian and Assyrian all native to it.
+locale: fa
+---
+فارسی
+ترکی آذربایجانی
+کردی
+لری
+گیلکی
+مازندرانی
+عربی
+بلوچی
+ترکمنی
+ارمنی
+آشوری
+تالشی
+قشقایی
+دری
+تاجیکی
+پشتو
+اردو
+انگلیسی
+فرانسوی
+آلمانی
+روسی
+اسپانیایی
+ایتالیایی
+پرتغالی
+هلندی
+سوئدی
+نروژی
+دانمارکی
+فنلاندی
+لهستانی
+اوکراینی
+ترکی استانبولی
+عبری
+یونانی
+چینی
+ژاپنی
+کره‌ای
+هندی
+ویتنامی
+اندونزیایی

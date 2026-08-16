@@ -1,0 +1,11 @@
+---
+description: Weekday name (Finnish, lowercase). The Finnish week starts on Monday, so this list is Monday-first; DATE_LOCALE.json carries the Sunday-first array the formatter needs. Keskiviikko means simply "mid-week", and the -tai ending on the rest is a very old loan from Germanic.
+locale: fi
+---
+maanantai
+tiistai
+keskiviikko
+torstai
+perjantai
+lauantai
+sunnuntai

@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Serbian). Кошава is the strong dry south-easterly that blows down the Danube over Belgrade and Vojvodina for days at a time — it is a named local wind, and no neighbouring pack has it.
+locale: sr
+---
+Кошава
+Југо
+Северац
+Бура
+Мраз
+Слана
+Иње
+Поледица
+Град
+Роса
+Магла
+Смог
+Суша
+Поплава
+Дуга

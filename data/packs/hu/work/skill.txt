@@ -1,0 +1,46 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Hungarian).
+locale: hu
+---
+Python
+JavaScript
+SQL
+Java
+C++
+Felhőalapú számítástechnika
+Gépi tanulás
+Adatelemzés
+Projektmenedzsment
+Agilis módszertanok
+Nyilvános beszéd
+Műszaki dokumentáció
+Ügyfélkezelés
+Értékesítés
+Könyvelés
+Pénzügyi modellezés
+CAD-tervezés
+3D-modellezés
+Grafikai tervezés
+Szövegírás
+Hegesztés
+Villanyszerelés
+Vízvezeték-szerelés
+Asztalosmunka
+Műszaki rajz olvasása
+Forgácsolás
+Targoncavezetés
+Építőgép-kezelés
+Tehergépkocsi-vezetés
+Elsősegély
+Újraélesztés
+Élelmiszer-biztonság
+Angol nyelv
+Német nyelv
+Francia nyelv
+Orosz nyelv
+Tárgyalástechnika
+Csapatvezetés
+Időgazdálkodás
+Problémamegoldás
+Csapatmunka
+Táblázatkezelés

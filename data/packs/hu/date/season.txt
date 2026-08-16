@@ -1,0 +1,8 @@
+---
+description: Season (Hungarian, lowercase).
+locale: hu
+---
+tavasz
+nyár
+ősz
+tél

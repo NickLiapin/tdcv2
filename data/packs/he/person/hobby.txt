@@ -1,0 +1,82 @@
+---
+description: Hobby / interest (Hebrew). Four are Israeli institutions rather than generic pastimes: מנגל is the barbecue that fills every park on Independence Day, ריקודי עם is the Israeli folk-dance movement, קרב מגע was developed for the Israeli army and is taught in civilian clubs, and צפרות is birdwatching, which Israel takes seriously because the whole Europe-Africa migration passes overhead twice a year.
+locale: he
+---
+טיולים
+טיולי טבע
+טרקים
+קמפינג
+מנגל
+ריצה
+ריצת מרתון
+הליכה
+אופניים
+רכיבת שטח
+שחייה
+צלילה
+גלישת גלים
+גלישת רוח
+קייטסרף
+שיט
+דיג
+טיפוס
+סנפלינג
+יוגה
+פילאטיס
+כושר
+קרוספיט
+קרב מגע
+ג׳ודו
+כדורגל
+כדורסל
+כדורעף
+טניס
+מטקות
+שחמט
+ריקוד
+ריקודי עם
+נגינה
+שירה
+מקהלה
+תיאטרון
+קולנוע
+סרטים
+סדרות
+מוזיקה
+פודקאסטים
+קריאה
+כתיבה
+כתיבת בלוג
+צילום
+ציור
+רישום
+קרמיקה
+פיסול
+נגרות
+תפירה
+סריגה
+רקמה
+תכשיטנות
+גינון
+צמחי בית
+בישול
+אפייה
+בירה ביתית
+יין
+קפה
+אספנות
+בולאות
+מטבעות
+אסטרונומיה
+ארכיאולוגיה
+היסטוריה
+שפות
+לימודי תורה
+מדיטציה
+התנדבות
+גיימינג
+משחקי קופסה
+פאזלים
+צפרות
+מודלים
+רחפנים

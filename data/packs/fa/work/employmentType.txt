@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Persian). رسمی، پیمانی and قراردادی are the three rungs of Iranian public-sector employment and are not interchangeable: رسمی is tenured with a pension, پیمانی a renewable fixed term, قراردادی the weakest. شرکتی means employed through an outsourcing company rather than by the organisation itself.
+locale: fa
+---
+تمام‌وقت
+پاره‌وقت
+رسمی
+پیمانی
+قراردادی
+شرکتی
+پروژه‌ای
+فصلی
+کارآموزی
+دورکاری
+خویش‌فرما

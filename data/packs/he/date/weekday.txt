@@ -1,0 +1,11 @@
+---
+description: Weekday name (Hebrew). Two things a config cannot infer. First, the week starts on SUNDAY and the weekend is FRIDAY-SATURDAY: יום ראשון is a normal working day in Israel and Sunday-first is not a display preference here, it is the actual week. Second, six of the seven days have no name at all — they are counted, יום ראשון 'day one', יום שני 'day two', up to יום שישי. Only the seventh, שבת, carries a name, because the counting exists to lead up to it. Japanese and Korean number their weekdays too, but from an element cycle rather than from a Sabbath, so the shape matches and the origin does not.
+locale: he
+---
+יום ראשון
+יום שני
+יום שלישי
+יום רביעי
+יום חמישי
+יום שישי
+שבת

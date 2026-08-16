@@ -1,0 +1,15 @@
+---
+description: Shipping status (Hungarian).
+locale: hu
+---
+Címke elkészült
+Úton
+Kiszállítás alatt
+Kézbesítve
+Szállítási probléma
+Visszaküldés a feladónak
+Átvételre vár
+Késik
+Vámkezelés alatt
+Hibás cím
+Sikertelen kézbesítési kísérlet

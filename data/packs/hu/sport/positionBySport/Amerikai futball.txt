@@ -1,0 +1,15 @@
+---
+description: Positions in American football (Hungarian).
+locale: hu
+---
+Irányító
+Futójátékos
+Elkapójátékos
+Zárt elkapó
+Támadófalember
+Védőfalember
+Falszéli védő
+Sarokvédő
+Biztonsági védő
+Rúgójátékos
+Kirúgójátékos

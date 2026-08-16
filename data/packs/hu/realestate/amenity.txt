@@ -1,0 +1,26 @@
+---
+description: Property amenity (Hungarian).
+locale: hu
+---
+Medence
+Garázs
+Kandalló
+Légkondicionálás
+Parketta
+Gardrób
+Erkély
+Kert
+Konditerem
+Lift
+Parkolóhely
+Mosogatógép
+Mosókonyha
+Kisállat hozható
+Riasztórendszer
+Napelem
+Terasz
+Pince
+Portaszolgálat
+Grillező
+Bútorozott
+Fűtés

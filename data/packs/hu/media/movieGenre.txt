@@ -1,0 +1,23 @@
+---
+description: Movie genre (Hungarian).
+locale: hu
+---
+Akció
+Vígjáték
+Dráma
+Horror
+Thriller
+Romantikus
+Tudományos-fantasztikus
+Fantasy
+Dokumentumfilm
+Animációs
+Kalandfilm
+Bűnügyi
+Rejtély
+Western
+Musical
+Háborús
+Életrajzi
+Film noir
+Romantikus vígjáték

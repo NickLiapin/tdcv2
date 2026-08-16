@@ -1,0 +1,54 @@
+---
+description: Airline (the Serbian flag carrier and the airlines that actually serve Belgrade and Niš). Airline names keep their registered Latin spelling in Serbian timetables and on tickets, so they are not transcribed here.
+locale: sr
+---
+Air Serbia
+Wizz Air
+Ryanair
+Lufthansa
+Austrian Airlines
+Swiss International Air Lines
+Air France
+KLM
+Turkish Airlines
+AJet
+Pegasus Airlines
+Aeroflot
+British Airways
+Iberia
+ITA Airways
+TAP Air Portugal
+Finnair
+LOT Polish Airlines
+Aegean Airlines
+Croatia Airlines
+Air Montenegro
+Qatar Airways
+Emirates
+Etihad Airways
+flydubai
+EgyptAir
+Royal Jordanian
+El Al
+Tunisair
+Air Algérie
+Norwegian
+SAS Scandinavian Airlines
+Brussels Airlines
+easyJet
+Eurowings
+Vueling
+Transavia
+airBaltic
+Air China
+China Southern Airlines
+Hainan Airlines
+Air Cairo
+Corendon Airlines
+SunExpress
+Trade Air
+Marathon Airlines
+Sky Express
+Nouvelair
+Freebird Airlines
+Onur Air

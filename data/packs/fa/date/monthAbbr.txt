@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Persian, SOLAR HIJRI). Persian barely abbreviates its month names in running text — these are the short forms used in calendar widgets and table headers. Iran runs on the SOLAR HIJRI calendar (گاه‌شماری هجری شمسی), not the Gregorian one. Its year begins at the March equinox — Nowruz, نوروز, about 21 March — so 2026 CE spans 1404 and 1405 SH, and no Solar Hijri month starts on the first of a Gregorian one: فروردین runs roughly 21 March to 20 April. This pack does NOT convert anything. The engine generates Gregorian dates and emits the year and month a config supplies, exactly as given; a caller that wants a Solar Hijri date must convert it itself.
+locale: fa
+---
+فرو
+ارد
+خرد
+تیر
+مرد
+شهر
+مهر
+آبا
+آذر
+دی
+بهم
+اسف

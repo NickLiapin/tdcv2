@@ -1,0 +1,16 @@
+---
+description: Loan type (Finnish). Opintolaina is not a bank product in the ordinary sense: the state, through Kela, guarantees it, the student draws it monthly during term, and a degree finished on time earns an opintolainahyvitys that pays part of it back. Asuntolaina in Finland is almost always tied to a euribor rate rather than fixed.
+locale: fi
+---
+asuntolaina
+kulutusluotto
+vakuudeton laina
+autolaina
+remonttilaina
+opintolaina
+yhdistelylaina
+luotollinen tili
+osamaksu
+yrityslaina
+rakennusaikainen laina
+taloyhtiölaina

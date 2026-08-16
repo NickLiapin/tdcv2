@@ -1,0 +1,26 @@
+---
+description: Writing system (Hebrew). The Hebrew-specific entries carry the facts that matter for this whole pack. כתב אשורי is the formal name of the square Hebrew alphabet in use today: 22 CONSONANTS, no capital letters at any point in its history, five of them taking a different final form at the end of a word (ך ם ן ף ץ), and vowels written as optional diacritics called ניקוד. Modern Hebrew is written WITHOUT ניקוד outside poetry, children's books and sacred text, and every value in this pack is unpointed accordingly, the way a newspaper prints it. כתב רש״י is the semi-cursive face used for rabbinic commentary, כתב סתם the scribal hand used for Torah scrolls, and כתב עברי עתיק the older paleo-Hebrew script. Note also that this alphabet is not Hebrew's alone — Yiddish, Ladino and Judeo-Arabic are all written in it, and what makes this pack Hebrew rather than merely Hebrew-script is the vocabulary and the prefixed particles ה־ ב־ ל־ מ־ ו־ ש־ that glue onto the following word.
+locale: he
+---
+כתב אשורי
+כתב עברי עתיק
+כתב רש״י
+כתב סתם
+כתב ערבי
+כתב לטיני
+כתב קירילי
+כתב יווני
+כתב סיני
+הירגאנה
+קטקאנה
+הנגול
+דוונאגרי
+כתב תאי
+כתב אתיופי
+כתב ארמני
+כתב גאורגי
+כתב סורי
+כתב קופטי
+כתב ברייל
+כתב חרטומים
+כתב יתדות

@@ -1,0 +1,26 @@
+---
+description: Common allergies (Hebrew). Two Israeli specifics worth knowing before generating a population: sesame is one of the country's leading food allergens because tahini is eaten daily, and peanut allergy is markedly RARER in Israel than in comparable Western countries — the finding that led to early-introduction guidance worldwide came from comparing Israeli and British children.
+locale: he
+---
+אבקנים
+קרדית אבק הבית
+פרוות חתול
+פרוות כלב
+עובש
+שומשום
+בוטנים
+אגוזי עץ
+חלב
+ביצים
+סויה
+חיטה
+גלוטן
+דגים
+פירות ים
+לטקס
+עקיצת דבורה
+עקיצת צרעה
+פניצילין
+אספירין
+סולפה
+ניקל

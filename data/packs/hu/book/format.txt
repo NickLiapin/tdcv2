@@ -1,0 +1,12 @@
+---
+description: Book format (Hungarian).
+locale: hu
+---
+Keménytáblás
+Puhafedeles
+E-könyv
+Hangoskönyv
+Zsebkönyv
+Fűzött kiadás
+Illusztrált kiadás
+Könyvtári kiadás

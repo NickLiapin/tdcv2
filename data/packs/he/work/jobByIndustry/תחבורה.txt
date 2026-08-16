@@ -1,0 +1,20 @@
+---
+description: Jobs in Transportation (Hebrew, masculine singular — see work/jobTitle.txt on gender)
+locale: he
+---
+נהג משאית
+נהג אוטובוס
+נהג מונית
+נהג חלוקה
+שליח
+קברניט
+דייל אוויר
+בקר טיסה
+מנהל צי
+מנהל לוגיסטיקה
+סוור
+מפעיל מסוף
+טכנאי רכב
+מכונאי
+נהג רכבת
+בקר תנועה

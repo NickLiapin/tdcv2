@@ -1,0 +1,9 @@
+---
+description: Positions in ice hockey (Hebrew)
+locale: he
+---
+שוער
+בלם
+חלוץ מרכזי
+כנף ימנית
+כנף שמאלית

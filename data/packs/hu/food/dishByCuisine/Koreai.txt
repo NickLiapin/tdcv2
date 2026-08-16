@@ -1,0 +1,12 @@
+---
+description: Dishes of Korean cuisine (Hungarian).
+locale: hu
+---
+Bibimbap
+Bulgogi
+Kimcshiragu
+Japchae
+Tteokbokki
+Koreai rántott csirke
+Galbi
+Kimcshi

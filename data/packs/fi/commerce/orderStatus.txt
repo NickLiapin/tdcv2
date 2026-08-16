@@ -1,0 +1,18 @@
+---
+description: Order status (Finnish)
+locale: fi
+---
+vastaanotettu
+vahvistettu
+käsittelyssä
+kerätty
+pakattu
+valmis toimitukseen
+lähetetty
+kuljetuksessa
+toimitettu
+noudettu
+osittain toimitettu
+jälkitoimituksessa
+peruutettu
+palautettu

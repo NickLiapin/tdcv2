@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Finnish; vuosineljännes in full, Q1-Q4 in reporting)
+locale: fi
+---
+Q1
+Q2
+Q3
+Q4

@@ -1,0 +1,22 @@
+---
+description: Room type (Finnish). Note two Finnish fixtures: kodinhoitohuone is a utility room with a floor drain that most new Finnish homes have, and pukuhuone plus pesuhuone are the changing room and washing room that sit in front of the sauna — a Finnish bathroom is often three rooms rather than one.
+locale: fi
+---
+eteinen
+olohuone
+keittiö
+keittokomero
+ruokailutila
+makuuhuone
+vierashuone
+lastenhuone
+työhuone
+kylpyhuone
+pesuhuone
+sauna
+pukuhuone
+erillinen wc
+vaatehuone
+kodinhoitohuone
+kuisti
+parvi

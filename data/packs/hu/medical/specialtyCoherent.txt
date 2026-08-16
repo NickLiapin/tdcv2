@@ -1,0 +1,14 @@
+---
+description: Medical specialty (has a coherent diagnosis list).
+locale: hu
+---
+Kardiológia
+Neurológia
+Onkológia
+Bőrgyógyászat
+Gasztroenterológia
+Endokrinológia
+Tüdőgyógyászat
+Ortopédia
+Pszichiátria
+Nefrológia

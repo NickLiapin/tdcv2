@@ -1,0 +1,34 @@
+---
+description: Vegetable (Hungarian).
+locale: hu
+---
+Sárgarépa
+Brokkoli
+Spenót
+Burgonya
+Uborka
+Saláta
+Vöröshagyma
+Paprika
+Cukkini
+Karfiol
+Zöldborsó
+Kukorica
+Spárga
+Padlizsán
+Fodros kel
+Káposzta
+Zellerszár
+Csiperkegomba
+Édesburgonya
+Cékla
+Retek
+Sütőtök
+Mángold
+Articsóka
+Póréhagyma
+Fehérrépa
+Paradicsom
+Vízitorma
+Metélőhagyma
+Fokhagyma

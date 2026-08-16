@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in keuhkosairaudet, in Finnish
+locale: fi
+---
+Astma
+Keuhkoahtaumatauti
+Keuhkokuume
+Krooninen keuhkoputkentulehdus
+Uniapnea
+Keuhkoembolia
+Sarkoidoosi
+Keuhkofibroosi
+Tuberkuloosi
+Allerginen nuha

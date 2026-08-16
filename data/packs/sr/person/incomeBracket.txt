@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Serbian. Amounts are in динар (RSD), the currency of Serbia. The bands are set around Serbian earnings, not translated from a Western pack: the median net salary is roughly 80.000 RSD a month, so a household near the middle of this list is an ordinary two-earner one. Note the Serbian number format — a full stop groups thousands and a comma marks the decimal, the opposite of English.
+locale: sr
+---
+Испод 600.000 RSD
+600.000–900.000 RSD
+900.000–1.200.000 RSD
+1.200.000–1.800.000 RSD
+1.800.000–2.400.000 RSD
+2.400.000–3.600.000 RSD
+3.600.000–6.000.000 RSD
+Преко 6.000.000 RSD

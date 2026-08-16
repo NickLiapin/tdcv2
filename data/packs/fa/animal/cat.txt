@@ -1,0 +1,22 @@
+---
+description: Cat breed (Persian). The Persian cat is Iranian and Persian calls it گربه شیرازی or گربه ایرانی — the English name for it is the country's own.
+locale: fa
+---
+شیرازی
+ایرانی
+سیامی
+آنگورا
+مین‌کون
+بنگال
+برمه‌ای
+اسفینکس
+راگدال
+حبشی
+بریتیش شورت‌هیر
+اسکاتیش فولد
+نروژی جنگلی
+هیمالیایی
+اگزوتیک شورت‌هیر
+وان ترکی
+موکوتاه اروپایی
+بالینیز

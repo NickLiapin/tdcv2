@@ -1,0 +1,50 @@
+---
+description: Dish (Finnish). This is what Finns actually eat. Karjalanpiirakka — a rye crust around rice porridge, eaten with munavoi — is the everyday pastry sold in every shop; ruisleipä is sour rye bread and Finland eats more of it per head than anywhere; lohikeitto is the creamy salmon soup; kaalilaatikko, lanttulaatikko and perunalaatikko are the baked casseroles that make up a Christmas table. Mämmi is a black baked rye-malt pudding eaten only at Easter and is the single most divisive food in the country. Korvapuusti is the cardamom cinnamon bun, salmiakki the ammonium-chloride liquorice that visitors reliably spit out, and leipäjuusto a squeaky baked cheese served warm with cloudberry jam.
+locale: fi
+---
+Karjalanpiirakka
+Munavoi
+Ruisleipä
+Näkkileipä
+Rieska
+Lohikeitto
+Kalakeitto
+Hernekeitto
+Lihakeitto
+Karjalanpaisti
+Lihapullat
+Jauhelihakastike
+Makkarakastike
+Maksalaatikko
+Kaalilaatikko
+Lanttulaatikko
+Porkkanalaatikko
+Perunalaatikko
+Kaalikääryleet
+Poronkäristys
+Lindströmin pihvi
+Silakkapihvit
+Paistetut muikut
+Graavilohi
+Loimulohi
+Kalakukko
+Mustamakkara
+Lohipiirakka
+Lihapiirakka
+Riisipuuro
+Mannapuuro
+Vispipuuro
+Leipäjuusto lakkahillolla
+Rosolli
+Sienisalaatti
+Mämmi
+Korvapuusti
+Pulla
+Laskiaispulla
+Runebergintorttu
+Joulutorttu
+Mustikkapiirakka
+Rahkapiirakka
+Tippaleipä
+Salmiakki
+Sima

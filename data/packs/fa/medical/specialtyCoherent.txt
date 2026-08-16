@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Persian)
+locale: fa
+---
+قلب و عروق
+مغز و اعصاب
+انکولوژی
+پوست
+گوارش
+غدد
+ریه
+ارتوپدی
+روان‌پزشکی
+نفرولوژی

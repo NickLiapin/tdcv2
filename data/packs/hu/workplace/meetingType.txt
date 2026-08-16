@@ -1,0 +1,16 @@
+---
+description: Meeting type (Hungarian).
+locale: hu
+---
+Napi csapatmegbeszélés
+Négyszemközti megbeszélés
+Összdolgozói értekezlet
+Retrospektív
+Sprinttervezés
+Projektnyitó megbeszélés
+Egyeztetés
+Áttekintés
+Műhelymunka
+Ötletbörze
+Státuszmegbeszélés
+Projektzáró megbeszélés

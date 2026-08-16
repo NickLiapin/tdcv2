@@ -1,0 +1,13 @@
+---
+description: Film / TV age rating (Persian). Iran's رده‌بندی سنی is advisory and expressed as a plus-age, alongside the descriptive labels.
+locale: fa
+---
+مناسب برای همه سنین
++۳
++۷
++۱۲
++۱۵
++۱۸
+مخصوص بزرگسالان
+کودک
+خانوادگی

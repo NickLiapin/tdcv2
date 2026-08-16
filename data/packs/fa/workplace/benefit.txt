@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Persian). بن کارگری is the statutory food/goods allowance paid monthly on top of salary, حق مسکن the housing allowance, حق اولاد a per-child payment, عیدی the compulsory new-year bonus paid before Nowruz, and سنوات the end-of-service severance that accrues each year — all five are set by Iranian labour law rather than offered at the employer's discretion.
+locale: fa
+---
+بیمه تأمین اجتماعی
+بیمه تکمیلی درمان
+بن کارگری
+حق مسکن
+حق اولاد
+عیدی
+سنوات
+پاداش
+اضافه‌کار
+مرخصی استحقاقی
+سرویس رفت و آمد
+ناهار
+وام کارکنان
+آموزش و دوره
+دورکاری
+ورزش و باشگاه
+مهد کودک
+سفر و اردو

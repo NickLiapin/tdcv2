@@ -1,0 +1,26 @@
+---
+description: Telecom operator in Iran. همراه اول (MCI) and ایرانسل are the two big mobile networks, رایتل the third; شاتل موبایل and سامانتل are MVNOs. The rest are fixed-line and broadband providers — مخابرات ایران is the incumbent, شاتل، آسیاتک، پارس‌آنلاین and های‌وب the main private ISPs.
+locale: fa
+---
+همراه اول
+ایرانسل
+رایتل
+شاتل موبایل
+سامانتل
+آپتل
+مخابرات ایران
+شاتل
+آسیاتک
+پارس‌آنلاین
+های‌وب
+صبانت
+مبین‌نت
+فناوا
+رسپینا
+داتک
+زیرساخت
+تک‌نت
+لایزر
+ایران‌سل تی‌دی‌ال‌تی‌ای
+پیشگامان
+عصر تلکام

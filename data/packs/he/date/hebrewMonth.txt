@@ -1,0 +1,18 @@
+---
+description: Month of the HEBREW lunisolar calendar — the religious and holiday calendar, printed beside the Gregorian date on Israeli official documents and used for every Jewish festival. A common year has the twelve months תשרי through אלול; a leap year (7 times in 19) has thirteen, splitting אדר into אדר א and אדר ב, and both forms are listed here. The year begins in תשרי, in autumn. THE ENGINE CONVERTS NOTHING: it generates Gregorian dates only, so a Hebrew-calendar month drawn from this list has no arithmetic relationship to any date the config produced — pair the two only if that is what you meant. Gregorian civil months are in date/month.txt.
+locale: he
+---
+תשרי
+חשוון
+כסלו
+טבת
+שבט
+אדר
+אדר א
+אדר ב
+ניסן
+אייר
+סיוון
+תמוז
+אב
+אלול

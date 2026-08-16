@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in kardiologia, in Finnish
+locale: fi
+---
+Kohonnut verenpaine
+Angina pectoris
+Sydäninfarkti
+Sydämen vajaatoiminta
+Eteisvärinä
+Läppävika
+Kardiomyopatia
+Endokardiitti
+Syvä laskimotukos
+Ääreisvaltimotauti

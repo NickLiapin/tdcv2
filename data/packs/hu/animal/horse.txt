@@ -1,0 +1,20 @@
+---
+description: Horse breed (Hungarian). Nonius, gidran, kisberi felver, furioso-north star, shagya arab and hucul are Hungarian-bred lines still registered here.
+locale: hu
+---
+Arab telivér
+Angol telivér
+Musztáng
+Clydesdale
+Appaloosa
+Quarter horse
+Fríz
+Shire
+Andalúziai
+Lipicai
+Nóniusz
+Gidrán
+Kisbéri félvér
+Furioso-North Star
+Shagya arab
+Hucul

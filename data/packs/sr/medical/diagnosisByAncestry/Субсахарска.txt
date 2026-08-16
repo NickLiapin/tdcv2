@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, in Serbian. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: sr
+---
+Српаста анемија
+Носилаштво српасте ћелије
+Дефицит глукоза-6-фосфат дехидрогеназе
+APOL1 нефропатија
+Келоидно ожиљавање
+Саркоидоза
+Хипертензивна нефросклероза
+Миоми материце
+Бенигна етничка неутропенија
+Неперзистенција лактазе
+Псеудофоликулитис браде
+Витилиго

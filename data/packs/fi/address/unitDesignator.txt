@@ -1,0 +1,28 @@
+---
+description: Finnish address unit designator. A Finnish flat address is street, number, stairwell letter, flat number — Mannerheimintie 12 A 5 — so the bare capital letter IS the designator for the stairwell (rappu) and needs no word in front of it. "as." abbreviates asunto and "krs" kerros; the ground floor is katutaso and is counted as floor 1, unlike Sweden. PL is postilokero, a PO box.
+locale: fi
+---
+as.
+asunto
+rappu
+rap.
+porras
+A
+B
+C
+krs
+kerros
+ovi
+huoneisto
+katutaso
+kellari
+ullakko
+autopaikka
+autotalli
+varasto
+väestönsuoja
+PL
+postilokero
+c/o
+toimisto
+liikehuoneisto

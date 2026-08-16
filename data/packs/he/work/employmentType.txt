@@ -1,0 +1,18 @@
+---
+description: Employment / contract type (Hebrew). Two Israeli specifics: שכר גלובלי is a salary that legally buys a fixed quota of overtime and is standard in the tech sector, and משרת אם is a shortened working day historically defined for mothers of young children and still named that in job ads.
+locale: he
+---
+משרה מלאה
+חצי משרה
+משרה חלקית
+משרת אם
+שכר גלובלי
+עובד שעתי
+עובד חודשי
+חוזה אישי
+עובד קבלן
+פרילנסר
+עצמאי
+זמני
+מתמחה
+סטודנט

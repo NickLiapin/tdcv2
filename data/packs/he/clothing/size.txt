@@ -1,0 +1,12 @@
+---
+description: Clothing size. Israel uses the international letter sizes and writes them in LATIN letters even in otherwise Hebrew text — Hebrew has no letter case, so no Hebrew rendering of S/M/L exists.
+locale: he
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

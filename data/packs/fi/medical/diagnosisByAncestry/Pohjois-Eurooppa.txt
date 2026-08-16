@@ -1,0 +1,22 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Pohjois-Eurooppa, in Finnish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them. The last eight entries are the suomalainen tautiperintö, the Finnish disease heritage: a set of about 36 rare recessive disorders that are far more common in Finns than anywhere else and, conversely, several common European ones (cystic fibrosis, phenylketonuria) that are rarer here. They come from a small founder population and centuries of internal isolation, and a Finnish clinical genetics service screens for them specifically.
+locale: fi
+---
+Kystinen fibroosi
+Perinnöllinen hemokromatoosi
+Laktoosinsieto aikuisiällä
+Alfa-1-antitrypsiinin puutos
+Keliakia
+MS-tauti
+Tyypin 1 diabetes
+Melanooma
+Fenyyliketonuria
+Haavainen paksusuolentulehdus
+Aspartyyliglukosaminuria
+Suomalainen synnynnäinen nefroosi
+Sallan tauti
+APECED-oireyhtymä
+Meretojan tauti
+CHH-lyhytkasvuisuus
+Nasu-Hakolan tauti
+Pohjoinen epilepsia

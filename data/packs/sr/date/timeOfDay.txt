@@ -1,0 +1,12 @@
+---
+description: Time of day (Serbian)
+locale: sr
+---
+зора
+јутро
+преподне
+подне
+поподне
+предвече
+вече
+ноћ

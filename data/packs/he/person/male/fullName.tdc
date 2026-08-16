@@ -1,0 +1,10 @@
+---
+description: Israeli full male name — one given name and one surname (יונתן כהן). Hebrew names carry a single surname, unlike the two-surname Spanish form, and the surname is drawn from the common list because Israeli surnames do not inflect for gender.
+generator: tdc
+locale: he
+---
+<sequence name="p">
+  <gen name="f" type="template" value="he.person.male.firstName"/>
+  <gen name="l" type="template" value="he.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

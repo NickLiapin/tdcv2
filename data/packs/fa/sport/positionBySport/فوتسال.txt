@@ -1,0 +1,10 @@
+---
+description: Positions in فوتسال (Persian)
+locale: fa
+---
+دروازه‌بان
+فیکسو
+آلای راست
+آلای چپ
+پیوت
+بازیکن ششم

@@ -1,0 +1,20 @@
+---
+description: Grade / mark on the Israeli scale. Israel does NOT use letter grades: schools, the matriculation exams and the universities all grade 0-100, and a mark is quoted as a number. The verbal bands below are the words that accompany that number on a report card; the numeric samples show the range the number actually falls in.
+locale: he
+---
+100
+95
+90
+85
+80
+75
+70
+60
+מצטיין
+טוב מאוד
+טוב
+כמעט טוב
+מספיק
+מספיק בקושי
+טעון שיפור
+בלתי מספיק

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in psykiatria, in Finnish
+locale: fi
+---
+Masennus
+Yleistynyt ahdistuneisuushäiriö
+Paniikkihäiriö
+Kaksisuuntainen mielialahäiriö
+Skitsofrenia
+Työuupumus
+Traumaperäinen stressihäiriö
+Pakko-oireinen häiriö
+Syömishäiriö
+Päihderiippuvuus

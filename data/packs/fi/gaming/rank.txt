@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Finnish)
+locale: fi
+---
+sijoittamaton
+pronssi
+hopea
+kulta
+platina
+timantti
+mestari
+suurmestari
+eliitti
+legenda

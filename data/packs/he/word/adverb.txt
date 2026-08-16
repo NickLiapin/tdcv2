@@ -1,0 +1,38 @@
+---
+description: Common adverb (Hebrew). Many are formed with the preposition ב־ glued to a noun (במהירות, בזהירות) rather than by a suffix.
+locale: he
+---
+מהר
+לאט
+טוב
+רע
+מאוד
+קצת
+הרבה
+מעט
+תמיד
+לעולם לא
+לפעמים
+בדרך כלל
+שוב
+כבר
+עדיין
+מיד
+אחר כך
+קודם
+עכשיו
+אתמול
+היום
+מחר
+כאן
+שם
+למעלה
+למטה
+בפנים
+בחוץ
+יחד
+לבד
+במהירות
+בזהירות
+בשקט
+בקול רם

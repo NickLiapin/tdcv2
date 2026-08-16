@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Hungarian. Amounts are in HUF, the forint, the currency of Hungary — the only country where Hungarian is the sole official language. The symbol Ft goes AFTER the number with a space, never before it, and Hungarian groups thousands with a SPACE, not a comma or a dot: 3 000 000 Ft.
+locale: hu
+---
+3 000 000 Ft alatt
+3 000 000 – 5 000 000 Ft
+5 000 000 – 8 000 000 Ft
+8 000 000 – 12 000 000 Ft
+12 000 000 – 18 000 000 Ft
+18 000 000 – 25 000 000 Ft
+25 000 000 – 40 000 000 Ft
+40 000 000 Ft felett

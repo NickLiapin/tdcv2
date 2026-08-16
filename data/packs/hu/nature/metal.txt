@@ -1,0 +1,26 @@
+---
+description: Metal (Hungarian).
+locale: hu
+---
+Arany
+Ezüst
+Platina
+Réz
+Vas
+Alumínium
+Titán
+Cink
+Nikkel
+Ólom
+Ón
+Bronz
+Sárgaréz
+Acél
+Palládium
+Kobalt
+Króm
+Volfrám
+Higany
+Magnézium
+Lítium
+Mangán

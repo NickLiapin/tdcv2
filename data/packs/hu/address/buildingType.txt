@@ -1,0 +1,36 @@
+---
+description: Building type (Hungarian).
+locale: hu
+---
+Ház
+Családi ház
+Lakás
+Társasház
+Panelház
+Irodaház
+Raktár
+Üzlethelyiség
+Gyár
+Csarnok
+Kórház
+Rendelőintézet
+Iskola
+Gimnázium
+Egyetem
+Szálloda
+Étterem
+Bevásárlóközpont
+Stadion
+Könyvtár
+Templom
+Múzeum
+Színház
+Villa
+Sorház
+Nyaraló
+Tanya
+Kúria
+Toronyház
+Bérház
+Lakótelep
+Parkolóház

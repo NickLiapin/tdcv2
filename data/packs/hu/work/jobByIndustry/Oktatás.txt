@@ -1,0 +1,16 @@
+---
+description: Jobs in Education (Hungarian).
+locale: hu
+---
+Általános iskolai tanító
+Középiskolai tanár
+Egyetemi oktató
+Iskolapszichológus
+Könyvtáros
+Pedagógiai asszisztens
+Iskolaigazgató
+Óvodapedagógus
+Gyógypedagógus
+Logopédus
+Magántanár
+Tantervfejlesztő

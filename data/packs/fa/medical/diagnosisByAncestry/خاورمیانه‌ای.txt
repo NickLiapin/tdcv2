@@ -1,0 +1,16 @@
+---
+description: Conditions more frequent in people of Middle Eastern ancestry, in Persian. This is the ancestry group most Iranians fall into, so it matters most for this locale: cousin marriage remains common in parts of Iran and raises the rate of autosomal recessive disease, which is why the recessive conditions dominate this list. A prevalence signal, not an exclusive one.
+locale: fa
+---
+تالاسمی بتا
+تالاسمی مینور
+کمبود G6PD
+تب مدیترانه‌ای فامیلی
+بیماری بهجت
+کم‌خونی داسی‌شکل
+فنیل‌کتونوری
+بیماری ویلسون
+آتروفی عضلانی نخاعی
+ناشنوایی ارثی
+دیابت نوع ۲
+کمبود شدید ویتامین D

@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Hungarian).
+locale: hu
+---
+Standard
+Superior
+Lakosztály
+Junior lakosztály
+Elnöki lakosztály
+Egyágyas
+Kétágyas
+Kétágyas külön ágyakkal
+Franciaágyas
+Háromágyas
+Négyágyas
+Családi szoba
+Stúdió
+Apartman konyhasarokkal
+Bungaló
+Akadálymentes szoba
+Tengerre néző szoba
+Tetőtéri lakosztály

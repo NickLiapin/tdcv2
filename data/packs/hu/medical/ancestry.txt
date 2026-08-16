@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Hungarian, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: hu
+---
+Szubszaharai
+Észak-afrikai
+Mediterrán
+Közel-keleti
+Észak-európai
+Kelet-európai
+Askenázi
+Dél-ázsiai
+Kelet-ázsiai
+Délkelet-ázsiai
+Amerikai őslakos
+Csendes-óceáni szigeteki

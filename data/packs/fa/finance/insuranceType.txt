@@ -1,0 +1,18 @@
+---
+description: Insurance type (Persian). شخص ثالث is compulsory third-party motor cover and is what an Iranian means by 'car insurance'; بدنه is the optional own-damage cover sold separately. درمان تکمیلی tops up the state تأمین اجتماعی or سلامت scheme rather than replacing it.
+locale: fa
+---
+شخص ثالث
+بدنه
+درمان تکمیلی
+تأمین اجتماعی
+بیمه سلامت
+عمر
+عمر و سرمایه‌گذاری
+آتش‌سوزی
+مسئولیت
+مسافرتی
+حوادث
+باربری
+مهندسی
+زلزله

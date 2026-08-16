@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Hungarian. A prevalence signal, not an exclusive one.
+locale: hu
+---
+Familiáris mediterrán láz
+Béta-talasszémia
+Glükóz-6-foszfát-dehidrogenáz-hiány
+Behçet-betegség
+D-vitamin-hiány
+Sarlósejt-hordozó állapot

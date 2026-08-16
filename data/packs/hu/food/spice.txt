@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Hungarian). Pirospaprika is the national spice and is sold in named grades — csemege (mild), edesnemes (sweet noble), csipos (hot) — that a recipe names explicitly.
+locale: hu
+---
+Fahéj
+Kömény
+Pirospaprika
+Csípős paprika
+Kurkuma
+Gyömbér
+Szerecsendió
+Oregánó
+Bazsalikom
+Kakukkfű
+Rozmaring
+Kardamom
+Koriander
+Chilipor
+Szegfűszeg
+Sáfrány
+Babérlevél
+Kapor
+Zsálya
+Petrezselyem
+Menta
+Ánizs
+Fehér bors
+Cayenne-bors
+Mustármag
+Tárkony
+Édeskömény
+Majoránna
+Szegfűbors
+Vanília

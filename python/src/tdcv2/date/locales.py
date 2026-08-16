@@ -554,6 +554,26 @@ CS = DateLocale(
     {"L": "DD.MM.YYYY", "LL": "D. MMMM YYYY", "LLL": "D. MMMM YYYY HH:mm", "LLLL": "dddd D. MMMM YYYY HH:mm"},
 )
 
+# Hungarian writes a date big-endian — year, month, day — and puts a full stop after EVERY part, the day included: "2026. 10. 09." is a complete date and "2026. 10. 09" is a typo. Month and weekday names are lower case, and the weekday follows the date rather than leading it.
+HU = DateLocale(
+    "hu",
+    ("január", "február", "március", "április", "május", "június", "július", "augusztus", "szeptember", "október", "november", "december"),
+    ("jan.", "febr.", "márc.", "ápr.", "máj.", "jún.", "júl.", "aug.", "szept.", "okt.", "nov.", "dec."),
+    ("vasárnap", "hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat"),
+    ("V", "H", "K", "Sze", "Cs", "P", "Szo"),
+    {"L": "YYYY.MM.DD.", "LL": "YYYY. MMMM D.", "LLL": "YYYY. MMMM D. HH:mm", "LLLL": "YYYY. MMMM D., dddd HH:mm"},
+)
+
+# Finnish, like Czech, inflects the month name inside a date: the month is "tammikuu" but the date reads "5. tammikuuta 2026". These are the partitive forms the formatter needs; the nominative list lives in the pack at fi/date/month.txt. The day number keeps a full stop after it because it is an ordinal, and the time separator is a full stop rather than a colon — 14.30, not 14:30.
+FI = DateLocale(
+    "fi",
+    ("tammikuuta", "helmikuuta", "maaliskuuta", "huhtikuuta", "toukokuuta", "kesäkuuta", "heinäkuuta", "elokuuta", "syyskuuta", "lokakuuta", "marraskuuta", "joulukuuta"),
+    ("tammi", "helmi", "maalis", "huhti", "touko", "kesä", "heinä", "elo", "syys", "loka", "marras", "joulu"),
+    ("sunnuntai", "maanantai", "tiistai", "keskiviikko", "torstai", "perjantai", "lauantai"),
+    ("su", "ma", "ti", "ke", "to", "pe", "la"),
+    {"L": "D.M.YYYY", "LL": "D. MMMM YYYY", "LLL": "D. MMMM YYYY HH.mm", "LLLL": "dddd D. MMMM YYYY HH.mm"},
+)
+
 _BY_NAME: dict[str, DateLocale] = {
     "en": EN,
     "eng": EN,
@@ -595,9 +615,13 @@ _BY_NAME: dict[str, DateLocale] = {
     "th": TH,
     "hi": HI,
     "sv": SV,
+    "hu": HU,
+    "hun": HU,
+    "fi": FI,
+    "fin": FI,
 }
 
-NAMES = ("ar", "cs", "de", "el", "en", "es", "fr", "id", "it", "ja", "ko", "hi", "nl", "pl", "pt", "ru", "sv", "th", "tr", "uk", "vi", "zh-cn")
+NAMES = ("ar", "cs", "de", "el", "en", "es", "fi", "fr", "hu", "id", "it", "ja", "ko", "hi", "nl", "pl", "pt", "ru", "sv", "th", "tr", "uk", "vi", "zh-cn")
 
 
 def resolve(name: str | None) -> DateLocale:

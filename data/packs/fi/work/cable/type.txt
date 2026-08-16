@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Finnish)
+locale: fi
+---
+parikaapeli
+koaksiaalikaapeli
+valokuitukaapeli
+yksimuotokuitu
+monimuotokuitu
+voimakaapeli
+maakaapeli
+signaalikaapeli
+asennuskaapeli

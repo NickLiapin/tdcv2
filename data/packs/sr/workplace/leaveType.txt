@@ -1,0 +1,16 @@
+---
+description: Leave type (Serbian). Слава is the one no other pack has: Serbian labour law gives an employee the right to a paid day off for the household patron-saint feast, so it is a leave category on a real Serbian HR system alongside annual leave and sick leave.
+locale: sr
+---
+Годишњи одмор
+Боловање
+Породиљско одсуство
+Одсуство ради неге детета
+Одсуство ради посебне неге детета
+Слава
+Плаћено одсуство
+Неплаћено одсуство
+Смрт члана породице
+Склапање брака
+Државни празник
+Верски празник

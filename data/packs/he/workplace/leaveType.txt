@@ -1,0 +1,16 @@
+---
+description: Leave type (Hebrew). Two Israeli specifics: מילואים is reserve military service, a legally protected absence that an employer must hold the job open for and that recurs every year for a large share of the workforce; שבעה is the seven days of mourning after the death of a close relative, and Israeli labour practice treats it as leave in its own right. חל״ת is the standard acronym for unpaid leave.
+locale: he
+---
+חופשה שנתית
+ימי מחלה
+מחלת ילד
+חופשת לידה
+חופשת אבהות
+ימי הורות
+מילואים
+שבעה
+חופשת חג
+יום בחירה
+חל״ת
+היעדרות מוצדקת

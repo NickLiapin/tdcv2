@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Finnish)
+locale: fi
+---
+hakemus vastaanotettu
+esikarsinta
+puhelinhaastattelu
+ensimmäinen haastattelu
+toinen haastattelu
+työnäyte
+soveltuvuusarviointi
+suosittelijoiden tarkistus
+taustaselvitys
+tarjous
+hylätty

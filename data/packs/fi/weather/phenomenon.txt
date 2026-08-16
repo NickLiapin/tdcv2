@@ -1,0 +1,25 @@
+---
+description: Weather phenomenon (Finnish). Six of these are northern-latitude facts rather than generic weather. Revontulet is the aurora, visible in Lapland on roughly 200 nights a year. Kaamos is the polar night, when the sun does not rise at all — 51 days of it at Utsjoki — and yötön yö is its summer opposite, when it does not set. Ruska is the two-week autumn colour season in Lapland, which people travel north for. Tykkylumi is crown snow-load, the wet snow that sits on spruces until they bend double. Halla is a night ground frost during the growing season and is an agricultural event with its own warnings, not merely cold weather.
+locale: fi
+---
+revontulet
+kaamos
+yötön yö
+ruska
+tykkylumi
+halla
+ahtojää
+riite
+kuura
+huurre
+jäätävä sade
+pyry
+tuisku
+räntä
+rakeet
+sumu
+utu
+sateenkaari
+ukkonen
+helle
+pakkanen

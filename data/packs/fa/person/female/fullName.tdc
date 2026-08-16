@@ -1,0 +1,10 @@
+---
+description: Persian full female name — a single given name and a single family name (مریم محمدی). The surname comes from the same list the male name uses, because Persian family names do not inflect for gender.
+generator: tdc
+locale: fa
+---
+<sequence name="p">
+  <gen name="f" type="template" value="fa.person.female.firstName"/>
+  <gen name="l" type="template" value="fa.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

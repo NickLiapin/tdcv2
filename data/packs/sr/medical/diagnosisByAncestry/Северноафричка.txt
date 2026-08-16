@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Serbian. A prevalence signal, not an exclusive one.
+locale: sr
+---
+Дефицит глукоза-6-фосфат дехидрогеназе
+Носилаштво бета-таласемије
+Породична медитеранска грозница
+Бехчетова болест
+Неперзистенција лактазе
+Пигментна ксеродерма

@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Hungarian).
+locale: hu
+---
+Lakbér
+Lakáshitel
+Élelmiszer
+Rezsi
+Közlekedés
+Szórakozás
+Egészségügy
+Biztosítás
+Vendéglátás
+Megtakarítás
+Előfizetések
+Utazás
+Oktatás
+Ruházat
+Ajándékok
+Gyermekfelügyelet
+Hiteltörlesztés
+Háziállatok
+Telefon és internet
+Adók

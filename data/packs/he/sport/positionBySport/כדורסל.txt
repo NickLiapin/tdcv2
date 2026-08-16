@@ -1,0 +1,10 @@
+---
+description: Positions in basketball (Hebrew)
+locale: he
+---
+רכז
+קלע
+שחקן כנף
+רחוק
+סנטר
+רכז מקשר

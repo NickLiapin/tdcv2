@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Hungarian).
+locale: hu
+---
+Tolóember
+Ékelő
+Második soros
+Harmadik soros
+Nyolcas
+Összekötő
+Irányító
+Center
+Szélső
+Hátvéd

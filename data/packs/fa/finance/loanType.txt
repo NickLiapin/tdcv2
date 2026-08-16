@@ -1,0 +1,16 @@
+---
+description: Loan / credit facility (Persian). Iranian banking is interest-free in law, so a loan is written as one of a fixed set of Islamic contracts rather than as a rate: قرض‌الحسنه is the benevolent no-profit loan, مرابحه a cost-plus sale, مضاربه a profit-sharing venture, جعاله payment for a job done, and اجاره به شرط تملیک a lease that ends in ownership. وام ازدواج is a state-mandated marriage loan every newly married couple may claim.
+locale: fa
+---
+وام مسکن
+وام خودرو
+قرض‌الحسنه
+وام ازدواج
+وام دانشجویی
+وام مشاغل خانگی
+مرابحه
+مضاربه
+جعاله
+مشارکت مدنی
+اجاره به شرط تملیک
+خرید دین

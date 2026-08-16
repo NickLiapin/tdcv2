@@ -1,0 +1,32 @@
+---
+description: Garment type (Persian). Five of these are specific to Iran and required by its dress code for women in public: مانتو is the tailored knee-length overcoat that is the everyday form of it, روسری the headscarf, شال a longer looser scarf worn the same way, چادر the full semicircular cloth held closed by hand, and مقنعه the fitted hood worn in schools and government offices.
+locale: fa
+---
+پیراهن
+تی‌شرت
+شلوار
+شلوار جین
+دامن
+کت
+کت و شلوار
+پالتو
+بارانی
+ژاکت
+پلیور
+سویشرت
+هودی
+جلیقه
+مانتو
+روسری
+شال
+چادر
+مقنعه
+کفش
+صندل
+بوت
+کتانی
+جوراب
+کمربند
+کلاه
+دستکش
+شلوارک

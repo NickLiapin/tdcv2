@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Hebrew that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: he
+---
+הגדלה שפירה של הערמונית
+דלקת ערמונית
+סרטן ערמונית
+סרטן אשך
+דלקת אשך
+דלקת יותרת האשך
+פיתול אשך
+וריקוצלה
+הידרוצלה
+אשך טמיר
+כשל זיקפה
+שפיכה מוקדמת
+פימוזיס
+אי פוריות גברית
+גינקומסטיה
+היצרות שופכה
+מחלת פירוני
+היפוגונדיזם
+טסטוסטרון נמוך
+בקע מפשעתי

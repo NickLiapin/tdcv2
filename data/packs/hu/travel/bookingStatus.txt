@@ -1,0 +1,15 @@
+---
+description: Booking status (Hungarian).
+locale: hu
+---
+Visszaigazolva
+Függőben
+Törölve
+Várólistán
+Bejelentkezve
+Kijelentkezve
+Meg nem jelent
+Módosítva
+Visszatérítve
+Lejárt
+Garantált

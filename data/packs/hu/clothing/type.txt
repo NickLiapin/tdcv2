@@ -1,0 +1,30 @@
+---
+description: Garment type (Hungarian).
+locale: hu
+---
+Póló
+Farmernadrág
+Ruha
+Dzseki
+Pulóver
+Szoknya
+Rövidnadrág
+Kapucnis felső
+Blúz
+Öltöny
+Kabát
+Sportcipő
+Csizma
+Kalap
+Sál
+Ing
+Nadrág
+Mellény
+Esőkabát
+Pizsama
+Zokni
+Öv
+Sapka
+Szandál
+Kesztyű
+Nyakkendő

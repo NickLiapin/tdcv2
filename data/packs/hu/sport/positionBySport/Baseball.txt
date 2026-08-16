@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (Hungarian).
+locale: hu
+---
+Dobójátékos
+Elkapó
+Első bázisvédő
+Második bázisvédő
+Harmadik bázisvédő
+Rövid megállító
+Bal külső védő
+Középső külső védő
+Jobb külső védő
+Kijelölt ütőjátékos

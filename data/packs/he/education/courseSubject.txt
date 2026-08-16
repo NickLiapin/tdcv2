@@ -1,0 +1,26 @@
+---
+description: School subject (Hebrew). תנ״ך, מחשבת ישראל and תורה שבעל פה are compulsory or standard subjects in the Israeli state system and have no European counterpart.
+locale: he
+---
+מתמטיקה
+לשון
+ספרות
+תנ״ך
+תורה שבעל פה
+מחשבת ישראל
+היסטוריה
+אזרחות
+אנגלית
+ערבית
+פיזיקה
+כימיה
+ביולוגיה
+מדעי המחשב
+גאוגרפיה
+חינוך גופני
+אמנות
+מוזיקה
+תיאטרון
+מדעי החברה
+פסיכולוגיה
+כלכלה

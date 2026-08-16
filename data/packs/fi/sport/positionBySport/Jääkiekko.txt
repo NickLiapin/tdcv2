@@ -1,0 +1,12 @@
+---
+description: Positions in jääkiekko, in Finnish.
+locale: fi
+---
+maalivahti
+oikea puolustaja
+vasen puolustaja
+keskushyökkääjä
+oikea laitahyökkääjä
+vasen laitahyökkääjä
+ylivoimapelaaja
+alivoimapelaaja

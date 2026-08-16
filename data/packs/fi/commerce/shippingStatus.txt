@@ -1,0 +1,15 @@
+---
+description: Shipping status (Finnish)
+locale: fi
+---
+valmistellaan
+jätetty kuljetettavaksi
+kuljetuksessa
+terminaalissa
+jakelussa
+toimitettu
+noudettavissa
+saapumisilmoitus lähetetty
+toimitusyritys epäonnistui
+palautuksessa
+myöhässä

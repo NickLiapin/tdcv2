@@ -1,0 +1,41 @@
+---
+description: Trailing element of a Hungarian place name (Hajduszoboszlo, Balatonfured, Kiskunfelegyhaza). Hungarian glues these to the stem as one word rather than writing them separately; the last three are the separate river qualifiers that really do stand apart.
+locale: hu
+---
+falva
+falu
+háza
+helye
+vár
+vára
+várad
+hida
+révi
+szállás
+telek
+telke
+föld
+földe
+sziget
+szeg
+part
+fürdő
+bánya
+major
+puszta
+tanya
+keresztúr
+szentmiklós
+szentgyörgy
+szentmárton
+apáti
+monostor
+egyháza
+laka
+kút
+halom
+hegy
+völgy
+a Duna mentén
+a Tisza mentén
+a Balaton partján

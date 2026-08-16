@@ -1,0 +1,24 @@
+---
+description: Film genre (Persian). اجتماعی and دفاع مقدس are the two labels Iranian cinema uses that no other market has: اجتماعی is the domestic social drama that dominates Iranian film, and دفاع مقدس is Iran-Iraq war cinema.
+locale: fa
+---
+درام
+کمدی
+اکشن
+ماجراجویی
+ترسناک
+دلهره‌آور
+علمی‌تخیلی
+فانتزی
+جنایی
+معمایی
+عاشقانه
+تاریخی
+مستند
+انیمیشن
+موزیکال
+جنگی
+دفاع مقدس
+وسترن
+خانوادگی
+اجتماعی

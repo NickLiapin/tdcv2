@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Serbian, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: sr
+---
+Субсахарска
+Северноафричка
+Медитеранска
+Блискоисточна
+Северноевропска
+Источноевропска
+Ашкенаска
+Јужноазијска
+Источноазијска
+Југоисточноазијска
+Аутохтона америчка
+Пацифичких острва

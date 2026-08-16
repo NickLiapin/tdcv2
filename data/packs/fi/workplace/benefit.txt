@@ -1,0 +1,24 @@
+---
+description: Employee benefit (Finnish). Three of these are Finnish institutions rather than perks. Lomaraha, the holiday bonus, is an extra 50 % of holiday pay written into most collective agreements and paid out in June — a Finn genuinely counts on it. Pekkaspäivät are the paid days off created by the 1984 working-time reduction agreement, named after the negotiator Matti Pekkanen, and they are still in the metal and technology agreements today. Työterveyshuolto is not optional generosity: Finnish law obliges every employer to arrange occupational health care, so it is on this list as a baseline rather than a benefit. Liikunta- ja kulttuurietu is paid through the ePassi or Smartum card and is tax-free up to a statutory ceiling.
+locale: fi
+---
+lounasetu
+lounasseteli
+liikunta- ja kulttuurietu
+työterveyshuolto
+laajennettu työterveyshuolto
+lomaraha
+pekkaspäivät
+työsuhdepolkupyörä
+puhelinetu
+autoetu
+työsuhdematkalippu
+lisäeläkevakuutus
+henkivakuutus
+sairauskuluvakuutus
+koulutusbudjetti
+etätyömahdollisuus
+liukuva työaika
+henkilöstörahasto
+virkistyspäivä
+työsuhdesauna

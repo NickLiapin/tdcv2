@@ -1,0 +1,25 @@
+---
+description: Religion (Persian). Iran's constitution recognises exactly four faiths — Shia Islam as the state religion, and زرتشتی، کلیمی (Jewish) and مسیحی (Christian) as protected minorities with reserved seats in parliament. Zoroastrianism began in Iran and its community is still there. بهائی is listed because it also began in Iran and has adherents there, though it holds no legal recognition. یارسان (اهل حق) and مندائی are older minority faiths of western and south-western Iran.
+locale: fa
+---
+اسلام
+شیعه
+شیعه دوازده‌امامی
+اهل سنت
+زرتشتی
+کلیمی
+مسیحی
+ارتدکس ارمنی
+ارتدکس آشوری
+کاتولیک
+پروتستان
+یارسان
+مندائی
+بهائی
+بودایی
+هندو
+سیک
+جین
+تائویی
+بی‌دین
+لاادری

@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Finland. Finland has two parallel higher-education ladders: the universities (kandidaatti, maisteri, tohtori) and the ammattikorkeakoulut, whose AMK and YAMK degrees are professionally oriented and not junior versions of the university ones. Diplomi-insinööri is the five-year engineering master's and is used as a title. Dosentti is a qualification above the doctorate rather than a post.
+locale: fi
+---
+peruskoulu
+ylioppilastutkinto
+ammatillinen perustutkinto
+ammattitutkinto
+erikoisammattitutkinto
+ammattikorkeakoulututkinto
+ylempi ammattikorkeakoulututkinto
+kandidaatin tutkinto
+maisterin tutkinto
+diplomi-insinöörin tutkinto
+lääketieteen lisensiaatti
+oikeustieteen maisteri
+lisensiaatin tutkinto
+tohtorin tutkinto
+dosentti
+professori

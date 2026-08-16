@@ -1,0 +1,24 @@
+---
+description: Property type (Finnish). The Finnish system needs explaining: you almost never own a flat, you own SHARES in an asunto-osakeyhtiö, a housing company that owns the building, and those shares entitle you to a named flat. That is what kerrostaloasunto and rivitaloasunto mean in a Finnish deed. Asumisoikeusasunto is a third tenure between owning and renting — you pay a capital share of about 15 % and then a monthly charge, and you can never sell it at a profit. Only a detached house on its own plot is owned outright.
+locale: fi
+---
+kerrostaloasunto
+rivitaloasunto
+paritaloasunto
+luhtitaloasunto
+omakotitalo
+erillistalo
+vapaa-ajan asunto
+mökki
+tontti
+metsätila
+maatila
+liikehuoneisto
+toimistotila
+teollisuushalli
+varasto
+autotallipaikka
+asumisoikeusasunto
+osaomistusasunto
+vuokra-asunto
+omistusasunto

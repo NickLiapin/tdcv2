@@ -1,0 +1,20 @@
+---
+description: Parcel carriers used in Israel. Shorter than the Polish list on purpose — the Israeli last-mile market really is this small, and the brief asks for the real set rather than a padded one. International brands keep their Latin name because that is how they appear on an Israeli tracking page.
+locale: he
+---
+דואר ישראל
+דואר שליחים
+צ׳יטה
+HFD
+Boxit
+Wolt
+Gett Delivery
+DHL
+FedEx
+UPS
+TNT
+Aramex
+EMS
+China Post
+SF Express
+Amazon Logistics

@@ -1,0 +1,16 @@
+---
+description: Jobs in Construction (Hungarian).
+locale: hu
+---
+Villanyszerelő
+Vízvezeték-szerelő
+Kőműves
+Ács
+Építésvezető
+Nehézgépkezelő
+Földmérő
+Tetőfedő
+Vasbetonszerelő
+Vakoló
+Építésügyi ellenőr
+Építőipari munkás

@@ -1,0 +1,15 @@
+---
+description: Social reaction (Finnish)
+locale: fi
+---
+tykkää
+en tykkää
+rakastan
+haha
+vau
+surullinen
+vihainen
+kiitollinen
+tallenna
+jaa
+kommentoi

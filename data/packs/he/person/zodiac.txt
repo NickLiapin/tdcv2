@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Hebrew). These are the מזלות, and the same twelve names are used for the constellations associated with the months of the Hebrew calendar.
+locale: he
+---
+טלה
+שור
+תאומים
+סרטן
+אריה
+בתולה
+מאזניים
+עקרב
+קשת
+גדי
+דלי
+דגים

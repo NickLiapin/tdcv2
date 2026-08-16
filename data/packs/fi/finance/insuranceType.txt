@@ -1,0 +1,22 @@
+---
+description: Insurance type (Finnish). Liikennevakuutus is compulsory by law for every registered vehicle. YEL — yrittäjän eläkevakuutus — is the one worth knowing: a Finnish self-employed person must insure themselves under YEL, and the income they declare for it sets not only their pension but their sick pay and parental allowance too, so it is the single most consequential number in a Finnish freelancer's year.
+locale: fi
+---
+kotivakuutus
+kiinteistövakuutus
+vapaa-ajan asunnon vakuutus
+autovakuutus
+liikennevakuutus
+kaskovakuutus
+tapaturmavakuutus
+sairauskuluvakuutus
+henkivakuutus
+lapsivakuutus
+matkavakuutus
+lemmikkivakuutus
+metsävakuutus
+oikeusturvavakuutus
+vastuuvakuutus
+yritysvakuutus
+YEL-vakuutus
+TyEL-vakuutus

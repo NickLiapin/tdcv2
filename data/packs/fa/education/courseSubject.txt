@@ -1,0 +1,24 @@
+---
+description: School subject (Persian). دینی و قرآن and آمادگی دفاعی are compulsory subjects in Iranian schools with no European counterpart, and حسابان is the specific pre-calculus course taken in the mathematics stream.
+locale: fa
+---
+ریاضی
+فیزیک
+شیمی
+زیست‌شناسی
+ادبیات فارسی
+زبان انگلیسی
+عربی
+تاریخ
+جغرافیا
+دینی و قرآن
+مطالعات اجتماعی
+هندسه
+حسابان
+آمار
+رایانه
+هنر
+ورزش
+زمین‌شناسی
+فلسفه و منطق
+آمادگی دفاعی

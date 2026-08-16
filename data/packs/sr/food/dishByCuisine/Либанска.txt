@@ -1,0 +1,12 @@
+---
+description: Dishes of Lebanese cuisine (Serbian)
+locale: sr
+---
+Хумус
+Табуле
+Фалафел
+Шаварма
+Баба гануш
+Кибе
+Фатуш
+Манакиш

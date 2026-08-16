@@ -1,0 +1,26 @@
+---
+description: Property amenity (Persian). پکیج is the wall-hung gas boiler that heats most Iranian flats; مستر is a bedroom with its own bathroom.
+locale: fa
+---
+آسانسور
+پارکینگ
+انباری
+بالکن
+تراس
+حیاط
+استخر
+سونا
+جکوزی
+سالن ورزش
+لابی
+نگهبانی
+دوربین مدار بسته
+درب ریموت
+آیفون تصویری
+کولر گازی
+پکیج
+شوفاژ
+کابینت ام‌دی‌اف
+کف پارکت
+مستر
+روف گاردن

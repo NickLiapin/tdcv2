@@ -1,0 +1,17 @@
+---
+description: Mobile plan type (Finnish). Rajaton data at a capped speed is the standard Finnish subscription — the price is set by megabits per second rather than by gigabytes — which is why it sits near the top rather than as a premium option.
+locale: fi
+---
+prepaid
+liittymä
+rajaton data
+nopeusrajoitettu liittymä
+kiinteä kuukausimaksu
+datapaketti
+perheliittymä
+yritysliittymä
+mobiililaajakaista
+datan jakaminen
+lisä-SIM
+eSIM
+ulkomaanpaketti

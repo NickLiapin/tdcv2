@@ -1,0 +1,18 @@
+---
+description: Mobile and fixed-line carrier in Israel. Deliberately short: the Israeli market really is served by this handful of operators plus a few resellers, and inventing more would misrepresent it.
+locale: he
+---
+סלקום
+פרטנר
+פלאפון
+הוט מובייל
+גולן טלקום
+רמי לוי תקשורת
+012 מובייל
+019 מובייל
+WE4G
+בזק
+בזק בינלאומי
+הוט
+יס
+סלקום TV

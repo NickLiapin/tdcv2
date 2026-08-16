@@ -1,0 +1,34 @@
+---
+description: Dog breed (Finnish). Suomenpystykorva is the national dog and the bark-pointer used for grouse; suomenajokoira is the hound bred for hare; lapinporokoira and suomenlapinkoira are the Sami reindeer-herding breeds; karjalankarhukoira is the bear dog of Karelia.
+locale: fi
+---
+Suomenpystykorva
+Suomenajokoira
+Suomenlapinkoira
+Lapinporokoira
+Karjalankarhukoira
+Labradorinnoutaja
+Kultainennoutaja
+Saksanpaimenkoira
+Ranskanbulldoggi
+Villakoira
+Beagle
+Rottweiler
+Mäyräkoira
+Bokseri
+Siperianhusky
+Alaskanmalamuutti
+Tanskandoggi
+Dobermanni
+Australianpaimenkoira
+Bordercollie
+Chihuahua
+Shih tzu
+Pomeranian
+Welsh corgi
+Berninpaimenkoira
+Vinttikoira
+Kääpiösnautseri
+Bernhardinkoira
+Dalmatiankoira
+Jackrussellinterrieri

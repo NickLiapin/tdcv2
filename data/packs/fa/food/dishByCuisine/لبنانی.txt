@@ -1,0 +1,16 @@
+---
+description: Dishes of Lebanese cuisine (Persian)
+locale: fa
+---
+حمص
+متبل
+تبوله
+فلافل
+شاورما
+فتوش
+کبه
+منقوشه
+ورق عنب
+بابا غنوش
+لبنه
+مقلوبه

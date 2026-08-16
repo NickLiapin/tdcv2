@@ -1,0 +1,16 @@
+---
+description: Grade / mark on the Hungarian school and university scale. Hungary runs 5 down to 1 with FIVE as the best and one as the fail — the reverse of the Austrian, German, Czech and Slovak scales next door, so a config that maps marks across borders must not assume the number means the same thing.
+locale: hu
+---
+Jeles (5)
+Jó (4)
+Közepes (3)
+Elégséges (2)
+Elégtelen (1)
+Kiválóan megfelelt
+Jól megfelelt
+Megfelelt
+Nem felelt meg
+Aláírás megtagadva
+Felmentve
+Nem osztályozható

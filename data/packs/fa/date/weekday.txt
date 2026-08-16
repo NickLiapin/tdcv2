@@ -1,0 +1,11 @@
+---
+description: Weekday name (Persian), listed from SATURDAY because that is where the Iranian week starts. Persian counts its weekdays rather than naming them after planets: شنبه is the base day, یکشنبه is 'one-shanbe', دوشنبه 'two-shanbe', up to پنجشنبه, and only جمعه (Friday, the day of congregation) has its own name. The weekend is THURSDAY-FRIDAY: Friday is the public holiday, and government offices, banks and schools also close Thursday, so the ordinary working week is Saturday to Wednesday.
+locale: fa
+---
+شنبه
+یکشنبه
+دوشنبه
+سه‌شنبه
+چهارشنبه
+پنجشنبه
+جمعه

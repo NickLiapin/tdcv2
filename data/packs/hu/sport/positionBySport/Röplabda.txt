@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Hungarian).
+locale: hu
+---
+Feladó
+Ütő
+Középső blokkoló
+Átlósütő
+Liberó

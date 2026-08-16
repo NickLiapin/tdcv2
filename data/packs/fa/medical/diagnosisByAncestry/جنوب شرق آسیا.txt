@@ -1,0 +1,14 @@
+---
+description: Conditions more frequent in people of Southeast Asian ancestry (Persian)
+locale: fa
+---
+تالاسمی آلفا
+هموگلوبین E
+کمبود G6PD
+هپاتیت B مزمن
+سرطان کبد
+سل
+عدم تحمل لاکتوز بزرگسالان
+تیروتوکسیکوز
+کم‌خونی فقر آهن
+سندرم برادا

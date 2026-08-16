@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Hungarian district, estate or street name (Belvaros, Ujvaros, Deli varosresz). The compass words take the -i adjective ending when they qualify a noun.
+locale: hu
+---
+Észak
+Dél
+Kelet
+Nyugat
+Északkelet
+Északnyugat
+Délkelet
+Délnyugat
+Északi
+Déli
+Keleti
+Nyugati
+Központ
+Belváros
+Külváros

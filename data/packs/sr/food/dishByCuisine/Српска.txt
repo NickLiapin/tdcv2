@@ -1,0 +1,20 @@
+---
+description: Dishes of Serbian cuisine (Serbian). Ајвар, кајмак and ракија are strictly a roasted-pepper relish, a clotted dairy spread and a fruit brandy rather than dishes, but they are kept here because a Serbian table is described by them more often than by any main course.
+locale: sr
+---
+Ћевапи
+Пљескавица
+Карађорђева шницла
+Сарма
+Ђувеч
+Мућкалица
+Пребранац
+Подварак
+Гибаница
+Бурек
+Проја
+Пихтије
+Чварци
+Ајвар
+Кајмак
+Ракија

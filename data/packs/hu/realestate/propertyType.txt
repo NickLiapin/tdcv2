@@ -1,0 +1,23 @@
+---
+description: Property type (Hungarian). Panellakas — a flat in a prefabricated concrete block — is a category of its own on every Hungarian listing site and is priced quite separately from a brick-built teglalakas.
+locale: hu
+---
+Családi ház
+Társasházi lakás
+Panellakás
+Téglalakás
+Sorház
+Ikerház
+Bérház
+Villa
+Bungaló
+Nyaraló
+Tetőtéri lakás
+Garzon
+Loft
+Mobilház
+Kúria
+Rezidencia
+Tanya
+Építési telek
+Üzlethelyiség

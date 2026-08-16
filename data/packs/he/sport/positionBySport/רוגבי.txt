@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Hebrew)
+locale: he
+---
+פרופ
+הוקר
+לוק
+פלנקר
+מספר שמונה
+סקרם האף
+פליי האף
+סנטר
+כנף
+פולבק

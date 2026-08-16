@@ -1,0 +1,9 @@
+---
+description: Positions in koripallo, in Finnish.
+locale: fi
+---
+pelinrakentaja
+heittävä takamies
+pieni laitahyökkääjä
+vahva laitahyökkääjä
+sentteri

@@ -1,0 +1,9 @@
+---
+description: Positions in jääpallo, in Finnish.
+locale: fi
+---
+maalivahti
+puolustaja
+keskikenttäpelaaja
+laitahyökkääjä
+hyökkääjä

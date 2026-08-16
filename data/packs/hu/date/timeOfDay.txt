@@ -1,0 +1,12 @@
+---
+description: Time of day (Hungarian, lowercase). Hungarian splits the morning in two — reggel is the early part, delelott the stretch running up to noon — and has no single word covering both.
+locale: hu
+---
+hajnal
+reggel
+délelőtt
+dél
+délután
+este
+éjszaka
+éjfél

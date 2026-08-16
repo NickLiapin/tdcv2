@@ -1,0 +1,20 @@
+---
+description: Academic qualification as awarded in Iran. The Persian everyday names differ from the official ones — a کارشناسی is universally called a لیسانس, a کارشناسی ارشد a فوق‌لیسانس, and a کاردانی a فوق‌دیپلم. The last four are seminary ranks from the حوزه علمیه, a parallel system to the universities whose سطح چهار is treated as equivalent to a doctorate and whose اجتهاد is the licence to issue independent religious rulings.
+locale: fa
+---
+ابتدایی
+سیکل
+متوسطه اول
+متوسطه دوم
+دیپلم
+پیش‌دانشگاهی
+کاردانی
+کارشناسی
+کارشناسی ناپیوسته
+کارشناسی ارشد
+دکتری
+دکتری حرفه‌ای
+تخصص
+فوق‌تخصص
+سطح سه حوزوی
+سطح چهار حوزوی

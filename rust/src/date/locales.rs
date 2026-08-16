@@ -1067,7 +1067,126 @@ static CS: DateLocale = DateLocale {
     ],
 };
 
-static BY_NAME: [(&str, &DateLocale); 40] = [
+// Hungarian writes a date big-endian — year, month, day — and puts a full stop
+// after EVERY part, the day included: "2026. 10. 09." is a complete date and
+// "2026. 10. 09" is a typo. Month and weekday names are lower case, and the
+// weekday follows the date rather than leading it.
+static HU: DateLocale = DateLocale {
+    months: [
+        "január",
+        "február",
+        "március",
+        "április",
+        "május",
+        "június",
+        "július",
+        "augusztus",
+        "szeptember",
+        "október",
+        "november",
+        "december",
+    ],
+    months_short: [
+        "jan.",
+        "febr.",
+        "márc.",
+        "ápr.",
+        "máj.",
+        "jún.",
+        "júl.",
+        "aug.",
+        "szept.",
+        "okt.",
+        "nov.",
+        "dec.",
+    ],
+    weekdays: [
+        "vasárnap",
+        "hétfő",
+        "kedd",
+        "szerda",
+        "csütörtök",
+        "péntek",
+        "szombat",
+    ],
+    weekdays_short: [
+        "V",
+        "H",
+        "K",
+        "Sze",
+        "Cs",
+        "P",
+        "Szo",
+    ],
+    formats: [
+        "YYYY.MM.DD.",
+        "YYYY. MMMM D.",
+        "YYYY. MMMM D. HH:mm",
+        "YYYY. MMMM D., dddd HH:mm",
+    ],
+};
+
+// Finnish, like Czech, inflects the month name inside a date: the month is
+// "tammikuu" but the date reads "5. tammikuuta 2026". These are the partitive
+// forms the formatter needs; the nominative list lives in the pack at
+// fi/date/month.txt. The day number keeps a full stop after it because it is an
+// ordinal, and the time separator is a full stop rather than a colon — 14.30.
+static FI: DateLocale = DateLocale {
+    months: [
+        "tammikuuta",
+        "helmikuuta",
+        "maaliskuuta",
+        "huhtikuuta",
+        "toukokuuta",
+        "kesäkuuta",
+        "heinäkuuta",
+        "elokuuta",
+        "syyskuuta",
+        "lokakuuta",
+        "marraskuuta",
+        "joulukuuta",
+    ],
+    months_short: [
+        "tammi",
+        "helmi",
+        "maalis",
+        "huhti",
+        "touko",
+        "kesä",
+        "heinä",
+        "elo",
+        "syys",
+        "loka",
+        "marras",
+        "joulu",
+    ],
+    weekdays: [
+        "sunnuntai",
+        "maanantai",
+        "tiistai",
+        "keskiviikko",
+        "torstai",
+        "perjantai",
+        "lauantai",
+    ],
+    weekdays_short: [
+        "su",
+        "ma",
+        "ti",
+        "ke",
+        "to",
+        "pe",
+        "la",
+    ],
+    formats: [
+        "D.M.YYYY",
+        "D. MMMM YYYY",
+        "D. MMMM YYYY HH.mm",
+        "dddd D. MMMM YYYY HH.mm",
+    ],
+};
+
+static BY_NAME: [(&str, &DateLocale); 44] = [
     ("en", &EN),
     ("eng", &EN),
     ("ru", &RU),
@@ -1108,11 +1227,15 @@ static BY_NAME: [(&str, &DateLocale); 40] = [
     ("th", &TH),
     ("hi", &HI),
     ("sv", &SV),
+    ("hu", &HU),
+    ("hun", &HU),
+    ("fi", &FI),
+    ("fin", &FI),
 ];
 
 /// The advertised names, for the validator's "did you mean" list.
-pub static NAMES: [&str; 22] = [
-    "ar", "cs", "de", "el", "en", "es", "fr", "id", "it", "ja", "ko", "hi", "nl", "pl", "pt", "ru", "sv", "th", "tr", "uk", "vi", "zh-cn",
+pub static NAMES: [&str; 24] = [
+    "ar", "cs", "de", "el", "en", "es", "fi", "fr", "hu", "id", "it", "ja", "ko", "hi", "nl", "pl", "pt", "ru", "sv", "th", "tr", "uk", "vi", "zh-cn",
 ];
 
 /// The named locale, falling back to English.

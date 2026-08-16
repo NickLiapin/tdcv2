@@ -1,0 +1,12 @@
+---
+description: Dishes of Greek cuisine (Hungarian).
+locale: hu
+---
+Muszaka
+Szuvlaki
+Gyros
+Görög saláta
+Spanakopita
+Baklava
+Cacik
+Dolma

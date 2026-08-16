@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Amerikan alkuperäiskansat, in Finnish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: fi
+---
+Tyypin 2 diabetes
+Sappikivi
+Lihavuus
+Aineenvaihdunnan oireyhtymä
+Laktoosi-intoleranssi
+Nivelreuma
+Sappirakon syöpä
+Alkoholin aineenvaihdunnan poikkeavuus
+Krooninen munuaisten vajaatoiminta
+Kohonnut verenpaine

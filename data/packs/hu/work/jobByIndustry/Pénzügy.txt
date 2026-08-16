@@ -1,0 +1,16 @@
+---
+description: Jobs in Finance (Hungarian).
+locale: hu
+---
+Pénzügyi elemző
+Könyvelő
+Főkönyvelő
+Belső ellenőr
+Aktuárius
+Hiteltanácsadó
+Adótanácsadó
+Tőzsdeügynök
+Kockázatkezelő
+Kontroller
+Bankpénztáros
+Befektetési elemző

@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Hebrew, Gregorian). Written with a geresh ׳ where the name is cut short; the four short names are not abbreviated at all.
+locale: he
+---
+ינו׳
+פבר׳
+מרץ
+אפר׳
+מאי
+יוני
+יולי
+אוג׳
+ספט׳
+אוק׳
+נוב׳
+דצמ׳

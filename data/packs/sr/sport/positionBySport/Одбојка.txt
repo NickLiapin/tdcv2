@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Serbian)
+locale: sr
+---
+Техничар
+Коректор
+Примач сервиса
+Средњи блокер
+Либеро

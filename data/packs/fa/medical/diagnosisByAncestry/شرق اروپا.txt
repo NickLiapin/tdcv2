@@ -1,0 +1,14 @@
+---
+description: Conditions more frequent in people of Eastern European ancestry (Persian)
+locale: fa
+---
+هموکروماتوز ارثی
+سلیاک
+کم‌خونی فانکونی
+بیماری ویلسون
+دیابت نوع ۱
+بیماری قلبی زودرس
+سرطان معده
+پوکی استخوان
+کمبود ویتامین D
+بیماری کرون

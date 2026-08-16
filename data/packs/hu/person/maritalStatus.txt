@@ -1,0 +1,18 @@
+---
+description: Marital status in Hungarian. This is the one corner of the language where the vocabulary itself is sexed even though the grammar is not: notlen (literally "wifeless") is said only of a man and hajadon only of a woman, and likewise nos of a man against ferjezett of a woman. Hazas and egyedulallo are the sex-neutral alternatives that official forms increasingly prefer.
+locale: hu
+---
+nőtlen
+hajadon
+egyedülálló
+nős
+férjezett
+házas
+elvált
+özvegy
+külön él
+élettársi kapcsolatban él
+bejegyzett élettárs
+jegyben jár
+párkapcsolatban él
+egyedül él

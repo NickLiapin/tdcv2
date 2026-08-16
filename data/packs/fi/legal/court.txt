@@ -1,0 +1,19 @@
+---
+description: Court (Finnish judiciary). Finland runs two parallel ladders: the general courts (käräjäoikeus, hovioikeus, korkein oikeus) and the administrative courts (hallinto-oikeus, korkein hallinto-oikeus) that hear disputes with public authorities. Valtakunnanoikeus is the rarest of them — the High Court of Impeachment, convened only to try a minister or a supreme-court justice, and it has sat four times in a century.
+locale: fi
+---
+käräjäoikeus
+hovioikeus
+korkein oikeus
+hallinto-oikeus
+korkein hallinto-oikeus
+markkinaoikeus
+työtuomioistuin
+vakuutusoikeus
+valtakunnanoikeus
+sovittelu
+kuluttajariitalautakunta
+ulosottovirasto
+syyttäjälaitos
+oikeusaputoimisto
+lautamiehet

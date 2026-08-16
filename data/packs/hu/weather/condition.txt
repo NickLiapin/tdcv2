@@ -1,0 +1,20 @@
+---
+description: Weather condition (Hungarian).
+locale: hu
+---
+Napos
+Részben felhős
+Felhős
+Borult
+Esős
+Szitálás
+Zivatar
+Havazás
+Havas eső
+Köd
+Szeles
+Párás
+Derült
+Jégeső
+Záporok
+Fülledt

@@ -1,0 +1,12 @@
+---
+description: Dishes of Indian cuisine (Serbian)
+locale: sr
+---
+Бутер пилетина
+Тика масала
+Палак панир
+Бирјани
+Самоса
+Нан
+Дал
+Виндалу

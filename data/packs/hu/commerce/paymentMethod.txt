@@ -1,0 +1,23 @@
+---
+description: Payment method (Hungarian). SZEP kartya and Erzsebet-utalvany are Hungarian fringe-benefit instruments with no equivalent elsewhere: an employer loads them and they are accepted only for food, leisure or accommodation.
+locale: hu
+---
+Hitelkártya
+Betéti kártya
+Bankkártya
+Átutalás
+Utánvét
+Készpénz
+PayPal
+Apple Pay
+Google Pay
+SimplePay
+Barion
+Revolut
+SZÉP kártya
+Erzsébet-utalvány
+Ajándékutalvány
+Részletfizetés
+Csoportos beszedés
+Kriptovaluta
+Áruhitel

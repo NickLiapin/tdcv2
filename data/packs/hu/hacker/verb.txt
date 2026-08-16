@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (Hungarian). The infinitive ending harmonises with the stem too: -NI after a back vowel, -NI after -it/-et stems reads as -eni (tomoriteni), so the ending is not a constant.
+locale: hu
+---
+archiválni
+megkerülni
+feltörni
+felülírni
+tömöríteni
+másolni
+navigálni
+indexelni
+összekapcsolni
+generálni
+számszerűsíteni
+kiszámítani
+szintetizálni
+bevinni
+továbbítani
+programozni
+újraindítani
+elemezni
+titkosítani
+visszafejteni
+telepíteni
+fordítani
+hibát keresni
+optimalizálni
+szinkronizálni
+virtualizálni
+útvonalat választani
+felügyelni

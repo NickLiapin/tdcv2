@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Hungarian). Hungarian has NO grammatical gender of any kind — a single third-person pronoun, o, covers he, she and, of a person, it, and there are no gendered articles, adjectives, possessives or job titles anywhere in the language. A config that needs to tell he from she cannot get it from Hungarian at all and must carry the sex in a field of its own. Hungarian is also pro-drop: the verb ending carries the person, so the pronoun is usually left out of a sentence entirely. On and onok are the formal you, and take third-person verb forms.
+locale: hu
+---
+ő
+ők
+őt
+neki
+övé
+ön
+önök
+maga

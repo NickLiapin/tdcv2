@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Finnish). Sauna and aamiaisbuffet are near-universal in Finnish hotels and their absence is what a listing has to mention. Kuivaushuone and suksivarasto belong to the Lapland fell hotels, and lämmitystolppa — the block-heater post at the parking space — is what makes a winter car park usable.
+locale: fi
+---
+aamiaisbuffet
+sauna
+savusauna
+kylpylä
+uima-allas
+kuntosali
+ravintola
+baari
+huonepalvelu
+wifi
+pysäköinti
+lämmitystolppa
+sähköauton latauspiste
+kokoustila
+pesulapalvelu
+kuivaushuone
+suksivarasto
+polkupyörävarasto
+lemmikit sallittu
+lastensänky
+perhehuone
+hissi
+esteettömyys
+vastaanotto ympäri vuorokauden
+matkatavarasäilytys
+minibaari
+kahvinkeitin huoneessa
+parveke
+järvinäköala
+revontulinäkymä

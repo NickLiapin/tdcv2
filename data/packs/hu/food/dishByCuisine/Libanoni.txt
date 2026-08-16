@@ -1,0 +1,12 @@
+---
+description: Dishes of Lebanese cuisine (Hungarian).
+locale: hu
+---
+Hummusz
+Falafel
+Sáverma
+Tabbouleh
+Kibbeh
+Fattoush
+Manakish
+Baba ghanoush

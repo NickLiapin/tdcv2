@@ -1,0 +1,21 @@
+---
+description: Cuisine (Hebrew). Each value has a dishByCuisine child file. Six of the seventeen — מרוקאית, תימנית, עיראקית, פרסית, אתיופית, גיאורגית — are here because they are ordinary restaurant categories in Israel, brought by the communities that immigrated after 1948, not because they are world cuisines. A generic Middle Eastern list would miss all six.
+locale: he
+---
+ישראלית
+איטלקית
+יפנית
+סינית
+הודית
+מקסיקנית
+צרפתית
+תאילנדית
+יוונית
+טורקית
+לבנונית
+מרוקאית
+תימנית
+עיראקית
+פרסית
+אתיופית
+גיאורגית

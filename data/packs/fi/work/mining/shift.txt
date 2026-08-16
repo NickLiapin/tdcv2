@@ -1,0 +1,9 @@
+---
+description: Work shift (Finnish)
+locale: fi
+---
+aamuvuoro
+iltavuoro
+yövuoro
+kaksivuorotyö
+kolmivuorotyö

@@ -1,0 +1,13 @@
+---
+description: Dishes of thaimaalainen cuisine, in Finnish
+locale: fi
+---
+Pad thai
+Tom yum
+Vihreä curry
+Punainen curry
+Massaman curry
+Som tam
+Nuudelikeitto
+Satay
+Mango sticky rice

@@ -1,0 +1,32 @@
+---
+description: Flower (Hungarian).
+locale: hu
+---
+Rózsa
+Tulipán
+Százszorszép
+Napraforgó
+Liliom
+Orchidea
+Nárcisz
+Körömvirág
+Levendula
+Nőszirom
+Bazsarózsa
+Szegfű
+Krizantém
+Pipacs
+Ibolya
+Jázmin
+Hibiszkusz
+Lótuszvirág
+Dália
+Begónia
+Gyöngyvirág
+Gardénia
+Kamélia
+Petúnia
+Muskátli
+Bougainvillea
+Nefelejcs
+Azálea

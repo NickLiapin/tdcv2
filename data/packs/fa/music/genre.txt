@@ -1,0 +1,39 @@
+---
+description: Music genre (Persian). موسیقی دستگاهی is Iranian classical music, organised into twelve دستگاه modal systems rather than into keys, and is a different thing from موسیقی سنتی as a broad label. بندری، آذری، کردی، لری and بلوچی are Iran's own regional musics. نوحه، مداحی and تعزیه are religious forms performed in Muharram — تعزیه is a passion play with music, the only indigenous Iranian theatre.
+locale: fa
+---
+پاپ
+موسیقی سنتی ایرانی
+موسیقی دستگاهی
+بندری
+آذری
+کردی
+لری
+بلوچی
+محلی
+نوحه
+مداحی
+تعزیه
+سرود
+راک
+متال
+پانک
+جاز
+بلوز
+کلاسیک
+ارکسترال
+رپ
+هیپ‌هاپ
+الکترونیک
+هاوس
+تکنو
+ترنس
+کانتری
+فولک
+رگی
+آر اند بی
+سول
+فانک
+لاتین
+فلامنکو
+بی‌کلام

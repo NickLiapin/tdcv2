@@ -1,0 +1,24 @@
+---
+description: Writing system (Hungarian). Szekely-magyar rovas — the old Hungarian runic script written right to left — is on this list because it is genuinely Hungarian, still taught and still carved on village signposts, even though Hungarian has been written in Latin letters for a thousand years.
+locale: hu
+---
+Latin írás
+Cirill írás
+Görög írás
+Arab írás
+Héber írás
+Örmény írás
+Grúz írás
+Kínai írás
+Hiragana
+Katakana
+Hangul
+Devanágari
+Thai írás
+Tibeti írás
+Etióp írás
+Cseroki szótagírás
+Maja írás
+Bengáli írás
+Tamil írás
+Székely-magyar rovásírás

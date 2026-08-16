@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective (Hungarian, for catch-phrases). Hungarian adjectives do not agree with the noun, so these combine with any buzzNoun as they stand.
+locale: hu
+---
+skálázható
+agilis
+átfogó
+megbízható
+integrált
+elosztott
+optimalizált
+biztonságos
+intelligens
+automatizált
+egységesített
+együttműködésre épülő
+innovatív
+úttörő
+moduláris
+bevezetésre kész
+fenntartható
+proaktív
+adaptív
+rugalmas
+ellenálló
+bővíthető
+testreszabható
+stratégiai
+keresztfunkcionális
+holisztikus
+omnichannel
+többcsatornás
+személyre szabott
+ügyfélközpontú
+adatvezérelt
+új generációs
+valós idejű
+többplatformos
+üzletkritikus
+nagy hatású
+nagy teljesítményű
+magas hozzáadott értékű
+célra szabott
+zökkenőmentes
+felhőnatív
+jövőálló
+világszínvonalú
+piacvezető
+tanúsított
+minősített
+interoperábilis
+nyomon követhető
+auditálható
+átlátható
+hatékony
+nyereséges
+versenyképes
+többnyelvű
+mobilbarát

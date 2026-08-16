@@ -1,0 +1,27 @@
+---
+description: Hungarian address unit / interior designator. A Hungarian address stacks them in one string after the house number: 12. 3. em. 4. ajto. Note fszt. (ground floor) and magasfoldszint, which sits between the ground floor and the first.
+locale: hu
+---
+em.
+emelet
+fszt.
+földszint
+magasföldszint
+félemelet
+ajtó
+lépcsőház
+lh.
+ép.
+épület
+szint
+pince
+alagsor
+tetőtér
+padlástér
+lakás
+iroda
+helyiség
+garázs
+parkolóhely
+tároló
+hrsz.

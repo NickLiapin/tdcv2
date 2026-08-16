@@ -1,0 +1,13 @@
+---
+description: TV / film content rating in descriptive Hebrew. Israel's statutory age codes are a country matter, not a language one, so only the descriptive wording is here.
+locale: he
+---
+לכל הגילאים
+מתאים לילדים
+צפייה משפחתית
+בליווי מבוגר
+מיועד לנוער
+למבוגרים בלבד
+תוכן רגיש
+אלימות
+שפה בוטה

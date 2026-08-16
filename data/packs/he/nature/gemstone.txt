@@ -1,0 +1,30 @@
+---
+description: Gemstone (Hebrew). The first twelve are the stones of the חושן, the High Priest's breastplate named in Exodus — the oldest Hebrew list of gems there is, and the reason several of these words exist at all. Which modern mineral each ancient name refers to is genuinely disputed, so they are given as the Hebrew names rather than mapped onto modern species.
+locale: he
+---
+אודם
+פטדה
+ברקת
+נופך
+ספיר
+יהלום
+לשם
+שבו
+אחלמה
+תרשיש
+שוהם
+ישפה
+אמטיסט
+טופז
+אקוומרין
+אופל
+גרנט
+פנינה
+ירקן
+טורמלין
+זירקון
+מלכית
+לזורד
+ענבר
+אבן ירח
+אוניקס

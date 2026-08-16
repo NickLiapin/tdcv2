@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Serbian)
+locale: sr
+---
+Плејмејкер
+Бек шутер
+Ниско крило
+Крилни центар
+Центар

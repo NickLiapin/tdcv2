@@ -1,0 +1,36 @@
+---
+description: Unit of measure (Persian). The last four are traditional Iranian weights still heard in a bazaar: مثقال is 4.608 g and is the unit gold is priced in, سیر is 16 مثقال, and من is a larger bulk measure whose size varied by city and trade. دست counts a matched set — a دست of dishes, a دست of clothes.
+locale: fa
+---
+عدد
+بسته
+جعبه
+کارتن
+دوجین
+جفت
+ست
+رول
+طاقه
+دسته
+کیلوگرم
+گرم
+تن
+لیتر
+میلی‌لیتر
+متر
+سانتی‌متر
+متر مربع
+متر مکعب
+کیسه
+سینی
+قوطی
+بطری
+شیشه
+تیوب
+پالت
+پاکت
+حلقه
+دست
+من
+سیر
+مثقال

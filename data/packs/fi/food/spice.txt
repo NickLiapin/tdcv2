@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Finnish). Tilli is the defining Finnish herb — in new potatoes, in gravlax, in crayfish — and katajanmarja, kumina and maustepippuri carry the curing and pickling traditions. Kardemumma belongs in every Finnish bun.
+locale: fi
+---
+tilli
+persilja
+ruohosipuli
+timjami
+rosmariini
+basilika
+oregano
+salvia
+rakuuna
+meirami
+kirveli
+lipstikka
+laakerinlehti
+mustapippuri
+valkopippuri
+maustepippuri
+neilikka
+kaneli
+kardemumma
+inkivääri
+muskotti
+sahrami
+vanilja
+kumina
+fenkoli
+anis
+sinapinsiemen
+katajanmarja
+paprikajauhe
+chili

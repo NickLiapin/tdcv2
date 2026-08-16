@@ -1,0 +1,10 @@
+---
+description: Persian full male name — a single given name and a single family name (رضا محمدی). Iranian names carry ONE surname, and it does not inflect for gender.
+generator: tdc
+locale: fa
+---
+<sequence name="p">
+  <gen name="f" type="template" value="fa.person.male.firstName"/>
+  <gen name="l" type="template" value="fa.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people with ancestry from Lähi-itä, in Finnish. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: fi
+---
+Familiaalinen Välimeren kuume
+Beetatalassemia
+G6PD-puutos
+Tyypin 2 diabetes
+D-vitamiinin puutos
+Behcetin tauti
+Perinnöllinen kuurous
+Sukulaisavioliittoon liittyvät resessiiviset taudit
+Sirppisolukantajuus
+Fenyyliketonuria

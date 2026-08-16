@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Dermatology (Serbian)
+locale: sr
+---
+Псоријаза
+Атопијски дерматитис
+Акне
+Меланом
+Розацеја
+Контактни дерматитис

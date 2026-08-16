@@ -1,0 +1,22 @@
+---
+description: Horse breed (Finnish). Suomenhevonen is the only breed developed entirely in Finland — one horse used for farm work, harness racing and riding alike — and it has its own studbook and its own trotting series.
+locale: fi
+---
+Suomenhevonen
+Lämminverinen ravihevonen
+Arabianhevonen
+Englantilainen täysiverinen
+Mustangi
+Clydesdale
+Appaloosa
+Quarterhevonen
+Friisiläishevonen
+Shire
+Andalusianhevonen
+Morgan
+Palomino
+Percheron
+Shetlanninponi
+Islanninhevonen
+Haflinger
+Lusitano

@@ -1,0 +1,49 @@
+---
+description: Company legal / name suffix used in Finland. Oy is the limited company and Oyj the listed one; Ky and Ay are the two partnership forms and tmi the sole trader. Osk — osuuskunta, the co-operative — is not a curiosity here: Finland has the highest co-operative membership per head in the world, and the largest grocery chain (S-ryhmä) and the largest bank group (OP) are both co-operatives owned by their customers. Note that Finnish writes the suffix before or after the name with equal frequency: Oy Tekniikka Ab or Tekniikka Oy.
+locale: fi
+---
+Oy
+Oyj
+Ky
+Ay
+tmi
+osk
+ry
+säätiö
+sr
+Ab
+Oy Ab
+Group
+Holding
+Konserni
+Yhtymä
+Invest
+Partners
+Kumppanit
+& Kumpp.
+& Pojat
+Veljekset
+Konsultointi
+Tekniikka
+Insinööritoimisto
+Suunnittelu
+Järjestelmät
+Systems
+Solutions
+Palvelut
+Huolto
+Kauppa
+Teollisuus
+Verstas
+Rakennus
+Urakointi
+Kiinteistöt
+Kuljetus
+Logistiikka
+Data
+IT
+Media
+Design
+Nordic
+Suomi
+Pohjola

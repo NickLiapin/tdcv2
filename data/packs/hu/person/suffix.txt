@@ -1,0 +1,28 @@
+---
+description: Name / academic suffix (Hungarian). Hungarian degrees follow the name — Nagy Peter PhD — while the generational markers ifj. and id. go in FRONT of it, so those two live in person/prefix and are repeated here only for lists that expect a trailing form. CSc (kandidatus) and DSc (MTA doktora) are the older Hungarian academic ranks, still held by many senior researchers, and DLA is the doctorate in the arts.
+locale: hu
+---
+PhD
+DLA
+CSc
+DSc
+MTA doktora
+habil.
+MBA
+MSc
+BSc
+MA
+BA
+LL.M.
+dr.
+dr. univ.
+okl.
+ny.
+emeritus
+ifj.
+id.
+özv.
+II.
+III.
+IV.
+néhai

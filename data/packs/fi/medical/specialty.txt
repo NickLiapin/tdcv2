@@ -1,0 +1,42 @@
+---
+description: Medical specialities (Finnish, as Valvira registers them). Finnish reaches for a plain native compound where English reaches for Greek: keuhkosairaudet instead of pulmonology, munuaistaudit instead of nephrology, ihotaudit, silmätaudit, korva-, nenä- ja kurkkutaudit. Yleislääketiede is the GP speciality, and työterveyshuolto is a speciality of its own here because Finnish law obliges every employer to provide occupational health care.
+locale: fi
+---
+yleislääketiede
+sisätaudit
+kardiologia
+neurologia
+onkologia
+hematologia
+endokrinologia
+gastroenterologia
+munuaistaudit
+keuhkosairaudet
+reumatologia
+infektiosairaudet
+ihotaudit
+psykiatria
+lastenpsykiatria
+nuorisopsykiatria
+geriatria
+lastentaudit
+naistentaudit ja synnytykset
+kirurgia
+ortopedia ja traumatologia
+urologia
+verisuonikirurgia
+sydän- ja rintaelinkirurgia
+neurokirurgia
+plastiikkakirurgia
+käsikirurgia
+anestesiologia ja tehohoito
+akuuttilääketiede
+radiologia
+patologia
+kliininen kemia
+kliininen mikrobiologia
+silmätaudit
+korva-, nenä- ja kurkkutaudit
+fysiatria
+työterveyshuolto
+oikeuslääketiede

@@ -1,0 +1,18 @@
+---
+description: Marital status in Serbian. Most forms are gendered and a config must pick the one that matches the row's gender: ожењен is said of a man and удата of a woman, неожењен of a man and неудата of a woman, удовац and удовица likewise.
+locale: sr
+---
+неожењен
+неудата
+ожењен
+удата
+разведен
+разведена
+удовац
+удовица
+верен
+верена
+у ванбрачној заједници
+у вези
+растављен
+растављена

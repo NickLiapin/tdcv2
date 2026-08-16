@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Hebrew that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: he
+---
+אנדומטריוזיס
+שרירנים ברחם
+ציסטה בשחלה
+תסמונת השחלות הפוליציסטיות
+דלקת אגן
+סרטן שחלה
+סרטן רחם
+סרטן צוואר הרחם
+סרטן שד
+דימום וסתי מוגבר
+כאבי מחזור
+תסמונת קדם וסתית
+אל וסת
+גיל המעבר
+דלקת שד
+צניחת רחם
+הריון חוץ רחמי
+הפלה טבעית
+רעלת הריון
+סוכרת הריון
+לידה מוקדמת
+דיכאון אחרי לידה
+אי פוריות נשית
+דלקת נרתיק
+צניחת שלפוחית השתן
+היפרפלזיה של רירית הרחם

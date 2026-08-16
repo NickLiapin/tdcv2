@@ -1,0 +1,26 @@
+---
+description: Metal (Serbian). Бакар heads the list: the Bor and Majdanpek mines are among Europe's oldest and largest copper works, and Rudna Glava holds the earliest known copper mining anywhere.
+locale: sr
+---
+бакар
+гвожђе
+челик
+злато
+сребро
+платина
+алуминијум
+цинк
+олово
+калај
+никл
+хром
+манган
+титанијум
+магнезијум
+волфрам
+кобалт
+молибден
+жива
+бронза
+месинг
+антимон

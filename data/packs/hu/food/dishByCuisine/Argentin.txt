@@ -1,0 +1,12 @@
+---
+description: Dishes of Argentine cuisine (Hungarian).
+locale: hu
+---
+Asado
+Empanada
+Milanesa a la napolitana
+Choripán
+Locro
+Provoleta
+Dulce de leche
+Matambre

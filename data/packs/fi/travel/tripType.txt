@@ -1,0 +1,24 @@
+---
+description: Trip type (Finnish). Three are Finnish institutions: mökkiloma is the summer cabin holiday that empties the cities in July, etelänmatka is the packaged charter week to the Canaries or Thailand that a Finn takes to escape February, and risteily means the overnight Baltic ferry to Stockholm or Tallinn, which is a holiday in itself rather than a means of getting anywhere.
+locale: fi
+---
+mökkiloma
+etelänmatka
+risteily
+hiihtoloma
+tunturiloma
+vaellus
+kaupunkiloma
+työmatka
+konferenssimatka
+leirintämatka
+telttaretki
+kalastusmatka
+marjastusretki
+pyöräretki
+automatka
+perheloma
+opintomatka
+pyhiinvaellus
+laskettelumatka
+saaristoristeily

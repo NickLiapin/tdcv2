@@ -1,0 +1,12 @@
+---
+description: Dishes of Argentine cuisine (Serbian)
+locale: sr
+---
+Асадо
+Чоризо
+Емпанаде
+Чимичури
+Миланеса
+Дулсе де лече
+Проволета
+Локро

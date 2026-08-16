@@ -1,0 +1,54 @@
+---
+description: Store department / category (Finnish)
+locale: fi
+---
+hedelmät ja vihannekset
+maito ja meijeri
+liha
+leikkeleet
+kala
+leipä
+leipomo
+kuivatuotteet
+säilykkeet
+pakasteet
+jäätelö
+makeiset
+naposteltavat
+juomat
+kahvi ja tee
+lastenruoka
+hygienia
+apteekki
+kotitalous
+siivous
+pyykki
+lemmikkiruoka
+vaatteet
+naistenvaatteet
+miestenvaatteet
+lastenvaatteet
+kengät
+asusteet
+korut
+urheilu
+retkeily
+lelut
+harrastukset
+kirjat
+toimistotarvikkeet
+elektroniikka
+tietokoneet
+puhelimet
+kodinkoneet
+viihde-elektroniikka
+valaistus
+huonekalut
+sisustustekstiilit
+keittiö
+puutarha
+rakentaminen
+maalit
+työkalut
+auto
+renkaat

@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Finnish)
+locale: fi
+---
+kuume
+vilunväristykset
+päänsärky
+huimaus
+väsymys
+sairauden tunne
+pahoinvointi
+oksentelu
+ripuli
+ummetus
+vatsakipu
+närästys
+ruokahaluttomuus
+laihtuminen
+painonnousu
+yskä
+limainen yskä
+hengenahdistus
+vinkuva hengitys
+rintakipu
+sydämentykytys
+kurkkukipu
+nuha
+nenän tukkoisuus
+aivastelu
+korvasärky
+selkäkipu
+niskakipu
+nivelkipu
+lihaskipu
+jäykkyys
+turvotus
+ihottuma
+kutina
+puutuminen
+unettomuus
+mielialan lasku
+ahdistuneisuus

@@ -1,0 +1,20 @@
+---
+description: Horse breed (Persian). The first five are Iranian: the کاسپین is a small ancient breed rediscovered on the Caspian shore in 1965, the ترکمن (Turkoman) is the ancestor of the Akhal-Teke, and دره‌شوری، قره‌باغ and کرد are tribal breeds still bred by the Qashqai and Kurds.
+locale: fa
+---
+کاسپین
+ترکمن
+دره‌شوری
+قره‌باغ
+کرد
+عرب اصیل
+تروبرد
+فریزین
+شایر
+اندلسی
+لیپیزان
+هفلینگر
+اپالوسا
+کوارتر
+پونی
+مینیاتوری
