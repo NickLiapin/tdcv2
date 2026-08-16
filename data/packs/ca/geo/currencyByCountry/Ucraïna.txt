@@ -1,0 +1,5 @@
+---
+description: Currency of Ucraïna (Catalan)
+locale: ca
+---
+hrívnia

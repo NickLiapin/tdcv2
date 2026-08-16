@@ -1,0 +1,27 @@
+---
+description: Event type (Catalan). Six of these are events of the Catalan calendar and are not translations of anything: the festa major is the patron-saint week every town keeps and effectively closes for; the revetlla is the eve-of-the-feast night party, above all the Revetlla de Sant Joan with its bonfires and coca; the aplec is a gathering at a rural chapel or a sardana meet; the diada castellera is a human-tower competition; the calcotada the February onion barbecue; the correfoc the fire-run of devils and dragons through a crowd.
+locale: ca
+---
+Casament
+Bateig
+Comunió
+Aniversari
+Congrés
+Fira
+Concert
+Festival
+Conferència
+Taller
+Seminari
+Presentació
+Inauguració
+Exposició
+Festa major
+Revetlla
+Aplec
+Diada castellera
+Calçotada
+Correfoc
+Sopar d'empresa
+Cursa popular
+Mercat medieval

@@ -1,0 +1,5 @@
+---
+description: Capital of Índia (Catalan)
+locale: ca
+---
+Nova Delhi

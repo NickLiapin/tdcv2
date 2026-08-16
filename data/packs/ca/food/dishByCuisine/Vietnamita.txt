@@ -1,0 +1,12 @@
+---
+description: Dish of Vietnamita cuisine, named in Catalan
+locale: ca
+---
+Pho
+Banh mi
+Rotlles d'estiu
+Bun cha
+Com tam
+Peix al caramel
+Banh xeo
+Cafè amb ou

@@ -1,0 +1,144 @@
+---
+description: Product noun (Catalan)
+locale: ca
+---
+Samarreta
+Camisa
+Jersei
+Dessuadora
+Jaqueta
+Abric
+Pantalons
+Texans
+Faldilla
+Vestit
+Sabates
+Botes
+Sandàlies
+Espardenyes
+Vambes
+Mitjons
+Bufanda
+Guants
+Barret
+Gorra
+Bossa
+Motxilla
+Maleta
+Cartera
+Cinturó
+Ulleres de sol
+Rellotge
+Anell
+Collaret
+Arracades
+Polsera
+Paraigua
+Tovallola
+Barnús
+Llençols
+Coixí
+Edredó
+Manta
+Catifa
+Cortina
+Estor
+Làmpada
+Bombeta
+Espelma
+Gerro
+Marc de fotos
+Mirall
+Rellotge de paret
+Prestatgeria
+Taula
+Cadira
+Tamboret
+Sofà
+Butaca
+Llit
+Matalàs
+Armari
+Calaixera
+Escriptori
+Penja-robes
+Paella
+Cassola
+Olla
+Ganivet
+Forquilla
+Cullera
+Plat
+Bol
+Got
+Copa
+Tassa
+Cafetera
+Tetera
+Ampolla
+Carmanyola
+Taula de tallar
+Batedora
+Torradora
+Microones
+Forn
+Nevera
+Rentadora
+Assecadora
+Rentaplats
+Aspiradora
+Planxa
+Ventilador
+Estufa
+Radiador
+Humidificador
+Ordinador portàtil
+Ordinador de sobretaula
+Tauleta
+Telèfon mòbil
+Auriculars
+Altaveu
+Teclat
+Ratolí
+Monitor
+Impressora
+Càmera
+Objectiu
+Trípode
+Targeta de memòria
+Disc dur
+Carregador
+Cable
+Adaptador
+Bateria externa
+Router
+Llibre
+Quadern
+Bolígraf
+Llapis
+Retolador
+Goma d'esborrar
+Regle
+Tisores
+Grapadora
+Carpeta
+Motxilla escolar
+Estoig
+Pilota
+Raqueta
+Bicicleta
+Casc
+Sac de dormir
+Tenda de campanya
+Cantimplora
+Frontal
+Pilota de futbol
+Peses
+Estora de ioga
+Corda
+Piolet
+Grampons
+Esquís
+Taula de surf
+Canya de pescar
+Prismàtics

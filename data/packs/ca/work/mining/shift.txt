@@ -1,0 +1,9 @@
+---
+description: Mining shift (Catalan)
+locale: ca
+---
+Matí
+Tarda
+Nit
+Torn partit
+Torn de cap de setmana

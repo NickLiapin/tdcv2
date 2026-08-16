@@ -1,0 +1,5 @@
+---
+description: Capital of Noruega (Catalan)
+locale: ca
+---
+Oslo

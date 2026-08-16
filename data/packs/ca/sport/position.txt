@@ -1,0 +1,42 @@
+---
+description: Playing position (Catalan), across sports; the per-sport lists are in sport/positionBySport.
+locale: ca
+---
+Porter
+Defensa
+Defensa central
+Lateral dret
+Lateral esquerre
+Líbero
+Migcampista
+Migcampista defensiu
+Migcampista ofensiu
+Extrem
+Extrem dret
+Extrem esquerre
+Davanter
+Davanter centre
+Segon davanter
+Base
+Escorta
+Aler
+Ala-pivot
+Pivot
+Central
+Col·locador
+Receptor
+Oposat
+Pilar
+Talonador
+Segona línia
+Tercera línia
+Mig de melé
+Mig d'obertura
+Boia
+Rest
+Mitger
+Punter
+Capità
+Suplent
+Entrenador
+Àrbitre

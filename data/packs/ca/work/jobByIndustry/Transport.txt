@@ -1,0 +1,22 @@
+---
+description: Job title in the Transport sector, named in Catalan
+locale: ca
+---
+Conductor de camió
+Conductor d'autobús
+Taxista
+Repartidor
+Maquinista de tren
+Controlador aeri
+Pilot
+Auxiliar de vol
+Estibador
+Cap de trànsit
+Planificador de rutes
+Mecànic de flota
+Agent de duanes
+Transitari
+Operador de grua portuària
+Patró de cabotatge
+Cap de logística
+Missatger

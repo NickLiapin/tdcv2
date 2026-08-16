@@ -1,0 +1,22 @@
+---
+description: Weather condition (Catalan)
+locale: ca
+---
+Assolellat
+Serè
+Poc ennuvolat
+Ennuvolat
+Cobert
+Plujós
+Plugim
+Xàfec
+Tempesta
+Tempesta elèctrica
+Nevada
+Calamarsa
+Boira
+Boirina
+Ventós
+Glaçada
+Xafogor
+Aiguaneu

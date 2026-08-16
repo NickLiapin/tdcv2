@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Catalan)
+locale: ca
+---
+Bicicleta de carretera
+Bicicleta de muntanya
+BTT
+Bicicleta urbana
+Bicicleta plegable
+Bicicleta elèctrica
+Bicicleta de gravel
+Bicicleta híbrida
+Bicicleta de contrarellotge
+Bicicleta de ciclocròs
+Tàndem
+Bicicleta infantil
+Bicicleta de passeig
+Bicicleta de càrrega
+Bicicleta de pista
+Bicicleta de descens
+Bicicleta de trial

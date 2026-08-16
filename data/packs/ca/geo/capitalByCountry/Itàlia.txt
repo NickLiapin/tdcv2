@@ -1,0 +1,5 @@
+---
+description: Capital of Itàlia (Catalan)
+locale: ca
+---
+Roma

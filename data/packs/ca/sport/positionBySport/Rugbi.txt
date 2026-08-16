@@ -1,0 +1,14 @@
+---
+description: Playing position in Rugbi, named in Catalan
+locale: ca
+---
+Pilar
+Talonador
+Segona línia
+Tercera línia ala
+Número vuit
+Mig de melé
+Mig d'obertura
+Centre
+Ala
+Rerepunta

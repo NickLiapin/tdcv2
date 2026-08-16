@@ -1,0 +1,5 @@
+---
+description: Capital of Regne Unit (Catalan)
+locale: ca
+---
+Londres

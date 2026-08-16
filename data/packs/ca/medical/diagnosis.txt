@@ -1,0 +1,84 @@
+---
+description: Diagnosis (Catalan). Fibril-lacio auricular, al-lergia and rinitis al-lergica carry the interpunct (U+00B7) — the geminate L is as ordinary in Catalan clinical vocabulary as anywhere else in the language.
+locale: ca
+---
+Hipertensió arterial
+Diabetis mellitus tipus 2
+Diabetis mellitus tipus 1
+Asma
+Malaltia pulmonar obstructiva crònica
+Insuficiència cardíaca
+Fibril·lació auricular
+Angina de pit
+Infart agut de miocardi
+Ictus isquèmic
+Migranya
+Epilèpsia
+Malaltia de Parkinson
+Malaltia d'Alzheimer
+Esclerosi múltiple
+Depressió major
+Trastorn d'ansietat generalitzada
+Trastorn bipolar
+Esquizofrènia
+Insomni crònic
+Apnea obstructiva del son
+Anèmia ferropènica
+Hipotiroïdisme
+Hipertiroïdisme
+Osteoporosi
+Artrosi
+Artritis reumatoide
+Gota
+Lumbàlgia mecànica
+Hèrnia discal
+Fibromiàlgia
+Reflux gastroesofàgic
+Úlcera pèptica
+Gastritis crònica
+Malaltia celíaca
+Malaltia de Crohn
+Colitis ulcerosa
+Síndrome de l'intestí irritable
+Litiasi biliar
+Hepatitis crònica
+Cirrosi hepàtica
+Pancreatitis aguda
+Insuficiència renal crònica
+Litiasi renal
+Infecció urinària
+Hiperplàsia benigna de pròstata
+Dermatitis atòpica
+Psoriasi
+Urticària
+Acne
+Èczema de contacte
+Melanoma
+Càncer de pulmó
+Càncer de mama
+Càncer colorectal
+Càncer de pròstata
+Limfoma no Hodgkin
+Leucèmia limfoblàstica aguda
+Obesitat
+Dislipèmia
+Síndrome metabòlica
+Al·lèrgia estacional
+Rinitis al·lèrgica
+Sinusitis
+Otitis mitjana
+Amigdalitis
+Bronquitis aguda
+Pneumònia
+Grip
+COVID-19
+Conjuntivitis
+Cataractes
+Glaucoma
+Degeneració macular associada a l'edat
+Hipoacúsia
+Vertigen posicional paroxístic
+Insuficiència venosa crònica
+Trombosi venosa profunda
+Herpes zòster
+Anèmia per dèficit de vitamina B12

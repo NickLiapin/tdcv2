@@ -1,0 +1,5 @@
+---
+description: Capital of Pakistan (Catalan)
+locale: ca
+---
+Islamabad

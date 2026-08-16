@@ -1,0 +1,18 @@
+---
+description: Streaming platform. Brand names keep their real spelling. 3Cat, A Punt and IB3 are the on-demand services of the Catalan, Valencian and Balearic public broadcasters and are the reason a Catalan-language catalogue exists at all; which regulator licenses which belongs in a country pack.
+locale: ca
+---
+Netflix
+HBO Max
+Disney+
+Prime Video
+Apple TV+
+Movistar Plus+
+Filmin
+3Cat
+À Punt
+IB3
+SkyShowtime
+YouTube
+Twitch
+Spotify

@@ -1,0 +1,18 @@
+---
+description: Order status (Catalan)
+locale: ca
+---
+Pendent
+Confirmada
+En preparació
+Preparada
+Enviada
+En trànsit
+En repartiment
+Lliurada
+Recollida a botiga
+Ajornada
+Incidència
+Cancel·lada
+Retornada
+Reemborsada

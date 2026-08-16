@@ -1,0 +1,5 @@
+---
+description: Currency of Rússia (Catalan)
+locale: ca
+---
+ruble rus

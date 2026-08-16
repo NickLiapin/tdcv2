@@ -1,0 +1,19 @@
+---
+description: Meeting type (Catalan)
+locale: ca
+---
+Reunió d'equip
+Reunió de seguiment
+Reunió individual
+Comitè de direcció
+Consell d'administració
+Junta general
+Comitè d'empresa
+Sessió de treball
+Pluja d'idees
+Retrospectiva
+Planificació de l'sprint
+Presentació de resultats
+Formació interna
+Videoconferència
+Assemblea

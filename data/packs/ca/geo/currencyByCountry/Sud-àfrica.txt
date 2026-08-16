@@ -1,0 +1,5 @@
+---
+description: Currency of Sud-àfrica (Catalan)
+locale: ca
+---
+rand

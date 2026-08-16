@@ -1,0 +1,12 @@
+---
+description: Personal pronoun (Catalan, third person plus the address forms). Catalan keeps THREE levels of "you" where English has one and Castilian has two: tu is familiar, vos is a respectful singular still alive in the Balearics, in Andorran and institutional usage and in liturgy, and voste is the modern formal singular. Catalan also marks gender in the plural third person — ells for a masculine or mixed group, elles only for an all-feminine one. Elli is the non-binary neopronoun in current Catalan use.
+locale: ca
+---
+ell
+ella
+elli
+ells
+elles
+tu
+vós
+vostè

@@ -1,0 +1,32 @@
+---
+description: Allergen (Catalan). Pol-len and penicil-lina carry the interpunct (U+00B7). Parietaria is the wall pellitory whose pollen is the commonest single respiratory allergen of the Catalan and Valencian coast, ahead of grasses — a genuinely local clinical fact, not a translation of an English list.
+locale: ca
+---
+Pol·len de gramínies
+Pol·len d'olivera
+Pol·len de parietària
+Pol·len de plàtan
+Àcars de la pols
+Pèl de gat
+Pèl de gos
+Fongs ambientals
+Fruits secs
+Cacauet
+Marisc
+Peix
+Ou
+Llet de vaca
+Soja
+Blat
+Gluten
+Llegums
+Maduixa
+Penicil·lina
+Àcid acetilsalicílic
+Antiinflamatoris no esteroïdals
+Làtex
+Níquel
+Picada d'abella
+Picada de vespa
+Sulfamides
+Contrast iodat

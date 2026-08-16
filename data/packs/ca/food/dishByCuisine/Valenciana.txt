@@ -1,0 +1,22 @@
+---
+description: Dish of Valenciana cuisine, named in Catalan
+locale: ca
+---
+Paella valenciana
+Arròs a banda
+Arròs al forn
+Fideuà
+All i pebre
+Esgarraet
+Espencat
+Titaina
+Olla de la Plana
+Arnadí
+Orxata de xufa amb fartons
+Bunyols de carabassa
+Mona de Pasqua
+Coca de llanda
+Arròs amb fesols i naps
+Suquet de rap
+Coca de dacsa
+Figatells

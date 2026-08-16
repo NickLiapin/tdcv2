@@ -1,0 +1,24 @@
+---
+description: Mineral extracted (Catalan). Potassa and sal comuna lead because the Bages potash basin is the only mining of scale in the Catalan-speaking lands; lignit recalls the Berga and Ogassa coalfields, now closed.
+locale: ca
+---
+Potassa
+Sal comuna
+Silvinita
+Carnal·lita
+Guix
+Calcària
+Argila
+Àrids
+Granit
+Marbre
+Pissarra
+Lignit
+Baritina
+Fluorita
+Talc
+Caolí
+Ferro
+Plom
+Zinc
+Coure

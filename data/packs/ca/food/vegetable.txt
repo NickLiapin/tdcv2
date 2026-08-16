@@ -1,0 +1,41 @@
+---
+description: Vegetable (Catalan). Calcot is the winter spring-onion grown by earthing up a second-year onion, eaten grilled over vine cuttings at a calcotada, and the word exists in no other language; rovello is the saffron milk cap that Catalonia goes to the woods for every autumn. Enciam is lettuce, bledes chard, carbasso courgette, alberginia aubergine, mongeta tendra green bean — none of these is the Castilian word with an accent moved.
+locale: ca
+---
+Enciam
+Escarola
+Espinacs
+Bledes
+Col
+Coliflor
+Bròquil
+Carxofa
+Carbassó
+Carbassa
+Albergínia
+Pebrot
+Tomàquet
+Ceba
+Ceba tendra
+Calçot
+All
+Porro
+Pastanaga
+Nap
+Rave
+Patata
+Moniato
+Mongeta tendra
+Pèsol
+Fava
+Cigró
+Llentia
+Api
+Fonoll
+Espàrrec
+Bolet
+Rovelló
+Cogombre
+Remolatxa
+Blat de moro
+Escalunya

@@ -1,0 +1,30 @@
+---
+description: Product review title (Catalan)
+locale: ca
+---
+Molt content amb la compra
+Compleix el que promet
+Relació qualitat-preu excel·lent
+Millor del que esperava
+Just el que buscava
+Bo, però millorable
+No m'ha convençut
+Decebedor
+Arribat en perfecte estat
+Enviament ràpid
+Fàcil de muntar
+Instruccions confuses
+Materials de qualitat
+Sembla fràgil
+El recomano
+No el tornaria a comprar
+Bonic i pràctic
+Talla més petita del compte
+Tal com surt a la foto
+Diferent de la fotografia
+Fa el seu servei
+Val cada euro
+Massa car per al que és
+Servei d'atenció impecable
+Repetiré
+Compra encertada

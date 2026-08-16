@@ -1,0 +1,5 @@
+---
+description: Capital of Argentina (Catalan)
+locale: ca
+---
+Buenos Aires

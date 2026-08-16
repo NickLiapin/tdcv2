@@ -1,0 +1,26 @@
+---
+description: Property feature (Catalan)
+locale: ca
+---
+Ascensor
+Aparcament
+Traster
+Terrassa
+Balcó
+Jardí
+Piscina comunitària
+Piscina privada
+Calefacció
+Aire condicionat
+Xemeneia
+Armaris encastats
+Cuina equipada
+Safareig
+Porteria
+Zona comunitària
+Accés adaptat
+Plaques solars
+Fibra òptica
+Moblat
+Exterior
+Vistes al mar

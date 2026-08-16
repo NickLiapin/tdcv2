@@ -1,0 +1,34 @@
+---
+description: Technical adjective (Catalan). Paral-lel carries the interpunct (U+00B7).
+locale: ca
+---
+digital
+analògic
+òptic
+quàntic
+neuronal
+redundant
+primari
+auxiliar
+criptogràfic
+virtual
+mòbil
+sòlid
+bidireccional
+solar
+nuclear
+obert
+sintètic
+autònom
+paral·lel
+distribuït
+xifrat
+sense fil
+híbrid
+escalable
+modular
+integrat
+multinucli
+asíncron
+transversal
+inalterable

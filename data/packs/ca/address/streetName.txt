@@ -1,0 +1,154 @@
+---
+description: The NAME half of a Catalan street, to be composed after a streetSuffix — Catalan puts the thoroughfare word first (carrer Major, avinguda del Mar, placa de la Font), the opposite of English. Three stocks are mixed, as the real street map mixes them: common nouns with the article (de la Font, del Mar, dels Til-lers), saints and Marian names, and pan-Catalan cultural figures who have a street in every town from Perpinya to Alacant rather than in one city only. City-specific streets — Diagonal, Rambla de Catalunya, Gran Via — are NOT here: they belong to a country pack.
+locale: ca
+---
+Major
+Nou
+Nova
+de la Font
+del Mar
+de l'Església
+de la Pau
+de la Creu
+del Sol
+de la Lluna
+de les Flors
+del Roser
+del Carme
+del Pi
+de l'Om
+de la Palma
+dels Àngels
+de la Muralla
+del Portal
+del Castell
+de la Riera
+del Pont
+del Molí
+de la Bassa
+de l'Hospital
+de l'Estació
+del Mercat
+de la Indústria
+del Comerç
+de la Verge
+del Rec
+de la Sèquia
+de l'Horta
+del Camp
+de la Vinya
+de l'Olivera
+del Bosc
+de la Muntanya
+de la Costa
+del Puig
+de la Serra
+del Torrent
+de la Riba
+del Prat
+de la Plana
+de Baix
+de Dalt
+del Mig
+de la Llibertat
+del Progrés
+de la Unió
+de la Concòrdia
+de la Mercè
+de la Salut
+de l'Estel
+dels Til·lers
+dels Xiprers
+de les Acàcies
+dels Plàtans
+dels Pins
+de les Oliveres
+dels Roures
+de les Alzines
+dels Ametllers
+de les Moreres
+del Ginebre
+de la Ginesta
+del Romaní
+de l'Espígol
+de la Farigola
+de Sant Josep
+de Sant Antoni
+de Sant Jordi
+de Sant Joan
+de Sant Pere
+de Sant Miquel
+de Sant Francesc
+de Sant Roc
+de Santa Maria
+de Santa Eulàlia
+de Santa Anna
+de Santa Llúcia
+de Sant Sebastià
+de Sant Ramon
+de Sant Isidre
+de Sant Martí
+de Sant Andreu
+de Sant Cristòfol
+de la Mare de Déu
+de Montserrat
+de Jacint Verdaguer
+de Ramon Llull
+d'Ausiàs March
+de Joanot Martorell
+de Pompeu Fabra
+d'Àngel Guimerà
+de Pau Casals
+d'Antoni Gaudí
+de Mercè Rodoreda
+de Salvador Espriu
+de Joan Maragall
+de Narcís Monturiol
+de Bonaventura Carles Aribau
+de Prat de la Riba
+de Francesc Macià
+de Lluís Companys
+de Josep Tarradellas
+d'Isaac Albéniz
+d'Enric Granados
+de Joan Miró
+de Salvador Dalí
+d'Antoni Tàpies
+de Josep Pla
+de Víctor Català
+de Santiago Rusiñol
+de Ramon Casas
+de Frederic Mompou
+d'Eduard Toldrà
+d'Apel·les Mestres
+de Jaume I
+de Pere III
+de Ramon Berenguer
+de Guifré el Pilós
+de Roger de Llúria
+de Bernat Metge
+d'Anselm Turmeda
+de Francesc Eiximenis
+de Sant Vicent Ferrer
+de Teodor Llorente
+de Constantí Llombart
+de Joan Fuster
+de Vicent Andrés Estellés
+de Maria Aurèlia Capmany
+de Montserrat Roig
+d'Ovidi Montllor
+de Lluís Llach
+de Josep Carner
+de Carles Riba
+de Joan Salvat-Papasseit
+de Miquel Martí i Pol
+de Caterina Albert
+de Narcís Oller
+de Marià Vayreda
+de Joaquim Ruyra
+de Prudenci Bertrana
+de Josep Maria de Sagarra
+de Manuel de Pedrolo
+de Llorenç Villalonga
+de Blai Bonet
+de Bartomeu Rosselló-Pòrcel

@@ -1,0 +1,22 @@
+---
+description: Job title in the Hostaleria sector, named in Catalan
+locale: ca
+---
+Cambrer
+Cambrera
+Cuiner
+Cap de cuina
+Ajudant de cuina
+Sommelier
+Cap de sala
+Recepcionista d'hotel
+Governanta
+Director d'hotel
+Barman
+Barista
+Pastisser
+Forner
+Rentaplats
+Animador turístic
+Guia turístic
+Cap de recepció

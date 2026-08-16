@@ -1,0 +1,5 @@
+---
+description: Capital of Andorra (Catalan)
+locale: ca
+---
+Andorra la Vella

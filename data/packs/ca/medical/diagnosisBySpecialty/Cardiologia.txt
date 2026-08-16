@@ -1,0 +1,18 @@
+---
+description: Diagnosis seen in Cardiologia, named in Catalan
+locale: ca
+---
+Hipertensió arterial
+Insuficiència cardíaca
+Fibril·lació auricular
+Angina de pit
+Infart agut de miocardi
+Cardiopatia isquèmica
+Miocardiopatia dilatada
+Estenosi aòrtica
+Insuficiència mitral
+Pericarditis
+Endocarditis infecciosa
+Bloqueig auriculoventricular
+Síndrome de Brugada
+Aneurisma d'aorta abdominal

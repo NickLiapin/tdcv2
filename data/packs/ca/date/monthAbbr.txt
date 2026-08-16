@@ -1,0 +1,16 @@
+---
+description: Abbreviated month name (Catalan). The abbreviation carries a full stop except for marc, maig and juny, which are already short enough to be written whole.
+locale: ca
+---
+gen.
+febr.
+març
+abr.
+maig
+juny
+jul.
+ag.
+set.
+oct.
+nov.
+des.

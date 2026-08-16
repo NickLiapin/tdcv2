@@ -1,0 +1,32 @@
+---
+description: Dog breed (Catalan). Four of these are native breeds of the Catalan-speaking lands and exist under no other name: the gos d'atura catala (Catalan sheepdog), the ca de bestiar and ca de bou of Mallorca, and the ca eivissenc or podenc eivissenc of Ibiza — the last is what the rest of the world calls the Ibizan hound. The gos d'aigua espanyol is the Catalan water dog of the Ebre delta.
+locale: ca
+---
+Gos d'atura català
+Ca de bestiar
+Ca de bou
+Ca eivissenc
+Gos d'aigua espanyol
+Mastí del Pirineu
+Gos de muntanya dels Pirineus
+Pastor alemany
+Labrador retriever
+Golden retriever
+Bulldog francès
+Bulldog anglès
+Caniche
+Border collie
+Beagle
+Bòxer
+Rottweiler
+Teckel
+Chihuahua
+Husky siberià
+Doberman
+Schnauzer
+Yorkshire terrier
+Cocker spaniel
+Dàlmata
+Sant Bernat
+Galgo
+Bichó maltès

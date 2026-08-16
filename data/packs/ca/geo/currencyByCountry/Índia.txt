@@ -1,0 +1,5 @@
+---
+description: Currency of Índia (Catalan)
+locale: ca
+---
+rupia índia

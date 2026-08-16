@@ -1,0 +1,64 @@
+---
+description: Industry sector (Catalan)
+locale: ca
+---
+Agricultura
+Ramaderia
+Pesca
+Silvicultura
+Vitivinicultura
+Alimentació
+Begudes
+Tèxtil
+Confecció
+Calçat
+Cuir
+Fusta
+Paper
+Arts gràfiques
+Química
+Farmacèutica
+Cosmètica
+Plàstics
+Ciment
+Ceràmica
+Vidre
+Metal·lúrgia
+Automoció
+Aeronàutica
+Naval
+Maquinària
+Electrònica
+Electrodomèstics
+Energia
+Energies renovables
+Aigua
+Residus
+Construcció
+Immobiliària
+Comerç a l'engròs
+Comerç al detall
+Hostaleria
+Restauració
+Turisme
+Transport
+Logística
+Telecomunicacions
+Informàtica
+Programari
+Mitjans de comunicació
+Editorial
+Audiovisual
+Publicitat
+Banca
+Assegurances
+Consultoria
+Serveis jurídics
+Educació
+Sanitat
+Serveis socials
+Cultura
+Esport
+Seguretat
+Neteja
+Investigació

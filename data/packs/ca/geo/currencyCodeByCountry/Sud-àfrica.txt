@@ -1,0 +1,5 @@
+---
+description: Currency code of Sud-àfrica
+locale: ca
+---
+ZAR

@@ -1,0 +1,8 @@
+---
+description: Season (Catalan). Tardor, not any borrowing of otono.
+locale: ca
+---
+primavera
+estiu
+tardor
+hivern

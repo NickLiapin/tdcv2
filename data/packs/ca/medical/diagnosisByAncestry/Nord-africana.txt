@@ -1,0 +1,11 @@
+---
+description: Condition with a higher reported frequency in people of Nord-africana descent, named in Catalan.
+locale: ca
+---
+Febre mediterrània familiar
+Talassèmia beta
+Dèficit de G6PD
+Diabetis mellitus tipus 2
+Sordesa hereditària per connexina 26
+Malaltia de Behçet
+Hipercolesterolèmia familiar

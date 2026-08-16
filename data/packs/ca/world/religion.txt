@@ -1,0 +1,26 @@
+---
+description: Religion or belief (Catalan)
+locale: ca
+---
+Cristianisme
+Catolicisme
+Protestantisme
+Ortodòxia
+Islam
+Judaisme
+Hinduisme
+Budisme
+Sikhisme
+Jainisme
+Xintoisme
+Taoisme
+Confucianisme
+Bahaisme
+Zoroastrisme
+Animisme
+Agnosticisme
+Ateisme
+Testimonis de Jehovà
+Mormonisme
+Espiritualitat no confessional
+Sense religió

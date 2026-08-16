@@ -1,0 +1,5 @@
+---
+description: Currency code of Nigèria
+locale: ca
+---
+NGN

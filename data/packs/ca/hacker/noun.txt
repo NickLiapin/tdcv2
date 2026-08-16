@@ -1,0 +1,44 @@
+---
+description: Technical noun (Catalan). Note the Catalan words where English would be borrowed: tallafoc is a firewall, encaminador a router, commutador a switch, contrasenya a password, copia de seguretat a backup, amplada de banda bandwidth, nucli a kernel, fil a thread.
+locale: ca
+---
+interfície
+protocol
+tallafoc
+encaminador
+commutador
+servidor
+client
+matriu
+port
+monitor
+bus
+circuit
+xip
+memòria
+disc
+sistema
+contrasenya
+còpia de seguretat
+amplada de banda
+capa
+mòdul
+transistor
+condensador
+font d'alimentació
+targeta
+controlador
+sensor
+panell
+feix
+píxel
+byte
+bit
+nucli
+base de dades
+xarxa
+còdec
+fil
+cua
+memòria cau
+clau

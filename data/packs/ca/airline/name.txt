@@ -1,0 +1,54 @@
+---
+description: Airline. Brand names keep their real spelling.
+locale: ca
+---
+Vueling
+Iberia
+Air Europa
+Volotea
+Ryanair
+easyJet
+Wizz Air
+Transavia
+Air Nostrum
+Binter
+Air France
+KLM
+Lufthansa
+Swiss
+Austrian Airlines
+Brussels Airlines
+British Airways
+Aer Lingus
+TAP Air Portugal
+ITA Airways
+Alitalia
+SAS
+Norwegian
+Finnair
+LOT
+Aegean
+Turkish Airlines
+Pegasus
+Emirates
+Qatar Airways
+Etihad Airways
+Royal Air Maroc
+Tunisair
+EgyptAir
+El Al
+Delta Air Lines
+United Airlines
+American Airlines
+Air Canada
+LATAM
+Avianca
+Aerolíneas Argentinas
+Copa Airlines
+Singapore Airlines
+Cathay Pacific
+Japan Airlines
+ANA
+Korean Air
+Qantas
+Air New Zealand

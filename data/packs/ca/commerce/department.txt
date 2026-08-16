@@ -1,0 +1,54 @@
+---
+description: Shop department (Catalan)
+locale: ca
+---
+Alimentació
+Fruita i verdura
+Carnisseria
+Peixateria
+Xarcuteria
+Forn
+Pastisseria
+Celler
+Begudes
+Congelats
+Làctics
+Drogueria
+Perfumeria
+Farmàcia
+Parafarmàcia
+Roba de dona
+Roba d'home
+Roba infantil
+Calçat
+Complements
+Joieria
+Rellotgeria
+Òptica
+Llar
+Parament de la llar
+Mobles
+Decoració
+Tèxtil de la llar
+Electrodomèstics
+Electrònica
+Informàtica
+Telefonia
+Imatge i so
+Fotografia
+Llibreria
+Papereria
+Música
+Joguines
+Esports
+Ciclisme
+Bricolatge
+Ferreteria
+Jardineria
+Animals de companyia
+Automoció
+Nadó
+Viatges
+Regals
+Manualitats
+Segona mà

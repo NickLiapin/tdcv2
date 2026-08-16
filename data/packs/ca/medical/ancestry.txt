@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Catalan, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: ca
+---
+Subsahariana
+Nord-africana
+Mediterrània
+Orient Mitjà
+Nord-europea
+Est-europea
+Jueva asquenazita
+Sud-asiàtica
+Est-asiàtica
+Sud-est asiàtica
+Ameríndia
+Illes del Pacífic

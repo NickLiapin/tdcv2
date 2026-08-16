@@ -1,0 +1,5 @@
+---
+description: Capital of Polònia (Catalan)
+locale: ca
+---
+Varsòvia

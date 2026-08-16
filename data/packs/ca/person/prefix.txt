@@ -1,0 +1,36 @@
+---
+description: Title or article placed before a Catalan name. The first four are the PERSONAL ARTICLE, a feature Catalan has and Castilian does not: everyday Catalan says en Jordi, la Maria, n'Anna before a given name, and the Balearic Islands use the salat forms es Tomeu, sa Catalina. It is part of ordinary speech, not a courtesy title. The honorifics Excel-lentissim and Il-lustrissim carry the interpunct (U+00B7). Mn. is Mossen, the address for a secular priest, and is how Jacint Verdaguer is still universally named (Mossen Cinto).
+locale: ca
+---
+en
+na
+n'
+es
+sa
+Sr.
+Sra.
+Srta.
+Dr.
+Dra.
+Prof.
+Prof.ª
+Mn.
+Mossèn
+Fra
+Sor
+Germà
+Germana
+Senyor
+Senyora
+Excel·lentíssim Senyor
+Excel·lentíssima Senyora
+Il·lustríssim Senyor
+Il·lustríssima Senyora
+Honorable Senyor
+Honorable Senyora
+Capità
+Tinent
+Comandant
+Coronel
+General
+Sergent

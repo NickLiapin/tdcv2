@@ -1,0 +1,5 @@
+---
+description: Currency of Corea del Sud (Catalan)
+locale: ca
+---
+won sud-coreà

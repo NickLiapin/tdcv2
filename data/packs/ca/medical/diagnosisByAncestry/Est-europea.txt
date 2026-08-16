@@ -1,0 +1,11 @@
+---
+description: Condition with a higher reported frequency in people of Est-europea descent, named in Catalan.
+locale: ca
+---
+Malaltia celíaca
+Fenilcetonúria
+Diabetis mellitus tipus 1
+Síndrome de Gilbert
+Hipercolesterolèmia familiar
+Dèficit de factor XI
+Trombofília per factor V Leiden

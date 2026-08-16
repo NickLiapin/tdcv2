@@ -1,0 +1,28 @@
+---
+description: Household budget category (Catalan)
+locale: ca
+---
+Habitatge
+Lloguer
+Hipoteca
+Subministraments
+Electricitat
+Aigua
+Gas
+Telefonia i internet
+Alimentació
+Restauració
+Transport
+Combustible
+Transport públic
+Salut
+Assegurances
+Educació
+Roba i calçat
+Oci i cultura
+Viatges
+Estalvi
+Impostos
+Cura personal
+Animals de companyia
+Regals

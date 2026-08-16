@@ -1,0 +1,5 @@
+---
+description: Currency of França (Catalan)
+locale: ca
+---
+euro

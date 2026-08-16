@@ -1,0 +1,20 @@
+---
+description: Horse breed (Catalan). The cavall pirinenc catala and the cavall mallorqui and menorqui are recognised native breeds of the Catalan-speaking lands.
+locale: ca
+---
+Cavall pirinenc català
+Cavall mallorquí
+Cavall menorquí
+Poni
+Àrab
+Pura sang anglès
+Andalús
+Frisó
+Percheró
+Shire
+Haflinger
+Appaloosa
+Mustang
+Quarter de milla
+Trotador
+Shetland

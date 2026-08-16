@@ -1,0 +1,15 @@
+---
+description: Shipping status (Catalan)
+locale: ca
+---
+Etiqueta creada
+Recollit
+En trànsit
+Al centre logístic
+En duana
+En repartiment
+Intent de lliurament
+Lliurat
+Disponible al punt de recollida
+Retornat a l'origen
+Extraviat

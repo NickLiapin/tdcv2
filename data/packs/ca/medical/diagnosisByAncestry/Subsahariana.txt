@@ -1,0 +1,15 @@
+---
+description: Condition with a higher reported frequency in people of Subsahariana descent, named in Catalan. This list is a PREVALENCE SIGNAL, not an exclusive one: every condition named here occurs in every population, and the association is a matter of frequency in family history, never of a diagnosis being ruled in or out by descent.
+locale: ca
+---
+Anèmia falciforme
+Talassèmia alfa
+Dèficit de G6PD
+Intolerància a la lactosa
+Hipertensió arterial
+Sarcoïdosi
+Miomes uterins
+Glaucoma d'angle obert
+Insuficiència renal crònica
+Amiloïdosi hereditària per transtiretina
+Neutropènia benigna ètnica

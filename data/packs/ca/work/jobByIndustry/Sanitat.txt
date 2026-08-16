@@ -1,0 +1,24 @@
+---
+description: Job title in the Sanitat sector, named in Catalan
+locale: ca
+---
+Metge de família
+Infermer
+Infermera
+Auxiliar d'infermeria
+Farmacèutic
+Fisioterapeuta
+Psicòleg clínic
+Llevadora
+Tècnic de radiodiagnòstic
+Tècnic de laboratori
+Odontòleg
+Òptic optometrista
+Podòleg
+Logopeda
+Dietista nutricionista
+Zelador
+Tècnic d'emergències sanitàries
+Terapeuta ocupacional
+Cirurgià
+Anestesiòleg

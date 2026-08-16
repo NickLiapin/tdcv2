@@ -1,0 +1,18 @@
+---
+description: What Catalan puts AFTER a personal name, which is very little. There is no equivalent of the American Jr./Sr./III stack and no post-nominal degree letters: a Catalan degree or rank is written in FRONT of the name (Dr., Dra., Enginyer, Llic.), never behind it, so PhD, MD, Esq and JD are deliberately absent rather than translated. The Roman numerals are regnal, used after a monarch's or a pope's name (Jaume I el Conqueridor, Pere III el Cerimonios, Alfons IV). Fill and pare are how Catalan tells a son from a father of the same name, the way English uses Jr. and Sr. Junior and senior exist as sports-category labels, not as name suffixes.
+locale: ca
+---
+I
+II
+III
+IV
+V
+VI
+VII
+VIII
+IX
+X
+fill
+pare
+júnior
+sènior

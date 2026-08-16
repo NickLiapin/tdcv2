@@ -1,0 +1,38 @@
+---
+description: Legal form written after a company name in Catalan. These are the Catalan-language NAMES of the forms; which registry issues which, and the number it stamps on it, belong to a country pack — the same Catalan words are used in four states. SCCL is the Societat Cooperativa Catalana Limitada, a form that exists only under Catalan law and has no Castilian equivalent. SARL, SAS and SCI are the French forms used in Northern Catalonia and Srl and SpA the Italian ones used in Alghero.
+locale: ca
+---
+SA
+SL
+SLU
+SLNE
+SCP
+SCCL
+SAL
+SLL
+SCA
+AIE
+UTE
+CB
+SAT
+Cooperativa
+Societat Anònima
+Societat Limitada
+Societat Civil Particular
+Societat Cooperativa Catalana Limitada
+Comunitat de Béns
+Agrupació d'Interès Econòmic
+Unió Temporal d'Empreses
+Fundació
+Associació
+Mútua
+Institut
+Consorci
+Federació
+Gremi
+SARL
+SAS
+SCI
+EURL
+Srl
+SpA

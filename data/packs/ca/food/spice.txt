@@ -1,0 +1,36 @@
+---
+description: Spice or culinary herb (Catalan). Farigola is thyme, safra saffron, matafaluga aniseed, sajolida savory and marduix marjoram; bitxo is the small hot chilli that goes into the allioli negat.
+locale: ca
+---
+Sal
+Pebre negre
+Pebre vermell
+Julivert
+Farigola
+Romaní
+Llorer
+Alfàbrega
+Menta
+Orenga
+Sàlvia
+Anís
+Matafaluga
+Fonoll
+Safrà
+Canyella
+Nou moscada
+Clau d'espècia
+Gingebre
+Comí
+Coriandre
+Cúrcuma
+Bitxo
+Pebre de Caiena
+Vainilla
+Cardamom
+Mostassa
+Sèsam
+Espígol
+Sajolida
+Marduix
+Estragó

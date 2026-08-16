@@ -1,0 +1,39 @@
+---
+description: Musical instrument (Catalan). The first six are the instruments of the COBLA, the eleven-piece band that plays for the sardana and exists for no other purpose: the flabiol is a one-handed three-hole flute played together with the tamborí, a small drum strapped to the same arm, while the tible and the tenora are the two sizes of the Catalan shawm. The gralla is the louder outdoor shawm that plays the castellers up their tower, the sac de gemecs the Catalan bagpipe, the dolcaina the Valencian shawm and the ximbomba the Balearic friction drum. None of these has an English name.
+locale: ca
+---
+Flabiol
+Tamborí
+Tible
+Tenora
+Fiscorn
+Contrabaix
+Gralla
+Sac de gemecs
+Dolçaina
+Tabal
+Ximbomba
+Castanyoles
+Guitarra
+Guitarra elèctrica
+Baix elèctric
+Piano
+Orgue
+Acordió
+Violí
+Viola
+Violoncel
+Arpa
+Flauta travessera
+Clarinet
+Oboè
+Fagot
+Saxòfon
+Trompeta
+Trombó
+Trompa
+Tuba
+Bateria
+Timbals
+Xilòfon
+Pandereta

@@ -1,0 +1,15 @@
+---
+description: Booking status (Catalan)
+locale: ca
+---
+Sol·licitada
+Confirmada
+Pendent de pagament
+Pagada
+Modificada
+En llista d'espera
+Cancel·lada
+Reemborsada
+No presentat
+Completada
+Caducada

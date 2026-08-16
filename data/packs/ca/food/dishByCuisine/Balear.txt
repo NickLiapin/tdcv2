@@ -1,0 +1,22 @@
+---
+description: Dish of Balear cuisine, named in Catalan
+locale: ca
+---
+Sobrassada
+Ensaïmada
+Frit mallorquí
+Tumbet
+Coca de trampó
+Arròs brut
+Caldereta de llagosta
+Sopes mallorquines
+Panades
+Rubiols
+Gató d'ametlla
+Greixonera
+Bullit de peix
+Flaó
+Oliaigua
+Escaldums
+Formatge de Maó
+Llom amb col

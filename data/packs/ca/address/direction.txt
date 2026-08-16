@@ -1,0 +1,22 @@
+---
+description: Directional qualifier appended to a Catalan street or district name (Eixample Nord, Sector Ponent, Barri de Llevant). The second half is the MEDITERRANEAN WIND ROSE, which Catalan uses as ordinary compass vocabulary and not as sailors' jargon: tramuntana is north, gregal north-east, llevant east, xaloc south-east, migjorn south, garbi or llebeig south-west, ponent west, mestral north-west. Every one of those eight is a wind name first and a bearing second, and they are what a weather bulletin and an estate agent both actually say.
+locale: ca
+---
+Nord
+Sud
+Est
+Oest
+Nord-est
+Nord-oest
+Sud-est
+Sud-oest
+Centre
+Tramuntana
+Gregal
+Llevant
+Xaloc
+Migjorn
+Garbí
+Llebeig
+Ponent
+Mestral

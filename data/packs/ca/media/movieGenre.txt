@@ -1,0 +1,24 @@
+---
+description: Film genre (Catalan). Bel-lic — the war film — carries the interpunct (U+00B7). The word for a film is pel-licula, which carries one too.
+locale: ca
+---
+Comèdia
+Drama
+Acció
+Aventures
+Suspens
+Terror
+Ciència-ficció
+Fantasia
+Documental
+Animació
+Musical
+Bèl·lic
+Western
+Policíaca
+Biogràfica
+Romàntica
+Misteri
+Curtmetratge
+Cinema negre
+Comèdia romàntica

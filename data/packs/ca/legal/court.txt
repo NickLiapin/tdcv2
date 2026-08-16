@@ -1,0 +1,21 @@
+---
+description: Kind of court, in the words Catalan uses for them — GENERIC Catalan legal vocabulary, not one state's judiciary. Catalan is a court language in four states with four different court systems: it is the sole official language of the Andorran courts, it is co-official before the courts of Catalonia, the Valencian Country and the Balearic Islands, it has no standing before the French courts of Northern Catalonia, and none before the Italian courts of Alghero. So this list holds the words, and the actual bench of any one country belongs in a country pack. One institution was deliberately left out for that reason: the Tribunal de les Aigues de la Vega de Valencia, which has met in the doorway of Valencia cathedral every Thursday for a thousand years and conducts its proceedings orally in Valencian Catalan — the oldest working court in Europe, and a named institution of one country rather than a kind of court.
+locale: ca
+---
+Jutjat de pau
+Jutjat de primera instància
+Jutjat d'instrucció
+Jutjat penal
+Jutjat social
+Jutjat mercantil
+Jutjat contenciós administratiu
+Jutjat de menors
+Jutjat de vigilància penitenciària
+Audiència
+Tribunal superior
+Tribunal suprem
+Tribunal constitucional
+Tribunal de comptes
+Tribunal d'apel·lació
+Tribunal arbitral
+Cort de mediació

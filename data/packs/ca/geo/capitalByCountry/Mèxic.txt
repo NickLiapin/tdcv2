@@ -1,0 +1,5 @@
+---
+description: Capital of Mèxic (Catalan)
+locale: ca
+---
+Ciutat de Mèxic

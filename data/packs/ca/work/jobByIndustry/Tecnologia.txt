@@ -1,0 +1,24 @@
+---
+description: Job title in the Tecnologia sector, named in Catalan
+locale: ca
+---
+Enginyer de programari
+Desenvolupador web
+Desenvolupadora mòbil
+Administrador de sistemes
+Enginyer de xarxes
+Analista de dades
+Científic de dades
+Enginyer de dades
+Cap de projecte
+Analista funcional
+Tècnic de suport informàtic
+Dissenyador d'interfícies
+Enginyer de proves
+Arquitecte de programari
+Especialista en ciberseguretat
+Il·lustrador digital
+Administrador de bases de dades
+Consultor tecnològic
+Enginyer de telecomunicacions
+Tècnic de sistemes

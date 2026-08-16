@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Catalan). Two of the eight are here because they are Catalan sports rather than because they are large: hoquei patins, rink hockey, in which Catalan clubs and the Catalan and Spanish national sides have dominated the world game for decades, and pilota valenciana, the hand-ball game of the Valencian country whose positions — rest, mitger, punter, escaleter, feridor, dauer — have no name in any other language.
+locale: ca
+---
+Futbol
+Bàsquet
+Handbol
+Hoquei patins
+Voleibol
+Rugbi
+Waterpolo
+Pilota valenciana

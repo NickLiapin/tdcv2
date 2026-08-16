@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (Catalan)
+locale: ca
+---
+Tecnologia
+Sanitat
+Finances
+Construcció
+Educació
+Hostaleria
+Indústria
+Comerç
+Transport
+Serveis jurídics

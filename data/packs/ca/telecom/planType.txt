@@ -1,0 +1,16 @@
+---
+description: Telecom plan type (Catalan)
+locale: ca
+---
+Prepagament
+Postpagament
+Tarifa plana
+Només dades
+Veu i dades
+Fibra i mòbil
+Convergent
+Familiar
+Empresa
+Roaming internacional
+Segona línia
+Targeta de dades

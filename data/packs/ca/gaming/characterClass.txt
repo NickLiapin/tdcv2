@@ -1,0 +1,28 @@
+---
+description: Game character class (Catalan). Il-lusionista carries the interpunct (U+00B7).
+locale: ca
+---
+Guerrer
+Mag
+Bruixot
+Clergue
+Lladre
+Assassí
+Arquer
+Paladí
+Bàrbar
+Druida
+Bard
+Monjo
+Nigromant
+Invocador
+Caçador
+Explorador
+Alquimista
+Enginyer
+Xaman
+Cavaller
+Escuder
+Tirador
+Il·lusionista
+Encantador

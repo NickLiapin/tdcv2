@@ -1,0 +1,12 @@
+---
+description: Cable conduit type (Catalan)
+locale: ca
+---
+Tub corrugat
+Tub rígid
+Canal
+Safata
+Canaleta
+Arqueta
+Galeria de serveis
+Enterrament directe

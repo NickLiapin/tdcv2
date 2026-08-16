@@ -1,0 +1,31 @@
+---
+description: Gemstone (Catalan). Atzabeja is jet, the black lignite carved for mourning jewellery and for the Catalan figa amulet. Espinel-la carries the interpunct (U+00B7).
+locale: ca
+---
+Diamant
+Robí
+Safir
+Maragda
+Topazi
+Ametista
+Aiguamarina
+Òpal
+Turquesa
+Granat
+Jade
+Ònix
+Àgata
+Jaspi
+Malaquita
+Lapislàtzuli
+Perla
+Corall
+Ambre
+Atzabeja
+Quars
+Citrina
+Peridot
+Tanzanita
+Zircó
+Espinel·la
+Cornalina

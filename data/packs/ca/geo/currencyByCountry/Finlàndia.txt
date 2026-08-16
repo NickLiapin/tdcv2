@@ -1,0 +1,5 @@
+---
+description: Currency of Finlàndia (Catalan)
+locale: ca
+---
+euro

@@ -1,0 +1,19 @@
+---
+description: Job title in the Finances sector, named in Catalan
+locale: ca
+---
+Comptable
+Auditor
+Analista financer
+Gestor de patrimonis
+Director d'oficina bancària
+Actuari
+Assessor fiscal
+Analista de riscos
+Controller
+Agent d'assegurances
+Tresorer
+Analista de crèdit
+Gestor de cobraments
+Economista
+Corredor d'assegurances

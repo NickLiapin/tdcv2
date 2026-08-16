@@ -1,0 +1,54 @@
+---
+description: University field of study (Catalan)
+locale: ca
+---
+Filologia Catalana
+Filologia Hispànica
+Traducció i Interpretació
+Història
+Història de l'Art
+Filosofia
+Humanitats
+Comunicació Audiovisual
+Periodisme
+Publicitat i Relacions Públiques
+Dret
+Criminologia
+Ciències Polítiques
+Sociologia
+Economia
+Administració i Direcció d'Empreses
+Comptabilitat i Finances
+Turisme
+Psicologia
+Pedagogia
+Educació Infantil
+Educació Primària
+Treball Social
+Medicina
+Infermeria
+Farmàcia
+Veterinària
+Odontologia
+Fisioteràpia
+Nutrició Humana i Dietètica
+Biologia
+Bioquímica
+Biotecnologia
+Química
+Física
+Matemàtiques
+Estadística
+Geologia
+Ciències Ambientals
+Enginyeria Informàtica
+Enginyeria Industrial
+Enginyeria de Telecomunicacions
+Enginyeria Civil
+Enginyeria Agrònoma
+Arquitectura
+Disseny
+Belles Arts
+Musicologia
+Ciències de l'Activitat Física i l'Esport
+Enologia

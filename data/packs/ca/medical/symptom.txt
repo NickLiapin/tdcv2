@@ -1,0 +1,44 @@
+---
+description: Symptom (Catalan). Mal de cap, mal de coll, mal de panxa — Catalan builds most complaints with mal de plus the body part, exactly where English uses a compound noun.
+locale: ca
+---
+Febre
+Tos
+Mal de cap
+Mal de coll
+Mal de panxa
+Nàusees
+Vòmits
+Diarrea
+Restrenyiment
+Fatiga
+Debilitat
+Mareig
+Vertigen
+Falta d'aire
+Dolor toràcic
+Palpitacions
+Erupció cutània
+Picor
+Inflor
+Dolor articular
+Rigidesa matinal
+Formigueig
+Adormiment
+Visió borrosa
+Xiulets al pit
+Congestió nasal
+Esternuts
+Calfreds
+Suors nocturnes
+Pèrdua de gana
+Pèrdua de pes
+Insomni
+Confusió
+Pèrdua de memòria
+Cremor d'estómac
+Sang a l'orina
+Ganglis inflats
+Ronquera
+Mal d'esquena
+Mal d'oïda

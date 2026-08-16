@@ -1,0 +1,5 @@
+---
+description: Currency of Aràbia Saudita (Catalan)
+locale: ca
+---
+rial saudita

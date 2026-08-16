@@ -1,0 +1,18 @@
+---
+description: Diagnosis seen in Endocrinologia, named in Catalan
+locale: ca
+---
+Diabetis mellitus tipus 1
+Diabetis mellitus tipus 2
+Hipotiroïdisme
+Hipertiroïdisme
+Tiroïditis de Hashimoto
+Malaltia de Graves
+Obesitat
+Dislipèmia
+Síndrome metabòlica
+Osteoporosi
+Insuficiència suprarenal
+Síndrome de Cushing
+Hiperparatiroïdisme
+Síndrome d'ovari poliquístic

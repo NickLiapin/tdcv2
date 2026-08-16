@@ -1,0 +1,5 @@
+---
+description: Currency of Suïssa (Catalan)
+locale: ca
+---
+franc suís

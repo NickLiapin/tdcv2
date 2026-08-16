@@ -1,0 +1,22 @@
+---
+description: Venue type (Catalan)
+locale: ca
+---
+Auditori
+Teatre
+Sala de concerts
+Palau de congressos
+Recinte firal
+Pavelló
+Estadi
+Camp de futbol
+Plaça del poble
+Casal
+Ateneu
+Centre cívic
+Masia
+Castell
+Claustre
+Envelat
+Sala d'exposicions
+Biblioteca

@@ -1,0 +1,36 @@
+---
+description: Flower (Catalan). The head of the list is the garrigue and the coastal scrub rather than a florist's window: ginesta is broom, romani rosemary, farigola thyme, espigol lavender, bruc heather, baladre oleander, rosella the field poppy. Buguenvil-lea carries the interpunct (U+00B7).
+locale: ca
+---
+Rosa
+Clavell
+Margarida
+Ginesta
+Romaní
+Farigola
+Espígol
+Bruc
+Baladre
+Lliri
+Tulipa
+Gessamí
+Nard
+Violeta
+Pensament
+Gerani
+Hortènsia
+Camèlia
+Peònia
+Dàlia
+Crisantem
+Gladiol
+Gira-sol
+Rosella
+Card
+Malva
+Nenúfar
+Orquídia
+Begònia
+Petúnia
+Azalea
+Buguenvíl·lea

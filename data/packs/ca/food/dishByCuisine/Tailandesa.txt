@@ -1,0 +1,14 @@
+---
+description: Dish of Tailandesa cuisine, named in Catalan
+locale: ca
+---
+Pad thai
+Curri verd
+Tom yum
+Som tam
+Curri massaman
+Arròs saltat
+Satay
+Rotlles d'estiu
+Curri roig
+Arròs gomós amb mango

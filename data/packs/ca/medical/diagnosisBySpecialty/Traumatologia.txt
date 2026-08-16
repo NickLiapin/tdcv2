@@ -1,0 +1,18 @@
+---
+description: Diagnosis seen in Traumatologia, named in Catalan
+locale: ca
+---
+Fractura de fèmur
+Fractura de canell
+Artrosi de genoll
+Artrosi de maluc
+Hèrnia discal
+Lumbàlgia mecànica
+Trencament de menisc
+Ruptura del lligament croat anterior
+Tendinitis del manegot dels rotadors
+Epicondilitis
+Esquinç de turmell
+Luxació d'espatlla
+Fascitis plantar
+Síndrome de l'espatlla congelada

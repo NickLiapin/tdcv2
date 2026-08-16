@@ -1,0 +1,24 @@
+---
+description: Kind of official document, named in Catalan. These are the KINDS; the numbers, formats and issuing registries are NOT here and belong to a country pack — no DNI, no NIE, no NIF, no numero de la Seguretat Social, no passport number layout, no Andorran or French identity-document series. Catalan is spoken across four states with four different identity regimes, and a language pack that shipped one of them would be a country pack wearing a language pack's name.
+locale: ca
+---
+Document d'identitat
+Passaport
+Permís de conduir
+Certificat de naixement
+Certificat de matrimoni
+Certificat de defunció
+Certificat d'empadronament
+Llibre de família
+Targeta sanitària
+Permís de residència
+Permís de treball
+Certificat digital
+Escriptura pública
+Poder notarial
+Testament
+Contracte de lloguer
+Certificat d'antecedents penals
+Títol acadèmic
+Certificat de nivell de català
+Llicència d'obres

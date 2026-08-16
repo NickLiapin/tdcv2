@@ -1,0 +1,5 @@
+---
+description: Currency of Andorra (Catalan)
+locale: ca
+---
+euro

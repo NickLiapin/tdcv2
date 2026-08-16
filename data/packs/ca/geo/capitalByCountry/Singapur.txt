@@ -1,0 +1,5 @@
+---
+description: Capital of Singapur (Catalan)
+locale: ca
+---
+Singapur

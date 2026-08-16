@@ -1,0 +1,36 @@
+---
+description: Hotel amenity (Catalan). Instal-lacions carries the interpunct (U+00B7).
+locale: ca
+---
+Wi-Fi gratuït
+Esmorzar inclòs
+Aparcament
+Aparcament gratuït
+Piscina
+Piscina climatitzada
+Spa
+Sauna
+Gimnàs
+Instal·lacions esportives
+Restaurant
+Bar
+Servei d'habitacions
+Recepció 24 hores
+Consigna d'equipatge
+Aire condicionat
+Calefacció
+Ascensor
+Accessible
+Admet animals
+Terrassa
+Jardí
+Vistes al mar
+Vistes a la muntanya
+Cuina
+Rentadora
+Caixa forta
+Servei de bugaderia
+Trasllat a l'aeroport
+Lloguer de bicicletes
+Sala de reunions
+Zona infantil

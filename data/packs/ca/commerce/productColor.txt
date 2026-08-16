@@ -1,0 +1,58 @@
+---
+description: Product colour (Catalan)
+locale: ca
+---
+Blanc
+Negre
+Gris
+Gris marengo
+Gris perla
+Beix
+Crema
+Sorra
+Camel
+Marró
+Xocolata
+Terracota
+Taronja
+Coral
+Salmó
+Vermell
+Granat
+Bordeus
+Rosa
+Rosa pàl·lid
+Fúcsia
+Magenta
+Lila
+Malva
+Violeta
+Porpra
+Blau
+Blau marí
+Blau cel
+Blau cobalt
+Turquesa
+Aiguamarina
+Verd
+Verd oliva
+Verd menta
+Verd maragda
+Verd poma
+Caqui
+Groc
+Groc mostassa
+Or
+Argent
+Coure
+Bronze
+Nacre
+Marfil
+Antracita
+Multicolor
+Estampat
+Ratllat
+Quadres
+Camuflatge
+Degradat
+Bicolor

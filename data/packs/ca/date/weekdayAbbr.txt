@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday name (Catalan)
+locale: ca
+---
+dl.
+dt.
+dc.
+dj.
+dv.
+ds.
+dg.

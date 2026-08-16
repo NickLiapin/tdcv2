@@ -1,0 +1,14 @@
+---
+description: Age classification as it is printed in the Catalan-speaking area: the European age-band system, NOT the American MPAA letters. TP is tots els publics; the rest are minimum ages.
+locale: ca
+---
+TP
++7
++12
++16
++18
+X
+Apta per a tots els públics
+No recomanada per a menors de 12 anys
+No recomanada per a menors de 16 anys
+No recomanada per a menors de 18 anys

@@ -1,0 +1,19 @@
+---
+description: Hiring stage (Catalan)
+locale: ca
+---
+Recepció de candidatures
+Cribratge curricular
+Entrevista telefònica
+Entrevista amb recursos humans
+Prova tècnica
+Cas pràctic
+Entrevista tècnica
+Entrevista amb el responsable
+Dinàmica de grup
+Prova psicotècnica
+Comprovació de referències
+Oferta
+Negociació
+Incorporació
+Descartat

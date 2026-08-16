@@ -1,0 +1,5 @@
+---
+description: Capital of Portugal (Catalan)
+locale: ca
+---
+Lisboa

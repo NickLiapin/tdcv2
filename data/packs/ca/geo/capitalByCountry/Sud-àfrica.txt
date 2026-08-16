@@ -1,0 +1,5 @@
+---
+description: Capital of Sud-àfrica (Catalan)
+locale: ca
+---
+Pretòria

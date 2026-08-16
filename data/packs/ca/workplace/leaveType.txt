@@ -1,0 +1,20 @@
+---
+description: Type of leave (Catalan). Permis de lactancia is the paid nursing hour available to either parent under Spanish-law employment, and excedencia is an extended unpaid leave with a right to return that English calls neither sabbatical nor career break.
+locale: ca
+---
+Vacances
+Baixa per malaltia
+Baixa per accident laboral
+Permís de maternitat
+Permís de paternitat
+Permís de lactància
+Excedència
+Excedència per cura de fills
+Permís per matrimoni
+Permís per defunció d'un familiar
+Permís per trasllat
+Permís per exàmens
+Dies de lliure disposició
+Reducció de jornada
+Permís no retribuït
+Permís per deure inexcusable

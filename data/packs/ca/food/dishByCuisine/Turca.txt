@@ -1,0 +1,14 @@
+---
+description: Dish of Turca cuisine, named in Catalan
+locale: ca
+---
+Kebab
+Baklava
+Lahmacun
+Pilaf
+Dolma
+Menemen
+Borek
+Iogurt amb all
+Kofte
+Simit

@@ -1,0 +1,48 @@
+---
+description: Generic drug name (Catalan spelling — INN adapted to Catalan orthography: ibuprofen, paracetamol, amoxicil-lina, penicil-lina, codeina with the diaeresis). Amoxicil-lina and penicil-lina carry the interpunct (U+00B7); the Castilian forms amoxicilina and penicilina have a single L and nothing between.
+locale: ca
+---
+Paracetamol
+Ibuprofèn
+Àcid acetilsalicílic
+Amoxicil·lina
+Amoxicil·lina amb àcid clavulànic
+Penicil·lina G
+Azitromicina
+Ciprofloxacina
+Omeprazol
+Pantoprazol
+Metformina
+Insulina glargina
+Atorvastatina
+Simvastatina
+Enalapril
+Ramipril
+Amlodipina
+Losartan
+Bisoprolol
+Furosemida
+Levotiroxina
+Salbutamol
+Budesonida
+Prednisona
+Diazepam
+Lorazepam
+Sertralina
+Fluoxetina
+Escitalopram
+Risperidona
+Olanzapina
+Levetiracetam
+Àcid valproic
+Acenocumarol
+Clopidogrel
+Heparina de baix pes molecular
+Al·lopurinol
+Tramadol
+Morfina
+Codeïna
+Loratadina
+Cetirizina
+Metotrexat
+Famotidina

@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Catalan)
+locale: ca
+---
+Individual
+Doble
+Doble amb llits separats
+Twin
+Triple
+Quàdruple
+Familiar
+Suite
+Júnior suite
+Àtic
+Estudi
+Apartament
+Bungalou
+Habitació superior
+Habitació amb vistes
+Habitació adaptada
+Habitació comunicada
+Llitera

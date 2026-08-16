@@ -1,0 +1,44 @@
+---
+description: Music genre (Catalan). Five of these are genres of the Catalan lands and are not translations: havaneres, the sailors' songs brought back from Cuba and still sung with burnt rum on the Costa Brava; sardana, the cobla music of the circle dance; rumba catalana, the Barcelona Roma guitar style of Peret and Gato Perez; nova canco, the singer-songwriter movement that carried the language through the Franco years; and cant d'estil, the improvised sung verse of the Valencian country.
+locale: ca
+---
+Pop
+Rock
+Indie
+Punk
+Metal
+Jazz
+Blues
+Soul
+Funk
+Reggae
+Hip-hop
+Rap
+Trap
+Electrònica
+House
+Techno
+Drum and bass
+Ambient
+Clàssica
+Òpera
+Sarsuela
+Cor
+Música de cambra
+Simfònica
+Barroca
+Contemporània
+Folk
+Música tradicional
+Havaneres
+Sardana
+Rumba catalana
+Nova cançó
+Cant d'estil
+Cançó d'autor
+Flamenc
+Salsa
+Bossa nova
+Country
+Gospel
+Banda sonora

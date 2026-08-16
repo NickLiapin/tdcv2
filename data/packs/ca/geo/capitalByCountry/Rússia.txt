@@ -1,0 +1,5 @@
+---
+description: Capital of Rússia (Catalan)
+locale: ca
+---
+Moscou

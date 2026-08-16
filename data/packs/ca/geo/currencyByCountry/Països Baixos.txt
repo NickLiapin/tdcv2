@@ -1,0 +1,5 @@
+---
+description: Currency of Països Baixos (Catalan)
+locale: ca
+---
+euro

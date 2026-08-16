@@ -1,0 +1,41 @@
+---
+description: Trailing qualifier of a Catalan place name (Caldes de Malavella, Sant Feliu de Guixols, Palamos de Dalt, Vilassar de Mar). The pairs are listed in both genders because the qualifier agrees with the gender of the place name in front of it — Poble Nou but Vila Nova, Camp Gran but Riera Gran. De Llevant, de Ponent, de Migjorn and de Tramuntana are the Mediterranean wind-rose bearings Catalan uses in place of east, west, south and north.
+locale: ca
+---
+de Mar
+de Munt
+de Dalt
+de Baix
+de Mig
+de la Selva
+de la Plana
+de la Costa
+de la Serra
+de la Vall
+del Camp
+del Riu
+de la Riera
+de la Font
+del Bosc
+de la Muntanya
+de la Marina
+Vell
+Vella
+Nou
+Nova
+Gran
+Petit
+Petita
+Alt
+Alta
+Baix
+Baixa
+de Llevant
+de Ponent
+de Migjorn
+de Tramuntana
+de les Fonts
+de les Roques
+dels Horts
+de la Vinya
+de l'Estany

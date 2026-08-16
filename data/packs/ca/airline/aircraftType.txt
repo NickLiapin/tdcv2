@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Model designations are international and keep their real form in any locale.
+locale: ca
+---
+A319
+A320
+A320neo
+A321
+A321neo
+A330-200
+A330-300
+A330neo
+A350-900
+A350-1000
+A380
+B737-800
+B737 MAX 8
+B747-400
+B757-200
+B767-300
+B777-200
+B777-300ER
+B787-8
+B787-9
+ATR 72
+ATR 42
+CRJ-1000
+E190
+E195
+Dash 8 Q400

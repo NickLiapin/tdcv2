@@ -1,0 +1,5 @@
+---
+description: Capital of Brasil (Catalan)
+locale: ca
+---
+Brasília

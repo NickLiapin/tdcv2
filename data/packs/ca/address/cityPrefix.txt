@@ -1,0 +1,51 @@
+---
+description: Leading element of a Catalan place name (Sant Cugat, Vilanova, Castellar, la Pobla, Puig-reig, Sa Pobla). Catalan place names keep the definite article and Catalan keeps it LOWERCASE inside a sentence — l'Hospitalet, la Seu, el Prat, els Hostalets — which is why the articles are listed in lower case here. Sa, ses and es are the salat article of the Balearic Islands and of part of the Costa Brava, a form that exists nowhere in Castilian. The element alone does not name a real place; combine it with a toponym.
+locale: ca
+---
+Sant
+Santa
+Vila
+Vilanova
+Vilafranca
+Vilamajor
+Castell
+Castellar
+Castellnou
+Puig
+Puig-reig
+Pont
+Torre
+Torres
+Font
+Roca
+Rocafort
+Mas
+Molí
+Camp
+Pla
+Prat
+Riu
+Riera
+Salt
+Coll
+Serra
+Vall
+Valls
+Bell
+Bellver
+Montclar
+Mont
+Cala
+Port
+Platja
+la Pobla
+les Cases
+el Poble
+la
+el
+els
+les
+l'
+sa
+ses
+es

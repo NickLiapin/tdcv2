@@ -1,0 +1,48 @@
+---
+description: Cooking ingredient (Catalan). Two entries are techniques that a Catalan recipe treats as ingredients and that have no English or Castilian one-word equivalent: the sofregit, the slow onion-and-tomato base every dish starts from, and the picada, the mortar-ground mix of nuts, garlic, fried bread and parsley stirred in at the END to bind and finish it. Allioli, romesco and samfaina are the three other standing preparations. Mato is the fresh unsalted curd eaten with honey.
+locale: ca
+---
+Oli d'oliva
+Vinagre
+All
+Ceba
+Tomàquet
+Pa
+Farina
+Ous
+Llet
+Mantega
+Formatge
+Nata
+Iogurt
+Arròs
+Pasta
+Fideus
+Cigrons
+Llenties
+Mongetes seques
+Pernil
+Botifarra
+Botifarra negra
+Fuet
+Llonganissa
+Sobrassada
+Cansalada
+Bacallà salat
+Anxoves
+Tonyina
+Sofregit
+Picada
+Allioli
+Romesco
+Samfaina
+Brou
+Vi ranci
+Ametlles
+Avellanes
+Pinyons
+Mel
+Sucre
+Xocolata
+Mató
+Sal

@@ -1,0 +1,11 @@
+---
+description: Condition with a higher reported frequency in people of Ameríndia descent, named in Catalan.
+locale: ca
+---
+Diabetis mellitus tipus 2
+Litiasi biliar
+Esteatosi hepàtica
+Artritis reumatoide
+Lupus eritematós sistèmic
+Obesitat
+Malaltia renal crònica

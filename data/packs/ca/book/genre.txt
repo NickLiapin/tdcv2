@@ -1,0 +1,30 @@
+---
+description: Book genre (Catalan). Novel-la, the word for a novel, carries the interpunct (U+00B7) and appears here four times.
+locale: ca
+---
+Novel·la
+Novel·la negra
+Novel·la històrica
+Novel·la gràfica
+Poesia
+Assaig
+Teatre
+Conte
+Biografia
+Memòries
+Crònica
+Divulgació
+Autoajuda
+Ciència-ficció
+Fantasia
+Terror
+Romàntica
+Aventures
+Literatura de viatges
+Cuina
+Infantil
+Juvenil
+Còmic
+Manual
+Diccionari
+Antologia

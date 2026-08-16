@@ -1,0 +1,5 @@
+---
+description: Currency of Indonèsia (Catalan)
+locale: ca
+---
+rupia indonèsia

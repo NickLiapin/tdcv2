@@ -1,0 +1,5 @@
+---
+description: Capital of Grècia (Catalan)
+locale: ca
+---
+Atenes

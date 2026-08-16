@@ -1,0 +1,5 @@
+---
+description: Currency code of Itàlia
+locale: ca
+---
+EUR

@@ -1,0 +1,14 @@
+---
+description: Fuel type (Catalan)
+locale: ca
+---
+Gasolina
+Gasoil
+Elèctric
+Híbrid
+Híbrid endollable
+Gas liquat del petroli
+Gas natural comprimit
+Hidrogen
+Biodièsel
+Etanol

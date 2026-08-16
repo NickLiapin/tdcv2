@@ -1,0 +1,5 @@
+---
+description: Capital of Estats Units (Catalan)
+locale: ca
+---
+Washington

@@ -1,0 +1,5 @@
+---
+description: Currency of Nigèria (Catalan)
+locale: ca
+---
+naira

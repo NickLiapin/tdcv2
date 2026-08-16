@@ -1,0 +1,16 @@
+---
+description: Listing status (Catalan)
+locale: ca
+---
+Disponible
+Reservat
+Amb paga i senyal
+Venut
+Llogat
+Fora del mercat
+En construcció
+Clau en mà
+A reformar
+Baixada de preu
+Nova promoció
+Retirat

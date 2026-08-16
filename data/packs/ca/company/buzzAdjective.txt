@@ -1,0 +1,54 @@
+---
+description: Corporate-speak adjective (Catalan). Intel-ligent, excel-lent and paral-lel carry the interpunct (U+00B7).
+locale: ca
+---
+integral
+estratègic
+innovador
+sostenible
+escalable
+àgil
+digital
+global
+intel·ligent
+excel·lent
+paral·lel
+proactiu
+disruptiu
+transversal
+personalitzat
+eficient
+competitiu
+robust
+flexible
+modular
+col·laboratiu
+transparent
+orientat a resultats
+centrat en el client
+basat en dades
+de referència
+punter
+líder
+consolidat
+emergent
+circular
+net
+renovable
+certificat
+homologat
+sinèrgic
+holístic
+multicanal
+omnicanal
+sense friccions
+clau en mà
+a mida
+d'alt rendiment
+d'alt valor afegit
+d'última generació
+de proximitat
+obert
+interoperable
+segur
+resilient

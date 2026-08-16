@@ -1,0 +1,5 @@
+---
+description: Capital of Aràbia Saudita (Catalan)
+locale: ca
+---
+Riad

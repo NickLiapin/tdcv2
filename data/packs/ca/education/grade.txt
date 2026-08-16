@@ -1,0 +1,16 @@
+---
+description: School mark (Catalan). Two scales are in force at once and both are here: primary and secondary report the four assoliment bands (NA no assoliment, AS satisfactori, AN notable, AE excel-lent), while the numeric 0-10 scale with its named bands — suspens, aprovat, be, notable, excel-lent, matricula d'honor — is what a batxillerat and a university transcript carry. Excel-lent carries the interpunct (U+00B7).
+locale: ca
+---
+Matrícula d'honor
+Excel·lent
+Notable
+Bé
+Suficient
+Aprovat
+Suspens
+No presentat
+AE (assoliment excel·lent)
+AN (assoliment notable)
+AS (assoliment satisfactori)
+NA (no assoliment)

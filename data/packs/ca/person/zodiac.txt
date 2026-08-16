@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Catalan)
+locale: ca
+---
+Àries
+Taure
+Bessons
+Cranc
+Lleó
+Verge
+Balança
+Escorpí
+Sagitari
+Capricorn
+Aquari
+Peixos

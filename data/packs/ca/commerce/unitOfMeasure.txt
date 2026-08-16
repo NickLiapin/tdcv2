@@ -1,0 +1,34 @@
+---
+description: Unit of measure (Catalan). Mil-limetre and mil-lilitre carry the interpunct (U+00B7). The metric system is the only one in use across the whole Catalan-speaking area.
+locale: ca
+---
+Mil·límetre
+Centímetre
+Metre
+Quilòmetre
+Mil·lilitre
+Centilitre
+Decilitre
+Litre
+Mil·ligram
+Gram
+Quilogram
+Tona
+Metre quadrat
+Metre cúbic
+Hectàrea
+Unitat
+Parell
+Dotzena
+Joc
+Paquet
+Caixa
+Palet
+Bossa
+Ampolla
+Llauna
+Pot
+Rotlle
+Full
+Ram
+Manat

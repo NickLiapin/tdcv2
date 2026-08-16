@@ -1,0 +1,14 @@
+---
+description: Payment status (Catalan)
+locale: ca
+---
+Pendent
+Autoritzat
+Pagat
+Parcialment pagat
+Rebutjat
+Caducat
+Reemborsat
+Reemborsament parcial
+En disputa
+Anul·lat

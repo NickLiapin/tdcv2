@@ -1,0 +1,16 @@
+---
+description: Dish of Mexicana cuisine, named in Catalan
+locale: ca
+---
+Tacos
+Quesadilles
+Enchiladas
+Guacamole
+Burritos
+Fajites
+Tamales
+Pozole
+Mole poblano
+Natxos
+Chiles en nogada
+Elote

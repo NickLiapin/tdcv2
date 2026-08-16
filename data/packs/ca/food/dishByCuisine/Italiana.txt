@@ -1,0 +1,19 @@
+---
+description: Dish of Italiana cuisine, named in Catalan
+locale: ca
+---
+Pizza margarita
+Espaguetis a la carbonara
+Lasanya
+Risotto
+Ossobuco
+Tiramisú
+Gnocchi
+Pesto genovès
+Amanida caprese
+Focaccia
+Cannoli
+Minestrone
+Saltimbocca
+Bruschetta
+Panna cotta

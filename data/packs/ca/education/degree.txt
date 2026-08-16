@@ -1,0 +1,21 @@
+---
+description: Academic qualification (Catalan). The ladder is the one in force across the Catalan-speaking territories: ESO, batxillerat and the two levels of cicle formatiu before university, then grau, master and doctorat since Bologna, with diplomatura and llicenciatura as the pre-Bologna degrees still held by anyone who graduated before 2010.
+locale: ca
+---
+Educació primària
+ESO
+Batxillerat
+Cicle formatiu de grau bàsic
+Cicle formatiu de grau mitjà
+Cicle formatiu de grau superior
+Certificat de professionalitat
+Grau
+Diplomatura
+Llicenciatura
+Enginyeria tècnica
+Enginyeria superior
+Postgrau
+Màster universitari
+Màster propi
+Doctorat
+Doctor honoris causa

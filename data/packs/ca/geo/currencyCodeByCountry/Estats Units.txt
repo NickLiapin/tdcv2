@@ -1,0 +1,5 @@
+---
+description: Currency code of Estats Units
+locale: ca
+---
+USD

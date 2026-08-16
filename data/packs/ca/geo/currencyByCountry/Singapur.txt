@@ -1,0 +1,5 @@
+---
+description: Currency of Singapur (Catalan)
+locale: ca
+---
+dòlar de Singapur

@@ -1,0 +1,9 @@
+---
+description: Credit rating band (Catalan). Named bands rather than a numeric score: there is no single consumer credit score across the Catalan-speaking territories the way FICO works in the United States, so a numeric range here would be an invention. The registry that would issue one belongs to a country pack.
+locale: ca
+---
+Molt bo
+Bo
+Acceptable
+Just
+Deficient

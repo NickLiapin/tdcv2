@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Catalan). The ordinal takes the Catalan masculine endings 1r, 2n, 3r, 4t, not the Castilian 1o, 2o.
+locale: ca
+---
+1r trimestre
+2n trimestre
+3r trimestre
+4t trimestre

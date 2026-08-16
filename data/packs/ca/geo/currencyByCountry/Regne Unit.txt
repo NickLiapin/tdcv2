@@ -1,0 +1,5 @@
+---
+description: Currency of Regne Unit (Catalan)
+locale: ca
+---
+lliura esterlina

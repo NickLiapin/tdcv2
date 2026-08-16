@@ -1,0 +1,58 @@
+---
+description: Product adjective (Catalan)
+locale: ca
+---
+artesanal
+ecològic
+sostenible
+reciclat
+reciclable
+biodegradable
+natural
+orgànic
+lleuger
+resistent
+compacte
+plegable
+ajustable
+antilliscant
+impermeable
+transpirable
+aïllant
+ergonòmic
+silenciós
+portàtil
+recarregable
+sense fil
+intel·ligent
+automàtic
+manual
+reversible
+multiús
+apilable
+desmuntable
+rentable
+hipoal·lergènic
+antibacterià
+ignífug
+antitaques
+irrompible
+flexible
+rígid
+transparent
+opac
+mat
+brillant
+setinat
+texturat
+llis
+gravat
+pintat a mà
+de proximitat
+de temporada
+de collita pròpia
+d'edició limitada
+premium
+bàsic
+clàssic
+contemporani

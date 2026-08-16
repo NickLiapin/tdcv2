@@ -1,0 +1,18 @@
+---
+description: Diagnosis seen in Gastroenterologia, named in Catalan
+locale: ca
+---
+Reflux gastroesofàgic
+Úlcera pèptica
+Gastritis crònica
+Malaltia celíaca
+Malaltia de Crohn
+Colitis ulcerosa
+Síndrome de l'intestí irritable
+Litiasi biliar
+Hepatitis crònica
+Cirrosi hepàtica
+Pancreatitis aguda
+Diverticulosi
+Esteatosi hepàtica
+Hemorroides

@@ -1,0 +1,204 @@
+---
+description: Country names as Catalan writes them. Catalan translates rather than borrows: Alemanya, Paisos Baixos, Regne Unit, Estats Units d'America, Xina, Japo, Sud-africa. Several differ from the Castilian form by more than an accent — Xina not China, Japo not Japon, Paisos Baixos not Paises Bajos, Regne Unit not Reino Unido, Iraq/Iran keep the q, and Brussel-les, Marroc and Moldavia are Catalan forms in their own right.
+locale: ca
+---
+Afganistan
+Albània
+Alemanya
+Algèria
+Andorra
+Angola
+Antigua i Barbuda
+Aràbia Saudita
+Argentina
+Armènia
+Austràlia
+Àustria
+Azerbaidjan
+Bahames
+Bahrain
+Bangladesh
+Barbados
+Bèlgica
+Belize
+Benín
+Bielorússia
+Bolívia
+Bòsnia i Hercegovina
+Botswana
+Brasil
+Brunei
+Bulgària
+Burkina Faso
+Burundi
+Bhutan
+Cambodja
+Camerun
+Canadà
+Cap Verd
+Colòmbia
+Comores
+Congo
+Corea del Nord
+Corea del Sud
+Costa d'Ivori
+Costa Rica
+Croàcia
+Cuba
+Dinamarca
+Djibouti
+Dominica
+Egipte
+El Salvador
+Emirats Àrabs Units
+Equador
+Eritrea
+Eslovàquia
+Eslovènia
+Espanya
+Estats Units d'Amèrica
+Estònia
+Eswatini
+Etiòpia
+Filipines
+Finlàndia
+Fiji
+França
+Gabon
+Gàmbia
+Geòrgia
+Ghana
+Grècia
+Grenada
+Guatemala
+Guinea
+Guinea Bissau
+Guinea Equatorial
+Guyana
+Haití
+Hondures
+Hongria
+Iemen
+Índia
+Indonèsia
+Iran
+Iraq
+Irlanda
+Islàndia
+Israel
+Itàlia
+Jamaica
+Japó
+Jordània
+Kazakhstan
+Kenya
+Kirguizistan
+Kiribati
+Kosovo
+Kuwait
+Laos
+Lesotho
+Letònia
+Líban
+Libèria
+Líbia
+Liechtenstein
+Lituània
+Luxemburg
+Macedònia del Nord
+Madagascar
+Malàisia
+Malawi
+Maldives
+Mali
+Malta
+Marroc
+Maurici
+Mauritània
+Mèxic
+Micronèsia
+Moçambic
+Moldàvia
+Mònaco
+Mongòlia
+Montenegro
+Myanmar
+Namíbia
+Nauru
+Nepal
+Nicaragua
+Níger
+Nigèria
+Noruega
+Nova Zelanda
+Oman
+Països Baixos
+Pakistan
+Palau
+Palestina
+Panamà
+Papua Nova Guinea
+Paraguai
+Perú
+Polònia
+Portugal
+Qatar
+Regne Unit
+República Centreafricana
+República Dominicana
+República Txeca
+Romania
+Ruanda
+Rússia
+Salomó
+Samoa
+San Marino
+São Tomé i Príncipe
+Senegal
+Sèrbia
+Seychelles
+Sierra Leone
+Singapur
+Síria
+Somàlia
+Sri Lanka
+Sud-àfrica
+Sudan
+Sudan del Sud
+Suècia
+Suïssa
+Surinam
+Tadjikistan
+Tailàndia
+Taiwan
+Tanzània
+Timor Oriental
+Togo
+Tonga
+Trinitat i Tobago
+Tunísia
+Turkmenistan
+Turquia
+Tuvalu
+Ucraïna
+Uganda
+Uruguai
+Uzbekistan
+Vanuatu
+Vaticà
+Veneçuela
+Vietnam
+Xile
+Xina
+Xipre
+Zàmbia
+Zimbàbue
+Txad
+Nova Caledònia
+Polinèsia Francesa
+Groenlàndia
+Illes Fèroe
+Gibraltar
+Hong Kong
+Macau
+Puerto Rico

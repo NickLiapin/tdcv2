@@ -1,0 +1,20 @@
+---
+description: Compass direction (Catalan), the sixteen points. Catalan writes the compound bearings with a hyphen and in lower case inside a sentence. A second, older set is in daily use alongside these and is listed in address/direction: the Mediterranean wind rose — tramuntana, gregal, llevant, xaloc, migjorn, garbi, ponent, mestral — which names each bearing after the wind that blows from it.
+locale: ca
+---
+Nord
+Sud
+Est
+Oest
+Nord-est
+Nord-oest
+Sud-est
+Sud-oest
+Nord-nord-est
+Est-nord-est
+Est-sud-est
+Sud-sud-est
+Sud-sud-oest
+Oest-sud-oest
+Oest-nord-oest
+Nord-nord-oest

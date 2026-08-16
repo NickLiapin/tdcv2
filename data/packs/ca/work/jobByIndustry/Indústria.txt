@@ -1,0 +1,22 @@
+---
+description: Job title in the Indústria sector, named in Catalan
+locale: ca
+---
+Operari de producció
+Cap de torn
+Tècnic de manteniment
+Soldador
+Torner
+Fresador
+Matricer
+Enginyer industrial
+Tècnic de qualitat
+Programador de CNC
+Muntador
+Mecànic industrial
+Cap de planta
+Tècnic de laboratori industrial
+Logístic de magatzem
+Operador de línia
+Electromecànic
+Tècnic de processos

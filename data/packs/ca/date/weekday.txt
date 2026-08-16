@@ -1,0 +1,11 @@
+---
+description: Weekday name (Catalan, lowercase per Catalan orthography). Monday first, as the Catalan week runs. Five of the seven are built on the Latin day names with di- in FRONT — dilluns, dimarts, dimecres, dijous, divendres — where Castilian puts the marker at the end (lunes, martes); dissabte and diumenge follow the same pattern.
+locale: ca
+---
+dilluns
+dimarts
+dimecres
+dijous
+divendres
+dissabte
+diumenge

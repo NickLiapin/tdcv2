@@ -1,0 +1,13 @@
+---
+description: Catalan full male name — one given name and TWO surnames, paternal then maternal, joined by the connector "i" in the formal Catalan style (Jordi Pujol i Soley, Antoni Gaudi i Cornet, Josep Tarradellas i Joan). The two-surname system is shared with Castilian and Portuguese; the connecting "i" is what makes it Catalan, and Castilian never uses it. The Spanish civil registry records the same name without the "i" (Jordi Pujol Soley), so a dataset modelling an ID document should join the two surnames with a plain space instead — draw p.l1 and p.l2 separately and compose. Catalan surnames do not inflect for gender, so both surnames come from the single person.lastName list.
+generator: tdc
+locale: ca
+---
+<sequence name="p">
+  <gen name="f" type="template" value="ca.person.male.firstName"/>
+  <distinct>
+    <gen name="l1" type="template" value="ca.person.lastName"/>
+    <gen name="l2" type="template" value="ca.person.lastName"/>
+  </distinct>
+</sequence>
+<data>${{p.f}} ${{p.l1}} i ${{p.l2}}</data>

@@ -1,0 +1,5 @@
+---
+description: Currency code of Corea del Sud
+locale: ca
+---
+KRW

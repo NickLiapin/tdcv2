@@ -1,0 +1,14 @@
+---
+description: Cable type (Catalan)
+locale: ca
+---
+Coure
+Fibra òptica
+Coaxial
+Parell trenat
+Blindat
+Apantallat
+Manguera
+Alta tensió
+Baixa tensió
+Lliure d'halògens

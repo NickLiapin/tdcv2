@@ -1,0 +1,5 @@
+---
+description: Capital of Nova Zelanda (Catalan)
+locale: ca
+---
+Wellington

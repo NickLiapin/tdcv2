@@ -1,0 +1,5 @@
+---
+description: Capital of Romania (Catalan)
+locale: ca
+---
+Bucarest

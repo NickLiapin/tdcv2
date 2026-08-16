@@ -1,0 +1,19 @@
+---
+description: Type of legal proceeding (Catalan)
+locale: ca
+---
+Civil
+Penal
+Laboral
+Contenciós administratiu
+Mercantil
+De família
+Successori
+D'arrendaments
+Hipotecari
+De consum
+De trànsit
+Concursal
+De menors
+Constitucional
+Arbitratge

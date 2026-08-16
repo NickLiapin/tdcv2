@@ -1,0 +1,25 @@
+---
+description: Property type (Catalan). Masia, borda and casa de poble are house types with no English equivalent; a masia is a free-standing Catalan farmhouse and a borda a converted Pyrenean stone barn.
+locale: ca
+---
+Pis
+Àtic
+Dúplex
+Estudi
+Loft
+Casa
+Casa adossada
+Casa aparellada
+Xalet
+Torre
+Masia
+Borda
+Casa de poble
+Finca rústica
+Terreny
+Local comercial
+Oficina
+Nau industrial
+Pàrquing
+Traster
+Edifici sencer

@@ -1,0 +1,19 @@
+---
+description: Dish of Francesa cuisine, named in Catalan
+locale: ca
+---
+Quiche lorraine
+Ratatouille
+Bullabessa
+Coq au vin
+Confit d'ànec
+Crep
+Crema cremada
+Sopa de ceba gratinada
+Boeuf bourguignon
+Croissant
+Foie gras
+Tarta Tatin
+Cassoulet
+Amanida niçoise
+Gratin dauphinois

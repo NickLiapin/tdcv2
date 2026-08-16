@@ -1,0 +1,32 @@
+---
+description: Fish (Catalan), the Mediterranean fish market list. Almost none of these is the Castilian word with an accent moved: seito is boqueron, llobarro is lubina, orada is dorada, escorpora is cabracho, verat is caballa, sorell is jurel, moll is salmonete, palaia is platija, dentol is denton and gerret is caramel. The fish counter is one of the places where the two languages share the least vocabulary.
+locale: ca
+---
+Sardina
+Seitó
+Tonyina
+Bacallà
+Lluç
+Rap
+Llobarro
+Orada
+Moll
+Congre
+Anguila
+Truita de riu
+Salmó
+Emperador
+Verat
+Sorell
+Palaia
+Rèmol
+Escórpora
+Déntol
+Sarg
+Boga
+Gerret
+Bonítol
+Llenguado
+Rajada
+Molls de roca
+Bruixa

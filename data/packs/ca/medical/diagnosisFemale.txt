@@ -1,0 +1,31 @@
+---
+description: Diagnosis specific to female anatomy or pregnancy (Catalan)
+locale: ca
+---
+Endometriosi
+Síndrome d'ovari poliquístic
+Miomes uterins
+Càncer de mama
+Càncer d'ovari
+Càncer de coll uterí
+Càncer d'endometri
+Vaginosi bacteriana
+Candidiasi vulvovaginal
+Dismenorrea
+Menopausa
+Osteoporosi postmenopàusica
+Preeclàmpsia
+Diabetis gestacional
+Hiperèmesi gravídica
+Avortament espontani
+Infertilitat femenina
+Mastitis
+Prolapse d'òrgans pelvians
+Incontinència urinària d'esforç
+Síndrome premenstrual
+Anèmia ferropènica per menorràgia
+Depressió postpart
+Embaràs ectòpic
+Quist ovàric
+Malaltia inflamatòria pelviana
+Fibroadenoma mamari

@@ -1,0 +1,225 @@
+---
+description: Job title (Catalan). Where a trade has a distinct Catalan word it is used rather than a borrowing: paleta is a bricklayer, lampista a plumber, manya and serraller a locksmith, guixaire a plasterer, xarcuter a delicatessen butcher, llevadora a midwife. Il-lustrador and instal-lador carry the interpunct (U+00B7). Titles are given in the masculine citation form except where the feminine is the ordinary one; Catalan inflects almost every job title for gender (cambrer/cambrera, mestre/mestra, dependent/dependenta, infermer/infermera, advocat/advocada) and a config building realistic records should pick the form that agrees with the person.
+locale: ca
+---
+Administratiu
+Administrativa
+Advocat
+Agent comercial
+Agent de viatges
+Agricultor
+Ajudant de cuina
+Analista de dades
+Analista financer
+Anestesiòleg
+Antropòleg
+Apicultor
+Aparellador
+Arqueòleg
+Arquitecte
+Arquitecte tècnic
+Arxiver
+Assessor fiscal
+Assessor jurídic
+Astrònom
+Auditor
+Auxiliar administratiu
+Auxiliar de vol
+Auxiliar d'infermeria
+Barista
+Barman
+Bibliotecari
+Biòleg
+Bomber
+Botiguer
+Caixer
+Cambrer
+Cambrera
+Cap d'obra
+Cap de cuina
+Cap de projecte
+Cap de sala
+Cap de vendes
+Carnisser
+Carter
+Cartògraf
+Científic de dades
+Cirurgià
+Comptable
+Compositor
+Conductor d'autobús
+Conductor de camió
+Conserge
+Consultor
+Controlador aeri
+Corrector de textos
+Cuiner
+Dentista
+Dependent
+Dependenta
+Desenvolupador web
+Detectiu privat
+Dietista
+Dissenyador gràfic
+Dissenyador industrial
+Dissenyadora de moda
+Documentalista
+Ebenista
+Economista
+Editor
+Educador social
+Electricista
+Encarregat de botiga
+Enginyer agrònom
+Enginyer de camins
+Enginyer de programari
+Enginyer de telecomunicacions
+Enginyer forestal
+Enginyer industrial
+Enginyer naval
+Enòleg
+Enquadernador
+Ensinistrador caní
+Entrenador esportiu
+Escenògraf
+Escriptor
+Escultor
+Esteticista
+Farmacèutic
+Ferrallista
+Ferrer
+Filòleg
+Filòsof
+Fiscal
+Fisioterapeuta
+Físic
+Forner
+Fotògraf
+Fresador
+Fuster
+Gemòleg
+Geògraf
+Geòleg
+Gestor cultural
+Gestor de patrimonis
+Gruista
+Guaita forestal
+Guarda rural
+Guia de muntanya
+Guia turístic
+Guixaire
+Historiador
+Hostessa de congressos
+Il·lustrador
+Impressor
+Infermer
+Infermera
+Informàtic
+Instal·lador elèctric
+Intèrpret
+Investigador
+Jardiner
+Joier
+Jutge
+Lampista
+Lingüista
+Llevadora
+Llibreter
+Llogater de vehicles
+Locutor de ràdio
+Logopeda
+Luthier
+Magatzemista
+Manyà
+Maquillador
+Maquinista de tren
+Marbrista
+Mariner
+Matemàtic
+Mecànic
+Mediador
+Meteoròleg
+Metge de família
+Microbiòleg
+Missatger
+Modista
+Monitor de lleure
+Muntador
+Museòleg
+Músic
+Nutricionista
+Notari
+Odontòleg
+Oficinista
+Operador de maquinària
+Òptic optometrista
+Orientador educatiu
+Ornitòleg
+Paleta
+Pagès
+Panader
+Pastisser
+Pastor
+Peixater
+Pedagog
+Periodista
+Perit judicial
+Perruquer
+Pescador
+Pilot
+Pintor
+Pintor d'obra
+Podòleg
+Policia local
+Politòleg
+Procurador dels tribunals
+Productor audiovisual
+Professor de secundària
+Professor universitari
+Programador
+Psicòleg
+Psiquiatre
+Publicista
+Químic
+Realitzador
+Recepcionista
+Redactor
+Registrador de la propietat
+Rellotger
+Reporter gràfic
+Repartidor
+Restaurador d'art
+Revisor
+Sabater
+Sastre
+Secretari de direcció
+Serraller
+Sociòleg
+Socorrista
+Soldador
+Sommelier
+Tapisser
+Taxidermista
+Taxista
+Tècnic de laboratori
+Tècnic de manteniment
+Tècnic de so
+Tècnic d'emergències sanitàries
+Tècnic forestal
+Telefonista
+Terapeuta ocupacional
+Topògraf
+Torner
+Traductor
+Transportista
+Treballador social
+Vaquer
+Venedor
+Veremador
+Veterinari
+Vidrier
+Viticultor
+Xarcuter
+Xef
+Zelador
+Zoòleg

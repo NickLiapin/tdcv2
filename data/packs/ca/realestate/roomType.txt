@@ -1,0 +1,22 @@
+---
+description: Room (Catalan)
+locale: ca
+---
+Menjador
+Sala d'estar
+Cuina
+Rebost
+Habitació
+Habitació doble
+Habitació individual
+Bany
+Lavabo
+Safareig
+Rebedor
+Passadís
+Despatx
+Golfes
+Celler
+Garatge
+Terrassa
+Galeria

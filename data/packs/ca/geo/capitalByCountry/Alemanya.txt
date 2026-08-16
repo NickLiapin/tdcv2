@@ -1,0 +1,5 @@
+---
+description: Capital of Alemanya (Catalan)
+locale: ca
+---
+Berlín

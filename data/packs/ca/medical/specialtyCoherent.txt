@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Catalan)
+locale: ca
+---
+Cardiologia
+Neurologia
+Oncologia
+Dermatologia
+Gastroenterologia
+Endocrinologia
+Pneumologia
+Traumatologia
+Psiquiatria
+Nefrologia

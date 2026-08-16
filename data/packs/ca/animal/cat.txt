@@ -1,0 +1,24 @@
+---
+description: Cat breed (Catalan). Breed names are international and keep their real spelling; the Catalan part is the word gat and the agreement that follows it.
+locale: ca
+---
+Gat comú europeu
+Gat siamès
+Gat persa
+Maine coon
+Gat siberià
+Bengalí
+Esfinx
+Blau rus
+Angorà turc
+Birmà
+Abissini
+Britànic de pèl curt
+Noruec de bosc
+Ragdoll
+Sagrat de Birmània
+Manx
+Bombai
+Chartreux
+Somali
+Oriental de pèl curt

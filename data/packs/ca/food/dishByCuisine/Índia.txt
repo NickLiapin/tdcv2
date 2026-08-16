@@ -1,0 +1,16 @@
+---
+description: Dish of Índia cuisine, named in Catalan
+locale: ca
+---
+Pollastre tikka masala
+Curri de verdures
+Biryani
+Samosa
+Pa naan
+Dal
+Pollastre tandoori
+Rogan josh
+Palak paneer
+Lassi
+Chana masala
+Vindaloo

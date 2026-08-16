@@ -1,0 +1,64 @@
+---
+description: Corporate-speak noun (Catalan)
+locale: ca
+---
+solució
+plataforma
+ecosistema
+sinergia
+valor afegit
+palanca
+full de ruta
+pla director
+quadre de comandament
+indicador
+objectiu
+fita
+repte
+oportunitat
+aliança
+partenariat
+cartera
+segment
+nínxol
+proposta de valor
+experiència d'usuari
+recorregut del client
+punt de contacte
+canal
+embut de conversió
+creixement
+escalabilitat
+transformació
+digitalització
+automatització
+productivitat
+rendibilitat
+marge
+volum de negoci
+quota de mercat
+posicionament
+marca
+reputació
+talent
+capital humà
+cultura corporativa
+governança
+compliment normatiu
+sostenibilitat
+petjada de carboni
+economia circular
+innovació oberta
+prova pilot
+prototip
+iteració
+metodologia
+procés
+flux de treball
+recurs
+capacitat
+infraestructura
+arquitectura
+integració
+migració
+desplegament

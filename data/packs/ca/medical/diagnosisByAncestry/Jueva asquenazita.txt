@@ -1,0 +1,14 @@
+---
+description: Condition with a higher reported frequency in people of Jueva asquenazita descent, named in Catalan.
+locale: ca
+---
+Malaltia de Tay-Sachs
+Malaltia de Gaucher
+Fibrosi quística
+Disautonomia familiar
+Malaltia de Canavan
+Mutacions BRCA1 i BRCA2
+Anèmia de Fanconi tipus C
+Síndrome de Bloom
+Mucolipidosi tipus IV
+Dèficit de factor XI

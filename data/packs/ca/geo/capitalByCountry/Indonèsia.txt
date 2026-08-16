@@ -1,0 +1,5 @@
+---
+description: Capital of Indonèsia (Catalan)
+locale: ca
+---
+Jakarta

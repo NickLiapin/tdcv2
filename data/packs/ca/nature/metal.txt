@@ -1,0 +1,31 @@
+---
+description: Metal (Catalan). Four of the element names carry the Catalan interpunct (U+00B7) because they hold a geminate L: pal-ladi, gal-li, beril-li and tal-li. This is the plainest place in the pack to see that the interpunct is orthography and not decoration — the Castilian forms paladio, galio, berilio and talio have nothing there at all.
+locale: ca
+---
+Or
+Argent
+Coure
+Ferro
+Acer
+Bronze
+Llautó
+Estany
+Plom
+Zinc
+Níquel
+Alumini
+Titani
+Crom
+Wolframi
+Platí
+Pal·ladi
+Mercuri
+Magnesi
+Cobalt
+Manganès
+Iridi
+Gal·li
+Beril·li
+Tal·li
+Urani
+Liti

@@ -1,0 +1,12 @@
+---
+description: Part of the day (Catalan). Catalan cuts the day more finely than English does and the extra cut is real, not stylistic: vespre is the stretch between the end of the afternoon and full night, roughly 19:00 to 22:00, and it is a different word from nit — bona tarda, bon vespre and bona nit are three distinct greetings used at three distinct hours. Migdia is the middle of the day and, in practice, the long lunch that occupies it. Matinada is the small hours after midnight.
+locale: ca
+---
+matinada
+matí
+migdia
+tarda
+capvespre
+vespre
+nit
+mitjanit

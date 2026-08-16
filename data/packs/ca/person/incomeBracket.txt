@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Catalan. Amounts are in EUR, the currency of every territory where Catalan is spoken: Spain, France and Andorra all use the euro, and Andorra uses it by monetary agreement without being in the EU. Catalan writes a decimal COMMA and groups thousands with a full stop, so 30.000 EUR here is thirty thousand.
+locale: ca
+---
+Menys de 15.000 EUR
+15.000–25.000 EUR
+25.000–35.000 EUR
+35.000–50.000 EUR
+50.000–70.000 EUR
+70.000–100.000 EUR
+100.000–150.000 EUR
+Més de 150.000 EUR

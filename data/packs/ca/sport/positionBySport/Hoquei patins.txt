@@ -1,0 +1,9 @@
+---
+description: Playing position in Hoquei patins, named in Catalan
+locale: ca
+---
+Porter
+Defensa
+Mig
+Davanter
+Interior

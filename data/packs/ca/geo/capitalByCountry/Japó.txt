@@ -1,0 +1,5 @@
+---
+description: Capital of Japó (Catalan)
+locale: ca
+---
+Tòquio

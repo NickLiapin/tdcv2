@@ -1,0 +1,22 @@
+---
+description: Job title in the Serveis jurídics sector, named in Catalan
+locale: ca
+---
+Advocat
+Advocada
+Procurador dels tribunals
+Notari
+Registrador de la propietat
+Assessor jurídic
+Fiscal
+Jutge
+Magistrat
+Lletrat de l'Administració de Justícia
+Graduat social
+Mediador
+Àrbitre
+Oficial de notaria
+Auxiliar judicial
+Criminòleg
+Detectiu privat
+Compliance officer

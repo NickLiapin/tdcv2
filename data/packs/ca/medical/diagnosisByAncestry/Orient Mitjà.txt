@@ -1,0 +1,11 @@
+---
+description: Condition with a higher reported frequency in people of Orient Mitjà descent, named in Catalan.
+locale: ca
+---
+Febre mediterrània familiar
+Talassèmia beta
+Dèficit de G6PD
+Malaltia de Behçet
+Atròfia muscular espinal
+Sordesa hereditària per connexina 26
+Diabetis mellitus tipus 2

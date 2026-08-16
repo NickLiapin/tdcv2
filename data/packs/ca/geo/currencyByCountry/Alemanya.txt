@@ -1,0 +1,5 @@
+---
+description: Currency of Alemanya (Catalan)
+locale: ca
+---
+euro

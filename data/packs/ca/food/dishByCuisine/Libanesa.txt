@@ -1,0 +1,13 @@
+---
+description: Dish of Libanesa cuisine, named in Catalan
+locale: ca
+---
+Hummus
+Tabule
+Falàfel
+Kibbeh
+Baba ganuix
+Fatuix
+Shawarma
+Manaquix
+Labneh

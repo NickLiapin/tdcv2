@@ -1,0 +1,5 @@
+---
+description: Currency of Estats Units (Catalan)
+locale: ca
+---
+dòlar dels Estats Units

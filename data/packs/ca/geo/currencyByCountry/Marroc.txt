@@ -1,0 +1,5 @@
+---
+description: Currency of Marroc (Catalan)
+locale: ca
+---
+dirham marroquí

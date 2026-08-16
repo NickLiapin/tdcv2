@@ -1,0 +1,19 @@
+---
+description: Insurance type (Catalan)
+locale: ca
+---
+Assegurança de la llar
+Assegurança de l'automòbil
+Assegurança de motocicleta
+Assegurança de vida
+Assegurança de salut
+Assegurança dental
+Assegurança de viatge
+Assegurança de decessos
+Assegurança de responsabilitat civil
+Assegurança d'accidents
+Assegurança de mascotes
+Assegurança d'impagament de lloguer
+Assegurança agrària
+Assegurança de comerç
+Assegurança de crèdit

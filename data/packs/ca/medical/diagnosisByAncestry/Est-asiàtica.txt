@@ -1,0 +1,11 @@
+---
+description: Condition with a higher reported frequency in people of Est-asiàtica descent, named in Catalan.
+locale: ca
+---
+Intolerància a l'alcohol per ALDH2
+Càncer gàstric
+Intolerància a la lactosa
+Glaucoma d'angle tancat
+Hepatitis B crònica
+Talassèmia alfa
+Carcinoma nasofaringi

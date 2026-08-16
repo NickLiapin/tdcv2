@@ -1,0 +1,12 @@
+---
+description: ABO blood group with Rh factor, written the way a hospital in the Catalan-speaking lands writes it: the O group is a ZERO (grup 0), not the letter O. That convention is shared with Spanish, French and German practice and differs from British and American forms, so a config joining this pack to an English-language system has to map 0 to O rather than assume the strings match.
+locale: ca
+---
+0+
+0−
+A+
+A−
+B+
+B−
+AB+
+AB−

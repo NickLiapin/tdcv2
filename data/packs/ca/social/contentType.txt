@@ -1,0 +1,17 @@
+---
+description: Social media content type (Catalan)
+locale: ca
+---
+Publicació
+Història
+Vídeo curt
+Directe
+Enquesta
+Carrusel
+Article
+Comentari
+Resposta
+Repiulada
+Missatge directe
+Butlletí
+Podcast

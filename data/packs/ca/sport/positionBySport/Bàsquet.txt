@@ -1,0 +1,9 @@
+---
+description: Playing position in Bàsquet, named in Catalan
+locale: ca
+---
+Base
+Escorta
+Aler
+Ala-pivot
+Pivot

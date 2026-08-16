@@ -1,0 +1,31 @@
+---
+description: Vehicle (Catalan). The cremallera is the rack railway — the ones up to Montserrat and to Nuria are the two everyone means — and the funicular and telecabina belong to the same mountain-transport vocabulary that a Pyrenean and Andorran dataset needs.
+locale: ca
+---
+Cotxe
+Turisme
+Furgoneta
+Camió
+Autocar
+Autobús
+Motocicleta
+Ciclomotor
+Bicicleta
+Patinet elèctric
+Tren
+Tramvia
+Metro
+Funicular
+Cremallera
+Telefèric
+Telecabina
+Vaixell
+Barca
+Ferri
+Avió
+Helicòpter
+Tractor
+Remolc
+Caravana
+Autocaravana
+Quad

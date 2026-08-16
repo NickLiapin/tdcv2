@@ -1,0 +1,68 @@
+---
+description: Sport (Catalan). Ral-li carries the interpunct (U+00B7). Bitlles catalanes and pilota valenciana are traditional games of the Catalan lands still played competitively.
+locale: ca
+---
+Futbol
+Bàsquet
+Handbol
+Hoquei patins
+Hoquei herba
+Hoquei gel
+Voleibol
+Vòlei platja
+Rugbi
+Tennis
+Pàdel
+Tennis taula
+Bàdminton
+Esquaix
+Natació
+Waterpolo
+Natació artística
+Salts de trampolí
+Atletisme
+Marató
+Cros
+Marxa atlètica
+Ciclisme en ruta
+Ciclisme en pista
+BTT
+Ciclocròs
+Triatló
+Duatló
+Motociclisme
+Automobilisme
+Ral·li
+Karting
+Vela
+Windsurf
+Rem
+Piragüisme
+Surf
+Submarinisme
+Escalada
+Alpinisme
+Esquí alpí
+Esquí de fons
+Surf de neu
+Patinatge artístic
+Patinatge de velocitat
+Judo
+Karate
+Taekwondo
+Boxa
+Lluita
+Esgrima
+Halterofília
+Tir amb arc
+Tir olímpic
+Gimnàstica artística
+Gimnàstica rítmica
+Golf
+Hípica
+Escacs
+Petanca
+Bitlles catalanes
+Pilota valenciana
+Curses de muntanya
+Orientació

@@ -1,0 +1,34 @@
+---
+description: Technical verb (Catalan, infinitive)
+locale: ca
+---
+compilar
+xifrar
+desxifrar
+indexar
+analitzar
+sincronitzar
+transmetre
+rebre
+processar
+calcular
+connectar
+desconnectar
+reiniciar
+arrencar
+carregar
+descarregar
+copiar
+restaurar
+migrar
+desplegar
+validar
+depurar
+optimitzar
+comprimir
+descomprimir
+encaminar
+filtrar
+monitorar
+auditar
+replicar

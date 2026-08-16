@@ -1,0 +1,12 @@
+---
+description: Book format (Catalan). Edicio il-lustrada carries the interpunct (U+00B7).
+locale: ca
+---
+Tapa dura
+Tapa tova
+Rústica
+Butxaca
+Llibre electrònic
+Audiollibre
+Edició il·lustrada
+Enquadernat en pell

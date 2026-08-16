@@ -1,0 +1,46 @@
+---
+description: Professional skill (Catalan). Intel-ligencia artificial carries the interpunct (U+00B7).
+locale: ca
+---
+Gestió de projectes
+Anàlisi de dades
+Intel·ligència artificial
+Aprenentatge automàtic
+Programació
+Bases de dades
+Ciberseguretat
+Xarxes
+Núvol
+Automatització
+Comptabilitat
+Auditoria
+Fiscalitat
+Negociació
+Atenció al client
+Vendes
+Màrqueting digital
+Comunicació
+Redacció
+Traducció
+Disseny gràfic
+Disseny d'interfícies
+Il·lustració
+Fotografia
+Edició de vídeo
+Locució
+Docència
+Formació
+Mediació
+Treball en equip
+Lideratge
+Resolució de conflictes
+Planificació
+Logística
+Control de qualitat
+Soldadura
+Electricitat
+Mecànica
+Primers auxilis
+Prevenció de riscos
+Idiomes
+Català nivell C1

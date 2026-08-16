@@ -1,0 +1,34 @@
+---
+description: Dish of Catalana cuisine, named in Catalan
+locale: ca
+---
+Escudella i carn d'olla
+Pa amb tomàquet
+Calçots amb salvitxada
+Esqueixada de bacallà
+Fricandó
+Suquet de peix
+Arròs negre
+Fideuà
+Canelons
+Botifarra amb mongetes
+Trinxat de la Cerdanya
+Espinacs a la catalana
+Crema catalana
+Mel i mató
+Xató
+Escalivada
+Coca de recapte
+Panellets
+Bunyols de Quaresma
+Sarsuela
+Galta de porc al forn
+Peus de porc
+Carxofes a la brasa
+Sopa de galets
+Mandonguilles amb sípia
+Pollastre amb escamarlans
+Espardenyes amb mongetes
+Bacallà a la llauna
+Conill amb allioli
+Ànec amb peres

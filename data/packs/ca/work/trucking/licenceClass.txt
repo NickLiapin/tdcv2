@@ -1,0 +1,13 @@
+---
+description: Driving licence class (Catalan). The letters are the European harmonised classes, in use in Spain, France and Andorra alike.
+locale: ca
+---
+B
+BE
+C1
+C1E
+C
+CE
+D1
+D
+DE

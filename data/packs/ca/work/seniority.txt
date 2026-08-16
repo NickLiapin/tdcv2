@@ -1,0 +1,22 @@
+---
+description: Seniority level (Catalan)
+locale: ca
+---
+Becari
+En pràctiques
+Aprenent
+Auxiliar
+Júnior
+Oficial de segona
+Oficial de primera
+Sènior
+Especialista
+Tècnic
+Tècnic superior
+Coordinador
+Cap d'equip
+Cap de departament
+Director
+Director general
+Soci
+Conseller delegat

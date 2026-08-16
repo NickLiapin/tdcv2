@@ -1,0 +1,16 @@
+---
+description: Month name (Catalan, lowercase — Catalan does not capitalise month names). Written inside a date they take the preposition de or d': l'1 de gener, el 4 d'abril, el 15 d'agost — see DATE_LOCALE.json.
+locale: ca
+---
+gener
+febrer
+març
+abril
+maig
+juny
+juliol
+agost
+setembre
+octubre
+novembre
+desembre

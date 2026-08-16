@@ -1,0 +1,15 @@
+---
+description: Reaction (Catalan)
+locale: ca
+---
+M'agrada
+M'encanta
+Em fa gràcia
+Em sorprèn
+Em posa trist
+M'enfada
+Ho celebro
+Hi dono suport
+Ho guardo
+Ho comparteixo
+No m'agrada

@@ -1,0 +1,10 @@
+---
+description: Playing position in Pilota valenciana, named in Catalan
+locale: ca
+---
+Rest
+Mitger
+Punter
+Escaleter
+Feridor
+Dauer

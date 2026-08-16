@@ -1,0 +1,19 @@
+---
+description: Dish of Espanyola cuisine, named in Catalan
+locale: ca
+---
+Truita de patates
+Gaspatxo
+Salmorejo
+Pop a la gallega
+Cocido
+Fabada
+Pintxos
+Croquetes
+Xurros amb xocolata
+Pernil ibèric
+Migas
+Cua de bou
+Callos
+Gambes a l'allet
+Marmitako

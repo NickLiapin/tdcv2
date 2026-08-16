@@ -1,0 +1,21 @@
+---
+description: Social platform. Brand names keep their real spelling.
+locale: ca
+---
+Instagram
+TikTok
+YouTube
+Facebook
+X
+Threads
+LinkedIn
+WhatsApp
+Telegram
+Signal
+Mastodon
+Bluesky
+Pinterest
+Snapchat
+Twitch
+Reddit
+Discord

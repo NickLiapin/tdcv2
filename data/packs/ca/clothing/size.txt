@@ -1,0 +1,12 @@
+---
+description: Garment size (Catalan; talla is the word on the label)
+locale: ca
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+Talla única

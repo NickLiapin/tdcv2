@@ -1,0 +1,18 @@
+---
+description: Diagnosis seen in Oncologia, named in Catalan
+locale: ca
+---
+Càncer de mama
+Càncer de pulmó
+Càncer colorectal
+Càncer de pròstata
+Càncer gàstric
+Càncer de pàncrees
+Melanoma
+Limfoma de Hodgkin
+Limfoma no Hodgkin
+Leucèmia limfoblàstica aguda
+Leucèmia mieloide crònica
+Mieloma múltiple
+Càncer de bufeta
+Càncer de tiroide

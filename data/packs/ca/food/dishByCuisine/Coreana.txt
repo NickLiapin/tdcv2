@@ -1,0 +1,14 @@
+---
+description: Dish of Coreana cuisine, named in Catalan
+locale: ca
+---
+Bibimbap
+Kimchi
+Bulgogi
+Japchae
+Tteokbokki
+Samgyeopsal
+Sundubu-jjigae
+Kimbap
+Galbi
+Sopa de kimchi

@@ -1,0 +1,16 @@
+---
+description: Loan type (Catalan)
+locale: ca
+---
+Préstec hipotecari
+Préstec personal
+Préstec al consum
+Préstec per a l'automòbil
+Préstec d'estudis
+Crèdit al descobert
+Línia de crèdit
+Préstec empresarial
+Microcrèdit
+Rènting
+Lísing
+Reunificació de deutes

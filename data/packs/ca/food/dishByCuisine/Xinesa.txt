@@ -1,0 +1,16 @@
+---
+description: Dish of Xinesa cuisine, named in Catalan
+locale: ca
+---
+Ànec laquejat
+Rotlle de primavera
+Arròs tres delícies
+Dim sum
+Mapo tofu
+Chow mein
+Wonton
+Pollastre gong bao
+Fideus xinesos
+Bao al vapor
+Porc agredolç
+Sopa agripicant

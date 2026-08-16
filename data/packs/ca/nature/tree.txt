@@ -1,0 +1,38 @@
+---
+description: Tree (Catalan). The head of the list is the real Mediterranean and Pyrenean cover: alzina is the holm oak, alzina surera the cork oak whose bark built the Emporda economy, margallo the dwarf fan palm that is the only palm native to the Catalan coast, and arboc the strawberry tree on the Catalan coat of many towns. Til-ler, the lime tree, carries the interpunct (U+00B7).
+locale: ca
+---
+Alzina
+Alzina surera
+Roure
+Pi blanc
+Pi pinyer
+Pinassa
+Pi roig
+Avet
+Faig
+Bedoll
+Àlber
+Pollancre
+Om
+Til·ler
+Freixe
+Auró
+Castanyer
+Noguera
+Olivera
+Ametller
+Figuera
+Garrofer
+Xiprer
+Palmera
+Margalló
+Ginebre
+Boix
+Arboç
+Llorer
+Plàtan
+Acàcia
+Salze
+Vern
+Moreres

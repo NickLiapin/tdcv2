@@ -1,0 +1,84 @@
+---
+description: Pastime (Catalan). Several of these exist only in the Catalan lands and are not translations of anything: castells are the human towers of the colles castelleres, sardanes the circle dance, correfoc and diables the fire-running, gegants the giant processional figures, havaneres the sung sea-shanties of the Costa Brava, caramelles the Easter door-to-door singing, and botifarra and truc are the two card games actually played in a Catalan bar. Buscar bolets — going out for wild mushrooms in autumn — is a national pastime with its own vocabulary. Col-leccionisme carries the interpunct.
+locale: ca
+---
+Lectura
+Cuina
+Jardineria
+Fotografia
+Pintura
+Ceràmica
+Escacs
+Guitarra
+Piano
+Cant coral
+Teatre amateur
+Dansa
+Sardanes
+Castells
+Diables
+Correfoc
+Gegants
+Havaneres
+Caramelles
+Esbart dansaire
+Botifarra
+Truc
+Petanca
+Bitlles catalanes
+Buscar bolets
+Excursionisme
+Senderisme
+Muntanyisme
+Escalada
+Espeleologia
+Esquí
+Esquí de muntanya
+Ciclisme
+BTT
+Natació
+Vela
+Vela llatina
+Caiac
+Piragüisme
+Submarinisme
+Surf
+Windsurf
+Rem
+Pesca esportiva
+Caça
+Equitació
+Golf
+Tennis
+Pàdel
+Atletisme
+Triatló
+Patinatge
+Ioga
+Meditació
+Punt
+Costura
+Brodat
+Fusteria
+Bricolatge
+Col·leccionisme
+Filatèlia
+Numismàtica
+Astronomia
+Ornitologia
+Genealogia
+Apicultura
+Horticultura
+Enologia
+Tast de vins
+Cervesa artesana
+Rebosteria
+Jocs de taula
+Videojocs
+Jocs de rol
+Mots encreuats
+Programació
+Robòtica
+Impressió 3D
+Escriptura
+Poesia

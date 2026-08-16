@@ -1,0 +1,24 @@
+---
+description: Job title in the Construcció sector, named in Catalan
+locale: ca
+---
+Paleta
+Encofrador
+Ferrallista
+Fuster
+Lampista
+Instal·lador elèctric
+Pintor
+Guixaire
+Enrajolador
+Manyà
+Arquitecte
+Arquitecte tècnic
+Enginyer de camins
+Cap d'obra
+Topògraf
+Gruista
+Operador de maquinària
+Vidrier
+Serraller
+Tècnic de prevenció de riscos

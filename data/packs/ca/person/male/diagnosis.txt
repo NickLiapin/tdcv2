@@ -1,0 +1,26 @@
+---
+description: Diagnosis specific to male anatomy (Catalan). Same content as medical/diagnosisMale, addressed under person for configs that build a person record.
+locale: ca
+---
+Hiperplàsia benigna de pròstata
+Prostatitis
+Càncer de pròstata
+Càncer de testicle
+Disfunció erèctil
+Varicocele
+Hidrocele
+Fimosi
+Epididimitis
+Hipogonadisme
+Infertilitat masculina
+Alopècia androgènica
+Hèrnia inguinal
+Torsió testicular
+Ginecomàstia
+Uretritis
+Malaltia de Peyronie
+Aneurisma d'aorta abdominal
+Gota
+Apnea obstructiva del son
+Càncer de bufeta
+Cardiopatia isquèmica precoç

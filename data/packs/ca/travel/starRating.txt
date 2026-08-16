@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Catalan)
+locale: ca
+---
+1 estrella
+2 estrelles
+3 estrelles
+4 estrelles
+5 estrelles

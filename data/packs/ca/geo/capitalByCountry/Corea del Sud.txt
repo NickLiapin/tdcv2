@@ -1,0 +1,5 @@
+---
+description: Capital of Corea del Sud (Catalan)
+locale: ca
+---
+Seül

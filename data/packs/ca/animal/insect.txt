@@ -1,0 +1,28 @@
+---
+description: Insect (Catalan). Libel-lula, the dragonfly, carries the interpunct (U+00B7). Pregadeu is a praying mantis, cuca de llum a firefly and escarabat piloter a dung beetle.
+locale: ca
+---
+Formiga
+Abella
+Vespa
+Borinot
+Mosca
+Mosquit
+Papallona
+Arna
+Escarabat
+Marieta
+Libèl·lula
+Cigala
+Grill
+Llagosta
+Saltamartí
+Pregadéu
+Puça
+Poll
+Xinxa
+Tèrmit
+Cuca de llum
+Escarabat piloter
+Panerola
+Tàvec

@@ -1,0 +1,22 @@
+---
+description: Job title in the Comerç sector, named in Catalan
+locale: ca
+---
+Dependent
+Dependenta
+Encarregat de botiga
+Caixer
+Reposador
+Visual merchandiser
+Comprador
+Cap de secció
+Gerent de botiga
+Venedor
+Gestor de comandes
+Atenció al client
+Escaparatista
+Responsable de magatzem
+Carnisser
+Peixater
+Fruiter
+Xarcuter

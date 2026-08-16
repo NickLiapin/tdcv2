@@ -1,0 +1,5 @@
+---
+description: Capital of Austràlia (Catalan)
+locale: ca
+---
+Canberra

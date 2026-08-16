@@ -1,0 +1,14 @@
+---
+description: Dish of Grega cuisine, named in Catalan
+locale: ca
+---
+Musaka
+Souvlaki
+Gyros
+Amanida grega
+Tzatziki
+Dolmades
+Spanakopita
+Baklava
+Pastitsio
+Fassolada

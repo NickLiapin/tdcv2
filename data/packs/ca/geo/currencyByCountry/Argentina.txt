@@ -1,0 +1,5 @@
+---
+description: Currency of Argentina (Catalan)
+locale: ca
+---
+peso argentí

@@ -1,0 +1,60 @@
+{
+  "months": [
+    "gener",
+    "febrer",
+    "març",
+    "abril",
+    "maig",
+    "juny",
+    "juliol",
+    "agost",
+    "setembre",
+    "octubre",
+    "novembre",
+    "desembre"
+  ],
+  "monthsInDate": [
+    "de gener",
+    "de febrer",
+    "de març",
+    "d'abril",
+    "de maig",
+    "de juny",
+    "de juliol",
+    "d'agost",
+    "de setembre",
+    "d'octubre",
+    "de novembre",
+    "de desembre"
+  ],
+  "monthsShort": [
+    "gen.",
+    "febr.",
+    "març",
+    "abr.",
+    "maig",
+    "juny",
+    "jul.",
+    "ag.",
+    "set.",
+    "oct.",
+    "nov.",
+    "des."
+  ],
+  "weekdays": [
+    "diumenge",
+    "dilluns",
+    "dimarts",
+    "dimecres",
+    "dijous",
+    "divendres",
+    "dissabte"
+  ],
+  "weekdaysShort": ["dg.", "dl.", "dt.", "dc.", "dj.", "dv.", "ds."],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM [de] YYYY",
+    "LLL": "D MMMM [de] YYYY HH:mm",
+    "LLLL": "dddd, D MMMM [de] YYYY HH:mm"
+  }
+}

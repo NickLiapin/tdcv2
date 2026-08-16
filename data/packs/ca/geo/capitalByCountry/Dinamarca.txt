@@ -1,0 +1,5 @@
+---
+description: Capital of Dinamarca (Catalan)
+locale: ca
+---
+Copenhaguen

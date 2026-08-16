@@ -1,0 +1,5 @@
+---
+description: Currency of Romania (Catalan)
+locale: ca
+---
+leu romanès

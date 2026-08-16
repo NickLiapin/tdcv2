@@ -1,0 +1,9 @@
+---
+description: Playing position in Waterpolo, named in Catalan
+locale: ca
+---
+Porter
+Defensa
+Boia
+Extrem
+Lateral

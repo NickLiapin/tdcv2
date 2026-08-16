@@ -1,0 +1,5 @@
+---
+description: Capital of Algèria (Catalan)
+locale: ca
+---
+Alger

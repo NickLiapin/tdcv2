@@ -1,0 +1,35 @@
+---
+description: Interior part of a Catalan address, written after the street number: carrer Major 15, 3r 2a, escala B. The floor is an ordinal with the Catalan masculine ending (1r, 2n, 3r, 4t, 5e) and the door an ordinal with the feminine ending (1a, 2a, 3a) or simply esquerra / dreta. Baixos is the ground floor, entresol the mezzanine above it, principal the floor above THAT, and atic and sobreatic the set-back top floors — a five-name vertical vocabulary between the street and the first numbered storey that neither English nor Castilian matches one for one.
+locale: ca
+---
+escala
+pis
+porta
+planta
+baixos
+entresòl
+principal
+àtic
+sobreàtic
+soterrani
+bloc
+nau
+local
+despatx
+apartament
+estudi
+dúplex
+bústia
+apartat de correus
+1r
+2n
+3r
+4t
+5è
+1a
+2a
+3a
+esquerra
+dreta
+interior
+exterior

@@ -1,0 +1,27 @@
+---
+description: Weather phenomenon (Catalan). Most of this list is untranslatable and locally specific: tramuntana is the dry north wind that scours the Emporda and the Roussillon, mestral the north-west wind, garbi and marinada the sea breezes, llevantada the destructive easterly storm off the Mediterranean, and gota freda the autumn cut-off low that produces the flash floods of the Valencian country. Torb is the Pyrenean ground-blizzard, the word Andorra and the Cerdanya use for wind-driven snow. Arc de Sant Marti is a rainbow, literally Saint Martin's arc. Cap de fiblo is a waterspout or small tornado.
+locale: ca
+---
+Tramuntana
+Mestral
+Gregal
+Xaloc
+Garbí
+Llebeig
+Ponentada
+Marinada
+Llevantada
+Gota freda
+Torb
+Calabruix
+Rosada
+Gebre
+Llamp
+Tro
+Arc de Sant Martí
+Tromba d'aigua
+Cap de fibló
+Onada de calor
+Sequera
+Inversió tèrmica
+Boira baixa

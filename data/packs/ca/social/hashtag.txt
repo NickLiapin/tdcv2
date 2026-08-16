@@ -1,0 +1,34 @@
+---
+description: Hashtag (Catalan)
+locale: ca
+---
+#bondia
+#capdesetmana
+#sensefiltres
+#femequip
+#arreudelmon
+#natura
+#muntanya
+#platja
+#cuinacatalana
+#deproximitat
+#llegint
+#musica
+#fotografia
+#viatjar
+#esport
+#salut
+#benestar
+#familia
+#amics
+#casanostra
+#artesania
+#sostenible
+#ecologia
+#reciclar
+#tecnologia
+#disseny
+#moda
+#gastronomia
+#festamajor
+#encatala

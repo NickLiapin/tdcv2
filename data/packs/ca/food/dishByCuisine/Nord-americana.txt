@@ -1,0 +1,16 @@
+---
+description: Dish of Nord-americana cuisine, named in Catalan
+locale: ca
+---
+Hamburguesa
+Costelles a la barbacoa
+Pollastre fregit
+Macarrons amb formatge
+Gofres
+Creps americanes
+Frankfurt
+Pastís de poma
+Chili
+Crema de cloïsses
+Pastís de formatge
+Cargols de canyella

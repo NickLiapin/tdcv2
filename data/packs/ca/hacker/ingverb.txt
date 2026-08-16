@@ -1,0 +1,34 @@
+---
+description: Technical present participle (Catalan gerund)
+locale: ca
+---
+compilant
+xifrant
+desxifrant
+indexant
+analitzant
+sincronitzant
+transmetent
+rebent
+processant
+calculant
+connectant
+desconnectant
+reiniciant
+arrencant
+carregant
+descarregant
+copiant
+restaurant
+migrant
+desplegant
+validant
+depurant
+optimitzant
+comprimint
+descomprimint
+encaminant
+filtrant
+monitorant
+auditant
+replicant

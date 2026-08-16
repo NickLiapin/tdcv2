@@ -1,0 +1,16 @@
+---
+description: Employment type (Catalan). Fix discontinu is the Catalan and Spanish permanent-seasonal contract: the worker is on the permanent staff but is called in only for the season, and it has no English one-word equivalent.
+locale: ca
+---
+Indefinit
+Temporal
+Fix discontinu
+Jornada completa
+Mitja jornada
+Per obra i servei
+Pràctiques
+Beca de formació
+Autònom
+Freelance
+Interinatge
+Relleu

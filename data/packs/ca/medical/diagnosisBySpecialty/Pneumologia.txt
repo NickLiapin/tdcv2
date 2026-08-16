@@ -1,0 +1,18 @@
+---
+description: Diagnosis seen in Pneumologia, named in Catalan
+locale: ca
+---
+Asma
+Malaltia pulmonar obstructiva crònica
+Pneumònia
+Bronquitis crònica
+Apnea obstructiva del son
+Fibrosi pulmonar
+Embòlia pulmonar
+Tuberculosi pulmonar
+Bronquièctasi
+Pneumotòrax
+Sarcoïdosi
+Rinitis al·lèrgica
+Vessament pleural
+Hipertensió pulmonar

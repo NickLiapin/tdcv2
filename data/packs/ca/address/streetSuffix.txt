@@ -1,0 +1,44 @@
+---
+description: Catalan thoroughfare type — goes BEFORE the street name (carrer Major, avinguda del Mar, placa de la Vila, passeig de la Riba). Lowercase is correct: Catalan does not capitalise the generic word inside running text. Riera, torrent and rambla are streets laid along a dry watercourse and are thoroughfare types in their own right, not metaphors. Partida is the Valencian rural-address unit and veinat the scattered hamlet of the Girona countryside.
+locale: ca
+---
+carrer
+avinguda
+passeig
+plaça
+placeta
+rambla
+ronda
+travessera
+travessia
+passatge
+camí
+carretera
+baixada
+pujada
+costa
+riera
+torrent
+via
+gran via
+carreró
+jardins
+parc
+moll
+port
+escales
+pont
+túnel
+rotonda
+polígon
+urbanització
+barri
+veïnat
+raval
+partida
+grup
+sector
+zona
+nucli
+disseminat
+avinguda dels

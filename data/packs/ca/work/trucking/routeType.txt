@@ -1,0 +1,12 @@
+---
+description: Trucking route type (Catalan)
+locale: ca
+---
+Local
+Comarcal
+Regional
+Nacional
+Internacional
+Llarga distància
+Distribució urbana
+Última milla

@@ -1,0 +1,19 @@
+---
+description: Return reason (Catalan)
+locale: ca
+---
+Producte defectuós
+Talla incorrecta
+Color diferent del previst
+No és el que esperava
+Article equivocat
+Arribat malmès
+Falten peces
+Lliurament fora de termini
+Comanda duplicada
+Ja no el necessito
+He trobat un preu millor
+Qualitat inferior a la descrita
+No compatible
+Canvi d'opinió
+Error en la comanda

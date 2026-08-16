@@ -1,0 +1,22 @@
+---
+description: Job title in the Educació sector, named in Catalan
+locale: ca
+---
+Mestre d'educació infantil
+Mestra d'educació primària
+Professor de secundària
+Professor universitari
+Educador social
+Pedagog
+Psicopedagog
+Director de centre
+Cap d'estudis
+Monitor de lleure
+Professor de català
+Professor de música
+Professor d'educació física
+Orientador educatiu
+Bibliotecari escolar
+Tècnic d'educació infantil
+Formador ocupacional
+Logopeda escolar

@@ -1,0 +1,16 @@
+---
+description: Shoe size as printed on a shoebox anywhere Catalan is spoken: the continental European (Paris point) scale. Catalonia, Valencia and the Balearics use it because Spain does, Northern Catalonia and Andorra because France does, and Alghero because Italy does — so for once the language area and the sizing convention coincide exactly. Not UK sizes, not US sizes, not centimetres.
+locale: ca
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

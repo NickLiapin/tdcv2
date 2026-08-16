@@ -1,0 +1,18 @@
+---
+description: Diagnosis seen in Nefrologia, named in Catalan
+locale: ca
+---
+Insuficiència renal crònica
+Insuficiència renal aguda
+Litiasi renal
+Infecció urinària
+Pielonefritis
+Glomerulonefritis
+Síndrome nefròtica
+Nefropatia diabètica
+Nefropatia hipertensiva
+Malaltia renal poliquística
+Acidosi tubular renal
+Hiperpotassèmia
+Proteïnúria
+Hematúria

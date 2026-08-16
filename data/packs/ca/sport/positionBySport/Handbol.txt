@@ -1,0 +1,11 @@
+---
+description: Playing position in Handbol, named in Catalan
+locale: ca
+---
+Porter
+Extrem esquerre
+Lateral esquerre
+Central
+Lateral dret
+Extrem dret
+Pivot

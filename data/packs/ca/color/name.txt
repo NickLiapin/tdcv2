@@ -1,0 +1,61 @@
+---
+description: Human-readable colour name (Catalan). Vermell, not any form of rojo — Catalan lost the Latin russeus for the everyday red and uses vermell, from vermiculus, the kermes insect the dye was made from. Groc, blau, verd, lila, marro, gris. The pal-lid shades carry the interpunct (U+00B7).
+locale: ca
+---
+Vermell
+Blau
+Verd
+Groc
+Taronja
+Lila
+Rosa
+Marró
+Negre
+Blanc
+Gris
+Beix
+Turquesa
+Blau marí
+Blau cel
+Verd oliva
+Verd poma
+Verd maragda
+Verd menta
+Granat
+Carmesí
+Escarlata
+Bordeus
+Fúcsia
+Magenta
+Violeta
+Malva
+Porpra
+Indi
+Cian
+Argent
+Daurat
+Coure
+Bronze
+Crema
+Marfil
+Ocre
+Terracota
+Salmó
+Corall
+Caqui
+Mostassa
+Xocolata
+Cafè
+Sorra
+Sèpia
+Antracita
+Plom
+Perla
+Nacre
+Blau cobalt
+Blau elèctric
+Rosa pàl·lid
+Blau pàl·lid
+Verd pàl·lid
+Groc canari
+Vermell cirera

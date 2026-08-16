@@ -1,0 +1,12 @@
+---
+description: Condition with a higher reported frequency in people of Mediterrània descent, named in Catalan.
+locale: ca
+---
+Talassèmia beta
+Dèficit de G6PD
+Febre mediterrània familiar
+Hemocromatosi hereditària
+Intolerància a la lactosa
+Malaltia de Behçet
+Hipercolesterolèmia familiar
+Anèmia falciforme

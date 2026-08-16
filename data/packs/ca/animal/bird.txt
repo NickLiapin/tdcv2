@@ -1,0 +1,51 @@
+---
+description: Bird (Catalan). Bernat pescaire, the grey heron, is literally "Bernard the fisherman" — Catalan names several birds with a personal name, and the Castilian garza real is a straight description instead. Puput is the hoopoe, named after its call.
+locale: ca
+---
+Pardal
+Merla
+Oreneta
+Falciot
+Puput
+Abellerol
+Mallerenga
+Pit-roig
+Rossinyol
+Cadernera
+Verdum
+Passerell
+Estornell
+Garsa
+Gaig
+Corb
+Cornella
+Òliba
+Mussol
+Duc
+Xoriguer
+Falcó
+Àguila
+Voltor
+Milà
+Astor
+Esparver
+Cigonya
+Bernat pescaire
+Martinet
+Flamenc
+Ànec collverd
+Fotja
+Polla d'aigua
+Gavina
+Gavià
+Corb marí
+Perdiu
+Guatlla
+Faisà
+Tudó
+Colom
+Tórtora
+Cucut
+Picot
+Alosa
+Cuereta

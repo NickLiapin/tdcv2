@@ -1,0 +1,48 @@
+---
+description: Dish (Catalan) — an everyday menu rather than a regional showcase; the coherent regional lists are in food/dishByCuisine.
+locale: ca
+---
+Pa amb tomàquet
+Amanida
+Truita de patates
+Croquetes
+Canelons
+Fideuà
+Arròs negre
+Paella
+Escudella
+Sopa de galets
+Escalivada
+Esqueixada
+Xató
+Calçots
+Botifarra amb mongetes
+Fricandó
+Suquet de peix
+Bacallà a la llauna
+Pollastre rostit
+Conill a la brasa
+Mandonguilles
+Estofat de vedella
+Peus de porc
+Galta de porc
+Carxofes farcides
+Espinacs a la catalana
+Trinxat
+Sípia amb pèsols
+Musclos al vapor
+Cargols a la llauna
+Coca de recapte
+Entrepà de pernil
+Pizza
+Hamburguesa
+Sushi
+Ramen
+Tacos
+Cuscús
+Crema catalana
+Mel i mató
+Panellets
+Braç de gitano
+Gelat
+Flam

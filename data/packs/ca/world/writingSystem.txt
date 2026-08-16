@@ -1,0 +1,26 @@
+---
+description: Writing system (Catalan). Ciril-lic carries the interpunct (U+00B7). Catalan is written in the Latin alphabet, and four things mark it out from its neighbours inside that alphabet. (1) The c-cedilla, used before a, o and u and word-finally: forca, catala, dolc. (2) The digraph NY where Castilian writes n-tilde and Occitan writes nh: any, senyor, Catalunya, canya. (3) The final digraph IG, pronounced as a ch: maig, raig, puig, mig, roig, faig. (4) The INTERPUNCT itself, U+00B7 MIDDLE DOT, written between two L to mark a geminate L: paral-lel, intel-ligent, novel-la, col-legi, pel-licula, il-lusio. No other standard orthography in the world uses that character this way, and it is neither a full stop nor a hyphen. Catalan also uses BOTH accents and they encode vowel QUALITY, not merely stress: the grave accent marks open a, e and o, the acute marks closed e, i, o and u, so the same vowel letter takes either accent depending on the sound (be with a grave against be with an acute, os against os, dona against dona). A Catalan text carrying only acute accents has been through a Castilian filter, because Castilian has one accent and cannot represent the distinction.
+locale: ca
+---
+Alfabet llatí
+Alfabet grec
+Alfabet ciríl·lic
+Alfabet àrab
+Alfabet hebreu
+Alfabet armeni
+Alfabet georgià
+Devanagari
+Alfabet bengalí
+Alfabet tàmil
+Escriptura xinesa
+Hiragana
+Katakana
+Hangul
+Escriptura tailandesa
+Escriptura khmer
+Alfabet copte
+Alfabet etíop
+Escriptura cuneïforme
+Jeroglífics egipcis
+Braille
+Alfabet fenici

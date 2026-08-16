@@ -1,0 +1,28 @@
+---
+description: Company department (Catalan). Note the category is workplace, not hr — hr is the ISO code for Croatian and would be read as a locale by the address resolver.
+locale: ca
+---
+Direcció general
+Recursos humans
+Finances
+Comptabilitat
+Vendes
+Màrqueting
+Comunicació
+Compres
+Logística
+Producció
+Qualitat
+Manteniment
+Enginyeria
+Recerca i desenvolupament
+Informàtica
+Atenció al client
+Assessoria jurídica
+Administració
+Formació
+Prevenció de riscos laborals
+Exportació
+Magatzem
+Projectes
+Sostenibilitat

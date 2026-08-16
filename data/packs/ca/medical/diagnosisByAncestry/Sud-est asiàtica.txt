@@ -1,0 +1,11 @@
+---
+description: Condition with a higher reported frequency in people of Sud-est asiàtica descent, named in Catalan. The Brugada syndrome in this list is named after the Catalan cardiologists Pedro, Josep and Ramon Brugada, who described it in 1992; its highest prevalence is in Southeast Asia, which is why it sits here rather than under Mediterrania.
+locale: ca
+---
+Talassèmia alfa
+Hemoglobina E
+Dèficit de G6PD
+Síndrome de Brugada
+Hepatitis B crònica
+Carcinoma nasofaringi
+Talassèmia beta

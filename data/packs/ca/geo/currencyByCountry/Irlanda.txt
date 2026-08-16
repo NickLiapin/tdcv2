@@ -1,0 +1,5 @@
+---
+description: Currency of Irlanda (Catalan)
+locale: ca
+---
+euro

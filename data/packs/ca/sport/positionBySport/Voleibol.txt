@@ -1,0 +1,9 @@
+---
+description: Playing position in Voleibol, named in Catalan
+locale: ca
+---
+Col·locador
+Receptor
+Central
+Oposat
+Líbero

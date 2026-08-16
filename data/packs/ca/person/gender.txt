@@ -1,0 +1,8 @@
+---
+description: Gender label (Catalan)
+locale: ca
+---
+Home
+Dona
+No binari
+Prefereix no dir-ho

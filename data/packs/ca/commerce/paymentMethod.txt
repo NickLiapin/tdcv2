@@ -1,0 +1,19 @@
+---
+description: Payment method (Catalan)
+locale: ca
+---
+Targeta de crèdit
+Targeta de dèbit
+Efectiu
+Transferència bancària
+Domiciliació
+Bizum
+PayPal
+Apple Pay
+Google Pay
+Pagament contra reemborsament
+Xec
+Val de compra
+Targeta regal
+Finançament
+Criptomoneda

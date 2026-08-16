@@ -1,0 +1,24 @@
+---
+description: Trip type (Catalan)
+locale: ca
+---
+Vacances
+Cap de setmana
+Escapada
+Viatge de negocis
+Congrés
+Lluna de mel
+Viatge familiar
+Viatge en grup
+Creuer
+Circuit
+Ruta amb cotxe
+Excursió d'un dia
+Càmping
+Turisme rural
+Esquiada
+Peregrinació
+Voluntariat
+Intercanvi d'estudis
+Visita a la família
+Mochilera

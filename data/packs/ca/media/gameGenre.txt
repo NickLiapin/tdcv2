@@ -1,0 +1,22 @@
+---
+description: Video game genre (Catalan)
+locale: ca
+---
+Acció
+Aventura
+Acció i aventura
+Rol
+Estratègia
+Estratègia en temps real
+Simulació
+Esports
+Curses
+Trencaclosques
+Plataformes
+Lluita
+Trets en primera persona
+Supervivència
+Terror
+Món obert
+Sandbox
+Ritme

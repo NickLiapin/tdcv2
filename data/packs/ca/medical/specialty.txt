@@ -1,0 +1,42 @@
+---
+description: Medical specialty (Catalan). Al-lergologia carries the interpunct (U+00B7).
+locale: ca
+---
+Cardiologia
+Neurologia
+Oncologia
+Dermatologia
+Gastroenterologia
+Endocrinologia
+Pneumologia
+Traumatologia
+Psiquiatria
+Nefrologia
+Al·lergologia
+Reumatologia
+Hematologia
+Urologia
+Ginecologia
+Obstetrícia
+Pediatria
+Geriatria
+Oftalmologia
+Otorinolaringologia
+Anestesiologia
+Radiologia
+Medicina interna
+Medicina de família
+Medicina intensiva
+Medicina del treball
+Medicina esportiva
+Cirurgia general
+Cirurgia cardiovascular
+Cirurgia plàstica
+Neurocirurgia
+Microbiologia
+Anatomia patològica
+Farmacologia clínica
+Immunologia
+Rehabilitació
+Odontologia
+Nutrició i dietètica

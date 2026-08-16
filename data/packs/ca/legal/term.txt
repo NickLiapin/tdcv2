@@ -1,0 +1,26 @@
+---
+description: Legal term (Catalan). Apel-lacio, al-legacions and nul-litat carry the interpunct (U+00B7) — three in one short list, because Latin -ll- came into Catalan legal vocabulary intact and the orthography marks it. The Castilian apelacion, alegaciones and nulidad have a single L.
+locale: ca
+---
+Demanda
+Contestació a la demanda
+Al·legacions
+Recurs
+Apel·lació
+Cassació
+Sentència
+Interlocutòria
+Provisió
+Diligència
+Citació
+Notificació
+Prova
+Testimoni
+Perit
+Nul·litat
+Prescripció
+Caducitat
+Costes
+Cosa jutjada
+Mesures cautelars
+Execució

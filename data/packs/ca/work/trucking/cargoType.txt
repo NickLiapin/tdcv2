@@ -1,0 +1,17 @@
+---
+description: Truck cargo type (Catalan)
+locale: ca
+---
+Càrrega general
+Palets
+Contenidor
+Frigorífic
+Cisterna
+Graner
+Mercaderies perilloses
+Animals vius
+Vehicles
+Maquinària
+Càrrega especial
+Paqueteria
+Materials de construcció

@@ -1,0 +1,22 @@
+---
+description: Cuisine (Catalan). Catalana, valenciana and balear are listed as three cuisines rather than one, because they are three kitchens with three larders — the paella belongs to the Valencian country, the ensaimada and sobrassada to the Balearics, and the escudella and the calcotada to the Principality — and rolling them into "Spanish" is exactly the flattening this pack exists to avoid. Espanyola is a separate entry for the Castilian, Basque, Galician and Andalusian dishes that are genuinely not Catalan.
+locale: ca
+---
+Catalana
+Valenciana
+Balear
+Espanyola
+Italiana
+Francesa
+Japonesa
+Xinesa
+Índia
+Mexicana
+Tailandesa
+Grega
+Nord-americana
+Coreana
+Vietnamita
+Turca
+Libanesa
+Marroquina

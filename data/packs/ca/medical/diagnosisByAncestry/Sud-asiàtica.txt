@@ -1,0 +1,11 @@
+---
+description: Condition with a higher reported frequency in people of Sud-asiàtica descent, named in Catalan.
+locale: ca
+---
+Diabetis mellitus tipus 2
+Cardiopatia isquèmica precoç
+Talassèmia beta
+Dèficit de G6PD
+Deficiència de vitamina D
+Lipoproteïna(a) elevada
+Síndrome metabòlica

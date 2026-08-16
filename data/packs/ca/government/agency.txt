@@ -1,0 +1,32 @@
+---
+description: Kind of public body, in the words Catalan uses for them. GENERIC vocabulary spanning four states, not one country's organisation chart: an ajuntament is a town council everywhere, a consell comarcal the county-level body of Catalonia, a diputacio the provincial one, and a conselleria a ministry of the Valencian and Balearic governments. Sindicatura de greuges is the ombudsman. The individually NAMED bodies — the Generalitat, the Consell General d'Andorra, the Govern balear, a prefecture in Northern Catalonia — belong in a country pack.
+locale: ca
+---
+Ajuntament
+Consell comarcal
+Diputació
+Govern
+Ministeri
+Departament
+Conselleria
+Direcció general
+Secretaria general
+Subdirecció general
+Agència
+Institut
+Consorci
+Organisme autònom
+Empresa pública
+Registre civil
+Oficina de treball
+Servei d'ocupació
+Inspecció de treball
+Duana
+Policia local
+Protecció civil
+Bombers
+Serveis socials
+Oficina d'atenció ciutadana
+Cadastre
+Sindicatura de greuges
+Cambra de comerç

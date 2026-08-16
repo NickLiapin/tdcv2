@@ -1,0 +1,48 @@
+---
+description: Building type (Catalan). Masia is the free-standing Catalan farmhouse and masoveria the tenant farmer's house beside it; a mas is the farm as a whole. Borda and cortal are the stone mountain barns of Andorra and the Pyrenees, converted into housing everywhere in the Andorran valleys, and neither word has a Castilian equivalent. Barraca de vinya is the dry-stone hut of the wine country.
+locale: ca
+---
+Casa
+Pis
+Apartament
+Edifici
+Bloc
+Torre
+Xalet
+Casa adossada
+Masia
+Masoveria
+Mas
+Borda
+Cortal
+Casal
+Palau
+Castell
+Ermita
+Església
+Convent
+Monestir
+Molí
+Magatzem
+Nau industrial
+Fàbrica
+Oficina
+Botiga
+Mercat
+Escola
+Institut
+Hospital
+Ambulatori
+Biblioteca
+Museu
+Teatre
+Hotel
+Alberg
+Refugi
+Càmping
+Aparcament
+Estació
+Far
+Barraca de vinya
+Cabana
+Pallissa

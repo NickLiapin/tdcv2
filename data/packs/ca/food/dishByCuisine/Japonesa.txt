@@ -1,0 +1,17 @@
+---
+description: Dish of Japonesa cuisine, named in Catalan
+locale: ca
+---
+Sushi
+Sashimi
+Ramen
+Tempura
+Yakitori
+Udon
+Okonomiyaki
+Gyoza
+Tonkatsu
+Sopa de miso
+Onigiri
+Takoyaki
+Katsudon

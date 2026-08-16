@@ -1,0 +1,5 @@
+---
+description: Currency code of Suïssa
+locale: ca
+---
+CHF

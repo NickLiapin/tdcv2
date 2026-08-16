@@ -1,0 +1,5 @@
+---
+description: Currency of Japó (Catalan)
+locale: ca
+---
+ien

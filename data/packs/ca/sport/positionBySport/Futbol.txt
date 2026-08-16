@@ -1,0 +1,15 @@
+---
+description: Playing position in Futbol, named in Catalan
+locale: ca
+---
+Porter
+Defensa central
+Lateral dret
+Lateral esquerre
+Migcampista defensiu
+Migcampista
+Migcampista ofensiu
+Extrem dret
+Extrem esquerre
+Davanter centre
+Segon davanter

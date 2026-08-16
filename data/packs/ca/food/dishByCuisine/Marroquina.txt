@@ -1,0 +1,13 @@
+---
+description: Dish of Marroquina cuisine, named in Catalan
+locale: ca
+---
+Cuscús
+Tagine de xai
+Tagine de pollastre amb llimona
+Harira
+Pastilla
+Zaalouk
+Briuats
+Msemen
+Te de menta amb pastes

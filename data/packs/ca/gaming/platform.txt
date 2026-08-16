@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Brand names keep their real spelling.
+locale: ca
+---
+PC
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+Steam Deck
+Mòbil
+Navegador
+Realitat virtual
+Màquina recreativa
+Mac
+Linux

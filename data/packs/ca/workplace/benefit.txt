@@ -1,0 +1,28 @@
+---
+description: Employee benefit (Catalan). The category is workplace and not hr, because hr is the ISO code for Croatian and the pack resolver would read ca.hr.benefit as an address in the Croatian pack. Paga extra is the extra monthly salary paid in June and December across the Spanish-law territories and has no English equivalent; a Catalan employment contract is normally described as 12 or 14 pagues.
+locale: ca
+---
+Assegurança mèdica privada
+Assegurança dental
+Assegurança de vida
+Pla de pensions
+Tiquet restaurant
+Xec guarderia
+Paga extra
+Retribució flexible
+Teletreball
+Horari flexible
+Jornada intensiva a l'estiu
+Formació contínua
+Classes d'idiomes
+Abonament de transport
+Aparcament d'empresa
+Cotxe d'empresa
+Telèfon d'empresa
+Portàtil d'empresa
+Dies de lliure disposició
+Gimnàs
+Fisioteràpia
+Suport psicològic
+Descomptes de personal
+Participació en beneficis

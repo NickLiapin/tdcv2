@@ -1,0 +1,24 @@
+---
+description: School subject (Catalan)
+locale: ca
+---
+Llengua catalana i literatura
+Llengua castellana i literatura
+Llengua estrangera
+Matemàtiques
+Ciències de la naturalesa
+Biologia i geologia
+Física i química
+Ciències socials
+Geografia i història
+Educació física
+Música
+Educació visual i plàstica
+Tecnologia
+Informàtica
+Filosofia
+Economia
+Llatí
+Grec
+Cultura i valors
+Religió

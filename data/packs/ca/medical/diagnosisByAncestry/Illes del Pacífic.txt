@@ -1,0 +1,11 @@
+---
+description: Condition with a higher reported frequency in people of Illes del Pacífic descent, named in Catalan.
+locale: ca
+---
+Diabetis mellitus tipus 2
+Obesitat
+Gota
+Hipertensió arterial
+Malaltia renal crònica
+Febre reumàtica
+Cardiopatia reumàtica

@@ -1,0 +1,28 @@
+---
+description: Mobile or broadband operator. Brand names keep their real spelling. Parlem and Som Connexio are operators that work in Catalan by policy, Andorra Telecom is the sole operator of the Andorran state, and SFR, Bouygues, Free and Orange serve Northern Catalonia from France. Which operator is licensed in which country belongs in a country pack; what makes this a LANGUAGE list is that all of these sell service to Catalan speakers.
+locale: ca
+---
+Movistar
+Vodafone
+Orange
+Yoigo
+MásMóvil
+Digi
+Pepephone
+Jazztel
+Lowi
+O2
+Simyo
+Finetwork
+Parlem
+Som Connexió
+Andorra Telecom
+SFR
+Bouygues Telecom
+Free
+TIM
+Vodafone Italia
+Adamo
+Avatel
+Aire Networks
+Xarxa oberta

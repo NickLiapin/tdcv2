@@ -1,0 +1,18 @@
+---
+description: Diagnosis seen in Dermatologia, named in Catalan
+locale: ca
+---
+Dermatitis atòpica
+Psoriasi
+Urticària
+Acne
+Rosàcia
+Èczema de contacte
+Vitiligen
+Alopècia areata
+Micosi cutània
+Berrugues víriques
+Herpes zòster
+Carcinoma basocel·lular
+Queratosi actínica
+Hidradenitis supurativa

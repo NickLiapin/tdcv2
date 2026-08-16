@@ -1,0 +1,18 @@
+---
+description: Diagnosis seen in Psiquiatria, named in Catalan
+locale: ca
+---
+Depressió major
+Trastorn d'ansietat generalitzada
+Trastorn bipolar
+Esquizofrènia
+Trastorn obsessivocompulsiu
+Trastorn per estrès posttraumàtic
+Trastorn de pànic
+Trastorn per dèficit d'atenció
+Anorèxia nerviosa
+Bulímia nerviosa
+Trastorn per consum d'alcohol
+Insomni crònic
+Trastorn límit de la personalitat
+Trastorn de l'espectre autista

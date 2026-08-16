@@ -1,0 +1,18 @@
+---
+description: Diagnosis seen in Neurologia, named in Catalan
+locale: ca
+---
+Migranya
+Epilèpsia
+Ictus isquèmic
+Hemorràgia cerebral
+Malaltia de Parkinson
+Malaltia d'Alzheimer
+Esclerosi múltiple
+Esclerosi lateral amiotròfica
+Neuropatia perifèrica
+Síndrome del túnel carpià
+Miastènia greu
+Cefalea tensional
+Vertigen posicional paroxístic
+Tremolor essencial

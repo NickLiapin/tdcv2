@@ -1,0 +1,12 @@
+---
+description: Mining method (Catalan)
+locale: ca
+---
+Cel obert
+Interior
+Cambres i pilars
+Tallada llarga
+Rebaixos
+Pou vertical
+Rampa
+Dissolució

@@ -1,0 +1,5 @@
+---
+description: Currency of Bèlgica (Catalan)
+locale: ca
+---
+euro

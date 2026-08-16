@@ -1,0 +1,42 @@
+---
+description: Common adverb (Catalan). The -ment ending corresponds to English -ly and takes the FEMININE form of the adjective (rapida > rapidament), which is why the stems here look feminine.
+locale: ca
+---
+sempre
+mai
+sovint
+de vegades
+ara
+després
+abans
+aviat
+tard
+ja
+encara
+també
+tampoc
+molt
+poc
+gaire
+prou
+massa
+bastant
+gairebé
+només
+fins i tot
+aquí
+allà
+a dalt
+a baix
+dins
+fora
+lluny
+a prop
+ràpidament
+lentament
+clarament
+segurament
+probablement
+especialment
+realment
+evidentment

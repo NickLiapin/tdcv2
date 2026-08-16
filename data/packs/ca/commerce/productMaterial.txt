@@ -1,0 +1,62 @@
+---
+description: Product material (Catalan). Metal-lic and cristal-li carry the interpunct (U+00B7).
+locale: ca
+---
+Cotó
+Lli
+Llana
+Seda
+Cànem
+Jute
+Espart
+Vímet
+Cuir
+Pell sintètica
+Ant
+Feltre
+Polièster
+Niló
+Elastà
+Viscosa
+Acrílic
+Polipropilè
+Polietilè
+PVC
+Silicona
+Cautxú
+Goma
+Escuma
+Suro
+Fusta
+Roure massís
+Faig
+Pi
+Bambú
+Contraxapat
+Melamina
+Cartró
+Paper
+Paper reciclat
+Vidre
+Cristall
+Ceràmica
+Porcellana
+Gres
+Terracota
+Marbre
+Granit
+Pissarra
+Formigó
+Acer
+Acer inoxidable
+Alumini
+Llautó
+Coure
+Ferro forjat
+Zinc
+Titani
+Plata de llei
+Or de 18 quirats
+Acabat metàl·lic
+Acabat cristal·lí
+Fibra de carboni

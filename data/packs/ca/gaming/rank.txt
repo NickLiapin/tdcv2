@@ -1,0 +1,14 @@
+---
+description: Competitive rank (Catalan)
+locale: ca
+---
+Ferro
+Bronze
+Plata
+Or
+Platí
+Diamant
+Mestre
+Gran mestre
+Reptador
+Llegenda

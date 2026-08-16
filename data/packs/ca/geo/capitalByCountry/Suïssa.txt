@@ -1,0 +1,5 @@
+---
+description: Capital of Suïssa (Catalan)
+locale: ca
+---
+Berna

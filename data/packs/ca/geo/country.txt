@@ -1,0 +1,50 @@
+---
+description: Country as Catalan names it, weighted by population in millions. Translated, not transliterated — Alemanya, Paisos Baixos, Regne Unit, Estats Units, Xina, Japo. ANDORRA is here at a weight of 1 rather than its real 0,08 million, because it is the only state in the world where Catalan is the sole official language and a Catalan dataset that never mentions it is not describing the world this language lives in; the rounding is deliberate and is the only weight in this file that is not the real figure. Belgica is here because its capital, Brussel-les, is one of the place names that carries the Catalan interpunct (U+00B7).
+weighted: true
+locale: ca
+---
+Xina,1410
+Índia,1400
+Estats Units,335
+Indonèsia,275
+Pakistan,240
+Nigèria,220
+Brasil,215
+Bangladesh,170
+Rússia,144
+Mèxic,128
+Japó,125
+Egipte,110
+Vietnam,98
+Turquia,85
+Alemanya,84
+Tailàndia,72
+França,68
+Regne Unit,67
+Sud-àfrica,60
+Itàlia,59
+Corea del Sud,52
+Espanya,47
+Argentina,46
+Algèria,45
+Canadà,39
+Polònia,38
+Ucraïna,38
+Marroc,37
+Aràbia Saudita,36
+Austràlia,26
+Romania,19
+Països Baixos,18
+Bèlgica,12
+Portugal,10
+Grècia,10
+Suècia,10
+Suïssa,9
+Àustria,9
+Dinamarca,6
+Finlàndia,6
+Singapur,6
+Noruega,5
+Irlanda,5
+Nova Zelanda,5
+Andorra,1
