@@ -1,0 +1,5 @@
+---
+description: Capital of Irlanda (Basque)
+locale: eu
+---
+Dublin

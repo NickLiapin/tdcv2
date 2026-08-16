@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Kardiologia (Basque)
+locale: eu
+---
+hipertentsio arteriala
+miokardio infartua
+angina pektorea
+bihotz-gutxiegitasuna
+fibrilazio aurikularra
+arritmia
+balbula aortikoaren estenosia
+kardiopatia iskemikoa
+perikarditisa
+miokardiopatia dilatatua

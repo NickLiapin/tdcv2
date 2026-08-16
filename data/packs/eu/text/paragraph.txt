@@ -1,0 +1,24 @@
+---
+description: Basque filler paragraphs. Handwritten: Project Gutenberg holds no Basque book at all, so these twenty paragraphs were written by hand rather than extracted from public-domain books, and they are a small sample, not a corpus.
+locale: eu
+---
+Baserria mendiaren magalean dago, haritz zaharren artean. Etxeak berrehun urte baino gehiago ditu eta harriz eginda dago. Neguan sukaldeko sua egun osoan egoten da piztuta. Udan, berriz, ateak zabalik uzten dituzte gauean ere.
+Herriko plaza da bizitza guztiaren erdigunea. Goizean adinekoak eserita egoten dira eguzkitan. Arratsaldean umeak pilotan aritzen dira frontoian. Igandeetan azoka txiki bat jartzen dute plazaren erdian.
+Arrantzaleak gauez irteten dira portutik. Itsasoa bare dagoenean, egun osoa ematen dute kanpoan. Antxoa garaian ontzi guztiak beteta itzultzen dira. Kaian arraina sailkatzen dute goizeko lehen argiarekin.
+Euskara hizkuntza berezia da Europan. Ez zaio ahaiderik ezagutzen beste inongo hizkuntzatan. Inguruko hizkuntza guztiak baino lehenago zegoen hemen. Gaur egun bi estatutan hitz egiten da, mugaren bi aldeetan.
+Bertsolariak oholtzara igotzen dira plazan. Gai bat ematen diete eta une berean asmatu behar dute kantua. Neurria eta errima errespetatu behar dituzte, hutsik egin gabe. Jendeak isilik entzuten du, eta gero txalo egiten.
+Udazkena da urtaro ederrena mendian. Hostoak gorri eta hori jartzen dira. Perretxikoak biltzera joaten gara goizean goiz. Etxera itzultzean saskia beteta ekartzen dugu ia beti.
+Sagardotegiak urtarrilean irekitzen dira. Kupelatik zuzenean edaten da sagardoa. Menuan bakailaoa, txuleta eta gazta izaten dira beti. Lagun taldeak mahai luzeen inguruan biltzen dira.
+Ikastola herriak berak sortu zuen duela hirurogei urte. Hasieran etxe batean ematen ziren eskolak, isilean. Gaur egun eraikin handi bat dute eta ehunka ikasle. Ume guztiek euskaraz ikasten dituzte irakasgai guztiak.
+Trena kostaldetik doa hiri batetik bestera. Bidean herri txikiak eta ibaiak ikusten dira. Batzuetan itsasoa agertzen da leihoaren beste aldean. Bidaia ordu eta erdi ingurukoa da.
+Aitonak baratzea zaintzen du egunero. Udaberrian tomateak eta piperrak ereiten ditu. Udan goizeko zortzietan ureztatzen du dena. Udazkenean uzta jaso eta auzokoei banatzen die.
+Negua luzea izaten da mendialdean. Elurra hilabete osoan egoten da tontorretan. Bideak ixten dituzte batzuetan, elurra kendu bitartean. Herrira jaisteko traktorea erabiltzen dute baserritarrek.
+Frontoia elizaren ondoan dago, herri gehienetan bezala. Bi jokalarik esku hutsez jotzen dute pilota. Partida bakoitzak ordu bete inguru irauten du. Ikusleak harmailetan esertzen dira eta oihu egiten dute.
+Txalaparta bi lagunek jotzen dute batera. Zurezko oholak makilekin jotzen dituzte, txandaka. Erritmoa aldatuz doa, batak besteari erantzunez. Sagardoa egiteko sagarrak jotzetik datorrela esaten da.
+Liburu bat idazteak denbora asko eskatzen du. Egunero orduak eman behar dira mahai baten aurrean. Batzuetan hitz bakar bat aurkitzeko goiz osoa joaten da. Amaieran, ordea, dena merezi izan duela ematen du.
+Merkatua ostiral goizean jartzen da plazan. Baserritarrek barazkiak, gazta eta arrautzak ekartzen dituzte. Prezioak ez daude idatzita, galdetu egin behar da. Eguerdirako dena saldu eta postuak jaso egiten dituzte.
+Itsasoa aldatu egiten da egunetik egunera. Batzuetan ispilu bat dirudi, mugitu gabe. Beste batzuetan olatuek harkaitzak jotzen dituzte indarrez. Arrantzaleek zerura begiratzen dute atera aurretik.
+Herriko jaiek astebete irauten dute abuztuan. Goizean kalejira egiten dute musikariek. Arratsaldean herri kirolak izaten dira plazan. Gauean dantzaldia jartzen dute eta jendea berandu arte gelditzen da.
+Mendian ibiltzea da hemengo zaletasunik handiena. Igandero talde handiak ateratzen dira goizean goiz. Tontorrean bazkaria ateratzen dute motxilatik. Itzultzean tabernan elkartzen dira ikusitakoa kontatzeko.
+Etxearen izena bera da familiaren abizena. Baserriak izena hartu zuen mendeak lehenago. Gero, bertan bizi zirenek etxearen izena eraman zuten. Horregatik dira euskal abizenak hain luzeak eta hain argiak.
+Udako gauetan leihoa zabalik uzten dugu. Kanpotik erreka entzuten da, eta noizean behin hontz bat. Airea epela da eta izarrak garbi ikusten dira. Goizean, ordea, lanbroa egoten da haranean.

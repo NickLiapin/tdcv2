@@ -1,0 +1,16 @@
+---
+description: Grade / mark, in Basque words. The NUMBERS are deliberately absent: schools in the southern Basque Country mark out of 10 and schools in the northern one out of 20, so a numeric scale here would be right on one side of the border and wrong on the other. The words below are what a Basque report card prints either way; the numeric scales belong in the Spain and France country packs.
+locale: eu
+---
+gutxiegi
+nahikoa
+ongi
+oso ongi
+bikain
+ohorezko matrikula
+gainditua
+ez gainditua
+ez aurkeztua
+hobetu beharra
+aurrerapen nabarmena
+salbuetsia

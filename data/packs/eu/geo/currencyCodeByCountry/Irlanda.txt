@@ -1,0 +1,5 @@
+---
+description: Currency code of Irlanda
+locale: eu
+---
+EUR

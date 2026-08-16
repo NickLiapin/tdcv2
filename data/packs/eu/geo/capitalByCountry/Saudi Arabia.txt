@@ -1,0 +1,5 @@
+---
+description: Capital of Saudi Arabia (Basque)
+locale: eu
+---
+Riad

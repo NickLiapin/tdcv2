@@ -1,0 +1,5 @@
+---
+description: Capital of Alemania (Basque)
+locale: eu
+---
+Berlin

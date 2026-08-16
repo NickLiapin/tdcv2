@@ -1,0 +1,5 @@
+---
+description: Currency code of Hego Korea
+locale: eu
+---
+KRW

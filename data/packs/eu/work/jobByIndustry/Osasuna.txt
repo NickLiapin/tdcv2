@@ -1,0 +1,16 @@
+---
+description: Jobs in Osasuna (Basque)
+locale: eu
+---
+Familia-medikua
+Kirurgialaria
+Erizaina
+Pediatra
+Anestesista
+Fisioterapeuta
+Farmazialaria
+Laborategiko teknikaria
+Erradiologoa
+Nutrizionista
+Psikologo klinikoa
+Anbulantziako teknikaria

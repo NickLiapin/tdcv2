@@ -1,0 +1,5 @@
+---
+description: Capital of Frantzia (Basque)
+locale: eu
+---
+Paris

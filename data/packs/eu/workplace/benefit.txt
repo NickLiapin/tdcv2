@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Basque)
+locale: eu
+---
+osasun-asegurua
+jantoki-txartela
+garraio-laguntza
+telelana
+ordutegi malgua
+prestakuntza ordaindua
+euskara-ikastaroak
+gimnasioa
+haurtzaindegi-laguntza
+oporraldi gehigarriak
+pentsio-plana
+bizi-asegurua
+enpresako autoa
+mugikorra eta ordenagailua
+produkzio-primak
+irabazien banaketa
+kooperatibako bazkide izatea
+deskontuak

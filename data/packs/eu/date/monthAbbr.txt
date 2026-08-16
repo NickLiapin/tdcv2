@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Basque). Each ends in a full stop except martxoa, whose short form is the whole word.
+locale: eu
+---
+urt.
+ots.
+mar.
+api.
+mai.
+eka.
+uzt.
+abu.
+ira.
+urr.
+aza.
+abe.

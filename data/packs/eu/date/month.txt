@@ -1,0 +1,16 @@
+---
+description: Month name (Basque, with the definite article -a, lower case as Basque orthography requires). Several are transparent Basque compounds naming the farming year rather than Roman gods: uztaila is uzta "harvest" + hil "month", iraila is ira "fern" + hil, azaroa is hazi "seed" + aro "season". Inside a written date the month goes into the GENITIVE and looks different — urtarrilaren, not urtarrila (see DATE_LOCALE.json monthsInDate).
+locale: eu
+---
+urtarrila
+otsaila
+martxoa
+apirila
+maiatza
+ekaina
+uztaila
+abuztua
+iraila
+urria
+azaroa
+abendua

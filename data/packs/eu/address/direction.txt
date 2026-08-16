@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Basque street, district or place name (Goiko auzoa, Beheko kalea, Hego aldea). One thing to know before generating text with them: IPARRALDE ("the northern side") and HEGOALDE ("the southern side") are not neutral compass words in Basque — they are the everyday names for the French and the Spanish Basque Country respectively, and a Basque reader will take them that way first.
+locale: eu
+---
+iparraldea
+hegoaldea
+ekialdea
+mendebaldea
+ipar-ekialdea
+ipar-mendebaldea
+hego-ekialdea
+hego-mendebaldea
+goikoa
+behekoa
+erdikoa
+barrenekoa
+kanpokoa
+aurrekoa
+atzekoa

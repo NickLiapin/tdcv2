@@ -1,0 +1,36 @@
+---
+description: Basque honorific or form of address. Unlike English, Spanish and French, these FOLLOW the name rather than precede it: Etxeberria jauna, Agirre andrea. A config that puts the prefix in front produces something no Basque speaker writes.
+locale: eu
+---
+jauna
+andrea
+andereñoa
+doktorea
+irakaslea
+aita
+ama
+aitona
+amona
+osaba
+izeba
+apaiza
+anaia
+ahizpa
+lehendakaria
+alkatea
+epailea
+ministroa
+sailburua
+zuzendaria
+buruzagia
+kapitaina
+sarjentua
+koronela
+ingeniaria
+arkitektoa
+abokatua
+notarioa
+albaitaria
+farmazialaria
+errektorea
+dekanoa

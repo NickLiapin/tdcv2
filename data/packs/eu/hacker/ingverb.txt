@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Basque)
+locale: eu
+---
+konpilazioa
+deskarga
+kargatzea
+zifratzea
+deszifratzea
+sinkronizazioa
+indexazioa
+exekuzioa
+arakatzea
+konfigurazioa
+formateatzea
+berrabiaraztea
+kudeaketa
+biltegiratzea
+transferentzia
+monitorizazioa
+birbideraketa
+egiaztapena
+arazketa
+optimizazioa
+partekatzea
+instalazioa
+eguneratzea
+babeskopia
+saioa hastea
+sarbidea
+konpresioa
+migrazioa

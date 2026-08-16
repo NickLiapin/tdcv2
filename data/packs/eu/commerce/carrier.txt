@@ -1,0 +1,24 @@
+---
+description: Parcel carrier operating where Basque is spoken. The list crosses a state border on purpose: Correos, SEUR, MRW and Nacex serve the southern Basque Country and Colissimo, Chronopost, Mondial Relay and Colis Prive the northern one. Brand names keep their own spelling.
+locale: eu
+---
+Correos
+Correos Express
+SEUR
+MRW
+Nacex
+GLS
+Tipsa
+Envialia
+Zeleris
+CTT Express
+DHL
+UPS
+FedEx
+TNT
+Amazon Logistics
+InPost
+Packlink
+Colissimo
+Chronopost
+Mondial Relay

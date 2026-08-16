@@ -1,0 +1,14 @@
+---
+description: Positions in Futbol amerikarra (Basque)
+locale: eu
+---
+Quarterbacka
+Running backa
+Wide receiverra
+Tight enda
+Lerro erasotzailea
+Lerro defentsiboa
+Linebackerra
+Cornerbacka
+Safety-a
+Kickerra

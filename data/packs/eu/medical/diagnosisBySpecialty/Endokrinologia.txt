@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endokrinologia (Basque)
+locale: eu
+---
+2 motako diabetesa
+1 motako diabetesa
+hipotiroidismoa
+hipertiroidismoa
+Hashimoto tiroiditisa
+obesitatea
+sindrome metabolikoa
+osteoporosia
+gutxiegitasun adrenala
+hiperparatiroidismoa

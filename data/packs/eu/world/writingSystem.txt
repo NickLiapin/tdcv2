@@ -1,0 +1,26 @@
+---
+description: Writing system (Basque). Basque itself is written in the Latin alphabet and always has been — there is no Basque script. What its alphabet does have is Ñ and a set of DIGRAPHS that stand for one sound each: tx is English "ch", tz and ts are two distinct affricates that Spanish does not distinguish, tt and dd are palatal stops, ll and rr are their own letters. X on its own is "sh", never "ks". C, Q, V, W and Y are in the alphabet but are used only in foreign words and names, so a sorting or validation routine written for Spanish will mis-handle Basque in both directions.
+locale: eu
+---
+latindar alfabetoa
+alfabeto zirilikoa
+greziar alfabetoa
+arabiar alfabetoa
+hebrear alfabetoa
+devanagari idazkera
+txinatar ideogramak
+hiragana
+katakana
+kanjia
+hangula
+tamil idazkera
+thailandiar idazkera
+armeniar alfabetoa
+georgiar alfabetoa
+etiopiar idazkera
+khmer idazkera
+birmaniar idazkera
+kuneiformea
+hieroglifiko egiptoarrak
+runa idazkera
+braille idazkera

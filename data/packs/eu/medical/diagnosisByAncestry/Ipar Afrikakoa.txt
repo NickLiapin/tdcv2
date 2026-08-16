@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of this ancestry (Ipar Afrikakoa), in Basque. A prevalence signal, not an exclusive one.
+locale: eu
+---
+Mediterraneoko sukar familiarra
+beta-talasemia
+G6PD entzimaren gabezia
+anemia zelula-faltziformea
+laktosa-intolerantzia
+gaixotasun zeliakoa

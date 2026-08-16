@@ -1,0 +1,5 @@
+---
+description: Currency of Alemania (Basque)
+locale: eu
+---
+euroa

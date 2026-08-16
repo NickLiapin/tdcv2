@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Basque)
+locale: eu
+---
+atezaina
+erdiko defentsa
+alboko defentsa
+erdilari defentsiboa
+erdilaria
+erdilari erasotzailea
+hegalekoa
+aurrelaria
+aurrelari zentrala
+kapitaina
+basea
+eskolta
+hegal-aurrelaria
+pibota
+kolokatzailea
+atakatzailea
+zentrala
+liberoa
+oposatua
+pilarra
+hookerra
+bigarren lerroa
+hegaleko hirugarrena
+zortzigarrena
+erdi-melea
+erdi-irekia
+atzelaria
+pitxerra
+katxerra
+lehen basea
+bigarren basea
+hirugarren basea
+kanpoko jokalaria
+aurrelari pilotaria
+ordezkoa

@@ -1,0 +1,45 @@
+---
+description: Common generic drug names (INN, in Basque spelling)
+locale: eu
+---
+parazetamola
+ibuprofenoa
+azido azetilsalizilikoa
+metamizola
+naproxenoa
+diklofenakoa
+omeprazola
+pantoprazola
+metformina
+insulina
+enalaprila
+ramiprila
+losartana
+amlodipinoa
+bisoprolola
+atenolola
+atorvastatina
+simvastatina
+warfarina
+azenokumarola
+klopidogrela
+heparina
+furosemida
+hidroklorotiazida
+amoxizilina
+azitromizina
+ziprofloxazinoa
+klaritromizina
+doxiziklina
+prednisona
+dexametasona
+salbutamola
+budesonida
+loratadina
+zetirizina
+diazepama
+lorazepama
+fluoxetina
+sertralina
+levotiroxina
+tramadola

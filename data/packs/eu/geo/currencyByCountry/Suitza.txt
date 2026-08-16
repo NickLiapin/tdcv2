@@ -1,0 +1,5 @@
+---
+description: Currency of Suitza (Basque)
+locale: eu
+---
+franko suitzarra

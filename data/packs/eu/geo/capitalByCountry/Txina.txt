@@ -1,0 +1,5 @@
+---
+description: Capital of Txina (Basque)
+locale: eu
+---
+Pekin

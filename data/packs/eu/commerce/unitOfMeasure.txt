@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Basque)
+locale: eu
+---
+unitatea
+pieza
+kutxa
+kaxa
+paketea
+sorta
+poltsa
+botila
+lata
+ontzia
+tutua
+litroa
+zentilitroa
+mililitroa
+kilogramoa
+gramoa
+tona
+metroa
+zentimetroa
+milimetroa
+metro koadroa
+metro kubikoa
+dozena
+parea
+erroilua
+orria
+kilowatt-ordua
+kilometroa
+ordua
+hilabetea

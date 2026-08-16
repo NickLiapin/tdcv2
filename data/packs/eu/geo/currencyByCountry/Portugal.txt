@@ -1,0 +1,5 @@
+---
+description: Currency of Portugal (Basque)
+locale: eu
+---
+euroa

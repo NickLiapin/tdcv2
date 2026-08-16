@@ -1,0 +1,5 @@
+---
+description: Currency of Egipto (Basque)
+locale: eu
+---
+libera egiptoarra

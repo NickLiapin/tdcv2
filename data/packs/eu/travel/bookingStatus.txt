@@ -1,0 +1,15 @@
+---
+description: Booking status (Basque)
+locale: eu
+---
+berretsia
+zain
+ezeztatua
+aldatua
+ordaindua
+ordaintzeke
+itxaron-zerrendan
+osatua
+ez agertua
+itzulia
+iraungia

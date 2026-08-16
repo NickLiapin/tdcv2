@@ -1,0 +1,64 @@
+---
+description: Basque filler sentences. Handwritten: Project Gutenberg holds no Basque book at all, so these were written by hand — sixty short declarative sentences using ordinary vocabulary and the ergative-absolutive case marking a real Basque text would use.
+locale: eu
+---
+Goizean goiz jaiki gara mendira joateko.
+Etxea haritz zahar baten ondoan dago.
+Umeek euskaraz hitz egiten dute eskolan.
+Itsasoa lasai zegoen atzo arratsaldean.
+Amonak sagar-tarta prestatu du afarirako.
+Arrantzaleak goizeko lauretan atera dira portutik.
+Euria ari du goizetik eta ez du gelditzeko asmorik.
+Bihar lagunekin elkartuko gara herriko plazan.
+Liburutegia astelehenetan itxita egoten da.
+Trena hamar minutu berandu iritsi da geltokira.
+Baserriko sukaldean sua piztuta dago negu osoan.
+Gure herrian bi eliza eta hiru taberna daude.
+Neguan elurra egiten du mendiko tontorretan.
+Ikasleek azterketa egin dute gaur goizean.
+Zubiaren azpitik ibai handi bat igarotzen da.
+Txoriek kantatzen dute egunsentiko argiarekin.
+Udazkenean hostoak horitu eta erori egiten dira.
+Aitak ogia erosi du auzoko okindegian.
+Bertsolariak plazan kantatu zuen jendearen aurrean.
+Sagardotegian afaltzen dugu urtero neguaren erdian.
+Mendizaleak goizean abiatu eta iluntzean itzuli dira.
+Haizeak hostoak eraman ditu kale guztietatik.
+Katua leihoaren ondoan lo dago eguzkitan.
+Aitona baserrian bizi izan zen laurogei urtez.
+Egunkariak albiste ona ekarri du gaur.
+Ikastolan hamabost ume berri hasi dira aurten.
+Udaberrian zelaiak loretan estaltzen dira.
+Arrainak merkatuan saltzen dituzte goizero.
+Herriko jaiak abuztuaren hamabostean hasten dira.
+Musikariek kalejira egin dute goizean.
+Zaldiak mendian larrean ibiltzen dira udan.
+Etxe berria eraikitzen ari dira errekaren ondoan.
+Gaztainak biltzen ditugu udazkeneko goiz euritsuetan.
+Lagun batek liburu bat oparitu dit urtebetetzerako.
+Bidea estua da eta autoak poliki doaz.
+Ardiak larrera eraman ditu artzainak.
+Itsasontziak arrainez beteta itzuli dira portura.
+Euskara hizkuntza zaharra da eta ez du ahaiderik.
+Idazleak hiru urte behar izan zituen eleberria bukatzeko.
+Frontoian pilota partida jokatu dute igandean.
+Amak esne beroa eman digu afaldu ondoren.
+Hiriko kaleak jendez beteta zeuden larunbatean.
+Landareak ureztatu behar dira egunero udan.
+Mendiko aterpea itxita dago negu partean.
+Osaba Ameriketara joan zen gaztetan.
+Eskolako irakasleak istorio bat kontatu digu.
+Errekan igerian ibiltzen ginen haurrak ginenean.
+Gaur gaueko zerua garbi eta izarrez beteta dago.
+Denda goizeko bederatzietan irekitzen da.
+Baserritarrek azoka egiten dute ostiralero.
+Erleek eztia ekoizten dute udako loreetatik.
+Zurginak mahai bat egin du haritz-egurrez.
+Bidaiariek trena hartu dute Bilborako.
+Ilargi betea ikusi genuen itsasoaren gainean.
+Herriko festetan dantzari taldeak aritu ziren.
+Gazta eta ardoa mahai gainean daude.
+Autoak errepidean gelditu behar izan du elurragatik.
+Gutunak astebete behar izan du iristeko.
+Txakurrak zaunka egin du atean norbait entzun duelako.
+Udako gauak epelak eta luzeak izaten dira hemen.

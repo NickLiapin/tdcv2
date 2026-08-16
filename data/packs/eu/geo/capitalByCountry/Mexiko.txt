@@ -1,0 +1,5 @@
+---
+description: Capital of Mexiko (Basque)
+locale: eu
+---
+Mexiko Hiria

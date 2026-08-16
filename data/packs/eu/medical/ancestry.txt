@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Basque, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: eu
+---
+Askenaziarra
+Ekialde Hurbilekoa
+Hego-ekialdeko Asiakoa
+Hego Asiakoa
+Ipar Afrikakoa
+Ipar Europakoa
+Amerikako jatorrizkoa
+Saharaz hegoaldeko Afrikakoa
+Ekialdeko Asiakoa
+Ekialdeko Europakoa
+Ozeano Bareko uharteetakoa
+Mediterraneokoa

@@ -1,0 +1,16 @@
+---
+description: Shoe size on the CONTINENTAL EUROPEAN (Paris point) scale. This is the one measurement question the Basque Country answers the same way on both sides of the border: Spain and France both print Paris points on the box, so a single scale covers the whole Basque-speaking area. UK and US numbering, and the half sizes some brands add, are not used here.
+locale: eu
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

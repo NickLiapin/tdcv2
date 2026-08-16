@@ -1,0 +1,16 @@
+---
+description: Jobs in Eraikuntza (Basque)
+locale: eu
+---
+Igeltseroa
+Arotza
+Iturgina
+Elektrikaria
+Margolaria
+Teilatugilea
+Hargina
+Obra-burua
+Aparejadorea
+Arkitektoa
+Topografoa
+Gruazaina

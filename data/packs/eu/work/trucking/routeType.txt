@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Basque)
+locale: eu
+---
+tokiko banaketa
+eskualdeko ibilbidea
+ibilbide luzea
+nazioartekoa
+mendateko ibilbidea
+gaueko ibilbidea
+itzulerako karga

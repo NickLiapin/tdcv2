@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Basque that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: eu
+---
+umetokiko lepoaren minbizia
+bularreko minbizia
+obulutegiko minbizia
+endometrioko minbizia
+endometriosia
+obulutegi polikistikoaren sindromea
+umetoki-miomak
+umetoki-prolapsoa
+dismenorrea
+amenorrea
+menorragia
+menopausia
+klimaterioa
+baginitisa
+kandidiasi baginala
+bulbobaginitisa
+pelbiseko hantura-gaixotasuna
+mastitisa
+mastopatia fibrokistikoa
+abortu espontaneoa
+haurdunaldi ektopikoa
+preeklanpsia
+haurdunaldiko diabetesa
+hiperemesi gravidikoa
+plazenta previa
+antzutasun femeninoa

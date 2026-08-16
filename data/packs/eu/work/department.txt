@@ -1,0 +1,26 @@
+---
+description: Company department / function (Basque)
+locale: eu
+---
+Zuzendaritza
+Administrazioa
+Kontabilitatea
+Finantzak
+Giza Baliabideak
+Marketina
+Komunikazioa
+Salmentak
+Erosketak
+Logistika
+Produkzioa
+Kalitatea
+Mantentzea
+Ikerketa eta Garapena
+Informatika
+Lege-saila
+Bezeroarentzako Arreta
+Prestakuntza
+Laneko Segurtasuna
+Ingurumena
+Proiektuak
+Euskara Zerbitzua

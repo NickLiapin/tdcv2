@@ -1,0 +1,29 @@
+---
+description: Dog breed (Basque). The first two are native: the EUSKAL ARTZAIN TXAKURRA is the Basque shepherd dog, recognised in two varieties (Gorbeiakoa and Iletsua) and still working sheep in the hills, and the villanuko is the cattle dog of the Encartaciones. The rest are international breeds under their usual names.
+locale: eu
+---
+euskal artzain txakurra
+villanukoa
+artzain alemaniarra
+labradorra
+golden retrieverra
+beaglea
+boxerra
+bulldog frantsesa
+chihuahua
+dalmaziarra
+dobermanna
+husky siberiarra
+mastin espainiarra
+pointerra
+poodlea
+rottweilerra
+san bernardo
+setter irlandarra
+shih tzu
+yorkshire terrierra
+dachshunda
+border collie
+cocker spaniela
+galgoa
+podenkoa

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Onkologia (Basque)
+locale: eu
+---
+biriketako minbizia
+kolon-minbizia
+bularreko minbizia
+prostatako minbizia
+urdaileko minbizia
+pankreako minbizia
+linfoma
+leuzemia
+melanoma
+gibeleko minbizia

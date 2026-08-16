@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Basque). Iron ore heads the list for a reason: the Bizkaian ore fields fed the Basque forges for centuries and then the blast furnaces of the Nervion, and the Basque word for a forge, OLA, survives inside dozens of surnames.
+locale: eu
+---
+burdin minerala
+hematita
+magnetita
+kaltzita
+dolomita
+karea
+harria
+legarra
+harea
+buztina
+igeltsua
+gatza
+ikatza
+lignitoa
+zink minerala
+berun minerala
+kobre minerala
+fluorita
+talkoa

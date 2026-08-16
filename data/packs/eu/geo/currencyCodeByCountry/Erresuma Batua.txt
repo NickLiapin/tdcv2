@@ -1,0 +1,5 @@
+---
+description: Currency code of Erresuma Batua
+locale: eu
+---
+GBP

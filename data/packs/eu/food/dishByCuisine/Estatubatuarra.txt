@@ -1,0 +1,13 @@
+---
+description: Dishes of Estatubatuarra cuisine, named in Basque
+locale: eu
+---
+Hanburgesa
+Hot doga
+Barbakoa saiheskiak
+Mac and cheese
+Oilasko frijitua
+Pankakeak
+New Yorkeko gazta-tarta
+Clam chowder
+Coleslaw

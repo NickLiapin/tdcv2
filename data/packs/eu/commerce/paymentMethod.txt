@@ -1,0 +1,19 @@
+---
+description: Payment method (Basque). Bizum is the Spanish instant-transfer service and it is normal on the southern side of the border; the northern side uses French cards and transfers. Card networks and wallets keep their brand spelling. Bank names, IBAN structure and card formats are country data and are not here.
+locale: eu
+---
+kreditu-txartela
+zordunketa-txartela
+banku-transferentzia
+zordunketa helbideratua
+eskudirua
+kontra-ordainketa
+Bizum
+PayPal
+Apple Pay
+Google Pay
+Visa
+Mastercard
+opari-txartela
+ordainketa zatikatua
+kriptomoneta

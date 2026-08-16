@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Basque)
+locale: eu
+---
+banakako gela
+gela bikoitza
+gela bikoitza ohe bereiziekin
+gela hirukoitza
+gela laukoitza
+suitea
+junior suitea
+familia-gela
+estudioa
+apartamentua
+bungalowa
+kabana
+gela komunikatua
+itsasora begira dagoen gela
+mendira begira dagoen gela
+barnealdera begira dagoen gela
+gela egokitua
+aterpetxeko litera

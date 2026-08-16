@@ -1,0 +1,24 @@
+---
+description: Trip type (Basque)
+locale: eu
+---
+oporrak
+lan-bidaia
+asteburu-eskapada
+ezkon-bidaia
+familia-bidaia
+mendi-bidaia
+itsas gurutzaldia
+erromesaldia
+kultur bidaia
+gastronomia-bidaia
+hiri-bidaia
+natura-bidaia
+abentura-bidaia
+eski-bidaia
+hondartza-bidaia
+ikasketa-bidaia
+boluntariotza-bidaia
+bizikleta-bidaia
+kanpin-bidaia
+egun bateko txangoa

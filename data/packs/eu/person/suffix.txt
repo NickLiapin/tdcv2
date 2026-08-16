@@ -1,0 +1,26 @@
+---
+description: Trailing qualifier on a Basque name. Basque has no Jr./Sr. system; what it has instead is the locative-genitive -ko / -koa, which turns a place into a personal epithet and is how the two best-known Basques of all are named — Ignazio Loiolakoa (Ignatius of Loyola), Frantzisko Xabierkoa (Francis Xavier). The academic titles below are read as trailing qualifiers.
+locale: eu
+---
+doktorea
+lizentziatua
+ingeniaria
+arkitektoa
+katedraduna
+irakaslea
+ohorezko doktorea
+gaztea
+zaharra
+seme
+alaba
+anaia
+Loiolakoa
+Xabierkoa
+Zumarragakoa
+Etxeparekoa
+Barandiarangoa
+Oñatikoa
+Larramendikoa
+Iruñekoa
+Bilbokoa
+Baionakoa

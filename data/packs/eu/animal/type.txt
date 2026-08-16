@@ -1,0 +1,42 @@
+---
+description: Animal, general (Basque)
+locale: eu
+---
+txakurra
+katua
+behia
+zaldia
+astoa
+ardia
+ahuntza
+txerria
+oiloa
+ahatea
+antzara
+untxia
+sagua
+arratoia
+katagorria
+azeria
+otsoa
+hartza
+oreina
+orkatza
+basurdea
+azkonarra
+lepahoria
+erbinudea
+satorra
+saguzarra
+trikua
+igela
+apoa
+sugea
+sugandila
+dortoka
+izurdea
+balea
+itsas txakurra
+lehoia
+elefantea
+tigrea

@@ -1,0 +1,12 @@
+---
+description: Personal pronoun (Basque). Three things differ from the European default. There is no he/she: "hura" covers he, she and it. "Zu" was historically the PLURAL you and became the ordinary polite singular, which then forced a new plural "zuek". And "hi", the intimate singular, drags the addressee's sex into the VERB — the allocutive "hika" forms mark whether you are speaking to a man (-k) or a woman (-n) even when that person is not an argument of the sentence, which is the one place gender surfaces in the language.
+locale: eu
+---
+ni
+hi
+hura
+gu
+zu
+zuek
+haiek
+norbait

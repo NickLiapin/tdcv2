@@ -1,0 +1,30 @@
+---
+description: Product review title (Basque)
+locale: eu
+---
+Oso ondo
+Bikaina
+Espero nuena baino hobea
+Kalitate ona prezioarentzat
+Gomendagarria
+Erabat gustura
+Ondo dago, baina
+Nahikoa
+Justu-justu
+Ez du merezi
+Kalitate eskasa
+Ez erosi
+Azkar iritsi da
+Berandu iritsi da
+Ondo bilduta
+Neurria txikia da
+Neurria handia da
+Argazkiak ez dira zehatzak
+Erabiltzeko erraza
+Erabiltzeko zaila
+Iraunkorra
+Berehala hautsi zait
+Berriz erosiko nuke
+Ez nuke berriz erosiko
+Prezio-kalitate erlazio ona
+Garestiegia

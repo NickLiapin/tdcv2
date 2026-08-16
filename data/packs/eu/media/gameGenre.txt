@@ -1,0 +1,21 @@
+---
+description: Video game genre (Basque)
+locale: eu
+---
+akzioa
+abentura
+rol-jokoa
+estrategia
+simulazioa
+kirola
+lasterketak
+puzzlea
+plataformak
+borroka
+tiro-jokoa
+sigilua
+beldurrezkoa
+mundu irekia
+mahai-jokoa
+karta-jokoa
+musika-jokoa

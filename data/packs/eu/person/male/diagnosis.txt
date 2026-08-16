@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Basque (male-specific plus common)
+locale: eu
+---
+prostatako hiperplasia benignoa
+prostatako minbizia
+prostatitisa
+barrabiletako minbizia
+disfuntzio erektila
+fimosia
+barrabil-tortsioa
+barizelea
+hidrozelea
+espermatozelea
+ginekomastia
+hipogonadismo maskulinoa
+hipertentsio arteriala
+2 motako diabetesa
+1 motako diabetesa
+hiperkolesterolemia
+obesitatea
+asma
+biriketako gaixotasun buxatzaile kronikoa
+bronkitis kronikoa
+pneumonia
+gripea
+sinusitisa
+faringitisa
+otitisa
+konjuntibitisa

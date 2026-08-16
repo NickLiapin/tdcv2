@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nefrologia (Basque)
+locale: eu
+---
+giltzurruneko gutxiegitasun kronikoa
+giltzurruneko harriak
+glomerulonefritisa
+pielonefritisa
+sindrome nefrotikoa
+polikistosi errenala
+azidosi tubularra
+hipertentsio errenobaskularra
+gernu-bideetako infekzioa
+giltzurrun-gutxiegitasun akutua

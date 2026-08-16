@@ -1,0 +1,32 @@
+---
+description: Flower (Basque)
+locale: eu
+---
+arrosa
+tulipana
+nartzisoa
+lirioa
+klabelina
+krisantemoa
+bitxilorea
+ekilorea
+mitxoleta
+bioleta
+hortentsia
+orkidea
+jazmina
+magnolia
+kamelia
+lila
+azalea
+begonia
+geranioa
+petunia
+dalia
+gladioloa
+anemona
+primula
+ziklamena
+mimosa
+izpilikua
+txilarra

@@ -1,0 +1,13 @@
+---
+description: Dishes of Espainiarra cuisine, named in Basque
+locale: eu
+---
+Paella
+Gazpatxoa
+Patata-tortilla
+Jamoi iberiarra
+Kroketak
+Olagarroa galiziar erara
+Fabada
+Salmorejoa
+Txurroak

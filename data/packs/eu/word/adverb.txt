@@ -1,0 +1,36 @@
+---
+description: Common adverb (Basque)
+locale: eu
+---
+orain
+gero
+lehen
+beti
+inoiz
+sarri
+batzuetan
+gaur
+bihar
+atzo
+hemen
+han
+hor
+nonbait
+inon
+goian
+behean
+barruan
+kanpoan
+aurrean
+atzean
+ondoan
+urrun
+hurbil
+laster
+poliki
+ondo
+gaizki
+oso
+agian
+noski
+bereziki

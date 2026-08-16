@@ -1,0 +1,5 @@
+---
+description: Currency of Suedia (Basque)
+locale: eu
+---
+koroa suediarra

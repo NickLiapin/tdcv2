@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Basque)
+locale: eu
+---
+Kardiologia
+Dermatologia
+Endokrinologia
+Gastroenterologia
+Nefrologia
+Neurologia
+Onkologia
+Traumatologia
+Psikiatria
+Pneumologia
+Erreumatologia
+Hematologia
+Urologia
+Ginekologia
+Obstetrizia
+Pediatria
+Geriatria
+Oftalmologia
+Otorrinolaringologia
+Anestesiologia
+Erradiologia
+Medikuntza nuklearra
+Zainketa intentsiboak
+Larrialdiak
+Familia-medikuntza
+Barne-medikuntza
+Kirurgia orokorra
+Kirurgia kardiobaskularra
+Neurokirurgia
+Kirurgia plastikoa
+Kirurgia torazikoa
+Angiologia
+Alergologia
+Gaixotasun infekziosoak
+Errehabilitazioa
+Medikuntza prebentiboa

@@ -1,0 +1,12 @@
+---
+description: Mining method (Basque)
+locale: eu
+---
+aire zabaleko ustiapena
+lurpeko ustiapena
+galeria bidezkoa
+ganbera eta zutabea
+geruza-erorketa
+harrobia
+zundaketa eta leherketa
+ur bidezko ustiapena

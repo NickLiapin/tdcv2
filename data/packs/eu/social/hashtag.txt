@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Basque (prefix with # in a template)
+locale: eu
+---
+euskara
+euskaraz
+euskalherria
+bertsolaritza
+trikitixa
+herrikirolak
+sagardoa
+pintxoak
+mendizale
+itsasoa
+mendia
+kirola
+musika
+dantza
+sukaldaritza
+bidaia
+argazkia
+natura
+udaberria
+uda
+udazkena
+negua
+asteburua
+lagunak
+familia
+ikasketak
+lana
+osasuna
+teknologia
+kultura

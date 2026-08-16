@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of this ancestry (Mediterraneokoa), in Basque. A prevalence signal, not an exclusive one.
+locale: eu
+---
+beta-talasemia
+G6PD entzimaren gabezia (fabismoa)
+Mediterraneoko sukar familiarra
+anemia zelula-faltziformea
+hemokromatosi hereditarioa
+gaixotasun zeliakoa
+talasemia minorra

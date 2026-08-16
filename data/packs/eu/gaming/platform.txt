@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Basque; brand names kept as-is)
+locale: eu
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+Android
+iOS
+Web nabigatzailea
+Arcade

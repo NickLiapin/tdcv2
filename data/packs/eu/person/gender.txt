@@ -1,0 +1,6 @@
+---
+description: Gender label (Basque). Two values, matching en and ru — this list is what a parent filter selects on, so a longer one silently leaves most rows without a name. Worth knowing: Basque has NO grammatical gender at all — no masculine or feminine nouns, adjectives or articles — so unlike Spanish or French nothing else in a Basque row has to agree with this column.
+locale: eu
+---
+Gizona
+Emakumea

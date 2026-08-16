@@ -1,0 +1,29 @@
+---
+description: Fish (Basque). HEGALUZEA, the albacore, deserves the note: the summer albacore season shaped the Basque coastal fleet for centuries and gave marmitakoa its fish, so the word carries far more weight in Basque than "tuna" does in English.
+locale: eu
+---
+legatza
+bakailaoa
+atuna
+hegaluzea
+antxoa
+sardina
+berdela
+txitxarroa
+izokina
+amuarraina
+aingira
+angula
+lupia
+bisigua
+erreboiloa
+platuxa
+mihi-arraina
+itsas zapoa
+itsas oilarra
+marraxoa
+ezpata-arraina
+papardoa
+korrokoia
+barbarina
+txibia

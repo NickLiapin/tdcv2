@@ -1,0 +1,5 @@
+---
+description: Currency of Erresuma Batua (Basque)
+locale: eu
+---
+libera esterlina

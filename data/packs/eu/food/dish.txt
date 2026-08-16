@@ -1,0 +1,44 @@
+---
+description: Dish (Basque), Basque cooking first and then the everyday international repertoire. PIL-PILEAN names a technique rather than an ingredient: cod is worked in warm oil until its own gelatine emulsifies the sauce, and the word imitates the sound of the pan.
+locale: eu
+---
+Bakailaoa pil-pilean
+Marmitakoa
+Txangurroa
+Kokotxak saltsa berdean
+Txipiroiak beren tintan
+Piperrada
+Porrusalda
+Tolosako babarrunak
+Legatza saltsa berdean
+Sukalkia
+Talo txistorrarekin
+Odolkia
+Antxoak ozpinetan
+Idiazabal gazta
+Bisigua parrillan
+Txistorra pintxoa
+Gilda pintxoa
+Tortilla patatarekin
+Barazki-menestra
+Arroz zuria
+Lentejak
+Babarrun gorriak
+Barbarinak plantxan
+Oilasko errea
+Txahal-xerra
+Txuleta
+Zopa beroa
+Barazki-zopa
+Arrain-zopa
+Entsalada mistoa
+Makarroiak tomatearekin
+Kanaloiak
+Kroketak
+Tortilla frantsesa
+Arrautza frijituak
+Intxaursaltsa
+Mamia eztiarekin
+Arroz-esnea
+Gazta-tarta erreta
+Goxua

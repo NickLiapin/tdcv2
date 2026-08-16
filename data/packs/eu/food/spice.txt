@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Basque)
+locale: eu
+---
+gatza
+piper beltza
+piperrautsa
+piperrauts gozoa
+pipermina
+azafraia
+kanela
+iltzea
+intxaur muskatua
+jengibrea
+kurkuma
+komina
+koriandroa
+perrexila
+ezkaia
+erromeroa
+albaka
+oreganoa
+ereinotza
+mendafina
+tarragona
+anisa
+kardamomoa
+kaiena piperra
+mostaza
+baratxuri-hautsa
+tipula-hautsa
+sesamoa
+mihilua
+currya

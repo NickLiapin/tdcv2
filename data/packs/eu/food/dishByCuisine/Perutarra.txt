@@ -1,0 +1,12 @@
+---
+description: Dishes of Perutarra cuisine, named in Basque
+locale: eu
+---
+Ceviche
+Lomo saltado
+Aji de gallina
+Papa a la huancaina
+Anticuchoak
+Causa limeña
+Rocoto relleno
+Pollo a la brasa

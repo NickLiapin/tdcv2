@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of this ancestry (Ekialdeko Asiakoa), in Basque. A prevalence signal, not an exclusive one.
+locale: eu
+---
+laktosa-intolerantzia
+ALDH2 aldaera (alkoholaren gorritzea)
+urdaileko minbizia
+nasofaringeko minbizia
+gibeleko minbizia
+alfa-talasemia
+G6PD entzimaren gabezia
+angelu itxiko glaukoma
+Kawasaki gaixotasuna
+moyamoya gaixotasuna

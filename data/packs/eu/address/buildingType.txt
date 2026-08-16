@@ -1,0 +1,42 @@
+---
+description: Building type (Basque). Six of these have no European default behind them. A BASERRI is the free-standing Basque farmstead that names most Basque surnames; a DORRETXE the fortified late-medieval tower house; a BORDA the mountain hut a shepherd keeps above the farm; a FRONTOI or PILOTALEKU the walled pelota court that every Basque village has, usually beside the church; a SAGARDOTEGI the cider house that opens for the txotx season; an IKASTOLA the Basque-medium school, founded clandestinely under Franco and now an ordinary part of the landscape.
+locale: eu
+---
+Etxea
+Baserria
+Etxebizitza
+Pisua
+Eraikina
+Txaleta
+Dorretxea
+Borda
+Txabola
+Bulegoa
+Biltegia
+Denda
+Merkataritza-gunea
+Lantegia
+Fabrika
+Pabiloia
+Ospitalea
+Anbulatorioa
+Eskola
+Ikastola
+Institutua
+Unibertsitatea
+Hotela
+Ostatua
+Jatetxea
+Taberna
+Sagardotegia
+Estadioa
+Frontoia
+Pilotalekua
+Liburutegia
+Eliza
+Ermita
+Museoa
+Antzokia
+Udaletxea
+Kultur etxea
+Aparkalekua

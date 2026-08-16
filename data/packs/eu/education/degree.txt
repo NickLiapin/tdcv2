@@ -1,0 +1,20 @@
+---
+description: Academic qualification level, named in Basque. The ladder itself is set by the state: the southern Basque Country follows the Spanish system (Batxilergoa, Gradua, Masterra) and the northern one the French (Baccalaureat, Licence, Master), and the two are NOT the same qualification under two names. The generic Basque terms below cover both; the official titles and their equivalence tables are country data. EGA, the last value, is the Basque-language proficiency certificate and belongs here rather than in a country pack because it certifies the language.
+locale: eu
+---
+Haur Hezkuntza
+Lehen Hezkuntza
+Bigarren Hezkuntza
+Batxilergoa
+Lanbide Heziketa
+Erdi mailako heziketa zikloa
+Goi mailako heziketa zikloa
+Gradua
+Lizentziatura
+Ingeniaritza
+Diplomatura
+Masterra
+Graduondokoa
+Doktoretza
+Aditu-titulua
+EGA euskara-titulua

@@ -1,0 +1,5 @@
+---
+description: Currency of Zeelanda Berria (Basque)
+locale: eu
+---
+dolar zeelandaberritarra

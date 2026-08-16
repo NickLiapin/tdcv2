@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Basque product listing (with the definite article)
+locale: eu
+---
+zuria
+beltza
+grisa
+gris ilargia
+antrazita
+gorria
+gorri iluna
+granatea
+burdeosa
+arrosa
+arrosa argia
+fuksia
+magenta
+morea
+more iluna
+lila
+ubela
+urdina
+urdin argia
+urdin iluna
+itsas urdina
+zeru urdina
+turkesa
+berdea
+berde argia
+berde iluna
+oliba berdea
+esmeralda
+menta berdea
+horia
+hori argia
+mostaza
+okrea
+urrekara
+laranja
+koral kolorea
+gorrixka
+marroia
+gaztain kolorea
+txokolate kolorea
+kanela kolorea
+beixa
+krema kolorea
+marfil kolorea
+harea kolorea
+kakia
+zilarkara
+kobre kolorea
+brontze kolorea
+perla kolorea
+nabarra
+bikolorea
+gardena
+kolore anitzekoa

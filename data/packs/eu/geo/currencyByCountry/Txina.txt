@@ -1,0 +1,5 @@
+---
+description: Currency of Txina (Basque)
+locale: eu
+---
+yuan txinatarra

@@ -1,0 +1,24 @@
+---
+description: School subject (Basque). EUSKARA heads the list because in the Basque-medium school it is both a subject and the language every other subject is taught in — the model that made the language recoverable.
+locale: eu
+---
+euskara
+gaztelania
+frantsesa
+ingelesa
+matematika
+natur zientziak
+gizarte zientziak
+historia
+geografia
+fisika
+kimika
+biologia
+geologia
+teknologia
+informatika
+musika
+plastika
+gorputz hezkuntza
+filosofia
+ekonomia

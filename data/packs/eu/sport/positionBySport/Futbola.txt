@@ -1,0 +1,14 @@
+---
+description: Positions in Futbola (Basque)
+locale: eu
+---
+Atezaina
+Erdiko defentsa
+Alboko defentsa
+Erdilari defentsiboa
+Erdilaria
+Erdilari erasotzailea
+Hegalekoa
+Aurrelaria
+Aurrelari zentrala
+Kapitaina

@@ -1,0 +1,10 @@
+---
+description: Positions in Eskubaloia (Basque)
+locale: eu
+---
+Atezaina
+Erdiko jokalaria
+Alboko jokalaria
+Hegalekoa
+Pibota
+Defentsa zentrala

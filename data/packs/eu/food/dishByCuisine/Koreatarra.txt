@@ -1,0 +1,12 @@
+---
+description: Dishes of Koreatarra cuisine, named in Basque
+locale: eu
+---
+Kimchia
+Bibimbapa
+Bulgogia
+Japchaea
+Tteokbokkia
+Samgyeopsala
+Kimchi jjigaea
+Korear barbakoa

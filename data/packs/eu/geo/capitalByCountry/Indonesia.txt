@@ -1,0 +1,5 @@
+---
+description: Capital of Indonesia (Basque)
+locale: eu
+---
+Jakarta

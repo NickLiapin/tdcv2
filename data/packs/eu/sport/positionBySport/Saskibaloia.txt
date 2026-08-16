@@ -1,0 +1,9 @@
+---
+description: Positions in Saskibaloia (Basque)
+locale: eu
+---
+Basea
+Eskolta
+Hegalekoa
+Hegal-aurrelaria
+Pibota

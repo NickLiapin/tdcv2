@@ -1,0 +1,29 @@
+---
+description: Gemstone (Basque)
+locale: eu
+---
+diamantea
+errubia
+zafiroa
+esmeralda
+topazioa
+amatista
+opaloa
+turkesa
+granatea
+akuamarina
+jadea
+perla
+korala
+anbarra
+obsidiana
+malakita
+lapislazulia
+onixa
+agata
+kuartzoa
+zirkonia
+tanzanita
+peridotoa
+espinela
+kaltzedonia

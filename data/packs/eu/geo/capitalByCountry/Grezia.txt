@@ -1,0 +1,5 @@
+---
+description: Capital of Grezia (Basque)
+locale: eu
+---
+Atenas

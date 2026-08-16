@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Basque)
+locale: eu
+---
+etxebizitza
+alokairua
+hipoteka
+elikadura
+garraioa
+erregaia
+energia
+ura
+telefonoa eta internet
+aseguruak
+osasuna
+hezkuntza
+aisia
+jantziak
+oporrak
+aurrezkia
+inbertsioak
+zergak
+kreditua
+opariak

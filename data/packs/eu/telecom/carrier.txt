@@ -1,0 +1,30 @@
+---
+description: Mobile operator reachable where Basque is spoken. The list crosses a border on purpose — Movistar, Orange, Vodafone, Euskaltel and Digi serve the southern Basque Country while Orange, SFR, Bouygues and Free serve the northern one. Euskaltel is the operator that grew out of the Basque market itself and bills its customers in Basque. Number formats and dialling codes are country data and are NOT here: the two sides of the Basque Country use different country codes.
+locale: eu
+---
+Euskaltel
+Movistar
+Vodafone
+Orange
+Yoigo
+MasMovil
+Digi
+Pepephone
+Lowi
+Simyo
+O2
+Jazztel
+Finetwork
+Avatel
+Lycamobile
+Amena
+Virgin
+SFR
+Bouygues Telecom
+Free Mobile
+La Poste Mobile
+Sosh
+RED by SFR
+B&You
+Prixtel
+NRJ Mobile

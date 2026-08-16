@@ -1,0 +1,12 @@
+---
+description: Dishes of Txinatarra cuisine, named in Basque
+locale: eu
+---
+Pekingo ahatea
+Arroz frijitua
+Chow mein
+Dim sum
+Wonton zopa
+Txerrikia gazi-gozoa
+Kung Pao oilaskoa
+Mapo tofua

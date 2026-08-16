@@ -1,0 +1,28 @@
+---
+description: RPG character class (Basque)
+locale: eu
+---
+gerlaria
+basatia
+paladina
+magoa
+aztia
+sorgina
+apaiza
+druida
+monjea
+lapurra
+asasinoa
+arkularia
+ehiztaria
+bardoa
+nekromantea
+deabru-deitzailea
+alkimista
+xamana
+zaindaria
+berserkerra
+ninja
+samuraia
+inginerua
+esploratzailea

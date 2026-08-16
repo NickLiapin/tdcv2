@@ -1,0 +1,16 @@
+---
+description: Streaming service reachable in the Basque-speaking area, which straddles Spain and France — so the list mixes the two national markets on purpose. EITB NAHIERAN is the one that matters linguistically: it is the Basque public broadcaster's on-demand service and effectively the only place to stream a full catalogue IN Basque. Brand names keep their own spelling.
+locale: eu
+---
+Netflix
+Amazon Prime Video
+Disney+
+HBO Max
+Apple TV+
+Movistar Plus+
+Filmin
+SkyShowtime
+Canal+
+France.tv
+RTVE Play
+EITB Nahieran

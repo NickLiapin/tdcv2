@@ -1,0 +1,5 @@
+---
+description: Currency of Japonia (Basque)
+locale: eu
+---
+yen japoniarra

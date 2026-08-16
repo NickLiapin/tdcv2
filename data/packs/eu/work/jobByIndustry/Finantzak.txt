@@ -1,0 +1,16 @@
+---
+description: Jobs in Finantzak (Basque)
+locale: eu
+---
+Kontulari
+Auditorea
+Analista finantzarioa
+Inbertsio-aholkularia
+Aktuarioa
+Zergalaria
+Kontrolatzailea
+Arrisku-analista
+Bulego-arduraduna
+Aseguru-agentea
+Tesoreria-teknikaria
+Kredituen analista

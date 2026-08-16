@@ -1,0 +1,5 @@
+---
+description: Capital of Ameriketako Estatu Batuak (Basque)
+locale: eu
+---
+Washington

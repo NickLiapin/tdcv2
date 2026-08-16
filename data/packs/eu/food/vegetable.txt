@@ -1,0 +1,34 @@
+---
+description: Vegetable (Basque)
+locale: eu
+---
+patata
+tipula
+baratxuria
+azenarioa
+tomatea
+piperra
+letxuga
+azalorea
+aza
+brokolia
+kalabazina
+kalabaza
+ilarrak
+babarrunak
+indabak
+dilistak
+txitxirioak
+porrua
+apioa
+luzokerra
+alberjinia
+erremolatxa
+arbia
+errefaua
+espinaka
+zerba
+perretxikoa
+txanpiñoia
+alkatxofa
+zainzuria

@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Basque). The first six are Basque instruments and have no equivalent elsewhere: the TXISTU is a three-hole flute played one-handed while the same player beats the DANBOLIN drum with the other; the TXALAPARTA is a plank struck by two players in interlocking rhythm, descended from cider-apple pressing; the ALBOKA is a hornpipe with two cane tubes and a cow-horn bell; the TRIKITIXA is the diatonic accordion, always paired with the PANDEROA; the TTUN-TTUNA is the string drum of the northern valleys.
+locale: eu
+---
+txistua
+danbolina
+txalaparta
+alboka
+trikitixa
+panderoa
+ttun-ttuna
+xirula
+dultzaina
+adarra
+silbotea
+atabala
+gitarra
+biolina
+biola
+biolontxeloa
+kontrabaxua
+pianoa
+organoa
+akordeoia
+flauta
+klarinetea
+oboea
+fagota
+saxofoia
+tronpeta
+tronboia
+tuba
+danborra
+arpa
+bateria

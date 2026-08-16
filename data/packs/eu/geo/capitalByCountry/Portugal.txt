@@ -1,0 +1,5 @@
+---
+description: Capital of Portugal (Basque)
+locale: eu
+---
+Lisboa

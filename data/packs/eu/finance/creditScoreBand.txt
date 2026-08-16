@@ -1,0 +1,9 @@
+---
+description: Credit score band (Basque)
+locale: eu
+---
+txarra
+ertaina
+ona
+oso ona
+bikaina

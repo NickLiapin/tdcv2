@@ -1,0 +1,20 @@
+---
+description: Venue type (Basque)
+locale: eu
+---
+aretoa
+antzokia
+auditorioa
+kultur etxea
+kiroldegia
+estadioa
+frontoia
+plaza
+karpa
+hotela
+jatetxea
+unibertsitatea
+museoa
+liburutegia
+parkea
+sagardotegia

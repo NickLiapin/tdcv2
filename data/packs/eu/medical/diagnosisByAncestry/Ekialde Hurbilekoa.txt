@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of this ancestry (Ekialde Hurbilekoa), in Basque. A prevalence signal, not an exclusive one.
+locale: eu
+---
+Mediterraneoko sukar familiarra
+beta-talasemia
+G6PD entzimaren gabezia
+anemia zelula-faltziformea
+alfa-talasemia
+gaixotasun zeliakoa

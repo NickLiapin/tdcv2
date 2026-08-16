@@ -1,0 +1,32 @@
+---
+description: Field of study / major (Basque)
+locale: eu
+---
+euskal filologia
+hizkuntzalaritza
+itzulpengintza
+historia
+arte historia
+filosofia
+zuzenbidea
+ekonomia
+enpresen administrazioa
+psikologia
+pedagogia
+gizarte-lana
+soziologia
+kazetaritza
+ikus-entzunezko komunikazioa
+medikuntza
+erizaintza
+farmazia
+albaitaritza
+biologia
+biokimika
+kimika
+fisika
+matematika
+ingeniaritza informatikoa
+ingeniaritza industriala
+arkitektura
+ingurumen-zientziak

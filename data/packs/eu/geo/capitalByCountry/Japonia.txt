@@ -1,0 +1,5 @@
+---
+description: Capital of Japonia (Basque)
+locale: eu
+---
+Tokio

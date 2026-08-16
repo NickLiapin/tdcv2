@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Basque)
+locale: eu
+---
+karga orokorra
+paleta bidezko karga
+karga hoztua
+izoztuak
+zisterna
+silo-erremolkea
+plataforma irekia
+lona alboduna
+kontainerra
+karga astuna
+salgai arriskutsuak
+abereak
+ibilgailu-garraioa

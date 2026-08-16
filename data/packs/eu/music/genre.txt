@@ -1,0 +1,41 @@
+---
+description: Music genre (Basque), including genres that exist only in Basque. EUSKAL KANTAGINTZA BERRIA was the songwriters' movement of the 1960s that put the language back into public performance; EUSKAL ROCK ERRADIKALA the loud, political rock of the 1980s; BERTSO-DOINUAK are the fixed melodies an improvising bertsolari fits new verse to; ERROMERIA MUSIKA is what a trikitixa duo plays at a village dance.
+locale: eu
+---
+rocka
+pop musika
+jazza
+bluesa
+folka
+musika klasikoa
+opera
+musika elektronikoa
+teknoa
+house musika
+hip-hopa
+rapa
+reggaea
+punka
+metala
+hard rocka
+indie musika
+country musika
+soula
+funka
+disko musika
+R&B
+salsa
+flamenkoa
+tangoa
+bossa nova
+reggaetoia
+ska
+gospela
+ambient musika
+banda sonorak
+trikitixa
+euskal kantagintza berria
+euskal rock erradikala
+bertso-doinuak
+erromeria musika
+abesbatza-musika

@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Basque)
+locale: eu
+---
+olioa
+oliba-olioa
+gurina
+arrautza
+esnea
+gazta
+jogurta
+esnegaina
+irina
+azukrea
+gatza
+arroza
+pasta
+ogia
+ogi-birrina
+haragia
+txahal-haragia
+txerrikia
+oilaskoa
+arraina
+bakailaoa
+legatza
+atuna
+antxoa
+txipiroia
+olagarroa
+muskuiluak
+txirlak
+ganbak
+sagardoa
+ardo zuria
+ardo beltza
+ozpina
+eztia
+txokolatea
+legamia
+gelatina
+kaldoa
+tomate-saltsa
+limoi-zukua

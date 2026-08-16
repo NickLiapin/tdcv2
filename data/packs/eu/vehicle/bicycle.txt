@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Basque)
+locale: eu
+---
+hiri-bizikleta
+mendiko bizikleta
+errepideko bizikleta
+gravel bizikleta
+bizikleta elektrikoa
+tandema
+BMXa
+bizikleta tolesgarria
+ziklo-krosa
+triatloi-bizikleta
+haurrentzako bizikleta
+karga-bizikleta
+pistako bizikleta
+turismo-bizikleta
+bizikleta hibridoa
+fixiea
+bizikleta erreklinatua

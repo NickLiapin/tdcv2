@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type. One thing every dataset builder should know before weighting this column: the Basque population carries the HIGHEST frequency of Rh-NEGATIVE blood recorded anywhere in the world — roughly a quarter to a third of Basques are Rh-negative against about 15% across Europe — and it was that anomaly, found in the 1940s, that first put Basque population genetics on the map. This list is UNWEIGHTED, so it does not encode that skew; a config that wants realistic Basque blood-type frequencies has to supply the weights itself.
+locale: eu
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

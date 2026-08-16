@@ -1,0 +1,21 @@
+---
+description: Cuisine (Basque). Each value has a dishByCuisine child file. Basque cuisine is listed first and is not a regional branch of Spanish or French cooking: it has its own canon, its own society kitchens (txokoak) and its own vocabulary, and its dishes are named in Basque on both sides of the border.
+locale: eu
+---
+Euskalduna
+Espainiarra
+Frantsesa
+Italiarra
+Txinatarra
+Japoniarra
+Mexikarra
+Indiarra
+Greziarra
+Turkiarra
+Libanoarra
+Thailandiarra
+Vietnamdarra
+Koreatarra
+Estatubatuarra
+Perutarra
+Argentinarra

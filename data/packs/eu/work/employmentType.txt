@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Basque). Named in generic terms on purpose: the contract catalogue itself is set by Spanish or by French labour law depending on which side of the border the worker is on, and those code names belong in the country packs.
+locale: eu
+---
+mugagabea
+aldi baterakoa
+lanaldi osoa
+lanaldi partziala
+praktikaldia
+ikastuna
+autonomoa
+aldi baterako lan enpresaren bidez
+obra edo zerbitzukoa
+ordezkapena
+bekaduna

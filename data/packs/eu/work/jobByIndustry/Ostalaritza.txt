@@ -1,0 +1,16 @@
+---
+description: Jobs in Ostalaritza (Basque)
+locale: eu
+---
+Sukaldaria
+Sukaldari-burua
+Sukaldari-laguntzailea
+Zerbitzaria
+Tabernaria
+Harreragilea
+Hotel-arduraduna
+Gobernanta
+Gozogilea
+Sommelierra
+Ekitaldi-arduraduna
+Garbitzailea

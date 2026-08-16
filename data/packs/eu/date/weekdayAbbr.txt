@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Basque), Monday first
+locale: eu
+---
+al.
+ar.
+az.
+og.
+or.
+lr.
+ig.

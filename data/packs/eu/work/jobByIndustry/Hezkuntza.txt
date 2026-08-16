@@ -1,0 +1,16 @@
+---
+description: Jobs in Hezkuntza (Basque)
+locale: eu
+---
+Ikastolako irakaslea
+Lehen Hezkuntzako irakaslea
+Bigarren Hezkuntzako irakaslea
+Unibertsitateko irakaslea
+Euskara-irakaslea
+Orientatzailea
+Hezitzailea
+Zuzendaria
+Ikasketa-burua
+Liburuzaina
+Hezkuntza-ikertzailea
+Monitorea

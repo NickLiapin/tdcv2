@@ -1,0 +1,16 @@
+---
+description: Leave type (Basque)
+locale: eu
+---
+oporrak
+gaixotasun-baja
+lan-istripuko baja
+amatasun-baimena
+aitatasun-baimena
+edoskitze-baimena
+norbere gauzetarako baimena
+ezkontza-baimena
+senide baten heriotzagatik
+zaintza-eszedentzia
+ikasketetarako baimena
+ordaindu gabeko baimena

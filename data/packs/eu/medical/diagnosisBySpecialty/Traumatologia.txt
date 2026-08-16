@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Traumatologia (Basque)
+locale: eu
+---
+femurraren haustura
+esku-muturreko haustura
+belaunaren meniskoa
+gurutzatu aurreko lotailuaren haustura
+sorbaldako luxazioa
+artrosia
+diskoaren hernia
+tendinitisa
+orkatilaren bihurdura
+epikondilitisa

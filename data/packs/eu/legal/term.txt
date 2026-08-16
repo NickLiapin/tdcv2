@@ -1,0 +1,23 @@
+---
+description: Legal term (Basque)
+locale: eu
+---
+epaia
+auto judiziala
+demanda
+errekurtsoa
+apelazioa
+kasazioa
+lekukoa
+frogagarria
+peritu-txostena
+alegazioa
+akusazioa
+defentsa
+kalte-ordaina
+isuna
+zigorra
+kautelazko neurria
+adiskidetzea
+bitartekaritza
+preskripzioa

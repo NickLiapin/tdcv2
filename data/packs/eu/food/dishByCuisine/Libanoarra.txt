@@ -1,0 +1,12 @@
+---
+description: Dishes of Libanoarra cuisine, named in Basque
+locale: eu
+---
+Humusa
+Falafela
+Tabuleh entsalada
+Baba ganousha
+Fatousha
+Shawarma
+Kibbeh
+Manakisha

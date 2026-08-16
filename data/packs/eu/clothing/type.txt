@@ -1,0 +1,30 @@
+---
+description: Garment type (Basque). TXAPELA, the beret, is the one that carries meaning beyond the object: it is the prize handed to the winner of a bertsolari or pelota championship, which is why the ordinary Basque word for a champion is TXAPELDUNA — "the one with the beret".
+locale: eu
+---
+txapela
+alkandora
+kamiseta
+jertsea
+txandala
+prakak
+bakeroak
+gona
+soinekoa
+jaka
+berokia
+txamarra
+txalekoa
+galtzerdiak
+barruko arropa
+bainujantzia
+pijama
+bufanda
+txanoa
+eskularruak
+gerrikoa
+gorbata
+oinetakoak
+botak
+sandaliak
+zapatilak

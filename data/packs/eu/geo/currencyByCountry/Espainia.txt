@@ -1,0 +1,5 @@
+---
+description: Currency of Espainia (Basque)
+locale: eu
+---
+euroa

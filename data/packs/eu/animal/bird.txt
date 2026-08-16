@@ -1,0 +1,34 @@
+---
+description: Bird (Basque). Basque bird names are native words, not calques: txantxangorria is the robin, sorbeltza ("black-eared") the swift, martin arrantzalea ("Martin the fisherman") the kingfisher.
+locale: eu
+---
+zozoa
+birigarroa
+txantxangorria
+txolarrea
+enara
+sorbeltza
+kaioa
+ubarroia
+martin arrantzalea
+okila
+kukua
+hontza
+mozoloa
+belatza
+arranoa
+sai zuria
+saia
+mirotza
+zapelatza
+belea
+mika
+eskinosoa
+amilotxa
+txepetxa
+buztanikara
+oilagorra
+eperra
+lertxuna
+amiamokoa
+usoa

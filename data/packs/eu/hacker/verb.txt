@@ -1,0 +1,32 @@
+---
+description: Tech verb, citation form (Basque)
+locale: eu
+---
+konpilatu
+deskargatu
+kargatu
+zifratu
+deszifratu
+sinkronizatu
+indexatu
+exekutatu
+arakatu
+gainidatzi
+konfiguratu
+formateatu
+berrabiarazi
+kudeatu
+biltegiratu
+transferitu
+monitorizatu
+birbideratu
+egiaztatu
+araztu
+optimizatu
+partekatu
+instalatu
+desinstalatu
+eguneratu
+klonatu
+migratu
+baliozkotu

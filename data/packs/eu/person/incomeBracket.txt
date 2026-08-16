@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Basque. Amounts are in euros: Basque is spoken across the Spanish-French border and BOTH states use the euro, so one currency covers the whole Basque-speaking area — which is not true of most cross-border languages.
+locale: eu
+---
+15.000 € baino gutxiago
+15.000–25.000 €
+25.000–35.000 €
+35.000–50.000 €
+50.000–70.000 €
+70.000–100.000 €
+100.000–150.000 €
+150.000 € baino gehiago

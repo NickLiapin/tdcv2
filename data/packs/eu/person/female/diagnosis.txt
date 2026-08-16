@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Basque (female-specific plus common)
+locale: eu
+---
+umetokiko lepoaren minbizia
+bularreko minbizia
+obulutegiko minbizia
+endometrioko minbizia
+endometriosia
+obulutegi polikistikoaren sindromea
+umetoki-miomak
+umetoki-prolapsoa
+dismenorrea
+amenorrea
+menorragia
+menopausia
+klimaterioa
+hipertentsio arteriala
+2 motako diabetesa
+1 motako diabetesa
+hiperkolesterolemia
+obesitatea
+asma
+biriketako gaixotasun buxatzaile kronikoa
+bronkitis kronikoa
+pneumonia
+gripea
+sinusitisa
+faringitisa
+otitisa
+konjuntibitisa

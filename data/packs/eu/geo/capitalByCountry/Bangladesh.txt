@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladesh (Basque)
+locale: eu
+---
+Dhaka

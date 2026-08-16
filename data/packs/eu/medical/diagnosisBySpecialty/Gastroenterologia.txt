@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterologia (Basque)
+locale: eu
+---
+gastritisa
+ultzera peptikoa
+errefluxu gastroesofagikoa
+Crohn gaixotasuna
+kolitis ultzerosoa
+heste narritakorraren sindromea
+gaixotasun zeliakoa
+gibeleko zirrosia
+behazun-harriak
+pankreatitisa

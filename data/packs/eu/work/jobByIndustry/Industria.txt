@@ -1,0 +1,16 @@
+---
+description: Jobs in Industria (Basque)
+locale: eu
+---
+Tornularia
+Soldatzailea
+Muntatzailea
+Mantentze-teknikaria
+Kalitate-teknikaria
+Produkzio-burua
+Galdaragilea
+Makina-operadorea
+Ingeniari industriala
+Prozesu-teknikaria
+Biltegizaina
+Logistika-teknikaria

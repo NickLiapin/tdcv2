@@ -1,0 +1,82 @@
+---
+description: Hobby / interest (Basque). Several are specific to the Basque-speaking world rather than translations of a European default: bertsolaritza is improvised sung verse competed in public and it exists only in Basque; a txokoa is a members' gastronomic society with its own kitchen; mus is the card game; herri kirolak are the rural sports (log-chopping, stone-lifting, scything) that grew out of farm and quarry work; perretxikotan (mushroom-gathering) is close to a national pastime.
+locale: eu
+---
+mendi-ibiliak
+bertsolaritza
+dantza
+sukaldaritza
+arrantza
+ehiza
+igeriketa
+bizikletan ibiltzea
+korrika egitea
+esku-pilota
+txirrindularitza
+argazkigintza
+pintura
+marrazketa
+eskulanak
+lorezaintza
+baratzezaintza
+irakurketa
+idazketa
+musika entzutea
+gitarra jotzea
+trikitixa jotzea
+txistua jotzea
+abesbatzan kantatzea
+antzerkia
+zinema
+bidaiatzea
+kanpina
+mendizaletasuna
+surfa
+arrauna
+bela
+eskia
+patinajea
+xakea
+karta-jokoak
+musean aritzea
+puzzleak
+bideojokoak
+programazioa
+hizkuntzak ikastea
+historia
+astronomia
+txorien behaketa
+perretxikotan
+gaztagintza
+sagardogintza
+ardo-dastatzea
+zeramika
+zurgintza
+josketa
+puntua egitea
+brodatua
+bildumagintza
+zigilu-bilduma
+txanpon-bilduma
+yoga
+meditazioa
+gimnasioa
+boxeoa
+judoa
+eskalada
+espeleologia
+piraguismoa
+kaiaka
+parapentea
+motorrean ibiltzea
+maketagintza
+podcastak entzutea
+blogak idaztea
+sare sozialak
+txokoan sukaldatzea
+erromeriak
+herri kirolak
+aizkolaritza
+sokatira
+harri-jasotzea
+genealogia

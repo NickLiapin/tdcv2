@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Basque)
+locale: eu
+---
+Kardiologia
+Dermatologia
+Endokrinologia
+Gastroenterologia
+Nefrologia
+Neurologia
+Onkologia
+Traumatologia
+Psikiatria
+Pneumologia

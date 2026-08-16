@@ -1,0 +1,41 @@
+---
+description: Country, as Basque names it, weighted by population in millions. These are translations, not transcriptions: Spain is Espainia and its capital Madril, England's capital is Londres, Rome is Erroma, Moscow Mosku. Basque also drops a final -y for -i in its own spelling (Uruguai, Paraguai), and joins a compound country name with "eta" rather than "and" (Trinidad eta Tobago).
+locale: eu
+weighted: true
+---
+Txina,1410
+India,1400
+Ameriketako Estatu Batuak,335
+Indonesia,275
+Pakistan,240
+Nigeria,220
+Brasil,215
+Bangladesh,170
+Errusia,144
+Mexiko,128
+Japonia,125
+Egipto,110
+Vietnam,98
+Turkia,85
+Alemania,84
+Thailandia,72
+Frantzia,68
+Erresuma Batua,67
+Hegoafrika,60
+Italia,59
+Hego Korea,52
+Espainia,47
+Argentina,46
+Kanada,39
+Polonia,38
+Saudi Arabia,36
+Australia,26
+Herbehereak,18
+Grezia,10
+Portugal,10
+Suedia,10
+Suitza,9
+Singapur,6
+Norvegia,5
+Irlanda,5
+Zeelanda Berria,5

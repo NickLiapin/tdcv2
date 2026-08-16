@@ -1,0 +1,25 @@
+---
+description: World religion / belief (Basque)
+locale: eu
+---
+katolizismoa
+protestantismoa
+kristautasun ortodoxoa
+anglikanismoa
+ebanjelismoa
+islama
+sunismoa
+xiismoa
+judaismoa
+budismoa
+hinduismoa
+sikhismoa
+jainismoa
+sintoismoa
+taoismoa
+konfuzianismoa
+zoroastrismoa
+bahaismoa
+animismoa
+ateismoa
+agnostizismoa

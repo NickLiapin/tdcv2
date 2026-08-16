@@ -1,0 +1,54 @@
+---
+description: Airline serving the Basque-speaking area or flown from it. Brand names keep their own spelling in any language. The area is served from both states, so Spanish and French carriers both appear.
+locale: eu
+---
+Iberia
+Vueling
+Air Europa
+Volotea
+Binter Canarias
+Air Nostrum
+Ryanair
+easyJet
+Wizz Air
+Transavia
+Air France
+HOP!
+Lufthansa
+Swiss
+Austrian Airlines
+Brussels Airlines
+KLM
+British Airways
+Aer Lingus
+TAP
+ITA Airways
+LOT
+SAS
+Finnair
+Norwegian
+Icelandair
+Turkish Airlines
+Aegean
+Royal Air Maroc
+Tunisair
+EgyptAir
+Emirates
+Qatar Airways
+Etihad Airways
+El Al
+Air Canada
+Delta Air Lines
+United Airlines
+American Airlines
+Aeromexico
+Avianca
+LATAM
+Copa Airlines
+Air China
+Cathay Pacific
+Singapore Airlines
+ANA
+Japan Airlines
+Qantas
+Air India

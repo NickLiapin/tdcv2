@@ -1,0 +1,20 @@
+---
+description: Weather condition (Basque)
+locale: eu
+---
+eguzkitsua
+hodeitsua
+lainotsua
+euritsua
+elurtsua
+haizetsua
+lanbrotsua
+hezea
+lehorra
+beroa
+hotza
+epela
+ekaiztsua
+iluna
+garbia
+izoztua

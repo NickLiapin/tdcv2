@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pneumologia (Basque)
+locale: eu
+---
+asma
+biriketako gaixotasun buxatzaile kronikoa
+pneumonia
+bronkitis kronikoa
+loaldiko apnea
+biriketako fibrosia
+tuberkulosia
+enfisema
+bronkiektasiak
+biriketako enbolia

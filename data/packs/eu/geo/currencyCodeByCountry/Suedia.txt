@@ -1,0 +1,5 @@
+---
+description: Currency code of Suedia
+locale: eu
+---
+SEK

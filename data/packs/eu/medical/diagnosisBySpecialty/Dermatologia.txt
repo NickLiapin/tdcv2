@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatologia (Basque)
+locale: eu
+---
+psoriasia
+dermatitis atopikoa
+aknea
+urtikaria
+errosazea
+bitiligoa
+alopezia areata
+larruazaleko melanoma
+zelula basaleko karzinoma
+onddo-infekzioa

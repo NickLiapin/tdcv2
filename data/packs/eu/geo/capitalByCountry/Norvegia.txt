@@ -1,0 +1,5 @@
+---
+description: Capital of Norvegia (Basque)
+locale: eu
+---
+Oslo

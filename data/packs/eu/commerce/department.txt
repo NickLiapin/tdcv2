@@ -1,0 +1,54 @@
+---
+description: Store department / category (Basque)
+locale: eu
+---
+Elikagaiak
+Fruta eta barazkiak
+Harategia
+Arrandegia
+Okindegia
+Gozotegia
+Esnekiak
+Izoztuak
+Kontserbak
+Edariak
+Ardoak eta sagardoa
+Kafea eta tea
+Gozokiak
+Haurrentzako elikagaiak
+Garbiketa
+Higienea
+Kosmetika
+Botika
+Etxeko tresnak
+Sukaldeko tresnak
+Altzariak
+Dekorazioa
+Argiztapena
+Testil-etxekoa
+Lorategia
+Brikolajea
+Erremintak
+Pintura
+Iturgintza
+Elektrizitatea
+Elektronika
+Informatika
+Telefonia
+Argazkigintza
+Bideojokoak
+Musika
+Liburuak
+Papertegia
+Jostailuak
+Kirolak
+Kanpina
+Bizikletak
+Automobilgintza
+Jantziak
+Oinetakoak
+Osagarriak
+Bitxiak
+Erlojuak
+Animalientzako produktuak
+Opariak

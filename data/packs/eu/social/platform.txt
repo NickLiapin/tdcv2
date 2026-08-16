@@ -1,0 +1,21 @@
+---
+description: Social platform used in the Basque-speaking area; brand names keep their own spelling
+locale: eu
+---
+Instagram
+TikTok
+X
+Facebook
+YouTube
+WhatsApp
+Telegram
+Snapchat
+LinkedIn
+Reddit
+Pinterest
+Twitch
+Discord
+Mastodon
+Bluesky
+Threads
+Tumblr

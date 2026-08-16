@@ -1,0 +1,58 @@
+---
+description: Colour name (Basque, with the definite article, lower case). Two things a config cannot infer. URDINA covers a stretch of the spectrum that no single English or Spanish word covers: it is blue, but grey hair is ile urdina ("blue hair") and so is a grey-blue sea or sky, so a colour swatch mapped from #0000FF is only part of what the word does. And GORRIA ("red") doubles as "bare" — larrugorri, "red-skinned", means naked — which is why red turns up in Basque idiom far more often than a colour term normally would. The -xka ending on gorrixka, horixka and berdexka is the productive "-ish" suffix.
+locale: eu
+---
+zuria
+beltza
+gorria
+berdea
+urdina
+horia
+laranja
+morea
+arrosa
+marroia
+grisa
+beixa
+ubela
+granatea
+turkesa
+magenta
+indigoa
+zilarkara
+urrekara
+gorrixka
+horixka
+zurixka
+berdexka
+urdinxka
+belzkara
+gorrimina
+urdin argia
+urdin iluna
+berde argia
+berde iluna
+gorri argia
+gorri iluna
+gris argia
+gris iluna
+hori argia
+more argia
+itsas urdina
+zeru urdina
+oliba berdea
+esmeralda berdea
+gaztain kolorea
+kanela kolorea
+okrea
+mostaza kolorea
+koral kolorea
+karmina
+lila
+biolet kolorea
+kobalto urdina
+kobre kolorea
+brontze kolorea
+marfil kolorea
+krema kolorea
+perla kolorea

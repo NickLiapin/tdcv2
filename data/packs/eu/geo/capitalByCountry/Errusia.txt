@@ -1,0 +1,5 @@
+---
+description: Capital of Errusia (Basque)
+locale: eu
+---
+Mosku

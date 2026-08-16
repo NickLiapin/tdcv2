@@ -1,0 +1,12 @@
+---
+description: Dishes of Indiarra cuisine, named in Basque
+locale: eu
+---
+Tikka masala oilaskoa
+Biryania
+Dhala
+Samosak
+Naan ogia
+Tandoori oilaskoa
+Paneer tikka
+Rogan josh

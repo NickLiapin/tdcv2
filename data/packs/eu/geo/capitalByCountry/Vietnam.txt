@@ -1,0 +1,5 @@
+---
+description: Capital of Vietnam (Basque)
+locale: eu
+---
+Hanoi

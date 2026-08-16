@@ -1,0 +1,18 @@
+---
+description: Order status (Basque)
+locale: eu
+---
+jasota
+berretsita
+ordainduta
+prestatzen
+prestatuta
+bidalita
+bidean
+banaketan
+entregatuta
+ezeztatuta
+itzulita
+gordeta
+zain
+atzeratuta

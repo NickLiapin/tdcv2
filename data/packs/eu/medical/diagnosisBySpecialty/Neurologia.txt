@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurologia (Basque)
+locale: eu
+---
+migraina
+epilepsia
+iktusa
+Parkinson gaixotasuna
+Alzheimer gaixotasuna
+esklerosi anizkoitza
+neuropatia periferikoa
+karpo-tunelaren sindromea
+ziatika
+dardara esentziala

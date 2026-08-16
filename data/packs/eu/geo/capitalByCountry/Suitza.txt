@@ -1,0 +1,5 @@
+---
+description: Capital of Suitza (Basque)
+locale: eu
+---
+Berna

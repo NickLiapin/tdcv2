@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Basque; hiruhilekoa = "the three-month period")
+locale: eu
+---
+lehen hiruhilekoa
+bigarren hiruhilekoa
+hirugarren hiruhilekoa
+laugarren hiruhilekoa

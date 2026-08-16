@@ -1,0 +1,5 @@
+---
+description: Capital of Argentina (Basque)
+locale: eu
+---
+Buenos Aires

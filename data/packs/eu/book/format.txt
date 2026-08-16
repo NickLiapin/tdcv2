@@ -1,0 +1,12 @@
+---
+description: Book format (Basque)
+locale: eu
+---
+azal gogorra
+azal biguna
+poltsiko-formatua
+liburu elektronikoa
+audioliburua
+komikia
+edizio ilustratua
+bilduma

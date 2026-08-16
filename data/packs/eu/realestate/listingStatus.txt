@@ -1,0 +1,16 @@
+---
+description: Listing status (Basque)
+locale: eu
+---
+salgai
+alokairuan
+erreserbatuta
+salduta
+alokatuta
+aukeran
+kenduta
+iraungita
+prezioa jaitsita
+berria
+eraikitzen
+zuzenean jabearekin

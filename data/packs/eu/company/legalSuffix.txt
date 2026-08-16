@@ -1,0 +1,32 @@
+---
+description: Company legal / name suffix seen in Basque-language business names. Two legal systems meet here: S.A., S.L. and S. Coop. are Spanish forms, SARL, SAS and SCOP are French ones, and both appear on Basque signage depending on which side of the border the firm sits. KOOP. E. is the Basque rendering of the cooperative form and it carries real weight — the Mondragon federation, the largest worker-cooperative group in the world, was founded in the Basque Country and the legal form is far more common here than the European average.
+locale: eu
+---
+S.A.
+S.L.
+S.L.U.
+S.A.U.
+S. Coop.
+Koop. E.
+S.C.
+C.B.
+A.I.E.
+SARL
+SAS
+SASU
+EURL
+SCI
+SCOP
+SNC
+Elkartea
+Fundazioa
+Taldea
+Kooperatiba
+Sozietate Anonimoa
+Erantzukizun Mugatuko Sozietatea
+Kooperatiba Elkartea
+Sozietate Zibila
+Enpresa
+Mikroenpresa
+Lantegia
+Ola

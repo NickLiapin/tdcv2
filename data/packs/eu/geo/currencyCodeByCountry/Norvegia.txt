@@ -1,0 +1,5 @@
+---
+description: Currency code of Norvegia
+locale: eu
+---
+NOK

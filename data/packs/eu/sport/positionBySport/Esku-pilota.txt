@@ -1,0 +1,8 @@
+---
+description: Positions in Esku-pilota (Basque)
+locale: eu
+---
+Aurrelaria
+Atzelaria
+Erdilaria
+Sakatzailea

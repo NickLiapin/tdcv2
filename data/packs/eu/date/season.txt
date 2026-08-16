@@ -1,0 +1,8 @@
+---
+description: Season (Basque, lower case). Four of them: the Basque Country is temperate Atlantic, wet in every one. Udaberria is literally "new summer" and udazkena "the last of summer", so both are built on uda rather than being separate roots.
+locale: eu
+---
+udaberria
+uda
+udazkena
+negua

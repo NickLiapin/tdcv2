@@ -1,0 +1,5 @@
+---
+description: Capital of Herbehereak (Basque)
+locale: eu
+---
+Amsterdam

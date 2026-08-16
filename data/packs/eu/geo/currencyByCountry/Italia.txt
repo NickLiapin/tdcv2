@@ -1,0 +1,5 @@
+---
+description: Currency of Italia (Basque)
+locale: eu
+---
+euroa

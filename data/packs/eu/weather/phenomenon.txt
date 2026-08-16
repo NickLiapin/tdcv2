@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Basque). The rain words are not synonyms and a translator that flattens them loses the point: ZIRIMIRIA is the fine persistent drizzle that hangs over the Atlantic side for days, LANGARRA a lighter one still, ZAPARRADA a sudden downpour and ERAUNTSIA a violent squall. HEGO HAIZEA is the föhn off the Pyrenees — hot, dry and blamed locally for headaches.
+locale: eu
+---
+euria
+zirimiria
+langarra
+euri-zaparrada
+erauntsia
+lanbroa
+behe-lainoa
+elurra
+kazkabarra
+izotza
+ihintza
+trumoia
+tximista
+hego haizea
+ortzadarra

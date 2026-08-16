@@ -1,0 +1,26 @@
+---
+description: Common allergies (Basque)
+locale: eu
+---
+polena
+etxeko hautsaren akaroak
+animalien ilea
+onddoak
+erlearen ziztada
+penizilina
+antibiotikoak
+aspirina
+ibuprofenoa
+kontraste iodatua
+latexa
+esne-proteina
+arrautza
+arraina
+itsaskiak
+fruitu lehorrak
+kakahueteak
+soja
+glutena
+sesamoa
+sulfitoak
+nikela

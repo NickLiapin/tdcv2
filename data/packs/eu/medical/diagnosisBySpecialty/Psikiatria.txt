@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psikiatria (Basque)
+locale: eu
+---
+depresioa
+antsietate-nahastea
+nahaste bipolarra
+eskizofrenia
+nahaste obsesibo-konpultsiboa
+estres postraumatikoaren nahastea
+insomnioa
+jokabide adiktiboak
+elikadura-nahasteak
+nortasun-nahastea

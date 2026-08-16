@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Basque)
+locale: eu
+---
+zuntz optikoa
+bikote bihurritua
+kable koaxiala
+UTP kablea
+STP kablea
+kable blindatua
+lur azpiko kablea
+aireko kablea
+elikatze-kablea

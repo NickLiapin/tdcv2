@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Basque). The last one is not a translation: esku-pilota is the bare-hand Basque ball game, and its position list is genuinely short — a doubles match has an aurrelari at the front and an atzelari at the back and that is the whole team. A short list here is the truth, not an unfinished file.
+locale: eu
+---
+Futbola
+Saskibaloia
+Eskubaloia
+Errugbia
+Boleibola
+Beisbola
+Futbol amerikarra
+Esku-pilota

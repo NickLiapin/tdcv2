@@ -1,0 +1,16 @@
+---
+description: Jobs in Merkataritza (Basque)
+locale: eu
+---
+Saltzailea
+Dendaria
+Denda-arduraduna
+Kutxazaina
+Erosketa-teknikaria
+Merkaturatze-teknikaria
+Komertziala
+Eskaparatista
+Stock-arduraduna
+Bezeroarentzako arreta
+Kategoria-kudeatzailea
+Merkataritza-agentea

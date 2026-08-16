@@ -1,0 +1,14 @@
+---
+description: Fuel type (Basque)
+locale: eu
+---
+gasolina
+gasolioa
+hibridoa
+hibrido entxufagarria
+elektrikoa
+GLPa
+GNCa
+hidrogenoa
+biodiesela
+etanola

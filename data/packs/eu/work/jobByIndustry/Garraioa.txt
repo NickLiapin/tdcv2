@@ -1,0 +1,16 @@
+---
+description: Jobs in Garraioa (Basque)
+locale: eu
+---
+Kamioi-gidaria
+Autobus-gidaria
+Taxi-gidaria
+Banatzailea
+Biltegizaina
+Logistika-koordinatzailea
+Trenbide-langilea
+Pilotua
+Hegazkin-laguntzailea
+Marinela
+Portuko operadorea
+Flota-arduraduna

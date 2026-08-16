@@ -1,0 +1,27 @@
+---
+description: Basque address unit / interior designator. The Iberian pattern applies on both sides of the border and it is not the Polish or German one: a flat is identified by FLOOR plus SIDE, written after the street and number — Zubieta kalea 12, 3. ezk. means number 12, third floor, left-hand door. "ezk." is ezkerra (left), "esk." eskuina (right).
+locale: eu
+---
+solairua
+ezk.
+esk.
+erdia
+atea
+ataria
+blokea
+eraikina
+eskailera
+pisua
+bulegoa
+gela
+lokala
+garajea
+trastelekua
+apartamentua
+beheko solairua
+lehen solairua
+goiko solairua
+sotoa
+ganbara
+terraza
+postontzia

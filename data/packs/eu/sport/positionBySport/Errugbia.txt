@@ -1,0 +1,14 @@
+---
+description: Positions in Errugbia (Basque)
+locale: eu
+---
+Pilarra
+Hookerra
+Bigarren lerroa
+Hegaleko hirugarrena
+Zortzigarrena
+Erdi-melea
+Erdi-irekia
+Erdiko hirugarrena
+Hegalekoa
+Atzelaria

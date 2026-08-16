@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Basque)
+locale: eu
+---
+hodi korrugatua
+kanaleta
+lur azpiko galeria
+kutxatila
+zutoin aireko
+fatxadan
+sabai faltsuan

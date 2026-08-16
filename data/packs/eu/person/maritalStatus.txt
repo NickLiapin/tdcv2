@@ -1,0 +1,18 @@
+---
+description: Marital status (Basque). Because Basque has no grammatical gender, every one of these is a SINGLE form used for anyone — "alarguna" is both widow and widower, "ezkondua" both husband and wife. Spanish and French need two words for each of those and Polish needs two; Basque needs one, and a config that tries to gender this column will be generating something the language cannot say.
+locale: eu
+---
+ezkongabea
+ezkondua
+dibortziatua
+alarguna
+banandua
+izatezko bikotekidea
+bikotekidearekin bizi dena
+ezkongaia
+berriz ezkondua
+bakarrik bizi dena
+legez banandua
+ezkontza baliogabetua
+ez dakar
+ez du esan nahi

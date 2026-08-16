@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child), in Basque
+locale: eu
+---
+Teknologia
+Osasuna
+Hezkuntza
+Finantzak
+Eraikuntza
+Industria
+Merkataritza
+Ostalaritza
+Garraioa
+Zuzenbidea

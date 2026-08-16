@@ -1,0 +1,5 @@
+---
+description: Capital of Egipto (Basque)
+locale: eu
+---
+Kairo

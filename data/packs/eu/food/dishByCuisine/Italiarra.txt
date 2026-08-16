@@ -1,0 +1,13 @@
+---
+description: Dishes of Italiarra cuisine, named in Basque
+locale: eu
+---
+Pizza
+Lasaña
+Espagetiak
+Risottoa
+Carbonara
+Tiramisua
+Minestronea
+Gnocchiak
+Ossobuco

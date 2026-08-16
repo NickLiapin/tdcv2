@@ -1,0 +1,19 @@
+---
+description: Kind of court, in Basque words. This is generic Basque legal vocabulary and NOT one state's judiciary: the Basque-speaking area straddles Spain and France, whose court hierarchies do not map onto each other, so naming either one's tribunals here would be wrong on the other side of the border. AUZITEGI and EPAITEGI both translate as "court"; the first is usually the collegiate body, the second the single-judge one.
+locale: eu
+---
+auzitegia
+epaitegia
+auzitegi gorena
+konstituzio auzitegia
+apelazio-auzitegia
+lehen auzialdiko epaitegia
+instrukzio-epaitegia
+zigor-arloko epaitegia
+lan-arloko epaitegia
+administrazioarekiko auzien epaitegia
+merkataritza-arloko epaitegia
+adingabeen epaitegia
+familia-epaitegia
+bake-epaitegia
+epaimahai herritarra

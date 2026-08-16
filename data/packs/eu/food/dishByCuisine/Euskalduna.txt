@@ -1,0 +1,22 @@
+---
+description: Dishes of Euskalduna cuisine, named in Basque
+locale: eu
+---
+Bakailaoa pil-pilean
+Bakailaoa bizkaitar erara
+Marmitakoa
+Txangurroa donostiar erara
+Kokotxak
+Txipiroiak beren tintan
+Angulak
+Piperrada
+Talo txistorrarekin
+Porrusalda
+Tolosako babarrunak
+Legatza saltsa berdean
+Bisigua parrillan
+Sukalkia
+Intxaursaltsa
+Goxua
+Pantxineta
+Gazta-tarta erreta

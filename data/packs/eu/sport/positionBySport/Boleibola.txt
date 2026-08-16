@@ -1,0 +1,9 @@
+---
+description: Positions in Boleibola (Basque)
+locale: eu
+---
+Kolokatzailea
+Atakatzaile oposatua
+Alboko atakatzailea
+Zentrala
+Liberoa

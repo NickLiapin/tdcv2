@@ -1,0 +1,11 @@
+---
+description: Weekday name (Basque, lower case, Monday first as a Basque speaker lists them). The names are transparent: astelehena is "the first of the week", asteartea "the middle of the week", asteazkena "the last of the week" — which shows the week once ended on Wednesday. Osteguna and ostirala are the days of Ost-, and larunbata and igandea stand outside the aste- series entirely.
+locale: eu
+---
+astelehena
+asteartea
+asteazkena
+osteguna
+ostirala
+larunbata
+igandea

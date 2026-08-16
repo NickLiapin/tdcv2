@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Basque, bare form)
+locale: eu
+---
+azkar
+seguru
+hautsi
+birtual
+digital
+automatiko
+eramangarri
+ireki
+itxi
+banatu
+elkarreragile
+eskalagarri
+optiko
+mugikor
+urruneko
+nagusi
+sendo
+anonimo
+publiko
+pribatu
+lokal
+global
+dinamiko
+estatiko
+kriptografiko
+erredundante
+lehen mailako
+bigarren mailako

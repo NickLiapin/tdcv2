@@ -1,0 +1,27 @@
+---
+description: Kind of public body, in Basque. These are TYPES rather than named ministries, and that is the honest answer for this language: the Basque-speaking area is divided between the Spanish and the French state, which have entirely different administrative furniture, and naming one set would make the pack wrong on the other side of the border. A FORU ALDUNDIA is the provincial council of a historic territory and an UDALA a town council; both words are Basque, both institutions exist, and the specific ones belong in a country pack.
+locale: eu
+---
+Gobernua
+Parlamentua
+Ministerioa
+Saila
+Zuzendaritza Nagusia
+Udala
+Foru Aldundia
+Mankomunitatea
+Ogasuna
+Zerga Agentzia
+Gizarte Segurantza
+Osasun Zerbitzua
+Enplegu Zerbitzua
+Erregistro Zibila
+Jabetza Erregistroa
+Katastroa
+Estatistika Institutua
+Meteorologia Agentzia
+Aduana
+Kontsumitzailearen Bulegoa
+Herritarren Defendatzailea
+Hauteskunde Batzordea
+Hizkuntza Politikarako Sailburuordetza

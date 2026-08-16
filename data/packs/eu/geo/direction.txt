@@ -1,0 +1,20 @@
+---
+description: Compass direction (Basque). IPAR and HEGO are not only compass points: ipar(haize) is the north wind and HEGOA is the hot dry föhn that comes down off the Pyrenees onto the Basque coast, so "hegoa dabil" is a weather report, not a bearing. The same two words also name the French and the Spanish Basque Country (Iparraldea, Hegoaldea).
+locale: eu
+---
+iparraldea
+hegoaldea
+ekialdea
+mendebaldea
+ipar-ekialdea
+ipar-mendebaldea
+hego-ekialdea
+hego-mendebaldea
+ipar-ipar-ekialdea
+ekialde-ipar-ekialdea
+ekialde-hego-ekialdea
+hego-hego-ekialdea
+hego-hego-mendebaldea
+mendebalde-hego-mendebaldea
+mendebalde-ipar-mendebaldea
+ipar-ipar-mendebaldea

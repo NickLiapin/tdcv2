@@ -1,0 +1,13 @@
+---
+description: Dishes of Mexikarra cuisine, named in Basque
+locale: eu
+---
+Tacoak
+Burritoak
+Enchiladak
+Guacamolea
+Quesadillak
+Tamalak
+Pozolea
+Mole poblanoa
+Nachoak

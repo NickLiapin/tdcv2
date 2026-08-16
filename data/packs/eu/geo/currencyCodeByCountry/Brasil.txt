@@ -1,0 +1,5 @@
+---
+description: Currency code of Brasil
+locale: eu
+---
+BRL

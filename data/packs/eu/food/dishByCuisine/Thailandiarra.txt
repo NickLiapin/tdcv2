@@ -1,0 +1,12 @@
+---
+description: Dishes of Thailandiarra cuisine, named in Basque
+locale: eu
+---
+Pad thai
+Tom yum zopa
+Curry berdea
+Massaman curry-a
+Som tam entsalada
+Arroz frijitu thailandiarra
+Satay brotxetak
+Mango arroz gozoa

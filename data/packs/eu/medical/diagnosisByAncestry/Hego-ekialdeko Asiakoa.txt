@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of this ancestry (Hego-ekialdeko Asiakoa), in Basque. A prevalence signal, not an exclusive one.
+locale: eu
+---
+alfa-talasemia
+hemoglobina E gaixotasuna
+G6PD entzimaren gabezia
+nasofaringeko minbizia
+laktosa-intolerantzia
+B hepatitis kronikoa
+talasemia bitartekoa

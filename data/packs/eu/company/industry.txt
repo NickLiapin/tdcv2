@@ -1,0 +1,59 @@
+---
+description: Industry sector (Basque)
+locale: eu
+---
+makina-erreminta
+automozioa
+aeronautika
+siderurgia
+metalgintza
+ontzigintza
+eraikuntza
+energia berriztagarriak
+energia elektrikoa
+petrokimika
+kimika
+farmazia
+bioteknologia
+elikagai-industria
+arrantza
+nekazaritza
+abeltzaintza
+basogintza
+papergintza
+arte grafikoak
+ehungintza
+larrugintza
+altzarigintza
+zeramika
+beirategia
+plastikoak
+kautxua
+birziklapena
+ingurumena
+ura eta saneamendua
+garraioa
+logistika
+portu-jarduera
+merkataritza
+banaketa
+ostalaritza
+turismoa
+aisia
+kultura
+zinema
+komunikabideak
+argitalpengintza
+publizitatea
+telekomunikazioak
+informatika
+software-garapena
+zibersegurtasuna
+banka
+aseguruak
+higiezinak
+aholkularitza
+hezkuntza
+osasuna
+gizarte-zerbitzuak
+kooperatibagintza

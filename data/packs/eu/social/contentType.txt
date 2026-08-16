@@ -1,0 +1,17 @@
+---
+description: Social content type (Basque)
+locale: eu
+---
+argazkia
+bideoa
+istorioa
+zuzeneko emanaldia
+mezua
+iruzkina
+erantzuna
+bideo laburra
+podcasta
+inkesta
+albistea
+memea
+esteka

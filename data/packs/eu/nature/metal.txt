@@ -1,0 +1,26 @@
+---
+description: Metal (Basque). BURDINA, iron, is the one with history behind it: the Basque hills held the ore that fed hundreds of water-powered forges, and the Basque word for such a forge, OLA, is the second element of a whole family of surnames — Olabarria, Mendiola, Loiola, Olaizola. Reading those names is reading an industrial map.
+locale: eu
+---
+burdina
+altzairua
+kobrea
+brontzea
+letoia
+aluminioa
+beruna
+eztainua
+zinka
+nikela
+kromoa
+titanioa
+urrea
+zilarra
+platinoa
+paladioa
+merkurioa
+magnesioa
+manganesoa
+kobaltoa
+wolframioa
+uranioa

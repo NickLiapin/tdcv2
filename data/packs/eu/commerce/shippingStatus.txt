@@ -1,0 +1,15 @@
+---
+description: Shipping status (Basque)
+locale: eu
+---
+prestatzen
+biltegian
+jasota
+bidean
+zentroan
+banaketan
+entregatuta
+entrega huts eginda
+jasotzeko zain
+itzultzen
+galduta

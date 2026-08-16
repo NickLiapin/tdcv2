@@ -1,0 +1,5 @@
+---
+description: Capital of Nigeria (Basque)
+locale: eu
+---
+Abuja

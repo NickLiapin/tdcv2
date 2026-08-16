@@ -1,0 +1,16 @@
+---
+description: Jobs in Teknologia (Basque)
+locale: eu
+---
+Programatzailea
+Garatzaile nagusia
+Sistema-administraria
+Datu-analista
+Datu-zientzialaria
+Produktu-kudeatzailea
+UX diseinatzailea
+QA teknikaria
+DevOps ingeniaria
+Segurtasun-analista
+Sare-teknikaria
+Proiektu-burua

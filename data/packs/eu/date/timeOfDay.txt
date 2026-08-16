@@ -1,0 +1,12 @@
+---
+description: Time of day (Basque)
+locale: eu
+---
+egunsentia
+goizaldea
+goiza
+eguerdia
+arratsaldea
+iluntzea
+gaua
+gauerdia

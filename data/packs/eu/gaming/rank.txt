@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Basque)
+locale: eu
+---
+Burdina
+Brontzea
+Zilarra
+Urrea
+Platinoa
+Diamantea
+Esmeralda
+Maisua
+Maisu Nagusia
+Txapelduna

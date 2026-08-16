@@ -1,0 +1,5 @@
+---
+description: Capital of Turkia (Basque)
+locale: eu
+---
+Ankara

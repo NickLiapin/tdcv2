@@ -1,0 +1,23 @@
+---
+description: Property type (Basque). BASERRIA is the free-standing Basque farmstead, house and barn under one roof, and it is a live category on the property market rather than a museum word; a BORDA is the shepherd's hut higher up; a DORRETXEA a fortified medieval tower house, of which a fair number are still lived in.
+locale: eu
+---
+pisua
+apartamentua
+estudioa
+dupleza
+atikoa
+txaleta
+etxe adosatua
+etxe bikia
+etxe bakartua
+baserria
+landetxea
+borda
+dorretxea
+lokala
+bulegoa
+garajea
+trastelekua
+biltegia
+lursaila

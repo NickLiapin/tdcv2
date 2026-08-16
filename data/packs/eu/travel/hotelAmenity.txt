@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Basque)
+locale: eu
+---
+wifi doakoa
+aparkalekua
+igerilekua
+gimnasioa
+spa
+sauna
+jatetxea
+taberna
+gosaria barne
+aire girotua
+berogailua
+telebista
+kutxa gotorra
+hozkailua
+ile-lehorgailua
+garbitegia
+gela-zerbitzua
+harrera 24 orduz
+igogailua
+terraza
+lorategia
+bilera-gela
+negozio-gunea
+animaliak onartuta
+haurrentzako gunea
+bizikleta-alokairua
+aireportuko garraioa
+ohe gehigarria
+bainuontzia
+dutxa

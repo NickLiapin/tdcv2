@@ -1,0 +1,30 @@
+---
+description: Book genre (Basque)
+locale: eu
+---
+eleberria
+ipuina
+saiakera
+poesia
+antzerkia
+biografia
+autobiografia
+historia
+filosofia
+zientzia
+dibulgazioa
+autolaguntza
+bidaia-liburua
+sukaldaritza-liburua
+haur-literatura
+gazte-literatura
+misterioa
+poliziakoa
+thrillerra
+zientzia-fikzioa
+fantasia
+erromantikoa
+beldurrezkoa
+komikia
+hiztegia
+bertso-bilduma

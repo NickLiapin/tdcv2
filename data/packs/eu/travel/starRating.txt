@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Basque)
+locale: eu
+---
+izar 1
+2 izar
+3 izar
+4 izar
+5 izar

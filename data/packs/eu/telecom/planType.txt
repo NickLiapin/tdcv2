@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Basque)
+locale: eu
+---
+ordainketa aurreratua
+kontratua
+datu mugagabeak
+datu mugatuak
+ahotsa eta datuak
+ahotsa bakarrik
+familia-tarifa
+enpresa-tarifa
+bigarren lerroa
+ibiltaritza barne
+nazioarteko deiak
+datu-txartela

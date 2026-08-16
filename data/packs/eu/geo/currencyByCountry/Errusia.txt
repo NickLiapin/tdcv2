@@ -1,0 +1,5 @@
+---
+description: Currency of Errusia (Basque)
+locale: eu
+---
+errublo errusiarra

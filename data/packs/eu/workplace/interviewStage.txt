@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Basque)
+locale: eu
+---
+curriculuma bidalita
+aurretiazko iragazkia
+telefono bidezko elkarrizketa
+giza baliabideekin elkarrizketa
+proba teknikoa
+kasu praktikoa
+sailburuarekin elkarrizketa
+hizkuntza-proba
+erreferentzien egiaztapena
+eskaintza
+kontratua sinatuta

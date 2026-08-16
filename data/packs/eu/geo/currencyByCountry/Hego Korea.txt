@@ -1,0 +1,5 @@
+---
+description: Currency of Hego Korea (Basque)
+locale: eu
+---
+won hegokorearra

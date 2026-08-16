@@ -1,0 +1,5 @@
+---
+description: Capital of Zeelanda Berria (Basque)
+locale: eu
+---
+Wellington

@@ -1,0 +1,13 @@
+---
+description: Dishes of Frantsesa cuisine, named in Basque
+locale: eu
+---
+Ratatouille
+Tipula-zopa
+Coq au vin
+Quiche lorrenarra
+Kreperak
+Bouillabaisse
+Foie gras
+Kruasana
+Ahate confita

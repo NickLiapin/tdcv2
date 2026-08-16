@@ -1,0 +1,15 @@
+---
+description: Social reaction (Basque)
+locale: eu
+---
+atsegin dut
+maite dut
+barrea
+harridura
+tristura
+haserrea
+txalotu
+besarkada
+bihotza
+bat nator
+ez nator bat

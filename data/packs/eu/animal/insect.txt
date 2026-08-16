@@ -1,0 +1,24 @@
+---
+description: Insect (Basque)
+locale: eu
+---
+erlea
+liztorra
+eulia
+eltxoa
+inurria
+tximeleta
+sitsa
+matxinsaltoa
+kilkerra
+kakalardoa
+marigorringoa
+sorgin-orratza
+zomorroa
+akaina
+arkakusoa
+zorria
+termita
+ipurtargia
+armiarma
+barraskiloa

@@ -1,0 +1,81 @@
+---
+description: Medical diagnosis in Basque that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale / diagnosisFemale and ancestry-linked ones in diagnosisByAncestry. Basque medical vocabulary is a standardised technical register maintained alongside the Latin-Greek international terms, so most names here are the Basque form of the international one rather than a folk word.
+locale: eu
+---
+hipertentsio arteriala
+2 motako diabetesa
+1 motako diabetesa
+hiperkolesterolemia
+obesitatea
+asma
+biriketako gaixotasun buxatzaile kronikoa
+bronkitis kronikoa
+pneumonia
+gripea
+sinusitisa
+faringitisa
+otitisa
+konjuntibitisa
+migraina
+tentsio-buruko mina
+epilepsia
+iktusa
+miokardio infartua
+angina pektorea
+bihotz-gutxiegitasuna
+arritmia
+fibrilazio aurikularra
+barize-zainak
+tronbosi benoso sakona
+anemia ferropenikoa
+hipotiroidismoa
+hipertiroidismoa
+gastritisa
+ultzera peptikoa
+errefluxu gastroesofagikoa
+Crohn gaixotasuna
+kolitis ultzerosoa
+heste narritakorraren sindromea
+apendizitisa
+behazun-harriak
+hepatitisa
+gibeleko zirrosia
+pankreatitisa
+giltzurruneko harriak
+giltzurruneko gutxiegitasun kronikoa
+gernu-bideetako infekzioa
+zistitisa
+artrosia
+artritis erreumatoidea
+osteoporosia
+lunbalgia
+ziatika
+tendinitisa
+diskoaren hernia
+karpo-tunelaren sindromea
+psoriasia
+dermatitis atopikoa
+aknea
+urtikaria
+onddo-infekzioa
+depresioa
+antsietate-nahastea
+nahaste bipolarra
+eskizofrenia
+insomnioa
+dementzia
+Alzheimer gaixotasuna
+Parkinson gaixotasuna
+esklerosi anizkoitza
+gaixotasun zeliakoa
+errinitis alergikoa
+gutxiegitasun benoso kronikoa
+kataratak
+glaukoma
+gorreria
+tuberkulosia
+Lyme gaixotasuna
+gota
+fibromialgia
+lupus eritematoso sistemikoa
+laktosa-intolerantzia

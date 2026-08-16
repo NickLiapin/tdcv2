@@ -1,0 +1,11 @@
+---
+description: Driving licence category for trucks. These are the EU-harmonised categories, and that is why one list can serve the whole Basque-speaking area: Spain and France issue the same letters under the same directive, so nothing here has to be split by state. The professional-competence certificate is the CAP.
+locale: eu
+---
+B
+C1
+C
+C1E
+CE
+D1
+D

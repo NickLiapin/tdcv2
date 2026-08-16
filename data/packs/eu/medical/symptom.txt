@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Basque)
+locale: eu
+---
+sukarra
+buruko mina
+nekea
+ahulezia
+zorabioa
+goragalea
+gorakoak
+beherakoa
+idorreria
+sabeleko mina
+bularreko mina
+arnasa hartzeko zailtasuna
+eztula
+karkaxa
+eztarriko mina
+sudur-isuria
+sudur-buxadura
+doministikua
+azkura
+azaleko gorritasuna
+erupzioa
+hantura
+artikulazioetako mina
+muskuluetako mina
+bizkarreko mina
+lepoko mina
+izerdi hotza
+hotzikarak
+pisu-galera
+gosea galtzea
+egarri handia
+gernu-maiztasuna
+gernu-mina
+loezina
+kontzentratzeko zailtasuna
+ikusmen lausoa
+belarrietako txistua
+taupada azkarrak

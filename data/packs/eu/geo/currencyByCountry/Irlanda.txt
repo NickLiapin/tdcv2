@@ -1,0 +1,5 @@
+---
+description: Currency of Irlanda (Basque)
+locale: eu
+---
+euroa

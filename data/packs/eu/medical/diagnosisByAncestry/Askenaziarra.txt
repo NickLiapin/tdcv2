@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of this ancestry (Askenaziarra), in Basque. A prevalence signal, not an exclusive one.
+locale: eu
+---
+Tay-Sachs gaixotasuna
+Gaucher gaixotasuna
+Canavan gaixotasuna
+familia-disautonomia
+Niemann-Pick gaixotasuna A mota
+Bloom sindromea
+Fanconi anemia C mota
+mukolipidosi IV mota
+BRCA1 mutazio fundatzailea
+BRCA2 mutazio fundatzailea
+Mediterraneoko sukar familiarra
+XI faktorearen gabezia

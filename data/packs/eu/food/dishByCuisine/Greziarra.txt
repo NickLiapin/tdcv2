@@ -1,0 +1,12 @@
+---
+description: Dishes of Greziarra cuisine, named in Basque
+locale: eu
+---
+Musaka
+Souvlakia
+Greziar entsalada
+Tzatzikia
+Gyrosa
+Dolmadesa
+Spanakopita
+Baklava

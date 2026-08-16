@@ -1,0 +1,14 @@
+---
+description: Payment status (Basque)
+locale: eu
+---
+ordaindu gabe
+zain
+baimenduta
+ordainduta
+partzialki ordainduta
+ukatuta
+iraungita
+itzulita
+erreklamatuta
+auzitan

@@ -1,0 +1,16 @@
+---
+description: Meeting type (Basque)
+locale: eu
+---
+eguneroko bilera
+astekoa
+saileko bilera
+proiektuaren jarraipena
+bezeroarekiko bilera
+aurkezpena
+ideia-jasa
+balorazio-bilera
+batzar orokorra
+kooperatibako batzarra
+prestakuntza-saioa
+bideo-deia

@@ -1,0 +1,9 @@
+---
+description: Work shift (Basque)
+locale: eu
+---
+goizeko txanda
+arratsaldeko txanda
+gaueko txanda
+txanda jarraitua
+asteburuko txanda

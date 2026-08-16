@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Basque)
+locale: eu
+---
+Aharia
+Zezena
+Bikiak
+Karramarroa
+Lehoia
+Birjina
+Balantza
+Eskorpioia
+Sagitarioa
+Kaprikornioa
+Akuarioa
+Arrainak

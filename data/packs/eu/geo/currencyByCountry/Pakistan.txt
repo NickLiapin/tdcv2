@@ -1,0 +1,5 @@
+---
+description: Currency of Pakistan (Basque)
+locale: eu
+---
+errupia pakistandarra

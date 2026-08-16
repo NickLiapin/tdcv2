@@ -1,0 +1,5 @@
+---
+description: Currency of Mexiko (Basque)
+locale: eu
+---
+peso mexikarra

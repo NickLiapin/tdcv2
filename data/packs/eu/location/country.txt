@@ -1,0 +1,198 @@
+---
+description: Country and territory names as Basque writes them, following Euskaltzaindia's recommended forms. Translated, not transliterated: Germany is Alemania, the Netherlands Herbehereak ("the low lands"), the United Kingdom Erresuma Batua, the United States Ameriketako Estatu Batuak. Compound names are joined with "eta" (Trinidad eta Tobago, Sao Tome eta Printzipe, Antigua eta Barbuda) and a final -y becomes -i in Basque spelling (Paraguai, Uruguai). Names that keep a c, q, v, w or y do so because Basque orthography keeps those five letters for foreign proper names only.
+locale: eu
+---
+Afganistan
+Albania
+Aljeria
+Alemania
+Andorra
+Angola
+Antigua eta Barbuda
+Argentina
+Armenia
+Australia
+Austria
+Azerbaijan
+Bahamak
+Bahrain
+Bangladesh
+Barbados
+Belgika
+Belize
+Benin
+Bielorrusia
+Bolivia
+Bosnia-Herzegovina
+Botswana
+Boli Kosta
+Brasil
+Brunei
+Bulgaria
+Burkina Faso
+Burundi
+Butan
+Cabo Verde
+Costa Rica
+Danimarka
+Djibuti
+Dominika
+Dominikar Errepublika
+Egipto
+Ekuador
+Ekuatore Ginea
+El Salvador
+Emiratu Arabiar Batuak
+Eritrea
+Erresuma Batua
+Errepublika Zentroafrikarra
+Errumania
+Errusia
+Eslovakia
+Eslovenia
+Espainia
+Ameriketako Estatu Batuak
+Estonia
+Eswatini
+Etiopia
+Fiji
+Filipinak
+Finlandia
+Frantzia
+Gabon
+Gambia
+Georgia
+Ghana
+Ginea
+Ginea Bissau
+Grenada
+Grezia
+Guatemala
+Guyana
+Haiti
+Hegoafrika
+Hego Korea
+Hego Sudan
+Herbehereak
+Honduras
+Hungaria
+India
+Indonesia
+Irak
+Iran
+Irlanda
+Islandia
+Israel
+Italia
+Jamaika
+Japonia
+Jordania
+Kamerun
+Kanada
+Kanbodia
+Kazakhstan
+Kenya
+Kirgizistan
+Kiribati
+Kolonbia
+Komoreak
+Kongoko Errepublika
+Kongoko Errepublika Demokratikoa
+Kroazia
+Kuba
+Kuwait
+Laos
+Lesotho
+Letonia
+Libano
+Liberia
+Libia
+Liechtenstein
+Lituania
+Luxenburg
+Madagaskar
+Malawi
+Malaysia
+Maldivak
+Mali
+Malta
+Maroko
+Marshall Uharteak
+Mauritania
+Maurizio
+Mexiko
+Mikronesia
+Moldavia
+Monako
+Mongolia
+Montenegro
+Mozambike
+Myanmar
+Namibia
+Nauru
+Nepal
+Nikaragua
+Niger
+Nigeria
+Norvegia
+Oman
+Pakistan
+Palau
+Palestina
+Panama
+Papua Ginea Berria
+Paraguai
+Peru
+Polonia
+Portugal
+Qatar
+Ruanda
+Salomon Uharteak
+Samoa
+San Marino
+Santa Luzia
+Sao Tome eta Printzipe
+Saudi Arabia
+Senegal
+Serbia
+Seychelleak
+Sierra Leona
+Singapur
+Siria
+Somalia
+Sri Lanka
+Sudan
+Suedia
+Suitza
+Surinam
+Tadjikistan
+Taiwan
+Tanzania
+Thailandia
+Timor Ekialdea
+Togo
+Tonga
+Trinidad eta Tobago
+Tunisia
+Turkia
+Turkmenistan
+Tuvalu
+Txad
+Txekia
+Txile
+Txina
+Uganda
+Ukraina
+Uruguai
+Uzbekistan
+Vanuatu
+Vatikano Hiria
+Venezuela
+Vietnam
+Yemen
+Zambia
+Zeelanda Berria
+Zimbabwe
+Zipre
+Ipar Korea
+Ipar Mazedonia

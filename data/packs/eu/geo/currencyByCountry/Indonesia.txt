@@ -1,0 +1,5 @@
+---
+description: Currency of Indonesia (Basque)
+locale: eu
+---
+rupia indonesiarra

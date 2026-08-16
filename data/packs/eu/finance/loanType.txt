@@ -1,0 +1,14 @@
+---
+description: Loan type (Basque)
+locale: eu
+---
+hipoteka-mailegua
+kontsumo-mailegua
+auto-mailegua
+ikasketa-mailegua
+enpresa-mailegua
+kreditu-lerroa
+leasinga
+rentinga
+mikrokreditua
+kreditu-txartelaren mailegua

@@ -1,0 +1,13 @@
+---
+description: Content rating, described in Basque. These are descriptive labels, NOT rating codes: the Basque-speaking area falls under two different national systems (Spain's ICAA and France's CSA/Arcom), and the code letters of either belong in that country's pack.
+locale: eu
+---
+Guztientzat
+7 urtetik gorakoentzat
+12 urtetik gorakoentzat
+16 urtetik gorakoentzat
+18 urtetik gorakoentzat
+Helduentzat
+Haurrentzat egokia
+Gurasoen gidaritzapean
+Sailkatu gabea

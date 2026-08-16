@@ -1,0 +1,22 @@
+---
+description: Cat breed (Basque; breed names are international and kept as such)
+locale: eu
+---
+persiarra
+siamesa
+maine coon
+bengala
+britainiar ile-laburra
+esfingea
+ragdolla
+angora turkiarra
+errusiar urdina
+abisiniarra
+birmaniarra
+norvegiar basokatua
+siberiarra
+scottish fold
+munchkina
+savannah
+bonbaia
+europar ile-laburra

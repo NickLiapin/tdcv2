@@ -1,0 +1,22 @@
+---
+description: Event type (Basque)
+locale: eu
+---
+jaialdia
+kontzertua
+hitzaldia
+biltzarra
+tailerra
+ikastaroa
+erakusketa
+azoka
+lehiaketa
+txapelketa
+bertso-saioa
+erromeria
+herriko jaiak
+ezkontza
+urtebetetzea
+bataioa
+hileta
+aurkezpena

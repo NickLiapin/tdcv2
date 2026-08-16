@@ -1,0 +1,21 @@
+---
+description: Kind of official document, named in Basque. Deliberately no numbers and no formats: the identity card, the residence permit and the tax number are issued by Spain or by France under different rules and different check digits, and every one of those layouts is country data.
+locale: eu
+---
+nortasun agiria
+pasaportea
+gidabaimena
+jaiotza-agiria
+ezkontza-agiria
+heriotza-agiria
+erroldatze-agiria
+familia-liburua
+bizileku-baimena
+lan-baimena
+osasun-txartela
+gizarte segurantzako txartela
+zerga-aitorpena
+notario-eskritura
+ahalordea
+ziurtagiri akademikoa
+aurrekari penalen ziurtagiria

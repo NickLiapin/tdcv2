@@ -1,0 +1,59 @@
+{
+  "months": [
+    "urtarrila",
+    "otsaila",
+    "martxoa",
+    "apirila",
+    "maiatza",
+    "ekaina",
+    "uztaila",
+    "abuztua",
+    "iraila",
+    "urria",
+    "azaroa",
+    "abendua"
+  ],
+  "monthsInDate": [
+    "urtarrilaren",
+    "otsailaren",
+    "martxoaren",
+    "apirilaren",
+    "maiatzaren",
+    "ekainaren",
+    "uztailaren",
+    "abuztuaren",
+    "irailaren",
+    "urriaren",
+    "azaroaren",
+    "abenduaren"
+  ],
+  "monthsShort": [
+    "urt.",
+    "ots.",
+    "mar.",
+    "api.",
+    "mai.",
+    "eka.",
+    "uzt.",
+    "abu.",
+    "ira.",
+    "urr.",
+    "aza.",
+    "abe."
+  ],
+  "weekdays": [
+    "igandea",
+    "astelehena",
+    "asteartea",
+    "asteazkena",
+    "osteguna",
+    "ostirala",
+    "larunbata"
+  ],
+  "weekdaysShort": ["ig.", "al.", "ar.", "az.", "og.", "or.", "lr."],
+  "formats": {
+    "L": "YYYY/MM/DD",
+    "LL": "YYYY[ko] MMMM D[a]"
+  },
+  "notes": "Three things here are Basque and not a translation of a neighbour. FIRST, the numeric date runs BIG-ENDIAN: 2026/01/05, year first with slashes, is the standard Basque order, while Spanish writes 05/01/2026 and French 05/01/2026 — the same country, two languages, opposite direction. SECOND, monthsInDate is NOT the same array as months, and that is the whole reason the field exists: inside a written date the month goes into the genitive, so January is urtarrila on its own but urtarrilaren the fifth — 2026ko urtarrilaren 5a. THIRD, the year and the day carry suffixes of their own: the year takes -ko (2026ko) and the day number takes the article -a (5a), which is why the LL pattern has two bracketed literals. Month and weekday names are LOWER CASE. weekdays is Sunday-first because the formatter wants it that way, while date/weekday.txt in the pack is Monday-first as a Basque speaker lists them, and the Basque week does start on Monday. Time is 24-hour with a colon (14:30). The decimal separator is a comma and the euro follows the number after a space: 1.234,56 €. Both sides of the Basque Country use the euro."
+}

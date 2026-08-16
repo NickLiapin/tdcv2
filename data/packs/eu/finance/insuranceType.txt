@@ -1,0 +1,18 @@
+---
+description: Insurance type (Basque). Named as kinds of cover, not as one state's products: compulsory motor cover, health cover and the public health system itself work differently in Spain and in France, and the Basque-speaking area contains both.
+locale: eu
+---
+autoaren asegurua
+etxebizitzaren asegurua
+osasun-asegurua
+bizi-asegurua
+bidaia-asegurua
+erantzukizun zibileko asegurua
+laneko asegurua
+animalientzako asegurua
+nekazaritza-asegurua
+ontzien asegurua
+defentsa juridikoko asegurua
+ezintasun-asegurua
+hiletaren asegurua
+ezbeharren asegurua

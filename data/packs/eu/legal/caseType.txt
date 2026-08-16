@@ -1,0 +1,17 @@
+---
+description: Legal case type (Basque)
+locale: eu
+---
+zibila
+penala
+administratiboa
+laborala
+merkataritzakoa
+familiakoa
+oinordetzakoa
+jabetzakoa
+errentamendukoa
+kontsumokoa
+ingurumenekoa
+adingabeena
+arbitrajea

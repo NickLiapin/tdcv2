@@ -1,0 +1,46 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Basque)
+locale: eu
+---
+taldean lan egitea
+komunikazioa
+lidergoa
+antolaketa
+denboraren kudeaketa
+arazoak konpontzea
+erabakiak hartzea
+negoziazioa
+ahozko aurkezpena
+idazketa teknikoa
+analisi kritikoa
+sormena
+egokitzeko gaitasuna
+ekimena
+gatazken kudeaketa
+bezeroarentzako arreta
+proiektuen kudeaketa
+aurrekontuen kontrola
+datu-analisia
+kalkulu-orriak
+datu-baseak
+programazioa
+web-garapena
+sare-administrazioa
+informatika-segurtasuna
+diseinu grafikoa
+bideo-edizioa
+itzulpengintza
+euskara teknikoa
+ingelesa
+frantsesa
+gaztelania
+soldadura
+mekanizatua
+elektrizitatea
+iturgintza
+zurgintza
+makina astunak gidatzea
+lehen laguntzak
+laneko segurtasuna
+kalitate-kontrola
+logistika

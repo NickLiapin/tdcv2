@@ -1,0 +1,68 @@
+---
+description: Product material (Basque), as a noun — compose with "-zko" or "-z egina" (haritzezko mahaia, altzairuz egina)
+locale: eu
+---
+egurra
+haritza
+pagoa
+izeia
+pinua
+gaztainondoa
+intxaurrondoa
+bambua
+kortxoa
+zumea
+kontratxapatua
+MDFa
+aglomeratua
+larrua
+larru sintetikoa
+artilea
+kotoia
+lihoa
+zeta
+kalamua
+jutea
+feltroa
+poliesterra
+nylona
+akrilikoa
+biskosa
+mikrofibra
+ehun birziklatua
+ehun teknikoa
+neoprenoa
+gomaespuma
+kautxua
+latexa
+silikona
+plastikoa
+polipropilenoa
+polikarbonatoa
+melamina
+burdina
+altzairua
+altzairu herdoilgaitza
+aluminioa
+kobrea
+letoia
+brontzea
+zinka
+titanioa
+beruna
+urrea
+zilarra
+beira
+kristala
+portzelana
+zeramika
+buztina
+harria
+marmola
+granitoa
+arbela
+hormigoia
+kartoia
+papera
+karbono-zuntza
+beira-zuntza

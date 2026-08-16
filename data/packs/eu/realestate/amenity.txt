@@ -1,0 +1,26 @@
+---
+description: Property amenity (Basque)
+locale: eu
+---
+igogailua
+balkoia
+terraza
+lorategia
+igerilekua
+garajea
+trastelekua
+berogailua
+aire girotua
+sukalde jantzia
+altzariduna
+zurgindegi-armairuak
+leiho bikoitza
+kanpoaldera begira
+argitsua
+atezaina
+irisgarria
+animaliak onartuta
+internet zuntza
+eguzki-plakak
+ke-detektagailua
+ganbara

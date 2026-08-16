@@ -1,0 +1,23 @@
+---
+description: Film genre (Basque)
+locale: eu
+---
+akzioa
+abentura
+komedia
+drama
+thrillerra
+beldurrezkoa
+zientzia-fikzioa
+fantasia
+misterioa
+poliziakoa
+gerrakoa
+westerna
+musikala
+animazioa
+dokumentala
+biografikoa
+historikoa
+erromantikoa
+familiartekoa

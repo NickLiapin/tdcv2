@@ -1,0 +1,32 @@
+---
+description: Tree (Basque). HARITZA, the oak, is not a neutral entry: the oak of Gernika under which the Bizkaian charters were sworn is the emblem of Basque self-government, and "Gernikako Arbola" is the anthem. Basque distinguishes the tree from its fruit with -ondo: sagar is an apple, sagarrondo the apple tree.
+locale: eu
+---
+haritza
+pagoa
+artea
+ametza
+gaztainondoa
+lizarra
+zumarra
+astigarra
+urkia
+haltza
+sahatsa
+makala
+ezkia
+intxaurrondoa
+gereziondoa
+sagarrondoa
+udareondoa
+pinua
+izeia
+hurritza
+elorri zuria
+elorri beltza
+gorostia
+hagina
+eukaliptoa
+zipresa
+platanondoa
+oliondoa

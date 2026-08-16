@@ -1,0 +1,5 @@
+---
+description: Currency of Frantzia (Basque)
+locale: eu
+---
+euroa

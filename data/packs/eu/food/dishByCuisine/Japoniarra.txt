@@ -1,0 +1,13 @@
+---
+description: Dishes of Japoniarra cuisine, named in Basque
+locale: eu
+---
+Sushia
+Sashimia
+Ramena
+Tenpura
+Udona
+Soba
+Okonomiyakia
+Gyozak
+Miso zopa

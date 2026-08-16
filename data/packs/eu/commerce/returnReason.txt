@@ -1,0 +1,19 @@
+---
+description: Order return reason (Basque)
+locale: eu
+---
+ez da espero nuena
+neurria ez da egokia
+kalitate eskasa
+akastuna iritsi da
+hautsita iritsi da
+okerreko produktua
+osagaiak falta dira
+beranduegi iritsi da
+jada ez dut behar
+merkeago aurkitu dut
+deskribapenarekin bat ez datorrena
+kolorea ez da berdina
+erabilera zaila
+bikoiztutako eskaera
+iritziz aldatu naiz

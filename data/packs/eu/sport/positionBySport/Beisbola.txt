@@ -1,0 +1,14 @@
+---
+description: Positions in Beisbola (Basque)
+locale: eu
+---
+Pitxerra
+Katxerra
+Lehen basea
+Bigarren basea
+Hirugarren basea
+Shortstopa
+Ezkerreko kanpokoa
+Erdiko kanpokoa
+Eskuineko kanpokoa
+Bateatzaile izendatua

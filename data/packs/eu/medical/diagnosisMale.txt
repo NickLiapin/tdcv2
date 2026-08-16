@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Basque that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: eu
+---
+prostatako hiperplasia benignoa
+prostatako minbizia
+prostatitisa
+barrabiletako minbizia
+disfuntzio erektila
+fimosia
+barrabil-tortsioa
+barizelea
+hidrozelea
+espermatozelea
+ginekomastia
+hipogonadismo maskulinoa
+epididimitisa
+zakilaren minbizia
+azoospermia
+oligospermia
+Peyronie gaixotasuna
+kriptorkidia
+balanitisa
+uretritis maskulinoa

@@ -1,0 +1,20 @@
+---
+description: Horse breed (Basque). The POTTOKA is the semi-wild native pony of the Basque hills, a distinct breed and not a translation of anything; the euskal mendiko zaldia is the Basque Mountain Horse.
+locale: eu
+---
+pottoka
+euskal mendiko zaldia
+arabiarra
+purasangre ingelesa
+andaluziarra
+perxeroia
+bretoia
+frisiarra
+appaloosa
+mustanga
+poni shetlandiarra
+haflingerra
+lusitanoa
+ardennesa
+kamargoa
+trakehnerra

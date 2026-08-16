@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of this ancestry (Saharaz hegoaldeko Afrikakoa), in Basque. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: eu
+---
+anemia zelula-faltziformea
+faltziforme-ezaugarria
+G6PD entzimaren gabezia
+alfa-talasemia
+hipertentsio arteriala
+APOL1i lotutako giltzurrun-gaixotasuna
+prostatako minbizia
+sarkoidosia
+keloideak
+laktosa-intolerantzia
+2 motako diabetesa
+miokardiopatia hipertentsiboa

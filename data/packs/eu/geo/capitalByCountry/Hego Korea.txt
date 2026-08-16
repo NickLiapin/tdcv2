@@ -1,0 +1,5 @@
+---
+description: Capital of Hego Korea (Basque)
+locale: eu
+---
+Seul
