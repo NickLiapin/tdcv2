@@ -1,0 +1,38 @@
+---
+description: Fruit in Mongolian. The first block GROWS IN MONGOLIA and mostly grows wild rather than in orchards: ЧАЦАРГАНА, sea buckthorn, is the national fruit in all but name, orange, sour, pressed into juice and now farmed commercially; нэрс blueberry, улаагана and бөөрөлзгөнө the wild currants and raspberries, монос bird cherry, долоогоно hawthorn, and гүзээлзгэнэ wild strawberry, all gathered in the northern forests in late summer. Everything after алим is IMPORTED, mostly from China, and was rare before the 1990s — a Mongolian dataset set before then should not be full of bananas.
+locale: mn
+---
+чацаргана
+нэрс
+улаагана
+бөөрөлзгөнө
+монос
+долоогоно
+үхрийн нүд
+гүзээлзгэнэ
+бүйлс
+алим
+лийр
+чавга
+гүйлс
+интоор
+тоор
+усан үзэм
+тарвас
+амтат гуа
+жүрж
+мандарин
+нимбэг
+лайм
+гадил
+ананас
+манго
+киви
+анар
+хурмаа
+инжир
+авокадо
+кокос
+папайя
+бөөрөлзгөнө жимс
+хар үзэм

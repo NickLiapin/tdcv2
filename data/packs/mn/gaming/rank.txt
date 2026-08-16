@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier in Mongolian.
+locale: mn
+---
+Төмөр
+Хүрэл
+Мөнгө
+Алт
+Платин
+Алмаз
+Мастер
+Их мастер
+Аварга
+Домог

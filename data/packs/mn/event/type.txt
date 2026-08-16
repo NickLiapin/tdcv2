@@ -1,0 +1,33 @@
+---
+description: Event type in Mongolian. НААДАМ heads the list and is not a festival among festivals: the national games of wrestling, archery and horse racing are a public holiday of several days in July, and a very large share of everything a Mongolian events dataset contains happens either at Наадам or at ЦАГААН САР, the lunar new year. Both move against the Gregorian calendar and both stop the country.
+locale: mn
+---
+Наадам
+Цагаан сар
+Хурим
+Үсчлэх ёслол
+Төрсөн өдөр
+Ой тэмдэглэх
+Хурал
+Чуулган
+Семинар
+Сургалт
+Вебинар
+Үзэсгэлэн
+Худалдааны үзэсгэлэн
+Тоглолт
+Концерт
+Спортын тэмцээн
+Уралдаан
+Барилдаан
+Харваа
+Буянт үйлс
+Хандив цуглуулах
+Уулзалт
+Танилцах уулзалт
+Бүтээгдэхүүний нээлт
+Нээлтийн ёслол
+Хүлээн авалт
+Оршуулга
+Мэндэлсний баяр
+Төгсөлтийн ёслол

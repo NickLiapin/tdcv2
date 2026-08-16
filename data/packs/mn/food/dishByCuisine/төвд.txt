@@ -1,0 +1,10 @@
+---
+description: Dishes of төвд cuisine, named in Mongolian.
+locale: mn
+---
+момо
+тукпа
+цампа
+тостой цай
+шапта
+тингмо

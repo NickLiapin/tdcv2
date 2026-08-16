@@ -1,0 +1,5 @@
+---
+description: Currency of Киргиз, named in Mongolian.
+locale: mn
+---
+сом

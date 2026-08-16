@@ -1,0 +1,5 @@
+---
+description: Currency of Нигери, named in Mongolian.
+locale: mn
+---
+найра

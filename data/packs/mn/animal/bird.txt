@@ -1,0 +1,34 @@
+---
+description: Bird in Mongolian. ИДЛЭГ ШОНХОР, the saker falcon, is the national bird and the centre of a real economy — Mongolia is the world's main source of sakers for Gulf falconry — and бүргэд, the golden eagle, is the bird the Kazakh eagle hunters of Bayan-Ölgii fly at foxes and wolves from horseback. АНГИР, the ruddy shelduck, is treated as sacred and is not hunted, because its colour is the colour of a lama's robe. ТООДОГ, the great bustard, is the heaviest flying bird in the country and is a protected species.
+locale: mn
+---
+идлэг шонхор
+шонхор
+бүргэд
+цармын бүргэд
+харцага
+элээ
+тас
+ёл
+шар шувуу
+уулын бүргэд
+ангир
+хун
+галуу
+нугас
+тогоруу
+тоодог
+хотон
+дэглий
+хэрээ
+шаазгай
+тагтаа
+бор шувуу
+хөхөө
+болжмор
+хараацай
+тоншуул
+тахиа
+галуун хур
+ногтруу
+цасны бөднө

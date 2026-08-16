@@ -1,0 +1,28 @@
+---
+description: Vehicle body type in Mongolian. Note the shape of the Mongolian fleet: right-hand-drive Japanese imports dominate on left-hand-drive roads, the Toyota Prius alone is a very large share of the cars in Ulaanbaatar, and outside the paved network a ЖИЙП or a УАЗ — the Soviet van universally called a "фургон" — is not a lifestyle choice but the only thing that gets there. МОТОЦИКЛ is the herder's vehicle and has largely replaced the horse for daily herding.
+locale: mn
+---
+Суудлын
+Седан
+Хэтчбэк
+Купе
+Универсал
+Жийп
+Кроссовер
+Пикап
+Микроавтобус
+Фургон
+Ачааны машин
+Хүнд даацын машин
+Автобус
+Цистерн
+Чиргүүл
+Трактор
+Экскаватор
+Кран
+Мотоцикл
+Мопед
+Дөрвөн дугуйт
+Цасны мотоцикл
+Цахилгаан машин
+Хайбрид

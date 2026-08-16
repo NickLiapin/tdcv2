@@ -1,0 +1,12 @@
+---
+description: Dishes of итали cuisine, named in Mongolian.
+locale: mn
+---
+пицца
+спагетти
+лазанья
+ризотто
+карбонара
+равиоли
+минестроне
+тирамису

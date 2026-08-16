@@ -1,0 +1,16 @@
+---
+description: Shoe size as it is printed on a shoebox in Mongolia — the EUROPEAN (Paris point) scale, the same numbers as Russia and continental Europe, running 35 to 46 for adults. This is the country convention rather than a fact about the language: Mongolian retail imports its footwear from China, Russia and Europe, and the EU number is what the label carries. Traditional Mongolian boots, монгол гутал, are not sized on this scale at all — they are made to the foot by a bootmaker and described by length in units of сөөм, a hand span, so a dataset covering traditional footwear needs a different column entirely.
+locale: mn
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

@@ -1,0 +1,5 @@
+---
+description: Capital of Марокко, in Mongolian.
+locale: mn
+---
+Рабат

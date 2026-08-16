@@ -1,0 +1,5 @@
+---
+description: Currency of Филиппин, named in Mongolian.
+locale: mn
+---
+песо

@@ -1,0 +1,12 @@
+---
+description: Dishes of казах cuisine, named in Mongolian.
+locale: mn
+---
+бешбармак
+хуурдаг
+манты
+самса
+казы
+шужиг
+кумис
+баурсак

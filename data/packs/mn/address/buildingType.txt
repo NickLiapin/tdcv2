@@ -1,0 +1,44 @@
+---
+description: Building type in Mongolian. ГЭР IS THE ENTRY THAT MATTERS: the felt-walled round dwelling is not folklore or a tourist attraction but ordinary housing, and roughly half the population of Ulaanbaatar lives in the гэр хороолол, the unplanned ger districts on the hillsides around the built city. A ger has a plot address rather than a flat number, which is why address/unitDesignator.txt carries хашаа, a fenced plot, beside тоот, a flat number. өвөлжөө and зуслан are the winter and summer camps a herding household moves between, and they are addresses too.
+locale: mn
+---
+гэр
+орон сууц
+байшин
+хашаа байшин
+амины орон сууц
+оффис
+албан байгууллага
+агуулах
+дэлгүүр
+худалдааны төв
+зах
+үйлдвэр
+цех
+эмнэлэг
+эмийн сан
+сургууль
+цэцэрлэг
+их сургууль
+номын сан
+музей
+театр
+кино театр
+зочид буудал
+ресторан
+цайны газар
+спорт заал
+цэнгэлдэх хүрээлэн
+сүм
+хийд
+сүм дуган
+банк
+шатахуун түгээх станц
+гараж
+зогсоол
+зоорь
+өвөлжөө
+зуслан
+хашаа
+жижүүрийн байр
+нийтийн байр

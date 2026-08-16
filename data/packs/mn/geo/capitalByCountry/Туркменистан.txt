@@ -1,0 +1,5 @@
+---
+description: Capital of Туркменистан, in Mongolian.
+locale: mn
+---
+Ашхабад

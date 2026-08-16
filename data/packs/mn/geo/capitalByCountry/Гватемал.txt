@@ -1,0 +1,5 @@
+---
+description: Capital of Гватемал, in Mongolian.
+locale: mn
+---
+Гватемал

@@ -1,0 +1,9 @@
+---
+description: Dishes of вьетнам cuisine, named in Mongolian.
+locale: mn
+---
+фо
+бань ми
+спринг ролл
+бун ча
+вьетнам кофе

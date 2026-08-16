@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Сахарын өмнөд Африкийн ancestry, named in Mongolian. A prevalence signal, not an exclusive one. A prevalence signal, not an exclusive one — every condition here occurs in other populations too, and this list only says the frequency is markedly higher.
+locale: mn
+---
+Хадуур эсийн цус багадалт
+Хадуур эсийн шинж тээгч
+Глюкоз-6-фосфат дегидрогеназын дутагдал
+Альфа талассеми
+Саркоидоз
+Лактоз үл тэвчих
+Бөөрний эмгэгт APOL1 хувилбар

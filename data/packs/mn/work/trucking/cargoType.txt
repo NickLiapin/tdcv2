@@ -1,0 +1,19 @@
+---
+description: Truck cargo or trailer type in Mongolian. НҮҮРС ТЭЭВЭР leads because it is the single largest road-freight flow in the country: the coal convoys from Tavan Tolgoi to the Chinese border at Gashuunsukhait are hundreds of kilometres of unsealed road and thousands of trucks. МАЛ ТЭЭВЭР, livestock haulage, is the other characteristic load.
+locale: mn
+---
+Нүүрс тээвэр
+Хүдэр тээвэр
+Хуурай ачаа
+Хөргөлттэй
+Тэвштэй
+Цистерн
+Мал тээвэр
+Аюултай ачаа
+Чингэлэг
+Автомашин тээвэр
+Хүнд даацын
+Овор ихтэй ачаа
+Сав баглаатай
+Модон материал
+Барилгын материал

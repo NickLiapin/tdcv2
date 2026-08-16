@@ -1,0 +1,5 @@
+---
+description: Currency of Ирланд, named in Mongolian.
+locale: mn
+---
+евро

@@ -1,0 +1,10 @@
+---
+description: Mongolian full male name in its OFFICIAL, documentary shape — Батын Дорж. THE ORDER IS FATHER'S NAME FIRST, GIVEN NAME SECOND, and the first element is NOT a surname: it is the father's own given name in the genitive case (see person/lastName.txt). So Батын Дорж is "Dorj of Bat" and his own son would be Доржийн <name>, not another Батын. The GIVEN NAME IS THE REAL NAME — it is what the person is called, listed under, sorted by and addressed as — so a config that maps this pair onto first_name / last_name columns and then sorts or de-duplicates on last_name is sorting on the wrong field. Mongolian has no gendered surname form and no generational suffix, and honorifics FOLLOW the name (Дорж гуай), never precede it. This unabbreviated form is what appears on an identity card, a diploma or a court filing; for the shape used in every other context see person/male/initialName.tdc.
+locale: mn
+generator: tdc
+---
+<sequence name="p">
+  <gen name="l" type="template" value="mn.person.lastName"/>
+  <gen name="f" type="template" value="mn.person.male.firstName"/>
+</sequence>
+<data>${{p.l}} ${{p.f}}</data>

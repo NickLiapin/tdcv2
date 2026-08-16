@@ -1,0 +1,28 @@
+---
+description: Venue type in Mongolian. Two are not buildings and are the commonest venues in the country: ХЭЭР ТАЛ, the open steppe, is where Наадам horse races are actually run, over cross-country courses of fifteen to thirty kilometres with no track at all; and a ГЭР is a venue, pitched for the occasion.
+locale: mn
+---
+Зочид буудлын танхим
+Хурлын төв
+Цэнгэлдэх хүрээлэн
+Спорт цогцолбор
+Театр
+Кино театр
+Соёлын төв
+Хуримын ордон
+Ресторан
+Кафе
+Дээвэр дээрх талбай
+Цэцэрлэгт хүрээлэн
+Агуулах
+Их танхим
+Шөнийн клуб
+Хурлын өрөө
+Үзэсгэлэнгийн танхим
+Номын сан
+Музей
+Сүм хийд
+Хээр тал
+Гэр
+Зуслан
+Уулын бааз

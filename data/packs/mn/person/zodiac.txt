@@ -1,0 +1,16 @@
+---
+description: THE TWELVE-YEAR ANIMAL CYCLE — WHICH IS WHAT A MONGOLIAN MEANS BY THEIR SIGN, and it is not the same kind of thing as a European sun sign. Asked what sign they are, a Mongolian gives the animal of the YEAR they were born in (жил), never a sign derived from the month, so the value repeats on a twelve-year cycle and is a function of the birth YEAR alone. The cycle turns at the lunar new year Цагаан сар, which falls in late January or February, so someone born in January belongs to the previous year's animal — a config computing this from a Gregorian birthdate by taking the year modulo twelve will be wrong for everyone born in the first weeks of the year. TWO OF THESE WORDS COLLIDE WITH THE WESTERN ZODIAC IN MONGOLIAN TRANSLATION: Aries is also хонь and Taurus is also үхэр, so a column holding "хонь" is ambiguous between a birth-year animal and a sun sign unless the config says which. The same twelve animals name the months of the traditional lunar calendar and the twelve double-hours of the day.
+locale: mn
+---
+хулгана
+үхэр
+бар
+туулай
+луу
+могой
+морь
+хонь
+бич
+тахиа
+нохой
+гахай

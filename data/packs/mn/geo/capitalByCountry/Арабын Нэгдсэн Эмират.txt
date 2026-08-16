@@ -1,0 +1,5 @@
+---
+description: Capital of Арабын Нэгдсэн Эмират, in Mongolian.
+locale: mn
+---
+Абу-Даби

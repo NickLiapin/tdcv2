@@ -1,0 +1,5 @@
+---
+description: Currency of Унгар, named in Mongolian.
+locale: mn
+---
+форинт

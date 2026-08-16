@@ -1,0 +1,32 @@
+---
+description: Technical verb in Mongolian, in the -ж / -ч converb form, which is what a progress message uses: "нөөцөлж байна", backing up. THE FORM IS NOT AN -ING PARTICIPLE: Mongolian builds a progressive with a converb plus the auxiliary байна, and the converb alone is not a complete phrase — a config splicing these must supply байна or an equivalent, or the string reads as a fragment.
+locale: mn
+---
+нөөцөлж
+тойрч
+эвдэж
+дарж бичиж
+шахаж
+хуулж
+шилжиж
+индекслэж
+холбогдож
+үүсгэж
+тоолж
+бодож
+нэгтгэж
+дамжуулж
+программчилж
+дахин ачаалж
+задлан шинжилж
+шифрлэж
+тайлж
+байршуулж
+татаж
+хайж
+шүүж
+эрэмбэлж
+шинэчилж
+суулгаж
+устгаж
+сэргээж

@@ -1,0 +1,5 @@
+---
+description: Currency of Их Британи, named in Mongolian.
+locale: mn
+---
+фунт стерлинг

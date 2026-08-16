@@ -1,0 +1,10 @@
+---
+description: Dishes of грек cuisine, named in Mongolian.
+locale: mn
+---
+мусака
+сувлаки
+гирос
+грек салат
+спанакопита
+цацики

@@ -1,0 +1,13 @@
+---
+description: Ranks in Mongolian wrestling. NOT POSITIONS — Mongolian wrestling has none. A wrestler earns a title by the number of rounds he survives at Наадам: начин (falcon) at five, харцага (hawk) at six, заан (elephant) at seven, гарьд (garuda) at eight, арслан (lion) for winning the tournament and аварга (champion) for winning it again. The title is permanent and is used before the name for life. засуул is the second who attends a wrestler and chants his praise.
+locale: mn
+---
+аварга
+даяар аварга
+арслан
+заан
+гарьд
+харцага
+начин
+үндэсний бөхчин
+засуул

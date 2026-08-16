@@ -1,0 +1,5 @@
+---
+description: Currency of Бангладеш, named in Mongolian.
+locale: mn
+---
+така

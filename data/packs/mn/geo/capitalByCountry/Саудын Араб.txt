@@ -1,0 +1,5 @@
+---
+description: Capital of Саудын Араб, in Mongolian.
+locale: mn
+---
+Эр-Рияд

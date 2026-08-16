@@ -1,0 +1,10 @@
+---
+description: Mongolian female name in EVERYDAY written form — Ц.Оюунчимэг. THIS IS THE SHAPE MONGOLIANS ACTUALLY WRITE. The father's name is reduced to its first letter and a full stop, with NO SPACE after the stop, and the given name follows: Б.Дорж, Д.Ганбат, Ц.Оюунчимэг. Newspapers, staff lists, team sheets, name plates, bylines, class registers and the credits of a film all use this and not the full form. The initial is taken with the slice filter from the first character of the genitive father's name, which is the same letter as the father's bare name because the genitive suffix only ever attaches at the end. A config that needs a display name for a Mongolian person should reach for this generator, and keep person/*/fullName.tdc for the document fields. As with the full form, the father's name is drawn from person/lastName.txt because Mongolian has no feminine surname form at all.
+locale: mn
+generator: tdc
+---
+<sequence name="p">
+  <gen name="l" type="template" value="mn.person.lastName"/>
+  <gen name="f" type="template" value="mn.person.female.firstName"/>
+</sequence>
+<data>${{p.l | slice:0,1}}.${{p.f}}</data>

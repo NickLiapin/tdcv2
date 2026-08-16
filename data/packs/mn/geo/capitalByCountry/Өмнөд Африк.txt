@@ -1,0 +1,5 @@
+---
+description: Capital of Өмнөд Африк, in Mongolian.
+locale: mn
+---
+Претори

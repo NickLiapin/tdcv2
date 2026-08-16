@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Балба. The codes are Latin in every locale.
+locale: mn
+---
+NPR

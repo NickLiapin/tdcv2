@@ -1,0 +1,30 @@
+---
+description: Writing system, named in Mongolian. THE SCRIPT DECISION FOR THIS WHOLE PACK IS RECORDED HERE: every file in data/packs/mn is written in MONGOLIAN CYRILLIC (кирилл үсэг), and the only non-Cyrillic characters anywhere in the pack are brand names, aircraft designations, currency codes and technical abbreviations that are Latin in every locale. There is not one character of the traditional vertical script in the pack. THE REASON: Mongolia has written Cyrillic since 1946 and it is what physically exists in the record — the national identity card, the civil registry, e-Mongolia, school textbooks, the tugrik banknotes, street signs, court judgments and the entire press are Cyrillic, and a generated record only has value if it matches a real one. The traditional MONGOL BICHIG (монгол бичиг, Unicode U+1800-U+18AF) is not dead and this is not a judgement about it: the 2015 Law on the Mongolian Language brought it back into official use, from 2025 state documents are meant to carry both scripts, and in Inner Mongolia it never stopped being the everyday script. Two concrete things still rule it out of a data pack. FIRST, it is written VERTICALLY, top to bottom in columns running left to right, and this pack format has exactly one direction field in _locale.json whose vocabulary is ltr and rtl — vertical is neither, so shipping монгол бичиг would mean declaring a direction that is simply false. SECOND, its Unicode model needs contextual shaping with initial, medial and final letterforms plus free variation selectors, and a plain .txt list of code points renders as disconnected letters almost everywhere it is loaded; a pack that looked right in one font and wrong in the next would be worse than no pack. So: Cyrillic, everywhere, consistently. The Mongolian Cyrillic alphabet has 35 letters, TWO of which Russian does not have at all: Ө ө (U+04E8 / U+04E9) and Ү ү (U+04AE / U+04AF). Both are core vowels rather than decoration — ө is the rounded front counterpart of о, ү of у — so any genuinely Mongolian list is dense with them, and an mn pack containing none of them is Russian wearing a Mongolian label. The values below are the scripts themselves, and Mongolian has an unusually long list of its own to name: монгол бичиг, the vertical Uyghur-derived script in use since about 1204; дөрвөлжин бичиг, the square Phags-pa script commissioned by Kublai Khan in 1269; тод бичиг, the Clear Script made by Zaya Pandita in 1648 for Oirat; соёмбо үсэг, Zanabazar's Soyombo of 1686, whose first character is the state emblem on the flag; хэвтээ дөрвөлжин бичиг, Zanabazar's horizontal square script of the same year; вагиндра үсэг, the Buryat reform of 1905; a brief Latin experiment in the 1930s; and кирилл үсэг from 1941-1946 onward.
+locale: mn
+---
+кирилл үсэг
+монгол бичиг
+дөрвөлжин бичиг
+тод бичиг
+соёмбо үсэг
+хэвтээ дөрвөлжин бичиг
+вагиндра үсэг
+латин үсэг
+араб үсэг
+ханз үсэг
+хирагана
+катакана
+солонгос үсэг
+деванагари
+төвд бичиг
+манж бичиг
+уйгар бичиг
+орхон бичиг
+грек үсэг
+еврей үсэг
+армен үсэг
+гүрж үсэг
+тайланд бичиг
+бирм бичиг
+кхмер бичиг
+эфиоп бичиг

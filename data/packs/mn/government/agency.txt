@@ -1,0 +1,32 @@
+---
+description: Government body in Mongolia. Mongolian is the official language of one country, so these are that country's actual ministries and general agencies rather than a generic set — and they are named as they are because they are the words. What deliberately is NOT here belongs to the Mongolia country pack: the register number (регистрийн дугаар) and its check letter, the provinces and their codes, the phone plan and the banks. Note that a Mongolian ministry name is a chain of genitives ending in ЯАМ, ministry, and a general agency ends in ЕРӨНХИЙ ГАЗАР — the head noun comes last, the reverse of "Department of Health".
+locale: mn
+---
+Эрүүл мэндийн яам
+Боловсрол, шинжлэх ухааны яам
+Сангийн яам
+Хууль зүй, дотоод хэргийн яам
+Батлан хамгаалахын яам
+Гадаад харилцааны яам
+Барилга, хот байгуулалтын яам
+Зам, тээврийн хөгжлийн яам
+Уул уурхай, хүнд үйлдвэрийн яам
+Хүнс, хөдөө аж ахуй, хөнгөн үйлдвэрийн яам
+Байгаль орчин, аялал жуулчлалын яам
+Хөдөлмөр, нийгмийн хамгааллын яам
+Соёлын яам
+Эрчим хүчний яам
+Эдийн засаг, хөгжлийн яам
+Цахим хөгжлийн яам
+Татварын ерөнхий газар
+Гаалийн ерөнхий газар
+Улсын бүртгэлийн ерөнхий газар
+Нийгмийн даатгалын ерөнхий газар
+Цагдаагийн ерөнхий газар
+Онцгой байдлын ерөнхий газар
+Хилийн цэргийн газар
+Мэргэжлийн хяналтын газар
+Үндэсний статистикийн хороо
+Сонгуулийн ерөнхий хороо
+Авлигатай тэмцэх газар
+Үндэсний архивын газар

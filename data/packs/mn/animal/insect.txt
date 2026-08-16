@@ -1,0 +1,23 @@
+---
+description: Insect and other small crawling creature in Mongolian. царцаа, the locust, is an agricultural event rather than a curiosity — swarms damage pasture in dry years. Note that Mongolian хорхой is a general word for any grub, worm or creeping thing and is not specific to insects; it is also the second half of олгой хорхой, the Gobi "death worm" of folklore.
+locale: mn
+---
+шоргоолж
+зөгий
+тэмээлзгэнэ
+эрвээхэй
+цох
+голио
+ялаа
+шумуул
+царцаа
+соно
+аалз
+жоом
+бөөс
+хачиг
+хорхой
+гэрэлт хорхой
+шавж
+бүүрэг
+үхэр цох

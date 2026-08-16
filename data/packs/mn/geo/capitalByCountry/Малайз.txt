@@ -1,0 +1,5 @@
+---
+description: Capital of Малайз, in Mongolian.
+locale: mn
+---
+Куала-Лумпур

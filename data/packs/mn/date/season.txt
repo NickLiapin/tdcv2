@@ -1,0 +1,8 @@
+---
+description: Season in Mongolian. Four of them, as in Europe, but the shape of the year is not European: winter runs from roughly November to March with sustained temperatures below minus twenty, spring is the short violent windy season that brings the dust storms, and summer is brief. Most seasonal vocabulary in the language attaches to the herding calendar rather than the meteorological one.
+locale: mn
+---
+хавар
+зун
+намар
+өвөл

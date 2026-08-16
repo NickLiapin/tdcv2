@@ -1,0 +1,10 @@
+---
+description: Work shift in Mongolian. Mongolian mines run a ROTATION rather than a daily commute — a worker flies or drives to a Gobi site and lives there for a block of days — so ээлжийн хуваарь here includes the 14/14 and 21/21 rotations that are the real pattern.
+locale: mn
+---
+Өдрийн ээлж
+Шөнийн ээлж
+Оройн ээлж
+Эргэлтийн ээлж
+14/14 ээлж
+21/21 ээлж

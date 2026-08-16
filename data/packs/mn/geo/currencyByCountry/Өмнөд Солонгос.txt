@@ -1,0 +1,5 @@
+---
+description: Currency of Өмнөд Солонгос, named in Mongolian.
+locale: mn
+---
+вон

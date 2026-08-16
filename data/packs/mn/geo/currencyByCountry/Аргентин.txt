@@ -1,0 +1,5 @@
+---
+description: Currency of Аргентин, named in Mongolian.
+locale: mn
+---
+песо

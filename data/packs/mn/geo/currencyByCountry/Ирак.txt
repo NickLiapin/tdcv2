@@ -1,0 +1,5 @@
+---
+description: Currency of Ирак, named in Mongolian.
+locale: mn
+---
+динар

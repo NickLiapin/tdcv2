@@ -1,0 +1,5 @@
+---
+description: Capital of Афганистан, in Mongolian.
+locale: mn
+---
+Кабул

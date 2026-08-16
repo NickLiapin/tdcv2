@@ -1,0 +1,14 @@
+---
+description: Time of day in Mongolian: үүр is first light, өглөө the morning, өдөр the daytime, үд дунд midday, үдээс хойш the afternoon, орой the evening, бүрий dusk, шөнө the night and шөнө дунд midnight.
+locale: mn
+---
+үүр
+өглөө
+өдөр
+үд дунд
+үдээс хойш
+орой
+бүрий
+шөнө
+шөнө дунд
+үүр цайх үе

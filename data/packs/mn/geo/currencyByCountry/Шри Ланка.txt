@@ -1,0 +1,5 @@
+---
+description: Currency of Шри Ланка, named in Mongolian.
+locale: mn
+---
+рупи

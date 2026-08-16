@@ -1,0 +1,5 @@
+---
+description: Capital of Камбож, in Mongolian.
+locale: mn
+---
+Пномпень

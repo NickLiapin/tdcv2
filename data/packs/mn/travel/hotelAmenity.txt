@@ -1,0 +1,34 @@
+---
+description: Hotel or camp facility in Mongolian. The tail of the list belongs to the ГЭР БААЗ, the ger camp, which is the standard tourist accommodation outside the capital: a circle of gers with a separate shower block and a dining ger, no plumbing in the room, and a stove that someone lights at dawn. РАШААН is a mineral hot spring, of which Mongolia has many and which are resorts in their own right.
+locale: mn
+---
+Үнэгүй Wi-Fi
+Автомашины зогсоол
+Ресторан
+Бар
+Өглөөний цай
+Өрөөнд үйлчлэх
+Онгоцны буудлын үйлчилгээ
+Спорт заал
+Усан сан
+Сауна
+Рашаан
+Массаж
+Хурлын танхим
+Бизнес төв
+Угаалгын үйлчилгээ
+Валют солих
+Аялал зохион байгуулах
+Морь унах
+Тэмээ унах
+Гэр байр
+Нийтийн шүршүүр
+Хоолны гэр
+Галлагаатай зуух
+Цахилгаан үүсгүүр
+Тэжээвэр амьтан зөвшөөрнө
+Хөгжлийн бэрхшээлтэй иргэдэд ээлтэй
+Дээвэр дээрх талбай
+Хүүхдийн тоглоомын талбай
+24 цагийн ресепшн
+Хамгаалалттай

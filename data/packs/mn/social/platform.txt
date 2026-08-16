@@ -1,0 +1,21 @@
+---
+description: Social platform. Brand names stay in Latin. FACEBOOK IS THE MONGOLIAN INTERNET to a degree without parallel in Europe: penetration is among the highest in the world, businesses run on Facebook pages rather than websites, and much of the country's public debate happens there. A Mongolian social dataset weighted like a Western one, with Facebook as one platform among many, misrepresents the market badly.
+locale: mn
+---
+Facebook
+Facebook Messenger
+TikTok
+Instagram
+YouTube
+Twitter
+LinkedIn
+Telegram
+WhatsApp
+Viber
+WeChat
+KakaoTalk
+Discord
+Reddit
+Pinterest
+Snapchat
+Threads

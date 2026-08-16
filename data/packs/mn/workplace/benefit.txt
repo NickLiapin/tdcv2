@@ -1,0 +1,24 @@
+---
+description: Employee benefit in Mongolian. Two are specific: НҮҮРСНИЙ МӨНГӨ, a coal allowance, and ТҮЛШНИЙ МӨНГӨ, a fuel allowance, are ordinary parts of a Mongolian pay package because heating a ger-district home through a winter is a real household expense; and ЦАГААН САРЫН МӨНГӨ, a lunar new year payment, is the customary annual bonus, timed to Цагаан сар rather than to the calendar year.
+locale: mn
+---
+Эрүүл мэндийн даатгал
+Нийгмийн даатгал
+Цалинтай амралт
+Шүдний эмчилгээ
+Нүдний шалгалт
+Хоолны мөнгө
+Унааны мөнгө
+Түлшний мөнгө
+Нүүрсний мөнгө
+Цагаан сарын мөнгө
+Ажлын гар утас
+Зайнаас ажиллах
+Уян хатан цаг
+Сургалтын дэмжлэг
+Хувьцааны эрх
+Амь насны даатгал
+Хүүхэд асрах чөлөө
+Спорт заалны эрх
+Эрүүл мэндийн үзлэг
+Байрны дэмжлэг

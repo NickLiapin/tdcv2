@@ -1,0 +1,93 @@
+---
+description: Medical diagnosis that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale and diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. THE HEAD OF THIS LIST IS MONGOLIA'S ACTUAL DISEASE BURDEN AND IT IS NOT A EUROPEAN ONE. Mongolia has, by a wide margin, THE HIGHEST LIVER CANCER RATE IN THE WORLD — roughly six times the global average — driven by very high chronic hepatitis B and C prevalence and heavy alcohol use, and stomach cancer is close behind; together they make cancer a different shape here from anywhere in Europe. Four zoonoses in this list are ordinary reportable diseases in Mongolia and exotic almost everywhere else, because they come off livestock and marmots: БРУЦЕЛЛЁЗ from sheep and cattle, ЭХИНОКОККОЗ from dogs and livestock, ТАРВАГАН ТАХАЛ — bubonic plague, which is endemic in the marmot population and causes human cases and district quarantines most years — and БООМ, anthrax. СҮРЬЕЭ, tuberculosis, remains a significant burden. And the winter air in Ulaanbaatar, among the worst in the world for particulates, puts respiratory disease at the top of the paediatric list. A config generating Mongolian clinical data from a European prevalence table will get all of this wrong.
+locale: mn
+---
+Элэгний архаг B вирусын үрэвсэл
+Элэгний архаг C вирусын үрэвсэл
+Элэгний хатуурал
+Элэгний эсийн хорт хавдар
+Ходоодны хорт хавдар
+Улаан хоолойн хорт хавдар
+Уушгины хорт хавдар
+Бруцеллёз
+Эхинококкоз
+Тарваган тахал
+Боом
+Сүрьеэ
+Галзуу өвчин
+Уушгины хатгалгаа
+Гуурсан хоолойн цочмог үрэвсэл
+Багтраа
+Уушгины архаг бөглөрөлт өвчин
+Томуу
+Ханиад
+Артерийн даралт ихсэх
+Зүрхний титэм судасны өвчин
+Зүрхний шигдээс
+Зүрхний дутагдал
+Тосгуурын жирвэлзэх
+Тархины цус харвалт
+Цусан дахь өөх тос ихсэх
+Таргалалт
+Чихрийн шижин
+Бамбайн үйл ажиллагааны дутагдал
+Бамбайн үйл ажиллагаа ихсэх
+Ясны сийрэгжилт
+Тулай
+Цус багадалт
+Төмөр дутлын цус багадалт
+D аминдэмийн дутагдал
+Мигрень
+Эпилепси
+Паркинсоны өвчин
+Альцгеймерийн өвчин
+Тархвэрт хатуурал
+Захын мэдрэлийн эмгэг
+Хүнд хэлбэрийн сэтгэл гутрал
+Түгээмэл түгшүүрийн эмгэг
+Хоёр туйлт эмгэг
+Архины хамаарал
+Нойргүйдэл
+Нойрны үед амьсгал зогсох
+Ходоод улаан хоолойн сөргөө
+Ходоодны шархлаа
+Гастрит
+Мухар олгойн үрэвсэл
+Цөсний хүүдийн үрэвсэл
+Цөсний чулуу
+Нойр булчирхайн цочмог үрэвсэл
+Цочромтгой гэдэсний хам шинж
+Кроны өвчин
+Шархлаат бүдүүн гэдэсний үрэвсэл
+Гэдэсний цочмог халдвар
+Бөөрний архаг өвчин
+Бөөрний чулуу
+Шээсний замын халдвар
+Бөөрний бөөмийн үрэвсэл
+Үе мөчний хэвшмэл өвчин
+Ревматоид артрит
+Нугалам хоорондын дискний ивэрхий
+Суудлын мэдрэлийн үрэвсэл
+Бугуйн сувгийн хам шинж
+Шөрмөсний үрэвсэл
+Псориаз
+Атопик дерматит
+Харшлын ринит
+Хамрын хөндийн архаг үрэвсэл
+Дунд чихний үрэвсэл
+Нүдний салст бүрхэвчийн үрэвсэл
+Катаракт
+Глауком
+Толгой эргэх
+Чихний шуугиан
+Цусны хорт хавдар
+Лимфийн хорт хавдар
+Меланом
+Хөхний хорт хавдар
+Судасны бүлэн
+Судас өргөсөх
+Шулуун гэдэсний хорт хавдар
+Сепсис
+Целиак өвчин
+Улаан чонон яр
+Анхаарлын дутагдал хэт хөдөлгөөнт эмгэг

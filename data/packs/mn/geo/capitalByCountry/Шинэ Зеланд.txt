@@ -1,0 +1,5 @@
+---
+description: Capital of Шинэ Зеланд, in Mongolian.
+locale: mn
+---
+Веллингтон

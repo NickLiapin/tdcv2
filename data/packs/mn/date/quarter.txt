@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter in Mongolian. улирал means both a quarter of the year and a season; the ordinal digit plus -р disambiguates it. Mongolian statistical and tax reporting uses exactly this form.
+locale: mn
+---
+1-р улирал
+2-р улирал
+3-р улирал
+4-р улирал

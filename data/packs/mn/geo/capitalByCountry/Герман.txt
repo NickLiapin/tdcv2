@@ -1,0 +1,5 @@
+---
+description: Capital of Герман, in Mongolian.
+locale: mn
+---
+Берлин

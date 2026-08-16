@@ -1,0 +1,34 @@
+---
+description: Unit of measure on a Mongolian invoice. Mongolia is metric, so kilograms and litres are the ordinary units. The tail of the list is livestock and steppe measure and has no metric equivalent: ТОЛГОЙ, a head, is how livestock is counted and is the unit the national herd statistics are published in; БОГ and БОД are the two classes livestock is aggregated into, small stock (sheep and goats) and large stock (cattle, horses, camels), with a fixed conversion between them used for taxation and pasture accounting; and АЛД, a fathom, and СӨӨМ, a hand span, are body measures still used for rope, felt and boot length.
+locale: mn
+---
+ширхэг
+багц
+хайрцаг
+сав
+уут
+боодол
+хос
+иж бүрдэл
+ороомог
+арван хоёр
+килограмм
+грамм
+тонн
+центнер
+литр
+миллилитр
+метр
+сантиметр
+километр
+квадрат метр
+куб метр
+гектар
+толгой
+бог
+бод
+алд
+сөөм
+тэвш
+аяга
+халбага

@@ -1,0 +1,5 @@
+---
+description: Capital of Австрали, in Mongolian.
+locale: mn
+---
+Канберра

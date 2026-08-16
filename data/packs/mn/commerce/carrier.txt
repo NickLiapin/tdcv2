@@ -1,0 +1,24 @@
+---
+description: Shipping carrier as a Mongolian order confirmation names it. Монгол шуудан is the national postal operator. Note that Mongolia is landlocked between two countries and essentially all inbound freight is rail or road through China or Russia, which is why the international express brands sit beside Chinese platform logistics and why sea carriers are absent.
+locale: mn
+---
+Монгол шуудан
+DHL
+FedEx
+UPS
+TNT
+EMS
+Aramex
+SF Express
+Cainiao
+China Post
+Почта России
+Korea Post
+Japan Post
+Түгээлтийн алба
+Хот доторх хүргэлт
+Орон нутгийн хүргэлт
+Шуурхай хүргэлт
+Ачаа тээвэр
+Төмөр замын тээвэр
+Агаарын ачаа

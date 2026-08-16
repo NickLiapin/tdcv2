@@ -1,0 +1,10 @@
+---
+description: Dishes of араб cuisine, named in Mongolian.
+locale: mn
+---
+хумус
+фалафел
+шаурма
+табули
+киббе
+манакиш

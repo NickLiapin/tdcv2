@@ -1,0 +1,34 @@
+---
+description: Vegetable in Mongolian. VEGETABLES ARE A RECENT ARRIVAL: Mongolia's growing season is about ninety frost-free days, the traditional diet had essentially no plant food in it, and most of the words here are twentieth-century. The four that hold up in the climate — төмс potato, лууван carrot, байцаа cabbage, манжин beet — are what is actually grown and stored, and they are what a Mongolian shop has in March. The wild alliums gathered on the steppe are in food/spice.txt, where they belong, because that is how they are used.
+locale: mn
+---
+төмс
+лууван
+байцаа
+цагаан байцаа
+улаан байцаа
+манжин
+улаан манжин
+цагаан манжин
+сонгино
+ногоон сонгино
+сармис
+улаан лооль
+өргөст хэмх
+чинжүү
+амтат чинжүү
+хулуу
+эрдэнэ шиш
+вандуй
+шош
+бууцай
+салатны навч
+мөөг
+брокколи
+цэцэгт байцаа
+нишингэ
+улаан лууван
+хумуул
+ногоон вандуй
+хулууны үр
+селдерей

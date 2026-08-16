@@ -1,0 +1,16 @@
+---
+description: Month abbreviation in Mongolian. Because the month is an ordinal and not a name there is nothing to clip to three letters the way Jan clips January: the abbreviation is the DIGIT plus -р сар, where -р is the shortened ordinal suffix. So 1-р сар, 5-р сар, 12-р сар. This is the form on timetables, invoices and newspaper mastheads, and it is what a config should use wherever an English locale would use Jan.
+locale: mn
+---
+1-р сар
+2-р сар
+3-р сар
+4-р сар
+5-р сар
+6-р сар
+7-р сар
+8-р сар
+9-р сар
+10-р сар
+11-р сар
+12-р сар

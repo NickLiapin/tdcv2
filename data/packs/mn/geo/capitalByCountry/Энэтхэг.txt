@@ -1,0 +1,5 @@
+---
+description: Capital of Энэтхэг, in Mongolian.
+locale: mn
+---
+Шинэ Дели

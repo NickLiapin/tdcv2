@@ -1,0 +1,5 @@
+---
+description: Capital of Мексик, in Mongolian.
+locale: mn
+---
+Мехико

@@ -1,0 +1,5 @@
+---
+description: Capital of Киргиз, in Mongolian.
+locale: mn
+---
+Бишкек

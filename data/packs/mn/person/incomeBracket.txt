@@ -1,0 +1,12 @@
+---
+description: ANNUAL household income bracket, labelled in Mongolian. Amounts are in төгрөг (MNT), the currency of Mongolia, the only country where Mongolian is an official language. сая means million, so "20-30 сая ₮" is twenty to thirty million tugriks; the bands are set around a national average monthly wage in the region of two million tugriks, which puts a typical single-earner household near the middle of the list. The tugrik sign ₮ FOLLOWS the number after a space, the thousands separator is a comma and the decimal separator is a full stop.
+locale: mn
+---
+5 сая ₮-с доош
+5-10 сая ₮
+10-20 сая ₮
+20-30 сая ₮
+30-50 сая ₮
+50-80 сая ₮
+80-120 сая ₮
+120 сая ₮-с дээш

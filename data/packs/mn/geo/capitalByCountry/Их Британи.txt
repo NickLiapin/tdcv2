@@ -1,0 +1,5 @@
+---
+description: Capital of Их Британи, in Mongolian.
+locale: mn
+---
+Лондон

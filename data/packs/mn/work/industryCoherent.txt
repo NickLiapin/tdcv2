@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list. Each value is the filename of a file in work/jobByIndustry/. The set is ordered by what Mongolia actually does: mining first, herding second.
+locale: mn
+---
+Уул уурхай
+Мал аж ахуй
+Барилга
+Боловсрол
+Эрүүл мэнд
+Санхүү
+Технологи
+Тээвэр
+Аялал жуулчлал
+Худалдаа

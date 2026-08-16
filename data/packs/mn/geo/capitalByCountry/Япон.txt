@@ -1,0 +1,5 @@
+---
+description: Capital of Япон, in Mongolian.
+locale: mn
+---
+Токио

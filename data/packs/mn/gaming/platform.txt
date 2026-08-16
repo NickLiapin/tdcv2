@@ -1,0 +1,15 @@
+---
+description: Gaming platform. The brand names stay in Latin, as they do on the box in any locale. Mobile dominates the Mongolian market by a wide margin and console penetration is low, so a Mongolian gaming dataset weighted like a Western one will misrepresent it.
+locale: mn
+---
+Гар утас
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+Meta Quest
+Интернэт кафе
+Вэб хөтөч

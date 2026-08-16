@@ -1,0 +1,15 @@
+---
+description: Fuel type in Mongolian. АИ-92 and АИ-80 are the Russian octane grades used at Mongolian pumps, and almost all of Mongolia's refined fuel is imported from Russia, which is why the grade names are Russian and not European.
+locale: mn
+---
+Бензин
+АИ-92
+АИ-95
+АИ-80
+Дизель
+Цахилгаан
+Хайбрид
+Залгуурт хайбрид
+Шингэрүүлсэн хий
+Байгалийн хий
+Устөрөгч

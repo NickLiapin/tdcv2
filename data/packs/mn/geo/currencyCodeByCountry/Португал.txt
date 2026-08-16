@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Португал. The codes are Latin in every locale.
+locale: mn
+---
+EUR

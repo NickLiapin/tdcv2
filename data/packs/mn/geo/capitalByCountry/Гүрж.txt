@@ -1,0 +1,5 @@
+---
+description: Capital of Гүрж, in Mongolian.
+locale: mn
+---
+Тбилиси

@@ -1,0 +1,12 @@
+---
+description: Mining method in Mongolian. Mongolia's two largest mines are one of each kind — Oyu Tolgoi is going underground by block caving while Tavan Tolgoi is open pit — so both words are current. НИНЖА is not an industrial method and is in the list because it is real: it is the everyday word for the tens of thousands of informal artisanal gold miners, named for the green plastic basins they carry on their backs.
+locale: mn
+---
+Ил уурхай
+Далд уурхай
+Ам нэвтрэлт
+Блок нураах
+Урт нүүрэгт
+Шороон ордын олборлолт
+Уусгах арга
+Нинжа олборлолт

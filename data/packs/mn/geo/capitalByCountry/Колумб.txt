@@ -1,0 +1,5 @@
+---
+description: Capital of Колумб, in Mongolian.
+locale: mn
+---
+Богота

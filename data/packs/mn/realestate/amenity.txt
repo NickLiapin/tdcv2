@@ -1,0 +1,28 @@
+---
+description: Property feature in a Mongolian listing. Two are decisive here and are not amenities anywhere warm: ТӨВЛӨРСӨН ДУЛААН, district heating, divides the housing stock in two — a flat on the city heat network is warm all winter for a flat fee, and a ger-district house is heated by a coal stove — and ТӨВЛӨРСӨН УС, mains water, similarly, since ger district households carry water from a kiosk. A Mongolian listing leads on those before it mentions a balcony.
+locale: mn
+---
+Төвлөрсөн дулаан
+Төвлөрсөн ус
+Халуун ус
+Ариун цэврийн байгууламж
+Цахилгаан
+Интернэт
+Кабелийн телевиз
+Лифт
+Гараж
+Машины зогсоол
+Хаалттай хашаа
+Хамгаалалттай
+Камерын хяналт
+Тагт
+Агуулах
+Зоорь
+Тавилгатай
+Шинэ засвартай
+Угаалгын машин
+Аяга таваг угаагч
+Спорт заал
+Хүүхдийн талбай
+Ногоон байгууламж
+Худаг

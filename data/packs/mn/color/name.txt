@@ -1,0 +1,58 @@
+---
+description: Colour name in Mongolian. Two things a config should know. FIRST, MONGOLIAN SPLITS BLUE WHERE ENGLISH DOES NOT: хөх is the dark blue and цэнхэр the light blue, and they are separate basic colour words, not shades of one — the flag is described with хөх, the sky with цэнхэр. SECOND, a large part of the colour vocabulary of the language is HORSE COLOUR and is not usable of anything else: халиун, хээр, зээрд, хул, шарга, буурал and соохор all name coat colours and a Mongolian would not use them of a car or a shirt, so they live in animal/horse.txt and not here. The remaining entries are the ordinary colour words plus the mineral names — оюу turquoise, номин lapis, маргад emerald — which do double duty as colours the way "turquoise" does in English.
+locale: mn
+---
+улаан
+ногоон
+хөх
+цэнхэр
+шар
+улбар шар
+ягаан
+нил ягаан
+нил
+бор
+хүрэн
+хар
+цагаан
+саарал
+алтан
+мөнгөн
+зэс өнгөт
+гуулин
+хүрэл өнгөт
+оюу
+номин
+маргад
+бадмаараг
+сувдан цагаан
+хас ногоон
+тэнгэрийн хөх
+далайн хөх
+час улаан
+улаан хүрэн
+улбар улаан
+алтан шар
+нимбэгэн шар
+элсэн шар
+сүүн цагаан
+цасан цагаан
+хөх ногоон
+шар ногоон
+бараан ногоон
+цайвар ногоон
+бараан хөх
+цайвар хөх
+бараан саарал
+цайвар саарал
+бараан улаан
+цайвар ягаан
+бараан бор
+цайвар бор
+үнсэн саарал
+тоосон саарал
+бүдэг
+тод
+гүн
+гэрэлтсэн
+бүрэнхий

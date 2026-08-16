@@ -1,0 +1,5 @@
+---
+description: Currency of Австрали, named in Mongolian.
+locale: mn
+---
+австрали доллар

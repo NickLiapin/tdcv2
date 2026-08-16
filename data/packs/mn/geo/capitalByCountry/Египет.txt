@@ -1,0 +1,5 @@
+---
+description: Capital of Египет, in Mongolian.
+locale: mn
+---
+Каир

@@ -1,0 +1,29 @@
+---
+description: Gemstone in Mongolian. ОЮУ, turquoise, is the one to know: it names the Oyu Tolgoi copper and gold deposit, "Turquoise Hill", which is the largest single project in the Mongolian economy, and it is also an ordinary given name. НОМИН is lapis lazuli, МАРГАД emerald, БАДМААРАГ ruby, ХАШ jade — and all five double as personal names and as company names, which is why they turn up in person/female/firstName.txt and company/namePart.txt as well as here.
+locale: mn
+---
+алмаз
+бадмаараг
+индранил
+маргад
+сувд
+оюу
+хаш
+шүр
+хув
+болор
+номин
+аметист
+топаз
+гранат
+опал
+оникс
+циркон
+малахит
+нефрит
+бирюз
+агат
+янтарь
+сард чулуу
+лазурит
+хас чулуу

@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation in Mongolian — the first syllable of the Tibetan planet name, Monday first.
+locale: mn
+---
+Да
+Мя
+Лха
+Пү
+Ба
+Бя
+Ня

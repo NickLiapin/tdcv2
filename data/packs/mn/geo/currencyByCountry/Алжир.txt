@@ -1,0 +1,5 @@
+---
+description: Currency of Алжир, named in Mongolian.
+locale: mn
+---
+динар

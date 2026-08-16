@@ -1,0 +1,5 @@
+---
+description: Capital of Америкийн Нэгдсэн Улс, in Mongolian.
+locale: mn
+---
+Вашингтон

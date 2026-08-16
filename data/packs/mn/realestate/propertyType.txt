@@ -1,0 +1,25 @@
+---
+description: Property type in Mongolian. Three at the head have no Western counterpart. ГЭР is a felt dwelling, bought and sold as property, and a very large share of Ulaanbaatar households live in one. ХАШАА БАЙШИН is a self-built house on a fenced plot in a ger district, usually without piped water or central heating, and it is the commonest owned home in the country. ӨВӨЛЖӨӨ and ЗУСЛАН are the winter and summer camps a herding family holds by customary right and treats as heritable property, with a walled livestock shelter at the winter one. A Mongolian property dataset that offers only flats and villas describes a minority of the housing stock.
+locale: mn
+---
+Орон сууц
+Хувийн сууц
+Амины орон сууц
+Хашаа байшин
+Гэр
+Гэр хашаа
+Өвөлжөө
+Зуслан
+Зуслангийн байшин
+Таунхаус
+Пентхаус
+Студи
+Дуплекс
+Хотхон дахь байр
+Оффисын талбай
+Худалдааны талбай
+Агуулах
+Үйлдвэрийн барилга
+Газар
+Тариалангийн газар
+Бэлчээрийн газар

@@ -1,0 +1,13 @@
+---
+description: Mongolian personal pronoun. THIS FILE CANNOT HOLD PRONOUN PAIRS THE WAY THE ENGLISH ONE DOES, and the reason is a fact about the language rather than a gap in the data: MONGOLIAN HAS NO GENDERED THIRD-PERSON PRONOUN. One word, тэр, covers he, she and it; its genitive түүний covers his, her and its. There is no Mongolian equivalent of "he/him" against "she/her", so a form asking a Mongolian speaker for their pronouns is asking a question the language has no vocabulary to answer differently. What the pronoun system marks instead is POLITENESS and NUMBER: чи is the familiar singular you, та is both the polite singular and the plural, and та нар is explicitly plural. The values below are therefore the actual pronouns, not pronoun pairs.
+locale: mn
+---
+би
+чи
+та
+тэр
+бид
+бид нар
+та нар
+тэд
+тэд нар

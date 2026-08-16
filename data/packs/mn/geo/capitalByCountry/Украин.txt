@@ -1,0 +1,5 @@
+---
+description: Capital of Украин, in Mongolian.
+locale: mn
+---
+Киев

@@ -1,0 +1,5 @@
+---
+description: Capital of Ирак, in Mongolian.
+locale: mn
+---
+Багдад

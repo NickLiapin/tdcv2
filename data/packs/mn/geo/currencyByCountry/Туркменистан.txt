@@ -1,0 +1,5 @@
+---
+description: Currency of Туркменистан, named in Mongolian.
+locale: mn
+---
+манат

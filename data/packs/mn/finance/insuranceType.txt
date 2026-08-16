@@ -1,0 +1,22 @@
+---
+description: Insurance type in Mongolian. МАЛЫН ИНДЕКСЖҮҮЛСЭН ДААТГАЛ is Mongolia-specific and real: index-based livestock insurance pays out when district-level livestock mortality passes a threshold, and it exists because a ДЗУД — a winter that kills millions of animals — is the single largest insurable risk in the rural economy.
+locale: mn
+---
+Эрүүл мэндийн даатгал
+Нийгмийн даатгал
+Тээврийн хэрэгслийн даатгал
+Жолоочийн хариуцлагын даатгал
+Орон сууцны даатгал
+Гал түймрийн даатгал
+Амь насны даатгал
+Осол гэмтлийн даатгал
+Аялалын даатгал
+Ачааны даатгал
+Барилгын даатгал
+Мэргэжлийн хариуцлагын даатгал
+Малын даатгал
+Малын индексжүүлсэн даатгал
+Ургацын даатгал
+Тэжээвэр амьтны даатгал
+Шүдний даатгал
+Нүдний даатгал

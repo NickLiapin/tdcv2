@@ -1,0 +1,61 @@
+---
+description: Product material in Mongolian. The head of the list is what Mongolia actually makes things from and exports: НООЛУУР, cashmere, is the country's largest non-mineral export and Mongolia produces something like two fifths of the world's raw supply; хонины ноос is sheep wool; тэмээний ноос camel wool; ЭСГИЙ is the felt the walls of a ger are made of, and felting is the oldest textile technology in Central Asia; арьс and шир are hide and leather; сарлагийн ноос is yak down.
+locale: mn
+---
+Ноолуур
+Хонины ноос
+Тэмээний ноос
+Сарлагийн ноос
+Эсгий
+Арьс
+Шир
+Илгэн
+Хөвөн
+Маалинга
+Торго
+Хиймэл утас
+Полиэстер
+Мод
+Хусан мод
+Нарсан мод
+Шинэсэн мод
+Хулс
+Төмөр
+Ган
+Зэвэрдэггүй ган
+Хөнгөн цагаан
+Зэс
+Гуулин
+Хүрэл
+Цайр
+Титан
+Шил
+Керамик
+Шаазан
+Шавар
+Хуванцар
+Резин
+Силикон
+Бетон
+Гантиг
+Боржин чулуу
+Чулуу
+Элс
+Цаас
+Картон
+Даавуу
+Брезент
+Хивсэнцэр
+Хөвсгөр даавуу
+Нийлэг
+Хөөс
+Хөвөн дэвсгэр
+Байгалийн материал
+Дахин боловсруулсан материал
+Хосолсон материал
+Фанер
+Хаш чулуу
+Ясан
+Эвэр
+Мөнгө
+Алт

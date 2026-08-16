@@ -1,0 +1,5 @@
+---
+description: Capital of Нигери, in Mongolian.
+locale: mn
+---
+Абужа

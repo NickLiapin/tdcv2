@@ -1,0 +1,22 @@
+---
+description: Fish in Mongolian. ТУЛ heads the list: the Mongolian taimen is the largest salmonid in the world, lives in the northern rivers, can exceed a metre and a half, and is catch-and-release only by law. Mongolia is landlocked and its fish vocabulary is river vocabulary — зэвэг lenok, хадран grayling, цурхай pike, гутаарь burbot, хилэм sturgeon — and there is no native sea-fish stock in the language at all; the sea names at the end of the list are borrowings that arrived with imported food.
+locale: mn
+---
+тул
+зэвэг
+хадран
+цурхай
+алгана
+гутаарь
+хилэм
+мөрөг
+цагаан загас
+сугас
+хулд
+алтан загас
+лосось
+форель
+тунец
+треска
+сельдь
+скумбри

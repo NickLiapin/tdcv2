@@ -1,0 +1,5 @@
+---
+description: Currency of Мьянмар, named in Mongolian.
+locale: mn
+---
+кьят

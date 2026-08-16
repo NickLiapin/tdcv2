@@ -1,0 +1,19 @@
+---
+description: Court in Mongolia. Mongolian is the official language of one country, so these are that country's courts and not a generic set — and the reader should know which country, which is the point of saying so here. ҮНДСЭН ХУУЛИЙН ЦЭЦ, the Constitutional Court, is called a цэц, a "tribunal of wise men", rather than a шүүх; the ordinary hierarchy runs анхан шатны шүүх, давж заалдах шатны шүүх and Улсын дээд шүүх. СУМ ДУНДЫН ШҮҮХ, the inter-soum court, exists because a single rural district is too small to support a court of its own, so one court serves several — a structure that follows directly from the population density.
+locale: mn
+---
+Улсын дээд шүүх
+Үндсэн хуулийн цэц
+давж заалдах шатны шүүх
+анхан шатны шүүх
+дүүргийн шүүх
+сум дундын шүүх
+аймгийн шүүх
+нийслэлийн шүүх
+иргэний хэргийн шүүх
+эрүүгийн хэргийн шүүх
+захиргааны хэргийн шүүх
+арбитрын шүүх
+хөдөлмөрийн маргаан таслах комисс
+эвлэрүүлэн зуучлал
+хяналтын шатны шүүх

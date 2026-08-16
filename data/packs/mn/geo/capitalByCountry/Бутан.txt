@@ -1,0 +1,5 @@
+---
+description: Capital of Бутан, in Mongolian.
+locale: mn
+---
+Тхимпху

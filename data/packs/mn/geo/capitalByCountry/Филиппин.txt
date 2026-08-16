@@ -1,0 +1,5 @@
+---
+description: Capital of Филиппин, in Mongolian.
+locale: mn
+---
+Манила

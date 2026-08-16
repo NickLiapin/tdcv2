@@ -1,0 +1,26 @@
+---
+description: Metal in Mongolian. The order is Mongolia's export ledger: ЗЭС, copper, is the country's largest single export by value, АЛТ gold the second metal, and МОЛИБДЕН comes out of the same Erdenet concentrate as the copper. ХАЙЛУУР ЖОНШ, fluorspar, is in work/mining/mineral.txt rather than here because it is a mineral and not a metal, but it matters to the same industry — Mongolia is one of the world's largest producers.
+locale: mn
+---
+зэс
+алт
+мөнгө
+молибден
+төмөр
+ган
+цайр
+хар тугалга
+цагаан тугалга
+хөнгөн цагаан
+вольфрам
+титан
+никель
+кобальт
+хром
+платин
+палладий
+гуулин
+хүрэл
+мөнгөн ус
+уран
+газрын ховор элемент

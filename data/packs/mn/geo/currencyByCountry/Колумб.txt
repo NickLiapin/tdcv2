@@ -1,0 +1,5 @@
+---
+description: Currency of Колумб, named in Mongolian.
+locale: mn
+---
+песо

@@ -1,0 +1,24 @@
+---
+description: Flower in Mongolian. The list is short on purpose: it holds plants with an established Mongolian name, plus the Russian-borrowed garden names an Ulaanbaatar florist actually uses, and refuses to invent Mongolian for flowers the language has no word for. АЛТАНЗУЛ ЦЭЦЭГ is the tulip, literally "golden butter-lamp flower". АЛТАН ГАГНУУР is Rhodiola rosea, a medicinal mountain plant rather than an ornamental. АЯ ГАНГА is wild thyme and is the flower of Mongolian song. САРАНА is the wild lily whose bulb is edible and was famine food.
+locale: mn
+---
+сарнай
+зэрлэг сарнай
+алтанзул цэцэг
+цахилдаг
+лянхуа
+цагаан лянхуа
+наран цэцэг
+ая ганга
+алтан гагнуур
+хонхон цэцэг
+гичгэнэ
+сарана
+хризантем
+георгин
+астра
+пион
+нарцисс
+орхидей
+лаванда
+ромашка

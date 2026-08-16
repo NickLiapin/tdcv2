@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Дерматологи, in Mongolian.
+locale: mn
+---
+Псориаз
+Атопик дерматит
+Батга
+Меланом
+Розацеа
+Хүрэлцэх дерматит

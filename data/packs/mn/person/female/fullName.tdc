@@ -1,0 +1,10 @@
+---
+description: Mongolian full female name in its OFFICIAL, documentary shape — Батын Оюун. THE ORDER IS FATHER'S NAME FIRST, GIVEN NAME SECOND, and the first element is NOT a surname: it is the father's own given name in the genitive case (see person/lastName.txt). So Батын Дорж is "Dorj of Bat" and his own son would be Доржийн <name>, not another Батын. The GIVEN NAME IS THE REAL NAME — it is what the person is called, listed under, sorted by and addressed as — so a config that maps this pair onto first_name / last_name columns and then sorts or de-duplicates on last_name is sorting on the wrong field. Mongolian has no gendered surname form and no generational suffix, and honorifics FOLLOW the name (Дорж гуай), never precede it. NOTE THAT THIS GENERATOR DRAWS FROM person/lastName.txt, THE SAME FILE THE MALE ONE USES, and that is deliberate rather than an oversight: Mongolian has no grammatical gender, so a daughter carries her father's name in exactly the same genitive form as her brother — Батын Оюун beside Батын Дорж. There is no person/female/lastName.txt in this pack for that reason. For the everyday abbreviated shape see person/female/initialName.tdc.
+locale: mn
+generator: tdc
+---
+<sequence name="p">
+  <gen name="l" type="template" value="mn.person.lastName"/>
+  <gen name="f" type="template" value="mn.person.female.firstName"/>
+</sequence>
+<data>${{p.l}} ${{p.f}}</data>

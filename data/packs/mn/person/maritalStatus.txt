@@ -1,0 +1,14 @@
+---
+description: Marital status as a Mongolian form records it. One entry needs a note: гэрлэлтээ бүртгүүлээгүй, an unregistered union, is a real civil category rather than a euphemism — a wedding may be celebrated long before, or entirely without, registration at the civil registry office, and the two states carry different legal consequences.
+locale: mn
+---
+гэрлээгүй
+гэрлэсэн
+салсан
+бэлэвсэн
+тусдаа амьдардаг
+сүй тавьсан
+хамтран амьдрагч
+гэрлэлтээ бүртгүүлээгүй
+дахин гэрлэсэн
+ганц бие

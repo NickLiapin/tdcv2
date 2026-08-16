@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Mongolian product listing. Note that Mongolian adjectives do not agree with the noun in gender, number or case, so the value is invariable wherever it is spliced — unlike Polish or Spanish, one form fits every product. хөх and цэнхэр are separate colours, not shades of one; see color/name.txt.
+locale: mn
+---
+Хар
+Цагаан
+Саарал
+Мөнгөлөг
+Алтлаг
+Улаан
+Улаан хүрэн
+Час улаан
+Ягаан
+Цайвар ягаан
+Улбар шар
+Шар
+Алтан шар
+Ногоон
+Хар ногоон
+Цайвар ногоон
+Хөх
+Цэнхэр
+Тэнгэрийн цэнхэр
+Бараан хөх
+Нил ягаан
+Голт бор
+Бор
+Хүрэн
+Шаравтар
+Шаргал
+Хүрэн бор
+Оюу
+Номин
+Маргад
+Сувдан
+Хас ногоон
+Зэс өнгөт
+Гуулин
+Хүрэл өнгөт
+Тунгалаг
+Өнгөгүй
+Хос өнгө
+Эрээн
+Судалтай
+Цэгэн хээтэй
+Хээтэй
+Хээгүй
+Матт хар
+Гялгар цагаан
+Үнсэн саарал
+Тоосон саарал
+Цасан цагаан
+Сүүн цагаан
+Хөх ногоон
+Шар ногоон
+Бараан улаан
+Цайвар хөх
+Бараан саарал

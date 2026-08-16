@@ -1,0 +1,5 @@
+---
+description: Capital of Бразил, in Mongolian.
+locale: mn
+---
+Бразилиа

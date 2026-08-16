@@ -1,0 +1,32 @@
+---
+description: Airline as a Mongolian ticket names it. МИАТ is the flag carrier, Хүннү Эйр the largest private one and Аэро Монголиа serves the domestic network — and the domestic network is why aviation matters here more than the population would suggest, because the aimag capitals are eight to thirty hours away by road. The foreign carriers are those that actually fly into Ulaanbaatar, which is a short list: Korean Air, Air China, Aeroflot, Turkish Airlines and a handful more. Brand names keep their real spelling; where a Mongolian ticket writes them in Cyrillic they are written that way here.
+locale: mn
+---
+МИАТ
+Хүннү Эйр
+Аэро Монголиа
+Изинис Эйрвэйс
+Korean Air
+Asiana Airlines
+Air China
+China Southern
+Aeroflot
+S7 Airlines
+Turkish Airlines
+Air Busan
+Japan Airlines
+All Nippon Airways
+Cathay Pacific
+Singapore Airlines
+Emirates
+Qatar Airways
+Lufthansa
+Air France
+KLM
+British Airways
+Thai Airways
+Vietnam Airlines
+Hong Kong Airlines
+Uzbekistan Airways
+Air Astana
+Scoot

@@ -1,0 +1,5 @@
+---
+description: Capital of Хойд Солонгос, in Mongolian.
+locale: mn
+---
+Пхеньян

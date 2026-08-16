@@ -1,0 +1,5 @@
+---
+description: Capital of Аргентин, in Mongolian.
+locale: mn
+---
+Буэнос-Айрес

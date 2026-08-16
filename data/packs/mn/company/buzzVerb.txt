@@ -1,0 +1,59 @@
+---
+description: Business buzz verb in Mongolian. NOTE THE FORM: these are dictionary-form verbs ending in -х, and MONGOLIAN PUTS THE VERB LAST IN THE SENTENCE, so a catch-phrase built from a buzz noun and a buzz verb reads noun-then-verb — "экосистемийг оновчлох" — and never the English verb-then-noun order. A template that writes ${verb} ${noun} for Mongolian produces something no Mongolian sentence can be.
+locale: mn
+---
+хөшүүрэглэх
+оновчлох
+хялбаршуулах
+уялдуулах
+зохион байгуулах
+эрх мэдэл олгох
+боломжтой болгох
+өргөжүүлэх
+хувиргах
+шинэчлэх
+шинийг санаачлах
+давтан сайжруулах
+нэгтгэх
+нэвтрүүлэх
+ашиглах
+нээх
+хурдасгах
+өсгөх
+бүтээх
+жишиг тогтоох
+хөгжүүлэх
+жолоодох
+хувьсах
+түргэтгэх
+дэмжих
+үүсгэх
+урамшуулах
+орлого болгох
+үйл ажиллагаанд оруулах
+бүтээгдэхүүн болгох
+дахин тодорхойлох
+дахин төсөөлөх
+хувьсгал хийх
+тэргүүлэх
+стандартчлах
+шилжүүлэх
+нэгдмэл болгох
+үр ашигтай болгох
+хэмжих
+хянах
+үнэлэх
+төлөвлөх
+хэрэгжүүлэх
+сайжруулах
+бэхжүүлэх
+тэлэх
+хамгаалах
+баталгаажуулах
+тайлагнах
+хуваалцах
+холбох
+автоматжуулах
+дижиталчлах
+хөрөнгө оруулах
+түншлэх

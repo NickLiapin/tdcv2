@@ -1,0 +1,10 @@
+---
+description: Credit rating band in Mongolian. The Bank of Mongolia's credit information database classifies borrowers by loan performance rather than by a three-digit score, so these are quality bands rather than numeric ranges.
+locale: mn
+---
+Маш муу
+Муу
+Дунд
+Сайн
+Маш сайн
+Онц сайн

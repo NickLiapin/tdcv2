@@ -1,0 +1,5 @@
+---
+description: Capital of Иран, in Mongolian.
+locale: mn
+---
+Тегеран

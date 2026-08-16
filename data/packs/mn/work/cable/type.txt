@@ -1,0 +1,15 @@
+---
+description: Cable type in Mongolian telecoms and networking.
+locale: mn
+---
+Шилэн кабель
+Коаксиаль кабель
+Мушгиа хос
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Агаарын шугам
+Газар доорх шугам
+Хүчний кабель
+Хяналтын кабель

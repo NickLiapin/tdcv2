@@ -1,0 +1,5 @@
+---
+description: Capital of Итали, in Mongolian.
+locale: mn
+---
+Ром

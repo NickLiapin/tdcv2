@@ -1,0 +1,16 @@
+---
+description: Streaming platform. The brand names stay in Latin, as they are written on the app icon in any locale. Note that most global video services are not officially available in Mongolia, so the domestic ones matter: the local operators run their own catch-up and video-on-demand services, and YouTube and Facebook carry a very large share of Mongolian video.
+locale: mn
+---
+YouTube
+Facebook
+TikTok
+Netflix
+Spotify
+Twitch
+Instagram
+Amazon Prime Video
+Apple TV+
+Disney+
+Телевиз
+Радио

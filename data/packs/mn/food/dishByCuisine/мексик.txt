@@ -1,0 +1,11 @@
+---
+description: Dishes of мексик cuisine, named in Mongolian.
+locale: mn
+---
+тако
+буррито
+энчилада
+кесадилья
+гуакамоле
+тамале
+начос

@@ -1,0 +1,16 @@
+---
+description: Month name in Mongolian. MONGOLIAN MONTHS ARE NUMBERED, NOT NAMED: the standard modern month name is the ordinal number plus сар, "month" — нэгдүгээр сар is literally "first month" and арван хоёрдугаар сар is "twelfth month". There is no Mongolian word corresponding to January or Januar or janvier; the Latin-derived set was never adopted. Two consequences. FIRST, a Mongolian month name is TWO WORDS and the second is always сар, so a config assuming a one-word month will mis-split it. SECOND, inside a date the month takes the genitive — нэгдүгээр САРЫН 5 — so its shape in a date is not its shape in a list, and DATE_LOCALE.json carries both, in months and monthsInDate. A separate traditional lunar calendar names its months after the twelve animals (бар сар, туулай сар and so on) and is used for Цагаан сар and Buddhist observances, but it is not what a civil date uses.
+locale: mn
+---
+нэгдүгээр сар
+хоёрдугаар сар
+гуравдугаар сар
+дөрөвдүгээр сар
+тавдугаар сар
+зургаадугаар сар
+долоодугаар сар
+наймдугаар сар
+есдүгээр сар
+аравдугаар сар
+арван нэгдүгээр сар
+арван хоёрдугаар сар

@@ -1,0 +1,5 @@
+---
+description: Currency of Гватемал, named in Mongolian.
+locale: mn
+---
+кецал

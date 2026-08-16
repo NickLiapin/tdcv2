@@ -1,0 +1,5 @@
+---
+description: Capital of Өмнөд Солонгос, in Mongolian.
+locale: mn
+---
+Сөүл

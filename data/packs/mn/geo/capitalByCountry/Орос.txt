@@ -1,0 +1,5 @@
+---
+description: Capital of Орос, in Mongolian.
+locale: mn
+---
+Москва

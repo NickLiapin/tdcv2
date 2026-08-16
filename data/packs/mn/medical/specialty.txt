@@ -1,0 +1,42 @@
+---
+description: Medical specialty in Mongolian. The names are the Greek-derived international terms in Cyrillic, which is what a Mongolian hospital signboard carries, arriving through Russian medical education — so it is Кардиологи and not a Mongolian compound. Two entries are the country's own: УЛАМЖЛАЛТ АНАГААХ УХААН is traditional Mongolian medicine, which has a state-licensed profession, its own hospitals and its own faculty at the medical university, and ЗҮҮ ТӨӨНӨ is the moxibustion and acupuncture practised within it.
+locale: mn
+---
+Кардиологи
+Дерматологи
+Эндокринологи
+Гастроэнтерологи
+Неврологи
+Онкологи
+Нүдний эмнэлэг
+Ортопеди
+Хүүхдийн эмнэлэг
+Сэтгэцийн эмгэг судлал
+Пульмонологи
+Рентген оношилгоо
+Ревматологи
+Урологи
+Нефрологи
+Гематологи
+Иммунологи
+Мэдээ алдуулалт
+Яаралтай тусламж
+Гэр бүлийн эмнэлэг
+Дотрын эмнэлэг
+Эх барих эмэгтэйчүүд
+Чих хамар хоолой
+Эмгэг судлал
+Гоо сайхны мэс засал
+Ерөнхий мэс засал
+Судасны мэс засал
+Зүрхний мэс засал
+Мэдрэлийн мэс засал
+Халдварт өвчин
+Ахмад настны эмнэлэг
+Нярайн эмнэлэг
+Сэргээн засах эмчилгээ
+Хөдөлмөрийн эрүүл мэнд
+Шүдний эмнэлэг
+Уламжлалт анагаах ухаан
+Зүү төөнө
+Мал эмнэлэг

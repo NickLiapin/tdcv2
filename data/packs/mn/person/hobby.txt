@@ -1,0 +1,65 @@
+---
+description: Hobby or interest in Mongolian. The first block is specific to Mongolia and has no European counterpart: шагай наадах is playing with sheep anklebones, of which there are several distinct games; сурын харваа is Mongolian archery, one of the three games of Наадам; бөх барилдах is Mongolian wrestling, another; and морь унах with морь уяах, training a racehorse for the summer races, is the third. хөөмийлөх is throat singing and морин хуур is the horsehead fiddle. Note that Mongolian expresses a hobby as a VERB PHRASE — ном унших, "to read books", rather than the noun "reading" — so most values here are two or three words with the verb LAST, and a config that treats them as nouns and puts them in front of a verb will produce a sentence with two verbs and no object.
+locale: mn
+---
+ном унших
+морь унах
+морь уяах
+сурын харваа
+бөх барилдах
+шагай наадах
+морин хуур тоглох
+хөөмийлөх
+уртын дуу дуулах
+шатар тоглох
+даам тоглох
+гэрэл зураг авах
+зураг зурах
+хоол хийх
+талх нарийн боов хийх
+оёдол хийх
+нэхэх
+мод сийлэх
+эсгий урлал
+цэцэрлэгжүүлэлт
+аялал жуулчлал
+явган аялал
+уул авирах
+загас барих
+ан агнах
+зусах
+дугуй унах
+гүйх
+усанд сэлэх
+йог хийх
+бясалгал хийх
+фитнесс
+хөл бөмбөг тоглох
+сагсан бөмбөг тоглох
+ширээний теннис тоглох
+цанаар гулгах
+тэшүүрээр гулгах
+компьютер тоглоом тоглох
+кино үзэх
+дуу дуулах
+бүжиглэх
+хөгжим тоглох
+гитар тоглох
+төгөлдөр хуур тоглох
+мод тарих
+шувуу ажиглах
+од ажиглах
+мал маллах
+сүү саах
+хэл сурах
+блог бичих
+шүлэг бичих
+номын санд явах
+музей үзэх
+нум сум хийх
+тэмээ унах
+зөгий тэжээх
+монгол бичиг сурах
+зурхай судлах
+түүх судлах
+аргамжаа сүлжих

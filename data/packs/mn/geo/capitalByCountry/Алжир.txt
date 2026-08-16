@@ -1,0 +1,5 @@
+---
+description: Capital of Алжир, in Mongolian.
+locale: mn
+---
+Алжир

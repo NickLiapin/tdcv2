@@ -1,0 +1,37 @@
+---
+description: Playing position or competitive rank across sports, in Mongolian. THE SECOND HALF OF THIS LIST IS NOT POSITIONS AND THAT IS DELIBERATE: Mongolian wrestling has no positions at all, it has RANKS won by rounds survived at Наадам — начин falcon at five rounds, харцага hawk at six, заан elephant at seven, гарьд garuda, арслан lion for the tournament winner, аварга champion for a repeat winner — and horse racing likewise ranks the first five finishers as түрүү and айргийн хоёр through тав. Those are what fills a "position" column for the two most important sports in the country, and inventing goalkeeper-shaped values for them would be inventing.
+locale: mn
+---
+хаалгач
+хамгаалагч
+төв хамгаалагч
+хажуугийн хамгаалагч
+голын тоглогч
+довтлогч
+жигүүрийн тоглогч
+холбогч
+либеро
+төвийн хаагч
+шугамын тоглогч
+төвийн тоглогч
+буудагч хамгаалагч
+хүчит довтлогч
+тулгуур
+цоожлогч
+аварга
+даяар аварга
+арслан
+заан
+гарьд
+харцага
+начин
+засуул
+уяач
+унаач хүүхэд
+түрүү морь
+айргийн тав
+мэргэн
+ахлагч
+нөөц тоглогч
+дасгалжуулагч
+шүүгч

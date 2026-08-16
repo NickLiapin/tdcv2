@@ -1,0 +1,5 @@
+---
+description: Capital of Пакистан, in Mongolian.
+locale: mn
+---
+Исламабад

@@ -1,0 +1,5 @@
+---
+description: Capital of Казахстан, in Mongolian.
+locale: mn
+---
+Астана

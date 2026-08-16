@@ -1,0 +1,32 @@
+---
+description: Book genre in Mongolian. Two entries are Mongolian categories rather than translations: тууль is the oral heroic epic, sung to the тovshuur and running to tens of thousands of lines, and сурган хүмүүжүүлэх сургаал is the didactic verse tradition of moral instruction, both of which sit in Mongolian bookshops as genres in their own right.
+locale: mn
+---
+уран зохиол
+уран зохиолын бус
+нууцлаг
+адал явдалт
+сэтгэл хөдөлгөм
+хайр дурлал
+шинжлэх ухааны зөгнөлт
+уран зөгнөлт
+аймшгийн
+намтар
+дурсамж
+түүх
+өөрийгөө хөгжүүлэх
+яруу найраг
+тууль
+домог
+үлгэр
+сурган хүмүүжүүлэх сургаал
+хүүхдийн ном
+өсвөр үеийн
+гэмт хэрэг
+философи
+шашны
+аялалын ном
+хоолны ном
+сурах бичиг
+толь бичиг
+комик

@@ -1,0 +1,5 @@
+---
+description: Capital of Австри, in Mongolian.
+locale: mn
+---
+Вена

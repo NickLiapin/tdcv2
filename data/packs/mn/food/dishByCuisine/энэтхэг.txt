@@ -1,0 +1,12 @@
+---
+description: Dishes of энэтхэг cuisine, named in Mongolian.
+locale: mn
+---
+карри
+бирьяни
+тандури тахиа
+самоса
+наан
+тикка масала
+дал
+палак панир

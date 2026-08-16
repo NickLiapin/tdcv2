@@ -1,0 +1,9 @@
+---
+description: Conditions markedly more frequent in people of Хойд Европын ancestry, named in Mongolian. A prevalence signal, not an exclusive one.
+locale: mn
+---
+Уйланхайт фиброз
+Удамшлын гемохроматоз
+Целиак өвчин
+Альфа-1 антитрипсиний дутагдал
+Фенилкетонури

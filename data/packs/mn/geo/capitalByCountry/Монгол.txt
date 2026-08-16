@@ -1,0 +1,5 @@
+---
+description: Capital of Монгол, in Mongolian.
+locale: mn
+---
+Улаанбаатар

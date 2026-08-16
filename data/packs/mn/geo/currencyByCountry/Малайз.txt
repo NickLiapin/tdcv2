@@ -1,0 +1,5 @@
+---
+description: Currency of Малайз, named in Mongolian.
+locale: mn
+---
+рингит

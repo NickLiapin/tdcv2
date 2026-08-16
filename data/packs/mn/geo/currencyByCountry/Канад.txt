@@ -1,0 +1,5 @@
+---
+description: Currency of Канад, named in Mongolian.
+locale: mn
+---
+канад доллар

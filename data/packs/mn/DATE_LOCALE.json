@@ -1,0 +1,51 @@
+{
+  "months": [
+    "нэгдүгээр сар",
+    "хоёрдугаар сар",
+    "гуравдугаар сар",
+    "дөрөвдүгээр сар",
+    "тавдугаар сар",
+    "зургаадугаар сар",
+    "долоодугаар сар",
+    "наймдугаар сар",
+    "есдүгээр сар",
+    "аравдугаар сар",
+    "арван нэгдүгээр сар",
+    "арван хоёрдугаар сар"
+  ],
+  "monthsInDate": [
+    "нэгдүгээр сарын",
+    "хоёрдугаар сарын",
+    "гуравдугаар сарын",
+    "дөрөвдүгээр сарын",
+    "тавдугаар сарын",
+    "зургаадугаар сарын",
+    "долоодугаар сарын",
+    "наймдугаар сарын",
+    "есдүгээр сарын",
+    "аравдугаар сарын",
+    "арван нэгдүгээр сарын",
+    "арван хоёрдугаар сарын"
+  ],
+  "monthsShort": [
+    "1-р сар",
+    "2-р сар",
+    "3-р сар",
+    "4-р сар",
+    "5-р сар",
+    "6-р сар",
+    "7-р сар",
+    "8-р сар",
+    "9-р сар",
+    "10-р сар",
+    "11-р сар",
+    "12-р сар"
+  ],
+  "weekdays": ["Ням", "Даваа", "Мягмар", "Лхагва", "Пүрэв", "Баасан", "Бямба"],
+  "weekdaysShort": ["Ня", "Да", "Мя", "Лха", "Пү", "Ба", "Бя"],
+  "formats": {
+    "L": "YYYY.MM.DD",
+    "LL": "YYYY оны MMMM D"
+  },
+  "notes": "Six things a formatter has to get right for Mongolian. FIRST, THE MONTHS ARE ORDINAL NUMBERS, NOT NAMES: нэгдүгээр сар is \"first month\" and there is no Mongolian word for January at all, because the Latin set was never borrowed. A formatter that falls back to English month names for mn is not producing bad Mongolian, it is producing no Mongolian. SECOND, monthsInDate is GENUINELY DIFFERENT from months and this is the whole reason that field exists: inside a date the month takes the genitive сарын, so 16 August 2026 is \"2026 оны наймдугаар сарын 16\" and never \"наймдугаар сар 16\". THIRD, the YEAR also takes the genitive оны, which no format token supplies, so LL is written here with the literal word in it: \"YYYY оны MMMM D\". FOURTH, THE ORDER IS BIG-ENDIAN — year, then month, then day — in the long form and the numeric one alike, so L is YYYY.MM.DD with dots and leading zeros. A day-first Mongolian date is not merely unusual, it is ungrammatical, because the genitive chain оны … сарын … requires the larger unit to govern the smaller one from the left. FIFTH, month and weekday names are lower case in running text; the weekday names are capitalised in the pack lists only because they double as given names. SIXTH, the weekday array here is Sunday-first because the formatter wants it that way while date/weekday.txt is Monday-first because that is how a Mongolian calendar prints it; both are the same seven Tibetan planet names. Beyond formatting: the tugrik sign ₮ follows the number after a space (1,234.56 ₮), time is 24-hour with a colon and Mongolian has no am/pm, and the lunar new year Цагаан сар moves between late January and late February, which matters to any series aggregated by month because the country stops for about a week wherever it falls."
+}

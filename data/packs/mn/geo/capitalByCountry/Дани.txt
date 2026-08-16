@@ -1,0 +1,5 @@
+---
+description: Capital of Дани, in Mongolian.
+locale: mn
+---
+Копенгаген

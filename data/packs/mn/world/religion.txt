@@ -1,0 +1,25 @@
+---
+description: World religion, named in Mongolian. Two entries carry weight here that they do not carry in a European locale. бурхны шашин is Tibetan Gelug Buddhism, the historical state religion, suppressed between 1937 and 1990 and rebuilt since. бөө мөргөл is shamanism, which is not a museum piece in Mongolia: it is practised, it coexists openly with Buddhism, and many people give both if asked. христийн шашин arrived essentially after 1990 and is small but real, and ислам is the religion of the Kazakh minority in the far west. тэнгэрийн шашин is the pre-Buddhist sky worship the empire was founded under.
+locale: mn
+---
+бурхны шашин
+бөө мөргөл
+христийн шашин
+католик шашин
+протестант шашин
+үнэн алдартны шашин
+ислам
+сүнни ислам
+хиндү шашин
+иудей шашин
+сикх шашин
+жайн шашин
+даосизм
+күнзийн сургаал
+синто шашин
+бахай шашин
+зороастрын шашин
+тэнгэрийн шашин
+шашингүй
+итгэл үнэмшилгүй
+эргэлзэгч

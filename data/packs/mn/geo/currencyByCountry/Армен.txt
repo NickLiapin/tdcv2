@@ -1,0 +1,5 @@
+---
+description: Currency of Армен, named in Mongolian.
+locale: mn
+---
+драм

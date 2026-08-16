@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Египет. The codes are Latin in every locale.
+locale: mn
+---
+EGP

@@ -1,0 +1,5 @@
+---
+description: Currency of Балба, named in Mongolian.
+locale: mn
+---
+рупи

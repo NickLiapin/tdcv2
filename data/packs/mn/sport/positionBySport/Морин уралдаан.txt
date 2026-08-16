@@ -1,0 +1,16 @@
+---
+description: Roles and finishing ranks in Mongolian horse racing. NOT POSITIONS. уяач is the trainer, who has the standing a jockey has elsewhere; унаач хүүхэд is the child jockey, typically between five and thirteen, who rides bareback over a cross-country course of fifteen to thirty kilometres. The first five horses home are түрүү and айргийн хоёр through айргийн тав, and they are praised by name. The remaining values are the AGE CLASSES the races are run in, since a Mongolian race is a race of two-year-olds or of five-year-olds and never of all comers.
+locale: mn
+---
+уяач
+унаач хүүхэд
+түрүү морь
+айргийн хоёр
+айргийн гурав
+айргийн дөрөв
+айргийн тав
+даага
+шүдлэн
+хязаалан
+соёолон
+их нас

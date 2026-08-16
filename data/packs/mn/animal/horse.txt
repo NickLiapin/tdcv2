@@ -1,0 +1,32 @@
+---
+description: HORSE, CLASSIFIED THE MONGOLIAN WAY — WHICH IS NOT BY BREED. Mongolia has essentially ONE horse, the монгол адуу, and no breed system at all: there is no Mongolian equivalent of Arabian, Thoroughbred or Clydesdale to put in this file, so putting European breed names here would be a straight fabrication. What Mongolian has instead, and in extraordinary detail, is a vocabulary for COAT COLOUR and for AGE, and that is what a Mongolian actually says when identifying a horse. The colour terms are the first block: хээр bay, зээрд chestnut, халиун dun, хул buckskin, шарга palomino, буурал grey, алаг piebald, соохор spotted, хонгор light dun, бор dun-brown. The second block is the age grades, which matter because the summer races are run in age classes and a horse changes category each year: унага a foal, даага a two-year-old, шүдлэн a three-year-old, хязаалан a four-year-old, соёолон a five-year-old, их нас a full-grown horse. The third is role: азарга a stallion, гүү a mare, агт a gelding, хурдан морь a racehorse, унаа морь a riding horse. тахь, the Przewalski horse, closes the list and is a separate species rather than a Mongolian horse gone wild.
+locale: mn
+---
+хээр
+зээрд
+халиун
+хул
+шарга
+буурал
+алаг
+соохор
+хонгор
+бор
+хар
+цагаан
+улаан зээрд
+хар хүрэн
+унага
+даага
+шүдлэн
+хязаалан
+соёолон
+их нас
+азарга
+гүү
+агт
+хурдан морь
+унаа морь
+уяа морь
+монгол адуу
+тахь

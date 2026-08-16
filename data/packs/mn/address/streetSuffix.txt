@@ -1,0 +1,27 @@
+---
+description: Mongolian thoroughfare type. IT GOES AFTER THE NAME, NOT BEFORE IT, and the name takes the GENITIVE in front of it: Их сургуулийн гудамж, Энх тайваны өргөн чөлөө, Сүхбаатарын талбай. This is the single thing an address template most often gets wrong for Mongolian — the English "Main Street" order and the Polish "ulica Długa" order are both wrong here, and the genitive suffix on the name is not optional. гудамж is the ordinary street, өргөн чөлөө the avenue, зам the road, талбай the square, хороолол a residential micro-district and хотхон a gated housing complex; the last two are how urban Mongolian addresses are actually organised, because a great many addresses name a хороолол and a building rather than a street at all.
+locale: mn
+---
+гудамж
+өргөн чөлөө
+зам
+авто зам
+талбай
+хороолол
+хотхон
+тойрог
+тойруу
+гүүр
+гарц
+эгнээ
+гудамжинд
+жалга
+амны зам
+хуучин зам
+шинэ зам
+хойд зам
+урд зам
+зүүн зам
+баруун зам
+дугуй зам
+явган хүний зам

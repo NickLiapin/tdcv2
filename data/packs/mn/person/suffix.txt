@@ -1,0 +1,28 @@
+---
+description: Post-nominal title and degree in Mongolian. THERE IS NO Jr / Sr / II / III IN MONGOLIAN AND THERE CANNOT BE, which follows directly from the naming system: a generational suffix exists to tell apart a father and a son who share an inherited surname, and Mongolians have no inherited surname — the first name element is the father's own given name and so is different for father and son by construction (Батын Дорж's son is Доржийн Ганбат). A dataset that puts "Jr" on a Mongolian record has invented a European institution. What Mongolian records DO carry after a name is the academic degree and the state honorific, and that is what this list holds. Ph.D and Sc.D are written in Latin on Mongolian business cards and are kept in Latin here for that reason. The гавьяат ("merited") and ардын ("people's") titles are state awards conferred by presidential decree and are used as part of a person's formal name in print.
+locale: mn
+---
+Ph.D
+Sc.D
+доктор
+дэд доктор
+профессор
+дэд профессор
+академич
+бакалавр
+магистр
+MBA
+гавьяат багш
+гавьяат эмч
+гавьяат жүжигчин
+гавьяат агрономич
+гавьяат тамирчин
+ардын багш
+ардын жүжигчин
+ардын эмч
+Монгол Улсын баатар
+Хөдөлмөрийн баатар
+улсын аварга
+олон улсын хэмжээний мастер
+спортын мастер
+тэргүүний ажилтан

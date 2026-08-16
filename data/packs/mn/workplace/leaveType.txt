@@ -1,0 +1,16 @@
+---
+description: Leave type in Mongolian. ХӨДӨӨ ЯВАХ ЧӨЛӨӨ is worth a note: an unpaid or informal leave to go to the countryside, for the autumn slaughter, the spring lambing or a family event at the herding camp, is a genuine and widely granted category in Mongolian workplaces.
+locale: mn
+---
+Ээлжийн амралт
+Өвчний чөлөө
+Жирэмсний амралт
+Хүүхэд асрах чөлөө
+Эцгийн чөлөө
+Гэр бүлийн гашуудлын чөлөө
+Цалингүй чөлөө
+Сургалтын чөлөө
+Судалгааны чөлөө
+Хувийн чөлөө
+Цэргийн чөлөө
+Хөдөө явах чөлөө

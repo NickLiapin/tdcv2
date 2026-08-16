@@ -1,0 +1,30 @@
+---
+description: School subject in Mongolian. Two are Mongolia's own: МОНГОЛ БИЧИГ, the traditional vertical script, is a compulsory subject in the general education curriculum even though nothing outside the classroom is written in it, and МОНГОЛЫН ТҮҮХ is taught separately from world history.
+locale: mn
+---
+Математик
+Физик
+Хими
+Биологи
+Газарзүй
+Түүх
+Монголын түүх
+Монгол хэл
+Монгол бичиг
+Уран зохиол
+Англи хэл
+Орос хэл
+Хятад хэл
+Мэдээллийн технологи
+Технологи
+Дүрслэх урлаг
+Хөгжим
+Биеийн тамир
+Иргэний боловсрол
+Хүн ба нийгэм
+Эдийн засаг
+Гүн ухаан
+Сэтгэл судлал
+Байгалийн ухаан
+Статистик
+Зурхай

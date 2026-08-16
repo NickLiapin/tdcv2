@@ -1,0 +1,8 @@
+---
+description: Gender as a Mongolian form asks it. The field is labelled хүйс, and the identity card and the civil registry record two values, эрэгтэй and эмэгтэй; the other two are here for datasets that allow a wider answer and are not what the state stores. Note that Mongolian marks NO GENDER ANYWHERE ELSE in its grammar — no gendered pronoun, no adjective agreement, no feminine surname form — so this field is the only place a Mongolian record says anything about sex at all, and a config cannot recover it from a name.
+locale: mn
+---
+эрэгтэй
+эмэгтэй
+бусад
+заагаагүй

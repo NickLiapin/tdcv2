@@ -1,0 +1,75 @@
+---
+description: The world's countries as MONGOLIAN names them, weighted by population in millions. Two rules run through the list. FIRST, MONGOLIAN DROPS THE RUSSIAN -ИЯ ENDING that most of these names arrived through: Италия becomes Итали, Испания Испани, Германия Герман, Норвегия Норвеги, Австралия Австрали, Турция Турк. Keeping the -ия produces a Russian name, not a Mongolian one, and that is the commonest way this list gets faked. SECOND, a set of countries has GENUINELY MONGOLIAN names owing nothing to Russian or English, and those are translations rather than transliterations: ХЯТАД for China (from the Khitan people who ruled north China before the Mongols), ОРОС for Russia, ЭНЭТХЭГ for India, СОЛОНГОС for Korea, БАЛБА for Nepal, ГҮРЖ for Georgia. A config must not respell those from the English name. Each value is the filename of a file in geo/capitalByCountry/, geo/currencyByCountry/ and geo/currencyCodeByCountry/.
+locale: mn
+weighted: true
+---
+Хятад,1410
+Энэтхэг,1430
+Америкийн Нэгдсэн Улс,340
+Индонез,280
+Пакистан,245
+Нигери,225
+Бразил,215
+Бангладеш,173
+Орос,144
+Мексик,130
+Япон,124
+Египет,112
+Этиоп,126
+Филиппин,117
+Вьетнам,100
+Иран,89
+Турк,85
+Герман,84
+Тайланд,72
+Их Британи,68
+Франц,68
+Итали,59
+Өмнөд Африк,60
+Мьянмар,54
+Өмнөд Солонгос,52
+Колумб,52
+Испани,48
+Украин,38
+Аргентин,46
+Алжир,45
+Ирак,44
+Афганистан,42
+Польш,38
+Канад,40
+Марокко,37
+Саудын Араб,36
+Узбекистан,36
+Малайз,34
+Балба,30
+Хойд Солонгос,26
+Австрали,27
+Шри Ланка,22
+Казахстан,20
+Камбож,17
+Нидерланд,18
+Гватемал,18
+Швед,11
+Чех,11
+Грек,10
+Португал,10
+Унгар,10
+Австри,9
+Швейцарь,9
+Израиль,9
+Тажикистан,10
+Беларусь,9
+Арабын Нэгдсэн Эмират,10
+Киргиз,7
+Дани,6
+Финлянд,6
+Норвеги,6
+Сингапур,6
+Ирланд,5
+Шинэ Зеланд,5
+Гүрж,4
+Монгол,3
+Армен,3
+Азербайжан,10
+Туркменистан,7
+Бутан,1

@@ -1,0 +1,5 @@
+---
+description: Capital of Хятад, in Mongolian.
+locale: mn
+---
+Бээжин

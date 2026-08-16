@@ -1,0 +1,5 @@
+---
+description: Capital of Шри Ланка, in Mongolian.
+locale: mn
+---
+Коломбо

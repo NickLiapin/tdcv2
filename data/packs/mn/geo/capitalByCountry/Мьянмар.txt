@@ -1,0 +1,5 @@
+---
+description: Capital of Мьянмар, in Mongolian.
+locale: mn
+---
+Найпьидо

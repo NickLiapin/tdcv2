@@ -1,0 +1,16 @@
+---
+description: Ancestry population as clinical genetics defines it — GEOGRAPHIC DESCENT, not a social race category, and it is used here only because allele frequencies genuinely differ by descent. The twelve groups follow the reference set and are translated into Mongolian. A note on the fit to this country: Mongolians sit in the ЗҮҮН АЗИЙН group and share its principal markers — the ALDH2 variant that causes the alcohol flush reaction, high hepatitis B carriage, elevated stomach and liver cancer — but they also carry a distinct North and Central Asian component that none of the twelve names captures, and the dairy question cuts across the whole scheme: Mongolians largely lack the European lactase-persistence allele while eating a heavily dairy diet, because цагаан идээ is fermented. A config that treats "East Asian" as a complete description of a Mongolian cohort will misattribute risk in both directions. Each value is the filename of a file in medical/diagnosisByAncestry/.
+locale: mn
+---
+Сахарын өмнөд Африкийн
+Хойд Африкийн
+Газар дундын тэнгисийн
+Ойрхи Дорнодын
+Хойд Европын
+Зүүн Европын
+Ашкенази еврей
+Өмнөд Азийн
+Зүүн Азийн
+Зүүн өмнөд Азийн
+Америкийн уугуул
+Номхон далайн арлын

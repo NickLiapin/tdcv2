@@ -1,0 +1,25 @@
+---
+description: Severe weather in Mongolian. ДЗУД IS THE ONE TO KNOW AND IT HAS NO ENGLISH WORD: a dzud is a winter that kills livestock in the millions, and Mongolian distinguishes several kinds — ЦАГААН ЗУД, white dzud, is snow too deep to graze through; ХАР ЗУД, black dzud, is no snow at all and therefore no water; ТӨМӨР ЗУД, iron dzud, is a thaw that refreezes and seals the pasture under ice; and ТУУРАЙН ЗУД, hoof dzud, is too many animals on too little grass. A dzud is the single largest natural disaster risk in the country, it is what livestock insurance insures against, and no European weather list contains anything like it. ШАР ШУУРГА is the spring dust storm off the Gobi that reaches Beijing and Seoul.
+locale: mn
+---
+Дзуд
+Цагаан зуд
+Хар зуд
+Төмөр зуд
+Туурайн зуд
+Шар шуурга
+Шороон шуурга
+Цасан шуурга
+Ган
+Үер
+Ойн түймэр
+Хээрийн түймэр
+Аянга цахилгаан
+Мөндөр
+Хүчтэй салхи
+Хуй салхи
+Гэнэтийн хүйтрэлт
+Халуун агаар
+Мөсөн бүрхүүл
+Хөрсний гулгалт
+Газар хөдлөлт

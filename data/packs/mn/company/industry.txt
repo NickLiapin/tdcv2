@@ -1,0 +1,59 @@
+---
+description: Industry sector in Mongolian. The order at the head of the list is Mongolia's own economy rather than a neutral alphabet: УУЛ УУРХАЙ, mining, is roughly a quarter of GDP and the overwhelming majority of exports — copper, coal, gold, fluorspar — and МАЛ АЖ АХУЙ, animal husbandry, employs the largest share of households and produces the cashmere that is the second export. Between them they are what Mongolia does; a synthetic Mongolian employment dataset that puts finance and technology first is describing a different country.
+locale: mn
+---
+Уул уурхай
+Мал аж ахуй
+Газар тариалан
+Хөнгөн үйлдвэр
+Хүнсний үйлдвэр
+Ноос ноолуурын үйлдвэр
+Арьс шир боловсруулах
+Барилга
+Зам тээвэр
+Төмөр замын тээвэр
+Агаарын тээвэр
+Ачаа тээвэр
+Худалдаа
+Бөөний худалдаа
+Жижиглэн худалдаа
+Мэдээллийн технологи
+Харилцаа холбоо
+Санхүү
+Банк
+Даатгал
+Үл хөдлөх хөрөнгө
+Эрүүл мэнд
+Эм зүй
+Боловсрол
+Шинжлэх ухаан
+Соёл урлаг
+Хэвлэл мэдээлэл
+Зар сурталчилгаа
+Аялал жуулчлал
+Зочид буудал
+Нийтийн хоол
+Эрчим хүч
+Нүүрсний олборлолт
+Газрын тос
+Сэргээгдэх эрчим хүч
+Ус хангамж
+Байгаль орчин
+Ойн аж ахуй
+Загас агнуур
+Ан агнуур
+Гар урлал
+Машин механизм
+Автомашины засвар
+Хууль эрх зүй
+Зөвлөх үйлчилгээ
+Аудит
+Логистик
+Гааль
+Хамгаалалт
+Батлан хамгаалах
+Төрийн алба
+Нийгмийн халамж
+Спорт
+Тоглоомын үйлдвэрлэл
+Төрийн бус байгууллага

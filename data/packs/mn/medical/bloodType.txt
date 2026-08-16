@@ -1,0 +1,12 @@
+---
+description: ABO and Rh blood group. The notation is international and stays in Latin letters with a plus or minus, as it does on a Mongolian donor card. Note that Rh-negative is rare in the Mongolian population, on the order of one per cent, far below European frequencies — which matters to any transfusion or donor dataset generated for this locale.
+locale: mn
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

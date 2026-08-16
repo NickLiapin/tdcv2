@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Америкийн Нэгдсэн Улс. The codes are Latin in every locale.
+locale: mn
+---
+USD

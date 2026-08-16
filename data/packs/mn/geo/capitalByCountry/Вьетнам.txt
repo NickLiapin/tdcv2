@@ -1,0 +1,5 @@
+---
+description: Capital of Вьетнам, in Mongolian.
+locale: mn
+---
+Ханой

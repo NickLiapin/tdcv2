@@ -1,0 +1,5 @@
+---
+description: Capital of Балба, in Mongolian.
+locale: mn
+---
+Катманду

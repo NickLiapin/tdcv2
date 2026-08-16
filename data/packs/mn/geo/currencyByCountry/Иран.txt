@@ -1,0 +1,5 @@
+---
+description: Currency of Иран, named in Mongolian.
+locale: mn
+---
+риал

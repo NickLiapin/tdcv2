@@ -1,0 +1,5 @@
+---
+description: Capital of Португал, in Mongolian.
+locale: mn
+---
+Лиссабон

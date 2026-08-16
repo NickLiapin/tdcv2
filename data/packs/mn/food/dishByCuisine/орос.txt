@@ -1,0 +1,13 @@
+---
+description: Dishes of орос cuisine, named in Mongolian.
+locale: mn
+---
+борщ
+пельмень
+блин
+оливье салат
+солянка
+каша
+голубцы
+винегрет
+компот

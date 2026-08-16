@@ -1,0 +1,29 @@
+---
+description: Dog in Mongolian. БАНХАР COMES FIRST BECAUSE IT IS THE ONLY NATIVE ONE: the Mongolian bankhar is the livestock-guarding dog that has worked with herding camps for millennia, big, black-and-tan, four-eyed (the tan spots above the eyes), and it is a landrace rather than a registered breed — there is no Mongolian kennel club standard, which is exactly why it belongs at the head of a Mongolian list and not in a table of breeds. хотошо is its Buryat counterpart. Everything after them is an imported breed, named in Mongolian as Mongolian names them, which is by Russian-mediated transcription.
+locale: mn
+---
+банхар
+монгол банхар
+хотошо
+тайган
+герман хоньч нохой
+лабрадор ретривер
+алтан ретривер
+хаски
+маламут
+пудель
+бигл
+ротвейлер
+такса
+боксёр
+чихуахуа
+ши-тцу
+померан
+корги
+бульдог
+доберман
+мастиф
+сенбернар
+овчарка
+спаниель
+терьер

@@ -1,0 +1,34 @@
+---
+description: Garment in Mongolian. The head of the list is Mongolian national dress and it is worn, not costumed: ДЭЭЛ is the long wrapped robe, fastened at the right shoulder and belted with a бүс, and it is still ordinary winter clothing in the countryside and formal wear everywhere; тэрлэг is its unlined summer version and дэгтий the padded winter one; ЛООВУЗ is the fur-flapped winter hat; МОНГОЛ ГУТАЛ are the upturned-toe boots, whose curl is usually explained as avoiding injury to the earth; хантааз is the sleeveless over-jacket. All five are sized and cut differently from Western clothing, so a dataset mixing them into a size column keyed on S/M/L is mixing two systems.
+locale: mn
+---
+дээл
+тэрлэг
+дэгтий
+хантааз
+бүс
+лоовуз
+малгай
+монгол гутал
+гутал
+пүүз
+шаахай
+цамц
+футболк
+цагаан цамц
+свитер
+ноосон цамц
+хүрэм
+куртка
+пальто
+цув
+даашинз
+банзал
+өмд
+жинс
+богино өмд
+оймс
+бээлий
+ороолт
+ханцуйвч
+дотуур хувцас

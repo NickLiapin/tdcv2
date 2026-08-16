@@ -1,0 +1,5 @@
+---
+description: Currency of Украин, named in Mongolian.
+locale: mn
+---
+гривн

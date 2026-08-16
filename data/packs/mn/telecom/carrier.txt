@@ -1,0 +1,30 @@
+---
+description: Mobile operator. The Mongolian market has four and only four: Юнител, Мобиком, Скайтел and Жи-Мобайл, with Мобиком the oldest. The rest of the list is the foreign carriers a roaming record would show. NOTE WHAT IS NOT HERE: the Mongolian numbering plan, the +976 country code and the operator prefixes belong to the Mongolia country pack and are deliberately absent from a language pack.
+locale: mn
+---
+Юнител
+Мобиком
+Скайтел
+Жи-Мобайл
+Мобинэт
+China Mobile
+China Unicom
+МТС
+Мегафон
+Билайн
+Теле2
+KT
+SK Telecom
+NTT Docomo
+SoftBank
+Vodafone
+Orange
+T-Mobile
+Verizon
+AT&T
+Airtel
+Jio
+Turkcell
+Kcell
+Beeline Kazakhstan
+Роуминг

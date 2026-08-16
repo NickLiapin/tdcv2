@@ -1,0 +1,11 @@
+---
+description: Weekday name in Mongolian, Monday first, which is how a Mongolian wall calendar prints it. THE SEVEN NAMES ARE TIBETAN PLANET NAMES borrowed with Buddhism: Даваа is the Moon, Мягмар Mars, Лхагва Mercury, Пүрэв Jupiter, Баасан Venus, Бямба Saturn and Ням the Sun. They are also, and for exactly that reason, seven of the commonest given names in the country — a child born on a Wednesday may simply be called Лхагва — so a column holding one of these words is ambiguous between a weekday and a person's name unless the config says which. In full they take гараг: Даваа гараг. DATE_LOCALE.json lists the same seven Sunday first because the formatter wants them that way; both orderings are the same words.
+locale: mn
+---
+Даваа
+Мягмар
+Лхагва
+Пүрэв
+Баасан
+Бямба
+Ням

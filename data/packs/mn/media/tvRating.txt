@@ -1,0 +1,13 @@
+---
+description: Broadcast content rating in Mongolia. The Communications Regulatory Commission classifies by minimum age, so the labels are an age plus нас, "years", rather than the letter codes of the American system; "бүх насны" means all ages.
+locale: mn
+---
+бүх насны
+6+
+12+
+14+
+16+
+18+
+эцэг эхийн хяналттай
+насанд хүрэгчдэд
+мэдээллийн

@@ -1,0 +1,25 @@
+---
+description: Seasoning in Mongolian, and the shortest such list in the pack for a reason: MONGOLIAN COOKING IS DELIBERATELY UNSPICED. Salt, and often nothing else, is the seasoning of the traditional kitchen — the point of the food is the meat and the milk, and a Mongolian will say so. What the language does have is a set of WILD STEPPE ALLIUMS gathered rather than grown, and those are genuinely Mongolian: ХУМУУЛ, ТААНА, МАНГИР and ГОГОД are four different wild onions and garlics, each with its own season and its own use, and dried таана is the classic seasoning for mutton. АЯ ГАНГА is wild thyme, and it is what a Mongolian steppe smells of. Everything after that block is a loanword that arrived with foreign cooking, and this file refuses to pad itself with spices Mongolian has no word for.
+locale: mn
+---
+давс
+хумуул
+таана
+мангир
+гогод
+ая ганга
+хар перц
+цагаан перц
+улаан чинжүү
+халуун чинжүү
+шанцай
+лаврын навч
+дарчин
+имбир
+гүнжид
+зираа
+гүргэм
+сармис
+ногоон сонгино
+гоньд
+гичийн үр

@@ -1,0 +1,5 @@
+---
+description: Currency of Гүрж, named in Mongolian.
+locale: mn
+---
+лари

@@ -1,0 +1,31 @@
+---
+description: Official document type in Mongolia. Two entries are the country's own and a config should know what they are without this pack pretending to generate them: ИРГЭНИЙ ҮНЭМЛЭХ is the national identity card, carried by every citizen from sixteen, and МАЛЫН ГЭРЧИЛГЭЭ is the livestock movement and ownership certificate, which is a real document a herding household deals with. THE NUMBERS ON THESE DOCUMENTS — the register number with its two Cyrillic prefix letters and its check digit above all — ARE NOT IN THIS PACK AND MUST NOT BE: they belong to the Mongolia country pack, which owns identifiers, formats and check digits. This file holds the NAMES of kinds of document, which is language.
+locale: mn
+---
+Иргэний үнэмлэх
+Гадаад паспорт
+Төрсний гэрчилгээ
+Гэрлэлтийн гэрчилгээ
+Гэрлэлт цуцлалтын гэрчилгээ
+Нас барсны гэрчилгээ
+Жолооны үнэмлэх
+Оршин суух үнэмлэх
+Виз
+Ажлын гэрээ
+Хөдөлмөрийн дэвтэр
+Нийгмийн даатгалын дэвтэр
+Эрүүл мэндийн даатгалын дэвтэр
+Татварын тайлан
+Барилгын зөвшөөрөл
+Тусгай зөвшөөрөл
+Ашиглалтын лиценз
+Хайгуулын лиценз
+Улсын бүртгэлийн гэрчилгээ
+Үл хөдлөх хөрөнгийн гэрчилгээ
+Газрын гэрчилгээ
+Малын гэрчилгээ
+Мал эмнэлгийн гэрчилгээ
+Гаалийн мэдүүлэг
+Дипломын үнэмлэх
+Итгэмжлэл
+Нотариатын баталгаа

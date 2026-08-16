@@ -1,0 +1,24 @@
+---
+description: Tree in Mongolian. ШИНЭС LEADS BECAUSE IT IS THE COUNTRY: Siberian larch is the dominant tree of the Mongolian forest, deciduous conifer, turning gold in September, and Mongolia's forest is the southern edge of the Siberian taiga meeting the steppe. ЗАГ, saxaul, is at the other extreme — the Gobi shrub-tree that holds the sand down, protected by law and still cut for fuel. Note that only about eight per cent of Mongolia is forest and the rest is steppe and desert, so a tree list this short is honest rather than incomplete.
+locale: mn
+---
+шинэс
+нарс
+гацуур
+хуш
+хус
+улиас
+улиангар
+бургас
+хайлаас
+заг
+тоорой
+арц
+агч
+царс
+долоогоно
+монос
+чацаргана
+улаан бургас
+нохойн хошуу
+яшил

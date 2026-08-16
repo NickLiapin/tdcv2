@@ -1,0 +1,13 @@
+---
+description: Dishes of япон cuisine, named in Mongolian.
+locale: mn
+---
+суши
+сашими
+рамен
+темпура
+удон
+мисо шөл
+якитори
+онигири
+катсу карри

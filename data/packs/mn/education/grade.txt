@@ -1,0 +1,22 @@
+---
+description: Grade in the Mongolian school and university system. The current scale is the Latin letters A to F, adopted with the credit system after 1990 and used unchanged in universities. THE OLDER SOVIET FIVE-POINT SCALE IS STILL HEARD in schools and among anyone educated before the change: 5 маш сайн, 4 сайн, 3 дунд, 2 хангалтгүй — and the word grades are given here after the letters, so a dataset that must cover both generations has them. A percentage is usually printed beside the letter.
+locale: mn
+---
+A+
+A
+A-
+B+
+B
+B-
+C+
+C
+C-
+D+
+D
+F
+маш сайн
+сайн
+дунд
+хангалттай
+хангалтгүй
+тооцов

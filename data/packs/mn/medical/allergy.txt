@@ -1,0 +1,28 @@
+---
+description: Common allergy in Mongolian. Two notes for this country. FIRST, ЛАКТОЗ ҮЛ ТЭВЧИХ is not on this list because it is not an allergy, but it is worth knowing that Mongolians largely LACK the European lactase-persistence allele and yet the diet is built on dairy — the resolution is that цагаан идээ is FERMENTED, which removes most of the lactose, so a config that infers dairy avoidance from ancestry genetics will be wrong about Mongolia in both directions. SECOND, the spring dust storms make pollen and dust the dominant seasonal allergens, and mutton allergy is vanishingly rare simply because the population is selected for tolerating it.
+locale: mn
+---
+Пенициллин
+Сульфаниламид
+Аспирин
+Иод
+Тоос
+Тоосны хачиг
+Цэцгийн тоос
+Ойн модны тоос
+Мөөгөнцөр
+Амьтны үс
+Муурны үс
+Нохойн үс
+Зөгийн хатгалт
+Өндөг
+Сүү
+Самар
+Газрын самар
+Далайн хоол
+Загас
+Улаан буудай
+Шар буурцаг
+Гүнжид
+Элсэн чихрийн орлуулагч
+Латекс

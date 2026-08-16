@@ -1,0 +1,20 @@
+---
+description: Compass direction in Mongolian. THE MONGOLIAN COMPASS IS ORIENTED TO THE SOUTH, NOT THE NORTH, and the words still carry the evidence: зүүн means "left" AND "east", баруун means "right" AND "west", урд means "in front" AND "south", хойд means "behind" AND "north" — a set that is only self-consistent for someone facing south, which is how a ger is pitched with its door to the south and how a khan was seated. Note also that Mongolian builds the intercardinals in the OPPOSITE ORDER from English: зүүн хойд is literally east-north where English says northeast. A config translating compass points word by word will reverse them.
+locale: mn
+---
+хойд
+урд
+зүүн
+баруун
+зүүн хойд
+баруун хойд
+зүүн урд
+баруун урд
+хойд зүг
+урд зүг
+зүүн зүг
+баруун зүг
+дээш
+доош
+төв
+дөрвөн зүг

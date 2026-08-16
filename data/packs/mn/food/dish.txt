@@ -1,0 +1,46 @@
+---
+description: Dish in Mongolian. THE MONGOLIAN KITCHEN IS BUILT ON MEAT, WHEAT AND MILK AND ALMOST NOTHING ELSE, which is a fact about a country where crops barely grow: бууз and хуушуур and банш are all the same filling of minced mutton in different wrappings, цуйван is fried noodles with meat, хорхог and боодог are cooked with fire-heated stones inside a milk churn or inside the skinned animal itself, and борц is air-dried meat that keeps through a winter. ЦАГААН ИДЭЭ, "white food", is the whole dairy half of the cuisine — ааруул, аарц, хурууд, өрөм, тараг, ээзгий, айраг — and it is seasonal, made in summer when the animals are in milk and dried to last. There is no vegetarian tradition and very little vegetable in the traditional repertoire; the vegetables that do appear arrived in the twentieth century.
+locale: mn
+---
+бууз
+хуушуур
+банш
+банштай цай
+цуйван
+хорхог
+боодог
+ууц
+борц
+гурилтай шөл
+бантан
+махан шөл
+ногоотой шөл
+будаатай хуурга
+гоймонтой хуурга
+шарсан мах
+чанасан мах
+хиам
+гэдэс дотор
+толгой мах
+боорцог
+гамбир
+хайлмаг
+ааруул
+аарц
+хурууд
+өрөм
+тараг
+бяслаг
+ээзгий
+шар тос
+айраг
+сүүтэй цай
+хар цай
+архи
+нэрмэл архи
+цагаан идээ
+салат
+төмстэй салат
+алимны бялуу
+бялуу
+пирошки

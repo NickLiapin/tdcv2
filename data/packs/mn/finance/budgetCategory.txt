@@ -1,0 +1,34 @@
+---
+description: Household budget category in Mongolian. ТҮЛШ, fuel, is a category of its own here rather than part of utilities, because in a ger district household the winter coal and wood bill is a large separate line and is what the air-quality debate in Ulaanbaatar is about. МАЛЫН ТЭЖЭЭЛ, livestock fodder, is a household budget line for a herding family and rises sharply in a dzud winter.
+locale: mn
+---
+Түрээс
+Орон сууцны зээл
+Хүнс
+Нийтийн үйлчилгээ
+Түлш
+Цахилгаан
+Дулаан
+Ус
+Интернэт
+Утасны төлбөр
+Тээвэр
+Шатахуун
+Эрүүл мэнд
+Эм тариа
+Даатгал
+Боловсрол
+Хүүхдийн зардал
+Хувцас
+Зугаа цэнгэл
+Гадуур хоол
+Аялал
+Хадгаламж
+Зээлийн төлбөр
+Бэлэг
+Хандив
+Гэр бүлийн арга хэмжээ
+Малын тэжээл
+Мал эмнэлэг
+Гэр ахуйн бараа
+Засвар үйлчилгээ

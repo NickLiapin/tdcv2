@@ -1,0 +1,5 @@
+---
+description: Capital of Чех, in Mongolian.
+locale: mn
+---
+Прага

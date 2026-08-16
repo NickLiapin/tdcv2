@@ -1,0 +1,55 @@
+---
+description: Animal in Mongolian. The first five are ТАВАН ХОШУУ МАЛ, the five snouts — horse, cattle, camel, sheep and goat — which is not a list but a category of Mongolian: the five livestock species a herding household counts its wealth in, named together in one fixed phrase, and the reason Mongolia has more livestock than people by a factor of about twenty. The block after them is the wild fauna of the country and much of it exists nowhere else: тахь is the Przewalski horse, the only never-domesticated horse left alive, extinct in the wild by 1969 and reintroduced from zoos; мазаалай is the Gobi bear, of which a few dozen survive; ирвэс is the snow leopard; хулан the Asiatic wild ass; аргаль the largest wild sheep in the world.
+locale: mn
+---
+морь
+үхэр
+тэмээ
+хонь
+ямаа
+тахь
+сарлаг
+хайнаг
+илжиг
+нохой
+муур
+гахай
+тахиа
+чоно
+үнэг
+хярс
+мануул
+ирвэс
+шилүүс
+мазаалай
+баавгай
+дорго
+халиу
+булга
+зараа
+тарвага
+зурам
+хэрэм
+хулгана
+туулай
+буга
+халиун буга
+гөрөөс
+хандгай
+цаа буга
+янгир
+аргаль
+бөхөн
+хулан
+хар сүүлт зээр
+цагаан зээр
+зээр
+бар
+арслан
+заан
+сармагчин
+анааш
+илбэн
+могой
+мэлхий
+гүрвэл

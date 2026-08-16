@@ -1,0 +1,5 @@
+---
+description: Currency of Польш, named in Mongolian.
+locale: mn
+---
+злот

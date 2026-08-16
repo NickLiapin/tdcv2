@@ -1,0 +1,5 @@
+---
+description: Capital of Этиоп, in Mongolian.
+locale: mn
+---
+Аддис-Абеба

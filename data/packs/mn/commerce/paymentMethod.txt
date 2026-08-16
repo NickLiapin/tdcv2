@@ -1,0 +1,19 @@
+---
+description: Payment method in Mongolian. Two entries are specific and matter: QPay is the domestic QR standard that almost every Mongolian merchant accepts, and SocialPay is the bank wallet that preceded it; between them QR payment is the ordinary way a small purchase is settled in Ulaanbaatar. Дансаар шилжүүлэх, a plain bank transfer, is far commoner than a card in business-to-business trade, and бэлэн мөнгө still dominates outside the capital.
+locale: mn
+---
+Бэлэн мөнгө
+Картаар
+Дебит карт
+Кредит карт
+QPay
+SocialPay
+Дансаар шилжүүлэх
+Гар утсаар
+Интернэт банк
+Хүлээж авахдаа төлөх
+Бэлгийн карт
+Урьдчилгаа
+Хэсэгчлэн төлөх
+Лизинг
+Цахим түрийвч

@@ -1,0 +1,5 @@
+---
+description: Currency of Орос, named in Mongolian.
+locale: mn
+---
+рубль

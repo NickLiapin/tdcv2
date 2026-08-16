@@ -1,0 +1,5 @@
+---
+description: Capital of Армен, in Mongolian.
+locale: mn
+---
+Ереван

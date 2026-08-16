@@ -1,0 +1,5 @@
+---
+description: Capital of Ирланд, in Mongolian.
+locale: mn
+---
+Дублин

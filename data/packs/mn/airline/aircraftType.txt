@@ -1,0 +1,30 @@
+---
+description: Aircraft type. THE DESIGNATIONS STAY IN LATIN — Boeing 737, Airbus A320 — because that is what they are in every locale and on every Mongolian boarding pass. The tail of the list is the Soviet fleet that still flies the Mongolian domestic and cargo network in places: the Antonov An-24 and An-2, and the Mil Mi-8 helicopter, which reach airstrips a jet cannot.
+locale: mn
+---
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 767-300
+Boeing 787-9
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330
+Airbus A350
+Embraer E190
+Bombardier CRJ900
+ATR 72
+Fokker 50
+Antonov An-24
+Antonov An-26
+Antonov An-2
+Mil Mi-8
+Cessna 208 Caravan
+Boeing 777-300ER
+Airbus A380
+Boeing 747-400F
+Ил-76
+Як-40
+Ту-154
+Airbus A220

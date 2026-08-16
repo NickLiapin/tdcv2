@@ -1,0 +1,14 @@
+---
+description: Driving licence class in Mongolia. The classes are A for motorcycles, B for cars, C for goods vehicles, D for buses and E for a vehicle with a trailer, which is the pattern shared with Russia and much of Europe rather than the American CDL system. Mongolian is the language of one country, so this is that country's classification.
+locale: mn
+---
+A
+A1
+B
+BE
+C
+CE
+D
+DE
+E
+M

@@ -1,0 +1,12 @@
+---
+description: Dishes of франц cuisine, named in Mongolian.
+locale: mn
+---
+круассан
+багет
+рататуй
+кок-о-вэн
+крем брюле
+киш
+сонгинотой шөл
+креп

@@ -1,0 +1,36 @@
+---
+description: Mongolian term of address and title. THE CRITICAL FACT IS POSITION: unlike Mr, Herr or Pan, ALMOST EVERY MONGOLIAN HONORIFIC FOLLOWS THE NAME INSTEAD OF PRECEDING IT. It is Бат гуай, never гуай Бат; Оюун багш, Дорж дарга, Ганбат ах, Цэцэг эгч. The address slot in a Mongolian template is therefore AFTER the given name, and a config that splices ${prefix} ${name} the European way produces word salad. гуай is the general respectful particle for an adult and is by far the commonest; авхай is its counterpart for a young or unmarried woman; ах (elder brother) and эгч (elder sister) are used for anyone modestly older, related or not, and are the ordinary polite way to speak to a colleague. Note too that the honorific attaches to the GIVEN name, never to the father's name, because the given name is the real name. Only the academic and clerical titles at the end of the list — доктор, профессор, академич, лам, хамба — may precede, following international usage.
+locale: mn
+---
+гуай
+авхай
+ах
+эгч
+дүү
+багш
+дарга
+захирал
+эрхэм
+эрхэмсэг
+ноён
+хатагтай
+ноёнтон
+хүндэт
+доктор
+профессор
+дэд профессор
+академич
+эмч
+хуульч
+инженер
+лам
+хамба
+гэвш
+бөө
+ерөнхийлөгч
+сайд
+ерөнхий сайд
+дэслэгч
+ахмад
+хурандаа
+генерал

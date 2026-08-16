@@ -1,0 +1,5 @@
+---
+description: Currency of Америкийн Нэгдсэн Улс, named in Mongolian.
+locale: mn
+---
+ам.доллар

@@ -1,0 +1,21 @@
+---
+description: Cuisine, named in Mongolian, and each value is the filename of a file in food/dishByCuisine/. The set is what a Mongolian actually eats out on rather than a world tour: Korean, Chinese and Japanese food are everywhere in Ulaanbaatar, Russian food is a Soviet-era inheritance that never left, Kazakh belongs to the west of the country and Tibetan came with the monasteries. Note that the values are BARE ETHNONYMS with no adjective ending — Mongolian says "монгол хоол", Mongol food, using the noun attributively without any derivation, so there is nothing here corresponding to Italian "italiana" or Polish "włoska".
+locale: mn
+---
+монгол
+хятад
+солонгос
+япон
+орос
+казах
+төвд
+энэтхэг
+итали
+франц
+турк
+араб
+тайланд
+вьетнам
+мексик
+америк
+грек

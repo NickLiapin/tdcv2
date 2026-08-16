@@ -1,0 +1,5 @@
+---
+description: Currency of Монгол, named in Mongolian.
+locale: mn
+---
+төгрөг

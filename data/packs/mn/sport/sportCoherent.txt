@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list. Each value is the filename of a file in sport/positionBySport/. Note that for БӨХ and МОРИН УРАЛДААН the child file holds RANKS and ROLES rather than field positions, because those two sports have no positions to hold — see sport/position.txt.
+locale: mn
+---
+Хөл бөмбөг
+Сагсан бөмбөг
+Волейбол
+Гар бөмбөг
+Мөсөн хоккей
+Регби
+Бөх
+Морин уралдаан

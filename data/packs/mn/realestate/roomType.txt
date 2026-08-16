@@ -1,0 +1,24 @@
+---
+description: Room in Mongolian. Note that a ger has NO ROOMS — it is one circular space whose parts are named by direction and status: ХОЙМОР is the honoured north side opposite the door where guests and the household shrine sit, the west side is the men's side and the east the women's and the kitchen. Those words are in this list because they are how a Mongolian describes a position indoors, and a config modelling ger dwellings cannot use "bedroom".
+locale: mn
+---
+Унтлагын өрөө
+Зочны өрөө
+Гал тогоо
+Ариун цэврийн өрөө
+Угаалгын өрөө
+Хоолны өрөө
+Ажлын өрөө
+Хүүхдийн өрөө
+Зоорь
+Дээвэр доорх өрөө
+Гараж
+Угаалгын хэсэг
+Агуулах
+Тагт
+Коридор
+Хувцасны өрөө
+Хоймор
+Баруун тал
+Зүүн тал
+Босго

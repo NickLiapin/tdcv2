@@ -1,0 +1,26 @@
+---
+description: Kind of trip in Mongolian. НҮҮДЭЛ is at the end and is not tourism: it is the seasonal migration of a herding household between pastures, four times a year in the classic pattern, and it is the most common long-distance journey in the country by a wide margin.
+locale: mn
+---
+Ажлын аялал
+Амралтын аялал
+Гэр бүлийн аялал
+Бал сарын аялал
+Адал явдалт аялал
+Автомашинт аялал
+Морин аялал
+Тэмээн аялал
+Явган аялал
+Уул авиралт
+Говийн аялал
+Загасчлалын аялал
+Ан агнуурын аялал
+Наадамд явах
+Хот руу явах
+Хөдөө буцах
+Эмчилгээний аялал
+Мөргөлийн аялал
+Оюутны аялал
+Ганцаараа аялах
+Бүлгээр аялах
+Нүүдэл

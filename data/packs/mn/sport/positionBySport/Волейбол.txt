@@ -1,0 +1,9 @@
+---
+description: Positions in Волейбол, in Mongolian.
+locale: mn
+---
+холбогч
+гадна довтлогч
+төвийн хаагч
+либеро
+эсрэг талын довтлогч

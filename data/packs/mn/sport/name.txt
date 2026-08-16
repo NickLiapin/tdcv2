@@ -1,0 +1,43 @@
+---
+description: Sport in Mongolian. THE FIRST THREE ARE ЭРИЙН ГУРВАН НААДАМ, "the three games of men" — wrestling, archery and horse racing — which are not three sports that happen to be popular but a single institution: they are what Наадам is, they are held together every July, and they are the frame Mongolians understand sport through. Wrestling in particular is the national sport by a distance. After them come the Olympic disciplines Mongolia actually competes in — freestyle wrestling, judo, boxing, shooting — where a country of three and a half million has taken medals well out of proportion to its size, and then the ordinary international list.
+locale: mn
+---
+бөх
+сурын харваа
+морин уралдаан
+шагай харваа
+чөлөөт бөх
+самбо
+жүдо
+бокс
+буудлага
+хүндийн өргөлт
+хөл бөмбөг
+сагсан бөмбөг
+волейбол
+гар бөмбөг
+мөсөн хоккей
+регби
+ширээний теннис
+теннис
+бадминтон
+шатар
+даам
+гимнастик
+уран гулгалт
+цанын спорт
+тэшүүр
+дугуйн спорт
+марафон
+гүйлт
+усанд сэлэлт
+сэлүүрт завь
+гар барилдаан
+карате
+таеквондо
+кикбоксинг
+нум сум
+уул авиралт
+биллиард
+гольф
+дартс

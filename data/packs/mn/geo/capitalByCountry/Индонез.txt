@@ -1,0 +1,5 @@
+---
+description: Capital of Индонез, in Mongolian.
+locale: mn
+---
+Жакарта

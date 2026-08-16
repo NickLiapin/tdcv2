@@ -1,0 +1,12 @@
+---
+description: Conduit or installation method for cable runs, in Mongolian. Note that PERMAFROST underlies a large part of northern Mongolia, so direct burial is not always available and aerial runs are common where a European network would trench.
+locale: mn
+---
+Хуванцар хоолой
+Ган хоолой
+Хатуу хуванцар хоолой
+Шууд булах
+Дотуур хоолой
+Кабелийн тавиур
+Агаарын татлага
+Хөлдүү хөрсний суваг

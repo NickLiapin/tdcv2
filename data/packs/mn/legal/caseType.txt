@@ -1,0 +1,20 @@
+---
+description: Category of legal case in Mongolian. Mongolian law divides proceedings into three main branches — иргэний (civil), эрүүгийн (criminal) and захиргааны (administrative) — and a Mongolian court is specialised by that division rather than by subject, so the branch is the primary classification and the subject matters below it.
+locale: mn
+---
+иргэний хэрэг
+эрүүгийн хэрэг
+захиргааны хэрэг
+гэр бүлийн маргаан
+өв залгамжлалын маргаан
+хөдөлмөрийн маргаан
+гэрээний маргаан
+өмчийн маргаан
+газрын маргаан
+дампуурлын хэрэг
+татварын маргаан
+оюуны өмчийн маргаан
+хохирол барагдуулах
+цагаачлалын хэрэг
+байгаль орчны хэрэг
+ашигт малтмалын маргаан

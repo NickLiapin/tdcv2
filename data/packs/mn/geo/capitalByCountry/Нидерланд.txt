@@ -1,0 +1,5 @@
+---
+description: Capital of Нидерланд, in Mongolian.
+locale: mn
+---
+Амстердам

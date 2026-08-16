@@ -1,0 +1,5 @@
+---
+description: Currency of Этиоп, named in Mongolian.
+locale: mn
+---
+быр

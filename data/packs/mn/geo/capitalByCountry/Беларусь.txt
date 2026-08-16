@@ -1,0 +1,5 @@
+---
+description: Capital of Беларусь, in Mongolian.
+locale: mn
+---
+Минск

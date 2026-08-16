@@ -1,0 +1,5 @@
+---
+description: Currency of Герман, named in Mongolian.
+locale: mn
+---
+евро

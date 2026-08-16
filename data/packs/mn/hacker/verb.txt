@@ -1,0 +1,32 @@
+---
+description: Technical verb in Mongolian, dictionary form, ending in -х. Remember that MONGOLIAN PUTS THE VERB LAST, so a phrase built from one of these and an object reads "өгөгдлийг шифрлэх" — object first, verb last — and never the English order.
+locale: mn
+---
+нөөцлөх
+тойрох
+эвдэх
+дарж бичих
+шахах
+хуулах
+шилжих
+индекслэх
+холбогдох
+үүсгэх
+тоолох
+бодох
+нэгтгэх
+оруулах
+дамжуулах
+программчлах
+дахин ачаалах
+задлан шинжлэх
+шифрлэх
+тайлах
+байршуулах
+татах
+хайх
+шүүх
+эрэмбэлэх
+шинэчлэх
+суулгах
+устгах

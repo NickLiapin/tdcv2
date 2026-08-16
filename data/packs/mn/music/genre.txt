@@ -1,0 +1,39 @@
+---
+description: Music genre in Mongolian. The first four are Mongolian genres, not styles within a world category: УРТЫН ДУУ, the long song, stretches a handful of words over minutes of ornamented melody and is on the UNESCO list; БОГИНО ДУУ is its short, metrical counterpart; ХӨӨМИЙ is throat singing; and ТУУЛЬ is the sung heroic epic. Modern Mongolian popular music is a real industry and Mongolian hip hop in particular has been a major domestic genre since the 1990s.
+locale: mn
+---
+уртын дуу
+богино дуу
+хөөмий
+тууль
+магтаал
+ерөөл
+ардын дуу
+үндэсний хөгжим
+сонгодог хөгжим
+дуурь
+поп хөгжим
+рок
+хард рок
+метал
+панк
+хип хоп
+рэп
+жазз
+блюз
+соул
+фанк
+электрон хөгжим
+хаус
+техно
+транс
+диско
+реггей
+кантри
+фолк
+инди
+амбиент
+саундтрек
+хүүхдийн дуу
+сүмийн хөгжим
+дуучин хамтлаг

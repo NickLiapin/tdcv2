@@ -1,0 +1,11 @@
+---
+description: Dishes of турк cuisine, named in Mongolian.
+locale: mn
+---
+кебаб
+баклава
+лахмажун
+долма
+кёфте
+пиде
+айран

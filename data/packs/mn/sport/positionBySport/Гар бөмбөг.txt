@@ -1,0 +1,9 @@
+---
+description: Positions in Гар бөмбөг, in Mongolian.
+locale: mn
+---
+хаалгач
+жигүүр
+шугамын тоглогч
+төвийн тоглогч
+хамгаалагч

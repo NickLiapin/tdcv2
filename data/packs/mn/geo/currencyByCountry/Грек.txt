@@ -1,0 +1,5 @@
+---
+description: Currency of Грек, named in Mongolian.
+locale: mn
+---
+евро

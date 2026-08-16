@@ -1,0 +1,36 @@
+---
+description: Musical instrument in Mongolian. THE FIRST BLOCK IS THE MONGOLIAN ORCHESTRA and none of it maps onto a European instrument: МОРИН ХУУР, the horsehead fiddle, is on the UNESCO intangible heritage list and is the national instrument, two strings of horsehair bowed with horsehair; ЯТГА is the long zither, ЁОЧИН the hammered dulcimer, ХУУЧИР and ШАНЗ bowed and plucked lutes, ЛИМБЭ the transverse flute played with circular breathing, ТОВШУУР the two-string lute of the western epic singers, БИШГҮҮР and БҮРЭЭ the shawm and the long temple horn, ДАМАР and ХЭНГЭРЭГ ritual drums. ХӨӨМИЙ, throat singing, is in the list although it is a technique and not an instrument, because that is how Mongolian classifies it — as a way of playing the body.
+locale: mn
+---
+морин хуур
+ятга
+ёочин
+хуучир
+шанз
+лимбэ
+товшуур
+бишгүүр
+бүрээ
+дамар
+хэнгэрэг
+цан
+дуудлага хонх
+хөөмий
+гитар
+цахилгаан гитар
+басс гитар
+төгөлдөр хуур
+хийл
+виолончель
+контрабасс
+бүрээ хөгжим
+саксофон
+флейт
+кларнет
+тромбон
+арфа
+аккордеон
+баян
+бөмбөр
+ксилофон
+синтезатор

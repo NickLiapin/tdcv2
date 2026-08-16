@@ -1,0 +1,8 @@
+---
+description: Conditions markedly more frequent in people of Зүүн Европын ancestry, named in Mongolian. A prevalence signal, not an exclusive one.
+locale: mn
+---
+Удамшлын гемохроматоз
+Целиак өвчин
+Уйланхайт фиброз
+Вилсоны өвчин

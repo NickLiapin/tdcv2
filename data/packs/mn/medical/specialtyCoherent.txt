@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list. Each value is the filename of a file in medical/diagnosisBySpecialty/.
+locale: mn
+---
+Кардиологи
+Неврологи
+Онкологи
+Дерматологи
+Гастроэнтерологи
+Эндокринологи
+Пульмонологи
+Ортопеди
+Сэтгэцийн эмгэг судлал
+Нефрологи

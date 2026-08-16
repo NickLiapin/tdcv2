@@ -1,0 +1,5 @@
+---
+description: Capital of Польш, in Mongolian.
+locale: mn
+---
+Варшав

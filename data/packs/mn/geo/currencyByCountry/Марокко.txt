@@ -1,0 +1,5 @@
+---
+description: Currency of Марокко, named in Mongolian.
+locale: mn
+---
+дирхам

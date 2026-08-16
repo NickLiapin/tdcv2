@@ -1,0 +1,12 @@
+---
+description: Clothing size in Mongolia. The Latin letter sizes are what labels carry, unchanged, as they are almost everywhere; Mongolian does not translate them.
+locale: mn
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

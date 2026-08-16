@@ -1,0 +1,5 @@
+---
+description: Currency of Финлянд, named in Mongolian.
+locale: mn
+---
+евро

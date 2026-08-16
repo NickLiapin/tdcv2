@@ -1,0 +1,9 @@
+---
+description: Hotel star rating in Mongolian.
+locale: mn
+---
+1 од
+2 од
+3 од
+4 од
+5 од

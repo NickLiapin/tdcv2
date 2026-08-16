@@ -1,0 +1,5 @@
+---
+description: Capital of Швед, in Mongolian.
+locale: mn
+---
+Стокгольм

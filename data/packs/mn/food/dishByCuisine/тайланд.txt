@@ -1,0 +1,10 @@
+---
+description: Dishes of тайланд cuisine, named in Mongolian.
+locale: mn
+---
+пад тай
+ногоон карри
+том ям
+папайя салат
+сатай
+манготой наалдамхай будаа

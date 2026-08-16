@@ -1,0 +1,26 @@
+---
+description: Mined commodity in Mongolian. The order is Mongolia's export ledger: coking coal and copper concentrate are the two largest exports of the country by value, gold is third, and ХАЙЛУУР ЖОНШ, fluorspar, is a commodity Mongolia is one of the world's top producers of and which almost no other locale would think to list. Uranium and rare earths are explored rather than produced.
+locale: mn
+---
+Нүүрс
+Коксжих нүүрс
+Хүрэн нүүрс
+Зэсийн хүдэр
+Зэсийн баяжмал
+Алт
+Мөнгө
+Молибден
+Хайлуур жонш
+Төмрийн хүдэр
+Цайр
+Хар тугалга
+Цагаан тугалга
+Вольфрам
+Уран
+Газрын ховор элемент
+Давс
+Шохойн чулуу
+Гантиг
+Боржин чулуу
+Фосфор
+Газрын тос

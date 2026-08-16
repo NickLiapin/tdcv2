@@ -1,0 +1,27 @@
+---
+description: Secondary address element in Mongolian. A city address ends байр 42, 15 тоот — block 42, unit 15 — and тоот is the word an English form would call "Apt". THE STRUCTURE ABOVE IT IS ADMINISTRATIVE AND BELONGS TO THE MONGOLIA COUNTRY PACK, NOT HERE: aimag, soum, district and khoroo are units of the state, not words of the language, and this pack deliberately stops at the building. Two entries have no European equivalent. хашаа is a fenced plot in a ger district and is the addressable unit there, since a ger has no flat number. And орц is the stairwell entrance of a Soviet-plan block, which is part of the address because the block has several and they are not connected inside.
+locale: mn
+---
+тоот
+байр
+орц
+давхар
+өрөө
+хаалга
+тасаг
+блок
+корпус
+секц
+хашаа
+гэр
+павильон
+лангуу
+зоорь
+дээвэр
+подвал
+агуулах
+хэсэг
+дугаар
+нэгж
+цонх
+булан

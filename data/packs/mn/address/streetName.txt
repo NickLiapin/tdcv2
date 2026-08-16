@@ -1,0 +1,159 @@
+---
+description: Name element found on Mongolian streets — khans and historical figures, writers and composers, civic values, and landscape words. Compose it BEFORE a streetSuffix, and note the construction: THE NAME TAKES THE GENITIVE AND THE THOROUGHFARE TYPE FOLLOWS IT — Их сургуулийн гудамж, Энх тайваны өргөн чөлөө — which is the reverse of "Main Street" and of "ulica Długa" alike. The street list of one particular city belongs in a country pack, not here. Three groups are worth naming. The imperial figures — Чингис хаан, Хубилай, Өгэдэй, Мандухай, Занабазар, Богд хаан — were unusable as street names for most of the twentieth century and came back after 1990. The revolutionary layer — Сүхбаатар, Чойбалсан — largely survived that turn, unlike in Eastern Europe. And a large share of Mongolian street names are simply the words for landscape and weather, because that is what the naming stock of the language is made of.
+locale: mn
+---
+Чингис хаан
+Хубилай хаан
+Өгэдэй хаан
+Мөнх хаан
+Есүхэй баатар
+Мандухай хатан
+Богд хаан
+Занабазар
+Сүхбаатар
+Чойбалсан
+Дамдинсүрэн
+Нацагдорж
+Ринчен
+Явуухулан
+Данзанравжаа
+Инжинаш
+Цэдэнбал
+Гэндэн
+Хатанбаатар
+Магсаржав
+Дэмид
+Ядамсүрэн
+Энх тайван
+Найрамдал
+Тусгаар тогтнол
+Ардчилал
+Эрх чөлөө
+Тэгш эрх
+Ялалт
+Хөдөлмөр
+Соёл
+Боловсрол
+Шинжлэх ухаан
+Эрүүл мэнд
+Хөгжил
+Их тойруу
+Бага тойруу
+Их сургууль
+Оюутны
+Их Хүрээ
+Их Монгол
+Хүннү
+Хэрлэн
+Онон
+Туул
+Сэлэнгэ
+Орхон
+Хөвсгөл
+Ховд
+Завхан
+Тэс
+Идэр
+Эг
+Дэлгэрмөрөн
+Алтай
+Хангай
+Хэнтий
+Соён
+Богд уул
+Хан уул
+Отгонтэнгэр
+Мөнххайрхан
+Сүтай
+Бүрэн
+Хайрхан
+Тэнгэр
+Наран
+Саран
+Одон
+Цэнхэр
+Номин
+Оюу
+Соёмбо
+Хас
+Наадам
+Морин хуур
+Хөөмий
+Уртын дуу
+Хуучир
+Ятга
+Лимбэ
+Товшуур
+Бүрээ
+Гурван гол
+Гурван эрдэнэ
+Таван толгой
+Долоон бурхан
+Есөн эрдэнэ
+Арван гурван
+Мянган угалз
+Түмэн эх
+Алтан говь
+Их говь
+Цагаан хад
+Улаан хад
+Хар хад
+Хөх толгой
+Улаан толгой
+Цагаан толгой
+Шар толгой
+Ногоон нуур
+Хар нуур
+Цагаан нуур
+Хөх нуур
+Улаан нуур
+Их булаг
+Хүйтэн булаг
+Халуун булаг
+Ундрага
+Цэлмэг
+Тунгалаг
+Дэлгэр
+Баянбулаг
+Баянгол
+Баянзүрх
+Баянхошуу
+Жаргалант
+Амгалан
+Буянт
+Мөнх тэнгэр
+Сайншанд
+Сайхан
+Хайлааст
+Улиастай
+Нарст
+Хустай
+Заамар
+Шинэ хороолол
+Цэцэг
+Ногоон зам
+Шинэ зам
+Хуучин зам
+Дунд зам
+Уулын зам
+Голын зам
+Талын зам
+Нарны зам
+Ирээдүй
+Хөгжлийн
+Бүтээн байгуулалт
+Эв нэгдэл
+Ард түмэн
+Залуучууд
+Хүүхэд
+Ээж
+Аав
+Ахмад
+Гэр бүл
+Түүх
+Дурсгал
+Гэрэлт
+Цэлмэн
+Хишиг
+Буян
+Өлзийт

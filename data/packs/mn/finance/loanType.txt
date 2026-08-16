@@ -1,0 +1,21 @@
+---
+description: Loan type in Mongolian. МАЛЧНЫ ЗЭЭЛ, the herder loan, is a distinct product in the Mongolian banking market, secured against livestock and timed to the herding year rather than to a salary; and ЦАЛИНГИЙН ЗЭЭЛ, the salary loan, is the ordinary consumer credit product, repaid by direct deduction.
+locale: mn
+---
+Орон сууцны зээл
+Ипотекийн зээл
+Автомашины зээл
+Цалингийн зээл
+Хэрэглээний зээл
+Бизнесийн зээл
+Жижиг дунд бизнесийн зээл
+Малчны зээл
+Тариаланчийн зээл
+Оюутны зээл
+Барьцаат зээл
+Барьцаагүй зээл
+Хөрөнгө оруулалтын зээл
+Овердрафт
+Лизинг
+Зээлийн шугам
+Ломбардын зээл
