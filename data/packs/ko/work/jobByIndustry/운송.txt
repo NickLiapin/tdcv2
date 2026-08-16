@@ -1,0 +1,16 @@
+---
+description: Jobs in Transportation (Korean)
+locale: ko
+---
+화물차 기사
+버스 기사
+기관사
+운행관리자
+물류담당자
+배송기사
+정비사
+항공정비사
+선장
+조종사
+항만 크레인 기사
+검수원

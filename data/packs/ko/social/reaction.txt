@@ -1,0 +1,15 @@
+---
+description: Social reaction (Korean)
+locale: ko
+---
+좋아요
+최고예요
+웃겨요
+놀라워요
+슬퍼요
+화나요
+응원해요
+감사해요
+축하해요
+흥미로워요
+싫어요

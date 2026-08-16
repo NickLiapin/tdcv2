@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Korean)
+locale: ko
+---
+세터
+라이트
+센터
+레프트
+리베로

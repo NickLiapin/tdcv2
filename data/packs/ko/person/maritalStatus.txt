@@ -1,0 +1,12 @@
+---
+description: Marital status in Korean
+locale: ko
+---
+미혼
+기혼
+이혼
+사별
+별거
+약혼
+사실혼
+응답하지 않음

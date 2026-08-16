@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in South Korea
+locale: ko
+---
+초등학교 졸업
+중학교 졸업
+고등학교 졸업
+전문대 졸업
+학사
+공학사
+이학사
+문학사
+석사
+박사
+전문석사
+법학전문석사
+명예박사
+조교수
+부교수
+정교수

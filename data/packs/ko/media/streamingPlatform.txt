@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Korean market
+locale: ko
+---
+넷플릭스
+티빙
+웨이브
+쿠팡플레이
+왓챠
+디즈니플러스
+애플TV+
+프라임비디오
+시리즈온
+네이버 시리즈온
+유튜브 프리미엄
+멜론

@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Korean). 황사 — the spring dust carried from the Gobi — is a Korean weather event with no European equivalent.
+locale: ko
+---
+천둥
+번개
+벼락
+무지개
+안개
+서리
+상고대
+눈보라
+폭설
+회오리
+돌풍
+태풍
+가뭄
+이슬
+황사

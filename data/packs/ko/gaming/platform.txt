@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Korean; brand names kept as-is)
+locale: ko
+---
+PC
+PC방
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Nintendo Switch
+Steam Deck
+모바일
+안드로이드
+iOS
+브라우저

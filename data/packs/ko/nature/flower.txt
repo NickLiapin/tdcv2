@@ -1,0 +1,32 @@
+---
+description: Flower (Korean). 무궁화 — the rose of Sharon — is the national flower.
+locale: ko
+---
+무궁화
+진달래
+개나리
+벚꽃
+매화
+목련
+동백
+철쭉
+수국
+나팔꽃
+해바라기
+코스모스
+국화
+백합
+장미
+튤립
+카네이션
+달리아
+붓꽃
+수선화
+제비꽃
+민들레
+봉숭아
+채송화
+맨드라미
+도라지
+연꽃
+작약

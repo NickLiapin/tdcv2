@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Korean)
+locale: ko
+---
+골키퍼
+왼쪽 윙
+왼쪽 백
+센터백
+오른쪽 백
+오른쪽 윙
+피벗

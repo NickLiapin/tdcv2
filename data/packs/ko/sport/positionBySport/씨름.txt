@@ -1,0 +1,10 @@
+---
+description: Positions in ssireum, Korean wrestling — these are its weight divisions (Korean)
+locale: ko
+---
+태백급
+금강급
+한라급
+백두급
+심판
+천하장사

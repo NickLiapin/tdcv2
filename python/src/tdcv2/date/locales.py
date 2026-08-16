@@ -494,6 +494,16 @@ JA = DateLocale(
     {"L": "YYYY/MM/DD", "LL": "YYYY[年]M[月]D[日]", "LLL": "YYYY[年]M[月]D[日] HH:mm", "LLLL": "YYYY[年]M[月]D[日] dddd HH:mm"},
 )
 
+# Korean names months by number, and a written date reads "2026년 10월 9일" with 년/월/일 as literals.
+KO = DateLocale(
+    "ko",
+    ("1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"),
+    ("1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"),
+    ("일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"),
+    ("일", "월", "화", "수", "목", "금", "토"),
+    {"L": "YYYY. MM. DD.", "LL": "YYYY[년] M[월] D[일]", "LLL": "YYYY[년] M[월] D[일] HH:mm", "LLLL": "YYYY[년] M[월] D[일] dddd HH:mm"},
+)
+
 _BY_NAME: dict[str, DateLocale] = {
     "en": EN,
     "eng": EN,
@@ -526,9 +536,11 @@ _BY_NAME: dict[str, DateLocale] = {
     "vie": VI,
     "ja": JA,
     "jpn": JA,
+    "ko": KO,
+    "kor": KO,
 }
 
-NAMES = ("ar", "de", "el", "en", "es", "fr", "id", "it", "ja", "pl", "pt", "ru", "tr", "uk", "vi", "zh-cn")
+NAMES = ("ar", "de", "el", "en", "es", "fr", "id", "it", "ja", "ko", "pl", "pt", "ru", "tr", "uk", "vi", "zh-cn")
 
 
 def resolve(name: str | None) -> DateLocale:

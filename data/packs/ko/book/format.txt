@@ -1,0 +1,12 @@
+---
+description: Book format (Korean)
+locale: ko
+---
+양장본
+반양장
+문고본
+특별판
+일러스트판
+전자책
+오디오북
+소책자

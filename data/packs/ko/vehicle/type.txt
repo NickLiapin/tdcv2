@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Korean). 경차 — the sub-1000cc light car — is a Korean tax category.
+locale: ko
+---
+세단
+해치백
+리프트백
+왜건
+쿠페
+컨버터블
+로드스터
+미니밴
+승합차
+크로스오버
+SUV
+픽업트럭
+밴
+경차
+소형트럭
+트럭
+덤프트럭
+트랙터
+버스
+마을버스
+오토바이
+스쿠터

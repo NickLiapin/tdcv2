@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Korean. A prevalence signal, not an exclusive one.
+locale: ko
+---
+제2형 당뇨병
+비만
+통풍
+고혈압
+만성 신장병
+류마티스성 심질환
+유당불내증

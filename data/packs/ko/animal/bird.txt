@@ -1,0 +1,34 @@
+---
+description: Bird (Korean). 까치 — the magpie — is the one that turns up in Korean folklore.
+locale: ko
+---
+참새
+박새
+제비
+찌르레기
+딱따구리
+뻐꾸기
+꾀꼬리
+멧새
+까치
+까마귀
+갈까마귀
+비둘기
+종다리
+개똥지빠귀
+되새
+왜가리
+황새
+두루미
+오리
+기러기
+백조
+갈매기
+매
+새매
+독수리
+솔개
+부엉이
+올빼미
+꿩
+메추라기

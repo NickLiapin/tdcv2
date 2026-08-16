@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Korean that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: ko
+---
+전립선비대증
+전립선염
+전립선암
+정계정맥류
+음낭수종
+잠복고환
+포경
+감돈포경
+귀두포피염
+고환염
+부고환염
+고환염전
+고환암
+발기부전
+페이로니병
+남성 불임
+성선기능저하증
+서혜부 탈장
+무정자증
+여성형 유방

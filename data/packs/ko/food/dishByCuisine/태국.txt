@@ -1,0 +1,12 @@
+---
+description: Dishes of 태국 cuisine (Korean)
+locale: ko
+---
+똠양꿍
+팟타이
+그린커리
+똠카가이
+쏨땀
+마사만커리
+망고 찰밥
+팟카파오

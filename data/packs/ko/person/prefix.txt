@@ -1,0 +1,36 @@
+---
+description: Korean honorific / form of address. Korean attaches 씨 and 님 AFTER the name — 김민준 씨 — while job titles are used as address in their own right.
+locale: ko
+---
+씨
+님
+군
+양
+선생님
+교수님
+박사
+대표님
+사장님
+부사장님
+전무님
+상무님
+본부장님
+부장님
+차장님
+과장님
+대리님
+팀장님
+실장님
+원장님
+관장님
+감독님
+코치님
+선배님
+후배님
+기사님
+사모님
+여사님
+회장님
+의원님
+장관님
+대통령님

@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Korean)
+locale: ko
+---
+케이블 덕트
+플렉시블 전선관
+금속 플렉시블관
+케이블 트레이
+가공 배선
+지중 관로
+직접 매설

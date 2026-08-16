@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Korean. A prevalence signal, not an exclusive one.
+locale: ko
+---
+알파 지중해빈혈
+헤모글로빈 E
+G6PD 결핍증
+유당불내증
+브루가다증후군
+비인두암
+중간형 지중해빈혈

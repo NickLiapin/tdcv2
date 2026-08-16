@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Korean)
+locale: ko
+---
+언랭
+브론즈
+실버
+골드
+플래티넘
+다이아몬드
+마스터
+그랜드마스터
+챌린저
+전설

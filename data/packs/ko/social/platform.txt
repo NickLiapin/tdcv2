@@ -1,0 +1,21 @@
+---
+description: Social platform popular in South Korea
+locale: ko
+---
+카카오톡
+네이버
+인스타그램
+유튜브
+틱톡
+페이스북
+X
+네이버 블로그
+네이버 카페
+밴드
+디시인사이드
+에브리타임
+당근마켓
+트위치
+디스코드
+스레드
+링크드인

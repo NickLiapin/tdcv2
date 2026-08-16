@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Korean)
+locale: ko
+---
+우울 삽화
+범불안장애
+공황장애
+양극성장애
+조현병
+강박장애
+외상후 스트레스장애
+섭식장애
+주의력결핍 과잉행동장애
+수면장애

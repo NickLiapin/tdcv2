@@ -1,0 +1,12 @@
+---
+description: Season (Korean)
+locale: ko
+---
+봄
+여름
+가을
+겨울
+장마
+초여름
+늦가을
+초봄

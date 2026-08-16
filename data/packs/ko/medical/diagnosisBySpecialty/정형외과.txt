@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Korean)
+locale: ko
+---
+무릎 골관절염
+고관절 골관절염
+척추증
+추간판탈출증
+요골 원위부 골절
+대퇴경부 골절
+반월판 손상
+오십견
+척추측만증
+평발

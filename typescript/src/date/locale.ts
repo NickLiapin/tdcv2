@@ -633,6 +633,34 @@ const JA: DateLocale = {
   },
 };
 
+// Korean names months by number, and a written date reads "2026년 10월 9일" with 년/월/일 as literals.
+const KO: DateLocale = {
+  name: 'ko',
+  months: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+  monthsShort: [
+    '1월',
+    '2월',
+    '3월',
+    '4월',
+    '5월',
+    '6월',
+    '7월',
+    '8월',
+    '9월',
+    '10월',
+    '11월',
+    '12월',
+  ],
+  weekdays: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+  weekdaysShort: ['일', '월', '화', '수', '목', '금', '토'],
+  formats: {
+    L: 'YYYY. MM. DD.',
+    LL: 'YYYY[년] M[월] D[일]',
+    LLL: 'YYYY[년] M[월] D[일] HH:mm',
+    LLLL: 'YYYY[년] M[월] D[일] dddd HH:mm',
+  },
+};
+
 const LOCALES = new Map<string, DateLocale>([
   ['en', EN],
   ['eng', EN],
@@ -665,6 +693,8 @@ const LOCALES = new Map<string, DateLocale>([
   ['vie', VI],
   ['ja', JA],
   ['jpn', JA],
+  ['ko', KO],
+  ['kor', KO],
 ]);
 
 export const DATE_LOCALE_NAMES: readonly string[] = [
@@ -677,6 +707,7 @@ export const DATE_LOCALE_NAMES: readonly string[] = [
   'id',
   'it',
   'ja',
+  'ko',
   'pl',
   'pt',
   'ru',

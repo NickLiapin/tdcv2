@@ -1,0 +1,13 @@
+---
+description: Dishes of 중식 cuisine (Korean)
+locale: ko
+---
+짜장면
+짬뽕
+탕수육
+마파두부
+깐풍기
+유산슬
+볶음밥
+군만두
+양장피

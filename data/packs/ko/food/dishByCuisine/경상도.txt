@@ -1,0 +1,12 @@
+---
+description: Dishes of 경상도 cuisine (Korean)
+locale: ko
+---
+돼지국밥
+밀면
+아구찜
+간고등어
+헛제사밥
+재첩국
+산채비빔밥
+충무김밥

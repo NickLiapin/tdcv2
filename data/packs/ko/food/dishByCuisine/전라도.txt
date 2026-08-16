@@ -1,0 +1,12 @@
+---
+description: Dishes of 전라도 cuisine (Korean)
+locale: ko
+---
+홍어삼합
+한정식
+떡갈비
+콩나물국밥
+낙지볶음
+매생이국
+추어탕
+꼬막무침

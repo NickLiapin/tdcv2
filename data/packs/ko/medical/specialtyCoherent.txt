@@ -1,0 +1,14 @@
+---
+description: Medical specialty (has a coherent diagnosis list)
+locale: ko
+---
+순환기내과
+신경과
+소화기내과
+호흡기내과
+내분비내과
+신장내과
+정형외과
+피부과
+종양내과
+정신건강의학과

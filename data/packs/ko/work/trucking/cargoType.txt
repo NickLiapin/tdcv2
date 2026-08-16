@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Korean)
+locale: ko
+---
+호로차
+냉동탑차
+보냉탑차
+카고트럭
+컨테이너 트레일러
+탱크로리
+카캐리어
+곡물운반차
+덤프트럭
+목재운반차
+로베드 트레일러
+패널운반차
+밴형 화물차

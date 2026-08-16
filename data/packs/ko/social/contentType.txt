@@ -1,0 +1,17 @@
+---
+description: Social content type (Korean)
+locale: ko
+---
+게시물
+사진
+동영상
+숏폼
+스토리
+라이브 방송
+공유
+댓글
+설문
+모음
+후기
+공지
+추천

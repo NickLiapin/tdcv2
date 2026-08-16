@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Korean)
+locale: ko
+---
+위염
+위궤양
+역류성 식도염
+과민성 대장증후군
+크론병
+궤양성 대장염
+만성 췌장염
+담석증
+간경변
+셀리악병

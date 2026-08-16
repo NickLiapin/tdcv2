@@ -1,0 +1,28 @@
+---
+description: Korean address unit / interior designator
+locale: ko
+---
+호
+동
+층
+B동
+A동
+101동
+호실
+실
+블록
+필지
+지하
+옥탑
+로비
+안내데스크
+사서함
+우편함
+앞
+옆
+뒤
+내
+번지
+번길
+통
+반

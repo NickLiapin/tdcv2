@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Korean. Amounts are in KRW, the currency of South Korea.
+locale: ko
+---
+3천만원 미만
+3천만~4천만원
+4천만~5천만원
+5천만~7천만원
+7천만~1억원
+1억~1억5천만원
+1억5천만~2억원
+2억원 이상

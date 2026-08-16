@@ -1,0 +1,15 @@
+---
+description: Booking status (Korean)
+locale: ko
+---
+예약생성
+승인대기
+예약확정
+결제완료
+부분결제
+변경됨
+예약취소
+노쇼
+이용완료
+환불완료
+기간만료

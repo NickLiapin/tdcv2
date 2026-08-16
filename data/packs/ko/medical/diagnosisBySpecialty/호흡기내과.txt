@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Korean)
+locale: ko
+---
+기관지천식
+만성 폐쇄성 폐질환
+폐렴
+만성 기관지염
+기관지확장증
+흉막염
+폐결핵
+사르코이드증
+수면무호흡증
+폐색전증

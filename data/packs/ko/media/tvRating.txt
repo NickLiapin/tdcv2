@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, descriptive Korean (country rating codes are country data)
+locale: ko
+---
+전체관람가
+가족 시청 가능
+어린이용
+보호자 동반
+청소년 관람 가능
+12세 이상
+15세 이상
+청소년 관람불가
+연령 제한 없음

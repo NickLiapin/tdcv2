@@ -1,0 +1,13 @@
+---
+description: Dishes of 분식 cuisine (Korean)
+locale: ko
+---
+떡볶이
+순대
+튀김
+김밥
+라볶이
+쫄면
+우동
+만두
+어묵

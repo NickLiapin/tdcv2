@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Korean, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: ko
+---
+북유럽계
+동유럽계
+지중해계
+아슈케나지 유대계
+중동계
+북아프리카계
+사하라 이남 아프리카계
+동아시아계
+남아시아계
+동남아시아계
+아메리카 원주민계
+태평양 도서계

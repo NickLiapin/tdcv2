@@ -1,0 +1,15 @@
+---
+description: Positions in association football (Korean)
+locale: ko
+---
+골키퍼
+오른쪽 수비수
+왼쪽 수비수
+중앙 수비수
+수비형 미드필더
+중앙 미드필더
+공격형 미드필더
+오른쪽 윙어
+왼쪽 윙어
+공격수
+최전방 공격수

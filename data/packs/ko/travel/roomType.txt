@@ -1,0 +1,23 @@
+---
+description: Hotel room type (Korean). Korean hotels distinguish 온돌방 — a floor-heated room with bedding on the floor — from a bed room.
+locale: ko
+---
+싱글
+더블
+트윈
+트리플
+패밀리룸
+스탠다드
+슈페리어
+디럭스
+주니어 스위트
+스위트
+펜트하우스
+온돌방
+한실
+양실
+스튜디오
+펜션
+독채
+오션뷰
+발코니룸

@@ -1,0 +1,12 @@
+---
+description: Time of day (Korean)
+locale: ko
+---
+아침
+점심
+오후
+저녁
+밤
+자정
+새벽
+해질녘

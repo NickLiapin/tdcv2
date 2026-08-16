@@ -1,0 +1,12 @@
+---
+description: Dishes of 인도 cuisine (Korean)
+locale: ko
+---
+커리
+탄두리 치킨
+비리야니
+사모사
+달
+난
+파니르 티카
+짜이

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Korean)
+locale: ko
+---
+편두통
+뇌전증
+뇌졸중
+일과성 허혈발작
+다발성 경화증
+파킨슨병
+말초신경병증
+신경근병증
+삼차신경통
+치매

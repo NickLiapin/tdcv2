@@ -1,0 +1,29 @@
+---
+description: Dog breed (Korean). 진돗개 — the Jindo — is a national monument in its own right.
+locale: ko
+---
+진돗개
+풍산개
+삽살개
+동경이
+제주개
+저먼 셰퍼드
+래브라도 리트리버
+골든 리트리버
+푸들
+닥스훈트
+비글
+로트와일러
+도베르만
+복서
+불도그
+퍼그
+치와와
+요크셔테리어
+말티즈
+시츄
+포메라니안
+시베리안 허스키
+보더콜리
+달마시안
+비숑 프리제

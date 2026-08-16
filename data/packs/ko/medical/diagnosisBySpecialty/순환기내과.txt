@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Korean)
+locale: ko
+---
+고혈압
+관상동맥질환
+협심증
+심근경색
+심방세동
+심부전
+심근병증
+심근염
+승모판질환
+관상동맥 죽상경화증

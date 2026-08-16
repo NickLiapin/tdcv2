@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Korean. A prevalence signal, not an exclusive one.
+locale: ko
+---
+베타 지중해빈혈
+겸상적혈구빈혈
+G6PD 결핍증
+가족성 지중해열
+유전성 혈색소증
+베체트병
+유전성 구상적혈구증

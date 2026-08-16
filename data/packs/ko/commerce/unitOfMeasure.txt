@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Korean). Korean counts with classifiers — 개 for objects, 자루 for long things, 장 for flat things, 대 for machines.
+locale: ko
+---
+개
+자루
+장
+대
+벌
+켤레
+세트
+묶음
+봉지
+상자
+박스
+g
+kg
+mg
+톤
+ml
+L
+cm
+mm
+m
+km
+제곱미터
+세제곱미터
+롤
+캔
+병
+팩
+다스
+포
+팔레트

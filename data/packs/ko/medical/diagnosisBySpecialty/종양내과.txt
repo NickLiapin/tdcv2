@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Korean)
+locale: ko
+---
+유방암
+폐암
+대장암
+위암
+전립선암
+갑상선암
+흑색종
+호지킨 림프종
+백혈병
+자궁경부암

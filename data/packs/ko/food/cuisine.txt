@@ -1,0 +1,20 @@
+---
+description: Cuisine (Korean). Each value has a dishByCuisine child file.
+locale: ko
+---
+한식
+분식
+중식
+일식
+양식
+이탈리아
+프랑스
+멕시코
+태국
+베트남
+인도
+미국
+사찰음식
+궁중요리
+전라도
+경상도

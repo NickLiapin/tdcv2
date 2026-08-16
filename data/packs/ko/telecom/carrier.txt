@@ -1,0 +1,30 @@
+---
+description: Mobile carrier (Korean operators and international brands)
+locale: ko
+---
+SK텔레콤
+KT
+LG유플러스
+SK세븐모바일
+KT엠모바일
+U+알뜰모바일
+헬로모바일
+프리티
+아이즈모바일
+스마텔
+토스모바일
+KT스카이라이프
+SK브로드밴드
+LG헬로비전
+NTT도코모
+소프트뱅크
+차이나모바일
+차이나유니콤
+버라이즌
+AT&T
+T-모바일
+보다폰
+오렌지
+싱텔
+AIS
+텔스트라

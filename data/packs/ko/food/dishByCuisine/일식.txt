@@ -1,0 +1,13 @@
+---
+description: Dishes of 일식 cuisine (Korean)
+locale: ko
+---
+초밥
+회
+라멘
+우동
+돈카츠
+규동
+오코노미야키
+덴푸라
+미소된장국

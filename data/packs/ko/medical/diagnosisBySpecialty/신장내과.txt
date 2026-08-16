@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Korean)
+locale: ko
+---
+만성 신장병
+급성 신우신염
+사구체신염
+요로결석
+신증후군
+다낭성 신질환
+당뇨병성 신증
+급성 신손상
+요로감염
+신부전

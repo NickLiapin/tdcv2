@@ -1,0 +1,28 @@
+---
+description: Name / academic suffix (Korean). Korean puts degrees and licences after the name: 김민준 (공학박사).
+locale: ko
+---
+공학박사
+이학박사
+의학박사
+문학박사
+법학박사
+경제학박사
+박사
+석사
+학사
+기술사
+기사
+산업기사
+건축사
+공인회계사
+세무사
+법무사
+행정사
+노무사
+변리사
+간호사
+약사
+보육교사
+조리사
+미용사

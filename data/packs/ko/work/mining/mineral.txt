@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Korean)
+locale: ko
+---
+무연탄
+갈탄
+철광석
+텅스텐
+몰리브덴
+아연광
+연광
+금
+은
+흑연
+고령토
+규석
+석회석
+대리석
+화강암
+장석
+활석
+납석
+규조토

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Korean)
+locale: ko
+---
+아토피피부염
+건선
+습진
+접촉피부염
+두드러기
+여드름
+주사
+대상포진
+무좀
+지루피부염

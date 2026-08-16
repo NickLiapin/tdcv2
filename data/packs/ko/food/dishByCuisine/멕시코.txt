@@ -1,0 +1,12 @@
+---
+description: Dishes of 멕시코 cuisine (Korean)
+locale: ko
+---
+타코
+부리토
+케사디아
+과카몰레
+나초
+엔칠라다
+파히타
+칠리 콘 카르네

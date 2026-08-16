@@ -1,0 +1,16 @@
+---
+description: Listing status (Korean)
+locale: ko
+---
+거래중
+신규
+정보수정
+상담중
+가계약
+확인중
+매물중지
+거래완료
+임대완료
+기간만료
+보관
+임시저장

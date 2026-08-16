@@ -1,0 +1,11 @@
+---
+description: Driving licence category for trucks (Korean categories)
+locale: ko
+---
+1종 보통
+1종 대형
+1종 특수 대형견인
+1종 특수 소형견인
+1종 특수 구난
+2종 보통
+2종 소형

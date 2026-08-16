@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type
+locale: ko
+---
+O형 Rh+
+O형 Rh-
+A형 Rh+
+A형 Rh-
+B형 Rh+
+B형 Rh-
+AB형 Rh+
+AB형 Rh-

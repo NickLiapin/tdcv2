@@ -1,0 +1,26 @@
+---
+description: Company department / function (Korean)
+locale: ko
+---
+경영기획
+재무
+회계
+법무
+인사
+마케팅
+영업
+구매
+물류
+창고
+생산
+기술
+정보시스템
+소프트웨어개발
+품질보증
+테스트
+기술지원
+연구개발
+고객지원
+보안
+총무
+홍보

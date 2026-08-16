@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Korean. A prevalence signal, not an exclusive one.
+locale: ko
+---
+유전성 혈색소증
+셀리악병
+페닐케톤뇨증
+윌슨병
+G6PD 결핍증
+유전성 혈전성향증

@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: ko
+---
+기술
+의료
+교육
+금융
+건설
+제조
+운송
+유통
+숙박·외식
+법률

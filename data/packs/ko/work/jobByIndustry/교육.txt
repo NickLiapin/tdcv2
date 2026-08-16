@@ -1,0 +1,16 @@
+---
+description: Jobs in Education (Korean)
+locale: ko
+---
+초등교사
+수학교사
+국어교사
+대학교수
+보육교사
+장학사
+교장
+교감
+상담교사
+보건교사
+운동코치
+실험조교

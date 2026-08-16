@@ -1,0 +1,14 @@
+---
+description: Payment status (Korean)
+locale: ko
+---
+입금대기
+결제완료
+부분결제
+승인완료
+승인거절
+결제오류
+환불완료
+부분환불
+기한만료
+결제취소

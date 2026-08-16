@@ -1,0 +1,24 @@
+---
+description: Writing system (Korean). Hangul was designed and promulgated in 1443, which makes it one of the few writing systems with a known author and date.
+locale: ko
+---
+한글
+한자
+로마자
+키릴 문자
+그리스 문자
+아랍 문자
+히브리 문자
+아르메니아 문자
+조지아 문자
+데바나가리
+벵골 문자
+타밀 문자
+태국 문자
+크메르 문자
+미얀마 문자
+가나
+히라가나
+가타카나
+설형문자
+이집트 상형문자

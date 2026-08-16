@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Korean)
+locale: ko
+---
+식비
+외식비
+주거비
+월세
+공과금
+통신비
+교통비
+주유비
+자동차
+의료비
+약값
+교육비
+자녀양육
+의류
+미용
+문화생활
+여행
+경조사
+기부
+저축

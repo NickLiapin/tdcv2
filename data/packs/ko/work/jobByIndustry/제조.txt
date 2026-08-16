@@ -1,0 +1,16 @@
+---
+description: Jobs in Manufacturing (Korean)
+locale: ko
+---
+기계 오퍼레이터
+생산기술자
+작업반장
+품질관리자
+설비보전기사
+선반공
+밀링공
+포장원
+창고관리원
+기계설계기사
+공정관리자
+조장

@@ -1,0 +1,14 @@
+---
+description: Fuel type (Korean)
+locale: ko
+---
+휘발유
+경유
+LPG
+휘발유/LPG
+CNG
+전기
+하이브리드
+플러그인 하이브리드
+수소
+바이오에탄올

@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Korean)
+locale: ko
+---
+UTP 케이블
+FTP 케이블
+STP 차폐 케이블
+동축 케이블
+싱글모드 광케이블
+멀티모드 광케이블
+전력 케이블
+전화 케이블
+패치 코드

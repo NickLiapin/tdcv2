@@ -1,0 +1,28 @@
+---
+description: Property amenity (Korean). 온돌 — under-floor heating — is standard in Korean housing and appears in almost every listing.
+locale: ko
+---
+온돌
+도시가스
+개별난방
+중앙난방
+에어컨
+시스템에어컨
+붙박이장
+신발장
+싱크대
+인덕션
+식기세척기
+세탁기
+건조기
+엘리베이터
+화물용 엘리베이터
+경비실
+CCTV
+현관 보안
+주차장
+지하주차장
+수영장
+놀이터
+역세권
+학군

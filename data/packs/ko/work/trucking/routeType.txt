@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Korean)
+locale: ko
+---
+시내 배송
+근거리
+권역 운송
+시외 운송
+장거리
+국제 운송
+순환 배송

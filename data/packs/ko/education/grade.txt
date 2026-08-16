@@ -1,0 +1,18 @@
+---
+description: Grade / mark on the Korean scale (the letter scale used at university plus 수우미양가)
+locale: ko
+---
+A+
+A0
+B+
+B0
+C+
+C0
+D+
+D0
+F
+수
+우
+미
+양
+가

@@ -1,0 +1,14 @@
+---
+description: Shipping status (Korean)
+locale: ko
+---
+집화대기
+집화완료
+배송중
+간선상차
+지점도착
+배송출발
+배송완료
+배송실패
+반송중
+분실

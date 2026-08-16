@@ -1,0 +1,12 @@
+---
+description: Dishes of 미국 cuisine (Korean)
+locale: ko
+---
+햄버거
+스테이크
+바비큐 립
+핫도그
+맥앤치즈
+팬케이크
+치즈케이크
+애플파이

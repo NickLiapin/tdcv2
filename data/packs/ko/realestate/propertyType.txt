@@ -1,0 +1,23 @@
+---
+description: Property type (Korean). Korean listings size flats in 평 as well as square metres, and the 전세 lump-sum deposit has no Western equivalent.
+locale: ko
+---
+원룸
+투룸
+쓰리룸
+아파트
+주상복합
+오피스텔
+빌라
+연립주택
+다세대주택
+다가구주택
+단독주택
+전원주택
+한옥
+타운하우스
+펜트하우스
+상가주택
+고시원
+토지
+창고

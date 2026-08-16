@@ -1,0 +1,9 @@
+---
+description: Positions in archery, by bow type and event (Korean)
+locale: ko
+---
+리커브
+컴파운드
+개인전
+단체전
+혼성전

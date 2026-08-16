@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Korean)
+locale: ko
+---
+선불
+후불
+무제한
+가족결합
+법인
+청소년 요금제
+실버 요금제
+데이터 전용
+통화 위주
+단말기 할부
+로밍 요금제
+부가 서비스

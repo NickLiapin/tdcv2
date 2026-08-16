@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Korean that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: ko
+---
+자궁내막증
+자궁근종
+자궁선근증
+난소낭종
+다낭성난소증후군
+월경통
+무월경
+월경전증후군
+갱년기증후군
+질염
+세균성 질증
+칸디다 질염
+자궁경부염
+자궁경부 미란
+자궁경부 이형성증
+자궁경부암
+난소암
+자궁내막암
+유방 섬유낭성 질환
+유선염
+유방암
+여성 불임
+자궁외임신
+임신중독증
+임신성 당뇨병
+산후우울증

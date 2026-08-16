@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Korean. A prevalence signal, not an exclusive one.
+locale: ko
+---
+베타 지중해빈혈
+G6PD 결핍증
+제2형 당뇨병
+관상동맥질환
+대사증후군
+유당불내증
+유전성 난청
+선천성 심장병

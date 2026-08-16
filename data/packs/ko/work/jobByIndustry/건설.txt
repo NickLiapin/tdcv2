@@ -1,0 +1,16 @@
+---
+description: Jobs in Construction (Korean)
+locale: ko
+---
+토목기사
+건축사
+현장소장
+조적공
+미장공
+도장공
+전기기사
+배관공
+용접공
+지붕기술자
+크레인 기사
+적산사

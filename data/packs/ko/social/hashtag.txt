@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Korean (prefix with # in a template)
+locale: ko
+---
+한국
+서울
+부산
+제주
+강릉
+경주
+여행
+맛집
+카페
+일상
+사진
+풍경
+자연
+등산
+바다
+벚꽃
+단풍
+음악
+영화
+독서
+요리
+베이킹
+운동
+헬스
+러닝
+건강
+가족
+친구
+공부
+동기부여

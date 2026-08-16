@@ -1,0 +1,16 @@
+---
+description: Jobs in Hospitality (Korean)
+locale: ko
+---
+호텔 프런트
+객실 정비원
+조리사
+부주방장
+총주방장
+홀서빙
+바텐더
+바리스타
+제과제빵사
+지배인
+예약담당
+도어맨

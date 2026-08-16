@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Korean. A prevalence signal, not an exclusive one.
+locale: ko
+---
+가족성 지중해열
+베타 지중해빈혈
+G6PD 결핍증
+유전성 난청
+척수성 근위축증
+유전성 구상적혈구증

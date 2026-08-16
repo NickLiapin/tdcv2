@@ -1,0 +1,12 @@
+---
+description: Mining method (Korean)
+locale: ko
+---
+노천채굴
+갱내채굴
+채석
+사갱채굴
+수갱채굴
+수력채굴
+준설채굴
+주방식 채굴

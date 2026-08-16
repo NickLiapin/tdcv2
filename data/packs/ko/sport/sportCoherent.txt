@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Korean)
+locale: ko
+---
+축구
+야구
+농구
+배구
+핸드볼
+태권도
+씨름
+양궁

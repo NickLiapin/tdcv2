@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Korean)
+locale: ko
+---
+제1형 당뇨병
+제2형 당뇨병
+갑상선기능저하증
+갑상선기능항진증
+하시모토 갑상선염
+결절성 갑상선종
+비만
+대사증후군
+골다공증
+부신기능부전

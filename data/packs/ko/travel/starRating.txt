@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Korean)
+locale: ko
+---
+1성급
+2성급
+3성급
+4성급
+5성급

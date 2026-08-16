@@ -1,0 +1,30 @@
+---
+description: Aircraft type (manufacturer designations, used unchanged in Korean)
+locale: ko
+---
+에어버스 A220
+에어버스 A320
+에어버스 A320neo
+에어버스 A321neo
+에어버스 A330-300
+에어버스 A350-900
+에어버스 A380
+보잉 737-800
+보잉 737 MAX 8
+보잉 747-8
+보잉 767-300
+보잉 777-200
+보잉 777-300ER
+보잉 787-9
+보잉 787-10
+엠브라에르 E190
+엠브라에르 E195
+봄바디어 CRJ200
+ATR 72-600
+KAI KC-100
+KAI T-50
+에어버스 A321
+보잉 737-900
+보잉 747-400
+보잉 777-200LR
+에어버스 A330-200

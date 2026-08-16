@@ -1,0 +1,12 @@
+---
+description: Dishes of 베트남 cuisine (Korean)
+locale: ko
+---
+쌀국수
+짜조
+반미
+분짜
+월남쌈
+베트남 커피
+닭쌀국수
+소고기 볶음면

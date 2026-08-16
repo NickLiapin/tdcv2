@@ -1,0 +1,12 @@
+---
+description: Dishes of 사찰음식 cuisine (Korean)
+locale: ko
+---
+들깨탕
+버섯전골
+연근조림
+두부구이
+나물비빔밥
+표고버섯볶음
+우엉조림
+도라지무침

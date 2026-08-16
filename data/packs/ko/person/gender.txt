@@ -1,0 +1,8 @@
+---
+description: Gender label (Korean)
+locale: ko
+---
+남성
+여성
+기타
+응답하지 않음

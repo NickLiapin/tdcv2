@@ -1,0 +1,9 @@
+---
+description: Work shift (Korean)
+locale: ko
+---
+갑반
+을반
+병반
+야간근무
+정비근무

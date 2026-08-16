@@ -1,0 +1,12 @@
+---
+description: Positions in taekwondo, by weight class (Korean)
+locale: ko
+---
+핀급
+플라이급
+밴텀급
+페더급
+라이트급
+웰터급
+미들급
+헤비급

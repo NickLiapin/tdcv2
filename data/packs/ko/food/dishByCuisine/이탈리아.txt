@@ -1,0 +1,12 @@
+---
+description: Dishes of 이탈리아 cuisine (Korean)
+locale: ko
+---
+까르보나라
+마르게리타 피자
+라자냐
+리조또
+미네스트로네
+오소부코
+브루스케타
+티라미수

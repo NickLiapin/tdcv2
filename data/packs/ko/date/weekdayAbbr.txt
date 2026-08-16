@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Korean) — the element syllable alone
+locale: ko
+---
+일
+월
+화
+수
+목
+금
+토

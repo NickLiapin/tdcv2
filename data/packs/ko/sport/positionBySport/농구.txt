@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Korean)
+locale: ko
+---
+포인트가드
+슈팅가드
+스몰포워드
+파워포워드
+센터

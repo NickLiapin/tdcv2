@@ -1,0 +1,16 @@
+---
+description: Jobs in Legal (Korean)
+locale: ko
+---
+법무담당
+변호사
+법무사
+판사
+검사
+수사관
+사내변호사
+법률보조원
+변리사
+파산관재인
+조정위원
+법원 서기

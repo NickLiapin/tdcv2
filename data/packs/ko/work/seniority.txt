@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Korean). These are the standard Korean corporate ranks, which double as forms of address.
+locale: ko
+---
+인턴
+사원
+주임
+대리
+과장
+차장
+부장
+수석
+팀장
+실장
+본부장
+이사
+상무
+전무
+부사장
+사장

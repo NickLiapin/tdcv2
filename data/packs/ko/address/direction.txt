@@ -1,0 +1,20 @@
+---
+description: Directional qualifier used with a Korean district or estate name (강남, 강북, 동편)
+locale: ko
+---
+동
+서
+남
+북
+중앙
+북동
+북서
+남동
+남서
+위
+아래
+안
+바깥
+앞
+뒤
+가운데

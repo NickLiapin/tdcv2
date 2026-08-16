@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Korean)
+locale: ko
+---
+정규직
+계약직
+무기계약직
+파트타임
+아르바이트
+파견직
+프리랜서
+개인사업자
+인턴
+일용직
+교대근무

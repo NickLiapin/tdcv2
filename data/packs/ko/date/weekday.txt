@@ -1,0 +1,11 @@
+---
+description: Weekday name (Korean). Like Japanese, the seven days are named after the sun, the moon and the five classical elements — 일 sun, 월 moon, 화 fire, 수 water, 목 wood, 금 metal, 토 earth.
+locale: ko
+---
+일요일
+월요일
+화요일
+수요일
+목요일
+금요일
+토요일

@@ -1,0 +1,9 @@
+---
+description: Credit score band (Korean)
+locale: ko
+---
+매우 낮음
+낮음
+보통
+좋음
+매우 좋음

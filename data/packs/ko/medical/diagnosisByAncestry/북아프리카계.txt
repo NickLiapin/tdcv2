@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Korean. A prevalence signal, not an exclusive one.
+locale: ko
+---
+베타 지중해빈혈
+G6PD 결핍증
+가족성 지중해열
+겸상적혈구빈혈
+유전성 난청
+색소성 건피증

@@ -731,7 +731,63 @@ static JA: DateLocale = DateLocale {
     ],
 };
 
-static BY_NAME: [(&str, &DateLocale); 31] = [
+// Korean names months by number, and a written date reads "2026년 10월 9일" with 년/월/일 as literals.
+static KO: DateLocale = DateLocale {
+    months: [
+        "1월",
+        "2월",
+        "3월",
+        "4월",
+        "5월",
+        "6월",
+        "7월",
+        "8월",
+        "9월",
+        "10월",
+        "11월",
+        "12월",
+    ],
+    months_short: [
+        "1월",
+        "2월",
+        "3월",
+        "4월",
+        "5월",
+        "6월",
+        "7월",
+        "8월",
+        "9월",
+        "10월",
+        "11월",
+        "12월",
+    ],
+    weekdays: [
+        "일요일",
+        "월요일",
+        "화요일",
+        "수요일",
+        "목요일",
+        "금요일",
+        "토요일",
+    ],
+    weekdays_short: [
+        "일",
+        "월",
+        "화",
+        "수",
+        "목",
+        "금",
+        "토",
+    ],
+    formats: [
+        "YYYY. MM. DD.",
+        "YYYY[년] M[월] D[일]",
+        "YYYY[년] M[월] D[일] HH:mm",
+        "YYYY[년] M[월] D[일] dddd HH:mm",
+    ],
+};
+
+static BY_NAME: [(&str, &DateLocale); 33] = [
     ("en", &EN),
     ("eng", &EN),
     ("ru", &RU),
@@ -763,11 +819,13 @@ static BY_NAME: [(&str, &DateLocale); 31] = [
     ("vie", &VI),
     ("ja", &JA),
     ("jpn", &JA),
+    ("ko", &KO),
+    ("kor", &KO),
 ];
 
 /// The advertised names, for the validator's "did you mean" list.
-pub static NAMES: [&str; 16] = [
-    "ar", "de", "el", "en", "es", "fr", "id", "it", "ja", "pl", "pt", "ru", "tr", "uk", "vi", "zh-cn",
+pub static NAMES: [&str; 17] = [
+    "ar", "de", "el", "en", "es", "fr", "id", "it", "ja", "ko", "pl", "pt", "ru", "tr", "uk", "vi", "zh-cn",
 ];
 
 /// The named locale, falling back to English.

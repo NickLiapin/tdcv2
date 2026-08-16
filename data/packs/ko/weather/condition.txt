@@ -1,0 +1,20 @@
+---
+description: Weather condition (Korean)
+locale: ko
+---
+맑음
+구름 조금
+구름 많음
+흐림
+비
+폭우
+이슬비
+눈
+진눈깨비
+우박
+안개
+결빙
+뇌우
+강풍
+폭염
+한파

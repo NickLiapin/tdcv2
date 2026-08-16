@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Korean)
+locale: ko
+---
+입사지원
+서류전형
+전화면접
+인사면접
+인적성검사
+기술면접
+임원면접
+최종면접
+평판조회
+합격통보
+입사

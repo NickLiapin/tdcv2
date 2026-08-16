@@ -1,0 +1,16 @@
+---
+description: Jobs in Healthcare (Korean)
+locale: ko
+---
+내과의사
+외과의사
+마취과의사
+소아과의사
+순환기내과의사
+간호사
+조산사
+약사
+임상병리사
+방사선사
+치과의사
+물리치료사
