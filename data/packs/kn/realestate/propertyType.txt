@@ -1,0 +1,22 @@
+---
+description: Property type. ನಿವೇಶನ (a serviced building plot) and ಜಮೀನು (farmland) are traded as ordinary residential products in Karnataka; ಸ್ವತಂತ್ರ ಮನೆ is the free-standing house and ಬಾಡಿಗೆ ಮನೆ a rented portion of one.
+locale: kn
+---
+ಸ್ವತಂತ್ರ ಮನೆ
+ಅಪಾರ್ಟ್ಮೆಂಟ್
+ಫ್ಲ್ಯಾಟ್
+ವಿಲ್ಲಾ
+ಸಾಲುಮನೆ
+ಬಂಗಲೆ
+ಪೆಂಟ್ಹೌಸ್
+ಸ್ಟುಡಿಯೊ
+ನಿವೇಶನ
+ಜಮೀನು
+ತೋಟ
+ಫಾರ್ಮ್ ಹೌಸ್
+ವಾಣಿಜ್ಯ ಮಳಿಗೆ
+ಕಚೇರಿ ಸ್ಥಳ
+ಗೋದಾಮು
+ಪಿಜಿ ವಸತಿ
+ಬಾಡಿಗೆ ಮನೆ
+ಹಳ್ಳಿ ಮನೆ

@@ -1,0 +1,27 @@
+---
+description: Kind of government body, as Kannada names it. These are the WORDS for types of body — the three tiers of ಪಂಚಾಯಿತಿ, the ಇಲಾಖೆ departments, the urban ನಗರಸಭೆ / ಪಾಲಿಕೆ — as used in India. Named agencies and any identifier they issue belong in the India country pack, not here.
+locale: kn
+---
+ಆರೋಗ್ಯ ಇಲಾಖೆ
+ಶಿಕ್ಷಣ ಇಲಾಖೆ
+ಸಾರಿಗೆ ಇಲಾಖೆ
+ಕಂದಾಯ ಇಲಾಖೆ
+ಪೊಲೀಸ್ ಇಲಾಖೆ
+ಅರಣ್ಯ ಇಲಾಖೆ
+ಕೃಷಿ ಇಲಾಖೆ
+ತೋಟಗಾರಿಕೆ ಇಲಾಖೆ
+ಜಲಸಂಪನ್ಮೂಲ ಇಲಾಖೆ
+ಸಮಾಜ ಕಲ್ಯಾಣ ಇಲಾಖೆ
+ಮಹಿಳಾ ಮತ್ತು ಮಕ್ಕಳ ಅಭಿವೃದ್ಧಿ ಇಲಾಖೆ
+ಕಾರ್ಮಿಕ ಇಲಾಖೆ
+ಲೋಕೋಪಯೋಗಿ ಇಲಾಖೆ
+ಗ್ರಾಮ ಪಂಚಾಯಿತಿ
+ತಾಲೂಕು ಪಂಚಾಯಿತಿ
+ಜಿಲ್ಲಾ ಪಂಚಾಯಿತಿ
+ಪುರಸಭೆ
+ನಗರಸಭೆ
+ಮಹಾನಗರ ಪಾಲಿಕೆ
+ಚುನಾವಣಾ ಆಯೋಗ
+ಲೋಕಾಯುಕ್ತ
+ಮಾನವ ಹಕ್ಕುಗಳ ಆಯೋಗ
+ಗ್ರಾಹಕ ಸಂರಕ್ಷಣಾ ಪ್ರಾಧಿಕಾರ

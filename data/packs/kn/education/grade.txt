@@ -1,0 +1,18 @@
+---
+description: Result band. Karnataka boards report a PERCENTAGE and a class, not a letter: ಪ್ರಥಮ ದರ್ಜೆ is 60 per cent and above, ದ್ವಿತೀಯ ದರ್ಜೆ 50 to 59, ತೃತೀಯ ದರ್ಜೆ 35 to 49, and ಡಿಸ್ಟಿಂಕ್ಷನ್ 85 and above. The A+/A/B letter grades that follow are the CBSE scheme, used by central-syllabus schools in the same state.
+locale: kn
+---
+ಡಿಸ್ಟಿಂಕ್ಷನ್
+ಪ್ರಥಮ ದರ್ಜೆ
+ದ್ವಿತೀಯ ದರ್ಜೆ
+ತೃತೀಯ ದರ್ಜೆ
+ಉತ್ತೀರ್ಣ
+ಅನುತ್ತೀರ್ಣ
+ಎ+
+ಎ
+ಬಿ+
+ಬಿ
+ಸಿ+
+ಸಿ
+ಡಿ
+ಇ

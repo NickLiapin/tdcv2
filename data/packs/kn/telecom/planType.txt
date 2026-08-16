@@ -1,0 +1,16 @@
+---
+description: Mobile plan type. India's default is ಪ್ರೀಪೇಯ್ಡ್ with a validity window, so ಮಾಸಿಕ ರೀಚಾರ್ಜ್ and ವಾರ್ಷಿಕ ಯೋಜನೆ are plan types rather than billing cycles.
+locale: kn
+---
+ಪ್ರೀಪೇಯ್ಡ್
+ಪೋಸ್ಟ್ಪೇಯ್ಡ್
+ಅನಿಯಮಿತ
+ಕುಟುಂಬ ಯೋಜನೆ
+ವ್ಯವಹಾರ ಯೋಜನೆ
+ಬಳಸಿದಷ್ಟು ಪಾವತಿ
+ಡೇಟಾ ಮಾತ್ರ
+ಮಾಸಿಕ ರೀಚಾರ್ಜ್
+ವಾರ್ಷಿಕ ಯೋಜನೆ
+ಅಂತರರಾಷ್ಟ್ರೀಯ ರೋಮಿಂಗ್
+ವಿದ್ಯಾರ್ಥಿ ಯೋಜನೆ
+ಹಿರಿಯ ನಾಗರಿಕ ಯೋಜನೆ

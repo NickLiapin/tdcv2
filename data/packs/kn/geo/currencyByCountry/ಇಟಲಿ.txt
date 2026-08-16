@@ -1,0 +1,5 @@
+---
+description: Currency of ಇಟಲಿ
+locale: kn
+---
+ಯೂರೋ

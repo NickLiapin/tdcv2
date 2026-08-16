@@ -1,0 +1,5 @@
+---
+description: Capital of ಇಟಲಿ
+locale: kn
+---
+ರೋಮ್

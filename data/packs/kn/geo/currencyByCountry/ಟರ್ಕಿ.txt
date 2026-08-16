@@ -1,0 +1,5 @@
+---
+description: Currency of ಟರ್ಕಿ
+locale: kn
+---
+ಟರ್ಕಿಶ್ ಲಿರಾ

@@ -1,0 +1,11 @@
+---
+description: Indian commercial driving licence category. India classes a licence by the vehicle, not by letters: LMV is a light motor vehicle, HMV a heavy one, HGMV heavy goods and HPMV heavy passenger.
+locale: kn
+---
+ಎಲ್ಎಂವಿ
+ಎಲ್ಎಂವಿ-ಟಿಆರ್
+ಎಚ್ಎಂವಿ
+ಎಚ್ಜಿಎಂವಿ
+ಎಚ್ಪಿಎಂವಿ
+ಟ್ರೈಲರ್
+ಅಪಾಯಕಾರಿ ಸರಕು ಅನುಮೋದನೆ

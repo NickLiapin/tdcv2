@@ -1,0 +1,32 @@
+---
+description: Garment type. ಮೈಸೂರು ಪೇಟ is Karnataka's own formal headgear and ಲಂಗ ದಾವಣಿ the half-saree a girl wears before the full ಸೀರೆ; ಪಂಚೆ is worn by men across the state.
+locale: kn
+---
+ಸೀರೆ
+ಲಂಗ ದಾವಣಿ
+ರವಿಕೆ
+ಚೂಡಿದಾರ್
+ಸಲ್ವಾರ್ ಕಮೀಜ್
+ಕುರ್ತಾ
+ಪಂಚೆ
+ಧೋತಿ
+ಲುಂಗಿ
+ಶಾಲು
+ಶರ್ಟ್
+ಪ್ಯಾಂಟ್
+ಟಿ-ಶರ್ಟ್
+ಜೀನ್ಸ್
+ಸ್ಕರ್ಟ್
+ಫ್ರಾಕ್
+ನೈಟಿ
+ಕೋಟು
+ಜಾಕೆಟ್
+ಸ್ವೆಟರ್
+ಟೋಪಿ
+ಮೈಸೂರು ಪೇಟ
+ಪೇಟ
+ಶೇರ್ವಾನಿ
+ಚಪ್ಪಲಿ
+ಶೂ
+ಒಳ ಉಡುಪು
+ಸಮವಸ್ತ್ರ

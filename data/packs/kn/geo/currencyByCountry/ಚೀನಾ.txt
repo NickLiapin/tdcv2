@@ -1,0 +1,5 @@
+---
+description: Currency of ಚೀನಾ
+locale: kn
+---
+ಚೀನೀ ಯುವಾನ್

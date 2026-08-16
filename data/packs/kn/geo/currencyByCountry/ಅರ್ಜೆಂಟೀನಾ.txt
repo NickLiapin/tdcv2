@@ -1,0 +1,5 @@
+---
+description: Currency of ಅರ್ಜೆಂಟೀನಾ
+locale: kn
+---
+ಅರ್ಜೆಂಟೀನಾ ಪೆಸೊ

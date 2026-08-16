@@ -1,0 +1,36 @@
+---
+description: Trailing element of a Karnataka place name — the part that actually marks it as Kannada. ಊರು, ಹಳ್ಳಿ, ಕೊಪ್ಪ, ಹಟ್ಟಿ, ಪಾಳ್ಯ and ಸಂದ್ರ have no north Indian equivalent, and ಗಾಂವ appears only in the Marathi-bordering north. Like the prefix it is fused: ಬೆಂಗಳೂರು, ಮೈಸೂರು, ಜಯನಗರ, ಜಾಲಹಳ್ಳಿ.
+locale: kn
+---
+ಊರು
+ಹಳ್ಳಿ
+ಪುರ
+ನಗರ
+ಪೇಟೆ
+ಕೆರೆ
+ಕೊಪ್ಪ
+ಹಟ್ಟಿ
+ಕೋಟೆ
+ದುರ್ಗ
+ಪಟ್ಟಣ
+ಕುಂಟೆ
+ಮಠ
+ಗಿರಿ
+ಘಟ್ಟ
+ಕಟ್ಟೆ
+ಬಾಗಿಲು
+ತೋಟ
+ವಾಡಿ
+ಗಾಂವ
+ಕೇರಿ
+ಸಂದ್ರ
+ಮಂಗಲ
+ಬೆಟ್ಟ
+ಗುಡ್ಡ
+ಹೊಳೆ
+ಅಗ್ರಹಾರ
+ಬೀಡು
+ನಾಡು
+ಕಾವಲು
+ಪಾಳ್ಯ
+ಬಳ್ಳಿ

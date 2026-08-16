@@ -1,0 +1,5 @@
+---
+description: Currency of ಫ್ರಾನ್ಸ್
+locale: kn
+---
+ಯೂರೋ

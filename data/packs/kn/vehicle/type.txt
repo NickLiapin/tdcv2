@@ -1,0 +1,24 @@
+---
+description: Vehicle body type. The two- and three-wheeler entries lead because they are the majority of vehicles on a Karnataka road; ಆಟೋ ರಿಕ್ಷಾ and ಗೂಡ್ಸ್ ಆಟೋ have no European body type to map onto.
+locale: kn
+---
+ದ್ವಿಚಕ್ರ ವಾಹನ
+ಸ್ಕೂಟರ್
+ಮೋಟಾರ್ ಸೈಕಲ್
+ಆಟೋ ರಿಕ್ಷಾ
+ಗೂಡ್ಸ್ ಆಟೋ
+ಹ್ಯಾಚ್ಬ್ಯಾಕ್
+ಸೆಡಾನ್
+ಎಸ್ಯುವಿ
+ಕ್ರಾಸ್ಒವರ್
+ಎಂಪಿವಿ
+ಟೆಂಪೊ ಟ್ರಾವೆಲರ್
+ಮಿನಿ ಟ್ರಕ್
+ಲಾರಿ
+ಟ್ರ್ಯಾಕ್ಟರ್
+ಬಸ್
+ಕೂಪೆ
+ಕನ್ವರ್ಟಿಬಲ್
+ಪಿಕಪ್
+ವ್ಯಾನ್
+ಕ್ರೀಡಾ ಕಾರು

@@ -1,0 +1,13 @@
+---
+description: Film and television content rating. India certifies through the CBFC: ಯು is unrestricted, ಎ adults only and ಎಸ್ restricted to a named profession; the ಯು/ಎ age tiers replaced the single U/A category in 2024. The American G / PG-13 / R scale is not used here.
+locale: kn
+---
+ಯು
+ಯು/ಎ 7+
+ಯು/ಎ 13+
+ಯು/ಎ 16+
+ಎ
+ಎಸ್
+ಎಲ್ಲ ವಯಸ್ಸಿನವರಿಗೆ
+ಪೋಷಕರ ಮಾರ್ಗದರ್ಶನ
+ಪ್ರಮಾಣೀಕರಿಸಿಲ್ಲ

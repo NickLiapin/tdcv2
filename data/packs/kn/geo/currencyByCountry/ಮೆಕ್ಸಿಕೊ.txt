@@ -1,0 +1,5 @@
+---
+description: Currency of ಮೆಕ್ಸಿಕೊ
+locale: kn
+---
+ಮೆಕ್ಸಿಕನ್ ಪೆಸೊ

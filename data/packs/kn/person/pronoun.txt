@@ -1,0 +1,11 @@
+---
+description: Kannada third-person pronoun, nominative/dative. Kannada marks gender only in the third person, and ಅವರು is both the plural and the respectful singular used for any adult one is not intimate with — so ಅವರು is the safe default, not a plural-only form. Kannada has no neopronoun tradition; nothing equivalent to ze/xe was invented for this list.
+locale: kn
+---
+ಅವನು/ಅವನಿಗೆ
+ಅವಳು/ಅವಳಿಗೆ
+ಅವರು/ಅವರಿಗೆ
+ಅದು/ಅದಕ್ಕೆ
+ಅವನು/ಅವರು
+ಅವಳು/ಅವರು
+ತಾವು/ತಮಗೆ

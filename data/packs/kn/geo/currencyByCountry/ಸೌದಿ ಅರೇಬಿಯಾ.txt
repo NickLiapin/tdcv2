@@ -1,0 +1,5 @@
+---
+description: Currency of ಸೌದಿ ಅರೇಬಿಯಾ
+locale: kn
+---
+ಸೌದಿ ರಿಯಾಲ್

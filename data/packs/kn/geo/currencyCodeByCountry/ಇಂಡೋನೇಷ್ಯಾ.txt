@@ -1,0 +1,5 @@
+---
+description: Currency code of ಇಂಡೋನೇಷ್ಯಾ
+locale: kn
+---
+IDR

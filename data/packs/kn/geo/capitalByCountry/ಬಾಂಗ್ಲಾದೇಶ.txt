@@ -1,0 +1,5 @@
+---
+description: Capital of ಬಾಂಗ್ಲಾದೇಶ
+locale: kn
+---
+ಢಾಕಾ

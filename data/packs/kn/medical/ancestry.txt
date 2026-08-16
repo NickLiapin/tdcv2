@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. ದಕ್ಷಿಣ ಏಷ್ಯನ್ is the group most Kannada speakers fall in.
+locale: kn
+---
+ಉಪ-ಸಹಾರಾ ಆಫ್ರಿಕನ್
+ಉತ್ತರ ಆಫ್ರಿಕನ್
+ಮೆಡಿಟರೇನಿಯನ್
+ಮಧ್ಯಪ್ರಾಚ್ಯ
+ಉತ್ತರ ಯುರೋಪಿಯನ್
+ಪೂರ್ವ ಯುರೋಪಿಯನ್
+ಅಶ್ಕೆನಾಜಿ ಯಹೂದಿ
+ದಕ್ಷಿಣ ಏಷ್ಯನ್
+ಪೂರ್ವ ಏಷ್ಯನ್
+ಆಗ್ನೇಯ ಏಷ್ಯನ್
+ಸ್ಥಳೀಯ ಅಮೆರಿಕನ್
+ಪೆಸಿಫಿಕ್ ದ್ವೀಪವಾಸಿ

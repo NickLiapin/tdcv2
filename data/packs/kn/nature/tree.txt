@@ -1,0 +1,32 @@
+---
+description: Tree. ಶ್ರೀಗಂಧ (sandalwood) is Karnataka's state tree and was a royal monopoly under Mysore; ಸಿಲ್ವರ್ ಓಕ್ is the shade tree planted through the Kodagu and Chikkamagaluru coffee estates.
+locale: kn
+---
+ಮಾವು
+ಬೇವು
+ಆಲ
+ಅರಳಿ
+ತೆಂಗು
+ಅಡಿಕೆ
+ಹಲಸು
+ಶ್ರೀಗಂಧ
+ತೇಗ
+ಬೀಟೆ
+ಹೊಂಗೆ
+ಬಿದಿರು
+ನೇರಳೆ
+ಸಂಪಿಗೆ
+ಹುಣಸೆ
+ನೆಲ್ಲಿ
+ಬೇಲ
+ಅತ್ತಿ
+ಬನ್ನಿ
+ಮತ್ತಿ
+ಹೊನ್ನೆ
+ಕದಂಬ
+ಅಶೋಕ
+ಸಿಲ್ವರ್ ಓಕ್
+ಯೂಕಲಿಪ್ಟಸ್
+ಗುಲ್ಮೊಹರ್
+ತಾಳೆ
+ಈಚಲು

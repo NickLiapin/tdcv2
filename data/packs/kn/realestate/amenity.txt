@@ -1,0 +1,26 @@
+---
+description: Property amenity. ಬೋರ್ವೆಲ್, ನೀರಿನ ಟ್ಯಾಂಕ್ and ಜನರೇಟರ್ ಬ್ಯಾಕಪ್ are listed on Karnataka property advertisements because piped water and steady power cannot be assumed; ಪೂಜಾ ಕೊಠಡಿ is a room in its own right.
+locale: kn
+---
+ಈಜುಕೊಳ
+ಕಾರು ನಿಲುಗಡೆ
+ಗ್ಯಾರೇಜ್
+ಬೋರ್ವೆಲ್
+ನೀರಿನ ಟ್ಯಾಂಕ್
+ಜನರೇಟರ್ ಬ್ಯಾಕಪ್
+ಸೌರ ಜಲತಾಪಕ
+ಲಿಫ್ಟ್
+ಜಿಮ್
+ಉದ್ಯಾನ
+ಮಕ್ಕಳ ಆಟದ ಮೈದಾನ
+ಕ್ಲಬ್ ಹೌಸ್
+ಭದ್ರತಾ ವ್ಯವಸ್ಥೆ
+ಸಿಸಿಟಿವಿ
+ಪೂಜಾ ಕೊಠಡಿ
+ಬಾಲ್ಕನಿ
+ತಾರಸಿ
+ಮಾಡ್ಯುಲರ್ ಅಡುಗೆಮನೆ
+ಒಳಗಿನ ಬಟ್ಟೆ ಒಗೆಯುವ ಸ್ಥಳ
+ಪೀಠೋಪಕರಣ ಸಹಿತ
+ಸಾಕುಪ್ರಾಣಿ ಸ್ನೇಹಿ
+ಮಳೆನೀರು ಕೊಯ್ಲು

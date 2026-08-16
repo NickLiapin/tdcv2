@@ -1,0 +1,12 @@
+---
+description: Clothing size. Indian labels print the size in Latin letters, so these are left as they are read on a garment; ಫ್ರೀ ಸೈಜ್ is a genuine Indian retail size meaning one stretchy size fits most.
+locale: kn
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+ಫ್ರೀ ಸೈಜ್

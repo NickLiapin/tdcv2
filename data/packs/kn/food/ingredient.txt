@@ -1,0 +1,38 @@
+---
+description: Cooking ingredient. ರಾಗಿ (finger millet) and ಜೋಳ (jowar) are staple grains in Karnataka in the way wheat is in Europe, and ಬೆಲ್ಲ (jaggery) is the default sweetener, not refined sugar.
+locale: kn
+---
+ಅಕ್ಕಿ
+ರಾಗಿ ಹಿಟ್ಟು
+ಜೋಳದ ಹಿಟ್ಟು
+ಗೋಧಿ ಹಿಟ್ಟು
+ಮೈದಾ
+ರವೆ
+ಅವಲಕ್ಕಿ
+ಬೆಲ್ಲ
+ಸಕ್ಕರೆ
+ಉಪ್ಪು
+ತುಪ್ಪ
+ಅಡುಗೆ ಎಣ್ಣೆ
+ತೆಂಗಿನ ಎಣ್ಣೆ
+ಶೇಂಗಾ ಎಣ್ಣೆ
+ಮೊಸರು
+ಮಜ್ಜಿಗೆ
+ಹಾಲು
+ಬೆಣ್ಣೆ
+ತೆಂಗಿನಕಾಯಿ
+ಮೊಟ್ಟೆ
+ತೊಗರಿಬೇಳೆ
+ಉದ್ದಿನಬೇಳೆ
+ಕಡಲೆಬೇಳೆ
+ಹೆಸರುಬೇಳೆ
+ಕಡಲೆಹಿಟ್ಟು
+ಹುಣಸೆ ಹುಳಿ
+ಶೇಂಗಾ
+ಗೋಡಂಬಿ
+ಒಣದ್ರಾಕ್ಷಿ
+ಜೇನುತುಪ್ಪ
+ಈಸ್ಟ್
+ಕೆನೆ
+ಕರಿಬೇವು
+ಕೊಬ್ಬರಿ

@@ -1,0 +1,5 @@
+---
+description: Currency code of ನೇಪಾಳ
+locale: kn
+---
+NPR

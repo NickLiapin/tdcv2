@@ -1,0 +1,5 @@
+---
+description: Currency code of ಗ್ರೀಸ್
+locale: kn
+---
+EUR

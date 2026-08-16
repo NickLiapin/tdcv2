@@ -1,0 +1,30 @@
+---
+description: Music genre. ಕರ್ನಾಟಕ ಶಾಸ್ತ್ರೀಯ (Carnatic) is the classical tradition of south India and ಹಿಂದೂಸ್ತಾನಿ the northern one, which north Karnataka also follows; ಸುಗಮ ಸಂಗೀತ is the Kannada light-classical song form, ವಚನ ಗಾಯನ the sung Vachanas and ಜಾನಪದ the folk repertoire.
+locale: kn
+---
+ಕರ್ನಾಟಕ ಶಾಸ್ತ್ರೀಯ
+ಹಿಂದೂಸ್ತಾನಿ
+ಸುಗಮ ಸಂಗೀತ
+ವಚನ ಗಾಯನ
+ದಾಸರ ಪದ
+ಜಾನಪದ
+ಭಕ್ತಿ ಸಂಗೀತ
+ಚಲನಚಿತ್ರ ಗೀತೆ
+ರಾಕ್
+ಪಾಪ್
+ಜಾಝ್
+ಪಾಶ್ಚಾತ್ಯ ಶಾಸ್ತ್ರೀಯ
+ಹಿಪ್ ಹಾಪ್
+ರ್ಯಾಪ್
+ಎಲೆಕ್ಟ್ರಾನಿಕ್
+ಬ್ಲೂಸ್
+ರೆಗ್ಗೇ
+ಹೆವಿ ಮೆಟಲ್
+ಫೋಕ್ ರಾಕ್
+ಇಂಡಿ
+ಸೋಲ್
+ಫಂಕ್
+ಪಂಕ್
+ಆಂಬಿಯೆಂಟ್
+ಗಝಲ್
+ಕವ್ವಾಲಿ

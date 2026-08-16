@@ -1,0 +1,26 @@
+---
+description: Metal. ಪಂಚಲೋಹ is the five-metal alloy Indian idols are cast in and is treated as a material in its own right, not as a mixture.
+locale: kn
+---
+ಚಿನ್ನ
+ಬೆಳ್ಳಿ
+ತಾಮ್ರ
+ಕಬ್ಬಿಣ
+ಉಕ್ಕು
+ಹಿತ್ತಾಳೆ
+ಕಂಚು
+ಸೀಸ
+ತವರ
+ಸತು
+ಪಂಚಲೋಹ
+ಅಲ್ಯೂಮಿನಿಯಂ
+ನಿಕಲ್
+ಪ್ಲಾಟಿನಂ
+ಟೈಟಾನಿಯಂ
+ಪಾದರಸ
+ಕ್ರೋಮಿಯಂ
+ಕೋಬಾಲ್ಟ್
+ಟಂಗ್ಸ್ಟನ್
+ಪಲ್ಲಾಡಿಯಂ
+ಮ್ಯಾಂಗನೀಸ್
+ಯುರೇನಿಯಂ

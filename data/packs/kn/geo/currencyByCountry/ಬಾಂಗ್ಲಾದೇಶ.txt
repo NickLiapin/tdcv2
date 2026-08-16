@@ -1,0 +1,5 @@
+---
+description: Currency of ಬಾಂಗ್ಲಾದೇಶ
+locale: kn
+---
+ಬಾಂಗ್ಲಾದೇಶಿ ಟಕಾ

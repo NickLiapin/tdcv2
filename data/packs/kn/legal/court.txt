@@ -1,0 +1,19 @@
+---
+description: Kind of court, as Kannada names it. These are the WORDS for kinds of court in India, which is the one country this language has; a named bench belongs in the India country pack. ಲೋಕ ಅದಾಲತ್ is the settlement forum with no European counterpart, and ನ್ಯಾಯ ಪಂಚಾಯತ್ the village-level one.
+locale: kn
+---
+ಸರ್ವೋಚ್ಚ ನ್ಯಾಯಾಲಯ
+ಉಚ್ಚ ನ್ಯಾಯಾಲಯ
+ಜಿಲ್ಲಾ ನ್ಯಾಯಾಲಯ
+ಸೆಷನ್ಸ್ ನ್ಯಾಯಾಲಯ
+ಮ್ಯಾಜಿಸ್ಟ್ರೇಟ್ ನ್ಯಾಯಾಲಯ
+ಸಿವಿಲ್ ನ್ಯಾಯಾಲಯ
+ಕುಟುಂಬ ನ್ಯಾಯಾಲಯ
+ಕಾರ್ಮಿಕ ನ್ಯಾಯಾಲಯ
+ಗ್ರಾಹಕ ವೇದಿಕೆ
+ಸಣ್ಣ ಮೊತ್ತದ ನ್ಯಾಯಾಲಯ
+ಲೋಕ ಅದಾಲತ್
+ನ್ಯಾಯ ಪಂಚಾಯತ್
+ನ್ಯಾಯಮಂಡಳಿ
+ಬಾಲ ನ್ಯಾಯ ಮಂಡಳಿ
+ತ್ವರಿತ ನ್ಯಾಯಾಲಯ

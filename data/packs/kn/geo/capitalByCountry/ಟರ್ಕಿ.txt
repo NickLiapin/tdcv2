@@ -1,0 +1,5 @@
+---
+description: Capital of ಟರ್ಕಿ
+locale: kn
+---
+ಅಂಕಾರಾ

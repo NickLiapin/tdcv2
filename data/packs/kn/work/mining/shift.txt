@@ -1,0 +1,9 @@
+---
+description: Work shift
+locale: kn
+---
+ಹಗಲು
+ರಾತ್ರಿ
+ಸಂಜೆ
+ಮಧ್ಯರಾತ್ರಿ
+ಸರದಿ

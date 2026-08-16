@@ -1,0 +1,16 @@
+---
+description: Month name. Kannada uses the Gregorian months, spelled as Kannada; the lunisolar ಚೈತ್ರ / ವೈಶಾಖ months of the ಪಂಚಾಂಗ are a separate reckoning and are not interchangeable with these.
+locale: kn
+---
+ಜನವರಿ
+ಫೆಬ್ರವರಿ
+ಮಾರ್ಚ್
+ಏಪ್ರಿಲ್
+ಮೇ
+ಜೂನ್
+ಜುಲೈ
+ಆಗಸ್ಟ್
+ಸೆಪ್ಟೆಂಬರ್
+ಅಕ್ಟೋಬರ್
+ನವೆಂಬರ್
+ಡಿಸೆಂಬರ್

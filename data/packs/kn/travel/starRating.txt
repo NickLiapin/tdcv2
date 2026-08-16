@@ -1,0 +1,9 @@
+---
+description: Hotel star rating
+locale: kn
+---
+1 ನಕ್ಷತ್ರ
+2 ನಕ್ಷತ್ರ
+3 ನಕ್ಷತ್ರ
+4 ನಕ್ಷತ್ರ
+5 ನಕ್ಷತ್ರ

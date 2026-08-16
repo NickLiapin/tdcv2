@@ -1,0 +1,5 @@
+---
+description: Capital of ಯುನೈಟೆಡ್ ಕಿಂಗ್ಡಂ
+locale: kn
+---
+ಲಂಡನ್

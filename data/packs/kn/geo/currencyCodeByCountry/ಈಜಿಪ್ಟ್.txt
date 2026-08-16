@@ -1,0 +1,5 @@
+---
+description: Currency code of ಈಜಿಪ್ಟ್
+locale: kn
+---
+EGP

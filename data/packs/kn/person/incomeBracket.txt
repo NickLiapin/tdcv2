@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket in Indian rupees. The bands are written in the Indian numbering system — ಲಕ್ಷ is 100,000 and ಕೋಟಿ is 10,000,000 — which is what any Kannada reader expects on a form; thousands/millions would be wrong here.
+locale: kn
+---
+₹2 ಲಕ್ಷಕ್ಕಿಂತ ಕಡಿಮೆ
+₹2–5 ಲಕ್ಷ
+₹5–10 ಲಕ್ಷ
+₹10–15 ಲಕ್ಷ
+₹15–25 ಲಕ್ಷ
+₹25–50 ಲಕ್ಷ
+₹50 ಲಕ್ಷ–₹1 ಕೋಟಿ
+₹1 ಕೋಟಿಗಿಂತ ಹೆಚ್ಚು

@@ -1,0 +1,5 @@
+---
+description: Capital of ಸೌದಿ ಅರೇಬಿಯಾ
+locale: kn
+---
+ರಿಯಾದ್

@@ -1,0 +1,5 @@
+---
+description: Capital of ಐರ್ಲೆಂಡ್
+locale: kn
+---
+ಡಬ್ಲಿನ್

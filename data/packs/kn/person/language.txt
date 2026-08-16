@@ -1,0 +1,34 @@
+---
+description: Language a person speaks, as Kannada names it. The first block is what is actually spoken beside Kannada inside Karnataka — ತುಳು, ಕೊಂಕಣಿ, ಕೊಡವ, ಬ್ಯಾರಿ and ಲಂಬಾಣಿ have no state of their own and are easy to forget.
+locale: kn
+---
+ಕನ್ನಡ
+ತುಳು
+ಕೊಂಕಣಿ
+ಕೊಡವ
+ಬ್ಯಾರಿ
+ಲಂಬಾಣಿ
+ಹಿಂದಿ
+ಇಂಗ್ಲಿಷ್
+ತಮಿಳು
+ತೆಲುಗು
+ಮಲಯಾಳಂ
+ಮರಾಠಿ
+ಉರ್ದು
+ಬಂಗಾಳಿ
+ಗುಜರಾತಿ
+ಪಂಜಾಬಿ
+ಒಡಿಯಾ
+ಅಸ್ಸಾಮಿ
+ಸಂಸ್ಕೃತ
+ನೇಪಾಳಿ
+ಸಿಂಹಳ
+ಅರೇಬಿಕ್
+ಪರ್ಷಿಯನ್
+ಫ್ರೆಂಚ್
+ಜರ್ಮನ್
+ಸ್ಪ್ಯಾನಿಷ್
+ಪೋರ್ಚುಗೀಸ್
+ರಷ್ಯನ್
+ಜಪಾನೀಸ್
+ಚೀನೀ

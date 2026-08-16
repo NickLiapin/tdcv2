@@ -1,0 +1,5 @@
+---
+description: Capital of ಗ್ರೀಸ್
+locale: kn
+---
+ಅಥೆನ್ಸ್

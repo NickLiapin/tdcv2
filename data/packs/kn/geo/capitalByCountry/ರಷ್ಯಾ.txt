@@ -1,0 +1,5 @@
+---
+description: Capital of ರಷ್ಯಾ
+locale: kn
+---
+ಮಾಸ್ಕೊ

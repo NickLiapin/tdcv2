@@ -1,0 +1,22 @@
+---
+description: Kind of official document, as Kannada names it. ಪಹಣಿ is Karnataka's land record (elsewhere called an RTC) and ಖಾತಾ the municipal property record; ಪಡಿತರ ಚೀಟಿ, ಜಾತಿ ಪ್ರಮಾಣಪತ್ರ and ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ are the everyday Indian certificates. DELIBERATELY ABSENT: ಆಧಾರ್ and ಪ್ಯಾನ್ ಕಾರ್ಡ್. Those are national identifiers with a number format and a check rule, and they belong to the India country pack, not to the language.
+locale: kn
+---
+ಪಾಸ್ಪೋರ್ಟ್
+ಜನನ ಪ್ರಮಾಣಪತ್ರ
+ಮರಣ ಪ್ರಮಾಣಪತ್ರ
+ವಿವಾಹ ಪ್ರಮಾಣಪತ್ರ
+ಚಾಲನಾ ಪರವಾನಗಿ
+ಮತದಾರರ ಗುರುತಿನ ಚೀಟಿ
+ಪಡಿತರ ಚೀಟಿ
+ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ
+ಜಾತಿ ಪ್ರಮಾಣಪತ್ರ
+ವಾಸಸ್ಥಳ ಪ್ರಮಾಣಪತ್ರ
+ಪಹಣಿ
+ಖಾತಾ ಪ್ರಮಾಣಪತ್ರ
+ಕಟ್ಟಡ ಪರವಾನಗಿ
+ವ್ಯಾಪಾರ ಪರವಾನಗಿ
+ವೀಸಾ
+ತೆರಿಗೆ ವಿವರಣೆ
+ಅಂಗವೈಕಲ್ಯ ಪ್ರಮಾಣಪತ್ರ
+ಶಾಲಾ ವರ್ಗಾವಣೆ ಪ್ರಮಾಣಪತ್ರ

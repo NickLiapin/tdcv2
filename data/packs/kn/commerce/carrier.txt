@@ -1,0 +1,18 @@
+---
+description: Shipping carrier. Brand names keep their real spelling; ಭಾರತೀಯ ಅಂಚೆ and the Indian couriers are the ones that actually deliver in Karnataka.
+locale: kn
+---
+ಭಾರತೀಯ ಅಂಚೆ
+ಬ್ಲೂ ಡಾರ್ಟ್
+ಡಿಟಿಡಿಸಿ
+ಡೆಲ್ಹಿವರಿ
+ಎಕಾಮ್ ಎಕ್ಸ್ಪ್ರೆಸ್
+ಎಕ್ಸ್ಪ್ರೆಸ್ಬೀಸ್
+ಗತಿ
+ಪ್ರೊಫೆಷನಲ್ ಕೊರಿಯರ್
+ಫೆಡೆಕ್ಸ್
+ಯುಪಿಎಸ್
+ಡಿಎಚ್ಎಲ್
+ಅರಾಮೆಕ್ಸ್
+ಅಮೆಜಾನ್ ಲಾಜಿಸ್ಟಿಕ್ಸ್
+ಶಿಪ್ರಾಕೆಟ್

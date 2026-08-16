@@ -1,0 +1,5 @@
+---
+description: Currency code of ನೆದರ್ಲೆಂಡ್ಸ್
+locale: kn
+---
+EUR

@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation — the day-word ವಾರ dropped, which is how a Kannada calendar prints it
+locale: kn
+---
+ಸೋಮ
+ಮಂಗಳ
+ಬುಧ
+ಗುರು
+ಶುಕ್ರ
+ಶನಿ
+ಭಾನು

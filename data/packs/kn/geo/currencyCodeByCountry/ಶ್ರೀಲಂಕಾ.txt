@@ -1,0 +1,5 @@
+---
+description: Currency code of ಶ್ರೀಲಂಕಾ
+locale: kn
+---
+LKR

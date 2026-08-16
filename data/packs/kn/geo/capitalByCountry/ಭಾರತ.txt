@@ -1,0 +1,5 @@
+---
+description: Capital of ಭಾರತ
+locale: kn
+---
+ನವದೆಹಲಿ

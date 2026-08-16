@@ -1,0 +1,5 @@
+---
+description: Capital of ಅರ್ಜೆಂಟೀನಾ
+locale: kn
+---
+ಬ್ಯೂನಸ್ ಐರಿಸ್

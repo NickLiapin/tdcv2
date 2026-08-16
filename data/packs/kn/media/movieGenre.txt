@@ -1,0 +1,24 @@
+---
+description: Movie genre. ಪೌರಾಣಿಕ (mythological) and ಐತಿಹಾಸಿಕ (historical) are standing categories of Kannada cinema, and ಮಸಾಲೆ ಚಿತ್ರ names the song-and-fight commercial film as a genre in its own right.
+locale: kn
+---
+ಆಕ್ಷನ್
+ಹಾಸ್ಯ
+ನಾಟಕೀಯ
+ಭಯಾನಕ
+ರೋಚಕ
+ಪ್ರೇಮಕಥೆ
+ವೈಜ್ಞಾನಿಕ ಕಾಲ್ಪನಿಕ
+ಫ್ಯಾಂಟಸಿ
+ಸಾಕ್ಷ್ಯಚಿತ್ರ
+ಅನಿಮೇಷನ್
+ಸಾಹಸ
+ಅಪರಾಧ
+ರಹಸ್ಯ
+ಪೌರಾಣಿಕ
+ಐತಿಹಾಸಿಕ
+ಮಸಾಲೆ ಚಿತ್ರ
+ಕೌಟುಂಬಿಕ
+ಸಂಗೀತಮಯ
+ಯುದ್ಧ
+ಜೀವನಚರಿತ್ರೆ

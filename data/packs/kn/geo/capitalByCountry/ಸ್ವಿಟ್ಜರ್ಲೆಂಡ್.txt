@@ -1,0 +1,5 @@
+---
+description: Capital of ಸ್ವಿಟ್ಜರ್ಲೆಂಡ್
+locale: kn
+---
+ಬರ್ನ್

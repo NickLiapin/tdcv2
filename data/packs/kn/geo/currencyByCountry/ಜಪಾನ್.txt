@@ -1,0 +1,5 @@
+---
+description: Currency of ಜಪಾನ್
+locale: kn
+---
+ಜಪಾನೀಸ್ ಯೆನ್

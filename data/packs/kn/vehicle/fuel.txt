@@ -1,0 +1,14 @@
+---
+description: Fuel type. ಸಿಎನ್ಜಿ and ಎಲ್ಪಿಜಿ are ordinary vehicle fuels in India, not curiosities.
+locale: kn
+---
+ಪೆಟ್ರೋಲ್
+ಡೀಸೆಲ್
+ಸಿಎನ್ಜಿ
+ಎಲ್ಪಿಜಿ
+ವಿದ್ಯುತ್
+ಹೈಬ್ರಿಡ್
+ಪ್ಲಗ್-ಇನ್ ಹೈಬ್ರಿಡ್
+ಜಲಜನಕ
+ಎಥೆನಾಲ್ ಮಿಶ್ರಿತ
+ಸೌರಶಕ್ತಿ

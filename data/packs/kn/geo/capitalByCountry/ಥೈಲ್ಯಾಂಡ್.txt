@@ -1,0 +1,5 @@
+---
+description: Capital of ಥೈಲ್ಯಾಂಡ್
+locale: kn
+---
+ಬ್ಯಾಂಕಾಕ್

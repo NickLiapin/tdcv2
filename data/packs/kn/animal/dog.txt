@@ -1,0 +1,24 @@
+---
+description: Dog breed. ಮುಧೋಳ ಹೌಂಡ್ is Karnataka's own sighthound, bred around Mudhol in Bagalkot and recognised as an Indian breed; ಕರಾವಳಿ ನಾಯಿ and ಬೀದಿ ನಾಯಿ are the ordinary village and street dogs.
+locale: kn
+---
+ಬೀದಿ ನಾಯಿ
+ಮುಧೋಳ ಹೌಂಡ್
+ರಾಜಪಾಳ್ಯಂ
+ಕನ್ನಿ
+ಚಿಪ್ಪಿಪಾರೈ
+ಲ್ಯಾಬ್ರಡಾರ್
+ಜರ್ಮನ್ ಶೆಫರ್ಡ್
+ಗೋಲ್ಡನ್ ರಿಟ್ರೀವರ್
+ಪಗ್
+ಬೀಗಲ್
+ರಾಟ್ವೀಲರ್
+ಡಾಬರ್ಮನ್
+ಬಾಕ್ಸರ್
+ಗ್ರೇಟ್ ಡೇನ್
+ಡಾಷ್ಹಂಡ್
+ಪೊಮೆರೇನಿಯನ್
+ಶಿಟ್ಸು
+ಕಾಕರ್ ಸ್ಪೇನಿಯಲ್
+ಸೈಬೀರಿಯನ್ ಹಸ್ಕಿ
+ಬುಲ್ಡಾಗ್

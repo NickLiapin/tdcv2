@@ -1,0 +1,22 @@
+---
+description: Fish, including the coastal Karnataka names that have no standard English equivalent: ಬಂಗುಡೆ is the Indian mackerel, ಬೂತಾಯಿ the oil sardine, ಅಂಜಲ್ the seer fish.
+locale: kn
+---
+ಬಂಗುಡೆ
+ಬೂತಾಯಿ
+ಅಂಜಲ್
+ಪಾಂಪ್ಲೆಟ್
+ಸಿಗಡಿ
+ಏಡಿ
+ಗೆಂಡೆ ಮೀನು
+ಕಟ್ಲಾ
+ರೋಹು
+ಮೃಗಾಲ
+ಮುರುಗೋಡು ಮೀನು
+ಸೊರ ಮೀನು
+ಟ್ಯೂನ
+ಸಾಲ್ಮನ್
+ಟ್ರೌಟ್
+ಚಿನ್ನದ ಮೀನು
+ಬಾಳೆ ಮೀನು
+ಕಾಣೆ ಮೀನು

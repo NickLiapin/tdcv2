@@ -1,0 +1,5 @@
+---
+description: Currency code of ನ್ಯೂಜಿಲೆಂಡ್
+locale: kn
+---
+NZD

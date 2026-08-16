@@ -1,0 +1,5 @@
+---
+description: Capital of ನಾರ್ವೆ
+locale: kn
+---
+ಓಸ್ಲೊ

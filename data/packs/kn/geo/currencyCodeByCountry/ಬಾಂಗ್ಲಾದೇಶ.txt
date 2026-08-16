@@ -1,0 +1,5 @@
+---
+description: Currency code of ಬಾಂಗ್ಲಾದೇಶ
+locale: kn
+---
+BDT

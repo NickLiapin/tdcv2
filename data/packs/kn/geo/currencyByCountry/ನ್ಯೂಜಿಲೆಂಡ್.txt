@@ -1,0 +1,5 @@
+---
+description: Currency of ನ್ಯೂಜಿಲೆಂಡ್
+locale: kn
+---
+ನ್ಯೂಜಿಲೆಂಡ್ ಡಾಲರ್

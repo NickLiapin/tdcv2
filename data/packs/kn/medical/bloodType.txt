@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type
+locale: kn
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

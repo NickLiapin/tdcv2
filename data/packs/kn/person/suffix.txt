@@ -1,0 +1,19 @@
+---
+description: Kannada name suffix. Kannada has NO generational suffix — there is no Jr, Sr, II or III, and none was invented here; that gap is the design. What does follow a Kannada name is the honorific particle ಅವರು / ರವರು, and academic post-nominals, which Kannada writes out in its own letters.
+locale: kn
+---
+ಅವರು
+ರವರು
+ಬಿ.ಎ.
+ಬಿ.ಎಸ್ಸಿ.
+ಬಿ.ಇ.
+ಎಂ.ಎ.
+ಎಂ.ಎಸ್ಸಿ.
+ಎಂ.ಟೆಕ್.
+ಎಂ.ಬಿ.ಎ.
+ಪಿಎಚ್.ಡಿ.
+ಎಂ.ಬಿ.ಬಿ.ಎಸ್.
+ಎಂ.ಡಿ.
+ಎಲ್ಎಲ್.ಬಿ.
+ಬಿ.ಕಾಂ.
+ಡಿ.ಲಿಟ್.

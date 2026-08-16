@@ -1,0 +1,5 @@
+---
+description: Capital of ಮೆಕ್ಸಿಕೊ
+locale: kn
+---
+ಮೆಕ್ಸಿಕೊ ನಗರ

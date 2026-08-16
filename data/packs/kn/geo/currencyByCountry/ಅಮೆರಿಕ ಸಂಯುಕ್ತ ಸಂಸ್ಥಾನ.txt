@@ -1,0 +1,5 @@
+---
+description: Currency of ಅಮೆರಿಕ ಸಂಯುಕ್ತ ಸಂಸ್ಥಾನ
+locale: kn
+---
+ಅಮೆರಿಕನ್ ಡಾಲರ್

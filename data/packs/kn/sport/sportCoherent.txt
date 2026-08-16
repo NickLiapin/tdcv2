@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list. ಕಬಡ್ಡಿ and ಕೊಕ್ಕೊ are on the list ahead of the American sports because they are what is actually played in Karnataka schools and villages; American football and ice hockey are not.
+locale: kn
+---
+ಕ್ರಿಕೆಟ್
+ಫುಟ್ಬಾಲ್
+ಹಾಕಿ
+ಕಬಡ್ಡಿ
+ಕೊಕ್ಕೊ
+ಬ್ಯಾಸ್ಕೆಟ್ಬಾಲ್
+ವಾಲಿಬಾಲ್
+ಬ್ಯಾಡ್ಮಿಂಟನ್

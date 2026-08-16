@@ -1,0 +1,5 @@
+---
+description: Currency code of ಫ್ರಾನ್ಸ್
+locale: kn
+---
+EUR

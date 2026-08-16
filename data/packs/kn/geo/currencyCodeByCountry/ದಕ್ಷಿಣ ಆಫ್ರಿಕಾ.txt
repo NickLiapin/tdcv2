@@ -1,0 +1,5 @@
+---
+description: Currency code of ದಕ್ಷಿಣ ಆಫ್ರಿಕಾ
+locale: kn
+---
+ZAR

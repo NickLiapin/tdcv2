@@ -1,0 +1,10 @@
+---
+description: Dishes of ಅರಬ್ cuisine
+locale: kn
+---
+ಶವರ್ಮಾ
+ಹಮ್ಮಸ್
+ಫಲಾಫೆಲ್
+ಕುಬ್ಬೂಸ್
+ಮಂದಿ
+ಬಕ್ಲಾವಾ

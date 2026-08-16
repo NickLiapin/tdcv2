@@ -1,0 +1,5 @@
+---
+description: Capital of ಜಪಾನ್
+locale: kn
+---
+ಟೋಕಿಯೊ

@@ -1,0 +1,5 @@
+---
+description: Currency of ನೈಜೀರಿಯಾ
+locale: kn
+---
+ನೈಜೀರಿಯನ್ ನೈರಾ

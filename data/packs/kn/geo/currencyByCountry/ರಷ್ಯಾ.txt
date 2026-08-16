@@ -1,0 +1,5 @@
+---
+description: Currency of ರಷ್ಯಾ
+locale: kn
+---
+ರಷ್ಯನ್ ರೂಬಲ್

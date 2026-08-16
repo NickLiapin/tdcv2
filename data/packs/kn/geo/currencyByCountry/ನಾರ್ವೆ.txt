@@ -1,0 +1,5 @@
+---
+description: Currency of ನಾರ್ವೆ
+locale: kn
+---
+ನಾರ್ವೇಜಿಯನ್ ಕ್ರೋನ್

@@ -1,0 +1,5 @@
+---
+description: Currency of ಶ್ರೀಲಂಕಾ
+locale: kn
+---
+ಶ್ರೀಲಂಕಾ ರೂಪಾಯಿ

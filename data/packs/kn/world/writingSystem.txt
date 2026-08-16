@@ -1,0 +1,26 @@
+---
+description: Writing system as Kannada names it. WHERE THE SCRIPT SITS: Kannada occupies U+0C80-U+0CFF, and its close cousin Telugu occupies U+0C00-U+0C7F immediately below it. The two descend from the same Kadamba-Chalukya parent, look alike letter for letter, and are adjacent in Unicode — which makes Telugu contamination the single most likely way a Kannada pack goes wrong, and a contamination no is-it-Indic test would catch. Every value in this pack was counted: Kannada codepoints only, zero Telugu, zero Devanagari, zero Tamil, zero Malayalam.
+locale: kn
+---
+ಕನ್ನಡ
+ತೆಲುಗು
+ತಮಿಳು
+ಮಲಯಾಳಂ
+ದೇವನಾಗರಿ
+ಬಂಗಾಳಿ
+ಗುರುಮುಖಿ
+ಗುಜರಾತಿ
+ಒಡಿಯಾ
+ಸಿಂಹಳ
+ಲ್ಯಾಟಿನ್
+ಸಿರಿಲಿಕ್
+ಅರೇಬಿಕ್
+ಗ್ರೀಕ್
+ಹೀಬ್ರೂ
+ಚೀನೀ
+ಹಂಗುಲ್
+ಹಿರಗಾನ
+ಥಾಯ್
+ಟಿಬೆಟಿಯನ್
+ಜಾರ್ಜಿಯನ್
+ಬ್ರಾಹ್ಮಿ

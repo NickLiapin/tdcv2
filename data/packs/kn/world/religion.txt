@@ -1,0 +1,25 @@
+---
+description: World religion as Kannada names it. ಲಿಂಗಾಯತ / ವೀರಶೈವ is listed separately because in Karnataka it is a distinct religious identity with its own tradition, not a synonym for ಹಿಂದೂ ಧರ್ಮ.
+locale: kn
+---
+ಹಿಂದೂ ಧರ್ಮ
+ಇಸ್ಲಾಂ
+ಕ್ರೈಸ್ತ ಧರ್ಮ
+ಲಿಂಗಾಯತ
+ವೀರಶೈವ
+ಜೈನ ಧರ್ಮ
+ಬೌದ್ಧ ಧರ್ಮ
+ಸಿಖ್ ಧರ್ಮ
+ಪಾರ್ಸಿ
+ಯಹೂದಿ
+ಬಹಾಯಿ
+ಜಾನಪದ ಆರಾಧನೆ
+ಪ್ರಕೃತಿ ಆರಾಧನೆ
+ನಿರೀಶ್ವರವಾದ
+ಅಜ್ಞೇಯವಾದ
+ಧರ್ಮರಹಿತ
+ಶೈವ
+ವೈಷ್ಣವ
+ಶಾಕ್ತ
+ಮಾಧ್ವ
+ಶ್ರೀವೈಷ್ಣವ

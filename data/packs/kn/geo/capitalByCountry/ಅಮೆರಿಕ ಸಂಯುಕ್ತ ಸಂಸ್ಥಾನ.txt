@@ -1,0 +1,5 @@
+---
+description: Capital of ಅಮೆರಿಕ ಸಂಯುಕ್ತ ಸಂಸ್ಥಾನ
+locale: kn
+---
+ವಾಷಿಂಗ್ಟನ್ ಡಿ.ಸಿ.

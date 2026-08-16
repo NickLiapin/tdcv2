@@ -1,0 +1,24 @@
+---
+description: Common allergy. ಕಡಲೆಕಾಯಿ and ಸಿಗಡಿ matter in coastal Karnataka; ಔಷಧ allergies are recorded on every Indian case sheet.
+locale: kn
+---
+ಪೆನಿಸಿಲಿನ್
+ಕಡಲೆಕಾಯಿ
+ಗೋಡಂಬಿ
+ಸಿಗಡಿ
+ಮೊಟ್ಟೆ
+ಹಾಲು
+ಸೋಯಾ
+ಗೋಧಿ
+ಲ್ಯಾಟೆಕ್ಸ್
+ಪರಾಗ
+ಧೂಳಿನ ಹುಳ
+ಸಾಕುಪ್ರಾಣಿ ಕೂದಲು
+ಜೇನುನೊಣ ಕಡಿತ
+ಆಸ್ಪಿರಿನ್
+ಸಲ್ಫಾ ಔಷಧ
+ಅಯೋಡಿನ್
+ಎಳ್ಳು
+ಬದನೆಕಾಯಿ
+ಸಾಸಿವೆ
+ಅಣಬೆ

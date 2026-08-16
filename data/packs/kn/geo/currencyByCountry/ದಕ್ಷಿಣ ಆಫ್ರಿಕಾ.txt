@@ -1,0 +1,5 @@
+---
+description: Currency of ದಕ್ಷಿಣ ಆಫ್ರಿಕಾ
+locale: kn
+---
+ದಕ್ಷಿಣ ಆಫ್ರಿಕನ್ ರಾಂಡ್

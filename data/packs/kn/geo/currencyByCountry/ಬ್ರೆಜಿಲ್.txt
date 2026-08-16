@@ -1,0 +1,5 @@
+---
+description: Currency of ಬ್ರೆಜಿಲ್
+locale: kn
+---
+ಬ್ರೆಜಿಲಿಯನ್ ರಿಯಾಲ್

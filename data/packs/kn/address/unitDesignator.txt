@@ -1,0 +1,24 @@
+---
+description: Interior / secondary address element. A Kannada address stacks these before the locality (ಮನೆ ನಂ. 42, 2ನೇ ಮಹಡಿ, ಬಿ ಬ್ಲಾಕ್); the number follows the word rather than preceding it.
+locale: kn
+---
+ಮನೆ ನಂ.
+ನಂ.
+ಫ್ಲ್ಯಾಟ್
+ಬ್ಲಾಕ್
+ವಿಂಗ್
+ಮಹಡಿ
+ನೆಲ ಮಹಡಿ
+ಮೇಲ್ಮಹಡಿ
+ಕೊಠಡಿ
+ನಿವೇಶನ
+ಸೈಟ್ ನಂ.
+ಅಂಗಡಿ ನಂ.
+ಗೇಟ್ ನಂ.
+ದ್ವಾರ
+ಹಂತ
+ಸೆಕ್ಟರ್
+ಹಿಂಭಾಗ
+ಮುಂಭಾಗ
+ಅಂತಸ್ತು
+ಘಟಕ

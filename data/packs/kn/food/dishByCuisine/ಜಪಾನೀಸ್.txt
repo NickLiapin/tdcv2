@@ -1,0 +1,10 @@
+---
+description: Dishes of ಜಪಾನೀಸ್ cuisine
+locale: kn
+---
+ಸುಶಿ
+ರಾಮೆನ್
+ಟೆಂಪುರ
+ಉಡಾನ್
+ಮಿಸೊ ಸೂಪ್
+ಟೆರಿಯಾಕಿ

@@ -1,0 +1,36 @@
+---
+description: Leading element of a Karnataka place name. It is normally FUSED to the toponym, not left standing: ಹೊಸಪೇಟೆ, ದೊಡ್ಡಬಳ್ಳಾಪುರ, ಚಿಕ್ಕಮಗಳೂರು, ಹಿರೇಕೆರೂರು. ಹಿರೇ is the north Karnataka word for big and ದೊಡ್ಡ the south one. Combine with a real toponym; on its own it does not name a real place.
+locale: kn
+---
+ಹೊಸ
+ಹಳೆ
+ದೊಡ್ಡ
+ಚಿಕ್ಕ
+ಹಿರೇ
+ಸಣ್ಣ
+ಮೇಲಿನ
+ಕೆಳಗಿನ
+ಬಿಳಿ
+ಕರಿ
+ಹೊನ್ನ
+ಉತ್ತರ
+ದಕ್ಷಿಣ
+ಪೂರ್ವ
+ಪಶ್ಚಿಮ
+ಮಧ್ಯ
+ಶ್ರೀ
+ನವ
+ಬಸವ
+ವಿದ್ಯಾ
+ವಿಜಯ
+ಜಯ
+ರಾಜ
+ದೇವ
+ಗಂಗಾ
+ಮಲ್ಲ
+ನಂದಿ
+ಕೆಂಪ
+ತಿಮ್ಮ
+ಕಲ್ಲು
+ಬಂಡೆ
+ನೀರ

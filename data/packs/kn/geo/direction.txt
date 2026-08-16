@@ -1,0 +1,14 @@
+---
+description: Compass direction. Kannada names eight points and no more: ಈಶಾನ್ಯ, ಆಗ್ನೇಯ, ನೈಋತ್ಯ and ವಾಯವ್ಯ are single inherited words, not compounds of two neighbours. The sixteen-point subdivisions an English compass rose carries (north-northeast and the rest) have NO established Kannada names, so none were invented; a config needing sixteen points must use degrees.
+locale: kn
+---
+ಉತ್ತರ
+ದಕ್ಷಿಣ
+ಪೂರ್ವ
+ಪಶ್ಚಿಮ
+ಈಶಾನ್ಯ
+ಆಗ್ನೇಯ
+ನೈಋತ್ಯ
+ವಾಯವ್ಯ
+ಮೇಲ್ಮುಖ
+ಕೆಳಮುಖ

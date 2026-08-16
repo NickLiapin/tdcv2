@@ -1,0 +1,20 @@
+---
+description: Cuisine, as a Kannada menu names it. The first five are Karnataka's OWN regional cuisines and are not interchangeable: ಉಡುಪಿ is the vegetarian temple-town style that spread across India, ಮಂಗಳೂರು the coastal fish-and-coconut one, ಉತ್ತರ ಕರ್ನಾಟಕ the jowar-and-chilli one, ಮಲೆನಾಡು the hill one and ಕೊಡವ the Kodagu one, which alone is built on pork.
+locale: kn
+---
+ಉಡುಪಿ
+ಮಂಗಳೂರು
+ಉತ್ತರ ಕರ್ನಾಟಕ
+ಮಲೆನಾಡು
+ಕೊಡವ
+ದಕ್ಷಿಣ ಭಾರತೀಯ
+ಉತ್ತರ ಭಾರತೀಯ
+ಕೇರಳ
+ಆಂಧ್ರ
+ಚೀನೀ
+ಇಟಾಲಿಯನ್
+ಥಾಯ್
+ಜಪಾನೀಸ್
+ಮೆಕ್ಸಿಕನ್
+ಅರಬ್
+ಕಾಂಟಿನೆಂಟಲ್

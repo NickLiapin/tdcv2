@@ -1,0 +1,18 @@
+---
+description: Directional qualifier used with a Kannada locality or road name. Kannada names the four intercardinals with single inherited words — ಈಶಾನ್ಯ, ಆಗ್ನೇಯ, ನೈಋತ್ಯ, ವಾಯವ್ಯ — not as north-plus-east compounds, so they cannot be built by joining two values from this list.
+locale: kn
+---
+ಉತ್ತರ
+ದಕ್ಷಿಣ
+ಪೂರ್ವ
+ಪಶ್ಚಿಮ
+ಈಶಾನ್ಯ
+ಆಗ್ನೇಯ
+ನೈಋತ್ಯ
+ವಾಯವ್ಯ
+ಮಧ್ಯ
+ಕೇಂದ್ರ
+ಮೇಲಿನ
+ಕೆಳಗಿನ
+ಒಳ
+ಹೊರ

@@ -1,0 +1,5 @@
+---
+description: Capital of ಆಸ್ಟ್ರೇಲಿಯಾ
+locale: kn
+---
+ಕ್ಯಾನ್ಬೆರಾ

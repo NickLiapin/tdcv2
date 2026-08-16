@@ -1,0 +1,18 @@
+---
+description: Insurance type. ಬೆಳೆ ವಿಮೆ (crop insurance) and ಜಾನುವಾರು ವಿಮೆ (livestock insurance) are ordinary household products in rural Karnataka.
+locale: kn
+---
+ಆರೋಗ್ಯ ವಿಮೆ
+ವಾಹನ ವಿಮೆ
+ಗೃಹ ವಿಮೆ
+ಜೀವ ವಿಮೆ
+ಅವಧಿ ವಿಮೆ
+ಪ್ರಯಾಣ ವಿಮೆ
+ಬೆಳೆ ವಿಮೆ
+ಜಾನುವಾರು ವಿಮೆ
+ಅಪಘಾತ ವಿಮೆ
+ದಂತ ವಿಮೆ
+ನೇತ್ರ ವಿಮೆ
+ಹೊಣೆಗಾರಿಕೆ ವಿಮೆ
+ಅಂಗವೈಕಲ್ಯ ವಿಮೆ
+ಸಾಕುಪ್ರಾಣಿ ವಿಮೆ

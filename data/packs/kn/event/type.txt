@@ -1,0 +1,24 @@
+---
+description: Event type. The first block is the Karnataka life-cycle set: ಗೃಹಪ್ರವೇಶ is the housewarming that consecrates a new house, ನಾಮಕರಣ the naming on the eleventh day, ಉಪನಯನ the sacred-thread rite, ಸೀಮಂತ the pre-birth blessing and ಷಷ್ಟ್ಯಬ್ದಿ the sixtieth-birthday re-marriage. ಜಾತ್ರೆ is a village temple fair, not a trade fair.
+locale: kn
+---
+ಮದುವೆ
+ನಿಶ್ಚಿತಾರ್ಥ
+ಗೃಹಪ್ರವೇಶ
+ನಾಮಕರಣ
+ಉಪನಯನ
+ಸೀಮಂತ
+ಷಷ್ಟ್ಯಬ್ದಿ
+ಜಾತ್ರೆ
+ಉತ್ಸವ
+ಸಂಗೀತ ಕಚೇರಿ
+ಸಮ್ಮೇಳನ
+ಕಾರ್ಯಾಗಾರ
+ವೆಬಿನಾರ್
+ವಾಣಿಜ್ಯ ಮೇಳ
+ನಿಧಿ ಸಂಗ್ರಹ ಕಾರ್ಯಕ್ರಮ
+ಜಾಲ ಬೆಳೆಸುವ ಸಭೆ
+ಉತ್ಪನ್ನ ಬಿಡುಗಡೆ
+ವಿಚಾರ ಸಂಕಿರಣ
+ಪ್ರಶಸ್ತಿ ಸಮಾರಂಭ
+ಕ್ರೀಡಾಕೂಟ

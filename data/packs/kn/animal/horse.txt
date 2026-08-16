@@ -1,0 +1,18 @@
+---
+description: Horse breed. ಮಾರವಾಡಿ and ಕಥಿಯಾವಾಡಿ are the Indian breeds; the rest are international and keep their names.
+locale: kn
+---
+ಮಾರವಾಡಿ
+ಕಥಿಯಾವಾಡಿ
+ಅರೇಬಿಯನ್
+ಥರೋಬ್ರೆಡ್
+ಮಸ್ಟಾಂಗ್
+ಕ್ಲೈಡ್ಸ್ಡೇಲ್
+ಅಪಲೂಸಾ
+ಫ್ರೀಷಿಯನ್
+ಶೈರ್
+ಅಂಡಲೂಸಿಯನ್
+ಪಾಲಮಿನೊ
+ಶೆಟ್ಲೆಂಡ್ ಕುದುರೆ
+ಪೋನಿ
+ಸ್ಪಿತಿ

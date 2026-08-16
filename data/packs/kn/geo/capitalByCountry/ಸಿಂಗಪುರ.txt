@@ -1,0 +1,5 @@
+---
+description: Capital of ಸಿಂಗಪುರ
+locale: kn
+---
+ಸಿಂಗಪುರ

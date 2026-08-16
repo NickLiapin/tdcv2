@@ -1,0 +1,5 @@
+---
+description: Capital of ದಕ್ಷಿಣ ಆಫ್ರಿಕಾ
+locale: kn
+---
+ಪ್ರಿಟೋರಿಯಾ

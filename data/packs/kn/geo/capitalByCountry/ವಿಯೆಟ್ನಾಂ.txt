@@ -1,0 +1,5 @@
+---
+description: Capital of ವಿಯೆಟ್ನಾಂ
+locale: kn
+---
+ಹನೋಯಿ

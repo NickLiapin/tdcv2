@@ -1,0 +1,5 @@
+---
+description: Capital of ನೇಪಾಳ
+locale: kn
+---
+ಕಠ್ಮಂಡು

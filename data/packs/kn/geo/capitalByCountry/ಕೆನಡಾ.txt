@@ -1,0 +1,5 @@
+---
+description: Capital of ಕೆನಡಾ
+locale: kn
+---
+ಒಟ್ಟಾವಾ

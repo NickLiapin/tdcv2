@@ -1,0 +1,5 @@
+---
+description: Currency of ನೇಪಾಳ
+locale: kn
+---
+ನೇಪಾಳಿ ರೂಪಾಯಿ

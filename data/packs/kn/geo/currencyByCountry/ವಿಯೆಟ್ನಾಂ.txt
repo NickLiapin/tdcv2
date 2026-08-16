@@ -1,0 +1,5 @@
+---
+description: Currency of ವಿಯೆಟ್ನಾಂ
+locale: kn
+---
+ವಿಯೆಟ್ನಾಮೀಸ್ ಡಾಂಗ್

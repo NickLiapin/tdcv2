@@ -1,0 +1,5 @@
+---
+description: Capital of ಸ್ವೀಡನ್
+locale: kn
+---
+ಸ್ಟಾಕ್ಹೋಮ್

@@ -1,0 +1,5 @@
+---
+description: Currency code of ನೈಜೀರಿಯಾ
+locale: kn
+---
+NGN

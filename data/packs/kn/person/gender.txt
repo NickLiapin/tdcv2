@@ -1,0 +1,8 @@
+---
+description: Gender label. India legally recognises a third gender, so the list carries ತೃತೀಯ ಲಿಂಗಿ alongside the two binary terms.
+locale: kn
+---
+ಪುರುಷ
+ಮಹಿಳೆ
+ತೃತೀಯ ಲಿಂಗಿ
+ಇತರೆ

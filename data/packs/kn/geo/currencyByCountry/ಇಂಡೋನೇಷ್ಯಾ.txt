@@ -1,0 +1,5 @@
+---
+description: Currency of ಇಂಡೋನೇಷ್ಯಾ
+locale: kn
+---
+ಇಂಡೋನೇಷ್ಯನ್ ರುಪಿಯಾ

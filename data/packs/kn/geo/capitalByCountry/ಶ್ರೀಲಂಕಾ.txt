@@ -1,0 +1,5 @@
+---
+description: Capital of ಶ್ರೀಲಂಕಾ
+locale: kn
+---
+ಶ್ರೀ ಜಯವರ್ಧನಪುರ ಕೋಟೆ

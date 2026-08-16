@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon. ಮುಂಗಾರು (the southwest monsoon) and ಹಿಂಗಾರು (the northeast one) are two separate named rainy seasons in Karnataka, not one wet season; ಬರ is drought, which the northern plateau of the state sees regularly.
+locale: kn
+---
+ಮುಂಗಾರು
+ಹಿಂಗಾರು
+ಚಂಡಮಾರುತ
+ಸುಂಟರಗಾಳಿ
+ಪ್ರವಾಹ
+ಬರ
+ಬಿಸಿಗಾಳಿ
+ಶೀತ ಅಲೆ
+ಭೂಕುಸಿತ
+ಆಲಿಕಲ್ಲು ಮಳೆ
+ಸಿಡಿಲು
+ಕಾಳ್ಗಿಚ್ಚು
+ಧೂಳಿನ ಬಿರುಗಾಳಿ
+ಹಿಮಪಾತ
+ಮೇಘಸ್ಫೋಟ

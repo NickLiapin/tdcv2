@@ -1,0 +1,22 @@
+---
+description: Trip type. ತೀರ್ಥಯಾತ್ರೆ (pilgrimage) is one of the commonest reasons a Karnataka family travels and is not a leisure trip.
+locale: kn
+---
+ವ್ಯವಹಾರ ಪ್ರಯಾಣ
+ವಿಹಾರ
+ಕುಟುಂಬ ಪ್ರವಾಸ
+ತೀರ್ಥಯಾತ್ರೆ
+ಮಧುಚಂದ್ರ
+ಸಾಹಸ ಪ್ರವಾಸ
+ರಸ್ತೆ ಪ್ರಯಾಣ
+ಚಾರಣ
+ಶಿಬಿರ
+ವನ್ಯಜೀವಿ ಸಫಾರಿ
+ಬೆಟ್ಟದ ತಾಣ
+ಕಡಲತೀರ ರಜೆ
+ನಗರ ಭೇಟಿ
+ಗುಂಪು ಪ್ರವಾಸ
+ಒಂಟಿ ಪ್ರಯಾಣ
+ಶೈಕ್ಷಣಿಕ ಪ್ರವಾಸ
+ವೈದ್ಯಕೀಯ ಪ್ರಯಾಣ
+ಕುಟುಂಬ ಸಮಾರಂಭ

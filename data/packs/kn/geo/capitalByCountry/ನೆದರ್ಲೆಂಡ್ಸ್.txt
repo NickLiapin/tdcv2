@@ -1,0 +1,5 @@
+---
+description: Capital of ನೆದರ್ಲೆಂಡ್ಸ್
+locale: kn
+---
+ಆಮ್ಸ್ಟರ್ಡ್ಯಾಮ್

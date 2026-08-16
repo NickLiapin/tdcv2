@@ -1,0 +1,14 @@
+---
+description: Booking status. ಆರ್ಎಸಿ and ವೇಟಿಂಗ್ ಲಿಸ್ಟ್ are Indian railway booking states with no hotel equivalent — an RAC ticket boards with a shared berth.
+locale: kn
+---
+ದೃಢಪಟ್ಟಿದೆ
+ಬಾಕಿ ಇದೆ
+ವೇಟಿಂಗ್ ಲಿಸ್ಟ್
+ಆರ್ಎಸಿ
+ರದ್ದಾಗಿದೆ
+ಚೆಕ್ ಇನ್ ಆಗಿದೆ
+ಚೆಕ್ ಔಟ್ ಆಗಿದೆ
+ಬರಲಿಲ್ಲ
+ಮಾರ್ಪಡಿಸಲಾಗಿದೆ
+ಮರುಪಾವತಿಯಾಗಿದೆ

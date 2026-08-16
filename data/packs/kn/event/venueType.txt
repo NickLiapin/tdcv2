@@ -1,0 +1,20 @@
+---
+description: Venue type. ಕಲ್ಯಾಣ ಮಂಟಪ is the dedicated wedding hall every Karnataka town has and is not a hotel ballroom; ಸಮುದಾಯ ಭವನ is the community hall a caste or village association runs.
+locale: kn
+---
+ಕಲ್ಯಾಣ ಮಂಟಪ
+ಸಮುದಾಯ ಭವನ
+ಹೋಟೆಲ್ ಸಭಾಂಗಣ
+ಸಮ್ಮೇಳನ ಕೇಂದ್ರ
+ಕ್ರೀಡಾಂಗಣ
+ರಂಗಮಂದಿರ
+ಬಯಲು ರಂಗಮಂದಿರ
+ದೇವಸ್ಥಾನದ ಆವರಣ
+ಶಾಲಾ ಮೈದಾನ
+ತಾರಸಿ
+ತೋಟ
+ಸಭಾಂಗಣ
+ಸಮ್ಮೇಳನ ಕೊಠಡಿ
+ಕ್ಲಬ್ ಹೌಸ್
+ರೆಸಾರ್ಟ್
+ಗೋದಾಮು

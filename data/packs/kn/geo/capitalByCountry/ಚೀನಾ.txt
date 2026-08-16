@@ -1,0 +1,5 @@
+---
+description: Capital of ಚೀನಾ
+locale: kn
+---
+ಬೀಜಿಂಗ್

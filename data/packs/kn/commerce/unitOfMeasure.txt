@@ -1,0 +1,32 @@
+---
+description: Unit of measure for products. India is metric, so weights are ಗ್ರಾಂ and ಕೆ.ಜಿ.; ಡಜನ್ and ಜೊತೆ survive from the older system, and ಸೇರು is the traditional grain measure still heard in village markets.
+locale: kn
+---
+ನಗ
+ಸಂಖ್ಯೆ
+ಪೆಟ್ಟಿಗೆ
+ಡಬ್ಬಿ
+ಪ್ಯಾಕೆಟ್
+ಡಜನ್
+ಜೊತೆ
+ಸೆಟ್
+ಸುರುಳಿ
+ಕಟ್ಟು
+ಕಿಲೋಗ್ರಾಂ
+ಗ್ರಾಂ
+ಕ್ವಿಂಟಾಲ್
+ಟನ್
+ಲೀಟರ್
+ಮಿಲಿಲೀಟರ್
+ಮೀಟರ್
+ಸೆಂಟಿಮೀಟರ್
+ಚದರ ಅಡಿ
+ಸೇರು
+ಚೀಲ
+ಬಂಡಲ್
+ತಟ್ಟೆ
+ಬಾಟಲಿ
+ಟ್ಯೂಬ್
+ಜೊತೆಗಟ್ಟಲೆ
+ಎಕರೆ
+ಗುಂಟೆ

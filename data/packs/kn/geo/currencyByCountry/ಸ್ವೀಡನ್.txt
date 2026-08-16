@@ -1,0 +1,5 @@
+---
+description: Currency of ಸ್ವೀಡನ್
+locale: kn
+---
+ಸ್ವೀಡಿಷ್ ಕ್ರೋನಾ

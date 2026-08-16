@@ -1,0 +1,18 @@
+---
+description: Cat breed. Breed names are international and keep their spelling; ಬೀದಿ ಬೆಕ್ಕು, the ordinary Indian street cat, is what most Kannada households actually keep.
+locale: kn
+---
+ಬೀದಿ ಬೆಕ್ಕು
+ಪರ್ಷಿಯನ್
+ಸಯಾಮಿ
+ಮೈನ್ ಕೂನ್
+ರಾಗ್ಡಾಲ್
+ಬೆಂಗಾಲ್
+ಸ್ಫಿಂಕ್ಸ್
+ಬ್ರಿಟಿಷ್ ಶಾರ್ಟ್ಹೇರ್
+ಅಬಿಸ್ಸೀನಿಯನ್
+ಸ್ಕಾಟಿಷ್ ಫೋಲ್ಡ್
+ರಷ್ಯನ್ ಬ್ಲೂ
+ಬರ್ಮೀಸ್
+ಹಿಮಾಲಯನ್
+ಅಂಗೋರಾ

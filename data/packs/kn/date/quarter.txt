@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter. India's financial year runs April to March, so Q1 here is April-June, not January-March.
+locale: kn
+---
+1ನೇ ತ್ರೈಮಾಸಿಕ
+2ನೇ ತ್ರೈಮಾಸಿಕ
+3ನೇ ತ್ರೈಮಾಸಿಕ
+4ನೇ ತ್ರೈಮಾಸಿಕ

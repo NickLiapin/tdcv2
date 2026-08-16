@@ -1,0 +1,32 @@
+---
+description: Kannada thoroughfare type. It goes AFTER the name (ಎಂ.ಜಿ. ರಸ್ತೆ, ಜಯನಗರ ಬಡಾವಣೆ), the opposite of Polish or Spanish. ಮುಖ್ಯ ರಸ್ತೆ and ಅಡ್ಡ ರಸ್ತೆ are numbered rather than named across most of urban Karnataka: 5ನೇ ಮುಖ್ಯ ರಸ್ತೆ, 3ನೇ ಅಡ್ಡ ರಸ್ತೆ. ಓಣಿ is the north Karnataka word for a lane and ಗಲ್ಲಿ the south one.
+locale: kn
+---
+ರಸ್ತೆ
+ಮುಖ್ಯ ರಸ್ತೆ
+ಅಡ್ಡ ರಸ್ತೆ
+ಬೀದಿ
+ಮಾರ್ಗ
+ಗಲ್ಲಿ
+ಓಣಿ
+ಬಡಾವಣೆ
+ನಗರ
+ಪುರ
+ವೃತ್ತ
+ಚೌಕ
+ಪೇಟೆ
+ಸಂತೆ
+ಮೈದಾನ
+ಉದ್ಯಾನ
+ವನ
+ಕಾಲೊನಿ
+ವಿಸ್ತರಣೆ
+ಹಂತ
+ಸೇತುವೆ
+ಘಟ್ಟ
+ದಾರಿ
+ಹಾದಿ
+ಕೇರಿ
+ಅಗ್ರಹಾರ
+ಪಾಳ್ಯ
+ಬಯಲು

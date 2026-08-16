@@ -1,0 +1,28 @@
+---
+description: School subject as a Karnataka timetable names it. ಪ್ರಥಮ ಭಾಷೆ / ದ್ವಿತೀಯ ಭಾಷೆ / ತೃತೀಯ ಭಾಷೆ are the three language slots of the state syllabus, one of which is Kannada for nearly every pupil.
+locale: kn
+---
+ಕನ್ನಡ
+ಇಂಗ್ಲಿಷ್
+ಹಿಂದಿ
+ಸಂಸ್ಕೃತ
+ಗಣಿತ
+ವಿಜ್ಞಾನ
+ಭೌತಶಾಸ್ತ್ರ
+ರಸಾಯನಶಾಸ್ತ್ರ
+ಜೀವಶಾಸ್ತ್ರ
+ಸಮಾಜ ವಿಜ್ಞಾನ
+ಇತಿಹಾಸ
+ಭೂಗೋಳ
+ಅರ್ಥಶಾಸ್ತ್ರ
+ರಾಜ್ಯಶಾಸ್ತ್ರ
+ಗಣಕ ವಿಜ್ಞಾನ
+ವ್ಯವಹಾರ ಅಧ್ಯಯನ
+ಲೆಕ್ಕಶಾಸ್ತ್ರ
+ಚಿತ್ರಕಲೆ
+ಸಂಗೀತ
+ದೈಹಿಕ ಶಿಕ್ಷಣ
+ನೈತಿಕ ಶಿಕ್ಷಣ
+ಸಂಖ್ಯಾಶಾಸ್ತ್ರ
+ಮನಃಶಾಸ್ತ್ರ
+ತತ್ವಶಾಸ್ತ್ರ

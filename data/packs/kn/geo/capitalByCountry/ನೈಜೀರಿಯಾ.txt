@@ -1,0 +1,5 @@
+---
+description: Capital of ನೈಜೀರಿಯಾ
+locale: kn
+---
+ಅಬುಜಾ

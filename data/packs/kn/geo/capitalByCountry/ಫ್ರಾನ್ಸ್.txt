@@ -1,0 +1,5 @@
+---
+description: Capital of ಫ್ರಾನ್ಸ್
+locale: kn
+---
+ಪ್ಯಾರಿಸ್

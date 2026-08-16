@@ -1,0 +1,16 @@
+---
+description: Leave type. ಗಳಿಕೆ ರಜೆ (earned leave) and ಸಾಂದರ್ಭಿಕ ರಜೆ (casual leave) are the standard Indian pair and are counted separately.
+locale: kn
+---
+ಗಳಿಕೆ ರಜೆ
+ಸಾಂದರ್ಭಿಕ ರಜೆ
+ಅನಾರೋಗ್ಯ ರಜೆ
+ಹೆರಿಗೆ ರಜೆ
+ತಂದೆಯ ರಜೆ
+ಶೋಕ ರಜೆ
+ವೇತನರಹಿತ ರಜೆ
+ಅಧ್ಯಯನ ರಜೆ
+ವೈದ್ಯಕೀಯ ರಜೆ
+ಪರಿಹಾರ ರಜೆ
+ಸಾರ್ವಜನಿಕ ರಜೆ
+ಐಚ್ಛಿಕ ರಜೆ

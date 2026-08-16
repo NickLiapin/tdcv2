@@ -1,0 +1,18 @@
+---
+description: Payment method. ಯುಪಿಐ is India's instant payment rail and is now the commonest way a Kannada shopper pays; ಡೆಲಿವರಿಯಲ್ಲಿ ನಗದು (cash on delivery) remains ordinary here in a way it is not in Europe.
+locale: kn
+---
+ಯುಪಿಐ
+ಡೆಲಿವರಿಯಲ್ಲಿ ನಗದು
+ನಗದು
+ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್
+ಡೆಬಿಟ್ ಕಾರ್ಡ್
+ನೆಟ್ ಬ್ಯಾಂಕಿಂಗ್
+ಮೊಬೈಲ್ ವಾಲೆಟ್
+ಬ್ಯಾಂಕ್ ವರ್ಗಾವಣೆ
+ಇಎಂಐ
+ಈಗ ಖರೀದಿಸಿ ನಂತರ ಪಾವತಿಸಿ
+ಉಡುಗೊರೆ ಚೀಟಿ
+ಚೆಕ್
+ಡಿಮ್ಯಾಂಡ್ ಡ್ರಾಫ್ಟ್
+ಕ್ರಿಪ್ಟೊಕರೆನ್ಸಿ

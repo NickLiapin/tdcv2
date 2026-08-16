@@ -1,0 +1,24 @@
+---
+description: Academic qualification as it is named in Karnataka. ಎಸ್ಎಸ್ಎಲ್ಸಿ (the class-10 certificate) and ಪಿಯುಸಿ (the two-year pre-university course) are Karnataka's own names for stages other Indian states call class 10 and class 12; ಐಟಿಐ and ಡಿಪ್ಲೊಮಾ are the vocational routes. India is the country meant here.
+locale: kn
+---
+ಎಸ್ಎಸ್ಎಲ್ಸಿ
+ಪಿಯುಸಿ
+ಐಟಿಐ
+ಡಿಪ್ಲೊಮಾ
+ಬಿ.ಎ.
+ಬಿ.ಎಸ್ಸಿ.
+ಬಿ.ಕಾಂ.
+ಬಿ.ಇ.
+ಬಿ.ಟೆಕ್.
+ಬಿ.ಎಡ್.
+ಎಂಬಿಬಿಎಸ್
+ಬಿಡಿಎಸ್
+ಬಿಎಎಂಎಸ್
+ಎಲ್ಎಲ್.ಬಿ.
+ಎಂ.ಎ.
+ಎಂ.ಎಸ್ಸಿ.
+ಎಂ.ಕಾಂ.
+ಎಂ.ಟೆಕ್.
+ಎಂಬಿಎ
+ಪಿಎಚ್.ಡಿ.

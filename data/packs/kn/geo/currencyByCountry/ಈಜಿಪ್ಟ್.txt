@@ -1,0 +1,5 @@
+---
+description: Currency of ಈಜಿಪ್ಟ್
+locale: kn
+---
+ಈಜಿಪ್ಟಿಯನ್ ಪೌಂಡ್

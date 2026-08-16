@@ -1,0 +1,5 @@
+---
+description: Currency code of ಐರ್ಲೆಂಡ್
+locale: kn
+---
+EUR

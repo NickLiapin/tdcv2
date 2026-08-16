@@ -1,0 +1,5 @@
+---
+description: Capital of ಇಂಡೋನೇಷ್ಯಾ
+locale: kn
+---
+ಜಕಾರ್ತಾ

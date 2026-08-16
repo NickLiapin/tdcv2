@@ -1,0 +1,5 @@
+---
+description: Currency of ಗ್ರೀಸ್
+locale: kn
+---
+ಯೂರೋ

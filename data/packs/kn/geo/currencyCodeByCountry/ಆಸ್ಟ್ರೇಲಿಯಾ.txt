@@ -1,0 +1,5 @@
+---
+description: Currency code of ಆಸ್ಟ್ರೇಲಿಯಾ
+locale: kn
+---
+AUD

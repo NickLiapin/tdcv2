@@ -1,0 +1,5 @@
+---
+description: Capital of ದಕ್ಷಿಣ ಕೊರಿಯಾ
+locale: kn
+---
+ಸಿಯೋಲ್

@@ -1,0 +1,5 @@
+---
+description: Currency of ದಕ್ಷಿಣ ಕೊರಿಯಾ
+locale: kn
+---
+ದಕ್ಷಿಣ ಕೊರಿಯನ್ ವೊನ್

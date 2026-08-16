@@ -1,0 +1,24 @@
+---
+description: Mobile carrier. Brand names keep their real spelling; the first four are the operators actually selling connections in Karnataka.
+locale: kn
+---
+ಜಿಯೊ
+ಏರ್ಟೆಲ್
+ವೊಡಾಫೋನ್ ಐಡಿಯಾ
+ಬಿಎಸ್ಎನ್ಎಲ್
+ಎಂಟಿಎನ್ಎಲ್
+ವೊಡಾಫೋನ್
+ಒರೇಂಜ್
+ಒ2
+ಇಇ
+ಟೆಲಿಫೋನಿಕಾ
+ಡಾಯ್ಚ ಟೆಲಿಕಾಂ
+ವೆರೈಜನ್
+ಎಟಿ&ಟಿ
+ಟಿ-ಮೊಬೈಲ್
+ಚೀನಾ ಮೊಬೈಲ್
+ಎಸ್ಟಿಸಿ
+ಎತಿಸಲಾತ್
+ಡು
+ಸಿಂಗ್ಟೆಲ್
+ಡಯಲಾಗ್

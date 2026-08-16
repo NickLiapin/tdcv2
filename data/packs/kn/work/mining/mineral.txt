@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity. ಕಬ್ಬಿಣದ ಅದಿರು from Ballari, ಚಿನ್ನ from Kolar and ಗ್ರಾನೈಟ್ from across the state are Karnataka's main extractive commodities.
+locale: kn
+---
+ಕಬ್ಬಿಣದ ಅದಿರು
+ಚಿನ್ನ
+ಮ್ಯಾಂಗನೀಸ್
+ಬಾಕ್ಸೈಟ್
+ಸುಣ್ಣದ ಕಲ್ಲು
+ಗ್ರಾನೈಟ್
+ಕ್ರೋಮೈಟ್
+ತಾಮ್ರ
+ಕಲ್ಲಿದ್ದಲು
+ಬೆಳ್ಳಿ
+ಸತು
+ಸೀಸ
+ನಿಕಲ್
+ಯುರೇನಿಯಂ
+ಮರಳು
+ಜೇಡಿಮಣ್ಣು
+ಉಪ್ಪು
+ಅಭ್ರಕ
+ಡೊಲೊಮೈಟ್

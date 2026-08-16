@@ -1,0 +1,5 @@
+---
+description: Capital of ಈಜಿಪ್ಟ್
+locale: kn
+---
+ಕೈರೋ

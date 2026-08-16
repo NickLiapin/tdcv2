@@ -1,0 +1,5 @@
+---
+description: Currency code of ಜರ್ಮನಿ
+locale: kn
+---
+EUR

@@ -1,0 +1,5 @@
+---
+description: Currency of ಆಸ್ಟ್ರೇಲಿಯಾ
+locale: kn
+---
+ಆಸ್ಟ್ರೇಲಿಯನ್ ಡಾಲರ್

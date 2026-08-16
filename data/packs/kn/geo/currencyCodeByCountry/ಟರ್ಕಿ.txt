@@ -1,0 +1,5 @@
+---
+description: Currency code of ಟರ್ಕಿ
+locale: kn
+---
+TRY

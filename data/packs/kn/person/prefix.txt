@@ -1,0 +1,21 @@
+---
+description: Kannada name title / prefix. ಶ್ರೀ and ಶ್ರೀಮತಿ carry no marital claim the way Mr/Mrs do; ಕುಮಾರಿ is the unmarried-woman form and ಚಿ. (ಚಿರಂಜೀವಿ) / ಸೌ. (ಸೌಭಾಗ್ಯವತಿ) are used on invitations and letters for a young man and a married woman.
+locale: kn
+---
+ಶ್ರೀ
+ಶ್ರೀಮತಿ
+ಕುಮಾರಿ
+ಕುಮಾರ
+ಚಿ.
+ಸೌ.
+ಡಾ.
+ಪ್ರೊ.
+ಮಾನ್ಯ
+ಪೂಜ್ಯ
+ಸ್ವಾಮಿ
+ಶ್ರೀಯುತ
+ಶ್ರೀಮಾನ್
+ವಿದ್ವಾನ್
+ಕ್ಯಾಪ್ಟನ್
+ಮೇಜರ್
+ಕರ್ನಲ್

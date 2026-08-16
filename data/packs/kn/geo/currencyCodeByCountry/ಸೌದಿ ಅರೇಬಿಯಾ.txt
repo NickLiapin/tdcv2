@@ -1,0 +1,5 @@
+---
+description: Currency code of ಸೌದಿ ಅರೇಬಿಯಾ
+locale: kn
+---
+SAR

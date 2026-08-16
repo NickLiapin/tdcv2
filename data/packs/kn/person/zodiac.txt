@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (ರಾಶಿ). Indian astrology reads the sidereal zodiac, so a given birth date usually falls in the PRECEDING sign compared with the Western tropical dates — a row built by mapping Western date ranges onto these names will be wrong by about one sign.
+locale: kn
+---
+ಮೇಷ
+ವೃಷಭ
+ಮಿಥುನ
+ಕರ್ಕಾಟಕ
+ಸಿಂಹ
+ಕನ್ಯಾ
+ತುಲಾ
+ವೃಶ್ಚಿಕ
+ಧನು
+ಮಕರ
+ಕುಂಭ
+ಮೀನ

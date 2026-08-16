@@ -1,0 +1,9 @@
+---
+description: Credit score band. India's CIBIL score runs 300 to 900, not the 300 to 850 of the American FICO scale, so the band boundaries do not transfer.
+locale: kn
+---
+ಕಳಪೆ
+ಸಾಧಾರಣ
+ಉತ್ತಮ
+ಅತ್ಯುತ್ತಮ
+ಶ್ರೇಷ್ಠ

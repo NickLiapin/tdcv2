@@ -1,0 +1,5 @@
+---
+description: Currency of ಸಿಂಗಪುರ
+locale: kn
+---
+ಸಿಂಗಪುರ ಡಾಲರ್

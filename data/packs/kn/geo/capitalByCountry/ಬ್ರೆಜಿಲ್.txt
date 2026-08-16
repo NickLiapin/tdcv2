@@ -1,0 +1,5 @@
+---
+description: Capital of ಬ್ರೆಜಿಲ್
+locale: kn
+---
+ಬ್ರೆಸಿಲಿಯಾ

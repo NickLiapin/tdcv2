@@ -1,0 +1,5 @@
+---
+description: Capital of ಪಾಕಿಸ್ತಾನ
+locale: kn
+---
+ಇಸ್ಲಾಮಾಬಾದ್

@@ -1,0 +1,5 @@
+---
+description: Capital of ಪೋಲೆಂಡ್
+locale: kn
+---
+ವಾರ್ಸಾ

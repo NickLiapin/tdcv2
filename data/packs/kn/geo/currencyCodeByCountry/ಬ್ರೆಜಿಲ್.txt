@@ -1,0 +1,5 @@
+---
+description: Currency code of ಬ್ರೆಜಿಲ್
+locale: kn
+---
+BRL

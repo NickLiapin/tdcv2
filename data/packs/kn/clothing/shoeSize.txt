@@ -1,0 +1,15 @@
+---
+description: Shoe size on the UK scale, which is what India uses and what is printed inside a shoe sold in Karnataka. It is NOT the European scale — a UK 8 is a EU 42 — and half sizes are rarely stocked, so the list is whole numbers.
+locale: kn
+---
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13

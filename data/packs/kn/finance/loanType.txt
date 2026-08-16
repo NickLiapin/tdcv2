@@ -1,0 +1,14 @@
+---
+description: Loan type. ಚಿನ್ನದ ಸಾಲ (a loan against household gold) is one of the commonest forms of household credit in Karnataka and has no European equivalent; ಬೆಳೆ ಸಾಲ is the seasonal crop loan.
+locale: kn
+---
+ಗೃಹ ಸಾಲ
+ವಾಹನ ಸಾಲ
+ವೈಯಕ್ತಿಕ ಸಾಲ
+ಶಿಕ್ಷಣ ಸಾಲ
+ಚಿನ್ನದ ಸಾಲ
+ಬೆಳೆ ಸಾಲ
+ವ್ಯಾಪಾರ ಸಾಲ
+ಸ್ವಸಹಾಯ ಗುಂಪಿನ ಸಾಲ
+ಸಾಲದ ಮಿತಿ
+ಸಾಲ ಕ್ರೋಡೀಕರಣ

@@ -1,0 +1,5 @@
+---
+description: Currency code of ವಿಯೆಟ್ನಾಂ
+locale: kn
+---
+VND

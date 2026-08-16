@@ -1,0 +1,26 @@
+---
+description: Aircraft type. These are manufacturer designations and are written the same in every language.
+locale: kn
+---
+Airbus A320
+Airbus A320neo
+Airbus A321neo
+Airbus A319
+Airbus A330
+Airbus A350
+Airbus A380
+Boeing 737
+Boeing 737 MAX
+Boeing 747
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+ATR 72
+ATR 42
+Embraer E175
+Embraer E190
+Bombardier CRJ900
+De Havilland Dash 8
+Boeing 777X
+Airbus A220

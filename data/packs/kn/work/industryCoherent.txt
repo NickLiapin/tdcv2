@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list
+locale: kn
+---
+ತಂತ್ರಜ್ಞಾನ
+ಆರೋಗ್ಯ ಸೇವೆ
+ಹಣಕಾಸು
+ನಿರ್ಮಾಣ
+ಶಿಕ್ಷಣ
+ಆತಿಥ್ಯ
+ಉತ್ಪಾದನೆ
+ಚಿಲ್ಲರೆ ವ್ಯಾಪಾರ
+ಸಾರಿಗೆ
+ಕಾನೂನು

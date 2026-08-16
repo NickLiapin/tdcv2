@@ -1,0 +1,5 @@
+---
+description: Currency code of ಅರ್ಜೆಂಟೀನಾ
+locale: kn
+---
+ARS

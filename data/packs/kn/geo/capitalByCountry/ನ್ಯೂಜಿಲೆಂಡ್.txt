@@ -1,0 +1,5 @@
+---
+description: Capital of ನ್ಯೂಜಿಲೆಂಡ್
+locale: kn
+---
+ವೆಲ್ಲಿಂಗ್ಟನ್

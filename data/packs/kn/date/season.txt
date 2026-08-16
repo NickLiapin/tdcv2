@@ -1,0 +1,13 @@
+---
+description: Season. Karnataka has THREE practical seasons, not four — there is no autumn worth naming, and ಮಳೆಗಾಲ (the monsoon) is a season in its own right. The classical six ಋತು of the almanac (ವಸಂತ, ಗ್ರೀಷ್ಮ, ವರ್ಷ, ಶರತ್, ಹೇಮಂತ, ಶಿಶಿರ) are a different, ritual reckoning and are listed after the three so a config can pick either set knowingly.
+locale: kn
+---
+ಬೇಸಿಗೆ
+ಮಳೆಗಾಲ
+ಚಳಿಗಾಲ
+ವಸಂತ
+ಗ್ರೀಷ್ಮ
+ವರ್ಷ
+ಶರತ್
+ಹೇಮಂತ
+ಶಿಶಿರ

@@ -1,0 +1,34 @@
+---
+description: Hashtag word, to prefix with # in a template. Kannada hashtags are written in Kannada script and circulate as one word.
+locale: kn
+---
+ಕನ್ನಡ
+ಕರ್ನಾಟಕ
+ಬೆಂಗಳೂರು
+ಮೈಸೂರು
+ಕನ್ನಡಿಗ
+ನಮ್ಮಕರ್ನಾಟಕ
+ಕನ್ನಡರಾಜ್ಯೋತ್ಸವ
+ಪ್ರಕೃತಿ
+ಪ್ರವಾಸ
+ಆಹಾರ
+ಸಂಗೀತ
+ಚಿತ್ರಕಲೆ
+ಛಾಯಾಚಿತ್ರ
+ಸೂರ್ಯಾಸ್ತ
+ಮಳೆ
+ಹಬ್ಬ
+ಸಂಸ್ಕೃತಿ
+ಸಾಹಿತ್ಯ
+ಪುಸ್ತಕ
+ಸಿನಿಮಾ
+ಆರೋಗ್ಯ
+ಯೋಗ
+ಫಿಟ್ನೆಸ್
+ಪ್ರೇರಣೆ
+ನೆನಪು
+ಸ್ನೇಹ
+ಕುಟುಂಬ
+ಪ್ರೀತಿ
+ಸಂತೋಷ
+ಟ್ರೆಂಡಿಂಗ್

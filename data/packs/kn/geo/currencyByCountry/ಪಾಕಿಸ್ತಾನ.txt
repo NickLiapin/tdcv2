@@ -1,0 +1,5 @@
+---
+description: Currency of ಪಾಕಿಸ್ತಾನ
+locale: kn
+---
+ಪಾಕಿಸ್ತಾನಿ ರೂಪಾಯಿ

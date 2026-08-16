@@ -1,0 +1,5 @@
+---
+description: Currency code of ಪೋರ್ಚುಗಲ್
+locale: kn
+---
+EUR

@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs
+locale: kn
+---
+ಪಿವಿಸಿ ಪೈಪ್
+ಜಿಐ ಪೈಪ್
+ಎಚ್ಡಿಪಿಇ ಪೈಪ್
+ನೇರ ಹೂಳುವಿಕೆ
+ಒಳನಾಳ
+ಕೇಬಲ್ ತಟ್ಟೆ
+ವೈಮಾನಿಕ ತಂತಿ

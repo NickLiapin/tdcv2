@@ -1,0 +1,28 @@
+---
+description: Gemstone. The first nine are the ನವರತ್ನ, the fixed set of nine stones Indian astrology assigns to the nine planets — that grouping is why ಗೋಮೇಧಕ and ವೈಡೂರ್ಯ are household words in Kannada and unfamiliar in English.
+locale: kn
+---
+ವಜ್ರ
+ಮಾಣಿಕ್ಯ
+ಮುತ್ತು
+ಹವಳ
+ಪಚ್ಚೆ
+ಪುಷ್ಯರಾಗ
+ನೀಲ
+ಗೋಮೇಧಕ
+ವೈಡೂರ್ಯ
+ಇಂದ್ರನೀಲ
+ಪದ್ಮರಾಗ
+ಸ್ಫಟಿಕ
+ಚಂದ್ರಕಾಂತ
+ಗಾರ್ನೆಟ್
+ಒಪಲ್
+ಟರ್ಕ್ವಾಯ್ಸ್
+ಅಮೆಥಿಸ್ಟ್
+ಜೇಡ್
+ಅಕ್ವಾಮರೀನ್
+ಟೋಪಾಜ್
+ಸಿಟ್ರಿನ್
+ಟೂರ್ಮಲಿನ್
+ಲ್ಯಾಪಿಸ್ ಲಾಜುಲಿ
+ಜಿರ್ಕಾನ್

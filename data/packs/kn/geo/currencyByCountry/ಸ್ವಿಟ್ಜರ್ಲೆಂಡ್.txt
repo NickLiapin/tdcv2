@@ -1,0 +1,5 @@
+---
+description: Currency of ಸ್ವಿಟ್ಜರ್ಲೆಂಡ್
+locale: kn
+---
+ಸ್ವಿಸ್ ಫ್ರಾಂಕ್

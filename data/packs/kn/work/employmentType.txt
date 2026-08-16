@@ -1,0 +1,15 @@
+---
+description: Employment / contract type. ಗುತ್ತಿಗೆ (contract) and ದಿನಗೂಲಿ (daily wage) cover most of Karnataka's informal workforce and have no exact European counterpart.
+locale: kn
+---
+ಪೂರ್ಣಾವಧಿ
+ಅರೆಕಾಲಿಕ
+ಗುತ್ತಿಗೆ
+ತಾತ್ಕಾಲಿಕ
+ಒಳತರಬೇತಿ
+ಸ್ವತಂತ್ರ ಉದ್ಯೋಗ
+ಋತುಮಾನದ ಕೆಲಸ
+ದಿನಗೂಲಿ
+ಶಿಷ್ಯವೃತ್ತಿ
+ಖಾಯಂ
+ಹೊರಗುತ್ತಿಗೆ

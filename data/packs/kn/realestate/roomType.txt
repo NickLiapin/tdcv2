@@ -1,0 +1,20 @@
+---
+description: Room type. ಪೂಜಾ ಕೊಠಡಿ (prayer room) and ಉಗ್ರಾಣ (store room) appear on almost every Karnataka floor plan.
+locale: kn
+---
+ಮಲಗುವ ಕೊಠಡಿ
+ಸ್ನಾನಗೃಹ
+ಅಡುಗೆಮನೆ
+ಹಜಾರ
+ಊಟದ ಕೊಠಡಿ
+ಪೂಜಾ ಕೊಠಡಿ
+ಕಚೇರಿ ಕೊಠಡಿ
+ಉಗ್ರಾಣ
+ಬಟ್ಟೆ ಒಗೆಯುವ ಕೊಠಡಿ
+ಅತಿಥಿ ಕೊಠಡಿ
+ಬಾಲ್ಕನಿ
+ತಾರಸಿ
+ಮಾಳಿಗೆ
+ನೆಲಮಾಳಿಗೆ
+ಜಗಲಿ
+ಅಂಗಳ

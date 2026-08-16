@@ -1,0 +1,5 @@
+---
+description: Currency of ಪೋರ್ಚುಗಲ್
+locale: kn
+---
+ಯೂರೋ

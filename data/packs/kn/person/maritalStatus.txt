@@ -1,0 +1,16 @@
+---
+description: Marital status. Kannada splits the English 'widowed' into ವಿಧವೆ (a widow) and ವಿಧುರ (a widower); a single genderless term does not exist.
+locale: kn
+---
+ಅವಿವಾಹಿತ
+ಅವಿವಾಹಿತೆ
+ವಿವಾಹಿತ
+ವಿವಾಹಿತೆ
+ವಿಚ್ಛೇದಿತ
+ವಿಚ್ಛೇದಿತೆ
+ವಿಧವೆ
+ವಿಧುರ
+ಪ್ರತ್ಯೇಕವಾಸ
+ನಿಶ್ಚಿತಾರ್ಥವಾಗಿದೆ
+ಸಹಜೀವನ
+ಎರಡನೇ ವಿವಾಹ

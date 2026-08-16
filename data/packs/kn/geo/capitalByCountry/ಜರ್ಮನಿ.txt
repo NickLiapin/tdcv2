@@ -1,0 +1,5 @@
+---
+description: Capital of ಜರ್ಮನಿ
+locale: kn
+---
+ಬರ್ಲಿನ್
