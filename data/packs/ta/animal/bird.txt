@@ -1,0 +1,34 @@
+---
+description: Bird (Tamil). மயில் the peacock heads the list because it is India's national bird and a constant in Tamil poetry and temple sculpture; வண்ணாத்திக் குருவி and நாரை are the herons of the paddy field; பனங்காடை and செங்கால் நாரை are the migratory birds of the Tamil wetlands. All are birds actually seen in the Tamil country rather than a translated northern-hemisphere set.
+locale: ta
+---
+காகம்
+குருவி
+மயில்
+கிளி
+புறா
+மைனா
+கொக்கு
+நாரை
+கழுகு
+பருந்து
+ஆந்தை
+கூகை
+குயில்
+மீன்கொத்தி
+தேன்சிட்டு
+மரங்கொத்தி
+கானாங்கோழி
+நீர்க்கோழி
+வாத்து
+அன்னம்
+கடற்பறவை
+கடல் காக்கை
+கொண்டைக் குருவி
+செம்போத்து
+கரிச்சான்
+உள்ளான்
+செங்கால் நாரை
+கூழைக்கிடா
+வெளவால்
+நெருப்புக் கோழி

@@ -1,0 +1,5 @@
+---
+description: Capital of பிலிப்பீன்ஸ், in Tamil.
+locale: ta
+---
+மணிலா

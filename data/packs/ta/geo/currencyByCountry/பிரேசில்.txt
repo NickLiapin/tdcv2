@@ -1,0 +1,5 @@
+---
+description: Currency of பிரேசில், in Tamil.
+locale: ta
+---
+ரியால்

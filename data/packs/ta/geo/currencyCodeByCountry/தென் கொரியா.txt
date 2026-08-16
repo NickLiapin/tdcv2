@@ -1,0 +1,5 @@
+---
+description: Currency code of தென் கொரியா.
+locale: ta
+---
+KRW

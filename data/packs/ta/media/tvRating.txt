@@ -1,0 +1,10 @@
+---
+description: Film and TV content rating. These are the Indian CBFC certificates, which is what a Tamil film actually carries: U is universal, U/A is parental guidance with an age band, A is adults only and S is restricted to a specialised audience. They are printed as Latin letters on the certificate card at the head of every Indian film.
+locale: ta
+---
+U
+U/A 7+
+U/A 13+
+U/A 16+
+A
+S

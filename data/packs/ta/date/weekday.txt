@@ -1,0 +1,11 @@
+---
+description: Weekday name in Tamil, Monday first to match the reference pack. Every Tamil weekday is transparently "the day of" a planet plus கிழமை (day): ஞாயிறு is the sun, திங்கள் the moon, செவ்வாய் Mars, புதன் Mercury, வியாழன் Jupiter, வெள்ளி Venus, சனி Saturn — the same seven-planet week as the European one, arrived at through Indian astronomy. The bare planet names without -கிழமை (see date/weekdayAbbr) are what speech uses.
+locale: ta
+---
+திங்கட்கிழமை
+செவ்வாய்க்கிழமை
+புதன்கிழமை
+வியாழக்கிழமை
+வெள்ளிக்கிழமை
+சனிக்கிழமை
+ஞாயிற்றுக்கிழமை

@@ -1,0 +1,5 @@
+---
+description: Capital of அல்ஜீரியா, in Tamil.
+locale: ta
+---
+அல்ஜியர்ஸ்

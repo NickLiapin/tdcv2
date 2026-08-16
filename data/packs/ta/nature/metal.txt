@@ -1,0 +1,26 @@
+---
+description: Metal (Tamil). பஞ்சலோகம் — the five-metal alloy of gold, silver, copper, iron and lead (or tin) — is the metal that Tamil temple bronzes and household deities are cast in, and it is a material with a name of its own rather than a mixture.
+locale: ta
+---
+தங்கம்
+வெள்ளி
+செம்பு
+இரும்பு
+எஃகு
+பித்தளை
+வெண்கலம்
+பஞ்சலோகம்
+ஈயம்
+தகரம்
+துத்தநாகம்
+அலுமினியம்
+நிக்கல்
+டைட்டானியம்
+பிளாட்டினம்
+பல்லேடியம்
+கோபால்ட்
+குரோமியம்
+டங்ஸ்டன்
+மாங்கனீசு
+மெர்குரி
+யுரேனியம்

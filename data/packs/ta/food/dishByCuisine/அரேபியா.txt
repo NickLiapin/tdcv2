@@ -1,0 +1,11 @@
+---
+description: Dishes of அரேபியா cooking, named in Tamil.
+locale: ta
+---
+ஷவர்மா
+குப்ஸா
+மந்தி
+ஹும்முஸ்
+ஃபலாஃபல்
+அல் ஃபஹம் கோழி
+குனாஃபா

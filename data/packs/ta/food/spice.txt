@@ -1,0 +1,36 @@
+---
+description: Spice or herb (Tamil). மிளகு — black pepper — heads the list for a reason a config cannot infer: it is native to this coast, it is what the Roman and Arab traders came for, and Tamil cooking used it as the hot spice for centuries before மிளகாய், the chilli, arrived from the Americas with the Portuguese; the two words are near-identical and are not the same plant. கல்பாசி (black stone flower, a lichen) and மராட்டி மொக்கு are the two spices that define Chettinad cooking and have no place in a European kitchen or an English spice rack at all. பெருங்காயம் is asafoetida, used in almost every Tamil lentil dish and in no Western one.
+locale: ta
+---
+மிளகு
+மிளகாய்
+வத்தல் மிளகாய்
+மஞ்சள்
+சீரகம்
+கொத்தமல்லி விதை
+பெருங்காயம்
+வெந்தயம்
+கடுகு
+கறிவேப்பிலை
+ஏலக்காய்
+லவங்கம்
+பட்டை
+சோம்பு
+அன்னாசிப்பூ
+மராட்டி மொக்கு
+கல்பாசி
+ஜாதிக்காய்
+ஜாதிபத்திரி
+வால்மிளகு
+சுக்கு
+இஞ்சி
+பூண்டு
+கசகசா
+புளி
+கொத்தமல்லி
+புதினா
+கருவேப்பிலைத் தூள்
+சாம்பார் பொடி
+ரசப் பொடி
+கறி மசாலா
+கரம் மசாலா

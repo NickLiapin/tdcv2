@@ -1,0 +1,5 @@
+---
+description: Currency of மியான்மர், in Tamil.
+locale: ta
+---
+கியாட்

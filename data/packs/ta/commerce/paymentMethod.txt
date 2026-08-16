@@ -1,0 +1,19 @@
+---
+description: Payment method (Tamil). UPI heads the list because it genuinely dominates: a Tamil Nadu tea stall takes UPI, and cash on delivery is still the second choice for online orders. PayNow and DuitNow are the Singaporean and Malaysian equivalents, which matters for the diaspora.
+locale: ta
+---
+UPI
+கூகுள் பே
+ஃபோன்பே
+பேடிஎம்
+பற்று அட்டை
+கடன் அட்டை
+நிகர வங்கி
+வங்கி பரிமாற்றம்
+வழங்கும்போது பணம்
+ரொக்கம்
+பரிசு அட்டை
+மின்னணுப் பணப்பை
+PayNow
+DuitNow
+இப்போது வாங்கி பின் செலுத்து

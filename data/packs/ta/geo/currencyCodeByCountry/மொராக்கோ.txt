@@ -1,0 +1,5 @@
+---
+description: Currency code of மொராக்கோ.
+locale: ta
+---
+MAD

@@ -1,0 +1,5 @@
+---
+description: Capital of பிரேசில், in Tamil.
+locale: ta
+---
+பிரேசிலியா

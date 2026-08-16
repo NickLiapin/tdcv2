@@ -1,0 +1,42 @@
+---
+description: Music genre (Tamil). கர்நாடக சங்கீதம் — Carnatic music — is the classical system of the Tamil south and is not a regional variant of the Hindustani music of the north: it has its own repertoire, its own composers, a different concert form and a different set of ragas, and the December Chennai season is the largest classical music festival in the world. The forms below it (வர்ணம், கீர்த்தனை, ராகம் தானம் பல்லவி, தில்லானா) are Carnatic concert items, not genres of song. தேவாரம் and திருவாசகம் are the Saiva hymn corpus, sung in temples for over a thousand years. கானா is the urban working-class genre of north Chennai, ஒப்பாரி the improvised funeral lament, and வில்லுப்பாட்டு a narrative form performed to a bow-shaped instrument. திரையிசை — film music — is by a wide margin the largest category anyone actually listens to.
+locale: ta
+---
+திரையிசை
+கர்நாடக சங்கீதம்
+வர்ணம்
+கீர்த்தனை
+கிருதி
+ராகம் தானம் பல்லவி
+தில்லானா
+பதம்
+ஜாவளி
+விருத்தம்
+தேவாரம்
+திருவாசகம்
+திருப்புகழ்
+பஜனை
+பக்திப் பாடல்
+நாட்டுப்புற இசை
+கானா
+தப்பாங்குத்து
+ஒப்பாரி
+வில்லுப்பாட்டு
+கும்மி
+கோலாட்டம்
+தெருக்கூத்து
+பறையிசை
+தமிழ் ராக்
+தமிழ் ராப்
+இண்டிபாப்
+பாப்
+ராக்
+ஹிப்ஹாப்
+ஜாஸ்
+ப்ளூஸ்
+மேலைநாட்டு செம்மையிசை
+ரெக்கே
+ஹெவி மெட்டல்
+எலெக்ட்ரானிக்
+ஹவுஸ்
+டெக்னோ

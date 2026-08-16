@@ -1,0 +1,14 @@
+---
+description: Medical specialty in Tamil that has a coherent diagnosis list. Each value is the file name of a list under medical/diagnosisBySpecialty.
+locale: ta
+---
+இதயவியல்
+நரம்பியல்
+புற்றுநோயியல்
+தோலியல்
+இரைப்பை குடலியல்
+நாளமில்லாச் சுரப்பியல்
+நுரையீரலியல்
+எலும்பியல்
+மனநலவியல்
+சிறுநீரகவியல்

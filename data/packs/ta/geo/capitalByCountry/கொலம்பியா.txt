@@ -1,0 +1,5 @@
+---
+description: Capital of கொலம்பியா, in Tamil.
+locale: ta
+---
+போகோட்டா

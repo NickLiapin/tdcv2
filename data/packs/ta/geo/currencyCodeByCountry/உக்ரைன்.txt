@@ -1,0 +1,5 @@
+---
+description: Currency code of உக்ரைன்.
+locale: ta
+---
+UAH

@@ -1,0 +1,10 @@
+---
+description: Season (Tamil). Tamil counts SIX seasons, the பெரும்பொழுது of the Sangam-era grammatical tradition, each about two months long, and they are still the words used in poetry, in the almanac and in agricultural talk. They do not map onto the four European seasons and a config must not treat இளவேனில் as "spring". Two facts about the actual climate matter more than either scheme. Tamil Nadu is watered mainly by the NORTHEAST monsoon of October to December, not by the southwest monsoon that defines the rest of India's year, which is why கார் and கூதிர் sit where they do. And in ordinary speech Tamils use a practical three-way split instead — கோடை (roughly March to June), பருவமழை (October to December) and குளிர் (December to February).
+locale: ta
+---
+இளவேனில்
+முதுவேனில்
+கார்
+கூதிர்
+முன்பனி
+பின்பனி

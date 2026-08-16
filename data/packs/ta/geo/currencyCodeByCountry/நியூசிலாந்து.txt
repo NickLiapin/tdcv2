@@ -1,0 +1,5 @@
+---
+description: Currency code of நியூசிலாந்து.
+locale: ta
+---
+NZD

@@ -1,0 +1,12 @@
+---
+description: Household size. Written in ARABIC digits, which is what Tamil actually writes: Tamil has its own numerals (௦௧௨௩௪௫௬௭௮௯, plus ௰ for ten, ௱ for hundred and ௲ for thousand) and they are in Unicode and taught in school, but no Tamil form, invoice or database has used them for a century. Every numeric list in this pack is therefore in Arabic digits.
+locale: ta
+---
+1
+2
+3
+4
+5
+6
+7
+8+

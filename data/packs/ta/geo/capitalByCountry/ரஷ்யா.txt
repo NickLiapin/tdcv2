@@ -1,0 +1,5 @@
+---
+description: Capital of ரஷ்யா, in Tamil.
+locale: ta
+---
+மாஸ்கோ

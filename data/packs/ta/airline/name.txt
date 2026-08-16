@@ -1,0 +1,39 @@
+---
+description: Airline name in Tamil. The head of the list is what actually flies out of Chennai, Madurai, Tiruchirappalli, Coimbatore, Colombo, Jaffna, Singapore and Kuala Lumpur — the Gulf and Southeast Asian carriers matter far more to Tamil travel than the transatlantic ones do, because that is where the working diaspora goes.
+locale: ta
+---
+ஏர் இந்தியா
+இண்டிகோ
+ஸ்பைஸ்ஜெட்
+ஆகாசா ஏர்
+ஏர் இந்தியா எக்ஸ்பிரஸ்
+இலங்கை விமான சேவை
+சிங்கப்பூர் ஏர்லைன்ஸ்
+ஸ்கூட்
+மலேசியா ஏர்லைன்ஸ்
+ஏர் ஏசியா
+எமிரேட்ஸ்
+கத்தார் ஏர்வேஸ்
+எத்திஹாத்
+ஃபிளை துபாய்
+குவைத் ஏர்வேஸ்
+ஓமான் ஏர்
+சவூதியா
+கல்ஃப் ஏர்
+தாய் ஏர்வேஸ்
+கேத்தே பசிபிக்
+பிரிட்டிஷ் ஏர்வேஸ்
+லுஃப்தான்சா
+ஏர் பிரான்ஸ்
+கே.எல்.எம்.
+ஸ்விஸ்
+டர்கிஷ் ஏர்லைன்ஸ்
+யுனைடெட்
+அமெரிக்கன் ஏர்லைன்ஸ்
+டெல்டா
+கான்டாஸ்
+ஏர் மொரிசியஸ்
+ஃபிஜி ஏர்வேஸ்
+ஏர் கனடா
+ஜப்பான் ஏர்லைன்ஸ்
+கொரியன் ஏர்

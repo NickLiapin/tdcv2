@@ -1,0 +1,5 @@
+---
+description: Currency of சீனா, in Tamil.
+locale: ta
+---
+சீன யுவான்

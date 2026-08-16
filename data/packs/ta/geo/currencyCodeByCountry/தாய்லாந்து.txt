@@ -1,0 +1,5 @@
+---
+description: Currency code of தாய்லாந்து.
+locale: ta
+---
+THB

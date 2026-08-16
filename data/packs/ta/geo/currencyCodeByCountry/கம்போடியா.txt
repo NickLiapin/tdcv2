@@ -1,0 +1,5 @@
+---
+description: Currency code of கம்போடியா.
+locale: ta
+---
+KHR

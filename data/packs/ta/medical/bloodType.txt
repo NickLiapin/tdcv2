@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type. Written in Latin letters and Arabic digits, which is how a Tamil blood-bank card and a Tamil hospital wristband are printed — this is one of the places where the script simply is not Tamil. Worth knowing for realistic distributions: group O and group B together account for the large majority in Tamil Nadu and Sri Lanka, with B markedly commoner than in Europe and A markedly rarer, so a config that samples uniformly or copies a European frequency table will get the mix wrong.
+locale: ta
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

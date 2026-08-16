@@ -1,0 +1,6 @@
+---
+description: Gender label (Tamil). Two values, matching en, pl, hi and ru — this list is what a parent filter such as parent="Gender.ஆண்" selects on, so a longer one silently leaves most rows without a name. Worth recording separately: Tamil Nadu was the first Indian state to formally recognise the transgender community, and the word the state adopted, திருநங்கை, has since displaced the older அரவாணி in official Tamil; a config that models identity rather than the male/female name directories should carry it in a list of its own.
+locale: ta
+---
+ஆண்
+பெண்

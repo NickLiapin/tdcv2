@@ -1,0 +1,5 @@
+---
+description: Currency of அர்கெந்தீனா, in Tamil.
+locale: ta
+---
+அர்கெந்தீன பெசோ

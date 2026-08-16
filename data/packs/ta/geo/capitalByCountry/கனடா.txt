@@ -1,0 +1,5 @@
+---
+description: Capital of கனடா, in Tamil.
+locale: ta
+---
+ஒட்டாவா

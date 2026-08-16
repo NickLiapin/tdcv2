@@ -1,0 +1,5 @@
+---
+description: Currency code of அர்கெந்தீனா.
+locale: ta
+---
+ARS

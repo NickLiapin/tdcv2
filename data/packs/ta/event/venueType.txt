@@ -1,0 +1,21 @@
+---
+description: Venue type (Tamil). திருமண மண்டபம் — the wedding hall — is the commonest paid venue in the Tamil country by a wide margin, and கோயில் மண்டபம் is the pillared temple hall used for the same purpose.
+locale: ta
+---
+திருமண மண்டபம்
+கோயில் மண்டபம்
+சமுதாயக் கூடம்
+விடுதி விருந்து அரங்கம்
+மாநாட்டு மையம்
+அரங்கம்
+திரையரங்கம்
+விளையாட்டு மைதானம்
+பள்ளி அரங்கம்
+கல்லூரி அரங்கம்
+பூங்கா
+கடற்கரை
+மொட்டை மாடி
+தோட்டம்
+கூட்டரங்கு
+கண்காட்சி மைதானம்
+இணையவழி

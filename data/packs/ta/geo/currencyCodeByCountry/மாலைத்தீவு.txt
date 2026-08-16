@@ -1,0 +1,5 @@
+---
+description: Currency code of மாலைத்தீவு.
+locale: ta
+---
+MVR

@@ -1,0 +1,16 @@
+---
+description: Leave type (Tamil). விருப்ப விடுப்பு — the restricted holiday an employee picks from a list, because India has more public festivals than any calendar can hold — has no European counterpart, and பணிமாறுதல் விடுப்பு is the compensatory day off for working a holiday.
+locale: ta
+---
+சம்பளத்துடன் கூடிய விடுப்பு
+நோய் விடுப்பு
+சாதாரண விடுப்பு
+விருப்ப விடுப்பு
+மகப்பேறு விடுப்பு
+தந்தைமை விடுப்பு
+இரங்கல் விடுப்பு
+திருமண விடுப்பு
+சம்பளமில்லா விடுப்பு
+ஆய்வு விடுப்பு
+மருத்துவ விடுப்பு
+பணிமாறுதல் விடுப்பு

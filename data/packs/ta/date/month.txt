@@ -1,0 +1,16 @@
+---
+description: Gregorian month name in Tamil — the calendar every Tamil form, invoice and database actually dates by. Tamil also keeps its own SOLAR calendar in full daily use for festivals, temple ritual, farming and horoscopes, and its twelve months are சித்திரை, வைகாசி, ஆனி, ஆடி, ஆவணி, புரட்டாசி, ஐப்பசி, கார்த்திகை, மார்கழி, தை, மாசி, பங்குனி. They are NOT translations of the Gregorian months and do not align with them: each begins when the sun enters a new sign, around the 14th or 15th, so சித்திரை runs mid-April to mid-May and the Tamil new year falls on 14 April. They are deliberately not in this list, because the engine formats Gregorian dates and putting them here would silently mislabel every date produced; a config that wants the Tamil calendar needs a real sidereal conversion, not a substitution.
+locale: ta
+---
+ஜனவரி
+பிப்ரவரி
+மார்ச்
+ஏப்ரல்
+மே
+ஜூன்
+ஜூலை
+ஆகஸ்ட்
+செப்டம்பர்
+அக்டோபர்
+நவம்பர்
+டிசம்பர்

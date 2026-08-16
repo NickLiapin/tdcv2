@@ -1,0 +1,5 @@
+---
+description: Currency of தென் கொரியா, in Tamil.
+locale: ta
+---
+வொன்

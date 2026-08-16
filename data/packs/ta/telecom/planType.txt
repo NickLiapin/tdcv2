@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Tamil). முன்பணத் திட்டம் — prepaid — is what the overwhelming majority of Tamil subscribers use in all four countries, so a config that defaults to postpaid will be wrong about most rows.
+locale: ta
+---
+முன்பணத் திட்டம்
+பின்பணத் திட்டம்
+வரம்பற்ற திட்டம்
+குடும்பத் திட்டம்
+வணிகத் திட்டம்
+தரவு மட்டும்
+நாள் திட்டம்
+மாதத் திட்டம்
+ஆண்டுத் திட்டம்
+சர்வதேச அழைப்புத் திட்டம்
+ரோமிங் திட்டம்
+மாணவர் திட்டம்

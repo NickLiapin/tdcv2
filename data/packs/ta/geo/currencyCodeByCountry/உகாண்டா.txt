@@ -1,0 +1,5 @@
+---
+description: Currency code of உகாண்டா.
+locale: ta
+---
+UGX

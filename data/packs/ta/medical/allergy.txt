@@ -1,0 +1,26 @@
+---
+description: Common allergy (Tamil). கத்தரிக்காய், the brinjal, is on the list because it is a genuinely common reported food allergy in the Tamil country and does not appear on a European one.
+locale: ta
+---
+பென்சிலின்
+நிலக்கடலை
+முந்திரிப் பருப்பு
+இறால்
+நண்டு
+மீன்
+முட்டை
+பால்
+சோயா
+கோதுமை
+லேட்டெக்ஸ்
+மகரந்தம்
+தூசுப் பூச்சி
+செல்லப்பிராணி முடி
+தேனீ கொட்டு
+எறும்புக் கடி
+ஆஸ்பிரின்
+சல்ஃபா மருந்துகள்
+அயோடின்
+எள்
+கத்தரிக்காய்
+செயற்கைச் சாயம்

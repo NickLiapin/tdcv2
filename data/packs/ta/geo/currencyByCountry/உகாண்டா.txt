@@ -1,0 +1,5 @@
+---
+description: Currency of உகாண்டா, in Tamil.
+locale: ta
+---
+உகாண்ட ஷில்லிங்

@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Tamil), led by cricket. Two entries are here for reasons a translated list would miss. கபடி and கோகோ are indigenous team sports with fully named positions, played at school, district and national level across Tamil Nadu, and கபடி in particular is a professional league sport. வலைப்பந்து — netball — is on the list because of Sri Lanka and Malaysia rather than India: it is a major women's sport in both, and Sri Lanka has won the Asian championship. Sports with no named positions are excluded, which is why சிலம்பம், ஜல்லிக்கட்டு, தடகளம் and பூப்பந்து are absent despite being genuinely Tamil or genuinely popular.
+locale: ta
+---
+கிரிக்கெட்
+கால்பந்து
+கபடி
+கோகோ
+கைப்பந்து
+கூடைப்பந்து
+ஹாக்கி
+வலைப்பந்து

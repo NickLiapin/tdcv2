@@ -1,0 +1,30 @@
+---
+description: Event type (Tamil). Six entries are Tamil life-cycle and temple events with no European counterpart: the திருமணம் is preceded by a நிச்சயதார்த்தம், the வளைகாப்பு is the bangle ceremony in the seventh month of pregnancy, the காதுகுத்து is the ear-piercing, the பூப்புனித நீராட்டு marks a girl's coming of age and is a large catered public event in Tamil families, and the தேர்த்திருவிழா is the temple chariot procession that a whole town turns out for.
+locale: ta
+---
+மாநாடு
+கருத்தரங்கம்
+பயிலரங்கம்
+இணையவழிக் கருத்தரங்கம்
+கண்காட்சி
+வர்த்தகக் கண்காட்சி
+இசை நிகழ்ச்சி
+நாட்டிய அரங்கேற்றம்
+திரைப்பட விழா
+நூல் வெளியீட்டு விழா
+திருமணம்
+நிச்சயதார்த்தம்
+வளைகாப்பு
+காதுகுத்து
+பூப்புனித நீராட்டு
+பிறந்தநாள் விழா
+குடும்ப ஒன்றுகூடல்
+கோயில் திருவிழா
+தேர்த்திருவிழா
+நிதி திரட்டும் நிகழ்ச்சி
+விளையாட்டுப் போட்டி
+பட்டிமன்றம்
+கவியரங்கம்
+விருது வழங்கும் விழா
+தொடக்க விழா
+பயிற்சி முகாம்

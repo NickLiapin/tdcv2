@@ -1,0 +1,15 @@
+---
+description: Booking status (Tamil). காத்திருப்புப் பட்டியல் and RAC — Reservation Against Cancellation — are Indian Railways ticket states with no hotel equivalent, and they are what a large share of real Tamil travel bookings actually sit in.
+locale: ta
+---
+உறுதி செய்யப்பட்டது
+நிலுவையில்
+காத்திருப்புப் பட்டியல்
+RAC
+ரத்து செய்யப்பட்டது
+அறைக்கு வந்துவிட்டார்
+அறையை விட்டுச் சென்றார்
+வரவில்லை
+மாற்றப்பட்டது
+பணம் திரும்ப வழங்கப்பட்டது
+பயணம் முடிந்தது

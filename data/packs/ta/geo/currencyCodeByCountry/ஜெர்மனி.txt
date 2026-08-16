@@ -1,0 +1,5 @@
+---
+description: Currency code of ஜெர்மனி.
+locale: ta
+---
+EUR

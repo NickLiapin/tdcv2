@@ -1,0 +1,5 @@
+---
+description: Capital of இஸ்ரேல், in Tamil.
+locale: ta
+---
+ஜெருசலம்

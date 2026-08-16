@@ -1,0 +1,5 @@
+---
+description: Capital of வெனிசுவேலா, in Tamil.
+locale: ta
+---
+கராகஸ்

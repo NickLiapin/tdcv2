@@ -1,0 +1,20 @@
+---
+description: Grade. Tamil Nadu state board results are reported as a PERCENTAGE and a pass/fail, not as a letter, so the numeric bands come first; the letter grades are the CBSE and international-school convention and are used alongside them. Written in Latin letters and Arabic digits, which is how a real mark sheet prints them.
+locale: ta
+---
+தேர்ச்சி
+தேர்ச்சி இல்லை
+90-100%
+80-89%
+70-79%
+60-69%
+50-59%
+35-49%
+A+
+A
+B+
+B
+C+
+C
+D
+E

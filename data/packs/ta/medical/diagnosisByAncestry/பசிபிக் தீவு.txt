@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of பசிபிக் தீவு ancestry, named in Tamil. A prevalence signal, not an exclusive one.
+locale: ta
+---
+வகை 2 நீரிழிவு
+உடல் பருமன்
+கீல்வாதம்
+நாள்பட்ட சிறுநீரக நோய்
+உயர் இரத்த அழுத்தம்
+முடக்குவாதம்

@@ -1,0 +1,5 @@
+---
+description: Capital of இலங்கை, in Tamil.
+locale: ta
+---
+ஸ்ரீ ஜயவர்தனபுர கோட்டே

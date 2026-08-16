@@ -1,0 +1,11 @@
+---
+description: Commercial driving licence class. These are the Indian Motor Vehicles Act categories, which is what a Tamil Nadu licence is issued under: LMV-TR for a light transport vehicle, HMV and HTV for heavy goods, HPMV for a heavy passenger vehicle, plus the trailer and hazardous-goods endorsements. They are printed in Latin letters on the licence itself.
+locale: ta
+---
+LMV-TR
+MGV
+HMV
+HTV
+HPMV
+Trailer
+HAZ

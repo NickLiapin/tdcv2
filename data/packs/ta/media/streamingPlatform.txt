@@ -1,0 +1,19 @@
+---
+description: Streaming platform. Brand names keep their real spelling. Aha Tamil, Sun NXT and Simply South are Tamil-first services and are what a Tamil household actually subscribes to alongside the global ones.
+locale: ta
+---
+Netflix
+Amazon Prime Video
+Disney+ Hotstar
+Sun NXT
+Aha Tamil
+ZEE5
+Simply South
+JioHotstar
+YouTube
+Apple TV+
+SonyLIV
+Spotify
+JioSaavn
+Gaana
+Twitch

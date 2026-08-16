@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Tamil). These are the twelve ராசி of Indian astrology, and two things separate them from the Western signs whose names they translate. First, Indian astrology is SIDEREAL: it measures against the fixed stars rather than the equinox, so the two systems have drifted about 24 degrees apart and a person's Western sun sign and their Tamil ராசி are usually one sign different — a config must not compute one from a birth date using Western cut-off dates and call the result a ராசி. Second, the ராசி is the less important of the two things a Tamil horoscope is keyed on; the நட்சத்திரம், the birth star, of which there are 27, is what a Tamil family actually quotes, what temple archanai is booked against and what marriage matching is computed from.
+locale: ta
+---
+மேஷம்
+ரிஷபம்
+மிதுனம்
+கடகம்
+சிம்மம்
+கன்னி
+துலாம்
+விருச்சிகம்
+தனுசு
+மகரம்
+கும்பம்
+மீனம்

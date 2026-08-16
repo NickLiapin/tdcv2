@@ -1,0 +1,21 @@
+---
+description: Cat breed (Tamil). Breed names keep their international form transliterated. Worth knowing: the pedigree cat is a recent and urban thing in the Tamil country, and the overwhelming majority of cats are நாட்டுப் பூனை — the unpedigreed local cat — which is why it heads the list.
+locale: ta
+---
+நாட்டுப் பூனை
+பாரசீகப் பூனை
+சியாமீஸ்
+மெயின் கூன்
+ராக்டால்
+பெங்கால்
+ஸ்பிங்க்ஸ்
+பிரிட்டிஷ் ஷார்ட்ஹேர்
+அபிசீனியன்
+ஸ்காட்டிஷ் ஃபோல்ட்
+நார்வேஜியன் ஃபாரஸ்ட்
+ரஷ்ய நீலம்
+பர்மீஸ்
+டெவான் ரெக்ஸ்
+அமெரிக்கன் ஷார்ட்ஹேர்
+ஹிமாலயன்
+பாம்பே

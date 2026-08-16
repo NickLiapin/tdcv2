@@ -1,0 +1,22 @@
+---
+description: Aircraft type. Model designations keep their real international spelling — an ATR 72 is an ATR 72 on a Tamil boarding pass too — and are not transliterated.
+locale: ta
+---
+Boeing 737
+Boeing 737 MAX
+Boeing 777
+Boeing 787 Dreamliner
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330
+Airbus A350
+Airbus A380
+ATR 72
+ATR 42
+Bombardier Q400
+Embraer E175
+Embraer E190
+Boeing 747
+Boeing 767

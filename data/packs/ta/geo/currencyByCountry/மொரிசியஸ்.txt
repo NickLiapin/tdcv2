@@ -1,0 +1,5 @@
+---
+description: Currency of மொரிசியஸ், in Tamil.
+locale: ta
+---
+மொரிசியஸ் ரூபாய்

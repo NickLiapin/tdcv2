@@ -1,0 +1,9 @@
+---
+description: Playing positions in கூடைப்பந்து, named in Tamil.
+locale: ta
+---
+புள்ளி காப்பாளர்
+எறிதல் காப்பாளர்
+சிறு முன்னணி வீரர்
+வலிமை முன்னணி வீரர்
+மைய வீரர்

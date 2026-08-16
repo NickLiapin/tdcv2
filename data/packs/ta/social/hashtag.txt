@@ -1,0 +1,34 @@
+---
+description: Hashtag word, prefix with # in a template (Tamil). Tamil hashtags are genuinely written in Tamil script on Tamil social media, which is not true of every Indian language, and #தமிழ் and #பொங்கல் trend annually. The Latin ones are kept because Tamil users mix scripts freely in tags.
+locale: ta
+---
+தமிழ்
+தமிழ்நாடு
+சென்னை
+மதுரை
+கோவை
+ஈழம்
+யாழ்ப்பாணம்
+பொங்கல்
+தீபாவளி
+ஜல்லிக்கட்டு
+கோலம்
+திரையிசை
+கோலிவுட்
+கர்நாடகஇசை
+சங்கஇலக்கியம்
+திருக்குறள்
+தமிழ்உணவு
+மல்லிகை
+கடற்கரை
+வானம்
+நினைவுகள்
+அன்பு
+நட்பு
+பயணம்
+இயற்கை
+புகைப்படம்
+கவிதை
+சிரிப்பு
+உழைப்பு
+கனவு

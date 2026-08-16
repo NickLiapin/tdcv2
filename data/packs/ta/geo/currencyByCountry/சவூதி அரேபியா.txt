@@ -1,0 +1,5 @@
+---
+description: Currency of சவூதி அரேபியா, in Tamil.
+locale: ta
+---
+சவூதி ரியால்

@@ -1,0 +1,5 @@
+---
+description: Capital of நியூசிலாந்து, in Tamil.
+locale: ta
+---
+வெலிங்டன்

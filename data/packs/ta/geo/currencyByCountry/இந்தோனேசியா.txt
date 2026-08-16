@@ -1,0 +1,5 @@
+---
+description: Currency of இந்தோனேசியா, in Tamil.
+locale: ta
+---
+இந்தோனேசிய ரூபியா

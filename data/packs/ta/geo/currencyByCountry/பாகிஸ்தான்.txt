@@ -1,0 +1,5 @@
+---
+description: Currency of பாகிஸ்தான், in Tamil.
+locale: ta
+---
+பாகிஸ்தான் ரூபாய்

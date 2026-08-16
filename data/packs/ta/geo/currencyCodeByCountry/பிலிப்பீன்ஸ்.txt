@@ -1,0 +1,5 @@
+---
+description: Currency code of பிலிப்பீன்ஸ்.
+locale: ta
+---
+PHP

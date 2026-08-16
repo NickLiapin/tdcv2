@@ -1,0 +1,34 @@
+---
+description: Book genre (Tamil). Three entries belong to Tamil publishing specifically: சங்க இலக்கியம் (the Sangam anthologies), பக்தி இலக்கியம் (the Tevaram and Divya Prabandham corpus) and சிற்றிலக்கியம் (the medieval short-genre forms). Tamil bookshops shelve them as living categories, not as history.
+locale: ta
+---
+புனைகதை
+அபுனைகதை
+நாவல்
+சிறுகதை
+கவிதை
+சங்க இலக்கியம்
+பக்தி இலக்கியம்
+சிற்றிலக்கியம்
+இலக்கிய விமர்சனம்
+வரலாறு
+சுயசரிதை
+வாழ்க்கை வரலாறு
+தத்துவம்
+அரசியல்
+சமூகவியல்
+துப்பறியும் கதை
+மர்மக் கதை
+திகில்
+காதல்
+அறிவியல் புனைகதை
+கற்பனை இலக்கியம்
+வரலாற்று நாவல்
+குழந்தை இலக்கியம்
+இளையோர் இலக்கியம்
+சுய முன்னேற்றம்
+பயண இலக்கியம்
+சமையல் நூல்
+ஆன்மிகம்
+மொழிபெயர்ப்பு
+கட்டுரைத் தொகுப்பு

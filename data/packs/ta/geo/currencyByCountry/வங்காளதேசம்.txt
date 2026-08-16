@@ -1,0 +1,5 @@
+---
+description: Currency of வங்காளதேசம், in Tamil.
+locale: ta
+---
+டாக்கா

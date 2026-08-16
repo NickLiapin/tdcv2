@@ -1,0 +1,19 @@
+---
+description: Insurance type (Tamil). பயிர்க் காப்பீடு and கால்நடைக் காப்பீடு are state-subsidised schemes and are among the commonest policies in rural Tamil Nadu, which a translated list of motor and home cover would miss entirely.
+locale: ta
+---
+சுகாதாரக் காப்பீடு
+ஆயுள் காப்பீடு
+வாகனக் காப்பீடு
+இருசக்கர வாகனக் காப்பீடு
+வீட்டுக் காப்பீடு
+பயணக் காப்பீடு
+விபத்துக் காப்பீடு
+ஊனமுற்றோர் காப்பீடு
+பயிர்க் காப்பீடு
+கால்நடைக் காப்பீடு
+கடைக் காப்பீடு
+கடன் காப்பீடு
+குழு காப்பீடு
+செல்லப்பிராணி காப்பீடு
+பொறுப்புக் காப்பீடு

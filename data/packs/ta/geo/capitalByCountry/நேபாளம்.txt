@@ -1,0 +1,5 @@
+---
+description: Capital of நேபாளம், in Tamil.
+locale: ta
+---
+காத்மாண்டு

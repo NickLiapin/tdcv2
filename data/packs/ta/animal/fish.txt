@@ -1,0 +1,29 @@
+---
+description: Fish (Tamil). These are the fish of the Coromandel and Palk Bay markets under the names the fish market uses — வஞ்சரம் (seer fish), சங்கரா (red snapper), வவ்வால் (pomfret), நெத்திலி (anchovy), கெண்டை (carp), விறால் (snakehead) — not translations of an Atlantic list. கருவாடு, salted dried fish, is a preparation rather than a species and lives in food/ingredient.
+locale: ta
+---
+வஞ்சரம்
+சீலா
+சங்கரா
+வவ்வால்
+நெத்திலி
+மத்தி
+சூடை
+ஆயிரை
+கெளுத்தி
+பாறை
+கிளிமீன்
+கானாங்கெளுத்தி
+திருக்கை
+சுறா
+நண்டு மீன்
+கெண்டை
+விறால்
+கட்லா
+ரோகு
+திலோப்பியா
+கொடுவா
+பன்னா
+உளுவை
+நல்ல கெண்டை
+தங்க மீன்

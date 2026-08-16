@@ -1,0 +1,11 @@
+---
+description: Conduit or installation method for cable runs (Tamil).
+locale: ta
+---
+பி.வி.சி. குழாய்
+இரும்புக் குழாய்
+எச்.டி.பி.ஈ. குழாய்
+நேரடிப் புதைப்பு
+உள்குழாய்
+கேபிள் தட்டு
+வான்வழி இழுவை

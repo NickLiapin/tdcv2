@@ -1,0 +1,5 @@
+---
+description: Capital of ஜெர்மனி, in Tamil.
+locale: ta
+---
+பெர்லின்

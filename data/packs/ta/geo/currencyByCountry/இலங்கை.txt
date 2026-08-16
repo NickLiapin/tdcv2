@@ -1,0 +1,5 @@
+---
+description: Currency of இலங்கை, in Tamil.
+locale: ta
+---
+இலங்கை ரூபாய்

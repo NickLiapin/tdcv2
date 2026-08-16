@@ -1,0 +1,5 @@
+---
+description: Capital of மெக்சிக்கோ, in Tamil.
+locale: ta
+---
+மெக்சிக்கோ நகரம்

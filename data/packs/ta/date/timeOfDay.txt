@@ -1,0 +1,15 @@
+---
+description: Time of day (Tamil). The classical Tamil division of the day is into six சிறுபொழுது — வைகறை (the last watch before dawn), காலை, நண்பகல், எற்பாடு (late afternoon), மாலை and யாமம் (the dead of night) — and those words are still read and used, so they are included beside the everyday ones. வைகறை has no English equivalent: it is specifically the dark hour before first light, when the கோலம் is drawn and temple worship begins.
+locale: ta
+---
+வைகறை
+அதிகாலை
+காலை
+நண்பகல்
+பிற்பகல்
+எற்பாடு
+மாலை
+அந்தி
+இரவு
+யாமம்
+நள்ளிரவு

@@ -1,0 +1,5 @@
+---
+description: Currency code of வியட்நாம்.
+locale: ta
+---
+VND

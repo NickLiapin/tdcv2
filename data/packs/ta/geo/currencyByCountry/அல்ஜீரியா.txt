@@ -1,0 +1,5 @@
+---
+description: Currency of அல்ஜீரியா, in Tamil.
+locale: ta
+---
+அல்ஜீரிய தினார்

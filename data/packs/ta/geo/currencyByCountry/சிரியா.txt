@@ -1,0 +1,5 @@
+---
+description: Currency of சிரியா, in Tamil.
+locale: ta
+---
+சிரிய பவுண்டு

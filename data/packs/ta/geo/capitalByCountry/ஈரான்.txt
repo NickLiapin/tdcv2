@@ -1,0 +1,5 @@
+---
+description: Capital of ஈரான், in Tamil.
+locale: ta
+---
+தெஹ்ரான்

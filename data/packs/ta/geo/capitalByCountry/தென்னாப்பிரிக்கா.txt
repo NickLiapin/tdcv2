@@ -1,0 +1,5 @@
+---
+description: Capital of தென்னாப்பிரிக்கா, in Tamil.
+locale: ta
+---
+பிரிட்டோரியா

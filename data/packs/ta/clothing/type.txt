@@ -1,0 +1,36 @@
+---
+description: Garment type (Tamil). The first block is Tamil dress and has no European equivalent worth translating to: the வேட்டி is the men's unstitched lower cloth (a முண்டு in Kerala Tamil, a சாரம் in Sri Lanka), the சேலை is the six-yard drape and the நவ்வாரி the nine-yard one worn differently, the தாவணி is the half-saree a girl wears between childhood and adulthood, and the துண்டு is the shoulder cloth that completes a man's formal dress. The rest is the everyday international wardrobe, which is what most people are actually wearing.
+locale: ta
+---
+வேட்டி
+சாரம்
+லுங்கி
+சேலை
+நவ்வாரி சேலை
+தாவணி
+பாவாடை
+சட்டை
+ரவிக்கை
+சுடிதார்
+சல்வார் கமீஸ்
+குர்தா
+ஜிப்பா
+துண்டு
+சால்வை
+முழுக்கை சட்டை
+டி-சட்டை
+ஜீன்ஸ்
+கால்சட்டை
+அரைக்கால் சட்டை
+ஆடை உடை
+கோட்டு
+மேலங்கி
+ஸ்வெட்டர்
+ஹூடி
+ஜாக்கெட்
+உள்பாவாடை
+தொப்பி
+செருப்பு
+காலணி
+விளையாட்டுக் காலணி
+பூட்ஸ்

@@ -1,0 +1,5 @@
+---
+description: Capital of இத்தாலி, in Tamil.
+locale: ta
+---
+ரோம்

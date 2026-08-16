@@ -1,0 +1,15 @@
+---
+description: Employment or contract type (Tamil). நாள் கூலி (day wage) and ஒப்பந்தக் கூலி are the two commonest arrangements in the Tamil informal economy and neither maps onto a European contract type; a config generating Indian or Sri Lankan employment data that offers only full-time and part-time will describe a minority of the workforce.
+locale: ta
+---
+முழு நேரம்
+பகுதி நேரம்
+ஒப்பந்த அடிப்படை
+தற்காலிகம்
+பயிற்சி
+சுயதொழில்
+பருவகாலம்
+நாள் கூலி
+ஒப்பந்தக் கூலி
+பணிபயிற்சி
+நிரந்தரம்

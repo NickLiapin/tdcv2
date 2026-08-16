@@ -1,0 +1,5 @@
+---
+description: Currency code of மொரிசியஸ்.
+locale: ta
+---
+MUR

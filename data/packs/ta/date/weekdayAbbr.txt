@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation in Tamil, Monday first. These are not clipped forms but the bare planet names — திங்கள் is the full word for the moon and also the everyday short name of Monday; the long form simply adds கிழமை.
+locale: ta
+---
+திங்கள்
+செவ்வாய்
+புதன்
+வியாழன்
+வெள்ளி
+சனி
+ஞாயிறு

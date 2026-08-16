@@ -1,0 +1,5 @@
+---
+description: Capital of ஆஸ்திரேலியா, in Tamil.
+locale: ta
+---
+கான்பெரா

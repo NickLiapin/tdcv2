@@ -1,0 +1,5 @@
+---
+description: Capital of கம்போடியா, in Tamil.
+locale: ta
+---
+நோம் பென்

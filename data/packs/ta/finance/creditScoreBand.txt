@@ -1,0 +1,10 @@
+---
+description: Credit score band (Tamil). The Indian bureau scale (CIBIL) runs 300 to 900, not the 300-850 of the US FICO scale, so a config generating a Tamil Nadu credit record must not copy an American score range.
+locale: ta
+---
+மிக மோசம்
+மோசம்
+சராசரி
+நல்லது
+மிகவும் நல்லது
+சிறந்தது

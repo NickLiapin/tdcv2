@@ -1,0 +1,5 @@
+---
+description: Currency code of பாகிஸ்தான்.
+locale: ta
+---
+PKR

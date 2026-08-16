@@ -1,0 +1,26 @@
+---
+description: Property amenity (Tamil). மொட்டை மாடி (the flat roof, used for drying, sleeping and celebrating), கிணறு / போர்வெல் (the household well or borewell, which determines whether a house has water at all), தெற்கு வாசல் / கிழக்கு வாசல் (the door orientation, advertised because Vastu buyers filter on it) and பூஜை அறை are the amenities a Tamil property listing actually leads with.
+locale: ta
+---
+மொட்டை மாடி
+கார் நிறுத்துமிடம்
+இருசக்கர வாகன நிறுத்துமிடம்
+கிணறு
+போர்வெல்
+மேல்நிலைத் தொட்டி
+மழைநீர் சேகரிப்பு
+சூரிய மின் தகடு
+மின் இணைப்பு
+மின்மாற்று வசதி
+பூஜை அறை
+கிழக்கு வாசல்
+தெற்கு வாசல்
+தோட்டம்
+மதில் சுவர்
+பாதுகாப்புக் காவலர்
+உடற்பயிற்சி கூடம்
+நீச்சல் குளம்
+மின்தூக்கி
+குழந்தைகள் விளையாட்டிடம்
+சமுதாயக் கூடம்
+செல்லப்பிராணி அனுமதி

@@ -1,0 +1,5 @@
+---
+description: Capital of இந்தியா, in Tamil.
+locale: ta
+---
+புது தில்லி

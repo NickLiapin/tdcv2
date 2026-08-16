@@ -1,0 +1,22 @@
+---
+description: Room type (Tamil). The முற்றம் (the open inner courtyard of a traditional Tamil house), the திண்ணை (the raised platform either side of the front door where visitors sit) and the பூஜை அறை are architectural elements with no European equivalent, and the திண்ணை in particular is a social institution rather than a room.
+locale: ta
+---
+படுக்கையறை
+குளியலறை
+சமையலறை
+வரவேற்பறை
+உணவறை
+பூஜை அறை
+படிப்பறை
+முற்றம்
+திண்ணை
+கூடம்
+மாடி அறை
+சேமிப்பு அறை
+பரண்
+விறகுக் கொட்டகை
+சலவை அறை
+வேலையாள் அறை
+விருந்தினர் அறை
+மொட்டை மாடி

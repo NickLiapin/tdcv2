@@ -1,0 +1,5 @@
+---
+description: Currency of சிங்கப்பூர், in Tamil.
+locale: ta
+---
+சிங்கப்பூர் டாலர்

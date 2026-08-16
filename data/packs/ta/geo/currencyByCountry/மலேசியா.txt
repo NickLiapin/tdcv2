@@ -1,0 +1,5 @@
+---
+description: Currency of மலேசியா, in Tamil.
+locale: ta
+---
+மலேசிய ரிங்கிட்

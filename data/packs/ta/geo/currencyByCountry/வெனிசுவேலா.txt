@@ -1,0 +1,5 @@
+---
+description: Currency of வெனிசுவேலா, in Tamil.
+locale: ta
+---
+பொலிவர்

@@ -1,0 +1,5 @@
+---
+description: Currency of ஈரான், in Tamil.
+locale: ta
+---
+ஈரானிய ரியால்

@@ -1,0 +1,13 @@
+---
+description: Conditions markedly more frequent in people of தென் ஆசிய ancestry, named in Tamil. This is the file that applies to Tamils. Two entries carry a real local weight: South Asians develop coronary artery disease roughly a decade earlier and at a lower body mass than Europeans do, which is why it is listed as an ancestry-linked risk and not only as a general diagnosis; and G6PD deficiency runs high in several Tamil populations, notably the Nilgiri hill communities, where it matters clinically because it turns the standard antimalarials into a hazard.
+locale: ta
+---
+வகை 2 நீரிழிவு
+இளவயது இதயத் தமனி நோய்
+உயர் கொழுப்பு
+பீட்டா-தலசீமியா
+G6PD நொதிக் குறைபாடு
+அரிவாள் செல் இரத்தசோகை
+பால் சர்க்கரை ஜீரணமின்மை
+வைட்டமின் டி குறைபாடு
+காசநோய்

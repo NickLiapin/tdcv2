@@ -1,0 +1,5 @@
+---
+description: Currency of தென்னாப்பிரிக்கா, in Tamil.
+locale: ta
+---
+ராண்ட்

@@ -1,0 +1,5 @@
+---
+description: Currency of நேபாளம், in Tamil.
+locale: ta
+---
+நேபாள ரூபாய்

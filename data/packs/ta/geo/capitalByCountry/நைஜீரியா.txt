@@ -1,0 +1,5 @@
+---
+description: Capital of நைஜீரியா, in Tamil.
+locale: ta
+---
+அபுஜா

@@ -1,0 +1,5 @@
+---
+description: Currency of சுவீடன், in Tamil.
+locale: ta
+---
+சுவீடிய குரோனா

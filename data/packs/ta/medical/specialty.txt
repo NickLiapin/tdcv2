@@ -1,0 +1,45 @@
+---
+description: Medical specialty in Tamil. Five entries at the tail are the AYUSH systems, and they are not folklore: சித்த மருத்துவம் is the Tamil traditional medical system, it has government colleges awarding a five-and-a-half-year degree, a state department, its own hospitals and its own pharmacopoeia in Tamil, and a Tamil patient may well see a Siddha physician and an allopathic one for the same complaint. A dataset of Tamil health providers that offers only the biomedical specialties will be wrong about a real share of them.
+locale: ta
+---
+இதயவியல்
+தோலியல்
+நாளமில்லாச் சுரப்பியல்
+இரைப்பை குடலியல்
+நரம்பியல்
+புற்றுநோயியல்
+கண் மருத்துவம்
+எலும்பியல்
+குழந்தை மருத்துவம்
+மனநலவியல்
+நுரையீரலியல்
+கதிரியக்கவியல்
+மூட்டழற்சியியல்
+சிறுநீரியல்
+சிறுநீரகவியல்
+இரத்தவியல்
+நோய் எதிர்ப்பியல்
+மயக்கவியல்
+அவசர மருத்துவம்
+குடும்ப மருத்துவம்
+பொது மருத்துவம்
+மகப்பேறு மற்றும் மகளிர் மருத்துவம்
+காது மூக்கு தொண்டை மருத்துவம்
+நோயியல்
+நுண்ணுயிரியல்
+மருந்தியல்
+அழகுசார் அறுவை மருத்துவம்
+பொது அறுவை மருத்துவம்
+இரத்தக்குழாய் அறுவை மருத்துவம்
+நரம்பு அறுவை மருத்துவம்
+தொற்று நோயியல்
+முதியோர் மருத்துவம்
+பிறந்த குழந்தை மருத்துவம்
+மறுவாழ்வு மருத்துவம்
+சமூக மருத்துவம்
+பல் மருத்துவம்
+சித்த மருத்துவம்
+ஆயுர்வேத மருத்துவம்
+யுனானி மருத்துவம்
+ஓமியோபதி
+இயற்கை மருத்துவம் மற்றும் யோகா

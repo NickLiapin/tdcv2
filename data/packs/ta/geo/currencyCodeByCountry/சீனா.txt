@@ -1,0 +1,5 @@
+---
+description: Currency code of சீனா.
+locale: ta
+---
+CNY

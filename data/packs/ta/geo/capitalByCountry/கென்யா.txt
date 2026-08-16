@@ -1,0 +1,5 @@
+---
+description: Capital of கென்யா, in Tamil.
+locale: ta
+---
+நைரோபி

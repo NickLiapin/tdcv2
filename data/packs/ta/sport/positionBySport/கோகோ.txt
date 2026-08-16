@@ -1,0 +1,9 @@
+---
+description: Playing positions in கோகோ, named in Tamil.
+locale: ta
+---
+துரத்துபவர்
+தப்பியோடுபவர்
+செயல் துரத்துபவர்
+முனை வீரர்
+இடைநிலை வீரர்

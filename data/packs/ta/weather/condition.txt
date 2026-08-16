@@ -1,0 +1,22 @@
+---
+description: Weather condition (Tamil). வெயில் — bright hot sun — is the default Tamil weather word and is not the same as "sunny": it carries heat rather than pleasantness. தூறல் is the fine drizzle of the northeast monsoon and சாரல் the wind-blown spray of it, two words English collapses into one.
+locale: ta
+---
+வெயில்
+தெளிவான வானம்
+பகுதி மேகமூட்டம்
+மேகமூட்டம்
+அடர் மேகம்
+மழை
+தூறல்
+சாரல்
+கனமழை
+இடி மின்னலுடன் மழை
+புயல் காற்று
+பனிமூட்டம்
+மூடுபனி
+புகைமூட்டம்
+வறட்சி வெப்பம்
+ஈரப்பதம்
+குளிர்
+ஆலங்கட்டி மழை

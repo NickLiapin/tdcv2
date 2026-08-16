@@ -1,0 +1,5 @@
+---
+description: Capital of ஆப்கானிஸ்தான், in Tamil.
+locale: ta
+---
+காபூல்

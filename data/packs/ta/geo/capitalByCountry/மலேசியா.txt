@@ -1,0 +1,5 @@
+---
+description: Capital of மலேசியா, in Tamil.
+locale: ta
+---
+கோலாலம்பூர்

@@ -1,0 +1,38 @@
+---
+description: Fruit (Tamil). The head of the list is what actually grows and is eaten in the Tamil country, not a translated European set: mango, banana and jackfruit are the முக்கனி, the "three fruits" named together as a set in Tamil literature since the Sangam period. நுங்கு and பனம்பழம் are the two stages of the palmyra fruit — the tender jelly seed eaten in summer and the ripe pulp — and the palmyra is Tamil Nadu's and northern Sri Lanka's state tree; neither has an English name in ordinary use.
+locale: ta
+---
+மாம்பழம்
+வாழைப்பழம்
+பலாப்பழம்
+கொய்யாப்பழம்
+சப்போட்டா
+பப்பாளி
+அன்னாசி
+திராட்சை
+ஆரஞ்சு
+மொசம்பி
+எலுமிச்சை
+நார்த்தங்காய்
+மாதுளம்பழம்
+நாவல் பழம்
+இலந்தைப்பழம்
+நுங்கு
+பனம்பழம்
+விளாம்பழம்
+நெல்லிக்காய்
+சீதாப்பழம்
+ராமபழம்
+முலாம்பழம்
+தர்பூசணி
+கொடுக்காப்புளி
+ஆப்பிள்
+பேரிக்காய்
+அத்திப்பழம்
+பேரீச்சம்பழம்
+ஸ்ட்ராபெரி
+கிவி
+இளநீர்
+தேங்காய்
+கமலா ஆரஞ்சு
+சீமை நெல்லி

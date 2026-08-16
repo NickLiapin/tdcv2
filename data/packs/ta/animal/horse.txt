@@ -1,0 +1,20 @@
+---
+description: Horse breed (Tamil). The first two are Indian: the மார்வாரி of Rajasthan with its inward-curving ears and the காத்தியவாரி of Gujarat. Horses are not a Tamil rural animal in the way cattle are, and a Tamil dataset about livestock will be about cattle, goats and poultry.
+locale: ta
+---
+மார்வாரி
+காத்தியவாரி
+அரேபியன்
+தரோபிரெட்
+முஸ்டாங்
+ஆண்டலூசியன்
+ஃபிரீசியன்
+கிளைட்ஸ்டேல்
+அப்பலூசா
+குவார்ட்டர் குதிரை
+ஷெட்லாந்து குட்டைக் குதிரை
+பெர்ச்செரான்
+ஷயர்
+பாலோமினோ
+மங்கோலியன்
+மணிப்புரி குட்டைக் குதிரை

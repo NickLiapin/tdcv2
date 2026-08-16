@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Tamil). Note that a Tamil hotel commonly sells rooms as A/C and non-A/C before anything else, which is the first question a booking asks and is not a category on a European rate card.
+locale: ta
+---
+குளிர்சாதன அறை
+குளிர்சாதனமற்ற அறை
+சாதாரண அறை
+சிறப்பு அறை
+ஆடம்பர அறை
+சூட்
+ஒற்றை அறை
+இரட்டை அறை
+இரட்டைக் கட்டில் அறை
+மூன்று படுக்கை அறை
+குடும்ப அறை
+கூட்டுத் தங்குமிடம்
+குடிசை அறை
+கடல் காட்சி அறை
+மலைக் காட்சி அறை
+நீச்சல் குள அறை
+மாற்றுத்திறனாளி அறை
+ஜனாதிபதி சூட்

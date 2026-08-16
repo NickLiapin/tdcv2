@@ -1,0 +1,5 @@
+---
+description: Currency of கொலம்பியா, in Tamil.
+locale: ta
+---
+கொலம்பிய பெசோ

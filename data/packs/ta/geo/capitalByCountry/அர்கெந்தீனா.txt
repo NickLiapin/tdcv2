@@ -1,0 +1,5 @@
+---
+description: Capital of அர்கெந்தீனா, in Tamil.
+locale: ta
+---
+பியூனஸ் அயர்ஸ்

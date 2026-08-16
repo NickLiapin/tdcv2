@@ -1,0 +1,5 @@
+---
+description: Currency code of வங்காளதேசம்.
+locale: ta
+---
+BDT

@@ -1,0 +1,5 @@
+---
+description: Currency code of நைஜீரியா.
+locale: ta
+---
+NGN

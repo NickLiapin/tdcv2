@@ -1,0 +1,27 @@
+---
+description: Name suffix (Tamil). The first value, அவர்கள், is the one a European locale has no equivalent for: it is the Tamil respect particle and follows the name rather than preceding it (ராமசாமி அவர்கள்), filling the role Hindi gives to its own particle -ji. Tamil does not use Jr / Sr — the patronymic naming system already says whose son somebody is, so the whole junior/senior device is unnecessary and absent. The rest are the qualification abbreviations that Tamil Nadu and Sri Lankan nameplates and letterheads really carry; பி.எல். (Bachelor of Law) after a name is the standard way a Tamil lawyer signs, and ஐ.ஏ.எஸ். / ஐ.பி.எஸ். mark the Indian civil-service cadres.
+locale: ta
+---
+அவர்கள்
+ஐயா
+அம்மா
+பி.ஏ.
+எம்.ஏ.
+பி.எஸ்சி.
+எம்.எஸ்சி.
+பி.இ.
+எம்.இ.
+எம்.டெக்.
+பி.காம்.
+எம்.பி.ஏ.
+பி.எல்.
+எம்.எல்.
+எம்.பி.பி.எஸ்.
+எம்.டி.
+பிஎச்.டி.
+எம்.ஃபில்.
+பி.எட்.
+ஐ.ஏ.எஸ்.
+ஐ.பி.எஸ்.
+எம்.எல்.ஏ.
+எம்.பி.

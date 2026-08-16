@@ -1,0 +1,5 @@
+---
+description: Currency code of இந்தோனேசியா.
+locale: ta
+---
+IDR

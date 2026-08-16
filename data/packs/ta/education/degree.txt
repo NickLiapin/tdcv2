@@ -1,0 +1,32 @@
+---
+description: Academic degree (Tamil). The Indian and Sri Lankan degree names are what appear on a real certificate. Note two that a European list has no room for: பி.இ. / பி.டெக். is the four-year engineering bachelor's that a very large share of Tamil Nadu school-leavers take, and பி.எஸ்.எம்.எஸ். (Bachelor of Siddha Medicine and Surgery) is the five-and-a-half-year Siddha medical degree awarded by government colleges.
+locale: ta
+---
+பள்ளி இறுதிச் சான்றிதழ்
+மேல்நிலைச் சான்றிதழ்
+பட்டயப் படிப்பு
+இளங்கலை
+இளநிலை அறிவியல்
+இளநிலை வணிகவியல்
+பி.இ.
+பி.டெக்.
+பி.ஆர்க்.
+எம்.பி.பி.எஸ்.
+பி.டி.எஸ்.
+பி.எஸ்.எம்.எஸ்.
+பி.ஏ.எம்.எஸ்.
+பி.எஸ்சி. செவிலியம்
+பி.எல்.
+எல்.எல்.பி.
+முதுகலை
+எம்.எஸ்சி.
+எம்.காம்.
+எம்.இ.
+எம்.டெக்.
+எம்.பி.ஏ.
+எம்.சி.ஏ.
+எம்.டி.
+எம்.எஸ்.
+எம்.ஃபில்.
+முனைவர் பட்டம்
+இளநிலை கல்வியியல்

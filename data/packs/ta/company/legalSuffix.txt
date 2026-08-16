@@ -1,0 +1,36 @@
+---
+description: Company legal or name suffix. These are the real legal forms of the four Tamil-speaking jurisdictions and they are written in Latin abbreviations on a company's own letterhead even in Tamil documents: Pvt Ltd and LLP in India, PLC and (Pvt) Ltd in Sri Lanka, Pte Ltd in Singapore, Sdn Bhd and Berhad in Malaysia. நிறுவனம், கழகம், சங்கம் and கூட்டுறவுச் சங்கம் are the Tamil words, and கூட்டுறவுச் சங்கம் matters because the cooperative is a very common business form in the Tamil countryside.
+locale: ta
+---
+Pvt Ltd
+Ltd
+LLP
+PLC
+(Pvt) Ltd
+Pte Ltd
+Sdn Bhd
+Berhad
+Inc
+Co
+நிறுவனம்
+தனியார் நிறுவனம்
+வரையறுக்கப்பட்ட நிறுவனம்
+கழகம்
+சங்கம்
+கூட்டுறவுச் சங்கம்
+அறக்கட்டளை
+குழுமம்
+தொழிற்கூடம்
+ஏஜென்சி
+ட்ரேடர்ஸ்
+என்டர்பிரைசஸ்
+இண்டஸ்ட்ரீஸ்
+சொல்யூஷன்ஸ்
+சிஸ்டம்ஸ்
+டெக்னாலஜீஸ்
+இன்டர்நேஷனல்
+குரூப்
+ஹோல்டிங்ஸ்
+அசோசியேட்ஸ்
+ஆண்ட் சன்ஸ்
+ஆண்ட் கோ

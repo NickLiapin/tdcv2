@@ -1,0 +1,68 @@
+---
+description: Everyday dish eaten across the Tamil-speaking world, named in Tamil — the pan-Tamil repertoire that is not tied to one region. Regional specialities live in food/dishByCuisine. Two things a reader from elsewhere in India should not assume. Tamil food is built on FERMENTED RICE-AND-LENTIL BATTER (இட்லி, தோசை, ஊத்தப்பம், ஆப்பம், இடியாப்பம்) rather than on wheat bread, and the batter is ground and left overnight, so these are not quick dishes. And the everyday meal is a sequence, not a plate: சாம்பார் then ரசம் then மோர், each poured over rice in that order, which is why they are separate entries rather than one "curry".
+locale: ta
+---
+இட்லி
+தோசை
+மசால் தோசை
+ரவா தோசை
+ஊத்தப்பம்
+ஆப்பம்
+இடியாப்பம்
+புட்டு
+மெது வடை
+மசால் வடை
+சாம்பார் வடை
+வெண்பொங்கல்
+சர்க்கரைப் பொங்கல்
+உப்புமா
+கிச்சடி
+கொழுக்கட்டை
+அடை
+அடை அவியல்
+சேவை
+இடியாப்ப சொதி
+சாம்பார் சாதம்
+ரசம் சாதம்
+தயிர் சாதம்
+எலுமிச்சை சாதம்
+தேங்காய் சாதம்
+புளியோதரை
+தக்காளி சாதம்
+கறிவேப்பிலை சாதம்
+பிரியாணி
+தலப்பாகட்டி பிரியாணி
+கூட்டு
+பொரியல்
+அவியல்
+கறிக் கூட்டு
+மோர்க்குழம்பு
+வத்தக் குழம்பு
+புளிக் குழம்பு
+மீன் குழம்பு
+கோழிக் குழம்பு
+மட்டன் குழம்பு
+கோழி 65
+கோழி வறுவல்
+மீன் வறுவல்
+பரோட்டா
+கொத்து பரோட்டா
+சால்னா
+முறுக்கு
+தட்டை
+சீடை
+அதிரசம்
+ஜாங்கிரி
+மைசூர்பாகு
+பால்கோவா
+தேன்குழல்
+பாயசம்
+அல்வா
+சுண்டல்
+கடலை உருண்டை
+எள்ளுருண்டை
+ஃபில்டர் காபி
+கஞ்சி
+கூழ்
+களி
+நீர் மோர்

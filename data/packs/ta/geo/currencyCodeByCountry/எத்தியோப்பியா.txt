@@ -1,0 +1,5 @@
+---
+description: Currency code of எத்தியோப்பியா.
+locale: ta
+---
+ETB

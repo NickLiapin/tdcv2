@@ -1,0 +1,5 @@
+---
+description: Currency of அயர்லாந்து, in Tamil.
+locale: ta
+---
+யூரோ

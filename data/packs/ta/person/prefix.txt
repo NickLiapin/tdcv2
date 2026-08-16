@@ -1,0 +1,32 @@
+---
+description: Tamil honorific or form of address, written before a name. திரு / திருமதி / செல்வி are the everyday Mr / Mrs / Miss, and செல்வன் is the boys' counterpart of செல்வி — Tamil has a distinct title for an unmarried male, which English lost with "Master". முனைவர் is the Tamil word for a doctorate holder and is used in preference to டாக்டர் in Tamil academic writing, where டாக்டர் tends to mean a physician. அடிகள், குருக்கள் and தேசிகர் are Saiva religious titles, அருட்தந்தை and சகோதரி the Catholic Father and Sister, and ஜனாப் and ஹாஜி the Muslim ones; all are in ordinary current use, not archaisms.
+locale: ta
+---
+திரு
+திருமதி
+செல்வி
+செல்வன்
+முனைவர்
+டாக்டர்
+பேராசிரியர்
+பேரா.
+ஆசிரியர்
+வழக்கறிஞர்
+நீதியரசர்
+பொறியாளர்
+மருத்துவர்
+கவிஞர்
+புலவர்
+ஐயா
+அம்மா
+சுவாமி
+அடிகள்
+குருக்கள்
+தேசிகர்
+பட்டர்
+அருட்தந்தை
+சகோதரி
+ஜனாப்
+ஹாஜி
+மௌலவி
+தலைவர்

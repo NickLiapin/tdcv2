@@ -1,0 +1,48 @@
+---
+description: Building type (Tamil). Several have no European equivalent worth translating to. ஓட்டு வீடு (tile-roofed) and ஓலைக் குடிசை (palm-thatch) are the housing categories an Indian census schedule really uses, and they are the answer for a large share of rural Tamil Nadu. A மெஸ் is the small Tamil eating house that serves one fixed meal a day — the word is an English loan that has meant something purely Tamil for a century, and a "military hotel" is the non-vegetarian kind. A மடம் is a monastic house attached to a temple, a சத்திரம் a free rest house for pilgrims, and a தொழுவம் the cattle shed that in a village is a building in its own right.
+locale: ta
+---
+வீடு
+தனி வீடு
+ஓட்டு வீடு
+ஓலைக் குடிசை
+குடிசை
+குடியிருப்பு
+அடுக்குமாடிக் குடியிருப்பு
+பங்களா
+மாளிகை
+வில்லா
+அலுவலகம்
+கடை
+அங்காடி
+வணிக வளாகம்
+கிடங்கு
+தொழிற்சாலை
+ஆலை
+நெசவுக் கூடம்
+மருத்துவமனை
+மருந்தகம்
+ஆரம்ப சுகாதார நிலையம்
+பள்ளி
+கல்லூரி
+பல்கலைக்கழகம்
+நூலகம்
+கோயில்
+மசூதி
+தேவாலயம்
+மடம்
+சத்திரம்
+விடுதி
+தங்கும் விடுதி
+உணவகம்
+மெஸ்
+தேநீர்க் கடை
+திரையரங்கம்
+அரங்கம்
+விளையாட்டரங்கம்
+காவல் நிலையம்
+தாலுகா அலுவலகம்
+ஊராட்சி அலுவலகம்
+சமுதாயக் கூடம்
+நெல் களஞ்சியம்
+தொழுவம்

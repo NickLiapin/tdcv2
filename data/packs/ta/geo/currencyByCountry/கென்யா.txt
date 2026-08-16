@@ -1,0 +1,5 @@
+---
+description: Currency of கென்யா, in Tamil.
+locale: ta
+---
+கென்ய ஷில்லிங்

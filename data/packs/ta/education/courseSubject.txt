@@ -1,0 +1,24 @@
+---
+description: School subject (Tamil). தமிழ் is a compulsory subject in Tamil Nadu schools and சமூக அறிவியல் is a single combined subject in the state syllabus, not history and geography taught apart.
+locale: ta
+---
+தமிழ்
+ஆங்கிலம்
+கணிதம்
+இயற்பியல்
+வேதியியல்
+உயிரியல்
+அறிவியல்
+சமூக அறிவியல்
+வரலாறு
+புவியியல்
+குடிமையியல்
+பொருளியல்
+கணினி அறிவியல்
+வணிகவியல்
+கணக்குப்பதிவியல்
+உடற்கல்வி
+ஓவியம்
+இசை
+இந்தி
+சமஸ்கிருதம்

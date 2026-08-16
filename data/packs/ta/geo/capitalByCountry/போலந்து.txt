@@ -1,0 +1,5 @@
+---
+description: Capital of போலந்து, in Tamil.
+locale: ta
+---
+வார்சா

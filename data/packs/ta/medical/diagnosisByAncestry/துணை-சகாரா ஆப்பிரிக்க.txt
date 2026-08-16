@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of துணை-சகாரா ஆப்பிரிக்க ancestry, named in Tamil. The list is a prevalence signal, not an exclusive one: none of these conditions is confined to this ancestry and none of its members is bound to have any of them.
+locale: ta
+---
+அரிவாள் செல் இரத்தசோகை
+அரிவாள் செல் பண்பு
+G6PD நொதிக் குறைபாடு
+ஆல்ஃபா-தலசீமியா
+பால் சர்க்கரை ஜீரணமின்மை
+சிறுநீரக முடிச்சு நோய்
+கருப்பைத் தசைக்கட்டி

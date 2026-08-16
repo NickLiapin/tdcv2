@@ -1,0 +1,5 @@
+---
+description: Capital of சீனா, in Tamil.
+locale: ta
+---
+பெய்ஜிங்

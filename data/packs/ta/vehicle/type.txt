@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Tamil). The first block is the Tamil road as it actually is: the ஆட்டோ ரிக்ஷா, the இருசக்கர வாகனம் and the மாட்டு வண்டி are more numerous than the cars, and the டெம்போ and the மினி லாரி are the goods vehicles that carry most short-haul freight.
+locale: ta
+---
+இருசக்கர வாகனம்
+மோட்டார் சைக்கிள்
+ஸ்கூட்டர்
+மொபெட்
+ஆட்டோ ரிக்ஷா
+மாட்டு வண்டி
+சாதாரண கார்
+ஹேட்ச்பேக்
+செடான்
+SUV
+கிராஸ்ஓவர்
+மினி வேன்
+வேன்
+டெம்போ
+மினி லாரி
+லாரி
+கன்டெய்னர் லாரி
+தொட்டி வாகனம்
+பேருந்து
+மினி பேருந்து
+டிராக்டர்
+சொகுசுக் கார்

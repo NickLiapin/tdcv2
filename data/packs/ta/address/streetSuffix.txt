@@ -1,0 +1,44 @@
+---
+description: Tamil thoroughfare type. Two things a config cannot infer. First, this element goes AFTER the name, not before it — காமராஜர் சாலை, அண்ணா நகர் மூன்றாம் தெரு — which is the reverse of the European pattern. Second, a Tamil address locates a building by NEIGHBOURHOOD at least as often as by street, which is why நகர், காலனி, குடியிருப்பு, தோட்டம் and பேட்டை (settlement and quarter units, not roads) belong in the same list as சாலை and தெரு. ஒழுங்கை is the Sri Lankan Tamil word for a lane and is what Jaffna addresses use where Tamil Nadu writes சந்து; a config generating Sri Lankan addresses should prefer it. மாட வீதி is the temple-circuit street (see address/direction.txt).
+locale: ta
+---
+சாலை
+தெரு
+வீதி
+மாட வீதி
+ரத வீதி
+சந்து
+ஒழுங்கை
+குறுக்குத் தெரு
+பிரதான சாலை
+நெடுஞ்சாலை
+வளைய சாலை
+புறவழிச் சாலை
+பாதை
+ஒற்றையடிப் பாதை
+நகர்
+காலனி
+குடியிருப்பு
+விரிவாக்கம்
+தோட்டம்
+பூங்கா
+பேட்டை
+சேரி
+குப்பம்
+அக்ரகாரம்
+மைதானம்
+சந்திப்பு
+மேம்பாலம்
+கரை
+படித்துறை
+அங்காடி
+கடைவீதி
+மண்டி
+தொழிற்பேட்டை
+வளாகம்
+முனை
+மேடு
+குளக்கரை
+ஆற்றங்கரை
+கடற்கரைச் சாலை
+மலைப்பாதை

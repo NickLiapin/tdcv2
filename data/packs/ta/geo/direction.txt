@@ -1,0 +1,20 @@
+---
+description: Compass direction (Tamil). Tamil builds the intercardinals by compounding the two cardinals with the northern one first, exactly as English does, and the sixteen-point names simply repeat the nearer cardinal (வட வடகிழக்கு = north-northeast). Worth knowing separately: the Tamil words for the directions are also the names of the classical LANDSCAPES of Sangam poetry only by coincidence — those are named for their terrain (குறிஞ்சி hill, முல்லை forest, மருதம் farmland, நெய்தல் coast, பாலை wasteland), not for compass bearings, and a config must not use one set for the other.
+locale: ta
+---
+வடக்கு
+தெற்கு
+கிழக்கு
+மேற்கு
+வடகிழக்கு
+வடமேற்கு
+தென்கிழக்கு
+தென்மேற்கு
+வட வடகிழக்கு
+கிழக்கு வடகிழக்கு
+கிழக்கு தென்கிழக்கு
+தென் தென்கிழக்கு
+தென் தென்மேற்கு
+மேற்கு தென்மேற்கு
+மேற்கு வடமேற்கு
+வட வடமேற்கு

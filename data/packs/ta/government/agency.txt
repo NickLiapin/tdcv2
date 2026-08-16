@@ -1,0 +1,34 @@
+---
+description: Government body, regulator or public office named in Tamil. Every entry is a real, currently existing body. The list is deliberately GENERIC-plus-Indian rather than one country's: Tamil is an official language of four jurisdictions, so வட்டாட்சியர் அலுவலகம், மாவட்ட ஆட்சியர் அலுவலகம், ஊராட்சி and நகராட்சி (the revenue and local-government tiers) are the offices a Tamil citizen deals with, and the named national bodies are India's because that is where most Tamil speakers live. Sri Lankan, Singaporean and Malaysian agencies belong in those country packs.
+locale: ta
+---
+மாவட்ட ஆட்சியர் அலுவலகம்
+வட்டாட்சியர் அலுவலகம்
+ஊராட்சி
+ஊராட்சி ஒன்றியம்
+நகராட்சி
+மாநகராட்சி
+பேரூராட்சி
+வருவாய்த் துறை
+பதிவுத் துறை
+நில அளவைத் துறை
+போக்குவரத்துத் துறை
+பிராந்திய போக்குவரத்து அலுவலகம்
+காவல் துறை
+தீயணைப்பு மற்றும் மீட்புப் பணிகள்
+சுகாதாரத் துறை
+பள்ளிக் கல்வித் துறை
+உயர்கல்வித் துறை
+வேளாண்மைத் துறை
+மின்சார வாரியம்
+குடிநீர் வாரியம்
+இந்திய ரிசர்வ் வங்கி
+இந்தியத் தேர்தல் ஆணையம்
+இந்திய தனித்துவ அடையாள ஆணையம்
+மத்திய புலனாய்வுத் துறை
+இந்திய விண்வெளி ஆராய்ச்சி நிறுவனம்
+வருமான வரித் துறை
+சரக்கு மற்றும் சேவை வரி வாரியம்
+ஒன்றியப் பொதுப் பணியாளர் தேர்வாணையம்
+பல்கலைக்கழக மானியக் குழு
+இந்திய வானிலை ஆய்வு மையம்

@@ -1,0 +1,12 @@
+---
+description: Clothing size (Tamil). The Latin letter sizes are what a garment label in Tiruppur or Colombo actually prints — Tiruppur makes a large share of the world's knitwear, and it prints S/M/L/XL. Note that the traditional Tamil garments this list does not size at all: a வேட்டி, a சேலை and a துண்டு are sold by LENGTH in metres or in முழம் (cubits), not by size, so a config dressing a Tamil row in a saree must not give it an XL.
+locale: ta
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

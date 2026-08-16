@@ -1,0 +1,5 @@
+---
+description: Currency of ஆஸ்திரேலியா, in Tamil.
+locale: ta
+---
+ஆஸ்திரேலிய டாலர்

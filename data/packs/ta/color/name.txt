@@ -1,0 +1,58 @@
+---
+description: Human-readable colour name (Tamil). Classical Tamil built its colour vocabulary on five roots — செம்மை red, கருமை black, வெண்மை white, பசுமை green and பொன்மை gold — and the modern words are still visibly built from them, so a Tamil colour name often tells you its family in a way an English one does not. Note also that பச்சை means green AND raw or unripe, and பசலை is the pale green of new leaves; neither maps cleanly onto one English word. காவி is the ochre of ascetics' robes and is a colour word with religious and political weight, not a neutral one.
+locale: ta
+---
+சிவப்பு
+கருஞ்சிவப்பு
+செம்மஞ்சள்
+ரோஜா நிறம்
+இளஞ்சிவப்பு
+அரக்கு
+செம்மண் நிறம்
+பவளம்
+ஆரஞ்சு
+காவி
+மஞ்சள்
+எலுமிச்சை மஞ்சள்
+கடுகு மஞ்சள்
+மாம்பழ மஞ்சள்
+பொன் நிறம்
+செம்பு நிறம்
+வெண்கல நிறம்
+பச்சை
+கருஞ்சிவப்பு பச்சை
+கிளிப்பச்சை
+இளம் பச்சை
+பசலை
+மரகதப் பச்சை
+ஆலிவ் பச்சை
+புதினா பச்சை
+மருதாணிப் பச்சை
+நீலம்
+கடல் நீலம்
+வான நீலம்
+இளநீலம்
+கருநீலம்
+மயில் நீலம்
+நீலக்கல் நிறம்
+ஊதா
+கத்தரிப்பூ நிறம்
+இளஊதா
+லாவெண்டர்
+பழுப்பு
+சாக்லேட் நிறம்
+மண் நிறம்
+ஒட்டகை நிறம்
+பேஜ்
+கிரீம்
+தந்த நிறம்
+சந்தன நிறம்
+மணல் நிறம்
+வெள்ளை
+கருப்பு
+சாம்பல்
+அடர் சாம்பல்
+வெள்ளி நிறம்
+முத்து நிறம்
+சாம்பல் பழுப்பு
+வெளிர் மஞ்சள்

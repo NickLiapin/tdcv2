@@ -1,0 +1,29 @@
+---
+description: Dog breed (Tamil). The first four are Tamil breeds and the reason this list is not a translation: the ராஜபாளையம் is a white sighthound from the town of that name and is on a Tamil Nadu postage stamp, the கன்னி and the செம்பியன் are its relatives, and the சிப்பிப்பாறை is a hunting dog of the southern hills. நாட்டு நாய் — the ordinary Indian pariah dog — is what most dogs actually are.
+locale: ta
+---
+நாட்டு நாய்
+ராஜபாளையம்
+கன்னி
+சிப்பிப்பாறை
+செம்பியன்
+கொம்பை
+லாப்ரடார்
+ஜெர்மன் ஷெப்பர்ட்
+கோல்டன் ரிட்ரீவர்
+பாக்ஸர்
+டோபர்மேன்
+ராட்வீலர்
+பீகிள்
+டால்மேஷியன்
+பொமரேனியன்
+ஷிட்சு
+புல்டாக்
+பக்
+கிரேட் டேன்
+சைபீரியன் ஹஸ்கி
+டாக்ஸ்ஹவுண்ட்
+கோக்கர் ஸ்பானியல்
+சிவாவா
+பூடில்
+மத்திய ஆசிய மேய்ப்பு நாய்

@@ -1,0 +1,5 @@
+---
+description: Currency of ஈராக், in Tamil.
+locale: ta
+---
+ஈராக்கிய தினார்

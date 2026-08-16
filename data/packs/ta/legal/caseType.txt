@@ -1,0 +1,22 @@
+---
+description: Legal case type (Tamil). These are the KINDS of case a language names, not one country's docket categories. வக்ஃபு வழக்கு (Waqf) and இந்து அறநிலையத் துறை வழக்கு (Hindu religious endowments) are litigation categories that genuinely exist across the Tamil-speaking jurisdictions and have no European counterpart; land-title disputes are the single commonest civil matter in Tamil Nadu courts.
+locale: ta
+---
+உரிமையியல் வழக்கு
+குற்றவியல் வழக்கு
+குடும்ப நல வழக்கு
+நில உரிமை வழக்கு
+சொத்துப் பிரிவினை வழக்கு
+வாடகைத் தகராறு
+திவால் வழக்கு
+விபத்து இழப்பீட்டு வழக்கு
+தொழிலாளர் வழக்கு
+ஒப்பந்தத் தகராறு
+அறிவுசார் சொத்து வழக்கு
+நுகர்வோர் வழக்கு
+வரி வழக்கு
+குடியுரிமை வழக்கு
+இந்து அறநிலையத் துறை வழக்கு
+வக்ஃபு வழக்கு
+சுற்றுச்சூழல் வழக்கு
+பொது நல வழக்கு

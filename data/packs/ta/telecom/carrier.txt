@@ -1,0 +1,30 @@
+---
+description: Mobile carrier. Brand names keep their real spelling. The list covers all four Tamil-speaking markets — Jio, Airtel, Vi and BSNL in India, Dialog and Mobitel in Sri Lanka, Singtel and StarHub in Singapore, Maxis and Celcom in Malaysia — because Tamil phone data does not stop at one border.
+locale: ta
+---
+Jio
+Airtel
+Vi
+BSNL
+MTNL
+Dialog
+Mobitel
+Hutch
+Airtel Lanka
+SLT
+Singtel
+StarHub
+M1
+Simba
+Maxis
+Celcom
+Digi
+U Mobile
+Etisalat
+du
+Ooredoo
+STC
+Zain
+Vodafone
+T-Mobile
+Orange

@@ -1,0 +1,14 @@
+---
+description: Fuel type (Tamil). CNG and LPG conversions are common in Indian taxi fleets and are ordinary options, not exotic ones.
+locale: ta
+---
+பெட்ரோல்
+டீசல்
+மின்சாரம்
+கலப்பின
+பிளக்-இன் கலப்பின
+CNG
+LPG
+எத்தனால் கலவை
+ஹைட்ரஜன்
+சூரிய சக்தி

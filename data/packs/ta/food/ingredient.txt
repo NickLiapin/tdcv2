@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Tamil). Two staples have no English kitchen equivalent worth translating to. புழுங்கல் அரிசி is parboiled rice — steamed in the husk before milling — and it is the Tamil household rice; பச்சரிசி, raw rice, is used for different dishes and the two are not interchangeable. நல்லெண்ணெய், cold-pressed sesame oil, is the traditional Tamil cooking fat and the word means literally "the good oil". வத்தல் and வடகம் are vegetables sun-dried in brine during the hot months to be fried through the rest of the year, a preserving practice with no Western counterpart. வெல்லம் (unrefined palm or cane jaggery) is the sweetener, not white sugar.
+locale: ta
+---
+புழுங்கல் அரிசி
+பச்சரிசி
+இட்லி அரிசி
+அரிசி மாவு
+ரவை
+மைதா
+கோதுமை மாவு
+துவரம் பருப்பு
+உளுத்தம் பருப்பு
+பாசிப்பருப்பு
+கடலைப்பருப்பு
+கொள்ளு
+தேங்காய்
+தேங்காய் எண்ணெய்
+நல்லெண்ணெய்
+கடலை எண்ணெய்
+நெய்
+தயிர்
+மோர்
+பால்
+வெல்லம்
+சர்க்கரை
+உப்பு
+புளி
+முட்டை
+கோழி இறைச்சி
+ஆட்டிறைச்சி
+மீன்
+இறால்
+நண்டு
+கருவாடு
+அப்பளம்
+வத்தல்
+வடகம்
+ஊறுகாய்
+இட்லி மிளகாய்ப் பொடி
+தேங்காய்ப் பால்
+முந்திரிப் பருப்பு
+திராட்சை
+நாட்டுச் சர்க்கரை

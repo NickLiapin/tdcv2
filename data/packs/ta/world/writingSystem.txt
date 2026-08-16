@@ -1,0 +1,30 @@
+---
+description: Writing system, named in Tamil. தமிழ் comes first, and the fact worth recording is that the Tamil script is NOT Devanagari and is not derived from it — it descends from Tamil-Brahmi through the round வட்டெழுத்து hand, and the two systems look and behave differently. Tamil is an abugida occupying U+0B80–U+0BFF, and it is unusually economical: 12 vowels, 18 consonants, the aytam ஃ, and 216 vowel-consonant combinations, 247 letters in all. It has NO separate letters for voiced or aspirated stops — one letter க carries k, g, h and kh, and which one is meant follows from position in the word — where Devanagari spells all five of ka, kha, ga, gha and nga apart with its own letter for each. The Grantha letters ஜ ஷ ஸ ஹ க்ஷ ஸ்ரீ were added to write Sanskrit and foreign words and are still felt as borrowings. வட்டெழுத்து and தமிழி (Tamil-Brahmi, attested in cave inscriptions from the third century BCE) are the historic Tamil scripts.
+locale: ta
+---
+தமிழ்
+வட்டெழுத்து
+தமிழி
+கிரந்தம்
+மலையாளம்
+தெலுங்கு
+கன்னடம்
+சிங்களம்
+ஒடியா
+வங்காள எழுத்து
+குருமுகி
+குஜராத்தி எழுத்து
+தேவநாகரி
+ஓல் சிக்கி
+திபெத்திய எழுத்து
+ரோமன்
+சிரில்லிக்
+கிரேக்க எழுத்து
+அரபு எழுத்து
+எபிரேய எழுத்து
+சீன எழுத்து
+ஹிரகனா
+கத்தகனா
+ஹங்குல்
+தாய் எழுத்து
+ஜாவி

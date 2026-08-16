@@ -1,0 +1,5 @@
+---
+description: Currency of நெதர்லாந்து, in Tamil.
+locale: ta
+---
+யூரோ

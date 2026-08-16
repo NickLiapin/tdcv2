@@ -1,0 +1,5 @@
+---
+description: Capital of மாலைத்தீவு, in Tamil.
+locale: ta
+---
+மாலே

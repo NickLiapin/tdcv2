@@ -1,0 +1,54 @@
+---
+description: Hobby or interest (Tamil). Four entries are specifically Tamil rather than translated: கோலமிடுதல் is the daily rice-flour drawing made on the threshold before dawn, a practice with its own competitive and geometric literature; சிலம்பம் is the Tamil staff-fighting martial art; கர்நாடக இசை and பரதநாட்டியம் are the classical music and dance systems of the Tamil south, taught to an enormous number of Tamil children as a formal discipline rather than as a pastime. கிரிக்கெட் and கபடி are here because they are what is actually played.
+locale: ta
+---
+வாசிப்பு
+சமையல்
+தோட்டக்கலை
+புகைப்படக்கலை
+ஓவியம்
+பயணம்
+மலையேற்றம்
+நீச்சல்
+ஓட்டம்
+சைக்கிள் ஓட்டுதல்
+கிரிக்கெட்
+கபடி
+சதுரங்கம்
+கரம்போர்டு
+திரைப்படம் பார்த்தல்
+இசை கேட்பது
+பாடுதல்
+கர்நாடக இசை
+வீணை வாசித்தல்
+புல்லாங்குழல் வாசித்தல்
+மிருதங்கம் வாசித்தல்
+பரதநாட்டியம்
+நாட்டுப்புற நடனம்
+சிலம்பம்
+யோகா
+தியானம்
+கோலமிடுதல்
+தையல்
+எம்பிராய்டரி
+கைவினைப் பொருள் செய்தல்
+மட்பாண்டக் கலை
+மரவேலை
+கவிதை எழுதுதல்
+தமிழ் இலக்கியம்
+வலைப்பதிவு எழுதுதல்
+நாணயச் சேகரிப்பு
+தபால்தலை சேகரிப்பு
+பறவை கண்காணிப்பு
+மீன்பிடித்தல்
+மீன் வளர்ப்பு
+செடி வளர்ப்பு
+பட்டம் விடுதல்
+வானியல் கண்காணிப்பு
+முகாமிடுதல்
+தன்னார்வத் தொண்டு
+கோயில் வழிபாடு
+சமையல் பரிசோதனை
+வீடியோ விளையாட்டு
+படகோட்டுதல்
+நடைப்பயிற்சி

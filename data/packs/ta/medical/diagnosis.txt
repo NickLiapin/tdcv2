@@ -1,0 +1,94 @@
+---
+description: Medical diagnosis in Tamil that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale / diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. TWO THINGS A CONFIG CANNOT INFER. First, on the language: medicine in Tamil Nadu, Sri Lanka, Singapore and Malaysia is taught, practised and RECORDED IN ENGLISH, so a real hospital chart says "Type 2 Diabetes Mellitus", not வகை 2 நீரிழிவு. The Tamil terms in this list are the ones used in public-health material, patient leaflets, the state health department's Tamil communications and the school and Siddha-college textbooks — real, standard, in daily use, and NOT what a discharge summary looks like. A config generating synthetic hospital records for a Tamil hospital should probably use the English list and reach for this one for patient-facing text. Second, on the contents: the tail of this list carries the infections that a Tamil clinic actually sees and a European list does not — டெங்கு காய்ச்சல், சிக்குன்குனியா, டைபாய்டு காய்ச்சல், எலிக்காய்ச்சல் (leptospirosis, which follows every northeast-monsoon flood), காசநோய் and மலேரியா are ordinary diagnoses here, not tropical curiosities.
+locale: ta
+---
+உயர் இரத்த அழுத்தம்
+வகை 2 நீரிழிவு
+வகை 1 நீரிழிவு
+ஆஸ்துமா
+மூச்சுக்குழல் அழற்சி
+இன்ஃபுளுயன்சா
+ஒற்றைத் தலைவலி
+பொதுக் கவலைக் கோளாறு
+மனச்சோர்வுக் கோளாறு
+மூட்டுத் தேய்மானம்
+முடக்குவாதம்
+அமில ஒழுக்கு நோய்
+இரும்புச்சத்து குறைபாட்டு இரத்தசோகை
+தைராய்டு செயலின்மை
+தைராய்டு மிகைச்செயல்
+சிறுநீர்ப்பாதைத் தொற்று
+நிமோனியா
+நாள்பட்ட சிறுநீரக நோய்
+இதயத் தமனி நோய்
+இதயத் துடிப்பு ஒழுங்கின்மை
+இதய செயலிழப்பு
+மாரடைப்பு
+மூளை இரத்த அடைப்பு
+வலிப்பு நோய்
+பார்கின்சன் நோய்
+அல்சைமர் நோய்
+பன்முக ஸ்களீரோசிஸ்
+சொரியாசிஸ்
+அரிப்புத் தோலழற்சி
+ஒவ்வாமை மூக்கழற்சி
+நாள்பட்ட சைனஸ் அழற்சி
+நடுச்செவி அழற்சி
+கண் வெண்படல அழற்சி
+கண்புரை
+கண்ணழுத்த நோய்
+குடல்வால் அழற்சி
+பித்தப்பை அழற்சி
+பெருங்குடல் பை அழற்சி
+எரிச்சல் குடல் நோய்
+கிரோன் நோய்
+புண் பெருங்குடல் அழற்சி
+நாள்பட்ட கல்லீரல் அழற்சி பி
+கல்லீரல் இறுக்கம்
+கடுமையான கணைய அழற்சி
+கீல்வாதம்
+எலும்புத் தேய்மானம்
+நார்த்தசை வலி நோய்
+இடுப்பு நரம்பு வலி
+முள்ளந்தண்டு வட்டு விலகல்
+மணிக்கட்டு நரம்பு அழுத்த நோய்
+தசைநார் அழற்சி
+நாள்பட்ட நுரையீரல் அடைப்பு நோய்
+காசநோய்
+இரத்தப் புற்றுநோய்
+நிணநீர் புற்றுநோய்
+தோல் புற்றுநோய்
+நுரையீரல் புற்றுநோய்
+வாய்ப் புற்றுநோய்
+மார்பகப் புற்றுநோய்
+உயர் கொழுப்பு
+உடல் பருமன்
+தூக்கத்தில் மூச்சடைப்பு
+தூக்கமின்மை
+இருமுனைக் கோளாறு
+கவனக் குறைவு மிகைச்செயல் கோளாறு
+பசையம் ஒவ்வாமை நோய்
+லூபஸ் நோய்
+தலைச்சுற்றல் நோய்
+காது ஒலி நோய்
+மூல நோய்
+சிரை வீக்கம்
+ஆழ்சிரை இரத்த உறைவு
+நுரையீரல் இரத்த அடைப்பு
+சிறுநீரகக் கல்
+இரத்தசோகை
+இரைப்பைப் புண்
+இரைப்பை அழற்சி
+தோல் திசு அழற்சி
+இரத்த நச்சுத்தொற்று
+கடுமையான வயிற்றுப்போக்கு
+வைட்டமின் டி குறைபாடு
+நாள்பட்ட சிரை பற்றாக்குறை
+டெங்கு காய்ச்சல்
+சிக்குன்குனியா
+மலேரியா
+டைபாய்டு காய்ச்சல்
+எலிக்காய்ச்சல்
+தட்டம்மை
+மஞ்சள் காமாலை
+குடற்புழுத் தொற்று

@@ -1,0 +1,5 @@
+---
+description: Capital of தான்சானியா, in Tamil.
+locale: ta
+---
+டோடோமா

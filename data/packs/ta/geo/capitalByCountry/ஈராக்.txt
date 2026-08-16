@@ -1,0 +1,5 @@
+---
+description: Capital of ஈராக், in Tamil.
+locale: ta
+---
+பாக்தாத்

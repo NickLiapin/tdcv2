@@ -1,0 +1,5 @@
+---
+description: Currency code of வெனிசுவேலா.
+locale: ta
+---
+VES

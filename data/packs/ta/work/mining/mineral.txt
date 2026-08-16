@@ -1,0 +1,26 @@
+---
+description: Mined mineral or commodity (Tamil). Led by what the Tamil country actually mines and quarries: lignite at Neyveli, granite in Krishnagiri and Salem, magnesite and bauxite in the Salem hills, garnet and ilmenite in the mineral sands of the Tirunelveli and Kanniyakumari coast, limestone for the Ariyalur cement belt, and sea salt from the Thoothukudi pans.
+locale: ta
+---
+பழுப்பு நிலக்கரி
+நிலக்கரி
+சுண்ணாம்புக் கல்
+கருங்கல்
+மணற்கல்
+மக்னசைட்
+பாக்சைட்
+இரும்புத் தாது
+மாங்கனீசு
+குரோமைட்
+இல்மனைட்
+கார்னெட் மணல்
+ரூட்டைல்
+சிர்கான்
+மோனசைட்
+மைக்கா
+ஜிப்சம்
+கண்ணாடி மணல்
+களிமண்
+உப்பு
+செம்பு
+தங்கம்

@@ -1,0 +1,42 @@
+---
+description: Vegetable (Tamil). Three things a translated list would miss. கீரை — leafy greens — is a category in its own right in Tamil cooking with a dozen separately named members (முளைக்கீரை, அரைக்கீரை, பசலைக்கீரை, முருங்கைக்கீரை, வெந்தயக்கீரை, பொன்னாங்கண்ணிக் கீரை), each with its own cooking method and its own place in the week, and lumping them as "spinach" loses the whole system. வாழைத்தண்டு and வாழைப்பூ, the banana stem and the banana flower, are ordinary vegetables here and are sold as such. And சின்ன வெங்காயம், the small shallot, is not interchangeable with the big onion in Tamil cooking — sambar and most குழம்பு call for the shallot specifically.
+locale: ta
+---
+கத்தரிக்காய்
+வெண்டைக்காய்
+முருங்கைக்காய்
+அவரைக்காய்
+பீன்ஸ்
+கேரட்
+உருளைக்கிழங்கு
+வெங்காயம்
+சின்ன வெங்காயம்
+தக்காளி
+பூசணிக்காய்
+சுரைக்காய்
+பீர்க்கங்காய்
+புடலங்காய்
+பாகற்காய்
+வெள்ளரிக்காய்
+சேனைக்கிழங்கு
+சேப்பங்கிழங்கு
+கருணைக்கிழங்கு
+மரவள்ளிக்கிழங்கு
+வாழைக்காய்
+வாழைத்தண்டு
+வாழைப்பூ
+முட்டைகோஸ்
+காலிஃபிளவர்
+பட்டாணி
+மொச்சைக்கொட்டை
+கொத்தவரங்காய்
+சௌசௌ
+குடைமிளகாய்
+முளைக்கீரை
+அரைக்கீரை
+பசலைக்கீரை
+முருங்கைக்கீரை
+வெந்தயக்கீரை
+பொன்னாங்கண்ணிக் கீரை
+மணத்தக்காளிக் கீரை
+அகத்திக் கீரை

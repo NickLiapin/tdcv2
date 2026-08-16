@@ -1,0 +1,18 @@
+---
+description: Shoe size. The Tamil country sizes shoes on the UK scale, NOT the European one: a shoebox in Chennai, Colombo, Singapore or Kuala Lumpur reads 8 and means UK 8, roughly EU 42. Sri Lanka and Malaysia use the same UK numbers, so this is one measurement that is actually consistent across all four Tamil-speaking countries. Half sizes appear mainly on sports footwear. Written in Arabic digits — see person/householdSize.txt on why Tamil numerals are not used.
+locale: ta
+---
+3
+4
+5
+6
+6.5
+7
+7.5
+8
+8.5
+9
+9.5
+10
+11
+12

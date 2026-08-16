@@ -1,0 +1,5 @@
+---
+description: Currency code of மெக்சிக்கோ.
+locale: ta
+---
+MXN

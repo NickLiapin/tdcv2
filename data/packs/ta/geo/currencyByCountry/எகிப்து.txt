@@ -1,0 +1,5 @@
+---
+description: Currency of எகிப்து, in Tamil.
+locale: ta
+---
+எகிப்திய பவுண்டு

@@ -1,0 +1,5 @@
+---
+description: Capital of சுவீடன், in Tamil.
+locale: ta
+---
+ஸ்டாக்ஹோம்

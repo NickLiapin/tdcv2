@@ -1,0 +1,5 @@
+---
+description: Currency code of ஈரான்.
+locale: ta
+---
+IRR

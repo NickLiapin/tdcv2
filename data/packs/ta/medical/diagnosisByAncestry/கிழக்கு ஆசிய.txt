@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of கிழக்கு ஆசிய ancestry, named in Tamil. A prevalence signal, not an exclusive one.
+locale: ta
+---
+ஆல்ஃபா-தலசீமியா
+பால் சர்க்கரை ஜீரணமின்மை
+மது சிவப்புத் தோற்ற எதிர்வினை
+இரைப்பைப் புற்றுநோய்
+மூக்கு தொண்டைப் புற்றுநோய்
+G6PD நொதிக் குறைபாடு

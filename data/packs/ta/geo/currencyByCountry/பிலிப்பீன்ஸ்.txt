@@ -1,0 +1,5 @@
+---
+description: Currency of பிலிப்பீன்ஸ், in Tamil.
+locale: ta
+---
+பிலிப்பைன் பெசோ

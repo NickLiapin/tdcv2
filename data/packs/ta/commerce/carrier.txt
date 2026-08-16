@@ -1,0 +1,24 @@
+---
+description: Shipping carrier. Brand names keep their real spelling. Led by what actually delivers in the Tamil country: இந்திய அஞ்சல் still carries a large share of rural deliveries, and the Sri Lankan, Singaporean and Malaysian posts are here because the language crosses those borders.
+locale: ta
+---
+இந்திய அஞ்சல்
+ஸ்பீட் போஸ்ட்
+DTDC
+Blue Dart
+Delhivery
+Ecom Express
+Xpressbees
+Professional Couriers
+Amazon Logistics
+Flipkart Logistics
+Sri Lanka Post
+Pronto Lanka
+SingPost
+Pos Malaysia
+DHL
+FedEx
+UPS
+Aramex
+TNT
+Ninja Van

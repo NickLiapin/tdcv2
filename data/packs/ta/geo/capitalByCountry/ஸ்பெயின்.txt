@@ -1,0 +1,5 @@
+---
+description: Capital of ஸ்பெயின், in Tamil.
+locale: ta
+---
+மத்ரித்

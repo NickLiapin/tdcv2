@@ -1,0 +1,5 @@
+---
+description: Capital of சிலி, in Tamil.
+locale: ta
+---
+சாண்டியாகோ

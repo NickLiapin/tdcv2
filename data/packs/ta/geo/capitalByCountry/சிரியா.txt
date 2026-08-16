@@ -1,0 +1,5 @@
+---
+description: Capital of சிரியா, in Tamil.
+locale: ta
+---
+டமாஸ்கஸ்

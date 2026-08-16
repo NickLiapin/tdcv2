@@ -1,0 +1,5 @@
+---
+description: Currency code of சுவிட்சர்லாந்து.
+locale: ta
+---
+CHF

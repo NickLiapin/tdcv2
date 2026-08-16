@@ -1,0 +1,44 @@
+---
+description: Animal, general (Tamil). Led by the animals of the Tamil village and the Tamil forest — the யானை is a temple animal as much as a wild one, the ஜல்லிக்கட்டு காளை is a specific and named category of bull, and the மான், முயல் and கீரி are what a village child actually sees.
+locale: ta
+---
+நாய்
+பூனை
+மாடு
+எருமை
+காளை
+ஆடு
+செம்மறி ஆடு
+பன்றி
+கோழி
+வாத்து
+குதிரை
+கழுதை
+ஒட்டகம்
+யானை
+சிங்கம்
+புலி
+சிறுத்தை
+கரடி
+ஓநாய்
+நரி
+குள்ளநரி
+மான்
+கடமான்
+காட்டெருமை
+காட்டுப் பன்றி
+முயல்
+அணில்
+எலி
+கீரி
+குரங்கு
+கருங்குரங்கு
+வௌவால்
+முள்ளம்பன்றி
+உடும்பு
+பாம்பு
+நாகப்பாம்பு
+முதலை
+ஆமை
+டால்பின்
+திமிங்கிலம்

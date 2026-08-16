@@ -1,0 +1,23 @@
+---
+description: Court or tribunal, named in Tamil. This is the WORDS a language uses for kinds of court. The hierarchy named is India's, because that is where most Tamil speakers are, and it is stated here so the next reader is not guessing: Sri Lanka, Singapore and Malaysia have their own structures and those belong in their country packs. Two entries have no European counterpart at all — the லோக் அதாலத் is a statutory conciliation forum whose settlements are binding, and the கிராம நீதிமன்றம் is a mobile village court.
+locale: ta
+---
+உச்ச நீதிமன்றம்
+உயர் நீதிமன்றம்
+உயர் நீதிமன்றக் கிளை
+மாவட்ட நீதிமன்றம்
+அமர்வு நீதிமன்றம்
+குற்றவியல் நடுவர் நீதிமன்றம்
+குடிமை நீதிமன்றம்
+குடும்ப நல நீதிமன்றம்
+மகளிர் நீதிமன்றம்
+சிறார் நீதி வாரியம்
+வாணிப நீதிமன்றம்
+தொழிலாளர் நீதிமன்றம்
+வாடகைக் கட்டுப்பாட்டு நீதிமன்றம்
+நுகர்வோர் குறைதீர்க்கும் ஆணையம்
+லோக் அதாலத்
+கிராம நீதிமன்றம்
+வருமான வரி மேல்முறையீட்டு தீர்ப்பாயம்
+நிர்வாகத் தீர்ப்பாயம்
+தேசியப் பசுமைத் தீர்ப்பாயம்

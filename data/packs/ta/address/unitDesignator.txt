@@ -1,0 +1,29 @@
+---
+description: Tamil address unit or interior designator, written before its number. Four are specific to the Tamil-speaking world. கதவு எண். is the doorplate number and is what a Tamil Nadu address actually leads with, where English would write "No." புல எண். / சர்வே எண். is the revenue survey number that identifies a piece of rural land and appears in place of a street on farm addresses. த/பெ and க/பெ — abbreviations of தந்தை பெயர் and கணவர் பெயர் — are printed field labels on Tamil Nadu government forms, marking the father's-name and husband's-name slots that stand in for a surname; see person/lastName.txt. And மூலம், the Tamil c/o, carries a large share of real post, because delivery is routinely to a named householder rather than to a numbered flat.
+locale: ta
+---
+கதவு எண்.
+வீட்டு எண்.
+மனை எண்.
+புல எண்.
+சர்வே எண்.
+கடை எண்.
+அறை எண்.
+தளம்
+தரைத்தளம்
+முதல் தளம்
+இரண்டாம் தளம்
+மூன்றாம் தளம்
+தொகுதி
+கோபுரம்
+பிரிவு
+கட்டம்
+வார்டு
+அஞ்சல்
+அஞ்சல் பெட்டி எண்.
+மூலம்
+அருகில்
+எதிரில்
+பின்புறம்
+த/பெ
+க/பெ

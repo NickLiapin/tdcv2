@@ -1,0 +1,24 @@
+---
+description: Employee benefit (Tamil). வருங்கால வைப்பு நிதி (Provident Fund), பணிக்கொடை (Gratuity) and ஊழியர் அரசுக் காப்பீடு (ESI) are statutory in India and are the three benefits every Indian payslip mentions; a translated list built around a 401(k) will describe nothing a Tamil employee has.
+locale: ta
+---
+வருங்கால வைப்பு நிதி
+பணிக்கொடை
+ஊழியர் அரசுக் காப்பீடு
+மருத்துவக் காப்பீடு
+ஆயுள் காப்பீடு
+ஊதியத்துடன் கூடிய விடுப்பு
+மகப்பேறு விடுப்பு
+தந்தைமை விடுப்பு
+திருவிழா போனஸ்
+ஆண்டு போனஸ்
+போக்குவரத்துப் படி
+வீட்டு வாடகைப் படி
+மதிய உணவு வசதி
+இல்லத்திலிருந்து பணி
+நெகிழ்வு நேரம்
+பங்கு விருப்ப உரிமை
+கல்விக் கட்டண உதவி
+உடற்பயிற்சி கூட உறுப்பினர்
+குழந்தை பராமரிப்பு உதவி
+ஓய்வூதியத் திட்டம்

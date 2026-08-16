@@ -1,0 +1,5 @@
+---
+description: Currency of இத்தாலி, in Tamil.
+locale: ta
+---
+யூரோ

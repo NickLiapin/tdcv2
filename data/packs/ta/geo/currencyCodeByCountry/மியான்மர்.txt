@@ -1,0 +1,5 @@
+---
+description: Currency code of மியான்மர்.
+locale: ta
+---
+MMK

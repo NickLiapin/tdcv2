@@ -1,0 +1,5 @@
+---
+description: Currency of தாய்லாந்து, in Tamil.
+locale: ta
+---
+பாட்

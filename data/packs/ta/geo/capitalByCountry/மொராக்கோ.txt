@@ -1,0 +1,5 @@
+---
+description: Capital of மொராக்கோ, in Tamil.
+locale: ta
+---
+ரபாத்

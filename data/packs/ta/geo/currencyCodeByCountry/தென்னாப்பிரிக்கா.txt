@@ -1,0 +1,5 @@
+---
+description: Currency code of தென்னாப்பிரிக்கா.
+locale: ta
+---
+ZAR

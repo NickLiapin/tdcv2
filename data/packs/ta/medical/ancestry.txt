@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Tamil, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Tamils fall in தென் ஆசிய, and that file is the one to read for this pack.
+locale: ta
+---
+துணை-சகாரா ஆப்பிரிக்க
+வட ஆப்பிரிக்க
+மத்தியதரைக்கடல்
+மத்திய கிழக்கு
+வட ஐரோப்பிய
+கிழக்கு ஐரோப்பிய
+அஷ்கெனாசி யூத
+தென் ஆசிய
+கிழக்கு ஆசிய
+தென்கிழக்கு ஆசிய
+பூர்வகுடி அமெரிக்க
+பசிபிக் தீவு

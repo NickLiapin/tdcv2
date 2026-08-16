@@ -1,0 +1,20 @@
+---
+description: Bicycle type (Tamil). The Tamil bicycle is a work vehicle before it is a sport one — the roadster carrying milk cans or a load rack is by far the commonest type — so சுமை சைக்கிள் and நகர்ப்புற சைக்கிள் head the list rather than the racing forms.
+locale: ta
+---
+நகர்ப்புற சைக்கிள்
+சுமை சைக்கிள்
+சாலை சைக்கிள்
+மலை சைக்கிள்
+கலப்பு சைக்கிள்
+மின் சைக்கிள்
+மடிக்கும் சைக்கிள்
+சரளை சைக்கிள்
+சுற்றுப்பயண சைக்கிள்
+BMX சைக்கிள்
+குழந்தைகள் சைக்கிள்
+மூன்று சக்கர சைக்கிள்
+கை ரிக்ஷா சைக்கிள்
+படுத்த நிலை சைக்கிள்
+பருமன் டயர் சைக்கிள்
+சைக்கிள்-கிராஸ்

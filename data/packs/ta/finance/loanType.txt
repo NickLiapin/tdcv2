@@ -1,0 +1,16 @@
+---
+description: Loan type (Tamil). நகைக் கடன் — the gold loan, taken against household jewellery — is the single most common form of household credit in Tamil Nadu and has no equivalent in a European list. சுய உதவிக் குழுக் கடன் is the microcredit lent through women's self-help groups, also very large in volume.
+locale: ta
+---
+நகைக் கடன்
+வீட்டுக் கடன்
+வாகனக் கடன்
+தனிநபர் கடன்
+கல்விக் கடன்
+விவசாயக் கடன்
+வணிகக் கடன்
+சுய உதவிக் குழுக் கடன்
+நுண்கடன்
+சொத்து அடமானக் கடன்
+கடன் ஒருங்கிணைப்பு
+மேலதிக வரைவுக் கடன்

@@ -1,0 +1,5 @@
+---
+description: Currency code of ஐக்கிய இராச்சியம்.
+locale: ta
+---
+GBP

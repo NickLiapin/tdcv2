@@ -1,0 +1,5 @@
+---
+description: Capital of துருக்கி, in Tamil.
+locale: ta
+---
+அங்காரா

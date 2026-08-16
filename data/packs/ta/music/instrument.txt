@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Tamil). The head of the list is the Carnatic and Tamil temple ensemble, and three entries deserve a note. நாதஸ்வரம் with தவில் is the outdoor temple-and-wedding pair, the loudest non-brass wind instrument in the world, and no Tamil wedding happens without it. பறை is the frame drum whose players were historically the most stigmatised of Tamil castes and which is now deliberately reclaimed as a performance instrument by young Tamils. And யாழ் is the ancient Tamil harp, described in Sangam literature, extinct as a playing tradition and being reconstructed — the city of யாழ்ப்பாணம், Jaffna, is named after it.
+locale: ta
+---
+நாதஸ்வரம்
+தவில்
+மிருதங்கம்
+வீணை
+புல்லாங்குழல்
+வயலின்
+கடம்
+கஞ்சிரா
+மோர்சிங்
+தம்புரா
+மத்தளம்
+உடுக்கை
+பறை
+தப்பு
+தமுக்கு
+சேகண்டி
+ஜால்ரா
+தாளம்
+மகுடம்
+கொம்பு
+யாழ்
+ஹார்மோனியம்
+மேண்டலின்
+கிடார்
+மின் கிடார்
+பியானோ
+கீபோர்டு
+டிரம்ஸ்
+சாக்ஸஃபோன்
+கிளாரினெட்
+தபேலா

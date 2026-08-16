@@ -1,0 +1,21 @@
+---
+description: Weather phenomenon (Tamil). வடகிழக்குப் பருவமழை heads the list and is the fact a config about Tamil weather most needs: Tamil Nadu and northern Sri Lanka get most of their rain from the NORTHEAST monsoon in October to December, not from the southwest monsoon that waters the rest of India in June to September. கத்திரி வெயில் is the fierce dry heat of late April and May, named after the star Rohini and treated as a distinct season in ordinary speech. Bay of Bengal cyclones make landfall on this coast most years.
+locale: ta
+---
+வடகிழக்குப் பருவமழை
+தென்மேற்குப் பருவமழை
+கத்திரி வெயில்
+வெப்ப அலை
+புயல்
+கடும் புயல்
+சூறாவளி
+சூறைக்காற்று
+வெள்ளம்
+மின்னல்
+வறட்சி
+பனிப்பொழிவு
+ஆலங்கட்டி
+தூசிப் புயல்
+காட்டுத் தீ
+ஆழிப்பேரலை
+கடல் அரிப்பு

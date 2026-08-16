@@ -1,0 +1,28 @@
+---
+description: Film genre (Tamil). Four are Tamil cinema's own shelf labels and are used by audiences and reviewers alike: கிராமத்துப் படம் (the village film, a genre in its own right since the 1980s), குடும்பப் படம் (the family drama), மசாலா படம் (the deliberately mixed-mode commercial film) and பக்திப் படம் (the devotional). Tamil cinema is one of the largest film industries in the world by annual output and its genre vocabulary is not a translation of Hollywood's.
+locale: ta
+---
+ஆக்‌ஷன்
+நகைச்சுவை
+நாடகம்
+திகில்
+விறுவிறுப்பு
+காதல்
+அறிவியல் புனைவு
+கற்பனை
+ஆவணப்படம்
+அனிமேஷன்
+சாகசம்
+குற்றம்
+மர்மம்
+வரலாற்றுப் படம்
+சமூகப் படம்
+அரசியல் படம்
+கிராமத்துப் படம்
+குடும்பப் படம்
+மசாலா படம்
+பக்திப் படம்
+இசைப் படம்
+போர்ப் படம்
+வாழ்க்கை வரலாறு
+விளையாட்டுப் படம்

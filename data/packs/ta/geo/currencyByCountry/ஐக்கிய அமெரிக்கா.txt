@@ -1,0 +1,5 @@
+---
+description: Currency of ஐக்கிய அமெரிக்கா, in Tamil.
+locale: ta
+---
+அமெரிக்க டாலர்

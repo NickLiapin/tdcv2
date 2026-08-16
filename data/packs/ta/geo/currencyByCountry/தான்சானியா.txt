@@ -1,0 +1,5 @@
+---
+description: Currency of தான்சானியா, in Tamil.
+locale: ta
+---
+தான்சானிய ஷில்லிங்

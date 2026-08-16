@@ -1,0 +1,5 @@
+---
+description: Capital of தென் கொரியா, in Tamil.
+locale: ta
+---
+சியோல்

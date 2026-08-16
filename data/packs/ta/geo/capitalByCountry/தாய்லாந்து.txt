@@ -1,0 +1,5 @@
+---
+description: Capital of தாய்லாந்து, in Tamil.
+locale: ta
+---
+பாங்காக்

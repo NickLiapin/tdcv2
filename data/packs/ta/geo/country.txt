@@ -1,0 +1,65 @@
+---
+description: Country as Tamil names it, weighted by population in millions. Two of these are TRANSLATIONS rather than respellings and a config must not romanise them back: இலங்கை is Sri Lanka and is the ordinary Tamil word for the island, older than the English name and used unchanged in Tamil for two thousand years; மாலைத்தீவு is the Maldives and means literally "the garland of islands", from which the English name descends rather than the other way round. ஐக்கிய இராச்சியம் and ஐக்கிய அமெரிக்கா likewise contain no part of the English words — they mean "united kingdom" and "united America". Note also that Tamil renders Greece as கிரேக்கம் and Turkey as துருக்கி, both borrowed centuries ago through trade rather than through English. The five countries where Tamil is spoken at home in numbers — India, Sri Lanka, Singapore, Malaysia and Mauritius — are all present, and Fiji and Mauritius are carried despite tiny populations because they are where the nineteenth-century Tamil diaspora went.
+locale: ta
+weighted: true
+---
+இந்தியா,1430
+சீனா,1410
+ஐக்கிய அமெரிக்கா,335
+இந்தோனேசியா,277
+பாகிஸ்தான்,240
+நைஜீரியா,224
+பிரேசில்,216
+வங்காளதேசம்,173
+ரஷ்யா,144
+மெக்சிக்கோ,128
+ஜப்பான்,124
+எத்தியோப்பியா,126
+பிலிப்பீன்ஸ்,117
+எகிப்து,112
+வியட்நாம்,98
+ஈரான்,89
+துருக்கி,85
+ஜெர்மனி,84
+தாய்லாந்து,72
+ஐக்கிய இராச்சியம்,67
+பிரான்சு,68
+இத்தாலி,59
+தென்னாப்பிரிக்கா,60
+தான்சானியா,67
+மியான்மர்,54
+கென்யா,55
+தென் கொரியா,52
+கொலம்பியா,52
+ஸ்பெயின்,48
+உகாண்டா,48
+அர்கெந்தீனா,46
+அல்ஜீரியா,45
+ஈராக்,45
+ஆப்கானிஸ்தான்,42
+போலந்து,37
+கனடா,39
+மொராக்கோ,37
+சவூதி அரேபியா,37
+உக்ரைன்,36
+மலேசியா,34
+நேபாளம்,30
+ஏமன்,34
+வெனிசுவேலா,28
+ஆஸ்திரேலியா,27
+இலங்கை,22
+சிரியா,23
+கசக்ஸ்தான்,20
+நெதர்லாந்து,18
+கம்போடியா,17
+சிலி,20
+ஐக்கிய அரபு அமீரகம்,10
+இஸ்ரேல்,10
+சுவீடன்,11
+சுவிட்சர்லாந்து,9
+சிங்கப்பூர்,6
+நியூசிலாந்து,5
+அயர்லாந்து,5
+மொரிசியஸ்,1
+ஃபிஜி,1
+மாலைத்தீவு,1

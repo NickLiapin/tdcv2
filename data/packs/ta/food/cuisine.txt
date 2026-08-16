@@ -1,0 +1,21 @@
+---
+description: Cuisine (Tamil). Each value has a dishByCuisine child file. Nine of the seventeen are REGIONS OF THE TAMIL-SPEAKING WORLD rather than countries, because that is how Tamil food is actually named — there is no single dish called "Tamil curry", and Chettinad and Jaffna cooking have less in common with each other than Italian has with Greek. The four outside India are the point of the list: யாழ்ப்பாணம் and மலையகம் are the two Sri Lankan Tamil kitchens, distinct from each other because the Jaffna one is a coastal cuisine and the hill-country one grew up in the tea estates; மலேசியா and சிங்கப்பூர் are the diaspora kitchens, and they are not Indian food abroad — the மீன் தலைக் கறி was invented in Singapore, and ரொட்டி சானாய், தே தாரிக் and மீ கோரெங் are Tamil-Muslim Malaysian dishes with no Indian original. சீனா here means the Indo-Chinese idiom (கோபி மஞ்சூரியன், சில்லி பன்னீர்), not the food of China.
+locale: ta
+---
+செட்டிநாடு
+கொங்குநாடு
+மதுரை
+நெல்லை
+சென்னை
+தஞ்சாவூர்
+குமரி
+யாழ்ப்பாணம்
+மலையகம்
+மலேசியா
+சிங்கப்பூர்
+கேரளா
+ஆந்திரா
+வட இந்தியா
+சீனா
+இத்தாலி
+அரேபியா

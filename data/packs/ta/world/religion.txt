@@ -1,0 +1,27 @@
+---
+description: Religion or religious tradition, in Tamil, weighted toward the Tamil landscape rather than the Indian one. Three things differ from a north Indian list. First, Tamil Hinduism is overwhelmingly சைவம் — Saivism, with its own Tamil canon of Tevaram and Tiruvacakam and its sixty-three Nayanmar saints — and வைணவம் its Vaishnava counterpart with the Alvars; naming only "Hinduism" loses the distinction a Tamil respondent would make first. Second, குலதெய்வ வழிபாடு (family-deity worship) and the village gods அய்யனார், மாரியம்மன், முனீஸ்வரர் and கருப்பசாமி are not folklore beside the temple religion — an enormous number of Tamil families identify their own குலதெய்வம் by village and return to it, and it is a live answer to "what do you practise". Third, நாத்திகம் and பகுத்தறிவு are far larger and far better organised answers in Tamil Nadu than anywhere else in India, because Periyar's Self-Respect movement made atheism a public political position from the 1920s onward. சமணம் is included because Tamil Jains are an ancient community whose literature includes one of the five great Tamil epics. Christianity is at a higher share among Tamils than across India as a whole, in Tamil Nadu and in Sri Lanka alike. The list carries no weights.
+locale: ta
+---
+இந்து சமயம்
+சைவம்
+வைணவம்
+சாக்தம்
+குலதெய்வ வழிபாடு
+அய்யனார் வழிபாடு
+மாரியம்மன் வழிபாடு
+முனீஸ்வரர் வழிபாடு
+இஸ்லாம்
+கிறித்தவம்
+கத்தோலிக்கம்
+புராட்டஸ்தாந்து
+பௌத்தம்
+சமணம்
+சீக்கியம்
+யூத மதம்
+சரோஸ்திரம்
+பகாய்
+சித்தர் மரபு
+பகுத்தறிவு
+நாத்திகம்
+அஞ்ஞானவாதம்
+சமயம் சாராதவர்

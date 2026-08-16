@@ -1,0 +1,5 @@
+---
+description: Capital of ஃபிஜி, in Tamil.
+locale: ta
+---
+சுவா

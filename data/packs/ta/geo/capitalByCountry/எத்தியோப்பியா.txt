@@ -1,0 +1,5 @@
+---
+description: Capital of எத்தியோப்பியா, in Tamil.
+locale: ta
+---
+அடிஸ் அபாபா

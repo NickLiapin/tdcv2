@@ -1,0 +1,5 @@
+---
+description: Currency code of நெதர்லாந்து.
+locale: ta
+---
+EUR

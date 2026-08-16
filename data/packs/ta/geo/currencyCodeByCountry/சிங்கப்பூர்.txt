@@ -1,0 +1,5 @@
+---
+description: Currency code of சிங்கப்பூர்.
+locale: ta
+---
+SGD

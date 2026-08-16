@@ -1,0 +1,5 @@
+---
+description: Capital of கசக்ஸ்தான், in Tamil.
+locale: ta
+---
+அஸ்தானா

@@ -1,0 +1,32 @@
+---
+description: Tree (Tamil). ஆல் and அரசு (banyan and peepal) are the temple trees planted at village boundaries; பனை, the palmyra, is Tamil Nadu's state tree and northern Sri Lanka's economic backbone, giving sap, sugar, fruit, timber, thatch and the ஓலை leaf that Tamil literature was written on for two thousand years; வேம்பு, the neem, is planted at almost every Tamil house. கடம்பு and புன்னை are the sacred trees of specific temples.
+locale: ta
+---
+ஆல்
+அரசு
+வேம்பு
+பனை
+தென்னை
+மா
+பலா
+புளி
+இலுப்பை
+வாகை
+கொன்றை
+மருதம்
+நாவல்
+நெல்லி
+வில்வம்
+கடம்பு
+புன்னை
+சந்தனம்
+தேக்கு
+வேங்கை
+ஈட்டி
+சவுக்கு
+யூகலிப்டஸ்
+முருங்கை
+கருவேலம்
+சீமைக் கருவேல்
+அத்தி
+பூவரசு

@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Tamil). Note that the Indian financial year runs April to March, so a Tamil Nadu company's முதல் காலாண்டு is April-June and not January-March; Sri Lanka and Singapore use the calendar year and Malaysia the calendar year, so the same label means different months in the four Tamil-speaking countries.
+locale: ta
+---
+முதல் காலாண்டு
+இரண்டாம் காலாண்டு
+மூன்றாம் காலாண்டு
+நான்காம் காலாண்டு

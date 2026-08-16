@@ -1,0 +1,21 @@
+---
+description: Social media platform. Brand names keep their real spelling. WhatsApp leads because it genuinely does — it is where Tamil family and neighbourhood life happens online.
+locale: ta
+---
+WhatsApp
+YouTube
+Instagram
+Facebook
+X
+Telegram
+Threads
+ShareChat
+Moj
+Snapchat
+LinkedIn
+Reddit
+Pinterest
+Discord
+TikTok
+Josh
+Koo

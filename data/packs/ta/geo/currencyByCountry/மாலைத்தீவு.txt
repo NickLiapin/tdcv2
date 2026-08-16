@@ -1,0 +1,5 @@
+---
+description: Currency of மாலைத்தீவு, in Tamil.
+locale: ta
+---
+ருஃபியா

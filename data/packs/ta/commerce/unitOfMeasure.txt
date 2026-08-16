@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Tamil). படி and மரக்கால் are the traditional Tamil grain volume measures and are still heard in village markets; a config generating modern invoices should use கிலோ and லிட்டர். டஜன் and அடி are the loans that everyday Tamil actually uses.
+locale: ta
+---
+எண்ணிக்கை
+பெட்டி
+அட்டைப் பெட்டி
+பொட்டலம்
+டஜன்
+ஜோடி
+தொகுப்பு
+சுருள்
+கட்டு
+மூட்டை
+கிலோ
+கிராம்
+குவிண்டால்
+டன்
+லிட்டர்
+மில்லி லிட்டர்
+மீட்டர்
+சென்டிமீட்டர்
+அடி
+அங்குலம்
+முழம்
+படி
+மரக்கால்
+குடம்
+தட்டு
+கிண்ணம்
+கைப்பிடி
+சதுர அடி
+சென்ட்
+ஏக்கர்

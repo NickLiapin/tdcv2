@@ -1,0 +1,5 @@
+---
+description: Currency of பிரான்சு, in Tamil.
+locale: ta
+---
+யூரோ

@@ -1,0 +1,5 @@
+---
+description: Currency code of துருக்கி.
+locale: ta
+---
+TRY

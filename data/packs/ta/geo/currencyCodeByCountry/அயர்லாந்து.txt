@@ -1,0 +1,5 @@
+---
+description: Currency code of அயர்லாந்து.
+locale: ta
+---
+EUR

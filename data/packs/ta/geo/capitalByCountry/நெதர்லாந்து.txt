@@ -1,0 +1,5 @@
+---
+description: Capital of நெதர்லாந்து, in Tamil.
+locale: ta
+---
+ஆம்ஸ்டர்டாம்

@@ -1,0 +1,5 @@
+---
+description: Currency code of பிரேசில்.
+locale: ta
+---
+BRL

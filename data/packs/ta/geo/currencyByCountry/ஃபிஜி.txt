@@ -1,0 +1,5 @@
+---
+description: Currency of ஃபிஜி, in Tamil.
+locale: ta
+---
+ஃபிஜி டாலர்

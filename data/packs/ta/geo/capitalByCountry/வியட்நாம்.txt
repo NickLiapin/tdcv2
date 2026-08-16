@@ -1,0 +1,5 @@
+---
+description: Capital of வியட்நாம், in Tamil.
+locale: ta
+---
+ஹனோய்

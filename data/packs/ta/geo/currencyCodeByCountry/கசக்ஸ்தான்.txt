@@ -1,0 +1,5 @@
+---
+description: Currency code of கசக்ஸ்தான்.
+locale: ta
+---
+KZT

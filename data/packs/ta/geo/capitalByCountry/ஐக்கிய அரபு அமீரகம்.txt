@@ -1,0 +1,5 @@
+---
+description: Capital of ஐக்கிய அரபு அமீரகம், in Tamil.
+locale: ta
+---
+அபுதாபி

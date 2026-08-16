@@ -1,0 +1,5 @@
+---
+description: Currency code of ஸ்பெயின்.
+locale: ta
+---
+EUR

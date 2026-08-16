@@ -1,0 +1,5 @@
+---
+description: Capital of ஐக்கிய அமெரிக்கா, in Tamil.
+locale: ta
+---
+வாஷிங்டன்

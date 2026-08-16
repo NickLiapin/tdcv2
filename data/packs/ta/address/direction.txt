@@ -1,0 +1,23 @@
+---
+description: Directional qualifier used with a Tamil locality or street name. The four மாட வீதி values are specifically Tamil and are not a stylistic flourish: a Tamil temple town is laid out as concentric rectangles of streets around the sanctum, and வடக்கு / தெற்கு / கிழக்கு / மேற்கு மாட வீதி is the literal postal address of a large number of real houses in Madurai, Kumbakonam, Chidambaram and every other temple town. கீழ் and மேல் (lower and upper) also work as fixed halves of a settlement name rather than as slopes.
+locale: ta
+---
+வடக்கு
+தெற்கு
+கிழக்கு
+மேற்கு
+வடகிழக்கு
+வடமேற்கு
+தென்கிழக்கு
+தென்மேற்கு
+மத்திய
+மேல்
+கீழ்
+உள்
+வெளி
+முன்
+பின்
+வடக்கு மாட வீதி
+தெற்கு மாட வீதி
+கிழக்கு மாட வீதி
+மேற்கு மாட வீதி

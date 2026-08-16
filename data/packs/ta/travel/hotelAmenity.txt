@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Tamil). தென்னிந்திய காலை உணவு is listed separately from breakfast in general because it is a distinct offering a Tamil hotel advertises, and சைவ உணவகம் — a strictly vegetarian kitchen — is a decisive booking criterion for a large share of Tamil travellers rather than a preference.
+locale: ta
+---
+இலவச வைஃபை
+குளிர்சாதன வசதி
+சூடான நீர்
+நீச்சல் குளம்
+உடற்பயிற்சி கூடம்
+ஸ்பா
+உணவகம்
+சைவ உணவகம்
+தென்னிந்திய காலை உணவு
+இலவச காலை உணவு
+அறைக்கே உணவு
+மதுபான அரங்கம்
+விமான நிலைய வாகன வசதி
+வாகன நிறுத்துமிடம்
+மின்தூக்கி
+சலவை சேவை
+வரவேற்பு மேசை 24 மணி நேரம்
+மாநாட்டு அறை
+வணிக மையம்
+செல்லப்பிராணி அனுமதி
+மொட்டை மாடி உணவகம்
+கடற்கரை அணுகல்
+குழந்தைகள் விளையாட்டிடம்
+மின்மாற்று வசதி
+பாதுகாப்புப் பெட்டகம்
+யோகா கூடம்
+ஆயுர்வேத மையம்
+பயண ஏற்பாடு
+கோயில் பயண ஏற்பாடு
+சக்கர நாற்காலி வசதி

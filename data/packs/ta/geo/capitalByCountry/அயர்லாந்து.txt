@@ -1,0 +1,5 @@
+---
+description: Capital of அயர்லாந்து, in Tamil.
+locale: ta
+---
+டப்ளின்

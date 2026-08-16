@@ -1,0 +1,5 @@
+---
+description: Capital of சுவிட்சர்லாந்து, in Tamil.
+locale: ta
+---
+பெர்ன்

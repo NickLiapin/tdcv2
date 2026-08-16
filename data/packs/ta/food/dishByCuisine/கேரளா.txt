@@ -1,0 +1,11 @@
+---
+description: Dishes of கேரளா cooking, named in Tamil.
+locale: ta
+---
+புட்டு கடலைக் கறி
+அப்பம்
+மீன் மொய்லி
+அவியல்
+கேரளா பரோட்டா
+பால் பாயசம்
+ஓலன்

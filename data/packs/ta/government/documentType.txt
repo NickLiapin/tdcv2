@@ -1,0 +1,29 @@
+---
+description: Official identity, civil-registration and revenue document, named in Tamil. ஆதார் and பான் are the two documents almost every Indian record keys on; the ration card is the household document that a very large number of Tamil families use as proof of address. பட்டா and சிட்டா are the land-title and land-extract documents of the Tamil Nadu revenue system and have no equivalent outside it. The list names kinds of document, not one country's issuing formats — the actual number layouts belong in the country packs.
+locale: ta
+---
+ஆதார் அட்டை
+பான் அட்டை
+வாக்காளர் அடையாள அட்டை
+குடும்ப அட்டை
+ஓட்டுநர் உரிமம்
+கடவுச்சீட்டு
+நுழைவு இசைவு
+பிறப்புச் சான்றிதழ்
+இறப்புச் சான்றிதழ்
+திருமணச் சான்றிதழ்
+குடியிருப்புச் சான்றிதழ்
+சாதிச் சான்றிதழ்
+வருமானச் சான்றிதழ்
+மாற்றுத்திறனாளி அடையாள அட்டை
+நடத்தைச் சான்றிதழ்
+மாற்றுச் சான்றிதழ்
+பட்டா
+சிட்டா
+அடங்கல்
+சொத்து வரி ரசீது
+வாகனப் பதிவுச் சான்றிதழ்
+கட்டட அனுமதி
+கடை மற்றும் நிறுவனப் பதிவு
+ஜி.எஸ்.டி. பதிவுச் சான்றிதழ்
+வருமான வரி தாக்கல்

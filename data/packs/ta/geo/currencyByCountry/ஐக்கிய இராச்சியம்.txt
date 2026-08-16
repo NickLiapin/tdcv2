@@ -1,0 +1,5 @@
+---
+description: Currency of ஐக்கிய இராச்சியம், in Tamil.
+locale: ta
+---
+ஸ்டெர்லிங் பவுண்டு

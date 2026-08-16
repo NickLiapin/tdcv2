@@ -1,0 +1,5 @@
+---
+description: Capital of மியான்மர், in Tamil.
+locale: ta
+---
+நேபிடா

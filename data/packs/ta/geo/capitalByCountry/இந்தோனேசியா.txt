@@ -1,0 +1,5 @@
+---
+description: Capital of இந்தோனேசியா, in Tamil.
+locale: ta
+---
+ஜகார்த்தா

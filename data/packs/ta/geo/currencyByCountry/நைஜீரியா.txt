@@ -1,0 +1,5 @@
+---
+description: Currency of நைஜீரியா, in Tamil.
+locale: ta
+---
+நைரா

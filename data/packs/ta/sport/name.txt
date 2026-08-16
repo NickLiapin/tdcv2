@@ -1,0 +1,54 @@
+---
+description: Sport (Tamil). The head of the list is what is actually played and watched in the Tamil country. Four entries have no equivalent anywhere else: சிலம்பம் is the Tamil staff-fighting martial art, now a recognised sport with graded competition; ஜல்லிக்கட்டு is the bull-embracing contest of the Pongal festival, which in 2017 produced the largest civil protest in Tamil Nadu's recent history when it was banned; ஏறுதழுவல் is its older Tamil name; and உறியடி and கிட்டிப்புள் are village games still organised at temple festivals. வள்ளம் ஓட்டம் is the Onam-season snake-boat racing of the far south and Kerala border.
+locale: ta
+---
+கிரிக்கெட்
+கால்பந்து
+கபடி
+கோகோ
+கைப்பந்து
+கூடைப்பந்து
+ஹாக்கி
+வலைப்பந்து
+பூப்பந்து
+மேசைப்பந்து
+டென்னிஸ்
+தடகளம்
+ஓட்டப்பந்தயம்
+மாரத்தான்
+நீச்சல்
+சைக்கிள் பந்தயம்
+குத்துச்சண்டை
+மல்யுத்தம்
+சிலம்பம்
+கராத்தே
+ஜூடோ
+தற்காப்புக் கலை
+சதுரங்கம்
+கரம்போர்டு
+பளுதூக்குதல்
+உடற்பயிற்சிக் கலை
+வில்வித்தை
+துப்பாக்கிச் சுடுதல்
+வாள்வீச்சு
+குதிரையேற்றம்
+படகுப் போட்டி
+வள்ளம் ஓட்டம்
+படகோட்டம்
+கயிறு இழுத்தல்
+ஜல்லிக்கட்டு
+ஏறுதழுவல்
+உறியடி
+கிட்டிப்புள்
+பம்பரம்
+கோலி விளையாட்டு
+ஸ்குவாஷ்
+கோல்ஃப்
+ரக்பி
+பேஸ்பால்
+கைப்பந்தாட்டம்
+பனிச்சறுக்கு
+சர்ஃபிங்
+ஸ்கேட்போர்டு
+ரோலர் சறுக்கு
+மோட்டார் பந்தயம்

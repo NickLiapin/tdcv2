@@ -1,0 +1,10 @@
+---
+description: Dishes of இத்தாலி cooking, named in Tamil.
+locale: ta
+---
+பீட்சா
+பாஸ்தா
+லசான்யா
+ரிசொட்டோ
+திரமிசு
+மினஸ்ட்ரோன்

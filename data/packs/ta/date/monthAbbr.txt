@@ -1,0 +1,16 @@
+---
+description: Gregorian month abbreviation in Tamil. மே, ஜூன் and ஜூலை are already short and are not abbreviated further; the rest take a full stop.
+locale: ta
+---
+ஜன.
+பிப்.
+மார்.
+ஏப்.
+மே
+ஜூன்
+ஜூலை
+ஆக.
+செப்.
+அக்.
+நவ.
+டிச.

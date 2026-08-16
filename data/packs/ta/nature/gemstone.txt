@@ -1,0 +1,29 @@
+---
+description: Gemstone (Tamil). The first nine are the நவரத்தினம், the nine gems of Indian astrology, each tied to one of the nine planets and worn as a remedy — that grouping is why they are named together in Tamil and it has no European counterpart.
+locale: ta
+---
+மாணிக்கம்
+முத்து
+பவளம்
+மரகதம்
+புஷ்பராகம்
+வைரம்
+நீலம்
+கோமேதகம்
+வைடூரியம்
+கெம்பு
+சூரியகாந்தக் கல்
+சந்திரகாந்தக் கல்
+ஜாதிலிங்கம்
+படிகம்
+ருத்திராட்சம்
+ஆபிரணம்
+டோபாஸ்
+ஓபல்
+அமெதிஸ்ட்
+அக்குவாமரின்
+டர்க்குவாய்ஸ்
+ஜேட்
+ஓனிக்ஸ்
+கார்னெட்
+சிர்கான்

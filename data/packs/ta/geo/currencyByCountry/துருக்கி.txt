@@ -1,0 +1,5 @@
+---
+description: Currency of துருக்கி, in Tamil.
+locale: ta
+---
+துருக்கிய லிரா

@@ -1,0 +1,5 @@
+---
+description: Capital of உகாண்டா, in Tamil.
+locale: ta
+---
+கம்பாலா

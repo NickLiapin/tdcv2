@@ -1,0 +1,5 @@
+---
+description: Capital of ஜப்பான், in Tamil.
+locale: ta
+---
+டோக்கியோ

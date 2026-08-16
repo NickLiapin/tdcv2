@@ -1,0 +1,15 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child). ஜவுளி — textiles — is an eleventh entry the reference pack does not have, and it is here because it is not a generic sector in the Tamil country: Tiruppur makes a large share of India's knitwear exports, Coimbatore is a mill city, Karur makes home textiles, Kanchipuram and Arani weave silk on handlooms, and "weaver" is a real and common occupation rather than a heritage craft.
+locale: ta
+---
+தகவல் தொழில்நுட்பம்
+சுகாதாரம்
+நிதி
+கட்டுமானம்
+கல்வி
+விருந்தோம்பல்
+உற்பத்தி
+சில்லறை வணிகம்
+போக்குவரத்து
+சட்டம்
+ஜவுளி

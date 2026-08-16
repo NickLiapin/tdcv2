@@ -1,0 +1,5 @@
+---
+description: Currency code of தான்சானியா.
+locale: ta
+---
+TZS

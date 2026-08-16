@@ -1,0 +1,34 @@
+---
+description: Budget or spending category (Tamil). சீட்டு (the rotating savings chit fund) and கோயில் காணிக்கை / சடங்குச் செலவு are ordinary line items in a Tamil household budget and would be missing from a translated European list; a Tamil wedding is one of the largest single expenditures a family makes.
+locale: ta
+---
+வீட்டு வாடகை
+வீட்டுக் கடன் தவணை
+மளிகைச் சாமான்
+மின்சாரம்
+குடிநீர்
+சமையல் எரிவாயு
+போக்குவரத்து
+எரிபொருள்
+கைபேசி மற்றும் இணையம்
+மருத்துவம்
+காப்பீடு
+பள்ளிக் கட்டணம்
+கல்லூரிக் கட்டணம்
+சிறப்புப் பயிற்சி
+ஆடை
+வெளியில் சாப்பிடுதல்
+பொழுதுபோக்கு
+சந்தா சேவைகள்
+சேமிப்பு
+சீட்டு
+தங்கம் சேமிப்பு
+முதலீடு
+கடன் திருப்பிச் செலுத்துதல்
+குழந்தை பராமரிப்பு
+பயணம்
+பரிசுகள்
+கோயில் காணிக்கை
+சடங்குச் செலவு
+திருமணச் சேமிப்பு
+வீட்டுப் பராமரிப்பு

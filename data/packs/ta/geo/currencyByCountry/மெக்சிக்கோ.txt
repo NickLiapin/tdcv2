@@ -1,0 +1,5 @@
+---
+description: Currency of மெக்சிக்கோ, in Tamil.
+locale: ta
+---
+மெக்சிக்கன் பெசோ

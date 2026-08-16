@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Tamil that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis. See that file on the language of Tamil clinical records.
+locale: ta
+---
+விரிவடைந்த புரோஸ்டேட்
+புரோஸ்டேட் அழற்சி
+புரோஸ்டேட் புற்றுநோய்
+விந்தக புற்றுநோய்
+விந்தக முறுக்கம்
+விதைநாள வீக்கம்
+விதைப்பை நீர்க்கட்டி
+விதைப்பை அழற்சி
+இறங்காத விந்தகம்
+நுனித்தோல் இறுக்கம்
+நுனித்தோல் அழற்சி
+ஆண்மைக் குறைவு
+பெய்ரோனி நோய்
+ஆண் மலட்டுத்தன்மை
+ஆண் மார்பக விரிவு
+ஆண் ஹார்மோன் குறைபாடு
+நீடித்த ஆண்குறி விறைப்பு
+விந்து நீர்க்கட்டி
+ஆண் வழுக்கை
+விதைப்பைக் குடல் இறக்கம்

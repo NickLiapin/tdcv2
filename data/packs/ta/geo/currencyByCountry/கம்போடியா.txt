@@ -1,0 +1,5 @@
+---
+description: Currency of கம்போடியா, in Tamil.
+locale: ta
+---
+ரியல்

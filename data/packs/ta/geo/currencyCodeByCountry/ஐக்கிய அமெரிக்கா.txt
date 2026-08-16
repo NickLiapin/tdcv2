@@ -1,0 +1,5 @@
+---
+description: Currency code of ஐக்கிய அமெரிக்கா.
+locale: ta
+---
+USD

@@ -1,0 +1,21 @@
+---
+description: Truck cargo or trailer type (Tamil). The list is what Tamil Nadu and Sri Lankan road freight actually carries rather than a translated US list: cement, granite blocks, sugarcane and paddy move by road in enormous volume, and the tanker fleet is largely milk and edible oil.
+locale: ta
+---
+பொதுச் சரக்கு
+குளிர்பதன சரக்கு
+திறந்த தளம்
+தொட்டி வாகனம்
+கால்நடை
+ஆபத்தான பொருள்
+கொள்கலன்
+கார் கேரியர்
+கனரகப் பொறி
+கழிவுத் தூக்கி
+சிமெண்ட்
+கருங்கல் பாளம்
+கரும்பு
+நெல் மூட்டை
+பால் தொட்டி
+சமையல் எண்ணெய் தொட்டி
+மரக்கட்டை

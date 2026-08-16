@@ -1,0 +1,5 @@
+---
+description: Capital of பாகிஸ்தான், in Tamil.
+locale: ta
+---
+இஸ்லாமாபாத்

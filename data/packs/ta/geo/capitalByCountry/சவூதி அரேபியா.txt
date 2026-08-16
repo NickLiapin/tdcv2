@@ -1,0 +1,5 @@
+---
+description: Capital of சவூதி அரேபியா, in Tamil.
+locale: ta
+---
+ரியாத்

@@ -1,0 +1,5 @@
+---
+description: Currency of வியட்நாம், in Tamil.
+locale: ta
+---
+டோங்

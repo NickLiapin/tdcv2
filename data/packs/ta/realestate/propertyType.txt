@@ -1,0 +1,23 @@
+---
+description: Property type (Tamil). தனி வீடு (the independent house on its own plot) is the dominant form outside the big cities, and மனை — a bare plot sold for building — is one of the commonest real-estate transactions in Tamil Nadu; a listing set that offers only flats and villas will describe a small slice of the market.
+locale: ta
+---
+தனி வீடு
+இரட்டை வீடு
+குடியிருப்பு
+அடுக்குமாடி குடியிருப்பு
+வில்லா
+வரிசை வீடு
+பங்களா
+பண்ணை வீடு
+ஓட்டு வீடு
+சிறு அறை வீடு
+மனை
+விவசாய நிலம்
+தென்னந்தோப்பு
+வணிக இடம்
+கடை
+அலுவலக இடம்
+கிடங்கு
+தொழிற்சாலை இடம்
+விடுதி அறை

@@ -1,0 +1,36 @@
+---
+description: Adverb (Tamil). Tamil forms most adverbs by adding -ஆக to an adjective or noun (விரைவு → விரைவாக, அமைதி → அமைதியாக), so the adverb is transparently derived and a config that needs one can build it rather than store it.
+locale: ta
+---
+விரைவாக
+மெதுவாக
+கவனமாக
+எளிதாக
+அமைதியாக
+சத்தமாக
+எப்போதும்
+ஒருபோதும்
+அடிக்கடி
+சில சமயங்களில்
+அரிதாக
+திடீரென
+மெல்ல
+தெளிவாக
+எளிமையாக
+கிட்டத்தட்ட
+முழுமையாக
+பகுதியாக
+பெரும்பாலும்
+உண்மையாக
+ஆழமாக
+விரிவாக
+சுதந்திரமாக
+தைரியமாக
+ஆர்வமாக
+உறுதியாக
+மகிழ்ச்சியாக
+அன்பாக
+நேரடியாக
+மறைமுகமாக
+இப்போது
+பின்னர்

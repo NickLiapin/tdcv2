@@ -1,0 +1,15 @@
+---
+description: Marital status (Tamil). An Indian, Sri Lankan or Singaporean form written in Tamil usually offers only the first two; the rest are the words a longer register uses. Tamil distinguishes the widowed by the spouse lost — கணவரை இழந்தவர் is a woman who lost her husband, மனைவியை இழந்தவர் a man who lost his wife — so a single "widowed" value cannot be produced without knowing the row's gender. விதவை, the old blunt word for a widow, carries a weight of social stigma that the neutral phrases do not, and a config generating administrative data should prefer the phrases.
+locale: ta
+---
+திருமணமாகாதவர்
+திருமணமானவர்
+விவாகரத்து பெற்றவர்
+கணவரை இழந்தவர்
+மனைவியை இழந்தவர்
+விதவை
+பிரிந்து வாழ்பவர்
+நிச்சயிக்கப்பட்டவர்
+மறுமணம் செய்தவர்
+சேர்ந்து வாழ்பவர்
+கூறப்படவில்லை

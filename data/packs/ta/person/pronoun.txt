@@ -1,0 +1,19 @@
+---
+description: Personal pronoun (Tamil). Two distinctions here have no English equivalent and no European-locale equivalent either. First, CLUSIVITY: நாங்கள் is "we, not including you" and நாம் is "we, including you", and Tamil speakers keep them apart rigorously — a form that says நாம் is addressing the reader as one of the group. Second, the honorific third person அவர் is GENDER-NEUTRAL: அவன் is he and அவள் is she, but the respectful அவர் covers both, so Tamil is unlike Hindi (where no third-person pronoun is gendered at all) and unlike English (where the polite form is gendered). The இ- forms (இவன், இவள், இவர், இது) are the proximate series — "this one here" against அ- "that one there" — a two-way deictic contrast Tamil marks on every demonstrative.
+locale: ta
+---
+நான்
+நாங்கள்
+நாம்
+நீ
+நீங்கள்
+அவன்
+அவள்
+அவர்
+அது
+அவர்கள்
+அவை
+இவன்
+இவள்
+இவர்
+இது

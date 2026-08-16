@@ -1,0 +1,5 @@
+---
+description: Currency of இந்தியா, in Tamil.
+locale: ta
+---
+இந்திய ரூபாய்

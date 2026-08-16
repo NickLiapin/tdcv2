@@ -1,0 +1,24 @@
+---
+description: Trip type (Tamil). கோயில் யாத்திரை — the temple pilgrimage circuit — is one of the largest categories of domestic Tamil travel, and சொந்த ஊர் பயணம் (the journey back to the ancestral village for a festival or a family deity ceremony) is a distinct trip type that a European list has no name for.
+locale: ta
+---
+வணிகப் பயணம்
+சுற்றுலா
+குடும்பப் பயணம்
+தேனிலவு
+கோயில் யாத்திரை
+சொந்த ஊர் பயணம்
+திருமணப் பயணம்
+சாகசப் பயணம்
+மலைப் பயணம்
+கடற்கரை விடுமுறை
+சாலைப் பயணம்
+கப்பல் பயணம்
+முதுகுப்பைப் பயணம்
+நகர்ப் பயணம்
+குழுப் பயணம்
+தனிநபர் பயணம்
+மருத்துவப் பயணம்
+கல்விச் சுற்றுலா
+விளையாட்டுப் பயணம்
+மாநாட்டுப் பயணம்
