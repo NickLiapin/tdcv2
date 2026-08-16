@@ -1,0 +1,5 @@
+---
+description: Currency of റഷ്യ, in Malayalam.
+locale: ml
+---
+റഷ്യൻ റൂബിൾ

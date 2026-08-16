@@ -1,0 +1,14 @@
+---
+description: Marital status in Malayalam. Unlike English, most of these INFLECT FOR GENDER and the list carries both forms: -അൻ (chillu ൻ) is masculine and -അ feminine, so അവിവാഹിതൻ / അവിവാഹിത and വിവാഹിതൻ / വിവാഹിത are one status in two shapes. A config that pairs a status with a gender column must pick the matching form; drawing this list at random beside person/gender.txt will contradict itself on about half the rows.
+locale: ml
+---
+അവിവാഹിതൻ
+അവിവാഹിത
+വിവാഹിതൻ
+വിവാഹിത
+വിവാഹമോചിതൻ
+വിവാഹമോചിത
+വിധവ
+വിഭാര്യൻ
+വേർപിരിഞ്ഞു ജീവിക്കുന്നു
+വിവാഹനിശ്ചയം കഴിഞ്ഞു

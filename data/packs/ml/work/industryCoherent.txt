@@ -1,0 +1,14 @@
+---
+description: Industry, the parent of work/jobByIndustry/. ആരോഗ്യരംഗം is the sector that defines Kerala's labour export: the state trains a large share of India's nurses and sends them to the Gulf, Europe and North America, so a Kerala employment dataset with healthcare as a minor sector has the state wrong.
+locale: ml
+---
+സാങ്കേതികവിദ്യ
+ആരോഗ്യരംഗം
+ധനകാര്യം
+നിർമാണം
+വിദ്യാഭ്യാസം
+ആതിഥ്യം
+ഉൽപാദനം
+ചില്ലറവ്യാപാരം
+ഗതാഗതം
+നിയമം

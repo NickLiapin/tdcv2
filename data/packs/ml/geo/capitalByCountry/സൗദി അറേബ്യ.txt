@@ -1,0 +1,5 @@
+---
+description: Capital of സൗദി അറേബ്യ, in Malayalam.
+locale: ml
+---
+റിയാദ്

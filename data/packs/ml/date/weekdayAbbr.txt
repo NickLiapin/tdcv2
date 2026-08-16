@@ -1,0 +1,11 @@
+---
+description: Short Malayalam weekday names — the planet stem with -ആഴ്ച dropped, which is how a calendar grid or a timetable prints them.
+locale: ml
+---
+തിങ്കൾ
+ചൊവ്വ
+ബുധൻ
+വ്യാഴം
+വെള്ളി
+ശനി
+ഞായർ

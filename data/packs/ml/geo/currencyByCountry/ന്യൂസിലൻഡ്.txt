@@ -1,0 +1,5 @@
+---
+description: Currency of ന്യൂസിലൻഡ്, in Malayalam.
+locale: ml
+---
+ന്യൂസിലൻഡ് ഡോളർ

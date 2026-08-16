@@ -1,0 +1,9 @@
+---
+description: Playing positions in ബാസ്കറ്റ്ബോൾ, in Malayalam.
+locale: ml
+---
+പോയിന്റ് ഗാർഡ്
+ഷൂട്ടിംഗ് ഗാർഡ്
+സ്മോൾ ഫോർവേഡ്
+പവർ ഫോർവേഡ്
+സെന്റർ

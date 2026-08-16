@@ -1,0 +1,25 @@
+---
+description: Company legal forms as Indian law defines them. There is no Inc or LLC: the Indian forms are പ്രൈവറ്റ് ലിമിറ്റഡ്, പബ്ലിക് ലിമിറ്റഡ് and എൽഎൽപി, and the co-operative society (സഹകരണ സംഘം) is a major form of enterprise in Kerala specifically — the state's banks, hospitals and coir units are full of them.
+locale: ml
+---
+പ്രൈവറ്റ് ലിമിറ്റഡ്
+ലിമിറ്റഡ്
+പബ്ലിക് ലിമിറ്റഡ്
+എൽഎൽപി
+പാർട്ണർഷിപ്പ്
+ഏക ഉടമസ്ഥത
+സഹകരണ സംഘം
+ട്രസ്റ്റ്
+സൊസൈറ്റി
+ഗ്രൂപ്പ്
+ഹോൾഡിംഗ്സ്
+എന്റർപ്രൈസസ്
+ഇൻഡസ്ട്രീസ്
+ട്രേഡേഴ്സ്
+ഏജൻസീസ്
+അസോസിയേറ്റ്സ്
+ഇന്റർനാഷണൽ
+സൊല്യൂഷൻസ്
+സിസ്റ്റംസ്
+ടെക്നോളജീസ്
+ആൻഡ് സൺസ്

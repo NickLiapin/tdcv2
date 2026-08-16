@@ -1,0 +1,11 @@
+---
+description: Malayalam weekday names in full. Each ends in -ആഴ്ച ("day of the week"); the bare stem without it is the abbreviated form and is in date/weekdayAbbr.txt. The week is named for the same seven planets as the Latin one, in the same order.
+locale: ml
+---
+തിങ്കളാഴ്ച
+ചൊവ്വാഴ്ച
+ബുധനാഴ്ച
+വ്യാഴാഴ്ച
+വെള്ളിയാഴ്ച
+ശനിയാഴ്ച
+ഞായറാഴ്ച

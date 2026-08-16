@@ -1,0 +1,5 @@
+---
+description: Currency of ശ്രീലങ്ക, in Malayalam.
+locale: ml
+---
+ശ്രീലങ്കൻ രൂപ

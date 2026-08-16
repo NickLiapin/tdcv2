@@ -1,0 +1,15 @@
+---
+description: Booking status in Malayalam. ആർഎസി and വെയ്റ്റിംഗ് ലിസ്റ്റ് are Indian Railways statuses with no Western equivalent: RAC means a confirmed seat but a shared berth, and it is a normal state for a Kerala traveller's ticket.
+locale: ml
+---
+സ്ഥിരീകരിച്ചു
+ആർഎസി
+വെയ്റ്റിംഗ് ലിസ്റ്റ്
+തീർപ്പാക്കാത്തത്
+റദ്ദാക്കി
+ചെക്ക് ഇൻ ചെയ്തു
+ചെക്ക് ഔട്ട് ചെയ്തു
+ഹാജരായില്ല
+മാറ്റം വരുത്തി
+പണം തിരികെ നൽകി
+കാലഹരണപ്പെട്ടു

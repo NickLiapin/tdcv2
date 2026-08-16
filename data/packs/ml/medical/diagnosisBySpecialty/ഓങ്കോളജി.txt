@@ -1,0 +1,10 @@
+---
+description: Common diagnoses in ഓങ്കോളജി, in Malayalam.
+locale: ml
+---
+സ്തനാർബുദം
+ശ്വാസകോശ അർബുദം
+വൻകുടൽ അർബുദം
+രക്താർബുദം
+ലിംഫോമ
+മെലനോമ

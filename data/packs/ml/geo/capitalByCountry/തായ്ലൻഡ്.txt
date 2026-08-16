@@ -1,0 +1,5 @@
+---
+description: Capital of തായ്ലൻഡ്, in Malayalam.
+locale: ml
+---
+ബാങ്കോക്ക്

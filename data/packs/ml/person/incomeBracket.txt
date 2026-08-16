@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Malayalam. The currency is the Indian rupee (രൂപ), India being the one country where Malayalam is an official language. The units are the Indian ones and they are not thousands and millions: ലക്ഷം is 100 000 and കോടി is 10 000 000, so the grouping is by 2, 5, 10, 25 lakh, not by 25k and 50k. Kerala's household income is also unusual within India because of Gulf remittance, which is roughly a fifth of the state's income.
+locale: ml
+---
+2 ലക്ഷം രൂപയിൽ താഴെ
+2-5 ലക്ഷം രൂപ
+5-10 ലക്ഷം രൂപ
+10-15 ലക്ഷം രൂപ
+15-25 ലക്ഷം രൂപ
+25-50 ലക്ഷം രൂപ
+50 ലക്ഷം - 1 കോടി രൂപ
+1 കോടി രൂപയ്ക്ക് മുകളിൽ

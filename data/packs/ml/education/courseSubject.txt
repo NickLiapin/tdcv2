@@ -1,0 +1,24 @@
+---
+description: School subjects in Malayalam. Kerala schools teach three languages, so മലയാളം, ഇംഗ്ലീഷ് and ഹിന്ദി are separate subjects on the same timetable.
+locale: ml
+---
+മലയാളം
+ഇംഗ്ലീഷ്
+ഹിന്ദി
+സംസ്കൃതം
+അറബി
+ഗണിതം
+ഭൗതികശാസ്ത്രം
+രസതന്ത്രം
+ജീവശാസ്ത്രം
+സാമൂഹ്യശാസ്ത്രം
+ചരിത്രം
+ഭൂമിശാസ്ത്രം
+സാമ്പത്തികശാസ്ത്രം
+രാഷ്ട്രമീമാംസ
+കമ്പ്യൂട്ടർ സയൻസ്
+വാണിജ്യം
+അക്കൗണ്ടൻസി
+ചിത്രകല
+സംഗീതം
+കായികവിദ്യാഭ്യാസം

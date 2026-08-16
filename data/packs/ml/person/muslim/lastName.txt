@@ -1,0 +1,34 @@
+---
+description: The trailing name element of a Kerala Muslim. Read the first twelve as what they are — titles and lineage words (ഹാജി one who has made the hajj, തങ്ങൾ a claimed descendant of the Prophet, മുസ്ലിയാർ a scholar, മരയ്ക്കാർ and കേയി old Malabar trading lineages), not inherited surnames. Most Kerala Muslims have no family name at all: the official name is given name plus father's given name, or a house name used as an initial. Treat this list as "what falls in the last slot on a form", not as "the surname".
+locale: ml
+---
+കുട്ടി
+ഹാജി
+തങ്ങൾ
+മുസ്ലിയാർ
+കോയ
+ബാവ
+മരയ്ക്കാർ
+റാവുത്തർ
+ലബ്ബ
+കേയി
+മൊല്ല
+സേട്ട്
+പുതിയപുരയിൽ
+ചാലിൽ
+കിഴക്കയിൽ
+തോട്ടത്തിൽ
+കണ്ണോത്ത്
+ചെറുകുളത്ത്
+വളപ്പിൽ
+പറമ്പിൽ
+കുന്നത്ത്
+കൊടക്കാട്ട്
+മമ്പാട്ട്
+ആലുങ്ങൽ
+ഒതയോത്ത്
+പള്ളിയാളിൽ
+തൊടിയിൽ
+വടക്കയിൽ
+പുളിക്കോട്ട്
+ചെമ്പൻ

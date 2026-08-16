@@ -1,0 +1,9 @@
+---
+description: Playing positions in ഹാൻഡ്ബോൾ, in Malayalam.
+locale: ml
+---
+ഗോൾകീപ്പർ
+ലെഫ്റ്റ് വിംഗ്
+റൈറ്റ് വിംഗ്
+സെന്റർ ബാക്ക്
+പിവറ്റ്

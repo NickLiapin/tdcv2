@@ -1,0 +1,26 @@
+---
+description: Allergens. Two are Kerala-specific and worth the space: കശുവണ്ടി (cashew) is grown and processed in the state, and ചെമ്മീൻ / കക്ക (prawn and clam) are eaten far more widely here than tree nuts are, so a Kerala allergy column that mirrored the American one would be listing the wrong foods.
+locale: ml
+---
+പെൻസിലിൻ
+സൾഫ മരുന്നുകൾ
+ആസ്പിരിൻ
+അയഡിൻ
+കശുവണ്ടി
+നിലക്കടല
+ചെമ്മീൻ
+കക്ക
+ഞണ്ട്
+മീൻ
+മുട്ട
+പാൽ
+ഗോതമ്പ്
+സോയ
+എള്ള്
+വഴുതനങ്ങ
+ചക്ക
+ലാറ്റെക്സ്
+പൂമ്പൊടി
+പൊടിപ്പുഴു
+വളർത്തുമൃഗ രോമം
+തേനീച്ചക്കുത്ത്

@@ -1,0 +1,38 @@
+---
+description: Hospital departments as Kerala names them: transliterated English, which is what the signage, the OP ticket and the referral slip all say. Kerala clinical Malayalam borrows the technical term and translates the everyday one — പ്രോസ്റ്റാറ്റൈറ്റിസ് stays, but "rectal cancer" becomes മലാശയ അർബുദം. That split is how a Kerala discharge summary actually reads and is not an inconsistency in this pack.
+locale: ml
+---
+കാർഡിയോളജി
+ഡെർമറ്റോളജി
+എൻഡോക്രൈനോളജി
+ഗ്യാസ്ട്രോഎൻട്രോളജി
+ന്യൂറോളജി
+ഓങ്കോളജി
+ഒഫ്താൽമോളജി
+ഓർത്തോപീഡിക്സ്
+പീഡിയാട്രിക്സ്
+സൈക്യാട്രി
+പൾമണോളജി
+റേഡിയോളജി
+റുമറ്റോളജി
+യൂറോളജി
+നെഫ്രോളജി
+ഹെമറ്റോളജി
+ഇമ്യൂണോളജി
+അനസ്തേഷ്യോളജി
+അത്യാഹിത വിഭാഗം
+കുടുംബാരോഗ്യ വിഭാഗം
+ജനറൽ മെഡിസിൻ
+ഗൈനക്കോളജി
+ഇഎൻടി
+പതോളജി
+പ്ലാസ്റ്റിക് സർജറി
+ജനറൽ സർജറി
+വാസ്കുലാർ സർജറി
+സാംക്രമിക രോഗ വിഭാഗം
+വയോജന വിഭാഗം
+നവജാത ശിശു വിഭാഗം
+ഫിസിയോതെറാപ്പി
+ദന്ത വിഭാഗം
+ആയുർവേദം
+ഹോമിയോപ്പതി

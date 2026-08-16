@@ -1,0 +1,5 @@
+---
+description: Currency of ജർമനി, in Malayalam.
+locale: ml
+---
+യൂറോ

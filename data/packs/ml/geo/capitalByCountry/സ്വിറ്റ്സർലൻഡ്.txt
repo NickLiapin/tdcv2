@@ -1,0 +1,5 @@
+---
+description: Capital of സ്വിറ്റ്സർലൻഡ്, in Malayalam.
+locale: ml
+---
+ബേൺ

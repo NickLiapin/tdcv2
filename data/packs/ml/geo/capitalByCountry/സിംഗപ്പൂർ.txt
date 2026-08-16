@@ -1,0 +1,5 @@
+---
+description: Capital of സിംഗപ്പൂർ, in Malayalam.
+locale: ml
+---
+സിംഗപ്പൂർ

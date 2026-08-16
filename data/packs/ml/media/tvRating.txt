@@ -1,0 +1,11 @@
+---
+description: Certification as India's Central Board of Film Certification issues it. There is no PG-13 or TV-MA: the Indian certificates are U, U/A (now graded U/A 7+, 13+ and 16+), A and S, and a Kerala listing prints exactly these.
+locale: ml
+---
+U
+U/A
+U/A 7+
+U/A 13+
+U/A 16+
+A
+S

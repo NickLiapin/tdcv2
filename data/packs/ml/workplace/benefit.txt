@@ -1,0 +1,22 @@
+---
+description: Employment benefits in Malayalam. പിഎഫ്, ഇഎസ്ഐ and ഗ്രാറ്റുവിറ്റി are statutory in India and are the first three things a Kerala job advertisement names, where an American list would open with health insurance.
+locale: ml
+---
+പ്രോവിഡന്റ് ഫണ്ട്
+ഇഎസ്ഐ
+ഗ്രാറ്റുവിറ്റി
+ആരോഗ്യ ഇൻഷുറൻസ്
+ജീവൻ ഇൻഷുറൻസ്
+അപകട ഇൻഷുറൻസ്
+ബോണസ്
+ശമ്പളത്തോടുകൂടിയ അവധി
+പ്രസവാവധി
+പിതൃത്വ അവധി
+യാത്രാ ബത്ത
+ഭക്ഷണ ബത്ത
+താമസ സൗകര്യം
+വാഹന സൗകര്യം
+വർക്ക് ഫ്രം ഹോം
+അയവുള്ള ജോലിസമയം
+പരിശീലന സഹായം
+പെൻഷൻ

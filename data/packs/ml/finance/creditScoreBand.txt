@@ -1,0 +1,9 @@
+---
+description: Credit score bands as India reads them: the CIBIL score runs 300 to 900, so the bands are named against that scale and not against the American 300-850 FICO one.
+locale: ml
+---
+വളരെ മോശം
+മോശം
+ശരാശരി
+നല്ലത്
+മികച്ചത്

@@ -1,0 +1,5 @@
+---
+description: Capital of കുവൈത്ത്, in Malayalam.
+locale: ml
+---
+കുവൈത്ത് സിറ്റി

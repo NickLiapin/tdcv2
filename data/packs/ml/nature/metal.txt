@@ -1,0 +1,26 @@
+---
+description: Metals and alloys in Malayalam. ഓട് (bell metal) and ഓടുപാത്രം are a Kerala craft in their own right, and the mirror of Aranmula is made of it.
+locale: ml
+---
+സ്വർണം
+വെള്ളി
+പ്ലാറ്റിനം
+ചെമ്പ്
+ഇരുമ്പ്
+അലൂമിനിയം
+ടൈറ്റാനിയം
+സിങ്ക്
+നിക്കൽ
+ഈയം
+വെളുത്തീയം
+ഓട്
+പിച്ചള
+വെങ്കലം
+ഉരുക്ക്
+സ്റ്റെയിൻലെസ് സ്റ്റീൽ
+പലേഡിയം
+കൊബാൾട്ട്
+ക്രോമിയം
+ടങ്സ്റ്റൺ
+മെർക്കുറി
+യുറേനിയം

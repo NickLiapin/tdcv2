@@ -1,0 +1,5 @@
+---
+description: Capital of നോർവേ, in Malayalam.
+locale: ml
+---
+ഓസ്ലോ

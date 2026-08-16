@@ -1,0 +1,5 @@
+---
+description: Currency of അമേരിക്കൻ ഐക്യനാടുകൾ, in Malayalam.
+locale: ml
+---
+യുഎസ് ഡോളർ

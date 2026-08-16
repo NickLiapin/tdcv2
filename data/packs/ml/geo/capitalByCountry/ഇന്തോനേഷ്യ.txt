@@ -1,0 +1,5 @@
+---
+description: Capital of ഇന്തോനേഷ്യ, in Malayalam.
+locale: ml
+---
+ജക്കാർത്ത

@@ -1,0 +1,5 @@
+---
+description: Capital of ഫ്രാൻസ്, in Malayalam.
+locale: ml
+---
+പാരീസ്

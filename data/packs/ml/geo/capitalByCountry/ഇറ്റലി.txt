@@ -1,0 +1,5 @@
+---
+description: Capital of ഇറ്റലി, in Malayalam.
+locale: ml
+---
+റോം

@@ -1,0 +1,18 @@
+---
+description: Insurance types in Malayalam. വിള ഇൻഷുറൻസ് and മത്സ്യബന്ധന ഇൻഷുറൻസ് are ordinary categories in Kerala, where farming and fishing are major occupations exposed to the monsoon.
+locale: ml
+---
+ആരോഗ്യ ഇൻഷുറൻസ്
+ജീവൻ ഇൻഷുറൻസ്
+ടേം ഇൻഷുറൻസ്
+വാഹന ഇൻഷുറൻസ്
+ഭവന ഇൻഷുറൻസ്
+യാത്രാ ഇൻഷുറൻസ്
+അപകട ഇൻഷുറൻസ്
+വിള ഇൻഷുറൻസ്
+മത്സ്യബന്ധന ഇൻഷുറൻസ്
+കന്നുകാലി ഇൻഷുറൻസ്
+വളർത്തുമൃഗ ഇൻഷുറൻസ്
+ബാധ്യതാ ഇൻഷുറൻസ്
+ദന്ത ഇൻഷുറൻസ്
+നേത്ര ഇൻഷുറൻസ്

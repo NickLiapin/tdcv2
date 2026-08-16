@@ -1,0 +1,20 @@
+---
+description: What follows a name in Kerala paperwork. THERE IS NO Jr / Sr / II / III HERE AND THAT IS NOT AN OMISSION: Malayalam has no generational suffix, because the naming system never passed a full name down — a son inherits his father's given name as an initial, not as a repeated name, so there is no second of anything to number. What actually trails a Malayali name on a letterhead, a nameboard or a wedding invitation is a degree, and for a civil servant the cadre abbreviation (ഐ.എ.എസ്., ഐ.പി.എസ്.), which is used exactly as a post-nominal.
+locale: ml
+---
+ബി.എ.
+എം.എ.
+ബി.കോം.
+എം.കോം.
+ബി.ടെക്.
+എം.ടെക്.
+ബി.എഡ്.
+എം.ബി.എ.
+എം.ബി.ബി.എസ്.
+എം.ഡി.
+എൽ.എൽ.ബി.
+പി.എച്ച്.ഡി.
+ഐ.എ.എസ്.
+ഐ.പി.എസ്.
+ഐ.എഫ്.എസ്.
+റിട്ട.

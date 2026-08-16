@@ -1,0 +1,16 @@
+---
+description: The twelve solar signs in Malayalam. These are also the twelve months of the Kollam Era (കൊല്ലവർഷം), Kerala's own calendar — ചിങ്ങം opens the year in mid-August — so the same word names a star sign and a month depending on context. Kerala reckons a birthday by the നക്ഷത്രം (birth star) within one of these, not by the Gregorian date.
+locale: ml
+---
+മേടം
+ഇടവം
+മിഥുനം
+കർക്കടകം
+ചിങ്ങം
+കന്നി
+തുലാം
+വൃശ്ചികം
+ധനു
+മകരം
+കുംഭം
+മീനം

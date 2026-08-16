@@ -1,0 +1,5 @@
+---
+description: Currency of മലേഷ്യ, in Malayalam.
+locale: ml
+---
+മലേഷ്യൻ റിംഗിറ്റ്

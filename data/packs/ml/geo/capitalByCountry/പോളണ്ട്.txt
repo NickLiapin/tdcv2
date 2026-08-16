@@ -1,0 +1,5 @@
+---
+description: Capital of പോളണ്ട്, in Malayalam.
+locale: ml
+---
+വാഴ്സ

@@ -1,0 +1,5 @@
+---
+description: Currency of സ്വീഡൻ, in Malayalam.
+locale: ml
+---
+സ്വീഡിഷ് ക്രോണ

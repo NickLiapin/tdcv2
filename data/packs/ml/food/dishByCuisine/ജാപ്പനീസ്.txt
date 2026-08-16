@@ -1,0 +1,10 @@
+---
+description: Dishes of ജാപ്പനീസ് cuisine, named in Malayalam.
+locale: ml
+---
+സുഷി
+റാമെൻ
+ടെമ്പുര
+ഉഡോൻ
+മിസോ സൂപ്പ്
+ടെരിയാക്കി ചിക്കൻ

@@ -1,0 +1,23 @@
+---
+description: Film genres in Malayalam. This is a live vocabulary here: Malayalam cinema is one of India's major film industries and its own critics coined the terms.
+locale: ml
+---
+ആക്ഷൻ
+ഹാസ്യം
+നാടകം
+കുടുംബചിത്രം
+ഹൊറർ
+ത്രില്ലർ
+പ്രണയം
+സയൻസ് ഫിക്ഷൻ
+ഫാന്റസി
+ഡോക്യുമെന്ററി
+ആനിമേഷൻ
+സാഹസികം
+കുറ്റാന്വേഷണം
+നിഗൂഢത
+ചരിത്രചിത്രം
+ജീവചരിത്രം
+യുദ്ധചിത്രം
+സംഗീതചിത്രം
+സാമൂഹികചിത്രം

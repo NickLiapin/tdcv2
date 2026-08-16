@@ -1,0 +1,5 @@
+---
+description: Currency of സ്വിറ്റ്സർലൻഡ്, in Malayalam.
+locale: ml
+---
+സ്വിസ് ഫ്രാങ്ക്

@@ -1,0 +1,32 @@
+---
+description: Book genres in Malayalam. നോവൽ, ചെറുകഥ and കവിത head the list because that is the shape of Malayalam publishing, and ഓർമക്കുറിപ്പ് and യാത്രാവിവരണം are established Malayalam literary forms in their own right, not niche imports.
+locale: ml
+---
+നോവൽ
+ചെറുകഥ
+കവിത
+നാടകം
+ഉപന്യാസം
+ജീവചരിത്രം
+ആത്മകഥ
+ഓർമക്കുറിപ്പ്
+യാത്രാവിവരണം
+ചരിത്രം
+സാഹിത്യവിമർശനം
+തത്ത്വചിന്ത
+മതഗ്രന്ഥം
+ആത്മീയം
+ശാസ്ത്രം
+ജനപ്രിയ ശാസ്ത്രം
+ചരിത്ര നോവൽ
+കുറ്റാന്വേഷണം
+ത്രില്ലർ
+പ്രണയം
+ഫാന്റസി
+സയൻസ് ഫിക്ഷൻ
+ഹൊറർ
+ബാലസാഹിത്യം
+കൗമാര സാഹിത്യം
+സ്വയം സഹായം
+പാചകപുസ്തകം
+ഗ്രാഫിക് നോവൽ

@@ -1,0 +1,5 @@
+---
+description: Currency of ഇറ്റലി, in Malayalam.
+locale: ml
+---
+യൂറോ

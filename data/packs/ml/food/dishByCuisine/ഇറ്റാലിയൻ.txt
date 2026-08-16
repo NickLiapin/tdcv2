@@ -1,0 +1,11 @@
+---
+description: Dishes of ഇറ്റാലിയൻ cuisine, named in Malayalam.
+locale: ml
+---
+പിസ്സ
+പാസ്ത
+ലസാഞ്ഞ
+റിസോട്ടോ
+മിനസ്ട്രോൺ
+തിരമിസു
+ഗ്നോച്ചി

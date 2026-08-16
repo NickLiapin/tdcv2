@@ -1,0 +1,5 @@
+---
+description: Currency of ഫിലിപ്പീൻസ്, in Malayalam.
+locale: ml
+---
+ഫിലിപ്പീൻ പെസോ

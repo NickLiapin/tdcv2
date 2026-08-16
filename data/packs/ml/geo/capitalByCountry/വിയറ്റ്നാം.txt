@@ -1,0 +1,5 @@
+---
+description: Capital of വിയറ്റ്നാം, in Malayalam.
+locale: ml
+---
+ഹാനോയ്

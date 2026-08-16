@@ -1,0 +1,5 @@
+---
+description: Currency of ദക്ഷിണ കൊറിയ, in Malayalam.
+locale: ml
+---
+ദക്ഷിണ കൊറിയൻ വോൺ

@@ -1,0 +1,20 @@
+---
+description: Weather as a Kerala forecast states it. There is no snow entry: snow does not fall anywhere in Kerala, and putting one in would have been the easy, plausible, wrong thing to do. What the state does have, and English hardly names, are the grades of rain — ചാറ്റൽ മഴ (drizzle), ഇടിമിന്നലോടു കൂടിയ മഴ (thunder-rain), പെരുമഴ (downpour).
+locale: ml
+---
+തെളിഞ്ഞ കാലാവസ്ഥ
+വെയിൽ
+കടുത്ത വെയിൽ
+ഭാഗികമായി മേഘാവൃതം
+മേഘാവൃതം
+ഇരുണ്ട ആകാശം
+ചാറ്റൽ മഴ
+മഴ
+പെരുമഴ
+ഇടിമിന്നലോടു കൂടിയ മഴ
+ഇടിമിന്നൽ
+മൂടൽമഞ്ഞ്
+നീരാവി
+ഉഷ്ണം
+കാറ്റ്
+ശക്തമായ കാറ്റ്

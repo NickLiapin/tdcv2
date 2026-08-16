@@ -1,0 +1,34 @@
+---
+description: Units of sale in Malayalam. Metric, as India is: കിലോഗ്രാം, ലിറ്റർ, മീറ്റർ. The traditional Kerala units കുടം, ഇടങ്ങഴി and പറ still appear at a village market and in older documents, which is why they are here after the metric ones.
+locale: ml
+---
+എണ്ണം
+ജോഡി
+സെറ്റ്
+ഡസൻ
+പെട്ടി
+കാർട്ടൺ
+പായ്ക്കറ്റ്
+കെട്ട്
+ചാക്ക്
+ബണ്ടിൽ
+റോൾ
+ഷീറ്റ്
+ട്രേ
+കിലോഗ്രാം
+ഗ്രാം
+ക്വിന്റൽ
+ടൺ
+ലിറ്റർ
+മില്ലിലിറ്റർ
+മീറ്റർ
+സെന്റിമീറ്റർ
+ചതുരശ്ര അടി
+സെന്റ്
+ഏക്കർ
+കുടം
+ഇടങ്ങഴി
+പറ
+പവൻ
+ഗ്രാം സ്വർണം
+കുല

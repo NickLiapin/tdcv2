@@ -1,0 +1,5 @@
+---
+description: Currency of നൈജീരിയ, in Malayalam.
+locale: ml
+---
+നൈര

@@ -1,0 +1,12 @@
+---
+description: ABO and Rh blood group. Written exactly as a Kerala blood bank card and donor register print it — Latin letters and signs, not transliterated, because a mis-transliterated blood group is a clinical hazard rather than a style question.
+locale: ml
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

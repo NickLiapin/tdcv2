@@ -1,0 +1,5 @@
+---
+description: Currency of യുണൈറ്റഡ് കിംഗ്ഡം, in Malayalam.
+locale: ml
+---
+പൗണ്ട് സ്റ്റെർലിംഗ്

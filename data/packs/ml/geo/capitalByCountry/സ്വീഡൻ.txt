@@ -1,0 +1,5 @@
+---
+description: Capital of സ്വീഡൻ, in Malayalam.
+locale: ml
+---
+സ്റ്റോക്ക്ഹോം

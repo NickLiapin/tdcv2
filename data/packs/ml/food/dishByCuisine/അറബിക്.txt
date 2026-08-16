@@ -1,0 +1,12 @@
+---
+description: Dishes of അറബിക് cuisine, named in Malayalam.
+locale: ml
+---
+കുഴിമന്തി
+അൽഫാം
+ഷവർമ
+ഹമ്മൂസ്
+ഫലാഫൽ
+കബ്സ
+ഖുബൂസ്
+തബ്ബൂലി

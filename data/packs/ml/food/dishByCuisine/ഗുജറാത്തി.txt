@@ -1,0 +1,9 @@
+---
+description: Dishes of ഗുജറാത്തി cuisine, named in Malayalam.
+locale: ml
+---
+ധോക്ല
+ഖാണ്ഡ്വി
+തേപ്ല
+ഉന്ധിയോ
+ഫാഫ്ഡ

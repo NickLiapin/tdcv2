@@ -1,0 +1,8 @@
+---
+description: Kerala's seasons. There is no spring and no autumn in the European sense: the year is organised around two monsoons — ഇടവപ്പാതി, the south-west monsoon that breaks on the coast around 1 June, and തുലാവർഷം, the retreating north-east monsoon of October-November. Between them lie a hot season and a cool one.
+locale: ml
+---
+വേനൽക്കാലം
+ഇടവപ്പാതി
+തുലാവർഷം
+മഞ്ഞുകാലം

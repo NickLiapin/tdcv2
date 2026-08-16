@@ -1,0 +1,50 @@
+---
+description: Countries as Malayalam names them, weighted by population in millions, and the parent of geo/capitalByCountry, geo/currencyByCountry and geo/currencyCodeByCountry. Names are TRANSLATED where Malayalam has its own name and transliterated only where it does not — ജർമനി, not "Deutschland" respelled, and അമേരിക്കൻ ഐക്യനാടുകൾ ("the American united states") rather than a transliteration of United States. All six Gulf Cooperation Council states are present although several are small, because they are where Kerala's emigrant population lives and no Malayalam dataset can treat them as marginal.
+locale: ml
+weighted: true
+---
+ചൈന,1410
+ഇന്ത്യ,1400
+അമേരിക്കൻ ഐക്യനാടുകൾ,335
+ഇന്തോനേഷ്യ,275
+പാകിസ്ഥാൻ,240
+നൈജീരിയ,220
+ബ്രസീൽ,215
+ബംഗ്ലാദേശ്,170
+റഷ്യ,144
+മെക്സിക്കോ,128
+ജപ്പാൻ,125
+ഫിലിപ്പീൻസ്,115
+ഈജിപ്ത്,110
+വിയറ്റ്നാം,98
+തുർക്കി,85
+ജർമനി,84
+തായ്ലൻഡ്,72
+ഫ്രാൻസ്,68
+യുണൈറ്റഡ് കിംഗ്ഡം,67
+ദക്ഷിണാഫ്രിക്ക,60
+ഇറ്റലി,59
+ദക്ഷിണ കൊറിയ,52
+സ്പെയിൻ,47
+അർജന്റീന,46
+കാനഡ,39
+പോളണ്ട്,38
+സൗദി അറേബ്യ,36
+മലേഷ്യ,34
+ഓസ്ട്രേലിയ,26
+ശ്രീലങ്ക,22
+നെതർലൻഡ്സ്,18
+ഇസ്രായേൽ,10
+യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്,10
+ഗ്രീസ്,10
+സ്വീഡൻ,10
+പോർച്ചുഗൽ,10
+സ്വിറ്റ്സർലൻഡ്,9
+സിംഗപ്പൂർ,6
+ഒമാൻ,5
+നോർവേ,5
+അയർലൻഡ്,5
+ന്യൂസിലൻഡ്,5
+കുവൈത്ത്,4
+ഖത്തർ,3
+ബഹ്റൈൻ,2

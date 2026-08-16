@@ -1,0 +1,19 @@
+---
+description: Cat breeds. Kept in their international spellings, which is what a Kerala pet shop or vet writes.
+locale: ml
+---
+പേർഷ്യൻ
+സയാമീസ്
+മെയിൻ കൂൺ
+റാഗ്ഡോൾ
+ബംഗാൾ
+സ്ഫിങ്ക്സ്
+ബ്രിട്ടീഷ് ഷോർട്ട്ഹെയർ
+അബിസീനിയൻ
+സ്കോട്ടിഷ് ഫോൾഡ്
+നോർവീജിയൻ ഫോറസ്റ്റ്
+റഷ്യൻ ബ്ലൂ
+ബർമീസ്
+അമേരിക്കൻ ഷോർട്ട്ഹെയർ
+ഡെവൺ റെക്സ്
+നാടൻ പൂച്ച

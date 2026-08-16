@@ -1,0 +1,5 @@
+---
+description: Capital of മെക്സിക്കോ, in Malayalam.
+locale: ml
+---
+മെക്സിക്കോ സിറ്റി

@@ -1,0 +1,10 @@
+---
+description: Playing positions in റഗ്ബി, in Malayalam.
+locale: ml
+---
+പ്രോപ്പ്
+ഹുക്കർ
+ലോക്ക്
+സ്ക്രം ഹാഫ്
+ഫ്ലൈ ഹാഫ്
+ഫുൾ ബാക്ക്

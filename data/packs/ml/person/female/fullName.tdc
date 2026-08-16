@@ -1,0 +1,38 @@
+---
+description: Full female name in the Kerala official form: INITIALS FIRST, then the personal name (പി. ടി. ഉഷ, കെ. ആർ. ഗൗരിയമ്മ). The family name is drawn from the SAME list as a man's — there is no ml.person.female.lastName.txt because no Malayalam family name inflects for gender, unlike Polish -ska or Russian -ova. Built as a <mix> over the three communities at their 2011 census shares (Hindu 54.73, Muslim 26.56, Christian 18.38) so that every row is drawn from ONE stock: the initial, the given name and the family name of a row always belong together. A config that joins ml.person.male.firstName to ml.person.lastName itself does not get that, and will emit names such as "ഫാത്തിമ ജോസഫ്" that no Kerala register contains.
+generator: tdc
+locale: ml
+---
+<mix name="p" percent="54.73,26.56">
+  <case>
+    <gen type="template" value="ml.person.initial"/>
+    <data> </data>
+    <gen type="template" value="ml.person.hindu.female.firstName"/>
+    <data> </data>
+    <gen type="template" value="ml.person.hindu.lastName"/>
+  </case>
+  <case>
+    <mix percent="65">
+      <case>
+        <gen type="template" value="ml.person.initial"/>
+        <data> </data>
+        <gen type="template" value="ml.person.muslim.female.firstName"/>
+      </case>
+      <case>
+        <gen type="template" value="ml.person.initial"/>
+        <data> </data>
+        <gen type="template" value="ml.person.muslim.female.firstName"/>
+        <data> </data>
+        <gen type="template" value="ml.person.muslim.lastName"/>
+      </case>
+    </mix>
+  </case>
+  <case>
+    <gen type="template" value="ml.person.initial"/>
+    <data> </data>
+    <gen type="template" value="ml.person.christian.female.firstName"/>
+    <data> </data>
+    <gen type="template" value="ml.person.christian.lastName"/>
+  </case>
+</mix>
+<data>${{p}}</data>

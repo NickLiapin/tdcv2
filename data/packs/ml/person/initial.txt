@@ -1,0 +1,30 @@
+---
+description: The initials that precede a name in Kerala paperwork, complete with their full stop. Malayalam writes an initial as the Malayalam spelling of the ENGLISH letter's name, not as the first letter of the expanded word: K becomes കെ, R becomes ആർ, M becomes എം, S becomes എസ്. That is why കെ. ആർ. നാരായണൻ, എം. ടി. വാസുദേവൻ നായർ and പി. ടി. ഉഷ read as they do. One, two or three of these stand before the personal name; they expand to the house name (തറവാട് / വീട്ടുപേര്) and the father's given name, and nobody writes them out in full on a form.
+locale: ml
+---
+എ.
+ബി.
+സി.
+ഡി.
+ഇ.
+എഫ്.
+ജി.
+എച്ച്.
+ഐ.
+ജെ.
+കെ.
+എൽ.
+എം.
+എൻ.
+ഒ.
+പി.
+ക്യു.
+ആർ.
+എസ്.
+ടി.
+യു.
+വി.
+ഡബ്ല്യു.
+എക്സ്.
+വൈ.
+ഇസെഡ്.

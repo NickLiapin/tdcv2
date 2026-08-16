@@ -1,0 +1,5 @@
+---
+description: Capital of അമേരിക്കൻ ഐക്യനാടുകൾ, in Malayalam.
+locale: ml
+---
+വാഷിംഗ്ടൺ ഡി.സി.

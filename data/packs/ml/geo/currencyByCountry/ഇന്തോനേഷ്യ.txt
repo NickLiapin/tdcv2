@@ -1,0 +1,5 @@
+---
+description: Currency of ഇന്തോനേഷ്യ, in Malayalam.
+locale: ml
+---
+ഇന്തോനേഷ്യൻ റുപിയ

@@ -1,0 +1,10 @@
+---
+description: Jobs in the ഗതാഗതം sector, named in Malayalam.
+locale: ml
+---
+ഡ്രൈവർ
+ലോറി ഡ്രൈവർ
+ലോജിസ്റ്റിക്സ് കോർഡിനേറ്റർ
+പൈലറ്റ്
+ഡിസ്പാച്ചർ
+ഗോഡൗൺ തൊഴിലാളി

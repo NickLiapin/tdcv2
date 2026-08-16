@@ -1,0 +1,11 @@
+---
+description: Number of people in a household. Written in Western digits: Malayalam has its own digits ൦-൯ (U+0D66-U+0D6F) but no living text uses them — a Kerala form, newspaper or bank statement prints 1, 2, 3.
+locale: ml
+---
+1
+2
+3
+4
+5
+6
+7+

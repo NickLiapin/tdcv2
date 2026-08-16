@@ -1,0 +1,10 @@
+---
+description: Playing positions in കബഡി, in Malayalam.
+locale: ml
+---
+റെയ്ഡർ
+ഇടത് കോർണർ
+വലത് കോർണർ
+ഇടത് കവർ
+വലത് കവർ
+ഓൾറൗണ്ടർ

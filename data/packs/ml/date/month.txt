@@ -1,0 +1,16 @@
+---
+description: Gregorian month names in Malayalam. Kerala also runs the Kollam Era (കൊല്ലവർഷം) calendar whose months are ചിങ്ങം, കന്നി, തുലാം, വൃശ്ചികം, ധനു, മകരം, കുംഭം, മീനം, മേടം, ഇടവം, മിഥുനം, കർക്കടകം — every Kerala festival, almanac and birth star is dated by those, but a date column formats to the Gregorian names listed here. The Kollam Era names are shipped as person/zodiac.txt, because they are the same twelve solar signs.
+locale: ml
+---
+ജനുവരി
+ഫെബ്രുവരി
+മാർച്ച്
+ഏപ്രിൽ
+മേയ്
+ജൂൺ
+ജൂലൈ
+ഓഗസ്റ്റ്
+സെപ്റ്റംബർ
+ഒക്ടോബർ
+നവംബർ
+ഡിസംബർ

@@ -1,0 +1,32 @@
+---
+description: Honorifics used before a Malayalam name. Most of them are COMMUNITY-SPECIFIC and cannot be drawn at random beside a name: ഫാ., റവ., അച്ചൻ, കത്തനാർ and മാർ are Christian (മാർ is the Syrian episcopal title, as in മാർ തോമ), ഹാജി, ഉസ്താദ്, മൗലവി, തങ്ങൾ and മുസ്ലിയാർ are Muslim, and സ്വാമി, തിരുമേനി and ആചാര്യൻ are Hindu. Only ശ്രീ, ശ്രീമതി, കുമാരി, കുമാരൻ and the professional titles are community-neutral. അഡ്വ. is listed because in Kerala an advocate is addressed by the title as routinely as a doctor is.
+locale: ml
+---
+ശ്രീ
+ശ്രീമതി
+കുമാരി
+കുമാരൻ
+ഡോ.
+പ്രൊഫ.
+അഡ്വ.
+എൻജിനീയർ
+ക്യാപ്റ്റൻ
+മേജർ
+കേണൽ
+ജനറൽ
+സ്വാമി
+ആചാര്യൻ
+തിരുമേനി
+ഫാ.
+റവ.
+അച്ചൻ
+കത്തനാർ
+മാർ
+ബിഷപ്
+സിസ്റ്റർ
+ഹാജി
+ഉസ്താദ്
+മൗലവി
+തങ്ങൾ
+മുസ്ലിയാർ
+സർ

@@ -1,0 +1,34 @@
+---
+description: Colours as a product listing states them in Malayalam. Shorter and plainer than color/name.txt on purpose: a catalogue uses the basic terms, not the poetic ones.
+locale: ml
+---
+ചുവപ്പ്
+പച്ച
+മഞ്ഞ
+നീല
+കറുപ്പ്
+വെളുപ്പ്
+ചാരനിറം
+തവിട്ട്
+ഓറഞ്ച്
+പിങ്ക്
+വയലറ്റ്
+പർപ്പിൾ
+ക്രീം
+ബീജ്
+സ്വർണനിറം
+വെള്ളിനിറം
+കടും നീല
+ഇളം നീല
+കടും പച്ച
+ഇളം പച്ച
+കടും ചുവപ്പ്
+മറൂൺ
+ടർക്വോയ്സ്
+ടീൽ
+ഒലിവ്
+കാക്കി
+മഞ്ഞൾനിറം
+കാവിനിറം
+ചന്ദനനിറം
+മൾട്ടികളർ

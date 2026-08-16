@@ -1,0 +1,5 @@
+---
+description: Capital of പോർച്ചുഗൽ, in Malayalam.
+locale: ml
+---
+ലിസ്ബൺ

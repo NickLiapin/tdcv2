@@ -1,0 +1,5 @@
+---
+description: Capital of ഗ്രീസ്, in Malayalam.
+locale: ml
+---
+ഏഥൻസ്

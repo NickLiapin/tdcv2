@@ -1,0 +1,13 @@
+---
+description: Garment sizes in Malayalam. The letter sizes are printed in Latin on the label itself; ഫ്രീ സൈസ് is a real and common Indian retail size for stitched womenswear.
+locale: ml
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+ഫ്രീ സൈസ്

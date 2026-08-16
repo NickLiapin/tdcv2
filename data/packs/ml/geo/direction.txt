@@ -1,0 +1,24 @@
+---
+description: Compass directions in Malayalam. The four cardinals are native words (വടക്ക്, തെക്ക്, കിഴക്ക്, പടിഞ്ഞാറ്) and the intercardinals are simply compounded from them, with no separate roots as in English northeast.
+locale: ml
+---
+വടക്ക്
+തെക്ക്
+കിഴക്ക്
+പടിഞ്ഞാറ്
+വടക്കുകിഴക്ക്
+വടക്കുപടിഞ്ഞാറ്
+തെക്കുകിഴക്ക്
+തെക്കുപടിഞ്ഞാറ്
+വടക്ക്-വടക്കുകിഴക്ക്
+കിഴക്ക്-വടക്കുകിഴക്ക്
+കിഴക്ക്-തെക്കുകിഴക്ക്
+തെക്ക്-തെക്കുകിഴക്ക്
+തെക്ക്-തെക്കുപടിഞ്ഞാറ്
+പടിഞ്ഞാറ്-തെക്കുപടിഞ്ഞാറ്
+പടിഞ്ഞാറ്-വടക്കുപടിഞ്ഞാറ്
+വടക്ക്-വടക്കുപടിഞ്ഞാറ്
+മുകളിൽ
+താഴെ
+നടുവിൽ
+ചുറ്റും

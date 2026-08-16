@@ -1,0 +1,10 @@
+---
+description: Jobs in the നിയമം sector, named in Malayalam.
+locale: ml
+---
+അഭിഭാഷകൻ
+ന്യായാധിപൻ
+പാരാ ലീഗൽ
+നിയമ സെക്രട്ടറി
+കംപ്ലയൻസ് ഓഫീസർ
+കോടതി ക്ലർക്ക്

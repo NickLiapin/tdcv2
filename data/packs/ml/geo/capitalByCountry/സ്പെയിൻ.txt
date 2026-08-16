@@ -1,0 +1,5 @@
+---
+description: Capital of സ്പെയിൻ, in Malayalam.
+locale: ml
+---
+മാഡ്രിഡ്

@@ -1,0 +1,5 @@
+---
+description: Currency of മെക്സിക്കോ, in Malayalam.
+locale: ml
+---
+മെക്സിക്കൻ പെസോ

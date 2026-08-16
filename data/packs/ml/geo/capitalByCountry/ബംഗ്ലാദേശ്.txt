@@ -1,0 +1,5 @@
+---
+description: Capital of ബംഗ്ലാദേശ്, in Malayalam.
+locale: ml
+---
+ധാക്ക

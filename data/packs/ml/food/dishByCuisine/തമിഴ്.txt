@@ -1,0 +1,10 @@
+---
+description: Dishes of തമിഴ് cuisine, named in Malayalam.
+locale: ml
+---
+ചെട്ടിനാട് ചിക്കൻ
+പൊങ്കൽ
+കൊത്തു പൊറോട്ട
+മുരുക്ക്
+ഉപ്പുമാവ്
+വട

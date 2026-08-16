@@ -1,0 +1,45 @@
+---
+description: Generic drug names transliterated into Malayalam. Read the caveat: a Kerala doctor writes the prescription itself in LATIN script, because that is what the pharmacist dispenses against. These Malayalam spellings are what appears in health-department leaflets, package inserts and patient-education material, which is the register a data pack in Malayalam should hold. Names are international non-proprietary names and are not translated.
+locale: ml
+---
+പാരസെറ്റമോൾ
+ഐബുപ്രൊഫെൻ
+ആസ്പിരിൻ
+ഡൈക്ലോഫെനാക്
+അമോക്സിസിലിൻ
+അസിത്രോമൈസിൻ
+സെഫിക്സിം
+സിപ്രോഫ്ലോക്സാസിൻ
+ഡോക്സിസൈക്ലിൻ
+മെട്രോണിഡസോൾ
+ലിസിനോപ്രിൽ
+എനലാപ്രിൽ
+അംലോഡിപിൻ
+ടെൽമിസാർട്ടൻ
+ലോസാർട്ടൻ
+മെറ്റോപ്രോളോൾ
+അറ്റെനോളോൾ
+ഹൈഡ്രോക്ലോറോതയാസൈഡ്
+ഫ്യൂറോസെമൈഡ്
+അറ്റോർവാസ്റ്റാറ്റിൻ
+റോസുവാസ്റ്റാറ്റിൻ
+മെറ്റ്ഫോർമിൻ
+ഗ്ലിമെപിറൈഡ്
+ഇൻസുലിൻ ഗ്ലാർജിൻ
+ലെവോതൈറോക്സിൻ
+ഒമേപ്രസോൾ
+പാന്റോപ്രസോൾ
+റാനിറ്റിഡിൻ
+ഒൻഡാൻസെട്രോൺ
+സാൽബുട്ടമോൾ
+മോണ്ടെലുകാസ്റ്റ്
+പ്രെഡ്നിസോലോൺ
+സെറ്ററിസിൻ
+ലെവോസെറ്ററിസിൻ
+ഗബാപെന്റിൻ
+സെർട്രാലിൻ
+ഫ്ലുവോക്സെറ്റിൻ
+എസ്സിറ്റലോപ്രാം
+അൽപ്രസോലം
+വാർഫറിൻ
+ക്ലോപിഡോഗ്രെൽ

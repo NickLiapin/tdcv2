@@ -1,0 +1,21 @@
+---
+description: Cuisines as a Kerala menu names them, and the parent of food/dishByCuisine/. കേരളീയം leads and carries the longest child file because it is the home cuisine. What a Malayali means by "അറബിക്" is Malabar-Gulf food — കുഴിമന്തി, അൽഫാം — brought back by returning migrants, not restaurant food from Beirut, and it is more common on a Kerala high street than Italian is. The four other Indian regional cuisines are listed separately because in Kerala they are foreign food.
+locale: ml
+---
+കേരളീയം
+ഉത്തരേന്ത്യൻ
+ചൈനീസ്
+ഇറ്റാലിയൻ
+അറബിക്
+തായ്
+ജാപ്പനീസ്
+മെക്സിക്കൻ
+കോണ്ടിനെന്റൽ
+തമിഴ്
+ആന്ധ്ര
+ബംഗാളി
+പഞ്ചാബി
+ഗുജറാത്തി
+ശ്രീലങ്കൻ
+കൊറിയൻ
+ഫ്രഞ്ച്

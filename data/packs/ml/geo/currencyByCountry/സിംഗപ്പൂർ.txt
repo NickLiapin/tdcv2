@@ -1,0 +1,5 @@
+---
+description: Currency of സിംഗപ്പൂർ, in Malayalam.
+locale: ml
+---
+സിംഗപ്പൂർ ഡോളർ

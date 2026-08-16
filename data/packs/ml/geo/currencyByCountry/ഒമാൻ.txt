@@ -1,0 +1,5 @@
+---
+description: Currency of ഒമാൻ, in Malayalam.
+locale: ml
+---
+ഒമാനി റിയാൽ

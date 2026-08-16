@@ -1,0 +1,10 @@
+---
+description: Dishes of മെക്സിക്കൻ cuisine, named in Malayalam.
+locale: ml
+---
+ടാക്കോ
+ബുരീറ്റോ
+ക്വസഡില്ല
+നാച്ചോസ്
+ഗ്വാക്കമോൾ
+എഞ്ചിലാഡ

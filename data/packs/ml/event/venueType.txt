@@ -1,0 +1,20 @@
+---
+description: Event venues in Malayalam. ഓഡിറ്റോറിയം and കല്യാണമണ്ഡപം are what a Kerala wedding is actually held in, along with the parish hall and the temple grounds.
+locale: ml
+---
+ഓഡിറ്റോറിയം
+കല്യാണമണ്ഡപം
+കൺവെൻഷൻ സെന്റർ
+ഹോട്ടൽ ബാങ്ക്വറ്റ് ഹാൾ
+പള്ളി ഹാൾ
+അമ്പലപ്പറമ്പ്
+സ്കൂൾ ഹാൾ
+ടൗൺ ഹാൾ
+സ്റ്റേഡിയം
+മൈതാനം
+തിയേറ്റർ
+റിസോർട്ട്
+ബീച്ച്
+ഹൗസ്ബോട്ട്
+ടെറസ്
+വീട്ടുമുറ്റം

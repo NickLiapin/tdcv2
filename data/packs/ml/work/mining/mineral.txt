@@ -1,0 +1,23 @@
+---
+description: Minerals. കരിമണൽ (black sand), ഇൽമനൈറ്റ്, മോണസൈറ്റ് and സിർക്കോൺ head the list because the beach placer deposits at Chavara are what Kerala actually mines; കളിമണ്ണ് and ചെങ്കല്ല് are the clay and laterite the state builds with.
+locale: ml
+---
+കരിമണൽ
+ഇൽമനൈറ്റ്
+മോണസൈറ്റ്
+റൂട്ടൈൽ
+സിർക്കോൺ
+കളിമണ്ണ്
+ചൈനാ ക്ലേ
+ചെങ്കല്ല്
+ഗ്രാനൈറ്റ്
+ചുണ്ണാമ്പുകല്ല്
+സിലിക്ക മണൽ
+ബോക്സൈറ്റ്
+ഇരുമ്പയിര്
+ചെമ്പ്
+സ്വർണം
+കൽക്കരി
+ഗ്രാഫൈറ്റ്
+ഉപ്പ്
+ജിപ്സം

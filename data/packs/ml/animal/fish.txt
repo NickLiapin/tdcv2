@@ -1,0 +1,29 @@
+---
+description: Fish as a Kerala market names them, which is the naming that matters here — മത്തി (sardine) and അയല (mackerel) are the two fish the state eats most, കരിമീൻ (pearl spot) is the backwater fish of Kuttanad, and കൊഞ്ച്, ചെമ്മീൻ and കക്ക are shellfish sold from the same counter.
+locale: ml
+---
+മത്തി
+അയല
+ചൂര
+നെയ്മീൻ
+ആവോലി
+കരിമീൻ
+വറ്റ
+കൂരി
+കോര
+പരൽ
+തിലാപ്പിയ
+ചെമ്പല്ലി
+കിളിമീൻ
+മാന്തൽ
+ഞണ്ട്
+കൊഞ്ച്
+ചെമ്മീൻ
+കക്ക
+കണവ
+ഒരു തരം സ്രാവ്
+തിരണ്ടി
+കാളാഞ്ചി
+വാള
+മുഷി
+പൂമീൻ

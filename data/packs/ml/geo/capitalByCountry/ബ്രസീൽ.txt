@@ -1,0 +1,5 @@
+---
+description: Capital of ബ്രസീൽ, in Malayalam.
+locale: ml
+---
+ബ്രസീലിയ

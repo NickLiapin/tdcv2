@@ -1,0 +1,5 @@
+---
+description: Currency of ഇന്ത്യ, in Malayalam.
+locale: ml
+---
+ഇന്ത്യൻ രൂപ

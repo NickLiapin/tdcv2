@@ -1,0 +1,24 @@
+---
+description: Aircraft types. Model designations (A320, 737 MAX) are international and are not translated or transliterated beyond the manufacturer name — a tail number and a type code mean the same thing in every language.
+locale: ml
+---
+ബോയിംഗ് 737
+ബോയിംഗ് 737 MAX
+ബോയിംഗ് 747
+ബോയിംഗ് 757
+ബോയിംഗ് 767
+ബോയിംഗ് 777
+ബോയിംഗ് 787 ഡ്രീംലൈനർ
+എയർബസ് A319
+എയർബസ് A320
+എയർബസ് A320neo
+എയർബസ് A321
+എയർബസ് A330
+എയർബസ് A350
+എയർബസ് A380
+എംബ്രെയർ E175
+എംബ്രെയർ E190
+ബോംബാർഡിയർ CRJ900
+ATR 72
+ATR 42
+ഡോർണിയർ 228

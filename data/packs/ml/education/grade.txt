@@ -1,0 +1,16 @@
+---
+description: Grades as a Kerala board or university awards them: the A+ to E letter grades of the state SSLC and Plus Two examinations, and the university class divisions below them.
+locale: ml
+---
+എ+
+എ
+ബി+
+ബി
+സി+
+സി
+ഡി+
+ഡി
+ഇ
+ഒന്നാം ക്ലാസ് വിത്ത് ഡിസ്റ്റിംഗ്ഷൻ
+ഒന്നാം ക്ലാസ്
+രണ്ടാം ക്ലാസ്

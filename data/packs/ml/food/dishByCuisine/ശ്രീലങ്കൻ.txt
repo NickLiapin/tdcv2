@@ -1,0 +1,9 @@
+---
+description: Dishes of ശ്രീലങ്കൻ cuisine, named in Malayalam.
+locale: ml
+---
+കൊത്തു റൊട്ടി
+ഹോപ്പേഴ്സ്
+പോൾ സാമ്പോൾ
+ലംപ്രൈസ്
+വട്ടലപ്പം

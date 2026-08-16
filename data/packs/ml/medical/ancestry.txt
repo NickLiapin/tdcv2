@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Malayalam speakers fall under ദക്ഷിണേഷ്യൻ, and that child file is the one a Kerala dataset will draw most.
+locale: ml
+---
+ഉപസഹാറൻ ആഫ്രിക്കൻ
+ഉത്തരാഫ്രിക്കൻ
+മെഡിറ്ററേനിയൻ
+പശ്ചിമേഷ്യൻ
+ഉത്തരയൂറോപ്യൻ
+പൂർവയൂറോപ്യൻ
+അഷ്കെനാസി ജൂത
+ദക്ഷിണേഷ്യൻ
+പൂർവേഷ്യൻ
+തെക്കുകിഴക്കൻ ഏഷ്യൻ
+തദ്ദേശീയ അമേരിക്കൻ
+പസഫിക് ദ്വീപ്

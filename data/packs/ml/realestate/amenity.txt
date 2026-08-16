@@ -1,0 +1,26 @@
+---
+description: Property amenities in Malayalam. കിണർ (an open well) and കുഴൽക്കിണർ (a borewell) are listed features in Kerala, where piped supply is not universal; മഴവെള്ള സംഭരണി is mandatory in new construction in the state.
+locale: ml
+---
+കിണർ
+കുഴൽക്കിണർ
+മഴവെള്ള സംഭരണി
+ജലടാങ്ക്
+സെപ്റ്റിക് ടാങ്ക്
+കാർ പോർച്ച്
+ഗാരേജ്
+ചുറ്റുമതിൽ
+ഗേറ്റ്
+പൂന്തോട്ടം
+തെങ്ങിൻതോപ്പ്
+നീന്തൽക്കുളം
+ജിം
+ലിഫ്റ്റ്
+ജനറേറ്റർ
+സോളാർ പാനൽ
+ഇൻവെർട്ടർ
+സുരക്ഷാ സംവിധാനം
+സിസിടിവി
+എയർ കണ്ടീഷനിംഗ്
+മോഡുലാർ അടുക്കള
+ഫർണിഷ് ചെയ്തത്

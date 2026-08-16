@@ -1,0 +1,5 @@
+---
+description: Currency of പോളണ്ട്, in Malayalam.
+locale: ml
+---
+പോളിഷ് സ്ലോട്ടി

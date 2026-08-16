@@ -1,0 +1,14 @@
+---
+description: Diagnoses recorded only for male patients, in Malayalam. Clinical terms are transliterated where Malayalam medicine transliterates them (പ്രോസ്റ്റാറ്റൈറ്റിസ്) and translated where it translates them (മലാശയ അർബുദം) — that split is how Kerala hospital Malayalam actually reads, not an inconsistency.
+locale: ml
+---
+വരിക്കോസീൽ
+വൃഷണം ഇറങ്ങാത്ത അവസ്ഥ
+ഫിമോസിസ്
+പ്രോസ്റ്റേറ്റ് അഡിനോമ
+പ്രോസ്റ്റാറ്റൈറ്റിസ്
+ദീർഘകാല പാൻക്രിയാറ്റൈറ്റിസ്
+ക്ലമീഡിയ
+ദീർഘകാല സന്ധിവാതം
+കേന്ദ്ര റെറ്റിന ധമനി അടവ്
+മലാശയ അർബുദം

@@ -1,0 +1,9 @@
+---
+description: Dishes of പഞ്ചാബി cuisine, named in Malayalam.
+locale: ml
+---
+മക്കി ദി റോട്ടി
+സർസോം ദാ സാഗ്
+അമൃത്സരി കുൽച്ച
+ലസ്സി
+തന്തൂരി ചിക്കൻ

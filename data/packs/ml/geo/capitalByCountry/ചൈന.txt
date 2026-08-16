@@ -1,0 +1,5 @@
+---
+description: Capital of ചൈന, in Malayalam.
+locale: ml
+---
+ബെയ്ജിംഗ്

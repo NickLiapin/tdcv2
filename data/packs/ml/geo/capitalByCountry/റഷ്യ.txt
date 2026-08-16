@@ -1,0 +1,5 @@
+---
+description: Capital of റഷ്യ, in Malayalam.
+locale: ml
+---
+മോസ്കോ

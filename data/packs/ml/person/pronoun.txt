@@ -1,0 +1,12 @@
+---
+description: Third-person pronouns in Malayalam, nominative. There is no he/him pair to list: Malayalam marks case with a suffix on the same stem, so a pronoun has one citation form, not two. അവർ is both the plural and the polite singular for a person of any gender, and അദ്ദേഹം is the honorific "he" — using അവൻ for an elder or a stranger is rude, which is a distinction English has no pronoun for.
+locale: ml
+---
+അവൻ
+അവൾ
+അവർ
+അദ്ദേഹം
+ഇദ്ദേഹം
+ഇവൻ
+ഇവൾ
+അത്

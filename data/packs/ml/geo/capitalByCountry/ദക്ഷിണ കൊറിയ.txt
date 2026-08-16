@@ -1,0 +1,5 @@
+---
+description: Capital of ദക്ഷിണ കൊറിയ, in Malayalam.
+locale: ml
+---
+സോൾ

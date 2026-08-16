@@ -1,0 +1,11 @@
+---
+description: Cable conduit type, in the mixed Malayalam-English a Kerala site engineer writes.
+locale: ml
+---
+പിവിസി
+ജിഐ പൈപ്പ്
+എച്ച്ഡിപിഇ
+നേരിട്ട് കുഴിച്ചിടൽ
+ഇന്നർഡക്ട്
+കേബിൾ ട്രേ
+ഏരിയൽ മെസഞ്ചർ

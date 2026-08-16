@@ -1,0 +1,36 @@
+---
+description: Music genres in Malayalam. The first eight are the local ones and they are not decorative: കർണാടക സംഗീതം is the classical tradition of the whole south, സോപാന സംഗീതം is sung only in Kerala temples, and മാപ്പിളപ്പാട്ട് is the Malabar Muslim song form with its own metre and its own Arabic-Malayalam poetic tradition.
+locale: ml
+---
+കർണാടക സംഗീതം
+സോപാന സംഗീതം
+മാപ്പിളപ്പാട്ട്
+നാടൻപാട്ട്
+ഭക്തിഗാനം
+ചലച്ചിത്രഗാനം
+ലളിതഗാനം
+ക്രിസ്തീയ ഭക്തിഗാനം
+ഹിന്ദുസ്ഥാനി സംഗീതം
+ഗസൽ
+ഖവാലി
+റോക്ക്
+പോപ്പ്
+ജാസ്
+ബ്ലൂസ്
+ഹിപ് ഹോപ്പ്
+റാപ്പ്
+ഇലക്ട്രോണിക്
+ഹൗസ്
+ടെക്നോ
+റെഗ്ഗെ
+ഹെവി മെറ്റൽ
+പങ്ക്
+ഫോക്ക്
+കൺട്രി
+ക്ലാസിക്കൽ
+ഓപ്പറ
+സോൾ
+ഫങ്ക്
+ഇൻഡി
+ആംബിയന്റ്
+ഫ്യൂഷൻ

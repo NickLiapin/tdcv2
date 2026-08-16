@@ -1,0 +1,20 @@
+---
+description: Seniority level in Malayalam, mixing the transliterated corporate ladder with the government-service grades (ഗ്രേഡ് 1, അസിസ്റ്റന്റ്, സൂപ്രണ്ട്) that a large part of Kerala's workforce is actually ranked by.
+locale: ml
+---
+ഇന്റേൺ
+ട്രെയിനി
+അപ്രന്റിസ്
+ജൂനിയർ
+അസോസിയേറ്റ്
+അസിസ്റ്റന്റ്
+സീനിയർ
+ലീഡ്
+സൂപ്പർവൈസർ
+സൂപ്രണ്ട്
+മാനേജർ
+സീനിയർ മാനേജർ
+ഡയറക്ടർ
+വൈസ് പ്രസിഡന്റ്
+മേധാവി
+ചീഫ്

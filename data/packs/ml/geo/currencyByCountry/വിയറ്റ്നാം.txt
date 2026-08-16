@@ -1,0 +1,5 @@
+---
+description: Currency of വിയറ്റ്നാം, in Malayalam.
+locale: ml
+---
+വിയറ്റ്നാമീസ് ഡോങ്

@@ -1,0 +1,16 @@
+---
+description: Mobile plan types in Malayalam. പ്രീപെയ്ഡ് leads because the overwhelming majority of Indian connections are prepaid, the reverse of the American market.
+locale: ml
+---
+പ്രീപെയ്ഡ്
+പോസ്റ്റ്പെയ്ഡ്
+അൺലിമിറ്റഡ്
+ഡാറ്റ മാത്രം
+വോയ്സ് മാത്രം
+കുടുംബ പ്ലാൻ
+ബിസിനസ് പ്ലാൻ
+വാർഷിക പ്ലാൻ
+റോമിംഗ് പ്ലാൻ
+അന്താരാഷ്ട്ര റോമിംഗ്
+ടോപ്-അപ്
+ബ്രോഡ്ബാൻഡ് പ്ലാൻ

@@ -1,0 +1,19 @@
+---
+description: Kinds of court, named in Malayalam. Malayalam is an official language in essentially one country, so these ARE India's courts and the names are specific: സുപ്രീം കോടതി at the top, ഹൈക്കോടതി for the state (Kerala's sits at Ernakulam), and below them the Sessions, Munsiff and Magistrate courts, plus the ഗ്രാമ ന്യായാലയം village court and the ലോക് അദാലത്ത് settlement forum, which have no Western counterpart. Which court sits where is India country-pack data; these are the words for the kinds.
+locale: ml
+---
+സുപ്രീം കോടതി
+ഹൈക്കോടതി
+ജില്ലാ കോടതി
+സെഷൻസ് കോടതി
+മുൻസിഫ് കോടതി
+സബ് കോടതി
+മജിസ്ട്രേട്ട് കോടതി
+കുടുംബ കോടതി
+ഗ്രാമ ന്യായാലയം
+ലോക് അദാലത്ത്
+ഉപഭോക്തൃ തർക്ക പരിഹാര കോടതി
+തൊഴിൽ കോടതി
+വാടക കോടതി
+ട്രിബ്യൂണൽ
+അപ്പീൽ ട്രിബ്യൂണൽ

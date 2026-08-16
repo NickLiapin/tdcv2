@@ -1,0 +1,5 @@
+---
+description: Currency of പാകിസ്ഥാൻ, in Malayalam.
+locale: ml
+---
+പാകിസ്ഥാൻ രൂപ

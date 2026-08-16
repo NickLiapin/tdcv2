@@ -1,0 +1,14 @@
+---
+description: Loan types in Malayalam. സ്വർണപ്പണയ വായ്പ (gold loan) is first because it is the commonest secured retail loan in Kerala; കുടുംബശ്രീ വായ്പ is the state's women's self-help-group microcredit, a Kerala institution with no equivalent elsewhere.
+locale: ml
+---
+സ്വർണപ്പണയ വായ്പ
+ഭവനവായ്പ
+വാഹന വായ്പ
+വ്യക്തിഗത വായ്പ
+വിദ്യാഭ്യാസ വായ്പ
+കാർഷിക വായ്പ
+വ്യാപാര വായ്പ
+കുടുംബശ്രീ വായ്പ
+ഓവർഡ്രാഫ്റ്റ്
+വായ്പാ ഏകീകരണം

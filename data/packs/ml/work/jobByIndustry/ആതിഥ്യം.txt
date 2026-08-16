@@ -1,0 +1,10 @@
+---
+description: Jobs in the ആതിഥ്യം sector, named in Malayalam.
+locale: ml
+---
+ഷെഫ്
+ഹോട്ടൽ മാനേജർ
+വെയ്റ്റർ
+ബാരിസ്റ്റ
+ഹൗസ്കീപ്പിംഗ് സൂപ്പർവൈസർ
+ടൂർ ഗൈഡ്

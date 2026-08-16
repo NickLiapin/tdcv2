@@ -1,0 +1,5 @@
+---
+description: Capital of ഫിലിപ്പീൻസ്, in Malayalam.
+locale: ml
+---
+മനില

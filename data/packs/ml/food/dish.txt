@@ -1,0 +1,50 @@
+---
+description: Dishes a Kerala household or restaurant actually serves. Rice is the staple and coconut is in nearly everything, which is why the list looks nothing like the English one. അപ്പം, പുട്ട്, ഇടിയപ്പം and പത്തിരി are breakfast breads; ഊണ് is the banana-leaf rice meal that is lunch for most of the state, and സദ്യ its festival form.
+locale: ml
+---
+ഊണ്
+സദ്യ
+അപ്പം
+പുട്ട്
+ഇടിയപ്പം
+പത്തിരി
+പൊറോട്ട
+ദോശ
+ഇഡ്ഡലി
+വട
+ഉപ്പുമാവ്
+കപ്പ പുഴുക്ക്
+കപ്പ ബിരിയാണി
+തലശ്ശേരി ബിരിയാണി
+നെയ്ച്ചോറ്
+ഘീ റൈസ്
+മീൻ കറി
+മീൻ പൊള്ളിച്ചത്
+ഫിഷ് മോളി
+ചെമ്മീൻ റോസ്റ്റ്
+കക്ക ഇറച്ചി
+ബീഫ് ഉലർത്തിയത്
+ബീഫ് ഫ്രൈ
+നാടൻ കോഴിക്കറി
+കോഴി റോസ്റ്റ്
+താറാവ് കറി
+അവിയൽ
+തോരൻ
+ഓലൻ
+കാളൻ
+എരിശ്ശേരി
+പുളിശ്ശേരി
+കൂട്ടുകറി
+സാമ്പാർ
+രസം
+തീയൽ
+പച്ചടി
+കിച്ചടി
+ഇഞ്ചിക്കറി
+പപ്പടം
+അച്ചാർ
+പായസം
+അടപ്രഥമൻ
+ഉണ്ണിയപ്പം
+ഇലയട
+കോഴിക്കോടൻ ഹൽവ

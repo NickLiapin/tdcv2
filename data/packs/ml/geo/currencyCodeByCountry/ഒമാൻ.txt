@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of ഒമാൻ. Latin letters: a currency code is an international identifier and transliterating it would break every system that reads it.
+locale: ml
+---
+OMR

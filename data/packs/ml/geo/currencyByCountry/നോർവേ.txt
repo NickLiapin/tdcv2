@@ -1,0 +1,5 @@
+---
+description: Currency of നോർവേ, in Malayalam.
+locale: ml
+---
+നോർവീജിയൻ ക്രോണ

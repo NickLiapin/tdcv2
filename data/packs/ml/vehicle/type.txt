@@ -1,0 +1,26 @@
+---
+description: Vehicle types in Malayalam. ഓട്ടോറിക്ഷ and its shared cousin are the everyday vehicle of a Kerala town, and ജീപ്പ് in the plantation districts; the pickup and the roadster of an American list would be the wrong head.
+locale: ml
+---
+സെഡാൻ
+ഹാച്ച്ബാക്ക്
+എസ്യുവി
+ക്രോസോവർ
+എംപിവി
+വാൻ
+ജീപ്പ്
+പിക്കപ്പ്
+ലോറി
+ടിപ്പർ
+ട്രെയിലർ
+ബസ്
+മിനി ബസ്
+ടെമ്പോ ട്രാവലർ
+ഓട്ടോറിക്ഷ
+ഇ-ഓട്ടോ
+സ്കൂട്ടർ
+മോട്ടോർ സൈക്കിൾ
+മോപ്പഡ്
+ട്രാക്ടർ
+ആംബുലൻസ്
+കൺവേർട്ടിബിൾ

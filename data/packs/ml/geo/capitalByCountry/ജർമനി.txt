@@ -1,0 +1,5 @@
+---
+description: Capital of ജർമനി, in Malayalam.
+locale: ml
+---
+ബെർലിൻ

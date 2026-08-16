@@ -1,0 +1,9 @@
+---
+description: Hotel star rating in Malayalam.
+locale: ml
+---
+ഒരു നക്ഷത്രം
+രണ്ട് നക്ഷത്രം
+മൂന്ന് നക്ഷത്രം
+നാല് നക്ഷത്രം
+അഞ്ച് നക്ഷത്രം

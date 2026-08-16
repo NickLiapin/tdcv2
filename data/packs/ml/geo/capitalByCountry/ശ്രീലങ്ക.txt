@@ -1,0 +1,5 @@
+---
+description: Capital of ശ്രീലങ്ക, in Malayalam.
+locale: ml
+---
+ശ്രീ ജയവർധനപുര കോട്ടെ

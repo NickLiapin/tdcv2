@@ -1,0 +1,15 @@
+---
+description: Employment type in Malayalam. ദിവസവേതനം (daily wage) and താൽക്കാലികം are not marginal categories in Kerala: a large share of the state's workforce is engaged on exactly those terms, and the state's trade-union-negotiated day rates are why the words are precise.
+locale: ml
+---
+സ്ഥിരം
+മുഴുവൻ സമയം
+പാർട്ട് ടൈം
+കരാർ
+താൽക്കാലികം
+ദിവസവേതനം
+ഇന്റേൺഷിപ്പ്
+ഫ്രീലാൻസ്
+സീസണൽ
+അപ്രന്റിസ്ഷിപ്പ്
+ഡെപ്യൂട്ടേഷൻ

@@ -1,0 +1,12 @@
+---
+description: Part of the day in Malayalam.
+locale: ml
+---
+രാവിലെ
+ഉച്ചകഴിഞ്ഞ്
+വൈകുന്നേരം
+രാത്രി
+പ്രഭാതം
+സന്ധ്യ
+അർധരാത്രി
+ഉച്ച

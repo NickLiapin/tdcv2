@@ -1,0 +1,9 @@
+---
+description: Dishes of ബംഗാളി cuisine, named in Malayalam.
+locale: ml
+---
+മാച്ചർ ഝോൽ
+റോഷഗുള്ള
+മിഷ്ടി ദോയ്
+ഇലിഷ് ഭാപ്പ
+ഷോൺദേഷ്

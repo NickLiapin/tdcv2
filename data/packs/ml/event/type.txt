@@ -1,0 +1,29 @@
+---
+description: Kinds of event in Malayalam. Several are Kerala-specific occasions with fixed names: ചോറൂണ് is the first-rice ceremony, വിദ്യാരംഭം the initiation into letters on Vijayadashami, ഗൃഹപ്രവേശം the house-warming, and ഓണാഘോഷം and പെരുന്നാൾ the festival gatherings of the two largest communities.
+locale: ml
+---
+വിവാഹം
+വിവാഹനിശ്ചയം
+ചോറൂണ്
+നാമകരണം
+വിദ്യാരംഭം
+പിറന്നാൾ
+ഗൃഹപ്രവേശം
+ഓണാഘോഷം
+വിഷു ആഘോഷം
+പെരുന്നാൾ
+ക്രിസ്മസ് ആഘോഷം
+ഉത്സവം
+പള്ളിപ്പെരുന്നാൾ
+സമ്മേളനം
+സെമിനാർ
+ശിൽപശാല
+വെബിനാർ
+പ്രദർശനം
+വ്യാപാരമേള
+ഉദ്ഘാടനം
+കലോത്സവം
+സംഗീതനിശ
+കായികമേള
+ധനസമാഹരണ പരിപാടി
+അനുസ്മരണം

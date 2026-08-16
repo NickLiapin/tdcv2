@@ -1,0 +1,19 @@
+---
+description: Compass and relative direction used with a Malayalam place, road or house name (വടക്കേ ഗേറ്റ്, തെക്കുപടിഞ്ഞാറൻ). The -അൻ forms are the adjectival ones that attach to a place name.
+locale: ml
+---
+വടക്ക്
+തെക്ക്
+കിഴക്ക്
+പടിഞ്ഞാറ്
+വടക്കുകിഴക്ക്
+വടക്കുപടിഞ്ഞാറ്
+തെക്കുകിഴക്ക്
+തെക്കുപടിഞ്ഞാറ്
+വടക്കൻ
+തെക്കൻ
+കിഴക്കൻ
+പടിഞ്ഞാറൻ
+മുകൾ
+താഴെ
+നടു

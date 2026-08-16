@@ -1,0 +1,34 @@
+---
+description: Spices. This is the list Kerala is named for in every other language's history books: കുരുമുളക് (black pepper) and ഏലം (cardamom) are what the Romans, the Arabs and then the Portuguese sailed for, and both still come off the same hills. കുടംപുളി (Malabar tamarind) is the souring agent in fish curry and has no substitute in the dish.
+locale: ml
+---
+കുരുമുളക്
+ഏലം
+ഗ്രാമ്പൂ
+കറുവപ്പട്ട
+ജാതിക്ക
+ജാതിപത്രി
+മഞ്ഞൾ
+മല്ലി
+ജീരകം
+പെരുംജീരകം
+കരിംജീരകം
+കടുക്
+ഉലുവ
+ഇഞ്ചി
+വെളുത്തുള്ളി
+മുളക്
+കാശ്മീരി മുളക്
+കായം
+കറിവേപ്പില
+തുളസി
+പുതിന
+മല്ലിയില
+കുടംപുളി
+വാളൻപുളി
+തക്കോലം
+ഓമം
+വയമ്പ്
+കുങ്കുമപ്പൂവ്
+ചുക്ക്
+ഇഞ്ചിപ്പുല്ല്

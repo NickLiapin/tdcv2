@@ -1,0 +1,5 @@
+---
+description: Currency of ദക്ഷിണാഫ്രിക്ക, in Malayalam.
+locale: ml
+---
+റാൻഡ്

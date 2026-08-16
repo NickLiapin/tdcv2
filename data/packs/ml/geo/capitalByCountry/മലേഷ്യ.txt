@@ -1,0 +1,5 @@
+---
+description: Capital of മലേഷ്യ, in Malayalam.
+locale: ml
+---
+ക്വാലാലംപൂർ

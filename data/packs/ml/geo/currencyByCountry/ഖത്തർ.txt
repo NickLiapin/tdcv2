@@ -1,0 +1,5 @@
+---
+description: Currency of ഖത്തർ, in Malayalam.
+locale: ml
+---
+ഖത്തരി റിയാൽ

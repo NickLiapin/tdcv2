@@ -1,0 +1,11 @@
+---
+description: Kind of haulage route, in Malayalam. അന്തർസംസ്ഥാനം (inter-state) is the common long run out of Kerala, because the state consumes far more freight than it produces.
+locale: ml
+---
+അന്തർസംസ്ഥാനം
+ദീർഘദൂരം
+പ്രാദേശികം
+നഗരാന്തരം
+സമർപ്പിത റൂട്ട്
+ടീം
+അവസാന ഘട്ട വിതരണം

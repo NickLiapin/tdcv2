@@ -1,0 +1,5 @@
+---
+description: Capital of ന്യൂസിലൻഡ്, in Malayalam.
+locale: ml
+---
+വെല്ലിംഗ്ടൺ

@@ -1,0 +1,15 @@
+---
+description: Gaming platforms. Product names keep their real spelling. മൊബൈൽ leads because it is how India plays.
+locale: ml
+---
+മൊബൈൽ
+പിസി
+പ്ലേസ്റ്റേഷൻ 5
+പ്ലേസ്റ്റേഷൻ 4
+എക്സ്ബോക്സ് സീരീസ് X
+എക്സ്ബോക്സ് വൺ
+നിന്റെൻഡോ സ്വിച്ച്
+സ്റ്റീം ഡെക്ക്
+ബ്രൗസർ
+ക്ലൗഡ് ഗെയിമിംഗ്
+മെറ്റാ ക്വസ്റ്റ്

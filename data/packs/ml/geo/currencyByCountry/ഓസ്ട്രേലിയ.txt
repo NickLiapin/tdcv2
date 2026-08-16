@@ -1,0 +1,5 @@
+---
+description: Currency of ഓസ്ട്രേലിയ, in Malayalam.
+locale: ml
+---
+ഓസ്ട്രേലിയൻ ഡോളർ

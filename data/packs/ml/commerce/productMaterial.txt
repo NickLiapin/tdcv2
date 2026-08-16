@@ -1,0 +1,44 @@
+---
+description: Materials in Malayalam. The head of the list is what Kerala actually makes things from — തേക്ക് and ഈട്ടി timber, ഓട് bell metal, കയർ coir, ഓല palm thatch, മുള bamboo — before the industrial materials.
+locale: ml
+---
+തടി
+തേക്ക്
+ഈട്ടി
+പ്ലാവ്
+മുള
+ഈറ്റ
+ചൂരൽ
+ഓല
+കയർ
+ചണം
+പരുത്തി
+കൈത്തറി
+പട്ട്
+കസവ്
+കമ്പിളി
+ലിനൻ
+തുകൽ
+റബ്ബർ
+പ്ലാസ്റ്റിക്
+സിലിക്കൺ
+ഗ്ലാസ്
+സെറാമിക്
+കളിമണ്ണ്
+പോർസലൈൻ
+ഓട്
+പിച്ചള
+ചെമ്പ്
+ഇരുമ്പ്
+ഉരുക്ക്
+സ്റ്റെയിൻലെസ് സ്റ്റീൽ
+അലൂമിനിയം
+സ്വർണം
+വെള്ളി
+കോൺക്രീറ്റ്
+ഗ്രാനൈറ്റ്
+മാർബിൾ
+ചെങ്കല്ല്
+കാർബൺ ഫൈബർ
+നൈലോൺ
+പോളിസ്റ്റർ

@@ -1,0 +1,10 @@
+---
+description: Jobs in the വിദ്യാഭ്യാസം sector, named in Malayalam.
+locale: ml
+---
+അധ്യാപകൻ
+പ്രൊഫസർ
+പ്രധാനാധ്യാപകൻ
+ലൈബ്രേറിയൻ
+അധ്യാപക സഹായി
+കൗൺസലർ

@@ -1,0 +1,23 @@
+---
+description: Property types in Malayalam. തറവാട് is the ancestral house, ഇല്ലം the Namboothiri Brahmin one; നിലം (paddy land) and പുരയിടം (garden plot) are the two legal land classifications a Kerala deed uses, and they are not interchangeable — converting one to the other is regulated.
+locale: ml
+---
+സ്വതന്ത്ര വീട്
+ഇരട്ട വീട്
+വില്ല
+ഫ്ലാറ്റ്
+അപ്പാർട്മെന്റ്
+സ്റ്റുഡിയോ അപ്പാർട്മെന്റ്
+പെന്റ്ഹൗസ്
+ബംഗ്ലാവ്
+തറവാട്
+ഇല്ലം
+കോട്ടേജ്
+ഫാം ഹൗസ്
+പുരയിടം
+നിലം
+തോട്ടം
+വാണിജ്യ കെട്ടിടം
+കടമുറി
+ഗോഡൗൺ
+ഓഫീസ് സ്ഥലം

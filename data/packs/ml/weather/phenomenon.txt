@@ -1,0 +1,19 @@
+---
+description: Severe weather in Malayalam. കാലവർഷം and തുലാവർഷം are the two monsoons and are the ordinary weather of the state rather than an event; ഉരുൾപൊട്ടൽ, the landslide that follows heavy rain on the Ghats, is the hazard Kerala actually plans for, and there is no blizzard or ice storm in the list because there is none in the state.
+locale: ml
+---
+കാലവർഷം
+തുലാവർഷം
+ചുഴലിക്കാറ്റ്
+ന്യൂനമർദം
+കടലാക്രമണം
+വെള്ളപ്പൊക്കം
+ഉരുൾപൊട്ടൽ
+മണ്ണിടിച്ചിൽ
+വരൾച്ച
+ഉഷ്ണതരംഗം
+സൂര്യാഘാതം
+ആലിപ്പഴ വർഷം
+ഇടിമിന്നൽ
+ചക്രവാതച്ചുഴി
+കാട്ടുതീ

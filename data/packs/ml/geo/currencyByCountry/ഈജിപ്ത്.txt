@@ -1,0 +1,5 @@
+---
+description: Currency of ഈജിപ്ത്, in Malayalam.
+locale: ml
+---
+ഈജിപ്ഷ്യൻ പൗണ്ട്

@@ -1,0 +1,9 @@
+---
+description: Dishes of കൊറിയൻ cuisine, named in Malayalam.
+locale: ml
+---
+ബിബിംബാപ്
+ബുൾഗോഗി
+കിംചി
+ജാപ്ചെ
+ട്ടോക്ബോക്കി

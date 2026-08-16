@@ -1,0 +1,44 @@
+---
+description: Malayalam thoroughfare type. It goes AFTER the name, not before it as in Polish or Russian: ബീച്ച് റോഡ്, കോട്ടയം ബൈപ്പാസ്, പള്ളി ഇടവഴി. മുക്ക് and കവല are junctions, and in Kerala a junction is a normal postal landmark in its own right — an address may end at one with no street named at all.
+locale: ml
+---
+റോഡ്
+തെരുവ്
+ഇടവഴി
+വീഥി
+പാത
+നിരത്ത്
+ലെയ്ൻ
+അവന്യൂ
+ബൈപ്പാസ്
+ഹൈവേ
+ദേശീയപാത
+സംസ്ഥാനപാത
+ജംഗ്ഷൻ
+കവല
+മുക്ക്
+ചുറ്റുവഴി
+ക്രോസ് റോഡ്
+നടപ്പാത
+ഗോവണിപ്പടി
+പാലം
+കടവ്
+ജെട്ടി
+നഗർ
+കോളനി
+ഗാർഡൻസ്
+ഹിൽസ്
+ടവേഴ്സ്
+എൻക്ലേവ്
+ലൈൻ
+വളവ്
+ചിറ
+പടി
+തറ
+മൈതാനം
+അങ്ങാടി
+ചന്ത
+ബസാർ
+ടൗൺ
+സിറ്റി
+സെന്റർ

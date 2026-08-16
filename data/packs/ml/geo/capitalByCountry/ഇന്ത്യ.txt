@@ -1,0 +1,5 @@
+---
+description: Capital of ഇന്ത്യ, in Malayalam.
+locale: ml
+---
+ന്യൂ ഡൽഹി

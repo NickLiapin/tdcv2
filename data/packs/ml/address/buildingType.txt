@@ -1,0 +1,36 @@
+---
+description: Building type in Malayalam. തറവാട് is the ancestral joint-family house of a Kerala lineage and is a live address element, not a historical term — the same word supplies the initial in an official name (see person/houseName.txt).
+locale: ml
+---
+വീട്
+തറവാട്
+ഫ്ലാറ്റ്
+അപ്പാർട്മെന്റ്
+വില്ല
+ബംഗ്ലാവ്
+കുടിൽ
+ഔട്ട്ഹൗസ്
+ഷെഡ്
+ഓഫീസ്
+കട
+കടമുറി
+ഗോഡൗൺ
+ഫാക്ടറി
+മില്ല്
+ആശുപത്രി
+സ്കൂൾ
+കോളേജ്
+ഗ്രന്ഥശാല
+ഹോട്ടൽ
+ലോഡ്ജ്
+റെസ്റ്റോറന്റ്
+അമ്പലം
+പള്ളി
+ദേവാലയം
+മസ്ജിദ്
+ബാങ്ക്
+തപാൽ ഓഫീസ്
+സ്റ്റേഡിയം
+തിയേറ്റർ
+ഷോപ്പിംഗ് മാൾ
+ഗസ്റ്റ് ഹൗസ്

@@ -1,0 +1,5 @@
+---
+description: Currency of ബഹ്റൈൻ, in Malayalam.
+locale: ml
+---
+ബഹ്റൈനി ദിനാർ

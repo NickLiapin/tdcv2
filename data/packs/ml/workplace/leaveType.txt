@@ -1,0 +1,16 @@
+---
+description: Leave types in Malayalam. ആർജിത അവധി (earned leave) and ആകസ്മിക അവധി (casual leave) are the Indian service categories and have no exact English-workplace equivalent.
+locale: ml
+---
+ആകസ്മിക അവധി
+ആർജിത അവധി
+അസുഖ അവധി
+പ്രസവാവധി
+പിതൃത്വ അവധി
+മരണാനന്തര അവധി
+ശമ്പളമില്ലാത്ത അവധി
+പഠനാവധി
+ദീർഘാവധി
+ജൂറി ഡ്യൂട്ടി
+നഷ്ടപരിഹാര അവധി
+ഉത്സവ അവധി

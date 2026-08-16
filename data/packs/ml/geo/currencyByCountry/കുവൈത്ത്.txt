@@ -1,0 +1,5 @@
+---
+description: Currency of കുവൈത്ത്, in Malayalam.
+locale: ml
+---
+കുവൈത്തി ദിനാർ

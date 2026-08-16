@@ -1,0 +1,26 @@
+---
+description: Company departments in Malayalam. Note the category name: this is work/, and the personnel one is workplace/, because hr is the language code for Croatian and an address ending in hr would resolve to the wrong pack.
+locale: ml
+---
+എൻജിനീയറിംഗ്
+ഉൽപന്ന വിഭാഗം
+ഡിസൈൻ
+വിൽപന
+വിപണനം
+ധനകാര്യം
+അക്കൗണ്ട്സ്
+മാനവവിഭവശേഷി
+പ്രവർത്തന വിഭാഗം
+നിയമ വിഭാഗം
+ഉപഭോക്തൃ സേവനം
+വിവരസാങ്കേതിക വിഭാഗം
+ഗവേഷണ വികസന വിഭാഗം
+സംഭരണ വിഭാഗം
+ഗുണനിലവാര വിഭാഗം
+ചരക്കുനീക്ക വിഭാഗം
+ഭരണ വിഭാഗം
+സൗകര്യ വിഭാഗം
+സുരക്ഷാ വിഭാഗം
+അനുസരണ വിഭാഗം
+പരിശീലന വിഭാഗം
+പൊതുജനസമ്പർക്ക വിഭാഗം

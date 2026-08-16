@@ -1,0 +1,12 @@
+---
+description: Team sports, the parent of sport/positionBySport/. ഫുട്ബോൾ leads: football, not cricket, is the game of northern Kerala, and the Malabar sevens tournaments draw crowds no other Indian state gives the sport. കബഡി is here because it is a real league sport in India with real named positions, and no European list has it. അമേരിക്കൻ ഫുട്ബോൾ and ഐസ് ഹോക്കി are absent because they are not played here — leaving them in would have padded the count with sports Kerala has never had a team for.
+locale: ml
+---
+ഫുട്ബോൾ
+ക്രിക്കറ്റ്
+വോളിബോൾ
+ബാസ്കറ്റ്ബോൾ
+ഹോക്കി
+കബഡി
+ഹാൻഡ്ബോൾ
+റഗ്ബി

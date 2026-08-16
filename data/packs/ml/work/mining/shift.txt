@@ -1,0 +1,9 @@
+---
+description: Shift a worker is rostered on. Written in Malayalam; the Kerala trade-union agreements that name these shifts use the same four words.
+locale: ml
+---
+പകൽ
+രാത്രി
+സ്വിംഗ്
+പുലർച്ച
+റൊട്ടേറ്റിംഗ്

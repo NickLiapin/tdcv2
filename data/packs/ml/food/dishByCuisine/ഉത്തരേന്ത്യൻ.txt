@@ -1,0 +1,12 @@
+---
+description: Dishes of ഉത്തരേന്ത്യൻ cuisine, named in Malayalam.
+locale: ml
+---
+ബട്ടർ ചിക്കൻ
+പനീർ ടിക്ക
+ദാൽ മഖനി
+ചോലെ ഭട്ടൂരെ
+രാജ്മ
+നാൻ
+റോട്ടി
+പലക് പനീർ

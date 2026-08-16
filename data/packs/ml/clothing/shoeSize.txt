@@ -1,0 +1,15 @@
+---
+description: Shoe sizes as they are printed on a shoebox in Kerala: the UK/India scale, which is what every Indian manufacturer and retailer marks. This is NOT the European scale (a UK 8 is about a EU 42) and NOT the US one. Sizes are whole numbers — half sizes are rare in the Indian market — and the range covers adult men and women, who read the same numbers off the same scale.
+locale: ml
+---
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13

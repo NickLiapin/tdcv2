@@ -1,0 +1,34 @@
+---
+description: Garments in Malayalam. The Kerala ones lead and they are not costumes: മുണ്ട് is the everyday lower garment for men, കസവ് മുണ്ട് its gold-bordered formal version, സെറ്റ് സാരി and സെറ്റ് മുണ്ട് the two-piece Kerala sari, ചുരിദാർ the commonest women's daywear, and തട്ടം the headscarf worn by Muslim women here.
+locale: ml
+---
+മുണ്ട്
+കസവ് മുണ്ട്
+ഡബിൾ മുണ്ട്
+ലുങ്കി
+കൈലി
+സാരി
+സെറ്റ് സാരി
+സെറ്റ് മുണ്ട്
+പാവാട
+ബ്ലൗസ്
+ചുരിദാർ
+സൽവാർ കമ്മീസ്
+അനാർക്കലി
+ദാവണി
+തട്ടം
+പർദ
+ഷർട്ട്
+ടീ ഷർട്ട്
+ജൂബ്ബ
+കുർത്ത
+പാന്റ്സ്
+ജീൻസ്
+ട്രൗസർ
+ഷോർട്സ്
+ജാക്കറ്റ്
+സ്വെറ്റർ
+കോട്ട്
+സ്യൂട്ട്
+നൈറ്റി
+ബനിയൻ

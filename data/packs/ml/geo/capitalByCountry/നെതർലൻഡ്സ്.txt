@@ -1,0 +1,5 @@
+---
+description: Capital of നെതർലൻഡ്സ്, in Malayalam.
+locale: ml
+---
+ആംസ്റ്റർഡാം

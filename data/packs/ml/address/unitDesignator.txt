@@ -1,0 +1,26 @@
+---
+description: Malayalam address unit designator, written before its number (ഡോർ നമ്പർ 14, രണ്ടാം നില). Kerala numbers a house by a door number issued by the panchayat, not by a position along a street.
+locale: ml
+---
+ഡോർ നമ്പർ
+വീട്ടുനമ്പർ
+ഫ്ലാറ്റ് നമ്പർ
+മുറി നമ്പർ
+കെട്ടിടം
+ബ്ലോക്ക്
+യൂണിറ്റ്
+നില
+താഴത്തെ നില
+ഒന്നാം നില
+രണ്ടാം നില
+മൂന്നാം നില
+മുകളിലത്തെ നില
+മുൻവശം
+പിൻവശം
+വടക്കേ ഭാഗം
+തെക്കേ ഭാഗം
+അനെക്സ്
+ഔട്ട്ഹൗസ്
+പോർഷൻ
+ഗേറ്റ്
+സ്റ്റെയർകേസ്

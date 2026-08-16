@@ -1,0 +1,38 @@
+---
+description: Fruit sold in Kerala. Tropical, and several have no English name in common use: ചക്ക is jackfruit, the state fruit; നേന്ത്രപ്പഴം is the Nendran plantain eaten as a fruit and fried as a chip; ചാമ്പങ്ങ is the rose apple; കശുമാങ്ങ is the cashew apple, the fleshy part the nut hangs from.
+locale: ml
+---
+മാങ്ങ
+ചക്ക
+നേന്ത്രപ്പഴം
+പഴം
+റോബസ്റ്റ പഴം
+തേങ്ങ
+പപ്പായ
+പേരയ്ക്ക
+സപ്പോട്ട
+ചാമ്പങ്ങ
+ആത്തച്ചക്ക
+ഞാവൽപ്പഴം
+നെല്ലിക്ക
+ലൂവിക്ക
+കശുമാങ്ങ
+മാതളനാരങ്ങ
+മുന്തിരി
+ഓറഞ്ച്
+മുസംബി
+നാരങ്ങ
+ചെറുനാരങ്ങ
+ആപ്പിൾ
+തണ്ണിമത്തൻ
+മത്തങ്ങ പഴം
+കൈതച്ചക്ക
+അത്തിപ്പഴം
+ഈന്തപ്പഴം
+ലിച്ചി
+റംബൂട്ടാൻ
+മാങ്കോസ്റ്റിൻ
+പാഷൻ ഫ്രൂട്ട്
+കിവി
+സ്ട്രോബെറി
+പിയർ

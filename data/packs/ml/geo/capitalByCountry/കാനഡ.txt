@@ -1,0 +1,5 @@
+---
+description: Capital of കാനഡ, in Malayalam.
+locale: ml
+---
+ഒട്ടാവ

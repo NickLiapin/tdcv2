@@ -1,0 +1,9 @@
+---
+description: Dishes of തായ് cuisine, named in Malayalam.
+locale: ml
+---
+പാഡ് തായ്
+ഗ്രീൻ കറി
+ടോം യം
+മാങ്ങ സ്റ്റിക്കി റൈസ്
+സതെ

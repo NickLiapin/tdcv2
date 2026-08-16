@@ -1,0 +1,5 @@
+---
+description: Capital of ഈജിപ്ത്, in Malayalam.
+locale: ml
+---
+കെയ്റോ

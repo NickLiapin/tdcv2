@@ -1,0 +1,5 @@
+---
+description: Currency of ചൈന, in Malayalam.
+locale: ml
+---
+ചൈനീസ് യുവാൻ

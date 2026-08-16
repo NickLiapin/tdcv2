@@ -1,0 +1,26 @@
+---
+description: Dog breeds. കണ്ണി, the Kanni, and ചിപ്പിപ്പാറൈ are South Indian sighthounds bred on this coast; നാടൻ പട്ടി is the Indian pariah dog, which is what most Kerala house dogs actually are.
+locale: ml
+---
+നാടൻ പട്ടി
+ലാബ്രഡോർ
+ജർമൻ ഷെപ്പേഡ്
+ഗോൾഡൻ റിട്രീവർ
+റോട്ട്വീലർ
+ഡോബർമാൻ
+ബീഗിൾ
+ഡാഷ്ഹുണ്ട്
+പഗ്
+പോമറേനിയൻ
+ഷിറ്റ്സു
+കോക്കർ സ്പാനിയൽ
+ബോക്സർ
+ഗ്രേറ്റ് ഡെയ്ൻ
+സൈബീരിയൻ ഹസ്കി
+ബുൾഡോഗ്
+പൂഡിൽ
+ചിവാവ
+ബോർഡർ കോളി
+കണ്ണി
+ചിപ്പിപ്പാറൈ
+രാജപാളയം

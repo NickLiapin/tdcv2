@@ -1,0 +1,5 @@
+---
+description: Currency of തായ്ലൻഡ്, in Malayalam.
+locale: ml
+---
+തായ് ബാത്ത്

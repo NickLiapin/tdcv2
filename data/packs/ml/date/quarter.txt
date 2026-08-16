@@ -1,0 +1,8 @@
+---
+description: Financial quarter in Malayalam. India's financial year runs April to March, so the first quarter is April-June, not January-March.
+locale: ml
+---
+ഒന്നാം പാദം
+രണ്ടാം പാദം
+മൂന്നാം പാദം
+നാലാം പാദം

@@ -1,0 +1,27 @@
+---
+description: Kinds of government office a Malayalam speaker deals with. These are the offices of Kerala's administration named generically — വില്ലേജ് ഓഫീസ്, താലൂക്ക് ഓഫീസ്, പഞ്ചായത്ത് and അക്ഷയ കേന്ദ്രം (the state's citizen e-service centres) are the ones an ordinary certificate actually passes through. Named ministries and their addresses are India country-pack data.
+locale: ml
+---
+വില്ലേജ് ഓഫീസ്
+താലൂക്ക് ഓഫീസ്
+കളക്ടറേറ്റ്
+ഗ്രാമപഞ്ചായത്ത്
+ബ്ലോക്ക് പഞ്ചായത്ത്
+ജില്ലാ പഞ്ചായത്ത്
+നഗരസഭ
+കോർപ്പറേഷൻ
+അക്ഷയ കേന്ദ്രം
+സബ് രജിസ്ട്രാർ ഓഫീസ്
+ആരോഗ്യ വകുപ്പ്
+വിദ്യാഭ്യാസ വകുപ്പ്
+റവന്യൂ വകുപ്പ്
+പൊതുമരാമത്ത് വകുപ്പ്
+മോട്ടോർ വാഹന വകുപ്പ്
+വനം വകുപ്പ്
+കൃഷി വകുപ്പ്
+മത്സ്യബന്ധന വകുപ്പ്
+തൊഴിൽ വകുപ്പ്
+ജലവിഭവ വകുപ്പ്
+വൈദ്യുതി ബോർഡ്
+തപാൽ വകുപ്പ്
+പോലീസ് സ്റ്റേഷൻ

@@ -1,0 +1,11 @@
+---
+description: Playing positions in ക്രിക്കറ്റ്, in Malayalam.
+locale: ml
+---
+ബാറ്റർ
+ഓപ്പണിംഗ് ബാറ്റർ
+ബൗളർ
+സ്പിന്നർ
+വിക്കറ്റ് കീപ്പർ
+ഓൾറൗണ്ടർ
+ഫീൽഡർ

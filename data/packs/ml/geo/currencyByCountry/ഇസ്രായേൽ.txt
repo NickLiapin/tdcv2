@@ -1,0 +1,5 @@
+---
+description: Currency of ഇസ്രായേൽ, in Malayalam.
+locale: ml
+---
+ഇസ്രായേലി ഷെക്കൽ

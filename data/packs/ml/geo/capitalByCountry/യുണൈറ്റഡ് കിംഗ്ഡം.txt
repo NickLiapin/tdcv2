@@ -1,0 +1,5 @@
+---
+description: Capital of യുണൈറ്റഡ് കിംഗ്ഡം, in Malayalam.
+locale: ml
+---
+ലണ്ടൻ

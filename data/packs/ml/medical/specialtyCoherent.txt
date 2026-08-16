@@ -1,0 +1,14 @@
+---
+description: Medical specialties used as the parent of medical/diagnosisBySpecialty/. Transliterated, because that is what the board over the counter in a Kerala hospital says — the department names are English in Malayalam letters even where the diagnosis under them is a native word. Kerala clinical Malayalam borrows the technical term and translates the everyday one — പ്രോസ്റ്റാറ്റൈറ്റിസ് stays, but "rectal cancer" becomes മലാശയ അർബുദം. That split is how a Kerala discharge summary actually reads and is not an inconsistency in this pack.
+locale: ml
+---
+കാർഡിയോളജി
+ന്യൂറോളജി
+ഓങ്കോളജി
+ഡെർമറ്റോളജി
+ഗ്യാസ്ട്രോഎൻട്രോളജി
+എൻഡോക്രൈനോളജി
+പൾമണോളജി
+ഓർത്തോപീഡിക്സ്
+സൈക്യാട്രി
+നെഫ്രോളജി

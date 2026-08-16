@@ -1,0 +1,12 @@
+---
+description: Mining method. Kerala's own extraction is quarrying and beach-sand mining rather than deep shafts, but the list holds the general vocabulary a Malayalam technical text uses.
+locale: ml
+---
+തുറന്ന ഖനനം
+ഭൂഗർഭ ഖനനം
+സ്ട്രിപ്പ് ഖനനം
+പ്ലേസർ ഖനനം
+ക്വാറി
+ഷാഫ്റ്റ്
+ഡ്രിഫ്റ്റ്
+ലോംഗ്വാൾ

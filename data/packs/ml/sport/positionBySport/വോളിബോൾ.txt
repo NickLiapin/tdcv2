@@ -1,0 +1,9 @@
+---
+description: Playing positions in വോളിബോൾ, in Malayalam.
+locale: ml
+---
+സെറ്റർ
+ഔട്ട്സൈഡ് ഹിറ്റർ
+മിഡിൽ ബ്ലോക്കർ
+ലിബറോ
+ഒപ്പോസിറ്റ്

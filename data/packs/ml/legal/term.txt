@@ -1,0 +1,23 @@
+---
+description: Legal vocabulary in Malayalam. The Kerala courts work in English, but Malayalam has its own settled legal register — വാദി, പ്രതി, സത്യവാങ്മൂലം, ഇടക്കാല ഉത്തരവ് — used in FIRs, village records and the Malayalam press.
+locale: ml
+---
+വാദി
+പ്രതി
+സാക്ഷി
+മൊഴി
+സത്യവാങ്മൂലം
+സമൻസ്
+വാറന്റ്
+ജാമ്യം
+ഇടക്കാല ഉത്തരവ്
+സ്റ്റേ ഉത്തരവ്
+വിധി
+ശിക്ഷ
+അപ്പീൽ
+ഒത്തുതീർപ്പ്
+നഷ്ടപരിഹാരം
+അധികാരപരിധി
+കുറ്റപത്രം
+എഫ്ഐആർ
+വക്കാലത്ത്

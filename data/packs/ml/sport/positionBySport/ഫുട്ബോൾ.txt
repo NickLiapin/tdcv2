@@ -1,0 +1,10 @@
+---
+description: Playing positions in ഫുട്ബോൾ, in Malayalam.
+locale: ml
+---
+ഗോൾകീപ്പർ
+സെന്റർ ബാക്ക്
+ഫുൾ ബാക്ക്
+ഡിഫൻസീവ് മിഡ്ഫീൽഡർ
+വിംഗർ
+സ്ട്രൈക്കർ

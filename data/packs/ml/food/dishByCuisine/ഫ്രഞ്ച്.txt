@@ -1,0 +1,10 @@
+---
+description: Dishes of ഫ്രഞ്ച് cuisine, named in Malayalam.
+locale: ml
+---
+ക്രോസോൺ
+ക്രെപ്പ്
+റാറ്ററ്റൂയി
+കിഷ്
+ബഗറ്റ്
+സൂഫ്ലെ

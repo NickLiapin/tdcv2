@@ -1,0 +1,13 @@
+---
+description: Types of communication and power cable, in the mixed Malayalam-English a Kerala site engineer writes on a job card.
+locale: ml
+---
+ഒപ്റ്റിക്കൽ ഫൈബർ
+കോക്സിയൽ
+ട്വിസ്റ്റഡ് പെയർ
+കാറ്റ്5ഇ
+കാറ്റ്6
+കാറ്റ്6എ
+ഇഥർനെറ്റ്
+ഏരിയൽ
+ഭൂഗർഭ

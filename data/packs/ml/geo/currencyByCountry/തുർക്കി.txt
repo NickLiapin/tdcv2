@@ -1,0 +1,5 @@
+---
+description: Currency of തുർക്കി, in Malayalam.
+locale: ml
+---
+തുർക്കി ലിറ

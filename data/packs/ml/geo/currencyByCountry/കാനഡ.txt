@@ -1,0 +1,5 @@
+---
+description: Currency of കാനഡ, in Malayalam.
+locale: ml
+---
+കനേഡിയൻ ഡോളർ

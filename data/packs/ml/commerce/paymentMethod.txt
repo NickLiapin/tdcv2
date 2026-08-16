@@ -1,0 +1,19 @@
+---
+description: Payment methods in Malayalam. യുപിഐ leads because it is how most Indian retail payment now happens, and പണം കൈപ്പറ്റി വിതരണം (cash on delivery) is still ordinary — the American card-first ordering would misrepresent the market.
+locale: ml
+---
+യുപിഐ
+ഗൂഗിൾ പേ
+ഫോൺപേ
+പേടിഎം
+ഡെബിറ്റ് കാർഡ്
+ക്രെഡിറ്റ് കാർഡ്
+നെറ്റ് ബാങ്കിംഗ്
+ബാങ്ക് ട്രാൻസ്ഫർ
+എൻഇഎഫ്ടി
+ഐഎംപിഎസ്
+ചെക്ക്
+പണം കൈപ്പറ്റി വിതരണം
+ഗിഫ്റ്റ് കാർഡ്
+വാലറ്റ്
+ഇഎംഐ

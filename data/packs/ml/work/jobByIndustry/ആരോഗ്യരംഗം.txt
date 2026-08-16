@@ -1,0 +1,10 @@
+---
+description: Jobs in the ആരോഗ്യരംഗം sector, named in Malayalam.
+locale: ml
+---
+ഡോക്ടർ
+നഴ്സ്
+ഫാർമസിസ്റ്റ്
+ഫിസിയോതെറാപ്പിസ്റ്റ്
+ലാബ് ടെക്നീഷ്യൻ
+ആയുർവേദ വൈദ്യൻ

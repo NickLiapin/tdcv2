@@ -1,0 +1,29 @@
+---
+description: Writing systems. മലയാളലിപി is this pack's own script, Unicode block U+0D00-U+0D7F, a Brahmic abugida descended from Grantha. Its nearest neighbours are named right after it and they are DIFFERENT SCRIPTS with different codepoint blocks: തമിഴ് U+0B80-U+0BFF, കന്നഡ U+0C80-U+0CFF, തെലുങ്ക് U+0C00-U+0C7F, ദേവനാഗരി U+0900-U+097F. Not one character from any of those four appears anywhere in this pack; the resemblance is genealogical, not textual, and a Malayalam pack contaminated with Tamil would still look plausibly South Indian to anyone who did not count codepoints.
+locale: ml
+---
+മലയാളലിപി
+തമിഴ് ലിപി
+കന്നഡ ലിപി
+തെലുങ്ക് ലിപി
+ദേവനാഗരി
+ഗ്രന്ഥലിപി
+വട്ടെഴുത്ത്
+കോലെഴുത്ത്
+അറബി-മലയാളം
+ബംഗാളി ലിപി
+ഗുജറാത്തി ലിപി
+ഗുരുമുഖി
+ഒഡിയ ലിപി
+സിംഹള ലിപി
+ലാറ്റിൻ
+സിറിലിക്
+അറബി ലിപി
+ഹീബ്രു ലിപി
+ഗ്രീക്ക് ലിപി
+ചൈനീസ് ലിപി
+ഹിരഗാന
+കടകാന
+ഹാൻഗുൽ
+തായ് ലിപി
+സിറിയക്

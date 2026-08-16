@@ -1,0 +1,24 @@
+---
+description: Purpose of a trip in Malayalam. തീർഥാടനം (pilgrimage) and ശബരിമല യാത്ര are ordinary trip types in Kerala — the Sabarimala season moves tens of millions of people — and ഗൾഫ് യാത്ര, the flight out to a Gulf job or home from one, is the single commonest reason a Malayali boards an aircraft.
+locale: ml
+---
+ബിസിനസ്
+വിനോദയാത്ര
+കുടുംബ യാത്ര
+മധുവിധു
+സാഹസിക യാത്ര
+തീർഥാടനം
+ശബരിമല യാത്ര
+ഗൾഫ് യാത്ര
+ചികിത്സാ യാത്ര
+വിദ്യാഭ്യാസ യാത്ര
+പഠനയാത്ര
+റോഡ് യാത്ര
+ക്രൂയിസ്
+ബാക്ക്പാക്കിംഗ്
+നഗരസന്ദർശനം
+കടൽത്തീര അവധി
+മലയോര യാത്ര
+ഗ്രൂപ്പ് ടൂർ
+ഒറ്റയ്ക്കുള്ള യാത്ര
+വിവാഹ യാത്ര

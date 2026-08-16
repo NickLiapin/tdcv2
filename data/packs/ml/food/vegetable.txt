@@ -1,0 +1,34 @@
+---
+description: Vegetables of a Kerala kitchen. കപ്പ (tapioca) and ചേന (elephant-foot yam) are staples, not curiosities, and മുരിങ്ങയ്ക്ക (drumstick) with its leaves goes into everyday sambar. നേന്ത്രക്കായ, the raw plantain, is cooked as a vegetable although the ripe one is in food/fruit.txt.
+locale: ml
+---
+കപ്പ
+ചേന
+ചേമ്പ്
+കാച്ചിൽ
+കൂർക്ക
+നേന്ത്രക്കായ
+മത്തങ്ങ
+കുമ്പളങ്ങ
+പടവലങ്ങ
+പാവയ്ക്ക
+വെണ്ടയ്ക്ക
+വഴുതനങ്ങ
+ചുരയ്ക്ക
+കോവയ്ക്ക
+പയർ
+അമര
+ചീര
+മുരിങ്ങയ്ക്ക
+മുരിങ്ങയില
+കാരറ്റ്
+ബീറ്റ്റൂട്ട്
+ഉരുളക്കിഴങ്ങ്
+സവാള
+ചെറിയ ഉള്ളി
+വെളുത്തുള്ളി
+തക്കാളി
+കാബേജ്
+കോളിഫ്ലവർ
+ബീൻസ്
+കൂൺ

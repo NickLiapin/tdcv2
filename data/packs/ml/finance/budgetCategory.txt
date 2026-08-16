@@ -1,0 +1,24 @@
+---
+description: Household budget categories in Malayalam. ചിട്ടി (the rotating savings chit fund) is a mainstream Kerala financial instrument, and സ്വർണം is a savings line rather than a luxury one — Kerala households hold savings as gold.
+locale: ml
+---
+വീട്ടുവാടക
+ഭവനവായ്പ തിരിച്ചടവ്
+പലചരക്ക്
+വൈദ്യുതി ബിൽ
+വെള്ളക്കരം
+ഗ്യാസ്
+ഇന്ധനം
+യാത്ര
+വിദ്യാഭ്യാസം
+ട്യൂഷൻ ഫീസ്
+ചികിത്സ
+ഇൻഷുറൻസ്
+ചിട്ടി
+സ്വർണം
+സമ്പാദ്യം
+വസ്ത്രം
+വിനോദം
+പുറത്തുനിന്നുള്ള ഭക്ഷണം
+സബ്സ്ക്രിപ്ഷൻ
+സംഭാവന

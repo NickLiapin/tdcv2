@@ -1,0 +1,20 @@
+---
+description: Horse breeds. മാർവാരി and കാത്തിയവാടി are the Indian riding breeds; the rest keep their international names.
+locale: ml
+---
+മാർവാരി
+കാത്തിയവാടി
+അറേബ്യൻ
+തൊറോബ്രെഡ്
+മസ്റ്റാങ്
+ക്ലൈഡ്സ്ഡേൽ
+അപ്പലൂസ
+ക്വാർട്ടർ ഹോഴ്സ്
+ഫ്രീഷ്യൻ
+ഷയർ
+അൻഡലൂഷ്യൻ
+പലോമിനോ
+പെർഷെറോൺ
+ഷെറ്റ്ലൻഡ് പോണി
+മൺഗോളിയൻ
+സ്പിതി

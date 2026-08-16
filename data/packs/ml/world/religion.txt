@@ -1,0 +1,20 @@
+---
+description: Religions in Malayalam, in the order Kerala's own census reports them: ഹിന്ദുമതം 54.73%, ഇസ്ലാം 26.56%, ക്രിസ്തുമതം 18.38%. That three-way split, with a Christian and a Muslim population each far larger in share than anywhere else in India, is the single most important demographic fact about this locale and it drives the design of every name file in the pack.
+locale: ml
+---
+ഹിന്ദുമതം
+ഇസ്ലാം
+ക്രിസ്തുമതം
+ബുദ്ധമതം
+ജൈനമതം
+സിഖ് മതം
+ജൂതമതം
+സൊരാഷ്ട്രിയൻ മതം
+ബഹായ് മതം
+ഷിന്റോ
+താവോയിസം
+കൺഫ്യൂഷ്യനിസം
+ഗോത്രമതം
+നിരീശ്വരവാദം
+അജ്ഞേയവാദം
+മതരഹിതം

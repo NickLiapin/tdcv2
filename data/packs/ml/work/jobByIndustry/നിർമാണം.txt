@@ -1,0 +1,10 @@
+---
+description: Jobs in the നിർമാണം sector, named in Malayalam.
+locale: ml
+---
+സിവിൽ എൻജിനീയർ
+ഇലക്ട്രീഷ്യൻ
+പ്ലംബർ
+ആശാരി
+കൊത്തുപണിക്കാരൻ
+സർവേയർ

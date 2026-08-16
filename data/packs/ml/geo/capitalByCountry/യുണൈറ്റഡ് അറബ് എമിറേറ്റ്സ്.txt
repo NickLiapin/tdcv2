@@ -1,0 +1,5 @@
+---
+description: Capital of യുണൈറ്റഡ് അറബ് എമിറേറ്റ്സ്, in Malayalam.
+locale: ml
+---
+അബുദാബി

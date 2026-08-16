@@ -1,0 +1,23 @@
+---
+description: Kinds of official document, named in Malayalam. റേഷൻ കാർഡ് is not a historical curiosity in Kerala: it is a live identity and entitlement document every household holds. The document NUMBERS and their formats — Aadhaar, PAN, passport, licence — belong to the India country pack; these are only the names of the kinds.
+locale: ml
+---
+ജനന സർട്ടിഫിക്കറ്റ്
+മരണ സർട്ടിഫിക്കറ്റ്
+വിവാഹ സർട്ടിഫിക്കറ്റ്
+റേഷൻ കാർഡ്
+ആധാർ കാർഡ്
+വോട്ടർ തിരിച്ചറിയൽ കാർഡ്
+പാൻ കാർഡ്
+പാസ്പോർട്ട്
+ഡ്രൈവിംഗ് ലൈസൻസ്
+വാഹന രജിസ്ട്രേഷൻ സർട്ടിഫിക്കറ്റ്
+ജാതി സർട്ടിഫിക്കറ്റ്
+വരുമാന സർട്ടിഫിക്കറ്റ്
+സ്വദേശി സർട്ടിഫിക്കറ്റ്
+കൈവശാവകാശ സർട്ടിഫിക്കറ്റ്
+ആധാരം
+കരം അടച്ച രസീത്
+കെട്ടിട നിർമാണ അനുമതി
+വ്യാപാര ലൈസൻസ്
+വിസ

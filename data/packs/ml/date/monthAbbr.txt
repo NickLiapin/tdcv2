@@ -1,0 +1,16 @@
+---
+description: Abbreviated Malayalam month names as the Kerala press prints them.
+locale: ml
+---
+ജനു
+ഫെബ്രു
+മാർ
+ഏപ്രി
+മേയ്
+ജൂൺ
+ജൂലൈ
+ഓഗ
+സെപ്റ്റ
+ഒക്ടോ
+നവം
+ഡിസം

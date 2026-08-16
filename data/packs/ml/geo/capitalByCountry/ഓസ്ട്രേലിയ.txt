@@ -1,0 +1,5 @@
+---
+description: Capital of ഓസ്ട്രേലിയ, in Malayalam.
+locale: ml
+---
+കാൻബെറ

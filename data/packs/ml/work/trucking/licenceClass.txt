@@ -1,0 +1,11 @@
+---
+description: Driving licence class as India issues it — LMV, HMV, HPMV and the transport endorsement, not the American Class A/B/C. The licence itself is issued by the Kerala Motor Vehicles Department and belongs to the India country pack; these are the words for the classes.
+locale: ml
+---
+എൽഎംവി
+എൽഎംവി-ട്രാൻസ്പോർട്ട്
+എച്ച്എംവി
+എച്ച്പിഎംവി
+എച്ച്ജിഎംവി
+ട്രെയിലർ
+ഹസാർഡസ്

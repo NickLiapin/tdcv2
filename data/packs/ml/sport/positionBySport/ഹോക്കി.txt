@@ -1,0 +1,10 @@
+---
+description: Playing positions in ഹോക്കി, in Malayalam.
+locale: ml
+---
+ഗോൾകീപ്പർ
+ഫുൾ ബാക്ക്
+ഹാഫ് ബാക്ക്
+മിഡ്ഫീൽഡർ
+ഫോർവേഡ്
+ഡ്രാഗ് ഫ്ലിക്കർ

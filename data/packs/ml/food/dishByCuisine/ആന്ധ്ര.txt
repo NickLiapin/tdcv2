@@ -1,0 +1,9 @@
+---
+description: Dishes of ആന്ധ്ര cuisine, named in Malayalam.
+locale: ml
+---
+ഹൈദരാബാദി ബിരിയാണി
+പെസരട്ട്
+ഗോംഗുര പച്ചടി
+ആന്ധ്ര ചിക്കൻ കറി
+പുലിഹോര

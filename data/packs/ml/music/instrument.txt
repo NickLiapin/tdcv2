@@ -1,0 +1,35 @@
+---
+description: Musical instruments in Malayalam. The first twelve are the Kerala percussion and temple instruments — ചെണ്ട, മദ്ദളം, ഇടയ്ക്ക, തിമില, ഇലത്താളം, കൊമ്പ്, കുഴൽ — and they are what a ചെണ്ടമേളം is made of. No European list contains any of them, and a Kerala dataset without them would be describing somewhere else.
+locale: ml
+---
+ചെണ്ട
+മദ്ദളം
+ഇടയ്ക്ക
+തിമില
+മിഴാവ്
+ഇലത്താളം
+കൊമ്പ്
+കുഴൽ
+ചേങ്ങില
+ഉടുക്ക്
+നാദസ്വരം
+തകിൽ
+മൃദംഗം
+ഘടം
+മോർസിംഗ്
+വീണ
+വയലിൻ
+ഓടക്കുഴൽ
+ഹാർമോണിയം
+തബല
+സിതാർ
+സരോദ്
+ഗിറ്റാർ
+കീബോർഡ്
+പിയാനോ
+ഡ്രംസ്
+സാക്സഫോൺ
+ട്രംപറ്റ്
+ക്ലാരിനെറ്റ്
+അക്കോർഡിയൻ
+ഉക്കുലേലെ

@@ -1,0 +1,21 @@
+---
+description: Rooms of a house in Malayalam. നടുമുറ്റം, the open inner courtyard of a traditional Kerala house, and പൂജാമുറി, the prayer room, are rooms a Kerala plan actually has and an English list has no word for.
+locale: ml
+---
+കിടപ്പുമുറി
+സ്വീകരണമുറി
+ഊണുമുറി
+അടുക്കള
+വർക്ക് ഏരിയ
+കുളിമുറി
+ശൗചാലയം
+പൂജാമുറി
+പഠനമുറി
+സ്റ്റോർ റൂം
+അതിഥി മുറി
+നടുമുറ്റം
+വരാന്ത
+ഉമ്മറം
+ബാൽക്കണി
+തട്ടിൻപുറം
+കാർ പോർച്ച്
