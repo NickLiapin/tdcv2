@@ -38,6 +38,9 @@ export function formatDateTime(
   const locale = resolveDateLocale(localeName);
   const expanded = expandLocalizedFormat(format ?? 'L', locale.formats);
   let out = '';
+  // Whether a day-of-month token has already been rendered. `MMMM` reads it to
+  // choose between the two month forms — see `renderToken`.
+  let afterDay = false;
   for (let i = 0; i < expanded.length; ) {
     const ch = expanded[i];
     if (ch === '[') {
@@ -50,7 +53,8 @@ export function formatDateTime(
 
     const token = TOKENS.find((candidate) => expanded.startsWith(candidate, i));
     if (token) {
-      out += renderToken(token, value, locale);
+      out += renderToken(token, value, locale, afterDay);
+      if (token === 'D' || token === 'DD') afterDay = true;
       i += token.length;
       continue;
     }
@@ -82,10 +86,33 @@ function expandLocalizedFormat(
   return format;
 }
 
+/**
+ * `afterDay` — whether a day-of-month token has already been rendered.
+ *
+ * Half the world writes the month differently depending on whether a day
+ * number stands beside it. Slovak says `január` on its own and `15. januára
+ * 2026` in a date; Finnish says `tammikuu` and `15. tammikuuta 2026`; Czech,
+ * Croatian, Russian and Ukrainian all do the same. English and Hungarian do
+ * not, and put the month first anyway.
+ *
+ * The rule is the one Moment settled on and every shipped `DATE_LOCALE.json`
+ * already assumes: `MMMM` renders the in-date form when a day token came
+ * BEFORE it, and the standalone form otherwise. It falls out of the format
+ * string alone, so all five implementations can apply it identically:
+ *
+ *   D. MMMM YYYY      -> in-date     (Slovak, Czech, Finnish, Russian)
+ *   MMMM D, YYYY      -> standalone  (English)
+ *   YYYY. MMMM D.     -> standalone  (Hungarian, which wants the nominative)
+ *   dddd, D MMMM YYYY -> in-date     (`dddd` is a weekday, not a day number)
+ *
+ * A locale with no such distinction sets `monthsInDate` equal to `months`, so
+ * the branch costs it nothing.
+ */
 function renderToken(
   token: DateToken,
   value: PlainDateTime,
   locale: ReturnType<typeof resolveDateLocale>,
+  afterDay: boolean,
 ): string {
   switch (token) {
     case 'YYYY':
@@ -93,7 +120,9 @@ function renderToken(
     case 'YY':
       return pad(value.year % 100, 2);
     case 'MMMM':
-      return locale.months[value.month - 1] ?? '';
+      return (
+        (afterDay ? (locale.monthsInDate ?? locale.months) : locale.months)[value.month - 1] ?? ''
+      );
     case 'MMM':
       return locale.monthsShort[value.month - 1] ?? '';
     case 'MM':
