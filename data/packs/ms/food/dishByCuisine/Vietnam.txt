@@ -1,0 +1,12 @@
+---
+description: Dishes of Vietnam cuisine (Malay)
+locale: ms
+---
+pho
+banh mi
+goi cuon
+bun cha
+com tam
+cha gio
+bun bo hue
+kopi Vietnam

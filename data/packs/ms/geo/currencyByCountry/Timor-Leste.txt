@@ -1,0 +1,5 @@
+---
+description: Currency of Timor-Leste (Malay)
+locale: ms
+---
+Dolar Amerika Syarikat

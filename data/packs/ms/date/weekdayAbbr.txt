@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Malay), Sunday first.
+locale: ms
+---
+Ahd
+Isn
+Sel
+Rab
+Kha
+Jum
+Sab

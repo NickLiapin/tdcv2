@@ -1,0 +1,5 @@
+---
+description: Currency of India (Malay)
+locale: ms
+---
+Rupee India

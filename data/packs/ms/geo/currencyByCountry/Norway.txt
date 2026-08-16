@@ -1,0 +1,5 @@
+---
+description: Currency of Norway (Malay)
+locale: ms
+---
+Krone Norway

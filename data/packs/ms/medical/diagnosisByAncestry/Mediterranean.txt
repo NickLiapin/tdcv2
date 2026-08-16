@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Malay. A prevalence signal, not an exclusive one.
+locale: ms
+---
+Talasemia beta
+Anemia sel sabit
+Kekurangan G6PD
+Demam Mediterranean familial
+Hemokromatosis keturunan
+Penyakit Behcet
+Sferositosis keturunan

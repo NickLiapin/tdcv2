@@ -1,0 +1,13 @@
+---
+description: Cable type for telecom and networking (Malay). GENTIAN OPTIK is optical fibre, from gentian, a fibre or filament; Indonesian says serat optik. Malaysia's national fibre rollout means the two fibre entries here are the everyday ones rather than the exotic ones.
+locale: ms
+---
+kabel UTP
+kabel FTP
+kabel STP berperisai
+kabel sepaksi
+gentian optik mod tunggal
+gentian optik multimod
+kabel kuasa
+kabel telefon
+kabel tampalan

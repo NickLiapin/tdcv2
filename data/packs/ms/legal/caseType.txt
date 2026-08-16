@@ -1,0 +1,23 @@
+---
+description: Legal case type (Malay). GUAMAN is a civil suit where Indonesian says gugatan; SAMAN is a summons, and in everyday Malaysian speech a saman is specifically the traffic ticket. KEBANKRAPAN is bankruptcy (Indonesian kepailitan). The Syariah entries at the end can only arise between Muslims and only in the Syariah courts: FARAID is the fixed-share Islamic inheritance calculation, NAFKAH is maintenance, HADANAH is custody of a child, and talak, fasakh and khuluk are three legally distinct routes out of a marriage rather than three words for divorce.
+locale: ms
+---
+guaman sivil
+kes jenayah
+semakan kehakiman
+pertikaian komersial
+kesalahan trafik
+pertikaian perusahaan
+kes keluarga
+kes pusaka
+pertikaian tanah
+pertikaian hak milik
+rayuan cukai
+kebankrapan
+penggulungan syarikat
+tuntutan ganti rugi
+kes faraid
+kes nafkah
+kes hadanah
+kes talak
+kes fasakh

@@ -1,0 +1,14 @@
+---
+description: Dishes of Terengganu cuisine (Malay)
+locale: ms
+---
+nasi dagang Terengganu
+keropok lekor
+sata
+otak-otak Terengganu
+nasi minyak
+singgang
+ikan celup tepung
+pulut lepa
+nekbat
+tepung bungkus

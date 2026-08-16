@@ -1,0 +1,9 @@
+---
+description: Credit score band (Malay). Malaysia has two scoring systems side by side: CCRIS, run by the central bank, which reports a borrower's actual repayment conduct rather than a score, and CTOS, a private bureau whose score runs 300 to 850. CEMERLANG, excellent, is the top band — the same word Malaysian schools use for the best exam result.
+locale: ms
+---
+Rendah
+Sederhana
+Baik
+Sangat Baik
+Cemerlang

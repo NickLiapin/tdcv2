@@ -1,0 +1,5 @@
+---
+description: Currency of Pakistan (Malay)
+locale: ms
+---
+Rupee Pakistan

@@ -1,0 +1,16 @@
+---
+description: Jobs in Retail (Malay)
+locale: ms
+---
+jurujual
+juruwang
+penyusun barang
+pengurus kedai
+pengurus jualan
+pegawai pembelian
+pekerja stor
+pengambil pesanan
+kurir
+kakitangan pemasaran
+pengurus kategori
+pengurus peruncitan

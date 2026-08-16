@@ -1,0 +1,5 @@
+---
+description: Capital of Kazakhstan, as Malay writes it
+locale: ms
+---
+Astana

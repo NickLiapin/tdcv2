@@ -1,0 +1,51 @@
+{
+  "months": [
+    "Januari",
+    "Februari",
+    "Mac",
+    "April",
+    "Mei",
+    "Jun",
+    "Julai",
+    "Ogos",
+    "September",
+    "Oktober",
+    "November",
+    "Disember"
+  ],
+  "monthsInDate": [
+    "Januari",
+    "Februari",
+    "Mac",
+    "April",
+    "Mei",
+    "Jun",
+    "Julai",
+    "Ogos",
+    "September",
+    "Oktober",
+    "November",
+    "Disember"
+  ],
+  "monthsShort": [
+    "Jan",
+    "Feb",
+    "Mac",
+    "Apr",
+    "Mei",
+    "Jun",
+    "Jul",
+    "Ogo",
+    "Sep",
+    "Okt",
+    "Nov",
+    "Dis"
+  ],
+  "weekdays": ["Ahad", "Isnin", "Selasa", "Rabu", "Khamis", "Jumaat", "Sabtu"],
+  "weekdaysShort": ["Ahd", "Isn", "Sel", "Rab", "Kha", "Jum", "Sab"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "Malay has no inflection of any kind, so monthsInDate is identical to months — no case, no number, no agreement changes a month name inside a date. SIX OF THE TWELVE MONTHS DIFFER FROM INDONESIAN and a formatter that reuses the id table will be wrong half the year: Mac not Maret, Jun not Juni, Julai not Juli, Ogos not Agustus, Disember not Desember, and Februari is shared. The weekdays differ too: Isnin not Senin, Khamis not Kamis, Jumaat not Jumat, and Sunday is AHAD in Malaysia where Indonesian says Minggu — in Malay 'minggu' means the week itself, not Sunday, so reusing the Indonesian table renames a day into a unit. Ahad, Isnin, Selasa, Rabu, Khamis and Jumaat are Arabic-derived (ahad = one, ithnayn = two, thulatha = three, arbi'a = four, khamis = five, jum'a = the gathering) and only Sabtu-through-Khamis actually counts; Sabtu is the Sabbath and breaks the count. The array above is Sunday-first because the formatter wants it that way. THE WEEKEND IS NOT UNIFORM ACROSS MALAYSIA and this is the trap for anyone generating business dates: Johor, Kedah, Kelantan and Terengganu rest on FRIDAY AND SATURDAY and their working week runs Sunday to Thursday, while the other nine states and the three federal territories rest on Saturday and Sunday. There is no single national 'next working day'. The numeric date is DD/MM/YYYY with slashes on every Malaysian form. Written out it is 'D MMMM YYYY' — 5 Januari 2026 — and official Malay often prefixes it with 'bertarikh'. The 12-hour clock is written with the day-part word after it (3.00 petang, 9.00 pagi) and Malaysians usually write the time with a FULL STOP, not a colon. Decimal separator is a full stop and the thousands separator a comma (1,234.56). Currency is written RM before the amount with no space: RM1,234.56."
+}

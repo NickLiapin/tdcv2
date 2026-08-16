@@ -1,0 +1,19 @@
+---
+description: Court in the Malaysian judiciary (Malay). MALAYSIA RUNS TWO PARALLEL COURT SYSTEMS and this is the single most important thing a config can get wrong about Malaysian legal data. The civil courts — Mahkamah Persekutuan at the top, then Rayuan, Tinggi, Sesyen and Majistret — hear everyone. The SYARIAH courts are constitutionally separate, are STATE courts rather than federal ones so each of the thirteen states and the federal territories runs its own, and they hear ONLY Muslims and only on personal-status and religious matters: marriage, divorce, inheritance under faraid, custody, conversion. A non-Muslim never appears in one; a Muslim's divorce never appears in a civil one. Mahkamah Anak Negeri, the Native Courts of Sabah and Sarawak, are a third system again, applying indigenous customary law. MAHKAMAH is the Malay word for a court, from Arabic; Indonesian says pengadilan and reserves mahkamah for its two supreme courts only.
+locale: ms
+---
+Mahkamah Persekutuan
+Mahkamah Rayuan
+Mahkamah Tinggi
+Mahkamah Sesyen
+Mahkamah Majistret
+Mahkamah Penghulu
+Mahkamah Bagi Kanak-Kanak
+Mahkamah Rendah Syariah
+Mahkamah Tinggi Syariah
+Mahkamah Rayuan Syariah
+Mahkamah Anak Negeri
+Mahkamah Perusahaan
+Mahkamah Tentera
+Tribunal Tuntutan Pengguna
+Tribunal Tuntutan Pembeli Rumah

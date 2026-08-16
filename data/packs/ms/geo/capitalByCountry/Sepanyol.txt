@@ -1,0 +1,5 @@
+---
+description: Capital of Sepanyol, as Malay writes it
+locale: ms
+---
+Madrid

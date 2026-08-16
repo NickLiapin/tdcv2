@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Malay for a male patient — the male-specific conditions plus the common ones that happen to be commoner in men. For a clean split use medical/diagnosisMale and medical/diagnosis.
+locale: ms
+---
+Varikosel
+Kriptorkidisme
+Fimosis
+Pembesaran prostat benigna
+Prostatitis
+Pankreatitis kronik
+Jangkitan klamidia
+Artritis kronik
+Darah tinggi
+Penyakit jantung koronari
+Infarksi miokardium
+Ulser peptik
+Diabetes mellitus jenis 2
+Gout
+Asma
+Bronkitis kronik
+Batu karang buah pinggang
+Hernia inguinal
+Sakit belakang bawah
+Hepatitis B
+Anemia
+Gastritis
+Kolesistitis
+Radang paru-paru
+Migrain
+Episod kemurungan

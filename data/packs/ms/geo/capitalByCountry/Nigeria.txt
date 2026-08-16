@@ -1,0 +1,5 @@
+---
+description: Capital of Nigeria, as Malay writes it
+locale: ms
+---
+Abuja

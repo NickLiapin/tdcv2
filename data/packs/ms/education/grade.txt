@@ -1,0 +1,16 @@
+---
+description: Grade on the Malaysian SPM scale, the national school certificate. The ten letter grades run A+ down to G, and G means gagal — failed — so a G is not a pass at the bottom of the scale the way a D is in the American system. There is no F. Universities grade separately on a 4.00 CGPA, and 'Lulus' and 'Gagal' are what a pass or fail is called in words on any Malaysian result slip.
+locale: ms
+---
+A+
+A
+A-
+B+
+B
+C+
+C
+D
+E
+G
+Lulus
+Gagal

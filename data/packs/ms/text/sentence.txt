@@ -1,0 +1,64 @@
+---
+description: Malay filler sentences. Handwritten: Project Gutenberg holds no Malay book at all, so unlike fr/de/it/es/pt/pl these are not extracted from a public-domain corpus. Written in Malaysian standard Malay, not Indonesian — kereta is a car, tingkap a window, bilik a room, petang the afternoon, kerana rather than karena. Notice that no verb in any of these carries a tense: 'membuka' is the same form whether the window was opened yesterday or will be tomorrow, and where time matters a separate word does the work — sudah, sedang, akan, masih.
+locale: ms
+---
+Dia membuka tingkap dan menghirup udara pagi yang masih sejuk.
+Hujan turun sejak subuh dan jalan di hadapan rumah sudah bertakung air.
+Kereta itu berhenti di bahu jalan kerana tayarnya pancit.
+Kami menunggu bas di stesen selama hampir setengah jam.
+Emak menghidangkan nasi lemak dengan sambal yang masih panas.
+Anak-anak berlari ke padang sebaik sahaja loceng sekolah berbunyi.
+Pejabat itu terletak di aras kelapan sebuah menara di tengah bandar.
+Dia mengambil telefon bimbitnya dan menghantar mesej kepada abangnya.
+Harga barang di pasar naik sedikit menjelang hari raya.
+Jerebu menutup puncak bukit sehingga kelihatan kelabu dari jauh.
+Kedai kopi itu dibuka sejak tahun lima puluhan dan masih menggunakan cerek yang sama.
+Pak cik itu menoreh getah setiap pagi sebelum matahari naik.
+Kami balik kampung setiap tahun walaupun perjalanan mengambil masa lapan jam.
+Perlawanan bola sepak malam itu ditonton oleh lebih tiga puluh ribu orang.
+Dia menyimpan wang sedikit demi sedikit untuk membeli basikal baharu.
+Doktor menasihatkan supaya dia berehat sekurang-kurangnya seminggu.
+Surat itu tiba lewat kerana alamat pada sampulnya tidak lengkap.
+Bilik itu kecil tetapi tingkapnya besar dan menghadap laut.
+Mereka bermesyuarat di dewan kecil di belakang bangunan lama.
+Ayah membaiki paip di dapur belakang sepanjang petang.
+Pelajar itu lulus peperiksaan dengan keputusan yang cemerlang.
+Pasar malam itu penuh dengan gerai makanan dan bau ikan bakar.
+Kucing kampung itu tidur di atas kerusi rotan sepanjang hari.
+Kami menyeberangi jambatan panjang itu ketika air sungai sedang pasang.
+Perniagaan kecil itu bermula di garaj rumahnya sepuluh tahun lalu.
+Cikgu menerangkan soalan itu sekali lagi kerana ramai yang belum faham.
+Lori itu membawa muatan kelapa sawit ke kilang di seberang bandar.
+Dia menulis nama dan nombor telefonnya pada borang di kaunter.
+Hujan lebat petang itu menyebabkan banjir kilat di beberapa kawasan.
+Nenek menyimpan kuih di dalam bekas dan menutupnya rapat-rapat.
+Jalan ke pantai itu berlubang tetapi pemandangannya berbaloi.
+Mereka menanam pokok bunga raya di sepanjang pagar rumah.
+Kakak saya bekerja sebagai jururawat di hospital daerah.
+Bunyi kompang kedengaran dari jauh ketika rombongan itu tiba.
+Pekerja itu memasang lampu baharu di siling bilik mesyuarat.
+Kami membeli tiket keretapi seminggu sebelum cuti sekolah bermula.
+Air di dalam cerek mendidih dan dia menuangkannya ke dalam cawan.
+Buku itu dipinjam dari perpustakaan dan perlu dipulangkan minggu depan.
+Pengawal keselamatan membuka palang dan melambai kepada pemandu.
+Peta lama itu menunjukkan sungai yang kini sudah tidak wujud.
+Dia memakai baju kurung berwarna hijau ke majlis petang itu.
+Kilang itu berhenti beroperasi selepas harga timah jatuh.
+Angin bertiup kencang dan daun-daun berguguran di halaman rumah.
+Kami duduk di beranda sambil mendengar bunyi cengkerik.
+Pesakit itu menunggu giliran di klinik sejak pukul lapan pagi.
+Setiausaha itu menyusun fail mengikut tarikh dan nombor rujukan.
+Jurutera itu memeriksa struktur jambatan sebelum kerja dimulakan.
+Mereka menyewa rumah teres dua tingkat berhampiran stesen LRT.
+Bau kari dari dapur jiran memenuhi seluruh lorong.
+Dia menghantar anaknya ke tadika setiap pagi sebelum ke pejabat.
+Pemandu teksi itu mengenali setiap lorong kecil di bandar lama.
+Kami menunggu bot itu ditarik masuk ke pelabuhan.
+Peguam itu membaca dokumen berulang kali sebelum menandatanganinya.
+Musim tengkujuh bermula dan nelayan berhenti turun ke laut.
+Lampu di tingkat atas masih menyala walaupun sudah lewat malam.
+Dia menyusun buku di rak mengikut abjad nama penulis.
+Sekolah itu dibina pada tahun tujuh puluhan dan masih menggunakan bangunan asal.
+Mereka menghidangkan teh tarik dan roti canai kepada tetamu.
+Keretapi itu berhenti sebentar di stesen kecil sebelum meneruskan perjalanan.
+Semua borang mesti diserahkan sebelum pukul lima petang.

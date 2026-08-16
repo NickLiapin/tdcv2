@@ -1,0 +1,5 @@
+---
+description: Capital of Ghana, as Malay writes it
+locale: ms
+---
+Accra

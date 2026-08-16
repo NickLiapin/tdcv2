@@ -1,0 +1,5 @@
+---
+description: Currency of Jepun (Malay)
+locale: ms
+---
+Yen Jepun

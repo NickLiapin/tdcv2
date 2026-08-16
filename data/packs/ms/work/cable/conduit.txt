@@ -1,0 +1,11 @@
+---
+description: Conduit or installation method for cable runs (Malay).
+locale: ms
+---
+trunking kabel
+paip fleksibel
+paip logam fleksibel
+dulang kabel
+laluan gantung
+saluran bawah tanah
+tanam terus dalam tanah

@@ -1,0 +1,5 @@
+---
+description: Currency of Denmark (Malay)
+locale: ms
+---
+Krone Denmark

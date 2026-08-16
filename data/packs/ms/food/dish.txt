@@ -1,0 +1,67 @@
+---
+description: Dish (Malay), as eaten in Malaysia. Nasi lemak is the national dish and is eaten at breakfast. Note the Chinese-Malaysian names are romanised from HOKKIEN, CANTONESE and TEOCHEW, not from Mandarin — char kway teow, bak kut teh, chee cheong fun, kolo mee — and are written that way on every menu in the country, so they are not misspellings of pinyin. Several look Indonesian and are not: Malaysian laksa splits into asam (sour, tamarind and fish) and lemak (coconut curry) and neither is Indonesia's laksa, and Malaysian rojak is a fruit salad in prawn paste, not Indonesia's rujak.
+locale: ms
+---
+nasi lemak
+nasi kandar
+nasi kerabu
+nasi dagang
+nasi ayam
+nasi briyani
+nasi goreng kampung
+nasi campur
+nasi minyak
+nasi ulam
+roti canai
+roti telur
+murtabak
+capati
+thosai
+putu mayam
+mee goreng mamak
+maggi goreng
+char kway teow
+hokkien mee
+wan tan mee
+kolo mee
+mee kari
+mee rebus
+mee siam
+laksa asam
+laksa lemak
+laksa Sarawak
+laksam
+bak kut teh
+yong tau foo
+chee cheong fun
+popiah
+rojak buah
+pasembur
+cendol
+ais kacang
+bubur cha cha
+bubur lambuk
+apam balik
+kuih lapis
+kuih seri muka
+ondeh-ondeh
+kuih ketayap
+karipap
+satay
+rendang
+ayam percik
+ayam masak merah
+asam pedas
+gulai kawah
+ikan bakar
+otak-otak
+keropok lekor
+sup tulang
+lemang
+ketupat
+dodol
+teh tarik
+kopi O
+sirap bandung
+roti bakar kaya
+telur separuh masak

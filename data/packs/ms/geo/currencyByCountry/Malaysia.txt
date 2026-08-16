@@ -1,0 +1,5 @@
+---
+description: Currency of Malaysia (Malay)
+locale: ms
+---
+Ringgit Malaysia

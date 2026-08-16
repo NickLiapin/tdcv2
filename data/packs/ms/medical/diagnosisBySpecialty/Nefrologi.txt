@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Malay)
+locale: ms
+---
+Penyakit buah pinggang kronik
+Pielonefritis akut
+Glomerulonefritis
+Batu karang buah pinggang
+Sindrom nefrotik
+Buah pinggang polisistik
+Nefropati diabetik
+Kecederaan buah pinggang akut
+Jangkitan saluran kencing
+Kegagalan buah pinggang

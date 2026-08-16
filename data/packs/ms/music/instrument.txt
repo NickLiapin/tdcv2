@@ -1,0 +1,46 @@
+---
+description: Musical instrument (Malay). The first block has no European counterpart and is the actual instrument list of Malaysian traditional music: REBANA and KOMPANG are frame drums, kompang played in rows at weddings; SERUNAI is the double-reed shawm of the wayang kulit ensemble; GAMBUS is the Arab lute that came with the traders; SAPE is the boat lute of the Orang Ulu of Sarawak and is the sound most outsiders now associate with Borneo; SUNDATANG and KULINTANGAN are Sabahan; CAKLEMPONG is the Minangkabau-descended gong-chime set of Negeri Sembilan. Gamelan in Malaysia is the Terengganu and Pahang court version and is tuned differently from the Javanese one.
+locale: ms
+---
+rebana
+kompang
+gendang
+gedombak
+geduk
+serunai
+nafiri
+seruling
+gambus
+rebab
+sape
+sundatang
+kulintangan
+caklempong
+angklung
+gamelan
+gong
+canang
+tetawak
+marwas
+tabla
+veena
+sitar
+erhu
+guzheng
+pipa
+biola
+gitar
+gitar bes
+ukulele
+piano
+organ
+akordion
+harmonika
+dram
+trompet
+trombon
+saksofon
+klarinet
+flut
+obo
+harmonium

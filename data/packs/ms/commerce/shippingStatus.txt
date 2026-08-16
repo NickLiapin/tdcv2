@@ -1,0 +1,15 @@
+---
+description: Shipping status (Malay).
+locale: ms
+---
+Menunggu kutipan
+Diserahkan kepada kurier
+Dalam perjalanan
+Di hab pengisihan
+Tiba di hab
+Tiba di pusat penghantaran
+Sedang dihantar
+Sampai
+Gagal dihantar
+Dalam proses pemulangan
+Hilang

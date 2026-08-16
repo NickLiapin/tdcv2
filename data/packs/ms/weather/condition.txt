@@ -1,0 +1,20 @@
+---
+description: Weather condition (Malay). JEREBU has no English word: it is the smoke haze that blows over Malaysia from land-clearing fires, it recurs most years in the dry months, it is measured on a published air pollution index and it closes schools — so it is a weather condition here in the way fog is elsewhere. Indonesian renders the same thing as kabut asap, two words for what Malay has one. SEJUK is cold and in Indonesian the same word means merely cool. KABUS is mist, where Indonesian says kabut.
+locale: ms
+---
+cerah
+cerah berawan
+berawan
+mendung
+hujan
+hujan renyai
+hujan lebat
+ribut petir
+ribut
+berangin
+panas terik
+sejuk
+nyaman
+lembap
+berkabus
+jerebu

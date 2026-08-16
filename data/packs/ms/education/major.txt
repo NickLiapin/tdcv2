@@ -1,0 +1,38 @@
+---
+description: Field of study or major (Malay). KEJURUTERAAN is engineering and SENI BINA architecture — Indonesian says teknik and arsitektur. UKUR BAHAN, quantity surveying, is a full degree course in Malaysia and has no Indonesian counterpart at all. PERUBATAN is medicine as a field of study where Indonesian says kedokteran. SYARIAH and USULUDDIN are Islamic law and theology, both full undergraduate degrees taught at the public universities, and TESL — teaching English as a second language — is one of the largest single education degrees in the country.
+locale: ms
+---
+Perubatan
+Pergigian
+Farmasi
+Kejururawatan
+Kejuruteraan Awam
+Kejuruteraan Mekanikal
+Kejuruteraan Elektrik
+Kejuruteraan Kimia
+Sains Komputer
+Teknologi Maklumat
+Perakaunan
+Kewangan
+Pengurusan Perniagaan
+Pemasaran
+Ekonomi
+Undang-undang
+Syariah
+Usuluddin
+Pendidikan
+TESL
+Psikologi
+Sains Politik
+Hubungan Antarabangsa
+Komunikasi
+Seni Bina
+Ukur Bahan
+Perancangan Bandar
+Sains Sukan
+Sains Makanan
+Bioteknologi
+Pertanian
+Perhutanan
+Perikanan
+Sains Aktuari

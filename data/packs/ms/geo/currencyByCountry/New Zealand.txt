@@ -1,0 +1,5 @@
+---
+description: Currency of New Zealand (Malay)
+locale: ms
+---
+Dolar New Zealand

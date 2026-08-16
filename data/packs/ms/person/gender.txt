@@ -1,0 +1,8 @@
+---
+description: Gender label as a Malaysian form prints it. Lelaki and Perempuan are the two the MyKad and every government form carry. Malay has no grammatical gender at all — one pronoun 'dia' covers he and she, no noun, adjective or verb agrees with sex — so these are labels for a field, not a feature of the language.
+locale: ms
+---
+Lelaki
+Perempuan
+Lain-lain
+Tidak dinyatakan

@@ -1,0 +1,5 @@
+---
+description: ISO currency code of Amerika Syarikat
+locale: ms
+---
+USD

@@ -1,0 +1,5 @@
+---
+description: Currency of Chile (Malay)
+locale: ms
+---
+Peso Chile

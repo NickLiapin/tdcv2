@@ -1,0 +1,16 @@
+---
+description: Jobs in Construction (Malay)
+locale: ms
+---
+jurutera awam
+arkitek
+juruukur bahan
+penyelia tapak
+mandor
+tukang batu
+tukang plaster
+tukang cat
+juruelektrik
+tukang paip
+tukang kimpal
+operator kren

@@ -1,0 +1,5 @@
+---
+description: Currency of Jordan (Malay)
+locale: ms
+---
+Dinar Jordan

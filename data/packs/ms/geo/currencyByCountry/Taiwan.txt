@@ -1,0 +1,5 @@
+---
+description: Currency of Taiwan (Malay)
+locale: ms
+---
+Dolar Taiwan Baharu

@@ -1,0 +1,28 @@
+---
+description: School subject in the Malaysian curriculum (Malay). Two things a config cannot infer. PENDIDIKAN ISLAM and PENDIDIKAN MORAL are alternatives, not additions: Muslim pupils sit the first and non-Muslim pupils the second, and both are examinable — so a pupil record carries one or the other, never both and never neither. And MATEMATIK TAMBAHAN, Additional Mathematics, is a separate subject from Matematik rather than a harder version of it, taken alongside it by science-stream pupils. Note MATEMATIK and FIZIK, not the Indonesian matematika and fisika — Malay took the English form of these and Indonesian the Dutch one, right down to the final syllable.
+locale: ms
+---
+Bahasa Melayu
+Bahasa Inggeris
+Matematik
+Matematik Tambahan
+Sains
+Fizik
+Kimia
+Biologi
+Sejarah
+Geografi
+Pendidikan Islam
+Pendidikan Moral
+Pendidikan Jasmani dan Kesihatan
+Pendidikan Seni Visual
+Prinsip Perakaunan
+Ekonomi
+Perniagaan
+Reka Bentuk dan Teknologi
+Sains Komputer
+Bahasa Cina
+Bahasa Tamil
+Bahasa Arab
+Sivik
+Pendidikan Muzik

@@ -1,0 +1,5 @@
+---
+description: Currency of United Kingdom (Malay)
+locale: ms
+---
+Pound Sterling

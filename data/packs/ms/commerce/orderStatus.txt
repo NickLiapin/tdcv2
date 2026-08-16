@@ -1,0 +1,18 @@
+---
+description: Order status (Malay).
+locale: ms
+---
+Baharu
+Diterima
+Disahkan
+Sedang diproses
+Sedang dibungkus
+Sedia untuk dihantar
+Dihantar
+Dalam perjalanan
+Tiba di hab
+Sampai
+Diterima pembeli
+Dibatalkan
+Dipulangkan
+Menunggu pembayaran

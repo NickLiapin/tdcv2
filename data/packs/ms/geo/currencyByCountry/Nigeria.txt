@@ -1,0 +1,5 @@
+---
+description: Currency of Nigeria (Malay)
+locale: ms
+---
+Naira Nigeria

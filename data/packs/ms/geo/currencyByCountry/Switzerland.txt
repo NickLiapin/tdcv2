@@ -1,0 +1,5 @@
+---
+description: Currency of Switzerland (Malay)
+locale: ms
+---
+Franc Switzerland

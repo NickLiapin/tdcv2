@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Malay). BASIKAL, from English bicycle, where Indonesian says sepeda from the Dutch. 'Basikal lasak' is the Malaysian term for a rugged off-road bike and 'basikal tua' names the vintage roadster clubs that ride restored 1950s British frames — a genuinely Malaysian hobby.
+locale: ms
+---
+basikal
+basikal bandar
+basikal touring
+basikal jalan raya
+basikal gunung
+basikal gravel
+basikal hibrid
+basikal lipat
+basikal elektrik
+basikal kanak-kanak
+BMX
+basikal roda tiga
+tandem
+basikal baring
+basikal kargo
+basikal lasak
+basikal tua

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Malay)
+locale: ms
+---
+Osteoartritis lutut
+Osteoartritis pinggul
+Degenerasi tulang belakang
+Prolaps diskus intervertebra
+Patah tulang radius
+Patah leher femur
+Koyakan meniskus
+Bahu beku
+Skoliosis
+Kaki leper

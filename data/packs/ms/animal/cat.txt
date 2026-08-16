@@ -1,0 +1,22 @@
+---
+description: Cat breed (Malay). KUCING KAMPUNG is the local shorthair with the characteristic kinked or bobbed tail found across the Malay world, and it is far and away the commonest cat in Malaysia; the pedigree names after it keep their international spellings.
+locale: ms
+---
+kucing kampung
+Parsi
+Siam
+Anggora
+British Shorthair
+Maine Coon
+Sphynx
+Bengal
+Scottish Fold
+Abyssinia
+Norwegian Forest
+Russian Blue
+Siberia
+Ragdoll
+Birman
+Cornish Rex
+Oriental
+Exotic Shorthair

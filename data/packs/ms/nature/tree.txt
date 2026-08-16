@@ -1,0 +1,34 @@
+---
+description: Tree (Malay). POKOK is the Malay word for tree where Indonesian says pohon. The first block is the hardwood of the Malaysian rainforest and is the timber trade's own vocabulary — meranti, cengal, merbau, balau, keruing — sold under those Malay names on the world market. GETAH (rubber) and SAWIT (oil palm) are not native but are the two plantation trees that built the modern Malaysian economy, and bakau is the mangrove that lines the west coast.
+locale: ms
+---
+meranti
+cengal
+merbau
+balau
+keruing
+kapur
+jelutong
+damar
+nyatoh
+ramin
+getah
+kelapa sawit
+kelapa
+pinang
+nibong
+rotan
+buluh
+angsana
+hujan-hujan
+ketapang
+tembusu
+bakau
+jati
+mahogani
+durian
+rambutan
+manggis
+cempedak
+semarak api
+kemboja

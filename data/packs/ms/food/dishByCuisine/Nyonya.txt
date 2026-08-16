@@ -1,0 +1,16 @@
+---
+description: Dishes of Nyonya cuisine (Malay)
+locale: ms
+---
+ayam buah keluak
+ayam pongteh
+itik tim
+jiu hu char
+kuih pie tee
+otak-otak nyonya
+perut ikan
+chap chai
+laksa nyonya
+ondeh-ondeh
+kuih lapis nyonya
+cincalok

@@ -1,0 +1,24 @@
+---
+description: Property type (Malay). RUMAH TERES, the terraced link house, is what most of urban Malaysia lives in and is quoted as setingkat or dua tingkat — one storey or two. RUMAH KEDAI is the shophouse, shop below and dwelling above, the basic building of every old town centre. SOHO — small office home office — is a Malaysian developer's category with its own licensing. RUMAH PANJANG is the Iban and Bidayuh longhouse of Sarawak, a single structure holding dozens of family units, and it is a real residential property type there and nowhere else.
+locale: ms
+---
+rumah teres setingkat
+rumah teres dua tingkat
+rumah berkembar
+banglo
+rumah kluster
+townhouse
+pangsapuri
+pangsapuri servis
+kondominium
+penthouse
+studio
+SOHO
+rumah kedai
+rumah kampung
+rumah panjang
+tanah lot
+tanah pertanian
+kilang
+ruang pejabat
+ruang niaga

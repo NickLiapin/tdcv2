@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Malay that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: ms
+---
+Pembesaran prostat benigna
+Prostatitis
+Kanser prostat
+Varikosel
+Hidrosel
+Kriptorkidisme
+Fimosis
+Parafimosis
+Balanopostitis
+Orkitis
+Epididimitis
+Torsi testis
+Kanser testis
+Disfungsi erektil
+Penyakit Peyronie
+Kemandulan lelaki
+Hipogonadisme
+Hernia inguinal
+Azoospermia
+Ginekomastia

@@ -1,0 +1,22 @@
+---
+description: Room type (Malay). BILIK, not the Indonesian kamar. Malaysian houses have a DAPUR BASAH and a DAPUR KERING — a wet kitchen and a dry kitchen — and the distinction is functional rather than decorative: the wet kitchen is where the actual frying and the sambal happen, usually at the back or outside, and the dry one is the show kitchen. TANDAS is the toilet and BILIK AIR the bathroom.
+locale: ms
+---
+ruang tamu
+ruang keluarga
+bilik tidur
+bilik tidur utama
+bilik anak
+bilik kerja
+dapur
+dapur basah
+dapur kering
+ruang makan
+bilik air
+tandas
+bilik air dalam
+ruang basuh
+stor
+beranda
+balkoni
+bilik pembantu

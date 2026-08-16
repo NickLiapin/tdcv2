@@ -1,0 +1,17 @@
+---
+description: Social content type (Malay).
+locale: ms
+---
+hantaran
+gambar
+video
+video pendek
+status
+siaran langsung
+kongsi semula
+komen
+undian
+koleksi
+ulasan
+pengumuman
+cadangan

@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Malay). The first three are NOT benefits in the discretionary sense — they are statutory Malaysian deductions every employer must make: KWSP (the Employees Provident Fund, the national retirement savings scheme, employer and employee both contributing), PERKESO (SOCSO, the social security organisation covering injury and invalidity) and SIP (the Employment Insurance System). A Malaysian payslip has all three on it by law. What follows them is genuinely discretionary. Note 'duit raya', the cash given at Hari Raya, which many Malaysian employers pay as a festival bonus.
+locale: ms
+---
+Caruman KWSP
+Caruman PERKESO
+Caruman SIP
+Insurans kesihatan berkelompok
+Kad perubatan
+Insurans hayat
+Takaful keluarga
+Cuti tahunan tambahan
+Cuti sakit bergaji
+Waktu kerja anjal
+Kerja dari rumah
+Elaun pengangkutan
+Elaun telefon
+Elaun makan
+Kereta syarikat
+Bonus prestasi
+Subsidi pendidikan
+Keahlian gim

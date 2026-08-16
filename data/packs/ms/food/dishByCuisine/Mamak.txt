@@ -1,0 +1,16 @@
+---
+description: Dishes of Mamak cuisine (Malay)
+locale: ms
+---
+nasi kandar
+mee goreng mamak
+maggi goreng
+roti telur
+teh tarik
+murtabak
+roti tisu
+mee rebus
+roti bom
+kari ayam mamak
+nasi campur mamak
+teh halia

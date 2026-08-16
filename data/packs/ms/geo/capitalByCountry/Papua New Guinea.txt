@@ -1,0 +1,5 @@
+---
+description: Capital of Papua New Guinea, as Malay writes it
+locale: ms
+---
+Port Moresby

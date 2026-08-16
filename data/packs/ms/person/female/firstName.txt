@@ -1,0 +1,196 @@
+---
+description: Malay female given name, in the same three census-weighted blocks as the male list. TWO PREFIX ELEMENTS DOMINATE AND THEY DATE THE BEARER: Siti opens a very large share of Malay women born before about 1990, Nur and Nurul a very large share born after, and both are followed by a second name which is what the woman is actually called — Siti Nurhaliza is Nurhaliza to everyone. They are weighted heavily for that reason, not on the default curve. There is NO person/female/lastName.txt in this pack and its absence is deliberate: Malay names do not inflect for gender, so the surname slot is identical for both sexes. What differs is the CONNECTOR, not the name — binti for a daughter, bin for a son — and that belongs in the config, not in a name list. The -ah ending on Aminah, Azizah, Hafizah and the rest is Arabic feminine morphology carried in with the Arabic names; Malay itself has no gender. The Chinese Malaysian block is given names only and the family name comes FIRST (Lim Mei Ling), so render these lastName-then-firstName. Iman and Raihan also appear in the male list: they are unisex.
+locale: ms
+weighted: true
+---
+Nur,160336
+Siti,130233
+Nurul,115317
+Aisyah,105782
+Fatimah,98933
+Zainab,93667
+Khadijah,89434
+Maryam,85922
+Sarah,82939
+Hafizah,80358
+Farah,78093
+Nadia,76081
+Aminah,74276
+Halimah,72643
+Rohani,71155
+Rosnah,69790
+Zaiton,68533
+Salmah,67367
+Noraini,66283
+Norhayati,65271
+Norliza,64323
+Suriani,63431
+Suhaila,62591
+Azizah,61797
+Faridah,61045
+Hasnah,60331
+Jamilah,59652
+Kamariah,59004
+Latifah,58386
+Mariam,57796
+Rahmah,57230
+Ramlah,56687
+Rokiah,56166
+Salbiah,55666
+Zaharah,55184
+Zubaidah,54719
+Aina,54271
+Alia,53839
+Amira,53421
+Anis,53017
+Aqilah,52625
+Balqis,52246
+Damia,51879
+Dhia,51522
+Farhana,51176
+Hana,50840
+Insyirah,50513
+Izzati,50195
+Liyana,49885
+Maisarah,49584
+Nabila,49290
+Najwa,49004
+Nazira,48725
+Qistina,48452
+Sofia,48186
+Syafiqah,47926
+Syuhada,47673
+Wardina,47425
+Yasmin,47182
+Zahra,46945
+Zulaikha,46712
+Adibah,46485
+Afiqah,46263
+Aida,46044
+Aishah,45831
+Alya,45621
+Amalina,45416
+Anisah,45215
+Ariana,45017
+Asma,44823
+Athirah,44633
+Azlina,44446
+Azura,44262
+Batrisyia,44082
+Dina,43905
+Fadhilah,43731
+Fatin,43560
+Fauziah,43391
+Habibah,43226
+Hidayah,43063
+Husna,42903
+Intan,42745
+Jannah,42590
+Kamilah,42437
+Khairunnisa,42287
+Laila,42139
+Mahani,41993
+Mastura,41849
+Mawar,41708
+Melati,41568
+Munirah,41430
+Murni,41295
+Nadhirah,41161
+Naimah,41029
+Nasuha,40899
+Nazihah,40771
+Normah,40644
+Puteri,40519
+Rabiatul,40396
+Rafidah,40275
+Rahimah,40155
+Raihanah,40036
+Rashidah,39919
+Rosmah,39804
+Safiah,39689
+Sakinah,39577
+Salina,39465
+Sarina,39355
+Suraya,39247
+Syahirah,39139
+Syazwani,39033
+Umairah,38928
+Wardah,38825
+Yusra,38722
+Zafirah,38621
+Zakiah,38521
+Zarina,38422
+Zuraidah,38324
+Delima,38227
+Nilam,38131
+Baiduri,38036
+Kesuma,37942
+Ratna,37849
+Iman,37758
+Raihan,37667
+Mei Ling,89994
+Hui Ling,82811
+Li Ping,78879
+Siew Lan,76202
+Wai Yee,74189
+Sze Ying,72583
+Pei Shan,71253
+Yoke Lin,70120
+Chui Yee,69136
+Bee Lian,68268
+Xin Yi,67491
+Jia Wen,66790
+Kar Mun,66152
+Shu Min,65566
+Yee Ling,65025
+Poh Choo,64524
+Lay Peng,64056
+Suet Fun,63618
+Wan Ching,63207
+Hooi Ming,62819
+Michelle,62452
+Grace,62105
+Joanne,61774
+Sharon,61459
+Angeline,61159
+Carmen,60872
+Cheryl,60597
+Elaine,60333
+Fiona,60080
+Jessie,59836
+Karen,59601
+Nicole,59374
+Pauline,59155
+Rachel,58944
+Serena,58739
+Tracy,58541
+Vivian,58349
+Yvonne,58162
+Debbie,57981
+Gina,57805
+Priya,40618
+Devi,37376
+Kavitha,35601
+Geetha,34393
+Anitha,33484
+Latha,32760
+Malathi,32159
+Meena,31648
+Nirmala,31204
+Radha,30812
+Rani,30461
+Saraswathy,30145
+Shanti,29857
+Sumathi,29592
+Uma,29348
+Vasanthi,29122
+Vimala,28911
+Kalaivani,28713
+Bavani,28528
+Indira,28353
+Jayanthi,28187
+Kamala,28030
+Chandrika,27881
+Yasodha,27739
+Jasbir,27603
+Surinder,27474

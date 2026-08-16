@@ -1,0 +1,16 @@
+---
+description: Personal pronoun (Malay). MALAY HAS ONE THIRD-PERSON SINGULAR PRONOUN: 'dia' is he, she and often it, and there is no gendered form anywhere in the language — no gendered possessive, no gendered reflexive, nothing. 'Beliau' is the respectful third person for someone senior. The first-person plural DOES split, unlike English: 'kami' excludes the person spoken to and 'kita' includes them, so choosing wrong changes the meaning of a sentence. The second person is where Malaysian and Indonesian part company — Malaysians say 'awak' to an equal, where in Indonesian 'awak' means a body or a ship's crew; Indonesian's everyday 'kamu' sounds blunt in Malaysia, and 'anda' is the neutral written form in both.
+locale: ms
+---
+saya
+aku
+awak
+anda
+kamu
+engkau
+dia
+beliau
+kami
+kita
+kalian
+mereka

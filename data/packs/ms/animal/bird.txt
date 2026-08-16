@@ -1,0 +1,35 @@
+---
+description: Bird (Malay). ENGGANG, the hornbill, is the emblem of Sarawak — Iban calls it kenyalang and the state is nicknamed Bumi Kenyalang, the land of the hornbill. Helang is the eagle, spelt without the initial e that Indonesian gives it. Tempua is the weaver bird whose hanging nest is a Malay figure of speech, and burung hantu, literally 'ghost bird', is the owl.
+locale: ms
+---
+helang
+burung hantu
+merpati
+punai
+tekukur
+ketitir
+murai
+tiong
+enggang
+kenyalang
+bangau
+pucung
+raja udang
+pipit
+ciak
+gagak
+tempua
+kuang
+merak
+ayam hutan
+belatuk
+layang-layang
+walet
+serindit
+bayan
+kakaktua
+burung unta
+cenderawasih
+camar
+undan
+puyuh

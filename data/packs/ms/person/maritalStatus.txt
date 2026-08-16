@@ -1,0 +1,13 @@
+---
+description: Marital status as a Malaysian form prints it. Malaysian Malay says 'berkahwin' where Indonesian says 'menikah' or 'kawin' — the Malaysian root is kahwin, and 'kawin' bare sounds coarse in Malaysia. Balu is a widow and duda a widower; janda covers a woman who is either divorced or widowed and is the word actually used on Malaysian forms. Muslim marriage and divorce are registered by the Syariah courts and non-Muslim marriage by the National Registration Department, so the two populations are recorded in different registers.
+locale: ms
+---
+Bujang
+Berkahwin
+Bercerai
+Balu
+Duda
+Janda
+Bertunang
+Berpisah
+Tidak dinyatakan

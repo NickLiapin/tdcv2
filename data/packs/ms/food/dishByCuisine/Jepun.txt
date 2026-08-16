@@ -1,0 +1,12 @@
+---
+description: Dishes of Jepun cuisine (Malay)
+locale: ms
+---
+sushi
+sashimi
+ramen
+tempura
+udon
+sup miso
+gyoza
+katsu kari

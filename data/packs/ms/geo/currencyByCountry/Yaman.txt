@@ -1,0 +1,5 @@
+---
+description: Currency of Yaman (Malay)
+locale: ms
+---
+Rial Yaman

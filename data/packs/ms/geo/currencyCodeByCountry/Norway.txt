@@ -1,0 +1,5 @@
+---
+description: ISO currency code of Norway
+locale: ms
+---
+NOK

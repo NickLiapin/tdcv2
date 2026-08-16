@@ -1,0 +1,12 @@
+---
+description: ABO and Rh blood group. Malaysia writes these exactly as international practice does. Worth knowing that the group distribution differs sharply by community here — group B is markedly commoner among Malaysian Indians than among Malays or Chinese — so a config drawing blood group independently of ethnicity is modelling an average that no single Malaysian community matches.
+locale: ms
+---
+O Rh+
+O Rh-
+A Rh+
+A Rh-
+B Rh+
+B Rh-
+AB Rh+
+AB Rh-

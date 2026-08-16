@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Malay).
+locale: ms
+---
+bilik single
+bilik double
+bilik twin
+bilik triple
+bilik quad
+bilik keluarga
+standard
+superior
+deluxe
+junior suite
+suite
+presidential suite
+studio
+apartmen servis
+vila
+chalet
+bilik pemandangan laut
+bilik berbalkoni

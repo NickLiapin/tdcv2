@@ -1,0 +1,24 @@
+---
+description: Mined mineral or commodity (Malay). BIJIH TIMAH, tin ore, is first because tin is the mineral that made modern Malaysia — the Kinta Valley was the largest tin field on earth, Kuala Lumpur and Ipoh were founded on it, and the industry collapsed with the tin price in 1985. Bauxite mining in Pahang and gold in Pahang and Kelantan are the live ones now, alongside petroleum and natural gas offshore Sabah, Sarawak and Terengganu, which are what the country actually earns from.
+locale: ms
+---
+bijih timah
+bauksit
+bijih besi
+emas
+arang batu
+kaolin
+tanah liat
+batu kapur
+pasir silika
+granit
+marmar
+ilmenit
+monazit
+zirkon
+mangan
+kuprum
+feldspar
+dolomit
+petroleum
+gas asli

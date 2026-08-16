@@ -1,0 +1,26 @@
+---
+description: Company department (Malay). JABATAN is a department in Malaysia — and that is a FALSE FRIEND worth knowing, because Indonesian jabatan means a post or position, while Indonesian's department is departemen or dinas. Malay's word for the position is JAWATAN, one vowel away. Sumber Manusia is human resources; note the category holding those files here is 'workplace' and not 'hr', because hr is also the language code for Croatian.
+locale: ms
+---
+Lembaga Pengarah
+Kewangan
+Perakaunan
+Undang-undang
+Sumber Manusia
+Pemasaran
+Jualan
+Perolehan
+Logistik
+Gudang
+Pengeluaran
+Kejuruteraan
+Teknologi Maklumat
+Pembangunan Perisian
+Jaminan Kualiti
+Sokongan Teknikal
+Penyelidikan dan Pembangunan
+Khidmat Pelanggan
+Keselamatan
+Pentadbiran Am
+Perhubungan Awam
+Audit Dalaman

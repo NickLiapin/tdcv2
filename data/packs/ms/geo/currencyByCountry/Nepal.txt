@@ -1,0 +1,5 @@
+---
+description: Currency of Nepal (Malay)
+locale: ms
+---
+Rupee Nepal

@@ -1,0 +1,13 @@
+---
+description: Season (Malay). Malaysia sits two to seven degrees north of the equator and has NO four temperate seasons: the year turns on two monsoons. Monsun Timur Laut (November to March) brings the heavy rain and floods to the east coast and Sarawak — its Malay name is 'tengkujuh', a word Indonesian does not use — and Monsun Barat Daya (May to September) is the drier half. The four temperate names at the end are what Malay uses when writing about somewhere else, and ALL FOUR DIFFER FROM INDONESIAN: musim bunga not musim semi, musim luruh not musim gugur, musim sejuk not musim dingin, and only musim panas agrees.
+locale: ms
+---
+musim tengkujuh
+monsun timur laut
+monsun barat daya
+musim hujan
+musim kemarau
+musim bunga
+musim panas
+musim luruh
+musim sejuk

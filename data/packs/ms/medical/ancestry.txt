@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Malay, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Note EROPAH, not the Indonesian Eropa, and PERIBUMI for indigenous. Asia Tenggara is the one that matters most in a Malaysian dataset: it is the ancestry of the majority of the population and it carries alpha-thalassaemia, haemoglobin E and G6PD deficiency at rates that make all three routine newborn-screening targets in Malaysia rather than rare findings.
+locale: ms
+---
+Eropah Utara
+Eropah Timur
+Mediterranean
+Yahudi Ashkenazi
+Timur Tengah
+Afrika Utara
+Afrika Sub-Sahara
+Asia Timur
+Asia Selatan
+Asia Tenggara
+Peribumi Amerika
+Kepulauan Pasifik

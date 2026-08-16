@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Malay). TENGKUJUH is the north-east monsoon season, roughly November to March, which floods the east coast every year and has no Indonesian equivalent word. BANJIR KILAT — flash flood — is the Kuala Lumpur one: the Klang Valley floods within an hour of a heavy afternoon storm, often enough that the city built a tunnel that switches between carrying traffic and carrying floodwater. Malaysia has no cyclones, no earthquakes to speak of and no snow, so the list is shorter than a temperate one and would be dishonest if padded.
+locale: ms
+---
+kilat
+guruh
+petir
+pelangi
+embun
+kabus
+jerebu
+angin monsun
+monsun timur laut
+monsun barat daya
+tengkujuh
+puting beliung
+banjir
+banjir kilat
+tanah runtuh

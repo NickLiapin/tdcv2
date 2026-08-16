@@ -1,0 +1,19 @@
+---
+description: Payment method (Malay). DUITNOW and DUITNOW QR are Malaysia's national real-time transfer and QR rails and are now the default way one Malaysian pays another; FPX is the online banking gateway that nearly every Malaysian merchant site offers, and it debits a bank account directly rather than a card. TOUCH 'N GO started as the toll and transit card and became the largest e-wallet in the country. 'Bayar semasa terima' is cash on delivery and is still very common outside the cities.
+locale: ms
+---
+Tunai
+Kad kredit
+Kad debit
+DuitNow
+DuitNow QR
+FPX
+Perbankan atas talian
+Touch 'n Go eWallet
+GrabPay
+Boost
+ShopeePay
+MAE
+Bayar semasa terima
+Ansuran
+Baucar hadiah

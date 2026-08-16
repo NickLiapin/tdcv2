@@ -1,0 +1,20 @@
+---
+description: Academic qualification as awarded in Malaysia (Malay). THE FALSE FRIEND HERE COSTS A WHOLE DEGREE LEVEL: Malaysian SARJANA MUDA is a bachelor's and SARJANA a master's, while Indonesian SARJANA is the bachelor's and magister the master's. Translate 'Sarjana' word for word between the two and a master's graduate becomes an undergraduate. The school ladder is Malaysia's own: SPM at the end of form five is the national school certificate everyone sits, STPM and Matrikulasi are the two pre-university routes, STAM is the religious-stream equivalent taken in Arabic, and SKM is the vocational skills certificate. UPSR, the primary-school exam, was abolished in 2021 and will not appear on a record for a pupil who left after that.
+locale: ms
+---
+PT3
+SPM
+STPM
+STAM
+Matrikulasi
+Asasi
+Sijil
+Sijil Kemahiran Malaysia
+Diploma
+Diploma Lanjutan
+Ijazah Sarjana Muda
+Ijazah Sarjana
+Doktor Falsafah
+Doktor Perubatan
+Ijazah Kedoktoran Profesional
+Sijil Profesional

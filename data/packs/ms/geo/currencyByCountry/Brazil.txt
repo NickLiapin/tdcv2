@@ -1,0 +1,5 @@
+---
+description: Currency of Brazil (Malay)
+locale: ms
+---
+Real Brazil

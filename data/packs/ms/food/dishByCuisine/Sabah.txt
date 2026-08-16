@@ -1,0 +1,14 @@
+---
+description: Dishes of Sabah cuisine (Malay)
+locale: ms
+---
+hinava
+tuhau
+ambuyat
+ngiu chap
+tuaran mee
+sinalau bakas
+pinasakan
+bosou
+sayur manis
+linopot

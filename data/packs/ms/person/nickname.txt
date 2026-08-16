@@ -1,0 +1,81 @@
+---
+description: Everyday Malaysian short form of a given name. The Malay ones are clipped from the END of the name, not the beginning as in English: Muhammad becomes Mat or Mamat, Abdullah becomes Dollah, Ismail becomes Mail, Halimah becomes Imah, Norhayati becomes Yati, Sharifah becomes Ipah. Because Mohd and Siti and Nur are prefix elements carried by so many people, the short form is almost always taken from the SECOND name — Mohd Faizal is Zal or Pai, never Mohd. The Chinese Malaysian block is the reverse pattern: an English given name that is not on the identity card at all but is what the person is called at work and at school, stacked in front of the legal name.
+locale: ms
+---
+Mat
+Mamat
+Dollah
+Mail
+Him
+Sop
+San
+Zul
+Khai
+Mie
+Din
+Man
+Wan
+Pi
+Zal
+Pie
+Deen
+Nan
+Am
+Wa
+Yat
+Bad
+Nizam
+Rul
+Fiq
+Wan Deen
+Ayie
+Epy
+Along
+Angah
+Achik
+Alang
+Andak
+Uda
+Ude
+Ti
+Timah
+Imah
+Yati
+Ipah
+Mah
+Nah
+Ani
+Ton
+Mar
+Ida
+Zah
+Wati
+Ain
+Anis
+Ana
+Ira
+Ika
+Ummi
+Kak Long
+Adik
+Abang Long
+Kelvin
+Alvin
+Jason
+Wilson
+Vincent
+Michelle
+Grace
+Sharon
+Elaine
+Fiona
+Vivian
+Yvonne
+Ah Beng
+Ah Seng
+Ah Moi
+Ah Chai
+Kumar
+Bala
+Ravi
+Selva

@@ -1,0 +1,9 @@
+---
+description: Positions in badminton, where the positions are the five competition categories (Malay).
+locale: ms
+---
+perseorangan lelaki
+perseorangan wanita
+beregu lelaki
+beregu wanita
+beregu campuran

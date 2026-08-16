@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (diagnosisBySpecialty child).
+locale: ms
+---
+Kardiologi
+Neurologi
+Gastroenterologi
+Pulmonologi
+Endokrinologi
+Nefrologi
+Ortopedik
+Dermatologi
+Onkologi
+Psikiatri

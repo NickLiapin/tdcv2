@@ -1,0 +1,16 @@
+---
+description: Shoe size in UK SIZING, which is what is printed on a Malaysian shoebox and what a Malaysian asks for in a shop. Malaysia is a Commonwealth market and the whole retail chain — Bata, which has been in the country since 1936, and the local brands after it — sells in UK sizes; EU numbers appear beside them on European stock and US numbers on American, so a box often carries all three. This is the one place where Malaysia and Indonesia differ by trade history rather than by language: Indonesia reads the EU scale. There is no Malaysian national scale.
+locale: ms
+---
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13

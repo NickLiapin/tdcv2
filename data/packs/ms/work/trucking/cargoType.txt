@@ -1,0 +1,17 @@
+---
+description: Truck cargo or trailer type (Malay). LORI is the Malaysian word for a lorry, taken straight from English, where Indonesian says truk from the American. The palm-oil tanker is on this list because crude palm oil moves by road across the whole peninsula.
+locale: ms
+---
+lori kanvas
+lori sejuk beku
+lori kotak isoterma
+lori terbuka
+pengangkut kontena
+tangki
+tangki minyak sawit
+pengangkut kereta
+pengangkut bijirin
+lori tipper
+pengangkut balak
+treler rendah
+van panel

@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective (Malay). The -IF and -IK endings here are the giveaway that Malay took these through English: inovatif, adaptif, strategik, sistematik, holistik — Indonesian lands on the same words through Dutch and mostly agrees, but the abstract nouns built off them split hard (see company/buzzNoun). BERDAYA SAING is competitive, BERDAYA TAHAN resilient, and MAMPAN is sustainable — three DBP coinages in ordinary corporate use.
+locale: ms
+---
+strategik
+komprehensif
+sistematik
+bersepadu
+boleh skala
+fleksibel
+adaptif
+cekap
+berkesan
+produktif
+optimum
+seimbang
+mampan
+berdaya tahan
+berdaya saing
+telus
+bertanggungjawab
+boleh diukur
+terurus
+boleh diramal
+inovatif
+terobosan
+terkehadapan
+moden
+digital
+berasaskan awan
+mudah alih
+diperibadikan
+berorientasikan pelanggan
+berorientasikan pasar
+menguntungkan
+berimbuhan hasil
+jimat kos
+jangka panjang
+jangka pendek
+keutamaan
+kritikal
+asas
+menyeluruh
+konsisten
+selari
+terstandard
+tersijil
+berlesen
+profesional
+pakar
+berpengalaman
+dinamik
+proaktif
+holistik
+modular
+tanpa geseran
+hujung ke hujung
+kelas pertama
+kalis masa depan

@@ -1,0 +1,5 @@
+---
+description: Currency of Sudan (Malay)
+locale: ms
+---
+Pound Sudan

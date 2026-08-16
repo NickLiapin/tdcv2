@@ -1,0 +1,5 @@
+---
+description: Currency of Sri Lanka (Malay)
+locale: ms
+---
+Rupee Sri Lanka

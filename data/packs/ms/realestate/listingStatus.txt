@@ -1,0 +1,16 @@
+---
+description: Listing status (Malay).
+locale: ms
+---
+aktif
+baharu
+dikemas kini
+ditempah
+deposit dibayar
+dalam pengesahan
+ditarik balik
+terjual
+disewa
+tamat tempoh
+arkib
+draf

@@ -1,0 +1,51 @@
+---
+description: Music genre (Malay), including the Malaysian ones. NASYID is Islamic vocal music, usually a cappella or lightly accompanied, and is a mainstream commercial genre here with chart acts and its own awards — not a niche. ASLI, GHAZAL, ZAPIN, JOGET, INANG and MASRI are the traditional Malay forms, and ghazal in particular is Johor's own, a Malayised Persian-Indian form played on harmonium and tabla. DIKIR BARAT is the Kelantanese call-and-response choral form and BORIA is Penang's. IRAMA MALAYSIA was a deliberate 1990s fusion of pop with those traditional rhythms. Dangdut and keroncong appear here as Indonesian imports that Malaysians listen to, not as Malaysian genres.
+locale: ms
+---
+pop
+pop yeh yeh
+rock
+rock kapak
+hard rock
+metal
+punk
+indie
+alternatif
+balada
+hip hop
+rap
+R&B
+soul
+jazz
+blues
+funk
+disko
+elektronik
+house
+techno
+trance
+klasik
+opera
+koir
+nasyid
+qasidah
+hadrah
+marhaban
+asli
+ghazal
+zapin
+joget
+inang
+masri
+dikir barat
+boria
+irama Malaysia
+gamelan
+kompang
+dangdut
+keroncong
+K-pop
+Mandopop
+Kantopop
+lagu Hindustan
+country

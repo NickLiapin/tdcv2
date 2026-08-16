@@ -1,0 +1,16 @@
+---
+description: Jobs in Technology (Malay)
+locale: ms
+---
+jurutera perisian
+pentadbir sistem
+penguji perisian
+arkitek sistem
+penganalisis data
+pakar keselamatan siber
+pentadbir pangkalan data
+jurutera DevOps
+pereka antara muka
+pengurus produk
+ketua pegawai teknologi
+jurutera sokongan

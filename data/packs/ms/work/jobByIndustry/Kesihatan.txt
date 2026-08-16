@@ -1,0 +1,16 @@
+---
+description: Jobs in Healthcare (Malay)
+locale: ms
+---
+pegawai perubatan
+pakar bedah
+pakar bius
+pakar pediatrik
+pakar kardiologi
+jururawat
+bidan
+ahli farmasi
+juruteknologi makmal perubatan
+juru X-ray
+doktor gigi
+ahli fisioterapi

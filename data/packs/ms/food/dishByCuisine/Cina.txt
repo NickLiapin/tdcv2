@@ -1,0 +1,16 @@
+---
+description: Dishes of Cina cuisine (Malay)
+locale: ms
+---
+bak kut teh
+char kway teow
+hokkien mee
+wan tan mee
+chee cheong fun
+yong tau foo
+nasi ayam
+dim sum
+popiah
+tau fu fah
+kuey teow sup
+sup ikan

@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Malay that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis. Note RAHIM for the womb and SAKIT PUAN, literally 'women's illness', which is the name on the door of the gynaecology department in every Malaysian government hospital.
+locale: ms
+---
+Endometriosis
+Fibroid rahim
+Adenomiosis
+Sista ovari
+Sindrom ovari polisistik
+Dismenorea
+Amenorea
+Sindrom prahaid
+Sindrom menopaus
+Vaginitis
+Vaginosis bakteria
+Kandidiasis vulvovagina
+Servisitis
+Erosi serviks
+Displasia serviks
+Kanser serviks
+Kanser ovari
+Kanser endometrium
+Perubahan fibrokistik payudara
+Mastitis
+Kanser payudara
+Kemandulan wanita
+Kehamilan ektopik
+Preeklampsia
+Diabetes semasa hamil
+Kemurungan selepas bersalin

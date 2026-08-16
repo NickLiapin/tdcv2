@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Malaysian street, district or estate name (Kuala Lumpur Selatan, Blok Timur, Seksyen 7 Utara). Note the intercardinals are SINGLE WORDS in Malay, not compounds: Tenggara for south-east and Barat Daya for south-west, while Timur Laut and Barat Laut mean literally 'east sea' and 'west sea' because the Malay compass was named from the seas around the archipelago.
+locale: ms
+---
+Utara
+Selatan
+Timur
+Barat
+Timur Laut
+Barat Laut
+Tenggara
+Barat Daya
+Tengah
+Pusat
+Atas
+Bawah
+Dalam
+Luar
+Hujung

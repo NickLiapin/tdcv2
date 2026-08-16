@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Malay. A prevalence signal, not an exclusive one.
+locale: ms
+---
+Talasemia beta
+Kekurangan G6PD
+Demam Mediterranean familial
+Anemia sel sabit
+Pekak keturunan
+Xeroderma pigmentosum

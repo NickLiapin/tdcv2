@@ -1,0 +1,235 @@
+---
+description: The surname SLOT for Malaysia — and for the Malay majority it is not a surname at all. A Malay is named GIVEN NAME + bin (son of) or binti (daughter of) + FATHER'S GIVEN NAME: Ahmad bin Ismail, Aishah binti Ismail. That second name is a PATRONYMIC. It is not inherited, it changes every generation, full siblings share it and first cousins do not, and a woman keeps her own on marriage — so grouping a Malaysian dataset by 'last name' groups fathers, not families. It is why this list deliberately overlaps person/male/firstName.txt: the father's name is a man's given name. A config that joins firstName and lastName produces 'Ahmad Ismail', which is not wrong so much as UNCONNECTED — the real string needs the particle, ${first} bin ${last} for a man and ${first} binti ${last} for a woman, abbreviated b. and bt. on forms. There is no person/female/lastName.txt because nothing here inflects; only the particle changes. The three blocks are weighted to the 2020 census shares of the communities they belong to — Malay about two thirds, Chinese about a quarter, Indian about a fourteenth. The CHINESE block is a steeper curve than the other two because Malaysian Chinese surnames really are concentrated (Tan, Lim and Lee alone cover a large fraction), and note these are romanised from HOKKIEN, CANTONESE, HAKKA and TEOCHEW, not from Mandarin pinyin — the character behind Tan is the one behind mainland Chen, and a pack built from pinyin would contain no Malaysian Chinese name at all. It also comes FIRST: Tan Wei Ming, so render lastName then firstName for that block. The INDIAN block is likewise mostly patronymic, joined by a/l (anak lelaki) or a/p (anak perempuan) rather than bin; Singh and Kaur are religious names shared by all Sikh men and women respectively and are not family names either, and only Menon, Nair and Pillai here are true inherited surnames. WHAT IS DELIBERATELY MISSING: the non-Muslim Bumiputera of Sabah and Sarawak, about a tenth of citizens, whose systems are distinct — Iban joins with 'anak' or 'ak' and Kadazandusun follows its own pattern — and are not modelled here because a verified name list could not be had. Weights are rank-derived, not registry counts.
+locale: ms
+weighted: true
+---
+Mohd Yusof,143586
+Abdullah,123278
+Ismail,112757
+Ibrahim,105842
+Ahmad,100772
+Hassan,96810
+Ali,93581
+Omar,90872
+Osman,88548
+Salleh,86519
+Abdul Rahman,84724
+Abdul Aziz,83117
+Abdul Rahim,81666
+Abdul Karim,80346
+Abdul Ghani,79135
+Abdul Hamid,78020
+Abdul Majid,76986
+Abdul Malek,76024
+Abdul Latif,75125
+Abdul Wahab,74282
+Mohd Noor,73489
+Mohd Ali,72741
+Mohd Zain,72033
+Mohd Salleh,71362
+Mohd Amin,70724
+Mohd Nor,70116
+Mohd Hashim,69536
+Mohd Sharif,68982
+Mohd Taib,68452
+Mohd Yunus,67943
+Zakaria,67455
+Sulaiman,66985
+Yaakob,66533
+Harun,66098
+Daud,65677
+Musa,65272
+Yahya,64879
+Idris,64500
+Kassim,64132
+Bakar,63776
+Hussin,63431
+Jaafar,63095
+Mansor,62769
+Mahmud,62453
+Mokhtar,62145
+Ramli,61845
+Rashid,61553
+Sabri,61269
+Samad,60991
+Shamsuddin,60721
+Zainal Abidin,60457
+Zulkifli,60199
+Anuar,59947
+Azhar,59701
+Baharuddin,59461
+Fauzi,59226
+Hamzah,58996
+Hisham,58770
+Jamaluddin,58550
+Kamaruddin,58334
+Khalid,58122
+Lokman,57914
+Marzuki,57711
+Nasir,57511
+Nordin,57315
+Othman,57123
+Rahmat,56934
+Roslan,56749
+Rusli,56567
+Saad,56388
+Sanusi,56213
+Sapiee,56040
+Shukor,55870
+Sudin,55703
+Talib,55539
+Tarmizi,55377
+Umar,55218
+Wahid,55062
+Yusoff,54908
+Zahari,54756
+Che Mat,54607
+Nik Mat,54459
+Wan Ahmad,54314
+Wan Hassan,54171
+Wan Ismail,54031
+Megat Kamaruddin,53892
+Awang,53755
+Pengiran,53620
+Jusoh,53487
+Deraman,53355
+Sulong,53226
+Hamid,53098
+Hanafiah,52972
+Ariffin,52847
+Bahari,52724
+Dollah,52603
+Ghazali,52483
+Hashim,52365
+Ishak,52248
+Jamil,52133
+Tan,314663
+Lim,183249
+Lee,133564
+Ng,106718
+Wong,89670
+Chan,77784
+Ong,68971
+Chong,62149
+Goh,56694
+Teoh,52221
+Yap,48480
+Cheah,45299
+Khoo,42557
+Low,40167
+Loh,38062
+Chew,36194
+Chin,34522
+Chua,33017
+Ho,31653
+Koh,30412
+Lau,29276
+Leong,28233
+Liew,27271
+Ooi,26380
+Pang,25554
+Phua,24784
+Quek,24065
+Saw,23392
+Seah,22760
+Sim,22166
+Tang,21606
+Teo,21078
+Toh,20578
+Yeoh,20104
+Yeo,19655
+Yong,19228
+Foo,18821
+Fong,18434
+Heng,18064
+Kang,17711
+Lai,17373
+Lam,17049
+Ling,16739
+Mok,16442
+Tay,16156
+Ting,15882
+Tiong,15617
+Woon,15363
+Yee,15118
+Yew,14882
+Wee,14653
+Ang,14433
+Chai,14220
+Cheong,14015
+Chia,13815
+Choo,13623
+Chow,13436
+Gan,13255
+Hee,13079
+Kok,12909
+Kong,12743
+Koo,12583
+Kuok,12427
+Leow,12275
+Loke,12128
+Mah,11984
+Mak,11844
+Neoh,11708
+Oon,11576
+Poh,11446
+See,11320
+Seow,11198
+Siew,11078
+Soo,10961
+Soon,10847
+Tai,10735
+Tam,10626
+Teh,10520
+Teng,10416
+Tham,10314
+Too,10215
+Yam,10117
+Yip,10022
+Yoong,9929
+Khaw,9838
+Kuan,9748
+Lok,9661
+Looi,9575
+Phang,9491
+Sze,9409
+Muthu,38849
+Rajan,32668
+Krishnan,29519
+Subramaniam,27470
+Arumugam,25980
+Perumal,24822
+Murugan,23884
+Ganesan,23100
+Ramasamy,22429
+Marimuthu,21846
+Palanisamy,21332
+Selvam,20873
+Sivalingam,20459
+Thangavelu,20084
+Veerasamy,19740
+Vijayan,19424
+Balakrishnan,19132
+Chandran,18861
+Gopal,18608
+Kandasamy,18371
+Letchumanan,18148
+Manickam,17938
+Nadarajah,17740
+Rajendran,17552
+Sundram,17374
+Karuppiah,17204
+Ponnusamy,17043
+Suppiah,16888
+Munusamy,16741
+Loganathan,16600
+Kannan,16464
+Narayanan,16334
+Pillai,16209
+Ramakrishnan,16088
+Thiagarajan,15972
+Singh,15860
+Kaur,15752
+Menon,15647
+Nair,15546
+Samy,15448

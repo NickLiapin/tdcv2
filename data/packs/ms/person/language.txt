@@ -1,0 +1,54 @@
+---
+description: Language name (Malay). Malay names a language with the word 'bahasa' in front, and the country adjective that follows is the Malaysian spelling, which differs from Indonesian more often than it agrees: Bahasa Inggeris not Inggris, Bahasa Jepun not Jepang, Bahasa Perancis not Prancis, Bahasa Sepanyol not Spanyol, Bahasa Cina not Tionghoa. The top of the list is Malaysia's real linguistic situation: Malay is the national language, English is the second language of business and the courts, and Mandarin, Cantonese, Hokkien, Hakka, Teochew and Tamil are spoken as first languages by millions. Iban, Kadazandusun, Bidayuh, Melanau, Bajau and Murut are the indigenous languages of Sabah and Sarawak. Kristang is the Portuguese creole still spoken in Melaka after five centuries, and Baba Malay is the Peranakan Malay of the Straits Chinese — both are Malaysian and endangered.
+locale: ms
+---
+Bahasa Melayu
+Bahasa Malaysia
+Bahasa Inggeris
+Bahasa Mandarin
+Bahasa Cina
+Hokkien
+Kantonis
+Hakka
+Teochew
+Hainan
+Bahasa Tamil
+Bahasa Telugu
+Bahasa Malayalam
+Bahasa Punjabi
+Bahasa Iban
+Bahasa Kadazandusun
+Bahasa Bidayuh
+Bahasa Melanau
+Bahasa Bajau
+Bahasa Murut
+Bahasa Kelabit
+Bahasa Kristang
+Bahasa Baba
+Bahasa Jawa
+Bahasa Banjar
+Bahasa Bugis
+Bahasa Minangkabau
+Bahasa Indonesia
+Bahasa Arab
+Bahasa Jepun
+Bahasa Korea
+Bahasa Thai
+Bahasa Vietnam
+Bahasa Khmer
+Bahasa Filipina
+Bahasa Hindi
+Bahasa Urdu
+Bahasa Bengali
+Bahasa Nepal
+Bahasa Myanmar
+Bahasa Perancis
+Bahasa Jerman
+Bahasa Sepanyol
+Bahasa Portugis
+Bahasa Itali
+Bahasa Belanda
+Bahasa Rusia
+Bahasa Turki
+Bahasa Parsi
+Bahasa Isyarat Malaysia

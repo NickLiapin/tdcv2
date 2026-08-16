@@ -1,0 +1,29 @@
+---
+description: Dog breed (Malay). Note that dogs sit differently in Malaysia than in Europe: most Malays, as Muslims, do not keep them, so dog ownership is concentrated in the Chinese and Indian communities and in Sabah and Sarawak. Anjing kampung is the local village dog.
+locale: ms
+---
+anjing kampung
+German Shepherd
+Labrador Retriever
+Golden Retriever
+Poodle
+Dachshund
+Beagle
+Rottweiler
+Doberman
+Boxer
+Bulldog
+Pug
+Chihuahua
+Yorkshire Terrier
+Jack Russell Terrier
+Saint Bernard
+Husky
+Samoyed
+Border Collie
+Cocker Spaniel
+Dalmatian
+Shih Tzu
+Pomeranian
+Terrier Kampung
+Mongrel

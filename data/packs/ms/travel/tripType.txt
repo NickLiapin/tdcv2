@@ -1,0 +1,24 @@
+---
+description: Trip type (Malay). BALIK KAMPUNG — going back to the home village — is the largest single travel event in Malaysia: the whole country moves at Hari Raya, the expressways fill for two days in each direction, and it is a category of journey rather than a phrase. UMRAH and HAJI are the lesser and greater pilgrimages to Mecca and are a mass travel market here, organised by licensed operators and saved for through a state fund. Ekopelancongan and menyelam name what foreign visitors actually come for — the rainforest and the reefs off Sipadan and Perhentian.
+locale: ms
+---
+percutian
+hujung minggu
+balik kampung
+percutian pantai
+percutian pulau
+percutian tanah tinggi
+ekopelancongan
+wisata makanan
+membeli-belah
+umrah
+haji
+ziarah
+pelancongan perubatan
+perjalanan kerja
+persidangan
+pelayaran
+kembara jalan raya
+mendaki
+menyelam
+berkhemah

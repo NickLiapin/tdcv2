@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Malay). Malay counts quarters with 'suku' — literally a quarter part — where Indonesian says 'kuartal'. Malaysian annual reports also write Q1 to Q4 in English, and S1 to S4 in Malay.
+locale: ms
+---
+Suku Pertama
+Suku Kedua
+Suku Ketiga
+Suku Keempat

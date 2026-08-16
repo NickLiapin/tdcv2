@@ -1,0 +1,14 @@
+---
+description: Dishes of Kelantan cuisine (Malay)
+locale: ms
+---
+nasi kerabu
+nasi dagang
+nasi tumpang
+ayam percik Kelantan
+solok lada
+laksam
+budu
+akok
+kerabu taugeh
+colek

@@ -1,0 +1,24 @@
+---
+description: Writing system (Malay). THIS PACK SHIPS RUMI, the Latin alphabet, which is the everyday script of Malaysia and what every value in every other file here is written in. JAWI is the other one: an Arabic-derived alphabet with six extra letters invented for Malay sounds, it was THE script of Malay for six hundred years, it is co-official — it appears on banknotes, on road signs, on the Malaysian identity card and on government letterheads, Kelantan and Terengganu mandate it on shopfronts, and it is taught in schools. A Malay pack in Jawi would be as correct as this one and would share not a single character with it. The rest of the list is the scripts Malaysians actually read: Han for Chinese, Tamil for the Indian community, Arabic for the Quran, and the Borneo scripts at the end.
+locale: ms
+---
+tulisan Rumi
+tulisan Jawi
+tulisan Arab
+tulisan Cina
+tulisan Han
+tulisan Tamil
+Devanagari
+Hangul
+Kana
+Kanji
+tulisan Kiril
+tulisan Yunani
+tulisan Ibrani
+tulisan Thai
+tulisan Khmer
+tulisan Myanmar
+tulisan Jawa
+tulisan Bali
+tulisan Rencong
+tulisan Dunging

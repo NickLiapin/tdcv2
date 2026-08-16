@@ -1,0 +1,24 @@
+---
+description: Film genre (Malay).
+locale: ms
+---
+aksi
+pengembaraan
+komedi
+drama
+romantik
+cinta
+seram
+seram komedi
+misteri
+jenayah
+thriller
+fiksyen sains
+fantasi
+sejarah
+perang
+biografi
+dokumentari
+muzikal
+animasi
+keluarga

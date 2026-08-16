@@ -1,0 +1,18 @@
+---
+description: Loan type (Malay). The -I suffix is the marker of a Syariah-compliant product — pembiayaan peribadi-i, pembiayaan perumahan-i — and those are not loans at all in the legal sense: Islamic finance forbids interest, so the bank buys the asset and sells it on at a marked-up deferred price, or leases it. That is why the Malay word shifts from PINJAMAN, a loan, to PEMBIAYAAN, a financing. AR-RAHNU is Islamic pawnbroking, where the pawnbroker charges a safekeeping fee rather than interest, and it is widely used for small short-term credit against gold.
+locale: ms
+---
+Pinjaman perumahan
+Pembiayaan perumahan-i
+Pinjaman kereta
+Pembiayaan kenderaan-i
+Pinjaman peribadi
+Pembiayaan peribadi-i
+Kad kredit
+Kad kredit-i
+Overdraf
+Pinjaman perniagaan
+Pembiayaan mikro
+Pinjaman pendidikan
+Ar-Rahnu
+Gadai janji

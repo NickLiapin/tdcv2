@@ -1,0 +1,58 @@
+---
+description: Business buzz verb (Malay), in the meN- form used as a headline verb. Malay builds these on the English loan with its own affixes wrapped round it — mengoptimumkan, mendigitalkan, menskalakan — so the root is borrowed and the morphology is native, which is how most Malay technical vocabulary works.
+locale: ms
+---
+mengoptimumkan
+menskalakan
+mengintegrasikan
+mengautomasikan
+mendigitalkan
+mentransformasikan
+memodenkan
+menyeragamkan
+mensistematikkan
+menstrukturkan
+mengutamakan
+memfokuskan
+menyelaraskan
+menyegerakkan
+mewakilkan
+meluaskan
+mengukuhkan
+mempercepatkan
+memudahkan
+menyatukan
+menggabungkan
+mempelbagaikan
+mengewangkan
+memodalkan
+melaburkan
+menarik
+mengekalkan
+menukarkan
+mensegmenkan
+meletakkan kedudukan
+membezakan
+mengukur
+menganalisis
+mengunjurkan
+memodelkan
+menguji
+mengesahkan
+melaksanakan
+menggerakkan
+menyesuaikan
+mengatur
+mengemas kini
+menyemak
+memikirkan semula
+memperkasakan
+membina
+mengimbangi
+menjimatkan kos
+meningkatkan
+mengurangkan
+memastikan
+menjamin
+mendampingi
+merangsang

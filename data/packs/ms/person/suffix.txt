@@ -1,0 +1,29 @@
+---
+description: Name suffix (Malay). MALAY HAS NO GENERATIONAL SUFFIX — no Jr., no Sr., no III — and the reason is structural rather than stylistic: a Malay child does not receive the father's full name to be distinguished from, because the father's given name already IS the child's second name. Junior would be meaningless. What actually follows a Malaysian name is an academic or professional post-nominal, and those are written in ENGLISH because that is the language degrees are awarded and printed in. The federal and state honours also carry post-nominal letters (SMN, PJK, AMN and the rest) which sit after the name while the title sits before it.
+locale: ms
+---
+B.Sc.
+B.A.
+B.Eng.
+B.Ed.
+LL.B.
+MBBS
+BDS
+B.Pharm.
+M.Sc.
+M.A.
+M.Eng.
+MBA
+LL.M.
+Ph.D.
+Ed.D.
+DVM
+P.Eng.
+C.A.(M)
+ACCA
+CFA
+FRCS
+MRCP
+SMN
+PJK
+AMN

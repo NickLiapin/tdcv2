@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Malay).
+locale: ms
+---
+penjaga gol
+sayap kiri
+bek kiri
+pemain tengah
+bek kanan
+sayap kanan
+pivot

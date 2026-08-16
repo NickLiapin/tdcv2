@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Malay).
+locale: ms
+---
+pengumpan
+pemukul luar
+pemukul tengah
+opposite
+libero

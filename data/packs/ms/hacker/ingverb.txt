@@ -1,0 +1,32 @@
+---
+description: Technology action noun (Malay), the peN-...-an and per-...-an nominalisations. Malay turns a verb into a process noun by wrapping it in a circumfix rather than adding a suffix, which is why these look nothing like their verbs at the edges: sulit becomes penyulitan, hantar becomes penghantaran, pasang becomes pemasangan.
+locale: ms
+---
+kompilasi
+penggunaan pakai
+konfigurasi
+permulaan semula
+penyambungan
+pengesahan
+penyulitan
+penyahsulitan
+pemampatan
+pengekstrakan
+pengindeksan
+penyimpanan cache
+penyegerakan
+replikasi
+penskalaan
+penghalaan
+pemintasan
+pelangkauan
+penggodaman
+penampalan
+pemulihan
+pengemaskinian
+pemadaman
+penciptaan
+penyalinan
+pemindahan
+pemasangan
+pemformatan

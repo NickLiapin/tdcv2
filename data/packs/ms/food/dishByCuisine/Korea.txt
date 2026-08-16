@@ -1,0 +1,12 @@
+---
+description: Dishes of Korea cuisine (Malay)
+locale: ms
+---
+kimchi
+bibimbap
+bulgogi
+tteokbokki
+kimbap
+samgyeopsal
+japchae
+sup kimchi

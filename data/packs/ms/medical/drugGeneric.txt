@@ -1,0 +1,46 @@
+---
+description: Common generic drug name (Malay). Malaysia prescribes under BRITISH APPROVED NAMES, not the American ones, because its pharmacopoeia and its doctors' training both came through the United Kingdom: FRUSEMIDE not furosemide, salbutamol not albuterol, paracetamol not acetaminophen, adrenaline not epinephrine. Indonesian took its drug names through Dutch and lands on a third set of spellings again. The Malay spellings below follow DBP transliteration — k for c, s for c before e and i, -il for -yl.
+locale: ms
+---
+parasetamol
+ibuprofen
+asid mefenamik
+diklofenak natrium
+ketorolak
+asid asetilsalisilik
+tramadol
+omeprazol
+pantoprazol
+ranitidin
+domperidon
+loperamid
+amoksisilin
+azitromisin
+seftriakson
+siprofloksasin
+doksisiklin
+metronidazol
+flukonazol
+asiklovir
+loratadin
+setirizin
+klorfeniramin
+salbutamol
+budesonid
+prednisolon
+deksametason
+enalapril
+lisinopril
+perindopril
+amlodipin
+bisoprolol
+metoprolol
+frusemid
+atorvastatin
+simvastatin
+metformin
+gliklazid
+levotiroksin
+warfarin
+insulin
+adrenalin

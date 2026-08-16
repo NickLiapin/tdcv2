@@ -1,0 +1,5 @@
+---
+description: Currency of Turki (Malay)
+locale: ms
+---
+Lira Turki

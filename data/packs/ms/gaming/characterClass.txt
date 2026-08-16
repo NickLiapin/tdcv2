@@ -1,0 +1,28 @@
+---
+description: Role-playing game character class (Malay).
+locale: ms
+---
+pahlawan
+kesateria
+paladin
+gasar
+pemusnah
+penyamun
+pembunuh upahan
+pemburu
+penjejak
+pemanah
+ahli sihir
+ahli silap mata
+bomoh
+pawang
+druid
+syaman
+pendeta
+sami
+penyair
+jurutera
+ahli alkimia
+penjinak
+tank
+penyembuh

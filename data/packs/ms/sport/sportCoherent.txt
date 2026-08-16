@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (positionBySport child). All eight are played seriously in Malaysia: badminton and squash are the two the country wins world titles in, hockey and sepak takraw are national obsessions, and netball and cricket are here through the Commonwealth.
+locale: ms
+---
+Bola sepak
+Bola keranjang
+Bola tampar
+Badminton
+Hoki
+Ragbi
+Sepak takraw
+Bola baling

@@ -1,0 +1,12 @@
+---
+description: Dishes of Barat cuisine (Malay)
+locale: ms
+---
+stik daging
+ayam panggang
+ikan dan kentang goreng
+burger
+sup krim
+salad Caesar
+pai daging
+sosej dan kentang lecek

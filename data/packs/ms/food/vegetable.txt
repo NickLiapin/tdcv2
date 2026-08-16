@@ -1,0 +1,39 @@
+---
+description: Vegetable (Malay). LOBAK MERAH is the carrot in Malaysia where Indonesian says wortel from the Dutch — the same divide as everywhere else in this pack. The last block has no European counterpart at all: petai is the stink bean, jering its stronger cousin, pucuk paku a fiddlehead fern, ulam raja and the other ulam are raw leaves eaten with rice and sambal rather than cooked, and kangkung is water spinach and is the most eaten green in the country.
+locale: ms
+---
+kangkung
+bayam
+sawi
+kailan
+choy sum
+salad
+kubis
+kubis bunga
+brokoli
+lobak merah
+lobak putih
+kentang
+ubi keledek
+ubi kayu
+keladi
+timun
+terung
+peria
+labu
+petola
+kacang panjang
+kacang buncis
+kacang botol
+kacang bendi
+taugeh
+jagung
+tomato
+bawang besar
+bawang merah
+bawang putih
+cendawan
+petai
+jering
+pucuk paku
+ulam raja

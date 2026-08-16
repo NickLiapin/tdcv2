@@ -1,0 +1,15 @@
+---
+description: Social reaction (Malay).
+locale: ms
+---
+suka
+sayang
+ketawa
+terkejut
+sedih
+marah
+sokong
+terima kasih
+tahniah
+menarik
+tidak suka

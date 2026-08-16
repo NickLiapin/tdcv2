@@ -1,0 +1,11 @@
+---
+description: Weekday name (Malay), Sunday first to match the formatter. Malaysia says AHAD for Sunday; Indonesian says Minggu, and in Malay 'minggu' is the week itself, so the Indonesian list would rename a day into a unit. Isnin, Khamis and Jumaat also differ from Indonesian Senin, Kamis and Jumat. All seven are Arabic-derived. Note the working week is not uniform: Johor, Kedah, Kelantan and Terengganu rest on Friday and Saturday, the rest of Malaysia on Saturday and Sunday.
+locale: ms
+---
+Ahad
+Isnin
+Selasa
+Rabu
+Khamis
+Jumaat
+Sabtu

@@ -1,0 +1,14 @@
+---
+description: Dishes of Negeri Sembilan cuisine (Malay)
+locale: ms
+---
+masak lemak cili api daging
+daging salai masak lemak
+ayam masak lemak
+gulai umbut
+ikan tempoyak
+rendang minang
+pucuk paku masak lemak
+sambal tempoyak
+kerutuk daging
+lemang Negeri

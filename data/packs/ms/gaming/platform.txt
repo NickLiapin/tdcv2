@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Malay; brand names kept as they are).
+locale: ms
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+telefon bimbit
+Android
+iOS
+pelayar web

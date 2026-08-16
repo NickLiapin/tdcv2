@@ -1,0 +1,5 @@
+---
+description: Capital of Mesir, as Malay writes it
+locale: ms
+---
+Kaherah

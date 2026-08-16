@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Malay).
+locale: ms
+---
+prop
+hooker
+lock
+flanker
+nombor lapan
+scrum-half
+fly-half
+center
+sayap
+fullback

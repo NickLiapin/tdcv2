@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Malay)
+locale: ms
+---
+Gastritis
+Ulser peptik
+Penyakit refluks gastroesofagus
+Sindrom usus rengsa
+Penyakit Crohn
+Kolitis ulseratif
+Pankreatitis kronik
+Batu karang hempedu
+Sirosis hati
+Penyakit seliak

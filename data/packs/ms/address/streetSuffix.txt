@@ -1,0 +1,45 @@
+---
+description: Malay thoroughfare type. Malay puts it BEFORE the name — Jalan Ampang, Lorong Melati, Persiaran Perdana — the opposite of English and the same as Indonesian. Beyond Jalan and Lorong the Malaysian set is its own: Persiaran is a boulevard, Lebuh a broad street, Lebuhraya a motorway, Susur a slip road, Changkat a street up a slope, Solok and Lengkok short curved streets in Penang and Kuala Lumpur, Medan a square. Taman, Bandar and Seksyen are not streets at all but the housing estate, township and numbered sector a street sits in, and a Malaysian address stacks them: 'No. 12, Jalan SS 15/4B, Taman Subang Jaya'. Malaysian street names are very often NUMBERED rather than named — Jalan 3/12A, Jalan PJU 8/5 — which is why a config joining a suffix to a name only models half the country's addresses.
+locale: ms
+---
+Jalan
+Jln
+Jln.
+Lorong
+Lrg
+Persiaran
+Lebuh
+Lebuhraya
+Susur
+Simpang
+Changkat
+Solok
+Lengkok
+Lingkaran
+Laluan
+Medan
+Gerbang
+Jalan Besar
+Jalan Kecil
+Taman
+Tmn
+Bandar
+Seksyen
+Kampung
+Kg
+Desa
+Bukit
+Pesiaran
+Bulatan
+Jambatan
+Terowong
+Pekan
+Batu
+Kompleks
+Plaza
+Wisma
+Menara
+Blok
+Fasa
+Presint
+Mukim

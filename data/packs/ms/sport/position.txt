@@ -1,0 +1,39 @@
+---
+description: Playing position across several sports (Malay). Malaysian sports vocabulary borrows the English position names wholesale in basketball and rugby while translating them in football, hockey and volleyball — that inconsistency is real and is what a Malaysian sports page looks like.
+locale: ms
+---
+penjaga gol
+bek
+bek tengah
+bek sayap
+pemain tengah
+pemain tengah bertahan
+pemain tengah menyerang
+penyerang
+penyerang tengah
+sayap
+point guard
+shooting guard
+small forward
+power forward
+center
+pengumpan
+opposite
+pemukul tengah
+pemukul luar
+libero
+pivot
+sayap kiri
+sayap kanan
+prop
+hooker
+lock
+flanker
+fullback
+tekong
+apit kiri
+apit kanan
+perseorangan lelaki
+perseorangan wanita
+beregu campuran
+pesilat

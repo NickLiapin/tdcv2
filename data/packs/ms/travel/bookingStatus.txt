@@ -1,0 +1,15 @@
+---
+description: Booking status (Malay).
+locale: ms
+---
+Dibuat
+Menunggu pengesahan
+Disahkan
+Telah dibayar
+Deposit dibayar
+Diubah
+Dibatalkan
+Tidak hadir
+Selesai
+Dikembalikan
+Tamat tempoh

@@ -1,0 +1,14 @@
+---
+description: Time of day (Malay). Malaysian Malay divides the day pagi / tengah hari / petang / malam, and 'petang' covers everything from about one in the afternoon until dark. Indonesian splits that span into 'siang' and 'sore'; Malaysian Malay has no 'sore' at all, so an Indonesian time-of-day list translated across produces a word Malaysians do not say. Subuh and maghrib are the prayer times used as clock references.
+locale: ms
+---
+pagi
+tengah hari
+petang
+malam
+tengah malam
+dini hari
+subuh
+maghrib
+senja
+siang

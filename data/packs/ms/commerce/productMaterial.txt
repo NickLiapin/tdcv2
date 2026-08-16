@@ -1,0 +1,64 @@
+---
+description: Product material (Malay), as a noun — compose with 'daripada': 'meja daripada kayu jati'. The timber block is the Malaysian hardwood trade's own vocabulary, sold under these Malay names worldwide. KELULI is steel and KELULI TAHAN KARAT stainless — remember that Malaysian BAJA means fertiliser, so the Indonesian word for steel is a different substance here. Rattan, mengkuang and pandan are woven materials with no English one-word equivalents.
+locale: ms
+---
+kayu jati
+kayu meranti
+kayu cengal
+kayu merbau
+kayu nyatoh
+kayu getah
+kayu pain
+buluh
+rotan
+mengkuang
+pandan
+papan lapis
+papan partikel
+MDF
+kayu solid
+keluli
+keluli tahan karat
+keluli karbon
+besi tuang
+aluminium
+titanium
+tembaga
+loyang
+gangsa
+zink
+timah
+perak
+emas
+plastik
+polikarbonat
+polipropilena
+polietilena
+akrilik
+silikon
+getah
+span
+polistirena
+kaca
+kaca temper
+seramik
+porselin
+jubin
+batu
+granit
+marmar
+konkrit
+gipsum
+kulit
+kulit sintetik
+suede
+kapas
+linen
+bulu biri-biri
+sutera
+kasmir
+viskos
+poliester
+nilon
+denim
+batik

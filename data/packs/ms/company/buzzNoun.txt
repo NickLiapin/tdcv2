@@ -1,0 +1,64 @@
+---
+description: Business buzz noun (Malay). THIS IS WHERE THE -ITI ENDING LIVES and it is the most systematic difference between written Malay and written Indonesian: an abstract noun that English ends in -ity takes -ITI in Malay and -ITAS in Indonesian, every time. Kualiti / kualitas, aktiviti / aktivitas, produktiviti / produktivitas, komuniti / komunitas, realiti / realitas, identiti / identitas, universiti / universitas. Malaysia took the English word and Indonesia the Dutch one, and the rule is regular enough that a reader can date a document to one country from a single noun.
+locale: ms
+---
+sinergi
+strategi
+ekosistem
+platform
+penyelesaian
+nilai
+kecekapan
+pengoptimuman
+transformasi
+inovasi
+kebolehskalaan
+integrasi
+automasi
+pendigitalan
+analitik
+metrik
+petunjuk
+prestasi
+keutamaan
+fokus
+inisiatif
+pelan tindakan
+visi
+misi
+budaya kerja
+penglibatan
+kesetiaan
+pengekalan
+penukaran
+corong jualan
+segmen
+ceruk
+kedudukan pasaran
+pembezaan
+kelebihan daya saing
+syer pasaran
+pertumbuhan
+keuntungan
+pulangan
+pelaburan
+penilaian
+portfolio
+risiko
+pematuhan
+ketelusan
+akauntabiliti
+kemampanan
+fleksibiliti
+kebolehsuaian
+kelajuan
+kualiti
+pengalaman pelanggan
+maklum balas
+perkongsian
+kerjasama
+kepakaran
+kompetensi
+potensi
+produktiviti
+aktiviti

@@ -1,0 +1,16 @@
+---
+description: Meeting type (Malay). MESYUARAT is the Malaysian word for a meeting, from Arabic; Indonesian says rapat. SUMBANG SARAN, literally 'contributing suggestions', is the DBP coinage for a brainstorm and is in ordinary office use.
+locale: ms
+---
+Mesyuarat harian
+Mesyuarat mingguan
+Mesyuarat jabatan
+Mesyuarat agung
+Perbincangan satu dengan satu
+Retrospektif
+Perancangan sprint
+Demo hasil kerja
+Sumbang saran
+Mesyuarat dengan pelanggan
+Taklimat
+Mesyuarat penilaian

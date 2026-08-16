@@ -1,0 +1,5 @@
+---
+description: Capital of Kenya, as Malay writes it
+locale: ms
+---
+Nairobi

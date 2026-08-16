@@ -1,0 +1,56 @@
+---
+description: Store department or category (Malay). Note BARANGAN RUNCIT for groceries and PASAR RAYA for the supermarket itself. The halal and non-halal division at the end is not a nicety: Malaysian supermarkets physically separate the pork section behind its own entrance and give it separate trolleys and separate checkouts, so 'daging' and 'bahagian tidak halal' are different departments in the same shop.
+locale: ms
+---
+Barangan runcit
+Buah dan sayur
+Daging
+Ikan dan makanan laut
+Bahagian tidak halal
+Produk tenusu
+Roti
+Barangan kering
+Makanan sejuk beku
+Minuman
+Makanan ringan
+Makanan bayi
+Barangan bayi
+Pencuci rumah
+Kosmetik
+Minyak wangi
+Penjagaan diri
+Farmasi
+Pakaian
+Pakaian wanita
+Pakaian lelaki
+Pakaian kanak-kanak
+Pakaian tradisional
+Kasut
+Aksesori
+Beg
+Barang kemas
+Jam tangan
+Elektronik
+Telefon bimbit
+Komputer
+Komputer riba
+Tablet
+Televisyen
+Audio
+Kamera
+Perkakas rumah
+Perkakas dapur
+Perabot
+Hiasan rumah
+Tekstil rumah
+Pencahayaan
+Taman
+Bahan binaan
+Perkakasan
+Aksesori kereta
+Sukan
+Aktiviti luar
+Permainan
+Buku
+Alat tulis
+Barangan haiwan

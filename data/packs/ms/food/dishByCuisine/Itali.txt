@@ -1,0 +1,12 @@
+---
+description: Dishes of Itali cuisine (Malay)
+locale: ms
+---
+pizza margherita
+spaghetti carbonara
+lasagna
+risotto
+minestrone
+bruschetta
+tiramisu
+gnocchi

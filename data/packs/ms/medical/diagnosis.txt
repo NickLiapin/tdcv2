@@ -1,0 +1,92 @@
+---
+description: Medical diagnosis in Malay that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale and diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. Malay clinical vocabulary differs from Indonesian on the organs themselves, not just the disease names: the kidney is BUAH PINGGANG in Malaysia and ginjal in Indonesia, an infection is a JANGKITAN and not an infeksi, cancer is KANSER (through English) and not kanker (through Dutch), and abstract nouns take -ITI where Indonesian takes -itas, so obesity is obesiti not obesitas. Everyday Malaysians say darah tinggi for hypertension, kencing manis for diabetes and tibi for tuberculosis, and those forms appear on public health posters beside the clinical ones. DEMAM DENGGI is first among the infections for a reason: dengue is endemic in Malaysia, notifiable, and the largest single infectious-disease burden in the country. Thalassaemia is also unusually common here and is screened for.
+locale: ms
+---
+Hipertensi
+Darah tinggi
+Penyakit jantung koronari
+Angina pektoris
+Infarksi miokardium
+Fibrilasi atrium
+Kegagalan jantung
+Kardiomiopati
+Miokarditis
+Aterosklerosis
+Urat varikos
+Trombosis vena dalam
+Embolisme pulmonari
+Strok
+Serangan iskemia sementara
+Migrain
+Epilepsi
+Sklerosis multipel
+Penyakit Parkinson
+Demensia
+Neuropati periferi
+Radikulopati
+Degenerasi tulang belakang
+Prolaps diskus intervertebra
+Osteoartritis
+Artritis reumatoid
+Gout
+Osteoporosis
+Skoliosis
+Asma
+Penyakit paru-paru obstruktif kronik
+Bronkitis kronik
+Radang paru-paru
+Pleuritis
+Tibi paru-paru
+Sarkoidosis
+Apnea tidur
+Sinusitis akut
+Tonsilitis kronik
+Otitis media
+Laringitis
+Gastritis
+Ulser peptik
+Penyakit refluks gastroesofagus
+Sindrom usus rengsa
+Penyakit Crohn
+Kolitis ulseratif
+Penyakit seliak
+Pankreatitis kronik
+Batu karang hempedu
+Kolesistitis
+Hepatitis A
+Hepatitis B
+Hepatitis C
+Sirosis hati
+Penyakit hati berlemak
+Penyakit buah pinggang kronik
+Pielonefritis
+Glomerulonefritis
+Batu karang buah pinggang
+Jangkitan saluran kencing
+Diabetes mellitus jenis 1
+Diabetes mellitus jenis 2
+Kencing manis
+Hipotiroidisme
+Hipertiroidisme
+Obesiti
+Sindrom metabolik
+Anemia kekurangan zat besi
+Anemia kekurangan B12
+Talasemia
+Demam denggi
+Denggi berdarah
+Malaria
+Demam kepialu
+Leptospirosis
+Chikungunya
+Dermatitis atopik
+Psoriasis
+Ekzema
+Urtikaria
+Jerawat
+Rinitis alahan
+Konjungtivitis
+Katarak
+Glaukoma
+Episod kemurungan
+Gangguan keresahan

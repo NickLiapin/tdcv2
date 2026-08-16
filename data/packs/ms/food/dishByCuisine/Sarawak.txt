@@ -1,0 +1,14 @@
+---
+description: Dishes of Sarawak cuisine (Malay)
+locale: ms
+---
+laksa Sarawak
+kolo mee
+manok pansuh
+umai
+mee kampua
+midin belacan
+kek lapis Sarawak
+sup terung asam
+linut
+ayam pansuh

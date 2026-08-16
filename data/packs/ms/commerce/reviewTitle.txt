@@ -1,0 +1,30 @@
+---
+description: Product review title (Malay), as written on a Malaysian marketplace.
+locale: ms
+---
+Sangat berpuas hati
+Seperti dalam gambar
+Kualiti bagus
+Berbaloi dengan harga
+Sangat disyorkan
+Tidak disyorkan
+Jangkaan saya lebih tinggi
+Barang sampai rosak
+Penghantaran sangat pantas
+Penghantaran lambat
+Semuanya sempurna
+Barang cantik
+Berbaloi
+Beli kali kedua
+Beli untuk hadiah, disukai
+Mudah digunakan
+Senang dijaga
+Bahan murahan
+Berbau plastik
+Saiz terlalu kecil
+Warna lain daripada gambar
+Berfungsi tanpa masalah
+Rosak dalam seminggu
+Penjual cepat balas
+Saya pulangkan barang
+Produk jimat dan berguna

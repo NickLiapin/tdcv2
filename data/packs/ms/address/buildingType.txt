@@ -1,0 +1,45 @@
+---
+description: Building type (Malay). Two Malaysian house types have no one-word English name and are given here as Malaysians use them: rumah teres is the terraced link house that most of urban Malaysia lives in, and rumah kampung is the traditional timber house on stilts. Kedai rumah is the shophouse — a shop on the ground floor with dwellings above — which is the basic unit of every old Malaysian town centre. Note the Malay word for room is BILIK, not the Indonesian kamar, and floor level is ARAS, not lantai.
+locale: ms
+---
+rumah teres
+rumah berkembar
+rumah banglo
+rumah kampung
+rumah panjang
+rumah pangsa
+pangsapuri
+kondominium
+apartmen servis
+banglo
+vila
+townhouse
+kedai rumah
+rumah kedai
+bangunan pejabat
+menara pejabat
+kompleks beli-belah
+pusat beli-belah
+pasar raya
+pasar
+kedai
+gerai
+gudang
+kilang
+bengkel
+garaj
+stesen minyak
+sekolah
+tadika
+universiti
+hospital
+klinik
+masjid
+surau
+gereja
+kuil
+tokong
+muzium
+stadium
+dewan
+balai raya

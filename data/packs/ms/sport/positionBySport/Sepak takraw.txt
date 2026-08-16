@@ -1,0 +1,7 @@
+---
+description: Positions in sepak takraw (Malay). A takraw side is THREE players and only three, so this list is complete at three: the TEKONG serves from the circle and the two APIT flank him. There is no bench position and no substitute role in the regu format.
+locale: ms
+---
+tekong
+apit kiri
+apit kanan

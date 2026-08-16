@@ -1,0 +1,42 @@
+---
+description: Fruit (Malay). The first block is tropical and is what a Malaysian market actually sells; durian is the one Malaysians argue about and manggis is called its queen. Four everyday names differ from Indonesian and the split is the borrowing route again: Malaysia says BETIK for papaya, TEMBIKAI for watermelon, EPAL for apple and OREN for orange, where Indonesian has pepaya, semangka, apel (from Dutch appel) and jeruk. Limau covers the whole citrus family in Malay, so limau nipis is the lime and limau mandarin the tangerine.
+locale: ms
+---
+durian
+rambutan
+manggis
+langsat
+duku
+ciku
+cempedak
+nangka
+mangga
+betik
+tembikai
+nanas
+pisang
+limau
+limau nipis
+oren
+epal
+anggur
+jambu batu
+jambu air
+belimbing
+salak
+pulasan
+kedondong
+buah naga
+markisa
+laici
+longan
+kelapa
+strawberi
+ceri
+pear
+kiwi
+delima
+kurma
+tin
+avokado
+rambai

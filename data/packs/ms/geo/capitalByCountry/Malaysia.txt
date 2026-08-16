@@ -1,0 +1,5 @@
+---
+description: Capital of Malaysia, as Malay writes it
+locale: ms
+---
+Kuala Lumpur

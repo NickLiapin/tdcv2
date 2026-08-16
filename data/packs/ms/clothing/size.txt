@@ -1,0 +1,12 @@
+---
+description: Clothing size (Malay). The international letters are used unchanged, but the cut behind them is ASIAN sizing, which runs one to two steps smaller than European: a Malaysian L is roughly a European M. Locally made baju kurung and baju melayu are also sold by numbered size, and traditional dress is very often tailored rather than bought off the rack.
+locale: ms
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

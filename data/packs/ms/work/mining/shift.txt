@@ -1,0 +1,9 @@
+---
+description: Work shift (Malay).
+locale: ms
+---
+syif pertama
+syif kedua
+syif malam
+syif hujung minggu
+syif penyelenggaraan

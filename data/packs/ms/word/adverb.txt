@@ -1,0 +1,48 @@
+---
+description: Common adverb (Malay). This list carries the words that do the work a European verb ending would do: sudah and telah mark a completed action, sedang marks one in progress, akan marks the future, belum marks not-yet and pernah marks ever-having. Malay puts them BESIDE the verb and leaves the verb alone, so 'dia sudah pergi' and 'dia akan pergi' differ by one free-standing word. Without one of these a Malay sentence is simply untensed, and context supplies the time.
+locale: ms
+---
+sudah
+telah
+sedang
+akan
+belum
+pernah
+masih
+baru sahaja
+sangat
+sedikit
+agak
+terlalu
+sentiasa
+tidak pernah
+selalu
+kadang-kadang
+jarang
+sekarang
+nanti
+tadi
+semalam
+esok
+awal
+lewat
+cepat
+perlahan
+bersama
+berasingan
+di sini
+di sana
+di mana-mana
+ke atas
+ke bawah
+ke hadapan
+ke belakang
+ke kiri
+ke kanan
+mula-mula
+akhirnya
+hampir
+sepenuhnya
+memang
+mungkin
+tentu

@@ -1,0 +1,36 @@
+---
+description: Hotel amenity (Malay). PERCUMA IS THE WORD TO NOTICE: in Malaysia it means free of charge and is what 'free Wi-Fi' is written as, while in Indonesian percuma means futile or worthless — so 'Wi-Fi percuma' reads as complimentary internet on one side of the Straits and useless internet on the other. The last four are standard in Malaysian hotels and absent from a European list: a SURAU is a small prayer room, every room carries a PENUNJUK ARAH KIBLAT marking the direction of Mecca, a SEJADAH is a prayer mat available on request, and halal certification of the kitchen is a booking criterion rather than a footnote.
+locale: ms
+---
+Wi-Fi percuma
+penyaman udara
+sarapan termasuk
+restoran
+bar
+minibar
+peti sejuk
+pemanas air
+peti besi
+televisyen
+pengering rambut
+seterika
+mesin basuh
+pembersihan harian
+kaunter 24 jam
+pengangkutan lapangan terbang
+tempat letak kereta
+tempat letak kereta bawah tanah
+kolam renang
+sauna
+spa
+pusat kecergasan
+urutan
+taman permainan
+penjagaan kanak-kanak
+bilik mesyuarat
+mesra haiwan
+bilik bebas rokok
+surau
+penunjuk arah kiblat
+sejadah
+dapur disahkan halal

@@ -1,0 +1,5 @@
+---
+description: Capital of Perancis, as Malay writes it
+locale: ms
+---
+Paris

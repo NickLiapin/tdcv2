@@ -1,0 +1,5 @@
+---
+description: Capital of Switzerland, as Malay writes it
+locale: ms
+---
+Bern

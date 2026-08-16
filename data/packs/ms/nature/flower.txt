@@ -1,0 +1,32 @@
+---
+description: Flower (Malay). BUNGA RAYA, the hibiscus, is the national flower of Malaysia and its five petals are read as the five Rukun Negara principles. RAFFLESIA, which grows in Sabah, Sarawak and Pahang, is the largest single flower on earth and has no petals to speak of and no stem. Bunga kantan is the torch ginger whose bud is a cooking ingredient before it is an ornament, and kesidang, melur and tanjung are the small white flowers of classical Malay verse.
+locale: ms
+---
+bunga raya
+melur
+melati
+mawar
+cempaka
+kenanga
+seroja
+teratai
+anggerik
+orkid
+kesidang
+tanjung
+bakawali
+kemboja
+bunga kantan
+bunga pukul empat
+bunga kertas
+bunga matahari
+semarak api
+rafflesia
+pakma
+dahlia
+kekwa
+ros
+lili
+tulip
+seri pagi
+keembong

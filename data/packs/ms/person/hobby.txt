@@ -1,0 +1,88 @@
+---
+description: Hobby or interest (Malay). The traditional Malay pastimes near the top have no European counterpart and are named here rather than translated: wau is the giant Kelantanese kite, gasing the spinning top thrown by adults in competition, congkak the seed-and-hollow board game, sepak takraw the kick-volley game, silat the Malay martial art, and dikir barat, kompang and rebana are choral and percussion forms. Mengaji is Quranic recitation and is a daily activity for a large share of the population. Note badminton, not bulu tangkis — Malaysia uses the English name for the sport it is best at.
+locale: ms
+---
+membaca
+menulis
+melukis
+fotografi
+menonton wayang
+mendengar muzik
+bermain gitar
+menyanyi
+karaoke
+menari
+memasak
+membuat kuih
+menghirup kopi
+berkebun
+menanam bunga
+memancing
+berkhemah
+mendaki bukit
+mendaki gunung
+memanjat tebing
+berbasikal
+berjoging
+berenang
+menyelam skuba
+snorkel
+meluncur ombak
+belayar
+berkayak
+bola sepak
+futsal
+badminton
+bola keranjang
+bola tampar
+sepak takraw
+tenis
+ping pong
+hoki
+silat
+karate
+taekwondo
+judo
+yoga
+senaman
+angkat berat
+catur
+teka silang kata
+membina model
+kraf tangan
+membatik
+menenun songket
+mengukir kayu
+membuat tembikar
+khat
+menyulam
+mengait
+menjahit
+membuat barang kemas
+kerja kayu
+membaiki barang
+otomotif
+motosikal
+mengumpul setem
+mengumpul syiling
+astronomi
+memerhati burung
+akuarium
+memelihara haiwan
+melancong
+wisata makanan
+melawat tempat bersejarah
+belajar bahasa
+pengaturcaraan
+bermain permainan video
+menyunting video
+mendengar podcast
+kerja sukarela
+wau
+gasing
+congkak
+dikir barat
+kompang
+rebana
+mengaji
+bersiar-siar

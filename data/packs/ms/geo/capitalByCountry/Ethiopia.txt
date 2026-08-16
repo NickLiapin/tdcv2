@@ -1,0 +1,5 @@
+---
+description: Capital of Ethiopia, as Malay writes it
+locale: ms
+---
+Addis Ababa

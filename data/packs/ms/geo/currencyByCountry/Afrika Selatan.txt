@@ -1,0 +1,5 @@
+---
+description: Currency of Afrika Selatan (Malay)
+locale: ms
+---
+Rand Afrika Selatan

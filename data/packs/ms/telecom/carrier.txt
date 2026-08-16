@@ -1,0 +1,30 @@
+---
+description: Mobile and fixed carrier in the Malaysian market. CelcomDigi is the 2022 merger of Celcom and Digi and is now the largest mobile operator; Maxis, U Mobile and Yes are the other holders of spectrum, and Hotlink is Maxis's prepaid brand. unifi and TIME are the fixed broadband names. The regional entries at the end are what a Malaysian roams onto.
+locale: ms
+---
+Maxis
+Hotlink
+CelcomDigi
+Celcom
+Digi
+U Mobile
+Yes
+unifi
+unifi Mobile
+TIME
+Tune Talk
+XOX
+redONE
+Astro
+TM
+Singtel
+StarHub
+M1
+DST Brunei
+AIS
+TrueMove
+Telkomsel
+Indosat
+Smart
+Globe
+Viettel

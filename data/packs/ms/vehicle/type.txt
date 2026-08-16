@@ -1,0 +1,32 @@
+---
+description: Vehicle body type (Malay). KERETA IS THE FLAGSHIP FALSE FRIEND OF THIS WHOLE PACK: in Malaysia a kereta is a CAR, and in Indonesia a kereta is a TRAIN. The Malay for a train is keretapi or kereta api, literally fire-carriage, and Indonesian uses the same phrase — so the two languages agree on the long word and disagree completely on the short one. LORI is a lorry, taken from English, where Indonesian says truk; BAS is a bus (Indonesian bis); MOTOSIKAL is a motorcycle (sepeda motor) and BASIKAL a bicycle (sepeda). BECA is the trishaw, still working in Melaka and Penang.
+locale: ms
+---
+kereta
+sedan
+hatchback
+liftback
+station wagon
+coupe
+kabriolet
+MPV
+SUV
+pacuan empat roda
+van
+van panel
+pikap
+lori
+lori treler
+bas
+bas mini
+teksi
+motosikal
+skuter
+basikal
+beca
+ambulans
+jentolak
+jengkaut
+traktor
+keretapi
+tren

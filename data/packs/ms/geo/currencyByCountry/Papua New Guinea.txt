@@ -1,0 +1,5 @@
+---
+description: Currency of Papua New Guinea (Malay)
+locale: ms
+---
+Kina Papua New Guinea

@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Malay. Amounts are in RINGGIT MALAYSIA (RM, ISO 4217 MYR), written with the symbol before the figure and no space. Malaysia's own official classification is B40 / M40 / T20 — the bottom 40 per cent, middle 40 and top 20 of households — and it is quoted MONTHLY, not annually, so a Malaysian reading 'RM4,850' understands a month's income where this list gives a year's. Every label therefore ends in SETAHUN, per year, to say so out loud. The bands are the annual equivalents of the DOSM household bands, which is why they are not round numbers.
+locale: ms
+---
+Bawah RM30,000 setahun
+RM30,000 hingga RM58,000 setahun
+RM58,000 hingga RM90,000 setahun
+RM90,000 hingga RM132,000 setahun
+RM132,000 hingga RM180,000 setahun
+RM180,000 hingga RM264,000 setahun
+RM264,000 hingga RM480,000 setahun
+Melebihi RM480,000 setahun

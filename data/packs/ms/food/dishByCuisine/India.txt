@@ -1,0 +1,16 @@
+---
+description: Dishes of India cuisine (Malay)
+locale: ms
+---
+roti canai
+thosai
+idli
+vadai
+kari kambing
+nasi briyani
+capati
+rasam
+sambar
+appam
+putu mayam
+nasi daun pisang

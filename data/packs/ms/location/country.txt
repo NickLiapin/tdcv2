@@ -1,0 +1,200 @@
+---
+description: Country and territory names (Malay), alphabetical. This is the same naming as geo/country.txt without the population weights, and it is where the English-versus-Dutch split shows up in bulk: Malaysia writes Poland, Sweden, Norway, Finland, Denmark, Iceland, Ireland, Greece, Hungary, Croatia, Cyprus, Luxembourg, Switzerland, Belgium, New Zealand, Mexico, Colombia, Brazil, Ecuador, Jamaica, Madagascar, Mozambique, Maldives and Ukraine essentially as English does, where Indonesian has Polandia, Swedia, Norwegia, Finlandia, Eslandia, Irlandia, Yunani, Hongaria, Kroasia, Siprus, Luksemburg, Swiss, Belgia, Selandia Baru, Meksiko, Kolombia, Brasil, Ekuador, Jamaika, Madagaskar, Mozambik, Maladewa and Ukraina. The Arabic-route names go the other way: Mesir, Maghribi, Lubnan. Names of Muslim-majority countries generally follow the Arabic form because that is how Malaysia has known them longest.
+locale: ms
+---
+Afghanistan
+Afrika Selatan
+Albania
+Algeria
+Amerika Syarikat
+Andorra
+Angola
+Antigua dan Barbuda
+Arab Saudi
+Argentina
+Armenia
+Australia
+Austria
+Azerbaijan
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belanda
+Belarus
+Belgium
+Belize
+Benin
+Bhutan
+Bolivia
+Bosnia dan Herzegovina
+Botswana
+Brazil
+Brunei
+Bulgaria
+Burkina Faso
+Burundi
+Cameroon
+Chad
+Chile
+China
+Colombia
+Comoros
+Congo
+Costa Rica
+Croatia
+Cuba
+Cyprus
+Czechia
+Denmark
+Djibouti
+Dominica
+Ecuador
+El Salvador
+Emiriah Arab Bersatu
+Eritrea
+Estonia
+Eswatini
+Ethiopia
+Fiji
+Filipina
+Finland
+Gabon
+Gambia
+Georgia
+Ghana
+Greece
+Grenada
+Guatemala
+Guinea
+Guinea Bissau
+Guinea Khatulistiwa
+Guyana
+Haiti
+Honduras
+Hungary
+Iceland
+India
+Indonesia
+Iran
+Iraq
+Ireland
+Israel
+Itali
+Jamaica
+Jepun
+Jerman
+Jordan
+Kanada
+Kazakhstan
+Kemboja
+Kenya
+Kirgizstan
+Kiribati
+Korea Selatan
+Korea Utara
+Kosovo
+Kuwait
+Laos
+Latvia
+Lesotho
+Liberia
+Libya
+Liechtenstein
+Lithuania
+Lubnan
+Luxembourg
+Macedonia Utara
+Madagascar
+Maghribi
+Malawi
+Malaysia
+Maldives
+Mali
+Malta
+Mauritania
+Mauritius
+Mesir
+Mexico
+Micronesia
+Moldova
+Monaco
+Mongolia
+Montenegro
+Mozambique
+Myanmar
+Namibia
+Nauru
+Nepal
+New Zealand
+Nicaragua
+Niger
+Nigeria
+Norway
+Oman
+Pakistan
+Palau
+Palestin
+Panama
+Pantai Gading
+Papua New Guinea
+Paraguay
+Perancis
+Peru
+Poland
+Portugal
+Qatar
+Republik Afrika Tengah
+Republik Congo
+Republik Dominica
+Romania
+Rusia
+Rwanda
+Saint Kitts dan Nevis
+Saint Lucia
+Saint Vincent dan Grenadines
+Samoa
+San Marino
+Sao Tome dan Principe
+Senegal
+Sepanyol
+Serbia
+Seychelles
+Sierra Leone
+Singapura
+Slovakia
+Slovenia
+Solomon
+Somalia
+Sri Lanka
+Sudan
+Sudan Selatan
+Suriname
+Sweden
+Switzerland
+Syria
+Taiwan
+Tajikistan
+Tanjung Verde
+Tanzania
+Thailand
+Timor-Leste
+Togo
+Tonga
+Trinidad dan Tobago
+Tunisia
+Turki
+Turkmenistan
+Tuvalu
+Uganda
+Ukraine
+United Kingdom
+Uruguay
+Uzbekistan
+Vanuatu
+Vatican
+Venezuela
+Vietnam
+Yaman
+Zambia
+Zimbabwe

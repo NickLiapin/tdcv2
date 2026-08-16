@@ -1,0 +1,5 @@
+---
+description: Currency of Iraq (Malay)
+locale: ms
+---
+Dinar Iraq

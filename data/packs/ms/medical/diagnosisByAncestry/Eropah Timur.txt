@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Malay. A prevalence signal, not an exclusive one.
+locale: ms
+---
+Hemokromatosis keturunan
+Penyakit seliak
+Fenilketonuria
+Penyakit Wilson
+Kekurangan G6PD
+Trombofilia keturunan

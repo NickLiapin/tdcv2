@@ -1,0 +1,272 @@
+---
+description: Malaysian job title in Malay, across sectors. THIS IS THE FILE WHERE MALAY AND INDONESIAN PART COMPANY MOST VISIBLY, because Malaysia named its professions off English and Indonesia off Dutch: JURUTERA is the engineer (Indonesian insinyur, from ingenieur), PEGUAM the lawyer (pengacara), JURURAWAT the nurse (perawat), PENSYARAH the university lecturer (dosen), SETIAUSAHA the secretary (sekretaris), AKAUNTAN the accountant (akuntan), JURUWANG the cashier (kasir) and PEMANDU the driver — and that last one is a trap, because Indonesian PEMANDU is a tour guide and its driver is a sopir. Kerani is the clerk. JURUUKUR BAHAN, the quantity surveyor, is a whole profession that exists in Commonwealth construction and nowhere in the Dutch-descended world. PENOREH GETAH is a rubber tapper and PEKEBUN KECIL a smallholder — two of the largest occupations in rural Malaysia. Cikgu is what a schoolteacher is called to their face; guru is the word on the payroll. One more false friend, and it is a job title in both languages: Malaysian PENGACARA is a compere — a news presenter or a master of ceremonies, which is why 'pengacara berita' and 'pengacara majlis' are on this list — while Indonesian PENGACARA is a lawyer. Neither language would read the other's job advertisement correctly.
+locale: ms
+---
+jurutera perisian
+pembangun perisian
+pengaturcara
+pentadbir sistem
+jurutera rangkaian
+pentadbir pangkalan data
+jurutera DevOps
+arkitek sistem
+penganalisis data
+saintis data
+pakar keselamatan siber
+pereka antara muka
+pereka grafik
+pengurus produk
+pengurus projek
+juruteknik komputer
+ketua pegawai teknologi
+juruaudit sistem
+penguji perisian
+pakar sokongan teknikal
+doktor perubatan
+pegawai perubatan
+pakar perubatan keluarga
+pakar bedah
+pakar kardiologi
+pakar neurologi
+pakar endokrin
+pakar mata
+pakar telinga hidung tekak
+pakar kulit
+pakar psikiatri
+pakar bius
+pakar sakit puan
+pakar pediatrik
+pakar ortopedik
+pakar urologi
+pakar onkologi
+doktor gigi
+ortodontis
+jururawat
+ketua jururawat
+bidan
+ahli farmasi
+penolong pegawai farmasi
+juruteknologi makmal perubatan
+juru X-ray
+ahli fisioterapi
+ahli pemakanan
+doktor haiwan
+penolong pegawai perubatan
+guru sekolah rendah
+guru matematik
+guru fizik
+guru kimia
+guru biologi
+guru sejarah
+guru Bahasa Melayu
+guru Bahasa Inggeris
+guru Pendidikan Islam
+guru sains komputer
+guru pendidikan jasmani
+guru tadika
+pensyarah
+profesor madya
+profesor
+penyelidik
+nazir sekolah
+guru besar
+pengetua
+penolong kanan
+kaunselor sekolah
+ahli psikologi sekolah
+akauntan
+akauntan bertauliah
+juruaudit
+penganalisis kewangan
+ahli ekonomi
+juruwang bank
+penganalisis kredit
+penganalisis pelaburan
+ejen insurans
+perunding cukai
+penilai harta
+juruaudit dalaman
+pengurus kewangan
+ketua pegawai kewangan
+broker saham
+penasihat kewangan
+peguam
+peguam syarie
+peguam cara
+notari awam
+hakim
+majistret
+pendakwa raya
+penyiasat
+perunding undang-undang
+perunding paten
+penimbang tara
+pegawai penyelesaian
+pendaftar mahkamah
+jurutera awam
+arkitek
+arkitek landskap
+juruukur bahan
+juruukur tanah
+kontraktor
+penyelia tapak
+mandor
+penganggar kos
+tukang batu
+tukang plaster
+tukang cat
+tukang jubin
+tukang bumbung
+tukang kayu
+tukang perabot
+juruelektrik
+tukang paip
+tukang kimpal
+pemasang kerangka
+operator kren
+operator jentolak
+operator jengkaut
+operator mesin larik
+operator mesin kisar
+mekanik
+juruteknik penyelenggaraan
+operator CNC
+juruteknik pemasangan
+ahli teknologi pengeluaran
+jurutera mekanikal
+jurutera reka bentuk
+penyelia kualiti
+ketua kumpulan
+ketua syif
+pekerja pembungkusan
+pekerja gudang
+buruh am
+pemandu lori
+pemandu bas
+pemandu teksi
+pemandu e-hailing
+pemandu keretapi
+konduktor
+pegawai operasi
+kakitangan logistik
+penghantar barang
+ejen penghantaran
+juruteknik pesawat
+juruterbang
+pramugara
+pramugari
+pegawai lapangan terbang
+nakhoda kapal
+jurumudi
+pekerja pelabuhan
+kurir
+jurujual
+juruwang
+penyusun barang
+pengurus kedai
+pegawai pembelian
+pengurus kategori
+pengurus jualan
+wakil jualan
+pekerja stor
+pengambil pesanan
+pengurus peruncitan
+penyambut tetamu hotel
+pegawai tempahan
+pembantu bilik
+penjaga pintu
+concierge
+tukang masak
+penolong cef
+cef
+cef pastri
+tukang roti
+tukang daging
+pelayan
+pelayan bar
+barista
+kapten pelayan
+pengacara majlis
+pemandu pelancong
+kakitangan agensi pelancongan
+penganjur acara
+kakitangan pemasaran
+pakar media sosial
+editor kandungan
+penulis skrip
+penyunting
+pruf
+wartawan
+jurugambar
+juru kamera
+penyunting video
+jurutera bunyi
+penyiar
+pengacara berita
+pengarah
+penulis skrin
+penterjemah
+jurubahasa
+pegawai sumber manusia
+pegawai pengambilan
+pegawai latihan
+pengurus pejabat
+setiausaha
+kerani
+pembantu tadbir
+arkivis
+pembantu peribadi
+operator pusat panggilan
+kakitangan khidmat pelanggan
+pegawai tadbir
+penolong pegawai tadbir
+anggota polis
+pegawai polis
+ahli bomba
+pegawai penyelamat
+askar
+pegawai tentera
+pegawai imigresen
+pegawai kastam
+pengawal keselamatan
+pegawai keselamatan dan kesihatan pekerjaan
+penjawat awam
+pekerja sosial
+pustakawan
+kurator muzium
+imam
+bilal
+kadi
+ustaz
+ustazah
+jurutera pertanian
+pegawai ternakan
+operator traktor
+operator penuai
+petani
+pekebun kecil
+penoreh getah
+pekerja ladang sawit
+penternak lebah
+pegawai perhutanan
+nelayan
+tukang kebun
+penggubah bunga
+pekerja landskap
+pekerja pembersihan
+pekerja pengurusan sisa
+penyelenggara bangunan
+juruteknik lif
+pendandan rambut
+tukang gunting rambut
+juruhias kuku
+ahli kecantikan
+artis solek
+tukang jahit
+penjahit
+tukang kasut
+tukang jam
+tukang emas
+tukang tembikar
+penggilap perabot
+penala piano

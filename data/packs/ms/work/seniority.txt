@@ -1,0 +1,20 @@
+---
+description: Seniority or grade label for a role (Malay). The Malaysian public service runs on GRADE NUMBERS rather than words — a civil servant is a Pegawai Tadbir Gred N41 or a Jurutera Gred J54 — and the grade is how seniority is actually stated in a government dataset, so the word labels below belong to the private sector.
+locale: ms
+---
+Pelatih
+Pembantu
+Junior
+Kakitangan
+Pertengahan
+Kanan
+Ketua Pasukan
+Penyelia
+Ketua
+Ketua Unit
+Pengurus Jabatan
+Pengurus Besar
+Naib Presiden
+Pengarah
+Pengarah Urusan
+Ketua Pegawai Eksekutif

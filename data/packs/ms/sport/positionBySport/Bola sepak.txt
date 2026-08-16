@@ -1,0 +1,15 @@
+---
+description: Positions in association football (Malay). Note PENJAGA GOL for the goalkeeper — Indonesian says penjaga gawang.
+locale: ms
+---
+penjaga gol
+bek kanan
+bek kiri
+bek tengah
+pemain tengah bertahan
+pemain tengah
+pemain tengah menyerang
+sayap kanan
+sayap kiri
+penyerang
+penyerang tengah

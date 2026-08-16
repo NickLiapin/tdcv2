@@ -1,0 +1,5 @@
+---
+description: Currency of Kazakhstan (Malay)
+locale: ms
+---
+Tenge Kazakhstan

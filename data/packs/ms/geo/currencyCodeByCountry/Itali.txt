@@ -1,0 +1,5 @@
+---
+description: ISO currency code of Itali
+locale: ms
+---
+EUR

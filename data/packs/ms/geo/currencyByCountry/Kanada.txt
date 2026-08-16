@@ -1,0 +1,5 @@
+---
+description: Currency of Kanada (Malay)
+locale: ms
+---
+Dolar Kanada

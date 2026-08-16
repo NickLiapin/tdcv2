@@ -1,0 +1,5 @@
+---
+description: Capital of Taiwan, as Malay writes it
+locale: ms
+---
+Taipei

@@ -1,0 +1,74 @@
+---
+description: Country as Malay names it, weighted by population in millions. THE MALAYSIAN NAMES ARE NOT THE INDONESIAN ONES and the difference is systematic rather than incidental: Malaysia took its country names through ENGLISH and Indonesia took its through DUTCH, so Malay keeps the English form where Indonesian nativised the Dutch one — New Zealand not Selandia Baru, Poland not Polandia, Sweden not Swedia, Norway not Norwegia, Switzerland not Swiss, Ireland not Irlandia, Finland not Finlandia, Greece not Yunani, Belgium not Belgia, Mexico not Meksiko, Colombia not Kolombia, Brazil not Brasil, Ukraine not Ukraina, Algeria not Aljazair, Maldives not Maladewa. Where Malay went to ARABIC instead it diverges the other way: Mesir for Egypt, Maghribi for Morocco, Lubnan for Lebanon, Syria for Suriah, and the capital of Egypt is KAHERAH and of Syria DAMSYIK. Jepun not Jepang, Perancis not Prancis, Sepanyol not Spanyol, Kemboja not Kamboja, Emiriah Arab Bersatu not Uni Emirat Arab. This is translation, not transliteration: a pack that respelled the English names would be neither language.
+locale: ms
+weighted: true
+---
+India,1440
+China,1410
+Amerika Syarikat,340
+Indonesia,280
+Pakistan,245
+Nigeria,230
+Brazil,217
+Bangladesh,173
+Rusia,144
+Mexico,129
+Ethiopia,128
+Jepun,124
+Filipina,118
+Mesir,113
+Vietnam,100
+Iran,89
+Turki,85
+Jerman,84
+Thailand,72
+Perancis,68
+United Kingdom,68
+Tanzania,67
+Afrika Selatan,60
+Itali,59
+Kenya,55
+Myanmar,54
+Korea Selatan,52
+Colombia,52
+Sepanyol,48
+Sudan,48
+Argentina,46
+Algeria,45
+Iraq,45
+Kanada,39
+Poland,38
+Ukraine,38
+Maghribi,37
+Arab Saudi,36
+Uzbekistan,35
+Malaysia,34
+Yaman,34
+Ghana,34
+Nepal,30
+Australia,27
+Taiwan,23
+Syria,23
+Sri Lanka,22
+Kazakhstan,20
+Chile,20
+Belanda,18
+Kemboja,17
+Belgium,12
+Sweden,11
+Jordan,11
+Emiriah Arab Bersatu,10
+Greece,10
+Portugal,10
+Papua New Guinea,10
+Switzerland,9
+Austria,9
+Singapura,6
+Denmark,6
+Finland,6
+Norway,5
+Ireland,5
+New Zealand,5
+Lubnan,5
+Timor-Leste,1
+Brunei,1

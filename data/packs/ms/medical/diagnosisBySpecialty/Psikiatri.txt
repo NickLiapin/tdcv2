@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Malay)
+locale: ms
+---
+Episod kemurungan
+Gangguan keresahan
+Gangguan panik
+Gangguan bipolar
+Skizofrenia
+Gangguan obsesif kompulsif
+Gangguan tekanan selepas trauma
+Gangguan pemakanan
+Gangguan kurang tumpuan
+Gangguan tidur

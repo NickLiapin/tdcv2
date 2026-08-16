@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Malay)
+locale: ms
+---
+Dermatitis atopik
+Psoriasis
+Ekzema
+Dermatitis sentuhan
+Urtikaria
+Jerawat
+Rosasea
+Kayap
+Kurap kaki
+Dermatitis seboreik

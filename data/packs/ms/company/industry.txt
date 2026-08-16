@@ -1,0 +1,62 @@
+---
+description: Industry sector (Malay). Two entries are Malaysia's own economic backbone rather than generic categories: PERLADANGAN, the plantation sector, which is palm oil and rubber and is one of the country's largest employers and exporters, and MINYAK DAN GAS, which is what Petronas does and what funds a large share of federal revenue. KEWANGAN ISLAM is a separately regulated sector here, not a niche within banking — Malaysia is the largest sukuk market in the world.
+locale: ms
+---
+Teknologi Maklumat
+Telekomunikasi
+Perisian
+Keselamatan Siber
+Perdagangan Elektronik
+Peruncitan
+Perdagangan Borong
+Logistik
+Pengangkutan
+Penerbangan
+Perkapalan
+Perbankan
+Kewangan Islam
+Insurans
+Takaful
+Pelaburan
+Perkhidmatan Kewangan
+Perakaunan
+Guaman
+Perundingan
+Audit
+Hartanah
+Pembinaan
+Seni Bina
+Pembangunan Bandar
+Pembuatan
+Kejenteraan
+Elektrik dan Elektronik
+Semikonduktor
+Industri Kimia
+Farmaseutikal
+Kesihatan
+Perkhidmatan Perubatan
+Bioteknologi
+Pertanian
+Perladangan
+Industri Makanan
+Minuman
+Penternakan
+Perhutanan
+Perikanan
+Tenaga
+Tenaga Boleh Baharu
+Minyak dan Gas
+Perlombongan
+Utiliti
+Pendidikan
+Penyelidikan
+Media
+Penerbitan
+Pengiklanan
+Hiburan
+Pelancongan
+Perhotelan
+Restoran
+Sukan
+Tekstil
+Pertubuhan Bukan Kerajaan

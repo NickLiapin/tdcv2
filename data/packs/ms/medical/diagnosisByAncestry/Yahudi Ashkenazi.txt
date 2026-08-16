@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Malay. A prevalence signal, not an exclusive one.
+locale: ms
+---
+Penyakit Tay-Sachs
+Penyakit Gaucher
+Disautonomia familial
+Penyakit Canavan
+Sindrom Bloom
+Anemia Fanconi jenis C
+Fibrosis sista
+Mutasi BRCA1 dan BRCA2
+Kekurangan faktor XI
+Penyakit Niemann-Pick jenis A

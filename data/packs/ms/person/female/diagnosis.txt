@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Malay for a female patient — the female-specific conditions plus the common ones that happen to be commoner in women. For a clean split use medical/diagnosisFemale and medical/diagnosis.
+locale: ms
+---
+Endometriosis
+Fibroid rahim
+Sista ovari
+Perubahan fibrokistik payudara
+Sindrom ovari polisistik
+Sistitis
+Anemia kekurangan zat besi
+Osteoporosis
+Hipotiroidisme
+Darah tinggi
+Penyakit jantung koronari
+Urat varikos
+Diabetes mellitus jenis 2
+Asma
+Bronkitis kronik
+Ulser peptik
+Batu karang hempedu
+Gastritis
+Kolesistitis
+Pielonefritis
+Artritis reumatoid
+Sakit belakang bawah
+Migrain
+Radang paru-paru
+Hepatitis B
+Episod kemurungan
+Gangguan keresahan

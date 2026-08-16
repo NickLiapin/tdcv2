@@ -1,0 +1,5 @@
+---
+description: Currency of Algeria (Malay)
+locale: ms
+---
+Dinar Algeria

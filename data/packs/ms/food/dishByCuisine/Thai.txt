@@ -1,0 +1,12 @@
+---
+description: Dishes of Thai cuisine (Malay)
+locale: ms
+---
+tom yam
+pad thai
+kari hijau
+som tam
+tom kha gai
+pulut mangga
+kari massaman
+kerabu mangga

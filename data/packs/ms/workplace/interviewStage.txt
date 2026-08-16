@@ -1,0 +1,15 @@
+---
+description: Hiring or interview stage (Malay). TEMU DUGA is the Malaysian word for a job interview — literally a meeting to test a guess — where Indonesian says wawancara, which in Malaysia means a journalist's interview instead.
+locale: ms
+---
+Permohonan diterima
+Saringan resume
+Panggilan telefon
+Temu duga sumber manusia
+Ujian bertulis
+Temu duga teknikal
+Temu duga dengan pengurus
+Temu duga akhir
+Semakan rujukan
+Tawaran kerja
+Lapor diri

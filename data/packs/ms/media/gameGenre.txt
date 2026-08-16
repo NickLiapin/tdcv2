@@ -1,0 +1,21 @@
+---
+description: Video game genre (Malay).
+locale: ms
+---
+aksi
+pengembaraan
+main peranan
+strategi
+strategi giliran
+simulasi
+tembak-menembak
+tembakan orang pertama
+platform
+teka-teki
+lumba
+sukan
+pertarungan
+kelangsungan hidup
+dunia terbuka
+seram
+muzik

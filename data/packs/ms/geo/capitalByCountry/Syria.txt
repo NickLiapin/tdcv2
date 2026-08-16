@@ -1,0 +1,5 @@
+---
+description: Capital of Syria, as Malay writes it
+locale: ms
+---
+Damsyik

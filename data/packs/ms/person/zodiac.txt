@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Malay). Malaysia uses the Western zodiac under its Latin names, unchanged. Worth knowing that it is not the calendar most Malaysians actually live by: Muslims follow the Hijri lunar calendar for Ramadan, Aidilfitri and Aidiladha, Chinese Malaysians follow the lunar zodiac of twelve animals for the new year, and Hindus follow the Tamil calendar for Deepavali and Thaipusam. All four run at once in the same country.
+locale: ms
+---
+Aries
+Taurus
+Gemini
+Kanser
+Leo
+Virgo
+Libra
+Skorpio
+Sagitarius
+Kaprikorn
+Akuarius
+Pisces

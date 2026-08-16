@@ -1,0 +1,16 @@
+---
+description: Jobs in Manufacturing (Malay)
+locale: ms
+---
+operator mesin
+ahli teknologi pengeluaran
+ketua kumpulan
+penyelia kualiti
+juruteknik pemasangan
+mekanik
+operator mesin larik
+operator mesin kisar
+pekerja pembungkusan
+pekerja gudang
+jurutera mekanikal
+ketua syif

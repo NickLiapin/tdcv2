@@ -1,0 +1,16 @@
+---
+description: Fuel type (Malay). PETROL, from English, where Indonesian says bensin from the Dutch benzine. Malaysian petrol is sold by RESEARCH OCTANE NUMBER and everyone says the number rather than the word: RON95 is the subsidised grade, capped by the government and available to citizens, and RON97 is unsubsidised and floats — so the grade a Malaysian buys is an economic fact about them as well as a technical one about the car. NGV is compressed natural gas, mostly used by taxis.
+locale: ms
+---
+petrol
+RON95
+RON97
+diesel
+diesel Euro 5
+NGV
+elektrik
+hibrid
+hibrid palam masuk
+hidrogen
+biodiesel B10
+biodiesel B20

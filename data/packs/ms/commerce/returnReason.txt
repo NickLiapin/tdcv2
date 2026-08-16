@@ -1,0 +1,19 @@
+---
+description: Order return reason (Malay).
+locale: ms
+---
+Saiz tidak sesuai
+Warna tidak sesuai
+Barang tidak seperti diterangkan
+Barang rosak
+Kecacatan pengeluaran
+Tidak berfungsi
+Salah hantar
+Kelengkapan tidak lengkap
+Berubah fikiran
+Jumpa harga lebih murah
+Penghantaran lewat
+Tersalah pesan
+Kualiti mengecewakan
+Pesanan berganda
+Sebab lain

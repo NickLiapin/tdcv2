@@ -1,0 +1,29 @@
+---
+description: Gemstone (Malay). The classical Malay gem names are their own words and are NOT the Indonesian ones: DELIMA is the ruby (Indonesian rubi, from English), NILAM the sapphire (Indonesian safir, from Dutch saffier), BAIDURI the opal and INTAN the uncut diamond as against berlian the cut one. All four are also common Malay female given names, which is why they turn up in person/female/firstName.txt.
+locale: ms
+---
+intan
+berlian
+delima
+nilam
+baiduri
+zamrud
+permata
+mutiara
+akik
+jed
+topaz
+kecubung
+pirus
+garnet
+oniks
+batu karang
+ambar
+lazuardi
+spinel
+zirkon
+peridot
+sitrin
+malakit
+obsidian
+batu bulan

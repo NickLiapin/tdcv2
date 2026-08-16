@@ -1,0 +1,43 @@
+---
+description: Common symptom or complaint (Malay). THIS IS WHERE THE MALAY/INDONESIAN FALSE FRIENDS ARE MOST DANGEROUS. Malaysian PENING is dizzy and Malaysian PUSING means to turn or go round; Indonesian PUSING is dizzy. A symptom list translated across the Straits by lookup turns dizziness into rotation and back again. CIRIT-BIRIT is diarrhoea where Indonesian says diare, LOYA is nausea where Indonesian says mual, SELESEMA is a head cold where Indonesian says pilek, and KEBAS is numbness. Sakit tekak is a sore throat and berkahak means productive of phlegm.
+locale: ms
+---
+demam
+menggigil
+sakit kepala
+pening
+pening kepala
+lemah badan
+cepat letih
+loya
+muntah
+cirit-birit
+sembelit
+sakit perut
+pedih ulu hati
+sendawa
+hilang selera makan
+batuk
+batuk kering
+batuk berkahak
+sesak nafas
+sakit dada
+berdebar-debar
+kaki bengkak
+sakit belakang
+sakit sendi
+sakit otot
+kebas
+kekejangan
+ruam
+gatal
+kulit kemerahan
+mata berair
+hidung tersumbat
+selesema
+sakit tekak
+suara serak
+sukar tidur
+gelisah
+murung
+kabur penglihatan

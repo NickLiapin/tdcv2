@@ -1,0 +1,12 @@
+---
+description: Dishes of Timur Tengah cuisine (Malay)
+locale: ms
+---
+nasi arab
+kebab
+hummus
+falafel
+shawarma
+nasi mandi
+kabsah
+tabbouleh

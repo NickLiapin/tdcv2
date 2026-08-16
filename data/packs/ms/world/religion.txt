@@ -1,0 +1,25 @@
+---
+description: World religion (Malay). ISLAM IS THE RELIGION OF THE FEDERATION under Article 3 of the Constitution and is first for that reason, and religion is recorded on the identity card of every Malaysian Muslim, so it is real data here rather than an optional field. The Malaysian mix is genuinely plural: Islam, Buddhism, Christianity, Hinduism and Chinese folk religion all have large followings, and Sabah and Sarawak are majority Christian. KRISTIAN is the Malaysian spelling where Indonesian writes Kristen. 'Agama tradisional' covers the indigenous beliefs of the Orang Asli and of parts of Borneo.
+locale: ms
+---
+Islam
+Buddha
+Kristian
+Katolik
+Protestan
+Anglikan
+Methodist
+Baptist
+Ortodoks
+Hindu
+Konfusianisme
+Taoisme
+Agama rakyat Cina
+Sikh
+Jainisme
+Bahai
+Yahudi
+Shinto
+Agama tradisional
+Tiada agama
+Tidak dinyatakan

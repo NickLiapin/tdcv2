@@ -1,0 +1,40 @@
+---
+description: Medical specialty (Malay). SAKIT PUAN is the one no dictionary prepares you for: it is literally 'women's illness' and it is the standard Malaysian name for gynaecology, printed on hospital signboards and on referral letters. PERGIGIAN is dentistry, from gigi, tooth — Indonesian says kedokteran gigi. Note that Malaysian clinical practice runs largely in English despite all of this; these are the Malay forms used on signage, in patient-facing material and in government documents.
+locale: ms
+---
+Perubatan Am
+Perubatan Keluarga
+Pediatrik
+Kardiologi
+Neurologi
+Gastroenterologi
+Pulmonologi
+Endokrinologi
+Nefrologi
+Urologi
+Sakit Puan
+Obstetrik
+Pembedahan Am
+Pembedahan Vaskular
+Pembedahan Saraf
+Pembedahan Jantung
+Traumatologi
+Ortopedik
+Onkologi
+Hematologi
+Reumatologi
+Dermatologi
+Alahan
+Imunologi
+Penyakit Berjangkit
+Oftalmologi
+Otorinolaringologi
+Pergigian
+Psikiatri
+Perubatan Ketagihan
+Anestesiologi
+Rawatan Rapi
+Radiologi
+Patologi
+Patologi Klinikal
+Rehabilitasi Perubatan

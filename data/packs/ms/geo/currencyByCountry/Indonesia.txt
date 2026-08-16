@@ -1,0 +1,5 @@
+---
+description: Currency of Indonesia (Malay)
+locale: ms
+---
+Rupiah Indonesia

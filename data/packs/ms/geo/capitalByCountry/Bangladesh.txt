@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladesh, as Malay writes it
+locale: ms
+---
+Dhaka

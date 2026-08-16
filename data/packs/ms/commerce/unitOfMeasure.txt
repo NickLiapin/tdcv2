@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Malay). Malaysia is metric and has been since the 1970s. The one survival is the KATI, the traditional Chinese-market weight of about 605 grams, which is still how vegetables and fish are priced in wet markets even though supermarkets sell by the kilogram — so a Malaysian food dataset can carry both units for the same commodity.
+locale: ms
+---
+unit
+biji
+paket
+set
+pasang
+dozen
+kotak
+kadbod
+guni
+botol
+balang
+tiub
+sachet
+helai
+gulung
+palet
+g
+kg
+mg
+tan
+ml
+liter
+cm
+mm
+m
+km
+meter persegi
+meter padu
+kati
+cawan

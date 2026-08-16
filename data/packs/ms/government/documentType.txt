@@ -1,0 +1,28 @@
+---
+description: Official document type (Malay). The kinds of document, not one country's numbering scheme — the identity-card and passport NUMBER formats are country data and live in the Malaysia country pack. SIJIL is a certificate where Indonesian says sertifikat; SURAT AKUAN SUMPAH is a statutory declaration, which in Malaysia is a Commissioner-for-Oaths document used far more widely than an affidavit is in Europe. GERAN TANAH is the land title. Note that a Muslim marriage produces a Syariah court certificate and a non-Muslim marriage a National Registration Department one, so 'sijil perkahwinan' covers two different documents issued by two different authorities.
+locale: ms
+---
+kad pengenalan
+sijil kelahiran
+sijil kematian
+sijil perkahwinan
+sijil perceraian
+pasport
+lesen memandu
+geran tanah
+surat hak milik
+penyata bank
+slip gaji
+penyata KWSP
+sijil pendaftaran syarikat
+sijil pendaftaran kenderaan
+cukai jalan
+surat akuan sumpah
+surat kuasa wakil
+visa
+permit kerja
+permit masuk
+sijil ijazah
+surat tawaran
+surat pengesahan
+laporan polis

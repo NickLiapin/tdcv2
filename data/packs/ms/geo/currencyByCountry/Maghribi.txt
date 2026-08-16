@@ -1,0 +1,5 @@
+---
+description: Currency of Maghribi (Malay)
+locale: ms
+---
+Dirham Maghribi

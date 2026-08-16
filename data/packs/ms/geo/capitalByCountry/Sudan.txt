@@ -1,0 +1,5 @@
+---
+description: Capital of Sudan, as Malay writes it
+locale: ms
+---
+Khartoum

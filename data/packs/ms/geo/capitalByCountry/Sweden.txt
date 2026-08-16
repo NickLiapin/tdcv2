@@ -1,0 +1,5 @@
+---
+description: Capital of Sweden, as Malay writes it
+locale: ms
+---
+Stockholm

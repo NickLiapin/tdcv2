@@ -1,0 +1,29 @@
+---
+description: Budget or spending category (Malay). ZAKAT is on this list because it is a real recurring line in a Malaysian Muslim household budget: it is a religious obligation of two and a half per cent of qualifying wealth, it is collected by a state religious authority, and what is paid is deductible against federal income tax ringgit for ringgit — so it is simultaneously a charity, a tax and a budget item. DUIT RAYA is the cash given to children and elders at Hari Raya and is a genuine annual expense. TOL is a category of its own because the Malaysian expressway network is tolled end to end.
+locale: ms
+---
+Sewa rumah
+Ansuran rumah
+Ansuran kereta
+Minyak kenderaan
+Tol
+Pengangkutan awam
+Bil elektrik
+Bil air
+Bil internet
+Bil telefon
+Barang dapur
+Makan di luar
+Kesihatan
+Insurans
+Takaful
+Pendidikan anak
+Taska dan tadika
+Pakaian
+Penjagaan diri
+Hiburan
+Percutian
+Zakat
+Derma
+Simpanan
+Duit raya

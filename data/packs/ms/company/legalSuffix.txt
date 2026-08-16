@@ -1,0 +1,44 @@
+---
+description: Company legal or name suffix used in Malaysia. SDN. BHD. — Sendirian Berhad — is THE Malaysian company form and appears after most business names in the country; BHD. alone, Berhad, is the public limited company listed on Bursa Malaysia; PLT is Perkongsian Liabiliti Terhad, the limited liability partnership. None of the three exists in Indonesia, which uses PT, CV and Tbk, so the suffix alone tells a reader which side of the Straits a company is registered on. The English words after them are not decoration: Malaysian company names are routinely half Malay and half English in the same registered name — Setia Jaya Resources Sdn Bhd — because English is a working language of business here.
+locale: ms
+---
+Sdn. Bhd.
+Sdn Bhd
+Berhad
+Bhd.
+PLT
+Sendirian Berhad
+Enterprise
+Trading
+Resources
+Holdings
+Corporation
+Corp.
+Group
+Industries
+Technologies
+Ventures
+Solutions
+Development
+Properties
+Plantations
+Engineering
+Construction
+Marketing
+Services
+Logistics
+Capital
+Management
+Consultancy
+Agro
+Perbadanan
+Syarikat
+Koperasi
+Yayasan
+Persatuan
+Kelab
+Pertubuhan
+Perkongsian
+& Sons
+& Anak-Anak
+Bumi

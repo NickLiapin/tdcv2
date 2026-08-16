@@ -1,0 +1,16 @@
+---
+description: Employment or contract type (Malay). The Malaysian Employment Act 1955 governs the first several; 'kontrak untuk perkhidmatan' is the independent-contractor form and is legally distinct from 'kontrak perkhidmatan', the employment one — a one-word difference that decides whether KWSP and PERKESO contributions are owed.
+locale: ms
+---
+Tetap
+Kontrak
+Sementara
+Sambilan
+Separuh masa
+Harian
+Kerja borong
+Praktikal
+Latihan industri
+Bebas
+Bermusim
+Syif

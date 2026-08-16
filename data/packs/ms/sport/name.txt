@@ -1,0 +1,61 @@
+---
+description: Sport (Malay). THE WORD FOR SPORT ITSELF IS THE FALSE FRIEND: Malaysian SUKAN means sport in general and Malaysian OLAHRAGA means track and field athletics only, while Indonesian OLAHRAGA means sport in general. So an Indonesian sentence about olahraga becomes, read as Malay, a sentence about the hundred metres. Malaysia also says BADMINTON where Indonesian says bulu tangkis, BOLA SEPAK where Indonesian reverses the words to sepak bola, BOLA KERANJANG for basketball (bola basket) and BOLA TAMPAR for volleyball (bola voli). SEPAK TAKRAW, the kick-volleyball played with a rattan ball, and SILAT, the Malay martial art, are indigenous; BOLA JARING (netball) and KRIKET are Commonwealth imports that Indonesia does not play at all.
+locale: ms
+---
+bola sepak
+futsal
+bola keranjang
+bola tampar
+bola baling
+bola jaring
+badminton
+tenis
+ping pong
+skuasy
+sepak takraw
+hoki
+ragbi
+kriket
+boling
+golf
+memanah
+menembak
+olahraga
+lari
+maraton
+lompat jauh
+lompat tinggi
+lontar peluru
+renang
+terjun
+polo air
+mendayung
+berkayak
+belayar
+luncur air
+menyelam
+berbasikal
+basikal gunung
+lumba motosikal
+lumba kereta
+menunggang kuda
+gimnastik
+angkat berat
+bina badan
+tinju
+silat
+karate
+taekwondo
+judo
+gusti
+wushu
+muay thai
+lawan pedang
+catur
+panjat tebing
+mendaki
+luncur papan
+e-sukan
+gasing
+layang-layang
+perahu naga

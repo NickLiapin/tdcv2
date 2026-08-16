@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Malaysian market. Astro is the dominant pay-TV operator and its streaming arms sooka and Astro GO carry the local content; Tonton and Unifi TV are the free-to-air and telco offerings. The Chinese and Korean services — iQIYI, WeTV, Viu — have large Malaysian audiences that a Western-only list would miss entirely.
+locale: ms
+---
+Netflix
+Astro GO
+sooka
+Disney+ Hotstar
+Prime Video
+Viu
+iQIYI
+WeTV
+Tonton
+Unifi TV
+YouTube Premium
+Spotify

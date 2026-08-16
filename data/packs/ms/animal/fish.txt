@@ -1,0 +1,30 @@
+---
+description: Fish (Malay). Malay puts the word IKAN in front of most fish names, and the name alone is often meaningless without it. IKAN BILIS is the dried anchovy that goes into every nasi lemak — Indonesian calls the same fish teri. Siakap is the barramundi, keli the catfish (Indonesian lele) and haruan the snakehead (Indonesian gabus), a freshwater fish Malaysians eat after surgery because it is believed to help wounds close.
+locale: ms
+---
+ikan kembung
+ikan selar
+ikan tenggiri
+ikan bawal
+ikan siakap
+ikan merah
+ikan kerapu
+ikan jenahak
+ikan pari
+ikan yu
+ikan bilis
+ikan keli
+ikan haruan
+ikan patin
+ikan tilapia
+ikan tongkol
+ikan cencaru
+ikan sardin
+ikan tuna
+ikan duri
+ikan sembilang
+ikan belanak
+udang
+ketam
+sotong
+kerang

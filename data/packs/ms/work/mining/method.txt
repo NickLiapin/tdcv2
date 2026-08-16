@@ -1,0 +1,12 @@
+---
+description: Mining method (Malay). Two of these are the vocabulary of Malaysian tin and exist nowhere else: PAM KELIKIR, the gravel-pump mine, was the small-operator method that most Malaysian tin came out of, and KAPAL KOREK, the bucket-ladder dredge, was the industrial one — the surviving dredge at Tanjung Tualang is a national monument. Lombong lampan is the older sluice-and-palong washing method.
+locale: ms
+---
+lombong dedah
+lombong bawah tanah
+kuari
+pam kelikir
+kapal korek
+lombong lampan
+lombong hidraulik
+kaedah bilik dan tiang

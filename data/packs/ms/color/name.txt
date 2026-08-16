@@ -1,0 +1,58 @@
+---
+description: Human-readable colour name (Malay). Three everyday colours differ from Indonesian: KELABU is grey (Indonesian abu-abu), PERANG is brown (Indonesian cokelat) and MERAH JAMBU is pink — literally rose-apple red — where Indonesian says merah muda. Malay also has coklat for brown, but it is the chocolate-coloured brown; perang is the brown of hair and skin. KUNING LANGSAT, the pale yellow of the langsat fruit, is a skin-tone word before it is a colour word, and sawo matang, ripe sapodilla, is its darker counterpart — both are complexion descriptions in ordinary Malay.
+locale: ms
+---
+merah
+biru
+kuning
+hijau
+hitam
+putih
+kelabu
+perang
+ungu
+jingga
+oren
+merah jambu
+lembayung
+nila
+biru laut
+biru langit
+biru tua
+biru muda
+hijau lumut
+hijau daun
+hijau zamrud
+hijau muda
+kuning air
+kuning langsat
+kuning kunyit
+merah hati
+merah bata
+merah darah
+merah delima
+merah muda
+putih susu
+hitam legam
+kelabu asap
+kelabu gelap
+emas
+perak
+gangsa
+tembaga
+krim
+gading
+kesumba
+sawo matang
+coklat
+coklat susu
+coklat gelap
+marun
+khaki
+beige
+lavender
+magenta
+indigo
+turquoise
+pastel
+warna-warni

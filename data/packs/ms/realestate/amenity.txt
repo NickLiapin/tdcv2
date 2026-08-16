@@ -1,0 +1,26 @@
+---
+description: Property amenity (Malay). GRILL — the welded window and door grilles fitted to almost every Malaysian landed house — and KAWALAN BERPALANG, the boom-gate guarded scheme, are standard listing features here in a way they are not in Europe. 'Dekat LRT' and 'dekat MRT' are the two phrases that move a Klang Valley price most.
+locale: ms
+---
+penyaman udara
+pemanas air
+kabinet dapur
+perabot lengkap
+separa berperabot
+kosong
+tempat letak kereta
+garaj
+taman
+pagar
+grill
+lif
+keselamatan 24 jam
+CCTV
+kawalan berpalang
+kolam renang
+gim
+dewan serbaguna
+taman permainan
+dekat LRT
+dekat sekolah
+dekat pasar raya

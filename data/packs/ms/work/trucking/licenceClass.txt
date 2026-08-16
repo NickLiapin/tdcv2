@@ -1,0 +1,11 @@
+---
+description: Malaysian driving licence class for goods vehicles, as the Road Transport Department (JPJ) issues them. E covers a lorry above 7,500 kg, E1 below it and E2 a trailer, H is heavy machinery and I is a goods vehicle up to 5,000 kg. GDL is the Goods Driving Licence and PSV the Public Service Vehicle licence — both are ENDORSEMENTS a driver must hold IN ADDITION to the class, not classes in themselves, and a config that treats them as alternatives will produce drivers who cannot legally carry the load.
+locale: ms
+---
+Kelas E
+Kelas E1
+Kelas E2
+Kelas H
+Kelas I
+GDL
+PSV

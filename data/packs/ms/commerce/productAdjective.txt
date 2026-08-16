@@ -1,0 +1,58 @@
+---
+description: Product adjective (Malay). Malay adjectives FOLLOW the noun — 'meja lipat', a folding table, never 'lipat meja' — so a template that puts an adjective in front produces something no Malaysian would read. HALAL and its certification status belong on this list rather than in a footnote: a very large share of Malaysian consumer goods carry the JAKIM halal mark and it is a primary product attribute, not a dietary note.
+locale: ms
+---
+baharu
+klasik
+moden
+padat
+lipat
+mudah alih
+tanpa wayar
+boleh dicas semula
+serba guna
+profesional
+untuk rumah
+tahan lama
+boleh dipercayai
+ringan
+berat
+besar
+kecil
+lebar
+sempit
+tinggi
+rendah
+dalam
+nipis
+tebal
+halus
+lembut
+keras
+lentur
+kalis air
+kalis lembap
+kalis haba
+kalis hentaman
+tidak licin
+antibakteria
+hipoalergenik
+semula jadi
+sintetik
+organik
+mesra alam
+premium
+ekonomi
+jimat
+jimat tenaga
+pantas
+senyap
+boleh laras
+boleh tanggal
+boleh guna semula
+sekali guna
+untuk hadiah
+halal
+disahkan halal
+diperbuat tempatan
+import

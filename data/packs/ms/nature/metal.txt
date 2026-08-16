@@ -1,0 +1,26 @@
+---
+description: Metal (Malay). THE FALSE FRIEND HERE IS DANGEROUS: Malaysian KELULI is steel and Malaysian BAJA is fertiliser, while Indonesian BAJA is steel. A word-for-word translation between the two languages turns a steel mill into a fertiliser plant. GANGSA is bronze where Indonesian says perunggu, and SUASA is a red gold-and-copper alloy with a Malay name and no English one. TIMAH, tin, is on this list for a reason: tin mining is what drew the Chinese and British to the peninsula and what founded Kuala Lumpur and Ipoh.
+locale: ms
+---
+besi
+keluli
+besi tuang
+tembaga
+loyang
+kuningan
+gangsa
+suasa
+aluminium
+titanium
+timah
+plumbum
+zink
+nikel
+kromium
+kobalt
+magnesium
+tungsten
+perak
+emas
+platinum
+raksa

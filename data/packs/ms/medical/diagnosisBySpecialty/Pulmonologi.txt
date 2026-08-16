@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Malay)
+locale: ms
+---
+Asma
+Penyakit paru-paru obstruktif kronik
+Radang paru-paru
+Bronkitis kronik
+Bronkiektasis
+Pleuritis
+Tibi paru-paru
+Sarkoidosis
+Apnea tidur
+Embolisme pulmonari

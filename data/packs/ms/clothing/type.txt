@@ -1,0 +1,34 @@
+---
+description: Garment type (Malay). The first block is Malaysian national dress and is worn far more widely than a European reader expects: BAJU KURUNG is the loose two-piece worn by women to school, to the office and to the mosque, BAJU MELAYU with a SAMPING wrapped over it and a SONGKOK on the head is what men wear to Friday prayers and to weddings, and TUDUNG is the headscarf. Baju kebaya is the fitted Nyonya and Javanese-derived form. Cheongsam, sari and kurta are here because Malaysia's Chinese and Indian communities wear them at their own festivals — a Malaysian wardrobe list that held only Malay dress would describe two thirds of the country. SELUAR is trousers and KASUT shoes, not the Indonesian celana and sepatu.
+locale: ms
+---
+baju kurung
+baju kebaya
+baju melayu
+samping
+songkok
+tudung
+selendang
+kain batik
+kain songket
+sarung
+cheongsam
+sari
+kurta
+jubah
+kemeja
+kemeja-T
+blaus
+seluar panjang
+seluar jeans
+seluar pendek
+gaun
+skirt
+jaket
+kot
+sweter
+kasut
+selipar
+sandal
+stoking
+tali leher

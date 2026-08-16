@@ -1,0 +1,20 @@
+---
+description: Compass direction (Malay). The four intercardinals are their own words, not compounds of the cardinals, and they carry a history: TIMUR LAUT means literally 'east sea' and BARAT LAUT 'west sea', named from the seas that lie in those directions from the Malay peninsula, while TENGGARA and BARAT DAYA are old words with no transparent parts. So a Malay compass rose is not built the way an English one is, and 'north-east' cannot be assembled from 'utara' and 'timur'. The sixteen-point names below are the DBP standard forms used in navigation and meteorology.
+locale: ms
+---
+Utara
+Selatan
+Timur
+Barat
+Timur Laut
+Barat Laut
+Tenggara
+Barat Daya
+Utara Timur Laut
+Timur Timur Laut
+Timur Menenggara
+Selatan Menenggara
+Selatan Barat Daya
+Barat Barat Daya
+Barat Barat Laut
+Utara Barat Laut

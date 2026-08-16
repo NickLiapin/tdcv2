@@ -1,0 +1,5 @@
+---
+description: Currency of Lubnan (Malay)
+locale: ms
+---
+Pound Lubnan

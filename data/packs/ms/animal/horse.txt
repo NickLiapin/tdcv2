@@ -1,0 +1,20 @@
+---
+description: Horse breed (Malay). Malaysia has no native horse-breeding tradition to speak of — the kuda padi is a small Malay pony of Kelantan and Kedah and the rest of these are imported, so the names stay in their international spelling. Horse racing runs at the Selangor, Perak, Penang and Sabah turf clubs.
+locale: ms
+---
+kuda padi
+Arab
+Thoroughbred
+Hanoverian
+Holstein
+Friesian
+Andalusia
+Shire
+Percheron
+Poni Shetland
+Appaloosa
+Quarter Horse
+Mustang
+Clydesdale
+Welsh Pony
+Warmblood

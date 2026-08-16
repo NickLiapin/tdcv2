@@ -1,0 +1,46 @@
+---
+description: Cooking ingredient (Malay). GULA MELAKA is the palm sugar pressed into cylinders and named for the state, and it is what sweetens cendol and ondeh-ondeh — no other sugar substitutes for it. Budu (Kelantan), cencaluk (Melaka) and tempoyak (fermented durian) are regional fermented condiments with no equivalent outside the peninsula. Note KUEY TEOW for the flat rice noodle, from Hokkien, and SANTAN for coconut milk, which goes into a large share of everything on this list.
+locale: ms
+---
+tepung gandum
+tepung beras
+tepung jagung
+tepung pulut
+gula pasir
+gula melaka
+gula merah
+garam
+minyak masak
+minyak sapi
+minyak kelapa
+mentega
+marjerin
+telur
+susu
+santan
+keju
+yogurt
+yis
+soda bikarbonat
+beras
+beras pulut
+mi
+bihun
+kuey teow
+roti
+serbuk roti
+madu
+kicap manis
+kicap masin
+sos tiram
+cuka
+pes tomato
+mayonis
+sambal
+budu
+cencaluk
+tempoyak
+tempe
+tauhu
+kaldu
+agar-agar

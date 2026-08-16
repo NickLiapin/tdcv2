@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Malay).
+locale: ms
+---
+dalam bandar
+antara bandar jarak dekat
+serantau
+antara negeri
+merentas Semenanjung
+Semenanjung ke Borneo
+antarabangsa

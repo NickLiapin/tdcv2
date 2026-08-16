@@ -1,0 +1,34 @@
+---
+description: Government body (Malay) — Malaysian federal ministries, departments and statutory bodies. This names MALAYSIA's institutions because Malay has one country large enough to have a full apparatus; Brunei and Singapore use the same language for entirely different bodies, and a config for either should not draw from this list. JABATAN is a department and SURUHANJAYA a commission. Note the Diraja in Polis Diraja Malaysia and Jabatan Kastam Diraja Malaysia — 'royal', conferred by the King, and part of the legal name rather than an epithet. KWSP and PERKESO are the retirement and social security funds every employed Malaysian pays into.
+locale: ms
+---
+Jabatan Perdana Menteri
+Kementerian Kewangan
+Kementerian Dalam Negeri
+Kementerian Luar Negeri
+Kementerian Pertahanan
+Kementerian Kesihatan
+Kementerian Pendidikan
+Kementerian Pengajian Tinggi
+Kementerian Pengangkutan
+Kementerian Sumber Manusia
+Kementerian Pembangunan Kerajaan Tempatan
+Kementerian Pertanian dan Keterjaminan Makanan
+Jabatan Pendaftaran Negara
+Jabatan Imigresen Malaysia
+Jabatan Kastam Diraja Malaysia
+Lembaga Hasil Dalam Negeri
+Polis Diraja Malaysia
+Jabatan Bomba dan Penyelamat Malaysia
+Jabatan Pengangkutan Jalan
+Suruhanjaya Syarikat Malaysia
+Bank Negara Malaysia
+Jabatan Perangkaan Malaysia
+Kumpulan Wang Simpanan Pekerja
+Pertubuhan Keselamatan Sosial
+Jabatan Kerja Raya
+Dewan Bahasa dan Pustaka
+Jabatan Kemajuan Islam Malaysia
+Suruhanjaya Pencegahan Rasuah Malaysia
+Jabatan Alam Sekitar
+Majlis Perbandaran

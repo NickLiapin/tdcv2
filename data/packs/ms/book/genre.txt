@@ -1,0 +1,34 @@
+---
+description: Book genre (Malay).
+locale: ms
+---
+novel
+novela
+cerpen
+antologi cerpen
+esei
+memoir
+puisi
+sajak
+pantun
+naskhah drama
+fantasi
+fiksyen sains
+misteri
+thriller
+seram
+cinta
+novel sejarah
+novel pengembaraan
+biografi
+autobiografi
+catatan pengembaraan
+sains popular
+buku teks
+buku rujukan
+kamus
+buku masakan
+buku kanak-kanak
+cerita rakyat
+hikayat
+kitab agama

@@ -1,0 +1,245 @@
+---
+description: Malay male given name, in three real blocks weighted to Malaysia's census shares: the Malay names first (about two thirds), then the Chinese Malaysian ones, then the Indian Malaysian ones. MUHAMMAD AND ITS SPELLINGS ARE GENUINELY DOMINANT and are weighted that way rather than on the gentle default curve: Muhammad, Mohd and Mohamad together open a very large share of Malay male names, so heavily that Malaysians treat 'Mohd' as a written abbreviation rather than a name, and most men who carry it go by the SECOND element. Two structural warnings a config cannot infer. (1) Malay has no grammatical gender, but the Arabic names it borrowed carry Arabic's: Hafiz/Hafizah, Aziz/Azizah, Amir/Amirah, Rafiq/Rafiqah. That -ah is Arabic morphology sitting inside Malay, not a Malay ending, and it does not generalise to Malay-origin names. (2) The Chinese Malaysian block is given names only, and Chinese Malaysian names put the FAMILY NAME FIRST — Tan Wei Ming, not Wei Ming Tan — so a config that renders firstName then lastName gets these backwards; render them as lastName then firstName. Many also carry an English given name in front of both (Kelvin Tan Wei Ming), which is why the English names are in this list and not a mistake. Iman and Raihan appear in the female list too, deliberately: they are unisex.
+locale: ms
+weighted: true
+---
+Muhammad,132167
+Mohd,107353
+Ahmad,95057
+Mohamad,87198
+Abdul,81551
+Ali,77211
+Ismail,73721
+Ibrahim,70826
+Yusof,68367
+Hassan,66240
+Zulkifli,64373
+Azman,62714
+Rosli,61226
+Omar,59880
+Osman,58654
+Zainal,57529
+Hussein,56492
+Abdullah,55532
+Salleh,54638
+Ramli,53804
+Khairul,53022
+Shahrul,52287
+Faizal,51595
+Hafiz,50940
+Amir,50320
+Adam,49731
+Aiman,49171
+Danial,48638
+Haikal,48129
+Irfan,47642
+Luqman,47175
+Nabil,46728
+Naim,46299
+Syafiq,45886
+Syazwan,45489
+Kamarul,45106
+Nazri,44736
+Razak,44380
+Rahim,44035
+Rashid,43702
+Samad,43380
+Shamsul,43067
+Sulaiman,42764
+Tajuddin,42470
+Wahid,42185
+Yaakob,41908
+Zakaria,41638
+Aziz,41376
+Bakar,41121
+Daud,40872
+Fadzil,40630
+Ghani,40394
+Halim,40164
+Idris,39940
+Jamil,39720
+Kadir,39506
+Latif,39297
+Mansor,39093
+Nasir,38893
+Ridzuan,38697
+Sabri,38506
+Taufik,38318
+Zaki,38135
+Anuar,37955
+Asri,37779
+Azhar,37606
+Azri,37437
+Badrul,37271
+Bakri,37108
+Basri,36948
+Fauzi,36791
+Firdaus,36637
+Hamid,36486
+Hamzah,36337
+Harun,36191
+Hisham,36048
+Imran,35907
+Iskandar,35768
+Izzat,35631
+Jaafar,35497
+Johari,35365
+Kamal,35235
+Karim,35107
+Lokman,34981
+Mahmud,34858
+Majid,34735
+Malek,34615
+Mazlan,34497
+Mokhtar,34380
+Muhaimin,34265
+Munir,34151
+Musa,34040
+Mustafa,33929
+Nazmi,33821
+Nordin,33714
+Othman,33608
+Rafiq,33504
+Rahmat,33401
+Rizal,33299
+Roslan,33199
+Rusli,33100
+Saiful,33002
+Salim,32906
+Sanusi,32810
+Shahril,32716
+Shukri,32623
+Sofian,32532
+Suhaimi,32441
+Tarmizi,32351
+Umar,32263
+Yahya,32175
+Yunus,32089
+Zahid,32004
+Zaid,31919
+Zainuddin,31836
+Zamri,31753
+Zulhilmi,31671
+Zulkarnain,31591
+Arif,31511
+Afiq,31432
+Aidil,31354
+Akmal,31276
+Alif,31200
+Amsyar,31124
+Anas,31049
+Ashraf,30975
+Ayub,30902
+Azlan,30829
+Azmi,30757
+Fahmi,30686
+Faiz,30615
+Fakhrul,30546
+Farid,30477
+Fikri,30408
+Hadi,30340
+Haziq,30273
+Helmi,30207
+Hilmi,30141
+Ihsan,30076
+Ikhwan,30011
+Ilyas,29947
+Iqbal,29884
+Izwan,29821
+Jamaluddin,29759
+Kamarudin,29697
+Khalid,29636
+Marzuki,29575
+Mikail,29515
+Naufal,29455
+Nizam,29396
+Rayyan,29338
+Rizwan,29280
+Shafiq,29222
+Shukor,29165
+Syamil,29109
+Syarif,29053
+Zarif,28997
+Zikri,28942
+Amirul,28887
+Aqil,28833
+Ariff,28779
+Hariz,28726
+Raihan,28673
+Iman,28620
+Wei Ming,89994
+Chee Keong,82811
+Kok Wai,78879
+Boon Huat,76202
+Chin Hock,74189
+Kah Wai,72583
+Jun Wei,71253
+Yew Meng,70120
+Seng Hock,69136
+Chee Seng,68268
+Kok Leong,67491
+Hock Seng,66790
+Boon Keat,66152
+Chun Wai,65566
+Teik Seng,65025
+Weng Kit,64524
+Soon Huat,64056
+Peng Soon,63618
+Choon Hong,63207
+Siang Chee,62819
+Kelvin,62452
+Alvin,62105
+Jason,61774
+Wilson,61459
+Vincent,61159
+Adrian,60872
+Desmond,60597
+Eugene,60333
+Kenneth,60080
+Lawrence,59836
+Marcus,59601
+Nicholas,59374
+Raymond,59155
+Samuel,58944
+Victor,58739
+Terence,58541
+Bernard,58349
+Edwin,58162
+Ivan,57981
+Gary,57805
+Kumar,30407
+Ravi,27980
+Suresh,26652
+Ramesh,25747
+Rajesh,25067
+Ganesan,24524
+Krishnan,24075
+Subramaniam,23692
+Saravanan,23360
+Vijay,23066
+Anand,22804
+Arun,22567
+Bala,22351
+Chandran,22153
+Dinesh,21971
+Gopal,21801
+Hari,21643
+Logan,21495
+Mahendran,21356
+Naveen,21225
+Prakash,21101
+Raj,20984
+Selva,20872
+Shanmugam,20766
+Sivakumar,20664
+Vasu,20567
+Vikneswaran,20475
+Yogeswaran,20385
+Deva,20300
+Segaran,20217
+Gurdip,20138
+Harjit,20061
+Jaswant,19987
+Manjit,19916
+Ranjit,19847
+Sukhdev,19780

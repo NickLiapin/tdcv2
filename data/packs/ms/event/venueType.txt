@@ -1,0 +1,22 @@
+---
+description: Venue type (Malay).
+locale: ms
+---
+bilik mesyuarat
+dewan
+pusat konvensyen
+pusat pameran
+panggung
+panggung wayang
+dewan konsert
+pusat kebudayaan
+kelab malam
+restoran
+dewan orang ramai
+dewan perkahwinan
+hotel
+stadium
+kompleks sukan
+taman
+ruang terbuka
+masjid

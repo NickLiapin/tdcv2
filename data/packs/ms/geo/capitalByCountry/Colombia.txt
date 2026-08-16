@@ -1,0 +1,5 @@
+---
+description: Capital of Colombia, as Malay writes it
+locale: ms
+---
+Bogota

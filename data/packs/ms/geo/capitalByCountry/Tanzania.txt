@@ -1,0 +1,5 @@
+---
+description: Capital of Tanzania, as Malay writes it
+locale: ms
+---
+Dodoma

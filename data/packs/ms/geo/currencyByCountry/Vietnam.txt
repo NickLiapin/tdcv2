@@ -1,0 +1,5 @@
+---
+description: Currency of Vietnam (Malay)
+locale: ms
+---
+Dong Vietnam

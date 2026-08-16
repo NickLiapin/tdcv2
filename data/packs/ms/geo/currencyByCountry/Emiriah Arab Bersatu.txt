@@ -1,0 +1,5 @@
+---
+description: Currency of Emiriah Arab Bersatu (Malay)
+locale: ms
+---
+Dirham Emiriah Arab Bersatu

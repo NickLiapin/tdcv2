@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are used unchanged in Malay — these are brand names and are not translated. The ATR 72 and the Twin Otter are on the list because they are what flies the rural air services in Sabah and Sarawak, where several communities have no road at all.
+locale: ms
+---
+Airbus A320
+Airbus A320neo
+Airbus A321neo
+Airbus A330-300
+Airbus A330-900neo
+Airbus A350-900
+Airbus A380
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 747-400
+Boeing 777-200
+Boeing 777-300ER
+Boeing 787-8
+Boeing 787-9
+Embraer E190
+Embraer E195-E2
+ATR 72-500
+ATR 72-600
+De Havilland Twin Otter
+Bombardier CRJ1000
+Cessna 208 Caravan
+Airbus A319
+Airbus A340
+Boeing 767-300
+Boeing 757-200
+McDonnell Douglas MD-11

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Malay)
+locale: ms
+---
+Kanser payudara
+Kanser paru-paru
+Kanser kolorektal
+Kanser perut
+Kanser prostat
+Kanser tiroid
+Melanoma
+Limfoma Hodgkin
+Leukemia
+Kanser nasofarinks

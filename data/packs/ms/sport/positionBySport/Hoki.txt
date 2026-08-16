@@ -1,0 +1,13 @@
+---
+description: Positions in field hockey (Malay).
+locale: ms
+---
+penjaga gol
+bek kanan
+bek kiri
+bek tengah
+pemain tengah
+sayap kanan
+sayap kiri
+penyerang tengah
+penyerang penuh

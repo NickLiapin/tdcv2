@@ -1,0 +1,14 @@
+---
+description: Payment status (Malay).
+locale: ms
+---
+Menunggu pembayaran
+Telah dibayar
+Dibayar sebahagian
+Diberi kebenaran
+Ditolak
+Gagal
+Dikembalikan
+Pengembalian sebahagian
+Tamat tempoh
+Dibatalkan

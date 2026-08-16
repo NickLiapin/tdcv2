@@ -1,0 +1,5 @@
+---
+description: Currency of Korea Selatan (Malay)
+locale: ms
+---
+Won Korea Selatan

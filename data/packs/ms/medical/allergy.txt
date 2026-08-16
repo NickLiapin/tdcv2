@@ -1,0 +1,26 @@
+---
+description: Common allergy (Malay). ALAHAN is the Malay word for an allergy — a native coinage from 'alah', to be overcome by — where Indonesian borrowed alergi wholesale. HABUK is dust, where Indonesian says debu. Prawn, crab and other shellfish sit high on this list rather than low because they are a staple in Malaysia, not an occasional luxury.
+locale: ms
+---
+debunga rumput
+debunga pokok
+habuk rumah
+hama habuk
+bulu kucing
+bulu anjing
+kulat
+penisilin
+sulfonamida
+aspirin
+anestetik tempatan
+kacang tanah
+kacang pokok
+susu lembu
+telur
+ikan
+udang
+ketam
+kacang soya
+gluten
+sengatan lebah
+lateks

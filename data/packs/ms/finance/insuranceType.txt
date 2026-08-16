@@ -1,0 +1,18 @@
+---
+description: Insurance type (Malay). MALAYSIA RUNS TWO PARALLEL INSURANCE SYSTEMS and a config that models only one is modelling half the market: conventional INSURANS and TAKAFUL, the Syariah-compliant form, in which participants contribute to a mutual fund rather than buy a transfer of risk, because conventional insurance involves elements Islamic law does not permit. Every major Malaysian insurer offers both through separate licensed entities, and the products pair up — insurans hayat with takaful keluarga, insurans motor with takaful motor. PERKESO is the statutory social security scheme and is not optional.
+locale: ms
+---
+Insurans kesihatan
+Takaful kesihatan
+Kad perubatan
+Insurans hayat
+Takaful keluarga
+Insurans kemalangan diri
+Insurans motor komprehensif
+Insurans pihak ketiga
+Takaful motor
+Insurans rumah
+Insurans perjalanan
+Insurans pendidikan
+Insurans liabiliti
+Skim PERKESO

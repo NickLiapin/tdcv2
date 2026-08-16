@@ -1,0 +1,21 @@
+---
+description: Cuisine (Malay). Each value has a dishByCuisine child. This is Malaysia's own division of its food and it does not map onto anyone else's: MAMAK is the Indian-Muslim cooking of the twenty-four-hour roadside restaurants and is a separate category from India, NYONYA is the Peranakan cuisine that came out of five centuries of Chinese-Malay marriage in Melaka and Penang, and SARAWAK and SABAH are counted apart from Melayu because Borneo cooks with ingredients the peninsula does not have. Kelantan, Terengganu and Negeri Sembilan are named because Malaysians read a state off a dish — nasi kerabu is Kelantan, keropok lekor is Terengganu, masak lemak cili api is Negeri Sembilan. Cina, not Tionghoa: Malaysia says Cina where Indonesian avoids it.
+locale: ms
+---
+Melayu
+Cina
+India
+Mamak
+Nyonya
+Sarawak
+Sabah
+Kelantan
+Terengganu
+Negeri Sembilan
+Thai
+Jepun
+Korea
+Vietnam
+Barat
+Itali
+Timur Tengah

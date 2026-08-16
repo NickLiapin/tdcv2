@@ -1,0 +1,16 @@
+---
+description: Leave type (Malay). CUTI HAJI is on this list because it is real: Malaysian employers commonly grant unpaid or special leave for the pilgrimage to Mecca, which for most Malaysians is a once-in-a-lifetime absence of several weeks, and the state pilgrims' fund exists to save for it. Cuti bersalin is maternity leave — 98 days in the private sector since 2023 — and cuti paterniti is the seven-day paternity entitlement introduced at the same time.
+locale: ms
+---
+Cuti tahunan
+Cuti sakit
+Cuti kecemasan
+Cuti tanpa gaji
+Cuti bersalin
+Cuti paterniti
+Cuti belajar
+Cuti haji
+Cuti umrah
+Cuti panjang
+Cuti gantian
+Cuti khas

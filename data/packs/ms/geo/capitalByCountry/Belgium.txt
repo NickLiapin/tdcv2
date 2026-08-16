@@ -1,0 +1,5 @@
+---
+description: Capital of Belgium, as Malay writes it
+locale: ms
+---
+Brussels

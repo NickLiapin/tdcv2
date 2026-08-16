@@ -1,0 +1,5 @@
+---
+description: Currency of Mexico (Malay)
+locale: ms
+---
+Peso Mexico

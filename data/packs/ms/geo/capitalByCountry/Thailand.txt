@@ -1,0 +1,5 @@
+---
+description: Capital of Thailand, as Malay writes it
+locale: ms
+---
+Bangkok

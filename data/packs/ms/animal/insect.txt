@@ -1,0 +1,24 @@
+---
+description: Insect (Malay). RAMA-RAMA is the butterfly where Indonesian says kupu-kupu, LIPAS the cockroach where Indonesian says kecoa, and ANAI-ANAI the termite where Indonesian says rayap — three of the commonest insects in the house and all three named differently on the two sides of the Straits. Kelulut is the stingless bee whose honey is farmed commercially in Malaysia, and kerengga the weaver ant that builds leaf nests in mango trees.
+locale: ms
+---
+semut
+kerengga
+lebah
+kelulut
+tebuan
+rama-rama
+kupu-kupu
+belalang
+cengkerik
+lipas
+nyamuk
+lalat
+pepatung
+kumbang
+anai-anai
+lipan
+kala jengking
+langau
+agas
+pijat

@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Malay).
+locale: ms
+---
+prabayar
+pascabayar
+tanpa had
+pelan keluarga
+pelan korporat
+pelan pelajar
+pelan pelancong
+pelan data
+pelan panggilan
+pelan peranti
+pelan perayauan
+pelan tambahan

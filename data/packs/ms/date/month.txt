@@ -1,0 +1,16 @@
+---
+description: Month name (Malay). Six of the twelve are NOT the Indonesian name: Mac (id Maret), Jun (id Juni), Julai (id Juli), Ogos (id Agustus), Disember (id Desember), and Februari happens to agree. Malaysia took these through English, Indonesia through Dutch, which is why Ogos looks like August and Agustus looks like Augustus. Capitalised, and never inflected — Malay has no cases.
+locale: ms
+---
+Januari
+Februari
+Mac
+April
+Mei
+Jun
+Julai
+Ogos
+September
+Oktober
+November
+Disember

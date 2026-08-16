@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Malaysian product listing. Shorter and more literal than the poetic set in color/name.txt, and heavier on English loans because online listings are written half in English. Note kelabu for grey and merah jambu for pink, not the Indonesian abu-abu and merah muda.
+locale: ms
+---
+putih
+hitam
+kelabu
+kelabu muda
+kelabu gelap
+grafit
+perak
+emas
+gangsa
+tembaga
+krim
+gading
+beige
+pasir
+perang
+coklat
+coklat gelap
+karamel
+merah
+marun
+merah ceri
+fuchsia
+merah jambu
+merah jambu pudar
+koral
+oren
+persik
+terakota
+kuning
+lemon
+mustard
+hijau
+zaitun
+hijau pistachio
+zamrud
+mint
+hijau tentera
+turquoise
+biru muda
+biru langit
+biru
+biru laut
+biru gelap
+nila
+ungu
+lilac
+lavender
+magenta
+plum
+lutsinar
+warna-warni
+corak kayu
+corak marmar
+corak batik

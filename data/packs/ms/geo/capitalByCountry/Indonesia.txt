@@ -1,0 +1,5 @@
+---
+description: Capital of Indonesia, as Malay writes it
+locale: ms
+---
+Jakarta

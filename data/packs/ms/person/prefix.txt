@@ -1,0 +1,43 @@
+---
+description: Malay honorific and form of address. Encik, Puan and Cik are the everyday three (Mr, Mrs, Miss); Tuan is the formal Sir. The long middle block is MALAYSIA'S HONOURS SYSTEM and has no European equivalent: Tun, Tan Sri, Datuk Seri and Datuk are federal or state awards conferred by the Yang di-Pertuan Agong or a Ruler, they PRECEDE the name, they are used in every context including bank forms and news copy, and there are tens of thousands of holders, so a Malaysian dataset that never emits one is unrealistic. Datin is the wife of a Datuk, Puan Sri of a Tan Sri, Toh Puan of a Tun — the female form marks the husband's rank, not the woman's, and a woman who earns the award herself is Datuk or Datuk Seri in her own right. Yang Berhormat (YB) is for a sitting legislator. The last block — Tengku, Tunku, Raja, Nik, Wan, Che, Megat, Syed and Sharifah — are NOT honorifics but INHERITED NAME ELEMENTS that sit in front of the given name and pass down the family: Syed and Sharifah claim descent from the Prophet, Tengku and Raja mark royal descent, and Nik, Wan and Che are north-eastern family markers. They must not be stripped as titles. Haji and Hajjah are carried by anyone who has made the pilgrimage.
+locale: ms
+---
+Encik
+En.
+Puan
+Pn.
+Cik
+Tuan
+Tuan Haji
+Dr.
+Prof.
+Prof. Madya
+Ir.
+Ar.
+Sr.
+Tun
+Toh Puan
+Tan Sri
+Puan Sri
+Datuk Seri
+Datin Seri
+Dato' Seri
+Datuk
+Dato'
+Datin
+Yang Berhormat
+YB
+Yang Berbahagia
+Haji
+Hajjah
+Hj.
+Hjh.
+Tengku
+Tunku
+Raja
+Nik
+Wan
+Che
+Megat
+Syed
+Sharifah

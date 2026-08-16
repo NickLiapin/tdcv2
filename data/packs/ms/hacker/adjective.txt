@@ -1,0 +1,32 @@
+---
+description: Technology adjective (Malay).
+locale: ms
+---
+digital
+binari
+teragih
+selari
+tak segerak
+segerak
+selamat
+tersulit
+terbuka
+tertutup
+jauh
+tempatan
+berasaskan awan
+maya
+dalam bekas
+boleh skala
+kalis gagal
+berlebihan
+dicache
+terindeks
+termampat
+dioptimumkan
+usang
+serasi
+merentas platform
+berbilang bebenang
+aras rendah
+aras tinggi

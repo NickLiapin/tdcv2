@@ -1,0 +1,42 @@
+---
+description: Leading element of a Malaysian place name. Several are geography words that became name particles and map onto the peninsula's rivers and coasts: Kuala is a river mouth or confluence, which is what Kuala Lumpur and Kuala Terengganu are named for, Alor is a stream channel (Alor Setar, Alor Gajah), Parit an irrigation ditch (Parit Buntar, Parit Raja), Permatang a low ridge, Bagan a landing place, Batu a milestone from the old British road-marking (Batu Pahat, Batu Caves). Combine with a real toponym; on its own none of these names a real town.
+locale: ms
+---
+Kuala
+Bandar
+Bandar Baru
+Kampung
+Kampong
+Taman
+Bukit
+Sungai
+Batu
+Tanjung
+Teluk
+Pulau
+Pasir
+Padang
+Alor
+Air
+Ayer
+Gunung
+Lembah
+Simpang
+Seri
+Sri
+Kota
+Pekan
+Parit
+Permatang
+Bagan
+Nibong
+Jeram
+Changkat
+Hulu
+Ulu
+Hilir
+Muar
+Lubuk
+Telaga
+Bandar Seri
+Desa

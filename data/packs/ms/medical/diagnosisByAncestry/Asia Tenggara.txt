@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Malay. A prevalence signal, not an exclusive one.
+locale: ms
+---
+Talasemia alfa
+Hemoglobin E
+Kekurangan G6PD
+Intoleransi laktosa
+Sindrom Brugada
+Kanser nasofarinks
+Talasemia intermedia

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Malay)
+locale: ms
+---
+Migrain
+Epilepsi
+Strok
+Serangan iskemia sementara
+Sklerosis multipel
+Penyakit Parkinson
+Neuropati periferi
+Radikulopati
+Neuralgia trigeminal
+Demensia

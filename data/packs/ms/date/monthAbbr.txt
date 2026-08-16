@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Malay), three letters, as printed on Malaysian forms and bank statements.
+locale: ms
+---
+Jan
+Feb
+Mac
+Apr
+Mei
+Jun
+Jul
+Ogo
+Sep
+Okt
+Nov
+Dis

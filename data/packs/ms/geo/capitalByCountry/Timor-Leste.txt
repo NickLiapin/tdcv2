@@ -1,0 +1,5 @@
+---
+description: Capital of Timor-Leste, as Malay writes it
+locale: ms
+---
+Dili

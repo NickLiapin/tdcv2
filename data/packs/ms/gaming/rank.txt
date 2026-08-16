@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Malay).
+locale: ms
+---
+baru
+gangsa
+perak
+emas
+platinum
+berlian
+master
+grandmaster
+juara
+legenda

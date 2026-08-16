@@ -1,0 +1,5 @@
+---
+description: Capital of Afrika Selatan, as Malay writes it
+locale: ms
+---
+Pretoria

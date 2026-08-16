@@ -1,0 +1,34 @@
+---
+description: Spice and herb (Malay). CILI, from English chilli, where Indonesian says cabai — and note lada on its own is pepper in Malaysia, so lada hitam is black pepper and cili padi the small hot chilli. BELACAN is fermented shrimp paste and is the single most important flavouring in Malay cooking; Indonesian calls the same thing terasi, and a recipe translated word for word between the two loses it. Daun kesum, bunga kantan, asam keping and daun limau purut are the four that make a Malaysian curry taste Malaysian and have no common English names.
+locale: ms
+---
+lada hitam
+lada putih
+cili
+cili padi
+cili kering
+serbuk cili
+kunyit
+halia
+lengkuas
+kencur
+serai
+daun kari
+daun pandan
+daun limau purut
+daun kesum
+daun salam
+ketumbar
+jintan manis
+jintan putih
+buah pelaga
+bunga lawang
+kayu manis
+cengkih
+buah pala
+bunga kantan
+asam keping
+asam jawa
+belacan
+rempah kari
+halba

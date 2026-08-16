@@ -1,0 +1,24 @@
+---
+description: Parcel carrier operating in Malaysia. Pos Laju is the express arm of Pos Malaysia, the national post, and delivers to every poskod in the country including Sabah and Sarawak; the private carriers after it are the ones e-commerce actually runs on. The international four at the end handle cross-border.
+locale: ms
+---
+Pos Laju
+Pos Malaysia
+GDEX
+City-Link Express
+ABX Express
+Skynet
+Ninja Van
+J&T Express
+Flash Express
+DHL eCommerce
+Shopee Express
+Lazada Express
+Best Express
+Line Clear Express
+Nationwide Express
+Teleport
+DHL Express
+FedEx
+UPS
+Aramex

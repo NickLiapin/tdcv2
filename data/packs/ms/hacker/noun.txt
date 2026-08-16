@@ -1,0 +1,50 @@
+---
+description: Technology noun (Malay). DEWAN BAHASA DAN PUSTAKA COINED MOST OF THESE RATHER THAN BORROWING THEM, and the results differ from Indonesian at nearly every term: PERISIAN is software (Indonesian perangkat lunak, a calque), PERKAKASAN hardware (perangkat keras), PANGKALAN DATA a database (basis data), RANGKAIAN a network (jaringan), FAIL a file (berkas), CAKERA a disk (cakram), SKRIN a screen (layar), KATA LALUAN a password (kata sandi), PELAYAR a browser (peramban) and LAMAN WEB a website (situs web). Malay generally kept the English root and wrapped native morphology round it; Indonesian more often translated the meaning.
+locale: ms
+---
+pelayan
+klien
+pangkalan data
+jadual
+pertanyaan
+indeks
+cache
+baris gilir
+bebenang
+proses
+teras
+ingatan
+cakera
+tatasusunan
+fail
+folder
+protokol
+paket
+port
+get
+penghala
+tembok api
+sijil
+kunci
+token
+sesi
+kuki
+skrip
+pustaka
+modul
+pakej
+bekas
+imej
+kelompok
+nod
+daftar
+log
+perisian
+perkakasan
+rangkaian
+laman web
+kata laluan
+pelayar
+skrin
+pepijat
+ralat

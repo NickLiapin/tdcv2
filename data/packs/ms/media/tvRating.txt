@@ -1,0 +1,12 @@
+---
+description: Film and television content rating in Malaysia. The three letter codes are the real classifications issued by the Lembaga Penapisan Filem, the national censorship board: U is general, P13 admits under-thirteens only with a parent, and 18 is adults only. That is the whole scale — Malaysia has no PG-13-and-R-and-NC-17 ladder — and the board also cuts films rather than only rating them, so a title released here may be shorter than the same title elsewhere. The descriptive Malay phrases after the codes are what appears on a broadcast caption.
+locale: ms
+---
+U
+P13
+18
+untuk semua
+bimbingan ibu bapa
+untuk dewasa sahaja
+tontonan umum
+tidak sesuai untuk kanak-kanak

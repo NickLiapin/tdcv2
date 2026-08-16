@@ -1,0 +1,81 @@
+---
+description: Nationality (Malay). Malay has no demonym suffix at all — no -ish, -ian or -ese. A nationality is the word 'orang' or 'warganegara' followed by the UNCHANGED country name: orang Malaysia, warganegara Jepun. This list holds the bare country form, which is what a form field carries, and the country spellings are Malaysian: Jepun not Jepang, Perancis not Prancis, Sepanyol not Spanyol, New Zealand not Selandia Baru, Emiriah Arab Bersatu not Uni Emirat Arab.
+locale: ms
+---
+Malaysia
+Singapura
+Brunei
+Indonesia
+Thailand
+Filipina
+Vietnam
+Kemboja
+Laos
+Myanmar
+Timor-Leste
+Papua New Guinea
+Australia
+New Zealand
+China
+Jepun
+Korea Selatan
+Korea Utara
+Taiwan
+Hong Kong
+India
+Pakistan
+Bangladesh
+Sri Lanka
+Nepal
+Maldives
+Arab Saudi
+Emiriah Arab Bersatu
+Qatar
+Kuwait
+Oman
+Yaman
+Iraq
+Iran
+Syria
+Lubnan
+Jordan
+Palestin
+Turki
+Mesir
+Maghribi
+Algeria
+Tunisia
+Libya
+Sudan
+Somalia
+Nigeria
+Ghana
+Kenya
+Tanzania
+Afrika Selatan
+Rusia
+Ukraine
+Poland
+Jerman
+Perancis
+United Kingdom
+Ireland
+Belanda
+Belgium
+Sepanyol
+Portugal
+Itali
+Greece
+Sweden
+Norway
+Denmark
+Finland
+Switzerland
+Austria
+Amerika Syarikat
+Kanada
+Mexico
+Brazil
+Argentina
+Chile
+Peru

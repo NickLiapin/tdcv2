@@ -1,0 +1,33 @@
+---
+description: Legal term (Malay). RAYUAN is an appeal where Indonesian says banding; PEGUAM is an advocate and solicitor — in Malaysia one profession, not two as in England — and PENDAKWA RAYA is the public prosecutor, the office Indonesian calls jaksa. Note IKAT JAMIN for bail and SABIT KESALAHAN for a conviction. A Malaysian judgment is written in either Malay or English: the subordinate courts work mainly in Malay and the higher courts largely in English, so a Malaysian legal dataset is genuinely bilingual and a config that assumes one language will mislabel half of it.
+locale: ms
+---
+guaman
+writ saman
+plaintif
+defendan
+pihak ketiga
+penghakiman
+perintah mahkamah
+injunksi
+rayuan
+semakan
+ikat jamin
+waran tangkap
+sabit kesalahan
+hukuman
+siasatan
+pertuduhan
+tahanan reman
+had masa
+penyelesaian luar mahkamah
+surat kuasa wakil
+suratcara
+wasiat
+harta pusaka
+pampasan
+ganti rugi
+kos guaman
+pendakwa raya
+peguam bela
+peguam cara

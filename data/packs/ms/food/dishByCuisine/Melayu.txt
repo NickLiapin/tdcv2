@@ -1,0 +1,16 @@
+---
+description: Dishes of Melayu cuisine (Malay)
+locale: ms
+---
+nasi lemak
+rendang
+satay
+ayam masak merah
+asam pedas
+ikan bakar
+ayam percik
+gulai daging
+masak lemak cili api
+serunding
+lemang
+sambal tumis udang

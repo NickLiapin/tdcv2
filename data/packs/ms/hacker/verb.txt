@@ -1,0 +1,35 @@
+---
+description: Technology verb (Malay), in the meN- form. Note MUAT TURUN for download and MUAT NAIK for upload — two-word verbs where Indonesian coined the single words unduh and unggah. MENYAHPEPIJAT is to debug, built on PEPIJAT, which literally means a bedbug: Malay translated the insect and kept the metaphor.
+locale: ms
+---
+mengompil
+menggunakan pakai
+mengkonfigurasi
+memulakan semula
+menyambung
+log masuk
+menyulitkan
+menyahsulit
+memampatkan
+mengekstrak
+mengindeks
+menyimpan cache
+menyegerakkan
+mereplikasi
+menskalakan
+menghala
+memintas
+melangkau
+menggodam
+menampal
+memulihkan
+mengemas kini
+memadam
+mencipta
+menyalin
+memindahkan
+memasang
+memformat
+muat turun
+muat naik
+menyahpepijat

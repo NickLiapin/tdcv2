@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Malay (prefix with # in a template).
+locale: ms
+---
+malaysia
+kualalumpur
+penang
+sabah
+sarawak
+johor
+malaysiatrulyasia
+cutimalaysia
+makanmalaysia
+nasilemak
+tehtarik
+jalanjalan
+balikkampung
+pantai
+pulau
+gunung
+hutan
+fotografi
+seni
+muzik
+filem
+buku
+membaca
+memasak
+kopi
+sukan
+larian
+kecergasan
+kesihatan
+keluarga

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Malay)
+locale: ms
+---
+Diabetes mellitus jenis 1
+Diabetes mellitus jenis 2
+Hipotiroidisme
+Hipertiroidisme
+Tiroiditis Hashimoto
+Goiter nodul
+Obesiti
+Sindrom metabolik
+Osteoporosis
+Ketidakcukupan adrenal

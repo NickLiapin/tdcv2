@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Malay)
+locale: ms
+---
+Hipertensi
+Penyakit jantung koronari
+Angina pektoris
+Infarksi miokardium
+Fibrilasi atrium
+Kegagalan jantung
+Kardiomiopati
+Miokarditis
+Penyakit injap mitral
+Aterosklerosis koronari

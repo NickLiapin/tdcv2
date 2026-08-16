@@ -1,0 +1,142 @@
+---
+description: Product noun (Malay). Several of the commonest household items are named differently from Indonesian and this list is where a translated pack shows: KERETA is a car in Malaysia and a TRAIN in Indonesia, which is the single most consequential false friend between the two languages; PETI SEJUK is the fridge (Indonesian kulkas, from Dutch koelkast), MESIN BASUH the washing machine (mesin cuci), TUALA the towel (handuk, from Dutch handdoek), CADAR the bedsheet (sprei), KATIL the bed (tempat tidur), CAWAN the cup (cangkir), SUDU the spoon (sendok), BEG the bag (tas), KASUT the shoes (sepatu), SELUAR the trousers (celana) and BASIKAL the bicycle (sepeda). Almost every one of those pairs is English-route Malay against Dutch-route Indonesian.
+locale: ms
+---
+meja
+kerusi
+sofa
+almari
+rak
+katil
+tilam
+meja sisi
+cermin
+permaidani
+langsir
+bantal
+selimut
+cadar
+tuala
+alas meja
+cawan
+pinggan
+gelas
+pisau
+garpu
+sudu
+periuk
+kuali
+cerek
+penapis
+papan pemotong
+pengisar
+pengadun
+pembakar roti
+periuk nasi
+periuk tekanan
+ketuhar gelombang mikro
+peti sejuk
+peti beku
+mesin basuh
+mesin basuh pinggan
+penyedut habuk
+seterika
+pengering rambut
+pemanas air
+kipas
+penyaman udara
+pelembap udara
+televisyen
+monitor
+komputer riba
+komputer
+tablet
+telefon bimbit
+fon telinga
+pembesar suara
+tetikus
+papan kekunci
+penghala
+pencetak
+pengimbas
+pemacu kilat
+cakera keras
+bank kuasa
+pengecas
+kabel
+penyesuai
+lampu
+lampu gantung
+lampu suluh
+jam dinding
+jam loceng
+penimbang
+termometer
+beg galas
+beg
+beg pakaian
+dompet
+tali pinggang
+payung
+cermin mata
+topi
+selendang
+sarung tangan
+sweter
+kemeja-T
+kemeja
+blaus
+gaun
+skirt
+seluar
+seluar jeans
+seluar pendek
+jaket
+kot
+baju hujan
+sut
+baju tidur
+stoking
+kasut sukan
+but
+kasut
+selipar
+bola
+basikal
+skuter
+kasut roda
+dumbel
+tikar yoga
+khemah
+beg tidur
+termos
+botol air
+joran
+pemanggang
+mesin rumput
+penyodok
+penggaru
+gunting pokok
+hos
+gerudi
+pemutar skru elektrik
+tukul
+pemutar skru
+gergaji
+pita ukur
+aras air
+cat
+berus
+penggelek cat
+paku
+skru
+gam
+pita pelekat
+mangga
+tombol pintu
+engsel
+soket
+suis
+gulungan kabel
+kereta
+motosikal

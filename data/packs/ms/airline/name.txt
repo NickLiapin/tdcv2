@@ -1,0 +1,54 @@
+---
+description: Airline (Malaysian carriers first, then the international ones a Malaysian actually flies). Malaysia Airlines is the flag carrier; AirAsia was founded in Malaysia and is the airline that opened budget flying across the whole of Southeast Asia; Firefly and MASwings run the short and the rural routes, MASwings specifically the Borneo services that are the only practical transport to parts of Sarawak.
+locale: ms
+---
+Malaysia Airlines
+AirAsia
+AirAsia X
+Batik Air Malaysia
+Firefly
+MASwings
+Singapore Airlines
+Scoot
+Royal Brunei Airlines
+Thai Airways
+Thai AirAsia
+Garuda Indonesia
+Lion Air
+Vietnam Airlines
+VietJet Air
+Philippine Airlines
+Cebu Pacific
+Cathay Pacific
+China Airlines
+EVA Air
+Japan Airlines
+All Nippon Airways
+Korean Air
+Asiana Airlines
+China Southern
+China Eastern
+Air China
+Xiamen Air
+Emirates
+Qatar Airways
+Etihad Airways
+Saudia
+Turkish Airlines
+Air India
+IndiGo
+SriLankan Airlines
+Biman Bangladesh
+Qantas
+Jetstar
+Virgin Australia
+Air New Zealand
+KLM
+Lufthansa
+Air France
+British Airways
+Swiss
+Finnair
+Aeroflot
+Ethiopian Airlines
+Kenya Airways

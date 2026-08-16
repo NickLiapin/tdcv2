@@ -1,0 +1,49 @@
+---
+description: Animal, general (Malay). Harimau Malaya, the Malayan tiger, is the national animal and stands on the coat of arms. KANCIL, the mousedeer, is not just a species but the trickster of Malay folk tales, the small clever one who outwits the tiger, and Malaysians name a car after it. Two everyday words differ from Indonesian by borrowing route: ARNAB is the rabbit, from Arabic, where Indonesian took kelinci from Dutch konijn, and BIRI-BIRI is the sheep where Indonesian says domba.
+locale: ms
+---
+harimau
+gajah
+badak sumbu
+seladang
+tapir
+beruang matahari
+kancil
+rusa
+kijang
+pelanduk
+babi hutan
+monyet
+kera
+lotong
+beruk
+ungka
+orang utan
+tenggiling
+landak
+musang
+cerpelai
+memerang
+kucing
+anjing
+lembu
+kerbau
+kambing
+biri-biri
+arnab
+tikus
+kelawar
+buaya
+ular
+biawak
+cicak
+katak
+penyu
+kura-kura
+ikan paus
+ikan lumba-lumba
+dugong
+kuda
+ayam
+itik
+angsa

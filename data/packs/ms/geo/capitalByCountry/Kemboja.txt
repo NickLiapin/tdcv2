@@ -1,0 +1,5 @@
+---
+description: Capital of Kemboja, as Malay writes it
+locale: ms
+---
+Phnom Penh

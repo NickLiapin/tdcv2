@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child). Malaysian sector names are their own: PEMBINAAN is construction (Indonesian konstruksi), PEMBUATAN manufacturing (manufaktur), PENGANGKUTAN transport (transportasi), PERUNCITAN retail (ritel) and GUAMAN legal practice — Malay built these on native roots where Indonesian borrowed the international word.
+locale: ms
+---
+Teknologi
+Kesihatan
+Pendidikan
+Kewangan
+Pembinaan
+Pembuatan
+Pengangkutan
+Peruncitan
+Perhotelan
+Guaman

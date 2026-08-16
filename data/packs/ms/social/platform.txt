@@ -1,0 +1,23 @@
+---
+description: Social platform popular in Malaysia. WhatsApp is first because Malaysian penetration is close to total and it is the default channel for family, work and even government announcements. Lowyat.NET is the country's long-running technology forum and Mudah.my its classifieds board; Carousell, Shopee and Lazada function as much as social marketplaces as shops. Xiaohongshu and WeChat carry the Chinese Malaysian audience.
+locale: ms
+---
+WhatsApp
+Facebook
+Instagram
+TikTok
+YouTube
+X
+Telegram
+LinkedIn
+Threads
+Snapchat
+Pinterest
+Reddit
+Discord
+Twitch
+WeChat
+Xiaohongshu
+Lowyat.NET
+Mudah.my
+Carousell

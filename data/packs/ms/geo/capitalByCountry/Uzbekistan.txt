@@ -1,0 +1,5 @@
+---
+description: Capital of Uzbekistan, as Malay writes it
+locale: ms
+---
+Tashkent

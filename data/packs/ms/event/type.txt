@@ -1,0 +1,28 @@
+---
+description: Event type (Malay). MAJLIS is the general Malay word for a formal occasion and prefixes most of these. Rumah terbuka — the open house — is a Malaysian institution: at Hari Raya, Chinese New Year, Deepavali and Christmas a household opens its doors to anyone who comes, across communities, and the government holds national ones. Kenduri is the communal feast, akad nikah the Muslim marriage contract ceremony and bersanding the enthronement of the bride and groom that follows it.
+locale: ms
+---
+persidangan
+seminar
+webinar
+bengkel
+latihan
+kuliah umum
+forum
+pameran
+ekspo
+majlis pelancaran
+konsert
+festival
+persembahan teater
+tayangan filem
+pertandingan
+kejohanan
+majlis perkahwinan
+akad nikah
+bersanding
+kenduri
+rumah terbuka
+majlis anugerah
+majlis konvokesyen
+sambutan hari jadi

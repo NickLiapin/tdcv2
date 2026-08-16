@@ -1,0 +1,27 @@
+---
+description: Malay address unit designator. ARAS is the Malaysian word for a floor or storey where Indonesian says lantai, and Tingkat serves as well; BILIK is a room where Indonesian says kamar. Peti Surat is a post office box and BEG BERKUNCI — literally 'locked bag' — is the Malaysian bulk-mail equivalent, addressed exactly like a box and unique to Commonwealth postal systems. Malaysian addresses put the unit number first with 'No.' and write the poskod BEFORE the town.
+locale: ms
+---
+No.
+Lot
+Unit
+Aras
+Tkt.
+Tingkat
+Blok
+Bilik
+Petak
+Bangunan
+Wisma
+Menara
+Kompleks
+Plaza
+Fasa
+Presint
+Seksyen
+Peti Surat
+Beg Berkunci
+Sayap
+Lobi
+Bawah Tanah
+Bumbung
