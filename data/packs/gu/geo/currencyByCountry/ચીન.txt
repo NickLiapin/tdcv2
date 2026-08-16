@@ -1,0 +1,5 @@
+---
+description: Currency of ચીન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ચીની યુઆન

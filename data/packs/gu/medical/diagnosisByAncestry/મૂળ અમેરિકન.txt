@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised carrier frequency or incidence in the મૂળ અમેરિકન ancestry group, in Gujarati. Coherent child of medical/ancestry.txt.
+locale: gu
+---
+ટાઇપ 2 ડાયાબિટીસ
+પિત્તાશયની પથરી
+સંધિવા
+આલ્કોહોલ ચયાપચયની ભિન્નતા
+સ્થૂળતા

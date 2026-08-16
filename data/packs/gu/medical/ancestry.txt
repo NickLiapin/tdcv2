@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, used as the parent of diagnosisByAncestry. These are ancestry populations as CLINICAL GENETICS defines them — geographic descent, which is what carrier frequencies actually track — and not social race or caste categories. The distinction matters especially in an Indian locale: caste endogamy over many generations has produced real founder effects and real differences in carrier frequency between Indian communities, but caste is not what this list encodes and a config must not treat દક્ષિણ એશિયાઈ as a caste field.
+locale: gu
+---
+ઉપ-સહારા આફ્રિકન
+ઉત્તર આફ્રિકન
+ભૂમધ્ય
+મધ્ય પૂર્વીય
+ઉત્તર યુરોપીય
+પૂર્વ યુરોપીય
+અશ્કેનાઝી યહૂદી
+દક્ષિણ એશિયાઈ
+પૂર્વ એશિયાઈ
+દક્ષિણપૂર્વ એશિયાઈ
+મૂળ અમેરિકન
+પ્રશાંત ટાપુવાસી

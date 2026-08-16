@@ -1,0 +1,5 @@
+---
+description: Currency of યુનાઇટેડ કિંગડમ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+પાઉન્ડ સ્ટર્લિંગ

@@ -1,0 +1,5 @@
+---
+description: Capital of યુક્રેન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+કીવ

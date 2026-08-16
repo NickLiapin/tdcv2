@@ -1,0 +1,32 @@
+---
+description: Tree name in Gujarati. વડ is the banyan, India's national tree, and the word matters in Gujarat beyond botany — વડોદરા and વડનગર are named for it and a village banyan is where the panchayat meets. લીમડો, the neem, is planted at nearly every Gujarati house for its shade and its medicine, and eating neem leaves on the Gujarati new year is a custom. આંબો is the mango; see food/fruit.txt on what its season means here. ખીજડો is the desert Prosopis of Kutch and Banaskantha, a tree that keeps livestock alive through drought. સાગ is teak, the timber of the Dangs forests in south Gujarat. આસોપાલવ is the tall narrow polyalthia planted along drives and cut into the leaf-strings hung over doorways at festivals.
+locale: gu
+---
+વડ
+પીપળો
+લીમડો
+આંબો
+આસોપાલવ
+ગુલમહોર
+સરગવો
+બાવળ
+ખીજડો
+રાયણ
+બોરડી
+જાંબુ
+નાળિયેરી
+ખજૂરી
+ચંદન
+સાગ
+સીસમ
+શીમળો
+ગરમાળો
+અરડૂસો
+નીલગિરિ
+ટીમરુ
+મહુડો
+આમળાં
+સીતાફળી
+દાડમડી
+જામફળી
+કેળ

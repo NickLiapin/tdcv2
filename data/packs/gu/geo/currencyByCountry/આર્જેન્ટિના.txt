@@ -1,0 +1,5 @@
+---
+description: Currency of આર્જેન્ટિના, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+આર્જેન્ટિનિયન પેસો

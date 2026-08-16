@@ -1,0 +1,24 @@
+---
+description: Kind of trip, in Gujarati. યાત્રા leads and it is a distinct category from ordinary tourism: pilgrimage is a major travel purpose in Gujarat, whether to Somnath, Dwarka, Ambaji and Girnar within the state or to Palitana, whose 863 Jain temples on one hill draw pilgrims from across India. પ્રસંગ પ્રવાસ — travelling for a family function — is likewise a real and heavily seasonal travel category here, because weddings pull relatives across continents. વતન પ્રવાસ is the diaspora's trip home to the ancestral village.
+locale: gu
+---
+યાત્રા
+તીર્થયાત્રા
+પ્રસંગ પ્રવાસ
+વતન પ્રવાસ
+કૌટુંબિક પ્રવાસ
+હનીમૂન
+વ્યાપાર પ્રવાસ
+પરિષદ
+શૈક્ષણિક પ્રવાસ
+શાળા પ્રવાસ
+સાહસ પ્રવાસ
+ટ્રેકિંગ
+વન્યજીવ સફારી
+દરિયાકિનારો
+હિલ સ્ટેશન
+રણોત્સવ
+ક્રૂઝ
+તબીબી પ્રવાસ
+એકલ પ્રવાસ
+સપ્તાહાંત પ્રવાસ

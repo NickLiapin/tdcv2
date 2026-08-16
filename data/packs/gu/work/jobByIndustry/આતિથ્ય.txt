@@ -1,0 +1,10 @@
+---
+description: Job titles in the આતિથ્ય sector, in Gujarati. Coherent child of work/industryCoherent.txt.
+locale: gu
+---
+રસોઇયો
+વેઇટર
+હોટેલ મેનેજર
+રિસેપ્શનિસ્ટ
+હાઉસકીપર
+ઇવેન્ટ સંયોજક

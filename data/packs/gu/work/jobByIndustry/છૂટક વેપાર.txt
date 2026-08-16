@@ -1,0 +1,10 @@
+---
+description: Job titles in the છૂટક વેપાર sector, in Gujarati. Coherent child of work/industryCoherent.txt.
+locale: gu
+---
+દુકાનદાર
+વેચાણકર્તા
+સ્ટોર મેનેજર
+કેશિયર
+ખરીદી અધિકારી
+વિઝ્યુઅલ મર્ચેન્ડાઇઝર

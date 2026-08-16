@@ -1,0 +1,9 @@
+---
+description: Playing positions in વોલીબોલ, in Gujarati. Coherent child of sport/sportCoherent.txt.
+locale: gu
+---
+સેટર
+સ્પાઇકર
+લિબેરો
+બ્લોકર
+સર્વર

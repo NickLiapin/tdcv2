@@ -1,0 +1,5 @@
+---
+description: Currency of ત્રિનિદાદ અને ટોબેગો, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ત્રિનિદાદ અને ટોબેગો ડોલર

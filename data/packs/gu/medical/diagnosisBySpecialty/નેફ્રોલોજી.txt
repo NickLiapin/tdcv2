@@ -1,0 +1,9 @@
+---
+description: Diagnoses seen in નેફ્રોલોજી, in Gujarati. Coherent child of medical/specialtyCoherent.txt.
+locale: gu
+---
+મૂત્રપિંડની પથરી
+ક્રોનિક કિડની રોગ
+નેફ્રોટિક સિન્ડ્રોમ
+પેશાબમાર્ગનો ચેપ
+મૂત્રપિંડની નિષ્ફળતા

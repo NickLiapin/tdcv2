@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised carrier frequency or incidence in the અશ્કેનાઝી યહૂદી ancestry group, in Gujarati. Coherent child of medical/ancestry.txt.
+locale: gu
+---
+ટે-સૅક્સ રોગ
+ગૌશર રોગ
+કેનાવાન રોગ
+ફેમિલિયલ ડિસઓટોનોમિયા
+BRCA પરિવર્તન
+ક્રોહન રોગ

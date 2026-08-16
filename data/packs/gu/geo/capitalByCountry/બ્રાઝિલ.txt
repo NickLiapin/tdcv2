@@ -1,0 +1,5 @@
+---
+description: Capital of બ્રાઝિલ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+બ્રાઝિલિયા

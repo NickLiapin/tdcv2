@@ -1,0 +1,28 @@
+---
+description: Name suffix in Gujarati. The first two are the important ones and they are unlike anything in the European set: -ભાઈ and -બહેન attach directly to the given name for almost every adult in ordinary use (રમેશભાઈ, ગીતાબહેન) and are not honours, titles or generational markers but the normal way a Gujarati name is spoken. -બા and -માસી/-કાકા are kinship-derived respect forms extended to non-relatives. -જી is a general respectful particle. The English-derived academic and professional suffixes are used in Gujarati CVs and are written in Latin letters even in Gujarati prose. There is no Jr/Sr tradition in Gujarati: a son does not repeat his father's given name, he carries it as his MIDDLE name instead — see person/lastName.txt.
+locale: gu
+---
+ભાઈ
+બહેન
+બેન
+બા
+જી
+સાહેબ
+કાકા
+માસી
+દાદા
+બાપા
+કુમાર
+લાલ
+દાસ
+ચંદ
+પ્રસાદ
+શંકર
+MD
+PhD
+MBBS
+CA
+LLB
+MBA
+BE
+MSc

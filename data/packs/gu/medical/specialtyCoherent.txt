@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list. Written as transliterations rather than as Gujarati coinages, and that is the honest register: Indian medicine is taught and practised in English, a Gujarati hospital's departmental signboard says કાર્ડિયોલોજી, and a Gujarati patient asks for the કાર્ડિયોલોજી વિભાગ. Gujarati translations exist for some of these (હૃદયરોગ, ચેતારોગ, ત્વચારોગ) and appear in health journalism and government pamphlets, but nobody navigates a hospital by them. Parent of medical/diagnosisBySpecialty.
+locale: gu
+---
+કાર્ડિયોલોજી
+ન્યુરોલોજી
+ઓન્કોલોજી
+ડર્મેટોલોજી
+ગેસ્ટ્રોએન્ટેરોલોજી
+એન્ડોક્રિનોલોજી
+પલ્મોનોલોજી
+ઓર્થોપેડિક્સ
+સાયકિયાટ્રી
+નેફ્રોલોજી

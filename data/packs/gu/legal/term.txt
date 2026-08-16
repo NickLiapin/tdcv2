@@ -1,0 +1,23 @@
+---
+description: Legal term in Gujarati. The Gujarati courts below the High Court work in Gujarati, so these are working words rather than translations. વકીલાતનામું is the instrument appointing an advocate; સમાધાન is compromise, which Indian civil procedure actively encourages and which the લોક અદાલત exists to produce; મનાઈહુકમ is an injunction and જપ્તી attachment of property.
+locale: gu
+---
+ફરિયાદી
+પ્રતિવાદી
+આરોપી
+સાક્ષી
+પુરાવો
+સોગંદનામું
+સમન્સ
+વોરંટ
+જામીન
+આરોપનામું
+ચુકાદો
+હુકમ
+મનાઈહુકમ
+જપ્તી
+અપીલ
+સમાધાન
+લવાદી
+વકીલાતનામું
+મુદત

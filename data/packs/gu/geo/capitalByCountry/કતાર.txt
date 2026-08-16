@@ -1,0 +1,5 @@
+---
+description: Capital of કતાર, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+દોહા

@@ -1,0 +1,9 @@
+---
+description: Hotel star rating, in Gujarati.
+locale: gu
+---
+એક તારો
+બે તારા
+ત્રણ તારા
+ચાર તારા
+પાંચ તારા

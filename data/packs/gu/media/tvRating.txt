@@ -1,0 +1,13 @@
+---
+description: Television or film certification, in Indian terms. India's Central Board of Film Certification issues U, U/A, A and S, and the U/A band was split into U/A 7+, 13+ and 16+ in 2024 — so an Indian rating list is NOT the American G/PG/R set and a config must not substitute one for the other. S is the restricted certificate for a specialised audience such as doctors.
+locale: gu
+---
+U
+U/A
+U/A 7+
+U/A 13+
+U/A 16+
+A
+S
+સર્વ પ્રેક્ષક
+પુખ્તવય

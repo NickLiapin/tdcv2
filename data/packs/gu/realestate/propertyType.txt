@@ -1,0 +1,24 @@
+---
+description: Kind of property, in Gujarati. Indian residential property is described by BHK — "2 BHK" means two bedrooms, hall and kitchen — and that notation, not floor area, is the first thing any Indian listing states; it is written in Latin letters. ટેનામેન્ટ and રો હાઉસ are Indian-English terms in ordinary Gujarati use for a terraced unit. ખેતીની જમીન and બિનખેતી પ્લોટ are a real legal distinction: agricultural land in Gujarat cannot be built on until it is formally converted, and the conversion order is a document a buyer asks for. વાડી here means an orchard smallholding, a different sense from the community hall in event/venueType.txt.
+locale: gu
+---
+1 BHK ફ્લેટ
+2 BHK ફ્લેટ
+3 BHK ફ્લેટ
+4 BHK ફ્લેટ
+પેન્ટહાઉસ
+સ્ટુડિયો
+ટેનામેન્ટ
+રો હાઉસ
+બંગલો
+ડુપ્લેક્સ
+ફાર્મહાઉસ
+પોળનું મકાન
+દુકાન
+ઓફિસ
+શોરૂમ
+ગોડાઉન
+ઔદ્યોગિક શેડ
+ખેતીની જમીન
+બિનખેતી પ્લોટ
+વાડી

@@ -1,0 +1,21 @@
+---
+description: Video-game genre in Gujarati. Most of these are translations rather than borrowings, but the English forms are equally current among Gujarati players, who mostly play in English-language interfaces.
+locale: gu
+---
+એક્શન
+સાહસ
+કોયડા
+વ્યૂહરચના
+સિમ્યુલેશન
+રમતગમત
+રેસિંગ
+લડાઈ
+શૂટિંગ
+ભૂમિકા-આધારિત
+પ્લેટફોર્મ
+સંગીત
+શૈક્ષણિક
+બોર્ડ
+પત્તાં
+ટકી રહેવાની
+બહુખેલાડી

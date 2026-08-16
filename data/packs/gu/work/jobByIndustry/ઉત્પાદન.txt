@@ -1,0 +1,10 @@
+---
+description: Job titles in the ઉત્પાદન sector, in Gujarati. Coherent child of work/industryCoherent.txt.
+locale: gu
+---
+ઉત્પાદન સુપરવાઇઝર
+યંત્ર સંચાલક
+ગુણવત્તા નિરીક્ષક
+વેલ્ડર
+ફિટર
+જાળવણી ટેકનિશિયન

@@ -1,0 +1,32 @@
+---
+description: Gujarati verb in the -વું verbal-noun form, which is how technical Gujarati names an ongoing operation and what an English -ing form corresponds to. A config putting one into a finite sentence must conjugate it — Gujarati marks person, number, gender and tense on the verb.
+locale: gu
+---
+સંકલન કરવું
+ડીકોડ કરવું
+એન્ક્રિપ્ટ કરવું
+ડિક્રિપ્ટ કરવું
+અનુક્રમણિકા બનાવવી
+ક્વેરી કરવી
+પ્રસારણ કરવું
+સિંક કરવું
+બેકઅપ લેવો
+પુનઃસ્થાપિત કરવું
+સ્કેન કરવું
+તપાસવું
+દેખરેખ રાખવી
+લોગ કરવું
+ડિબગ કરવું
+પરીક્ષણ કરવું
+તૈનાત કરવું
+સ્કેલ કરવું
+કેશ કરવું
+ફિલ્ટર કરવું
+રૂટ કરવું
+પિંગ કરવું
+અપલોડ કરવું
+ડાઉનલોડ કરવું
+સંકુચિત કરવું
+વિસ્તૃત કરવું
+પુનઃલોડ કરવું
+પુનઃપ્રારંભ કરવો

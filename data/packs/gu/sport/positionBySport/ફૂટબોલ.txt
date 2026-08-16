@@ -1,0 +1,10 @@
+---
+description: Playing positions in ફૂટબોલ, in Gujarati. Coherent child of sport/sportCoherent.txt.
+locale: gu
+---
+ગોલકીપર
+ડિફેન્ડર
+સેન્ટર બેક
+મિડફિલ્ડર
+વિંગર
+સ્ટ્રાઈકર

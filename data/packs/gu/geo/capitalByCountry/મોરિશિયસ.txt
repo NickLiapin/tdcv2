@@ -1,0 +1,5 @@
+---
+description: Capital of મોરિશિયસ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+પોર્ટ લુઈ

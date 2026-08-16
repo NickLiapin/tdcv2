@@ -1,0 +1,5 @@
+---
+description: Currency of બાંગ્લાદેશ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+બાંગ્લાદેશી ટકા

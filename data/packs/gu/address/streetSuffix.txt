@@ -1,0 +1,44 @@
+---
+description: Gujarati thoroughfare type. GOES AFTER THE NAME (ગાંધી રોડ, આશ્રમ રોડ, નહેરુ માર્ગ), the opposite of Polish ulica Długa. Four of these have no European equivalent and are the ones that make an address read as Gujarati. પોળ is the Ahmedabad courtyard-lane — a gated cluster of houses entered through one doorway, historically one caste or one trade per pol; the old city has several hundred and they are a UNESCO World Heritage listing, and a pol address is still how tens of thousands of people in Ahmedabad are found. ખડકી is the smaller gated lane inside or beside a pol. શેરી is the ordinary lane and ફળિયું its village counterpart. ચાર રસ્તા means literally "four roads" and is the standard Gujarati word for a crossroads — Gujaratis navigate and give addresses by naming the nearest ચાર રસ્તા far more than by house number. સોસાયટી is the other essential one: most Gujarati urban housing since the 1960s is organised as a named cooperative society, and the society name plus a plot number IS the address, with no street name involved at all.
+locale: gu
+---
+રોડ
+માર્ગ
+પથ
+શેરી
+ગલી
+પોળ
+ખડકી
+ફળિયું
+ચકલો
+ચોક
+ચાર રસ્તા
+ત્રણ રસ્તા
+સર્કલ
+બજાર
+હાટ
+નાકું
+દરવાજા
+મહોલ્લો
+વાડી
+વાસ
+સોસાયટી
+નગર
+પાર્ક
+એવન્યુ
+હાઈવે
+રિંગ રોડ
+બાયપાસ
+બ્રિજ
+ઓવરબ્રિજ
+અંડરબ્રિજ
+ફ્લાયઓવર
+ટાવર
+કોમ્પ્લેક્સ
+એપાર્ટમેન્ટ
+ફ્લેટ
+એસ્ટેટ
+ઔદ્યોગિક વસાહત
+ટેકરી
+ઘાટ
+પુલ

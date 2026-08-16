@@ -1,0 +1,27 @@
+---
+description: Secondary address unit designator in Gujarati. Note how a Gujarati address is actually built, because it is not the European order: it runs SMALLEST FIRST — flat number, then wing, then building, then society, then road, then area, then city — and the society name usually does more work than the road name. પાંખ is the "wing" of a housing block (A પાંખ, B પાંખ) and is used constantly. સર્વે નં. and બ્લોક નં. are land-record numbers that appear in rural and peri-urban addresses. મુકામ and પોસ્ટ are the village-address pair: a rural Gujarati address gives મુકામ (the village you are at) and પોસ્ટ (the post village that serves it), and the two are often different places.
+locale: gu
+---
+ફ્લેટ નં.
+મકાન નં.
+બ્લોક નં.
+પ્લોટ નં.
+દુકાન નં.
+ઓફિસ નં.
+રૂમ નં.
+સર્વે નં.
+પાંખ
+માળ
+ભોંયતળિયું
+ટાવર
+યુનિટ
+વિભાગ
+ખંડ
+બંગલો નં.
+ટેનામેન્ટ નં.
+ગોડાઉન નં.
+મુકામ
+પોસ્ટ
+તા.
+જિ.
+પાસે

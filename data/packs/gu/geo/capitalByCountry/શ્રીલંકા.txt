@@ -1,0 +1,5 @@
+---
+description: Capital of શ્રીલંકા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+કોલંબો

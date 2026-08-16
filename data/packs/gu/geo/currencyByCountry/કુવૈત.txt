@@ -1,0 +1,5 @@
+---
+description: Currency of કુવૈત, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+કુવૈતી દિનાર

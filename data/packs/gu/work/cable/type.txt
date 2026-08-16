@@ -1,0 +1,13 @@
+---
+description: Kind of electrical or data cable, in Gujarati. The type names are international and are written as loanwords; the wire gauge and voltage classes are the Indian standard ones.
+locale: gu
+---
+આર્મર્ડ કેબલ
+અનઆર્મર્ડ કેબલ
+XLPE કેબલ
+PVC ઇન્સ્યુલેટેડ કેબલ
+ફ્લેક્સિબલ કેબલ
+કોએક્સિયલ કેબલ
+ફાઇબર ઓપ્ટિક કેબલ
+ટ્વિસ્ટેડ પેર કેબલ
+અર્થિંગ કેબલ

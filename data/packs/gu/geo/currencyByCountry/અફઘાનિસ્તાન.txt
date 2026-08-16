@@ -1,0 +1,5 @@
+---
+description: Currency of અફઘાનિસ્તાન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+અફઘાની

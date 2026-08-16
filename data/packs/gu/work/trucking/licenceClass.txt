@@ -1,0 +1,11 @@
+---
+description: Driving licence class, in the Indian codes. These are written in Latin letters on the licence itself: LMV is light motor vehicle, LMV-TR the transport endorsement, HMV heavy motor vehicle, HGMV heavy goods and HPMV heavy passenger. A hazardous-goods endorsement is a separate authorisation on top.
+locale: gu
+---
+LMV
+LMV-TR
+HMV
+HGMV
+HPMV
+ટ્રેલર
+જોખમી માલ સમર્થન

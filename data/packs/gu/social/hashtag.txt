@@ -1,0 +1,34 @@
+---
+description: Hashtag in Gujarati. Gujarati hashtags are written without spaces in Gujarati script and are entirely ordinary on Instagram and X. #નવરાત્રિ, #ગરબા and #ઉત્તરાયણ are seasonal and enormous — the Navratri tags carry millions of posts every autumn — and #જયજિનેન્દ્ર is the Jain greeting, used as a sign-off and a tag.
+locale: gu
+---
+#ગુજરાત
+#ગુજરાતી
+#અમદાવાદ
+#સુરત
+#વડોદરા
+#રાજકોટ
+#સૌરાષ્ટ્ર
+#કચ્છ
+#નવરાત્રિ
+#ગરબા
+#રાસ
+#ઉત્તરાયણ
+#પતંગ
+#દિવાળી
+#હોળી
+#જયજિનેન્દ્ર
+#જયશ્રીકૃષ્ણ
+#જયસ્વામિનારાયણ
+#ગુજરાતીફૂડ
+#ઢોકળા
+#ઊંધિયું
+#ફરસાણ
+#ગુજરાતીસાહિત્ય
+#કવિતા
+#ગઝલ
+#ડાયરો
+#લોકગીત
+#પ્રવાસ
+#ફોટોગ્રાફી
+#પ્રેરણા

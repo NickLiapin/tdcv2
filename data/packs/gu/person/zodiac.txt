@@ -1,0 +1,16 @@
+---
+description: Zodiac sign in Gujarati. These are the twelve રાશિ of Indian astrology, and although they map name for name onto the Western zodiac they are NOT interchangeable with it: Indian astrology uses the sidereal zodiac, which currently runs about 24 days behind the tropical one, so a person who is Aries by a Western horoscope is usually મીન or the tail of મેષ by a Gujarati one. This matters in Gujarat more than the label suggests — the રાશિ is fixed at birth by the moon's position, and it traditionally decides the SYLLABLE a child's name must begin with, which is one reason Gujarati given names cluster the way they do.
+locale: gu
+---
+મેષ
+વૃષભ
+મિથુન
+કર્ક
+સિંહ
+કન્યા
+તુલા
+વૃશ્ચિક
+ધન
+મકર
+કુંભ
+મીન

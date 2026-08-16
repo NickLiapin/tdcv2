@@ -1,0 +1,66 @@
+---
+description: Industry a company is in, as Gujarati names it. The head of this list is Gujarat's real economy rather than a generic one, and the concentration is unusual: Surat cuts and polishes the great majority of the world's diamonds by volume; Gujarat is India's largest producer of chemicals, petrochemicals, pharmaceuticals, soda ash and salt; Jamnagar holds the largest oil refinery complex on earth; Ahmedabad and Surat between them dominate Indian textiles; Anand built India's dairy cooperative movement; and the state has the country's longest coastline and its busiest non-major ports. A Gujarati business dataset that draws industries uniformly will look wrong for exactly this reason.
+locale: gu
+---
+કાપડ ઉદ્યોગ
+યાર્ન અને ફેબ્રિક
+તૈયાર વસ્ત્રો
+હીરા ઉદ્યોગ
+રત્ન અને ઝવેરાત
+રસાયણ ઉદ્યોગ
+પેટ્રોકેમિકલ
+તેલ શુદ્ધીકરણ
+ફાર્માસ્યુટિકલ
+દવા ઉત્પાદન
+ખાતર
+સોડા એશ
+મીઠું ઉત્પાદન
+સિમેન્ટ
+સિરામિક
+ટાઇલ્સ
+પ્લાસ્ટિક
+પેકેજિંગ
+એન્જિનિયરિંગ
+મશીનરી
+ઓટોમોબાઇલ
+ઓટો પાર્ટ્સ
+જહાજ ભાંગણ
+બંદર અને શિપિંગ
+લોજિસ્ટિક્સ
+ટ્રાન્સપોર્ટ
+ડેરી ઉદ્યોગ
+સહકારી ડેરી
+ખેતી
+બાગાયત
+મગફળી અને તેલ
+કપાસ
+તમાકુ
+મત્સ્ય ઉદ્યોગ
+ખાદ્ય પ્રક્રિયા
+ફરસાણ અને મીઠાઈ
+બાંધકામ
+રિયલ એસ્ટેટ
+ઇન્ફ્રાસ્ટ્રક્ચર
+વીજ ઉત્પાદન
+સૌર ઊર્જા
+પવન ઊર્જા
+ખાણકામ
+લિગ્નાઇટ
+બેંકિંગ
+સહકારી બેંક
+વીમો
+શેરબજાર
+માહિતી ટેકનોલોજી
+સોફ્ટવેર સેવા
+ટેલિકોમ
+શિક્ષણ
+આરોગ્ય સેવા
+હોસ્પિટલ
+પ્રવાસન
+હોટેલ
+છાપકામ
+પ્રકાશન
+જાહેરાત
+ફિલ્મ અને મનોરંજન
+હસ્તકલા
+ભરતકામ ઉદ્યોગ

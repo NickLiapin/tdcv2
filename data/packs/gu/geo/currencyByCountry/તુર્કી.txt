@@ -1,0 +1,5 @@
+---
+description: Currency of તુર્કી, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+તુર્કી લિરા

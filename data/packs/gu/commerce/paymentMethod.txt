@@ -1,0 +1,19 @@
+---
+description: Payment method, in Gujarati. THE ORDER IS INDIAN, not European, and it matters. UPI heads the list because India runs more real-time retail payments than any other country and a Gujarati vegetable cart, autorickshaw and roadside tea stall all take a QR code; રોકડ is still everywhere; and the credit card sits well down the list because card penetration in India is low compared with UPI. હપ્તા (instalments) and ઉધાર are ordinary retail arrangements — a Gujarati neighbourhood grocer keeps a running credit book for regular customers. કેશ ઓન ડિલિવરી remains a major mode for online orders. The scheme names (UPI, RuPay, NEFT, IMPS) stay in Latin letters in Gujarati text.
+locale: gu
+---
+UPI
+QR કોડ
+રોકડ
+ડેબિટ કાર્ડ
+ક્રેડિટ કાર્ડ
+નેટ બેંકિંગ
+NEFT
+RTGS
+IMPS
+વોલેટ
+કેશ ઓન ડિલિવરી
+ચેક
+ડિમાન્ડ ડ્રાફ્ટ
+હપ્તા
+ઉધાર

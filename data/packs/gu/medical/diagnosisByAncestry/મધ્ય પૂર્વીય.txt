@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised carrier frequency or incidence in the મધ્ય પૂર્વીય ancestry group, in Gujarati. Coherent child of medical/ancestry.txt.
+locale: gu
+---
+ફેમિલિયલ મેડિટેરેનિયન ફીવર
+બીટા થેલેસેમિયા
+G6PD ઊણપ
+બેહસેટ રોગ
+ટાઇપ 2 ડાયાબિટીસ

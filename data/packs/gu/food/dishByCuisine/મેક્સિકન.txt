@@ -1,0 +1,12 @@
+---
+description: Dishes of મેક્સિકન cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+ટાકો
+બુરિટો
+ક્વેસાડિયા
+નાચોઝ
+એન્ચિલાડા
+ગુઆકામોલે
+સાલ્સા
+ચુરોસ

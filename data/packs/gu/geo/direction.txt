@@ -1,0 +1,19 @@
+---
+description: Compass direction in Gujarati. Ten points, not eight — see address/direction.txt for the full explanation of the દશ દિશા and of why ઈશાન, અગ્નિ, નૈઋત્ય and વાયવ્ય are deity names rather than compounds of "north" and "east".
+locale: gu
+---
+ઉત્તર
+દક્ષિણ
+પૂર્વ
+પશ્ચિમ
+ઈશાન
+અગ્નિ
+નૈઋત્ય
+વાયવ્ય
+ઊર્ધ્વ
+અધો
+ઉત્તર-પૂર્વ
+ઉત્તર-પશ્ચિમ
+દક્ષિણ-પૂર્વ
+દક્ષિણ-પશ્ચિમ
+મધ્ય

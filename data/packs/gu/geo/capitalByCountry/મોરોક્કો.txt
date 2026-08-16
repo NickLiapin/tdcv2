@@ -1,0 +1,5 @@
+---
+description: Capital of મોરોક્કો, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+રબાત

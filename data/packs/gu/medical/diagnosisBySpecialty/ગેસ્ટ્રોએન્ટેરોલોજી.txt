@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in ગેસ્ટ્રોએન્ટેરોલોજી, in Gujarati. Coherent child of medical/specialtyCoherent.txt.
+locale: gu
+---
+એસિડિટી
+પેપ્ટિક અલ્સર
+યકૃતનું સિરોસિસ
+કમળો
+આંતરડાનો સોજો
+પિત્તાશયની પથરી

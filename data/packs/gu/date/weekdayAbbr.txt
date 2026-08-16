@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday in Gujarati — the planet name with -વાર dropped. Sunday first.
+locale: gu
+---
+રવિ
+સોમ
+મંગળ
+બુધ
+ગુરુ
+શુક્ર
+શનિ

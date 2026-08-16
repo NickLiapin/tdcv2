@@ -1,0 +1,15 @@
+---
+description: Reaction to a post, in Gujarati.
+locale: gu
+---
+ગમ્યું
+પસંદ
+પ્રેમ
+હસવું
+આશ્ચર્ય
+દુઃખ
+ગુસ્સો
+આભાર
+અભિનંદન
+સહમત
+અસહમત

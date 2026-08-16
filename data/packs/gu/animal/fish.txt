@@ -1,0 +1,29 @@
+---
+description: Fish name in Gujarati. Gujarat has India's longest coastline and its largest marine catch, so this list is a working one rather than an ornamental one. બુમલા is Bombay duck, dried in the sun along the Valsad coast; ઘોલ is the protonibea croaker whose swim bladder makes it the most valuable fish landed in India; પાપલેટ is pomfret and સુરમઈ is seer fish, the two premium table fish of the coast. Note the cultural counterweight: a very large share of Gujaratis — most Jains, most Vaishnav Vanias and many Patidars — are strictly vegetarian and never eat any of these, so the coastal fishing economy and the inland diet sit side by side.
+locale: gu
+---
+પાપલેટ
+સુરમઈ
+બુમલા
+ઘોલ
+દાંડો
+બોઈ
+લેવટા
+રાવસ
+ખાગા
+શાર્ક
+બાંગડા
+ટૂના
+હિલ્સા
+કાતલા
+રોહુ
+મૃગલ
+સિંઘી
+માંગુર
+તિલાપિયા
+ઝીંગા
+કરચલો
+લોબસ્ટર
+સ્કિવડ
+ઓક્ટોપસ
+ગોલ્ડફિશ

@@ -1,0 +1,5 @@
+---
+description: Capital of પાકિસ્તાન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ઇસ્લામાબાદ

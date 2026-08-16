@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised carrier frequency or incidence in the દક્ષિણપૂર્વ એશિયાઈ ancestry group, in Gujarati. Coherent child of medical/ancestry.txt.
+locale: gu
+---
+આલ્ફા થેલેસેમિયા
+હિમોગ્લોબિન E
+G6PD ઊણપ
+લેક્ટોઝ અસહિષ્ણુતા
+યકૃતનું કેન્સર

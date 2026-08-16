@@ -1,0 +1,58 @@
+---
+description: Colour name in Gujarati. Several of these are named for a substance rather than for a hue and a config translating them literally will lose the sense: કંકુ is the vermilion powder of the tilak, હળદરિયો is turmeric-yellow, મહેંદી is the green of henna paste, ગેરુ is the ochre of a monk's robe, કેસરી is saffron, ચંદની is moonlight-pale, and અબીલ and ગુલાલ are the powders thrown at Holi. કેસૂડી is the orange of the flame-of-the-forest flower, which is what Holi colour was made from in Gujarat before synthetic dye. મોરપીંછ is peacock-feather blue-green and is a Krishna word before it is a colour word. Note that Gujarati colour adjectives INFLECT for the gender and number of the noun they describe — લાલ does not, but પીળો becomes પીળી and પીળું — so a config joining a colour to a noun must agree them.
+locale: gu
+---
+લાલ
+પીળો
+લીલો
+વાદળી
+આસમાની
+ફિરોજી
+જાંબલી
+ગુલાબી
+નારંગી
+કેસરી
+કથ્થાઈ
+બદામી
+ભૂરો
+રાખોડી
+કાળો
+સફેદ
+ધોળો
+સોનેરી
+રૂપેરી
+તાંબાવરણો
+મરૂન
+ઘેરો લાલ
+આછો લીલો
+ઘેરો લીલો
+પોપટી
+મહેંદી
+હળદરિયો
+કંકુ
+ગેરુ
+ચંદની
+અંબર
+મોરપીંછ
+કેસૂડી
+અબીલ
+ગુલાલ
+દૂધિયો
+ક્રીમ
+આઇવરી
+બેજ
+ખાખી
+ઓલિવ
+લવંડર
+જાંબુડી
+ગુલમહોરી
+શ્યામ
+સાવળો
+ધૂમ્ર
+કેસર
+ચંદન
+મોતિયો
+પરવાળી
+નીલ
+આકાશી
+સમુદ્રી

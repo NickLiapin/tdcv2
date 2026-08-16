@@ -1,0 +1,12 @@
+---
+description: Dishes of જૈન cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+જૈન ખીચડી
+જૈન દાળ
+રાજગરાનો શીરો
+મોરૈયો
+ફરાળી પેટીસ
+સૂકી ભાજી
+જૈન પાંઉભાજી
+ખજૂરપાક

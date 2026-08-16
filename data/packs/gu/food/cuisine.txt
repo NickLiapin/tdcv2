@@ -1,0 +1,21 @@
+---
+description: Cuisine, as a Gujarati restaurant menu names it. Three entries at the head are not what a European list would contain and each is a real, separately advertised category in Gujarat. કાઠિયાવાડી is the cooking of the Saurashtra peninsula — millet rotla, roasted aubergine, raw garlic chutney, buttermilk — and is rustic, fiery and completely unlike the sweet-savoury cooking of central Gujarat; restaurants sell it as its own thing. જૈન is a cuisine and not a diet label: Jain cooking uses no onion, no garlic and NO ROOT VEGETABLES AT ALL — no potato, no carrot, no ginger — because uprooting a plant kills it and disturbs the organisms in the soil, and Indian restaurants, airlines and food-delivery apps all carry a Jain option as standard. Gujarat holds the largest Jain population in India, so this is a mass-market category here. ચાઈનીઝ in India means Indian-Chinese — Manchurian, Hakka noodles, chilli paneer — a separate cuisine invented in Kolkata and now on every Gujarati menu, and not what a diner in China would recognise. The parent of food/dishByCuisine.
+locale: gu
+---
+ગુજરાતી
+કાઠિયાવાડી
+જૈન
+પંજાબી
+દક્ષિણ ભારતીય
+મુગલાઈ
+રાજસ્થાની
+બંગાળી
+ચાઈનીઝ
+ઇટાલિયન
+મેક્સિકન
+થાઈ
+જાપાનીઝ
+કોરિયન
+લેબનીઝ
+અમેરિકન
+કોન્ટિનેન્ટલ

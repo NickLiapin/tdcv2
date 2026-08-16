@@ -1,0 +1,5 @@
+---
+description: Capital of સુરીનામ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+પારામારિબો

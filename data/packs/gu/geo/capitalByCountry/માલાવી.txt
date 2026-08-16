@@ -1,0 +1,5 @@
+---
+description: Capital of માલાવી, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+લિલોંગ્વે

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in એન્ડોક્રિનોલોજી, in Gujarati. Coherent child of medical/specialtyCoherent.txt.
+locale: gu
+---
+ડાયાબિટીસ
+થાઇરોઇડની ઓછી ક્રિયા
+થાઇરોઇડની વધુ ક્રિયા
+સ્થૂળતા
+પોલિસિસ્ટિક ઓવેરી સિન્ડ્રોમ
+હાડકાંનું પોચાપણું

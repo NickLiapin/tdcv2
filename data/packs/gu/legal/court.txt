@@ -1,0 +1,23 @@
+---
+description: Kind of court, in the words Gujarati uses. These are the NAMES OF KINDS of court rather than a roster of named benches; India is the country whose judiciary supplies the referents, since Gujarati is essentially a one-country language, and a named Indian court belongs in the India country pack. Three have no European equivalent. લોક અદાલત, the "people's court", is a statutory settlement forum where pending cases are compromised in bulk on a single sitting day and the award is final and unappealable — millions of cases clear this way. ગ્રામ ન્યાયાલય is the mobile village court. ન્યાય પંચાયત is the panchayat-level tribunal. Note also that a state high court in Gujarati is વડી અદાલત or ઉચ્ચ ન્યાયાલય, both current, and that Indian courts work in English at the higher levels while the lower judiciary in Gujarat works in Gujarati.
+locale: gu
+---
+સર્વોચ્ચ અદાલત
+વડી અદાલત
+ઉચ્ચ ન્યાયાલય
+જિલ્લા અદાલત
+સત્ર અદાલત
+દીવાની અદાલત
+ફોજદારી અદાલત
+મેજિસ્ટ્રેટ કોર્ટ
+કૌટુંબિક અદાલત
+બાળ અદાલત
+ગ્રાહક અદાલત
+શ્રમ અદાલત
+મહેસૂલી અદાલત
+લોક અદાલત
+ગ્રામ ન્યાયાલય
+ન્યાય પંચાયત
+લવાદ મંડળ
+ટ્રિબ્યુનલ
+આવકવેરા ટ્રિબ્યુનલ

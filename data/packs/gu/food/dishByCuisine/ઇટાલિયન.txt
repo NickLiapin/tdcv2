@@ -1,0 +1,12 @@
+---
+description: Dishes of ઇટાલિયન cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+પિઝા
+પાસ્તા
+લઝાન્યા
+રિસોટ્ટો
+બ્રુશેટા
+મિનેસ્ટ્રોને
+તિરામિસુ
+ગાર્લિક બ્રેડ

@@ -1,0 +1,34 @@
+---
+description: Spice name in Gujarati. હિંગ heads the list for a reason: asafoetida is the pivot of Gujarati cooking, and in Jain and many Vaishnav kitchens it does the job that onion and garlic do elsewhere — it is what makes a dal without alliums taste finished. The standard Gujarati વઘાર (tempering) is mustard seed, cumin, asafoetida and curry leaf in hot oil, poured over the dish at the end. ધાણાજીરું is a pre-mixed coriander-cumin powder sold as one item in Gujarat and used by the spoonful. Two are not spices at all but belong with them in a Gujarati kitchen: ગોળ (jaggery) and લીંબુનાં ફૂલ (citric acid crystals), because the sweet-sour balance is the defining move of the cuisine.
+locale: gu
+---
+હિંગ
+રાઈ
+જીરું
+ધાણા
+ધાણાજીરું
+હળદર
+લાલ મરચું
+કાશ્મીરી મરચું
+લીલું મરચું
+આદુ
+લસણ
+મરી
+તજ
+લવિંગ
+એલચી
+તમાલપત્ર
+જાયફળ
+જાવંત્રી
+બડીશોપ
+અજમો
+મેથી
+કલોંજી
+તલ
+ખસખસ
+સૂકું કોપરું
+આમચૂર
+લીંબુનાં ફૂલ
+ગોળ
+મીઠો લીમડો
+ગરમ મસાલો

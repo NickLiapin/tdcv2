@@ -1,0 +1,5 @@
+---
+description: Capital of સાઉદી અરેબિયા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+રિયાધ

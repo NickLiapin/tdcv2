@@ -1,0 +1,25 @@
+---
+description: World religion, in Gujarati. THE ORDER IS GUJARAT'S, not the world's, and the reason is જૈન ધર્મ: Jainism is a global rounding error at roughly 0.4 per cent of India, but GUJARAT HOLDS THE LARGEST JAIN POPULATION OF ANY INDIAN STATE and Jain families are heavily represented in Gujarati trade, publishing and philanthropy, so Jainism is a mainstream religious presence here in a way it is nowhere else on earth. પારસી ધર્મ (Zoroastrianism) is the same story at a smaller scale — there are perhaps fifty thousand Parsis left in India, and south Gujarat is where they landed in the eighth century and where Udvada still keeps a fire said to have burned since then. Within Hinduism, three Gujarati traditions are named separately because Gujaratis identify by them rather than by "Hindu" alone: સ્વામિનારાયણ સંપ્રદાય was founded in Gujarat around 1800 and its temples are the largest built by any Indian movement worldwide, પુષ્ટિમાર્ગ is the Vallabhacharya Krishna tradition whose haveli temples define Gujarati Vaishnav practice, and શક્તિ ઉપાસના is the goddess worship behind Navratri and behind Ambaji, Bahucharaji and Khodiyar.
+locale: gu
+---
+હિન્દુ ધર્મ
+સ્વામિનારાયણ સંપ્રદાય
+પુષ્ટિમાર્ગ
+શક્તિ ઉપાસના
+જૈન ધર્મ
+ઇસ્લામ
+પારસી ધર્મ
+ખ્રિસ્તી ધર્મ
+શીખ ધર્મ
+બૌદ્ધ ધર્મ
+યહૂદી ધર્મ
+બહાઈ
+આદિવાસી ધર્મ
+આર્ય સમાજ
+કબીરપંથ
+રામદેવપીર
+સંતમત
+નાસ્તિક
+અજ્ઞેયવાદી
+નિરપેક્ષ
+ધર્મ જણાવ્યો નથી

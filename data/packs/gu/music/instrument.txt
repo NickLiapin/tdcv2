@@ -1,0 +1,35 @@
+---
+description: Musical instrument in Gujarati. The Gujarati folk instruments are the ones worth flagging. જોડિયા પાવા is the Kutchi double flute, played by one musician blowing two pipes at once with circular breathing; ભૂંગળ is the long copper trumpet that opens a ભવાઈ performance and is played by nobody else; રાવણહથ્થો is the bowed spike fiddle of the Rajasthan-Kutch desert, made from a coconut shell; એકતારો is the single-string drone of the wandering singer; મંજીરા are the small hand cymbals that keep time in every bhajan and every garba. ઢોલ and ઢોલક are the drums of garba and raas.
+locale: gu
+---
+ઢોલ
+ઢોલક
+તબલા
+પખવાજ
+નગારું
+ડફ
+મંજીરા
+કરતાલ
+ઝાંઝ
+ઘંટડી
+શરણાઈ
+જોડિયા પાવા
+પાવો
+બંસરી
+ભૂંગળ
+તૂરી
+શંખ
+હાર્મોનિયમ
+પેટી
+એકતારો
+તંબૂરો
+રાવણહથ્થો
+સારંગી
+સિતાર
+સરોદ
+વીણા
+દિલરુબા
+સંતૂર
+ગિટાર
+વાયોલિન
+કીબોર્ડ

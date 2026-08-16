@@ -1,0 +1,80 @@
+---
+description: Hobby or interest, in Gujarati. Several of these are Gujarat-specific and a config generating a plausible Gujarati profile should weight them heavily. ગરબા and રાસ are the circle dances of નવરાત્રિ, nine nights every autumn on which a very large share of Gujarat literally dances until the small hours; this is the single most defining Gujarati pastime and it is not a niche folk revival but a mass, all-ages, all-class activity. પતંગ (kite flying) is the other one: on ઉત્તરાયણ in mid-January the sky over every Gujarati town fills with kites and the whole state is on its roof for two days. ભજન and કીર્તન (devotional singing) and ડાયરો (an all-night Kathiawadi session of folk song and storytelling) are ordinary evening entertainment in Saurashtra. બાંધણી and ભરતકામ are Gujarat's tie-dye and embroidery crafts. ક્રિકેટ is the default sport. The rest is the ordinary international set.
+locale: gu
+---
+ગરબા
+રાસ
+પતંગ ઉડાડવી
+ભજન
+કીર્તન
+ડાયરો
+લોકગીત
+વાંચન
+લેખન
+કવિતા
+ચિત્રકામ
+રંગોળી
+ભરતકામ
+બાંધણી
+સિવણ
+ગૂંથણ
+માટીકામ
+લાકડાકામ
+બાગકામ
+રસોઈ
+બેકિંગ
+ફોટોગ્રાફી
+સંગીત
+ગાયન
+તબલાવાદન
+હાર્મોનિયમ
+સિતારવાદન
+નૃત્ય
+નાટક
+ભવાઈ
+ફિલ્મો
+ક્રિકેટ
+ફૂટબોલ
+બેડમિન્ટન
+ટેનિસ
+કબડ્ડી
+ખો-ખો
+શતરંજ
+કેરમ
+પત્તાં
+યોગ
+પ્રાણાયામ
+ધ્યાન
+કસરત
+દોડ
+સાયકલિંગ
+તરવું
+પ્રવાસ
+યાત્રા
+ટ્રેકિંગ
+પક્ષી નિરીક્ષણ
+ખગોળશાસ્ત્ર
+માછીમારી
+કેમ્પિંગ
+બાગાયત
+સંગ્રહ
+ટપાલટિકિટ સંગ્રહ
+સિક્કા સંગ્રહ
+જ્યોતિષ
+વાસ્તુ
+આયુર્વેદ
+સેવા
+ગૌસેવા
+દાન
+શાસ્ત્રવાચન
+સ્વાધ્યાય
+પ્રવચન
+બ્લોગિંગ
+પ્રોગ્રામિંગ
+ગેમિંગ
+યુટ્યુબ
+સોશિયલ મીડિયા
+શેરબજાર
+બોર્ડ ગેમ
+કોયડા
+સુડોકુ

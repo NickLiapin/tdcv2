@@ -1,0 +1,12 @@
+---
+description: Dishes of લેબનીઝ cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+હમસ
+ફલાફલ
+તબૂલે
+બાબા ગનૂશ
+શવર્મા
+પિટા બ્રેડ
+ફતૂશ
+બકલાવા

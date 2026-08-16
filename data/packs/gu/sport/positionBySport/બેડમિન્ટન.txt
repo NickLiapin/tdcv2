@@ -1,0 +1,7 @@
+---
+description: Playing positions in બેડમિન્ટન, in Gujarati. Coherent child of sport/sportCoherent.txt.
+locale: gu
+---
+સિંગલ્સ ખેલાડી
+ડબલ્સ ખેલાડી
+મિક્સ્ડ ડબલ્સ ખેલાડી

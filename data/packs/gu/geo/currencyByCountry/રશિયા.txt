@@ -1,0 +1,5 @@
+---
+description: Currency of રશિયા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+રશિયન રૂબલ

@@ -1,0 +1,5 @@
+---
+description: Currency of જાપાન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+જાપાની યેન

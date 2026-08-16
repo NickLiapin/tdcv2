@@ -1,0 +1,54 @@
+---
+description: Field of study, in Gujarati. વાણિજ્ય heads it because commerce is the dominant stream in Gujarati higher education. Two entries are locally specific: આયુર્વેદ and હોમિયોપથી are full five-year medical degrees in India with their own colleges and state registers, not alternative-therapy short courses; and ગુજરાતી as a university subject is a substantial humanities department, since Gujarati has a literature going back to the twelfth century.
+locale: gu
+---
+વાણિજ્ય
+અર્થશાસ્ત્ર
+હિસાબશાસ્ત્ર
+બેંકિંગ
+વ્યવસ્થાપન
+માર્કેટિંગ
+માનવ સંસાધન
+કાયદો
+રાજ્યશાસ્ત્ર
+સમાજશાસ્ત્ર
+મનોવિજ્ઞાન
+ઇતિહાસ
+ભૂગોળ
+તત્ત્વજ્ઞાન
+ગુજરાતી
+સંસ્કૃત
+હિન્દી
+અંગ્રેજી
+પત્રકારત્વ
+ગણિત
+આંકડાશાસ્ત્ર
+ભૌતિકશાસ્ત્ર
+રસાયણશાસ્ત્ર
+જીવવિજ્ઞાન
+સૂક્ષ્મજીવવિજ્ઞાન
+જૈવ ટેકનોલોજી
+પર્યાવરણ વિજ્ઞાન
+કમ્પ્યુટર વિજ્ઞાન
+માહિતી ટેકનોલોજી
+સિવિલ એન્જિનિયરિંગ
+મિકેનિકલ એન્જિનિયરિંગ
+ઇલેક્ટ્રિકલ એન્જિનિયરિંગ
+કેમિકલ એન્જિનિયરિંગ
+ટેક્સટાઇલ ટેકનોલોજી
+સ્થાપત્ય
+તબીબી વિજ્ઞાન
+આયુર્વેદ
+હોમિયોપથી
+ફાર્મસી
+નર્સિંગ
+કૃષિ
+પશુપાલન
+ડેરી ટેકનોલોજી
+મત્સ્ય વિજ્ઞાન
+શિક્ષણ
+સામાજિક કાર્ય
+લલિત કલા
+સંગીત
+નૃત્ય
+ફેશન ડિઝાઇન

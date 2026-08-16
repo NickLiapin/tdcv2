@@ -1,0 +1,5 @@
+---
+description: Capital of ઈરાન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+તેહરાન

@@ -1,0 +1,24 @@
+---
+description: Employee benefit, in Gujarati. NOTE THE CATEGORY NAME: this is "workplace" and not "hr", because hr is also the ISO code for Croatian and the address resolver reads hr.benefit as "the Croatian pack" — see the brief. The Indian statutory benefits head the list and are not optional extras: પ્રોવિડન્ટ ફંડ (EPF) and ગ્રેચ્યુઇટી are legal entitlements for covered employees, and ESI is the state health insurance for lower-paid workers. દિવાળી બોનસ is culturally near-mandatory in Gujarat — a Diwali bonus, often a full month's pay, is expected across the private sector and its absence is a grievance.
+locale: gu
+---
+પ્રોવિડન્ટ ફંડ
+ગ્રેચ્યુઇટી
+ESI
+આરોગ્ય વીમો
+જીવન વીમો
+દિવાળી બોનસ
+વાર્ષિક બોનસ
+પગારવધારો
+મોંઘવારી ભથ્થું
+મકાન ભથ્થું
+વાહન ભથ્થું
+મુસાફરી ભથ્થું
+ભોજન સુવિધા
+પરિવહન સુવિધા
+બાળકોની શિક્ષણ સહાય
+તાલીમ સહાય
+ઘરેથી કામ
+લવચીક સમય
+રજા રોકડમાં
+નિવૃત્તિ યોજના

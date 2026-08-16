@@ -1,0 +1,5 @@
+---
+description: Capital of નેધરલેન્ડ્સ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+એમ્સ્ટરડેમ

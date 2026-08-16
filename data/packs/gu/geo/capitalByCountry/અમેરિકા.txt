@@ -1,0 +1,5 @@
+---
+description: Capital of અમેરિકા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+વોશિંગ્ટન ડી.સી.

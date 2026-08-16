@@ -1,0 +1,5 @@
+---
+description: Currency of મલેશિયા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+મલેશિયન રિંગિટ

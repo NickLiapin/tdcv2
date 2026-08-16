@@ -1,0 +1,30 @@
+---
+description: Aircraft type designation. These stay in Latin letters and Arabic digits in Gujarati exactly as they do everywhere else — A320 and 737 are manufacturer designations, not words, and a Gujarati aviation report writes them unchanged. The ATR 72 and the Q400 are here because they fly the short domestic routes into Gujarat's smaller airports.
+locale: gu
+---
+A320
+A320neo
+A321
+A321neo
+A319
+A330
+A330neo
+A340
+A350
+A380
+B737
+B737 MAX
+B747
+B757
+B767
+B777
+B777X
+B787
+ATR 42
+ATR 72
+Q400
+E170
+E175
+E190
+CRJ700
+CRJ900

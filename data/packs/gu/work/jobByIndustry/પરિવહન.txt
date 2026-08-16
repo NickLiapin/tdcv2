@@ -1,0 +1,10 @@
+---
+description: Job titles in the પરિવહન sector, in Gujarati. Coherent child of work/industryCoherent.txt.
+locale: gu
+---
+ડ્રાઇવર
+ટ્રક ચાલક
+લોજિસ્ટિક્સ સંયોજક
+ગોડાઉન સંચાલક
+ડિલિવરી કર્મચારી
+કાફલા સંચાલક

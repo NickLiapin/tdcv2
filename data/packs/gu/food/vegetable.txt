@@ -1,0 +1,34 @@
+---
+description: Vegetable name in Gujarati. Note which of these a Jain kitchen will not use: everything that grows underground — બટાટા, ડુંગળી, લસણ, ગાજર, આદુ, મૂળા, બીટ, રતાળુ, સૂરણ — is excluded from Jain cooking entirely, which removes about a fifth of this list and is why Jain recipes lean so hard on gourds, greens and beans. પરવળ, ટીંડોળા, ગલકાં, તૂરિયાં, દૂધી, ગુવાર, પાપડી and વાલોળ are the Gujarati gourd-and-bean staples and several have no English name at all; સૂરતી પાપડી in particular is the flat bean that goes into ઊંધિયું and is a Surat winter crop. મેથીની ભાજી (fenugreek greens) is used more heavily in Gujarat than anywhere else in India — it goes into thepla, muthiya, gota and handvo.
+locale: gu
+---
+બટાટા
+ડુંગળી
+લસણ
+ટામેટાં
+રીંગણ
+ભીંડા
+દૂધી
+ગલકાં
+તૂરિયાં
+પરવળ
+ટીંડોળા
+કારેલાં
+કાકડી
+કોળું
+ગુવાર
+પાપડી
+વાલોળ
+સૂરતી પાપડી
+ચોળી
+તુવેર
+વટાણા
+ફ્લાવર
+કોબીજ
+ગાજર
+મૂળા
+બીટ
+સૂરણ
+રતાળુ
+મેથીની ભાજી
+પાલક

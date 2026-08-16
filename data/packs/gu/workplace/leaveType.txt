@@ -1,0 +1,16 @@
+---
+description: Kind of leave, in Gujarati. જાહેર રજા deserves a note: India's public holidays vary by STATE, and Gujarat's list is its own — the Gujarati new year the day after Diwali, Uttarayan in January, and Gujarat Day on 1 May are state holidays that most of India does not take. A config generating Indian working calendars cannot use one national list. પ્રસંગ રજા is leave for a family function, which in Gujarat is a real and frequently used category.
+locale: gu
+---
+પરચૂરણ રજા
+તબીબી રજા
+હકની રજા
+પ્રસૂતિ રજા
+પિતૃત્વ રજા
+પ્રસંગ રજા
+શોક રજા
+પગાર વગરની રજા
+વળતર રજા
+અભ્યાસ રજા
+જાહેર રજા
+સાપ્તાહિક રજા

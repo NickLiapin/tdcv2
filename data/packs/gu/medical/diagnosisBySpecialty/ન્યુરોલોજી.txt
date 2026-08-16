@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in ન્યુરોલોજી, in Gujarati. Coherent child of medical/specialtyCoherent.txt.
+locale: gu
+---
+લકવો
+આધાશીશી
+વાઈ
+પાર્કિન્સન
+સ્મૃતિભ્રંશ
+ચેતાનો સોજો

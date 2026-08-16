@@ -1,0 +1,5 @@
+---
+description: Currency of મિસ્ર, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ઇજિપ્શિયન પાઉન્ડ

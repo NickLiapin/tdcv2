@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in ડર્મેટોલોજી, in Gujarati. Coherent child of medical/specialtyCoherent.txt.
+locale: gu
+---
+ખરજવું
+સોરાયસિસ
+ખીલ
+દાદર
+શીળસ
+કોઢ

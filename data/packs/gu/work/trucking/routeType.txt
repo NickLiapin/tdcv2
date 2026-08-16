@@ -1,0 +1,11 @@
+---
+description: Kind of haulage route, in Gujarati. આંતરરાજ્ય routes matter here because Gujarat sits on the Delhi-Mumbai freight corridor and its ports feed the whole of north-west India; બંદર માર્ગ is the run to Kandla or Mundra.
+locale: gu
+---
+સ્થાનિક
+શહેરી
+આંતરજિલ્લા
+આંતરરાજ્ય
+લાંબા અંતરની
+બંદર માર્ગ
+ગ્રામ્ય માર્ગ

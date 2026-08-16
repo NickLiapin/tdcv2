@@ -1,0 +1,16 @@
+---
+description: Month name in Gujarati — the GREGORIAN months, which is what a date formatter needs and what a Gujarati newspaper masthead, bank statement and school calendar all print. THE OTHER CALENDAR MATTERS TOO, and a config generating Gujarati festival or religious data must know it. Gujarat runs on the વિક્રમ સંવત lunar calendar alongside the Gregorian one, and GUJARAT STARTS ITS VIKRAM SAMVAT YEAR IN A DIFFERENT MONTH FROM THE REST OF INDIA: elsewhere the year begins with ચૈત્ર in spring, but the Gujarati new year — બેસતું વર્ષ — is the day after Diwali, in કારતક, usually late October or November. The Gujarati lunar months in their own order are કારતક, માગશર, પોષ, મહા, ફાગણ, ચૈત્ર, વૈશાખ, જેઠ, અષાઢ, શ્રાવણ, ભાદરવો, આસો. A Gujarati wedding invitation, a temple calendar and a business account book opened on Diwali will all use those, not the names in this file. Note also that the Gregorian month names here are borrowings written in Gujarati script; ઑગસ્ટ and ઑક્ટોબર take the candrabindu-less ઑ vowel that Gujarati uses for the English "o" sound.
+locale: gu
+---
+જાન્યુઆરી
+ફેબ્રુઆરી
+માર્ચ
+એપ્રિલ
+મે
+જૂન
+જુલાઈ
+ઑગસ્ટ
+સપ્ટેમ્બર
+ઑક્ટોબર
+નવેમ્બર
+ડિસેમ્બર

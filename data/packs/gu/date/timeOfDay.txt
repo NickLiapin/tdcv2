@@ -1,0 +1,12 @@
+---
+description: Time of day in Gujarati. બપોર covers roughly noon to four and is a longer, more definite block than English "afternoon" — in a Gujarati summer it is the period when shops shut and nobody goes out. સાંજ and સંધ્યાકાળ differ: સંધ્યાકાળ is specifically dusk, the hour of the evening lamp and prayer.
+locale: gu
+---
+વહેલી સવાર
+સવાર
+બપોર
+બપોર પછી
+સાંજ
+સંધ્યાકાળ
+રાત
+મધરાત

@@ -1,0 +1,5 @@
+---
+description: Currency of પોર્ટુગલ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+યુરો

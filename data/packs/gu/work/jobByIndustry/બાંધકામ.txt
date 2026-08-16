@@ -1,0 +1,10 @@
+---
+description: Job titles in the બાંધકામ sector, in Gujarati. Coherent child of work/industryCoherent.txt.
+locale: gu
+---
+સિવિલ ઇજનેર
+સ્થપતિ
+કડિયો
+સુથાર
+પ્લમ્બર
+સાઇટ સુપરવાઇઝર

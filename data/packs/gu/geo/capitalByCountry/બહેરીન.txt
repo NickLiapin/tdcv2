@@ -1,0 +1,5 @@
+---
+description: Capital of બહેરીન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+મનામા

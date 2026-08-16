@@ -1,0 +1,11 @@
+---
+description: Conditions with a raised carrier frequency or incidence in the ઉપ-સહારા આફ્રિકન ancestry group, in Gujarati. Coherent child of medical/ancestry.txt. This list is a PREVALENCE SIGNAL, NOT AN EXCLUSIVE ONE: every condition here occurs in every population, and a raised frequency in one ancestry group is never a reason to rule a diagnosis out in another.
+locale: gu
+---
+સિકલ સેલ એનિમિયા
+G6PD ઊણપ
+આલ્ફા થેલેસેમિયા
+સાર્કોઇડોસિસ
+કેલોઇડ
+ફાઇબ્રોઇડ
+લેક્ટોઝ અસહિષ્ણુતા

@@ -1,0 +1,42 @@
+---
+description: Medical specialty, in Gujarati. Transliterated for the same reason as medical/specialtyCoherent.txt — Indian medicine runs in English and this is what a hospital signboard says. આયુર્વેદ, હોમિયોપથી, યુનાની, નેચરોપથી and યોગ ચિકિત્સા are on the list because in India they are LICENSED MEDICAL SYSTEMS with five-year degrees, their own state registers and their own hospitals, not fringe practice — Gujarat has government Ayurveda colleges and an Ayurvedic university at Jamnagar, and a Gujarati patient may well be referred to one.
+locale: gu
+---
+જનરલ મેડિસિન
+ફેમિલી મેડિસિન
+કાર્ડિયોલોજી
+ન્યુરોલોજી
+ન્યુરોસર્જરી
+ઓન્કોલોજી
+હિમેટોલોજી
+ડર્મેટોલોજી
+ગેસ્ટ્રોએન્ટેરોલોજી
+એન્ડોક્રિનોલોજી
+પલ્મોનોલોજી
+નેફ્રોલોજી
+યુરોલોજી
+ઓર્થોપેડિક્સ
+રુમેટોલોજી
+જનરલ સર્જરી
+પ્લાસ્ટિક સર્જરી
+કાર્ડિયાક સર્જરી
+ગાયનેકોલોજી
+પ્રસૂતિશાસ્ત્ર
+બાળરોગ
+નિયોનેટોલોજી
+જેરિયાટ્રિક્સ
+સાયકિયાટ્રી
+નેત્રરોગ
+કાન-નાક-ગળા
+દંતચિકિત્સા
+એનેસ્થેસિયા
+રેડિયોલોજી
+પેથોલોજી
+માઇક્રોબાયોલોજી
+ઇમરજન્સી મેડિસિન
+ફિઝિયોથેરાપી
+આયુર્વેદ
+હોમિયોપથી
+યુનાની
+નેચરોપથી
+યોગ ચિકિત્સા

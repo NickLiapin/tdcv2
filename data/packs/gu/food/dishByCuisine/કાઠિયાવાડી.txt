@@ -1,0 +1,12 @@
+---
+description: Dishes of કાઠિયાવાડી cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+બાજરીનો રોટલો
+રીંગણનો ઓળો
+સેવ ટામેટા
+લસણની ચટણી
+ખીચડી-કઢી
+છાશ
+ગોળ-ઘી
+ડુંગળીનું શાક

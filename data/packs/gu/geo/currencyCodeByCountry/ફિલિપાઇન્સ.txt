@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of ફિલિપાઇન્સ. Codes are three Latin letters everywhere, Gujarati text included. Coherent child of geo/country.txt.
+locale: gu
+---
+PHP

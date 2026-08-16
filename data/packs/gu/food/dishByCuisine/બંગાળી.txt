@@ -1,0 +1,12 @@
+---
+description: Dishes of બંગાળી cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+માછલીની કરી
+શુક્તો
+આલૂ પોસ્તો
+રસગુલ્લા
+સંદેશ
+મિષ્ટી દોઈ
+લુચી
+ચોળાની દાળ

@@ -1,0 +1,37 @@
+---
+description: Academic degree, in Indian Gujarati usage. Indian degree abbreviations are written in Latin letters even in Gujarati prose — a Gujarati CV says B.Com., not a transliteration — which is why they appear that way here. B.Com. leads the list deliberately: commerce is by a wide margin the most-taken undergraduate stream in Gujarat, in a state whose economy is trade and where a family business is the normal destination. B.A. (Hons) and the Western "bachelor/master" wording are not used; the Indian forms are.
+locale: gu
+---
+B.Com.
+B.A.
+B.Sc.
+B.E.
+B.Tech.
+B.B.A.
+B.C.A.
+B.Ed.
+LL.B.
+MBBS
+BAMS
+BHMS
+B.Pharm.
+B.Arch.
+M.Com.
+M.A.
+M.Sc.
+M.E.
+M.Tech.
+MBA
+MCA
+M.Ed.
+LL.M.
+MD
+MS
+M.Pharm.
+Ph.D.
+ડિપ્લોમા
+ITI પ્રમાણપત્ર
+CA
+CS
+ICWA
+પ્રમાણપત્ર અભ્યાસક્રમ

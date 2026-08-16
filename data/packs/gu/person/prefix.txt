@@ -1,0 +1,36 @@
+---
+description: Name title or prefix used in Gujarati. શ્રી (for men) and શ્રીમતી (married women) are the everyday written titles and are far commoner in Gujarati than the English-derived ones; કુ. is Miss. Note that Gujarati leans on the SUFFIXES -ભાઈ and -બહેન in speech where English would use a prefix, so a Gujarati letter is as likely to open રમેશભાઈ as શ્રી રમેશ. પૂજ્ય and આદરણીય are respectful forms of address for elders and public figures. The religious titles are community-specific and a config should not mix them: પંડિત and આચાર્ય are Hindu, મુનિ, આચાર્ય and સાધ્વી are Jain, મૌલવી, હાફિઝ and હાજી are Muslim, દસ્તૂરજી and એરવદ are Parsi priests, and સ્વામી and શાસ્ત્રી belong to the Swaminarayan orders that are Gujarat's own.
+locale: gu
+---
+શ્રી
+શ્રીમતી
+કુ.
+ડૉ.
+પ્રો.
+પૂજ્ય
+આદરણીય
+પંડિત
+આચાર્ય
+સ્વામી
+શાસ્ત્રી
+મુનિ
+સાધ્વી
+મહારાજ
+ગુરુ
+ઠાકોર
+દરબાર
+શેઠ
+મૌલવી
+હાફિઝ
+હાજી
+દસ્તૂરજી
+એરવદ
+સર
+શ્રીયુત
+ચિરંજીવી
+સૌભાગ્યવતી
+ભાઈશ્રી
+બહેનશ્રી
+કર્નલ
+મેજર
+કેપ્ટન

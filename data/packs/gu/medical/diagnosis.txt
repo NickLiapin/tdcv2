@@ -1,0 +1,82 @@
+---
+description: General medical diagnosis in Gujarati. The disease mix is Indian rather than European and the difference is visible: infectious disease is far more prominent — મેલેરિયા, ડેન્ગ્યુ, ચિકનગુનિયા, ટાઇફોઇડ, ક્ષય, કમળો and લેપ્ટોસ્પાયરોસિસ are all ordinary monsoon-season diagnoses in Gujarat, not tropical curiosities — alongside a very heavy non-communicable burden of diabetes, hypertension and early coronary disease. મુખનું કેન્સર is unusually high for the reason given in medical/diagnosisByAncestry. સિલિકોસિસ is here because Gujarat's agate-grinding and stone-quarrying trades, and Surat's diamond-polishing units, produce it. Written in Gujarati, but note that a real Indian case sheet is as likely to carry the English name — Gujarati medical prose is bilingual — so a config modelling clinical records rather than patient-facing text may want the English form instead.
+locale: gu
+---
+ડાયાબિટીસ
+ઊંચું લોહીનું દબાણ
+હૃદયરોગ
+હૃદયરોગનો હુમલો
+લકવો
+દમ
+ક્રોનિક બ્રોંકાઇટિસ
+સીઓપીડી
+ક્ષય
+ન્યુમોનિયા
+સિલિકોસિસ
+મેલેરિયા
+ડેન્ગ્યુ
+ચિકનગુનિયા
+ટાઇફોઇડ
+કોલેરા
+કમળો
+હેપેટાઇટિસ બી
+હેપેટાઇટિસ સી
+લેપ્ટોસ્પાયરોસિસ
+ઝાડા-ઊલટી
+આંતરડાનો ચેપ
+પેશાબમાર્ગનો ચેપ
+ત્વચાનો ચેપ
+દાદર
+ખરજવું
+સોરાયસિસ
+ખીલ
+કોઢ
+શીળસ
+એલર્જી
+સાઇનસનો સોજો
+કાનનો ચેપ
+ટોન્સિલનો સોજો
+આધાશીશી
+વાઈ
+પાર્કિન્સન
+સ્મૃતિભ્રંશ
+હતાશા
+ચિંતાનો વિકાર
+અનિદ્રા
+સ્કિઝોફ્રેનિયા
+બાયપોલર વિકાર
+વ્યસન
+થાઇરોઇડની તકલીફ
+સ્થૂળતા
+લોહની ઊણપનો પાંડુરોગ
+વિટામિન ડીની ઊણપ
+વિટામિન બી૧૨ની ઊણપ
+બીટા થેલેસેમિયા
+સિકલ સેલ એનિમિયા
+G6PD ઊણપ
+સંધિવા
+ગાઉટ
+ઘૂંટણનો ઘસારો
+કમરની ગાદી ખસવી
+હાડકાંનું પોચાપણું
+મૂત્રપિંડની પથરી
+ક્રોનિક કિડની રોગ
+પિત્તાશયની પથરી
+એસિડિટી
+પેપ્ટિક અલ્સર
+યકૃતનું સિરોસિસ
+ફેટી લિવર
+મુખનું કેન્સર
+ફેફસાંનું કેન્સર
+આંતરડાનું કેન્સર
+જઠરનું કેન્સર
+લોહીનું કેન્સર
+મોતિયો
+ઝામર
+દ્રષ્ટિની ખામી
+બહેરાશ
+દાંતનો સડો
+પેઢાંનો રોગ
+સાપનું ઝેર
+ગરમીનો લૂ
+કુપોષણ

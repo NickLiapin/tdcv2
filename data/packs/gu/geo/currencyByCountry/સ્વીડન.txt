@@ -1,0 +1,5 @@
+---
+description: Currency of સ્વીડન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+સ્વીડિશ ક્રોના

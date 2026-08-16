@@ -1,0 +1,30 @@
+---
+description: Kind of telecom service or plan family, in Gujarati. These are TYPES of service rather than named operators — a named Indian telecom company is country data and belongs in the India country pack. Two entries reflect the Indian market: પ્રીપેડ is the dominant arrangement by a very long way, since the overwhelming majority of Indian mobile connections are prepaid rather than contract, and ડેટા-ઓન્લી પ્લાન and અનલિમિટેડ કોલિંગ are the shapes Indian tariffs actually take.
+locale: gu
+---
+પ્રીપેડ
+પોસ્ટપેડ
+ડેટા-ઓન્લી પ્લાન
+અનલિમિટેડ કોલિંગ
+ટોકટાઇમ રિચાર્જ
+વેલિડિટી રિચાર્જ
+રોમિંગ પેક
+આંતરરાષ્ટ્રીય રોમિંગ
+બ્રોડબેન્ડ
+ફાઇબર
+લેન્ડલાઇન
+DTH
+IPTV
+લીઝ્ડ લાઇન
+MPLS
+સેટેલાઇટ ફોન
+IoT કનેક્શન
+M2M
+બલ્ક SMS
+કોર્પોરેટ પ્લાન
+ફેમિલી પ્લાન
+સ્ટુડન્ટ પ્લાન
+સિનિયર સિટિઝન પ્લાન
+eSIM
+હોટસ્પોટ
+ડોંગલ

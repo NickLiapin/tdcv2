@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in પલ્મોનોલોજી, in Gujarati. Coherent child of medical/specialtyCoherent.txt.
+locale: gu
+---
+દમ
+ક્રોનિક બ્રોંકાઇટિસ
+ક્ષય
+ન્યુમોનિયા
+સીઓપીડી
+સિલિકોસિસ

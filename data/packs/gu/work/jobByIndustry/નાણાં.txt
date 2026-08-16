@@ -1,0 +1,10 @@
+---
+description: Job titles in the નાણાં sector, in Gujarati. Coherent child of work/industryCoherent.txt.
+locale: gu
+---
+ચાર્ટર્ડ એકાઉન્ટન્ટ
+હિસાબનીશ
+બેંક અધિકારી
+શેર દલાલ
+વીમા એજન્ટ
+ઓડિટર

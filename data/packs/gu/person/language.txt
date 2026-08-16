@@ -1,0 +1,44 @@
+---
+description: Language spoken, as Gujarati names languages. ગુજરાતી first, then the languages a Gujarati household is actually likely to hold. કચ્છી is listed separately from Gujarati on purpose: it is the language of Kutch, is closer to Sindhi than to Gujarati, and is written in the Gujarati script — its speakers are counted as Gujarati-speaking in the census but do not regard it as the same language. Likewise મેમણી (the Memon community), પારસી ગુજરાતી (the distinct Parsi register, with its own vocabulary and its own famously different word order) and ભીલી, વસાવી and ડાંગી (the Bhil languages of eastern Gujarat) are separate speech varieties that the record usually folds into "Gujarati". The diaspora entries at the end are real: Gujarati households in Britain, East Africa and the United States are commonly trilingual, and the East African generation speaks Swahili.
+locale: gu
+---
+ગુજરાતી
+કચ્છી
+હિન્દી
+અંગ્રેજી
+મરાઠી
+સિંધી
+ઉર્દૂ
+સંસ્કૃત
+પ્રાકૃત
+અર્ધમાગધી
+રાજસ્થાની
+મારવાડી
+પંજાબી
+બંગાળી
+તમિલ
+તેલુગુ
+કન્નડ
+મલયાલમ
+ઓડિયા
+આસામી
+કોંકણી
+નેપાળી
+ભીલી
+વસાવી
+ડાંગી
+મેમણી
+પારસી ગુજરાતી
+અરબી
+ફારસી
+સ્વાહિલી
+પોર્ટુગીઝ
+ફ્રેન્ચ
+સ્પેનિશ
+જર્મન
+રશિયન
+ચીની
+જાપાનીઝ
+કોરિયન
+થાઈ
+ઇન્ડોનેશિયન

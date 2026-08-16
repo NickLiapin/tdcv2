@@ -1,0 +1,45 @@
+---
+description: Generic drug name. THESE STAY IN LATIN LETTERS and that is deliberate: India's pharmacopoeia, its prescriptions and its pharmacy shelves use international non-proprietary names in English, and a Gujarati doctor writes Metformin on the pad. Gujarat has a particular claim on this list — the state is one of India's largest pharmaceutical manufacturing bases, and India supplies a large share of the world's generic medicines.
+locale: gu
+---
+Paracetamol
+Ibuprofen
+Diclofenac
+Aspirin
+Amoxicillin
+Azithromycin
+Ciprofloxacin
+Doxycycline
+Cefixime
+Metronidazole
+Metformin
+Glimepiride
+Insulin
+Atorvastatin
+Rosuvastatin
+Amlodipine
+Telmisartan
+Losartan
+Atenolol
+Metoprolol
+Enalapril
+Furosemide
+Omeprazole
+Pantoprazole
+Ranitidine
+Ondansetron
+Domperidone
+Cetirizine
+Levocetirizine
+Montelukast
+Salbutamol
+Budesonide
+Prednisolone
+Levothyroxine
+Warfarin
+Clopidogrel
+Sertraline
+Fluoxetine
+Alprazolam
+Iron and Folic Acid
+Calcium and Vitamin D3

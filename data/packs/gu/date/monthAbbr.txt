@@ -1,0 +1,16 @@
+---
+description: Abbreviated Gregorian month name in Gujarati. Gujarati abbreviates by truncating and adding a full stop; મે, જૂન and જુલાઈ are already short enough that they are not abbreviated at all, which is why three entries here are identical to their full forms in date/month.txt.
+locale: gu
+---
+જાન્યુ.
+ફેબ્રુ.
+માર્ચ
+એપ્રિલ
+મે
+જૂન
+જુલાઈ
+ઑગ.
+સપ્ટે.
+ઑક્ટો.
+નવે.
+ડિસે.

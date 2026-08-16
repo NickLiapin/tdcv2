@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list. THE ORDER IS NOT NEGOTIABLE FOR AN INDIAN LOCALE: cricket is not one sport among several here, it is overwhelmingly the sport, and a config that draws these uniformly will produce a Gujarat that does not exist. કબડ્ડી and ખો-ખો are indigenous Indian team sports played competitively in schools and professionally in national leagues — Gujarat has a Pro Kabaddi franchise — and they are not folk games. હોકી is field hockey, India's formal national game; ice hockey does not exist here. Parent of sport/positionBySport.
+locale: gu
+---
+ક્રિકેટ
+ફૂટબોલ
+હોકી
+કબડ્ડી
+ખો-ખો
+બેડમિન્ટન
+વોલીબોલ
+ટેનિસ

@@ -1,0 +1,5 @@
+---
+description: Currency of દક્ષિણ આફ્રિકા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+દક્ષિણ આફ્રિકન રેન્ડ

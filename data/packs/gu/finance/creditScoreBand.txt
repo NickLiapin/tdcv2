@@ -1,0 +1,9 @@
+---
+description: Credit score band, in Gujarati. India uses the CIBIL score, which runs 300 to 900 rather than the American 300-850, so the numeric cut-offs behind these labels are different and a config must not reuse a US band table. Note that a very large part of Gujarat's small-business credit never touches this system at all — it runs on trade credit, family lending and the reputation networks that also gave rise to the અંગડિયા couriers, so a row with no score is a realistic row.
+locale: gu
+---
+ખૂબ નબળો
+નબળો
+સામાન્ય
+સારો
+ઉત્તમ

@@ -1,0 +1,26 @@
+---
+description: Metal name in Gujarati. સોનું comes first because gold is not an ornament category in Gujarat but a savings instrument — households buy it at Dhanteras and Akshaya Tritiya, pledge it for credit (see finance/loanType.txt), and pass it down as a daughter's share. પિત્તળ and કાંસું matter because the Kansara metalworking caste of Gujarat still makes household vessels in them, and a Gujarati kitchen keeps brass and bronze pots that a European one would not.
+locale: gu
+---
+સોનું
+ચાંદી
+પિત્તળ
+તાંબુ
+કાંસું
+લોખંડ
+પોલાદ
+સ્ટેનલેસ સ્ટીલ
+એલ્યુમિનિયમ
+જસત
+સીસું
+કલાઈ
+નિકલ
+પ્લેટિનમ
+પારો
+ટાઇટેનિયમ
+ક્રોમિયમ
+મેંગેનીઝ
+કોબાલ્ટ
+ટંગસ્ટન
+યુરેનિયમ
+મેગ્નેશિયમ

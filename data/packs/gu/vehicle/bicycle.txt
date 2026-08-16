@@ -1,0 +1,21 @@
+---
+description: Kind of bicycle, in Gujarati. The first entries are the Indian utility bicycle in its ordinary forms — the heavy roadster with a carrier over the back wheel is still the commonest bicycle in Gujarat, used for work rather than sport.
+locale: gu
+---
+રોડસ્ટર
+સિટી સાયકલ
+કેરિયર સાયકલ
+માલવાહક સાયકલ
+બાળ સાયકલ
+ટ્રાયસિકલ
+પર્વત સાયકલ
+રેસિંગ સાયકલ
+હાઇબ્રિડ સાયકલ
+ગિયર સાયકલ
+ફોલ્ડિંગ સાયકલ
+BMX
+ઇલેક્ટ્રિક સાયકલ
+ટેન્ડમ
+રિકમ્બન્ટ
+ટૂરિંગ સાયકલ
+ફેટ બાઇક

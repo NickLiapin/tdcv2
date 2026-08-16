@@ -1,0 +1,5 @@
+---
+description: Capital of મ્યાનમાર, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+નેપીડો

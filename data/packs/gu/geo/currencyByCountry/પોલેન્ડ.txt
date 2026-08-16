@@ -1,0 +1,5 @@
+---
+description: Currency of પોલેન્ડ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+પોલિશ ઝ્લોટી

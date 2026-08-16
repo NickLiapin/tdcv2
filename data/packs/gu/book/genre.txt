@@ -1,0 +1,36 @@
+---
+description: Book genre in Gujarati. Three of these are Gujarati literary forms with no clean English equivalent and a config should not translate them as "poem". ગઝલ is the Urdu-derived lyric form, which Gujarati adopted so thoroughly that it is now a mainstream Gujarati genre with its own canon. મુક્તક is the standalone quatrain. ચરિત્ર and આત્મકથા are separate in Gujarati publishing, and આત્મકથા in particular is a heavyweight category because Gandhi's સત્યના પ્રયોગો is the most-read Gujarati book ever written. પ્રવાસવર્ણન (travel writing) is likewise a bigger commercial category in Gujarati than in most literatures.
+locale: gu
+---
+નવલકથા
+ટૂંકી વાર્તા
+લઘુકથા
+કવિતા
+ગઝલ
+મુક્તક
+ગીત
+નાટક
+એકાંકી
+નિબંધ
+આત્મકથા
+ચરિત્ર
+પ્રવાસવર્ણન
+ઇતિહાસ
+ધર્મ
+તત્ત્વજ્ઞાન
+આધ્યાત્મિક
+વિજ્ઞાન
+વિજ્ઞાનકથા
+રહસ્યકથા
+જાસૂસી
+હાસ્ય
+બાળસાહિત્ય
+લોકકથા
+પુરાણ
+સંશોધન
+પાઠ્યપુસ્તક
+શબ્દકોશ
+રસોઈ
+આરોગ્ય
+સ્વ-વિકાસ
+વ્યવસાય

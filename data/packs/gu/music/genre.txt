@@ -1,0 +1,39 @@
+---
+description: Music genre in Gujarati. The first block is Gujarati and has no international equivalent. ગરબા is the circle song-dance of Navratri and is the largest participatory musical form in the state; રાસ is its stick-dance partner. સુગમ સંગીત — "light music" — is a genuine Gujarati concert genre, art songs set to Gujarati poetry, with its own canon of singers. ડાયરો is an all-night Kathiawadi gathering of folk song, couplets and storytelling, and is a live commercial circuit today. હવેલી સંગીત is the temple music of the Pushtimarg Vaishnav sect, which was founded in Gujarat and sings to Krishna at fixed hours of the day. ભવાઈ is Gujarat's folk theatre with its own musical idiom, announced by the ભૂંગળ trumpet. પ્રભાતિયાં are dawn hymns.
+locale: gu
+---
+ગરબા
+રાસ
+ગરબી
+સુગમ સંગીત
+લોકગીત
+ડાયરો
+ભજન
+કીર્તન
+ધૂન
+હવેલી સંગીત
+પ્રભાતિયાં
+આરતી
+સ્તવન
+ભવાઈ
+દુહા-છંદ
+હિન્દુસ્તાની શાસ્ત્રીય
+કર્ણાટક શાસ્ત્રીય
+ઠુમરી
+ખયાલ
+ધ્રુપદ
+ગઝલ
+કવ્વાલી
+સૂફી
+ફિલ્મી
+પોપ
+રોક
+હિપ હોપ
+રેપ
+ઇલેક્ટ્રોનિક
+જાઝ
+બ્લૂઝ
+શાસ્ત્રીય પશ્ચિમી
+રેગે
+કન્ટ્રી
+ફ્યુઝન

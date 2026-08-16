@@ -1,0 +1,20 @@
+---
+description: Room in a Gujarati house. પૂજા રૂમ is standard rather than optional — a great many Gujarati homes set aside a dedicated space or niche for the household shrine, and builders advertise it. ઓટલો is the raised platform at the front door where people sit in the evening, and પરસાળ the covered veranda; both are ordinary parts of an older Gujarati house and neither has an English name. અગાસી is the flat roof terrace, which in Gujarat is a functional room — people dry papad and chillies on it, sleep on it in summer and fly kites from it in January.
+locale: gu
+---
+બેઠક ખંડ
+શયનખંડ
+રસોડું
+જમવાનો ખંડ
+પૂજા રૂમ
+અભ્યાસ ખંડ
+સ્નાનગૃહ
+શૌચાલય
+પરસાળ
+ઓટલો
+અગાસી
+બાલ્કની
+સ્ટોર રૂમ
+નોકરનો ખંડ
+ગેરેજ
+ભોંયરું

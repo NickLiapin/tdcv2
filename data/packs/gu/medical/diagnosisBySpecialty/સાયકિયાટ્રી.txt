@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in સાયકિયાટ્રી, in Gujarati. Coherent child of medical/specialtyCoherent.txt.
+locale: gu
+---
+હતાશા
+ચિંતાનો વિકાર
+બાયપોલર વિકાર
+સ્કિઝોફ્રેનિયા
+વ્યસન
+અનિદ્રા

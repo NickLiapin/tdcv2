@@ -1,0 +1,8 @@
+---
+description: Season in Gujarati. GUJARAT HAS THREE SEASONS, NOT FOUR, and this is the everyday division every Gujarati uses: ઉનાળો (summer, roughly March to June, and brutal — inland Gujarat passes 45 °C), ચોમાસું (the monsoon, mid-June to September, on which the entire agricultural year depends and whose failure is a state emergency), and શિયાળો (winter, November to February, mild). There is no spring or autumn in this scheme; the year is organised around whether the rain has come. The classical Sanskrit six-ṛtu division (વસંત, ગ્રીષ્મ, વર્ષા, શરદ, હેમંત, શિશિર) is known to any educated Gujarati and appears in poetry, in the almanac and in festival names, so it is carried here as the fourth entry rather than being silently dropped — but a config asking what season it is in Gujarat should draw one of the first three.
+locale: gu
+---
+ઉનાળો
+ચોમાસું
+શિયાળો
+વસંત

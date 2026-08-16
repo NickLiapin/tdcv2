@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.txt.
+locale: gu
+---
+પ્રોસ્ટેટ વૃદ્ધિ
+પ્રોસ્ટેટાઇટિસ
+પ્રોસ્ટેટ કેન્સર
+વૃષણનું કેન્સર
+શિશ્નનું કેન્સર
+વેરિકોસીલ
+હાઇડ્રોસીલ
+ફાયમોસિસ
+પેરાફાયમોસિસ
+અંડકોષ ઊતરેલ ન હોવો
+વૃષણનું મરોડાવું
+એપિડિડાયમાઇટિસ
+પુરુષ વંધ્યત્વ
+ઇરેક્ટાઇલ ડિસફંક્શન
+શીઘ્રપતન
+ગાયનેકોમેસ્ટિયા
+વૃષણનો સોજો
+શુક્રાણુની ઓછી સંખ્યા
+પુરુષ હાયપોગોનેડિઝમ
+પેરોની રોગ

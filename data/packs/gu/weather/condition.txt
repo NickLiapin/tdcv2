@@ -1,0 +1,20 @@
+---
+description: Weather condition in Gujarati. The list is organised around Gujarat's real year rather than a temperate one: લૂ is the searing dry summer wind that inland Gujarat gets from April to June and is a named public-health hazard, not a poetic word; ધોધમાર વરસાદ and ઝાપટું are monsoon rain in its two ordinary intensities; and the winter entries are mild because Gujarati winter is. Snow does not occur in Gujarat and is deliberately absent.
+locale: gu
+---
+સ્વચ્છ આકાશ
+તડકો
+આકરો તડકો
+લૂ
+ઉકળાટ
+ભેજવાળું
+આંશિક વાદળછાયું
+વાદળછાયું
+ઝાપટું
+વરસાદ
+ધોધમાર વરસાદ
+ગાજવીજ સાથે વરસાદ
+ઝરમર
+ધુમ્મસ
+ઠંડી
+કડકડતી ઠંડી

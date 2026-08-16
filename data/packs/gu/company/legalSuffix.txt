@@ -1,0 +1,44 @@
+---
+description: Legal form suffix on a company name, in Gujarati usage. These are the forms Indian company law recognises and a Gujarati firm writes them in Latin abbreviations even in Gujarati prose — "ગુજરાત ટેક્સટાઇલ્સ પ્રા. લિ." is the ordinary written shape. Two are worth flagging: સહકારી મંડળી (cooperative society) is a heavyweight form in Gujarat rather than a marginal one — the state's dairy sector, Amul included, is built on village cooperatives, and so is most of its urban housing — and હિન્દુ અવિભક્ત કુટુંબ (HUF) is a distinctively Indian legal person, a joint Hindu family taxed as a single entity, with no equivalent anywhere in Europe.
+locale: gu
+---
+પ્રા. લિ.
+લિ.
+પ્રાઇવેટ લિમિટેડ
+લિમિટેડ
+LLP
+OPC
+પેઢી
+ભાગીદારી પેઢી
+એકમાલિકી
+સહકારી મંડળી
+સહકારી ભંડાર
+સંઘ
+મંડળ
+ટ્રસ્ટ
+ચેરિટેબલ ટ્રસ્ટ
+ફાઉન્ડેશન
+સોસાયટી
+હિન્દુ અવિભક્ત કુટુંબ
+HUF
+એન્ડ સન્સ
+એન્ડ કંપની
+એન્ડ બ્રધર્સ
+બ્રધર્સ
+એસોસિએટ્સ
+ગ્રુપ
+હોલ્ડિંગ્સ
+કોર્પોરેશન
+નિગમ
+ઉદ્યોગ
+ઉદ્યોગ સમૂહ
+સંસ્થા
+કેન્દ્ર
+સ્ટોર
+ભંડાર
+એજન્સી
+સેવા
+પ્રતિષ્ઠાન
+કારખાનું
+મિલ
+વર્ક્સ

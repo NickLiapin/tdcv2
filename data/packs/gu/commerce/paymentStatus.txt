@@ -1,0 +1,14 @@
+---
+description: Payment status label in Gujarati.
+locale: gu
+---
+બાકી
+પ્રક્રિયામાં
+સફળ
+નિષ્ફળ
+આંશિક
+રિફંડ થયું
+પરત ખેંચ્યું
+મુદત વીતી
+વિવાદમાં
+અધિકૃત

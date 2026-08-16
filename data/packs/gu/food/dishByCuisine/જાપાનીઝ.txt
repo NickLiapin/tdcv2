@@ -1,0 +1,12 @@
+---
+description: Dishes of જાપાનીઝ cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+સુશી
+રામેન
+ટેમ્પુરા
+મિસો સૂપ
+ટેરિયાકી
+ઉડોન
+ઓનિગિરી
+એડામામે

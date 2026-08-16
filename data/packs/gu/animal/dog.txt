@@ -1,0 +1,29 @@
+---
+description: Dog breed name in Gujarati. The list opens with the Indian breeds and that is deliberate: કાઠિયાવાડી (the Kathiawadi or Pashmi hound of Saurashtra) and મુધોળ are Gujarat and Deccan sighthounds bred for hare and blackbuck, and પંડિકોના, રામપુર, રાજપલયમ and ચિપ્પિપરાઈ are the other Indian hounds. ગદ્દી is the Himalayan flock guardian. The ordinary Indian street dog, દેશી કૂતરો, is the commonest dog in Gujarat by an enormous margin and belongs on any honest list.
+locale: gu
+---
+દેશી કૂતરો
+કાઠિયાવાડી
+મુધોળ
+પંડિકોના
+રામપુર હાઉન્ડ
+રાજપલયમ
+ચિપ્પિપરાઈ
+ગદ્દી
+હિમાલયન શીપડોગ
+લેબ્રાડોર
+ગોલ્ડન રિટ્રીવર
+જર્મન શેફર્ડ
+રોટવીલર
+ડોબરમેન
+બોક્સર
+ગ્રેટ ડેન
+પગ
+બીગલ
+ડાલમેશિયન
+શિહ ત્ઝુ
+પોમેરેનિયન
+કોકર સ્પેનિયલ
+ડાચશુંડ
+સેન્ટ બર્નાર્ડ
+હસ્કી

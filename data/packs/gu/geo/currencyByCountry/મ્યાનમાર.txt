@@ -1,0 +1,5 @@
+---
+description: Currency of મ્યાનમાર, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+મ્યાનમાર ક્યાટ

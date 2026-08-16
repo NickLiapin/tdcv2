@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Gujarati. Amounts are in Indian rupees (₹). The bands use the INDIAN NUMBERING SYSTEM, which groups by લાખ (1 lakh = 100,000) and કરોડ (1 crore = 10,000,000): a Gujarati salary is quoted as ₹12 લાખ and never as ₹1.2 million, and a config that converts to millions produces a number no reader here parses at a glance. If a config formats a raw figure for a Gujarati reader it must also use the Indian 2,2,3 digit grouping — ₹12,00,000, not the Western ₹1,200,000. Gujarat is one of India's richest states by output, so these bands sit higher than an all-India set would.
+locale: gu
+---
+₹2 લાખથી ઓછું
+₹2–5 લાખ
+₹5–10 લાખ
+₹10–15 લાખ
+₹15–25 લાખ
+₹25–50 લાખ
+₹50 લાખ–1 કરોડ
+₹1 કરોડથી વધુ

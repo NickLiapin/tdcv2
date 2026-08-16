@@ -1,0 +1,20 @@
+---
+description: Horse breed name in Gujarati. કાઠિયાવાડી heads the list because it is Gujarat's own breed, from the Kathiawar peninsula, and is instantly recognisable: its ear tips curve inward until they touch or cross, a trait no other horse in the world has. મારવાડી is its Rajasthani sister breed with the same ears. ઝાંસ્કારી, મણિપુરી, ભૂટિયા and સ્પિતિ are the other Indian breeds. The rest are the international ones a Gujarati riding school or racecourse would name.
+locale: gu
+---
+કાઠિયાવાડી
+મારવાડી
+ઝાંસ્કારી
+મણિપુરી
+ભૂટિયા
+સ્પિતિ
+અરબી
+થોરોબ્રેડ
+અખલ-તેકે
+એન્ડાલુસિયન
+ફ્રીઝિયન
+અરેબિયન
+પોની
+શેટલેન્ડ
+ક્લાઇડ્સડેલ
+મસ્ટંગ

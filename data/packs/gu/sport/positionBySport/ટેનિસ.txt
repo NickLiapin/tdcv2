@@ -1,0 +1,8 @@
+---
+description: Playing positions in ટેનિસ, in Gujarati. Coherent child of sport/sportCoherent.txt.
+locale: gu
+---
+સિંગલ્સ ખેલાડી
+ડબલ્સ ખેલાડી
+બેઝલાઇનર
+સર્વ-એન્ડ-વોલી ખેલાડી

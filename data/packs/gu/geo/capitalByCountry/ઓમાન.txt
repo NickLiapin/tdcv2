@@ -1,0 +1,5 @@
+---
+description: Capital of ઓમાન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+મસ્કત

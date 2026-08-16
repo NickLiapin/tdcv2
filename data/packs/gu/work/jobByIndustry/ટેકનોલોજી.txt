@@ -1,0 +1,10 @@
+---
+description: Job titles in the ટેકનોલોજી sector, in Gujarati. Coherent child of work/industryCoherent.txt.
+locale: gu
+---
+સોફ્ટવેર એન્જિનિયર
+ડેટા વિશ્લેષક
+સિસ્ટમ એડમિનિસ્ટ્રેટર
+પ્રોડક્ટ મેનેજર
+પરીક્ષણ ઇજનેર
+નેટવર્ક ઇજનેર

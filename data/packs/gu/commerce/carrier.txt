@@ -1,0 +1,24 @@
+---
+description: Kind of parcel carrier, in Gujarati. These are TYPES of carrier rather than named companies — a named Indian courier is country data and belongs in the India country pack. Two entries have no European equivalent: અંગડિયા is the Gujarati courier institution, a network of trusted couriers who have carried cash, documents and diamonds between Ahmedabad, Surat, Rajkot and Mumbai for well over a century on nothing but reputation, and it is still how a great deal of value moves inside Gujarat; ટપાલ is the ordinary post. કેશ ઓન ડિલિવરી is listed because in India it is a delivery mode as much as a payment one.
+locale: gu
+---
+ટપાલ
+સ્પીડ પોસ્ટ
+રજિસ્ટર્ડ પોસ્ટ
+કુરિયર
+અંગડિયા
+હવાઈ કાર્ગો
+દરિયાઈ કાર્ગો
+રેલવે પાર્સલ
+ટ્રાન્સપોર્ટ
+ટેમ્પો સેવા
+લોકલ ડિલિવરી
+હાયપરલોકલ
+સાઇકલ ડિલિવરી
+ડ્રોન ડિલિવરી
+કેશ ઓન ડિલિવરી
+સ્વ-પિકઅપ
+ગોડાઉન પિકઅપ
+કોલ્ડ ચેઇન
+ભારે માલવાહક
+કન્ટેનર સેવા

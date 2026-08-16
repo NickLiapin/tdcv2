@@ -1,0 +1,54 @@
+---
+description: Common Gujarati verb, given as the -વું verbal noun, which is the citation form used by dictionaries and headlines. To use one in a sentence a config must conjugate it: Gujarati marks tense, person, number AND gender on the verb, and past-tense transitive clauses use an ergative construction where the subject takes -એ and the verb agrees with the object instead of the subject — so "the boy read the book" is છોકરાએ પુસ્તક વાંચ્યું, agreeing with the neuter book, not with the boy. No word list can carry that; it is why generated Gujarati prose needs a grammar and not just vocabulary.
+locale: gu
+---
+હોવું
+થવું
+કરવું
+જવું
+આવવું
+લેવું
+આપવું
+જોવું
+સાંભળવું
+બોલવું
+કહેવું
+પૂછવું
+જાણવું
+સમજવું
+શીખવું
+ભણવું
+લખવું
+વાંચવું
+ખાવું
+પીવું
+સૂવું
+ઊઠવું
+બેસવું
+ઊભા રહેવું
+ચાલવું
+દોડવું
+રમવું
+હસવું
+રડવું
+ગાવું
+નાચવું
+કામ કરવું
+બનાવવું
+તોડવું
+ખોલવું
+બંધ કરવું
+મૂકવું
+ઉપાડવું
+ફેંકવું
+પકડવું
+શોધવું
+મળવું
+રહેવું
+જીવવું
+મરવું
+ગમવું
+ચાહવું
+ડરવું
+યાદ કરવું
+ભૂલવું

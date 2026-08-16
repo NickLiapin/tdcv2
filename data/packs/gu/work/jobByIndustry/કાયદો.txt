@@ -1,0 +1,10 @@
+---
+description: Job titles in the કાયદો sector, in Gujarati. Coherent child of work/industryCoherent.txt.
+locale: gu
+---
+વકીલ
+ન્યાયાધીશ
+કાનૂની સલાહકાર
+નોટરી
+પેરાલીગલ
+કંપની સેક્રેટરી

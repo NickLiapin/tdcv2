@@ -1,0 +1,22 @@
+---
+description: Kind of venue, in Gujarati. વાડી is the essential one: most Gujarati weddings and community functions happen in a વાડી, a walled compound with a hall and a kitchen owned by a caste association or a housing society, and booking one is the first thing a family does. પાર્ટી પ્લોટ is its modern commercial successor and the word is Indian English used unchanged in Gujarati. ધર્મશાળા is pilgrim lodging. ગરબા ગ્રાઉન્ડ is a real seasonal venue category — large open grounds are leased and ticketed for the nine nights of Navratri.
+locale: gu
+---
+વાડી
+પાર્ટી પ્લોટ
+હોલ
+સભાગૃહ
+ટાઉન હોલ
+સામુદાયિક કેન્દ્ર
+ધર્મશાળા
+મંદિર પરિસર
+દેરાસર
+ગરબા ગ્રાઉન્ડ
+મેદાન
+સ્ટેડિયમ
+પ્રદર્શન કેન્દ્ર
+હોટેલ
+રિસોર્ટ
+ફાર્મહાઉસ
+ઓડિટોરિયમ
+શાળાનું પટાંગણ

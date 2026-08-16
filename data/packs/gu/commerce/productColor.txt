@@ -1,0 +1,58 @@
+---
+description: Colour as it appears on a product listing, in Gujarati. This is the retail colour vocabulary rather than the poetic one — see color/name.txt for the fuller set with the substance-derived names. The English loans (નેવી, બ્લેક, ગ્રે, બેજ) are what an Indian clothing or electronics listing actually uses alongside the Gujarati words, and a config should treat the mixture as correct rather than tidying it into one register.
+locale: gu
+---
+લાલ
+ઘેરો લાલ
+મરૂન
+ગુલાબી
+આછો ગુલાબી
+નારંગી
+કેસરી
+પીળો
+આછો પીળો
+સોનેરી
+લીલો
+ઘેરો લીલો
+પોપટી
+મહેંદી
+ઓલિવ
+વાદળી
+આસમાની
+નેવી
+ફિરોજી
+જાંબલી
+લવંડર
+જાંબુડી
+કથ્થાઈ
+બદામી
+તાંબાવરણો
+બેજ
+ક્રીમ
+આઇવરી
+સફેદ
+ધોળો
+કાળો
+બ્લેક
+ગ્રે
+રાખોડી
+ચાંદી
+રૂપેરી
+ખાખી
+ધૂમ્ર
+પરવાળી
+સમુદ્રી
+આકાશી
+દૂધિયો
+ચંદન
+કેસર
+મોરપીંછ
+ગુલમહોરી
+બહુરંગી
+ભાતવાળો
+પારદર્શક
+અર્ધપારદર્શક
+ચમકદાર
+મેટ
+ધાતુરંગી
+છાપકામવાળો

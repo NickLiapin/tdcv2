@@ -1,0 +1,5 @@
+---
+description: Capital of બાંગ્લાદેશ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ઢાકા

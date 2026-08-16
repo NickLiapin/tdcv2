@@ -1,0 +1,26 @@
+---
+description: Company department in Gujarati. Note that the two-letter abbreviation "HR" is the ordinary spoken word in an Indian office even in Gujarati conversation, but the file naming convention for this category is deliberately "workplace" and not "hr" — see workplace/benefit.txt.
+locale: gu
+---
+વહીવટ
+માનવ સંસાધન
+હિસાબ
+નાણાં
+ઓડિટ
+કાનૂની
+વેચાણ
+માર્કેટિંગ
+જાહેરાત
+ગ્રાહક સેવા
+ખરીદી
+ભંડાર
+ઉત્પાદન
+ગુણવત્તા
+જાળવણી
+સંશોધન અને વિકાસ
+માહિતી ટેકનોલોજી
+લોજિસ્ટિક્સ
+નિકાસ
+સલામતી
+તાલીમ
+જનસંપર્ક

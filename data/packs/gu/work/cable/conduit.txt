@@ -1,0 +1,11 @@
+---
+description: Kind of conduit a cable runs in, in Gujarati.
+locale: gu
+---
+PVC નળી
+GI નળી
+ફ્લેક્સિબલ નળી
+કેબલ ટ્રે
+ડક્ટ
+ટ્રંકિંગ
+ભૂગર્ભ નળી

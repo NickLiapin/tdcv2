@@ -1,0 +1,12 @@
+---
+description: Dishes of મુગલાઈ cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+બિરયાની
+કોરમા
+શાહી પનીર
+કબાબ
+રોગન જોશ
+નાન
+ફિરની
+મલાઈ કોફતા

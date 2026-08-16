@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier in Gujarati. The metal-and-stone ladder is the international convention and Gujarati uses the Gujarati words for the metals, which are the same ones in nature/metal.txt.
+locale: gu
+---
+કાંસ્ય
+રજત
+સુવર્ણ
+પ્લેટિનમ
+હીરક
+માણેક
+અમર
+પડકારક
+ગ્રાન્ડમાસ્ટર
+ચેમ્પિયન

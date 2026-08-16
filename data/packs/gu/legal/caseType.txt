@@ -1,0 +1,23 @@
+---
+description: Kind of legal case, in Gujarati. જમીન વિવાદ and બિનખેતી પરવાનગી sit high because land is the subject of a very large share of Gujarati litigation — see the ૭/૧૨ ઉતારો note in government/documentType.txt. ભાગીદારી વિવાદ (partnership dispute) and ચેક રિટર્ન are the commonest commercial matters in a trading economy where a great deal still runs on family firms and post-dated cheques.
+locale: gu
+---
+દીવાની દાવો
+ફોજદારી કેસ
+જમીન વિવાદ
+મિલકત વિવાદ
+વારસાઈ
+ભાગીદારી વિવાદ
+ચેક રિટર્ન
+વસૂલાત દાવો
+ભાડા વિવાદ
+છૂટાછેડા
+ભરણપોષણ
+બાળ કસ્ટડી
+ગ્રાહક ફરિયાદ
+શ્રમ વિવાદ
+અકસ્માત વળતર
+વીમા દાવો
+કરવેરા અપીલ
+જાહેર હિતની અરજી
+જામીન અરજી

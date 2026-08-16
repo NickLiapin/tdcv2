@@ -1,0 +1,15 @@
+---
+description: Booking status, in Gujarati. RAC and વેઇટિંગ લિસ્ટ are Indian railway categories carried into general travel usage: RAC means a confirmed seat but a shared berth, and a waitlisted ticket may or may not clear before departure — a booking state with no European equivalent.
+locale: gu
+---
+પુષ્ટિ થઈ
+બુક થયું
+વેઇટિંગ લિસ્ટ
+RAC
+ચુકવણી બાકી
+આંશિક ચુકવણી
+ચેક-ઇન થયું
+ચેક-આઉટ થયું
+રદ કર્યું
+રિફંડ થયું
+ન આવ્યા

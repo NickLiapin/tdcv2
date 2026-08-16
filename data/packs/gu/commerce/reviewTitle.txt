@@ -1,0 +1,30 @@
+---
+description: Headline a customer puts on a product review, in Gujarati. These are the phrasings an Indian review page actually carries; "પૈસા વસૂલ" — literally "the money is recovered" — is the standard Gujarati verdict for good value and is the single commonest positive review headline in the language.
+locale: gu
+---
+ખૂબ સરસ
+પૈસા વસૂલ
+ભલામણ કરું છું
+અપેક્ષા કરતાં સારું
+ગુણવત્તા ઉત્તમ
+બરાબર છે
+ઠીકઠાક
+ચાલે એવું
+થોડું નિરાશ
+પૈસા બગડ્યા
+ફોટા જેવું નથી
+બહુ મોંઘું
+સાઇઝ નાની પડી
+ટકાઉ નથી
+ઝડપી ડિલિવરી
+પેકિંગ સરસ
+તૂટેલું આવ્યું
+સેવા સારી
+ફરી ખરીદીશ
+ફરી નહીં ખરીદું
+બીજી વાર લીધું
+ભેટ માટે સરસ
+રોજિંદા વપરાશ માટે
+કિંમત પ્રમાણે સારું
+અસલી માલ
+નકલી લાગે છે

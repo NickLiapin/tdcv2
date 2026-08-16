@@ -1,0 +1,44 @@
+---
+description: Kind of building, in Gujarati. Four are specific to Gujarat and a config should keep them straight rather than collapsing them into "temple" and "house". દેરાસર is a JAIN temple and is not interchangeable with મંદિર; Gujarat has more of them than any other Indian state. અગિયારી is a Parsi fire temple, and the Parsi towns of south Gujarat — Navsari, Udvada, Surat — are where the Indian ones are. હવેલી means two different things and both are live: a merchant's courtyard townhouse, and a Pushtimarg Vaishnav temple, which is what the word means to most Gujaratis. પોળનું મકાન is the wooden carved house of an Ahmedabad pol. ચાલી is the single-room tenement row. વાડી is the community hall a caste or a society owns and where weddings happen. મિલ earns its place because Ahmedabad was "the Manchester of the East" and its textile mills shaped the city until they closed in the 1980s.
+locale: gu
+---
+ઘર
+મકાન
+બંગલો
+ફ્લેટ
+એપાર્ટમેન્ટ
+સોસાયટી
+ટેનામેન્ટ
+ચાલી
+હવેલી
+પોળનું મકાન
+ઝૂંપડું
+છાપરું
+ફાર્મહાઉસ
+ઓફિસ
+દુકાન
+શોરૂમ
+ગોડાઉન
+કારખાનું
+મિલ
+વર્કશોપ
+શાળા
+કોલેજ
+હોસ્પિટલ
+દવાખાનું
+મંદિર
+દેરાસર
+મસ્જિદ
+અગિયારી
+ચર્ચ
+ગુરુદ્વારા
+દરગાહ
+ધર્મશાળા
+વાડી
+હોટેલ
+રેસ્ટોરન્ટ
+મોલ
+બજાર
+ટાવર
+કોમ્પ્લેક્સ
+કિલ્લો

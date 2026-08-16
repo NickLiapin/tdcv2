@@ -1,0 +1,39 @@
+---
+description: Playing position, in Gujarati, across sports. The cricket terms come first because cricket dominates; note that Gujarati keeps the English cricket vocabulary in Gujarati script rather than translating it, which is why બેટ્સમેન and વિકેટકીપર look the way they do — a Gujarati commentary broadcast uses exactly these words.
+locale: gu
+---
+સલામી બેટ્સમેન
+બેટ્સમેન
+ઓલરાઉન્ડર
+વિકેટકીપર
+ફાસ્ટ બોલર
+સ્પિન બોલર
+ફિલ્ડર
+સ્લિપ ફિલ્ડર
+સુકાની
+ઉપસુકાની
+ગોલકીપર
+ડિફેન્ડર
+સેન્ટર બેક
+ફુલબેક
+હાફબેક
+મિડફિલ્ડર
+વિંગર
+ફોરવર્ડ
+સેન્ટર ફોરવર્ડ
+સ્ટ્રાઈકર
+રેઇડર
+કોર્નર
+કવર
+ચેઝર
+રનર
+પોલ ડાઇવર
+સેટર
+સ્પાઇકર
+લિબેરો
+બ્લોકર
+સર્વર
+સિંગલ્સ ખેલાડી
+ડબલ્સ ખેલાડી
+બેઝલાઇનર
+અનામત ખેલાડી

@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised carrier frequency or incidence in the ઉત્તર યુરોપીય ancestry group, in Gujarati. Coherent child of medical/ancestry.txt.
+locale: gu
+---
+સિસ્ટિક ફાઇબ્રોસિસ
+હિમોક્રોમેટોસિસ
+સેલિયાક રોગ
+ટાઇપ 1 ડાયાબિટીસ
+ત્વચાનું કેન્સર

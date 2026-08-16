@@ -1,0 +1,26 @@
+---
+description: Building or society amenity, in Gujarati. કોમન પ્લોટ is the shared open ground that Gujarati housing societies are legally required to keep and where children play and functions are held; પાર્ટી પ્લોટ is its commercial cousin. ધાબું (the roof terrace) and પાણીની ટાંકી are listed as amenities because in India they genuinely are — water supply is intermittent in most cities and a society's tank and borewell decide whether there is water in the taps.
+locale: gu
+---
+લિફ્ટ
+પાર્કિંગ
+કોમન પ્લોટ
+બગીચો
+બાળકોનું રમતનું સ્થળ
+જિમ
+સ્વિમિંગ પૂલ
+ક્લબ હાઉસ
+પાર્ટી પ્લોટ
+સામુદાયિક હોલ
+સીસીટીવી
+સુરક્ષા ગાર્ડ
+ઇન્ટરકોમ
+જનરેટર
+સોલાર પેનલ
+પાણીની ટાંકી
+બોરવેલ
+વરસાદી પાણી સંગ્રહ
+ધાબું
+મંદિર
+લોન્ડ્રી
+ઇન્ટરનેટ જોડાણ

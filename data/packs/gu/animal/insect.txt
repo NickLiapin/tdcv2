@@ -1,0 +1,24 @@
+---
+description: Insect name in Gujarati. તીડ (the desert locust) is not a curiosity here — swarms cross from Pakistan into the Banaskantha and Kutch districts of Gujarat and are a recurring agricultural emergency. કીડી, મંકોડો, માખી, મચ્છર and વંદો are the everyday household set.
+locale: gu
+---
+કીડી
+મંકોડો
+ઊધઈ
+માખી
+મચ્છર
+વંદો
+માંકડ
+જૂ
+ચાંચડ
+પતંગિયું
+ફૂદું
+ભમરો
+મધમાખી
+ભમરી
+તીતીઘોડો
+તીડ
+ખડમાકડી
+આગિયો
+દેડકો
+કરોળિયો

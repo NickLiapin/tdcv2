@@ -1,0 +1,54 @@
+---
+description: Cooking ingredient in Gujarati. The flours and pulses at the head are what a Gujarati kitchen is built on: ચણાનો લોટ (gram flour) alone gives dhokla, khandvi, kadhi, gota, ganthiya and every bhajia, and બાજરીનો and જુવારનો લોટ are the millets of the Saurashtra rotla. ઘી is the default cooking fat for anything festive and મગફળીનું તેલ (groundnut oil) for everything else — Gujarat is India's largest groundnut producer and the oil is pressed locally. કોકમ and આમલી supply sourness. Note that a Jain kitchen also avoids honey, and strict Jains avoid curd and any food kept overnight, so an ingredient list alone does not tell a config whether a dish is Jain-acceptable.
+locale: gu
+---
+ઘઉંનો લોટ
+ચણાનો લોટ
+બાજરીનો લોટ
+જુવારનો લોટ
+ચોખાનો લોટ
+રવો
+મેંદો
+ચોખા
+તુવેરદાળ
+મગદાળ
+ચણાદાળ
+અડદદાળ
+મસૂરદાળ
+મગ
+ચણા
+ચોળા
+રાજમા
+ઘી
+માખણ
+મગફળીનું તેલ
+તલનું તેલ
+સરસવનું તેલ
+દૂધ
+દહીં
+છાશ
+મલાઈ
+પનીર
+માવો
+ખાંડ
+ગોળ
+મધ
+આમલી
+કોકમ
+લીંબુ
+સોડા
+ખાવાનો સોડા
+ઈનો
+મીઠું
+સિંધાલૂણ
+કાજુ
+બદામ
+પિસ્તા
+દ્રાક્ષ
+સૂકું કોપરું
+તલ
+મગફળી
+પૌંઆ
+મમરા
+સાબુદાણા
+રાજગરાનો લોટ

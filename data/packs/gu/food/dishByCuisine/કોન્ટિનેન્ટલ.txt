@@ -1,0 +1,12 @@
+---
+description: Dishes of કોન્ટિનેન્ટલ cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+ગ્રિલ્ડ વેજિટેબલ્સ
+ઓ ગ્રેટિન
+વેજ સ્ટ્રોગનોફ
+ક્રીમ સૂપ
+સીઝર સલાડ
+રોસ્ટેડ પોટેટો
+વ્હાઇટ સોસ પાસ્તા
+સિઝલર

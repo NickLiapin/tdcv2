@@ -1,0 +1,12 @@
+---
+description: Dishes of ચાઈનીઝ cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+હક્કા નૂડલ્સ
+મંચૂરિયન
+ફ્રાઇડ રાઇસ
+ચિલી પનીર
+સ્પ્રિંગ રોલ
+સ્વીટ કોર્ન સૂપ
+શેઝવાન નૂડલ્સ
+ડિમ સમ

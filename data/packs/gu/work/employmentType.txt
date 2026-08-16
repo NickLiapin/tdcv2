@@ -1,0 +1,15 @@
+---
+description: Kind of employment, in Gujarati. અસંગઠિત ક્ષેત્ર (informal sector) belongs on any honest Indian list and belongs near the top rather than the bottom: something close to nine in ten Indian workers are employed informally, with no written contract, no provident fund and no fixed hours, and a synthetic Indian workforce that is all permanent and contractual is not a plausible one. રોજમદાર is the daily-wage labourer hired at a morning labour market. ખેતમજૂરી is agricultural day labour.
+locale: gu
+---
+કાયમી
+કરાર આધારિત
+હંગામી
+પ્રોબેશન
+પાર્ટ ટાઇમ
+રોજમદાર
+ખેતમજૂરી
+અસંગઠિત ક્ષેત્ર
+તાલીમાર્થી
+ફ્રીલાન્સ
+સ્વરોજગાર

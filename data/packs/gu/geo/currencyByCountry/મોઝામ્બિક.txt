@@ -1,0 +1,5 @@
+---
+description: Currency of મોઝામ્બિક, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+મોઝામ્બિકન મેટિકલ

@@ -1,0 +1,14 @@
+---
+description: Kind of loan, in Gujarati. સોના પરની લોન (gold loan) is a mainstream retail product in India and a very common one in Gujarat: households pledge ornaments for short-term credit against the gold they hold as savings, and there are whole lending chains built on it. સ્વસહાય જૂથ લોન is microfinance through a women's self-help group, which SEWA — founded in Ahmedabad in 1972 — did much to establish. ખેતી લોન and ટ્રેક્ટર લોન are agricultural credit.
+locale: gu
+---
+ઘર લોન
+વાહન લોન
+અંગત લોન
+શિક્ષણ લોન
+સોના પરની લોન
+વ્યાપાર લોન
+ખેતી લોન
+ટ્રેક્ટર લોન
+સ્વસહાય જૂથ લોન
+મિલકત સામે લોન

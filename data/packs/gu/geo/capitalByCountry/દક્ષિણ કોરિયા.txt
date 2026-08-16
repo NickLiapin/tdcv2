@@ -1,0 +1,5 @@
+---
+description: Capital of દક્ષિણ કોરિયા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+સિઓલ

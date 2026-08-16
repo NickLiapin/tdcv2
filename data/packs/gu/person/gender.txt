@@ -1,0 +1,8 @@
+---
+description: Gender label in Gujarati. Gujarati grammar has three genders and marks gender on adjectives and on the verb, so a generated sentence about a row must agree with this value; a config that formats free text and ignores it will produce visibly wrong Gujarati. અન્ય is the neutral option used on Indian forms, and ત્રીજી જાતિ is the legal third-gender category recognised in India since 2014.
+locale: gu
+---
+પુરુષ
+સ્ત્રી
+અન્ય
+ત્રીજી જાતિ

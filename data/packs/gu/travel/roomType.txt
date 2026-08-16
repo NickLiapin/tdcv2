@@ -1,0 +1,22 @@
+---
+description: Hotel room category, in Gujarati. Indian hotels sell rooms on a MEAL-PLAN basis and the plan is part of the room type — EP is room only, CP includes breakfast, MAP breakfast and one meal, AP all meals — and those three-letter codes appear on every Indian booking confirmation in Latin letters. ડોર્મિટરી and ધર્મશાળા રૂમ are real budget categories at pilgrimage sites.
+locale: gu
+---
+સ્ટાન્ડર્ડ
+ડિલક્સ
+સુપર ડિલક્સ
+એક્ઝિક્યુટિવ
+સ્યુટ
+ફેમિલી રૂમ
+સિંગલ
+ડબલ
+ટ્વિન
+ટ્રિપલ
+ડોર્મિટરી
+ધર્મશાળા રૂમ
+કોટેજ
+ટેન્ટ
+EP
+CP
+MAP
+AP

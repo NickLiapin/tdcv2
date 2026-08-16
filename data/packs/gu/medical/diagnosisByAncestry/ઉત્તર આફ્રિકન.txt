@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised carrier frequency or incidence in the ઉત્તર આફ્રિકન ancestry group, in Gujarati. Coherent child of medical/ancestry.txt.
+locale: gu
+---
+ફેમિલિયલ મેડિટેરેનિયન ફીવર
+G6PD ઊણપ
+બીટા થેલેસેમિયા
+લેક્ટોઝ અસહિષ્ણુતા
+બેહસેટ રોગ

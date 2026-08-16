@@ -1,0 +1,10 @@
+---
+description: Job titles in the શિક્ષણ sector, in Gujarati. Coherent child of work/industryCoherent.txt.
+locale: gu
+---
+શિક્ષક
+આચાર્ય
+પ્રાધ્યાપક
+ગ્રંથપાલ
+શાળા સંચાલક
+ટ્યુટર

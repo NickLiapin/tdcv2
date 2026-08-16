@@ -1,0 +1,28 @@
+---
+description: Role-playing character class in Gujarati. These are translations into Gujarati rather than transliterations of English, because Gujarati has a perfectly good vocabulary for warriors, archers, sages and thieves and a fantasy game localised into Gujarati uses it. યોદ્ધા, ધનુર્ધર, તપસ્વી, માયાવી and રાક્ષસ all carry epic-literature weight, since the Mahabharata and Ramayana are the reference frame a Gujarati reader brings to a fantasy setting.
+locale: gu
+---
+યોદ્ધા
+ધનુર્ધર
+તલવારબાજ
+ભાલાધારી
+ગદાધારી
+રક્ષક
+સેનાપતિ
+જાદુગર
+માયાવી
+તાંત્રિક
+ઋષિ
+તપસ્વી
+પુરોહિત
+વૈદ્ય
+ચોર
+ગુપ્તચર
+શિકારી
+ભટકતો સાધુ
+બંદીવાન
+રાક્ષસ
+યક્ષ
+ગંધર્વ
+કિન્નર
+નાગ

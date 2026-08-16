@@ -1,0 +1,5 @@
+---
+description: Currency of દક્ષિણ કોરિયા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+દક્ષિણ કોરિયન વોન

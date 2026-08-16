@@ -1,0 +1,13 @@
+---
+description: Number of people in a household. WRITTEN IN ARABIC DIGITS, and that is the right choice rather than a shortcut: Gujarati has its own digits ૦૧૨૩૪૫૬૭૮૯ (U+0AE6-U+0AEF) and they are still taught, printed on some government forms and used decoratively, but modern Gujarati newspapers, invoices, phone screens and price boards use Western digits almost without exception. A config that renders Gujarati numbers in Gujarati digits will look archaic. Note also that when a Gujarati number IS grouped with commas it uses the Indian 2,2,3 pattern — 12,00,000 not 1,200,000 — see person/incomeBracket.txt. Household sizes here run larger than a European list because the joint family (સંયુક્ત કુટુંબ), with a married son and his family in the parents' home, is still common in Gujarat.
+locale: gu
+---
+1
+2
+3
+4
+5
+6
+7
+8
+9+

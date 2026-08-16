@@ -1,0 +1,5 @@
+---
+description: Capital of જર્મની, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+બર્લિન

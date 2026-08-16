@@ -1,0 +1,21 @@
+---
+description: Kind of official document, in Gujarati. These are the NAMES OF KINDS of document, not particular Indian identity schemes — this pack deliberately writes no Aadhaar, PAN, voter-ID or passport-number data, and any named Indian document scheme along with its number format belongs in the India country pack. Two entries are Indian categories with no European counterpart and are worth knowing about: રેશન કાર્ડ is the household food-subsidy card and doubles as the commonest proof of address for poor households, and ૭/૧૨ ઉતારો is the land record extract — the single most important document in rural Gujarat, showing who holds a field and what is grown on it, and the thing every land dispute in the state turns on. જાતિનું પ્રમાણપત્ર is a caste certificate, required for reserved-category admissions and jobs.
+locale: gu
+---
+જન્મનું પ્રમાણપત્ર
+મરણનું પ્રમાણપત્ર
+લગ્નનું પ્રમાણપત્ર
+શાળા છોડ્યાનું પ્રમાણપત્ર
+ગુણપત્રક
+પદવી પ્રમાણપત્ર
+રહેઠાણનું પ્રમાણપત્ર
+આવકનું પ્રમાણપત્ર
+જાતિનું પ્રમાણપત્ર
+રેશન કાર્ડ
+૭/૧૨ ઉતારો
+દસ્તાવેજ
+ભાડા કરાર
+સોગંદનામું
+વસિયતનામું
+પાવર ઓફ એટર્ની
+ના-વાંધા પ્રમાણપત્ર

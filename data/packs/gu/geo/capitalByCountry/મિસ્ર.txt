@@ -1,0 +1,5 @@
+---
+description: Capital of મિસ્ર, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+કૈરો

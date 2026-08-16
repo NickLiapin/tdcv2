@@ -1,0 +1,59 @@
+---
+description: Sport name in Gujarati. The traditional Indian games at the head are played, not remembered: કબડ્ડી and ખો-ખો have professional leagues, મલખંભ (gymnastics on a vertical pole or a hanging rope) is a competitive school sport with state championships, and ગિલ્લી-દંડા and લગોરી are what children play in the street. કુસ્તી is wrestling on earth. યોગ is a competitive discipline in India with judged asana events, which is a genuinely Indian category. Note that હોકી always means field hockey here.
+locale: gu
+---
+ક્રિકેટ
+કબડ્ડી
+ખો-ખો
+હોકી
+ફૂટબોલ
+બેડમિન્ટન
+ટેનિસ
+ટેબલ ટેનિસ
+વોલીબોલ
+બાસ્કેટબોલ
+હેન્ડબોલ
+સ્ક્વોશ
+કુસ્તી
+મલખંભ
+ગિલ્લી-દંડા
+લગોરી
+લંગડી
+સાતોલિયો
+દોડ
+મેરેથોન
+ઊંચી કૂદ
+લાંબી કૂદ
+ગોળા ફેંક
+ભાલા ફેંક
+ચક્ર ફેંક
+તીરંદાજી
+નિશાનેબાજી
+તરણ
+ડાઇવિંગ
+વોટર પોલો
+સઢવાહન
+પતંગબાજી
+સાયકલિંગ
+ઘોડેસવારી
+જિમ્નાસ્ટિક્સ
+વેઇટલિફ્ટિંગ
+બોક્સિંગ
+જુડો
+કરાટે
+તાઈક્વોન્ડો
+યોગ
+શતરંજ
+કેરમ
+બિલિયર્ડ્સ
+સ્નૂકર
+ગોલ્ફ
+પોલો
+રગ્બી
+બેઝબોલ
+સ્કેટિંગ
+ટ્રેકિંગ
+પર્વતારોહણ
+પેરાગ્લાઇડિંગ
+મોટર રેસિંગ
+બોડીબિલ્ડિંગ

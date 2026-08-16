@@ -1,0 +1,5 @@
+---
+description: Currency of કોલંબિયા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+કોલંબિયન પેસો

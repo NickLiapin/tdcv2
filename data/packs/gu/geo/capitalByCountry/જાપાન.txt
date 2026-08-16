@@ -1,0 +1,5 @@
+---
+description: Capital of જાપાન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ટોક્યો

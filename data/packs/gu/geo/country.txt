@@ -1,0 +1,70 @@
+---
+description: Country as GUJARATI names it, weighted by population in millions. These are Gujarati forms, several of which are translations or independently inherited names rather than respellings of the English, and a config must not romanise them back: ભારત is India's own name and is what a Gujarati actually says; મિસ્ર is Egypt and shares no sound with the English word, having come into Gujarati through Persian and Arabic long before English contact; ચીન arrives through Sanskrit, not through English "China"; and શ્રીલંકા, નેપાળ, બાંગ્લાદેશ and મ્યાનમાર are the countries' own names. THE LIST IS SHAPED BY THE GUJARATI DIASPORA, which is why several small countries are carried that a population-ranked list would drop. Kenya, Uganda, Tanzania, Zambia, Malawi, Zimbabwe, Mozambique and Mauritius are here because Gujarati traders settled the East African coast generations before the colonial period and built its commerce; Uganda expelled its Asians in 1972 and that community mostly went to Britain and Canada, which is why those four belong together in any Gujarati dataset. Oman, the UAE, Kuwait, Qatar and Bahrain are here because Kutchi and Gujarati merchants have worked the Gulf for centuries and still do. Portugal and Mozambique received Gujaratis from Daman, Diu and the Portuguese territories, and Fiji, Suriname and Trinidad sit on the indenture routes. Britain and the United States hold the two largest Gujarati populations outside India.
+locale: gu
+weighted: true
+---
+ભારત,1430
+ચીન,1410
+અમેરિકા,335
+ઇન્ડોનેશિયા,277
+પાકિસ્તાન,240
+નાઇજિરિયા,223
+બ્રાઝિલ,216
+બાંગ્લાદેશ,173
+રશિયા,144
+મેક્સિકો,128
+જાપાન,124
+ઇથિયોપિયા,123
+ફિલિપાઇન્સ,117
+મિસ્ર,112
+વિયેતનામ,98
+ઈરાન,89
+તુર્કી,85
+જર્મની,84
+થાઇલેન્ડ,72
+યુનાઇટેડ કિંગડમ,68
+ફ્રાન્સ,68
+તાન્ઝાનિયા,67
+દક્ષિણ આફ્રિકા,60
+ઇટાલી,59
+કેન્યા,55
+મ્યાનમાર,54
+દક્ષિણ કોરિયા,52
+કોલંબિયા,52
+સ્પેન,48
+યુગાન્ડા,48
+આર્જેન્ટિના,46
+અલ્જીરિયા,45
+ઇરાક,45
+અફઘાનિસ્તાન,42
+કેનેડા,40
+યુક્રેન,38
+મોરોક્કો,37
+સાઉદી અરેબિયા,37
+પોલેન્ડ,37
+મલેશિયા,34
+મોઝામ્બિક,33
+નેપાળ,30
+ઓસ્ટ્રેલિયા,26
+તાઇવાન,23
+શ્રીલંકા,22
+ઝામ્બિયા,20
+માલાવી,20
+નેધરલેન્ડ્સ,18
+ઝિમ્બાબ્વે,16
+ગ્રીસ,10
+પોર્ટુગલ,10
+સ્વીડન,10
+સંયુક્ત આરબ અમીરાત,10
+સ્વિટ્ઝર્લેન્ડ,9
+સિંગાપોર,6
+આયર્લેન્ડ,5
+ન્યૂઝીલેન્ડ,5
+ઓમાન,5
+કુવૈત,4
+કતાર,3
+બહેરીન,2
+ત્રિનિદાદ અને ટોબેગો,2
+મોરિશિયસ,1
+ફિજી,1
+સુરીનામ,1

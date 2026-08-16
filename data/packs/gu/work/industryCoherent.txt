@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list. Parent of work/jobByIndustry. See company/industry.txt for the fuller and more Gujarat-specific list — this one keeps the ten generic sectors so that the coherent pairing works.
+locale: gu
+---
+ટેકનોલોજી
+આરોગ્ય સેવા
+નાણાં
+બાંધકામ
+શિક્ષણ
+આતિથ્ય
+ઉત્પાદન
+છૂટક વેપાર
+પરિવહન
+કાયદો

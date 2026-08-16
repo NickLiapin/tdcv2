@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set in Gujarati. Gujarati third-person pronouns are NOT gendered the way English ones are: તે and એ cover he, she and it alike, and the gender surfaces on the VERB and on adjectives instead, not on the pronoun. So a config cannot pick a Gujarati pronoun to signal gender — it has to inflect the predicate. તેઓ / એઓ is both the plural and the respectful singular, used for elders and strangers exactly as in the honorific system that gives -ભાઈ and -બહેન. The three second-person forms are a politeness ladder: તું is intimate or to a child, તમે is polite and also plural, આપ is formal.
+locale: gu
+---
+તે
+એ
+તેઓ
+એઓ
+તું
+તમે
+આપ
+પોતે

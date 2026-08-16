@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in ઓન્કોલોજી, in Gujarati. Coherent child of medical/specialtyCoherent.txt.
+locale: gu
+---
+મુખનું કેન્સર
+સ્તન કેન્સર
+ફેફસાંનું કેન્સર
+આંતરડાનું કેન્સર
+લોહીનું કેન્સર
+ગર્ભાશય-ગ્રીવાનું કેન્સર

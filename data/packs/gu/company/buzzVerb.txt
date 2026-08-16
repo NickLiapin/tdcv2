@@ -1,0 +1,59 @@
+---
+description: Corporate-brochure verb in Gujarati, given in the verbal-noun form ending in -વું, which is how a Gujarati dictionary and a Gujarati headline both cite a verb. A config putting one of these into a real sentence must conjugate it: Gujarati marks person, number, gender and tense on the verb, so -વું is a citation form and never appears as a finite predicate.
+locale: gu
+---
+વધારવું
+સુધારવું
+વિકસાવવું
+બનાવવું
+ઘડવું
+સર્જવું
+પૂરું પાડવું
+આપવું
+પહોંચાડવું
+પ્રદાન કરવું
+સંચાલિત કરવું
+વ્યવસ્થિત કરવું
+આયોજન કરવું
+અમલમાં મૂકવું
+ચલાવવું
+દોરવું
+માર્ગદર્શન આપવું
+સહાય કરવું
+સહયોગ કરવું
+જોડવું
+સાંકળવું
+સંકલિત કરવું
+એકીકૃત કરવું
+સરળ બનાવવું
+ઝડપી બનાવવું
+સ્વયંસંચાલિત કરવું
+ડિજિટલ કરવું
+આધુનિક બનાવવું
+રૂપાંતરિત કરવું
+બદલવું
+મજબૂત કરવું
+સુરક્ષિત કરવું
+ટકાવવું
+જાળવવું
+સંભાળવું
+તપાસવું
+ચકાસવું
+માપવું
+વિશ્લેષણ કરવું
+અભ્યાસ કરવું
+સંશોધન કરવું
+શોધવું
+ઓળખવું
+સમજવું
+પ્રાપ્ત કરવું
+હાંસલ કરવું
+સાધવું
+પૂર્ણ કરવું
+વિસ્તારવું
+ફેલાવવું
+પ્રોત્સાહન આપવું
+પ્રેરવું
+સશક્ત કરવું
+સક્ષમ બનાવવું
+ઉન્નત કરવું

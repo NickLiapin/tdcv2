@@ -1,0 +1,12 @@
+---
+description: Extraction method, in Gujarati. મીઠાની પાટી — the salt pan — is a Gujarati extraction method and a whole way of life: the અગરિયા families of the Little Rann of Kutch move onto the salt flats for eight months of the year, pump brine into shallow pans and rake the crystals by hand. It is included here because in Gujarat it is a larger employer than any hard-rock mining.
+locale: gu
+---
+ખુલ્લી ખાણ
+ભૂગર્ભ ખાણ
+પટ્ટી ખનન
+ડ્રિલિંગ અને બ્લાસ્ટિંગ
+મીઠાની પાટી
+ડ્રેજિંગ
+બોરવેલ નિષ્કર્ષણ
+હાથ ખનન

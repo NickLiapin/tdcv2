@@ -1,0 +1,44 @@
+---
+description: Kind of event, in Gujarati. The first block is the Gujarati life-cycle and festival calendar and it is what a Gujarati events business actually books. નવરાત્રિ is nine nights of ગરબા and is the largest participatory event in the state; ઉત્તરાયણ is the January kite festival; ગરબા and સંગીત સંધ્યા are commercial night events. સીમંત (the baby shower in the seventh month), મામેરું (the maternal uncle's ceremonial gift at a wedding), ચાંદલો and ગોળધાણા (the engagement rites) are Gujarati ceremonies with no English equivalent, and each is a separate catered occasion with its own guest list. જમણવાર is the community meal that follows almost all of them.
+locale: gu
+---
+લગ્ન
+સગાઈ
+ચાંદલો
+ગોળધાણા
+મામેરું
+સીમંત
+નામકરણ
+જનોઈ
+દીક્ષા
+વરસગાંઠ
+જમણવાર
+નવરાત્રિ
+ગરબા
+ઉત્તરાયણ
+દિવાળી
+હોળી
+જન્માષ્ટમી
+રથયાત્રા
+પર્યુષણ
+સંગીત સંધ્યા
+ડાયરો
+ભજન સંધ્યા
+કથા
+પ્રવચન
+શિબિર
+મેળો
+પ્રદર્શન
+વેપાર મેળો
+પરિષદ
+સેમિનાર
+વર્કશોપ
+ઉદ્ઘાટન
+ખાતમુહૂર્ત
+વાસ્તુ પૂજા
+સ્નેહમિલન
+પુરસ્કાર સમારંભ
+પદવીદાન
+રમતોત્સવ
+હરાજી
+બેસણું

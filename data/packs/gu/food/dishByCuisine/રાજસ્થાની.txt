@@ -1,0 +1,12 @@
+---
+description: Dishes of રાજસ્થાની cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+દાળ-બાટી-ચૂરમા
+ગટ્ટાનું શાક
+કેર-સાંગરી
+પાપડનું શાક
+બાજરાની રોટી
+મરચાંનાં ભજિયાં
+ઘેવર
+માવા કચોરી

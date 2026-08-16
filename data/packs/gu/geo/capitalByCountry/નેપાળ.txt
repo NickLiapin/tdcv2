@@ -1,0 +1,5 @@
+---
+description: Capital of નેપાળ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+કાઠમંડુ

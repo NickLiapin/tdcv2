@@ -1,0 +1,11 @@
+---
+description: Day of the week in Gujarati, Sunday first as Indian calendars print it. Each is a planet plus -વાર: રવિ is the sun, સોમ the moon, મંગળ Mars, બુધ Mercury, ગુરુ Jupiter, શુક્ર Venus, શનિ Saturn — the same seven-planet week the Latin and Germanic names come from, arrived at independently. THE WEEK IS NOT NEUTRAL IN GUJARAT: many Hindus fast on a particular weekday by vow, Tuesday and Saturday are Hanuman and Shani days when temples fill, and a great many Gujaratis eat no meat, or nothing at all, on their chosen day. A config generating restaurant or retail data with a weekday dimension should expect that to show.
+locale: gu
+---
+રવિવાર
+સોમવાર
+મંગળવાર
+બુધવાર
+ગુરુવાર
+શુક્રવાર
+શનિવાર

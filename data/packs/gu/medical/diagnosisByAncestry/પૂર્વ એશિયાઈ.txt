@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised carrier frequency or incidence in the પૂર્વ એશિયાઈ ancestry group, in Gujarati. Coherent child of medical/ancestry.txt.
+locale: gu
+---
+આલ્ડિહાઇડ ડિહાઇડ્રોજિનેઝ ઊણપ
+જઠરનું કેન્સર
+લેક્ટોઝ અસહિષ્ણુતા
+નાસોફેરિન્જિયલ કેન્સર
+આલ્ફા થેલેસેમિયા

@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter in Gujarati. THE INDIAN FINANCIAL YEAR RUNS 1 APRIL TO 31 MARCH, so a Gujarati company's પ્રથમ ત્રિમાસિક is April to June and NOT January to March. Every Indian quarterly result, tax filing and budget line uses that year, and a config that maps Q1 onto the calendar quarter will misdate the lot. Note that many Gujarati family businesses keep a THIRD year alongside it: the traditional books are opened on Diwali and run on the Vikram Samvat year, so a firm may have a tax year, a calendar year and a ચોપડા year all in play at once.
+locale: gu
+---
+પ્રથમ ત્રિમાસિક
+બીજું ત્રિમાસિક
+ત્રીજું ત્રિમાસિક
+ચોથું ત્રિમાસિક

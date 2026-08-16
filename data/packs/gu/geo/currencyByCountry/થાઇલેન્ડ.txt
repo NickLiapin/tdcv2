@@ -1,0 +1,5 @@
+---
+description: Currency of થાઇલેન્ડ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+થાઈ બાહ્ટ

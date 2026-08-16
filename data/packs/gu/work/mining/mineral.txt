@@ -1,0 +1,23 @@
+---
+description: Mineral extracted, in Gujarati. THIS IS A GUJARAT LIST, not a generic one, and the state's mineral economy is unusual. મીઠું comes first because Gujarat produces the large majority of India's salt, evaporated from seawater and from the brine of the Rann; લિગ્નાઇટ because Gujarat is one of India's two largest producers of brown coal; અકીક because Khambhat has cut agate for four thousand years and the trade is documented at the Harappan site of Lothal; and ક્રૂડ તેલ and કુદરતી ગેસ because the Cambay basin is one of India's oldest producing oilfields. ફ્લોરસ્પાર, બેન્ટોનાઇટ and ચીરોડી are likewise Gujarati.
+locale: gu
+---
+મીઠું
+લિગ્નાઇટ
+ચૂનાનો પથ્થર
+બોક્સાઇટ
+બેન્ટોનાઇટ
+ફ્લોરસ્પાર
+અકીક
+ક્વાર્ટઝ
+સિલિકા રેતી
+ફેલ્સ્પાર
+કેલ્સાઇટ
+ડોલોમાઇટ
+ચીરોડી
+ચાઇના ક્લે
+લિથોમાર્જ
+મેંગેનીઝ
+ક્રૂડ તેલ
+કુદરતી ગેસ
+બાંધકામ પથ્થર

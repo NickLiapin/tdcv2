@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Console and platform names are brands and keep their Latin spelling in Gujarati text. મોબાઇલ leads because in India mobile is overwhelmingly the gaming platform — console ownership is a niche, and a very large share of Indian players have never owned one.
+locale: gu
+---
+મોબાઇલ
+Android
+iOS
+PC
+PlayStation
+Xbox
+Nintendo Switch
+ક્લાઉડ ગેમિંગ
+બ્રાઉઝર
+VR
+ગેમિંગ કાફે

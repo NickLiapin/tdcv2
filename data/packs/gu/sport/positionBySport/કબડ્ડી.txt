@@ -1,0 +1,9 @@
+---
+description: Playing positions in કબડ્ડી, in Gujarati. Coherent child of sport/sportCoherent.txt.
+locale: gu
+---
+રેઇડર
+ડિફેન્ડર
+કોર્નર
+કવર
+ઓલરાઉન્ડર

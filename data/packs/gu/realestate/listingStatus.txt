@@ -1,0 +1,16 @@
+---
+description: Property listing status, in Gujarati. ખાતમુહૂર્ત થયું marks the ceremonial ground-breaking, which in Gujarat is a dated and publicised event that a project timeline actually hangs on. પઝેશન બાકી (possession pending) is the standard Indian phrase for a completed-but-not-handed-over flat.
+locale: gu
+---
+વેચાણ માટે
+ભાડે આપવાનું
+બુક થયું
+ટોકન લેવાયું
+દસ્તાવેજ બાકી
+વેચાયું
+ભાડે અપાયું
+બાંધકામ ચાલુ
+ખાતમુહૂર્ત થયું
+પઝેશન બાકી
+તૈયાર
+પાછું ખેંચ્યું

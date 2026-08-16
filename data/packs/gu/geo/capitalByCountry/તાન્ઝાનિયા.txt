@@ -1,0 +1,5 @@
+---
+description: Capital of તાન્ઝાનિયા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ડોડોમા

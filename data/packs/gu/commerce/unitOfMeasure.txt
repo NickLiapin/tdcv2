@@ -1,0 +1,34 @@
+---
+description: Unit of measure, in Gujarati. India is metric and a Gujarati shop weighs in કિલો and ગ્રામ, but four older units are still in daily use and a config should not treat them as historical. મણ (about 20 kg) and શેર survive in grain and oilseed trading. તોલા is the gold unit — 11.66 g — and gold in a Gujarati jeweller's shop is still quoted in તોલા alongside grams. વીઘા and એકર are both used for farmland, and the વીઘા varies by district, which is exactly why it causes trouble in real records. ડઝન, જોડી, નંગ and પેટી are the ordinary retail counting units.
+locale: gu
+---
+નંગ
+ડઝન
+જોડી
+સેટ
+પેકેટ
+ડબ્બો
+પેટી
+બોરી
+થેલી
+ગ્રામ
+કિલો
+ક્વિન્ટલ
+ટન
+તોલા
+શેર
+મણ
+મિલિલિટર
+લિટર
+ડોલ
+સેન્ટિમીટર
+મીટર
+કિલોમીટર
+ઇંચ
+ફૂટ
+ગજ
+ચોરસ ફૂટ
+ચોરસ મીટર
+વીઘા
+એકર
+હેક્ટર

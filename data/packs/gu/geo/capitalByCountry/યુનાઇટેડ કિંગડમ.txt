@@ -1,0 +1,5 @@
+---
+description: Capital of યુનાઇટેડ કિંગડમ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+લંડન

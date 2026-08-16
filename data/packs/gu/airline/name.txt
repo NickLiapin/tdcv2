@@ -1,0 +1,54 @@
+---
+description: Airline name as written in Gujarati. Airline branding is a proper name and Gujarati prose writes the international carriers in Gujarati script rather than translating them, which is what this list does; the Latin-alphabet form is equally correct in a Gujarati newspaper. The head of the list is the set a Gujarati traveller actually meets, and that ordering reflects the diaspora more than it reflects global market share: the London, Newark, Nairobi and Gulf routes carry a very large Gujarati traffic, so British Airways, Emirates, Etihad, Qatar Airways, Kenya Airways and Air India appear where a European list would put other names.
+locale: gu
+---
+એર ઇન્ડિયા
+ઇન્ડિગો
+વિસ્તારા
+સ્પાઇસજેટ
+આકાસા એર
+અલાયન્સ એર
+એમિરેટ્સ
+ઇતિહાદ
+કતાર એરવેઝ
+ફ્લાયદુબઈ
+એર અરેબિયા
+ઓમાન એર
+કુવૈત એરવેઝ
+ગલ્ફ એર
+સાઉદિયા
+બ્રિટિશ એરવેઝ
+વર્જિન એટલાન્ટિક
+લુફ્થાન્સા
+એર ફ્રાન્સ
+કેએલએમ
+સ્વિસ
+ટર્કિશ એરલાઇન્સ
+ઓસ્ટ્રિયન
+ફિનએર
+આઇબેરિયા
+અલિતાલિયા
+એરોફ્લોટ
+યુનાઇટેડ
+અમેરિકન એરલાઇન્સ
+ડેલ્ટા
+એર કેનેડા
+સિંગાપોર એરલાઇન્સ
+કેથે પેસિફિક
+મલેશિયા એરલાઇન્સ
+થાઈ એરવેઝ
+જાપાન એરલાઇન્સ
+ઓલ નિપ્પોન
+કોરિયન એર
+ચાઇના સધર્ન
+ચાઇના ઈસ્ટર્ન
+કેન્યા એરવેઝ
+ઇથિયોપિયન
+સાઉથ આફ્રિકન
+ઇજિપ્ટએર
+રોયલ જોર્ડેનિયન
+શ્રીલંકન
+બિમાન
+નેપાળ એરલાઇન્સ
+ક્વોન્ટાસ
+એર ન્યૂઝીલેન્ડ

@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised carrier frequency or incidence in the ભૂમધ્ય ancestry group, in Gujarati. Coherent child of medical/ancestry.txt.
+locale: gu
+---
+બીટા થેલેસેમિયા
+G6PD ઊણપ
+ફેમિલિયલ મેડિટેરેનિયન ફીવર
+સિકલ સેલ ટ્રેઇટ
+હિમોક્રોમેટોસિસ

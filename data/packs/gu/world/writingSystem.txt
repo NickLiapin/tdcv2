@@ -1,0 +1,30 @@
+---
+description: Writing system, in Gujarati. THIS IS WHERE THE SCRIPT FACT LIVES, because the commonest way to get a Gujarati dataset wrong is to fill it with Devanagari. ગુજરાતી લિપિ occupies Unicode U+0A80 to U+0AFF. It is an abugida — every consonant carries an inherent "a" that vowel signs override — and it descends from the same Brahmi ancestor as દેવનાગરી, which is why the two look related. THE DIFFERENCE THAT DECIDES IT: Devanagari hangs its letters from a continuous horizontal headline called the shirorekha (શિરોરેખા), and GUJARATI HAS NO HEADLINE AT ALL. That word is deliberately written here in Latin and in Gujarati rather than in Devanagari: this pack contains ZERO Devanagari codepoints by design, and a census of it should return zero, because a Gujarati pack quietly filled with Hindi-derived Devanagari is the exact failure this note exists to prevent. Its letters sit free, which is why Gujarati text looks lighter and rounder on the page and why the two are instantly distinguishable to anyone who has seen both. That absence is not a simplification but a history: the script grew out of the quick unruled hand that Gujarati merchants, bookkeepers and letter-writers used for account books, and it was long called વાણિયાશાઈ or શરાફી લિપિ — the traders' or bankers' script — before it became the printed standard in the nineteenth century. Practical consequences for a config: Gujarati and Devanagari share no codepoints, so any Devanagari character in this pack is a defect; Gujarati has its own digits ૦૧૨૩૪૫૬૭૮૯ at U+0AE6-U+0AEF which modern text mostly does not use (see person/householdSize.txt); and the script also writes કચ્છી and is used for some Gujarati Muslim community literature. મોડી and ખોજકી are the two related merchant hands, Marathi and Khoja respectively.
+locale: gu
+---
+ગુજરાતી
+દેવનાગરી
+લેટિન
+અરબી
+ફારસી
+બંગાળી
+ગુરમુખી
+ઓડિયા
+તમિલ
+તેલુગુ
+કન્નડ
+મલયાલમ
+સિંહાલી
+તિબેટન
+મોડી
+ખોજકી
+સિરિલિક
+ગ્રીક
+હિબ્રુ
+હાન
+કાના
+હંગુલ
+થાઈ
+આર્મેનિયન
+જ્યોર્જિયન
+બ્રાહ્મી

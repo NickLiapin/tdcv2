@@ -1,0 +1,19 @@
+---
+description: Weather or natural phenomenon in Gujarati. Four are Gujarat's standing hazards rather than curiosities. ચક્રવાત — the Arabian Sea cyclone — makes landfall on Gujarat's coast, the longest in India, every few years. દુષ્કાળ (drought) is what a failed monsoon means, and Kutch and Saurashtra are semi-arid. ભૂકંપ is here because the 2001 Bhuj earthquake killed some twenty thousand people and Gujarat sits in a high seismic zone. ધૂળની ડમરી (dust storm) and મૃગજળ (mirage) belong to the Rann.
+locale: gu
+---
+ચક્રવાત
+વાવાઝોડું
+ધૂળની ડમરી
+દુષ્કાળ
+પૂર
+વીજળી
+કરા
+ઝાકળ
+હિમ
+મેઘધનુષ
+ભૂકંપ
+સુનામી
+ગ્રહણ
+મૃગજળ
+ભરતી-ઓટ

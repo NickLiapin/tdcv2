@@ -1,0 +1,5 @@
+---
+description: Capital of ત્રિનિદાદ અને ટોબેગો, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+પોર્ટ ઓફ સ્પેન

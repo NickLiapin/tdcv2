@@ -1,0 +1,12 @@
+---
+description: Dishes of દક્ષિણ ભારતીય cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+ઇડલી
+ઢોસા
+મેંદુવડા
+ઉત્તપમ
+સંભાર
+રસમ
+ઉપમા
+નાળિયેરની ચટણી

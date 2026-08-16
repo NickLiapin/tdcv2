@@ -1,0 +1,5 @@
+---
+description: Capital of યુગાન્ડા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+કંપાલા

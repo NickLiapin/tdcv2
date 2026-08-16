@@ -1,0 +1,5 @@
+---
+description: Currency of ફિલિપાઇન્સ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ફિલિપાઇન પેસો

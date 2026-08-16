@@ -1,0 +1,29 @@
+---
+description: Gemstone name in Gujarati. This list carries more weight in Gujarati than in most languages for two reasons. First, Surat cuts and polishes the overwhelming majority of the world's diamonds by volume, so હીરો is an industrial word here as much as a jewel one, and tens of thousands of Gujarati families work in the trade. Second, the first nine stones are the નવરત્ન — the nine gems of Indian astrology, each bound to a planet (ruby to the sun, pearl to the moon, coral to Mars, emerald to Mercury, yellow sapphire to Jupiter, diamond to Venus, blue sapphire to Saturn, hessonite and cat's eye to the lunar nodes) — and a great many Gujaratis wear a stone chosen by an astrologer rather than by taste. A config generating jewellery data for this locale should expect that.
+locale: gu
+---
+માણેક
+મોતી
+પરવાળું
+પન્ના
+પોખરાજ
+હીરો
+નીલમ
+ગોમેદ
+લસણિયો
+સ્ફટિક
+અકીક
+ફિરોજા
+લાજવર્દ
+સૂર્યકાંત
+ચંદ્રકાંત
+રક્તમણિ
+હરિતમણિ
+પદ્મરાગ
+વૈદૂર્ય
+પુષ્પરાગ
+જેડ
+એમ્બર
+ઓપલ
+ટોપાઝ
+ગાર્નેટ

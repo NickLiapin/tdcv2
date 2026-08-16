@@ -1,0 +1,12 @@
+---
+description: ABO and Rh blood group. Note the Indian distribution for anyone generating realistic proportions: B positive is much commoner in India than in Europe — around a third of Indians — and O positive is the single largest group, while Rh-negative blood of any type is rare, roughly five to six per cent of the population, which is why negative donors are chased so hard by Indian blood banks. A config using European frequencies for an Indian dataset will get this visibly wrong.
+locale: gu
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

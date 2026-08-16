@@ -1,0 +1,36 @@
+---
+description: Common Gujarati adverb. Note that Gujarati adverbs are invariable and usually sit immediately before the verb, which is clause-final — Gujarati is a subject-object-verb language — so a generated sentence must place these differently from an English one.
+locale: gu
+---
+હમણાં
+પછી
+પહેલાં
+આજે
+કાલે
+ગઈકાલે
+અહીં
+ત્યાં
+ક્યાં
+ઉપર
+નીચે
+અંદર
+બહાર
+પાસે
+દૂર
+ધીમે
+ઝડપથી
+સહેલાઈથી
+મુશ્કેલીથી
+ખૂબ
+થોડું
+બહુ
+જરાક
+હંમેશા
+ક્યારેય
+ફરી
+ભાગ્યે જ
+અચાનક
+ધીરે ધીરે
+સાથે
+એકલા
+ખરેખર

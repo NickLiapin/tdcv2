@@ -1,0 +1,64 @@
+---
+description: Named dish in Gujarati. THIS IS A LARGELY VEGETARIAN LIST AND THAT IS NOT SQUEAMISHNESS — Gujarat has the highest rate of vegetarianism of any Indian state, roughly six in ten people, and among Jains, Vaishnav Vanias and much of the Patidar community it is near universal, so meat dishes are genuinely rare on a Gujarati table. THE SWEET-SALT SIGNATURE: Gujarati savoury cooking puts jaggery or sugar into dal, into shaak and into kadhi, which is the single thing other Indians notice first about it and which a config describing a Gujarati dish should not treat as an error. Several entries are festival- or region-bound: ઊંધિયું is a winter dish of mixed vegetables and fenugreek dumplings buried and slow-cooked, eaten at ઉત્તરાયણ in January with jalebi; ફાફડા-જલેબી is the Dussehra breakfast the whole state eats on one morning; સુરતી લોચો and ઘારી are Surat's own; દાબેલી is Kutch's; ખાખરા are the thin roasted flatbreads that every Gujarati travelling anywhere carries in a tin. ફરસાણ — the savoury fried snack family, ગાંઠિયા, ફાફડા, ખમણ, સેવ, ભજિયાં — is a whole meal category with its own shops and has no real equivalent outside Gujarat.
+locale: gu
+---
+ઢોકળા
+ખમણ
+સેવ ખમણી
+ખાંડવી
+પાત્રા
+મુઠિયા
+હાંડવો
+થેપલા
+ખાખરા
+ભાખરી
+પૂરી
+રોટલી
+બાજરીનો રોટલો
+જુવારનો રોટલો
+ઊંધિયું
+સેવ ટામેટા
+રીંગણનો ઓળો
+ભરેલાં રીંગણ
+બટાટાનું શાક
+દૂધીનું શાક
+ગુવારનું શાક
+તુવેરનું શાક
+દાળ
+ગુજરાતી કઢી
+દાળઢોકળી
+ખીચડી
+વઘારેલી ખીચડી
+ખીચુ
+ગોટા
+ભજિયાં
+પાતરવેલિયાં
+ગાંઠિયા
+ફાફડા
+ચોળાફળી
+ફૂલવડી
+સેવ
+ચેવડો
+દાબેલી
+સુરતી લોચો
+ખમણ ઢોકળા
+પાંઉભાજી
+શ્રીખંડ
+બાસુંદી
+દૂધપાક
+લાપસી
+સુખડી
+મોહનથાળ
+મગસ
+અડદિયા
+ઘૂઘરા
+ઘારી
+જલેબી
+ફાફડા-જલેબી
+તલસાંકળી
+ચિક્કી
+શીરો
+પૂરણપોળી
+કેરીનો રસ
+છાશ
+ઠંડાઈ

@@ -1,0 +1,21 @@
+---
+description: Social platform. Brand names keep their Latin spelling in Gujarati. WhatsApp heads the list without much competition — India is its largest market by a wide margin and in Gujarat it is the default channel for family, community, business orders and forwarded morning greetings alike. ShareChat and Moj are Indian-language platforms and carry real Gujarati-language content.
+locale: gu
+---
+WhatsApp
+Instagram
+YouTube
+Facebook
+Telegram
+ShareChat
+Moj
+Snapchat
+X
+LinkedIn
+Pinterest
+Reddit
+Quora
+Threads
+Discord
+Clubhouse
+Josh

@@ -1,0 +1,5 @@
+---
+description: Currency of ઈરાન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ઈરાની રિયાલ

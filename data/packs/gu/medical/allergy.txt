@@ -1,0 +1,26 @@
+---
+description: Allergen in Gujarati. મગફળી (groundnut) heads the list and that is locally significant: groundnut oil is the default cooking fat across Gujarat, so a peanut allergy is far harder to manage here than in a locale that fries in sunflower or olive oil. રાઈ, તલ and ચણાનો લોટ are likewise unavoidable in Gujarati cooking. ધૂળ and પરાગરજ peak in the dry pre-monsoon months.
+locale: gu
+---
+મગફળી
+તલ
+રાઈ
+ચણાનો લોટ
+ઘઉં
+દૂધ
+ઈંડાં
+સોયા
+માછલી
+ઝીંગા
+કાજુ
+બદામ
+અખરોટ
+ધૂળ
+પરાગરજ
+ફૂગ
+પ્રાણીના વાળ
+જીવડાંનું કરડવું
+લેટેક્સ
+પેનિસિલિન
+સલ્ફા દવા
+એસ્પિરિન

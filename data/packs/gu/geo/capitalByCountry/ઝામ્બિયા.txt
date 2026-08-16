@@ -1,0 +1,5 @@
+---
+description: Capital of ઝામ્બિયા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+લુસાકા

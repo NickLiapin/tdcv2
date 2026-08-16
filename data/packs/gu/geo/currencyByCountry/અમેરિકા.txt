@@ -1,0 +1,5 @@
+---
+description: Currency of અમેરિકા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+અમેરિકન ડોલર

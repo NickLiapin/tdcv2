@@ -1,0 +1,9 @@
+---
+description: Work shift at a mine or plant, in Gujarati.
+locale: gu
+---
+સવારની પાળી
+બપોરની પાળી
+રાતની પાળી
+સામાન્ય પાળી
+વધારાની પાળી

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in કાર્ડિયોલોજી, in Gujarati. Coherent child of medical/specialtyCoherent.txt.
+locale: gu
+---
+હૃદયરોગનો હુમલો
+હૃદયની નિષ્ફળતા
+એન્જાઇના
+ધબકારાની અનિયમિતતા
+ઊંચું લોહીનું દબાણ
+હૃદયના વાલ્વની ખામી

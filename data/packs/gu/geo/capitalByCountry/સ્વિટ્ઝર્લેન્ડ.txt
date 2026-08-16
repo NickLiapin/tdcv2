@@ -1,0 +1,5 @@
+---
+description: Capital of સ્વિટ્ઝર્લેન્ડ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+બર્ન

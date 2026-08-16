@@ -1,0 +1,5 @@
+---
+description: Currency of વિયેતનામ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+વિયેતનામી ડોંગ

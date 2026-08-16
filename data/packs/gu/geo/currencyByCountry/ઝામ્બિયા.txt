@@ -1,0 +1,5 @@
+---
+description: Currency of ઝામ્બિયા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ઝામ્બિયન ક્વાચા

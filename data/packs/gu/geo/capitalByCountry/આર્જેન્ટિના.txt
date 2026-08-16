@@ -1,0 +1,5 @@
+---
+description: Capital of આર્જેન્ટિના, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+બ્યુનોસ આયર્સ

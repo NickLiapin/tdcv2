@@ -1,0 +1,23 @@
+---
+description: Film genre in Gujarati. પૌરાણિક (mythological) is a live commercial genre in India and not a historical curiosity — films about Krishna, Rama and the Puranic cycle are still made and still fill halls. ભક્તિ (devotional) and સંતચરિત્ર (saint biography) are likewise their own categories, and in Gujarati cinema specifically the સંતચરિત્ર film about a Gujarati saint-poet is a whole tradition. મસાલા is the Indian term for the deliberately mixed film that carries romance, comedy, action and songs in one picture, and it is a genre label people use in earnest.
+locale: gu
+---
+ડ્રામા
+હાસ્ય
+રોમાન્સ
+એક્શન
+થ્રિલર
+રહસ્ય
+જાસૂસી
+હોરર
+સાહસ
+ઐતિહાસિક
+પૌરાણિક
+ભક્તિ
+સંતચરિત્ર
+સામાજિક
+કૌટુંબિક
+મસાલા
+સંગીતમય
+દસ્તાવેજી
+એનિમેશન

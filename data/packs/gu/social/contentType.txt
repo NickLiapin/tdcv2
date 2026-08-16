@@ -1,0 +1,17 @@
+---
+description: Kind of social-media post, in Gujarati. ફોરવર્ડેડ સંદેશ deserves its line: the forwarded message — a greeting, a devotional image, a health tip, a joke — is a content genre in its own right on Indian WhatsApp and moves in volumes no other format matches. શુભેચ્છા સંદેશ is the good-morning or festival greeting card image, sent daily in enormous numbers.
+locale: gu
+---
+ફોટો
+વિડિયો
+રીલ
+સ્ટોરી
+લાઇવ
+પોસ્ટ
+સ્ટેટસ
+ફોરવર્ડેડ સંદેશ
+શુભેચ્છા સંદેશ
+મીમ
+પોલ
+લેખ
+પોડકાસ્ટ

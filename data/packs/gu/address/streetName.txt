@@ -1,0 +1,187 @@
+---
+description: The name element of a Gujarati road, before a streetSuffix. COMPOSE SUFFIX LAST: Gujarati puts the thoroughfare type after the name (ગાંધી રોડ, આશ્રમ રોડ, નહેરુ માર્ગ), the reverse of Polish ulica Długa. These are the name-stock found on signage across Gujarat rather than one city's street register — a real named street in Ahmedabad or Surat is country data and belongs in the India country pack. The political names split two ways and the split is worth reading: ગાંધી, સરદાર પટેલ, વિવેકાનંદ and મોરારજી are Gujarat's own contribution to national life — Gandhi was born in Porbandar, Vallabhbhai Patel in Nadiad, and both Morarji Desai and Vikram Sarabhai were Gujaratis — so on Gujarati signage they outnumber the imported national names. The literary set is likewise local and reaches back six hundred years: નરસિંહ મહેતા is the fifteenth-century saint-poet who wrote વૈષ્ણવ જન તો, અખો and પ્રેમાનંદ are medieval, નર્મદ and દલપતરામ made modern Gujarati prose in nineteenth-century Surat and Ahmedabad, and ઝવેરચંદ મેઘાણી collected the Saurashtra folk tradition. શ્યામજી કૃષ્ણ વર્મા and દયાનંદ સરસ્વતી were both born in Gujarat. The remainder are the landmark and descriptive names that generate a road name in every town.
+locale: gu
+---
+ગાંધી
+સરદાર પટેલ
+જવાહરલાલ નહેરુ
+આંબેડકર
+વિવેકાનંદ
+સુભાષચંદ્ર
+લાલ બહાદુર શાસ્ત્રી
+ટિળક
+મોરારજી દેસાઈ
+રવિશંકર મહારાજ
+ઠક્કરબાપા
+મહાદેવ દેસાઈ
+કસ્તૂરબા
+ઇન્દિરા
+રાજીવ
+શ્યામજી કૃષ્ણ વર્મા
+દયાનંદ સરસ્વતી
+વિક્રમ સારાભાઈ
+હોમી ભાભા
+નરસિંહ મહેતા
+મીરાંબાઈ
+અખો
+પ્રેમાનંદ
+દલપતરામ
+નર્મદ
+ગોવર્ધનરામ
+ન્હાનાલાલ
+કલાપી
+ઝવેરચંદ મેઘાણી
+ઉમાશંકર જોશી
+સુંદરમ્
+કવિ કાન્ત
+રવીન્દ્રનાથ ટાગોર
+કબીર
+તુલસીદાસ
+વાલ્મીકિ
+વ્યાસ
+શંકરાચાર્ય
+સહજાનંદ
+સ્વામિનારાયણ
+વલ્લભાચાર્ય
+મહાવીર
+હેમચંદ્રાચાર્ય
+બુદ્ધ
+ગુરુ નાનક
+શિવાજી
+રાણા પ્રતાપ
+ભગતસિંહ
+ઝાંસીની રાણી
+ચંદ્રશેખર આઝાદ
+આશ્રમ
+રિવરફ્રન્ટ
+સ્ટેશન
+બસ સ્ટેન્ડ
+કોલેજ
+શાળા
+હોસ્પિટલ
+દવાખાના
+બજાર
+શાક માર્કેટ
+તળાવ
+નદી
+કૂવા
+વાવ
+બાગ
+ઉદ્યાન
+મંદિર
+દેરાસર
+મસ્જિદ
+અગિયારી
+ગુરુદ્વારા
+દરગાહ
+હવેલી
+કિલ્લા
+દરવાજા
+ટાવર
+ઘંટાઘર
+પોસ્ટ ઓફિસ
+બેંક
+કોર્ટ
+પોલીસ ચોકી
+સરકારી
+નગરપાલિકા
+પંચાયત
+જૂની
+નવી
+મુખ્ય
+મોટી
+નાની
+પહોળી
+સાંકડી
+ઉપલી
+નીચલી
+વચલી
+પૂર્વ
+પશ્ચિમ
+ઉત્તર
+દક્ષિણ
+સ્વસ્તિક
+શાંતિ
+આનંદ
+સ્વરાજ
+આઝાદી
+એકતા
+પ્રગતિ
+વિદ્યા
+સંસ્કાર
+સરસ્વતી
+લક્ષ્મી
+ગણેશ
+હનુમાન
+શિવ
+કૃષ્ણ
+રામ
+અંબાજી
+ખોડિયાર
+બહુચરાજી
+સોમનાથ
+દ્વારકા
+પાલિતાણા
+ગિરનાર
+સાબરમતી
+નર્મદા
+તાપી
+મહી
+ભાદર
+ગીર
+કચ્છ
+સૌરાષ્ટ્ર
+પાટણ
+ચાંપાનેર
+લોથલ
+ધોળાવીરા
+સૂરજ
+ચંદ્ર
+તારા
+આકાશ
+સાગર
+કમળ
+ગુલાબ
+ચંપા
+મોગરો
+તુલસી
+લીમડા
+વડ
+પીપળા
+આંબા
+અશોક
+કેસર
+સોના
+હીરા
+મોતી
+પન્ના
+માણેક
+પારસ
+અમૃત
+ગોકુળ
+વૃંદાવન
+મથુરા
+અયોધ્યા
+કૈલાસ
+હિમાલય
+ગંગા
+યમુના
+ભારત
+હિન્દ
+જય
+વિજય
+સંગમ
+મિલન
+સ્નેહ
+પ્રેમ
+મૈત્રી
+સેવા
+ધર્મ
+સત્ય
+અહિંસા
+કરુણા
+ઉદય
+અરુણ
+પ્રભાત
+સંધ્યા
+ઉષા

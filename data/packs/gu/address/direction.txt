@@ -1,0 +1,19 @@
+---
+description: Compass direction in Gujarati. THIS IS A TEN-POINT SYSTEM, NOT AN EIGHT-POINT ONE, and that is the fact a config needs. Indian tradition counts દશ દિશા, ten directions: the four cardinals, the four intercardinals, and up and down. The four corner names are not compounds the way "northeast" is — ઈશાન, અગ્નિ, નૈઋત્ય and વાયવ્ય are the names of the deities who guard those corners (Ishana is Shiva, Agni is fire, Nirriti, Vayu is wind), and every Gujarati who has ever heard of વાસ્તુ knows them. They are used, not archaic: a Gujarati builder or estate agent will describe a plot as ઈશાન ખૂણો and expect to be understood, because Vastu rules assign a function to each corner (the kitchen belongs in અગ્નિ, the water tank in ઈશાન). The hyphenated compounds are also in use in plain modern prose, so both sets are here.
+locale: gu
+---
+ઉત્તર
+દક્ષિણ
+પૂર્વ
+પશ્ચિમ
+ઈશાન
+અગ્નિ
+નૈઋત્ય
+વાયવ્ય
+ઊર્ધ્વ
+અધો
+ઉત્તર-પૂર્વ
+ઉત્તર-પશ્ચિમ
+દક્ષિણ-પૂર્વ
+દક્ષિણ-પશ્ચિમ
+મધ્ય

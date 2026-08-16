@@ -1,0 +1,12 @@
+---
+description: Dishes of ગુજરાતી cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+ઢોકળા
+ખાંડવી
+થેપલા
+ઊંધિયું
+હાંડવો
+મુઠિયા
+દાળઢોકળી
+શ્રીખંડ

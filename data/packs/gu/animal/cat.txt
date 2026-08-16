@@ -1,0 +1,22 @@
+---
+description: Cat breed name in Gujarati. Pedigree cat breeds are a recent and small thing in India — the ordinary Gujarati cat is a દેશી બિલાડી, the free-living Indian shorthair, which is why that entry heads the list rather than sitting at the bottom as a footnote. The breed names themselves are international and are written in Gujarati script.
+locale: gu
+---
+દેશી બિલાડી
+પર્શિયન
+સિયામીઝ
+હિમાલયન
+બંગાળ
+બોમ્બે
+મેઇન કૂન
+રેગડોલ
+બ્રિટિશ શોર્ટહેર
+અમેરિકન શોર્ટહેર
+રશિયન બ્લુ
+અબીસીનિયન
+બર્મીઝ
+સ્ફિન્ક્સ
+સ્કોટિશ ફોલ્ડ
+નોર્વેજિયન ફોરેસ્ટ
+તુર્કીશ અંગોરા
+મંક્સ

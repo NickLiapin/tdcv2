@@ -1,0 +1,18 @@
+---
+description: Kind of insurance, in Gujarati. પાક વીમો (crop insurance) belongs on any Indian list — it is a large state-subsidised scheme and Gujarat's groundnut and cotton farmers use it. પશુ વીમો insures cattle and is real in a dairy state. Two Gujarat-specific risks show up as ordinary products here: ભૂકંપ વીમો, because the 2001 Bhuj earthquake killed some twenty thousand people and rewrote building rules across the state, and ચક્રવાત વીમો, because Gujarat has India's longest coastline and takes Arabian Sea cyclones.
+locale: gu
+---
+જીવન વીમો
+મુદતી વીમો
+આરોગ્ય વીમો
+અકસ્માત વીમો
+વાહન વીમો
+ઘર વીમો
+અગ્નિ વીમો
+ભૂકંપ વીમો
+ચક્રવાત વીમો
+પાક વીમો
+પશુ વીમો
+પ્રવાસ વીમો
+દુકાન વીમો
+જવાબદારી વીમો

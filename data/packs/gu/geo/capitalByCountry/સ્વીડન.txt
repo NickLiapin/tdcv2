@@ -1,0 +1,5 @@
+---
+description: Capital of સ્વીડન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+સ્ટોકહોમ

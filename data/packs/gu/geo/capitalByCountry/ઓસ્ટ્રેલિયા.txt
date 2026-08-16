@@ -1,0 +1,5 @@
+---
+description: Capital of ઓસ્ટ્રેલિયા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+કેનબેરા

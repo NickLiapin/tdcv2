@@ -1,0 +1,5 @@
+---
+description: Capital of ઇટાલી, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+રોમ

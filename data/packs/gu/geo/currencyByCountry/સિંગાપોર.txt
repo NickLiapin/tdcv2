@@ -1,0 +1,5 @@
+---
+description: Currency of સિંગાપોર, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+સિંગાપોર ડોલર

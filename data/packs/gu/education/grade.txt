@@ -1,0 +1,16 @@
+---
+description: School grade or mark band, in Gujarati. Indian school results are reported as a percentage and as a letter grade together, and the percentage is the number people actually quote — a Gujarati parent says "eighty-two per cent", not "B1". The board grades A1 to E2 are the CBSE and GSEB nine-point scale and stay in Latin letters. ટકાવારી is the percentage itself; વર્ગ (class) is the older university division — પ્રથમ વર્ગ, દ્વિતીય વર્ગ — still printed on degree certificates.
+locale: gu
+---
+A1
+A2
+B1
+B2
+C1
+C2
+D
+E1
+E2
+પ્રથમ વર્ગ
+દ્વિતીય વર્ગ
+પાસ વર્ગ

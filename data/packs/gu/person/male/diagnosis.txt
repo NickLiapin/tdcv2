@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses drawn for male rows — conditions that require male anatomy, plus common general ones. Written in Gujarati with the clinical term; note that Gujarati medical practice is bilingual and a real Indian hospital record will as often carry the English name, so a config modelling case notes rather than patient-facing text may want the English form instead.
+locale: gu
+---
+પ્રોસ્ટેટ વૃદ્ધિ
+પ્રોસ્ટેટાઇટિસ
+પ્રોસ્ટેટ કેન્સર
+વૃષણનું કેન્સર
+વેરિકોસીલ
+હાઇડ્રોસીલ
+ફાયમોસિસ
+અંડકોષ ઊતરેલ ન હોવો
+પુરુષ વંધ્યત્વ
+ઇરેક્ટાઇલ ડિસફંક્શન
+હૃદયરોગનો હુમલો
+ડાયાબિટીસ
+ઊંચું લોહીનું દબાણ
+ક્રોનિક પેન્ક્રિયાટાઇટિસ
+યકૃતનું સિરોસિસ
+ગાઉટ
+મૂત્રપિંડની પથરી
+હર્નિયા
+તમાકુજન્ય મુખનું કેન્સર
+ક્રોનિક બ્રોંકાઇટિસ
+સંધિવા
+પીઠનો દુખાવો
+થાઇરોઇડની તકલીફ
+આધાશીશી
+પિત્તાશયની પથરી
+હેપેટાઇટિસ બી

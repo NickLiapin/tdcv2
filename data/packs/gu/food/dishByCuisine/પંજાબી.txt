@@ -1,0 +1,12 @@
+---
+description: Dishes of પંજાબી cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+છોલે ભટૂરે
+સરસોં દા સાગ
+મક્કીની રોટી
+પનીર બટર મસાલા
+દાળ મખની
+રાજમા ચાવલ
+આલૂ પરાઠા
+લસ્સી

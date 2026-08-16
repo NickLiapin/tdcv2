@@ -1,0 +1,5 @@
+---
+description: Capital of ફ્રાન્સ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+પેરિસ

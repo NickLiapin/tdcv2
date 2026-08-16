@@ -1,0 +1,13 @@
+---
+description: Conditions with a raised carrier frequency or incidence in the દક્ષિણ એશિયાઈ ancestry group, in Gujarati. Coherent child of medical/ancestry.txt. TWO ENTRIES ARE SPECIFICALLY GUJARATI. Sickle cell is not a rare disease here: carrier rates above one in ten, and in some communities far higher, are documented among the Bhil, Rathwa, Vasava, Dhodia and Gamit populations of eastern and southern Gujarat, and the state runs a standing screening programme for it — so a Gujarati dataset should not treat સિકલ સેલ એનિમિયા as an African-only finding. And મુખનું કેન્સર is here because chewed tobacco — mava, gutka, pan masala — gives India, and Gujarat in particular, one of the highest oral-cancer rates in the world; it is the commonest cancer in Indian men. Beta-thalassaemia carrier rates are also high across Gujarat, high enough that premarital screening is routinely advised. The cardiometabolic entries reflect a real and well-documented South Asian pattern: type 2 diabetes and coronary disease appear about a decade earlier and at a much lower body-mass index than in European populations, which is why standard BMI thresholds are lowered for South Asian patients.
+locale: gu
+---
+બીટા થેલેસેમિયા
+સિકલ સેલ એનિમિયા
+G6PD ઊણપ
+ટાઇપ 2 ડાયાબિટીસ
+વહેલો હૃદયરોગ
+લોહની ઊણપનો પાંડુરોગ
+વિટામિન ડીની ઊણપ
+મુખનું કેન્સર
+લેક્ટોઝ સહિષ્ણુતા

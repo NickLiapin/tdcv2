@@ -1,0 +1,5 @@
+---
+description: Currency of માલાવી, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+માલાવિયન ક્વાચા

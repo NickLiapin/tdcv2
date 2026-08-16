@@ -1,0 +1,5 @@
+---
+description: Currency of સ્પેન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+યુરો

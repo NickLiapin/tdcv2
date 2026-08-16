@@ -1,0 +1,16 @@
+---
+description: Streaming service. Platform names are brands and keep their Latin spelling in Gujarati. The Indian services (JioHotstar, ZEE5, SonyLIV, MX Player, Shemaroo) matter here because Shemaroo in particular carries a large Gujarati-language catalogue, and Gujarati cinema and Gujarati theatre reach the diaspora mainly through them.
+locale: gu
+---
+Netflix
+Amazon Prime Video
+JioHotstar
+ZEE5
+SonyLIV
+MX Player
+Shemaroo
+YouTube
+Apple TV+
+Disney+
+Spotify
+JioSaavn

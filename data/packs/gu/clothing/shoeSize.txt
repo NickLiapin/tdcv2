@@ -1,0 +1,18 @@
+---
+description: Shoe size. INDIA SIZES SHOES ON THE UK SCALE, not the European one: a shoebox in Ahmedabad or Surat reads 8 and means UK 8, which is about EU 42. Indian-made footwear is stamped with the UK number and often the EU number beside it, but the number a Gujarati quotes when asked is the UK one. Half sizes appear mainly on branded sports footwear and rarely on the traditional મોજડી, which is fitted rather than sized. Written in Arabic digits — see person/householdSize.txt for why Gujarati digits are not used.
+locale: gu
+---
+3
+4
+5
+6
+6.5
+7
+7.5
+8
+8.5
+9
+9.5
+10
+11
+12

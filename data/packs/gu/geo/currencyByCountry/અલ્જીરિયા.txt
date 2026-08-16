@@ -1,0 +1,5 @@
+---
+description: Currency of અલ્જીરિયા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+અલ્જિરિયન દિનાર

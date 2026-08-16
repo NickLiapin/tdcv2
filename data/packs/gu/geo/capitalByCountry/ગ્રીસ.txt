@@ -1,0 +1,5 @@
+---
+description: Capital of ગ્રીસ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+એથેન્સ

@@ -1,0 +1,5 @@
+---
+description: Currency of યુક્રેન, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+યુક્રેનિયન રિવ્નિયા

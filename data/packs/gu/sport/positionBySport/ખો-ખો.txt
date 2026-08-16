@@ -1,0 +1,9 @@
+---
+description: Playing positions in ખો-ખો, in Gujarati. Coherent child of sport/sportCoherent.txt.
+locale: gu
+---
+ચેઝર
+રનર
+એટેકર
+ડિફેન્ડર
+પોલ ડાઇવર

@@ -1,0 +1,18 @@
+---
+description: Marital status in Gujarati, in the words an Indian form uses. પરિણીત / અપરિણીત is the standard pair. Two entries are specific and a config should not translate them loosely: સગાઈ થયેલ is engaged, and in Gujarat the engagement (સગાઈ) is a formal, publicly announced status that can last a year or more, so it appears on forms as a real category rather than as a private understanding; નાતરું is the Gujarati term for the customary remarriage of a widow or a separated woman, historically practised among several Gujarati communities and still a live word. છૂટાછેડા લીધેલ is divorced.
+locale: gu
+---
+અપરિણીત
+પરિણીત
+સગાઈ થયેલ
+છૂટાછેડા લીધેલ
+વિધુર
+વિધવા
+અલગ રહેતા
+પુનર્લગ્ન કરેલ
+નાતરું
+સહજીવન
+એકલા
+ત્યક્તા
+લગ્ન નોંધાયેલ
+જાહેર કરેલ નથી

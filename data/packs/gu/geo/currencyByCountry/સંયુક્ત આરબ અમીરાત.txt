@@ -1,0 +1,5 @@
+---
+description: Currency of સંયુક્ત આરબ અમીરાત, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+અમીરાતી દિરહામ

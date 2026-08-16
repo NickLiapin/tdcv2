@@ -1,0 +1,10 @@
+---
+description: Job titles in the આરોગ્ય સેવા sector, in Gujarati. Coherent child of work/industryCoherent.txt.
+locale: gu
+---
+તબીબ
+સર્જન
+નર્સ
+ફાર્માસિસ્ટ
+પ્રયોગશાળા ટેકનિશિયન
+ફિઝિયોથેરાપિસ્ટ

@@ -1,0 +1,44 @@
+---
+description: Kind of animal, in Gujarati. Four of these are the reason a Gujarati list is not an Indian one. સિંહ — the Asiatic lion — survives in the wild in exactly one place on earth, the Gir forest of Saurashtra, so it is a Gujarati animal in a way it is not an Indian one. ઘુડખર, the Indian wild ass, likewise survives only in the Little Rann of Kutch. સુરખાબ, the greater flamingo, breeds in the Rann in enormous colonies at a site called Flamingo City, the only regular breeding ground in the subcontinent. ઘોરાડ, the great Indian bustard, is Gujarat's state bird and nearly extinct. ઊંટ belongs here too: the Kharai camel of Kutch swims to graze on mangrove islands and is found nowhere else.
+locale: gu
+---
+ગાય
+બળદ
+ભેંસ
+પાડો
+બકરી
+ઘેટું
+ઊંટ
+ઘોડો
+ગધેડો
+ખચ્ચર
+કૂતરો
+બિલાડી
+ઉંદર
+સસલું
+સિંહ
+વાઘ
+દીપડો
+રીંછ
+વરુ
+શિયાળ
+લોંકડી
+હરણ
+સાબર
+નીલગાય
+ચિંકારા
+કાળિયાર
+ઘુડખર
+જંગલી ભૂંડ
+હાથી
+ગેંડો
+વાંદરો
+લંગૂર
+નોળિયો
+શાહુડી
+ચામાચીડિયું
+ખિસકોલી
+મગર
+કાચબો
+સાપ
+ગરોળી

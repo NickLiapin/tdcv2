@@ -1,0 +1,36 @@
+---
+description: Kind of vehicle, in Gujarati. The Indian road mix is not the European one and this list reflects it. રિક્ષા (the three-wheeled auto-rickshaw) and છકડો — a Saurashtra-built three-wheeled load carrier assembled around a diesel pump engine, carrying people and goods and found nowhere outside Gujarat — are ordinary categories here. બળદગાડું and ઊંટગાડી are still working vehicles in rural Gujarat and Kutch. સ્કૂટર and બાઇક massively outnumber cars.
+locale: gu
+---
+સાયકલ
+સ્કૂટર
+બાઇક
+મોપેડ
+ઇલેક્ટ્રિક સ્કૂટર
+રિક્ષા
+ઈ-રિક્ષા
+છકડો
+કાર
+હેચબેક
+સેડાન
+SUV
+જીપ
+વાન
+ટેમ્પો
+મિની ટ્રક
+ટ્રક
+ટ્રેલર
+ટેન્કર
+બસ
+મિની બસ
+ટ્રેક્ટર
+જેસીબી
+ક્રેન
+એમ્બ્યુલન્સ
+ફાયર એન્જિન
+બળદગાડું
+ઊંટગાડી
+ઘોડાગાડી
+હોડી
+સ્ટીમર
+વિમાન

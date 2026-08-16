@@ -1,0 +1,22 @@
+---
+description: Kind of freight, in Gujarati. કપાસની ગાંસડી (cotton bales), મગફળી, મીઠું, રસાયણ and હીરાનું પાર્સલ are the loads Gujarati roads actually carry, given what the state grows and makes. દૂધ ટેન્કર runs the cooperative dairy chain.
+locale: gu
+---
+સૂકો માલ
+કન્ટેનર
+કપાસની ગાંસડી
+અનાજ
+મગફળી
+મીઠું
+સિમેન્ટ
+લોખંડ
+રસાયણ
+પેટ્રોલિયમ
+દૂધ ટેન્કર
+શીતિત માલ
+જોખમી માલ
+હીરાનું પાર્સલ
+ઓટોમોબાઇલ
+બાંધકામ સામગ્રી
+પશુધન
+ઘરવખરી

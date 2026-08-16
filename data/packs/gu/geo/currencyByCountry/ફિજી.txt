@@ -1,0 +1,5 @@
+---
+description: Currency of ફિજી, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ફિજિયન ડોલર

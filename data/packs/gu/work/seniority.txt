@@ -1,0 +1,20 @@
+---
+description: Seniority level for a role, in Gujarati. Indian corporate titles are commonly written in English even inside Gujarati prose, so the Latin-script forms here are what an offer letter in Ahmedabad actually says; the Gujarati equivalents are used in government service and in Gujarati-medium organisations.
+locale: gu
+---
+તાલીમાર્થી
+શિખાઉ
+જુનિયર
+સહાયક
+મદદનીશ
+અધિકારી
+વરિષ્ઠ
+મુખ્ય
+અગ્ર
+સુપરવાઇઝર
+મેનેજર
+વરિષ્ઠ મેનેજર
+મહાપ્રબંધક
+નિયામક
+ઉપાધ્યક્ષ
+અધ્યક્ષ

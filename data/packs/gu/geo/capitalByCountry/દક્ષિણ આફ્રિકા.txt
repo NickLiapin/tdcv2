@@ -1,0 +1,5 @@
+---
+description: Capital of દક્ષિણ આફ્રિકા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+પ્રિટોરિયા

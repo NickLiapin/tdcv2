@@ -1,0 +1,11 @@
+---
+description: Dishes of કોરિયન cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+કિમચી
+બિબિમ્બાપ
+બુલ્ગોગી
+ટ્ટીઓકબોક્કી
+જાપચે
+કિમ્બાપ
+કોરિયન ફ્રાઇડ ચિકન

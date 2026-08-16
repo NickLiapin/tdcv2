@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of મિસ્ર. Codes are three Latin letters everywhere, Gujarati text included. Coherent child of geo/country.txt.
+locale: gu
+---
+EGP

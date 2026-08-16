@@ -1,0 +1,5 @@
+---
+description: Capital of ન્યૂઝીલેન્ડ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+વેલિંગ્ટન

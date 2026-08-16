@@ -1,0 +1,24 @@
+---
+description: School subject, in Gujarati. Note the language structure, which is real and is a policy: Gujarat schools follow a three-language formula, so a Gujarati-medium pupil studies Gujarati as first language, Hindi as the national link language and English as the third, and all three appear on one report card. સંસ્કૃત is an optional fourth. સમાજવિદ્યા bundles history, geography and civics into one subject in the Indian school scheme rather than splitting them.
+locale: gu
+---
+ગુજરાતી
+હિન્દી
+અંગ્રેજી
+સંસ્કૃત
+ગણિત
+વિજ્ઞાન
+ભૌતિકશાસ્ત્ર
+રસાયણશાસ્ત્ર
+જીવવિજ્ઞાન
+સમાજવિદ્યા
+ઇતિહાસ
+ભૂગોળ
+નાગરિકશાસ્ત્ર
+અર્થશાસ્ત્ર
+હિસાબશાસ્ત્ર
+વાણિજ્ય
+કમ્પ્યુટર
+ચિત્રકામ
+સંગીત
+શારીરિક શિક્ષણ

@@ -1,0 +1,12 @@
+---
+description: Playing positions in ક્રિકેટ, in Gujarati. Coherent child of sport/sportCoherent.txt.
+locale: gu
+---
+સલામી બેટ્સમેન
+બેટ્સમેન
+ઓલરાઉન્ડર
+વિકેટકીપર
+ફાસ્ટ બોલર
+સ્પિન બોલર
+ફિલ્ડર
+સુકાની

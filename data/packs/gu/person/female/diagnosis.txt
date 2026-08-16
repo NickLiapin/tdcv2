@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses drawn for female rows — conditions that require female anatomy, plus common general ones. Two entries are worth flagging for an Indian dataset because they are far commoner here than a European list would suggest: લોહની ઊણપનો પાંડુરોગ (iron-deficiency anaemia) affects roughly half of Indian women of childbearing age, and પોલિસિસ્ટિક ઓવેરી સિન્ડ્રોમ is diagnosed at high rates in urban Gujarat. ગર્ભાવસ્થાનો ડાયાબિટીસ (gestational diabetes) is likewise unusually common in western India.
+locale: gu
+---
+ગર્ભાશયનું ફાઇબ્રોઇડ
+પોલિસિસ્ટિક ઓવેરી સિન્ડ્રોમ
+એન્ડોમેટ્રિઓસિસ
+ગર્ભાશય-ગ્રીવાનું કેન્સર
+સ્તન કેન્સર
+અંડાશયનું કેન્સર
+માસિકની અનિયમિતતા
+રજોનિવૃત્તિનાં લક્ષણો
+ગર્ભાવસ્થાનો ડાયાબિટીસ
+ગર્ભાવસ્થાનું ઊંચું દબાણ
+સ્ત્રી વંધ્યત્વ
+પેશાબમાર્ગનો ચેપ
+લોહની ઊણપનો પાંડુરોગ
+હાડકાંનું પોચાપણું
+થાઇરોઇડની તકલીફ
+ડાયાબિટીસ
+ઊંચું લોહીનું દબાણ
+આધાશીશી
+સંધિવા
+પિત્તાશયની પથરી
+હૃદયરોગ
+હતાશા
+ચિંતાનો વિકાર
+વિટામિન ડીની ઊણપ
+ગર્ભાશયનું નીચે ઊતરવું
+સ્તનમાં ગાંઠ
+ડિપ્રેશન

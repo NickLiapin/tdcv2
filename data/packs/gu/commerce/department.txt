@@ -1,0 +1,54 @@
+---
+description: Shop or store department, in Gujarati. કરિયાણું is the general grocery and is the commonest kind of shop in Gujarat. પાનનો ગલ્લો is the paan and cigarette kiosk. ફરસાણ deserves its own line rather than sitting under "snacks": Gujarat runs on savoury fried snacks — ગાંઠિયા, ફાફડા, ખમણ, સેવ — and a ફરસાણની દુકાન is a distinct trade with its own shopfront, separate from the sweet shop (મીઠાઈ) next door. સોના-ચાંદી (gold and silver) is a much larger retail category in Gujarat than in a European list, because gold is the ordinary household savings vehicle.
+locale: gu
+---
+કરિયાણું
+શાકભાજી
+ફળ
+દૂધ-ડેરી
+અનાજ
+કઠોળ
+મસાલા
+તેલ-ઘી
+ફરસાણ
+મીઠાઈ
+બેકરી
+નમકીન
+ઠંડાં પીણાં
+ચા-કોફી
+પાનનો ગલ્લો
+કાપડ
+તૈયાર કપડાં
+સાડી
+ચંપલ-જોડા
+સોના-ચાંદી
+ઇમિટેશન જ્વેલરી
+ઘડિયાળ
+ચશ્માં
+સૌંદર્ય પ્રસાધન
+દવા
+આયુર્વેદિક
+રમકડાં
+સ્ટેશનરી
+પુસ્તક
+ભેટ
+ઘરવખરી
+વાસણ
+ફર્નિચર
+પડદા-ચાદર
+ઇલેક્ટ્રોનિક્સ
+મોબાઇલ
+કમ્પ્યુટર
+ઘરવપરાશનાં સાધનો
+હાર્ડવેર
+રંગ-કલર
+સિમેન્ટ-લોખંડ
+ખેતીવાડી
+બિયારણ
+ખાતર
+પશુ આહાર
+ઓટો પાર્ટ્સ
+ટાયર
+સાયકલ
+રમતગમત
+સંગીતનાં સાધનો

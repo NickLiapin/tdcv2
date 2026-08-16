@@ -1,0 +1,10 @@
+---
+description: Playing positions in હોકી, in Gujarati. Coherent child of sport/sportCoherent.txt.
+locale: gu
+---
+ગોલકીપર
+ફુલબેક
+હાફબેક
+મિડફિલ્ડર
+ફોરવર્ડ
+સેન્ટર ફોરવર્ડ

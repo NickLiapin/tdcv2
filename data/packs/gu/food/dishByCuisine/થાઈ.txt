@@ -1,0 +1,12 @@
+---
+description: Dishes of થાઈ cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+ગ્રીન કરી
+રેડ કરી
+પેડ થાઈ
+ટોમ યમ
+સોમ ટમ
+થાઈ ફ્રાઇડ રાઇસ
+મેંગો સ્ટીકી રાઇસ
+સતાય

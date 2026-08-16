@@ -1,0 +1,32 @@
+---
+description: Adjective a Gujarati technical writer reaches for. Note the register mixture, which is genuine: Gujarati IT prose puts Sanskritic Gujarati coinages (દ્વિઅંકી, સંકેતબદ્ધ, વિતરિત) beside English loanwords in Gujarati script, often in the same sentence, and a config should not normalise one into the other.
+locale: gu
+---
+દ્વિઅંકી
+ડિજિટલ
+એનાલોગ
+સંકેતબદ્ધ
+એન્ક્રિપ્ટેડ
+સુરક્ષિત
+અસુરક્ષિત
+ખુલ્લો
+બંધ
+સ્તરીય
+વિતરિત
+સમાંતર
+અસમકાલિક
+સમકાલિક
+ગતિશીલ
+સ્થિર
+વર્ચ્યુઅલ
+ભૌતિક
+દૂરસ્થ
+સ્થાનિક
+પ્રાથમિક
+ગૌણ
+અનાવશ્યક
+સંકુચિત
+અનુક્રમિક
+પુનરાવર્તિત
+બહુસ્તરીય
+સ્વયંસંચાલિત

@@ -1,0 +1,5 @@
+---
+description: Capital of આયર્લેન્ડ, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ડબ્લિન

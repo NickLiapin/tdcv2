@@ -1,0 +1,5 @@
+---
+description: Capital of ભારત, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+નવી દિલ્હી

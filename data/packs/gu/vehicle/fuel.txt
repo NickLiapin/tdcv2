@@ -1,0 +1,14 @@
+---
+description: Vehicle fuel type, in Gujarati. CNG belongs high on any Gujarati list rather than as an afterthought: Gujarat has one of India's densest compressed-natural-gas networks, a large share of Ahmedabad's rickshaws and taxis run on it, and CNG variants are sold as standard trim by Indian carmakers. Fuel names stay in Latin abbreviations in Gujarati text.
+locale: gu
+---
+પેટ્રોલ
+ડીઝલ
+CNG
+LPG
+ઇલેક્ટ્રિક
+હાઇબ્રિડ
+બાયોડીઝલ
+ઇથેનોલ મિશ્રિત
+હાઇડ્રોજન
+સૌર

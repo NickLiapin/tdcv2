@@ -1,0 +1,32 @@
+---
+description: Household budget category, in Gujarati. Three lines are specific to an Indian household and a European template will miss them. સોના-ચાંદીમાં રોકાણ is a savings line, not a luxury one — gold is how a great many Gujarati families hold wealth, and buying some on Dhanteras and Akshaya Tritiya is a normal annual outlay. દાન અને ધર્માદો is likewise structural rather than optional: regular giving to a temple, a derasar or a community trust is an expected part of a Gujarati budget, and Jain and Vaishnav families in particular treat it as a fixed line. ઘરકામ સહાયક (domestic help) is a routine middle-class expense in India at income levels where it would be unthinkable in Europe.
+locale: gu
+---
+ઘરભાડું
+લોનનો હપ્તો
+કરિયાણું
+શાકભાજી
+દૂધ
+રસોઈ ગેસ
+વીજળી
+પાણી
+ઇન્ટરનેટ
+મોબાઇલ
+વાહન ઈંધણ
+વાહન જાળવણી
+જાહેર પરિવહન
+શાળા ફી
+ટ્યુશન
+દવા અને સારવાર
+આરોગ્ય વીમો
+જીવન વીમો
+કપડાં
+ઘરકામ સહાયક
+દાન અને ધર્માદો
+સોના-ચાંદીમાં રોકાણ
+બચત
+મનોરંજન
+બહાર જમવું
+પ્રવાસ
+લગ્ન અને પ્રસંગ
+કર

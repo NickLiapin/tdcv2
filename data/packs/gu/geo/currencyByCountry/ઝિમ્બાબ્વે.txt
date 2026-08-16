@@ -1,0 +1,5 @@
+---
+description: Currency of ઝિમ્બાબ્વે, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ઝિમ્બાબ્વેન ડોલર

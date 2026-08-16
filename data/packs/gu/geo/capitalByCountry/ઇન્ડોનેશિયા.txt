@@ -1,0 +1,5 @@
+---
+description: Capital of ઇન્ડોનેશિયા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+જકાર્તા

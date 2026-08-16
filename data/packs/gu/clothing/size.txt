@@ -1,0 +1,12 @@
+---
+description: Clothing size label, in Gujarati usage. Indian ready-made clothing is sold on the S/M/L scale in Latin letters, exactly as printed on the label, and a Gujarati shop assistant says "એલ" and "એક્સ એલ" out loud. Note that most traditional Gujarati women's wear is not sized at all — a sari is a single uncut length of cloth and a ચણિયાચોળી is tailored to the wearer — so a config dressing a Gujarati row in traditional clothing should not attach a size to it.
+locale: gu
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+ફ્રી સાઇઝ

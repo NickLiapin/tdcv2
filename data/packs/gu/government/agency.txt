@@ -1,0 +1,27 @@
+---
+description: Kind of government body, in Gujarati. These are the WORDS for kinds of body, not the names of particular institutions — a named Indian ministry, board or authority is country data and belongs in the India country pack, and this pack deliberately holds none. Three are worth explaining because they are the Indian local-government ladder and have no European equivalent: ગ્રામ પંચાયત is the elected village council, તાલુકા પંચાયત the sub-district tier and જિલ્લા પંચાયત the district tier, and together they are how rural Gujarat is actually governed. મહાનગરપાલિકા is a municipal corporation (the big cities) and નગરપાલિકા a smaller municipality. તલાટી-કમ-મંત્રી is the village revenue clerk, the official an ordinary Gujarati villager deals with most.
+locale: gu
+---
+ગ્રામ પંચાયત
+તાલુકા પંચાયત
+જિલ્લા પંચાયત
+નગરપાલિકા
+મહાનગરપાલિકા
+નગર નિયોજન સત્તામંડળ
+મામલતદાર કચેરી
+કલેક્ટર કચેરી
+તલાટી-કમ-મંત્રી
+મંત્રાલય
+વિભાગ
+નિયામકશ્રીની કચેરી
+બોર્ડ
+નિગમ
+આયોગ
+સત્તામંડળ
+પોલીસ વિભાગ
+અગ્નિશમન સેવા
+આરોગ્ય વિભાગ
+શિક્ષણ વિભાગ
+મહેસૂલ વિભાગ
+વન વિભાગ
+સિંચાઈ વિભાગ

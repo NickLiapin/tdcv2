@@ -1,0 +1,12 @@
+---
+description: Dishes of અમેરિકન cuisine as a Gujarati menu names them. Coherent child of food/cuisine.txt.
+locale: gu
+---
+બર્ગર
+હોટ ડોગ
+ફ્રેન્ચ ફ્રાઇઝ
+બાર્બિક્યુ
+મેક એન્ડ ચીઝ
+પેનકેક
+ડોનટ
+એપલ પાઈ

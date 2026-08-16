@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in ઓર્થોપેડિક્સ, in Gujarati. Coherent child of medical/specialtyCoherent.txt.
+locale: gu
+---
+સંધિવા
+ઘૂંટણનો ઘસારો
+હાડકાનું ફ્રેક્ચર
+કમરની ગાદી ખસવી
+ખભાનું જકડાવું
+ગાઉટ

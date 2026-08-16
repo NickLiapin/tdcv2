@@ -1,0 +1,5 @@
+---
+description: Currency of ઓસ્ટ્રેલિયા, in Gujarati. Coherent child of geo/country.txt.
+locale: gu
+---
+ઓસ્ટ્રેલિયન ડોલર
