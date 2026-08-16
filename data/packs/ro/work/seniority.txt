@@ -1,0 +1,21 @@
+---
+description: Seniority / level label for a role (Romanian)
+locale: ro
+---
+Stagiar
+Ucenic
+Debutant
+Junior
+Asistent
+Specialist
+Senior
+Expert
+Coordonator
+Supervizor
+Șef de echipă
+Șef de birou
+Șef de serviciu
+Manager
+Director adjunct
+Director
+Director general

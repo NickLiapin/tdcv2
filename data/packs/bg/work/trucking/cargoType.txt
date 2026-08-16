@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Bulgarian). ADR is the European agreement on carrying dangerous goods and is used as a bare abbreviation in Bulgarian haulage.
+locale: bg
+---
+Насипни товари
+Наливни товари
+Палетизирани товари
+Хладилни товари
+Замразени товари
+Опасни товари ADR
+Извънгабаритни товари
+Тежки товари
+Контейнери
+Автомобили
+Живи животни
+Дървесина
+Строителни материали

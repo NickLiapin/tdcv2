@@ -1,0 +1,32 @@
+---
+description: Tech verb (Bulgarian), cited in the FIRST PERSON SINGULAR PRESENT — компилирам, "I compile". Bulgarian has no infinitive: the form was lost and replaced by да + present, so a Bulgarian dictionary heads its verb entries with the 1sg present and there is no neutral citation form to use instead. Every other Slavic pack in this repo lists infinitives; this one cannot.
+locale: bg
+---
+хаквам
+компилирам
+дебъгвам
+деплойвам
+парсвам
+индексирам
+криптирам
+декриптирам
+рестартирам
+рутирам
+конфигурирам
+оптимизирам
+рефакторирам
+мигрирам
+синхронизирам
+кеширам
+логвам
+форматирам
+инсталирам
+деинсталирам
+обновявам
+архивирам
+възстановявам
+сканирам
+филтрирам
+сериализирам
+валидирам
+наблюдавам

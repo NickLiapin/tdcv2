@@ -1,0 +1,5 @@
+---
+description: Currency of Thailanda, as Romanian names it
+locale: ro
+---
+Baht

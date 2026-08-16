@@ -1,0 +1,34 @@
+---
+description: Unit of measure (Croatian). Croatia is metric; the abbreviations are the ones printed on a Croatian price label.
+locale: hr
+---
+komad
+kom
+par
+set
+pakiranje
+kutija
+vrećica
+boca
+limenka
+staklenka
+gram
+g
+dekagram
+kilogram
+kg
+tona
+mililitar
+ml
+decilitar
+dl
+litra
+l
+milimetar
+centimetar
+metar
+kilometar
+kvadratni metar
+kubni metar
+sat
+dan

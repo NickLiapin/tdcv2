@@ -1,0 +1,28 @@
+---
+description: Mobile carrier (Romanian and Moldovan brands plus the international ones). Brand names keep their real spelling.
+locale: ro
+---
+Orange România
+Vodafone România
+Telekom Romania Mobile
+Digi Mobil
+Lycamobile
+Orange Moldova
+Moldcell
+Moldtelecom
+Unite
+Orange
+Vodafone
+Telekom
+T-Mobile
+O2
+Three
+Movistar
+TIM
+WindTre
+A1
+Play
+Turkcell
+Kyivstar
+A1 Bulgaria
+Yettel

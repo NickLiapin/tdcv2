@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Croatian)
+locale: hr
+---
+Cestovni bicikl
+Brdski bicikl
+Trekking bicikl
+Gradski bicikl
+Hibridni bicikl
+Električni bicikl
+Sklopivi bicikl
+BMX
+Dječji bicikl
+Tandem
+Ležeći bicikl
+Ciklokros bicikl
+Gravel bicikl
+Triatlonski bicikl
+Teretni bicikl
+Bicikl s fiksnim prijenosom
+Spustni bicikl

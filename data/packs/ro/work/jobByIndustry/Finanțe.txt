@@ -1,0 +1,19 @@
+---
+description: Jobs in Finance (Romanian)
+locale: ro
+---
+Contabil
+Expert contabil
+Economist
+Analist financiar
+Auditor
+Consultant fiscal
+Casier bancar
+Ofițer de credite
+Consilier bancar
+Broker
+Actuar
+Inspector de asigurări
+Controlor financiar
+Director financiar
+Specialist în trezorerie

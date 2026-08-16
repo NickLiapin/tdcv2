@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Indigenous American ancestry, in Romanian. A prevalence signal, not an exclusive one.
+locale: ro
+---
+Diabet zaharat tip 2
+Litiază biliară
+Cancer de vezică biliară
+Boală renală diabetică
+Obezitate
+Poliartrită reumatoidă

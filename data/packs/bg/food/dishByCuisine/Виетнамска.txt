@@ -1,0 +1,12 @@
+---
+description: Dishes of Vietnamese cuisine (Bulgarian).
+locale: bg
+---
+фо
+бан ми
+пролетни рулца
+бун ча
+ком там
+ча ка
+гой куон
+кафе с кондензирано мляко

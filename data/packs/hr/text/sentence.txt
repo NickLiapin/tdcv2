@@ -1,0 +1,64 @@
+---
+description: Croatian filler sentences. Handwritten: Project Gutenberg holds no Croatian book at all, so there is no corpus behind this locale and these were written for the pack rather than harvested. They are deliberately plain descriptive prose and deliberately Croatian rather than generically South Slavic: kruh, tjedan, tisuća, vlak, zrakoplov, kolodvor, knjižnica, obzor, škure, blitva, bura and rakija all appear, and each of them is a word a Serbian text would spell differently or not use at all.
+locale: hr
+---
+Jutro je bilo vedro i more je mirno ležalo pod niskim suncem.
+Bura je puhala cijelu noć i ujutro su ulice bile posve čiste.
+Na trgu se okupilo nekoliko ljudi koji su čekali otvaranje tržnice.
+Starac je sjedio na klupi i gledao brodove kako izlaze iz luke.
+Djeca su trčala uz obalu i dobacivala se loptom.
+U pekarnici je mirisalo na svježi kruh i toplo pecivo.
+Konobar je iznio stolove pred kavanu i obrisao ih vlažnom krpom.
+Kava je bila jaka i gorka, baš onakva kakvu je volio.
+Zvona s crkvenog tornja oglasila su podne.
+Ribar je vezao brod i počeo slagati mreže na palubu.
+Na tržnici su prodavali rajčice, blitvu i mlade krumpire.
+Žena je odvagala smokve i umotala ih u papir.
+Cesta se uspinjala kroz maslinike prema selu na brijegu.
+Kamene kuće imale su zelene škure i uske prozore.
+Iz dvorišta se čuo lavež psa i zveket posuđa.
+Ljeti je kroz grad u jednom tjednu prošlo više tisuća stranaca, a zimi je bio gotovo prazan.
+Ujesen se u zaleđu bere grožđe i pravi mlado vino.
+Vinograd je bio uredno okopan i podijeljen niskim suhozidom.
+Susjed je donio bocu rakije i sjeo pod lozu.
+Razgovarali su dugo o kiši koja nije dolazila.
+U unutrašnjosti su polja bila široka i ravna sve do obzora.
+Traktor je prošao makadamskim putem i podigao oblak prašine.
+U dvorištu je stajao stog sijena pokriven ceradom.
+Kokoši su kljucale po travi ispred kuće.
+Zimi je magla ležala nad rijekom do kasnoga jutra.
+Snijeg je pao tijekom noći i pokrio krovove.
+Dim se dizao iz dimnjaka ravno u nebo.
+U kuhinji je na štednjaku ključala juha.
+Baka je mijesila tijesto i posipala ga brašnom.
+Miris pečenja širio se cijelom kućom.
+Za stolom se okupila cijela obitelj.
+Nakon ručka svi su izašli u šetnju do šume.
+Put je vodio uz potok i preko drvenoga mosta.
+Hrastova šuma bila je tiha i tamna.
+Na proplanku su našli tragove srne u snijegu.
+Vratili su se prije mraka jer je zahladilo.
+U gradu su svjetiljke svijetlile duž glavne ulice.
+Tramvaj je stao na uglu i pokupio nekoliko putnika.
+Ispred kina je stajao red koji se polako pomicao.
+U knjižnici je bilo toplo i posve tiho.
+Student je otvorio knjigu i počeo bilježiti u bilježnicu.
+Radio je do kasno i ugasio svjetlo tek poslije ponoći.
+Ujutro je vlak krenuo s kolodvora točno u sedam.
+Kroz prozor su promicala polja i sela, a visoko iznad njih prolazio je zrakoplov.
+Putnik je zaspao naslonjen na torbu.
+Kondukter ga je probudio pred posljednjom postajom.
+Na peronu ga je čekala sestra s kišobranom.
+Kiša je padala sitno i strpljivo.
+Prošli su kroz stari dio grada popločan kamenom.
+Zidovi su bili vlažni, a žbuka je mjestimice otpala.
+U dvorištu je rasla velika lipa.
+Ljeti je davala hlad cijelomu susjedstvu.
+Ispod nje su ljudi igrali karte do kasno navečer.
+Netko je uvijek donio harmoniku.
+Pjesma se čula sve do kraja ulice.
+Ujutro je opet sve bilo mirno.
+Poštar je ostavio pisma u sandučiću pred vratima.
+Dan je počeo kao i svaki drugi.
+More je i dalje bilo tu, strpljivo i nepromijenjeno.
+Nitko nije žurio, jer se nije imalo kamo.

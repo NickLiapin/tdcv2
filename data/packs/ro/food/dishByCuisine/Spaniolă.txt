@@ -1,0 +1,13 @@
+---
+description: Dishes of Spanish cuisine (Romanian)
+locale: ro
+---
+Paella
+Tortilla española
+Gazpacho
+Tapas
+Jamón serrano
+Churros
+Patatas bravas
+Sangria
+Pulpo a la gallega

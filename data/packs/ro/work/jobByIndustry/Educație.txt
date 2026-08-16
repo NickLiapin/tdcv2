@@ -1,0 +1,19 @@
+---
+description: Jobs in Education (Romanian)
+locale: ro
+---
+Învățător
+Profesor
+Educatoare
+Director de școală
+Inspector școlar
+Consilier școlar
+Logoped
+Bibliotecar
+Lector universitar
+Conferențiar universitar
+Profesor universitar
+Asistent universitar
+Cercetător
+Pedagog
+Instructor de formare

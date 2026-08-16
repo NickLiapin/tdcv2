@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (a jobByIndustry child).
+locale: bg
+---
+Строителство
+Образование
+Финанси
+Търговия на дребно
+Хотелиерство
+Здравеопазване
+Право
+Производство
+Технологии
+Транспорт

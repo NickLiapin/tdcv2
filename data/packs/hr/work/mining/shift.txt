@@ -1,0 +1,9 @@
+---
+description: Work shift (Croatian)
+locale: hr
+---
+prva smjena
+druga smjena
+treća smjena
+noćna smjena
+slobodna smjena

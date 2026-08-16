@@ -1,0 +1,18 @@
+---
+description: Marital status in Croatian. Most forms are gendered — a man is neoženjen / oženjen / udovac, a woman neudana / udana / udovica — so a config must pick the form that matches the row's gender rather than draw blind.
+locale: hr
+---
+neoženjen
+neudana
+oženjen
+udana
+razveden
+razvedena
+udovac
+udovica
+u izvanbračnoj zajednici
+u životnom partnerstvu
+rastavljen od stola i postelje
+zaručen
+zaručena
+slobodan

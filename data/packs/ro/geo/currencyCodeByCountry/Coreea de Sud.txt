@@ -1,0 +1,5 @@
+---
+description: Currency code of Coreea de Sud
+locale: ro
+---
+KRW

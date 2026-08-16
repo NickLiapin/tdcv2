@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (Bulgarian). The position names are transcribed English — the sport is barely played in Bulgaria and never developed native terms.
+locale: bg
+---
+Питчър
+Кетчър
+Първа база
+Втора база
+Трета база
+Шортстоп
+Ляво поле
+Централно поле
+Дясно поле
+Определен батер

@@ -1,0 +1,16 @@
+---
+description: Leave type (Romanian, as the Codul muncii names them)
+locale: ro
+---
+Concediu de odihnă
+Concediu medical
+Concediu fără plată
+Concediu de maternitate
+Concediu de paternitate
+Concediu pentru creșterea copilului
+Concediu de îngrijire
+Concediu pentru evenimente familiale
+Concediu de studii
+Zile libere legale
+Recuperare
+Suspendarea contractului

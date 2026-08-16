@@ -1,0 +1,13 @@
+---
+description: TV / film content advisory, described in Bulgarian words. The letter codes a national regulator issues are country data and belong in a country pack; this list is the wording.
+locale: bg
+---
+Без възрастови ограничения
+Подходящо за всички
+Препоръчва се родителски контрол
+Не се препоръчва за деца под 12 години
+Не се препоръчва за деца под 14 години
+Забранено за лица под 16 години
+Забранено за лица под 18 години
+Само за възрастни
+Съдържа сцени на насилие

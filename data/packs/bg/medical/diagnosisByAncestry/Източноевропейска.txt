@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Bulgarian. A prevalence signal, not an exclusive one.
+locale: bg
+---
+Фамилна средиземноморска треска
+Синдром на Жилбер
+Дефицит на фактор XI
+Тромбофилия (фактор V Лайден)
+Наследствен панкреатит
+Вродена дисфункция на щитовидната жлеза

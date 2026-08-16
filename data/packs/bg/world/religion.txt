@@ -1,0 +1,25 @@
+---
+description: World religion (Bulgarian). Източното православие is the tradition of the Bulgarian Orthodox Church, an autocephalous patriarchate; Islam is the second religion of Bulgaria, practised by Turks and Pomaks, so both head the list.
+locale: bg
+---
+Източно православие
+Ислям
+Сунитски ислям
+Алевизъм
+Католицизъм
+Гръкокатолицизъм
+Протестантство
+Евангелизъм
+Петдесятничество
+Арменска апостолическа църква
+Юдаизъм
+Будизъм
+Индуизъм
+Сикхизъм
+Джайнизъм
+Зороастризъм
+Бахайство
+Шинто
+Даоизъм
+Атеизъм
+Агностицизъм

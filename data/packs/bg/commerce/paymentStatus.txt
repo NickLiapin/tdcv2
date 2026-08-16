@@ -1,0 +1,14 @@
+---
+description: Payment status (Bulgarian). The forms agree with плащане, a neuter noun.
+locale: bg
+---
+Изчакващо
+Оторизирано
+Платено
+Частично платено
+Неуспешно
+Отказано
+Възстановено
+Частично възстановено
+Просрочено
+Оспорено

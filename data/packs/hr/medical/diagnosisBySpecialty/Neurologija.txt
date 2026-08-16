@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in neurologija, named in Croatian
+locale: hr
+---
+Moždani udar
+Tranzitorna ishemijska ataka
+Epilepsija
+Migrena
+Multipla skleroza
+Parkinsonova bolest
+Alzheimerova bolest
+Periferna neuropatija
+Miastenija gravis
+Trigeminalna neuralgija
+Vrtoglavica

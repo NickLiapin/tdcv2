@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Bulgarian. Amounts are in EURO. Bulgaria replaced the лев with the euro on 1 January 2026 at the fixed rate 1.95583 BGN = 1 EUR, so Bulgarian data from before that date is denominated in лева and converts by that exact rate. Bulgaria is the only country where Bulgarian is an official language, so there is no second currency to consider.
+locale: bg
+---
+Под 6 000 EUR
+6 000–10 000 EUR
+10 000–15 000 EUR
+15 000–20 000 EUR
+20 000–30 000 EUR
+30 000–45 000 EUR
+45 000–70 000 EUR
+Над 70 000 EUR

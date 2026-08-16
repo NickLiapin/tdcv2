@@ -1,0 +1,5 @@
+---
+description: Capital of Германия (Bulgarian).
+locale: bg
+---
+Берлин

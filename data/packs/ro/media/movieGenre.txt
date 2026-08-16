@@ -1,0 +1,23 @@
+---
+description: Movie genre (Romanian)
+locale: ro
+---
+Acțiune
+Aventură
+Comedie
+Dramă
+Thriller
+Groază
+Științifico-fantastic
+Fantezie
+Romantic
+Polițist
+Mister
+Western
+Război
+Istoric
+Biografic
+Documentar
+Animație
+Muzical
+Film de familie

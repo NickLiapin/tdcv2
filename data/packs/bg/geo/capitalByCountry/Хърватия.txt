@@ -1,0 +1,5 @@
+---
+description: Capital of Хърватия (Bulgarian).
+locale: bg
+---
+Загреб

@@ -1,0 +1,26 @@
+---
+description: Name suffix (Romanian). Romanian does NOT use generational suffixes: there is no Ion Popescu Jr. and no Ion Popescu III — a son who carries his father's name is told apart by context, by a second given name, or by 'tatal' and 'fiul' in speech, never by a Roman numeral. What actually follows a Romanian name are the academic and professional qualifications, and even those are usually written in FRONT of it (see person/prefix). This list holds the post-nominal forms that do occur, mostly in academic and international contexts; the last three are borrowings that appear only in translated or foreign-facing text.
+locale: ro
+---
+dr.
+dr. ing.
+dr. habil.
+drd.
+ing.
+ec.
+av.
+arh.
+jr.
+prof. dr.
+conf. dr.
+lect. dr.
+med. primar
+med. specialist
+PhD
+MBA
+MSc
+MD
+LL.M.
+Jr.
+Sr.
+III

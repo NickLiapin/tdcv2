@@ -1,0 +1,22 @@
+---
+description: Cuisine (Romanian). The adjective is in the FEMININE singular because it agrees with bucatarie, which is feminine — bucataria romaneasca. Each value has a dishByCuisine child file. Hungarian and Turkish sit here not as exotic imports but as everyday cooking: four centuries of Ottoman rule and a large Hungarian population in Transylvania put them on ordinary Romanian tables.
+locale: ro
+---
+Românească
+Moldovenească
+Ungurească
+Turcească
+Grecească
+Italiană
+Franceză
+Spaniolă
+Germană
+Chinezească
+Japoneză
+Coreeană
+Indiană
+Thailandeză
+Vietnameză
+Mexicană
+Americană
+Libaneză

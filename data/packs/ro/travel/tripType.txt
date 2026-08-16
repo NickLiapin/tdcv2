@@ -1,0 +1,24 @@
+---
+description: Trip type (Romanian). Turismul balnear is a Romanian institution rather than a luxury — spa towns treat patients on state-funded tickets — and pelerinajul, the pilgrimage to the painted monasteries and to a saint's relics, moves hundreds of thousands of people a year. Agroturismul means staying at a working farm guesthouse.
+locale: ro
+---
+Vacanță
+City break
+Sejur la mare
+Sejur la munte
+Circuit turistic
+Croazieră
+Excursie de o zi
+Drumeție
+Pelerinaj
+Agroturism
+Turism balnear
+Turism de aventură
+Turism cultural
+Turism gastronomic
+Turism viticol
+Călătorie de afaceri
+Delegație
+Teambuilding
+Vizită la rude
+Backpacking

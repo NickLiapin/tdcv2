@@ -1,0 +1,61 @@
+---
+description: Colour name (Croatian, feminine adjectival form — Croatian names a colour with an adjective that agrees with boja, "colour", which is feminine)
+locale: hr
+---
+crvena
+plava
+zelena
+žuta
+narančasta
+ljubičasta
+ružičasta
+smeđa
+crna
+bijela
+siva
+srebrna
+zlatna
+brončana
+bakrena
+bež
+krem
+boja slonovače
+tirkizna
+cijan
+purpurna
+grimizna
+skrletna
+bordo
+tamnocrvena
+tamnoplava
+mornarski plava
+kraljevski plava
+nebeskoplava
+azurna
+kobaltna
+akvamarin
+tamnozelena
+maslinasta
+smaragdna
+limeta
+žadna
+mahovinasta
+tamnožuta
+zlatnožuta
+jantarna
+senf
+oker
+koraljna
+breskvasta
+lososova
+magenta
+lila
+lavanda
+indigo
+šljivasta
+kestenjasta
+čokoladna
+pješčana
+pepeljasta
+antracit
+grafitna

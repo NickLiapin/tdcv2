@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladeš, as Croatian names it
+locale: hr
+---
+Daka

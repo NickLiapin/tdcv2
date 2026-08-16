@@ -1,0 +1,5 @@
+---
+description: Capital of Нова Зеландия (Bulgarian).
+locale: bg
+---
+Уелингтън

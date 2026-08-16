@@ -1,0 +1,5 @@
+---
+description: Capital of Švicarska, as Croatian names it
+locale: hr
+---
+Bern

@@ -1,0 +1,5 @@
+---
+description: Capital of Južna Koreja, as Croatian names it
+locale: hr
+---
+Seoul

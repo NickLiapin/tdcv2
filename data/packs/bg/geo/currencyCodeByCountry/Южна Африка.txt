@@ -1,0 +1,5 @@
+---
+description: ISO currency code of Южна Африка.
+locale: bg
+---
+ZAR

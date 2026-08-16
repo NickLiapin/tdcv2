@@ -1,0 +1,34 @@
+---
+description: Hashtag as Croatian users write it (lowercase, no diacritics stripped)
+locale: hr
+---
+#hrvatska
+#croatia
+#zagreb
+#split
+#dalmacija
+#istra
+#slavonija
+#more
+#jadran
+#ljeto
+#putovanje
+#priroda
+#planinarenje
+#hrana
+#kava
+#vino
+#maslinovoulje
+#nogomet
+#vatreni
+#obitelj
+#ljubav
+#prijatelji
+#sreća
+#motivacija
+#fitness
+#zdravlje
+#umjetnost
+#glazba
+#fotografija
+#zalazaksunca

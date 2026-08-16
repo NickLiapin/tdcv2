@@ -1,0 +1,5 @@
+---
+description: Capital of Argentina, as Romanian names it
+locale: ro
+---
+Buenos Aires

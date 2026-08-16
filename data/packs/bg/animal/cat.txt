@@ -1,0 +1,22 @@
+---
+description: Cat breed (Bulgarian). International breed names are calqued or transcribed; there is no native Bulgarian breed.
+locale: bg
+---
+персийска
+сиамска
+мейн куун
+британска късокосместа
+руска синя
+абисинска
+бенгалска
+сфинкс
+рагдол
+норвежка горска
+сибирска
+ориенталска
+бурманска
+шотландска клепоуха
+ангорска
+египетска мау
+сомалийска
+домашна

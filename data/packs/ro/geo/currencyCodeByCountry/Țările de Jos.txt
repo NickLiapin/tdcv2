@@ -1,0 +1,5 @@
+---
+description: Currency code of Țările de Jos
+locale: ro
+---
+EUR

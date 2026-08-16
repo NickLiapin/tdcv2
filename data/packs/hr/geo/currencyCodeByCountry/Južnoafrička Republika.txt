@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Južnoafrička Republika
+locale: hr
+---
+ZAR

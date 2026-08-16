@@ -1,0 +1,20 @@
+---
+description: Compass direction (Bulgarian). The intercardinal points are single compound words — Североизток, not "Север-изток" — while the sixteen-point subdivisions hyphenate the two halves.
+locale: bg
+---
+Север
+Юг
+Изток
+Запад
+Североизток
+Северозапад
+Югоизток
+Югозапад
+Север-североизток
+Изток-североизток
+Изток-югоизток
+Юг-югоизток
+Юг-югозапад
+Запад-югозапад
+Запад-северозапад
+Север-северозапад

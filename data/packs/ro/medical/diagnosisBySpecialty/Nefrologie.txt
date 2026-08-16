@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Romanian)
+locale: ro
+---
+Boală cronică de rinichi
+Insuficiență renală acută
+Glomerulonefrită
+Nefropatie diabetică
+Pielonefrită cronică
+Litiază renală
+Sindrom nefrotic
+Rinichi polichistic
+Nefropatie hipertensivă
+Acidoză tubulară renală

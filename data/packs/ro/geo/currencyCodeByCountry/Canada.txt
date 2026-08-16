@@ -1,0 +1,5 @@
+---
+description: Currency code of Canada
+locale: ro
+---
+CAD

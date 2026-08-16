@@ -1,0 +1,32 @@
+---
+description: University field of study (Croatian)
+locale: hr
+---
+Računarstvo
+Informatika
+Elektrotehnika
+Strojarstvo
+Građevinarstvo
+Arhitektura
+Brodogradnja
+Kemijsko inženjerstvo
+Prehrambena tehnologija
+Matematika
+Fizika
+Kemija
+Biologija
+Geologija
+Geodezija
+Medicina
+Dentalna medicina
+Farmacija
+Veterina
+Sestrinstvo
+Pravo
+Ekonomija
+Poslovna ekonomija
+Psihologija
+Sociologija
+Povijest
+Kroatistika
+Anglistika

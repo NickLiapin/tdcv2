@@ -1,0 +1,24 @@
+---
+description: School or university subject (Croatian). Note the Croatian forms: povijest not istorija, glazbena kultura not muzička, kemija not hemija, zemljopis alongside geografija.
+locale: hr
+---
+Hrvatski jezik
+Matematika
+Engleski jezik
+Njemački jezik
+Talijanski jezik
+Latinski jezik
+Povijest
+Zemljopis
+Biologija
+Kemija
+Fizika
+Informatika
+Likovna kultura
+Glazbena kultura
+Tjelesna i zdravstvena kultura
+Vjeronauk
+Etika
+Politika i gospodarstvo
+Psihologija
+Filozofija

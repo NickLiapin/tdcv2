@@ -1,0 +1,8 @@
+---
+description: Season (Croatian, lowercase per Croatian orthography). Croatia has four, and they are meaningfully different along the coast and inland.
+locale: hr
+---
+proljeće
+ljeto
+jesen
+zima

@@ -1,0 +1,13 @@
+---
+description: Electrical or data cable type (Croatian). The type codes (PP-Y, NYM, UTP, Cat 6) are international and keep their spelling.
+locale: hr
+---
+PP-Y
+PP-L
+NYM
+NYY
+H07V-U
+koaksijalni
+UTP Cat 5e
+UTP Cat 6
+optički

@@ -1,0 +1,5 @@
+---
+description: Currency of Египет (Bulgarian).
+locale: bg
+---
+Египетска лира

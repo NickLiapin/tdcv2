@@ -1,0 +1,82 @@
+---
+description: Hobby or leisure interest (Croatian). The coastal ones — jedrenje, ronjenje, picigin, boćanje — are as ordinary in Dalmatia as planinarenje and berba gljiva are in the continental interior.
+locale: hr
+---
+Čitanje
+Planinarenje
+Fotografija
+Kuhanje
+Vrtlarstvo
+Pecanje
+Lov
+Jedrenje
+Ronjenje
+Plivanje
+Veslanje
+Kajakarenje
+Biciklizam
+Trčanje
+Nogomet
+Košarka
+Rukomet
+Vaterpolo
+Odbojka
+Tenis
+Stolni tenis
+Skijanje
+Klizanje
+Sportsko penjanje
+Boćanje
+Picigin
+Pikado
+Šah
+Kartanje
+Belot
+Briškula
+Trešeta
+Slikanje
+Crtanje
+Kiparstvo
+Keramika
+Pletenje
+Vez
+Šivanje
+Drvorezbarstvo
+Stolarija
+Modelarstvo
+Sviranje gitare
+Sviranje klavira
+Tamburica
+Klapsko pjevanje
+Zborsko pjevanje
+Ples
+Folklor
+Kazalište
+Gledanje filmova
+Slušanje glazbe
+Pisanje
+Poezija
+Kaligrafija
+Blogiranje
+Programiranje
+Robotika
+Astronomija
+Ptičarenje
+Berba gljiva
+Sakupljanje bilja
+Pčelarstvo
+Vinogradarstvo
+Maslinarstvo
+Kušanje vina
+Pečenje kruha
+Slastičarstvo
+Roštiljanje
+Kampiranje
+Putovanja
+Speleologija
+Ronjenje na dah
+Jahanje
+Streličarstvo
+Numizmatika
+Filatelija
+Genealogija

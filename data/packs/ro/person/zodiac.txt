@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Romanian)
+locale: ro
+---
+Berbec
+Taur
+Gemeni
+Rac
+Leu
+Fecioară
+Balanță
+Scorpion
+Săgetător
+Capricorn
+Vărsător
+Pești

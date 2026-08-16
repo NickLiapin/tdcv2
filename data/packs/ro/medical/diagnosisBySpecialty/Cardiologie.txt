@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Romanian)
+locale: ro
+---
+Hipertensiune arterială esențială
+Cardiopatie ischemică
+Angină pectorală stabilă
+Infarct miocardic acut
+Insuficiență cardiacă cronică
+Fibrilație atrială
+Flutter atrial
+Stenoză aortică
+Insuficiență mitrală
+Pericardită acută

@@ -1,0 +1,5 @@
+---
+description: Capital of Indija, as Croatian names it
+locale: hr
+---
+New Delhi

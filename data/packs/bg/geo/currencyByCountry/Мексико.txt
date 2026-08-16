@@ -1,0 +1,5 @@
+---
+description: Currency of Мексико (Bulgarian).
+locale: bg
+---
+Мексиканско песо

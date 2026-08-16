@@ -1,0 +1,27 @@
+---
+description: Government body. Croatian is the official language of ONE country, so these are the ministries and public offices of the Republic of Croatia — that is what the words name. FINA is the state financial agency every business files through, and HZZO, HZMO and HZZ are the health, pension and employment funds.
+locale: hr
+---
+Ministarstvo zdravstva
+Ministarstvo znanosti, obrazovanja i mladih
+Ministarstvo financija
+Ministarstvo pravosuđa, uprave i digitalne transformacije
+Ministarstvo unutarnjih poslova
+Ministarstvo vanjskih i europskih poslova
+Ministarstvo obrane
+Ministarstvo gospodarstva
+Ministarstvo poljoprivrede, šumarstva i ribarstva
+Ministarstvo turizma i sporta
+Ministarstvo mora, prometa i infrastrukture
+Ministarstvo prostornoga uređenja, graditeljstva i državne imovine
+Ministarstvo rada, mirovinskoga sustava, obitelji i socijalne politike
+Ministarstvo kulture i medija
+Porezna uprava
+Carinska uprava
+Hrvatski zavod za zdravstveno osiguranje
+Hrvatski zavod za mirovinsko osiguranje
+Hrvatski zavod za zapošljavanje
+Državni zavod za statistiku
+Financijska agencija
+Hrvatska narodna banka
+Matični ured

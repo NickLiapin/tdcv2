@@ -1,0 +1,26 @@
+---
+description: Legal term (Romanian)
+locale: ro
+---
+Reclamant
+Pârât
+Inculpat
+Parte vătămată
+Martor
+Avocat
+Procuror
+Judecător
+Grefier
+Executor judecătoresc
+Notar public
+Citație
+Sentință
+Hotărâre judecătorească
+Apel
+Recurs
+Probă
+Mandat
+Cauțiune
+Prescripție
+Uzucapiune
+Rechizitoriu

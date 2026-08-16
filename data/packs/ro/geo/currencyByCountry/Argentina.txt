@@ -1,0 +1,5 @@
+---
+description: Currency of Argentina, as Romanian names it
+locale: ro
+---
+Peso argentinian

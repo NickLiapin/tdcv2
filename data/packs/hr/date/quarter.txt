@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Croatian calls it a tromjesečje, literally a three-month; the Q labels are what appears in Croatian financial reporting)
+locale: hr
+---
+Q1
+Q2
+Q3
+Q4

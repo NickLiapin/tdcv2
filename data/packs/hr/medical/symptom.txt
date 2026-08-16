@@ -1,0 +1,42 @@
+---
+description: Symptom (Croatian)
+locale: hr
+---
+povišena temperatura
+zimica
+kašalj
+suhi kašalj
+kratkoća daha
+hropci
+bol u prsima
+lupanje srca
+glavobolja
+vrtoglavica
+nesvjestica
+umor
+slabost
+mučnina
+povraćanje
+proljev
+zatvor
+bol u trbuhu
+žgaravica
+gubitak apetita
+gubitak težine
+žeđ
+učestalo mokrenje
+bol pri mokrenju
+bol u leđima
+bol u zglobovima
+ukočenost
+oteklina
+osip
+svrbež
+crvenilo kože
+kihanje
+začepljen nos
+grlobolja
+promuklost
+zamagljen vid
+zujanje u ušima
+utrnulost

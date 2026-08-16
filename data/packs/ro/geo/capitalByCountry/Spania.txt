@@ -1,0 +1,5 @@
+---
+description: Capital of Spania, as Romanian names it
+locale: ro
+---
+Madrid

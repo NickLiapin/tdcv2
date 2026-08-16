@@ -1,0 +1,30 @@
+---
+description: Gemstone (Romanian)
+locale: ro
+---
+Diamant
+Rubin
+Safir
+Smarald
+Ametist
+Topaz
+Acvamarin
+Opal
+Turmalină
+Granat
+Peridot
+Citrin
+Turcoaz
+Lapis lazuli
+Malachit
+Onix
+Agat
+Jasp
+Cuarț
+Cuarț roz
+Obsidian
+Jad
+Chihlimbar
+Perlă
+Coral
+Zircon

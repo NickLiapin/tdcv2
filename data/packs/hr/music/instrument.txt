@@ -1,0 +1,39 @@
+---
+description: Musical instrument (Croatian). The first block is Croatia's own: the tamburica family (bisernica, brač, bugarija, berda) carries Slavonian music, the lijerica accompanies Dalmatian hinterland dancing, and the sopile, roženice, mih, diple and dvojnice are the reed and bagpipe instruments of Istria, Kvarner and Dalmatia.
+locale: hr
+---
+tamburica
+bisernica
+brač
+bugarija
+berda
+lijerica
+gusle
+sopile
+roženice
+mih
+diple
+dvojnice
+gitara
+električna gitara
+bas-gitara
+violina
+viola
+violončelo
+kontrabas
+harfa
+klavir
+orgulje
+harmonika
+usna harmonika
+flauta
+klarinet
+oboa
+fagot
+saksofon
+truba
+trombon
+rog
+tuba
+bubnjevi
+udaraljke

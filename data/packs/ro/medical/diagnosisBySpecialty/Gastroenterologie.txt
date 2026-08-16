@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Romanian)
+locale: ro
+---
+Reflux gastroesofagian
+Gastrită cronică
+Ulcer gastric
+Boala Crohn
+Rectocolită ulcerohemoragică
+Sindrom de intestin iritabil
+Boală celiacă
+Steatoză hepatică nonalcoolică
+Ciroză hepatică
+Pancreatită cronică

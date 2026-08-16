@@ -1,0 +1,13 @@
+---
+description: Dishes of Mexican cuisine (Bulgarian).
+locale: bg
+---
+тако
+буритос
+кесадия
+енчилада
+гуакамоле
+начос
+тамале
+посоле
+чили кон карне

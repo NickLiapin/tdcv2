@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Romanian. A prevalence signal, not an exclusive one.
+locale: ro
+---
+Diabet zaharat tip 2
+Boală coronariană cu debut precoce
+Beta-talasemie
+Hemoglobinopatie E
+Deficit de glucozo-6-fosfat dehidrogenază
+Deficit de vitamina D
+Anemie feriprivă
+Sindrom metabolic

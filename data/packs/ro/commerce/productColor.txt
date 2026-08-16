@@ -1,0 +1,58 @@
+---
+description: Colour as written on a Romanian product listing. Furniture and flooring are named for the wood (stejar, nuc, fag, wenge) rather than for a colour, which is what a Romanian listing actually says.
+locale: ro
+---
+Alb
+Negru
+Gri
+Argintiu
+Auriu
+Roșu
+Albastru
+Bleumarin
+Verde
+Galben
+Portocaliu
+Roz
+Mov
+Maro
+Bej
+Crem
+Ivoriu
+Turcoaz
+Bordo
+Vișiniu
+Grena
+Kaki
+Antracit
+Grafit
+Alb perlat
+Negru mat
+Negru lucios
+Alb mat
+Gri deschis
+Gri închis
+Albastru deschis
+Albastru închis
+Verde deschis
+Verde închis
+Roșu aprins
+Roz pudră
+Mov pastel
+Maro ciocolatiu
+Stejar natur
+Stejar sonoma
+Nuc
+Wenge
+Fag
+Alun
+Cireș
+Inox
+Cupru
+Bronz
+Alamă
+Transparent
+Multicolor
+Imprimeu floral
+Carouri
+Dungi

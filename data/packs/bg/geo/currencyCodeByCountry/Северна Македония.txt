@@ -1,0 +1,5 @@
+---
+description: ISO currency code of Северна Македония.
+locale: bg
+---
+MKD

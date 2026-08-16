@@ -1,0 +1,29 @@
+---
+description: Vehicle body type (Romanian)
+locale: ro
+---
+Autoturism
+Berlină
+Break
+Hatchback
+Coupé
+Cabriolet
+SUV
+Crossover
+Monovolum
+Autoutilitară
+Dubă
+Camionetă
+Camion
+Autotractor
+Autobuz
+Microbuz
+Autocar
+Motocicletă
+Scuter
+ATV
+Autorulotă
+Remorcă
+Semiremorcă
+Tractor
+Autospecială

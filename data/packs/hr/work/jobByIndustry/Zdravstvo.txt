@@ -1,0 +1,17 @@
+---
+description: Job titles in the Croatian zdravstvo sector
+locale: hr
+---
+Liječnik obiteljske medicine
+Specijalist interne medicine
+Kirurg
+Anesteziolog
+Pedijatar
+Ginekolog
+Medicinska sestra
+Primalja
+Fizioterapeut
+Ljekarnik
+Laboratorijski tehničar
+Radiološki tehnolog
+Doktor dentalne medicine

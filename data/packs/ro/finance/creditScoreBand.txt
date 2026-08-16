@@ -1,0 +1,9 @@
+---
+description: Credit score band (Romanian)
+locale: ro
+---
+Slab
+Satisfăcător
+Bun
+Foarte bun
+Excelent

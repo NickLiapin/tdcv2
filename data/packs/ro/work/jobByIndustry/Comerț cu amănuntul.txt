@@ -1,0 +1,19 @@
+---
+description: Jobs in Retail (Romanian)
+locale: ro
+---
+Vânzător
+Casier
+Șef de raion
+Manager de magazin
+Merchandiser
+Gestionar
+Lucrător comercial
+Consilier de vânzări
+Agent de vânzări
+Responsabil de aprovizionare
+Recepționer marfă
+Manipulant marfă
+Promoter
+Inventariator
+Agent de pază

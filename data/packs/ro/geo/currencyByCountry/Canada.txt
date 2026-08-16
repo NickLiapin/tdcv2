@@ -1,0 +1,5 @@
+---
+description: Currency of Canada, as Romanian names it
+locale: ro
+---
+Dolar canadian

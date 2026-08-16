@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of South Asian ancestry, in Bulgarian. A prevalence signal, not an exclusive one.
+locale: bg
+---
+Захарен диабет тип 2 с ранно начало
+Исхемична болест на сърцето с ранно начало
+Бета-таласемия
+Дефицит на Г6ФД
+Хемоглобин Е
+Непоносимост към лактоза
+Дефицит на витамин D
+Централно затлъстяване

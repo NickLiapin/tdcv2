@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Romanian)
+locale: ro
+---
+Depunerea CV-ului
+Preselecția dosarelor
+Interviu telefonic
+Interviu cu resurse umane
+Test tehnic
+Interviu tehnic
+Probă de lucru
+Interviu cu managerul
+Interviu final
+Verificarea referințelor
+Ofertă de angajare

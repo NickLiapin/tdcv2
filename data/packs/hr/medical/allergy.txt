@@ -1,0 +1,26 @@
+---
+description: Allergy (Croatian). Ambrozija — ragweed — is the dominant late-summer pollen allergy in eastern Croatia and is what a Croatian allergy record most often names.
+locale: hr
+---
+Peludna alergija
+Ambrozija
+Trave
+Breza
+Grinje
+Plijesan
+Dlaka mačke
+Dlaka psa
+Ubod pčele
+Ubod ose
+Kikiriki
+Orašasti plodovi
+Mlijeko
+Jaja
+Soja
+Pšenica
+Gluten
+Riba
+Školjkaši
+Penicilin
+Lateks
+Nikal

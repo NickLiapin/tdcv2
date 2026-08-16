@@ -1,0 +1,41 @@
+---
+description: Tech noun (Romanian)
+locale: ro
+---
+server
+bază de date
+protocol
+magistrală
+memorie
+procesor
+placă video
+hard disk
+rețea
+firewall
+port
+pachet
+driver
+nucleu
+sistem de fișiere
+matrice
+cip
+circuit
+senzor
+interfață
+terminal
+consolă
+script
+algoritm
+cheie de criptare
+certificat
+jeton
+sesiune
+memorie cache
+index
+copie de siguranță
+cluster
+container
+microserviciu
+punct final
+lățime de bandă
+semnal

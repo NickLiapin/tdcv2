@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: hr
+---
+Tehnologija
+Zdravstvo
+Financije
+Graditeljstvo
+Obrazovanje
+Ugostiteljstvo
+Proizvodnja
+Trgovina
+Promet
+Pravo

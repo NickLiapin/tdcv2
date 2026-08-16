@@ -1,0 +1,5 @@
+---
+description: Capital of Norvegia, as Romanian names it
+locale: ro
+---
+Oslo

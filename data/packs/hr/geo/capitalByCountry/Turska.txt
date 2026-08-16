@@ -1,0 +1,5 @@
+---
+description: Capital of Turska, as Croatian names it
+locale: hr
+---
+Ankara

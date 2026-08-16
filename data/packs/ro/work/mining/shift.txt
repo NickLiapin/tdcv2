@@ -1,0 +1,9 @@
+---
+description: Work shift (Romanian)
+locale: ro
+---
+Schimbul I
+Schimbul II
+Schimbul III
+Tură de zi
+Tură de noapte

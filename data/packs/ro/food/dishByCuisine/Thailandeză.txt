@@ -1,0 +1,13 @@
+---
+description: Dishes of Thai cuisine (Romanian)
+locale: ro
+---
+Pad thai
+Supă tom yum
+Curry verde
+Curry roșu
+Som tam
+Orez lipicios cu mango
+Satay
+Supă tom kha
+Tăiței pad see ew

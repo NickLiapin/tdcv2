@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Romanian. Amounts are in RON, the Romanian leu. Moldova, the other Romanian-speaking state, also calls its currency the leu but it is a different currency (MDL) at a different scale, so these figures do not carry across the Prut — use a country pack for Moldovan amounts.
+locale: ro
+---
+Sub 30.000 RON
+30.000–50.000 RON
+50.000–75.000 RON
+75.000–100.000 RON
+100.000–150.000 RON
+150.000–250.000 RON
+250.000–400.000 RON
+Peste 400.000 RON

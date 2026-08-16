@@ -1,0 +1,15 @@
+---
+description: Social reaction (Romanian)
+locale: ro
+---
+Îmi place
+Îmi place la nebunie
+Haha
+Uau
+Trist
+Supărat
+Îmi pasă
+Distribuie
+Comentează
+Salvează
+Urmărește

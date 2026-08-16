@@ -1,0 +1,13 @@
+---
+description: TV / film content rating written out descriptively in Romanian. Romania's own CNA codes (AG, AP-12, N-15, IM-18) are a national regulator's codes and belong in a country pack.
+locale: ro
+---
+Pentru toate vârstele
+Recomandat copiilor
+Vizionare cu acordul părinților
+Nerecomandat sub 12 ani
+Nerecomandat sub 15 ani
+Interzis minorilor sub 18 ani
+Conținut violent
+Limbaj licențios
+Conținut sexual

@@ -1,0 +1,21 @@
+---
+description: Cuisine (Croatian). Each value has a dishByCuisine child file.
+locale: hr
+---
+Talijanska
+Japanska
+Meksička
+Kineska
+Indijska
+Francuska
+Tajlandska
+Grčka
+Španjolska
+Američka
+Korejska
+Vijetnamska
+Turska
+Libanonska
+Peruanska
+Argentinska
+Hrvatska

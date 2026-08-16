@@ -1,0 +1,5 @@
+---
+description: Capital of Русия (Bulgarian).
+locale: bg
+---
+Москва

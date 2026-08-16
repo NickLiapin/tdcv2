@@ -1,0 +1,17 @@
+---
+description: Job titles in the Croatian graditeljstvo sector
+locale: hr
+---
+Građevinski inženjer
+Arhitekt
+Voditelj gradilišta
+Zidar
+Tesar
+Armirač
+Vodoinstalater
+Električar
+Ličilac
+Keramičar
+Krovopokrivač
+Rukovatelj dizalicom
+Geodet

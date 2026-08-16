@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Croatian). Božićnica, uskrsnica and regres are Croatian institutions with no English equivalent: a Christmas bonus, an Easter bonus and a holiday allowance, all three tax-free up to a statutory ceiling and expected rather than exceptional. NOTE ON THE CATEGORY NAME: this directory used to be called hr, for human resources, and every file in it was unreachable in every locale — the address resolver reads a locale-shaped first segment as a locale, so hr.benefit meant "the Croatian pack" and never "the hr category". It was renamed to workplace. This pack is the locale that name collided with.
+locale: hr
+---
+Božićnica
+Uskrsnica
+Regres za godišnji odmor
+Topli obrok
+Naknada za prijevoz
+Dopunsko zdravstveno osiguranje
+Sistematski pregled
+Nagrada za radne rezultate
+Službeni automobil
+Službeni mobitel
+Prijenosno računalo
+Rad od kuće
+Fleksibilno radno vrijeme
+Dodatni dani godišnjeg odmora
+Sufinanciranje vrtića
+Multisport kartica
+Edukacije i tečajevi
+Treći mirovinski stup

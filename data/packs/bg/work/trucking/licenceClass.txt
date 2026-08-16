@@ -1,0 +1,11 @@
+---
+description: Bulgarian driving licence category for trucks and buses. The categories are printed in LATIN letters on a Bulgarian licence even though the rest of the document is Cyrillic, because they are the harmonised EU set. Карта за квалификация на водача is the separate professional-competence card a driver must hold alongside the licence to drive commercially.
+locale: bg
+---
+C1
+C1E
+C
+CE
+D1
+D
+Карта за квалификация на водача

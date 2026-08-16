@@ -1,0 +1,5 @@
+---
+description: Capital of Bulgaria, as Romanian names it
+locale: ro
+---
+Sofia

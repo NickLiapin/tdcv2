@@ -1,0 +1,5 @@
+---
+description: Currency code of Argentina
+locale: ro
+---
+ARS

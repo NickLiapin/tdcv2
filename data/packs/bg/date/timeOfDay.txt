@@ -1,0 +1,12 @@
+---
+description: Time of day (Bulgarian).
+locale: bg
+---
+зори
+сутрин
+предобед
+обед
+следобед
+привечер
+вечер
+нощ

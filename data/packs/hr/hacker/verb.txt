@@ -1,0 +1,32 @@
+---
+description: Technical verb (Croatian, infinitive)
+locale: hr
+---
+pokrenuti
+zaustaviti
+učitati
+preuzeti
+prenijeti
+kopirati
+obrisati
+spremiti
+vratiti
+sinkronizirati
+indeksirati
+pretražiti
+filtrirati
+sortirati
+prevesti
+izvršiti
+testirati
+nadzirati
+zabilježiti
+šifrirati
+dešifrirati
+provjeriti
+preusmjeriti
+povezati
+prekinuti
+ažurirati
+nadograditi
+konfigurirati

@@ -1,0 +1,12 @@
+---
+description: Blood group (Croatian). Croatia, like most of Europe, writes the O group as the DIGIT ZERO — 0+, 0− — not as the letter O. A config that copies the American "O+" produces a form no Croatian laboratory issues.
+locale: hr
+---
+A+
+A−
+B+
+B−
+AB+
+AB−
+0+
+0−

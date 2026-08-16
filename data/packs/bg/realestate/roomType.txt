@@ -1,0 +1,20 @@
+---
+description: Room type (Bulgarian). Хол and дневна both name the sitting room; антре is the small entrance lobby every Bulgarian flat has, where shoes come off.
+locale: bg
+---
+Хол
+Дневна
+Спалня
+Детска стая
+Кабинет
+Кухня
+Кухненски бокс
+Трапезария
+Баня
+Тоалетна
+Баня с тоалетна
+Антре
+Коридор
+Килер
+Балкон
+Тераса

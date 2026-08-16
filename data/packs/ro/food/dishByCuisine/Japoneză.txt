@@ -1,0 +1,16 @@
+---
+description: Dishes of Japanese cuisine (Romanian)
+locale: ro
+---
+Sushi
+Sashimi
+Ramen
+Tempura
+Udon
+Yakitori
+Supă miso
+Onigiri
+Gyoza
+Katsu curry
+Takoyaki
+Okonomiyaki

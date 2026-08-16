@@ -1,0 +1,29 @@
+---
+description: Event type (Romanian). Several here have no plain English equivalent: onomastica is the name day, the feast of the saint you are named after, and is celebrated at least as much as a birthday; hramul is a church or monastery's patronal feast; pomana and parastasul are the Orthodox memorial meals held for the dead.
+locale: ro
+---
+Nuntă
+Cununie civilă
+Cununie religioasă
+Logodnă
+Botez
+Cumetrie
+Zi de naștere
+Onomastică
+Aniversare
+Absolvire
+Banchet
+Revelion
+Petrecere corporate
+Conferință
+Seminar
+Workshop
+Târg
+Festival
+Concert
+Lansare de carte
+Vernisaj
+Hram
+Pomană
+Parastas
+Înmormântare

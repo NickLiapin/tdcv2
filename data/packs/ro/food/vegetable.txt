@@ -1,0 +1,38 @@
+---
+description: Vegetable (Romanian). Stevie, loboda and urzici — sorrel, orache and nettles — are gathered in spring and cooked as ordinary greens, not as foraging curiosities.
+locale: ro
+---
+Cartof
+Roșie
+Castravete
+Ardei gras
+Ardei iute
+Ceapă
+Usturoi
+Praz
+Morcov
+Pătrunjel rădăcină
+Păstârnac
+Țelină
+Sfeclă roșie
+Varză
+Varză roșie
+Conopidă
+Broccoli
+Gulie
+Vinete
+Dovlecel
+Dovleac
+Fasole verde
+Fasole boabe
+Mazăre
+Linte
+Năut
+Spanac
+Ștevie
+Lobodă
+Urzici
+Salată verde
+Ridichi
+Ciuperci
+Porumb

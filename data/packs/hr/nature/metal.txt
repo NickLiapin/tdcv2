@@ -1,0 +1,26 @@
+---
+description: Metal (Croatian)
+locale: hr
+---
+zlato
+srebro
+platina
+paladij
+bakar
+željezo
+čelik
+nehrđajući čelik
+aluminij
+cink
+kositar
+olovo
+nikal
+krom
+titan
+volfram
+magnezij
+mangan
+kobalt
+mjed
+bronca
+živa

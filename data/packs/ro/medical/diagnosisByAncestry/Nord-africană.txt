@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of North African ancestry, in Romanian. A prevalence signal, not an exclusive one.
+locale: ro
+---
+Deficit de glucozo-6-fosfat dehidrogenază
+Beta-talasemie
+Febra mediteraneană familială
+Surditate congenitală prin mutații GJB2
+Sindrom Behçet
+Diabet zaharat tip 2

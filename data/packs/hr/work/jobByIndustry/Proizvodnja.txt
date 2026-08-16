@@ -1,0 +1,16 @@
+---
+description: Job titles in the Croatian proizvodnja sector
+locale: hr
+---
+Strojar
+CNC operater
+Bravar
+Zavarivač
+Tokar
+Alatničar
+Voditelj proizvodnje
+Kontrolor kvalitete
+Održavatelj strojeva
+Tehnolog
+Skladištar
+Brodograditelj

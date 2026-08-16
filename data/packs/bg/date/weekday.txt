@@ -1,0 +1,11 @@
+---
+description: Weekday name (Bulgarian, lowercase). сряда is "middle" and четвъртък / петък are literally "fourth" and "fifth", counted from Monday — the Bulgarian week starts on Monday, so неделя (from "no work") closes it rather than opening it.
+locale: bg
+---
+понеделник
+вторник
+сряда
+четвъртък
+петък
+събота
+неделя

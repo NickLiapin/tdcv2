@@ -1,0 +1,5 @@
+---
+description: Capital of Franța, as Romanian names it
+locale: ro
+---
+Paris

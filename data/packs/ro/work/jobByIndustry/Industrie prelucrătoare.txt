@@ -1,0 +1,19 @@
+---
+description: Jobs in Manufacturing (Romanian)
+locale: ro
+---
+Operator pe linie de producție
+Inginer de proces
+Tehnician de mentenanță
+Strungar
+Frezor
+Sudor
+Lăcătuș mecanic
+Electromecanic
+Controlor de calitate
+Șef de tură
+Planificator de producție
+Operator CNC
+Vopsitor industrial
+Ambalator
+Magaziner

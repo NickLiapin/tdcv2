@@ -1,0 +1,16 @@
+---
+description: Job titles in the Croatian pravo sector
+locale: hr
+---
+Odvjetnik
+Odvjetnički vježbenik
+Javni bilježnik
+Sudac
+Državni odvjetnik
+Sudski savjetnik
+Pravnik u tvrtki
+Ovršitelj
+Sudski vještak
+Sudski tumač
+Pravni referent
+Voditelj usklađenosti

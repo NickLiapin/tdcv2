@@ -1,0 +1,16 @@
+---
+description: Job titles in the Croatian tehnologija sector
+locale: hr
+---
+Programer
+Softverski inženjer
+Voditelj razvoja
+Sistemski inženjer
+Mrežni administrator
+Administrator baze podataka
+Analitičar podataka
+Stručnjak za kibernetičku sigurnost
+Dizajner korisničkog sučelja
+Voditelj projekta
+Ispitivač softvera
+Voditelj proizvoda

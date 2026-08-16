@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Romanian)
+locale: ro
+---
+Neclasificat
+Bronz
+Argint
+Aur
+Platină
+Diamant
+Maestru
+Mare maestru
+Campion
+Legendă

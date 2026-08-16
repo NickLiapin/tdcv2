@@ -1,0 +1,23 @@
+---
+description: Film genre (Croatian)
+locale: hr
+---
+Drama
+Komedija
+Akcijski film
+Triler
+Horor
+Znanstvena fantastika
+Fantastika
+Romantična komedija
+Krimić
+Ratni film
+Povijesni film
+Vestern
+Pustolovni film
+Animirani film
+Dokumentarac
+Mjuzikl
+Biografski film
+Obiteljski film
+Misterij

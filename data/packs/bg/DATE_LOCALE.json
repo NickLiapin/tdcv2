@@ -1,0 +1,59 @@
+{
+  "_comment": "Bulgarian month names are the international Latin-derived set, like Serbian and Russian and UNLIKE Czech (leden), Croatian (siječanj), Polish (styczeń) and Ukrainian (січень), which kept the Slavic nature-names. They are written LOWERCASE. monthsInDate is identical to months, and that identity is a fact about the grammar rather than a shortcut: Bulgarian is the one Slavic language with no noun cases at all, so there is no genitive for a date to switch into — 16 август 2026 г. carries the same form as the bare month name, where Czech would write 16. srpna. The formats end in \" г.\" (за година): a Bulgarian date is conventionally closed with that abbreviation, both in the numeric and in the long form.",
+  "months": [
+    "януари",
+    "февруари",
+    "март",
+    "април",
+    "май",
+    "юни",
+    "юли",
+    "август",
+    "септември",
+    "октомври",
+    "ноември",
+    "декември"
+  ],
+  "monthsInDate": [
+    "януари",
+    "февруари",
+    "март",
+    "април",
+    "май",
+    "юни",
+    "юли",
+    "август",
+    "септември",
+    "октомври",
+    "ноември",
+    "декември"
+  ],
+  "monthsShort": [
+    "ян.",
+    "февр.",
+    "март",
+    "апр.",
+    "май",
+    "юни",
+    "юли",
+    "авг.",
+    "септ.",
+    "окт.",
+    "ноем.",
+    "дек."
+  ],
+  "weekdays": [
+    "неделя",
+    "понеделник",
+    "вторник",
+    "сряда",
+    "четвъртък",
+    "петък",
+    "събота"
+  ],
+  "weekdaysShort": ["нд", "пн", "вт", "ср", "чт", "пт", "сб"],
+  "formats": {
+    "L": "DD.MM.YYYY г.",
+    "LL": "D MMMM YYYY г."
+  }
+}

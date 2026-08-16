@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Bulgarian street, district or housing-estate name (ж.к. Изток, кв. Северозапад). Masculine and feminine forms are both listed because the qualifier agrees with the noun it follows — квартал is masculine, улица feminine.
+locale: bg
+---
+Изток
+Запад
+Север
+Юг
+Североизток
+Северозапад
+Югоизток
+Югозапад
+Център
+Централен
+Централна
+Горен
+Долен
+Среден
+Средна

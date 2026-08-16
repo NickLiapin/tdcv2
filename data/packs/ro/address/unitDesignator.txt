@@ -1,0 +1,27 @@
+---
+description: Romanian address unit / interior designator, in the abbreviated form written before its number (Bl. 12, Sc. B, Et. 3, Ap. 47). A full Romanian street address stacks them in that order after the street.
+locale: ro
+---
+Nr.
+Bl.
+Sc.
+Et.
+Ap.
+Cam.
+Sect.
+Corp
+Tronson
+Lot
+Parcela
+Boxa
+Garaj
+Birou
+Modul
+Stand
+Hala
+Depozit
+Parter
+Demisol
+Subsol
+Mansarda
+C.P.

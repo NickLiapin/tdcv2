@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Romanian. A prevalence signal, not an exclusive one.
+locale: ro
+---
+Febra mediteraneană familială
+Beta-talasemie
+Deficit de glucozo-6-fosfat dehidrogenază
+Siclemie
+Sindrom Behçet
+Surditate congenitală prin mutații GJB2

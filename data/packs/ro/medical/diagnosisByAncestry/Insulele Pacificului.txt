@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Romanian. A prevalence signal, not an exclusive one.
+locale: ro
+---
+Diabet zaharat tip 2
+Obezitate
+Gută
+Boală cronică de rinichi
+Boală reumatismală cardiacă
+Hipertensiune arterială

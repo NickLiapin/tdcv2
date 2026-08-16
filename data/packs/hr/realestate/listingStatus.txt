@@ -1,0 +1,16 @@
+---
+description: Property listing status (Croatian)
+locale: hr
+---
+Aktivan oglas
+Novo u ponudi
+Rezervirano
+Pod ugovorom
+Prodano
+Iznajmljeno
+Povučeno
+Isteklo
+Snižena cijena
+U izgradnji
+Useljivo
+Na upit

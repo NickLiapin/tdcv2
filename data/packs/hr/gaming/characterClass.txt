@@ -1,0 +1,28 @@
+---
+description: Player character class (Croatian)
+locale: hr
+---
+Ratnik
+Čarobnjak
+Vračar
+Lopov
+Strijelac
+Svećenik
+Iscjelitelj
+Paladin
+Druid
+Nekromant
+Vitez
+Barbarin
+Lovac
+Ubojica
+Bard
+Redovnik
+Prizivač
+Elementalist
+Šaman
+Berserker
+Kopljanik
+Štitonoša
+Alkemičar
+Inženjer

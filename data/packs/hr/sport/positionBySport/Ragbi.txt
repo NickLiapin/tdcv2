@@ -1,0 +1,14 @@
+---
+description: Playing positions in ragbi, named in Croatian
+locale: hr
+---
+Stup
+Vezač
+Druga linija
+Treća linija
+Broj osam
+Vezni igrač
+Otvarač
+Centar
+Krilo
+Zadnji igrač

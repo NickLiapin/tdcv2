@@ -1,0 +1,28 @@
+---
+description: Name suffix (Bulgarian). Bulgarian academic titles PRECEDE the name — проф. д-р Иван Петров — so what trails a name is only a doctoral-science abbreviation or a regnal numeral. And the numeral is the point: Bulgarian has no Jr / Sr convention at all, so I, II, III number MONARCHS (Борис III, Симеон II) and never a son who shares his father's name. A Bulgarian son who shares his father's name is distinguished by the patronymic middle name instead, which every Bulgarian already carries.
+locale: bg
+---
+д.м.н.
+д.н.
+дм
+д.ик.н.
+д.т.н.
+д.ф.н.
+д.п.н.
+д.б.н.
+д.х.н.
+д.ю.н.
+д.с.н.
+DSc
+PhD
+MBA
+MD
+LL.M.
+MSc
+BSc
+I
+II
+III
+IV
+V
+VI

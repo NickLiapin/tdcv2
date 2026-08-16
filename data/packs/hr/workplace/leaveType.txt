@@ -1,0 +1,16 @@
+---
+description: Type of leave from work (Croatian). Rodiljni dopust is the maternity leave and roditeljski dopust the parental leave that follows it — Croatian law keeps them apart, and a config that merges them will misdescribe a Croatian personnel record.
+locale: hr
+---
+Godišnji odmor
+Bolovanje
+Rodiljni dopust
+Roditeljski dopust
+Očinski dopust
+Plaćeni dopust
+Neplaćeni dopust
+Slobodan dan
+Državni blagdan
+Dopust za njegu djeteta
+Dopust zbog smrti u obitelji
+Studijski dopust

@@ -1,0 +1,14 @@
+---
+description: Loan type (Croatian)
+locale: hr
+---
+Stambeni kredit
+Hipotekarni kredit
+Nenamjenski kredit
+Gotovinski kredit
+Auto kredit
+Studentski kredit
+Prekoračenje po računu
+Kreditna kartica
+Poduzetnički kredit
+Lombardni kredit

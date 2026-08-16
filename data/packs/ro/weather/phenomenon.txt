@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Romanian). Crivatul and austrul are named winds, not descriptions: the crivat is the dry, cutting north-easterly that drives the winter blizzards across the Baragan plain, the austru the hot, drying south-westerly of Oltenia and the Banat.
+locale: ro
+---
+Curcubeu
+Fulger
+Tunet
+Trăsnet
+Chiciură
+Brumă
+Rouă
+Polei
+Viscol
+Vijelie
+Tornadă
+Crivăț
+Austru
+Aurora boreală
+Halou solar

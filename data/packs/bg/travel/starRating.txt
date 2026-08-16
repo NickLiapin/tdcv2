@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Bulgarian). звезда is feminine, so the numeral agrees: 1 звезда, 2 звезди, 5 звезди.
+locale: bg
+---
+1 звезда
+2 звезди
+3 звезди
+4 звезди
+5 звезди

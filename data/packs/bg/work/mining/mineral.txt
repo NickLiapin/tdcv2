@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Bulgarian). The list is what Bulgaria actually digs up: copper and lead-zinc ore from the Sredna Gora and the Rhodopes, lignite from the Maritsa basin, and gold from Chelopech.
+locale: bg
+---
+медна руда
+оловно-цинкова руда
+златна руда
+сребърна руда
+желязна руда
+манганова руда
+хромит
+волфрам
+молибден
+лигнитни въглища
+кафяви въглища
+антрацит
+каолин
+бентонит
+варовик
+мрамор
+гипс
+кварцов пясък
+барит

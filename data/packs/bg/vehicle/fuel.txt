@@ -1,0 +1,14 @@
+---
+description: Fuel type (Bulgarian). Газ (LPG) is far commoner on Bulgarian roads than in western Europe — retrofitting a petrol car to run on it is an ordinary garage job.
+locale: bg
+---
+бензин
+дизел
+газ
+метан
+хибрид
+плъгин хибрид
+електрически
+водород
+етанол
+биодизел

@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Bulgarian), Monday first.
+locale: bg
+---
+пн
+вт
+ср
+чт
+пт
+сб
+нд

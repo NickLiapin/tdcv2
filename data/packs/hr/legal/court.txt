@@ -1,0 +1,19 @@
+---
+description: Court. Croatian is the official language of ONE country, so this is the judiciary of the Republic of Croatia rather than a generic set of court words — compare the Spanish and Portuguese packs, which must stay generic because their language spans many judiciaries.
+locale: hr
+---
+Ustavni sud Republike Hrvatske
+Vrhovni sud Republike Hrvatske
+Visoki kazneni sud
+Visoki trgovački sud
+Visoki upravni sud
+Visoki prekršajni sud
+Županijski sud
+Općinski sud
+Općinski građanski sud
+Općinski kazneni sud
+Općinski radni sud
+Trgovački sud
+Upravni sud
+Sud časti Hrvatske gospodarske komore
+Stalno arbitražno sudište

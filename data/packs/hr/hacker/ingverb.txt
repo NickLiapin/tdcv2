@@ -1,0 +1,32 @@
+---
+description: Technical activity as a Croatian VERBAL NOUN. Croatian has no present participle used the way English uses -ing, so the natural equivalent is a noun in -nje or -anje; a config translating "compiling the kernel" gets prevođenje jezgre.
+locale: hr
+---
+pokretanje
+zaustavljanje
+učitavanje
+preuzimanje
+prenošenje
+kopiranje
+brisanje
+spremanje
+vraćanje
+sinkroniziranje
+indeksiranje
+pretraživanje
+filtriranje
+sortiranje
+prevođenje
+izvršavanje
+otklanjanje pogrešaka
+testiranje
+nadziranje
+bilježenje
+šifriranje
+dešifriranje
+provjeravanje
+preusmjeravanje
+povezivanje
+raskidanje veze
+ažuriranje
+nadogradnja

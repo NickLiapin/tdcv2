@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Croatian street, district or housing estate name (naselje Jug, kvart Istok). The four bare compass words double as district names.
+locale: hr
+---
+Sjever
+Jug
+Istok
+Zapad
+Sjeveroistok
+Sjeverozapad
+Jugoistok
+Jugozapad
+Sjeverni
+Južni
+Istočni
+Zapadni
+Centar
+Središte
+Središnji

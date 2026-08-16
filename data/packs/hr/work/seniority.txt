@@ -1,0 +1,20 @@
+---
+description: Seniority level (Croatian)
+locale: hr
+---
+Vježbenik
+Pripravnik
+Stažist
+Početnik
+Mlađi suradnik
+Suradnik
+Samostalni suradnik
+Viši suradnik
+Stručnjak
+Viši stručnjak
+Vodeći stručnjak
+Voditelj tima
+Voditelj odjela
+Direktor sektora
+Član uprave
+Predsjednik uprave

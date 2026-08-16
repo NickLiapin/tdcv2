@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Bulgarian). май, юни and юли are already short enough that they carry no abbreviating full stop.
+locale: bg
+---
+ян.
+февр.
+март
+апр.
+май
+юни
+юли
+авг.
+септ.
+окт.
+ноем.
+дек.

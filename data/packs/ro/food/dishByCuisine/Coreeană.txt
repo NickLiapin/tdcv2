@@ -1,0 +1,13 @@
+---
+description: Dishes of Korean cuisine (Romanian)
+locale: ro
+---
+Kimchi
+Bibimbap
+Bulgogi
+Tteokbokki
+Japchae
+Samgyeopsal
+Sundubu-jjigae
+Kimbap
+Supă de ginseng

@@ -1,0 +1,5 @@
+---
+description: Capital of Чехия (Bulgarian).
+locale: bg
+---
+Прага

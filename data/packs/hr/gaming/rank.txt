@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Croatian)
+locale: hr
+---
+Bez ranga
+Bronca
+Srebro
+Zlato
+Platina
+Dijamant
+Majstor
+Velemajstor
+Izazivač
+Legenda

@@ -1,0 +1,39 @@
+---
+description: Music genre (Bulgarian), including the domestic ones. Народна музика is traditional village music; поп-фолк, universally called чалга, is its commercial descendant crossed with Balkan and Turkish pop and is the most-listened-to genre in the country. Both are listed because they are not the same thing and Bulgarians never confuse them.
+locale: bg
+---
+народна музика
+поп-фолк
+чалга
+градска песен
+възрожденска песен
+обработен фолклор
+хорова музика
+църковно пение
+естрада
+шлагер
+поп
+рок
+хард рок
+метъл
+пънк
+алтернатива
+инди
+гръндж
+хип-хоп
+рап
+ритъм енд блус
+соул
+фънк
+джаз
+блус
+суинг
+класическа музика
+опера
+оперета
+симфонична музика
+камерна музика
+електронна музика
+хаус
+техно
+транс

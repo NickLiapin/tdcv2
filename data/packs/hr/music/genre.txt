@@ -1,0 +1,39 @@
+---
+description: Music genre (Croatian). Klapa is the Dalmatian a cappella singing on the UNESCO list, tamburaška glazba the Slavonian string-band tradition, and zabavna glazba the Croatian mainstream pop of the festival circuit.
+locale: hr
+---
+Klapska glazba
+Tamburaška glazba
+Zabavna glazba
+Narodna glazba
+Izvorna narodna glazba
+Cro dance
+Šansona
+Pop
+Rock
+Hard rock
+Punk
+Metal
+Alternativni rock
+Indie
+Elektronička glazba
+House
+Techno
+Trance
+Drum and bass
+Hip hop
+Rap
+R&B
+Soul
+Funk
+Jazz
+Blues
+Reggae
+Country
+Latino
+Klasična glazba
+Opera
+Zborska glazba
+Crkvena glazba
+Filmska glazba
+Dječja glazba

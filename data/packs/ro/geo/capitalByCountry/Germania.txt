@@ -1,0 +1,5 @@
+---
+description: Capital of Germania, as Romanian names it
+locale: ro
+---
+Berlin

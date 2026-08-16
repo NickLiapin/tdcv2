@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of bliskoistočna ancestry, named in Croatian.
+locale: hr
+---
+Obiteljska mediteranska groznica
+Beta talasemija
+Nedostatak glukoza-6-fosfat dehidrogenaze
+Bechetova bolest
+Nasljedna gluhoća
+Spinalna mišićna atrofija
+Šećerna bolest tipa 2
+Cistična fibroza

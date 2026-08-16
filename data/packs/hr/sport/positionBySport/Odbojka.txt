@@ -1,0 +1,9 @@
+---
+description: Playing positions in odbojka, named in Croatian
+locale: hr
+---
+Dizač
+Primač-napadač
+Srednji bloker
+Korektor
+Libero

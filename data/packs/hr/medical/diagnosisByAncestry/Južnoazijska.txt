@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of južnoazijska ancestry, named in Croatian.
+locale: hr
+---
+Beta talasemija
+Nedostatak glukoza-6-fosfat dehidrogenaze
+Šećerna bolest tipa 2
+Ishemijska bolest srca
+Neperzistencija laktaze
+Nedostatak vitamina D
+Bolest srpastih stanica
+Tuberkuloza

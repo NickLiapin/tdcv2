@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child)
+locale: ro
+---
+Tehnologie
+Sănătate
+Educație
+Finanțe
+Construcții
+Comerț cu amănuntul
+Industrie prelucrătoare
+Transporturi
+Ospitalitate
+Servicii juridice

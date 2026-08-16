@@ -1,0 +1,42 @@
+---
+description: Animal (Croatian). Croatian gives the bear, wolf and lynx their own everyday words because all three still live in the Gorski kotar and Lika forests.
+locale: hr
+---
+Pas
+Mačka
+Konj
+Krava
+Bik
+Ovca
+Koza
+Svinja
+Kokoš
+Pijetao
+Patka
+Guska
+Pura
+Zec
+Kunić
+Miš
+Štakor
+Hrčak
+Vjeverica
+Lisica
+Vuk
+Medvjed
+Ris
+Divlja svinja
+Jelen
+Srna
+Divokoza
+Kuna
+Jazavac
+Vidra
+Dabar
+Šišmiš
+Jež
+Krtica
+Zmija
+Gušter
+Žaba
+Kornjača

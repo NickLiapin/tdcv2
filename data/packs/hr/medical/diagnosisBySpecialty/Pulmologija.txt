@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in pulmologija, named in Croatian
+locale: hr
+---
+Astma
+Kronična opstruktivna plućna bolest
+Upala pluća
+Bronhitis
+Plućna embolija
+Apneja u snu
+Tuberkuloza
+Plućna fibroza
+Sarkoidoza
+Pleuritis
+Bronhiektazije

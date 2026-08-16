@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Romanian)
+locale: ro
+---
+Bucată
+Set
+Pereche
+Pachet
+Cutie
+Bax
+Palet
+Kilogram
+Gram
+Tonă
+Litru
+Mililitru
+Metru
+Centimetru
+Milimetru
+Metru pătrat
+Metru cub
+Metru liniar
+Rolă
+Sul
+Sac
+Găleată
+Bidon
+Sticlă
+Doză
+Borcan
+Plic
+Pungă
+Colac
+Legătură

@@ -1,0 +1,15 @@
+---
+description: Gaming platform (brand names kept as they are written)
+locale: ro
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Android
+iOS
+Web
+Realitate virtuală

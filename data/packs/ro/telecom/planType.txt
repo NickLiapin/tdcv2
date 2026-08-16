@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Romanian)
+locale: ro
+---
+Abonament
+Cartelă preplătită
+Abonament cu telefon inclus
+Abonament nelimitat
+Abonament de date
+Internet mobil
+Telefonie fixă
+Pachet familie
+Pachet business
+Roaming
+Pachet TV și internet
+Extraopțiune

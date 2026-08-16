@@ -1,0 +1,21 @@
+---
+description: Social platform. Viber is far more widely used in Croatia than in western Europe; these are brand names and keep their spelling.
+locale: hr
+---
+Facebook
+Instagram
+TikTok
+X
+YouTube
+LinkedIn
+Snapchat
+Pinterest
+Reddit
+WhatsApp
+Viber
+Telegram
+Signal
+Discord
+Twitch
+Threads
+Messenger

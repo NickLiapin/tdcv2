@@ -1,0 +1,23 @@
+---
+description: Legal term (Croatian). Note odvjetnik for a lawyer, where Serbian and Bosnian say advokat.
+locale: hr
+---
+tužba
+tuženik
+tužitelj
+odvjetnik
+javni bilježnik
+punomoć
+presuda
+rješenje
+žalba
+revizija
+ovrha
+zastara
+ročište
+svjedok
+vještačenje
+nagodba
+ugovor
+jamstvo
+odšteta

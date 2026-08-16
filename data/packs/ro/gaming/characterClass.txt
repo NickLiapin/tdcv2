@@ -1,0 +1,28 @@
+---
+description: RPG character class (Romanian)
+locale: ro
+---
+Războinic
+Barbar
+Paladin
+Cavaler
+Cleric
+Preot
+Mag
+Vrăjitor
+Necromant
+Druid
+Șaman
+Vânător
+Arcaș
+Asasin
+Hoț
+Bard
+Călugăr
+Berserker
+Tămăduitor
+Invocator
+Alchimist
+Inginer
+Lunetist
+Explorator

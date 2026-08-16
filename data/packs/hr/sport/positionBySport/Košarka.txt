@@ -1,0 +1,9 @@
+---
+description: Playing positions in košarka, named in Croatian
+locale: hr
+---
+Razigravač
+Bek šuter
+Nisko krilo
+Krilni centar
+Centar

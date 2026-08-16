@@ -1,0 +1,5 @@
+---
+description: Capital of Обединено кралство (Bulgarian).
+locale: bg
+---
+Лондон

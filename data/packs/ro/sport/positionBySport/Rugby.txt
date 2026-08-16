@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Romanian)
+locale: ro
+---
+Pilier
+Taloner
+Linia a doua
+Flanker
+Număr opt
+Mijlocaș la grămadă
+Mijlocaș la deschidere
+Centru
+Aripă
+Fundaș

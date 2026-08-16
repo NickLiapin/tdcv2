@@ -1,0 +1,26 @@
+---
+description: Common allergies (Romanian). Ambrozia — ragweed — is the allergen of the Romanian late summer, spread across the western plain, and is regulated by its own law.
+locale: ro
+---
+Alergie la polen
+Alergie la ambrozie
+Alergie la praf
+Alergie la acarieni
+Alergie la păr de animale
+Alergie la mucegai
+Alergie la arahide
+Alergie la nuci
+Alergie la lapte
+Alergie la ou
+Alergie la gluten
+Alergie la soia
+Alergie la pește
+Alergie la fructe de mare
+Alergie la căpșuni
+Alergie la penicilină
+Alergie la sulfamide
+Alergie la aspirină
+Alergie la anestezice locale
+Alergie la latex
+Alergie la nichel
+Alergie la înțepături de albine

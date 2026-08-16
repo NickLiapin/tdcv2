@@ -1,0 +1,61 @@
+---
+description: Sport (Romanian). Oina is the Romanian bat-and-ball game, played since at least the 14th century and taught in schools as the national sport; handball, gymnastics and rowing are the disciplines Romania is actually known for internationally.
+locale: ro
+---
+Fotbal
+Handbal
+Baschet
+Volei
+Rugby
+Oină
+Tenis
+Tenis de masă
+Badminton
+Înot
+Sărituri în apă
+Polo pe apă
+Canotaj
+Caiac-canoe
+Atletism
+Maraton
+Gimnastică artistică
+Gimnastică ritmică
+Haltere
+Lupte greco-romane
+Lupte libere
+Judo
+Karate
+Taekwondo
+Box
+Kickboxing
+Scrimă
+Tir
+Tir cu arcul
+Ciclism
+Ciclism montan
+Automobilism
+Motociclism
+Karting
+Schi alpin
+Schi fond
+Sărituri cu schiurile
+Biatlon
+Snowboard
+Patinaj artistic
+Patinaj viteză
+Hochei pe gheață
+Bob
+Sanie
+Alpinism
+Escaladă
+Orientare sportivă
+Călărie
+Pentatlon modern
+Triatlon
+Șah
+Popice
+Fotbal american
+Baseball
+Golf
+Culturism
+Dans sportiv

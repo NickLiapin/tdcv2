@@ -1,0 +1,54 @@
+---
+description: Airline — Bulgarian carriers and the international ones that serve Bulgaria. България Ер is the flag carrier; it is written in Cyrillic at home and as Bulgaria Air abroad, and both forms are in circulation.
+locale: bg
+---
+България Ер
+Bulgaria Air
+GullivAir
+Electra Airways
+BH Air
+Bulgarian Air Charter
+Air Via
+Lufthansa
+Austrian Airlines
+Swiss International Air Lines
+Turkish Airlines
+Aegean Airlines
+Olympic Air
+LOT Polish Airlines
+Air France
+KLM
+British Airways
+Iberia
+Alitalia
+ITA Airways
+TAP Air Portugal
+Finnair
+SAS
+Norwegian
+Ryanair
+Wizz Air
+easyJet
+Eurowings
+Transavia
+Pegasus Airlines
+AJet
+Air Serbia
+Tarom
+Aeroflot
+S7 Airlines
+El Al
+Emirates
+Qatar Airways
+Etihad Airways
+Middle East Airlines
+EgyptAir
+Royal Jordanian
+Air Canada
+United Airlines
+Delta Air Lines
+American Airlines
+Singapore Airlines
+Korean Air
+ANA
+Qantas

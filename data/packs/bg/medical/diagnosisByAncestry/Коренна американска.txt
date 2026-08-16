@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Native American ancestry, in Bulgarian. A prevalence signal, not an exclusive one.
+locale: bg
+---
+Захарен диабет тип 2
+Жлъчнокаменна болест
+Непоносимост към лактоза
+Ревматоиден артрит
+Алкохолна чернодробна болест
+Дефицит на алфа-1-антитрипсин
+Албинизъм (OCA2)

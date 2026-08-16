@@ -1,0 +1,15 @@
+---
+description: Type of employment contract (Croatian). Ugovor o djelu and ugovor o autorskom djelu are Croatian civil-law contracts used for one-off work outside an employment relationship, and a Croatian payroll treats them quite differently from an employment contract.
+locale: hr
+---
+Ugovor na neodređeno
+Ugovor na određeno
+Puno radno vrijeme
+Nepuno radno vrijeme
+Skraćeno radno vrijeme
+Sezonski rad
+Studentski ugovor
+Ugovor o djelu
+Ugovor o autorskom djelu
+Stručno osposobljavanje
+Rad putem agencije

@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Romanian)
+locale: ro
+---
+Portar
+Extremă stânga
+Extremă dreapta
+Inter stânga
+Inter dreapta
+Centru
+Pivot

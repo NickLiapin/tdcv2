@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Pacific Islander ancestry, in Bulgarian. A prevalence signal, not an exclusive one.
+locale: bg
+---
+Захарен диабет тип 2
+Затлъстяване
+Подагра
+Хронична бъбречна недостатъчност
+Ревматична болест на сърцето
+Хепатит В носителство
+Дефицит на Г6ФД

@@ -1,0 +1,12 @@
+---
+description: Personal pronoun (Romanian, third person and the polite forms). Romanian splits 'they' by gender — ei for a masculine or mixed group, ele only for an all-feminine one — and has a full politeness ladder that English has lost: dumneavoastra is the formal 'you', dumneata a middle form used downward or between equals, and dansul / dansa a respectful third person used about someone present.
+locale: ro
+---
+el
+ea
+ei
+ele
+dumneavoastră
+dumneata
+dânsul
+dânsa

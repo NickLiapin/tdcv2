@@ -1,0 +1,32 @@
+---
+description: Technical adjective (Croatian, masculine singular)
+locale: hr
+---
+digitalni
+analogni
+binarni
+bežični
+žičani
+optički
+redundantni
+primarni
+sekundarni
+virtualni
+fizički
+logički
+šifrirani
+nešifrirani
+autentificirani
+ovlašteni
+neovlašteni
+zastarjeli
+kompatibilni
+nekompatibilni
+raspodijeljeni
+centralizirani
+asinkroni
+sinkroni
+transakcijski
+sigurnosni
+mrežni
+poslužiteljski

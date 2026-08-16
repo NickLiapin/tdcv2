@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in endokrinologija, named in Croatian
+locale: hr
+---
+Šećerna bolest tipa 1
+Šećerna bolest tipa 2
+Hipotireoza
+Hipertireoza
+Hashimotov tireoiditis
+Gušavost
+Osteoporoza
+Pretilost
+Sindrom policističnih jajnika
+Cushingov sindrom
+Adisonova bolest

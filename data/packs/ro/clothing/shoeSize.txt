@@ -1,0 +1,16 @@
+---
+description: Shoe size as printed on a shoebox in Romania and Moldova: the continental European (Paris point) scale, the same numbers as France, Germany and Italy. Not UK sizes, not US sizes, not centimetres.
+locale: ro
+---
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47

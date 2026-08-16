@@ -1,0 +1,5 @@
+---
+description: Capital of Švedska, as Croatian names it
+locale: hr
+---
+Stockholm

@@ -1,0 +1,18 @@
+---
+description: Order status (Croatian)
+locale: hr
+---
+Zaprimljena
+U obradi
+Potvrđena
+Plaćena
+U pripremi
+Spremna za otpremu
+Otpremljena
+U dostavi
+Dostavljena
+Preuzeta
+Otkazana
+Vraćena
+Na čekanju
+Odbijena

@@ -1,0 +1,5 @@
+---
+description: Capital of Турция (Bulgarian).
+locale: bg
+---
+Анкара

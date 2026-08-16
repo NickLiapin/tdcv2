@@ -1,0 +1,43 @@
+---
+description: Bird (Romanian)
+locale: ro
+---
+Vrabie
+Cioară
+Coțofană
+Porumbel
+Turturea
+Rândunică
+Lăstun
+Barză
+Pelican
+Cormoran
+Rață sălbatică
+Gâscă sălbatică
+Lebădă
+Stârc
+Egretă
+Vultur
+Acvilă
+Șoim
+Uliu
+Bufniță
+Cucuvea
+Huhurez
+Ciocănitoare
+Pupăză
+Cuc
+Mierlă
+Sturz
+Privighetoare
+Pițigoi
+Grangur
+Cinteză
+Sticlete
+Graur
+Prepeliță
+Potârniche
+Fazan
+Cocoș de munte
+Nagâț
+Pescăruș

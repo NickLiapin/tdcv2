@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification awarded in Romania and Moldova, which share the three-cycle Bologna structure (licenta 3 years, master 2, doctorat 3). 'Inginer diplomat' is the four-year engineering degree, which stayed longer than the standard licenta.
+locale: ro
+---
+Diplomă de bacalaureat
+Certificat de calificare profesională
+Atestat profesional
+Diplomă de absolvire
+Diplomă de licență
+Inginer diplomat
+Diplomă de master
+Diplomă de doctor
+Certificat de studii postuniversitare
+MBA
+Atestat de abilitare
+Certificat de rezidențiat
+Diplomă de medic specialist
+Diplomă de medic primar
+Certificat de formare continuă
+Diplomă postliceală

@@ -1,0 +1,15 @@
+---
+description: Playing positions in nogomet, named in Croatian
+locale: hr
+---
+Vratar
+Desni bek
+Lijevi bek
+Stoper
+Zadnji vezni
+Središnji vezni
+Ofenzivni vezni
+Desno krilo
+Lijevo krilo
+Napadač
+Špica

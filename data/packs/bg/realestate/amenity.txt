@@ -1,0 +1,26 @@
+---
+description: Property amenity as a Bulgarian listing words it. Акт 16 is not a feature but a permit — the occupancy certificate without which a new build cannot legally be lived in — and Bulgarian buyers ask for it by name before anything else. ТЕЦ means the flat is on district heating from a municipal plant rather than on its own boiler.
+locale: bg
+---
+Асансьор
+Паркомясто
+Гараж
+Тераса
+Балкон
+Климатик
+ТЕЦ
+Локално отопление
+Подово отопление
+Камина
+Обзаведен
+Ново строителство
+Акт 16
+Охрана
+Видеонаблюдение
+Домофон
+Мазе
+Таван
+Двор
+Барбекю
+Басейн
+Оптичен интернет

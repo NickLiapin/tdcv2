@@ -1,0 +1,5 @@
+---
+description: Currency code of Thailanda
+locale: ro
+---
+THB

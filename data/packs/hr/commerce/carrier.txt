@@ -1,0 +1,24 @@
+---
+description: Parcel carrier operating in Croatia. Hrvatska pošta is the national postal operator and Overseas Express is the largest domestic courier; the rest are international carriers and freight forwarders with a Croatian network. These are company names and keep their real spelling.
+locale: hr
+---
+Hrvatska pošta
+HP Express
+Overseas Express
+GLS Hrvatska
+DPD Hrvatska
+DHL Express
+FedEx
+UPS
+TNT
+In Time
+City Express
+Intereuropa
+DB Schenker
+Gebrüder Weiss
+Kuehne + Nagel
+Lagermax
+Rhenus Logistics
+Dachser
+Cargo-partner
+Milšped

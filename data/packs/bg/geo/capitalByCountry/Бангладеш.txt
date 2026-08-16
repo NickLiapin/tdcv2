@@ -1,0 +1,5 @@
+---
+description: Capital of Бангладеш (Bulgarian).
+locale: bg
+---
+Дака

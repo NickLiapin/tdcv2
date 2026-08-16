@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Romanian)
+locale: ro
+---
+Bicicletă de oraș
+Bicicletă de munte
+Bicicletă de cursă
+Bicicletă gravel
+Bicicletă de trekking
+Bicicletă pliabilă
+Bicicletă electrică
+Bicicletă de copii
+Bicicletă cargo
+BMX
+Cruiser
+Tandem
+Triciclu
+Fatbike
+Cyclocross
+Bicicletă cu suspensie completă
+Bicicletă cu cadru rigid

@@ -1,0 +1,12 @@
+---
+description: Time of day (Romanian)
+locale: ro
+---
+zori
+dimineață
+prânz
+după-amiază
+seară
+noapte
+miezul nopții
+amurg

@@ -1,0 +1,13 @@
+---
+description: Dishes of Greek cuisine (Romanian)
+locale: ro
+---
+Musaca
+Souvlaki
+Gyros
+Tzatziki
+Salată grecească
+Spanakopita
+Dolmades
+Baclava grecească
+Feta la cuptor

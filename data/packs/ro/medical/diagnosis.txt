@@ -1,0 +1,100 @@
+---
+description: Medical diagnosis in Romanian that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale / diagnosisFemale; ancestry-linked ones in diagnosisByAncestry.
+locale: ro
+---
+Hipertensiune arterială esențială
+Diabet zaharat tip 1
+Diabet zaharat tip 2
+Dislipidemie
+Obezitate
+Sindrom metabolic
+Cardiopatie ischemică
+Angină pectorală
+Infarct miocardic
+Insuficiență cardiacă
+Fibrilație atrială
+Bloc atrioventricular
+Cardiomiopatie dilatativă
+Valvulopatie mitrală
+Tromboză venoasă profundă
+Embolie pulmonară
+Varice ale membrelor inferioare
+Accident vascular cerebral
+Atac ischemic tranzitoriu
+Migrenă
+Epilepsie
+Boala Parkinson
+Scleroză multiplă
+Neuropatie periferică
+Nevralgie de trigemen
+Demență
+Boala Alzheimer
+Astm bronșic
+Bronhopneumopatie obstructivă cronică
+Pneumonie
+Bronșită acută
+Rinită alergică
+Sinuzită cronică
+Apnee de somn
+Tuberculoză pulmonară
+Reflux gastroesofagian
+Gastrită cronică
+Ulcer gastric
+Ulcer duodenal
+Infecție cu Helicobacter pylori
+Boala Crohn
+Rectocolită ulcerohemoragică
+Sindrom de intestin iritabil
+Boală celiacă
+Litiază biliară
+Colecistită
+Pancreatită acută
+Steatoză hepatică
+Ciroză hepatică
+Hepatită cronică cu virus B
+Hepatită cronică cu virus C
+Litiază renală
+Infecție urinară
+Pielonefrită
+Boală cronică de rinichi
+Insuficiență renală acută
+Hipotiroidism
+Hipertiroidism
+Tiroidită Hashimoto
+Gușă nodulară
+Osteoporoză
+Osteoartroză
+Poliartrită reumatoidă
+Spondilită anchilozantă
+Lupus eritematos sistemic
+Fibromialgie
+Gută
+Hernie de disc lombară
+Scolioză
+Entorsă de gleznă
+Fractură de radius
+Anemie feriprivă
+Anemie megaloblastică
+Trombocitopenie
+Leucemie acută
+Limfom Hodgkin
+Cancer colorectal
+Cancer pulmonar
+Cancer gastric
+Melanom malign
+Psoriazis
+Dermatită atopică
+Urticarie cronică
+Acnee vulgară
+Cataractă
+Glaucom
+Conjunctivită
+Otită medie
+Hipoacuzie neurosenzorială
+Depresie majoră
+Tulburare de anxietate generalizată
+Tulburare bipolară
+Schizofrenie
+Tulburare de somn
+Dependență de alcool
+Dependență de nicotină

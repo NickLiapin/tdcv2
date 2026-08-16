@@ -1,0 +1,12 @@
+---
+description: Mining method (Romanian)
+locale: ro
+---
+Exploatare la zi
+Exploatare subterană
+Camere și pilieri
+Abataj frontal
+Front lung
+Exploatare prin dizolvare
+Dragare
+Exploatare hidraulică

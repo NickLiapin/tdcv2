@@ -1,0 +1,25 @@
+---
+description: Mined mineral / commodity (Romanian). Lignite from Oltenia, salt from the Transylvanian and sub-Carpathian domes, methane gas from the Transylvanian basin and gold from the Apuseni are what Romanian mining has actually meant.
+locale: ro
+---
+Lignit
+Huilă
+Antracit
+Cărbune brun
+Sare
+Aur
+Argint
+Cupru
+Plumb
+Zinc
+Fier
+Uraniu
+Bauxită
+Bentonită
+Caolin
+Marmură
+Calcar
+Nisip
+Pietriș
+Gaz metan
+Petrol

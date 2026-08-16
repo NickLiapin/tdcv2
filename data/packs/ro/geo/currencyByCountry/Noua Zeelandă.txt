@@ -1,0 +1,5 @@
+---
+description: Currency of Noua Zeelandă, as Romanian names it
+locale: ro
+---
+Dolar neozeelandez

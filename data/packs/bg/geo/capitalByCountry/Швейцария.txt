@@ -1,0 +1,5 @@
+---
+description: Capital of Швейцария (Bulgarian).
+locale: bg
+---
+Берн

@@ -1,0 +1,5 @@
+---
+description: Capital of Turcia, as Romanian names it
+locale: ro
+---
+Ankara

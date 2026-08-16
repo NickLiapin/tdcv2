@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Romanian)
+locale: ro
+---
+Conducător de joc
+Fundaș
+Extremă
+Extremă-centru
+Centru

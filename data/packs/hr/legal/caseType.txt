@@ -1,0 +1,17 @@
+---
+description: Type of legal case (Croatian)
+locale: hr
+---
+Parnični postupak
+Kazneni postupak
+Prekršajni postupak
+Ovršni postupak
+Ostavinski postupak
+Stečajni postupak
+Radni spor
+Obiteljski spor
+Bračni spor
+Upravni spor
+Trgovački spor
+Zemljišnoknjižni postupak
+Izvanparnični postupak

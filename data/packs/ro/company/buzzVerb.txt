@@ -1,0 +1,59 @@
+---
+description: Business buzz verb (Romanian, infinitive with the particle a)
+locale: ro
+---
+a inova
+a optimiza
+a transforma
+a digitaliza
+a automatiza
+a integra
+a scala
+a accelera
+a simplifica
+a standardiza
+a consolida
+a extinde
+a diversifica
+a externaliza
+a internaliza
+a monetiza
+a valorifica
+a capitaliza
+a eficientiza
+a personaliza
+a segmenta
+a poziționa
+a diferenția
+a alinia
+a sincroniza
+a coordona
+a delega
+a prioritiza
+a planifica
+a implementa
+a livra
+a valida
+a testa
+a măsura
+a monitoriza
+a raporta
+a audita
+a certifica
+a securiza
+a proteja
+a reduce costurile
+a crește veniturile
+a atrage clienți
+a fideliza
+a converti
+a negocia
+a colabora
+a parteneria
+a mentora
+a recruta
+a instrui
+a împuternici
+a motiva
+a inspira
+a conduce

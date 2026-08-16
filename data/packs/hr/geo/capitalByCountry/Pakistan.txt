@@ -1,0 +1,5 @@
+---
+description: Capital of Pakistan, as Croatian names it
+locale: hr
+---
+Islamabad

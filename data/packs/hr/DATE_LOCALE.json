@@ -1,0 +1,59 @@
+{
+  "_comment": "Croatian kept the SLAVIC month names — siječanj, veljača, ožujak — where Serbian, Bosnian and Montenegrin use the international januar, februar, mart. That divergence is the sharpest single test of a Croatian locale. months is the nominative citation form; monthsInDate is the GENITIVE, which is what a Croatian date actually contains: 15. kolovoza 2026., never 15. kolovoz 2026. Note studenoga in the genitive, which is an adjectival month and declines like an adjective, not like the other eleven nouns. Both numeric and long formats end in a full stop, because every element of a Croatian date is an ordinal and a Croatian ordinal is written with a trailing dot.",
+  "months": [
+    "siječanj",
+    "veljača",
+    "ožujak",
+    "travanj",
+    "svibanj",
+    "lipanj",
+    "srpanj",
+    "kolovoz",
+    "rujan",
+    "listopad",
+    "studeni",
+    "prosinac"
+  ],
+  "monthsInDate": [
+    "siječnja",
+    "veljače",
+    "ožujka",
+    "travnja",
+    "svibnja",
+    "lipnja",
+    "srpnja",
+    "kolovoza",
+    "rujna",
+    "listopada",
+    "studenoga",
+    "prosinca"
+  ],
+  "monthsShort": [
+    "sij.",
+    "velj.",
+    "ožu.",
+    "tra.",
+    "svi.",
+    "lip.",
+    "srp.",
+    "kol.",
+    "ruj.",
+    "lis.",
+    "stu.",
+    "pro."
+  ],
+  "weekdays": [
+    "nedjelja",
+    "ponedjeljak",
+    "utorak",
+    "srijeda",
+    "četvrtak",
+    "petak",
+    "subota"
+  ],
+  "weekdaysShort": ["ned.", "pon.", "uto.", "sri.", "čet.", "pet.", "sub."],
+  "formats": {
+    "L": "DD.MM.YYYY.",
+    "LL": "D. MMMM YYYY."
+  }
+}

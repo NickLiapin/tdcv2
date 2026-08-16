@@ -1,0 +1,54 @@
+---
+description: Airline. Croatia Airlines is the national carrier and Trade Air and ETF Airways are the other Croatian operators; the rest are the airlines that actually fly into Zagreb, Split and Dubrovnik. Airline names are brand names and keep their real spelling in every locale — a Croatian ticket says Lufthansa, not a translation.
+locale: hr
+---
+Croatia Airlines
+Trade Air
+ETF Airways
+Lufthansa
+Austrian Airlines
+SWISS
+KLM
+Air France
+British Airways
+Iberia
+TAP Air Portugal
+ITA Airways
+Turkish Airlines
+LOT Polish Airlines
+Czech Airlines
+Air Serbia
+Aegean Airlines
+Finnair
+SAS
+Norwegian
+Ryanair
+easyJet
+Wizz Air
+Vueling
+Eurowings
+Transavia
+Volotea
+Jet2.com
+TUI fly
+Condor
+Brussels Airlines
+airBaltic
+Luxair
+KM Malta Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Korean Air
+Singapore Airlines
+Qantas
+Delta Air Lines
+United Airlines
+American Airlines
+Air Canada
+El Al
+Pegasus Airlines
+Ethiopian Airlines
+Air India
+All Nippon Airways
+Air Montenegro

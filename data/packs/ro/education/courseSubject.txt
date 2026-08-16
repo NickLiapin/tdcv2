@@ -1,0 +1,26 @@
+---
+description: School subject (Romanian)
+locale: ro
+---
+Limba și literatura română
+Limba engleză
+Limba franceză
+Limba germană
+Matematică
+Fizică
+Chimie
+Biologie
+Istorie
+Geografie
+Educație civică
+Logică
+Psihologie
+Filosofie
+Economie
+Informatică
+Educație tehnologică
+Educație plastică
+Educație muzicală
+Educație fizică
+Religie
+Consiliere și orientare

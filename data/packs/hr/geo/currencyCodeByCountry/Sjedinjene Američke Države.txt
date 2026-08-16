@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Sjedinjene Američke Države
+locale: hr
+---
+USD

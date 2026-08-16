@@ -1,0 +1,19 @@
+---
+description: Jobs in Construction (Romanian)
+locale: ro
+---
+Inginer constructor
+Arhitect
+Diriginte de șantier
+Șef de șantier
+Zidar
+Dulgher
+Fierar betonist
+Instalator
+Electrician
+Zugrav
+Faianțar
+Sudor
+Macaragiu
+Topograf
+Muncitor necalificat

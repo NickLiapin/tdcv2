@@ -1,0 +1,5 @@
+---
+description: Currency of India, as Romanian names it
+locale: ro
+---
+Rupie indiană

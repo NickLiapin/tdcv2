@@ -1,0 +1,9 @@
+---
+description: Creditworthiness band (Croatian). Croatia has no consumer credit score the way the United States does — a bank reads the HROK credit report and the salary history instead — so these are descriptive bands, not a numeric score.
+locale: hr
+---
+Izvrsna
+Vrlo dobra
+Dobra
+Zadovoljavajuća
+Loša

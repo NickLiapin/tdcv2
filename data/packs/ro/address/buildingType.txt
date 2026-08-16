@@ -1,0 +1,41 @@
+---
+description: Building type (Romanian), indefinite singular — the citation form. Romanian marks the definite article as a SUFFIX, so 'the block' is blocul, not 'the bloc'; a config that wants the definite form must add the ending, not a separate word. 'Bloc' and 'garsonieră' entered ordinary Romanian with the mass housing built under Ceausescu and are neutral everyday words, not jargon.
+locale: ro
+---
+Bloc de locuințe
+Bloc turn
+Garsonieră
+Casă
+Casă de vacanță
+Vilă
+Duplex
+Imobil de birouri
+Hală industrială
+Depozit
+Magazin
+Centru comercial
+Hotel
+Pensiune
+Motel
+Cabană
+Spital
+Policlinică
+Școală
+Grădiniță
+Liceu
+Cămin studențesc
+Biserică
+Mănăstire
+Primărie
+Teatru
+Cinematograf
+Bibliotecă
+Muzeu
+Fabrică
+Atelier
+Garaj
+Fermă
+Siloz
+Turn de apă
+Chioșc
+Sală de sport

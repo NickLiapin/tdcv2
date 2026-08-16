@@ -1,0 +1,22 @@
+---
+description: Cat breed (Croatian). Breed names are international and keep their real spelling; only the descriptive parts are Croatian.
+locale: hr
+---
+Perzijska
+Sijamska
+Britanska kratkodlaka
+Maine Coon
+Ragdoll
+Bengalska
+Sfinga
+Abesinska
+Ruska plava
+Norveška šumska
+Sibirska
+Škotska klopouha
+Burmanska
+Turski angora
+Egipatska mau
+Bombajska
+Somalijska
+Devon rex

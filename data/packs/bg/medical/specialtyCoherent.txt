@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (a diagnosisBySpecialty child).
+locale: bg
+---
+Кардиология
+Дерматология
+Ендокринология
+Гастроентерология
+Нефрология
+Неврология
+Онкология
+Ортопедия
+Психиатрия
+Пневмология

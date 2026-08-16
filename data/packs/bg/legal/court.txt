@@ -1,0 +1,19 @@
+---
+description: Court in the Bulgarian judiciary. Bulgaria is the only country where Bulgarian is the official language, so this list names a real court system rather than a generic set of court words — compare the Spanish and Portuguese packs, which have to stay country-neutral. Bulgaria splits its apex court in two: Върховен касационен съд for civil and criminal matters, Върховен административен съд for administrative ones, and neither outranks the other.
+locale: bg
+---
+Районен съд
+Окръжен съд
+Административен съд
+Апелативен съд
+Военен съд
+Военно-апелативен съд
+Върховен касационен съд
+Върховен административен съд
+Конституционен съд
+Софийски градски съд
+Софийски районен съд
+Арбитражен съд
+Помирителна комисия
+Съд на Европейския съюз
+Европейски съд по правата на човека

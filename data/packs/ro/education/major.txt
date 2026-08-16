@@ -1,0 +1,54 @@
+---
+description: Field of study / major (Romanian)
+locale: ro
+---
+Informatică
+Calculatoare și tehnologia informației
+Automatică
+Electronică și telecomunicații
+Inginerie electrică
+Inginerie mecanică
+Inginerie civilă
+Construcții
+Arhitectură
+Inginerie chimică
+Inginerie industrială
+Matematică
+Fizică
+Chimie
+Biologie
+Geologie
+Geografie
+Științe ale mediului
+Medicină
+Medicină dentară
+Farmacie
+Medicină veterinară
+Asistență medicală
+Kinetoterapie
+Psihologie
+Sociologie
+Științe politice
+Relații internaționale
+Drept
+Administrație publică
+Economie
+Finanțe și bănci
+Contabilitate
+Management
+Marketing
+Comerț internațional
+Filologie
+Litere
+Istorie
+Filosofie
+Teologie
+Jurnalism
+Comunicare și relații publice
+Arte plastice
+Muzică
+Teatru
+Agronomie
+Zootehnie
+Silvicultură
+Educație fizică și sport

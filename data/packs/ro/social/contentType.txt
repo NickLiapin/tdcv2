@@ -1,0 +1,17 @@
+---
+description: Social content type (Romanian)
+locale: ro
+---
+Postare
+Comentariu
+Fotografie
+Videoclip
+Reel
+Story
+Transmisiune live
+Sondaj
+Articol
+Repostare
+Mesaj direct
+Podcast
+Album foto

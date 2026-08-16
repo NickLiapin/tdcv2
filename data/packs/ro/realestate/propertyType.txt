@@ -1,0 +1,25 @@
+---
+description: Property type (Romanian). Romanian counts ROOMS, not bedrooms: an 'apartament 2 camere' has a living room and one bedroom, not two bedrooms. A garsoniera is the single-room flat mass-built from the 1960s on and is a category of its own, not a small apartment.
+locale: ro
+---
+Garsonieră
+Apartament 2 camere
+Apartament 3 camere
+Apartament 4 camere
+Studio
+Duplex
+Penthouse
+Casă
+Casă la curte
+Casă bătrânească
+Vilă
+Casă de vacanță
+Teren intravilan
+Teren extravilan
+Teren agricol
+Spațiu comercial
+Spațiu de birouri
+Hală industrială
+Depozit
+Pensiune
+Cabană

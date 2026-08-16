@@ -1,0 +1,12 @@
+---
+description: Dishes of Vietnamese cuisine (Romanian)
+locale: ro
+---
+Pho
+Bánh mì
+Rulouri de vară
+Bún chả
+Cơm tấm
+Chả giò
+Salată de papaya verde
+Cafea vietnameză cu gheață

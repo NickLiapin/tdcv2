@@ -1,0 +1,5 @@
+---
+description: Capital of Regatul Unit, as Romanian names it
+locale: ro
+---
+Londra

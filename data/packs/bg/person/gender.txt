@@ -1,0 +1,6 @@
+---
+description: Gender label (Bulgarian). Two values, matching en and ru — this list is what a parent= filter selects on, so a longer one silently leaves most rows without a name. These are the nouns мъж / жена, which is what a Bulgarian form spells out beside the М / Ж boxes; identity options beyond the pair belong in a file of their own.
+locale: bg
+---
+Мъж
+Жена

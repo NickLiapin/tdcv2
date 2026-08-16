@@ -1,0 +1,30 @@
+---
+description: Product review headline (Croatian)
+locale: hr
+---
+Odlično!
+Vrlo zadovoljan
+Vrijedi svakog eura
+Preporučujem
+Točno kako je opisano
+Brza dostava
+Sve pohvale
+Kvaliteta na razini
+Bolje nego što sam očekivao
+Solidno za tu cijenu
+Dobar omjer cijene i kvalitete
+U redu, ali ne oduševljava
+Očekivao sam više
+Prosječno
+Nije loše
+Ima mana
+Slaba kvaliteta
+Ne odgovara opisu
+Stiglo oštećeno
+Razočaran
+Ne preporučujem
+Gubitak novca
+Vratio sam ga
+Kupio bih ponovno
+Kupujem već drugi put
+Za svaku pohvalu

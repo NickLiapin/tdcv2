@@ -1,0 +1,14 @@
+---
+description: Playing positions in bejzbol, named in Croatian
+locale: hr
+---
+Bacač
+Hvatač
+Prva baza
+Druga baza
+Treća baza
+Kratko zaustavljanje
+Lijevo polje
+Središnje polje
+Desno polje
+Udarač

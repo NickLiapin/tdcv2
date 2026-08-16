@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Romanian for a female patient (female-specific conditions plus common ones)
+locale: ro
+---
+Endometrioză
+Fibrom uterin
+Sindromul ovarelor polichistice
+Chist ovarian
+Cancer de sân
+Cancer de col uterin
+Cancer ovarian
+Dismenoree
+Menopauză precoce
+Diabet gestațional
+Preeclampsie
+Mastopatie fibrochistică
+Anemie feriprivă
+Osteoporoză
+Tiroidită Hashimoto
+Hipotiroidism
+Migrenă
+Poliartrită reumatoidă
+Lupus eritematos sistemic
+Infecție urinară
+Litiază biliară
+Sindrom de intestin iritabil
+Varice ale membrelor inferioare
+Tulburare de anxietate generalizată
+Depresie majoră
+Fibromialgie
+Obezitate

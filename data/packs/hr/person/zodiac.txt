@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Croatian)
+locale: hr
+---
+Ovan
+Bik
+Blizanci
+Rak
+Lav
+Djevica
+Vaga
+Škorpion
+Strijelac
+Jarac
+Vodenjak
+Ribe

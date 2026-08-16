@@ -1,0 +1,251 @@
+---
+description: Country and territory names as Croatian names them. These are TRANSLATIONS, not transliterations: Germany is Njemačka, Hungary Mađarska, Austria Austrija, Greece Grčka, Egypt Egipat. Croatian keeps its own exonyms for its neighbours and for the countries it has long dealt with, and adopts the local spelling only where it never had one.
+locale: hr
+---
+Afganistan
+Albanija
+Alžir
+Američka Samoa
+Američki Djevičanski otoci
+Andora
+Angola
+Angvila
+Antarktika
+Antigva i Barbuda
+Argentina
+Armenija
+Aruba
+Australija
+Austrija
+Azerbajdžan
+Bahami
+Bahrein
+Bangladeš
+Barbados
+Belgija
+Belize
+Benin
+Bermuda
+Bjelorusija
+Bocvana
+Bolivija
+Bonaire, Sveti Eustazije i Saba
+Bosna i Hercegovina
+Božićni otok
+Brazil
+Britanski Djevičanski otoci
+Britanski Indijskooceanski teritorij
+Brunej
+Bugarska
+Burkina Faso
+Burundi
+Butan
+Cipar
+Cookovi otoci
+Crna Gora
+Curaçao
+Čad
+Češka
+Čile
+Danska
+Demokratska Republika Kongo
+Dominika
+Dominikanska Republika
+Džibuti
+Egipat
+Ekvador
+Ekvatorska Gvineja
+Eritreja
+Estonija
+Esvatini
+Etiopija
+Falklandski otoci
+Farski otoci
+Fidži
+Filipini
+Finska
+Francuska
+Francuska Gvajana
+Francuska Polinezija
+Francuski južni i antarktički teritoriji
+Gabon
+Gambija
+Gana
+Gibraltar
+Grenada
+Grenland
+Gruzija
+Grčka
+Guadeloupe
+Guam
+Guernsey
+Gvajana
+Gvatemala
+Gvineja
+Gvineja Bisau
+Haiti
+Heardov otok i otočje McDonald
+Honduras
+Hong Kong
+Hrvatska
+Indija
+Indonezija
+Irak
+Iran
+Irska
+Island
+Italija
+Izrael
+Jamajka
+Japan
+Jemen
+Jersey
+Jordan
+Južna Georgija i Južni Sendvički otoci
+Južna Koreja
+Južni Sudan
+Južnoafrička Republika
+Kajmanski otoci
+Kambodža
+Kamerun
+Kanada
+Katar
+Kazahstan
+Kenija
+Kina
+Kirgistan
+Kiribati
+Kokosovi otoci
+Kolumbija
+Komori
+Kongo
+Kostarika
+Kuba
+Kuvajt
+Laos
+Latvija
+Lesoto
+Libanon
+Liberija
+Libija
+Lihtenštajn
+Litva
+Luksemburg
+Madagaskar
+Mađarska
+Makao
+Malavi
+Maldivi
+Malezija
+Mali
+Malta
+Maroko
+Maršalovi Otoci
+Martinique
+Mauricijus
+Mauretanija
+Mayotte
+Meksiko
+Mikronezija
+Mjanmar
+Moldavija
+Monako
+Mongolija
+Montserrat
+Mozambik
+Namibija
+Nauru
+Nepal
+Niger
+Nigerija
+Nikaragva
+Niue
+Nizozemska
+Norfolški otok
+Norveška
+Nova Kaledonija
+Novi Zeland
+Njemačka
+Obala Bjelokosti
+Oman
+Otoci Turks i Caicos
+Otok Man
+Pakistan
+Palau
+Palestina
+Panama
+Papua Nova Gvineja
+Paragvaj
+Peru
+Pitcairnovi otoci
+Poljska
+Portoriko
+Portugal
+Réunion
+Ruanda
+Rumunjska
+Rusija
+Salomonski Otoci
+Salvador
+Samoa
+San Marino
+Saudijska Arabija
+Sejšeli
+Senegal
+Sijera Leone
+Singapur
+Sint Maarten
+Sirija
+Sjedinjene Američke Države
+Sjeverna Koreja
+Sjeverna Makedonija
+Sjevernomarijanski otoci
+Slovačka
+Slovenija
+Somalija
+Srbija
+Srednjoafrička Republika
+Sudan
+Surinam
+Svalbard i Jan Mayen
+Sveta Helena
+Sveta Lucija
+Sveti Bartolomej
+Sveti Kristofor i Nevis
+Sveti Martin
+Sveti Petar i Mikelon
+Sveti Toma i Princip
+Sveti Vincent i Grenadini
+Španjolska
+Šri Lanka
+Švedska
+Švicarska
+Tadžikistan
+Tajland
+Tajvan
+Tanzanija
+Istočni Timor
+Togo
+Tokelau
+Tonga
+Trinidad i Tobago
+Tunis
+Turkmenistan
+Turska
+Tuvalu
+Uganda
+Ujedinjeni Arapski Emirati
+Ujedinjeno Kraljevstvo
+Ukrajina
+Urugvaj
+Uzbekistan
+Vanuatu
+Vatikan
+Venezuela
+Vijetnam
+Wallis i Futuna
+Zambija
+Zapadna Sahara
+Zelenortska Republika
+Zimbabve
+Åland

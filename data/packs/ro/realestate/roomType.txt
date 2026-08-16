@@ -1,0 +1,21 @@
+---
+description: Room type (Romanian)
+locale: ro
+---
+Living
+Sufragerie
+Dormitor
+Dormitor matrimonial
+Bucătărie
+Baie
+Grup sanitar
+Hol
+Debara
+Cămară
+Balcon
+Terasă
+Birou
+Camera copilului
+Pod
+Pivniță
+Spălătorie

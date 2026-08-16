@@ -1,0 +1,5 @@
+---
+description: Currency of Южна Африка (Bulgarian).
+locale: bg
+---
+Ранд

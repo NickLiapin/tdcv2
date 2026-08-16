@@ -1,0 +1,21 @@
+---
+description: Cuisine (Bulgarian). Each value has a dishByCuisine child file of the same name. Turkish, Greek and Bulgarian overlap heavily on the ground — мусака and баклава appear under more than one heading here because that is where a Bulgarian menu puts them, not because the list is careless.
+locale: bg
+---
+Американска
+Аржентинска
+Българска
+Виетнамска
+Гръцка
+Индийска
+Испанска
+Италианска
+Китайска
+Корейска
+Ливанска
+Мексиканска
+Перуанска
+Тайландска
+Турска
+Френска
+Японска

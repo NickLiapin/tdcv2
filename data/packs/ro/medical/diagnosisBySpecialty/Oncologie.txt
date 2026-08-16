@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Romanian)
+locale: ro
+---
+Cancer pulmonar
+Cancer colorectal
+Cancer gastric
+Cancer de sân
+Cancer de prostată
+Cancer de col uterin
+Limfom Hodgkin
+Limfom non-Hodgkin
+Leucemie mieloidă cronică
+Melanom malign

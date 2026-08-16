@@ -1,0 +1,45 @@
+---
+description: Bulgarian thoroughfare type — it goes BEFORE the street name (ул. Христо Ботев, бул. Витоша, пл. Свобода), the opposite of the English order. Both the abbreviation and the spelled-out word are in use; the abbreviated form is what appears on an envelope. ж.к. (жилищен комплекс) is a Bulgarian peculiarity: in a panel-block estate the address has no street at all and reads ж.к. + block + entrance + floor + flat.
+locale: bg
+---
+ул.
+улица
+бул.
+булевард
+пл.
+площад
+ж.к.
+жилищен комплекс
+кв.
+квартал
+м-т
+местност
+пас.
+пасаж
+алея
+парк
+градина
+шосе
+път
+отклонение
+пряка
+сляпа улица
+крайбрежна алея
+стълбище
+стъпала
+мост
+надлез
+подлез
+тунел
+околовръстен път
+автомагистрала
+промишлена зона
+индустриална зона
+вилна зона
+курортен комплекс
+село
+махала
+чифлик
+гара
+пристанище
+летище

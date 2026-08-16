@@ -1,0 +1,11 @@
+---
+description: Weekday name (Romanian, lowercase). The week starts on luni in Romanian usage; this list is in that order, while DATE_LOCALE.json lists weekdays Sunday-first as the date formatter requires.
+locale: ro
+---
+luni
+marți
+miercuri
+joi
+vineri
+sâmbătă
+duminică

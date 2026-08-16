@@ -1,0 +1,20 @@
+---
+description: Compass direction (Croatian). The four cardinal points are single words and the intercardinals are compounded from them (sjever + istok = sjeveroistok), unlike the hyphenated English pattern.
+locale: hr
+---
+Sjever
+Jug
+Istok
+Zapad
+Sjeveroistok
+Sjeverozapad
+Jugoistok
+Jugozapad
+Sjever-sjeveroistok
+Istok-sjeveroistok
+Istok-jugoistok
+Jug-jugoistok
+Jug-jugozapad
+Zapad-jugozapad
+Zapad-sjeverozapad
+Sjever-sjeverozapad

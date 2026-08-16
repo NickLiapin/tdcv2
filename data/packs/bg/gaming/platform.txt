@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Bulgarian; brand names are kept in their original Latin spelling).
+locale: bg
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox Series S
+Xbox One
+Nintendo Switch
+Steam Deck
+Мобилна
+Браузър
+Аркадна машина

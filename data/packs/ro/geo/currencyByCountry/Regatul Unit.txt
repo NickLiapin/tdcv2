@@ -1,0 +1,5 @@
+---
+description: Currency of Regatul Unit, as Romanian names it
+locale: ro
+---
+Liră sterlină

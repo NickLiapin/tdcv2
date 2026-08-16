@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Romanian that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: ro
+---
+Endometrioză
+Fibrom uterin
+Sindromul ovarelor polichistice
+Chist ovarian
+Cancer de col uterin
+Cancer ovarian
+Cancer endometrial
+Cancer de sân
+Displazie de col uterin
+Vaginită
+Vaginoză bacteriană
+Candidoză vulvovaginală
+Boală inflamatorie pelvină
+Prolaps uterin
+Dismenoree
+Menoragie
+Amenoree
+Menopauză precoce
+Sindrom premenstrual
+Infertilitate de cauză tubară
+Sarcină extrauterină
+Preeclampsie
+Diabet gestațional
+Avort spontan
+Mastită
+Mastopatie fibrochistică

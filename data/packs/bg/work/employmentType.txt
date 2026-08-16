@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Bulgarian). Трудов договор and граждански договор are two legally different things and the difference matters: the first falls under the Кодекс на труда and carries paid leave, notice and social insurance, the second is a civil-law contract for a result and carries none of them.
+locale: bg
+---
+Безсрочен трудов договор
+Срочен трудов договор
+Трудов договор с изпитателен срок
+Граждански договор
+Договор за управление и контрол
+Пълно работно време
+Непълно работно време
+Стаж
+Чиракуване
+Свободна практика
+Сезонна заетост

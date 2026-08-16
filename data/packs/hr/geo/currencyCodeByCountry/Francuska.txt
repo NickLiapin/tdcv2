@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Francuska
+locale: hr
+---
+EUR

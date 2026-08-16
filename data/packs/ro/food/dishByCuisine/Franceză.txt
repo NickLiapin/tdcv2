@@ -1,0 +1,14 @@
+---
+description: Dishes of French cuisine (Romanian)
+locale: ro
+---
+Ratatouille
+Quiche Lorraine
+Coq au vin
+Bouillabaisse
+Crème brûlée
+Croissant
+Supă de ceapă
+Foie gras
+Éclair
+Crêpes

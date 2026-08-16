@@ -1,0 +1,16 @@
+---
+description: Job titles in the Croatian promet sector
+locale: hr
+---
+Vozač kamiona
+Vozač autobusa
+Vozač dostave
+Strojovođa
+Otpremnik
+Kontrolor leta
+Pilot
+Kapetan broda
+Mornar
+Lučki radnik
+Voditelj logistike
+Carinski deklarant

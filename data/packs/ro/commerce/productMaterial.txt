@@ -1,0 +1,68 @@
+---
+description: Product material (Romanian), as a noun — compose with din: masa din stejar, scaun din otel inoxidabil. PAL and MDF are the two board materials every Romanian furniture listing names.
+locale: ro
+---
+Lemn masiv
+Stejar
+Fag
+Nuc
+Pin
+Brad
+Placaj
+PAL
+MDF
+Metal
+Oțel
+Oțel inoxidabil
+Fier forjat
+Aluminiu
+Alamă
+Cupru
+Bronz
+Zinc
+Titan
+Sticlă
+Sticlă securizată
+Cristal
+Ceramică
+Porțelan
+Faianță
+Gresie
+Piatră naturală
+Marmură
+Granit
+Beton
+Cărămidă
+Plastic
+Policarbonat
+Acril
+Silicon
+Cauciuc
+Latex
+Spumă poliuretanică
+Bumbac
+In
+Cânepă
+Lână
+Mătase
+Vâscoză
+Poliester
+Nailon
+Elastan
+Fibră acrilică
+Piele naturală
+Piele ecologică
+Piele întoarsă
+Blană
+Denim
+Catifea
+Velur
+Pluș
+Fetru
+Rafie
+Răchită
+Bambus
+Plută
+Hârtie
+Carton
+Ipsos

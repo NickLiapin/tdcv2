@@ -1,0 +1,12 @@
+---
+description: Dishes of Hungarian, as cooked in Transylvania and named in Romanian cuisine (Romanian)
+locale: ro
+---
+Gulaș
+Papricaș de pui
+Pörkölt
+Langoși
+Lecsó
+Halászlé
+Kürtőskalács
+Găluște cu prune

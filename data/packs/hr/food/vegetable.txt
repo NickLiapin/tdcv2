@@ -1,0 +1,34 @@
+---
+description: Vegetable (Croatian). Blitva — chard, boiled with potato and olive oil — is the everyday Dalmatian side dish and has no direct English name in ordinary use.
+locale: hr
+---
+krumpir
+rajčica
+paprika
+luk
+češnjak
+mrkva
+cvjetača
+brokula
+kupus
+kelj
+prokulica
+blitva
+špinat
+salata
+radič
+rikula
+krastavac
+tikvica
+bundeva
+patlidžan
+grah
+mahune
+grašak
+bob
+leća
+slanutak
+poriluk
+celer
+cikla
+šparoga

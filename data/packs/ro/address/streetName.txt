@@ -1,0 +1,190 @@
+---
+description: Street names found in town after town across the Romanian-speaking world — writers, voivodes, 1848 and 1918 figures, dates, trades, trees and flowers. Compose after a streetSuffix, which in Romanian precedes the name (Strada Mihai Eminescu). The flower and tree names are in the genitive plural, the form a Romanian street name takes: Strada Teilor is 'the street of the lindens'. Specific towns, counties and postcodes belong in a country pack.
+locale: ro
+---
+Mihai Eminescu
+Ion Creangă
+Ion Luca Caragiale
+Vasile Alecsandri
+George Coșbuc
+Nicolae Bălcescu
+Alexandru Ioan Cuza
+Tudor Vladimirescu
+Avram Iancu
+Ștefan cel Mare
+Mihai Viteazul
+Vlad Țepeș
+Decebal
+Traian
+Horea
+Cloșca
+Crișan
+Nicolae Iorga
+George Enescu
+Ciprian Porumbescu
+Aurel Vlaicu
+Traian Vuia
+Lucian Blaga
+Octavian Goga
+Liviu Rebreanu
+Mihail Kogălniceanu
+Nicolae Titulescu
+Barbu Ștefănescu Delavrancea
+Ion Heliade Rădulescu
+Grigore Alexandrescu
+Alexandru Vlahuță
+Panait Istrati
+Marin Preda
+Nichita Stănescu
+Mihail Sadoveanu
+Tudor Arghezi
+Dimitrie Cantemir
+Constantin Brâncoveanu
+Constantin Brâncuși
+Nicolae Grigorescu
+Gheorghe Doja
+Vasile Lucaciu
+Simion Bărnuțiu
+Andrei Șaguna
+Timotei Cipariu
+Gheorghe Lazăr
+Ion Ghica
+Take Ionescu
+Ana Ipătescu
+Ecaterina Teodoroiu
+Regina Maria
+Regele Ferdinand
+Carol I
+Mircea cel Bătrân
+Bogdan Petriceicu Hasdeu
+Alexandru Odobescu
+Costache Negruzzi
+Titu Maiorescu
+Spiru Haret
+Emil Racoviță
+Victor Babeș
+Carol Davila
+Ana Aslan
+Henri Coandă
+Anghel Saligny
+Gheorghe Marinescu
+Nicolae Labiș
+Alexandru Macedonski
+Duiliu Zamfirescu
+Ion Slavici
+Garabet Ibrăileanu
+Unirii
+Victoriei
+Libertății
+Independenței
+Republicii
+Păcii
+Primăverii
+Zorilor
+Florilor
+Teilor
+Salcâmilor
+Castanilor
+Mestecănilor
+Brazilor
+Stejarului
+Plopilor
+Nucilor
+Cireșilor
+Merilor
+Prunilor
+Viilor
+Lalelelor
+Trandafirilor
+Crizantemelor
+Narciselor
+Ghioceilor
+Bujorilor
+Panseluțelor
+Liliacului
+Griviței
+Dorobanților
+Călărașilor
+Vânătorilor
+Muncii
+Sportului
+Gării
+Fabricii
+Morii
+Podului
+Bisericii
+Școlii
+Izvorului
+Fântânii
+Câmpului
+Dealului
+Văii
+Luncii
+Pădurii
+Lacului
+Digului
+Soarelui
+Aviatorilor
+Constructorilor
+Minerilor
+Oțelarilor
+Energiei
+Uzinei
+Progresului
+Speranței
+Bucuriei
+Prieteniei
+Concordiei
+Armoniei
+Tineretului
+Universității
+Academiei
+Sănătății
+Spitalului
+Poștei
+Comerțului
+Industriei
+Recoltei
+Parcului
+Stadionului
+Cetății
+Mănăstirii
+Sfântul Gheorghe
+Sfântul Nicolae
+Sfânta Maria
+Sfântul Ioan
+1 Decembrie 1918
+22 Decembrie 1989
+9 Mai
+1 Mai
+24 Ianuarie
+16 Februarie
+6 Martie
+23 August
+11 Iunie
+Bucegi
+Carpați
+Făgăraș
+Retezat
+Ceahlău
+Dunării
+Oltului
+Mureșului
+Someșului
+Siretului
+Prutului
+Jiului
+Argeșului
+Bistriței
+Crișului
+Timișului
+Mării Negre
+Deltei
+Transilvaniei
+Moldovei
+Munteniei
+Olteniei
+Banatului
+Bucovinei
+Maramureșului
+Dobrogei

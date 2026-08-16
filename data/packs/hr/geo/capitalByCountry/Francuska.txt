@@ -1,0 +1,5 @@
+---
+description: Capital of Francuska, as Croatian names it
+locale: hr
+---
+Pariz

@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of sjevernoeuropska ancestry, named in Croatian.
+locale: hr
+---
+Cistična fibroza
+Nasljedna hemokromatoza
+Celijakija
+Nedostatak alfa-1-antitripsina
+Multipla skleroza
+Šećerna bolest tipa 1
+Fenilketonurija
+Melanom kože

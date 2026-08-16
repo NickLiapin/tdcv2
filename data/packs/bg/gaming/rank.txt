@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Bulgarian).
+locale: bg
+---
+Бронз
+Сребро
+Злато
+Платина
+Диамант
+Майстор
+Гросмайстор
+Елит
+Легенда
+Шампион

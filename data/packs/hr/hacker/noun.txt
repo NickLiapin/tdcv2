@@ -1,0 +1,41 @@
+---
+description: Technical noun (Croatian). Croatian coins its own computing words rather than borrowing: računalo not kompjuter, poslužitelj not server, datoteka not fajl, tipkovnica not tastatura, preglednik not brauzer, inačica not verzija.
+locale: hr
+---
+računalo
+poslužitelj
+klijent
+mreža
+protokol
+sučelje
+preglednik
+datoteka
+mapa
+baza podataka
+tablica
+zapis
+redak
+stupac
+upit
+ključ
+lozinka
+korisnik
+račun
+ovlast
+dnevnik
+pogreška
+iznimka
+proces
+nit
+jezgra
+memorija
+međuspremnik
+predmemorija
+diskovni prostor
+sigurnosna kopija
+inačica
+ogranak
+spremište
+paket
+knjižnica
+tipkovnica

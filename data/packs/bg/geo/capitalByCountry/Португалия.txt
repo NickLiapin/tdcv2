@@ -1,0 +1,5 @@
+---
+description: Capital of Португалия (Bulgarian).
+locale: bg
+---
+Лисабон

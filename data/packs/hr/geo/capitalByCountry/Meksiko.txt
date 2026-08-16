@@ -1,0 +1,5 @@
+---
+description: Capital of Meksiko, as Croatian names it
+locale: hr
+---
+Ciudad de México

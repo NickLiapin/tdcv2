@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of aškenaska židovska ancestry, named in Croatian.
+locale: hr
+---
+Tay-Sachsova bolest
+Gaucherova bolest
+Canavanova bolest
+Obiteljska disautonomija
+Mutacije BRCA1 i BRCA2
+Cistična fibroza
+Nedostatak faktora XI
+Niemann-Pickova bolest tipa A

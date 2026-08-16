@@ -1,0 +1,50 @@
+---
+description: Country as Bulgarian names it, weighted by population in millions. TRANSLATED, never transliterated: Гърция is not "Greece" respelled but the Bulgarian name for the neighbour it has had for a thousand years, and the same goes for Унгария, Германия, Румъния and Нидерландия. Съединени американски щати is the full form; a Bulgarian text abbreviates it САЩ. Each value has a capitalByCountry, currencyByCountry and currencyCodeByCountry child of the same name.
+weighted: true
+locale: bg
+---
+Китай,1410
+Индия,1400
+Съединени американски щати,335
+Индонезия,275
+Пакистан,240
+Нигерия,220
+Бразилия,215
+Бангладеш,170
+Русия,144
+Мексико,128
+Япония,125
+Египет,110
+Виетнам,98
+Турция,85
+Германия,84
+Тайланд,72
+Франция,68
+Обединено кралство,67
+Южна Африка,60
+Италия,59
+Южна Корея,52
+Испания,47
+Аржентина,46
+Канада,39
+Полша,38
+Украйна,38
+Саудитска Арабия,36
+Австралия,26
+Румъния,19
+Нидерландия,18
+Чехия,11
+Гърция,10
+Португалия,10
+Швеция,10
+Унгария,10
+Швейцария,9
+Австрия,9
+Сърбия,7
+България,6
+Сингапур,6
+Норвегия,5
+Ирландия,5
+Нова Зеландия,5
+Хърватия,4
+Северна Македония,2

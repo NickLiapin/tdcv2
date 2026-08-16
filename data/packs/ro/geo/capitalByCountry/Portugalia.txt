@@ -1,0 +1,5 @@
+---
+description: Capital of Portugalia, as Romanian names it
+locale: ro
+---
+Lisabona

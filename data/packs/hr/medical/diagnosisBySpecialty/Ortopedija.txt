@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in ortopedija, named in Croatian
+locale: hr
+---
+Artroza koljena
+Artroza kuka
+Prijelom
+Iščašenje ramena
+Ruptura prednje ukrižene sveze
+Hernija diska
+Skolioza
+Sindrom karpalnog tunela
+Tendinitis
+Burzitis
+Plantarni fasciitis

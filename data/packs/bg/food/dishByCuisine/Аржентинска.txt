@@ -1,0 +1,12 @@
+---
+description: Dishes of Argentine cuisine (Bulgarian).
+locale: bg
+---
+асадо
+емпанадас
+чимичури
+миланеса
+локро
+чорипан
+проволета
+дулсе де лече

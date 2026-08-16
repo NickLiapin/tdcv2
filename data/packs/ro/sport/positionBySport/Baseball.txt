@@ -1,0 +1,14 @@
+---
+description: Positions in baseball (Romanian)
+locale: ro
+---
+Aruncător
+Prinzător
+Bază întâi
+Bază a doua
+Bază a treia
+Interbază
+Câmp stânga
+Câmp centru
+Câmp dreapta
+Bătător desemnat

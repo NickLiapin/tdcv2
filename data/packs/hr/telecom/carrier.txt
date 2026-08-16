@@ -1,0 +1,30 @@
+---
+description: Mobile or fixed-line operator. The Croatian market is Hrvatski Telekom, A1 Hrvatska and Telemach plus their prepaid brands (Simpa, bonbon, Tomato); the rest are the operators Croatian users roam onto in the region and the EU. Brand names keep their spelling.
+locale: hr
+---
+Hrvatski Telekom
+A1 Hrvatska
+Telemach Hrvatska
+Simpa
+bonbon
+Tomato
+Iskon
+Optima Telekom
+Telekom Slovenije
+A1 Slovenija
+Telekom Srbija
+Telenor
+BH Telecom
+m:tel
+Magenta Telekom
+A1 Austria
+Vodafone
+Telekom Deutschland
+O2
+TIM
+Vodafone Italia
+WINDTRE
+Orange
+Swisscom
+Magyar Telekom
+Yettel

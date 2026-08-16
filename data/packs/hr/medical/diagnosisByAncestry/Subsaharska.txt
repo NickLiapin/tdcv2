@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of subsaharska ancestry, named in Croatian. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: hr
+---
+Bolest srpastih stanica
+Nositeljstvo srpastih stanica
+Nedostatak glukoza-6-fosfat dehidrogenaze
+Nefropatija povezana s APOL1
+Keloidi
+Sarkoidoza
+Hipertenzivna nefroskleroza
+Miomi maternice
+Benigna etnička neutropenija
+Neperzistencija laktaze
+Pseudofolikulitis brade
+Vitiligo

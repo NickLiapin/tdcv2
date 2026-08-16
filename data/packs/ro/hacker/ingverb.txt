@@ -1,0 +1,34 @@
+---
+description: Tech verb in the Romanian gerund (-and / -ind). The Romanian gerund is a single word and needs no auxiliary, so it drops straight into a progress message: 'Sincronizand baza de date'.
+locale: ro
+---
+compilând
+criptând
+indexând
+sincronizând
+descărcând
+încărcând
+analizând
+optimizând
+rulând
+comprimând
+parsând
+transferând
+restaurând
+salvând
+ștergând
+monitorizând
+depanând
+implementând
+testând
+validând
+autentificând
+autorizând
+conectând
+deconectând
+reinițializând
+reconstruind
+actualizând
+instalând
+configurând
+migrând

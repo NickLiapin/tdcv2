@@ -1,0 +1,20 @@
+---
+description: Dishes of Romanian cuisine (Romanian)
+locale: ro
+---
+Sarmale
+Mămăligă cu brânză și smântână
+Ciorbă de burtă
+Ciorbă de perișoare
+Ciorbă rădăuțeană
+Mici
+Tochitură
+Papanași
+Zacuscă
+Salată de boeuf
+Drob de miel
+Piftie
+Cozonac
+Ardei umpluți
+Bulz
+Varză a la Cluj

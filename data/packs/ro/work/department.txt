@@ -1,0 +1,26 @@
+---
+description: Company department / function (Romanian)
+locale: ro
+---
+Resurse umane
+Financiar-contabil
+Juridic
+Vânzări
+Marketing
+Achiziții
+Logistică
+Producție
+Calitate
+Cercetare-dezvoltare
+Tehnologia informației
+Suport tehnic
+Relații cu clienții
+Administrativ
+Secretariat
+Audit intern
+Control financiar
+Securitate și sănătate în muncă
+Mentenanță
+Depozit
+Transport
+Comunicare

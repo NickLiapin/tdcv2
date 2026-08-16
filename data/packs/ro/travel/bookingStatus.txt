@@ -1,0 +1,15 @@
+---
+description: Booking status (Romanian, agrees with the feminine noun rezervare)
+locale: ro
+---
+Confirmată
+În așteptare
+În curs de procesare
+Modificată
+Anulată
+Finalizată
+Neprezentare
+Rambursată
+Expirată
+Garantată
+Pe lista de așteptare

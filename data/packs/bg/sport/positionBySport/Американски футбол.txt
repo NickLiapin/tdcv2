@@ -1,0 +1,14 @@
+---
+description: Positions in American football (Bulgarian). The position names are transcribed English — the sport is barely played in Bulgaria and never developed native terms.
+locale: bg
+---
+Куотърбек
+Ръннинг бек
+Уайд ресийвър
+Тайт енд
+Офанзивен такъл
+Център
+Дефанзивен енд
+Лайнбекер
+Корнърбек
+Сейфти

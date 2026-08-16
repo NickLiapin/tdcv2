@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Bulgaria. Viber is unusually dominant here — it is the default messenger for family, work and even municipal announcements, where most of Europe uses WhatsApp.
+locale: bg
+---
+Facebook
+Messenger
+Viber
+Instagram
+TikTok
+YouTube
+X
+LinkedIn
+WhatsApp
+Telegram
+Discord
+Reddit
+Pinterest
+Snapchat
+Twitch
+Threads
+Skype

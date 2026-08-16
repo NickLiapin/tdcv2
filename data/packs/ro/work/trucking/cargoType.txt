@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Romanian)
+locale: ro
+---
+Marfă generală
+Marfă paletizată
+Marfă vrac
+Cereale
+Lemn
+Materiale de construcții
+Mărfuri periculoase ADR
+Marfă frigorifică
+Animale vii
+Autovehicule
+Containere
+Combustibil
+Transport agabaritic

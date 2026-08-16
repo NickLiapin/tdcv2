@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry, in Bulgarian. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them.
+locale: bg
+---
+Сърповидноклетъчна анемия
+Сърповидноклетъчна черта
+Дефицит на Г6ФД
+Алфа-таласемия
+Непоносимост към лактоза
+Хипертонична нефропатия
+Фокална сегментна гломерулосклероза (APOL1)
+Саркоидоза
+Келоидни белези
+Миома на матката
+Простатен карцином с ранно начало
+Дефицит на витамин D

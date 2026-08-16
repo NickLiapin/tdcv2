@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Bulgarian, where founder mutations are unusually well characterised. A prevalence signal, not an exclusive one.
+locale: bg
+---
+Болест на Тей-Сакс
+Болест на Гоше
+Фамилна дизавтономия
+Болест на Канаван
+Синдром на Блум
+Анемия на Фанкони тип C
+Муколипидоза IV
+Дефицит на фактор XI
+Ниман-Пик тип A
+BRCA1 основателна мутация
+BRCA2 основателна мутация
+Болест на Крон

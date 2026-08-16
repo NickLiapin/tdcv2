@@ -1,0 +1,11 @@
+---
+description: Cable conduit or containment type (Croatian)
+locale: hr
+---
+sabirnica
+kabelski kanal
+instalacijska cijev
+zaštitna cijev
+kabelska trasa
+podžbukna cijev
+kabelski zdenac

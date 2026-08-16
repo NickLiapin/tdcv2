@@ -1,0 +1,5 @@
+---
+description: Capital of Singapore, as Romanian names it
+locale: ro
+---
+Singapore

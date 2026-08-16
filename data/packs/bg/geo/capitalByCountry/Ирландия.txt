@@ -1,0 +1,5 @@
+---
+description: Capital of Ирландия (Bulgarian).
+locale: bg
+---
+Дъблин

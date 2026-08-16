@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Bulgarian. A prevalence signal, not an exclusive one.
+locale: bg
+---
+Хемоглобин Е
+Алфа-таласемия
+Бета-таласемия
+Дефицит на Г6ФД
+Хепатит В носителство
+Назофарингеален карцином
+Синдром на внезапна нощна смърт

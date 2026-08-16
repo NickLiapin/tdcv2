@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Romanian, masculine singular)
+locale: ro
+---
+digital
+optic
+redundant
+primar
+secundar
+auxiliar
+virtual
+criptat
+comprimat
+distribuit
+paralel
+asincron
+sincron
+multiplexat
+neuronal
+cuantic
+integrat
+modular
+scalabil
+tolerant la erori
+în timp real
+open-source
+proprietar
+bidirecțional
+transparent
+persistent
+volatil
+recursiv

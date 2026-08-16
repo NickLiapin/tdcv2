@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Croatian)
+locale: hr
+---
+Jednokrevetna soba
+Dvokrevetna soba
+Dvokrevetna soba s bračnim krevetom
+Trokrevetna soba
+Četverokrevetna soba
+Obiteljska soba
+Studio apartman
+Apartman
+Suite
+Junior suite
+Predsjednički apartman
+Soba s pogledom na more
+Soba s pogledom na park
+Soba s balkonom
+Soba s terasom
+Povezane sobe
+Soba prilagođena osobama s invaliditetom
+Bungalov

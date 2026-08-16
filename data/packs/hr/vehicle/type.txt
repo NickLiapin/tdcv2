@@ -1,0 +1,26 @@
+---
+description: Vehicle type (Croatian)
+locale: hr
+---
+Osobni automobil
+Limuzina
+Karavan
+Hatchback
+Kupe
+Kabriolet
+Terenac
+Pickup
+Kombi
+Minibus
+Autobus
+Kamion
+Tegljač
+Prikolica
+Poluprikolica
+Motocikl
+Skuter
+Moped
+Quad
+Traktor
+Radni stroj
+Romobil

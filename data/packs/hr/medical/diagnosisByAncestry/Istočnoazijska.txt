@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of istočnoazijska ancestry, named in Croatian.
+locale: hr
+---
+Neperzistencija laktaze
+Nepodnošenje alkohola zbog ALDH2
+Rak želuca
+Nazofaringealni karcinom
+Alfa talasemija
+Primarni glaukom
+Kawasakijeva bolest
+Miopija

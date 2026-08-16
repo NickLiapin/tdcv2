@@ -1,0 +1,12 @@
+---
+description: Book format (Croatian)
+locale: hr
+---
+Tvrdi uvez
+Meki uvez
+Džepno izdanje
+E-knjiga
+Audioknjiga
+Ilustrirano izdanje
+Kritičko izdanje
+Pretisak

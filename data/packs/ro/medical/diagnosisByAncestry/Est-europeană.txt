@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Romanian. A prevalence signal, not an exclusive one.
+locale: ro
+---
+Sindromul Nijmegen
+Fenilcetonurie
+Mutații fondatoare BRCA1
+Boala Wilson
+Trombofilie prin factor V Leiden
+Deficit de alfa-1-antitripsină

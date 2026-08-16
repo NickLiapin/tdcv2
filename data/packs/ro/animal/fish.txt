@@ -1,0 +1,34 @@
+---
+description: Fish (Romanian). Includes the Danube sturgeons — nisetru, morun, cega, pastruga — which are the fish of the lower Danube and the Delta, and the Black Sea species alongside the freshwater ones.
+locale: ro
+---
+Crap
+Caras
+Somn
+Știucă
+Șalău
+Biban
+Plătică
+Roșioară
+Babușcă
+Mreană
+Clean
+Lin
+Păstrăv
+Lipan
+Nisetru
+Morun
+Cegă
+Păstrugă
+Scrumbie
+Stavrid
+Hamsie
+Guvid
+Chefal
+Calcan
+Ton
+Cod
+Macrou
+Hering
+Sardină
+Anghilă

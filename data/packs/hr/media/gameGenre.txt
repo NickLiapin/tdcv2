@@ -1,0 +1,21 @@
+---
+description: Video game genre (Croatian)
+locale: hr
+---
+Akcijska igra
+Pustolovna igra
+Pucačina
+Igra uloga
+Strategija
+Strategija u stvarnom vremenu
+Simulacija
+Sportska igra
+Trkaća igra
+Borilačka igra
+Platformer
+Logička igra
+Igra preživljavanja
+Horor igra
+Pješčanik
+Društvena igra
+Edukativna igra

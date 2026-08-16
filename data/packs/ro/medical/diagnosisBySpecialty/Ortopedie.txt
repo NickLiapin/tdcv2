@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Romanian)
+locale: ro
+---
+Osteoartroză de genunchi
+Coxartroză
+Hernie de disc lombară
+Fractură de col femural
+Fractură de radius distal
+Ruptură de menisc
+Ruptură de ligament încrucișat anterior
+Tendinită ahiliană
+Scolioză idiopatică
+Sindrom de umăr dureros

@@ -1,0 +1,20 @@
+---
+description: Grade / mark on the Romanian scales: school marks run 1 to 10 with 10 the best and 5 the pass, and the bacalaureat and university averages are written to two decimals out of 10. Not a letter scale and not out of 100.
+locale: ro
+---
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+Admis
+Respins
+Foarte bine
+Bine
+Suficient
+Insuficient

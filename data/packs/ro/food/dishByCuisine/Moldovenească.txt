@@ -1,0 +1,14 @@
+---
+description: Dishes of Moldovan cuisine (Romanian) — the cooking of the Moldavian lands on both sides of the Prut, shared by the Romanian region of Moldova and the Republic of Moldova, which speak the same language under two names
+locale: ro
+---
+Zeamă de găină
+Plăcinte poale-n brâu
+Alivenci
+Colțunași cu brânză
+Răcituri
+Sarmale în foi de viță
+Mămăligă cu jumări
+Plăcinte cu brânză
+Borș de urzici
+Gogoși

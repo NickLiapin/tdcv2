@@ -1,0 +1,32 @@
+---
+description: Flower (Bulgarian). Two are Bulgarian in particular: маслодайната роза of the Rose Valley, grown for attar rather than for the bloom, and силивряк — Haberlea rhodopensis, the Orpheus flower, which grows only in the Rhodopes and revives after months completely dried out.
+locale: bg
+---
+роза
+маслодайна роза
+силивряк
+лале
+божур
+иглика
+кокиче
+минзухар
+теменуга
+синчец
+здравец
+латинка
+карамфил
+хризантема
+георгина
+гладиола
+зюмбюл
+нарцис
+момина сълза
+лилия
+слънчоглед
+невен
+лайка
+мак
+метличина
+перуника
+орхидея
+еделвайс

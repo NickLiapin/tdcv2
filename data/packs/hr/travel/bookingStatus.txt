@@ -1,0 +1,15 @@
+---
+description: Travel booking status (Croatian)
+locale: hr
+---
+Upit
+Na čekanju
+Potvrđeno
+Plaćeno
+Djelomično plaćeno
+Izdani vaučer
+Prijava obavljena
+Otkazano
+Vraćen novac
+Promijenjeno
+Završeno

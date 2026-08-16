@@ -1,0 +1,12 @@
+---
+description: Dishes of Turkish cuisine (Bulgarian).
+locale: bg
+---
+дюнер
+адана кебап
+искендер
+лахмаджун
+пиде
+мезе
+баклава
+кюнефе

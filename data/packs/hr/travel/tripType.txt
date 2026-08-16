@@ -1,0 +1,24 @@
+---
+description: Type of trip (Croatian). Nautički turizam — chartering a boat along the Adriatic — is one of Croatia's largest tourism categories and has no everyday English single word.
+locale: hr
+---
+Odmor na moru
+Ljetovanje
+Zimovanje
+Vikend putovanje
+Izlet
+Kružno putovanje
+Nautički turizam
+Krstarenje
+Kamping
+Planinarenje
+Biciklistička tura
+Gastronomska tura
+Vinska tura
+Kulturno putovanje
+Hodočašće
+Poslovno putovanje
+Kongres
+Wellness odmor
+Obiteljski odmor
+Studijski boravak

@@ -1,0 +1,24 @@
+---
+description: Venue type (Romanian). Caminul cultural is the village culture house built in every commune and still the usual place for a wedding or a local festival.
+locale: ro
+---
+Sală de evenimente
+Restaurant
+Hotel
+Casă de cultură
+Cămin cultural
+Sală de sport
+Sală polivalentă
+Teatru
+Filarmonică
+Cinematograf
+Muzeu
+Galerie de artă
+Grădină de vară
+Terasă
+Cort
+Biserică
+Mănăstire
+Parc
+Stadion
+Centru de conferințe

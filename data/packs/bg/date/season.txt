@@ -1,0 +1,8 @@
+---
+description: Season (Bulgarian, lowercase). Four seasons — Bulgaria is temperate continental with a Mediterranean edge in the south.
+locale: bg
+---
+пролет
+лято
+есен
+зима

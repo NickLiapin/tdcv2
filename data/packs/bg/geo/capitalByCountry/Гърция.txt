@@ -1,0 +1,5 @@
+---
+description: Capital of Гърция (Bulgarian).
+locale: bg
+---
+Атина

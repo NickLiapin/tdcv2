@@ -1,0 +1,16 @@
+---
+description: Job titles in the Croatian trgovina sector
+locale: hr
+---
+Prodavač
+Voditelj poslovnice
+Blagajnik
+Komercijalist
+Voditelj nabave
+Voditelj prodaje
+Trgovački putnik
+Merchandiser
+Skladištar
+Voditelj web trgovine
+Referent reklamacija
+Inventurist

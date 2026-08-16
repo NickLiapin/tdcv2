@@ -1,0 +1,43 @@
+---
+description: Croatian thoroughfare type. It goes BEFORE a genitive street name (Ulica Nikole Tesle, Trg bana Jelačića, Šetalište kralja Zvonimira) but AFTER an adjectival one (Cvjetna ulica, Savska cesta). Lungomare and riva are the coastal words, borrowed from Italian and used in Rijeka, Istria and Dalmatia; a config building an inland address should avoid them.
+locale: hr
+---
+ulica
+avenija
+cesta
+trg
+put
+obala
+riva
+lungomare
+šetalište
+promenada
+poljana
+perivoj
+park
+aleja
+drvored
+prilaz
+odvojak
+ogranak
+prolaz
+pasaž
+stube
+uspon
+spust
+vijenac
+nasip
+most
+dol
+draga
+gaj
+brijeg
+naselje
+blok
+zavoj
+staza
+raskrižje
+molo
+lučica
+obalni put
+pješačka zona

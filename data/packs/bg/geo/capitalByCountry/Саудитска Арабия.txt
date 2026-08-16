@@ -1,0 +1,5 @@
+---
+description: Capital of Саудитска Арабия (Bulgarian).
+locale: bg
+---
+Рияд

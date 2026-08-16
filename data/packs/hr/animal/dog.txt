@@ -1,0 +1,29 @@
+---
+description: Dog breed (Croatian). The first six are Croatia's own recognised breeds — the dalmatiner is from Dalmatia, the hrvatski ovčar herds in Slavonia, and the tornjak guards flocks in the Dinaric mountains.
+locale: hr
+---
+Dalmatiner
+Hrvatski ovčar
+Istarski oštrodlaki gonič
+Istarski kratkodlaki gonič
+Posavski gonič
+Tornjak
+Mali međimurski pas
+Njemački ovčar
+Labrador retriver
+Zlatni retriver
+Pudl
+Buldog
+Bokser
+Rotvajler
+Doberman
+Jazavčar
+Bigl
+Border koli
+Sibirski haski
+Malteser
+Jorkširski terijer
+Čivava
+Mops
+Šnaucer
+Bernardinac

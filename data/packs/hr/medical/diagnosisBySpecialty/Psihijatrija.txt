@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in psihijatrija, named in Croatian
+locale: hr
+---
+Depresivni poremećaj
+Anksiozni poremećaj
+Panični poremećaj
+Bipolarni poremećaj
+Shizofrenija
+Opsesivno-kompulzivni poremećaj
+Posttraumatski stresni poremećaj
+Poremećaj prehrane
+Nesanica
+Ovisnost o alkoholu
+Deficit pažnje i hiperaktivnost

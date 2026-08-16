@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Romanian)
+locale: ro
+---
+Psoriazis vulgar
+Dermatită atopică
+Dermatită de contact
+Acnee vulgară
+Rozacee
+Urticarie cronică
+Vitiligo
+Micoză cutanată
+Herpes zoster
+Melanom malign

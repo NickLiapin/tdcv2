@@ -1,0 +1,5 @@
+---
+description: Currency code of Republica Moldova
+locale: ro
+---
+MDL

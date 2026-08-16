@@ -1,0 +1,34 @@
+---
+description: Fish (Croatian). The first block is Adriatic and is what a Croatian fish market sells; the last few are the freshwater fish of the Sava, Drava and Danube.
+locale: hr
+---
+brancin
+orada
+zubatac
+škarpina
+kovač
+list
+oslić
+srdela
+inćun
+skuša
+tuna
+kirnja
+salpa
+ušata
+gof
+palamida
+arbun
+trlja
+cipal
+ugor
+murina
+šaran
+štuka
+som
+smuđ
+pastrva
+klen
+deverika
+linjak
+jegulja

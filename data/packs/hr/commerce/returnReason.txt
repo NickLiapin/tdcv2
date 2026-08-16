@@ -1,0 +1,19 @@
+---
+description: Reason a customer returns an item (Croatian)
+locale: hr
+---
+Pogrešna veličina
+Pogrešan artikl
+Ne odgovara opisu
+Oštećeno u dostavi
+Neispravan proizvod
+Nedostaje dio
+Kasna dostava
+Predomislio sam se
+Pronašao povoljnije
+Loša kvaliteta
+Boja ne odgovara
+Duplikat narudžbe
+Naručeno greškom
+Isteknut rok trajanja
+Jamstveni zahtjev

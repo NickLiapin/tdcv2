@@ -1,0 +1,36 @@
+---
+description: Bulgarian honorific or title, in the abbreviated form written before a name. Two have no European counterpart: бай is a warm familiar address to an older man (бай Иван) with no feminine equivalent, and хаджи once marked someone who had made the pilgrimage — it fossilised into a whole family of surnames (Хаджиев, Хаджидимитров) and is still occasionally used as a title.
+locale: bg
+---
+г-н
+г-жа
+г-ца
+д-р
+проф.
+проф. д-р
+доц.
+доц. д-р
+гл. ас.
+ас.
+акад.
+чл.-кор.
+инж.
+арх.
+адв.
+нотариус
+ген.
+полк.
+подполк.
+майор
+кап.
+лейт.
+старшина
+о.з.
+отец
+дякон
+поп
+епископ
+митрополит
+патриарх
+хаджи
+бай

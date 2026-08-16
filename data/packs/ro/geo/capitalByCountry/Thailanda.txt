@@ -1,0 +1,5 @@
+---
+description: Capital of Thailanda, as Romanian names it
+locale: ro
+---
+Bangkok

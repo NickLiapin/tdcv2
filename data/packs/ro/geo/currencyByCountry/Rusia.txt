@@ -1,0 +1,5 @@
+---
+description: Currency of Rusia, as Romanian names it
+locale: ro
+---
+Rublă rusească

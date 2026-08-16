@@ -1,0 +1,9 @@
+---
+description: Positions in volleyball (Romanian)
+locale: ro
+---
+Ridicător
+Trăgător principal
+Centru
+Universal
+Libero

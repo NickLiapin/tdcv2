@@ -1,0 +1,5 @@
+---
+description: Capital of Republica Moldova, as Romanian names it
+locale: ro
+---
+Chișinău

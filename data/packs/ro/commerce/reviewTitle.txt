@@ -1,0 +1,30 @@
+---
+description: Product review title (Romanian)
+locale: ro
+---
+Excelent!
+Foarte mulțumit
+Raport calitate-preț bun
+Exact ca în descriere
+Livrare rapidă
+Merită banii
+Recomand cu încredere
+Bun, dar are un minus
+Acceptabil
+Sub așteptări
+Dezamăgitor
+Nu recomand
+Produs de calitate
+Ambalaj impecabil
+A ajuns repede
+Nu corespunde pozelor
+Prea scump pentru ce oferă
+Ieftin și bun
+Perfect pentru cadou
+Îl folosesc zilnic
+Se strică repede
+Instrucțiuni neclare
+Ușor de montat
+Arată bine
+Aș mai cumpăra
+Serviciu clienți prompt

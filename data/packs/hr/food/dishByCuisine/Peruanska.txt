@@ -1,0 +1,14 @@
+---
+description: Dishes of the peruanska kitchen, named as a Croatian menu names them. Borrowed dish names keep their original spelling, which is what a Croatian restaurant prints.
+locale: hr
+---
+Ceviche
+Lomo saltado
+Aji de gallina
+Causa
+Anticuchos
+Papa a la huancaina
+Tiradito
+Rocoto relleno
+Pollo a la brasa
+Suspiro limeño

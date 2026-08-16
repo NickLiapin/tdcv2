@@ -1,0 +1,59 @@
+---
+description: Industry a company operates in (Croatian)
+locale: hr
+---
+Informacijska tehnologija
+Razvoj softvera
+Telekomunikacije
+Elektronika
+Umjetna inteligencija
+Kibernetička sigurnost
+Bankarstvo
+Osiguranje
+Financijske usluge
+Računovodstvo
+Revizija
+Nekretnine
+Građevinarstvo
+Arhitektura
+Geodezija
+Strojarstvo
+Elektrotehnika
+Brodogradnja
+Metalurgija
+Kemijska industrija
+Farmaceutska industrija
+Prehrambena industrija
+Poljoprivreda
+Vinogradarstvo
+Maslinarstvo
+Ribarstvo
+Šumarstvo
+Stočarstvo
+Energetika
+Obnovljivi izvori energije
+Naftna industrija
+Rudarstvo
+Vodoopskrba
+Gospodarenje otpadom
+Promet i logistika
+Pomorski promet
+Zračni promet
+Željeznički promet
+Turizam
+Ugostiteljstvo
+Hotelijerstvo
+Trgovina na veliko
+Trgovina na malo
+Marketing i oglašavanje
+Mediji
+Nakladništvo
+Tiskarstvo
+Zdravstvo
+Farmacija
+Obrazovanje
+Znanost i istraživanje
+Kultura i umjetnost
+Sport i rekreacija
+Javna uprava
+Neprofitni sektor

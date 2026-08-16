@@ -1,0 +1,18 @@
+---
+description: Insurance type (Romanian). RCA is the compulsory motor third-party policy, CASCO the optional own-damage one, and PAD the compulsory catastrophe cover on a home — all three are named by those abbreviations in ordinary speech in Romania.
+locale: ro
+---
+RCA
+CASCO
+Asigurare de locuință
+PAD
+Asigurare de viață
+Asigurare de sănătate
+Asigurare medicală privată
+Asigurare de călătorie
+Asigurare de accidente
+Asigurare de răspundere civilă
+Asigurare de bunuri
+Asigurare agricolă
+Asigurare de credit
+Asigurare de pensie privată

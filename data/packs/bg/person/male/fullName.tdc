@@ -1,0 +1,11 @@
+---
+description: Bulgarian full male name — given name, PATRONYMIC middle name, surname (Иван Петров Георгиев). The middle name is not optional decoration: it is the father's given name with the -ов / -ев suffix, it appears on every Bulgarian identity document, and a two-part Bulgarian name is an incomplete one. It is drawn from the same suffixed pool as the surname, which is exactly right — a Bulgarian patronymic and a Bulgarian surname are the same kind of word.
+generator: tdc
+locale: bg
+---
+<sequence name="p">
+  <gen name="f" type="template" value="bg.person.male.firstName"/>
+  <gen name="m" type="template" value="bg.person.lastName"/>
+  <gen name="l" type="template" value="bg.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.m}} ${{p.l}}</data>

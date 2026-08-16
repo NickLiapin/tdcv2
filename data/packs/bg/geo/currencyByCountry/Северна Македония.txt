@@ -1,0 +1,5 @@
+---
+description: Currency of Северна Македония (Bulgarian).
+locale: bg
+---
+Македонски денар

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Romanian)
+locale: ro
+---
+Depresie majoră
+Tulburare de anxietate generalizată
+Tulburare de panică
+Tulburare bipolară
+Schizofrenie
+Tulburare obsesiv-compulsivă
+Tulburare de stres posttraumatic
+Tulburare de personalitate borderline
+Dependență de alcool
+Tulburare de deficit de atenție și hiperactivitate

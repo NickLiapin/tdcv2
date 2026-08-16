@@ -1,0 +1,10 @@
+---
+description: Croatian full female name — one given name and one surname (Ana Horvat). The surname is drawn from hr.person.lastName, the SAME list a man's is drawn from, not from a feminine list: Croatian surnames do not inflect for gender, so Ana and her brother Marko are both Horvat. That is the whole reason this pack has no person/female/lastName — compare pl, where the equivalent file must read the feminine -ska list.
+generator: tdc
+locale: hr
+---
+<sequence name="p">
+  <gen name="f" type="template" value="hr.person.female.firstName"/>
+  <gen name="l" type="template" value="hr.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

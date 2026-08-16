@@ -1,0 +1,13 @@
+---
+description: Broadcast age rating (Croatian). Croatian television marks a programme with the minimum age in a coloured on-screen circle, so the ratings are numbers rather than letter codes.
+locale: hr
+---
+Za sve uzraste
+Uz roditeljsko vodstvo
+12
+15
+18
+Nije za maloljetnike
+Obrazovni sadržaj
+Vijesti
+Nekategorizirano

@@ -1,0 +1,18 @@
+---
+description: Marital status in Bulgarian. Every form is gendered and there is no neutral one: a man is неженен / женен / вдовец, a woman неомъжена / омъжена / вдовица, and the male and female words for "married" are not even the same root (женен is "wived", омъжена is "husbanded").
+locale: bg
+---
+Неженен
+Неомъжена
+Женен
+Омъжена
+Разведен
+Разведена
+Вдовец
+Вдовица
+Разделен
+Разделена
+Сгоден
+Сгодена
+Фактическо съжителство
+Не е посочено

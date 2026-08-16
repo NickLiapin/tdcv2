@@ -1,0 +1,14 @@
+---
+description: Dishes of American cuisine (Romanian)
+locale: ro
+---
+Hamburger
+Cheeseburger
+Hot dog
+Coaste BBQ
+Aripioare Buffalo
+Mac and cheese
+Clătite americane
+Cheesecake
+Plăcintă cu mere
+Cartofi prăjiți

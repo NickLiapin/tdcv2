@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (a positionBySport child).
+locale: bg
+---
+Футбол
+Баскетбол
+Волейбол
+Хандбал
+Хокей на лед
+Бейзбол
+Ръгби
+Американски футбол

@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Romanian, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. The adjectival labels are feminine singular because they agree with ascendenta.
+locale: ro
+---
+Nord-europeană
+Est-europeană
+Mediteraneană
+Nord-africană
+Africană subsahariană
+Est-asiatică
+Sud-asiatică
+Sud-est asiatică
+Orientul Mijlociu
+Insulele Pacificului
+Indigenă americană
+Evreiască așkenază

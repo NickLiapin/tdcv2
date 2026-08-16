@@ -1,0 +1,11 @@
+---
+description: Romanian driving licence category for professional driving. These are the EU categories as the Romanian permis de conducere prints them; a lorry driver also needs a separate atestat profesional (CPC) alongside the category.
+locale: ro
+---
+C
+C1
+CE
+C1E
+D
+D1
+DE

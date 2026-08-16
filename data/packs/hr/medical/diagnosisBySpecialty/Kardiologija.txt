@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in kardiologija, named in Croatian
+locale: hr
+---
+Arterijska hipertenzija
+Angina pektoris
+Infarkt miokarda
+Zatajivanje srca
+Fibrilacija atrija
+Aritmija
+Bolest srčanih zalistaka
+Kardiomiopatija
+Perikarditis
+Ateroskleroza
+Duboka venska tromboza

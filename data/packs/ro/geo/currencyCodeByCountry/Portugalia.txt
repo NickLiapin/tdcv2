@@ -1,0 +1,5 @@
+---
+description: Currency code of Portugalia
+locale: ro
+---
+EUR

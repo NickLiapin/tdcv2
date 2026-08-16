@@ -1,0 +1,19 @@
+---
+description: Jobs in Transportation (Romanian)
+locale: ro
+---
+Șofer profesionist
+Șofer de tir
+Conducător de autobuz
+Mecanic de locomotivă
+Impiegat de mișcare
+Dispecer transport
+Expeditor de marfă
+Agent de tranzit
+Stivuitorist
+Curier
+Pilot
+Însoțitor de bord
+Controlor de trafic aerian
+Marinar
+Manager de flotă

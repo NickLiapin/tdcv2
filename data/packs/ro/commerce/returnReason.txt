@@ -1,0 +1,19 @@
+---
+description: Order return reason (Romanian). 'Retragere in 14 zile' is the EU distance-selling withdrawal right as Romanian shops name it — no reason has to be given for it.
+locale: ro
+---
+Produs defect
+Produs deteriorat în transport
+Produs greșit
+Mărime nepotrivită
+Culoare diferită
+Nu corespunde descrierii
+Calitate slabă
+Am găsit un preț mai bun
+Nu mai am nevoie
+Comandă dublă
+Livrare întârziată
+Lipsesc accesorii
+Ambalaj deteriorat
+Retragere în 14 zile
+Nu funcționează

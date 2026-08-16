@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Bulgarian. A prevalence signal, not an exclusive one. Relevant to Bulgaria itself: beta-thalassaemia carriage runs at a few per cent in the south of the country, which is why newborns are screened for it.
+locale: bg
+---
+Бета-таласемия
+Алфа-таласемия
+Дефицит на Г6ФД
+Фамилна средиземноморска треска
+Сърповидноклетъчна черта
+Наследствен хемохроматозен вариант
+Непоносимост към лактоза

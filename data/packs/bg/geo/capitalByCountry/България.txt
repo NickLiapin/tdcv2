@@ -1,0 +1,5 @@
+---
+description: Capital of България (Bulgarian).
+locale: bg
+---
+София

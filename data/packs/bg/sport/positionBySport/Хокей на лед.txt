@@ -1,0 +1,10 @@
+---
+description: Positions in ice hockey (Bulgarian).
+locale: bg
+---
+Вратар
+Ляв защитник
+Десен защитник
+Център
+Ляво крило
+Дясно крило

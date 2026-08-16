@@ -1,0 +1,58 @@
+---
+description: Marketing adjective for a product (Croatian, masculine singular). Croatian adjectives agree with the noun in gender, number and case, so a config joining one of these to commerce/productNoun will often need the feminine or neuter form instead — this list is the citation (masculine nominative singular) form.
+locale: hr
+---
+nov
+moderan
+klasičan
+elegantan
+praktičan
+izdržljiv
+lagan
+čvrst
+kompaktan
+prostran
+udoban
+mekan
+gladak
+sjajan
+mat
+prozračan
+vodootporan
+nepropusan
+protuklizni
+ergonomski
+podesiv
+sklopiv
+prijenosni
+bežični
+punjiv
+automatski
+digitalni
+pametni
+profesionalni
+ručno rađen
+domaći
+tradicionalni
+ekološki
+reciklirani
+biorazgradiv
+organski
+prirodni
+hipoalergen
+antibakterijski
+higijenski
+toplinski izoliran
+otporan na ogrebotine
+jednostavan
+univerzalni
+ograničeni
+ekskluzivni
+premium
+luksuzan
+povoljan
+ekonomičan
+višenamjenski
+kompatibilan
+certificiran
+provjeren

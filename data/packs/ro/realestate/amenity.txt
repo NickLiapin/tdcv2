@@ -1,0 +1,27 @@
+---
+description: Property amenity (Romanian)
+locale: ro
+---
+Balcon
+Terasă
+Grădină
+Curte
+Loc de parcare
+Garaj
+Boxă
+Lift
+Interfon
+Videointerfon
+Aer condiționat
+Centrală proprie
+Încălzire prin pardoseală
+Termopane
+Ușă metalică
+Sistem de alarmă
+Pază permanentă
+Piscină
+Sală de fitness
+Mobilat și utilat
+Pivniță
+Pod
+Panouri solare

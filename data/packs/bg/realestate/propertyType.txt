@@ -1,0 +1,23 @@
+---
+description: Property type (Bulgarian). The room count works differently from the English one and gets mistranslated constantly: Bulgarian counts LIVING ROOMS, the sitting room included and the kitchen excluded, so двустаен is a one-bedroom flat and тристаен a two-bedroom one. Гарсониера is a flat with a kitchen niche rather than a separate kitchen.
+locale: bg
+---
+Едностаен апартамент
+Двустаен апартамент
+Тристаен апартамент
+Четиристаен апартамент
+Многостаен апартамент
+Гарсониера
+Студио
+Мезонет
+Ателие
+Къща
+Вила
+Етаж от къща
+Част от къща
+Парцел
+Земеделска земя
+Гараж
+Паркомясто
+Офис
+Магазин

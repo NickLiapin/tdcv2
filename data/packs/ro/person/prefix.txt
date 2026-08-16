@@ -1,0 +1,37 @@
+---
+description: Romanian honorific / form of address, in the abbreviated form used before a name. Romanian puts the academic and professional title BEFORE the name (prof. univ. dr. Ionescu), not after it. Preasfintitul and Inaltpreasfintitul are the Orthodox forms of address for a bishop and a metropolitan, and are in ordinary use in a country where the Orthodox Church is the largest institution after the state.
+locale: ro
+---
+Dl.
+Dna.
+Dra.
+Domnul
+Doamna
+Domnișoara
+Dr.
+Dr. ing.
+Prof.
+Prof. univ. dr.
+Conf. univ. dr.
+Lect. univ. dr.
+Asist. univ.
+Ș.l. dr. ing.
+Acad.
+Ing.
+Ec.
+Av.
+Arh.
+Farm.
+Pr.
+Părintele
+Preasfințitul
+Înaltpreasfințitul
+Maica
+Col.
+Gen.
+Mr.
+Cpt.
+Lt.
+Plt.
+Sg.
+Cms.

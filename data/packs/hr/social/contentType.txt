@@ -1,0 +1,17 @@
+---
+description: Type of social media content (Croatian)
+locale: hr
+---
+Objava
+Fotografija
+Video
+Reel
+Priča
+Anketa
+Prijenos uživo
+Komentar
+Dijeljenje
+Članak
+Podcast
+Vodič
+Recenzija

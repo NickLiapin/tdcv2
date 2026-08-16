@@ -1,0 +1,5 @@
+---
+description: Capital of Швеция (Bulgarian).
+locale: bg
+---
+Стокхолм

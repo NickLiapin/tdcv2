@@ -1,0 +1,14 @@
+---
+description: Dishes of Mexican cuisine (Romanian)
+locale: ro
+---
+Tacos
+Burrito
+Quesadilla
+Guacamole
+Nachos
+Enchiladas
+Chili con carne
+Fajitas
+Tamales
+Pozole

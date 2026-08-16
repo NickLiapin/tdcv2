@@ -1,0 +1,5 @@
+---
+description: Capital of Italia, as Romanian names it
+locale: ro
+---
+Roma

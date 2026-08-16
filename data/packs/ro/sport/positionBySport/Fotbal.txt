@@ -1,0 +1,15 @@
+---
+description: Positions in association football (Romanian)
+locale: ro
+---
+Portar
+Fundaș central
+Fundaș dreapta
+Fundaș stânga
+Mijlocaș defensiv
+Mijlocaș central
+Mijlocaș ofensiv
+Extremă dreapta
+Extremă stânga
+Atacant
+Vârf de atac

@@ -1,0 +1,27 @@
+---
+description: Croatian address unit or interior designator, in the abbreviated shape used before a number. A Croatian address writes the house number after the street (Ulica kralja Tomislava 12) and the flat after that (12/3 or 12, stan 3).
+locale: hr
+---
+st.
+stan
+kat
+prizemlje
+suteren
+podrum
+potkrovlje
+mezanin
+ulaz
+zgrada
+zg.
+objekt
+soba
+ured
+apartman
+lokal
+poslovni prostor
+garaža
+parkirno mjesto
+spremište
+ostava
+kbr.
+blok

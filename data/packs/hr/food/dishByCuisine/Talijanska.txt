@@ -1,0 +1,14 @@
+---
+description: Dishes of the talijanska kitchen, named as a Croatian menu names them. Borrowed dish names keep their original spelling, which is what a Croatian restaurant prints.
+locale: hr
+---
+Pizza margherita
+Špageti bolonjez
+Lazanje
+Rižoto s gljivama
+Njoki
+Carbonara
+Tjestenina s plodovima mora
+Minestrone
+Tiramisu
+Panna cotta

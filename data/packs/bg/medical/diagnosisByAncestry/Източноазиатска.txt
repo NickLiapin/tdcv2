@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, in Bulgarian. A prevalence signal, not an exclusive one.
+locale: bg
+---
+Дефицит на алдехид дехидрогеназа 2
+Непоносимост към лактоза
+Назофарингеален карцином
+Стомашен карцином
+Хепатит В носителство
+Болест на Кавазаки
+Първична закритоъгълна глаукома
+Моямоя болест
+Тиреоидит на Хашимото
+Синдром на Бругада

@@ -1,0 +1,5 @@
+---
+description: Currency of Чехия (Bulgarian).
+locale: bg
+---
+Чешка крона

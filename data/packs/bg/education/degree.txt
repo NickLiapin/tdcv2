@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Bulgaria. Специалист is a short-cycle college qualification below бакалавър; доктор на науките is a second, higher doctorate above доктор, inherited from the Soviet two-tier system and still awarded.
+locale: bg
+---
+Начално образование
+Основно образование
+Средно образование
+Средно специално образование
+Професионална квалификация
+Специалист
+Професионален бакалавър
+Бакалавър
+Магистър
+Доктор
+Доктор на науките
+Следдипломна квалификация
+Специализация
+Асистент
+Доцент
+Професор

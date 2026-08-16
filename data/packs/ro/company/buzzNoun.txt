@@ -1,0 +1,64 @@
+---
+description: Business buzz noun (Romanian)
+locale: ro
+---
+soluție
+platformă
+ecosistem
+strategie
+viziune
+inițiativă
+transformare
+inovație
+sinergie
+parteneriat
+optimizare
+eficiență
+performanță
+productivitate
+scalabilitate
+infrastructură
+arhitectură
+proces
+flux de lucru
+metodologie
+cadru
+model de business
+propunere de valoare
+avantaj competitiv
+cotă de piață
+segment
+nișă
+public-țintă
+experiență de client
+călătorie a clientului
+implicare
+retenție
+conversie
+achiziție
+creștere
+randament
+marjă
+buget
+investiție
+capital
+finanțare
+lichiditate
+risc
+guvernanță
+conformitate
+audit
+raportare
+indicator
+obiectiv
+țintă
+etapă
+livrabil
+foaie de parcurs
+prioritate
+resursă
+capabilitate
+competență
+talent
+cultură organizațională
+angajament

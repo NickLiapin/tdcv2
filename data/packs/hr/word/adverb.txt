@@ -1,0 +1,36 @@
+---
+description: Common adverb (Croatian)
+locale: hr
+---
+brzo
+polako
+odmah
+kasnije
+jučer
+danas
+sutra
+sada
+tada
+uvijek
+nikada
+često
+rijetko
+ponekad
+obično
+možda
+sigurno
+zaista
+jedva
+gotovo
+potpuno
+djelomično
+zajedno
+odvojeno
+ovdje
+ondje
+gore
+dolje
+naprijed
+natrag
+unutra
+vani

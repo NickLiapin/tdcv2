@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of sjevernoafrička ancestry, named in Croatian.
+locale: hr
+---
+Obiteljska mediteranska groznica
+Beta talasemija
+Nedostatak glukoza-6-fosfat dehidrogenaze
+Nasljedna gluhoća
+Fenilketonurija
+Cistična fibroza
+Nedostatak laktaze
+Šećerna bolest tipa 2

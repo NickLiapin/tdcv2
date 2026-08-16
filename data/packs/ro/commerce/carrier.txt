@@ -1,0 +1,22 @@
+---
+description: Parcel carrier operating in Romania and Moldova, plus the international ones. Brand names keep their real spelling.
+locale: ro
+---
+Fan Courier
+Cargus
+Sameday
+DPD
+GLS
+FedEx
+DHL Express
+DHL Parcel
+UPS
+TNT
+Poșta Română
+Poșta Moldovei
+Nemo Expres
+Packeta
+easybox
+Bookurier
+Nova Poshta
+Delamode

@@ -1,0 +1,5 @@
+---
+description: Capital of Индия (Bulgarian).
+locale: bg
+---
+Ню Делхи

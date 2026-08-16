@@ -1,0 +1,12 @@
+---
+description: Mining method (Croatian)
+locale: hr
+---
+površinski kop
+podzemno rudarenje
+komorno-stupna metoda
+zarušavanje
+bušenje i miniranje
+hidraulično otkopavanje
+bušotinsko crpljenje
+kamenolom

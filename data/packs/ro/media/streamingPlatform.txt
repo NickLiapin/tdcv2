@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in Romania and Moldova. Voyo, AntenaPLAY and Pro TV Plus are the local broadcasters' own services and carry the Romanian-language catalogue.
+locale: ro
+---
+Netflix
+HBO Max
+Disney+
+Prime Video
+Apple TV+
+SkyShowtime
+Voyo
+AntenaPLAY
+Pro TV Plus
+Digi Online
+YouTube Premium
+Spotify

@@ -1,0 +1,23 @@
+---
+description: Mineral or extracted material (Croatian). Croatia's own extraction is dominated by limestone, gypsum, bauxite, oil, gas and salt rather than metal ore.
+locale: hr
+---
+vapnenac
+dolomit
+gips
+glina
+kvarcni pijesak
+šljunak
+tehnički kamen
+boksit
+nafta
+prirodni plin
+kameni ugljen
+lignit
+sol
+sumpor
+bentonit
+tuf
+mramor
+željezna ruda
+bakrena ruda

@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Southeast Asian ancestry, in Romanian. A prevalence signal, not an exclusive one.
+locale: ro
+---
+Alfa-talasemie
+Hemoglobinopatie E
+Boala hemoglobinei H
+Deficit de glucozo-6-fosfat dehidrogenază
+Cancer nazofaringian
+Hepatită cronică cu virus B
+Talasemie intermedia

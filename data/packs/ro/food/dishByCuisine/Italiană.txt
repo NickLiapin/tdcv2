@@ -1,0 +1,14 @@
+---
+description: Dishes of Italian cuisine (Romanian)
+locale: ro
+---
+Pizza Margherita
+Spaghete carbonara
+Lasagna
+Risotto
+Tiramisu
+Bruschette
+Gnocchi
+Minestrone
+Panna cotta
+Ravioli

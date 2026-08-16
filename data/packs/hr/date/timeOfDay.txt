@@ -1,0 +1,12 @@
+---
+description: Time of day (Croatian). Croatian splits the day around podne — prijepodne and poslijepodne are single words and are the ordinary way to say a.m. and p.m.
+locale: hr
+---
+zora
+jutro
+prijepodne
+podne
+poslijepodne
+večer
+noć
+ponoć

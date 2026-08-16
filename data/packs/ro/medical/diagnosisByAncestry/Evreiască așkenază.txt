@@ -1,0 +1,16 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Romanian. A prevalence signal, not an exclusive one.
+locale: ro
+---
+Boala Tay-Sachs
+Boala Gaucher tip 1
+Boala Canavan
+Disautonomie familială
+Mucolipidoză tip IV
+Sindrom Bloom
+Anemia Fanconi tip C
+Deficit de factor XI
+Boala Niemann-Pick tip A
+Mutații fondatoare BRCA1 și BRCA2
+Fibroză chistică
+Sindromul Usher tip III

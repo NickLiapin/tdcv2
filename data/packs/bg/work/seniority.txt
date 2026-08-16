@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Bulgarian). Главен, водещ and старши are three distinct grades in the Bulgarian civil-service and NKPD ladders, not stylistic variants.
+locale: bg
+---
+Практикант
+Стажант
+Начално ниво
+Младши
+Специалист
+Старши специалист
+Главен специалист
+Експерт
+Старши експерт
+Главен експерт
+Водещ
+Ръководител екип
+Мениджър
+Старши мениджър
+Директор
+Изпълнителен директор

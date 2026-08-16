@@ -1,0 +1,65 @@
+---
+description: Material a product is made of (Croatian)
+locale: hr
+---
+pamuk
+lan
+vuna
+svila
+kašmir
+janjeća vuna
+viskoza
+poliester
+poliamid
+akril
+elastan
+najlon
+flis
+pliš
+baršun
+brušena koža
+prava koža
+umjetna koža
+antilop
+krzno
+guma
+silikon
+lateks
+plastika
+polipropilen
+polikarbonat
+akrilno staklo
+staklo
+kaljeno staklo
+kristal
+porculan
+keramika
+glina
+kamen
+mramor
+granit
+vapnenac
+beton
+gips
+drvo
+hrastovina
+bukovina
+borovina
+jelovina
+orahovina
+trešnjevina
+bambus
+iverica
+šperploča
+pluto
+ratan
+pruće
+slama
+čelik
+nehrđajući čelik
+lijevano željezo
+aluminij
+mjed
+bronca
+titan
+karbonska vlakna

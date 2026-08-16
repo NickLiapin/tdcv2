@@ -1,0 +1,241 @@
+---
+description: Country and territory names (Romanian). Translated, not transliterated: Germany is Germania, the Netherlands is Tarile de Jos and the United States is Statele Unite ale Americii.
+locale: ro
+---
+Afganistan
+Albania
+Algeria
+Samoa Americană
+Andorra
+Angola
+Anguilla
+Antarctica
+Antigua și Barbuda
+Argentina
+Armenia
+Aruba
+Australia
+Austria
+Azerbaidjan
+Bahamas
+Bahrain
+Bangladesh
+Barbados
+Belarus
+Belgia
+Belize
+Benin
+Bermuda
+Bhutan
+Bolivia
+Bosnia și Herțegovina
+Botswana
+Brazilia
+Brunei
+Bulgaria
+Burkina Faso
+Burundi
+Cambodgia
+Camerun
+Canada
+Capul Verde
+Insulele Cayman
+Republica Centrafricană
+Ciad
+Chile
+China
+Insula Crăciunului
+Insulele Cocos
+Columbia
+Comore
+Republica Democratică Congo
+Republica Congo
+Insulele Cook
+Costa Rica
+Coasta de Fildeș
+Croația
+Cuba
+Cipru
+Cehia
+Danemarca
+Djibouti
+Dominica
+Republica Dominicană
+Timorul de Est
+Ecuador
+Egipt
+El Salvador
+Guineea Ecuatorială
+Eritreea
+Estonia
+Etiopia
+Insulele Falkland
+Insulele Feroe
+Fiji
+Finlanda
+Franța
+Guyana Franceză
+Polinezia Franceză
+Teritoriile Australe Franceze
+Gabon
+Gambia
+Georgia
+Germania
+Ghana
+Gibraltar
+Grecia
+Groenlanda
+Grenada
+Guadelupa
+Guam
+Guatemala
+Guineea
+Guineea-Bissau
+Guyana
+Haiti
+Sfântul Scaun
+Honduras
+Hong Kong
+Ungaria
+Islanda
+India
+Indonezia
+Iran
+Irak
+Irlanda
+Israel
+Italia
+Côte d'Ivoire
+Jamaica
+Japonia
+Iordania
+Kazahstan
+Kenya
+Kiribati
+Coreea de Nord
+Coreea de Sud
+Kosovo
+Kuweit
+Kârgâzstan
+Laos
+Letonia
+Liban
+Lesotho
+Liberia
+Libia
+Liechtenstein
+Lituania
+Luxemburg
+Macao
+Madagascar
+Malawi
+Malaysia
+Maldive
+Mali
+Malta
+Insulele Marshall
+Martinica
+Mauritania
+Mauritius
+Mayotte
+Mexic
+Micronezia
+Republica Moldova
+Monaco
+Mongolia
+Muntenegru
+Montserrat
+Maroc
+Mozambic
+Myanmar
+Namibia
+Nauru
+Nepal
+Țările de Jos
+Antilele Olandeze
+Noua Caledonie
+Noua Zeelandă
+Nicaragua
+Niger
+Nigeria
+Niue
+Macedonia de Nord
+Insulele Mariane de Nord
+Norvegia
+Oman
+Pakistan
+Palau
+Teritoriile Palestiniene
+Panama
+Papua-Noua Guinee
+Paraguay
+Peru
+Filipine
+Insulele Pitcairn
+Polonia
+Portugalia
+Puerto Rico
+Qatar
+Réunion
+România
+Federația Rusă
+Rwanda
+Saint Kitts și Nevis
+Saint Lucia
+Saint Vincent și Grenadinele
+Samoa
+San Marino
+São Tomé și Príncipe
+Arabia Saudită
+Senegal
+Serbia
+Seychelles
+Sierra Leone
+Singapore
+Slovacia
+Slovenia
+Insulele Solomon
+Somalia
+Africa de Sud
+Sudanul de Sud
+Spania
+Sri Lanka
+Sudan
+Surinam
+Eswatini
+Suedia
+Elveția
+Siria
+Taiwan
+Tadjikistan
+Tanzania
+Thailanda
+Tibet
+Timor-Leste
+Togo
+Tokelau
+Tonga
+Trinidad și Tobago
+Tunisia
+Turcia
+Turkmenistan
+Insulele Turks și Caicos
+Tuvalu
+Uganda
+Ucraina
+Emiratele Arabe Unite
+Regatul Unit
+Statele Unite ale Americii
+Uruguay
+Uzbekistan
+Vanuatu
+Vatican
+Venezuela
+Vietnam
+Insulele Virgine Britanice
+Insulele Virgine Americane
+Wallis și Futuna
+Sahara Occidentală
+Yemen
+Zambia
+Zimbabwe

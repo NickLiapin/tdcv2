@@ -1,0 +1,14 @@
+---
+description: Dishes of the tajlandska kitchen, named as a Croatian menu names them. Borrowed dish names keep their original spelling, which is what a Croatian restaurant prints.
+locale: hr
+---
+Pad thai
+Tom yum
+Zeleni curry
+Crveni curry
+Som tam
+Massaman curry
+Juha tom kha
+Pržena riža s ananasom
+Satay
+Mango s ljepljivom rižom

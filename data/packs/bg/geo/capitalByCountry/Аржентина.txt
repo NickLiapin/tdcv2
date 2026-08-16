@@ -1,0 +1,5 @@
+---
+description: Capital of Аржентина (Bulgarian).
+locale: bg
+---
+Буенос Айрес

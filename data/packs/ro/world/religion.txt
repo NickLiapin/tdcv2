@@ -1,0 +1,29 @@
+---
+description: World religion (Romanian). Orthodoxy is the confession of the great majority of Romanian speakers; the Greek-Catholic church, which keeps the Eastern rite in communion with Rome, and the Unitarian church, founded in Transylvania in 1568, are both particular to this part of Europe and are not interchangeable with Roman Catholicism or Protestantism.
+locale: ro
+---
+Creștinism ortodox
+Romano-catolicism
+Greco-catolicism
+Protestantism
+Cult reformat
+Luteranism
+Unitarianism
+Penticostalism
+Baptism
+Adventism de ziua a șaptea
+Creștinism evanghelic
+Martorii lui Iehova
+Islam
+Iudaism
+Budism
+Hinduism
+Sikhism
+Șintoism
+Taoism
+Confucianism
+Zoroastrism
+Bahá'í
+Ateism
+Agnosticism
+Fără religie

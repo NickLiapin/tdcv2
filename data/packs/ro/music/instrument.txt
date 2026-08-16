@@ -1,0 +1,36 @@
+---
+description: Musical instrument (Romanian). Tambal, cobza, nai, fluier, caval, tilinca, bucium and cimpoi are the Romanian folk instruments — the nai is the panpipe, the bucium the long alpine horn of the shepherds, the tambal the hammered dulcimer of the lautari bands.
+locale: ro
+---
+Vioară
+Violă
+Violoncel
+Contrabas
+Pian
+Orgă
+Chitară
+Chitară electrică
+Chitară bas
+Harpă
+Țambal
+Cobză
+Nai
+Fluier
+Caval
+Tilincă
+Bucium
+Cimpoi
+Flaut
+Clarinet
+Oboi
+Fagot
+Saxofon
+Trompetă
+Trombon
+Corn
+Tubă
+Acordeon
+Muzicuță
+Tobă
+Timpane
+Xilofon

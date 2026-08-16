@@ -1,0 +1,5 @@
+---
+description: Currency of Statele Unite ale Americii, as Romanian names it
+locale: ro
+---
+Dolar american

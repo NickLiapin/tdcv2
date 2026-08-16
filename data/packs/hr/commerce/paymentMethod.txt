@@ -1,0 +1,19 @@
+---
+description: Payment method (Croatian). KEKS Pay and Aircash are Croatian mobile wallets in everyday use; the opća uplatnica is the paper giro slip still accepted at every post office and bank counter. Card scheme names are brands and keep their spelling.
+locale: hr
+---
+Gotovina
+Kartica
+Debitna kartica
+Kreditna kartica
+Maestro
+Mastercard
+Visa
+Diners
+American Express
+Internetsko bankarstvo
+Opća uplatnica
+KEKS Pay
+Aircash
+PayPal
+Plaćanje pouzećem

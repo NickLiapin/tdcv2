@@ -1,0 +1,5 @@
+---
+description: Currency of Hrvatska, as Croatian names it (lowercase — Croatian does not capitalise a currency name)
+locale: hr
+---
+euro

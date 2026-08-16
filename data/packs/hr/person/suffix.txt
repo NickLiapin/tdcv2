@@ -1,0 +1,28 @@
+---
+description: Name or academic suffix (Croatian). Croatian degrees normally PRECEDE the name (see person/prefix), so the ones repeated here read as trailing qualifiers in a formal signature block.
+locale: hr
+---
+ml.
+st.
+Junior
+Senior
+II.
+III.
+IV.
+V.
+dr. sc.
+mr. sc.
+dipl. ing.
+mag. ing.
+mag. oec.
+mag. iur.
+mag. med.
+univ. spec.
+bacc.
+dr. med.
+dr. med. dent.
+dr. vet. med.
+Ph.D.
+MBA
+MSc
+prof.

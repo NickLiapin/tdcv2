@@ -1,0 +1,16 @@
+---
+description: Month name (Romanian, lowercase — Romanian orthography does not capitalise month names)
+locale: ro
+---
+ianuarie
+februarie
+martie
+aprilie
+mai
+iunie
+iulie
+august
+septembrie
+octombrie
+noiembrie
+decembrie

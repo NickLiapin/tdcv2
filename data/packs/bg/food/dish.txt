@@ -1,0 +1,44 @@
+---
+description: Dish (Bulgarian) — what a Bulgarian kitchen actually cooks, from the mehana staples to the everyday home ones. Гювеч and сач name the earthenware pot and the iron griddle the dish is cooked and served in, so the vessel is the name of the meal.
+locale: bg
+---
+шопска салата
+овчарска салата
+снежанка
+катък
+таратор
+боб чорба
+шкембе чорба
+пилешка супа
+топчета супа
+курбан чорба
+баница
+тиквеник
+тутманик
+милинки
+мекици
+попара
+качамак
+мусака
+гювеч
+сач
+кавърма
+чомлек
+кебапче
+кюфте
+сарми
+лозови сарми
+пълнени чушки
+чушки бюрек
+дроб сарма
+панагюрски яйца
+мешана скара
+пържола
+шишче
+пиле с ориз
+свинско със зеле
+яхния
+мляко с ориз
+принцеси
+козунак
+баклава

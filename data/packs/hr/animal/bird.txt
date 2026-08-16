@@ -1,0 +1,38 @@
+---
+description: Bird (Croatian). The bjeloglavi sup of the Kvarner cliffs and the roda of the Posavina villages are the two Croatia is known for.
+locale: hr
+---
+vrabac
+golub
+kos
+sjenica
+lastavica
+čiopa
+čvorak
+svraka
+vrana
+gavran
+sova
+ćuk
+sokol
+orao
+jastreb
+škanjac
+bjeloglavi sup
+roda
+čaplja
+galeb
+kormoran
+patka
+guska
+labud
+fazan
+jarebica
+prepelica
+djetlić
+kukavica
+slavuj
+zeba
+češljugar
+ševa
+vjetruša

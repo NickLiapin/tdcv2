@@ -1,0 +1,22 @@
+---
+description: Video game genre (Romanian; the untranslated English terms are what Romanian players actually say)
+locale: ro
+---
+Acțiune
+Aventură
+Joc de rol
+Strategie
+Simulare
+Sport
+Curse
+Puzzle
+Platformer
+Shooter
+Luptă
+Supraviețuire
+Groază
+MMO
+Battle royale
+Joc de cărți
+Sandbox
+Metroidvania

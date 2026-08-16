@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Bulgarian). бр. (брой) is the piece count that heads almost every Bulgarian invoice line.
+locale: bg
+---
+бр.
+брой
+комплект
+опаковка
+кашон
+кутия
+пакет
+торба
+чувал
+бутилка
+кен
+буркан
+туба
+г
+кг
+т
+мг
+мл
+л
+куб. м
+м
+см
+мм
+кв. м
+линеен метър
+ролка
+пале
+двойка
+дузина
+порция

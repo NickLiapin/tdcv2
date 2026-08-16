@@ -1,0 +1,16 @@
+---
+description: Type of workplace meeting (Croatian)
+locale: hr
+---
+Sastanak tima
+Dnevni sastanak
+Tjedni sastanak
+Sastanak s klijentom
+Prezentacija
+Radionica
+Razgovor u četiri oka
+Godišnji razgovor
+Sjednica uprave
+Skupština
+Sindikalni sastanak
+Sastanak putem videopoziva

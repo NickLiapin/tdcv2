@@ -1,0 +1,27 @@
+---
+description: Metal (Romanian)
+locale: ro
+---
+Aur
+Argint
+Platină
+Paladiu
+Cupru
+Fier
+Oțel
+Aluminiu
+Zinc
+Plumb
+Staniu
+Nichel
+Crom
+Titan
+Wolfram
+Magneziu
+Mangan
+Cobalt
+Mercur
+Bismut
+Alamă
+Bronz
+Uraniu

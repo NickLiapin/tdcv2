@@ -1,0 +1,5 @@
+---
+description: Capital of China, as Romanian names it
+locale: ro
+---
+Beijing

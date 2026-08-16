@@ -1,0 +1,40 @@
+---
+description: Medical specialty (Croatian). These are the specialisation titles the Croatian Medical Chamber recognises.
+locale: hr
+---
+Opća medicina
+Obiteljska medicina
+Interna medicina
+Kardiologija
+Neurologija
+Neurokirurgija
+Onkologija
+Hematologija
+Dermatologija i venerologija
+Gastroenterologija
+Endokrinologija
+Pulmologija
+Nefrologija
+Reumatologija
+Infektologija
+Klinička imunologija
+Alergologija
+Opća kirurgija
+Abdominalna kirurgija
+Vaskularna kirurgija
+Kardiokirurgija
+Plastična kirurgija
+Ortopedija i traumatologija
+Urologija
+Ginekologija i opstetricija
+Pedijatrija
+Neonatologija
+Psihijatrija
+Oftalmologija
+Otorinolaringologija
+Anesteziologija
+Radiologija
+Nuklearna medicina
+Patologija
+Fizikalna medicina i rehabilitacija
+Hitna medicina

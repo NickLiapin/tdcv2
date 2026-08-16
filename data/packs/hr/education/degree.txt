@@ -1,0 +1,20 @@
+---
+description: Academic degree or level of education (Croatian). These are the titles the Croatian system awards after the Bologna reform — univ. bacc. and mag. from a university programme, bacc. and struč. spec. from a professional one, dr. sc. from a doctoral one. SSS, VŠS and VSS are the older shorthand for secondary, higher and high qualification and still appear on Croatian job adverts.
+locale: hr
+---
+Osnovna škola
+Srednja stručna sprema
+Gimnazijska matura
+Sveučilišni prvostupnik
+Stručni prvostupnik
+Magistar struke
+Magistar inženjer
+Diplomirani inženjer
+Sveučilišni specijalist
+Doktor znanosti
+Doktor medicine
+Doktor dentalne medicine
+Doktor veterinarske medicine
+Profesor
+Viša stručna sprema
+Visoka stručna sprema

@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of mediteranska ancestry, named in Croatian.
+locale: hr
+---
+Beta talasemija
+Alfa talasemija
+Nedostatak glukoza-6-fosfat dehidrogenaze
+Obiteljska mediteranska groznica
+Nasljedna hemokromatoza
+Neperzistencija laktaze
+Bechetova bolest
+Nasljedna sferocitoza

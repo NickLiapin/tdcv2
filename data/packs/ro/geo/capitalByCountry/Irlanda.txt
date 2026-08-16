@@ -1,0 +1,5 @@
+---
+description: Capital of Irlanda, as Romanian names it
+locale: ro
+---
+Dublin

@@ -1,0 +1,14 @@
+---
+description: Fuel type (Romanian)
+locale: ro
+---
+Benzină
+Motorină
+GPL
+GNC
+Electric
+Hibrid
+Hibrid plug-in
+Hidrogen
+Etanol
+Biodiesel

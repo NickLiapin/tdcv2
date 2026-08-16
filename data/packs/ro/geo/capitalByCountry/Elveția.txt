@@ -1,0 +1,5 @@
+---
+description: Capital of Elveția, as Romanian names it
+locale: ro
+---
+Berna

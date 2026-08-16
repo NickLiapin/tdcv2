@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis in Bulgarian that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: bg
+---
+Доброкачествена простатна хиперплазия
+Простатит
+Рак на простатата
+Еректилна дисфункция
+Варикоцеле
+Хидроцеле
+Фимоза
+Парафимоза
+Баланит
+Епидидимит
+Орхит
+Тестикуларна торзия
+Рак на тестиса
+Крипторхизъм
+Гинекомастия
+Мъжки стерилитет
+Хипогонадизъм
+Пейрониева болест
+Приапизъм
+Уретрит

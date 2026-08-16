@@ -1,0 +1,5 @@
+---
+description: Currency of Русия (Bulgarian).
+locale: bg
+---
+Руска рубла

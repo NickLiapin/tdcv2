@@ -1,0 +1,35 @@
+---
+description: Hotel amenity (Romanian; Wi-Fi keeps its real spelling)
+locale: ro
+---
+Wi-Fi gratuit
+Mic dejun inclus
+Parcare gratuită
+Piscină
+Piscină interioară
+Saună
+Jacuzzi
+Centru spa
+Sală de fitness
+Restaurant
+Bar
+Room service
+Recepție 24 de ore
+Lift
+Aer condiționat
+Încălzire
+Televizor cu ecran plat
+Seif
+Minibar
+Ceainic
+Uscător de păr
+Balcon
+Terasă
+Grădină
+Loc de joacă
+Animale acceptate
+Transfer de la aeroport
+Închiriere de biciclete
+Spălătorie
+Acces pentru persoane cu dizabilități
+Camere pentru nefumători

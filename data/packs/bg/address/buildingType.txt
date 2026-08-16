@@ -1,0 +1,36 @@
+---
+description: Building type (Bulgarian). Панелен блок and тухлена кооперация are the two everyday categories of Bulgarian flat: prefabricated-slab towers built 1960-1989 and the brick-built cooperatives that came before and after them, and a Bulgarian listing always says which.
+locale: bg
+---
+Жилищна сграда
+Панелен блок
+Тухлена кооперация
+Кооперация
+Еднофамилна къща
+Двуфамилна къща
+Редова къща
+Вила
+Хижа
+Бунгало
+Апартамент
+Мезонет
+Ателие
+Таван
+Мазе
+Офис сграда
+Административна сграда
+Търговски център
+Магазин
+Склад
+Хале
+Фабрика
+Цех
+Работилница
+Гараж
+Навес
+Плевня
+Обор
+Църква
+Манастир
+Училище
+Болница

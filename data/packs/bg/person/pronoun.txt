@@ -1,0 +1,12 @@
+---
+description: Personal pronoun (Bulgarian). Bulgarian pronouns are the one part of the language that KEPT case endings after the nouns lost theirs — той / него / му are three forms of one word — but this list holds the subject forms.
+locale: bg
+---
+аз
+ти
+той
+тя
+то
+ние
+вие
+те

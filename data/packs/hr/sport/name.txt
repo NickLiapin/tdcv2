@@ -1,0 +1,59 @@
+---
+description: Sport (Croatian). Vaterpolo, rukomet and košarka are national sports in Croatia rather than minority ones, and picigin — played in shallow water on Split's Bačvice beach — and boćanje are local games with no English name.
+locale: hr
+---
+Nogomet
+Košarka
+Rukomet
+Vaterpolo
+Odbojka
+Odbojka na pijesku
+Tenis
+Stolni tenis
+Badminton
+Squash
+Atletika
+Trčanje
+Maraton
+Plivanje
+Skokovi u vodu
+Sinkronizirano plivanje
+Veslanje
+Kajak
+Kanu
+Jedrenje
+Ronjenje
+Ronjenje na dah
+Jedriličarstvo
+Skijanje
+Alpsko skijanje
+Skijaško trčanje
+Snowboard
+Umjetničko klizanje
+Brzo klizanje
+Hokej na ledu
+Biatlon
+Triatlon
+Biciklizam
+Brdski biciklizam
+Gimnastika
+Ritmička gimnastika
+Dizanje utega
+Hrvanje
+Boks
+Judo
+Karate
+Taekwondo
+Mačevanje
+Streljaštvo
+Streličarstvo
+Konjički sport
+Golf
+Ragbi
+Bejzbol
+Softbal
+Američki nogomet
+Kriket
+Boćanje
+Picigin
+Pikado

@@ -1,0 +1,19 @@
+---
+description: Payment method (Bulgarian). Наложен платеж — cash paid to the courier on delivery — is still the commonest way a Bulgarian online order is paid for, so it heads the list rather than trailing it.
+locale: bg
+---
+Наложен платеж
+В брой
+Банкова карта
+Дебитна карта
+Кредитна карта
+Банков превод
+ePay
+EasyPay
+PayPal
+Apple Pay
+Google Pay
+Ваучер
+Подаръчна карта
+Кредит на изплащане
+Виртуален POS

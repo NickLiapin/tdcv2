@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Romanian. A prevalence signal, not an exclusive one.
+locale: ro
+---
+Fibroză chistică
+Hemocromatoză ereditară
+Deficit de alfa-1-antitripsină
+Boală celiacă
+Fenilcetonurie
+Scleroză multiplă
+Diabet zaharat tip 1
+Boala Crohn
+Melanom malign
+Deficit de lactază cu debut tardiv

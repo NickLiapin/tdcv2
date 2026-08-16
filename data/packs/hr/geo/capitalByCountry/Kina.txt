@@ -1,0 +1,5 @@
+---
+description: Capital of Kina, as Croatian names it
+locale: hr
+---
+Peking

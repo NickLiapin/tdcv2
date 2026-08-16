@@ -1,0 +1,35 @@
+---
+description: Tree (Romanian). Gorunul and zambrul are Carpathian: the sessile oak of the hill forests and the Swiss stone pine of the high mountains.
+locale: ro
+---
+Stejar
+Gorun
+Fag
+Carpen
+Frasin
+Ulm
+Tei
+Arțar
+Paltin
+Plop
+Salcie
+Mesteacăn
+Anin
+Salcâm
+Castan
+Nuc
+Cireș
+Măr
+Păr
+Prun
+Vișin
+Brad
+Molid
+Pin
+Larice
+Zâmbru
+Ienupăr
+Tisă
+Corn
+Alun
+Soc

@@ -1,0 +1,42 @@
+---
+description: Medical specialties (Romanian)
+locale: ro
+---
+Medicină de familie
+Medicină internă
+Cardiologie
+Chirurgie cardiovasculară
+Pneumologie
+Gastroenterologie
+Hepatologie
+Nefrologie
+Endocrinologie
+Diabet zaharat, nutriție și boli metabolice
+Reumatologie
+Neurologie
+Neurochirurgie
+Psihiatrie
+Psihiatrie pediatrică
+Dermatologie
+Alergologie și imunologie clinică
+Hematologie
+Oncologie medicală
+Radioterapie
+Chirurgie generală
+Ortopedie și traumatologie
+Urologie
+Obstetrică-ginecologie
+Pediatrie
+Neonatologie
+Oftalmologie
+Otorinolaringologie
+Anestezie și terapie intensivă
+Medicină de urgență
+Radiologie și imagistică medicală
+Medicină de laborator
+Anatomie patologică
+Medicină legală
+Recuperare medicală
+Boli infecțioase
+Geriatrie
+Medicina muncii

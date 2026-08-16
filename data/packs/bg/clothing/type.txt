@@ -1,0 +1,30 @@
+---
+description: Garment type (Bulgarian). Base form — the definite article is a suffix in Bulgarian (риза becomes ризата, панталон becomes панталонът), so a template that needs "the shirt" appends rather than prepends.
+locale: bg
+---
+риза
+блуза
+тениска
+фланелка
+пуловер
+жилетка
+сако
+яке
+палто
+шуба
+анорак
+панталон
+дънки
+къси панталони
+пола
+рокля
+сарафан
+костюм
+гащеризон
+бельо
+чорапи
+чорапогащник
+шал
+шапка
+ръкавици
+колан

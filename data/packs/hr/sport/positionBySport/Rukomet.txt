@@ -1,0 +1,11 @@
+---
+description: Playing positions in rukomet, named in Croatian
+locale: hr
+---
+Vratar
+Lijevo krilo
+Desno krilo
+Lijevi vanjski
+Srednji vanjski
+Desni vanjski
+Kružni napadač

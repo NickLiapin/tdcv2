@@ -1,0 +1,20 @@
+---
+description: Venue type (Bulgarian). Читалище has no English equivalent: a community cultural centre with a library, founded in the nineteenth century as a national-revival institution, and still present in nearly every Bulgarian village.
+locale: bg
+---
+Зала
+Конферентна зала
+Аула
+Читалище
+Театър
+Опера
+Кино
+Галерия
+Музей
+Стадион
+Спортна зала
+Дворец на културата
+Хотел
+Ресторант
+Клуб
+Площад

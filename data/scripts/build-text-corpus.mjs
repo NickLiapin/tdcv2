@@ -115,6 +115,24 @@ const BOOKS = {
   // and this is it — so the corpus is not a selection and cannot be widened
   // without a source other than Gutenberg.
   fa: [[46740, "Five Selected Short Stories", "D. H. Lawrence"]],
+  // Gutenberg holds five Romanian books. Four are here; the fifth, 35323
+  // "Poezii" by Eminescu, is verse and is excluded by the same rule that keeps
+  // verse out of every other locale — a line of poetry is not a sentence and
+  // its word order is not the language's.
+  ro: [
+    [64597, "Nuvele", "I. L. Caragiale"],
+    [62916, "Povesti", "Ioan Slavici"],
+    [65565, "Tara mea", "Maria, Queen of Romania"],
+    [11756, "Creierul, o enigma descifrata", "Dorin Teodor Moisa"],
+  ],
+  // Six Bulgarian books, three of them prose. The other three — 2790 Botev's
+  // poems, 2890 Vazov's "Epopeya na zabravenite", 3433 Slaveykov's "Epicheski
+  // pesni" — are verse. A thin corpus, closer to sr (two books) than to nl.
+  bg: [
+    [2894, "Short Stories", "Hristo Botev"],
+    [4909, "Olaf van Geldern", "Pencho Slaveykov"],
+    [10752, "Mislite v glavite", "Harry Stojan"],
+  ],
 };
 
 /**
@@ -291,6 +309,16 @@ const SCRIPT = {
   // language and cannot measure the script. Persian-versus-Arabic is settled by
   // the source book and by the stopword list, not here.
   fa: /[ء-يپچژکگی]/u,
+  // Romanian uses comma-below s and t (U+0219, U+021B), NOT the Turkish
+  // cedilla forms (U+015F, U+0163) that older texts and careless fonts
+  // substitute. Both are listed so a Gutenberg scan in the legacy encoding
+  // still counts as Romanian script; the pack itself is comma-below only and
+  // a separate check enforces that.
+  ro: /[a-zăâîșțşţ]/i,
+  // Bulgarian Cyrillic, not Russian Cyrillic: ъ is a VOWEL here and is common,
+  // while ё ы э are not Bulgarian letters at all. Listing the alphabet rather
+  // than the block is what stops a Russian passage scoring as Bulgarian.
+  bg: /[абвгдежзийклмнопрстуфхцчшщъьюя]/i,
 };
 
 /**
@@ -789,6 +817,72 @@ const STOPWORDS = {
     "یا",
     "بر",
   ],
+  // Romanian shares its alphabet with no neighbour, but its Gutenberg texts are
+  // old enough to carry French and Latin quotation, so the function words earn
+  // their place. "si" and "sa" are listed without diacritics too, because the
+  // 1930s printings this corpus draws on often set them bare.
+  ro: [
+    "de",
+    "si",
+    "și",
+    "la",
+    "cu",
+    "in",
+    "în",
+    "un",
+    "o",
+    "este",
+    "care",
+    "pe",
+    "nu",
+    "se",
+    "ca",
+    "din",
+    "sau",
+    "pentru",
+    "mai",
+    "dar",
+    "ce",
+    "sa",
+    "să",
+    "al",
+    "ale",
+    "lui",
+    "era",
+    "fi",
+  ],
+  // Bulgarian against Russian is the real work here: the two share most of the
+  // alphabet and much of the vocabulary, so the discriminating words are the
+  // ones Russian does NOT use this way — "да" before a verb (Bulgarian has no
+  // infinitive), "ще" for the future, "като", "си".
+  bg: [
+    "и",
+    "в",
+    "на",
+    "е",
+    "да",
+    "се",
+    "за",
+    "с",
+    "от",
+    "не",
+    "че",
+    "по",
+    "като",
+    "но",
+    "си",
+    "то",
+    "са",
+    "ще",
+    "а",
+    "при",
+    "той",
+    "тя",
+    "този",
+    "който",
+    "беше",
+    "може",
+  ],
 };
 
 /** Everything between the Gutenberg start and end markers, and nothing else. */
@@ -860,8 +954,26 @@ function paragraphs(text, splitOn) {
  */
 const WHOLLY_PARENTHESISED = /^\s*[([].*[)\]][.!?]?\s*$/u;
 const YEAR = /(?:^|[^\d])(1[4-9]\d\d|20[0-2]\d)(?:[^\d]|$)/u;
+/**
+ * Two or more shouted words in a row: a title page, not a sentence.
+ *
+ * Romanian was the first corpus whose books carry their imprint as running
+ * text, and two lines walked straight through every other filter into
+ * `text/sentence.txt` — "Colecție îngrijită de MARIN SIM.-RIMNICEANU Membru
+ * cor." and "EDITURA INSTITUTULUI DE ARTE GRAFICE … BUCUREȘTI." Both are
+ * grammatical, both are in Romanian, and neither is a sentence anyone would
+ * want as filler text.
+ *
+ * A single shouted word is left alone: real dialogue shouts, and acronyms are
+ * ordinary inside prose. It takes two adjacent ones to mean typography. Checked
+ * against all 32 locales that ship a corpus before it was added — it matches
+ * nothing anywhere else, so it removes exactly what it was written for.
+ */
+const SHOUTED_RUN = /\p{Lu}{2,}[.\-]?\s+\p{Lu}{2,}/u;
+
 const isApparatus = (s) =>
   WHOLLY_PARENTHESISED.test(s) ||
+  SHOUTED_RUN.test(s) ||
   (YEAR.test(s) && (s.match(/\p{L}+/gu) ?? []).length < 7);
 
 function keep(rule, script, locale) {

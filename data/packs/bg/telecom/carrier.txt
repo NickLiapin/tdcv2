@@ -1,0 +1,30 @@
+---
+description: Mobile carrier — the Bulgarian operators and the international brands a Bulgarian roams onto. Bulgaria has exactly three mobile networks, and all three changed name in the last decade: Мобилтел became A1, Теленор became Yettel, and БТК trades as Vivacom, so older records carry the old names.
+locale: bg
+---
+A1 България
+Yettel България
+Vivacom
+Bulsatcom
+Max Telecom
+Мобилтел
+Теленор България
+БТК
+Vodafone
+T-Mobile
+Orange
+Deutsche Telekom
+Telekom Romania
+Turkcell
+Türk Telekom
+Cosmote
+Vodafone Greece
+Telekom Srbija
+A1 Austria
+Swisscom
+Telia
+Telenor
+Play
+Orange Polska
+Movistar
+TIM

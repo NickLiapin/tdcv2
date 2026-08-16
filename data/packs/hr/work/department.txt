@@ -1,0 +1,26 @@
+---
+description: Company department (Croatian)
+locale: hr
+---
+Uprava
+Financije
+Računovodstvo
+Kontroling
+Ljudski resursi
+Pravna služba
+Nabava
+Prodaja
+Marketing
+Odnosi s javnošću
+Korisnička podrška
+Informatika
+Razvoj
+Istraživanje i razvoj
+Proizvodnja
+Kvaliteta
+Održavanje
+Logistika
+Skladište
+Zaštita na radu
+Interna revizija
+Opći poslovi

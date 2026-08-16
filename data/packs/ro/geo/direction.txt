@@ -1,0 +1,20 @@
+---
+description: Compass direction (Romanian). The sixteen points; Romanian joins them with hyphens and capitalises each element.
+locale: ro
+---
+Nord
+Sud
+Est
+Vest
+Nord-Est
+Nord-Vest
+Sud-Est
+Sud-Vest
+Nord-Nord-Est
+Est-Nord-Est
+Est-Sud-Est
+Sud-Sud-Est
+Sud-Sud-Vest
+Vest-Sud-Vest
+Vest-Nord-Vest
+Nord-Nord-Vest

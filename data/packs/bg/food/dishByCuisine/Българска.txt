@@ -1,0 +1,24 @@
+---
+description: Dishes of Bulgarian cuisine (Bulgarian). Кисело мляко is here as a dish in its own right: the bacterium that makes it, Lactobacillus bulgaricus, is named after the country it was isolated in.
+locale: bg
+---
+шопска салата
+баница
+таратор
+лютеница
+мусака
+боб чорба
+шкембе чорба
+кебапче
+кюфте
+сарми
+пълнени чушки
+чушки бюрек
+гювеч
+мешана скара
+дроб сарма
+панагюрски яйца
+кисело мляко
+козунак
+мекици
+баклава

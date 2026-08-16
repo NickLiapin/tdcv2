@@ -1,0 +1,16 @@
+---
+description: Mark on the Bulgarian school and university scale. Bulgaria grades from 2 to 6 with SIX as the top mark and 2 as failing — the inverse of the German and Polish scales, where 1 or 2 is best. Marks carry a name as well as a number, and both are written (Отличен 6.00); intermediate values to two decimals are normal, so a 5.50 is a real mark, not a rounding artefact.
+locale: bg
+---
+Отличен 6
+Много добър 5
+Добър 4
+Среден 3
+Слаб 2
+Отличен 5.50
+Много добър 4.50
+Добър 3.50
+Среден 2.50
+Издържал
+Неиздържал
+Освободен

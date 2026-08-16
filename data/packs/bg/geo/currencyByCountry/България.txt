@@ -1,0 +1,5 @@
+---
+description: Currency of България (Bulgarian). Bulgaria replaced the лев with the euro on 1 January 2026 at the fixed rate 1.95583 BGN = 1 EUR; records from before that date are in лева.
+locale: bg
+---
+Евро

@@ -1,0 +1,24 @@
+---
+description: Household budget category (Croatian)
+locale: hr
+---
+Stanovanje
+Najamnina
+Režije
+Struja
+Plin
+Voda
+Grijanje
+Komunalna naknada
+Hrana
+Prijevoz
+Gorivo
+Zdravstvo
+Osiguranje
+Obrazovanje
+Odjeća
+Zabava
+Putovanja
+Kućni ljubimci
+Štednja
+Krediti

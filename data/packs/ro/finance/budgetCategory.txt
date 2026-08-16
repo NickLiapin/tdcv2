@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Romanian). 'Intretinere' is the monthly service charge a block of flats bills each apartment for heating, hot water, lift and cleaning — a fixed line in almost every Romanian household budget and separate from the utilities billed directly.
+locale: ro
+---
+Chirie
+Rate la credit
+Întreținere
+Utilități
+Energie electrică
+Gaze naturale
+Apă și canalizare
+Alimente
+Transport
+Combustibil
+Sănătate
+Medicamente
+Educație
+Îmbrăcăminte
+Telefonie și internet
+Divertisment
+Vacanțe
+Economii
+Asigurări
+Impozite și taxe

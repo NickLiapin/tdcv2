@@ -1,0 +1,9 @@
+---
+description: Credit score band (Bulgarian).
+locale: bg
+---
+Лош
+Среден
+Добър
+Много добър
+Отличен

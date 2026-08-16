@@ -1,0 +1,10 @@
+---
+description: Playing positions in hokej na ledu, named in Croatian
+locale: hr
+---
+Vratar
+Lijevi branič
+Desni branič
+Centar
+Lijevo krilo
+Desno krilo

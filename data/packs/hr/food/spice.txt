@@ -1,0 +1,34 @@
+---
+description: Spice or seasoning (Croatian). Vegeta is a Croatian invention — Podravka's vegetable seasoning, in essentially every kitchen in the country — and is a pantry staple rather than a brand a config should translate away.
+locale: hr
+---
+sol
+papar
+crvena paprika
+ljuta paprika
+lovor
+ružmarin
+timijan
+kadulja
+origano
+mažuran
+bosiljak
+peršin
+kopar
+komorač
+korijandar
+kim
+kumin
+muškatni oraščić
+klinčić
+cimet
+đumbir
+kurkuma
+curry
+čili
+senf
+ocat
+vanilija
+anis
+vlasac
+Vegeta

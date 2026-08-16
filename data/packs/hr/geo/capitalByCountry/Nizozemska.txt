@@ -1,0 +1,5 @@
+---
+description: Capital of Nizozemska, as Croatian names it
+locale: hr
+---
+Amsterdam

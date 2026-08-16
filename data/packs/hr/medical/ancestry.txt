@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Croatian, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: hr
+---
+Subsaharska
+Sjevernoafrička
+Mediteranska
+Bliskoistočna
+Sjevernoeuropska
+Istočnoeuropska
+Aškenaska židovska
+Južnoazijska
+Istočnoazijska
+Jugoistočnoazijska
+Domorodačka američka
+Pacifička otočna

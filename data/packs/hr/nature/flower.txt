@@ -1,0 +1,32 @@
+---
+description: Flower (Croatian). The perunika — the iris — is Croatia's emblematic flower, and lavanda and ružmarin grow wild on the Adriatic islands.
+locale: hr
+---
+ruža
+perunika
+tulipan
+narcisa
+ljubičica
+visibaba
+jaglac
+maslačak
+tratinčica
+suncokret
+božur
+krizantema
+gladiola
+begonija
+ciklama
+orhideja
+ljiljan
+zvončić
+kadifica
+lavanda
+ružmarin
+kadulja
+jasmin
+oleander
+buganvilija
+agava
+planika
+velebitska degenija

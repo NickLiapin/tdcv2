@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Romanian for a male patient (male-specific conditions plus common ones)
+locale: ro
+---
+Hiperplazie benignă de prostată
+Prostatită cronică
+Cancer de prostată
+Cancer testicular
+Varicocel
+Disfuncție erectilă
+Hipogonadism masculin
+Infertilitate masculină
+Ginecomastie
+Hipertensiune arterială esențială
+Diabet zaharat tip 2
+Dislipidemie
+Cardiopatie ischemică
+Infarct miocardic
+Gută
+Bronhopneumopatie obstructivă cronică
+Ulcer duodenal
+Steatoză hepatică
+Litiază renală
+Hernie inghinală
+Hernie de disc lombară
+Apnee obstructivă de somn
+Dependență de nicotină
+Dependență de alcool
+Depresie majoră
+Obezitate

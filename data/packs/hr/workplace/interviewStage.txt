@@ -1,0 +1,15 @@
+---
+description: Stage of a hiring process (Croatian)
+locale: hr
+---
+Prijava
+Provjera životopisa
+Telefonski razgovor
+Razgovor s HR-om
+Razgovor sa stručnim timom
+Testiranje znanja
+Praktični zadatak
+Psihologijsko testiranje
+Razgovor s upravom
+Provjera preporuka
+Ponuda

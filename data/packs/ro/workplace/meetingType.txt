@@ -1,0 +1,16 @@
+---
+description: Meeting type (Romanian)
+locale: ro
+---
+Ședință de echipă
+Ședință operativă
+Ședință de planificare
+Retrospectivă
+Ședință zilnică de status
+Discuție unu la unu
+Evaluare de performanță
+Prezentare
+Sesiune de brainstorming
+Ședință cu clientul
+Ședință de proiect
+Adunare generală

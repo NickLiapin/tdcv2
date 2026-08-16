@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in onkologija, named in Croatian
+locale: hr
+---
+Rak pluća
+Rak dojke
+Rak debelog crijeva
+Rak prostate
+Rak želuca
+Rak gušterače
+Rak jetre
+Melanom
+Limfom
+Leukemija
+Rak mokraćnog mjehura

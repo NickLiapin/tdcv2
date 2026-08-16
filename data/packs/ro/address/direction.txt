@@ -1,0 +1,19 @@
+---
+description: Directional qualifier appended to a Romanian street or district name (Bulevardul Timisoara Nord, Calea Sagului Sud-Vest)
+locale: ro
+---
+Nord
+Sud
+Est
+Vest
+Nord-Est
+Nord-Vest
+Sud-Est
+Sud-Vest
+Central
+de Nord
+de Sud
+de Est
+de Vest
+de Nord-Est
+de Sud-Vest

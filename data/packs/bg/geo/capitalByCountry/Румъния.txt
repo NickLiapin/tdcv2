@@ -1,0 +1,5 @@
+---
+description: Capital of Румъния (Bulgarian).
+locale: bg
+---
+Букурещ

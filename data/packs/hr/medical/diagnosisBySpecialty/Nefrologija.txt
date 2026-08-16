@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in nefrologija, named in Croatian
+locale: hr
+---
+Kronična bubrežna bolest
+Akutno zatajenje bubrega
+Infekcija mokraćnog sustava
+Bubrežni kamenci
+Glomerulonefritis
+Nefrotski sindrom
+Policistična bolest bubrega
+Pijelonefritis
+Dijabetička nefropatija
+Hipertenzivna nefropatija
+Hidronefroza

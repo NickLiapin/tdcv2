@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Croatian. Amounts are in EURO (EUR): Croatia replaced the kuna with the euro on 1 January 2023, so a Croatian dataset dated after that carries euros, and one dated before it carries kune (HRK) at the fixed rate of 7,53450 HRK to the euro. The bands are set around Croatian earnings rather than translated from a Western pack — the median net monthly wage is roughly 1.200 EUR, so a household in the middle of this list is an ordinary two-earner one. Note the Croatian number format: a full stop groups thousands and a comma marks the decimal, the opposite of English.
+locale: hr
+---
+Ispod 12.000 EUR
+12.000–18.000 EUR
+18.000–24.000 EUR
+24.000–36.000 EUR
+36.000–48.000 EUR
+48.000–72.000 EUR
+72.000–120.000 EUR
+Preko 120.000 EUR

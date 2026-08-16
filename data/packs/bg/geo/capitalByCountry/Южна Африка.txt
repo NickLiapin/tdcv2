@@ -1,0 +1,5 @@
+---
+description: Capital of Южна Африка (Bulgarian).
+locale: bg
+---
+Претория

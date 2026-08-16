@@ -1,0 +1,16 @@
+---
+description: Streaming platform available in the Bulgarian market. Voyo, BNT Play, bTV Play, Nova Play and Neterra.TV are the domestic services; the rest are international ones that carry Bulgarian subtitles.
+locale: bg
+---
+Netflix
+HBO Max
+Disney+
+Amazon Prime Video
+Apple TV+
+Voyo
+Neterra.TV
+BNT Play
+bTV Play
+Nova Play
+YouTube
+Spotify

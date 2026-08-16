@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of East Asian ancestry, in Romanian. A prevalence signal, not an exclusive one.
+locale: ro
+---
+Deficit de aldehid-dehidrogenază 2
+Cancer gastric
+Cancer nazofaringian
+Hepatită cronică cu virus B
+Deficit de lactază
+Boala Kawasaki
+Glaucom cu unghi închis
+Distrofie corneeană
+Alfa-talasemie
+Deficit de glucozo-6-fosfat dehidrogenază

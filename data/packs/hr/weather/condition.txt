@@ -1,0 +1,20 @@
+---
+description: Weather condition (Croatian)
+locale: hr
+---
+sunčano
+vedro
+pretežno sunčano
+djelomično oblačno
+promjenljivo oblačno
+oblačno
+tmurno
+kiša
+pljusak
+rosulja
+susnježica
+snijeg
+mećava
+magla
+vjetrovito
+grmljavina

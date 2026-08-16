@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Romanian)
+locale: ro
+---
+Accident vascular cerebral ischemic
+Atac ischemic tranzitoriu
+Migrenă cu aură
+Epilepsie
+Boala Parkinson
+Scleroză multiplă
+Neuropatie diabetică
+Nevralgie de trigemen
+Boala Alzheimer
+Sindrom de tunel carpian

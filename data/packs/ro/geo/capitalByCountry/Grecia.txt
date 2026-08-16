@@ -1,0 +1,5 @@
+---
+description: Capital of Grecia, as Romanian names it
+locale: ro
+---
+Atena

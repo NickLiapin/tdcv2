@@ -1,0 +1,16 @@
+---
+description: Job titles in the Croatian ugostiteljstvo sector
+locale: hr
+---
+Kuhar
+Glavni kuhar
+Slastičar
+Konobar
+Šanker
+Barmen
+Sommelier
+Recepcionar
+Voditelj hotela
+Domaćica kata
+Turistički vodič
+Voditelj kampa

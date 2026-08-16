@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Romanian)
+locale: ro
+---
+Cablu UTP
+Cablu FTP
+Cablu STP
+Cablu coaxial
+Fibră optică monomod
+Fibră optică multimod
+Cablu de alimentare
+Cablu ecranat
+Cablu torsadat

@@ -1,0 +1,24 @@
+---
+description: Writing system (Croatian). Croatian itself is written in LATINICA — the Latin alphabet with č ć đ š ž and the digraphs dž lj nj, which count as single letters when sorting. Glagoljica, the Glagolitic script, is Croatia's own historic alphabet, used in Istria and Kvarner into the twentieth century and still carved on stone there; bosančica is the Croatian Cyrillic variant once used in Dalmatia and Bosnia.
+locale: hr
+---
+Latinica
+Glagoljica
+Bosančica
+Ćirilica
+Grčko pismo
+Arapsko pismo
+Hebrejsko pismo
+Devanagari
+Kineski znakovi
+Hiragana
+Katakana
+Hangul
+Tajsko pismo
+Armensko pismo
+Gruzijsko pismo
+Etiopsko pismo
+Tamilsko pismo
+Sinhalsko pismo
+Klinasto pismo
+Hijeroglifi

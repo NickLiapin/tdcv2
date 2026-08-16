@@ -1,0 +1,14 @@
+---
+description: Dishes of Chinese cuisine (Romanian)
+locale: ro
+---
+Rață Peking
+Orez prăjit
+Dim sum
+Chow mein
+Pui kung pao
+Supă wonton
+Baozi
+Mapo tofu
+Rulouri de primăvară
+Hot pot

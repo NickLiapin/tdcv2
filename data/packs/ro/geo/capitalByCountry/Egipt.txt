@@ -1,0 +1,5 @@
+---
+description: Capital of Egipt, as Romanian names it
+locale: ro
+---
+Cairo

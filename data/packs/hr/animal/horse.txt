@@ -1,0 +1,20 @@
+---
+description: Horse breed (Croatian). The lipicanac is bred at Đakovo, and the hrvatski posavac and hrvatski hladnokrvnjak are Croatia's own working breeds.
+locale: hr
+---
+Lipicanac
+Hrvatski posavac
+Hrvatski hladnokrvnjak
+Međimurski konj
+Arapski punokrvnjak
+Engleski punokrvnjak
+Haflinger
+Frizijac
+Andaluzijac
+Percheron
+Belgijski hladnokrvnjak
+Shetland poni
+Islandski konj
+Ahal-teke
+Američki quarter horse
+Trakener

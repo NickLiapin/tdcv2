@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in dermatologija, named in Croatian
+locale: hr
+---
+Atopijski dermatitis
+Psorijaza
+Akne
+Rozaceja
+Urtikarija
+Kontaktni dermatitis
+Seboroični dermatitis
+Gljivična infekcija kože
+Herpes zoster
+Vitiligo
+Bazocelularni karcinom

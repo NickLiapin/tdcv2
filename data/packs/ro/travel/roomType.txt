@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Romanian)
+locale: ro
+---
+Cameră single
+Cameră dublă
+Cameră twin
+Cameră triplă
+Cameră matrimonială
+Cameră de familie
+Cameră standard
+Cameră superioară
+Cameră deluxe
+Cameră cu vedere la mare
+Cameră cu vedere la munte
+Apartament
+Garsonieră
+Studio
+Suită
+Suită prezidențială
+Bungalow
+Căsuță

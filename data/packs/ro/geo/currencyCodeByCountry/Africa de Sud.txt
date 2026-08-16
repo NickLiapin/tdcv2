@@ -1,0 +1,5 @@
+---
+description: Currency code of Africa de Sud
+locale: ro
+---
+ZAR

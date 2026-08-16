@@ -1,0 +1,5 @@
+---
+description: Capital of Norveška, as Croatian names it
+locale: hr
+---
+Oslo

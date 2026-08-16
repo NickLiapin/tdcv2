@@ -1,0 +1,18 @@
+---
+description: Order status (Romanian, agrees with the feminine noun comanda)
+locale: ro
+---
+Plasată
+În așteptare
+Confirmată
+În procesare
+În pregătire
+Ambalată
+Expediată
+În tranzit
+În curs de livrare
+Livrată
+Ridicată
+Anulată
+Returnată
+Rambursată

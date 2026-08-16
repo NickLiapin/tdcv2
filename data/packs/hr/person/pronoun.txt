@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Croatian). Croatian is a pro-drop language — the verb ending already carries the person, so these appear mostly for emphasis or contrast.
+locale: hr
+---
+on
+ona
+ono
+on/njegov
+ona/njezin
+ono/njegovo
+on/ona
+ona/ono

@@ -1,0 +1,22 @@
+---
+description: Event type (Croatian)
+locale: hr
+---
+Vjenčanje
+Krštenje
+Prva pričest
+Krizma
+Rođendan
+Godišnjica
+Sprovod
+Konferencija
+Seminar
+Radionica
+Sajam
+Izložba
+Koncert
+Festival
+Kazališna predstava
+Sportsko natjecanje
+Dobrotvorna večer
+Proslava

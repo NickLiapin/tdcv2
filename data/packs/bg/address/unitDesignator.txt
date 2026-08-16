@@ -1,0 +1,27 @@
+---
+description: Bulgarian address unit designator, in the abbreviated form written before its number. A full Bulgarian flat address stacks four of these — бл. 42, вх. Б, ет. 5, ап. 17 — because the panel-block estates are addressed by building rather than by street. вх. (вход, entrance) has no English equivalent: one block has several separate stairwells, each lettered, and they do not connect inside.
+locale: bg
+---
+ап.
+вх.
+ет.
+бл.
+№
+кв.
+ж.к.
+сграда
+корпус
+секция
+офис
+ателие
+магазин
+склад
+гараж
+паркомясто
+мазе
+таван
+стая
+кабинет
+отдел
+парцел
+УПИ

@@ -1,0 +1,20 @@
+---
+description: Weather condition (Romanian)
+locale: ro
+---
+Senin
+Însorit
+Parțial noros
+Noros
+Înnorat
+Ploaie
+Ploaie ușoară
+Aversă
+Ninsoare
+Lapoviță
+Ceață
+Vânt
+Furtună
+Grindină
+Ger
+Caniculă

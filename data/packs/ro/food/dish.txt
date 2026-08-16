@@ -1,0 +1,53 @@
+---
+description: Dish (Romanian). Mamaliga (polenta), sarmale (stuffed cabbage rolls), mici (grilled minced-meat rolls) and tuica-drinking are the core of it; the ciorba family are the sour soups, soured with bors, and are a separate word from supa, which is the clear kind.
+locale: ro
+---
+Sarmale
+Mămăligă
+Bulz
+Mici
+Tochitură
+Ciorbă de burtă
+Ciorbă de perișoare
+Ciorbă rădăuțeană
+Ciorbă de fasole cu afumătură
+Ciorbă de legume
+Borș de pește
+Supă de găină cu tăiței
+Ardei umpluți
+Musaca
+Chiftele
+Șnițel
+Pilaf
+Iahnie de fasole
+Fasole bătută
+Ciolan cu fasole
+Varză a la Cluj
+Saramură de crap
+Balmoș
+Papanași
+Cozonac
+Pască
+Colivă
+Plăcintă cu brânză
+Poale-n brâu
+Alivenci
+Scovergi
+Gogoși
+Clătite
+Salată de boeuf
+Zacuscă
+Piftie
+Tobă
+Drob de miel
+Pastramă
+Cârnați de casă
+Slănină afumată
+Covrigi
+Cornulețe
+Salam de biscuiți
+Amandine
+Savarină
+Cremșnit
+Turtă dulce
+Mucenici

@@ -1,0 +1,5 @@
+---
+description: Capital of Polonia, as Romanian names it
+locale: ro
+---
+Varșovia

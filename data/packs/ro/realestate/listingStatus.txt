@@ -1,0 +1,16 @@
+---
+description: Listing status (Romanian)
+locale: ro
+---
+Disponibil
+Rezervat
+Sub ofertă
+În negociere
+Vândut
+Închiriat
+Retras
+Nou listat
+Preț redus
+În construcție
+Recepționat
+Suspendat

@@ -1,0 +1,54 @@
+---
+description: Shop or webshop department (Croatian)
+locale: hr
+---
+Voće i povrće
+Mesnica
+Ribarnica
+Pekarnica
+Slastičarnica
+Mliječni proizvodi
+Delikatese
+Smrznuta hrana
+Konzervirana hrana
+Tjestenina i riža
+Žitarice
+Začini
+Ulja i ocat
+Bezalkoholna pića
+Alkoholna pića
+Vina
+Pivo
+Kava i čaj
+Grickalice
+Slatkiši
+Dječja hrana
+Hrana za kućne ljubimce
+Higijena
+Kozmetika
+Parfumerija
+Ljekarna
+Kućanske potrepštine
+Sredstva za čišćenje
+Papirnata konfekcija
+Posuđe
+Kuhinjski pribor
+Mali kućanski aparati
+Bijela tehnika
+Elektronika
+Računala
+Mobiteli
+Audio i video
+Namještaj
+Tekstil za dom
+Rasvjeta
+Vrt i okućnica
+Alat
+Građevinski materijal
+Autooprema
+Sport i rekreacija
+Igračke
+Knjige i papirnica
+Odjeća
+Obuća
+Nakit

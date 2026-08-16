@@ -1,0 +1,16 @@
+---
+description: Grade or mark (Croatian). Croatian schools mark on a five-point scale where 5 is the best and 1 is a fail, the reverse of the American letter order: odličan (5), vrlo dobar (4), dobar (3), dovoljan (2), nedovoljan (1).
+locale: hr
+---
+Odličan (5)
+Vrlo dobar (4)
+Dobar (3)
+Dovoljan (2)
+Nedovoljan (1)
+Izvrstan
+Položio
+Pao
+Oslobođen
+Neocijenjen
+Priznato
+Nije pristupio

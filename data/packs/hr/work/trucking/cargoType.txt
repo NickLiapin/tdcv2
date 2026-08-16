@@ -1,0 +1,17 @@
+---
+description: Freight cargo type (Croatian)
+locale: hr
+---
+generalni teret
+paletizirani teret
+rasuti teret
+tekući teret
+kontejner
+hlađeni teret
+smrznuti teret
+opasne tvari (ADR)
+živa stoka
+vangabaritni teret
+građevinski materijal
+automobili
+drvo i trupci

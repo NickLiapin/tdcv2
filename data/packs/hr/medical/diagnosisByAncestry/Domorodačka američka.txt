@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of domorodačka američka ancestry, named in Croatian.
+locale: hr
+---
+Šećerna bolest tipa 2
+Bolest žučnog mjehura
+Neperzistencija laktaze
+Alkoholna bolest jetre
+Reumatoidni artritis
+Kronična bubrežna bolest
+Pretilost
+Tuberkuloza

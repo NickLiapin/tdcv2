@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Croatian). Each is a clipped nominative followed by a full stop, which Croatian orthography requires on any abbreviation that ends before the end of the word.
+locale: hr
+---
+sij.
+velj.
+ožu.
+tra.
+svi.
+lip.
+srp.
+kol.
+ruj.
+lis.
+stu.
+pro.

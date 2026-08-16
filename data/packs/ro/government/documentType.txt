@@ -1,0 +1,25 @@
+---
+description: Official document type (Romanian). 'Buletin' is the old name of the identity card and is still what most people call it in speech, twenty years after the document was renamed carte de identitate.
+locale: ro
+---
+Carte de identitate
+Buletin
+Pașaport
+Permis de conducere
+Certificat de naștere
+Certificat de căsătorie
+Certificat de deces
+Cazier judiciar
+Adeverință
+Livret de familie
+Permis de ședere
+Viză
+Certificat de înmatriculare
+Talon auto
+Diplomă
+Act de proprietate
+Contract de vânzare-cumpărare
+Procură notarială
+Declarație pe propria răspundere
+Certificat fiscal
+Extras de carte funciară

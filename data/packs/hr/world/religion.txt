@@ -1,0 +1,25 @@
+---
+description: Religion or belief (Croatian). Croatia is overwhelmingly Roman Catholic; the Orthodox, Muslim and Jewish communities are the historic minorities.
+locale: hr
+---
+Katoličanstvo
+Rimokatolička crkva
+Grkokatolička crkva
+Pravoslavlje
+Protestantizam
+Evangeličanstvo
+Baptisti
+Adventisti
+Jehovini svjedoci
+Kršćanstvo
+Islam
+Judaizam
+Budizam
+Hinduizam
+Sikizam
+Šintoizam
+Taoizam
+Bahá'í vjera
+Agnosticizam
+Ateizam
+Bez vjeroispovijesti

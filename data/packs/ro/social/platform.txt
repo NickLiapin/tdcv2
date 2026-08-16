@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Romania and Moldova. Viber carries far more everyday messaging here than in western Europe, and OLX is where classifieds live.
+locale: ro
+---
+Facebook
+Instagram
+TikTok
+YouTube
+WhatsApp
+Messenger
+Telegram
+X
+LinkedIn
+Snapchat
+Pinterest
+Reddit
+Discord
+Twitch
+Viber
+Threads
+OLX

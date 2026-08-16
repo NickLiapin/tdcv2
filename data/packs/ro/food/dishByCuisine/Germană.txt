@@ -1,0 +1,12 @@
+---
+description: Dishes of German cuisine (Romanian)
+locale: ro
+---
+Șnițel vienez
+Cârnați bratwurst
+Varză murată cu ciolan
+Covrig bretzel
+Ștrudel cu mere
+Supă de cartofi
+Sauerbraten
+Găluște de cartofi

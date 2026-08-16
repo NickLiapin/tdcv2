@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Croatian), Monday first
+locale: hr
+---
+pon.
+uto.
+sri.
+čet.
+pet.
+sub.
+ned.

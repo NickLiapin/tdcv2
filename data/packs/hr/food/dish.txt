@@ -1,0 +1,46 @@
+---
+description: Dish (Croatian), drawn from across the country. The coastal and continental halves of Croatia cook differently enough that a dataset mixing them at random will look wrong to a Croatian reader; food/dishByCuisine/Hrvatska.txt carries the same split with a note.
+locale: hr
+---
+Pašticada
+Zagorski štrukli
+Ćevapi
+Pršut
+Paški sir
+Sarma
+Čobanac
+Brudet
+Crni rižot
+Gregada
+Soparnik
+Janjetina ispod peke
+Hobotnica ispod peke
+Purica s mlincima
+Zagrebački odrezak
+Kotlovina
+Buzara od škampa
+Buzara od dagnji
+Salata od hobotnice
+Fiš paprikaš
+Kulen
+Maneštra
+Fuži s tartufima
+Pljukanci
+Arambašići
+Bučnica
+Grah s kobasicom
+Sataraš
+Punjene paprike
+Riblja juha
+Juha od krumpira
+Palenta sa sirom
+Mlinci
+Pogača
+Sirnica
+Orehnjača
+Makovnjača
+Kremšnite
+Fritule
+Kroštule
+Rožata
+Mađarica

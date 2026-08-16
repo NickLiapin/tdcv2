@@ -1,0 +1,16 @@
+---
+description: Month name (Bulgarian, lowercase per Bulgarian orthography). These are the international Latin-derived names, NOT the Slavic nature-names that Czech (leden), Croatian (siječanj), Polish (styczeń) and Ukrainian (січень) kept — Bulgarian and Serbian went the other way. And because Bulgarian has no noun cases, the form inside a date is identical to the one here: 15 август 2026 г., where Czech would switch to a genitive.
+locale: bg
+---
+януари
+февруари
+март
+април
+май
+юни
+юли
+август
+септември
+октомври
+ноември
+декември

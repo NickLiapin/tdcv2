@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of pacifička otočna ancestry, named in Croatian.
+locale: hr
+---
+Šećerna bolest tipa 2
+Pretilost
+Giht
+Kronična bubrežna bolest
+Reumatska bolest srca
+Neperzistencija laktaze
+Ishemijska bolest srca
+Hipertenzija

@@ -1,0 +1,21 @@
+---
+description: Official document type (Croatian). The words name kinds of document rather than one country's forms, but the set is the one a resident of Croatia meets: the osobna iskaznica is the compulsory ID card and the domovnica the certificate of citizenship, which has no equivalent in most countries.
+locale: hr
+---
+Putovnica
+Osobna iskaznica
+Domovnica
+Rodni list
+Vjenčani list
+Smrtni list
+Vozačka dozvola
+Prometna dozvola
+Boravišna dozvola
+Radna dozvola
+Viza
+Porezna prijava
+Građevinska dozvola
+Uporabna dozvola
+Potvrda o prebivalištu
+Uvjerenje o nekažnjavanju
+Svjedodžba

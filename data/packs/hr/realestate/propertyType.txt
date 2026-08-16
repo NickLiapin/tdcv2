@@ -1,0 +1,23 @@
+---
+description: Property type (Croatian). A garsonijera is the single-room studio flat and a klijet the Zagorje vineyard cottage; both are ordinary categories in a Croatian listing.
+locale: hr
+---
+Stan
+Garsonijera
+Jednosoban stan
+Dvosoban stan
+Trosoban stan
+Penthouse
+Kuća
+Kuća u nizu
+Vila
+Vikendica
+Klijet
+Apartman
+Poslovni prostor
+Ured
+Skladište
+Garaža
+Građevinsko zemljište
+Poljoprivredno zemljište
+Vinograd

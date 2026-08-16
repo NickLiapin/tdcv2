@@ -1,0 +1,15 @@
+---
+description: Positions in American football (Romanian)
+locale: ro
+---
+Quarterback
+Running back
+Wide receiver
+Tight end
+Linia ofensivă
+Linia defensivă
+Linebacker
+Cornerback
+Safety
+Kicker
+Punter

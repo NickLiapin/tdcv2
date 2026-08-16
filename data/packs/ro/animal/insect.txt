@@ -1,0 +1,26 @@
+---
+description: Insect (Romanian)
+locale: ro
+---
+Albină
+Viespe
+Bondar
+Furnică
+Fluture
+Molie
+Gândac
+Buburuză
+Greier
+Lăcustă
+Cosaș
+Libelulă
+Țânțar
+Muscă
+Purice
+Păduche
+Ploșniță
+Croitor
+Rădașcă
+Urechelniță
+Călugăriță
+Licurici

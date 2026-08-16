@@ -1,0 +1,36 @@
+---
+description: Government body (Romanian public administration). Romanian is the official language of two states; this list names Romania's institutions, which is what the words denote — Moldova's ministries carry the same names with its own numbering.
+locale: ro
+---
+Guvernul României
+Parlamentul
+Camera Deputaților
+Senatul
+Administrația Prezidențială
+Ministerul Finanțelor
+Ministerul Sănătății
+Ministerul Educației
+Ministerul Justiției
+Ministerul Apărării Naționale
+Ministerul Afacerilor Interne
+Ministerul Afacerilor Externe
+Ministerul Muncii
+Ministerul Transporturilor
+Ministerul Agriculturii
+Ministerul Mediului
+Agenția Națională de Administrare Fiscală
+Casa Națională de Asigurări de Sănătate
+Casa Națională de Pensii Publice
+Inspectoratul General al Poliției Române
+Inspectoratul pentru Situații de Urgență
+Direcția Generală de Pașapoarte
+Oficiul Registrului Comerțului
+Institutul Național de Statistică
+Agenția Națională pentru Ocuparea Forței de Muncă
+Autoritatea Electorală Permanentă
+Curtea de Conturi
+Avocatul Poporului
+Banca Națională a României
+Primăria
+Consiliul Județean
+Prefectura

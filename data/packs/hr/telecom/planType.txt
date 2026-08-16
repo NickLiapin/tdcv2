@@ -1,0 +1,16 @@
+---
+description: Mobile or internet plan type (Croatian). Bonovi is the Croatian word for prepaid top-up credit.
+locale: hr
+---
+Pretplata
+Bonovi
+Neograničeni razgovori
+Neograničeni podatci
+Obiteljski paket
+Poslovni paket
+Studentski paket
+Podatkovni paket
+Roaming paket
+Optički internet
+Mobilni internet
+Objedinjena usluga

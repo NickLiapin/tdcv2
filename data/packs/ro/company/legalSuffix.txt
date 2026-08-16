@@ -1,0 +1,28 @@
+---
+description: Company legal form as it is written in a Romanian company name (Legea 31/1990). S.R.L. is by far the commonest; P.F.A., I.I. and I.F. are the sole-trader forms. The last three are the Moldovan spellings — Moldova writes the same words with I-breve, S.R.L. and S.A. being identical.
+locale: ro
+---
+S.R.L.
+S.A.
+S.C.S.
+S.C.A.
+S.N.C.
+S.R.L.-D.
+P.F.A.
+I.I.
+I.F.
+R.A.
+S.C.
+Asociație
+Fundație
+Federație
+Cooperativă
+Societate cooperativă
+Sucursală
+Filială
+Reprezentanță
+Grup de interes economic
+Societate europeană
+Î.I.
+Î.S.
+Î.M.

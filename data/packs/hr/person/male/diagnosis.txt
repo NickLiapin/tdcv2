@@ -1,0 +1,30 @@
+---
+description: Diagnosis found only in, or overwhelmingly in, men (Croatian). Terms follow the usage of Croatian clinical practice; the Latin form is what appears on a Croatian discharge letter, so both are recognisable to a reader.
+locale: hr
+---
+Rak prostate
+Benigna hiperplazija prostate
+Prostatitis
+Rak testisa
+Torzija testisa
+Varikokela
+Hidrokela
+Epididimitis
+Erektilna disfunkcija
+Muška neplodnost
+Fimoza
+Balanitis
+Peyroniejeva bolest
+Ginekomastija
+Androgena alopecija
+Klinefelterov sindrom
+Hemofilija A
+Duchenneova mišićna distrofija
+Nedostatak glukoza-6-fosfat dehidrogenaze
+Hipogonadizam
+Rak penisa
+Kriptorhizam
+Muška osteoporoza
+Aneurizma trbušne aorte
+Podagra
+Muška apneja u snu

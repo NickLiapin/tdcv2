@@ -1,0 +1,35 @@
+---
+description: Spice / herb (Romanian). Leustean (lovage) is the herb that makes a ciorba taste Romanian and has no everyday equivalent in western European cooking; boia is paprika, sweet or hot.
+locale: ro
+---
+Sare
+Piper negru
+Piper alb
+Boia dulce
+Boia iute
+Cimbru
+Cimbrișor
+Busuioc
+Oregano
+Rozmarin
+Salvie
+Mărar
+Pătrunjel
+Leuștean
+Tarhon
+Mentă
+Chimen
+Chimion
+Coriandru
+Muștar
+Foi de dafin
+Ienibahar
+Nucșoară
+Scorțișoară
+Cuișoare
+Ghimbir
+Șofran
+Turmeric
+Vanilie
+Anason
+Hrean

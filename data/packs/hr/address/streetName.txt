@@ -1,0 +1,175 @@
+---
+description: Street names that recur across Croatian towns (rulers and bans, writers, scientists, regions, rivers, trades, dates). Two grammatical shapes are mixed and a config must compose them differently: the GENITIVE phrases (kralja Tomislava, Nikole Tesle) follow the thoroughfare type — Ulica kralja Tomislava — and are already inflected, so must not be inflected again; the ADJECTIVAL names (Cvjetna, Zagrebačka) are feminine to agree with ulica and stand before it (Cvjetna ulica) or alone with the number (Cvjetna 15). Streets unique to one city belong in the Croatia country pack, not here.
+locale: hr
+---
+kralja Tomislava
+kralja Zvonimira
+kralja Petra Krešimira IV.
+kneza Branimira
+kneza Trpimira
+kneza Domagoja
+bana Josipa Jelačića
+bana Ivana Mažuranića
+Ante Starčevića
+Stjepana Radića
+braće Radić
+Josipa Jurja Strossmayera
+Ljudevita Gaja
+Petra Preradovića
+Vladimira Nazora
+Marka Marulića
+Ivana Gundulića
+Augusta Šenoe
+Antuna Gustava Matoša
+Silvija Strahimira Kranjčevića
+Tina Ujevića
+Dobriše Cesarića
+Dragutina Domjanića
+Miroslava Krleže
+Ivane Brlić-Mažuranić
+Marije Jurić Zagorke
+Josipa Kozarca
+Ksavera Šandora Gjalskog
+Slavka Kolara
+Vladimira Vidrića
+Antuna Mihanovića
+Antuna Branka Šimića
+Nikole Tesle
+Ruđera Boškovića
+Andrije Mohorovičića
+Lavoslava Ružičke
+Slavoljuba Penkale
+Fausta Vrančića
+Ivana Meštrovića
+Vatroslava Lisinskog
+Jakova Gotovca
+Julija Klovića
+Frana Krste Frankopana
+Petra Zrinskog
+Nikole Šubića Zrinskog
+Eugena Kvaternika
+Matije Gupca
+Andrije Hebranga
+Ivana Kukuljevića
+Franje Račkoga
+Baltazara Adama Krčelića
+Bartola Kašića
+Marina Držića
+Petra Hektorovića
+Hanibala Lucića
+Petra Zoranića
+Ivana Zajca
+Rikarda Katalinića Jeretova
+Mate Balote
+Vladimira Gortana
+Matije Vlačića
+Grgura Ninskog
+braće Seljan
+hrvatskih branitelja
+hrvatske mladeži
+hrvatskih iseljenika
+Domovinskog rata
+grada Vukovara
+Zrinsko-frankopanska
+Republike Hrvatske
+Zagrebačka
+Splitska
+Riječka
+Osječka
+Zadarska
+Dubrovačka
+Šibenska
+Karlovačka
+Varaždinska
+Sisačka
+Pulska
+Vukovarska
+Vinkovačka
+Bjelovarska
+Koprivnička
+Požeška
+Križevačka
+Samoborska
+Sesvetska
+Istarska
+Dalmatinska
+Slavonska
+Zagorska
+Primorska
+Podravska
+Moslavačka
+Baranjska
+Lička
+Savska
+Dravska
+Dunavska
+Kupska
+Neretvanska
+Jadranska
+Cetinska
+Murska
+Zrmanjska
+Cvjetna
+Ružina
+Ljiljanova
+Perunikina
+Lipova
+Bagremova
+Borova
+Hrastova
+Kestenova
+Jablanova
+Vrbova
+Brezova
+Jelova
+Smrekova
+Maslinova
+Smokvina
+Bademova
+Trešnjina
+Višnjina
+Jabukova
+Kruškova
+Vinogradska
+Voćarska
+Poljska
+Livadska
+Šumska
+Parkovna
+Vrtna
+Sunčana
+Mjesečeva
+Zvjezdana
+Proljetna
+Ljetna
+Jesenska
+Zimska
+Nova
+Stara
+Duga
+Kratka
+Široka
+Uska
+Gornja
+Donja
+Srednja
+Prva
+Druga
+Treća
+Školska
+Crkvena
+Kapelska
+Mlinska
+Kovačka
+Ribarska
+Lučka
+Brodarska
+Tvornička
+Radnička
+Industrijska
+Obrtnička
+Trgovačka
+Bolnička
+Sportska
+Kolodvorska
+Zrakoplovna

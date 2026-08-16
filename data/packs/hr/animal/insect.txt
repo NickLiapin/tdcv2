@@ -1,0 +1,24 @@
+---
+description: Insect (Croatian)
+locale: hr
+---
+pčela
+osa
+stršljen
+bumbar
+mrav
+muha
+komarac
+leptir
+moljac
+bubamara
+hrušt
+cvrčak
+zrikavac
+skakavac
+vretence
+stjenica
+uš
+buha
+termit
+žohar

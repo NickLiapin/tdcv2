@@ -1,0 +1,12 @@
+---
+description: Book format (Romanian)
+locale: ro
+---
+Copertă cartonată
+Broșată
+Carte de buzunar
+Carte electronică
+Audiobook
+Carte ilustrată
+Ediție de lux
+Ediție bilingvă

@@ -1,0 +1,35 @@
+---
+description: Garment type (Romanian)
+locale: ro
+---
+Cămașă
+Bluză
+Tricou
+Pulover
+Hanorac
+Jachetă
+Palton
+Pardesiu
+Geacă
+Sacou
+Costum
+Rochie
+Fustă
+Pantaloni
+Blugi
+Pantaloni scurți
+Colanți
+Ciorapi
+Șosete
+Lenjerie intimă
+Sutien
+Pijama
+Halat
+Fular
+Mănuși
+Căciulă
+Pălărie
+Șapcă
+Curea
+Cravată
+Vestă

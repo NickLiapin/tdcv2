@@ -1,0 +1,45 @@
+---
+description: Generic drug name in its Croatian spelling. These are INNs, so the stem is international, but Croatian adapts the orthography — ciprofloksacin not ciprofloxacin, levotiroksin not levothyroxine — and that adapted form is what appears on a Croatian prescription.
+locale: hr
+---
+paracetamol
+ibuprofen
+acetilsalicilna kiselina
+diklofenak
+naproksen
+tramadol
+metamizol
+amoksicilin
+azitromicin
+ciprofloksacin
+cefuroksim
+klaritromicin
+doksiciklin
+metformin
+gliklazid
+inzulin
+atorvastatin
+rosuvastatin
+ramipril
+enalapril
+amlodipin
+bisoprolol
+karvedilol
+furosemid
+hidroklorotiazid
+varfarin
+klopidogrel
+pantoprazol
+omeprazol
+levotiroksin
+sertralin
+escitalopram
+diazepam
+alprazolam
+salbutamol
+budezonid
+loratadin
+cetirizin
+prednizolon
+alopurinol
+acetilcistein

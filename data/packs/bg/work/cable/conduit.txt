@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Bulgarian).
+locale: bg
+---
+PVC тръба
+Стоманена тръба
+HDPE тръба
+Директно полагане в земя
+Вътрешна тръба
+Кабелна скара
+Носещо въже

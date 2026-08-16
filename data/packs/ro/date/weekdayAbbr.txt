@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Romanian, Monday first)
+locale: ro
+---
+lun.
+mar.
+mie.
+joi
+vin.
+sâm.
+dum.

@@ -1,0 +1,34 @@
+---
+description: Bird (Bulgarian). Base form — Bulgarian nouns have lost their case endings, so a noun has one form and this is it.
+locale: bg
+---
+врабче
+лястовица
+щъркел
+чапла
+пеликан
+орел
+сокол
+ястреб
+керкенез
+мишелов
+бухал
+кукумявка
+сова
+кукувица
+кълвач
+славей
+дрозд
+кос
+синигер
+чинка
+щиглец
+сврака
+гарван
+гарга
+чавка
+гълъб
+гургулица
+фазан
+яребица
+пъдпъдък

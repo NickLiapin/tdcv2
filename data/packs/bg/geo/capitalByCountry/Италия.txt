@@ -1,0 +1,5 @@
+---
+description: Capital of Италия (Bulgarian).
+locale: bg
+---
+Рим

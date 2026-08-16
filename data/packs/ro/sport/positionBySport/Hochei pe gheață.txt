@@ -1,0 +1,9 @@
+---
+description: Positions in ice hockey (Romanian)
+locale: ro
+---
+Portar
+Fundaș
+Extremă stânga
+Extremă dreapta
+Centru

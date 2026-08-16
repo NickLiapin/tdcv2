@@ -1,0 +1,31 @@
+---
+description: Dog breed (Romanian). The first three are the Romanian shepherd breeds recognised by the FCI and are the working dogs of the Carpathian sheepfolds, not a curiosity.
+locale: ro
+---
+Ciobănesc românesc carpatin
+Ciobănesc românesc mioritic
+Ciobănesc de Bucovina
+Ciobănesc german
+Ciobănesc belgian
+Labrador Retriever
+Golden Retriever
+Bulldog francez
+Bulldog englez
+Beagle
+Rottweiler
+Doberman
+Boxer
+Husky siberian
+Malamut de Alaska
+Dalmațian
+Pudel
+Cocker spaniel
+Teckel
+Chihuahua
+Yorkshire Terrier
+Bichon maltez
+Mops
+Setter irlandez
+Cane Corso
+Akita
+Samoyed

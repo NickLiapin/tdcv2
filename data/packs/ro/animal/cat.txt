@@ -1,0 +1,22 @@
+---
+description: Cat breed (Romanian)
+locale: ro
+---
+Persană
+Siameză
+Maine Coon
+Britanică cu păr scurt
+Bengaleză
+Ragdoll
+Sphynx
+Scottish Fold
+Albastră de Rusia
+Norvegiană de pădure
+Abisiniană
+Birmaneză
+Angora turcească
+Munchkin
+Savannah
+Devon Rex
+Chartreux
+Europeană cu păr scurt

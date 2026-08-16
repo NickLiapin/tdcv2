@@ -1,0 +1,62 @@
+---
+description: Human-readable colour name (Romanian), masculine singular. Romanian colour adjectives agree with the noun, so a feminine noun takes the feminine form (rosu -> rosie, albastru -> albastra, negru -> neagra); the invariable loanwords (bej, crem, bleu, turcoaz, kaki) do not change.
+locale: ro
+---
+Alb
+Negru
+Roșu
+Albastru
+Verde
+Galben
+Portocaliu
+Violet
+Mov
+Roz
+Maro
+Gri
+Bej
+Crem
+Ivoriu
+Argintiu
+Auriu
+Bronz
+Aramiu
+Turcoaz
+Bleumarin
+Bleu
+Azuriu
+Indigo
+Verde smarald
+Verde măsliniu
+Verde fistic
+Verde crud
+Kaki
+Lila
+Liliachiu
+Fucsia
+Magenta
+Purpuriu
+Vișiniu
+Grena
+Bordo
+Cărămiziu
+Corai
+Somon
+Piersică
+Zmeuriu
+Vernil
+Galben muștar
+Ocru
+Cafeniu
+Ciocolatiu
+Castaniu
+Nisipiu
+Antracit
+Ardezie
+Sidefiu
+Chihlimbariu
+Ruginiu
+Cenușiu
+Albăstrui
+Verzui
+Roșcat

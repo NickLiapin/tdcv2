@@ -1,0 +1,19 @@
+---
+description: Jobs in Healthcare (Romanian)
+locale: ro
+---
+Medic de familie
+Medic specialist
+Medic primar
+Medic rezident
+Chirurg
+Anestezist
+Pediatru
+Stomatolog
+Farmacist
+Asistent medical
+Moașă
+Kinetoterapeut
+Radiolog
+Laborant
+Brancardier

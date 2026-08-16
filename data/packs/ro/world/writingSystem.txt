@@ -1,0 +1,26 @@
+---
+description: Writing system (Romanian). Romanian itself has used two: it was written in a Romanian Cyrillic alphabet until the 1860s, and the same language was written in a Soviet-designed Cyrillic orthography in the Moldavian SSR until 1989 — Transnistria still prints it that way. The modern Latin orthography needs five letters English does not have: a-breve and i-circumflex/a-circumflex, plus s and t with a COMMA below, not a cedilla.
+locale: ro
+---
+Alfabet latin
+Alfabet chirilic
+Alfabet chirilic românesc
+Alfabet grecesc
+Alfabet arab
+Alfabet ebraic
+Alfabet armean
+Alfabet georgian
+Devanagari
+Alfabet bengali
+Alfabet tamil
+Caractere chinezești
+Hiragana
+Katakana
+Hangul
+Scriere thailandeză
+Scriere khmeră
+Alfabet tibetan
+Alfabet etiopian
+Thaana
+Alfabet runic
+Braille

@@ -1,0 +1,273 @@
+---
+description: Romanian job titles across sectors (tech, healthcare, trades, transport, business, service, public). Masculine forms; Romanian has feminine job titles for many of these (profesor / profesoara, inginer / ingineră, doctor / doctorita) and usage is divided over the newer ones, so a config that needs the feminine must derive it rather than expect it here.
+locale: ro
+---
+Programator
+Dezvoltator software
+Dezvoltator web
+Dezvoltator mobil
+Inginer software
+Inginer de sistem
+Inginer DevOps
+Arhitect software
+Administrator de rețea
+Administrator de baze de date
+Analist de date
+Analist de business
+Om de știință în date
+Tester software
+Inginer de automatizare a testelor
+Specialist securitate cibernetică
+Designer de interfață
+Designer grafic
+Designer UX
+Manager de produs
+Manager de proiect
+Scrum master
+Specialist cloud
+Inginer de rețea
+Tehnician IT
+Suport tehnic
+Webmaster
+Redactor tehnic
+Medic de familie
+Medic specialist
+Medic primar
+Medic rezident
+Chirurg
+Cardiolog
+Neurolog
+Pediatru
+Ginecolog
+Oftalmolog
+Dermatolog
+Psihiatru
+Anestezist
+Radiolog
+Stomatolog
+Ortodont
+Farmacist
+Asistent medical
+Moașă
+Kinetoterapeut
+Nutriționist
+Psiholog
+Logoped
+Laborant
+Optician
+Ambulanțier
+Brancardier
+Medic veterinar
+Tehnician veterinar
+Învățător
+Educatoare
+Profesor
+Profesor de sprijin
+Director de școală
+Inspector școlar
+Consilier școlar
+Lector universitar
+Conferențiar universitar
+Profesor universitar
+Asistent universitar
+Cercetător științific
+Bibliotecar
+Documentarist
+Arhivar
+Muzeograf
+Contabil
+Expert contabil
+Economist
+Analist financiar
+Auditor intern
+Consultant fiscal
+Casier
+Casier bancar
+Ofițer de credite
+Consilier bancar
+Broker
+Actuar
+Inspector de asigurări
+Agent de asigurări
+Controlor financiar
+Director financiar
+Director general
+Director executiv
+Director de vânzări
+Director de marketing
+Director de resurse umane
+Specialist resurse umane
+Recrutor
+Specialist salarizare
+Formator
+Asistent manager
+Secretară
+Referent
+Funcționar public
+Inspector fiscal
+Ofițer de poliție
+Polițist local
+Jandarm
+Pompier
+Militar
+Ofițer de armată
+Vameș
+Grănicer
+Paznic
+Agent de pază
+Avocat
+Consilier juridic
+Notar public
+Executor judecătoresc
+Judecător
+Procuror
+Grefier
+Mediator
+Traducător autorizat
+Interpret
+Jurnalist
+Reporter
+Redactor
+Corector
+Editor
+Fotograf
+Cameraman
+Operator imagine
+Regizor
+Scenarist
+Actor
+Prezentator TV
+Realizator radio
+Specialist în comunicare
+Specialist în relații publice
+Copywriter
+Specialist marketing digital
+Specialist SEO
+Community manager
+Agent de vânzări
+Reprezentant comercial
+Agent imobiliar
+Evaluator imobiliar
+Agent de turism
+Ghid turistic
+Recepționer
+Manager de hotel
+Manager de restaurant
+Ospătar
+Barman
+Barista
+Somelier
+Bucătar
+Bucătar-șef
+Cofetar
+Patiser
+Brutar
+Măcelar
+Cameristă
+Menajeră
+Îngrijitor
+Femeie de serviciu
+Inginer constructor
+Inginer instalații
+Inginer mecanic
+Inginer electric
+Inginer electronist
+Inginer chimist
+Inginer agronom
+Inginer silvic
+Inginer geolog
+Inginer de mediu
+Arhitect
+Urbanist
+Peisagist
+Topograf
+Diriginte de șantier
+Șef de șantier
+Maistru
+Zidar
+Dulgher
+Tâmplar
+Fierar betonist
+Sudor
+Lăcătuș mecanic
+Strungar
+Frezor
+Operator CNC
+Electrician
+Electromecanic
+Instalator
+Zugrav
+Faianțar
+Parchetar
+Acoperitor
+Izolator
+Macaragiu
+Excavatorist
+Buldozerist
+Miner
+Petrolist
+Operator chimist
+Operator pe linie de producție
+Controlor de calitate
+Planificator de producție
+Tehnician de mentenanță
+Magaziner
+Gestionar
+Stivuitorist
+Manipulant marfă
+Ambalator
+Curier
+Șofer profesionist
+Șofer de tir
+Șofer de taxi
+Conducător de autobuz
+Mecanic auto
+Electrician auto
+Vulcanizator
+Tinichigiu auto
+Mecanic de locomotivă
+Impiegat de mișcare
+Controlor de bilete
+Dispecer transport
+Expeditor de marfă
+Agent de tranzit
+Pilot
+Însoțitor de bord
+Controlor de trafic aerian
+Marinar
+Ofițer de punte
+Pescar
+Fermier
+Zootehnist
+Apicultor
+Viticultor
+Legumicultor
+Tractorist
+Pădurar
+Frizer
+Coafor
+Cosmetician
+Manichiurist
+Maseur
+Croitor
+Cizmar
+Ceasornicar
+Bijutier
+Optician medical
+Instructor auto
+Antrenor
+Instructor de fitness
+Arbitru sportiv
+Sportiv profesionist
+Asistent social
+Îngrijitor la domiciliu
+Educator de creșă
+Preot
+Cantor
+Poștaș
+Curățător de geamuri
+Operator call center
+Agent de recuperare creanțe
+Inspector de protecția muncii
+Consultant în management
+Antreprenor

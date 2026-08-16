@@ -1,0 +1,19 @@
+---
+description: Jobs in Legal (Romanian)
+locale: ro
+---
+Avocat
+Consilier juridic
+Notar public
+Executor judecătoresc
+Judecător
+Procuror
+Grefier
+Mediator
+Jurist de întreprindere
+Asistent juridic
+Expert criminalist
+Traducător autorizat
+Consultant în proprietate intelectuală
+Ofițer de conformitate
+Practician în insolvență

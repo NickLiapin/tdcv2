@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Bulgarian). Three are local: фьон is the warm downslope wind off the Stara Planina, черноморски бриз the daily sea breeze, and сняг от Сахара the reddish dust-laden snow that falls when Saharan air reaches the Balkans.
+locale: bg
+---
+гръмотевична буря
+светкавица
+гръмотевица
+торнадо
+смерч
+ураганен вятър
+фьон
+черноморски бриз
+виелица
+поледица
+слана
+скреж
+мъгла
+сняг от Сахара
+инверсия

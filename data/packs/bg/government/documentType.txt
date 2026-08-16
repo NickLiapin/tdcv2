@@ -1,0 +1,21 @@
+---
+description: Kind of official document (Bulgarian). Лична карта is the compulsory national identity card, carried by everyone over 14; удостоверение and свидетелство are two different words for a certificate and are not interchangeable — the first is issued on request, the second earned.
+locale: bg
+---
+Лична карта
+Задграничен паспорт
+Свидетелство за управление на МПС
+Удостоверение за раждане
+Акт за раждане
+Удостоверение за граждански брак
+Удостоверение за наследници
+Удостоверение за постоянен адрес
+Свидетелство за съдимост
+Диплома за средно образование
+Диплома за висше образование
+Трудова книжка
+Осигурителна книжка
+Нотариален акт
+Пълномощно
+Данъчна декларация
+Талон на МПС

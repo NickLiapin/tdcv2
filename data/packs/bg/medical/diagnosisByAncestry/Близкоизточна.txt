@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Bulgarian. A prevalence signal, not an exclusive one.
+locale: bg
+---
+Фамилна средиземноморска треска
+Бета-таласемия
+Дефицит на Г6ФД
+Сърповидноклетъчна анемия
+Вроден дефицит на растежен хормон
+Мукополизахаридоза

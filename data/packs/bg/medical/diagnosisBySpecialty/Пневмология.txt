@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Bulgarian). Bulgarian calls pulmonology пневмология, not пулмология — the hospital department is Клиника по пневмология и фтизиатрия.
+locale: bg
+---
+Бронхиална астма
+Хронична обструктивна белодробна болест
+Пневмония
+Остър бронхит
+Белодробна емболия
+Бронхиектазии
+Плеврит
+Белодробна фиброза
+Сънна апнея
+Туберкулоза

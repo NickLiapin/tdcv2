@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type in the international notation. Romanian medical documents write the O group as a ZERO and usually add the Roman numeral of the Romanian convention — 0 I, A II, B III, AB IV — so a Romanian card reads '0 I Rh pozitiv' for what is written O+ here.
+locale: ro
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

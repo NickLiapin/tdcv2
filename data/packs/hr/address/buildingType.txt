@@ -1,0 +1,42 @@
+---
+description: Building type (Croatian). Klijet is the Zagorje vineyard cottage and konoba the Dalmatian stone cellar-tavern — both are ordinary Croatian building types with no English equivalent.
+locale: hr
+---
+Kuća
+Stan
+Apartman
+Zgrada
+Stambena zgrada
+Neboder
+Ured
+Poslovna zgrada
+Skladište
+Trgovina
+Trgovački centar
+Tvornica
+Industrijska hala
+Bolnica
+Dom zdravlja
+Škola
+Gimnazija
+Sveučilište
+Hotel
+Restoran
+Konoba
+Stadion
+Sportska dvorana
+Knjižnica
+Crkva
+Muzej
+Kazalište
+Vila
+Kuća u nizu
+Vikendica
+Klijet
+Dvorac
+Kurija
+Garaža
+Pansion
+Kamp
+Parkiralište
+Poljoprivredno gospodarstvo

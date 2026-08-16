@@ -1,0 +1,19 @@
+---
+description: Jobs in Hospitality (Romanian)
+locale: ro
+---
+Recepționer
+Ospătar
+Barman
+Bucătar
+Bucătar-șef
+Ajutor de bucătar
+Cofetar
+Patiser
+Cameristă
+Manager de hotel
+Manager de restaurant
+Somelier
+Barista
+Animator turistic
+Ghid turistic

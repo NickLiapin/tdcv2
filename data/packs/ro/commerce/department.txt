@@ -1,0 +1,54 @@
+---
+description: Store department / category (Romanian)
+locale: ro
+---
+Alimente
+Băuturi
+Băuturi alcoolice
+Legume și fructe
+Carne și mezeluri
+Pește și fructe de mare
+Lactate
+Panificație
+Congelate
+Conserve
+Dulciuri
+Cafea și ceai
+Îngrijire personală
+Cosmetice
+Farmacie
+Produse de curățenie
+Hârtie și menaj
+Bebeluși
+Jucării
+Îmbrăcăminte
+Încălțăminte
+Accesorii
+Bijuterii
+Ceasuri
+Electronice
+Electrocasnice
+Telefoane
+Calculatoare
+Audio-video
+Foto
+Gaming
+Mobilă
+Decorațiuni
+Textile pentru casă
+Bucătărie
+Grădină
+Bricolaj
+Materiale de construcții
+Instalații sanitare
+Auto-moto
+Anvelope
+Sport
+Camping
+Biciclete
+Cărți
+Papetărie
+Muzică și filme
+Animale de companie
+Optică
+Tutun

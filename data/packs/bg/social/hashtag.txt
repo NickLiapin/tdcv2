@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Bulgarian (prefix with # in a template). Bulgarian hashtags are written in Cyrillic as often as in Latin, and both forms trend.
+locale: bg
+---
+българия
+родина
+планина
+море
+лято
+зима
+пролет
+есен
+пътешествие
+приключение
+природа
+залез
+изгрев
+храна
+домашно
+баница
+ракия
+хоро
+фолклор
+традиция
+семейство
+приятели
+любов
+щастие
+мотивация
+спорт
+здраве
+стил
+изкуство
+музика

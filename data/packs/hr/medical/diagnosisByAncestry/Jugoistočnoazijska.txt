@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of jugoistočnoazijska ancestry, named in Croatian.
+locale: hr
+---
+Alfa talasemija
+Beta talasemija
+Hemoglobin E
+Nedostatak glukoza-6-fosfat dehidrogenaze
+Neperzistencija laktaze
+Nazofaringealni karcinom
+Talasemijska bolest hemoglobina H
+Šećerna bolest tipa 2

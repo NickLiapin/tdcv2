@@ -1,0 +1,15 @@
+---
+description: Shipment status (Croatian)
+locale: hr
+---
+Zaprimljeno
+Pakiranje
+Predano prijevozniku
+U prijevozu
+U sortirnici
+Na carini
+Stiglo u dostavno mjesto
+U dostavi
+Pokušaj dostave neuspješan
+Dostavljeno
+Vraćeno pošiljatelju

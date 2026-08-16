@@ -1,0 +1,29 @@
+---
+description: Gemstone (Croatian)
+locale: hr
+---
+dijamant
+rubin
+safir
+smaragd
+ametist
+topaz
+akvamarin
+granat
+turmalin
+opal
+ahat
+oniks
+jaspis
+malahit
+lazurit
+tirkiz
+jantar
+koralj
+biser
+sedef
+citrin
+peridot
+mjesečev kamen
+tigrovo oko
+gorski kristal

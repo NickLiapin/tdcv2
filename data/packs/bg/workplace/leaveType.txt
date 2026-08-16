@@ -1,0 +1,16 @@
+---
+description: Leave type (Bulgarian). Bulgarian maternity leave runs 410 days and is one of the longest in the European Union, which is why отпуск по майчинство is a category of its own rather than a variant of отпуск по болест.
+locale: bg
+---
+Платен годишен отпуск
+Неплатен отпуск
+Отпуск по болест
+Отпуск по майчинство
+Отпуск за отглеждане на дете
+Бащински отпуск
+Учебен отпуск
+Отпуск за кръводаряване
+Служебен отпуск
+Отпуск при встъпване в брак
+Траурен отпуск
+Компенсаторен отпуск

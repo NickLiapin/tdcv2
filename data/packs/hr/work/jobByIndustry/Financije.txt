@@ -1,0 +1,16 @@
+---
+description: Job titles in the Croatian financije sector
+locale: hr
+---
+Bankar
+Kreditni referent
+Računovođa
+Knjigovođa
+Revizor
+Financijski analitičar
+Porezni savjetnik
+Aktuar
+Zastupnik u osiguranju
+Investicijski savjetnik
+Kontrolor
+Blagajnik

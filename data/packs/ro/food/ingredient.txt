@@ -1,0 +1,47 @@
+---
+description: Cooking ingredient (Romanian). Bors here is the ingredient, not the soup: a sour liquid fermented from wheat bran, poured in to sour a ciorba. It is not the Slavic beetroot soup of the same name. Telemea and urda are the everyday brined and whey cheeses.
+locale: ro
+---
+Făină
+Mălai
+Griș
+Zahăr
+Sare
+Ulei
+Untură
+Unt
+Smântână
+Lapte
+Iaurt
+Brânză de vaci
+Telemea
+Cașcaval
+Urdă
+Ou
+Drojdie
+Praf de copt
+Orez
+Paste făinoase
+Pâine
+Pesmet
+Miere
+Oțet
+Borș
+Bulion
+Pastă de tomate
+Vin
+Țuică
+Bere
+Carne de porc
+Carne de vită
+Carne de pui
+Carne de miel
+Slănină
+Kaizer
+Cârnați
+Pește
+Nuci
+Stafide
+Susan
+Cacao
+Ciocolată

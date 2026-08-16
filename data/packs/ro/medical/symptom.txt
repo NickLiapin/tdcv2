@@ -1,0 +1,44 @@
+---
+description: Common symptoms / complaints (Romanian)
+locale: ro
+---
+Febră
+Frisoane
+Transpirații nocturne
+Oboseală
+Slăbiciune
+Amețeală
+Vertij
+Leșin
+Cefalee
+Durere în piept
+Palpitații
+Dispnee
+Tuse seacă
+Tuse productivă
+Respirație șuierătoare
+Durere de gât
+Nas înfundat
+Strănut
+Greață
+Vărsături
+Diaree
+Constipație
+Balonare
+Arsuri la stomac
+Durere abdominală
+Lipsa poftei de mâncare
+Scădere în greutate
+Durere lombară
+Durere articulară
+Rigiditate matinală
+Umflarea picioarelor
+Erupție cutanată
+Mâncărime
+Vedere încețoșată
+Țiuit în urechi
+Furnicături
+Amorțeală
+Insomnie
+Anxietate
+Tulburări de memorie

@@ -1,0 +1,34 @@
+---
+description: Tech verb (Romanian, infinitive with the particle a)
+locale: ro
+---
+a compila
+a cripta
+a indexa
+a sincroniza
+a descărca
+a încărca
+a analiza
+a optimiza
+a rula
+a comprima
+a parsa
+a transfera
+a restaura
+a salva
+a șterge
+a monitoriza
+a depana
+a implementa
+a testa
+a valida
+a autentifica
+a autoriza
+a conecta
+a deconecta
+a reinițializa
+a reconstrui
+a actualiza
+a instala
+a configura
+a migra

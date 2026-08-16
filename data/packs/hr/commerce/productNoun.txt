@@ -1,0 +1,153 @@
+---
+description: Product noun (Croatian). Grammatical gender varies across this list — stolica is feminine, stol masculine, zrcalo neuter — so a config composing an adjective in front of one of these must inflect the adjective to match.
+locale: hr
+---
+Stolica
+Stol
+Radni stol
+Kauč
+Fotelja
+Klupa
+Tabure
+Ormar
+Komoda
+Polica
+Regal
+Noćni ormarić
+Krevet
+Madrac
+Jastuk
+Poplun
+Deka
+Plahta
+Zrcalo
+Sag
+Tepih
+Zavjesa
+Rolete
+Svjetiljka
+Stropna svjetiljka
+Stolna svjetiljka
+Luster
+Vaza
+Svijećnjak
+Okvir za slike
+Sat
+Budilica
+Termometar
+Barometar
+Hladnjak
+Zamrzivač
+Perilica rublja
+Perilica posuđa
+Sušilica
+Štednjak
+Pećnica
+Mikrovalna pećnica
+Napa
+Toster
+Kuhalo za vodu
+Aparat za kavu
+Blender
+Sokovnik
+Mikser
+Usisavač
+Glačalo
+Ventilator
+Klima uređaj
+Grijalica
+Ovlaživač zraka
+Pročistač zraka
+Bojler
+Televizor
+Projektor
+Zvučnik
+Slušalice
+Mikrofon
+Pojačalo
+Gramofon
+Radio
+Fotoaparat
+Objektiv
+Stativ
+Kamera
+Dron
+Računalo
+Prijenosno računalo
+Tablet
+Mobitel
+Pametni sat
+Monitor
+Tipkovnica
+Miš
+Pisač
+Skener
+Vanjski disk
+USB stik
+Usmjerivač
+Punjač
+Baterija
+Kabel
+Adapter
+Torba
+Ruksak
+Kovčeg
+Novčanik
+Remen
+Naočale
+Sunčane naočale
+Šešir
+Kapa
+Šal
+Rukavice
+Kišobran
+Košulja
+Majica
+Hlače
+Traperice
+Suknja
+Haljina
+Sako
+Jakna
+Kaput
+Pulover
+Vesta
+Trenirka
+Cipele
+Tenisice
+Čizme
+Sandale
+Papuče
+Ručnik
+Ogrtač
+Sapun
+Šampon
+Krema
+Parfem
+Četkica za zube
+Britvica
+Sušilo za kosu
+Lonac
+Tava
+Nož
+Daska za rezanje
+Tanjur
+Zdjela
+Šalica
+Čaša
+Vrč
+Pribor za jelo
+Bicikl
+Romobil
+Kaciga
+Šator
+Vreća za spavanje
+Ležaljka
+Roštilj
+Kosilica
+Škare
+Bušilica
+Odvijač
+Ključ
+Ljestve
+Kanta

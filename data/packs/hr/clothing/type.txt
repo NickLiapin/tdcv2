@@ -1,0 +1,34 @@
+---
+description: Garment type (Croatian). Note tenisice for trainers, where Serbian says patike, and hlače for trousers.
+locale: hr
+---
+Košulja
+Bluza
+Majica
+Majica kratkih rukava
+Hlače
+Kratke hlače
+Traperice
+Suknja
+Haljina
+Sako
+Odijelo
+Jakna
+Kaput
+Prsluk
+Pulover
+Vesta
+Trenirka
+Kupaći kostim
+Donje rublje
+Čarape
+Šal
+Rukavice
+Kapa
+Šešir
+Remen
+Cipele
+Tenisice
+Čizme
+Sandale
+Papuče

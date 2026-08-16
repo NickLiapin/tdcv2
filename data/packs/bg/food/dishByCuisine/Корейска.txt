@@ -1,0 +1,12 @@
+---
+description: Dishes of Korean cuisine (Bulgarian).
+locale: bg
+---
+кимчи
+бибимбап
+булгоги
+галби
+ток-поки
+джапче
+кимчи джиге
+самгьопсал

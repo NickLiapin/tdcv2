@@ -1,0 +1,18 @@
+---
+description: Legal case type (Romanian)
+locale: ro
+---
+Cauză civilă
+Cauză penală
+Litigiu comercial
+Contencios administrativ
+Litigiu de muncă
+Divorț
+Partaj
+Succesiune
+Insolvență
+Faliment
+Contestație la executare
+Plângere contravențională
+Ordonanță președințială
+Revendicare imobiliară

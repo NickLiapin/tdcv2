@@ -1,0 +1,8 @@
+---
+description: Season (Romanian, lowercase). Four seasons, as in the rest of the temperate zone.
+locale: ro
+---
+primăvară
+vară
+toamnă
+iarnă

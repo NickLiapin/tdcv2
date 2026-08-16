@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Bulgarian. A prevalence signal, not an exclusive one.
+locale: bg
+---
+Хемохроматоза
+Кистозна фиброза
+Дефицит на алфа-1-антитрипсин
+Целиакия
+Фенилкетонурия
+Болест на Уилсън
+Наследствен рак на гърдата (BRCA1/2)
+Наследствен неполипозен колоректален рак
+Псориазис
+Множествена склероза

@@ -1,0 +1,24 @@
+---
+description: Writing system (Bulgarian). Кирилица is not a neutral entry in this list: it was created in the First Bulgarian Empire in the 890s at the Preslav Literary School, and 24 May, the Day of Bulgarian Enlightenment and Culture and of Slavonic Script, is a national holiday for it — a country whose public holiday is its alphabet.
+locale: bg
+---
+кирилица
+глаголица
+латиница
+гръцка азбука
+арабица
+иврит
+арменска азбука
+грузинска азбука
+деванагари
+бенгалска азбука
+тамилска азбука
+ханзи
+кана
+хирагана
+катакана
+хангул
+тайска азбука
+етиопско писмо
+клинопис
+йероглифи

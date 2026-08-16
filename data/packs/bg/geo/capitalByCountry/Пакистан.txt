@@ -1,0 +1,5 @@
+---
+description: Capital of Пакистан (Bulgarian).
+locale: bg
+---
+Исламабад

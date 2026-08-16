@@ -1,0 +1,14 @@
+---
+description: Dishes of Turkish cuisine (Romanian)
+locale: ro
+---
+Kebab
+Lahmacun
+Baclava
+Musaca
+Pilaf
+Börek
+Sarailie
+Rahat
+Ayran
+Iahnie de vinete

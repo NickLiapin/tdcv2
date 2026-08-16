@@ -1,0 +1,11 @@
+---
+description: Type of haulage route (Croatian)
+locale: hr
+---
+gradska dostava
+regionalna vožnja
+međugradska vožnja
+međunarodni prijevoz
+tranzitna vožnja
+kružna tura
+povratni teret

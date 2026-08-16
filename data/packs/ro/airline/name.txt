@@ -1,0 +1,54 @@
+---
+description: Airline (carriers flying to and from Romanian-speaking countries, plus major international ones). Brand names keep their real spelling in any locale.
+locale: ro
+---
+TAROM
+HiSky
+Animawings
+Wizz Air
+Ryanair
+FlyOne
+Air Moldova
+Lufthansa
+Austrian Airlines
+Swiss International Air Lines
+Air France
+KLM
+British Airways
+Turkish Airlines
+Pegasus Airlines
+Aegean Airlines
+ITA Airways
+Iberia
+TAP Air Portugal
+Brussels Airlines
+LOT Polish Airlines
+Eurowings
+easyJet
+Vueling
+Norwegian
+SAS
+Finnair
+Air Serbia
+Croatia Airlines
+Bulgaria Air
+Air Baltic
+Wizz Air Malta
+Emirates
+Qatar Airways
+Etihad Airways
+El Al
+Egyptair
+Royal Air Maroc
+Ethiopian Airlines
+Delta Air Lines
+United Airlines
+American Airlines
+Air Canada
+Singapore Airlines
+Cathay Pacific
+All Nippon Airways
+Japan Airlines
+Korean Air
+Air China
+Qantas

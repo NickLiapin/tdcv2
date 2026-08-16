@@ -1,0 +1,20 @@
+---
+description: Horse breed (Romanian). Lipitan, Hutul, Gidran, Nonius and Furioso-North Star are bred at the Romanian state studs and are ordinary names here, not exotic ones.
+locale: ro
+---
+Pur sânge englez
+Pur sânge arab
+Lipițan
+Huțul
+Semigreu românesc
+Gidran
+Nonius
+Furioso-North Star
+Shagya arab
+Frizian
+Andaluz
+Ponei Shetland
+Ardenez
+Percheron
+Trăpaș
+Quarter Horse american

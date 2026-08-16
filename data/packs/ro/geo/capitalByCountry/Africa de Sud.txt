@@ -1,0 +1,5 @@
+---
+description: Capital of Africa de Sud, as Romanian names it
+locale: ro
+---
+Pretoria

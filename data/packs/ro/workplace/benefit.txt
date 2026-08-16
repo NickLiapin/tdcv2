@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Romanian). Tichetele de masa, de vacanta and cadou are state-regulated vouchers with their own tax treatment, issued by most Romanian employers, and are counted as benefits rather than as pay.
+locale: ro
+---
+Tichete de masă
+Tichete de vacanță
+Tichete cadou
+Asigurare medicală privată
+Abonament medical
+Abonament la sală
+Decontarea transportului
+Mașină de serviciu
+Telefon de serviciu
+Laptop de serviciu
+Bonus de performanță
+Al treisprezecelea salariu
+Prime de sărbători
+Zile libere suplimentare
+Program flexibil
+Telemuncă
+Cursuri de formare
+Pensie privată facultativă

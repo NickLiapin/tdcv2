@@ -1,0 +1,12 @@
+---
+description: Dishes of Indian cuisine (Bulgarian).
+locale: bg
+---
+бутер пиле
+тандури пиле
+палак панир
+чана масала
+бирияни
+самоса
+наан
+дал

@@ -1,0 +1,14 @@
+---
+description: Dishes of the vijetnamska kitchen, named as a Croatian menu names them. Borrowed dish names keep their original spelling, which is what a Croatian restaurant prints.
+locale: hr
+---
+Pho
+Banh mi
+Proljetne rolice
+Bun cha
+Com tam
+Juha s rezancima
+Goi cuon
+Cha ca
+Banh xeo
+Vijetnamska kava

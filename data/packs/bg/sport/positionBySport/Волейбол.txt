@@ -1,0 +1,10 @@
+---
+description: Positions in volleyball (Bulgarian). Volleyball matters here: Bulgaria is a perennial world-championship contender and the positions are household words.
+locale: bg
+---
+Разпределител
+Диагонал
+Посрещач
+Централен блокировач
+Либеро
+Сервиращ специалист

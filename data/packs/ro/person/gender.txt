@@ -1,0 +1,6 @@
+---
+description: Gender label (Romanian). Two values, matching en, es and ru — this list is what parent="Gender.Barbat" filters on, so a longer one silently leaves most rows without a name. Identity options beyond the pair belong in a file of their own.
+locale: ro
+---
+Bărbat
+Femeie

@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Bulgarian). The first five are the Bulgarian folk ensemble: гайда (bagpipe), кавал (rim-blown flute), гъдулка (bowed lute held upright), тамбура (long-necked lute) and тъпан (double-headed drum struck with a stick on one side and a switch on the other).
+locale: bg
+---
+гайда
+кавал
+гъдулка
+тамбура
+тъпан
+дайре
+зурна
+дудук
+цигулка
+виола
+виолончело
+контрабас
+китара
+пиано
+орган
+акордеон
+хармоника
+флейта
+кларинет
+обой
+фагот
+саксофон
+тромпет
+тромбон
+туба
+валдхорна
+барабани
+тимпани
+ксилофон
+арфа
+мандолина

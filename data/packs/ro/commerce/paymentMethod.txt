@@ -1,0 +1,19 @@
+---
+description: Payment method (Romanian). Ramburs — cash handed to the courier on delivery — is still the commonest way a Romanian online order is paid for, and tichete de masa are the state-regulated meal vouchers most employers issue, spendable in food shops.
+locale: ro
+---
+Card bancar
+Card de credit
+Card de debit
+Ramburs
+Numerar
+Transfer bancar
+Ordin de plată
+Plată online
+PayPal
+Apple Pay
+Google Pay
+Revolut
+Tichete de masă
+Card cadou
+Plată în rate

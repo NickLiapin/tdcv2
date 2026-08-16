@@ -1,0 +1,16 @@
+---
+description: Employment / contract type (Romanian, as the Codul muncii names them). PFA is the sole-trader form a great many Romanian specialists invoice through instead of being employed.
+locale: ro
+---
+Contract pe durată nedeterminată
+Contract pe durată determinată
+Normă întreagă
+Timp parțial
+Contract de ucenicie
+Stagiu
+Internship
+Colaborare PFA
+Contract de prestări servicii
+Zilier
+Muncă sezonieră
+Telemuncă

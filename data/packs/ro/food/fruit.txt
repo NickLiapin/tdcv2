@@ -1,0 +1,42 @@
+---
+description: Fruit (Romanian)
+locale: ro
+---
+Măr
+Pară
+Prună
+Cireașă
+Vișină
+Cais
+Piersică
+Nectarină
+Gutuie
+Struguri
+Căpșune
+Zmeură
+Mure
+Afine
+Coacăze
+Agrișe
+Fragi
+Pepene verde
+Pepene galben
+Portocală
+Mandarină
+Lămâie
+Grepfrut
+Banană
+Ananas
+Kiwi
+Mango
+Avocado
+Rodie
+Smochine
+Curmale
+Nucă
+Alună
+Migdală
+Castană
+Măceșe
+Corcodușe
+Soc

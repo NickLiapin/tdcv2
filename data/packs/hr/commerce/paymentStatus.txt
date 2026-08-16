@@ -1,0 +1,14 @@
+---
+description: Payment status (Croatian)
+locale: hr
+---
+Na čekanju
+Autorizirano
+Plaćeno
+Djelomično plaćeno
+Neuspjelo
+Odbijeno
+Stornirano
+Refundirano
+Isteklo
+U sporu

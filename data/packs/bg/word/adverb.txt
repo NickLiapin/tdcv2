@@ -1,0 +1,36 @@
+---
+description: Common adverb (Bulgarian). Most are identical to the neuter singular of the adjective — бързо is both "quick" (neuter) and "quickly" — so a word here may also be a form of a word in word/adjective.
+locale: bg
+---
+бързо
+бавно
+рано
+късно
+днес
+утре
+вчера
+сега
+после
+винаги
+никога
+често
+рядко
+понякога
+веднага
+постепенно
+тук
+там
+навсякъде
+никъде
+нагоре
+надолу
+напред
+назад
+вътре
+навън
+много
+малко
+твърде
+достатъчно
+заедно
+сам

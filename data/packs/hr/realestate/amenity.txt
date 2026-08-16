@@ -1,0 +1,26 @@
+---
+description: Property feature as a Croatian listing advertises it. Pogled na more and blizina plaže are the two that move a price on the Adriatic.
+locale: hr
+---
+Lift
+Balkon
+Terasa
+Vrt
+Bazen
+Garaža
+Parkirno mjesto
+Klima uređaj
+Centralno grijanje
+Podno grijanje
+Kamin
+Namješteno
+Novogradnja
+Spremište
+Podrum
+Roštilj
+Pogled na more
+Blizina plaže
+Videonadzor
+Alarm
+Optički internet
+Sunčane ploče

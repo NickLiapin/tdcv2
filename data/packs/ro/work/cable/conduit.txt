@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Romanian)
+locale: ro
+---
+Canal de cablu
+Tub PVC
+Tub copex
+Jgheab metalic
+Pat de cabluri
+Canalizație subterană
+Traseu aerian pe stâlpi

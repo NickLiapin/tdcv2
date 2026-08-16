@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Romanian)
+locale: ro
+---
+Cursă internă
+Cursă internațională
+Cursă regională
+Cursă de lungă distanță
+Distribuție urbană
+Navetă
+Transport special

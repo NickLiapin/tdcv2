@@ -1,0 +1,16 @@
+---
+description: Month name (Croatian, nominative, lowercase per Croatian orthography). Croatian kept the SLAVIC nature-names — siječanj is the month of ice-cutting, travanj of grass, srpanj of the sickle, listopad of falling leaves — where Serbian, Bosnian and Montenegrin use the international januar, februar, mart. This single list is the sharpest test of whether a Croatian pack was copied from a Serbian one. Inside a date the genitive is used instead (15. siječnja 2026.), which is why DATE_LOCALE.json carries a separate monthsInDate array; this list holds the nominative citation form only.
+locale: hr
+---
+siječanj
+veljača
+ožujak
+travanj
+svibanj
+lipanj
+srpanj
+kolovoz
+rujan
+listopad
+studeni
+prosinac

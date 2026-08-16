@@ -1,0 +1,12 @@
+---
+description: Dishes of Lebanese cuisine (Romanian)
+locale: ro
+---
+Hummus
+Falafel
+Tabbouleh
+Shawarma
+Baba ganoush
+Kibbeh
+Fattoush
+Manakish

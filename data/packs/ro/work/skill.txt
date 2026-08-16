@@ -1,0 +1,49 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Romanian)
+locale: ro
+---
+Programare
+Analiză de date
+Administrare de baze de date
+Administrare de rețele
+Securitate cibernetică
+Testare software
+Automatizare
+Proiectare asistată de calculator
+Modelare 3D
+Design grafic
+Redactare tehnică
+Traducere
+Contabilitate
+Analiză financiară
+Bugetare
+Audit
+Fiscalitate
+Achiziții publice
+Managementul proiectelor
+Managementul riscului
+Managementul calității
+Planificare strategică
+Negociere
+Vânzări
+Marketing digital
+Relații publice
+Recrutare
+Formare profesională
+Sudură
+Strunjire
+Instalații sanitare
+Instalații electrice
+Zidărie
+Tâmplărie
+Mecanică auto
+Conducere profesionistă
+Prim ajutor
+Îngrijire medicală
+Gătit profesionist
+Comunicare
+Lucru în echipă
+Rezolvarea problemelor
+Gândire critică
+Organizare
+Atenție la detalii

@@ -1,0 +1,19 @@
+---
+description: Jobs in Technology (Romanian)
+locale: ro
+---
+Programator
+Dezvoltator software
+Inginer de sistem
+Administrator de rețea
+Administrator de baze de date
+Analist de date
+Tester software
+Inginer DevOps
+Arhitect software
+Specialist securitate cibernetică
+Designer de interfață
+Manager de produs
+Manager de proiect IT
+Suport tehnic
+Specialist cloud

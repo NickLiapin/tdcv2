@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Romanian — trimestru, numbered with Roman numerals)
+locale: ro
+---
+Trimestrul I
+Trimestrul II
+Trimestrul III
+Trimestrul IV

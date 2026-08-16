@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Bulgarian, the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: bg
+---
+Североевропейска
+Източноевропейска
+Средиземноморска
+Ашкеназка
+Близкоизточна
+Северноафриканска
+Субсахарска
+Южноазиатска
+Източноазиатска
+Югоизточноазиатска
+Коренна американска
+Тихоокеанска островна

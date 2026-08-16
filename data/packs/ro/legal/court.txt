@@ -1,0 +1,19 @@
+---
+description: Kinds of court as Romanian names them. The four tiers — judecatorie, tribunal, curte de apel, Inalta Curte de Casatie si Justitie — are Romania's; the Republic of Moldova uses the same first three words and calls its top court Curtea Suprema de Justitie, which is why both appear here.
+locale: ro
+---
+Judecătorie
+Tribunal
+Tribunal specializat
+Curte de Apel
+Înalta Curte de Casație și Justiție
+Curtea Supremă de Justiție
+Curtea Constituțională
+Tribunal militar
+Curte militară de apel
+Curte de arbitraj
+Instanță de fond
+Instanță de apel
+Instanță de recurs
+Curtea Europeană a Drepturilor Omului
+Curtea de Justiție a Uniunii Europene

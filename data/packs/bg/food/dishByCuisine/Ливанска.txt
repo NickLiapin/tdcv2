@@ -1,0 +1,12 @@
+---
+description: Dishes of Lebanese cuisine (Bulgarian).
+locale: bg
+---
+хумус
+табуле
+фалафел
+кибе
+фатуш
+баба гануш
+шиш тавук
+манакиш

@@ -1,0 +1,5 @@
+---
+description: Currency of Италия (Bulgarian).
+locale: bg
+---
+Евро

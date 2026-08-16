@@ -1,0 +1,10 @@
+---
+description: Playing positions in vaterpolo, named in Croatian
+locale: hr
+---
+Vratar
+Bek
+Krilo
+Vanjski igrač
+Centar
+Obrambeni centar

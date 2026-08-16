@@ -1,0 +1,30 @@
+---
+description: Book genre (Croatian)
+locale: hr
+---
+Roman
+Kratka priča
+Poezija
+Drama
+Esej
+Biografija
+Autobiografija
+Memoari
+Povijesni roman
+Kriminalistički roman
+Triler
+Znanstvena fantastika
+Fantastika
+Ljubavni roman
+Pustolovni roman
+Horor
+Satira
+Putopis
+Publicistika
+Znanstvena literatura
+Filozofija
+Religija
+Dječja književnost
+Slikovnica
+Strip
+Priručnik

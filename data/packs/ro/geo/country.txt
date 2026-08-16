@@ -1,0 +1,49 @@
+---
+description: Country as Romanian names it, weighted by population in millions. Translated, not transliterated — Germania, Tarile de Jos, Regatul Unit, Statele Unite ale Americii. Romania's neighbours are here at their real weight rather than dropped for being small, because a Romanian dataset that never mentions Moldova, Ukraine, Hungary, Serbia or Bulgaria is not describing the world this language is spoken in.
+locale: ro
+weighted: true
+---
+China,1410
+India,1400
+Statele Unite ale Americii,335
+Indonezia,275
+Pakistan,240
+Nigeria,220
+Brazilia,215
+Bangladesh,170
+Rusia,144
+Mexic,128
+Japonia,125
+Egipt,110
+Vietnam,98
+Turcia,85
+Germania,84
+Thailanda,72
+Franța,68
+Regatul Unit,67
+Africa de Sud,60
+Italia,59
+Coreea de Sud,52
+Spania,47
+Argentina,46
+Canada,39
+Ucraina,38
+Polonia,38
+Arabia Saudită,36
+Australia,26
+România,19
+Țările de Jos,18
+Belgia,12
+Cehia,11
+Grecia,10
+Portugalia,10
+Suedia,10
+Ungaria,10
+Elveția,9
+Serbia,7
+Bulgaria,6
+Singapore,6
+Norvegia,5
+Irlanda,5
+Noua Zeelandă,5
+Republica Moldova,3

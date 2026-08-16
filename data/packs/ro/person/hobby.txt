@@ -1,0 +1,83 @@
+---
+description: Hobby / interest (Romanian)
+locale: ro
+---
+Cititul
+Scrisul
+Pictura
+Desenul
+Fotografia
+Muzica
+Cântatul la chitară
+Cântatul la pian
+Dansul
+Dansuri populare
+Teatrul
+Filmul
+Gătitul
+Cofetăria
+Grădinăritul
+Legumicultura
+Apicultura
+Pescuitul
+Vânătoarea
+Drumețiile
+Alpinismul
+Speologia
+Ciclismul
+Alergarea
+Înotul
+Schiul
+Snowboardul
+Patinajul
+Fotbalul
+Baschetul
+Handbalul
+Voleiul
+Tenisul
+Tenisul de masă
+Șahul
+Table
+Sala de fitness
+Yoga
+Pilates
+Artele marțiale
+Călăria
+Kayakul
+Modelismul
+Pictura pe sticlă
+Ceramica
+Olăritul
+Împletitul
+Croșetatul
+Cusutul
+Broderia
+Tâmplăria
+Bricolajul
+Restaurarea mobilei
+Colecționarea de timbre
+Colecționarea de monede
+Numismatica
+Filatelia
+Astronomia
+Birdwatching
+Camparea
+Călătoriile
+Autoturismul
+Motociclismul
+Karting
+Programarea
+Robotica
+Jocurile video
+Jocurile de societate
+Puzzle-urile
+Cuvintele încrucișate
+Karaoke
+Blogging
+Podcasting
+Voluntariatul
+Studiul limbilor străine
+Istoria locală
+Genealogia
+Degustarea de vinuri
+Prepararea berii de casă

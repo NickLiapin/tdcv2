@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Croatian). The Adriatic winds are named individually and a Croatian forecast uses the names without explaining them: bura is the cold northeasterly that falls off the Velebit in gusts, jugo the warm humid southeasterly that raises the sea, maestral the steady summer afternoon sea breeze, and nevera the sudden summer squall that catches boats out.
+locale: hr
+---
+bura
+jugo
+maestral
+tramontana
+levanat
+pulenat
+oštro
+lebić
+nevera
+pijavica
+tuča
+mraz
+inje
+poledica
+snježni nanos

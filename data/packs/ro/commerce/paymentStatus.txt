@@ -1,0 +1,14 @@
+---
+description: Payment status (Romanian, agrees with the feminine noun plata)
+locale: ro
+---
+În așteptare
+Autorizată
+Procesată
+Plătită
+Eșuată
+Respinsă
+Anulată
+Rambursată
+Parțial rambursată
+Restantă

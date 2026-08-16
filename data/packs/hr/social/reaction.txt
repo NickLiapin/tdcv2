@@ -1,0 +1,15 @@
+---
+description: Reaction to a post (Croatian)
+locale: hr
+---
+Sviđa mi se
+Super
+Srce
+Ha-ha
+Vau
+Tužno
+Ljutito
+Podržavam
+Zanimljivo
+Čestitam
+Slavim

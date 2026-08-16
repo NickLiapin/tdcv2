@@ -1,0 +1,5 @@
+---
+description: Capital of Украйна (Bulgarian).
+locale: bg
+---
+Киев

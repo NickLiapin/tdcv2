@@ -1,0 +1,5 @@
+---
+description: Currency of Обединено кралство (Bulgarian).
+locale: bg
+---
+Британска лира

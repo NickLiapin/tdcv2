@@ -1,0 +1,5 @@
+---
+description: Capital of Španjolska, as Croatian names it
+locale: hr
+---
+Madrid

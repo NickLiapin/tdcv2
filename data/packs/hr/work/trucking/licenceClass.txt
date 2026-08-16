@@ -1,0 +1,11 @@
+---
+description: Driving licence category for freight and passenger transport. These are the EU categories as they appear on a Croatian licence.
+locale: hr
+---
+C1
+C1E
+C
+CE
+D1
+D
+DE

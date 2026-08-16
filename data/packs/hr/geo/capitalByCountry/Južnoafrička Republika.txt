@@ -1,0 +1,5 @@
+---
+description: Capital of Južnoafrička Republika, as Croatian names it
+locale: hr
+---
+Pretorija

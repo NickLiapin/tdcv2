@@ -1,0 +1,253 @@
+---
+description: Croatian job titles across sectors (tech, healthcare, trades, transport, business, service, public). Given in the masculine, which is the citation form; Croatian has a distinct feminine title for nearly all of them (učitelj / učiteljica, liječnik / liječnica, konobar / konobarica), so a config writing about a woman needs the feminine, not this list.
+locale: hr
+---
+Programer
+Softverski inženjer
+Viši softverski inženjer
+Voditelj razvoja
+Arhitekt sustava
+Sistemski inženjer
+Mrežni administrator
+Administrator baze podataka
+DevOps inženjer
+Analitičar podataka
+Znanstvenik za podatke
+Ispitivač softvera
+Dizajner korisničkog sučelja
+Grafički dizajner
+Web dizajner
+Voditelj proizvoda
+Voditelj projekta
+Scrum master
+Poslovni analitičar
+Stručnjak za kibernetičku sigurnost
+Informatičar
+Tehnička podrška
+Liječnik obiteljske medicine
+Specijalist interne medicine
+Kardiolog
+Neurolog
+Kirurg
+Anesteziolog
+Pedijatar
+Ginekolog
+Psihijatar
+Radiolog
+Patolog
+Doktor dentalne medicine
+Dentalni tehničar
+Medicinska sestra
+Primalja
+Fizioterapeut
+Radni terapeut
+Logoped
+Ljekarnik
+Farmaceutski tehničar
+Laboratorijski tehničar
+Radiološki tehnolog
+Sanitetski vozač
+Veterinar
+Veterinarski tehničar
+Njegovatelj
+Socijalni radnik
+Psiholog
+Nutricionist
+Zidar
+Tesar
+Armirač
+Betonirac
+Krovopokrivač
+Vodoinstalater
+Plinoinstalater
+Električar
+Elektroinstalater
+Ličilac
+Soboslikar
+Keramičar
+Podopolagač
+Staklar
+Bravar
+Zavarivač
+Limar
+Tokar
+Glodač
+CNC operater
+Alatničar
+Strojobravar
+Automehaničar
+Autoelektričar
+Autolimar
+Autolakirer
+Vulkanizer
+Stolar
+Parketar
+Dimnjačar
+Rukovatelj dizalicom
+Rukovatelj bagerom
+Brodograditelj
+Brodomonter
+Geodet
+Građevinski inženjer
+Arhitekt
+Strojarski inženjer
+Elektroinženjer
+Kemijski inženjer
+Tehnolog
+Kontrolor kvalitete
+Voditelj proizvodnje
+Voditelj održavanja
+Vozač kamiona
+Vozač autobusa
+Vozač dostave
+Vozač taksija
+Strojovođa
+Kondukter
+Otpremnik
+Skladištar
+Viličarist
+Voditelj logistike
+Carinski deklarant
+Špediter
+Pilot
+Kontrolor leta
+Zrakoplovni tehničar
+Stjuard
+Kapetan broda
+Časnik palube
+Brodski strojar
+Mornar
+Lučki radnik
+Peljar
+Ribar
+Poljoprivrednik
+Vinogradar
+Maslinar
+Pčelar
+Stočar
+Šumar
+Agronom
+Traktorist
+Direktor
+Član uprave
+Prokurist
+Voditelj odjela
+Voditelj ureda
+Tajnik
+Administrativni referent
+Referent za ljudske resurse
+Voditelj ljudskih resursa
+Obračunski referent
+Računovođa
+Knjigovođa
+Glavni računovođa
+Revizor
+Financijski analitičar
+Kontroler
+Porezni savjetnik
+Bankar
+Kreditni referent
+Blagajnik
+Aktuar
+Zastupnik u osiguranju
+Procjenitelj šteta
+Investicijski savjetnik
+Komercijalist
+Voditelj prodaje
+Voditelj nabave
+Trgovački putnik
+Prodavač
+Voditelj poslovnice
+Referent reklamacija
+Voditelj marketinga
+Marketinški stručnjak
+Voditelj društvenih mreža
+Copywriter
+Odnosi s javnošću
+Novinar
+Urednik
+Lektor
+Prevoditelj
+Sudski tumač
+Fotograf
+Snimatelj
+Montažer
+Tonac
+Odvjetnik
+Odvjetnički vježbenik
+Javni bilježnik
+Sudac
+Državni odvjetnik
+Sudski savjetnik
+Ovršitelj
+Sudski vještak
+Pravnik
+Voditelj usklađenosti
+Učitelj razredne nastave
+Profesor matematike
+Profesor hrvatskog jezika
+Profesor engleskog jezika
+Profesor povijesti
+Nastavnik strukovnih predmeta
+Odgojitelj u vrtiću
+Ravnatelj škole
+Pedagog
+Školski psiholog
+Defektolog
+Knjižničar
+Sveučilišni profesor
+Docent
+Asistent na fakultetu
+Znanstveni novak
+Kuhar
+Glavni kuhar
+Pomoćni kuhar
+Slastičar
+Pekar
+Mesar
+Konobar
+Šanker
+Barmen
+Sommelier
+Recepcionar
+Voditelj hotela
+Domaćica kata
+Sobarica
+Turistički vodič
+Turistički agent
+Voditelj kampa
+Animator
+Frizer
+Kozmetičar
+Maser
+Manikerka
+Krojač
+Postolar
+Zlatar
+Urar
+Cvjećar
+Vrtlar
+Čistač
+Domar
+Zaštitar
+Vatrogasac
+Policajac
+Vojnik
+Carinik
+Poštar
+Komunalni radnik
+Spasilac
+Sportaš
+Trener
+Sudac u sportu
+Kondicijski trener
+Glazbenik
+Dirigent
+Glumac
+Redatelj
+Scenograf
+Kostimograf
+Restaurator
+Arheolog
+Muzejski kustos
+Arhivist

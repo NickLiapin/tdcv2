@@ -1,0 +1,13 @@
+---
+description: Dishes of Italian cuisine (Bulgarian).
+locale: bg
+---
+пица маргарита
+спагети карбонара
+лазаня
+ризото
+нюоки
+болонезе
+осо буко
+тирамису
+панакота

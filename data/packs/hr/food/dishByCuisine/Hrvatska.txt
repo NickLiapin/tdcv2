@@ -1,0 +1,32 @@
+---
+description: Dishes of the Croatian kitchen. Croatia has TWO cuisines that share almost no vocabulary: the Adriatic one — brudet, gregada, crni rižot, buzara, soparnik, pašticada, rožata — built on fish, olive oil and the peka bell, and the Pannonian interior one — sarma, čobanac, kulen, štrukli, purica s mlincima, kotlovina, kremšnite — built on pork, paprika and lard. Istria is a third register again (maneštra, fuži, tartufi).
+locale: hr
+---
+Pašticada
+Zagorski štrukli
+Ćevapi
+Pršut
+Paški sir
+Sarma
+Čobanac
+Brudet
+Crni rižot
+Gregada
+Soparnik
+Janjetina ispod peke
+Purica s mlincima
+Zagrebački odrezak
+Kotlovina
+Buzara od škampa
+Salata od hobotnice
+Fiš paprikaš
+Kulen
+Maneštra
+Fuži s tartufima
+Arambašići
+Bučnica
+Orehnjača
+Kremšnite
+Fritule
+Kroštule
+Rožata

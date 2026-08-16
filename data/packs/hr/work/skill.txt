@@ -1,0 +1,46 @@
+---
+description: Workplace skill (Croatian)
+locale: hr
+---
+Timski rad
+Komunikacija
+Vodstvo
+Organizacija
+Upravljanje vremenom
+Rješavanje problema
+Kritičko mišljenje
+Analitičko razmišljanje
+Kreativnost
+Prilagodljivost
+Samostalnost
+Odgovornost
+Preciznost
+Pregovaranje
+Prezentacijske vještine
+Pisana komunikacija
+Aktivno slušanje
+Mentorstvo
+Upravljanje projektima
+Upravljanje proračunom
+Planiranje
+Izvještavanje
+Rad pod pritiskom
+Orijentiranost na klijenta
+Prodajne vještine
+Poznavanje tržišta
+Rad na računalu
+Excel
+Baze podataka
+Programiranje
+Statistička analiza
+Engleski jezik
+Njemački jezik
+Talijanski jezik
+Vozačka dozvola B kategorije
+Rad na visini
+Rukovanje viličarom
+Zavarivanje
+Čitanje tehničkih nacrta
+Kontrola kvalitete
+Zaštita na radu
+Prva pomoć

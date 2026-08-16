@@ -1,0 +1,5 @@
+---
+description: Currency of Republica Moldova, as Romanian names it
+locale: ro
+---
+Leu moldovenesc

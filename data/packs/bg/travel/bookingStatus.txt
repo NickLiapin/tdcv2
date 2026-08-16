@@ -1,0 +1,15 @@
+---
+description: Booking status (Bulgarian). The forms agree with резервация, a feminine noun.
+locale: bg
+---
+Заявена
+Потвърдена
+Платена
+Чакаща потвърждение
+Гарантирана
+Променена
+Отказана
+Анулирана
+Приключена
+Неявяване
+Възстановена

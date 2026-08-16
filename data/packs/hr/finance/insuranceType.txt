@@ -1,0 +1,18 @@
+---
+description: Insurance type (Croatian). Dopunsko zdravstveno osiguranje is the Croatian supplementary health policy that covers the statutory co-payment, and it has no direct equivalent elsewhere.
+locale: hr
+---
+Životno osiguranje
+Obvezno zdravstveno osiguranje
+Dopunsko zdravstveno osiguranje
+Dodatno zdravstveno osiguranje
+Autoosiguranje
+Obvezno osiguranje vozila
+Kasko osiguranje
+Osiguranje imovine
+Osiguranje kućanstva
+Osiguranje od nezgode
+Putno osiguranje
+Osiguranje od odgovornosti
+Mirovinsko osiguranje
+Osiguranje usjeva

@@ -1,0 +1,14 @@
+---
+description: Loan type (Romanian)
+locale: ro
+---
+Credit ipotecar
+Credit imobiliar
+Credit de nevoi personale
+Credit de nevoi personale cu ipotecă
+Credit auto
+Credit de studii
+Credit de refinanțare
+Descoperit de cont
+Leasing financiar
+Credit pentru investiții

@@ -1,0 +1,16 @@
+---
+description: Shoe size on the EUROPEAN (Paris point) scale, which is the number printed on a shoebox in Croatia and the only one a Croatian shopper quotes. UK and US numbers appear alongside it on imported boxes but are never used on their own.
+locale: hr
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

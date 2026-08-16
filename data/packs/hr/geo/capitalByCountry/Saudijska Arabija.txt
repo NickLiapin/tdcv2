@@ -1,0 +1,5 @@
+---
+description: Capital of Saudijska Arabija, as Croatian names it
+locale: hr
+---
+Rijad

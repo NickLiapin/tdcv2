@@ -1,0 +1,36 @@
+---
+description: Croatian honorific or form of address, in the abbreviated shape used before a name. Croatian academic titles are written lowercase (dr. sc., prof. dr. sc.) and precede the name.
+locale: hr
+---
+Gospodin
+Gospođa
+Gospođica
+g.
+gđa
+gđica
+dr.
+dr. sc.
+prof.
+prof. dr. sc.
+doc. dr. sc.
+mr. sc.
+ing.
+dipl. ing.
+mag.
+univ. bacc.
+dr. med.
+dr. med. dent.
+dr. vet. med.
+vlč.
+don
+fra
+preč.
+o.
+sestra
+brat
+odvj.
+sudac
+ravnatelj
+predsjednik
+ministar
+general

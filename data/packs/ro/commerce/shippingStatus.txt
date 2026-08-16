@@ -1,0 +1,15 @@
+---
+description: Shipping status (Romanian)
+locale: ro
+---
+Comandă înregistrată
+În pregătire
+Predat curierului
+În tranzit
+În depozitul local
+În curs de livrare
+Livrat
+Livrare eșuată
+Depus în easybox
+Returnat expeditorului
+Reprogramat

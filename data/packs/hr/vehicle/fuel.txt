@@ -1,0 +1,14 @@
+---
+description: Fuel or drivetrain (Croatian). Autoplin (LPG) conversion is common in Croatia and appears on the vehicle registration document.
+locale: hr
+---
+Benzin
+Dizel
+Autoplin
+Prirodni plin
+Električni pogon
+Hibrid
+Plug-in hibrid
+Vodik
+Etanol
+Biodizel

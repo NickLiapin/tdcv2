@@ -1,0 +1,5 @@
+---
+description: Capital of Южна Корея (Bulgarian).
+locale: bg
+---
+Сеул

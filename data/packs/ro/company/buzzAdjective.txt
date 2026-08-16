@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective (Romanian, for catch-phrases). Masculine singular base form; it follows the noun and agrees with it.
+locale: ro
+---
+inovator
+scalabil
+integrat
+digital
+inteligent
+agil
+proactiv
+sustenabil
+performant
+strategic
+disruptiv
+personalizat
+optimizat
+automatizat
+colaborativ
+transparent
+flexibil
+modular
+robust
+sigur
+eficient
+competitiv
+global
+local
+dinamic
+adaptabil
+centrat pe client
+orientat spre rezultate
+măsurabil
+predictibil
+interoperabil
+nativ în cloud
+end-to-end
+holistic
+multicanal
+premium
+accesibil
+rentabil
+verificat
+certificat
+scalat
+consolidat
+extins
+unificat
+avansat
+next-gen
+revoluționar
+vizionar
+matur
+fiabil
+transparent în costuri
+bazat pe date
+gata de producție
+conform legislației
+rezilient

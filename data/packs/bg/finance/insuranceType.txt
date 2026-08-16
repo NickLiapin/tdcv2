@@ -1,0 +1,18 @@
+---
+description: Insurance type (Bulgarian). Гражданска отговорност is compulsory motor third-party liability and Каско the optional own-damage cover — every Bulgarian driver distinguishes the two by name.
+locale: bg
+---
+Гражданска отговорност
+Каско
+Здравна застраховка
+Животозастраховане
+Злополука
+Имуществена застраховка
+Домашно имущество
+Пожар и природни бедствия
+Кражба
+Пътническа застраховка
+Помощ при пътуване
+Професионална отговорност
+Карго
+Селскостопанска застраховка

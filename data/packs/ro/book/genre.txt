@@ -1,0 +1,32 @@
+---
+description: Book genre (Romanian)
+locale: ro
+---
+Roman
+Nuvelă
+Povestire
+Poezie
+Teatru
+Eseu
+Memorii
+Biografie
+Autobiografie
+Istorie
+Filosofie
+Psihologie
+Științifico-fantastic
+Fantezie
+Roman polițist
+Thriller
+Roman de dragoste
+Aventură
+Horror
+Literatură pentru copii
+Literatură pentru adolescenți
+Manual
+Dicționar
+Ghid de călătorie
+Carte de bucate
+Dezvoltare personală
+Benzi desenate
+Antologie

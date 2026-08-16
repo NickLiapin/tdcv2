@@ -1,0 +1,14 @@
+---
+description: Dishes of the francuska kitchen, named as a Croatian menu names them. Borrowed dish names keep their original spelling, which is what a Croatian restaurant prints.
+locale: hr
+---
+Juha od luka
+Coq au vin
+Ratatouille
+Quiche lorraine
+Bouillabaisse
+Beef bourguignon
+Crème brûlée
+Croissant
+Profiterole
+Ecler

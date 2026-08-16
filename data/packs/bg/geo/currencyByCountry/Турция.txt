@@ -1,0 +1,5 @@
+---
+description: Currency of Турция (Bulgarian).
+locale: bg
+---
+Турска лира

@@ -1,0 +1,5 @@
+---
+description: Currency code of Nigeria
+locale: ro
+---
+NGN

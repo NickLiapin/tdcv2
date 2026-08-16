@@ -1,0 +1,11 @@
+---
+description: Weekday name (Croatian, lowercase per Croatian orthography). The week starts on Monday in Croatian usage; the Sunday-first order that DATE_LOCALE.json needs is a separate convention of the date formatter, not of this list. Note tjedan for "week" — Serbian says nedelja for both the week and the Sunday, Croatian keeps them apart (tjedan / nedjelja).
+locale: hr
+---
+ponedjeljak
+utorak
+srijeda
+četvrtak
+petak
+subota
+nedjelja

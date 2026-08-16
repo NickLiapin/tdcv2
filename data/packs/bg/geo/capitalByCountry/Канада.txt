@@ -1,0 +1,5 @@
+---
+description: Capital of Канада (Bulgarian).
+locale: bg
+---
+Отава

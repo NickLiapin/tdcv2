@@ -1,0 +1,161 @@
+---
+description: Product noun (Romanian). Grammatical gender varies across all three genders, so an adjective composed after one of these must be made to agree — see commerce/productAdjective.
+locale: ro
+---
+Masă
+Scaun
+Fotoliu
+Canapea
+Taburet
+Bancă
+Birou
+Dulap
+Comodă
+Etajeră
+Bibliotecă
+Noptieră
+Pat
+Saltea
+Pernă
+Pilotă
+Cuvertură
+Cearșaf
+Perdea
+Draperie
+Covor
+Preș
+Oglindă
+Tablou
+Ramă foto
+Vază
+Ghiveci
+Lampă
+Veioză
+Lustră
+Aplică
+Bec
+Prelungitor
+Priză
+Întrerupător
+Frigider
+Congelator
+Aragaz
+Cuptor
+Plită
+Hotă
+Cuptor cu microunde
+Mașină de spălat
+Mașină de spălat vase
+Uscător de rufe
+Aspirator
+Fier de călcat
+Robot de bucătărie
+Blender
+Mixer
+Storcător
+Cafetieră
+Espressor
+Fierbător
+Prăjitor de pâine
+Friteuză
+Grătar electric
+Oală
+Cratiță
+Tigaie
+Wok
+Tavă
+Castron
+Farfurie
+Cană
+Pahar
+Ceașcă
+Furculiță
+Cuțit
+Lingură
+Tocător
+Răzătoare
+Strecurătoare
+Cântar de bucătărie
+Termos
+Bidon
+Cutie de depozitare
+Coș de rufe
+Umeraș
+Mop
+Găleată
+Perie
+Burete
+Prosop
+Halat de baie
+Papuci de casă
+Televizor
+Telecomandă
+Boxă
+Căști
+Microfon
+Telefon mobil
+Tabletă
+Laptop
+Calculator
+Monitor
+Tastatură
+Mouse
+Imprimantă
+Router
+Cameră web
+Hard disk extern
+Stick de memorie
+Încărcător
+Cablu
+Baterie externă
+Ceas de mână
+Brățară
+Inel
+Cercei
+Colier
+Ochelari de soare
+Ochelari de vedere
+Portofel
+Geantă
+Rucsac
+Valiză
+Umbrelă
+Curea
+Șapcă
+Mănuși
+Pantofi
+Ghete
+Cizme
+Sandale
+Adidași
+Papuci
+Tricou
+Cămașă
+Pulover
+Geacă
+Palton
+Rochie
+Fustă
+Pantaloni
+Blugi
+Costum
+Trening
+Bicicletă
+Trotinetă
+Role
+Minge
+Coardă de sărituri
+Gantere
+Saltea de yoga
+Cort
+Sac de dormit
+Lanternă
+Trusă de scule
+Șurubelniță
+Ciocan
+Bormașină
+Scară
+Furtun de grădină
+Foarfece de grădină
+Semințe
+Îngrășământ

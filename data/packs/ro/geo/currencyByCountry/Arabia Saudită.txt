@@ -1,0 +1,5 @@
+---
+description: Currency of Arabia Saudită, as Romanian names it
+locale: ro
+---
+Rial saudit

@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Bulgarian).
+locale: bg
+---
+Вратар
+Ляво крило
+Дясно крило
+Ляв гард
+Десен гард
+Разпределител
+Пивот

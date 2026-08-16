@@ -1,0 +1,14 @@
+---
+description: Dishes of the američka kitchen, named as a Croatian menu names them. Borrowed dish names keep their original spelling, which is what a Croatian restaurant prints.
+locale: hr
+---
+Hamburger
+Cheeseburger
+Hot dog
+Pečena rebra
+Pržena piletina
+Mac and cheese
+Cezar salata
+Pancakes
+Cheesecake
+Brownie

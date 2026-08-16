@@ -1,0 +1,34 @@
+---
+description: Tree (Croatian). The first block is what grows in the continental forests, the second what grows on the karst and the coast.
+locale: hr
+---
+hrast
+hrast lužnjak
+hrast kitnjak
+bukva
+grab
+javor
+jasen
+brijest
+lipa
+topola
+vrba
+joha
+breza
+kesten
+orah
+divlji kesten
+bagrem
+jela
+smreka
+bor
+crni bor
+alepski bor
+ariš
+tisa
+čempres
+maslina
+smokva
+rogač
+planika
+crnika

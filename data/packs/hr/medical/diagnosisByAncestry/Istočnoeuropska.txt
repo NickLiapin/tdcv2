@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of istočnoeuropska ancestry, named in Croatian.
+locale: hr
+---
+Nasljedna hemokromatoza
+Celijakija
+Trombofilija faktora V Leiden
+Nedostatak alfa-1-antitripsina
+Fenilketonurija
+Kongenitalna adrenalna hiperplazija
+Šećerna bolest tipa 1
+Wilsonova bolest

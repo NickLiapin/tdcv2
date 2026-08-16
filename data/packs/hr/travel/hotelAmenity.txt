@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Croatian). Wi-Fi keeps its real spelling in every locale.
+locale: hr
+---
+Besplatan Wi-Fi
+Klima uređaj
+Grijanje
+Vlastita kupaonica
+Sušilo za kosu
+Mini bar
+Sef
+Televizor
+Balkon
+Pogled na more
+Doručak uključen
+Restoran
+Bar
+Posluga u sobu
+Bazen
+Unutarnji bazen
+Wellness
+Sauna
+Masaža
+Teretana
+Privatna plaža
+Ležaljke i suncobrani
+Besplatan parking
+Garaža
+Prijevoz do zračne luke
+Recepcija 0-24
+Prtljažnik
+Dopušteni kućni ljubimci
+Dječji kutak
+Praonica rublja

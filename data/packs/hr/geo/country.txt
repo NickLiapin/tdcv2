@@ -1,0 +1,42 @@
+---
+description: Country as Croatian names it, weighted by population in millions. Croatian TRANSLATES a country name rather than respelling it — Njemačka for Germany, Mađarska for Hungary, Nizozemska for the Netherlands, Sjedinjene Američke Države for the United States — and only keeps the local form where Croatian never coined one (Brazil, Kanada, Singapur).
+weighted: true
+locale: hr
+---
+Kina,1410
+Indija,1400
+Sjedinjene Američke Države,335
+Indonezija,275
+Pakistan,240
+Nigerija,220
+Brazil,215
+Bangladeš,170
+Rusija,144
+Meksiko,128
+Japan,125
+Egipat,110
+Vijetnam,98
+Turska,85
+Njemačka,84
+Tajland,72
+Francuska,68
+Ujedinjeno Kraljevstvo,67
+Južnoafrička Republika,60
+Italija,59
+Južna Koreja,52
+Španjolska,47
+Argentina,46
+Kanada,39
+Poljska,38
+Saudijska Arabija,36
+Australija,26
+Nizozemska,18
+Grčka,10
+Portugal,10
+Švedska,10
+Švicarska,9
+Singapur,6
+Norveška,5
+Irska,5
+Novi Zeland,5
+Hrvatska,4

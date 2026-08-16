@@ -1,0 +1,5 @@
+---
+description: Capital of Северна Македония (Bulgarian).
+locale: bg
+---
+Скопие

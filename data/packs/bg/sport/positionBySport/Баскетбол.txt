@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Bulgarian).
+locale: bg
+---
+Разпределител
+Атакуващ гард
+Малко крило
+Тежко крило
+Център

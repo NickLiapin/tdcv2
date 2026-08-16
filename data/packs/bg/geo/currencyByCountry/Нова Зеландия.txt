@@ -1,0 +1,5 @@
+---
+description: Currency of Нова Зеландия (Bulgarian).
+locale: bg
+---
+Новозеландски долар

@@ -1,0 +1,5 @@
+---
+description: Currency code of Australia
+locale: ro
+---
+AUD

@@ -1,0 +1,64 @@
+---
+description: Industry sector (Romanian)
+locale: ro
+---
+Tehnologia informației
+Software
+Telecomunicații
+Electronică
+Automotive
+Industrie prelucrătoare
+Metalurgie
+Siderurgie
+Industrie chimică
+Petrochimie
+Extracție petrol și gaze
+Minerit
+Energie
+Energie regenerabilă
+Utilități
+Construcții
+Materiale de construcții
+Imobiliare
+Agricultură
+Zootehnie
+Silvicultură
+Pescuit
+Industrie alimentară
+Băuturi
+Textile
+Confecții
+Pielărie și încălțăminte
+Mobilă
+Hârtie și ambalaje
+Tipografie
+Comerț cu amănuntul
+Comerț cu ridicata
+Comerț electronic
+Transport rutier
+Transport feroviar
+Transport aerian
+Transport naval
+Logistică
+Turism
+Ospitalitate
+Restaurante
+Servicii financiare
+Bănci
+Asigurări
+Piețe de capital
+Consultanță
+Contabilitate
+Servicii juridice
+Publicitate
+Media
+Editură
+Divertisment
+Sănătate
+Farmaceutice
+Educație
+Cercetare-dezvoltare
+Administrație publică
+Apărare
+Servicii sociale
+Organizații neguvernamentale

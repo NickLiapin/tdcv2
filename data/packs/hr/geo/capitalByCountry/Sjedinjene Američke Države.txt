@@ -1,0 +1,5 @@
+---
+description: Capital of Sjedinjene Američke Države, as Croatian names it
+locale: hr
+---
+Washington

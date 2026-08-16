@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Romanian)
+locale: ro
+---
+1 stea
+2 stele
+3 stele
+4 stele
+5 stele

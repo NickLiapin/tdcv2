@@ -1,0 +1,5 @@
+---
+description: Currency code of Statele Unite ale Americii
+locale: ro
+---
+USD

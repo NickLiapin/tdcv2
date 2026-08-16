@@ -1,0 +1,10 @@
+---
+description: Croatian full male name — one given name and one surname (Marko Horvat). Croatian carries a single surname, given name first, unlike the two-surname Spanish form and unlike the family-name-first order of Hungarian.
+generator: tdc
+locale: hr
+---
+<sequence name="p">
+  <gen name="f" type="template" value="hr.person.male.firstName"/>
+  <gen name="l" type="template" value="hr.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

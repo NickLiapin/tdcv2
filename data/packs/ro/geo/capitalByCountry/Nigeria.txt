@@ -1,0 +1,5 @@
+---
+description: Capital of Nigeria, as Romanian names it
+locale: ro
+---
+Abuja

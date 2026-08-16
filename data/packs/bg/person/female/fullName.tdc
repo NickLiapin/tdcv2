@@ -1,0 +1,11 @@
+---
+description: Bulgarian full female name — given name, PATRONYMIC middle name, surname (Мария Петрова Георгиева). Both the middle name and the surname come from bg.person.female.lastName, and both must: a Bulgarian woman inflects her father's name as well as her family name, so the daughter of Петър in the Георгиев family is Петрова Георгиева, never Петров Георгиев. Compare sr, where nothing inflects and the woman shares her brother's exact string.
+generator: tdc
+locale: bg
+---
+<sequence name="p">
+  <gen name="f" type="template" value="bg.person.female.firstName"/>
+  <gen name="m" type="template" value="bg.person.female.lastName"/>
+  <gen name="l" type="template" value="bg.person.female.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.m}} ${{p.l}}</data>

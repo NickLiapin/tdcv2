@@ -1,0 +1,81 @@
+---
+description: Diagnosis (Croatian), across specialties. Croatian clinical records commonly carry the Latin form alongside the Croatian one; this list gives the Croatian.
+locale: hr
+---
+Arterijska hipertenzija
+Angina pektoris
+Infarkt miokarda
+Zatajivanje srca
+Fibrilacija atrija
+Aritmija
+Kardiomiopatija
+Ateroskleroza
+Moždani udar
+Tranzitorna ishemijska ataka
+Epilepsija
+Migrena
+Multipla skleroza
+Parkinsonova bolest
+Alzheimerova bolest
+Demencija
+Periferna neuropatija
+Vrtoglavica
+Rak pluća
+Rak dojke
+Rak debelog crijeva
+Rak prostate
+Rak želuca
+Rak gušterače
+Melanom
+Limfom
+Leukemija
+Atopijski dermatitis
+Psorijaza
+Akne
+Urtikarija
+Kontaktni dermatitis
+Herpes zoster
+Gljivična infekcija kože
+Refluksna bolest jednjaka
+Čir na želucu
+Gastritis
+Crohnova bolest
+Ulcerozni kolitis
+Sindrom iritabilnog crijeva
+Celijakija
+Masna jetra
+Ciroza jetre
+Žučni kamenci
+Pankreatitis
+Šećerna bolest tipa 1
+Šećerna bolest tipa 2
+Hipotireoza
+Hipertireoza
+Gušavost
+Osteoporoza
+Pretilost
+Giht
+Astma
+Kronična opstruktivna plućna bolest
+Upala pluća
+Bronhitis
+Plućna embolija
+Apneja u snu
+Tuberkuloza
+Artroza koljena
+Artroza kuka
+Reumatoidni artritis
+Hernija diska
+Skolioza
+Sindrom karpalnog tunela
+Prijelom
+Depresivni poremećaj
+Anksiozni poremećaj
+Bipolarni poremećaj
+Shizofrenija
+Nesanica
+Kronična bubrežna bolest
+Infekcija mokraćnog sustava
+Bubrežni kamenci
+Anemija
+Alergijski rinitis

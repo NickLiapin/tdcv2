@@ -1,0 +1,41 @@
+---
+description: Trailing qualifier of a Croatian place name (Slavonski Brod, Krapinske Toplice, Sveti Ivan Zelina, Kostajnica na Uni). The regional adjectives name the historic Croatian regions rather than the modern counties.
+locale: hr
+---
+Zagorski
+Zagorska
+Podravski
+Podravska
+Slavonski
+Slavonska
+Dalmatinski
+Dalmatinska
+Istarski
+Istarska
+Lički
+Lička
+Primorski
+Primorska
+Moslavački
+Moslavačka
+Gorski
+Gorska
+na Savi
+na Dravi
+na Uni
+na Kupi
+na Muri
+na Moru
+Toplice
+Grad
+Selo
+Luka
+Brod
+Most
+Polje
+Vas
+Gornji
+Donji
+Veliki
+Mali
+Novi

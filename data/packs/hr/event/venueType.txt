@@ -1,0 +1,20 @@
+---
+description: Event venue type (Croatian). Dom kulture is the village or town culture house that hosts most local events in Croatia, and klet the Zagorje vineyard cottage rented out for parties.
+locale: hr
+---
+Dvorana
+Kongresna dvorana
+Sportska dvorana
+Stadion
+Kazalište
+Kino
+Galerija
+Muzej
+Dom kulture
+Hotel
+Restoran
+Konoba
+Klet
+Vinarija
+Otvoreni prostor
+Trg

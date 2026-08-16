@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Bulgarian). Ол инклузив is a transcribed English phrase and is the standard package on the Black Sea coast, where most Bulgarian hotel capacity sits.
+locale: bg
+---
+Безплатен Wi-Fi
+Закуска
+Полупансион
+Пълен пансион
+Ол инклузив
+Ресторант
+Бар
+Лоби бар
+Басейн
+Външен басейн
+Закрит басейн
+Спа център
+Сауна
+Парна баня
+Джакузи
+Минерална вода
+Фитнес
+Масажи
+Плаж
+Чадър и шезлонг
+Паркинг
+Трансфер от летището
+Рецепция 24 часа
+Асансьор
+Климатик
+Сейф
+Мини бар
+Детски кът
+Аниматори
+Достъп за инвалиди

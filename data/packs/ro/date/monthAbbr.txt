@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Romanian, lowercase, with the abbreviating full stop)
+locale: ro
+---
+ian.
+febr.
+mart.
+apr.
+mai
+iun.
+iul.
+aug.
+sept.
+oct.
+nov.
+dec.

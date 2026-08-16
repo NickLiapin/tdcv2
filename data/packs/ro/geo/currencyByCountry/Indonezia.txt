@@ -1,0 +1,5 @@
+---
+description: Currency of Indonezia, as Romanian names it
+locale: ro
+---
+Rupie indoneziană

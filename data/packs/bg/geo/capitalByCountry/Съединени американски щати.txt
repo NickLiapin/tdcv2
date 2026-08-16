@@ -1,0 +1,5 @@
+---
+description: Capital of Съединени американски щати (Bulgarian).
+locale: bg
+---
+Вашингтон

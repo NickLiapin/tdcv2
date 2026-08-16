@@ -1,0 +1,45 @@
+---
+description: Trailing qualifier of a Romanian place name (Ocna de Sus, Sacele Mare, Bals Nou). The adjectival ones are listed in both genders because the qualifier agrees with the gender of the place name it follows — Satu Mare but Valea Mare, Dealu Nou but Balta Noua.
+locale: ro
+---
+de Sus
+de Jos
+de Mijloc
+Mare
+Mică
+Mari
+Mici
+Nou
+Nouă
+Noi
+Vechi
+Veche
+de Munte
+de Câmpie
+de Pădure
+de Vale
+de Deal
+de Baltă
+Român
+Română
+Români
+Săsesc
+Săsească
+Unguresc
+Ungurească
+Ungureni
+Moldovenesc
+Moldovenească
+Alb
+Albă
+Negru
+Neagră
+Roșu
+Roșie
+Verde
+Sec
+Seacă
+Bătrân
+Târg
+Băi
+Sat

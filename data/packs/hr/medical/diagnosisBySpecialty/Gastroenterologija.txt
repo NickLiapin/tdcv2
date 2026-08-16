@@ -1,0 +1,15 @@
+---
+description: Diagnoses commonly made in gastroenterologija, named in Croatian
+locale: hr
+---
+Refluksna bolest jednjaka
+Čir na želucu
+Gastritis
+Crohnova bolest
+Ulcerozni kolitis
+Sindrom iritabilnog crijeva
+Celijakija
+Masna jetra
+Ciroza jetre
+Žučni kamenci
+Pankreatitis

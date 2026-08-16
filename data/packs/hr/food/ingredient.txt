@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Croatian). Note kruh for bread — Serbian says hleb — and vrhnje for cream.
+locale: hr
+---
+brašno
+kruh
+mlijeko
+vrhnje
+maslac
+sir
+svježi sir
+jaja
+ulje
+maslinovo ulje
+ocat
+šećer
+sol
+kvasac
+riža
+tjestenina
+palenta
+krumpir
+grah
+junetina
+svinjetina
+piletina
+janjetina
+pršut
+slanina
+kobasica
+kulen
+riba
+srdele
+škampi
+lignje
+dagnje
+orasi
+bademi
+med
+čokolada
+limun
+vino
+rakija
+rajčica

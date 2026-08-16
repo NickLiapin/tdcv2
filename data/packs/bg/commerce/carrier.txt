@@ -1,0 +1,24 @@
+---
+description: Parcel carrier operating in Bulgaria. Еконт and Спиди are the two domestic networks and between them carry most Bulgarian e-commerce; Български пощи is the universal postal operator. Brand names are written in Cyrillic at home and Latin abroad — both forms circulate, and the Cyrillic one is what a Bulgarian waybill shows.
+locale: bg
+---
+Еконт
+Спиди
+Български пощи
+Рапидо
+Стар Пост
+ТИП ТОП КУРИЕР
+Лео Експрес
+MW Logistica
+DHL
+DPD
+GLS
+UPS
+FedEx
+TNT
+Gebrüder Weiss
+Schenker
+Cargo Partner
+Raben
+Sameday
+Packeta

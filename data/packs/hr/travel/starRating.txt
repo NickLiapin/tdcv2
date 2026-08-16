@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Croatian). Croatian categorisation writes it as a number of stars, and a Croatian sign reads "hotel 4 zvjezdice".
+locale: hr
+---
+1 zvjezdica
+2 zvjezdice
+3 zvjezdice
+4 zvjezdice
+5 zvjezdica

@@ -1,0 +1,16 @@
+---
+description: Listing status (Bulgarian). The forms agree with оферта, a feminine noun.
+locale: bg
+---
+Активна
+Нова
+Промоция
+Топ оферта
+Резервирана
+Продадена
+Отдадена под наем
+Изтекла
+Оттеглена
+Архивирана
+Спешна продажба
+По договаряне

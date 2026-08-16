@@ -1,0 +1,5 @@
+---
+description: Currency of Japonia, as Romanian names it
+locale: ro
+---
+Yen

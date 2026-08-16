@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Croatian). Tennis and athletics are deliberately absent: they have no fixed playing positions, so a positionBySport child for them would have to be invented.
+locale: hr
+---
+Nogomet
+Košarka
+Rukomet
+Vaterpolo
+Odbojka
+Hokej na ledu
+Ragbi
+Bejzbol

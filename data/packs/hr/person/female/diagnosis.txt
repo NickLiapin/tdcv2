@@ -1,0 +1,31 @@
+---
+description: Diagnosis found only in, or overwhelmingly in, women (Croatian). Terms follow Croatian clinical usage.
+locale: hr
+---
+Rak dojke
+Rak vrata maternice
+Rak jajnika
+Rak maternice
+Endometrioza
+Sindrom policističnih jajnika
+Miomi maternice
+Adenomioza
+Cista jajnika
+Zdjelična upalna bolest
+Vaginitis
+Bakterijska vaginoza
+Menoragija
+Dismenoreja
+Amenoreja
+Preeklampsija
+Gestacijski dijabetes
+Hiperemeza u trudnoći
+Izvanmaternična trudnoća
+Postporođajna depresija
+Mastitis
+Postmenopauzalna osteoporoza
+Hashimotov tireoiditis
+Prijevremena insuficijencija jajnika
+Prolaps maternice
+Inkontinencija urina
+Ženska neplodnost

@@ -1,0 +1,5 @@
+---
+description: Capital of Сингапур (Bulgarian).
+locale: bg
+---
+Сингапур

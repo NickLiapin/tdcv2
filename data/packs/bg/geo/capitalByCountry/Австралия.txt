@@ -1,0 +1,5 @@
+---
+description: Capital of Австралия (Bulgarian).
+locale: bg
+---
+Канбера

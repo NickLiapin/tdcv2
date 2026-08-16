@@ -1,0 +1,44 @@
+---
+description: Music genre (Romanian, including the Romanian ones). Doina is the free-rhythm solo lament on the UNESCO list; muzica lautareasca is the professional Roma string-band tradition; manele is its modern, much-argued-about descendant; muzica usoara is what Romanian calls mainstream light pop; colinde are the Christmas carols.
+locale: ro
+---
+Pop
+Rock
+Rock alternativ
+Hard rock
+Heavy metal
+Punk
+Indie
+Jazz
+Blues
+Soul
+Funk
+Disco
+Hip-hop
+Rap
+Trap
+R&B
+Reggae
+Muzică electronică
+House
+Techno
+Trance
+Drum and bass
+Dubstep
+Muzică clasică
+Operă
+Muzică de cameră
+Muzică simfonică
+Muzică corală
+Muzică populară
+Folclor
+Muzică lăutărească
+Manele
+Etno
+Muzică ușoară
+Colinde
+Doină
+Muzică de fanfară
+Country
+Latino
+Coloană sonoră

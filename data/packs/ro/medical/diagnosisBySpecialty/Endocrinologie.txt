@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Romanian)
+locale: ro
+---
+Diabet zaharat tip 2
+Hipotiroidism
+Hipertiroidism
+Tiroidită Hashimoto
+Boala Graves-Basedow
+Gușă nodulară
+Sindrom Cushing
+Insuficiență corticosuprarenaliană
+Osteoporoză
+Hiperparatiroidism primar

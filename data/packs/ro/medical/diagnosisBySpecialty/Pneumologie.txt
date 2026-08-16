@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Romanian)
+locale: ro
+---
+Astm bronșic
+Bronhopneumopatie obstructivă cronică
+Pneumonie comunitară
+Bronșită cronică
+Tuberculoză pulmonară
+Fibroză pulmonară idiopatică
+Embolie pulmonară
+Apnee obstructivă de somn
+Pleurezie
+Bronșiectazii

@@ -1,0 +1,14 @@
+---
+description: Dishes of Indian cuisine (Romanian)
+locale: ro
+---
+Pui tikka masala
+Butter chicken
+Biryani
+Samosa
+Naan
+Dal
+Curry vegetarian
+Pui tandoori
+Raita
+Lassi

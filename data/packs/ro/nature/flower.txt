@@ -1,0 +1,34 @@
+---
+description: Flower (Romanian). Floarea de colt is the edelweiss, protected by law and the emblem of the Carpathian mountains; sanzienele are the midsummer bedstraw flowers, worn in wreaths on the feast of the same name on 24 June.
+locale: ro
+---
+Trandafir
+Lalea
+Narcisă
+Ghiocel
+Zambilă
+Crin
+Bujor
+Garoafă
+Crizantemă
+Margaretă
+Floarea-soarelui
+Mac
+Liliac
+Iasomie
+Micsandră
+Panseluță
+Petunie
+Mușcată
+Begonie
+Orhidee
+Gladiolă
+Dalie
+Nalbă
+Lăcrămioară
+Viorea
+Brândușă
+Toporaș
+Floare de colț
+Sânziene
+Romaniță

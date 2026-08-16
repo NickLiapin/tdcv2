@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Bulgarian, тримесечие — literally "three-month", not a "quarter").
+locale: bg
+---
+I тримесечие
+II тримесечие
+III тримесечие
+IV тримесечие

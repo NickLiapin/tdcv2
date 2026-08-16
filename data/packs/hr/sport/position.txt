@@ -1,0 +1,39 @@
+---
+description: Playing position (Croatian), across sports
+locale: hr
+---
+Vratar
+Desni bek
+Lijevi bek
+Stoper
+Zadnji vezni
+Središnji vezni
+Ofenzivni vezni
+Desno krilo
+Lijevo krilo
+Napadač
+Špica
+Razigravač
+Bek šuter
+Nisko krilo
+Krilni centar
+Centar
+Lijevi vanjski
+Srednji vanjski
+Desni vanjski
+Kružni napadač
+Bek
+Vanjski igrač
+Obrambeni centar
+Dizač
+Primač-napadač
+Srednji bloker
+Korektor
+Libero
+Lijevi branič
+Desni branič
+Bacač
+Hvatač
+Prva baza
+Kratko zaustavljanje
+Otvarač
