@@ -1,0 +1,16 @@
+---
+description: Jobs in Oil and gas (Azerbaijani)
+locale: az
+---
+neft-qaz mühəndisi
+qazma ustası
+buruq ustası
+geoloq
+geofizik
+seysmik operator
+neft emalı operatoru
+boru kəməri mühəndisi
+dəniz platforması operatoru
+əməyin təhlükəsizliyi mütəxəssisi
+laboratoriya kimyaçısı
+rezervuar mühəndisi

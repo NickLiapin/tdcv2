@@ -1,0 +1,64 @@
+---
+description: Corporate noun, in Filipino. Two strata again: the Spanish-Latin abstract nouns (estratehiya, imprastraktura, integrasyon) which Filipino borrowed whole and which are what a written Filipino report uses, and the native pang-/ka- formations (pagbabago, pakikipag-ugnayan, kahusayan) coined for the same ideas. Note the shape of the native ones: pag- turns a verb into an action noun and ka- -an turns a root into an abstract quality, so bago (new) gives pagbabago (change) and husay (skill) gives kahusayan (excellence). That is how Filipino makes abstractions, and it is productive, not a fixed list.
+locale: fil
+---
+Sinerhiya
+Paradaym
+Ekosistema
+Balangkas
+Daluyan
+Daloy ng gawain
+Arkitektura
+Imprastraktura
+Plataporma
+Solusyon
+Estratehiya
+Mapa ng landas
+Inisyatiba
+Metodolohiya
+Kakayahan
+Pagkakahanay
+Bentahe
+Kalakhan
+Dagdag na halaga
+Maihahatid
+Punto ng ugnayan
+Pamantayan
+Palatandaan
+Pakikilahok
+Orkestrasyon
+Integrasyon
+Paglilipat
+Pagbabago
+Optimisasyon
+Kakayahang lumago
+Pagkakatugma
+Pamamahala
+Pagsunod sa alituntunin
+Katatagan
+Pagsubaybay
+Telemetriya
+Ritmo
+Bahagi ng isipan
+Sektor
+Panahon ng pondo
+Kita
+Puhunan
+Pamumuhunan
+Tubo
+Gastusin
+Badyet
+Pagsusuri
+Ulat
+Pananaliksik
+Inobasyon
+Kahusayan
+Kalidad
+Serbisyo
+Kliyente
+Merkado
+Kompetisyon
+Panganib
+Oportunidad
+Pakikipag-ugnayan
+Pananagutan

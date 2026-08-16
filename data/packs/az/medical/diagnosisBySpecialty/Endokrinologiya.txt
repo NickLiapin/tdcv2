@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Endocrinology (Azerbaijani)
+locale: az
+---
+1-ci tip diabet
+2-ci tip diabet
+Hipotireoz
+Hipertireoz
+Haşimoto tireoiditi
+Düyünlü ur
+Piylənmə
+Metabolik sindrom
+Osteoporoz
+Böyrəküstü vəz çatışmazlığı

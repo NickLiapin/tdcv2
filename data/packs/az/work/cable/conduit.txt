@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Azerbaijani)
+locale: az
+---
+kabel kanalı
+spiral boru
+polad spiral
+kabel altlığı
+asma xətt
+yeraltı kanalizasiya
+birbaşa torpağa basdırma

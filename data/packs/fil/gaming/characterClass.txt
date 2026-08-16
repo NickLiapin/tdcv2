@@ -1,0 +1,28 @@
+---
+description: Character class. The first block is Filipino and comes from history and folklore rather than from Dungeons and Dragons: the babaylan was the pre-colonial priestess, healer and spirit-medium, usually a woman, whose office Spain spent two centuries suppressing; the katalonan is her Tagalog equivalent; the albularyo is the village herbal healer who is still consulted today, and the manghihilot the bone-setter and massage healer. Bagani is a warrior title from Mindanao. Panday is the smith, and also the most famous hero of Philippine comics, a blacksmith who forges a sword from a fallen star. Eskrimador is the fighter of arnis, the stick-and-blade art that is the Philippines' national martial art by law. Mangkukulam and aswang are on the other side: the hex-caster and the shapeshifting night creature of Visayan folklore.
+locale: fil
+---
+Mandirigma
+Bagani
+Kawal
+Eskrimador
+Mamamana
+Mangangaso
+Salamangkero
+Mangkukulam
+Babaylan
+Katalonan
+Albularyo
+Manghihilot
+Manggagamot
+Pari
+Bantay
+Magnanakaw
+Berdugo
+Panday
+Manlalakbay
+Mananalaysay
+Alkemista
+Nekromanser
+Diwata
+Aswang

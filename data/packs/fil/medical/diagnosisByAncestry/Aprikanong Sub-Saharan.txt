@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in populations of Aprikanong Sub-Saharan descent, in Filipino. This list is a PREVALENCE SIGNAL AND NOT AN EXCLUSIVE ONE: these conditions occur in every population, and the grouping reflects allele frequencies in populations of this descent rather than any boundary between people. The filename is the value in medical/ancestry.txt.
+locale: fil
+---
+Sickle cell disease
+Sickle cell trait
+Alpha-thalassemia
+Kakulangan sa G6PD
+Talamak na sakit sa bato
+Altapresyon
+Dyabetis uri 2
+Sarcoidosis
+Keloid
+Myoma sa matris

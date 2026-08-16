@@ -1,0 +1,18 @@
+---
+description: Order status (Azerbaijani)
+locale: az
+---
+Yeni
+Qəbul edildi
+Təsdiqləndi
+Hazırlanır
+Qablaşdırılır
+Göndərişə hazır
+Kuryerə verildi
+Yoldadır
+Filialdadır
+Çatdırıldı
+Təhvil alındı
+Ləğv edildi
+Geri qaytarıldı
+Ödəniş gözlənilir

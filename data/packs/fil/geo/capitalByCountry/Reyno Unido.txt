@@ -1,0 +1,5 @@
+---
+description: Capital of Reyno Unido (Filipino).
+locale: fil
+---
+London

@@ -1,0 +1,45 @@
+---
+description: Company legal form / name element used in Azerbaijan. MMC (məhdud məsuliyyətli cəmiyyət), ASC (açıq səhmdar cəmiyyəti) and QSC (qapalı səhmdar cəmiyyəti) are the three the Civil Code actually defines; the rest are the trade words a company name is built from.
+locale: az
+---
+MMC
+ASC
+QSC
+Məhdud Məsuliyyətli Cəmiyyət
+Açıq Səhmdar Cəmiyyəti
+Qapalı Səhmdar Cəmiyyəti
+Fərdi Sahibkar
+Kooperativ
+Holdinq
+Qrup
+Şirkətlər Qrupu
+Fond
+İctimai Birlik
+Assosiasiya
+İttifaq
+Palata
+Federasiyası
+Konfederasiyası
+İnstitutu
+Mərkəzi
+Agentliyi
+Bürosu
+Zavodu
+Kombinatı
+Fabriki
+Müəssisəsi
+Filialı
+Nümayəndəliyi
+Törəmə müəssisəsi
+Sənaye
+Ticarət
+Logistika
+Konsaltinq
+Mühəndislik
+Texnologiyaları
+Proqram təminatı
+İnvestisiya
+Daşınmaz Əmlak
+Turizm
+Qida
+Enerji

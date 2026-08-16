@@ -1,0 +1,5 @@
+---
+description: Currency of Cənubi Afrika Respublikası (Azerbaijani)
+locale: az
+---
+rand

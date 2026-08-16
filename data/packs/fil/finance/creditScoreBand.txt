@@ -1,0 +1,9 @@
+---
+description: Credit rating band, labelled in Filipino. Worth knowing before using it: consumer credit scoring is far thinner on the ground in the Philippines than in the United States or western Europe. The Credit Information Corporation was created by law in 2008 and the private bureaus that draw on it are recent, most Filipinos have no score at all, and a large part of household lending runs on employment records, remittance history, pawned gold and personal knowledge instead. A generated Philippine record in which everyone has a band is already a slightly unreal record.
+locale: fil
+---
+Mahina
+Katamtaman
+Mabuti
+Napakabuti
+Mahusay

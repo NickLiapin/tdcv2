@@ -1,0 +1,21 @@
+---
+description: Kind of cooking. FIVE OF THE SEVENTEEN ARE PHILIPPINE AND THAT IS DELIBERATE: the Philippines is not one cuisine, and Filipinos themselves order food by region. Kapampangan cooking, from the province north of Manila, is the one Filipinos call the country's culinary capital and it is where sisig comes from; Ilokano cooking in the north is bitter, vegetable-heavy and built on fermented fish; Bikolano cooking is the only genuinely hot one in the archipelago, cooked in coconut cream with chilli; Bisaya cooking in the central islands is grilled and sweet-savoury, and Cebu lechon is a separate thing from Luzon lechon. Filipino at the top of the list is the national repertoire that crosses all of them. The names are the Filipino forms of the foreign cuisines, respelled: Hapones, Tsino, Mehikano, Pranses.
+locale: fil
+---
+Filipino
+Kapampangan
+Ilokano
+Bikolano
+Bisaya
+Tsino
+Hapones
+Koreano
+Amerikano
+Italyano
+Mehikano
+Indiyano
+Thai
+Biyetnames
+Espanyol
+Pranses
+Lebanes

@@ -1,0 +1,5 @@
+---
+description: Currency of Mehiko (Filipino).
+locale: fil
+---
+Piso

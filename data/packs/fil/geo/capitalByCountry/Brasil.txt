@@ -1,0 +1,5 @@
+---
+description: Capital of Brasil (Filipino).
+locale: fil
+---
+Brasilia

@@ -1,0 +1,12 @@
+---
+description: Personal pronoun set (Azerbaijani). AZERBAIJANI HAS NO GRAMMATICAL GENDER AT ALL: the single pronoun o covers he, she and it, and nothing anywhere in the language — not adjectives, not verbs, not articles, of which there are none — agrees with the sex of a referent. A config that needs he or she in Azerbaijani output cannot get it from the pronoun and must name the person or use kişi / qadın explicitly. The language is also agglutinative and has NO PREPOSITIONS: what English puts before a noun, Azerbaijani puts after it as a case suffix or a postposition — Bakıda (in Baku), Bakıdan (from Baku), Bakı üçün (for Baku).
+locale: az
+---
+mən
+sən
+o
+biz
+siz
+onlar
+öz
+özü

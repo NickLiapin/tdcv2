@@ -1,0 +1,11 @@
+---
+description: Cable conduit type. Trade terms, English, as used on Philippine sites. Aerial messenger dominates because Philippine distribution is overwhelmingly overhead — the tangled poles of Manila are a national visual — and undergrounding is a recent and partial programme.
+locale: fil
+---
+Aerial messenger
+PVC
+Rigid steel
+HDPE
+Direct burial
+Innerduct
+Cable tray

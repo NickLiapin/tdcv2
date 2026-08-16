@@ -1,0 +1,21 @@
+---
+description: Extreme weather or geophysical event, in Filipino. ABOUT TWENTY TROPICAL CYCLONES ENTER PHILIPPINE WATERS EACH YEAR, more than reach any other country, and the state weather bureau gives every one of them its OWN Philippine name from a rotating list independent of the international one — so the same storm is Yolanda here and Haiyan abroad, and a name retired after a catastrophe is never used again. Amihan and habagat are the two monsoons and are also directions, north-easterly and south-westerly. Lindol and bulkan are ordinary vocabulary in a country on the Pacific Ring of Fire with two dozen active volcanoes, and lahar — the volcanic mudflow that buried towns around Pinatubo for years after the 1991 eruption — is a word Philippine news readers use without explaining.
+locale: fil
+---
+Bagyo
+Super bagyo
+Ipo-ipo
+Buhawi
+Habagat
+Amihan
+Baha
+Daluyong
+Storm surge
+Tsunami
+Lindol
+Pagsabog ng bulkan
+Lahar
+Pagguho ng lupa
+Tagtuyot
+El Niño
+La Niña

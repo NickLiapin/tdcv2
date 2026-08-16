@@ -1,0 +1,20 @@
+---
+description: Seniority / level label for a role (Azerbaijani)
+locale: az
+---
+Təcrübəçi
+Köməkçi
+Junior
+Mütəxəssis
+Orta səviyyə
+Baş mütəxəssis
+Aparıcı
+Lider
+Komanda rəhbəri
+Bölmə rəisi
+Şöbə müdiri
+Departament direktoru
+Direktor müavini
+İcraçı direktor
+Baş direktor
+Tərəfdaş

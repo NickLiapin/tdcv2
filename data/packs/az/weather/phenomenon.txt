@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Azerbaijani). XƏZRİ and GİLAVAR are named winds of the Absheron peninsula — the cold northerly and the warm southerly — and a Baku forecast names them the way a Mediterranean forecast names the mistral.
+locale: az
+---
+göy gurultusu
+şimşək
+ildırım
+göy qurşağı
+duman
+şeh
+qırov
+buz bağlaması
+çovğun
+qar fırtınası
+burulğan
+xəzri
+gilavar
+quraqlıq
+isti dalğası

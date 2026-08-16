@@ -1,0 +1,42 @@
+---
+description: Symptom, in Filipino, in the words a patient uses at the counter. Note the ma- adjectives again: masakit ang ulo is literally 'the head is painful', so Filipino states a symptom as a property of the body part rather than as something the person has. Hilo covers dizziness and nausea together and a doctor has to ask which. Kabag is trapped wind, a complaint Filipinos report constantly and which English has no comfortable word for.
+locale: fil
+---
+Lagnat
+Sakit ng ulo
+Pagod
+Panghihina
+Hilo
+Pagduduwal
+Pagsusuka
+Pagtatae
+Tibi
+Sakit ng tiyan
+Kabag
+Heartburn
+Sakit ng dibdib
+Hirap sa paghinga
+Ubo
+Plema
+Namamagang lalamunan
+Sipon
+Barado ang ilong
+Pagbahing
+Malabong paningin
+Sakit ng kalamnan
+Sakit sa kasukasuan
+Sakit sa likod
+Pantal
+Kati
+Pamamaga
+Pamamanhid
+Kirot
+Kabog ng dibdib
+Kawalan ng gana
+Pagbaba ng timbang
+Pagpapawis sa gabi
+Panginginig
+Pananakit ng tainga
+Pananakit ng ngipin
+Pagkalito
+Hindi makatulog

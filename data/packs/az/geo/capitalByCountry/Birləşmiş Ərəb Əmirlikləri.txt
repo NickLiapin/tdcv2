@@ -1,0 +1,5 @@
+---
+description: Capital of Birləşmiş Ərəb Əmirlikləri (Azerbaijani)
+locale: az
+---
+Əbu-Dabi

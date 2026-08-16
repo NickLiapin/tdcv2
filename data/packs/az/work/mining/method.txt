@@ -1,0 +1,12 @@
+---
+description: Mining method (Azerbaijani)
+locale: az
+---
+açıq üsul
+yeraltı üsul
+karxana
+quyu üsulu
+qazma üsulu
+hidravlik üsul
+draqa üsulu
+kamera-dayaq sistemi

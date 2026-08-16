@@ -1,0 +1,5 @@
+---
+description: Capital of Estados Unidos (Filipino).
+locale: fil
+---
+Washington, D.C.

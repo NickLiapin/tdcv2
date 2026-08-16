@@ -1,0 +1,21 @@
+---
+description: Cuisine (Azerbaijani). Each value has a dishByCuisine child file. The neighbours here are Azerbaijan's own — Iranian, Georgian, Russian and Uzbek — rather than the Ottoman, Argentine and Peruvian entries a Turkish list carries, because these are the kitchens an Azerbaijani actually eats in.
+locale: az
+---
+Azərbaycan
+Türk
+İran
+Gürcü
+Rus
+Özbək
+Livan
+İtalyan
+Fransız
+İspan
+Yunan
+Çin
+Yapon
+Koreya
+Hind
+Meksika
+Amerikan

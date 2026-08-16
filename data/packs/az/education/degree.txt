@@ -1,0 +1,20 @@
+---
+description: Academic degree / qualification level as awarded in Azerbaijan. The doctoral system is two-tier — fəlsəfə doktoru first, then elmlər doktoru — which is the Soviet kandidat/doktor ladder renamed rather than replaced, and does not map onto a single Western PhD.
+locale: az
+---
+ibtidai təhsil
+ümumi orta təhsil
+tam orta təhsil
+peşə təhsili
+ilk peşə-ixtisas təhsili
+orta ixtisas təhsili
+subbakalavr
+bakalavr
+magistr
+rezidentura
+aspirantura
+doktorantura
+fəlsəfə doktoru
+elmlər doktoru
+dosent
+professor

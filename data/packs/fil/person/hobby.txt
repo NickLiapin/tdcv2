@@ -1,0 +1,80 @@
+---
+description: Pastime, in Filipino. Videoke belongs at the top and is not a joke: singing to a machine is the default Philippine social activity, machines are rented for birthdays and sit permanently in bars, sari-sari stores and living rooms, and neighbourhood disputes about volume are a recognised category of barangay complaint. Sabong, cockfighting, is legal, licensed, televised and enormous. The street-game block is what Philippine children play and none of it has an English name: patintero is a running game across chalked lines, tumbang preso knocks over a tin with a slipper, piko is hopscotch, luksong tinik is a jumping game over stacked hands, sipa keeps a weighted washer in the air with the feet, holen is marbles, and sungka is the Philippine mancala, played on a carved wooden boat with cowrie shells.
+locale: fil
+---
+Videoke
+Karaoke
+Pagkanta
+Pagtugtog ng gitara
+Panonood ng teleserye
+Panonood ng pelikula
+Pagbabasa
+Pagsusulat
+Pagpipinta
+Potograpiya
+Pagluluto
+Pagbe-bake
+Paghahalaman
+Pag-aalaga ng halaman
+Pag-aalaga ng hayop
+Pag-aalaga ng manok
+Sabong
+Basketball
+Volleyball
+Badminton
+Bilyar
+Table tennis
+Chess
+Dama
+Sungka
+Patintero
+Tumbang preso
+Piko
+Luksong tinik
+Luksong baka
+Sipa
+Holen
+Yoyo
+Pagpapalipad ng saranggola
+Arnis
+Boksing
+Pagtakbo
+Pagbibisikleta
+Pag-akyat sa bundok
+Pagkakamping
+Pangingisda
+Pagsisid
+Snorkeling
+Surfing
+Island hopping
+Paglalakbay
+Pamimili
+Pananahi
+Pagbuburda
+Paghahabi
+Pagpapalayok
+Paggawa ng kahoy
+Pagniniting
+Pag-aayos ng kotse
+Pagmomodelo
+Pangongolekta ng barya
+Pangongolekta ng selyo
+Pagbuo ng puzzle
+Paglalaro ng video game
+Mobile Legends
+Pakikinig ng radyo
+Pakikinig ng musika
+Pagsasayaw
+Zumba
+Yoga
+Gym
+Pagmamasid sa ibon
+Astronomiya
+Pag-aaral ng wika
+Pagtuturo sa simbahan
+Boluntaryong gawain
+Pagbabalak ng piyesta
+Pagkukuwento
+Pagsusulat ng tula
+Pagsasaka
+Skateboarding

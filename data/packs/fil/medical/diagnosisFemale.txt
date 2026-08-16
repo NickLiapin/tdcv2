@@ -1,0 +1,30 @@
+---
+description: Diagnosis specific to female anatomy, in Filipino. Cervical cancer sits high in the Philippines because national screening coverage is low and HPV vaccination began late; myoma sa matris, uterine fibroids, is among the commonest reasons for gynaecological surgery here.
+locale: fil
+---
+Endometriosis
+Polycystic ovary syndrome
+Myoma sa matris
+Cyst sa obaryo
+Kanser sa obaryo
+Kanser sa cervix
+Cervical dysplasia
+Cervicitis
+Endometritis
+Kanser sa endometrium
+Pelvic inflammatory disease
+Bacterial vaginosis
+Impeksiyon sa puwerta
+Malakas na regla
+Masakit na regla
+Walang regla
+Preeclampsia
+Dyabetis sa pagbubuntis
+Hyperemesis gravidarum
+Ectopic pregnancy
+Pagdurugo pagkapanganak
+Mastitis
+Fibrocystic breast change
+Menopause syndrome
+Premenstrual dysphoric disorder
+Pagbaba ng matris

@@ -1,0 +1,5 @@
+---
+description: Currency of Gürcüstan (Azerbaijani)
+locale: az
+---
+gürcü larisi

@@ -1,0 +1,12 @@
+---
+description: Dishes of Özbək cuisine (Azerbaijani)
+locale: az
+---
+özbək plovu
+lağman
+manti
+somsa
+şorpa
+çuçvara
+narın
+kazan-kabab

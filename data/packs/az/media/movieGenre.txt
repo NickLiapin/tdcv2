@@ -1,0 +1,23 @@
+---
+description: Movie genre (Azerbaijani)
+locale: az
+---
+aksiyon
+macəra
+komediya
+dram
+melodram
+triller
+qorxu
+elmi fantastika
+fantastika
+detektiv
+cinayət
+vestern
+tarixi
+müharibə
+bioqrafik
+sənədli
+müzikl
+cizgi filmi
+ailəvi

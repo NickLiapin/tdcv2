@@ -1,0 +1,5 @@
+---
+description: Currency of Türkiyə (Azerbaijani)
+locale: az
+---
+Türkiyə lirəsi

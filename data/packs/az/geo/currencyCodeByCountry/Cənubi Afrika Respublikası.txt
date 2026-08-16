@@ -1,0 +1,5 @@
+---
+description: Currency code of Cənubi Afrika Respublikası
+locale: az
+---
+ZAR

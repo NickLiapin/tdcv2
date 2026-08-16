@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Pulmonology (Azerbaijani)
+locale: az
+---
+Bronxial astma
+XOAX
+Pnevmoniya
+Xroniki bronxit
+Bronxoektaziya
+Plevrit
+Ağciyər vərəmi
+Sarkoidoz
+Yuxu apnoesi
+Ağciyər emboliyası

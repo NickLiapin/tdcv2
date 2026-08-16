@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in populations of Hudyong Ashkenazi descent, in Filipino. The filename is the value in medical/ancestry.txt.
+locale: fil
+---
+Sakit na Tay-Sachs
+Sakit na Gaucher
+Sakit na Canavan
+Familial dysautonomia
+Mutasyon ng BRCA1 at BRCA2
+Bloom syndrome
+Fanconi anemia
+Niemann-Pick disease
+Sakit na Crohn
+Factor XI deficiency

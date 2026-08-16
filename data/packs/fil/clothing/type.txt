@@ -1,0 +1,32 @@
+---
+description: Garment, in Filipino. The first block is Philippine dress and is not translatable: the barong Tagalog is the formal men's shirt of sheer piña or jusi worn untucked over an undershirt, and it is the national costume and correct wear at a wedding, a cabinet meeting and a presidential inauguration; the baro't saya is its women's counterpart, and the terno its 1930s evolution with the stiff butterfly sleeve. Malong and patadyong are the tubular wrapped cloths of Mindanao and the Visayas. Bahag is the loincloth still worn in parts of the Cordillera. Tsinelas, rubber flip-flops, are what most Filipinos actually have on their feet. Maong is the Filipino word for denim, from Nankeen cotton by way of Macau, and maong means jeans without further qualification. Sando is the sleeveless undershirt, worn as outerwear at home by half the country.
+locale: fil
+---
+Barong Tagalog
+Baro't saya
+Terno
+Malong
+Patadyong
+Bahag
+Kimona
+Saya
+Salakot
+Bakya
+Tsinelas
+Sando
+Kamiseta
+Damit
+Bestida
+Blusa
+Palda
+Pantalon
+Maong
+Shorts
+Polo
+T-shirt
+Dyaket
+Suweter
+Medyas
+Sapatos
+Sumbrero
+Panyo

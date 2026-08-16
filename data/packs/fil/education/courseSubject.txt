@@ -1,0 +1,28 @@
+---
+description: School subject, in Filipino, as the Philippine curriculum names them. Four of these are Philippine subjects with no direct foreign counterpart and are official titles, not translations: Araling Panlipunan is the social-studies strand that runs the whole of basic education; Edukasyon sa Pagpapakatao is the values-and-ethics subject taught in every year, a legacy of a Catholic school system absorbed into the state one; MAPEH bundles Music, Arts, Physical Education and Health into a single graded subject; TLE, Technology and Livelihood Education, teaches cooking, dressmaking, electronics and agriculture as examinable school work. Filipino and English are BOTH taught as language subjects and both are media of instruction, which is why they appear side by side.
+locale: fil
+---
+Filipino
+Ingles
+Matematika
+Agham
+Pisika
+Kimika
+Biyolohiya
+Araling Panlipunan
+Kasaysayan
+Heograpiya
+Ekonomiks
+Edukasyon sa Pagpapakatao
+MAPEH
+Musika
+Sining
+Edukasyong Pangkatawan
+Kalusugan
+TLE
+Agham Pangkompyuter
+Estadistika
+Pilosopiya
+Sikolohiya
+Panitikan
+Banyagang Wika

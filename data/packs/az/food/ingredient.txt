@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Azerbaijani). Narşərab is boiled-down pomegranate juice and doşab the same thing made from grapes or mulberries; both are souring agents where a European kitchen would reach for vinegar or lemon. Motal is sheep cheese matured inside a skin.
+locale: az
+---
+un
+şəkər
+duz
+bitki yağı
+zeytun yağı
+kərə yağı
+yumurta
+süd
+qatıq
+ayran
+qaymaq
+pendir
+motal pendiri
+şor
+maya
+soda
+çörək sodası
+nişasta
+irmik
+bulqur
+düyü
+əriştə
+yarma
+yulaf
+makaron
+çörək
+kəpək
+bal
+doşab
+sirkə
+narşərab
+tomat pastası
+mayonez
+xardal
+təhin
+ət bulyonu
+jelatin
+kakao
+qoz
+kişmiş

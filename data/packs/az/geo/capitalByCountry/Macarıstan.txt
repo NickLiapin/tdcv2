@@ -1,0 +1,5 @@
+---
+description: Capital of Macarıstan (Azerbaijani)
+locale: az
+---
+Budapeşt

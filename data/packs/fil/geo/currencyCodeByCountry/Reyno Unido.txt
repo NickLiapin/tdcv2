@@ -1,0 +1,5 @@
+---
+description: ISO currency code of Reyno Unido.
+locale: fil
+---
+GBP

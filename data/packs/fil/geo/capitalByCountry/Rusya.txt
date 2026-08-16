@@ -1,0 +1,5 @@
+---
+description: Capital of Rusya (Filipino).
+locale: fil
+---
+Moscow

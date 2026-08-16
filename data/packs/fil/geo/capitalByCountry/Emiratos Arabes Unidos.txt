@@ -1,0 +1,5 @@
+---
+description: Capital of Emiratos Arabes Unidos (Filipino).
+locale: fil
+---
+Abu Dhabi

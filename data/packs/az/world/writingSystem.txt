@@ -1,0 +1,24 @@
+---
+description: Writing system (Azerbaijani). AZERBAIJANI CHANGED SCRIPT THREE TIMES IN ONE CENTURY: Perso-Arabic until 1929, Latin from 1929, CYRILLIC from 1939 under Soviet rule, and Latin again from 1991, phased in through 2001. All three are therefore live in the record — a birth certificate from 1925 is in Arabic script, one from 1960 in Cyrillic, one from 2000 in Latin, and archives, gravestones and family papers mix them freely. Today's alphabet has 32 letters, and three of them are the fastest proof that a text is Azerbaijani and not Turkish: Ə ə, the schwa, which is one of the commonest letters in the language and does not exist in Turkish at all; X x for the back fricative that Turkish writes h; and Q q for the voiced stop that Turkish writes k or g. Azerbaijani shares ı/İ, ö, ü, ç, ş and ğ with Turkish, so those prove nothing — Ə, X and Q are the ones that do. The 1991 Latin alphabet briefly used ä before settling on ə, which is why some 1990s documents look different again.
+locale: az
+---
+latın əlifbası
+kiril əlifbası
+ərəb əlifbası
+fars əlifbası
+Qafqaz Albaniyası əlifbası
+göytürk əlifbası
+yunan əlifbası
+erməni əlifbası
+gürcü əlifbası
+ibrani əlifbası
+devanaqari
+benqal yazısı
+tamil yazısı
+tay yazısı
+kxmer yazısı
+Çin heroqlifləri
+hiraqana
+katakana
+hanqıl
+mixi yazı

@@ -1,0 +1,12 @@
+---
+description: Dishes of Koreya cuisine (Azerbaijani)
+locale: az
+---
+kimçi
+bibimbap
+bulqoqi
+tteokbokki
+kimbap
+samgyopsal
+capçe
+kimçi ccige

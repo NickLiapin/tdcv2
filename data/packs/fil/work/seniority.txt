@@ -1,0 +1,21 @@
+---
+description: Level of seniority. English throughout, which is what Philippine HR uses; the two Philippine-specific entries are OJT, the required unpaid student placement, and Regular, which is not a rank in the European sense but a legal status conferred after six months of probation.
+locale: fil
+---
+OJT
+Trainee
+Junior
+Probationary
+Regular
+Associate
+Senior
+Lead
+Supervisor
+Assistant Manager
+Manager
+Senior Manager
+Director
+Assistant Vice President
+Vice President
+Head
+Chief

@@ -1,0 +1,20 @@
+---
+description: Academic degree. PHILIPPINE DIPLOMAS ARE ISSUED IN ENGLISH almost everywhere, and the abbreviations Filipinos actually write after their names are BS, AB, MA and PhD. The Filipino forms below are real and not invented — the University of the Philippines confers and prints its degrees in Filipino, so a UP diploma reads Batsilyer ng Sining rather than Bachelor of Arts — but they are the exception rather than the rule, and a Philippine HR record will hold the English string. Note that the Philippine bachelor's degree is normally four years and, since the K-12 reform of 2013, follows twelve years of basic education rather than ten.
+locale: fil
+---
+Batsilyer ng Sining
+Batsilyer ng Agham
+Batsilyer ng Agham sa Inhinyeriya
+Batsilyer ng Agham sa Nursing
+Batsilyer ng Sining sa Edukasyon
+Batsilyer ng Agham sa Accountancy
+Master ng Sining
+Master ng Agham
+Master sa Pangangasiwa ng Negosyo
+Master sa Pampublikong Pangangasiwa
+Doktor ng Pilosopiya
+Doktor ng Medisina
+Doktor sa Batas
+Doktor ng Edukasyon
+Diploma sa Senior High School
+Katibayan sa Bokasyonal

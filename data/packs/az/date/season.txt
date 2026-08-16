@@ -1,0 +1,8 @@
+---
+description: Season (Azerbaijani). WARNING FOR ANYONE PORTING FROM TURKISH: yaz is SPRING in Azerbaijani and SUMMER in Turkish. Azerbaijani summer is yay. The year turns at Novruz, the spring equinox on 20-21 March, which is the real new year of the calendar even though 1 January is the official one.
+locale: az
+---
+yaz
+yay
+payız
+qış

@@ -1,0 +1,22 @@
+---
+description: Cat breed (Azerbaijani)
+locale: az
+---
+ev pişiyi
+Van pişiyi
+fars pişiyi
+siam pişiyi
+Britaniya qısatüklü
+meyn-kun
+sfinks
+benqal pişiyi
+şotland qatlamaqulaq
+həbəş pişiyi
+Norveç meşə pişiyi
+rus mavisi
+Sibir pişiyi
+reqdoll
+birman pişiyi
+korniş-reks
+şərq pişiyi
+ekzotik qısatüklü

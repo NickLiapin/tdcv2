@@ -1,0 +1,16 @@
+---
+description: Leave type (Azerbaijani). Hərbi xidmət is on the list because military service is compulsory for men and interrupts a career record in a way a Western dataset does not model.
+locale: az
+---
+əmək məzuniyyəti
+əlavə məzuniyyət
+ödənişsiz məzuniyyət
+xəstəlik məzuniyyəti
+doğuma görə məzuniyyət
+atalıq məzuniyyəti
+uşağa qulluq məzuniyyəti
+təhsil məzuniyyəti
+üzrlü səbəbdən icazə
+inzibati məzuniyyət
+hərbi xidmət
+işin dayandırılması

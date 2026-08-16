@@ -1,0 +1,44 @@
+---
+description: Azerbaijani thoroughfare type — like Turkish, Azerbaijani puts it AFTER the name (Nizami küçəsi, Azadlıq prospekti, Səməd Vurğun meydanı). WHERE VOWEL HARMONY BITES: most of these are the bare noun plus the third-person possessive suffix, whose vowel is chosen by the noun's own last vowel — küçə + si, yol + u, meydan + ı, prospekt + i. A config that concatenates a name and a suffix must take the whole surface form from this list, never build one by gluing a fixed ending onto a noun. The prospekt / massiv / bulvar block came in through Russian and marks the sharpest visible break from Turkish, which has cadde and bulvar but no prospekt at all.
+locale: az
+---
+küçəsi
+küç.
+prospekti
+pr.
+bulvarı
+meydanı
+döngəsi
+dalanı
+yolu
+şosesi
+keçidi
+qəsəbəsi
+massivi
+yaşayış massivi
+sahəsi
+binası
+mənzil kompleksi
+kəndi
+qəsəbə
+körpüsü
+qovşağı
+parkı
+bağı
+xiyabanı
+dairəsi
+magistralı
+avtomobil yolu
+sahil zolağı
+məhəlləsi
+blok
+korpus
+pasajı
+bazarı
+karvansarayı
+plaza
+rezidensiya
+evləri
+vadisi
+yamacı
+tini

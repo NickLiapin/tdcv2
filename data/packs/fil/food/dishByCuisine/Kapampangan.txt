@@ -1,0 +1,22 @@
+---
+description: Dishes of Kapampangan cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Sisig
+Bringhe
+Tibok-tibok
+Kilayin
+Betute
+Camaru
+Buro
+Adobong kamaru
+Morcon
+Asadong Kapampangan
+Pindang damulag
+Tocino ng Pampanga
+Halayang ube
+Sanikulas
+Duman
+Bulanglang Kapampangan
+Lechon kawali
+Menudong Kapampangan

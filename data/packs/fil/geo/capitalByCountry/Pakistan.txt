@@ -1,0 +1,5 @@
+---
+description: Capital of Pakistan (Filipino).
+locale: fil
+---
+Islamabad

@@ -1,0 +1,11 @@
+---
+description: Positions in water polo (Azerbaijani)
+locale: az
+---
+qapıçı
+sağ kənar
+sol kənar
+sağ hücumçu
+sol hücumçu
+mərkəz hücumçu
+mərkəz müdafiəçi

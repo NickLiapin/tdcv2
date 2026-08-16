@@ -1,0 +1,82 @@
+---
+description: Medical diagnosis in Azerbaijani that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale / diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. The clinical vocabulary is Russian-mediated Latin, which is why it reads closer to a Russian chart than to a Turkish one.
+locale: az
+---
+Hipertoniya
+Koronar arteriya xəstəliyi
+Gərginlik stenokardiyası
+Miokard infarktı
+Qulaqcıq fibrilyasiyası
+Ürək çatışmazlığı
+Kardiomiopatiya
+Miokardit
+Ateroskleroz
+Varikoz genişlənmə
+Dərin vena trombozu
+Ağciyər emboliyası
+İnsult
+Keçici işemik atak
+Miqren
+Epilepsiya
+Dağınıq skleroz
+Parkinson xəstəliyi
+Demensiya
+Periferik neyropatiya
+Radikulopatiya
+Onurğa deqenerasiyası
+Disk yırtığı
+Osteoartrit
+Revmatoid artrit
+Podaqra
+Osteoporoz
+Skolioz
+Bronxial astma
+XOAX
+Xroniki bronxit
+Pnevmoniya
+Plevrit
+Ağciyər vərəmi
+Sarkoidoz
+Yuxu apnoesi
+Kəskin sinusit
+Xroniki tonzillit
+Otit
+Larinqit
+Qastrit
+Mədə xorası
+Reflüks xəstəliyi
+Qıcıqlanmış bağırsaq sindromu
+Kron xəstəliyi
+Xoralı kolit
+Seliakiya
+Xroniki pankreatit
+Öd daşı
+Xolesistit
+Hepatit B
+Hepatit C
+Qaraciyər sirrozu
+Qaraciyərin piylənməsi
+Xroniki böyrək xəstəliyi
+Pielonefrit
+Qlomerulonefrit
+Böyrək daşı
+Sidik yolları infeksiyası
+1-ci tip diabet
+2-ci tip diabet
+Hipotireoz
+Hipertireoz
+Piylənmə
+Metabolik sindrom
+Dəmir çatışmazlığı anemiyası
+B12 çatışmazlığı anemiyası
+Atopik dermatit
+Psoriaz
+Ekzema
+Övrə
+Sızanaq
+Allergik rinit
+Konyunktivit
+Katarakta
+Qlaukoma
+Depressiv epizod
+Ümumiləşmiş narahatlıq pozuntusu

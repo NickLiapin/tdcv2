@@ -1,0 +1,12 @@
+---
+description: Dishes of Çin cuisine (Azerbaijani)
+locale: az
+---
+Pekin ördəyi
+vok əriştəsi
+dim sum
+turş-şirin donuz əti
+vonton şorbası
+qovrulmuş düyü
+mapo tofu
+baodzı

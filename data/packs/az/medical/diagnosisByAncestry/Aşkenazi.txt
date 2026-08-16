@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry, in Azerbaijani. A prevalence signal, not an exclusive one.
+locale: az
+---
+Tey-Saks xəstəliyi
+Qoşe xəstəliyi
+Ailəvi disavtonomiya
+Kanavan xəstəliyi
+Blum sindromu
+Fankoni anemiyası tip C
+Kistik fibroz
+BRCA1 və BRCA2 mutasiyaları
+Faktor XI çatışmazlığı
+Nimann-Pik xəstəliyi tip A

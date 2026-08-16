@@ -1,0 +1,44 @@
+---
+description: Dishes of Filipino cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Adobo
+Sinigang na baboy
+Kare-kare
+Sisig
+Lechon
+Kaldereta
+Menudo
+Afritada
+Mechado
+Tinolang manok
+Nilagang baka
+Bulalo
+Dinuguan
+Pinakbet
+Ginataang gulay
+Inihaw na liempo
+Chicken inasal
+Kinilaw
+Pancit canton
+Pancit palabok
+Lumpiang Shanghai
+Lumpiang sariwa
+Arroz caldo
+Goto
+Champorado
+Tapsilog
+Tocilog
+Longsilog
+Sinangag
+Halo-halo
+Leche flan
+Bibingka
+Puto bumbong
+Turon
+Taho
+Suman
+Biko
+Ube halaya
+Buko pie
+Chicharon

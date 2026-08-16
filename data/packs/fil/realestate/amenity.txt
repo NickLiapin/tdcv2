@@ -1,0 +1,32 @@
+---
+description: Feature of a property. THREE OF THESE ARE PHILIPPINE ARCHITECTURE AND WOULD PUZZLE A EUROPEAN AGENT. The dirty kitchen is a second kitchen, outdoors or at the back, where the actual cooking with fish sauce and open flame happens while the indoor kitchen stays clean for show; a Philippine house plan draws it. The maid's room, kuwarto ng kasambahay, is a small room off the service area included in ordinary middle-class house plans because live-in household help is common. Azotea is the Spanish-era roof terrace. Add to those a generator or at least a backup, because brownouts are routine, and a water tank, because mains pressure is not continuous. Gated subdivisions with a guard house are the standard form of middle-class housing rather than a luxury.
+locale: fil
+---
+Swimming pool
+Garahe
+Paradahan
+Balkonahe
+Terasa
+Azotea
+Lanai
+Hardin
+Silong
+Bodega
+Dirty kitchen
+Kuwarto ng kasambahay
+Aircon
+Ceiling fan
+Generator
+Solar panel
+Water tank
+Deep well
+Elevator
+Guard house
+24-hour security
+Perimeter fence
+CCTV
+Gym
+Clubhouse
+Basketball court
+Playground
+Chapel

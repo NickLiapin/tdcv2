@@ -1,0 +1,14 @@
+---
+description: Positions in rugby union (Azerbaijani)
+locale: az
+---
+dirək
+kancaçı
+kilid
+flanker
+səkkizinci nömrə
+skram-hafbek
+flay-hafbek
+mərkəz
+kanat
+fulbek

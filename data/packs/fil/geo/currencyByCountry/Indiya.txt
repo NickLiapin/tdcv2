@@ -1,0 +1,5 @@
+---
+description: Currency of Indiya (Filipino).
+locale: fil
+---
+Rupee

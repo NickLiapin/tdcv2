@@ -1,0 +1,59 @@
+---
+description: Corporate adjective, in Filipino. HONESTY FIRST: Philippine boardrooms run in English, and a Filipino manager says 'scalable' and 'end-to-end' out loud. The words below are the ones formal written Filipino actually uses — government memoranda, Filipino-language annual reports, the National Economic and Development Authority's Filipino releases — rather than invented calques, which is why some are Spanish loans (integrado, estratehiko) and some are native ma-/pang- derivations. A config generating Philippine corporate speech realistically should be mixing this list with English, not choosing one.
+locale: fil
+---
+Napapalawak
+Maliksi
+Walang putol
+Matatag
+Integrado
+Pinasimple
+Ipinamamahagi
+Nakabatay sa ulap
+Batay sa datos
+Nakatuon sa mamimili
+Dulo-hanggang-dulo
+Bagong henerasyon
+Real-time
+Cross-platform
+Pang-enterprise
+Modular
+Walang alitan
+Handa nang gamitin
+Nangunguna sa uri
+Handa sa hinaharap
+Holistiko
+Dinamiko
+Maagap
+Madaling makibagay
+Optimisado
+Ligtas
+Matalino
+Awtomatiko
+Nagkakaisa
+Magkatuwang
+Makabago
+Mapanghamon
+Payak
+Pasadya
+Nababago
+Matibay
+Nababanat
+Napapalawig
+Naisasakatuparan
+May dagdag na halaga
+Estratehiko
+Mapagkumpitensiya
+Napapanatili
+Mapagkukunan
+Bukas
+Transparente
+May pananagutan
+Mabilis kumilos
+Global
+Lokal na nakaugat
+Sertipikado
+Naaayon sa batas
+Napapatunayan
+Nasusukat
+Napapabilis

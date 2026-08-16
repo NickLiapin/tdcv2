@@ -1,0 +1,5 @@
+---
+description: Capital of İsveçrə (Azerbaijani)
+locale: az
+---
+Bern

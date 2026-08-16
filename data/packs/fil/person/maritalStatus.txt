@@ -1,0 +1,18 @@
+---
+description: Marital status, in Filipino. THE PHILIPPINES HAS NO DIVORCE. It is, with Vatican City, the only state in the world where a marriage between two non-Muslim citizens cannot be dissolved: what exists instead is annulment, a court finding that the marriage was void or voidable from the start, and legal separation, which separates the parties and their property but leaves them married and unable to remarry. Both take years and cost more than most Filipinos earn in one. So a Philippine record has no 'divorced' value to hold, and the two Filipino words that fill the gap — hiwalay for separated in fact, and the annulment finding — are not equivalents. Note two further things. Binata and dalaga are not one word: Filipino distinguishes an unmarried man from an unmarried woman lexically and has no unmarked 'single'. And Muslim Filipinos marry, divorce and may take more than one wife under the Code of Muslim Personal Laws, a separate family-law system administered by Sharia courts, so 'no divorce in the Philippines' is true of the majority and not of everyone.
+locale: fil
+---
+Binata
+Dalaga
+May-asawa
+Kasal
+Nakatakdang ikasal
+Live-in
+Hiwalay
+Legal na hiwalay
+Napawalang-bisa ang kasal
+Balo
+Balong lalaki
+Balong babae
+Solo parent
+Muslim na kasal

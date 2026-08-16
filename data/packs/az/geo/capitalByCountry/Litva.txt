@@ -1,0 +1,5 @@
+---
+description: Capital of Litva (Azerbaijani)
+locale: az
+---
+Vilnüs

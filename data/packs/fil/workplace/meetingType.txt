@@ -1,0 +1,16 @@
+---
+description: Kind of meeting, in Filipino and English. Pulong is the Filipino word and is what a government office or a barangay calls its meeting; the corporate vocabulary is English.
+locale: fil
+---
+Pulong
+Standup
+One-on-one
+All hands
+Town hall
+Retrospective
+Sprint planning
+Kickoff
+Sync
+Review
+Workshop
+Brainstorm

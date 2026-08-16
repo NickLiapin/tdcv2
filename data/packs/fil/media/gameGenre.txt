@@ -1,0 +1,21 @@
+---
+description: Video game genre, in Filipino. MOBA sits high because of Mobile Legends, which in the Philippines is not a genre entry but a national sport with televised finals and a professional league.
+locale: fil
+---
+Aksyon
+Pakikipagsapalaran
+Role-playing
+MOBA
+Estratehiya
+Simulasyon
+Palakasan
+Palaisipan
+Shooter
+Battle royale
+Platformer
+Karera
+Away-away
+Survival
+Sandbox
+MMORPG
+Roguelike

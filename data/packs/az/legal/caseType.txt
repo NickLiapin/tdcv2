@@ -1,0 +1,17 @@
+---
+description: Legal case type (Azerbaijani)
+locale: az
+---
+mülki iş
+cinayət işi
+inzibati iş
+kommersiya mübahisəsi
+inzibati xəta işi
+əmək mübahisəsi
+ailə işi
+vərəsəlik işi
+mülkiyyət mübahisəsi
+torpaq mübahisəsi
+vergi mübahisəsi
+müflisləşmə işi
+ziyanın ödənilməsi iddiası

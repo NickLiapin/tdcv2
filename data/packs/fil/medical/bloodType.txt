@@ -1,0 +1,12 @@
+---
+description: ABO and Rhesus blood group. Universal notation. Worth knowing for generation: O is the commonest group in the Philippines and Rh-negative blood is rare here — well under one per cent of Filipinos — so a generated Philippine population in which negative types appear at European frequencies is wrong by an order of magnitude.
+locale: fil
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

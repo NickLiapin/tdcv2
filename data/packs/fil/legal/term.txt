@@ -1,0 +1,25 @@
+---
+description: Legal term, in Filipino. Note the pair nagsasakdal and nasasakdal, plaintiff and defendant: the same root sakdal (complaint) takes nag- for the one who does the accusing and na- for the one it is done to, so the two sides of a case are distinguished by a single affix rather than by two unrelated words. That is the focus system doing the work that Latin roots do in English. Piskal is the public prosecutor, from Spanish; hukom the judge; and abogado, not the coined Filipino manananggol, is what Filipinos actually say.
+locale: fil
+---
+Nagsasakdal
+Nasasakdal
+Usapin
+Demanda
+Reklamo
+Patawag
+Salaysay
+Testimonya
+Saksi
+Ebidensiya
+Hatol
+Pasiya
+Kautusan
+Apela
+Piyansa
+Kasunduan
+Hurisdiksiyon
+Abogado
+Piskal
+Hukom
+Mahistrado

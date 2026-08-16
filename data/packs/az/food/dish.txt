@@ -1,0 +1,44 @@
+---
+description: Dish (Azerbaijani). Plov is the centre of the cuisine and is counted in dozens of named versions, of which şah plov, baked inside a lavash crust, is the ceremonial one; dolma means anything stuffed, from vine leaves to aubergines; qutab is a thin folded flatbread filled with greens, meat or pumpkin. Paxlava, şəkərbura and şorqoğal are the fixed Novruz table.
+locale: az
+---
+plov
+şah plov
+toyuq plovu
+səbzi plov
+südlü plov
+dolma
+yarpaq dolması
+badımcan dolması
+bibər dolması
+qutab
+ət qutabı
+göyərti qutabı
+balqabaq qutabı
+dovğa
+düşbərə
+piti
+bozbaş
+küftə bozbaş
+kükü
+çığırtma
+ləvəngi
+balıq ləvəngisi
+lülə kabab
+tikə kabab
+toyuq kababı
+balıq kababı
+sac
+xaş
+xəngəl
+sulu xəngəl
+qovurma
+buğlama
+əriştə
+umac
+cız-bız
+kətə
+təndir çörəyi
+şəkərbura
+paxlava
+şorqoğal

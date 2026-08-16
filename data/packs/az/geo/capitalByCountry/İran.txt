@@ -1,0 +1,5 @@
+---
+description: Capital of İran (Azerbaijani)
+locale: az
+---
+Tehran

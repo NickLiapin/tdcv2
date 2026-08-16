@@ -1,0 +1,5 @@
+---
+description: Capital of Argentina (Azerbaijani)
+locale: az
+---
+Buenos-Ayres

@@ -1,0 +1,14 @@
+---
+description: Loan type (Azerbaijani)
+locale: az
+---
+istehlak krediti
+ipoteka krediti
+avtomobil krediti
+kredit kartı
+overdraft
+biznes krediti
+mikrokredit
+girovlu kredit
+kreditin restrukturizasiyası
+təhsil krediti

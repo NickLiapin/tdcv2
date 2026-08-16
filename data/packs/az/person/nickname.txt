@@ -1,0 +1,34 @@
+---
+description: Common Azerbaijani short form of a given name. DELIBERATELY SHORT: Azerbaijani hypocoristics are formed productively rather than drawn from a fixed inventory, so only forms in general use are listed rather than a longer list of plausible-looking constructions. Three patterns account for nearly all of them — a final -o on the first syllable or two (Rəşid to Rəşo, Kamran to Kamo, Hüseyn to Hüso), the diminutive -ş (Məmməd to Məmiş), and the Russian -ik that came in during the Soviet period (Əli to Əlik).
+locale: az
+---
+Məmiş
+Alış
+Balaş
+Əlik
+Rəşo
+Kamo
+Elo
+Vaqo
+Nuro
+Cəmo
+Səmo
+Mehdo
+Muso
+Həso
+Hüso
+Bəhro
+İso
+Zaho
+Fato
+Nazo
+Sevo
+Günü
+Ayna
+Nigi
+Səbi
+Mehri
+Zeyni
+Fati
+Leylo
+Turi

@@ -1,0 +1,5 @@
+---
+description: Currency of Timog Aprika (Filipino).
+locale: fil
+---
+Rand

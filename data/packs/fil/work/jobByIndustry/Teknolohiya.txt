@@ -1,0 +1,18 @@
+---
+description: Jobs in Teknolohiya. Philippine job advertisements and payslips are written in English, so most titles are English even in a Filipino-language record; the Filipino words appear where the trade has a Filipino name that people actually use — nars, guro, karpintero, tubero, drayber, kusinero, tindera. The filename is the value in work/industryCoherent.txt.
+locale: fil
+---
+Software engineer
+Web developer
+Mobile developer
+Data analyst
+QA engineer
+Sysad
+Network engineer
+IT support
+UX designer
+Project manager
+Call center agent
+Technical support
+Virtual assistant
+Cybersecurity analyst

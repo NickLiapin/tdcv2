@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Azerbaijani)
+locale: az
+---
+müraciət
+CV baxışı
+telefon söhbəti
+İR müsahibəsi
+nümunə tapşırıq
+texniki müsahibə
+rəhbərlə müsahibə
+yekun görüş
+referansların yoxlanması
+iş təklifi
+işə başlama

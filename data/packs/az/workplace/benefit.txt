@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Azerbaijani)
+locale: az
+---
+könüllü tibbi sığorta
+həyat sığortası
+ödənişli məzuniyyət
+əlavə məzuniyyət günləri
+ödənişli xəstəlik məzuniyyəti
+çevik iş qrafiki
+uzaqdan işləmə
+təhsil dəstəyi
+ingilis dili kursu
+idman zalı abunəsi
+yeməkxana
+yemək kartı
+yol xərci
+şirkət avtomobili
+korporativ nömrə
+performans mükafatı
+13-cü əmək haqqı
+maddi yardım

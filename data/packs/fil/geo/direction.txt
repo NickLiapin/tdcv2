@@ -1,0 +1,20 @@
+---
+description: Compass direction, Filipino, sixteen points. The four cardinals are Hilaga, Timog, Silangan and Kanluran; the intercardinals are hyphenated compounds that put the north-south term first and link it with -ng, giving Hilagang-silangan and Timog-kanluran. FILIPINO ALSO NAVIGATES BY WIND, WHICH THE COMPASS WORDS DO NOT CAPTURE: amihan is the cool north-easterly monsoon that blows from roughly November to February and habagat the wet south-westerly that blows from June to September, and a Filipino fisherman or farmer will name the season and the direction in one word. Both are in weather/phenomenon rather than here, because they are winds first and bearings second.
+locale: fil
+---
+Hilaga
+Timog
+Silangan
+Kanluran
+Hilagang-silangan
+Hilagang-kanluran
+Timog-silangan
+Timog-kanluran
+Hilaga-hilagang-silangan
+Silangan-hilagang-silangan
+Silangan-timog-silangan
+Timog-timog-silangan
+Timog-timog-kanluran
+Kanluran-timog-kanluran
+Kanluran-hilagang-kanluran
+Hilaga-hilagang-kanluran

@@ -1,0 +1,39 @@
+---
+description: Music genre (Azerbaijani). MUĞAM comes first because it is the classical art music of Azerbaijan and a UNESCO intangible heritage item: a modal improvisation cycle sung over tar and kamança, and nothing in a Western genre list corresponds to it. Aşıq is the bardic tradition, meyxana a competitive sung repartee, and the Azerbaijani jazz-mugham fusion of Vaqif Mustafazadə is a genre with a name of its own.
+locale: az
+---
+muğam
+muğam-caz
+aşıq musiqisi
+meyxana
+xalq mahnısı
+Azərbaycan xalq musiqisi
+təsnif
+rəng
+zərbi muğam
+aşıq havası
+estrada
+pop
+rok
+hard rok
+punk
+metal
+alternativ
+indi
+hip-hop
+rep
+R&B
+soul
+caz
+blyuz
+fank
+disko
+elektron musiqi
+haus
+texno
+trans
+ambient
+klassik musiqi
+opera
+simfonik musiqi
+kamera musiqisi

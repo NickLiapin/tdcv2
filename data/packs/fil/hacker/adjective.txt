@@ -1,0 +1,32 @@
+---
+description: Technical adjective. Filipino IT speech is Taglish and a Manila developer says 'open-source' out loud, so the honest list mixes native ma- and pang- forms with borrowings kept as they are said. Nakabatay sa ulap is the coined Filipino for cloud-based and does exist in formal writing; nobody says it in a stand-up.
+locale: fil
+---
+pantulong
+pangunahin
+panlikuran
+pang-unahan
+dihital
+birtwal
+bukas-pinagmulan
+kalabisan
+nakakonekta
+walang wire
+optikal
+neural
+mobile
+mabilis
+ligtas
+awtomatiko
+matalino
+nakabatay sa ulap
+naka-encrypt
+sabay-sabay
+tuloy-tuloy
+malayuan
+lokal
+pandaigdig
+pangkalahatan
+tiyak
+madaling gamitin
+cross-platform

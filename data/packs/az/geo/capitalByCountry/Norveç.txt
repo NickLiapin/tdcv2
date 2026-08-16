@@ -1,0 +1,5 @@
+---
+description: Capital of Norveç (Azerbaijani)
+locale: az
+---
+Oslo

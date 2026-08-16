@@ -1,0 +1,11 @@
+---
+description: Positions in handball (Azerbaijani)
+locale: az
+---
+qapıçı
+sol kanat
+sol yarımmüdafiəçi
+mərkəz
+sağ yarımmüdafiəçi
+sağ kanat
+pivot

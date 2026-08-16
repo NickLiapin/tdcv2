@@ -1,0 +1,19 @@
+---
+description: Kind of court, in Filipino. The country is the Philippines. SANDIGANBAYAN IS THE INTERESTING ONE: it is a national anti-graft court created in 1978 that tries public officials, and its name is not a translation of anything — sandigan means bulwark or support, and the court was named in Filipino from the start, which is unusual for an institution of that period. Kataas-taasang Hukuman is the Supreme Court in Filipino, though the English name is what appears on its own decisions. Hukumang Sharia are real courts operating in Muslim Mindanao under the Code of Muslim Personal Laws, with jurisdiction over marriage, divorce and inheritance among Muslim Filipinos — so the country has two family-law systems running side by side, and only one of them has divorce. Lupon ng Tagapamayapa is the village peace council that must hear a dispute before a court will.
+locale: fil
+---
+Kataas-taasang Hukuman
+Korte Suprema
+Hukuman ng Apelasyon
+Sandiganbayan
+Hukuman sa Buwis
+Hukumang Panrehiyon
+Hukumang Pambayan
+Hukumang Panlungsod
+Hukumang Pampamilya
+Hukumang Sharia
+Hukuman ng Maliliit na Usapin
+Hukumang Pang-agraryo
+Hukumang Militar
+Lupon ng Tagapamayapa
+Katarungang Pambarangay

@@ -1,0 +1,58 @@
+---
+description: Colour as written on an Azerbaijani product listing
+locale: az
+---
+ağ
+qara
+boz
+açıq boz
+tünd boz
+antrasit
+gümüşü
+qızılı
+bürünc
+mis rəngi
+bej
+krem
+ekru
+qum rəngi
+qəhvəyi
+şokolad rəngi
+karamel rəngi
+fındıq rəngi
+qırmızı
+tünd qırmızı
+albalı rəngi
+fuksiya
+çəhrayı
+pudra rəngi
+mərcan rəngi
+narıncı
+şaftalı rəngi
+kərpici
+sarı
+limonu
+xardal rəngi
+yaşıl
+zeytunu
+açıq yaşıl
+zümrüd
+nanə rəngi
+xaki
+firuzəyi
+açıq mavi
+göy
+mavi
+lacivərd
+sürməyi
+bənövşəyi
+yasəməni
+lila
+lavanda rəngi
+gavalı rəngi
+şəffaf
+çoxrəngli
+ağac naxışlı
+mərmər naxışlı
+xalça naxışlı
+buta naxışlı

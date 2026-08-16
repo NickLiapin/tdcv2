@@ -1,0 +1,16 @@
+---
+description: Zodiac sign, in Filipino. All twelve are Spanish, respelled to Filipino orthography: Hemini for Géminis, Birgo for Virgo, Eskorpiyon for Escorpión, Kaprikornyo for Capricornio. Philippine newspapers and morning television carry horoscopes daily and the Chinese zodiac runs alongside them, because Chinese New Year is a public holiday here.
+locale: fil
+---
+Aries
+Tauro
+Hemini
+Kanser
+Leo
+Birgo
+Libra
+Eskorpiyon
+Sagitaryo
+Kaprikornyo
+Akwaryo
+Piscis

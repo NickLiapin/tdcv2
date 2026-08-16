@@ -1,0 +1,8 @@
+---
+description: Gender label (Azerbaijani). Four values, matching en and ru.
+locale: az
+---
+Kişi
+Qadın
+Digər
+Göstərilməyib

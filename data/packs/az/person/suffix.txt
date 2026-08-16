@@ -1,0 +1,28 @@
+---
+description: Name / academic suffix (Azerbaijani). Azerbaijani has no native Jr./Sr. convention — a son is distinguished by his patronymic instead — so the first two are imported and the rest read as trailing role qualifiers.
+locale: az
+---
+Jr.
+Sr.
+MBA
+MSc
+BSc
+PhD
+LL.M.
+f.d.
+e.d.
+Təqaüdçü
+Mütəxəssis
+Baş mütəxəssis
+Təcrübəçi
+Rəhbər
+Məsləhətçi
+Tərəfdaş
+Təsisçi
+Fəxri
+Müvəkkil
+Müavini
+Məsulu
+Rəisi
+Sədri
+Üzvü

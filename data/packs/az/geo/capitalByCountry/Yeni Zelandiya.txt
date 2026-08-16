@@ -1,0 +1,5 @@
+---
+description: Capital of Yeni Zelandiya (Azerbaijani)
+locale: az
+---
+Vellinqton

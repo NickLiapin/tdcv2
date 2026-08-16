@@ -1,0 +1,5 @@
+---
+description: Currency code of Böyük Britaniya
+locale: az
+---
+GBP

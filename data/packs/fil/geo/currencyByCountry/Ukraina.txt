@@ -1,0 +1,5 @@
+---
+description: Currency of Ukraina (Filipino).
+locale: fil
+---
+Hryvnia

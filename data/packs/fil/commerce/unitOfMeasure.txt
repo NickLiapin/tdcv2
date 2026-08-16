@@ -1,0 +1,34 @@
+---
+description: Unit a thing is sold or measured in. THE PHILIPPINE MARKET UNITS ARE NOT METRIC AND NOT IMPERIAL and several have no equivalent anywhere in Europe. Tumpok is a heap: vegetables and fish are piled into little mounds on the table and each mound is one price, so quantity is negotiated by the size of the heap rather than by weight. Salop is the ganta, the traditional dry measure for rice, about three litres; gatang is a fraction of it; kaban is the sack, taken as fifty kilos of milled rice. Dangkal is the span from thumb to middle finger and dipa the span of both outstretched arms — body measures still used for cloth, rope and fencing. Bilao is the flat round winnowing basket and is also a unit: pancit is ordered by the bilao. The metric units below are the legal ones and are what appears on a receipt.
+locale: fil
+---
+piraso
+tumpok
+bungkos
+tali
+bigkis
+kilo
+gramo
+litro
+mililitro
+metro
+sentimetro
+dosena
+pares
+set
+kahon
+sako
+supot
+bote
+lata
+pakete
+sachet
+rolyo
+bilao
+bandehado
+salop
+gatang
+kaban
+dangkal
+dipa
+bara

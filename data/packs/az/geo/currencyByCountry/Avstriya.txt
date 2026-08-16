@@ -1,0 +1,5 @@
+---
+description: Currency of Avstriya (Azerbaijani)
+locale: az
+---
+avro

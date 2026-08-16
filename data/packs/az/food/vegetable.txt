@@ -1,0 +1,34 @@
+---
+description: Vegetable (Azerbaijani)
+locale: az
+---
+kartof
+yerkökü
+çuğundur
+kələm
+soğan
+sarımsaq
+pomidor
+xiyar
+bibər
+bulqari bibər
+badımcan
+balqabaq
+boranı
+turp
+şalğam
+kərəviz
+cəfəri
+şüyüd
+quzuqulağı
+ispanaq
+kahı
+qarğıdalı
+noxud
+lobya
+mərci
+brokoli
+gül kələm
+kəvər
+yerarmudu
+bamya

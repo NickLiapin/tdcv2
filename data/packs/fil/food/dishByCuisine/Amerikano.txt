@@ -1,0 +1,22 @@
+---
+description: Dishes of Amerikano cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Cheeseburger
+Hotdog
+Fried chicken
+Barbecue ribs
+Mac and cheese
+Caesar salad
+Club sandwich
+Pancakes
+Waffles
+Steak
+Meatloaf
+Buffalo wings
+Clam chowder
+Apple pie
+Brownies
+Cheesecake
+Corn dog
+Coleslaw

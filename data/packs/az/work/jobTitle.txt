@@ -1,0 +1,264 @@
+---
+description: Azerbaijani job titles across sectors — tech, healthcare, trades, oil and gas, transport, business, service and public. The oil block is longer than a European list would carry, and deliberately so.
+locale: az
+---
+proqram təminatı hazırlayan
+frontend proqramçı
+backend proqramçı
+mobil proqramçı
+test mühəndisi
+sistem administratoru
+şəbəkə mühəndisi
+verilənlər bazası administratoru
+DevOps mühəndisi
+sistem memarı
+data analitiki
+data alimi
+kibertəhlükəsizlik mütəxəssisi
+interfeys dizayneri
+qrafik dizayner
+məhsul meneceri
+layihə meneceri
+skram master
+texnologiya direktoru
+texniki dəstək mütəxəssisi
+terapevt
+ailə həkimi
+cərrah
+kardioloq
+nevroloq
+endokrinoloq
+oftalmoloq
+otolarinqoloq
+dermatoloq
+psixiatr
+anestezioloq
+mama-ginekoloq
+uşaq həkimi
+ortoped
+uroloq
+onkoloq
+diş həkimi
+ortodont
+tibb bacısı
+baş tibb bacısı
+feldşer
+mama
+əczaçı
+laborant
+radioloq texniki
+fizioterapevt
+masajçı
+dietoloq
+baytar həkimi
+ibtidai sinif müəllimi
+riyaziyyat müəllimi
+fizika müəllimi
+kimya müəllimi
+biologiya müəllimi
+tarix müəllimi
+Azərbaycan dili müəllimi
+ingilis dili müəllimi
+informatika müəllimi
+bədən tərbiyəsi müəllimi
+məktəbəqədər tərbiyəçi
+universitet müəllimi
+dosent
+professor
+elmi işçi
+təhsil mütəxəssisi
+məktəb direktoru
+direktor müavini
+sinif rəhbəri
+məktəb psixoloqu
+mühasib
+baş mühasib
+auditor
+maliyyə analitiki
+iqtisadçı
+bank kassiri
+kredit mütəxəssisi
+investisiya analitiki
+sığorta agenti
+vergi məsləhətçisi
+əmlak qiymətləndiricisi
+daxili auditor
+xəzinədarlıq mütəxəssisi
+maliyyə direktoru
+hüquqşünas
+vəkil
+notarius
+hakim
+prokuror
+müstəntiq
+hüquq məsləhətçisi
+patent vəkili
+mediator
+icra məmuru
+inşaat mühəndisi
+memar
+landşaft memarı
+layihəçi
+sahə rəisi
+smetaçı
+bənna
+suvaqçı
+rəngsaz
+kafelçi
+dam ustası
+dülgər
+xarrat
+elektrik
+santexnik
+qaynaqçı
+quraşdırıcı
+kran operatoru
+buldozer operatoru
+ekskavator operatoru
+tokar
+frezerçi
+çilingər
+təmir texniki
+CNC operatoru
+dəzgah quraşdırıcısı
+istehsalat texnoloqu
+maşın mühəndisi
+konstruktor mühəndis
+keyfiyyətə nəzarətçi
+sex ustası
+növbə rəisi
+qablaşdırıcı
+anbardar
+yükləyici
+neft-qaz mühəndisi
+qazma ustası
+buruq ustası
+geoloq
+geofizik
+seysmik operator
+neft emalı operatoru
+boru kəməri mühəndisi
+dəniz platforması operatoru
+rezervuar mühəndisi
+laboratoriya kimyaçısı
+əməyin təhlükəsizliyi mütəxəssisi
+kompressor operatoru
+neftçi
+yük maşını sürücüsü
+avtobus sürücüsü
+tramvay sürücüsü
+taksi sürücüsü
+qatar maşinisti
+metro maşinisti
+konduktor
+əməliyyat mütəxəssisi
+logistika mütəxəssisi
+ekspeditor
+gömrük brokeri
+təyyarə texniki
+pilot
+bortbələdçi
+hava limanı işçisi
+gəmi kapitanı
+mexanik
+liman fəhləsi
+kuryer
+yedək sürücüsü
+satış məsləhətçisi
+kassir
+mal qəbulçusu
+mağaza müdiri
+məhsul üzrə məsul
+satınalma mütəxəssisi
+kateqoriya meneceri
+satış müdiri
+sahə satış təmsilçisi
+anbar operatoru
+sifariş yığıcısı
+mağaza direktoru
+otel resepsiyonisti
+rezervasiya mütəxəssisi
+mərtəbə xidmətçisi
+qapıçı
+konsyerj
+aşpaz
+aşpaz köməkçisi
+şef
+qənnadçı
+çörəkçi
+qəssab
+ofisiant
+barmen
+barista
+somelye
+metrdotel
+animator
+bələdçi
+tur operatoru
+tədbir təşkilatçısı
+marketinq mütəxəssisi
+sosial media mütəxəssisi
+kontent redaktoru
+kopirayter
+redaktor
+korrektor
+jurnalist
+fotoqraf
+operator
+montajçı
+səs mühəndisi
+diktor
+aparıcı
+rejissor
+ssenarist
+tərcüməçi
+insan resursları mütəxəssisi
+işə qəbul mütəxəssisi
+təlim mütəxəssisi
+ofis meneceri
+katibə
+sənədləşmə üzrə mütəxəssis
+arxivçi
+icraçı direktor köməkçisi
+çağrı mərkəzi operatoru
+müştəri xidmətləri mütəxəssisi
+polis əməkdaşı
+xilasedici
+yanğınsöndürən
+hərbi qulluqçu
+sərhədçi
+gömrük əməkdaşı
+mühafizəçi
+dövlət qulluqçusu
+sosial işçi
+kitabxanaçı
+muzey işçisi
+bərpaçı memar
+aqronom
+zootexnik
+traktorçu
+kombaynçı
+fermer
+arıçı
+meşəçi
+balıqçı
+bağban
+gülçü
+təmizlikçi
+tullantı yığıcısı
+bina nəzarətçisi
+lift ustası
+bərbər
+gözəllik ustası
+manikürçü
+kosmetoloq
+vizajist
+dərzi
+ayaqqabı ustası
+saatsaz
+zərgər
+dulusçu
+mebel ustası
+xalçaçı
+misgər
+piano kökləyicisi

@@ -1,0 +1,16 @@
+---
+description: Month name. EVERY ONE IS SPANISH, respelled to Filipino orthography — Enero, Pebrero, Marso — because Spain brought the calendar and the calendar stayed. Pebrero and Nobyembre show the respelling rule at work: Filipino writes the sound, so Spanish f becomes p and v becomes b, and Setyembre loses the Spanish -ie- diphthong. Native Tagalog had its own moon-month names, which the Spanish friars recorded and which are dead outside dictionaries. Written in the Philippines with an initial capital; a date reads Ika-16 ng Agosto 2026 or, far more often, 16 August 2026 in English.
+locale: fil
+---
+Enero
+Pebrero
+Marso
+Abril
+Mayo
+Hunyo
+Hulyo
+Agosto
+Setyembre
+Oktubre
+Nobyembre
+Disyembre

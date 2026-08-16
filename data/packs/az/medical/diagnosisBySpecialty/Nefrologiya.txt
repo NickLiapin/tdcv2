@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Nephrology (Azerbaijani)
+locale: az
+---
+Xroniki böyrək xəstəliyi
+Kəskin pielonefrit
+Qlomerulonefrit
+Böyrək daşı
+Nefrotik sindrom
+Polikistik böyrək
+Diabetik nefropatiya
+Kəskin böyrək zədələnməsi
+Sidik yolları infeksiyası
+Böyrək çatışmazlığı

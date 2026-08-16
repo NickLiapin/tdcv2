@@ -1,0 +1,16 @@
+---
+description: Diagnoses handled by Onkolohiya, as recorded in a Philippine chart. The filename is the value in medical/specialtyCoherent.txt.
+locale: fil
+---
+Kanser sa suso
+Kanser sa baga
+Kanser sa atay
+Kanser sa bituka
+Kanser sa tiyan
+Kanser sa cervix
+Kanser sa prostate
+Leukemia
+Lymphoma
+Kanser sa balat
+Kanser sa teroydes
+Kanser sa nasopharynx

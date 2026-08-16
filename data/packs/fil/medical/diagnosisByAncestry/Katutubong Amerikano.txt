@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in populations of Katutubong Amerikano descent, in Filipino. The filename is the value in medical/ancestry.txt.
+locale: fil
+---
+Dyabetis uri 2
+Bato sa apdo
+Sobrang timbang
+Sakit sa atay dahil sa alak
+Rayuma
+Talamak na sakit sa bato
+Sakit na Celiac
+Kakulangan sa lactase
+Otitis media
+Congenital adrenal hyperplasia

@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Azerbaijani, rüb)
+locale: az
+---
+I rüb
+II rüb
+III rüb
+IV rüb

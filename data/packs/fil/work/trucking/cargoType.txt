@@ -1,0 +1,17 @@
+---
+description: Kind of freight. English trade terms as used by Philippine forwarders. Note that a large share of Philippine domestic freight is INTERMODAL by necessity: the country is an archipelago, so a container going from Luzon to Mindanao goes by road, then by roll-on roll-off ferry, then by road again, and the RoRo leg is a normal part of a domestic trucking job.
+locale: fil
+---
+Dry van
+Refrigerated
+Flatbed
+Tanker
+Intermodal container
+RoRo
+Livestock
+Hazmat
+Bulk
+Auto carrier
+Lowboy
+Dump
+Agricultural produce

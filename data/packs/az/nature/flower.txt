@@ -1,0 +1,32 @@
+---
+description: Flower (Azerbaijani). Xari bülbül, the orchid of Shusha whose flower is said to show a nightingale on a thorn, grows nowhere else and is a national emblem.
+locale: az
+---
+gül
+lalə
+qərənfil
+çobanyastığı
+bənövşə
+zanbaq
+orkide
+sünbül
+nərgiz
+pion
+xrizantema
+qladiolus
+süsən
+novruzgülü
+xar bülbül
+lalə-xaşxaş
+günəbaxan
+hortenziya
+yasəmən
+leylaq
+begoniya
+kaktus
+azaliya
+maqnoliya
+mimoza
+zəfəran çiçəyi
+zəncirotu
+nilufər

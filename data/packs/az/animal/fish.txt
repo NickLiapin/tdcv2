@@ -1,0 +1,27 @@
+---
+description: Fish (Azerbaijani). The Caspian species come first — nərə (sturgeon) and kütüm are the two every Azerbaijani names without thinking. Skumbriya, treska and kambala are Russian loans that replaced no native word, because these are sea fish Azerbaijanis met through the Soviet fish shop.
+locale: az
+---
+nərə balığı
+uzunburun
+kütüm
+külmə
+xəşəm
+çapaq
+sazan
+durna balığı
+suf
+naxa
+şirbit
+ilanbalığı
+kefal
+siyənək
+kilkə
+qızılbalıq
+alabalıq
+skumbriya
+treska
+kambala
+ton balığı
+sardina
+qaya balığı

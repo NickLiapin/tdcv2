@@ -1,0 +1,12 @@
+---
+description: Time of day (Azerbaijani)
+locale: az
+---
+səhər
+günorta
+günortadan sonra
+axşam
+gecə
+gecə yarısı
+dan yeri
+alaqaranlıq

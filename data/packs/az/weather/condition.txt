@@ -1,0 +1,20 @@
+---
+description: Weather condition (Azerbaijani)
+locale: az
+---
+aydın
+az buludlu
+buludlu
+tutqun
+yağışlı
+leysan
+çiskinli
+qarlı
+sulu qar
+dolu
+dumanlı
+buz bağlaması
+göy gurultulu yağış
+küləkli
+isti
+şaxtalı

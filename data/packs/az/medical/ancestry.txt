@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Azerbaijani, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Azerbaijanis themselves fall under Yaxın Şərq, which is why ailəvi Aralıq dənizi qızdırması and beta thalassaemia matter locally.
+locale: az
+---
+Şimali Avropa
+Şərqi Avropa
+Aralıq dənizi
+Aşkenazi
+Yaxın Şərq
+Şimali Afrika
+Sub-Sahara Afrikası
+Şərqi Asiya
+Cənubi Asiya
+Cənub-Şərqi Asiya
+Yerli Amerika
+Sakit okean adaları

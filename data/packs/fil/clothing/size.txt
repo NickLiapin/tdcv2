@@ -1,0 +1,13 @@
+---
+description: Garment size. The lettered run is international, but Free Size is not decoration: it is a real and very common Philippine retail size, printed on tags in ukay-ukay stalls and tiangge markets, meaning the garment is cut to fit a range and no measurement is offered. Note also that Philippine sizing runs small against European sizing for the same letter, so a European L is roughly a Philippine XL.
+locale: fil
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+Free Size

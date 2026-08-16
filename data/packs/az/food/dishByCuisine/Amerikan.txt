@@ -1,0 +1,12 @@
+---
+description: Dishes of Amerikan cuisine (Azerbaijani)
+locale: az
+---
+hamburger
+bifşteks
+barbekü qabırğa
+hot-doq
+mak-en-çiz
+çizkeyk
+alma piroqu
+krem şorbası

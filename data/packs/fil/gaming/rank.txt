@@ -1,0 +1,14 @@
+---
+description: Competitive rank ladder, in Filipino. Bakal, Tanso, Pilak and Ginto are the metal names; Alamat, legend, sits above Grandmaster because 'legend' is what a Philippine game ladder calls its top tier and Filipino has a perfectly good word for it.
+locale: fil
+---
+Bakal
+Tanso
+Pilak
+Ginto
+Platinum
+Brilyante
+Master
+Grandmaster
+Kampeon
+Alamat

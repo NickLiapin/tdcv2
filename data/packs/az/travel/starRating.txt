@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Azerbaijani)
+locale: az
+---
+1 ulduz
+2 ulduz
+3 ulduz
+4 ulduz
+5 ulduz

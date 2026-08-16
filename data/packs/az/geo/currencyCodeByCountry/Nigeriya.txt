@@ -1,0 +1,5 @@
+---
+description: Currency code of Nigeriya
+locale: az
+---
+NGN

@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (jobByIndustry child). NEFT VƏ QAZ replaces the Legal entry that the reference packs carry, because oil and gas is the defining sector of the Azerbaijani labour market and a dataset about Azerbaijan without it would be a dataset about somewhere else. Legal jobs are still in work/jobTitle.
+locale: az
+---
+Texnologiya
+Səhiyyə
+Təhsil
+Maliyyə
+Tikinti
+İstehsal
+Nəqliyyat
+Pərakəndə ticarət
+Turizm
+Neft və qaz

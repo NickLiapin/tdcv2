@@ -1,0 +1,5 @@
+---
+description: Capital of Ehipto (Filipino).
+locale: fil
+---
+Cairo

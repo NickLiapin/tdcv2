@@ -1,0 +1,23 @@
+---
+description: Mineral, in Filipino where the word exists. THE PHILIPPINES IS ONE OF THE WORLD'S LARGEST NICKEL PRODUCERS and nickel laterite ore, shipped mostly to China and Indonesia for processing, is the country's dominant mining export; copper and gold follow. Romblon marble is a named Philippine product carved and exported for a century. Guano, seabird deposit mined from island caves, is still worked as fertiliser.
+locale: fil
+---
+Nikel
+Tanso
+Ginto
+Pilak
+Kromo
+Bakal
+Karbon
+Kobalto
+Sink
+Tingga
+Manganeso
+Marmol
+Apog
+Buhangin
+Graba
+Silika
+Bentonita
+Guano
+Asupre

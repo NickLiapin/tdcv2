@@ -1,0 +1,5 @@
+---
+description: Capital of Ukraina (Filipino).
+locale: fil
+---
+Kyiv

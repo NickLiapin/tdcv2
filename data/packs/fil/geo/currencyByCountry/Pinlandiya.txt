@@ -1,0 +1,5 @@
+---
+description: Currency of Pinlandiya (Filipino).
+locale: fil
+---
+Euro

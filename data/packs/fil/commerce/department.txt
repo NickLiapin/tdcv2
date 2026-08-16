@@ -1,0 +1,54 @@
+---
+description: Shop department, in Filipino. Palengke and supermarket are both here and are not the same shop: the palengke is the wet market where meat, fish and vegetables are bought loose and haggled over, the supermarket is the air-conditioned one with barcodes, and most Philippine households use both in the same week. Ukay-ukay is the imported second-hand clothing trade, a retail category of its own with its own shops. Pasalubong is a department in real Philippine stores: the souvenir food you are obliged to bring home to everyone from a trip.
+locale: fil
+---
+Aklat
+Pelikula
+Musika
+Laro
+Elektroniko
+Kompyuter
+Cellphone
+Kagamitang pambahay
+Hardin
+Kasangkapan
+Muwebles
+Kagamitang de-koryente
+Palengke
+Supermarket
+Grocery
+Pagkain
+Inumin
+Panaderya
+Karne
+Isda
+Gulay
+Prutas
+Kalusugan
+Botika
+Kagandahan
+Kosmetiko
+Laruan
+Damit-pambata
+Sanggol
+Damit
+Ukay-ukay
+Sapatos
+Bag
+Relo
+Alahas
+Palakasan
+Panlabas
+Sasakyan
+Motorsiklo
+Bisikleta
+Ferreteria
+Konstruksiyon
+Industriyal
+Opisina
+Panulat
+Alagang hayop
+Halaman
+Sining
+Pasalubong
+Regalo

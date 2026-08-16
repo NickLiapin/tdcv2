@@ -1,0 +1,12 @@
+---
+description: Book format. Pocketbook is the load-bearing entry: in the Philippines it does not mean a small book, it names a whole publishing industry — the pocket-sized Tagalog romance novels sold at bus terminals and sari-sari stores, printed in the hundreds of thousands, and the reason many Filipinos read fiction in Filipino at all. Komiks, the serialised Filipino comic magazine, was the mass reading matter of the twentieth century and gave the country Darna and Panday. The English format words are unchanged because Philippine publishing uses them unchanged.
+locale: fil
+---
+Pocketbook
+Komiks
+Paperback
+Hardcover
+Mass Market Paperback
+E-book
+Audiobook
+Graphic Novel

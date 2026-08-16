@@ -1,0 +1,18 @@
+---
+description: Kind of legal case, in Filipino. Two entries are Philippine and have no European counterpart. Katarungang Pambarangay is a compulsory first step: most disputes between neighbours in the same barangay CANNOT go to court until the parties have appeared before the village peace council and tried to settle, and a case filed without that certification is dismissed. Kaso sa halalan, election protests, are a standing category of Philippine litigation because contested local results are routine. Note that there is no divorce case type here, and that absence is the point — see person/maritalStatus.
+locale: fil
+---
+Sibil
+Kriminal
+Pampamilya
+Pagkalugi
+Pinsalang pansarili
+Paggawa
+Alitan sa kontrata
+Ari-ariang intelektuwal
+Lupa
+Imigrasyon
+Buwis
+Administratibo
+Kaso sa halalan
+Katarungang Pambarangay

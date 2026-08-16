@@ -1,0 +1,12 @@
+---
+description: Dishes of Hind cuisine (Azerbaijani)
+locale: az
+---
+kori
+tikka masala
+biryani
+samosa
+dal
+naan
+panir tikka
+masala çay

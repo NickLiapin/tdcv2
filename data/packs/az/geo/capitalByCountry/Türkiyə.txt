@@ -1,0 +1,5 @@
+---
+description: Capital of Türkiyə (Azerbaijani)
+locale: az
+---
+Ankara

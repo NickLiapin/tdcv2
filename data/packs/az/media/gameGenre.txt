@@ -1,0 +1,21 @@
+---
+description: Video game genre (Azerbaijani)
+locale: az
+---
+aksiyon
+macəra
+rol oyunu
+strategiya
+növbəli strategiya
+simulyator
+atıcı
+birinci şəxs atıcı
+platforma
+tapmaca
+macəra-tapmaca
+yarış
+idman
+döyüş
+sağ qalma
+açıq dünya
+qorxu

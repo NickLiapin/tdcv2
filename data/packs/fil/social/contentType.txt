@@ -1,0 +1,17 @@
+---
+description: Kind of social-media item, in Filipino. Chika is gossip or chat and is what a Filipino calls the content itself; the rest keep their English names because the platforms do.
+locale: fil
+---
+Post
+Komento
+Sagot
+Story
+Reel
+Poll
+Live
+Repost
+Thread
+Mention
+Direct message
+Chika
+Status

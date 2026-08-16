@@ -1,0 +1,5 @@
+---
+description: Currency of Nigeria (Filipino).
+locale: fil
+---
+Naira

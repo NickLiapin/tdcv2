@@ -1,0 +1,5 @@
+---
+description: Currency of Səudiyyə Ərəbistanı (Azerbaijani)
+locale: az
+---
+Səudiyyə rialı

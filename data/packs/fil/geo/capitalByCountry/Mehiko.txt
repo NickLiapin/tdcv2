@@ -1,0 +1,5 @@
+---
+description: Capital of Mehiko (Filipino).
+locale: fil
+---
+Mexico City

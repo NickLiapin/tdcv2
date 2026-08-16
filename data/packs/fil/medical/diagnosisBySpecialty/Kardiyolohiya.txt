@@ -1,0 +1,16 @@
+---
+description: Diagnoses handled by Kardiyolohiya, as recorded in a Philippine chart. The filename is the value in medical/specialtyCoherent.txt.
+locale: fil
+---
+Altapresyon
+Sakit sa koronaryong arterya
+Angina pectoris
+Atake sa puso
+Atrial fibrillation
+Pagpalya ng puso
+Kardiyomyopatiya
+Sakit sa balbula ng puso
+Rayumatikong sakit sa puso
+Hyperlipidemia
+Perikarditis
+Endokarditis

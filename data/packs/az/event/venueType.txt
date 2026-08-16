@@ -1,0 +1,20 @@
+---
+description: Venue type (Azerbaijani)
+locale: az
+---
+konfrans zalı
+iclas otağı
+konqres mərkəzi
+sərgi mərkəzi
+teatr
+kinoteatr
+konsert zalı
+mədəniyyət mərkəzi
+klub
+restoran
+şadlıq sarayı
+otel
+stadion
+idman kompleksi
+park
+açıq hava

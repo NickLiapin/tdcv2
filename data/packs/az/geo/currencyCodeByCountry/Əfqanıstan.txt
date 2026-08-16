@@ -1,0 +1,5 @@
+---
+description: Currency code of Əfqanıstan
+locale: az
+---
+AFN

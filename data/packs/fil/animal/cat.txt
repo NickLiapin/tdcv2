@@ -1,0 +1,22 @@
+---
+description: Cat breed. Puspin heads the list and is not a breed at all in the pedigree sense: it is an acronym-blend of pusang Pinoy, the ordinary Philippine domestic shorthair, coined to give the street cat a name with dignity instead of a name that meant stray. It is the answer a Filipino gives when asked what breed their cat is, and it is by far the commonest, so a Philippine pet record that offers only Persians and Ragdolls is describing a country that does not exist. The pedigree names below it are international and untranslated.
+locale: fil
+---
+Puspin
+Persian
+Siamese
+Persian Mix
+Maine Coon
+Bengal
+Ragdoll
+British Shorthair
+Scottish Fold
+American Shorthair
+Exotic Shorthair
+Sphynx
+Munchkin
+Russian Blue
+Himalayan
+Abyssinian
+Birman
+Burmese

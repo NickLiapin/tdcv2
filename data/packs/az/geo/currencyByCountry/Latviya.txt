@@ -1,0 +1,5 @@
+---
+description: Currency of Latviya (Azerbaijani)
+locale: az
+---
+avro

@@ -1,0 +1,26 @@
+---
+description: Allergen, in Filipino. Hipon and alimango lead because shellfish allergy is the one Filipinos most often report and seafood is eaten daily; peanut allergy, which dominates a North American list, is markedly less common here. Alikabok and amag — dust and mould — matter more in a hot wet climate than pollen does, and there is no hay-fever season because there is no pollen season.
+locale: fil
+---
+Hipon
+Alimango
+Talaba
+Isda
+Mani
+Itlog
+Gatas
+Toyo
+Trigo
+Linga
+Penicillin
+Aspirin
+Sulfa
+Iodine
+Latex
+Alikabok
+Amag
+Balahibo ng hayop
+Kagat ng bubuyog
+Kagat ng langgam
+Pollen
+Kulay ng pagkain

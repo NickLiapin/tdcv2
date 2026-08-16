@@ -1,0 +1,5 @@
+---
+description: Currency of Fransa (Azerbaijani)
+locale: az
+---
+avro

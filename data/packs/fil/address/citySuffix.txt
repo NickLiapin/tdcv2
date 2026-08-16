@@ -1,0 +1,42 @@
+---
+description: Trailing qualifier of a Philippine place name (Lanao del Norte, Poblacion Ibaba, Baras Proper). Poblacion is the most productive of them all and has no English equivalent: it is the built-up centre of a town, the barangay where the church and municipal hall stand, and virtually every Philippine municipality has one. Del Norte and del Sur are Spanish and mark provinces that were split in two. Ibaba and Ilaya are the native pair for lower and upper reaches of the same settlement, usually downstream and upstream, and Proper is Philippine English for the core of a barangay as against its outlying sitios.
+locale: fil
+---
+Norte
+Sur
+Este
+Oeste
+del Norte
+del Sur
+Occidental
+Oriental
+Nuevo
+Viejo
+Grande
+Chico
+Poblacion
+Proper
+Ibaba
+Ilaya
+Silangan
+Kanluran
+Hilaga
+Timog
+Gitna
+Bago
+Luma
+Malaki
+Munti
+Interior
+Loob
+Labas
+Baybay
+Bundok
+Ilog
+Look
+Bagong Pook
+Katimugan
+Kahilagaan
+Extension
+Uno
+Dos

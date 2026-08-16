@@ -1,0 +1,32 @@
+---
+description: Tree, in Filipino. NARRA IS THE NATIONAL TREE, a hardwood whose timber is now protected from cutting. MOLAVE, YAKAL, KAMAGONG, IPIL and the lauan group are the Philippine hardwoods that built the galleons and the churches; kamagong, Philippine ebony, is dense enough to sink in water and is the traditional wood for arnis sticks. BALETE is the strangler fig and carries folklore rather than timber: it is where the spirits are said to live, and Filipinos do not cut one down casually. KAWAYAN, bamboo, is on the list although it is a grass, because it is the country's most-used building material. ABAKA is likewise a banana relative rather than a tree, listed for the same reason: it produces Manila hemp. PILI is a Bicol nut tree with no relation to anything European.
+locale: fil
+---
+Narra
+Molave
+Yakal
+Kamagong
+Ipil
+Ipil-ipil
+Apitong
+Lauan
+Tanguile
+Akasya
+Mahogany
+Talisay
+Balete
+Banaba
+Dapdap
+Duhat
+Santol
+Langka
+Mangga
+Bayabas
+Kaimito
+Sampalok
+Niyog
+Pili
+Kawayan
+Anahaw
+Abaka
+Malunggay

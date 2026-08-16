@@ -1,0 +1,19 @@
+---
+description: Court type in the judiciary of AZERBAIJAN. Named for one country deliberately: Azerbaijani is the state language of a single state, so these words are the names of real courts rather than generic labels — unlike the Spanish or Portuguese packs, which have to stay generic across many countries.
+locale: az
+---
+rayon məhkəməsi
+şəhər məhkəməsi
+inzibati məhkəmə
+kommersiya məhkəməsi
+ağır cinayətlərə dair işlər üzrə məhkəmə
+hərbi məhkəmə
+apellyasiya məhkəməsi
+Ali Məhkəmə
+Konstitusiya Məhkəməsi
+Naxçıvan MR Ali Məhkəməsi
+arbitraj
+beynəlxalq arbitraj
+münsiflər məhkəməsi
+mediasiya orqanı
+notariat kontoru

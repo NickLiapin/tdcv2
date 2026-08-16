@@ -1,0 +1,15 @@
+---
+description: Stage of a hiring process, in Filipino. Philippine hiring runs long and adds two steps a European process does not: an examination, usually written aptitude and English proficiency, and a medical, because a pre-employment medical certificate is standard here rather than exceptional.
+locale: fil
+---
+Pagsusuri ng aplikasyon
+Initial interview
+Exam
+Technical interview
+Panel interview
+Final interview
+Job offer
+Background check
+Medical
+Tinanggap
+Hindi tinanggap

@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday. Three letters, no full stop, which is the commoner Philippine style; Miy. for Miyerkules and Huw. for Huwebes follow the Filipino spelling rather than the Spanish or English one, so a schedule printed in Filipino reads Lun Mar Miy Huw Biy Sab Lin.
+locale: fil
+---
+Lun
+Mar
+Miy
+Huw
+Biy
+Sab
+Lin

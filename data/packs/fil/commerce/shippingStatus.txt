@@ -1,0 +1,15 @@
+---
+description: Shipping status, in Filipino. Nasa warehouse, nasa hub and nasa sorting center are left with their English nouns because that is exactly what a Philippine tracking page prints — the verb frame is Filipino and the logistics noun is English, which is how the language works in this register.
+locale: fil
+---
+Gumawa ng label
+Nakuha na ng courier
+Nasa hub
+Nasa sorting center
+Nasa biyahe
+Ipinamamahagi
+Naihatid
+Bigong ihatid
+Naantala
+Naghihintay ng pickup
+Ibinalik sa nagpadala

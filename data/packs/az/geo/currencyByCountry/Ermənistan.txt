@@ -1,0 +1,5 @@
+---
+description: Currency of Ermənistan (Azerbaijani)
+locale: az
+---
+erməni dramı

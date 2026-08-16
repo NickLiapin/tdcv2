@@ -1,0 +1,40 @@
+---
+description: Medical specialty, in Filipino. The Filipino forms are respellings of the Greek-Latin names and are what a Filipino-language health article uses; Philippine hospital signage and PRC licences are in English.
+locale: fil
+---
+Kardiyolohiya
+Dermatolohiya
+Endokrinolohiya
+Gastroenterolohiya
+Neurolohiya
+Onkolohiya
+Optalmolohiya
+Ortopediya
+Pedyatrika
+Sikayatriya
+Pulmonolohiya
+Radyolohiya
+Reumatolohiya
+Urolohiya
+Neprolohiya
+Hematolohiya
+Immunolohiya
+Anestesyolohiya
+Gamot Pang-emergency
+Gamot Pampamilya
+Panloob na Gamot
+Obstetrisya at Ginekolohiya
+Otolaringolohiya
+Patolohiya
+Plastik na Operasyon
+Pangkalahatang Operasyon
+Operasyong Vascular
+Nakakahawang Sakit
+Heryatrika
+Neonatolohiya
+Rehabilitasyon
+Medisinang Pangtropiko
+Gamot sa Paggawa
+Pampublikong Kalusugan
+Nutrisyon
+Dentistriya

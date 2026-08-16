@@ -1,0 +1,29 @@
+---
+description: Dog breed. Aspin is the same coinage as puspin — asong Pinoy, the ordinary Philippine village dog — and it replaced askal, a blend of asong kalye, street dog, which had come to sound like an insult. The change of word was deliberate and is recent, and both are still heard, so both are here. Aso is simply 'dog'. Everything below is an international breed name, untranslated.
+locale: fil
+---
+Aspin
+Askal
+Aso
+Shih Tzu
+Chihuahua
+Pomeranian
+Labrador Retriever
+Golden Retriever
+German Shepherd
+Beagle
+Poodle
+Toy Poodle
+Pug
+Dachshund
+Rottweiler
+Doberman Pinscher
+Siberian Husky
+Bulldog
+French Bulldog
+Japanese Spitz
+Chow Chow
+Belgian Malinois
+Jack Russell Terrier
+Border Collie
+Great Dane

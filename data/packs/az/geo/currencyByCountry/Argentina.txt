@@ -1,0 +1,5 @@
+---
+description: Currency of Argentina (Azerbaijani)
+locale: az
+---
+Argentina pesosu

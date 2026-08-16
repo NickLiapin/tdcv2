@@ -1,0 +1,5 @@
+---
+description: Currency of Birləşmiş Ərəb Əmirlikləri (Azerbaijani)
+locale: az
+---
+BƏƏ dirhəmi

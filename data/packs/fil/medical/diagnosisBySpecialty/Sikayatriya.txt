@@ -1,0 +1,16 @@
+---
+description: Diagnoses handled by Sikayatriya, as recorded in a Philippine chart. The filename is the value in medical/specialtyCoherent.txt.
+locale: fil
+---
+Depresyon
+Pagkabalisa
+Bipolar disorder
+Skisoprenya
+Panic disorder
+Post-traumatic stress disorder
+Insomnia
+ADHD
+Obsessive-compulsive disorder
+Pagkalulong sa alak
+Pagkalulong sa droga
+Demensya

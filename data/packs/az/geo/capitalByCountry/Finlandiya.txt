@@ -1,0 +1,5 @@
+---
+description: Capital of Finlandiya (Azerbaijani)
+locale: az
+---
+Helsinki

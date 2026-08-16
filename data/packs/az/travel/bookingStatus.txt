@@ -1,0 +1,15 @@
+---
+description: Booking status (Azerbaijani)
+locale: az
+---
+yaradıldı
+təsdiqləndi
+ödənildi
+qismən ödənildi
+dəyişdirildi
+ləğv edildi
+gəlmədi
+tamamlandı
+geri qaytarıldı
+müddəti bitdi
+gözləmə siyahısında

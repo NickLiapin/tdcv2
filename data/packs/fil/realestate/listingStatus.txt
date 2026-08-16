@@ -1,0 +1,16 @@
+---
+description: Status of a property listing, in Filipino. Two are Philippine market categories rather than states of a sale. PRE-SELLING is how most Philippine condominiums are sold: units are bought off a plan years before the building exists, paid in instalments during construction, and the practice is normal rather than speculative. RENT-TO-OWN is the other, an instalment purchase dressed as a lease, widely used for townhouses because mortgage approval is out of reach for many buyers.
+locale: fil
+---
+Ipinagbibili
+Paupahan
+Pre-selling
+Rent-to-own
+Nakabinbin
+May kasunduan
+Naibenta
+Naupahan
+Wala sa merkado
+Malapit nang ilabas
+Nabawasan ang presyo
+Foreclosed

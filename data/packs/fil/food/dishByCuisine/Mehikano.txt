@@ -1,0 +1,22 @@
+---
+description: Dishes of Mehikano cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Tacos
+Burrito
+Quesadilla
+Enchiladas
+Nachos
+Guacamole
+Chiles rellenos
+Fajitas
+Tamales
+Pozole
+Menudo Mexicano
+Elote
+Churros
+Salsa verde
+Ceviche
+Tostadas
+Mole poblano
+Flan Mexicano

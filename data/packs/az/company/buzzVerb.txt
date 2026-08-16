@@ -1,0 +1,59 @@
+---
+description: Business buzz verb (Azerbaijani, infinitive). The infinitive suffix has TWO forms — -maq after a back vowel, -mək after a front one — so optimallaşdırmaq but gücləndirmək. This is vowel harmony at its plainest, and it is why an infinitive cannot be built by appending a fixed ending to a stem.
+locale: az
+---
+optimallaşdırmaq
+miqyaslandırmaq
+inteqrasiya etmək
+avtomatlaşdırmaq
+rəqəmsallaşdırmaq
+transformasiya etmək
+modernləşdirmək
+standartlaşdırmaq
+sistemləşdirmək
+strukturlaşdırmaq
+prioritetləşdirmək
+fokuslanmaq
+uzlaşdırmaq
+sinxronlaşdırmaq
+həvalə etmək
+genişləndirmək
+gücləndirmək
+sürətləndirmək
+sadələşdirmək
+birləşdirmək
+konsolidasiya etmək
+şaxələndirmək
+gəlir əldə etmək
+kapitallaşdırmaq
+investisiya qoymaq
+qazanmaq
+saxlamaq
+çevirmək
+seqmentləşdirmək
+mövqeləndirmək
+fərqləndirmək
+ölçmək
+təhlil etmək
+proqnozlaşdırmaq
+modelləşdirmək
+sınaqdan keçirmək
+doğrulamaq
+tətbiq etmək
+yaymaq
+istismara vermək
+uyğunlaşdırmaq
+konfiqurasiya etmək
+yeniləmək
+nəzərdən keçirmək
+yenidən düşünmək
+qurmaq
+balanslaşdırmaq
+xərci azaltmaq
+artırmaq
+azaltmaq
+təmin etmək
+zəmanət vermək
+dəstəkləmək
+əlaqələndirmək
+nəzarət etmək

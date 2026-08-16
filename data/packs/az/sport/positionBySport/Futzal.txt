@@ -1,0 +1,10 @@
+---
+description: Positions in futsal (Azerbaijani)
+locale: az
+---
+qapıçı
+fikso
+sağ kanat
+sol kanat
+pivot
+universal

@@ -1,0 +1,14 @@
+---
+description: Playing positions in Rugby as named in the Philippines. Position names are English in Philippine sport, including in Filipino-language commentary, because that is what players and coaches say. The filename is the value in sport/sportCoherent.txt.
+locale: fil
+---
+Prop
+Hooker
+Lock
+Flanker
+Number eight
+Scrum-half
+Fly-half
+Centre
+Wing
+Fullback

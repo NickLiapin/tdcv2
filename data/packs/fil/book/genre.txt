@@ -1,0 +1,32 @@
+---
+description: Book genre, in Filipino. Several of these are categories of Philippine literature with no English counterpart and are not translations of the English list: alamat is the origin-legend, the story of how the pineapple got its eyes; awit and korido are the metrical romances of the Spanish period, of which Florante at Laura is the monument; sanaysay is the essay as a recognised literary form taught in every Filipino class; dula is the stage play; balagtasan is the improvised poetic debate in verse, named after Francisco Balagtas, performed live and judged. Hugot, at the end, is the modern one: the genre of short pieces built around an ache, usually romantic, that gave Philippine publishing a whole shelf after 2014.
+locale: fil
+---
+Nobela
+Maikling kuwento
+Tula
+Sanaysay
+Dula
+Alamat
+Kuwentong-bayan
+Awit at korido
+Balagtasan
+Talambuhay
+Awtobiyograpiya
+Kasaysayan
+Pantasya
+Agham-katha
+Katatakutan
+Romansa
+Misteryo
+Pakikipagsapalaran
+Krimen
+Komiks
+Sariling-tulong
+Pagluluto
+Paglalakbay
+Relihiyon
+Pilosopiya
+Sikolohiya
+Panitikang pambata
+Hugot

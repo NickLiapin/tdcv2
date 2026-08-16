@@ -1,0 +1,31 @@
+---
+description: Diagnoses seen in female patients: the female-specific list plus the common conditions that fall disproportionately on Filipino women. Iron-deficiency anaemia and thyroid disease are both markedly commoner in women here, and osteoporosis follows a long post-menopausal life expectancy.
+locale: fil
+---
+Endometriosis
+Polycystic ovary syndrome
+Myoma sa matris
+Cyst sa obaryo
+Kanser sa cervix
+Kanser sa suso
+Impeksiyon sa puwerta
+Masakit na regla
+Malakas na regla
+Dyabetis sa pagbubuntis
+Preeclampsia
+Anemya
+Kakulangan sa iron
+Hypothyroidism
+Goiter
+Osteoporosis
+Impeksiyon sa ihi
+Migraine
+Rayuma
+Sakit sa kasukasuan
+Depresyon
+Pagkabalisa
+Insomnia
+Altapresyon
+Dyabetis uri 2
+Bato sa apdo
+Varicose veins

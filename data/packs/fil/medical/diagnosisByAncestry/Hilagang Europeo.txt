@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in populations of Hilagang Europeo descent, in Filipino. The filename is the value in medical/ancestry.txt.
+locale: fil
+---
+Cystic fibrosis
+Hemochromatosis
+Kakulangan sa alpha-1 antitrypsin
+Sakit na Celiac
+Melanoma
+Multiple sclerosis
+Dyabetis uri 1
+Sakit na Crohn
+Ankylosing spondylitis
+Phenylketonuria

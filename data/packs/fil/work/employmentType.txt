@@ -1,0 +1,17 @@
+---
+description: Kind of employment. THE PHILIPPINE CONCEPT IS REGULARISATION AND IT IS THE AXIS EVERYTHING TURNS ON: an employee who completes six months of probation becomes REGULAR and acquires security of tenure, meaning they can only be dismissed for just cause. ENDO — from 'end of contract', also called five-five-five — is the practice of terminating workers just before that six-month mark and rehiring them, so they never regularise; it has been a central Philippine political issue for two decades, promised an end by successive presidents, and it is a real employment category rather than an abuse at the margin. Job order and contract of service are the government's own versions: staff engaged without employee status, no benefits and no tenure, in large numbers. OJT is on-the-job training, an unpaid internship that Philippine degrees require for graduation.
+locale: fil
+---
+Regular
+Probationary
+Contractual
+Casual
+Project-based
+Seasonal
+Job order
+Contract of service
+Endo
+Part-time
+Freelance
+Apprenticeship
+OJT

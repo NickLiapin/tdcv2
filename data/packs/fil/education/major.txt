@@ -1,0 +1,59 @@
+---
+description: University major, in Filipino. Nursing, marine transportation and hotel and restaurant management sit high in a Philippine list for a reason a domestic list would not explain: they are export degrees, studied by numbers of students far out of proportion to domestic demand, because Filipino nurses, seafarers and hotel staff are recruited worldwide. Education and criminology are the other two very large Philippine majors.
+locale: fil
+---
+Agham Pangkompyuter
+Teknolohiyang Impormasyon
+Inhinyeriyang Sibil
+Inhinyeriyang Mekanikal
+Inhinyeriyang Elektrikal
+Inhinyeriyang Elektroniko
+Inhinyeriyang Kemikal
+Arkitektura
+Nursing
+Medisina
+Parmasya
+Medical Technology
+Radiologic Technology
+Physical Therapy
+Midwifery
+Beterinaryong Medisina
+Agrikultura
+Pangisdaan
+Kagubatan
+Biyolohiya
+Kimika
+Pisika
+Matematika
+Estadistika
+Ekonomiks
+Accountancy
+Pangangasiwa ng Negosyo
+Marketing
+Pananalapi
+Pampublikong Pangangasiwa
+Agham Pampulitika
+Batas
+Kriminolohiya
+Sikolohiya
+Sosyolohiya
+Antropolohiya
+Kasaysayan
+Pilosopiya
+Panitikan
+Filipino
+Ingles
+Komunikasyon
+Peryodismo
+Malikhaing Sining
+Disenyong Grapiko
+Musika
+Edukasyon
+Espesyal na Edukasyon
+Hotel and Restaurant Management
+Turismo
+Marine Transportation
+Marine Engineering
+Aviation
+Social Work
+Environmental Science

@@ -1,0 +1,5 @@
+---
+description: Capital of Səudiyyə Ərəbistanı (Azerbaijani)
+locale: az
+---
+Ər-Riyad

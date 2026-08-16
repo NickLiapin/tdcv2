@@ -1,0 +1,16 @@
+---
+description: Ancestry population as clinical genetics defines it: GEOGRAPHIC DESCENT, NOT A SOCIAL RACE CATEGORY. The twelve groups match the reference set and are translated, not re-cut. In the Philippines the relevant one for most patients is Timog-Silangang Asyano, and Philippine populations also carry Silangang Asyano, Espanyol and Katutubong ancestry in varying mixtures from four centuries of Chinese trade and Spanish rule, so a single label describes a Filipino only approximately.
+locale: fil
+---
+Aprikanong Sub-Saharan
+Aprikanong Hilaga
+Mediteraneo
+Gitnang Silangan
+Hilagang Europeo
+Silangang Europeo
+Hudyong Ashkenazi
+Timog Asyano
+Silangang Asyano
+Timog-Silangang Asyano
+Katutubong Amerikano
+Taga-Pasipiko

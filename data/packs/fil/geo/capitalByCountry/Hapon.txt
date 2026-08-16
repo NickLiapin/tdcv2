@@ -1,0 +1,5 @@
+---
+description: Capital of Hapon (Filipino).
+locale: fil
+---
+Tokyo

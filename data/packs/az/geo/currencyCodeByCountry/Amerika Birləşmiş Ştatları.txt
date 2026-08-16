@@ -1,0 +1,5 @@
+---
+description: Currency code of Amerika Birləşmiş Ştatları
+locale: az
+---
+USD

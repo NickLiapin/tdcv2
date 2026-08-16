@@ -1,0 +1,22 @@
+---
+description: Event type (Azerbaijani). Novruz, the spring-equinox new year, and the four Tuesdays that precede it are the largest fixed events of the Azerbaijani year; toy, a wedding, routinely runs to several hundred guests and is an event category in its own right.
+locale: az
+---
+konfrans
+seminar
+vebinar
+təlim
+ustad dərsi
+dərs
+forum
+sərgi
+yarmarka
+təqdimat
+konsert
+festival
+tamaşa
+film nümayişi
+müsabiqə
+turnir
+toy
+Novruz şənliyi

@@ -1,0 +1,36 @@
+---
+description: Common adverb (Azerbaijani). Several entries are two words and are stored as one line, deliberately — splitting them on the space would produce nonsense, which is exactly what happened once in a neighbouring pack.
+locale: az
+---
+çox
+az
+bir az
+artıq
+həmişə
+heç vaxt
+tez-tez
+nadir hallarda
+indi
+sonra
+əvvəl
+gec
+erkən
+tez
+yavaş-yavaş
+yaxşı
+pis
+birlikdə
+ayrıca
+burada
+orada
+hər yerdə
+heç yerdə
+yuxarı
+aşağı
+irəli
+geri
+sola
+sağa
+nəhayət
+demək olar ki
+tamamilə

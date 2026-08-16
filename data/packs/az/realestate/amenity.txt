@@ -1,0 +1,26 @@
+---
+description: Property amenity (Azerbaijani)
+locale: az
+---
+kombi
+təbii qaz
+mərkəzi istilik
+yerdən istilik
+istilik izolyasiyası
+ikiqat şüşə
+yeni tikili
+əla təmir
+əşyalı
+məişət texnikası daxil
+kondisioner
+su qızdırıcısı
+lift
+yük lifti
+qapıçı
+təhlükəsizlik kamerası
+yaşayış kompleksi mühafizəsi
+qapalı həyət
+uşaq oyun meydançası
+avtomobil dayanacağı
+qapalı dayanacaq
+metroya yaxın

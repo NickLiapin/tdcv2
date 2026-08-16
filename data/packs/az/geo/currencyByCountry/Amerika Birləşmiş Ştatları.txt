@@ -1,0 +1,5 @@
+---
+description: Currency of Amerika Birləşmiş Ştatları (Azerbaijani)
+locale: az
+---
+ABŞ dolları

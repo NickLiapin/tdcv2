@@ -1,0 +1,27 @@
+---
+description: Azerbaijani address unit / interior designator. Podyezd and korpus are Russian words that stayed in the address vocabulary after 1991 and are what people actually write on an envelope.
+locale: az
+---
+Mənzil
+mən.
+Ev
+Nömrə
+№
+Mərtəbə
+mərt.
+Blok
+Korpus
+korp.
+Giriş
+Podyezd
+Otaq
+Ofis
+Zirzəmi
+Yarımzirzəmi
+Çardaq
+Mansard
+Dükan
+Anbar
+Qaraj
+Poçt qutusu
+P/q

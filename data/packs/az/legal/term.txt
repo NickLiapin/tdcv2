@@ -1,0 +1,23 @@
+---
+description: Legal term (Azerbaijani)
+locale: az
+---
+iddia
+iddia ərizəsi
+cavabdeh
+iddiaçı
+üçüncü şəxs
+aralıq qərarı
+məhkəmə qərarı
+hökm
+apellyasiya şikayəti
+kassasiya şikayəti
+icra sənədi
+istintaq
+ittiham aktı
+həbs qətimkan tədbiri
+iddia müddəti
+barışıq sazişi
+etibarnamə
+notariat qaydasında təsdiq
+dövlət rüsumu

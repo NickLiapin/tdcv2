@@ -1,0 +1,16 @@
+---
+description: Month name (Azerbaijani, lower case). THE MONTH NAMES ARE RUSSIAN-DERIVED and this is the fastest single-file proof that Azerbaijani is not Turkish: Turkish says Ocak, Şubat, Mart, Nisan; Azerbaijani says yanvar, fevral, mart, aprel, taken from Russian in the Soviet period and never replaced. Of the twelve, only mart is shared outright — Turkish Mayıs is Azerbaijani may, and the other ten have nothing in common. Two mutually intelligible languages whose calendars do not match.
+locale: az
+---
+yanvar
+fevral
+mart
+aprel
+may
+iyun
+iyul
+avqust
+sentyabr
+oktyabr
+noyabr
+dekabr

@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient, in Filipino. FIVE OF THESE ARE THE WHOLE FOUNDATION AND A EUROPEAN PANTRY HAS NONE OF THEM: suka (cane or coconut vinegar), toyo (soy sauce), patis (fish sauce), bagoong (fermented shrimp or fish paste) and gata (coconut milk). Adobo is suka plus toyo; sinigang is soured broth plus patis; kare-kare is unthinkable without bagoong on the side; and everything from Bicol is gata. Achuete, annatto seed, is a colouring rather than a flavouring and is what makes kare-kare orange. Tuyo, daing and tinapa are three different preservations of fish — sun-dried, split-and-dried, and smoked — and Filipino keeps them apart where English says only 'dried fish'.
+locale: fil
+---
+Suka
+Toyo
+Patis
+Bagoong
+Gata
+Asin
+Asukal
+Muscovado
+Paminta
+Bawang
+Sibuyas
+Luya
+Kamatis
+Sili
+Dahon ng laurel
+Achuete
+Sampalok
+Kalamansi
+Mantika
+Langis ng niyog
+Mantikilya
+Harina
+Bigas
+Malagkit
+Itlog
+Gatas
+Kondensada
+Keso
+Karneng baboy
+Karneng baka
+Manok
+Hipon
+Bangus
+Tuyo
+Daing
+Tinapa
+Tokwa
+Sotanghon
+Bihon
+Latik

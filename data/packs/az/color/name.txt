@@ -1,0 +1,58 @@
+---
+description: Human-readable colour name (Azerbaijani). Note göy, which means both sky and blue, and lacivərd, which is the lapis lazuli of the Persian miniature and became the word for deep blue.
+locale: az
+---
+ağ
+qara
+boz
+qırmızı
+al
+tünd qırmızı
+albalı rəngi
+çəhrayı
+narıncı
+şaftalı rəngi
+mərcan rəngi
+kərpici
+sarı
+limonu
+xardal rəngi
+qızılı
+yaşıl
+açıq yaşıl
+tünd yaşıl
+zeytunu
+xaki
+zümrüd
+nanə rəngi
+firuzəyi
+göy
+açıq mavi
+mavi
+tünd mavi
+lacivərd
+sürməyi
+bənövşəyi
+yasəməni
+lila
+lavanda rəngi
+gavalı rəngi
+qəhvəyi
+şabalıdı
+şokolad rəngi
+karamel rəngi
+qəhvə rəngi
+bej
+krem
+fildişi
+qum rəngi
+gümüşü
+bürünc
+mis rəngi
+kül rəngi
+antrasit
+qrafit
+kömür rəngi
+pas rəngi
+inci rəngi
+yaqut rəngi

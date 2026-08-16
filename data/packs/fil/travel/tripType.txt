@@ -1,0 +1,24 @@
+---
+description: Purpose of a trip, in Filipino. BALIKBAYAN IS A LEGAL CATEGORY, NOT A MOOD: a returning overseas Filipino or a former Filipino citizen entering the country holds balikbayan privileges — visa-free entry for a year and duty exemptions on the balikbayan box, the enormous carton of goods shipped or carried home. Uwian sa probinsiya, going home to the province, is the country's largest annual movement of people, at Christmas and at Holy Week, and it empties Manila. Pista is travelling for a town's patronal feast, which is an obligation as much as a holiday. Peregrinasyon covers the pilgrimages to Quiapo, Antipolo and Manaoag that move millions.
+locale: fil
+---
+Bakasyon
+Negosyo
+Pamamasyal
+Uwian sa probinsiya
+Balikbayan trip
+Pista
+Peregrinasyon
+Simbang Gabi
+Honeymoon
+Island hopping
+Beach
+Pag-akyat sa bundok
+Pagsisid
+Backpacking
+Cruise
+Team building
+Educational tour
+Medical
+Solo travel
+Group tour

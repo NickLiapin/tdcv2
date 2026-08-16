@@ -1,0 +1,30 @@
+---
+description: Product review title (Azerbaijani)
+locale: az
+---
+Aldığıma çox məmnunam
+Təsvirə uyğundur
+Keyfiyyəti çox yaxşıdır
+Qiymətinə görə yaxşıdır
+Tövsiyə edirəm
+Tövsiyə etmirəm
+Daha yaxşısını gözləyirdim
+Zədəli gəldi
+Çatdırılma çox sürətli oldu
+Çatdırılma gecikdi
+Hər şey əladır
+Möhtəşəm məhsuldur
+Pulunu tam ödəyir
+İkinci dəfə alıram
+Hədiyyə aldım, bəyənildi
+İstifadəsi çox rahatdır
+Baxımı sadədir
+Materialı keyfiyyətsizdir
+Plastik iyi verir
+Ölçüsü kiçik gəldi
+Rəngi şəkildən fərqlidir
+Problemsiz işləyir
+Bir həftəyə xarab oldu
+Satıcı çox diqqətlidir
+Məhsulu geri qaytardım
+Qiymət-keyfiyyət məhsuludur

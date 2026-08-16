@@ -1,0 +1,11 @@
+---
+description: Annual household income band. AMOUNTS ARE IN PHILIPPINE PESOS (PHP, symbol ₱), the currency of the Philippines, the only country where Filipino is an official language. The Philippine statistical agencies classify households into seven income classes rather than into quintiles, running from poor through low income, lower middle, middle, upper middle and high income to rich, and the middle class as officially defined is a much smaller share of the population than the word suggests to a European reader. Note also that for a large minority of households a significant part of income is a remittance from a relative working abroad, which arrives monthly in foreign currency and does not appear in any Philippine payroll record. Each band carries kada taon, 'per year', partly because Filipino needs it to read naturally and partly because a bare Philippine amount ends in a comma and three zeros, which the weighted-list checker reads as a count.
+locale: fil
+---
+Wala pang ₱120,000 kada taon
+₱120,000–₱250,000 kada taon
+₱250,000–₱500,000 kada taon
+₱500,000–₱1,000,000 kada taon
+₱1,000,000–₱2,000,000 kada taon
+₱2,000,000–₱4,000,000 kada taon
+Higit sa ₱4,000,000 kada taon

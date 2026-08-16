@@ -1,0 +1,30 @@
+---
+description: Book genre (Azerbaijani). Povest, poema, novella and esse are Russian-mediated literary terms that Azerbaijani took over wholesale; dastan is the native epic form and has no European equivalent.
+locale: az
+---
+roman
+povest
+hekayə
+novella
+esse
+xatirələr
+şeir
+poema
+dastan
+dram əsəri
+fantastika
+elmi fantastika
+detektiv
+triller
+qorxu
+məhəbbət romanı
+tarixi roman
+macəra romanı
+bioqrafiya
+avtobioqrafiya
+səyahət qeydləri
+elmi-kütləvi ədəbiyyat
+dərslik
+məlumat kitabı
+lüğət
+uşaq kitabı

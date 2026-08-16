@@ -1,0 +1,14 @@
+---
+description: Fuel type, in Filipino. Two entries are Philippine policy rather than technology. Biodiesel is compulsory: the Biofuels Act requires diesel sold in the Philippines to be blended with coconut methyl ester, so a Philippine diesel vehicle runs partly on coconuts. LPG is a mainstream road fuel here, converted taxis run on it, and the tanks are refilled at ordinary filling stations.
+locale: fil
+---
+Gasolina
+Diesel
+Biodiesel
+LPG
+CNG
+Kuryente
+Hybrid
+Plug-in hybrid
+Hydrogen
+Bioethanol

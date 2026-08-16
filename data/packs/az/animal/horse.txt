@@ -1,0 +1,20 @@
+---
+description: Horse breed (Azerbaijani). Qarabağ and Dilbaz are the two native Azerbaijani breeds; the Qarabağ horse appears on the state coat of arms of the Karabakh khanate and is the older of the two.
+locale: az
+---
+Qarabağ atı
+Dilbaz atı
+ərəb atı
+ingilis atı
+axaltəkə
+kabardin atı
+don atı
+friz atı
+andalus atı
+şayr
+perşeron
+hannover atı
+holşteyn atı
+haflinger
+şetlend ponisi
+yerli at

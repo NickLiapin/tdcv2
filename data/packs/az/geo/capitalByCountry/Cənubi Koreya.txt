@@ -1,0 +1,5 @@
+---
+description: Capital of Cənubi Koreya (Azerbaijani)
+locale: az
+---
+Seul

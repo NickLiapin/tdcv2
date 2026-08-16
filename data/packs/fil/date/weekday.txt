@@ -1,0 +1,11 @@
+---
+description: Day of the week, Monday first, which is how a Filipino lists them. All seven are Spanish, respelled: Miyerkules and Huwebes and Biyernes show the Filipino spelling rule turning Spanish -ie- into -iye- and v into b. LINGGO IS A TRAP: it is Sunday and it is also 'week', so 'isang linggo' is one week and 'araw ng Linggo' is Sunday, and the capital letter is the only thing separating them in writing. Sabado is the Sabbath by way of Spanish, and Sunday rather than Monday is the day the Philippine week is felt to turn on, because the country is overwhelmingly Catholic and Sunday mass is near-universal.
+locale: fil
+---
+Lunes
+Martes
+Miyerkules
+Huwebes
+Biyernes
+Sabado
+Linggo

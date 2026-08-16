@@ -1,0 +1,5 @@
+---
+description: Currency of Finlandiya (Azerbaijani)
+locale: az
+---
+avro

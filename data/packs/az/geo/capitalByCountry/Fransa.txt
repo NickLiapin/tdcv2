@@ -1,0 +1,5 @@
+---
+description: Capital of Fransa (Azerbaijani)
+locale: az
+---
+Paris

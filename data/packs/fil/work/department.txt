@@ -1,0 +1,26 @@
+---
+description: Company department, in Filipino. Philippine companies label their departments in English on the org chart; these are the Filipino terms used in government offices and in Filipino-language internal memoranda.
+locale: fil
+---
+Inhinyeriya
+Produkto
+Disenyo
+Pagbebenta
+Marketing
+Pananalapi
+Accounting
+Yamang Tao
+Operasyon
+Legal
+Suporta sa Kliyente
+Teknolohiyang Impormasyon
+Pananaliksik at Pagpapaunlad
+Pagbili
+Kalidad
+Lohistika
+Administrasyon
+Pasilidad
+Seguridad
+Pagsunod sa Alituntunin
+Pagsasanay
+Komunikasyon

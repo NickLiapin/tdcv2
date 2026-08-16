@@ -1,0 +1,5 @@
+---
+description: Currency code of Portuqaliya
+locale: az
+---
+EUR

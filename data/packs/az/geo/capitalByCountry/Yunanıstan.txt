@@ -1,0 +1,5 @@
+---
+description: Capital of Yunanıstan (Azerbaijani)
+locale: az
+---
+Afina

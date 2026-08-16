@@ -1,0 +1,28 @@
+---
+description: Kind of vehicle, in Filipino. THE JEEPNEY IS THE ONE THAT MATTERS. Built originally on the chassis of surplus American military jeeps left after 1945, stretched, roofed and decorated, it carried the country for eighty years and is called the King of the Road; it is being phased out under a modernisation programme that has been fought over for a decade. The tricycle — a motorcycle with a welded sidecar — does the short journeys the jeepney does not, and the habal-habal, a motorcycle carrying several passengers along mountain tracks, does the ones the tricycle cannot. AUV is a Philippine and South-East Asian vehicle class with no European equivalent: the Asian Utility Vehicle, a cheap high-roofed passenger van built for bad roads and large families. And in an archipelago the bangka — an outrigger canoe with bamboo floats — is a vehicle, listed here rather than in a boat category, because for coastal Filipinos it is how you get to work.
+locale: fil
+---
+Jeepney
+E-jeepney
+Traysikel
+E-trike
+Habal-habal
+Multicab
+Kuliglig
+Kalesa
+Karetela
+Bangka
+Motorsiklo
+Sedan
+Hatchback
+SUV
+AUV
+MPV
+Crossover
+Pickup
+Van
+Bus
+Minibus
+Truck
+Ferry
+Barko

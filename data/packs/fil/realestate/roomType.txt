@@ -1,0 +1,24 @@
+---
+description: Room in a Philippine house. Sala is the living room, komedor the dining room, both from Spanish. Silong is the space beneath a house raised on posts, used for storage, animals or shade and counted as part of the building. Batalan is the traditional washing platform at the back of a rural house.
+locale: fil
+---
+Sala
+Komedor
+Kusina
+Dirty kitchen
+Silid-tulugan
+Kuwarto
+Banyo
+CR
+Kuwarto ng kasambahay
+Silid-aralan
+Opisina
+Garahe
+Bodega
+Silong
+Attic
+Terasa
+Balkonahe
+Azotea
+Lanai
+Batalan

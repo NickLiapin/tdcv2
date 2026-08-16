@@ -1,0 +1,16 @@
+---
+description: Meeting type (Azerbaijani)
+locale: az
+---
+gündəlik görüş
+həftəlik görüş
+şöbə iclası
+ümumi yığıncaq
+təkbətək görüş
+retrospektiv
+sprint planlaması
+demo təqdimatı
+beyin fırtınası
+müştəri görüşü
+təlim semineri
+qiymətləndirmə görüşü

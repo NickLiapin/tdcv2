@@ -1,0 +1,16 @@
+---
+description: Streaming service. Brand names, untranslated. The Philippine services are here because they carry the Filipino-language catalogue the international ones do not: iWantTFC is the streaming arm of the country's largest broadcaster, Vivamax a domestic film service, Cignal Play a pay-television app.
+locale: fil
+---
+Netflix
+YouTube
+Disney+
+Amazon Prime Video
+HBO Go
+Viu
+WeTV
+iQIYI
+iWantTFC
+Vivamax
+Cignal Play
+Spotify

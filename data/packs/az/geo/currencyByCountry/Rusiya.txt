@@ -1,0 +1,5 @@
+---
+description: Currency of Rusiya (Azerbaijani)
+locale: az
+---
+rus rublu

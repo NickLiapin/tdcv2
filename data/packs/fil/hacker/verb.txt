@@ -1,0 +1,32 @@
+---
+description: Technical verb in its citation form. THESE ARE NOT INFINITIVES AND THE LIST IS NOT UNIFORM ON PURPOSE. Filipino verbs are cited in whichever focus affix is being demonstrated, and the pairs below show the same root twice: magkopya and kopyahin are both 'copy', but magkopya puts the person copying in focus and kopyahin puts the thing copied in focus, and the two demand different sentence shapes and different case particles. The same holds for magsuri/suriin, magpadala/ipadala, magbura/burahin and maglagay/ilagay. There is no subject-verb agreement anywhere in the system — the verb never changes for who or how many — so what a European pack encodes as person and number, Filipino encodes as focus.
+locale: fil
+---
+magkopya
+kopyahin
+magsuri
+suriin
+magpadala
+ipadala
+magbura
+burahin
+maglagay
+ilagay
+magbuo
+buuin
+mag-imbak
+iimbak
+magsimula
+simulan
+magtapos
+tapusin
+kumonekta
+ikonekta
+mag-encrypt
+i-encrypt
+mag-install
+i-install
+mag-restart
+i-restart
+mag-debug
+i-debug

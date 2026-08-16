@@ -1,0 +1,5 @@
+---
+description: Currency of Biyetnam (Filipino).
+locale: fil
+---
+Dong

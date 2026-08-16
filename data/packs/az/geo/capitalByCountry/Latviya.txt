@@ -1,0 +1,5 @@
+---
+description: Capital of Latviya (Azerbaijani)
+locale: az
+---
+Riqa

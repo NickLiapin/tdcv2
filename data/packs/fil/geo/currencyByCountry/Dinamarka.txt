@@ -1,0 +1,5 @@
+---
+description: Currency of Dinamarka (Filipino).
+locale: fil
+---
+Krone

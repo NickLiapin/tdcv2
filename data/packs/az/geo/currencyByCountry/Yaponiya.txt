@@ -1,0 +1,5 @@
+---
+description: Currency of Yaponiya (Azerbaijani)
+locale: az
+---
+yapon iyeni

@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with an Azerbaijani street, district or estate name (Şimal qəsəbəsi, Cənub massivi)
+locale: az
+---
+Şimal
+Cənub
+Şərq
+Qərb
+Şimal-şərq
+Şimal-qərb
+Cənub-şərq
+Cənub-qərb
+Mərkəz
+Yuxarı
+Aşağı
+Orta
+İç
+Çöl
+Yaxın

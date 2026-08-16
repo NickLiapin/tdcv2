@@ -1,0 +1,5 @@
+---
+description: Capital of Özbəkistan (Azerbaijani)
+locale: az
+---
+Daşkənd

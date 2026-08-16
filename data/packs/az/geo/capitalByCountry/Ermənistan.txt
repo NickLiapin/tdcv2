@@ -1,0 +1,5 @@
+---
+description: Capital of Ermənistan (Azerbaijani)
+locale: az
+---
+İrəvan

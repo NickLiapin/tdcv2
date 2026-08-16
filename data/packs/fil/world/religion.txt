@@ -1,0 +1,27 @@
+---
+description: Religion, in Filipino. THE PHILIPPINES IS THE ONLY LARGE CHRISTIAN-MAJORITY COUNTRY IN ASIA and about four-fifths of Filipinos are Roman Catholic, a legacy of three centuries of Spanish rule. TWO OF THE CHURCHES ON THIS LIST WERE FOUNDED IN THE PHILIPPINES. The Iglesia Filipina Independiente, the Aglipayan church, broke from Rome in 1902 over the refusal to ordain Filipino bishops and was for a time the church of the revolution. The Iglesia ni Cristo, founded in Manila in 1914, is a Restorationist church with several million members that votes as a bloc, which makes it a factor in every Philippine election. Islam came to Mindanao and Sulu two centuries before Christianity reached Luzon and Muslim Filipinos are about six per cent of the population, concentrated in the south. Anito names the pre-colonial ancestor and nature spirits, and indigenous belief survives among unconquered upland peoples.
+locale: fil
+---
+Katoliko
+Iglesia ni Cristo
+Aglipayan
+Protestante
+Evangelical
+Baptist
+Methodist
+Seventh-day Adventist
+Born-again
+Saksi ni Jehova
+Mormon
+Ortodokso
+Islam
+Sunni
+Shia
+Budismo
+Hinduismo
+Judaismo
+Anito
+Katutubong pananampalataya
+Ateista
+Agnostiko
+Walang relihiyon

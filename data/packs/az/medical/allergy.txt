@@ -1,0 +1,26 @@
+---
+description: Common allergies (Azerbaijani)
+locale: az
+---
+tozağacı tozcuğu
+ambroziya tozcuğu
+yovşan tozcuğu
+çəmən otu tozcuğu
+ev tozu
+ev tozu gənəsi
+pişik tükü
+it tükü
+kif göbələyi
+penisilin
+sulfanilamid
+aspirin
+yerli anestetik
+yer fındığı
+qoz-fındıq
+süd
+yumurta
+balıq
+dəniz məhsulları
+soya
+qlüten
+arı sancması

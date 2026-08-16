@@ -1,0 +1,32 @@
+---
+description: Government body, in Filipino. THE COUNTRY IS THE PHILIPPINES — Filipino is official in one state and nowhere else, so naming its institutions is naming what the words mean. Note the administrative vocabulary itself, which is the language part: Kagawaran is a department, Kawanihan a bureau, Komisyon a commission, Tanggapan an office, and those four words classify the whole executive branch. Filipinos in practice say the English acronym — DepEd, DOH, DSWD, BIR — and the Filipino names below are what appears on the letterhead and in Filipino-language proclamations. Komisyon sa Wikang Filipino is the body that governs the language this pack is written in: created by the 1987 Constitution, it standardises Filipino orthography and vocabulary and issues the spelling rules the rest of these files follow.
+locale: fil
+---
+Kagawaran ng Edukasyon
+Kagawaran ng Kalusugan
+Kagawaran ng Katarungan
+Kagawaran ng Ugnayang Panlabas
+Kagawaran ng Pagsasaka
+Kagawaran ng Paggawa at Empleo
+Kagawaran ng Pananalapi
+Kagawaran ng Tanggulang Pambansa
+Kagawaran ng Transportasyon
+Kagawaran ng Kapaligiran at Likas na Yaman
+Kagawaran ng Interyor at Pamahalaang Lokal
+Kagawaran ng Pagawaing Bayan at Lansangan
+Kagawaran ng Turismo
+Kagawaran ng Kalakalan at Industriya
+Kagawaran ng Agham at Teknolohiya
+Kagawaran ng Kagalingang Panlipunan at Pagpapaunlad
+Kagawaran ng Enerhiya
+Kawanihan ng Rentas Internas
+Kawanihan ng Adwana
+Komisyon sa Halalan
+Komisyon sa Wikang Filipino
+Komisyon sa Karapatang Pantao
+Komisyon ng Serbisyo Sibil
+Bangko Sentral ng Pilipinas
+Pambansang Pulisya ng Pilipinas
+Sandatahang Lakas ng Pilipinas
+Tanggapan ng Pangulo
+Tanggapan ng Ombudsman

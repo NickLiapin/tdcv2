@@ -1,0 +1,20 @@
+---
+description: Compass direction (Azerbaijani)
+locale: az
+---
+Şimal
+Cənub
+Şərq
+Qərb
+Şimal-şərq
+Şimal-qərb
+Cənub-şərq
+Cənub-qərb
+Şimal-şimal-şərq
+Şərq-şimal-şərq
+Şərq-cənub-şərq
+Cənub-cənub-şərq
+Cənub-cənub-qərb
+Qərb-cənub-qərb
+Qərb-şimal-qərb
+Şimal-şimal-qərb

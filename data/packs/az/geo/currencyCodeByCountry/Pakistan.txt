@@ -1,0 +1,5 @@
+---
+description: Currency code of Pakistan
+locale: az
+---
+PKR

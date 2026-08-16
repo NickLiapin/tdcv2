@@ -1,0 +1,40 @@
+---
+description: Kind of building, in Filipino. Three strata sit side by side and the description is the only place that says so: the Austronesian core (bahay, kubo, kamalig, tindahan, palengke), the Spanish stratum that arrived with the friars and the town plan (simbahan, kumbento, munisipyo, eskuwelahan, bodega, pabrika), and modern English (condominium, townhouse, mall) which is borrowed whole rather than translated. Bahay-kubo, the stilted nipa-and-bamboo house, and bahay na bato, the Spanish-era stone-and-wood townhouse, are building TYPES in Philippine usage the way 'bungalow' is in English, not historical curiosities. Sari-sari store and karinderya have no English one-word equivalent: the first is a tiny neighbourhood shop selling everything in single-serving sachets, the second a home kitchen that sells cooked food by the plate.
+locale: fil
+---
+Bahay
+Bahay-kubo
+Bahay na bato
+Bungalow
+Apartment
+Condominium
+Townhouse
+Tirahan
+Gusali
+Opisina
+Bodega
+Kamalig
+Tindahan
+Sari-sari store
+Palengke
+Talipapa
+Pabrika
+Ospital
+Klinika
+Botika
+Paaralan
+Pamantasan
+Aklatan
+Simbahan
+Kapilya
+Kumbento
+Masjid
+Otel
+Restawran
+Karinderya
+Kantina
+Munisipyo
+Istadyum
+Palaruan
+Garahe
+Terminal

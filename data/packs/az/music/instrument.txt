@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Azerbaijani). The first block is the mugham trio: TAR, the long-necked plucked lute that is the national instrument and is played resting against the chest rather than on the knee, KAMANÇA, the spike fiddle bowed upright, and QAVAL, the frame drum the singer holds. Balaban, the double-reed pipe with the mourning tone, and zurna are the wind pair; nağara the drum of the open-air wedding. All are Azerbaijani rather than borrowed, and the tar and kamança craft is on the UNESCO list.
+locale: az
+---
+tar
+kamança
+qaval
+balaban
+zurna
+nağara
+qoşa nağara
+saz
+ud
+qanun
+tütək
+ney
+dəf
+garmon
+zərb
+santur
+skripka
+alt
+violonçel
+kontrabas
+gitara
+bas gitara
+ukulele
+arfa
+fortepiano
+royal
+orqan
+akkordeon
+fleyta
+klarnet
+saksafon

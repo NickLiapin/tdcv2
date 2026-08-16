@@ -1,0 +1,16 @@
+---
+description: Jobs in Finance (Azerbaijani)
+locale: az
+---
+mühasib
+baş mühasib
+auditor
+maliyyə analitiki
+kassir
+kredit mütəxəssisi
+iqtisadçı
+daxili auditor
+investisiya analitiki
+sığorta agenti
+vergi məsləhətçisi
+xəzinədarlıq mütəxəssisi

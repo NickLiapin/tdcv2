@@ -1,0 +1,13 @@
+---
+description: Mining method. Small-scale mining belongs on the list and not as a footnote: a large part of Philippine gold is produced by small-scale and artisanal miners working with hand tools and mercury, it is regulated separately from industrial mining, and compressor mining — diving down a flooded shaft breathing through a garden hose fed by an air compressor — is a genuine and lethal Philippine method.
+locale: fil
+---
+Open-pit
+Underground
+Small-scale
+Artisanal
+Compressor mining
+Placer
+Shaft
+Strip
+Longwall

@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Azerbaijani)
+locale: az
+---
+şəhər velosipedi
+tur velosipedi
+yol velosipedi
+dağ velosipedi
+qravel velosiped
+hibrid velosiped
+trekkinq velosipedi
+qatlanan velosiped
+elektrik velosiped
+uşaq velosipedi
+yeniyetmə velosipedi
+BMX
+üçtəkərli
+tandem
+uzanmış velosiped
+yük velosipedi
+fatbayk

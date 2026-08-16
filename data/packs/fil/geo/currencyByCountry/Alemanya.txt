@@ -1,0 +1,5 @@
+---
+description: Currency of Alemanya (Filipino).
+locale: fil
+---
+Euro

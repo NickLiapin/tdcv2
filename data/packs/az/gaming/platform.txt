@@ -1,0 +1,15 @@
+---
+description: Gaming platform (Azerbaijani; brand names kept as-is)
+locale: az
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+mobil
+Android
+iOS
+brauzer

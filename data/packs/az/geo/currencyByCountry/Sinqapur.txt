@@ -1,0 +1,5 @@
+---
+description: Currency of Sinqapur (Azerbaijani)
+locale: az
+---
+Sinqapur dolları

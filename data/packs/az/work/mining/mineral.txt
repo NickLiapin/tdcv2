@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Azerbaijani). The list is Azerbaijan's own geology: oil and gas first, then the alunite of Zaylik, the iodine-bromine brines of the Absheron and the travertine that faces half the buildings in Baku.
+locale: az
+---
+neft
+təbii qaz
+kondensat
+dəmir filizi
+alunit
+mis filizi
+qurğuşun-sink
+qızıl
+gümüş
+molibden
+kobalt
+barit
+bentonit
+mərmər
+travertin
+əhəngdaşı
+dolomit
+gips
+yod-brom suları

@@ -1,0 +1,36 @@
+---
+description: Building type (Azerbaijani). The Russian layer of the vocabulary is plainly visible here — kotedj, zavod, fabrik, angar and hostel all entered through Russian during the Soviet period and have no Turkish counterpart.
+locale: az
+---
+yaşayış binası
+çoxmərtəbəli bina
+mənzil
+fərdi ev
+həyət evi
+villa
+bağ evi
+kotedj
+ikimərtəbəli ev
+yataqxana
+mehmanxana
+hostel
+biznes mərkəzi
+ofis binası
+ticarət mərkəzi
+mağaza
+bazar
+anbar
+angar
+zavod
+fabrik
+emalatxana
+sex
+qaraj
+avtoyuma
+məktəb
+uşaq bağçası
+xəstəxana
+poliklinika
+məscid
+muzey
+teatr

@@ -1,0 +1,5 @@
+---
+description: Currency of Braziliya (Azerbaijani)
+locale: az
+---
+Braziliya realı

@@ -1,0 +1,53 @@
+---
+description: Country, weighted by population in millions, as FILIPINO names it. Filipino does not transliterate, it borrows the SPANISH name and respells it to Filipino orthography, so Germany is Alemanya, France is Pransiya, Sweden is Suwesya, Switzerland is Suwisa and the Netherlands is Olanda — never the English name respelled. Where Spain had no name to lend, Filipino takes the English one unchanged (Bangladesh, Nepal, Singapore, Israel), and this list shows both habits side by side rather than forcing one. Estados Unidos and Reyno Unido keep the Spanish two-word form. Hapon for Japan and Tsina for China are the oldest layer of all, borrowed through trade rather than through Spain. These names are the keys of capitalByCountry, currencyByCountry and currencyCodeByCountry and must match those filenames character for character.
+locale: fil
+weighted: true
+---
+Tsina,1410
+Indiya,1400
+Estados Unidos,335
+Indonesya,275
+Pakistan,240
+Nigeria,220
+Brasil,215
+Bangladesh,170
+Rusya,145
+Mehiko,130
+Hapon,125
+Pilipinas,115
+Ehipto,110
+Biyetnam,99
+Turkiya,85
+Alemanya,84
+Tailandiya,72
+Reyno Unido,68
+Pransiya,68
+Timog Aprika,60
+Italya,59
+Timog Korea,52
+Espanya,48
+Arhentina,46
+Kanada,39
+Ukraina,38
+Polonya,37
+Saudi Arabia,36
+Malaysia,34
+Nepal,30
+Australya,26
+Olanda,18
+Belhika,12
+Czechia,11
+Gresya,10
+Portugal,10
+Suwesya,10
+Hungriya,10
+Austriya,9
+Suwisa,9
+Israel,9
+Emiratos Arabes Unidos,9
+Dinamarka,6
+Pinlandiya,6
+Singapore,6
+Norwega,5
+Irlanda,5
+Bagong Zealand,5

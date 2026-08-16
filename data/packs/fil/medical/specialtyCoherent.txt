@@ -1,0 +1,14 @@
+---
+description: Medical specialty used as the parent of medical/diagnosisBySpecialty. Ten only, matching the reference set; the filenames in that directory are these values character for character. Filipino spells the Greek-Latin specialty names phonetically — Kardiyolohiya, Neurolohiya, Sikayatriya — but Philippine hospitals sign their departments in English.
+locale: fil
+---
+Kardiyolohiya
+Neurolohiya
+Onkolohiya
+Dermatolohiya
+Gastroenterolohiya
+Endokrinolohiya
+Pulmonolohiya
+Ortopediya
+Sikayatriya
+Neprolohiya

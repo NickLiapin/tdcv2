@@ -1,0 +1,12 @@
+---
+description: Dishes of Livan cuisine (Azerbaijani)
+locale: az
+---
+hummus
+fələfel
+tabbulə
+içli köftə
+fəttuş
+şaurma
+baba qanuş
+manakiş

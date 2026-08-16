@@ -1,0 +1,224 @@
+---
+description: Job title. THE PHILIPPINES EXPORTS LABOUR ON A SCALE NOTHING IN EUROPE MATCHES and this list is shaped by it: roughly two million Filipinos work abroad at any time, Filipino seafarers crew something like a quarter of the world's merchant fleet, and nursing, caregiving, seafaring and domestic work are studied and licensed here for employment somewhere else. KASAMBAHAY is a legally defined occupation with its own statute, the Batas Kasambahay of 2013, which set a minimum wage, social insurance and a written contract for household workers. YAYA, the child's nurse, is a Filipino word that has travelled with the workers who hold the job. The other shaping fact is the business-process industry: over a million Filipinos answer calls, process claims and do back-office work for foreign companies through the night. Titles are given in Filipino where the trade has a living Filipino name and in English where the job arrived already named, which is exactly how a Philippine CV reads.
+locale: fil
+---
+Guro
+Guro sa elementarya
+Guro sa hayskul
+Propesor
+Instruktor
+Prinsipal
+Nars
+Doktor
+Siruhano
+Dentista
+Parmasyutiko
+Komadrona
+Manghihilot
+Albularyo
+Beterinaryo
+Caregiver
+Barangay health worker
+Medical technologist
+Physical therapist
+Radiologic technologist
+Nutrisyonista
+Abogado
+Piskal
+Hukom
+Notaryo
+Paralegal
+Pulis
+Bumbero
+Sundalo
+Gwardiya
+Tanod
+Karpintero
+Mason
+Elektrisyan
+Tubero
+Welder
+Panday
+Pintor
+Mekaniko
+Machinist
+Kapatas
+Manggagawa
+Kargador
+Inhinyerong sibil
+Inhinyerong mekanikal
+Inhinyerong elektrikal
+Inhinyerong elektroniko
+Arkitekto
+Surveyor
+Drayber
+Drayber ng jeepney
+Drayber ng traysikel
+Drayber ng bus
+Drayber ng truck
+Kondoktor
+Delivery rider
+Marino
+Tripulante
+Kapitan ng barko
+Piloto
+Flight attendant
+Mangingisda
+Magsasaka
+Kasama
+Hardinero
+Tagapag-alaga ng hayop
+Minero
+Kusinero
+Chef
+Panadero
+Waiter
+Barista
+Bartender
+Karinderya owner
+Tindera
+Tindero
+Cashier
+Bagger
+Store manager
+Sales representative
+Merchandiser
+Mangangalakal
+Basurero
+Taga-linis
+Labandera
+Kasambahay
+Yaya
+Manikurista
+Barbero
+Mananahi
+Modista
+Mag-aalahas
+Sekretarya
+Kawani
+Klerk
+Kalihim
+Tagapangasiwa
+Tagasuri
+Tagapayo
+Tagasalin
+Mamamahayag
+Manunulat
+Editor
+Potograpo
+Direktor
+Artista
+Mang-aawit
+Musikero
+Iskultor
+Kartunista
+Sosyal na manggagawa
+Pari
+Pastor
+Imam
+Madre
+Sakristan
+Call center agent
+BPO team leader
+Virtual assistant
+Technical support specialist
+Customer service representative
+Software engineer
+Web developer
+Mobile developer
+Data analyst
+Data scientist
+DevOps engineer
+QA engineer
+Product manager
+UX designer
+Graphic designer
+Sysad
+Network engineer
+Database administrator
+Security analyst
+Cloud architect
+IT support specialist
+Accountant
+Bookkeeper
+Auditor
+Financial analyst
+Actuary
+Tax adviser
+Bank teller
+Loan officer
+Insurance agent
+Remittance officer
+Marketing manager
+Brand manager
+HR specialist
+Recruiter
+Operations manager
+Project manager
+Business analyst
+Executive assistant
+Office manager
+Receptionist
+Procurement specialist
+Logistics coordinator
+Dispatcher
+Warehouse worker
+Forklift operator
+Heavy equipment operator
+Crane operator
+Machine operator
+Quality inspector
+Production supervisor
+Line worker
+Packer
+Maintenance technician
+Lineman
+Meter reader
+Power plant operator
+Water treatment operator
+Solar installer
+Telecom technician
+Fiber optic technician
+Cable splicer
+Hotel manager
+Housekeeper
+Front desk officer
+Concierge
+Tour guide
+Travel agent
+Event coordinator
+Fitness instructor
+Lifeguard
+Athlete
+Coach
+Referee
+Librarian
+Archivist
+Researcher
+Statistician
+Economist
+Agriculturist
+Forester
+Fisheries technologist
+Food technologist
+Chemist
+Biologist
+Geologist
+Meteorologist
+Seismologist
+Environmental officer
+Building inspector
+Safety officer
+Barangay captain
+Konsehal
+Alkalde
+Gobernador
+Senador
+Kongresista
+Court stenographer
+Public attorney
+Sheriff
+Immigration officer
+Customs examiner
+Postal worker
+Mail carrier

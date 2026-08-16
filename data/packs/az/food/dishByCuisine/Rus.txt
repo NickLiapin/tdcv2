@@ -1,0 +1,12 @@
+---
+description: Dishes of Rus cuisine (Azerbaijani)
+locale: az
+---
+borş
+pelmeni
+blin
+olivye salatı
+seldyorka
+şi
+qreçka sıyığı
+kotlet

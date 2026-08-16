@@ -1,0 +1,5 @@
+---
+description: Capital of Hungriya (Filipino).
+locale: fil
+---
+Budapest

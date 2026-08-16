@@ -1,0 +1,14 @@
+---
+description: Payment status, in Filipino.
+locale: fil
+---
+Nakabinbin
+Awtorisado
+Bayad na
+Nabigo
+Na-refund
+Bahagyang na-refund
+Chargeback
+Kanselado
+Tinanggihan
+Nag-expire

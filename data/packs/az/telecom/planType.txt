@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Azerbaijani)
+locale: az
+---
+ödənişli qabaqcadan
+abunə
+limitsiz
+ailə paketi
+korporativ
+gənclər paketi
+turist paketi
+internet paketi
+danışıq paketi
+cihaz paketi
+beynəlxalq paket
+əlavə paket

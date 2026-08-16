@@ -1,0 +1,20 @@
+---
+description: Room type (Azerbaijani)
+locale: az
+---
+qonaq otağı
+yataq otağı
+uşaq otağı
+iş otağı
+mətbəx
+mətbəx-qonaq otağı
+yemək otağı
+hamam
+sanuzel
+ayrı sanuzel
+dəhliz
+koridor
+paltar otağı
+anbar
+eyvan
+lodjiya

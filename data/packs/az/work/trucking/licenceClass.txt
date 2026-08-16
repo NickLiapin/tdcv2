@@ -1,0 +1,11 @@
+---
+description: Driving licence category for trucks. Azerbaijan uses the European A / B / C / D lettering, so these are the same letters a German or Polish licence carries.
+locale: az
+---
+B
+C1
+C
+C1E
+CE
+D1
+DE

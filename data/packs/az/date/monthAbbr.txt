@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Azerbaijani)
+locale: az
+---
+yan
+fev
+mar
+apr
+may
+iyn
+iyl
+avq
+sen
+okt
+noy
+dek

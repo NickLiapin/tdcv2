@@ -1,0 +1,26 @@
+---
+description: Company department / function (Azerbaijani)
+locale: az
+---
+İdarəetmə
+Maliyyə
+Mühasibatlıq
+Hüquq
+İnsan resursları
+Marketinq
+Satış
+Satınalma
+Logistika
+Anbar
+İstehsalat
+Texniki
+İnformasiya texnologiyaları
+Proqram təminatının hazırlanması
+Test
+Texniki dəstək
+Keyfiyyət
+Elmi-tədqiqat
+Müştəri xidmətləri
+Təhlükəsizlik
+İnzibati işlər
+Korporativ kommunikasiyalar

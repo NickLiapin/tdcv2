@@ -1,0 +1,30 @@
+---
+description: Mobile and internet carrier. Brand names, untranslated. Globe and Smart are the two that matter and between them cover almost the whole country; TM, TNT and Sun are their prepaid sub-brands, which exist as separate brands because the Philippine market is overwhelmingly PREPAID rather than contract — a Filipino buys load in small amounts from a sari-sari store rather than paying a monthly bill. DITO is the third network, licensed in 2019 to break the duopoly. The international carriers are here because Philippine records routinely contain them: several million Filipinos work abroad and keep a foreign number.
+locale: fil
+---
+Globe
+Smart
+TM
+TNT
+DITO
+Sun Cellular
+GOMO
+Cherry Prepaid
+PLDT
+Converge
+Sky
+Starlink
+Singtel
+Etisalat
+STC
+Zain
+Ooredoo
+Vodafone
+Orange
+O2
+EE
+Verizon
+AT&T
+T-Mobile
+China Mobile
+SoftBank

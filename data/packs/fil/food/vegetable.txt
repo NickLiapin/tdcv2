@@ -1,0 +1,38 @@
+---
+description: Vegetable, in Filipino. Malunggay deserves the note: the moringa tree grows in back yards across the country, its leaves go into soup, and it is the vegetable the Department of Health promotes hardest against malnutrition. Ampalaya is bitter gourd and Filipinos eat it for the bitterness, not despite it, which is a genuine difference of palate. Puso ng saging, the banana blossom, and labong, bamboo shoot, are vegetables cut from plants a European kitchen treats as ornamental. Kangkong, water spinach, grows in ditches and is the cheapest green in the market — 'kangkong' is also slang for something worthless.
+locale: fil
+---
+Talong
+Ampalaya
+Sitaw
+Kalabasa
+Okra
+Kangkong
+Malunggay
+Pechay
+Repolyo
+Labanos
+Sayote
+Upo
+Patola
+Munggo
+Togue
+Gabi
+Kamote
+Kamoteng kahoy
+Ube
+Singkamas
+Karot
+Patatas
+Sibuyas
+Bawang
+Luya
+Kamatis
+Sili
+Mais
+Litsugas
+Saluyot
+Alugbati
+Puso ng saging
+Labong
+Bataw

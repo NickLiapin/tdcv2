@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Brand names, untranslated. Mobile belongs at the top for the Philippines rather than at the bottom: the country plays on phones, Mobile Legends is a national pastime with its own professional league and televised finals, and internet cafes — locally called computer shops — are where a large part of PC gaming happens because home machines are expensive.
+locale: fil
+---
+Mobile
+PC
+Computer shop
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+Meta Quest
+Browser

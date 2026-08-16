@@ -1,0 +1,22 @@
+---
+description: Dishes of Bisaya cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Lechon Cebu
+Humba
+Kinilaw na tanigue
+Sinugbang isda
+Puso
+Ngohiong
+Pochero Bisaya
+Utan Bisaya
+Linarang
+Tinolang isda
+Bam-i
+Chorizo de Cebu
+Danggit
+Budbud kabog
+Binignit
+Torta Cebuana
+Balbacua
+Sutukil

@@ -1,0 +1,16 @@
+---
+description: Jobs in Healthcare (Azerbaijani)
+locale: az
+---
+terapevt
+cərrah
+anestezioloq
+uşaq həkimi
+kardioloq
+tibb bacısı
+feldşer
+əczaçı
+laborant
+radioloq
+diş həkimi
+fizioterapevt

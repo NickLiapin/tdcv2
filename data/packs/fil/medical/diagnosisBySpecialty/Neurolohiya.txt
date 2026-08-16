@@ -1,0 +1,16 @@
+---
+description: Diagnoses handled by Neurolohiya, as recorded in a Philippine chart. The filename is the value in medical/specialtyCoherent.txt.
+locale: fil
+---
+Migraine
+Stroke
+Epilepsya
+Sakit na Parkinson
+Sakit na Alzheimer
+Multiple sclerosis
+Neuropatiya sa dyabetis
+Bell's palsy
+Sakit ng ulo sa tensiyon
+Vertigo
+Pangingimay ng ugat
+Meningitis

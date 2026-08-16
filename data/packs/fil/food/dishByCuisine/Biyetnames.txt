@@ -1,0 +1,22 @@
+---
+description: Dishes of Biyetnames cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Pho
+Banh mi
+Goi cuon
+Bun cha
+Com tam
+Banh xeo
+Bun bo Hue
+Cha gio
+Ca kho to
+Banh cuon
+Mi Quang
+Nem nuong
+Canh chua
+Bo kho
+Che
+Banh flan
+Cao lau
+Xoi

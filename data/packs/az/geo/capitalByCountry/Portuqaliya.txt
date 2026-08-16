@@ -1,0 +1,5 @@
+---
+description: Capital of Portuqaliya (Azerbaijani)
+locale: az
+---
+Lissabon

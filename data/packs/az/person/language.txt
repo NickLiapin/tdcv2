@@ -1,0 +1,44 @@
+---
+description: Language name (Azerbaijani). The block after the majors is the languages actually spoken inside Azerbaijan — Talış, Ləzgi, Avar, Tat, Udin, Saxur — several of which have a few thousand speakers and no other country.
+locale: az
+---
+Azərbaycan dili
+ingilis dili
+rus dili
+türk dili
+fars dili
+ərəb dili
+gürcü dili
+erməni dili
+talış dili
+ləzgi dili
+avar dili
+kürd dili
+tat dili
+udin dili
+saxur dili
+alman dili
+fransız dili
+ispan dili
+italyan dili
+portuqal dili
+ukrayna dili
+polyak dili
+çex dili
+macar dili
+rumın dili
+bolqar dili
+serb dili
+xorvat dili
+yunan dili
+ivrit
+qazax dili
+qırğız dili
+özbək dili
+türkmən dili
+tatar dili
+çin dili
+yapon dili
+koreya dili
+hind dili
+vyetnam dili

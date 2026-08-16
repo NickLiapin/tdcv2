@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Azerbaijani)
+locale: az
+---
+yeni başlayan
+bürünc
+gümüş
+qızıl
+platin
+almaz
+usta
+böyük usta
+çempion
+əfsanə

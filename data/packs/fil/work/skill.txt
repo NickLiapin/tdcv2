@@ -1,0 +1,57 @@
+---
+description: Workplace skill. English for the technical ones because that is how they are advertised; the languages listed are the ones a Philippine job advertisement actually asks for, and note that Filipino and English are BOTH listed because bilingual fluency is a stated requirement in Philippine call-centre and government work rather than an assumption. Arnis and hilot are here as licensed vocational skills. Customer service and neutral accent appear because the business-process industry hires on them.
+locale: fil
+---
+Python
+JavaScript
+SQL
+Java
+PHP
+C++
+Cloud computing
+Machine learning
+Data analysis
+Excel
+Project management
+Agile
+Technical writing
+Graphic design
+Video editing
+Copywriting
+Social media management
+Bookkeeping
+Financial modeling
+Payroll processing
+CAD
+Blueprint reading
+Welding
+Electrical wiring
+Plumbing
+Carpentry
+Masonry
+Machining
+Soldering
+Electronics assembly
+Forklift operation
+Heavy equipment operation
+Professional driving
+Basic seamanship
+First aid
+CPR
+Food safety
+Caregiving
+Massage therapy
+Hilot
+Arnis
+Dressmaking
+Cosmetology
+Customer service
+Neutral accent
+Filipino
+Ingles
+Mandarin
+Hapones
+Negotiation
+Team leadership
+Time management
+Problem solving

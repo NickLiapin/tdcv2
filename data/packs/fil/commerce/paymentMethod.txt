@@ -1,0 +1,19 @@
+---
+description: How the buyer pays. CASH ON DELIVERY IS NOT A MINORITY OPTION HERE, it is how most Philippine online orders are paid for: card penetration is low, a large part of the population has no bank account, and marketplaces are built around the courier collecting cash at the door. Hulugan is instalment buying, and the informal version of it runs through neighbourhood collectors rather than banks. Padala is a remittance handed over a counter, which is a payment method in its own right in a country where money moves between provinces and from abroad far more than between bank accounts. The two dominant real-world rails, GCash and Maya, are Philippine financial institutions and belong beside the banks in the philippines country pack, not in a language list.
+locale: fil
+---
+Bayad sa pagdating
+Cash on delivery
+Salapi
+Kredit card
+Debit card
+Paglipat sa bangko
+Online banking
+E-wallet
+Hulugan
+Layaway
+Padala
+Bayad sa counter
+Tseke
+Gift card
+Cryptocurrency

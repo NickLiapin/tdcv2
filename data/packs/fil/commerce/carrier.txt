@@ -1,0 +1,24 @@
+---
+description: Parcel carrier. These are registered trade names and keep their real spelling, as brand names do in every locale. The list is what a Philippine shipping record actually contains: LBC is the household name and also the main channel for the balikbayan box, the enormous carton of goods an overseas Filipino ships home; J&T and Ninja Van carry most marketplace parcels; 2GO moves freight between islands by ship, which a landlocked country's carrier list has no equivalent of. PHLPost is the state post office and is used far less than the private couriers.
+locale: fil
+---
+LBC Express
+J&T Express
+Ninja Van
+Flash Express
+JRS Express
+2GO Express
+Entrego
+Air21
+XDE Logistics
+Shopee Xpress
+Lazada Logistics
+GoGo Xpress
+Lalamove
+Grab Express
+Toktok
+Mober
+PHLPost
+DHL
+FedEx
+UPS

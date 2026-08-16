@@ -1,0 +1,16 @@
+---
+description: Diagnoses handled by Gastroenterolohiya, as recorded in a Philippine chart. The filename is the value in medical/specialtyCoherent.txt.
+locale: fil
+---
+Hyperacidity
+Ulser sa tiyan
+Gastritis
+Amoebiasis
+Impeksiyon sa bituka
+Irritable bowel syndrome
+Hepatitis A
+Hepatitis B
+Sirosis ng atay
+Bato sa apdo
+Almuranas
+Pankreatitis

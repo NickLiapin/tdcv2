@@ -1,0 +1,24 @@
+---
+description: Diagnosis specific to male anatomy, in Filipino.
+locale: fil
+---
+Benign prostatic hyperplasia
+Prostatitis
+Kanser sa prostate
+Kanser sa bayag
+Testicular torsion
+Varicocele
+Hydrocele
+Epididymitis
+Cryptorchidism
+Phimosis
+Balanitis
+Erectile dysfunction
+Peyronie disease
+Kawalan ng katabaan sa lalaki
+Gynecomastia
+Male hypogonadism
+Priapism
+Spermatocele
+Pagkakalbo
+Luslos

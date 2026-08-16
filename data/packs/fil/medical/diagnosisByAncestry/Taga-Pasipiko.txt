@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in populations of Taga-Pasipiko descent, in Filipino. The filename is the value in medical/ancestry.txt.
+locale: fil
+---
+Dyabetis uri 2
+Sobrang timbang
+Gout
+Talamak na sakit sa bato
+Rayumatikong sakit sa puso
+Altapresyon
+Kanser sa atay
+Talamak na hepatitis B
+Kakulangan sa bitamina D
+Metabolic syndrome

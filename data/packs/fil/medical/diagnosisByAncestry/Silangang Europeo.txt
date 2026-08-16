@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in populations of Silangang Europeo descent, in Filipino. The filename is the value in medical/ancestry.txt.
+locale: fil
+---
+Kakulangan sa lactase
+Sakit na Celiac
+Familial hypercholesterolemia
+Hemochromatosis
+Sakit na Wilson
+Kanser sa tiyan
+Sakit sa koronaryong arterya
+Kakulangan sa alpha-1 antitrypsin
+Congenital adrenal hyperplasia
+Dyabetis uri 1

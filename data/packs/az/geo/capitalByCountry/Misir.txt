@@ -1,0 +1,5 @@
+---
+description: Capital of Misir (Azerbaijani)
+locale: az
+---
+Qahirə

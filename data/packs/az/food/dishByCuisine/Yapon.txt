@@ -1,0 +1,12 @@
+---
+description: Dishes of Yapon cuisine (Azerbaijani)
+locale: az
+---
+suşi
+maki
+saşimi
+ramen
+tempura
+miso şorbası
+udon
+gyoza

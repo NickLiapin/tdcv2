@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Azerbaijani)
+locale: az
+---
+birnəfərlik
+ikinəfərlik
+iki ayrı çarpayılı
+üçnəfərlik
+dördnəfərlik
+ailə otağı
+standart
+yuxarı mərtəbə standart
+yarımlüks
+lüks
+kral apartamenti
+studiya
+apart
+villa
+banqalo
+dəniz mənzərəli otaq
+eyvanlı otaq
+əlilliyi olanlar üçün otaq

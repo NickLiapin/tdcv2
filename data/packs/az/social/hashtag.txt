@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Azerbaijani (prefix with # in a template)
+locale: az
+---
+azərbaycan
+bakı
+gəncə
+şəki
+qəbələ
+qarabağ
+şuşa
+naxçıvan
+lənkəran
+quba
+səyahət
+təbiət
+dağ
+dəniz
+xəzər
+şəkil
+fotoqrafiya
+sənət
+musiqi
+muğam
+kino
+kitab
+oxuyuram
+yemək
+mətbəx
+çay
+idman
+qaçış
+sağlamlıq
+novruz

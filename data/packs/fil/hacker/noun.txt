@@ -1,0 +1,44 @@
+---
+description: Technical noun. TWO VOCABULARIES EXIST FOR THE SAME THINGS AND ONLY ONE IS SPOKEN. The Komisyon sa Wikang Filipino and the University of the Philippines have coined native terms — salansan for file, talaan for record, imbakan for storage, hudyat for signal, panuntunan for protocol — and they appear in Filipino-language computing textbooks and in government documents. In an actual Philippine office nobody says them; the borrowed forms below, respelled or unchanged, are what is said. Both are here because a pack that shipped only the coinages would be describing a language nobody writes code in, and one that shipped only the loans would hide that the coinages exist.
+locale: fil
+---
+drayber
+protokol
+bandwidth
+panel
+mikrotsip
+programa
+port
+kard
+array
+interface
+sistema
+sensor
+firewall
+hard drive
+piksel
+alarma
+feed
+monitor
+aplikasyon
+transmiter
+bus
+sirkit
+kapasitor
+matris
+database
+pipeline
+server
+kliyente
+ulap
+koneksiyon
+talaan
+talahanayan
+susi
+hudyat
+gumagamit
+datos
+imbakan
+salansan
+pahina
+panuntunan

@@ -1,0 +1,37 @@
+---
+description: Musical instrument, in Filipino. The Philippine instruments in the first block have no European equivalents and several are unlike anything in a Western orchestra. KULINTANG is a row of eight bossed gongs laid horizontally and struck with sticks, the melodic core of Maguindanao and Maranao ensembles, with AGUNG and GANDINGAN as the large hanging gongs beneath it. KUDYAPI is the two-stringed boat lute of Mindanao, played solo and tuned by the player. TONGALI is a NOSE FLUTE, blown with one nostril, played by the Kalinga of the northern Cordillera. GANGSA are the flat gongs of the Cordillera, struck or slapped while dancing. KUBING is the bamboo jaw harp, played close to the mouth and used for courtship. BANDURRIA, LAUD and OCTAVINA are the plucked strings of the rondalla, Spanish in origin and Filipino in practice.
+locale: fil
+---
+Kulintang
+Agung
+Gandingan
+Gangsa
+Kudyapi
+Kubing
+Tongali
+Bungkaka
+Palendag
+Suling
+Bandurria
+Laud
+Octavina
+Gitara
+Ukulele
+Banjo
+Alpa
+Piyano
+Keyboard
+Biyolin
+Selo
+Kontrabaho
+Plauta
+Klarinete
+Saksopon
+Trumpeta
+Trombon
+Tuba
+Tambol
+Drums
+Akordyon
+Harmonika
+Marimba

@@ -1,0 +1,29 @@
+---
+description: Fish, in Filipino, named as they are sold in a palengke rather than as a zoologist would order them. Bangus, the milkfish, is the national fish and the one Filipinos eat most. Galunggong, the round scad, is the cheap fish of the poor and its price is a recurring subject of Philippine politics — a government is judged on the price of galunggong the way a British one is judged on the price of petrol. Lapu-lapu, the grouper, is named after the chieftain who killed Magellan in 1521. Tawilis is a freshwater sardine found in Taal Lake and nowhere else on earth.
+locale: fil
+---
+Bangus
+Tilapia
+Galunggong
+Tamban
+Tulingan
+Lapu-lapu
+Maya-maya
+Dalag
+Hito
+Ayungin
+Tanigue
+Talakitok
+Bisugo
+Dilis
+Danggit
+Tawilis
+Tuna
+Espada
+Pampano
+Matambaka
+Sapsap
+Kanduli
+Biya
+Igat
+Tuyo

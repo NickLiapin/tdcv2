@@ -1,0 +1,12 @@
+---
+description: Dishes of Yunan cuisine (Azerbaijani)
+locale: az
+---
+musaka
+suvlaki
+giros
+yunan salatı
+dzadziki
+yarpaq dolması
+ispanaqlı börək
+paxlava

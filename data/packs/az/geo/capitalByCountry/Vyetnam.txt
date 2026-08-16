@@ -1,0 +1,5 @@
+---
+description: Capital of Vyetnam (Azerbaijani)
+locale: az
+---
+Hanoy

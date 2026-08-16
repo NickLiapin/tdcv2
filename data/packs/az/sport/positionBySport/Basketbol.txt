@@ -1,0 +1,9 @@
+---
+description: Positions in basketball (Azerbaijani)
+locale: az
+---
+oyunqurucu
+atıcı müdafiəçi
+kiçik hücumçu
+güclü hücumçu
+mərkəz

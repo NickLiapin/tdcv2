@@ -1,0 +1,5 @@
+---
+description: Currency code of Gürcüstan
+locale: az
+---
+GEL

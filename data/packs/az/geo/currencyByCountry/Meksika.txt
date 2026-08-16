@@ -1,0 +1,5 @@
+---
+description: Currency of Meksika (Azerbaijani)
+locale: az
+---
+Meksika pesosu

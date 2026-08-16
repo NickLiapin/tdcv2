@@ -1,0 +1,12 @@
+---
+description: Dishes of Fransız cuisine (Azerbaijani)
+locale: az
+---
+soğan şorbası
+ratatuy
+koq o ven
+kiş lorren
+krem brüle
+profitrol
+buyabes
+qaz ciyəri

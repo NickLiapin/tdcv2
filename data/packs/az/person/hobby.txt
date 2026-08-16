@@ -1,0 +1,89 @@
+---
+description: Hobby / interest (Azerbaijani)
+locale: az
+---
+kitab oxumaq
+yazı yazmaq
+rəsm çəkmək
+fotoqrafiya
+kino
+teatr
+musiqi dinləmək
+gitara çalmaq
+pianoda çalmaq
+tar çalmaq
+kamança çalmaq
+muğam dinləmək
+mahnı oxumaq
+rəqs etmək
+xalq rəqsləri
+yemək bişirmək
+şirniyyat bişirmək
+çay dəmləmək
+bağçılıq
+gül yetişdirmək
+balıq tutmaq
+ovçuluq
+düşərgə qurmaq
+təbiət gəzintisi
+dağçılıq
+velosiped sürmək
+qaçış
+üzgüçülük
+dalğıclıq
+sörfinq
+yelkənçilik
+xizək sürmək
+snoubord
+konki
+futbol
+basketbol
+voleybol
+tennis
+stolüstü tennis
+badminton
+güləş
+boks
+karate
+tekvondo
+cüdo
+yoqa
+pilates
+fitnes
+şahmat
+nərd
+domino
+tapmaca həll etmək
+model təyyarə
+maket düzəltmək
+ağac emalı
+keramika
+xalçaçılıq
+xəttatlıq
+miniatür rəsm
+tikmə
+toxuculuq
+dərzilik
+zərgərlik
+dülgərlik
+təmir işləri
+avtomobil təmiri
+motosiklet
+kolleksiyaçılıq
+marka yığmaq
+sikkə yığmaq
+antikvariat
+astronomiya
+quş müşahidəsi
+akvarium
+ev heyvanlarına qulluq
+səyahət
+şəhər gəzintiləri
+tarix araşdırmaq
+arxeologiya
+dil öyrənmək
+proqramlaşdırma
+oyun oynamaq
+video montaj
+podkast dinləmək
+könüllülük

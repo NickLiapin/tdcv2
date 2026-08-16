@@ -1,0 +1,5 @@
+---
+description: Capital of Saudi Arabia (Filipino).
+locale: fil
+---
+Riyadh

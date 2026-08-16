@@ -1,0 +1,9 @@
+---
+description: Positions in wrestling (Azerbaijani)
+locale: az
+---
+sərbəst güləşçi
+yunan-Roma güləşçisi
+pəhləvan
+zorxana pəhləvanı
+xalça hakimi

@@ -1,0 +1,5 @@
+---
+description: Currency of Israel (Filipino).
+locale: fil
+---
+Shekel

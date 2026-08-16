@@ -1,0 +1,13 @@
+---
+description: Cable type. Trade terms, English.
+locale: fil
+---
+Fiber optic
+Coaxial
+Twisted pair
+Cat5e
+Cat6
+Cat6a
+Ethernet
+Aerial
+Underground

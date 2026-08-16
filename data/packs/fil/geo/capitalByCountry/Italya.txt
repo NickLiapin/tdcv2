@@ -1,0 +1,5 @@
+---
+description: Capital of Italya (Filipino).
+locale: fil
+---
+Rome

@@ -1,0 +1,18 @@
+---
+description: Insurance type (Azerbaijani)
+locale: az
+---
+icbari tibbi sığorta
+könüllü tibbi sığorta
+həyat sığortası
+fərdi qəza sığortası
+icbari avtonəqliyyat sığortası
+kasko
+yaşıl kart
+əmlak sığortası
+icbari daşınmaz əmlak sığortası
+yük sığortası
+səyahət sığortası
+mülki məsuliyyət sığortası
+pensiya sığortası
+kənd təsərrüfatı sığortası

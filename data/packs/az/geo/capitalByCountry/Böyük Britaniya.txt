@@ -1,0 +1,5 @@
+---
+description: Capital of Böyük Britaniya (Azerbaijani)
+locale: az
+---
+London

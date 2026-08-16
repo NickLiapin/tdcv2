@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Oncology (Azerbaijani)
+locale: az
+---
+Süd vəzi xərçəngi
+Ağciyər xərçəngi
+Kolorektal xərçəng
+Mədə xərçəngi
+Prostat xərçəngi
+Qalxanabənzər vəz xərçəngi
+Melanoma
+Hodgkin limfoması
+Leykoz
+Uşaqlıq boynu xərçəngi

@@ -1,0 +1,16 @@
+---
+description: Kind of mobile plan, in Filipino. UNLI IS A FILIPINO WORD NOW. It is clipped from 'unlimited', it is the marketing word for every uncapped bundle — unli text, unli call, unli data — and it has escaped telecoms entirely: a Philippine restaurant advertising unli rice means you may refill your plate as often as you like. Load is prepaid credit and is bought in denominations as small as ten pesos.
+locale: fil
+---
+Prepaid
+Postpaid
+Unli
+Unli text
+Unli call
+Unli data
+Load
+Promo
+Data-only
+Family plan
+Business plan
+Fiber plan

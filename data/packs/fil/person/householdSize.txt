@@ -1,0 +1,11 @@
+---
+description: Number of people in the household. The Philippine average is a little over four, but the shape of the distribution differs from a European one: three-generation households are ordinary rather than exceptional, unmarried adult children stay at home into their thirties, and a household commonly includes a grandparent, a cousin studying in the city and sometimes a kasambahay. Seven or more is therefore not the rare tail it is in Europe.
+locale: fil
+---
+1
+2
+3
+4
+5
+6
+7+

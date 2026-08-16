@@ -1,0 +1,39 @@
+---
+description: Music genre, in Filipino. OPM stands for Original Pilipino Music and is a genre label rather than a description: it names Filipino-language popular song as a category, it is used on charts and in radio formats, and the P is the older spelling of Pilipino. KUNDIMAN is the classical Filipino art song, in three-four time, addressed to a beloved who is also the country — the form carried nationalist feeling through the Spanish and American periods and is studied as serious repertoire. HARANA is the serenade sung beneath a window, a courtship practice with its own etiquette, now largely gone. KULINTANG is the gong-row music of the Maranao and Maguindanao of Mindanao, an ensemble tradition with no European relation at all. RONDALLA is the Spanish-descended plucked-string ensemble of bandurria, laud and octavina, taught in Philippine schools. Balagtasan is a debate in verse, performed.
+locale: fil
+---
+OPM
+Kundiman
+Harana
+Balitaw
+Kulintang
+Rondalla
+Tinikling
+Balagtasan
+Pinoy rock
+Pinoy hip-hop
+Novelty
+Christmas carol
+Rock
+Pop
+Jazz
+Klasiko
+Hip-hop
+Rap
+R&B
+Soul
+Funk
+Country
+Folk
+Blues
+Reggae
+Metal
+Punk
+Disco
+House
+Techno
+EDM
+Indie
+Gospel
+Ballad
+Acoustic

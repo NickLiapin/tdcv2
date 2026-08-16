@@ -1,0 +1,5 @@
+---
+description: Currency of Banqladeş (Azerbaijani)
+locale: az
+---
+taka

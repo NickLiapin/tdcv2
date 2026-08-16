@@ -1,0 +1,16 @@
+---
+description: Abbreviated month name. Three letters and a full stop is the Filipino convention; note that Set. and not Sep. abbreviates Setyembre, and Peb. not Feb. abbreviates Pebrero, because the Filipino spelling is what is being shortened. Philippine forms and receipts very often print the English abbreviation instead.
+locale: fil
+---
+Ene.
+Peb.
+Mar.
+Abr.
+May.
+Hun.
+Hul.
+Ago.
+Set.
+Okt.
+Nob.
+Dis.

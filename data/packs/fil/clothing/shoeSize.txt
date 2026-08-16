@@ -1,0 +1,18 @@
+---
+description: Shoe size as printed on a shoebox in the Philippines: the US scale, in half sizes, because the Philippines took its retail conventions from the American colonial period and never changed them. NOT the European Paris-point scale and NOT Japanese centimetres. Boxes in the larger malls now carry US, UK and EU together, but the number a Filipino gives when asked their size is the US one. Marikina, the shoe-making city east of Manila, has produced most of the country's leather footwear for a century and sizes its lasts the same way.
+locale: fil
+---
+5
+5.5
+6
+6.5
+7
+7.5
+8
+8.5
+9
+9.5
+10
+10.5
+11
+12

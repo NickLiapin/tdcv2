@@ -1,0 +1,5 @@
+---
+description: Capital of Malaysia (Filipino).
+locale: fil
+---
+Kuala Lumpur

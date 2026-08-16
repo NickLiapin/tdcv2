@@ -1,0 +1,22 @@
+---
+description: Parcel carrier used in Azerbaijan. Azərpoçt is the state post; the rest are international operators with a presence in Baku. Deliberately short — this list names only carriers that verifiably operate, rather than being padded out to a round number.
+locale: az
+---
+Azərpoçt
+EMS
+DHL
+FedEx
+UPS
+TNT
+Aramex
+GLS
+DPD
+PONY Express
+CDEK
+Meest
+SkyNet
+Turkish Cargo
+Silk Way West Airlines
+Wolt
+Bolt Food
+Trendyol

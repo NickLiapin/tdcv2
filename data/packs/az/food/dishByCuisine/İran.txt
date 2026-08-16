@@ -1,0 +1,12 @@
+---
+description: Dishes of İran cuisine (Azerbaijani)
+locale: az
+---
+çelo kabab
+qormə səbzi
+fisincan
+abgüşt
+tahçin
+kükü səbzi
+aş rəştə
+zəfəranlı düyü

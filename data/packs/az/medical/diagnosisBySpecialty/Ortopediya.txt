@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Orthopedics (Azerbaijani)
+locale: az
+---
+Diz osteoartriti
+Bud-çanaq osteoartriti
+Onurğa deqenerasiyası
+Disk yırtığı
+Bilək sümüyü sınığı
+Bud sümüyü boynu sınığı
+Menisk cırılması
+Donmuş çiyin
+Skolioz
+Yastıpəncəlik

@@ -1,0 +1,5 @@
+---
+description: Capital of Israel (Filipino).
+locale: fil
+---
+Jerusalem

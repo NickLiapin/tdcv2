@@ -1,0 +1,21 @@
+---
+description: Social platform popular in Azerbaijan. Viber and imo belong here and would look wrong in a Western European list: both are ordinary everyday messengers in the Caucasus, and imo in particular carries the calls of families working abroad.
+locale: az
+---
+WhatsApp
+Instagram
+Telegram
+Facebook
+YouTube
+TikTok
+Viber
+imo
+X
+Snapchat
+LinkedIn
+Pinterest
+Discord
+Twitch
+Threads
+VKontakte
+Odnoklassniki

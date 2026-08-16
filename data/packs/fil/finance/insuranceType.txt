@@ -1,0 +1,20 @@
+---
+description: Line of insurance, in Filipino. Typhoon, flood and earthquake cover are ordinary retail products here rather than exotic riders, because the country sits on the typhoon belt and on the Pacific Ring of Fire at the same time: about twenty tropical cyclones enter Philippine waters in an average year, more than reach any other country, and the archipelago has both the volcanoes and the fault lines. Pre-need is a Philippine product category of its own — a plan bought in instalments years ahead against a future funeral, a burial plot or a child's tuition, regulated separately from insurance.
+locale: fil
+---
+Kalusugan
+Buhay
+Sasakyan
+Bahay
+Sunog
+Lindol
+Bagyo
+Baha
+Paglalakbay
+Kapansanan
+Ngipin
+Mata
+Pananagutan
+Pre-need
+Pang-agrikultura
+Marine cargo

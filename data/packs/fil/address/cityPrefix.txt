@@ -1,0 +1,40 @@
+---
+description: Leading element of a Philippine place name. Combine with a toponym; it does not by itself name a real place. Two systems are mixed because the country's naming is: the Spanish saint prefixes San, Santa and Santo, which the 1849 parish map left on hundreds of towns and which are abbreviated Sto./Sta. on every road sign, and the native Filipino qualifiers Bagong, Lumang, Malaking, Munting, Mataas na and the compass words Hilagang, Timog, Silangang, Kanlurang. The native qualifiers carry the linker -ng or na and cannot be used bare: it is Bagong Silang, never Bago Silang.
+locale: fil
+---
+San
+Santa
+Santo
+Sta.
+Sto.
+Nueva
+Nuevo
+Puerto
+Villa
+Ciudad
+Bagong
+Lumang
+Malaking
+Munting
+Mataas na
+Mababang
+Malawak na
+Maliit na
+Hilagang
+Timog
+Silangang
+Kanlurang
+Gitnang
+Bayan ng
+Lungsod ng
+Sitio
+Purok
+Pook
+Look ng
+Ilog ng
+Bundok ng
+Baybay ng
+Tabing
+Kabilang
+Katimugang
+Kahilagaang

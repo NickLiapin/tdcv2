@@ -1,0 +1,5 @@
+---
+description: Capital of Suwesya (Filipino).
+locale: fil
+---
+Stockholm

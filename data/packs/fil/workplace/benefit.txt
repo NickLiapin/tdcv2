@@ -1,0 +1,30 @@
+---
+description: Employment benefit. THE THIRTEENTH MONTH PAY IS NOT A BONUS AND NOT NEGOTIABLE: Presidential Decree 851 requires every Philippine employer to pay every rank-and-file employee one twelfth of their annual basic salary, on top of it, by 24 December each year. It is a legal entitlement, it is the reason Philippine December retail spending spikes, and a payroll model that treats it as discretionary is wrong. SSS, PhilHealth and Pag-IBIG are the three mandatory contributions — pension, health insurance and housing fund — deducted from every payslip, and they are named on the list because employees experience them as benefits. Service incentive leave, five days a year, is the statutory minimum, which is why extra leave is worth advertising.
+locale: fil
+---
+13th month pay
+SSS
+PhilHealth
+Pag-IBIG
+Service incentive leave
+Vacation leave
+Sick leave
+HMO
+Dental coverage
+Life insurance
+Rice allowance
+Meal allowance
+Transportation allowance
+Clothing allowance
+Communication allowance
+Night differential
+Overtime pay
+Hazard pay
+Performance bonus
+Retirement plan
+Stock options
+Flexible hours
+Work from home
+Company shuttle
+Gym membership
+Tuition assistance

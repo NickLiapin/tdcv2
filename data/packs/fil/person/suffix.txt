@@ -1,0 +1,30 @@
+---
+description: Name suffix. TWO KINDS ARE MIXED AND BOTH ARE HEAVILY USED IN THE PHILIPPINES. The generational ones — Jr., Sr., II, III, IV — appear far more often than in Europe because naming a son exactly after his father is normal here and continues past the third generation; a Filipino called III is unremarkable. The professional ones are the other half, and they exist because the Philippines is a licensure country: the Professional Regulation Commission runs board examinations for dozens of professions, passing one earns the right to a title, and Filipinos write it after their names on business cards, office doors and social media. RN is a registered nurse, LPT a licensed professional teacher, RPh a pharmacist, RMT a medical technologist, RSW a social worker, CE and EE civil and electrical engineers. Passing the board is a public event — the results are published nationally with the names of every passer — which is why the letters are worn.
+locale: fil
+---
+Jr.
+Sr.
+II
+III
+IV
+V
+PhD
+MD
+DMD
+DVM
+JD
+LlB
+MBA
+MA
+MS
+RN
+LPT
+RPh
+RMT
+RSW
+RPm
+CPA
+CE
+EE
+ME
+ECE

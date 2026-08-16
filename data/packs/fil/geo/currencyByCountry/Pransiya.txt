@@ -1,0 +1,5 @@
+---
+description: Currency of Pransiya (Filipino).
+locale: fil
+---
+Euro

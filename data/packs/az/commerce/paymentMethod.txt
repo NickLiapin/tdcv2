@@ -1,0 +1,19 @@
+---
+description: Payment method (Azerbaijani). m10 and Portmanat are domestic mobile wallets and have no counterpart in a Turkish or European list.
+locale: az
+---
+Visa kredit kartı
+Mastercard
+Debet kartı
+Bank kartı
+Nağd
+Qapıda nağd ödəniş
+Qapıda kartla ödəniş
+Bank köçürməsi
+Apple Pay
+Google Pay
+m10
+Portmanat
+Hissə-hissə ödəniş
+İstehlak krediti
+Hədiyyə kartı

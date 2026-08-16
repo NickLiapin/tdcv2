@@ -1,0 +1,13 @@
+---
+description: Television and film classification. THIS IS NOT THE AMERICAN SET AND THE LETTERS DO NOT MEAN THE SAME THINGS. The Philippine ratings are issued by the Movie and Television Review and Classification Board, a state body with the power to cut or refuse a film outright, and the scale is G, PG, R-13, R-16, R-18 and X. R-13 and R-16 have no American equivalent; X is not a genre label but a refusal — a film rated X may not be shown publicly at all. SPG, Strong Parental Guidance, is the television-only warning that appears as an on-screen icon during a broadcast.
+locale: fil
+---
+G
+PG
+R-13
+R-16
+R-18
+X
+SPG
+GP
+Not Rated

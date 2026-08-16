@@ -1,0 +1,22 @@
+---
+description: Dishes of Pranses cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Coq au vin
+Boeuf bourguignon
+Ratatouille
+Quiche Lorraine
+Croque monsieur
+Bouillabaisse
+Cassoulet
+Confit de canard
+Soupe a l'oignon
+Crepes
+Croissant
+Baguette
+Creme brulee
+Macarons
+Tarte Tatin
+Profiteroles
+Gratin dauphinois
+Escargot

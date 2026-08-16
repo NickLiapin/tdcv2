@@ -1,0 +1,28 @@
+---
+description: Where the event is held. The covered court belongs at the top and is the single most-used event space in the country: nearly every barangay has one, a roofed concrete basketball court, and it hosts the fiesta dance, the graduation, the vaccination drive, the election count and the wake overflow, sometimes in the same month. Bahay simply means the house — a very large share of Philippine events happen in somebody's home or in the street outside it, with a rented tent, and that is normal rather than makeshift. Function hall is Philippine English for a hired events room.
+locale: fil
+---
+Covered court
+Gymnasium
+Bahay
+Kalye
+Plaza
+Liwasan
+Simbahan
+Kapilya
+Bulwagan
+Function hall
+Convention center
+Otel
+Restawran
+Resort
+Beach
+Hardin
+Kubo
+Pavilion
+Teatro
+Auditoryum
+Istadyum
+Paaralan
+Munisipyo
+Rooftop

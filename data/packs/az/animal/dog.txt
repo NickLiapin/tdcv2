@@ -1,0 +1,28 @@
+---
+description: Dog breed (Azerbaijani). Qafqaz çoban iti and the tazı sighthound are the two native to the region.
+locale: az
+---
+Qafqaz çoban iti
+tazı
+alabay
+ov iti
+alman ovçarkası
+labrador retriveri
+qızılı retriver
+pudel
+taks
+bigl
+rotveyler
+doberman
+bokser
+buldoq
+mops
+yorkşir teryeri
+cek rassel teryeri
+sen-bernar
+xaski
+malamut
+samoyed
+border-kolli
+koker-spaniel
+dalmatin

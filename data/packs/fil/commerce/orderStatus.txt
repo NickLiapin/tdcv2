@@ -1,0 +1,18 @@
+---
+description: Order status, in Filipino. Note the shape of the words: most are the ma-/na- affixed forms that mark a completed action on the thing rather than by an actor — naihatid is 'it has been delivered', with the delivery in focus and the courier unmentioned. Filipino chooses the affix by which participant the sentence is about, so an order-status vocabulary naturally comes out in the object focus while an English one comes out as a past participle.
+locale: fil
+---
+Nakabinbin
+Pinoproseso
+Nakumpirma
+Naka-pack
+Naipadala
+Ipinamamahagi
+Naihatid
+Kanselado
+Naibalik
+Na-refund
+Nakahinto
+Naghihintay ng bayad
+Nabigo
+Wala sa stock

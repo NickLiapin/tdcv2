@@ -1,0 +1,12 @@
+---
+description: Dishes of Gürcü cuisine (Azerbaijani)
+locale: az
+---
+xaçapuri
+xinkali
+satsivi
+lobio
+badımcan qozlu
+çaxoxbili
+mtsvadi
+çurçxela

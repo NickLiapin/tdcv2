@@ -1,0 +1,15 @@
+---
+description: Social reaction (Azerbaijani)
+locale: az
+---
+bəyəndim
+çox sevdim
+güldüm
+təəccübləndim
+kədərləndim
+əsəbləşdim
+dəstəkləyirəm
+təşəkkürlər
+təbriklər
+maraqlıdır
+bəyənmədim

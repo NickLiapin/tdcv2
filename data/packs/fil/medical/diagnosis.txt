@@ -1,0 +1,82 @@
+---
+description: Diagnosis, in Filipino. THE PHILIPPINE DISEASE BURDEN IS NOT THE EUROPEAN ONE and this list reflects it: tuberculosis is still one of the leading causes of death, dengue arrives every rainy season in outbreaks, leptospirosis follows every flood because people wade through it, and schistosomiasis is endemic in parts of the Visayas and Mindanao. Altapresyon is the Filipino word for hypertension, from Spanish alta presion, and is used by patients and doctors alike. Note what is NOT here: pasma, a Filipino folk illness of tremors and sweaty palms attributed to exposing a heated body to cold water, is genuinely believed in and genuinely reported to doctors, but it has no biomedical referent and no code, so it is not shipped as a diagnosis. Philippine charts themselves are written in English; these are the Filipino words a patient uses.
+locale: fil
+---
+Altapresyon
+Dyabetis uri 2
+Hika
+Trangkaso
+Sipon
+Ubo
+Pulmonya
+Tuberkulosis
+Dengue
+Leptospirosis
+Malarya
+Schistosomiasis
+Tipus
+Amoebiasis
+Cholera
+Impeksiyon sa bituka
+Bulate
+Hepatitis A
+Hepatitis B
+Sirosis ng atay
+Hyperacidity
+Ulser sa tiyan
+Gastritis
+Almuranas
+Bato sa bato
+Impeksiyon sa ihi
+Talamak na sakit sa bato
+Sakit sa puso
+Atake sa puso
+Stroke
+Atrial fibrillation
+Hyperlipidemia
+Anemya
+Kakulangan sa iron
+Goiter
+Hyperthyroidism
+Hypothyroidism
+Sobrang timbang
+Malnutrisyon
+Kakulangan sa bitamina A
+Rayuma
+Osteoarthritis
+Gout
+Osteoporosis
+Sakit sa likod
+Sciatica
+Migraine
+Epilepsya
+Sakit na Parkinson
+Sakit na Alzheimer
+Depresyon
+Pagkabalisa
+Insomnia
+Bipolar disorder
+Skisoprenya
+Psoriasis
+Eksema
+Buni
+An-an
+Galis
+Taghiyawat
+Bungang-araw
+Cellulitis
+Allergic rhinitis
+Sinusitis
+Otitis media
+Conjunctivitis
+Katarata
+Glaucoma
+Sakit sa ngipin
+Vertigo
+Tinnitus
+Kanser sa baga
+Kanser sa suso
+Kanser sa atay
+Leukemia
+Sepsis
+COVID-19

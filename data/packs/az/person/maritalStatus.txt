@@ -1,0 +1,18 @@
+---
+description: Marital status in Azerbaijani. Note kəbinli: a religious marriage contract that is widespread and legally distinct from the civil registration (nikah), so a couple can be one and not the other.
+locale: az
+---
+Subay
+Evli
+Rəsmi nikahda
+Kəbinli
+Boşanmış
+Dul
+Ayrı yaşayır
+Nişanlı
+Adaxlı
+Nikahsız birgə yaşayır
+Yenidən evlənmiş
+Ailəli
+Ailəsiz
+Göstərilməyib

@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Azerbaijani). VELOSIPED and AVTOBUS mark the Russian layer sharply: Turkish says bisiklet and otobüs, Azerbaijani took the Russian велосипед and автобус instead. Same family of languages, opposite side of a border.
+locale: az
+---
+sedan
+hetçbek
+liftbek
+universal
+kupe
+kabriolet
+rodster
+miniven
+mikroavtobus
+krossover
+SUV
+pikap
+furqon
+yük maşını
+özüboşaldan
+yedək
+avtobus
+trolleybus
+tramvay
+motosiklet
+samokat
+velosiped

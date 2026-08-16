@@ -1,0 +1,32 @@
+---
+description: Field of study / major (Azerbaijani)
+locale: az
+---
+kompüter mühəndisliyi
+proqram mühəndisliyi
+informasiya təhlükəsizliyi
+sənaye mühəndisliyi
+neft-qaz mühəndisliyi
+riyaziyyat
+fizika
+kimya
+biologiya
+ekologiya
+coğrafiya
+geologiya
+aqronomluq
+baytarlıq
+tibb
+stomatologiya
+əczaçılıq
+psixologiya
+sosiologiya
+siyasi elmlər
+hüquq
+beynəlxalq münasibətlər
+iqtisadiyyat
+maliyyə
+biznesin idarə edilməsi
+marketinq
+jurnalistika
+Azərbaycan dili və ədəbiyyatı

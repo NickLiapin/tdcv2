@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter. The Filipino ordinals are built with ika- plus the number and the linker: ikalawa is 'second' and ikalawang kuwarto is 'the second quarter'; una is irregular and does not take ika-. Philippine financial reporting prints Q1 through Q4 in English almost without exception, and these Filipino forms appear in government and school documents.
+locale: fil
+---
+Unang Kuwarto
+Ikalawang Kuwarto
+Ikatlong Kuwarto
+Ikaapat na Kuwarto

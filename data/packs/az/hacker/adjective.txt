@@ -1,0 +1,32 @@
+---
+description: Tech adjective (Azerbaijani)
+locale: az
+---
+rəqəmsal
+ikili
+paylanmış
+paralel
+asinxron
+sinxron
+təhlükəsiz
+şifrələnmiş
+açıq
+qapalı
+uzaq
+yerli
+bulud əsaslı
+virtual
+konteynerləşdirilmiş
+miqyaslana bilən
+səhvə davamlı
+ehtiyatlanmış
+keşlənmiş
+indeksləşdirilmiş
+sıxılmış
+optimallaşdırılmış
+köhnəlmiş
+uyğun
+çarpaz platformalı
+çoxaxınlı
+aşağı səviyyəli
+yüksək səviyyəli

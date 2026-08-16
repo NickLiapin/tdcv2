@@ -1,0 +1,16 @@
+---
+description: Jobs in Technology (Azerbaijani)
+locale: az
+---
+proqram təminatı hazırlayan
+sistem administratoru
+test mühəndisi
+sistem memarı
+data analitiki
+kibertəhlükəsizlik mütəxəssisi
+verilənlər bazası administratoru
+DevOps mühəndisi
+interfeys dizayneri
+məhsul meneceri
+texnologiya direktoru
+dəstək mühəndisi

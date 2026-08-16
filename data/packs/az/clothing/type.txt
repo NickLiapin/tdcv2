@@ -1,0 +1,30 @@
+---
+description: Garment type (Azerbaijani). This list is the clearest short proof of the three vocabulary layers: köynək, don, papaq and əlcək are Turkic; şalvar, corab and xalat are Persian; and futbolka, yubka, kolqotka, kostyum, plaş, jaket and pijama all came in through Russian in the Soviet period. Turkish, which ran a deliberate purge of foreign words from the 1930s, has none of the Russian set.
+locale: az
+---
+futbolka
+köynək
+bluzka
+sviter
+jemper
+kofta
+jaket
+jilet
+don
+yubka
+şalvar
+cins şalvar
+şort
+kombinezon
+kostyum
+gödəkçə
+palto
+plaş
+pencək
+xalat
+pijama
+alt paltarı
+corab
+kolqotka
+papaq
+şərf

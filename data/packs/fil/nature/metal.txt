@@ -1,0 +1,26 @@
+---
+description: Metal, in Filipino. GINTO, PILAK and TANSO — gold, silver and copper — are native Austronesian words and are among the oldest technical vocabulary the language has: gold was worked and traded in the islands long before Spain arrived, and the Surigao Treasure, a hoard of tenth-century Philippine goldwork, is the proof of it. The industrial metals below them are Spanish or English loans. The Philippines is one of the largest nickel producers in the world and a significant copper and gold producer.
+locale: fil
+---
+Ginto
+Pilak
+Tanso
+Bakal
+Asero
+Bronse
+Nikel
+Aluminyo
+Titanyo
+Sink
+Tingga
+Lata
+Platinum
+Paladyum
+Kobalto
+Kromo
+Tungsteno
+Mercuryo
+Antimonyo
+Magnesyo
+Kalsyo
+Manganeso

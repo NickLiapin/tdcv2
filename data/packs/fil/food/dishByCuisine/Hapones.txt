@@ -1,0 +1,22 @@
+---
+description: Dishes of Hapones cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Sushi
+Sashimi
+Ramen
+Tempura
+Tonkatsu
+Gyoza
+Yakitori
+Katsudon
+Udon
+Soba
+Okonomiyaki
+Takoyaki
+Miso soup
+Chirashi
+Unagi
+Onigiri
+Shabu-shabu
+Matcha ice cream

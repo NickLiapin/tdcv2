@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses in Azerbaijani (female-specific plus common), for a single-column patient record
+locale: az
+---
+Endometrioz
+Uşaqlıq mioması
+Yumurtalıq kistası
+Süd vəzinin fibrokistik xəstəliyi
+Polikistik yumurtalıq sindromu
+Sistit
+Dəmir çatışmazlığı anemiyası
+Osteoporoz
+Hipotireoz
+Hipertoniya
+Koronar arteriya xəstəliyi
+Varikoz genişlənmə
+2-ci tip diabet
+Bronxial astma
+Xroniki bronxit
+Mədə xorası
+Öd daşı
+Qastrit
+Xolesistit
+Pielonefrit
+Revmatoid artrit
+Disk yırtığı
+Miqren
+Pnevmoniya
+Hepatit B
+Depressiv epizod
+Narahatlıq pozuntusu

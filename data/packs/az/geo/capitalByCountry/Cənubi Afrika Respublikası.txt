@@ -1,0 +1,5 @@
+---
+description: Capital of Cənubi Afrika Respublikası (Azerbaijani)
+locale: az
+---
+Pretoriya

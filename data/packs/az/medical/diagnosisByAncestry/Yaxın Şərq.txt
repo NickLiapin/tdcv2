@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Middle Eastern ancestry, in Azerbaijani. A prevalence signal, not an exclusive one.
+locale: az
+---
+Ailəvi Aralıq dənizi qızdırması
+Beta talassemiya
+G6PD çatışmazlığı
+İrsi eşitmə itkisi
+Onurğa əzələ atrofiyası
+İrsi sferositoz

@@ -1,0 +1,5 @@
+---
+description: Capital of Avstraliya (Azerbaijani)
+locale: az
+---
+Kanberra

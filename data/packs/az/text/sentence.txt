@@ -1,0 +1,64 @@
+---
+description: az filler sentences. Handwritten: Project Gutenberg holds no Azerbaijani book at all — a search for l.az returns "No records found" — so unlike fr/de/it/es/pt/pl these are not extracted from a public-domain corpus.
+locale: az
+---
+Pəncərəni açdı və yeni günün sərin havasını içinə çəkdi.
+Yol uzaqlara uzanır, təpələrin arasında itirdi.
+Buraya gələli çox olmuşdu, amma hər şey ona tanış göründü.
+Günəş damların üstündən qalxdı və şəhər yavaş-yavaş oyandı.
+Masanın üstündə heç kimin açmağa cəsarət etmədiyi bir məktub qalmışdı.
+Yağış bütün gecə yağdı, dan yeri sökülərkən birdən kəsildi.
+Uşaq buğlanmış şüşəyə nəsə çəkir və səssizcə gülümsəyirdi.
+Dəhlizdəki köhnə saat dəqiqələri həddindən artıq ucadan sayırdı.
+Evə qayıdarkən qoca çinarın yanında dayandı.
+Bu körpünün nə vaxt tikildiyini heç kim xatırlamırdı.
+Otaqda təzə çörək və quru ot iyi vardı.
+Kitabı pəncərənin qırağına qoydu və uzun müddət həyətə baxdı.
+Külək kiçik dükanın lövhəsini yellədirdi.
+Çayın o tayında uşaqların göbələk yığmağa getdiyi meşə başlayırdı.
+Bu kənddəki hər cığırı uşaqlığından bilirdi.
+Qatar gecikmişdi və perron yavaş-yavaş adamla dolurdu.
+Bazarda alma, bal və əl toxuması corab satılırdı.
+İşığı söndürdü, amma bir türlü yuxusu gəlmədi.
+Söhbət yarımçıq kəsildi və otağa sükut çökdü.
+Təyyarə qalxdı, buludlar aşağıda qaldı.
+O, düzgün səhifəni axtararkən çay soyumuşdu.
+Qapı cırıldadı və astanada qonşunun iti göründü.
+Məktubu üç dəfə yazdı, sonra cırdı.
+Qar iri dənələrlə düz su gölməçələrinə düşürdü.
+Divarda müharibədən əvvəl çəkilmiş bir şəkil asılmışdı.
+Bütün şəhərətrafı qatarların cədvəlini əzbər bilirdi.
+Müəllim dəftərləri payladı və on yeddinci səhifəni açmağı tapşırdı.
+Anası eyvandan onları çağırırdı, amma eşitməzliyə vurdular.
+Bağda ərik yetişirdi, hava ağır və şirin idi.
+Pulu iki dəfə saydı, məbləğ yenə düz gəlmədi.
+Lift mərtəbələrin arasında dayandı və işıq bir anlıq söndü.
+Novruz axşamı həyətdə tonqal qaladılar və uşaqlar üstündən tullandı.
+Səməni artıq göyərmişdi və süfrənin ortasına qoyulmuşdu.
+Toyda tar və nağara səhərə qədər susmadı.
+Qonaqlar süfrəyə oturdu, çay gətirildi, söhbət uzandı.
+Xəzri iki gün əsdi və dəniz qaraldı.
+Gilavar başlayanda hava birdən ağırlaşdı.
+Metroya çatmağa on dəqiqə qalmışdı, amma o, piyada getməyə qərar verdi.
+Dükanın qabağında iki nəfər uzun-uzadı qiymətdən danışırdı.
+Nənəsi dovğanı ölçüsüz bişirirdi və heç vaxt izah edə bilmirdi necə.
+Hər səhər eyni avtobusa minir və eyni adamları görürdü.
+Kitabxananı sükutuna görə sevirdi, kitablara görə yox.
+Payızda yağış başlayanda dam yenə axdı.
+Uşaqlar həyətdə top oynayır, qadınlar isə skamyada oturmuşdu.
+Traktor tarlanın o başında dayanmışdı və heç kim ona yaxınlaşmırdı.
+İlk qar yanvarın sonunda, bir gecədə yağdı.
+Səhər tezdən təndirdən çıxan çörəyin iyi bütün küçəyə yayıldı.
+Bakıya iki həftəlik gəlmişdi, on iki il qaldı.
+Qonşu qapını döydü və duz istədi.
+Şəhər axşamlar başqa cür görünürdü.
+Nar bağında ağaclar altında budaqlar əyilmişdi.
+Muğam radioda başlayanda atası səsi artırdı.
+Dənizin qırağında uzun müddət oturdu və heç nə fikirləşmədi.
+Məktəbin təmir olunacağı hələ keçən il deyilmişdi.
+Bir komissiya gəldi, koridorlarda gəzdi, nəsə yazdı və getdi.
+Qutabı bişirən əllər hər hərəkəti öz-özünə bilirdi.
+Avtobus çuxurlarda silkələnirdi, pəncərədən tarlalar keçirdi.
+O gün adi bir gün idi və heç kim onun fərqli olduğunu bilmirdi.
+Kəndə gedən yol uzun və nasaz idi.
+Axşam düşəndə hamı eyvana çıxdı və çay içdi.

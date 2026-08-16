@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Northern European ancestry, in Azerbaijani. A prevalence signal, not an exclusive one.
+locale: az
+---
+Kistik fibroz
+İrsi hemoxromatoz
+Alfa-1 antitripsin çatışmazlığı
+Seliakiya
+Fenilketonuriya
+Dağınıq skleroz
+Dyupüitren kontrakturası
+Melanoma
+Yetkinlik laktoza dözümsüzlüyü
+Faktor V Leyden mutasiyası

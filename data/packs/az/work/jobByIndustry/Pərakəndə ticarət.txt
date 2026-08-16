@@ -1,0 +1,16 @@
+---
+description: Jobs in Retail (Azerbaijani)
+locale: az
+---
+satış məsləhətçisi
+kassir
+mal qəbulçusu
+mağaza müdiri
+satış müdiri
+satınalma mütəxəssisi
+məhsul meneceri
+anbar operatoru
+kuryer
+marketinq mütəxəssisi
+kateqoriya meneceri
+mağaza direktoru

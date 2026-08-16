@@ -1,0 +1,9 @@
+---
+description: Hotel star rating. The Philippine Department of Tourism runs its own accreditation on a one-to-five star scale, so the numbers are official here rather than editorial.
+locale: fil
+---
+1 Star
+2 Star
+3 Star
+4 Star
+5 Star

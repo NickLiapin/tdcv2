@@ -1,0 +1,30 @@
+---
+description: Headline of a customer review, in Filipino. Sulit is the one that carries the most weight and has no tidy English equivalent: it means the thing was worth what was paid for it, and 'sulit' alone is a complete and very common Philippine review. Legit and lodi are internet Filipino — lodi is idol spelled backwards, part of a productive slang system that reverses syllables.
+locale: fil
+---
+Sulit!
+Sobrang sulit
+Ang ganda!
+Ang bilis ng delivery
+Highly recommended
+Legit ang seller
+Salamat, ate!
+Salamat, boss!
+Maganda ang kalidad
+Okay lang
+Sakto lang
+Panalo!
+Solid!
+Lodi ang seller
+Bibili ulit ako
+Hindi ako nagsisi
+Ayos ang packaging
+Sira nang dumating
+Hindi tugma sa larawan
+Mahal para sa kalidad
+Ang tagal dumating
+Nadismaya ako
+Huwag na kayong bumili dito
+Peke ang item
+Kulang ang laman
+Maganda pero maliit

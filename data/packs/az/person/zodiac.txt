@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Azerbaijani)
+locale: az
+---
+Qoç
+Buğa
+Əkizlər
+Xərçəng
+Şir
+Qız
+Tərəzi
+Əqrəb
+Oxatan
+Oğlaq
+Dolça
+Balıqlar

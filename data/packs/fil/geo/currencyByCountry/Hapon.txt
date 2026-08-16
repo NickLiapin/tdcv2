@@ -1,0 +1,5 @@
+---
+description: Currency of Hapon (Filipino).
+locale: fil
+---
+Yen

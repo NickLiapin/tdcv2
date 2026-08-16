@@ -1,0 +1,5 @@
+---
+description: Currency code of Türkiyə
+locale: az
+---
+TRY

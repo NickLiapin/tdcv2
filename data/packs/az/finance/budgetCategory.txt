@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Azerbaijani)
+locale: az
+---
+ərzaq
+kafe və restoran
+mənzil
+kirayə
+kommunal ödənişlər
+rabitə və internet
+nəqliyyat
+yanacaq
+avtomobil
+səhiyyə
+dərman
+təhsil
+uşaqlar
+geyim və ayaqqabı
+şəxsi baxım
+əyləncə
+səyahət
+hədiyyə
+xeyriyyə
+yığım

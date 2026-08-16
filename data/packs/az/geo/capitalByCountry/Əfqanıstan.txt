@@ -1,0 +1,5 @@
+---
+description: Capital of Əfqanıstan (Azerbaijani)
+locale: az
+---
+Kabil

@@ -1,0 +1,5 @@
+---
+description: Currency of Avstraliya (Azerbaijani)
+locale: az
+---
+Avstraliya dolları

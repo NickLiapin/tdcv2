@@ -1,0 +1,13 @@
+---
+description: Part of the day. FILIPINO CUTS THE DAY INTO MORE PIECES THAN ENGLISH DOES and one of them has no English word at all: madaling-araw is the stretch from about midnight to dawn, and a Filipino who says 'alas-dos ng madaling-araw' has named two in the morning as a distinct part of the day rather than as a late hour of the night. The greeting set follows the cut — magandang umaga, magandang tanghali, magandang hapon, magandang gabi — so Filipino has FOUR greetings where English has three, because noon gets its own. Tanghali is the middle of the day and also lunch. Dapithapon is the last light of the afternoon and is a literary word people still use.
+locale: fil
+---
+Umaga
+Tanghali
+Hapon
+Gabi
+Madaling-araw
+Bukang-liwayway
+Dapithapon
+Takipsilim
+Hatinggabi

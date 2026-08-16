@@ -1,0 +1,34 @@
+---
+description: Line in a household budget, in Filipino. Two of these have no European equivalent and both are large. Load is prepaid mobile credit, bought in tiny amounts from a sari-sari store, and it is a weekly cash outgoing for most of the country because the Philippines is overwhelmingly prepaid rather than contract. Padala is money sent home — from an overseas worker to the family, or from a city worker to the province — and remittances are close to a tenth of national income, so for millions of households 'money sent to relatives' is a bigger monthly line than rent. Paluwagan is a rotating savings club: a group of neighbours or workmates each put in a fixed sum every payday and take the whole pot in turn, with no interest and no institution behind it. Ambag sa simbahan is the church contribution, an ordinary budget line in a country that is about four-fifths Catholic.
+locale: fil
+---
+Upa
+Amortisasyon
+Pagkain
+Grocery
+Palengke
+Kuryente
+Tubig
+Gas
+Internet
+Load
+Cable
+Transportasyon
+Pamasahe
+Gasolina
+Kalusugan
+Gamot
+Seguro
+Matrikula
+Baon
+Damit
+Aliwan
+Kainan sa labas
+Ipon
+Paluwagan
+Padala
+Bayad sa utang
+Alaga sa bata
+Kasambahay
+Regalo
+Ambag sa simbahan

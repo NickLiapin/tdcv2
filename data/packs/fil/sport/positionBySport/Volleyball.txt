@@ -1,0 +1,12 @@
+---
+description: Playing positions in Volleyball as named in the Philippines. Position names are English in Philippine sport, including in Filipino-language commentary, because that is what players and coaches say. The filename is the value in sport/sportCoherent.txt.
+locale: fil
+---
+Setter
+Outside hitter
+Opposite hitter
+Middle blocker
+Libero
+Defensive specialist
+Team captain
+Server

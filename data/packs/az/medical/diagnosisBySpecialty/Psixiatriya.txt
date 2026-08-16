@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Psychiatry (Azerbaijani)
+locale: az
+---
+Depressiv epizod
+Ümumiləşmiş narahatlıq pozuntusu
+Panik pozuntu
+Bipolyar pozuntu
+Şizofreniya
+Obsessiv-kompulsiv pozuntu
+Travma sonrası stress pozuntusu
+Yemə pozuntusu
+Diqqət çatışmazlığı
+Yuxu pozuntusu

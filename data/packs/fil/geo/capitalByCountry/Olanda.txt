@@ -1,0 +1,5 @@
+---
+description: Capital of Olanda (Filipino).
+locale: fil
+---
+Amsterdam

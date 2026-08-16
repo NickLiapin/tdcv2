@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in populations of Timog Asyano descent, in Filipino. The filename is the value in medical/ancestry.txt.
+locale: fil
+---
+Dyabetis uri 2
+Sakit sa koronaryong arterya
+Beta-thalassemia
+Kakulangan sa G6PD
+Kakulangan sa bitamina D
+Talamak na sakit sa bato
+Metabolic syndrome
+Tuberkulosis
+Kakulangan sa lactase
+Polycystic ovary syndrome

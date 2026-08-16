@@ -1,0 +1,21 @@
+---
+description: Social platform. Brand names, untranslated. Facebook belongs at the top and by a distance: the Philippines has one of the highest Facebook-use rates on earth, mobile plans have historically bundled free Facebook data, and for a large part of the population Facebook and Messenger ARE the internet — which is why Messenger is listed separately from Facebook, as Filipinos treat it.
+locale: fil
+---
+Facebook
+Messenger
+TikTok
+YouTube
+Instagram
+X
+Twitter
+Viber
+Telegram
+WhatsApp
+Reddit
+LinkedIn
+Snapchat
+Pinterest
+Discord
+Threads
+Kumu

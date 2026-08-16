@@ -1,0 +1,17 @@
+---
+description: Social content type (Azerbaijani)
+locale: az
+---
+paylaşım
+şəkil
+video
+qısa video
+hekayə
+canlı yayım
+repost
+şərh
+sorğu
+toplu
+icmal
+elan
+tövsiyə

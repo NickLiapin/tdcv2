@@ -1,0 +1,59 @@
+---
+description: Sport (Azerbaijani). Çövkən, the horseback ball game of the Karabakh plateau played on Qarabağ horses, is on the UNESCO urgent-safeguarding list and exists nowhere else; zorxana is the Persian-world strength tradition practised with wooden clubs.
+locale: az
+---
+futbol
+futzal
+basketbol
+voleybol
+həndbol
+su topu
+reqbi
+çövkən
+zorxana
+güləş
+sərbəst güləş
+yunan-Roma güləşi
+cüdo
+sambo
+karate
+tekvondo
+kikboksinq
+boks
+qılıncoynatma
+ağırlıqqaldırma
+pauerliftinq
+bədən quruculuğu
+atletika
+qaçış
+marafon
+uzunluğa tullanma
+hündürlüyə tullanma
+nizə atma
+gülləatma
+üzgüçülük
+suya tullanma
+bədii gimnastika
+idman gimnastikası
+akrobatika
+batut
+avarçəkmə
+kanoe
+yelkənçilik
+sörfinq
+velosiped idmanı
+dağ velosipedi
+atçılıq
+cıdır
+motosiklet idmanı
+avtomobil idmanı
+tennis
+stolüstü tennis
+badminton
+skvoş
+qolf
+şahmat
+dama
+nərd
+oxatma
+atıcılıq

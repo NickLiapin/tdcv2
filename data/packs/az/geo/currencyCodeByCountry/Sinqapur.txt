@@ -1,0 +1,5 @@
+---
+description: Currency code of Sinqapur
+locale: az
+---
+SGD

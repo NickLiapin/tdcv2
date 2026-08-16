@@ -1,0 +1,9 @@
+---
+description: Credit score band (Azerbaijani)
+locale: az
+---
+çox aşağı
+aşağı
+orta
+yaxşı
+çox yaxşı

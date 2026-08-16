@@ -1,0 +1,5 @@
+---
+description: Capital of Bagong Zealand (Filipino).
+locale: fil
+---
+Wellington

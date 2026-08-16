@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Dermatology (Azerbaijani)
+locale: az
+---
+Atopik dermatit
+Psoriaz
+Ekzema
+Kontakt dermatit
+Övrə
+Sızanaq
+Rozasea
+Zona
+Ayaq göbələyi
+Seboreyalı dermatit

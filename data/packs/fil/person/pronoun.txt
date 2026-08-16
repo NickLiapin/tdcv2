@@ -1,0 +1,12 @@
+---
+description: Personal pronoun, Filipino, ang-form. TWO THINGS HERE HAVE NO ENGLISH EQUIVALENT AND ONE ENGLISH THING HAS NO FILIPINO EQUIVALENT. First: SIYA IS GENDERLESS. It is he, she and they at once, Filipino marks no gender anywhere in its pronouns, and a Filipino sentence about a person therefore does not tell you their sex — so a config expecting a he/him versus she/her split has nothing to map onto, and translating a Filipino sentence into English forces a choice the original never made. Second: FILIPINO HAS TWO WORDS FOR 'WE'. Kami excludes the person spoken to and tayo includes them, so 'kami ay kakain' means we are eating and you are not invited, while 'tayo ay kakain' means you are coming with us. English cannot say either without extra words, and Filipinos hear the difference immediately. Ikaw and ka are the same second-person singular in different positions: ikaw begins a clause, ka follows the verb. Kayo is the plural you and doubles as a polite singular for an elder or a superior.
+locale: fil
+---
+ako
+ikaw
+ka
+siya
+kami
+tayo
+kayo
+sila

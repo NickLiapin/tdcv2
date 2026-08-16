@@ -1,0 +1,21 @@
+---
+description: Official document type (Azerbaijani), as issued in Azerbaijan. VÖEN is the taxpayer identification number and şəxsiyyət vəsiqəsi the identity card; the numbers themselves are country data and are deliberately not in this pack.
+locale: az
+---
+şəxsiyyət vəsiqəsi
+pasport
+doğum haqqında şəhadətnamə
+nikah haqqında şəhadətnamə
+boşanma haqqında şəhadətnamə
+ölüm haqqında şəhadətnamə
+VÖEN
+sürücülük vəsiqəsi
+avtomobilin qeydiyyat şəhadətnaməsi
+daşınmaz əmlaka dair çıxarış
+qeydiyyat vəsiqəsi
+gəlir arayışı
+sosial sığorta arayışı
+hərbi bilet
+məhkumluq haqqında arayış
+diplom
+əmək kitabçası

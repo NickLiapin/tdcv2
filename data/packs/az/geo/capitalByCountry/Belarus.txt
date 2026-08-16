@@ -1,0 +1,5 @@
+---
+description: Capital of Belarus (Azerbaijani)
+locale: az
+---
+Minsk

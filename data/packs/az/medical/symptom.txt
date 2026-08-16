@@ -1,0 +1,42 @@
+---
+description: Common symptoms / complaints (Azerbaijani)
+locale: az
+---
+hərarət
+üşütmə
+baş ağrısı
+başgicəllənmə
+zəiflik
+tez yorulma
+ürəkbulanma
+qusma
+ishal
+qəbizlik
+qarın ağrısı
+gicişmə
+mədə yanması
+gəyirmə
+iştahsızlıq
+öskürək
+quru öskürək
+bəlğəmli öskürək
+təngnəfəslik
+sinə ağrısı
+ürəkdöyünmə
+ayaqlarda şişkinlik
+bel ağrısı
+oynaq ağrısı
+əzələ ağrısı
+əllərdə keyimə
+qıcolma
+səpgi
+dəridə qızartı
+gözlərin sulanması
+burun tıxanıqlığı
+burun axıntısı
+boğaz ağrısı
+səs batması
+yuxu pozuntusu
+narahatlıq
+əhvalın düşkünlüyü
+görmə pozuntusu

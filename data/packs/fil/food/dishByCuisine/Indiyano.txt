@@ -1,0 +1,22 @@
+---
+description: Dishes of Indiyano cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Chicken tikka masala
+Butter chicken
+Biryani
+Dal makhani
+Palak paneer
+Rogan josh
+Samosa
+Naan
+Chapati
+Tandoori chicken
+Chana masala
+Aloo gobi
+Vindaloo
+Korma
+Raita
+Gulab jamun
+Masala dosa
+Lassi

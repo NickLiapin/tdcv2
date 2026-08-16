@@ -1,0 +1,5 @@
+---
+description: Capital of Arhentina (Filipino).
+locale: fil
+---
+Buenos Aires

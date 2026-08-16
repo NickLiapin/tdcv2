@@ -1,0 +1,5 @@
+---
+description: Currency of Polşa (Azerbaijani)
+locale: az
+---
+zloti

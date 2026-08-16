@@ -1,0 +1,5 @@
+---
+description: Currency of Nepal (Filipino).
+locale: fil
+---
+Rupee

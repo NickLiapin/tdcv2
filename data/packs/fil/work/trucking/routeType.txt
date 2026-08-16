@@ -1,0 +1,11 @@
+---
+description: Kind of haul, in Filipino and English. Isla-isla — island to island — is the Philippine route type with no continental equivalent: the truck boards a ferry as part of the journey. Provincial and Metro Manila are the two halves of Philippine domestic haulage, and truck bans, which bar heavy vehicles from Metro Manila roads during peak hours, shape the schedule of every local run.
+locale: fil
+---
+Isla-isla
+Probinsiya
+Metro Manila
+Long-haul
+Regional
+Lokal
+Last-mile

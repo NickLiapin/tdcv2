@@ -1,0 +1,19 @@
+---
+description: Why the buyer sent it back, in Filipino.
+locale: fil
+---
+Sira nang dumating
+Maling item ang natanggap
+Hindi tugma sa paglalarawan
+Maling sukat
+Maling kulay
+Nagbago ang isip
+May mas mura sa ibang tindahan
+Depektibo agad
+May kulang na parte
+Huli ang paghahatid
+Hindi na kailangan
+Nagkamali sa pag-order
+Mababa ang kalidad
+Peke ang produkto
+Hindi na-deliver

@@ -1,0 +1,45 @@
+---
+description: Generic drug name. NOT TRANSLATED, AND THAT IS THE LAW: the Generics Act of 1988 requires every Philippine prescription to be written in the generic name, with any brand name only in parentheses beneath it, so the international non-proprietary name is what appears on a Philippine chart and on the pharmacist's label. Paracetamol rather than acetaminophen, because the Philippines follows the British-international name for that one. Anti-tuberculosis drugs are more prominent in Philippine dispensing than in a European list, and the state supplies them free.
+locale: fil
+---
+Paracetamol
+Ibuprofen
+Mefenamic acid
+Aspirin
+Amoxicillin
+Co-amoxiclav
+Azithromycin
+Cefalexin
+Ciprofloxacin
+Doxycycline
+Cotrimoxazole
+Metronidazole
+Isoniazid
+Rifampicin
+Pyrazinamide
+Ethambutol
+Salbutamol
+Budesonide
+Montelukast
+Cetirizine
+Loratadine
+Losartan
+Amlodipine
+Metoprolol
+Atorvastatin
+Simvastatin
+Metformin
+Glimepiride
+Insulin glargine
+Levothyroxine
+Omeprazole
+Ranitidine
+Domperidone
+Hyoscine
+Furosemide
+Prednisone
+Gabapentin
+Sertraline
+Fluoxetine
+Tramadol
+Oral rehydration salts

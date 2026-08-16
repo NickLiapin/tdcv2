@@ -1,0 +1,11 @@
+---
+description: Weekday name (Azerbaijani), Sunday first as the formatter wants it. THESE ARE PERSIAN-DERIVED, not Turkic: çərşənbə is Persian chahār-shanba, fourth day. Tuesday is literally the eve of Wednesday (çərşənbə axşamı) and Thursday the eve of Friday (cümə axşamı), so two of the seven days are named by what follows them. Turkish, which took the same Persian words, replaced Tuesday with the native Salı; Azerbaijani did not.
+locale: az
+---
+bazar
+bazar ertəsi
+çərşənbə axşamı
+çərşənbə
+cümə axşamı
+cümə
+şənbə

@@ -1,0 +1,21 @@
+---
+description: Kind of cycle. Padyak and trisikad are the same idea with two names — a sidecar bolted to a bicycle, pedalled for hire over short distances — and they are public transport in Philippine towns rather than recreation, which is why they head a list that otherwise holds sports bicycles. Padyak literally means 'to pedal hard'. E-bike, here, usually means a small electric tricycle rather than an assisted bicycle.
+locale: fil
+---
+Padyak
+Trisikad
+Sikad
+E-bike
+Mountain bike
+Road bike
+Hybrid bike
+Gravel bike
+Folding bike
+BMX
+Fixie
+Cruiser
+Touring bike
+Cyclocross
+Fat bike
+Recumbent
+Kariton

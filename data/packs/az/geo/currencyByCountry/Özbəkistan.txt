@@ -1,0 +1,5 @@
+---
+description: Currency of Özbəkistan (Azerbaijani)
+locale: az
+---
+Özbəkistan somu

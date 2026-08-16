@@ -1,0 +1,15 @@
+---
+description: Shipping status (Azerbaijani)
+locale: az
+---
+Göndəriş gözlənilir
+Kuryerə təhvil verildi
+Yoldadır
+Transfer mərkəzindədir
+Çatdırılma şəhərindədir
+Filiala çatdı
+Kuryerdədir
+Çatdırıldı
+Çatdırıla bilmədi
+Geri qaytarılır
+İtkin

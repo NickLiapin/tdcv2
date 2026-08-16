@@ -1,0 +1,58 @@
+---
+description: Marketing adjective for a product. ALMOST EVERY ONE OF THESE IS BUILT WITH ma-, and that is the grammar point: Filipino makes adjectives by prefixing ma- to a noun root, so ganda (beauty) gives maganda (beautiful) and tibay (durability) gives matibay (durable). The adjective is derived, not basic. There is no comparative or superlative suffix either — 'more beautiful' is mas maganda and 'most beautiful' is pinakamaganda, both built with separate words, so a config cannot make a comparative by appending anything.
+locale: fil
+---
+Maganda
+Matibay
+Magaan
+Matipid
+Maluwag
+Makinis
+Malambot
+Matigas
+Mainam
+Mabisa
+Maaasahan
+Madaling gamitin
+Madaling dalhin
+Maluwang
+Makapal
+Manipis
+Malinis
+Malamig
+Mainit
+Masarap
+Mabango
+Makulay
+Maliwanag
+Matalas
+Malakas
+Mabilis
+Matatag
+Mura
+Sulit
+Bago
+Klasiko
+Moderno
+Elegante
+Simple
+Espesyal
+Premium
+Orihinal
+Imported
+Lokal
+Gawang-kamay
+Yari sa Pilipinas
+Nire-recycle
+Hindi tinatablan ng tubig
+Rechargeable
+Wireless
+Portable
+Foldable
+Adjustable
+Non-stick
+Anti-rust
+Heavy duty
+Multi-purpose
+Eco-friendly
+Limited edition

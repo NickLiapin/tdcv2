@@ -1,0 +1,15 @@
+---
+description: Booking status, in Filipino.
+locale: fil
+---
+Nakumpirma
+Nakabinbin
+Kanselado
+Naka-check in
+Naka-check out
+Hindi dumating
+Binago
+Na-refund
+Naghihintay ng bayad
+Nasa waiting list
+Na-overbook

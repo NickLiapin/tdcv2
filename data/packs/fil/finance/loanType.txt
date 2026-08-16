@@ -1,0 +1,16 @@
+---
+description: Kind of credit, in Filipino, and the informal end of it is where the Philippines differs. Sangla is pawning, and the pawnshop is a mainstream financial institution here with branches on every main street; gold jewellery is bought partly as collateral to be pawned later. Five-six is unsecured daily-collected lending named for its arithmetic — borrow five, repay six — usually run by itinerant lenders on motorcycles, at an interest rate that annualises into the hundreds of per cent, and it funds a large part of small market trade. Listahan is store credit at the sari-sari store, recorded in the shopkeeper's notebook and settled on payday. Salary loan and calamity loan are drawn against the government pension funds after a typhoon or an earthquake, which is a routine Philippine credit event.
+locale: fil
+---
+Pautang sa bahay
+Pautang sa sasakyan
+Personal na pautang
+Salary loan
+Calamity loan
+Pautang sa negosyo
+Pautang pang-edukasyon
+Sangla
+Five-six
+Listahan
+Paluwagan
+Credit line

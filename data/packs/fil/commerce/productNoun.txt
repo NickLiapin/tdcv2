@@ -1,0 +1,152 @@
+---
+description: Product noun. Mixed Filipino and English on purpose: a Philippine product listing is written in Taglish and the same shopper will search for tsinelas and for tumbler in the same session. The Filipino words dominate for household and kitchen goods, which are named natively, and the English words dominate for electronics, which arrived already named.
+locale: fil
+---
+Silya
+Mesa
+Lamesa
+Bangko
+Kama
+Kutson
+Unan
+Kumot
+Banig
+Kulambo
+Aparador
+Estante
+Kabinet
+Salamin
+Ilawan
+Bumbilya
+Kurtina
+Alpombra
+Basahan
+Walis
+Walis tingting
+Timba
+Tabo
+Palanggana
+Sabon
+Shampoo
+Toothbrush
+Twalya
+Panyo
+Sipilyo
+Kaldero
+Kawali
+Palayok
+Sandok
+Kutsara
+Tinidor
+Kutsilyo
+Plato
+Baso
+Tasa
+Mangkok
+Bandehado
+Termos
+Tumbler
+Bote
+Lata
+Kahon
+Supot
+Bayong
+Basket
+Rice cooker
+Kalan
+Gas stove
+Refrigerator
+Electric fan
+Aircon
+Blender
+Microwave
+Oven toaster
+Plantsa
+Washing machine
+Water dispenser
+Gripo
+Kompyuter
+Laptop
+Monitor
+Keyboard
+Mouse
+Printer
+Router
+Cellphone
+Powerbank
+Charger
+Headphones
+Speaker
+Earphones
+Smart TV
+Remote
+Extension cord
+Flashlight
+Baterya
+Relo
+Salaming pang-araw
+Sombrero
+Bag
+Backpack
+Wallet
+Sinturon
+Sapatos
+Tsinelas
+Medyas
+Damit
+Polo
+T-shirt
+Maong
+Palda
+Bestida
+Dyaket
+Payong
+Kapote
+Bisikleta
+Helmet
+Gulong
+Bomba
+Martilyo
+Pako
+Distornilyador
+Plais
+Lagari
+Pintura
+Brotsa
+Semento
+Yero
+Kable
+Pandikit
+Gunting
+Panulat
+Lapis
+Papel
+Kuwaderno
+Aklat
+Kalendaryo
+Bag ng bata
+Laruan
+Bola
+Baraha
+Sungka
+Gitara
+Ukulele
+Halaman
+Paso
+Abono
+Buto ng gulay
+Pagkain ng aso
+Pagkain ng pusa
+Bigas
+Asukal
+Asin
+Kape
+Tsaa
+Gatas
+Itlog
+Tinapay
+Noodles
+Sardinas
+Toyo
+Suka
+Mantika

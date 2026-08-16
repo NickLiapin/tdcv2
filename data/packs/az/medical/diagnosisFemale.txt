@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis in Azerbaijani that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: az
+---
+Endometrioz
+Uşaqlıq mioması
+Adenomioz
+Yumurtalıq kistası
+Polikistik yumurtalıq sindromu
+Dismenoreya
+Amenoreya
+Premenstrual sindrom
+Menopauza sindromu
+Vaginit
+Bakterial vaginoz
+Göbələk infeksiyası
+Servisit
+Uşaqlıq boynu eroziyası
+Servikal displaziya
+Uşaqlıq boynu xərçəngi
+Yumurtalıq xərçəngi
+Endometrium xərçəngi
+Süd vəzinin fibrokistik xəstəliyi
+Mastit
+Süd vəzi xərçəngi
+Qadın sonsuzluğu
+Ektopik hamiləlik
+Preeklampsiya
+Hamiləlik diabeti
+Doğuşdan sonrakı depressiya

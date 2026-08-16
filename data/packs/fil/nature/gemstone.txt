@@ -1,0 +1,29 @@
+---
+description: Gemstone, in Filipino, mostly Spanish loans respelled. PERLAS deserves its place at the top rather than in the middle: the Philippines is the world's leading source of the golden South Sea pearl, grown in Palawan, and the largest natural pearl ever recorded — the Pearl of Lao Tzu, about six kilograms — was taken from a giant clam in Philippine waters. Kabibe and sigay, shell and cowrie, are worked as ornament here and are listed beside the stones because Filipino treats them as the same trade.
+locale: fil
+---
+Perlas
+Brilyante
+Rubi
+Sapiro
+Esmeralda
+Amatista
+Topasyo
+Opalo
+Granate
+Akwamarina
+Peridoto
+Turkesa
+Haspe
+Onise
+Sitrina
+Turmalina
+Sirkon
+Ambar
+Korales
+Kabibe
+Sigay
+Kristal
+Kuwarts
+Batong-buwan
+Lapis lazuli

@@ -1,0 +1,16 @@
+---
+description: Jobs in Hospitality (Azerbaijani)
+locale: az
+---
+otel resepsiyonisti
+mərtəbə xidmətçisi
+aşpaz
+aşpaz köməkçisi
+şef
+ofisiant
+barmen
+barista
+qənnadçı
+metrdotel
+rezervasiya mütəxəssisi
+bələdçi

@@ -1,0 +1,6 @@
+---
+description: Gender label. Two values, matching en, ru and pl — this list is what parent="Gender.Lalaki" filters on, so a longer one silently leaves most rows without a name; identity options beyond the pair belong in a file of their own. Note that Filipino itself barely marks gender: the pronoun siya covers he, she and they with one word, and lalaki and babae are nouns, so a Filipino sentence about a person usually does not reveal their sex at all.
+locale: fil
+---
+Lalaki
+Babae

@@ -1,0 +1,30 @@
+---
+description: Mobile and fixed carrier. Azercell, Bakcell and Nar are the three mobile operators of Azerbaijan and Naxtel serves the Nakhchivan exclave separately; the rest are fixed-line and internet providers, then a tail of international brands a roaming record would show.
+locale: az
+---
+Azercell
+Bakcell
+Nar
+Naxtel
+Aztelekom
+BakTelecom
+Delta Telecom
+AzerTelecom
+Azdatacom
+CityNet
+Ultel
+Uninet
+GlobalNet
+AzEuroTel
+KATV1
+Turkcell
+Vodafone
+MTS
+Beeline
+Megafon
+Kyivstar
+T-Mobile
+Orange
+A1
+Magti
+Silknet

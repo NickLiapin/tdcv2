@@ -1,0 +1,32 @@
+---
+description: Tree (Azerbaijani). Dəmirağac, the Hyrcanian ironwood of the Lankaran forest, is heavier than water and grows in only two countries in the world.
+locale: az
+---
+palıd
+göyrüş
+ağcaqayın
+cökə
+tozağacı
+qovaq
+söyüd
+qızılağac
+titrək qovaq
+fısdıq
+vələs
+qarağac
+qoz ağacı
+şabalıd
+akasiya
+dəmirağac
+şam
+küknar
+ardıc
+sərv
+çinar
+tut
+alma
+armud
+gilas
+gavalı
+ərik
+zeytun

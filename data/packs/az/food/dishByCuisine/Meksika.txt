@@ -1,0 +1,12 @@
+---
+description: Dishes of Meksika cuisine (Azerbaijani)
+locale: az
+---
+tako
+burrito
+kesadilya
+quakamole
+naços
+encilada
+fahita
+çili kon karne

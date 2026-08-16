@@ -1,0 +1,16 @@
+---
+description: Diagnoses handled by Neprolohiya, as recorded in a Philippine chart. The filename is the value in medical/specialtyCoherent.txt.
+locale: fil
+---
+Talamak na sakit sa bato
+Bato sa bato
+Impeksiyon sa ihi
+Glomerulonephritis
+Nephrotic syndrome
+Pagpalya ng bato
+Polycystic kidney disease
+Impeksiyon sa bato
+Hyperkalemia
+Renal tubular acidosis
+Hydronephrosis
+Uremia

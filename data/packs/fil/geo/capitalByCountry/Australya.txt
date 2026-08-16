@@ -1,0 +1,5 @@
+---
+description: Capital of Australya (Filipino).
+locale: fil
+---
+Canberra

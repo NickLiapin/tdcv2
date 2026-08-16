@@ -1,0 +1,29 @@
+---
+description: Gemstone (Azerbaijani)
+locale: az
+---
+almaz
+yaqut
+sapfir
+zümrüd
+ametist
+topaz
+qranat
+opal
+firuzə
+malaxit
+nefrit
+əqiq
+oniks
+serdolik
+xrizolit
+sitrin
+lazurit
+obsidian
+peridot
+turmalin
+şpinel
+sirkon
+kəhrəba
+inci
+mərcan

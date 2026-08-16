@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Neurology (Azerbaijani)
+locale: az
+---
+Miqren
+Epilepsiya
+İnsult
+Keçici işemik atak
+Dağınıq skleroz
+Parkinson xəstəliyi
+Periferik neyropatiya
+Radikulopatiya
+Üçlü sinir nevralgiyası
+Demensiya

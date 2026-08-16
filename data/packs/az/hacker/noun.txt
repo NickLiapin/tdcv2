@@ -1,0 +1,41 @@
+---
+description: Tech noun (Azerbaijani)
+locale: az
+---
+server
+müştəri
+verilənlər bazası
+cədvəl
+sorğu
+indeks
+keş
+növbə
+axın
+proses
+nüvə
+yaddaş
+disk
+massiv
+fayl
+qovluq
+protokol
+paket
+port
+şlüz
+marşrutlaşdırıcı
+təhlükəsizlik divarı
+sertifikat
+açar
+token
+sessiya
+kuki
+skript
+kitabxana
+modul
+paket faylı
+konteyner
+obraz
+klaster
+node
+reyestr
+jurnal

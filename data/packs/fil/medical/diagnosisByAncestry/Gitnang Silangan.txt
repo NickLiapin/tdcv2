@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in populations of Gitnang Silangan descent, in Filipino. The filename is the value in medical/ancestry.txt.
+locale: fil
+---
+Familial Mediterranean fever
+Beta-thalassemia
+Kakulangan sa G6PD
+Behcet disease
+Dyabetis uri 2
+Congenital adrenal hyperplasia
+Spinal muscular atrophy
+Kakulangan sa bitamina D
+Kakulangan sa lactase
+Sakit na Wilson

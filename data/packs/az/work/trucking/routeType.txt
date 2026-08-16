@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Azerbaijani)
+locale: az
+---
+şəhərdaxili
+şəhərlərarası qısa
+regional
+rayonlararası
+beynəlxalq
+gediş-gəliş reysi
+dairəvi reys

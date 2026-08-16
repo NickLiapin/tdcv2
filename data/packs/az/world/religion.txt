@@ -1,0 +1,25 @@
+---
+description: World religion (Azerbaijani). Azerbaijan is majority SHIA Muslim — one of only a handful of Shia-majority countries — with a large Sunni minority, and the state is constitutionally secular. Zərdüştilik is on the list for a local reason: the Ateshgah fire temple at Surakhani outside Baku stands over a natural gas vent, and the country's name is popularly read as the land of fire. The Alban Apostol Kilsəsi is the ancient church of Caucasian Albania, revived among the Udi of Nic.
+locale: az
+---
+İslam
+Şiəlik
+Sünnilik
+Cəfərilik
+Sufilik
+Xristianlıq
+Pravoslavlıq
+Katoliklik
+Protestantlıq
+Alban Apostol Kilsəsi
+Erməni Apostol Kilsəsi
+Molokanlıq
+Yəhudilik
+Zərdüştilik
+Bəhailik
+Buddizm
+Hinduizm
+Tanrıçılıq
+Ateizm
+Aqnostisizm
+Dinsiz

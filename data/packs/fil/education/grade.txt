@@ -1,0 +1,17 @@
+---
+description: Mark on a Philippine transcript. LOWER IS BETTER, WHICH INVERTS THE EUROPEAN AND AMERICAN CONVENTION ENTIRELY: Philippine universities grade from 1.00, the highest possible mark, down to 3.00, the lowest pass, with 5.00 as failure and 4.00 as a conditional pass that must be removed by re-examination. A student with a 1.25 is near the top of the class; a student with a 3.00 barely passed. Sorting these ascending puts the best students first, and any config that treats the number as a score rather than a rank will read the cohort backwards. INC is incomplete work, DRP a dropped subject. Basic education uses a different scale again, 60 to 100 with five verbal descriptors from Outstanding down to Did Not Meet Expectations, and 75 is the passing mark.
+locale: fil
+---
+1.00
+1.25
+1.50
+1.75
+2.00
+2.25
+2.50
+2.75
+3.00
+4.00
+5.00
+INC
+DRP

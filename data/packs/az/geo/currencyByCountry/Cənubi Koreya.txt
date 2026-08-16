@@ -1,0 +1,5 @@
+---
+description: Currency of Cənubi Koreya (Azerbaijani)
+locale: az
+---
+cənubi koreya vonu

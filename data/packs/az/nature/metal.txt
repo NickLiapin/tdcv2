@@ -1,0 +1,26 @@
+---
+description: Metal (Azerbaijani)
+locale: az
+---
+dəmir
+polad
+çuqun
+alüminium
+mis
+latun
+bürünc
+titan
+sink
+qalay
+qurğuşun
+nikel
+xrom
+kobalt
+maqnezium
+volfram
+molibden
+gümüş
+qızıl
+platin
+palladium
+civə

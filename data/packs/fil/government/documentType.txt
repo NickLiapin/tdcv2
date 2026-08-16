@@ -1,0 +1,23 @@
+---
+description: Kind of official document, in Filipino. SEDULA IS THE ONE WORTH KNOWING. The cédula personal was the Spanish head-tax certificate every native had to carry and pay for; tearing it up was the gesture that opened the revolution in August 1896. It was never abolished — it survives as the community tax certificate, still called the sedula by everyone, still bought every January from the municipal hall, and still demanded as identification for notarised documents. Barangay clearance and NBI clearance are the two documents a Filipino is asked for most often and both are country institutions rather than language ones; what is language here is that a clearance is called a clearance, in English, inside otherwise Filipino sentences.
+locale: fil
+---
+Pasaporte
+Sedula
+Sertipiko ng Kapanganakan
+Sertipiko ng Kasal
+Sertipiko ng Kamatayan
+Lisensya sa Pagmamaneho
+Barangay clearance
+NBI clearance
+Police clearance
+Katunayan ng Paninirahan
+Titulo ng Lupa
+Rehistro ng Botante
+Deklarasyon ng Buwis
+Permit sa Pagtatayo
+Permit sa Negosyo
+Bisa
+Katibayan ng Pagtatapos
+Kontrata
+Salaysay

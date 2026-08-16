@@ -1,0 +1,54 @@
+---
+description: Airline name. Airline names are registered trade names and keep their real spelling in every language; Philippine Airlines is not translated into Filipino even in Filipino-language news copy, and PAL is what everyone actually says. The list leans Asian and Middle Eastern rather than North Atlantic because that is where Filipinos fly: the Gulf carriers move the overseas Filipino workforce, and the Manila-Hong Kong, Manila-Singapore and Manila-Dubai corridors carry more Philippine traffic than any European route.
+locale: fil
+---
+Philippine Airlines
+Cebu Pacific
+PAL Express
+AirAsia Philippines
+Sunlight Air
+Royal Air Philippines
+Cebgo
+Singapore Airlines
+Cathay Pacific
+Emirates
+Qatar Airways
+Etihad Airways
+Saudia
+Gulf Air
+Kuwait Airways
+Oman Air
+Japan Airlines
+ANA
+Korean Air
+Asiana Airlines
+China Airlines
+EVA Air
+China Southern
+China Eastern
+Air China
+Hong Kong Airlines
+Thai Airways
+Vietnam Airlines
+Malaysia Airlines
+Garuda Indonesia
+Scoot
+Jetstar
+AirAsia
+Qantas
+Air New Zealand
+United Airlines
+Delta Air Lines
+American Airlines
+Alaska Airlines
+Hawaiian Airlines
+Air Canada
+British Airways
+Lufthansa
+Air France
+KLM
+Turkish Airlines
+Swiss International Air Lines
+Aeroflot
+Air India
+IndiGo

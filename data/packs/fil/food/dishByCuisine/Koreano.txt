@@ -1,0 +1,22 @@
+---
+description: Dishes of Koreano cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Kimchi
+Bibimbap
+Bulgogi
+Samgyeopsal
+Japchae
+Tteokbokki
+Kimbap
+Sundubu jjigae
+Kimchi jjigae
+Galbi
+Jjajangmyeon
+Dakgalbi
+Haemul pajeon
+Yangnyeom chicken
+Naengmyeon
+Mandu
+Bingsu
+Hotteok

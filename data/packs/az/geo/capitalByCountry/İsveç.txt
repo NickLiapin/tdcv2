@@ -1,0 +1,5 @@
+---
+description: Capital of İsveç (Azerbaijani)
+locale: az
+---
+Stokholm

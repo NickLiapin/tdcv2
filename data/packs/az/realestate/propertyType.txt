@@ -1,0 +1,23 @@
+---
+description: Property type (Azerbaijani). Azerbaijani listings count TOTAL rooms, not bedrooms — 3 otaqlı means three rooms including the living room — which is the post-Soviet convention and does not translate as three-bedroom.
+locale: az
+---
+1 otaqlı mənzil
+2 otaqlı mənzil
+3 otaqlı mənzil
+4 otaqlı mənzil
+5 otaqlı mənzil
+studiya mənzil
+yeni tikili mənzil
+köhnə tikili mənzil
+həyət evi
+villa
+bağ evi
+kotedj
+dupleks
+mansard
+birinci mərtəbə
+torpaq sahəsi
+əkin sahəsi
+obyekt
+ofis

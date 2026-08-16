@@ -1,0 +1,24 @@
+---
+description: Film genre, in Filipino. Two are Philippine categories rather than translations. Teleserye is the Philippine television serial, running nightly for months, and it is the dominant form of Philippine screen drama. Bomba was the softcore film of the late 1960s and 1970s and the word is still the genre label. Drama sits at the top because Philippine cinema and television are built on it; horror is second, and the horror is folkloric rather than gothic — aswang, manananggal, tiyanak.
+locale: fil
+---
+Drama
+Komedya
+Romansa
+Rom-com
+Aksyon
+Horror
+Suspense
+Trahedya
+Pantasya
+Agham-katha
+Dokumentaryo
+Animasyon
+Musikal
+Krimen
+Misteryo
+Digmaan
+Talambuhay
+Pampamilya
+Teleserye
+Bomba

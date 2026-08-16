@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Azerbaijani)
+locale: az
+---
+ədəd
+paket
+dəst
+komplekt
+cüt
+q
+kq
+mq
+ton
+ml
+l
+sm
+mm
+m
+km
+m²
+m³
+rulon
+qutu
+karobka
+kisə
+şüşə
+banka
+tübik
+flakon
+vərəq
+blok
+kaset
+palet
+düym

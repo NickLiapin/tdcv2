@@ -1,0 +1,58 @@
+---
+description: Colour a product is sold in. Shorter and blunter than the full colour vocabulary in color/name because a product listing uses the plain trade words, and Philippine listings mix Filipino and English freely in the same line — Itim, Puti, Navy Blue, Rose Gold — which is what Taglish looks like in commerce and is reproduced here rather than tidied away.
+locale: fil
+---
+Itim
+Puti
+Pula
+Asul
+Bughaw
+Berde
+Dilaw
+Kahel
+Rosas
+Lila
+Ube
+Abuhin
+Kayumanggi
+Krema
+Beige
+Ginto
+Pilak
+Tanso
+Bronse
+Kape
+Tsokolate
+Marun
+Granate
+Navy Blue
+Sky Blue
+Baby Blue
+Royal Blue
+Midnight Blue
+Mint Green
+Army Green
+Olive Green
+Neon Green
+Hot Pink
+Baby Pink
+Rose Gold
+Gunmetal
+Space Gray
+Matte Black
+Off-White
+Ivory
+Nude
+Khaki
+Denim
+Charcoal
+Turkesa
+Akwamarina
+Magenta
+Siyan
+Indigo
+Coral
+Peach
+Lavender
+Burgundy
+Transparent

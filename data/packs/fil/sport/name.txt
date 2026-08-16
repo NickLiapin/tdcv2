@@ -1,0 +1,59 @@
+---
+description: Sport, in Filipino. ARNIS IS THE NATIONAL SPORT BY STATUTE — Republic Act 9850 of 2009 declares the stick-and-blade art the national martial art and sport — but basketball is what the country actually plays, on courts in every barangay, and the two facts sit side by side. Sipa was the national sport before arnis and is the ancestor of sepak takraw. The block of street games at the end is not a children's curiosity: patintero, tumbang preso, luksong tinik and piko are organised competitively at the Palarong Pambansa, the national school games. Sabong, cockfighting, is a licensed and televised sport here. Note that yoyo is a Philippine word before it is an English one, from Ilocano, and reached the world through Pedro Flores, a Filipino who began manufacturing them in California in 1928.
+locale: fil
+---
+Basketbol
+Volleyball
+Boksing
+Bilyar
+Arnis
+Sipa
+Sepak takraw
+Badminton
+Putbol
+Baseball
+Softball
+Tennis
+Table tennis
+Golf
+Paglangoy
+Atletiko
+Gymnastics
+Weightlifting
+Taekwondo
+Karate
+Judo
+Wushu
+Wrestling
+Pana
+Eskrima
+Ahedres
+Dama
+Sungka
+Pagbibisikleta
+Pagtakbo
+Triathlon
+Surfing
+Pagsisid
+Bowling
+Dragon boat
+Skateboarding
+Ice hockey
+Figure skating
+Esports
+Sabong
+Karera ng kabayo
+Karera ng kalabaw
+Patintero
+Tumbang preso
+Luksong tinik
+Luksong baka
+Piko
+Holen
+Yoyo
+Palo sebo
+Rugby
+Cricket
+Motorsports
+Rowing
+Fencing

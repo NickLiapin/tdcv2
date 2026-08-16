@@ -1,0 +1,45 @@
+---
+description: Common generic drug names (INN as spelled in Azerbaijani). The spellings came through Russian, not through English, so it is parasetamol and sefriakson rather than paracetamol and ceftriaxone.
+locale: az
+---
+parasetamol
+ibuprofen
+nimesulid
+diklofenak
+ketorolak
+asetilsalisil turşusu
+metamizol
+drotaverin
+omeprazol
+pantoprazol
+ranitidin
+domperidon
+loperamid
+simetikon
+ursodeoksixol turşusu
+amoksisilin
+azitromisin
+sefriakson
+siprofloksasin
+doksisiklin
+metronidazol
+flukonazol
+asiklovir
+loratadin
+setirizin
+desloratadin
+salbutamol
+budesonid
+prednizolon
+deksametazon
+enalapril
+lizinopril
+amlodipin
+bisoprolol
+metoprolol
+furosemid
+atorvastatin
+metformin
+qlimepirid
+levotiroksin
+varfarin

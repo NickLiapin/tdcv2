@@ -1,0 +1,60 @@
+---
+description: Country as AZERBAIJANI names it, weighted by population in millions. Translated rather than transliterated — Almaniya, Yunanıstan, Böyük Britaniya, Amerika Birləşmiş Ştatları, Macarıstan — and note how many carry the Persian -stan, land of: Gürcüstan is Georgia, Ermənistan Armenia, Macarıstan Hungary, Yunanıstan Greece. Azerbaijan's own neighbours are at their REAL weight and not boosted: Azərbaycan scores 10 and Gürcüstan 4, so a plain draw will rarely produce them and a config that wants a Caucasus-centred dataset must filter rather than expect the weighting to do it. Country names take case suffixes like any other Azerbaijani noun, so a config dropping one into a sentence must inflect it — Türkiyədə, İrandan, Gürcüstana — and the suffix form depends on the last vowel.
+locale: az
+weighted: true
+---
+Çin,1410
+Hindistan,1400
+Amerika Birləşmiş Ştatları,335
+İndoneziya,275
+Pakistan,240
+Nigeriya,220
+Braziliya,215
+Banqladeş,170
+Rusiya,144
+Meksika,128
+Yaponiya,125
+Misir,110
+Vyetnam,98
+İran,88
+Türkiyə,85
+Almaniya,84
+Tailand,72
+Fransa,68
+Böyük Britaniya,67
+Cənubi Afrika Respublikası,60
+İtaliya,59
+Cənubi Koreya,52
+İspaniya,47
+Argentina,46
+Əfqanıstan,40
+Kanada,39
+Polşa,38
+Ukrayna,38
+Səudiyyə Ərəbistanı,36
+Özbəkistan,35
+Avstraliya,26
+Qazaxıstan,20
+Hollandiya,18
+Azərbaycan,10
+Birləşmiş Ərəb Əmirlikləri,10
+İsveç,10
+Yunanıstan,10
+Portuqaliya,10
+Macarıstan,10
+Belarus,9
+Avstriya,9
+İsveçrə,9
+İsrail,9
+Sinqapur,6
+Danimarka,6
+Finlandiya,6
+Türkmənistan,6
+Norveç,5
+İrlandiya,5
+Yeni Zelandiya,5
+Gürcüstan,4
+Ermənistan,3
+Litva,3
+Latviya,2
+Estoniya,1

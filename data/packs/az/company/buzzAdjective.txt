@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective (Azerbaijani)
+locale: az
+---
+strateji
+hərtərəfli
+sistemli
+inteqrasiya olunmuş
+miqyaslana bilən
+çevik
+uyğunlaşan
+səmərəli
+effektiv
+məhsuldar
+optimal
+balanslı
+dayanıqlı
+etibarlı
+şəffaf
+hesabatlı
+ölçülə bilən
+idarəolunan
+proqnozlaşdırıla bilən
+innovativ
+yeni nəsil
+qabaqcıl
+müasir
+rəqəmsal
+bulud əsaslı
+mobil
+fərdiləşdirilmiş
+müştəriyönümlü
+bazaryönümlü
+rəqabətqabiliyyətli
+gəlirli
+mənfəətli
+xərcə uyğun
+uzunmüddətli
+qısamüddətli
+prioritet
+açar
+kritik
+əsas
+sektoral
+çarpaz funksional
+çoxsəviyyəli
+uçdan-uca
+bütöv
+ardıcıl
+uyğun
+vahid
+standartlaşdırılmış
+sertifikatlı
+lisenziyalı
+peşəkar
+ixtisaslı
+təcrübəli
+keyfiyyətli
+şaquli

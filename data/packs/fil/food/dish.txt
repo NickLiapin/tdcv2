@@ -1,0 +1,62 @@
+---
+description: Dish, in Filipino. Adobo comes first because it is the closest thing to a national dish and because it explains the cuisine: meat simmered in vinegar, soy sauce, garlic and bay, where the vinegar is a preservative — the technique predates Spanish contact and the Spanish name was applied to it afterwards. THE PHILIPPINE FLAVOUR AXIS IS SOUR AND SALTY, NOT HOT: sinigang is soured with tamarind, kinilaw is raw fish cured in vinegar, and only Bicol cooks with chilli as a matter of course. The silog block — tapsilog, tocilog, longsilog — is a Filipino portmanteau system: any meat plus SInangag (garlic fried rice) plus itLOG (egg), so the name of the breakfast tells you its three parts. Balut, a duck egg incubated to the point where the embryo is formed and then boiled, is a street food eaten in the evening and is the one Filipinos are always asked about.
+locale: fil
+---
+Adobo
+Sinigang
+Kare-kare
+Sisig
+Lechon
+Lechon kawali
+Crispy pata
+Kaldereta
+Menudo
+Afritada
+Mechado
+Tinola
+Nilaga
+Bulalo
+Dinuguan
+Bicol Express
+Laing
+Pinakbet
+Bagnet
+Kinilaw
+Inihaw na liempo
+Chicken inasal
+Ginataang gulay
+Pancit canton
+Pancit bihon
+Pancit palabok
+Lumpiang Shanghai
+Lumpiang sariwa
+Arroz caldo
+Goto
+Lugaw
+Champorado
+Tapsilog
+Tocilog
+Longsilog
+Sinangag
+Balut
+Isaw
+Kwek-kwek
+Fish ball
+Halo-halo
+Leche flan
+Bibingka
+Puto bumbong
+Turon
+Banana cue
+Taho
+Suman
+Biko
+Puto
+Kutsinta
+Sapin-sapin
+Palitaw
+Ube halaya
+Buko pie
+Ensaymada
+Pandesal
+Chicharon

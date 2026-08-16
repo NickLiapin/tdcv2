@@ -1,0 +1,22 @@
+---
+description: Dishes of Tsino cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Pancit canton
+Pancit bihon
+Siomai
+Siopao
+Lumpia
+Mami
+Lomi
+Sweet and sour na isda
+Chopsuey
+Beef with broccoli
+Yang chow fried rice
+Hototay
+Kikiam
+Machang
+Hopia
+Tikoy
+Peking duck
+Buchi

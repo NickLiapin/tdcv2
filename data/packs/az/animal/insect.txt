@@ -1,0 +1,24 @@
+---
+description: Insect (Azerbaijani). Tarakan came in from Russian; the native word for a beetle is böcək, which survives in every compound below.
+locale: az
+---
+arı
+eşşəkarısı
+bombul
+qarışqa
+kəpənək
+güvə
+milçək
+ağcaqanad
+mozalan
+parabüzən
+buğa böcəyi
+may böcəyi
+çəyirtkə
+cırcırama
+iynəcə
+peyğəmbərböcəyi
+birə
+tarakan
+taxtabiti
+hörümçək

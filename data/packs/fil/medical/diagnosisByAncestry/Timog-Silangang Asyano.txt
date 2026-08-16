@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in populations of Timog-Silangang Asyano descent, in Filipino. The filename is the value in medical/ancestry.txt.
+locale: fil
+---
+Alpha-thalassemia
+Beta-thalassemia
+Hemoglobin E disease
+Kakulangan sa G6PD
+Talamak na hepatitis B
+Tuberkulosis
+Dengue
+Kanser sa nasopharynx
+Kakulangan sa lactase
+X-linked dystonia parkinsonism

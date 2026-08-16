@@ -1,0 +1,16 @@
+---
+description: Dishes of Azərbaycan cuisine (Azerbaijani)
+locale: az
+---
+plov
+şah plov
+dolma
+qutab
+dovğa
+düşbərə
+piti
+bozbaş
+lülə kabab
+xəngəl
+paxlava
+şəkərbura

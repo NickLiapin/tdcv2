@@ -1,0 +1,8 @@
+---
+description: Season. THE PHILIPPINES HAS TWO SEASONS, NOT FOUR, and this is the file where a European default does real damage. The state weather bureau divides the year into tag-araw, the dry season from roughly November to April, and tag-ulan, the wet season from May to October, and that is the whole of it. Tag-init and tag-lamig are the hot and the cool halves of the dry season — March to May is tag-init, the hottest part of the year and what Filipinos mean by 'summer', while December to February is tag-lamig, when Manila might reach a chilly 22 degrees. There is NO Philippine autumn and NO Philippine spring. Dictionaries offer tagsibol for spring and taglagas for autumn; they are translation words, coined to render foreign seasons in Filipino texts, and no season in the Philippines is called either of them. They are deliberately not shipped.
+locale: fil
+---
+Tag-araw
+Tag-init
+Tag-ulan
+Tag-lamig

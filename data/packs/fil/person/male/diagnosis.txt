@@ -1,0 +1,30 @@
+---
+description: Diagnoses seen in male patients: the male-specific list plus the common conditions that fall disproportionately on Filipino men. Smoking-related lung disease, alcohol-related liver disease and tuberculosis are all substantially commoner in men here, and work injuries follow from construction and seafaring being male trades.
+locale: fil
+---
+Benign prostatic hyperplasia
+Prostatitis
+Kanser sa prostate
+Varicocele
+Hydrocele
+Erectile dysfunction
+Luslos
+Pagkakalbo
+Tuberkulosis
+COPD
+Kanser sa baga
+Sirosis ng atay
+Sakit sa atay dahil sa alak
+Gout
+Atake sa puso
+Sakit sa koronaryong arterya
+Altapresyon
+Dyabetis uri 2
+Bato sa bato
+Ulser sa tiyan
+Sakit sa likod
+Bali ng buto
+Pinsala sa trabaho
+Pagkalulong sa alak
+Depresyon
+Sleep apnea

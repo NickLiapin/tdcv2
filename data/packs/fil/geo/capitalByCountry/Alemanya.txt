@@ -1,0 +1,5 @@
+---
+description: Capital of Alemanya (Filipino).
+locale: fil
+---
+Berlin

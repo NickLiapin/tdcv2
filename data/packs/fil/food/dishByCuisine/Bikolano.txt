@@ -1,0 +1,22 @@
+---
+description: Dishes of Bikolano cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Bicol Express
+Laing
+Pinangat
+Kinunot
+Tinutungang manok
+Ginataang santol
+Sinantolan
+Pancit Bato
+Kandingga
+Tilmok
+Ginataang kalabasa
+Sili ice cream
+Ginataang langka
+Adobong sili
+Natong
+Kinalas
+Pili tart
+Baduya

@@ -1,0 +1,16 @@
+---
+description: Diagnoses handled by Endokrinolohiya, as recorded in a Philippine chart. The filename is the value in medical/specialtyCoherent.txt.
+locale: fil
+---
+Dyabetis uri 2
+Dyabetis uri 1
+Prediabetes
+Goiter
+Hyperthyroidism
+Hypothyroidism
+Sakit na Graves
+Sakit na Hashimoto
+Sobrang timbang
+Osteoporosis
+Sakit na Cushing
+Kakulangan sa bitamina D

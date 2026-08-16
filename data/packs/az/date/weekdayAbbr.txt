@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Azerbaijani). Abbreviated with full stops because four of the seven names are two words.
+locale: az
+---
+B.
+B.e.
+Ç.a.
+Ç.
+C.a.
+C.
+Ş.

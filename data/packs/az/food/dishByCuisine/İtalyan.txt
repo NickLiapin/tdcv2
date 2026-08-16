@@ -1,0 +1,12 @@
+---
+description: Dishes of İtalyan cuisine (Azerbaijani)
+locale: az
+---
+karbonara makaron
+marqarita pizza
+lazanya
+rizotto
+minestrone
+brusketta
+tiramisu
+panna kotta

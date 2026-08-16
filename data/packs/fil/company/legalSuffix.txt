@@ -1,0 +1,45 @@
+---
+description: Tail of a registered company name. Trading, Enterprises, Marketing and General Merchandise are the four that make a Philippine business name recognisable at a glance — a family firm registered with the DTI is far likelier to be 'Reyes Trading' or 'Santos General Merchandise' than to carry a Latin abbreviation. OPC is the One Person Corporation, a company form created by the Revised Corporation Code in 2019 that lets a single natural person incorporate; before it, a Philippine corporation needed five incorporators. Kooperatiba is a large sector here, with its own regulator and its own law. The English forms dominate because Philippine company registration is done in English.
+locale: fil
+---
+Inc.
+Incorporated
+Corp.
+Corporation
+Co.
+Company
+Ltd.
+OPC
+Partnership
+and Sons
+and Company
+Group
+Holdings
+Ventures
+Enterprises
+Trading
+Marketing
+Merchandising
+General Merchandise
+Distributors
+Traders
+Sales
+Services
+Solutions
+Systems
+Technologies
+Industries
+Manufacturing
+Construction
+Development Corporation
+Realty
+Properties
+Farms
+Foods
+Logistics
+Agency
+Kooperatiba
+Samahan
+Kapisanan
+Pundasyon
+Sentro

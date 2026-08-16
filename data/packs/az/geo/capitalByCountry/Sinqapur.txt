@@ -1,0 +1,5 @@
+---
+description: Capital of Sinqapur (Azerbaijani)
+locale: az
+---
+Sinqapur

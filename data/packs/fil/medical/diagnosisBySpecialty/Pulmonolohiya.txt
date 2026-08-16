@@ -1,0 +1,16 @@
+---
+description: Diagnoses handled by Pulmonolohiya, as recorded in a Philippine chart. The filename is the value in medical/specialtyCoherent.txt.
+locale: fil
+---
+Hika
+Tuberkulosis
+Pulmonya
+Talamak na brongkitis
+COPD
+Impeksiyon sa itaas na daanan ng hangin
+Bronchiectasis
+Pleural effusion
+Sleep apnea
+Pulmonary embolism
+Sakit sa baga ng usok
+Pneumothorax

@@ -1,0 +1,59 @@
+{
+  "months": [
+    "yanvar",
+    "fevral",
+    "mart",
+    "aprel",
+    "may",
+    "iyun",
+    "iyul",
+    "avqust",
+    "sentyabr",
+    "oktyabr",
+    "noyabr",
+    "dekabr"
+  ],
+  "monthsInDate": [
+    "yanvar",
+    "fevral",
+    "mart",
+    "aprel",
+    "may",
+    "iyun",
+    "iyul",
+    "avqust",
+    "sentyabr",
+    "oktyabr",
+    "noyabr",
+    "dekabr"
+  ],
+  "monthsShort": [
+    "yan",
+    "fev",
+    "mar",
+    "apr",
+    "may",
+    "iyn",
+    "iyl",
+    "avq",
+    "sen",
+    "okt",
+    "noy",
+    "dek"
+  ],
+  "weekdays": [
+    "bazar",
+    "bazar ertəsi",
+    "çərşənbə axşamı",
+    "çərşənbə",
+    "cümə axşamı",
+    "cümə",
+    "şənbə"
+  ],
+  "weekdaysShort": ["B.", "B.e.", "Ç.a.", "Ç.", "C.a.", "C.", "Ş."],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "Four things differ from the neighbouring locales. FIRST, THE MONTH NAMES ARE RUSSIAN-DERIVED — yanvar, fevral, mart, aprel — not the Turkish Ocak, Subat, Mart, Nisan, even though Azerbaijani and Turkish are mutually intelligible. They entered in the Soviet period and were never replaced after 1991. SECOND, THE WEEKDAY NAMES ARE PERSIAN and two of the seven are named by the day that follows them: Tuesday is cersenbe axsami, the eve of Wednesday, and Thursday is cume axsami, the eve of Friday. Turkish took the same Persian set but replaced Tuesday with the native Sali; Azerbaijani did not, so the two languages differ on exactly one weekday name. The array above is Sunday-first because the formatter wants it that way, while date/weekday.txt in the pack lists the same seven; the Azerbaijani working week starts on Monday. THIRD, monthsInDate is IDENTICAL to months, which is correct and not a copy-paste slip: Azerbaijani has no genitive or partitive month form and writes 5 yanvar 2026 with the month in its plain shape. Month and weekday names are LOWER CASE. FOURTH, weekdaysShort uses full stops because four of the seven names are two words, so B.e. is Monday and C.a. is Thursday; truncating to a fixed two letters would collapse Ç.a. and C.a. into each other. The numeric format is DD.MM.YYYY with dots and leading zeros. Time is 24-hour with a colon (14:30). The decimal separator is a comma and the thousands separator a space or a full stop; the manat sign follows the number after a space (1 234,56 AZN). Azerbaijan switched to the new manat on 1 January 2006."
+}

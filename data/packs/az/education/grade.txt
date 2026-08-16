@@ -1,0 +1,16 @@
+---
+description: Grade / mark on the Azerbaijani scale. Schools mark out of five, where 5 is the best and 2 is a fail; universities run a 100-point scale reported as the letters A to F.
+locale: az
+---
+5
+4
+3
+2
+A
+B
+C
+D
+E
+F
+keçdi
+keçmədi

@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom / networking) (Azerbaijani)
+locale: az
+---
+UTP kabel
+FTP kabel
+STP ekranlı kabel
+koaksial kabel
+təkmodlu optik lif
+çoxmodlu optik lif
+enerji kabeli
+telefon kabeli
+patç kabel

@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Azerbaijani)
+locale: az
+---
+tentli
+refrijerator
+izoterm
+açıq kuza
+konteyner daşıyıcı
+sistern
+avtomobil daşıyıcı
+taxıl daşıyıcı
+özüboşaldan
+taxta daşıyıcı
+aşağı platforma
+panel daşıyıcı
+furqon

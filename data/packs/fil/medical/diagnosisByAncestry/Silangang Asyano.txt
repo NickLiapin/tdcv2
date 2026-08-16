@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in populations of Silangang Asyano descent, in Filipino. The filename is the value in medical/ancestry.txt.
+locale: fil
+---
+Kakulangan sa lactase
+Kanser sa tiyan
+Kanser sa nasopharynx
+Talamak na hepatitis B
+Alpha-thalassemia
+Alcohol flush reaction
+Sakit na Kawasaki
+Moyamoya disease
+Dyabetis uri 2
+Kanser sa atay

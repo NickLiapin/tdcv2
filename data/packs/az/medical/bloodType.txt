@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type. Written the post-Soviet way, with 0 rather than O for the null group — an Azerbaijani lab report says 0 (I) Rh+.
+locale: az
+---
+0 Rh+
+0 Rh-
+A Rh+
+A Rh-
+B Rh+
+B Rh-
+AB Rh+
+AB Rh-

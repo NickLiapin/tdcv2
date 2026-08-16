@@ -1,0 +1,46 @@
+---
+description: Professional skill (technical, trade and soft), for skill lists and profiles (Azerbaijani)
+locale: az
+---
+proqramlaşdırma
+verilənlər bazasının idarə edilməsi
+sistem idarəçiliyi
+şəbəkə quraşdırılması
+kibertəhlükəsizlik
+data analizi
+statistika
+layihə idarəetməsi
+planlaşdırma
+smeta hesablanması
+mühasibatlıq
+vergi qanunvericiliyi
+maliyyə təhlili
+danışıqlar
+satış
+müştəri münasibətləri
+marketinq
+mətn yazarlığı
+redaktə
+tərcümə
+ictimai çıxış
+komanda işi
+liderlik
+mentorluq
+vaxtın idarə edilməsi
+münaqişələrin idarə edilməsi
+tənqidi düşüncə
+detallara diqqət
+avtomobil idarəetməsi
+elektrik alətlərlə iş
+qaynaq
+elektrik montajı
+santexnika
+dülgərlik
+texniki rəsm
+dəzgahda iş
+keyfiyyətə nəzarət
+ilk yardım
+xəstə baxımı
+kassa aparatı ilə iş
+anbar uçotu
+sənəd dövriyyəsi

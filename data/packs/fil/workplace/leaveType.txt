@@ -1,0 +1,16 @@
+---
+description: Kind of leave. THREE OF THESE ARE PHILIPPINE STATUTORY LEAVES WITH NO EUROPEAN COUNTERPART. Solo parent leave gives seven days a year to a parent raising a child alone, under the Solo Parents' Welfare Act. VAWC leave gives ten days to a woman who is a victim of violence, under Republic Act 9262, so she can attend to legal and medical matters. Special leave for women, the so-called gynaecological leave, gives up to two months of paid leave after surgery for a gynaecological disorder, under the Magna Carta of Women. Maternity leave was extended to 105 days in 2019, which is long by regional standards; paternity leave is seven days.
+locale: fil
+---
+Vacation leave
+Sick leave
+Service incentive leave
+Maternity leave
+Paternity leave
+Parental leave for solo parents
+VAWC leave
+Special leave for women
+Bereavement leave
+Emergency leave
+Leave without pay
+Sabbatical

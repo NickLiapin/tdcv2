@@ -1,0 +1,54 @@
+---
+description: Store department / category (Azerbaijani)
+locale: az
+---
+Ərzaq
+Meyvə-tərəvəz
+Ət və balıq
+Kolbasa məmulatları
+Süd məhsulları
+Çörək məmulatları
+Paxlalılar
+Dondurulmuş məhsullar
+İçkilər
+Alkoqollu içkilər
+Şirniyyat
+Uşaq qidası
+Təmizlik vasitələri
+Kosmetika
+Ətriyyat
+Şəxsi baxım
+Aptek
+Geyim
+Qadın geyimi
+Kişi geyimi
+Uşaq geyimi
+Ayaqqabı
+Aksesuar
+Çanta
+Zərgərlik
+Saat
+Elektronika
+Mobil telefon
+Kompüter
+Noutbuk
+Planşet
+Televizor
+Səs sistemləri
+Foto
+Məişət texnikası
+Kiçik məişət cihazları
+Mebel
+Ev tekstili
+Mətbəx ləvazimatı
+İşıqlandırma
+Bağ
+Tikinti materialları
+Dəmir məmulatları
+Avtomobil aksesuarları
+İdman
+Turizm
+Oyuncaq
+Kitab
+Dəftərxana
+Ev heyvanları

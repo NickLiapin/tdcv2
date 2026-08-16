@@ -1,0 +1,5 @@
+---
+description: Capital of Braziliya (Azerbaijani)
+locale: az
+---
+Brazilia

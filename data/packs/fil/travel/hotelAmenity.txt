@@ -1,0 +1,34 @@
+---
+description: Hotel or resort feature. Two are Philippine and are advertised as selling points. A VIDEOKE ROOM is a hotel amenity here in the way a business centre is elsewhere, because singing is the standard group activity. HILOT is the traditional Filipino massage — deep pressure with coconut oil, historically also bone-setting and midwifery — offered beside the imported spa treatments and named separately from them. Generator is on the list because power interruptions are ordinary, and bangka rental because in an island country the boat is the excursion.
+locale: fil
+---
+Free Wi-Fi
+Aircon
+Hot and cold shower
+Generator
+Swimming pool
+Kids' pool
+Beachfront
+Videoke room
+Function hall
+Restawran
+Bar
+Room service
+Almusal
+Buffet
+Airport shuttle
+Paradahan
+Labahan
+Business center
+Concierge
+Gym
+Spa
+Hilot
+Jacuzzi
+Rooftop
+Kubo
+Cottage
+Bangka rental
+Island hopping tour
+Kapilya
+Pet-friendly

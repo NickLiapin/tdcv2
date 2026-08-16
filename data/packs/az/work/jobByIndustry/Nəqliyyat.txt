@@ -1,0 +1,16 @@
+---
+description: Jobs in Transportation (Azerbaijani)
+locale: az
+---
+yük maşını sürücüsü
+avtobus sürücüsü
+maşinist
+əməliyyat mütəxəssisi
+logistika mütəxəssisi
+ekspeditor
+təmirçi
+təyyarə texniki
+gəmi kapitanı
+pilot
+liman kran operatoru
+reys nəzarətçisi

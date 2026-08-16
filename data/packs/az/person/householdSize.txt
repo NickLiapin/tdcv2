@@ -1,0 +1,11 @@
+---
+description: Household size. Azerbaijani households run larger than the European average — multigenerational living is normal — so the tail of this list is not decoration.
+locale: az
+---
+1
+2
+3
+4
+5
+6
+7+

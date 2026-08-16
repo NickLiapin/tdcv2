@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Mediterranean ancestry, in Azerbaijani. A prevalence signal, not an exclusive one.
+locale: az
+---
+Beta talassemiya
+Oraqvari hüceyrə anemiyası
+G6PD çatışmazlığı
+Ailəvi Aralıq dənizi qızdırması
+İrsi hemoxromatoz
+Behçet xəstəliyi
+İrsi sferositoz

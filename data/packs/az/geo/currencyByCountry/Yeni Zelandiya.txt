@@ -1,0 +1,5 @@
+---
+description: Currency of Yeni Zelandiya (Azerbaijani)
+locale: az
+---
+Yeni Zelandiya dolları

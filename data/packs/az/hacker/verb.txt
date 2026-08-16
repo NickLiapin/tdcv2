@@ -1,0 +1,32 @@
+---
+description: Tech verb, infinitive (Azerbaijani). Note the two infinitive endings — -maq after a back-vowel stem, -mək after a front-vowel one — which is vowel harmony and is not optional.
+locale: az
+---
+kompilyasiya etmək
+yerləşdirmək
+konfiqurasiya etmək
+yenidən başlatmaq
+qoşulmaq
+sistemə daxil olmaq
+şifrələmək
+şifrəni açmaq
+sıxmaq
+arxivdən çıxarmaq
+indeksləşdirmək
+keşləmək
+sinxronlaşdırmaq
+replikasiya etmək
+miqyaslandırmaq
+marşrutlaşdırmaq
+tutmaq
+yan keçmək
+sındırmaq
+yamaqlamaq
+geri qaytarmaq
+yeniləmək
+silmək
+yaratmaq
+kopyalamaq
+köçürmək
+bağlamaq
+formatlaşdırmaq

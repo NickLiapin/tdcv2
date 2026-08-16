@@ -1,0 +1,26 @@
+---
+description: Kind of property, in Filipino. BEDSPACE IS A UNIT OF PHILIPPINE HOUSING AND IT IS A BED, not a room and not a flat: a bedspacer rents one bed in a shared room, and the arrangement houses students and provincial workers across every university district and industrial estate in the country. Above it, a boarding house rents rooms and an apartelle is a small serviced building between a flat and a hotel. Bahay at lote — house and lot — is the standard Philippine listing phrase because the land is sold with the house and the two are priced together.
+locale: fil
+---
+Bahay at lote
+Townhouse
+Rowhouse
+Duplex
+Bungalow
+Two-storey
+Condominium
+Apartment
+Studio
+Loft
+Penthouse
+Apartelle
+Boarding house
+Bedspace
+Bahay-kubo
+Bahay na bato
+Rest house
+Beach house
+Residential lot
+Commercial lot
+Farm lot
+Agricultural land

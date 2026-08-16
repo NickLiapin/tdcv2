@@ -1,0 +1,59 @@
+---
+description: Industry sector (Azerbaijani)
+locale: az
+---
+İnformasiya texnologiyaları
+Telekommunikasiya
+Proqram təminatı
+Kibertəhlükəsizlik
+Elektron ticarət
+Pərakəndə ticarət
+Topdan ticarət
+Logistika
+Nəqliyyat
+Aviasiya
+Dəmir yolu nəqliyyatı
+Dənizçilik
+Bankçılıq
+Sığorta
+İnvestisiya
+Maliyyə xidmətləri
+Mühasibat xidmətləri
+Hüquq xidmətləri
+Konsaltinq
+Audit
+Daşınmaz əmlak
+Tikinti
+Memarlıq
+Layihələndirmə
+İstehsal
+Maşınqayırma
+Metallurgiya
+Kimya sənayesi
+Əczaçılıq sənayesi
+Səhiyyə
+Tibbi xidmətlər
+Biotexnologiya
+Kənd təsərrüfatı
+Qida sənayesi
+İçki istehsalı
+Heyvandarlıq
+Meşəçilik
+Balıqçılıq
+Energetika
+Bərpa olunan enerji
+Neft və qaz
+Neft-kimya
+Mədənçilik
+Kommunal xidmətlər
+Təhsil
+Elm
+Media
+Nəşriyyat
+Reklam
+Əyləncə
+Turizm
+Otelçilik
+Restoran biznesi
+İdman
+Toxuculuq

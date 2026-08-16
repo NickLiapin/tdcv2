@@ -1,0 +1,30 @@
+---
+description: Aircraft type (manufacturer designations, used unchanged in Azerbaijani)
+locale: az
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330-200
+Airbus A340-500
+Airbus A350-900
+Boeing 737-700
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 747-400F
+Boeing 747-8F
+Boeing 757-200
+Boeing 767-300ER
+Boeing 777-200
+Boeing 777-300ER
+Boeing 787-8
+Boeing 787-9
+Embraer E170
+Embraer E190
+ATR 72
+Bombardier CRJ900
+Ilyushin Il-76
+Antonov An-124
+Yakovlev Yak-40

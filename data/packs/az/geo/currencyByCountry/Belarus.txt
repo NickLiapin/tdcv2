@@ -1,0 +1,5 @@
+---
+description: Currency of Belarus (Azerbaijani)
+locale: az
+---
+Belarus rublu

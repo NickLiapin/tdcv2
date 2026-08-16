@@ -1,0 +1,24 @@
+---
+description: Trip type (Azerbaijani). Ziyarət, a pilgrimage to a shrine, and the health tourism of Naftalan and the Masallı thermal springs are ordinary categories in an Azerbaijani travel record.
+locale: az
+---
+istirahət
+həftəsonu səfəri
+dəniz istirahəti
+xizək turu
+mədəni tur
+avtobus turu
+gəmi turu
+təbiət gəzintisi
+raftinq
+velosiped turu
+avtomobil səyahəti
+qatar səyahəti
+ziyarət
+həcc
+ümrə
+qastronomiya turu
+alış-veriş turu
+sağlamlıq turizmi
+termal istirahət
+iş səfəri

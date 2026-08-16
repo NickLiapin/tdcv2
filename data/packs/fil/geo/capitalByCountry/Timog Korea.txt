@@ -1,0 +1,5 @@
+---
+description: Capital of Timog Korea (Filipino).
+locale: fil
+---
+Seoul

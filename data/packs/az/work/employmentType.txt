@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Azerbaijani)
+locale: az
+---
+Tam iş günü
+Yarım iş günü
+Müddətli əmək müqaviləsi
+Müddətsiz əmək müqaviləsi
+Xidmət müqaviləsi
+Sərbəst çalışma
+Fərdi sahibkar
+Təcrübə
+Əlavə iş
+Mövsümi
+Növbəli

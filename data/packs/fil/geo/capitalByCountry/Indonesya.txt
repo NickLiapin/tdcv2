@@ -1,0 +1,5 @@
+---
+description: Capital of Indonesya (Filipino).
+locale: fil
+---
+Jakarta

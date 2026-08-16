@@ -1,0 +1,14 @@
+---
+description: Payment status (Azerbaijani)
+locale: az
+---
+Ödəniş gözlənilir
+Ödənilib
+Qismən ödənilib
+Bloklanıb
+Rədd edilib
+Ödəniş xətası
+Geri qaytarılıb
+Qismən geri qaytarılıb
+Vaxtı keçib
+Ləğv edilib

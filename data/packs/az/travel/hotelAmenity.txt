@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Azerbaijani). Naftalan, the crude-oil bath, is a treatment offered by hotels in and around the town of the same name and exists commercially almost nowhere else in the world.
+locale: az
+---
+pulsuz Wi-Fi
+kondisioner
+istilik
+səhər yeməyi daxil
+restoran
+bar
+minibar
+soyuducu
+su qızdırıcısı
+seyf
+televizor
+saç qurudan
+ütü
+paltaryuyan maşın
+gündəlik təmizlik
+24 saat resepşn
+hava limanına transfer
+dayanacaq
+qapalı dayanacaq
+hovuz
+sauna
+hamam
+spa mərkəzi
+naftalan vannası
+fitnes zalı
+masaj
+uşaq oyun meydançası
+dayə xidməti
+iclas otağı
+ev heyvanları ilə qəbul

@@ -1,0 +1,34 @@
+---
+description: Bird (Azerbaijani). Turac, the black francolin, is an Azerbaijani emblem bird and gives its name to the town of Turaclı.
+locale: az
+---
+sərçə
+arıquşu
+qaranquş
+sığırçın
+ağacdələn
+ququ
+bülbül
+şanapipik
+sağsağan
+qarğa
+quzğun
+göyərçin
+torağay
+sarıköynək
+qaratoyuq
+vağ
+leylək
+durna
+ördək
+qaz
+qu quşu
+qağayı
+qırğı
+qartal
+şahin
+çalağan
+bayquş
+kəklik
+qırqovul
+turac

@@ -1,0 +1,34 @@
+---
+description: Hashtag word. THE SECOND HALF OF THIS LIST IS A FILIPINO WORDPLAY SYSTEM CALLED BINALIKTAD — reversing the syllables of a word. Lodi is idol, petmalu is malupit (brutal, meaning excellent), werpa is power, ermat and erpat are mater and pater. It is productive, everyone under forty uses it, and it has no English counterpart. Three of the plain Filipino words in the first half are famously untranslatable: kilig is the physical shiver of romantic delight, gigil the urge to squeeze something unbearably cute, and tampo the silent withdrawn sulk you perform at someone you love so they will notice. Hugot names the whole genre of posting about an old wound. Sana all is the ubiquitous ironic sigh at someone else's good fortune — roughly 'may we all be so lucky'.
+locale: fil
+---
+pinoy
+pilipinas
+sarap
+ganda
+saya
+kilig
+gigil
+tampo
+hugot
+sanaall
+chika
+bes
+pasalubong
+jeepney
+karinderya
+pista
+bayanihan
+pasko
+simbanggabi
+balikbayan
+ofw
+puso
+lodi
+petmalu
+werpa
+ermat
+erpat
+charot
+naks
+solid

@@ -1,0 +1,32 @@
+---
+description: Tech action noun (Azerbaijani)
+locale: az
+---
+kompilyasiya
+yerləşdirmə
+konfiqurasiya
+yenidən başlatma
+qoşulma
+autentifikasiya
+şifrələmə
+şifrənin açılması
+sıxılma
+arxivdən çıxarma
+indeksləşdirmə
+keşləmə
+sinxronizasiya
+replikasiya
+miqyaslandırma
+marşrutlaşdırma
+tutma
+yan keçmə
+sındırma
+yamaqlama
+geri qaytarma
+yeniləmə
+silmə
+yaratma
+kopyalama
+köçürmə
+bağlama
+formatlaşdırma

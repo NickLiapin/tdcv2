@@ -1,0 +1,5 @@
+---
+description: Capital of Polşa (Azerbaijani)
+locale: az
+---
+Varşava

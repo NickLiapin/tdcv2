@@ -1,0 +1,28 @@
+---
+description: RPG character class (Azerbaijani)
+locale: az
+---
+döyüşçü
+cəngavər
+paladin
+barbar
+berserker
+quldur
+suikəstçi
+ovçu
+izçi
+oxatan
+sehrbaz
+cadugər
+qara sehrbaz
+nekromant
+druid
+şaman
+kahin
+rahib
+ozan
+mühəndis
+kimyagər
+əhliləşdirici
+tank
+şəfaçı

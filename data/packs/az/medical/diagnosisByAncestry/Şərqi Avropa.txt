@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eastern European ancestry, in Azerbaijani. A prevalence signal, not an exclusive one.
+locale: az
+---
+İrsi hemoxromatoz
+Seliakiya
+Fenilketonuriya
+Vilson xəstəliyi
+G6PD çatışmazlığı
+İrsi trombofiliya

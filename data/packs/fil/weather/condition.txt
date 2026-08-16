@@ -1,0 +1,20 @@
+---
+description: Weather condition, in Filipino. NOTICE WHAT IS MISSING AND WHY: there is no snow, no sleet, no hail and no frost, because none of them happens in the Philippines, and nyebe exists only as a loanword for something Filipinos see abroad. What the language has instead is a fine vocabulary for rain and heat. Ambon is a light drizzle, ulan ordinary rain, and buhos a downpour. MAALINSANGAN is the important one and has no English word: hot, still, close and humid all at once, the state of Manila before a storm breaks, and Filipinos complain about it constantly.
+locale: fil
+---
+Maaraw
+Maliwanag
+Maulap
+Makulimlim
+Maulan
+Ambon
+Buhos
+Malakas na ulan
+Kidlat at kulog
+Mahangin
+Mahamog
+Maalinsangan
+Mainit
+Malamig
+Mahalumigmig
+Tahimik

@@ -1,0 +1,40 @@
+---
+description: Medical specialties (Azerbaijani)
+locale: az
+---
+Daxili xəstəliklər
+Ailə həkimliyi
+Uşaq xəstəlikləri
+Kardiologiya
+Nevrologiya
+Qastroenterologiya
+Pulmonologiya
+Endokrinologiya
+Nefrologiya
+Urologiya
+Ginekologiya
+Mamalıq
+Ümumi cərrahiyyə
+Damar cərrahiyyəsi
+Neyrocərrahiyyə
+Ürək cərrahiyyəsi
+Travmatologiya
+Ortopediya
+Onkologiya
+Hematologiya
+Revmatologiya
+Dermatologiya
+Allerqologiya
+İmmunologiya
+İnfeksion xəstəliklər
+Oftalmologiya
+Otorinolarinqologiya
+Stomatologiya
+Psixiatriya
+Narkologiya
+Anesteziologiya
+Reanimasiya
+Radiologiya
+Patologiya
+Biokimya
+Fiziki tibb və reabilitasiya

@@ -1,0 +1,5 @@
+---
+description: Capital of Tailandiya (Filipino).
+locale: fil
+---
+Bangkok

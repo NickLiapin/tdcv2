@@ -1,0 +1,12 @@
+---
+description: Book format (Azerbaijani)
+locale: az
+---
+cildli
+karton üzlü
+cib formatı
+xüsusi nəşr
+illüstrasiyalı nəşr
+elektron kitab
+audio kitab
+buklet

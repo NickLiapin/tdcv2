@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastroenterology (Azerbaijani)
+locale: az
+---
+Qastrit
+Mədə xorası
+Reflüks xəstəliyi
+Qıcıqlanmış bağırsaq sindromu
+Kron xəstəliyi
+Xoralı kolit
+Xroniki pankreatit
+Öd daşı
+Qaraciyər sirrozu
+Seliakiya

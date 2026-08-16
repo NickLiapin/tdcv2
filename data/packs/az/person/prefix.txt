@@ -1,0 +1,36 @@
+---
+description: Azerbaijani honorific / form of address. Two of these go AFTER the given name, not before it: bəy for a man and xanım for a woman (Elçin bəy, Aysel xanım). A third, MÜƏLLİM — literally teacher — is the everyday respectful address for any educated or senior man and also follows the name (Rəşad müəllim); its feminine is müəllimə. This is a distinctly Azerbaijani usage with no Turkish counterpart. The academic, medical and military titles below all precede the name.
+locale: az
+---
+bəy
+xanım
+müəllim
+müəllimə
+Hacı
+Seyid
+Dr.
+Prof.
+Dos.
+Akademik
+Xalq artisti
+Əməkdar artist
+Vəkil
+Hakim
+Prokuror
+Müfəttiş
+Polkovnik
+Mayor
+Kapitan
+Leytenant
+Serjant
+Direktor
+Baş direktor
+Sədr
+Nazir
+Deputat
+Rektor
+Dekan
+Baş həkim
+Mühəndis
+Memar
+Ustad

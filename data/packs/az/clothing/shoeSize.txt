@@ -1,0 +1,16 @@
+---
+description: Shoe size on the CONTINENTAL EUROPEAN (Paris point) scale, which is what an Azerbaijani reads on a shoebox and asks for in a shop. The scale arrived through the Soviet standard, which used the same Paris point, so the numbers did not change in 1991. Whole numbers only — the Paris-point scale has no half sizes.
+locale: az
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

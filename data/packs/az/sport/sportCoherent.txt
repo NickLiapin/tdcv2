@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Azerbaijani). Futzal is here and ice hockey is not, which is the honest shape of Azerbaijani sport: futsal has a national league and an international record, and there is no domestic ice hockey to speak of. Güləş, wrestling, is the country's strongest Olympic discipline and its entries are styles and ranks rather than field positions.
+locale: az
+---
+Futbol
+Futzal
+Basketbol
+Voleybol
+Həndbol
+Su topu
+Güləş
+Reqbi

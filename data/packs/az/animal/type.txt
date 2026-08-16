@@ -1,0 +1,42 @@
+---
+description: Animal, general (Azerbaijani). Ceyran, the goitered gazelle, and camış, the water buffalo, are both ordinary animals of the Azerbaijani plain and both are missing from a northern European list.
+locale: az
+---
+pişik
+it
+at
+eşşək
+dəvə
+inək
+camış
+qoyun
+keçi
+donuz
+toyuq
+ördək
+qaz
+hinduşka
+dovşan
+canavar
+tülkü
+ayı
+maral
+ceyran
+cüyür
+çöl donuzu
+dələ
+kirpi
+porsuq
+su samuru
+qunduz
+vaşaq
+suiti
+siçan
+siçovul
+köstəbək
+yarasa
+qurbağa
+kərtənkələ
+ilan
+tısbağa
+delfin

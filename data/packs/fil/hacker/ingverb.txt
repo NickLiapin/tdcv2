@@ -1,0 +1,32 @@
+---
+description: Technical verb in the progressive. FILIPINO HAS NO -ING SUFFIX. The ongoing action is built two ways at once: the infix -in- goes inside the root, and the first consonant-and-vowel of the root is REDUPLICATED. So suri (examine) becomes sinusuri, 'is being examined' — s-in-u-suri, with -in- infixed and su- doubled. Reduplication here is grammar, not emphasis, exactly as it is in araw-araw (daily) and bahay-bahay (house to house). Notice also that these are all OBJECT-FOCUS forms: sinusuri says the thing is being examined and never says by whom, while nagsusuri would put the examiner in focus instead. English gets one -ing form; Filipino gets a different verb shape for each participant.
+locale: fil
+---
+sinusuri
+binubuo
+kinokopya
+inililipat
+ikinokonekta
+binabago
+tinatakda
+binubura
+inaayos
+sinusubukan
+pinapatakbo
+pinipili
+hinahanap
+inuuri
+tinutukoy
+ipinapadala
+tinatanggap
+binibilang
+sinusukat
+sinasala
+pinagsasama
+hinahati
+iniimbak
+isinasave
+kinokompile
+dinidebug
+ineencrypt
+nagbabackup

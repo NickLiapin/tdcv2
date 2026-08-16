@@ -1,0 +1,16 @@
+---
+description: Jobs in Construction (Azerbaijani)
+locale: az
+---
+inşaat mühəndisi
+memar
+sahə rəisi
+bənna
+suvaqçı
+rəngsaz
+elektrik
+santexnik
+qaynaqçı
+dam ustası
+kran operatoru
+smetaçı

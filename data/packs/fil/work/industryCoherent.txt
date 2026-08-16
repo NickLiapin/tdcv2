@@ -1,0 +1,14 @@
+---
+description: Industry used as the parent of work/jobByIndustry. Ten, matching the reference set. The filenames in that directory are these values character for character.
+locale: fil
+---
+Teknolohiya
+Pangangalagang pangkalusugan
+Pananalapi
+Konstruksiyon
+Edukasyon
+Hotel at restawran
+Pagmamanupaktura
+Tingian
+Transportasyon
+Batas

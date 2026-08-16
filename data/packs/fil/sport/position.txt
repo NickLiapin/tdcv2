@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed across sports. English throughout, which is not laziness: Philippine sport is commentated in Taglish and the position words are English inside Filipino sentences, so 'point guard' and 'libero' are what a Filipino says. Tekong, the sepak takraw server, is the exception and is Malay.
+locale: fil
+---
+Point guard
+Shooting guard
+Small forward
+Power forward
+Center
+Sixth man
+Utility
+Setter
+Outside hitter
+Opposite hitter
+Middle blocker
+Libero
+Defensive specialist
+Tagabantay ng goal
+Depensa
+Midfielder
+Winger
+Forward
+Striker
+Sweeper
+Center back
+Full back
+Pitcher
+Catcher
+First baseman
+Shortstop
+Left fielder
+Center fielder
+Right fielder
+Designated hitter
+Tekong
+Feeder
+Killer
+Drummer
+Steersman

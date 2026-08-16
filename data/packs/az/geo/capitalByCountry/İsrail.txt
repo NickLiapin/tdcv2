@@ -1,0 +1,5 @@
+---
+description: Capital of İsrail (Azerbaijani)
+locale: az
+---
+Qüds

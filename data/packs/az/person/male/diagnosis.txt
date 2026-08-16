@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses in Azerbaijani (male-specific plus common), for a single-column patient record
+locale: az
+---
+Varikosele
+Enməmiş xaya
+Fimoz
+Prostatın hiperplaziyası
+Prostatit
+Xroniki pankreatit
+Xlamidiya infeksiyası
+Xroniki artrit
+Hipertoniya
+Koronar arteriya xəstəliyi
+Miokard infarktı
+Mədə xorası
+2-ci tip diabet
+Podaqra
+Bronxial astma
+Xroniki bronxit
+Böyrək daşı
+Qasıq yırtığı
+Disk yırtığı
+Hepatit B
+Anemiya
+Qastrit
+Xolesistit
+Pnevmoniya
+Miqren
+Depressiv epizod

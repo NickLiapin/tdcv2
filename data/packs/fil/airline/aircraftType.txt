@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are brand names and are NOT translated in Filipino or in any other language — an A320 is an A320 on a Manila boarding pass. The turboprops matter more here than in a European pack: the Philippines is 7,641 islands and the ATR 72 and Dash 8 fly the routes to airports whose runways cannot take a jet, so a realistic Philippine flight record contains far more turboprop legs than a European one.
+locale: fil
+---
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A319
+Airbus A330
+Airbus A330neo
+Airbus A350
+Airbus A380
+Boeing 737
+Boeing 737 MAX
+Boeing 747
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+ATR 72
+ATR 42
+De Havilland Dash 8 Q400
+Bombardier CRJ900
+Embraer E175
+Embraer E190
+Embraer E195
+Cessna Grand Caravan
+Britten-Norman Islander
+Let L-410

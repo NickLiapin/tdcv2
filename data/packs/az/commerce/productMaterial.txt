@@ -1,0 +1,62 @@
+---
+description: Product material (Azerbaijani), as a noun — compose with the ablative (palıddan masa) or straight as a modifier (palıd masa)
+locale: az
+---
+palıd
+fısdıq
+göyrüş
+şam ağacı
+tozağacı
+qoz ağacı
+qızılağac
+bambuk
+rotanq
+faner
+yonqar lövhə
+MDF
+masiv ağac
+polad
+paslanmayan polad
+karbon poladı
+çuqun
+alüminium
+titan
+mis
+latun
+bürünc
+sink
+qalay
+gümüş
+qızıl
+plastik
+polikarbonat
+polipropilen
+polietilen
+akril
+silikon
+kauçuk
+rezin
+penoplast
+süngər
+şüşə
+bərkidilmiş şüşə
+keramika
+farfor
+kafel
+daş
+qranit
+mərmər
+beton
+gips
+dəri
+süni dəri
+zamşa
+nubuk
+pambıq
+kətan
+yun
+ipək
+kaşmir
+viskoza
+polyester
+neylon

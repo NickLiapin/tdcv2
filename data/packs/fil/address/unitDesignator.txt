@@ -1,0 +1,30 @@
+---
+description: Secondary unit designator inside a Philippine address. THE FILIPINO WORDS AND THE PRINTED WORDS ARE NOT THE SAME LIST, and both are here. A Filipino says silid, palapag and pinto in speech, but Philippine addresses are written in English and what is actually painted on the door or typed on a form is Unit, Rm, Flr, Blk and Lot — so a pack holding only the Filipino words would generate addresses no courier has ever read. Blk and Lot dominate because most Philippine housing is subdivision housing addressed by block and lot number rather than by street number, and Ph (phase) sits above them. Note that the full Philippine address also needs a barangay, which is a unit of government and lives in the philippines country pack, not here.
+locale: fil
+---
+Yunit
+Unit
+Silid
+Rm
+Kuwarto
+Palapag
+Flr
+Antas
+Gusali
+Bldg
+Tore
+Tower
+Bloke
+Blk
+Lote
+Lot
+Yugto
+Ph
+Pinto
+Door
+Puwesto
+Kubol
+Apartment
+Suite
+Penthouse
+Bodega

@@ -1,0 +1,9 @@
+---
+description: Work shift (Azerbaijani)
+locale: az
+---
+birinci növbə
+ikinci növbə
+gecə növbəsi
+həftəsonu növbəsi
+təmir növbəsi

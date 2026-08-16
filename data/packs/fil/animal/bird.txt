@@ -1,0 +1,36 @@
+---
+description: Bird, in Filipino. Nearly all of these are native words rather than loans, which is unusual in this pack and says something: birds were named long before Spain arrived and the names survived. Agila is the Philippine eagle, the national bird, one of the largest eagles alive and critically endangered; haribon, its other name, is a contraction of hari ng mga ibon, king of the birds. Maya is the small brown bird of every ricefield and was the national bird until 1995. Labuyo is the red junglefowl, the wild ancestor of the chicken and still living in Philippine forests. Adarna and Sarimanok are mythical: the first from the Tagalog metrical romance Ibong Adarna, the second the Maranao bird of Mindanao, and both are here because Filipinos name streets, boats and companies after them.
+locale: fil
+---
+Maya
+Agila
+Haribon
+Lawin
+Banog
+Uwak
+Kalapati
+Batu-bato
+Punay
+Kuwago
+Kalaw
+Tikling
+Tagak
+Salaksak
+Martines
+Pipit
+Loro
+Kakatwa
+Kulasisi
+Pugo
+Labuyo
+Manok
+Tandang
+Inahin
+Pato
+Itik
+Gansa
+Pabo
+Kanaryo
+Adarna
+Sarimanok
+Ibon

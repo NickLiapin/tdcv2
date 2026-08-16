@@ -1,0 +1,24 @@
+---
+description: Insect, in Filipino. Alitaptap, the firefly, is worth its own note: the mangrove fireflies of the Iwahig and Abatan rivers synchronise their flashing across whole trees, and firefly-watching is a Philippine tourist trade. Kuliglig names the cicada and also, by transfer from its engine noise, a two-wheeled hand tractor used as a passenger vehicle. Gagamba is a spider and not an insect at all; it is listed because Filipinos file it here, and because Gagamba is what Spider-Man is called in Filipino.
+locale: fil
+---
+Langgam
+Bubuyog
+Paruparo
+Salagubang
+Tutubi
+Tipaklong
+Gamu-gamo
+Kuliglig
+Putakti
+Alitaptap
+Anay
+Lamok
+Ipis
+Langaw
+Kuto
+Surot
+Gagamba
+Uod
+Higad
+Antik

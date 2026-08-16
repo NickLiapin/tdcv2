@@ -1,0 +1,59 @@
+---
+description: Industry, in Filipino. BPO — business process outsourcing, which everyone here calls simply 'the call center industry' — is on this list and would be a curiosity in a European pack: it employs well over a million Filipinos, is one of the country's two largest sources of foreign earnings, and shapes the working hours of whole cities because it runs on American time. The other large source is the export of labour itself, which is why recruitment and deployment of overseas workers is a named industry with its own government department. Pangingisda and pagsasaka are listed separately from each other because in an archipelago they are different lives.
+locale: fil
+---
+Agrikultura
+Pagsasaka
+Pangingisda
+Akwakultura
+Kagubatan
+Pagmimina
+Konstruksiyon
+Pagmamanupaktura
+Tekstil
+Muwebles
+Pagkain at inumin
+Tingian
+Pakyawan
+Transportasyon
+Lohistika
+Teknolohiyang Impormasyon
+BPO
+Call center
+Software
+E-commerce
+Pananalapi
+Pagbabangko
+Seguro
+Mikropinansiya
+Real estate
+Pangangalagang pangkalusugan
+Parmasyutiko
+Biyoteknolohiya
+Edukasyon
+Pagsasanay
+Turismo
+Hotel at restawran
+Aliwan
+Midya
+Pahayagan
+Telekomunikasyon
+Enerhiya
+Kuryente
+Tubig
+Langis at gas
+Nababagong enerhiya
+Sasakyan
+Aerospace
+Paglalayag
+Paglilipat-bansa
+Pagrerekrut ng manggagawa
+Konsultasyon
+Batas
+Accounting
+Advertising
+Sining at kultura
+Palakasan
+Di-pangkalakal
+Serbisyong panlipunan
+Pamahalaan

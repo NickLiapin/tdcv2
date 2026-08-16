@@ -1,0 +1,22 @@
+---
+description: Dishes of Lebanes cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Hummus
+Baba ghanoush
+Tabbouleh
+Fattoush
+Shawarma
+Kibbeh
+Falafel
+Manakish
+Kafta
+Sfiha
+Warak enab
+Shish taouk
+Mujadara
+Labneh
+Baklava
+Maamoul
+Knafeh
+Fatteh

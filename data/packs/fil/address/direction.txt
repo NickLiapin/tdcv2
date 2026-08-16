@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Philippine street, district or subdivision phase (Timog Avenue, Silangan Extension). The four cardinals are Hilaga, Timog, Silangan and Kanluran; before a noun they take the linker and become Hilagang, Timog, Silangang, Kanlurang. Timog is one of the few that does not add -ng. Intercardinals are hyphenated compounds with the north-south term first, exactly as in English. Gitna and Sentro both render 'central' — the first is the native word, the second the Spanish loan used on signage.
+locale: fil
+---
+Hilaga
+Timog
+Silangan
+Kanluran
+Hilagang-silangan
+Hilagang-kanluran
+Timog-silangan
+Timog-kanluran
+Hilagang
+Silangang
+Kanlurang
+Gitna
+Sentro
+Itaas
+Ibaba

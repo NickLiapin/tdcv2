@@ -1,0 +1,201 @@
+---
+description: Country and territory names (Azerbaijani). Translated, not transliterated — Germany is Almaniya, Greece is Yunanıstan, the United States is Amerika Birləşmiş Ştatları. The -stan ending (Gürcüstan, Macarıstan, Ermənistan) is Persian for land of and is used far more widely in Azerbaijani than in English.
+locale: az
+---
+Azərbaycan
+Əfqanıstan
+Albaniya
+Əlcəzair
+Almaniya
+Andorra
+Anqola
+Antiqua və Barbuda
+Argentina
+Ermənistan
+Avstraliya
+Avstriya
+Baham adaları
+Bəhreyn
+Banqladeş
+Barbados
+Belarus
+Belçika
+Beliz
+Benin
+Butan
+Boliviya
+Bosniya və Herseqovina
+Botsvana
+Braziliya
+Bruney
+Bolqarıstan
+Burkina-Faso
+Burundi
+Kamboca
+Kamerun
+Kanada
+Kabo-Verde
+Mərkəzi Afrika Respublikası
+Çad
+Çili
+Çin
+Kolumbiya
+Komor adaları
+Konqo
+Konqo Demokratik Respublikası
+Kosta-Rika
+Kot-d'İvuar
+Xorvatiya
+Kuba
+Kipr
+Çexiya
+Danimarka
+Cibuti
+Dominika
+Dominikan Respublikası
+Ekvador
+Misir
+Salvador
+Ekvatorial Qvineya
+Eritreya
+Estoniya
+Esvatini
+Efiopiya
+Fici
+Finlandiya
+Fransa
+Qabon
+Qambiya
+Gürcüstan
+Qana
+Yunanıstan
+Qrenada
+Qvatemala
+Qvineya
+Qvineya-Bisau
+Qayana
+Haiti
+Honduras
+Macarıstan
+İslandiya
+Hindistan
+İndoneziya
+İran
+İraq
+İrlandiya
+İsrail
+İtaliya
+Yamayka
+Yaponiya
+İordaniya
+Qazaxıstan
+Keniya
+Kiribati
+Kosovo
+Küveyt
+Qırğızıstan
+Laos
+Latviya
+Livan
+Lesoto
+Liberiya
+Liviya
+Lixtenşteyn
+Litva
+Lüksemburq
+Madaqaskar
+Malavi
+Malayziya
+Maldiv adaları
+Mali
+Malta
+Marşal adaları
+Mavritaniya
+Mavriki
+Meksika
+Mikroneziya
+Moldova
+Monako
+Monqolustan
+Monteneqro
+Mərakeş
+Mozambik
+Myanma
+Namibiya
+Nauru
+Nepal
+Hollandiya
+Yeni Zelandiya
+Nikaraqua
+Niger
+Nigeriya
+Şimali Koreya
+Şimali Makedoniya
+Norveç
+Oman
+Pakistan
+Palau
+Fələstin
+Panama
+Papua-Yeni Qvineya
+Paraqvay
+Peru
+Filippin
+Polşa
+Portuqaliya
+Qətər
+Rumıniya
+Rusiya
+Ruanda
+Sent-Kits və Nevis
+Sent-Lusiya
+Sent-Vinsent və Qrenadinlər
+Samoa
+San-Marino
+San-Tome və Prinsipi
+Səudiyyə Ərəbistanı
+Seneqal
+Serbiya
+Seyşel adaları
+Syerra-Leone
+Sinqapur
+Slovakiya
+Sloveniya
+Solomon adaları
+Somali
+Cənubi Afrika Respublikası
+Cənubi Koreya
+Cənubi Sudan
+İspaniya
+Şri-Lanka
+Sudan
+Surinam
+İsveç
+İsveçrə
+Suriya
+Tayvan
+Tacikistan
+Tanzaniya
+Tailand
+Şərqi Timor
+Toqo
+Tonqa
+Trinidad və Tobaqo
+Tunis
+Türkiyə
+Türkmənistan
+Tuvalu
+Uqanda
+Ukrayna
+Birləşmiş Ərəb Əmirlikləri
+Böyük Britaniya
+Amerika Birləşmiş Ştatları
+Uruqvay
+Özbəkistan
+Vanuatu
+Vatikan
+Venesuela
+Vyetnam
+Yəmən
+Zambiya
+Zimbabve

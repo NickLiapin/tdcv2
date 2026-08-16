@@ -1,0 +1,48 @@
+---
+description: Common verb (Azerbaijani, infinitive). THE VOWEL HARMONY IS VISIBLE IN EVERY LINE: the infinitive ending is -maq after a stem whose last vowel is back (a, ı, o, u) and -mək after a front one (e, ə, i, ö, ü) — almaq but bilmək, oxumaq but görmək. Every other suffix in the language behaves the same way, with two forms or four; the plural is -lar / -lər, the locative -da / -də, the accusative -ı / -i / -u / -ü. This is why an Azerbaijani suffix cannot be concatenated blindly onto a stem, and why a config that needs an inflected form must draw the whole surface form from a list rather than build it.
+locale: az
+---
+olmaq
+etmək
+demək
+söyləmək
+düşünmək
+bilmək
+görmək
+eşitmək
+getmək
+gəlmək
+almaq
+vermək
+qoymaq
+daşımaq
+oxumaq
+yazmaq
+saymaq
+soruşmaq
+cavab vermək
+istəmək
+kömək etmək
+işləmək
+dincəlmək
+yatmaq
+yemək
+içmək
+satın almaq
+satmaq
+axtarmaq
+tapmaq
+başlamaq
+bitirmək
+açmaq
+bağlamaq
+sevmək
+bacarmaq
+yaşamaq
+öyrənmək
+gözləmək
+qaçmaq
+dayanmaq
+baxmaq
+danışmaq
+qayıtmaq

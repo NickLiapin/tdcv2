@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Cardiology (Azerbaijani)
+locale: az
+---
+Hipertoniya
+Koronar arteriya xəstəliyi
+Gərginlik stenokardiyası
+Miokard infarktı
+Qulaqcıq fibrilyasiyası
+Ürək çatışmazlığı
+Kardiomiopatiya
+Miokardit
+Mitral qapaq xəstəliyi
+Koronar ateroskleroz

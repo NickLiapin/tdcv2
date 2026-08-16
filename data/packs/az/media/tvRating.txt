@@ -1,0 +1,13 @@
+---
+description: TV / film content rating, descriptive Azerbaijani. Numeric age codes are set by state regulation and belong in a country pack.
+locale: az
+---
+ümumi auditoriya
+ailəvi baxış
+uşaqlar üçün
+valideyn müşayiəti ilə
+yeniyetmələr üçün
+16 yaşdan yuxarı
+18 yaşdan yuxarı
+yetkinlər üçün
+yaş məhdudiyyəti yoxdur

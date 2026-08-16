@@ -1,0 +1,24 @@
+---
+description: Writing system, in Filipino. THE MODERN FILIPINO ALPHABET HAS TWENTY-EIGHT LETTERS: the twenty-six of the Latin alphabet plus Ñ, inherited from Spanish and still needed for names like Tañada and Nuñez, plus NG, which is ONE LETTER and not two — it is recited as a single letter in the alphabet, sorted as a single letter in a Filipino dictionary between N and O, and it is one sound, the velar nasal, that begins ordinary words like ngayon and ngipin. A sorting routine that treats NG as N-followed-by-G will order a Filipino word list wrongly. This alphabet replaced the ABAKADA of 1940, which had only twenty letters and no C, F, J, Ñ, Q, V, X or Z — which is why older Filipino spellings respell foreign words (Pilipinas, telebisyon, kotse) and why the language's own name changed from Pilipino to Filipino when the F came back in 1987. BAYBAYIN is the pre-colonial script of Luzon, a syllabary the Spanish found in use and then displaced; it is taught in schools today and appears on Philippine banknotes. Four related scripts are still WRITTEN by living communities — Hanunoo and Buhid on Mindoro, Tagbanwa and Palawan on Palawan — and are inscribed on the UNESCO Memory of the World register. Kulitan is the Kapampangan script and Jawi the Arabic script used for Tausug and Maranao.
+locale: fil
+---
+Latin
+Baybayin
+Abakada
+Kulitan
+Hanunoo
+Buhid
+Tagbanwa
+Palawan
+Jawi
+Arabe
+Tsino
+Hapon
+Hiragana
+Katakana
+Hangul
+Devanagari
+Cyrillic
+Griyego
+Hebreo
+Thai

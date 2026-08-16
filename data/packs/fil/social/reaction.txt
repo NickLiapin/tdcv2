@@ -1,0 +1,15 @@
+---
+description: Reaction to a post, in Filipino. Kilig has no English equivalent and is the reaction Filipinos most want a romantic post to get.
+locale: fil
+---
+Gusto
+Mahal
+Haha
+Wow
+Malungkot
+Galit
+Kilig
+Naaawa
+Ipinagdiriwang
+Suporta
+Nakakagulat

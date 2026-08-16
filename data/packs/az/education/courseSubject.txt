@@ -1,0 +1,24 @@
+---
+description: School subject (Azerbaijani)
+locale: az
+---
+Azərbaycan dili
+ədəbiyyat
+riyaziyyat
+həndəsə
+cəbr
+fizika
+kimya
+biologiya
+coğrafiya
+tarix
+Azərbaycan tarixi
+insan və cəmiyyət
+informatika
+ingilis dili
+rus dili
+musiqi
+təsviri incəsənət
+texnologiya
+fiziki tərbiyə
+həyat bilgisi

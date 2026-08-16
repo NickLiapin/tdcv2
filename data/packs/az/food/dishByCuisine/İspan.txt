@@ -1,0 +1,12 @@
+---
+description: Dishes of İspan cuisine (Azerbaijani)
+locale: az
+---
+paelya
+qaspaço
+kartof tortilyası
+xamon
+patatas bravas
+çurros
+sanqriya
+krema katalana

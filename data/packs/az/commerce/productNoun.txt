@@ -1,0 +1,151 @@
+---
+description: Product noun (Azerbaijani)
+locale: az
+---
+masa
+stul
+kreslo
+divan
+şkaf
+rəf
+çarpayı
+döşək
+tumba
+komod
+güzgü
+xalça
+pərdə
+yastıq
+yorğan
+mələfə
+dəsmal
+süfrə
+fincan
+boşqab
+stəkan
+qədəh
+bıçaq
+çəngəl
+qaşıq
+qazan
+tava
+çaydan
+süzgəc
+kəsmə taxtası
+rəndə
+blender
+mikser
+toster
+təzyiqli qazan
+mikrodalğalı soba
+soyuducu
+dondurucu
+paltaryuyan maşın
+qabyuyan maşın
+tozsoran
+ütü
+saç qurudan
+qızdırıcı
+ventilyator
+kondisioner
+nəmləndirici
+televizor
+monitor
+noutbuk
+kompüter
+planşet
+smartfon
+qulaqlıq
+dinamik
+siçan
+klaviatura
+modem
+printer
+skaner
+yaddaş kartı
+xarici disk
+powerbank
+adapter
+kabel
+şarj cihazı
+lampa
+çılçıraq
+bra
+fənər
+saat
+zəngli saat
+tərəzi
+termometr
+bel çantası
+çanta
+çamadan
+pulqabı
+kəmər
+çətir
+eynək
+papaq
+şərf
+əlcək
+sviter
+futbolka
+köynək
+bluzka
+don
+yubka
+şalvar
+cins şalvar
+şort
+gödəkçə
+palto
+plaş
+pencək
+kostyum
+xalat
+pijama
+corab
+idman ayaqqabısı
+bot
+çəkmə
+ayaqqabı
+sandal
+başmaq
+top
+velosiped
+samokat
+konki
+ştanq
+yoqa döşəyi
+çadır
+yataq kisəsi
+termos
+matara
+tilov
+mangal
+ot biçən
+bel
+dırmıq
+budama qayçısı
+şlanq
+perforator
+vintaçan
+çəkic
+otvertka
+mişar
+rulet
+su tərəzisi
+boya
+fırça
+valik
+mismar
+vint
+yapışqan
+izolyasiya lenti
+kilid
+qapı dəstəyi
+petlə
+rozetka
+açar
+uzadıcı kabel
+kalkulyator
+dəftər
+qələm

@@ -1,0 +1,16 @@
+---
+description: Diagnoses handled by Dermatolohiya, as recorded in a Philippine chart. The filename is the value in medical/specialtyCoherent.txt.
+locale: fil
+---
+Buni
+An-an
+Galis
+Hadhad
+Eksema
+Psoriasis
+Tagulabay
+Taghiyawat
+Bungang-araw
+Kulugo
+Cellulitis
+Dermatitis sa kontak

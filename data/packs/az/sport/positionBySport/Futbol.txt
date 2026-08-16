@@ -1,0 +1,15 @@
+---
+description: Positions in association football (Azerbaijani)
+locale: az
+---
+qapıçı
+sağ müdafiəçi
+sol müdafiəçi
+mərkəz müdafiəçi
+yarımmüdafiəçi
+mərkəz yarımmüdafiəçi
+hücumçu yarımmüdafiəçi
+sağ cinah
+sol cinah
+hücumçu
+mərkəz hücumçusu

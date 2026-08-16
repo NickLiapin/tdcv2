@@ -1,0 +1,9 @@
+---
+description: Shift pattern, in Filipino.
+locale: fil
+---
+Umaga
+Hapon
+Gabi
+Umiikot
+Graveyard

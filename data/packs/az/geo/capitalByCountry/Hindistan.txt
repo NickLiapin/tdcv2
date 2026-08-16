@@ -1,0 +1,5 @@
+---
+description: Capital of Hindistan (Azerbaijani)
+locale: az
+---
+Yeni Dehli

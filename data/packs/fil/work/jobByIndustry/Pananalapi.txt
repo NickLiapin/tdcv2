@@ -1,0 +1,18 @@
+---
+description: Jobs in Pananalapi. Philippine job advertisements and payslips are written in English, so most titles are English even in a Filipino-language record; the Filipino words appear where the trade has a Filipino name that people actually use — nars, guro, karpintero, tubero, drayber, kusinero, tindera. The filename is the value in work/industryCoherent.txt.
+locale: fil
+---
+Accountant
+Bookkeeper
+Auditor
+Financial analyst
+Bank teller
+Loan officer
+Insurance agent
+Actuary
+Tax adviser
+Cashier sa bangko
+Remittance officer
+Credit analyst
+Compliance officer
+Treasurer

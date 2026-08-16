@@ -1,0 +1,5 @@
+---
+description: Capital of Portugal (Filipino).
+locale: fil
+---
+Lisbon

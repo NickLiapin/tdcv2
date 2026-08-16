@@ -1,0 +1,5 @@
+---
+description: Capital of Yaponiya (Azerbaijani)
+locale: az
+---
+Tokio

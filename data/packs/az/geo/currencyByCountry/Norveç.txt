@@ -1,0 +1,5 @@
+---
+description: Currency of Norveç (Azerbaijani)
+locale: az
+---
+Norveç kronu

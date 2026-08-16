@@ -1,0 +1,5 @@
+---
+description: Capital of Polonya (Filipino).
+locale: fil
+---
+Warsaw

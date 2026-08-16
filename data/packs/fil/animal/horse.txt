@@ -1,0 +1,17 @@
+---
+description: Horse breed. The list is short because it honestly is: the Philippines is not a horse country and the animal that does the work in a Philippine field is the kalabaw, the water buffalo, not the horse. The kabayong Pilipino is a real recognised landrace, small and hardy, descended from the horses Spain brought in the sixteenth century; the Baguio horses that carry tourists around Wright Park are its best-known survivors. The rest are international breed names.
+locale: fil
+---
+Kabayong Pilipino
+Arabo
+Thoroughbred
+Quarter Horse
+Andalusian
+Appaloosa
+Palomino
+Mustang
+Shetland Pony
+Pony
+Clydesdale
+Friesian
+Morgan

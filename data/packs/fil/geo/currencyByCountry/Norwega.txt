@@ -1,0 +1,5 @@
+---
+description: Currency of Norwega (Filipino).
+locale: fil
+---
+Krone

@@ -1,0 +1,12 @@
+---
+description: Sport used as the parent of sport/positionBySport. Eight, chosen for the Philippines rather than for Europe: basketball first because it is the national obsession, volleyball second because the women's leagues now outdraw much of the men's basketball calendar, and sepak takraw and dragon boat because the Philippines competes seriously in both and neither appears in a European list. The filenames in positionBySport are these values character for character.
+locale: fil
+---
+Basketbol
+Volleyball
+Putbol
+Baseball
+Softball
+Sepak takraw
+Rugby
+Dragon boat

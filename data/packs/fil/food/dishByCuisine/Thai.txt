@@ -1,0 +1,22 @@
+---
+description: Dishes of Thai cooking as a Filipino names them. The filename is the value in food/cuisine.txt and must match it character for character.
+locale: fil
+---
+Pad thai
+Tom yum
+Tom kha gai
+Green curry
+Red curry
+Massaman curry
+Som tam
+Larb
+Pad see ew
+Khao pad
+Satay
+Mango sticky rice
+Panang curry
+Thai fish cake
+Pad kra pao
+Khao soi
+Yam nua
+Thai iced tea

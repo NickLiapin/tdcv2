@@ -1,0 +1,14 @@
+---
+description: Conditions with raised prevalence in populations of Mediteraneo descent, in Filipino. The filename is the value in medical/ancestry.txt.
+locale: fil
+---
+Beta-thalassemia
+Kakulangan sa G6PD
+Familial Mediterranean fever
+Sickle cell trait
+Hemochromatosis
+Kakulangan sa lactase
+Behcet disease
+Kakulangan sa alpha-1 antitrypsin
+Cystic fibrosis
+Sakit na Wilson

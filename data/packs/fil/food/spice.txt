@@ -1,0 +1,34 @@
+---
+description: Seasoning and aromatic, in Filipino. Read this beside the vegetable list and the point becomes clear: PHILIPPINE COOKING IS NOT SPICED HEAVILY. The everyday aromatics are garlic, onion, ginger, bay leaf and black pepper, and the sour agents do the work that spice does elsewhere. Siling labuyo, the small wild chilli, is fierce but is used in Bicol and in dipping sauces rather than in the base of dishes; siling haba is the mild long green one that goes whole into sinigang. Tanglad is lemongrass, stuffed into a chicken before it is roasted; pandan leaf is used the way vanilla is; kasubha is safflower, the cheap stand-in for saffron in arroz caldo.
+locale: fil
+---
+Sili
+Siling labuyo
+Siling haba
+Paminta
+Bawang
+Sibuyas
+Luya
+Luyang dilaw
+Dahon ng laurel
+Tanglad
+Pandan
+Achuete
+Kasubha
+Anis
+Sangki
+Kanela
+Klabo
+Kulantro
+Wansoy
+Kinchay
+Perehil
+Oregano
+Paprika
+Kumin
+Linga
+Mustasa
+Kamias
+Dahon ng sili
+Dahon ng malunggay
+Sibuyas na mura

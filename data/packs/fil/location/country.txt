@@ -1,0 +1,210 @@
+---
+description: Country and territory name, in Filipino, nominative. FILIPINO BORROWS THE SPANISH NAME AND RESPELLS IT rather than transliterating the English one — Alemanya, Pransiya, Suwesya, Suwisa, Olanda, Gresya, Ehipto, Turkiya — and where Spain left no name, the English form is taken unchanged. Hapon and Tsina, for Japan and China, are older still and came through trade rather than through Spain. Where a country has entered Filipino only recently, the list keeps the international form rather than inventing a Filipino one, which is why the two spelling habits sit side by side below; that mixture is the real state of the language, not an inconsistency.
+locale: fil
+---
+Pilipinas
+Estados Unidos
+Tsina
+Hapon
+Timog Korea
+Hilagang Korea
+Indiya
+Indonesya
+Malaysia
+Singapore
+Tailandiya
+Biyetnam
+Kambodya
+Laos
+Myanmar
+Brunei
+Timor-Leste
+Bangladesh
+Pakistan
+Nepal
+Bhutan
+Sri Lanka
+Maldives
+Afghanistan
+Iran
+Iraq
+Turkiya
+Syria
+Lebanon
+Israel
+Palestine
+Jordan
+Saudi Arabia
+Yemen
+Oman
+Emiratos Arabes Unidos
+Qatar
+Bahrain
+Kuwait
+Georgia
+Armenia
+Azerbaijan
+Kazakhstan
+Uzbekistan
+Turkmenistan
+Kyrgyzstan
+Tajikistan
+Mongolia
+Rusya
+Ukraina
+Belarus
+Moldova
+Polonya
+Czechia
+Slovakia
+Hungriya
+Romania
+Bulgaria
+Serbia
+Croatia
+Slovenia
+Bosnia at Herzegovina
+Montenegro
+Hilagang Macedonia
+Albania
+Gresya
+Cyprus
+Italya
+Malta
+San Marino
+Vatican
+Espanya
+Portugal
+Andorra
+Pransiya
+Monaco
+Belhika
+Olanda
+Luxembourg
+Alemanya
+Suwisa
+Liechtenstein
+Austriya
+Reyno Unido
+Irlanda
+Islandiya
+Norwega
+Suwesya
+Pinlandiya
+Dinamarka
+Estonia
+Latvia
+Lituania
+Canada
+Mehiko
+Guatemala
+Belize
+El Salvador
+Honduras
+Nicaragua
+Costa Rica
+Panama
+Cuba
+Haiti
+Dominican Republic
+Jamaica
+Puerto Rico
+Trinidad at Tobago
+Barbados
+Bahamas
+Kolombiya
+Venezuela
+Guyana
+Suriname
+Ecuador
+Peru
+Bolivia
+Brasil
+Paraguay
+Uruguay
+Arhentina
+Chile
+Ehipto
+Libya
+Tunisia
+Algeria
+Morocco
+Mauritania
+Mali
+Niger
+Chad
+Sudan
+Timog Sudan
+Eritrea
+Djibouti
+Ethiopia
+Somalia
+Kenya
+Uganda
+Rwanda
+Burundi
+Tanzania
+Malawi
+Zambia
+Zimbabwe
+Mozambique
+Madagascar
+Mauritius
+Seychelles
+Comoros
+Angola
+Namibia
+Botswana
+Timog Aprika
+Lesotho
+Eswatini
+Congo
+Demokratikong Republika ng Congo
+Gabon
+Equatorial Guinea
+Cameroon
+Nigeria
+Benin
+Togo
+Ghana
+Cote d'Ivoire
+Liberia
+Sierra Leone
+Guinea
+Guinea-Bissau
+Senegal
+Gambia
+Cape Verde
+Sao Tome at Principe
+Republikang Aprikano Sentral
+Burkina Faso
+Australya
+Bagong Zealand
+Papua New Guinea
+Fiji
+Solomon Islands
+Vanuatu
+Samoa
+Tonga
+Kiribati
+Tuvalu
+Nauru
+Palau
+Marshall Islands
+Micronesia
+Guam
+Bagong Caledonia
+Tahiti
+Hong Kong
+Macau
+Taiwan
+Kosovo
+Greenland
+Bermuda
+Aruba
+Curacao
+Gibraltar
+Isle of Man
+Faroe Islands
+Falkland Islands
+Antarctica

@@ -1,0 +1,14 @@
+---
+description: Fuel type (Azerbaijani)
+locale: az
+---
+benzin
+dizel
+qaz
+benzin/qaz
+sıxılmış təbii qaz
+elektrik
+hibrid
+doldurulan hibrid
+hidrogen
+etanol

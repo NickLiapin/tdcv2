@@ -1,0 +1,32 @@
+---
+description: Flower, in Filipino. SAMPAGUITA IS THE NATIONAL FLOWER, a small white jasmine strung into garlands and sold at church doors and traffic lights; its name comes from sumpa kita, 'I promise you'. WALING-WALING is the great orchid of Mindanao, once nearly collected to extinction and the subject of a law that briefly made it a second national flower. ILANG-ILANG gives the oil the perfume industry buys. DAMA DE NOCHE opens and releases its scent only after dark. The Philippine flower names are mostly Spanish loans — rosal, adelfa, camia, santan — because the ornamental garden arrived with the friars, while the reduplicated ones (ilang-ilang, waling-waling) are native.
+locale: fil
+---
+Sampaguita
+Waling-waling
+Ilang-ilang
+Gumamela
+Rosal
+Kalachuchi
+Dama de Noche
+Santan
+Adelfa
+Camia
+Champaca
+Everlasting
+Cadena de Amor
+Bougainvillea
+Kampanilya
+Katuray
+Kakawate
+Banaba
+Dapdap
+Rosas
+Orkidya
+Liryo
+Mirasol
+Tulipan
+Dahlia
+Krisantemo
+Anthurium
+Bulaklak ng saging

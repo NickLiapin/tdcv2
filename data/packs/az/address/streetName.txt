@@ -1,0 +1,161 @@
+---
+description: Street names found across Azerbaijan — national writers, composers and rulers, civic values, trades and nature. Compose before a streetSuffix; the streets of one particular city belong in a country pack, not here.
+locale: az
+---
+Nizami
+Füzuli
+Nəsimi
+Xaqani
+Vaqif
+Səməd Vurğun
+Hüseyn Cavid
+Mirzə Ələkbər Sabir
+Mirzə Fətəli Axundov
+Üzeyir Hacıbəyov
+Müslüm Maqomayev
+Bülbül
+Rəşid Behbudov
+Qara Qarayev
+Fikrət Əmirov
+Niyazi
+Nəriman Nərimanov
+Məmməd Əmin Rəsulzadə
+Əhməd Cavad
+Mikayıl Müşfiq
+Cəfər Cabbarlı
+Süleyman Rüstəm
+Rəsul Rza
+Nigar Rəfibəyli
+Mirzə İbrahimov
+Bəxtiyar Vahabzadə
+Xurşidbanu Natəvan
+Məhsəti Gəncəvi
+Aşıq Ələsgər
+Koroğlu
+Babək
+Cavanşir
+Şah İsmayıl Xətai
+Şirvanşahlar
+Tofiq Bəhramov
+İstiqlaliyyət
+Azadlıq
+Dostluq
+Qardaşlıq
+Birlik
+Həmrəylik
+Zəfər
+Sülh
+Ədalət
+Şəhidlər
+Qazilər
+Qəhrəmanlar
+İnşaatçılar
+Neftçilər
+Mədənçilər
+Fəhlə
+Sənaye
+Ticarət
+Dəmiryol
+Vağzal
+Liman
+Hava limanı
+Zavod
+Bələdiyyə
+Xəstəxana
+Səhiyyə
+Məktəb
+Lisey
+Universitet
+Kitabxana
+Muzey
+Mədəniyyət
+İncəsənət
+Teatr
+Kinoteatr
+Stadion
+İdman
+Park
+Bağ
+Meşə
+Yaşıl
+Çinar
+Zeytun
+Nar
+Əncir
+Qovaq
+Söyüd
+Şam
+Palıd
+Cökə
+Maqnoliya
+Gül
+Lalə
+Bənövşə
+Çobanyastığı
+Qərənfil
+Sünbül
+Nilufər
+Yasəmən
+Akasiya
+Dəfnə
+Reyhan
+Kəklikotu
+Lavanda
+Üzümlük
+Bostan
+Xırman
+Dəyirman
+Bulaq
+Çeşmə
+Quyu
+Dərə
+Çay
+Göl
+Dəniz
+Sahil
+Bulvar
+Yamac
+Təpə
+Zirvə
+Yaylaq
+Düzən
+Vadi
+Boğaz
+Ada
+Mayak
+Qala
+Hasar
+Qüllə
+Karvansara
+Bazar
+Meydan
+Məscid
+Mədrəsə
+Türbə
+Saat qülləsi
+Novruz
+Muğam
+Tar
+Kamança
+Xalça
+Buta
+İpək Yolu
+Günəş
+Ay
+Ulduz
+Şəfəq
+Dan
+Ümid
+Sevgi
+Şadlıq
+Rahatlıq
+Bərəkət
+Bolluq
+Xəzər
+Kür
+Araz
+Şirvan
+Muğan
+Savalan
+Şahdağ
+Göygöl

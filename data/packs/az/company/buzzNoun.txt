@@ -1,0 +1,64 @@
+---
+description: Business buzz noun (Azerbaijani)
+locale: az
+---
+sinergiya
+strategiya
+ekosistem
+platforma
+həll
+dəyər
+səmərəlilik
+optimallaşdırma
+transformasiya
+innovasiya
+miqyaslılıq
+inteqrasiya
+avtomatlaşdırma
+rəqəmsallaşma
+analitika
+metrika
+göstərici
+performans
+prioritet
+fokus
+təşəbbüs
+yol xəritəsi
+vizyon
+missiya
+korporativ mədəniyyət
+bağlılıq
+sadiqlik
+saxlama
+konversiya
+huni
+seqment
+niş
+mövqeləndirmə
+fərqlənmə
+rəqabət üstünlüyü
+bazar payı
+artım
+gəlirlilik
+gəlir
+investisiya
+qiymətləndirmə
+portfel
+risk
+uyğunluq
+şəffaflıq
+hesabatlılıq
+dayanıqlılıq
+çeviklik
+uyğunlaşma
+sürət
+keyfiyyət
+müştəri təcrübəsi
+müştəri yolu
+geri bildirim
+tərəfdaşlıq
+əməkdaşlıq
+ekspertiza
+səriştə
+potensial
+resurs

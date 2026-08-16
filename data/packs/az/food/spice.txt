@@ -1,0 +1,34 @@
+---
+description: Spice / herb (Azerbaijani). Sumaq, the ground red berry served beside every kebab, and zəfəran, the saffron that colours plov, are the two an Azerbaijani kitchen cannot do without.
+locale: az
+---
+qara istiot
+ağ istiot
+qırmızı istiot
+çili
+zirə
+keşniş
+şüyüd
+cəfəri
+reyhan
+kəklikotu
+rozmarin
+mərzə
+dəfnə yarpağı
+tərxun
+nanə
+məlisa
+adaçayı
+mixək
+darçın
+muskat qozu
+zəncəfil
+zərdəçal
+hil
+razyana
+vanil
+zəfəran
+sumaq
+şanbala
+badyan
+yeni ədviyyat

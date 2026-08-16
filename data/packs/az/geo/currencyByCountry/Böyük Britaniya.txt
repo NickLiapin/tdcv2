@@ -1,0 +1,5 @@
+---
+description: Currency of Böyük Britaniya (Azerbaijani)
+locale: az
+---
+funt sterlinq

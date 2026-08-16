@@ -1,0 +1,5 @@
+---
+description: Currency of Misir (Azerbaijani)
+locale: az
+---
+Misir funtu

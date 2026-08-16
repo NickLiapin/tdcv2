@@ -1,0 +1,13 @@
+---
+description: Driving licence category. THIS IS THE PHILIPPINE SCHEME AND IT IS NOT CLASS A/B/C. The Land Transportation Office replaced its old numbered restriction codes with letter codes aligned to the ASEAN standard: A is a motorcycle, A1 a tricycle, B a light vehicle up to 5,000 kg, B1 a light truck, B2 a light goods vehicle, C a goods vehicle over 3,500 kg, D a bus, BE and CE the articulated combinations. The country is the Philippines; a licence class is a national institution and this file names one country's.
+locale: fil
+---
+A
+A1
+B
+B1
+B2
+C
+D
+BE
+CE

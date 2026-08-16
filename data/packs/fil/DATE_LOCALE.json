@@ -1,0 +1,59 @@
+{
+  "months": [
+    "Enero",
+    "Pebrero",
+    "Marso",
+    "Abril",
+    "Mayo",
+    "Hunyo",
+    "Hulyo",
+    "Agosto",
+    "Setyembre",
+    "Oktubre",
+    "Nobyembre",
+    "Disyembre"
+  ],
+  "monthsInDate": [
+    "Enero",
+    "Pebrero",
+    "Marso",
+    "Abril",
+    "Mayo",
+    "Hunyo",
+    "Hulyo",
+    "Agosto",
+    "Setyembre",
+    "Oktubre",
+    "Nobyembre",
+    "Disyembre"
+  ],
+  "monthsShort": [
+    "Ene.",
+    "Peb.",
+    "Mar.",
+    "Abr.",
+    "May.",
+    "Hun.",
+    "Hul.",
+    "Ago.",
+    "Set.",
+    "Okt.",
+    "Nob.",
+    "Dis."
+  ],
+  "weekdays": [
+    "Linggo",
+    "Lunes",
+    "Martes",
+    "Miyerkules",
+    "Huwebes",
+    "Biyernes",
+    "Sabado"
+  ],
+  "weekdaysShort": ["Lin", "Lun", "Mar", "Miy", "Huw", "Biy", "Sab"],
+  "formats": {
+    "L": "MM/DD/YYYY",
+    "LL": "MMMM D, YYYY"
+  },
+  "notes": "monthsInDate is IDENTICAL to months and that is correct, not an oversight: Filipino nouns do not inflect for case, so a month name has one form wherever it stands. THE NUMERIC ORDER IS AMERICAN, MONTH FIRST: the Philippines writes 12/25/2026 for Christmas Day, not 25/12/2026, because the convention came with the American colonial administration and never changed; this is the one thing about Philippine dates most likely to be got wrong by a European default, and a misread Philippine date is silently wrong for the first twelve days of every month. The long form is the American one too, MMMM D, YYYY with a comma. A fully Filipino long date exists and reads ika-25 ng Disyembre 2026, using the ordinal prefix ika- and the linker ng, but it belongs to formal and literary registers; ordinary Philippine documents print the English form. Month and weekday names are all SPANISH loans respelled to Filipino orthography, and they are CAPITALISED, unlike in Spanish itself. Month abbreviations take a full stop, weekday abbreviations do not. LINGGO IS BOTH SUNDAY AND 'WEEK' — isang linggo is one week, araw ng Linggo is Sunday — so the same string does two jobs and only context separates them. The weekdays array above is SUNDAY-FIRST because the formatter wants it that way, and Sunday-first is also the Philippine calendar convention: printed Philippine calendars begin the week on Sunday, following the American and Catholic pattern, unlike the Monday-first European one. Note that date/weekday.txt in the pack is Monday-first, which is how a Filipino lists the working week. Time is written in 12-hour form with AM and PM, and spoken with the Spanish hour words — alas-dos ng hapon for two in the afternoon, ala-una for one o'clock — so the spoken and written systems differ. The decimal separator is a full stop and the thousands separator a comma (1,234.56). Currency is the Philippine peso, symbol PHP, written BEFORE the amount with no space."
+}

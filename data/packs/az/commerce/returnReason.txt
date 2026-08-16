@@ -1,0 +1,19 @@
+---
+description: Order return reason (Azerbaijani)
+locale: az
+---
+Ölçü uyğun gəlmədi
+Rəng uyğun gəlmədi
+Məhsul təsvirə uyğun deyil
+Məhsul zədəli gəldi
+İstehsal qüsuru
+İşləmir
+Səhv məhsul göndərilib
+Dəst natamamdır
+Fikrimi dəyişdim
+Daha ucuzunu tapdım
+Gec çatdırıldı
+Səhvən sifariş vermişəm
+Keyfiyyəti bəyənilmədi
+Təkrar sifariş
+Digər

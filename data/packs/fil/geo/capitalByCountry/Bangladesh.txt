@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladesh (Filipino).
+locale: fil
+---
+Dhaka

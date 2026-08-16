@@ -1,0 +1,5 @@
+---
+description: Capital of Biyetnam (Filipino).
+locale: fil
+---
+Hanoi

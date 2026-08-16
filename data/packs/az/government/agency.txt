@@ -1,0 +1,27 @@
+---
+description: Government body — the ministries and state services of AZERBAIJAN, named because Azerbaijani is the state language of one country and these words simply are the names. A config needing a generic public body should use company/industry or work/department instead.
+locale: az
+---
+Prezident Administrasiyası
+Milli Məclis
+Nazirlər Kabineti
+Maliyyə Nazirliyi
+Ədliyyə Nazirliyi
+Daxili İşlər Nazirliyi
+Müdafiə Nazirliyi
+Xarici İşlər Nazirliyi
+Səhiyyə Nazirliyi
+Elm və Təhsil Nazirliyi
+İqtisadiyyat Nazirliyi
+Rəqəmsal İnkişaf və Nəqliyyat Nazirliyi
+Energetika Nazirliyi
+Kənd Təsərrüfatı Nazirliyi
+Əmək və Əhalinin Sosial Müdafiəsi Nazirliyi
+Mədəniyyət Nazirliyi
+Ekologiya və Təbii Sərvətlər Nazirliyi
+Fövqəladə Hallar Nazirliyi
+Dövlət Vergi Xidməti
+Dövlət Gömrük Komitəsi
+Dövlət Miqrasiya Xidməti
+Dövlət Sosial Müdafiə Fondu
+Dövlət Statistika Komitəsi

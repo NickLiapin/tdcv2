@@ -1,0 +1,5 @@
+---
+description: Capital of Nigeria (Filipino).
+locale: fil
+---
+Abuja

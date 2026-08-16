@@ -1,0 +1,34 @@
+---
+description: Kind of event. FOUR OF THESE ARE PHILIPPINE INSTITUTIONS AND NOT TRANSLATABLE. The pista is the town's patronal fiesta: one day a year when a municipality shuts, cooks for anyone who walks in, and holds a procession — attendance is a social obligation, not an outing. The debut is the eighteenth birthday of a Filipina, staged with eighteen roses, eighteen candles and eighteen treasures, and it is a formal event with printed invitations. Simbang Gabi is the cycle of nine dawn masses before Christmas, begun at four in the morning; completing all nine is said to earn a wish. The lamay is the wake, which in the Philippines runs for several days and nights in the family's own house with food, cards and visitors sleeping over, so a Philippine funeral is a week-long event and not an afternoon. Binyag and kumpil, baptism and confirmation, are family events on the scale of a wedding.
+locale: fil
+---
+Pista
+Kasal
+Binyag
+Kumpil
+Debut
+Kaarawan
+Lamay
+Libing
+Simbang Gabi
+Pabasa
+Prusisyon
+Salu-salo
+Handaan
+Reunion
+Despedida
+Pagtatapos
+Recognition
+Konsiyerto
+Sayawan
+Karaoke night
+Kumperensiya
+Seminar
+Palihan
+Webinar
+Team building
+Trade show
+Product launch
+Fun run
+Bazaar
+Fundraiser

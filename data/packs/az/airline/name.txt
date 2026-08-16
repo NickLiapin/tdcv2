@@ -1,0 +1,54 @@
+---
+description: Airline — Azerbaijani carriers first, then the international ones that serve the country
+locale: az
+---
+Azərbaycan Hava Yolları
+AZAL
+Buta Airways
+AZALJet
+Silk Way Airlines
+Silk Way West Airlines
+Silk Way Business Aviation
+Türk Hava Yolları
+Pegasus Hava Yolları
+AnadoluJet
+SunExpress
+Aeroflot
+S7 Airlines
+Ural Airlines
+Pobeda
+UTair
+Rossiya
+Belavia
+Air Astana
+SCAT
+Uzbekistan Airways
+Turkmenistan Airlines
+Georgian Airways
+Iran Air
+Mahan Air
+Qatar Airways
+flydubai
+Emirates
+Etihad Airways
+Air Arabia
+Gulf Air
+Kuwait Airways
+Wizz Air
+Ryanair
+Lufthansa
+Austrian Airlines
+Swiss
+KLM
+Air France
+British Airways
+LOT Polish Airlines
+Czech Airlines
+Aegean Airlines
+Finnair
+SAS
+China Southern Airlines
+Air China
+Hainan Airlines
+El Al
+Middle East Airlines

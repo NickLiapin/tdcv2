@@ -1,0 +1,22 @@
+---
+description: Room category. THE BASIC PHILIPPINE DISTINCTION IS FAN ROOM VERSUS AIRCON ROOM, and it is a price tier rather than a preference: a budget Philippine hotel or lodge lists both, the fan room costs a fraction of the other, and a booking record without that split is missing the commonest choice a Filipino traveller makes. Barkada room sleeps a group of friends — barkada is the Filipino word for one's regular circle, with no English single word — and is priced per head.
+locale: fil
+---
+Fan room
+Aircon room
+Standard
+Deluxe
+Suite
+Single
+Double
+Twin
+Triple
+Family room
+Barkada room
+Dorm
+Cottage
+Native cottage
+Kubo
+Tent
+Studio
+Penthouse

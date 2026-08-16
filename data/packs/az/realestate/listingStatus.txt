@@ -1,0 +1,16 @@
+---
+description: Listing status (Azerbaijani)
+locale: az
+---
+aktiv
+yeni
+yeniləndi
+rezerv edilib
+beh alınıb
+yoxlanılır
+satışdan çıxarılıb
+satılıb
+kirayə verilib
+müddəti bitib
+arxiv
+qaralama

@@ -1,0 +1,5 @@
+---
+description: Capital of Kanada (Azerbaijani)
+locale: az
+---
+Ottava

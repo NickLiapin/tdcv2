@@ -1,0 +1,13 @@
+---
+description: Dishes of Türk cuisine (Azerbaijani)
+locale: az
+---
+kebab
+Adana kababı
+İskəndər
+lahmacun
+pide
+mantı
+imambayıldı
+döner
+künəfə

@@ -1,0 +1,5 @@
+---
+description: Capital of Indiya (Filipino).
+locale: fil
+---
+New Delhi
