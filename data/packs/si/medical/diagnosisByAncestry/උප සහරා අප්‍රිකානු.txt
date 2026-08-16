@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the උප සහරා අප්‍රිකානු ancestry group, in Sinhala. This list is a PREVALENCE SIGNAL, NOT AN EXCLUSIVE ONE: these conditions are more frequent in this population, they are not confined to it, and no individual diagnosis can be read back as evidence of ancestry.
+locale: si
+---
+දෑකැති සෛල රෝගය
+G6PD ඌනතාව
+ලැක්ටෝස් නොඉවසීම
+අධි රුධිර පීඩනය
+දෑකැති සෛල වාහකත්වය
+බීටා තැලසීමියාව

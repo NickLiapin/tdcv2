@@ -1,0 +1,16 @@
+---
+description: The twelve zodiac signs (රාශි) in Sinhala. THESE ARE SIDEREAL, NOT TROPICAL. Sri Lankan astrology follows the Indian sidereal zodiac, which currently lags the Western tropical one by about 24 degrees — roughly three weeks — so the sign a Sri Lankan horoscope assigns a birth date is usually the PREVIOUS sign to the one a Western table gives, and converting a birth date to a sign with a Western lookup will be wrong for most of the population. The horoscope (හඳහන) is cast at birth for a large share of Sinhala Buddhist families and is consulted for marriage matching, so this is a live field rather than a magazine one.
+locale: si
+---
+මේෂ
+වෘෂභ
+මිථුන
+කටක
+සිංහ
+කන්‍යා
+තුලා
+වෘශ්චික
+ධනු
+මකර
+කුම්භ
+මීන

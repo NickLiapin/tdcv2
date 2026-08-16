@@ -1,0 +1,12 @@
+---
+description: The compass in Sinhala. SINHALA NAMES THE FOUR INTERCARDINAL POINTS WITH SINGLE WORDS, NOT COMPOUNDS: ඊසාන is northeast, අග්නි southeast, නිරිත southwest and වයඹ northwest, inherited from Sanskrit and each with its own guardian deity in the tradition. So a program that builds "north" + "east" to get northeast will produce something no Sinhala speaker writes. THE LIST STOPS AT EIGHT ON PURPOSE. The sixteen-point rose is a nautical borrowing and has no settled Sinhala vocabulary; inventing හතරක් combinations to reach sixteen would put made-up words in a data pack. These eight are also the words in the names of Sri Lanka's provinces — බස්නාහිර, නැගෙනහිර, උතුරු, දකුණු — which is why they are ordinary rather than technical.
+locale: si
+---
+උතුර
+ඊසාන
+නැගෙනහිර
+අග්නි
+දකුණ
+නිරිත
+බස්නාහිර
+වයඹ

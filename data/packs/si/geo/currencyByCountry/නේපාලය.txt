@@ -1,0 +1,5 @@
+---
+description: Currency of නේපාලය, in Sinhala.
+locale: si
+---
+නේපාල රුපියල

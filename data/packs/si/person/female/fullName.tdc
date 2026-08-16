@@ -1,0 +1,11 @@
+---
+description: Sinhala full female name: ge name, given name, surname — රත්නායක මුදියන්සේලාගේ නිලන්ති කුමාරි. THE SURNAME IS IDENTICAL IN FORM TO A MAN'S: Sinhala surnames do not inflect for gender, so this generator draws si.person.lastName, the same file the male generator draws, and there is no person/female/lastName.txt to draw instead. The ge name is likewise the father's house, unchanged by the bearer's sex.
+locale: si
+generator: tdc
+---
+<sequence name="p">
+  <gen name="g" type="template" value="si.person.geName"/>
+  <gen name="f" type="template" value="si.person.female.firstName"/>
+  <gen name="l" type="template" value="si.person.lastName"/>
+</sequence>
+<data>${{p.g}} ${{p.f}} ${{p.l}}</data>

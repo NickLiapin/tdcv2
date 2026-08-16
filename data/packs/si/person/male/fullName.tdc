@@ -1,0 +1,11 @@
+---
+description: Sinhala full male name in its LEGAL shape: ge name, given name, surname — හේරත් මුදියන්සේලාගේ නිමල් බණ්ඩාර. The ge name (person.geName) comes FIRST and is neither a given name nor a surname; see that file. Everyday and headline usage drops it or reduces it to initials, so a dataset modelling forms and payslips wants ${{p.f}} ${{p.l}} on its own, while one modelling a birth certificate or a land deed wants all three. Multi-part names are normal here: four and five elements are unremarkable and the field must not be sized for two.
+locale: si
+generator: tdc
+---
+<sequence name="p">
+  <gen name="g" type="template" value="si.person.geName"/>
+  <gen name="f" type="template" value="si.person.male.firstName"/>
+  <gen name="l" type="template" value="si.person.lastName"/>
+</sequence>
+<data>${{p.g}} ${{p.f}} ${{p.l}}</data>

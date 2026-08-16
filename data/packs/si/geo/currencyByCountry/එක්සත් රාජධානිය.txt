@@ -1,0 +1,5 @@
+---
+description: Currency of එක්සත් රාජධානිය, in Sinhala.
+locale: si
+---
+ස්ටර්ලින් පවුම

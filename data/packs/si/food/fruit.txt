@@ -1,0 +1,38 @@
+---
+description: Fruit in Sinhala. Most of these do not exist in a European list and are ordinary here: රඹුටන් and මැංගුස්ටින් are roadside fruit in season, දිවුල් (wood apple) is drunk as a juice, බෙලි is medicinal, නෙල්ලි sour enough to be eaten with salt, and අම්බරැල්ලා and බිලිං go into curry rather than into a fruit bowl. තැඹිලි, the king coconut, is a drink sold by the roadside and is listed apart from පොල් because the two are not interchangeable.
+locale: si
+---
+අඹ
+කෙසෙල්
+පොල්
+තැඹිලි
+පැපොල්
+අන්නාසි
+දොඩම්
+නාරං
+දෙහි
+රඹුටන්
+මැංගුස්ටින්
+දුරියන්
+කොස්
+වරකා
+දෙල්
+දිවුල්
+බෙලි
+නෙල්ලි
+අනෝදා
+දඹ
+පේර
+ලොවි
+වීරලු
+උගුරැස්ස
+කජු පුහුලං
+අම්බරැල්ලා
+බිලිං
+සපෝදිල්ලා
+අලිගැට පේර
+කොමඩු
+පැෂන් ෆෘට්
+ඇපල්
+මිදි
+ස්ට්‍රෝබෙරි

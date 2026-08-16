@@ -1,0 +1,18 @@
+---
+description: Kinds of legal case in Sinhala. බෙදුම් නඩුව, the PARTITION ACTION, deserves its place at the top: Sri Lankan land is frequently held in undivided shares by dozens of co-heirs, and the action to divide it is a category of litigation famous for running for decades and for outliving the parties who started it. මූලික අයිතිවාසිකම් නඩුව, the fundamental rights application, goes straight to the Supreme Court and is the ordinary route for a citizen with a complaint against the state.
+locale: si
+---
+බෙදුම් නඩුව
+ඉඩම් නඩුව
+සිවිල් නඩුව
+අපරාධ නඩුව
+දික්කසාද නඩුව
+නඩත්තු නඩුව
+ණය අයකර ගැනීමේ නඩුව
+කම්කරු නඩුව
+බදු නඩුව
+වාණිජ නඩුව
+මූලික අයිතිවාසිකම් නඩුව
+රිට් අයදුම්පත
+පාරිභෝගික නඩුව
+උරුම නඩුව

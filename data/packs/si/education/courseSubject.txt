@@ -1,0 +1,32 @@
+---
+description: School subjects in Sinhala. RELIGION IS A COMPULSORY EXAMINED SUBJECT in Sri Lankan schools and every pupil sits the one matching their own faith — බුද්ධ ධර්මය, හින්දු ධර්මය, ඉස්ලාම් or ක්‍රිස්තියානි ධර්මය — which is why four of them are on this list and why a pupil record here carries a religion in its subject column whether or not the schema expected one. සිංහල and දෙමළ are both first-language subjects because both are national languages.
+locale: si
+---
+සිංහල
+දෙමළ
+ඉංග්‍රීසි
+ගණිතය
+විද්‍යාව
+ඉතිහාසය
+භූගෝල විද්‍යාව
+බුද්ධ ධර්මය
+හින්දු ධර්මය
+ඉස්ලාම්
+ක්‍රිස්තියානි ධර්මය
+පුරවැසි අධ්‍යාපනය
+තොරතුරු තාක්ෂණය
+කෘෂිකර්මය
+චිත්‍ර කලාව
+සංගීතය
+නර්තනය
+නාට්‍ය හා රංග කලාව
+සෞඛ්‍ය හා ශාරීරික අධ්‍යාපනය
+ගෘහ විද්‍යාව
+භෞතික විද්‍යාව
+රසායන විද්‍යාව
+ජීව විද්‍යාව
+සංයුක්ත ගණිතය
+ආර්ථික විද්‍යාව
+ව්‍යාපාර අධ්‍යයනය
+ගිණුම්කරණය
+තර්ක ශාස්ත්‍රය

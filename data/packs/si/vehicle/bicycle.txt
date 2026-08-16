@@ -1,0 +1,19 @@
+---
+description: Bicycle types in Sinhala. ගමන් සයිකලය, the heavy steel roadster, is the everyday Sri Lankan bicycle and outnumbers every sport type on this list.
+locale: si
+---
+ගමන් සයිකලය
+නගර සයිකලය
+කඳුකර සයිකලය
+මාර්ග සයිකලය
+ජංගම සයිකලය
+BMX
+විදුලි සයිකලය
+ළමා සයිකලය
+තුන් රෝද සයිකලය
+බර ප්‍රවාහන සයිකලය
+නැවිය හැකි සයිකලය
+ට්‍රැක් සයිකලය
+ටැන්ඩම් සයිකලය
+ව්‍යායාම සයිකලය
+මිශ්‍ර සයිකලය

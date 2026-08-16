@@ -1,0 +1,26 @@
+---
+description: Sinhala thoroughfare type. IT GOES AFTER THE NAME, NOT BEFORE — ගාලු පාර, බෞද්ධාලෝක මාවත, මල්වත්ත වීදිය — which is the opposite of the Polish and Spanish packs and the thing a shared address template will get wrong. මාවත (avenue) and පාර (road) do most of the work; පටුමග is a lane and පෙදෙස a short residential place. Real Sri Lankan street NAMES belong to the country pack; this file holds the type word only.
+locale: si
+---
+මාවත
+පාර
+වීදිය
+පටුමග
+පෙදෙස
+උයන
+චතුරශ්‍රය
+පාලම
+හන්දිය
+මංසන්ධිය
+පිටිය
+වත්ත
+මාර්ගය
+ප්‍රධාන මාර්ගය
+උප මාර්ගය
+අතුරු මාර්ගය
+අධිවේගී මාර්ගය
+පදික මාවත
+අඩි පාර
+ගම්මානය
+නිවාස යෝජනා ක්‍රමය
+කර්මාන්තපුරය

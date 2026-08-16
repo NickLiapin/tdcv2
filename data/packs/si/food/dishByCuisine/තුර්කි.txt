@@ -1,0 +1,11 @@
+---
+description: Dishes of තුර්කි cuisine, in Sinhala.
+locale: si
+---
+කෙබාබ්
+ලහ්මකූන්
+බෝරෙක්
+පිලාෆ්
+බක්ලාවා
+මෙනෙමන්
+ඩෝනර්

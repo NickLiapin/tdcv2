@@ -1,0 +1,19 @@
+---
+description: Payment methods in Sinhala. ලබන විට ගෙවීම — cash on delivery — IS THE DEFAULT FOR SRI LANKAN ONLINE SHOPPING rather than a fallback: card penetration is low, trust in prepaying a stranger is lower, and a large share of e-commerce orders are still paid in cash at the door. A checkout model that treats COD as an exception will misread this market. වාරික ගෙවීම (instalments) and ලීසිං are likewise mainstream for anything above a few months' salary.
+locale: si
+---
+ලබන විට ගෙවීම
+මුදල්
+ඩෙබිට් කාඩ්පත
+ක්‍රෙඩිට් කාඩ්පත
+ඔන්ලයින් බැංකුකරණය
+බැංකු මාරු කිරීම
+චෙක්පත
+ජංගම මුදල්
+QR ගෙවීම
+වාරික ගෙවීම
+ලීසිං
+තෑගි වවුචරය
+ණය ලිපිය
+තැපැල් ඇණවුම
+ලකුණු මගින් ගෙවීම

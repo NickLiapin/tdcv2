@@ -1,0 +1,18 @@
+---
+description: Insurance products in Sinhala. කෘෂිකාර්මික රක්ෂණය covers crop loss and matters here because monsoon failure and flood are the two things that ruin a Sri Lankan farming household.
+locale: si
+---
+ජීවිත රක්ෂණය
+වෛද්‍ය රක්ෂණය
+මෝටර් රථ රක්ෂණය
+තෙවන පාර්ශ්ව රක්ෂණය
+ගිනි රක්ෂණය
+නිවාස රක්ෂණය
+ගමන් රක්ෂණය
+කෘෂිකාර්මික රක්ෂණය
+පුද්ගලික අනතුරු රක්ෂණය
+විශ්‍රාම රක්ෂණය
+ණය රක්ෂණය
+සමූහ රක්ෂණය
+මුහුදු රක්ෂණය
+ශිෂ්‍ය රක්ෂණය

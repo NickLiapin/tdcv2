@@ -1,0 +1,5 @@
+---
+description: Currency of දකුණු අප්‍රිකාව, in Sinhala.
+locale: si
+---
+දකුණු අප්‍රිකානු රැන්ඩ්

@@ -1,0 +1,5 @@
+---
+description: Capital of රුසියාව, in Sinhala.
+locale: si
+---
+මොස්කව්

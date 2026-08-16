@@ -1,0 +1,11 @@
+---
+description: Sinhala third-person pronouns, written subject/dative because Sinhala marks the second by a case ending rather than by a separate object word. TWO FACTS A CONFIG CANNOT GUESS. First, the ordinary SPOKEN third-person pronoun එයා IS GENDER-NEUTRAL — it covers he and she with no marking at all, so spoken Sinhala needs no they/them innovation and has none; the gendered ඔහු / ඇය belong to the WRITTEN register (see text/sentence.txt on diglossia). Second, උන් වහන්සේ is the pronoun for a Buddhist monk and the Buddha and is grammatically obligatory, not decorative — using එයා of a monk is an error, not informality.
+locale: si
+---
+ඔහු/ඔහුට
+ඇය/ඇයට
+ඔවුන්/ඔවුන්ට
+එයා/එයාට
+එයාලා/එයාලට
+උන් වහන්සේ/උන් වහන්සේට
+තමා/තමාට

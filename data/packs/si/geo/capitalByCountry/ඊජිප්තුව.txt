@@ -1,0 +1,5 @@
+---
+description: Capital of ඊජිප්තුව, in Sinhala.
+locale: si
+---
+කයිරෝ

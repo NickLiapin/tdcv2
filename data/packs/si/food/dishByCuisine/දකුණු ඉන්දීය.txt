@@ -1,0 +1,12 @@
+---
+description: Dishes of දකුණු ඉන්දීය cuisine, in Sinhala.
+locale: si
+---
+තෝසෙ
+ඉඩ්ලි
+වඩේ
+උත්තපම්
+සම්බාර්
+රසම්
+පොංගල්
+උපුමා

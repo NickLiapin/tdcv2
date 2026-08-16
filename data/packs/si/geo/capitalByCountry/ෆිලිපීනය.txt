@@ -1,0 +1,5 @@
+---
+description: Capital of ෆිලිපීනය, in Sinhala.
+locale: si
+---
+මැනිලා

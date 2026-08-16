@@ -1,0 +1,16 @@
+---
+description: Leave types in Sinhala. අනියම් නිවාඩු, CASUAL LEAVE, is a separate statutory entitlement from annual leave in Sri Lanka — a short-notice day off, counted apart — and it has no equivalent in most European leave systems, so a schema with only annual/sick will not hold a Sri Lankan leave record. ආගමික නිවාඩු is likewise real: an employee may take leave for the observances of their own religion in a country with four religious calendars running at once.
+locale: si
+---
+වාර්ෂික නිවාඩු
+අනියම් නිවාඩු
+අසනීප නිවාඩු
+ප්‍රසූත නිවාඩු
+පීතෘ නිවාඩු
+විවාහ නිවාඩු
+මරණ නිවාඩු
+ආගමික නිවාඩු
+වැටුප් රහිත නිවාඩු
+අධ්‍යයන නිවාඩු
+පොදු නිවාඩු
+අර්ධ දින නිවාඩු

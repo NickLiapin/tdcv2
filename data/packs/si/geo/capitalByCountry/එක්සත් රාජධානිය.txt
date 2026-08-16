@@ -1,0 +1,5 @@
+---
+description: Capital of එක්සත් රාජධානිය, in Sinhala.
+locale: si
+---
+ලන්ඩන්

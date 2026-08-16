@@ -1,0 +1,30 @@
+---
+description: Diagnoses for a male patient row — the male-only conditions plus common ones, mixed. Where a config needs strictly male-only conditions it should draw medical/diagnosisMale instead.
+locale: si
+---
+සුවපත් පුරස්ථි ග්‍රන්ථි විශාල වීම
+පුරස්ථි ග්‍රන්ථි ආසාදනය
+වෘෂණ ඇඹරීම
+වරිකෝසීල්
+හයිඩ්‍රොසීල්
+ෆයිමෝසිස්
+ඩෙංගු උණ
+මී උණ
+සර්ප දෂ්ට
+දියවැඩියාව
+අධි රුධිර පීඩනය
+නොදන්නා හේතුවක් සහිත නිදන්ගත වකුගඩු රෝගය
+හෘදයාබාධය
+ආඝාතය
+ක්ෂය රෝගය
+මුඛ පිළිකාව
+මධ්‍යසාර පරායත්තතාව
+දුම්කොළ ආශ්‍රිත රෝග
+මාර්ග අනතුරු තුවාල
+පිටුපස වේදනාව
+ගවුට්
+ඇදුම
+ගැස්ට්‍රයිටිස්
+මේද අක්මාව
+කොලෙස්ටරෝල් අධික වීම
+ඇසේ සුද

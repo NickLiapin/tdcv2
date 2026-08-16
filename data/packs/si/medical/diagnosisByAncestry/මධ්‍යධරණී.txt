@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the මධ්‍යධරණී ancestry group, in Sinhala.
+locale: si
+---
+බීටා තැලසීමියාව
+G6PD ඌනතාව
+පවුල් මධ්‍යධරණී උණ
+දෑකැති සෛල වාහකත්වය
+හීමොක්‍රොමැටෝසිස්

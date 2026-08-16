@@ -1,0 +1,12 @@
+---
+description: Mining methods in Sinhala. Sri Lanka's gem mining is overwhelmingly the shallow pit-and-tunnel work of the Ratnapura gravels, done by hand, so the artisanal methods are not historical here.
+locale: si
+---
+විවෘත වළ කැණීම
+උමං කැණීම
+ළිං කැණීම
+ගංගා පතුලේ කැණීම
+ජල පීඩන කැණීම
+භූගත කැණීම
+තීරු කැණීම
+අතින් කැණීම

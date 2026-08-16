@@ -1,0 +1,19 @@
+---
+description: Cat breeds. EVERY NAME HERE IS AN ENGLISH LOAN WRITTEN IN SINHALA SCRIPT, because pedigree cat breeding is imported: the ordinary Sri Lankan cat is a බළලා with no breed at all. සියෑම් is the exception that only looks native — it is Siamese, from Thailand, not from here.
+locale: si
+---
+පර්සියන්
+සියෑම්
+බර්මිස්
+ඇන්ගෝරා
+මේන් කූන්
+බෙංගාල්
+රැග්ඩෝල්
+ස්කොටිෂ් ෆෝල්ඩ්
+ස්පින්ක්ස්
+බ්‍රිතාන්‍ය කෙටි ලොම්
+ඇමරිකානු කෙටි ලොම්
+රුසියානු නිල්
+අබිසීනියන්
+හිමාලයන්
+මැන්ක්ස්

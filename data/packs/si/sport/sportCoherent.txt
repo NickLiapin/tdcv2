@@ -1,0 +1,12 @@
+---
+description: Eight sports used as the parent of sport/positionBySport — the child filenames match these character for character. TWO ENTRIES ARE NOT INTERNATIONAL SPORTS. වොලිබෝල් is here because volleyball is Sri Lanka's LEGALLY DECLARED national sport, designated in 1991 — cricket is the national sport in fact and volleyball in law, and both statements are true. එල්ලේ is the indigenous Sri Lankan bat-and-ball game, played in village leagues and at school, with no international federation and no presence in any other locale pack.
+locale: si
+---
+ක්‍රිකට්
+වොලිබෝල්
+පාපන්දු
+රග්බි
+දැල් පන්දු
+බාස්කට්බෝල්
+හොකී
+එල්ලේ

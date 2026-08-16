@@ -1,0 +1,81 @@
+---
+description: Diagnoses that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions are in medical/diagnosisMale and medical/diagnosisFemale, ancestry-linked ones in medical/diagnosisByAncestry. THE TOP OF THIS LIST IS SRI LANKAN EPIDEMIOLOGY, NOT A TRANSLATED WESTERN ONE. ඩෙංගු උණ returns in epidemic waves every year with the monsoon and fills the wards. මී උණ (leptospirosis) is an occupational disease of paddy farmers wading in flooded fields. සර්ප දෂ්ට, snakebite, is a leading cause of hospital admission — Sri Lanka has one of the highest snakebite burdens on earth. නොදන්නා හේතුවක් සහිත නිදන්ගත වකුගඩු රෝගය (CKDu) is a dry-zone farming epidemic with no agreed cause. AND ONE ABSENCE IS AS INFORMATIVE AS ANY ENTRY: මැලේරියාව is on this list only as history, because Sri Lanka was certified MALARIA-FREE by the WHO in 2016 and has recorded no indigenous case since 2012 — a Sri Lankan patient record dated after that with locally acquired malaria is wrong.
+locale: si
+---
+ඩෙංගු උණ
+මී උණ
+සර්ප දෂ්ට
+දියවැඩියාව
+අධි රුධිර පීඩනය
+නිදන්ගත වකුගඩු රෝගය
+නොදන්නා හේතුවක් සහිත නිදන්ගත වකුගඩු රෝගය
+ක්ෂය රෝගය
+ඇදුම
+නියුමෝනියාව
+බ්‍රොන්කයිටිස්
+ඉන්ෆ්ලුවෙන්සා
+උණ
+තදබල උණ
+උදර ආසාදනය
+පාචනය
+ටයිපොයිඩ්
+හෙපටයිටිස් A
+හෙපටයිටිස් B
+චිකන්ගුනියා
+මැලේරියාව
+ෆයිලේරියාව
+දද
+එක්සිමා
+දිලීර ආසාදනය
+මුත්‍රා ආසාදනය
+ගැස්ට්‍රයිටිස්
+ආමාශ තුවාලය
+මලබද්ධය
+අර්ශස්
+ඇපෙන්ඩිසයිටිස්
+පිත්තාශ ගල්
+වකුගඩු ගල්
+මේද අක්මාව
+අක්මා සිරෝසිස්
+රක්තහීනතාව
+තැලසීමියාව
+ලියුකේමියාව
+ලිම්ෆෝමාව
+පෙනහළු පිළිකාව
+මුඛ පිළිකාව
+ආමාශ පිළිකාව
+මහා අන්ත්‍ර පිළිකාව
+චර්ම පිළිකාව
+හෘදයාබාධය
+කිරීටක ධමනි රෝගය
+හෘද ස්පන්දන අක්‍රමිකතාව
+ආඝාතය
+අපස්මාරය
+ඉරුවාරදය
+පාකින්සන් රෝගය
+අල්සයිමර් රෝගය
+මානසික අවපීඩනය
+කාංසාව
+නින්ද නොයාම
+මානසික ආතතිය
+ඔස්ටියෝ ආතරයිටිස්
+රූමැටොයිඩ් ආතරයිටිස්
+ගවුට්
+ඔස්ටියොපොරෝසිස්
+පිටුපස වේදනාව
+අස්ථි කැඩීම
+තයිරොයිඩ් අඩු ක්‍රියාකාරිත්වය
+තයිරොයිඩ් අධි ක්‍රියාකාරිත්වය
+තරබාරුකම
+කොලෙස්ටරෝල් අධික වීම
+ඇසේ සුද
+ග්ලුකෝමා
+දෘෂ්ටි දුර්වලතාව
+ශ්‍රවණ දුර්වලතාව
+දන්ත ක්ෂය
+විදුරුමස් රෝගය
+මාර්ග අනතුරු තුවාල
+පිළිස්සුම් තුවාල
+විෂ ගැනීම
+මධ්‍යසාර පරායත්තතාව
+දුම්කොළ ආශ්‍රිත රෝග

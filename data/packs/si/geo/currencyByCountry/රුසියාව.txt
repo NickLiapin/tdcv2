@@ -1,0 +1,5 @@
+---
+description: Currency of රුසියාව, in Sinhala.
+locale: si
+---
+රුසියානු රූබල්

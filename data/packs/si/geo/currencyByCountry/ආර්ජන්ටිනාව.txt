@@ -1,0 +1,5 @@
+---
+description: Currency of ආර්ජන්ටිනාව, in Sinhala.
+locale: si
+---
+ආර්ජන්ටිනා පෙසෝ

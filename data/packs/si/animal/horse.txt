@@ -1,0 +1,17 @@
+---
+description: Horse breeds — ALL BORROWED, and the description is the point. Sri Lanka has no horse-breeding tradition and no working horse culture: the island's draught animal is the buffalo and its heavy animal the elephant. Horses exist here for the Nuwara Eliya racecourse, the police and tourist rides, so Sinhala has no native breed vocabulary at all and simply spells the English names in Sinhala script.
+locale: si
+---
+අරාබි
+තෝරොබ්‍රෙඩ්
+ක්වාටර් හෝස්
+ෂෙට්ලන්ඩ් පෝනි
+ක්ලයිඩ්ස්ඩේල්
+ඇපලූසා
+මුස්තැංග්
+ෆ්‍රීසියන්
+ඇන්ඩලූසියන්
+පැලමිනෝ
+පර්චෙරොන්
+මෝගන්
+වෙල්ෂ් පෝනි

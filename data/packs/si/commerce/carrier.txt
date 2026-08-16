@@ -1,0 +1,20 @@
+---
+description: Shipping and courier options as a Sri Lankan checkout lists them. The global brands keep their real Latin spelling, as brands do in any locale; the Sinhala entries are the SERVICE TYPES rather than named firms. Sri Lanka's own courier companies are institutions and belong to a country pack, not here.
+locale: si
+---
+DHL
+FedEx
+UPS
+TNT
+Aramex
+තැපැල් සේවය
+ලියාපදිංචි තැපෑල
+කූරියර් සේවය
+දිනකට බෙදාහැරීම
+ගොඩබිම් ප්‍රවාහනය
+ගුවන් භාණ්ඩ ප්‍රවාහනය
+මුහුදු භාණ්ඩ ප්‍රවාහනය
+බස් පාර්සල් සේවය
+දුම්රිය පාර්සල් සේවය
+අතින් බෙදාහැරීම
+ගබඩාවෙන් රැගෙන යාම

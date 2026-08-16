@@ -1,0 +1,9 @@
+---
+description: Playing positions in බාස්කට්බෝල්, in Sinhala.
+locale: si
+---
+පොයින්ට් ගාඩ්
+ෂූටින් ගාඩ්
+ස්මෝල් ෆෝවර්ඩ්
+පවර් ෆෝවර්ඩ්
+සෙන්ටර්

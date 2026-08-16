@@ -1,0 +1,44 @@
+---
+description: Cooking ingredients in Sinhala. පොල් කිරි, coconut milk, is the base of nearly every curry, so it belongs at the top of any Sri Lankan ingredient list the way stock does in a French one. උම්බලකඩ (Maldive fish) is cured tuna shaved into sambols and curries for savour and is the flavour a Sri Lankan misses abroad. දී is BUFFALO curd, sold in a clay pot and eaten with කිතුල් පැණි, treacle from the fishtail palm — not yoghurt and not honey. The rice entries are separate varieties because they are bought and priced separately: සම්බා, නාඩු, කීරි සම්බා and රතු සහල් are not interchangeable in a Sri Lankan kitchen.
+locale: si
+---
+පොල් කිරි
+පොල් තෙල්
+ගාපු පොල්
+උම්බලකඩ
+කරවල
+සම්බා සහල්
+නාඩු සහල්
+කීරි සම්බා
+රතු සහල්
+හාල් පිටි
+කුරක්කන් පිටි
+පාන් පිටි
+බිත්තර
+කිරි
+දී
+මී පැණි
+කිතුල් පැණි
+හකුරු
+සීනි
+ලුණු
+එළවළු තෙල්
+බටර්
+චීස්
+පරිප්පු
+මුං ඇට
+කව්පි
+කඩල
+උඳු
+කජු
+මාළු
+කුකුළු මස්
+හරක් මස්
+ඌරු මස්
+එළු මස්
+ඉස්සන්
+විනාකිරි
+සෝයා සෝස්
+තක්කාලි සෝස්
+තුනපහ
+පොල් වතුර

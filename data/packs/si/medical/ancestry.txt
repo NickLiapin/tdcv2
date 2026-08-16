@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, the parent of medical/diagnosisByAncestry. THESE ARE ANCESTRY POPULATIONS AS CLINICAL GENETICS DEFINES THEM — geographic descent, not social race categories. Note for a Sri Lankan dataset that දකුණු ආසියානු covers both the Sinhalese and the Sri Lankan Tamils: the two communities differ in language and in name stock, not in the ancestry group a clinician would record.
+locale: si
+---
+උප සහරා අප්‍රිකානු
+උතුරු අප්‍රිකානු
+මධ්‍යධරණී
+මැදපෙරදිග
+උතුරු යුරෝපීය
+නැගෙනහිර යුරෝපීය
+අෂ්කනාසි යුදෙව්
+දකුණු ආසියානු
+නැගෙනහිර ආසියානු
+අග්නිදිග ආසියානු
+ස්වදේශික ඇමරිකානු
+පැසිෆික් දූපත්වාසී

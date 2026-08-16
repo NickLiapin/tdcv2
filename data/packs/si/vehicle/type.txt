@@ -1,0 +1,26 @@
+---
+description: Vehicle types in Sinhala. ත්‍රී වීලර් — the three-wheeler, the auto-rickshaw — IS THE VEHICLE OF SRI LANKA: there are more than a million of them, they are taxi, ambulance, school run and small lorry, and driving one is one of the largest occupations in the country (see work/jobTitle.txt). ලෑන්ඩ් මාස්ටර්, the walking two-wheel tractor, is the other one a foreign list would miss — it ploughs the paddy and then hauls the crop on a trailer along a public road. කරත්තය, the bullock cart, is still on the list because it is still in use.
+locale: si
+---
+ත්‍රී වීලර්
+මෝටර් සයිකලය
+මෝටර් රථය
+වෑන් රථය
+ඩබල් කැබ්
+කැබ් රථය
+ජීප් රථය
+ක්‍රීඩා උපයෝගිතා රථය
+ලොරිය
+කන්ටේනර් රථය
+බස් රථය
+සුඛෝපභෝගී බස් රථය
+පාසල් වෑන් රථය
+ට්‍රැක්ටරය
+ලෑන්ඩ් මාස්ටර්
+ට්‍රේලරය
+සයිකලය
+විදුලි සයිකලය
+කරත්තය
+ගිලන් රථය
+ගිනි නිවන රථය
+දුම්රිය

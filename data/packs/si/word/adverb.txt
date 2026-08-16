@@ -1,0 +1,36 @@
+---
+description: Common Sinhala adverbs. Sinhala builds most manner adverbs from an adjective plus -ට or the suffix -en, so හොඳින් "well" is transparently "good"+-in; the time and place words below are underived.
+locale: si
+---
+හොඳින්
+නරකින්
+වේගයෙන්
+හෙමින්
+ඉක්මනින්
+පසුව
+දැන්
+අද
+හෙට
+ඊයේ
+සැමවිටම
+කිසිවිටෙක
+සමහරවිට
+නිතර
+කලාතුරකින්
+මෙහි
+එහි
+ඉහළ
+පහළ
+ඇතුළත
+පිටත
+ළඟ
+දුර
+එකට
+තනිව
+නැවත
+තවත්
+ඉතා
+ටිකක්
+ගොඩක්
+සම්පූර්ණයෙන්
+සෙමින්

@@ -1,0 +1,57 @@
+---
+description: Sports in Sinhala. ක්‍රිකට් is first because it is what "sport" means in Sri Lanka in practice, but වොලිබෝල් is the sport the state declared national in 1991 — the law and the life disagree and this list keeps both at the top. THREE ARE INDIGENOUS AND EXIST NOWHERE ELSE: එල්ලේ, a bat-and-ball village game; අංගම්පොර, a Sri Lankan martial art of unarmed and bladed combat that was banned under British rule and revived in the twentieth century; and පොර පොල් ගැසීම, the ritual coconut-smashing contest of the new year season. දැල් පන්දු (netball) is the women's national game and Sri Lanka has won the Asian championship at it.
+locale: si
+---
+ක්‍රිකට්
+වොලිබෝල්
+පාපන්දු
+රග්බි
+දැල් පන්දු
+එල්ලේ
+අංගම්පොර
+බැඩ්මින්ටන්
+මේස පන්දු
+ටෙනිස්
+ස්කොෂ්
+බාස්කට්බෝල්
+හෑන්ඩ්බෝල්
+හොකී
+කබඩි
+පිහිනීම
+ඩයිවින්
+මලල ක්‍රීඩා
+මැරතන්
+ක්‍රොස් කන්ට්‍රි
+දිගු පිම්ම
+උස පිම්ම
+හෙල්ල එසවීම
+ගෝල දැමීම
+බර ඉසිලීම
+ශරීර සුවතාව
+පොර බැදීම
+බොක්සිං
+කරාතේ
+ජූඩෝ
+තායික්වොන්ඩෝ
+කුං ෆු
+දුනු විදීම
+වෙඩි තැබීම
+චෙස්
+කැරම්
+බිලියඩ්ස්
+ස්නූකර්
+ගොල්ෆ්
+සයිකල් ධාවනය
+මෝටර් රථ තරග
+මෝටර් සයිකල් තරග
+යාත්‍රා තරග
+රෝයිං
+කැනෝයින්
+සර්ෆින්
+කයිට් සර්ෆින්
+කඳු නැගීම
+ජිම්නාස්ටික්
+යෝග
+ලෝන් බෝල්ස්
+පොර පොල් ගැසීම
+ත්‍රිත්ව තරගය

@@ -1,0 +1,53 @@
+---
+description: Generic drug names transliterated into Sinhala. NOTE THE SPLIT IN REGISTER: a Sri Lankan PRESCRIPTION is written in Latin script by convention and a pharmacist reads it that way, but the dispensing label, the patient leaflet and the state hospital's own signage are in Sinhala, which is what this list is. The last five entries are Ayurvedic preparations, dispensed by registered Ayurvedic practitioners alongside these.
+locale: si
+---
+පැරසිටමෝල්
+අයිබුප්‍රොෆෙන්
+ඇස්පිරින්
+ඩයික්ලොෆෙනැක්
+ට්‍රැමඩෝල්
+ඇමොක්සිසිලින්
+පෙනිසිලින්
+සෙෆලෙක්සින්
+අසිත්‍රොමයිසින්
+සිප්‍රොෆ්ලොක්සැසින්
+මෙට්‍රොනිඩසෝල්
+ඩොක්සිසයික්ලින්
+ෆ්ලූක්ලොක්සැසිලින්
+ෆ්ලූකොනසෝල්
+ඇල්බෙන්ඩසෝල්
+මෙට්ෆෝමින්
+ග්ලික්ලසයිඩ්
+ඉන්සියුලින්
+ලෙවොතයිරොක්සින්
+ඇම්ලොඩිපින්
+ලොසාටන්
+එනලප්‍රිල්
+ඇටෙනොලෝල්
+ෆියුරොසමයිඩ්
+හයිඩ්‍රොක්ලෝරෝතයසයිඩ්
+ඇටෝර්වාස්ටැටින්
+සිම්වාස්ටැටින්
+ඇස්පිරින් අඩු මාත්‍රා
+ක්ලොපිඩොග්‍රෙල්
+වෝෆරින්
+ඔමෙප්‍රසෝල්
+රැනිටිඩින්
+ඩොම්පෙරිඩෝන්
+සල්බියුටමෝල්
+ප්‍රෙඩ්නිසොලෝන්
+සෙටිරිසින්
+ක්ලෝෆෙනිරමින්
+ඩයසිපෑම්
+ෆ්ලුඔක්සෙටින්
+කාබමසපින්
+ෆෙනිටොයින්
+ෆෝලික් අම්ලය
+යකඩ පෙති
+ORS ලවණ
+අශ්වගන්ධ
+තිප්පිලි
+කොත්තමල්ලි පැණිය
+පස්පංගුව
+වෙනිවැල්ගැට

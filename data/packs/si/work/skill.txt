@@ -1,0 +1,46 @@
+---
+description: Workplace skills in Sinhala. The technology names stay in Latin script because that is how a Sri Lankan CV writes them; ඉංග්‍රීසි භාෂාව is on the list as a skill in its own right because in Sri Lanka it genuinely is one — English proficiency is a hiring criterion and a class marker rather than an assumption.
+locale: si
+---
+සන්නිවේදනය
+නායකත්වය
+කණ්ඩායම් වැඩ
+ගැටලු විසඳීම
+කාල කළමනාකරණය
+ව්‍යාපෘති කළමනාකරණය
+දත්ත විශ්ලේෂණය
+ක්‍රමලේඛනය
+Java
+Python
+JavaScript
+SQL
+Excel
+ගිණුම්කරණය
+විගණනය
+පාරිභෝගික සේවා
+විකුණුම්
+අලෙවිකරණය
+ඩිජිටල් අලෙවිකරණය
+පරිවර්තනය
+ලේඛන කටයුතු
+ඉංග්‍රීසි භාෂාව
+පොදු කථනය
+සාකච්ඡා කිරීම
+පර්යේෂණ
+ලිවීම
+සංස්කරණය
+ග්‍රැෆික් නිර්මාණය
+වීඩියෝ සංස්කරණය
+ඡායාරූපකරණය
+වෙබ් සංවර්ධනය
+ජාල පරිපාලනය
+තොරතුරු ආරක්ෂාව
+යන්ත්‍ර ඉගෙනුම
+ගබඩා කළමනාකරණය
+සැපයුම් දාම කළමනාකරණය
+තත්ත්ව පාලනය
+පුහුණු කිරීම
+උපදේශනය
+තීරණ ගැනීම
+විවේචනාත්මක චින්තනය
+වාර්තා කිරීම

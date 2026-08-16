@@ -1,0 +1,24 @@
+---
+description: Dog breeds. The pedigree names are English loans in Sinhala script, as with cats. TWO ENTRIES ARE LOCAL AND MATTER MORE THAN THE REST: ගම් බල්ලා, the village dog, is what the overwhelming majority of Sri Lankan dogs are and is a category rather than a breed; සිංහල හවුඩ් is the island's indigenous hound, kept by hunters in the dry zone.
+locale: si
+---
+ගම් බල්ලා
+සිංහල හවුඩ්
+ලැබ්‍රඩෝර්
+ජර්මන් ෂෙපර්ඩ්
+ගෝල්ඩන් රිට්‍රීවර්
+රොට්වයිලර්
+ඩෝබර්මන්
+බීගල්
+පොමරේනියන්
+ඩාෂ්හවුන්ඩ්
+පග්
+බුල්ඩෝග්
+බොක්සර්
+ග්‍රේට් ඩේන්
+කොකර් ස්පැනියල්
+ටෙරියර්
+ෂිට්සු
+චිහුආහුවා
+හස්කි
+ඩැල්මේෂන්

@@ -1,0 +1,5 @@
+---
+description: Capital of සිංගප්පූරුව, in Sinhala.
+locale: si
+---
+සිංගප්පූරුව

@@ -1,0 +1,34 @@
+---
+description: Hashtags used in Sri Lanka. #lka IS THE STANDING COUNTRY TAG and appears on nearly every Sri Lankan political and news post regardless of the language of the post itself. Sinhala-script hashtags work and are used, but Latin-script tags dominate because they are typed faster on a phone keyboard — so a realistic Sri Lankan feed is mixed-script, which is what this list is.
+locale: si
+---
+#lka
+#SriLanka
+#Colombo
+#SLvsIND
+#Cricket
+#Ceylon
+#VisitSriLanka
+#Avurudu
+#Vesak
+#Poya
+#SinhalaTamilNewYear
+#Kandy
+#Galle
+#Ella
+#CeylonTea
+#SriLankanFood
+#Kottu
+#Hoppers
+#WildlifeSriLanka
+#PeraheraSeason
+#සිංහල
+#ලංකාව
+#අවුරුදු
+#වෙසක්
+#කොළඹ
+#ක්‍රිකට්
+#සිංහලසිනමා
+#පොත්
+#සංචාරය
+#ආහාර

@@ -1,0 +1,16 @@
+---
+description: Gregorian month abbreviations in Sinhala, as printed on a form or a calendar grid.
+locale: si
+---
+ජන
+පෙබ
+මාර්
+අප්‍රේ
+මැයි
+ජූනි
+ජූලි
+අගෝ
+සැප්
+ඔක්
+නොවැ
+දෙසැ

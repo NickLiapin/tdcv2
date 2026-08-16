@@ -1,0 +1,5 @@
+---
+description: Capital of නේපාලය, in Sinhala.
+locale: si
+---
+කත්මණ්ඩු

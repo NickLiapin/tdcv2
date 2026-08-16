@@ -1,0 +1,22 @@
+---
+description: Employee benefits in Sinhala. TWO OF THESE ARE COMPULSORY BY LAW rather than offered: අර්ථසාධක අරමුදල and භාර අරමුදල are the provident and trust funds every private-sector employer in Sri Lanka must pay into, so they appear on every payslip and are not a perk. The named funds and their contribution rates are institutions and belong to a country pack; these are the words for them.
+locale: si
+---
+අර්ථසාධක අරමුදල
+භාර අරමුදල
+වෛද්‍ය රක්ෂණය
+ජීවිත රක්ෂණය
+දිරි දීමනාව
+ප්‍රවාහන දීමනාව
+ආහාර දීමනාව
+දුරකථන දීමනාව
+ඉන්ධන දීමනාව
+නිල වාහනය
+නිල නිවස
+පුහුණු අවස්ථා
+අධ්‍යාපන ආධාර
+නම්‍යශීලී වැඩ කාලය
+නිවසේ සිට වැඩ කිරීම
+වාර්ෂික උත්සව දීමනාව
+විශ්‍රාම වැටුප
+දරු උපත් දීමනාව

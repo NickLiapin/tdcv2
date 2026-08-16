@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the උතුරු අප්‍රිකානු ancestry group, in Sinhala.
+locale: si
+---
+බීටා තැලසීමියාව
+පවුල් මධ්‍යධරණී උණ
+G6PD ඌනතාව
+දියවැඩියාව
+ලැක්ටෝස් නොඉවසීම

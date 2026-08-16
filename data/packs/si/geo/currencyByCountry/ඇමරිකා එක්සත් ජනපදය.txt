@@ -1,0 +1,5 @@
+---
+description: Currency of ඇමරිකා එක්සත් ජනපදය, in Sinhala.
+locale: si
+---
+ඇමරිකානු ඩොලරය

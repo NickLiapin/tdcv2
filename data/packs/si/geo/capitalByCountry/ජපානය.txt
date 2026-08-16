@@ -1,0 +1,5 @@
+---
+description: Capital of ජපානය, in Sinhala.
+locale: si
+---
+ටෝකියෝ

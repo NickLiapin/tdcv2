@@ -1,0 +1,13 @@
+---
+description: Cable types in Sinhala, as an electrician or a telecoms crew names them.
+locale: si
+---
+තඹ කේබල්
+ඔප්ටිකල් ෆයිබර්
+සම අක්ෂීය කේබල්
+ඇමිලෙක්ස් කේබල්
+බිම් යටි කේබල්
+ගුවන් කේබල්
+දත්ත කේබල්
+විදුලි කේබල්
+පාලන කේබල්

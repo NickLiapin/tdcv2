@@ -1,0 +1,5 @@
+---
+description: Currency of මැලේසියාව, in Sinhala.
+locale: si
+---
+මැලේසියානු රින්ගිට්

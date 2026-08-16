@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of ආර්ජන්ටිනාව.
+locale: si
+---
+ARS

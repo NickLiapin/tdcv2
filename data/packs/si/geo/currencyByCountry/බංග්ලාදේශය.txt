@@ -1,0 +1,5 @@
+---
+description: Currency of බංග්ලාදේශය, in Sinhala.
+locale: si
+---
+ටකා

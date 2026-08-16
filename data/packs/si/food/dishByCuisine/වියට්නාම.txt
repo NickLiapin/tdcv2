@@ -1,0 +1,10 @@
+---
+description: Dishes of වියට්නාම cuisine, in Sinhala.
+locale: si
+---
+ෆො
+බාන් මී
+ගෝයි කුවොන්
+බූන් චා
+කා ෆේ සුවා ඩා
+කොම් ටෑම්

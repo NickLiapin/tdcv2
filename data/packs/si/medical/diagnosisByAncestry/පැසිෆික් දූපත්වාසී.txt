@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the පැසිෆික් දූපත්වාසී ancestry group, in Sinhala.
+locale: si
+---
+දෙවන වර්ගයේ දියවැඩියාව
+තරබාරුකම
+ගවුට්
+අධි රුධිර පීඩනය
+රූමැටික් හෘද රෝගය

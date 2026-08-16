@@ -1,0 +1,5 @@
+---
+description: Currency of කැනඩාව, in Sinhala.
+locale: si
+---
+කැනේඩියානු ඩොලරය

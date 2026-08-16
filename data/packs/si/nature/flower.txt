@@ -1,0 +1,27 @@
+---
+description: Flowers in Sinhala. THE LIST IS SHAPED BY THE TEMPLE, NOT BY THE FLORIST: අරලිය, පිච්ච, දෑසමන්, ඉද්ද, නෙළුම් and ඕලු are the flowers laid on a Buddhist shrine, which is why an ordinary Sinhala speaker can name them and not a florist's catalogue. නිල් මානෙල්, the blue water lily, is the national flower, and ඇහැළ, the golden shower, is the flower of the April new year.
+locale: si
+---
+නිල් මානෙල්
+නෙළුම්
+රත් නෙළුම්
+ඕලු
+අරලිය
+පිච්ච
+දෑසමන්
+ඉද්ද
+සපු මල්
+නා මල්
+ඇහැළ මල්
+කිණිහිරි
+බෝවිටියා
+කුමුදු
+මිදෙල්ල
+සමන් පිච්ච
+රෝස
+ඕකිඩ්
+අන්තූරියම්
+සූරියකාන්ත
+ජැස්මින්
+කරවීර
+නියඟලා

@@ -1,0 +1,33 @@
+---
+description: Trailing element of a Sinhala place name, and the productive half of Sri Lankan toponymy — nearly every town on the island ends in one of these. -ගම and -ගමුව are village, -පුර and -නුවර city, -ගොඩ high ground, -පිටිය a flat, -වත්ත an estate, -වෙල and -කුඹුර paddy land, -හේන slash-and-burn plot, -වැව a tank, -තොට a ford or port, -මුල්ල a corner, -දෙණිය a hollow, -කන්ද a hill, -ඇල a canal, -දූව an island. Read together they are a land-use map: the names record what was there before the town was.
+locale: si
+---
+ගම
+ගමුව
+ගොඩ
+පිටිය
+වත්ත
+වෙල
+කුඹුර
+හේන
+යාය
+වැව
+තොට
+මුල්ල
+දෙණිය
+කන්ද
+ගිරිය
+ඇල
+ඔය
+දූව
+පුර
+නුවර
+ගල්ල
+වල
+තැන්න
+කැලේ
+උයන
+ලන්ද
+පොල
+අර
+ගෙදර

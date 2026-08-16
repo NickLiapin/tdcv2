@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Sinhala street, estate or district name — බස්නාහිර කොටස, උතුරු පෙදෙස. Sinhala uses the compass words themselves for this; see geo/direction.txt for why the intercardinals are single words rather than compounds.
+locale: si
+---
+උතුරු
+දකුණු
+නැගෙනහිර
+බස්නාහිර
+ඊසාන
+අග්නි
+නිරිත
+වයඹ
+මධ්‍යම
+උතුරු මැද
+මධ්‍යස්ථානය
+ඉහළ
+පහළ
+ඉදිරිපස
+පිටුපස

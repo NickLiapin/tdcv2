@@ -1,0 +1,24 @@
+---
+description: Trip purposes in Sinhala. වන්දනා ගමන, the pilgrimage, is a mass category here rather than a niche: Sri Pada in the season, Anuradhapura, Kataragama and Madhu draw very large numbers, and a Sri Lankan travel record with no pilgrimage category is missing one of the biggest reasons anyone in the country travels. විදේශ රැකියා ගමන, departing for overseas employment, is the other one.
+locale: si
+---
+වන්දනා ගමන
+නිවාඩු ගමන
+පවුල් ගමන
+ව්‍යාපාරික ගමන
+සම්මන්ත්‍රණ ගමන
+අධ්‍යාපන ගමන
+පාසල් චාරිකාව
+මධුසමය
+වෛද්‍ය ගමන
+විදේශ රැකියා ගමන
+ඥාතීන් බැලීමට
+සත්ත්ව සෆාරි
+වෙරළ නිවාඩුව
+කඳුකර නිවාඩුව
+කඳු නැගීම
+ඩයිවින් ගමන
+සර්ෆින් ගමන
+ඡායාරූප ගමන
+දුම්රිය චාරිකාව
+තනි සංචාරය

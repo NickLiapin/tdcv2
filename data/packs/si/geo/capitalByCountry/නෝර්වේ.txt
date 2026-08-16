@@ -1,0 +1,5 @@
+---
+description: Capital of නෝර්වේ, in Sinhala.
+locale: si
+---
+ඔස්ලෝ

@@ -1,0 +1,5 @@
+---
+description: Currency of ශ්‍රී ලංකාව, in Sinhala.
+locale: si
+---
+ශ්‍රී ලංකා රුපියල

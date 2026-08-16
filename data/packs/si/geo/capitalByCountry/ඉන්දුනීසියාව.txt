@@ -1,0 +1,5 @@
+---
+description: Capital of ඉන්දුනීසියාව, in Sinhala.
+locale: si
+---
+ජකර්තා

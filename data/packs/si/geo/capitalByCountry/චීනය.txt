@@ -1,0 +1,5 @@
+---
+description: Capital of චීනය, in Sinhala.
+locale: si
+---
+බීජිං

@@ -1,0 +1,30 @@
+---
+description: Aircraft types. Alphanumeric type codes are international and are never transliterated — A330 is A330 on a Sinhala load sheet too. The widebodies at the top are what actually flies into Colombo.
+locale: si
+---
+A320
+A320neo
+A321
+A321neo
+A330-200
+A330-300
+A350-900
+A380-800
+B737-800
+B737 MAX 8
+B777-200
+B777-300ER
+B787-8
+B787-9
+B747-400
+B767-300
+ATR 72-500
+ATR 72-600
+DHC-6 Twin Otter
+Cessna 208 Caravan
+Embraer E190
+Bombardier CRJ900
+Antonov An-32
+Y-12
+Bell 412
+Mi-17

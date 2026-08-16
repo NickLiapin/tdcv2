@@ -1,0 +1,5 @@
+---
+description: Capital of සෞදි අරාබිය, in Sinhala.
+locale: si
+---
+රියාද්

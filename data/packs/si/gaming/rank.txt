@@ -1,0 +1,14 @@
+---
+description: Competitive rank tiers in Sinhala.
+locale: si
+---
+ලෝකඩ
+රිදී
+රන්
+ප්ලැටිනම්
+දියමන්ති
+මාණික්‍ය
+මරකත
+ශූර
+ශ්‍රේෂ්ඨ ශූර
+අභියෝගක

@@ -1,0 +1,5 @@
+---
+description: Capital of මැලේසියාව, in Sinhala.
+locale: si
+---
+කුආලාලම්පූර්

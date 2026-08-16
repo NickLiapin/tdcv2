@@ -1,0 +1,11 @@
+---
+description: Dishes of තායි cuisine, in Sinhala.
+locale: si
+---
+පැඩ් තායි
+ටොම් යම්
+ග්‍රීන් කරි
+සොම් ටම්
+මසමන් කරි
+තායි ෆ්‍රයිඩ් රයිස්
+සැටේ

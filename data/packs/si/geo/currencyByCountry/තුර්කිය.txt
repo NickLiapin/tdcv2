@@ -1,0 +1,5 @@
+---
+description: Currency of තුර්කිය, in Sinhala.
+locale: si
+---
+තුර්කි ලිරා

@@ -1,0 +1,5 @@
+---
+description: Capital of ග්‍රීසිය, in Sinhala.
+locale: si
+---
+ඇතන්ස්

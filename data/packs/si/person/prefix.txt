@@ -1,0 +1,20 @@
+---
+description: Honorifics that PRECEDE a Sinhala name. This is only half the system and the half that fits the European template — see person/suffix.txt for the other half, which follows the name and is the commoner one. පූජ්‍ය is the address for a Buddhist monk and is not optional politeness: a bhikkhu is named පූජ්‍ය + ordination name + village of origin, never Mr. ආචාර්ය is a doctorate and වෛද්‍ය a physician; Sinhala keeps them apart where English writes Dr for both.
+locale: si
+---
+ආචාර්ය
+මහාචාර්ය
+වෛද්‍ය
+දන්ත වෛද්‍ය
+පශු වෛද්‍ය
+ඉංජිනේරු
+ගරු
+පූජ්‍ය
+ස්වාමීන් වහන්සේ
+රෙවරන්ද්
+මහ රෙජිස්ට්‍රාර්
+කර්නල්
+මේජර්
+කපිතාන්
+ලුතිනන්
+සැරයන්

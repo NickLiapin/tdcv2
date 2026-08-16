@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviations in Sinhala, Monday first.
+locale: si
+---
+සඳු
+අඟ
+බදා
+බ්‍රහ
+සිකු
+සෙන
+ඉරි

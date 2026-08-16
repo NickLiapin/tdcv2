@@ -1,0 +1,5 @@
+---
+description: Capital of තායිලන්තය, in Sinhala.
+locale: si
+---
+බැංකොක්

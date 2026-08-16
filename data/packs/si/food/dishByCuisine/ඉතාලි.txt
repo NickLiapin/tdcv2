@@ -1,0 +1,12 @@
+---
+description: Dishes of ඉතාලි cuisine, in Sinhala.
+locale: si
+---
+පීසා
+පාස්ටා
+ලසාඤ්ඤා
+ස්පැගටි බොලොනීස්
+රිසෝටෝ
+කැනොලි
+බ්‍රුෂෙටා
+ග්නොකි

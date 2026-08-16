@@ -1,0 +1,9 @@
+---
+description: Hotel star rating in Sinhala.
+locale: si
+---
+තරු 1
+තරු 2
+තරු 3
+තරු 4
+තරු 5

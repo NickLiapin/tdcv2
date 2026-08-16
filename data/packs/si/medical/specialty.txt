@@ -1,0 +1,40 @@
+---
+description: Medical specialties in Sinhala. ආයුර්වේද වෛද්‍ය විද්‍යාව and දේශීය වෛද්‍ය ක්‍රම are on this list because in Sri Lanka they are REGISTERED MEDICAL PRACTICE, not alternative therapy: there is a state Ayurveda ministry, state Ayurvedic teaching hospitals, a five-year degree and a statutory practitioners' register, and a patient may be referred between the two systems. A specialty list translated from a Western one would drop them and would then be describing a health service Sri Lanka does not have.
+locale: si
+---
+හෘද රෝග
+ස්නායු රෝග
+පිළිකා රෝග
+චර්ම රෝග
+ආමාශ හා අන්ත්‍ර රෝග
+අන්තරාසර්ග රෝග
+පෙනහළු රෝග
+අස්ථි හා සන්ධි ශල්‍ය
+මානසික රෝග
+වකුගඩු රෝග
+ළමා රෝග
+ප්‍රසව හා නාරිවේද
+සාමාන්‍ය ශල්‍ය
+සාමාන්‍ය වෛද්‍ය
+හදිසි ප්‍රතිකාර
+නිර්වින්දන
+විකිරණ විද්‍යාව
+රසායනාගාර වෛද්‍ය
+ලේ රෝග
+ප්‍රතිශක්ති විද්‍යාව
+බෝවන රෝග
+මුත්‍රා මාර්ග ශල්‍ය
+ඇස් රෝග
+කන් නාසය හා උගුර
+දන්ත වෛද්‍ය
+ප්ලාස්ටික් ශල්‍ය
+ස්නායු ශල්‍ය
+හෘද ශල්‍ය
+පවුල් වෛද්‍ය
+ප්‍රජා සෞඛ්‍ය
+වෘත්තීය සෞඛ්‍ය
+පුනරුත්ථාපන
+පෝෂණ විද්‍යාව
+වයෝවෘද්ධ වෛද්‍ය
+ආයුර්වේද වෛද්‍ය විද්‍යාව
+දේශීය වෛද්‍ය ක්‍රම

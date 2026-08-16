@@ -1,0 +1,9 @@
+---
+description: Mining shifts in Sinhala.
+locale: si
+---
+උදෑසන වාරය
+දහවල් වාරය
+රාත්‍රී වාරය
+දෙගුණ වාරය
+නිවාඩු වාරය

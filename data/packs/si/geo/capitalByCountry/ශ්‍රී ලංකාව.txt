@@ -1,0 +1,5 @@
+---
+description: Capital of ශ්‍රී ලංකාව, in Sinhala.
+locale: si
+---
+ශ්‍රී ජයවර්ධනපුර කෝට්ටේ

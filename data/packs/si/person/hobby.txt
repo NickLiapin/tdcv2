@@ -1,0 +1,44 @@
+---
+description: Pastimes as a Sinhala speaker would name them. Four are locally specific rather than translations: භාවනාව (meditation) is a mainstream lay practice and not a niche one; කැරම් (carrom) is the board game of Sri Lankan households and clubs; දැල් පන්දු (netball) is the women's national sport; and බතික් is the island's own textile craft. ක්‍රිකට් leads the list because it does in life.
+locale: si
+---
+ක්‍රිකට්
+කියවීම
+භාවනාව
+ඉවුම් පිහුම්
+ගෙවතු වගාව
+සංගීතය
+ගායනය
+නර්තනය
+චිත්‍ර ඇඳීම
+ඡායාරූපකරණය
+පිහිනීම
+ධාවනය
+සයිකල් පැදීම
+කඳු නැගීම
+මසුන් ඇල්ලීම
+කැරම්
+චෙස්
+දැල් පන්දු
+වොලිබෝල්
+පාපන්දු
+බැඩ්මින්ටන්
+මේස පන්දු
+යෝග
+බෙර වාදනය
+වීණා වාදනය
+නාට්‍ය
+චිත්‍රපට නැරඹීම
+සංචාරය
+කුරුළු නැරඹීම
+මුද්දර එකතු කිරීම
+මැහුම්
+මැටි වැඩ
+දැව කැටයම්
+බතික්
+අත්කම්
+පරිගණක ක්‍රීඩා
+බ්ලොග් ලිවීම
+කවි ලිවීම
+තාරකා විද්‍යාව
+කඳවුරු බැඳීම

@@ -1,0 +1,5 @@
+---
+description: Currency of ඉන්දියාව, in Sinhala.
+locale: si
+---
+ඉන්දියානු රුපියල

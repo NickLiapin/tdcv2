@@ -1,0 +1,22 @@
+---
+description: Event types in Sinhala. පිංකම, දානය and පිරිත් are Buddhist merit-making observances held at home and at work — an almsgiving for the office, a night of chanting for a new house — and they are as ordinary an entry in a Sri Lankan calendar as a birthday party. ගෘහ ප්‍රවේශය is the house-warming, held at an astrologically chosen hour.
+locale: si
+---
+විවාහ මංගල්‍යය
+උපන් දිනය
+නම් තැබීමේ උත්සවය
+ගෘහ ප්‍රවේශය
+පිංකම
+දානය
+පිරිත් පිංකම
+අවුරුදු උත්සවය
+සම්මන්ත්‍රණය
+වැඩමුළුව
+පුහුණු වැඩසටහන
+ප්‍රදර්ශනය
+වෙළඳ ප්‍රදර්ශනය
+සංගීත ප්‍රසංගය
+ක්‍රීඩා උත්සවය
+ත්‍යාග ප්‍රදානෝත්සවය
+උපාධි ප්‍රදානෝත්සවය
+මහා සභා රැස්වීම

@@ -1,0 +1,5 @@
+---
+description: Capital of ඉතාලිය, in Sinhala.
+locale: si
+---
+රෝමය

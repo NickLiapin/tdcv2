@@ -1,0 +1,12 @@
+---
+description: Dishes of අරාබි cuisine, in Sinhala.
+locale: si
+---
+හුමුස්
+ෆලාෆල්
+ෂවර්මා
+කුබ්බේ
+ටබූලේ
+මන්දි
+කබාබ්
+බක්ලාවා

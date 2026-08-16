@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of නයිජීරියාව.
+locale: si
+---
+NGN

@@ -1,0 +1,20 @@
+---
+description: Rooms in a Sri Lankan house, in Sinhala. පිටත මුළුතැන්ගෙය, the outside kitchen, is a real second kitchen used for firewood cooking and is listed separately in an advertisement.
+locale: si
+---
+සාලය
+කෑම කාමරය
+නිදන කාමරය
+ප්‍රධාන නිදන කාමරය
+මුළුතැන්ගෙය
+පිටත මුළුතැන්ගෙය
+නාන කාමරය
+වැසිකිළිය
+ඉස්තෝප්පුව
+බැල්කනිය
+අධ්‍යයන කාමරය
+ගබඩා කාමරය
+රෙදි සෝදන ස්ථානය
+වාහන ගාලය
+මිදුල
+පිටුපස මිදුල

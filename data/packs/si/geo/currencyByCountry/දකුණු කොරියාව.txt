@@ -1,0 +1,5 @@
+---
+description: Currency of දකුණු කොරියාව, in Sinhala.
+locale: si
+---
+දකුණු කොරියානු වොන්

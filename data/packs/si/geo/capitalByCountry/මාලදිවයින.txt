@@ -1,0 +1,5 @@
+---
+description: Capital of මාලදිවයින, in Sinhala.
+locale: si
+---
+මාලේ

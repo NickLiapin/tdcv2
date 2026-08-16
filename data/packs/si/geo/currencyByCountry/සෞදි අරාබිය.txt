@@ -1,0 +1,5 @@
+---
+description: Currency of සෞදි අරාබිය, in Sinhala.
+locale: si
+---
+සෞදි රියාල්

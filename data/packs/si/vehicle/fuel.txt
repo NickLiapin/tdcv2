@@ -1,0 +1,14 @@
+---
+description: Fuel types in Sinhala. Sri Lankan pumps grade petrol by OCTANE — 92 and 95 — and diesel as ordinary or super, and those are the words a driver says at the filling station. භූමිතෙල් (kerosene) is on the list because it is still a household and fishing-boat fuel here, sold at the same pumps.
+locale: si
+---
+ඔක්ටේන් 92 පෙට්‍රල්
+ඔක්ටේන් 95 පෙට්‍රල්
+පෙට්‍රල්
+ඔටෝ ඩීසල්
+සුපිරි ඩීසල්
+ඩීසල්
+භූමිතෙල්
+විදුලි
+දෙමුහුන්
+LPG

@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the දකුණු ආසියානු ancestry group, in Sinhala.
+locale: si
+---
+දෙවන වර්ගයේ දියවැඩියාව
+කිරීටක ධමනි රෝගය
+බීටා තැලසීමියාව
+G6PD ඌනතාව
+ලැක්ටෝස් නොඉවසීම
+නිදන්ගත වකුගඩු රෝගය

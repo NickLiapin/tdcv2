@@ -1,0 +1,5 @@
+---
+description: Capital of දකුණු අප්‍රිකාව, in Sinhala.
+locale: si
+---
+ප්‍රිටෝරියා

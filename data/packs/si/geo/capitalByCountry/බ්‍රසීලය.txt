@@ -1,0 +1,5 @@
+---
+description: Capital of බ්‍රසීලය, in Sinhala.
+locale: si
+---
+බ්‍රසීලියා

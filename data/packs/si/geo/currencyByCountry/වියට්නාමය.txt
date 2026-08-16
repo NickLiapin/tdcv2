@@ -1,0 +1,5 @@
+---
+description: Currency of වියට්නාමය, in Sinhala.
+locale: si
+---
+වියට්නාම ඩොං

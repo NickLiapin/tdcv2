@@ -1,0 +1,24 @@
+---
+description: Insects and small crawling things in Sinhala. මදුරුවා leads because dengue is a year-round public-health emergency here rather than a nuisance; ලේ කූඩැල්ලා, the land leech, is what makes a wet-zone forest walk memorable. Note Sinhala groups these by size and habit rather than by zoology, so a centipede, a scorpion and a leech sit in the same everyday word-field as the insects.
+locale: si
+---
+මදුරුවා
+මැස්සා
+කූඹියා
+මී මැස්සා
+බඹරා
+සමනලයා
+පළඟැටියා
+කුරුමිණියා
+කැරපොත්තා
+වේයා
+උකුණා
+මකුණා
+පත්තෑයා
+ගොනුස්සා
+මකුළුවා
+ගැඩවිලා
+පණුවා
+ලේ කූඩැල්ලා
+කණ මැදිරියා
+දිය බඹරා

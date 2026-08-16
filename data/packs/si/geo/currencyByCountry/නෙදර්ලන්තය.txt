@@ -1,0 +1,5 @@
+---
+description: Currency of නෙදර්ලන්තය, in Sinhala.
+locale: si
+---
+යූරෝ

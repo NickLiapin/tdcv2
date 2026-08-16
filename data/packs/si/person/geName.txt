@@ -1,0 +1,45 @@
+---
+description: GE NAMA (ge name, house name) — the element a Sinhala full name carries BEFORE the given name, and the piece a European-shaped name field has nowhere to put. It names the house or lineage, not the individual: හේරත් මුදියන්සේලාගේ නිමල් බණ්ඩාර is "Nimal Bandara of the Herath Mudiyanse house". It is inherited patrilineally, it is NOT the surname (the surname still follows the given name), and it is often longer than either. The Kandyan -මුදියන්සේලාගේ / -ආරච්චිගේ / -අප්පුහාමිලාගේ forms end in the genitive -ගේ, literally "of the house of"; the -ගෙදර forms (ඉහළගෙදර "upper house", පහළගෙදර "lower house") locate the house in the village instead. IN EVERYDAY WRITING THE GE NAME IS ABBREVIATED TO INITIALS and only the given name and surname are spelled out, which is why Sri Lankan records are full of names like H.M. Nimal Bandara — the initials are the ge name, not middle names, and expanding them from the initials alone is impossible. Legal documents spell it in full. දොන් is the Portuguese honorific Dom, absorbed into the same slot on the low country.
+locale: si
+---
+මුදියන්සේලාගේ
+අප්පුහාමිලාගේ
+ආරච්චිගේ
+ලියනගේ
+ගමගේ
+හේවගේ
+දෙවගේ
+බණ්ඩාරගේ
+කළුආරච්චිගේ
+වික්‍රමආරච්චිගේ
+හෙට්ටිආරච්චිගේ
+රණසිංහගේ
+වීරසේකරගේ
+පතිරන්නෙහෙලාගේ
+ඉහළගෙදර
+පහළගෙදර
+මැදගෙදර
+උඩගෙදර
+පල්ලෙගෙදර
+කංකානම්ගේ
+කංකානම්ලාගේ
+විදානගේ
+විදානපතිරණගේ
+මුහන්දිරම්ලාගේ
+මොහොට්ටාලලාගේ
+පටබැඳිගේ
+වර්ණකුලසූරිය
+බලසූරිය
+එදිරිවීරගේ
+ලොකුගමගේ
+දොඩම්පේගමගේ
+කුරුප්පුආරච්චිගේ
+හේරත් මුදියන්සේලාගේ
+දිසානායක මුදියන්සේලාගේ
+තෙන්නකෝන් මුදියන්සේලාගේ
+රත්නායක මුදියන්සේලාගේ
+මාරසිංහ ආරච්චිගේ
+දිසානායක ආරච්චිගේ
+වීරක්කොඩි ආරච්චිගේ
+ගල්අප්පත්තිගේ
+දොන්

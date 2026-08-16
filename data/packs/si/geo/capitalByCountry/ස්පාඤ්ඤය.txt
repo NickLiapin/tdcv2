@@ -1,0 +1,5 @@
+---
+description: Capital of ස්පාඤ්ඤය, in Sinhala.
+locale: si
+---
+මැඩ්‍රිඩ්

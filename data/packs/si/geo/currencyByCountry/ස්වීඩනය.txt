@@ -1,0 +1,5 @@
+---
+description: Currency of ස්වීඩනය, in Sinhala.
+locale: si
+---
+ස්වීඩන් ක්‍රෝනා

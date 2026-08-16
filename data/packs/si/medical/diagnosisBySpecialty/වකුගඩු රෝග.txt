@@ -1,0 +1,12 @@
+---
+description: Diagnoses seen in වකුගඩු රෝග, in Sinhala. නොදන්නා හේතුවක් සහිත නිදන්ගත වකුගඩු රෝගය — chronic kidney disease of uncertain aetiology, CKDu — is here because it is a Sri Lankan epidemic rather than a textbook entry: it strikes paddy farmers in the North Central dry zone, mostly men in their forties, without diabetes or hypertension to explain it, and it is one of the country's largest public-health problems.
+locale: si
+---
+නිදන්ගත වකුගඩු රෝගය
+නොදන්නා හේතුවක් සහිත නිදන්ගත වකුගඩු රෝගය
+වකුගඩු ගල්
+තියුණු වකුගඩු අකර්මණ්‍යතාව
+නෙෆ්‍රොටික් සින්ඩ්‍රෝමය
+මුත්‍රා ආසාදනය
+ග්ලෝමෙරුලෝනෙෆ්‍රයිටිස්
+ඩයලිසිස් අවශ්‍යතාව

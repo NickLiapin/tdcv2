@@ -1,0 +1,22 @@
+---
+description: Qualifications in Sinhala. THE FIRST TWO ARE NOT DEGREES AND ARE THE MOST IMPORTANT ENTRIES HERE: සාමාන්‍ය පෙළ (GCE Ordinary Level, sat at about 16) and උසස් පෙළ (Advanced Level, at about 18) are the two national examinations that decide a Sri Lankan life. University places are allocated almost entirely on the A/L z-score, the entry is fiercely competitive, and "highest qualification" for a large share of the adult population is one of these two rather than any degree. A schema that starts at bachelor level cannot hold most Sri Lankan education records.
+locale: si
+---
+සාමාන්‍ය පෙළ
+උසස් පෙළ
+සහතික පත්‍රය
+ඩිප්ලෝමාව
+උසස් ඩිප්ලෝමාව
+උපාධිය
+කලා උපාධිය
+විද්‍යා උපාධිය
+වාණිජ උපාධිය
+ඉංජිනේරු උපාධිය
+වෛද්‍ය උපාධිය
+නීති උපාධිය
+ගෞරව උපාධිය
+පශ්චාත් උපාධි ඩිප්ලෝමාව
+ශාස්ත්‍රපති උපාධිය
+විද්‍යාපති උපාධිය
+ව්‍යාපාර පරිපාලන ශාස්ත්‍රපති
+දර්ශනසූරී උපාධිය

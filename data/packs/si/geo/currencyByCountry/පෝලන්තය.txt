@@ -1,0 +1,5 @@
+---
+description: Currency of පෝලන්තය, in Sinhala.
+locale: si
+---
+ස්ලොටි

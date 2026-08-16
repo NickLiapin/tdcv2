@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of සිංගප්පූරුව.
+locale: si
+---
+SGD

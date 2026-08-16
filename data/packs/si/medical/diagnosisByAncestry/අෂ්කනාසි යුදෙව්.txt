@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the අෂ්කනාසි යුදෙව් ancestry group, in Sinhala.
+locale: si
+---
+ටේ-සැක්ස් රෝගය
+ගවුචර් රෝගය
+නීමන්-පික් රෝගය
+කැනවන් රෝගය
+පවුල් ඩිසෝටොනෝමියාව
+BRCA විකෘතිය

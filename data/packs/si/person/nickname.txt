@@ -1,0 +1,42 @@
+---
+description: Sri Lankan household pet names. THESE DO NOT WORK LIKE ENGLISH NICKNAMES and a config must not treat them as shortened given names. Most are relationship, size or complexion words used AS a name inside the family — පුතා "son", දුව "daughter", අයියා "elder brother", නංගි "younger sister", චූටි "tiny", ලොකු "big", පොඩි "small", සුදු "fair", කලූ "dark" — and a Sri Lankan may be called බබා by his mother at fifty. They are not derived from and cannot be predicted from the person's given name, so nickname and firstName must be drawn independently rather than one from the other. Only the last few here are true clippings of a given name.
+locale: si
+---
+චූටි
+බබා
+බබී
+පොඩි
+ලොකු
+පුංචි
+සුදු
+කලූ
+මල්ලි
+නංගි
+අයියා
+අක්කා
+පුතා
+දුව
+දුවේ
+මැණිකේ
+හාමු
+ලොකු පුතා
+පොඩි පුතා
+ලොකු දුව
+පොඩි දුව
+රත්තරන්
+මල්ලා
+නංගා
+තාත්තා
+අම්මා
+සීයා
+ආච්චි
+නිම්මා
+සුනී
+කසූ
+චමී
+දිනූ
+නදී
+තිලූ
+රුවී
+සමී
+ලක්කි

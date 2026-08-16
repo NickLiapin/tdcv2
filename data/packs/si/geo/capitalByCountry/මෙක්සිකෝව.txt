@@ -1,0 +1,5 @@
+---
+description: Capital of මෙක්සිකෝව, in Sinhala.
+locale: si
+---
+මෙක්සිකෝ නගරය

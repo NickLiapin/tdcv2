@@ -1,0 +1,12 @@
+---
+description: Times of day in Sinhala. පාන්දර is before first light and අලුයම first light itself; උදෑසන is morning, දහවල් the middle of the day, හවස the late afternoon and සවස the evening proper.
+locale: si
+---
+පාන්දර
+අලුයම
+උදෑසන
+දහවල්
+හවස
+සවස
+රාත්‍රිය
+මධ්‍යම රාත්‍රිය

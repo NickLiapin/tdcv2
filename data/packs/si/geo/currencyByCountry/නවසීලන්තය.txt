@@ -1,0 +1,5 @@
+---
+description: Currency of නවසීලන්තය, in Sinhala.
+locale: si
+---
+නවසීලන්ත ඩොලරය

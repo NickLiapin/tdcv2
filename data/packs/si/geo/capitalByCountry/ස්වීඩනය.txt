@@ -1,0 +1,5 @@
+---
+description: Capital of ස්වීඩනය, in Sinhala.
+locale: si
+---
+ස්ටොක්හෝම්

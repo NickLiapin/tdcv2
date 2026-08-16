@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the නැගෙනහිර ආසියානු ancestry group, in Sinhala.
+locale: si
+---
+ලැක්ටෝස් නොඉවසීම
+ඇල්ඩිහයිඩ් ඩිහයිඩ්‍රොජිනේස් ඌනතාව
+ආමාශ පිළිකාව
+නාසෝෆරින්ජියල් පිළිකාව
+ඇල්ෆා තැලසීමියාව

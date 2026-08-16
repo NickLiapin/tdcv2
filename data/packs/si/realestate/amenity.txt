@@ -1,0 +1,26 @@
+---
+description: Property features as a Sinhala listing states them. ළිං ජලය (well water) is a selling point rather than a shortcoming outside the cities, ජනක යන්ත්‍රය (a standby generator) is a real amenity in a country that has known rolling power cuts, and ග්‍රිල් සවි කර ඇත (window grilles fitted) is standard security language.
+locale: si
+---
+ජල නල සම්බන්ධතාවය
+ළිං ජලය
+විදුලිය
+තෙකලා විදුලිය
+ජනක යන්ත්‍රය
+සූර්ය පැනල
+ජල ටැංකිය
+වායු සමීකරණය
+උණු වතුර
+ග්‍රිල් සවි කර ඇත
+ආරක්ෂක සේවා
+CCTV කැමරා
+වාහන නැවතුම
+වාහන ගාලය
+උද්‍යානය
+පිහිනුම් තටාකය
+ව්‍යායාම ශාලාව
+විදුලි සෝපානය
+ගෘහ භාණ්ඩ සහිත
+පාරට ආසන්නයි
+බස් මාර්ගයට ආසන්නයි
+පාසලට ආසන්නයි

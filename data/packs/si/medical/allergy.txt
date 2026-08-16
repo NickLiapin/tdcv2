@@ -1,0 +1,26 @@
+---
+description: Common allergies in Sinhala. කජු, ඉස්සන් and කකුළුවා head the list because cashew and shellfish are ordinary Sri Lankan foods rather than occasional ones, and මී මැස්සන් and බඹරු are here because hornet attacks are a real cause of anaphylaxis in the countryside.
+locale: si
+---
+පෙනිසිලින්
+සල්ෆා ඖෂධ
+ඇස්පිරින්
+කජු
+රටකජු
+ඉස්සන්
+කකුළුවා
+මාළු
+බිත්තර
+එළකිරි
+සෝයා
+තිරිඟු
+ලේටෙක්ස්
+පරාග
+දූවිලි
+දූවිලි මයිටාවන්
+සතුන්ගේ ලොම්
+දිලීර
+මී මැස්සන්
+බඹරු
+කූඹි
+සුවඳ විලවුන්

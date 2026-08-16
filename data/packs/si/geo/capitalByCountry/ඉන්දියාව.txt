@@ -1,0 +1,5 @@
+---
+description: Capital of ඉන්දියාව, in Sinhala.
+locale: si
+---
+නවදිල්ලිය

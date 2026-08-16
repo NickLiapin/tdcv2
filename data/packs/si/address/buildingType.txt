@@ -1,0 +1,36 @@
+---
+description: Building types in Sinhala. TWO ARE SRI LANKAN CATEGORIES RATHER THAN TRANSLATIONS. අනෙක්සිය, the annexe, is a self-contained part of a family house let separately and is one of the commonest rental units in the country — a housing category with no European equivalent. වලව්ව is the ancestral manor house of a landed family, a word that carries social rank rather than architecture. පන්සල (Buddhist temple), දේවාලය (Hindu or devale shrine), පල්ලිය (church) and මුස්ලිම් පල්ලිය (mosque) are listed separately because all four stand in the same street in this country.
+locale: si
+---
+නිවස
+මහල් නිවාසය
+අනෙක්සිය
+බංගලාව
+වලව්ව
+පැල්පත
+ගොඩනැගිල්ල
+කාර්යාලය
+ගබඩාව
+සාප්පුව
+වෙළඳ සංකීර්ණය
+කර්මාන්තශාලාව
+රෝහල
+පාසල
+විශ්වවිද්‍යාලය
+පුස්තකාලය
+හෝටලය
+අවන්හල
+ක්‍රීඩාංගණය
+පන්සල
+දේවාලය
+පල්ලිය
+මුස්ලිම් පල්ලිය
+ආරාමය
+බැංකුව
+තැපැල් කාර්යාලය
+පොලිස් ස්ථානය
+නේවාසිකාගාරය
+ළමා නිවාසය
+වාහන නැවතුම්පොළ
+ගොවි ගෙදර
+කුටිය

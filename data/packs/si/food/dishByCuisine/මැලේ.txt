@@ -1,0 +1,12 @@
+---
+description: Dishes of මැලේ cuisine, in Sinhala.
+locale: si
+---
+නාසි ගොරෙන්
+මී ගොරෙන්
+සැටේ
+රෙන්ඩං
+ලක්සා
+රොටි චනායි
+නාසි ලෙමක්
+වටලප්පන්

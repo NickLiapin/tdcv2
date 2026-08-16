@@ -1,0 +1,47 @@
+---
+description: Countries as SINHALA NAMES THEM, weighted by population in millions, and the parent of geo/capitalByCountry, geo/currencyByCountry and geo/currencyCodeByCountry. These are translations, not transliterations, and the difference is visible: Germany is ජර්මනිය, France is ප්‍රංශය and the Netherlands is නෙදර්ලන්තය, but the country a Sinhala speaker calls ලන්දේසි in the adjective (Dutch) is named for the colonial power, not respelled from English. ශ්‍රී ලංකාව is in the list with the rest of the world rather than at the top, because this is a language file and not a national one; its CAPITAL IS ශ්‍රී ජයවර්ධනපුර කෝට්ටේ AND NOT කොළඹ, which is the commonest single error made about Sri Lanka — Colombo is the commercial capital and the largest city, the legislature sits in Kotte. Sri Lankan cities, districts and provinces belong to the sri_lanka country pack, not here.
+locale: si
+weighted: true
+---
+චීනය,1410
+ඉන්දියාව,1400
+ඇමරිකා එක්සත් ජනපදය,335
+ඉන්දුනීසියාව,275
+පාකිස්තානය,240
+නයිජීරියාව,220
+බ්‍රසීලය,215
+බංග්ලාදේශය,170
+රුසියාව,144
+මෙක්සිකෝව,128
+ජපානය,125
+ෆිලිපීනය,115
+ඊජිප්තුව,110
+වියට්නාමය,99
+තුර්කිය,85
+ජර්මනිය,84
+තායිලන්තය,72
+එක්සත් රාජධානිය,67
+ප්‍රංශය,66
+දකුණු අප්‍රිකාව,60
+ඉතාලිය,59
+දකුණු කොරියාව,52
+ස්පාඤ්ඤය,48
+ආර්ජන්ටිනාව,46
+කැනඩාව,39
+යුක්‍රේනය,38
+පෝලන්තය,37
+සෞදි අරාබිය,36
+මැලේසියාව,33
+නේපාලය,30
+ඕස්ට්‍රේලියාව,26
+ශ්‍රී ලංකාව,22
+නෙදර්ලන්තය,18
+ග්‍රීසිය,10
+පෘතුගාලය,10
+ස්වීඩනය,10
+ස්විට්සර්ලන්තය,9
+සිංගප්පූරුව,6
+නෝර්වේ,5
+නවසීලන්තය,5
+අයර්ලන්තය,5
+මාලදිවයින,1

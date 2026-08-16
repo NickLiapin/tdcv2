@@ -1,0 +1,19 @@
+---
+description: Cuisines as a Sinhala menu names them, and the parent of food/dishByCuisine — the child filenames match these values character for character. ශ්‍රී ලාංකික comes first because it is the default rather than one option among many. දකුණු ඉන්දීය is listed apart from ඉන්දියානු because in Sri Lanka it is a separate everyday category: තෝසෙ, ඉඩ්ලි and වඩේ are eaten island-wide at breakfast and are not thought of as foreign food at all.
+locale: si
+---
+ශ්‍රී ලාංකික
+ඉන්දියානු
+දකුණු ඉන්දීය
+චීන
+ජපන්
+තායි
+ඉතාලි
+ප්‍රංශ
+මෙක්සිකානු
+අරාබි
+කොරියානු
+වියට්නාම
+තුර්කි
+ඇමරිකානු
+මැලේ

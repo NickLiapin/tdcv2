@@ -1,0 +1,16 @@
+---
+description: The twelve LUNAR months of the Sinhala Buddhist calendar, which runs alongside the Gregorian one rather than instead of it. Each is named for the full moon that falls in it, so Duruthu is roughly January, Wesak roughly May, Il roughly November. A Sri Lankan reads both calendars daily: a bank statement is dated in date/month, a temple notice in these. The full-moon PUBLIC HOLIDAYS themselves (Duruthu Poya, Wesak Poya and the rest) are not here — they are gazetted dates and live in the sri_lanka country pack, sri_lanka.holiday. This file holds the month names only.
+locale: si
+---
+දුරුතු
+නවම්
+මැදින්
+බක්
+වෙසක්
+පොසොන්
+ඇසළ
+නිකිණි
+බිනර
+වප්
+ඉල්
+උඳුවප්

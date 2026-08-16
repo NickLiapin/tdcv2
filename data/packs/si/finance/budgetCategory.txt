@@ -1,0 +1,26 @@
+---
+description: Household spending categories in Sinhala. ටියුෂන් IS A STANDING HOUSEHOLD LINE ITEM IN SRI LANKA, not an extra: private tuition classes outside school hours are effectively compulsory for anyone sitting the O/L or A/L, families on modest incomes budget for them ahead of most other discretionary spending, and a Sri Lankan household budget without a tuition line is missing a real cost. දානය හා පින්කම්, alms and merit-making, is likewise a regular planned expense in a Buddhist household rather than occasional charity.
+locale: si
+---
+ආහාර
+නිවාස කුලිය
+විදුලිය
+ජලය
+ගෑස්
+ඉන්ධන
+ප්‍රවාහනය
+දුරකථන
+අන්තර්ජාලය
+අධ්‍යාපනය
+ටියුෂන්
+සෞඛ්‍ය
+ඖෂධ
+ඇඳුම්
+විනෝදාස්වාදය
+ඉතිරි කිරීම්
+ණය ආපසු ගෙවීම
+රක්ෂණය
+දානය හා පින්කම්
+ගෘහ භාණ්ඩ
+නඩත්තු
+උත්සව

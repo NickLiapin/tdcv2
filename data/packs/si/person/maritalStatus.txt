@@ -1,0 +1,11 @@
+---
+description: Marital status as a Sri Lankan Sinhala-language form offers it.
+locale: si
+---
+අවිවාහක
+විවාහක
+දික්කසාද වූ
+වැන්දඹු
+වෙන් වී සිටින
+විවාහ ගිවිස ගත්
+නැවත විවාහ වූ

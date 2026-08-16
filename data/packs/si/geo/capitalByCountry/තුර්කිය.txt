@@ -1,0 +1,5 @@
+---
+description: Capital of තුර්කිය, in Sinhala.
+locale: si
+---
+අන්කාරා

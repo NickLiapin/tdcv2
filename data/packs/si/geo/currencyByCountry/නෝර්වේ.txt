@@ -1,0 +1,5 @@
+---
+description: Currency of නෝර්වේ, in Sinhala.
+locale: si
+---
+නෝර්වීජියානු ක්‍රෝන

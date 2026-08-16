@@ -1,0 +1,5 @@
+---
+description: Capital of ඇමරිකා එක්සත් ජනපදය, in Sinhala.
+locale: si
+---
+වොෂින්ටන් ඩී.සී.

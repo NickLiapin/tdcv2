@@ -1,0 +1,5 @@
+---
+description: Currency of ග්‍රීසිය, in Sinhala.
+locale: si
+---
+යූරෝ

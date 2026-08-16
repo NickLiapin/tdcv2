@@ -1,0 +1,27 @@
+---
+description: Secondary unit designator in Sinhala. බිම් මහල is the ground floor and Sri Lanka counts it as floor zero in the British way, so the first floor is one flight up — an off-by-one that matters for any address containing a floor number.
+locale: si
+---
+කාමරය
+ඒකකය
+මහල
+බිම් මහල
+පළමු මහල
+දෙවන මහල
+ඉහළ මහල
+ගොඩනැගිල්ල
+මහල් නිවාසය
+අනෙක්සිය
+කොටස
+අංශය
+ශාලාව
+කුටිය
+පසුපස කොටස
+ඉදිරිපස කොටස
+වාහන ගාලය
+ගබඩාව
+තට්ටුව
+කඩ කාමරය
+කුලී කාමරය
+නේවාසික කාමරය
+ලේඛන ගබඩාව

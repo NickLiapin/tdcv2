@@ -1,0 +1,30 @@
+---
+description: Garments in Sinhala. THE FIRST FIVE ARE SRI LANKAN AND HAVE NO EUROPEAN EQUIVALENT. සරම, the sarong, is what a very large share of Sri Lankan men actually wear at home and in the village — it is ordinary clothing, not costume. රෙද්ද හැට්ට is the cloth-and-jacket the older village woman wears; ඔසරිය is the Kandyan drape of the saree, cut and worn differently from the Indian සාරිය beside it; ආර්ය සිංහල ඇඳුම is the men's national dress worn to weddings and to parliament. The rest are the shirt-and-trousers vocabulary, mostly English loans in Sinhala script.
+locale: si
+---
+සරම
+සාරිය
+ඔසරිය
+රෙද්ද හැට්ට
+ආර්ය සිංහල ඇඳුම
+කමිසය
+ටී ෂර්ට්
+කලිසම
+කොට කලිසම
+ගවුම
+සායක
+බ්ලවුසය
+ජැකට්ටුව
+කබාය
+ස්වීටරය
+යට කමිසය
+යට ඇඳුම
+මේස්
+සපත්තු
+සෙරෙප්පු
+තොප්පිය
+සළුව
+පට්ටිය
+ටයි පටිය
+නිල ඇඳුම
+පාසල් නිල ඇඳුම

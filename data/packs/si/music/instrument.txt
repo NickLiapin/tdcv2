@@ -1,0 +1,35 @@
+---
+description: Instruments in Sinhala. THE DRUMS ARE THE POINT AND THEY ARE REGIONAL, NOT GENERIC. ගැටබෙරය is the Kandyan drum of the up-country dance, යක්බෙරය the two-headed low-country drum of the devil-dance rituals, දවුල the processional drum of a perahera, තම්මැට්ටම the paired kettle drums played with sticks, උඩැක්කිය the hourglass hand drum, and රබාන the flat frame drum a family plays together at new year. A single word for "drum" throws all of that away. හොරණෑව is the shawm that plays with them; තාලම්පොට the small cymbals that keep time.
+locale: si
+---
+ගැටබෙරය
+යක්බෙරය
+දවුල
+තම්මැට්ටම
+උඩැක්කිය
+රබාන
+බෙරය
+හොරණෑව
+තාලම්පොට
+හක්ගෙඩිය
+නලාව
+වීණාව
+සිතාරය
+තබ්ලා
+මෘදංගම්
+හාර්මෝනියම්
+ගිටාරය
+බාස් ගිටාරය
+වයලීනය
+පියානෝව
+කීබෝඩ්
+ඕගනය
+ෆ්ලූට්
+ක්ලැරිනට්
+සැක්සෆෝන්
+ට්‍රම්පට්
+ට්‍රොම්බෝන්
+ඩ්‍රම් කට්ටලය
+මැන්ඩලින්
+උකුලේලේ
+ඇකෝඩියන්

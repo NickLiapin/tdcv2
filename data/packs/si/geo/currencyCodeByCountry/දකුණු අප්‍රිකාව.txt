@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of දකුණු අප්‍රිකාව.
+locale: si
+---
+ZAR

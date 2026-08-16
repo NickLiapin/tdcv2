@@ -1,0 +1,5 @@
+---
+description: Currency of ජර්මනිය, in Sinhala.
+locale: si
+---
+යූරෝ

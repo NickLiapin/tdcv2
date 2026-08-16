@@ -1,0 +1,15 @@
+---
+description: Streaming services. Brand names in Latin script. Note the list is short by European standards for a real reason: several global services are not licensed in Sri Lanka, YouTube carries most local content, and a large share of Sinhala film and teledrama viewing is still broadcast television rather than streaming.
+locale: si
+---
+YouTube
+Netflix
+Amazon Prime Video
+Disney+ Hotstar
+Apple TV+
+Spotify
+SoundCloud
+Facebook Watch
+TikTok
+Dialog ViU
+Peo TV

@@ -1,0 +1,5 @@
+---
+description: Capital of කැනඩාව, in Sinhala.
+locale: si
+---
+ඔටාවා

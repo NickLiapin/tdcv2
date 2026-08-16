@@ -1,0 +1,9 @@
+---
+description: Playing roles in එල්ලේ (Elle), the indigenous Sri Lankan bat-and-ball game. THIS LIST IS DELIBERATELY SHORT. Elle is played in village and school leagues and its role vocabulary is spoken rather than codified — there is no published standard set of Sinhala position names as there is for cricket — so only the roles that are unambiguous are listed here. Padding it out with plausible-looking terms would put invented vocabulary into a data pack, which is worse than a short list.
+locale: si
+---
+පිතිකරු
+පන්දු දමන්නා
+පිටියේ රකින්නා
+දුවන්නා
+නායකයා

@@ -1,0 +1,10 @@
+---
+description: Credit standing bands in Sinhala. These are the WORDS; the numeric score itself is issued in Sri Lanka by a single national bureau and its range is an institution, so it belongs in a country pack rather than here.
+locale: si
+---
+ඉතා දුර්වල
+දුර්වල
+සාමාන්‍ය
+හොඳ
+ඉතා හොඳ
+විශිෂ්ට

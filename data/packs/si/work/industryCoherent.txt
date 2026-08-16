@@ -1,0 +1,14 @@
+---
+description: Industry sectors and the parent of work/jobByIndustry — the child filenames match these character for character. THE LIST IS SRI LANKA'S ECONOMY, NOT A GENERIC ONE: ඇඟලුම් නිෂ්පාදනය (apparel) is the country's biggest manufactured export and its biggest formal-sector employer of women, and වැවිලි කර්මාන්තය (the tea, rubber and coconut plantations) is the sector that shaped the hill country. Both would be missing from a translated European list, and both employ more people here than technology does.
+locale: si
+---
+තොරතුරු තාක්ෂණය
+සෞඛ්‍ය
+මූල්‍ය
+ඉදිකිරීම්
+අධ්‍යාපනය
+සංචාරක හා සත්කාරක
+ඇඟලුම් නිෂ්පාදනය
+වැවිලි කර්මාන්තය
+ප්‍රවාහන
+නීතිය

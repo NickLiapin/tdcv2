@@ -1,0 +1,34 @@
+---
+description: The tail of a Sri Lankan company name. THE LEGAL FORMS ARE WRITTEN IN ENGLISH EVEN ON SINHALA SIGNAGE — (Pvt) Ltd and PLC are what the Registrar of Companies issues and what goes on the letterhead, so they are kept in Latin here rather than transliterated. The trade words below them (Traders, Stores, Enterprises, Agencies, Industries, Holdings) are how a great many Sri Lankan firms are actually named, and the Sinhala forms are used by cooperatives, societies and state bodies.
+locale: si
+---
+(Pvt) Ltd
+PLC
+Ltd
+Traders
+Stores
+Enterprises
+Agencies
+Industries
+Holdings
+Constructions
+Exports
+Imports
+Investments
+Group
+Company
+සමාගම
+පුද්ගලික සමාගම
+පොදු සමාගම
+හවුල් ව්‍යාපාරය
+තනි හිමිකාරිත්වය
+සමූපකාර සමිතිය
+සංගමය
+පදනම
+අරමුදල
+ආයතනය
+මණ්ඩලය
+නීතිගත සංස්ථාව
+වෙළඳසැල
+ගොවි සංවිධානය
+මහ බැංකුව

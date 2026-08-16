@@ -1,0 +1,5 @@
+---
+description: Currency of සිංගප්පූරුව, in Sinhala.
+locale: si
+---
+සිංගප්පූරු ඩොලරය

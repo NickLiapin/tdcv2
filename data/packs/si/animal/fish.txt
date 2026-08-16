@@ -1,0 +1,24 @@
+---
+description: Fish and seafood in Sinhala, as named on a Sri Lankan market slab. හුරුල්ලා, කෙලවල්ලා and සාලයා are the cheap pelagic fish a household eats several times a week; තලපත් and බලයා are the expensive ones; ඉස්සා, කකුළුවා, දැල්ලා and පොකිරිස්සා are shellfish rather than fish but sit on the same slab and in the same word-field. ලූලා and තිලාපියා come from inland tanks, not the sea.
+locale: si
+---
+හුරුල්ලා
+කෙලවල්ලා
+සාලයා
+බලයා
+තලපත්
+මෝරා
+පරව්
+ලින්නා
+කුම්බලාවා
+හඳල්ලා
+ලූලා
+තිලාපියා
+මාගුරා
+අංකුට්ටා
+ඉස්සා
+කකුළුවා
+දැල්ලා
+පොකිරිස්සා
+මුහුදු මාළු
+දිය මාළු

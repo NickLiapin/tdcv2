@@ -1,0 +1,5 @@
+---
+description: Capital of වියට්නාමය, in Sinhala.
+locale: si
+---
+හැනෝයි

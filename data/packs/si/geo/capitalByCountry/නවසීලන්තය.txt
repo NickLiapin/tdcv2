@@ -1,0 +1,5 @@
+---
+description: Capital of නවසීලන්තය, in Sinhala.
+locale: si
+---
+වෙලින්ටන්

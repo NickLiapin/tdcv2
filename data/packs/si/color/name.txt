@@ -1,0 +1,58 @@
+---
+description: Colour names in Sinhala. THE NATIVE PALETTE IS SMALL AND MADE OF OBJECTS: කොළ (green) is literally "leaf", තැඹිලි (orange) is the king coconut, රන්වන් is "gold-coloured", දුඹුරු, කළු, සුදු, රතු, නිල්, කහ and දම් round out the basic terms, and shades are built with තද- "dark" and ලා- "light" rather than with separate words. Everything beyond that basic set is an English loan written in Sinhala script — which is not sloppiness but how the modern language names paint chips and product colours.
+locale: si
+---
+රතු
+තද රතු
+ලා රතු
+නිල්
+තද නිල්
+ලා නිල්
+අහස් නිල්
+කොළ
+තද කොළ
+ලා කොළ
+කහ
+තැඹිලි
+දම්
+ලා දම්
+රෝස
+ලා රෝස
+සුදු
+කළු
+අළු
+තද අළු
+ලා අළු
+දුඹුරු
+තද දුඹුරු
+ලා දුඹුරු
+රන්වන්
+රිදී වන්
+තඹ පැහැ
+මරකත කොළ
+මුතු සුදු
+ක්‍රීම්
+බෙජ්
+මැජෙන්ටා
+ඉන්දිගෝ
+වයලට්
+ලැවෙන්ඩර්
+පීච්
+කොරල්
+සැමන්
+බර්ගන්ඩි
+මැරූන්
+ඔලිව්
+කාකි
+ටර්කොයිස්
+සයන්
+ලයිම්
+මින්ට්
+චොක්ලට්
+කෝපි පැහැ
+වයින් පැහැ
+අළු නිල්
+පිත්තල පැහැ
+ලෝකඩ පැහැ
+ගඩොල් පැහැ
+වැලි පැහැ

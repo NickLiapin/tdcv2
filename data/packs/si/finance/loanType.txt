@@ -1,0 +1,16 @@
+---
+description: Loan products in Sinhala. රන් උකස් ණය — PAWNING GOLD — is a mainstream retail credit product in Sri Lanka and not a distress signal: licensed banks run pawning counters, a household pledges jewellery for a short-term advance and redeems it, and the balance moves with the gold price. Any credit model built on European product mixes will have no slot for it. ලීසිං is likewise how nearly every vehicle is bought here.
+locale: si
+---
+නිවාස ණය
+වාහන ණය
+ලීසිං
+පුද්ගලික ණය
+රන් උකස් ණය
+අධ්‍යාපන ණය
+ව්‍යාපාරික ණය
+කෘෂිකාර්මික ණය
+ක්ෂුද්‍ර ණය
+කාඩ්පත් ණය
+අත්තිකාරම්
+කෙටි කාලීන ණය

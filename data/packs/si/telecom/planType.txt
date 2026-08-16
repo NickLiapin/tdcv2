@@ -1,0 +1,16 @@
+---
+description: Mobile and broadband plans in Sinhala. PREPAID IS THE NORM, NOT THE BUDGET OPTION: the great majority of Sri Lankan mobile connections are පෙරගෙවුම්, topped up in small amounts at a corner shop, and a model that treats postpaid as the default will mis-shape the whole customer table. රාත්‍රී දත්ත පැකේජය, the night-time data bundle, is a distinctive local product — cheap data between about midnight and dawn, sold precisely because the daytime network is congested.
+locale: si
+---
+පෙරගෙවුම්
+පසුගෙවුම්
+දත්ත පැකේජය
+අසීමිත දත්ත
+රාත්‍රී දත්ත පැකේජය
+දෛනික දත්ත පැකේජය
+මාසික දත්ත පැකේජය
+කථන පැකේජය
+SMS පැකේජය
+පවුල් පැකේජය
+ව්‍යාපාරික පැකේජය
+ජාත්‍යන්තර රෝමිං

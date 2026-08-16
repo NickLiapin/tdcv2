@@ -1,0 +1,31 @@
+---
+description: Diagnoses for a female patient row — the female-only conditions plus common ones, mixed. Where a config needs strictly female-only conditions it should draw medical/diagnosisFemale instead.
+locale: si
+---
+ගර්භාෂ ගෙඩි
+බහු ඩිම්බ කෝෂ සින්ඩ්‍රෝමය
+එන්ඩොමෙට්‍රියෝසිස්
+පියයුරු පිළිකාව
+ගැබ්ගෙල පිළිකාව
+ඔසප් අක්‍රමිකතාව
+ගර්භණී දියවැඩියාව
+ප්‍රසව පසු අවපීඩනය
+රක්තහීනතාව
+ඩෙංගු උණ
+දියවැඩියාව
+අධි රුධිර පීඩනය
+තයිරොයිඩ් අඩු ක්‍රියාකාරිත්වය
+ඔස්ටියොපොරෝසිස්
+රූමැටොයිඩ් ආතරයිටිස්
+ඉරුවාරදය
+මානසික අවපීඩනය
+කාංසාව
+මුත්‍රා ආසාදනය
+පිත්තාශ ගල්
+ඇදුම
+තැලසීමියාව
+ඇසේ සුද
+දිලීර ආසාදනය
+මලබද්ධය
+තරබාරුකම
+පිටුපස වේදනාව

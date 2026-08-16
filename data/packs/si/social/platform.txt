@@ -1,0 +1,20 @@
+---
+description: Social platforms. Brand names in Latin script. FACEBOOK LEADS BY A LONG WAY IN SRI LANKA — for a large part of the population it is what "the internet" means — and Viber and IMO sit unusually high because they are the cheap-call apps used between families here and the more than a million Sri Lankans working in the Gulf.
+locale: si
+---
+Facebook
+WhatsApp
+YouTube
+TikTok
+Instagram
+Viber
+IMO
+Messenger
+Telegram
+X
+LinkedIn
+Snapchat
+Pinterest
+Reddit
+Discord
+Threads

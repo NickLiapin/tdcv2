@@ -1,0 +1,19 @@
+---
+description: Weather and geophysical events that ACTUALLY HAPPEN IN SRI LANKA. නායයෑම් (landslides) and ගංවතුර (floods) are the island's two costliest hazards and both follow the monsoon; සුළි කුණාටු (cyclones) come out of the Bay of Bengal; සුනාමිය is in the list because of 2004, which killed more than thirty thousand people here. SNOW IS DELIBERATELY ABSENT: Sinhala has the word හිම, but no snow has ever been recorded on the island, so putting it in a weather list would describe a place that does not exist. පිනි, dew, is the closest the hill country gets.
+locale: si
+---
+මෝසම
+ගිගුරුම්
+අකුණු
+ගංවතුර
+නායයෑම්
+නියඟය
+සුළි කුණාටුව
+කුණාටුව
+මුහුදු රළු වීම
+සුනාමිය
+මිහිකම්පාව
+මීදුම
+පිනි
+උණුසුම් රැල්ල
+දූවිලි කුණාටුව

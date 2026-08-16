@@ -1,0 +1,23 @@
+---
+description: Property types in a Sri Lankan Sinhala listing. අනෙක්සිය, the annexe, is a separate rental category here — a self-contained wing of a family house with its own door — and it is what a great many young professionals in Colombo actually rent. වලව්ව is the ancestral manor of a landed family and is advertised as such. Note that land is priced BY THE PERCH: see commerce/unitOfMeasure.txt.
+locale: si
+---
+නිවසක්
+මහල් නිවාසයක්
+අනෙක්සියක්
+කුලී කාමරයක්
+බංගලාවක්
+වලව්වක්
+දෙමහල් නිවසක්
+ඉඩමක්
+නිර්මාණය කළ ඉඩමක්
+කුඹුරක්
+වතුයායක්
+තේ වත්තක්
+පොල් වත්තක්
+වාණිජ ගොඩනැගිල්ලක්
+කඩ කාමරයක්
+කාර්යාලයක්
+ගබඩාවක්
+කර්මාන්තශාලාවක්
+නේවාසිකාගාරයක්

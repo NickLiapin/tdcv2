@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the ස්වදේශික ඇමරිකානු ancestry group, in Sinhala.
+locale: si
+---
+දෙවන වර්ගයේ දියවැඩියාව
+තරබාරුකම
+පිත්තාශ ගල්
+මධ්‍යසාර පරායත්තතාව
+රූමැටොයිඩ් ආතරයිටිස්

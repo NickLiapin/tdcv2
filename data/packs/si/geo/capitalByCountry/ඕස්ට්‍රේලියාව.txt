@@ -1,0 +1,5 @@
+---
+description: Capital of ඕස්ට්‍රේලියාව, in Sinhala.
+locale: si
+---
+කැන්බරා

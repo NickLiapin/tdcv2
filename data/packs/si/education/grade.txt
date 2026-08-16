@@ -1,0 +1,16 @@
+---
+description: Grades as a Sri Lankan result sheet prints them. THIS IS NOT THE A-F SCALE AND MAPPING IT TO ONE WILL BE WRONG. The national examinations grade A (distinction), B (very good pass), C (credit pass), S (ordinary pass) and W (weak — a fail): there is no D, no E and no F, and S is a PASS, which is the trap, because a Western reader sees S and reads it as something between C and F. The four class labels below are the degree classification a Sri Lankan university awards on top of that.
+locale: si
+---
+A
+B
+C
+S
+W
+ප්‍රථම පන්තිය
+දෙවන පන්තිය ඉහළ
+දෙවන පන්තිය පහළ
+සාමාන්‍ය සමත්
+අසමත්
+නොපෙනී සිටියේය
+විශිෂ්ට සාමාර්ථය

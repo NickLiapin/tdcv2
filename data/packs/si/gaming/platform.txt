@@ -1,0 +1,15 @@
+---
+description: Gaming platforms. Kept in Latin script — a console name is a brand and appears that way in Sri Lanka too.
+locale: si
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Android
+iOS
+Steam Deck
+Web
+Arcade

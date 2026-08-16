@@ -1,0 +1,11 @@
+---
+description: Cable conduit types in Sinhala.
+locale: si
+---
+PVC නාලිකාව
+යකඩ නාලිකාව
+නම්‍යශීලී නාලිකාව
+කේබල් ට්‍රේ
+බිම් යටි කුහරය
+බිත්ති නාලිකාව
+කේබල් අගල

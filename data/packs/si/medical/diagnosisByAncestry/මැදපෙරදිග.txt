@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the මැදපෙරදිග ancestry group, in Sinhala.
+locale: si
+---
+බීටා තැලසීමියාව
+පවුල් මධ්‍යධරණී උණ
+G6PD ඌනතාව
+දියවැඩියාව
+නෑකම් සහිත විවාහ ආශ්‍රිත ජාන ආබාධ

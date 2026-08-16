@@ -1,0 +1,22 @@
+---
+description: Honorifics and post-nominals that FOLLOW a Sinhala name. THE EVERYDAY SINHALA HONORIFIC IS A SUFFIX, NOT A PREFIX: නිමල් පෙරේරා මහතා, never මහතා නිමල් පෙරේරා. මහතා is Mr, මහත්මිය a married woman, මෙනවිය an unmarried one, and මහත්මයා/මැතිනිය are the raised-register variants used in speeches and citations. A config that concatenates person.prefix + name will produce correct Sinhala only for the doctorate and clergy titles in that file; for the ordinary courtesy title it must append from this one. The academic post-nominals below are written in Latin script on a Sinhala CV exactly as shown.
+locale: si
+---
+මහතා
+මහත්මිය
+මෙනවිය
+මහත්මයා
+මැතිනිය
+මයා
+BSc
+MSc
+MA
+PhD
+MBBS
+MD
+LLB
+MBA
+BEng
+AAT
+CIMA
+ACCA

@@ -1,0 +1,21 @@
+---
+description: Shoe size on the UK SCALE, which is what a Sri Lankan shoebox prints. This is a British colonial inheritance and not a European one: Sri Lanka took UK sizing along with UK paper sizes and UK plugs, so a size 8 here is a UK 8 and roughly a EU 42, and reading these numbers as European sizes puts every foot in the dataset two sizes too small. Larger shops print the EU number underneath in smaller type; the number a customer says out loud is this one.
+locale: si
+---
+3
+3.5
+4
+4.5
+5
+5.5
+6
+6.5
+7
+7.5
+8
+8.5
+9
+9.5
+10
+11
+12

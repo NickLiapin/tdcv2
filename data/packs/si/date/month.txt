@@ -1,0 +1,16 @@
+---
+description: Gregorian month names in Sinhala. These are the months of civil, school and business life; the traditional lunar months Sri Lanka also runs are in date/monthLunar.txt.
+locale: si
+---
+ජනවාරි
+පෙබරවාරි
+මාර්තු
+අප්‍රේල්
+මැයි
+ජූනි
+ජූලි
+අගෝස්තු
+සැප්තැම්බර්
+ඔක්තෝබර්
+නොවැම්බර්
+දෙසැම්බර්

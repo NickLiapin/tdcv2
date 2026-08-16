@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the අග්නිදිග ආසියානු ancestry group, in Sinhala.
+locale: si
+---
+ඇල්ෆා තැලසීමියාව
+හීමොග්ලොබින් E රෝගය
+G6PD ඌනතාව
+ලැක්ටෝස් නොඉවසීම
+තැලසීමියා වාහකත්වය

@@ -1,0 +1,5 @@
+---
+description: Capital of ආර්ජන්ටිනාව, in Sinhala.
+locale: si
+---
+බුවනෝස් අයර්ස්

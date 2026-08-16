@@ -1,0 +1,26 @@
+---
+description: Birds in Sinhala. වන කුකුළා, the Sri Lanka junglefowl, is the national bird and is endemic to the island; මොණරා (peacock) walks through gardens in the dry zone; කොහා, the koel, is the bird of the April new year and its call is what tells a Sinhala household that Avurudu is close.
+locale: si
+---
+කපුටා
+කොහා
+මොණරා
+ගිරවා
+කොකා
+උකුස්සා
+බකමූණා
+පරෙවියා
+ලිහිණියා
+වටුවා
+දෙමලිච්චා
+පොල්කිච්චා
+කිරලා
+මයිනා
+වන කුකුළා
+තාරාවා
+හංසයා
+පිළිහුඩුවා
+කුරුල්ලා
+ගොම්බෙල්ලා
+රත් කුරුල්ලා
+මාළු කොකා

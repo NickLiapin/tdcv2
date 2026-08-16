@@ -1,0 +1,12 @@
+---
+description: MONTHLY household income band in SRI LANKAN RUPEES (LKR), written the way a Sinhala form writes money: රු. before the figure, thousands separated by commas, and the band read monthly rather than annually because that is how salary and household-survey questions are put in Sri Lanka. The bands are set around the national picture, not a European one — a public-sector graduate entry sits in the රු. 50,000-75,000 band.
+locale: si
+---
+රු. 25,000ට අඩු
+රු. 25,000 - 50,000
+රු. 50,000 - 75,000
+රු. 75,000 - 100,000
+රු. 100,000 - 150,000
+රු. 150,000 - 250,000
+රු. 250,000 - 500,000
+රු. 500,000ට වැඩි

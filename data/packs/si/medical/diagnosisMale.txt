@@ -1,0 +1,16 @@
+---
+description: Diagnoses requiring male anatomy — they cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: si
+---
+සුවපත් පුරස්ථි ග්‍රන්ථි විශාල වීම
+පුරස්ථි ග්‍රන්ථි ආසාදනය
+පුරස්ථි ග්‍රන්ථි පිළිකාව
+වෘෂණ පිළිකාව
+වෘෂණ ඇඹරීම
+වරිකෝසීල්
+හයිඩ්‍රොසීල්
+එපිඩිඩිමයිටිස්
+වෘෂණ බැස නොයාම
+ෆයිමෝසිස්
+බැලනයිටිස්
+පුරුෂ වඳභාවය

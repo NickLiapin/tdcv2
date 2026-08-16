@@ -1,0 +1,24 @@
+---
+description: Religions as Sinhala names them. ථේරවාද බුද්ධාගම is listed separately from බුද්ධාගම because the distinction is load-bearing here: Sri Lanka is the oldest continuously Buddhist country, the Pali canon was first committed to writing on this island in the first century BCE, and the Buddhism of the Sinhalese is Theravada specifically — not the Mahayana of East Asia. Note also that කතෝලික is counted apart from ක්‍රිස්තියානි in the Sri Lankan census rather than folded into it, so a religion field here legitimately has both.
+locale: si
+---
+බුද්ධාගම
+ථේරවාද බුද්ධාගම
+මහායාන බුද්ධාගම
+හින්දු ආගම
+ඉස්ලාම්
+කතෝලික ආගම
+ක්‍රිස්තියානි ආගම
+යුදෙව් ආගම
+සීක් ආගම
+ජෛන ආගම
+සොරොස්ට්‍රියානු ආගම
+බහායි
+ෂින්ටෝ
+තාඕ ආගම
+කොන්ෆියුෂස් ධර්මය
+ස්වදේශික ඇදහීම්
+නිරාගමික
+අඥේයවාදී
+දේවවාදී නොවන
+ලෞකික

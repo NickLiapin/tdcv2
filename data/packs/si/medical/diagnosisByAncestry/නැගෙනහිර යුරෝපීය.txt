@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the නැගෙනහිර යුරෝපීය ancestry group, in Sinhala.
+locale: si
+---
+සිස්ටික් ෆයිබ්‍රෝසිස්
+ෆීනයිල්කීටෝනියුරියා
+හීමොක්‍රොමැටෝසිස්
+සෙලියැක් රෝගය
+විල්සන් රෝගය

@@ -1,0 +1,32 @@
+---
+description: Spices in Sinhala. කුරුඳු IS SRI LANKAN IN A WAY NOTHING ELSE IN THIS PACK IS: true cinnamon, Cinnamomum verum, is native to this island and Sri Lanka still grows the overwhelming majority of the world's supply — what most countries sell as cinnamon is cassia, a different tree. එනසාල් (cardamom), ගම්මිරිස් (pepper) and කරාබුනැටි (cloves) are the rest of the spice trade the Portuguese and Dutch came for. ගොරකා (goraka, Garcinia) and රම්පේ (pandan) have no European counterpart at all, and තුනපහ, curry powder, exists in a raw and a roasted form that are not interchangeable — the roasted one is what makes a black curry black.
+locale: si
+---
+කුරුඳු
+කරාබුනැටි
+සාදික්කා
+වසාවාසි
+එනසාල්
+ගම්මිරිස්
+කහ
+කොත්තමල්ලි
+සූදුරු
+මාදුරු
+උළුහාල්
+අබ
+රම්පේ
+සේර
+කරපිංචා
+ගොරකා
+සියඹලා
+ඉඟුරු
+මිරිස් කුඩු
+කොච්චි මිරිස්
+තුනපහ
+බැදපු තුනපහ
+වදකහ
+ලුණු
+කුරුඳු කොළ
+ඉඟුරු කුඩු
+සුදු ලූනු කුඩු
+මාළු මිරිස්

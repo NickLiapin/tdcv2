@@ -1,0 +1,5 @@
+---
+description: Currency of ඕස්ට්‍රේලියාව, in Sinhala.
+locale: si
+---
+ඕස්ට්‍රේලියානු ඩොලරය

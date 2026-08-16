@@ -1,0 +1,5 @@
+---
+description: Capital of දකුණු කොරියාව, in Sinhala.
+locale: si
+---
+සෝල්

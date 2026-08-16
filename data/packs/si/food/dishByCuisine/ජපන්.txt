@@ -1,0 +1,12 @@
+---
+description: Dishes of ජපන් cuisine, in Sinhala.
+locale: si
+---
+සුෂි
+සෂිමි
+රාමන්
+ටෙම්පුරා
+උඩොන්
+මිසෝ සුප්
+යකිතෝරි
+ඔනිගිරි

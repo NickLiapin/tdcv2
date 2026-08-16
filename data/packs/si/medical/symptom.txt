@@ -1,0 +1,42 @@
+---
+description: Presenting complaints in Sinhala, as a patient states them. The first four are what an outpatient department here hears all day, and the dengue triad — high fever, retro-orbital pain, joint and muscle ache — is recognised on sight by any Sri Lankan clinician in the season.
+locale: si
+---
+උණ
+හිසරදය
+ඇස් පිටුපස වේදනාව
+සන්ධි වේදනාව
+මාංශ පේශි වේදනාව
+කැස්ස
+උගුරේ අමාරුව
+නාසය හලනය
+හුස්ම ගැනීමේ අපහසුව
+පපුවේ වේදනාව
+උදර වේදනාව
+වමනය
+ඔක්කාරය
+පාචනය
+මලබද්ධය
+කරකැවිල්ල
+වෙහෙස
+ක්ලාන්තය
+ආහාර රුචිය නැතිවීම
+බර අඩු වීම
+බර වැඩි වීම
+කැසීම
+දද පිපීම
+ඉදිමීම
+රුධිර වහනය
+මුත්‍රා දැවිල්ල
+මුත්‍රා අඩු වීම
+නින්ද නොයාම
+මානසික අවපීඩනය
+කාංසාව
+දෘෂ්ටිය බොඳ වීම
+කන් රිදීම
+දත් කැක්කුම
+පිටුපස වේදනාව
+බෙල්ලේ වේදනාව
+ලේ පීඩනය ඉහළ යාම
+අධික දහඩිය
+සීතල සිසිලස

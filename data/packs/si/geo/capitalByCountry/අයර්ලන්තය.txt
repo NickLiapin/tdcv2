@@ -1,0 +1,5 @@
+---
+description: Capital of අයර්ලන්තය, in Sinhala.
+locale: si
+---
+ඩබ්ලින්

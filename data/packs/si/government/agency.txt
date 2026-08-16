@@ -1,0 +1,27 @@
+---
+description: Government bodies as Sinhala names them. NAMED HERE RATHER THAN GENERICISED BECAUSE SINHALA HAS ONE COUNTRY — these are Sri Lanka's, and a reader should not have to guess whose. ප්‍රාදේශීය ලේකම් කාර්යාලය (Divisional Secretariat) and the ග්‍රාම නිලධාරී කාර්යාලය (village officer's office) below it are the two layers a citizen actually deals with, and they have no European counterpart: the village officer certifies who you are and where you live before almost any other transaction can proceed.
+locale: si
+---
+සෞඛ්‍ය අමාත්‍යාංශය
+අධ්‍යාපන අමාත්‍යාංශය
+මුදල් අමාත්‍යාංශය
+විදේශ කටයුතු අමාත්‍යාංශය
+ආරක්ෂක අමාත්‍යාංශය
+කෘෂිකර්ම අමාත්‍යාංශය
+ප්‍රවාහන අමාත්‍යාංශය
+දේශීය ආදායම් දෙපාර්තමේන්තුව
+පුද්ගලයන් ලියාපදිංචි කිරීමේ දෙපාර්තමේන්තුව
+ආගමන විගමන දෙපාර්තමේන්තුව
+මෝටර් රථ ප්‍රවාහන දෙපාර්තමේන්තුව
+රේගු දෙපාර්තමේන්තුව
+තැපැල් දෙපාර්තමේන්තුව
+කම්කරු දෙපාර්තමේන්තුව
+ජනලේඛන හා සංඛ්‍යාලේඛන දෙපාර්තමේන්තුව
+දිසා ලේකම් කාර්යාලය
+ප්‍රාදේශීය ලේකම් කාර්යාලය
+ග්‍රාම නිලධාරී කාර්යාලය
+නාගරික සභාව
+ප්‍රාදේශීය සභාව
+මැතිවරණ කොමිෂන් සභාව
+ලංකා විදුලිබල මණ්ඩලය
+ජාතික ජල සම්පාදන හා ජලාපවහන මණ්ඩලය

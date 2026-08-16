@@ -1,0 +1,15 @@
+---
+description: Employment type in Sinhala. විදේශ රැකියා, overseas employment, is a category in its own right here rather than an edge case: well over a million Sri Lankans are employed abroad at any moment, mostly in the Gulf, and their remittances are one of the country's largest sources of foreign exchange — so "employed, not in the country" is an ordinary state for a Sri Lankan record to be in.
+locale: si
+---
+පූර්ණ කාලීන
+අර්ධ කාලීන
+ස්ථිර
+කොන්ත්‍රාත්
+තාවකාලික
+දෛනික
+නිදහස් සේවා
+පුහුණු
+ආධුනිකත්ව
+කාලීන
+විදේශ රැකියා

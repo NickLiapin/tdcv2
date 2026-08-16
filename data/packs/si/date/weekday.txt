@@ -1,0 +1,11 @@
+---
+description: Weekday names in Sinhala, Monday first. EVERY ONE IS A PLANET: ඉරිදා is sun-day, සඳුදා moon-day, අඟහරුවාදා Mars, බදාදා Mercury, බ්‍රහස්පතින්දා Jupiter, සිකුරාදා Venus, සෙනසුරාදා Saturn — the same seven-planet week Sanskrit gave the subcontinent, with -දා "day" glued on. The Sinhala WEEK STARTS ON SUNDAY in calendars, almanacs and horoscopes; this file is Monday-first only to match the shape every other locale pack uses, and DATE_LOCALE.json carries the Sunday-first order the engine wants.
+locale: si
+---
+සඳුදා
+අඟහරුවාදා
+බදාදා
+බ්‍රහස්පතින්දා
+සිකුරාදා
+සෙනසුරාදා
+ඉරිදා

@@ -1,0 +1,5 @@
+---
+description: Currency of යුක්‍රේනය, in Sinhala.
+locale: si
+---
+හ්‍රිව්නියා

@@ -1,0 +1,5 @@
+---
+description: Currency of ප්‍රංශය, in Sinhala.
+locale: si
+---
+යූරෝ

@@ -1,0 +1,30 @@
+---
+description: Book genres in Sinhala. ජාතක කතා (the Jataka tales, the Buddha's previous lives) and බෞද්ධ සාහිත්‍යය are ordinary shelves in a Sri Lankan bookshop rather than religious specialities, and සිංහල නවකතාව, the Sinhala novel, is a category with its own two-hundred-year history.
+locale: si
+---
+සිංහල නවකතාව
+කෙටිකතා
+කවි
+නාට්‍ය
+ජාතක කතා
+බෞද්ධ සාහිත්‍යය
+ආගමික
+ඉතිහාසය
+චරිතාපදානය
+ස්වයං චරිතාපදානය
+ගමන් විස්තර
+දේශපාලනය
+ආර්ථික විද්‍යාව
+විද්‍යාව
+විද්‍යා ප්‍රබන්ධ
+රහස් පරීක්ෂක
+භයානක
+ප්‍රේම කතා
+ළමා සාහිත්‍යය
+තරුණ සාහිත්‍යය
+පරිවර්තන සාහිත්‍යය
+විචාරය
+ශබ්දකෝෂ
+පෙළ පොත්
+ස්වයං සංවර්ධන
+ඉවුම් පිහුම්

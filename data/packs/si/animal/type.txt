@@ -1,0 +1,42 @@
+---
+description: Animals in Sinhala, weighted towards what actually lives on the island. අලියා (the Sri Lankan elephant), දිවියා (the Sri Lankan leopard, the island's apex predator — there are no tigers and no lions here despite the name සිංහල meaning "lion people"), වළහා (sloth bear), ගෝනා (sambar), මී හරකා and කබරගොයා (water monitor, a normal sight in a Colombo canal) are everyday words. Note that Sinhala animal nouns carry an animate ending -ා in the citation form, which is why every one of these ends that way.
+locale: si
+---
+අලියා
+දිවියා
+වළහා
+වඳුරා
+රිලවා
+මුවා
+ගෝනා
+වල් ඌරා
+හාවා
+ලේනා
+මුගටියා
+මී හරකා
+එළදෙන
+ගවයා
+එළුවා
+බැටළුවා
+අශ්වයා
+බල්ලා
+බළලා
+ඌරා
+මීයා
+වවුලා
+කිඹුලා
+නයා
+පොළඟා
+ගැරඬියා
+කැස්බෑවා
+ඉබ්බා
+තලගොයා
+කබරගොයා
+හූනා
+කටුස්සා
+ගෙම්බා
+මකුළුවා
+ගොනුස්සා
+දිය බල්ලා
+තිත් මුවා
+හිවලා

@@ -1,0 +1,20 @@
+---
+description: Sky and air conditions as a Sinhala forecast states them. Sri Lanka never freezes, so there is no frost, sleet or snow condition here; the coldest thing the island reports is පිනි, dew, in the hill country.
+locale: si
+---
+පැහැදිලි අහස
+අව්ව
+තද අව්ව
+අර්ධ වළාකුළු සහිත
+වළාකුළු සහිත
+වැසි
+තද වැසි
+කුඩා වැසි
+ගිගුරුම් සහිත වැසි
+තෙතමනය සහිත
+උණුසුම්
+සිසිල්
+සුළං සහිත
+මීදුම සහිත
+පිනි වැටෙන
+නිසල

@@ -1,0 +1,32 @@
+---
+description: Trees of Sri Lanka in Sinhala. Four carry weight beyond botany: බෝ is the sacred fig, and the Jaya Sri Maha Bodhi at Anuradhapura is the oldest human-planted tree on earth with a known planting date; නා is the national tree; කිතුල් is the fishtail palm tapped for treacle and jaggery; and පොල්, the coconut, is a food, a roof, a rope and a cooking oil at once.
+locale: si
+---
+පොල්
+කොස්
+අඹ
+දෙල්
+නුග
+බෝ
+නා
+සපු
+ඇහැළ
+කුඹුක්
+මාර
+තේක්ක
+මහෝගනී
+දිවුල්
+බෙලි
+මී
+කිතුල්
+තල්
+පුවක්
+කජු
+කුරුඳු
+නෙල්ලි
+මුරුංගා
+එරබදු
+දොඩම්
+දෙහි
+රඹුටන්
+කරඳ

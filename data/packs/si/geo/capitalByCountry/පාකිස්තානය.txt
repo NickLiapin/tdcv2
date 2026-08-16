@@ -1,0 +1,5 @@
+---
+description: Capital of පාකිස්තානය, in Sinhala.
+locale: si
+---
+ඉස්ලාමාබාද්

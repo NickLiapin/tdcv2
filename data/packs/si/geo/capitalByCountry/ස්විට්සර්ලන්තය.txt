@@ -1,0 +1,5 @@
+---
+description: Capital of ස්විට්සර්ලන්තය, in Sinhala.
+locale: si
+---
+බර්න්

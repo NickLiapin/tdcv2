@@ -1,0 +1,11 @@
+---
+description: Sinhala names for the vehicle classes a professional driver is licensed for. The letter codes themselves are Sri Lankan licence classes and live in the sri_lanka country pack; these are the words.
+locale: si
+---
+මෝටර් සයිකල්
+ත්‍රී වීලර්
+මෝටර් රථ
+ලුහුඬු ලොරි
+බර වාහන
+බස් රථ
+ට්‍රැක්ටර්

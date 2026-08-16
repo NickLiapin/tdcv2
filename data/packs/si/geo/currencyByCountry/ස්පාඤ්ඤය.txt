@@ -1,0 +1,5 @@
+---
+description: Currency of ස්පාඤ්ඤය, in Sinhala.
+locale: si
+---
+යූරෝ

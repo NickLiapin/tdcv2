@@ -1,0 +1,16 @@
+---
+description: Kinds of telecom service, in Sinhala. THE NAMED SRI LANKAN OPERATORS ARE DELIBERATELY NOT HERE. There are five of them, they are licensed institutions with numbering ranges and network codes, and by the rule this project keeps between a language pack and a country pack they belong to the sri_lanka pack alongside its phone-number generators — not to the Sinhala language. What a language pack can honestly own is the vocabulary for the kinds of service, which is this list.
+locale: si
+---
+ජංගම දුරකථන ක්‍රියාකරු
+ස්ථාවර දුරකථන සේවාව
+අන්තර්ජාල සේවා සපයන්නා
+ෆයිබර් ජාලය
+ADSL සේවාව
+4G ස්ථාවර සේවාව
+5G ජාලය
+චන්ද්‍රිකා සේවාව
+කේබල් රූපවාහිනී සේවාව
+ජාත්‍යන්තර ඇමතුම් සේවාව
+තොග දත්ත සේවාව
+ආයතනික සම්බන්ධතා සේවාව

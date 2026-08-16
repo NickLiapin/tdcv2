@@ -1,0 +1,13 @@
+---
+description: Content ratings as Sri Lankan broadcast and cinema use them. The Public Performances Board certifies films with U (unrestricted), PG and A (adults only); the Sinhala words below them are what a channel puts on screen before a programme.
+locale: si
+---
+U
+PG
+A
+සියලු දෙනාට
+දෙමාපිය මගපෙන්වීම යටතේ
+වැඩිහිටියන්ට පමණි
+12+
+15+
+18+

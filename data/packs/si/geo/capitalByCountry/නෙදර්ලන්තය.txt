@@ -1,0 +1,5 @@
+---
+description: Capital of නෙදර්ලන්තය, in Sinhala.
+locale: si
+---
+ඈම්ස්ටර්ඩෑම්

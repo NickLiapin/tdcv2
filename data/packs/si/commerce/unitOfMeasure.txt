@@ -1,0 +1,34 @@
+---
+description: Units of measure in Sinhala. THE LAND UNITS ARE THE SRI LANKAN PART. පර්චස් (perch) and අක්කර (acre) are how land is bought, sold and advertised in Sri Lanka to this day — a Colombo property listing is priced per perch, one perch being about 25.3 square metres, and nobody quotes square metres. අඟල් and අඩි (inches and feet) survive alongside the metric units for the same imperial-inheritance reason.
+locale: si
+---
+ග්‍රෑම්
+කිලෝග්‍රෑම්
+මිලිලීටර්
+ලීටර්
+මිලිමීටර්
+සෙන්ටිමීටර්
+මීටර්
+කිලෝමීටර්
+වර්ග අඩි
+වර්ග මීටර්
+පර්චස්
+අක්කර
+හෙක්ටයාර්
+අඟල්
+අඩි
+යාර
+පවුම්
+අවුන්ස්
+ගෙඩිය
+ජෝඩුව
+දුසිම
+කට්ටලය
+මිටිය
+පැකට්
+පෙට්ටිය
+කේස්
+රෝල්
+බෑගය
+බෝතලය
+ටින්

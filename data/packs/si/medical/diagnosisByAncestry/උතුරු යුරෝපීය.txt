@@ -1,0 +1,9 @@
+---
+description: Conditions with a raised prevalence in the උතුරු යුරෝපීය ancestry group, in Sinhala.
+locale: si
+---
+සිස්ටික් ෆයිබ්‍රෝසිස්
+හීමොක්‍රොමැටෝසිස්
+සෙලියැක් රෝගය
+ලැක්ටෝස් ඉවසීම
+චර්ම පිළිකා අවදානම

@@ -1,0 +1,14 @@
+---
+description: Ten specialties used as the parent of medical/diagnosisBySpecialty — the child filenames match these character for character. The wider specialty list is medical/specialty.txt.
+locale: si
+---
+හෘද රෝග
+ස්නායු රෝග
+පිළිකා රෝග
+චර්ම රෝග
+ආමාශ හා අන්ත්‍ර රෝග
+අන්තරාසර්ග රෝග
+පෙනහළු රෝග
+අස්ථි හා සන්ධි ශල්‍ය
+මානසික රෝග
+වකුගඩු රෝග

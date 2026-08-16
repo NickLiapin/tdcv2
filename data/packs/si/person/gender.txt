@@ -1,0 +1,8 @@
+---
+description: Gender as a Sinhala form asks it. පිරිමි / ගැහැණු are the words on a government form; වෙනත් and හෙළි කිරීමට අකැමැතියි appear on newer private-sector and NGO forms only.
+locale: si
+---
+පිරිමි
+ගැහැණු
+වෙනත්
+හෙළි කිරීමට අකැමැතියි

@@ -1,0 +1,24 @@
+---
+description: Legal vocabulary in Sinhala. ඔප්පුව, the notarially executed deed, is the document that proves land ownership here and is drawn by a නොතාරිස්වරයා rather than a solicitor.
+locale: si
+---
+නඩුව
+පැමිණිල්ල
+විත්තිය
+නීතිඥයා
+විනිසුරු
+නොතාරිස්වරයා
+ඇප
+තීන්දුව
+දඬුවම
+අභියාචනය
+සාක්ෂිකරු
+දිවුරුම් ප්‍රකාශය
+උසාවි නියෝගය
+වරෙන්තුව
+ඔප්පුව
+ගිවිසුම
+බලපත්‍රය
+නීති උපදෙස්
+පොලිස් පැමිණිල්ල
+වන්දිය

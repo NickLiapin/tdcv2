@@ -1,0 +1,48 @@
+---
+description: Common Sinhala verbs in the -නවා citation form, which is the SPOKEN register. THIS IS THE DIGLOSSIA IN ONE FILE: the written form of the same verb is different — spoken කනවා "eats" is written කයි, spoken යනවා is written යයි — and written Sinhala also makes the verb agree with its subject in person, number and gender, which spoken Sinhala does not do at all. A dictionary lists the -නවා form, so that is what is here; text/sentence.txt is in the written register and its verbs will therefore not match these forms.
+locale: si
+---
+කනවා
+බොනවා
+යනවා
+එනවා
+බලනවා
+අහනවා
+කියනවා
+දෙනවා
+ගන්නවා
+කරනවා
+දන්නවා
+හිතනවා
+ලියනවා
+කියවනවා
+ඉගෙන ගන්නවා
+උගන්වනවා
+වැඩ කරනවා
+නිදාගන්නවා
+නැගිටිනවා
+ඇවිදිනවා
+දුවනවා
+නවතිනවා
+වාඩි වෙනවා
+හිටගන්නවා
+අඬනවා
+හිනාවෙනවා
+ආදරය කරනවා
+බය වෙනවා
+රිදෙනවා
+සුව වෙනවා
+විකුණනවා
+ගෙවනවා
+මිලදී ගන්නවා
+පදිනවා
+ගමන් කරනවා
+පිහිනනවා
+ගායනා කරනවා
+නටනවා
+ඉවුම් පිහුම් කරනවා
+සෝදනවා
+අස්කරනවා
+හොයනවා
+හම්බවෙනවා
+අමතක වෙනවා

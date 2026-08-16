@@ -1,0 +1,5 @@
+---
+description: Currency of නයිජීරියාව, in Sinhala.
+locale: si
+---
+නයිරා

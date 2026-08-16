@@ -1,0 +1,5 @@
+---
+description: Capital of ජර්මනිය, in Sinhala.
+locale: si
+---
+බර්ලින්

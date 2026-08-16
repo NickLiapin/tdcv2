@@ -1,0 +1,29 @@
+---
+description: Writing systems as Sinhala names them. සිංහල SCRIPT IS AN ABUGIDA of the southern Brahmi line — a consonant carries an inherent vowel and diacritics change it, so there is no such thing as a bare letter and "the first letter of a name" is not a well-defined operation the way it is in Latin. Its ancestor බ්‍රාහ්මී is on this list for a local reason: the cave inscriptions at Mihintale and elsewhere are among the oldest dated Brahmi writing in South Asia. තානා is the script of Dhivehi, Sinhala's nearest living relative. දෙමළ, Tamil script, is the other script of this island and a completely separate system.
+locale: si
+---
+සිංහල
+දෙමළ
+ලතින්
+බ්‍රාහ්මී
+දේවනාගරී
+තානා
+බෙංගාලි
+ගුරුමුඛි
+ගුජරාටි
+ඔඩියා
+තෙළිඟු
+කන්නඩ
+මලයාලම්
+සිංහල අංක
+අරාබි
+හීබ්‍රෑ
+ග්‍රීක
+සිරිලික්
+චීන අකුරු
+කනා
+හංගුල්
+තායි
+ඛමර්
+බුරුම
+ටිබෙට්

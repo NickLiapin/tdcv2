@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood group. Kept in Latin script and international notation, which is what a Sri Lankan blood card, hospital wristband and donor record all print.
+locale: si
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

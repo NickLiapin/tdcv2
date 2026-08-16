@@ -1,0 +1,5 @@
+---
+description: Currency of ස්විට්සර්ලන්තය, in Sinhala.
+locale: si
+---
+ස්විස් ෆ්‍රෑන්කය

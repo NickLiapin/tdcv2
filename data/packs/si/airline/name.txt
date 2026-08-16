@@ -1,0 +1,44 @@
+---
+description: Airline names. KEPT IN LATIN SCRIPT, which is not laziness: an airline name is a brand, and a Sri Lankan ticket, boarding pass and departure board all print it this way. Sinhala prose does transliterate them — ශ්‍රීලංකන් එයාර්ලයින්ස් — but no booking record does. The list is weighted towards the carriers that actually serve Colombo, which is Gulf and South and Southeast Asian rather than transatlantic.
+locale: si
+---
+SriLankan Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+flydubai
+Air Arabia
+Oman Air
+Kuwait Airways
+Saudia
+Gulf Air
+IndiGo
+Air India
+SpiceJet
+Vistara
+Singapore Airlines
+Scoot
+Malaysia Airlines
+AirAsia
+Thai Airways
+Cathay Pacific
+China Eastern
+China Southern
+Cathay Dragon
+Korean Air
+Japan Airlines
+Turkish Airlines
+Aeroflot
+British Airways
+Lufthansa
+KLM
+Air France
+Swiss
+Finnair
+Edelweiss Air
+Qantas
+Ethiopian Airlines
+Kenya Airways
+Biman Bangladesh
+Himalaya Airlines
+Maldivian

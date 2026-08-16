@@ -1,0 +1,12 @@
+---
+description: Clothing size. THE LETTERS STAY IN LATIN SCRIPT even on a garment sold with a Sinhala-language label, because that is what is printed on the tag and what the customer says; transliterating them into Sinhala would produce something no Sri Lankan shop has ever used.
+locale: si
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+ෆ්‍රී සයිස්

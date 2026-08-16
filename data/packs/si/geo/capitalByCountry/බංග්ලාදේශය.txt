@@ -1,0 +1,5 @@
+---
+description: Capital of බංග්ලාදේශය, in Sinhala.
+locale: si
+---
+ඩකා

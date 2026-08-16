@@ -1,0 +1,11 @@
+---
+description: Dishes of ප්‍රංශ cuisine, in Sinhala.
+locale: si
+---
+ක්‍රොසෝං
+බැගට්
+රැටටුයි
+කොක් ඕ වෑන්
+කීෂ්
+ක්‍රෙම් බ්‍රූලේ
+ලූනු සුප්

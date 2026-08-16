@@ -1,0 +1,5 @@
+---
+description: Currency of පාකිස්තානය, in Sinhala.
+locale: si
+---
+පාකිස්තානු රුපියල

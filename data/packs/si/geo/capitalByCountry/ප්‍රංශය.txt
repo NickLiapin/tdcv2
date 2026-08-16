@@ -1,0 +1,5 @@
+---
+description: Capital of ප්‍රංශය, in Sinhala.
+locale: si
+---
+පැරිස්

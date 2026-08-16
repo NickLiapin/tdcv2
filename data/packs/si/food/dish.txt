@@ -1,0 +1,48 @@
+---
+description: Dishes eaten in Sri Lanka, named in Sinhala. බත් සහ කරි — rice with several curries at once — is the meal, eaten at midday and often at night too, and everything else is around it. FOUR THINGS A NON-LOCAL LIST WOULD GET WRONG. කිරිබත්, milk rice, is not a dish but a marker: it is cooked for the first of the month, for a birthday and for the new year, so its presence in a record is a date signal. ආප්ප and ඉඳිආප්ප are breakfast and dinner, not lunch. කොත්තු රොටී is street food made by chopping roti on a griddle and is identified by the noise of it. And තෝසෙ, වඩේ and ඉඩ්ලි sit in this list without being marked foreign, because South Indian food was absorbed here centuries ago.
+locale: si
+---
+බත් සහ කරි
+කිරිබත්
+කොත්තු රොටී
+ආප්ප
+බිත්තර ආප්ප
+ඉඳිආප්ප
+පිට්ටු
+පොල් රොටී
+කුරක්කන් රොටී
+ගොඩම්බා රොටී
+ලවරියා
+ලම්ප්‍රයිස්
+ඇඹුල් තියල්
+කිරි හොදි
+පරිප්පු
+පොල් සම්බෝල
+ලූනු සම්බෝල
+සීනි සම්බෝල
+ගොටුකොළ සම්බෝල
+මල්ලුං
+කුකුල් මස් කරි
+හරක් මස් කරි
+මාළු කරි
+ඉස්සෝ බැදුම
+දැල්ලෝ කරි
+දෙවිල්ඩ් චිකන්
+පොල් සම්බෝල් රොටී
+තෝසෙ
+වඩේ
+ඉඩ්ලි
+බිරියානි
+ෆ්‍රයිඩ් රයිස්
+වටලප්පන්
+කැවුම්
+කොකිස්
+අස්මි
+අලුවා
+අග්ගලා
+මුං කැවුම්
+තලගුලි
+කිරි ටොෆි
+බනිස්
+කිඹුලා බනිස්
+පාන්

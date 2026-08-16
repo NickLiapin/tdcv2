@@ -1,0 +1,16 @@
+---
+description: Kinds of court in Sinhala. SINHALA HAS ESSENTIALLY ONE JURISDICTION, so unlike the Spanish or Portuguese packs this list can name a real hierarchy — Sri Lanka's, from the Supreme Court down through the Court of Appeal, the High Court, the District Court (civil) and the Magistrate's Court (criminal) to the Primary Court. මැදිහත් මණ්ඩලය, the Mediation Board, is a compulsory first stop for many small civil disputes and has no European equivalent; කම්කරු විනිශ්චය සභාව is the labour tribunal.
+locale: si
+---
+ශ්‍රේෂ්ඨාධිකරණය
+අභියාචනාධිකරණය
+මහාධිකරණය
+වාණිජ මහාධිකරණය
+දිසා අධිකරණය
+මහේස්ත්‍රාත් අධිකරණය
+ප්‍රාථමික අධිකරණය
+ළමා අධිකරණය
+කම්කරු විනිශ්චය සභාව
+මැදිහත් මණ්ඩලය
+බදු අභියාචනා කොමිසම
+ග්‍රාම සභාව

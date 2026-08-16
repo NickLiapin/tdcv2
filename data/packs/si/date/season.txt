@@ -1,0 +1,8 @@
+---
+description: SRI LANKA HAS NO FOUR SEASONS AND NO WINTER. It is 7 degrees north of the equator and its year is divided by the MONSOONS, not by temperature — the Department of Meteorology recognises exactly these four periods, and they are what a Sinhala speaker means by the season. නිරිත දිග මෝසම, the southwest monsoon (May-September), soaks the wet zone and the hill country while leaving the north and east dry; ඊසාන දිග මෝසම, the northeast monsoon (December-February), does the reverse. So "the rainy season" is not one date range in Sri Lanka, it is a different one depending on which side of the island you are on. A config that maps a season to a temperature, or that expects spring/summer/autumn/winter, is wrong here rather than merely translated.
+locale: si
+---
+ඊසාන දිග මෝසම
+පළමු අන්තර් මෝසම
+නිරිත දිග මෝසම
+දෙවන අන්තර් මෝසම

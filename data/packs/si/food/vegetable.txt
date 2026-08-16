@@ -1,0 +1,36 @@
+---
+description: Vegetables in Sinhala. කරවිල (bitter gourd) heads the list because bitterness is a wanted flavour here rather than a tolerated one. The leafy greens ගොටුකොළ, මුකුණුවැන්න and කංකුං are eaten raw as මල්ලුං, shredded with coconut, which is why they are named individually rather than as "greens". මඤ්ඤොක්කා (cassava), බතල (sweet potato) and කිරිඅල are starch staples, not side dishes.
+locale: si
+---
+කරවිල
+බණ්ඩක්කා
+වම්බටු
+මෑ කරල්
+බෝංචි
+දඹල
+පතෝල
+පුහුල්
+වට්ටක්කා
+කැකිරි
+පිපිඤ්ඤා
+තක්කාලි
+අල
+බතල
+මඤ්ඤොක්කා
+කිරිඅල
+ලූනු
+රතු ලූනු
+සුදු ලූනු
+මිරිස්
+අමු මිරිස්
+ගෝවා
+කැරට්
+බීට්රූට්
+ලීක්ස්
+රාබු
+නෝකෝල්
+කංකුං
+ගොටුකොළ
+මුකුණුවැන්න
+නිවිති
+කොහිල

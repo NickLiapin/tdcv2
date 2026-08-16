@@ -1,0 +1,41 @@
+---
+description: Technical nouns in Sinhala. Most are twentieth-century coinages built from Sanskrit roots by the Sinhala technical-terms committees, which is why they are transparent compounds rather than loans.
+locale: si
+---
+පරිගණකය
+මෘදුකාංග
+දෘඪාංග
+අන්තර්ජාලය
+ජාලය
+පද්ධතිය
+දත්ත
+දත්ත ගබඩාව
+ගොනුව
+ෆෝල්ඩරය
+මුරපදය
+පරිශීලක නාමය
+සේවාදායකය
+සේවාලාභියා
+ප්‍රොටෝකෝලය
+ලිපිනය
+බෑන්ඩ්විත්
+පික්සලය
+බිට්
+බයිට්
+කේබලය
+ධාරකය
+ඩ්‍රයිවරය
+ෆයර්වෝලය
+අතුරු මුහුණත
+තිරය
+තැටිය
+මතකය
+ප්‍රොසෙසරය
+පරිපථය
+ඇල්ගොරිතමය
+ලූපය
+දෝෂය
+පැකට්ටුව
+වෛරසය
+සංකේතනය
+මුරපොළ
