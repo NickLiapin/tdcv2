@@ -1,0 +1,5 @@
+---
+description: Currency of Қазақстан, as Kazakh names it
+locale: kk
+---
+теңге

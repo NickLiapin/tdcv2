@@ -1,0 +1,11 @@
+---
+description: Number of people in a household. Kazakhstan's average household is larger than the European one — about 3.5 people against roughly 2.2 in the EU, and larger still in the south, where three generations under one roof is ordinary — so a generator drawing uniformly from this list will understate the middle of the distribution.
+locale: kk
+---
+1
+2
+3
+4
+5
+6
+7+

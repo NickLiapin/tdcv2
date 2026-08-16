@@ -1,0 +1,14 @@
+---
+description: Medical specialty, restricted to the ten that carry a diagnosisBySpecialty child list. Each value is the filename of a file in medical/diagnosisBySpecialty/.
+locale: kk
+---
+Кардиология
+Неврология
+Онкология
+Дерматология
+Гастроэнтерология
+Эндокринология
+Пульмонология
+Ортопедия
+Психиатрия
+Нефрология

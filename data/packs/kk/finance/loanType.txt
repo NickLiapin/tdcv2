@@ -1,0 +1,14 @@
+---
+description: Loan product offered by Kazakhstani banks. Бөліп төлеу, the interest-free instalment plan, is listed as a credit product because that is legally what it is, even though a shopper experiences it as a payment method.
+locale: kk
+---
+ипотека
+автонесие
+тұтынушылық несие
+бөліп төлеу
+білім беру несиесі
+кепілді несие
+бизнес несиесі
+микронесие
+несие желісі
+рефинанстау

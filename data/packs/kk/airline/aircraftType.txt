@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Model designations keep their manufacturer spelling in any locale. The Embraer E190 block is what actually serves Kazakhstan's regional network, and the An-2 is still flown here for agricultural and short-strip work long after it left European registers.
+locale: kk
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330
+Airbus A350
+Boeing 737
+Boeing 737 MAX
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+Embraer E170
+Embraer E190
+Bombardier CRJ900
+ATR 72
+De Havilland Dash 8
+Ан-2
+Ту-154
+Як-42
+Ил-76
+Ми-8
+Cessna 208
+Boeing 747
+Airbus A380

@@ -1,0 +1,5 @@
+---
+description: Currency code of Чехия (ISO 4217)
+locale: kk
+---
+CZK

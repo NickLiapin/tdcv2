@@ -1,0 +1,11 @@
+---
+description: Age rating index as Kazakhstani law requires it to be printed. THESE ARE NOT THE MPAA CODES: Kazakhstan's film and broadcast law uses an index printed in the corner of the screen and on the poster — «БА» for a children's audience, «Б» for children generally, «Е» for everyone, then numeric thresholds 14+, 16+, 18+ and 21+. There is no G, PG-13 or R here at all, so a config that emits an American rating for a Kazakhstani title is producing something that would be illegal to print.
+locale: kk
+---
+«БА»
+«Б»
+«Е»
+14+
+16+
+18+
+21+

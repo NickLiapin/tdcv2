@@ -1,0 +1,8 @@
+---
+description: Gender as a Kazakh form asks it. An identity card records жынысы with two values, ер and әйел; the other two are here for datasets that allow a wider answer and are not what the state registry stores.
+locale: kk
+---
+ер
+әйел
+басқа
+көрсетілмеген

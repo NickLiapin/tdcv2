@@ -1,0 +1,5 @@
+---
+description: Capital of Қырғызстан, as Kazakh names it
+locale: kk
+---
+Бішкек

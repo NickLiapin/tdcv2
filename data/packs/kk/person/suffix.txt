@@ -1,0 +1,24 @@
+---
+description: What follows a Kazakh name. The first two entries are the important ones and they are not really suffixes in the English sense: ұлы and қызы attach to the FATHER'S given name to build the patronymic that occupies the middle slot of every official Kazakh record — Ерланұлы, Ерланқызы. The rest are academic degrees and titles, written after the name in a document. THE GENERATIONAL NUMERALS ARE DELIBERATELY ABSENT: Kazakh has no Jr / Sr / II / III convention, because a son is never given his father's name — the patronymic already carries the father, so repeating it would be incoherent. Кіші and үлкен below mean junior and senior in rank or age, not in a naming line.
+locale: kk
+---
+ұлы
+қызы
+PhD
+ғылым кандидаты
+ғылым докторы
+магистр
+бакалавр
+профессор
+доцент
+академик
+м.а.
+кіші
+үлкен
+қажы
+Халық қаһарманы
+Еңбек Ері
+ҚР еңбек сіңірген қайраткері
+ҚР еңбек сіңірген артисі
+Халық әртісі
+зейнеткер

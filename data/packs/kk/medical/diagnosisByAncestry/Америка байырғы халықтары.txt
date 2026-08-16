@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Америка байырғы халықтары ancestry group, in Kazakh.
+locale: kk
+---
+2-типті қант диабеті
+өт тас ауруы
+диабеттік нефропатия
+ревматоидты артрит
+алкогольсіз майлы бауыр ауруы
+метаболикалық синдром

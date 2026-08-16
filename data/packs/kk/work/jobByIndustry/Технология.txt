@@ -1,0 +1,11 @@
+---
+description: Jobs in the Технология industry, in Kazakh
+locale: kk
+---
+бағдарламашы
+деректер ғалымы
+DevOps инженері
+өнім менеджері
+UX дизайнер
+QA инженері
+жүйелік әкімші

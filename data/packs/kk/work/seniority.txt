@@ -1,0 +1,20 @@
+---
+description: Seniority grade. KAZAKHSTAN INHERITED A FIVE-STEP LADDER FROM THE SOVIET CIVIL-SERVICE GRADES AND IT IS STILL WHAT AN OFFICIAL JOB TITLE USES: кіші маман, маман, аға маман, жетекші маман, бас маман — junior, plain, senior, leading, chief. It is a different shape from the Western junior / mid / senior / staff / principal ladder because the fourth and fifth rungs are about scope of responsibility rather than technical depth, and бас is a real rank rather than a flourish. The English-derived management titles at the end of the list are used by private and international companies, so both ladders appear in one labour market and a CV may mix them.
+locale: kk
+---
+тәжірибеші
+стажёр
+кіші маман
+маман
+аға маман
+жетекші маман
+бас маман
+сарапшы
+топ жетекшісі
+сектор меңгерушісі
+бөлім бастығы
+менеджер
+аға менеджер
+департамент директоры
+атқарушы директор
+бас директор

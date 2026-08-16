@@ -1,0 +1,48 @@
+---
+description: Common Kazakh verb, IN THE -У DICTIONARY FORM. Kazakh has no infinitive in the English sense; the form a dictionary lists is the verbal noun in -у, which is simultaneously "to go" and "going". The vowel of the ending is fixed at -у, but every OTHER suffix the verb takes — tense, person, negation — is chosen by vowel harmony, so бару gives барамын but келу gives келемін, and a config building a sentence cannot append one fixed ending.
+locale: kk
+---
+болу
+бару
+келу
+жасау
+істеу
+айту
+алу
+беру
+көру
+білу
+ойлау
+қарау
+қалау
+табу
+айтып беру
+сұрау
+жұмыс істеу
+сезіну
+тырысу
+кету
+шақыру
+салу
+жүру
+ойнау
+жүгіру
+әкелу
+бастау
+жазу
+ұстау
+көтеру
+ашу
+жабу
+үйрену
+өсу
+ұсыну
+есте сақтау
+ұмыту
+тұру
+отыру
+жату
+ішу
+жеу
+ұйықтау
+күлу

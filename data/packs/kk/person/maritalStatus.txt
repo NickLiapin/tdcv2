@@ -1,0 +1,18 @@
+---
+description: Marital status in Kazakh. THE WORD FOR "MARRIED" DIFFERS BY SEX and a config must pick the right one: a man is үйленген, "has taken a wife", while a woman is тұрмыста or тұрмыс құрған, "is in a household" — there is no single sex-neutral verb, and the neutral form some registries use is некеде, "in marriage". The same asymmetry runs through the negatives: бойдақ is a bachelor and is not said of a woman, whose unmarried state is тұрмыс құрмаған. Жесір covers widowed for both.
+locale: kk
+---
+бойдақ
+тұрмыс құрмаған
+үйленген
+тұрмыста
+некеде
+некеде емес
+ажырасқан
+айырылысқан
+жесір
+құда түскен
+айттырылған
+азаматтық неке
+бөлек тұрады
+белгісіз

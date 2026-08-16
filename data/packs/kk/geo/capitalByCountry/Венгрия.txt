@@ -1,0 +1,5 @@
+---
+description: Capital of Венгрия, as Kazakh names it
+locale: kk
+---
+Будапешт

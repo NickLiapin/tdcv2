@@ -1,0 +1,20 @@
+---
+description: Horse breed. THE FIRST FOUR ARE KAZAKHSTAN'S OWN and the reason the category matters here more than in a European locale: the horse is a meat and dairy animal in Kazakhstan as well as a mount, and the native breeds are bred for it. Қазақы жылқы is the base steppe horse; жабы is its heavy meat-and-milk type, which winters outdoors on its own by digging through snow to graze; адай is the light desert type of Mangystau; мұғалжар and құшым are twentieth-century Kazakh breeds developed for the same purpose. A mare kept for қымыз is milked several times a day through the summer, which is a use no European breed list accounts for.
+locale: kk
+---
+қазақы жылқы
+жабы
+адай
+мұғалжар
+құшым
+араб
+ахалтеке
+ағылшын жүйрігі
+дон
+орлов жүйрігі
+фриз
+ауыр жүк жылқысы
+пони
+шетланд понийі
+аппалуза
+мустанг

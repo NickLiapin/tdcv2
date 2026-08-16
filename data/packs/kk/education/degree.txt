@@ -1,0 +1,20 @@
+---
+description: Academic qualification in Kazakhstan. TWO SYSTEMS OVERLAP ON REAL CVs AND BOTH ARE HERE. The Bologna ladder — бакалавр, магистр, PhD — was introduced through the 2000s and is what a graduate under about forty holds. The Soviet ladder — ғылым кандидаты and ғылым докторы, "candidate of sciences" and "doctor of sciences" — was abolished for new awards but the degrees already granted remain valid and are still written on a business card, and ғылым докторы is a higher and rarer thing than a PhD, awarded years into a career. A Kazakhstani academic CV therefore may show a кандидат who is not a PhD and vice versa, and treating the two ladders as one will misrank people.
+locale: kk
+---
+орта білім туралы аттестат
+негізгі орта білім туралы куәлік
+техникалық және кәсіптік білім дипломы
+колледж дипломы
+бакалавр дипломы
+магистр дипломы
+PhD докторы
+бейіні бойынша доктор
+ғылым кандидаты
+ғылым докторы
+медицина докторы
+заң магистрі
+MBA
+резидентура сертификаты
+қайта даярлау куәлігі
+біліктілікті арттыру сертификаты

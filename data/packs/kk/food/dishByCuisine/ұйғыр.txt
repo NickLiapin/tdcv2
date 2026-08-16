@@ -1,0 +1,11 @@
+---
+description: Dishes of ұйғыр cuisine as eaten in Kazakhstan
+locale: kk
+---
+лағман
+қуырма лағман
+гөш нан
+мәнту
+поло
+суйру аш
+самса

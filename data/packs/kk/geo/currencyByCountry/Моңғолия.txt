@@ -1,0 +1,5 @@
+---
+description: Currency of Моңғолия, as Kazakh names it
+locale: kk
+---
+тугрик

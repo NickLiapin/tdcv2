@@ -1,0 +1,11 @@
+---
+description: Jobs in the Ауыл шаруашылығы industry, in Kazakh
+locale: kk
+---
+диқан
+малшы
+шопан
+жылқышы
+агроном
+комбайншы
+сауыншы

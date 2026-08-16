@@ -1,0 +1,29 @@
+---
+description: Gemstone. Several of the Kazakh names came in through Persian rather than through Russian and are worth noting: гауһар is diamond, лағыл ruby, зүмірет emerald, фируза turquoise, кәріптас amber. Меруерт, pearl, doubles as a common female given name.
+locale: kk
+---
+гауһар
+лағыл
+сапфир
+зүмірет
+меруерт
+фируза
+кәріптас
+аметист
+топаз
+опал
+гранат
+аквамарин
+перидот
+нефрит
+оникс
+цитрин
+турмалин
+ай тасы
+циркон
+лазурит
+малахит
+ағат
+яшма
+хризолит
+алмаз

@@ -1,0 +1,5 @@
+---
+description: Currency of Австрия, as Kazakh names it
+locale: kk
+---
+еуро

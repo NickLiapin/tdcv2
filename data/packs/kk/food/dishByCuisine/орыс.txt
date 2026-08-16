@@ -1,0 +1,11 @@
+---
+description: Dishes of орыс cuisine as eaten in Kazakhstan
+locale: kk
+---
+борщ
+пельмень
+блин
+оливье салаты
+солянка
+окрошка
+пирожки

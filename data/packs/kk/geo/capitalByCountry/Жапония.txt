@@ -1,0 +1,5 @@
+---
+description: Capital of Жапония, as Kazakh names it
+locale: kk
+---
+Токио

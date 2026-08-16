@@ -1,0 +1,46 @@
+---
+description: Language as Kazakh names it. Казақ тілі is the state language and орыс тілі has the constitutional status of a language of interethnic communication, so both head the list; the languages after them that carry no тілі — хинди, урду, суахили — are the ones Kazakh borrows as a bare noun. Note that Kazakh names a language with the noun plus тілі, "its language", where English uses a bare adjective, so "he speaks German" is "ол неміс тілінде сөйлейді" and the possessive suffix is not optional.
+locale: kk
+---
+қазақ тілі
+орыс тілі
+ағылшын тілі
+түрік тілі
+өзбек тілі
+ұйғыр тілі
+қырғыз тілі
+татар тілі
+неміс тілі
+украин тілі
+кәріс тілі
+әзербайжан тілі
+дүнген тілі
+қытай тілі
+араб тілі
+парсы тілі
+француз тілі
+испан тілі
+жапон тілі
+итальян тілі
+португал тілі
+поляк тілі
+грек тілі
+иврит
+түрікмен тілі
+тәжік тілі
+моңғол тілі
+белорус тілі
+армян тілі
+грузин тілі
+голланд тілі
+швед тілі
+норвег тілі
+дат тілі
+фин тілі
+чех тілі
+венгр тілі
+румын тілі
+вьетнам тілі
+хинди
+урду
+суахили

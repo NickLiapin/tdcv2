@@ -1,0 +1,11 @@
+---
+description: Driving licence category in Kazakhstan. THESE ARE NOT THE AMERICAN CLASS A / B / C: Kazakhstan uses the international lettered categories, where A is a motorcycle, B a car, C a lorry and D a bus, and the E-suffixed categories (BE, CE, DE) add a trailer. A commercial driver here holds C or CE, and the letters do not translate onto the US commercial classes at all.
+locale: kk
+---
+A
+B
+C
+D
+BE
+CE
+DE

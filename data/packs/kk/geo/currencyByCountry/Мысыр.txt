@@ -1,0 +1,5 @@
+---
+description: Currency of Мысыр, as Kazakh names it
+locale: kk
+---
+мысыр фунты

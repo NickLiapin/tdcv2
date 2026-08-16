@@ -1,0 +1,5 @@
+---
+description: Capital of Грузия, as Kazakh names it
+locale: kk
+---
+Тбилиси

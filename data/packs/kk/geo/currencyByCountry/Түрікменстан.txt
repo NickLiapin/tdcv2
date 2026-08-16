@@ -1,0 +1,5 @@
+---
+description: Currency of Түрікменстан, as Kazakh names it
+locale: kk
+---
+түрікмен манаты

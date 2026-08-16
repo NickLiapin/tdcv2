@@ -1,0 +1,20 @@
+---
+description: Kind of venue. ТОЙХАНА is a purpose-built banqueting hall for той and is a whole industry in Kazakhstan — every town has several, sized by guest count, and they are booked a year ahead.
+locale: kk
+---
+тойхана
+мейрамхана залы
+қонақүй банкет залы
+конференц-зал
+көрме орталығы
+стадион
+спорт кешені
+театр
+концерт залы
+мәдениет үйі
+киноконцерт залы
+ашық алаң
+саябақ
+демалыс аймағы
+юрта
+шатырдағы алаң

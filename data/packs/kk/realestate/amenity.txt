@@ -1,0 +1,28 @@
+---
+description: Feature listed with a property. Орталық жылу is at the top because district heating is the norm in Kazakhstani cities and its presence or absence is the first thing a buyer checks before a winter that runs to -30 °C.
+locale: kk
+---
+орталық жылу
+автономды жылу
+ыстық су
+кондиционер
+пластик терезе
+жаңа жөндеу
+жиһаздалған
+кірістірілген ас үй
+лифт
+қоқыс құбыры
+домофон
+бейнебақылау
+күзетілетін аула
+автотұрақ
+жер асты паркинг
+балалар алаңы
+бассейн
+спортзал
+балкон
+лоджия
+жертөле
+жеке шығу
+үй жануарларына рұқсат
+жиһазсыз

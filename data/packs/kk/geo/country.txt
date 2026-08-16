@@ -1,0 +1,64 @@
+---
+description: Country as KAZAKH names it, weighted by population in millions. Translated rather than transliterated, and several of the translations are the point: Мысыр is Egypt, a Turkic word older than the Russian Египет and unrelated to it; Ұлыбритания is "great Britain" built from Kazakh ұлы, great; Америка Құрама Штаттары is the United States rendered word for word with құрама, assembled. The Central Asian neighbours all carry the Persian -стан, land of — Өзбекстан, Қырғызстан, Тәжікстан, Түрікменстан, Ауғанстан, and Қазақстан itself. KAZAKHSTAN IS AT ITS REAL WEIGHT OF 20 AND IS NOT BOOSTED, so a plain draw will rarely produce it and a config wanting a Kazakhstan-centred dataset must filter rather than expect the weighting to do it. Country names take case suffixes like any other Kazakh noun and the suffix is chosen by vowel harmony — Түркияда, Ресейден, Қытайға — so a config dropping one into a sentence must inflect it and cannot use a single fixed ending.
+locale: kk
+weighted: true
+---
+Қытай,1410
+Үндістан,1400
+Америка Құрама Штаттары,335
+Индонезия,275
+Пәкістан,240
+Нигерия,220
+Бразилия,215
+Бангладеш,170
+Ресей,144
+Мексика,128
+Жапония,125
+Мысыр,110
+Вьетнам,98
+Иран,89
+Түркия,85
+Германия,84
+Тайланд,72
+Франция,68
+Ұлыбритания,67
+Оңтүстік Африка Республикасы,60
+Италия,59
+Оңтүстік Корея,52
+Испания,47
+Аргентина,46
+Ауғанстан,41
+Канада,39
+Украина,38
+Польша,38
+Марокко,37
+Сауд Арабиясы,36
+Өзбекстан,35
+Малайзия,34
+Австралия,26
+Солтүстік Корея,26
+Қазақстан,20
+Румыния,19
+Нидерланд,18
+Чехия,11
+Греция,10
+Португалия,10
+Швеция,10
+Венгрия,10
+Әзербайжан,10
+Тәжікстан,10
+Беларусь,9
+Австрия,9
+Швейцария,9
+Израиль,9
+Біріккен Араб Әмірліктері,9
+Қырғызстан,7
+Сингапур,6
+Финляндия,6
+Түрікменстан,6
+Норвегия,5
+Жаңа Зеландия,5
+Ирландия,5
+Грузия,4
+Моңғолия,3
+Армения,3

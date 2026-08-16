@@ -1,0 +1,20 @@
+---
+description: Blood group, IN BOTH NOTATIONS, because a Kazakhstani medical card uses the post-Soviet one and an international form uses the other. The local notation writes the ABO group as a ROMAN NUMERAL with the letter in brackets — І (0), ІІ (А), ІІІ (В), IV (АВ) — followed by Rh+ or Rh−, so a real Kazakhstani record says "ІІ (А) Rh+" where a Western one says "A+". A config that parses only the letter form will fail on half the documents in this country, which is why both are shipped.
+locale: kk
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-
+І (0) Rh+
+І (0) Rh-
+ІІ (А) Rh+
+ІІ (А) Rh-
+ІІІ (В) Rh+
+ІІІ (В) Rh-
+IV (АВ) Rh+
+IV (АВ) Rh-

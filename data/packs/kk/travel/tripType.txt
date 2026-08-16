@@ -1,0 +1,24 @@
+---
+description: Purpose of a trip. ТУЫСТАРҒА БАРУ, visiting relatives, is listed high because internal and cross-border family travel is the dominant reason Kazakhstanis move, and ҚАЖЫЛЫҚ, the hajj, is a real annual travel category from a majority-Muslim country with a quota.
+locale: kk
+---
+іссапар
+демалыс
+отбасылық демалыс
+туыстарға бару
+бал айы
+шытырман сапар
+автосаяхат
+круиз
+жаяу саяхат
+қалалық сапар
+жағажай демалысы
+топтық тур
+жалғыз саяхат
+емдеу сапары
+санаторийге бару
+қажылық
+умра
+оқу сапары
+спорт сапары
+көрмеге бару

@@ -1,0 +1,5 @@
+---
+description: Currency of Түркия, as Kazakh names it
+locale: kk
+---
+түрік лирасы

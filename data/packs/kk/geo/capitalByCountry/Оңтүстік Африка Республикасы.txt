@@ -1,0 +1,5 @@
+---
+description: Capital of Оңтүстік Африка Республикасы, as Kazakh names it
+locale: kk
+---
+Претория

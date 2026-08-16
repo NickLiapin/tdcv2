@@ -1,0 +1,16 @@
+---
+description: Month name in Kazakh. THESE ARE NATIVE AND THAT IS THE FACT WORTH RECORDING, because most of Kazakhstan's neighbours are not: Azerbaijani, Uzbek and Russian all say yanvar / fevral, while Kazakh kept its own words through the Soviet period and uses them in every register, including the state gazette. Several are transparent: наурыз is the Persian new year and names March, қыркүйек is "forty tents pitched", қараша is the black time before snow, желтоқсан is "windy month" — and it is also the name of the December 1986 uprising in Almaty, so a Kazakh reading the word carries that second meaning. Month names are LOWER CASE. They do not inflect for a date: Kazakh writes 5 қаңтар with the month in its plain form.
+locale: kk
+---
+қаңтар
+ақпан
+наурыз
+сәуір
+мамыр
+маусым
+шілде
+тамыз
+қыркүйек
+қазан
+қараша
+желтоқсан

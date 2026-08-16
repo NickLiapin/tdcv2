@@ -1,0 +1,9 @@
+---
+description: Playing positions in Су добы, in Kazakh
+locale: kk
+---
+қақпашы
+шабуылшы
+қорғаушы
+орталық шабуылшы
+ұтқыр ойыншы

@@ -1,0 +1,11 @@
+---
+description: Dishes of грузин cuisine as eaten in Kazakhstan
+locale: kk
+---
+хинкали
+хачапури
+лобио
+сациви
+чахохбили
+аджапсандали
+шашлық

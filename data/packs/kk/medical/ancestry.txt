@@ -1,0 +1,16 @@
+---
+description: Ancestry population as clinical genetics defines it — GEOGRAPHIC DESCENT, not a social race category, and it is used here only because allele frequencies really do differ by descent. The twelve groups follow the reference set and are translated into Kazakh. A note on the fit to this country: Kazakhstan's own population sits astride the Шығыс азиялық and Шығыс еуропалық groups with a large Central Asian component that none of the twelve names exactly, so a Kazakh cohort will not map cleanly onto this list, and a config that assumes it does will misattribute risk. Each value is the filename of a file in medical/diagnosisByAncestry/.
+locale: kk
+---
+Субсахаралық африкалық
+Солтүстік африкалық
+Жерорта теңіздік
+Таяу шығыстық
+Солтүстік еуропалық
+Шығыс еуропалық
+Ашкенази еврейлері
+Оңтүстік азиялық
+Шығыс азиялық
+Оңтүстік-шығыс азиялық
+Америка байырғы халықтары
+Тынық мұхит аралдықтары

@@ -1,0 +1,11 @@
+---
+description: Dishes of жапон cuisine as eaten in Kazakhstan
+locale: kk
+---
+суши
+рамен
+темпура
+удон
+мисо сорпасы
+онигири
+терияки тауығы

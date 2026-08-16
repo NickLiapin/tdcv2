@@ -1,0 +1,5 @@
+---
+description: Capital of Румыния, as Kazakh names it
+locale: kk
+---
+Бухарест

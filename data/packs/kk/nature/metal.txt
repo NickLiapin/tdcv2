@@ -1,0 +1,26 @@
+---
+description: Metal. This list is closer to an export schedule than to a chemistry textbook in Kazakhstan's case: the country is one of the world's largest producers of uranium and chromium and a major one of zinc, lead, copper and titanium, and Балқаш, Жезқазған, Теміртау and Өскемен are metal towns named after the metal or built around the smelter. Жез, brass, is the жез in Жезқазған, "the place where copper was dug".
+locale: kk
+---
+алтын
+күміс
+мыс
+темір
+мырыш
+қорғасын
+хром
+уран
+титан
+алюминий
+никель
+кобальт
+марганец
+молибден
+вольфрам
+қалайы
+платина
+палладий
+сынап
+болат
+қола
+жез

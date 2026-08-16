@@ -1,0 +1,5 @@
+---
+description: Capital of Вьетнам, as Kazakh names it
+locale: kk
+---
+Ханой

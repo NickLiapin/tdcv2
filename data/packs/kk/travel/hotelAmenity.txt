@@ -1,0 +1,34 @@
+---
+description: Hotel amenity as a Kazakhstani listing states it. Мұнара-монша and шығыс моншасы are on the list because a hammam or Russian banya is an expected feature of a mid-range Kazakhstani hotel rather than a luxury, and юрта, a yurt on the grounds, is a real amenity at resort hotels.
+locale: kk
+---
+тегін Wi-Fi
+бассейн
+спа
+фитнес орталығы
+мейрамхана
+бар
+нөмірге қызмет көрсету
+әуежайға трансфер
+тегін таңғы ас
+автотұрақ
+үй жануарларына рұқсат
+бизнес орталық
+консьерж
+кір жуу қызметі
+сауна
+орыс моншасы
+шығыс моншасы
+жабық бассейн
+шатырдағы террасса
+конференц-зал
+балалар алаңы
+юрта
+мангал алаңы
+билярд
+лифт
+кіру мүмкіндігі
+тәулік бойы қабылдау
+сейф
+кондиционер
+кір жуғыш машина

@@ -1,0 +1,52 @@
+---
+description: Kind of building in Kazakh. Тұрғын үй is a house lived in, пәтер a flat within a block; the two are not interchangeable and a Kazakhstani address form asks which. Мешіт heads the religious buildings because Kazakhstan is majority Muslim, with шіркеу for the Orthodox minority.
+locale: kk
+---
+пәтер
+тұрғын үй
+көпқабатты үй
+жеке үй
+кеңсе
+кеңсе ғимараты
+қойма
+дүкен
+сауда орталығы
+базар
+зауыт
+фабрика
+цех
+аурухана
+емхана
+дәріхана
+мектеп
+балабақша
+университет
+кітапхана
+мұражай
+театр
+кинотеатр
+қонақүй
+мейрамхана
+дәмхана
+кафе
+стадион
+спорт кешені
+бассейн
+мешіт
+шіркеу
+банк
+пошта
+әкімдік
+вокзал
+әуежай
+автовокзал
+гараж
+автотұрақ
+жанармай құю станциясы
+зертхана
+шеберхана
+ангар
+жылыжай
+монша
+наубайхана
+шаштараз

@@ -1,0 +1,32 @@
+---
+description: Technical verb in the Kazakh dictionary form. KAZAKH HAS NO INFINITIVE THE WAY ENGLISH DOES: the citation form is the verbal noun in -у (сақтау, "saving" or "to save"), so every entry here ends in -у and a config that wants a finite verb must conjugate it rather than use the entry as it stands.
+locale: kk
+---
+сақтық көшірме жасау
+айналып өту
+бұзып кіру
+басып озу
+қысу
+көшіру
+бағдарлау
+индекстеу
+қосылу
+генерациялау
+өлшеу
+есептеу
+синтездеу
+енгізу
+жіберу
+бағдарламалау
+қайта жүктеу
+талдау
+шифрлау
+шифрын ашу
+орналастыру
+сүзу
+жаңарту
+тексеру
+қалпына келтіру
+оңтайландыру
+кэштеу
+теңгеру

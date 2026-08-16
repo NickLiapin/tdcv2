@@ -1,0 +1,19 @@
+---
+description: Severe weather event. TWO OF THESE HAVE NO ENGLISH WORD AND BOTH ARE CENTRAL TO KAZAKHSTAN. БОРАН is the steppe blizzard: wind-driven snow with near-zero visibility that closes intercity roads for days at a time and strands vehicles, and every Kazakhstani winter has a боран warning. ЖҰТ is worse and is not a weather event so much as an economic catastrophe caused by one — a thaw followed by a freeze glazes the pasture in ice, the livestock cannot break through to the grass, and the herds starve en masse; жұт years are dated and remembered in Kazakh history the way famines are elsewhere, and the word is the reason steppe society kept animals in several places at once. АҢЫЗАҚ is the hot dry desiccating wind of the southern summer.
+locale: kk
+---
+боран
+жұт
+аңызақ
+шаңды дауыл
+құйын
+дауыл
+су тасқыны
+сел
+қар көшкіні
+құрғақшылық
+аяз
+мұзды жаңбыр
+ыстық толқыны
+орман өрті
+жер сілкінісі

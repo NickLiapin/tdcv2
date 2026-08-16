@@ -1,0 +1,22 @@
+---
+description: Employment benefit as a Kazakhstani vacancy advertises it. Two are local: САНАТОРИЙ ЖОЛДАМАСЫ, a paid stay at a spa sanatorium, is a surviving Soviet benefit that large employers and unions still fund; and ЖОЛ ШЫҒЫНЫН ӨТЕУ covers the flights home for rotational workers, which for a Tengiz crew is a benefit worth more than a gym card. Note that pension contributions are compulsory and paid into the state ЕНПФ fund, so "зейнетақы жарнасы" as a benefit means an employer contribution above the statutory one.
+locale: kk
+---
+медициналық сақтандыру
+ерікті медициналық сақтандыру
+стоматологиялық сақтандыру
+өмірді сақтандыру
+зейнетақы жарнасы
+ақылы демалыс
+қашықтан жұмыс
+икемді кесте
+опциондар
+ата-ана демалысы
+спортзал абонементі
+оқу ақысын өтеу
+жол шығынын өтеу
+тамақтану
+санаторий жолдамасы
+балабақша орны
+ұялы байланыс
+қызметтік көлік

@@ -1,0 +1,5 @@
+---
+description: Currency of Қытай, as Kazakh names it
+locale: kk
+---
+қытай юані

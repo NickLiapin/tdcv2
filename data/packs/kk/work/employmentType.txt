@@ -1,0 +1,15 @@
+---
+description: Employment type. ВАХТАЛЫҚ ӘДІС IS THE ONE A EUROPEAN LIST DOES NOT HAVE AND KAZAKHSTAN CANNOT DO WITHOUT: rotational work, in which a crew flies to a remote oil field or mine, lives in a camp and works fourteen, twenty-eight or sixty days straight, then flies home for the same period. It is how Tengiz, Kashagan and most of the mining sector are staffed, it involves a substantial share of the male workforce, and it has its own labour-code provisions on hours and rest — so it is a mainstream employment category here rather than an edge case, and a dataset that models Kazakhstani employment without it is missing the biggest single pattern.
+locale: kk
+---
+толық жұмыс күні
+толымсыз жұмыс күні
+келісімшарт
+уақытша
+вахталық әдіс
+маусымдық
+фриланс
+тәжірибеден өту
+шақыру бойынша
+қосымша жұмыс
+шәкірттік

@@ -1,0 +1,40 @@
+---
+description: Music genre. THE KAZAKH GENRES AT THE END ARE GENRES, NOT SONGS, and none has a European equivalent. КҮЙ is an instrumental piece for dombyra or kobyz that tells a story without words and is named after the story; a күйші is judged on which күй they play, the way a pianist is on repertoire. ТЕРМЕ is a fast sung recitation of moral instruction over a repeated dombyra figure. ЖЫР is the heroic epic, sung by a жырау for hours. ТОЛҒАУ is the reflective poem. АЙТЫС is the improvised sung contest between two poets, broadcast live on national television with a jury and a scoreboard, and it is the most watched of them all.
+locale: kk
+---
+поп
+қазақ эстрадасы
+рок
+хип-хоп
+рэп
+электронды музыка
+хаус
+техно
+джаз
+блюз
+соул
+фанк
+R&B
+классика
+опера
+симфония
+кантри
+фолк
+халық музыкасы
+этно
+регги
+метал
+панк
+инди
+диско
+госпел
+эмбиент
+латын музыкасы
+шансон
+саундтрек
+дәстүрлі ән
+күй
+терме
+жыр
+толғау
+айтыс

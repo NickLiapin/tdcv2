@@ -1,0 +1,5 @@
+---
+description: Currency of Оңтүстік Африка Республикасы, as Kazakh names it
+locale: kk
+---
+ранд

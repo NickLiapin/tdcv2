@@ -1,0 +1,5 @@
+---
+description: Capital of Қытай, as Kazakh names it
+locale: kk
+---
+Пекин

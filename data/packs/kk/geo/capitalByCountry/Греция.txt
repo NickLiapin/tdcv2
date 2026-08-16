@@ -1,0 +1,5 @@
+---
+description: Capital of Греция, as Kazakh names it
+locale: kk
+---
+Афины

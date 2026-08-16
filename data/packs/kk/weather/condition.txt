@@ -1,0 +1,20 @@
+---
+description: Weather condition in Kazakh. Kazakhstan is sharply continental, so both extremes are ordinary: -40 °C in the north in January and +45 °C in the south in July.
+locale: kk
+---
+ашық
+күншуақты
+аз бұлтты
+бұлтты
+тұманды
+жаңбырлы
+сіркіреген жаңбыр
+нөсер
+найзағай
+қарлы
+қар аралас жаңбыр
+бұршақ
+желді
+аязды
+қапырық
+шаңытқан

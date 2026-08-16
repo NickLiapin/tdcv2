@@ -1,0 +1,10 @@
+---
+description: Dishes of мексика cuisine as eaten in Kazakhstan
+locale: kk
+---
+тако
+буррито
+кесадилья
+гуакамоле
+энчилада
+начос

@@ -1,0 +1,21 @@
+---
+description: Cat breed as a Kazakhstani would name it. Kazakhstan has no native domestic breed, so this is the international list; the wild cats of the country — барыс, сілеусін, манул — are in animal/type.txt, not here, because they are not breeds.
+locale: kk
+---
+парсы
+мейн-кун
+сиам
+рэгдолл
+бенгал
+сфинкс
+британ қысқа жүнді
+абиссин
+шотланд бүктемелі
+норвег орман мысығы
+орыс көгі
+бирма
+американ қысқа жүнді
+девон-рекс
+бурма
+ангора
+сібір мысығы

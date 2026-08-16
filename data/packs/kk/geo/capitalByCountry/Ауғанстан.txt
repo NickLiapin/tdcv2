@@ -1,0 +1,5 @@
+---
+description: Capital of Ауғанстан, as Kazakh names it
+locale: kk
+---
+Кабул

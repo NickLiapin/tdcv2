@@ -1,0 +1,24 @@
+---
+description: Fish. БЕКІРЕ, the sturgeon, is first because the Caspian shore is Kazakhstan's and the Caspian sturgeon fishery is the reason уылдырық, caviar, is a Kazakhstani export word; the stock is now protected and the fishery restricted, which the list does not show but a dataset builder should know. Сазан, шортан, көксерке and табан балық are the freshwater fish of the Ertis, the Jaiyq and lake Balqash. The last few are imported and appear on a supermarket shelf rather than on a line.
+locale: kk
+---
+бекіре
+қортпа
+сазан
+шортан
+алабұға
+көксерке
+табан балық
+жайын
+ақмарқа
+ақбалық
+шабақ
+мөңке
+албырт
+форель
+майшабақ
+скумбрия
+тунец
+треска
+камбала
+теңіз алабұғасы

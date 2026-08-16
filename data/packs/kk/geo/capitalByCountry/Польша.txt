@@ -1,0 +1,5 @@
+---
+description: Capital of Польша, as Kazakh names it
+locale: kk
+---
+Варшава

@@ -1,0 +1,11 @@
+---
+description: Route type for a Kazakhstani haulier. Distances are large: Almaty to Aqtobe is well over two thousand kilometres by road, so "қалааралық" here means a multi-day run.
+locale: kk
+---
+халықаралық
+қалааралық
+аймақтық
+қалалық
+тұрақты бағыт
+соңғы миль
+вахталық тасымал

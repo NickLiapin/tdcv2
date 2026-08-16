@@ -1,0 +1,11 @@
+---
+description: Dishes of әзербайжан cuisine as eaten in Kazakhstan
+locale: kk
+---
+долма
+палау
+кутаб
+пити
+шашлық
+лаваш
+дюшбара

@@ -1,0 +1,9 @@
+---
+description: Dishes of дүнген cuisine as eaten in Kazakhstan
+locale: kk
+---
+ашлямфу
+ганфан
+лағман
+манпар
+фунчоза

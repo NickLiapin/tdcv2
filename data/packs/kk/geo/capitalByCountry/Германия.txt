@@ -1,0 +1,5 @@
+---
+description: Capital of Германия, as Kazakh names it
+locale: kk
+---
+Берлин

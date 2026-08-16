@@ -1,0 +1,5 @@
+---
+description: Currency of Марокко, as Kazakh names it
+locale: kk
+---
+марокко дирхамы

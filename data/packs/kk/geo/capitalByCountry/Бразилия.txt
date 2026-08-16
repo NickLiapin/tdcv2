@@ -1,0 +1,5 @@
+---
+description: Capital of Бразилия, as Kazakh names it
+locale: kk
+---
+Бразилиа

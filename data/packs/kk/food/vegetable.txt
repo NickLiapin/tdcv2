@@ -1,0 +1,34 @@
+---
+description: Vegetable. Картоп, сәбіз, пияз and қырыққабат head the list because they are what a Kazakhstani kitchen is built on and what keeps through a continental winter. Қырыққабат, cabbage, literally means "forty layers". Асқабақ, the pumpkin, goes into манты as often as meat does in the south.
+locale: kk
+---
+картоп
+сәбіз
+пияз
+сарымсақ
+қырыққабат
+қызанақ
+қияр
+бұрыш
+тәтті бұрыш
+қызылша
+шалғам
+турнепс
+асқабақ
+қабақ
+баялды
+жүгері
+бұршақ
+үрме бұршақ
+жасыл бұршақ
+брокколи
+гүлді қырыққабат
+шпинат
+салат жапырағы
+балдыркөк
+спаржа
+саңырауқұлақ
+батат
+көк пияз
+ақжелкен
+қымыздық

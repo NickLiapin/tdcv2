@@ -1,0 +1,9 @@
+---
+description: Playing positions in Хоккей, in Kazakh
+locale: kk
+---
+қақпашы
+қорғаушы
+орталық шабуылшы
+сол шеткі шабуылшы
+оң шеткі шабуылшы

@@ -1,0 +1,5 @@
+---
+description: Capital of Мексика, as Kazakh names it
+locale: kk
+---
+Мехико

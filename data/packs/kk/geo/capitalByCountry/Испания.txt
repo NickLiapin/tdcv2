@@ -1,0 +1,5 @@
+---
+description: Capital of Испания, as Kazakh names it
+locale: kk
+---
+Мадрид

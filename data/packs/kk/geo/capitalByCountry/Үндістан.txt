@@ -1,0 +1,5 @@
+---
+description: Capital of Үндістан, as Kazakh names it
+locale: kk
+---
+Нью-Дели

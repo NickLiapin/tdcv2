@@ -1,0 +1,20 @@
+---
+description: Sixteen-point compass in Kazakh. The four cardinals are native words with transparent senses — шығыс is "the rising", батыс "the setting", солтүстік and оңтүстік are built on сол (left) and оң (right), because the Kazakh orientation frame faces the rising sun, so left is north and right is south. The intercardinals are hyphenated compounds in the same order English uses.
+locale: kk
+---
+солтүстік
+оңтүстік
+шығыс
+батыс
+солтүстік-шығыс
+солтүстік-батыс
+оңтүстік-шығыс
+оңтүстік-батыс
+солтүстік-солтүстік-шығыс
+шығыс-солтүстік-шығыс
+шығыс-оңтүстік-шығыс
+оңтүстік-оңтүстік-шығыс
+оңтүстік-оңтүстік-батыс
+батыс-оңтүстік-батыс
+батыс-солтүстік-батыс
+солтүстік-солтүстік-батыс

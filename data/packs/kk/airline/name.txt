@@ -1,0 +1,34 @@
+---
+description: Airline. The first block is what flies from a Kazakhstani airport as a home carrier — Air Astana is the flag carrier, FlyArystan its low-cost arm, and SCAT and Qazaq Air the regional operators. Air Astana is a joint venture with BAE Systems, which is why its safety record is quoted separately from the region's. Airline names keep their own spelling in any locale.
+locale: kk
+---
+Air Astana
+FlyArystan
+SCAT Airlines
+Qazaq Air
+Jetysu Airlines
+Аэрофлот
+S7 Airlines
+Turkish Airlines
+Uzbekistan Airways
+China Southern
+Air China
+Emirates
+flydubai
+Qatar Airways
+Etihad Airways
+Lufthansa
+Air France
+KLM
+British Airways
+Wizz Air
+Pegasus Airlines
+AZAL
+Georgian Airways
+Belavia
+Aerobaltic
+Korean Air
+Asiana Airlines
+Thai Airways
+Singapore Airlines
+IndiGo

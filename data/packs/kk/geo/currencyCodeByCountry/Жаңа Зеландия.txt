@@ -1,0 +1,5 @@
+---
+description: Currency code of Жаңа Зеландия (ISO 4217)
+locale: kk
+---
+NZD

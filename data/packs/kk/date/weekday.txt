@@ -1,0 +1,11 @@
+---
+description: Day of the week in Kazakh, MONDAY FIRST, which is how the Kazakh working week is written. THE NAMES COUNT FROM SATURDAY AND THEY ARE PERSIAN, not Turkic: сенбі is Persian shanbe, the Sabbath; жексенбі is yek-shanbe, "one after the Sabbath"; дүйсенбі is du-shanbe, "two"; сейсенбі "three"; сәрсенбі from chahar, "four"; бейсенбі from panj, "five". Only жұма breaks the count — it is Arabic jumʿa, the day of congregational prayer. So the Kazakh week is numbered from the Jewish Sabbath through a Persian intermediary with an Arabic Friday inserted, which is the whole religious history of the region in seven words. Weekday names are LOWER CASE.
+locale: kk
+---
+дүйсенбі
+сейсенбі
+сәрсенбі
+бейсенбі
+жұма
+сенбі
+жексенбі

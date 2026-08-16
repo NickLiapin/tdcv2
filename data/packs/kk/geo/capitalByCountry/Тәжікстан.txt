@@ -1,0 +1,5 @@
+---
+description: Capital of Тәжікстан, as Kazakh names it
+locale: kk
+---
+Душанбе

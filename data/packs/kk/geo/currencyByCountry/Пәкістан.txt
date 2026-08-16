@@ -1,0 +1,5 @@
+---
+description: Currency of Пәкістан, as Kazakh names it
+locale: kk
+---
+пәкістан рупиясы

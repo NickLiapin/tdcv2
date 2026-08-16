@@ -1,0 +1,23 @@
+---
+description: Mineral or ore. Ordered roughly by what Kazakhstan actually produces: uranium first because the country leads the world in it, then chromite, where it holds one of the two largest reserves on earth, then the copper, zinc and lead of the Zhezqazghan and Ridder belts, then the coal of Qaraghandy and Ekibastuz.
+locale: kk
+---
+уран
+хромит
+мыс
+мырыш
+қорғасын
+көмір
+темір кені
+алтын
+күміс
+марганец
+боксит
+никель
+кобальт
+молибден
+вольфрам
+фосфорит
+калий тұзы
+ас тұзы
+әктас

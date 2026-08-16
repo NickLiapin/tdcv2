@@ -1,0 +1,34 @@
+---
+description: Book genre. The last three are Kazakh oral-literature forms that a European genre list has no entry for and that a Kazakh bookshop really does shelve: ЖЫР is the sung heroic epic, ДАСТАН the long narrative poem, and АЙТЫС the transcribed improvised poetry duel between two singers, which is published as books and broadcast live. Ертегі, the folk tale, is a category of its own rather than a subdivision of children's books.
+locale: kk
+---
+көркем әдебиет
+көркем емес әдебиет
+детектив
+триллер
+романтика
+ғылыми фантастика
+фэнтези
+қорқынышты
+өмірбаян
+мемуар
+тарих
+философия
+саясат
+экономика
+өзін-өзі дамыту
+психология
+поэзия
+драма
+жасөспірімдерге арналған
+балалар әдебиеті
+тарихи роман
+шытырман оқиғалы
+саяхат
+аспаздық кітап
+графикалық роман
+дистопия
+ертегі
+жыр
+дастан
+айтыс

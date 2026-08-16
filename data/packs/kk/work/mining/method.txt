@@ -1,0 +1,12 @@
+---
+description: Mining method. ҰҢҒЫМАЛЫҚ СІЛТІЛЕУ, in-situ leaching, is listed because it is how essentially all of Kazakhstan's uranium is produced — the ore is dissolved underground and pumped up, nothing is dug — and Kazakhstan produces more uranium than any other country on earth, so this is the country's single most important extraction method and it involves no mine in the ordinary sense at all.
+locale: kk
+---
+ашық әдіс
+жер асты әдісі
+ұңғымалық сілтілеу
+шахталық
+жолақты өндіру
+штректік
+ұзын забой
+жуу әдісі

@@ -1,0 +1,5 @@
+---
+description: Currency of Беларусь, as Kazakh names it
+locale: kk
+---
+беларусь рублі

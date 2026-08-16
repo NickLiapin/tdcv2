@@ -1,0 +1,5 @@
+---
+description: Currency code of Польша (ISO 4217)
+locale: kk
+---
+PLN

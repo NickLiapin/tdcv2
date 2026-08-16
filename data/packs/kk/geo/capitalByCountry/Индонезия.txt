@@ -1,0 +1,5 @@
+---
+description: Capital of Индонезия, as Kazakh names it
+locale: kk
+---
+Джакарта

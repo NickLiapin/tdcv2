@@ -1,0 +1,24 @@
+---
+description: Kind of official document. THE PRIMARY IDENTITY DOCUMENT IS THE ЖЕКЕ КУӘЛІК, the internal ID card, which every citizen over sixteen must hold and which is what is shown at a bank, a polling station or a police stop; THE PASSPORT IS FOR FOREIGN TRAVEL ONLY and most people's daily life never involves one. Every document here is keyed to the ЖСН, the twelve-digit individual identification number, which is the spine of the whole civil register — the generator for it lives in the Kazakhstan country pack, not in this language pack, because a number format belongs to a state and not to a language.
+locale: kk
+---
+жеке куәлік
+паспорт
+туу туралы куәлік
+неке қию туралы куәлік
+ажырасу туралы куәлік
+қайтыс болу туралы куәлік
+жүргізуші куәлігі
+ЖСН туралы анықтама
+зейнетақы куәлігі
+әскери билет
+еңбек кітапшасы
+диплом
+тұрғылықты жері туралы анықтама
+мекенжай анықтамасы
+салық декларациясы
+құрылысқа рұқсат
+лицензия
+виза
+ықтиярхат
+нотариалды сенімхат

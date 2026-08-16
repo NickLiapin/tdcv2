@@ -1,0 +1,5 @@
+---
+description: Currency of Жаңа Зеландия, as Kazakh names it
+locale: kk
+---
+жаңа зеландия доллары

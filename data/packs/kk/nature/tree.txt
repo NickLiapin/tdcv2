@@ -1,0 +1,32 @@
+---
+description: Tree. СЕКСЕУІЛ is the one a European list has no slot for: it is the saxaul, a leafless desert tree whose wood is so dense it sinks in water and burns like coal, it is what holds the sand down across the Kazakh deserts and the dried Aral bed, and cutting it is restricted for that reason. Арша, the Tien Shan juniper, does the same job in the mountains. Қайың, the birch, is the tree of the northern forest-steppe and of the Kazakh birch groves; терек, the poplar, is what is planted along every irrigation ditch and street in the south.
+locale: kk
+---
+қайың
+терек
+ақ терек
+көк терек
+қарағай
+шырша
+самырсын
+балқарағай
+арша
+сексеуіл
+емен
+қарағаш
+үйеңкі
+жөке
+тал
+шетен
+қандыағаш
+жиде
+тұт
+долана
+тобылғы
+итмұрын
+алма ағашы
+өрік ағашы
+шие ағашы
+жаңғақ ағашы
+алмұрт ағашы
+кипарис

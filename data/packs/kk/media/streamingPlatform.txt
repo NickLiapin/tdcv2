@@ -1,0 +1,16 @@
+---
+description: Streaming service actually available in Kazakhstan. The list is not the American one: alongside Netflix and YouTube, the Russian-language services ivi, Megogo, Кинопоиск HD, Okko, Start and Wink dominate, because they carry Russian-dubbed content that most of the market watches. Brand names keep their own spelling in any locale.
+locale: kk
+---
+YouTube
+Netflix
+ivi
+Megogo
+Кинопоиск HD
+Okko
+Start
+Wink
+Amediateka
+Spotify
+Яндекс Музыка
+Twitch

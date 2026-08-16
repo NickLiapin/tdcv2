@@ -1,0 +1,5 @@
+---
+description: Capital of Португалия, as Kazakh names it
+locale: kk
+---
+Лиссабон

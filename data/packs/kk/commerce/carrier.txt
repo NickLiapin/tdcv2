@@ -1,0 +1,24 @@
+---
+description: Parcel carrier operating in Kazakhstan. ҚАЗПОШТА, the national post, is first: it is the only carrier that reaches every village and it is what a state document travels by. The rest are the private and marketplace couriers that dominate the cities, and the marketplace names (Kaspi, Wildberries, Ozon) are carriers here because they run their own delivery and pickup-point networks rather than handing off to a postal service.
+locale: kk
+---
+Қазпошта
+Kaspi Postomat
+Kaspi Delivery
+Wildberries
+Ozon
+СДЭК
+Exline
+Alem TAT
+Pony Express
+DHL
+FedEx
+UPS
+TNT
+Aramex
+Яндекс Доставка
+InDrive Delivery
+Glovo
+Wolt
+Chocofood
+Курьер қызметі

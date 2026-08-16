@@ -1,0 +1,5 @@
+---
+description: Capital of Ұлыбритания, as Kazakh names it
+locale: kk
+---
+Лондон

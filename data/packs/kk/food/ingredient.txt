@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient. THE MEAT ORDER IS THE FACT WORTH RECORDING: қой еті (mutton) and жылқы еті (horse) come before beef and chicken, and PORK IS ABSENT — Kazakhstan is majority Muslim and a Kazakh recipe does not reach for it. Horse is not a novelty meat here but a staple with its own butchery vocabulary (қазы from the rib, жая from the rump, жал from the crest). The dairy block is equally specific: қымыз is fermented mare's milk, шұбат fermented camel's milk, айран a sour drink, құрт hard dried sour-milk balls that keep for a year without refrigeration, and талқан toasted milled grain — between them they are how a mobile herding society stored food, and all five are still on sale.
+locale: kk
+---
+қой еті
+жылқы еті
+сиыр еті
+тауық еті
+түйе еті
+бауыр
+ұн
+қант
+тұз
+өсімдік майы
+сары май
+жұмыртқа
+сүт
+айран
+қаймақ
+кілегей
+ірімшік
+сүзбе
+құрт
+қымыз
+шұбат
+талқан
+күріш
+қарақұмық
+тары
+кеспе
+нан
+нан үгіндісі
+ашытқы
+бал
+пияз
+сарымсақ
+қызанақ
+сәбіз
+картоп
+қызанақ пастасы
+зәйтүн майы
+лимон
+қара бұрыш
+сірке суы

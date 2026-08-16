@@ -1,0 +1,12 @@
+---
+description: Team sport, restricted to the eight that carry a positionBySport child list. THE SELECTION IS KAZAKHSTAN'S, NOT AMERICA'S: baseball, cricket and American football are absent because they are barely played here, and футзал and су добы are present because they are — Kazakhstan's futsal side has reached a World Cup semi-final and a European final, and the water polo team is a regular Asian champion. Хоккей is on the list because Barys Astana plays in the KHL and the sport is mainstream in the north. Each value is the filename of a file in sport/positionBySport/.
+locale: kk
+---
+Футбол
+Баскетбол
+Волейбол
+Хоккей
+Гандбол
+Регби
+Футзал
+Су добы

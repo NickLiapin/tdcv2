@@ -1,0 +1,5 @@
+---
+description: Currency of Әзербайжан, as Kazakh names it
+locale: kk
+---
+әзербайжан манаты

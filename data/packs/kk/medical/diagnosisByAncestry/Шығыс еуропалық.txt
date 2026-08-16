@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Шығыс еуропалық ancestry group, in Kazakh.
+locale: kk
+---
+тұқым қуалайтын гемохроматоз
+фенилкетонурия
+отбасылық гиперхолестеринемия
+алкогольге байланысты бауыр ауруы
+муковисцидоз
+Вильсон ауруы

@@ -1,0 +1,17 @@
+---
+description: Freight type carried by road in Kazakhstan. Астық and көмір are here because grain from the north and coal from Ekibastuz move in bulk by road as well as by rail.
+locale: kk
+---
+құрғақ жүк
+тоңазытқыш
+платформа
+цистерна
+мал тасымалы
+қауіпті жүк
+контейнер
+автокөлік тасығыш
+ауыр жүк
+астық
+көмір
+мұнай өнімдері
+орман материалы

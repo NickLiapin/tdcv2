@@ -1,0 +1,59 @@
+{
+  "months": [
+    "қаңтар",
+    "ақпан",
+    "наурыз",
+    "сәуір",
+    "мамыр",
+    "маусым",
+    "шілде",
+    "тамыз",
+    "қыркүйек",
+    "қазан",
+    "қараша",
+    "желтоқсан"
+  ],
+  "monthsInDate": [
+    "қаңтар",
+    "ақпан",
+    "наурыз",
+    "сәуір",
+    "мамыр",
+    "маусым",
+    "шілде",
+    "тамыз",
+    "қыркүйек",
+    "қазан",
+    "қараша",
+    "желтоқсан"
+  ],
+  "monthsShort": [
+    "қаң",
+    "ақп",
+    "нау",
+    "сәу",
+    "мам",
+    "мау",
+    "шіл",
+    "там",
+    "қыр",
+    "қаз",
+    "қар",
+    "жел"
+  ],
+  "weekdays": [
+    "жексенбі",
+    "дүйсенбі",
+    "сейсенбі",
+    "сәрсенбі",
+    "бейсенбі",
+    "жұма",
+    "сенбі"
+  ],
+  "weekdaysShort": ["жк", "дс", "сс", "ср", "бс", "жм", "сб"],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "Five things a formatter has to get right for Kazakh. FIRST, THE MONTH NAMES ARE NATIVE TURKIC AND PERSIAN, not Russian-derived: qantar, aqpan, nauryz, sauir and so on, never yanvar / fevral. This separates Kazakh from Azerbaijani, Uzbek and Kyrgyz-in-practice, all of which took the Russian set, and it is the single commonest way a Kazakh date comes out wrong. SECOND, monthsInDate is IDENTICAL to months and that is correct, not a copy-paste slip: the Kazakh month name does not change shape inside a date, so 5 qantar 2026 uses the plain nominative. What does change is the YEAR, which normally takes a suffix — 2026 jylgy 5 qantar, '5 January of the year 2026' — so a config building a full Kazakh date string needs the word jyl or jylgy, which no format token supplies. THIRD, month and weekday names are LOWER CASE, always, including at the start of a sentence-initial date. FOURTH, the weekday array here is Sunday-first because the formatter wants it that way, while date/weekday.txt in the pack is Monday-first because that is how a Kazakh calendar prints it; both are the same seven words. FIFTH, the numeric format is DD.MM.YYYY with dots and leading zeros, time is 24-hour with a colon and Kazakh has no am/pm, the decimal separator is a comma, the thousands separator is a space, and the tenge sign follows the number after a space: 1 234,56 tenge. The tenge replaced the rouble on 15 November 1993, which is a public holiday, so any monetary series crossing that date changes unit."
+}

@@ -1,0 +1,19 @@
+---
+description: Kind of court. Kazakh is essentially the language of one country, so this list names KAZAKHSTAN'S judiciary rather than a generic set — that is what the words mean here — and the reader should know it is Kazakhstan and not, say, a pan-Turkic abstraction. The three-tier structure is district court, regional court, Supreme Court, with the Constitutional Court re-established as a separate body in 2023. МАМАНДАНДЫРЫЛҒАН АУДАНАРАЛЫҚ ЭКОНОМИКАЛЫҚ СОТ, the specialised inter-district economic court, is where commercial disputes go and has no direct English equivalent.
+locale: kk
+---
+Жоғарғы Сот
+Конституциялық Сот
+облыстық сот
+аудандық сот
+қалалық сот
+мамандандырылған ауданаралық экономикалық сот
+мамандандырылған әкімшілік сот
+ювеналдық сот
+әскери сот
+тергеу соты
+сот алқасы
+апелляциялық алқа
+кассациялық алқа
+төрелік
+бітімгершілік сот

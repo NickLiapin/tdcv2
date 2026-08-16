@@ -1,0 +1,8 @@
+---
+description: Season. Kazakhstan is sharply continental and has four of them with a very wide swing — Astana is one of the coldest capitals on earth in қыс and hot in жаз — so all four are real and none is nominal.
+locale: kk
+---
+көктем
+жаз
+күз
+қыс

@@ -1,0 +1,34 @@
+---
+description: Spice or culinary herb. ЗІРЕ, cumin, is the defining spice of the region and goes into палау, самса and шашлық as a matter of course; барбарис, dried barberry, is the sour note in палау and has no European equivalent in that role. Тұз, salt, is listed first because Kazakh cooking treats it as the first seasoning and because the country sits on some of the largest salt deposits in Eurasia. Даршын, зімбір and қалампыр came in along the Silk Road, which passed through southern Kazakhstan.
+locale: kk
+---
+тұз
+қара бұрыш
+қызыл бұрыш
+зире
+барбарис
+кориандр
+куркума
+даршын
+зімбір
+қалампыр
+кардамон
+мускат жаңғағы
+паприка
+лавр жапырағы
+аскөк
+ақжелкен
+райхан
+жалбыз
+кекік
+розмарин
+шафран
+сарымсақ ұнтағы
+пияз ұнтағы
+ащы бұрыш
+сірке суы
+соя соусы
+қыша
+жусан
+шайқурай
+ванилин

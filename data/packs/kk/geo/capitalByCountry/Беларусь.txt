@@ -1,0 +1,5 @@
+---
+description: Capital of Беларусь, as Kazakh names it
+locale: kk
+---
+Минск

@@ -1,0 +1,16 @@
+---
+description: Meeting type. Жедел жиналыс, the "operational meeting", is the post-Soviet standing morning meeting and is what the English standup landed on top of.
+locale: kk
+---
+жедел жиналыс
+жеке кездесу
+жалпы жиналыс
+ретроспектива
+спринт жоспарлау
+жобаны бастау кездесуі
+синхрондау
+шолу
+семинар
+ми шабуылы
+аралық тексеру
+қорытынды талдау

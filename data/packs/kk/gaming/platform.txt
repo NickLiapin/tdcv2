@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Brand names keep their own spelling.
+locale: kk
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+мобильді
+Meta Quest
+браузер
+бұлттық ойын

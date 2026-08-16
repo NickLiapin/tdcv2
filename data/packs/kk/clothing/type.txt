@@ -1,0 +1,44 @@
+---
+description: Garment. The second half of this list is Kazakh national dress and it is not costume-museum vocabulary: ШАПАН, the long quilted coat, is still given as a ceremonial honour to a guest or an elder and a Kazakhstani wedding will hand out several; ТАҚИЯ is the skullcap; БӨРІК and ТЫМАҚ are the fur hats, тымақ being the deep winter one with ear and neck flaps; САУКЕЛЕ is the tall conical bridal headdress, worn once; КАМЗОЛ the fitted sleeveless overcoat; МӘСІ the soft leather boot worn indoors with КЕБІС, an overshoe, pulled on over it at the door. Note also that КӨЙЛЕК means both a dress and a shirt — one word, two garments, and only context separates them.
+locale: kk
+---
+көйлек
+жейде
+блузка
+шалбар
+джинсы
+белдемше
+шорты
+жемпір
+худи
+куртка
+пальто
+плащ
+костюм
+пиджак
+кардиган
+футболка
+спорт киімі
+іш киім
+шұлық
+ұйық
+кроссовки
+етік
+бәтеңке
+сандал
+шәркей
+бас киім
+орамал
+шарф
+қолғап
+белбеу
+шапан
+тақия
+бөрік
+тымақ
+сәукеле
+камзол
+мәсі
+кебіс
+кимешек
+шалбар шапан

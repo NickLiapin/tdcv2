@@ -1,0 +1,5 @@
+---
+description: Currency code of Вьетнам (ISO 4217)
+locale: kk
+---
+VND

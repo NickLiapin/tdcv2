@@ -1,0 +1,21 @@
+---
+description: Social platform as used in Kazakhstan. WHATSAPP AND INSTAGRAM HEAD THIS LIST AND THAT IS THE LOCAL FACT: WhatsApp is the default messenger of the country, used not only between people but by shops, clinics, schools and government offices, so a Kazakhstani business card carries a WhatsApp number rather than an email; and Instagram is the dominant COMMERCE platform, where a very large share of small retail actually happens through direct messages. Telegram is the news and channel medium. Facebook is comparatively weak, and ВКонтакте and Одноклассники persist in the Russian-speaking north.
+locale: kk
+---
+WhatsApp
+Instagram
+Telegram
+TikTok
+YouTube
+ВКонтакте
+Facebook
+Одноклассники
+X
+Threads
+LinkedIn
+Pinterest
+Snapchat
+Discord
+Twitch
+Aitu
+Reddit

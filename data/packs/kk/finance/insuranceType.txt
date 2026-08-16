@@ -1,0 +1,18 @@
+---
+description: Insurance type. МІНДЕТТІ АВТОСАҚТАНДЫРУ is compulsory third-party motor cover and is the one policy nearly every Kazakhstani adult with a car actually holds; МІНДЕТТІ ӘЛЕУМЕТТІК МЕДИЦИНАЛЫҚ САҚТАНДЫРУ is the compulsory state health insurance introduced in 2020 and deducted from payroll, which is why a separate private медициналық policy sits beside it rather than replacing it.
+locale: kk
+---
+міндетті әлеуметтік медициналық сақтандыру
+ерікті медициналық сақтандыру
+міндетті автосақтандыру
+каско
+мүлікті сақтандыру
+өмірді сақтандыру
+жинақтаушы сақтандыру
+жалдау сақтандыруы
+туристік сақтандыру
+жазатайым оқиғадан сақтандыру
+азаматтық жауапкершілікті сақтандыру
+кәсіби жауапкершілік
+жүкті сақтандыру
+ауыл шаруашылығын сақтандыру

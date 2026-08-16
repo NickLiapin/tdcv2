@@ -1,0 +1,60 @@
+---
+description: Sport. THE LAST BLOCK IS THE KAZAKH NATIONAL SPORTS AND THEY ARE COMPETED, NOT COMMEMORATED: ҚАЗАҚ КҮРЕСІ is belt wrestling with its own world championship; КӨКПАР is the mounted game played over a goat carcass; БӘЙГЕ is the long-distance horse race, run over distances up to fifty kilometres; ҚЫЗ ҚУУ is the mounted chase between a man and a woman; АУДАРЫСПАҚ is wrestling on horseback; ТЕҢГЕ ІЛУ is snatching a coin from the ground at a gallop; ЖАМБЫ АТУ is shooting a suspended target from horseback; ТОҒЫЗҚҰМАЛАҚ is the nine-pit board game with a national federation and rated players; and АСЫҚ АТУ is the knucklebone game. All of them appear at the World Nomad Games. Bоксing is high in the list because Kazakhstan is a genuine boxing power with multiple Olympic golds.
+locale: kk
+---
+футбол
+бокс
+күрес
+еркін күрес
+грек-рим күресі
+қазақ күресі
+дзюдо
+самбо
+тхэквондо
+каратэ
+кикбоксинг
+ауыр атлетика
+жеңіл атлетика
+баскетбол
+волейбол
+гандбол
+футзал
+хоккей
+су добы
+жүзу
+шаңғы спорты
+биатлон
+конькимен жүгіру
+фигуралық сырғанау
+велоспорт
+теннис
+үстел теннисі
+бадминтон
+гимнастика
+көркем гимнастика
+ескек есу
+садақ ату
+ату спорты
+семсерлесу
+шахмат
+дойбы
+триатлон
+марафон
+альпинизм
+спорт туризмі
+скейтбординг
+сноуборд
+мотоспорт
+автоспорт
+ат спорты
+регби
+гольф
+көкпар
+бәйге
+қыз қуу
+аударыспақ
+теңге ілу
+жамбы ату
+тоғызқұмалақ
+асық ату
+бүркіт салу

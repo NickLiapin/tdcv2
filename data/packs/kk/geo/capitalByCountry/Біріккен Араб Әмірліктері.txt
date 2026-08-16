@@ -1,0 +1,5 @@
+---
+description: Capital of Біріккен Араб Әмірліктері, as Kazakh names it
+locale: kk
+---
+Абу-Даби

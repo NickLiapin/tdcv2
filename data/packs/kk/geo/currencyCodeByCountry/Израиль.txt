@@ -1,0 +1,5 @@
+---
+description: Currency code of Израиль (ISO 4217)
+locale: kk
+---
+ILS

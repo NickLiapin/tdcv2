@@ -1,0 +1,30 @@
+---
+description: Mobile or fixed carrier. The first block is what actually sells SIM cards in Kazakhstan — Kcell and activ are one company under two brands, Beeline Kazakhstan is the largest by subscribers, Tele2 and Altel merged and share a network, izi is the digital-only brand, and Kazakhtelecom is the fixed-line and broadband incumbent. The international names after them are here for datasets that need them and do not operate in Kazakhstan.
+locale: kk
+---
+Beeline Kazakhstan
+Kcell
+activ
+Tele2
+Altel
+izi
+Kazakhtelecom
+Транстелеком
+Jusan Mobile
+Sky Mobile
+MTS
+МегаФон
+Vodafone
+Orange
+O2
+Deutsche Telekom
+Turkcell
+China Mobile
+Airtel
+Jio
+T-Mobile
+Verizon
+AT&T
+Telefonica
+Ucell
+Beeline Uzbekistan

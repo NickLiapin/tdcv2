@@ -1,0 +1,5 @@
+---
+description: Capital of Тайланд, as Kazakh names it
+locale: kk
+---
+Бангкок

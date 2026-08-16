@@ -1,0 +1,5 @@
+---
+description: Currency code of Әзербайжан (ISO 4217)
+locale: kk
+---
+AZN

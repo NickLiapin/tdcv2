@@ -1,0 +1,5 @@
+---
+description: Currency of Норвегия, as Kazakh names it
+locale: kk
+---
+норвег кронасы

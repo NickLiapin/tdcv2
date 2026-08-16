@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Таяу шығыстық ancestry group, in Kazakh.
+locale: kk
+---
+отбасылық жерортатеңіздік қызба
+бета-талассемия
+глюкоза-6-фосфатдегидрогеназа тапшылығы
+Бехчет ауруы
+D дәрумені тапшылығы
+орақ жасушалы белгі

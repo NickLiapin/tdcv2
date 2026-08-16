@@ -1,0 +1,5 @@
+---
+description: Currency of Бразилия, as Kazakh names it
+locale: kk
+---
+бразилия реалы

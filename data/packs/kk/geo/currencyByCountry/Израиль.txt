@@ -1,0 +1,5 @@
+---
+description: Currency of Израиль, as Kazakh names it
+locale: kk
+---
+шекель

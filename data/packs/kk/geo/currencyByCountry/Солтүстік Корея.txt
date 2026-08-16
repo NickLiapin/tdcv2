@@ -1,0 +1,5 @@
+---
+description: Currency of Солтүстік Корея, as Kazakh names it
+locale: kk
+---
+солтүстік корея вонасы

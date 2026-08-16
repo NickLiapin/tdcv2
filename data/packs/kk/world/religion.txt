@@ -1,0 +1,26 @@
+---
+description: Religion as Kazakh names it. Kazakhstan is majority Sunni Muslim of the Hanafi school with a large Russian Orthodox minority, and the two head the list for that reason. Тәңіршілдік (Tengrism), the pre-Islamic sky-worship of the steppe, is listed because it is a live cultural reference in Kazakhstan rather than a historical footnote, and шаманизм / бақсылық sits beside it for the same reason.
+locale: kk
+---
+ислам
+сүнниттік ислам
+ханафи мазһабы
+шииттік ислам
+сопылық
+христиандық
+православие
+католик діні
+протестанттық
+баптизм
+иудаизм
+буддизм
+индуизм
+тәңіршілдік
+шаманизм
+бақсылық
+зороастризм
+бахаи діні
+атеизм
+агностицизм
+дінге сенбейтін
+діни сенімі жоқ

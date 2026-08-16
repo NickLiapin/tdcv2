@@ -1,0 +1,5 @@
+---
+description: Capital of Ресей, as Kazakh names it
+locale: kk
+---
+Мәскеу

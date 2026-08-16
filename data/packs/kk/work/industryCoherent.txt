@@ -1,0 +1,14 @@
+---
+description: Industry, restricted to the ten that carry a jobByIndustry child list. TWO OF THE TEN ARE HERE BECAUSE OF KAZAKHSTAN RATHER THAN BECAUSE OF THE ENGLISH TEMPLATE: тау-кен өнеркәсібі (mining) and мұнай және газ (oil and gas) are the two largest employers of the productive economy — Kazakhstan is the world's largest uranium producer and a top-twenty oil producer, and Тengiz, Kashagan, Karachaganak and the Zhezqazghan copper belt each support a whole town. Ауыл шаруашылығы is on the list for the same reason: herding is not a niche here. The three of them displace the retail, transport and legal entries an English list would have. Each value is the filename of a file in work/jobByIndustry/.
+locale: kk
+---
+Технология
+Денсаулық сақтау
+Қаржы
+Құрылыс
+Білім беру
+Қонақжайлылық
+Өнеркәсіп
+Тау-кен өнеркәсібі
+Мұнай және газ
+Ауыл шаруашылығы

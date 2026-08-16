@@ -1,0 +1,5 @@
+---
+description: Capital of Оңтүстік Корея, as Kazakh names it
+locale: kk
+---
+Сеул

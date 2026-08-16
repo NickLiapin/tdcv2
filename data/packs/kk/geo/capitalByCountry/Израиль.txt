@@ -1,0 +1,5 @@
+---
+description: Capital of Израиль, as Kazakh names it
+locale: kk
+---
+Иерусалим

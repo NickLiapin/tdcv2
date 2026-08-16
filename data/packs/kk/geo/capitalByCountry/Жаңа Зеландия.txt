@@ -1,0 +1,5 @@
+---
+description: Capital of Жаңа Зеландия, as Kazakh names it
+locale: kk
+---
+Веллингтон

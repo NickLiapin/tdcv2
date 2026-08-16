@@ -1,0 +1,5 @@
+---
+description: Currency code of Марокко (ISO 4217)
+locale: kk
+---
+MAD

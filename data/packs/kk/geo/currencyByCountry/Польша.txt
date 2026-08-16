@@ -1,0 +1,5 @@
+---
+description: Currency of Польша, as Kazakh names it
+locale: kk
+---
+польша злотысы

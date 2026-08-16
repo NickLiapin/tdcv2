@@ -1,0 +1,5 @@
+---
+description: Currency code of Иран (ISO 4217)
+locale: kk
+---
+IRR

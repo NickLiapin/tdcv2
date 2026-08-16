@@ -1,0 +1,5 @@
+---
+description: Capital of Норвегия, as Kazakh names it
+locale: kk
+---
+Осло

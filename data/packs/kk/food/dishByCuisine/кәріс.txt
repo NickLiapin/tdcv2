@@ -1,0 +1,11 @@
+---
+description: Dishes of кәріс cuisine as eaten in Kazakhstan
+locale: kk
+---
+кимчи
+куксі
+кәріс сәбізі
+пигоди
+хе
+пибимпап
+пулькоги

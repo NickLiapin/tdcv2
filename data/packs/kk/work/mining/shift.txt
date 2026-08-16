@@ -1,0 +1,9 @@
+---
+description: Mining shift. Вахталық is the rotational camp shift; the rest are the ordinary daily rota.
+locale: kk
+---
+күндізгі
+түнгі
+кезекші
+ауыспалы
+вахталық

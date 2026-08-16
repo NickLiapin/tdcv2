@@ -1,0 +1,24 @@
+---
+description: Diagnosis specific to male anatomy, in Kazakh clinical usage. Kazakhstani medicine writes its records in a mix of Kazakh and Russian and the terminology is largely international, so most of these are Latin or Greek roots in Kazakh spelling; where a native Kazakh term exists and is actually used in a chart — қуық асты безі for prostate, ұма for scrotum — it is used here.
+locale: kk
+---
+қуық асты безінің аденомасы
+простатит
+қуық асты безінің қатерлі ісігі
+ен қатерлі ісігі
+варикоцеле
+гидроцеле
+крипторхизм
+фимоз
+баланит
+эпидидимит
+ен бұралуы
+эректильді дисфункция
+ер бедеулігі
+гинекомастия
+гипогонадизм
+ұма жарығы
+ер адамдағы шаш түсу
+сперматоцеле
+приапизм
+уретрит

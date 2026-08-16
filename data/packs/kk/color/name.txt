@@ -1,0 +1,61 @@
+---
+description: Colour name in Kazakh. TWO THINGS DO NOT MAP ONTO ENGLISH. FIRST, КӨК covers blue AND the green of living things — көк аспан is the blue sky, көк шөп is green grass, көктем is spring, "the greening" — and жасыл is a later, narrower word for green that does not reach the grass. So a config translating "green" gets жасыл for a painted object and көк for a plant, and the two are not interchangeable. SECOND, Kazakh has a whole separate colour vocabulary FOR HORSES which has no English equivalent and which the last block of this list holds: торы is bay, жирен chestnut, күрең dark chestnut, боз grey-white, ақбоз white, құла dun, шабдар palomino, ала piebald, шұбар dappled. These words are used of horses first and of anything else only by extension, so a Kazakh hearing торы assumes a horse is meant — which makes them wrong for a paint chart and right for livestock data.
+locale: kk
+---
+қызыл
+жасыл
+көк
+сары
+қызғылт сары
+күлгін
+қызғылт
+қоңыр
+қара
+ақ
+сұр
+көгілдір
+ақшыл көк
+қою көк
+ашық жасыл
+қою жасыл
+зәйтүн
+фирузалы
+аквамарин
+күміс
+алтын
+қола
+мыс
+қаймақ түсті
+сүр
+беж
+қоңыр қызыл
+қызыл күрең
+шие түсті
+қып-қызыл
+ал қызыл
+қызғылт күлгін
+лаванда түсті
+сирень түсті
+индиго
+ультрамарин
+лимон сары
+қаралтым сары
+қою сары
+сарғылт
+сұр көк
+қара көк
+ақ сұр
+көмір қара
+қар ақ
+піл сүйегі
+мәрмәр
+шаңытқан сұр
+торы
+жирен
+күрең
+боз
+ақбоз
+құла
+шабдар
+ала
+шұбар

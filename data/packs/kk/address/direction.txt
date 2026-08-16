@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Kazakh street, district or estate name (Солтүстік шағын ауданы, Орталық саябақ). Kazakh builds the intercardinals by hyphenating the two cardinals in the same order English does.
+locale: kk
+---
+Солтүстік
+Оңтүстік
+Шығыс
+Батыс
+Солтүстік-шығыс
+Солтүстік-батыс
+Оңтүстік-шығыс
+Оңтүстік-батыс
+Орталық
+Жоғарғы
+Төменгі
+Орта
+Ішкі
+Сыртқы
+Жаңа

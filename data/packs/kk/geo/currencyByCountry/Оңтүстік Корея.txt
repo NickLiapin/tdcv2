@@ -1,0 +1,5 @@
+---
+description: Currency of Оңтүстік Корея, as Kazakh names it
+locale: kk
+---
+оңтүстік корея вонасы

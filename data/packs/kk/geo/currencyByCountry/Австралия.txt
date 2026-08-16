@@ -1,0 +1,5 @@
+---
+description: Currency of Австралия, as Kazakh names it
+locale: kk
+---
+австралия доллары

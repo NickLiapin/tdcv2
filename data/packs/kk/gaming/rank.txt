@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier in Kazakh.
+locale: kk
+---
+темір
+қола
+күміс
+алтын
+платина
+гауһар
+шебер
+ұлы шебер
+чемпион
+аңыз

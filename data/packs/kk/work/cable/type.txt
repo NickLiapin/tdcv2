@@ -1,0 +1,13 @@
+---
+description: Cable type. The Cat and Ethernet names keep their Latin spelling in any locale.
+locale: kk
+---
+талшықты-оптикалық
+коаксиалды
+есілген жұп
+Cat5e
+Cat6
+Cat6a
+Ethernet
+әуе кабелі
+жер асты кабелі

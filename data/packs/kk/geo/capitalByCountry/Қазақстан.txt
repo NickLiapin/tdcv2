@@ -1,0 +1,5 @@
+---
+description: Capital of Қазақстан, as Kazakh names it
+locale: kk
+---
+Астана

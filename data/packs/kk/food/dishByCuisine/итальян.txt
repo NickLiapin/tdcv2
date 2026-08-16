@@ -1,0 +1,11 @@
+---
+description: Dishes of итальян cuisine as eaten in Kazakhstan
+locale: kk
+---
+пицца
+спагетти карбонара
+лазанья
+ризотто
+ньокки
+минестроне
+тирамису

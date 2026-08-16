@@ -1,0 +1,45 @@
+---
+description: Legal form of a Kazakhstani company. TWO THINGS DIFFER FROM ENGLISH AND BOTH BREAK A NAIVE CONFIG. FIRST, THE FORM COMES BEFORE THE NAME, not after: it is ЖШС «Алатау», never «Алатау» ЖШС, and the name itself sits inside guillemets. SECOND, most of these abbreviations have a Kazakh form and a Russian form for the SAME legal entity and both are in daily use on the same signage — ЖШС is the Kazakh abbreviation of жауапкершілігі шектеулі серіктестік and ТОО the Russian one for the identical thing, АҚ and АО likewise. ЖШС is by far the commonest form, the default vehicle for any private business; ЖК is a registered sole trader; ШҚ, a peasant farm, is a real and numerous legal form in a country with this much agriculture; and КЕАҚ is the non-commercial joint-stock company that every state university was converted into.
+locale: kk
+---
+ЖШС
+ТОО
+АҚ
+АО
+ЖК
+ИП
+ШҚ
+КЕАҚ
+РМК
+ШЖҚ РМК
+МКК
+ӨК
+ҚҚ
+Қоғамдық қор
+Қауымдастық
+Тұтыну кооперативі
+ТС
+КС
+Филиал
+Өкілдік
+Ұлттық компания
+Холдинг
+Топ
+Корпорация
+Тресті
+Комбинат
+Зауыт
+Фабрика
+Компания
+Group
+Holding
+LLP
+JSC
+Ltd
+Инк
+Серіктестік
+Одақ
+Орталық
+Институт
+Агенттік
+Бірлестік

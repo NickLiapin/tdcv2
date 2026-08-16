@@ -1,0 +1,5 @@
+---
+description: Currency of Канада, as Kazakh names it
+locale: kk
+---
+канада доллары

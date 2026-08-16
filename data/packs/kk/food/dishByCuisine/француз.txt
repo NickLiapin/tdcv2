@@ -1,0 +1,11 @@
+---
+description: Dishes of француз cuisine as eaten in Kazakhstan
+locale: kk
+---
+круассан
+киш лорен
+рататуй
+бёф бургиньон
+крем-брюле
+пияз сорпасы
+эклер

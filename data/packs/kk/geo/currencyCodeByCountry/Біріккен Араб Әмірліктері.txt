@@ -1,0 +1,5 @@
+---
+description: Currency code of Біріккен Араб Әмірліктері (ISO 4217)
+locale: kk
+---
+AED

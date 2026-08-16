@@ -1,0 +1,5 @@
+---
+description: Currency of Ресей, as Kazakh names it
+locale: kk
+---
+ресей рублі

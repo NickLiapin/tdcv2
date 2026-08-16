@@ -1,0 +1,29 @@
+---
+description: Dog breed. THE FIRST TWO ARE KAZAKHSTAN'S OWN and they are not variants of anything European. Қазақ тазысы is the steppe sighthound, hunted in a pair with a golden eagle — the eagle takes the fox from the air, the tazy runs it down — and it is one of the oldest recorded sighthound types. Қазақ төбеті is the flock guardian of the same tradition, a heavy mountain-and-steppe dog kept with sheep against wolves; Central Asian neighbours know the same dog as alabai. Both are officially recognised national breeds and both appear on Kazakhstani stamps. The rest of the list is the international set as a Kazakhstani kennel would name it.
+locale: kk
+---
+қазақ тазысы
+қазақ төбеті
+алабай
+лабрадор ретривер
+неміс овчаркасы
+алтын ретривер
+француз бульдогы
+бульдог
+пудель
+бигль
+ротвейлер
+такса
+боксёр
+сібір хаскиі
+дог
+доберман
+австралия овчаркасы
+бордер-колли
+чихуахуа
+ши-тцу
+померан шпицы
+корги
+спаниель
+терьер
+мопс

@@ -1,0 +1,27 @@
+---
+description: Secondary unit within a Kazakhstani address. THE ONE A WESTERN ADDRESS MODEL HAS NO SLOT FOR IS КІРЕБЕРІС, the stairwell entrance — a Soviet-built block is addressed house, then entrance, then floor, then flat (5-үй, 2-кіреберіс, 4-қабат, 37-пәтер), and the entrance number is not decorative: without it a courier cannot find the door, because each entrance serves its own vertical stack of flags and they are not connected inside. Корпус is the second half of a split house number (12/1, written 12-үй 1-корпус). Note also that the NUMBER PRECEDES the designator in Kazakh — 37-пәтер, not пәтер 37 — the opposite of English.
+locale: kk
+---
+пәтер
+кіреберіс
+қабат
+бөлме
+блок
+корпус
+ғимарат
+кеңсе
+бөлім
+секция
+орын
+бокс
+гараж
+қойма
+павильон
+бутик
+контейнер
+ангар
+жертөле
+шатыр асты
+тұрғын емес үй-жай
+жапсарлас құрылыс
+литер

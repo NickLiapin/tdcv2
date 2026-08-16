@@ -1,0 +1,5 @@
+---
+description: Capital of Бангладеш, as Kazakh names it
+locale: kk
+---
+Дакка

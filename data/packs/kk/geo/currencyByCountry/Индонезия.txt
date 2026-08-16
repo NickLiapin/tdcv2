@@ -1,0 +1,5 @@
+---
+description: Currency of Индонезия, as Kazakh names it
+locale: kk
+---
+индонезия рупиясы

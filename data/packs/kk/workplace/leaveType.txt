@@ -1,0 +1,16 @@
+---
+description: Leave type under the Kazakhstani Labour Code. Two entries have no Western equivalent in this shape: ӘСКЕРИ ЖИЫН is the reservist call-up, which is a statutory paid absence, and ОҚУ ДЕМАЛЫСЫ is study leave granted to an employee sitting examinations, also statutory. Декреттік демалыс and бала күтіміне арналған демалыс are two separate entitlements, not one: the first is the maternity period around the birth, the second the childcare leave that may follow it and may be taken by either parent.
+locale: kk
+---
+жыл сайынғы демалыс
+ауру бойынша демалыс
+декреттік демалыс
+бала күтіміне арналған демалыс
+жерлеуге байланысты демалыс
+ақысыз демалыс
+шығармашылық демалыс
+жеке күн
+оқу демалысы
+әскери жиын
+сотқа шақыру
+әлеуметтік демалыс

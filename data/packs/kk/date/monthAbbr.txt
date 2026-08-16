@@ -1,0 +1,16 @@
+---
+description: Abbreviated Kazakh month name — the first three letters, which is what a form or a table header uses. Two pairs would collide at two letters (мамыр / маусым and қыркүйек / қазан / қараша), which is why three is the shortest usable length.
+locale: kk
+---
+қаң
+ақп
+нау
+сәу
+мам
+мау
+шіл
+там
+қыр
+қаз
+қар
+жел

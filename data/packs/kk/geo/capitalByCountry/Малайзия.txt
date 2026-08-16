@@ -1,0 +1,5 @@
+---
+description: Capital of Малайзия, as Kazakh names it
+locale: kk
+---
+Куала-Лумпур

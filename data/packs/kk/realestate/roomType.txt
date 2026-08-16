@@ -1,0 +1,22 @@
+---
+description: Room within a dwelling, in Kazakh. Дәліз and кіреберіс are separate: the first is the corridor inside the flat, the second the shared stairwell entrance of the block.
+locale: kk
+---
+қонақ бөлме
+жатын бөлме
+балалар бөлмесі
+ас үй
+жуынатын бөлме
+дәретхана
+дәліз
+кіреберіс
+кабинет
+қойма бөлме
+кладовка
+лоджия
+балкон
+шатыр асты
+жертөле
+гараж
+қазандық
+киім ілетін бөлме

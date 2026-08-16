@@ -1,0 +1,5 @@
+---
+description: Currency code of Малайзия (ISO 4217)
+locale: kk
+---
+MYR

@@ -1,0 +1,5 @@
+---
+description: Capital of Солтүстік Корея, as Kazakh names it
+locale: kk
+---
+Пхеньян

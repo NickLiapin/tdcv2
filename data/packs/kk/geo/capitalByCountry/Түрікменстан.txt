@@ -1,0 +1,5 @@
+---
+description: Capital of Түрікменстан, as Kazakh names it
+locale: kk
+---
+Ашғабат

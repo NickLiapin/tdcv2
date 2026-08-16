@@ -1,0 +1,5 @@
+---
+description: Capital of Сауд Арабиясы, as Kazakh names it
+locale: kk
+---
+Эр-Рияд

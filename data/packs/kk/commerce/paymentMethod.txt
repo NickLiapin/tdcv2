@@ -1,0 +1,19 @@
+---
+description: Payment method in Kazakhstan. KASPI QR IS FIRST AND THAT IS NOT A BRAND PLUG — it is the single most common way money changes hands in Kazakhstani retail, accepted by supermarkets, taxis, bazaar traders and street kiosks alike, and a great many small sellers accept nothing else. БӨЛІП ТӨЛЕУ, interest-free instalments, is likewise mainstream rather than a fringe product: a large share of consumer electronics and furniture is bought in three, six or twelve instalments at the till, and a Kazakhstani price tag routinely quotes the monthly instalment beside the full price. A payment-methods list copied from a Western locale, with PayPal at the top and no QR and no instalments, would misrepresent this market badly.
+locale: kk
+---
+Kaspi QR
+Kaspi Gold
+банк картасы
+дебеттік карта
+несие картасы
+Halyk Bank аударымы
+банк аударымы
+бөліп төлеу
+несиеге
+қолма-қол ақша
+жеткізу кезінде төлеу
+Apple Pay
+Google Pay
+сыйлық картасы
+бонустармен төлеу

@@ -1,0 +1,32 @@
+---
+description: Flower. ҚЫЗҒАЛДАҚ, THE TULIP, IS FIRST BECAUSE THE TULIP IS FROM HERE: the wild ancestors of every garden tulip grow in the Tien Shan and the Kazakh foothills, Tulipa greigii and Tulipa kaufmanniana among them, and the steppe turns red with them for about three weeks in April. ЖУСАН, wormwood, is not a garden flower at all and is on the list because it is the defining smell of the Kazakh steppe and appears constantly in Kazakh poetry and song as the emblem of home. Бәйшешек is the first flower after the snow. The rest are the international garden set.
+locale: kk
+---
+қызғалдақ
+раушан
+бәйшешек
+жусан
+түймедақ
+күнбағыс
+лалагүл
+құртқашаш
+нәркес
+қалампыр
+хризантема
+көкнәр
+пион
+орхидея
+лаванда
+жасмин
+гибискус
+лотос
+георгин
+бегония
+фиалка
+сирень
+жоңышқа
+бетеге
+ши
+қияқ
+мия
+адыраспан

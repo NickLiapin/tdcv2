@@ -1,0 +1,16 @@
+---
+description: Western zodiac sign in Kazakh — these are translations of the Latin names, not native terms, and Kazakh translates them rather than transliterating: Тоқты is a yearling lamb, Торпақ a bullock, Бикеш a young woman, Мерген a marksman, Суқұйғыш a water-pourer. SEPARATELY, and much more alive in daily Kazakh life, is the twelve-year Turkic animal cycle мүшел — тышқан, сиыр, барыс, қоян, ұлу, жылан, жылқы, қой, мешін, тауық, ит, доңыз — which is not a birth-month sign at all but a birth-YEAR one; every twelfth birthday (13, 25, 37, 49) is a мүшел жас and is treated as a year needing care. A config that wants the sign a Kazakh actually cites about themselves probably wants the мүшел year, which is derived from the birth year, not this list.
+locale: kk
+---
+Тоқты
+Торпақ
+Егіздер
+Шаян
+Арыстан
+Бикеш
+Таразы
+Сарышаян
+Мерген
+Тауешкі
+Суқұйғыш
+Балықтар

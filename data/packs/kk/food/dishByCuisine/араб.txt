@@ -1,0 +1,10 @@
+---
+description: Dishes of араб cuisine as eaten in Kazakhstan
+locale: kk
+---
+хумус
+фалафель
+шаурма
+табуле
+киббе
+манакиш

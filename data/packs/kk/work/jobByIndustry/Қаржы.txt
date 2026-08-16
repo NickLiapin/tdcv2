@@ -1,0 +1,10 @@
+---
+description: Jobs in the Қаржы industry, in Kazakh
+locale: kk
+---
+қаржы талдаушысы
+бухгалтер
+аудитор
+банк қызметкері
+несие маманы
+актуарий

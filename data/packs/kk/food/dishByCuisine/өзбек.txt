@@ -1,0 +1,12 @@
+---
+description: Dishes of өзбек cuisine as eaten in Kazakhstan
+locale: kk
+---
+палау
+манты
+самса
+лағман
+шурпа
+димлама
+нон
+чучвара

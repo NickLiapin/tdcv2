@@ -1,0 +1,46 @@
+---
+description: Skill as a Kazakhstani job advertisement lists it. THE LANGUAGE BLOCK IS NOT DECORATION: Kazakhstan runs a declared trilingual policy and a great many vacancies genuinely require Kazakh, Russian and English together, with Chinese increasingly listed on the trade and energy side — so language is a hard requirement in this market in a way it is not in a monolingual one, and "қазақ тілі" on a CV means a tested competency level rather than a hobby.
+locale: kk
+---
+Python
+JavaScript
+SQL
+Java
+C++
+1С
+Excel
+бұлттық есептеулер
+машиналық оқыту
+деректерді талдау
+жобаны басқару
+Agile
+көпшілік алдында сөйлеу
+техникалық жазу
+тұтынушыға қызмет көрсету
+сату
+бухгалтерлік есеп
+қаржылық модельдеу
+CAD
+3D модельдеу
+графикалық дизайн
+копирайтинг
+дәнекерлеу
+электр монтажы
+сантехника
+ағаш ұстасы шеберлігі
+сызба оқу
+металл өңдеу
+тиегіш басқару
+ауыр техника басқару
+көлік жүргізу
+алғашқы көмек
+жүрек-өкпе реанимациясы
+тағам қауіпсіздігі
+қазақ тілі
+орыс тілі
+ағылшын тілі
+қытай тілі
+келіссөз жүргізу
+команданы басқару
+уақытты басқару
+мәселе шешу

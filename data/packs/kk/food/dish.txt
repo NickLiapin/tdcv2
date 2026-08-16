@@ -1,0 +1,47 @@
+---
+description: A dish someone in Kazakhstan actually eats, mixing the national table with what is on a city menu. Бешбармак heads it because it is the national dish and the centre of every guest meal: boiled horse or mutton on wide flat noodles, eaten with the hands — the name literally means "five fingers" — and served in a fixed order of cuts by the seniority of the guest. Қазы is horse sausage from the rib, қуырдақ the offal fry made on slaughter day, баурсақ the fried dough that appears at every table. Note how much of this list is meat and dough and how little is fish or pork: the steppe diet is built on the five livestock animals, and pork is largely absent from a majority-Muslim country.
+locale: kk
+---
+бешбармақ
+қуырдақ
+қазы
+жая
+жал
+сорпа
+наурыз көже
+баурсақ
+шелпек
+құрт
+жент
+талқан
+палау
+манты
+самса
+лағман
+шурпа
+ашлямфу
+ганфан
+димлама
+кеспе
+бүйрек
+шашлық
+дөнер
+чебурек
+бәліш
+пельмень
+борщ
+оливье салаты
+куксі
+кимчи
+кәріс сәбізі
+хачапури
+хинкали
+пицца
+паста
+бургер
+суши
+тако
+плов
+үрме бұршақ сорпасы
+бауырсақ шай
+ірімшік бәліші

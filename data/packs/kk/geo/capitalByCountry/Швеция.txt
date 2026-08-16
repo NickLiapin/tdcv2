@@ -1,0 +1,5 @@
+---
+description: Capital of Швеция, as Kazakh names it
+locale: kk
+---
+Стокгольм

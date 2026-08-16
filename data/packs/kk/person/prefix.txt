@@ -1,0 +1,37 @@
+---
+description: Kazakh honorific or title. THE WORD ORDER IS THE OPPOSITE OF ENGLISH: мырза and ханым FOLLOW the given name — Асқар мырза, Айгүл ханым — so a config that prepends this list the way it prepends Mr will produce something no Kazakh writes. The kinship terms аға, апа, ағай, апай, көке, тәте, ата and әже are used to strangers as well as relatives and are the ordinary polite address to anyone older; ағай and апай in particular are what every pupil calls a male and a female teacher. The professional and rank titles at the end do precede the name, as in Russian.
+locale: kk
+---
+мырза
+ханым
+аға
+апа
+ағай
+апай
+әпке
+көке
+тәте
+ата
+әже
+құрметті
+доктор
+профессор
+доцент
+академик
+ұстаз
+төраға
+әкім
+министр
+депутат
+би
+батыр
+хан
+сұлтан
+бек
+қажы
+молда
+имам
+генерал
+полковник
+капитан
+сержант

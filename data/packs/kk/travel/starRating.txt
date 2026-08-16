@@ -1,0 +1,9 @@
+---
+description: Hotel star rating in Kazakh.
+locale: kk
+---
+1 жұлдыз
+2 жұлдыз
+3 жұлдыз
+4 жұлдыз
+5 жұлдыз

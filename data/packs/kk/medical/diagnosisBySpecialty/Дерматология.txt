@@ -1,0 +1,10 @@
+---
+description: Diagnoses typically seen in Дерматология, in Kazakh
+locale: kk
+---
+псориаз
+атопиялық дерматит
+безеу
+меланома
+розацеа
+жанасу дерматиті

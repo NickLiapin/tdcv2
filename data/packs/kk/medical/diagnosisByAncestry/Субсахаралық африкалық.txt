@@ -1,0 +1,15 @@
+---
+description: Conditions with a raised prevalence in the Субсахаралық африкалық ancestry group, in Kazakh. This list is a PREVALENCE SIGNAL AND NOT AN EXCLUSIVE ONE: every condition here occurs in other populations too, and ancestry raises or lowers a prior probability rather than deciding a diagnosis.
+locale: kk
+---
+орақ жасушалы анемия
+орақ жасушалы белгі
+глюкоза-6-фосфатдегидрогеназа тапшылығы
+APOL1 нефропатиясы
+келоидты тыртық
+саркоидоз
+гипертониялық нефросклероз
+жатыр миомасы
+қатерсіз этникалық нейтропения
+лактазаның тұрақсыздығы
+витилиго

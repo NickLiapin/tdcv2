@@ -1,0 +1,28 @@
+---
+description: School subject in Kazakhstan. Two entries have no Western counterpart: ҚАЗАҚСТАН ТАРИХЫ is a separate compulsory subject from world history and is examined on its own, and ӨЗІН-ӨЗІ ТАНУ, "self-knowledge", was a distinct compulsory ethics-and-values subject in the Kazakhstani curriculum. Note also that Kazakh language and Kazakh literature are two subjects, not one, and the same is true of Russian.
+locale: kk
+---
+қазақ тілі
+қазақ әдебиеті
+орыс тілі
+орыс әдебиеті
+ағылшын тілі
+математика
+алгебра
+геометрия
+физика
+химия
+биология
+жаратылыстану
+география
+Қазақстан тарихы
+дүниежүзі тарихы
+информатика
+дене шынықтыру
+музыка
+бейнелеу өнері
+көркем еңбек
+өзін-өзі тану
+құқық негіздері
+экономика негіздері
+алғашқы әскери дайындық

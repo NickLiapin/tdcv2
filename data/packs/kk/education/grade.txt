@@ -1,0 +1,25 @@
+---
+description: A mark, and KAZAKHSTAN USES TWO SCALES AT ONCE so both are here. School is a FIVE-POINT numeric scale inherited from the Soviet system where 5 is the best and 2 the fail — there is no 1 in practice and no letters at all, so a config that hands a Kazakhstani schoolchild an A+ is wrong. University moved to a letter-and-GPA scale with the Bologna reforms and uses A through F on a four-point GPA. Both are current, in different institutions, in the same country.
+locale: kk
+---
+5
+4
+3
+2
+A
+A-
+B+
+B
+B-
+C+
+C
+C-
+D+
+D
+F
+сынақ өтті
+сынақтан өтпеді
+өте жақсы
+жақсы
+қанағаттанарлық
+қанағаттанарлықсыз

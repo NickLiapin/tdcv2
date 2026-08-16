@@ -1,0 +1,5 @@
+---
+description: Currency of Вьетнам, as Kazakh names it
+locale: kk
+---
+вьетнам донгы

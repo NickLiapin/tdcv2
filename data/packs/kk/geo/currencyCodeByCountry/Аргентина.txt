@@ -1,0 +1,5 @@
+---
+description: Currency code of Аргентина (ISO 4217)
+locale: kk
+---
+ARS

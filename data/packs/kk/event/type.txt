@@ -1,0 +1,28 @@
+---
+description: Kind of event. ТОЙ IS THE ONE THAT MATTERS AND IT IS NOT SIMPLY "A PARTY": Kazakh social life is organised around a series of named той, each marking a life stage and each carrying an expected guest list that can run into the hundreds — ҮЙЛЕНУ ТОЙЫ the wedding, ҚЫЗ ҰЗАТУ the bride's farewell held by her own family before it, БЕСІККЕ САЛУ the placing of a newborn in the cradle, ТҰСАУКЕСЕР the cutting of the ties at a child's first steps, СҮНДЕТ ТОЙ the circumcision feast, МҮШЕЛ ТОЙ a birthday at a twelve-year mark, and АС the memorial feast for the dead. These are scheduled, catered, budgeted events with hired venues and are a substantial part of household spending, so a Kazakhstani event dataset without them is missing most of the calendar.
+locale: kk
+---
+үйлену тойы
+қыз ұзату
+бесікке салу
+тұсаукесер
+сүндет той
+мүшел той
+туған күн
+ас
+құда түсу
+конференция
+семинар
+вебинар
+тренинг
+көрме
+жәрмеңке
+концерт
+фестиваль
+айтыс
+спорт жарысы
+қайырымдылық кеші
+өнім таныстырылымы
+гала-кеш
+корпоратив
+бітіру кеші

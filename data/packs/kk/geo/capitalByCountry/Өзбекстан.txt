@@ -1,0 +1,5 @@
+---
+description: Capital of Өзбекстан, as Kazakh names it
+locale: kk
+---
+Ташкент

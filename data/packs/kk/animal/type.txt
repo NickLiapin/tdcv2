@@ -1,0 +1,47 @@
+---
+description: Animal. The head of the list is the ТҮЛІК, the five livestock animals a Kazakh household is counted in — қой, ешкі, сиыр, жылқы, түйе — and they come first because the entire economy, calendar and vocabulary of the steppe was built on them. The wild block after them is Kazakhstan's own fauna and is not decorative: барыс is the snow leopard and is on the national emblem and the ten-thousand-tenge note, киік is the saiga antelope, of which Kazakhstan holds the overwhelming majority of the world population, құлан is the Asiatic wild ass reintroduced to the steppe, and арқар is the argali, the largest wild sheep on earth.
+locale: kk
+---
+қой
+ешкі
+сиыр
+жылқы
+түйе
+ит
+мысық
+барыс
+киік
+арқар
+құлан
+қарақұйрық
+бұғы
+бұлан
+елік
+қасқыр
+түлкі
+қарсақ
+аю
+борсық
+сусар
+құндыз
+қоян
+тиін
+кірпі
+жарқанат
+жабайы шошқа
+сілеусін
+жолбарыс
+арыстан
+піл
+маймыл
+керік
+зебра
+кенгуру
+панда
+коала
+дельфин
+кит
+итбалық
+тасбақа
+жылан
+кесіртке

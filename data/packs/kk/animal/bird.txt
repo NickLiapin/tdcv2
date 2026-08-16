@@ -1,0 +1,36 @@
+---
+description: Bird. БҮРКІТ, the golden eagle, is first because in Kazakhstan it is not merely a wild bird: құсбегілік, hunting with a trained eagle from horseback, is a living practice with competitions and a UNESCO listing, and a бүркітші keeps his bird for years before releasing it back. Сұңқар and ителгі, the falcons, belong to the same tradition. Дуадақ is the great bustard and қырғауыл the pheasant, both steppe game; ақ бөкен is not here because it is a mammal. Флaminго and бірқазан breed on the Kazakh salt lakes, which is further north than most people expect a flamingo to be.
+locale: kk
+---
+бүркіт
+қыран
+сұңқар
+ителгі
+тұйғын
+қаршыға
+жапалақ
+үкі
+қарға
+сауысқан
+торғай
+шымшық
+қарлығаш
+бұлбұл
+көгершін
+тоқылдақ
+тырна
+дуадақ
+қаз
+үйрек
+аққу
+қырғауыл
+кекілік
+бөдене
+құр
+ләйлек
+бірқазан
+фламинго
+шағала
+тауық
+әтеш
+күркетауық

@@ -1,0 +1,10 @@
+---
+description: Dishes of америка cuisine as eaten in Kazakhstan
+locale: kk
+---
+чизбургер
+хот-дог
+барбекю қабырға
+мак энд чиз
+алма бәліші
+фри картобы

@@ -1,0 +1,11 @@
+---
+description: Dishes of түрік cuisine as eaten in Kazakhstan
+locale: kk
+---
+кебаб
+дөнер
+лахмажун
+пиде
+кёфте
+мезе
+баклава

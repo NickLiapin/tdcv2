@@ -1,0 +1,5 @@
+---
+description: Currency of Румыния, as Kazakh names it
+locale: kk
+---
+румын лейі

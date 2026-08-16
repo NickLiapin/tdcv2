@@ -1,0 +1,5 @@
+---
+description: Capital of Италия, as Kazakh names it
+locale: kk
+---
+Рим

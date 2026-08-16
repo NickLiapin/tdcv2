@@ -1,0 +1,28 @@
+---
+description: Personal budget category in Kazakh. Коммуналдық қызметтер covers heating, which in a country with -30 °C winters is the largest single utility line for half the year.
+locale: kk
+---
+пәтер жалдау
+ипотека
+коммуналдық қызметтер
+жылу
+электр энергиясы
+азық-түлік
+көлік
+жанармай
+байланыс
+интернет
+денсаулық
+дәрі-дәрмек
+сақтандыру
+кафе мен мейрамхана
+ойын-сауық
+жазылымдар
+киім
+білім беру
+бала күтімі
+саяхат
+сыйлықтар
+қайырымдылық
+несие төлемі
+жинақ

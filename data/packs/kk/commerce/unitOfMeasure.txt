@@ -1,0 +1,34 @@
+---
+description: Unit of measure. KAZAKHSTAN IS FULLY METRIC AND THE IMPERIAL UNITS ARE DELIBERATELY ABSENT: there is no pound, ounce or gallon here, because none of them appears on a Kazakhstani price label, invoice or delivery note. Центнер, a hundred kilograms, is included because it is the standard unit of the grain harvest and is quoted in every agricultural report. Пұт, the pre-revolutionary sixteen-kilogram unit, is NOT included: it is historical and would be wrong on a modern document.
+locale: kk
+---
+дана
+қорап
+жәшік
+орам
+ондық
+жұп
+жиынтық
+орама
+буда
+қап
+пакет
+бөтелке
+банка
+құты
+тұтқыш
+килограмм
+грамм
+тонна
+центнер
+литр
+миллилитр
+метр
+сантиметр
+миллиметр
+километр
+шаршы метр
+текше метр
+погон метр
+рулон
+себет

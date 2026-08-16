@@ -1,0 +1,9 @@
+---
+description: Playing positions in Футзал, in Kazakh
+locale: kk
+---
+қақпашы
+қорғаушы
+шеткі ойыншы
+орталық
+шабуылшы

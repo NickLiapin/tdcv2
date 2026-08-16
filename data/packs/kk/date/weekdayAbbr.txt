@@ -1,0 +1,11 @@
+---
+description: Two-letter Kazakh weekday abbreviation as a calendar grid prints it, Monday first. All seven are distinct at two letters even though four of them share the -сенбі element, because the abbreviation is taken from the first two letters of the whole word.
+locale: kk
+---
+дс
+сс
+ср
+бс
+жм
+сб
+жк

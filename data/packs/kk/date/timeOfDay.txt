@@ -1,0 +1,12 @@
+---
+description: Part of the day in Kazakh. Таң is first light and таңертең the period after it; түс is midday proper and түстен кейін the afternoon. Kazakh has no am/pm: the clock is 24-hour, and these words are what disambiguates a spoken time.
+locale: kk
+---
+таң
+таңертең
+түс
+түстен кейін
+кеш
+кешке
+түн
+түн ортасы

@@ -1,0 +1,36 @@
+---
+description: Musical instrument. THE FIRST BLOCK IS KAZAKH AND IS PLAYED, TAUGHT AND SOLD TODAY. ДОМБЫРА, the two-string long-necked lute, is the national instrument and is close to universal; ҚОБЫЗ is the bowed horsehair fiddle of the baqsy, the shaman, and its sound is deliberately rough; СЫБЫЗҒЫ is the end-blown flute played with a simultaneous sung drone; ЖЕТІГЕН is the seven-string zither; ШАҢҚОБЫЗ the jaw harp; САЗСЫРНАЙ a clay ocarina; АСАТАЯҚ a rattling staff; ДАҢҒЫРА a frame drum; КЕРНЕЙ a long horn. A Kazakh music school teaches домбыра alongside piano as a main instrument, not as folklore.
+locale: kk
+---
+домбыра
+қобыз
+сыбызғы
+жетіген
+шаңқобыз
+сазсырнай
+асатаяқ
+даңғыра
+керней
+дабыл
+гитара
+бас-гитара
+фортепиано
+синтезатор
+скрипка
+виолончель
+контрабас
+арфа
+флейта
+кларнет
+гобой
+саксофон
+труба
+тромбон
+валторна
+барабан
+аккордеон
+баян
+гармоника
+ксилофон
+укулеле
+банджо

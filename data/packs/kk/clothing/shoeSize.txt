@@ -1,0 +1,16 @@
+---
+description: Shoe size on the CONTINENTAL EUROPEAN (Paris point) scale, which is what a Kazakhstani reads on a shoebox and asks for in a shop. It arrived through the Soviet ГОСТ standard, which used the same Paris point for adult footwear, so the numbers did not change in 1991 and Kazakhstan did not switch to anything else. Whole numbers only — the Paris-point scale has no half sizes.
+locale: kk
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

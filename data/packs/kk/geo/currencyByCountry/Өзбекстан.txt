@@ -1,0 +1,5 @@
+---
+description: Currency of Өзбекстан, as Kazakh names it
+locale: kk
+---
+өзбек сомы

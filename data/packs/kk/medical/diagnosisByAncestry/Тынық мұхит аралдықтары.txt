@@ -1,0 +1,10 @@
+---
+description: Conditions with a raised prevalence in the Тынық мұхит аралдықтары ancestry group, in Kazakh.
+locale: kk
+---
+2-типті қант диабеті
+семіздікке байланысты гипертензия
+подагра
+ревматизмдік жүрек ауруы
+бүйректің созылмалы ауруы
+гиперурикемия

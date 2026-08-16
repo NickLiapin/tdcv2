@@ -1,0 +1,12 @@
+---
+description: Kazakh personal pronoun. KAZAKH HAS NO GRAMMATICAL GENDER AND NO GENDERED THIRD-PERSON PRONOUN: ол is he, she and it all at once, and олар covers them. An English-style he/him — she/her pairing is therefore IMPOSSIBLE to write here and this file deliberately does not attempt one; a config that wants to signal a person's sex in Kazakh must do it with a noun (ер адам, әйел адам) or with the patronymic, never with a pronoun. What Kazakh does distinguish instead is FORMALITY, which English does not: сен is the familiar you and сіз the polite one, and both have plurals — сендер and сіздер — so the second person has four forms where English has one.
+locale: kk
+---
+мен
+сен
+сіз
+ол
+біз
+сендер
+сіздер
+олар

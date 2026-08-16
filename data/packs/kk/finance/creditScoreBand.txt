@@ -1,0 +1,9 @@
+---
+description: Credit score band. Kazakhstan's scores come from the Первое кредитное бюро (ПКБ) and the State Credit Bureau rather than from FICO, and the numeric ranges are not published in a form that would let a pack quote them honestly — SO THIS FILE SHIPS THE BANDS AND NOT THE NUMBERS. Inventing a 300-850 range copied from the American scale would be the exact kind of plausible-looking fiction this project keeps having to undo.
+locale: kk
+---
+өте төмен
+төмен
+орташа
+жоғары
+өте жоғары

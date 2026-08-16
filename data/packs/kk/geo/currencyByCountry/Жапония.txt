@@ -1,0 +1,5 @@
+---
+description: Currency of Жапония, as Kazakh names it
+locale: kk
+---
+жапон иенасы

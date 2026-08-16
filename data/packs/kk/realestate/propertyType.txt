@@ -1,0 +1,23 @@
+---
+description: Property type as a Kazakhstani listing states it. THE LISTING CONVENTION IS DIFFERENT FROM THE ANGLOPHONE ONE: a flat is advertised by its ROOM COUNT, not by bedrooms or floor area — 1-бөлмелі, 2-бөлмелі, 3-бөлмелі — where the room count includes the living room, so a 2-бөлмелі пәтер is a one-bedroom flat by British reckoning. САЯЖАЙ, the dacha, is a distinct legal and practical category: a plot with a summer house outside the city, very widely owned, often without winter heating, and priced and taxed differently from a dwelling.
+locale: kk
+---
+1-бөлмелі пәтер
+2-бөлмелі пәтер
+3-бөлмелі пәтер
+4-бөлмелі пәтер
+студия
+пентхаус
+жеке үй
+коттедж
+таунхаус
+дуплекс
+бөлме
+жатақхана бөлмесі
+саяжай
+жер учаскесі
+коммерциялық үй-жай
+кеңсе
+қойма
+жаңа құрылыс
+екінші реттік тұрғын үй

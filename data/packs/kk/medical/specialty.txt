@@ -1,0 +1,42 @@
+---
+description: Medical specialty as a Kazakhstani hospital organises itself. ФТИЗИАТРИЯ IS A SEPARATE SPECIALTY HERE AND IS NOT IN A WESTERN LIST: tuberculosis medicine is its own discipline with its own dispensary network across the post-Soviet health systems, and Kazakhstan still runs it that way. НАРКОЛОГИЯ, addiction medicine, is separate from psychiatry for the same institutional reason. The terminology is otherwise international, in Kazakh spelling.
+locale: kk
+---
+терапия
+жалпы дәрігерлік практика
+кардиология
+неврология
+онкология
+дерматология
+гастроэнтерология
+эндокринология
+пульмонология
+нефрология
+ортопедия
+ревматология
+урология
+гематология
+иммунология
+аллергология
+офтальмология
+оториноларингология
+педиатрия
+неонатология
+психиатрия
+наркология
+фтизиатрия
+инфекциялық аурулар
+эпидемиология
+анестезиология
+реаниматология
+жедел медициналық жәрдем
+жалпы хирургия
+тамыр хирургиясы
+пластикалық хирургия
+акушерлік және гинекология
+радиология
+патология
+гериатрия
+оңалту медицинасы
+спорт медицинасы
+стоматология

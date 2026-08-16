@@ -1,0 +1,21 @@
+---
+description: Cuisine as it is actually eaten in Kazakhstan, ordered by how common the restaurant is. The head of this list is not the international set: after Kazakh come Uzbek, Uyghur and Dungan, which are the everyday food of the country and are three DIFFERENT cuisines even though outsiders lump them together — the Uyghurs brought hand-pulled лағман, the Dungans (Hui Chinese who fled to the Semirechye in the 1870s) brought ашлямфу and ганфан. Кәріс, Korean, is on the list for a reason no menu explains: the Soviet deportation of the Far Eastern Koreans to Kazakhstan in 1937 left a large community, and кәріс сәбізі, the Korean carrot salad, is now sold in every Kazakhstani market as a local product. Each value here is the filename of a file in food/dishByCuisine/.
+locale: kk
+---
+қазақ
+өзбек
+ұйғыр
+дүнген
+орыс
+кәріс
+түрік
+қытай
+жапон
+итальян
+француз
+үнді
+грузин
+әзербайжан
+араб
+мексика
+америка

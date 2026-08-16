@@ -1,0 +1,14 @@
+---
+description: Fuel type. СҰЙЫЛТЫЛҒАН ГАЗ, LPG, is high on this list because gas conversion is very widespread in Kazakhstan — the country produces its own gas and it is markedly cheaper than petrol, so a large share of taxis and private cars run on it, which a European fuel list would put at the bottom or omit.
+locale: kk
+---
+бензин
+дизель
+сұйылтылған газ
+сығылған газ
+электр
+гибрид
+қосылатын гибрид
+сутек
+этанол
+биодизель

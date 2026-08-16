@@ -1,0 +1,9 @@
+---
+description: Playing positions in Баскетбол, in Kazakh
+locale: kk
+---
+ойын құрастырушы
+атқыш қорғаушы
+жеңіл шабуылшы
+ауыр шабуылшы
+орталық

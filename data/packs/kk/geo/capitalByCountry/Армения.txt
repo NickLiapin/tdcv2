@@ -1,0 +1,5 @@
+---
+description: Capital of Армения, as Kazakh names it
+locale: kk
+---
+Ереван

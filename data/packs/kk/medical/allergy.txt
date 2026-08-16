@@ -1,0 +1,26 @@
+---
+description: Allergen. THE LAST TWO ARE REGIONAL AND WOULD NOT APPEAR ON A EUROPEAN LIST: ЖУСАН ТОЗАҢЫ, wormwood pollen, is the dominant late-summer aeroallergen across the Kazakh steppe, and ТЕРЕК МАМЫҒЫ, poplar fluff, blankets every Kazakhstani city for two or three weeks in June because poplars were planted along every street in the Soviet period — it is a mechanical irritant as much as an allergen and it is what a Kazakhstani means when they say the allergy season has started.
+locale: kk
+---
+пенициллин
+жержаңғақ
+ағаш жаңғақтары
+теңіз өнімдері
+жұмыртқа
+сүт
+соя
+бидай
+латекс
+тозаң
+үй шаңы кенесі
+жануар түбіті
+ара шағуы
+аспирин
+сульфаниламидтер
+йод
+күнжіт
+қарақұмық
+цитрус жемістері
+шоколад
+жусан тозаңы
+терек мамығы

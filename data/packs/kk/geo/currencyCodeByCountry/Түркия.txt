@@ -1,0 +1,5 @@
+---
+description: Currency code of Түркия (ISO 4217)
+locale: kk
+---
+TRY

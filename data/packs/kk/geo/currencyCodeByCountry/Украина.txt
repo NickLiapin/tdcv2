@@ -1,0 +1,5 @@
+---
+description: Currency code of Украина (ISO 4217)
+locale: kk
+---
+UAH

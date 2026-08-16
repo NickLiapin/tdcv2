@@ -1,0 +1,5 @@
+---
+description: Capital of Финляндия, as Kazakh names it
+locale: kk
+---
+Хельсинки

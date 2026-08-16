@@ -1,0 +1,5 @@
+---
+description: Capital of Швейцария, as Kazakh names it
+locale: kk
+---
+Берн

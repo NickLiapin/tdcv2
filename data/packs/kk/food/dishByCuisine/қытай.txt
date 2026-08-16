@@ -1,0 +1,11 @@
+---
+description: Dishes of қытай cuisine as eaten in Kazakhstan
+locale: kk
+---
+қуырылған күріш
+пекин үйрегі
+гунбао тауығы
+чоу-мейн
+вонтон сорпасы
+мапо тофу
+димсам

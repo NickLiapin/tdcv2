@@ -1,0 +1,5 @@
+---
+description: Capital of Әзербайжан, as Kazakh names it
+locale: kk
+---
+Баку

@@ -1,0 +1,5 @@
+---
+description: Capital of Нигерия, as Kazakh names it
+locale: kk
+---
+Абуджа

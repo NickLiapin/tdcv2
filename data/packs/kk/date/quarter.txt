@@ -1,0 +1,8 @@
+---
+description: Calendar quarter as a Kazakh report labels it. Тоқсан is also the ordinary word for a school term.
+locale: kk
+---
+I тоқсан
+II тоқсан
+III тоқсан
+IV тоқсан

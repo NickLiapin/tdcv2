@@ -1,0 +1,12 @@
+---
+description: Book format as a Kazakhstani bookshop or library catalogue lists it.
+locale: kk
+---
+қатты мұқабалы
+жұмсақ мұқабалы
+электрондық кітап
+аудиокітап
+қалта форматы
+кітапхана түптемесі
+суретті басылым
+екі тілді басылым

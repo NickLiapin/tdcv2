@@ -1,0 +1,81 @@
+---
+description: Hobby or pastime in Kazakh. The first block is the international set, but the tail is genuinely Kazakh and a config that wants a Kazakhstani dataset should reach for it: тоғызқұмалақ is the national two-row mancala, played competitively with a federation and rankings; құсбегілік and бүркіт салу are hunting with a trained golden eagle, still practised and still competed at; көкпар is the horseback game played with a goat carcass; асық ату is the knucklebone game every Kazakh child knows; айтыс is the improvised sung poetry duel, broadcast on national television; and домбыра тарту, playing the two-string lute, is close to a default answer to this question.
+locale: kk
+---
+кітап оқу
+саяхаттау
+тамақ пісіру
+фотосурет түсіру
+жүгіру
+жүзу
+велосипед тебу
+шаңғы тебу
+коньки тебу
+таулы серуен
+кемпинг
+балық аулау
+аңшылық
+бау-бақша күту
+гүл өсіру
+сурет салу
+мүсін жасау
+керамика
+тоқу
+кесте тігу
+тігін тігу
+ағаш ұқсату
+зергерлік
+нан пісіру
+шахмат
+дойбы
+компьютерлік ойын
+йога
+фитнес
+би билеу
+ән айту
+гитара тарту
+домбыра тарту
+қобыз тарту
+сыбызғы тарту
+жылқы міну
+ат спорты
+көкпар
+бүркіт салу
+құсбегілік
+тоғызқұмалақ
+асық ату
+қазақ күресі
+айтыс
+жыр айту
+өлең жазу
+блог жүргізу
+подкаст тыңдау
+кино көру
+театрға бару
+мұражай аралау
+құс бақылау
+астрономия
+ботаника
+тас жинау
+марка жинау
+модель құрастыру
+дрон ұшыру
+бағдарламалау
+тіл үйрену
+каллиграфия
+скрапбукинг
+үстел ойындары
+волейбол
+баскетбол
+футбол
+теннис
+бадминтон
+бокс
+дзюдо
+скейтборд
+серфинг
+жүзу қайығы
+альпинизм
+жаяу серуен
+қысқы шомылу
+медитация

@@ -1,0 +1,5 @@
+---
+description: Capital of Марокко, as Kazakh names it
+locale: kk
+---
+Рабат

@@ -1,0 +1,27 @@
+---
+description: Writing system (Kazakh). THE SCRIPT DECISION FOR THIS WHOLE PACK IS RECORDED HERE: every file in data/packs/kk is written in KAZAKH CYRILLIC, and nothing in it is Latin except brand names and Latin-script abbreviations that are Latin in any locale. The reason is that Cyrillic is what actually exists in the record. Kazakhstan decreed a move to Latin in 2017, but the Latin standard itself has been rewritten four times since — digraphs in 2017, apostrophes later in 2017, acutes in 2018, umlauts and breves in 2021 — and the switchover date has slipped from 2025 to 2031. Meanwhile identity cards, the civil registry, egov.kz, school textbooks, the tenge banknotes, street signs and the national press are all Cyrillic. A generated record has to match a real one, and a real Kazakhstani record today is Cyrillic; shipping a moving target would produce data that matches no document that has ever been issued. The Kazakh Cyrillic alphabet has 42 letters, NINE of which Russian does not have at all: Ә ә, Ғ ғ, Қ қ, Ң ң, Ө ө, Ұ ұ, Ү ү, Һ һ and І і. Those nine are the fastest proof that a list here is Kazakh rather than Russian in a Kazakh folder — а Kazakh pack with none of them is Russian wearing a label. Six of the nine are vowels, and they carry the front/back distinction that drives vowel harmony: ә, ө, ү and і are front, ұ is back, and every suffix in the language picks its shape from them.
+locale: kk
+---
+латын жазуы
+кирилл жазуы
+араб жазуы
+төте жазу
+көне түркі жазуы
+орхон жазуы
+ұйғыр жазуы
+парсы жазуы
+грек жазуы
+еврей жазуы
+армян жазуы
+грузин жазуы
+деванагари
+бенгал жазуы
+тамил жазуы
+тай жазуы
+кхмер жазуы
+қытай иероглифтері
+хирагана
+катакана
+хангыль
+сына жазу
+иероглиф жазуы

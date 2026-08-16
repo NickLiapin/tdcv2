@@ -1,0 +1,9 @@
+---
+description: Playing positions in Гандбол, in Kazakh
+locale: kk
+---
+қақпашы
+шеткі ойыншы
+жарты шеткі ойыншы
+орталық
+сызық ойыншысы

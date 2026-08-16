@@ -1,0 +1,5 @@
+---
+description: Currency code of Швейцария (ISO 4217)
+locale: kk
+---
+CHF

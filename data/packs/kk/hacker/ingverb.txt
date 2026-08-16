@@ -1,0 +1,32 @@
+---
+description: Technical verb in the Kazakh present-participle form, which ends in -п / -ып / -іп and whose vowel is chosen by VOWEL HARMONY: сақтап (back stem) against кескіндеп? — the ending is not fixed, so a config cannot build these by appending one suffix.
+locale: kk
+---
+сақтық көшірмесін жасап
+айналып өтіп
+бұзып кіріп
+басып озып
+қысып
+көшіріп
+бағдарлап
+индекстеп
+қосылып
+генерациялап
+өлшеп
+есептеп
+синтездеп
+жіберіп
+бағдарламалап
+қайта жүктеп
+талдап
+шифрлап
+орналастырып
+сүзіп
+жаңартып
+тексеріп
+қалпына келтіріп
+оңтайландырып
+мониторинг жүргізіп
+журналға жазып
+кэштеп
+теңгеріп

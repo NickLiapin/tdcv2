@@ -1,0 +1,5 @@
+---
+description: Currency of Армения, as Kazakh names it
+locale: kk
+---
+драм

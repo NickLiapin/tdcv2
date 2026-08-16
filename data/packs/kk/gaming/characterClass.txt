@@ -1,0 +1,28 @@
+---
+description: Role-playing character class in Kazakh. Батыр, the epic warrior of the Kazakh oral tradition, is the natural rendering of the warrior class and carries a specific literary weight the English word does not.
+locale: kk
+---
+батыр
+жауынгер
+сиқыршы
+бақсы
+ұры
+паладин
+аңшы
+абыз
+дуагөй
+емші
+монах
+мерген
+жабайы жауынгер
+некромант
+жырау
+жендет
+діни қызметкер
+шақырушы
+қалқаншы
+найзагер
+садақшы
+алхимик
+инженер
+друид

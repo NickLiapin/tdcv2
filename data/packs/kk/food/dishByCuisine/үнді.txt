@@ -1,0 +1,11 @@
+---
+description: Dishes of үнді cuisine as eaten in Kazakhstan
+locale: kk
+---
+биряни
+тикка масала
+дал
+наан
+палак панир
+карри
+самоса

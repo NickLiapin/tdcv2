@@ -1,0 +1,27 @@
+---
+description: Government body. This names KAZAKHSTAN'S institutions, which is what the words mean for a language spoken in essentially one country, and the reader should not mistake it for a generic list. Two are worth flagging: the ХАЛЫҚҚА ҚЫЗМЕТ КӨРСЕТУ ОРТАЛЫҒЫ (the "Government for Citizens" one-stop centre) is where nearly every civil document is issued in person, and the Мемлекеттік кірістер комитеті is the tax and customs authority rolled into one body.
+locale: kk
+---
+Денсаулық сақтау министрлігі
+Оқу-ағарту министрлігі
+Ғылым және жоғары білім министрлігі
+Көлік министрлігі
+Қаржы министрлігі
+Ұлттық экономика министрлігі
+Ішкі істер министрлігі
+Әділет министрлігі
+Еңбек және халықты әлеуметтік қорғау министрлігі
+Қорғаныс министрлігі
+Энергетика министрлігі
+Экология және табиғи ресурстар министрлігі
+Ауыл шаруашылығы министрлігі
+Сыртқы істер министрлігі
+Төтенше жағдайлар министрлігі
+Цифрлық даму министрлігі
+Мәдениет және ақпарат министрлігі
+Мемлекеттік кірістер комитеті
+Халыққа қызмет көрсету орталығы
+Ұлттық Банк
+Бас прокуратура
+Сыбайлас жемқорлыққа қарсы агенттік
+Статистика бюросы

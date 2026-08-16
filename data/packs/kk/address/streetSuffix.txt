@@ -1,0 +1,44 @@
+---
+description: Kazakh thoroughfare type. Like every Turkic language Kazakh puts it AFTER the name — Абай даңғылы, Төле би көшесі, Республика алаңы. WHERE VOWEL HARMONY BITES, AND IT BITES HERE: every one of these is the bare noun plus the third-person possessive suffix, whose vowel is chosen by the last vowel of the noun itself. Көше is a front-vowel word so it takes -сі (көшесі); даңғыл is a back-vowel word so it takes -ы (даңғылы); көпір is front and takes -і (көпірі); алаң is back and takes -ы (алаңы). A SECOND alternation stacks on top: a stem ending in қ or к VOICES it before the suffix, so саябақ becomes саябағы and кент becomes кенті but бақ becomes бағы. The practical consequence is that a config must take the whole surface form from this list and must never build one by gluing a fixed ending onto a street-type noun — there is no single ending that works. Даңғыл is the native word for an avenue and is what signage uses; проспект is the Russian loan and still appears on older plates.
+locale: kk
+---
+көшесі
+көш.
+даңғылы
+даң.
+проспектісі
+алаңы
+бульвары
+шағын ауданы
+ықшам ауданы
+мөлтек ауданы
+тұйық көшесі
+тұйығы
+жолы
+тас жолы
+магистралі
+саябағы
+бағы
+аллеясы
+гүлзары
+жағалауы
+жағасы
+өткелі
+көпірі
+қиылысы
+айналымы
+кварталы
+тұрғын үй кешені
+ауылы
+кенті
+ауданы
+алқабы
+корпусы
+ғимараты
+блогы
+базары
+бекеті
+вокзалы
+алаңшасы
+жиегі
+аралығы

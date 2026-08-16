@@ -1,0 +1,5 @@
+---
+description: Currency of Америка Құрама Штаттары, as Kazakh names it
+locale: kk
+---
+АҚШ доллары

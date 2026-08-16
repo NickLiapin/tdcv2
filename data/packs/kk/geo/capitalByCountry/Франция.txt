@@ -1,0 +1,5 @@
+---
+description: Capital of Франция, as Kazakh names it
+locale: kk
+---
+Париж
