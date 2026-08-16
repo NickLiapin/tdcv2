@@ -1,0 +1,17 @@
+---
+description: Social content type.
+locale: yo
+---
+Ìfìwéránṣẹ́
+Àsọyé
+Èsì
+Ìtàn ọjọ́ kan
+Fídíò kúkúrú
+Fídíò
+Fídíò tààrà
+Àwòrán
+Àkójọ àwòrán
+Ohùn
+Ìkànnì ìtọ́ka
+Ìdìbò
+Ìpolówó

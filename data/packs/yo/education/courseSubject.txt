@@ -1,0 +1,27 @@
+---
+description: School subject, as a Nigerian timetable names it. Èdè Yorùbá is a taught and examined subject in its own right in the South-West, alongside English.
+locale: yo
+---
+Èdè Yorùbá
+Èdè Gẹ̀ẹ́sì
+Ìṣirò
+Sáyẹ́nsì gbogbogbò
+Físíìsì
+Kẹ́místrì
+Baólójì
+Ìtàn
+Ẹ̀kọ́ nípa ilẹ̀ ayé
+Ẹ̀kọ́ ìjọba
+Ẹ̀kọ́ ọrọ̀ ajé
+Ìṣirò owó
+Ìṣòwò
+Ẹ̀kọ́ ẹ̀sìn Kristi
+Ẹ̀kọ́ ẹ̀sìn Ìmàle
+Ìmọ̀ ẹ̀rọ ìpìlẹ̀
+Ìmọ̀ kọ̀ǹpútà
+Iṣẹ́ ọwọ́
+Iṣẹ́ àgbẹ̀
+Ẹ̀kọ́ ìlera
+Eré ìdárayá
+Àwòrán yíyà
+Orin

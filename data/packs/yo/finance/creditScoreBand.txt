@@ -1,0 +1,9 @@
+---
+description: Credit standing band. Formal credit scoring reaches only a small share of Nigerians; for everyone else standing is a matter of reputation within a trade association or savings club, which is what the Yoruba words describe.
+locale: yo
+---
+Kò dára
+Ó ṣeé ṣe
+Ó dára
+Ó dára gan-an
+Ó péye

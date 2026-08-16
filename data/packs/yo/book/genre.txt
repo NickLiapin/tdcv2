@@ -1,0 +1,28 @@
+---
+description: Book genre. ÌTÀN ÀRÒSỌ ÌJÌNLẸ̀ is where the Yoruba novel actually lives: D. O. Fágúnwà's books, and Amos Tutuola's after them, are hunter's-journey tales through a spirit forest, a genre with no English name that Yoruba readers know instantly. ÀLỌ́ is the folktale, ÒWE the proverb collection, ORÍKÌ praise-poetry — all three are printed as books and taught in school. Ìwé mímọ́ is scripture.
+locale: yo
+---
+Ìtàn àròsọ
+Ìtàn àròsọ ìjìnlẹ̀
+Ìtàn òtítọ́
+Àlọ́
+Òwe
+Oríkì
+Ewì
+Eré ìtàgé
+Ìtàn ìgbésí ayé
+Ìtàn ìlú
+Ìwé ìtàn
+Ìwé ẹ̀kọ́
+Ìwé mímọ́
+Ìwé ẹ̀sìn
+Ìwé ìṣègùn
+Ìwé ọmọdé
+Ìwé ìdánilẹ́kọ̀ọ́
+Ìwé ìtọ́sọ́nà
+Ìwé ìfẹ́
+Ìwé ìbẹ̀rù
+Ìwé àṣírí
+Ìwé ètò ọrọ̀ ajé
+Ìwé ìṣèlú
+Ìwé oúnjẹ sísè

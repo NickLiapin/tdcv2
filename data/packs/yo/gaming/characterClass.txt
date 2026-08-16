@@ -1,0 +1,26 @@
+---
+description: Role-playing character class. Games reach Nigeria in English, so nothing here is an established gaming term — but Yoruba does have real words for every one of these archetypes and they are used: JAGUNJAGUN is a warrior, ỌDẸ a hunter (and hunters are a guild, with their own chants and their own òrìṣà), BÀBÁLÁWO the Ifá diviner, OṢÓ and ÀJẸ́ the male and female of what English flattens into "witch", ONÍṢÈGÙN the herbalist-healer, AKÍKANJÚ the brave one. The words are Yoruba; the use of them as a game class is this file's mapping and is stated so rather than dressed up.
+locale: yo
+---
+Jagunjagun
+Akíkanjú
+Ọdẹ
+Onísègùn
+Bàbáláwo
+Oṣó
+Àjẹ́
+Alálùpàyídà
+Olè
+Amòfin
+Alágbára
+Ológun
+Olùṣọ́
+Akọrin
+Akéwì
+Onílù
+Alágbẹ̀dẹ
+Ọba
+Ìjòyè
+Ìránṣẹ́
+Amọ̀ràn
+Aṣèwádìí

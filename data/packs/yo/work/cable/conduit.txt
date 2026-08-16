@@ -1,0 +1,11 @@
+---
+description: Conduit or installation method for a cable run.
+locale: yo
+---
+Páìpù PVC
+Páìpù irin
+Okùn ìsìnkú
+Ọ̀nà orí ògiri
+Ọ̀nà abẹ́ ilẹ̀
+Ọ̀nà orí òpó
+Ìhò àjà

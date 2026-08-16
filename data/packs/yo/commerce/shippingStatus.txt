@@ -1,0 +1,14 @@
+---
+description: Shipping status.
+locale: yo
+---
+A ti gbà á
+A ti pò ó
+Ó ti kúrò
+Ó wà lọ́nà
+Ó ti dé ìlú
+Ó ń bọ̀ wá
+A ti fi jíṣẹ́
+A kò rí ẹni tí yóò gbà á
+A ti dá a padà
+Ó ti sọnù

@@ -1,0 +1,22 @@
+---
+description: Venue type. ÀGỌ́ AYẸYẸ — the rented canopy — is where most Yoruba ceremonies actually happen: canopies and plastic chairs are put up in the family compound or across a closed street, and a hired hall is the more expensive alternative rather than the default. ÀGBÀLÁ ILÉ is that compound courtyard, and ÀÀFIN the ọba's palace, which hosts festivals and installations.
+locale: yo
+---
+Àgọ́ ayẹyẹ
+Àgbàlá ilé
+Ìta
+Gbọ̀ngàn ayẹyẹ
+Gbọ̀ngàn ìlú
+Ilé ìtura
+Ààfin
+Ṣọ́ọ̀ṣì
+Mọ́sálásí
+Ilé ìjọsìn
+Pápá ìṣeré
+Ọgbà ilé ẹ̀kọ́
+Ilé ìtàgé
+Ilé oúnjẹ
+Ọgbà ìtura
+Ilé ìpàdé
+Ọjà
+Ilé ìkàwé

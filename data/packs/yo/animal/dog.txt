@@ -1,0 +1,22 @@
+---
+description: Dog breed. Yoruba has ONE word for a dog, ajá, and no native breed vocabulary at all, because dogs were not bred to type here — the ordinary Nigerian dog is a landrace and is called simply ajá ìbílẹ̀, "the local dog". Everything below that first entry is an imported breed under its international name, which is what a Nigerian breeder, vet or newspaper advert writes; Boerboel, Caucasian Shepherd and Bullmastiff are the ones actually common in Nigeria, kept as guard dogs rather than pets. Nothing here has been invented in Yoruba to fill the list out.
+locale: yo
+---
+Ajá ìbílẹ̀
+Ajá ọdẹ
+Ajá olùṣọ́
+Boerboel
+Caucasian Shepherd
+German Shepherd
+Rottweiler
+Bullmastiff
+Neapolitan Mastiff
+Doberman
+Pitbull
+Basenji
+Labrador Retriever
+Lhasa Apso
+Poodle
+Chihuahua
+Alsatian
+Ekuke

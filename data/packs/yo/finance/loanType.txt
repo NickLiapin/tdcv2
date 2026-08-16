@@ -1,0 +1,16 @@
+---
+description: Loan type. The two that matter most here are not from a bank: ÈSÚSÚ (or àjọ) is the rotating savings club, where the pot comes to each member in turn and no interest is charged; and àwìn ọjà, supplier credit, is how most small traders stock a stall. ÌDÓGÓ is a pawn of land or a crop against a loan, an old and still-used Yoruba instrument.
+locale: yo
+---
+Àwìn ilé
+Àwìn ọkọ̀
+Àwìn ara ẹni
+Àwìn ilé ẹ̀kọ́
+Àwìn ìṣòwò
+Àwìn oko
+Àwìn ọjà
+Èsúsú
+Àjọ
+Ìdógó
+Àwìn kékeré
+Àwìn ìjọba

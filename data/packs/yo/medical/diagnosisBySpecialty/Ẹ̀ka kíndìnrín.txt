@@ -1,0 +1,9 @@
+---
+description: Diagnoses seen in Ẹ̀ka kíndìnrín
+locale: yo
+---
+Àrùn kíndìnrín
+Òkúta kíndìnrín
+Ìkùnà kíndìnrín
+Ìwúwo ẹsẹ̀ láti kíndìnrín
+Àrùn ojú ọ̀nà ìtọ̀

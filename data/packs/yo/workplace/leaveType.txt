@@ -1,0 +1,16 @@
+---
+description: Leave type. ÌSINMI ÌSÌNKÚ (bereavement leave) is used far more than a European list would suggest, because Yoruba funerals are large, multi-day and obligatory for the extended family, and the second burial of an elder can be a bigger event than the first.
+locale: yo
+---
+Ìsinmi ọdún
+Ìsinmi àìsàn
+Ìsinmi ìbímọ
+Ìsinmi baba tuntun
+Ìsinmi ìsìnkú
+Ìsinmi ìgbéyàwó
+Ìsinmi ẹ̀sìn
+Ìsinmi ìkẹ́kọ̀ọ́
+Ìsinmi láìsanwó
+Ìsinmi ilé ẹjọ́
+Ìsinmi ìtọ́jú ẹbí
+Ìsinmi gígùn

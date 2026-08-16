@@ -1,0 +1,18 @@
+---
+description: Address unit / interior designator in Yoruba. Nọ́mbà is the house number, yàrá a room, àjà a storey (àjà kìíní = first floor), bílọ́ọ̀kù a block. The post-box line is the one to know about: street numbering is patchy outside city centres, so most Nigerian business addresses carry a P.O. Box or P.M.B. instead of a street address, and those two are written in English on the envelope even by Yoruba speakers.
+locale: yo
+---
+Nọ́mbà
+Nọ́ọ̀
+Yàrá
+Fúlàtì
+Bílọ́ọ̀kù
+Ẹ̀ka
+Ilẹ̀ Kìíní
+Àjà Kìíní
+Àjà Kejì
+Àjà Kẹta
+Ẹnu Ọ̀nà
+Ọ̀gbà
+P.O. Box
+P.M.B.

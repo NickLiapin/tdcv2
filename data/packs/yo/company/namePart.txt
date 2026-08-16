@@ -1,0 +1,53 @@
+---
+description: Evocative word for a company name. Nigerian business names are overwhelmingly THEOPHORIC and a Yoruba shop front proves it: Ọlọ́run (God), Ọ̀pẹ́ (thanks), Ìbùkún (blessing), Àánú (mercy), Ìfẹ́ (love), Ògo (glory) and Olúwa recur on signboards in every market street, usually followed by an English legal suffix. The other productive groups are the wealth words (Ọlá, Ọrọ̀, Adé) and the aspiration words (Ìtẹ̀síwájú, Àṣeyọrí, Ìdàgbàsókè). Compose one of these with a legalSuffix, or with a given name from person/male/firstName.txt, which is the other common pattern.
+locale: yo
+---
+Ọlọ́run
+Olúwa
+Ọ̀pẹ́
+Ọ̀pẹ́ Ọlọ́run
+Ìbùkún
+Àánú
+Ìfẹ́
+Ògo
+Àṣẹ
+Ìgbàgbọ́
+Ìrètí
+Ìdùnnú
+Ayọ̀
+Ọlá
+Ọrọ̀
+Adé
+Wúrà
+Iyùn
+Ọ̀rọ̀ Rere
+Àlàáfíà
+Ìṣọ̀kan
+Ìtẹ̀síwájú
+Àṣeyọrí
+Ìdàgbàsókè
+Ìmọ́lẹ̀
+Ìmọ̀
+Ọgbọ́n
+Agbára
+Ìṣẹ́gun
+Òtítọ́
+Ìwà Rere
+Ọmọlúàbí
+Ẹ̀bùn
+Ìlera
+Ààbò
+Ìpìlẹ̀
+Àpáta
+Irókò
+Ọ̀pẹ
+Ìràwọ̀
+Òòrùn
+Ìlà Oòrùn
+Òkè
+Odò
+Òkun
+Àárín Ilẹ̀
+Ìlú Àwa
+Ilé Wa
+Ẹbí

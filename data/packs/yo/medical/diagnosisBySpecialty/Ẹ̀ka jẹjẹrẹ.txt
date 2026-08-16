@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in Ẹ̀ka jẹjẹrẹ
+locale: yo
+---
+Jẹjẹrẹ ọmú
+Jẹjẹrẹ ẹ̀dọ̀fóró
+Jẹjẹrẹ ìfun
+Jẹjẹrẹ ẹ̀dọ̀
+Jẹjẹrẹ pirọ́sítéètì
+Jẹjẹrẹ ẹ̀jẹ̀
+Èèmọ̀

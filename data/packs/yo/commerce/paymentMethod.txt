@@ -1,0 +1,18 @@
+---
+description: Payment method. The ranking here is Nigerian, not European: BANK TRANSFER is the everyday method for anything above pocket money, POS terminals stand in for card readers in every market and shop, and USSD codes on a basic phone move money for people with no smartphone. ÈSÚSÚ (also àjọ) is the rotating savings club — a group pays in weekly and each member takes the whole pot in turn — and it is a real payment and credit instrument, not folklore. Cash is owó pàápàá, "money itself".
+locale: yo
+---
+Owó pàápàá
+Ìfiránṣẹ́ owó
+POS
+Káàdì báńkì
+Káàdì àwìn
+USSD
+Ìsanwó orí fóònù
+Ìsanwó orí ayélujára
+Àwìn
+Èsúsú
+Àjọ
+Ìsanwó lẹ́yìn ìfijíṣẹ́
+Ṣẹ́ẹ̀kì
+Ìpààrọ̀ ọjà

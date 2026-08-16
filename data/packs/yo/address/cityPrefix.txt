@@ -1,0 +1,31 @@
+---
+description: Leading element of a Yoruba place name. These are real and productive: Ilé-Ifẹ̀ ("house of Ifẹ̀"), Òkè-Àdó ("upper Àdó"), Ìsàlẹ̀-Èkó ("lower Lagos"), Èbúté-Mẹ́ta ("three wharves"), Ìdí-Ọ̀rò ("foot of the ọ̀rọ̀ tree"), Odò-Ọ̀nà ("river by the road"), Ọjà-Ọba ("the king's market"), Òde-Ondó ("the open town of Ondó"). A Yoruba place name is almost always a DESCRIPTION of the site — what stands there, or where it sits relative to somewhere else — so the prefix is doing real work. Combine with a toponym; on its own it names no real place.
+locale: yo
+---
+Ilé
+Ìlú
+Òkè
+Ìsàlẹ̀
+Àárín
+Odò
+Igbó
+Ìdí
+Orí
+Òde
+Abúlé
+Ẹ̀bá
+Ẹnu
+Ìta
+Èbúté
+Àpáta
+Ọjà
+Ààfin
+Ọ̀tún
+Òsì
+Ọ̀gbà
+Àgbàlá
+Ọ̀nà
+Ìpàdé
+Ẹ̀gbẹ́
+Òkun
+Ìlàjẹ

@@ -1,0 +1,12 @@
+---
+description: Time of day. Yoruba cuts the day differently from English: òru is the deep night and ọ̀gànjọ́ its middle, àárọ̀ runs from first light to about midday, ọ̀sán is the hot middle of the day with ọ̀sán gangan its peak, ìrọ̀lẹ́ is late afternoon into dusk, and alẹ́ is evening once it is dark. Greetings are keyed to these and not interchangeable — ẹ káàárọ̀, ẹ káàsán, ẹ kúùrọ̀lẹ́, ẹ kúàárọ̀ — so a config that maps them onto morning / afternoon / evening one-to-one will produce the wrong greeting.
+locale: yo
+---
+Àfẹ̀mọ́júmọ́
+Àárọ̀
+Ọ̀sán
+Ọ̀sán gangan
+Ìrọ̀lẹ́
+Alẹ́
+Òru
+Ọ̀gànjọ́

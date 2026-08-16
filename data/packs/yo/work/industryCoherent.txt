@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list. Ẹ̀ka means "branch" or "sector". Iṣẹ́ àgbẹ̀ — farming — is on this list rather than hospitality because it is what the largest share of Yoruba speakers actually do: cocoa, yam, cassava, maize and oil palm are the economy of the interior, and Ìbàdàn grew as a farming and trading city, not an industrial one.
+locale: yo
+---
+Ìmọ̀ Ẹ̀rọ
+Ìlera
+Ìṣúnná Owó
+Ìkọ́lé
+Ẹ̀kọ́
+Ìtajà
+Ìṣèjáde
+Ìrìnnà
+Òfin
+Iṣẹ́ Àgbẹ̀

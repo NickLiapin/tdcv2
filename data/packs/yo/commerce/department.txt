@@ -1,0 +1,34 @@
+---
+description: Store department or product category, in Yoruba.
+locale: yo
+---
+Oúnjẹ
+Ọjà oko
+Ẹran
+Ẹja
+Ohun mímu
+Aṣọ
+Bàtà
+Ohun ọ̀ṣọ́
+Ilẹ̀kẹ̀
+Ohun èlò ilé
+Ohun èlò ìdáná
+Ohun ọ̀gbìn
+Ìwé
+Ohun èlò ilé ẹ̀kọ́
+Ẹ̀rọ ìbánisọ̀rọ̀
+Ẹ̀rọ kọ̀ǹpútà
+Ohun èlò iná
+Ohun èlò ìkọ́lé
+Ohun èlò ọkọ̀
+Oògùn
+Ohun ìtọ́jú ara
+Ohun ọmọdé
+Eré ìdárayá
+Ohun èlò orin
+Ọ̀ṣẹ àti ohun ìfọṣọ
+Ohun ìtọ́jú ilé
+Ohun èlò oko
+Aṣọ òkè
+Àdìrẹ
+Ohun ọ̀ṣọ́ ilé

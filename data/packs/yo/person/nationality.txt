@@ -1,0 +1,32 @@
+---
+description: Nationality, as Yoruba forms it. Yoruba has no -ish / -ian suffix: it prefixes ỌMỌ ("child of") or ARÁ ("inhabitant of") to the country name, and the same construction works for a town, which is why ọmọ Ìbàdàn and ọmọ Nàìjíríà are built identically. Ọmọ Yorùbá is what a Yoruba person calls themselves, and it names a PEOPLE spread across Nigeria, Benin and Togo, not a country. Òyìnbó is the everyday word for a white person or European and is on the list because it is used exactly where a nationality would be.
+locale: yo
+---
+Ọmọ Nàìjíríà
+Ọmọ Yorùbá
+Ọmọ Gánà
+Ọmọ Bẹ̀nẹ̀
+Ọmọ Tógò
+Ọmọ Kamerúnù
+Ọmọ Nàìjà
+Ọmọ Sẹ́nẹ́gà
+Ọmọ Kẹ́ńyà
+Ọmọ Áfríkà Gúúsù
+Ọmọ Íjíbítì
+Ọmọ Etiópíà
+Ọmọ Amẹ́ríkà
+Ọmọ Gẹ̀ẹ́sì
+Ọmọ Faransé
+Ọmọ Jámánì
+Ọmọ Ítálì
+Ọmọ Sípéènì
+Ọmọ Pọ̀tugí
+Ọmọ Rọ́ṣíà
+Ọmọ Ṣáínà
+Ọmọ Jàpánù
+Ọmọ Íńdíà
+Ọmọ Bàràsílì
+Ọmọ Kánádà
+Ọmọ Ọsirélíà
+Ará Yúróòpù
+Òyìnbó

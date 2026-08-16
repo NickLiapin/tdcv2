@@ -1,0 +1,22 @@
+---
+description: Room type. Pálọ̀ is the sitting room (from "parlour"), bàlùwẹ̀ the bathroom, ilé ìgbọ̀nsẹ̀ the toilet — which in older houses is a separate room from the bathroom, and is often outside.
+locale: yo
+---
+Yàrá ìbùsùn
+Yàrá ìbùsùn àgbà
+Yàrá ọmọ
+Pálọ̀
+Yàrá ìjókòó
+Yàrá ìjẹun
+Ìdáná
+Bàlùwẹ̀
+Ilé ìgbọ̀nsẹ̀
+Yàrá àlejò
+Yàrá ìkàwé
+Yàrá iṣẹ́
+Yàrá ìpamọ́
+Àgbàlá
+Ìta ẹ̀yìn
+Ọ̀dẹ̀dẹ̀
+Àjà
+Ilé ìfọṣọ

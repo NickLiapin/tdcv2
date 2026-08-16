@@ -1,0 +1,19 @@
+---
+description: Hotel room type.
+locale: yo
+---
+Yàrá kékeré
+Yàrá àárín
+Yàrá dáradára
+Yàrá ọlọ́lá
+Yàrá ẹní kan
+Yàrá ẹni méjì
+Yàrá ìdílé
+Yàrá ìbejì
+Yàrá alájà
+Yàrá pẹ̀lú ìdáná
+Yàrá tí ó kọjú sí ọgbà
+Yàrá tí ó kọjú sí adágún
+Yàrá aláìlèmutáàbá
+Yàrá aláàbò
+Yàrá gbòòrò

@@ -1,0 +1,39 @@
+---
+description: Colour of a product, as a Yoruba listing would give it. Read color/name.txt first: Yoruba is a THREE-TERM colour language — funfun, dúdú and pupa are the only basic colour words, and they cover the light band, the dark band and the warm band respectively, not white, black and red. So a product colour in Yoruba is normally one of those three, or a comparison built with àwọ̀ ("colour of") plus a thing: àwọ̀ ewé leaf-green, àwọ̀ ojú ọ̀run sky-blue, àwọ̀ ilẹ̀ earth-brown. The English loans at the end are what a young urban shopper on an e-commerce site actually types, so both registers are here; a config that treats them as thirty independent hues is over-reading the language.
+locale: yo
+---
+Funfun
+Dúdú
+Pupa
+Pupa fúyẹ́
+Dúdú dúdú
+Funfun tuntun
+Àwọ̀ ewé
+Àwọ̀ ojú ọ̀run
+Àwọ̀ eérú
+Àwọ̀ ilẹ̀
+Àwọ̀ epo
+Àwọ̀ wúrà
+Àwọ̀ fàdákà
+Àwọ̀ iyùn
+Àwọ̀ ẹyin
+Àwọ̀ iyanrìn
+Àwọ̀ igi
+Àwọ̀ omi
+Àwọ̀ osàn
+Àwọ̀ òru
+Aró
+Osùn
+Àwọ̀ àdìrẹ
+Àwọ̀ sányán
+Àwọ̀ ẹtù
+Àwọ̀ àlàárì
+Búlúù
+Gíríìnì
+Yẹ́lò
+Ọ́rẹ́ǹjì
+Pínkì
+Búráùnù
+Gírè
+Aláwọ̀ púpọ̀
+Aláìní àwọ̀

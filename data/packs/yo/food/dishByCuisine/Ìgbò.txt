@@ -1,0 +1,12 @@
+---
+description: Dishes of Ìgbò cuisine
+locale: yo
+---
+Ofe onugbu
+Ofe akwu
+Ofe nsala
+Abacha
+Ugba
+Nkwobi
+Okpa
+Ji mmiri oku

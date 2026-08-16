@@ -1,0 +1,29 @@
+---
+description: Business catch-phrase verb. Yoruba verbs do not inflect, so any of these can be joined to any subject without change.
+locale: yo
+---
+mú dàgbà
+ṣe àtúnṣe
+gbé sókè
+sọ di tuntun
+mú rọrùn
+ṣe ìrànlọ́wọ́
+tẹ̀síwájú
+dá sílẹ̀
+mú lágbára
+so pọ̀
+ṣàkóso
+pèsè
+darí
+mú yára
+ṣe àgbékalẹ̀
+yanjú
+ṣí sílẹ̀
+gbòòrò sí i
+dáàbòbò
+tọ́jú
+kọ́
+polówó
+ta
+rà
+fi hàn

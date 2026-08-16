@@ -1,0 +1,39 @@
+---
+description: Language spoken, as Yoruba names it. Yoruba builds a language name with èdè, "language of": Èdè Gẹ̀ẹ́sì is English, Èdè Faransé French. The second block is the DIALECTS of Yoruba itself, which a Yoruba speaker names as readily as a language and which differ enough to be heard instantly — Ọ̀yọ́ is the base of the written standard, Ìjẹ̀bú, Ẹ̀gbá, Ìjẹ̀ṣà, Èkìtì, Ìgbómìnà, Ìkálẹ̀, Ìlàjẹ, Àwórì and Ọ̀wọ̀ are the others named here. The third block is the other Nigerian languages a Yoruba speaker meets daily; Pidgin is Nigerian Pidgin, the country's real lingua franca.
+locale: yo
+---
+Yorùbá
+Èdè Gẹ̀ẹ́sì
+Pidgin
+Hausa
+Ìgbò
+Fúlàní
+Kanuri
+Nupe
+Ẹ̀dó
+Ìtsẹkírí
+Urhobo
+Ìjọ̀
+Ìbìbìò
+Efik
+Tiv
+Ẹ̀bìrà
+Ìgálà
+Ọ̀yọ́
+Ìjẹ̀bú
+Ẹ̀gbá
+Ìjẹ̀ṣà
+Èkìtì
+Ìgbómìnà
+Ìkálẹ̀
+Ìlàjẹ
+Àwórì
+Ọ̀wọ̀
+Ondó
+Èdè Faransé
+Èdè Àrábù
+Èdè Pọ̀tugí
+Èdè Sípéènì
+Èdè Jámánì
+Èdè Ṣáínà
+Èdè Swahili

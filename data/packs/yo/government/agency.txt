@@ -1,0 +1,27 @@
+---
+description: Kind of government body. The Yoruba words here name FUNCTIONS, not particular Nigerian agencies, which belong to a country pack. The last two are the entries a European list has no slot for: ÌJỌBA ÌBÍLẸ̀ is the local government, the third tier of the Nigerian federation; and the ÌGBÌMỌ̀ ÌJÒYÈ, the ọba sitting in council with his titled chiefs, is a traditional institution formally recognised in Nigerian law, with a real role in land, custom and dispute settlement, and it is not a museum piece.
+locale: yo
+---
+Ilé iṣẹ́ ìjọba
+Ilé iṣẹ́ ẹ̀kọ́
+Ilé iṣẹ́ ìlera
+Ilé iṣẹ́ ìrìnnà
+Ilé iṣẹ́ iṣẹ́ àgbẹ̀
+Ilé iṣẹ́ òfin
+Ilé iṣẹ́ ààbò
+Ilé iṣẹ́ ìṣúnná owó
+Ilé iṣẹ́ ìbánisọ̀rọ̀
+Ilé iṣẹ́ iṣẹ́ àti òṣìṣẹ́
+Ilé iṣẹ́ ilẹ̀ àti ìlú
+Ilé iṣẹ́ àṣà àti ìrìn àjò
+Ilé iṣẹ́ omi
+Ilé iṣẹ́ agbára
+Ẹ̀ka owó orí
+Ìgbìmọ̀ ìdìbò
+Ìgbìmọ̀ ìwádìí
+Ilé ìgbìmọ̀ aṣòfin
+Ilé iṣẹ́ ọlọ́pàá
+Ilé iṣẹ́ ìjàǹbá
+Ìjọba ìpínlẹ̀
+Ìjọba ìbílẹ̀
+Ìgbìmọ̀ ìjòyè

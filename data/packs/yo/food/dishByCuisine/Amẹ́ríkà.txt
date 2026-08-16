@@ -1,0 +1,10 @@
+---
+description: Dishes of Amẹ́ríkà cuisine
+locale: yo
+---
+Hamburger
+Hot Dog
+BBQ Ribs
+Fried Chicken
+Mac and Cheese
+Pancake

@@ -1,0 +1,22 @@
+---
+description: Medical diagnoses for a male patient — the sex-specific ones plus the common conditions, in one list, for configs that draw a single diagnosis per row.
+locale: yo
+---
+Àrùn pirọ́sítéètì
+Jẹjẹrẹ pirọ́sítéètì
+Jẹjẹrẹ ẹ̀pọ̀n
+Àìlèbímọ ọkùnrin
+Àìdúró ọkùnrin
+Ibà
+Ẹ̀jẹ̀ ríru
+Àtọ̀gbẹ
+Ikọ́ fée
+Ọgbẹ́ inú
+Àrùn ẹ̀dọ̀
+Rọpárọsẹ̀
+Àrùn oríkèé
+Ìrora ẹ̀yìn
+Àtọ̀sí
+Tayfọ́ìdì
+Ìsoríkọ́
+Ìjàǹbá ọkọ̀

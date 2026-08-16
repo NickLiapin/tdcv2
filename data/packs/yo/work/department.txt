@@ -1,0 +1,24 @@
+---
+description: Company department. Yoruba names a department Ẹ̀KA ("branch") plus the work it does, exactly the way it names a building: ẹ̀ka ìṣirò owó is the accounts branch, ẹ̀ka òṣìṣẹ́ the people branch.
+locale: yo
+---
+Ẹ̀ka ìṣàkóso
+Ẹ̀ka ìṣirò owó
+Ẹ̀ka ìṣúnná owó
+Ẹ̀ka òṣìṣẹ́
+Ẹ̀ka ìtajà
+Ẹ̀ka ìpolówó
+Ẹ̀ka ìmọ̀ ẹ̀rọ
+Ẹ̀ka ìwádìí
+Ẹ̀ka ìṣèjáde
+Ẹ̀ka ìpèsè
+Ẹ̀ka òfin
+Ẹ̀ka ààbò
+Ẹ̀ka ìtọ́jú ẹ̀rọ
+Ẹ̀ka ìdánilẹ́kọ̀ọ́
+Ẹ̀ka ìránlọ́wọ́ oníbàárà
+Ẹ̀ka ìpamọ́ ẹrù
+Ẹ̀ka ìrìnnà
+Ẹ̀ka ìlera àti ààbò
+Ẹ̀ka ìbánisọ̀rọ̀
+Ẹ̀ka ètò àti ìdàgbàsókè

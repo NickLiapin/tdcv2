@@ -1,0 +1,10 @@
+---
+description: Dishes of Jàpánù cuisine
+locale: yo
+---
+Sushi
+Ramen
+Tempura
+Udon
+Teriyaki
+Miso Soup

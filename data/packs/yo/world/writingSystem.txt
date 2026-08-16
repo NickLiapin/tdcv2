@@ -1,0 +1,24 @@
+---
+description: Writing system. Yoruba is written in the LATIN alphabet with two things added that are not optional: the sub-dot on ẹ, ọ and ṣ, which marks different vowels and a different consonant, and the acute and grave tone marks, which mark different words — ọkọ̀ (vehicle), ọkọ (husband) and oko (farm) are three words distinguished only by these. AJAMI is the second system: Yoruba written in Arabic script, used by Muslim scholars in Ilọrin and Ìbàdàn before and alongside the Latin alphabet, and there are Yoruba Ajami manuscripts. NSIBIDI, the ideographic system of the Cross River peoples, is a Nigerian neighbour. Not in this list, because it is not writing: ÀROKÒ, the Yoruba practice of sending a message as an ARRANGEMENT OF OBJECTS — so many cowries knotted a certain way, a parrot's feather, a piece of charcoal — which carried meanings a courier could not read and a recipient could.
+locale: yo
+---
+Látìnì
+Látìnì pẹ̀lú àmì ohùn
+Ajami
+Àrábìkì
+Sírílíìkì
+Gíríìkì
+Hébérù
+Han
+Kana
+Hangul
+Devanagari
+Bengali
+Tamil
+Tháì
+Etiópíà
+Nsibidi
+Tifinagh
+Vai
+N'Ko
+Adinkra

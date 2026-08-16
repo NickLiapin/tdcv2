@@ -1,0 +1,16 @@
+---
+description: Streaming platform. These are BRANDS and keep their own spelling in any language. YouTube matters most for Yoruba: it is where Yoruba films, sermons and Fújì performances actually circulate.
+locale: yo
+---
+YouTube
+Netflix
+Amazon Prime Video
+Showmax
+IrokoTV
+Disney+
+Apple TV+
+Spotify
+Audiomack
+Boomplay
+TikTok
+Facebook Watch

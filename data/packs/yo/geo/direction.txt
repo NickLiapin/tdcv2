@@ -1,0 +1,13 @@
+---
+description: Compass direction. Yoruba has FOUR lexical points and builds the four diagonals by compounding them; there is no Yoruba word for north-northeast or west-southwest, so this file stops at nine entries rather than inventing eight more. Ìlà oòrùn is literally "the splitting of the sun" and ìwọ̀ oòrùn "the setting of the sun" — east and west are named from the sun's behaviour, not from an axis. The compound points read outward from the primary: Àríwá ìlà oòrùn is north-east. These same words name Nigeria's six geopolitical zones, of which the Yoruba homeland is Gúúsù Ìwọ̀ Oòrùn, the South-West.
+locale: yo
+---
+Àríwá
+Gúúsù
+Ìlà Oòrùn
+Ìwọ̀ Oòrùn
+Àríwá Ìlà Oòrùn
+Àríwá Ìwọ̀ Oòrùn
+Gúúsù Ìlà Oòrùn
+Gúúsù Ìwọ̀ Oòrùn
+Àárín

@@ -1,0 +1,64 @@
+---
+description: Product noun, in Yoruba.
+locale: yo
+---
+Àga
+Tábìlì
+Ibùsùn
+Àpótí
+Àwokòtò
+Àwo
+Ṣíbí
+Ọ̀bẹ
+Ìkòkò
+Àgbá
+Garawa
+Àpò
+Àpò ẹ̀yìn
+Bàtà
+Sálúbàtà
+Aṣọ
+Ẹ̀wù
+Ṣòkòtò
+Bùbá
+Ìró
+Gèlè
+Fìlà
+Agbádá
+Dàńṣíkí
+Ilẹ̀kẹ̀
+Òrùka
+Aago
+Ẹ̀rọ ìbánisọ̀rọ̀
+Kọ̀ǹpútà
+Ẹ̀rọ amóhùnmáwòrán
+Ẹ̀rọ agbóhùnsáfẹ́fẹ́
+Ìtẹ̀wé
+Fìtílà
+Ẹ̀rọ amúlétutù
+Ẹ̀rọ ìfọṣọ
+Fìríìjì
+Ààrò
+Ẹ̀rọ ìsun
+Kẹ̀kẹ́
+Alùpùpù
+Ọkọ̀ ayọ́kẹ́lẹ́
+Ọkọ̀ ẹrù
+Ìwé
+Ìwé ìkẹ́kọ̀ọ́
+Kálámù
+Bíróò
+Ìwé àkọsílẹ̀
+Bọ́ọ̀lù
+Ìlù
+Dùndún
+Ṣẹ̀kẹ̀rẹ̀
+Ọ̀ṣẹ
+Ìpara
+Oògùn
+Àtùpà
+Àwòrán
+Ère
+Ẹní
+Aṣọ ìbora
+Òrùnlá

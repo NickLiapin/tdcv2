@@ -1,0 +1,18 @@
+---
+description: Cat breed. As with dogs, Yoruba has one word — ológbò (also ológìní) — and no breed vocabulary; pedigree cats are rare in Nigeria and the household cat is a landrace. The first entry is the honest Yoruba answer; the rest are international breed names, not translated, because there is nothing to translate them into.
+locale: yo
+---
+Ológbò ìbílẹ̀
+Ológìní
+Persian
+Siamese
+Maine Coon
+British Shorthair
+Bengal
+Ragdoll
+Sphynx
+Scottish Fold
+Abyssinian
+Russian Blue
+Egyptian Mau
+American Shorthair

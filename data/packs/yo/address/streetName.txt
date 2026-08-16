@@ -1,0 +1,133 @@
+---
+description: Street names of the kind found across Yoruba towns: the virtues (Ìfẹ́, Àlàáfíà, Ìṣọ̀kan, Òmìnira, Ìtẹ̀síwájú), the natural world, the crafts, and above all the CHIEFTAINCY TITLES, which is the group a non-Yoruba reader will not expect. Aláàfin, Ọọ̀ni, Awùjalẹ̀, Olúbàdàn, Aláké, Déjì and Ọ̀ràngún are the crowned rulers of Ọ̀yọ́, Ifẹ̀, Ìjẹ̀bú, Ìbàdàn, Aké, Àkúrẹ́ and Ìlá; Balógun, Ààrẹ, Ìyálọ́de, Ọ̀tún and Òsì are graded chieftaincies. Yoruba towns name streets after these titles constantly, and the title outlives whoever holds it. Compose AFTER a streetSuffix (Títì Ìfẹ́, Ọ̀nà Balógun); the real named streets of any particular city belong to a country pack.
+locale: yo
+---
+Ìfẹ́
+Ifẹ̀
+Àlàáfíà
+Ìṣọ̀kan
+Òmìnira
+Ìtẹ̀síwájú
+Ìrètí
+Ìdùnnú
+Ayọ̀
+Ìbùkún
+Ọpẹ́
+Ògo
+Ìmọ́lẹ̀
+Ìmọ̀
+Ọgbọ́n
+Òtítọ́
+Ìwà
+Ìwà Rere
+Iyì
+Ọlá
+Ọrọ̀
+Ọ̀rẹ́
+Ìgbàgbọ́
+Sùúrù
+Ìrẹ̀lẹ̀
+Ìfọ̀kànbalẹ̀
+Ìlera
+Ìgbésí Ayé
+Ìdàgbàsókè
+Ìṣẹ́gun
+Àṣeyọrí
+Ìtura
+Ìrànlọ́wọ́
+Ìkẹ́
+Ẹ̀bùn
+Ìlú
+Ìlú Àbí
+Ìbílẹ̀
+Àdúgbò
+Àárín Ìlú
+Ọjà Ọba
+Ọba
+Aláàfin
+Ọọ̀ni
+Awùjalẹ̀
+Olúbàdàn
+Aláké
+Déjì
+Ọ̀ràngún
+Ọlọ́wọ̀
+Ọ̀wá
+Ẹlẹ́rùnwọ̀n
+Baálẹ̀
+Balógun
+Ààrẹ
+Ìyálọ́de
+Ọ̀tún
+Òsì
+Ìjòyè
+Olóyè
+Ààfin
+Odò
+Odò Ọ̀nà
+Òkun
+Òkè
+Òkè Àárín
+Àpáta
+Ilẹ̀
+Igbó
+Igi
+Ewé
+Òdodó
+Ọ̀pẹ
+Irókò
+Àràbà
+Ọ̀gẹ̀dẹ̀
+Ìṣu
+Àgbọn
+Omi
+Omi Tútù
+Iná
+Òjò
+Òòrùn
+Òṣùpá
+Ìràwọ̀
+Afẹ́fẹ́
+Ìrì
+Ọ̀yẹ́
+Àgbẹ̀
+Ọdẹ
+Alágbẹ̀dẹ
+Aláṣọ
+Aṣọ Òkè
+Àdìrẹ
+Ahunṣọ
+Onísègùn
+Olùkọ́
+Akéwì
+Ayàwòrán
+Òǹkọ̀wé
+Onílù
+Ọlọ́jà
+Òǹṣòwò
+Ọ̀gá
+Ìwé
+Ilé Ìwé
+Ilé Ìwòsàn
+Ọmọlúàbí
+Ọmọ Ìlú
+Ẹ̀yà
+Ìdílé
+Ìbejì
+Táíwò
+Kẹ́hìndé
+Ọ̀tun
+Tuntun
+Àtijọ́
+Ńlá
+Kékeré
+Gígùn
+Títì Kan
+Àyànfẹ́
+Ìṣẹ̀ṣe
+Àṣà
+Ìtàn
+Èdè
+Òwe
+Oríkì
+Àlọ́

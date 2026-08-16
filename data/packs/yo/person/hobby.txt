@@ -1,0 +1,34 @@
+---
+description: Hobby or pastime, in Yoruba. Yoruba names an activity with a VERBAL NOUN built by reduplicating the verb's first consonant with an i: kà (read) gives kíkà, kọ (write) kíkọ, gbá (kick) gbígbá — so "reading" is ìwé kíkà, "book reading", object first. Ayò ọlọ́pọ́n is the sown-seed board game played across the whole region; àlọ́ pípa is telling the folktales that begin "àlọ́ o!" and expect the listeners to answer; oríkì is reciting a person's or lineage's praise-poetry from memory, which is a real and prized skill, not a curiosity.
+locale: yo
+---
+Ìwé kíkà
+Ìwé kíkọ
+Orin kíkọ
+Ìlù lílù
+Ìjó jíjó
+Ayò ọlọ́pọ́n
+Àlọ́ pípa
+Òwe pípa
+Oríkì sísọ
+Bọ́ọ̀lù gbígbá
+Bọ́ọ̀lù wíwò
+Fíìmù wíwò
+Rédíò gbígbọ́
+Oúnjẹ sísè
+Oko ṣíṣe
+Ọdẹ ṣíṣe
+Ẹja pípa
+Aṣọ híhun
+Àdìrẹ ṣíṣe
+Ère gbígbẹ́
+Àwòrán yíyà
+Fọ́tò yíyà
+Ìrìn àjò
+Ọjà lílọ
+Eré ìtàgé
+Ìwẹ̀
+Ìsáré
+Igi gbígbìn
+Ilé ìjọsìn lílọ
+Ẹ̀rọ ayárabíàṣá lílò

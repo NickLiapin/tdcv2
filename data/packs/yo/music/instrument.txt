@@ -1,0 +1,34 @@
+---
+description: Musical instrument. The drums are the point of this list. DÙNDÚN is the hourglass talking-drum family, whose tension cords let a player raise and lower the pitch — and because Yoruba is a TONE LANGUAGE, a trained drummer reproduces the tones of actual speech, so the drum talks, and an audience hears words in it. ÌYÁÀLÙ is the lead drum of the set ("mother drum"), GÁNGAN the small one carried under the arm, GÚDÚGÚDÚ the little kettle drum that keeps time, OMELE the supporting drums. BÀTÀ is a different family altogether, the drum set of Ṣàngó, and ÌGBÌN belongs to Ọbàtálá. Ṣẹ̀kẹ̀rẹ̀ is the beaded gourd, agogo the iron bell, ṣáworo the ankle bells a dancer wears. The last block is the imported instruments under names Yoruba has borrowed.
+locale: yo
+---
+Ìlù
+Dùndún
+Ìyáàlù
+Gángan
+Gúdúgúdú
+Omele
+Kànnàngó
+Bàtà
+Ìgbìn
+Àràn
+Bẹ̀mbẹ́
+Ṣẹ̀kẹ̀rẹ̀
+Agogo
+Ṣáworo
+Àgídìgbo
+Gòjé
+Mọ́lọ
+Fèrè
+Kàkàkí
+Dùrù
+Ìlù ẹ̀gbẹ́
+Gíta
+Píánò
+Kìbọ́dù
+Sáksòfóònù
+Túrúmpẹ́tì
+Fáyólíìnì
+Àkọ́diọ̀nì
+Fúlúùtù
+Dùrúmù

@@ -1,0 +1,6 @@
+---
+description: Gender label. Yoruba has NO grammatical gender — no gendered pronoun, no gendered noun class, no gendered adjective agreement — so these two words are lexical, not grammatical: ọkùnrin is "man", obìnrin is "woman", and akọ / abo are the male / female of an animal or plant. Nothing else in the language changes.
+locale: yo
+---
+Ọkùnrin
+Obìnrin

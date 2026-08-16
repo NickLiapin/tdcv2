@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Ẹ̀ka ẹ̀dọ̀fóró
+locale: yo
+---
+Ikọ́ fée
+Ikọ́ ẹ̀mí
+Àrùn ẹ̀dọ̀fóró
+Ikọ́ àyà
+Ìnira mímí
+Jẹjẹrẹ ẹ̀dọ̀fóró

@@ -1,0 +1,16 @@
+---
+description: Month name — the TRADITIONAL Yoruba set, which is what CLDR ships for yo and what a Yoruba calendar prints. In running text the word oṣù ("month") usually precedes it: Oṣù Ṣẹ́rẹ́, Oṣù Ògún. Two other systems are in live competition and a config should know they exist. Yoruba also counts months ORDINALLY — Oṣù Kìíní, Oṣù Kejì, Oṣù Kẹta … Oṣù Kejìlá — which is what BBC Yorùbá and most Yoruba news writing use. And the English month names are borrowed wholesale in speech as Jánúárì, Fẹ́búárì, Máàṣì and so on. Note that Ògún, the eighth month, is also the name of the òrìṣà of iron; the traditional month names are festival names, not numbers.
+locale: yo
+---
+Ṣẹ́rẹ́
+Èrèlè
+Ẹrẹ̀nà
+Ìgbé
+Ẹ̀bibi
+Òkúdu
+Agẹmọ
+Ògún
+Owewe
+Ọ̀wàrà
+Bélú
+Ọ̀pẹ̀

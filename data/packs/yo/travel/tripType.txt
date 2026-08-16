@@ -1,0 +1,20 @@
+---
+description: Trip type. Two entries carry most of the real long-distance travel in Yorubaland and neither appears on a European list. ÌRÌN ÀJÒ ÌSÌNKÚ — travelling for a funeral — is a major, non-optional category: the extended family converges on the hometown, and the second burial of an elder can draw hundreds from across the country. ÌRÌN ÀJÒ ÌLÚ is going home to the hometown for Christmas, Ìdí or a festival, which empties Lagos every December. ÌRÌN ÀJÒ Ẹ̀SÌN is pilgrimage — the hajj and the Jerusalem pilgrimage are both state-organised in Nigeria.
+locale: yo
+---
+Ìrìn àjò iṣẹ́
+Ìrìn àjò ìsinmi
+Ìrìn àjò ẹbí
+Ìrìn àjò ìlú
+Ìrìn àjò ìsìnkú
+Ìrìn àjò ìgbéyàwó
+Ìrìn àjò ẹ̀sìn
+Ìrìn àjò ọdún
+Ìrìn àjò ìkẹ́kọ̀ọ́
+Ìrìn àjò ìtọ́jú ìlera
+Ìrìn àjò ìṣòwò
+Ìrìn àjò ìwádìí
+Ìrìn àjò ẹgbẹ́
+Ìrìn àjò ọmọ tuntun
+Ìrìn àjò ìdárayá
+Ìrìn àjò òkèèrè

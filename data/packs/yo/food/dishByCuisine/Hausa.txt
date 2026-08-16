@@ -1,0 +1,12 @@
+---
+description: Dishes of Hausa cuisine
+locale: yo
+---
+Tuwo shinkafa
+Miyan kuka
+Suya
+Masa
+Kilishi
+Dan wake
+Fura da nono
+Kunu

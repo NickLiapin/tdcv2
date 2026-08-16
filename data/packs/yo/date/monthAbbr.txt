@@ -1,0 +1,16 @@
+---
+description: Month abbreviation. The traditional Yoruba month names are already short and CLDR abbreviates them to themselves, so the useful abbreviation is the ORDINAL one that Yoruba news writing actually uses: Oṣù Kìíní shortens to Oṣù 1. This file keeps the traditional names clipped to their first syllable-plus, which is what a narrow column gets; if you need something a Nigerian form would accept, use the English abbreviations instead, because Nigerian forms are printed in English.
+locale: yo
+---
+Ṣẹ́r
+Èrè
+Ẹrẹ̀
+Ìgb
+Ẹ̀bi
+Òkú
+Agẹ
+Ògú
+Owe
+Ọ̀wà
+Bél
+Ọ̀pẹ̀

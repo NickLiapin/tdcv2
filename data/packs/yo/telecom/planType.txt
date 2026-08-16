@@ -1,0 +1,16 @@
+---
+description: Mobile plan type. ÈTÒ ALẸ́ — the night plan — is a real and distinctively Nigerian product: a cheap block of data usable only between about midnight and five in the morning, bought by students and anyone downloading anything large. Prepaid ("owó tẹ́lẹ̀") is overwhelmingly the norm; postpaid contracts are a minority.
+locale: yo
+---
+Ètò owó tẹ́lẹ̀
+Ètò owó lẹ́yìn
+Ètò dátà
+Ètò alẹ́
+Ètò ọ̀sẹ̀
+Ètò oṣù
+Ètò ọjọ́ kan
+Ìpè àìlópin
+Ètò ẹbí
+Ètò ìṣòwò
+Ètò akẹ́kọ̀ọ́
+Ètò ìrìn àjò

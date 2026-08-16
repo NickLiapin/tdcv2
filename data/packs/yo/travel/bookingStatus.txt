@@ -1,0 +1,15 @@
+---
+description: Booking status.
+locale: yo
+---
+A ti fọwọ́ sí i
+Ó ń dúró
+A ti san owó rẹ̀
+A ti fagi lé e
+Ó ti wọlé
+Ó ti jáde
+Kò yọ jáde
+Ó ti pé àkókò
+A ń dúró de ìjẹ́rìí
+A ti yí i padà
+A ti san owó rẹ̀ padà

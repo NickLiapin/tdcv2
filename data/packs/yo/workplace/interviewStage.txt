@@ -1,0 +1,15 @@
+---
+description: Hiring or interview stage.
+locale: yo
+---
+Ìfiwé ránṣẹ́
+Ìyẹ̀wò ìwé
+Ìdánwò kíkọ
+Ìfọ̀rọ̀wánilẹ́nuwò lórí fóònù
+Ìfọ̀rọ̀wánilẹ́nuwò
+Ìfọ̀rọ̀wánilẹ́nuwò ẹgbẹ́
+Ìdánwò iṣẹ́
+Ìyẹ̀wò ẹ̀rí
+Ìdámọ̀ràn
+Ìfilọ̀ iṣẹ́
+Ìbẹ̀rẹ̀ iṣẹ́

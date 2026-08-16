@@ -1,0 +1,11 @@
+---
+description: Mining method. Ìwakùsà is "digging up stone", the general Yoruba word for mining; the artisanal small-pit form is what most Nigerian gold mining actually is.
+locale: yo
+---
+Ìwakùsà ojú ilẹ̀
+Ìwakùsà abẹ́ ilẹ̀
+Ìwalẹ̀ kékeré
+Ìwakùsà odò
+Ìfọ́ òkúta
+Ìhó kànga
+Ìwakùsà ọwọ́

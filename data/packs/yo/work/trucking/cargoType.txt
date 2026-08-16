@@ -1,0 +1,17 @@
+---
+description: Truck cargo or trailer type. The Nigerian haulage load list is its own thing: kọ́ǹtẹ́nà (containers) off the Lagos ports, epo (fuel) in tankers, símẹ́ǹtì (cement) in bulkers, and ẹran (live cattle) trucked south from the north on open lorries.
+locale: yo
+---
+Kọ́ǹtẹ́nà
+Ẹrù gbígbẹ
+Ẹrù tútù
+Epo
+Gáàsì
+Símẹ́ǹtì
+Ẹran alààyè
+Ọjà oko
+Òkúta
+Iyanrìn
+Ọkọ̀ ayọ́kẹ́lẹ́
+Ẹrù wúwo
+Ẹrù ilé

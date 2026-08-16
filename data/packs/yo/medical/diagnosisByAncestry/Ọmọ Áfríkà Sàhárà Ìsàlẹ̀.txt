@@ -1,0 +1,15 @@
+---
+description: Conditions markedly more frequent in people of Sub-Saharan African ancestry. A prevalence signal, not an exclusive one. This is the ancestry group Yoruba speakers themselves belong to, so for a Yoruba dataset it is the default rather than a minority case. Sickle cell has no settled Yoruba name and is written as Nigerian medicine writes it. The condition names here are CLINICAL GENETICS terms, which are international and are written the same in a Yoruba record as in an English one; where Yoruba has its own established name for a condition (ẹ̀jẹ̀ ríru, àtọ̀gbẹ, jẹjẹrẹ, jẹ̀dọ̀jẹ̀dọ̀, àìlèfaradà wàrà) that name is used instead, and nothing has been coined to make the rest look Yoruba.
+locale: yo
+---
+Sickle Cell Disease
+Sickle Cell Trait
+G6PD Deficiency
+Ẹ̀jẹ̀ ríru
+Àtọ̀gbẹ ìrú kejì
+Àrùn kíndìnrín
+Èèmọ̀ ilé ọmọ
+Jẹjẹrẹ pirọ́sítéètì
+Keloid
+Àìlèfaradà wàrà
+Àìtó fítámì D

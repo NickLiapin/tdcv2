@@ -1,0 +1,36 @@
+---
+description: Building type, in Yoruba. Yoruba names a building by what happens in it, with ilé ("house") plus the activity: ilé ìwé is "house of books" = school, ilé ìwòsàn "house of healing" = hospital, ilé ìfowópamọ́ "house where money is kept" = bank, ilé ìkàwé "house of reading" = library. The one with no English counterpart is AGBO ILÉ, the walled compound that houses a whole ìdílé — several families around a shared courtyard — which is the traditional Yoruba residential unit and still the commonest form of housing in the old quarters of Ìbàdàn, Abẹ́òkúta and Ilé-Ifẹ̀. Ilé gogoro is a storey building (gogoro = tall), Búkà a roadside eating house, Ààfin the palace of an ọba.
+locale: yo
+---
+Ilé
+Agbo ilé
+Ilé ìdílé
+Ilé gogoro
+Ilé àgbàlá
+Ilé pẹlẹbẹ
+Ilé ìwé
+Ilé ìwòsàn
+Ilé ìjọsìn
+Ṣọ́ọ̀ṣì
+Mọ́sálásí
+Ilé ẹjọ́
+Ilé ìfowópamọ́
+Ilé ìtura
+Ilé oúnjẹ
+Búkà
+Ilé ìkàwé
+Ilé ìtàgé
+Ilé iṣẹ́
+Ilé iṣẹ́ ẹ̀rọ
+Ilé ìtajà
+Ṣọ́ọ̀bù
+Ilé ìpamọ́
+Ilé ọlọ́pàá
+Ilé ìfìwéránṣẹ́
+Ilé ìṣèjọba
+Ilé ìdánilẹ́kọ̀ọ́
+Ààfin
+Ọjà
+Àgọ́
+Àbà
+Gáréèjì

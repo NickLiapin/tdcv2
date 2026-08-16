@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter. Yoruba says ìdámẹ́rin ọdún, "a fourth of the year", and then counts with the ordinal: kìíní, kejì, kẹta, kẹrin.
+locale: yo
+---
+Ìdámẹ́rin kìíní
+Ìdámẹ́rin kejì
+Ìdámẹ́rin kẹta
+Ìdámẹ́rin kẹrin

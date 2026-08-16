@@ -1,0 +1,5 @@
+---
+description: Currency of Íńdíà. Yoruba names the currencies it handles — Náírà, Dọ́là, Pọ́ọ̀ndù, Yúrò, Faransì CFA, Sẹ́dì — and keeps the international name for the rest rather than inventing a Yoruba spelling for a currency no Yoruba speaker has occasion to write.
+locale: yo
+---
+Rúpì Íńdíà

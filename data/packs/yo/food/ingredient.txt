@@ -1,0 +1,34 @@
+---
+description: Cooking ingredient. EPO PUPA, red palm oil, is the base of most Yoruba cooking and its colour is why so many stews are the colour they are. ÌRÚ (fermented locust bean) and ÒGÌRÌ (fermented melon seed) are the umami of the cuisine and have no substitute; KÀNHÙN is potash, used to soften and to thicken. Ẹ̀LÙBỌ́ is yam flour, which becomes àmàlà, and GAÀRÍ is fermented cassava grit, which becomes ẹ̀bà — both are flours whose whole purpose is to be stirred into a swallow.
+locale: yo
+---
+Epo pupa
+Epo òyìnbó
+Iyọ̀
+Ata
+Àlùbọ́sà
+Tòmátì
+Ìrú
+Ògìrì
+Kànhùn
+Ẹ̀gúsí
+Ẹ̀lùbọ́
+Gaàrí
+Ìyẹ̀fun
+Ìrẹsì
+Ẹ̀wà
+Ẹja gbígbẹ
+Ẹran
+Pọ̀nmọ́
+Ẹdé
+Ìgbín
+Àdí
+Ògì
+Ṣúgà
+Wàrà
+Ẹyin
+Èpà
+Òrí
+Ọbẹ̀ ata
+Omi
+Àgbàdo

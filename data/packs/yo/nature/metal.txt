@@ -1,0 +1,20 @@
+---
+description: Metal. IRIN, iron, is not a neutral material in Yoruba: it belongs to ÒGÚN, the òrìṣà of iron and of everyone whose work touches it — blacksmiths first, then hunters and soldiers, and now drivers, mechanics and surgeons, who still swear oaths on a piece of iron in a Nigerian court. Idẹ is brass and bronze, the metal of Ọ̀ṣun and of the Ifẹ̀ heads; ọjẹ is lead, fàdákà silver, wúrà gold. The rest are modern and are named as they are written in Nigeria.
+locale: yo
+---
+Irin
+Wúrà
+Fàdákà
+Idẹ
+Ọjẹ
+Bàbà
+Irin dídà
+Irin ìpata
+Ṣíńkì
+Alumíníọ̀mù
+Níkẹ̀lì
+Titanium
+Platinum
+Chromium
+Tin
+Cobalt

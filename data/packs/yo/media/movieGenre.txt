@@ -1,0 +1,22 @@
+---
+description: Film genre. Yoruba-language cinema is an INDUSTRY, not a niche: the Yoruba film market predates and runs alongside English-language Nollywood, descends directly from the Yoruba travelling theatre of Hubert Ogunde and Duro Ladipo, and releases straight to disc and streaming in Yoruba. Two of its genres have no Western counterpart. ÌTÀN ÌBÍLẸ̀ is the historical epic set in the era of the ọba and the babaláwo, with masquerades and incantation, and it is the flagship genre. ÌWÀSÙ is the evangelical film, made and distributed by churches, with a sermon as its plot.
+locale: yo
+---
+Ìtàn ìbílẹ̀
+Ìwàsù
+Eré ìtàgé
+Eré ẹ̀rín
+Ìwà ipá
+Ìtàn ìfẹ́
+Ìbẹ̀rù
+Àṣírí
+Ìtàn àròsọ
+Ìtàn òtítọ́
+Ìtàn ogun
+Ìtàn ọ̀daràn
+Eré ọmọdé
+Àwòrán eré ìdárayá
+Ìtàn ìdílé
+Ìtàn ìṣèlú
+Ìtàn ìjìnlẹ̀
+Orin àti ìjó

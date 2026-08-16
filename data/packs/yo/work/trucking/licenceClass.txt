@@ -1,0 +1,11 @@
+---
+description: Driving licence class as issued in Nigeria by the FRSC — the classes are lettered A to H and cover motorcycles through articulated lorries. The letters are the official ones; the Yoruba words say what each licence lets you drive.
+locale: yo
+---
+Kíláàsì A
+Kíláàsì B
+Kíláàsì C
+Kíláàsì D
+Kíláàsì E
+Kíláàsì F
+Kíláàsì G

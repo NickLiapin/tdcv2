@@ -1,0 +1,36 @@
+---
+description: Technology noun. Yoruba HAS coined for this domain and the coinages are in daily use on BBC Yorùbá and in Yoruba broadcasting: Ẹ̀RỌ AYÁRABÍÀṢÁ is the computer, "the machine that is as fast as magic"; ÀYÉLUJÁRA is the internet, "that which pierces through the world"; ẹ̀rọ amóhùnmáwòrán is the television, "the machine that captures sound and picture"; ẹ̀rọ agbóhùnsáfẹ́fẹ́ the radio. These are real words, not this file's inventions. Where no coinage exists the English term is borrowed into Yoruba phonology, which is also what speakers do.
+locale: yo
+---
+Ẹ̀rọ ayárabíàṣá
+Kọ̀ǹpútà
+Àyélujára
+Ìkànnì
+Ìkànnì ayélujára
+Ẹ̀rọ ìbánisọ̀rọ̀
+Ẹ̀rọ amóhùnmáwòrán
+Ẹ̀rọ agbóhùnsáfẹ́fẹ́
+Sáfà
+Dátà
+Àkọsílẹ̀
+Fáìlì
+Àpò àkọsílẹ̀
+Ọ̀rọ̀ ìgbaniwọlé
+Ìwọlé
+Ìjáde
+Ààbò
+Ìdènà
+Ìtẹ̀wé
+Bọ́tìnì
+Àwòrán ojú ìtẹ̀wé
+Ẹ̀rọ ìpamọ́
+Okùn ìsopọ̀
+Ìlànà
+Ètò ẹ̀rọ
+Sọ́fítíwéà
+Áàdíwéà
+Mọ́dẹ́mù
+Ráúta
+Bátìrì
+Ìṣàmúlò
+Àpèjúwe ẹ̀rọ

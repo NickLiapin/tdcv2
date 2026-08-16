@@ -1,0 +1,32 @@
+---
+description: Airline name. These are BRANDS and are written the same in every language. Nigeria's own carriers are deliberately not listed — named national companies belong to a Nigeria country pack.
+locale: yo
+---
+British Airways
+Air France
+KLM
+Lufthansa
+Turkish Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Ethiopian Airlines
+Kenya Airways
+RwandAir
+EgyptAir
+Royal Air Maroc
+South African Airways
+ASKY Airlines
+Air Côte d'Ivoire
+Delta Air Lines
+United Airlines
+American Airlines
+Virgin Atlantic
+TAP Air Portugal
+Iberia
+Alitalia
+Saudia
+Qantas
+Singapore Airlines
+Cathay Pacific
+China Southern Airlines

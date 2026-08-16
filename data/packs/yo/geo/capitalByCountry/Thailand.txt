@@ -1,0 +1,5 @@
+---
+description: Capital of Thailand. Note on spelling: Yoruba has nativised the COUNTRY names in geo/country.txt but it has no settled Yoruba spelling for most foreign CAPITALS, so these keep their international form — which is what Yoruba writing itself prints. Àbújá is the exception and is spelled as the Yoruba word it is.
+locale: yo
+---
+Bangkok

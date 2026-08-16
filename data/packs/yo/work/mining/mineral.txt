@@ -1,0 +1,22 @@
+---
+description: Mined mineral or commodity. The list is Nigerian rather than generic: gold, tin, columbite, tantalite, lead and limestone are what is actually dug here, and ÒKÚTA — stone — is the biggest of all by volume, because granite quarrying for construction employs far more people than metal mining does. Epo rọ̀bì (crude oil) and gáàsì are the country's export, though the fields are in the Niger Delta, not in Yorubaland.
+locale: yo
+---
+Wúrà
+Òkúta
+Òkúta ẹ̀kúnrẹ́rẹ́
+Tin
+Columbite
+Tantalite
+Ọjẹ
+Irin
+Ẹdú
+Iyọ̀
+Iyanrìn
+Amọ̀
+Òkúta láìmù
+Epo rọ̀bì
+Gáàsì
+Idẹ
+Fàdákà
+Baraytì

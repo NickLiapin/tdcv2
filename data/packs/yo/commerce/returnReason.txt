@@ -1,0 +1,17 @@
+---
+description: Order return reason.
+locale: yo
+---
+Ó bàjẹ́
+Ọjà tí kò tọ́
+Kò dà bí àpèjúwe rẹ̀
+Ìwọ̀n kò tọ́
+Àwọ̀ kò tọ́
+Mo ti yí ọkàn padà
+Ó pẹ́ jù láti dé
+Kò ṣiṣẹ́
+A rí méjì
+Ó gbówó lórí jù
+Mo rí i ní ibòmíràn ní ọ̀wọ́n
+Kò péye
+Àṣìṣe ìbéèrè

@@ -1,0 +1,22 @@
+---
+description: Precious stone or bead. Yoruba's prestige material is not a cut gem but a BEAD: IYÙN, coral, is the stuff of an ọba's crown, necklace and staff, and the right to wear it is a matter of rank, not of money. Ṣẹ̀gí is the old blue glass bead, lágídígba the palm-nut bead of Ọ̀ṣun's devotees, ilẹ̀kẹ̀ the general word for beads and for the strand a devotee wears to name their òrìṣà. Wúrà and fàdákà — gold and silver — are Yoruba words. The cut stones at the end have no Yoruba names and are given as they are written in Nigeria.
+locale: yo
+---
+Iyùn
+Ṣẹ̀gí
+Lágídígba
+Ilẹ̀kẹ̀
+Òkúta iyebíye
+Wúrà
+Fàdákà
+Idẹ
+Dáyámọ́ǹdì
+Emerald
+Ruby
+Sapphire
+Amethyst
+Topaz
+Jade
+Opal
+Tourmaline
+Garnet

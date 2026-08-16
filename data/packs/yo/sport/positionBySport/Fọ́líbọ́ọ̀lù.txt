@@ -1,0 +1,11 @@
+---
+description: Positions in Fọ́líbọ́ọ̀lù. Yoruba has no positional vocabulary for this sport — it is played in Nigeria under English terms — so the positions keep their international names rather than being invented in Yoruba. Only the substitute (arọ́pò) and coach (olùkọ́ni) have real Yoruba words.
+locale: yo
+---
+Setter
+Outside Hitter
+Opposite Hitter
+Middle Blocker
+Libero
+Arọ́pò
+Olùkọ́ni

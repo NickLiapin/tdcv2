@@ -1,0 +1,11 @@
+---
+description: Dishes of Gánà cuisine
+locale: yo
+---
+Waakye
+Banku
+Kenkey
+Fufu
+Jollof Gánà
+Kelewele
+Red red

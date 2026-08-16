@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — GEOGRAPHIC DESCENT, not social race categories. Yoruba names a group of people with ỌMỌ ("child of") plus the place, the same construction it uses for nationality, so the labels read as "child of sub-Saharan Africa", "child of the Pacific islands". Yoruba speakers themselves belong to the first group, which for a Yoruba dataset makes it the ordinary case rather than a minority one.
+locale: yo
+---
+Ọmọ Áfríkà Sàhárà Ìsàlẹ̀
+Ọmọ Àríwá Áfríkà
+Ọmọ Mẹditaréníà
+Ọmọ Ìlà Oòrùn Àárín
+Ọmọ Àríwá Yúróòpù
+Ọmọ Ìlà Oòrùn Yúróòpù
+Ọmọ Júù Aṣkénásì
+Ọmọ Gúúsù Éṣíà
+Ọmọ Ìlà Oòrùn Éṣíà
+Ọmọ Gúúsù Ìlà Oòrùn Éṣíà
+Ọmọ Erékùṣù Pàsífìkì
+Ọmọ Ìbílẹ̀ Amẹ́ríkà

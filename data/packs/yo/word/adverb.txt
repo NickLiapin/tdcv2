@@ -1,0 +1,36 @@
+---
+description: Common Yoruba adverb. The distinctive group is the IDEOPHONES — kíákíá, pátápátá, wéréwéré, gbágbáá, rọra — reduplicated words that describe the manner of an action directly rather than by derivation, and which Yoruba has hundreds of. There is no -ly suffix to derive an adverb from an adjective; the manner word is its own lexical item, and it goes after the verb.
+locale: yo
+---
+kíákíá
+pẹ̀lẹ́pẹ̀lẹ́
+wéréwéré
+pátápátá
+rọra
+dáadáa
+gan-an
+púpọ̀
+díẹ̀díẹ̀
+nígbà gbogbo
+lẹ́ẹ̀kọ̀ọ̀kan
+rárá
+nísisìyí
+láìpẹ́
+lọ́la
+lánàá
+lónìí
+níbí
+níbẹ̀
+níbi gbogbo
+lẹ́sẹ̀kẹsẹ̀
+síwájú
+sẹ́yìn
+papọ̀
+níkan
+lẹ́ẹ̀kan
+dandan
+bóyá
+síbẹ̀
+nítorí náà
+lápapọ̀
+lọ́nà tí ó tọ́

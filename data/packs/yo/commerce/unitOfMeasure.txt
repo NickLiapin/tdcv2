@@ -1,0 +1,32 @@
+---
+description: Unit of measure. The first block is what a Yoruba MARKET actually counts in, and none of it is metric: DÉRÍCÀ is the milk tin used as a grain measure, MÚDÙ the larger bowl (about four dérícà), ÒSÙWỌ̀N a measure generally, ÌDÌ a bundle, ÒGÒ a heap laid out on the stall. Grain, garri, beans, pepper and tomatoes are sold by these, not by the kilogram, and a Yoruba shopping list would use them. The metric units follow, because that is what a packaged product carries.
+locale: yo
+---
+Dérícà
+Múdù
+Òsùwọ̀n
+Ìdì
+Ògò
+Òkiti
+Ẹrù
+Àpò
+Àpótí
+Kóńgò
+Garawa
+Ìgò
+Àwo
+Ọwọ́ kan
+Ẹ̀ka
+Ọ̀kọ̀ọ̀kan
+Méjìméjì
+Dósìnì
+Kìlógíráàmù
+Gíráàmù
+Tọ́ọ̀nù
+Lítà
+Mílílítà
+Mítà
+Sẹ̀ntímítà
+Kìlómítà
+Ìwọ̀n
+Ìgbọ̀nwọ́

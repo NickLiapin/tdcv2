@@ -1,0 +1,8 @@
+---
+description: Season. Yorubaland is tropical and has TWO seasons, not four: ìgbà òjò, the rains, roughly March to October with a short dry break in August (the ààrin ọ̀gbẹ̀lẹ̀ or "August break"), and ìgbà ẹ̀ẹ̀rùn, the dry season. Ọ̀yẹ́ is the harmattan, the cold dust-carrying wind off the Sahara from about December to February — a distinct named period every Yoruba speaker recognises, and the nearest thing to a third season. There is no native Yoruba word for spring or for autumn, and this file does NOT invent one; a Yoruba text writing about a temperate country says ìgbà òtútù for winter and ìgbà oòrùn for summer and describes the other two.
+locale: yo
+---
+Ìgbà òjò
+Ìgbà ẹ̀ẹ̀rùn
+Ọ̀yẹ́
+Ààrin ọ̀gbẹ̀lẹ̀

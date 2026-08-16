@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Ẹ̀ka egungun
+locale: yo
+---
+Àrùn oríkèé
+Ọ̀gbẹ́ egungun
+Ìrora ẹ̀yìn
+Egungun dídùn
+Ìyapa oríkèé
+Egungun rírọ

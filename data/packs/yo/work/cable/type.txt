@@ -1,0 +1,13 @@
+---
+description: Cable type (telecom and electrical). The technical names are international; Yoruba supplies the word for a cable, okùn, and for the electricity in it, iná.
+locale: yo
+---
+Okùn fáìbà
+Okùn kọ́ọ̀síà
+Okùn ìtànná
+Okùn ilẹ̀
+Cat5e
+Cat6
+Coaxial
+Twisted Pair
+Armoured Cable

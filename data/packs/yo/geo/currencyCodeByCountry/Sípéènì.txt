@@ -1,0 +1,5 @@
+---
+description: Currency code of Sípéènì. ISO 4217 codes are three Latin letters by definition and are identical in every language, so this file is ASCII by design, not by omission.
+locale: yo
+---
+EUR

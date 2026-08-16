@@ -1,0 +1,31 @@
+---
+description: Industry sector, in Yoruba.
+locale: yo
+---
+Iṣẹ́ àgbẹ̀
+Ìwakùsà
+Ìkọ́lé
+Ìṣèjáde
+Ìtajà
+Ìṣòwò títà
+Ìrìnnà
+Ìbánisọ̀rọ̀
+Ìmọ̀ ẹ̀rọ
+Ìṣúnná owó
+Ilé ìfowópamọ́
+Ìdánilójú
+Ilẹ̀ àti ilé
+Ìlera
+Ẹ̀kọ́
+Òfin
+Ìjọba
+Ìtura àti ìgbàlejò
+Ìrìn àjò
+Eré ìdárayá
+Ìròyìn
+Àṣà àti ìṣẹ̀ǹbáyé
+Epo àti gáàsì
+Iná mànàmáná
+Omi
+Ìtọ́jú àyíká
+Ìpèsè oúnjẹ

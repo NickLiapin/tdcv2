@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Ẹ̀ka àrùn ọpọlọ
+locale: yo
+---
+Ìsoríkọ́
+Àníyàn
+Àrùn ọpọlọ
+Àìsùn
+Ìmutípara
+Ìlò oògùn olóró

@@ -1,0 +1,28 @@
+---
+description: Technology verb in the progressive. Yoruba marks the progressive with the particle Ń before the bare verb — ó ń pamọ́, "it is saving" — and the verb itself never changes, so this file gives the ń-form as it would be read on a screen.
+locale: yo
+---
+ń pamọ́
+ń ṣí
+ń tì
+ń fi ránṣẹ́
+ń gbà
+ń ṣàtúnṣe
+ń yọ kúrò
+ń fi kún
+ń yí padà
+ń so pọ̀
+ń ṣàyẹ̀wò
+ń gbé sókè
+ń gbé wọlé
+ń tẹ̀ jáde
+ń tú
+ń dì
+ń dènà
+ń kọ́
+ń pín
+ń ṣàwárí
+ń tún ṣe
+ń bẹ̀rẹ̀
+ń dúró
+ń ṣiṣẹ́

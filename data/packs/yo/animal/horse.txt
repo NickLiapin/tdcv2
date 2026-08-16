@@ -1,0 +1,16 @@
+---
+description: Horse breed. Ẹṣin is the Yoruba word, and the horse is not a neutral animal in it: the Ọ̀yọ́ empire was a CAVALRY power, its ẹṣin bought from the north, and to this day the ọba rides at Ọjọ́ Ọba festivals and a chief's praise-name may be built on his horse. Nigeria's own horses are West African landraces of Barb descent — the northern Sudan and Barb types — and are named by region, not by studbook; the rest below are international breeds under their international names.
+locale: yo
+---
+Ẹṣin ìbílẹ̀
+Ẹṣin àríwá
+Barb
+Sudan Country-Bred
+Dongola
+Arabian
+Thoroughbred
+Anglo-Arab
+Quarter Horse
+Appaloosa
+Shetland Pony
+Kẹ́tẹ́kẹ́tẹ́

@@ -1,0 +1,16 @@
+---
+description: Mobile carrier. Nigeria's own networks are deliberately NOT named here — MTN, Airtel, Glo and 9mobile are national institutions and belong to a Nigeria country pack, not to a language one. What this file holds is the Yoruba words for kinds of operator and a few international brands. Yoruba calls a phone ẹ̀rọ ìbánisọ̀rọ̀, "the machine for talking with one another".
+locale: yo
+---
+Ilé iṣẹ́ ẹ̀rọ ìbánisọ̀rọ̀
+Ilé iṣẹ́ fóònù alágbèéká
+Ilé iṣẹ́ ìtakùn ayélujára
+Ilé iṣẹ́ sátẹ́láìtì
+Ilé iṣẹ́ ayélujára
+Vodafone
+Orange
+Safaricom
+Etisalat
+Telkom
+Verizon
+T-Mobile

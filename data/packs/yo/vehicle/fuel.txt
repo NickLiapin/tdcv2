@@ -1,0 +1,14 @@
+---
+description: Fuel type. PẸ́TÍRÒ is petrol and the word carries more weight in Nigeria than a fuel name usually does: fuel queues, subsidy and scarcity are recurring national events, and a household buys petrol for the generator as well as the car. CNG is on the list because Nigeria is actively converting vehicles to it.
+locale: yo
+---
+Pẹ́tírò
+Dísẹ́lì
+CNG
+Gáàsì
+Iná mànàmáná
+Àdàpọ̀
+Kerosin
+Ẹ̀rọ oòrùn
+Ẹsẹ̀
+Ẹṣin

@@ -1,0 +1,46 @@
+---
+description: Generic drug name. These are INTERNATIONAL NONPROPRIETARY NAMES and are the same in every language — a Yoruba prescription reads Paracetamol and Artemether-Lumefantrine exactly as an English one does, so nothing here is translated. The list is weighted towards what Nigerian pharmacies actually dispense: the artemisinin combinations for malaria come first, and Chloroquine is on it because it is still asked for by name even though resistance has retired it clinically.
+locale: yo
+---
+Artemether-Lumefantrine
+Artesunate
+Dihydroartemisinin-Piperaquine
+Chloroquine
+Quinine
+Sulfadoxine-Pyrimethamine
+Paracetamol
+Ibuprofen
+Diclofenac
+Aspirin
+Amoxicillin
+Ampicillin
+Ciprofloxacin
+Azithromycin
+Metronidazole
+Cotrimoxazole
+Doxycycline
+Ceftriaxone
+Gentamicin
+Erythromycin
+Amlodipine
+Lisinopril
+Nifedipine
+Hydrochlorothiazide
+Atenolol
+Metformin
+Glibenclamide
+Insulin
+Omeprazole
+Ranitidine
+Loratadine
+Chlorpheniramine
+Salbutamol
+Prednisolone
+Folic Acid
+Ferrous Sulphate
+Vitamin C
+Oral Rehydration Salts
+Zinc Sulphate
+Tenofovir-Lamivudine-Dolutegravir
+Isoniazid
+Rifampicin

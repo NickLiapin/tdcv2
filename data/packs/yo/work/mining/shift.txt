@@ -1,0 +1,9 @@
+---
+description: Work shift, named by the Yoruba parts of the day.
+locale: yo
+---
+Ọ̀sán
+Òru
+Àárọ̀
+Ìrọ̀lẹ́
+Ìyípo

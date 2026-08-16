@@ -1,0 +1,11 @@
+---
+description: Weekday name, Sunday first to match the formatter. Yoruba weekdays are NOT numbered the way Portuguese or Swahili number theirs — each is a word: Àìkú "not dying", Ajé the òrìṣà of wealth and the market, Ìṣẹ́gun "victory", Ọjọ́rú, Ọjọ́bọ̀, Ẹtì, Àbámẹ́ta "three proposals". In full they take the word ọjọ́ ("day") in front: Ọjọ́ Àìkú, Ọjọ́ Ajé. The seven-day week is itself an import: the Yoruba week is ÒSÈ, FOUR days long, and it still governs market days and òrìṣà worship — a town's market runs on its own four-day cycle, and Ọjọ́ Ọ̀ṣẹ̀ is the day of the shrine.
+locale: yo
+---
+Àìkú
+Ajé
+Ìṣẹ́gun
+Ọjọ́rú
+Ọjọ́bọ̀
+Ẹtì
+Àbámẹ́ta

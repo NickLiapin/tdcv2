@@ -1,0 +1,119 @@
+---
+description: Job title in Yoruba. Yoruba builds an occupation name from the WORK, with one of four agent prefixes: a- / o- (one who does it: àgbẹ̀ farms, apẹja fishes, akọ̀wé writes), olù- (one who leads it: olùkọ́ teaches, olùdarí directs), oní- (one who owns or deals in it: onílù the drum, oníṣòwò the trade, onígbàjámọ̀ the razor), and ẹlẹ́- (the same with a different vowel: ẹlẹ́mu, palm wine). So the list is transparent in a way an English job-title list is not — you can read the work out of the word. The first block is the traditional crafts, most of which are still live occupations: gbẹ́nàgbẹ́nà the carpenter, alágbẹ̀dẹ the smith, ahunṣọ the aso-oke weaver, onídìrí the hair-plaiter, alápatà the butcher, ẹlẹ́mu the palm-wine tapper, and bàbáláwo the Ifá diviner, who is a consulted professional and not a curiosity. The second block is the modern professions, which Yoruba coins the same way where it can (amòfin "one who knows the law", oníròyìn "one who deals in news", onímọ̀ ẹ̀rọ "one who knows machines") and borrows where it cannot.
+locale: yo
+---
+Àgbẹ̀
+Ọdẹ
+Apẹja
+Alágbẹ̀dẹ
+Gbẹ́nàgbẹ́nà
+Ahunṣọ
+Aránṣọ
+Aránbàtà
+Amọ̀kòkò
+Agbẹ́gilére
+Aláṣọ
+Alápatà
+Ẹlẹ́mu
+Onígbàjámọ̀
+Onídìrí
+Alágbàfọ̀
+Alásè
+Ìránṣẹ́
+Alágbàṣe
+Ọlọ́jà
+Oníṣòwò
+Onísègùn
+Adáhunṣe
+Bàbáláwo
+Ìyánífá
+Onílù
+Akéwì
+Akọrin
+Oníjó
+Òṣèré
+Ayàwòrán
+Òǹkọ̀wé
+Olùkọ́
+Akọ̀wé
+Ẹ̀ṣọ́
+Olùṣọ́
+Awakọ̀
+Atukọ̀
+Òṣìṣẹ́
+Onílé
+Dókítà
+Dókítà eyín
+Dókítà ojú
+Nọ́ọ̀sì
+Agbẹ̀bí
+Oníṣègùn ilé ìwòsàn
+Onímọ̀ ìlera
+Olùtọ́jú aláìsàn
+Onímọ̀ oògùn
+Onímọ̀ ẹ̀rọ
+Onímọ̀ ẹ̀rọ iná
+Onímọ̀ ẹ̀rọ ìkọ́lé
+Onímọ̀ sáyẹ́nsì
+Onímọ̀ ìṣirò
+Onímọ̀ kọ̀ǹpútà
+Ẹlẹ́rọ kọ̀ǹpútà
+Olùṣàyẹ̀wò owó
+Onísirò owó
+Olùdámọ̀ràn
+Amòfin
+Agbẹjọ́rò
+Adájọ́
+Akọ̀wé ilé ẹjọ́
+Ọlọ́pàá
+Ológun
+Olùṣàkóso
+Olùdarí
+Olùdarí àgbà
+Alága
+Alábòójútó
+Ọ̀gá
+Ọ̀gá àgbà
+Oníròyìn
+Olóòtú
+Atẹ̀wé
+Olùṣètò
+Olùkọ́ ilé ẹ̀kọ́ girama
+Olùkọ́ ilé ẹ̀kọ́ alákọ̀ọ́bẹ̀rẹ̀
+Ọ̀jọ̀gbọ́n
+Olùkọ́ni
+Olùkàwé ilé ìkàwé
+Olùtajà
+Olùpolówó
+Olùṣàkóso ọjà
+Olùpèsè
+Olùkó ẹrù
+Awakọ̀ ọkọ̀ akérò
+Awakọ̀ ọkọ̀ ẹrù
+Atukọ̀ ọkọ̀ òfuurufú
+Olùtọ́jú ọkọ̀
+Ẹlẹ́ẹ̀rọ ọkọ̀
+Bíríkílayà
+Onítanná
+Òǹkọ́lé
+Olùkọ́ ilé
+Onímọ̀ ilẹ̀
+Olùtọ́jú ọgbà
+Olùtọ́jú ẹran
+Olùbọ́ ẹja
+Olùkórè
+Alùfáà
+Ìmámù
+Pásítọ̀
+Olùwádìí
+Onímọ̀ ìtàn
+Onímọ̀ èdè
+Atúmọ̀ èdè
+Akọ̀wé àgbà
+Olùgbà owó
+Olùṣàkóso ilé ìtura
+Olùgbàlejò
+Alárinà
+Òǹṣòwò ilé
+Olùṣàmúlò dátà
+Olùṣọ́ ààbò orí ayélujára

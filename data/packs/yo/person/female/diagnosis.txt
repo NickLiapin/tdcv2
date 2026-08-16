@@ -1,0 +1,24 @@
+---
+description: Medical diagnoses for a female patient — the sex-specific ones plus the common conditions, in one list, for configs that draw a single diagnosis per row.
+locale: yo
+---
+Àrùn ilé ọmọ
+Èèmọ̀ ilé ọmọ
+Jẹjẹrẹ ọmú
+Jẹjẹrẹ ẹnu ilé ọmọ
+Àìlóyún
+Ìrora oṣù
+Ìsoríkọ́ lẹ́yìn ìbímọ
+Àtọ̀gbẹ oyún
+Ibà
+Ẹ̀jẹ̀ ríru
+Àtọ̀gbẹ
+Àìtó ẹ̀jẹ̀
+Ẹ̀fọ́rí ńlá
+Ọgbẹ́ inú
+Àrùn oríkèé
+Àrùn awọ ara
+Ìsoríkọ́
+Àníyàn
+Tayfọ́ìdì
+Ìgbẹ́ gbuuru

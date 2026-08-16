@@ -1,0 +1,18 @@
+---
+description: Shipping carrier. The named companies are the international ones, kept in their own spelling as brands are everywhere. Nigeria's own couriers, and NIPOST, are deliberately NOT here: named national institutions belong to a Nigeria country pack, not to a language pack. The Yoruba entries name kinds of carriage rather than firms — ọkọ̀ ẹrù a lorry, ọkọ̀ òfuurufú air freight, ọkọ̀ ojú omi sea freight, dísípáàṣì the motorcycle courier who is how most of Lagos actually gets a parcel.
+locale: yo
+---
+DHL
+FedEx
+UPS
+Aramex
+TNT
+Ọkọ̀ ẹrù
+Ọkọ̀ òfuurufú
+Ọkọ̀ ojú omi
+Ọkọ̀ ojú irin
+Alùpùpù ìfijíṣẹ́
+Dísípáàṣì
+Ìfijíṣẹ́ ọwọ́
+Ilé iṣẹ́ ìfìwéránṣẹ́
+Ọkọ̀ akérò

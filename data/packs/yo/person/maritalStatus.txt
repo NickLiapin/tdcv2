@@ -1,0 +1,17 @@
+---
+description: Marital status in Yoruba. The list is longer than a European one because Yoruba marriage is not binary. Àpọ́n is an unmarried man and Wúndíá an unmarried woman; a married person "has done ìgbéyàwó". Ìyàwó is a new or junior wife and ÌYÁLÉ the senior wife of the same husband — a status with no English word, and one that matters, because polygyny (ìgbéyàwó opó lóbìnrin) is legal under Yoruba customary law and still practised, so "married" alone under-describes a household. Opó is a widow or widower. Ìdálẹ́kọ̀ọ́ / ìkọ̀sílẹ̀ is divorce.
+locale: yo
+---
+Àpọ́n
+Wúndíá
+Ó ti gbéyàwó
+Ìyàwó
+Ìyálé
+Ọkọ
+Aya
+Opó
+A ti kọ̀ ọ́ sílẹ̀
+Ìkọ̀sílẹ̀
+Ìyàsọ́tọ̀
+Ó ń gbé pọ̀
+Ó ti fẹ́ ju ọ̀kan lọ

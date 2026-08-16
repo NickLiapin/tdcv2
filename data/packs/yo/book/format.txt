@@ -1,0 +1,11 @@
+---
+description: Book format.
+locale: yo
+---
+Ìwé aláwọ̀ líle
+Ìwé aláwọ̀ rírọ̀
+Ìwé orí ẹ̀rọ
+Ìwé ohùn
+Ìwé kékeré
+Ìwé ìléwọ́
+Ìwé ìtẹ̀jáde

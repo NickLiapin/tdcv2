@@ -1,0 +1,11 @@
+---
+description: Dishes of Ítálì cuisine
+locale: yo
+---
+Pizza
+Spaghetti
+Lasagna
+Risotto
+Carbonara
+Minestrone
+Tiramisu

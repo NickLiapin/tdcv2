@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation, Sunday first, as CLDR clips the Yoruba names.
+locale: yo
+---
+Àìk
+Ajé
+Ìṣg
+Ọjr
+Ọjb
+Ẹtì
+Àbm

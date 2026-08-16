@@ -1,0 +1,15 @@
+---
+description: Bicycle type. Kẹ̀kẹ́ is the bicycle; note that kẹ̀kẹ́ márùn-ún ("five-wheel bicycle", the three-wheeler taxi) is a motor vehicle and lives in vehicle/type.txt, not here.
+locale: yo
+---
+Kẹ̀kẹ́ ọ̀nà
+Kẹ̀kẹ́ òkè
+Kẹ̀kẹ́ ìlú
+Kẹ̀kẹ́ ọmọdé
+Kẹ̀kẹ́ ẹrù
+Kẹ̀kẹ́ ìdíje
+Kẹ̀kẹ́ oníná
+Kẹ̀kẹ́ ìpadà
+Kẹ̀kẹ́ ẹlẹ́sẹ̀ mẹ́ta
+Kẹ̀kẹ́ àtijọ́
+Kẹ̀kẹ́ tuntun

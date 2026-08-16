@@ -1,0 +1,36 @@
+---
+description: Field of study.
+locale: yo
+---
+Ìmọ̀ kọ̀ǹpútà
+Ìmọ̀ ẹ̀rọ
+Ìmọ̀ ẹ̀rọ iná
+Ìmọ̀ ẹ̀rọ ìkọ́lé
+Ìmọ̀ ẹ̀rọ ọkọ̀
+Ìṣègùn
+Iṣẹ́ nọ́ọ̀sì
+Ìmọ̀ oògùn
+Ìmọ̀ eyín
+Baólójì
+Kẹ́místrì
+Físíìsì
+Ìṣirò
+Ìṣirò owó
+Ìṣúnná owó
+Ìṣàkóso ìṣòwò
+Ọrọ̀ ajé
+Òfin
+Ẹ̀kọ́ ìjọba
+Ìtàn
+Èdè Yorùbá
+Èdè Gẹ̀ẹ́sì
+Ẹ̀kọ́ nípa ẹ̀dá ènìyàn
+Ẹ̀kọ́ nípa ọpọlọ
+Ẹ̀kọ́ ẹ̀sìn
+Iṣẹ́ àgbẹ̀
+Ìmọ̀ ilẹ̀
+Ìkọ́ni
+Ìròyìn
+Àwòrán àti ère
+Orin
+Ètò ìlú

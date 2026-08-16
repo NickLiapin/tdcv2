@@ -1,0 +1,38 @@
+---
+description: Music genre. The first block is Yoruba's OWN genres and they are not folklore — Jùjú, Fújì, Àpàlà, Sákárà and Wákà are commercial recorded music with named stars and a recording industry behind them, and Fújì grew directly out of àjísáàrì, the music that woke Muslim households for the pre-dawn Ramadan meal. The second block is the ORAL genres, each tied to who performs it and when: Ìjálá is the hunters' chant, sung for Ògún; Ẹ̀sà (or Ìwì) belongs to the Egúngún masquerade; Rárà is the praise chant of the itinerant singer; Oríkì is the praise-poetry of a person or a lineage, recited from memory; and ẸKÚN ÌYÀWÓ is the bride's lament, which she sings herself in the days before her wedding. Afrobeat is Fẹlá's genre and Afrobeats the later pop one; they are different things and the s matters.
+locale: yo
+---
+Jùjú
+Fújì
+Àpàlà
+Sákárà
+Wákà
+Dàdàkúàdà
+Awúrèbe
+Ìjálá
+Ẹ̀sà
+Ìwì
+Rárà
+Oríkì
+Ẹkún ìyàwó
+Orin ìbílẹ̀
+Orin Egúngún
+Orin ìsìnkú
+Orin ìgbéyàwó
+Orin ọmọdé
+Afrobeat
+Afrobeats
+Highlife
+Gọ́ọ̀sípẹ́lì
+Orin ìjọ
+Hip Hop
+Rap
+Reggae
+Blues
+Jazz
+Pop
+Rock
+Sóùlù
+R&B
+Amapiano
+Orin gbajúmọ̀

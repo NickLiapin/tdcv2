@@ -1,0 +1,34 @@
+---
+description: Playing position, mixed across sports. See sport/positionBySport for the per-sport lists and for which of these are genuine Yoruba terms.
+locale: yo
+---
+Olùṣọ́ àgò
+Olùgbèjà
+Olùgbèjà àárín
+Olùgbèjà ẹ̀gbẹ́
+Agbábọ́ọ̀lù àárín gbùngbùn
+Olùkọlù
+Agbábọ́ọ̀lù iwájú
+Olórí ẹgbẹ́
+Arọ́pò
+Olùkọ́ni
+Onídàájọ́
+Oníjàkadì
+Point Guard
+Shooting Guard
+Small Forward
+Power Forward
+Center
+Setter
+Libero
+Middle Blocker
+Batsman
+Bowler
+Wicketkeeper
+All-Rounder
+Scrum-Half
+Fly-Half
+Fullback
+Prop
+Hooker
+Pivot

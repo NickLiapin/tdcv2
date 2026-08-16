@@ -1,0 +1,30 @@
+---
+description: Yoruba honorific and form of address. Ọ̀gbẹ́ni, Ìyáàfin and Arábìnrin are the everyday Mr / Mrs / Miss. The rest have no European equivalent and outrank them: Ẹ̀gbọ́n and Àbúrò are pure AGE terms — elder and younger — and Yoruba uses them constantly as address, because relative age fixes the whole register of a conversation. Bàbá and Ìyá are used for any older man or woman, not only a parent. Olóyè is a holder of a chieftaincy title, Ọba a crowned king, Ààrẹ a national or association president, Ọ̀túnba a specific chieftaincy grade, Ìyálọ́de the senior woman chief of a town. Àlàhájì and Àlàhájà (returned from the hajj), Ìmámù and Àlùfáà are Muslim, Pásítọ̀ and Bíṣọ́ọ̀bù Christian, and both sets are in ordinary daily use.
+locale: yo
+---
+Ọ̀gbẹ́ni
+Ìyáàfin
+Arábìnrin
+Ẹ̀gbọ́n
+Àbúrò
+Bàbá
+Ìyá
+Àgbà
+Olóyè
+Ìjòyè
+Ọ̀túnba
+Ìyálọ́de
+Ọba
+Baálẹ̀
+Ààrẹ
+Balógun
+Àlàhájì
+Àlàhájà
+Ìmámù
+Àlùfáà
+Pásítọ̀
+Bíṣọ́ọ̀bù
+Dókítà
+Ọ̀jọ̀gbọ́n
+Ẹnjiníà
+Ọ̀gá

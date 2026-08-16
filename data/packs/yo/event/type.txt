@@ -1,0 +1,28 @@
+---
+description: Event type. ÌSỌMỌLÓRÚKỌ, the naming ceremony, is the one to understand: it is held on the seventh, eighth or ninth day after a birth, the whole ìdílé attends, an elder names the child (often several names, from several relatives), and honey, salt, kola, water, palm oil, sugarcane and bitter kola are each tasted and each said over. ÌDÁNÁ is the traditional engagement, at which the groom's family formally asks and pays; ÌWÚYÈ is the installation of a chief, when a person takes a title; and ÌSÌNKÚ ÌKEJÌ, the second burial, is a separate and often larger celebration months after the funeral, held when the family can afford it. ỌWÀMBẸ̀ is the umbrella word for the party any of these turns into.
+locale: yo
+---
+Ìsọmọlórúkọ
+Ìdáná
+Ìgbéyàwó
+Ìgbéyàwó ìbílẹ̀
+Ìtọ́rọ ọwọ́
+Ìwúyè
+Ìsìnkú
+Ìsìnkú ìkejì
+Ìdúpẹ̀
+Ọwàmbẹ̀
+Ọdún
+Ọdún ìlú
+Ọjọ́ ìbí
+Ọjọ́ ìrántí
+Ìpàdé ẹbí
+Ìpàdé ẹgbẹ́
+Ìkẹ́kọ̀ọ́ tán
+Ìdásílẹ̀ ilé
+Ìṣílẹ̀kùn ilé iṣẹ́
+Ìdánilẹ́kọ̀ọ́
+Ìpàdé ìṣèlú
+Eré orin
+Ìdíje ìdárayá
+Ọjà ọdọọdún

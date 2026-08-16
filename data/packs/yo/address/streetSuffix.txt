@@ -1,0 +1,17 @@
+---
+description: Yoruba thoroughfare type. It comes BEFORE the name and is joined to it by nothing at all — Yoruba builds the possessive by bare juxtaposition, so it is Títì Awólọ́wọ̀ and Ọ̀nà Ìbàdàn, with no particle and no preposition between them. Read this file with its limits in mind: a real Nigerian envelope is addressed in ENGLISH, because English is Nigeria's official language and the postal system runs in it, so the words actually printed on a Lagos or Ìbàdàn street sign are Street, Road, Close, Crescent and Avenue. These are what YORUBA says when it names the same thing, which is what a language pack owes; the English forms and the real street inventory belong to a Nigeria country pack.
+locale: yo
+---
+Títì
+Títì Ńlá
+Ọ̀nà
+Ọ̀nà Ńlá
+Ọ̀nà Kékeré
+Òpópónà
+Òpópó
+Ìta
+Ọ̀gbà
+Ẹnu Ọ̀nà
+Ìpàdé Ọ̀nà
+Àdúgbò
+Ìgboro

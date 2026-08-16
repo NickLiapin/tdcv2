@@ -1,0 +1,26 @@
+---
+description: Trailing qualifier of a Yoruba place name. The compass words are the ones a Nigerian will recognise immediately, because local-government areas are named this way and printed on every official form: Ìbàdàn Àríwá, Ìbàdàn Àríwá Ìlà Oòrùn, Ògbómọ̀ṣọ́ Gúúsù, Àkúrẹ́ Àríwá. Òkè / Ìsàlẹ̀ (upper / lower) and Tuntun / Àtijọ́ (new / old) split a town the same way. Ìjẹ̀bú-Òde and Ìjẹ̀bú-Igbó show the other pattern, where the qualifier says what kind of place it is rather than where it sits.
+locale: yo
+---
+Àríwá
+Gúúsù
+Ìlà Oòrùn
+Ìwọ̀ Oòrùn
+Àríwá Ìlà Oòrùn
+Àríwá Ìwọ̀ Oòrùn
+Gúúsù Ìlà Oòrùn
+Gúúsù Ìwọ̀ Oòrùn
+Àárín
+Òkè
+Ìsàlẹ̀
+Òde
+Igbó
+Odò
+Ilé
+Tuntun
+Àtijọ́
+Ńlá
+Kékeré
+Ẹ̀gbẹ́
+Èbúté
+Ọjà

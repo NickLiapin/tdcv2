@@ -1,0 +1,14 @@
+---
+description: Positions in football, in the Yoruba used by Yoruba-language broadcasters: agbábọ́ọ̀lù is a footballer, olùṣọ́ àgò the one who guards the goal, olùgbèjà the defender, olùkọlù the attacker, arọ́pò the substitute. Be aware that Nigerian match talk mixes these freely with the English names even in an otherwise Yoruba sentence, so a real transcript would show both.
+locale: yo
+---
+Olùṣọ́ àgò
+Olùgbèjà
+Olùgbèjà àárín
+Olùgbèjà ẹ̀gbẹ́
+Agbábọ́ọ̀lù àárín gbùngbùn
+Olùkọlù
+Agbábọ́ọ̀lù iwájú
+Olórí ẹgbẹ́
+Arọ́pò
+Olùkọ́ni

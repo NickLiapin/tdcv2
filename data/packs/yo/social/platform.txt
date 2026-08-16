@@ -1,0 +1,18 @@
+---
+description: Social media platform. Brands, unchanged. WhatsApp is the one a Nigerian dataset should weight heaviest — it carries family, trade, church and mosque groups alike.
+locale: yo
+---
+WhatsApp
+Facebook
+Instagram
+X
+Twitter
+TikTok
+YouTube
+LinkedIn
+Telegram
+Snapchat
+Threads
+Nairaland
+Pinterest
+Reddit

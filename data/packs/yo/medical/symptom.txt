@@ -1,0 +1,41 @@
+---
+description: Symptom or complaint, as a patient reports it. Yoruba describes a symptom with the body part plus what it is doing, and the verb is often reduplicated: orí fífọ́ "head splitting", inú rírun "belly hurting", ara gbígbóná "body hot". A Yoruba patient names the PART first, which is the opposite order from English.
+locale: yo
+---
+Orí fífọ́
+Ẹ̀fọ́rí
+Ara gbígbóná
+Ara rírọ̀
+Ara líle
+Inú rírun
+Ikùn dídùn
+Ìgbẹ́ gbuuru
+Èébì
+Ríru
+Àìjẹun
+Ọ̀fun dídùn
+Ikọ́
+Ikọ́ ẹ̀jẹ̀
+Ìnira mímí
+Àyà fífọ́
+Ọkàn kíkanjú
+Ẹ̀yìn dídùn
+Ẹsẹ̀ wíwú
+Ọwọ́ rírọ
+Oríkèé dídùn
+Egungun dídùn
+Ojú rírí
+Ojú pípọ́n
+Etí dídún
+Imú dídí
+Ìtọ̀ dídùn
+Awọ ara níyún
+Ojú ara yíyọ
+Àìsùn
+Àárẹ̀
+Ìdààmú ọkàn
+Ìwárìrì
+Òtútù ara
+Òógùn ọ̀gànjọ́
+Ìwúwo dídínkù
+Òjòjò

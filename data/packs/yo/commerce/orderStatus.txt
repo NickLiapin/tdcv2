@@ -1,0 +1,17 @@
+---
+description: Order status.
+locale: yo
+---
+Ó ń dúró
+A ń ṣe é
+A ti fọwọ́ sí i
+A ti san owó rẹ̀
+A ti fi ránṣẹ́
+Ó wà lọ́nà
+Ó ti dé
+A ti gbà á
+A ti fagi lé e
+A ti dá a padà
+A ti san owó padà
+Ó ti pé
+Ó ti kùnà

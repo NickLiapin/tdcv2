@@ -1,0 +1,45 @@
+---
+description: Country as Yoruba names it, weighted by population in millions. Yoruba does not respell a country name, it REBUILDS it in Yoruba phonology, which forbids consonant clusters and closed syllables: Faransé, Jámánì, Ṣáínà, Íńdíà, Rọ́ṣíà, Bàràsílì, Íjíbítì, Jàpánù, Sípéènì, Pọ̀tugí, Kamerúnù, Tọ́kì. Britain is ILẸ̀ GẸ̀Ẹ́SÌ, "the land of the English", and Gẹ̀ẹ́sì is also the word for the language. Yoruba does the same to places at home: Lagos is ÈKÓ, and "Lagos" is the Portuguese name for it. The countries carried at their real weight rather than trimmed are the ones this language names most: Nàìjíríà, and Bẹ̀nẹ̀ and Tógò, where the same Yoruba people live across two borders drawn by France and Britain. Kúbà and Bàràsílì are on the list for a reason a population table would not show — they are where Yoruba religion, language and drumming were carried by the slave trade and survive as Lucumí and Candomblé, and Yoruba is still sung in both. Countries with no settled Yoruba spelling keep the international one, which is what Yoruba writing itself does.
+locale: yo
+weighted: true
+---
+Íńdíà,1430
+Ṣáínà,1410
+Amẹ́ríkà,335
+Indonesia,277
+Pakistan,240
+Nàìjíríà,223
+Bàràsílì,216
+Bangladesh,173
+Rọ́ṣíà,144
+Etiópíà,126
+Jàpánù,124
+Fílípìnì,117
+Íjíbítì,112
+Kóńgò,102
+Vietnam,98
+Ìràànì,89
+Tọ́kì,85
+Jámánì,84
+Thailand,72
+Ilẹ̀ Gẹ̀ẹ́sì,68
+Faransé,68
+Gúúsù Áfríkà,63
+Ítálì,59
+Kẹ́ńyà,55
+Kòríà Gúúsù,52
+Sípéènì,48
+Kánádà,40
+Gánà,34
+Sáúdì Arébíà,33
+Kamerúnù,28
+Ọsirélíà,27
+Mali,23
+Senegal,18
+Bẹ̀nẹ̀,14
+Kúbà,11
+Pọ̀tugí,10
+Tógò,9
+Sierra Leone,8
+Ireland,5
+Liberia,5

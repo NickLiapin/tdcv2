@@ -1,0 +1,36 @@
+---
+description: Colour name. THE IMPORTANT FACT ABOUT THIS FILE IS ITS SHAPE. Yoruba is a three-term colour language: FUNFUN, DÚDÚ and PUPA are the only basic colour words, and they do not mean white, black and red — funfun is the whole light-and-cool band, dúdú the dark band (it covers black, dark blue, dark green and deep brown alike), pupa the warm band from yellow through orange to red and into light brown. Everything else in this list is a COMPARISON, built as àwọ̀ ("colour of") plus a thing: àwọ̀ ewé is leaf-colour for green, àwọ̀ ojú ọ̀run sky-colour for blue, àwọ̀ eérú ash-colour for grey, àwọ̀ ilẹ̀ earth-colour for brown. A config that maps a Yoruba colour one-to-one onto a hex value is asserting a precision the language does not make. The dye words are separate and older than any of this: aró is indigo, osùn camwood red, ẹlú the indigo plant, làálì henna. The last block is the English loans, which younger urban speakers use freely alongside the native terms.
+locale: yo
+---
+Funfun
+Dúdú
+Pupa
+Àwọ̀ ewé
+Àwọ̀ ojú ọ̀run
+Àwọ̀ eérú
+Àwọ̀ ilẹ̀
+Àwọ̀ ẹ̀jẹ̀
+Àwọ̀ epo
+Àwọ̀ wúrà
+Àwọ̀ fàdákà
+Àwọ̀ iyùn
+Àwọ̀ ẹyin
+Àwọ̀ iyanrìn
+Àwọ̀ òru
+Àwọ̀ osàn
+Àwọ̀ igi
+Àwọ̀ omi
+Aró
+Osùn
+Ẹlú
+Làálì
+Pupa fúyẹ́
+Dúdú dúdú
+Funfun tuntun
+Búlúù
+Gíríìnì
+Yẹ́lò
+Ọ́rẹ́ǹjì
+Pínkì
+Búráùnù
+Gírè

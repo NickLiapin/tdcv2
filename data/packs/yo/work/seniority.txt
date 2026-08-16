@@ -1,0 +1,18 @@
+---
+description: Seniority level. Two of these are not corporate grades at all but the Yoruba apprenticeship ladder: ỌMỌ Ẹ̀YÌN is "one who follows behind", the apprentice, and ÌTÚSÍLẸ̀ is the ceremony that ends it. Ọ̀gá is the master of a workshop as readily as the manager of an office, and Ọ̀gá àgbà — "senior master" — outranks it. In an office, seniority tracks AGE as much as grade, and the honorifics in person/prefix.txt (Ẹ̀gbọ́n, Àbúrò) come with it.
+locale: yo
+---
+Akẹ́kọ̀ọ́
+Ọmọ ẹ̀yìn
+Ẹni tí a ti tú sílẹ̀
+Òṣìṣẹ́ tuntun
+Òṣìṣẹ́
+Òṣìṣẹ́ àgbà
+Alábòójútó
+Olórí ẹgbẹ́
+Ọ̀gá
+Ọ̀gá àgbà
+Igbákejì olùdarí
+Olùdarí
+Olùdarí àgbà
+Alága

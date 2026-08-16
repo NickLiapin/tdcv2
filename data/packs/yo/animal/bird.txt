@@ -1,0 +1,26 @@
+---
+description: Bird. Ọ̀kín, the egret, is the bird whose white feather crowns an ọba and stands in Yoruba speech for anything of the first rank. Àkàlà and ìgún, the vultures, carry sacrifices to heaven and are not killed. Ẹyẹlé, the pigeon, is the commonest sacrificial bird. Àgbe and Àlùkò are a fixed pair in Yoruba proverbs — the blue touraco and the red one, cited whenever a speaker wants to say that a thing simply is the colour it is.
+locale: yo
+---
+Ẹyẹ
+Ẹyẹlé
+Àkùkọ
+Adìẹ
+Pẹ́pẹ́yẹ
+Etù
+Àparò
+Ọ̀kín
+Àkàlà
+Ìgún
+Àwòdì
+Àṣá
+Idì
+Ògòngò
+Òwìwí
+Ẹ̀gà
+Àgbe
+Àlùkò
+Kànnàkànnà
+Ológoṣẹ́
+Ẹyẹ oko
+Ẹyẹ odò

@@ -1,0 +1,11 @@
+---
+description: Dishes of Íńdíà cuisine
+locale: yo
+---
+Biryani
+Butter Chicken
+Samosa
+Tikka Masala
+Naan
+Dal
+Chapati

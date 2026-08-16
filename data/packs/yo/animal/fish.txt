@@ -1,0 +1,22 @@
+---
+description: Fish. Yoruba names a fish by where it comes from and how it is preserved at least as often as by species — ẹja òkun sea fish, ẹja odò river fish, ẹja tútù fresh, ẹja gbígbẹ dried, ẹja yíyan smoked — and those are real everyday categories in a market, not vague ones. The species names that everyone knows are the market names: aro the catfish, epiya the tilapia, panla dried cod or stockfish, ṣàwà the herring, títọ́sì and kòtè the two mackerels sold frozen in every Nigerian market. Ẹdé (shrimp) and akàn (crab) are in this file because a Yoruba market counts them with the fish.
+locale: yo
+---
+Ẹja
+Ẹja aro
+Ẹja epiya
+Panla
+Ṣàwà
+Títọ́sì
+Kòtè
+Òbòkun
+Ẹja òkun
+Ẹja odò
+Ẹja tútù
+Ẹja gbígbẹ
+Ẹja yíyan
+Ẹja dídín
+Ẹdé
+Akàn
+Ìsàwú
+Ẹja kékeré

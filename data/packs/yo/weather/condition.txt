@@ -1,0 +1,21 @@
+---
+description: Weather condition. Ojú ọjọ́ is "the face of the day" — the Yoruba word for weather. The list is shaped by a tropical year with two seasons: ÒJÒ and its degrees dominate half of it, and Ọ̀YẸ́, the harmattan, dominates the other half — a dry dust-carrying wind off the Sahara that drops the temperature, greys the sky and cracks skin, and which no European weather vocabulary has a word for.
+locale: yo
+---
+Òòrùn
+Òòrùn gbígbóná
+Ojú ọjọ́ dáradára
+Ìkùukùu
+Ojú ọ̀run ṣú
+Òjò
+Òjò rírọ̀
+Òjò líle
+Àrá
+Mànàmáná
+Afẹ́fẹ́
+Ẹ̀fúùfù
+Ọ̀yẹ́
+Òtútù
+Ooru
+Ìrì
+Ìlẹ̀ tútù

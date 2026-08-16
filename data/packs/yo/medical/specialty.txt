@@ -1,0 +1,33 @@
+---
+description: Medical specialty. The last entry is not decoration: Ẹ̀KA ÌṢÈGÙN ÌBÍLẸ̀, traditional medicine, is a licensed and regulated practice in Nigeria with its own state boards, and the onísègùn and the hospital are used in parallel by the same patients rather than as alternatives — a Yoruba health dataset that models only the hospital is modelling half the system.
+locale: yo
+---
+Ẹ̀ka ìtọ́jú gbogbogbò
+Ẹ̀ka àrùn ọkàn
+Ẹ̀ka iṣan ara
+Ẹ̀ka jẹjẹrẹ
+Ẹ̀ka awọ ara
+Ẹ̀ka ìkùn àti ìfun
+Ẹ̀ka kíndìnrín
+Ẹ̀ka ẹ̀dọ̀fóró
+Ẹ̀ka egungun
+Ẹ̀ka àrùn ọpọlọ
+Ẹ̀ka àrùn àkóràn
+Ẹ̀ka homonu
+Ẹ̀ka ọmọdé
+Ẹ̀ka obìnrin
+Ẹ̀ka ìbímọ
+Ẹ̀ka ojú
+Ẹ̀ka etí, imú àti ọ̀fun
+Ẹ̀ka eyín
+Ẹ̀ka iṣẹ́ abẹ
+Ẹ̀ka iṣẹ́ abẹ ọkàn
+Ẹ̀ka pàjáwìrì
+Ẹ̀ka ìtọ́jú tó jinlẹ̀
+Ẹ̀ka àwòrán ara
+Ẹ̀ka ìdánwò ẹ̀jẹ̀
+Ẹ̀ka oògùn
+Ẹ̀ka ìtọ́jú ara
+Ẹ̀ka oúnjẹ àti ìlera
+Ẹ̀ka ìlera gbogbogbò
+Ẹ̀ka ìṣègùn ìbílẹ̀

@@ -1,0 +1,20 @@
+---
+description: Insect and other small crawling creature — Yoruba groups them all as KÒKÒRÒ, which covers insects, spiders, worms and germs alike, so "kòkòrò àrùn" is a disease germ. Ikán the termite eats a house from the inside and is a stock Yoruba image for hidden ruin; oyin the honeybee gives the word for honey and for sweetness; àáyán the cockroach and ẹ̀fọn the mosquito need no introduction in a wet-season Lagos kitchen.
+locale: yo
+---
+Kòkòrò
+Èèrà
+Ìjàlọ
+Ikán
+Oyin
+Agbọ́n
+Labalábá
+Eṣinṣin
+Ẹ̀fọn
+Àáyán
+Aláǹtakùn
+Àkéekèe
+Ìdin
+Ìrẹ̀
+Ẹlẹ́ẹ̀rùn
+Kòkòrò àrùn

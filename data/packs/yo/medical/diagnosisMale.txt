@@ -1,0 +1,20 @@
+---
+description: Medical diagnosis that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows. Ẹ̀pọ̀n is the testicle and the prostate has no Yoruba name, so it is borrowed. A note on method that applies to every medical file in this pack: NIGERIAN CLINICAL RECORDS ARE WRITTEN IN ENGLISH, because English is the language of Nigerian medical training and of the hospital card. Yoruba does have established names for the conditions people talk about — ibà (malaria), àtọ̀gbẹ (diabetes), ẹ̀jẹ̀ ríru (hypertension), jẹjẹrẹ (cancer), wárápá (epilepsy), jẹ̀dọ̀jẹ̀dọ̀ (hepatitis), àtọ̀sí (gonorrhoea), ẹ̀tẹ̀ (leprosy), ikọ́ fée (tuberculosis), ọgbẹ́ inú (peptic ulcer), àìtó ẹ̀jẹ̀ (anaemia) — and those are used here. Where the language has no settled term, the entry is either a transparent Yoruba description built from ordinary words (àrùn kíndìnrín, "kidney disease") or the clinical English, which is what a Yoruba speaker actually reads on their own file. Nothing has been coined to make the list look more Yoruba than the language is.
+locale: yo
+---
+Àrùn pirọ́sítéètì
+Ìwúwo pirọ́sítéètì
+Jẹjẹrẹ pirọ́sítéètì
+Ìgbóná pirọ́sítéètì
+Jẹjẹrẹ ẹ̀pọ̀n
+Àrùn ẹ̀pọ̀n
+Ìyípo ẹ̀pọ̀n
+Ìwúwo ẹ̀pọ̀n
+Àìlèbímọ ọkùnrin
+Àìtó àtọ̀
+Àìdúró ọkùnrin
+Àrùn ojú ọ̀nà ìtọ̀ ọkùnrin
+Ìdíwọ́ ìtọ̀
+Ìtọ̀ dídí
+Àrùn awọ orí ọkùnrin
+Ìdàgbà ọmú ọkùnrin

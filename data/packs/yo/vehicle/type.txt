@@ -1,0 +1,26 @@
+---
+description: Vehicle body type. FOUR of these have no European equivalent and they carry most people in Yorubaland. DÀNFÓ is the yellow minibus of Lagos, MỌ́LÚẸ̀ the big square long-distance bus, Ọ̀KADÀ the motorcycle taxi, and KẸ̀KẸ́ MÁRÙN-ÚN the three-wheeler (also called kẹ̀kẹ́ NAPEP after the government scheme that introduced it). None of them is a car type: each is a whole mode of public transport with its own routes, fares and rules, and a Nigerian mobility dataset that only has "car / bus / motorcycle" has lost the distinctions that matter.
+locale: yo
+---
+Ọkọ̀ ayọ́kẹ́lẹ́
+Jípù
+Ọkọ̀ akérò
+Dànfó
+Mọ́lúẹ̀
+Ọ̀kadà
+Kẹ̀kẹ́ márùn-ún
+Alùpùpù
+Kẹ̀kẹ́
+Ọkọ̀ ẹrù
+Ọkọ̀ tírélà
+Ọkọ̀ epo
+Ọkọ̀ ìdọ̀tí
+Ọkọ̀ ìjàǹbá
+Ọkọ̀ ọlọ́pàá
+Ọkọ̀ ìtura
+Ọkọ̀ ojú omi
+Ọkọ̀ ojú irin
+Ọkọ̀ òfuurufú
+Ọkọ̀ oko
+Ọkọ̀ ìkọ́lé
+Ọkọ̀ ìtajà

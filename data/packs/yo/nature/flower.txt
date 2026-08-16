@@ -1,0 +1,19 @@
+---
+description: Flower. This list is SHORT ON PURPOSE and the reason is worth stating: Yoruba has no elaborated ornamental-flower vocabulary, because the plant lexicon is organised around use — leaf, bark, root, medicine, ritual — not around the bloom. Òdodó is simply "flower". Ìṣàpá is the roselle whose calyx makes zobo; àkókó, peregún, òdúndún, tẹ̀tẹ̀ and rinrin are the ritual and medicinal plants a Yoruba speaker can actually name and would name here. The garden ornamentals at the end are given descriptively (òdodó oòrùn, "sun flower") or by their English name, and no Yoruba name has been invented for a rose.
+locale: yo
+---
+Òdodó
+Ìṣàpá
+Àkókó
+Peregún
+Òdúndún
+Tẹ̀tẹ̀
+Rinrin
+Ewé ìṣin
+Òdodó oòrùn
+Òdodó pupa
+Òdodó funfun
+Rose
+Hibiscus
+Bougainvillea
+Frangipani

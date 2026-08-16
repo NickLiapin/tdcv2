@@ -1,0 +1,11 @@
+---
+description: Monthly household income bracket, labelled in Yoruba. Amounts are in Náírà (₦), the Nigerian currency, and the bands are set at Nigerian levels — the national minimum wage is a monthly figure in the tens of thousands of naira, so a European band structure converted at the exchange rate would put every household in the bottom bucket. Yoruba names the currency Náírà and its hundredth Kọ́bọ̀.
+locale: yo
+---
+Kò tó ₦50,000
+₦50,000 sí ₦100,000
+₦100,000 sí ₦200,000
+₦200,000 sí ₦400,000
+₦400,000 sí ₦800,000
+₦800,000 sí ₦1,500,000
+Ju ₦1,500,000 lọ

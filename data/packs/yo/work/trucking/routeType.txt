@@ -1,0 +1,11 @@
+---
+description: Trucking route type.
+locale: yo
+---
+Ìrìn jíjìn
+Ìrìn àárín ìpínlẹ̀
+Ìrìn agbègbè
+Ìrìn ìlú
+Ìrìn èbúté
+Ìrìn àṣàyàn
+Ìrìn àárín ilẹ̀

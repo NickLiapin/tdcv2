@@ -1,0 +1,10 @@
+---
+description: Dishes of Faransé cuisine
+locale: yo
+---
+Croissant
+Quiche
+Ratatouille
+Baguette
+Crêpe
+Coq au Vin

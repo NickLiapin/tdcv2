@@ -1,0 +1,20 @@
+---
+description: Dishes of Yoruba cuisine. The staples come in pairs and the pairing is not decorative: a SWALLOW (iyán pounded yam, àmàlà from yam flour, ẹ̀bà from garri) is never eaten alone but always with a soup, and which soup goes with which swallow is a real convention — àmàlà with ewédú and gbẹ̀gìrì, iyán with ẹ̀gúsí. A config that draws a swallow and a soup independently will produce combinations no Yoruba kitchen serves.
+locale: yo
+---
+Iyán àti ẹ̀gúsí
+Àmàlà àti ewédú
+Ẹ̀bà àti ọbẹ̀ ata
+Ẹ̀fọ́ rírò
+Gbẹ̀gìrì
+Mọ́ínmọ́ín
+Àkàrà
+Ẹ̀wà agoyin
+Àsáró
+Ìkọ̀kọ̀re
+Ọ̀lẹ̀lẹ̀
+Ekuru
+Ògì àti àkàrà
+Dòdò
+Bọ̀lì
+Ìṣu sísun

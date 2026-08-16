@@ -1,0 +1,16 @@
+---
+description: Insurance type. Third-party motor insurance is the one Nigerian law requires; the rest are bought by a small minority, because the traditional risk-pool here is the extended family and the ẹgbẹ́ (age-grade or trade association), which is why ÌRÀNLỌ́WỌ́ ÌSÌNKÚ — funeral cover, often through a society rather than a company — is on the list.
+locale: yo
+---
+Ìdánilójú ìlera
+Ìdánilójú ọkọ̀
+Ìdánilójú ọkọ̀ ẹnìkẹta
+Ìdánilójú ilé
+Ìdánilójú ẹ̀mí
+Ìdánilójú ìsìnkú
+Ìdánilójú ìrìn àjò
+Ìdánilójú ọjà
+Ìdánilójú oko
+Ìdánilójú iná
+Ìdánilójú òṣìṣẹ́
+Ìdánilójú ìfẹ̀yìntì

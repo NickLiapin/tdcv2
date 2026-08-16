@@ -1,0 +1,15 @@
+---
+description: Clothing size. The international letters are used in Nigeria for ready-made clothes and are printed on them. But the Yoruba garments in clothing/type.txt are NOT sized this way at all: agbádá, bùbá, ìró and gèlè are cut to measure by a tailor from cloth the customer buys, so the meaningful "size" for those is the number of yards of aṣọ òkè, and the last three entries give it.
+locale: yo
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+Ìwọ̀n ẹni
+Yáàdì márùn-ún
+Yáàdì mẹ́wàá
+Yáàdì mẹ́ẹ̀ẹ́dógún

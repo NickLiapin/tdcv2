@@ -1,0 +1,9 @@
+---
+description: Hotel star rating. Yoruba counts with the numeral AFTER the noun — ìràwọ̀ méjì is "star two" — and the numerals themselves are vigesimal further up the scale.
+locale: yo
+---
+Ìràwọ̀ kan
+Ìràwọ̀ méjì
+Ìràwọ̀ mẹ́ta
+Ìràwọ̀ mẹ́rin
+Ìràwọ̀ márùn-ún

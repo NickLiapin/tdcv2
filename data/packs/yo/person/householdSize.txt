@@ -1,0 +1,13 @@
+---
+description: Household size. The upper bands are the common case, not the tail: the Yoruba residential unit is the AGBO ILÉ, a walled compound holding a whole ìdílé — several married brothers, their wives and children, and the elders — so counting a "household" as a nuclear family under-counts by a lot. Yoruba numerals are VIGESIMAL and subtractive, which is why the words stop being short so quickly: márùn-ún is five but ogójì is 40 (twenty times two) and àádọ́ta is 50 (sixty less ten).
+locale: yo
+---
+Ẹni kan
+Ènìyàn méjì
+Ènìyàn mẹ́ta
+Ènìyàn mẹ́rin
+Ènìyàn márùn-ún
+Ènìyàn mẹ́fà
+Ènìyàn méje
+Ènìyàn mẹ́jọ
+Ènìyàn mẹ́wàá tàbí jù bẹ́ẹ̀ lọ

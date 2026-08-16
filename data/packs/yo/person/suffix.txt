@@ -1,0 +1,20 @@
+---
+description: Name suffix. Yoruba has NO generational suffix of its own — there is no native Jr., Sr. or III, because a Yoruba child is not given the father's full name to repeat. The four English abbreviations here are what actually gets typed on a Nigerian form, since Nigerian paperwork is in English; Kékeré ("small") and Àgbà ("elder") are the Yoruba way of separating a father and son who share a name in speech. The academic post-nominals are on the list for the same reason as the English abbreviations: degrees in Nigeria are awarded and written in English.
+locale: yo
+---
+Jnr
+Snr
+II
+III
+Kékeré
+Àgbà
+B.A.
+B.Sc.
+B.Ed.
+LL.B
+M.A.
+M.Sc.
+MBA
+Ph.D.
+MBBS
+FCA

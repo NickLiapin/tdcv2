@@ -1,0 +1,17 @@
+---
+description: Directional qualifier used with a Yoruba street, quarter or estate name (Àdúgbò Àríwá, Ọ̀gbà Gúúsù). Note what east and west literally are: ÌLÀ OÒRÙN is "the splitting of the sun" and ÌWỌ̀ OÒRÙN "the setting of the sun" — Yoruba fixes them by the sun, not by an abstract axis, and both are two words, so a config that pads or truncates compass points will cut them in half. Òkè and Ìsàlẹ̀ — up-slope and down-slope — are used as directions far more often than the compass in a town.
+locale: yo
+---
+Àríwá
+Gúúsù
+Ìlà Oòrùn
+Ìwọ̀ Oòrùn
+Àríwá Ìlà Oòrùn
+Àríwá Ìwọ̀ Oòrùn
+Gúúsù Ìlà Oòrùn
+Gúúsù Ìwọ̀ Oòrùn
+Àárín
+Òkè
+Ìsàlẹ̀
+Iwájú
+Ẹ̀yìn

@@ -1,0 +1,21 @@
+---
+description: Video game genre. Games reach Nigeria in English and Yoruba has not coined for them, so these are Yoruba descriptions of the genre rather than established terms.
+locale: yo
+---
+Eré ìwà ipá
+Eré ìrìn àjò
+Eré ìdárayá
+Eré bọ́ọ̀lù
+Eré ìsáré ọkọ̀
+Eré ọgbọ́n
+Eré ìjà
+Eré ìtàn
+Eré ìbẹ̀rù
+Eré ìkọ́lé
+Eré ètò
+Eré àkànṣe
+Eré orí ayélujára
+Eré ọmọdé
+Eré ìbéèrè
+Eré káàdì
+Eré ìṣàkóso

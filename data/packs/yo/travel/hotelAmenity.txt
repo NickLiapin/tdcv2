@@ -1,0 +1,24 @@
+---
+description: Hotel amenity. The first two are what a Nigerian traveller actually checks for and a European list never mentions: Ẹ̀RỌ AMÚNÁWÀ, a standby generator, because the public supply fails daily and a hotel without one has no lights; and KÀNGA, a borehole, because the municipal water supply is unreliable and a hotel drills its own.
+locale: yo
+---
+Ẹ̀rọ amúnáwà
+Kànga omi
+Wí-Fáì ọ̀fẹ́
+Ẹ̀rọ amúlétutù
+Omi gbígbóná
+Ilé oúnjẹ
+Ọtí ilé
+Adágún ìwẹ̀
+Ilé eré ìdárayá
+Ààbò ọjọ́ àti òru
+Ibùdó ọkọ̀
+Ilé ìpàdé
+Ìfọṣọ
+Ìwẹ̀ ara
+Ẹ̀rọ amóhùnmáwòrán
+Oúnjẹ àárọ̀
+Ìfijíṣẹ́ sí yàrá
+Ọgbà ìtura
+Ọ̀gbà ọmọdé
+Ilé ìjọsìn

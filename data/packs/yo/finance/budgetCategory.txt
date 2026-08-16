@@ -1,0 +1,28 @@
+---
+description: Budget or spending category. The list includes the ones a Nigerian household actually budgets for and a European one does not: PẸ́TÍRÒ FÚN Ẹ̀RỌ AMÚNÁWÁ — fuel for the generator — because the public supply fails daily and a household or shop runs its own; owó ilé ẹ̀kọ́, school fees, which are paid per term even for public schools; and ÌRÀNLỌ́WỌ́ ẸBÍ, remittances to relatives, which is a fixed and non-negotiable line in most budgets, not charity.
+locale: yo
+---
+Owó ilé
+Owó oúnjẹ
+Owó ọjà
+Omi
+Iná mànàmáná
+Pẹ́tírò fún ẹ̀rọ amúnáwà
+Owó ìrìnnà
+Owó ilé ẹ̀kọ́
+Owó ìlera
+Oògùn
+Aṣọ
+Ìbánisọ̀rọ̀
+Dátà fóònù
+Ìrànlọ́wọ́ ẹbí
+Owó ẹ̀sìn
+Owó ìsìnkú
+Owó ìgbéyàwó
+Ìfowópamọ́
+Èsúsú
+Ìdókòwò
+Owó orí
+Ìtọ́jú ilé
+Eré ìdárayá
+Ìrìn àjò

@@ -1,0 +1,19 @@
+---
+description: Kind of court. This is a THREE-SYSTEM legal order and the list has to show all three. The state courts (Ilé ẹjọ́ Májísírétì up to Ilé ẹjọ́ Gíga Jùlọ) apply English-derived common law. ILÉ ẸJỌ́ ÀṢÀ, the customary court, applies YORUBA CUSTOMARY LAW and is where marriage, inheritance, land and chieftaincy disputes are actually decided for most people — it is a real court with appeal to a Customary Court of Appeal, not a village committee. And the ỌBA'S COURT in the ààfin, the ọba sitting with his ìgbìmọ̀ ìjòyè, still settles disputes by mediation before anything reaches a state court at all. The Sharia courts are on the list because they exist in Nigeria, though in the north rather than in Yorubaland.
+locale: yo
+---
+Ilé ẹjọ́
+Ilé ẹjọ́ Àṣà
+Ilé ẹjọ́ Àpéjọ Àṣà
+Ilé ẹjọ́ Ọba
+Ààfin
+Ilé ẹjọ́ Májísírétì
+Ilé ẹjọ́ Gíga
+Ilé ẹjọ́ Àpéjọ
+Ilé ẹjọ́ Gíga Jùlọ
+Ilé ẹjọ́ Ìjọba Àpapọ̀
+Ilé ẹjọ́ Ọ̀daràn
+Ilé ẹjọ́ Ìdílé
+Ilé ẹjọ́ Ọmọdé
+Ilé ẹjọ́ Iṣẹ́
+Ilé ẹjọ́ Ṣáríà

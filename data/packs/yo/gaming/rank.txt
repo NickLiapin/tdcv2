@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier. Yoruba names the metals it knows — irin, idẹ, fàdákà, wúrà — and the ranking is a straight mapping onto them.
+locale: yo
+---
+Irin
+Idẹ
+Fàdákà
+Wúrà
+Plátínọ̀mù
+Dáyámọ́ǹdì
+Ọ̀gá
+Ọ̀gá àgbà
+Aṣáájú
+Alápẹ̀ẹ́rẹ̀

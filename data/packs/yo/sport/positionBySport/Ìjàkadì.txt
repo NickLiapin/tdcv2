@@ -1,0 +1,11 @@
+---
+description: Roles in Yoruba wrestling. Ìjàkadì is contested at festivals and the ONÍLÙ, the drummer, is a formal participant, not an accompaniment: the drum announces the wrestlers by their oríkì and drives the bout. There are no fixed field positions, so this file lists roles.
+locale: yo
+---
+Oníjàkadì
+Oníjàkadì àgbà
+Aṣáájú ìdíje
+Alátakò
+Onídàájọ́
+Onílù ìjàkadì
+Olùkọ́ni

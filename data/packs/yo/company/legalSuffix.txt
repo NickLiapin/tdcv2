@@ -1,0 +1,25 @@
+---
+description: Company legal suffix. THESE ARE ENGLISH BY LAW: Nigerian companies are registered under the Companies and Allied Matters Act with the Corporate Affairs Commission, and the statutory endings — Limited, PLC, Ltd/Gte, Enterprises, Ventures, Business Name — are English forms that a Yoruba-language business name still has to carry. That is why a shop sign in Ìbàdàn reads "Ọlámidé Ventures" and not a Yoruba equivalent: the name is Yoruba, the suffix is statutory. The two Yoruba forms at the end (Ilé Iṣẹ́, Ẹgbẹ́) are what people SAY, not what is registered.
+locale: yo
+---
+Limited
+Ltd
+Nig. Ltd
+PLC
+Ltd/Gte
+Enterprises
+Ent.
+Ventures
+Global Ventures
+Global Resources
+Investment Ltd
+Nigeria Limited
+& Sons
+& Brothers
+& Co
+Company
+Business Name
+Incorporated Trustees
+Cooperative Society
+Ilé Iṣẹ́
+Ẹgbẹ́

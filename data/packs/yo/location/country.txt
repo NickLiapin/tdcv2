@@ -1,0 +1,164 @@
+---
+description: Country and territory names as Yoruba writes them. The first block is the countries Yoruba has genuinely NATIVISED — rebuilt to fit a phonology with no consonant clusters and no closed syllables, so France is Faransé, Germany Jámánì, China Ṣáínà, Japan Jàpánù, Britain Ilẹ̀ Gẹ̀ẹ́sì ("the land of the English"). The second block keeps the international spelling, because Yoruba has no settled form for those and Yoruba writing prints them unchanged; that is an honest report of the language, not a gap that should be filled by transliterating 120 names into a shape no Yoruba reader has seen. This list is shorter than the English one for the same reason.
+locale: yo
+---
+Afghanistan
+Albania
+Algeria
+Amẹ́ríkà
+Angola
+Argentina
+Armenia
+Austria
+Azerbaijan
+Bahrain
+Bangladesh
+Bàràsílì
+Belarus
+Belgium
+Bẹ̀nẹ̀
+Bolivia
+Bosnia
+Botswana
+Bulgaria
+Burkina Faso
+Burundi
+Cambodia
+Chad
+Chile
+Colombia
+Costa Rica
+Croatia
+Cyprus
+Czechia
+Denmark
+Dominican Republic
+Ecuador
+El Salvador
+Equatorial Guinea
+Eritrea
+Estonia
+Eswatini
+Etiópíà
+Faransé
+Fílípìnì
+Finland
+Gabon
+Gambia
+Gánà
+Georgia
+Greece
+Guatemala
+Guinea
+Guinea-Bissau
+Gúúsù Áfríkà
+Guyana
+Haiti
+Honduras
+Hungary
+Iceland
+Íjíbítì
+Ilẹ̀ Gẹ̀ẹ́sì
+Íńdíà
+Indonesia
+Ìràànì
+Iraq
+Ireland
+Israel
+Ítálì
+Ivory Coast
+Jamaica
+Jámánì
+Jàpánù
+Jordan
+Kamerúnù
+Kánádà
+Kazakhstan
+Kẹ́ńyà
+Kóńgò
+Kòríà Àríwá
+Kòríà Gúúsù
+Kúbà
+Kuwait
+Kyrgyzstan
+Laos
+Latvia
+Lebanon
+Lesotho
+Liberia
+Libya
+Lithuania
+Luxembourg
+Madagascar
+Malawi
+Malaysia
+Maldives
+Mali
+Malta
+Mauritania
+Mauritius
+Mẹ́síkò
+Moldova
+Mongolia
+Montenegro
+Morocco
+Mozambique
+Myanmar
+Nàìjíríà
+Namibia
+Nepal
+Netherlands
+New Zealand
+Nicaragua
+Niger
+North Macedonia
+Norway
+Oman
+Ọsirélíà
+Pakistan
+Panama
+Papua New Guinea
+Paraguay
+Peru
+Poland
+Pọ̀tugí
+Qatar
+Romania
+Rọ́ṣíà
+Rwanda
+Ṣáínà
+Sáúdì Arébíà
+Senegal
+Serbia
+Sierra Leone
+Singapore
+Sípéènì
+Slovakia
+Slovenia
+Somalia
+South Sudan
+Sri Lanka
+Sudan
+Suriname
+Sweden
+Switzerland
+Syria
+Taiwan
+Tajikistan
+Tanzania
+Thailand
+Tógò
+Tọ́kì
+Trinidad and Tobago
+Tunisia
+Turkmenistan
+Uganda
+Ukraine
+United Arab Emirates
+Uruguay
+Uzbekistan
+Venezuela
+Vietnam
+Yemen
+Zambia
+Zimbabwe

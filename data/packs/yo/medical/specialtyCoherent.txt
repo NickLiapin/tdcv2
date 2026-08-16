@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list. Ẹ̀ka is "branch". Ẹ̀ka àrùn àkóràn — infectious diseases — is on this list rather than endocrinology because it is the busiest department in a Nigerian hospital: malaria, typhoid, tuberculosis, HIV and cholera between them account for an enormous share of admissions.
+locale: yo
+---
+Ẹ̀ka àrùn ọkàn
+Ẹ̀ka iṣan ara
+Ẹ̀ka jẹjẹrẹ
+Ẹ̀ka awọ ara
+Ẹ̀ka ìkùn àti ìfun
+Ẹ̀ka kíndìnrín
+Ẹ̀ka ẹ̀dọ̀fóró
+Ẹ̀ka egungun
+Ẹ̀ka àrùn ọpọlọ
+Ẹ̀ka àrùn àkóràn

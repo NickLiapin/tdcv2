@@ -1,0 +1,13 @@
+---
+description: Payment status.
+locale: yo
+---
+Ó ń dúró
+A ti fọwọ́ sí i
+A ti san án
+A san án ní apá kan
+Ó ti kùnà
+A ti san án padà
+A ti fagi lé e
+Ó ti pé àkókò
+A ń yẹ̀ ẹ́ wò

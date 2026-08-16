@@ -1,0 +1,24 @@
+---
+description: Academic qualification. Nigerian degrees are awarded and written in ENGLISH, so those entries keep their English abbreviations — that is what appears on the certificate. The Yoruba entries name the levels of schooling themselves, which is what people say: ilé ẹ̀kọ́ alákọ̀ọ́bẹ̀rẹ̀ is primary school, girama secondary, and the two Nigerian sub-degree awards, the OND and HND from a polytechnic, have no European equivalent and are a distinct track, not a lesser degree.
+locale: yo
+---
+Ìwé ẹ̀rí ilé ẹ̀kọ́ alákọ̀ọ́bẹ̀rẹ̀
+Ìwé ẹ̀rí girama
+WAEC
+NECO
+NABTEB
+OND
+HND
+NCE
+B.A.
+B.Sc.
+B.Ed.
+B.Tech
+LL.B
+MBBS
+M.A.
+M.Sc.
+MBA
+M.Ed.
+Ph.D.
+Ìwé ẹ̀rí ìkẹ́kọ̀ọ́ iṣẹ́ ọwọ́

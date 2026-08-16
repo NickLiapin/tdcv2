@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Ashkenazi Jewish ancestry. A prevalence signal, not an exclusive one. The condition names here are CLINICAL GENETICS terms, which are international and are written the same in a Yoruba record as in an English one; where Yoruba has its own established name for a condition (ẹ̀jẹ̀ ríru, àtọ̀gbẹ, jẹjẹrẹ, jẹ̀dọ̀jẹ̀dọ̀, àìlèfaradà wàrà) that name is used instead, and nothing has been coined to make the rest look Yoruba.
+locale: yo
+---
+Tay-Sachs Disease
+Gaucher Disease
+Familial Dysautonomia
+Canavan Disease
+BRCA1 Mutation
+Bloom Syndrome

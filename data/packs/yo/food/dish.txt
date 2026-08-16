@@ -1,0 +1,40 @@
+---
+description: Dish. Yoruba dishes first, then the pan-Nigerian ones. Note the shape of a Yoruba meal name: it is usually TWO dishes joined by àti ("and"), because the swallow and the soup are named together — Iyán àti ẹ̀gúsí, Àmàlà àti ewédú — and half a name is not a meal.
+locale: yo
+---
+Iyán àti ẹ̀gúsí
+Àmàlà àti ewédú
+Àmàlà àti gbẹ̀gìrì
+Ẹ̀bà àti ọbẹ̀ ata
+Fufu àti ọbẹ̀ ilá
+Ẹ̀fọ́ rírò àti ẹran
+Ọbẹ̀ ata dín dín
+Ọbẹ̀ ilá
+Ẹ̀gúsí
+Gbẹ̀gìrì
+Ewédú
+Mọ́ínmọ́ín
+Àkàrà
+Ekuru
+Ọ̀lẹ̀lẹ̀
+Ẹ̀wà agoyin
+Àsáró
+Ìkọ̀kọ̀re
+Ògì
+Ẹ̀kọ
+Dòdò
+Bọ̀lì
+Ìṣu sísun
+Ìṣu dídín
+Ìrẹsì jollof
+Ìrẹsì àti ẹ̀wà
+Ìrẹsì oníyangan
+Ṣuya
+Pọ̀nmọ́ dídín
+Pọ́f-pọ́f
+Chin chin
+Kúlí-kúlí
+Ògùrọ̀
+Ẹmu
+Zobo
+Kunu

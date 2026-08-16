@@ -1,0 +1,10 @@
+---
+description: Dishes of Lẹ́bánọ̀nì cuisine
+locale: yo
+---
+Shawarma
+Hummus
+Falafel
+Tabbouleh
+Kibbeh
+Fattoush

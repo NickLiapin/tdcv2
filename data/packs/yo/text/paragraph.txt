@@ -1,0 +1,24 @@
+---
+description: Filler paragraph in Yoruba, each of three to five sentences. Handwritten: Project Gutenberg holds no Yoruba book at all (a search for l.yo returns "No records found"), so unlike fr/de/it/es/pt/pl this is not extracted from a public-domain corpus. These were composed for this file and describe ordinary Yoruba life — market, farm, naming ceremony, harmattan, compound, drumming, the party — rather than being translated from English filler, so the vocabulary and the sentence shapes are the ones the language actually uses.
+locale: yo
+---
+Àárọ̀ kùtùkùtù ni àwọn àgbẹ̀ ń lọ sí oko. Wọ́n máa ń mú àdá àti agbọ̀n lọ́wọ́. Bí òjò bá rọ̀ ní ọjọ́ náà, wọ́n á padà sílé kíákíá. Iṣẹ́ oko kò rọrùn, ṣùgbọ́n ó ń bọ́ ìdílé.
+Ọjà ìlú wa máa ń kún ní gbogbo ọjọ́ márùn-ún. Àwọn olùtajà ń pe àwọn oníbàárà, wọ́n sì ń dúnàádúrà. Ẹja, ẹ̀fọ́, ata àti ìṣu ni ó pọ̀ jùlọ níbẹ̀. Ẹni tí kò bá mọ̀ ọ́n dúnàádúrà yóò ra ọjà ní ọ̀wọ́n.
+Ìsọmọlórúkọ ni a ṣe ní ọjọ́ kẹjọ lẹ́yìn ìbí ọmọ náà. Gbogbo ìdílé péjọ ní àgbàlá ilé baba. Àgbà kan pe orúkọ ọmọ náà, ó sì fi oyin, iyọ̀, obì àti omi kàn án lẹ́nu. Lẹ́yìn náà, oúnjẹ àti ìjó bẹ̀rẹ̀ títí di alẹ́.
+Ilé ẹ̀kọ́ wa ní àwọn olùkọ́ tí wọ́n mọ̀ ọ́n kọ́ni. A ń kọ́ èdè Yorùbá, èdè Gẹ̀ẹ́sì àti ìṣirò ní gbogbo ọjọ́. Àwọn akẹ́kọ̀ọ́ máa ń dúró fún ìdánwò ní òpin ìgbà ẹ̀kọ́. Ẹni tí ó bá kàwé dáadáa yóò rí àṣeyọrí.
+Ìlù dùndún ń sọ̀rọ̀ gan-an ní ọwọ́ onílù tí ó kọ́ ọ dáadáa. Ó máa ń pe oríkì ẹni tí ó ń jó. Àwọn tí ó gbọ́ ọ máa ń mọ ohun tí ó ń sọ. Ìdí nìyẹn tí a fi ń pè é ní ìlù tí ń sọ̀rọ̀.
+Ọwàmbẹ̀ kì í ṣe eré. Àwọn ìdílé máa ń yan aṣọ ẹbí ní oṣù ṣáájú ọjọ́ náà. Àwọn àlejò yóò rán aṣọ náà, wọ́n á sì wọ̀ ọ́ ní ọjọ́ ayẹyẹ. Bí àwòrán bá jáde, ẹnìkẹ́ni yóò mọ ẹni tí ó wá fún ìdílé wo.
+Ọ̀yẹ́ máa ń dé láàrin oṣù kejìlá àti oṣù kejì. Erùpẹ̀ máa ń bo ojú ọ̀run, ilẹ̀ á sì tutù ní àárọ̀. Ètè àti awọ ara máa ń gbẹ ní àkókò náà. Àwọn àgbà máa ń pa iná ní ilé kí ara wọn lè móoru.
+Ìdílé wa ń gbé ní agbo ilé kan ní ìsàlẹ̀ ìlú. Ìyá àgbà, àwọn ẹ̀gbọ́n baba mi àti àwọn ọmọ wọn wà níbẹ̀. Àgbàlá kan ni gbogbo wa ń lò. Bí ọ̀rọ̀ bá wáyé, àgbà ilé ni yóò dá a.
+Ọjọ́ Àìkú ni ọ̀pọ̀ ènìyàn ń lọ sí ilé ìjọsìn. Àwọn mìíràn máa ń lọ sí mọ́sálásí ní ọjọ́ Ẹtì. Nínú ìdílé kan náà, ẹnìkan lè jẹ́ Kírísítì, ẹlòmíràn lè jẹ́ Ìmàle. Wọ́n sì ń jọ ṣe ayẹyẹ pọ̀ láìsí ìjà.
+Àwọn ọ̀dọ́ máa ń gbá bọ́ọ̀lù afẹsẹ̀gbá ní pápá ìlú ní ìrọ̀lẹ́. Àwọn àgbà máa ń jókòó lẹ́gbẹ̀ẹ́ ọ̀nà láti wò wọ́n. Bí ẹgbẹ́ kan bá gba àgò, ariwo á ta. Eré náà máa ń parí kí oòrùn tó wọ̀.
+Ẹ̀rọ amúnáwà ń dún ní ẹ̀yìn ọ̀pọ̀ ilé ní alẹ́. Iná mànàmáná kì í wà nígbà gbogbo. Àwọn tí kò ní ẹ̀rọ máa ń tan àtùpà. Àwọn ọmọ máa ń kàwé lábẹ́ ìmọ́lẹ̀ àtùpà náà.
+Bàbáláwo máa ń dá ifá fún ẹni tí ó bá wá bá a. Ó ń pe odù tí ó bá jáde, ó sì ń sọ ìtàn rẹ̀. Ọ̀rọ̀ tí ó bá sọ ni ẹni náà yóò ṣe. Ọ̀pọ̀ ènìyàn tún ń lọ sí ilé ìwòsàn ní ọjọ́ kan náà.
+Ìjàkadì máa ń wáyé ní ọdún ìlú. Àwọn oníjàkadì yóò wọ inú àyíká, onílù yóò sì bẹ̀rẹ̀ sí lu ìlù. Ẹni tí ó bá gbé ẹnìkejì rẹ̀ ṣubú ni ó jáwé olúborí. Gbogbo ìlú ni yóò yin orúkọ rẹ̀.
+Ọjà òru ní Lagos kì í sùn. Àwọn dànfó ń kó ènìyàn láti ìsàlẹ̀ dé òkè. Àwọn awakọ̀ ń pe orúkọ ibi tí wọ́n ń lọ. Bí ọ̀nà bá kún, ìrìn ọgbọ̀n ìṣẹ́jú lè di wákàtí méjì.
+Ìyá mi máa ń rọ ẹ̀fọ́ pẹ̀lú epo pupa, ata, ìrú àti ẹja gbígbẹ. A máa ń jẹ ẹ́ pẹ̀lú àmàlà tàbí ìṣu. Ẹni tí kò bá jẹ ẹ́ rí kò mọ ohun tí ó ń pàdánù. Ohun tí ó dùn jùlọ ni pé gbogbo ìdílé ni ó jókòó jẹun pọ̀.
+Ilé ẹjọ́ àṣà ni ọ̀pọ̀ ẹjọ́ ilẹ̀ àti ogún ń wọ̀. Àwọn adájọ́ mọ̀ ọ́n gbọ́ ọ̀rọ̀ àgbà. Bí ẹ̀rí kò bá tó, wọ́n lè ránṣẹ́ pe àwọn àgbà ìdílé. Ọ̀pọ̀ ìgbà ni a ń pín ilẹ̀ láàrin ìdílé láìsí ìjà.
+Aṣọ òkè ni a ń hun ní ọwọ́ lórí ohun ìhun tóóró. Ó máa ń gba ọjọ́ púpọ̀ kí ìhun kan tó parí. Sányán, àlàárì àti ẹtù ni àwọn tí ó gbowólórí jùlọ. Ọba àti ìjòyè ni wọ́n máa ń wọ̀ ọ́ ní ọjọ́ ńlá.
+Ìsìnkú àgbà kì í ṣe ọjọ́ ìbànújẹ́ nìkan. Bí àgbà bá pé ọjọ́ ayé rẹ̀, ìdílé yóò ṣe ayẹyẹ fún un. Wọ́n á pe onílù, wọ́n á sì pè àwọn àlejò. Ìsìnkú ìkejì lè wáyé lẹ́yìn oṣù mélòó kan bí owó bá tó.
+Àwọn ọmọ ń kọ́ oríkì ìdílé wọn ní ẹnu ìyá àgbà. Oríkì máa ń sọ ibi tí ìran ti wá àti ohun tí wọ́n ṣe. Bí a bá pe oríkì ẹnìkan, inú rẹ̀ á dùn. Ìdí nìyẹn tí a fi ń pè é ní ọ̀rọ̀ tí ó ń tu ni nínú.
+Àkókò ìkórè máa ń dé lẹ́yìn ìgbà òjò. Àwọn àgbẹ̀ á ka ìṣu jọ, wọ́n á sì mú wọn wá sí ilé. Àwọn kan á ta tirẹ̀ ní ọjà, àwọn kan á fi tirẹ̀ pamọ́ fún ọdún tí ń bọ̀. Ọdún ìṣu ni ìlú fi ń dúpẹ́ fún ìkórè náà.

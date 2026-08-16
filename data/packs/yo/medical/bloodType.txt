@@ -1,0 +1,12 @@
+---
+description: ABO / Rh blood type. THE THING A NON-NIGERIAN DATASET WILL MISS is not in this file and belongs beside it: Nigerians routinely know and state their GENOTYPE — AA, AS, SS or AC — alongside their blood group, because sickle-cell inheritance is common enough that two AS carriers are counselled not to marry, and churches and families ask for it before a wedding. Genotype is a separate field from blood group and is not modelled here; a Nigerian health or marriage dataset needs both. O+ is by far the commonest group in Nigeria.
+locale: yo
+---
+O+
+O-
+A+
+A-
+B+
+B-
+AB+
+AB-

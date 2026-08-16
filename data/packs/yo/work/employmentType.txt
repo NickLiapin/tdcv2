@@ -1,0 +1,15 @@
+---
+description: Employment type. The entry that matters most is ỌMỌ Ẹ̀YÌN — the apprentice. Yoruba trade is learned through a formal apprenticeship of agreed years under a master, ending in ÌTÚSÍLẸ̀, a public "freeing" ceremony after which the apprentice may open their own shop; it is a contract, with fees and witnesses, and it is how most tailors, mechanics, carpenters and traders in Yorubaland are trained. Note also that the great majority of work here is informal — iṣẹ́ ọwọ́ (handwork), trading, farming — so "full-time employee" describes a minority of working adults.
+locale: yo
+---
+Iṣẹ́ kíkún
+Iṣẹ́ apá kan
+Iṣẹ́ àdéhùn
+Iṣẹ́ ìgbà díẹ̀
+Ọmọ ẹ̀yìn
+Ìkẹ́kọ̀ọ́ iṣẹ́
+Alágbàṣe
+Iṣẹ́ ọwọ́
+Òwò ara ẹni
+Iṣẹ́ ìjọba
+Iṣẹ́ àdáni

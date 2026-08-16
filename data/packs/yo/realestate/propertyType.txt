@@ -1,0 +1,23 @@
+---
+description: Property type, as a Nigerian listing writes it. SẸ́LÙFÙ KỌ́ŃTÉÌNÌ — "self-contain" — is a single room with its own bathroom and kitchen, the standard first flat, and it has no European name. A "face-me-I-face-you" is the tenement where rooms open onto a shared corridor with shared facilities; AGBO ILÉ is the traditional family compound. Ilé gogoro is a storey building, dúpúlẹ́ẹ̀sì a duplex.
+locale: yo
+---
+Yàrá kan
+Sẹ́lùfù kọ́ńtéìnì
+Yàrá àti gbọ̀ngàn
+Fúlàtì
+Fúlàtì yàrá méjì
+Fúlàtì yàrá mẹ́ta
+Búngálọ̀
+Dúpúlẹ́ẹ̀sì
+Ilé gogoro
+Ilé ìdílé
+Agbo ilé
+Ilé àpapọ̀
+Ilé ìtajà
+Ṣọ́ọ̀bù
+Ilé iṣẹ́
+Ilé ìpamọ́
+Ilẹ̀ ìkọ́lé
+Ilẹ̀ oko
+Ilé ìtura

@@ -1,0 +1,10 @@
+---
+description: Yoruba personal pronoun, given as the independent (emphatic) form, the subject form and the object form. Two facts a config written for a European language will get wrong. FIRST, THERE IS NO GENDERED THIRD PERSON: òun / ó / un covers he, she and it alike, so a Yoruba sentence about a person does not disclose their sex and a "she/her" column has no Yoruba equivalent. SECOND, the second and third person plurals double as RESPECT forms for one person: you address an elder as ẹ̀yin / ẹ / yín, never as ìwọ / o / ẹ, and you refer to an elder as àwọn / wọ́n / wọn even when there is only one of them — the same T-V split French makes with tu and vous, but reaching into the third person too, which French does not.
+locale: yo
+---
+èmi / mo / mi
+ìwọ / o / ẹ
+òun / ó / un
+àwa / a / wa
+ẹ̀yin / ẹ / yín
+àwọn / wọ́n / wọn

@@ -1,0 +1,22 @@
+---
+description: Fruit. ÀGBÁLÙMỌ̀, the African star apple, is the seasonal fruit of the Yoruba dry season and has no English name anyone uses; ÌREKÉ is sugarcane, ÌBẸ̀PẸ pawpaw, IYEYÈ the hog plum. OBÌ, the kola nut, and ORÓGBÓ, the bitter kola, are on the list because Yoruba counts them here, but they are not snacks — kola is what you present to a guest, break at a naming ceremony and cast for a yes-or-no answer, and a Yoruba text mentions obì far more often than it mentions any sweet fruit. Ọ̀gẹ̀dẹ̀ splits two ways that English does not: ọ̀gẹ̀dẹ̀ wẹ́wẹ́ is the banana, ọ̀gẹ̀dẹ̀ àgbagbà the plantain, and they are different foods.
+locale: yo
+---
+Ọ̀gẹ̀dẹ̀ wẹ́wẹ́
+Ọ̀gẹ̀dẹ̀ àgbagbà
+Òrombó
+Ọ̀sàn
+Ọ̀sàn wẹ́wẹ́
+Ọ̀pẹ̀ òyìnbó
+Ìbẹ̀pẹ
+Màngòrò
+Àgbálùmọ̀
+Iyeyè
+Bàrà
+Àgbọn
+Obì
+Orógbó
+Ìrèké
+Gúáfà
+Ọ̀pọ̀tọ́
+Èpà

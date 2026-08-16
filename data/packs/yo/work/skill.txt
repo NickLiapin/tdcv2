@@ -1,0 +1,44 @@
+---
+description: Job skill. The Yoruba entries name real trades with real training behind them — ìhunṣọ is aso-oke weaving on a narrow loom, àdìrẹ ṣíṣe the indigo resist-dyeing of Abẹ́òkúta, ère gbígbẹ́ figure carving, ìdìrí hair plaiting, ìlù lílù drumming on the talking drum, which is a skill because the drum reproduces the TONES of Yoruba speech and a trained drummer is literally talking. The technology names at the end keep their international spelling, as brand and language names do everywhere.
+locale: yo
+---
+Ìhunṣọ
+Àdìrẹ ṣíṣe
+Ère gbígbẹ́
+Àmọ̀ kíkó
+Aṣọ ránṣọ
+Ìgbẹ́nàgbẹ́nà
+Iṣẹ́ alágbẹ̀dẹ
+Ìdìrí
+Ìsèsè oúnjẹ
+Ìwakọ̀
+Ìkọ́lé
+Iṣẹ́ ẹ̀rọ iná
+Ìtúnṣe ẹ̀rọ
+Ìtọ́jú ọgbà
+Ọdẹ ṣíṣe
+Ìpẹja
+Ìlù lílù
+Orin kíkọ
+Ìjó
+Àwòrán yíyà
+Fọ́tò yíyà
+Ìṣirò owó
+Ìkọ̀wé
+Ìkọ́ni
+Ìtúmọ̀ èdè
+Ìwádìí
+Ìtajà
+Ìdúnàádúrà
+Ìpolówó
+Ìṣàkóso
+Ìmọ̀ kọ̀ǹpútà
+Ìtọ́jú aláìsàn
+Èdè Yorùbá
+Èdè Gẹ̀ẹ́sì
+Python
+JavaScript
+SQL
+Excel
+AutoCAD
+QuickBooks

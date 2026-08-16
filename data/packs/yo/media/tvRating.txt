@@ -1,0 +1,14 @@
+---
+description: Film and television content rating as issued in Nigeria by the National Film and Video Censors Board: G, PG, 12, 12A, 15, 18 and RE (restricted exhibition). The letters are the official ones and are printed in English; the Yoruba entries say what each means.
+locale: yo
+---
+G
+PG
+12
+12A
+15
+18
+RE
+Fún gbogbo ènìyàn
+Pẹ̀lú ìtọ́sọ́nà òbí
+Fún àgbàlagbà nìkan

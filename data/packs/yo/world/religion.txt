@@ -1,0 +1,24 @@
+---
+description: World religion. Three things this list says that an English one does not. ÌṢẸ̀ṢE is the Yoruba traditional religion under the name its own adherents now use for it — the veneration of the òrìṣà, with Ifá divination at its centre — and it is a living registered religion in Nigeria, not a past tense. ÌMÀLE is the ordinary Yoruba word for Islam, older than any borrowing of "Islam" itself. And Ẹ̀SÌN ALÁDÙRÀ names the Aladura churches — Cherubim and Seraphim, the Christ Apostolic Church, the Celestial Church of Christ — which are YORUBA-FOUNDED Christian movements, born in Ìjẹ̀bú and Lagos in the 1920s and now worldwide. Candomblé and Santería (Lucumí) are on the list because they ARE Yoruba òrìṣà religion, carried to Brazil and Cuba by the slave trade and still sung in Yoruba there.
+locale: yo
+---
+Ẹ̀sìn Ìṣẹ̀ṣe
+Ẹ̀sìn Òrìṣà
+Ifá
+Ẹ̀sìn Kírísítì
+Ẹ̀sìn Ìmàle
+Ẹ̀sìn Aládùrà
+Ẹ̀sìn Kátólíìkì
+Ẹ̀sìn Ánglíkàn
+Ẹ̀sìn Bátísítì
+Ẹ̀sìn Pẹ̀ntíkọ́sítì
+Ẹ̀sìn Mẹ́tọ́díìsì
+Candomblé
+Santería
+Ẹ̀sìn Júù
+Ẹ̀sìn Hindu
+Ẹ̀sìn Búdà
+Ẹ̀sìn Síkì
+Ẹ̀sìn Bahá'í
+Kò ní ẹ̀sìn
+Kò gbà pé Ọlọ́run wà

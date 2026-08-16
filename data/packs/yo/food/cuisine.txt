@@ -1,0 +1,16 @@
+---
+description: Cuisine, as Yoruba names it. Yorùbá, Hausa and Ìgbò are on the list as cuisines in their own right, which is how a Nigerian talks about food — the three are as different from each other as three European national cuisines, and "Nigerian" as a separate entry means the pan-Nigerian dishes (jollof rice, suya, puff-puff) that belong to no one region. The foreign cuisines keep their international names because that is what Yoruba writing does with them.
+locale: yo
+---
+Yorùbá
+Nàìjíríà
+Hausa
+Ìgbò
+Gánà
+Ítálì
+Ṣáínà
+Íńdíà
+Amẹ́ríkà
+Lẹ́bánọ̀nì
+Jàpánù
+Faransé

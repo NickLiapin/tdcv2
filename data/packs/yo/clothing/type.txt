@@ -1,0 +1,40 @@
+---
+description: Garment. This is the fullest Yoruba category in the pack, because Yoruba dress is a complete and living system. A man wears BÙBÁ (the loose top) over ṢÒKÒTÒ (trousers), often the wide KẸ̀MBẸ̀ cut, with a FÌLÀ cap — abetí ajá ("dog's ear", with flaps that can be turned up) or gọ̀bí — and over it all the AGBÁDÁ, the great flowing robe, or the shorter dàńṣíkí. A woman wears bùbá with ÌRÓ (the wrapped skirt), ÌBORÙN or ÌPÈLÉ over the shoulder, and GÈLÈ, the head-tie, whose tying is a craft in itself. The cloths are named separately and are the expensive part: AṢỌ ÒKÈ is hand-woven on a narrow loom in strips, in the prestige weaves sányán (beige wild silk), àlàárì (crimson) and ẹtù (deep indigo); ÀDÌRẸ is indigo resist-dyed cotton from Abẹ́òkúta. AṢỌ ẸBÍ is not a garment but a rule: the family or hosts of a ceremony choose one cloth and everyone attending buys and sews it, so a photograph of a Yoruba wedding shows the guests colour-coded by which side they belong to.
+locale: yo
+---
+Bùbá
+Ṣòkòtò
+Kẹ̀mbẹ̀
+Agbádá
+Dàńṣíkí
+Ẹ̀wù
+Ẹ̀wù àwòtẹ́lẹ̀
+Ìró
+Ìborùn
+Ìpèlé
+Gèlè
+Fìlà
+Fìlà abetí ajá
+Fìlà gọ̀bí
+Àwòtẹ́lẹ̀
+Aṣọ ìbora
+Aṣọ òkè
+Sányán
+Àlàárì
+Ẹtù
+Àdìrẹ
+Aṣọ ẹbí
+Bàtà
+Sálúbàtà
+Bàtà ìdárayá
+Ìléwọ̀
+Ìlẹ̀kẹ̀ ọrùn
+Òrùka
+Ẹ̀gbà ọwọ́
+Ẹ̀wù òtútù
+Ṣíẹ̀tì
+Tíì-ṣáàtì
+Ṣòkòtò kúkúrú
+Ẹ̀wù ìwẹ̀
+Gáwùnù
+Ẹ̀wù ọmọdé

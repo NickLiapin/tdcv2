@@ -1,0 +1,21 @@
+---
+description: Grade or mark in the NIGERIAN system, which is British-derived and looks nothing like the American one. WAEC and NECO report a secondary-school subject on the nine-point scale A1 to F9, where A1 is the top and anything from F9 is a fail; five credits at C6 or better, including English and Mathematics, is the threshold for university entry and is the single most consequential number in a Nigerian school career. Universities award a degree CLASS, not a GPA letter: First Class, Second Class Upper (2:1), Second Class Lower (2:2), Third Class, Pass. Both scales are printed in English, which is what a Nigerian certificate carries.
+locale: yo
+---
+A1
+B2
+B3
+C4
+C5
+C6
+D7
+E8
+F9
+First Class
+Second Class Upper
+Second Class Lower
+Third Class
+Pass
+Distinction
+Credit
+Merit

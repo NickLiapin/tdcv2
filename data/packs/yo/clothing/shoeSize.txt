@@ -1,0 +1,16 @@
+---
+description: Shoe size in UK SIZING, which is what is printed on shoes sold in Nigeria and what a Nigerian says their size is — the country was a British colony and the shoe trade followed. EU numbers appear alongside on imported and second-hand stock (okrika), and US sizes on American imports, so a Nigerian shoebox may carry two or three scales at once; the numbers below are the UK ones. There is no Nigerian national scale.
+locale: yo
+---
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14

@@ -1,0 +1,10 @@
+---
+description: Dishes of Ṣáínà cuisine
+locale: yo
+---
+Fried Rice
+Chow Mein
+Spring Roll
+Sweet and Sour Pork
+Dumpling
+Kung Pao Chicken

@@ -1,0 +1,11 @@
+---
+description: Sport that has a coherent position list. There are SEVEN here, not eight, and the reason is a refusal: Yoruba's other big sports either have no positions at all (ìsáré, ìwẹ̀, bọ́kisì, ayò ọlọ́pọ́n) or no Yoruba positional vocabulary, and no eighth sport has been added to round the number up.
+locale: yo
+---
+Bọ́ọ̀lù afẹsẹ̀gbá
+Ìjàkadì
+Bọ́ọ̀lù agbọ̀n
+Fọ́líbọ́ọ̀lù
+Bọ́ọ̀lù ọwọ́
+Kíríkẹ́tì
+Rọ́gbì

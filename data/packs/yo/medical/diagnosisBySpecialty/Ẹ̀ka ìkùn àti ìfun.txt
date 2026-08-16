@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Ẹ̀ka ìkùn àti ìfun
+locale: yo
+---
+Ọgbẹ́ inú
+Ìyọnu inú
+Àrùn ẹ̀dọ̀
+Jẹ̀dọ̀jẹ̀dọ̀
+Ìgbẹ́ gbuuru
+Àìjẹunrekánú

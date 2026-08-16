@@ -1,0 +1,69 @@
+---
+description: Filler sentence in Yoruba. Handwritten: Project Gutenberg holds no Yoruba book at all (a search for l.yo returns "No records found"), so unlike fr/de/it/es/pt/pl this is not extracted from a public-domain corpus. The first fifteen are ÒWE — real Yoruba proverbs, widely known and widely printed, which is the closest thing this language has to a public-domain prose corpus; the rest are ordinary modern sentences composed for this file. Nothing here is a translated English sentence dressed up as Yoruba. Note for anyone generating from it: Yoruba verbs do not inflect and nouns have no plural, so tense and number sit in separate particles (ti, ń, yóò, àwọn) and a naive word-level shuffle of these sentences will still parse where an English one would not.
+locale: yo
+---
+Àgbà kì í wà lọ́jà kí orí ọmọ tuntun wọ́.
+Bí ọmọdé bá ṣubú, ó máa ń wo iwájú; bí àgbà bá ṣubú, ó máa ń wo ẹ̀yìn.
+Ọwọ́ ọmọdé kò tó pẹpẹ, ti àgbàlagbà kò wọ akèrègbè.
+Ohun tí a ń wá lọ sí Sókótó wà ní àpò ṣòkòtò.
+Àgbájọ ọwọ́ la fi ń sọ̀yà.
+Sùúrù ni baba ìwà.
+Ìwà rere ni ẹ̀ṣọ́ ènìyàn.
+Ilé ọba tó jó, ẹwà ló bù sí i.
+Ohun tí a bá gbìn ni a ó ká.
+Ọmọdé gbọ́n, àgbà gbọ́n, la fi dá Ilé-Ifẹ̀.
+Ilé la ti ń kọ́ ẹ̀ṣọ́ rọ̀de.
+Bí a bá ṣe rere, a ṣe é fún ara ẹni.
+Ẹni tí ó ní sùúrù ni yóò fọ̀ wàrà kìnnìún.
+Àdán ò ṣe é pè ní ẹyẹ, kò sì ṣe é pè ní eku.
+Ẹnu ni ó ń pa ẹja, ẹnu ni ó ń pa ẹyẹ.
+Ọmọdé náà ń lọ sí ilé ìwé ní àárọ̀ òní.
+Ìyá mi ń sè oúnjẹ ní ìdáná.
+Àwọn àgbẹ̀ lọ sí oko ní kùtùkùtù àárọ̀.
+Òjò rọ̀ púpọ̀ lánàá.
+Ọjà kún fún ènìyàn ní ọjọ́ Ẹtì.
+A ó pàdé ní ilé ẹ̀kọ́ ní ọ̀sán.
+Baba mi ra ẹja àti ọ̀gẹ̀dẹ̀ ní ọjà.
+Ó ṣeun púpọ̀ fún ìrànlọ́wọ́ rẹ.
+Ẹ káàárọ̀, ẹ jọ̀wọ́ ẹ jókòó.
+Èyí ni ilé wa, ẹ káàbọ̀.
+Mo fẹ́ràn oúnjẹ Yorùbá gan-an.
+Àwọn ọmọ ń ṣeré ní àgbàlá.
+Ìwé yìí dára gan-an, mo ti kà á tán.
+Kò sí omi nínú garawa náà.
+Ọkọ̀ náà kò dé nítorí ọ̀nà kún.
+A ń dúró de ọ̀gá wa.
+Ìlù dùndún ń dún ní ìta.
+Wọ́n ta aṣọ òkè ní ọjà lónìí.
+Oòrùn ràn gan-an ní ọ̀sán òní.
+Ìgbà òjò ti bẹ̀rẹ̀ ní oṣù yìí.
+Ẹ̀fọ́ rírò àti ìṣu ni mo jẹ ní àárọ̀.
+Dókítà náà wo aláìsàn náà pẹ̀lú ìtọ́jú.
+Ó ṣiṣẹ́ ní ilé ìfowópamọ́ ní àárín ìlú.
+Àwa yóò lọ sí ìlú ní ọ̀sẹ̀ tí ń bọ̀.
+Kí ni orúkọ rẹ, ọ̀rẹ́ mi?
+Báwo ni ẹbí ṣe wà ní ilé?
+Ó ń kọ́ èdè Yorùbá ní ilé ẹ̀kọ́ girama.
+Ẹyẹ ń fò ní ojú ọ̀run.
+Ológbò náà sùn lórí àga.
+Àwọn olùkọ́ pe àwọn akẹ́kọ̀ọ́ jọ ní gbọ̀ngàn.
+Owó kò tó rárá ní oṣù yìí.
+A ra ọ̀gẹ̀dẹ̀, òrombó àti tòmátì ní ọjà.
+Ìjó àti orin kún ayẹyẹ náà.
+Ọ̀gbẹ́ni Adébáyọ̀ dé láti Ìbàdàn lánàá.
+Ẹ jọ̀wọ́, ẹ fi ìwé náà sílẹ̀ lórí tábìlì.
+Kò sí iná mànàmáná ní alẹ́ àná.
+Ẹ̀rọ amúnáwà ń ṣiṣẹ́ ní ẹ̀yìn ilé.
+Ìyá àgbà ń sọ àlọ́ fún àwọn ọmọ ọmọ rẹ̀.
+Àwọn ọ̀dọ́ ń gbá bọ́ọ̀lù ní pápá.
+Ìdílé wa yóò ṣe ìsọmọlórúkọ ní ọjọ́ kẹjọ.
+Ẹ kú iṣẹ́ o, ẹ ti ṣiṣẹ́ púpọ̀ lónìí.
+Ó gba ìwé ẹ̀rí rẹ̀ lẹ́yìn ọdún mẹ́rin.
+Àwọn ẹyẹ ń kọrin ní àárọ̀ kùtùkùtù.
+Ọ̀nà tí ó lọ sí abúlé náà jìnnà.
+Mo rí ọ̀rẹ́ mi ní ọjà ní ìrọ̀lẹ́ àná.
+Ọ̀yẹ́ ti bẹ̀rẹ̀, ilẹ̀ ń tutù ní àárọ̀.
+Ẹni tí ó bá ṣe sùúrù yóò rí àṣeyọrí.
+A ń gbé ní àdúgbò tí ó dákẹ́.
+Ọmọ náà mọ̀ ọ́n kà, ó sì mọ̀ ọ́n kọ.
+Wọ́n kọ́ ilé tuntun ní ẹ̀gbẹ́ odò.

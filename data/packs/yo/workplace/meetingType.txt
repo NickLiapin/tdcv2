@@ -1,0 +1,16 @@
+---
+description: Meeting type.
+locale: yo
+---
+Ìpàdé àárọ̀
+Ìpàdé ọ̀sẹ̀
+Ìpàdé oṣù
+Ìpàdé gbogbo òṣìṣẹ́
+Ìpàdé ẹgbẹ́
+Ìpàdé olùdarí
+Ìpàdé ẹnì kan sí ẹnì kan
+Ìpàdé ìṣèto
+Ìpàdé ìyẹ̀wò
+Ìpàdé oníbàárà
+Ìpàdé pàjáwìrì
+Ìpàdé ọdún

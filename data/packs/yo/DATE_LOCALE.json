@@ -1,0 +1,59 @@
+{
+  "months": [
+    "Oṣù Ṣẹ́rẹ́",
+    "Oṣù Èrèlè",
+    "Oṣù Ẹrẹ̀nà",
+    "Oṣù Ìgbé",
+    "Oṣù Ẹ̀bibi",
+    "Oṣù Òkúdu",
+    "Oṣù Agẹmọ",
+    "Oṣù Ògún",
+    "Oṣù Owewe",
+    "Oṣù Ọ̀wàrà",
+    "Oṣù Bélú",
+    "Oṣù Ọ̀pẹ̀"
+  ],
+  "monthsInDate": [
+    "Oṣù Ṣẹ́rẹ́",
+    "Oṣù Èrèlè",
+    "Oṣù Ẹrẹ̀nà",
+    "Oṣù Ìgbé",
+    "Oṣù Ẹ̀bibi",
+    "Oṣù Òkúdu",
+    "Oṣù Agẹmọ",
+    "Oṣù Ògún",
+    "Oṣù Owewe",
+    "Oṣù Ọ̀wàrà",
+    "Oṣù Bélú",
+    "Oṣù Ọ̀pẹ̀"
+  ],
+  "monthsShort": [
+    "Ṣẹ́rẹ́",
+    "Èrèlè",
+    "Ẹrẹ̀nà",
+    "Ìgbé",
+    "Ẹ̀bibi",
+    "Òkúdu",
+    "Agẹmọ",
+    "Ògún",
+    "Owewe",
+    "Ọ̀wàrà",
+    "Bélú",
+    "Ọ̀pẹ̀"
+  ],
+  "weekdays": [
+    "Ọjọ́ Àìkú",
+    "Ọjọ́ Ajé",
+    "Ọjọ́ Ìṣẹ́gun",
+    "Ọjọ́rú",
+    "Ọjọ́bọ̀",
+    "Ọjọ́ Ẹtì",
+    "Ọjọ́ Àbámẹ́ta"
+  ],
+  "weekdaysShort": ["Àìk", "Ajé", "Ìṣg", "Ọjr", "Ọjb", "Ẹtì", "Àbm"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "Yoruba nouns do not decline, so monthsInDate is identical to months — no case change happens inside a date. THREE month systems are in live use and the choice is not cosmetic. (1) The traditional festival names used above, Ṣẹ́rẹ́ through Ọ̀pẹ̀, prefixed by Oṣù (\"month of\"); this is what CLDR ships for yo. (2) ORDINAL months — Oṣù Kìíní, Oṣù Kejì, Oṣù Kẹta, Oṣù Kẹrin, Oṣù Karùn-ún, Oṣù Kẹfà, Oṣù Keje, Oṣù Kẹjọ, Oṣù Kẹsàn-án, Oṣù Kẹwàá, Oṣù Kọkànlá, Oṣù Kejìlá — which is what BBC Yorùbá and most Yoruba news writing print, and is probably what a Yoruba reader expects today. (3) The English names borrowed into Yoruba phonology: Jánúárì, Fẹ́búárì, Máàṣì, Ẹ́ríìlì, Méèyì, Júùnù, Júláì, Ọ́gọ́ọ̀sù, Sẹ̀tẹ̀ńbà, Ọ́kùtóbà, Nòfẹ́ńbà, Dìsẹ́ńbà. Weekdays are NOT numbered: Àìkú (Sunday) is \"not dying\", Ajé (Monday) is the òrìṣà of wealth and of the market, Ìṣẹ́gun (Tuesday) is \"victory\", Ẹtì (Friday) and Àbámẹ́ta (Saturday) are likewise words, and none of them carries an ordinal a formatter could compute. The array above is Sunday-first because the formatter wants it that way. The seven-day week is an import: the Yoruba week, ÒSÈ, is FOUR days, and it is still the live calendar for markets and for òrìṣà worship — a town's market day recurs every four days on its own cycle, independent of the Gregorian week, so a \"market day\" in a Yoruba dataset cannot be derived from a weekday. The numeric date is DD/MM/YYYY, as on every Nigerian form. Written out, a date is introduced by its unit words: ọjọ́ 5 oṣù Ṣẹ́rẹ́ ọdún 2026 — day, month, year each labelled. Yoruba numerals are VIGESIMAL and subtractive (ogún 20, ọgbọ̀n 30, ogójì 40, àádọ́ta 50 = \"sixty less ten\"), so a spelled-out day-of-month is not a simple digit substitution. Clock time is written in the international 24-hour form with a colon; in speech Yoruba names the hour with aago (aago mẹ́rin ìrọ̀lẹ́ = four in the afternoon) and keys the part of day to àárọ̀ / ọ̀sán / ìrọ̀lẹ́ / alẹ́. The decimal separator is a full stop and the thousands separator a comma (1,234.56), following Nigerian English practice. Currency is written ₦ before the amount."
+}

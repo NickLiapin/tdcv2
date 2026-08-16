@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon. Two entries are the real hazards here and neither is on a European list: Ọ̀YẸ́ — the harmattan — and the erùpẹ̀ ọ̀yẹ́, the Saharan dust it carries, which closes airports and fills hospitals; and ìkún omi, flooding, which is what a heavy òjò season actually does to Lagos and Ìbàdàn. YÌNYÍN means ice or hail and is the word Yoruba uses when it has to describe snow, because SNOW DOES NOT FALL IN YORUBALAND and the language never needed a separate word for it. Nothing has been invented to supply one.
+locale: yo
+---
+Ìjì
+Ìjì líle
+Ìjì àrá
+Ìkún omi
+Ọ̀dá
+Ọ̀yẹ́
+Erùpẹ̀ ọ̀yẹ́
+Ooru gbígbóná
+Òtútù líle
+Ìmìtìtì ilẹ̀
+Òjò yìnyín
+Yìnyín
+Ìkùukùu tí ó ṣú
+Ẹ̀fúùfù líle
+Ìgbóná ilẹ̀

@@ -1,0 +1,16 @@
+---
+description: Western zodiac sign, given by the IMAGE each sign is, because that is how Yoruba renders them: Àgbò is the ram, Akọ màlúù the bull, Ìbejì the twins, Akàn the crab, Òṣùwọ̀n the scales, Àkéekèe the scorpion, Tafàtafà the archer. Two things to be clear about. The zodiac is NOT indigenous — it arrives with the newspaper horoscope column, and many Yoruba readers use the English names. And Yoruba's own system for reading a life is not a zodiac at all: it is Ifá, whose 256 odù (Èjì Ogbè, Ọ̀yẹ̀kú Méjì, Ìwòrì Méjì …) are cast fresh for a person rather than fixed by a birth date, so they are not twelve, not signs, and deliberately not in this file.
+locale: yo
+---
+Àgbò
+Akọ màlúù
+Ìbejì
+Akàn
+Kìnnìún
+Wúndíá
+Òṣùwọ̀n
+Àkéekèe
+Tafàtafà
+Ewúrẹ́ òkun
+Apọnmi
+Ẹja

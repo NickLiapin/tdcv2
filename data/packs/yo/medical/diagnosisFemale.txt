@@ -1,0 +1,27 @@
+---
+description: Medical diagnosis that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis. Ilé ọmọ is the womb ("the child's house"), ọmú the breast, oṣù the menses (the same word as "month"), and the Yoruba entries are built from those. A note on method that applies to every medical file in this pack: NIGERIAN CLINICAL RECORDS ARE WRITTEN IN ENGLISH, because English is the language of Nigerian medical training and of the hospital card. Yoruba does have established names for the conditions people talk about — ibà (malaria), àtọ̀gbẹ (diabetes), ẹ̀jẹ̀ ríru (hypertension), jẹjẹrẹ (cancer), wárápá (epilepsy), jẹ̀dọ̀jẹ̀dọ̀ (hepatitis), àtọ̀sí (gonorrhoea), ẹ̀tẹ̀ (leprosy), ikọ́ fée (tuberculosis), ọgbẹ́ inú (peptic ulcer), àìtó ẹ̀jẹ̀ (anaemia) — and those are used here. Where the language has no settled term, the entry is either a transparent Yoruba description built from ordinary words (àrùn kíndìnrín, "kidney disease") or the clinical English, which is what a Yoruba speaker actually reads on their own file. Nothing has been coined to make the list look more Yoruba than the language is.
+locale: yo
+---
+Àrùn ilé ọmọ
+Èèmọ̀ ilé ọmọ
+Jẹjẹrẹ ọmú
+Èèmọ̀ ọmú
+Jẹjẹrẹ ẹnu ilé ọmọ
+Jẹjẹrẹ ẹyin ọmọ
+Àrùn ẹyin ọmọ
+Àìlóyún
+Ìṣẹ́yún
+Oyún òde ilé ọmọ
+Ìrora oṣù
+Àìrí nǹkan oṣù
+Ẹ̀jẹ̀ púpọ̀ nígbà oṣù
+Ẹ̀jẹ̀ ríru oyún
+Àtọ̀gbẹ oyún
+Ìbímọ ṣòro
+Ìsoríkọ́ lẹ́yìn ìbímọ
+Àrùn ọmú lẹ́yìn ìbímọ
+Àìtó ẹ̀jẹ̀ nígbà oyún
+Àrùn ojú ọ̀nà ìtọ̀ obìnrin
+Ìdúró oṣù
+Àrùn ìdí ilé ọmọ
+Ìwúwo ilé ọmọ
