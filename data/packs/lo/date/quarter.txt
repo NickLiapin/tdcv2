@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter. ໄຕມາດ is literally 'three-month period'.
+locale: lo
+---
+ໄຕມາດ 1
+ໄຕມາດ 2
+ໄຕມາດ 3
+ໄຕມາດ 4

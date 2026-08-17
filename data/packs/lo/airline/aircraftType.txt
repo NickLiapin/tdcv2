@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Model designations keep their real spelling in any locale. The Lao fleet is short-haul: ATR turboprops and A320-family jets, with wide-bodies only on foreign carriers.
+locale: lo
+---
+ATR 72
+ATR 42
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A319
+Airbus A330
+Airbus A350
+Boeing 737-800
+Boeing 737 MAX
+Boeing 787 Dreamliner
+Boeing 777
+Boeing 747
+Embraer E190
+Embraer E175
+Bombardier CRJ900
+Xian MA60
+Cessna Grand Caravan
+Harbin Y-12
+De Havilland Dash 8
+Sukhoi Superjet 100
+Comac C919
+Comac ARJ21
+Antonov An-26
+Mil Mi-17
+Airbus H125

@@ -1,0 +1,36 @@
+---
+description: Musical instrument. ແຄນ IS THE NATIONAL INSTRUMENT and it is first for that reason: a free-reed bamboo mouth organ, inscribed on the UNESCO list of intangible cultural heritage as the khaen music of the Lao people, and the instrument that carries ໝໍລຳ singing. ພິນ is the plucked lute that plays beside it, ໂປງລາງ the wooden xylophone.
+locale: lo
+---
+ແຄນ
+ພິນ
+ໂປງລາງ
+ຊໍອູ້
+ຊໍດ້ວງ
+ຂຸ່ຍ
+ປີ່
+ລະນາດ
+ຄ້ອງວົງ
+ຄ້ອງ
+ຄ້ອງໂຫ່ງ
+ກອງ
+ກອງຍາວ
+ກອງເສັງ
+ສິ່ງ
+ສະນຽນ
+ຈະເຂ້
+ກີຕາ
+ກີຕາໄຟຟ້າ
+ເບດ
+ເປຍໂນ
+ຄີບອດ
+ໄວໂອລິນ
+ເຊວໂລ
+ຟລຸດ
+ຄາລິເນັດ
+ແຊັກໂຊໂຟນ
+ທຣຳເປັດ
+ທຣອມໂບນ
+ກອງຊຸດ
+ອາໂກດຽນ
+ຮາໂມນິກາ

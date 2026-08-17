@@ -1,0 +1,5 @@
+---
+description: Capital of ອຽກລັງ, as Lao names it
+locale: lo
+---
+ດັບລິນ

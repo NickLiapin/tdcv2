@@ -1,0 +1,20 @@
+---
+description: Legal form of a Lao company, written after the name. ບໍລິສັດ ... ຈຳກັດ is the ordinary limited company and ຈຳກັດຜູ້ດຽວ the single-member form; ລັດວິສາຫະກິດ is a state enterprise, which in Laos is a large share of the economy rather than a rarity; ບໍລິສັດຮ່ວມທຶນ is the joint venture through which most foreign investment enters the country.
+locale: lo
+---
+ຈຳກັດ
+ຈຳກັດຜູ້ດຽວ
+ມະຫາຊົນ
+ບໍລິສັດຈຳກັດ
+ບໍລິສັດມະຫາຊົນ
+ບໍລິສັດຮ່ວມທຶນ
+ລັດວິສາຫະກິດ
+ວິສາຫະກິດສ່ວນບຸກຄົນ
+ຫ້າງຫຸ້ນສ່ວນ
+ສະຫະກອນ
+ສາຂາ
+ຫ້ອງການຕົວແທນ
+ກຸ່ມບໍລິສັດ
+ອົງການ
+ສະມາຄົມ
+ມູນນິທິ

@@ -1,0 +1,5 @@
+---
+description: Capital of ແອັດສະປາຍ, as Lao names it
+locale: lo
+---
+ມາດິດ

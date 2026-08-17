@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Mobile dominates in Laos; console ownership is rare.
+locale: lo
+---
+ມືຖື Android
+ມືຖື iOS
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Nintendo Switch
+ຮ້ານເກມ
+ເວັບບຣາວເຊີ
+ໂທລະທັດອັດສະລິຍະ
+ເກມພົກພາ

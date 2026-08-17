@@ -1,0 +1,5 @@
+---
+description: Capital of ກຣົວຊີ, as Lao names it
+locale: lo
+---
+ຊາເກຣບ

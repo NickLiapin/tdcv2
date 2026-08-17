@@ -1,0 +1,12 @@
+---
+description: Dish of ຍີ່ປຸ່ນ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ຊູຊິ
+ຊາຊິມິ
+ຣາເມັງ
+ເທັມປູຣະ
+ອູດົ້ງ
+ຂ້າວແກງກະລີ
+ໂອນິກິຣິ
+ຢາກິໂຕຣິ

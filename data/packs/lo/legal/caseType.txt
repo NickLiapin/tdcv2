@@ -1,0 +1,17 @@
+---
+description: Kind of legal case. ໜ່ວຍໄກ່ເກ່ຍບ້ານ, the village mediation unit, resolves a large share of Lao disputes before any court sees them, which is why the case mix reaching a Lao court is not the mix a European one sees.
+locale: lo
+---
+ຄະດີແພ່ງ
+ຄະດີອາຍາ
+ຄະດີແຮງງານ
+ຄະດີການຄ້າ
+ຄະດີຄອບຄົວ
+ຄະດີມໍລະດົກ
+ຄະດີທີ່ດິນ
+ຄະດີໜີ້ສິນ
+ຄະດີສັນຍາ
+ຄະດີອຸບັດຕິເຫດຈາລະຈອນ
+ຄະດີຢາເສບຕິດ
+ຄະດີສິ່ງແວດລ້ອມ
+ຄະດີປົກຄອງ

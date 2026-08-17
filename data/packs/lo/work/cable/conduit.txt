@@ -1,0 +1,11 @@
+---
+description: Cable conduit or routing method.
+locale: lo
+---
+ທໍ່ PVC
+ທໍ່ເຫຼັກ
+ຮາງສາຍ
+ຝັງດິນ
+ຮ້ອຍທໍ່ໃຕ້ດິນ
+ແຂວນເສົາໄຟ
+ຕິດຝາ

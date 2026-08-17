@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the ອາຟຣິກາເໜືອ ancestry group.
+locale: lo
+---
+ທາລັດຊີເມຍ
+ຂາດເອນໄຊມ G6PD
+ໄຂ້ເມດິເຕີເຣນຽນ
+ເບົາຫວານຊະນິດທີ 2
+ຂາດແລັກເຕດ
+ພະຍາດເລືອດຈາງ

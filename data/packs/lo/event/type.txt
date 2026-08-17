@@ -1,0 +1,24 @@
+---
+description: Kind of event. ບຸນ is the Lao word for a merit-making festival and heads the calendar: ບຸນປີໃໝ່ (Lao New Year, April), ບຸນບັ້ງໄຟ (the rocket festival that calls the rains), ບຸນຊ່ວງເຮືອ (boat racing at the end of the rains), ບຸນທາດຫຼວງ (the national stupa festival). A ບາສີ is the string-tying ceremony held for a welcome, a departure, a wedding or a recovery — there is no European category for it.
+locale: lo
+---
+ບຸນປີໃໝ່
+ບຸນບັ້ງໄຟ
+ບຸນຊ່ວງເຮືອ
+ບຸນທາດຫຼວງ
+ບຸນເຂົ້າພັນສາ
+ບຸນອອກພັນສາ
+ບຸນຂຶ້ນເຮືອນໃໝ່
+ບາສີສູ່ຂວັນ
+ງານແຕ່ງດອງ
+ງານສົບ
+ງານບຸນວັດ
+ງານລ້ຽງ
+ງານປະຊຸມ
+ງານສຳມະນາ
+ງານວາງສະແດງສິນຄ້າ
+ງານດົນຕີ
+ງານກິລາ
+ງານເປີດຕົວສິນຄ້າ
+ງານລະດົມທຶນ
+ງານມອບລາງວັນ

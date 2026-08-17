@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the ຊົນເຜົ່າພື້ນເມືອງອາເມຣິກາ ancestry group.
+locale: lo
+---
+ເບົາຫວານຊະນິດທີ 2
+ໂຣກອ້ວນ
+ພະຍາດຖົງນ້ຳບີ
+ຕັບແຂງຈາກເຫຼົ້າ
+ພະຍາດຫົວໃຈ
+ຂາດແລັກເຕດ

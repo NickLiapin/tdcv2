@@ -1,0 +1,26 @@
+---
+description: Property feature. ນ້ຳປະປາ (mains water) and ໄຟຟ້າ (mains electricity) are advertised features in Laos rather than assumptions, because outside the towns they are not universal.
+locale: lo
+---
+ໄຟຟ້າ
+ນ້ຳປະປາ
+ນ້ຳບາດານ
+ອິນເຕີເນັດ
+ແອຄອນດິຊັນ
+ເຄື່ອງທຳນ້ຳຮ້ອນ
+ເຟີນິເຈີຄົບ
+ຫ້ອງຄົວຄົບຊຸດ
+ບ່ອນຈອດລົດ
+ໂຮງລົດ
+ຮົ້ວກຳແພງ
+ຍາມຮັກສາຄວາມປອດໄພ
+ກ້ອງວົງຈອນປິດ
+ສະລອຍນ້ຳ
+ສວນ
+ລະບຽງ
+ຕິດຖະໜົນໃຫຍ່
+ໃກ້ຕະຫຼາດ
+ໃກ້ໂຮງຮຽນ
+ໃກ້ໂຮງໝໍ
+ໃກ້ວັດ
+ນ້ຳບໍ່ຖ້ວມ

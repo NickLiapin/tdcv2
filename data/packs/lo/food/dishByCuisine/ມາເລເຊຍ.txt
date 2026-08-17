@@ -1,0 +1,10 @@
+---
+description: Dish of ມາເລເຊຍ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ນາຊິເລີມັກ
+ຊາເຕ
+ເຣັນດັງ
+ໂຣຕີ
+ລັກຊາ
+ໝີ່ໂກເຣັງ

@@ -1,0 +1,10 @@
+---
+description: Lao full female name: GIVEN NAME FIRST, then the family name, separated by a single space (ສອນໄຊ ສີພັນດອນ). The space is genuine and load-bearing — Lao writes without spaces inside words, so the one space in a full name IS the field boundary between the two names. Remember that Lao sorts, addresses and indexes a person by the GIVEN name, so the FIRST half of this string is the key, not the second.
+generator: tdc
+locale: lo
+---
+<sequence name="p">
+  <gen name="f" type="template" value="lo.person.female.firstName"/>
+  <gen name="l" type="template" value="lo.person.lastName"/>
+</sequence>
+<data>${{p.f}} ${{p.l}}</data>

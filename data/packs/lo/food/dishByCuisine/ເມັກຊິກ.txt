@@ -1,0 +1,11 @@
+---
+description: Dish of ເມັກຊິກ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ຕາໂກ້
+ບູຣິໂຕ້
+ນາໂຊ້
+ເກຊາດີຢາ
+ຊາລະຊາ
+ກົວກາໂມເລ
+ຊິລີ

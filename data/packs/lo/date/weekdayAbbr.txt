@@ -1,0 +1,11 @@
+---
+description: Short day of the week: the planet name with ວັນ dropped. Sunday first, as the Lao week runs.
+locale: lo
+---
+ອາທິດ
+ຈັນ
+ອັງຄານ
+ພຸດ
+ພະຫັດ
+ສຸກ
+ເສົາ

@@ -1,0 +1,30 @@
+---
+description: Airline. Lao Airlines is the flag carrier and Lao Skyway flies the domestic network; the rest are the carriers that actually serve Wattay and Luang Prabang.
+locale: lo
+---
+Lao Airlines
+Lao Skyway
+Thai Airways
+Thai AirAsia
+Bangkok Airways
+Thai Smile
+Vietnam Airlines
+Vietjet Air
+Bamboo Airways
+China Eastern
+China Southern
+Sichuan Airlines
+Air China
+Cambodia Angkor Air
+Korean Air
+Asiana Airlines
+Singapore Airlines
+Scoot
+AirAsia
+Malaysia Airlines
+Cathay Pacific
+Emirates
+Qatar Airways
+Japan Airlines
+All Nippon Airways
+Turkish Airlines

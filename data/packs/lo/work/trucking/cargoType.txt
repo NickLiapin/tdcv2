@@ -1,0 +1,17 @@
+---
+description: Freight carried by road in Laos. Much of it is transit traffic: Laos sits between Thailand, Vietnam and China and the corridors across it carry other countries' goods.
+locale: lo
+---
+ສິນຄ້າທົ່ວໄປ
+ສິນຄ້າກະສິກຳ
+ເຂົ້າ
+ໄມ້
+ແຮ່ທາດ
+ຊີເມັນ
+ວັດສະດຸກໍ່ສ້າງ
+ນ້ຳມັນ
+ແກັສ
+ສິນຄ້າແຊ່ເຢັນ
+ສັດມີຊີວິດ
+ເຄື່ອງຈັກ
+ພັດສະດຸ

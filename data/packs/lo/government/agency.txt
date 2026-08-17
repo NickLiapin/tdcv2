@@ -1,0 +1,34 @@
+---
+description: Government body. THESE ARE LAO MINISTRIES AND STATE ORGANS and they are named because Lao has essentially one country, so the words mean these institutions. The ones with no European counterpart are worth noting: ແນວລາວສ້າງຊາດ is the Lao Front for National Development, ອົງການກວດກາລັດ the State Inspection Authority, and ອົງການແນວລາວ and the mass organisations sit beside the ministries rather than under them.
+locale: lo
+---
+ກະຊວງການຕ່າງປະເທດ
+ກະຊວງປ້ອງກັນປະເທດ
+ກະຊວງປ້ອງກັນຄວາມສະຫງົບ
+ກະຊວງການເງິນ
+ກະຊວງແຜນການ ແລະ ການລົງທຶນ
+ກະຊວງອຸດສາຫະກຳ ແລະ ການຄ້າ
+ກະຊວງກະສິກຳ ແລະ ປ່າໄມ້
+ກະຊວງໂຍທາທິການ ແລະ ຂົນສົ່ງ
+ກະຊວງພະລັງງານ ແລະ ບໍ່ແຮ່
+ກະຊວງສຶກສາທິການ ແລະ ກິລາ
+ກະຊວງສາທາລະນະສຸກ
+ກະຊວງແຮງງານ ແລະ ສະຫວັດດີການສັງຄົມ
+ກະຊວງຍຸຕິທຳ
+ກະຊວງຖະແຫຼງຂ່າວ ວັດທະນະທຳ ແລະ ທ່ອງທ່ຽວ
+ກະຊວງເຕັກໂນໂລຊີ ແລະ ການສື່ສານ
+ກະຊວງຊັບພະຍາກອນທຳມະຊາດ ແລະ ສິ່ງແວດລ້ອມ
+ກະຊວງພາຍໃນ
+ທະນາຄານແຫ່ງ ສປປ ລາວ
+ສະພາແຫ່ງຊາດ
+ອົງການໄອຍະການປະຊາຊົນສູງສຸດ
+ສານປະຊາຊົນສູງສຸດ
+ອົງການກວດກາລັດ
+ແນວລາວສ້າງຊາດ
+ອົງການປົກຄອງແຂວງ
+ອົງການປົກຄອງເມືອງ
+ອົງການປົກຄອງບ້ານ
+ກົມພາສີ
+ກົມສ່ວຍສາອາກອນ
+ກົມຕຳຫຼວດ
+ກົມກວດຄົນເຂົ້າ-ອອກເມືອງ

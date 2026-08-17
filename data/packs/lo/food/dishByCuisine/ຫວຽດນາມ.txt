@@ -1,0 +1,12 @@
+---
+description: Dish of ຫວຽດນາມ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ເຝີ
+ແໜມເນືອງ
+ບັນແຊ້ວ
+ປໍເປັຍະ
+ບັນມີ
+ບຸນຈ່າ
+ກາເຟນົມຂຸ້ນ
+ເຂົ້າຕົ້ມໃບ

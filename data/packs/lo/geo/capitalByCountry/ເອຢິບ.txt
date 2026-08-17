@@ -1,0 +1,5 @@
+---
+description: Capital of ເອຢິບ, as Lao names it
+locale: lo
+---
+ໄຄໂຣ

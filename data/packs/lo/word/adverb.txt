@@ -1,0 +1,36 @@
+---
+description: Common adverb. Note that ໆ is not a letter but the Lao repetition mark: it doubles the word before it, so ໄວໆ is ໄວ ໄວ, 'quickly'. A tokeniser must not strip it and a character filter must not drop U+0EC6.
+locale: lo
+---
+ໄວໆ
+ຊ້າໆ
+ດີໆ
+ຄ່ອຍໆ
+ແທ້ໆ
+ຫຼາຍ
+ໜ້ອຍ
+ບໍ່
+ບໍ່ເລີຍ
+ແລ້ວ
+ຍັງ
+ກຳລັງ
+ຈະ
+ໄດ້
+ເຄີຍ
+ສະເໝີ
+ບາງເທື່ອ
+ເລື້ອຍໆ
+ນານໆ
+ທັນທີ
+ດຽວນີ້
+ມື້ນີ້
+ມື້ວານນີ້
+ມື້ອື່ນ
+ຢູ່ນີ້
+ຢູ່ນັ້ນ
+ຂ້າງເທິງ
+ຂ້າງລຸ່ມ
+ຂ້າງໜ້າ
+ຂ້າງຫຼັງ
+ນຳກັນ
+ຄົນດຽວ

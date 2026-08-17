@@ -1,0 +1,16 @@
+---
+description: Type of leave. ພັກປະເພນີ covers the Lao public holidays — Lao New Year in April is the long one and effectively closes the country for several days.
+locale: lo
+---
+ພັກປະຈຳປີ
+ພັກປ່ວຍ
+ພັກເກີດລູກ
+ພັກລ້ຽງລູກ
+ພັກແຕ່ງງານ
+ພັກງານສົບ
+ພັກປະເພນີ
+ພັກລາຊະການ
+ພັກບໍ່ຮັບເງິນເດືອນ
+ພັກສຶກສາ
+ພັກຊົດເຊີຍ
+ພັກສຸກເສີນ

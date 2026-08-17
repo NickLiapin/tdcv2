@@ -1,0 +1,24 @@
+---
+description: Kind of official document. THE ຫົວໜ່ວຍ ONE IS ບັດປະຈຳຕົວ, the Lao identity card, and the one with no foreign equivalent is ປຶ້ມສຳມະໂນຄົວ — the household book, held by the head of the household, listing every registered member, and required for school enrolment, land transactions and marriage. A Lao person's legal existence is anchored to a household, not only to a personal document. NO NUMBERS OR FORMATS ARE GIVEN HERE: the structure of a Lao ID number, passport number or vehicle registration is country data and belongs in a Laos country pack, which does not yet exist.
+locale: lo
+---
+ບັດປະຈຳຕົວ
+ປຶ້ມສຳມະໂນຄົວ
+ໃບແຈ້ງເກີດ
+ໃບຢັ້ງຢືນທີ່ຢູ່
+ໃບຢັ້ງຢືນສະຖານະ
+ໜັງສືຜ່ານແດນ
+ໜັງສືເດີນທາງ
+ວີຊາ
+ໃບອະນຸຍາດເຮັດວຽກ
+ໃບຂັບຂີ່
+ໃບທະບຽນລົດ
+ໃບຢັ້ງຢືນການແຕ່ງງານ
+ໃບຢັ້ງຢືນການຢ່າຮ້າງ
+ໃບມໍລະນະບັດ
+ໃບຕາດິນ
+ໃບທະບຽນວິສາຫະກິດ
+ໃບອະນຸຍາດດຳເນີນທຸລະກິດ
+ໃບເສຍພາສີ
+ໃບປະກາສະນີຍະບັດ
+ໃບຢັ້ງຢືນສຸຂະພາບ

@@ -1,0 +1,10 @@
+---
+description: Playing position in ປີຕັງ
+locale: lo
+---
+ຕົວຊີ້
+ຕົວຍິງ
+ຕົວກາງ
+ດ່ຽວ
+ຄູ່
+ສາມຄົນ

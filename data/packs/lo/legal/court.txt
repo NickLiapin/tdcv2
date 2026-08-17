@@ -1,0 +1,19 @@
+---
+description: Kind of court. THIS IS THE LAO JUDICIAL VOCABULARY AND LAOS IS THE ONLY COUNTRY THAT USES IT, since Lao has essentially one state — so unlike the Spanish or Portuguese packs there is no need to hedge about which country's judiciary is meant. The Lao system runs from a district people's court up through provincial and regional courts to the People's Supreme Court, with a separate military court; ສານປະຊາຊົນ, 'people's court', is the standard term at every level.
+locale: lo
+---
+ສານປະຊາຊົນເຂດ
+ສານປະຊາຊົນເມືອງ
+ສານປະຊາຊົນແຂວງ
+ສານປະຊາຊົນນະຄອນຫຼວງ
+ສານປະຊາຊົນພາກ
+ສານປະຊາຊົນສູງສຸດ
+ສານທະຫານ
+ສານແຮງງານ
+ສານການຄ້າ
+ສານຄອບຄົວ
+ສານເດັກ
+ສານອຸທອນ
+ອົງການໄອຍະການປະຊາຊົນ
+ສູນແກ້ໄຂຂໍ້ຂັດແຍ່ງ
+ໜ່ວຍໄກ່ເກ່ຍບ້ານ

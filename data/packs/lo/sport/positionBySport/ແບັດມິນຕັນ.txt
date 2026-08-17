@@ -1,0 +1,9 @@
+---
+description: Playing position in ແບັດມິນຕັນ
+locale: lo
+---
+ດ່ຽວຊາຍ
+ດ່ຽວຍິງ
+ຄູ່ຊາຍ
+ຄູ່ຍິງ
+ຄູ່ປະສົມ

@@ -1,0 +1,5 @@
+---
+description: Capital of ສິງກະໂປ, as Lao names it
+locale: lo
+---
+ສິງກະໂປ

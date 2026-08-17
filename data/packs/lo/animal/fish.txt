@@ -1,0 +1,28 @@
+---
+description: Fish. ປາບຶກ, the Mekong giant catfish, is the first entry because it is the fish of Laos — the largest freshwater fish in the world, endemic to the Mekong and now critically endangered. ປາແດກ is deliberately NOT here: it is fermented fish paste, not a species, and belongs in food/ingredient.
+locale: lo
+---
+ປາບຶກ
+ປານິນ
+ປາດຸກ
+ປາຊ່ອນ
+ປາຂາວ
+ປາຄໍ້
+ປາເຄິງ
+ປາໄນ
+ປາຕອງ
+ປາຫຼົດ
+ປາຊິວ
+ປາກົດ
+ປານາງ
+ປາເສືອ
+ປາຍອນ
+ປາຂ່າ
+ປາສະຫຼາດ
+ປາທູ
+ປາຊາລະມອນ
+ປາທູນ່າ
+ປາໝຶກ
+ປາກະເບັນ
+ປາຫຼັງຂຽວ
+ປາໄຫຼ

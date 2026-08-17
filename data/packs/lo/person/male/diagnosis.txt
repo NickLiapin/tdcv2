@@ -1,0 +1,25 @@
+---
+description: Diagnosis recorded for a male patient, in Lao. Sex-specific conditions plus the ones that fall far more heavily on Lao men — lung cancer and alcoholic liver disease above all, because smoking and ເຫຼົ້າລາວ rice spirit are overwhelmingly male habits in Laos.
+locale: lo
+---
+ມະເຮັງຕ່ອມລູກໝາກ
+ຕ່ອມລູກໝາກໃຫຍ່
+ມະເຮັງອັນທະ
+ອັນທະບິດ
+ເສັ້ນເລືອດຂອດອັນທະ
+ຫຍໍ້ໜັງຫຸ້ມປາຍ
+ອົງຄະຊາດບໍ່ແຂງຕົວ
+ຫຼັ່ງໄວ
+ຮໍໂມນເພດຊາຍຕ່ຳ
+ເປັນໝັນຝ່າຍຊາຍ
+ໄສ້ເລື່ອນຂາໜີບ
+ຕ່ອມລູກໝາກອັກເສບ
+ທໍ່ນ້ຳອະສຸຈິອັກເສບ
+ຫົວນົມຊາຍໃຫຍ່
+ຫົວລ້ານແບບຊາຍ
+ມະເຮັງປອດ
+ຕັບແຂງຍ້ອນເຫຼົ້າ
+ເສັ້ນເລືອດຫົວໃຈຕີບ
+ເກົາ
+ຖົງນ້ຳໃນອັນທະ
+ອັນທະບໍ່ລົງຖົງ

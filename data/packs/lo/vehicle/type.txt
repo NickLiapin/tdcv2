@@ -1,0 +1,28 @@
+---
+description: Vehicle. THE ORDER IS THE LAO ONE: the motorcycle is the default family vehicle in Laos and outnumbers cars many times over. ຕຸກຕຸກ and ຈຳໂບ້ are shared three-wheeled taxis and are ordinary public transport, not tourist novelties; ເຮືອຫາງຍາວ, the long-tail boat, is real transport on the Mekong and the Nam Ou where there is no road.
+locale: lo
+---
+ລົດຈັກ
+ລົດຖີບ
+ລົດເກັງ
+ລົດກະບະ
+ລົດຕູ້
+ລົດເມ
+ລົດໂດຍສານ
+ຕຸກຕຸກ
+ຈຳໂບ້
+ລົດສາມລໍ້
+ລົດບັນທຸກ
+ລົດໄຖນາ
+ລົດໄຖເດີນຕາມ
+ລົດດັບເພີງ
+ລົດໂຮງໝໍ
+ລົດຕຳຫຼວດ
+ລົດແທັກຊີ
+ລົດໄຟ
+ເຮືອ
+ເຮືອຫາງຍາວ
+ເຮືອຂ້າມຟາກ
+ເຮືອບັນທຸກ
+ຍົນ
+ເຮລິຄອບເຕີ

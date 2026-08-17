@@ -1,0 +1,5 @@
+---
+description: Capital of ແຟງລັງ, as Lao names it
+locale: lo
+---
+ເຮວຊິນກິ

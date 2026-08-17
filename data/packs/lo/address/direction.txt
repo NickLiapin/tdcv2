@@ -1,0 +1,19 @@
+---
+description: Compass direction. Lao names east and west by the sun — ຕາເວັນອອກ is 'sun comes out' and ຕາເວັນຕົກ 'sun falls' — so the two are long phrases rather than single words, and the intercardinals are longer still. ພາກ 'region' heads the three names by which Laos habitually divides itself, north, centre and south, and those are the ones a Lao address or news report actually uses.
+locale: lo
+---
+ເໜືອ
+ໃຕ້
+ຕາເວັນອອກ
+ຕາເວັນຕົກ
+ຕາເວັນອອກສ່ຽງເໜືອ
+ຕາເວັນຕົກສ່ຽງເໜືອ
+ຕາເວັນອອກສ່ຽງໃຕ້
+ຕາເວັນຕົກສ່ຽງໃຕ້
+ພາກເໜືອ
+ພາກກາງ
+ພາກໃຕ້
+ພາກຕາເວັນອອກ
+ພາກຕາເວັນຕົກ
+ໃຈກາງ
+ກາງ

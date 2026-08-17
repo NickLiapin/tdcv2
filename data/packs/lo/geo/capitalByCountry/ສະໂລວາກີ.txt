@@ -1,0 +1,5 @@
+---
+description: Capital of ສະໂລວາກີ, as Lao names it
+locale: lo
+---
+ບຣາຕິສລາວາ

@@ -1,0 +1,11 @@
+---
+description: Dish of ອິຕາລີ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ພິດຊາ
+ສະປາເກັດຕີ
+ລາຊານຢາ
+ຣີໂຊໂຕ
+ມັກກະໂຣນີ
+ຕີຣາມີຊູ
+ສະລັດອິຕາລີ

@@ -1,0 +1,21 @@
+---
+description: Social platform. FACEBOOK IS THE INTERNET IN LAOS for a very large share of users, and WhatsApp is not — the messaging app in daily use is WhatsApp's Southeast Asian rivals plus Facebook Messenger, with LINE and WeChat carried in from Thailand and China.
+locale: lo
+---
+Facebook
+Facebook Messenger
+TikTok
+YouTube
+WhatsApp
+LINE
+WeChat
+Instagram
+Telegram
+Viber
+Zalo
+X
+LinkedIn
+Pinterest
+Snapchat
+Discord
+Reddit

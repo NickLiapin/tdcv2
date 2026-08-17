@@ -1,0 +1,11 @@
+---
+description: Lao driving licence category.
+locale: lo
+---
+ປະເພດ A
+ປະເພດ B
+ປະເພດ C
+ປະເພດ D
+ປະເພດ E
+ປະເພດ F
+ໃບຂັບຂີ່ສາກົນ

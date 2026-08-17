@@ -1,0 +1,13 @@
+---
+description: Part of the day, as Lao divides it. ຕອນສວາຍ (late morning, roughly 09:00 to 11:00) has no single English word and is an ordinary Lao time reference.
+locale: lo
+---
+ຕອນເຊົ້າມືດ
+ຕອນເຊົ້າ
+ຕອນສວາຍ
+ຕອນທ່ຽງ
+ຕອນບ່າຍ
+ຕອນແລງ
+ຕອນຄ່ຳ
+ຕອນກາງຄືນ
+ຕອນເດິກ

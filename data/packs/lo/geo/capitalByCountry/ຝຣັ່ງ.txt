@@ -1,0 +1,5 @@
+---
+description: Capital of ຝຣັ່ງ, as Lao names it
+locale: lo
+---
+ປາຣີ

@@ -1,0 +1,22 @@
+---
+description: The qualification that lands in a suffix column for a Lao name — because LAO HAS NO NAME SUFFIX. There is no Lao Jr, Sr, II or III, and the reason is structural rather than stylistic: surnames only became compulsory in 1943, a Lao son is not named after his father, and a Lao person is called by the given name anyway, so there is nothing to number. A config that appends 'Jr.' to a Lao name is filling in a Western form, not naming a Lao person. Lao also has no post-nominal letters: every qualification below is written BEFORE the name in ordinary Lao (ປອ ສອນໄຊ, not ສອນໄຊ ປອ), and this file exists so a suffix column can be filled with something real instead of something invented.
+locale: lo
+---
+ປອ
+ດຣ
+ສາດສະດາຈານ
+ຮອງສາດສະດາຈານ
+ປະລິນຍາເອກ
+ປະລິນຍາໂທ
+ປະລິນຍາຕີ
+ວິສະວະກອນ
+ສະຖາປະນິກ
+ທະນາຍຄວາມ
+ແພດ
+ແພດປົວແຂ້ວ
+ເພສັດຊະກອນ
+ພະຍາບານ
+ນັກບັນຊີ
+ນັກເສດຖະສາດ
+ຄູ
+ອາຈານ

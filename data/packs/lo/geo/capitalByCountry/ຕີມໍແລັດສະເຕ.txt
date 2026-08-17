@@ -1,0 +1,5 @@
+---
+description: Capital of ຕີມໍແລັດສະເຕ, as Lao names it
+locale: lo
+---
+ດິລີ

@@ -1,0 +1,12 @@
+---
+description: Dish of ອິນເດຍ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ແກງກະລີ
+ນານ
+ຕັນດູຣີ
+ຊາມາຊາລາ
+ຂ້າວບຣິຢານີ
+ຊາປາຕີ
+ດານ
+ຊະໂມຊາ

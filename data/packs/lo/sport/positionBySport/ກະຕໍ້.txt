@@ -1,0 +1,9 @@
+---
+description: Playing position in ກະຕໍ້
+locale: lo
+---
+ຕົວເສີບ
+ຕົວຕີ
+ຕົວຊົງ
+ຕົວຮັບ
+ຕົວສຳຮອງ

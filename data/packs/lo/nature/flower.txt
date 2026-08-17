@@ -1,0 +1,30 @@
+---
+description: Flower. ດອກຈຳປາ, the frangipani, is the national flower of Laos and is planted at every temple; it is the flower a Lao person names first and the one worn at a ບາສີ ceremony. ດອກ 'flower' prefixes the name and is part of it.
+locale: lo
+---
+ດອກຈຳປາ
+ດອກບົວ
+ດອກຄູນ
+ດອກກຸຫຼາບ
+ດອກມະລິ
+ດອກລິນລີ້
+ດອກກ້ວຍໄມ້
+ດອກເຂັມ
+ດອກຫງອນໄກ່
+ດອກທານຕະເວັນ
+ດອກດາວເຮືອງ
+ດອກບານບໍ່ຮູ້ໂຣຍ
+ດອກຕາເວັນ
+ດອກເຟື່ອງຟ້າ
+ດອກຊົງເງິນ
+ດອກຮັກ
+ດອກແຄ
+ດອກງິ້ວ
+ດອກຈິກ
+ດອກລຳດວນ
+ດອກພະຍອມ
+ດອກຈຳປີ
+ດອກກາລະພຶກ
+ດອກຫຍ້າ
+ດອກໄມ້ປ່າ
+ດອກເອື້ອງ

@@ -1,0 +1,16 @@
+---
+description: Abbreviated month. Lao abbreviates by taking the first letter of each of the first two syllables and putting a full stop after each — ມັງກອນ becomes ມ.ກ. and ພຶດສະພາ becomes ພ.ພ. Note that two pairs collide on their initials in careless writing (ມີນາ / ມິຖຸນາ and ມີນາ / ເມສາ), which is why Lao text often keeps a whole syllable instead: ມິ.ຖ. rather than ມ.ຖ. The trailing full stop is part of the abbreviation and should not be stripped.
+locale: lo
+---
+ມ.ກ.
+ກ.ພ.
+ມ.ນ.
+ມ.ສ.
+ພ.ພ.
+ມິ.ຖ.
+ກ.ລ.
+ສ.ຫ.
+ກ.ຍ.
+ຕ.ລ.
+ພ.ຈ.
+ທ.ວ.

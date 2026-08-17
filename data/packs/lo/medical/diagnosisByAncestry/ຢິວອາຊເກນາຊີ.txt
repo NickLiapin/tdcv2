@@ -1,0 +1,11 @@
+---
+description: Condition with a raised prevalence in the ຢິວອາຊເກນາຊີ ancestry group.
+locale: lo
+---
+ພະຍາດເທ-ຊັກ
+ພະຍາດເກົາເຊີ
+ພະຍາດຄານາວານ
+ພັນທຸກຳ BRCA1
+ພັນທຸກຳ BRCA2
+ພະຍາດຄຣົນ
+ຂາດປັດໄຈ XI

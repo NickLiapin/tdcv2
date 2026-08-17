@@ -1,0 +1,12 @@
+---
+description: Monthly household income band in Lao kip (ກີບ, LAK), which is the currency a Lao payslip prints. The bands are set at Lao levels, not Western ones: the statutory minimum wage is of the order of 1.6 million kip a month, so the first two bands here are ordinary rather than destitute. TWO WARNINGS FOR ANYONE REUSING THIS. The kip has lost a large part of its value against the dollar in recent years, so a kip figure is only meaningful with a date attached — these bands describe the mid-2020s and will read wrong against a 2015 exchange rate. And Lao prices for land, cars and imported goods are often quoted in US dollars or Thai baht even though wages are paid in kip, so a single-currency income model will not reconcile against a Lao household's spending.
+locale: lo
+---
+ຕ່ຳກວ່າ 2 ລ້ານກີບ
+2–4 ລ້ານກີບ
+4–6 ລ້ານກີບ
+6–10 ລ້ານກີບ
+10–15 ລ້ານກີບ
+15–25 ລ້ານກີບ
+25–50 ລ້ານກີບ
+ຫຼາຍກວ່າ 50 ລ້ານກີບ

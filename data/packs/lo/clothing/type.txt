@@ -1,0 +1,33 @@
+---
+description: Garment. ສິ້ນ is the wrapped tube skirt worn by Lao women and it is not folk costume — it is required office, school and government dress, so a Lao woman's working wardrobe genuinely contains one per day. ຜ້າແພບ່ຽງ is the shoulder sash worn with it on formal occasions, ຜ້າສະໄບ its ceremonial form, and ໂສ້ງ the men's trousers. ຜ້າຂາວມ້າ, the checked cotton cloth, is towel, belt, sarong and headcloth depending on the hour.
+locale: lo
+---
+ສິ້ນ
+ຜ້າແພບ່ຽງ
+ຜ້າສະໄບ
+ຜ້າຊິ່ນມັດໝີ່
+ເສື້ອ
+ເສື້ອຍືດ
+ເສື້ອເຊີດ
+ເສື້ອກັນໜາວ
+ເສື້ອນອກ
+ເສື້ອຝົນ
+ໂສ້ງ
+ໂສ້ງຂາສັ້ນ
+ໂສ້ງຢີນ
+ກະໂປ່ງ
+ຊຸດ
+ຊຸດຊັ້ນໃນ
+ຜ້າຂາວມ້າ
+ຜ້າພັນຄໍ
+ໝວກ
+ເກີບ
+ເກີບແຕະ
+ເກີບໜັງ
+ເກີບກິລາ
+ເກີບບູດ
+ຖົງຕີນ
+ຖົງມື
+ເຂັມຂັດ
+ຜ້າຫົ່ມ
+ຊຸດນອນ

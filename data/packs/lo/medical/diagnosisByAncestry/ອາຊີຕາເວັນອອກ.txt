@@ -1,0 +1,11 @@
+---
+description: Condition with a raised prevalence in the ອາຊີຕາເວັນອອກ ancestry group.
+locale: lo
+---
+ຂາດແລັກເຕດ
+ໜ້າແດງເມື່ອດື່ມເຫຼົ້າ
+ຕັບອັກເສບບີ
+ມະເຮັງກະເພາະອາຫານ
+ມະເຮັງຫຼັງໂພງດັງ
+ສາຍຕາສັ້ນ
+ຂາດ G6PD

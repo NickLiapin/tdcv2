@@ -1,0 +1,5 @@
+---
+description: Capital of ກຳປູເຈຍ, as Lao names it
+locale: lo
+---
+ພະນົມເປນ

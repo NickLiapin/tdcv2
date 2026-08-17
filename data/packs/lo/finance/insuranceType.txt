@@ -1,0 +1,18 @@
+---
+description: Type of insurance. Take-up is low outside compulsory motor cover, and ປະກັນສັງຄົມ, the state social security scheme, is what most formally employed Lao people actually have.
+locale: lo
+---
+ປະກັນສັງຄົມ
+ປະກັນສຸຂະພາບ
+ປະກັນຊີວິດ
+ປະກັນອຸບັດຕິເຫດ
+ປະກັນລົດ
+ປະກັນລົດພາກບັງຄັບ
+ປະກັນເຮືອນ
+ປະກັນອັກຄີໄພ
+ປະກັນການເດີນທາງ
+ປະກັນສິນຄ້າ
+ປະກັນຄວາມຮັບຜິດຊອບ
+ປະກັນກະສິກຳ
+ປະກັນການສຶກສາ
+ປະກັນບຳນານ

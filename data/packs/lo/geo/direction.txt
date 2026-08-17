@@ -1,0 +1,16 @@
+---
+description: Compass direction as Lao names it — east and west are descriptions of the sun rather than single words, ຕາເວັນອອກ 'the sun comes out' and ຕາເວັນຕົກ 'the sun falls'.
+locale: lo
+---
+ເໜືອ
+ໃຕ້
+ຕາເວັນອອກ
+ຕາເວັນຕົກ
+ຕາເວັນອອກສ່ຽງເໜືອ
+ຕາເວັນຕົກສ່ຽງເໜືອ
+ຕາເວັນອອກສ່ຽງໃຕ້
+ຕາເວັນຕົກສ່ຽງໃຕ້
+ພາກເໜືອ
+ພາກກາງ
+ພາກໃຕ້
+ໃຈກາງ

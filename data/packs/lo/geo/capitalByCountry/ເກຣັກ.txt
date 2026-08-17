@@ -1,0 +1,5 @@
+---
+description: Capital of ເກຣັກ, as Lao names it
+locale: lo
+---
+ເອເທນ

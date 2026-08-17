@@ -1,0 +1,12 @@
+---
+description: Dish of ຝຣັ່ງ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ເຂົ້າຈີ່ປາເຕ້
+ປາເຕ້
+ຄຣົວຊອງ
+ບາແກັດ
+ຊຸບຫົວຜັກກາດ
+ສະເຕັກ
+ກາເຟດຳ
+ເຂົ້າໜົມແປ້ງ

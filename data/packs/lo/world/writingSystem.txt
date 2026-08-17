@@ -1,0 +1,25 @@
+---
+description: Writing system, as Lao names it. THE LAO SCRIPT IS THE SUBJECT OF THIS FILE'S WARNINGS AND THEY MATTER FOR EVERY FIELD IN THIS PACK. Lao occupies U+0E80–U+0EFF, IMMEDIATELY ABOVE THAI at U+0E00–U+0E7F; the two blocks are adjacent, the two scripts descend from the same Khmer-derived ancestor, and they look alike, so THAI CONTAMINATION IS THE CHARACTERISTIC FAILURE MODE of Lao data — a range check written as U+0E00–U+0EFF passes Thai text as Lao. Check for U+0E80–U+0EFF and nothing below it. THE CLEAREST REAL DIFFERENCE FROM THAI IS SPELLING, NOT SHAPE: Lao abolished the silent Sanskrit and Pali letters that Thai still writes, so Lao spelling is close to pronunciation while Thai preserves etymology — the same Indic loanword is written with letters you say in Lao and with letters you do not say in Thai. Lao also has letters Thai does not: ໜ (U+0EDC) and ໝ (U+0EDD) are single Lao characters for what Thai writes as two, and their presence in a string is positive evidence that it is Lao. TONE IS NOT IN THE TONE MARK. Lao has six tones and the tone of a syllable is computed from THREE things together — the class of the initial consonant (high, mid or low), the length of the vowel and whether the syllable is live or dead, and only then the tone mark ່ ້ ໊ ໋ if there is one. The same mark over two different consonants gives two different tones, so a mark cannot be read on its own and stripping marks to 'normalise' a string destroys meaning. LAO IS WRITTEN WITHOUT SPACES BETWEEN WORDS. A space in Lao marks a phrase or sentence boundary, not a word boundary, so splitting on whitespace does not give words, a word count computed that way is meaningless, and a line-break algorithm that only breaks at spaces will overflow. Word segmentation needs a dictionary. Three entries below are Lao's own: ອັກສອນລາວ the modern script, ອັກສອນລາວບູຮານ the older form, and ໜັງສືທັມມະ the Tham script used for Pali scripture in temples.
+locale: lo
+---
+ອັກສອນລາວ
+ອັກສອນລາວບູຮານ
+ໜັງສືທັມມະ
+ອັກສອນທໍາລ້ານນາ
+ອັກສອນໄທ
+ອັກສອນຂະເໝນ
+ອັກສອນລາຕິນ
+ອັກສອນຊີຣິລິກ
+ອັກສອນອາຣັບ
+ຕົວອັກສອນຈີນ
+ອັກສອນເທວະນາຄີ
+ອັກສອນເກົາຫຼີ
+ອັກສອນຍີ່ປຸ່ນ
+ໂຕໜັງສືເກຣັກ
+ອັກສອນຮີບຣູ
+ອັກສອນມຽນມາ
+ອັກສອນທິເບດ
+ອັກສອນທະມິນ
+ອັກສອນສິງຫົນ
+ອັກສອນມົ້ງ
+ອັກສອນເບຣວ

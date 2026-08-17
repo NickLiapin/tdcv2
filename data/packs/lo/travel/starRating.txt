@@ -1,0 +1,9 @@
+---
+description: Hotel star rating.
+locale: lo
+---
+1 ດາວ
+2 ດາວ
+3 ດາວ
+4 ດາວ
+5 ດາວ

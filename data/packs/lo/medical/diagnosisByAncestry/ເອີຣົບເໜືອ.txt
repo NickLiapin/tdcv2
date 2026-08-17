@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the ເອີຣົບເໜືອ ancestry group.
+locale: lo
+---
+ພະຍາດຊິດສະຕິກໄຟໂບຣຊິສ
+ພະຍາດເຫຼັກເກີນ
+ພະຍາດເຊລິອັກ
+ມະເຮັງຜິວໜັງເມລາໂນມາ
+ຂາດວິຕາມິນດີ
+ພະຍາດລຳໄສ້ອັກເສບ

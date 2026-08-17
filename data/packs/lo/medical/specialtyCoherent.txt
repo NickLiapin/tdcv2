@@ -1,0 +1,14 @@
+---
+description: Medical specialty (has a coherent diagnosis list). Lao names a specialty by the organ or disease it treats rather than with a Greek-derived word, so the value reads as 'heart disease' rather than 'cardiology'.
+locale: lo
+---
+ພະຍາດຫົວໃຈ
+ພະຍາດປະສາດ
+ມະເຮັງ
+ຜິວໜັງ
+ກະເພາະ ແລະ ລຳໄສ້
+ຕ່ອມໄຮ້ທໍ່
+ປອດ
+ກະດູກ
+ຈິດຕະເວດ
+ໝາກໄຂ່ຫຼັງ

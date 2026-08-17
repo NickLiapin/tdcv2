@@ -1,0 +1,32 @@
+---
+description: Tree. ຕົ້ນ 'trunk' heads a tree name the way ດອກ heads a flower and ໝາກ a fruit. ຕົ້ນໄມ້ຈັນ, agarwood, and ຕົ້ນສັກ, teak, are the two that made Lao forestry famous and both are now heavily restricted.
+locale: lo
+---
+ຕົ້ນສັກ
+ຕົ້ນຈຳປາ
+ຕົ້ນຕານ
+ຕົ້ນພ້າວ
+ຕົ້ນກ້ວຍ
+ຕົ້ນມ່ວງ
+ຕົ້ນຂາມ
+ຕົ້ນໄຜ່
+ຕົ້ນຢາງ
+ຕົ້ນປີບ
+ຕົ້ນຕີນເປັດ
+ຕົ້ນໂພ
+ຕົ້ນໄຮ
+ຕົ້ນຫວາຍ
+ຕົ້ນສະເດົາ
+ຕົ້ນຄູນ
+ຕົ້ນງິ້ວ
+ຕົ້ນແຄ
+ຕົ້ນຫູກວາງ
+ຕົ້ນສົນ
+ຕົ້ນມະຄ່າ
+ຕົ້ນປະດູ່
+ຕົ້ນຊາດ
+ຕົ້ນຢາງນາ
+ຕົ້ນໄມ້ຈັນ
+ຕົ້ນຫມາກນັດ
+ຕົ້ນໝາກມີ້
+ຕົ້ນຫມາກເດື່ອ

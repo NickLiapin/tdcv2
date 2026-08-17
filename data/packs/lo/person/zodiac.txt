@@ -1,0 +1,16 @@
+---
+description: Zodiac sign. THIS IS THE TWELVE-YEAR ANIMAL CYCLE, NOT THE WESTERN TWELVE-MONTH ONE. A Lao person's sign is fixed by the YEAR of birth, not the month, so it cannot be derived from a birth date's month and day the way a European star sign can — and two people born in the same month have different signs if they were born in different years. The cycle is shared with Thailand, Cambodia, China and Vietnam but the animals are not identical across them; the Lao list is the one below. Note also that the Lao new year (ປີໃໝ່ລາວ, mid-April) is when the sign turns over in traditional reckoning, so a January birth belongs to the previous animal.
+locale: lo
+---
+ຊວດ
+ສະຫຼູ
+ຂານ
+ເຖາະ
+ມະໂລງ
+ມະເສງ
+ມະເມຍ
+ມະແມ
+ວອກ
+ລະກາ
+ຈໍ
+ກຸນ

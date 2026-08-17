@@ -1,0 +1,12 @@
+---
+description: Dish of ຈີນ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ໝີ່ຕົ້ມ
+ຂົ້ວໝີ່
+ຕົ້ມຫຼໍ່
+ຕົ່ວຮູ້ຂົ້ວ
+ໝູຫວານ
+ຊາລາເປົາ
+ເປັດຢ່າງ
+ໝໍ້ໄຟ

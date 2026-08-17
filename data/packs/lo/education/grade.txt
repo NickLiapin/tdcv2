@@ -1,0 +1,17 @@
+---
+description: Grade or mark. Lao schools mark out of ten, so a mark is a number from 0 to 10 and 5 is the pass — a percentage or an A-to-F letter is not what a Lao report card prints.
+locale: lo
+---
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+ຜ່ານ
+ບໍ່ຜ່ານ

@@ -1,0 +1,8 @@
+---
+description: Season. LAOS IS TROPICAL AND HAS THREE SEASONS, NOT FOUR — and none of the three is spring or autumn. ລະດູຝົນ is the southwest monsoon, roughly May to October, and it is the season that governs rice planting, road conditions and river level; ລະດູໜາວ is the cool dry season from November to February, genuinely cold at night in the northern highlands; ລະດູຮ້ອນ is the hot dry season of March and April, which ends with the Lao new year. ລະດູແລ້ງ 'the dry season' is the everyday cover term for the two dry ones together and is given as a fourth value because Lao speakers use it constantly, not because there is a fourth season. A config that maps a Lao date onto European four-season logic will put a Lao April in spring, when in fact it is the hottest and driest fortnight of the year.
+locale: lo
+---
+ລະດູຝົນ
+ລະດູໜາວ
+ລະດູຮ້ອນ
+ລະດູແລ້ງ

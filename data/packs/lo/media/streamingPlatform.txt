@@ -1,0 +1,16 @@
+---
+description: Streaming service used in Laos. YouTube and Facebook are where most Lao video is actually watched; TikTok is enormous; the Western subscription services have thin Lao-language catalogues.
+locale: lo
+---
+YouTube
+Facebook
+TikTok
+Netflix
+Disney+
+Amazon Prime Video
+Viu
+WeTV
+iQIYI
+TrueID
+Spotify
+JOOX

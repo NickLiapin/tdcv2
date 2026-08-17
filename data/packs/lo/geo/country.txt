@@ -1,0 +1,38 @@
+---
+description: Country, as Lao names it, weighted by population in millions. THE NAMES ARE TRANSLATIONS, NOT TRANSLITERATIONS OF ENGLISH: Lao took most of them through French, which is why Germany is ເຢຍລະມັນ (Allemagne), the Netherlands is ໂຮນລັງ (Hollande), Spain is ແອັດສະປາຍ (Espagne) and Greece is ເກຣັກ (Grèce) — a pack that respelled the English forms would get every one of those wrong. In running Lao the name is normally preceded by ປະເທດ 'country of' (ປະເທດຝຣັ່ງ); the bare form is given here because that is what fills a country field. THIS LIST IS DELIBERATELY SHORTER THAN THE WORLD: it holds only the countries for which a Lao capital name and a Lao currency name could both be verified, because geo/capitalByCountry and geo/currencyByCountry are keyed on it and a key with no verified child would be a silent empty draw. See location/country.txt for the full 160-country list of Lao country names, and geo/currencyByCountry for exactly which currencies had to be left out and why.
+locale: lo
+weighted: true
+---
+ຈີນ,1410
+ອິນເດຍ,1440
+ສະຫະລັດອາເມຣິກາ,340
+ອິນໂດເນເຊຍ,280
+ຍີ່ປຸ່ນ,124
+ຟີລິບປິນ,115
+ເອຢິບ,110
+ຫວຽດນາມ,100
+ເຢຍລະມັນ,84
+ໄທ,72
+ຝຣັ່ງ,68
+ສະຫະລາຊະອານາຈັກ,68
+ອິຕາລີ,59
+ແອັດສະປາຍ,48
+ອາກຊັງຕິນ,46
+ມາເລເຊຍ,34
+ເນປານ,30
+ຊີເລ,20
+ໂຮນລັງ,18
+ກຳປູເຈຍ,17
+ກູບາ,11
+ປອກຕຸຍການ,10
+ເກຣັກ,10
+ລາວ,8
+ສິງກະໂປ,6
+ແຟງລັງ,6
+ອຽກລັງ,5
+ສະໂລວາກີ,5
+ກຣົວຊີ,4
+ສະໂລເວນີ,2
+ຕີມໍແລັດສະເຕ,1
+ແອັດສະໂຕນີ,1
+ບູໄນ,1

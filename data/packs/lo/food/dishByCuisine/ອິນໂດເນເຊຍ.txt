@@ -1,0 +1,10 @@
+---
+description: Dish of ອິນໂດເນເຊຍ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ນາຊິໂກເຣັງ
+ຊາເຕອາຢຳ
+ກາໂດກາໂດ
+ໝີ່ໂກເຣັງ
+ເຣັນດັງ
+ບັກໂຊ

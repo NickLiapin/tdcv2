@@ -1,0 +1,13 @@
+---
+description: Clothing size. Laos reads the international letter sizes, which arrive on Thai and Chinese imports and run one step small against European labelling.
+locale: lo
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+ຟຣີໄຊ້

@@ -1,0 +1,20 @@
+---
+description: Cat. A LAO CAT USUALLY HAS NO BREED. The ordinary cat of a Lao house is ແມວບ້ານ, the village cat, and the pedigree names below arrived recently and only in Vientiane and the larger towns — so a dataset that gives every Lao cat a breed is describing a pet market that barely exists. The first entries are the descriptive Lao terms an owner would actually use; the rest are the international breeds written in Lao.
+locale: lo
+---
+ແມວບ້ານ
+ແມວດ່າງ
+ແມວດຳ
+ແມວຂາວ
+ແມວສາມສີ
+ແມວຂົນສັ້ນ
+ແມວຂົນຍາວ
+ແມວສະຫຍາມ
+ແມວເປີເຊຍ
+ແມວເມນຄູນ
+ແມວແບັງກອນ
+ແມວແຣັກດອນ
+ແມວສະຟິງ
+ແມວອັງກິດຂົນສັ້ນ
+ແມວຣັດເຊຍສີຟ້າ
+ແມວສະກັອດຕິດ

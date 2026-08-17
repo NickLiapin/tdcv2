@@ -1,0 +1,16 @@
+---
+description: Month name. Lao uses the Gregorian months with Pali-derived names and normally writes ເດືອນ 'month' in front of them in running prose (ເດືອນມັງກອນ), but a date line prints the bare name — 12 ມັງກອນ 2026 — so the bare form is what is given here. THE YEAR BESIDE IT IS NOT ALWAYS GREGORIAN: Laos also counts in the Buddhist era (ພ.ສ., Gregorian + 543), which appears on temple notices, some official documents and most calendars sold in the country, so a Lao date can carry a year 543 higher than the one a config expects. The traditional Lao lunar months are a separate twelve-name system used for festivals and are not these.
+locale: lo
+---
+ມັງກອນ
+ກຸມພາ
+ມີນາ
+ເມສາ
+ພຶດສະພາ
+ມິຖຸນາ
+ກໍລະກົດ
+ສິງຫາ
+ກັນຍາ
+ຕຸລາ
+ພະຈິກ
+ທັນວາ

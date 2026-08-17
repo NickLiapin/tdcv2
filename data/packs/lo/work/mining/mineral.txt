@@ -1,0 +1,23 @@
+---
+description: Mineral extracted in Laos. Copper and gold at Sepon and Phu Bia are the country's largest mines and the largest single export earners; potash and bauxite are the newer ones. ບໍ່ແຮ່ 'mine' is a normal Lao word because mining is a normal Lao industry.
+locale: lo
+---
+ຄຳ
+ທອງແດງ
+ເງິນ
+ດີບຸກ
+ສັງກະສີ
+ຕະກົ່ວ
+ເຫຼັກ
+ບົກໄຊ
+ໂປຕັດ
+ເກືອ
+ຖ່ານຫີນ
+ຫີນປູນ
+ຫີນແກຣນິດ
+ຢິບຊຳ
+ແອນຕີໂມນ
+ທັງສະເຕນ
+ໄພລິນ
+ຫີນແກ້ວ
+ດິນຂາວ

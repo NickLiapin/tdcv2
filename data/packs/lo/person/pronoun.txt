@@ -1,0 +1,16 @@
+---
+description: Lao personal pronoun. THE THIRD PERSON IS NOT GENDERED: ລາວ covers he, she and singular they in one word, and there is no Lao pronoun that means 'he' as opposed to 'she'. A config that picks a pronoun set from a gender column is modelling a distinction the language does not make. What Lao chooses instead is RESPECT: ຂ້ອຍ is the everyday 'I' and ຂ້າພະເຈົ້າ the formal one; ເຈົ້າ is 'you' to an equal and ທ່ານ 'you' to a superior or a stranger; ເພິ່ນ is the respectful third person for an elder or an official, ລາວ the neutral one, ມັນ the blunt one that is rude of a person. Choosing the wrong level is the mistake a Lao reader notices, not choosing the wrong gender.
+locale: lo
+---
+ຂ້ອຍ
+ຂ້າພະເຈົ້າ
+ຂ້ານ້ອຍ
+ເຈົ້າ
+ທ່ານ
+ລາວ
+ເພິ່ນ
+ມັນ
+ພວກເຮົາ
+ເຮົາ
+ພວກເຈົ້າ
+ເຂົາເຈົ້າ

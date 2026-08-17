@@ -1,0 +1,19 @@
+---
+description: Cuisine (has a coherent dish list). ອາຫານຝຣັ່ງ is in this list for a reason a European reader may not expect: French food is not exotic in Laos. Sixty years of French administration left the baguette (ເຂົ້າຈີ່), pâté, coffee and the pastry shop as ordinary Lao town food, and ເຂົ້າຈີ່ປາເຕ້ is sold from a street cart, not from a French restaurant.
+locale: lo
+---
+ລາວ
+ໄທ
+ຫວຽດນາມ
+ຈີນ
+ຝຣັ່ງ
+ຍີ່ປຸ່ນ
+ເກົາຫຼີ
+ອິນເດຍ
+ອິຕາລີ
+ອາເມຣິກາ
+ເມັກຊິກ
+ກຳປູເຈຍ
+ມາເລເຊຍ
+ອາຣັບ
+ອິນໂດເນເຊຍ

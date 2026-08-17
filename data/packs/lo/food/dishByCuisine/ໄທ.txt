@@ -1,0 +1,12 @@
+---
+description: Dish of ໄທ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ຜັດໄທ
+ຕົ້ມຢຳກຸ້ງ
+ແກງຂຽວຫວານ
+ຜັດກະເພົາ
+ຂ້າວຜັດ
+ສົ້ມຕຳ
+ແກງມັດສະໝັ່ນ
+ເຂົ້າໜຽວໝາກມ່ວງ

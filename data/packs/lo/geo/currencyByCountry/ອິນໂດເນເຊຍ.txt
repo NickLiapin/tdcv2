@@ -1,0 +1,5 @@
+---
+description: Currency of ອິນໂດເນເຊຍ, as Lao names it. Lao builds a foreign currency name as <currency word> + <country name> with no space — ບາທໄທ, ດົງຫວຽດນາມ, ໂດລາສະຫະລັດ, ເປໂຊຈີເລ — and only its own currency, ກີບ, stands alone. Countries whose currency head-word has no established Lao spelling (the won, the kyat, the taka, the rouble, the krona, the real) were left out of geo/ altogether rather than have one guessed for them.
+locale: lo
+---
+ຣູປີອິນໂດເນເຊຍ

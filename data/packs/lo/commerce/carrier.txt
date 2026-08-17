@@ -1,0 +1,19 @@
+---
+description: Delivery carrier used in Laos. ລົດເມສາຍ — sending a parcel with the inter-provincial bus and having the recipient collect it at the station — is a normal and very common Lao delivery method with no Western equivalent.
+locale: lo
+---
+ໄປສະນີລາວ
+ລົດເມສາຍ
+ບໍລິສັດຂົນສົ່ງເອກະຊົນ
+ສົ່ງດ່ວນ
+ສົ່ງພາຍໃນມື້
+ສົ່ງພາຍໃນນະຄອນຫຼວງ
+ສົ່ງລະຫວ່າງແຂວງ
+ສົ່ງຂ້າມຊາຍແດນ
+ຂົນສົ່ງທາງອາກາດ
+ຂົນສົ່ງທາງລົດໄຟ
+ຂົນສົ່ງທາງນ້ຳ
+ຂົນສົ່ງທາງບົກ
+ຮັບເອງທີ່ຮ້ານ
+ຄົນສົ່ງເຄື່ອງ
+ບໍລິການສົ່ງອາຫານ

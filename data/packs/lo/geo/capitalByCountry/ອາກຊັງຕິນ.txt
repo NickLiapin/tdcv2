@@ -1,0 +1,5 @@
+---
+description: Capital of ອາກຊັງຕິນ, as Lao names it
+locale: lo
+---
+ບູໂນສ ແອຣີສ

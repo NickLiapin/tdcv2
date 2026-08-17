@@ -1,0 +1,16 @@
+---
+description: Horse. LAOS IS NOT A HORSE COUNTRY and this is the shortest list in the pack for that reason. The buffalo, not the horse, is the Lao draught animal; horses appear mainly as small hill ponies in the north, and a Lao speaker has no everyday breed vocabulary at all. Rather than transliterate a page of European studbook names that no Lao document contains, this file gives the descriptive terms Lao actually uses.
+locale: lo
+---
+ມ້າພື້ນເມືອງ
+ມ້າພູດອຍ
+ມ້າແຂ່ງ
+ມ້າບັນທຸກ
+ມ້າໜຸ່ມ
+ມ້າແກ່
+ມ້າຂາວ
+ມ້າດຳ
+ມ້າແດງ
+ມ້າດ່າງ
+ມ້ານ້ອຍ
+ມ້າໃຫຍ່

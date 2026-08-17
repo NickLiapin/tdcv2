@@ -1,0 +1,5 @@
+---
+description: Capital of ອິນເດຍ, as Lao names it
+locale: lo
+---
+ນິວເດລີ

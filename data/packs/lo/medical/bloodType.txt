@@ -1,0 +1,12 @@
+---
+description: Blood group. Group O is the commonest in Laos and group B is markedly commoner than in Europe, so a European frequency table applied to Lao patients will be wrong.
+locale: lo
+---
+O+
+O-
+A+
+A-
+B+
+B-
+AB+
+AB-

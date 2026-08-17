@@ -1,0 +1,22 @@
+---
+description: Employment benefit. ປະກັນສັງຄົມ, the Lao social security fund, and ເບ້ຍລ້ຽງ, the daily allowance paid for travel and field work, are the two that appear on almost every Lao contract.
+locale: lo
+---
+ປະກັນສັງຄົມ
+ປະກັນສຸຂະພາບ
+ເບ້ຍລ້ຽງ
+ຄ່າເດີນທາງ
+ຄ່າອາຫານ
+ຄ່າທີ່ພັກ
+ຄ່າໂທລະສັບ
+ໂບນັດປະຈຳປີ
+ເງິນອຸດໜູນ
+ພັກປະຈຳປີ
+ພັກເກີດລູກ
+ຝຶກອົບຮົມ
+ທຶນການສຶກສາ
+ລົດຮັບສົ່ງ
+ເຄື່ອງແບບ
+ກອງທຶນບຳນານ
+ຫ້ອງອອກກຳລັງກາຍ
+ເຮັດວຽກແບບຢືດຢຸ່ນ

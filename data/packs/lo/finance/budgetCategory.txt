@@ -1,0 +1,26 @@
+---
+description: Household budget category, at Lao household shape: food and fuel for a motorcycle dominate, and remittances sent home to a village are a normal recurring line.
+locale: lo
+---
+ອາຫານ
+ເຂົ້າສານ
+ຄ່າເຊົ່າເຮືອນ
+ຄ່າໄຟຟ້າ
+ຄ່ານ້ຳປະປາ
+ຄ່ານ້ຳມັນ
+ຄ່າໂດຍສານ
+ຄ່າໂທລະສັບ
+ຄ່າອິນເຕີເນັດ
+ຄ່າຮຽນ
+ຄ່າຮັກສາສຸຂະພາບ
+ຄ່າຢາ
+ເຄື່ອງນຸ່ງ
+ເຄື່ອງໃຊ້ໃນເຮືອນ
+ສ້ອມແປງເຮືອນ
+ສ້ອມແປງລົດ
+ເງິນສົ່ງໃຫ້ຄອບຄົວ
+ບຸນ ແລະ ງານປະເພນີ
+ທຳບຸນ
+ບັນເທີງ
+ເງິນຝາກປະຢັດ
+ຊຳລະໜີ້

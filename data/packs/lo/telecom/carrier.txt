@@ -1,0 +1,16 @@
+---
+description: Mobile network. LAOS HAS FOUR OPERATORS and they are named here because Lao has one country, so the words mean these companies: Lao Telecom, Unitel, ETL and Beeline (Star Telecom). NO NUMBER FORMAT, PREFIX OR DIALLING CODE IS GIVEN — that is country data and belongs in a Laos country pack, which does not yet exist.
+locale: lo
+---
+ລາວໂທລະຄົມ
+ຢູນິເທວ
+ອີທີແອວ
+ບີໄລນ໌
+Lao Telecom
+Unitel
+ETL
+Beeline
+ອິນເຕີເນັດບ້ານ
+ອິນເຕີເນັດໄຟເບີ
+ດາວທຽມ
+ໂຣມມິງຕ່າງປະເທດ

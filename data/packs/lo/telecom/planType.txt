@@ -1,0 +1,16 @@
+---
+description: Mobile plan. Prepaid is overwhelmingly the norm: a Lao user buys ບັດເຕີມເງິນ scratch cards or tops up from a phone, and a monthly contract is unusual outside businesses.
+locale: lo
+---
+ເຕີມເງິນ
+ລາຍເດືອນ
+ບັດເຕີມເງິນ
+ແພັກເກັດອິນເຕີເນັດ
+ແພັກເກັດລາຍວັນ
+ແພັກເກັດລາຍອາທິດ
+ແພັກເກັດລາຍເດືອນ
+ໂທບໍ່ຈຳກັດ
+ອິນເຕີເນັດບໍ່ຈຳກັດ
+ແພັກເກັດຄອບຄົວ
+ແພັກເກັດນັກຮຽນ
+ໂຣມມິງ

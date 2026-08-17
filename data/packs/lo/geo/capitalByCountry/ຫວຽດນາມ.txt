@@ -1,0 +1,5 @@
+---
+description: Capital of ຫວຽດນາມ, as Lao names it
+locale: lo
+---
+ຮ່າໂນ້ຍ

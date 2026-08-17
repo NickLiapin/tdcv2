@@ -1,0 +1,5 @@
+---
+description: Capital of ແອັດສະໂຕນີ, as Lao names it
+locale: lo
+---
+ຕາລິນ

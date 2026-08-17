@@ -1,0 +1,8 @@
+---
+description: Gender label as a Lao form prints it. Lao nouns and pronouns carry no grammatical gender at all, so nothing in the surrounding sentence has to agree with this value.
+locale: lo
+---
+ຊາຍ
+ຍິງ
+ອື່ນໆ
+ບໍ່ລະບຸ

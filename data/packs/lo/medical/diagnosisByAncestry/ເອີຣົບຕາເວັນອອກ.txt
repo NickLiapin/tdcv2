@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the ເອີຣົບຕາເວັນອອກ ancestry group.
+locale: lo
+---
+ພະຍາດເຊລິອັກ
+ພະຍາດຫົວໃຈ
+ຕັບແຂງຈາກເຫຼົ້າ
+ພະຍາດເລືອດຈາງ
+ພະຍາດຕ່ອມໄທລອຍ
+ມະເຮັງກະເພາະອາຫານ

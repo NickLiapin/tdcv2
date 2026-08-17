@@ -1,0 +1,11 @@
+---
+description: Day of the week. Lao names the days for the seven classical planets, exactly as Thai, Khmer, Burmese and Sanskrit do, and ວັນ 'day' is part of the name rather than a separable prefix. THE WEEK STARTS ON SUNDAY in Lao reckoning, which is the order given here. The day of the week carries a colour in Lao custom — each day has one, and dressing in the day's colour is still ordinary — so a weekday value is not culturally inert the way a European one is.
+locale: lo
+---
+ວັນອາທິດ
+ວັນຈັນ
+ວັນອັງຄານ
+ວັນພຸດ
+ວັນພະຫັດ
+ວັນສຸກ
+ວັນເສົາ

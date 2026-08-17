@@ -1,0 +1,5 @@
+---
+description: Capital of ອິຕາລີ, as Lao names it
+locale: lo
+---
+ໂຣມ

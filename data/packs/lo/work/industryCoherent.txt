@@ -1,0 +1,14 @@
+---
+description: Industry (has a coherent job list). ກະສິກຳ IS FIRST BECAUSE IT IS FIRST: agriculture is the livelihood of well over half of all working Lao people, and a synthetic Lao workforce drawn evenly across these ten industries describes a country that does not exist. Two more Lao facts worth encoding: hydropower and mining sit inside ອຸດສາຫະກຳ and are the export economy, and ຂົນສົ່ງ has been reshaped by the Laos-China railway since 2021.
+locale: lo
+---
+ກະສິກຳ
+ການສຶກສາ
+ສາທາລະນະສຸກ
+ກໍ່ສ້າງ
+ການຄ້າ
+ໂຮງແຮມ ແລະ ຮ້ານອາຫານ
+ຂົນສົ່ງ
+ການເງິນ
+ເຕັກໂນໂລຊີ
+ອຸດສາຫະກຳ

@@ -1,0 +1,5 @@
+---
+description: Capital of ບູໄນ, as Lao names it
+locale: lo
+---
+ບັນດາເຊີລີເບີກາວັນ

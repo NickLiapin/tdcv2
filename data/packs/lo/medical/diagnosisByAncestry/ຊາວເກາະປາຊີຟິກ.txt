@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the ຊາວເກາະປາຊີຟິກ ancestry group.
+locale: lo
+---
+ເບົາຫວານຊະນິດທີ 2
+ໂຣກອ້ວນ
+ຄວາມດັນເລືອດສູງ
+ພະຍາດເກົາ
+ໝາກໄຂ່ຫຼັງວາຍຊຳເຮື້ອ
+ພະຍາດຫົວໃຈຮູມາຕິກ

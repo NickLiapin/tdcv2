@@ -1,0 +1,5 @@
+---
+description: Capital of ຟີລິບປິນ, as Lao names it
+locale: lo
+---
+ມະນິລາ

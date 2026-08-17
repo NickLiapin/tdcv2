@@ -1,0 +1,36 @@
+---
+description: Unit of measure. LAOS IS METRIC, but three Lao market units matter. ກີໂລ is what a market actually quotes; ຂີດ is a hundred grams and is how small quantities of meat and chilli are bought; ຈອກ, ບ່ວງ and ຖ້ວຍ are the cooking measures. ຕິບ, the sticky-rice basket, is a real unit of cooked rice.
+locale: lo
+---
+ກີໂລ
+ກຼາມ
+ຂີດ
+ໂຕນ
+ລິດ
+ມິນລີລິດ
+ແມັດ
+ຊັງຕີແມັດ
+ມິນລີແມັດ
+ກິໂລແມັດ
+ຕາແມັດ
+ເຮັກຕາ
+ລູກບາດແມັດ
+ອັນ
+ໜ່ວຍ
+ໂຕ
+ຄົນ
+ຄູ່
+ຊຸດ
+ກັບ
+ຫໍ່
+ຖົງ
+ກ່ອງ
+ແກັດ
+ຂວດ
+ກະປ໋ອງ
+ຈອກ
+ບ່ວງ
+ຖ້ວຍ
+ຕິບ
+ມັດ
+ພວງ

@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Lao patients fall in ອາຊີຕາເວັນອອກສ່ຽງໃຕ້, and within Laos the highland Hmong, Khmu and Katang populations differ from the lowland Lao in ways this twelve-group scheme is far too coarse to capture.
+locale: lo
+---
+ອາຟຣິກາຕອນໃຕ້ຊາຮາຣາ
+ອາຟຣິກາເໜືອ
+ເມດິເຕີເຣນຽນ
+ຕາເວັນອອກກາງ
+ເອີຣົບເໜືອ
+ເອີຣົບຕາເວັນອອກ
+ຢິວອາຊເກນາຊີ
+ອາຊີໃຕ້
+ອາຊີຕາເວັນອອກ
+ອາຊີຕາເວັນອອກສ່ຽງໃຕ້
+ຊົນເຜົ່າພື້ນເມືອງອາເມຣິກາ
+ຊາວເກາະປາຊີຟິກ

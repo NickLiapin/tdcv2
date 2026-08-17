@@ -1,0 +1,24 @@
+---
+description: Dog. THE ORDINARY LAO DOG IS ໝາບ້ານ, the village dog — not a breed, not owned in the European sense, and by far the commonest dog in the country. Pedigree dogs are a recent urban thing, so the breed names here are loanwords written in Lao and should not be distributed evenly over a Lao population.
+locale: lo
+---
+ໝາບ້ານ
+ໝາລ່າສັດ
+ໝາເຝົ້າບ້ານ
+ໝານ້ອຍ
+ໝາໃຫຍ່
+ໝາຫຼັງອານ
+ໝາລາບຣາດໍ
+ໝາໂກເດັນຣີທຣີບເວີ
+ໝາເຢຍລະມັນເຊບເປີດ
+ໝາປູດເດິນ
+ໝາຊິວາວາ
+ໝາປັກກິ່ງ
+ໝາຊິສຸ
+ໝາປອມເມີເຣນຽນ
+ໝາຮັດສະກີ
+ໝາບຸນດອກ
+ໝາຣົດໄວເລີ
+ໝາດັກຊຸນ
+ໝາບີເກິນ
+ໝາຄໍລີ

@@ -1,0 +1,10 @@
+---
+description: Dish of ກຳປູເຈຍ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ອາໝົກ
+ຊຸບຂະແມ
+ໝີ່ຂະແມ
+ປາຢ່າງຂະແມ
+ສະລັດຂະແມ
+ນ້ຳຢາຂະແມ

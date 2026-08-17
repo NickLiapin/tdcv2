@@ -1,0 +1,12 @@
+---
+description: Sport (has a coherent position list). TWO OF THESE ARE THE LAO ONES. ກະຕໍ້, sepak takraw, is played with a rattan ball and the feet, is a Southeast Asian Games medal sport and is played in every Lao village. ປີຕັງ, pétanque, is not a French curiosity here: it came with the colonial administration, it is played on gravel courts across the country, and Laos has produced world champions at it — a fact that surprises everyone outside Southeast Asia and nobody inside it.
+locale: lo
+---
+ບານເຕະ
+ກະຕໍ້
+ບານສົ່ງ
+ບານບ້ວງ
+ແບັດມິນຕັນ
+ປີຕັງ
+ມວຍລາວ
+ກີລາກາຍະກຳ

@@ -1,0 +1,15 @@
+---
+description: Shoe size on the EUROPEAN scale, which is what a Lao shoebox prints — usually beside a Chinese number, because most footwear reaches Laos through Chinese and Thai supply chains. US sizes appear only on imported Western brands. The range given is the range actually stocked: Lao adult feet run small and a shop that carries 45 is unusual.
+locale: lo
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45

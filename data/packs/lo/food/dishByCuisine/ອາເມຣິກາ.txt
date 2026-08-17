@@ -1,0 +1,12 @@
+---
+description: Dish of ອາເມຣິກາ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ແຮມເບີເກີ
+ຮັອດດອກ
+ມັນຝຣັ່ງທອດ
+ໄກ່ທອດ
+ສະເຕັກ
+ພິດຊາອາເມຣິກາ
+ແພນເຄກ
+ສະລັດ

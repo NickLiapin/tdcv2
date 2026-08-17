@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the ຕາເວັນອອກກາງ ancestry group.
+locale: lo
+---
+ທາລັດຊີເມຍ
+ໄຂ້ເມດິເຕີເຣນຽນ
+ເບົາຫວານຊະນິດທີ 2
+ພະຍາດຈາກການແຕ່ງງານໃນເຄືອຍາດ
+ຂາດເອນໄຊມ G6PD
+ໂຣກອ້ວນ

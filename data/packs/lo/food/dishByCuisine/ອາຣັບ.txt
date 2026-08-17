@@ -1,0 +1,11 @@
+---
+description: Dish of ອາຣັບ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ຮຳມູສ
+ຟາລາເຟນ
+ຄີບັບ
+ຊາວາມາ
+ຂ້າວໝົກ
+ເຂົ້າຈີ່ພິຕາ
+ຕັບບູເລ

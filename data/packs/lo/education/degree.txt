@@ -1,0 +1,20 @@
+---
+description: Academic qualification. ຊັ້ນກາງ and ຊັ້ນສູງ are the Lao vocational diplomas that sit between school and a bachelor's degree and are far commoner than a university degree.
+locale: lo
+---
+ປະຖົມສຶກສາ
+ມັດທະຍົມຕົ້ນ
+ມັດທະຍົມປາຍ
+ຊັ້ນຕົ້ນ
+ຊັ້ນກາງ
+ຊັ້ນສູງ
+ອະນຸປະລິນຍາ
+ປະລິນຍາຕີ
+ປະລິນຍາໂທ
+ປະລິນຍາເອກ
+ໃບຢັ້ງຢືນວິຊາຊີບ
+ໃບຢັ້ງຢືນການຝຶກອົບຮົມ
+ປະກາສະນີຍະບັດ
+ນັກສຶກສາຫຼັງປະລິນຍາເອກ
+ບໍ່ໄດ້ຮຽນ
+ຮຽນບໍ່ຈົບ

@@ -1,0 +1,14 @@
+---
+description: Fuel type. ນ້ຳມັນແອັດຊັງ is petrol and ນ້ຳມັນກາຊວນ diesel; electric vehicles are arriving fast in Vientiane on Chinese imports, which is why ໄຟຟ້າ is not an afterthought.
+locale: lo
+---
+ນ້ຳມັນແອັດຊັງ
+ນ້ຳມັນກາຊວນ
+ໄຟຟ້າ
+ໄຮບຣິດ
+ອາຍແກັສ
+ນ້ຳມັນເບັນຊິນ 91
+ນ້ຳມັນເບັນຊິນ 95
+ໄບໂອດີເຊວ
+ແກັສ LPG
+ພະລັງງານແສງອາທິດ

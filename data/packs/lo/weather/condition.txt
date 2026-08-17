@@ -1,0 +1,20 @@
+---
+description: Weather. THE LAO WEATHER YEAR IS TWO STATES, NOT FOUR SEASONS: rain from May to October and dry from November to April (see date/season.txt). ໝອກຄວັນ, the smoke haze of March and April, is not fog — it is agricultural burning, it closes airports and it is the single most reported Lao weather condition of the hot season, so a weather model built on European categories has no cell for it.
+locale: lo
+---
+ແດດອອກ
+ຟ້າແຈ້ງ
+ຟ້າຄຶ້ມ
+ມີເມກບາງສ່ວນ
+ຝົນຕົກ
+ຝົນຕົກໜັກ
+ຝົນຕົກເລັກນ້ອຍ
+ຝົນຟ້າຄະນອງ
+ອາກາດຮ້ອນ
+ອາກາດເຢັນ
+ອາກາດໜາວ
+ລົມແຮງ
+ໝອກລົງ
+ໝອກຄວັນ
+ອົບເອົ້າ
+ອາກາດແຫ້ງ

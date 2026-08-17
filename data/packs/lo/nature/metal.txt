@@ -1,0 +1,26 @@
+---
+description: Metal. ຄຳ (gold) and ເງິນ (silver) double as the everyday words for money and for the colours gold and silver, which is why they also appear in color/name.
+locale: lo
+---
+ຄຳ
+ເງິນ
+ທອງ
+ທອງແດງ
+ທອງເຫຼືອງ
+ເຫຼັກ
+ເຫຼັກກ້າ
+ອາລູມິນຽມ
+ສັງກະສີ
+ຕະກົ່ວ
+ດີບຸກ
+ນິກເກນ
+ໂຄຣມ
+ທັງສະເຕນ
+ຕິຕານຽມ
+ບົວຊິ້ງ
+ປອດຕິນຳ
+ປະລອດ
+ແມງການີສ
+ໂຄບານ
+ລິດທຽມ
+ຢູເຣນຽມ

@@ -1,0 +1,10 @@
+---
+description: Credit standing. FORMAL CREDIT SCORING BARELY EXISTS IN LAOS: most households borrow from family, from a village savings group or from a microfinance institution, and the Bank of the Lao PDR credit information system covers only formal bank borrowers. These bands describe a bank's internal grading, not a consumer score a Lao person could look up.
+locale: lo
+---
+ດີເລີດ
+ດີ
+ປານກາງ
+ຕ້ອງລະວັງ
+ມີໜີ້ຄ້າງ
+ບໍ່ມີປະຫວັດສິນເຊື່ອ

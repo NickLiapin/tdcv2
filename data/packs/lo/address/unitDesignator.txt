@@ -1,0 +1,20 @@
+---
+description: Interior or sub-address designator. ບ້ານເລກທີ is the house number and ໜ່ວຍ the numbered cluster a Lao village is divided into — that pair, not a street and a number, is how a Lao address usually pins down a dwelling.
+locale: lo
+---
+ບ້ານເລກທີ
+ໜ່ວຍ
+ຫ້ອງ
+ຫ້ອງເລກທີ
+ຊັ້ນ
+ຕຶກ
+ຫຼັງ
+ຫ້ອງການ
+ຫ້ອງນອນ
+ຮ້ານ
+ຊອຍ
+ປະຕູ
+ຝ່າຍ
+ກົມ
+ພະແນກ
+ຕູ້ໄປສະນີ

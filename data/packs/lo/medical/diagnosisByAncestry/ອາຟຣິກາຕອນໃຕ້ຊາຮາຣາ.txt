@@ -1,0 +1,14 @@
+---
+description: Condition with a raised prevalence in the ອາຟຣິກາຕອນໃຕ້ຊາຮາຣາ ancestry group. This list is a prevalence signal, not an exclusive one: a condition named here occurs in every population, and its presence in a patient says nothing about that patient's ancestry.
+locale: lo
+---
+ພະຍາດເມັດເລືອດແດງຮູບເຄິ້ຍວ
+ຂາດເອນໄຊມ G6PD
+ຄວາມດັນເລືອດສູງ
+ເບົາຫວານຊະນິດທີ 2
+ໝາກໄຂ່ຫຼັງວາຍຊຳເຮື້ອ
+ມະເຮັງຕ່ອມລູກໝາກ
+ຂາດແລັກເຕດ
+ພະຍາດຊາຣ໌ໂຄຍໂດຊິສ
+ໄຂ້ມາລາເລຍ
+ຕັບອັກເສບບີ

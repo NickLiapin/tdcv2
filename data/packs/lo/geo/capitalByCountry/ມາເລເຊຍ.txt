@@ -1,0 +1,5 @@
+---
+description: Capital of ມາເລເຊຍ, as Lao names it
+locale: lo
+---
+ກົວລະລຸມປູ

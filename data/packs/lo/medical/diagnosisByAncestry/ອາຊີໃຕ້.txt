@@ -1,0 +1,11 @@
+---
+description: Condition with a raised prevalence in the ອາຊີໃຕ້ ancestry group.
+locale: lo
+---
+ເບົາຫວານຊະນິດທີ 2
+ພະຍາດຫົວໃຈ
+ທາລັດຊີເມຍ
+ຂາດແລັກເຕດ
+ຂາດວິຕາມິນດີ
+ວັນນະໂລກ
+ພະຍາດເລືອດຈາງ

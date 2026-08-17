@@ -1,0 +1,19 @@
+---
+description: Payment method. LAOS IS A QR-CODE COUNTRY: bank QR transfer from a phone is the ordinary way to pay for anything from a market stall to a hotel, and it overtook cash in the towns years ago. Card acceptance is thin outside hotels, and Thai baht and US dollars are accepted in cash near the border and in tourist areas.
+locale: lo
+---
+ເງິນສົດ
+ໂອນຜ່ານ QR
+ໂອນຜ່ານທະນາຄານ
+ແອັບທະນາຄານ
+ບັດເອທີເອັມ
+ບັດເດບິດ
+ບັດເຄຣດິດ
+ຈ່າຍປາຍທາງ
+ຜ່ອນຊຳລະ
+ເງິນກີບ
+ເງິນບາດ
+ເງິນໂດລາ
+ບັດຂອງຂວັນ
+ຄູປອງ
+ໃບບິນ

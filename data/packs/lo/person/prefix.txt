@@ -1,0 +1,24 @@
+---
+description: Lao honorific, written BEFORE the whole name and followed by the GIVEN name, not the surname — ທ່ານ ສອນໄຊ, not ທ່ານ ສີພັນດອນ. Lao has no capital letters, so the title is the only visual marker a name carries. ທ່ານ is the formal Mr and is also used of women in official prose; ທ່ານນາງ is the formal Madam; ນາງ is the everyday Mrs/Miss and ທ້າວ its male counterpart for a young man, both of which head a name in a school register or a court record. ສະຫາຍ, 'comrade', is live Party usage and not a historical curiosity. ປອ (ປະລິນຍາເອກ) and ດຣ are both written for a doctorate, ສຈ and ຮສ for professor and associate professor, and all of them precede the name. ພະນະທ່ານ is His/Her Excellency for a minister or ambassador. ພະ and ສາທຸ address a Buddhist monk; ເຈົ້າ is the royal prefix and belongs to the pre-1975 monarchy, so it dates any name it heads.
+locale: lo
+---
+ທ່ານ
+ທ່ານນາງ
+ນາງ
+ທ້າວ
+ນາງສາວ
+ສະຫາຍ
+ດຣ
+ປອ
+ສຈ
+ຮສ
+ສາດສະດາຈານ
+ຮອງສາດສະດາຈານ
+ອາຈານ
+ຄູ
+ໝໍ
+ພະນະທ່ານ
+ພັນ
+ພະ
+ສາທຸ
+ເຈົ້າ

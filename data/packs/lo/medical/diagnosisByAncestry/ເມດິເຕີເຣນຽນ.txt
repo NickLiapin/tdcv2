@@ -1,0 +1,10 @@
+---
+description: Condition with a raised prevalence in the ເມດິເຕີເຣນຽນ ancestry group.
+locale: lo
+---
+ທາລັດຊີເມຍເບຕ້າ
+ໄຂ້ເມດິເຕີເຣນຽນ
+ຂາດເອນໄຊມ G6PD
+ພະຍາດວິນສັນ
+ຂາດແລັກເຕດ
+ພະຍາດເລືອດຈາງ

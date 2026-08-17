@@ -1,0 +1,11 @@
+---
+description: Dish of ເກົາຫຼີ cuisine as it is named and eaten in Laos
+locale: lo
+---
+ກິມຈິ
+ບີບິມບັບ
+ບຸນໂກກິ
+ໝູຢ່າງເກົາຫຼີ
+ຕົກປອກກີ
+ຣາມຽນເກົາຫຼີ
+ຊຸບເຕົ້າຮູ້

@@ -1,0 +1,29 @@
+---
+description: Lao thoroughfare word. IT GOES BEFORE THE NAME, not after — ຖະໜົນລ້ານຊ້າງ, never ລ້ານຊ້າງຖະໜົນ — and since Lao writes without spaces it is normally written joined to the name with no space at all. THE MORE IMPORTANT POINT IS THAT A LAO ADDRESS IS NOT BUILT ON A STREET. The unit that identifies a place in Laos is the village: ບ້ານ (village) inside ເມືອງ (district) inside ແຂວງ (province), and a great many real Lao addresses name no street whatsoever, because outside the town centres the lanes have no names. ບ້ານ is therefore in this list, and it is not a street type — it is the actual head of a normal Lao address. Note the two spellings of 'road': ຖະໜົນ with the single Lao letter ໜ and ຖະຫນົນ with the two-letter sequence are the same word, and both are in live use, which is a real normalisation problem for anyone matching Lao address strings.
+locale: lo
+---
+ຖະໜົນ
+ຖະຫນົນ
+ຊອຍ
+ຮ່ອມ
+ທາງ
+ທາງຫຼວງ
+ທາງດ່ວນ
+ວົງວຽນ
+ສີ່ແຍກ
+ສາມແຍກ
+ບ້ານ
+ໜ່ວຍ
+ຕະຫຼາດ
+ສວນ
+ເດີ່ນ
+ທ່າ
+ຂົວ
+ຝັ່ງ
+ດົງ
+ໂພນ
+ດອນ
+ນາ
+ຫ້ວຍ
+ໜອງ
+ຫາດ

@@ -1,0 +1,20 @@
+---
+description: Weather event. ນ້ຳຖ້ວມ, flooding of the Mekong and its tributaries, is the recurring one; ພະຍຸ here means the tail of a South China Sea typhoon, which is how tropical storms reach landlocked Laos.
+locale: lo
+---
+ຝົນ
+ຟ້າຮ້ອງ
+ຟ້າຜ່າ
+ພະຍຸ
+ພະຍຸຝົນ
+ລົມພັດແຮງ
+ນ້ຳຖ້ວມ
+ດິນເຈື່ອນ
+ໄພແຫ້ງແລ້ງ
+ໝອກ
+ໝອກຄວັນ
+ນ້ຳຄ້າງ
+ໝາກເຫັບ
+ຮຸ້ງກິນນ້ຳ
+ຄື້ນຄວາມຮ້ອນ
+ອາກາດປ່ຽນແປງ

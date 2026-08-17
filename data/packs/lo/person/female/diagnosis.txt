@@ -1,0 +1,31 @@
+---
+description: Diagnosis recorded for a female patient, in Lao. Sex-specific conditions plus obstetric ones. Anaemia is placed high deliberately: it is very common among Lao women of childbearing age and is a routine entry on a Lao antenatal record rather than an exotic finding.
+locale: lo
+---
+ມະເຮັງເຕົ້ານົມ
+ມະເຮັງປາກມົດລູກ
+ມະເຮັງມົດລູກ
+ມະເຮັງຮັງໄຂ່
+ຊີດເລືອດຈາງ
+ຮັງໄຂ່ມີຖົງນ້ຳຫຼາຍໜ່ວຍ
+ເນື້ອງອກມົດລູກ
+ເຍື່ອບຸມົດລູກຢູ່ຜິດບ່ອນ
+ປະຈຳເດືອນມາຜິດປົກກະຕິ
+ປວດປະຈຳເດືອນ
+ໝົດປະຈຳເດືອນ
+ກະດູກພຸນ
+ຊ່ອງຄອດອັກເສບ
+ຕິດເຊື້ອລາໃນຊ່ອງຄອດ
+ຕິດເຊື້ອທາງເດີນປັດສະວະ
+ເປັນໝັນຝ່າຍຍິງ
+ຖືພານອກມົດລູກ
+ແທ້ງລູກ
+ຄວາມດັນເລືອດສູງຕອນຖືພາ
+ເບົາຫວານຕອນຖືພາ
+ຊຶມເສົ້າຫຼັງເກີດລູກ
+ເຕົ້ານົມອັກເສບ
+ມົດລູກຢ້ອຍ
+ປັດສະວະເລັດ
+ຕ່ອມໄທລອຍອັກເສບ
+ໂລກລູປັດ
+ຂໍ້ອັກເສບຮູມາຕອຍ

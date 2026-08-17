@@ -1,0 +1,13 @@
+---
+description: Marital status as a Lao form prints it.
+locale: lo
+---
+ໂສດ
+ແຕ່ງງານແລ້ວ
+ຢູ່ກິນນຳກັນ
+ໝັ້ນໝາຍແລ້ວ
+ແຍກກັນຢູ່
+ຢ່າຮ້າງ
+ໝ້າຍ
+ແຕ່ງງານໃໝ່
+ບໍ່ລະບຸ

@@ -1,0 +1,20 @@
+---
+description: Seniority level. A Lao organisation names the deputy explicitly: ຮອງ- prefixes the title of the number two at every level, so ຮອງຫົວໜ້າ and ຮອງຜູ້ອຳນວຍການ are formal ranks rather than informal descriptions.
+locale: lo
+---
+ຝຶກງານ
+ພະນັກງານໃໝ່
+ພະນັກງານ
+ພະນັກງານອາວຸໂສ
+ຫົວໜ້າໜ່ວຍງານ
+ຮອງຫົວໜ້າພະແນກ
+ຫົວໜ້າພະແນກ
+ຮອງຫົວໜ້າກົມ
+ຫົວໜ້າກົມ
+ຮອງຜູ້ອຳນວຍການ
+ຜູ້ອຳນວຍການ
+ຮອງປະທານ
+ປະທານ
+ຮອງລັດຖະມົນຕີ
+ລັດຖະມົນຕີ
+ທີ່ປຶກສາ
