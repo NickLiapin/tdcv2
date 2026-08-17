@@ -1,6 +1,6 @@
 ---
 address: estonia.finance.bank
-description: Credit institutions licensed in Estonia and branches of foreign banks operating there, by their legal names as the Financial Supervision Authority (Finantsinspektsioon) lists them
+description: Every credit institution licensed in Estonia and every branch of a foreign credit institution operating there, by the legal name Finantsinspektsioon lists it under — eight Estonian banks and five branches, thirteen names for the whole country. That smallness is the fact: Swedbank and SEB between them hold most of the retail market, the top four hold nearly all of it, and a synthetic Estonian dataset that spreads accounts evenly over thirteen banks looks nothing like the real thing. Three of the thirteen are recent arrivals built around consumer lending rather than current accounts — Inbank, Holm Bank and Bigbank — so a "bank" here does not always mean a bank you can hold a salary account at. Eesti Pank is deliberately ABSENT: it is the central bank, not a credit institution, and holds no customer accounts, although it does have a bank identifier (16) and a BIC (EPBEEE2X) and so appears in estonia.finance.bankCode and estonia.finance.bic. Note the branch names: a branch of a foreign bank carries its parent's name plus "Eesti filiaal" and is licensed in its home country, not here, so Nordea Bank Abp Eesti filiaal is supervised from Finland and Citadele's from Latvia — which matters for anything that resolves a bank to a jurisdiction.
 locale: et
 ---
 Swedbank AS
@@ -14,5 +14,5 @@ Holm Bank AS
 AS Citadele banka Eesti filiaal
 Nordea Bank Abp Eesti filiaal
 OP Corporate Bank plc Eesti filiaal
-TF Bank AB Eesti filiaal
+TF Bank AB (publ.) Eesti filiaal
 Finora Bank UAB Eesti filiaal

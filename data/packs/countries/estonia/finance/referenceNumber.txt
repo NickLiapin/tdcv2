@@ -1,0 +1,20 @@
+---
+address: estonia.finance.referenceNumber
+description: An Estonian payment reference number (viitenumber) — the digits that go in a payment's reference field so the payee's accounting system can match the money to the invoice without reading the free-text description. Estonia standardised this early and universally: the Banking Association's standard allows 2 to 20 digits, of which the payee composes 1 to 19 and the last is a check digit under the same 7-3-1 method as the account number (weights 7, 3, 1 repeating from the RIGHT, the sum taken up to the next multiple of ten). Nine digits is generated here. This is the field a foreign system most often gets wrong about Estonia, because in most countries the reference is free text and here it is a checksummed number that the bank's own form will REJECT before the payment leaves: type an invoice number into it and the transfer does not go through. It also travels: in a SEPA credit transfer the viitenumber goes in the structured creditor reference, not in the remittance information, and the two are separate fields that can both be present. The Banking Association's own worked example is 12131295 with weights 3,7,1,3,7,1,3,7, a weighted sum of 98, the next multiple of ten 100, and so a check digit of 2 — giving 121312952, which is the arithmetic this file implements. See estonia.finance.accountNumber and estonia.finance.iban, which carry the same check.
+generator: tdc
+locale: et
+---
+<sequence name="base"><gen type="regex" value="[1-9][0-9]{7}"/></sequence>
+<sequence name="check"><compute>
+  <!-- 8 digits before the check, so 7,3,1 from the right reads 3,7,1,3,7,1,3,7
+       from the left — the exact weight row of the published 12131295 example. -->
+  <let name="sum"><reduce>
+    <over><field name="base"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="3,7,1,3,7,1,3,7"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <result><mod><subtract><int v="10"/><mod><use name="sum"/><int v="10"/></mod></subtract><int v="10"/></mod></result>
+</compute></sequence>
+<data>${{base}}${{check}}</data>

@@ -1,6 +1,6 @@
 ---
 address: estonia.sport.team
-description: Estonian football clubs — the Meistriliiga (branded A. Le Coq Premium liiga) top flight first, then Esiliiga clubs. Estonia's top division is small: ten clubs, most of them from Tallinn.
+description: Estonian football clubs — the ten of the Meistriliiga, played under the sponsor name A. Le Coq Premium liiga, then Esiliiga clubs below them. Ten is the entire top flight, which is small enough that the season is a quadruple round robin: every club plays every other four times, 36 matches each, where a 20-club league plays 38 in twice the fixtures. Six of the ten are from Tallinn or its immediate ring, and the two that matter are both from Tallinn — FC Flora and FCI Levadia have won nearly every title between them since independence. Note the word order in the names, because it is not the English one and not consistent: some clubs put the town first (Tallinna FC Flora, Tartu JK Tammeka), some put it last (FC Kuressaare, Paide Linnameeskond), and the initials JK (jalgpalliklubi) and FC are used interchangeably by different clubs of the same kind. Football is not Estonia's strongest sport and the clubs are small; basketball, skiing and wrestling carry more of the country's sporting history, and BC Kalev/Cramo would outdraw most of this list. The season runs March to November, on the summer calendar the Nordic and Baltic leagues use, so an Estonian league table is at its halfway point when an English one is finishing.
 locale: et
 ---
 Tallinna FC Flora

@@ -1,0 +1,14 @@
+---
+address: estonia.government.court
+description: Every court in Estonia. NINE is the whole list, and that is the fact worth knowing before modelling an Estonian case file: one Riigikohus, two ringkonnakohtud (courts of appeal) and, at first instance, four maakohtud hearing civil, criminal and misdemeanour matters plus two halduskohtud hearing administrative ones. There is no separate supreme administrative court and no constitutional court — the Riigikohus is all three at once, sitting in a constitutional review chamber when it has to, which is why Estonian constitutional judgments carry ordinary Riigikohus case numbers. The first-instance split is by SUBJECT, not by amount or seriousness: a dispute with the state goes to a halduskohus and a dispute with a neighbour to a maakohus, and choosing wrong costs a case its filing. The four maakohtud are named for regions that do not match the counties — Viru Maakohus covers Ida-Viru and Lääne-Viru together, Harju Maakohus covers Tallinn and much more — so a court name is not a county name. Tallinna Ringkonnakohus hears appeals from Harju and Pärnu maakohus and Tallinna halduskohus; Tartu Ringkonnakohus from Tartu and Viru maakohus and Tartu halduskohus. Two ladders sit outside this list: the töövaidluskomisjonid, labour dispute committees that hear most employment claims first, and the notaries and bailiffs who carry work that in other countries is a court's.
+locale: et
+---
+Riigikohus
+Tallinna Ringkonnakohus
+Tartu Ringkonnakohus
+Harju Maakohus
+Viru Maakohus
+Tartu Maakohus
+Pärnu Maakohus
+Tallinna Halduskohus
+Tartu Halduskohus

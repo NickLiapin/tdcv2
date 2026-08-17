@@ -1,0 +1,22 @@
+---
+address: estonia.finance.bankCode
+description: Every two-digit bank identifier (pangatunnus) in use in Estonia, as published by the Estonian Banking Association. Two digits is the whole of it — Estonia has no sort code, no branch number and no clearing number, because the identifier is not a separate field at all: it sits in IBAN positions 5-6 AND opens the domestic account number, so the same two digits appear twice in every Estonian IBAN. That is why an Estonian payment form has no "bank" box worth filling in, and why a dataset that carries a bank code column alongside an IBAN is carrying the same fact twice. Since 10 January 2017 the codes are issued by Finantsinspektsioon, the financial supervisor, rather than by the Banking Association. The list is SHORT — eleven banks and six payment institutions for the whole country — and it is not dense: 17 and 96 both belong to Luminor, the sediment of the Nordea and DNB merger that created it, and 16 belongs to Eesti Pank, the central bank, which holds no retail customers. Codes 00 (AS TBB pank) and 02 (Ühisarveldused AS) are real despite the leading zero. estonia.finance.iban draws only the ten codes a customer account can actually sit behind. Order: banks first, then payment institutions, each in the Banking Association's order.
+---
+42
+16
+10
+22
+96
+17
+12
+83
+00
+51
+77
+75
+62
+88
+02
+15
+11
+55

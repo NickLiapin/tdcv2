@@ -1,0 +1,19 @@
+---
+address: estonia.geo.countyCode
+description: The ISO 3166-2 subdivision codes of the 15 Estonian counties, in the same order as estonia.geo.county so the two lists line up row for row. The numbers look arbitrary and are not: they are the old EHAK statistical codes for the counties, which were allocated in alphabetical order with gaps left between them, so they climb 37, 39, 44, 49, 51, 57, 59, 65, 67, 71, 74, 78, 82, 84, 86 rather than 01..15. That gapped ordering is why sorting Estonian county codes numerically gives the Estonian alphabetical order for free — Põlva at 65 before Pärnu at 67, because õ sorts before ä — and why a system that renumbers them 1..15 for tidiness silently breaks every join against Statistics Estonia. Written in full an ISO code carries the country prefix: EE-37 is Harju. The codes survived the 2017 reform untouched even though eleven county boundaries moved and every county government was abolished, so a code is stable across the reform while the area it names may not be.
+---
+EE-37
+EE-39
+EE-44
+EE-49
+EE-51
+EE-57
+EE-59
+EE-65
+EE-67
+EE-71
+EE-74
+EE-78
+EE-82
+EE-84
+EE-86

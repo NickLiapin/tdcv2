@@ -1,0 +1,25 @@
+---
+address: estonia.geo.island
+description: The named islands of Estonia, largest first by area. Estonia counts 2 355 islands, and the tail is almost all of them: Saaremaa and Hiiumaa together are more than nine tenths of the island area, and below Ruhnu at 11 km² everything is a skerry with a handful of houses or none. Islands are not a decorative fact about Estonian geography, they are an administrative one — six of the country's 78 municipalities are islands entire (Hiiumaa vald, Saaremaa vald, Muhu vald, Vormsi vald, Kihnu vald, Ruhnu vald), Ruhnu is the smallest local government in Estonia with 88 residents and its own council, and Kihnu and Ruhnu each keep a distinct dialect and, on Kihnu, a living tradition that UNESCO lists. Saaremaa and Muhu are joined by a causeway; every other inhabited island is reached by ferry or a small aircraft, which is why an Estonian logistics dataset that treats them as ordinary destinations produces impossible delivery times. Väike-Pakri and Suur-Pakri were emptied of their Swedish-speaking population in 1940 and used as a Soviet bombing range until 1991; they are still largely uninhabited, so a population-weighted draw would drop them and an area-ordered list keeps them.
+locale: et
+---
+Saaremaa
+Hiiumaa
+Muhu
+Vormsi
+Kassari
+Naissaar
+Kihnu
+Väike-Pakri
+Suur-Pakri
+Ruhnu
+Abruka
+Vilsandi
+Piirissaar
+Prangli
+Osmussaar
+Vohilaid
+Aegna
+Hobulaid
+Pedassaar
+Mohni

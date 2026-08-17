@@ -1,0 +1,21 @@
+---
+address: estonia.finance.amount
+description: A sum of money written the way Estonia writes it — groups of three separated by a NO-BREAK SPACE, a COMMA for the decimal point, and the euro sign AFTER the figure with another no-break space before it: 1 234 567,89 €. That is the et-EE currency pattern in CLDR, and it disagrees with the English 1,234,567.89 on every count, which is how euro amounts from Estonia get silently corrupted: a comma read as a thousands separator turns 1 234,56 into 123456, a factor of a hundred, and both readings are valid numbers so nothing downstream complains. THE SEPARATORS HERE ARE U+00A0, NOT ORDINARY SPACES — invisible in an editor, and the reason a naive split on " " gives the wrong field count. Note that the sign goes after the number, which is the opposite of the €1,234.56 an English-language system produces, and that Estonia keeps two decimals in full: unlike Finland next door it has never rounded cash totals, so the one-cent and two-cent coins are still in circulation and a till receipt shows the exact figure. Nothing here is a number the engine can do arithmetic on: it is the PRINTED form. For a value to compute with, generate a plain number and format it at the point of output. The magnitude is spread across five decades rather than drawn uniformly, because a uniform draw over a seven-digit range puts nearly every value in the millions and an Estonian price list is mostly two, three and four figures.
+generator: tdc
+locale: et
+---
+<sequence name="raw"><gen type="number" value="1..9999999"/></sequence>
+<sequence name="shift"><gen type="number" value="0..4"/></sequence>
+<sequence name="sent"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="amount"><compute>
+  <!-- Spread the magnitude: divide the 7-digit draw by 1, 10, 100, 1000 or 10000. -->
+  <let name="scale"><at>
+    <in><list v="1,10,100,1000,10000"/></in>
+    <index><to_number><field name="shift"/></to_number></index>
+  </at></let>
+  <let name="whole"><divide><to_number><field name="raw"/></to_number><use name="scale"/></divide></let>
+  <!-- CLDR et-EE: group separator U+00A0, decimal comma, pattern "#,##0.00 ¤". -->
+  <let name="grouped"><group size="3" sep=" "><use name="whole"/></group></let>
+  <result><concat><use name="grouped"/><str v=","/><field name="sent"/><str v=" €"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

@@ -1,0 +1,7 @@
+---
+address: estonia.phoneNational
+description: An Estonian mobile number written the way Estonians write it — four digits, a space, four digits: 5123 4567. There is no leading zero and no area code to put in front, because the plan is closed and flat, so the national form differs from the international one by exactly the missing +372 and one space. That makes Estonia one of the few countries where converting between national and international form is a pure string operation with no digit to add or drop, and it is why an Estonian number stored without its +372 is unambiguous in a way a British or German one is not. The grouping is not the same for every length: a seven-digit number, mobile or fixed, is written 3+4 (555 1234, 601 2345) and only the eight-digit mobile takes 4+4. This file emits the eight-digit mobile form, which is what a person types today; use estonia.phone when the value has to be machine-dialable.
+generator: tdc
+locale: et
+---
+<gen type="regex" value="5[0-9]{3} [0-9]{4}"/>

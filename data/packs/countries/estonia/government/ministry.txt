@@ -1,0 +1,16 @@
+---
+address: estonia.government.ministry
+description: The eleven ministries of the Estonian state. The count and the names both moved recently, so a list here dates itself: Keskkonnaministeerium became Kliimaministeerium and Maaeluministeerium became Regionaal- ja Põllumajandusministeerium in 2023, and Justiitsministeerium became Justiits- ja Digiministeerium on 1 January 2025 — three of the eleven renamed inside two years, and all three old names still appear in records, contracts and case files written before those dates. Note also that the number of MINISTERS is not the number of ministries: Estonia routinely appoints several ministers to one ministry with separate portfolios, so Majandus- ja Kommunikatsiooniministeerium can hold a minister for economy and industry, one for energy and environment and one for infrastructure at the same time, and a dataset keyed on "minister" will find more of them than there are buildings. The ministries set policy; the work is done by the agencies in estonia.government.agency, each with its own registry code and budget line, which is why an Estonian record naming a counterparty in government almost always names an agency rather than a ministry. Riigikantselei, the State Chancellery, serves the government as a whole and is not a ministry.
+locale: et
+---
+Haridus- ja Teadusministeerium
+Justiits- ja Digiministeerium
+Kaitseministeerium
+Kliimaministeerium
+Kultuuriministeerium
+Majandus- ja Kommunikatsiooniministeerium
+Rahandusministeerium
+Regionaal- ja Põllumajandusministeerium
+Siseministeerium
+Sotsiaalministeerium
+Välisministeerium

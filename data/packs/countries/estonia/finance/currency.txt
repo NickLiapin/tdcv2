@@ -1,0 +1,7 @@
+---
+address: estonia.finance.currency
+description: The two Estonian money units. Estonia adopted the euro on 1 January 2011, the seventeenth member of the euro area and the first of the ex-Soviet states, replacing the kroon at a fixed 15.6466 EEK to the euro — a rate that had been held since 1999 and, before that, pegged to the Deutsche Mark at 8 EEK since the kroon's reintroduction in June 1992. The subdivision is the sent, plural senti, which is the Estonian spelling of "cent" and NOT a legacy unit: it is the euro cent, one hundredth of a euro. This is the trap in old Estonian data — the kroon was also divided into 100 senti, so a "sent" in a record from 2009 is worth about a fifteenth of a "sent" in a record from 2011, the field name is identical in both, and nothing in the row says which. Amounts before 2011 need converting, not relabelling. The kroon itself is gone as legal tender but Eesti Pank exchanges kroon banknotes and coins for euro with NO time limit, which is unusual — most euro-area countries set a deadline. See estonia.finance.amount for how a figure is written.
+locale: et
+---
+euro
+sent

@@ -1,6 +1,6 @@
 ---
 address: estonia.geo.municipality
-description: The 79 local-government units of Estonia (omavalitsusüksused) — 15 towns (linn) and 64 rural municipalities (vald) — as they stand after the 2017 administrative reform, which merged 213 units down to 79. A pre-2017 list is the single most common way an Estonian address dataset goes wrong: names such as Keila vald, Kuressaare linn, Vändra vald and Saue linn no longer exist as units. Names carrying "linn" or "vald" are official; Tallinn is written without a suffix. Rakvere, Tartu, Viljandi and Võru appear twice on purpose — the town and the surrounding rural municipality are separate units with the same name.
+description: The 78 local-government units of Estonia (omavalitsusüksused) — 15 towns (linn) and 63 rural municipalities (vald) — as they stand after the 2017 administrative reform, which merged 213 units down to 79, and after the single merger since: Toila vald joined Jõhvi vald on 28 November 2025, on the announcement of the local election results, taking the count from 79 to 78. So a list of 213 is pre-2017, a list of 79 is 2017 to 2025, and 78 is current — and TOILA VALD is the name that a dataset built any time in the last eight years still carries and that no longer exists. A pre-2017 list is the more common failure: names such as Keila vald, Kuressaare linn, Vändra vald and Saue linn were all abolished then. Names carrying "linn" or "vald" are official and part of the name; Tallinn is written without a suffix because the word is already in it. Rakvere, Tartu, Viljandi and Võru appear twice on purpose — the town and the surrounding rural municipality are separate units that share a name, which is why a join on municipality name alone returns two rows for four of Estonia's best-known places. This is NOT the same list as estonia.geo.city: 32 of the 47 Estonian towns are not municipalities at all.
 locale: et
 ---
 Alutaguse vald
@@ -68,7 +68,6 @@ Tallinn
 Tapa vald
 Tartu linn
 Tartu vald
-Toila vald
 Tori vald
 Tõrva vald
 Türi vald

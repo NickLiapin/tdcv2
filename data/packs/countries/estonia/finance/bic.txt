@@ -1,0 +1,18 @@
+---
+address: estonia.finance.bic
+description: The 8-character BIC (SWIFT) codes of the banks and payment institutions operating in Estonia, as published by the Estonian Banking Association — eleven banks, then the three payment institutions that hold a BIC. Characters 5-6 are the country code EE in every one of them; the last two are the location code, and the split between the ...EE2X and ...EE22 endings is historical rather than meaningful. EPBEEE2X is Eesti Pank, the central bank, which has no retail customers. Three of these codes spell a name the bank no longer uses: HABAEE2X is Swedbank and still carries HAnsaBAnk, which it was until 2008; EEUHEE2X is SEB and carries Eesti ÜHispank; EKRDEE22 is Coop Pank and carries Eesti KRediiDipank. So reading an Estonian BIC as an abbreviation of the bank's current name gets three of the eleven wrong, and they are three of the largest. An 8-character BIC addresses the head office; systems that insist on 11 characters pad it with XXX, so HABAEE2X and HABAEE2XXXX are the same bank. Maaelu Edendamise Hoiu-laenuühistu, inHouse Pay AS and Crowdestate AS hold a bank identifier (see estonia.finance.bankCode) but no BIC, which is why this list is shorter than that one.
+---
+EKRDEE22
+EPBEEE2X
+EEUHEE2X
+HABAEE2X
+RIKOEE22
+PARXEE22
+HANDEE22
+TABUEE22
+OKOYEE2X
+LHVBEE22
+BIGKEE2B
+WALLEE22
+UHISEE21
+MOMNEE22

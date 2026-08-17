@@ -1,0 +1,7 @@
+---
+address: estonia.phoneLandline
+description: An Estonian fixed-line number in E.164 form — +372 and SEVEN digits, one fewer than a modern mobile. The allocated geographic blocks are 32-39, 43-48, 60-68, 71-79 and 88, which is what the pattern below encodes. These leading digits are HISTORICALLY geographic — 6 is Tallinn, 7 Tartu, 44 Jõhvi and the north-east, 47 Narva, 45 Pärnu, 33 Kohtla-Järve — but they are NOT an area code and never were in the current plan: since the flat plan came in on 1 February 2003 you dial all seven digits from anywhere in the country, number portability applies, and a line can keep its number when it moves, so the leading pair is a hint about where a number was first sold and not a location. Estonia switched off its last analogue exchanges long ago and fixed lines are now a small and shrinking minority of numbers, mostly business and institutional, which is why a generated Estonian phone column should be mostly estonia.phone and only occasionally this. Written in two groups by convention, 601 2345, which is a different grouping from the mobile 5123 4567.
+generator: tdc
+locale: et
+---
+<gen type="regex" value="\+372(3[2-9]|4[3-8]|6[0-8]|7[1-9]|88)[0-9]{5}"/>

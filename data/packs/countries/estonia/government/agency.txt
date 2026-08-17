@@ -1,0 +1,37 @@
+---
+address: estonia.government.agency
+description: Agencies, boards, inspectorates and public-law bodies of the Estonian state. Estonian government is AGENCY-shaped: ministries are small and set policy, while collecting tax, issuing identity documents, licensing drivers, inspecting food and paying pensions is each done by a separate amet with its own registry code, its own budget line and often its own act of parliament — so an Estonian record naming "the state" as a counterparty is nearly always naming one of these. Four are worth knowing before reading any Estonian dataset: Maksu- ja Tolliamet runs tax AND customs and is the counterparty on every KMKR number; Politsei- ja Piirivalveamet issues the ID card, the passport and the residence permit, and so stands behind the isikukood on every document; Registrite ja Infosüsteemide Keskus runs the e-Business Register and issues the registrikood; and Statistikaamet publishes the classifications (EHAK for municipalities, the county codes) that the geography files in this pack are built from. THE NAMES MOVE, and recently: Eesti Haigekassa became Tervisekassa on 1 April 2023, Maa-amet became Maa- ja Ruumiamet in 2025, Keeleinspektsioon became Keeleamet in 2020, and Veterinaar- ja Toiduamet merged with Põllumajandusamet into Põllumajandus- ja Toiduamet in 2021 — four names that are wrong in any record older than the change and right in every record before it. Eesti Pank is the central bank and a constitutional institution, not a government agency, but sits here because datasets treat it as one. Names in normal Estonian case, not the register's uppercase.
+locale: et
+---
+Maksu- ja Tolliamet
+Politsei- ja Piirivalveamet
+Päästeamet
+Kaitsepolitseiamet
+Välisluureamet
+Kaitsevägi
+Transpordiamet
+Terviseamet
+Tervisekassa
+Sotsiaalkindlustusamet
+Eesti Töötukassa
+Ravimiamet
+Keskkonnaamet
+Keskkonnaagentuur
+Põllumajandus- ja Toiduamet
+Maa- ja Ruumiamet
+Statistikaamet
+Konkurentsiamet
+Andmekaitse Inspektsioon
+Tarbijakaitse ja Tehnilise Järelevalve Amet
+Tööinspektsioon
+Finantsinspektsioon
+Riigi Infosüsteemi Amet
+Registrite ja Infosüsteemide Keskus
+Riigi Tugiteenuste Keskus
+Haridus- ja Noorteamet
+Keeleamet
+Muinsuskaitseamet
+Rahvusarhiiv
+Prokuratuur
+Riigikontroll
+Eesti Pank

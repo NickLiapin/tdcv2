@@ -1,0 +1,12 @@
+---
+address: estonia.phoneMobilePrefix
+description: Every leading digit block an Estonian mobile number can start with. There are two families and they behave differently: the 5-series, where 5 is followed by six or seven more digits so the number is seven or eight long, and the 81 to 87 blocks, which are always eight digits and were opened later when the 5-series filled. They are NOT operator codes and NOT regional codes — Estonia has had full mobile number portability since 2005, so a prefix says nothing about which operator holds a number and nothing about where its owner lives. The only inference the prefix supports is the one this file exists for: 5 or 81-87 means mobile, 32-39 / 43-48 / 60-68 / 71-79 / 88 means a fixed line, 800x means freephone and 900 means premium rate. Watch the collision at 8: 88 is a SEVEN-digit fixed-line block while 81 to 87 are EIGHT-digit mobile blocks, so the first two digits alone do not decide it and the length has to be read as well. Source: the Estonian numbering plan administered by the Consumer Protection and Technical Regulatory Authority.
+---
+5
+81
+82
+83
+84
+85
+86
+87

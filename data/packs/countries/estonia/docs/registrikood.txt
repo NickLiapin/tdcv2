@@ -1,10 +1,10 @@
 ---
 address: estonia.docs.registrikood
-description: Estonian registry code (registrikood) — 8 digits issued by the e-Business Register. The leading digit names the family: 1 = a company, 7 = a state or local-government body, 8 = a non-profit association or foundation. The last digit is a mod-11 check with the same two-pass rule as the isikukood, but over 7 digits: weights 1,2,3,4,5,6,7 first, and only if that remainder is 10 the weights shift to 3,4,5,6,7,8,9; if the second pass also gives 10 the check is 0. The six digits after the family digit are structural, not an issued serial.
+description: The Estonian registry code (registrikood) — 8 digits, issued to a legal person the day it is entered in the register and never reissued or changed, so it survives renaming, restructuring and moving. The LEADING DIGIT names the family and is the fastest read on any Estonian counterparty: 1 = a company, 7 = a state or local-government body or other public-law legal person, 8 = a non-profit association (MTÜ), 9 = a foundation (SA). That is why Swedbank AS is 10060701 and Tartu Ülikool is 74001073 — one digit tells you that one is a business and the other is not, before any lookup. The registrikood is NOT the VAT number and is not derived from it: every legal person has a registry code from day one, while a KMKR number (estonia.tax.vat) exists only after VAT registration, so a dataset that treats them as two views of one identifier will lose every company below the registration threshold. It also doubles as the tax identifier for legal persons, the way the isikukood does for people. The last digit is a modulus-11 check with the SAME two-pass rule as the isikukood but over 7 digits: weights 1,2,3,4,5,6,7 first, and only if that remainder is 10 do they shift to 3,4,5,6,7,8,9; if the second pass also gives 10 the check is 0. Verified against published codes: Swedbank AS 10060701, AS SEB Pank 10004252, Tartu Ülikool 74001073, Tallinna Tehnikaülikool 74000323 and Rahandusministeerium 70000272 are all accepted, and each is rejected with one digit changed. The six digits after the family digit are structural here, not an issued serial.
 generator: tdc
 locale: et
 ---
-<sequence name="family"><gen type="text" value="1,7,8"/></sequence>
+<sequence name="family"><gen type="text" value="1,7,8,9"/></sequence>
 <sequence name="rest"><gen type="regex" value="[0-9]{6}"/></sequence>
 <sequence name="registrikood"><compute>
   <let name="base"><concat><field name="family"/><field name="rest"/></concat></let>
