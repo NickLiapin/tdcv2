@@ -1,0 +1,62 @@
+---
+description: Material a product is made of (Irish)
+locale: ga
+---
+adhmad
+dair
+fuinseog
+beith
+giúis
+feá
+bambú
+corc
+cruach
+cruach dhosmálta
+iarann
+alúmanam
+copar
+prás
+cré-umha
+since
+stán
+airgead
+ór
+platanam
+títeiniam
+gloine
+criostal
+poirceallán
+cré
+cré-earraí
+marmar
+eibhear
+aolchloch
+sclátaí
+cloch ghaineamh
+leathar
+súéid
+cadás
+línéadach
+olann
+sról
+síoda
+veilbhit
+denim
+canbhás
+tuí
+féar muirí
+rópa
+páipéar
+cairtchlár
+plaisteach
+rubar
+silicón
+acrailic
+níolón
+poileistear
+sníomhán gloine
+snáithín carbóin
+cnámh
+adharc
+sliogán
+cleití

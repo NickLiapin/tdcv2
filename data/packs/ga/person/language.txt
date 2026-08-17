@@ -1,0 +1,44 @@
+---
+description: Language name in Irish. Irish forms language names with the suffix -is (Fraincis, Gearmáinis, Spáinnis); the language's own name, Gaeilge, is the exception.
+locale: ga
+---
+Gaeilge
+Béarla
+Fraincis
+Gearmáinis
+Spáinnis
+Iodáilis
+Portaingéilis
+Rúisis
+Sínis
+Seapáinis
+Cóiréis
+Araibis
+Hiondúis
+Polainnis
+Ollainnis
+Sualainnis
+Danmhairgis
+Ioruais
+Fionlainnis
+Gréigis
+Tuircis
+Eabhrais
+Vítneaimis
+Téalainnis
+Ungáiris
+Seicis
+Rómáinis
+Bulgáiris
+Úcráinis
+Liotuáinis
+Laitvis
+Eastóinis
+Slóvaicis
+Slóivéinis
+Cróitis
+Seirbis
+Breatnais
+Gaeilge na hAlban
+Manainnis
+Briotáinis

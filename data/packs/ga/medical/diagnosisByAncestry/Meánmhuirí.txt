@@ -1,0 +1,11 @@
+---
+description: Riochtaí atá níos coitianta i ndaoine de bhunadh Meánmhuirí. Comhartha leitheadúlachta atá ann, ní comhartha eisiach.
+locale: ga
+---
+beite-talaiséime
+alfa-talaiséime
+easnamh G6PD
+fiabhras Meánmhuirí teaghlaigh
+anaeime Chooley
+neamhfhulaingt lachtóise
+galar Behçet

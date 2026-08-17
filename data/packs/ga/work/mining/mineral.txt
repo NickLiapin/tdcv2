@@ -1,0 +1,23 @@
+---
+description: Mineral or quarried material (Irish). Zinc and lead are Ireland's main mined metals — the Navan orebody was the largest zinc mine in Europe.
+locale: ga
+---
+since
+luaidhe
+airgead
+copar
+ór
+iarann
+báirít
+gipseam
+aolchloch
+eibhear
+sclátaí
+cloch ghaineamh
+gaineamh
+gairbhéal
+cré
+móin
+gual
+talc
+salann

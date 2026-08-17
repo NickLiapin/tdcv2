@@ -1,0 +1,19 @@
+---
+description: Reason for a return (Irish)
+locale: ga
+---
+ní hé an tomhas ceart é
+ró-bheag
+ró-mhór
+damáiste sa phost
+lochtach
+ní mar a bhí sa phictiúr
+dath mícheart
+earra mícheart
+seachadadh déanach
+athraíodh m'intinn
+fuair mé é mar bhronntanas
+cáilíocht lag
+níl na páirteanna go léir ann
+níl sé comhoiriúnach
+fuarthas praghas níos fearr

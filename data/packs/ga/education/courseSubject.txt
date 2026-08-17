@@ -1,0 +1,24 @@
+---
+description: School or university subject (Irish)
+locale: ga
+---
+Gaeilge
+Béarla
+Matamaitic
+Stair
+Tíreolaíocht
+Eolaíocht
+Fisic
+Ceimic
+Bitheolaíocht
+Ríomheolaíocht
+Fraincis
+Gearmáinis
+Spáinnis
+Ealaín
+Ceol
+Corpoideachas
+Eacnamaíocht
+Gnó
+Cuntasaíocht
+Staidéar Sóisialta agus Polaitiúil

@@ -1,0 +1,45 @@
+---
+description: Legal form of an Irish company (Irish). Teoranta (Teo.) is the Irish for Limited and is a legally valid company suffix in Ireland; cuideachta ghníomhaíochta ainmnithe (CGA) is the designated activity company.
+locale: ga
+---
+Teoranta
+Teo.
+cuideachta phríobháideach faoi theorainn scaireanna
+cuideachta ghníomhaíochta ainmnithe
+CGA
+cuideachta phoiblí theoranta
+CPT
+cuideachta faoi theorainn ráthaíochta
+cuideachta neamhtheoranta
+comhpháirtíocht
+comhpháirtíocht theoranta
+trádálaí aonair
+comharchumann
+cumann carthanachta
+cumann tionscail agus soláthair
+eagraíocht neamhrialtasach
+fondúireacht
+iontaobhas
+comhlacht reachtúil
+grúpa
+cuideachta
+comhlacht
+gnólacht
+comhlachas
+cumann
+cuallacht
+coiste
+bord
+údarás
+gníomhaireacht
+institiúid
+acadamh
+coláiste
+ollscoil
+ionad
+seirbhísí
+réitigh
+comhairleoirí
+comhpháirtithe
+grúpa comhairleach
+sainchomhairleoirí

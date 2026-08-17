@@ -1,0 +1,9 @@
+---
+description: Positions in Cispheil (Irish)
+locale: ga
+---
+Stiúrthóir
+Garda Sciathánach
+Tosaí Beag
+Tosaí Cumhachtach
+Lárnach

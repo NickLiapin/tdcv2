@@ -1,0 +1,16 @@
+---
+description: Month name (Irish, the bare noun as a date uses it: 6 Bealtaine 2026). After the word mí the month goes into the genitive and lenites — mí na Nollag, mí Eanáir — so do not join these to mí without inflecting them.
+locale: ga
+---
+Eanáir
+Feabhra
+Márta
+Aibreán
+Bealtaine
+Meitheamh
+Iúil
+Lúnasa
+Meán Fómhair
+Deireadh Fómhair
+Samhain
+Nollaig

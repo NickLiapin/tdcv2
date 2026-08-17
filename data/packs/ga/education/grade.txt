@@ -1,0 +1,16 @@
+---
+description: Grade band (Irish). These are the Leaving Certificate grades used in Ireland since 2017 — H1 to H8 at higher level and O1 to O8 at ordinary level; the letter says which level, not which subject.
+locale: ga
+---
+H1
+H2
+H3
+H4
+H5
+H6
+O1
+O2
+O3
+O4
+O5
+O6

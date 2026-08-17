@@ -1,0 +1,32 @@
+---
+description: Technical verb (Irish), imperative citation form
+locale: ga
+---
+comhbhrúigh
+criptigh
+díchriptigh
+scag
+parsáil
+tiomsaigh
+rith
+íoslódáil
+uaslódáil
+sioncrónaigh
+macasamhlaigh
+cúltacaigh
+athshlánaigh
+innéacsaigh
+ceistigh
+sruthaigh
+idirthaisc
+imscar
+cothromaigh
+monatóirigh
+logáil
+rianaigh
+dífhabhtaigh
+tástáil
+scan
+glan
+athnuaigh
+athchúrsáil

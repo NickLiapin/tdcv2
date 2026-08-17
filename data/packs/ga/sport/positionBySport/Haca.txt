@@ -1,0 +1,8 @@
+---
+description: Positions in Haca (Irish)
+locale: ga
+---
+Cúl Báire
+Cosantóir
+Lárpháirceach
+Ionsaitheoir

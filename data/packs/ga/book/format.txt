@@ -1,0 +1,12 @@
+---
+description: Book format (Irish)
+locale: ga
+---
+clúdach bog
+clúdach crua
+ríomhleabhar
+closleabhar
+leabhar póca
+leabhar cló mhóir
+leabhar grafach
+eagrán teoranta

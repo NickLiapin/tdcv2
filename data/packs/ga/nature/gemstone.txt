@@ -1,0 +1,29 @@
+---
+description: Gemstone (Irish)
+locale: ga
+---
+diamant
+rúibín
+saifír
+smaragaid
+aimitis
+topás
+opal
+turcaid
+gairnéad
+péarla
+coiréal
+ómra
+iaspar
+óinéacs
+achát
+criostal
+grianchloch
+labradairít
+tanáisít
+peiridít
+zircón
+spinéal
+cloch gealaí
+beiril
+mailicít

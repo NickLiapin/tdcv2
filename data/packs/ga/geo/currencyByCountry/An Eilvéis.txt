@@ -1,0 +1,5 @@
+---
+description: Currency of An Eilvéis (Irish)
+locale: ga
+---
+Franc

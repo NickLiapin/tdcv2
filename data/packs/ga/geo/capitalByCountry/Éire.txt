@@ -1,0 +1,5 @@
+---
+description: Capital of Éire (Irish)
+locale: ga
+---
+Baile Átha Cliath

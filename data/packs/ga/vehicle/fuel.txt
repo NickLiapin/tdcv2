@@ -1,0 +1,14 @@
+---
+description: Fuel or drivetrain (Irish)
+locale: ga
+---
+peitreal
+díosal
+hibrideach
+hibrideach breiseáin
+leictreach
+hidrigin
+gás peitriliaim leachtaithe
+gás nádúrtha
+bithbhreosla
+ceallra

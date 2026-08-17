@@ -1,0 +1,39 @@
+---
+description: Music genre (Irish). Sean-nós is unaccompanied solo singing in the old style and is a genre in its own right, not a way of performing another one.
+locale: ga
+---
+ceol traidisiúnta
+sean-nós
+amhránaíocht ar an sean-nós
+ceol tíre
+ceol tuaithe
+snagcheol
+gormacha
+rac-cheol
+popcheol
+ceol clasaiceach
+ceol seomra
+siansach
+ceoldráma
+ceol eaglasta
+ceol córúil
+hip-hap
+rapcheol
+ceol leictreonach
+ceol damhsa
+teicneo
+ceol tí
+meitil
+punc
+reggae
+soul
+funk
+gospel
+ceol domhanda
+ceol scannán
+ceol cluiche
+ceol comhaimseartha
+ceol turgnamhach
+ceol ionstraimeach
+ceol bailéid
+amhráin ghrá

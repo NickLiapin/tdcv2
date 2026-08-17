@@ -1,0 +1,5 @@
+---
+description: Capital of An Ghréig (Irish)
+locale: ga
+---
+An Aithin

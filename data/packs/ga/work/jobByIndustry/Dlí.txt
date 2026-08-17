@@ -1,0 +1,16 @@
+---
+description: Jobs in Dlí (Irish)
+locale: ga
+---
+Aturnae
+Abhcóide
+Breitheamh
+Cléireach Cúirte
+Feidhmeannach Dlí
+Paradhlíodóir
+Nótaire
+Tras-scríbhneoir Cúirte
+Comhairleoir Dlí
+Oifigeach Promhaidh
+Idirghabhálaí
+Bainisteoir Comhlíonta

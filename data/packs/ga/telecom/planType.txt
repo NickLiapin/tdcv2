@@ -1,0 +1,16 @@
+---
+description: Mobile or broadband plan (Irish)
+locale: ga
+---
+réamhíoctha
+iaríoctha
+conradh 12 mhí
+conradh 24 mí
+gan chonradh
+sonraí gan teorainn
+plean teaghlaigh
+plean gnó
+leathanbhanda snáithín
+leathanbhanda gan sreang
+leathanbhanda satailíte
+beart teilifíse agus leathanbhanda

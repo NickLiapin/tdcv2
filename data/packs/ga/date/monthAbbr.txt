@@ -1,0 +1,16 @@
+---
+description: Abbreviated month name (Irish)
+locale: ga
+---
+Ean
+Feabh
+Márta
+Aib
+Beal
+Meith
+Iúil
+Lún
+MFómh
+DFómh
+Samh
+Noll

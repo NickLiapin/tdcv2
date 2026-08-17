@@ -1,0 +1,5 @@
+---
+description: Currency of Na hOileáin Fhilipíneacha (Irish)
+locale: ga
+---
+Peso

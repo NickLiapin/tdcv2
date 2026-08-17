@@ -1,0 +1,12 @@
+---
+description: Dish of Seapánach cuisine. Dish names keep the spelling of the language they come from; the Irish dishes are in Irish.
+locale: ga
+---
+sushi
+ramen
+tempura
+miso shiru
+yakitori
+donburi
+udon
+okonomiyaki

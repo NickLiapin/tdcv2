@@ -1,0 +1,58 @@
+---
+description: Colour a product is sold in (Irish). See color/name.txt on glas versus uaine and on gorm.
+locale: ga
+---
+bán
+dubh
+liath
+airgeadach
+órga
+dearg
+dúdhearg
+rua
+bándearg
+oráiste
+flannbhuí
+buí
+bánbhuí
+glas
+uaine
+dúghlas
+glasghorm
+gorm
+dúghorm
+bánghorm
+corcra
+corcairdhearg
+donn
+donnrua
+dath an chnó
+dath an chaife
+dath na seacláide
+dath na meala
+dath na cré
+dath na holóige
+dath an fhéir
+dath na mara
+dath na spéire
+dath an ghainimh
+dath an tsneachta
+dath an deataigh
+dath na luaithe
+dath an iarainn
+dath an chopair
+dath an phráis
+dath an eabhair
+dath na fola
+dath an fhíona
+dath na róis
+dath na lile
+liathghlas
+dúdhonn
+bánghlas
+crón
+riabhach
+odhar
+geal
+dorcha
+ilghnéitheach

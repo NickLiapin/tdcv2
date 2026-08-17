@@ -1,0 +1,5 @@
+---
+description: Capital of An Rúis (Irish)
+locale: ga
+---
+Moscó

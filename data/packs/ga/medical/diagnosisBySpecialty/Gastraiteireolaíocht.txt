@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Gastraiteireolaíocht (Irish)
+locale: ga
+---
+galar athshrutha gaistreisifigigh
+othras peipteach
+galar Crohn
+coilíteas othrasach
+galar céiliach
+siondróm putóige greannaithe
+clocha domlais
+hepatitis
+pancraitíteas
+diveirtice

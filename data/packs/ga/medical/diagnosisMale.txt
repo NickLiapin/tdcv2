@@ -1,0 +1,24 @@
+---
+description: Diagnosis specific to male patients (Irish)
+locale: ga
+---
+hipearpláis neamhurchóideach próstataigh
+ailse phróstatach
+próstatíteas
+ailse na magairlí
+casadh magairle
+eipidideimíteas
+hidriséile
+vairicséile
+neamhábaltacht éireachtála
+hipeagónadachas fireann
+gínéacomaistia
+fimóis
+parafimóis
+galar Peyronie
+neamhthorthúlacht fhireann
+azoospermia
+hearnia inguineach
+cripteorcachas
+ailse an bhod
+maoile fireann

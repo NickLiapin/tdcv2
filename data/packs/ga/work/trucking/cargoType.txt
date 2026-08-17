@@ -1,0 +1,17 @@
+---
+description: Freight type (Irish)
+locale: ga
+---
+earraí ginearálta
+earraí meatacha
+earraí reoite
+beostoc
+grán
+leacht
+breosla
+ceimiceáin
+ábhar guaiseach
+ábhar tógála
+gluaisteáin
+coimeádáin
+paileit

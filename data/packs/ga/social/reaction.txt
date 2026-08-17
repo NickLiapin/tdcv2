@@ -1,0 +1,15 @@
+---
+description: Reaction to a post (Irish). Irish has no verb to like — is maith liom is literally it is good with me — so a reaction label is a whole clause, not a single word.
+locale: ga
+---
+Is maith liom
+Is breá liom
+Gáire
+Iontas
+Brón
+Fearg
+Comhbhrón
+Ceiliúradh
+Tacaíocht
+Ordóg suas
+Croí

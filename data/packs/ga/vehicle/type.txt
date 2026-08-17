@@ -1,0 +1,26 @@
+---
+description: Kind of vehicle (Irish)
+locale: ga
+---
+carr
+hatchback
+salún
+eastát
+SUV
+crosbhealach
+cúpé
+carr oscailte
+veain
+veain bheag
+trucail
+leoraí
+leathleoraí
+bus
+cóiste
+minibhus
+gluaisrothar
+scútar
+tarracóir
+leantóir
+carbhán
+mótarbhaile

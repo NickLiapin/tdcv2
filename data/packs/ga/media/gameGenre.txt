@@ -1,0 +1,21 @@
+---
+description: Video-game genre (Irish)
+locale: ga
+---
+eachtraíocht
+gníomhaíocht
+lámhach
+ról-imirt
+straitéis
+insamhalta
+spórt
+rásaíocht
+puzail
+ardán
+troid
+uafás mairthanais
+domhan oscailte
+cluiche cárta
+ceol
+oideachasúil
+páirtí

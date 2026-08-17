@@ -1,0 +1,12 @@
+---
+description: Blood group (Irish). Ireland has the highest share of group O negative in Europe, which is why the Irish Blood Transfusion Service asks for it by name.
+locale: ga
+---
+A dearfach
+A diúltach
+B dearfach
+B diúltach
+AB dearfach
+AB diúltach
+O dearfach
+O diúltach

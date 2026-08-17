@@ -1,0 +1,26 @@
+---
+description: Metal (Irish)
+locale: ga
+---
+ór
+airgead
+copar
+iarann
+cruach
+alúmanam
+since
+stán
+luaidhe
+nicil
+cróimiam
+títeiniam
+platanam
+pallaidiam
+maignéisiam
+mangainéis
+cóbalt
+tungstan
+prás
+cré-umha
+mearcair
+úráiniam

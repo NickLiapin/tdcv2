@@ -1,0 +1,12 @@
+---
+description: Dish of Cóiréach cuisine. Dish names keep the spelling of the language they come from; the Irish dishes are in Irish.
+locale: ga
+---
+kimchi
+bibimbap
+bulgogi
+japchae
+tteokbokki
+samgyeopsal
+sundubu jjigae
+kimbap

@@ -1,0 +1,11 @@
+---
+description: Positions in Rugbaí (Irish)
+locale: ga
+---
+Prapaire
+Húcaeir
+Glasálaí
+Sciathánaí
+Leath Scrum
+Leathchúlaí Cliste
+Lánchúlaí

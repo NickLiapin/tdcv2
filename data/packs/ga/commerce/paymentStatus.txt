@@ -1,0 +1,14 @@
+---
+description: Payment status (Irish)
+locale: ga
+---
+ar feitheamh
+údaraithe
+íoctha
+teipthe
+diúltaithe
+aisíoctha
+aisíoc páirteach
+faoi dhíospóid
+imréitithe
+curtha ar ceal

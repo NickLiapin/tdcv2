@@ -1,0 +1,12 @@
+---
+description: Clothing size (Irish). The letter codes are used unchanged.
+locale: ga
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+Aon Toise Amháin

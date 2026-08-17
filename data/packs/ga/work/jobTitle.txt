@@ -1,0 +1,212 @@
+---
+description: Job title (Irish). Job titles are noun phrases with the qualifier after the head noun and in the genitive, which is why Bainisteoir Tionscadail and not the English order.
+locale: ga
+---
+Innealtóir Bogearraí
+Forbróir Gréasáin
+Forbróir Feidhmchlár
+Eolaí Sonraí
+Anailísí Sonraí
+Innealtóir Sonraí
+Ailtire Néil
+Innealtóir DevOps
+Riarthóir Córas
+Riarthóir Bunachar Sonraí
+Innealtóir Líonra
+Anailísí Slándála
+Innealtóir Cáilíochta
+Tástálaí Bogearraí
+Bainisteoir Táirge
+Bainisteoir Tionscadail
+Scrum Máistir
+Dearthóir UX
+Dearthóir Grafach
+Dearthóir Táirge
+Scríbhneoir Teicniúil
+Anailísí Gnó
+Comhairleoir Bainistíochta
+Príomhfheidhmeannach
+Stiúrthóir Bainistíochta
+Stiúrthóir Airgeadais
+Stiúrthóir Oibríochtaí
+Stiúrthóir Teicneolaíochta
+Bainisteoir Ginearálta
+Bainisteoir Oifige
+Cúntóir Riaracháin
+Fáilteoir
+Rúnaí
+Cuntasóir
+Cuntasóir Bainistíochta
+Leabharchoimeádaí
+Iniúchóir Inmheánach
+Anailísí Airgeadais
+Comhairleoir Cánach
+Achtúire
+Baincéir
+Oifigeach Iasachtaí
+Bróicéir Árachais
+Measúnóir Éileamh
+Bainisteoir Riosca
+Oifigeach Comhlíonta
+Trádálaí
+Bainisteoir Punainne
+Bainisteoir Acmhainní Daonna
+Earcaitheoir
+Oifigeach Pá
+Oiliúnóir
+Bainisteoir Margaíochta
+Speisialtóir Margaíochta Digití
+Bainisteoir Meán Sóisialta
+Oifigeach Caidrimh Phoiblí
+Scríbhneoir Cóipe
+Bainisteoir Branda
+Ionadaí Díolacháin
+Bainisteoir Cuntas
+Bainisteoir Ceantair
+Bainisteoir Siopa
+Cúntóir Siopa
+Airgeadóir
+Ceannaitheoir
+Bainisteoir Slabhra Soláthair
+Comhordaitheoir Lóistíochta
+Bainisteoir Stórais
+Feighlí Stoic
+Tiománaí Leoraí
+Tiománaí Veain
+Tiománaí Bus
+Tiománaí Tacsaí
+Tiománaí Traenach
+Seachadóir
+Píolóta
+Aeróstach
+Rialtóir Aerthráchta
+Máistir Cuain
+Mairnéalach
+Iascaire
+Feirmeoir
+Feirmeoir Déiríochta
+Feirmeoir Caorach
+Gairneoir
+Foraoiseoir
+Tréidlia
+Cúntóir Tréidliachta
+Dochtúir Teaghlaigh
+Comhairleoir
+Máinlia
+Ainéistéiseolaí
+Péidiatraiceoir
+Síciatraí
+Altra
+Cnáimhseach
+Cógaiseoir
+Fisiteiripeoir
+Teiripeoir Saothair
+Teiripeoir Urlabhra
+Radagrafaí
+Teicneoir Saotharlainne
+Paraimhíochaineoir
+Cúntóir Cúraim
+Fiaclóir
+Sláinteachaí Fiacla
+Optaiméadraí
+Coslia
+Síceolaí
+Oibrí Sóisialta
+Oibrí Óige
+Comhairleoir Pearsanta
+Múinteoir Bunscoile
+Múinteoir Meánscoile
+Múinteoir Naíonra
+Príomhoide
+Léachtóir
+Ollamh
+Taighdeoir
+Cúntóir Riachtanas Speisialta
+Leabharlannaí
+Cartlannaí
+Coimeádaí Músaeim
+Seandálaí
+Ailtire
+Suirbhéir Cainníochta
+Suirbhéir Foirgníochta
+Innealtóir Sibhialta
+Innealtóir Struchtúrach
+Innealtóir Meicniúil
+Innealtóir Leictreach
+Innealtóir Ceimiceach
+Innealtóir Suímh
+Saoiste
+Saor Cloiche
+Siúinéir
+Pluiméir
+Leictreoir
+Plástrálaí
+Péintéir
+Díonadóir
+Táthaire
+Meicneoir
+Oibreoir Innill
+Oibreoir Meaisín
+Oibreoir Líne
+Cigire Cáilíochta
+Teicneoir Cothabhála
+Aturnae
+Abhcóide
+Breitheamh
+Cléireach Cúirte
+Paradhlíodóir
+Oifigeach Promhaidh
+Garda
+Sáirsint
+Cigire
+Comhraiceoir Dóiteáin
+Oifigeach Custaim
+Státseirbhíseach
+Oifigeach Feidhmiúcháin
+Oifigeach Pleanála
+Oifigeach Comhshaoil
+Oifigeach Sláinte Poiblí
+Príomhchócaire
+Cócaire
+Báicéir
+Búistéir
+Freastalaí
+Beármhaid
+Tábhairneoir
+Bainisteoir Óstáin
+Bainisteoir Bialainne
+Bainisteoir Imeachtaí
+Feighlí Tí
+Glantóir
+Garda Slándála
+Gruagaire
+Barbóir
+Teiripeoir Áilleachta
+Táilliúir
+Gréasaí
+Seodóir
+Potaire
+Fíodóir
+Ceoltóir
+Amhránaí
+Aisteoir
+Rinceoir
+Scríbhneoir
+Iriseoir
+Eagarthóir
+Aistritheoir
+Ateangaire
+Grianghrafadóir
+Ceamaradóir
+Stiúrthóir
+Léiritheoir
+Craoltóir
+Dearthóir Fuaime
+Bainisteoir Turasóireachta
+Treoraí Turasóireachta
+Gníomhaire Taistil
+Traenálaí Pearsanta
+Cóitseálaí
+Réiteoir
+Maoirseoir Linne
+Garda Tarrthála

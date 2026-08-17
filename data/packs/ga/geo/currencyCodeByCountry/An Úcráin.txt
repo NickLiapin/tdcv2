@@ -1,0 +1,5 @@
+---
+description: Currency code of An Úcráin
+locale: ga
+---
+UAH

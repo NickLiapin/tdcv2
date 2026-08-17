@@ -1,0 +1,6 @@
+---
+description: Gender label (Irish). Two values, matching en and ru — this list is what parent="Gender.Fear" filters on. Both are ordinary nouns and both are lenited after the article: an fear, an bhean.
+locale: ga
+---
+Fear
+Bean

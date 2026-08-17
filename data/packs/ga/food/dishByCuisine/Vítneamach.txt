@@ -1,0 +1,12 @@
+---
+description: Dish of Vítneamach cuisine. Dish names keep the spelling of the language they come from; the Irish dishes are in Irish.
+locale: ga
+---
+pho
+banh mi
+goi cuon
+bun cha
+com tam
+cha ca
+banh xeo
+ca kho to

@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Irish). Pinsean SSAP is the Irish standard occupational-pension vehicle.
+locale: ga
+---
+árachas sláinte
+pinsean
+árachas saoil
+árachas fiacla
+bónas bliantúil
+scaireanna
+carr cuideachta
+fón cuideachta
+ríomhaire glúine
+obair chian
+uaireanta solúbtha
+saoire bhreise
+saoire mháithreachais
+saoire atharthachta
+scéim rothaíochta chun na hoibre
+táillí oiliúna
+béilí saor in aisce
+ballraíocht giomnáisiam

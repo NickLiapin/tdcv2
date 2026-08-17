@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Platform names are brands and keep their own spelling in Irish.
+locale: ga
+---
+PC
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+Steam Deck
+iOS
+Android
+Mac
+Linux
+brabhsálaí
+réaltacht fhíorúil

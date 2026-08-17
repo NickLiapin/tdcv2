@@ -1,0 +1,5 @@
+---
+description: Capital of An Ailgéir (Irish)
+locale: ga
+---
+Aingir

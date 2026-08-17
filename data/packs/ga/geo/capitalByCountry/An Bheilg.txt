@@ -1,0 +1,5 @@
+---
+description: Capital of An Bheilg (Irish)
+locale: ga
+---
+An Bhruiséil

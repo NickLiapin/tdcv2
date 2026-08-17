@@ -1,0 +1,11 @@
+---
+description: Riochtaí atá níos coitianta i ndaoine de bhunadh Áiseach Thoir Theas. Comhartha leitheadúlachta atá ann, ní comhartha eisiach.
+locale: ga
+---
+alfa-talaiséime
+haemaglóibin E
+easnamh G6PD
+neamhfhulaingt lachtóise
+hepatitis B ainsealach
+carcanóma nasafairingeach
+galar beriberi

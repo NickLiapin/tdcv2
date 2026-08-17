@@ -1,0 +1,20 @@
+---
+description: Seniority level (Irish)
+locale: ga
+---
+oiliúnaí
+printíseach
+intéirneach
+sóisearach
+meánleibhéil
+sinsearach
+príomh
+ceann foirne
+maoirseoir
+bainisteoir
+ardbhainisteoir
+stiúrthóir
+ardstiúrthóir
+leas-uachtarán
+príomhoifigeach
+comhpháirtí

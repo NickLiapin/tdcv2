@@ -1,0 +1,210 @@
+---
+description: Irish-language surnames — the form a MAN carries. Draw once: an Irish full name has one surname. The prefix is gendered and marital: Ó X is a man, Ní X an unmarried woman, Uí X a married one; Mac X gives Nic X and Mhic X. See person/female/lastName.txt, which is derived from this list line for line. Counts are rounded estimates of bearers in the Republic of Ireland for the top 30, taken from the published frequency of the anglicised equivalent (Ó Murchú is Murphy, Ó Ceallaigh is Kelly); beyond rank 30 they are a smooth taper, not a measurement.
+locale: ga
+weighted: true
+---
+Ó Murchú,32000
+Ó Ceallaigh,26000
+Ó Súilleabháin,21500
+Breatnach,21000
+Mac Gabhann,20000
+Ó Briain,19000
+Ó Broin,18500
+Ó Riain,17500
+Ó Conchúir,17000
+Ó Néill,16000
+Ó Raghallaigh,15500
+Ó Dubhghaill,15000
+Mac Cárthaigh,14800
+Ó Gallchóir,14500
+Ó Dochartaigh,14000
+Ó Cinnéide,13500
+Ó Loingsigh,13000
+Ó Muirí,12800
+Ó Cuinn,12500
+Ó Mórdha,12000
+Mac Lochlainn,11500
+Ó Cearbhaill,11500
+Ó Conghaile,11000
+Ó Dálaigh,11000
+Ó Conaill,10800
+Ó Duinn,10500
+Ó Braonáin,10500
+de Búrca,10200
+Ó Coileáin,10000
+Ó Cléirigh,9800
+Ó Cionnaith,9515
+Ó hAodha,9246
+Mac Mathúna,8994
+Ó Flaitheartaigh,8755
+Ó Máille,8530
+Ó Donnabháin,8316
+Ó Cathasaigh,8114
+Ó Domhnaill,7921
+Ó Sé,7738
+Ó Tuathail,7564
+Ó Riagáin,7398
+Ó Ríordáin,7239
+Ó Donnchadha,7087
+Ó Maonaigh,6942
+Ó Floinn,6803
+Ó Fearghail,6670
+Ó Neachtain,6542
+Ó Gríofa,6419
+Mac Domhnaill,6301
+Mac Diarmada,6188
+Mac Gearailt,6078
+Mac Conmara,5973
+Mag Uidhir,5872
+Mac Suibhne,5774
+Mac Aodha,5679
+Mac an Bhaird,5588
+Mac Giolla Phádraig,5499
+Mac Craith,5414
+Mac Donnchadha,5331
+Mac Muiris,5251
+de Paor,5174
+de Barra,5098
+de Róiste,5026
+Caomhánach,4955
+Ó Nualláin,4886
+Ó hUiginn,4819
+Ó Beirne,4755
+Ó Baoill,4692
+Ó Dubhthaigh,4630
+Ó Síocháin,4571
+Ó hIfearnáin,4513
+Ó Meachair,4456
+Ó Seachnasaigh,4401
+Ó hÓgáin,4348
+Ó hEidhin,4296
+Ó Laoghaire,4245
+Ó Ceallacháin,4195
+Ó Cuinneagáin,4147
+Ó Doibhlin,4099
+Ó hAnnracháin,4053
+Ó Madáin,4008
+Ó Maoláin,3964
+Ó Duibhir,3921
+Ó Faoláin,3879
+Ó Fiannachta,3838
+Ó Gormáin,3798
+Ó hUallacháin,3758
+Ó Lorcáin,3720
+Ó Mainnín,3682
+Ó Muircheartaigh,3646
+Ó Ruairc,3609
+Ó Scanláin,3574
+Ó Treasaigh,3539
+Ó Tuama,3506
+Ó hAilpín,3472
+Ó Ciardha,3440
+Ó Cróinín,3408
+Ó Cuív,3377
+Ó Dubhda,3346
+Ó Lachtnáin,3316
+Ó Laighin,3286
+Ó Lúing,3257
+Ó Muirthile,3229
+Ó Siadhail,3201
+Ó Coisdealbha,3173
+Ó Maolchonaire,3146
+Ó Cadhain,3120
+Ó Direáin,3094
+Ó Riada,3068
+Ó Fiaich,3043
+Ó hAnluain,3018
+Ó hEidirsceoil,2994
+Ó hÉalaithe,2970
+Ó Conaire,2947
+Ó Corráin,2924
+Ó Fathaigh,2901
+Ó Lonargáin,2879
+Ó Maoldomhnaigh,2857
+Ó Sioradáin,2835
+Mac Amhlaoibh,2814
+Mac Aodhagáin,2793
+Mac Fhionnlaoich,2772
+Mac Giolla Bhríde,2752
+Mac Giolla Easpaig,2732
+Mac Giolla Íosa,2712
+Mac Giolla Mhártain,2693
+Mac Meanman,2674
+Mac Pháidín,2655
+Mac Ruairí,2636
+Mac Seáin,2618
+Mac Síthigh,2600
+Mag Shamhráin,2582
+Mac an tSaoi,2565
+Buitléir,2548
+Nuinseann,2531
+Puirséal,2514
+Cúndún,2497
+Cúsac,2481
+Feiritéar,2465
+Grás,2449
+Laighléis,2434
+Máirtín,2418
+Mistéil,2403
+Priondargás,2388
+Rís,2373
+Seoighe,2358
+Sionóid,2344
+Stac,2330
+Tóibín,2316
+de Bhulbh,2302
+Ó Duinnín,2288
+Ó Grianna,2274
+Mac Grianna,2261
+Ó Callanáin,2248
+Ó Cadhla,2235
+Ó Gadhra,2222
+Ó Duibhginn,2209
+Ó Marcaigh,2197
+Ó Seaghdha,2184
+Ó Buachalla,2172
+Ó Ciardhubháin,2160
+Ó Concheanainn,2148
+Ó Dubhagáin,2136
+Ó Flannagáin,2124
+Ó hEochaidh,2113
+Ó Lochlainn,2101
+Ó Muirgheasa,2090
+Ó Braoin,2079
+Ó Cuilleanáin,2067
+Ó Fearraigh,2056
+Ó hAllmhuráin,2046
+Ó Loideáin,2035
+Ó Mongáin,2024
+Ó Nialláin,2014
+Ó Ruadháin,2004
+Ó Tighearnaigh,1993
+Ó Cathail,1983
+Ó Céileachair,1973
+Ó Cianáin,1963
+Ó Searcaigh,1953
+Ó Tuairisc,1944
+Ó Doirnín,1934
+Mac Cuarta,1924
+Ó Rathaille,1915
+Ó Bruadair,1906
+Ó Caiside,1897
+Ó Catháin,1887
+Ó Cearúlláin,1878
+Ó Coigligh,1869
+Ó Colmáin,1861
+Ó Comhraí,1852
+Ó Donnghaile,1843
+Ó Finneagáin,1834
+Ó hEaghra,1826
+Ó Liatháin,1818
+Ó Maolmhuaidh,1809
+Ó Reachtabhra,1801
+Mac Cana,1793
+Mac Coitir,1785
+Mac Cormaic,1777
+Mac Eoin,1769
+Mac Íomhair,1761
+Mac Niocaill,1753
+Mac Piarais,1745
+Mac Réamoinn,1738

@@ -1,0 +1,33 @@
+---
+description: Garment (Irish). The báinín and the geansaí Árann are Irish garments and keep their Irish names in any language.
+locale: ga
+---
+léine
+T-léine
+geansaí
+geansaí Árann
+báinín
+cairdeagan
+casóg
+cóta
+cóta mór
+seaicéad
+bríste
+bríste géine
+gearrbhríste
+sciorta
+gúna
+culaith
+carbhat
+stocaí
+bróga
+buataisí
+cuaráin
+slipéir
+hata
+caipín
+lámhainní
+scairf
+crios
+fo-éadaí
+brat

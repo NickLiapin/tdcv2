@@ -1,0 +1,16 @@
+---
+description: Listing status (Irish)
+locale: ga
+---
+ar fáil
+nua ar an margadh
+faoi thairiscint
+díolta
+conradh sínithe
+ar cíos
+ligthe
+as an margadh
+ar ceant
+praghas laghdaithe
+ar feitheamh
+cothrom leis an margadh

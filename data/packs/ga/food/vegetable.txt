@@ -1,0 +1,34 @@
+---
+description: Vegetable (Irish). Práta comes first for a reason: the potato has been the staple of Irish cooking since the seventeenth century and Irish has a word for every stage of it.
+locale: ga
+---
+práta
+cabáiste
+cál
+bachlóga Bruiséile
+cairéad
+oinniún
+oinniún earraigh
+gairleog
+cainneann
+tornapa
+meacan bán
+biatas
+cóilis
+brocailí
+piseanna
+pónairí
+pónaire leathan
+leitís
+cúcamar
+tráta
+piobar
+muisiriún
+spionáiste
+soilire
+puimcín
+cúirséad
+ubhthoradh
+raidis
+bliosán
+asparagas

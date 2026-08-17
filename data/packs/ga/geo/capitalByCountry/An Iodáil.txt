@@ -1,0 +1,5 @@
+---
+description: Capital of An Iodáil (Irish)
+locale: ga
+---
+An Róimh

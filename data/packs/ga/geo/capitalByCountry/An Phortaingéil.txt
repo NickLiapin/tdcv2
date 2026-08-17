@@ -1,0 +1,5 @@
+---
+description: Capital of An Phortaingéil (Irish)
+locale: ga
+---
+Liospóin

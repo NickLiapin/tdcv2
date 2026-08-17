@@ -1,0 +1,81 @@
+---
+description: Pastime (Irish). The names of activities are verbal nouns, usually in -acht or -aíocht (léitheoireacht, rothaíocht) — this is the citation form and the one a sentence uses.
+locale: ga
+---
+léitheoireacht
+scríbhneoireacht
+filíocht
+scéalaíocht
+díospóireacht
+amhránaíocht
+amhránaíocht ar an sean-nós
+ceoltóireacht
+damhsa
+damhsa ar an sean-nós
+rince seit
+aisteoireacht
+péintéireacht
+líníocht
+potaireacht
+snoíodóireacht
+fíodóireacht
+cniotáil
+fuáil
+bróidnéireacht
+grianghrafadóireacht
+scannánaíocht
+cócaireacht
+bácáil
+grúdaireacht
+garraíodóireacht
+feirmeoireacht
+beachaireacht
+iascaireacht
+seilg
+siúlóireacht
+dreapadóireacht
+campáil
+rothaíocht
+rith
+snámh
+lámhchleasaíocht
+tonnmharcaíocht
+tumadóireacht
+bádóireacht
+seoltóireacht
+marcaíocht
+rásaíocht capall
+peil Ghaelach
+iomáint
+camógaíocht
+liathróid láimhe
+rugbaí
+sacar
+cispheil
+leadóg
+galf
+dornálaíocht
+lúthchleasaíocht
+haca
+badmantan
+scuais
+ficheall
+cluichí boird
+cluichí ríomhaire
+ríomhchlárú
+réalteolaíocht
+éaneolaíocht
+luibheolaíocht
+ginealas
+stair áitiúil
+seandálaíocht
+bailiú stampaí
+bailiú bonn
+samhaltánaíocht
+ióga
+machnamh
+aclaíocht
+taisteal
+foghlaim teangacha
+sciáil
+scátáil

@@ -1,0 +1,5 @@
+---
+description: Capital of An tSeicia (Irish)
+locale: ga
+---
+Prág

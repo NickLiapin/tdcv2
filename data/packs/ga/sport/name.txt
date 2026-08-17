@@ -1,0 +1,59 @@
+---
+description: Sport (Irish). The Gaelic games come first: they are the most-watched sports in Ireland and the words are Irish, not translations.
+locale: ga
+---
+peil Ghaelach
+iomáint
+camógaíocht
+liathróid láimhe
+cluiche corr
+rugbaí
+sacar
+cispheil
+eitpheil
+haca
+cruicéad
+leadóg
+badmantan
+scuais
+galf
+snúcar
+billéardaí
+dairteanna
+babhláil
+boghdóireacht
+lúthchleasaíocht
+rith
+maratón
+trasthíre
+léim ard
+léim fhada
+caitheamh sleá
+caitheamh disce
+snámh
+tumadóireacht
+polo uisce
+iomramh
+seoltóireacht
+curachóireacht
+tonnmharcaíocht
+canúáil
+rothaíocht
+rothaíocht sléibhe
+marcaíocht
+rásaíocht capall
+rásaíocht cú
+dornálaíocht
+iomrascáil
+júdó
+carate
+taekwondo
+feancáil
+gleacaíocht
+tógáil meáchan
+sciáil
+clársciáil
+scátáil oighir
+curling
+dreapadóireacht
+sléibhteoireacht

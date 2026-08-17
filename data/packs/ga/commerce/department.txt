@@ -1,0 +1,54 @@
+---
+description: Shop department (Irish)
+locale: ga
+---
+éadaí
+bróga
+cúrsaí áilleachta
+sláinte
+cógaslann
+earraí tí
+troscán
+cistin
+leaba agus folcadh
+leictreonaic
+ríomhairí
+fóin phóca
+ceamaraí
+ceol
+leabhair
+páipéarachas
+bréagáin
+cluichí
+spórt
+campáil
+garraíodóireacht
+uirlisí
+tógáil
+péint
+gluaisteáin
+rothair
+peataí
+grósaeireacht
+torthaí agus glasraí
+búistéireacht
+báicéireacht
+déiríocht
+reoite
+deochanna
+fíon
+milseáin
+tobac
+seodra
+uaireadóirí
+málaí
+cultacha
+éadaí páistí
+éadaí naíonán
+éadaí spóirt
+snámh
+táirgí oifige
+soláthairtí scoile
+ealaín
+ceardaíocht
+bronntanais

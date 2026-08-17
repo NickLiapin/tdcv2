@@ -1,0 +1,5 @@
+---
+description: Capital of An Indinéis (Irish)
+locale: ga
+---
+Iacárta

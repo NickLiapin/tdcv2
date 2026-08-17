@@ -1,0 +1,38 @@
+---
+description: Bird (Irish). The names are the standard Irish ones, not translations of the English.
+locale: ga
+---
+spideog
+fáinleog
+fuiseog
+lon dubh
+smólach
+gealbhan
+meantán gorm
+meantán mór
+snag breac
+préachán
+fiach dubh
+cág
+iolar
+seabhac
+fabhcún
+ulchabhán
+faoileán
+cág cosdearg
+corr éisc
+lacha fhiáin
+gé ghlas
+eala
+cadhan
+naoscach
+crotach
+pilibín
+gainéad
+cánóg dhubh
+puifín
+dreoilín
+cuach
+riabhóg
+glasán darach
+creabhar

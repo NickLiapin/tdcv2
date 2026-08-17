@@ -1,0 +1,158 @@
+---
+description: Country name in Irish, alphabetical. Most carry the definite article and the article mutates the name (An Fhrainc, An tSín, An Bhrasaíl); Éire, Ceanada, Meicsiceo and the like take none. Shipped in the nominative with the article attached; a preposition changes the form again. Shorter than the 233-line en list on purpose — only names that could be verified as the standard Irish form are here.
+locale: ga
+---
+An Afganastáin
+An Afraic Theas
+An Ailbéin
+An Ailgéir
+An Airgintín
+An Airméin
+An Angóla
+An Araib Shádach
+An Asarbaiseáin
+An Astráil
+An Bhanglaidéis
+An Bhealarúis
+An Bheilg
+An Bheilís
+An Bhoisnia agus an Heirseagaivéin
+An Bholaiv
+An Bhrasaíl
+An Bhrúiné
+An Bhulgáir
+An Bhurmais
+An Chamarún
+An Chambóid
+An Chasacstáin
+An Chipir
+An Chirgeastáin
+An Cholóim
+An Chróit
+An Chéinia
+An Chóiré Theas
+An Chóiré Thuaidh
+An Danmhairg
+An Eastóin
+An Eilvéis
+An Eiritré
+An Etóip
+An Fhionlainn
+An Fhrainc
+An Ghaimbia
+An Ghearmáin
+An Ghréig
+An Ghuine
+An Ghuine Mheánchriosach
+An Ghuáin
+An Ghána
+An Iaráic
+An Iaráin
+An India
+An Indinéis
+An Iodáil
+An Iordáin
+An Iorua
+An Laitvia
+An Libia
+An Liobáin
+An Liotuáin
+An Mhalaeisia
+An Mhaláiv
+An Mhauratáin
+An Mholdóiv
+An Mhongóil
+An Mhálta
+An Nigéir
+An Nua-Shéalainn
+An Ostair
+An Phacastáin
+An Pholainn
+An Phortaingéil
+An Ríocht Aontaithe
+An Rómáin
+An Rúis
+An Spáinn
+An Tansáin
+An Tuirc
+An Téalainn
+An Túinéis
+An Ungáir
+An Urugua
+An Veiniséala
+An Vítneam
+An tSaimbia
+An tSeapáin
+An tSeicia
+An tSeineagáil
+An tSeirbia
+An tSeoirsia
+An tSile
+An tSiombáib
+An tSiria
+An tSlóivéin
+An tSlóvaic
+An tSomáil
+An tSualainn
+An tSín
+An tSúdáin
+An tSúdáin Theas
+An Éigipt
+An Ísiltír
+An Úcráin
+An Úisbéiceastáin
+Aontas na nÉimíríochtaí Arabacha
+Bairéin
+Barbadós
+Béinin
+Bútán
+Catar
+Ceanada
+Ciribeas
+Cuáit
+Cósta Ríce
+Cúba
+Eacuadór
+Fidsí
+Guine-Bhissau
+Haití
+Hondúras
+Iamáice
+Ioslainn
+Iosrael
+Laos
+Lucsamburg
+Léasótó
+Madagascar
+Mailí
+Maracó
+Meicsiceo
+Monacó
+Montainéagró
+Mósaimbíc
+Na Maldiv
+Na Séiséil
+Namaib
+Neipeal
+Nicearagua
+Oileáin Sholaimh
+Oileán Mhuirís
+Panama
+Papua-Nua-Ghuine
+Paragua
+Peiriú
+Ruanda
+Samó
+San Mairíne
+Singeapór
+Sri Lanca
+Stáit Aontaithe Mheiriceá
+Taiwan
+Tonga
+Turcmanastáin
+Tádsíceastáin
+Tóga
+Vanuatú
+Éire
+Óman
+Úganda

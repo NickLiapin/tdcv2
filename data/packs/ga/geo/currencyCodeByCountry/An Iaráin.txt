@@ -1,0 +1,5 @@
+---
+description: Currency code of An Iaráin
+locale: ga
+---
+IRR

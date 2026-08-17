@@ -1,0 +1,5 @@
+---
+description: Capital of An Ghearmáin (Irish)
+locale: ga
+---
+Beirlín

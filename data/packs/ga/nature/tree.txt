@@ -1,0 +1,32 @@
+---
+description: Tree (Irish). Twenty of these tree names ARE the letters of the ogham alphabet — beith is B, dair is D, coll is C — so this list doubles as the traditional Irish alphabet; see world/writingSystem.txt.
+locale: ga
+---
+dair
+fuinseog
+beith
+coll
+sceach gheal
+caorthann
+leamhán
+fearnóg
+saileach
+giúis
+iúr
+cuileann
+draighean
+feá
+crann teile
+poibleog
+trom
+cufróg
+sprús
+learóg
+crann úll
+crann silíní
+crann piorraí
+cnó capaill
+cnó francach
+crann castán
+seiceamar
+aiteann

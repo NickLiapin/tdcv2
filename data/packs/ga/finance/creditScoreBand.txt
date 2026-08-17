@@ -1,0 +1,9 @@
+---
+description: Credit rating band (Irish)
+locale: ga
+---
+ar fheabhas
+an-mhaith
+maith
+cothrom
+lag

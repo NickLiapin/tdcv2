@@ -1,0 +1,5 @@
+---
+description: Currency code of Na hOileáin Fhilipíneacha
+locale: ga
+---
+PHP

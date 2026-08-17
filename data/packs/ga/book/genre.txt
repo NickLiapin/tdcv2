@@ -1,0 +1,30 @@
+---
+description: Book genre (Irish). Seanchas and béaloideas are distinct categories in Irish publishing — lore and local tradition — with no single English equivalent.
+locale: ga
+---
+úrscéal
+gearrscéal
+filíocht
+drámaíocht
+beathaisnéis
+dírbheathaisnéis
+stair
+ficsean eolaíochta
+fantaisíocht
+bleachtaireacht
+rúndiamhair
+uafás
+rómánsaíocht
+eachtraíocht
+ficsean stairiúil
+litríocht don ógra
+litríocht do pháistí
+béaloideas
+seanchas
+miotaseolaíocht
+aiste
+taisteal
+cócaireacht
+féinchabhair
+fealsúnacht
+diagacht

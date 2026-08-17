@@ -1,0 +1,16 @@
+---
+description: Jobs in Oideachas (Irish)
+locale: ga
+---
+Múinteoir Bunscoile
+Múinteoir Meánscoile
+Príomhoide
+Príomhoide Tánaisteach
+Léachtóir
+Ollamh
+Taighdeoir
+Cúntóir Riachtanas Speisialta
+Leabharlannaí
+Comhairleoir Gairme
+Teagascóir
+Riarthóir Scoile

@@ -1,0 +1,43 @@
+---
+description: Trailing element of an Irish place name (Baile Nua, Lios na gCearrbhach). ALREADY MUTATED: the adjectives are in the form they take after the noun and the genitive phrases carry their article, lenition and eclipsis exactly as the name does — na gCloch, an tSagairt, na Manach. Do not apply séimhiú or urú to these a second time.
+locale: ga
+---
+Mór
+Beag
+Nua
+Bán
+Dubh
+Rua
+Buí
+Glas
+Liath
+Fada
+Gearr
+Ard
+Íseal
+Garbh
+Réidh
+Uachtarach
+Íochtarach
+Thoir
+Thiar
+Theas
+Thuaidh
+Láir
+an tSléibhe
+an Locha
+na Mara
+na Coille
+na hAbhann
+an Droma
+na Cille
+an Átha
+na Trá
+na Gaoithe
+na gCloch
+na Manach
+an Iarla
+na Rí
+an tSagairt
+na gCaorach
+na bhFear

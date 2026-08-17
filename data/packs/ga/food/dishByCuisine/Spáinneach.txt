@@ -1,0 +1,12 @@
+---
+description: Dish of Spáinneach cuisine. Dish names keep the spelling of the language they come from; the Irish dishes are in Irish.
+locale: ga
+---
+paella
+tortilla española
+gazpacho
+tapas
+churros
+jamón serrano
+patatas bravas
+fabada

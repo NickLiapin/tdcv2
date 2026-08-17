@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Néifreolaíocht (Irish)
+locale: ga
+---
+galar duán ainsealach
+gortú duán géarmhíochaine
+clocha duán
+sindróm neafróiteach
+galar duán ilchisteach
+glómarúilnefríteas
+ionfhabhtú conaire fuail
+neifreapaite diaibéiteach
+aicídóis tiúbalach duánach
+teip duán deiridh

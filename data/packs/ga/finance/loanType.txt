@@ -1,0 +1,14 @@
+---
+description: Kind of loan (Irish)
+locale: ga
+---
+morgáiste
+iasacht phearsanta
+iasacht ghluaisteáin
+iasacht mac léinn
+iasacht ghnó
+iasacht feirme
+iasacht athchóirithe
+rótharraingt
+iasacht chomhair chreidmheasa
+iasacht droichid

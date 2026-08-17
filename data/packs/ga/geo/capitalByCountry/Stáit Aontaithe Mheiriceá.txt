@@ -1,0 +1,5 @@
+---
+description: Capital of Stáit Aontaithe Mheiriceá (Irish)
+locale: ga
+---
+Washington

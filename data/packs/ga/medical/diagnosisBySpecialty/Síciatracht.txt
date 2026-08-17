@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Síciatracht (Irish)
+locale: ga
+---
+dúlagar mór
+neamhord imní ginearálaithe
+neamhord délchodach
+scitsifréine
+neamhord struis iarthrámaigh
+neamhord obsaitheach-áiteach
+neamhord scaoll
+neamhord itheacháin
+neamhord úsáide alcóil
+neamhord easnaimh airde agus hipirghníomhaíochta

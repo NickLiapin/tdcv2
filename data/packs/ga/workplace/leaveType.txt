@@ -1,0 +1,16 @@
+---
+description: Kind of leave (Irish)
+locale: ga
+---
+saoire bhliantúil
+saoire bhreoiteachta
+saoire mháithreachais
+saoire atharthachta
+saoire thuismitheora
+saoire chúramóra
+saoire ghairme
+saoire staidéir
+saoire bhróin
+saoire gan phá
+lá saoire poiblí
+saoire chumadóireachta

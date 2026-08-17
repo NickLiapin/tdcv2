@@ -1,0 +1,12 @@
+---
+description: Dish of Síneach cuisine. Dish names keep the spelling of the language they come from; the Irish dishes are in Irish.
+locale: ga
+---
+rís fhriochta
+núdail friochta
+dim sum
+anraith te agus géar
+muiceoil milis agus géar
+cearc kung pao
+bao
+chow mein

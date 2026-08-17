@@ -1,0 +1,5 @@
+---
+description: Currency of An Araib Shádach (Irish)
+locale: ga
+---
+Riyal

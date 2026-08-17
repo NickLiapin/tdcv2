@@ -1,0 +1,30 @@
+---
+description: Diagnosis that applies to male patients (Irish clinical terminology)
+locale: ga
+---
+hipearpláis neamhurchóideach próstataigh
+ailse phróstatach
+próstatíteas
+ailse na magairlí
+casadh magairle
+eipidideimíteas
+hidriséile
+vairicséile
+spermatocéile
+neamhábaltacht éireachtála
+hipeagónadachas fireann
+gínéacomaistia
+fimóis
+parafimóis
+galar Peyronie
+aiséamú roimh am
+neamhthorthúlacht fhireann
+azoospermia
+maolú testosteróin de réir aoise
+hearnia inguineach
+cripteorcachas
+ailse an bhod
+sindróm Klinefelter
+maoile fireann
+coiliteas próstatach ainsealach
+abscas scrótail

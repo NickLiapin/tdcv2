@@ -1,0 +1,39 @@
+---
+description: Playing position (Irish), across sports
+locale: ga
+---
+Cúl Báire
+Lánchúlaí
+Leathchúlaí
+Cúlaí Deas
+Cúlaí Clé
+Cúlaí Láir
+Leathchúlaí Deas
+Leathchúlaí Láir
+Leathchúlaí Clé
+Imreoir Lár Páirce
+Lárpháirceach
+Lárpháirceach Cosanta
+Lárpháirceach Ionsaitheach
+Leaththosaí
+Leaththosaí Deas
+Leaththosaí Láir
+Leaththosaí Clé
+Lántosaí
+Tosaí
+Tosaí Deas
+Tosaí Clé
+Cliathánaí
+Ionsaitheoir
+Cosantóir
+Prapaire
+Húcaeir
+Glasálaí
+Sciathánaí
+Leath Scrum
+Leathchúlaí Cliste
+Stiúrthóir
+Garda Sciathánach
+Tosaí Beag
+Tosaí Cumhachtach
+Lárnach

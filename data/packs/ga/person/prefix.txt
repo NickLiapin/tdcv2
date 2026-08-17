@@ -1,0 +1,36 @@
+---
+description: Irish name title. Most carry the article an, and the article mutates the noun after it — masculine nouns beginning with a vowel take t- (an tUasal, an tOllamh, an tAthair), feminine nouns lenite (an Mháistreás) and feminine s- takes t- (an tSiúr). The values below are already in that form; do not mutate them again.
+locale: ga
+---
+An tUasal
+Bean Uí
+Iníon
+Uasal
+An Dochtúir
+An tOllamh
+An tAthair
+An Bráthair
+An tSiúr
+An Canónach
+An tEaspag
+An tArdeaspag
+An Cairdinéal
+An tOirmhinneach
+An Breitheamh
+An Máistir
+An Mháistreás
+An Captaen
+An Ceannfort
+An Coirnéal
+An Ginearál
+An Leifteanant
+An Sáirsint
+An Maor
+An Méara
+An tArdmhéara
+An Ridire
+An Bhaintiarna
+An Tiarna
+An Bhantiarna
+An tArdollamh
+An Seansailéir

@@ -1,0 +1,12 @@
+---
+description: Dish of Iodálach cuisine. Dish names keep the spelling of the language they come from; the Irish dishes are in Irish.
+locale: ga
+---
+pizza Margherita
+spaghetti carbonara
+lasagne
+risotto
+gnocchi
+minestrone
+tiramisu
+bruschetta

@@ -1,0 +1,14 @@
+---
+description: Riochtaí atá níos coitianta i ndaoine de bhunadh Eorpach Thuaidh. Comhartha leitheadúlachta atá ann, ní comhartha eisiach. Is í Éire an tír is airde ráta ar domhan i gcás fiobróis chodánach agus haemacrómatóis oidhreachtúil.
+locale: ga
+---
+fiobróis chodánach
+haemacrómatóis oidhreachtúil
+easnamh alfa-1 aintritripsine
+feiniolcéatanúire
+galar céiliach
+ilscléaróis
+diaibéiteas mellitus cineál 1
+crapadh Dupuytren
+carcanóma cille basaí
+marthanacht lachtáis

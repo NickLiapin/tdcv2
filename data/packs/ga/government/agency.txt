@@ -1,0 +1,27 @@
+---
+description: Government department or state agency, named in Irish. Irish is the official language of ONE state, so these are the departments and agencies of Ireland — the Irish names are the legal names, not translations. Which specific bodies exist is country data; what these words MEAN is language data.
+locale: ga
+---
+An Roinn Airgeadais
+An Roinn Oideachais
+An Roinn Sláinte
+An Roinn Dlí agus Cirt
+An Roinn Gnóthaí Eachtracha
+An Roinn Talmhaíochta
+An Roinn Iompair
+An Roinn Comhshaoil
+An Roinn Cosanta
+An Roinn Turasóireachta agus Cultúir
+An Roinn Fiontar
+An Roinn Coimirce Sóisialaí
+An Roinn Tithíochta
+Oifig an Taoisigh
+Na Coimisinéirí Ioncaim
+An Garda Síochána
+An Phríomh-Oifig Staidrimh
+An tSeirbhís Chúirteanna
+Údarás na Gaeltachta
+Foras na Gaeilge
+An Post
+Uisce Éireann
+An tÚdarás Sláinte agus Sábháilteachta

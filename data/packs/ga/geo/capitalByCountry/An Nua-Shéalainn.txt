@@ -1,0 +1,5 @@
+---
+description: Capital of An Nua-Shéalainn (Irish)
+locale: ga
+---
+Vaitliongtan

@@ -1,0 +1,10 @@
+---
+description: Positions in Sacar (Irish)
+locale: ga
+---
+Cúl Báire
+Cúlaí Láir
+Lánchúlaí
+Lárpháirceach Cosanta
+Cliathánaí
+Tosaí

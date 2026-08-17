@@ -1,0 +1,12 @@
+---
+description: Dish of Maracach cuisine. Dish names keep the spelling of the language they come from; the Irish dishes are in Irish.
+locale: ga
+---
+tagine
+cúscús
+harira
+pastilla
+mechoui
+zaalouk
+briouat
+msemen

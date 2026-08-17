@@ -1,0 +1,24 @@
+---
+description: Household budget category (Irish)
+locale: ga
+---
+cíos
+morgáiste
+bia
+leictreachas
+gás
+breosla
+uisce
+teileafón
+leathanbhanda
+árachas
+iompar
+gluaisteán
+cúram sláinte
+cógais
+oideachas
+cúram leanaí
+éadaí
+siamsaíocht
+saoire
+coigilteas

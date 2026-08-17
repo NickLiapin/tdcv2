@@ -1,0 +1,5 @@
+---
+description: Currency of An Pholainn (Irish)
+locale: ga
+---
+Zloty

@@ -1,0 +1,11 @@
+---
+description: Riochtaí atá níos coitianta i ndaoine de bhunadh Oileánach an Aigéin Chiúin. Comhartha leitheadúlachta atá ann, ní comhartha eisiach.
+locale: ga
+---
+diaibéiteas mellitus cineál 2
+murtall
+gúta
+galar duán ainsealach
+galar croí réamatach
+hipirtheannas
+ailse ae

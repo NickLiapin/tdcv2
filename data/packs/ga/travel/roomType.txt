@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Irish)
+locale: ga
+---
+seomra singil
+seomra dúbailte
+seomra tríarach
+seomra ceathrair
+seomra le dhá leaba shingil
+seomra teaghlaigh
+sraith
+sraith an tsóisir
+sraith na hoíche meala
+seomra feidhmiúcháin
+seomra deluxe
+seomra caighdeánach
+seomra eacnamaíoch
+seomra ceangailte
+seomra rochtana
+árasán
+teachín
+leaba i suanlios

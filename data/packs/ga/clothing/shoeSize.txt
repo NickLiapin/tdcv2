@@ -1,0 +1,16 @@
+---
+description: Shoe size. Ireland sells shoes in UK sizes — that is the number printed on the box and the one a customer asks for; a Continental (EU) equivalent is usually printed beside it but is not what is quoted.
+locale: ga
+---
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13

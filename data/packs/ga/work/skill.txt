@@ -1,0 +1,46 @@
+---
+description: Workplace skill (Irish)
+locale: ga
+---
+cumarsáid
+obair foirne
+ceannaireacht
+réiteach fadhbanna
+smaointeoireacht chriticiúil
+cruthaitheacht
+eagrúchán
+bainistíocht ama
+idirbheartaíocht
+cur i láthair
+scríbhneoireacht
+anailís sonraí
+taighde
+pleanáil
+buiséadú
+bainistíocht tionscadail
+seirbhís do chustaiméirí
+díolacháin
+margaíocht
+cuntasaíocht
+ríomhchlárú
+dearadh gréasáin
+dearadh grafach
+eagarthóireacht físe
+grianghrafadóireacht
+aistriúchán
+teagasc
+oiliúint
+meantóireacht
+earcaíocht
+riarachán
+clóscríobh
+scarbhileoga
+bunachair sonraí
+líonrú
+slándáil faisnéise
+rialú cáilíochta
+sláinte agus sábháilteacht
+garchabhair
+tiomáint
+oibriú innill
+táthú

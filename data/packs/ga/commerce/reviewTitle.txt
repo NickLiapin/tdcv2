@@ -1,0 +1,30 @@
+---
+description: Customer review headline (Irish)
+locale: ga
+---
+Ar fheabhas
+Sármhaith
+An-sásta leis
+Díreach mar a bhí súil agam
+Luach maith ar an airgead
+Molaim go mór é
+Tháinig sé go tapa
+Cáilíocht den scoth
+Beagán díomách
+Níl sé chomh maith sin
+Ní fiú an praghas é
+Bhris sé i ndiaidh seachtaine
+Deacair a úsáid
+Níos lú ná mar a shíl mé
+Foirfe don teach
+Bronntanas iontach
+Ceannóidh mé arís é
+Seirbhís den chéad scoth
+Pacáistiú néata
+Tháinig sé damáistithe
+Maith go leor
+Sásúil
+Iontach ar fad
+Níor oibrigh sé
+Comhairle: ceannaigh toise níos mó
+Chuir sé iontas orm

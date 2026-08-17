@@ -1,0 +1,10 @@
+---
+description: Riochtaí atá níos coitianta i ndaoine de bhunadh Afracach Thuaidh. Comhartha leitheadúlachta atá ann, ní comhartha eisiach.
+locale: ga
+---
+beite-talaiséime
+fiabhras Meánmhuirí teaghlaigh
+easnamh G6PD
+galar cealla corráin
+bodhaire ghéiniteach
+diaibéiteas cineál 2

@@ -1,0 +1,34 @@
+---
+description: Hashtag word in Irish (prefix with # in a template). Irish hashtags drop the fada in practice on some platforms, but the correct spelling is given here.
+locale: ga
+---
+gaeilge
+gaeltacht
+éire
+grá
+saoirse
+ceol
+spórt
+bia
+taisteal
+dúlra
+farraige
+sliabh
+trá
+samhradh
+geimhreadh
+nollaig
+cáisc
+féile
+fleadh
+seisiún
+damhsa
+amhrán
+filíocht
+ealaín
+grianghrafadóireacht
+faisean
+sláinte
+aclaíocht
+oideachas
+teaghlach

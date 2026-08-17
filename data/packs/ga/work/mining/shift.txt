@@ -1,0 +1,9 @@
+---
+description: Work shift (Irish)
+locale: ga
+---
+seal maidine
+seal tráthnóna
+seal oíche
+seal lae
+seal dúbailte

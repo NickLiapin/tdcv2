@@ -1,0 +1,19 @@
+---
+description: Court, named in Irish. Irish is the official language of ONE state, so these are Ireland's courts and the Irish names are the constitutional names, not translations — Article 34 of Bunreacht na hÉireann names An Chúirt Uachtarach. Note the article's mutation: cúirt is feminine, so an Chúirt is lenited.
+locale: ga
+---
+An Chúirt Dúiche
+An Chúirt Chuarda
+An Ard-Chúirt
+An Chúirt Achomhairc
+An Chúirt Uachtarach
+An Chúirt Choiriúil Speisialta
+An Phríomh-Chúirt Choiriúil
+An Chúirt Chuarda Choiriúil
+An Chúirt Teaghlaigh
+An Chúirt Éilimh Bhig
+An Binse Achomhairc Fostaíochta
+An Bord Pleanála
+Cúirt an Chróinéara
+An Chúirt Phromhaidh
+An Chúirt Bhreithiúnais Eorpach

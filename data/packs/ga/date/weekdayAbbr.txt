@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday (Irish) — the bare noun without Dé, which is what a short date column uses
+locale: ga
+---
+Luan
+Máirt
+Céad
+Déar
+Aoine
+Sath
+Domh

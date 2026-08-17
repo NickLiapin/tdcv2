@@ -1,0 +1,5 @@
+---
+description: Currency code of An Airgintín
+locale: ga
+---
+ARS

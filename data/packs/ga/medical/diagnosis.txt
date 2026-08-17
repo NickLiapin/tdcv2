@@ -1,0 +1,81 @@
+---
+description: Diagnosis (Irish clinical terminology)
+locale: ga
+---
+hipirtheannas
+diaibéiteas mellitus cineál 2
+diaibéiteas mellitus cineál 1
+asma
+galar scamhógach bacainneach ainsealach
+galar artaire corónaí
+cliseadh croí plódaitheach
+fibrileacht atriach
+stróc
+mígréin
+titimeas
+galar Parkinson
+galar Alzheimer
+ilscléaróis
+dúlagar mór
+neamhord imní ginearálaithe
+scitsifréine
+neamhord délchodach
+neamhord struis iarthrámaigh
+oistéaairtríteas
+airtríteas réamatóideach
+oistéapóróis
+gúta
+lúpas
+soiriáis
+eachma
+aicne
+róis
+urtacáire
+deirmitíteas teagmhála
+meileanóma
+carcanóma cille basaí
+ailse bhrollaigh
+ailse scamhóg
+ailse chóilín
+ailse phróstatach
+leoicéime
+liomfóma
+anaeime easnaimh iarainn
+haemacrómatóis
+fiobróis chodánach
+galar céiliach
+galar Crohn
+coilíteas othrasach
+siondróm putóige greannaithe
+galar athshrutha gaistreisifigigh
+othras peipteach
+clocha domlais
+pancraitíteas
+hepatitis
+cioróis
+galar duán ainsealach
+clocha duán
+ionfhabhtú conaire fuail
+hipiteoróideacht
+hipearteoróideacht
+galar Graves
+teoróidíteas Hashimoto
+murtall
+apnae codlata
+niúmóine
+broincíteas
+eitinn
+sinuisíteas
+aimeagdalaíteas
+otitis media
+cataracht
+glácóma
+meathlú maicealach
+sindróm chanáil an charpais
+leithscar diosca
+scoilióis
+briseadh
+ainéime
+hipirlipidéime
+galar soithíoch imeallach
+féitheacha borrtha

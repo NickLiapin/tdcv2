@@ -1,0 +1,16 @@
+---
+description: Streaming service. Brand names keep their own spelling; RTÉ Player and TG4 are the Irish services and TG4 is the Irish-language broadcaster.
+locale: ga
+---
+RTÉ Player
+TG4
+Netflix
+Disney+
+Prime Video
+Apple TV+
+YouTube
+Spotify
+BBC iPlayer
+Virgin Media Play
+Now
+Paramount+

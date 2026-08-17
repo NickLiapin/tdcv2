@@ -1,0 +1,5 @@
+---
+description: Capital of An Éigipt (Irish)
+locale: ga
+---
+Caireo

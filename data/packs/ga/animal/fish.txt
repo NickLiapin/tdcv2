@@ -1,0 +1,28 @@
+---
+description: Fish (Irish). Freshwater first, then sea fish of Irish waters.
+locale: ga
+---
+bradán
+breac
+breac geal
+ruabhreac
+liús
+péirse
+eascann
+ronnach
+scadán
+trosc
+cadóg
+colmóir
+glasán
+pollóg
+langa
+leathóg
+sól
+turbard
+ballach
+siorc
+liamhán gréine
+roc
+cnúdán
+míol mór gorm

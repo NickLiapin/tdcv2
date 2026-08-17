@@ -1,0 +1,5 @@
+---
+description: Capital of An Ríocht Aontaithe (Irish)
+locale: ga
+---
+Londain

@@ -1,0 +1,22 @@
+---
+description: Cat breed (Irish). The Manainneach is the Manx, the tailless cat of the Isle of Man — a Gaelic breed name, not a translation.
+locale: ga
+---
+Siamach
+Peirseach
+Manainneach
+Beangálach
+Sfioncs
+Ragdoll
+Gorm na Rúise
+Cat Coille na hIorua
+Cat Mór Mhaine
+Abaisíneach
+Birmeach
+Burmach
+Gearrfhionnach Briotanach
+Somálach
+Angóra Turcach
+Bombay
+Cornish Rex
+Devon Rex

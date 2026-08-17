@@ -1,0 +1,20 @@
+---
+description: Direction of travel (Irish). Irish distinguishes THREE things English writes as north: ó thuaidh is motion northwards, thuaidh is position in the north, and aduaidh is motion from the north. All three are given; a config must pick the one its sentence needs.
+locale: ga
+---
+ó thuaidh
+ó dheas
+soir
+siar
+thuaidh
+theas
+thoir
+thiar
+aduaidh
+aneas
+anoir
+aniar
+soir ó thuaidh
+siar ó thuaidh
+soir ó dheas
+siar ó dheas

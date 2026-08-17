@@ -1,0 +1,5 @@
+---
+description: Capital of An Fhrainc (Irish)
+locale: ga
+---
+Páras

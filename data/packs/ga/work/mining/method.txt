@@ -1,0 +1,12 @@
+---
+description: Mining method (Irish)
+locale: ga
+---
+mianadóireacht oscailte
+mianadóireacht faoi thalamh
+mianadóireacht seomra agus colún
+mianadóireacht balla fada
+mianadóireacht sloic
+cairéalú
+druileáil agus pléascadh
+mianadóireacht sciodair

@@ -1,0 +1,42 @@
+---
+description: Animal (Irish), radical form
+locale: ga
+---
+madra
+cat
+capall
+bó
+caora
+gabhar
+muc
+cearc
+coileach
+lacha
+gé
+turcaí
+coinín
+giorria
+luch
+francach
+iora rua
+sionnach
+mac tíre
+béar
+leon
+tíogar
+eilifint
+sioráf
+míol mór
+deilf
+rón
+dobharchú
+broc
+easóg
+gráinneog
+ialtóg
+damh
+tarbh
+asal
+uan
+searrach
+coileán

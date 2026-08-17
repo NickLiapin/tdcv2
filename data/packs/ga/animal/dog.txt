@@ -1,0 +1,29 @@
+---
+description: Dog breed (Irish). The first six are native Irish breeds and their Irish names are the original ones — Cú Faoil is the Irish wolfhound.
+locale: ga
+---
+Cú Faoil
+Sotar Rua
+Spáinnéar Uisce Éireannach
+Brocaire Éireannach
+Brocaire Gorm Chiarraí
+Brocaire Cruithneachtúil
+Cú Gadhair
+Collie Teorann
+Madra Caorach Gearmánach
+Labradór
+Rothadóir
+Beagle
+Bocsaer
+Dálmátach
+Púdal
+Tarbhchú
+Rottweiler
+Spáinnéar Cocair
+Sotar Gordon
+Sotar Sasanach
+Brocaire Yorkshire
+Brocaire Albanach
+Madra Sléibhe na Beirne
+Husky Sibéarach
+Chihuahua

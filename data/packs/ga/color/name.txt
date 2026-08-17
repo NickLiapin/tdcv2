@@ -1,0 +1,59 @@
+---
+description: Colour name (Irish). Irish does not cut the spectrum where English does: glas is the green of grass and of living things and also the grey of a sheep, while uaine is the green of paint and cloth; gorm is blue and is also the word used of a black person's skin; rua is the red of hair, fur and rust, dearg the red of blood and paint. A translation that maps one English colour word to one Irish one will be wrong about half the time. Radical form — a colour adjective lenites after a feminine noun (bró ghlas).
+locale: ga
+---
+bán
+dubh
+dearg
+rua
+flannbhuí
+oráiste
+buí
+órga
+glas
+uaine
+gorm
+dúghorm
+bánghorm
+corcra
+corcairdhearg
+bándearg
+donn
+donnrua
+liath
+geal
+dorcha
+riabhach
+odhar
+fionn
+crón
+cróch
+airgeadach
+dúdhearg
+bánbhuí
+glasghorm
+dúghlas
+bánghlas
+dúdhonn
+liathghlas
+dath an óir
+dath an airgid
+dath an chopair
+dath an phráis
+dath an eabhair
+dath an chnó
+dath an chaife
+dath na seacláide
+dath na meala
+dath na cré
+dath na holóige
+dath an fhéir
+dath na mara
+dath na spéire
+dath an ghainimh
+dath an tsneachta
+dath an deataigh
+dath na luaithe
+dath an iarainn
+dath na fola
+dath an fhíona

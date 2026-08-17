@@ -1,0 +1,20 @@
+---
+description: Weather condition (Irish). Ireland has a maritime climate, so the ordinary conditions are the wet and windy ones and this list is ordered that way.
+locale: ga
+---
+scamallach
+báisteach
+ceobhrán
+múrtha
+gaofar
+stoirmiúil
+ceomhar
+grianmhar
+páirtscamallach
+geal
+meirbh
+fionnuar
+fuar
+sioc
+sneachta
+clocha sneachta

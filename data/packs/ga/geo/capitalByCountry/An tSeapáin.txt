@@ -1,0 +1,5 @@
+---
+description: Capital of An tSeapáin (Irish)
+locale: ga
+---
+Tóiceo

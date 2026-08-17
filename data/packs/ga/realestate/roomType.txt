@@ -1,0 +1,20 @@
+---
+description: Room (Irish)
+locale: ga
+---
+seomra suí
+seomra bia
+cistin
+seomra leapa
+seomra folctha
+leithreas
+halla
+staighre
+léibheann
+seomra níocháin
+seomra gréine
+oifig bhaile
+seomra súgartha
+áiléar
+íoslach
+seomra stórais

@@ -1,0 +1,14 @@
+---
+description: Industry (Irish) that has a coherent job list
+locale: ga
+---
+Teicneolaíocht
+Cúram Sláinte
+Airgeadas
+Tógáil
+Oideachas
+Fáilteachas
+Monaraíocht
+Miondíol
+Iompar
+Dlí

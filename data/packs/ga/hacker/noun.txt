@@ -1,0 +1,40 @@
+---
+description: Technical noun (Irish), radical form
+locale: ga
+---
+freastalaí
+cliant
+bunachar sonraí
+tábla
+innéacs
+ceist
+scéimre
+prótacal
+paicéad
+port
+seoladh
+líonra
+ródaire
+lasc
+balla dóiteáin
+seachfhreastalaí
+taisce
+ciú
+próiseas
+snáithe
+cnuasach
+nód
+coimeádán
+íomhá
+script
+leabharlann
+creatlach
+modúl
+pacáiste
+stór
+brainse
+tiomantas
+eochair
+teastas
+comhartha
+logchomhad

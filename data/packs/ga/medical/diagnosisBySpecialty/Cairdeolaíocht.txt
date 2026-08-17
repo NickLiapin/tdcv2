@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Cairdeolaíocht (Irish)
+locale: ga
+---
+hipirtheannas
+galar artaire corónaí
+fibrileacht atriach
+cliseadh croí plódaitheach
+infreachtú miócairdiach
+hipirlipidéime

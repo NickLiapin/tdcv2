@@ -1,0 +1,32 @@
+---
+description: Flower (Irish). Seamair is the shamrock's plant, fraoch the heather of the hills and buachallán buí the ragwort that is a noxious weed under Irish law.
+locale: ga
+---
+rós
+lile
+lile na ngleann
+nóinín
+nóinín mór
+sabhaircín
+cloigín gorm
+coinnle corra
+sailchuach
+caisearbhán
+fearbán
+seamair
+fraoch
+aiteann
+buachallán buí
+lus an chromchinn
+plúirín sneachta
+tiúilip
+cróch
+lus na gréine
+féithleann
+lus mór
+méaracán gorm
+magairlín
+bileog bháite
+lus an bhalla
+crobh préacháin
+neantóg

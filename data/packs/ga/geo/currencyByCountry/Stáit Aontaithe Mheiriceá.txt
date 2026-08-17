@@ -1,0 +1,5 @@
+---
+description: Currency of Stáit Aontaithe Mheiriceá (Irish)
+locale: ga
+---
+Dollar

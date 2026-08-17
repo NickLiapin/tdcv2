@@ -1,0 +1,5 @@
+---
+description: Capital of An Chóiré Theas (Irish)
+locale: ga
+---
+Súl

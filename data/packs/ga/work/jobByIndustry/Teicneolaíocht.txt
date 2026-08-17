@@ -1,0 +1,16 @@
+---
+description: Jobs in Teicneolaíocht (Irish)
+locale: ga
+---
+Innealtóir Bogearraí
+Eolaí Sonraí
+Innealtóir DevOps
+Bainisteoir Táirge
+Dearthóir UX
+Innealtóir Cáilíochta
+Riarthóir Córas
+Anailísí Slándála
+Ailtire Néil
+Innealtóir Sonraí
+Forbróir Gréasáin
+Bainisteoir Tionscadail

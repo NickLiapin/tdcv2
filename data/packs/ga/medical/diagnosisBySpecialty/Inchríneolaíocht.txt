@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Inchríneolaíocht (Irish)
+locale: ga
+---
+diaibéiteas mellitus cineál 1
+diaibéiteas mellitus cineál 2
+hipiteoróideacht
+hipearteoróideacht
+galar Graves
+teoróidíteas Hashimoto
+oistéapóróis
+sindróm Cushing
+galar Addison
+sindróm na n-oibríní ilchisteacha

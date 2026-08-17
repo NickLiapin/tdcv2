@@ -1,0 +1,17 @@
+---
+description: Kind of legal case (Irish)
+locale: ga
+---
+cás coiriúil
+cás sibhialta
+cás teaghlaigh
+cás fostaíochta
+cás tráchtála
+cás faillí
+cás conartha
+cás maoine
+cás pleanála
+cás imirce
+cás athbhreithnithe bhreithiúnaigh
+achomharc
+éileamh beag

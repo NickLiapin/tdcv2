@@ -1,0 +1,27 @@
+---
+description: Sub-address designator (Irish)
+locale: ga
+---
+Árasán
+Aonad
+Bloc
+Foirgneamh
+Sciathán
+Urlár
+Bunurlár
+Íoslach
+Áiléar
+Seomra
+Oifig
+Uimhir
+Doras
+Staighre
+Halla
+Bosca Poist
+Ionad
+Suíomh
+Teachín
+Léibheann
+Cúlteach
+Léibheann Uachtarach
+Léibheann Íochtarach

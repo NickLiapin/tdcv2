@@ -1,0 +1,5 @@
+---
+description: Capital of An Vítneam (Irish)
+locale: ga
+---
+Hanaí

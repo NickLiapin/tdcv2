@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are international and are written the same in Irish. The ATR 72 and the Q400 are the turboprops on Irish regional routes; the 737-800 and the A320 family carry most Irish traffic.
+locale: ga
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A321LR
+Airbus A330-200
+Airbus A330-300
+Airbus A330-900neo
+Airbus A350-900
+Airbus A380-800
+Boeing 737-700
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 737 MAX 200
+Boeing 757-200
+Boeing 767-300ER
+Boeing 777-200ER
+Boeing 777-300ER
+Boeing 787-8
+Boeing 787-9
+ATR 42-600
+ATR 72-600
+De Havilland Canada Dash 8 Q400
+Embraer E170
+Embraer E195-E2

@@ -1,0 +1,26 @@
+---
+description: Property feature (Irish)
+locale: ga
+---
+gairdín
+clós
+cabhsa
+garáiste
+spás páirceála
+teach gloine
+seid
+tine oscailte
+sorn adhmaid
+téamh lárnach
+gloiniú dúbailte
+painéil ghréine
+caidéal teasa
+áiléar críochnaithe
+íoslach
+cistin oscailte
+seomra folctha en suite
+seomra níocháin
+vardrús insuite
+urlár adhmaid
+radharc na farraige
+cóngarach don trá

@@ -1,0 +1,18 @@
+---
+description: Order status (Irish)
+locale: ga
+---
+curtha isteach
+á phróiseáil
+íoctha
+deimhnithe
+á phacáil
+réidh le seoladh
+seolta
+faoi bhealach
+seachadta
+curtha ar ceal
+ar ais
+ar feitheamh
+teipthe
+faoi athbhreithniú

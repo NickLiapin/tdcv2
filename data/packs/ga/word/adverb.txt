@@ -1,0 +1,36 @@
+---
+description: Common Irish adverb. An adjective becomes an adverb with the particle go, and go prefixes h to a vowel — go maith, go tapa, but go hannamh, go hiontach. The values here are already in adverb form.
+locale: ga
+---
+go maith
+go dona
+go tapa
+go mall
+go luath
+go déanach
+go minic
+go hannamh
+go hiontach
+go cúramach
+go ciúin
+go tobann
+go deo
+go brách
+inné
+inniu
+amárach
+anois
+ansin
+anseo
+ansiúd
+thall
+abhus
+thuas
+thíos
+amuigh
+istigh
+isteach
+amach
+suas
+síos
+le chéile

@@ -1,0 +1,120 @@
+---
+description: Second element of an Irish street name — ALREADY INFLECTED to follow a streetSuffix. Irish puts the generic first and the qualifier after it in the genitive, so the qualifier is never in dictionary form: na Trá (of the strand), an Chaisleáin (lenited masculine genitive), na gCrann (eclipsed genitive plural), Phádraig (lenited personal name). Join as ${suffix} ${name} — Sráid na Trá, Bóthar an Chaisleáin — and do not mutate a second time. City-specific streets belong to a country pack, not here.
+locale: ga
+---
+na Trá
+na Mara
+na hAbhann
+na Coille
+na Cille
+na Mainistreach
+na hEaglaise
+na Faiche
+na Páirce
+na Cé
+na Scoile
+na Cúirte
+na Céibhe
+na Gaoithe
+na Gréine
+na Gealaí
+na Réaltaí
+na Fuiseoige
+na Fuinseoige
+na Darach
+na Beithe
+na Sceiche
+na Rósanna
+na gCrann
+na gCloch
+na gCaorach
+na gCapall
+na nGabhann
+na bhFuinseog
+na bhFíodóirí
+na gCeannaithe
+na nIascairí
+na Muilleoirí
+na dTáilliúirí
+na mBáicéirí
+na Búistéirí
+na Manach
+na mBráthar
+na Rí
+na nGael
+na hÉireann
+na Saoirse
+na Síochána
+na Cásca
+na Nollag
+na Bealtaine
+na Samhna
+na Féinne
+na hInise
+na Móna
+na Tulaí
+an Chaisleáin
+an Mhargaidh
+an Droichid
+an Chuain
+an tSéipéil
+an Mhuilinn
+an Tobair
+an Gharráin
+an Chnoic
+an Ghleanna
+an Dúna
+an Chladaigh
+an Oileáin
+an Chalaidh
+an Bhaile
+an tSrutháin
+an Locha
+an Aonaigh
+an Chuilinn
+an Fhuaráin
+an tSagairt
+an Iarla
+an Rí
+an Fhómhair
+an Earraigh
+an tSamhraidh
+an Gheimhridh
+an Chláirsigh
+an Daingin
+an tSeanbhaile
+an Teampaill
+an Fhraoigh
+an Aitinn
+an Mhóinéir
+an Chriathraigh
+Phádraig
+Bhríde
+Cholmcille
+Bhreandáin
+Éanna
+Mhuire
+Íde
+Ghobnatan
+Fhinín
+Chiaráin
+Uí Chonaill
+Uí Ghríofa
+Uí Dhonnabháin
+Mhic Piarais
+Mhic Dhiarmada
+Uí Chléirigh
+Uí Ríordáin
+Uí Chadhain
+Uí Dhireáin
+Uí Raifteirí
+Bhán
+Nua
+Mhór
+Bheag
+Ard
+Íseal
+Fada
+Chúng
+Leathan
+Ghlas

@@ -1,0 +1,20 @@
+---
+description: Academic award (Irish)
+locale: ga
+---
+Ardteistiméireacht
+Teastas Sóisearach
+Teastas
+Ardteastas
+Dioplóma
+Arddioplóma
+Baitsiléir Ealaíon
+Baitsiléir Eolaíochta
+Baitsiléir Tráchtála
+Baitsiléir Dlí
+Baitsiléir Innealtóireachta
+Máistir Ealaíon
+Máistir Eolaíochta
+Máistir Riaracháin Gnó
+Dochtúireacht
+Dochtúir Litríochta

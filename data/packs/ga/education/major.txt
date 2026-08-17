@@ -1,0 +1,32 @@
+---
+description: Field of study (Irish)
+locale: ga
+---
+Léann Éireannach
+Nua-Ghaeilge
+Litríocht
+Teangeolaíocht
+Stair
+Seandálaíocht
+Fealsúnacht
+Diagacht
+Síceolaíocht
+Socheolaíocht
+Antraipeolaíocht
+Eacnamaíocht
+Polaitíocht
+Dlí
+Gnó
+Margaíocht
+Cuntasaíocht
+Airgeadas
+Matamaitic
+Staitisticí
+Fisic
+Ceimic
+Bitheolaíocht
+Ríomheolaíocht
+Innealtóireacht
+Ailtireacht
+Míochaine
+Altranas

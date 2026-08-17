@@ -1,0 +1,24 @@
+---
+description: Insect or other small invertebrate (Irish)
+locale: ga
+---
+beach
+beach ghabhair
+foiche
+seangán
+cuil
+corrmhíol
+míoltóg
+féileacán
+leamhan
+ciaróg
+bóín Dé
+damhán alla
+dreoilín teaspaigh
+snáthaid mhór
+cnuimh
+péist
+dreancaid
+míol
+aifid
+ciaróg dhubh

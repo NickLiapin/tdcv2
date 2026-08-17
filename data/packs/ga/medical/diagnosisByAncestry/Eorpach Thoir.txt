@@ -1,0 +1,10 @@
+---
+description: Riochtaí atá níos coitianta i ndaoine de bhunadh Eorpach Thoir. Comhartha leitheadúlachta atá ann, ní comhartha eisiach.
+locale: ga
+---
+fiobróis chodánach
+easnamh alfa-1 aintritripsine
+sóchán BRCA1
+galar Wilson
+feiniolcéatanúire
+galar céiliach

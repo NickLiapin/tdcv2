@@ -1,0 +1,20 @@
+---
+description: Horse breed or class (Irish). Pónaí Chonamara and Capall Tarraingthe Éireannach are Irish breeds.
+locale: ga
+---
+Capall Éireannach Spóirt
+Capall Tarraingthe Éireannach
+Pónaí Chonamara
+Cob Éireannach
+Fuilghlan
+Capall Oibre
+Capall Léim
+Pónaí Sléibhe
+Capaillín
+Láir
+Stail
+Gearrán
+Bromach
+Cliobóg
+Searrach
+Capall Tarraingthe Trom

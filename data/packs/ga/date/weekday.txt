@@ -1,0 +1,11 @@
+---
+description: Weekday (Irish), in the Dé form a date uses — Dé Luain means both Monday and on Monday. Dé takes the genitive after it and prefixes h to a vowel: the bare nouns are Luan, Máirt, Céadaoin, Déardaoin, Aoine, Satharn, Domhnach, and the joined forms here are Dé Luain, Dé hAoine, Dé Domhnaigh. Use these as they stand.
+locale: ga
+---
+Dé Luain
+Dé Máirt
+Dé Céadaoin
+Déardaoin
+Dé hAoine
+Dé Sathairn
+Dé Domhnaigh

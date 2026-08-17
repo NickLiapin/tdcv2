@@ -1,0 +1,13 @@
+---
+description: Television and film age rating. These are the IFCO certificates used in Ireland — G, PG, 12A, 15A, 16, 18 — plus the broadcast labels; they are not the same set as the BBFC or MPAA use.
+locale: ga
+---
+G
+PG
+12A
+12
+15A
+15
+16
+18
+Gan Rátáil

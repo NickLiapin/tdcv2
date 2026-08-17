@@ -1,0 +1,44 @@
+---
+description: Prepared dish (Irish). The first block is Irish food and the names are the Irish ones.
+locale: ga
+---
+stobhach Gaelach
+bagún agus cabáiste
+cál ceannann
+bacstaí
+brúitín
+arán sóide
+bairín breac
+putóg dhubh
+putóg bhán
+ispíní
+coddle Bhaile Átha Cliath
+anraith prátaí
+anraith glasraí
+anraith sliogéisc
+iasc agus sceallóga
+bradán deataithe
+ronnach rósta
+trosc bácáilte
+gliomach beirithe
+diúilicíní
+oisrí
+muiceoil rósta
+mairteoil rósta
+uaineoil rósta
+sicín rósta
+turcaí Nollag
+liamhás
+pióg feola
+pióg úll
+pióg mhilis
+maróg Nollag
+cáca milis
+scónaí
+borróga
+císte úll
+leite
+uibheacha scrofa
+bricfeasta Éireannach
+ceapaire
+sailéad

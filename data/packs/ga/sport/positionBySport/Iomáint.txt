@@ -1,0 +1,18 @@
+---
+description: Positions in Iomáint (Irish)
+locale: ga
+---
+Cúl Báire
+Cúlaí Deas
+Lánchúlaí
+Cúlaí Clé
+Leathchúlaí Deas
+Leathchúlaí Láir
+Leathchúlaí Clé
+Imreoir Lár Páirce
+Leaththosaí Deas
+Leaththosaí Láir
+Leaththosaí Clé
+Tosaí Deas
+Lántosaí
+Tosaí Clé

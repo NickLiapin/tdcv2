@@ -1,0 +1,16 @@
+---
+description: Riochtaí atá níos coitianta i ndaoine de bhunadh Afracach Fo-Shahárach. Comhartha leitheadúlachta atá ann, ní comhartha eisiach — is féidir le duine ar bith iad a bheith aige, agus níl ceann ar bith díobh ar fhormhór na n-othar den bhunadh seo.
+locale: ga
+---
+galar cealla corráin
+tréith cealla corráin
+easnamh G6PD
+neifreapaite APOL1
+colm cheiléide
+sarcóideóis
+neifrisclearóis hipirtheannasach
+fiobróidigh útaracha
+neodrapéine eitneach neamhurchóideach
+neamh-mharthanacht lachtáis
+bréagfhoiliciúlíteas
+vitilígeo

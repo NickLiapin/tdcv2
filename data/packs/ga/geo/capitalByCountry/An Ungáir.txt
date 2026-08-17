@@ -1,0 +1,5 @@
+---
+description: Capital of An Ungáir (Irish)
+locale: ga
+---
+Búdaipeist

@@ -1,0 +1,12 @@
+---
+description: Sport (Irish) that has a coherent position list. Peil Ghaelach, Iomáint and Camógaíocht are the Gaelic games, played only in Ireland and by the Irish abroad — their fifteen-a-side position names have no English equivalents and are given in Irish.
+locale: ga
+---
+Peil Ghaelach
+Iomáint
+Camógaíocht
+Sacar
+Rugbaí
+Cispheil
+Leadóg
+Haca

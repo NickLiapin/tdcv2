@@ -1,0 +1,5 @@
+---
+description: Currency code of Éire
+locale: ga
+---
+EUR

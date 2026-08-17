@@ -1,0 +1,30 @@
+---
+description: Mobile or broadband operator. Brand names keep their own spelling; Eir is the former Telecom Éireann.
+locale: ga
+---
+Eir
+Vodafone
+Three
+48
+GoMo
+Tesco Mobile
+Lycamobile
+An Post Mobile
+Virgin Media
+Sky
+Digiweb
+Pure Telecom
+Imagine
+Westnet
+Airwire
+Rural WiFi
+Magnet
+Blacknight
+BT
+Colt
+Viatel
+Zeus
+Nova
+Ripplecom
+Kerry Broadband
+Wireless Connect

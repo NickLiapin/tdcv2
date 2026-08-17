@@ -1,0 +1,5 @@
+---
+description: Capital of An Ísiltír (Irish)
+locale: ga
+---
+Amstardam

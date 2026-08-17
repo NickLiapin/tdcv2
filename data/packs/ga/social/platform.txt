@@ -1,0 +1,21 @@
+---
+description: Social platform. Brand names keep their own spelling in Irish.
+locale: ga
+---
+Facebook
+Instagram
+X
+TikTok
+YouTube
+LinkedIn
+Snapchat
+WhatsApp
+Telegram
+Signal
+Reddit
+Pinterest
+Threads
+Discord
+Twitch
+Mastodon
+Bluesky

@@ -1,0 +1,49 @@
+---
+description: Irish pet form or byname. Two things are going on. The productive diminutive is the suffix -ín, added to a shortened stem: Seán -> Seáinín, Máire -> Máirín, Nóra -> Nóirín, Pádraig -> Páidín; several of these (Máirín, Róisín, Bláithín, Gearóidín, Pádraigín, Seosaimhín) have become given names in their own right. The other is the BYNAME — Irish distinguishes two people of the same name by adding Óg, Mór, Bán or Rua after it (Pádraig Óg, Máire Rua, Donncha Bán), the way a townland actually tells them apart. Only attested forms are listed; the -ín suffix is regular, so a config may form more.
+locale: ga
+---
+Seáinín
+Páidín
+Páidí
+Máirín
+Nóirín
+Cáitín
+Cáit
+Peig
+Peigín
+Peigí
+Bríd
+Brídín
+Síle
+Siún
+Neansaí
+Nainsí
+Tomáisín
+Séimín
+Séimí
+Micil
+Micilín
+Eoinín
+Íosagán
+Róisín
+Bláithín
+Gearóidín
+Seosaimhín
+Pádraigín
+Nóinín
+Síomha
+Síne
+Tríona
+Mailí
+Pádraig Óg
+Ciarán Óg
+Caoimhín Óg
+Sinéad Óg
+Bríd Óg
+Aodhán Óg
+Máire Rua
+Donncha Bán
+Seán Mór
+Máirtín Beag
+Nóra Bheag
+Colmán Beag

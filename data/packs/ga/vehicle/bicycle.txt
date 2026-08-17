@@ -1,0 +1,21 @@
+---
+description: Kind of bicycle (Irish)
+locale: ga
+---
+rothar bóthair
+rothar sléibhe
+rothar hibrideach
+rothar cathrach
+rothar turais
+rothar traschine
+rothar rásaíochta
+rothar rian
+rothar aon ghiar
+rothar infhillte
+rothar leictreach
+rothar lasta
+rothar tandem
+rothar páistí
+rothar cothrom
+rothar BMX
+rothar gaineamh

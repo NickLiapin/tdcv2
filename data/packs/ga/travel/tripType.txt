@@ -1,0 +1,24 @@
+---
+description: Kind of trip (Irish)
+locale: ga
+---
+saoire
+turas gnó
+deireadh seachtaine
+turas lae
+cuairt ar an mbaile
+mí na meala
+turas oilithreachta
+turas scoile
+turas grúpa
+turas aonair
+turas teaghlaigh
+turas cultúrtha
+turas siúlóide
+turas rothaíochta
+turas iascaireachta
+turas gailf
+turas ceoil
+turas bia
+turas sciála
+turas cladaigh

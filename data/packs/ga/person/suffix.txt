@@ -1,0 +1,28 @@
+---
+description: Irish name suffix. Óg and Mór are the Irish generational markers — Seán Óg is the younger of two men of the same name, Seán Mór the elder; they replace Jr / Sr rather than translating them. The academic and professional abbreviations are used unchanged in Irish.
+locale: ga
+---
+Óg
+Mór
+Beag
+Sinsear
+Sóisear
+II
+III
+IV
+V
+BA
+BSc
+BComm
+MA
+MSc
+MBA
+PhD
+MD
+LLB
+LLM
+DLitt
+FRCSI
+RN
+CPA
+PC

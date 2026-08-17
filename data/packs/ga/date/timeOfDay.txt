@@ -1,0 +1,12 @@
+---
+description: Time of day (Irish)
+locale: ga
+---
+maidin
+meán lae
+iarnóin
+tráthnóna
+oíche
+meán oíche
+breacadh an lae
+titim na hoíche

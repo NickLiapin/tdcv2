@@ -1,0 +1,210 @@
+---
+description: Irish-language surnames — the form a WOMAN carries, derived from person/lastName.txt line for line by script, so the two stay aligned. Rule: Ó X becomes Ní + X lenited (Ó Súilleabháin -> Ní Shúilleabháin), and the masculine h- before a vowel is dropped (Ó hAodha -> Ní Aodha); Mac X becomes Nic + X lenited, except that Mac-prefixes never lenite c or g (Mac Cárthaigh -> Nic Cárthaigh, Mac Mathúna -> Nic Mhathúna); Mag X becomes Nig X; s lenites only before a vowel or l/n/r, so Ó Scanláin gives Ní Scanláin; Norman de/le names and the prefixless adjectival names (Breatnach, Tóibín, Seoighe) do not change at all. These are the UNMARRIED forms. A married woman takes Uí instead of Ní and Mhic instead of Nic, with the same lenition: Uí Shúilleabháin, Mhic Mhathúna.
+locale: ga
+weighted: true
+---
+Ní Mhurchú,32000
+Ní Cheallaigh,26000
+Ní Shúilleabháin,21500
+Breatnach,21000
+Nic Gabhann,20000
+Ní Bhriain,19000
+Ní Bhroin,18500
+Ní Riain,17500
+Ní Chonchúir,17000
+Ní Néill,16000
+Ní Raghallaigh,15500
+Ní Dhubhghaill,15000
+Nic Cárthaigh,14800
+Ní Ghallchóir,14500
+Ní Dhochartaigh,14000
+Ní Chinnéide,13500
+Ní Loingsigh,13000
+Ní Mhuirí,12800
+Ní Chuinn,12500
+Ní Mhórdha,12000
+Nic Lochlainn,11500
+Ní Chearbhaill,11500
+Ní Chonghaile,11000
+Ní Dhálaigh,11000
+Ní Chonaill,10800
+Ní Dhuinn,10500
+Ní Bhraonáin,10500
+de Búrca,10200
+Ní Choileáin,10000
+Ní Chléirigh,9800
+Ní Chionnaith,9515
+Ní Aodha,9246
+Nic Mhathúna,8994
+Ní Fhlaitheartaigh,8755
+Ní Mháille,8530
+Ní Dhonnabháin,8316
+Ní Chathasaigh,8114
+Ní Dhomhnaill,7921
+Ní Shé,7738
+Ní Thuathail,7564
+Ní Riagáin,7398
+Ní Ríordáin,7239
+Ní Dhonnchadha,7087
+Ní Mhaonaigh,6942
+Ní Fhloinn,6803
+Ní Fhearghail,6670
+Ní Neachtain,6542
+Ní Ghríofa,6419
+Nic Dhomhnaill,6301
+Nic Dhiarmada,6188
+Nic Gearailt,6078
+Nic Conmara,5973
+Nig Uidhir,5872
+Nic Shuibhne,5774
+Nic Aodha,5679
+Nic an Bhaird,5588
+Nic Giolla Phádraig,5499
+Nic Craith,5414
+Nic Dhonnchadha,5331
+Nic Mhuiris,5251
+de Paor,5174
+de Barra,5098
+de Róiste,5026
+Caomhánach,4955
+Ní Nualláin,4886
+Ní Uiginn,4819
+Ní Bheirne,4755
+Ní Bhaoill,4692
+Ní Dhubhthaigh,4630
+Ní Shíocháin,4571
+Ní Ifearnáin,4513
+Ní Mheachair,4456
+Ní Sheachnasaigh,4401
+Ní Ógáin,4348
+Ní Eidhin,4296
+Ní Laoghaire,4245
+Ní Cheallacháin,4195
+Ní Chuinneagáin,4147
+Ní Dhoibhlin,4099
+Ní Annracháin,4053
+Ní Mhadáin,4008
+Ní Mhaoláin,3964
+Ní Dhuibhir,3921
+Ní Fhaoláin,3879
+Ní Fhiannachta,3838
+Ní Ghormáin,3798
+Ní Uallacháin,3758
+Ní Lorcáin,3720
+Ní Mhainnín,3682
+Ní Mhuircheartaigh,3646
+Ní Ruairc,3609
+Ní Scanláin,3574
+Ní Threasaigh,3539
+Ní Thuama,3506
+Ní Ailpín,3472
+Ní Chiardha,3440
+Ní Chróinín,3408
+Ní Chuív,3377
+Ní Dhubhda,3346
+Ní Lachtnáin,3316
+Ní Laighin,3286
+Ní Lúing,3257
+Ní Mhuirthile,3229
+Ní Shiadhail,3201
+Ní Choisdealbha,3173
+Ní Mhaolchonaire,3146
+Ní Chadhain,3120
+Ní Dhireáin,3094
+Ní Riada,3068
+Ní Fhiaich,3043
+Ní Anluain,3018
+Ní Eidirsceoil,2994
+Ní Éalaithe,2970
+Ní Chonaire,2947
+Ní Chorráin,2924
+Ní Fhathaigh,2901
+Ní Lonargáin,2879
+Ní Mhaoldomhnaigh,2857
+Ní Shioradáin,2835
+Nic Amhlaoibh,2814
+Nic Aodhagáin,2793
+Nic Fhionnlaoich,2772
+Nic Giolla Bhríde,2752
+Nic Giolla Easpaig,2732
+Nic Giolla Íosa,2712
+Nic Giolla Mhártain,2693
+Nic Mheanman,2674
+Nic Pháidín,2655
+Nic Ruairí,2636
+Nic Sheáin,2618
+Nic Shíthigh,2600
+Nig Shamhráin,2582
+Nic an tSaoi,2565
+Buitléir,2548
+Nuinseann,2531
+Puirséal,2514
+Cúndún,2497
+Cúsac,2481
+Feiritéar,2465
+Grás,2449
+Laighléis,2434
+Máirtín,2418
+Mistéil,2403
+Priondargás,2388
+Rís,2373
+Seoighe,2358
+Sionóid,2344
+Stac,2330
+Tóibín,2316
+de Bhulbh,2302
+Ní Dhuinnín,2288
+Ní Ghrianna,2274
+Nic Grianna,2261
+Ní Challanáin,2248
+Ní Chadhla,2235
+Ní Ghadhra,2222
+Ní Dhuibhginn,2209
+Ní Mharcaigh,2197
+Ní Sheaghdha,2184
+Ní Bhuachalla,2172
+Ní Chiardhubháin,2160
+Ní Choncheanainn,2148
+Ní Dhubhagáin,2136
+Ní Fhlannagáin,2124
+Ní Eochaidh,2113
+Ní Lochlainn,2101
+Ní Mhuirgheasa,2090
+Ní Bhraoin,2079
+Ní Chuilleanáin,2067
+Ní Fhearraigh,2056
+Ní Allmhuráin,2046
+Ní Loideáin,2035
+Ní Mhongáin,2024
+Ní Nialláin,2014
+Ní Ruadháin,2004
+Ní Thighearnaigh,1993
+Ní Chathail,1983
+Ní Chéileachair,1973
+Ní Chianáin,1963
+Ní Shearcaigh,1953
+Ní Thuairisc,1944
+Ní Dhoirnín,1934
+Nic Cuarta,1924
+Ní Rathaille,1915
+Ní Bhruadair,1906
+Ní Chaiside,1897
+Ní Chatháin,1887
+Ní Chearúlláin,1878
+Ní Choigligh,1869
+Ní Cholmáin,1861
+Ní Chomhraí,1852
+Ní Dhonnghaile,1843
+Ní Fhinneagáin,1834
+Ní Eaghra,1826
+Ní Liatháin,1818
+Ní Mhaolmhuaidh,1809
+Ní Reachtabhra,1801
+Nic Cana,1793
+Nic Coitir,1785
+Nic Cormaic,1777
+Nic Eoin,1769
+Nic Íomhair,1761
+Nic Niocaill,1753
+Nic Phiarais,1745
+Nic Réamoinn,1738

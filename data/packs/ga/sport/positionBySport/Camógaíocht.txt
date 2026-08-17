@@ -1,0 +1,10 @@
+---
+description: Positions in Camógaíocht (Irish)
+locale: ga
+---
+Cúl Báire
+Lánchúlaí
+Leathchúlaí
+Imreoir Lár Páirce
+Leaththosaí
+Lántosaí

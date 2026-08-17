@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Oinceolaíocht (Irish)
+locale: ga
+---
+ailse bhrollaigh
+ailse scamhóg
+ailse chóilín
+ailse phróstatach
+leoicéime
+liomfóma

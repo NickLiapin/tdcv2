@@ -1,0 +1,42 @@
+---
+description: Symptom (Irish)
+locale: ga
+---
+fiabhras
+casacht
+scornach thinn
+srón ag sileadh
+sraothartach
+tinneas cinn
+meadhrán
+tuirse
+laige
+masmas
+urlacan
+buinneach
+iatacht
+pian bhoilg
+pian chléibh
+giorra anála
+feadaíl chléibh
+pian droma
+pian ghualainne
+pian ghlúine
+at
+gríos
+tochas
+dó
+codladh grifín
+creathán
+spasmas
+titim gruaige
+cailliúint meáchain
+meáchan a fháil
+ocras
+tart
+goile caillte
+easpa codlata
+allas oíche
+crith fuachta
+radharc doiléir
+bualadh croí mear

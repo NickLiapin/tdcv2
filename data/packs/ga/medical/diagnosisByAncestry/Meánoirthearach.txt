@@ -1,0 +1,10 @@
+---
+description: Riochtaí atá níos coitianta i ndaoine de bhunadh Meánoirthearach. Comhartha leitheadúlachta atá ann, ní comhartha eisiach.
+locale: ga
+---
+fiabhras Meánmhuirí teaghlaigh
+beite-talaiséime
+galar Behçet
+easnamh G6PD
+bodhaire ghéiniteach
+diaibéiteas cineál 2

@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Irish). The first eight are the instruments of Irish traditional music; the cláirseach is on the coinage and on the passport.
+locale: ga
+---
+fidil
+feadóg mhór
+feadóg stáin
+píb uilleann
+bosca ceoil
+consairtín
+bodhrán
+cláirseach
+bainseó
+mandailín
+giotár
+giotár leictreach
+orgán béil
+cairdín
+veidhlín
+vióla
+dordveidhil
+olldord
+pianó
+orgán
+cruit
+trumpa
+trombón
+corn Francach
+tiúba
+sacsafón
+cláirnéid
+óbó
+basún
+drumaí
+ciombail

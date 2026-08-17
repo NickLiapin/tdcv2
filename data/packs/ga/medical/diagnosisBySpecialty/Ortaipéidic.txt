@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Ortaipéidic (Irish)
+locale: ga
+---
+oistéaairtríteas
+airtríteas réamatóideach
+briseadh
+leithscar diosca
+sindróm chanáil an charpais
+gualainn reoite
+cufa rothlach stróicthe
+tendaníteas Achilles
+scoilióis
+gúta

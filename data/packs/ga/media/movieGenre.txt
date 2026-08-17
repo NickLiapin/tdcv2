@@ -1,0 +1,23 @@
+---
+description: Film genre (Irish)
+locale: ga
+---
+dráma
+greann
+gníomhaíocht
+eachtraíocht
+uafás
+faisnéis
+ficsean eolaíochta
+fantaisíocht
+rómánsaíocht
+bleachtaireacht
+coiriúlacht
+teannas
+cogadh
+stair
+beathaisnéis
+ceolaíocht
+beochan
+buachaillí bó
+gearrscannán

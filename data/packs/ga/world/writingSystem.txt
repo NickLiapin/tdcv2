@@ -1,0 +1,24 @@
+---
+description: Writing system (Irish). Two of these are Ireland's own: OGHAM, the notched alphabet cut into standing stones from the fourth century, whose twenty letters are named after trees; and the CLÓ GAELACH, the Gaelic type in which Irish was printed until the 1950s, where séimhiú was written as a dot above the letter (ḃ) rather than as an h.
+locale: ga
+---
+Ogham
+Cló Gaelach
+Laidineach
+Coireallach
+Arabach
+Han
+Déiveanágrach
+Hangul
+Gréagach
+Eabhrach
+Téalannach
+Seoirseach
+Airméanach
+Hireagáine
+Catacáine
+Aramach
+Coptach
+Tamalach
+Beangálach
+Tibéadach

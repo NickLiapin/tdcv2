@@ -1,0 +1,12 @@
+---
+description: Dish of Meicsiceach cuisine. Dish names keep the spelling of the language they come from; the Irish dishes are in Irish.
+locale: ga
+---
+tacos
+enchiladas
+guacamole
+quesadilla
+chilli con carne
+tamales
+pozole
+churros

@@ -1,0 +1,8 @@
+---
+description: Season (Irish). The Irish year is a month ahead of the astronomical one: earrach begins on 1 February (Lá Fhéile Bríde), samhradh on 1 May (Bealtaine), fómhar on 1 August (Lúnasa) and geimhreadh on 1 November (Samhain). A config that maps a month to a season must use those boundaries, not the equinoxes.
+locale: ga
+---
+Earrach
+Samhradh
+Fómhar
+Geimhreadh

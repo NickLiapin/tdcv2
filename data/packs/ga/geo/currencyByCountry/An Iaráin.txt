@@ -1,0 +1,5 @@
+---
+description: Currency of An Iaráin (Irish)
+locale: ga
+---
+Rial

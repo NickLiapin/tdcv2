@@ -1,0 +1,38 @@
+---
+description: Fruit (Irish). Fraochán, airne, sceachóir, mónóg and caor chaorthainn are the wild fruits of the Irish bog and hedgerow, and each has its own word rather than a compound.
+locale: ga
+---
+úll
+piorra
+oráiste
+banana
+fíonchaor
+sú talún
+sú talún fiáin
+sú craobh
+sméar dhubh
+fraochán
+mónóg
+caor chaorthainn
+caor troim
+spíonán
+cuirín dearg
+cuirín dubh
+silín
+pluma
+péitseog
+aibreog
+nectairín
+líomóid
+líoma
+grápfhrúta
+pomagránait
+mangó
+anann
+mealbhacán
+cíobhaí
+cnó cócó
+dáta
+fige
+airne
+sceachóir

@@ -1,0 +1,22 @@
+---
+description: Kind of event (Irish). A fleadh is a traditional-music festival and an oireachtas a competitive cultural gathering; both are Irish institutions with no English equivalent, and the words are used untranslated in English too.
+locale: ga
+---
+comhdháil
+seimineár
+ceardlann
+léacht
+cruinniú
+cóisir
+bainis
+baisteadh
+sochraid
+ceiliúradh
+féile
+fleadh
+oireachtas
+feis
+céilí
+seisiún
+taispeántas
+comórtas

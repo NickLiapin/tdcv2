@@ -1,0 +1,5 @@
+---
+description: Capital of An Iaráin (Irish)
+locale: ga
+---
+Teheran

@@ -1,0 +1,20 @@
+---
+description: Compass point (Irish), as a noun — the name of a quarter of the country or the map. address/direction.txt holds the adverbs of motion instead.
+locale: ga
+---
+Tuaisceart
+Deisceart
+Oirthear
+Iarthar
+Oirthuaisceart
+Iarthuaisceart
+Oirdheisceart
+Iardheisceart
+Tuaisceart an Oirthuaiscirt
+Oirthear an Oirthuaiscirt
+Oirthear an Oirdheiscirt
+Deisceart an Oirdheiscirt
+Deisceart an Iardheiscirt
+Iarthar an Iardheiscirt
+Iarthar an Iarthuaiscirt
+Tuaisceart an Iarthuaiscirt

@@ -1,0 +1,12 @@
+---
+description: Dish of Liobánach cuisine. Dish names keep the spelling of the language they come from; the Irish dishes are in Irish.
+locale: ga
+---
+hummus
+tabbouleh
+falafel
+shawarma
+fattoush
+kibbeh
+manakish
+baba ghanoush

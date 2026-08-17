@@ -1,0 +1,15 @@
+---
+description: Shipping status (Irish)
+locale: ga
+---
+ag fanacht le seoladh
+bailithe
+sa stóras
+faoi bhealach
+ag an ionad sórtála
+amuigh le seachadadh
+seachadta
+iarracht seachadta teipthe
+ag fanacht le bailiú
+curtha ar ais chuig an seoltóir
+caillte

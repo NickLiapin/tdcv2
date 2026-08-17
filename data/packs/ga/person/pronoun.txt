@@ -1,0 +1,12 @@
+---
+description: Irish personal pronoun. Irish has no gendered possessive word: a is his, hers and theirs alike, and only the MUTATION it causes tells them apart — a bhád (his boat, lenition), a bád (her boat, no change), a mbád (their boat, eclipsis). A config that joins a possessive to a noun has to produce that mutation itself; the noun lists in this pack ship the unmutated form.
+locale: ga
+---
+sé
+sí
+siad
+é
+í
+iad
+seisean
+sise

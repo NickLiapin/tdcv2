@@ -1,0 +1,16 @@
+---
+description: Dish of Éireannach cuisine. Dish names keep the spelling of the language they come from; the Irish dishes are in Irish.
+locale: ga
+---
+stobhach Gaelach
+bagún agus cabáiste
+arán sóide
+cál ceannann
+bacstaí
+brúitín
+putóg dhubh
+coddle Bhaile Átha Cliath
+anraith prátaí
+bairín breac
+bradán deataithe
+iasc agus sceallóga

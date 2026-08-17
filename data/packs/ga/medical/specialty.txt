@@ -1,0 +1,40 @@
+---
+description: Medical specialty (Irish)
+locale: ga
+---
+Cairdeolaíocht
+Néareolaíocht
+Oinceolaíocht
+Deirmeolaíocht
+Gastraiteireolaíocht
+Inchríneolaíocht
+Míochaine Riospráide
+Ortaipéidic
+Síciatracht
+Néifreolaíocht
+Reoimeolaíocht
+Haemaiteolaíocht
+Úireolaíocht
+Gínéiceolaíocht
+Cnáimhseachas
+Péidiatraic
+Geiriatraic
+Míochaine Éigeandála
+Ainéistéisiam
+Raideolaíocht
+Paiteolaíocht
+Micribhitheolaíocht
+Imdhíoneolaíocht
+Máinliacht Ghinearálta
+Néar-mháinliacht
+Máinliacht Chairdiathoracach
+Máinliacht Phlaisteach
+Máinliacht Soithíoch
+Oftailmeolaíocht
+Otaireolaireangeolaíocht
+Fiaclóireacht
+Míochaine Teaghlaigh
+Míochaine Ghairme
+Míochaine Spóirt
+Sláinte Phoiblí
+Cúram Maolaitheach

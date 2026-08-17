@@ -1,0 +1,5 @@
+---
+description: Currency code of An Ríocht Aontaithe
+locale: ga
+---
+GBP

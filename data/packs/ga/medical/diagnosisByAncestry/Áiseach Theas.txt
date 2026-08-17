@@ -1,0 +1,12 @@
+---
+description: Riochtaí atá níos coitianta i ndaoine de bhunadh Áiseach Theas. Comhartha leitheadúlachta atá ann, ní comhartha eisiach.
+locale: ga
+---
+diaibéiteas mellitus cineál 2
+galar artaire corónaí
+beite-talaiséime
+easnamh G6PD
+easnamh vitimín D
+neamhfhulaingt lachtóise
+hipirtheannas
+galar duán ainsealach

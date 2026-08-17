@@ -1,0 +1,28 @@
+---
+description: Game character class (Irish)
+locale: ga
+---
+laoch
+gaiscíoch
+trodaí
+ridire
+barbarach
+feallmharfóir
+gadaí
+taiscéalaí
+boghdóir
+saighdeoir
+draoi
+asarlaí
+geasadóir
+sagart
+cneasaitheoir
+bard
+file
+draoi dúlra
+ceardaí
+gabha
+alceimiceoir
+innealtóir
+máistir beithíoch
+marcach

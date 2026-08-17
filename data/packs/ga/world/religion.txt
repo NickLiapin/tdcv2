@@ -1,0 +1,25 @@
+---
+description: Religion (Irish)
+locale: ga
+---
+Caitliceachas
+Protastúnachas
+Eaglais na hÉireann
+Preispitéireachas
+Meitidisteachas
+Críostaíocht Cheartchreidmheach
+Críostaíocht
+Ioslam
+Giúdachas
+Hiondúchas
+Búdachas
+Sicíochas
+Jainíochas
+Baháʼíochas
+Págánachas
+Págánachas Ceilteach
+Anaithnideachas
+Aindiachas
+Spioradáltacht
+Neamhchreidmheach
+Gan reiligiún

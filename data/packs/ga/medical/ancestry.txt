@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group (Irish), the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories.
+locale: ga
+---
+Afracach Fo-Shahárach
+Afracach Thuaidh
+Meánmhuirí
+Meánoirthearach
+Eorpach Thuaidh
+Eorpach Thoir
+Giúdach Ashkenazi
+Áiseach Theas
+Áiseach Thoir
+Áiseach Thoir Theas
+Dúchasach Meiriceánach
+Oileánach an Aigéin Chiúin

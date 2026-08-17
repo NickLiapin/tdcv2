@@ -1,0 +1,26 @@
+---
+description: Allergy (Irish)
+locale: ga
+---
+piseanna talún
+cnónna crainn
+bainne
+uibheacha
+cruithneacht
+glútan
+soighe
+iasc
+sliogéisc
+seasamain
+mustard
+soilire
+sulfítí
+pailin féir
+pailin crainn
+fíneog deannaigh
+múscán
+fionnadh cait
+fionnadh madra
+cealg beiche
+peinicillin
+laitéis

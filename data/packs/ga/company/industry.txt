@@ -1,0 +1,59 @@
+---
+description: Industry (Irish)
+locale: ga
+---
+talmhaíocht
+iascaireacht
+foraoiseacht
+mianadóireacht
+monaraíocht
+tógáil
+fuinneamh
+leictreachas
+gás
+uisce
+diúscairt dramhaíola
+iompar
+loingseoireacht
+eitlíocht
+iarnród
+trucaileoireacht
+stórasú
+lóistíocht
+miondíol
+mórdhíol
+trádáil
+baincéireacht
+árachas
+airgeadas
+eastát réadach
+dlí
+cuntasaíocht
+comhairleoireacht
+fógraíocht
+margaíocht
+foilsitheoireacht
+meáin
+craoltóireacht
+scannánaíocht
+ceol
+cluichí
+teicneolaíocht faisnéise
+bogearraí
+crua-earraí
+leathsheoltóirí
+teileachumarsáid
+cógaisíocht
+biteicneolaíocht
+cúram sláinte
+oideachas
+taighde
+riarachán poiblí
+cosaint
+fóntais
+turasóireacht
+óstáin
+bialanna
+siamsaíocht
+spórt
+ceardaíocht

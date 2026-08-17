@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Deirmeolaíocht (Irish)
+locale: ga
+---
+eachma
+soiriáis
+aicne
+róis
+carcanóma cille basaí
+meileanóma
+deirmitíteas teagmhála
+urtacáire
+alaipéis
+vitilígeo

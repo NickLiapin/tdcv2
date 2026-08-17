@@ -1,0 +1,15 @@
+---
+description: Booking status (Irish)
+locale: ga
+---
+curtha in áirithe
+deimhnithe
+ar feitheamh
+íoctha
+seiceáilte isteach
+críochnaithe
+curtha ar ceal
+athraithe
+aisíoctha
+níor tháinig
+ar an liosta feithimh

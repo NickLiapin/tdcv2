@@ -1,0 +1,5 @@
+---
+description: Currency of An tSeapáin (Irish)
+locale: ga
+---
+Yen

@@ -1,0 +1,15 @@
+---
+description: Interview stage (Irish)
+locale: ga
+---
+iarratas curtha isteach
+scagadh CV
+agallamh gutháin
+agallamh físe
+agallamh duine le duine
+tástáil theicniúil
+tasc baile
+lá measúnaithe
+agallamh deiridh
+seiceáil tagairtí
+tairiscint déanta

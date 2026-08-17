@@ -1,0 +1,19 @@
+---
+description: Payment method (Irish)
+locale: ga
+---
+cárta creidmheasa
+cárta dochair
+airgead tirim
+aistriú bainc
+dochar díreach
+ordú buan
+PayPal
+Apple Pay
+Google Pay
+Revolut
+seic
+dearbhán bronntanais
+cárta siopa
+íoc níos déanaí
+cárta réamhíoctha

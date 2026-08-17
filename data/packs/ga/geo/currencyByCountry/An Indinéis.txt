@@ -1,0 +1,5 @@
+---
+description: Currency of An Indinéis (Irish)
+locale: ga
+---
+Rupiah

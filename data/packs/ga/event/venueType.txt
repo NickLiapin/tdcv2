@@ -1,0 +1,20 @@
+---
+description: Kind of venue (Irish)
+locale: ga
+---
+halla
+halla baile
+halla pobail
+amharclann
+ceolaras
+pictiúrlann
+óstán
+teach tábhairne
+bialann
+club
+ionad comhdhála
+staidiam
+páirc imeartha
+ionad spóirt
+eaglais
+gairdín

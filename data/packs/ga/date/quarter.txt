@@ -1,0 +1,8 @@
+---
+description: Financial quarter (Irish). Ráithe is feminine, so the ordinal lenites it in the first: an chéad ráithe.
+locale: ga
+---
+An Chéad Ráithe
+An Dara Ráithe
+An Tríú Ráithe
+An Ceathrú Ráithe

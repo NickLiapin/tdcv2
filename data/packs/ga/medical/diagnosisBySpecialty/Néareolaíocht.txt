@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Néareolaíocht (Irish)
+locale: ga
+---
+mígréin
+titimeas
+stróc
+galar Parkinson
+ilscléaróis
+galar Alzheimer

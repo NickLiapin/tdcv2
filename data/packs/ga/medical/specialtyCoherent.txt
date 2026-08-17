@@ -1,0 +1,14 @@
+---
+description: Medical specialty (Irish) that has a coherent diagnosis list
+locale: ga
+---
+Cairdeolaíocht
+Néareolaíocht
+Oinceolaíocht
+Deirmeolaíocht
+Gastraiteireolaíocht
+Inchríneolaíocht
+Míochaine Riospráide
+Ortaipéidic
+Síciatracht
+Néifreolaíocht

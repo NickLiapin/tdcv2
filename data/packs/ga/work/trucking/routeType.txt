@@ -1,0 +1,11 @@
+---
+description: Route type (Irish)
+locale: ga
+---
+áitiúil
+réigiúnach
+fadraoin
+trasteorann
+farantóireacht
+seachadadh cathrach
+mórbhealach

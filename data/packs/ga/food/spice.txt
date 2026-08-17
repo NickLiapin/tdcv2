@@ -1,0 +1,34 @@
+---
+description: Spice or culinary herb (Irish)
+locale: ga
+---
+salann
+piobar dubh
+piobar bán
+piobar rua
+cillí
+cainéal
+cnó muscáid
+clóibh
+sinséar
+cardamóm
+cuimín
+coiriandar
+tuirmiric
+paiprice
+mustard
+síolta mustaird
+finéal
+ainís
+tím
+rósmairí
+sáiste
+miontas
+peirsil
+labhras
+oragán
+basal
+taragón
+sáfran
+síol lín
+síol seasamain

@@ -1,0 +1,12 @@
+---
+description: Dish of Meiriceánach cuisine. Dish names keep the spelling of the language they come from; the Irish dishes are in Irish.
+locale: ga
+---
+burgar
+brisket deataithe
+mac and cheese
+pancóga
+pióg úll
+sciatháin bhuffalo
+clam chowder
+cornbread

@@ -1,0 +1,32 @@
+---
+description: Technical action, verbal noun (Irish -- the ag + verbal noun form)
+locale: ga
+---
+ag comhbhrú
+ag criptiú
+ag díchriptiú
+ag scagadh
+ag parsáil
+ag tiomsú
+ag rith
+ag íoslódáil
+ag uaslódáil
+ag sioncronú
+ag macasamhlú
+ag cúltacú
+ag athshlánú
+ag innéacsú
+ag ceistiú
+ag sruthú
+ag idirthaisceadh
+ag athrú méide
+ag cothromú lóid
+ag monatóireacht
+ag logáil
+ag rianú
+ag dífhabhtú
+ag tástáil
+ag imscaradh
+ag athchúrsáil
+ag scanadh
+ag glanadh

@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Irish)
+locale: ga
+---
+réalta amháin
+dhá réalta
+trí réalta
+ceithre réalta
+cúig réalta

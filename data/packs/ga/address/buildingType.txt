@@ -1,0 +1,47 @@
+---
+description: Kind of building (Irish)
+locale: ga
+---
+teach
+teachín
+árasán
+bungaló
+teach scoite
+teach leathscoite
+teach sraithe
+teach feirme
+teach solais
+teach tábhairne
+caisleán
+dún
+ráth
+túr
+cloigtheach
+séipéal
+eaglais
+ardeaglais
+mainistir
+clochar
+scoil
+ollscoil
+coláiste
+leabharlann
+ospidéal
+músaem
+amharclann
+pictiúrlann
+óstán
+brú
+siopa
+ionad siopadóireachta
+oifig
+monarcha
+stóras
+scioból
+garáiste
+stáisiún
+aerfort
+banc
+halla baile
+oifig phoist
+bothán

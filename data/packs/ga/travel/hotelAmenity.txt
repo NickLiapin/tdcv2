@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Irish)
+locale: ga
+---
+Wi-Fi saor in aisce
+bricfeasta san áireamh
+páirceáil saor in aisce
+linn snámha
+seomra aclaíochta
+spá
+sabhna
+folcadán te
+bialann
+beár
+seirbhís seomra
+seomra comhdhála
+níochán
+aerchóiriú
+téamh
+cófra sábháilte
+cuisneoir beag
+citeal
+teilifís chábla
+ardaitheoir
+rochtain do chathaoireacha rothaí
+ceadaítear peataí
+cúlchlós
+gairdín
+radharc na farraige
+aistriú aerfoirt
+seirbhís dorais
+stór bagáiste
+clós súgartha
+áis stórála rothar

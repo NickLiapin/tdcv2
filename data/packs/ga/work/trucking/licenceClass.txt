@@ -1,0 +1,11 @@
+---
+description: Driving licence category. These are the Irish categories, which follow the EU scheme — B is a car, C a rigid truck, CE an articulated one, D a bus.
+locale: ga
+---
+B
+BE
+C1
+C1E
+C
+CE
+D

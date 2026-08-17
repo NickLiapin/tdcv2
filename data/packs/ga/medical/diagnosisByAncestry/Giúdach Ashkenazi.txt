@@ -1,0 +1,16 @@
+---
+description: Riochtaí atá níos coitianta i ndaoine de bhunadh Ghiúdach Ashkenazi. Comhartha leitheadúlachta atá ann, ní comhartha eisiach.
+locale: ga
+---
+galar Tay-Sachs
+galar Gaucher
+galar Canavan
+dísfheidhm uathrialach teaghlaigh
+sóchán bunaitheora BRCA1
+sóchán bunaitheora BRCA2
+galar Niemann-Pick
+muicealipidóis IV
+easnamh fachtóir XI
+siondróm Bloom
+galar Crohn
+anaeime Fanconi

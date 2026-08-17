@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Irish). Each sign is a noun with the article, and the article's mutation is part of the name: an Mhaighdean (feminine, lenited), an tUisceadóir (masculine before a vowel, t-), na hÉisc (plural before a vowel, h-). Ship and print them exactly as written.
+locale: ga
+---
+An Reithe
+An Tarbh
+An Cúpla
+An Portán
+An Leon
+An Mhaighdean
+An Mheá
+An Scairp
+An Saighdeoir
+An Gabhar
+An tUisceadóir
+Na hÉisc

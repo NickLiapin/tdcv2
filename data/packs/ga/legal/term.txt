@@ -1,0 +1,23 @@
+---
+description: Legal term (Irish)
+locale: ga
+---
+dlí
+reacht
+acht
+ionstraim reachtúil
+bunreacht
+conradh
+cúnant
+fógra
+toghairm
+barántas
+urrús
+bannaí
+fianaise
+finné
+giúiré
+breithiúnas
+pianbhreith
+achomharc
+damáistí

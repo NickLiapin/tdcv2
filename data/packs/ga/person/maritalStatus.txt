@@ -1,0 +1,18 @@
+---
+description: Marital status (Irish). Baintreach is the noun for a widow; a widower is baintreach fir, literally a man's widow — Irish marks the male case, not the female.
+locale: ga
+---
+singil
+pósta
+geallta
+in aontíos
+i bpáirtnéireacht shibhialta
+scartha
+scartha go dlíthiúil
+colscartha
+baintreach
+baintreach fir
+neamhphósta
+athphósta
+idirscartha
+gan sonrú

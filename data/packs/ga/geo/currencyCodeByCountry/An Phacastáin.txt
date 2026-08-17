@@ -1,0 +1,5 @@
+---
+description: Currency code of An Phacastáin
+locale: ga
+---
+PKR

@@ -1,0 +1,12 @@
+---
+description: Dish of Polannach cuisine. Dish names keep the spelling of the language they come from; the Irish dishes are in Irish.
+locale: ga
+---
+pierogi
+bigos
+żurek
+gołąbki
+kotlet schabowy
+barszcz
+placki ziemniaczane
+sernik

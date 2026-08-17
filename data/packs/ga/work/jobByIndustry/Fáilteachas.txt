@@ -1,0 +1,16 @@
+---
+description: Jobs in Fáilteachas (Irish)
+locale: ga
+---
+Bainisteoir Óstáin
+Fáilteoir
+Consiaerge
+Príomhchócaire
+Cócaire
+Freastalaí
+Beármhaid
+Tábhairneoir
+Bainisteoir Imeachtaí
+Feighlí Tí
+Bainisteoir Bialainne
+Báicéir

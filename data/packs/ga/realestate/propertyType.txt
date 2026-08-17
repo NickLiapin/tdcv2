@@ -1,0 +1,23 @@
+---
+description: Property type (Irish)
+locale: ga
+---
+teach scoite
+teach leathscoite
+teach sraithe
+teach ceann tuí
+bungaló
+árasán
+duplex
+stiúideo
+teach feirme
+teachín tuaithe
+teach cathrach
+teach saoire
+suíomh
+talamh feirme
+sealúchas
+aonad tráchtála
+oifig
+siopa
+trádstóras

@@ -1,0 +1,5 @@
+---
+description: Currency of Éire (Irish)
+locale: ga
+---
+Euro

@@ -1,0 +1,34 @@
+---
+description: Unit of measure (Irish). Ireland is metric, but the pionta is the legal unit for draught beer and milk and the míle is still used for distance on older signs.
+locale: ga
+---
+gram
+cileagram
+tonna
+milleagram
+millealítear
+lítear
+ceintilítear
+milliméadar
+ceintiméadar
+méadar
+ciliméadar
+méadar cearnach
+ciliméadar cearnach
+heicteár
+méadar ciúbach
+pionta
+galún
+unsa
+punt
+cloch
+orlach
+troigh
+slat
+míle
+acra
+píosa
+paca
+bosca
+dosaen
+buidéal

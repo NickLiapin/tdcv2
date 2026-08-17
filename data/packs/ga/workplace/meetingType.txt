@@ -1,0 +1,16 @@
+---
+description: Kind of meeting (Irish)
+locale: ga
+---
+cruinniú foirne
+cruinniú duine le duine
+seasamh laethúil
+athbhreithniú sprinte
+cruinniú pleanála
+cruinniú boird
+cruinniú cliaint
+seisiún beartaíochta
+athbhreithniú feidhmíochta
+ceardlann
+cruinniú uile-fhoirne
+cruinniú tionscnaimh

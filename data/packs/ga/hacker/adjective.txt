@@ -1,0 +1,32 @@
+---
+description: Technical adjective (Irish)
+locale: ga
+---
+digiteach
+fíorúil
+criptithe
+dénártha
+optúil
+gan sreang
+iomarcach
+dáilte
+comhthreomhar
+sioncrónach
+aisioncrónach
+néalbhunaithe
+cliant-taobh
+freastalaí-taobh
+modúlach
+inscálaithe
+athléimneach
+lochtfhulangach
+fíor-ama
+leabaithe
+oscailte
+dílsithe
+cúltaca
+athúsáidte
+uathoibrithe
+córasach
+sonrach
+iniompartha

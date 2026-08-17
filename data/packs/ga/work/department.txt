@@ -1,0 +1,26 @@
+---
+description: Company department (Irish)
+locale: ga
+---
+Bainistíocht
+Airgeadas
+Cuntasaíocht
+Acmhainní Daonna
+Dlí
+Comhlíonadh
+Margaíocht
+Díolacháin
+Seirbhís do Chustaiméirí
+Oibríochtaí
+Táirgeadh
+Innealtóireacht
+Taighde agus Forbairt
+Teicneolaíocht Faisnéise
+Slándáil
+Lóistíocht
+Soláthar
+Stóras
+Cáilíocht
+Sláinte agus Sábháilteacht
+Áiseanna
+Cumarsáid

@@ -1,0 +1,14 @@
+---
+description: Riochtaí atá níos coitianta i ndaoine de bhunadh Áiseach Thoir. Comhartha leitheadúlachta atá ann, ní comhartha eisiach.
+locale: ga
+---
+neamhfhulaingt lachtóise
+easnamh aildéiríde dhéhidrigineáis
+carcanóma nasafairingeach
+ailse ghoile
+alfa-talaiséime
+hepatitis B ainsealach
+gearr-radharcacht
+galar Kawasaki
+ailse ae
+sóchán EGFR i scamhógailse

@@ -1,0 +1,14 @@
+---
+description: Diagnoses seen in Míochaine Riospráide (Irish)
+locale: ga
+---
+asma
+galar scamhógach bacainneach ainsealach
+niúmóine
+broincíteas
+eitinn
+emfiséime
+fiobróis chodánach
+apnae codlata
+emból scamhógach
+broincitéiseacht

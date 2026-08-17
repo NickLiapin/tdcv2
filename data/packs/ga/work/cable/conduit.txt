@@ -1,0 +1,11 @@
+---
+description: Cable conduit type (Irish)
+locale: ga
+---
+duchta
+píobán
+trinse
+tráidire cábla
+dréimire cábla
+cainéal
+seafta

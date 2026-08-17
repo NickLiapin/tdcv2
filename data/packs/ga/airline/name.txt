@@ -1,0 +1,54 @@
+---
+description: Airline. Airline names are brands and keep their own spelling in every language. Aer Lingus is itself Irish — from aer-loingeas, air fleet — and Aer Arann is named for the Aran Islands.
+locale: ga
+---
+Aer Lingus
+Ryanair
+Aer Arann
+Emerald Airlines
+ASL Airlines Ireland
+CityJet
+British Airways
+Air France
+KLM
+Lufthansa
+Swiss
+Austrian Airlines
+Brussels Airlines
+Iberia
+Vueling
+TAP Air Portugal
+ITA Airways
+Aegean Airlines
+LOT Polish Airlines
+Czech Airlines
+Finnair
+SAS
+Norwegian
+Icelandair
+Turkish Airlines
+Pegasus Airlines
+easyJet
+Wizz Air
+Jet2
+TUI Airways
+Eurowings
+Air Baltic
+Transavia
+Delta Air Lines
+American Airlines
+United Airlines
+Air Canada
+WestJet
+JetBlue
+Aeromexico
+LATAM
+Emirates
+Qatar Airways
+Etihad Airways
+Singapore Airlines
+Cathay Pacific
+Japan Airlines
+Qantas
+Air India
+Ethiopian Airlines

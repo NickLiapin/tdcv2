@@ -1,0 +1,5 @@
+---
+description: Capital of An tSín (Irish)
+locale: ga
+---
+Béising

@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Irish), radical form
+locale: ga
+---
+plúr
+siúcra
+salann
+im
+uachtar
+bainne
+uibheacha
+ola olóige
+fínéagar
+mil
+giosta
+sóid aráin
+seacláid
+cnónna
+rís
+pasta
+arán
+cáis
+iógart
+oinniún
+gairleog
+tráta
+prátaí
+mairteoil
+muiceoil
+uaineoil
+sicín
+iasc
+bradán
+ronnach
+pónairí
+lintilí
+min choirce
+min bhuí
+glasraí
+luibheanna
+spíosraí
+stoc
+fíon
+leann

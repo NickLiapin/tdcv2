@@ -1,0 +1,45 @@
+---
+description: Generic drug name. These are International Nonproprietary Names and are the same in every language — an Irish prescription writes paracetamol, not a translation of it. Irish spelling is used only where the Irish medicines lists use it.
+locale: ga
+---
+paracetamol
+ibuprofen
+aspirin
+codeine
+morphine
+tramadol
+amoxicillin
+flucloxacillin
+azithromycin
+doxycycline
+ciprofloxacin
+metronidazole
+nitrofurantoin
+trimethoprim
+omeprazole
+lansoprazole
+ranitidine
+metformin
+gliclazide
+insulin glargine
+atorvastatin
+simvastatin
+rosuvastatin
+ramipril
+lisinopril
+amlodipine
+bisoprolol
+atenolol
+furosemide
+bendroflumethiazide
+warfarin
+apixaban
+clopidogrel
+salbutamol
+beclometasone
+montelukast
+prednisolone
+levothyroxine
+sertraline
+fluoxetine
+amitriptyline

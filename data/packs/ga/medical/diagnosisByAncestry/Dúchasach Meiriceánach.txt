@@ -1,0 +1,11 @@
+---
+description: Riochtaí atá níos coitianta i ndaoine de bhunadh Dúchasach Meiriceánach. Comhartha leitheadúlachta atá ann, ní comhartha eisiach.
+locale: ga
+---
+diaibéiteas mellitus cineál 2
+galar gallchloch
+galar ae alcólach
+murtall
+neamhfhulaingt lachtóise
+galar duán ainsealach
+airtríteas réamatóideach

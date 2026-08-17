@@ -1,0 +1,15 @@
+---
+description: Employment type (Irish)
+locale: ga
+---
+lánaimseartha
+páirtaimseartha
+conartha
+sealadach
+buan
+printíseacht
+intéirneacht
+féinfhostaithe
+conraitheoir neamhspleách
+obair shéasúrach
+roinnt poist

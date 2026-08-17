@@ -1,0 +1,31 @@
+---
+description: Diagnosis that applies to female patients (Irish clinical terminology)
+locale: ga
+---
+endaiméadraíos
+sindróm na n-oibríní ilchisteacha
+fiobróidigh útaracha
+meanapás
+réamh-mheanapás
+iar-mheanapás
+dismeanoiré
+aiméanoiré
+meanoraiche
+ailse bhrollaigh
+ailse cheirbheacsach
+ailse ubhagáin
+ailse útarach
+cisteanna ubhagáin
+galar athlastach pheilbheach
+vaigíníteas
+candaidiáis vaigíneach
+prolapsa útarach
+toircheas eachtópach
+réamheicleampsacht
+diaibéiteas iompair
+hipearmheisis toirchis
+dúlagar iarbhreithe
+lachtú neamhleor
+maistíteas
+neamhthorthúlacht bhaineann
+sindróm réamh-mhíosta

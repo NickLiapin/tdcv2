@@ -1,0 +1,18 @@
+---
+description: Kind of insurance (Irish)
+locale: ga
+---
+árachas tí
+árachas inneachair
+árachas gluaisteáin
+árachas taistil
+árachas sláinte
+árachas saoil
+árachas fiacla
+árachas peata
+árachas dliteanais
+árachas gnó
+árachas tuilte
+árachas míchumais
+árachas morgáiste
+árachas feirme

@@ -1,0 +1,21 @@
+---
+description: Cuisine (Irish). The demonym is a noun in -ach: Iodálach is an Italian and also Italian food.
+locale: ga
+---
+Éireannach
+Iodálach
+Francach
+Spáinneach
+Gréagach
+Turcach
+Meiriceánach
+Meicsiceach
+Síneach
+Seapánach
+Cóiréach
+Téalannach
+Vítneamach
+Indiach
+Liobánach
+Maracach
+Polannach

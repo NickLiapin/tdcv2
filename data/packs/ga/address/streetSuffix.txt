@@ -1,0 +1,35 @@
+---
+description: Irish thoroughfare type — it goes BEFORE the name (Sráid Uí Chonaill, Bóthar na Trá, Cearnóg Mhuirfean), the opposite of the English order. Pair with address/streetName.txt, whose values are already inflected to follow one of these.
+locale: ga
+---
+Sráid
+Bóthar
+Bóithrín
+Ascaill
+Plás
+Cearnóg
+Cé
+Lána
+Rae
+Páirc
+Céide
+Cúirt
+Gairdíní
+Radharc
+Bruach
+Slí
+Bealach
+Cosán
+Léana
+Faiche
+Móinéar
+Coill
+Garrán
+Dún
+Cuar
+Cuarbhóthar
+Timpeallán
+Mainéar
+Ard
+Cluain
+Droichead

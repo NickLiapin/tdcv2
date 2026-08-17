@@ -1,0 +1,14 @@
+---
+description: Competitive rank (Irish)
+locale: ga
+---
+cré
+prás
+airgead
+ór
+platanam
+diamant
+máistir
+ardmháistir
+curadh
+finscéal

@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Irish). Báisteach shoiniúil is the fine soft rain that falls for days; Irish has several words for kinds of rain that English writes as one.
+locale: ga
+---
+ceobhrán
+brádán
+múr
+clagarnach
+díle
+toirneach
+tintreach
+bogha báistí
+gaoth mhór
+gála
+hairicín
+cuaifeach
+ceo
+sioc bán
+leac oighir

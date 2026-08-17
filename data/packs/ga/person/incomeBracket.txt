@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Irish. Amounts are in euro, the currency of Ireland — the one state in which Irish is an official language.
+locale: ga
+---
+Faoi bhun €25 000
+€25 000–€40 000
+€40 000–€55 000
+€55 000–€70 000
+€70 000–€90 000
+€90 000–€120 000
+€120 000–€160 000
+Os cionn €160 000

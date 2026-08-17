@@ -1,0 +1,17 @@
+---
+description: Kind of social-media content (Irish)
+locale: ga
+---
+postáil
+grianghraf
+físeán
+físeán gearr
+sruth beo
+scéal
+trácht
+athphostáil
+meme
+podchraoladh
+blag
+vlag
+suirbhé

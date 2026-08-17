@@ -1,0 +1,5 @@
+---
+description: Capital of An Spáinn (Irish)
+locale: ga
+---
+Maidrid

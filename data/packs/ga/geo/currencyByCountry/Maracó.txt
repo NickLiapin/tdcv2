@@ -1,0 +1,5 @@
+---
+description: Currency of Maracó (Irish)
+locale: ga
+---
+Dirham
