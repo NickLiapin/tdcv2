@@ -62,7 +62,29 @@ for (const file of files) {
     .split('\n')
     .map((l) => l.trim())
     .filter(Boolean);
-  if (body.length === 0) continue;
+
+  /**
+   * A third `---` line makes the split yield an empty parts[2], so the body
+   * reads as zero lines and the file used to be skipped in silence — while the
+   * loader refused it outright. A guard that quietly steps over a file is
+   * worse than one that fails, because the pack looks checked.
+   *
+   * Two delimiters is the shape: opening, closing, then the body.
+   */
+  const delimiters = parts.length - 1;
+  if (delimiters > 2) {
+    wrong.push(
+      `${relative(PACKS, file)}: ${String(delimiters)} "---" lines, expected 2 — the extra delimiter hides the body from this check and stops the loader`,
+    );
+    continue;
+  }
+  if (body.length === 0) {
+    // An empty body is legitimate only in an empty file.
+    if (text.trim().length > 0 && delimiters === 2) {
+      wrong.push(`${relative(PACKS, file)}: has a header but no values`);
+    }
+    continue;
+  }
 
   const declared = /^weighted:\s*true\s*$/m.test(header);
   // Reading a declared list, any trailing `,digits` is the count. Guessing at
