@@ -1,0 +1,8 @@
+---
+address: laos.geo.districtCode
+description: The four-digit Lao district code — province number then district number, always with both leading zeros (0101, 0405, 1815). Sliced out of laos.geo.districtWithCode so every value names a ເມືອງ that exists. Store as text: 0101 read as a number becomes 101 and stops being addressable. The first two digits are a valid province code on their own, so this column rolls up without a lookup table. It is written 1-01 with a hyphen in some Lao government tables and 0101 unpunctuated in others; the unpunctuated form is here because it sorts and joins, and because the hyphenated form loses its leading zero in every spreadsheet that meets it.
+generator: tdc
+---
+<sequence name="entry"><gen type="template" value="laos.geo.districtWithCode"/></sequence>
+<sequence name="code"><compute><result><slice to="4"><field name="entry"/></slice></result></compute></sequence>
+<data>${{code}}</data>

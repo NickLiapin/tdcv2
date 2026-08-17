@@ -1,0 +1,14 @@
+---
+address: laos.geo.vientianeDistrict
+description: The nine ເມືອງ of ນະຄອນຫຼວງວຽງຈັນ, the capital prefecture, written bare. This list exists because the capital is where Lao addresses concentrate and because four of these nine are the city and five are countryside. ຈັນທະບູລີ, ສີໂຄດຕະບອງ, ໄຊເສດຖາ and ສີສັດຕະນາກ are the ເມືອງເອກນະຄອນຫຼວງ, the urban core — that is where the ministries, the embassies, the Mekong riverfront and essentially every Vientiane business address are — while ຫາດຊາຍຟອງ, ນາຊາຍທອງ, ໄຊທານີ, ສັງທອງ and ປາກງື່ມ are large rural districts that reach 60 km out to the Mekong bend and hold rice fields and villages. ໄຊທານີ alone is bigger in area than several provinces of Cambodia. So a uniform draw over these nine puts more than half of a "Vientiane" population in the countryside, and an address in ສັງທອງ is a two-hour drive from an address in ຈັນທະບູລີ. NOTE THE COLLISION: ໄຊເສດຖາ here is 0103 in the capital; ອັດຕະປື province has its own district written ໄຊເຊດຖາ (1701), one sibilant different, and the two are routinely conflated in Latin transliteration where both come out "Xaysetha". The capital divides into ເມືອງ exactly as a province does — unlike Cambodia, where the capital uses ខណ្ឌ where a province uses ស្រុក — so nothing special is needed to address it.
+locale: lo
+---
+ຈັນທະບູລີ
+ສີໂຄດຕະບອງ
+ໄຊເສດຖາ
+ສີສັດຕະນາກ
+ນາຊາຍທອງ
+ໄຊທານີ
+ຫາດຊາຍຟອງ
+ສັງທອງ
+ປາກງື່ມ

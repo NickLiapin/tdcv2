@@ -1,0 +1,13 @@
+---
+address: laos.phoneLandline
+description: A Lao fixed line in E.164 form — +856, a real geographic area code from laos.phoneAreaCode with its trunk 0 removed, and a six-digit subscriber block, giving eight national digits for every province including the capital. The plan is uniform in a way its neighbours' are not: every area code is three digits and every subscriber block is six, so a fixed-width parse of Lao landlines works where the same parse mis-splits half of Thailand. The subscriber block is drawn freely across its range: the regulator does not publish per-exchange allocations, so what is real here is the length and the area code and what is not is the exchange, and that is stated rather than hidden. READ THIS BEFORE PUTTING A LANDLINE ON A LAO PERSON RECORD. Laos effectively skipped fixed-line telephony. The network was never built out to a mass market — the country is mountainous, thinly populated and was at war into the 1970s — mobile arrived in the 1990s and went straight past it, and fixed lines today are a small fraction of connections. A landline in Lao data means a ministry, a bank, a hotel or a business, almost never a household, so a person table where most rows carry one is not modelling Laos. Since 2012 the plan has been open-dialled, so the area code is required even within a province. See laos.phone for what a Lao phone number normally is.
+generator: tdc
+---
+<sequence name="code"><gen type="template" value="laos.phoneAreaCode"/></sequence>
+<sequence name="sub"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="number"><compute>
+  <!-- Drop the national trunk 0: 021 -> 21. -->
+  <let name="nat"><slice from="1"><field name="code"/></slice></let>
+  <result><concat><str v="+856"/><use name="nat"/><field name="sub"/></concat></result>
+</compute></sequence>
+<data>${{number}}</data>

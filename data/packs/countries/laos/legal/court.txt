@@ -1,0 +1,26 @@
+---
+address: laos.legal.court
+description: The courts of Laos. FOUR TIERS AND ONE OUTSIDER, and the structure is worth reading before the names. ສານປະຊາຊົນສູງສຸດ, the People's Supreme Court, sits at the top and is also the administrative head of every other court — it manages them, it reviews their judgments, and its president is appointed by the National Assembly. Below it sit ສານປະຊາຊົນພາກ, the regional courts, which hear appeals for a group of provinces; then the provincial and capital courts, one for each of the eighteen first-level divisions; then district courts at the ເມືອງ level, which are where an ordinary Lao case actually starts and which are far too numerous and too poorly documented in Lao to name individually here. ສານທະຫານ, the military court, is a parallel jurisdiction whose judges the National Assembly standing committee appoints on the Supreme Court's proposal. HOW THE NAMES HERE WERE FORMED, said plainly: the four tier names and the military court are taken from Lao-language sources; the eighteen provincial courts are formed by the documented rule — ສານປະຊາຊົນແຂວງ followed by the province, and ສານປະຊາຊົນນະຄອນຫຼວງວຽງຈັນ for the capital, which takes ນະຄອນຫຼວງ rather than ແຂວງ because it is a prefecture — rather than copied from a published register of court names, which Laos does not publish as an open file. ສານປະຊາຊົນພາກ is listed once and generically, because the individual regional courts could not be confirmed by name and seat and inventing three would be worse than naming none. WHAT DOES NOT EXIST IN LAOS: there is no jury, no small-claims court, and no constitutional court — the National Assembly interprets the constitution itself, so unlike Cambodia there is no Constitutional Council to route a case to. Prosecution is a separate institution, ອົງການໄອຍາການ, which is in laos.government.agency and is not a court. A config that generates a jury, a magistrate or a constitutional appeal for a Lao row is generating something the country does not have. The generic words ສານ (court) and ຜູ້ພິພາກສາ (judge) are ordinary Lao vocabulary and belong in the language pack; the named institutions are Laos's.
+locale: lo
+---
+ສານປະຊາຊົນສູງສຸດ
+ສານປະຊາຊົນພາກ
+ສານທະຫານ
+ສານປະຊາຊົນນະຄອນຫຼວງວຽງຈັນ
+ສານປະຊາຊົນແຂວງຜົ້ງສາລີ
+ສານປະຊາຊົນແຂວງຫຼວງນ້ຳທາ
+ສານປະຊາຊົນແຂວງອຸດົມໄຊ
+ສານປະຊາຊົນແຂວງບໍ່ແກ້ວ
+ສານປະຊາຊົນແຂວງຫຼວງພະບາງ
+ສານປະຊາຊົນແຂວງຫົວພັນ
+ສານປະຊາຊົນແຂວງໄຊຍະບູລີ
+ສານປະຊາຊົນແຂວງຊຽງຂວາງ
+ສານປະຊາຊົນແຂວງວຽງຈັນ
+ສານປະຊາຊົນແຂວງບໍລິຄຳໄຊ
+ສານປະຊາຊົນແຂວງຄຳມ່ວນ
+ສານປະຊາຊົນແຂວງສະຫວັນນະເຂດ
+ສານປະຊາຊົນແຂວງສາລະວັນ
+ສານປະຊາຊົນແຂວງເຊກອງ
+ສານປະຊາຊົນແຂວງຈຳປາສັກ
+ສານປະຊາຊົນແຂວງອັດຕະປື
+ສານປະຊາຊົນແຂວງໄຊສົມບູນ

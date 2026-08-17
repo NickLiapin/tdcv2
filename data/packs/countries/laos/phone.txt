@@ -1,0 +1,13 @@
+---
+address: laos.phone
+description: A Lao mobile number in E.164 form. Country code is 856. The number is +856 followed by TEN national digits — 20, the two-digit operator block, then six subscriber digits — so a full Lao mobile number is +856 20 XX XXX XXX and thirteen digits after the plus. That length is worth checking against your validator: libphonenumber gives Lao mobile numbers a possible national length of 9 OR 10, and the nine-digit case is the separate 030 range (see below), not a short 020 number, so a fixed-width rule of "020 plus eight digits" is right for this address and wrong for the plan. THE TRUNK 0 IS DROPPED. 020 55 123 456 written at home is +8562055123456 abroad, never +856020…; that extra zero survives round-tripping through most spreadsheets and is the commonest defect in Lao phone data. The prefix and its operator block come from laos.phoneMobilePrefix, so every number generated here begins with a block that is both allocated and admitted by the published pattern. NOT MODELLED, and said rather than hidden: the 030 range, which libphonenumber also classifies as mobile for LA and which Lao sources describe as prepaid wireless portable service — it takes both nine and ten national digits (30\d{7} and 30[24]\d\d{6}) and is a different product from a SIM, so folding it into this address would put two populations in one column. Also not modelled: short codes, and the fact that carrying two or three SIMs to stay on-net is ordinary in Laos, so a Lao person record with several mobile numbers is the normal case rather than the exception.
+generator: tdc
+---
+<sequence name="prefix"><gen type="template" value="laos.phoneMobilePrefix"/></sequence>
+<sequence name="sub"><gen type="regex" value="[0-9]{6}"/></sequence>
+<sequence name="number"><compute>
+  <!-- Drop the national trunk 0: 02055 -> 2055. -->
+  <let name="nat"><slice from="1"><field name="prefix"/></slice></let>
+  <result><concat><str v="+856"/><use name="nat"/><field name="sub"/></concat></result>
+</compute></sequence>
+<data>${{number}}</data>

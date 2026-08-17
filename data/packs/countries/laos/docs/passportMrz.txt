@@ -1,0 +1,101 @@
+---
+address: laos.docs.passportMrz
+description: The second line of the machine-readable zone of a Lao passport — 44 characters of TD3, WITH ALL FIVE ICAO CHECK DIGITS COMPUTED FOR REAL. THIS IS THE ONLY VERIFIABLE ARITHMETIC IN THIS PACK AND THE REASON IS WORTH BEING EXACT ABOUT: the check digits do not belong to the passport number, they belong to the printed zone. Laos publishes no checksum for the identity card, none for the family book, none for the passport number and none for the taxpayer number, so nothing else in this pack computes one, and there is no Lao IBAN to compute a mod-97 over. What IS published is ICAO Doc 9303, and it applies to every Lao passport issued since the biometric book of 2016: take the field, give its characters the values 0-9 for digits, 10 to 35 for A to Z and 0 for the filler '<', multiply by the repeating weights 7, 3, 1, sum, and take the remainder modulo 10. The algorithm here was verified against the specimen printed in Doc 9303 itself — document number L898902C3 check 6, date of birth 740812 check 2, expiry 120415 check 9, optional data check 1, composite check 0 — and against that same specimen with a digit altered, which the check rejects. THE LAYOUT, position by position: 1-9 the document number left-aligned and padded with '<' (a Lao number is eight characters, so there is exactly one filler); 10 its check digit; 11-13 the nationality, LAO, which is Laos's ISO 3166-1 alpha-3 code and is NOT LA (the two-letter code) and not LAO PDR; 14-19 date of birth as YYMMDD; 20 its check; 21 sex, M, F or the filler; 22-27 expiry as YYMMDD; 28 its check; 29-42 optional data, left blank on Lao books; 43 its check; 44 the composite over positions 1-10, 14-20 and 22-43 together. NOTE THE TWO-DIGIT YEAR, which is a live ambiguity rather than a historical one: an MRZ carries no century, so a date of birth of 30 is 1930 on an old holder's book and 2030 on a child's, and the reader disambiguates from context. Not modelled here: line 1, which carries the surname and given names transliterated into Latin — and Lao names transliterate inconsistently (the same ໄຊ comes out Xay, Sai, Xai and Say on different documents), Lao word order puts the given name first and the family name second in speech but the passport prints them in the ICAO order, and the field is truncated to 39 characters, so line 1 of a Lao MRZ frequently does not round-trip back to the holder's name in Lao script.
+generator: tdc
+---
+<sequence name="num"><gen type="template" value="laos.docs.passport"/></sequence>
+<sequence name="dob"><gen type="date" from="1950-01-01" to="2012-12-31" format="YYMMDD"/></sequence>
+<sequence name="expiry"><gen type="date" from="2026-01-01" to="2036-12-31" format="YYMMDD"/></sequence>
+<sequence name="sex"><gen type="text" value="M,F"/></sequence>
+<!-- Fourteen ICAO filler characters. It comes from a data file rather than a
+     <str v="&lt;"/> literal because this engine does not decode XML entities —
+     see laos.docs.mrzFiller. -->
+<sequence name="fill"><gen type="template" value="laos.docs.mrzFiller"/></sequence>
+<sequence name="mrz"><compute>
+  <!-- 1-9: the document number, left-aligned in nine columns and padded with the
+       filler. A Lao number is 8 characters, so exactly one filler. -->
+  <let name="docfield"><concat><field name="num"/><slice from="0" to="1"><field name="fill"/></slice></concat></let>
+  <!-- 29-42: optional personal data, left blank on Lao books. -->
+  <let name="optional"><field name="fill"/></let>
+
+  <!-- ICAO 9303: values 0-9 for digits, 10-35 for A-Z, 0 for '<'; weights 7,3,1
+       repeating from the left; sum modulo 10. Written out once per field because
+       the compute language has no way to name a routine. -->
+  <let name="docCheck"><mod><reduce>
+    <over><use name="docfield"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply>
+      <choose>
+        <when><test><is_digit><current/></is_digit></test><then><current/></then></when>
+        <when><test><equals><to_number><encode as="unicode"><current/></encode></to_number><int v="60"/></equals></test>
+          <then><int v="0"/></then></when>
+        <otherwise><subtract><to_number><encode as="unicode"><current/></encode></to_number><int v="55"/></subtract></otherwise>
+      </choose>
+      <at><in><list v="7,3,1"/></in><index><mod><current_index/><int v="3"/></mod></index></at>
+    </multiply></add></do>
+  </reduce><int v="10"/></mod></let>
+
+  <let name="dobCheck"><mod><reduce>
+    <over><field name="dob"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply>
+      <choose>
+        <when><test><is_digit><current/></is_digit></test><then><current/></then></when>
+        <when><test><equals><to_number><encode as="unicode"><current/></encode></to_number><int v="60"/></equals></test>
+          <then><int v="0"/></then></when>
+        <otherwise><subtract><to_number><encode as="unicode"><current/></encode></to_number><int v="55"/></subtract></otherwise>
+      </choose>
+      <at><in><list v="7,3,1"/></in><index><mod><current_index/><int v="3"/></mod></index></at>
+    </multiply></add></do>
+  </reduce><int v="10"/></mod></let>
+
+  <let name="expCheck"><mod><reduce>
+    <over><field name="expiry"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply>
+      <choose>
+        <when><test><is_digit><current/></is_digit></test><then><current/></then></when>
+        <when><test><equals><to_number><encode as="unicode"><current/></encode></to_number><int v="60"/></equals></test>
+          <then><int v="0"/></then></when>
+        <otherwise><subtract><to_number><encode as="unicode"><current/></encode></to_number><int v="55"/></subtract></otherwise>
+      </choose>
+      <at><in><list v="7,3,1"/></in><index><mod><current_index/><int v="3"/></mod></index></at>
+    </multiply></add></do>
+  </reduce><int v="10"/></mod></let>
+
+  <!-- The optional-data field is all filler, so its check digit is 0. -->
+  <let name="optCheck"><int v="0"/></let>
+
+  <!-- 44: the composite, over positions 1-10, 14-20 and 22-43 concatenated —
+       everything except the nationality and the sex. -->
+  <let name="compositeSource"><concat>
+    <use name="docfield"/><use name="docCheck"/>
+    <field name="dob"/><use name="dobCheck"/>
+    <field name="expiry"/><use name="expCheck"/>
+    <use name="optional"/><use name="optCheck"/>
+  </concat></let>
+  <let name="finalCheck"><mod><reduce>
+    <over><use name="compositeSource"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply>
+      <choose>
+        <when><test><is_digit><current/></is_digit></test><then><current/></then></when>
+        <when><test><equals><to_number><encode as="unicode"><current/></encode></to_number><int v="60"/></equals></test>
+          <then><int v="0"/></then></when>
+        <otherwise><subtract><to_number><encode as="unicode"><current/></encode></to_number><int v="55"/></subtract></otherwise>
+      </choose>
+      <at><in><list v="7,3,1"/></in><index><mod><current_index/><int v="3"/></mod></index></at>
+    </multiply></add></do>
+  </reduce><int v="10"/></mod></let>
+
+  <result><concat>
+    <use name="docfield"/><use name="docCheck"/>
+    <str v="LAO"/>
+    <field name="dob"/><use name="dobCheck"/>
+    <field name="sex"/>
+    <field name="expiry"/><use name="expCheck"/>
+    <use name="optional"/><use name="optCheck"/>
+    <use name="finalCheck"/>
+  </concat></result>
+</compute></sequence>
+<data>${{mrz}}</data>

@@ -1,0 +1,11 @@
+---
+address: laos.finance.bankEnglish
+description: The same banks as laos.finance.bank in their Latin trading names, sliced out of the same paired table so the two can never fall out of step. Lao banks operate bilingually — the branch sign, the passbook and the app are in Lao, the SWIFT record, the annual report and the correspondent-banking paperwork are in Latin — so both forms are in daily use and neither is a translation of the other. Where a Lao name is a phonetic spelling of a foreign name the Latin form is the original (ທະນາຄານ ພາບລິກ is Public Bank, ທະນາຄານ ເອຊີລິດາ is ACLEDA); where the bank is Lao, the Latin form is a romanisation of the Lao (ພົງສະຫວັນ is Phongsavanh). ONE NAME IS FRENCH AND THAT IS NOT AN ERROR: the state commercial bank trades in Latin as Banque pour le Commerce Extérieur Lao, abbreviated BCEL, and Banque Franco-Lao likewise — Laos was a French protectorate, French was the language of its administration and banking into the 1970s, and the francophone names survived where the language did not. So a Lao bank column contains French, English and romanised Lao at once, and a name-matching rule tuned to English will miss the two largest. WARNING: this file and laos.finance.bank are two separate addresses — drawing both gives you two independent banks, not one bank in two scripts. For a coherent pair, draw laos.finance.bankWithEnglish once and split it yourself.
+generator: tdc
+locale: en
+---
+<sequence name="entry"><gen type="template" value="laos.finance.bankWithEnglish"/></sequence>
+<sequence name="bare"><compute><result>
+  <at><in><split sep="|"><field name="entry"/></split></in><index><int v="1"/></index></at>
+</result></compute></sequence>
+<data>${{bare}}</data>

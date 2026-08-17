@@ -1,0 +1,153 @@
+---
+address: laos.geo.districtEnglish
+description: The same 148 ເມືອງ as laos.geo.district in their Latin spellings, IN THE SAME ORDER, so the two files line up row for row. Read the spellings before joining on them: they are the forms the Lao government prints in English, and they are inconsistent in exactly the way laos.geo.provinceEnglish describes — Parkngum and Pakngum, Hadxayfong and Hatxaifong, Xaythany and Saythany all occur in Lao official documents for the same district. This file and laos.geo.district are two separate addresses: drawing both gives you two independent districts, not one district in two scripts. The order is maintained by hand against the sliced files, so it is the one place in this pack where a row could fall silently out of step; the code pairing in laos.geo.districtWithCode is the one the engine enforces.
+locale: en
+---
+Chanthabuly
+Sikhottabong
+Xaysetha
+Sisattanak
+Naxaithong
+Xaythany
+Hadxayfong
+Sangthong
+Parkngum
+Phongsaly
+May
+Khoua
+Samphanh
+Boun Neua
+Yot Ou
+Boun Tay
+Namtha
+Sing
+Long
+Viengphoukha
+Na Le
+Xay
+La
+Na Mo
+Nga
+Beng
+Houne
+Pak Beng
+Houayxay
+Ton Pheung
+Meung
+Pha Oudom
+Pak Tha
+Luang Prabang
+Xiengngeun
+Nane
+Pak Ou
+Nam Bak
+Ngoy
+Pak Seng
+Phonxay
+Chomphet
+Viengkham
+Phoukhoune
+Phonthong
+Xam Neua
+Xiengkho
+Hiam
+Viengxay
+Houameuang
+Samtay
+Sop Bao
+Et
+Kone
+Xon
+Sainyabuli
+Khop
+Hongsa
+Ngeun
+Xienghone
+Phiang
+Parklai
+Kenethao
+Botene
+Thongmyxay
+Xaisathan
+Pek
+Kham
+Nong Het
+Khoune
+Mok May
+Phou Kout
+Phaxay
+Phonhong
+Thoulakhom
+Keo Oudom
+Kasy
+Vangvieng
+Feuang
+Xanakharm
+Mad
+Viengkham
+Hinhurp
+Meun
+Pakxan
+Thaphabat
+Pakkading
+Borikhane
+Khamkeut
+Viengthong
+Xaichamphon
+Thakhek
+Mahaxay
+Nong Bok
+Hineboune
+Yommalath
+Boualapha
+Nakai
+Sebangphay
+Xaibouathong
+Kounkham
+Kaysone Phomvihane
+Outhoumphone
+Atsaphangthong
+Phine
+Seponh
+Nong
+Thapangthong
+Songkhone
+Champhone
+Xonaboury
+Xayboury
+Viraboury
+Assaphone
+Xonboury
+Thaphalanxay
+Saravane
+Ta Oy
+Toumlane
+Lakhonepheng
+Vapy
+Khongsedone
+Lao Ngam
+Sa Mouay
+La Mam
+Kaleum
+Dak Cheung
+Tha Teng
+Pakse
+Sanasomboun
+Batiengchaleunsouk
+Paksong
+Pathouphone
+Phonthong
+Champassack
+Soukhoumma
+Mounlapamok
+Khong
+Saysetha
+Samakkhixay
+Sanamxay
+Sanxay
+Phouvong
+Anouvong
+Longchaeng
+Longxan
+Hom
+Thathom

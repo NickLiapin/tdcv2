@@ -1,0 +1,16 @@
+---
+address: laos.sport.team
+description: Football clubs of the Lao League 1 in Lao script. A SHORT LIST BECAUSE THE LEAGUE IS SHORT — the Lao top division runs with eight to ten clubs, so this is close to the whole competition rather than a sample of it, and treating it as a sample will overstate how many professional clubs the country has by a wide margin. Read the names for two Lao habits. Where a club's name is foreign it is TRANSLITERATED rather than translated and a space IS used between the borrowed words, which makes club names one of the few Lao lists with internal spaces; where it is Lao it is a place or a thing — ຫຼວງພະບາງ and ຈຳປາສັກ are provinces, ໜຸ່ມຊ້າງ is "young elephants" and ຊ້າງເຜືອກ "white elephant", the elephant being the national symbol (Laos was ລ້ານຊ້າງ, the kingdom of a million elephants). And Lao media writes the suffix "FC" in LATIN letters after the Lao name, so a real Lao league table is a mixed-script line; the suffix is dropped here because it is not part of the club's identity. INSTITUTIONAL OWNERSHIP IS THE OTHER THING TO KNOW: ກອງທັບລາວ is the army side and has won the league more often than anyone, a pattern common across mainland South-East Asia and unlike a European league where a club is a private company with a town behind it. Several of these are current and several are historical — ຈັນທະບູລີ played as Lao Toyota and took five titles in a row from 2015, ລ້ານຊ້າງຢູໄນເຕັດ won in 2016 — and they are here because Lao football records refer to them. Clubs whose names appear only in Latin in Lao sources (Master 7 FC, Viengchanh FC) were left out rather than transliterated on the spot, which is why the current league is not complete here.
+locale: lo
+---
+ເອສຣາ
+ຊ້າງເຜືອກ
+ໜຸ່ມຊ້າງ
+ກອງທັບລາວ
+ຈັນທະບູລີ
+ຫຼວງພະບາງ
+ຈຳປາສັກ
+ນ້ຳທາ
+ລ້ານຊ້າງຢູໄນເຕັດ
+ມາດສດ້າ ຈີບີ
+ເອັສເຮັສບີ ວຽງຈັນ

@@ -247,6 +247,7 @@ export const CANONICAL_COUNTRIES: ReadonlySet<string> = new Set([
   'kenya',
   'kuwait',
   'kyrgyzstan',
+  'laos',
   'latvia',
   'lebanon',
   'libya',

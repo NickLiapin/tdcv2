@@ -1,0 +1,8 @@
+---
+address: laos.geo.provinceCode
+description: The two-digit Lao administrative province number, ALWAYS with its leading zero (01 ນະຄອນຫຼວງວຽງຈັນ, 06 ຫຼວງພະບາງ, 13 ສະຫວັນນະເຂດ). Sliced out of laos.geo.provinceWithCode so every value names a division that exists. Store it as text and never as an integer: 01 becomes 1 the moment anything parses it as a number, and at two digits that mistake survives right up until it breaks a postcode join. The range is 01 to 18 with no gaps and no unassigned values. One number does three jobs in Laos — it is the province number the Lao Statistics Bureau publishes its tables under, it is the first two digits of the four-digit ເມືອງ code in laos.geo.districtWithCode, and it is the first two digits of every five-digit postcode — so unlike Thailand, where the postal prefix and the administrative code disagree for ten provinces, in Laos deriving one from the other is correct. It is NOT the ISO 3166-2 code and not the telephone area code: 13 is ສະຫວັນນະເຂດ here, while ສະຫວັນນະເຂດ dials 041 and carries LA-SV, and all three numbers get called "the province code" by somebody.
+generator: tdc
+---
+<sequence name="entry"><gen type="template" value="laos.geo.provinceWithCode"/></sequence>
+<sequence name="code"><compute><result><slice to="2"><field name="entry"/></slice></result></compute></sequence>
+<data>${{code}}</data>

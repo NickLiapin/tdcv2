@@ -1,0 +1,26 @@
+---
+address: laos.phoneMobilePrefix
+description: A Lao mobile prefix in its NATIONAL form, with the trunk 0 and the operator block behind it: 02055, 02077, 02097. Read the shape before using it. EVERY LAO MOBILE NUMBER BEGINS 020 — there is one mobile access code for the whole country, all operators and all regions, so the "020" carries no information at all and the two digits after it are the part that identifies anything. That is why this file is five characters wide rather than three: the prefix people mean when they say "a Lao prefix" is 020 plus the operator block. The blocks here are the ones that are both admitted by Google's libphonenumber pattern for LA — 20(?:[23579]\d|8[78])\d{6}, which is the published specification most validators actually enforce — and reported as allocated: 22 and 23 to ETL, 52 and 54-59 to ລາວໂທລະຄົມ (Lao Telecom), 76-78 to TPlus (formerly Beeline, formerly Tigo), 87-88 and 91-99 to Unitel. THE PREFIX DOES NOT IDENTIFY A PLACE — there are no geographic mobile codes in Laos — and it is a weak signal for the operator, so treat it as neither. STORE AS TEXT: 02022 becomes 2022 the moment something reads it as a number, and the leading zero is the whole point. THE TRUNK 0 IS DROPPED INTERNATIONALLY: a Lao writes 020 55 123 456 at home, the same number is +8562055123456 abroad and never +856020…, and that surviving zero is the commonest single defect in Lao phone columns because it still looks like a phone number. Mobile is what "phone number" means in Laos: fixed lines are a rounding error against SIM counts, and a Lao person record with a landline and no mobile is not modelling Laos. See laos.phone for the full international form and laos.phoneLandline for the fixed-line plan.
+---
+02022
+02023
+02028
+02029
+02052
+02054
+02055
+02056
+02058
+02059
+02076
+02077
+02078
+02087
+02088
+02091
+02093
+02095
+02096
+02097
+02098
+02099

@@ -1,0 +1,11 @@
+---
+address: laos.finance.bank
+description: A bank licensed in Laos, Lao name, sliced out of laos.finance.bankWithEnglish so a bank can never drift away from its own Latin name. THIS FILE IS WHERE A LAO IBAN WOULD HAVE GONE AND IT IS HERE BECAUSE THERE IS NO SUCH THING. Laos is not in the ISO 13616 IBAN registry: the registry runs to roughly ninety country codes and LA is not among them, no Lao bank issues an IBAN, and no Lao regulation defines one. A string beginning "LA" followed by check digits and a BBAN is an invention with nothing to validate it against, and the mod-97 arithmetic that makes an IBAN self-checking is therefore unavailable for Laos at any price — which is why this pack has no finance/iban.txt and why that absence is deliberate rather than unfinished. The Asian countries that ARE in the registry are Azerbaijan, Bahrain, Belarus, Georgia, Iraq, Israel, Jordan, Kazakhstan, Kuwait, Lebanon, Mongolia, Oman, Pakistan, Palestine, Qatar, Saudi Arabia, Turkey, the UAE and Yemen; nothing in mainland South-East Asia is on that list, so Laos is normal for its region and Poland is the outlier. WHAT A PAYMENT INTO LAOS ACTUALLY NEEDS is the beneficiary bank's SWIFT/BIC plus the account number at that bank; for a domestic transfer neither, because retail payments overwhelmingly go through the LaoQR standard and the banks' own apps, where the payee is addressed by a QR code or a phone number rather than by an account number. BICs are NOT generated in this pack: a BIC has a registry and a fixed shape but no checksum, so a well-formed invented one is undetectable, and the Lao codes could not be taken from the SWIFT directory with the confidence the Cambodian ones were. Ordered as the central bank orders its register, which is roughly by how likely a Lao person is to hold an account: BCEL first — it is the state commercial bank, it has the branch network, and it is one of only a handful of companies listed on the ຕະຫຼາດຫຼັກຊັບລາວ.
+generator: tdc
+locale: lo
+---
+<sequence name="entry"><gen type="template" value="laos.finance.bankWithEnglish"/></sequence>
+<sequence name="bare"><compute><result>
+  <at><in><split sep="|"><field name="entry"/></split></in><index><int v="0"/></index></at>
+</result></compute></sequence>
+<data>${{bare}}</data>

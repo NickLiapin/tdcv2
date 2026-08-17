@@ -1,0 +1,15 @@
+---
+address: laos.government.agency
+description: The Lao bodies that ISSUE the identifiers in this pack, plus the institutions a company or a citizen deals with directly. Deliberately NARROW and deliberately not a ministry list. ກະຊວງປ້ອງກັນຄວາມສະຫງົບ, the Ministry of Public Security, is the one to read first: it runs the civil register, issues the ບັດປະຈຳຕົວ at laos.docs.nationalId, keeps the ປຶ້ມສຳມະໂນຄົວ at laos.docs.familyBook and is running the electronic replacement for it, and also runs the police and immigration — so "the security ministry" in Lao data covers a range a European reader would expect split across three or four bodies, and identity, residence and policing are one file. ກົມສ່ວຍສາອາກອນ, the Tax Department inside ກະຊວງການເງິນ, issues the TIN at laos.tax.tin and runs the TaxRIS system that generates it with the enterprise registration certificate. ທະນາຄານແຫ່ງ ສປປ ລາວ is the central bank and licenses every bank in laos.finance.bank; it is deliberately NOT in that list, because it holds no retail customers and would otherwise look like an ordinary row. ສູນສະຖິຕິແຫ່ງຊາດ ran the 2015 census that weights laos.geo.city. ຕະຫຼາດຫຼັກຊັບລາວ is the stock exchange, which is tiny — a handful of listed companies, BCEL among them — and worth knowing about before modelling Lao corporate data as if it had public markets. NOT IN THIS LIST, AND NAMED RATHER THAN GUESSED AT: the ministry department that issues vehicle plates and driving licences, the telecommunications regulator that allocates the mobile blocks in laos.phoneMobilePrefix, and the enterprise registry under the industry and commerce ministry are all real bodies whose exact Lao legal names could not be confirmed from a Lao-language source, and an invented Lao spelling is undetectable afterwards. All values here were taken from the organisations' own Lao-language web pages or from Lao Wikipedia. Note the abbreviation ສປປ ລາວ, which is ສາທາລະນະລັດ ປະຊາທິປະໄຕ ປະຊາຊົນລາວ — the Lao People's Democratic Republic — and appears in the legal name of the central bank and many other institutions; it is written with spaces, unlike ordinary Lao words.
+locale: lo
+---
+ກະຊວງປ້ອງກັນຄວາມສະຫງົບ
+ກະຊວງການເງິນ
+ກົມສ່ວຍສາອາກອນ
+ທະນາຄານແຫ່ງ ສປປ ລາວ
+ສູນສະຖິຕິແຫ່ງຊາດ
+ອົງການໄອຍາການ
+ສະພາແຫ່ງຊາດ
+ຕະຫຼາດຫຼັກຊັບລາວ
+ກະຊວງກະສິກຳແລະປ່າໄມ້
+ລັດວິສາຫະກິດໂທລະຄົມລາວ

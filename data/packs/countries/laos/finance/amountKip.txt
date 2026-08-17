@@ -1,0 +1,24 @@
+---
+address: laos.finance.amountKip
+description: A sum of money in kip written the way CLDR says Lao writes it — the ₭ sign in FRONT, groups of three separated by a FULL STOP, and no decimal part at all: ₭1.250.000. Every one of those three is a decision and the middle one is the one that will bite. THE GROUP SEPARATOR IS A DOT AND THE DECIMAL MARK IS A COMMA. That is the continental European convention, inherited from the French protectorate, and it is the OPPOSITE of both of Laos's big neighbours: Thai and Khmer both group with a comma. So the same figure that a Thai invoice prints 1,250,000 a Lao one prints 1.250.000, and a parser that meets 1.250 in a Lao document and reads it as one-and-a-quarter is out by a factor of a thousand — the single most expensive mistake available in Lao data. Verified against CLDR through the ICU in Node: Intl.NumberFormat("lo").format(1234567.89) returns "1.234.567,89". THERE ARE NO DECIMALS. CLDR gives LAK zero fraction digits and the att has not circulated in decades (see laos.finance.currency), so a kip amount with a fractional part is a conversion artefact. THE SIGN LEADS. CLDR's Lao currency pattern is ¤#,##0.00, symbol first — again unlike Khmer, whose ៛ follows the figure. Both ₭ and the older ₭N appear on Lao material, and in practice a great deal of Lao commercial printing writes the word ກີບ after the number instead of a sign at all; this file emits the CLDR form, and a Lao price string therefore cannot be parsed by assuming the marker is on one side. THE MAGNITUDE IS SPREAD ACROSS THREE DECADES rather than drawn uniformly, and runs from about ₭1.000 to ₭20.000.000, because a uniform draw over a Lao price range puts nearly every value at the top while real Lao prices cluster low: a bowl of ເຝີ is around 30.000₭, a litre of petrol around 25.000₭, a monthly public-sector salary in the low millions. Every value is a multiple of 1,000 because the 1,000₭ note is the smallest in issue. Nothing here is a number the engine can do arithmetic on: it is the PRINTED form. For an amount to compute with, generate a plain number and format it at the point of output.
+generator: tdc
+locale: lo
+---
+<sequence name="raw"><gen type="number" value="100..20000"/></sequence>
+<sequence name="shift"><gen type="number" value="0..2"/></sequence>
+<sequence name="amount"><compute>
+  <!-- Spread the magnitude across three decades: divide the draw by 1, 10 or 100.
+       The draw starts at 100 so the division never floors to zero. -->
+  <let name="scale"><at>
+    <in><list v="1,10,100"/></in>
+    <index><to_number><field name="shift"/></to_number></index>
+  </at></let>
+  <!-- x1000 so every value is a whole number of 1,000-kip units; that is the smallest note. -->
+  <let name="kip"><multiply>
+    <divide><to_number><field name="raw"/></to_number><use name="scale"/></divide>
+    <int v="1000"/>
+  </multiply></let>
+  <let name="grouped"><group size="3" sep="."><use name="kip"/></group></let>
+  <result><concat><str v="₭"/><use name="grouped"/></concat></result>
+</compute></sequence>
+<data>${{amount}}</data>

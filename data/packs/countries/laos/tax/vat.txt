@@ -1,0 +1,7 @@
+---
+address: laos.tax.vat
+description: LAOS ISSUES NO SEPARATE VAT NUMBER, and this file exists to say so rather than to invent one. Laos does levy VAT — ອາກອນມູນຄ່າເພີ່ມ, currently 10%, cut to 7% in 2022 and restored to 10% in 2024, so the rate is a date-dependent fact and not a constant — but a registrant is identified by the taxpayer identification number it already has, which is why the value drawn here is deliberately identical in shape to laos.tax.tin. That IS the VAT number. A schema carrying taxId and vatId as separate columns for a Lao party will find them equal in every row, and that is the correct answer, not a bug. REGISTRATION IS AUTOMATIC, which is unusual and changes how you model it: an enterprise that registers and obtains a TIN is enrolled in the VAT system by that act, with micro-enterprises excepted, so unlike a European country there is no separate VAT registration event, no separate certificate number and no threshold to cross before a number is issued. Whether a given Lao company actually charges VAT is therefore a status flag on the company, not something readable off the identifier. DO NOT BUILD IT LIKE AN EU VAT NUMBER: there is no "LA" country prefix, no separate VAT serial and no check digit, because Laos is not in the EU and its numbers are not part of the VIES scheme — a string beginning LA followed by digits is an invention with nothing to validate it against.
+generator: tdc
+---
+<sequence name="s"><gen type="template" value="laos.tax.tin"/></sequence>
+<data>${{s}}</data>

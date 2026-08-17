@@ -1,0 +1,22 @@
+---
+address: laos.holiday
+description: The holidays and festivals of Laos in Lao. TWO KINDS OF DAY ARE IN THIS LIST AND MIXING THEM IS THE MISTAKE TO AVOID. The first six values are the STATUTORY public holidays the Prime Minister's Office gazettes each year — ວັນປີໃໝ່ສາກົນ (1 January), ວັນແມ່ຍິງສາກົນ (8 March), ບຸນປີໃໝ່ລາວ (14-16 April, three days), ວັນກຳມະກອນສາກົນ (1 May), ວັນສ້າງຕັ້ງສະຫະພັນແມ່ຍິງລາວ (20 July) and ວັນຊາດ (2 December) — and that is a SHORT list by regional standards: Laos gazettes about eight non-working days a year where Cambodia gazettes twenty-one. Two of them are not universal: ວັນແມ່ຍິງສາກົນ and ວັນສ້າງຕັ້ງສະຫະພັນແມ່ຍິງລາວ are holidays for women workers and female civil servants only, so a Lao working-day model that applies them to everyone is out by two days a year for half the workforce. Where a gazetted day falls at a weekend, Laos generally substitutes a weekday. THE REST ARE ບຸນ — Buddhist and agricultural festivals, most of them NOT gazetted as non-working days, which the country nevertheless stops for. ບຸນປີໃໝ່ລາວ, the Lao new year in mid-April, is the one time everything closes; it is the same water festival as Thai Songkran and Cambodian Khmer new year, set by the traditional lunisolar calendar rather than by a Gregorian rule. ບຸນທາດຫຼວງ, at the November full moon, is the national religious festival, held at the ພະທາດຫຼວງ stupa in ວຽງຈັນ, which is on the national emblem — it is the closest thing Laos has to a national pilgrimage and it empties offices in the capital for days that no gazette records. THE FESTIVAL CALENDAR IS A SYSTEM, not a list: ຮີດສິບສອງຄອງສິບສີ່, the "twelve customs and fourteen rules" codified under the Lan Xang kingdom, assigns one ບຸນ to each lunar month, so ບຸນເຂົ້າຈີ່ falls in the third month, ບຸນບັ້ງໄຟ — the rocket festival that asks for rain — before the planting, ບຸນເຂົ້າພັນສາ and ບຸນອອກພັນສາ open and close the monastic retreat, and ບຸນຊ່ວງເຮືອ races boats when the waters fall. NONE OF THE LUNAR DATES CAN BE COMPUTED FROM A GREGORIAN RULE, they move by up to a month between years, and a Lao holiday calendar copied from a previous year will be wrong in a way that looks plausible. This file lists the days; it does not carry their dates, and nothing in this pack converts between the Gregorian calendar and the Lao Buddhist Era, which runs 543 years ahead.
+locale: lo
+---
+ວັນປີໃໝ່ສາກົນ
+ວັນແມ່ຍິງສາກົນ
+ບຸນປີໃໝ່ລາວ
+ວັນກຳມະກອນສາກົນ
+ວັນສ້າງຕັ້ງສະຫະພັນແມ່ຍິງລາວ
+ວັນຊາດ
+ບຸນທາດຫຼວງ
+ບຸນມາຄະບູຊາ
+ບຸນວິສາຄະບູຊາ
+ບຸນເຂົ້າຈີ່
+ບຸນພະເຫວດ
+ບຸນບັ້ງໄຟ
+ບຸນເຂົ້າພັນສາ
+ບຸນຫໍ່ເຂົ້າປະດັບດິນ
+ບຸນຫໍ່ເຂົ້າສະຫຼາກ
+ບຸນອອກພັນສາ
+ບຸນຊ່ວງເຮືອ

@@ -1,0 +1,23 @@
+---
+address: laos.geo.provinceEnglish
+description: The same 18 first-level divisions as laos.geo.province, in the Latin spellings the Lao state and the census tables use, IN THE SAME ORDER, so the two files can be drawn as a pair and read as one place. THE ROMANISATION IS NOT STABLE and that is the thing to design around. Laos was a French protectorate and its Latin spellings were fixed by French orthography, then partly re-cut by English-speaking agencies, so the same province appears as Sainyabuli, Xayaboury, Xaignabouli and Sayaboury in four different official publications; ຫຼວງພະບາງ is Luang Prabang, Louangphabang and Louangphrabang; ບໍລິຄຳໄຊ is Bolikhamxai, Borikhamxay and Bolikhamsai; ຈຳປາສັກ is Champasak and Champassak. The French habit of writing the Lao /x/ as "x" is why so many of these begin with X where the Lao begins with ຊ or ໄຊ. So a Latin province name is NOT a safe join key between two Lao data sets — the Lao string or the two-digit number is. The ISO 3166-2:LA codes, which are stable where the spellings are not, run in this order: LA-VT, LA-PH, LA-LM, LA-OU, LA-BK, LA-LP, LA-HO, LA-XA, LA-XI, LA-VI, LA-BL, LA-KH, LA-SV, LA-SL, LA-XE, LA-CH, LA-AT, LA-XS. Note that the ISO code for the capital is LA-VT and for the province around it LA-VI — the same one-word collision as in the Lao.
+locale: en
+---
+Vientiane Prefecture
+Phongsaly
+Luang Namtha
+Oudomxay
+Bokeo
+Luang Prabang
+Houaphanh
+Sainyabuli
+Xiangkhouang
+Vientiane
+Bolikhamxai
+Khammouane
+Savannakhet
+Salavan
+Sekong
+Champasak
+Attapeu
+Xaisomboun

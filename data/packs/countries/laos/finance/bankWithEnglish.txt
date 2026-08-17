@@ -1,0 +1,41 @@
+---
+address: laos.finance.bankWithEnglish
+description: The paired table behind laos.finance.bank and laos.finance.bankEnglish — the bank's Lao name, a vertical bar, then its Latin trading name. Kept as one file so a bank can never drift away from its own English name. The list is the register of licensed commercial banks as the ທະນາຄານແຫ່ງ ສປປ ລາວ (Bank of the Lao P.D.R.) itself publishes it, in the regulator's own groups: the one state-owned commercial bank (ທະນາຄານ ການຄ້າຕ່າງປະເທດລາວ ມະຫາຊົນ, BCEL, which is where most Lao salaries land), the specialised banks, the joint state-owned banks that pair the Lao state with a Vietnamese, French or Chinese partner, the private banks, the subsidiaries of foreign banks, and the branches of foreign banks. THE SHAPE OF LAO BANKING IS IN THAT ORDERING and it is unlike a European register: of 36 licensed banks, more than half are foreign — six Thai, six Vietnamese, three Chinese or Taiwanese, one Malaysian, one Cambodian, one Korean, one Japanese — because Laos is landlocked between five much larger economies and its banking follows its trade. Only about eight of these are banks a Lao household would hold an account with. LAOS HAS NO IBAN, so if you are looking for one, stop: laos.finance.bank says why at length. The Lao names keep the legal-form suffix ຈຳກັດ (limited), ມະຫາຊົນ (public) or ຈຳກັດຜູ້ດຽວ (sole limited) because the regulator prints it and because it distinguishes two otherwise similar entries; those words are ordinary Lao commercial vocabulary and would belong in the language pack if this file were about language. NOTE THE SPACES. Lao does not put spaces between words, but almost every one of these names has them, because a space in Lao marks a phrase boundary and a transliterated foreign name is a phrase — ທະນາຄານ ມາຣູຮານ ເຈແປນລາວ ຈຳກັດ is "Maruhan Japan Lao" spelled out phonetically with a space around each borrowed word. That makes bank names the one Lao list in this pack with internal spaces, the opposite of the problem the geography files have.
+locale: lo
+---
+ທະນາຄານ ການຄ້າຕ່າງປະເທດລາວ ມະຫາຊົນ|Banque pour le Commerce Extérieur Lao Public
+ທະນາຄານ ພັດທະນາລາວ ຈຳກັດ|Lao Development Bank
+ທະນາຄານ ສົ່ງເສີມກະສິກຳ ຈຳກັດ|Agricultural Promotion Bank
+ທະນາຄານ ພັດທະນາຊົນນະບົດ ຈຳກັດ|Rural Development Bank
+ທະນາຄານຄຳ ລາວ ຈຳກັດ|Lao Bullion Bank
+ທະນາຄານ ຮ່ວມທຸລະກິດລາວ-ຫວຽດ ຈຳກັດ|Lao-Viet Bank
+ທະນາຄານ ລາວ-ຝລັ່ງ ຈຳກັດ|Banque Franco-Lao
+ທະນາຄານ ລາວຈີນ ຈຳກັດ|Lao China Bank
+ທະນາຄານ ຮ່ວມພັດທະນາ ມະຫາຊົນ|Joint Development Bank
+ທະນາຄານ ພົງສະຫວັນ ຈຳກັດ|Phongsavanh Bank
+ທະນາຄານ ອິນໂດຈີນ ຈຳກັດ|Indochina Bank
+ທະນາຄານ ບູຢອງລາວ ຈຳກັດ|Booyoung Lao Bank
+ທະນາຄານ ມາຣູຮານ ເຈແປນລາວ ຈຳກັດ|Maruhan Japan Bank Lao
+ທະນາຄານ ບີໄອຊີ ລາວ ຈຳກັດ|BIC Bank Lao
+ທະນາຄານ ເອັສທີ ຈຳກັດ|ST Bank
+ທະນາຄານ ເອຊີລິດາລາວ ຈຳກັດ|ACLEDA Bank Lao
+ທະນາຄານ ອາເຮັສບີ ລາວ ຈຳກັດຜູ້ດຽວ|RHB Bank Lao
+ທະນາຄານ ກະສິກອນໄທ ຈຳກັດຜູ້ດຽວ|Kasikornthai Bank
+ທະນາຄານ ໄຊງ່ອນເທື່ອງຕີ່ນ ລາວ ຈຳກັດຜູ້ດຽວ|Saigon Thuong Tin Bank Lao
+ທະນາຄານ ຫວຽດຕິນ ລາວ ຈຳກັດ|Vietinbank Lao
+ທະນາຄານ ໄຊງ່ອນ-ຮ່າໂນ້ຍ ລາວ ຈຳກັດ|Saigon-Hanoi Bank Lao
+ທະນາຄານ ການຄ້າຕ່າງປະເທດຫວຽດນາມ ປະຈຳລາວ ຈຳກັດ|Vietcombank Laos
+ທະນາຄານ ແຄນນາເດຍ ລາວ ຈຳກັດ|Canadia Bank Lao
+ທະນາຄານ ພາບລິກ ລາວ ຈຳກັດ|Public Bank Lao
+ທະນາຄານ ກຸງເທບ ຈຳກັດ (ມະຫາຊົນ) ສາຂານະຄອນຫຼວງວຽງຈັນ|Bangkok Bank, Vientiane Branch
+ທະນາຄານ ກຸງໄທ ຈຳກັດ (ມະຫາຊົນ) ສາຂານະຄອນຫຼວງວຽງຈັນ|Krungthai Bank, Vientiane Branch
+ທະນາຄານ ກຸງສີອະຍຸດທະຍາ ຈຳກັດ (ມະຫາຊົນ) ສາຂານະຄອນຫຼວງວຽງຈັນ|Bank of Ayudhya, Vientiane Branch
+ທະນາຄານ ໄທພານິດ ຈຳກັດ (ມະຫາຊົນ) ສາຂານະຄອນຫຼວງວຽງຈັນ|Siam Commercial Bank, Vientiane Branch
+ທະນາຄານ ຫຸ້ນສ່ວນການຄ້າທະຫານ ສາຂາລາວ|Military Commercial Joint Stock Bank, Lao Branch
+ທະນາຄານ ອຸດສະຫະກຳ ແລະ ການຄ້າຈີນ ຈຳກັດ ສາຂານະຄອນຫຼວງ|Industrial and Commercial Bank of China, Vientiane Branch
+ທະນາຄານ ຄາເທ ຢູໄນເຕັດ ຈຳກັດ ສາຂານະຄອນຫຼວງວຽງຈັນ|Cathay United Bank, Vientiane Capital Branch
+ທະນາຄານແຫ່ງປະເທດຈີນ (ຮົງກົງ) ຈຳກັດ ສາຂານະຄອນຫຼວງວຽງຈັນ|Bank of China (Hong Kong), Vientiane Branch
+ທະນາຄານ ເຟີດ ຄອມເມີໂຊ ແບັງ ຈຳກັດ ສາຂານະຄອນຫຼວງວຽງຈັນ|First Commercial Bank, Vientiane Branch
+ທະນາຄານ ມາເລຍັນ ເບີຫັດ ສາຂາລາວ|Malayan Banking (Maybank), Lao Branch
+ກຸ່ມທະນາຄານ ອົດສະຕາລີ ແລະ ນິວຊີແລນ ຈຳກັດ ສາຂາລາວ|Australia and New Zealand Banking Group, Lao Branch
+ທະນາຄານ ໄຕ້ຫວັນ ໂຄໂອເປີເຣທິບ ຈຳກັດ ສາຂານະຄອນຫຼວງວຽງຈັນ|Taiwan Cooperative Bank, Vientiane Capital Branch

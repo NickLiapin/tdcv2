@@ -1,0 +1,13 @@
+---
+address: laos.vehicle.plate
+description: A Lao vehicle registration plate in the series in force since 2001, written as it reads — the province of registration in Lao on the top line, then two Lao letters and four digits: ນະຄອນຫຼວງວຽງຈັນ ກຂ 1234. THE PLATE IS ENTIRELY IN LAO SCRIPT and that is the thing to design around: unlike a Cambodian plate, which carries the province in Khmer above and in Latin below, a Lao plate has no Latin line at all, so a Lao registration cannot be transcribed into ASCII without inventing a transliteration, and an ANPR system trained on Latin plates reads nothing. THE FIRST LETTER IS THE VEHICLE CLASS, not a serial: ກ ຂ ຄ ນ ມ ຣ ລ ວ ຫ ອ ຮ are passenger cars, ຈ ຍ ດ ຕ ທ are motorbikes, ສ is a three-wheeler such as a tuk-tuk, and ບ is a heavy truck. The classes are drawn weighted towards the motorbike letters because Laos is a motorcycle country — two-wheelers outnumber cars several times over in the registration figures — so a uniform draw over the letters builds a fleet Laos does not have. The second letter is the series and runs through the alphabet as each series fills. THE COLOUR IS THE OWNERSHIP CLASS AND IT IS NOT IN THE STRING: an ordinary private plate is black on orange, and government, company, taxable-company, temporary, diplomatic and military plates each use their own scheme, so a Lao plate stripped to its characters has lost the field that says whose vehicle it is. Not modelled either, and named rather than guessed at: the special prefixes ສທ (diplomatic), ຂຕ (foreign guest), ສປຊ (United Nations), ສງ (international financial institution), ປກສ (public security) and ກທ (national defence), which replace the ordinary letter pair; the expiry date printed on a temporary plate; and the green EV sticker added in the top-left corner from 2024. The four-digit serial excludes 0000, so 0001 to 9999 is the whole span and leading zeros are kept — store the number as text. No character on a Lao plate is a check digit and nothing on it verifies anything else.
+generator: tdc
+locale: lo
+---
+<sequence name="province"><gen type="template" value="laos.geo.province"/></sequence>
+<!-- First letter = vehicle class. Weighted towards the motorbike letters
+     because two-wheelers dominate the Lao fleet. -->
+<sequence name="class"><gen type="text" value="ຈ,ຍ,ດ,ຕ,ທ,ກ,ຂ,ຄ,ນ,ມ,ຣ,ລ,ວ,ຫ,ອ,ຮ,ສ,ບ" percent="12,12,12,12,12,3,3,3,3,3,3,3,3,3,3,3,4,3"/></sequence>
+<sequence name="series"><gen type="text" value="ກ,ຂ,ຄ,ງ,ຈ,ຊ,ຍ,ດ,ຕ,ຖ,ທ,ນ,ບ,ປ,ຜ,ຝ,ພ,ຟ,ມ,ຢ,ຣ,ລ,ວ,ສ,ຫ,ອ,ຮ"/></sequence>
+<sequence name="serial"><gen type="number" value="1..9999" length="4" first_zero="true"/></sequence>
+<data>${{province}} ${{class}}${{series}} ${{serial}}</data>

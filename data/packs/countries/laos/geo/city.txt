@@ -1,0 +1,54 @@
+---
+address: laos.geo.city
+description: The urban centres of Laos in Lao, WEIGHTED by their urban population at the Population and Housing Census of 1 March 2015 — the last full census — as tabulated for Laos by citypopulation.de from Lao Statistics Bureau figures. READ WHAT A "CITY" IS IN LAOS BEFORE USING THIS. Laos has no municipal tier at all: the administrative ladder is ແຂວງ (province), ເມືອງ (district), ບ້ານ (village), and nothing in between is a legal city. So every value here is the urban part of a ເມືອງ, the census counts urban population BY DISTRICT, and what a foreigner calls "Pakse" the Lao state calls ເມືອງປາກເຊ. That is also why the values here are nearly all district names drawn from laos.geo.district — the exceptions are ວຽງຈັນ, whose urban area spans four ເມືອງ; ໂພນສະຫວັນ, the town, which sits in ເມືອງແປກ; ເຊໂນ, which sits in ເມືອງອຸທຸມພອນ; and ຄຳເກີດ, whose town everyone calls ຫຼັກຊາວ. THE SHAPE OF THE DISTRIBUTION IS THE POINT AND A UNIFORM DRAW DESTROYS IT: ວຽງຈັນ held 620,157 urban residents, nearly seven times ໄກສອນ ພົມວິຫານ the second town and more than every other entry here put together, in a country of 6.5 million. Laos is one of the least urbanised countries in Asia — the tail of this list is towns of eight to fifteen thousand people, which are provincial capitals, and ຜົ້ງສາລີ, the seat of a whole province on the Chinese border, is 8,161 people. An unweighted sample over Lao towns produces a country that does not exist. WHAT THE LIST IS: every district whose urban population the census put above roughly 8,000, which is 48 of 148 ເມືອງ. WHAT IT IS NOT: a list of settlements — the census tabulates the urban share of a district, so a district holding two towns is one line, and a village of 5,000 inside a rural district appears nowhere. Most seats share their province name, so a value drawn here will often equal a value from laos.geo.province, and that is correct rather than a duplication bug; the traps are the ones that do not — ອຸດົມໄຊ's seat is ໄຊ, ຊຽງຂວາງ's is ໂພນສະຫວັນ, ບໍ່ແກ້ວ's is ຫ້ວຍຊາຍ, ຫົວພັນ's is ຊຳເໜືອ, ຄຳມ່ວນ's is ທ່າແຂກ, ບໍລິຄຳໄຊ's is ປາກຊັນ, ເຊກອງ's is ລະມາມ, ອັດຕະປື's is ສາມັກຄີໄຊ, ໄຊສົມບູນ's is ອະນຸວົງ and ສະຫວັນນະເຂດ's is ໄກສອນ ພົມວິຫານ, so joining a city column to a province column on the string drops ten provinces. ໄກສອນ ພົມວິຫານ is also the one value in this file with an internal space, because it is a PERSON — the town was renamed in 1991 after Kaysone Phomvihane, the first leader of the Lao PDR, and a Lao personal name is written with a space between given name and family name where ordinary Lao words are not spaced at all.
+locale: lo
+weighted: true
+---
+ວຽງຈັນ,620157
+ໄກສອນ ພົມວິຫານ,91684
+ປາກເຊ,68093
+ຫຼວງພະບາງ,66781
+ໂພນສະຫວັນ,48643
+ທ່າແຂກ,38388
+ໄຊ,35289
+ພຽງ,34442
+ໄຊຍະບູລີ,31482
+ໂພນໂຮງ,30805
+ຫ້ວຍຊາຍ,29866
+ຫຼວງນ້ຳທາ,28551
+ນ້ຳບາກ,27814
+ປາກຊັນ,25805
+ເຊໂນ,25135
+ໂພນທອງ,25084
+ປາກລາຍ,23039
+ວັງວຽງ,20930
+ລະມາມ,20116
+ຄຳເກີດ,19178
+ບໍລິຄັນ,18354
+ວຽງຄຳ,17696
+ຫົງສາ,17481
+ຊຳເໜືອ,17461
+ໄຊເຊດຖາ,17264
+ສາມັກຄີໄຊ,15986
+ຊະນະສົມບູນ,15825
+ຈຳພອນ,15658
+ຈຳປາສັກ,15440
+ຮຸນ,15205
+ສອງຄອນ,15160
+ຕົ້ນເຜິ້ງ,15023
+ໝື່ນ,14320
+ທຸລະຄົມ,14100
+ທ່າແຕງ,14021
+ປາກງື່ມ,13482
+ສາລະວັນ,12659
+ປະທຸມພອນ,12507
+ຊຽງຮ່ອນ,12479
+ເຊໂປນ,12342
+ບາຈຽງຈະເລີນສຸກ,12116
+ເຟືອງ,11556
+ໄຊພູທອງ,11377
+ນານ,11104
+ແກ່ນທ້າວ,10858
+ອະນຸວົງ,9817
+ພີນ,9136
+ຜົ້ງສາລີ,8161

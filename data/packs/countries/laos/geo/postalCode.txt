@@ -1,0 +1,18 @@
+---
+address: laos.geo.postalCode
+description: A Lao postcode — FIVE digits, no letters, no space, written bare (01000, 06000, 16010). The first two digits are the province and are drawn from the real set in laos.geo.provinceCode, so the province half of every value exists and matches the number the Lao Statistics Bureau and the district codes use; the last three identify the delivery area inside it. WHAT IS MODELLED AND WHAT IS NOT, stated rather than hidden: the length, the digits-only shape, the real province prefix and the fact that the local part is nearly always 000 are real and observed; the non-zero local parts are drawn as multiples of ten rather than from Lao Post's own table, which it does not publish as an open file. So a value here is a well-formed code in a province that exists, addressed to a delivery area that usually is not there. THE REASON THE LOCAL PART IS NEARLY ALWAYS 000 is that Lao Post assigns one code per province and only splits it where there is enough mail to split: a directory of Lao postcodes shows 02000 covering the whole of ຜົ້ງສາລີ, 07000 the whole of ຫົວພັນ, and only the capital and a couple of larger provinces carrying anything finer (01000, 01020, 01120, 01170 in ນະຄອນຫຼວງວຽງຈັນ; 03010 in ຫຼວງນ້ຳທາ; 16010 in ຈຳປາສັກ). A Lao postcode therefore identifies a PROVINCE and very little else, and truncating it to two digits loses almost nothing. ALMOST NOBODY USES IT. A Lao address is written ບ້ານ (village), ເມືອງ (district), ແຂວງ (province), and the village is what locates the house; delivery to a residential address is not something Laos generally does, and business post goes to a post-office box. So an empty postcode on a Lao address record is normal data, not missing data, and a validation rule that requires one will reject the country. The leading zero matters: nine of the eighteen prefixes begin with 0, so this column must be text — 01000 read as a number becomes 1000 and stops being a postcode. Beware two other five-digit numbers that look like Lao postcodes and are not: 41000 is quoted as "Savannakhet" by several commercial postcode sites, which have confused the postcode with the telephone area code 041 — ສະຫວັນນະເຂດ is province 13 and its postcode is 13000.
+generator: tdc
+---
+<sequence name="province"><gen type="template" value="laos.geo.provinceCode"/></sequence>
+<!-- The local part is 000 for most of the country; where it is not, the observed
+     codes are multiples of ten (01020, 01120, 03010, 16010). -->
+<sequence name="shape"><gen type="text" value="0,1" percent="72,28"/></sequence>
+<sequence name="area"><gen type="number" value="1..99" length="2" first_zero="true"/></sequence>
+<sequence name="code"><compute>
+  <let name="local"><choose>
+    <when><test><equals><field name="shape"/><int v="0"/></equals></test><then><str v="000"/></then></when>
+    <otherwise><concat><field name="area"/><str v="0"/></concat></otherwise>
+  </choose></let>
+  <result><concat><field name="province"/><use name="local"/></concat></result>
+</compute></sequence>
+<data>${{code}}</data>

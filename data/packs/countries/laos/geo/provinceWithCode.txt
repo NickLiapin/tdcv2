@@ -1,0 +1,23 @@
+---
+address: laos.geo.provinceWithCode
+description: The paired table behind laos.geo.province, laos.geo.provinceCode and laos.geo.postalCode — the two-digit administrative province number, a space, then the first-level division in Lao. Kept as one file so a division can never drift away from its own number. EIGHTEEN LINES AND THEY ARE NOT EIGHTEEN PROVINCES. Laos has 17 ແຂວງ (khoueng, provinces) plus ນະຄອນຫຼວງວຽງຈັນ, which is not one of them: it is the capital prefecture, administered at provincial rank but titled ນະຄອນຫຼວງ rather than ແຂວງ, and it sits at code 01 at the head of the list rather than in alphabetical place. THE CODE DOES TWO JOBS: it is the Lao Statistics Bureau's administrative province number AND the first two digits of every five-digit postcode and every four-digit district code, so truncating a district code or a postcode to two digits is a valid roll-up to province. It is NOT the ISO 3166-2 code, which is alphabetic (LA-VT, LA-PH, LA-LM …) and is carried in the description of laos.geo.provinceEnglish instead — Laos keeps two province identifier schemes and they do not resemble each other. The numbering is geographic rather than alphabetical: it runs from the capital, north up the Mekong to ຜົ້ງສາລີ on the Chinese border, then south down the country to ອັດຕະປື in the far south-east, which is why it reads as ordered on a map and arbitrary in a list. Code 18 was added in December 2013 when ໄຊສົມບູນ was re-created as a province out of parts of ວຽງຈັນ, ຊຽງຂວາງ and ບໍລິຄຳໄຊ — a data set with 17 first-level divisions is pre-2014, not wrong, and joining it to this one silently drops a province. THE COLLISION TO KNOW ABOUT: codes 01 and 10 are BOTH called Vientiane. ນະຄອນຫຼວງວຽງຈັນ is the capital and ວຽງຈັນ is the province that surrounds it, they are different first-level divisions with different governors and different postcodes, and in Lao they are told apart only by the ນະຄອນຫຼວງ in front. That is why the capital is NOT written bare here the way Cambodia writes ភ្នំពេញ: strip the title and this file contains the same string twice.
+locale: lo
+---
+01 ນະຄອນຫຼວງວຽງຈັນ
+02 ຜົ້ງສາລີ
+03 ຫຼວງນ້ຳທາ
+04 ອຸດົມໄຊ
+05 ບໍ່ແກ້ວ
+06 ຫຼວງພະບາງ
+07 ຫົວພັນ
+08 ໄຊຍະບູລີ
+09 ຊຽງຂວາງ
+10 ວຽງຈັນ
+11 ບໍລິຄຳໄຊ
+12 ຄຳມ່ວນ
+13 ສະຫວັນນະເຂດ
+14 ສາລະວັນ
+15 ເຊກອງ
+16 ຈຳປາສັກ
+17 ອັດຕະປື
+18 ໄຊສົມບູນ

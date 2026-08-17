@@ -1,0 +1,10 @@
+---
+address: laos.geo.district
+description: A ເມືອງ (district) of Laos in Lao script, written bare without the ເມືອງ in front. Sliced out of laos.geo.districtWithCode so every value is one of the real 148 and can never drift from its code. This is the level a Lao address is actually routed by and the level the national statistics are published at; see laos.geo.districtWithCode for why Laos has no level between this and the ບ້ານ (village). Drawing this address and laos.geo.province separately gives you two independent places and puts districts in provinces they are not in — draw laos.geo.districtWithCode once and split it if the two have to agree. Four Lao districts carry the same name as a district in a different province, so this column is not unique and must not be used as a key.
+generator: tdc
+locale: lo
+---
+<!-- Slice off the 4-digit district code and the space after it; the rest is the name. -->
+<sequence name="entry"><gen type="template" value="laos.geo.districtWithCode"/></sequence>
+<sequence name="bare"><compute><result><slice from="5"><field name="entry"/></slice></result></compute></sequence>
+<data>${{bare}}</data>

@@ -1,0 +1,21 @@
+---
+address: laos.phoneAreaCode
+description: The geographic area codes of the Lao fixed-line numbering plan, in national form with the trunk 0. Seventeen codes for eighteen first-level divisions, because 023 serves ວຽງຈັນ province and ໄຊສົມບູນ together — ໄຊສົມບູນ was carved out in 2013 and never got a code of its own, which is the one place where the telephone map and the administrative map of Laos disagree. All are three digits and all begin 0, with no two-digit exception for the capital of the kind Thailand has. The blocks are geographic and run north to south: 02x the capital and centre (021 ນະຄອນຫຼວງວຽງຈັນ, 023 ວຽງຈັນ and ໄຊສົມບູນ), 03x the far south (031 ຈຳປາສັກ, 034 ສາລະວັນ, 036 ອັດຕະປື, 038 ເຊກອງ), 041 ສະຫວັນນະເຂດ on its own, 05x the centre-east (051 ຄຳມ່ວນ, 054 ບໍລິຄຳໄຊ), 06x the north-east (061 ຊຽງຂວາງ, 064 ຫົວພັນ), 07x the north-centre (071 ຫຼວງພະບາງ, 074 ໄຊຍະບູລີ) and 08x the far north (081 ອຸດົມໄຊ, 084 ບໍ່ແກ້ວ, 086 ຫຼວງນ້ຳທາ, 088 ຜົ້ງສາລີ). TWO OF THESE WILL FAIL A VALIDATOR AND IT IS NOT A MISTAKE IN THIS FILE: libphonenumber's LA fixed-line pattern is (?:2[13]|[35-7][14]|41|8[1468])\d{6}, which admits fifteen codes and does NOT admit 036 or 038 — so a real ອັດຕະປື or ເຊກອງ landline is rejected by the library most systems validate with. That is a gap in the library rather than in the plan, it is worth knowing before you treat a validator's verdict as ground truth, and it is why this file lists both anyway. The area code is NOT the province number (ສະຫວັນນະເຂດ dials 041 and is province 13) and NOT the postcode prefix (its postcode is 13000) — three different two-digit numbers, and commercial postcode directories routinely publish 41000 as a ສະຫວັນນະເຂດ postcode having confused two of them. These are not mobile prefixes: Lao mobile numbers have no geography at all and all begin 020.
+---
+021
+023
+031
+034
+036
+038
+041
+051
+054
+061
+064
+071
+074
+081
+084
+086
+088
