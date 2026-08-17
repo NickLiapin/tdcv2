@@ -1,0 +1,5 @@
+---
+description: The currency of Slowenien, named in Luxembourgish.
+locale: lb
+---
+Euro

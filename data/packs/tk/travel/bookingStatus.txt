@@ -1,0 +1,15 @@
+---
+description: Booking status (Turkmen)
+locale: tk
+---
+Tassyklandy
+Garaşylýar
+Ýatyryldy
+Ýerleşdirildi
+Çykaryldy
+Gelmedi
+Üýtgedildi
+Puly gaýtaryldy
+Töleg garaşylýar
+Nobata ýazyldy
+Barlagda

@@ -1,0 +1,44 @@
+---
+description: Dish (Turkmen). Dograma — bread, boiled mutton and onion torn by hand into broth — is the national dish and is eaten with the fingers, not a spoon.
+locale: tk
+---
+Palow
+Dograma
+Çorba
+Gutap
+Işlekli
+Fitçi
+Unaş
+Gowurma
+Çekdirme
+Şüle
+Ýarma
+Pişme
+Külçe
+Manty
+Somsa
+Lagman
+Şurpa
+Börek
+Nahar çorbasy
+Kelem çorbasy
+Mastawa
+Şaşlyk
+Kebap
+Towuk kebaby
+Balyk kebaby
+Ogurjaly palow
+Balyk çorbasy
+Et gaýnatmasy
+Ýumurtgaly çörek
+Gaýnadylan tüwi
+Kartoşkaly et
+Dolma
+Salat
+Turşy
+Peýnirli gutap
+Etli börek
+Suzma
+Gatyk
+Çal
+Bal çörek

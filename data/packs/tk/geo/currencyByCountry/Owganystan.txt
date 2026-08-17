@@ -1,0 +1,5 @@
+---
+description: Currency of Owganystan
+locale: tk
+---
+Owgan afganysy

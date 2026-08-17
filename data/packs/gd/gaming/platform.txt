@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Brand names keep their registered spelling.
+locale: gd
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+Fòn-làimhe
+Tablaid
+Brabhsair
+Meta Quest

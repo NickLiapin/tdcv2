@@ -1,0 +1,16 @@
+---
+description: The twelve signs of the zodiac in Luxembourgish, every one of them checked against the LOD, which carries the astrological sense as a second reading of the ordinary animal or object word (Stéier is a bull AND Taurus, Wo is a pair of scales AND Libra, Kriibs is a crayfish AND Cancer). Two are worth a second look. SCHÜTZE, Sagittarius, keeps a ü — a letter Luxembourgish only writes in words taken from German, and proof that the ë/é/ä set is not the whole alphabet. And SKORPIOUN ends in -OUN, the Luxembourgish reflex of French -ION: German writes Skorpion, French scorpion, and Luxembourgish lands between them with a spelling that is neither. Wherever you see -oun in this pack — Statioun, Reunioun, Unioun, Infektioun, Meloun, Zitroun — that is the same rule.
+locale: lb
+---
+Widder
+Stéier
+Zwilling
+Kriibs
+Léiw
+Jongfra
+Wo
+Skorpioun
+Schütze
+Steebock
+Waassermann
+Fësch

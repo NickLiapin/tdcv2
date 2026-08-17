@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter (Turkmen: cäryek = quarter)
+locale: tk
+---
+I çärýek
+II çärýek
+III çärýek
+IV çärýek

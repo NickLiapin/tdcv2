@@ -1,0 +1,26 @@
+---
+description: Metals. QUECKSËLWER (mercury, "quick silver") and SËLWER both carry the ë; KOFFER is copper and is a FALSE FRIEND for a German reader, for whom Koffer is a suitcase. BLÄI is lead, ZËNK zinc, MESSENG brass. Every value is a lemma of the LOD, the Lëtzebuerger Online Dictionnaire published by the Zenter fir d'Lëtzebuerger Sprooch under the loi du 20 juillet 2018; nothing here was translated by hand.
+locale: lb
+---
+Gold
+Sëlwer
+Eisen
+Stol
+Koffer
+Bronze
+Messeng
+Bläi
+Zënn
+Zénk
+Néckel
+Aluminium
+Platin
+Quecksëlwer
+Titan
+Chrom
+Magnesium
+Kalzium
+Uran
+Wolfram
+Kobalt
+Zirkonium

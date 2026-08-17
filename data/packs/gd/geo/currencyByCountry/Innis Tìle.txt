@@ -1,0 +1,5 @@
+---
+description: Currency of Innis Tìle.
+locale: gd
+---
+Krona Innis Tìle

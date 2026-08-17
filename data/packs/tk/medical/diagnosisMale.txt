@@ -1,0 +1,24 @@
+---
+description: Medical diagnosis that requires male anatomy — it cannot occur in a female patient. Draw from this list only for male rows; general conditions live in medical/diagnosis.
+locale: tk
+---
+Prostata mäziniň adenomasy
+Prostatit
+Prostata mäziniň ragy
+Ýumurtgalygyň ragy
+Ýumurtgalygyň towlanmagy
+Warikosele
+Gidrosele
+Epididimit
+Kriptorhizm
+Fimoz
+Balanit
+Erektil disfunksiýa
+Peýroni keseli
+Erkeklik önelgesizligi
+Ginekomastiýa
+Erkeklerde gipogonadizm
+Priapizm
+Spermatosele
+Erkeklere mahsus kelçelik
+Ýumurtga haltasynyň ingi

@@ -1,0 +1,34 @@
+---
+description: Unit a product is sold by. The United Kingdom is legally metric but still trades in imperial by habit, so both are here and both are correct on a label. STÒN (the stone, 14 pounds) and PINNT (the pint) survive in daily speech. The old Gaelic land measures at the foot are still the units a croft is described in: PEIGHINN, LEATH-PHEIGHINN and FEÒIRLING are the pennyland divisions of a township, and they measure not area but a share of the whole.
+locale: gd
+---
+Gram
+Cileagram
+Tunna
+Unnsa
+Punnd
+Stòn
+Liotair
+Millilitear
+Pinnt
+Galan
+Meatair
+Ceudameatair
+Cilemeatair
+Òirleach
+Troigh
+Slat
+Mìle
+Meatair ceàrnagach
+Acair
+Heactair
+Aonad
+Paca
+Bogsa
+Bucas
+Poca
+Dusan
+Cliabh
+Peighinn
+Leath-pheighinn
+Feòirling

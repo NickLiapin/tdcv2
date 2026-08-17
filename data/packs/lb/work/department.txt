@@ -1,0 +1,26 @@
+---
+description: Departments of a company, in Luxembourgish. Note how many are simply the French word — Comptabilitéit, Direktioun, Logistik, Marketing, Ressources humaines — because a Luxembourgish company's internal paperwork is usually in French or English and the Luxembourgish sentence borrows the label whole. The project category for the people function is `workplace`, never `hr`: `hr` is also the language code for Croatian and the resolver would read hr.benefit as "the Croatian pack".
+locale: lb
+---
+Direktioun
+Comptabilitéit
+Finanzen
+Verkaf
+Akaf
+Marketing
+Kommunikatioun
+Informatik
+Produktioun
+Logistik
+Lager
+Transport
+Ënnerhalt
+Qualitéit
+Fuerschung
+Entwécklung
+Ressources humaines
+Personal
+Formatioun
+Juridique
+Sécherheet
+Empfang

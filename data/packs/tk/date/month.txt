@@ -1,0 +1,16 @@
+---
+description: Month name (Turkmen), lower case as Turkmen writes them. These are the international/Russian-derived names, restored in 2008. Between August 2002 and 2008 every month carried a decreed national name instead — January was Turkmenbasy, April Gurbansoltan eje, May Magtymguly, September Ruhnama — so any Turkmen document dated in those years may use a set of month names that no longer exists.
+locale: tk
+---
+ýanwar
+fewral
+mart
+aprel
+maý
+iýun
+iýul
+awgust
+sentýabr
+oktýabr
+noýabr
+dekabr

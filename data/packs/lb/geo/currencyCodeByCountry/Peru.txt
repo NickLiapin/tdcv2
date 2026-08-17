@@ -1,0 +1,4 @@
+---
+description: The ISO 4217 currency code for Peru. Codes are international and are not translated.
+---
+PEN

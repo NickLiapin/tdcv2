@@ -1,0 +1,5 @@
+---
+description: The capital of Tschechesch Republik in Luxembourgish, as the LOD writes it.
+locale: lb
+---
+Prag

@@ -1,0 +1,34 @@
+---
+description: Kinds of venue, in Luxembourgish.
+locale: lb
+---
+Sall
+Festsall
+Gemengesall
+Kulturzenter
+Theater
+Kino
+Concertssall
+Stadion
+Sportshal
+Schwämm
+Turnhal
+Museé
+Galerie
+Bibliothéik
+Schoul
+Lycée
+Universitéit
+Kongresszenter
+Hotel
+Restaurant
+Café
+Brasserie
+Zelt
+Fräiliichtbün
+Park
+Plaz
+Haff
+Scheier
+Schlass
+Kierch

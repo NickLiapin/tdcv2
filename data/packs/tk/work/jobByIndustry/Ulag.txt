@@ -1,0 +1,12 @@
+---
+description: Jobs in Ulag
+locale: tk
+---
+Sürüji
+Ýük awtoulag sürüjisi
+Awtobus sürüjisi
+Uçarman
+Deňizçi
+Otly maşinisti
+Ýükleýji
+Dispetçer

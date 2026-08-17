@@ -1,0 +1,12 @@
+---
+description: Luxembourgish short forms of given names. This list is SHORT ON PURPOSE and the shortness is the finding. Luxembourgish is spoken by almost everyone in the country and written down by far fewer — schooling runs in German and then French — so the hypocoristics are everywhere in speech and almost nowhere in print, and the state dictionary (LOD) carries no given names at all to check them against. Rather than reconstruct a plausible-looking set from the sound of the language, this file keeps only forms that a named, documented person actually carried in public: Batty (Batty Weber, writer, 1860-1940), Dicks (the pen name of Edmond de la Fontaine, who wrote the first Luxembourgish plays), Jhemp (Jhemp Hoscheit, writer), Josy (Josy Barthel, Olympic 1500 m champion 1952), Nico (Nico Klopp, painter), Mars (Mars Di Bartolomeo, politician), Jeannot (Jeannot Krecké, politician), Lex (Lex Roth, language campaigner). Jhemp is the one to look at: it is Jean-Pierre, and the JH- spells a sound Luxembourgish writes with two letters that German never pairs.
+locale: lb
+---
+Batty
+Dicks
+Jhemp
+Josy
+Nico
+Mars
+Jeannot
+Lex

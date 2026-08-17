@@ -1,0 +1,28 @@
+---
+description: What follows a Gaelic name to tell two bearers apart. Gaelic HAS NO JR / SR: the distinguishing tag is an adjective and it goes straight onto the given name — Iain Òg is the younger, Iain Mòr the elder, and Dòmhnall Bàn, Dòmhnall Ruadh and Dòmhnall Dubh are three different men told apart by hair. That system is alive and is the reason a Gaelic community with six Iain MacDhòmhnaills is not confused. The degree abbreviations at the foot are written the same as in English because they are; the Roman numerals are for regnal use.
+locale: gd
+---
+Òg
+Mòr
+Beag
+Bàn
+Ruadh
+Dubh
+Donn
+Liath
+Glas
+Caol
+Àrd
+I
+II
+III
+IV
+V
+MA
+BA
+BSc
+MSc
+PhD
+MD
+LLB
+BEd

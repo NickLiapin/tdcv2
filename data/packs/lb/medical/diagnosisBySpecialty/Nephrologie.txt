@@ -1,0 +1,14 @@
+---
+description: Diagnoses a Nephrologie clinic records, in Luxembourgish.
+locale: lb
+---
+Nierenentzündung
+Nierensteng
+Nieren-insuffizienz
+Glomerulonephritis
+Polyzystesch Nier
+Nephrotescht Syndrom
+Blosenentzündung
+Proteinurie
+Hyperkaliämie
+Dialysepflicht

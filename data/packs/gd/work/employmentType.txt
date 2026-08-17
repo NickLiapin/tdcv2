@@ -1,0 +1,15 @@
+---
+description: Basis on which a person is employed. FÈIN-FHASTAICHTE, self-employed, is the ordinary status of a crofter and of most people in the traditional trades, so it is not the edge case here that it is in an urban list.
+locale: gd
+---
+Làn-ùine
+Pàirt-ùine
+Maireannach
+Cùmhnant
+Sealach
+Fèin-fhastaichte
+Obair-shaor
+Preantasachd
+Greis-gnìomhachais
+Saor-thoileach
+Obair-ràitheil

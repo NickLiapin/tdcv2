@@ -1,0 +1,36 @@
+---
+description: Garment. The Highland dress items here are not costume and are not translations: FÈILEADH-BEAG is the modern kilt ("the little wrap"), FÈILEADH-MÒR the older belted plaid that was a blanket as well as a garment, SPORAN the purse worn at the front because a kilt has no pockets, BREACAN the tartan cloth itself, and CLÒ HEARACH is Harris Tweed, which is protected by an Act of Parliament and may only be woven at home in the Outer Hebrides. BONAID GHLINNE GARAIDH and BONAID BHALMORAL are the two standard bonnets.
+locale: gd
+---
+Lèine
+Lèine-t
+Briogais
+Sgiort
+Dreasa
+Geansaidh
+Còta
+Còta-mòr
+Còta-uisge
+Seacaid
+Peitean
+Deise
+Fèileadh
+Fèileadh-beag
+Fèileadh-mòr
+Breacan
+Sporan
+Bonaid
+Bonaid Ghlinne Garaidh
+Bonaid Bhalmoral
+Ad
+Miotagan
+Stocainnean
+Osain
+Brògan
+Bòtannan
+Bòtannan-uisge
+Sgarfa
+Crios
+Aparan
+Aodach-oidhche
+Clò Hearach

@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Nefrologiýa
+locale: tk
+---
+Böwrekleriň dowamly keseli
+Böwrek daşy keseli
+Peşew ýollarynyň ýokançlygy
+Glomerulonefrit
+Nefrotiki sindrom
+Böwrek ýetmezçiligi

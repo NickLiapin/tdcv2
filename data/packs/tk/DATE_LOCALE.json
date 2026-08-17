@@ -1,0 +1,59 @@
+{
+  "months": [
+    "ýanwar",
+    "fewral",
+    "mart",
+    "aprel",
+    "maý",
+    "iýun",
+    "iýul",
+    "awgust",
+    "sentýabr",
+    "oktýabr",
+    "noýabr",
+    "dekabr"
+  ],
+  "monthsInDate": [
+    "ýanwar",
+    "fewral",
+    "mart",
+    "aprel",
+    "maý",
+    "iýun",
+    "iýul",
+    "awgust",
+    "sentýabr",
+    "oktýabr",
+    "noýabr",
+    "dekabr"
+  ],
+  "monthsShort": [
+    "ýan",
+    "few",
+    "mart",
+    "apr",
+    "maý",
+    "iýn",
+    "iýl",
+    "awg",
+    "sen",
+    "okt",
+    "noý",
+    "dek"
+  ],
+  "weekdays": [
+    "ýekşenbe",
+    "duşenbe",
+    "sişenbe",
+    "çarşenbe",
+    "penşenbe",
+    "anna",
+    "şenbe"
+  ],
+  "weekdaysShort": ["ýek", "duş", "siş", "çar", "pen", "ann", "şen"],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "Five things a formatter has to get right for Turkmen. FIRST, THE MONTH NAMES HAVE A HISTORY NO OTHER LOCALE HAS. The set above is the international one, Russian-derived and respelled in the Turkmen alphabet (yanwar with w, iyun and sentyabr with the y-acute glide). It is correct TODAY, but from August 2002 until 2008 every month carried a decreed national name instead: January was Turkmenbasy, February Baydak, March Nowruz, April Gurbansoltan eje, May Magtymguly, June Oguz, July Gorkut, August Alp Arslan, September Ruhnama, October Garassyzlyk, November Sanjar, December Bitaraplyk. President Berdimuhamedow restored the ordinary names in 2008. Any Turkmen document dated between those years may therefore carry a month name that no current table contains, and a parser that only knows the modern twelve will silently fail on it. SECOND, THE WEEKDAYS ARE PERSIAN NUMERALS except Friday: dusenbe is 'day two', sisenbe 'day three', carsenbe 'day four', pensenbe 'day five', senbe is the sabbath and yeksenbe 'day one' — but FRIDAY IS ANNA, a word Turkmen does not share with Uzbek (juma) or Turkish (cuma). It is also a very common male given name, so a person called Annageldi was born on a Friday, and a naive string match for weekday names inside Turkmen text will hit personal names. These seven were renamed by the same 2002 decree — Monday became Basgun, Sunday Dyncgun — and restored in 2008. THIRD, monthsInDate is IDENTICAL to months and that is correct, not a copy-paste slip: the Turkmen month name does not change shape inside a date, so 5 yanwar 2026 uses the plain form. FOURTH, month and weekday names are LOWER CASE, and the weekday array here is Sunday-first because the formatter wants it that way while date/weekday.txt in the pack is Monday-first, which is how a Turkmen calendar prints it; the working week starts on Monday. FIFTH, the numeric format is DD.MM.YYYY with dots and leading zeros, time is 24-hour with a colon, the decimal separator is a comma and the thousands separator a space. The currency is the Turkmenistan manat (TMT), divided into 100 tenne; the manat was redenominated on 1 January 2009 at 5000 old to 1 new, so any monetary series crossing that date changes unit. Season names are a trap of their own: Turkmen 'yaz' is SPRING, not summer as in Turkish; summer is 'tomus'."
+}

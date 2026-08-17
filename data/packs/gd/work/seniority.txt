@@ -1,0 +1,20 @@
+---
+description: Seniority grade. ÀRD- ("high") and IAR- ("deputy, sub-") are prefixes and attach directly to the title: àrd-mhanaidsear, iar-cheannard, and the prefix lenites what follows it.
+locale: gd
+---
+Preantas
+Foghlamaiche
+Ìre-inntrigidh
+Neach-taic
+Meadhanach
+Àrd-ìre
+Eòlaiche
+Prìomh-eòlaiche
+Manaidsear
+Àrd-mhanaidsear
+Iar-cheannard
+Ceannard
+Stiùiriche
+Àrd-stiùiriche
+Àrd-oifigear
+Neach-comhairle

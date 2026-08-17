@@ -1,0 +1,20 @@
+---
+description: Career levels. Half of these are the international English labels a Luxembourgish office actually says out loud — Junior, Senior, Trainee, Manager — because the working language of the financial sector here is English, and the other half are the Luxembourgish and French words the same building uses on a payslip. Both are correct in the same conversation, which is the ordinary condition of the country.
+locale: lb
+---
+Stagiaire
+Trainee
+Léierbouf
+Débutant
+Junior
+Confirméiert
+Senior
+Expert
+Spezialist
+Responsabel
+Chef d'équipe
+Manager
+Gerant
+Direkter
+Generaldirekter
+Associé

@@ -1,0 +1,15 @@
+---
+description: Hiring / interview stage (Turkmen)
+locale: tk
+---
+Arzanyň seljerilmegi
+Telefon arkaly söhbetdeşlik
+Tehniki söhbetdeşlik
+Ýüzbe-ýüz söhbetdeşlik
+Topar bilen söhbetdeşlik
+Jemleýji tapgyr
+Maslahat soramak
+Iş teklibi
+Ret edildi
+Işe kabul edildi
+Yzyna alyndy

@@ -1,0 +1,21 @@
+---
+description: Cuisine (Turkmen), parent of dishByCuisine. The neighbours come first because they are what a Turkmen kitchen actually meets: Uzbek, Iranian, Turkish and Russian food are everyday, not exotic.
+locale: tk
+---
+Türkmen
+Özbek
+Eýran
+Türk
+Azerbaýjan
+Rus
+Gruzin
+Hytaý
+Ýapon
+Koreý
+Hindi
+Arap
+Italýan
+Fransuz
+Meksikan
+Amerikan
+Ukrain

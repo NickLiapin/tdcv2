@@ -1,0 +1,13 @@
+---
+description: Job titles found in Còmhdhail.
+locale: gd
+---
+Dràibhear-bus
+Dràibhear-làraidh
+Sgiobair
+Maraiche
+Pìleat
+Neach-aiseig
+Neach-clàraidh bathair
+Rianadair sgeidealan
+Neach-càraidh charbadan

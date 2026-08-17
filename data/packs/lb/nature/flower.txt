@@ -1,0 +1,23 @@
+---
+description: Flowers, every value an LOD headword — which makes this list SHORTER than a translated one would be, and that is the design. PISSBLUMM is the dandelion and says bluntly what the plant was thought to do where standard German prefers Löwenzahn; FEIERBLUMM is a poppy, PÄISCHTROUS a peony (a Whitsun rose, from the feast), SCHNÉIGLÄCKELCHEN a snowdrop with two é and an ä in one word, STÄCKELCHERSBLUMM a geranium. OEILLET, the carnation, is French with the French spelling intact. The LOD carries no Luxembourgish entry for hyacinth, chrysanthemum, jasmine or aster, so those are not here rather than back-formed from German.
+locale: lb
+---
+Rous
+Tulp
+Sonneblumm
+Lilie
+Veilchen
+Vioul
+Oeillet
+Orchidee
+Feierblumm
+Pissblumm
+Schnéigläckelchen
+Lavendel
+Päischtrous
+Blumm
+Geranie
+Stäckelchersblumm
+Margréitchen
+Narziss
+Krokus

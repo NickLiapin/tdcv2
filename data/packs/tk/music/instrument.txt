@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Turkmen). The dutar, a two-stringed long-necked lute, is the national instrument; the gyjak is a spike fiddle and the gargy tuyduk a reed flute. Turkmen dutar craftsmanship and performance are on the UNESCO list.
+locale: tk
+---
+Dutar
+Gyjak
+Gargy tüýdük
+Dilli tüýdük
+Tüýdük
+Gopuz
+Deprek
+Nagara
+Surnaý
+Gitara
+Bas gitara
+Pianino
+Skripka
+Wiolonçel
+Kontrabas
+Arfa
+Fleýta
+Klarnet
+Goboý
+Saksofon
+Truba
+Trombon
+Waltorna
+Akkordeon
+Baýan
+Garmon
+Sintezator
+Baraban
+Ksilofon
+Litawra
+Tar

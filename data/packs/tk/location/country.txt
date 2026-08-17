@@ -1,0 +1,185 @@
+---
+description: Country name (Turkmen). Turkmen took the great majority of these through Russian and respelled them in its own Latin alphabet, which has no c, q, v or x: v becomes w, the palatal glide becomes y, so Slovakia is Slowakiya and Vietnam is Wyetnam. The list is shorter than the reference on purpose — small dependencies and territories have no settled Turkmen name and are omitted rather than invented.
+locale: tk
+---
+Owganystan
+Albaniýa
+Alžir
+Andorra
+Angola
+Antigua we Barbuda
+Argentina
+Ermenistan
+Awstraliýa
+Awstriýa
+Azerbaýjan
+Bagama adalary
+Bahreýn
+Bangladeş
+Barbados
+Belarus
+Belgiýa
+Beliz
+Benin
+Butan
+Boliwiýa
+Bosniýa we Gersegowina
+Botswana
+Braziliýa
+Bruneý
+Bolgariýa
+Burkina-Faso
+Burundi
+Kamboja
+Kamerun
+Kanada
+Kabo-Werde
+Merkezi Afrika Respublikasy
+Çad
+Çili
+Hytaý
+Kolumbiýa
+Komor adalary
+Kongo
+Kosta-Rika
+Kot-d'Iwuar
+Horwatiýa
+Kuba
+Kipr
+Çehiýa
+Daniýa
+Jibuti
+Dominika
+Dominikan Respublikasy
+Ekwador
+Müsür
+Salwador
+Ekwatorial Gwineýa
+Eritreýa
+Estoniýa
+Efiopiýa
+Fiji
+Finlýandiýa
+Fransiýa
+Gabon
+Gambiýa
+Gruziýa
+Germaniýa
+Gana
+Gresiýa
+Grenada
+Gwatemala
+Gwineýa
+Gwineýa-Bisau
+Gaýana
+Gaiti
+Gonduras
+Wengriýa
+Islandiýa
+Hindistan
+Indoneziýa
+Eýran
+Yrak
+Irlandiýa
+Ysraýyl
+Italiýa
+Ýamaýka
+Ýaponiýa
+Iordaniýa
+Gazagystan
+Keniýa
+Kiribati
+Kuweýt
+Gyrgyzystan
+Laos
+Latwiýa
+Liwan
+Lesoto
+Liberiýa
+Liwiýa
+Lihtenşteýn
+Litwa
+Lýuksemburg
+Madagaskar
+Malawi
+Malaýziýa
+Maldiw adalary
+Mali
+Malta
+Mawritaniýa
+Mawrikiý
+Meksika
+Moldowa
+Monako
+Mongoliýa
+Çernogoriýa
+Marokko
+Mozambik
+Mýanma
+Namibiýa
+Nepal
+Niderlandlar
+Täze Zelandiýa
+Nikaragua
+Niger
+Nigeriýa
+Demirgazyk Koreýa
+Demirgazyk Makedoniýa
+Norwegiýa
+Oman
+Päkistan
+Palestina
+Panama
+Papua - Täze Gwineýa
+Paragwaý
+Peru
+Filippinler
+Polşa
+Portugaliýa
+Katar
+Rumyniýa
+Russiýa
+Ruanda
+Saud Arabystany
+Senegal
+Serbiýa
+Seýşel adalary
+Sýerra-Leone
+Singapur
+Slowakiýa
+Sloweniýa
+Somali
+Günorta Afrika
+Günorta Koreýa
+Günorta Sudan
+Ispaniýa
+Şri-Lanka
+Sudan
+Surinam
+Şwesiýa
+Şweýsariýa
+Siriýa
+Täjigistan
+Tanzaniýa
+Tailand
+Timor-Leste
+Togo
+Tonga
+Trinidad we Tobago
+Tunis
+Türkiýe
+Türkmenistan
+Uganda
+Ukraina
+Birleşen Arap Emirlikleri
+Beýik Britaniýa
+Amerikanyň Birleşen Ştatlary
+Urugwaý
+Özbegistan
+Wanuatu
+Watikan
+Wenesuela
+Wýetnam
+Ýemen
+Zambiýa
+Zimbabwe

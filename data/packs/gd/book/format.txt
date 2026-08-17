@@ -1,0 +1,11 @@
+---
+description: Book format.
+locale: gd
+---
+Còmhdach cruaidh
+Còmhdach bog
+Leabhar-d
+Leabhar-èisteachd
+Clò mòr
+Ceangal leabharlainn
+Leabhran

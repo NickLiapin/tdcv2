@@ -1,0 +1,24 @@
+---
+description: Trip type (Turkmen)
+locale: tk
+---
+Işewürlik sapary
+Dynç alyş
+Maşgala dynç alşy
+Bal aýy
+Başdan geçirme
+Awtoulagly syýahat
+Deňiz gezelenji
+Ýörite ekskursiýa
+Şäher gezelenji
+Deňiz kenaryndaky dynç alyş
+Topar bilen syýahat
+Ýeke özi syýahat
+Zyýarat sapary
+Bejergi sapary
+Okuw sapary
+Sport ýaryşyna gitmek
+Toýa gitmek
+Garyndaşlara myhmançylyk
+Awçylyk sapary
+Çölde düşelge

@@ -1,0 +1,40 @@
+---
+description: Birds of Luxembourg, in Luxembourgish. Every value is a lemma of the LOD, the Lëtzebuerger Online Dictionnaire published by the Zenter fir d'Lëtzebuerger Sprooch under the loi du 20 juillet 2018; nothing here was translated by hand. The LOD carries a full ornithological nomenclature, which is why this list can be specific without inventing anything — and the names are wonderfully unlike German: MÄREL is a blackbird (German Amsel), SCHMUEWEL a swallow (Schwalbe), MAARKOLLEF a jay (Eichelhäher), POUFANK a chaffinch (Buchfink), SPRÉIF a starling (Star), RAMM a raven (Kolkrabe), ÄISVULL a kingfisher, NUECHTEGAILCHEN a nightingale. A bird list is the single strongest evidence that a pack is in Luxembourgish rather than in German with diacritics sprinkled on.
+locale: lb
+---
+Spatz
+Märel
+Routbrëschtchen
+Schmuewel
+Stallschmuewel
+Storch
+Eil
+Aadler
+Fallek
+Bussar
+Bëschkueb
+Ramm
+Elster
+Kréi
+Maarkollef
+Dauf
+Duerteldauf
+Tierkendauf
+Reeër
+Äisvull
+Spiecht
+Poufank
+Grénge Fénk
+Dëschtelpéckchen
+Kiischteknäppchen
+Pillo
+Mees
+Spréif
+Nuechtegailchen
+Léierchen
+Guckuck
+Fasan
+Feldhong
+Schwan
+Kran
+Vull

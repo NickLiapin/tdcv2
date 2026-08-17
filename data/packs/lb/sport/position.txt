@@ -1,0 +1,39 @@
+---
+description: Playing positions across sports, flat.
+locale: lb
+---
+Gollkipper
+Verteideger
+Mëttelfeldspiller
+Stiermer
+Kapitän
+Meneur
+Arrière
+Ailier
+Pivot
+Libero
+Passeur
+Attaquant
+Central
+Sprinter
+Kloterer
+Rouleur
+Puncheur
+Domestique
+Leader
+Pilier
+Talonneur
+Centre
+Demi de mêlée
+Fräistil
+Réck
+Broscht
+Päiperlek
+Lag
+Ersatzspiller
+Reserve
+Trainer
+Assistent
+Schiddsriichter
+Linnesriichter
+Zäitniemer

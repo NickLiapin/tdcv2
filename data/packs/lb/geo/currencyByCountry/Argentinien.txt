@@ -1,0 +1,5 @@
+---
+description: The currency of Argentinien, named in Luxembourgish.
+locale: lb
+---
+Peso

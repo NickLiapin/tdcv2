@@ -1,0 +1,38 @@
+---
+description: Kinds of event. SCHUEBERFOUER heads the list and is not a generic funfair: it is the annual fair of Luxembourg City, founded by John the Blind in 1340, and it is the fixed point of the country's year. OKTAV is the other one — a religious pilgrimage that fills the capital every spring. Both are language, not institutions: they are the words for these kinds of occasion.
+locale: lb
+---
+Schueberfouer
+Oktav
+Kiermes
+Fouer
+Braderie
+Maart
+Chrëschtmaart
+Concert
+Festival
+Bal
+Danzowend
+Theaterowend
+Kino
+Ausstellung
+Vernissage
+Konferenz
+Seminaire
+Workshop
+Assemblée générale
+Reunioun
+Hochzäit
+Gebuertsdag
+Daf
+Kommioun
+Bestietnes
+Begriefnis
+Empfang
+Apéro
+Grillfest
+Sportsfest
+Turnéier
+Course
+Marathon
+Kolloquium

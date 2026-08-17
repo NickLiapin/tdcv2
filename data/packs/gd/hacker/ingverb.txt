@@ -1,0 +1,32 @@
+---
+description: Verbal noun from technical jargon — the -ADH and -ACHADH forms are how Gaelic makes a process word.
+locale: gd
+---
+Cruinneachadh
+Sgrìobhadh
+Leughadh
+Deasachadh
+Dì-bhugachadh
+Cur-air-dòigh
+Rèiteachadh
+Càradh
+Ath-thogail
+Tional
+Cur-an-gnìomh
+Sgaoileadh
+Cruinn-sgrùdadh
+Crioptachadh
+Dì-chriopteachadh
+Dearbhadh
+Ceadachadh
+Clàradh
+Ath-nuadhachadh
+Lìonadh
+Falamhachadh
+Dùbhlanachadh
+Sioncronachadh
+Ath-sgrìobhadh
+Sgèileachadh
+Optamachadh
+Cunntadh
+Tomhas

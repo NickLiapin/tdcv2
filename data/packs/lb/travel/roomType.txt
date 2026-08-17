@@ -1,0 +1,22 @@
+---
+description: Hotel room types. These are the FRENCH hotel words, because the Luxembourg hotel trade books in French.
+locale: lb
+---
+Chambre simple
+Chambre double
+Chambre twin
+Chambre triple
+Familljezëmmer
+Suite
+Junior Suite
+Studio
+Appartement
+Chalet
+Bungalow
+Dortoir
+Zëmmer mat Baalkon
+Zëmmer mat Aussiicht
+Behënnertegerecht Zëmmer
+Nichtraucherzëmmer
+Connecting rooms
+Penthouse

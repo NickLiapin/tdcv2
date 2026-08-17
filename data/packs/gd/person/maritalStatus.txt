@@ -1,0 +1,14 @@
+---
+description: Marital status in Scottish Gaelic. BANNTRACH is a widow or widower without distinction — the noun does not vary for the sex of the survivor, so one label covers both.
+locale: gd
+---
+Singilte
+Pòsta
+Sgaraichte
+Banntrach
+Dealaichte
+Fo ghealladh-pòsaidh
+Ann an compàirteachas catharra
+Ann an dàimh
+Air ath-phòsadh
+Gun phòsadh a-riamh

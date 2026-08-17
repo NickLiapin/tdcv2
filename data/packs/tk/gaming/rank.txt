@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier (Turkmen)
+locale: tk
+---
+Demir
+Bürünç
+Kümüş
+Altyn
+Platina
+Almaz
+Ussat
+Beýik ussat
+Çempion
+Baş çempion

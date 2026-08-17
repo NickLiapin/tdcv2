@@ -1,0 +1,26 @@
+---
+description: Title placed BEFORE a Turkmen name. 'Hormatly' (esteemed) is the standard opener of any formal address and letter. Note that the two commonest respect words in speech, aga and eje, are NOT here: they FOLLOW the name and live in person/suffix.txt.
+locale: tk
+---
+Hormatly
+Jenap
+Hanym
+Mugallym
+Halypa
+Doktor
+Lukman
+Professor
+Dosent
+Akademik
+Inžener
+Kazy
+Aklawçy
+Molla
+Işan
+Seržant
+Leýtenant
+Kapitan
+Maýor
+Polkownik
+General
+Serkerde

@@ -1,0 +1,34 @@
+---
+description: Hotel facility.
+locale: gd
+---
+Bracaist
+Bracaist Albannach
+Bàr
+Taigh-bìdh
+Wi-Fi an-asgaidh
+Àite-parcaidh
+Teine-mònach
+Ceòl beò
+Cèilidh
+Seòmar-suidhe
+Sealladh na mara
+Gàrradh
+Lann-spòrs
+Amar-snàmh
+Sauna
+Seirbheis-sheòmraichean
+Nighe-aodaich
+Cead pheataichean
+Ruigsinneachd cathair-cuibhle
+Seòmar-thriall
+Stòradh bhaidhsagalan
+Tiormachadh-aodaich
+Iasgach
+Turasan-iùil
+Seirbheis Ghàidhlig
+Aiseag faisg
+Bìdh ionadail
+Uisge-beatha
+Bùth-thiodhlacan
+Lìbhrigeadh bìdh

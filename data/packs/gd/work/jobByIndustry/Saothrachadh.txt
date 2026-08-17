@@ -1,0 +1,13 @@
+---
+description: Job titles found in Saothrachadh.
+locale: gd
+---
+Neach-obrach factaraidh
+Innleadair-innealan
+Neach-tàthaidh
+Neach-smachd càileachd
+Gobha
+Figheadair
+Muillear
+Neach-pacaidh
+Manaidsear cinneasachaidh

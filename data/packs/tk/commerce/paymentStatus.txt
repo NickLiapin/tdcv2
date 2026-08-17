@@ -1,0 +1,14 @@
+---
+description: Payment status (Turkmen)
+locale: tk
+---
+Garaşylýar
+Tassyklandy
+Tölendi
+Şowsuz
+Puly gaýtaryldy
+Bölekleýin gaýtaryldy
+Ret edildi
+Ýatyryldy
+Bloklandy
+Barlagda

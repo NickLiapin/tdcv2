@@ -1,0 +1,23 @@
+---
+description: Film genre.
+locale: gd
+---
+Dràma
+Àbhachdas
+Gaol
+Dùbhlan
+Gnìomh
+Oillt
+Dìomhaireachd
+Ficsean saidheans
+Fantasachd
+Aithriseach
+Eachdraidheil
+Cogadh
+Iar-thuath
+Beò-dhealbh
+Teaghlaich
+Ceòl-dràma
+Eucoir
+Bith-eachdraidh
+Trailleachd

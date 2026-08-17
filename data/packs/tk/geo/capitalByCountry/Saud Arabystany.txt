@@ -1,0 +1,5 @@
+---
+description: Capital of Saud Arabystany
+locale: tk
+---
+Er-Riýad

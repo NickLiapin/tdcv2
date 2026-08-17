@@ -1,0 +1,17 @@
+---
+description: Social content type (Turkmen)
+locale: tk
+---
+Ýazgy
+Teswir
+Jogap
+Wakalar
+Gysga wideo
+Sorag-jogap
+Göni ýaýlym
+Gaýtadan paýlaşma
+Söhbetdeşlik
+Bellik
+Şahsy hat
+Surat
+Wideo

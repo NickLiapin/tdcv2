@@ -1,0 +1,5 @@
+---
+description: Capital of Argentina
+locale: tk
+---
+Buenos-Aýres

@@ -1,0 +1,13 @@
+---
+description: Job titles found in Croitearachd.
+locale: gd
+---
+Croitear
+Tuathanach
+Cìobair
+Buachaille
+Coilltear
+Neach-rùsgaidh
+Neach-buain na mòna
+Lighiche-bheathaichean
+Neach-obrach talmhainn

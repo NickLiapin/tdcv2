@@ -1,0 +1,12 @@
+---
+description: Conditions reported at higher carrier frequency in populations of Ashkenazi-Jiddesch descent, in Luxembourgish.
+locale: lb
+---
+Tay-Sachs
+Gaucher
+Canavan
+Familiär Dysautonomie
+Niemann-Pick
+Bloom
+Fanconi-Anämie
+Faktor-XI-Mangel

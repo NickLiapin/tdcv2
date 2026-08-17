@@ -1,0 +1,13 @@
+---
+description: Positions in Beýsbol
+locale: tk
+---
+Zyňyjy
+Tutujy
+Birinji baza
+Ikinji baza
+Üçünji baza
+Gysga aralyk
+Çep meýdan
+Merkezi meýdan
+Sag meýdan

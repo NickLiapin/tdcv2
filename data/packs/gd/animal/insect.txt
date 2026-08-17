@@ -1,0 +1,24 @@
+---
+description: Insect. MEANBH-CHUILEAG is the Highland midge and is the single most consequential insect in the Gaelic-speaking world; there is no reason for it to be buried in the middle of a list, so it is named here. CREITHLEAG is the cleg or horsefly, TARBH-NATHRACH the dragonfly ("serpent's bull"), GOBHLACHAN the earwig ("little forked one").
+locale: gd
+---
+Seillean
+Seillean-mòr
+Speach
+Cuileag
+Meanbh-chuileag
+Creithleag
+Dealan-dè
+Leòmann
+Seangan
+Daolag
+Bratag
+Damhan-allaidh
+Deargann
+Mial
+Tarbh-nathrach
+Fionnan-feòir
+Gobhlachan
+Cnuimh
+Boiteag
+Reudan

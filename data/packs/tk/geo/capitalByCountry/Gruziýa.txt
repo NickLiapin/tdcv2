@@ -1,0 +1,5 @@
+---
+description: Capital of Gruziýa
+locale: tk
+---
+Tbilisi

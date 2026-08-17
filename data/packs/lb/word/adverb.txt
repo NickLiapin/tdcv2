@@ -1,0 +1,65 @@
+---
+description: Adverbs and the small words that hold a Luxembourgish sentence together. Several of them are exactly where the Eifel Rule bites hardest, because they are short and end in -n: AN becomes A before most consonants, WANN becomes WA, and the negation NET begins with one of the five letters that PROTECT a preceding -n rather than removing it. GÄR is the word to know: "ech hunn dat gär" is how Luxembourgish says it likes something, and it has no single-word English equivalent. Every single-word value is an LOD form.
+locale: lb
+---
+haut
+gëschter
+muer
+elo
+dann
+duerno
+virdrun
+schonn
+nach
+ëmmer
+ni
+dacks
+heiansdo
+selten
+gläich
+séier
+lues
+zesummen
+eleng
+hei
+do
+uewen
+ënnen
+vir
+hannen
+lénks
+riets
+dobaussen
+dobannen
+iwwerall
+néierens
+gär
+ganz
+duerchaus
+bal
+kaum
+just
+nëmmen
+och
+esou
+wéi
+firwat
+wéini
+wou
+wien
+wat
+jo
+nee
+villäicht
+sécher
+natierlech
+leider
+iwwregens
+net
+iwwerhaapt
+extra
+zum Beispill
+virun allem
+op alle Fall
+guer net
+nach ëmmer

@@ -1,0 +1,18 @@
+---
+description: Insurance type (Turkmen)
+locale: tk
+---
+Saglyk ätiýaçlandyryşy
+Awtoulag ätiýaçlandyryşy
+Jaý ätiýaçlandyryşy
+Emläk ätiýaçlandyryşy
+Ömür ätiýaçlandyryşy
+Bagtsyz hadysadan ätiýaçlandyryş
+Syýahat ätiýaçlandyryşy
+Ýük ätiýaçlandyryşy
+Oba hojalyk ätiýaçlandyryşy
+Zähmet ukybyny ýitirmekden ätiýaçlandyryş
+Jogapkärçilik ätiýaçlandyryşy
+Gozgalmaýan emlägi ätiýaçlandyryş
+Karzy ätiýaçlandyryş
+Işewürlik ätiýaçlandyryşy

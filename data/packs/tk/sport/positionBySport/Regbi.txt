@@ -1,0 +1,11 @@
+---
+description: Positions in Regbi
+locale: tk
+---
+Sütün
+Ikinji hatar
+Üçünji hatar
+Ýarym goragçy
+Merkez
+Gyra oýunçy
+Arka goragçy

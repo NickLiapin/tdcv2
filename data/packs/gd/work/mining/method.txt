@@ -1,0 +1,12 @@
+---
+description: How the material is got out.
+locale: gd
+---
+Mèinnearachd-uachdair
+Mèinnearachd fon talamh
+Obair-chuaraidh
+Cladhach
+Buain na mòna
+Drileadh
+Spreadhadh
+Sluaisreadh

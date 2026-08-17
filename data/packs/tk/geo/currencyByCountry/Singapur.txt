@@ -1,0 +1,5 @@
+---
+description: Currency of Singapur
+locale: tk
+---
+Singapur dollary

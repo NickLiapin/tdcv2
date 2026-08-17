@@ -1,0 +1,26 @@
+---
+description: Word placed AFTER a Turkmen name. Turkmen has NO generational suffix system — there is no Jr, Sr, II or III, and inventing one would be a fabrication — so this list holds what genuinely follows a name: respect words ('Serdar aga' for an older man, 'Ayna eje' for an older woman), the patronymic markers ogly / gyzy, and traditional epithets earned rather than inherited (bagsy 'bard', palwan 'wrestler', ussa 'master craftsman').
+locale: tk
+---
+aga
+eje
+hanym
+jan
+daýy
+baba
+ene
+mugallym
+halypa
+ogly
+gyzy
+molla
+işan
+hoja
+bagşy
+şahyr
+ussa
+palwan
+batyr
+serdar
+beg
+han

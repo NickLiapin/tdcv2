@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Turkmen)
+locale: tk
+---
+Mugt Wi-Fi
+Ýüzülýän howuz
+Sauna
+Hammam
+Sport zaly
+Restoran
+Bar
+Çaýhana
+Otaga hyzmat
+Howa menziline ulag
+Mugt ertirlik
+Awtoduralga
+Öý haýwanlaryna rugsat
+Işewürlik merkezi
+Maslahat zaly
+Konsýerž
+Kir ýuwmak hyzmaty
+Ütük
+Üçek eýwany
+Bag
+Çagalar meýdançasy
+Lift
+Kondisioner
+Sowadyjy
+Seýf
+Telewizor
+24 sagat kabul ediş
+Walýuta çalyşmak
+Ekskursiýa hyzmaty
+Maýyplar üçin şertler

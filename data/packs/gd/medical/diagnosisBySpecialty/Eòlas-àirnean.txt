@@ -1,0 +1,9 @@
+---
+description: Diagnoses seen in Eòlas-àirnean. Gaelic words are used where the language has them; the eponyms and the international registered names (Crohn, Cushing, Parkinson, psoriasis, sciatica) are left as they stand, because translating a name nobody could then look up would be worse than borrowing it.
+locale: gd
+---
+Galar-àirne leantainneach
+Clach-àirne
+Glomerulonephritis
+Fàilligeadh-àirne obann
+Galar-àirne ioma-chisteach

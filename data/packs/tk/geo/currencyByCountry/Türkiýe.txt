@@ -1,0 +1,5 @@
+---
+description: Currency of Türkiýe
+locale: tk
+---
+Türk lirasy

@@ -1,0 +1,55 @@
+---
+description: Country as Turkmen names it, weighted by population in millions. Turkmen took most country names through Russian and then respelled them in its own Latin alphabet, so v becomes w (Slowakiya), the palatal glide is y (Yaponiya) and c never appears: Germany is Germaniya, not Deutschland and not 'Germany'.
+locale: tk
+weighted: true
+---
+Hytaý,1410
+Hindistan,1400
+Amerikanyň Birleşen Ştatlary,335
+Indoneziýa,275
+Päkistan,240
+Nigeriýa,220
+Braziliýa,215
+Bangladeş,170
+Russiýa,144
+Meksika,128
+Ýaponiýa,125
+Efiopiýa,120
+Müsür,110
+Wýetnam,98
+Eýran,88
+Türkiýe,85
+Germaniýa,84
+Tailand,72
+Fransiýa,68
+Beýik Britaniýa,67
+Günorta Afrika,60
+Italiýa,59
+Günorta Koreýa,52
+Ispaniýa,47
+Argentina,46
+Owganystan,42
+Kanada,39
+Ukraina,38
+Polşa,38
+Özbegistan,36
+Saud Arabystany,36
+Awstraliýa,26
+Gazagystan,20
+Niderlandlar,18
+Täjigistan,10
+Azerbaýjan,10
+Gresiýa,10
+Portugaliýa,10
+Şwesiýa,10
+Belarus,9
+Şweýsariýa,9
+Türkmenistan,7
+Gyrgyzystan,7
+Singapur,6
+Norwegiýa,5
+Irlandiýa,5
+Täze Zelandiýa,5
+Gruziýa,4
+Ermenistan,3
+Mongoliýa,3

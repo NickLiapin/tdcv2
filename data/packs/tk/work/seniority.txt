@@ -1,0 +1,20 @@
+---
+description: Seniority / level label (Turkmen)
+locale: tk
+---
+Tejribe geçiji
+Okuwçy
+Şägirt
+Kiçi hünärmen
+Hünärmen
+Esasy hünärmen
+Uly hünärmen
+Baş hünärmen
+Toparyň ýolbaşçysy
+Bölüm müdiri
+Baş inžener
+Müdiriň orunbasary
+Müdir
+Direktoryň orunbasary
+Direktor
+Baş direktor

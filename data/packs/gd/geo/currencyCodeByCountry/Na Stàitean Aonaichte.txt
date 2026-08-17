@@ -1,0 +1,5 @@
+---
+description: ISO 4217 currency code of Na Stàitean Aonaichte. The three letters are an international standard and are never translated — which is why J, K, W, Y and Z, none of them letters of the Gaelic alphabet, appear in this group.
+locale: gd
+---
+USD

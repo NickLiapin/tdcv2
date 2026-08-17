@@ -1,0 +1,14 @@
+---
+description: Jobs in the Informatik sector, in Luxembourgish. Where the trade came into the country through French, so did its name.
+locale: lb
+---
+Programméierer
+Developpeur
+Systemadministrateur
+Datebankadministrateur
+Netzwierktechniker
+Websitedesigner
+Analyst
+Projektleeder
+Testeur
+Support-Techniker

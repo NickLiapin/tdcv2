@@ -1,0 +1,32 @@
+---
+description: Tree (Turkmen). Sazak (saxaul), which holds the sand of the Garagum in place, and arca (Turkestan juniper) of the Kopetdag are the two trees a Turkmen list cannot omit; neither has a common English name.
+locale: tk
+---
+Sazak
+Arça
+Dagdan
+Çynar
+Tut
+Derek
+Söwüt
+Garagaç
+Emen
+Hoz agajy
+Erik agajy
+Şetdaly agajy
+Nar agajy
+Injir agajy
+Alma agajy
+Armyt agajy
+Ülje agajy
+Zeýtun agajy
+Pisse agajy
+Badam agajy
+Sosna
+Kedr
+Gyzylagaç
+Klýon
+Ýylgyn
+Selin
+Çerkez
+Ak akasiýa

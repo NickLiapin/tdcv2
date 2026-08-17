@@ -1,0 +1,5 @@
+---
+description: Currency of Polşa
+locale: tk
+---
+Zloty

@@ -1,0 +1,22 @@
+---
+description: Interior unit designator, placed before a number on a Gaelic address. ÙRLAR is a storey; BONN-ÙRLAR the ground floor, which Gaelic counts as the first, not the zeroth.
+locale: gd
+---
+Flat
+Aonad
+Àireamh
+Ùrlar
+Seòmar
+Doras
+Bloc
+Staidhre
+Bonn-ùrlar
+Ìochdar
+Uachdar
+Cùl
+Beulaibh
+Mullach
+Lobht
+Bogsa
+Taobh Deas
+Taobh Tuath

@@ -1,0 +1,44 @@
+---
+description: Material a product is made of. CLÒ is woven woollen cloth and CLÒ HEARACH the protected Harris Tweed. Several entries are the traditional island materials and have no one-word English name: FEUR-MUIRE is marram grass, used for thatch and rope, and SÙGAN a rope twisted from straw or heather.
+locale: gd
+---
+Fiodh
+Darach
+Giuthas
+Beithe
+Iarann
+Stàilinn
+Alùmanum
+Copar
+Prais
+Umha
+Airgead
+Òr
+Clach
+Clach-ghràin
+Sglèat
+Marmor
+Crèadh
+Glainne
+Plastaig
+Rubair
+Pàipear
+Cairt-bhòrd
+Leathar
+Clòimh
+Clò
+Clò Hearach
+Cotan
+Lìon
+Sìoda
+Canabhas
+Feur-muire
+Sùgan
+Coirc
+Bambù
+Sìoman
+Cnàimh
+Adharc
+Snàthainn-optaig
+Ceirmeag
+Concrait

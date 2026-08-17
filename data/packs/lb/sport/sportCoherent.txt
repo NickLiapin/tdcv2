@@ -1,0 +1,12 @@
+---
+description: Sports with a coherent position list below them. The order is Luxembourg's own: football first, then BASKETBALL and HANDBALL, which are far bigger here than in the neighbouring countries and are the sports the national teams are actually competitive in, and VËLOSPORT — cycling, spelled with one s as the LOD spells it — fourth, because a country this small has produced Charly Gaul, Nicolas Frantz and Andy and Fränk Schleck, four Tour de France winners between them. American football and ice hockey, which head an English list, are not here.
+locale: lb
+---
+Fussball
+Basketball
+Handball
+Volleyball
+Tennis
+Vëlosport
+Schwammen
+Rugby

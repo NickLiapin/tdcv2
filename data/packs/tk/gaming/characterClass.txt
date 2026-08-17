@@ -1,0 +1,28 @@
+---
+description: RPG character class (Turkmen)
+locale: tk
+---
+Söweşiji
+Jadygöý
+Ogry
+Palwan
+Awçy
+Ruhany
+Mergen
+Tebip
+Serdar
+Galkanly
+Naýzaly
+Gylyçly
+Ýaýçy
+Atly esger
+Piýada esger
+Bagşy
+Alhimik
+Ussa
+Ýolbelet
+Görogly
+Gorag berýän
+Kölege
+Ýyldyz okaýjy
+Sähra gezýän

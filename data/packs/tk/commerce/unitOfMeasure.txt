@@ -1,0 +1,34 @@
+---
+description: Unit of measure for products (Turkmen). Turkmenistan is fully metric; the older Central Asian units batman and put survive only in proverbs and are not listed.
+locale: tk
+---
+sany
+guty
+gap
+bukja
+toplum
+jübüt
+orama
+desse
+kilogram
+gram
+tonna
+litr
+millilitr
+metr
+santimetr
+millimetr
+kilometr
+inedördül metr
+kub metr
+karton
+halta
+çüýşe
+banka
+paket
+sebet
+tabak
+käse
+çemçe
+düýp
+rulon

@@ -1,0 +1,80 @@
+---
+description: Hobby / interest (Turkmen). Carpet weaving (haly dokamak), embroidery (kesde cekmek) and Akhal-Teke horsemanship are living everyday pastimes here, not folklore.
+locale: tk
+---
+Kitap okamak
+Goşgy ýazmak
+Aýdym aýtmak
+Dutar çalmak
+Gyjak çalmak
+Tüýdük çalmak
+Tans etmek
+Surat çekmek
+Keşde çekmek
+Haly dokamak
+Tikinçilik
+Örmek
+Küýze ýasamak
+Agaç oýmak
+Zergärçilik
+Nahar bişirmek
+Çörek bişirmek
+Bagbançylyk
+Gül ösdürip ýetişdirmek
+Ekin ekmek
+Guş saklamak
+Balyk tutmak
+Aw awlamak
+At çapmak
+At bakmak
+Ýüzmek
+Welosiped sürmek
+Ylgamak
+Ýöremek
+Dagda gezelenç etmek
+Çölde düşelge gurmak
+Syýahat etmek
+Surata düşürmek
+Wideo düşürmek
+Küşt oýnamak
+Şaşka oýnamak
+Göreş tutmak
+Ýaýdan atmak
+Karate
+Boks
+Futbol oýnamak
+Woleýbol oýnamak
+Basketbol oýnamak
+Stol tennisi
+Ýeňil atletika
+Agyr atletika
+Şahmat meseleleri
+Kompýuter oýunlary
+Programmirlemek
+Robot ýygnamak
+Model ýasamak
+Ýyldyzlara syn etmek
+Tebigaty öwrenmek
+Guşlara syn etmek
+Ösümlik ýygnamak
+Marka ýygnamak
+Teňňe ýygnamak
+Kitap ýygnamak
+Halyçylyk nagyşlaryny öwrenmek
+Taryhy öwrenmek
+Dil öwrenmek
+Terjime etmek
+Hat ýazmak
+Hoşhatlyk
+Aýdym diňlemek
+Kino görmek
+Teatra gitmek
+Muzeýe gitmek
+Dost-ýarlar bilen duşuşmak
+Myhman kabul etmek
+Çaý içmek
+Toýa gatnaşmak
+Meýletinçilik
+Bag ekmek
+Öý haýwanlaryna seretmek
+Ary saklamak

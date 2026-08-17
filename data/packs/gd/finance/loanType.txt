@@ -1,0 +1,15 @@
+---
+description: Kind of loan.
+locale: gd
+---
+Morgaids
+Iasad pearsanta
+Iasad-càir
+Iasad-oileanaich
+Iasad-gnothachais
+Iasad-croite
+Còrr-tharraing
+Cairt-creideis
+Iasad-leasachaidh
+Iasad-ceangailte
+Iasad-coimhearsnachd

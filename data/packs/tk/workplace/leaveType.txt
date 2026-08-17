@@ -1,0 +1,16 @@
+---
+description: Leave type (Turkmen)
+locale: tk
+---
+Ýyllyk rugsat
+Kesel rugsady
+Ene-atalyk rugsady
+Çaga seretmek rugsady
+Ýas rugsady
+Okuw rugsady
+Tölegsiz rugsat
+Döredijilik rugsady
+Şahsy gün
+Harby ýygnanyşyk
+Toý rugsady
+Göçmek üçin rugsat

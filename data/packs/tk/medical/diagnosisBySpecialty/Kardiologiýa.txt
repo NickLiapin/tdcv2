@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Kardiologiýa
+locale: tk
+---
+Arterial gipertenziýa
+Ýürek täji arteriýasynyň keseli
+Ýürek ritminiň bozulmagy
+Ýürek ýetmezçiligi
+Miokard infarkty
+Giperlipidemiýa

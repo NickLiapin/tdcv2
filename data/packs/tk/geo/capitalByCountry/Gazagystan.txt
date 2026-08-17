@@ -1,0 +1,5 @@
+---
+description: Capital of Gazagystan
+locale: tk
+---
+Astana

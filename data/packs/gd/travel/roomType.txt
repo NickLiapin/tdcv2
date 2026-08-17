@@ -1,0 +1,22 @@
+---
+description: Hotel room type.
+locale: gd
+---
+Seòmar àbhaisteach
+Seòmar sònraichte
+Suite
+Seòmar singilte
+Seòmar dùbailte
+Seòmar càraid
+Seòmar teaghlaich
+Seòmar le sealladh na mara
+Seòmar aig cùl an taighe
+Seòmar-mullaich
+Bothan
+Bothan-gàrraidh
+Seòmar ruigsinneach
+Seòmar-cadail mòr
+Seòmar le teine
+Seòmar le balcon
+Seòmar le cidsin
+Talla-cadail

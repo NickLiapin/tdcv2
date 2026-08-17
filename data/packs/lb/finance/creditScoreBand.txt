@@ -1,0 +1,9 @@
+---
+description: Creditworthiness bands. Worth saying out loud: Luxembourg has NO consumer credit score of the American kind and no private scoring bureau. What exists is the Banque centrale du Luxembourg's central credit register and the bank's own assessment, so these are qualitative bands and not a numeric FICO equivalent — a config that generates a three-digit score for a Luxembourgish person is inventing an institution that does not exist.
+locale: lb
+---
+Ganz gutt
+Gutt
+Mëttel
+Schwaach
+Risiko

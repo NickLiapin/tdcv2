@@ -1,0 +1,8 @@
+---
+description: Season (Turkmen). A false friend that catches every Turkish speaker: 'yaz' is SPRING in Turkmen, not summer — Turkmen summer is 'tomus'. Turkmenistan has four seasons, but the summer is long and the spring short.
+locale: tk
+---
+ýaz
+tomus
+güýz
+gyş

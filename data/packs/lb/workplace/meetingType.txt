@@ -1,0 +1,16 @@
+---
+description: Kinds of meeting. Reunioun is the everyday word — French réunion with the Luxembourgish -oun ending — and Entretien is a one-to-one.
+locale: lb
+---
+Reunioun
+Entretien
+Sëtzung
+Seance
+Briefing
+Debriefing
+Workshop
+Formatioun
+Presentatioun
+Videocall
+Assemblée générale
+Comité

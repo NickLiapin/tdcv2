@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group (Turkmen), parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Turkmen speakers themselves fall between the Middle Eastern and Central Asian signals; there is no separate Central Asian group in this twelve-way scheme, which is a limitation of the scheme and not of the language.
+locale: tk
+---
+Saharadan günortadaky afrikaly
+Demirgazyk afrikaly
+Ortaýer deňzi sebitli
+Ýakyn Gündogarly
+Demirgazyk ýewropaly
+Gündogar ýewropaly
+Aşkenazi ýewreýi
+Günorta aziýaly
+Gündogar aziýaly
+Günorta-gündogar aziýaly
+Amerikanyň ýerli halky
+Ýuwaş umman adalarynyň ýaşaýjysy

@@ -1,0 +1,16 @@
+---
+description: Playing positions in Ball-coise.
+locale: gd
+---
+Fear-glèidhidh
+Cùlaiche deas
+Cùlaiche clì
+Meadhan-chùlaiche
+Meadhan-pàirce dìonach
+Meadhan-pàirce
+Meadhan-pàirce ionnsaigheach
+Sgiathaire deas
+Sgiathaire clì
+Toisiche
+Neach-ionaid
+Rèitire

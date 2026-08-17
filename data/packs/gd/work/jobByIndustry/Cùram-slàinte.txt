@@ -1,0 +1,15 @@
+---
+description: Job titles found in Cùram-slàinte.
+locale: gd
+---
+Dotair
+Banaltram
+Bean-ghlùine
+Cungadair
+Fiaclair
+Radharcair
+Neach-cùraim
+Eòlaiche-inntinn
+Neach-fiseo
+Neach-obrach sòisealta
+Neach-carbaid-eiridinn

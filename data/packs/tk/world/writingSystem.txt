@@ -1,0 +1,24 @@
+---
+description: Writing system (Turkmen), and the place this pack records the alphabet history, because no other file can. TURKMEN HAS CHANGED SCRIPT THREE TIMES IN A CENTURY: Arabic until 1929, Latin 1929-1940, Cyrillic 1940-1993, Latin again from 1993. The 1993 alphabet is notorious — it pressed CURRENCY AND MATHEMATICAL SIGNS into service as letters, using the cent, pound, yen and dollar signs plus a division sign for sounds that had no ready Latin letter. It was revised in 1995 and again in 1999, and the version in force since 2000 is the one this pack is written in: 30 letters, in their own order — a b ç d e ä f g h i j ž k l m n ň o ö p r s ş t u ü w y ý z. Note W where Turkish and Azerbaijani have V, Ý for the glide against plain Y for the back unrounded vowel, Ž for the sound Turkish spells J and J for the sound Turkish spells C. No other Turkic Latin orthography combines ä, ž, ň and ý. Text printed before 2000 uses letters the current alphabet does not contain. One thing the alphabet does NOT record: Turkmen distinguishes LONG AND SHORT VOWELS phonemically, which is rare among Turkic languages, and length is never written — so the spelling underdetermines the pronunciation, and no transliteration of Turkmen can recover it.
+locale: tk
+---
+Latyn elipbiýi
+Kirill elipbiýi
+Arap elipbiýi
+Pars-arap ýazuwy
+Gadymy türki ýazuw
+Orhon-Ýeniseý ýazuwy
+Hytaý iýeroglifleri
+Dewanagari
+Hangyl
+Grek elipbiýi
+Ýewreý elipbiýi
+Gruzin elipbiýi
+Ermeni elipbiýi
+Hiragana
+Katakana
+Taý ýazuwy
+Efiop ýazuwy
+Kufi hoşhatlygy
+Nesh hoşhatlygy
+Braýl ýazuwy

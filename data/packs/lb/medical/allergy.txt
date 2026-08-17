@@ -1,0 +1,26 @@
+---
+description: Common allergies, in Luxembourgish. Heeschnapp — hay fever — is the LOD's word and is literally a hay-cold.
+locale: lb
+---
+Heeschnapp
+Bléiestëbs
+Grasspollen
+Bamespollen
+Hausstëbsmilben
+Katzenhoer
+Hondshoer
+Schimmelpilz
+Nëss
+Hieselnoss
+Erdnoss
+Mëllech
+Ee
+Fësch
+Krustendéieren
+Séid
+Weess
+Gluten
+Soja
+Sesam
+Penicillin
+Aspirin

@@ -1,0 +1,8 @@
+---
+description: The four seasons. FRÉIJOER, spring, is the one that is not German: German says Frühling or Frühjahr and Luxembourgish says Fréijoer, literally "early year", with the é that marks the language. Summer, Hierscht and Wanter are close to their German cousins but not identical in spelling. All four are LOD lemmas.
+locale: lb
+---
+Fréijoer
+Summer
+Hierscht
+Wanter

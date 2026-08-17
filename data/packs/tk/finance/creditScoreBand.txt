@@ -1,0 +1,9 @@
+---
+description: Credit rating band (Turkmen). Consumer credit scoring is not an established practice in Turkmenistan, so these are the plain Turkmen quality words a bank would use, not the labels of any real scoring product.
+locale: tk
+---
+Pes
+Orta
+Gowy
+Örän gowy
+Ajaýyp

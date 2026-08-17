@@ -1,0 +1,96 @@
+---
+description: Scottish Gaelic surnames — the form a WOMAN carries, parallel to person/lastName.txt line for line and DERIVED FROM IT BY RULE, never edited by hand. The rule has two clauses and no exceptions. (1) MAC becomes NIC: MacDhòmhnaill/NicDhòmhnaill, Mac a' Ghobhainn/Nic a' Ghobhainn, Mac an t-Saoir/Nic an t-Saoir. Nic is not a different word from Mac but a contraction of NIGHEAN MHIC, "daughter of the son of"; the element after it is left exactly as it stands, because the lenition frozen there was caused by the -c that Nic ends in just as Mac does. (2) Every other surname LENITES its initial consonant, written as an inserted H: Caimbeul/Chaimbeul, Camshron/Chamshron, Grannd/Ghrannd, Moireach/Mhoireach, Gòrdan/Ghòrdan, Dòmhnallach/Dhòmhnallach, Bochanan/Bhochanan, Siosal/Shiosal. Three environments block clause (2) and the surname comes through unchanged, which is the rule working and not a gap: L, N and R are never marked for lenition (Leòdach, Rothach, Robasdan), a vowel takes none, and the clusters SG SM SP ST refuse it (Stiùbhart stays Stiùbhart). A Gaelic woman does NOT take a husband's surname in the masculine form — Màiri NicDhòmhnaill married to a Caimbeul is Màiri Chaimbeul, never Màiri Caimbeul. Counts are copied from the masculine list so the two stay aligned.
+locale: gd
+weighted: true
+---
+NicDhòmhnaill,1000000
+NicLeòid,574349
+NicAoidh,415243
+NicCoinnich,329876
+Mhoireasdan,275945
+Nic a' Ghobhainn,238494
+Chaimbeul,210824
+NicIomhair,189464
+NicGill'Eain,172427
+Mhoireach,158489
+NicNèill,146854
+NicAonghais,136979
+NicRath,128482
+NicAsgaill,121087
+NicPhàrlain,114584
+NicPhàil,108818
+NicThòmais,103667
+NicFhionghain,99033
+NicFhionnlaigh,94841
+NicAmhlaigh,91028
+NicCuinn,87543
+NicAlasdair,84345
+NicLachlainn,81398
+NicMhathain,78673
+NicIlleMhaoil,76146
+NicNeacail,73794
+NicPhàidein,71599
+NicRuairidh,69546
+NicDhùghaill,67621
+NicEanraig,65811
+NicGriogair,64107
+NicArtair,62499
+NicCaluim,60980
+NicDhiarmaid,59541
+NicEachainn,58176
+NicFhearghais,56879
+NicGill'Ìosa,55646
+NicIlleBhàin,54471
+NicIlleDhuibh,53351
+NicIlleDhuinn,52281
+NicGhilleMhìcheil,51259
+NicLaomainn,50280
+NicSuain,49342
+NicBheathain,48443
+NicMhuirich,47580
+NicIain,46751
+NicTheàrlaich,45953
+NicBhàtair,45186
+Nic an Tòisich,44447
+Nic an Aba,43734
+Nic a' Phearsain,43047
+Nic an t-Saoir,42383
+Nic an t-Sagairt,41742
+Nic a' Chombaich,41123
+Nic na Ceàrdaich,40523
+NicDhonnchaidh,39943
+NicNeachdainn,39382
+NicFhearchair,38838
+NicCruimein,38310
+NicDhunnshleibhe,37798
+NicGhillebhràth,37302
+NicGuaire,36820
+NicCorcadail,36351
+NicLabhrainn,35896
+NicFhilib,35454
+NicFhraing,35023
+NicAdhaimh,34605
+NicGill'Fhaolain,34197
+NicUalraig,33800
+NicEacharn,33413
+NicCodruim,33036
+NicLùcais,32668
+NicGumaraid,32310
+Chamshron,31960
+Ghrannd,31619
+Stiùbhart,31285
+Rothach,30960
+Fhrisealach,30642
+Robasdan,30331
+Dhòmhnallach,30028
+Leòdach,29731
+Ghòrdan,29440
+Ghreum,29156
+Fhoirbeis,28878
+Bhochanan,28606
+Shutharlanach,28340
+Chuimeanach,28079
+Dhùghlas,27823
+Rosach,27573
+Shiosal,27327
+Mhèinnearach,27087

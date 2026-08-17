@@ -1,0 +1,20 @@
+---
+description: Room in a dwelling.
+locale: gd
+---
+Seòmar-cadail
+Seòmar-suidhe
+Cidsin
+Seòmar-ithe
+Seòmar-ionnlaid
+Taigh-beag
+Trannsa
+Lobht
+Seilear
+Oifis
+Seòmar-nighe
+Seòmar-stòrais
+Preas-aodaich
+Poirdse
+Seòmar-grèine
+Garaids

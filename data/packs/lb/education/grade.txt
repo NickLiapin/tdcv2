@@ -1,0 +1,18 @@
+---
+description: Marks. Luxembourg grades OUT OF 60, not out of 20 like France and not out of 6 like Germany: 30/60 is the pass mark and 60/60 is full marks. This is one of the few grading scales of its kind in Europe and a dataset that stores a Luxembourgish school mark in a 0-20 or A-F column has lost the meaning.
+---
+60/60
+55/60
+50/60
+45/60
+40/60
+35/60
+30/60
+25/60
+20/60
+15/60
+10/60
+Insuffisant
+Suffisant
+Gutt
+Ganz gutt

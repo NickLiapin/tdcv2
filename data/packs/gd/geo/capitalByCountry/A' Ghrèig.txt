@@ -1,0 +1,5 @@
+---
+description: Capital of A' Ghrèig.
+locale: gd
+---
+An Àithne

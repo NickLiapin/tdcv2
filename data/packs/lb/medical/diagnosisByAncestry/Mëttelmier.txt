@@ -1,0 +1,12 @@
+---
+description: Conditions reported at higher carrier frequency in populations of Mëttelmier descent, in Luxembourgish.
+locale: lb
+---
+Beta-Thalassämie
+G6PD-Mangel
+Familiär Mëttelmierféiwer
+Sichelzellanämie
+Hämochromatos
+Zöliakie
+Wilson
+Mukoviszidos

@@ -1,0 +1,59 @@
+---
+description: Industry sector (Turkmen)
+locale: tk
+---
+Oba hojalygy
+Maldarçylyk
+Balykçylyk
+Dag-magdan senagaty
+Nebit senagaty
+Gaz senagaty
+Himiýa senagaty
+Nebithimiýa
+Energetika
+Gurluşyk
+Gurluşyk serişdeleri
+Dokma senagaty
+Halyçylyk
+Tikinçilik
+Deri senagaty
+Azyk senagaty
+Un we çörek senagaty
+Süýt senagaty
+Et senagaty
+Şeker senagaty
+Içgi önümçiligi
+Maşyngurluşyk
+Metallurgiýa
+Elektronika
+Awtomobil senagaty
+Awiasiýa
+Gämi gurluşygy
+Demirýol ulagy
+Awtomobil ulagy
+Deňiz ulagy
+Logistika
+Söwda
+Bölek söwda
+Lomaý söwda
+Maliýe
+Ätiýaçlandyryş
+Gozgalmaýan emläk
+Saglygy goraýyş
+Derman senagaty
+Bilim
+Ylym
+Medeniýet
+Sungat
+Syýahatçylyk
+Myhmanhana işi
+Jemgyýetçilik iýmiti
+Sport
+Aragatnaşyk
+Maglumat tehnologiýalary
+Media
+Neşirýat
+Mahabat
+Maslahat beriş
+Hukuk hyzmatlary
+Jemagat hojalygy

@@ -1,0 +1,39 @@
+---
+description: Kind of music. The Gaelic entries at the head of this list are not translations of English genres and have no English equivalents: PUIRT-À-BEUL is "tunes from a mouth", dance music sung as nonsense-rhythm words when no instrument was to hand; ÒRAN-LUAIDH is a waulking song, sung by women beating tweed on a board, with a rhythm dictated by the work; IORRAM is a rowing song set to the stroke of the oars; PÌOBAIREACHD (called CEÒL MÒR, the great music) is the classical repertoire of the highland pipe, a theme and variations form; CANNTAIREACHD is the sung syllabic notation pipers used to teach it before staff notation; SALM is the Gaelic psalm-singing of the Free Church, precented line by line. The international genres at the foot keep their own names.
+locale: gd
+---
+Puirt-à-beul
+Òran-luaidh
+Iorram
+Pìobaireachd
+Ceòl mòr
+Ceòl beag
+Canntaireachd
+Salm
+Cumha
+Marbhrann
+Tàladh
+Cronan
+Òran-gaoil
+Laoidh
+Ruidhle
+Srath-spè
+Marsail
+Ceòl traidiseanta
+Ceòl dùthchasach
+Ceòl clasaigeach
+Òran
+Roc
+Popa
+Jazz
+Blues
+Country
+Folk
+Punc
+Meatailt
+Hip-hop
+Electronica
+Reggae
+Soul
+Opara
+Gospel

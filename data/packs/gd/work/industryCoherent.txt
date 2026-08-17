@@ -1,0 +1,16 @@
+---
+description: Industry, parent of work/jobByIndustry. Ten of these are the reference set; IASGACH and CROITEARACHD are added because they are the two industries the Gaelic-speaking areas actually run on and leaving them out would describe an economy that does not exist. A CROIT is not a farm: it is a small tenancy held under the Crofting Acts, and the word has no English equivalent, which is why the industry is named for the tenure rather than for the work.
+locale: gd
+---
+Teicneòlas
+Cùram-slàinte
+Ionmhas
+Togail
+Foghlam
+Aoigheachd
+Saothrachadh
+Reic
+Còmhdhail
+Lagh
+Iasgach
+Croitearachd

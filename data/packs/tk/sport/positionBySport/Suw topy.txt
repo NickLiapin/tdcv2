@@ -1,0 +1,9 @@
+---
+description: Positions in Suw topy
+locale: tk
+---
+Derwezeçi
+Merkezi hüjümçi
+Merkezi goragçy
+Gyra oýunçy
+Ýaýyň oýunçysy

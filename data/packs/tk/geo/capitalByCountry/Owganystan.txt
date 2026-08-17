@@ -1,0 +1,5 @@
+---
+description: Capital of Owganystan
+locale: tk
+---
+Kabul

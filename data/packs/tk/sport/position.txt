@@ -1,0 +1,39 @@
+---
+description: Playing position, mixed sports (Turkmen)
+locale: tk
+---
+Derwezeçi
+Goragçy
+Merkezi goragçy
+Gyra goragçy
+Ýarym goragçy
+Goraýjy ýarym goragçy
+Merkezi ýarym goragçy
+Hüjümçi ýarym goragçy
+Hüjümçi
+Merkezi hüjümçi
+Gyra hüjümçi
+Baş beriji
+Atyjy goragçy
+Ýeňil hüjümçi
+Kuwwatly hüjümçi
+Merkez
+Baglaýjy
+Libero
+Kabul ediji
+Merkezi bloklaýjy
+Diagonal hüjümçi
+Liniýa oýunçysy
+Sag gyra
+Çep gyra
+Sag ýarym
+Çep ýarym
+Zyňyjy
+Tutujy
+Birinji baza
+Ikinji baza
+Üçünji baza
+Gysga aralyk
+Sütün
+Ikinji hatar
+Arka goragçy

@@ -1,0 +1,14 @@
+---
+description: Diagnoses a Psychiatrie clinic records, in Luxembourgish.
+locale: lb
+---
+Depressioun
+Angschtstéierung
+Burn-out
+Bipolar Stéierung
+Schizophrenie
+Zwangsstéierung
+Posttraumatesch Stéierung
+Insomnie
+Suchtkrankheet
+ADHS

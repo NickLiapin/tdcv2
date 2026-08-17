@@ -1,0 +1,12 @@
+---
+description: Dishes of Arap cuisine
+locale: tk
+---
+Hummus
+Falafel
+Şaurma
+Tabbule
+Mansaf
+Kebse
+Baba ganuş
+Fattuş

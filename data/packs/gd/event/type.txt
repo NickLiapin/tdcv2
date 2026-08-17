@@ -1,0 +1,28 @@
+---
+description: Kind of event. The first five have no English equivalents and are the centre of Gaelic social life rather than the edge of it: a CÈILIDH is a visit with music and story that only later came to mean a dance; the MÒD is the national Gaelic competitive festival, held every October; a FÈIS is a week-long tuition festival for young musicians; LÀ NA FÈILLE is a market or saint's day; and the GEAMANNAN GÀIDHEALACH are the Highland Games, where the caber and the stone are thrown. LUADH is a waulking, the communal fulling of tweed by hand, and is a working event and a singing one at once.
+locale: gd
+---
+Cèilidh
+Cèilidh-taighe
+Mòd
+Fèis
+Geamannan Gàidhealach
+Luadh
+Banais
+Tòrradh
+Baisteadh
+Latha-breith
+Coinneamh
+Co-labhairt
+Cuirm-chiùil
+Dannsa
+Fèill
+Là na Fèille
+Taisbeanadh
+Bùth-obrach
+Òraid
+Rèis-bhàtaichean
+Iomairt-thogail-airgid
+Ruith-charthannais
+Farpais
+Cuirm

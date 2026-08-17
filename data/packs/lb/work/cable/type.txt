@@ -1,0 +1,13 @@
+---
+description: Kinds of cable.
+locale: lb
+---
+Stroumkabel
+Datenkabel
+Glasfaser
+Koaxialkabel
+Telefonkabel
+Erdkabel
+Loftkabel
+Héichspannungskabel
+Nidderspannungskabel

@@ -1,0 +1,30 @@
+---
+description: Garment type (Turkmen). Telpek (the tall sheepskin hat), tahya (embroidered skullcap), don (robe) and kurte (bridal cloak) are Turkmen national dress and have no European equivalent.
+locale: tk
+---
+Köýnek
+Don
+Telpek
+Tahýa
+Kürte
+Çyrpy
+Gyňaç
+Ýaglyk
+Guşak
+Balak
+Ädik
+Köwüş
+Çokaý
+Penjek
+Palto
+Kurtka
+Jempir
+Futbolka
+Jinsi
+Jorap
+Ellik
+Şarf
+Kepka
+Kostýum
+Ýubka
+Sport eşigi

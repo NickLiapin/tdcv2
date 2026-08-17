@@ -1,0 +1,12 @@
+---
+description: Conditions reported at higher carrier frequency in populations of Nordafrikanesch descent, in Luxembourgish.
+locale: lb
+---
+G6PD-Mangel
+Beta-Thalassämie
+Sichelzellanämie
+Familiär Mëttelmierféiwer
+Zöliakie
+Typ-2-Diabeetes
+Wilson
+Laktosentoleranz

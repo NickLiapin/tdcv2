@@ -1,0 +1,5 @@
+---
+description: Capital of Afraga a Deas.
+locale: gd
+---
+Pretoria

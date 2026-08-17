@@ -1,0 +1,12 @@
+---
+description: Clothing sizes on the international letter scale, which is what a Luxembourgish shop label carries. Luxembourg also reads FRENCH numeric sizing (36, 38, 40) on the same rail, because the shops buy from Belgium and France, so a garment here often carries two size systems on one label.
+locale: lb
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

@@ -1,0 +1,32 @@
+---
+description: Technical adjective (Turkmen)
+locale: tk
+---
+sanly
+analog
+wirtual
+simsiz
+simli
+optiki
+lazer
+elektron
+mehaniki
+awtomatiki
+el bilen dolandyrylýan
+goragly
+şifrlenen
+açyk çeşmeli
+ýapyk çeşmeli
+onlaýn
+oflaýn
+merkezleşdirilen
+paýlanan
+ätiýaçlyk
+esasy
+kömekçi
+iki taraplaýyn
+köp derejeli
+ýokary tizlikli
+pes güýçli
+göçme
+gurnalan

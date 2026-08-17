@@ -1,0 +1,12 @@
+---
+description: Dishes of Özbek cuisine
+locale: tk
+---
+Palow
+Manty
+Lagman
+Şurpa
+Somsa
+Çuçwara
+Dimlama
+Norin

@@ -1,0 +1,15 @@
+---
+description: Reaction to a post.
+locale: gd
+---
+Is toigh leam
+Gaol
+Gàire
+Iongnadh
+Bròn
+Fearg
+Taing
+Meal do naidheachd
+Co-fhaireachdainn
+Taic
+Aonta

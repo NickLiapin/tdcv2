@@ -1,0 +1,5 @@
+---
+description: Capital of A' Ghearmailt.
+locale: gd
+---
+Berlin

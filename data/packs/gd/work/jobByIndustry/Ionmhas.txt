@@ -1,0 +1,13 @@
+---
+description: Job titles found in Ionmhas.
+locale: gd
+---
+Cunntasair
+Bancair
+Neach-sgrùdaidh
+Neach-comhairle ionmhais
+Neach-anailis tasgaidh
+Neach-àrachais
+Neach-cìse
+Manaidsear meur
+Neach-iasaid

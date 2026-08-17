@@ -1,0 +1,26 @@
+---
+description: Metal (Turkmen)
+locale: tk
+---
+Altyn
+Kümüş
+Platina
+Mis
+Demir
+Polat
+Alýumin
+Titan
+Sink
+Nikel
+Gurşun
+Galaýy
+Bürünç
+Latun
+Palladiý
+Kobalt
+Hrom
+Wolfram
+Magniý
+Simap
+Uran
+Litiý

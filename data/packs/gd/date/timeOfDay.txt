@@ -1,0 +1,14 @@
+---
+description: Time of day. Gaelic does NOT cut the day where English does: FEASGAR is one word covering everything from about noon to nightfall, so it is both "afternoon" and "evening" and there is no separate word for either. That is the whole reason this list is shorter than the English one at the middle of the day and longer at its edges, where Gaelic is the more exact language — CAMHANACH is the first grey light, MOCH-MHADAINN the early morning, BEUL NA H-OIDHCHE the mouth of the night, and ANMOCH the late part of it.
+locale: gd
+---
+Madainn
+Moch-mhadainn
+Feasgar
+Oidhche
+Camhanach
+Ciaradh
+Beul na h-oidhche
+Anmoch
+Meadhan-latha
+Meadhan-oidhche

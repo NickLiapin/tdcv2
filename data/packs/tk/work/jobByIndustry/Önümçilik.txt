@@ -1,0 +1,12 @@
+---
+description: Jobs in Önümçilik
+locale: tk
+---
+Operator
+Tokar
+Slesar
+Dokmaçy
+Halyçy
+Tikinçi
+Hil gözegçisi
+Ussahana ussasy

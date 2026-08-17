@@ -1,0 +1,24 @@
+---
+description: Insects and small crawling things. PÄIPERLEK (butterfly) and KIEWERLEK (beetle) rhyme and both end in the diminutive-looking -lek that is not a diminutive; SEEJOMES is the LOD's second word for an ant beside the transparent Ameis; BOXEKUEDER is glossed "fly" and means, literally, a trouser-scratcher. Every value is a lemma of the LOD, the Lëtzebuerger Online Dictionnaire published by the Zenter fir d'Lëtzebuerger Sprooch under the loi du 20 juillet 2018; nothing here was translated by hand.
+locale: lb
+---
+Bei
+Harespel
+Runn
+Runnebei
+Ameis
+Seejomes
+Päiperlek
+Pimpampel
+Matt
+Méck
+Boxekueder
+Mustik
+Kiewerlek
+Himmelsdéierchen
+Heesprénger
+Libell
+Grill
+Raup
+Wuerm
+Spann

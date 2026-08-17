@@ -1,0 +1,21 @@
+---
+description: Cuisine, named with the Gaelic nationality adjective in -ACH. ALBANNACH and GÀIDHEALACH are kept apart on purpose and are not the same list: Albannach is Scottish cooking as a whole, while Gàidhealach is specifically Highland and Hebridean and holds things a Lowland kitchen has never had — GUGA, the salted young gannet taken once a year from Sula Sgeir by the men of Ness; DUILEASG, the dulse seaweed eaten as food; CEANN-CROPAIG, a fish head stuffed with liver and oatmeal. Parent of food/dishByCuisine.
+locale: gd
+---
+Albannach
+Gàidhealach
+Sasannach
+Èireannach
+Frangach
+Eadailteach
+Spàinnteach
+Greugach
+Turcach
+Sìneach
+Innseanach
+Iapanach
+Coireanach
+Tàidheach
+Meagsagach
+Ameireaganach
+Leabanach

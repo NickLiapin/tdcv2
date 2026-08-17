@@ -1,0 +1,22 @@
+---
+description: Event type (Turkmen)
+locale: tk
+---
+Maslahat
+Forum
+Sergi
+Ýarmarka
+Toý
+Nika toýy
+Doglan gün
+Baýramçylyk
+Konsert
+Festiwal
+Bäsleşik
+Sport ýaryşy
+Okuw maslahaty
+Onlaýn maslahat
+Tanyşdyrylyş
+Haýyr-sahawat çäresi
+Duşuşyk
+Ýatlama çäresi

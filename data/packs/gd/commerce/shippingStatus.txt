@@ -1,0 +1,15 @@
+---
+description: Shipping status.
+locale: gd
+---
+Ga ullachadh
+Air a chur
+Air an t-slighe
+Aig an ionad-sgaoilidh
+A' feitheamh ris an aiseag
+A-mach airson lìbhrigeadh
+Air a lìbhrigeadh
+Oidhirp-lìbhrigidh air fhàilligeadh
+Air a thilleadh chun an t-seòladair
+Air chall
+Air a chumail aig a' chusbainn

@@ -1,0 +1,12 @@
+---
+description: Positions in Futbol
+locale: tk
+---
+Derwezeçi
+Merkezi goragçy
+Gyra goragçy
+Goraýjy ýarym goragçy
+Merkezi ýarym goragçy
+Hüjümçi ýarym goragçy
+Gyra hüjümçi
+Merkezi hüjümçi

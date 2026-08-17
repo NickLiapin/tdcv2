@@ -1,0 +1,18 @@
+---
+description: Kind of insurance. ÀRACHAS-CROITE and ÀRACHAS-STUIC are ordinary policies here.
+locale: gd
+---
+Àrachas-beatha
+Àrachas-slàinte
+Àrachas-càir
+Àrachas-dachaigh
+Àrachas-susbaint
+Àrachas-siubhail
+Àrachas-peata
+Àrachas-gnothachais
+Àrachas-cinn-fhear-gnìomha
+Àrachas-tuiteamais
+Àrachas-bàta
+Àrachas-croite
+Àrachas-stuic
+Àrachas-tuille

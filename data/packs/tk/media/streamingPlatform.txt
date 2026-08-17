@@ -1,0 +1,16 @@
+---
+description: Streaming platform. Brand names, unchanged in Turkmen text.
+locale: tk
+---
+YouTube
+Netflix
+Amazon Prime Video
+Disney+
+Apple TV+
+Spotify
+Twitch
+Max
+Paramount+
+Crunchyroll
+SoundCloud
+Deezer

@@ -1,0 +1,5 @@
+---
+description: Capital of Hytaý
+locale: tk
+---
+Pekin

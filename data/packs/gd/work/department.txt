@@ -1,0 +1,26 @@
+---
+description: Department inside an organisation. GOIREASAN-DAONNA, "human resources", is the standard Gaelic rendering; note that the category directory here is called WORKPLACE and not HR, because a two-letter category name would collide with a language code in the address resolver.
+locale: gd
+---
+Rianachd
+Ionmhas
+Goireasan-daonna
+Reic
+Margaidheachd
+Teicneòlas-fiosrachaidh
+Rannsachadh is Leasachadh
+Saothrachadh
+Gnìomhachdan
+Lagh
+Seirbheis luchd-cleachdaidh
+Sàbhailteachd
+Solar
+Stòras
+Còmhdhail
+Conaltradh
+Gnothaichean poblach
+Trèanadh
+Cunntasachd
+Sgrùdadh
+Cleachdaichean
+Cànan

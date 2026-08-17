@@ -1,0 +1,9 @@
+---
+description: Work shifts. The three-shift day is written the way a Luxembourgish steelworks wrote it.
+locale: lb
+---
+Fréischicht
+Spéitschicht
+Nuetsschicht
+Dagschicht
+Weekendschicht

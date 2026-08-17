@@ -1,0 +1,33 @@
+---
+description: Present participles of the computing verbs, the -ËND form.
+locale: lb
+---
+kompiléierend
+konfiguréierend
+installéierend
+programméierend
+codéierend
+kryptéierend
+synchroniséierend
+indexéierend
+filtréierend
+analyséierend
+optiméierend
+testéierend
+deployéierend
+migréierend
+sauvegardéierend
+restauréierend
+verbannend
+lueden
+eroflueden
+eroplueden
+späicherend
+läschend
+kopéierend
+verschéiwend
+iwwerdroend
+berechnend
+verschlësselend
+kontrolléierend
+iwwerwaachend

@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in Dermatologiýa
+locale: tk
+---
+Psoriaz
+Atopiki dermatit
+Ekzema
+Akne
+Witiligo
+Kontakt dermatiti
+Deriniň kömelek keseli

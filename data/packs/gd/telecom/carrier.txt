@@ -1,0 +1,24 @@
+---
+description: Telephone and broadband operator selling in the Gaelic-speaking area. These are UNITED KINGDOM networks; the numbering plan, the dialling codes and the regulator are country data and belong in the united_kingdom pack. STARLINK and the community broadband schemes are on the list because in the islands and the north-west mainland a satellite or a locally built fibre scheme is often the only service there is.
+locale: gd
+---
+EE
+O2
+Vodafone
+Three
+giffgaff
+Tesco Mobile
+Sky Mobile
+Lebara
+Lycamobile
+Smarty
+VOXI
+BT
+Virgin Media
+TalkTalk
+Plusnet
+Openreach
+Starlink
+Bann-leathann Coimhearsnachd
+Hebnet
+Gigaclear

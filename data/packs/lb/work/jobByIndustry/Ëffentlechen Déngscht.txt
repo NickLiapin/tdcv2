@@ -1,0 +1,14 @@
+---
+description: Jobs in the Ëffentlechen Déngscht sector, in Luxembourgish. Where the trade came into the country through French, so did its name.
+locale: lb
+---
+Fonctionnaire
+Redakter
+Staatsbeamten
+Polizist
+Pompjee
+Douanier
+Gemengesekretär
+Inspekter
+Agent
+Expeditionnaire

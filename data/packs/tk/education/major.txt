@@ -1,0 +1,40 @@
+---
+description: Field of study / major (Turkmen)
+locale: tk
+---
+Informatika we hasaplaýyş tehnikasy
+Programma üpjünçiligi
+Maglumat howpsuzlygy
+Elektroenergetika
+Nebit-gaz işi
+Himiýa tehnologiýasy
+Gurluşyk
+Arhitektura
+Maşyngurluşyk
+Awtomobil ulagy
+Demirýol ulagy
+Deňiz işi
+Oba hojalygy
+Weterinariýa
+Agronomiýa
+Suw hojalygy
+Ekologiýa
+Lukmançylyk
+Farmasiýa
+Stomatologiýa
+Şepagat işi
+Ykdysadyýet
+Maliýe we karz
+Buhgalterçilik hasaby
+Menejment
+Marketing
+Hukukşynaslyk
+Halkara gatnaşyklary
+Žurnalistika
+Filologiýa
+Terjimeçilik
+Pedagogika
+Psihologiýa
+Taryh
+Sungaty öwreniş
+Halyçylyk sungaty

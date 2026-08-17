@@ -1,0 +1,14 @@
+---
+description: Diagnoses a Neurologie clinic records, in Luxembourgish.
+locale: lb
+---
+Migräne
+Epilepsie
+Multiple Sklerose
+Parkinson
+Alzheimer
+Demenz
+Hiereschlag
+Neuropathie
+Bandscheifvirfall
+Ischias

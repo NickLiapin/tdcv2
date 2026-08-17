@@ -1,0 +1,19 @@
+---
+description: Kind of court, named in Gaelic. SCOTLAND HAS ITS OWN LEGAL SYSTEM, kept separate by the Treaty of Union, so these are not the courts of England under Gaelic names — they are different courts. CÙIRT AN T-SEISEIN is the supreme civil court and ÀRD-CHÙIRT A' CHEARTAIS the supreme criminal one, and there is no English equivalent of either; the sheriff court has no counterpart south of the border; CÙIRT-FHEARAINN NA H-ALBA, the Scottish Land Court, hears crofting cases and exists nowhere else in the United Kingdom; ÈISTEACHD CHLOINNE, the children's hearing, is a lay panel rather than a court and replaced juvenile courts here in 1971. Named buildings, circuits and case numbers are country data and belong in a country pack.
+locale: gd
+---
+Cùirt an t-Seisein
+Àrd-chùirt a' Cheartais
+Cùirt an t-Siorraim
+Cùirt nan Siorram-Bhreitheamhan
+Cùirt-Fhearainn na h-Alba
+Èisteachd Chloinne
+Cùirt-thagraidh
+Àrd-chùirt na Rìoghachd Aonaichte
+Tribiunal Fastaidh
+Tribiunal Màil
+Tribiunal Ìmpireachd
+Cùirt-cheartais ionadail
+Cùirt-rannsachaidh
+Cùirt a' Chrùin
+Mòd-ceartais

@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Console and store names are brands and keep their international spelling in Turkmen text.
+locale: tk
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+Mobil telefon
+Planşet
+Meta Quest
+Internet brauzeri

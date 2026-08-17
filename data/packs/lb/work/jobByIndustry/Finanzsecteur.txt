@@ -1,0 +1,14 @@
+---
+description: Jobs in the Finanzsecteur sector, in Luxembourgish. Where the trade came into the country through French, so did its name.
+locale: lb
+---
+Banker
+Comptabel
+Reviseur
+Analyst
+Gestionnaire
+Trader
+Conseiller
+Fondsmanager
+Compliance Officer
+Actuaire

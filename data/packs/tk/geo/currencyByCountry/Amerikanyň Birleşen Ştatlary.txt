@@ -1,0 +1,5 @@
+---
+description: Currency of Amerikanyň Birleşen Ştatlary
+locale: tk
+---
+ABŞ dollary

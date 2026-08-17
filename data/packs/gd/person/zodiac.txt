@@ -1,0 +1,16 @@
+---
+description: Sign of the zodiac in Gaelic. Each carries its article, because the sign is a noun phrase and never appears bare: AN REITHE, not *Reithe. The article changes shape with the noun — A' MHEIDH is feminine and lenites, AM BOGHADAIR takes AM before b, NA H-ÈISG is plural.
+locale: gd
+---
+An Reithe
+An Tarbh
+An Càraid
+An Giomach
+An Leòmhann
+An Òigh
+A' Mheidh
+An Sgairp
+Am Boghadair
+An Gobhar
+Fear-giùlain an Uisge
+Na h-Èisg

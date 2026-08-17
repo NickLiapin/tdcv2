@@ -1,0 +1,34 @@
+---
+description: Bird (Turkmen)
+locale: tk
+---
+Serçe
+Garlawaç
+Bürgüt
+Garaguş
+Laçyn
+Gyrgy
+Baýguş
+Hüwi
+Totyguş
+Pingwin
+Sülgün
+Käkilik
+Bedene
+Torgaý
+Bilbil
+Durna
+Leglek
+Gotan
+Guw
+Gaz
+Ördek
+Garga
+Alahekge
+Kepderi
+Towuk
+Horaz
+Hindi towugy
+Tawus
+Sar
+Çürre

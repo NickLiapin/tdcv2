@@ -1,0 +1,15 @@
+---
+description: Conditions markedly more frequent in people of Afraganach fo-Shaharach ancestry. A prevalence signal, not an exclusive one — anyone can have these, and most patients of this ancestry have none of them. Eponyms and registered genetic names are kept unchanged; only the descriptive conditions are rendered in Gaelic.
+locale: gd
+---
+Galar nan ceallan-corrain
+Comharra nan ceallan-corrain
+Dìth G6PD
+Neupropaite co-cheangailte ri APOL1
+Sgarradh keloid
+Sarcoidosis
+Nephrosclerosis bhon bhruthadh-fala
+Fibroidean machlaig
+Neutropenia cinneadail neo-chronail
+Neo-mhaireannachd lactase
+Vitiligo

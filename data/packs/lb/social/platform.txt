@@ -1,0 +1,20 @@
+---
+description: Social platforms. Brand names, never translated.
+---
+Facebook
+Instagram
+WhatsApp
+X
+TikTok
+LinkedIn
+Snapchat
+YouTube
+Telegram
+Signal
+Messenger
+Reddit
+Pinterest
+Discord
+Twitch
+Threads
+Mastodon

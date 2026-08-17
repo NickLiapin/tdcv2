@@ -1,0 +1,11 @@
+---
+description: Conduit / installation method for cable runs (Turkmen)
+locale: tk
+---
+PWH turba
+Polat turba
+Polietilen turba
+Göni ýere gömmek
+Içki turba
+Kabel tekjesi
+Howa arkaly asma

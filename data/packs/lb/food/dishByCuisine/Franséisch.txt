@@ -1,0 +1,16 @@
+---
+description: Dishes of the Franséisch kitchen as a menu in Luxembourg names them. Dish names travel untranslated wherever they are already proper names in the cuisine's own language, which is why most of these are not in Luxembourgish and should not be.
+locale: lb
+---
+Bouchée à la reine
+Coq au vin
+Quiche lorraine
+Ratatouille
+Bouillabaisse
+Croque-monsieur
+Crème brûlée
+Tarte tatin
+Cassoulet
+Steak frites
+Baguette
+Gratin

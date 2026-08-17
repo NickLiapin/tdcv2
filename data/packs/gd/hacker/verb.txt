@@ -1,0 +1,32 @@
+---
+description: Verb from technical jargon, in the Gaelic root form.
+locale: gd
+---
+Ruith
+Tòisich
+Sguir
+Cuir
+Faigh
+Sgrìobh
+Leugh
+Sguab
+Ath-shuidhich
+Ath-thòisich
+Ceangail
+Dì-cheangail
+Luchdaich
+Sàbhail
+Dì-bhugaich
+Deuchainnich
+Dearbh
+Crioptaich
+Dì-chrioptaich
+Sgaoil
+Cruinnich
+Sioncronaich
+Sgèilich
+Optamaich
+Cunnt
+Tomhais
+Filtrich
+Seòrsaich

@@ -1,0 +1,9 @@
+---
+description: Positions in Basketbol
+locale: tk
+---
+Baş beriji
+Atyjy goragçy
+Ýeňil hüjümçi
+Kuwwatly hüjümçi
+Merkez

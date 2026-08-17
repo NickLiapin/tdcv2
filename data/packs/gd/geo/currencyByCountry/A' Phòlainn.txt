@@ -1,0 +1,5 @@
+---
+description: Currency of A' Phòlainn.
+locale: gd
+---
+Zloty Pòlach

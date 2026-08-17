@@ -1,0 +1,5 @@
+---
+description: The currency of Indien, named in Luxembourgish.
+locale: lb
+---
+Rupie

@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Afraganach a Tuath ancestry. A prevalence signal, not an exclusive one. Eponyms and registered genetic names are kept unchanged; only the descriptive conditions are rendered in Gaelic.
+locale: gd
+---
+Dìth G6PD
+Comharra Beta-Thalassemia
+Fiabhras Meadhan-thìreach Teaghlaich
+Galar Behçet
+Neo-mhaireannachd lactase
+Xeroderma Pigmentosum

@@ -1,0 +1,5 @@
+---
+description: Capital of Şweýsariýa
+locale: tk
+---
+Bern

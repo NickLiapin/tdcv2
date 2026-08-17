@@ -1,0 +1,42 @@
+---
+description: Symptom. Gaelic says "a sore head" and "a short breath" rather than naming the symptom as a noun, so many entries here are noun plus adjective (ceann goirt, amhach ghoirt, anail ghoirid) — and the adjective lenites after a feminine noun, which is why it is ghoirt after amhach and goirt after ceann.
+locale: gd
+---
+Cràdh
+Pian
+Casad
+Teasach
+Sgìths
+Tuainealach
+Ceann goirt
+Amhach ghoirt
+Sròn shileach
+Sgeith
+Buinneach
+Teannachadh
+Anail ghoirid
+Cnap
+Broth
+Tachas
+At
+Fuil
+Bruthadh
+Fannachadh
+Crith
+Losgadh
+Cadal-deilgneach
+Call cuideim
+Cion-cadail
+Cion-lùiths
+Cion-càil
+Fallas oidhche
+Sealladh doilleir
+Bualadh-cridhe luath
+Pian-cuim
+Pian-droma
+Pian-alt
+Stad-analach
+Dìth-cuimhne
+Mì-mhisneachd
+Blas-searbh
+Cluas-shrann

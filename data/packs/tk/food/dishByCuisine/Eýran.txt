@@ -1,0 +1,12 @@
+---
+description: Dishes of Eýran cuisine
+locale: tk
+---
+Çelow kebap
+Gormesabzi
+Fesenjan
+Abgüşt
+Dizi
+Kükü
+Aş
+Halym

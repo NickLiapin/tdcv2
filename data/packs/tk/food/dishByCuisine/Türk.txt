@@ -1,0 +1,12 @@
+---
+description: Dishes of Türk cuisine
+locale: tk
+---
+Kebap
+Döner
+Lahmajun
+Pide
+Köfte
+Menemen
+Baklawa
+Simit

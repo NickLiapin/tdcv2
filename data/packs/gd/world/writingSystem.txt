@@ -1,0 +1,24 @@
+---
+description: Writing system. Gaelic is written in the Latin alphabet with a GRAVE accent and eighteen letters, which is the entry LAIDEANN covers. Two on this list are local history rather than world history: OGHAM is the notched alphabet cut on the edges of standing stones across Argyll and the Irish Sea and is the oldest way Gaelic was ever written down, and RÙNAICHEAN are the Norse runes left in the Hebrides and Orkney by three centuries of Scandinavian rule, which is also where a good deal of the island place-name stock comes from.
+locale: gd
+---
+Laideann
+Ogham
+Rùnaichean
+Cirilis
+Greugais
+Eabhra
+Arabais
+Han
+Hiragana
+Katakana
+Hangul
+Devanagari
+Bengali
+Tamil
+Tàidh
+Cmèar
+Cairtbheilis
+Airmeinis
+Ge'ez
+Sioriach

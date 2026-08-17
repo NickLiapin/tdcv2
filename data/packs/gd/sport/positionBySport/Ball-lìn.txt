@@ -1,0 +1,12 @@
+---
+description: Playing positions in Ball-lìn.
+locale: gd
+---
+Frithealaiche
+Suidheachair
+Bualadair-taobh
+Bacadair-meadhain
+Libero
+Toisiche
+Neach-ionaid
+Rèitire

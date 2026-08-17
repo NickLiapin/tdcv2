@@ -1,0 +1,5 @@
+---
+description: Capital of Wýetnam
+locale: tk
+---
+Hanoý

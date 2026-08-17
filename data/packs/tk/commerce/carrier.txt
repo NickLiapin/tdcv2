@@ -1,0 +1,24 @@
+---
+description: International courier brand names, unchanged in Turkmen text. Turkmenistan's own postal operator is left out: a national carrier is an institution and belongs to a country pack.
+locale: tk
+---
+DHL
+FedEx
+UPS
+TNT
+Aramex
+EMS
+DPD
+GLS
+SF Express
+Cainiao
+Turkish Cargo
+Emirates SkyCargo
+Qatar Airways Cargo
+Lufthansa Cargo
+Maersk
+MSC
+CMA CGM
+Kuehne + Nagel
+DB Schenker
+Agility

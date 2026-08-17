@@ -1,0 +1,5 @@
+---
+description: Capital of Meksika
+locale: tk
+---
+Mehiko

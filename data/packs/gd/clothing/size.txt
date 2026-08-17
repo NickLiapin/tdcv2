@@ -1,0 +1,18 @@
+---
+description: Garment size. The letter sizes are international. UK numeric womenswear sizes run 6 to 24 and are two numbers larger than the US equivalent and about 28 larger than the continental one, so a size drawn here is not portable across a border.
+locale: gd
+---
+XS
+S
+M
+L
+XL
+XXL
+8
+10
+12
+14
+16
+18
+20
+22

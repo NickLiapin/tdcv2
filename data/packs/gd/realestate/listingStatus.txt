@@ -1,0 +1,16 @@
+---
+description: Status of a property listing.
+locale: gd
+---
+Ri reic
+Ùr air a' mhargaidh
+Fo thairgse
+Tairgsean gan iarraidh
+Fo chùmhnant
+Air a reic
+Ri mhàl
+Air a mhàl
+Prìs air a lùghdachadh
+Air a tharraing air ais
+A' feitheamh
+Fo rùn-ceannaich

@@ -1,0 +1,69 @@
+---
+description: Filler sentences for lorem-ipsum style text. Handwritten: Project Gutenberg holds no Turkmen book at all, so these are plain declarative sentences written by hand rather than drawn from a corpus. They are deliberately short and ordinary, and they show the basic Turkmen shape: verb last, no articles, no grammatical gender.
+locale: tk
+---
+Gün dogdy.
+Howa yssy.
+Çagalar mekdebe barýarlar.
+Bu kitap gyzykly.
+Biz suw içýäris.
+Ol nahar bişirýär.
+Bag gülleýär.
+Men işe gitdim.
+Mugallym sapak berýär.
+Ýol uzyn.
+Deňiz asuda.
+Çöl giň.
+Adamlar bazara gitdiler.
+Çörek tamdyrda bişýär.
+Ýaz geldi.
+Gyşda howa sowuk bolýar.
+Guşlar aýdym aýdýar.
+Suw çeşmeden akýar.
+Halyçy haly dokaýar.
+Biz dostlarymyz bilen duşuşdyk.
+Kitaphana şäheriň merkezinde ýerleşýär.
+Ol her gün irden turýar.
+Bu ýerde köp agaç bar.
+Gawun tomusda bişýär.
+Atlar meýdanda otlaýar.
+Düýeler çölde ýöreýär.
+Talyplar synagdan geçdiler.
+Lukman keseli anyklady.
+Bagşy dutar çalýar.
+Şäherde täze jaý guruldy.
+Men bu sözi bilmeýärin.
+Sen näme okaýarsyň?
+Ol maňa hat ýazdy.
+Biz ertir gaýdarys.
+Myhmanlar geldi.
+Naharyň tagamy gowy.
+Çaý gyzgyn.
+Gapy ýapyk.
+Penjire açyk.
+Ol işini gutardy.
+Ýagyş ýagýar.
+Gar ýagdy.
+Şemal güýçli öwüsýär.
+Asmanda bulut ýok.
+Ýyldyzlar görünýär.
+Aý dogdy.
+Bu ýer örän gözel.
+Biz surata düşdük.
+Ol dükandan çörek aldy.
+Bu haryt gymmat.
+Goňşymyz arzan satýar.
+Iş säher bilen başlanýar.
+Ýygnak sagat onda geçiriler.
+Men saňa garaşdym.
+Olar bizi toýa çagyrdylar.
+Çaga uklaýar.
+Eje çaga seredýär.
+Kaka işden geldi.
+Biz oba gitdik.
+Oba şäherden uzak.
+Awtobus duralga geldi.
+Otly wagtynda ugrady.
+Kitaby stoluň üstünde goýdum.
+Açar gapynyň ýanynda.
+Ol maňa kömek etdi.

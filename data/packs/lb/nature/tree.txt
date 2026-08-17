@@ -1,0 +1,27 @@
+---
+description: Trees, every value an LOD headword. The suffix to notice is -TER: HIESELTER is a hazel, ALENTER an alder, NËSSERT a walnut tree, MAASSELTER a maple — that ending forming a tree name is a Luxembourgish word-formation habit German does not share, since German simply compounds (Haselstrauch). EECH, BICH and BIERK are oak, beech and birch, all three worn down past the point where a German reader recognises them.
+locale: lb
+---
+Eech
+Bich
+Bierk
+Dänn
+Fiicht
+Weid
+Ahorn
+Maasselter
+Äschen
+Lann
+Eller
+Alenter
+Hieselter
+Nëssert
+Äppelbam
+Äppelter
+Kiischtebam
+Bam
+Bësch
+Hecken
+Strauch
+Palm
+Zypress

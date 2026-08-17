@@ -1,0 +1,5 @@
+---
+description: The currency of Cap Vert, named in Luxembourgish.
+locale: lb
+---
+Escudo

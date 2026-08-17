@@ -1,0 +1,23 @@
+---
+description: Mined mineral / commodity (Turkmen). Turkmenistan's own extraction leads: natural gas above all, then oil, sulphur, iodine, bromine, potash and rock salt.
+locale: tk
+---
+Tebigy gaz
+Nebit
+Kükürt
+Ýod
+Brom
+Kaliý duzlary
+Nahar duzy
+Bentonit
+Sement çig maly
+Gips
+Dolomit
+Kwars çägesi
+Mermer
+Granit
+Kömür
+Mis
+Altyn
+Demir magdany
+Sink

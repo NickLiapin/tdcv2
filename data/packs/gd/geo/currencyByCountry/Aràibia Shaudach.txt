@@ -1,0 +1,5 @@
+---
+description: Currency of Aràibia Shaudach.
+locale: gd
+---
+Riyal Saudach

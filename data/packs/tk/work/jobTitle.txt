@@ -1,0 +1,222 @@
+---
+description: Job title (Turkmen), across sectors. Turkmen forms most occupational names with the suffix -cy / -ci 'the one who does X' — halycy 'carpet weaver' from haly 'carpet', daýhan-adjacent balykcy 'fisherman' from balyk 'fish' — so the trade names are transparent in a way the Russian-borrowed technical titles are not.
+locale: tk
+---
+Programma üpjünçiligi inženeri
+Programmist
+Web programmist
+Mobil programma işläp düzüji
+Maglumat seljerijisi
+Maglumat binýady administratory
+Ulgam administratory
+Tor inženeri
+Kiberhowpsuzlyk hünärmeni
+Web dizaýner
+Grafiki dizaýner
+Synag inženeri
+Tehniki goldaw hünärmeni
+Taslama dolandyryjysy
+Önüm dolandyryjysy
+Ulgam seljerijisi
+Lukman
+Maşgala lukmany
+Hirurg
+Çaga lukmany
+Aýal-gyzlar lukmany
+Ýürek lukmany
+Göz lukmany
+Diş lukmany
+Newrolog
+Psihiatr
+Anesteziolog
+Rentgenolog
+Şepagat uýasy
+Akuşerka
+Farmasewt
+Laborant
+Tiz kömek işgäri
+Feldşer
+Weterinar
+Massažçy
+Fizioterapewt
+Sanitar
+Elektrik
+Suw geçiriji ussasy
+Kebşirleýji
+Agaç ussasy
+Gurluşykçy
+Kerpiç örüji
+Suwagçy
+Boýagçy
+Üçek ussasy
+Aýna ussasy
+Plitka ussasy
+Betonçy
+Armaturaçy
+Kran sürüjisi
+Ekskawator sürüjisi
+Buldozer sürüjisi
+Prorab
+Binagär
+Inžener-gurluşykçy
+Geodezist
+Markşeýder
+Tokar
+Frezerçi
+Slesar
+Mehanik
+Awtomehanik
+Dizel mehanigi
+Uçar mehanigi
+Enjam sazlaýjy
+Operator
+Dokmaçy
+Halyçy
+Tikinçi
+Biçimçi
+Keşdeçi
+Aýakgapçy
+Deriçi
+Zergär
+Küýzeçi
+Demirçi
+Misgär
+Külalçy
+Hil gözegçisi
+Ussahana ussasy
+Magdançy
+Buraw ussasy
+Nebitçi
+Gazçy
+Geolog
+Kükürt zawodynyň operatory
+Buraw ussasynyň kömekçisi
+Sürüji
+Ýük awtoulag sürüjisi
+Awtobus sürüjisi
+Taksi sürüjisi
+Uzak aralyga sürüji
+Ýükleýji
+Ammar işgäri
+Dispetçer
+Logistika hünärmeni
+Ekspeditor
+Uçarman
+Uçar hyzmatkäri
+Uçuş dispetçeri
+Deňizçi
+Gämi kapitany
+Otly maşinisti
+Demirýol gözegçisi
+Poçtaçy
+Kurýer
+Buhgalter
+Baş buhgalter
+Maliýe seljerijisi
+Auditor
+Ykdysadyýetçi
+Bank gullukçysy
+Kassir
+Salgyt geňeşçisi
+Ätiýaçlandyryş agenti
+Marketolog
+Mahabat hünärmeni
+Söwda wekili
+Satyjy
+Dükan müdiri
+Ammar müdiri
+Kadrlar bölüminiň hünärmeni
+Kätip
+Sekretar
+Ofis müdiri
+Terjimeçi
+Dilmaç
+Žurnalist
+Redaktor
+Habarçy
+Fotosuratçy
+Wideooperator
+Radio alypbaryjy
+Dizaýner
+Aşpez
+Kömekçi aşpez
+Çörekçi
+Süýji ussasy
+Ofisiant
+Barmen
+Gap-gaç ýuwujy
+Myhmanhana müdiri
+Kabul ediji
+Otag ýygnaýjy
+Konsýerž
+Gid
+Syýahatçylyk agenti
+Mugallym
+Başlangyç synp mugallymy
+Fizika mugallymy
+Matematika mugallymy
+Dil mugallymy
+Professor
+Dosent
+Ylmy işgär
+Terbiýeçi
+Kitaphanaçy
+Mekdep müdiri
+Psiholog
+Logoped
+Repetitor
+Tälimçi
+Sport tälimçisi
+Aklawçy
+Kazy
+Prokuror
+Notarius
+Hukuk geňeşçisi
+Kazyýet kätibi
+Polisiýa işgäri
+Ýangyn söndüriji
+Gümrük işgäri
+Serhetçi
+Harby gullukçy
+Garawul
+Howpsuzlyk işgäri
+Gözegçi
+Daýhan
+Ekerançy
+Agronom
+Maldar
+Çopan
+Düýeçi
+Atbakar
+Guşçy
+Aryçy
+Bagban
+Balykçy
+Tokaýçy
+Suwçy
+Kombaýnçy
+Traktorçy
+Pagtaçy
+Bugdaýçy
+Ýyladyşhana işgäri
+Dellekçi
+Kosmetolog
+Manikýurçy
+Bejeriş massažçysy
+Arassaçylyk işgäri
+Zir-zibil arassalaýjy
+Bagy-bossanlyk işgäri
+Sürüji-ekspeditor
+Ussa
+Sagat ussasy
+Aýakgap bejeriji
+Bagşy
+Sazanda
+Aýdymçy
+Tansçy
+Artist
+Režissýor
+Suratkeş
+Heýkeltaraş
+Şahyr
+Ýazyjy

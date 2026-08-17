@@ -1,0 +1,85 @@
+---
+description: Diagnosis. Read the first block before using this list: MANY GAELIC DISEASE NAMES ARE LEXICALISED WITH THEIR ARTICLE and are not words without it — A' CHUING is asthma, A' CHAITHEAMH consumption, A' BHUIDHEACH jaundice, AN CNATAN the common cold, AN T-TRIUTHACH whooping cough, A' GHRIÙTHRACH measles, AN LÒINIDH rheumatism, AN TINNEAS-SIÙCAIR diabetes. A config that strips the article to make the list uniform destroys the word. That old stratum is followed by transparent compounds built on AILLSE (cancer), GALAR (disease), FÀILLIGEADH (failure) and CLACH (stone), which is how Gaelic names a condition it has no single word for, and finally by the eponyms and international terms, kept exactly as written because they are names rather than descriptions.
+locale: gd
+---
+An tinneas-siùcair
+A' chuing
+A' chaitheamh
+A' bhuidheach
+An cnatan
+An cnatan mòr
+A' ghriùthrach
+An t-triuthach
+A' bhreac-òtraich
+An teasach
+Am buinneach
+An lòinidh
+An tinneas-tuiteamach
+An t-sac
+Bruthadh-fala àrd
+Grèim-cridhe
+Stròc
+Galar-cridhe corònach
+Fàilligeadh-cridhe
+Sgleog-cridhe
+Àrd-lipideachd
+At nan alt
+Airtritis rheumatoid
+Cnàmhan brisg
+Aillse
+Aillse an sgamhain
+Aillse a' bhroillich
+Aillse a' chaolain
+Aillse na prostait
+Aillse na goile
+Aillse a' chraicinn
+Bàn-ghalar
+Lymphoma
+Melanoma
+Trom-inntinn
+Iomagain choitcheann
+Galar dà-phòlach
+Sgitsifreinia
+Galar itheannaich
+Galar iar-thrauma
+Miogràn
+Galar Alzheimer
+Galar Parkinson
+Sglerosis Ioma-fhillte
+Nearbh-ghalar iomallach
+Galar-àirne leantainneach
+Clach-àirne
+Clach-dhomblais
+Fàilligeadh-àirne obann
+Cnàmh-lot
+Losgadh-bràghad
+Galar Crohn
+Colitis Ulcerach
+Caolan Frionasach
+Cirrhosis an grùthain
+Galar Coeliac
+Neo-fhulangas lactois
+Fàireag-sgòrnain fo-ghnìomhach
+Fàireag-sgòrnain os-ghnìomhach
+Galar-sgamhain bacte leantainneach
+Bronchitis
+Niumonia
+Sinusitis
+Amhach ghoirt streptococcach
+Cluas ghoirt
+Psoriasis
+Deirmeatiteas atopach
+Guirean
+Rosacea
+Eczema
+Anemia iarainn-dhìth
+Gùt
+Glaucoma
+Sgleò-sùla
+Fibrosis Cistach
+Haemochromatosis oighreachail
+Galar Wilson
+Sciatica
+Clàr-dhruim sgàinte
+Syndrome Trannsa a' Chàrpais
+Tinneas na mara

@@ -1,0 +1,14 @@
+---
+description: Diagnoses a Onkologie clinic records, in Luxembourgish.
+locale: lb
+---
+Longekriibs
+Darmkriibs
+Brustkriibs
+Prostatakriibs
+Hautkriibs
+Leukämie
+Lymphom
+Magenkriibs
+Pankreaskriibs
+Nierenkriibs

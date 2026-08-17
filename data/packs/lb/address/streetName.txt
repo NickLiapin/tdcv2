@@ -1,0 +1,62 @@
+---
+description: Luxembourgish street names — the LANGUAGE's stock, not one country's register. Two things are recorded here that nothing else in the pack shows as plainly. FIRST, THE EIFEL RULE IS VISIBLE IN STREET SIGNS. Luxembourg's national address register holds both "An der Baach" and "An de Wisen": the same preposition, spelled with its -n before D and without it before W, because the rule drops a final -n except before d, t, h, n, z and a vowel. A street-name generator that treats "an der" as a fixed string will produce spellings that do not exist. SECOND, THE WRITTEN STANDARD IS STILL SETTLING, and the register proves it: it carries Duerfstrooss, Duerefstrooss, Duarrefstrooss AND Duärrefstrooss as four separate streets — four spellings of "village street" — and Haaptstrooss beside Hauptstrooss, Kierchewee beside Kiirchewee. The communes wrote their street names down before anyone agreed how to spell the language, and nobody has gone back to normalise them. The names in THIS file are given in the ZLS standard spelling (the règlement grand-ducal of 30 July 1999 as completed by the ZLS rule set in force since 15 November 2019); for the register's own raw forms, with their counts and their variants, draw luxembourg.geo.streetName from the country pack instead. Note also the shape: a large share of Luxembourgish street names are not "X Street" at all but a prepositional phrase naming a place — Am Bongert (in the orchard), Op der Heed (on the heath), Bei der Millen (by the mill) — which is why a template of "name + suffix" produces something that reads as German, not Luxembourgish.
+locale: lb
+---
+Haaptstrooss
+Duerfstrooss
+Kierchestrooss
+Schoulstrooss
+Millewee
+Kierchewee
+Schoulwee
+Neiewee
+Burewee
+Huelewee
+Réimerwee
+Schlasswee
+Wäistrooss
+Groussgaass
+Ieweschtgaass
+Wantergaass
+Am Eck
+Am Bongert
+Am Duerf
+Am Haff
+Am Bierg
+Am Dall
+Am Gaart
+Am Weier
+Am Brill
+Am Pesch
+Am Wangert
+Am Gronn
+Um Knupp
+Um Bierg
+Um Haff
+Um Flouer
+An der Gaass
+An der Baach
+An der Driicht
+An der Uecht
+An der Hiel
+An der Laach
+An der Gässel
+An de Wisen
+Op der Heed
+Op der Baach
+Op der Knupp
+Op der Héicht
+Op der Kopp
+Op der Strooss
+Op der Bunn
+Bei der Kapell
+Bei der Millen
+Bei der Kierch
+Hannert der Kierch
+Virun der Schoul
+Kiischtebierg
+Bakesmillen
+Beim Kräiz
+Bei den Eechen
+Op dem Bierg
+Hannert dem Haff

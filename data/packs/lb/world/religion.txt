@@ -1,0 +1,24 @@
+---
+description: Religions, in Luxembourgish. Katholesch first because it is the historical fact of the place — the country's calendar, its village names and its holidays are Catholic — but the second entry in any honest modern Luxembourgish list is konfessiounslos, without denomination, which is now the largest single answer. Note again the -oun ending in konfessiounslos, Reformatioun and Confessioun: French -ion arriving in a Germanic language.
+locale: lb
+---
+Katholesch
+Konfessiounslos
+Protestantesch
+Evangelesch
+Orthodox
+Muslimesch
+Jiddesch
+Buddhistesch
+Hinduistesch
+Anglikanesch
+Reforméiert
+Zeien Jehovas
+Agnostesch
+Atheistesch
+Bahai
+Sikh
+Fräimaurer
+Chrëschtlech
+Israelitesch
+Aner Reliounen

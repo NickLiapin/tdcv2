@@ -1,0 +1,11 @@
+---
+description: Dishes of Ukrain cuisine
+locale: tk
+---
+Borş
+Warenik
+Deruny
+Salo
+Holodes
+Kutýa
+Uzwar

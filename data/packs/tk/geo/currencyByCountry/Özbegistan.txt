@@ -1,0 +1,5 @@
+---
+description: Currency of Özbegistan
+locale: tk
+---
+Sum

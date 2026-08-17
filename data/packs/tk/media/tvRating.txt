@@ -1,0 +1,13 @@
+---
+description: Film / television content rating (Turkmen). Turkmenistan classifies by minimum age rather than by a letter code, so the values are ages, not G / PG / R.
+locale: tk
+---
+Ähli ýaşlar üçin
+6+
+12+
+14+
+16+
+18+
+Ulular üçin
+Ata-eneleriň gözegçiliginde
+Görkezilmedik

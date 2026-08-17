@@ -1,0 +1,9 @@
+---
+description: Hotel star ratings, on the standard European five-star scale.
+locale: lb
+---
+1 Stär
+2 Stären
+3 Stären
+4 Stären
+5 Stären

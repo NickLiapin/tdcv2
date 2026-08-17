@@ -1,0 +1,5 @@
+---
+description: The capital of Bulgarien in Luxembourgish, as the LOD writes it.
+locale: lb
+---
+Sofia

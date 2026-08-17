@@ -1,0 +1,28 @@
+---
+description: School or college subject. GÀIDHLIG is taught in two distinct streams — as a first language to fluent speakers and as a learner subject — and both are on the curriculum here.
+locale: gd
+---
+Gàidhlig
+Gàidhlig do Luchd-ionnsachaidh
+Beurla
+Matamataig
+Fiosaigs
+Ceimigeachd
+Bith-eòlas
+Saidheans
+Eachdraidh
+Cruinn-eòlas
+Nuadh-chànanan
+Fraingis
+Gearmailtis
+Ealain
+Ceòl
+Dràma
+Foghlam Corporra
+Teicneòlas
+Coimpiutaireachd
+Eaconamas Dachaigh
+Obair-fiodha
+Nuadh-eòlas
+Creideamh
+Eaconamas

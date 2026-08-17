@@ -1,0 +1,14 @@
+---
+description: Jobs in the Gesondheet sector, in Luxembourgish. Where the trade came into the country through French, so did its name.
+locale: lb
+---
+Dokter
+Doktesch
+Infirmier
+Infirmière
+Krankefleeger
+Hiewan
+Kinesitherapeut
+Zänndokter
+Apdikter
+Ergotherapeut

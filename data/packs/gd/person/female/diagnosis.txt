@@ -1,0 +1,30 @@
+---
+description: Diagnosis for a female patient — the sex-specific conditions together with the common ones a woman is most often carrying, so that a generated record is coherent.
+locale: gd
+---
+Aillse a' bhroillich
+Aillse na machlaig
+Aillse nan ughagan
+Endometriosis
+Syndrome nan ughagan ioma-chisteach
+Fibroidean machlaig
+Stad-mìosaich
+Cnàmhan brisg iar-mhìosaich
+Anemia iarainn-dhìth
+Fàireag-sgòrnain fo-ghnìomhach
+Miogràn
+Airtritis rheumatoid
+Trom-inntinn
+Iomagain choitcheann
+Bruthadh-fala àrd
+An tinneas-siùcair
+A' chuing
+Cystitis
+Sglerosis Ioma-fhillte
+Galar Coeliac
+Clach-dhomblais
+Caolan Frionasach
+Stròc
+At nan alt
+Psoriasis
+Trom-inntinn iar-bhreith

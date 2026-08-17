@@ -1,0 +1,14 @@
+---
+description: Diagnoses a Gastroenterologie clinic records, in Luxembourgish.
+locale: lb
+---
+Gastritis
+Magengeschwir
+Reflux
+Reizdarm
+Colitis
+Crohn
+Zöliakie
+Hepatitis
+Liewerzirrhos
+Pankreatitis

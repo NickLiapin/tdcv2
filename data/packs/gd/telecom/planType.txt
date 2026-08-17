@@ -1,0 +1,16 @@
+---
+description: Mobile plan type.
+locale: gd
+---
+Ro-phàighte
+Iar-phàighte
+Gun chrìoch
+Teaghlaich
+Gnothachais
+Pàigh mar a thèid thu
+Dàta a-mhàin
+Cùmhnant bliadhna
+Cùmhnant dà bhliadhna
+Mìos air mhìos
+Oileanach
+Saidhbhear

@@ -1,0 +1,54 @@
+---
+description: Store department / category (Turkmen)
+locale: tk
+---
+Kitaplar
+Kinofilmler
+Saz
+Oýunlar
+Elektronika
+Kompýuterler
+Öý goşlary
+Bag
+Gurallar
+Azyk harytlary
+Saglyk
+Gözellik
+Oýnawaçlar
+Çagalar üçin harytlar
+Bäbekler üçin harytlar
+Egin-eşik
+Aýakgap
+Şaý-sepler
+Sport harytlary
+Açyk howada dynç alyş
+Awtoulag harytlary
+Senagat harytlary
+Ofis harytlary
+Öý haýwanlary
+Mebel
+Öý tehnikasy
+Kanselýariýa
+Gurluşyk harytlary
+Halylar
+Dokma harytlary
+Aşhana harytlary
+Süýji-köke
+Çaý we kofe
+Miwe we gök önümler
+Et önümleri
+Süýt önümleri
+Çörek önümleri
+Balyk önümleri
+Ýuwujy serişdeler
+Atyr harytlary
+Sagatlar
+Optika
+Dermanhana
+Welosipedler
+Sowgatlyk harytlar
+Ýadygärlik sowgatlar
+Tohumlar
+Güller
+Ýyladyş enjamlary
+Suw we içgiler

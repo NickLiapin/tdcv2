@@ -1,0 +1,15 @@
+---
+description: Employment / contract type (Turkmen)
+locale: tk
+---
+Doly iş güni
+Ýarym iş güni
+Şertnama esasynda
+Wagtlaýyn iş
+Möwsümleýin iş
+Tejribe geçmek
+Erkin işgär
+Öýden işlemek
+Bilelikde işleşmek
+Şägirtlik
+Meýletin iş

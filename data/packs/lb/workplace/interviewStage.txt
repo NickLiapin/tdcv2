@@ -1,0 +1,15 @@
+---
+description: Stages of a hiring process, as a Luxembourgish employer names them.
+locale: lb
+---
+Kandidatur
+Screening
+Telefonsentretien
+Éischten Entretien
+Zweeten Entretien
+Test
+Assessment
+Referenzen
+Offer
+Ënnerschrëft
+Refus

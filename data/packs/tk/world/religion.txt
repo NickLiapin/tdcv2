@@ -1,0 +1,25 @@
+---
+description: World religion (Turkmen). Turkmen are overwhelmingly Sunni Muslims of the Hanafi school, historically layered over older ancestor and shrine practice.
+locale: tk
+---
+Yslam
+Sünni yslamy
+Şaýy yslamy
+Sopuçylyk
+Hristianlyk
+Prawoslawiýa
+Katoliklik
+Protestantlyk
+Iudaizm
+Buddizm
+Hinduizm
+Sikhizm
+Jaýnizm
+Sintoizm
+Daoçylyk
+Konfusiçilik
+Zoroastrizm
+Bahaýylyk
+Şamançylyk
+Ateizm
+Agnostisizm

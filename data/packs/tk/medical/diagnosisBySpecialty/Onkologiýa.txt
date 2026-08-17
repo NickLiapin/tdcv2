@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in Onkologiýa
+locale: tk
+---
+Süýt mäziniň ragy
+Öýken ragy
+Aşgazan ragy
+Ýogyn içegäniň ragy
+Leýkoz
+Limfoma
+Melanoma

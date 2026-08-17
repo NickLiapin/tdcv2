@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday. The DI- element is kept because without it the stub is not recognisable as a day.
+locale: gd
+---
+DiD
+DiL
+DiM
+DiC
+DiA
+DiH
+DiS

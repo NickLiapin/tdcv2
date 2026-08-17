@@ -1,0 +1,23 @@
+---
+description: Minerals and ores. This is not a decorative category for Luxembourg: the whole south of the country is the MINETT, named after the minette iron ore that was mined there from the 1850s and that built the steel industry and half the towns in this pack's place-name lists. The last iron mine closed in 1981. EISENERZ heads the list for that reason.
+locale: lb
+---
+Eisenerz
+Minette
+Eisen
+Kalleksteen
+Sandsteen
+Schiefer
+Leeën
+Marber
+Granit
+Gips
+Salz
+Kuel
+Koffer
+Bläi
+Zénk
+Sëlwer
+Gold
+Quaarz
+Sand

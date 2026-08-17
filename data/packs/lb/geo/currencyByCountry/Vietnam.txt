@@ -1,0 +1,5 @@
+---
+description: The currency of Vietnam, named in Luxembourgish.
+locale: lb
+---
+Dong

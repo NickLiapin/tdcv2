@@ -1,0 +1,20 @@
+---
+description: Horses and horse types. PÄERD is the LOD's word (neuter) and BIDDI is its second entry for the same animal — a nursery word that survives into adult speech, of the kind a dictionary of a mostly-spoken language records and a dictionary of a mostly-written one does not.
+locale: lb
+---
+Päerd
+Biddi
+Fëllen
+Stut
+Hengscht
+Wallach
+Pony
+Ardenner
+Haflinger
+Friesen
+Araber
+Vollbluttpäerd
+Kalbluttpäerd
+Warmbluttpäerd
+Shetlandpony
+Reitpäerd

@@ -1,0 +1,25 @@
+---
+description: World religion and tradition. The Gaelic-speaking area is not religiously uniform and the split runs along a geographic line everyone here knows: Lewis, Harris, North Uist and much of Skye are Presbyterian, while South Uist, Eriskay and Barra are Catholic, and CLÈIREACHAS (Presbyterianism) and CAITLIGEACHD are therefore listed as distinct traditions rather than folded into Christianity.
+locale: gd
+---
+Crìosdaidheachd
+Clèireachas
+Caitligeachd
+Easbaigeachd
+Pròstanachd
+Ioslam
+Hionduthachd
+Bùdachas
+Iùdhachd
+Sikheachd
+Jaineachd
+Sinto
+Taothachd
+Baháʼí
+Pàganachd
+Ceilteachas
+Neo-chreideas
+Ag-eòlas
+Saoghalta
+Spioradalachd
+Gun chreideamh

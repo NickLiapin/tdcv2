@@ -1,0 +1,5 @@
+---
+description: Capital of Braziliýa
+locale: tk
+---
+Braziliýa

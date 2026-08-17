@@ -1,0 +1,15 @@
+---
+description: The state of a booking.
+locale: lb
+---
+Ugefrot
+Optioun
+Bestätegt
+Bezuelt
+Deelbezuelt
+Änert
+Annuléiert
+Rembourséiert
+Op der Waardelëscht
+Net erschéngt
+Ofgeschloss

@@ -1,0 +1,28 @@
+---
+description: Turkmen thoroughfare type. It FOLLOWS the name, not precedes it, and carries the izafet possessive suffix: 'Bahar kocesi', 'Garassyzlyk sayoly'. Values are given in that possessed form so a template can simply concatenate name + suffix.
+locale: tk
+---
+köçesi
+şaýoly
+meýdany
+meýdançasy
+seýilgähi
+ýoly
+geçelgesi
+geçidi
+aýlawy
+köprüsi
+kenary
+bulwary
+prospekti
+çatrygy
+kwartaly
+etrapçasy
+şäherçesi
+obasy
+ýaşaýyş toplumy
+hatary
+tapgyry
+düşelgesi
+girelgesi
+tupigi

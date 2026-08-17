@@ -1,0 +1,12 @@
+---
+description: Job titles found in Iasgach.
+locale: gd
+---
+Iasgair
+Sgiobair-bàta
+Neach-lìn
+Neach-tuathanachais-èisg
+Neach-giullachd èisg
+Neach-sgrùdaidh stoc
+Neach-margaidh èisg
+Neach-maorach

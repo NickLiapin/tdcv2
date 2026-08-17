@@ -1,0 +1,34 @@
+---
+description: Household budget headings, in Luxembourgish. LOYER heads it because housing is the largest single item in a Luxembourgish household budget by a wide margin — that is the country's defining cost. Note that TRANSPORT is unusually small here since public transport has been free nationwide since 2020. The currency throughout this pack is the EURO.
+locale: lb
+---
+Loyer
+Hypothéik
+Charges
+Stroum
+Gas
+Waasser
+Heizung
+Internet
+Telefon
+Assurancen
+Liewensmëttel
+Restaurant
+Transport
+Auto
+Bensin
+Parking
+Gesondheet
+Apdikt
+Kleeder
+Educatioun
+Crèche
+Fräizäit
+Sport
+Kultur
+Vakanz
+Kaddoen
+Spuere
+Steieren
+Ofbezuelung
+Aneres

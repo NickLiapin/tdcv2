@@ -1,0 +1,44 @@
+---
+description: Airline. LOGANAIR is the one that matters here: it flies the Highlands and Islands network under public service obligation, including the shortest scheduled flight in the world between Westray and Papa Westray. Brand names keep their registered spelling.
+locale: gd
+---
+Loganair
+British Airways
+easyJet
+Ryanair
+Jet2
+TUI
+Wizz Air
+Aer Lingus
+KLM
+Air France
+Lufthansa
+SAS
+Norwegian
+Finnair
+Iberia
+Vueling
+Swiss
+Austrian
+Brussels Airlines
+TAP Air Portugal
+ITA Airways
+LOT
+Icelandair
+Emirates
+Qatar Airways
+Etihad
+Turkish Airlines
+Singapore Airlines
+Cathay Pacific
+Qantas
+Air Canada
+United
+Delta
+American Airlines
+JetBlue
+Virgin Atlantic
+Hebridean Air Services
+Eastern Airways
+Aurigny
+Blue Islands

@@ -1,0 +1,16 @@
+---
+description: Western zodiac sign (Turkmen). The traditional Turkmen reckoning is NOT this one: it is the twelve-year animal cycle, the muce — mouse, ox, leopard, hare, fish, snake, horse, sheep, monkey, hen, dog, pig — in which a person's muce year, and especially its return every twelfth year, is what carries meaning. The older Arabic-derived names for these twelve signs (Hamal, Sowur, Jowza ...) are still read in almanacs.
+locale: tk
+---
+Guzy
+Sygyr
+Ekizekler
+Leňňeç
+Ýolbars
+Gyz
+Terezi
+Içýan
+Keman
+Owlak
+Gowa
+Balyklar

@@ -1,0 +1,23 @@
+---
+description: Kind of property. TAIGH-CROITE is a croft house and TALAMH CROITE croft land, and neither is a house or a field in the ordinary sense: a croft is a tenancy regulated by the Crofting Acts, it is bought and sold as a tenancy, and a config that treats it as freehold property has the law wrong. TAIGH-DUBH, the blackhouse, is the old drystone thatched dwelling with the byre under the same roof.
+locale: gd
+---
+Taigh sgaraichte
+Taigh leth-sgaraichte
+Taigh sreathach
+Flat
+Bungalo
+Taigh-croite
+Talamh croite
+Taigh-dubh
+Taigh-tuathanais
+Bothan
+Taigh-samhraidh
+Taigh-baile
+Taigh-mòr
+Sabhal air ath-leasachadh
+Àrainn
+Talamh
+Ionad-gnothachais
+Bùth
+Taigh-solais

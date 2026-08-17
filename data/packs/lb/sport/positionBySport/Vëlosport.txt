@@ -1,0 +1,12 @@
+---
+description: Playing roles in Vëlosport as Luxembourg names them — which means the FRENCH names, because cycling came into the country through France and Belgium and nobody here says the English ones.
+locale: lb
+---
+Sprinter
+Kloterer
+Rouleur
+Puncheur
+Contre-la-montre
+Domestique
+Leader
+Gruppetto

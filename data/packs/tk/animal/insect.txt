@@ -1,0 +1,24 @@
+---
+description: Insect and other small crawler (Turkmen)
+locale: tk
+---
+Garynja
+Ary
+Kebelek
+Tomzak
+Çekirtge
+Siňek
+Çybyn
+Möý
+Içýan
+Bit
+Termit
+Ýüpek gurçugy
+Gurçuk
+Sazandar
+Sary ary
+Sary garynja
+Gara garynja
+Ganatly garynja
+Suw çybyny
+Ekin gurçugy

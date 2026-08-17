@@ -1,0 +1,20 @@
+---
+description: Qualifications. The Luxembourgish school ladder is its own and does not map onto a German or French one: the DIPLÔME DE FIN D'ÉTUDES SECONDAIRES CLASSIQUES and its technical twin are the school-leaving certificates, the CATP/DAP is the vocational one, and above them sit the Bologna degrees (Bachelor, Master, Doktorat) which the country's only university has awarded since 2003. The names are the French legal ones because that is what is printed on the paper.
+locale: lb
+---
+Diplôme de fin d'études secondaires
+Diplôme de fin d'études secondaires classiques
+Diplôme de fin d'études secondaires générales
+CATP
+DAP
+DT
+Brevet de maîtrise
+BTS
+Bachelor
+Master
+Doktorat
+Diplom
+Zertifikat
+Attestatioun
+Formatioun continue
+Léierofschloss

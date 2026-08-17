@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Meadhan-thìreach ancestry. A prevalence signal, not an exclusive one. Eponyms and registered genetic names are kept unchanged; only the descriptive conditions are rendered in Gaelic.
+locale: gd
+---
+Beta-Thalassemia
+Comharra Beta-Thalassemia
+Dìth G6PD
+Fiabhras Meadhan-thìreach Teaghlaich
+Galar Behçet
+Alpha-Thalassemia
+Favism

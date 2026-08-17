@@ -1,0 +1,13 @@
+---
+description: Time of day (Turkmen). 'Ikindi' is the late afternoon, named for the third daily prayer, and has no one-word English equivalent.
+locale: tk
+---
+daň
+säher
+ertir
+günortan
+öýlän
+ikindi
+agşam
+gije
+ýarygije

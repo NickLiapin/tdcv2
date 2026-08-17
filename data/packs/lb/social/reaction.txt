@@ -1,0 +1,15 @@
+---
+description: Reactions to a post, in Luxembourgish.
+locale: lb
+---
+Gefällt mir
+Häerz
+Haha
+Wow
+Traureg
+Rosen
+Merci
+Bravo
+Gedeelt
+Gespäichert
+Gemellt

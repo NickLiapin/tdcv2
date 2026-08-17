@@ -1,0 +1,17 @@
+---
+description: Shoe size on the CONTINENTAL Paris-point scale, which is what a shoebox in Luxembourg prints — whole numbers from 35 to 47, no half sizes. Luxembourg is a continental country between France, Belgium and Germany and all three use this scale, so there is no local variant to get wrong here; what would be wrong is a UK scale (a continental 42 is a UK 8) or the Japanese centimetre scale. Naming the scale is the point of this description, because the address clothing.shoeSize says nothing about which scale it holds.
+locale: lb
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47

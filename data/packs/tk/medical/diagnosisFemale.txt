@@ -1,0 +1,30 @@
+---
+description: Medical diagnosis that requires female anatomy — it cannot occur in a male patient. Draw from this list only for female rows; general conditions live in medical/diagnosis.
+locale: tk
+---
+Endometrioz
+Polikistoz ýumurtgalyk sindromy
+Ýatgy miomasy
+Ýumurtgalyk kistasy
+Ýumurtgalyk ragy
+Ýatgy boýunjygynyň ragy
+Ýatgy boýunjygynyň displaziýasy
+Serwisit
+Endometrit
+Ýatgynyň ragy
+Kiçi çanaklygyň sowuklama keseli
+Bakterial waginoz
+Wulwowaginal kandidoz
+Menorragiýa
+Dismenoreýa
+Amenoreýa
+Preeklampsiýa
+Göwrelilik süýji keseli
+Göwreliligiň aşa gaýtarmasy
+Ýatgydan daşary göwrelilik
+Dogrumdan soňky gan akma
+Mastit
+Süýt mäziniň fibrokistoz üýtgemesi
+Klimakteriki sindrom
+Menstruasiýadan öňki disforiki bozulma
+Ýatgynyň düşmegi

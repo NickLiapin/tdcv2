@@ -1,0 +1,5 @@
+---
+description: Capital of An Eadailt.
+locale: gd
+---
+An Ròimh

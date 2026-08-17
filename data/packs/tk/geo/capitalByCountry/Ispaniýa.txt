@@ -1,0 +1,5 @@
+---
+description: Capital of Ispaniýa
+locale: tk
+---
+Madrid

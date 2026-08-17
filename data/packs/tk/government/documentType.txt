@@ -1,0 +1,21 @@
+---
+description: Kind of official document (Turkmen). These are the NAMES of document kinds, not their number formats — no identifier layout is written anywhere in this pack.
+locale: tk
+---
+Pasport
+Daşary ýurt pasporty
+Doglandygy hakynda şahadatnama
+Nika hakynda şahadatnama
+Nikanyň bozulmagy hakynda şahadatnama
+Aradan çykandygy hakynda şahadatnama
+Sürüjilik şahadatnamasy
+Harby şahadatnama
+Zähmet depderçesi
+Bilim hakynda diplom
+Saglyk kepilnamasy
+Ýaşaýyş jaýa bolan hukuk hakynda resminama
+Salgyt beýannamasy
+Gurluşyk rugsatnamasy
+Telekeçilik şahadatnamasy
+Wiza
+Ynanç haty

@@ -1,0 +1,26 @@
+---
+description: Vehicle body type. LÀN-DHRAIBHEADH and the pickup are over-represented in the Highlands relative to the rest of Britain, and the last three are boats, because on an island a boat is a vehicle.
+locale: gd
+---
+Càr
+Sedan
+Hatchback
+Estate
+SUV
+Crosaire
+4x4
+Làn-dhraibheadh
+Pickup
+Bhan
+Minibhan
+Bus
+Còidse
+Làraidh
+Tractar
+Quad
+Baidhsagal-motair
+Càr-fosgailte
+Càr-spòrs
+Bàta
+Bàta-aiseig
+Eathar

@@ -1,0 +1,5 @@
+---
+description: Currency of Hindistan
+locale: tk
+---
+Hindi rupiýasy

@@ -1,0 +1,26 @@
+---
+description: Vehicle body type (Turkmen)
+locale: tk
+---
+Sedan
+Kupe
+Hetçbek
+Uniwersal
+Krossower
+Jip
+Kabriolet
+Mikroawtobus
+Ýük awtoulagy
+Pikap
+Furgon
+Awtobus
+Traktor
+Ekskawator
+Kran
+Sisterna
+Refrižerator
+Sport awtoulagy
+Kaşaň awtoulag
+Ýol gurluşyk tehnikasy
+Motosikl
+Kwadrosikl

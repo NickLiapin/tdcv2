@@ -1,0 +1,5 @@
+---
+description: The currency of Litauen, named in Luxembourgish.
+locale: lb
+---
+Euro

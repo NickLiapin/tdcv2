@@ -1,0 +1,34 @@
+---
+description: Hotel facilities, in Luxembourgish.
+locale: lb
+---
+Fräie WLAN
+Parking
+Garage
+Frühstéck
+Restaurant
+Bar
+Zëmmerservice
+Klimaanlag
+Heizung
+Fernseh
+Safe
+Minibar
+Waasserkessel
+Buedzëmmer
+Dusch
+Bidet
+Fön
+Botzdéngscht
+Wäscherei
+Rezeptioun 24h
+Lift
+Schwämm
+Sauna
+Hammam
+Fitnessraum
+Gaart
+Terrass
+Haustiere erlaabt
+Kannerbett
+Fahrradverleih

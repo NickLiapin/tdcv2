@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Ortopediýa
+locale: tk
+---
+Osteoartroz
+Oňurga diskiniň süýşmegi
+Radikulit
+Süňk döwügi
+Bilek kanaly sindromy
+Tendinit

@@ -1,0 +1,27 @@
+---
+description: Feature listed with a property. SEALLADH NA MARA and AISEAG FAISG are the two that move a price here; PANAILEAN-GRÈINE and TUIRBIN-GAOITHE are common on island houses because the grid connection is weak and the wind is not.
+locale: gd
+---
+Gàrradh
+Garaids
+Àite-parcaidh
+Teine-fiodha
+Stòbha
+Teasachadh meadhanach
+Uinneagan dùbailte
+Còmhdach-blàiths
+Sealladh na mara
+Faisg air an tràigh
+Faisg air an sgoil
+Faisg air a' bhùth
+Aiseag faisg
+Talamh croite
+Seada
+Bothan-gàrraidh
+Coille
+Allt
+Tobar
+Panailean-grèine
+Tuirbin-gaoithe
+Bann-leathann
+Seòmar-ionnlaid en-suite

@@ -1,0 +1,19 @@
+---
+description: Directional qualifier for a district, estate or road name. Gaelic's compass is not built on the same axis pair as English: TUATH and DEAS are north and south, and DEAS also means "right", while EAR and IAR are east and west and also mean "behind" and "after" — the speaker is imagined facing the rising sun, so east is in front and north is on the left. The intermediate points compound the two with lenition on the second element (Ear-thuath, Iar-dheas). SHUAS and SHÌOS, up and down, are used far more than any compass point in ordinary Gaelic address-giving.
+locale: gd
+---
+Tuath
+Deas
+An Ear
+An Iar
+An Ear-thuath
+An Iar-thuath
+An Ear-dheas
+An Iar-dheas
+Shuas
+Shìos
+Meadhan
+Tuathach
+Deasach
+Earach
+Iarach

@@ -1,0 +1,14 @@
+---
+description: Fuels. Luxembourg's petrol stations are a national institution because fuel duty is lower than in all three neighbours, so a Luxembourgish fuel list is what a cross-border driver stops for.
+locale: lb
+---
+Bensin
+Super 95
+Super 98
+Diesel
+LPG
+CNG
+Elektresch
+Hybrid
+Plug-in-Hybrid
+Waasserstoff

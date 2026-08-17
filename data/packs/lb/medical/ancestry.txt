@@ -1,0 +1,16 @@
+---
+description: Ancestry populations as CLINICAL GENETICS defines them — geographic descent, the thing a carrier frequency is actually reported against — and NOT social race categories. Note how these labels were made, because the honest answer matters: the LOD carries Europa, Asien, Afrika, Amerika, Mëttelmier and Pazifik as lemmas, and the -esch nationality suffix and the compounding are fully productive in Luxembourgish, but the dictionary has no ready-made term for any of these twelve groups, in any language, because they are a category of medical genetics rather than of ordinary speech. The labels here are therefore COMPOUNDED from attested LOD bases rather than quoted from it, and that is stated so a reader does not mistake them for dictionary entries.
+locale: lb
+---
+Nordeuropäesch
+Osteuropäesch
+Mëttelmier
+Ashkenazi-Jiddesch
+Mëttleren Osten
+Nordafrikanesch
+Subsahara-Afrikanesch
+Südasiatesch
+Ostasiatesch
+Südostasiatesch
+Pazifikinselen
+Indigen Amerikanesch

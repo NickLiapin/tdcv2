@@ -1,0 +1,10 @@
+---
+description: Jobs in Maliýe
+locale: tk
+---
+Buhgalter
+Maliýe seljerijisi
+Auditor
+Bank gullukçysy
+Ykdysadyýetçi
+Salgyt geňeşçisi

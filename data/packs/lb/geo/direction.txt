@@ -1,0 +1,12 @@
+---
+description: The compass in Luxembourgish. Norden, Süden, Osten and Westen are the LOD's forms and they are the German ones; the compass is one of the places where Luxembourgish and German simply agree, and saying so is more useful than manufacturing a difference. What IS local is the everyday names for the parts of the country, which are not compass points at all — the north is the Éislek, the south is the Minett, and no Luxembourger says "the south-west". Those belong to the Luxembourg country pack, not here.
+locale: lb
+---
+Norden
+Nordosten
+Osten
+Südosten
+Süden
+Südwesten
+Westen
+Nordwesten

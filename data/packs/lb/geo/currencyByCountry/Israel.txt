@@ -1,0 +1,5 @@
+---
+description: The currency of Israel, named in Luxembourgish.
+locale: lb
+---
+Shekel

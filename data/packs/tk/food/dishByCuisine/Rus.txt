@@ -1,0 +1,12 @@
+---
+description: Dishes of Rus cuisine
+locale: tk
+---
+Borş
+Şi
+Pelmeni
+Bliny
+Olywýe salady
+Solýanka
+Okroşka
+Kaşa

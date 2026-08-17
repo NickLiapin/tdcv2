@@ -1,0 +1,24 @@
+---
+description: Budget / spending category (Turkmen)
+locale: tk
+---
+Kireý
+Jemagat hyzmatlary
+Elektrik energiýasy
+Gaz
+Suw
+Azyk harytlary
+Ulag
+Ýangyç
+Aragatnaşyk
+Internet
+Saglygy goraýyş
+Dermanlar
+Bilim
+Egin-eşik
+Dynç alyş
+Syýahat
+Toý-baýram çykdajylary
+Sowgatlar
+Çagalara ideg
+Tygşytlanan pul

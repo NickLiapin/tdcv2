@@ -1,0 +1,30 @@
+---
+description: Product review title (Turkmen)
+locale: tk
+---
+Örän gowy haryt!
+Maslahat berýärin
+Bahasyna degmeýär
+Garaşylanymdan gowy
+Ortaça
+Ýene alaryn
+Göwnüme ýaramady
+Hili ajaýyp
+Tiz döwüldi
+Bahasyna görä gowy
+Beýany bilen doly gabat gelýär
+Maslahat bermeýärin
+Örän halaýaryn!
+Bahasy biraz ýokary
+Çalt gowşuryldy
+Gaplamasy gowşak
+Ölçegi kiçi geldi
+Ölçegi uly geldi
+Suratdakydan tapawutly
+Sowgat üçin ajaýyp
+Berk we ygtybarly
+Gündelik ulanyş üçin amatly
+Ulanmasy aňsat
+Görkezmesi düşnüksiz
+Ikinji gezek alýaryn
+Ýokary hilli, sag boluň

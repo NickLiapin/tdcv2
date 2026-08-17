@@ -1,0 +1,18 @@
+---
+description: The state of an order, in Luxembourgish.
+locale: lb
+---
+Ugefrot
+Bestallt
+Bestätegt
+Bezuelt
+A Bearbechtung
+Preparéiert
+Verpackt
+Ofgeschéckt
+Ënnerwee
+Zougestallt
+Ofgeholl
+Annuléiert
+Zeréckgeschéckt
+Rembourséiert

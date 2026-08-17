@@ -1,0 +1,12 @@
+---
+description: Job titles found in Reic.
+locale: gd
+---
+Neach-reic
+Manaidsear bùtha
+Neach-airgid
+Neach-stòrais
+Neach-taisbeanaidh
+Ceannaiche
+Marsanta
+Neach-òrdughan

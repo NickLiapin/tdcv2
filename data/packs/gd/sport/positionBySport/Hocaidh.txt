@@ -1,0 +1,12 @@
+---
+description: Playing positions in Hocaidh.
+locale: gd
+---
+Fear-glèidhidh
+Cùlaiche
+Meadhan-pàirce
+Sgiathaire
+Toisiche
+Caiptean
+Neach-ionaid
+Rèitire

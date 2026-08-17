@@ -1,0 +1,96 @@
+---
+description: Scottish Gaelic surnames — the form a MAN carries. Draw once: a Gaelic full name has one surname. THE PREFIX IS GENDERED, which is the single fact a config must know about this list: MAC is "son", and a woman takes NIC instead — Nic is a contraction of NIGHEAN MHIC, "daughter of the son of", so MacDhòmhnaill is a man and NicDhòmhnaill his sister. Non-Mac surnames mark the same distinction by LENITING for a woman: Caimbeul becomes Chaimbeul, Grannd becomes Ghrannd. See person/female/lastName.txt, which is derived from this list line for line by that rule. Inside the surname itself the lenition is already frozen in place and shows as an inserted H: Dòmhnall gives MacDhòmhnaill, Tòmas MacThòmais, Pàrlan MacPhàrlain, Fionnghan MacFhionghain, Beathan MacBheathain. Where you see no H the rule was blocked, not forgotten — C and G do not lenite after the -c of Mac (MacCoinnich, MacGriogair, never MacChoinnich), and L, N and R have no written lenition at all (MacLeòid, MacNèill, MacRath). Two other shapes appear here. MAC AN / MAC A' + a noun is a trade or an office rather than a father: Mac a' Ghobhainn is the smith's son (Smith), Mac an t-Saoir the joiner's (MacIntyre), Mac an t-Sagairt the priest's (MacTaggart), Mac an Aba the abbot's (MacNab), Mac a' Phearsain the parson's (MacPherson), Mac na Ceàrdaich the craftsman's (Sinclair in Caithness). And the -ACH forms (Dòmhnallach, Leòdach, Rothach, Frisealach, Sutharlanach, Cuimeanach, Rosach, Mèinnearach) are clan adjectives used with the article — AN DÒMHNALLACH, "the MacDonald" — which coexist with the Mac- form rather than replacing it, so both are here on purpose. Counts are a Zipf estimate of prevalence in the Gaelic-speaking areas, taken from the published frequency of the anglicised equivalent (MacDhòmhnaill is MacDonald, Moireasdan is Morrison, Mac a' Ghobhainn is Smith); they are a fitted shape and not a census.
+locale: gd
+weighted: true
+---
+MacDhòmhnaill,1000000
+MacLeòid,574349
+MacAoidh,415243
+MacCoinnich,329876
+Moireasdan,275945
+Mac a' Ghobhainn,238494
+Caimbeul,210824
+MacIomhair,189464
+MacGill'Eain,172427
+Moireach,158489
+MacNèill,146854
+MacAonghais,136979
+MacRath,128482
+MacAsgaill,121087
+MacPhàrlain,114584
+MacPhàil,108818
+MacThòmais,103667
+MacFhionghain,99033
+MacFhionnlaigh,94841
+MacAmhlaigh,91028
+MacCuinn,87543
+MacAlasdair,84345
+MacLachlainn,81398
+MacMhathain,78673
+MacIlleMhaoil,76146
+MacNeacail,73794
+MacPhàidein,71599
+MacRuairidh,69546
+MacDhùghaill,67621
+MacEanraig,65811
+MacGriogair,64107
+MacArtair,62499
+MacCaluim,60980
+MacDhiarmaid,59541
+MacEachainn,58176
+MacFhearghais,56879
+MacGill'Ìosa,55646
+MacIlleBhàin,54471
+MacIlleDhuibh,53351
+MacIlleDhuinn,52281
+MacGhilleMhìcheil,51259
+MacLaomainn,50280
+MacSuain,49342
+MacBheathain,48443
+MacMhuirich,47580
+MacIain,46751
+MacTheàrlaich,45953
+MacBhàtair,45186
+Mac an Tòisich,44447
+Mac an Aba,43734
+Mac a' Phearsain,43047
+Mac an t-Saoir,42383
+Mac an t-Sagairt,41742
+Mac a' Chombaich,41123
+Mac na Ceàrdaich,40523
+MacDhonnchaidh,39943
+MacNeachdainn,39382
+MacFhearchair,38838
+MacCruimein,38310
+MacDhunnshleibhe,37798
+MacGhillebhràth,37302
+MacGuaire,36820
+MacCorcadail,36351
+MacLabhrainn,35896
+MacFhilib,35454
+MacFhraing,35023
+MacAdhaimh,34605
+MacGill'Fhaolain,34197
+MacUalraig,33800
+MacEacharn,33413
+MacCodruim,33036
+MacLùcais,32668
+MacGumaraid,32310
+Camshron,31960
+Grannd,31619
+Stiùbhart,31285
+Rothach,30960
+Frisealach,30642
+Robasdan,30331
+Dòmhnallach,30028
+Leòdach,29731
+Gòrdan,29440
+Greum,29156
+Foirbeis,28878
+Bochanan,28606
+Sutharlanach,28340
+Cuimeanach,28079
+Dùghlas,27823
+Rosach,27573
+Siosal,27327
+Mèinnearach,27087

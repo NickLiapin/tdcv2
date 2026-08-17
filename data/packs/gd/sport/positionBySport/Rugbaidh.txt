@@ -1,0 +1,16 @@
+---
+description: Playing positions in Rugbaidh.
+locale: gd
+---
+Prop
+Bualadair
+Clì-shreath
+Treas-sreath
+Sgrum-leth
+Cluich-leth
+Meadhan
+Sgiathaire
+Làn-chùlaiche
+Caiptean
+Neach-ionaid
+Rèitire

@@ -1,0 +1,24 @@
+---
+description: Filler paragraphs for lorem-ipsum style text. Handwritten: Project Gutenberg holds no Turkmen book at all, so these are composed by hand from the sentences in text/sentence.txt rather than drawn from a corpus.
+locale: tk
+---
+Gün dogdy. Howa yssy boldy. Çagalar mekdebe barýarlar. Mugallym olara sapak berýär.
+Ýaz geldi. Bag gülleýär. Guşlar aýdym aýdýar. Bu ýer örän gözel.
+Gyşda howa sowuk bolýar. Gar ýagdy. Şemal güýçli öwüsýär. Adamlar öýde oturýar.
+Çöl giň. Düýeler çölde ýöreýär. Gum tolkun ýaly ýatyr. Ýol uzyn.
+Suw çeşmeden akýar. Bag suwarylýar. Agaçlar ösýär. Miwe bişýär.
+Halyçy haly dokaýar. Nagyşlar gadymy. Her nagyşyň öz manysy bar. Bu iş sabyr talap edýär.
+Çörek tamdyrda bişýär. Ysy uzakdan gelýär. Myhmanlar geldi. Saçak ýazyldy.
+Bagşy dutar çalýar. Sözler dessandan alnypdyr. Diňleýjiler dymýar. Agşam uzaga çekdi.
+Men işe gitdim. Iş säher bilen başlanýar. Ýygnak sagat onda geçiriler. Agşam öýe dolandym.
+Biz oba gitdik. Oba şäherden uzak. Ýolda köp agaç gördük. Garyndaşlarymyz bizi garşylady.
+Adamlar bazara gitdiler. Gawun tomusda bişýär. Bahasy arzan. Her kim özüne gerek zady aldy.
+Talyplar synagdan geçdiler. Netije ertir yglan ediler. Olar tolgunýar. Mugallym olary köşeşdirdi.
+Lukman keseli anyklady. Derman ýazyp berdi. Näsag birnäçe gün dynç aldy. Soňra ol sagaldy.
+Şäherde täze jaý guruldy. Ol bäş gatly. Her gatda dört öý bar. Töwerekde bag ekildi.
+Kitaphana şäheriň merkezinde ýerleşýär. Ol her gün açyk. Talyplar bu ýerde okaýar. Kitaplar tekjelerde tertipli goýlan.
+Atlar meýdanda otlaýar. Olaryň boýy uzyn, bedeni inçe. Ahalteke aty gadymdan bäri şeýle. Bu tohum halkyň buýsanjy.
+Ol dükandan çörek aldy. Soňra çaý satyn aldy. Öýe gaýdyp geldi. Maşgala saçagyň başyna ýygnandy.
+Deňiz asuda. Balykçylar irden çykdy. Tor suwa taşlandy. Agşama çenli olar dolandy.
+Biz dostlarymyz bilen duşuşdyk. Bile surata düşdük. Köp gürleşdik. Wagt çalt geçdi.
+Olar bizi toýa çagyrdylar. Toý uly geçdi. Bagşy aýdym aýtdy. Ähli goňşular ýygnandy.

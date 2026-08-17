@@ -1,0 +1,10 @@
+---
+description: Jobs in Hukuk
+locale: tk
+---
+Aklawçy
+Kazy
+Prokuror
+Notarius
+Hukuk geňeşçisi
+Kazyýet kätibi

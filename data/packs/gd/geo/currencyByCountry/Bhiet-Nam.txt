@@ -1,0 +1,5 @@
+---
+description: Currency of Bhiet-Nam.
+locale: gd
+---
+Dong Bhiet-Namach

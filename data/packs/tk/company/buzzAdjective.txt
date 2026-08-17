@@ -1,0 +1,59 @@
+---
+description: Business buzz adjective (Turkmen)
+locale: tk
+---
+Innowasion
+Döwrebap
+Sanly
+Netijeli
+Toplumlaýyn
+Bäsdeşlige ukyply
+Durnukly
+Ygtybarly
+Çeýe
+Tiz
+Ýokary tehnologiýaly
+Awtomatlaşdyrylan
+Merkezleşdirilen
+Merkezleşdirilmedik
+Halkara derejeli
+Milli
+Sebitleýin
+Global
+Strategik
+Meýilnamalaýyn
+Ylmy esasly
+Maglumata daýanýan
+Müşderä gönükdirilen
+Ekologiýa taýdan arassa
+Energiýa tygşytlaýjy
+Girdejili
+Şeffaf
+Açyk
+Howpsuz
+Goragly
+Ölçeglenýän
+Modully
+Utgaşdyrylan
+Kämilleşdirilen
+Öňdebaryjy
+Tejribeli
+Hünärmen
+Ykjam
+Giň gerimli
+Köpugurly
+Ýörite
+Standartlaşdyrylan
+Sertifikatlaşdyrylan
+Barlanan
+Synagdan geçen
+Uzak möhletli
+Gysga möhletli
+Elýeterli
+Amatly
+Hilli
+Hemmetaraplaýyn
+Utgaşykly
+Öz-özüni dolandyrýan
+Uýgunlaşýan
+Çalt ösýän

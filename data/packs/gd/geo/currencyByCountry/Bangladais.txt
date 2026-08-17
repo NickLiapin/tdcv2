@@ -1,0 +1,5 @@
+---
+description: Currency of Bangladais.
+locale: gd
+---
+Taka Bangladaiseach

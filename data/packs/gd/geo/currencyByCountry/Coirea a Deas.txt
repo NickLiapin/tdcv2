@@ -1,0 +1,5 @@
+---
+description: Currency of Coirea a Deas.
+locale: gd
+---
+Won Coireanach

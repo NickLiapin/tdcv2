@@ -1,0 +1,41 @@
+---
+description: Fields of study at university level, in Luxembourgish.
+locale: lb
+---
+Rechtswëssenschaften
+Europarecht
+Wirtschaftswëssenschaften
+Finanzen
+Comptabilitéit
+Management
+Marketing
+Informatik
+Cybersécherheet
+Datewëssenschaft
+Mathematik
+Physik
+Chemie
+Biologie
+Medezin
+Pharmazie
+Ingenieurwëssenschaften
+Bauingenieurwiesen
+Elektrotechnik
+Maschinnebau
+Architektur
+Geographie
+Geschicht
+Philosophie
+Psychologie
+Pedagogie
+Sozialaarbecht
+Sproochwëssenschaften
+Germanistik
+Romanistik
+Anglistik
+Lëtzebuerger Studien
+Kommunikatioun
+Journalismus
+Konschtgeschicht
+Musek
+Sportwëssenschaft

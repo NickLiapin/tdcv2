@@ -1,0 +1,11 @@
+---
+description: Driving licence categories. These are the EUROPEAN categories (B, C, CE, D), not American commercial classes, and they are the same letters across the Union.
+---
+B
+BE
+C1
+C
+CE
+D1
+D
+DE

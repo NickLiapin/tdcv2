@@ -1,0 +1,23 @@
+---
+description: Rooms of a dwelling, in Luxembourgish.
+locale: lb
+---
+Wunnzëmmer
+Iesszëmmer
+Kichen
+Schlofzëmmer
+Kannerzëmmer
+Buedzëmmer
+Duschzëmmer
+WC
+Bureau
+Wäschkichen
+Keller
+Späicher
+Garage
+Terrass
+Baalkon
+Gaart
+Couloir
+Entrée
+Dressing

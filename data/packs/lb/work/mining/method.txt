@@ -1,0 +1,12 @@
+---
+description: Methods of extraction, in Luxembourgish. Luxembourg's own iron was worked both from open galleries in the hillside and from open pits, and both words are here.
+locale: lb
+---
+Ënnerdaagsbau
+Iwwerdaagsbau
+Steebroch
+Galerie
+Schacht
+Sprengung
+Bueren
+Wäschen

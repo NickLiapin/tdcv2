@@ -1,0 +1,5 @@
+---
+description: Capital of Günorta Koreýa
+locale: tk
+---
+Seul

@@ -1,0 +1,47 @@
+---
+description: The qualifier that closes a Gaelic place name, to follow address/cityPrefix.txt: Baile Mòr, Achadh nan Craobh, Cnoc an Fhraoich. Two shapes are mixed, and they behave differently. The ADJECTIVES (Mòr, Beag, Bàn, Dubh...) must AGREE with the generic in front: after a masculine one they stand as written (Baile Mòr, Dùn Dubh), after a feminine one they lenite (Cill Mhòr, Beinn Bheag, Creag Bhàn). The GENITIVE PHRASES beginning nan/nam/an/na do not change at all and are safe after any generic. A config that ignores the distinction produces half-correct place names, so the split is recorded here rather than left to be discovered.
+locale: gd
+---
+Mòr
+Beag
+Bàn
+Dubh
+Ruadh
+Odhar
+Glas
+Liath
+Gorm
+Uaine
+Fada
+Geàrr
+Àrd
+Ìosal
+Meadhanach
+Ùr
+Sean
+Garbh
+Riabhach
+Reamhar
+Caol
+Buidhe
+nan Craobh
+nan Clach
+nam Bò
+nan Caorach
+nan Eun
+nan Gall
+nan Gàidheal
+nan Naomh
+nam Fiadh
+nan Con
+na Mara
+na Beinne
+na Coille
+na Cille
+an Fhraoich
+an Uisge
+an Locha
+a Tuath
+a Deas
+an Ear
+an Iar

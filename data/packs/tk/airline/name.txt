@@ -1,0 +1,54 @@
+---
+description: International airline brand names, unchanged in Turkmen text. Turkmenistan's own flag carrier is deliberately absent: a national airline is an institution and belongs to a Turkmenistan country pack, which does not exist yet.
+locale: tk
+---
+Turkish Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+Flydubai
+Air Arabia
+Lufthansa
+Air France
+KLM
+British Airways
+Aeroflot
+S7 Airlines
+UTair
+Ural Airlines
+Air Astana
+SCAT Airlines
+Uzbekistan Airways
+Azerbaijan Airlines
+Iran Air
+Mahan Air
+China Southern Airlines
+Air China
+Singapore Airlines
+Cathay Pacific
+ANA
+Japan Airlines
+Korean Air
+Air India
+IndiGo
+Pegasus Airlines
+AJet
+Wizz Air
+Ryanair
+easyJet
+Austrian Airlines
+Swiss
+Finnair
+LOT Polish Airlines
+Belavia
+Georgian Airways
+Delta Air Lines
+United Airlines
+American Airlines
+Air Canada
+Qantas
+Ethiopian Airlines
+EgyptAir
+Royal Jordanian
+Saudia
+Kuwait Airways

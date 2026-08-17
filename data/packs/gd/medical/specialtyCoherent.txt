@@ -1,0 +1,14 @@
+---
+description: Medical specialty, parent of medical/diagnosisBySpecialty. Gaelic names a field of study with EÒLAS, "knowledge", plus the organ in the genitive — eòlas-cridhe is heart-knowledge, eòlas-àirnean kidney-knowledge — the same pattern that gives bith-eòlas for biology and speur-eòlas for astronomy. Psychiatry is the one that breaks it, being LEIGHEAS-INNTINN, "the healing of the mind", because it treats rather than studies. These are transparent Gaelic compounds and not internationally registered names: Gaelic has no body that standardises clinical terminology, so where a Gaelic word exists this pack uses it and where none exists it says so rather than coining one.
+locale: gd
+---
+Eòlas-cridhe
+Nearbh-eòlas
+Eòlas-aillse
+Eòlas-craicinn
+Eòlas-caolain
+Eòlas-fàireagan
+Eòlas-sgamhain
+Eòlas-chnàmhan
+Leigheas-inntinn
+Eòlas-àirnean

@@ -1,0 +1,14 @@
+---
+description: Medical specialty that has a coherent diagnosis list (Turkmen)
+locale: tk
+---
+Kardiologiýa
+Newrologiýa
+Onkologiýa
+Dermatologiýa
+Gastroenterologiýa
+Endokrinologiýa
+Pulmonologiýa
+Ortopediýa
+Psihiatriýa
+Nefrologiýa

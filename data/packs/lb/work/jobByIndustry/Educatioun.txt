@@ -1,0 +1,14 @@
+---
+description: Jobs in the Educatioun sector, in Luxembourgish. Where the trade came into the country through French, so did its name.
+locale: lb
+---
+Léierin
+Enseignant
+Proff
+Educateur
+Educatrice
+Direkter
+Erzéier
+Logopeed
+Bibliothecaire
+Schoulpsycholog

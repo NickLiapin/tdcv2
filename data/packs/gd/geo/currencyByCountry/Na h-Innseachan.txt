@@ -1,0 +1,5 @@
+---
+description: Currency of Na h-Innseachan.
+locale: gd
+---
+Rupee Innseanach

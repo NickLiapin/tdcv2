@@ -1,0 +1,5 @@
+---
+description: Capital of An t-Suain.
+locale: gd
+---
+Stockholm

@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group, parent of medical/diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. Gaelic names them with the continental adjective plus a compass word, which is the same construction as its own place names: Eòrpach a Tuath is "northern European", Àiseanach an Ear "eastern Asian".
+locale: gd
+---
+Afraganach fo-Shaharach
+Afraganach a Tuath
+Meadhan-thìreach
+Ear-mheadhanach
+Eòrpach a Tuath
+Eòrpach an Ear
+Iùdhach Ashkenazi
+Àiseanach a Deas
+Àiseanach an Ear
+Àiseanach an Ear-dheas
+Tùsanach Ameireaganach
+Eileanach a' Chuain Shèimh

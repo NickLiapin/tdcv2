@@ -1,0 +1,13 @@
+---
+description: Playing positions in Cricead.
+locale: gd
+---
+Bàtair
+Tilgeadair
+Tilgeadair luath
+Tilgeadair snìomhach
+Glacadair-chuaillean
+Achadhair
+Uile-chluicheadair
+Caiptean
+Rèitire

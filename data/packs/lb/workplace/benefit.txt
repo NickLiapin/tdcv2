@@ -1,0 +1,23 @@
+---
+description: Employee benefits, in Luxembourgish. Three of these are specific to this country and would be wrong elsewhere: CHÈQUES-REPAS are the luncheon vouchers almost every Luxembourgish employee gets and they are a French word inside a Luxembourgish sentence, the THIRTEENTH MONTH (13. Mount) is a customary extra month's pay, and MOBILITÉITSBUDGET reflects a country where public transport has been free since 2020. The category is `workplace` and never `hr`, because `hr` is the language code for Croatian.
+locale: lb
+---
+Chèques-repas
+13. Mount
+Prime
+Bonus
+Gruppeversécherung
+Pensiounsplang
+Mobilitéitsbudget
+Firmenauto
+Tankkaart
+Handy
+Laptop
+Teletravail
+Gläitzäit
+Extra Congé
+Formatioun
+Sproochecours
+Crèche
+Kantine
+Sportsabo

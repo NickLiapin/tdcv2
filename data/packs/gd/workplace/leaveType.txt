@@ -1,0 +1,16 @@
+---
+description: Kind of leave from work.
+locale: gd
+---
+Fòrladh bliadhnail
+Fòrladh tinneis
+Fòrladh màthaireil
+Fòrladh athaireil
+Fòrladh-pàrantais
+Fòrladh-uchdmhacachd
+Fòrladh cùraim
+Fòrladh caoidh
+Fòrladh gun phàigheadh
+Fòrladh-sgrùdaidh
+Saor-làithean poblach
+Fòrladh fada

@@ -1,0 +1,27 @@
+---
+description: The WORDS for kinds of public body in Luxembourgish — for the actual administrations of Luxembourg, draw luxembourg.government.agency from the country pack. MINISTÈRE is the entry to notice: the LOD's own word for a ministry is the French one, unchanged, in a language whose word for almost everything else in this list is Germanic (Gemeng, Amt, Zenter, Déngscht). That mixture inside one list is the administrative reality of a state that legislates in French and speaks Luxembourgish.
+locale: lb
+---
+Ministère
+Administratioun
+Amt
+Déngscht
+Zenter
+Institut
+Direktioun
+Office
+Kommissioun
+Agence
+Etablissement public
+Chambre professionnelle
+Syndicat
+Gemeng
+Gemengeverwaltung
+Staat
+Regierung
+Chamber
+Conseil d'État
+Cour des comptes
+Ombudsman
+Inspektioun
+Kontroll

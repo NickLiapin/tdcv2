@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket, labelled in Luxembourgish. Amounts are in EUROS and the brackets run high on purpose: Luxembourg has the highest median income in the European Union, so a bracket table copied from a neighbouring locale puts almost the whole country in its top box and tells you nothing. Numbers are written the Luxembourgish and German way, with a FULL STOP as the thousands separator (50.000) — the French-language administration of the same country writes 50 000 with a space, and both appear on paper here. Every line ends in "am Joer", "per year", which also keeps the value from ending in a comma and a run of digits, the shape data/scripts/check-weighted-headers.mjs reads as an undeclared weight.
+locale: lb
+---
+Manner wéi 25.000 € am Joer
+25.000–40.000 € am Joer
+40.000–60.000 € am Joer
+60.000–80.000 € am Joer
+80.000–100.000 € am Joer
+100.000–150.000 € am Joer
+150.000–250.000 € am Joer
+Méi wéi 250.000 € am Joer

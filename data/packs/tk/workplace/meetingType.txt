@@ -1,0 +1,16 @@
+---
+description: Meeting type (Turkmen)
+locale: tk
+---
+Gündelik ýygnak
+Ýolbaşçy bilen duşuşyk
+Umumy ýygnak
+Netijeleri jemlemek
+Meýilnama ýygnagy
+Başlangyç ýygnak
+Utgaşdyryş ýygnagy
+Seljeriş ýygnagy
+Okuw maslahaty
+Pikir alyşma
+Gysga habarlaşma
+Ýalňyşlyklary seljermek

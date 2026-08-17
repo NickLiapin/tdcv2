@@ -1,0 +1,14 @@
+---
+description: Diagnoses a Endokrinologie clinic records, in Luxembourgish.
+locale: lb
+---
+Diabeetes
+Schilddrüsenënnerfunktioun
+Schilddrüseniwwerfunktioun
+Struma
+Osteoporose
+Cushing
+Addison
+Akromegalie
+Hyperparathyreoidismus
+Adipositas

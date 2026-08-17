@@ -1,0 +1,11 @@
+---
+description: The seven weekdays in Luxembourgish, Monday first, which is where the Luxembourgish week starts. This is the file where the language is least like German: measured against the de pack in this repository, ALL SEVEN differ from the German name and the overlap is exactly zero — and the closest of them, Mëttwoch, escapes German Mittwoch only by the ë. Méindeg, Dënschdeg, Donneschdeg, Freideg, Samschdeg and Sonndeg all end in -deg where German ends in -tag, and Dënschdeg and Mëttwoch both carry the ë. If you want one test of whether a dataset is really in Luxembourgish and not in German with a flag changed, this is it. DATE_LOCALE.json holds the same seven Sunday-first, because the formatter wants them that way.
+locale: lb
+---
+Méindeg
+Dënschdeg
+Mëttwoch
+Donneschdeg
+Freideg
+Samschdeg
+Sonndeg

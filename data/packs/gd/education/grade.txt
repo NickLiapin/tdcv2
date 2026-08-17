@@ -1,0 +1,16 @@
+---
+description: Grade awarded. This is the SQA scale used in Scotland: bands A to D with a numeric band inside each, and no award below D. It is not the American letter scale and has no A+ and no F.
+locale: gd
+---
+A1
+A2
+B3
+B4
+C5
+C6
+D7
+Gun duais
+A
+B
+C
+D

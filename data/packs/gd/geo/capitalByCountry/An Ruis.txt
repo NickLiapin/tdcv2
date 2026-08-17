@@ -1,0 +1,5 @@
+---
+description: Capital of An Ruis.
+locale: gd
+---
+Moscobha

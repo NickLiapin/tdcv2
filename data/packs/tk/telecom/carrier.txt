@@ -1,0 +1,30 @@
+---
+description: International mobile operator brands, unchanged in Turkmen text. Turkmenistan's own operators are deliberately absent, along with any dialling format: a national carrier and a phone plan belong to a Turkmenistan country pack, which does not exist yet.
+locale: tk
+---
+Vodafone
+Orange
+T-Mobile
+Telefonica
+Deutsche Telekom
+Beeline
+MTS
+Megafon
+Tele2
+Kcell
+Turkcell
+Turk Telekom
+Vodafone Turkey
+Azercell
+Bakcell
+Ucell
+Beeline Uzbekistan
+MegaCom
+Babilon
+China Mobile
+Airtel
+Jio
+Verizon
+AT&T
+Etisalat
+Ooredoo

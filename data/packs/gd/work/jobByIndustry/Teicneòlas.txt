@@ -1,0 +1,14 @@
+---
+description: Job titles found in Teicneòlas.
+locale: gd
+---
+Prògramair
+Innleadair-bathair-bhog
+Neach-anailis dàta
+Rianadair-lìonraidh
+Neach-dealbhaidh eadar-aghaidh
+Neach-deuchainn bathair-bhog
+Rianadair siostaman
+Manaidsear pròiseict
+Eòlaiche tèarainteachd
+Neach-taic teignigeach

@@ -1,0 +1,17 @@
+---
+description: What the lorry is carrying. IASG ÙR and MAORACH are on this list because live shellfish running from the west coast to the continent is the freight the Highland road network is built around.
+locale: gd
+---
+Bathar coitcheann
+Biadh reòta
+Iasg ùr
+Maorach
+Bainne
+Stoc-beò
+Connadh
+Fiodh
+Clach is gainmheach
+Bathar cunnartach
+Ceimigean
+Càraichean
+Bathar-taighe

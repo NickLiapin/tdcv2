@@ -1,0 +1,47 @@
+---
+description: Country, as GAELIC NAMES IT, weighted by population in millions. These are translations and not transliterations: France is AN FHRAING, Germany A' GHEARMAILT, Greece A' GHRÈIG, China AN T-SÌN — the English string never appears. Almost every one carries the definite article and cannot be used without it, and the article's shape is decided by the noun's gender and initial letter, which is why AN FHRAING lenites and AN T-SÌN takes the t-. The genitive is what a sentence usually needs (muinntir na Frainge, "the people of France") and it is not derivable from this list. Rome is AN RÒIMH and Athens AN ÀITHNE, both with articles of their own. The list is deliberately shorter than the English one: Gaelic has settled names for the countries it has had dealings with, and inventing Gaelic spellings for the rest would be inventing.
+locale: gd
+weighted: true
+---
+An t-Sìn,1410
+Na h-Innseachan,1400
+Na Stàitean Aonaichte,335
+Indonesia,275
+Pagastàn,240
+Nigèiria,220
+Braisil,215
+Bangladais,170
+An Ruis,144
+Meagsago,128
+An t-Seapan,125
+An Èipheit,104
+Bhiet-Nam,98
+A' Ghearmailt,84
+An Tuirc,85
+An Fhraing,68
+An Rìoghachd Aonaichte,67
+An Eadailt,59
+Afraga a Deas,60
+Coirea a Deas,52
+An Spàinn,48
+An Argantain,46
+An Ucràin,38
+Aràibia Shaudach,36
+Canada,39
+A' Phòlainn,37
+Astràilia,26
+An Òlaind,17
+A' Bheilg,12
+A' Ghrèig,10
+A' Phortagail,10
+An t-Seic,11
+An t-Suain,10
+An Ungair,10
+An Ostair,9
+An Eilbheis,9
+An Danmhairg,6
+Nirribhidh,5
+An Fhionnlann,6
+Èirinn,5
+Sealainn Nuadh,5
+Innis Tìle,1

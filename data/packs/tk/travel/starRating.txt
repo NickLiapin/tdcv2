@@ -1,0 +1,9 @@
+---
+description: Hotel star rating (Turkmen)
+locale: tk
+---
+1 ýyldyz
+2 ýyldyz
+3 ýyldyz
+4 ýyldyz
+5 ýyldyz

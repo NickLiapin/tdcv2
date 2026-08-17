@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Turkmen)
+locale: tk
+---
+Standart otag
+Ýokary derejeli otag
+Lýuks
+Ýarym lýuks
+Bir orunlyk otag
+Iki orunlyk otag
+Iki aýry düşekli otag
+Üç orunlyk otag
+Maşgala otagy
+Studiýa
+Apartament
+Prezident lýuksy
+Bag tarapa bakýan otag
+Deňze bakýan otag
+Balkonly otag
+Çilim çekilmeýän otag
+Maýyplar üçin otag
+Birikdirilen otaglar

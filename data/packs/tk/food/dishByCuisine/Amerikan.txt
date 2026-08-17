@@ -1,0 +1,11 @@
+---
+description: Dishes of Amerikan cuisine
+locale: tk
+---
+Gamburger
+Çizburger
+Hot-dog
+Barbekýu gapyrgasy
+Alma pirogy
+Klub sendwiç
+Pankeýk

@@ -1,0 +1,26 @@
+---
+description: Company department / function (Turkmen)
+locale: tk
+---
+Inženerçilik bölümi
+Önümçilik bölümi
+Dizaýn bölümi
+Satuw bölümi
+Marketing bölümi
+Maliýe bölümi
+Buhgalteriýa
+Kadrlar bölümi
+Iş dolandyryş bölümi
+Hukuk bölümi
+Müşderi hyzmaty
+Maglumat tehnologiýalary bölümi
+Ylmy-barlag bölümi
+Üpjünçilik bölümi
+Hil gözegçiligi bölümi
+Logistika bölümi
+Dolandyryş bölümi
+Hojalyk bölümi
+Howpsuzlyk bölümi
+Gözegçilik bölümi
+Halkara gatnaşyklar bölümi
+Metbugat gullugy

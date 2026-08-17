@@ -1,0 +1,23 @@
+---
+description: Shoe size on the UNITED KINGDOM scale, which is what a shoebox in the Gaelic-speaking area prints. It is not the continental Paris-point scale — a UK 8 is a continental 42 — and it is not the US scale either, which runs about a size larger for men. Half sizes are ordinary here.
+locale: gd
+---
+3
+3.5
+4
+4.5
+5
+5.5
+6
+6.5
+7
+7.5
+8
+8.5
+9
+9.5
+10
+10.5
+11
+12
+13

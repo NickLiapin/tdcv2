@@ -1,0 +1,5 @@
+---
+description: Capital of Eýran
+locale: tk
+---
+Tähran

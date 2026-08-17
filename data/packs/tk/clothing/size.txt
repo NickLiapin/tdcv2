@@ -1,0 +1,12 @@
+---
+description: Clothing size. The international letter sizes are what Turkmen shops label with; the post-Soviet numeric run (44-60) is also seen on locally made garments.
+locale: tk
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

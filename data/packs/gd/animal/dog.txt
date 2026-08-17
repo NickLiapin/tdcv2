@@ -1,0 +1,29 @@
+---
+description: Dog. Gaelic names a dog by the WORK IT DOES, not by pedigree — CÙ-CHAORACH is the sheepdog, GADHAR the hound, MÌOLCHÙ the deerhound, ABHAG the terrier, CÙ-UISGE the water dog — and that vocabulary is the first half of this list. The second half is registered breed names, which are international property and keep their registered spelling in any language; only two have settled Gaelic forms, MÌOLCHÙ ALBANNACH for the Scottish deerhound and ABHAG GHÀIDHEALACH for the West Highland terrier.
+locale: gd
+---
+Cù-chaorach
+Gadhar
+Mìolchù
+Abhag
+Cù-uisge
+Cù-seilge
+Cù-dìon
+Cù-treòrachaidh
+Cuilean
+Madadh
+Cù-luirg
+Mìolchù Albannach
+Abhag Ghàidhealach
+Border Collie
+Labrador
+Retriever
+Spaniel
+Beagle
+Terrier
+Alsatian
+Poodle
+Bulldog
+Greyhound
+Whippet
+Setter

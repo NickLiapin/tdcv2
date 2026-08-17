@@ -1,0 +1,41 @@
+---
+description: Playing position, the general pool. FEAR-GLÈIDHIDH is literally "the man of keeping" and is used regardless of the player's sex; the feminine BEAN-GHLÈIDHIDH exists but is not what a commentator says.
+locale: gd
+---
+Fear-glèidhidh
+Cùlaiche
+Làn-chùlaiche
+Leth-chùlaiche
+Cùlaiche deas
+Cùlaiche clì
+Meadhan-chùlaiche
+Meadhan-pàirce
+Meadhan-pàirce dìonach
+Meadhan-pàirce ionnsaigheach
+Meadhan
+Sgiathaire
+Sgiathaire deas
+Sgiathaire clì
+Toisiche
+Làn-thoisiche
+Neach-ionnsaigh
+Caiptean
+Iar-chaiptean
+Neach-ionaid
+Rèitire
+Neach-loidhne
+Prop
+Bualadair
+Clì-shreath
+Treas-sreath
+Sgrum-leth
+Cluich-leth
+Geàrd-puing
+Geàrd-sgòraidh
+Sgiathaire beag
+Sgiathaire trom
+Suidheachair
+Libero
+Bàtair
+Tilgeadair
+Achadhair

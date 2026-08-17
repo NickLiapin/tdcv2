@@ -1,0 +1,11 @@
+---
+description: Jobs in Tehnologiýa
+locale: tk
+---
+Programma üpjünçiligi inženeri
+Maglumat seljerijisi
+Ulgam administratory
+Tor inženeri
+Web dizaýner
+Synag inženeri
+Taslama dolandyryjysy

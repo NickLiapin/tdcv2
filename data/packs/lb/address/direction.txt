@@ -1,0 +1,19 @@
+---
+description: Directions as an address uses them. Same eight compass words as geo/direction.txt plus the four relative ones (uewen, ënnen, lénks, riets) that a Luxembourgish description of where a thing is actually uses. LÉNKS and ËNNEN both carry the diacritics that mark the language.
+locale: lb
+---
+Norden
+Nordosten
+Osten
+Südosten
+Süden
+Südwesten
+Westen
+Nordwesten
+uewen
+ënnen
+lénks
+riets
+vir
+hannen
+matten

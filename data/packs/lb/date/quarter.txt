@@ -1,0 +1,8 @@
+---
+description: Calendar quarters. Quartal is the LOD's word (neuter); the ordinal is written with a digit and a full stop, 1. Quartal, exactly as German and unlike French, which writes 1er trimestre.
+locale: lb
+---
+1. Quartal
+2. Quartal
+3. Quartal
+4. Quartal

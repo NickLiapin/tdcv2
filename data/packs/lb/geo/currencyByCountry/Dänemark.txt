@@ -1,0 +1,5 @@
+---
+description: The currency of Dänemark, named in Luxembourgish.
+locale: lb
+---
+Kroun

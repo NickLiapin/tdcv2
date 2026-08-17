@@ -1,0 +1,16 @@
+---
+description: Grade (Turkmen). Turkmenistan uses the five-point post-Soviet scale in which FIVE IS THE BEST and one is effectively never given — the opposite direction from an A-to-F letter grade. Both the numeral and the word are listed, because a report card prints the numeral and a teacher says the word.
+locale: tk
+---
+5
+4
+3
+2
+1
+Örän gowy
+Gowy
+Kanagatlanarly
+Kanagatlanarsyz
+Geçdi
+Geçmedi
+Tapawutlanan

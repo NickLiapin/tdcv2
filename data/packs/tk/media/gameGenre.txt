@@ -1,0 +1,21 @@
+---
+description: Video game genre (Turkmen)
+locale: tk
+---
+Hereket
+Başdan geçirme
+Rol oýny
+Strategiýa
+Simulýator
+Sport
+Logiki oýun
+Atyşyk
+Platforma oýny
+Ýaryş
+Söweş
+Diri galmak
+Açyk dünýä
+Onlaýn köpçülikleýin oýun
+Küşt we tagta oýunlary
+Sazly oýun
+Bilim oýny

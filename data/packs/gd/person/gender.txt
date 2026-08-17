@@ -1,0 +1,8 @@
+---
+description: Gender label in Scottish Gaelic. FIREANN and BOIREANN are the adjectives used on a form; they are also the grammatical genders of nouns, which Gaelic still marks, so the same two words serve both jobs.
+locale: gd
+---
+Fireann
+Boireann
+Eile
+Gun sònrachadh

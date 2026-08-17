@@ -1,0 +1,5 @@
+---
+description: The currency of Ungarn, named in Luxembourgish.
+locale: lb
+---
+Forint

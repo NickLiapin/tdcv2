@@ -1,0 +1,21 @@
+---
+description: Video game genre.
+locale: gd
+---
+Gnìomh
+Dùbhlan
+Cluich-pàirt
+Ro-innleachd
+Atharrais
+Tòimhseachan
+Spòrs
+Rèisean
+Sabaid
+Sgeadachadh
+Beò-thighinn
+Oillt
+Fosgailte
+Ioma-chluicheadair
+Pàirtidh
+Ceòl
+Foghlam

@@ -1,0 +1,18 @@
+---
+description: Order status.
+locale: gd
+---
+Air fhaighinn
+Ga dhearbhadh
+Ga phròiseasadh
+Ga phacadh
+Air a chur
+Air an t-slighe
+Aig an ionad-sgaoilidh
+A-mach airson lìbhrigeadh
+Air a lìbhrigeadh
+Air a chur dheth
+Air a chur air ais
+A' feitheamh ri stoc
+Air a dhàil
+Deiseil ri thogail

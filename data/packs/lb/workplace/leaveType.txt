@@ -1,0 +1,16 @@
+---
+description: Kinds of leave. CONGÉ is the word — French, and the only word — and the compounds build on it: Congé parental, Congé de maternité, Congé extraordinaire. The Luxembourgish statutory holiday entitlement is generous by European standards, which is why this list is long.
+locale: lb
+---
+Congé
+Congé parental
+Congé de maternité
+Congé de paternité
+Congé extraordinaire
+Congé sans solde
+Krankecongé
+Congé sportif
+Congé kulturel
+Congé politique
+Congé pour raisons familiales
+Recuperatioun

@@ -1,0 +1,19 @@
+---
+description: Kind of court (Turkmen). Named for Turkmenistan's own court tiers, because Turkmen has essentially one country; the words themselves are general.
+locale: tk
+---
+Ýokary kazyýet
+Welaýat kazyýeti
+Şäher kazyýeti
+Etrap kazyýeti
+Arbitraž kazyýeti
+Harby kazyýet
+Ykdysady kazyýet
+Administratiw kazyýet
+Kassasion kazyýet
+Apellýasion kazyýet
+Kazyýet mejlisi
+Emin agzalarynyň mejlisi
+Notarial edara
+Ýerine ýetiriş gullugy
+Prokuratura

@@ -1,0 +1,14 @@
+---
+description: Fuel type. DÌOSAIL is still the majority fuel in the crofting counties, where the distances are long and the charging network thin; DEALAN is growing fastest on the islands, which have more renewable generation per head than anywhere else in Britain.
+locale: gd
+---
+Peatral
+Dìosail
+Dealan
+Hìobrid
+Hìobrid plocaidh
+Haidridsean
+LPG
+Bìo-dhìosail
+Ethanol
+Gas nàdarra

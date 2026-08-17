@@ -1,0 +1,11 @@
+---
+description: Positions in El topy
+locale: tk
+---
+Derwezeçi
+Sag gyra
+Çep gyra
+Merkezi hüjümçi
+Sag ýarym
+Çep ýarym
+Liniýa oýunçysy

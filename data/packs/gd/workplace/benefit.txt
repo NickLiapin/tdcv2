@@ -1,0 +1,22 @@
+---
+description: Employment benefit.
+locale: gd
+---
+Peinnsean
+Saor-làithean pàighte
+Pàigheadh tinneis
+Àrachas-slàinte
+Obair shùbailte
+Obair aig an taigh
+Trèanadh
+Cothrom-foghlaim
+Bònas
+Càr-companaidh
+Fòn-companaidh
+Cuideachadh cùram-chloinne
+Fòrladh-pàrantais
+Sgeama-baidhsagail
+Ballrachd lann-spòrs
+Comhairle-inntinn
+Clasaichean Gàidhlig
+Cuairt-siubhail

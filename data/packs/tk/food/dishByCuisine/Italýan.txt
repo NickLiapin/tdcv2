@@ -1,0 +1,12 @@
+---
+description: Dishes of Italýan cuisine
+locale: tk
+---
+Pizza
+Spagetti
+Lazanýa
+Rizotto
+Nýokki
+Karbonara
+Minestrone
+Tiramisu

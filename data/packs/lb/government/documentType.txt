@@ -1,0 +1,23 @@
+---
+description: Kinds of official document, in Luxembourgish. The two that are specific: the CARTE D'IDENTITÉ is compulsory here from the age of 15, and the CERTIFICAT DE RÉSIDENCE issued by the commune is the document that proves where you live and is asked for constantly. Names as they appear on the paper — which is in French, because the administration writes in French even when it speaks Luxembourgish.
+locale: lb
+---
+Carte d'identité
+Pass
+Fürerschäin
+Certificat de résidence
+Gebuertsurkonn
+Bestietneszertifikat
+Scheedungsurteel
+Doudeschäin
+Casier judiciaire
+Steiererklärung
+Steierbescheed
+Carte de sécurité sociale
+Aarbechtsvertrag
+Loyerkontrakt
+Notarakt
+Vollmacht
+Testament
+Bauerlaabnis
+Autorisation d'établissement

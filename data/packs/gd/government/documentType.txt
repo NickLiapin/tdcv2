@@ -1,0 +1,25 @@
+---
+description: Kind of official document. These are the KINDS of document, not any one country's issue: the passport, driving licence and National Insurance number themselves are United Kingdom instruments and their formats belong in that country pack. CÒRAICHEAN CROITE, croft rights, is a Scottish instrument with no counterpart elsewhere: a croft is inherited, assigned and decrofted under its own statute.
+locale: gd
+---
+Cead-siubhail
+Cead-dràibhidh
+Teisteanas-breith
+Teisteanas-pòsaidh
+Teisteanas-bàis
+Cairt-aithne
+Bhìosa
+Cead-obrach
+Teisteanas-foghlaim
+Aithisg-chìse
+Foirm-tagraidh
+Cùmhnant
+Aonta-màil
+Tiomnadh
+Cead-togail
+Cead-iasgaich
+Cead-seilg
+Cead-gunna
+Còraichean croite
+Bann-urrais
+Teisteanas-seilbh

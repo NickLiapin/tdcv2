@@ -1,0 +1,28 @@
+---
+description: School subjects. Note the language block at the top: a Luxembourgish pupil is taught Luxembourgish, German AND French as separate subjects from primary school, plus English from secondary — four language subjects on one timetable, which no neighbouring country's schedule has.
+locale: lb
+---
+Lëtzebuergesch
+Däitsch
+Franséisch
+Englesch
+Latäin
+Spuenesch
+Italienesch
+Mathematik
+Physik
+Chemie
+Biologie
+Geographie
+Geschicht
+Sozialwëssenschaften
+Wirtschaft
+Informatik
+Philosophie
+Religioun
+Vie et société
+Konscht
+Musek
+Sport
+Handwierk
+Technologie

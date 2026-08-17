@@ -1,0 +1,44 @@
+---
+description: Shop department.
+locale: gd
+---
+Aodach
+Aodach-fireann
+Aodach-boireann
+Aodach-cloinne
+Brògan
+Biadh
+Glasraich
+Feòil
+Iasg
+Aran is bèicearachd
+Deochan
+Uisge-beatha
+Bathar-taighe
+Àirneis
+Innealan-cidsin
+Bathar-dealain
+Coimpiutairean
+Fònaichean
+Leabhraichean
+Ceòl
+Geamannan
+Dèideagan
+Spòrs
+Campachadh
+Gàrradh
+Innealan
+Bathar-togail
+Peant
+Cùram-slàinte
+Bòidhchead
+Cungaidhean
+Bathar-pàiste
+Bathar-pheataichean
+Pàipearachd
+Tiodhlacan
+Ceàirdean
+Snàth is clò
+Bathar-cuain
+Bathar-croite
+Bathar-dùthchail

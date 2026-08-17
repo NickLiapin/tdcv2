@@ -1,0 +1,58 @@
+---
+description: Product adjective (Turkmen)
+locale: tk
+---
+Kiçi
+Uly
+Ýeňil
+Agyr
+Berk
+Amatly
+Owadan
+Döwrebap
+Nusgawy
+Elde ýasalan
+Elde dokalan
+Tebigy
+Sintetiki
+Ekologiýa taýdan arassa
+Gaýtadan işlenen
+Suw geçirmeýän
+Yssa çydamly
+Sowuga çydamly
+Simsiz
+Zarýad berilýän
+Ýygnalýan
+Göçme
+Kämilleşdirilen
+Awtomatiki
+Elektron
+Sanly
+Ýörite
+Köpugurly
+Ygtybarly
+Howpsuz
+Arzan
+Gymmat bahaly
+Ýokary hilli
+Ýumşak
+Gaty
+Süýşmeýän
+Reňkli
+Aç-açan
+Ýalpyldawuk
+Nagyşly
+Keşdeli
+Täze
+Sada
+Nepis
+Giň
+Dar
+Uzyn
+Gysga
+Ýukajyk
+Galyň
+Tygşytly
+Kuwwatly
+Ýylylyk saklaýan
+Antibakterial

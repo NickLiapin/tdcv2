@@ -1,0 +1,14 @@
+---
+description: Fuel type (Turkmen). Compressed natural gas leads the list rather than trailing it: Turkmenistan sits on one of the largest gas reserves in the world and CNG conversion is ordinary on private cars and taxis.
+locale: tk
+---
+Benzin
+Dizel
+Gysylan tebigy gaz
+Suwuklandyrylan gaz
+Elektrik
+Gibrid
+Rozetkadan zarýadlanýan gibrid
+Wodorod
+Etanol
+Kerosin

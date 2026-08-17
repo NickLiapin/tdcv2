@@ -1,0 +1,11 @@
+---
+description: Number of people in a household. Digits, so nothing here is language-specific; the file exists so a config can draw the field without reaching into another locale.
+locale: lb
+---
+1
+2
+3
+4
+5
+6
+7+

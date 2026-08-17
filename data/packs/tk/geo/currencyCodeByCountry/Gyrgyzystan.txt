@@ -1,0 +1,5 @@
+---
+description: Currency code of Gyrgyzystan
+locale: tk
+---
+KGS

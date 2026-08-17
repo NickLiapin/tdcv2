@@ -1,0 +1,34 @@
+---
+description: Musical instrument. PÌOB-MHÒR is the great highland bagpipe and CLÀRSACH the wire-strung Gaelic harp; both are older in this language than in any other and neither is a translation of anything. FEADAN is the practice chanter, the instrument a piper actually learns on, and FEADAG the whistle. BOGSA-CIÙIL, the "music box", is the accordion, which is the backbone of a modern cèilidh band. The orchestral and popular instruments are spelt as Gaelic borrows them.
+locale: gd
+---
+Pìob-mhòr
+Clàrsach
+Fidheall
+Feadan
+Feadag
+Bogsa-ciùil
+Meileòidian
+Druma
+Trombaid
+Giotàr
+Giotàr-dealain
+Piàno
+Òrgan
+Clàirneid
+Fliut
+Sacsafòn
+Beus-fhidheall
+Beus-ghiotàr
+Òbo
+Bassoon
+Trombòn
+Adharc
+Xylophone
+Tiompan
+Banjo
+Mandolin
+Concertina
+Ukulele
+Bodhran
+Cruit

@@ -1,0 +1,38 @@
+---
+description: Music genre (Turkmen). 'Bagsycylyk' — the bard tradition of sung dessans accompanied on the dutar — and 'mukam', its instrumental repertoire, have no European equivalent and are not folk music in the European sense.
+locale: tk
+---
+Bagşyçylyk
+Mukam
+Halk aýdymlary
+Läle
+Küşt-depdi
+Klassyky saz
+Estrada
+Pop
+Rok
+Jaz
+Blýuz
+Rep
+Hip-hop
+Elektron saz
+Diskoteka saz
+Kantri
+Folk
+Metall
+Pank
+Regge
+Sazly filmleriň sazy
+Simfoniýa
+Kamera sazy
+Opera
+Horeografiýa sazy
+Tans sazy
+Toý sazy
+Marş
+Etno saz
+Akustik saz
+Instrumental saz
+Çagalar aýdymlary
+Watançylyk aýdymlary
+Söýgi aýdymlary

@@ -1,0 +1,5 @@
+---
+description: Currency of Na Stàitean Aonaichte.
+locale: gd
+---
+Dolar Aimeireaganach

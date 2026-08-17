@@ -1,0 +1,12 @@
+---
+description: Monthly household income bracket in TURKMENISTAN MANAT (TMT), the currency of Turkmenistan, which is the only country where Turkmen is a state language. The manat is divided into 100 tenne. Figures are illustrative bands, not published statistics.
+locale: tk
+---
+1000 manatdan az
+1000-2000 manat
+2000-3500 manat
+3500-5000 manat
+5000-8000 manat
+8000-12000 manat
+12000-20000 manat
+20000 manatdan köp

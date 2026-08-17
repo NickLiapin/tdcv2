@@ -1,0 +1,11 @@
+---
+description: Ducts and ways a cable runs in.
+locale: lb
+---
+Kabelkanal
+Rouer
+Schacht
+Muffe
+Trasse
+Mast
+Grouf

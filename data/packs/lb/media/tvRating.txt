@@ -1,0 +1,13 @@
+---
+description: Age ratings as they appear on a Luxembourgish screen. Luxembourg has no rating board of its own and applies the neighbours' systems, so a programme carries a FRENCH CSA-style marker (-10, -12, -16, -18) or a German FSK one depending on where the channel comes from — which is why this list mixes two schemes and cannot be reduced to one.
+---
+Fir all Alter
+-10
+-12
+-16
+-18
+FSK 0
+FSK 6
+FSK 12
+FSK 16
+FSK 18

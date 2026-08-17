@@ -1,0 +1,5 @@
+---
+description: The capital of Kolumbien in Luxembourgish, as the LOD writes it.
+locale: lb
+---
+Bogota

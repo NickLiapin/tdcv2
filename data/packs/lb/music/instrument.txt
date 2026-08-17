@@ -1,0 +1,35 @@
+---
+description: Musical instruments, in Luxembourgish. The brass at the head is not decoration: nearly every Luxembourgish village has a wind band and the instrument names are everyday words.
+locale: lb
+---
+Trompett
+Posaun
+Waldhar
+Tuba
+Klarinett
+Saxophon
+Flütt
+Oboe
+Fagott
+Piccolo
+Gei
+Bratsch
+Cello
+Kontrabass
+Harf
+Gittar
+Bassgittar
+Piano
+Klavier
+Uergel
+Akkordeon
+Harmonika
+Schlagzeug
+Trommel
+Paukendrums
+Becken
+Xylophon
+Glockespill
+Triangel
+Tamburin
+Blockflütt

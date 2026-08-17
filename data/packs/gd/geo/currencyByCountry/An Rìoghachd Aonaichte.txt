@@ -1,0 +1,5 @@
+---
+description: Currency of An Rìoghachd Aonaichte.
+locale: gd
+---
+Punnd Sterling

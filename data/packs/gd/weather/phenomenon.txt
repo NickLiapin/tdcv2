@@ -1,0 +1,24 @@
+---
+description: A specific weather event. NA FIR-CHLIS, "the nimble men", is the aurora borealis — Gaelic sees the northern lights as men fighting, and the name has no English counterpart. SÌDE NAN SEACHD SIAN, "the weather of the seven elements", is the idiom for the worst weather there is. CLACH-MHEALLAIN is hail, literally "lump stone"; BOGHA-FROISE the rainbow, the "shower's bow"; CEÒ-MARA the sea haar that comes in off the Minch.
+locale: gd
+---
+Uisge
+Sneachda
+Clach-mheallain
+Reothadh
+Liath-reothadh
+Ceò
+Ceò-mara
+Tàirneanach
+Dealanach
+Bogha-froise
+Gaoth
+Cuairt-ghaoth
+Doineann
+Sìde nan seachd sian
+Fras
+Braon
+Dealt
+Gailleann
+Sian
+Na Fir-chlis

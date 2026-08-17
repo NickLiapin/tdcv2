@@ -1,0 +1,24 @@
+---
+description: Kind of venue. TALLA-BAILE, the village hall, is where nearly every Gaelic event on this list actually happens.
+locale: gd
+---
+Talla-baile
+Talla-coimhearsnachd
+Talla-cluiche
+Taigh-cluiche
+Ionad-ealain
+Eaglais
+Sgoil
+Colaiste
+Oilthigh
+Taigh-òsta
+Taigh-seinnse
+Ionad-spòrs
+Pàirc
+Achadh
+Tràigh
+Taigh-tasgaidh
+Leabharlann
+Teanta
+Bàta
+Caisteal

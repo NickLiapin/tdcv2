@@ -1,0 +1,5 @@
+---
+description: Currency of Russiýa
+locale: tk
+---
+Rus rubly

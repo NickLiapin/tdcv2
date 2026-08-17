@@ -1,0 +1,30 @@
+---
+description: Medical diagnoses for a male patient: the male-only conditions plus the common ones (Turkmen)
+locale: tk
+---
+Prostata mäziniň adenomasy
+Prostatit
+Warikosele
+Fimoz
+Epididimit
+Erkeklik önelgesizligi
+Ginekomastiýa
+Erkeklere mahsus kelçelik
+Arterial gipertenziýa
+2-nji görnüşli süýji keseli
+Dowamly pankreatit
+Podagra
+Ýürek täji arteriýasynyň keseli
+Osteoartroz
+Inçekesel
+Dowamly bronhit
+Bagryň sirrozy
+Böwrek daşy keseli
+Ýogyn içegäniň ragy
+Aşgazan ýarasy
+Ganazlyk
+Gastrit
+Radikulit
+Ukudaky dem saklanmasy
+Depressiýa
+Semizlik

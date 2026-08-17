@@ -1,0 +1,18 @@
+---
+description: Streaming service. BBC ALBA is the Gaelic-language television channel and BBC iPlayer carries its archive; LEARNGAELIC and SPEAK GAELIC are Gaelic learning platforms with substantial video. Brand names keep their registered spelling.
+locale: gd
+---
+BBC ALBA
+BBC iPlayer
+Netflix
+Disney+
+Amazon Prime Video
+Apple TV+
+YouTube
+Spotify
+ITVX
+Channel 4
+Sky
+NOW
+LearnGaelic
+SpeakGaelic

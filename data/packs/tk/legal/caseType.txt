@@ -1,0 +1,17 @@
+---
+description: Kind of legal case (Turkmen). These are the WORDS for case categories; the judiciary of a particular country belongs in a country pack.
+locale: tk
+---
+Raýat işi
+Jenaýat işi
+Maşgala işi
+Zähmet jedeli
+Şertnama jedeli
+Emläk jedeli
+Ýer jedeli
+Miras işi
+Administratiw iş
+Salgyt jedeli
+Ykdysady jedel
+Intellektual eýeçilik jedeli
+Zyýanyň öwezini dolmak hakynda iş

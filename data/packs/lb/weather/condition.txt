@@ -1,0 +1,20 @@
+---
+description: Weather conditions in Luxembourgish. NIWWEL is fog, FRASCHT frost, KEELT cold, HËTZT heat, DRÉCHENT drought. Note that Luxembourgish uses WIEDER for weather and DONNERWIEDER for a thunderstorm, so the compound means literally thunder-weather, and DIMMER serves for both thunder and the storm itself. Every value is a lemma of the LOD, the Lëtzebuerger Online Dictionnaire published by the Zenter fir d'Lëtzebuerger Sprooch under the loi du 20 juillet 2018; nothing here was translated by hand.
+locale: lb
+---
+Sonn
+Reen
+Schnéi
+Wand
+Stuerm
+Donnerwieder
+Niwwel
+Frascht
+Äis
+Wollek
+Blëtz
+Dimmer
+Reebou
+Da
+Dréchent
+Héichwaasser

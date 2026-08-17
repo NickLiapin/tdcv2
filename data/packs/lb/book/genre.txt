@@ -1,0 +1,34 @@
+---
+description: Book genres, in Luxembourgish.
+locale: lb
+---
+Roman
+Erzielung
+Kuerzgeschicht
+Novell
+Krimi
+Thriller
+Spannung
+Léiftesroman
+Science-Fiction
+Fantasy
+Horror
+Abenteuer
+Historesche Roman
+Biographie
+Autobiographie
+Memoiren
+Geschicht
+Politik
+Wirtschaft
+Philosophie
+Psychologie
+Religioun
+Naturwëssenschaft
+Reesbericht
+Kachbuch
+Gedichter
+Theaterstéck
+Kannerbuch
+Jugendbuch
+BD

@@ -1,0 +1,16 @@
+---
+description: Kinds of mobile or internet plan.
+locale: lb
+---
+Prepaid
+Abonnement
+Fräie Vertrag
+Familljeplang
+Deelen
+Datenplang
+Illimitéiert
+Roaming inclus
+Fixnetz
+Glasfaser
+TV-Pak
+Triple Play

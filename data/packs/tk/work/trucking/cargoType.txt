@@ -1,0 +1,17 @@
+---
+description: Truck cargo / trailer type (Turkmen)
+locale: tk
+---
+Ýapyk furgon
+Refrižerator
+Açyk platforma
+Sisterna
+Mal daşaýjy
+Howply ýük
+Konteýner
+Awtoulag daşaýjy
+Pes platforma
+Samoswal
+Sypal ýük
+Agaç daşaýjy
+Gurluşyk ýüki

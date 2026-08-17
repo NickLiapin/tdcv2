@@ -1,0 +1,5 @@
+---
+description: Capital of Päkistan
+locale: tk
+---
+Yslamabat

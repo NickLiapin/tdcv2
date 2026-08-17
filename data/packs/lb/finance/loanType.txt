@@ -1,0 +1,14 @@
+---
+description: Kinds of loan, in Luxembourgish. Prêt is the word.
+locale: lb
+---
+Wunnengsprêt
+Hypothéikarprêt
+Konsumprêt
+Autosprêt
+Renovatiounsprêt
+Studenteprêt
+Personaleprêt
+Iwwerzéiungskredit
+Betribsprêt
+Leasing

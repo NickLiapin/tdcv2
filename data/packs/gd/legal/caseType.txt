@@ -1,0 +1,21 @@
+---
+description: Kind of legal case. CÒIR-INGHILT (grazing rights) and gnothaichean croite are ordinary civil business in the crofting counties.
+locale: gd
+---
+Catharra
+Eucorach
+Teaghlaich
+Briseadh-pòsaidh
+Oighreachd
+Fearann
+Croitearachd
+Còir-inghilt
+Fastadh
+Cùmhnant
+Dochann pearsanta
+Briseadh-creideis
+Seilbh inntleachdail
+Cìsean
+Àrainneachd
+Iasgach
+Imrich

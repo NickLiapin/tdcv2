@@ -1,0 +1,5 @@
+---
+description: The currency of Belsch, named in Luxembourgish.
+locale: lb
+---
+Euro

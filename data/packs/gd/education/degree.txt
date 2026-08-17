@@ -1,0 +1,24 @@
+---
+description: Qualification. THESE ARE THE SCOTTISH QUALIFICATIONS, which are not England's: a school leaver here sits NATIONAL 5 and then HIGHERS (ÀRD-ÌREAN) and ADVANCED HIGHERS, not GCSEs and A-levels, and a Scottish honours degree takes four years rather than three. The MA at ancient Scottish universities is a first degree and not a postgraduate one, which is a trap for anyone reading a Scottish CV. Gaelic names the degrees with BÀIDSEALAIR, MAIGHSTIR and DOTAIR.
+locale: gd
+---
+National 4
+National 5
+Àrd-ìre
+Àrd-ìre Adhartach
+Teisteanas Nàiseanta
+Dioplòma Nàiseanta Àrd-ìre
+Teisteanas Nàiseanta Àrd-ìre
+Bàidsealair nan Ealan
+Bàidsealair Saidheans
+Bàidsealair Innleadaireachd
+Bàidsealair Foghlaim
+Bàidsealair Lagha
+Maighstir nan Ealan
+Maighstir Saidheans
+Maighstir Rianachd Gnothachais
+Maighstir Foghlaim
+Dotair Feallsanachd
+Dotair Leigheis
+Dioplòma Iar-cheumnach
+Teisteanas Preantasachd

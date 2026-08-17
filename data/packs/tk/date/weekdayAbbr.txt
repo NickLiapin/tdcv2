@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviation (Turkmen), Monday first
+locale: tk
+---
+duş
+siş
+çar
+pen
+ann
+şen
+ýek

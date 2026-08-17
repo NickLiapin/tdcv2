@@ -1,0 +1,13 @@
+---
+description: Playing positions in Rugby as Luxembourg names them — which for basketball, volleyball, cycling and rugby means the FRENCH names, because those sports came into the country through France and Belgium and nobody here says the English ones.
+locale: lb
+---
+Pilier
+Talonneur
+Deuxième ligne
+Troisième ligne
+Demi de mêlée
+Demi d'ouverture
+Centre
+Ailier
+Arrière

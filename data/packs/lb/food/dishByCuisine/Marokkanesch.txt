@@ -1,0 +1,11 @@
+---
+description: Dishes of the Marokkanesch kitchen as a menu in Luxembourg names them. Dish names travel untranslated wherever they are already proper names in the cuisine's own language, which is why most of these are not in Luxembourgish and should not be.
+locale: lb
+---
+Couscous
+Tajine
+Harira
+Pastilla
+Mechoui
+Briouat
+Mint-Téi

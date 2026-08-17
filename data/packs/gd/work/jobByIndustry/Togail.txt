@@ -1,0 +1,15 @@
+---
+description: Job titles found in Togail.
+locale: gd
+---
+Clachair
+Saor
+Plumair
+Dealanair
+Innleadair-catharra
+Ailtire
+Neach-tughaidh
+Neach-peantaidh
+Foirmear
+Neach-obrach làraich
+Neach-tomhais thogalach

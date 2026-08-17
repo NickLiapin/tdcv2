@@ -1,0 +1,13 @@
+---
+description: Kind of cable run by a telecoms or electrical crew.
+locale: gd
+---
+Càball copair
+Càball snàthainn-optaig
+Càball co-aisealach
+Càball dealain
+Càball fòn
+Càball fon talamh
+Càball adhair
+Càball armaichte
+Càball Ethernet

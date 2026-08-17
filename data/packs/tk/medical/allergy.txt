@@ -1,0 +1,26 @@
+---
+description: Common allergy (Turkmen)
+locale: tk
+---
+Penisillin
+Antibiotikler
+Aspirin
+Sulfanilamidler
+Ýod
+Nowokain
+Ýer hozy
+Hoz
+Badam
+Künji
+Ýumurtga
+Süýt
+Soýa
+Bugdaý
+Balyk
+Deňiz önümleri
+Sitrus miweleri
+Şokolad
+Gül tozgajygy
+Öý tozany
+Haýwan tüýi
+Ary çakmagy

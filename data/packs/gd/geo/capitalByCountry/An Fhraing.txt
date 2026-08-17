@@ -1,0 +1,5 @@
+---
+description: Capital of An Fhraing.
+locale: gd
+---
+Paris

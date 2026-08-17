@@ -1,0 +1,33 @@
+---
+description: Adjectives a technical description uses.
+locale: lb
+---
+digital
+analog
+virtuell
+physesch
+logesch
+redundant
+verschlësselt
+onverschlësselt
+kompatibel
+inkompatibel
+stabil
+instabil
+séier
+lues
+parallel
+sequentiell
+synchron
+asynchron
+verdeelt
+zentral
+lokal
+extern
+intern
+automatesch
+manuell
+dynamesch
+statesch
+modular
+skalierbar

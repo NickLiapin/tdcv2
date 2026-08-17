@@ -1,0 +1,44 @@
+---
+description: Company legal form and name-tail (Turkmen). These are Turkmenistan's own business forms, named here because Turkmen has essentially one country; a reader elsewhere should not assume them. Abbreviations follow the full form in brackets in official use.
+locale: tk
+---
+Hojalyk jemgyýeti
+HJ
+Hususy kärhana
+HK
+Döwlet kärhanasy
+Paýdarlar jemgyýeti
+PJ
+Açyk görnüşli paýdarlar jemgyýeti
+AGPJ
+Ýapyk görnüşli paýdarlar jemgyýeti
+ÝGPJ
+Daýhan birleşigi
+Daýhan hojalygy
+Kärendeçiler birleşigi
+Kooperatiw
+Konsern
+Assosiasiýa
+Birleşik
+Bileleşik
+Bilelikdäki kärhana
+Söwda öýi
+Söwda merkezi
+Kärhana
+Kompaniýa
+Firma
+Topar
+Toplum
+Merkez
+Zawody
+Fabrigi
+Ussahanasy
+Önümçilik birleşigi
+Gurluşyk müdirligi
+Ylmy-önümçilik merkezi
+Gaznasy
+Jemgyýeti
+Guramasy
+Wekilhanasy
+Şahamçasy
+Bölümi

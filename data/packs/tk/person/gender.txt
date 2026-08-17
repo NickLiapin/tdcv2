@@ -1,0 +1,8 @@
+---
+description: Gender label (Turkmen)
+locale: tk
+---
+Erkek
+Aýal
+Beýleki
+Görkezilmedik

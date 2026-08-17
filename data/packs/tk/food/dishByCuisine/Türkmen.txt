@@ -1,0 +1,18 @@
+---
+description: Dishes of Türkmen cuisine
+locale: tk
+---
+Palow
+Dograma
+Çorba
+Gutap
+Işlekli
+Fitçi
+Unaş
+Gowurma
+Çekdirme
+Şüle
+Ýarma
+Pişme
+Külçe
+Çal

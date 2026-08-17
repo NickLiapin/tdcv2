@@ -1,0 +1,16 @@
+---
+description: Abbreviated month, article dropped — the short form on a form or a timetable.
+locale: gd
+---
+Faoi
+Gearr
+Màrt
+Gibl
+Cèit
+Ògmh
+Iuch
+Lùna
+Sult
+Dàmh
+Samh
+Dùbh

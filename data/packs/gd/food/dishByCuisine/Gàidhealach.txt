@@ -1,0 +1,18 @@
+---
+description: Dishes of Gàidhealach cooking, as Gaelic names them. Where the dish has a Gaelic name it is used (Taigeis for haggis, Iasg is sliseagan for fish and chips, Rìs praighte for fried rice); where it does not, the dish keeps the name it has in its own kitchen, because a pizza is a pizza in every language and translating it would invent a word.
+locale: gd
+---
+Guga
+Sgadan is buntàta
+Gruth is bàrr
+Bonnach-eòrna
+Duileasg
+Stòbhach Gàidhealach
+Feòil-fèidh
+Blàthach is brochan
+Marag
+Càise-gruth
+Buntàta is sgadan-saillte
+Uisge-beatha
+Aran-donn is ìm
+Ceann-cropaig

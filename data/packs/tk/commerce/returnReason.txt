@@ -1,0 +1,19 @@
+---
+description: Order return reason (Turkmen)
+locale: tk
+---
+Zaýalanan görnüşde geldi
+Ýalňyş haryt iberildi
+Beýany bilen gabat gelmedi
+Ölçegi laýyk gelmedi
+Pikirimi üýtgetdim
+Başga ýerde arzan tapdym
+Ilkinji gün işlemedi
+Bölekleri ýetmeýär
+Giç gowşuryldy
+Indi gerek däl
+Ýalňyşlyk bilen sargyt edildi
+Hili garaşylyşymdan pes
+Reňki suratdakydan tapawutly
+Iki gezek sargyt edildi
+Kepilnama resminamasy ýok

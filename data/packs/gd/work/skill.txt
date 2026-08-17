@@ -1,0 +1,46 @@
+---
+description: Workplace skill. The first entry is not decoration: in the Gaelic-speaking areas GÀIDHLIG is a paid, advertised job requirement — in teaching, broadcasting, local government and the arts — and DÀ-CHÀNANAS, bilingualism, is what the job adverts ask for. The traditional trade skills further down (fighe, saorsainneachd, ceàrdachd, buain na mòna, snìomh) are still skills people are hired for here.
+locale: gd
+---
+Gàidhlig
+Dà-chànanas
+Sgrìobhadh
+Teagasg
+Rianachd
+Cunntasachd
+Prògramadh
+Dealbhadh
+Margaidheachd
+Reic
+Ceannardas
+Obair-sgioba
+Bruidhinn phoblach
+Eadar-theangachadh
+Rannsachadh
+Sgrùdadh-dàta
+Riaghladh-phròiseactan
+Fuasgladh-dhuilgheadasan
+Co-rèiteachadh
+Sgilean-coimpiutair
+Draibheadh
+Seòladh
+Iasgach
+Croitearachd
+Saorsainneachd
+Clachaireachd
+Fighe
+Snìomh
+Còcaireachd
+Bèicearachd
+Ceàrdachd
+Peantadh
+Dealbhadaireachd
+Càradh-innealan
+Dealanachd
+Plumaireachd
+Gàirnealaireachd
+Ciad-fhuasgladh
+Altram
+Buain na mòna
+Cùram-chloinne
+Deasachadh

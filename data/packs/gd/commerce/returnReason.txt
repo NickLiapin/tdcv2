@@ -1,0 +1,19 @@
+---
+description: Why the customer sent it back.
+locale: gd
+---
+Meud ceàrr
+Dath ceàrr
+Bathar ceàrr air a chur
+Briste
+Air a mhilleadh sa phost
+Nach eil ag obair
+Nach eil mar a bha dùil
+Ro mhòr
+Ro bheag
+Air a lìbhrigeadh ro anmoch
+Dà uair air òrdachadh
+Chan eil a dhìth tuilleadh
+Càileachd bhochd
+Pàirt a dhìth
+Lorg air prìs nas fheàrr

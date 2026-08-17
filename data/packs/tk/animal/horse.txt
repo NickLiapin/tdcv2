@@ -1,0 +1,20 @@
+---
+description: Horse breed (Turkmen). Ahalteke and Yomut are native Turkmen breeds; the Ahal-Teke is a national emblem and appears on the state coat of arms.
+locale: tk
+---
+Ahalteke
+Ýomut
+Garabaýyr
+Arap aty
+Iňlis çapuw aty
+Orlow ýyldam ýörişlisi
+Ahalteke gyry
+Dor at
+Mustang
+Friz aty
+Andaluz aty
+Perşeron
+Klaýdesdal
+Şetlend ponisi
+Poni
+Ýük aty

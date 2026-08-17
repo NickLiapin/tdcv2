@@ -1,0 +1,12 @@
+---
+description: Dishes of Hindi cuisine
+locale: tk
+---
+Karri
+Biriýani
+Samosa
+Naan
+Tandyr towugy
+Dal
+Palak paneer
+Masala çaý

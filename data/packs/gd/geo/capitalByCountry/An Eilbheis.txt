@@ -1,0 +1,5 @@
+---
+description: Capital of An Eilbheis.
+locale: gd
+---
+Bern

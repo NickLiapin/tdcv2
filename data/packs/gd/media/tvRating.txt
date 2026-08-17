@@ -1,0 +1,13 @@
+---
+description: Age rating. THIS IS THE BRITISH BOARD OF FILM CLASSIFICATION SCALE, which is what a certificate carries in the Gaelic-speaking area — U, PG, 12A, 12, 15, 18, R18 — and it is NOT the American G / PG / PG-13 / R / NC-17 scale. The two do not map onto each other: a UK 15 has no US equivalent, and 12A means a child under twelve may go if an adult goes with them.
+locale: gd
+---
+U
+PG
+12A
+12
+15
+18
+R18
+Uile aoisean
+Gun rangachadh

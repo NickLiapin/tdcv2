@@ -1,0 +1,16 @@
+---
+description: Abbreviated month names. Note that the short forms follow the GERMAN abbreviation habit (Mrz. for Mäerz, not Mäe.) even though the full name does not — a written convention borrowed wholesale from the neighbour whose newspapers people read. Mee is not abbreviated because it is already three letters, which is the same reason May is not abbreviated in English. As shipped in moment.js's lb locale.
+locale: lb
+---
+Jan.
+Febr.
+Mrz.
+Abr.
+Mee
+Jun.
+Jul.
+Aug.
+Sept.
+Okt.
+Nov.
+Dez.

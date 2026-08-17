@@ -1,0 +1,28 @@
+---
+description: Gaelic thoroughfare generic. IT GOES BEFORE THE NAME, not after it — Sràid a' Chaisteil, Rathad an Locha, Ceàrnag nan Gàidheal — which is the mirror of the English order, and a config that copies English produces something no bilingual street sign in Scotland shows. Grammatical gender matters here and is not visible in the word: SRÀID, SLIGHE, CEÀRNAG, DROCHAID, FAICHE, CÙIRT and CLADACH are feminine and lenite a following adjective or personal name (Sràid Sheumais from Seumas), while RATHAD, CIDHE, BEALACH, GÀRRADH, BRUTHACH and CNOCAN are masculine and leave it alone. address/streetName.txt sidesteps that by shipping definite genitives, which do not vary.
+locale: gd
+---
+Sràid
+Rathad
+Slighe
+Ceàrnag
+Àrd-shràid
+Cabhsair
+Drochaid
+Cidhe
+Bealach
+Frith-rathad
+Cùirt
+Gàrradh
+Lios
+Bruthach
+Cnocan
+Àilean
+Faiche
+Rèidhlean
+Camas
+Cladach
+Taobh
+Bràigh
+Ceann
+Baile

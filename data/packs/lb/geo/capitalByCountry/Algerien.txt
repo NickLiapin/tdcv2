@@ -1,0 +1,5 @@
+---
+description: The capital of Algerien in Luxembourgish, as the LOD writes it.
+locale: lb
+---
+Alger

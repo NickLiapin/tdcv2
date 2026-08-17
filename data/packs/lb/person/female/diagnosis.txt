@@ -1,0 +1,31 @@
+---
+description: The same female-recorded diagnoses, addressed under person/.
+locale: lb
+---
+Endometriose
+Myom
+Ovarialzyst
+Polyzystescht Ovarialsyndrom
+Brustkriibs
+Gebärmutterhalskriibs
+Eierstackkriibs
+Menstruatiounsstéierung
+Dysmenorrhoe
+Amenorrhoe
+Menopaus
+Preeklampsie
+Schwangerschaftsdiabeetes
+Fehlgebuert
+Mastitis
+Mastopathie
+Vaginitis
+Zervizitis
+Blosenentzündung
+Inkontinenz
+Osteoporose
+Anämie
+Onfruchtbarkeet
+Postnatal Depressioun
+Migräne
+Schilddrüsenënnerfunktioun
+Eisenmangel

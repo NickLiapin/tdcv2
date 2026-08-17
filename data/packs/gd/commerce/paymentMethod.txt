@@ -1,0 +1,20 @@
+---
+description: How the customer paid. The currency is the pound sterling; brand names keep their registered spelling.
+locale: gd
+---
+Airgead
+Cairt-creideis
+Cairt-fhiach
+Visa
+Mastercard
+American Express
+PayPal
+Apple Pay
+Google Pay
+Klarna
+Gluasad-banca
+Òrdugh-seasmhach
+Debit Dìreach
+Seic
+Cairt-tiodhlaic
+Puingean-dìlseachd

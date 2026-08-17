@@ -1,0 +1,26 @@
+---
+description: Features a property listing advertises.
+locale: lb
+---
+Baalkon
+Terrass
+Gaart
+Garage
+Parkplaz
+Keller
+Späicher
+Lift
+Klimaanlag
+Fussbuedemheizung
+Kamäin
+Solarpanneau
+Wärmepompel
+Duebelverglasung
+Alarmanlag
+Videoiwwerwaachung
+Bugelzëmmer
+Wäschkichen
+Kichen ausgestatt
+Behënnertegerecht
+Fräie Bléck
+Roueg Lag

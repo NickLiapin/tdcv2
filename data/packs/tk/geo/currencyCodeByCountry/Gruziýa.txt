@@ -1,0 +1,5 @@
+---
+description: Currency code of Gruziýa
+locale: tk
+---
+GEL

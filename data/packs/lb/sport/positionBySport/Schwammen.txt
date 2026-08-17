@@ -1,0 +1,12 @@
+---
+description: Playing positions in Schwammen as Luxembourg names them — which for basketball, volleyball, cycling and rugby means the FRENCH names, because those sports came into the country through France and Belgium and nobody here says the English ones.
+locale: lb
+---
+Fräistil
+Réck
+Broscht
+Päiperlek
+Lag
+Staffel
+Starter
+Wendespezialist

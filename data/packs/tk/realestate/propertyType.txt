@@ -1,0 +1,23 @@
+---
+description: Property type (Turkmen)
+locale: tk
+---
+Hususy jaý
+Howly jaý
+Kwartira
+Iki otagly kwartira
+Üç otagly kwartira
+Kottej
+Villa
+Studiýa
+Köpgatly jaýdaky öý
+Ýerzemin öýi
+Üçek öýi
+Ofis jaýy
+Söwda meýdançasy
+Ammar
+Önümçilik binasy
+Ýer bölegi
+Bag öýi
+Oba jaýy
+Maldarçylyk hojalygy

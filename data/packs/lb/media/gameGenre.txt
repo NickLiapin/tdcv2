@@ -1,0 +1,22 @@
+---
+description: Video game genres. Genre names travel in English and are not translated.
+locale: lb
+---
+Action
+Adventure
+RPG
+MMORPG
+Shooter
+Plattform
+Puzzle
+Strategie
+Simulatioun
+Sport
+Course
+Kampf
+Horror
+Survival
+Sandbox
+Rhythmus
+Kaartespill
+Brietspill

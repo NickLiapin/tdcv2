@@ -1,0 +1,62 @@
+---
+description: Product material (Turkmen)
+locale: tk
+---
+Polat
+Poslamaýan polat
+Demir
+Mis
+Bürünç
+Alýumin
+Sink
+Nikel
+Titan
+Galaýy
+Gurşun
+Altyn
+Kümüş
+Platina
+Agaç
+Dub agajy
+Hoz agajy
+Tut agajy
+Arça agajy
+Bambuk
+Kagyz
+Karton
+Aýna
+Keramika
+Farfor
+Toýun
+Kerpiç
+Beton
+Gips
+Granit
+Mermer
+Daş
+Çäge
+Plastmassa
+Silikon
+Rezin
+Kauçuk
+Poliester
+Akril
+Pagta
+Nah mata
+Ýüpek
+Ýüň
+Zygyr
+Kaşmir
+Welwet
+Atlas
+Keçe
+Deri
+Emeli deri
+Süýde deri
+Brezent
+Uglerod süýümi
+Aýna süýümi
+Köpük
+Gubka
+Ýüpek nagyşly mata
+Gaýtadan işlenen plastmassa

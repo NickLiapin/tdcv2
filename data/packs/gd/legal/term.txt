@@ -1,0 +1,23 @@
+---
+description: Legal term. NEO-DHEARBHTE is the Scots verdict of NOT PROVEN — a third verdict open to a Scottish jury and to no English one, acquitting the accused while declining to say they are innocent. It is the clearest single sign that this list belongs to a different legal system rather than being an English one translated.
+locale: gd
+---
+Neach-tagraidh
+Neach-dìona
+Fianais
+Mionn-sgrìobhte
+Bacadh-cùirte
+Gairm-cùirte
+Breith
+Ciontach
+Neo-chiontach
+Neo-dhearbhte
+Rèiteachadh
+Cùis-lagha
+Ùghdarras
+Casaid
+Tagradh
+Peanas
+Càin
+Binn
+Ath-thagradh

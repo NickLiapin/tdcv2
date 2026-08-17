@@ -1,0 +1,12 @@
+---
+description: Playing positions in Ball-basgaid.
+locale: gd
+---
+Geàrd-puing
+Geàrd-sgòraidh
+Sgiathaire beag
+Sgiathaire trom
+Meadhan
+Caiptean
+Neach-ionaid
+Rèitire

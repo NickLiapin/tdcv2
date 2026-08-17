@@ -1,0 +1,5 @@
+---
+description: Capital of Nigèiria.
+locale: gd
+---
+Abuja

@@ -1,0 +1,5 @@
+---
+description: The capital of Indien in Luxembourgish, as the LOD writes it.
+locale: lb
+---
+New Delhi

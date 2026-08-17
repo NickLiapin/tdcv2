@@ -1,0 +1,12 @@
+---
+description: Conditions reported at higher carrier frequency in populations of Subsahara-Afrikanesch descent, in Luxembourgish. This list is a PREVALENCE SIGNAL and not an exclusive one: every condition here occurs in every population, and a higher reported carrier frequency in one group is a reason to test, never a reason to assume.
+locale: lb
+---
+Sichelzellanämie
+G6PD-Mangel
+Alpha-Thalassämie
+Laktosentoleranz
+Sarkoidos
+Blutthéichdrock
+Typ-2-Diabeetes
+APOL1-Nierekrankheet

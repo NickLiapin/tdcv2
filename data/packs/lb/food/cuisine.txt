@@ -1,0 +1,21 @@
+---
+description: Cuisines, named with the Luxembourgish nationality adjectives. The order at the head is the order of the country's restaurants rather than the alphabet: after the local cooking come the French, the PORTUGUESE — 13% of residents, and the reason a Luxembourgish high street has more pastelarias than Bierstuben — the Italian, and only then the German. That ordering is itself the fact this file records.
+locale: lb
+---
+Lëtzebuergesch
+Franséisch
+Portugisesch
+Italienesch
+Däitsch
+Belsch
+Spuenesch
+Griichesch
+Tierkesch
+Marokkanesch
+Chineesesch
+Japanesch
+Indesch
+Thailännesch
+Vietnamesesch
+Libanesesch
+Amerikanesch

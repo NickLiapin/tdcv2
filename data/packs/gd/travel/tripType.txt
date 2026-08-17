@@ -1,0 +1,24 @@
+---
+description: Kind of trip. TURAS NAN EILEAN, island-hopping, is a defined thing here and is sold as one ticket.
+locale: gd
+---
+Saor-làithean
+Turas-gnothachais
+Turas latha
+Deireadh-seachdain
+Turas nan Eilean
+Cuairt-mhara
+Turas-coiseachd
+Turas-sreap
+Turas-iasgaich
+Turas-seilg
+Turas-ciùil
+Turas-cànain
+Turas-dualchais
+Turas-sloinntearachd
+Campachadh
+Turas-rothair
+Turas-teaghlaich
+Turas mìos nam pòg
+Turas-sgoile
+Turas-tilleadh-dhachaigh

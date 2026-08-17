@@ -1,0 +1,15 @@
+---
+description: Booking status. AIR A CHUR DHETH LEIS AN T-SÌDE is not a rare status on the west coast: the ferry is cancelled by weather often enough to need its own line.
+locale: gd
+---
+Air a ghlèidheadh
+Air a dhearbhadh
+A' feitheamh
+Air liosta-feitheimh
+Air atharrachadh
+Air a chur dheth
+Air a chur dheth leis an t-sìde
+Air a chrìochnachadh
+Gun nochdadh
+Air a phàigheadh
+Ri phàigheadh

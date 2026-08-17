@@ -1,0 +1,29 @@
+---
+description: Dog breed (Turkmen). Alabay, the Central Asian shepherd dog, and the tazy sighthound are native Turkmen breeds and head the list.
+locale: tk
+---
+Alabaý
+Tazy
+Nemes owçarkasy
+Labrador retriwer
+Altyn retriwer
+Fransuz buldogy
+Buldog
+Pudel
+Bigl
+Rotweýler
+Taksa
+Bokser
+Sibir haskisi
+Nemes dogy
+Doberman
+Awstraliýa owçarkasy
+Border kolli
+Çihuahua
+Şi-tsu
+Pomeran şpisi
+Korgi
+Bern dag iti
+Kokerspanýel
+Terýer
+Çopan iti

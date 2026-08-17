@@ -1,0 +1,9 @@
+---
+description: Star rating awarded by the national tourist board.
+locale: gd
+---
+1 rionnag
+2 rionnag
+3 rionnag
+4 rionnag
+5 rionnag

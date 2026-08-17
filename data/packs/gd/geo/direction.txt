@@ -1,0 +1,20 @@
+---
+description: Compass direction. Gaelic orients from a speaker FACING THE RISING SUN, which is why EAR means both "east" and "in front", IAR both "west" and "behind, after", DEAS both "south" and "right", and TUATH is on the left. The intermediate points compound the two with lenition on the second element: an ear-thuath, an iar-dheas. The sixteen-point rose is a translation exercise rather than a Gaelic tradition — Gaelic seafaring named winds and landmarks rather than degrees — so the eight cardinal and intercardinal points are given plainly and the half-points are marked as the compounds they are.
+locale: gd
+---
+Tuath
+Deas
+An Ear
+An Iar
+An Ear-thuath
+An Iar-thuath
+An Ear-dheas
+An Iar-dheas
+Tuath-an-ear-thuath
+Ear-an-ear-thuath
+Ear-an-ear-dheas
+Deas-an-ear-dheas
+Deas-an-iar-dheas
+Iar-an-iar-dheas
+Iar-an-iar-thuath
+Tuath-an-iar-thuath

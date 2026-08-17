@@ -1,0 +1,5 @@
+---
+description: Currency of Müsür
+locale: tk
+---
+Müsür funty

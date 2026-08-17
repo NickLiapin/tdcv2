@@ -1,0 +1,14 @@
+---
+description: Gaming platforms. Brand names, never translated.
+---
+PC
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+Steam Deck
+Handy
+Tablet
+Browser
+VR

@@ -1,0 +1,30 @@
+---
+description: Diagnoses recorded for women.
+locale: lb
+---
+Endometriose
+Myom
+Ovarialzyst
+Polyzystescht Ovarialsyndrom
+Brustkriibs
+Gebärmutterhalskriibs
+Eierstackkriibs
+Menstruatiounsstéierung
+Dysmenorrhoe
+Amenorrhoe
+Menopaus
+Preeklampsie
+Schwangerschaftsdiabeetes
+Fehlgebuert
+Extra-uterin Schwangerschaft
+Mastitis
+Mastopathie
+Vaginitis
+Vulvodynie
+Zervizitis
+Blosenentzündung
+Inkontinenz
+Osteoporose no der Menopaus
+Anämie duerch Reegel
+Onfruchtbarkeet
+Postnatal Depressioun

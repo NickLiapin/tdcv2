@@ -1,0 +1,16 @@
+---
+description: Listing status (Turkmen)
+locale: tk
+---
+Satlyga çykaryldy
+Kärendesine berilýär
+Ätiýaçda
+Satyldy
+Kärendesine berildi
+Şertnama taýýarlanýar
+Bazardan aýryldy
+Tiz wagtda
+Bahasy peseldildi
+Gurluşyk dowam edýär
+Täze gurlan
+Barlagda

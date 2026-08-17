@@ -1,0 +1,14 @@
+---
+description: Jobs in the Gaaschtgewerb sector, in Luxembourgish. Where the trade came into the country through French, so did its name.
+locale: lb
+---
+Kach
+Serveur
+Garçon
+Barman
+Sommelier
+Patissier
+Receptionist
+Zëmmermeedchen
+Hotelgerant
+Traiteur

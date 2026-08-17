@@ -1,0 +1,12 @@
+---
+description: Conditions reported at higher carrier frequency in populations of Indigen Amerikanesch descent, in Luxembourgish.
+locale: lb
+---
+Typ-2-Diabeetes
+Gallesteng
+Adipositas
+Rheumatoid Arthritis
+Laktosentoleranz
+Leberkrankheet
+Nierekrankheet
+Albinismus

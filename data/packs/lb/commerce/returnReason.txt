@@ -1,0 +1,19 @@
+---
+description: Why a customer sends something back.
+locale: lb
+---
+Falsch Gréisst
+Falsch Faarf
+Falschen Artikel
+Beschiedegt
+Defekt
+Net wéi beschriwwen
+Net gefall
+Ze spéit ukomm
+Duebel bestallt
+Besser Präis fonnt
+Onvollstänneg
+Feelend Deeler
+Ouni Grond
+Widerruff
+Garantie

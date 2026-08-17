@@ -1,0 +1,21 @@
+---
+description: Bicycle type (Turkmen)
+locale: tk
+---
+Ýol welosipedi
+Dag welosipedi
+Garyşyk welosiped
+Şäher welosipedi
+Grawel welosipedi
+BMX welosipedi
+Elektrik welosipedi
+Ýygnalýan welosiped
+Syýahat welosipedi
+Ýük welosipedi
+Çagalar welosipedi
+Üç tigirli welosiped
+Sport welosipedi
+Treki welosipedi
+Kiçi tigirli welosiped
+Iki adamlyk welosiped
+Gyşky welosiped

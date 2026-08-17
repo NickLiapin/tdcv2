@@ -1,0 +1,5 @@
+---
+description: Currency code of Eýran
+locale: tk
+---
+IRR

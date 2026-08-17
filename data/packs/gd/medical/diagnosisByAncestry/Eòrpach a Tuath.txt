@@ -1,0 +1,14 @@
+---
+description: Conditions markedly more frequent in people of Eòrpach a Tuath ancestry. A prevalence signal, not an exclusive one. Eponyms and registered genetic names are kept unchanged; only the descriptive conditions are rendered in Gaelic.
+locale: gd
+---
+Fibrosis Cistach
+Haemochromatosis oighreachail
+Dìth Alpha-1 Antitrypsin
+Phenylketonuria
+Galar Coeliac
+Sglerosis Ioma-fhillte
+An tinneas-siùcair seòrsa 1
+Crupadh Dupuytren
+Carcinoma bun-cheallach
+Maireannachd lactase

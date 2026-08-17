@@ -1,0 +1,30 @@
+---
+description: Flowering plant. CLUARAN and FÒGHNAN are both the thistle, the national emblem. Several carry a story rather than a description: LUS NAM BAN-SÌTH, the foxglove, is the "plant of the fairy women"; BRÒG NA CUTHAIG, the bluebell, the "cuckoo's shoe"; LUS-A'-CHROM-CHINN, the daffodil, the "plant of the bent head". CANACH is bog cotton and MURAN marram grass — both are moor and machair plants with no ordinary English name.
+locale: gd
+---
+Fraoch
+Ròs
+Neòinean
+Buidheag-an-t-samhraidh
+Sòbhrach
+Lus-a'-chrom-chinn
+Bròg-na-cuthaig
+Seileastair
+Canach
+Lus-nam-ban-sìth
+Mòthan
+Slàn-lus
+Neòinean-mòr
+Duilleag-bhàite
+Cluaran
+Fòghnan
+Seamrag
+Muran
+Deanntag
+Copag
+Ròs-Màiri
+Lus-nan-laogh
+Braoileag
+Coinneach
+Gucag-an-fhraoich
+Sòbhrach-bhàn

@@ -1,0 +1,5 @@
+---
+description: Capital of Innis Tìle.
+locale: gd
+---
+Reykjavík

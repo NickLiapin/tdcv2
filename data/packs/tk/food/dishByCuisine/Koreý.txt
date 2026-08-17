@@ -1,0 +1,11 @@
+---
+description: Dishes of Koreý cuisine
+locale: tk
+---
+Kimçi
+Bibimbap
+Bulgogi
+Tteokbokki
+Japçhae
+Kimçi çorbasy
+Samgýopsal

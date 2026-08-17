@@ -1,0 +1,32 @@
+---
+description: Technical verb, ongoing form (Turkmen)
+locale: tk
+---
+ätiýaçlyk nusgasy alynýar
+çäklendirme aýlanyp geçilýär
+ulgama girilýär
+sazlama üýtgedilýär
+gysylýar
+göçürilýär
+ugur kesgitlenýär
+indeksirlenýär
+birikdirilýär
+döredilýär
+hasaplanýar
+sintezlenýär
+geçirilýär
+programmirlenýär
+gaýtadan işledilýär
+seljerilýär
+şifrlenýär
+açylýar
+ornaşdyrylýar
+barlanýar
+täzelenýär
+arassalanýar
+gözlenýär
+tapylýar
+ýazylýar
+okalýar
+saklanýar
+ugradylýar

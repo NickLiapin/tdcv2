@@ -1,0 +1,5 @@
+---
+description: The capital of Polen in Luxembourgish, as the LOD writes it.
+locale: lb
+---
+Warschau

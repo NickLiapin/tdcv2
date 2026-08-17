@@ -1,0 +1,12 @@
+---
+description: Job titles found in Lagh.
+locale: gd
+---
+Neach-lagha
+Neach-tagraidh
+Britheamh
+Siorram
+Clèireach cùirte
+Neach-notaidh
+Neach-rannsachaidh lagha
+Neach-sgrìobhaidh chùmhnantan

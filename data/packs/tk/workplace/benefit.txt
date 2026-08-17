@@ -1,0 +1,22 @@
+---
+description: Employee benefit (Turkmen)
+locale: tk
+---
+Saglyk ätiýaçlandyryşy
+Tölegli zähmet rugsady
+Ýyllyk rugsat
+Kesel boýunça töleg
+Ene-atalyk rugsady
+Wagtyň çeýe düzgüni
+Öýden işlemek mümkinçiligi
+Iş nahary
+Iş eşigi
+Iş ulagy
+Ýaşaýyş jaý goldawy
+Okuw tölegini tölemek
+Hünär taýýarlygy
+Sport zalyna abunalyk
+Sanatoriýa ýollanmasy
+Çagalar bagyna ýer
+Baýramçylyk sowgatlary
+Goşmaça pul baýragy

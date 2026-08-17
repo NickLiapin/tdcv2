@@ -1,0 +1,32 @@
+---
+description: Vegetable. BUNTÀTA, the potato, and SNÈAP, the turnip, carried the Highlands through the nineteenth century and are the first two for that reason. CÀL covers both cabbage and kale without distinguishing them. DUILEASG and CÀRRAGEAN are seaweeds eaten as vegetables, which is a Hebridean habit and not a general Scottish one. CREAMH is wild garlic, gathered rather than grown.
+locale: gd
+---
+Buntàta
+Snèap
+Curran
+Càl
+Càl-colaig
+Brocail
+Peasair
+Pònair
+Uinnean
+Creamh
+Gàrlag
+Creamh-gàrraidh
+Tomàto
+Cucumair
+Letis
+Biotais
+Meacan-ruadh
+Bloingean
+Balgan-buachair
+Duileasg
+Càrragean
+Puimcean
+Piobar
+Corgette
+Seiliste
+Neap-Shuaineach
+Peasair-thalmhainn
+Càl-Bruisealach

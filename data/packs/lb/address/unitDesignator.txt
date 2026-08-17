@@ -1,0 +1,27 @@
+---
+description: The word in front of a sub-address. Note how many of these are FRENCH words used inside Luxembourgish — Appartement, Etage, Bloc, Entrée, Escalier, Boîte, Local — because the building trade and the postal system in this country operate in French, and a Luxembourgish speaker reads them without switching. Stack is the native word for a storey and coexists with Etage in the same sentence.
+locale: lb
+---
+Appartement
+Wunneng
+Etage
+Stack
+Buedem
+Rez-de-chaussée
+Entresol
+Bloc
+Entrée
+Escalier
+Trap
+Boîte
+Bréifkëscht
+Local
+Bureau
+Zëmmer
+Keller
+Späicher
+Garage
+Box
+Parkplaz
+Stand
+Kiosk

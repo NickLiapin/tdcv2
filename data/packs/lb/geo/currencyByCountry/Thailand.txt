@@ -1,0 +1,5 @@
+---
+description: The currency of Thailand, named in Luxembourgish.
+locale: lb
+---
+Baht

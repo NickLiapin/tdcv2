@@ -1,0 +1,5 @@
+---
+description: Capital of Amerikanyň Birleşen Ştatlary
+locale: tk
+---
+Waşington

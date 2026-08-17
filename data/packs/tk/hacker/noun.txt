@@ -1,0 +1,41 @@
+---
+description: Technical noun (Turkmen)
+locale: tk
+---
+sürüji
+teswirnama
+geçirijilik
+panel
+mikroshema
+programma
+port
+karta
+massiw
+interfeýs
+ulgam
+duýgur
+howpsuzlyk diwary
+gaty disk
+piksel
+duýduryş
+akym
+monitor
+goşundy
+geçiriji
+şina
+shema
+kondensator
+matrisa
+maglumat binýady
+geçelge
+serwer
+müşderi
+ammar
+tor
+kabel
+açar
+belgi
+faýl
+bukja
+nusga
+ýat

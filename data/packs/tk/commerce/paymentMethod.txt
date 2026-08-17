@@ -1,0 +1,19 @@
+---
+description: Payment method (Turkmen). Turkmenistan's national card schemes are deliberately absent: named card brands and banks belong to a country pack.
+locale: tk
+---
+Nagt pul
+Bank karty
+Kredit karty
+Debet karty
+Bank geçirimi
+Nagt däl töleg
+Töleg terminaly
+Internet arkaly töleg
+Mobil töleg
+Elektron gapjyk
+QR kod arkaly töleg
+Sowgat karty
+Eltip berlende töleg
+Bölekleýin töleg
+Karzyna

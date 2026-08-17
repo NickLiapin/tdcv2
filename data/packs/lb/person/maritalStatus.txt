@@ -1,0 +1,12 @@
+---
+description: Civil status in Luxembourgish, and it is SEXED where English is not. English says "widowed" for everyone; Luxembourgish, like French veuf/veuve, has Wittmann for a man and Wittfra for a woman, and a status field that offers one value for both is not saying what the language says. The other entry worth seeing is celibataire — the LOD's word for unmarried is the FRENCH one, borrowed whole, sitting in a West Germanic language beside the native netbestuet; German ledig has no descendant here. All forms are the LOD's.
+locale: lb
+---
+celibataire
+netbestuet
+bestuet
+gescheet
+Wittmann
+Wittfra
+getrennt
+verlobt

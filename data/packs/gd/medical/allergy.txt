@@ -1,0 +1,28 @@
+---
+description: Allergen. The environmental ones at the foot matter locally: pollen and dust are the ordinary Scottish allergens, and MEANBH-CHUILEAG, the midge, causes a reaction in a large minority of people here that no continental list would think to include.
+locale: gd
+---
+Cnò-thalmhainn
+Cnòthan
+Bainne
+Uighean
+Maorach
+Iasg
+Cruithneachd
+Glutan
+Soidhe
+Seismeam
+Poilean
+Feur
+Duslach-taighe
+Fionnadh chat
+Fionnadh chon
+Penicillin
+Aspirin
+Latex
+Gath-seillein
+Meanbh-chuileag
+Nicil
+Cùbhrachdan
+Sulphites
+Balgan-buachair

@@ -1,0 +1,12 @@
+---
+description: Parts of the day. MOIEN is the word to know: it is the noun "morning" and it is also the ordinary Luxembourgish hello, said at any hour — the one Luxembourgish word most foreigners in the country learn first. Mueren is the same time of day in the neutral sense. Forms from the LOD.
+locale: lb
+---
+Moien
+Mueren
+Mëtteg
+Nomëtteg
+Owend
+Nuecht
+Mëtternuecht
+Hallefnuecht

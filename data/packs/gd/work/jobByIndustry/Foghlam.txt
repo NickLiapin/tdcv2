@@ -1,0 +1,14 @@
+---
+description: Job titles found in Foghlam.
+locale: gd
+---
+Tidsear
+Maighstir-sgoile
+Ceannard-sgoile
+Òraidiche
+Ollamh
+Neach-taic-foghlaim
+Leabharlannaiche
+Neach-rannsachaidh
+Neach-teagaisg Gàidhlig
+Neach-cùram-chloinne

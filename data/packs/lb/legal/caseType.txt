@@ -1,0 +1,17 @@
+---
+description: Kinds of case, in Luxembourgish.
+locale: lb
+---
+Zivilsaach
+Strofsaach
+Handelssaach
+Aarbechtssaach
+Familljesaach
+Scheedung
+Ierfschaftssaach
+Mietsaach
+Verkéiersdelikt
+Verwaltungssaach
+Steiersaach
+Insolvenz
+Verfassungsfro

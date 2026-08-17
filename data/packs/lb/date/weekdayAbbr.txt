@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday names, Monday first, as moment.js's lb locale writes them — with the full stop, which is part of the abbreviation here and not punctuation the config should add.
+locale: lb
+---
+Mé.
+Dë.
+Më.
+Do.
+Fr.
+Sa.
+So.

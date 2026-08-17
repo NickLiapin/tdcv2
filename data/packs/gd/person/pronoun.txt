@@ -1,0 +1,11 @@
+---
+description: Personal pronoun, plain form / emphatic form. Gaelic pairs every pronoun with a distinct EMPHATIC built by suffix — e/esan, i/ise, iad/iadsan, mi/mise — which English can only do with stress, so the pair is the unit here rather than a subject/object pair as in the English pack. Gaelic ALSO keeps the T/V distinction English lost: THU is one person you know, SIBH is a stranger or several people, and choosing wrongly is rude. Note what is absent: Gaelic has no gender-neutral third-person singular pronoun at all, so there is no equivalent of singular THEY on this list and inventing one would be inventing.
+locale: gd
+---
+mi/mise
+thu/thusa
+e/esan
+i/ise
+sinn/sinne
+sibh/sibhse
+iad/iadsan

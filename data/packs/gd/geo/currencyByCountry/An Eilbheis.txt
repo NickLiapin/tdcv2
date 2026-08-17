@@ -1,0 +1,5 @@
+---
+description: Currency of An Eilbheis.
+locale: gd
+---
+Franc Eilbheiseach

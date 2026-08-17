@@ -1,0 +1,5 @@
+---
+description: The currency of Indonesien, named in Luxembourgish.
+locale: lb
+---
+Rupiah

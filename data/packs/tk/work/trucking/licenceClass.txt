@@ -1,0 +1,11 @@
+---
+description: Driving licence category. These are the EUROPEAN-STYLE letter categories used in Turkmenistan and across the post-Soviet space, NOT the US CDL Class A/B/C scheme: B is a car, C a lorry, D a bus, and the E suffix adds a trailer.
+locale: tk
+---
+A
+B
+C
+D
+BE
+CE
+DE

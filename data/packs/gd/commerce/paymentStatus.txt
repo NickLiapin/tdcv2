@@ -1,0 +1,14 @@
+---
+description: Payment status.
+locale: gd
+---
+Ri phàigheadh
+Air a phàigheadh
+Pàirt-phàighte
+Air a dhiùltadh
+A' feitheamh
+Air a thilleadh
+Air a chur dheth
+Thar na h-ùine
+Ga sgrùdadh
+Air a dhearbhadh

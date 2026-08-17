@@ -1,0 +1,14 @@
+---
+description: Industries that have a coherent job list below them. The head of this list is the shape of the Luxembourgish economy and not a generic ordering: the FINANCE sector is first because it is what the country does, BAU (construction) second because it is the largest employer of cross-border workers, and ËFFENTLECHEN DÉNGSCHT (the public service) is here because the state is one of the biggest single employers in a country this size.
+locale: lb
+---
+Finanzsecteur
+Bau
+Gesondheet
+Educatioun
+Informatik
+Transport
+Handel
+Gaaschtgewerb
+Industrie
+Ëffentlechen Déngscht

@@ -1,0 +1,29 @@
+---
+description: Diagnosis for a male patient — the sex-specific conditions together with the common ones a man is most often carrying, so that a generated record is coherent rather than a bare list of male-only disease.
+locale: gd
+---
+Aillse na prostait
+Fàs-mhòr na prostait
+Aillse nam magairlean
+Neo-chomas gnè
+Neo-thorachas fireann
+Maoile fhireann
+Bruthadh-fala àrd
+Galar-cridhe corònach
+Grèim-cridhe
+An tinneas-siùcair
+Gùt
+A' chuing
+Trom-inntinn
+Stròc
+Àrd-lipideachd
+At nan alt
+Galar-sgamhain bacte leantainneach
+Cnàmh-lot
+Aillse an sgamhain
+Aillse a' chaolain
+Galar-grùthain bhon deoch
+Clach-àirne
+Sciatica
+Nearbh-ghalar iomallach
+Miogràn

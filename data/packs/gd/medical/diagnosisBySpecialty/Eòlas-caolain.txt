@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Eòlas-caolain. Gaelic words are used where the language has them; the eponyms and the international registered names (Crohn, Cushing, Parkinson, psoriasis, sciatica) are left as they stand, because translating a name nobody could then look up would be worse than borrowing it.
+locale: gd
+---
+Losgadh-bràghad
+Galar Crohn
+Colitis Ulcerach
+Cnàmh-lot
+Caolan Frionasach
+Cirrhosis an grùthain

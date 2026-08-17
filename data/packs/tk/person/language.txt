@@ -1,0 +1,44 @@
+---
+description: Language spoken, as Turkmen names it — the pattern is 'X dili', literally 'the tongue of X'. Russian remains the widest second language in Turkmenistan.
+locale: tk
+---
+Türkmen dili
+Rus dili
+Iňlis dili
+Türk dili
+Özbek dili
+Gazak dili
+Gyrgyz dili
+Täjik dili
+Azerbaýjan dili
+Pars dili
+Arap dili
+Puştu dili
+Urdu dili
+Hindi dili
+Hytaý dili
+Ýapon dili
+Koreý dili
+Nemes dili
+Fransuz dili
+Ispan dili
+Portugal dili
+Italýan dili
+Ukrain dili
+Belarus dili
+Polýak dili
+Çeh dili
+Bolgar dili
+Serb dili
+Grek dili
+Ýewreý dili
+Ermeni dili
+Gruzin dili
+Wýetnam dili
+Taý dili
+Indonez dili
+Malaý dili
+Şwed dili
+Norweg dili
+Finn dili
+Golland dili

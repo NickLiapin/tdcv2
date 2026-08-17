@@ -1,0 +1,12 @@
+---
+description: Mining method (Turkmen)
+locale: tk
+---
+Açyk usul
+Ýerasty usul
+Karýer usuly
+Şahta usuly
+Guýy arkaly
+Ýuwup almak
+Buraw arkaly
+Partladyş usuly

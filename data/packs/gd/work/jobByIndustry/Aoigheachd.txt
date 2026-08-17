@@ -1,0 +1,13 @@
+---
+description: Job titles found in Aoigheachd.
+locale: gd
+---
+Còcaire
+Àrd-chòcaire
+Neach-frithealaidh
+Òsdair
+Neach-bàr
+Manaidsear taigh-òsta
+Neach-fàilte
+Neach-glanaidh
+Neach-iùil turasachd

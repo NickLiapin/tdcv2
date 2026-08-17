@@ -1,0 +1,14 @@
+---
+description: Competitive ranks, in Luxembourgish.
+locale: lb
+---
+Bronze
+Sëlwer
+Gold
+Platin
+Diamant
+Meeschter
+Grousmeeschter
+Champion
+Legend
+Onclasséiert

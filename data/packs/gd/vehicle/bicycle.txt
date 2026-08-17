@@ -1,0 +1,21 @@
+---
+description: Bicycle type.
+locale: gd
+---
+Baidhsagal-rathaid
+Baidhsagal-monaidh
+Baidhsagal-grinneil
+Baidhsagal hìobrid
+Baidhsagal-dealain
+Baidhsagal-siubhail
+Baidhsagal-fillte
+Baidhsagal-cloinne
+Baidhsagal-bathair
+Baidhsagal-rèisidh
+Baidhsagal-cuairteach
+BMX
+Tandem
+Baidhsagal-fàis
+Baidhsagal-sneachda
+Trì-chuibhleach
+Baidhsagal-ath-nuadhaichte

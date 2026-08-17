@@ -1,0 +1,15 @@
+---
+description: Conditions markedly more frequent in people of Iùdhach Ashkenazi ancestry. A prevalence signal, not an exclusive one. Eponyms and registered genetic names are kept unchanged; only the descriptive conditions are rendered in Gaelic.
+locale: gd
+---
+Galar Tay-Sachs
+Galar Gaucher Seòrsa 1
+Dysautonomia Teaghlaich
+Galar Canavan
+Galar Niemann-Pick Seòrsa A
+Syndrome Bloom
+Dìth Factar XI
+Mùthadh stèidheachaidh BRCA1
+Mùthadh stèidheachaidh BRCA2
+Mucolipidosis Seòrsa IV
+Galar Crohn

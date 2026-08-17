@@ -1,0 +1,34 @@
+---
+description: Spice and herb (Turkmen). Zire (cumin) is the defining spice of Turkmen meat cookery in the way black pepper is of European.
+locale: tk
+---
+Zire
+Gara burç
+Gyzyl burç
+Duz
+Sarymsak
+Kişniş
+Reýhan
+Narpyz
+Şibit
+Petruşka
+Kinza
+Dafna ýapragy
+Zerdeçal
+Zenjebil
+Darçyn
+Şafran
+Kardamon
+Badyýan
+Mihek
+Muskat hozy
+Susam
+Künji
+Ajy burç
+Ýalbyz
+Turşuja
+Ysmanak tohumy
+Hyýar tohumy
+Ýandak baly
+Ýabany narpyz
+Sumak

@@ -1,0 +1,5 @@
+---
+description: Capital of A' Bheilg.
+locale: gd
+---
+A' Bhruiseal

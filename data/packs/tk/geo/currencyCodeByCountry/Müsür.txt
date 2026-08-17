@@ -1,0 +1,5 @@
+---
+description: Currency code of Müsür
+locale: tk
+---
+EGP

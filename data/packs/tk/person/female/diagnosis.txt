@@ -1,0 +1,31 @@
+---
+description: Medical diagnoses for a female patient: the female-only conditions plus the common ones (Turkmen)
+locale: tk
+---
+Ýatgy boýunjygynyň displaziýasy
+Ýatgy miomasy
+Wulwowaginal kandidoz
+Süýt mäziniň fibroadenomasy
+Polikistoz ýumurtgalyk sindromy
+Serwisit
+Endometrit
+Endometrioz
+Dismenoreýa
+Klimakteriki sindrom
+Demir ýetmezçilikli ganazlyk
+Arterial gipertenziýa
+2-nji görnüşli süýji keseli
+Gipotireoz
+Osteoporoz
+Osteoartroz
+Migren
+Öt haltasynyň daşlary
+Peşew ýollarynyň ýokançlygy
+Warikoz damarlar
+Depressiýa
+Aladaly bozulma
+Rewmatoid artrit
+Dowamly pankreatit
+Gastrit
+Semizlik
+D witamininiň ýetmezçiligi

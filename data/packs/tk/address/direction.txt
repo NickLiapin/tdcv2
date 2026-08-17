@@ -1,0 +1,19 @@
+---
+description: Directional qualifier used with a Turkmen street, district or estate name
+locale: tk
+---
+Demirgazyk
+Günorta
+Gündogar
+Günbatar
+Demirgazyk-gündogar
+Demirgazyk-günbatar
+Günorta-gündogar
+Günorta-günbatar
+Merkez
+Merkezi
+Ýokarky
+Aşaky
+Täze
+Köne
+Uly

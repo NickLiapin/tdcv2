@@ -1,0 +1,24 @@
+---
+description: School subject (Turkmen)
+locale: tk
+---
+Matematika
+Fizika
+Himiýa
+Biologiýa
+Geografiýa
+Taryh
+Türkmen dili
+Türkmen edebiýaty
+Rus dili
+Iňlis dili
+Informatika
+Çyzuw
+Şekillendiriş sungaty
+Aýdym-saz
+Bedenterbiýe
+Zähmet taglymaty
+Jemgyýeti öwreniş
+Ykdysadyýet
+Ekologiýa
+Astronomiýa

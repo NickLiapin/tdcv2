@@ -1,0 +1,5 @@
+---
+description: Currency of Sealainn Nuadh.
+locale: gd
+---
+Dolar Shealainn Nuaidh

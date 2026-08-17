@@ -1,0 +1,20 @@
+---
+description: Academic degree (Turkmen). This is Turkmenistan's own ladder, which is the post-Soviet one: 'hunarmen' (specialist) sits beside bachelor and master, and the two research degrees are candidate and doctor of sciences, not a single PhD.
+locale: tk
+---
+Orta bilim hakynda şahadatnama
+Hünär bilimi hakynda diplom
+Orta hünär bilimi diplomy
+Ýokary bilim hakynda diplom
+Bakalawr
+Hünärmen
+Magistr
+Ylymlaryň kandidaty
+Ylymlaryň doktory
+Doktorantura
+Aspirantura
+Ylmy dereje
+Dosent
+Professor
+Akademik
+Hormatly at

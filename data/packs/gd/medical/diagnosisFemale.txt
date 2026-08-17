@@ -1,0 +1,29 @@
+---
+description: Diagnosis specific to female patients. MACHLAG is the womb and UGHAG the ovary, both old Gaelic words, so those compounds are native rather than coined.
+locale: gd
+---
+Aillse a' bhroillich
+Aillse na machlaig
+Aillse nan ughagan
+Aillse amhach na machlaig
+Endometriosis
+Syndrome nan ughagan ioma-chisteach
+Fibroidean machlaig
+Cyst ughaige
+Stad-mìosaich
+Neo-thorachas boireann
+Torrachas iomrallach
+Breith an-abaich
+Preeclampsia
+An tinneas-siùcair torrachais
+Trom-inntinn iar-bhreith
+Mastitis
+Vaginitis
+Tuiteam na machlaig
+Amenorrhoea
+Dysmenorrhoea
+Anemia iarainn-dhìth
+Cnàmhan brisg iar-mhìosaich
+Hyperemesis gravidarum
+Vaginosis bacteriach
+Cystitis

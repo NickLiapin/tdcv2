@@ -1,0 +1,5 @@
+---
+description: Capital of Italiýa
+locale: tk
+---
+Rim

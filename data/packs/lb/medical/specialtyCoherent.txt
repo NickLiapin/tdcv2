@@ -1,0 +1,14 @@
+---
+description: The ten specialties that have a coherent diagnosis list below them.
+locale: lb
+---
+Kardiologie
+Dermatologie
+Endokrinologie
+Gastroenterologie
+Nephrologie
+Neurologie
+Onkologie
+Orthopedie
+Psychiatrie
+Pneumologie

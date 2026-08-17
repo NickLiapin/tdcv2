@@ -1,0 +1,42 @@
+---
+description: Common symptom or complaint (Turkmen)
+locale: tk
+---
+Gyzgyn
+Baş agyry
+Ysgynsyzlyk
+Ýürek bulanma
+Gaýtarma
+Iç geçme
+Iç gatama
+Garyn agyry
+Döş agyrysy
+Demgysma
+Üsgülewük
+Bogaz agyry
+Burun akmagy
+Burnuň dykylmagy
+Başaýlanma
+Görşüň bulaşmagy
+Myşsa agyrysy
+Bogun agyrysy
+Bil agyrysy
+Deri örgüni
+Gijilewük
+Çiş
+Duýgurlygyň ýitmegi
+Sanjy
+Ýüregiň çalt urmagy
+Işdäniň ýitmegi
+Agramyň azalmagy
+Gijeki derlemek
+Sowuk urmasy
+Asgyrma
+Gägirme
+Garnyň çişmegi
+Damar çekme
+Ejizlik
+Aňyň bulaşmagy
+Ukusyzlyk
+Gulak agyry
+Göz agyry

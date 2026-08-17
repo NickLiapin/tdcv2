@@ -1,0 +1,28 @@
+---
+description: Character class in a role-playing game.
+locale: gd
+---
+Gaisgeach
+Laoch
+Ridire
+Saighdear
+Boghadair
+Sealgair
+Draoidh
+Buidseach
+Bana-bhuidseach
+Fiosaiche
+Bàrd
+Filidh
+Sagart
+Manach
+Slànaighear
+Mèirleach
+Foill-mharbhaiche
+Gobha
+Ceàrd
+Marsanta
+Maraiche
+Rìdire-sìthe
+Seanchaidh
+Curaidh

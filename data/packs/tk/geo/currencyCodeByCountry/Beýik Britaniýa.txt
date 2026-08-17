@@ -1,0 +1,5 @@
+---
+description: Currency code of Beýik Britaniýa
+locale: tk
+---
+GBP

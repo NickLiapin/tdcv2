@@ -1,0 +1,5 @@
+---
+description: The currency of Groussbritannien, named in Luxembourgish.
+locale: lb
+---
+Pond

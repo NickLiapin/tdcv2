@@ -1,0 +1,25 @@
+---
+description: Kinds of property. MAISON MITOYENNE (terraced) and MAISON JUMELÉE (semi-detached) are the French terms a Luxembourgish estate agent uses and nobody translates them; a REZ-DE-JARDIN is a ground-floor flat with a garden and is a normal Luxembourg listing category. The country's housing shortage is the reason this vocabulary is so finely divided.
+locale: lb
+---
+Appartement
+Studio
+Duplex
+Penthouse
+Rez-de-jardin
+Haus
+Eefamilljenhaus
+Maison mitoyenne
+Maison jumelée
+Bauerenhaff
+Schlass
+Villa
+Chalet
+Bureau
+Buttek
+Atelier
+Lager
+Terrain
+Bauplaz
+Garage
+Parkplaz

@@ -1,0 +1,11 @@
+---
+description: Conditions markedly more frequent in people of Àiseanach an Ear-dheas ancestry. A prevalence signal, not an exclusive one. Eponyms and registered genetic names are kept unchanged; only the descriptive conditions are rendered in Gaelic.
+locale: gd
+---
+Galar Haemoglobin E
+Alpha-Thalassemia
+Dìth G6PD
+Carcinoma nasopharyngeach
+Beta-Thalassemia
+Syndrome Brugada
+Neo-mhaireannachd lactase

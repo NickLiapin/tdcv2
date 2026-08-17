@@ -1,0 +1,14 @@
+---
+description: Diagnoses a Pneumologie clinic records, in Luxembourgish.
+locale: lb
+---
+Asthma
+Bronchitis
+Longenentzündung
+COPD
+Longekriibs
+Schlofapnoe
+Tuberkulos
+Pneumothorax
+Longenembolie
+Sarkoidos

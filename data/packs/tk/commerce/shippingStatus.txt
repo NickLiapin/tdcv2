@@ -1,0 +1,15 @@
+---
+description: Shipping status (Turkmen)
+locale: tk
+---
+Belgi taýýarlandy
+Ýolda
+Eltip berilýär
+Gowşuryldy
+Ýagdaý ýüze çykdy
+Iberijä gaýtaryldy
+Almaga garaşylýar
+Gijikdirildi
+Gümrükde
+Bölünip ugradyldy
+Ýitirildi

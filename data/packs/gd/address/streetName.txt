@@ -1,0 +1,123 @@
+---
+description: The naming element that FOLLOWS a streetSuffix: Sràid + a' Chaisteil, Rathad + an Locha, Ceàrnag + nan Gàidheal. Every entry is a DEFINITE GENITIVE — a noun phrase carrying its own article (a', an, an t-, na, na h-, nan, nam) — and that is a deliberate choice, not a stylistic one. A bare Gaelic adjective would have to agree with the generic in front of it, so Sràid Fhada but Rathad Fada, and a config drawing the two lists independently cannot know which; a definite genitive is invariant and attaches correctly to any generic in the suffix list. For the same reason there are NO bare consonant-initial adjectives here at all. The personal names are in the genitive AND lenited, which is what the real bilingual signs in Stornoway and Portree show (Sràid Sheumais for James Street, Sràid Chrombail for Cromwell Street, Rathad Shanndabhaig for Sandwick Road). City-specific streets belong in a country pack, not here.
+locale: gd
+---
+a' Chaisteil
+a' Chidhe
+a' Chladaich
+a' Chlachain
+a' Chnuic
+a' Chladha
+a' Ghàrraidh
+a' Ghlinne
+a' Ghobhainn
+a' Bhaile
+a' Bhàigh
+a' Bhealaich
+a' Bhruthaich
+a' Chaolais
+a' Mhonaidh
+a' Mhuilinn
+a' Phuill
+a' Phrionnsa
+a' Mhargaidh
+a' Mhinisteir
+a' Bhàird
+a' Chuain
+a' Gharraidh Mhòir
+a' Chrannaig
+an Locha
+an Rìgh
+an Aiseig
+an Ospadail
+an Sgadain
+an Tobair
+an Uillt
+an Eilein
+an Achaidh
+an Dùin
+an t-Sabhail
+an t-Sagairt
+an t-Sruthain
+an t-Slèibhe
+an t-Sithein
+an Fhraoich
+an Fhuarain
+an Fhithich
+an Locha Bhig
+na h-Eaglais
+na h-Aibhne
+na h-Àirigh
+na Cille
+na Mara
+na Machrach
+na Beinne
+na Coille
+na Croite
+na Sgoile
+na Ceàrdaich
+na Gaoithe
+na Grèine
+na Gealaich
+na h-Abhainn Duibhe
+nan Craobh
+nan Clach
+nam Bàrd
+nam Bàta
+nan Iasgairean
+nan Croitearan
+nan Gàidheal
+nan Eilean
+nan Ceàrd
+nan Long
+nan Rìghrean
+nam Manach
+nan Naomh
+nan Sìthichean
+nam Fiadh
+nan Caorach
+nam Bò
+nan Eun
+nan Ròn
+nan Gobhar
+nan Darach
+nam Beithe
+nan Giuthas
+nan Sgoilearan
+nan Saighdearan
+nam Marsantan
+nan Aiseagan
+nan Tobraichean
+nam Fuaran
+Chrombail
+Sheumais
+Fhrangain
+Dhòmhnaill
+Chaluim
+Choinnich
+Mhàiri
+Chatrìona
+Iain
+Aonghais
+Alasdair
+Uilleim
+Sheòrais
+Mhurchaidh
+Ruairidh
+Theàrlaich
+Thormoid
+Phàdraig
+Fhionnlaigh
+Nèill
+Mhìcheil
+Bhrìghde
+Chaluim Chille
+Mholuaig
+Chatain
+Mhoire
+Shanndabhaig
+Ùr
+Àrd
+Ìosal
+Iarach
+Uachdarach

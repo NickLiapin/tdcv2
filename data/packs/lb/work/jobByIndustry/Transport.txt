@@ -1,0 +1,14 @@
+---
+description: Jobs in the Transport sector, in Luxembourgish. Where the trade came into the country through French, so did its name.
+locale: lb
+---
+Chauffer
+Buschauffer
+Camionnist
+Pilot
+Zuchbegleeder
+Logistiker
+Magaséngjer
+Facteur
+Kurier
+Fluchbegleeder

@@ -1,0 +1,19 @@
+---
+description: Dishes of the Lëtzebuergesch kitchen as a menu in Luxembourg names them. Dish names travel untranslated wherever they are already proper names in the cuisine's own language, which is why most of these are not in Luxembourgish and should not be.
+locale: lb
+---
+Judd mat Gaardebounen
+Bouneschlupp
+Gromperekichelcher
+Träipen
+Kachkéis
+Quetschentaart
+Kniddelen
+Feierstengszalot
+Rieslingspaschtéit
+Éisleker Ham
+Bamkuch
+Verwurelter
+Stäerzelen
+Mettwurscht
+Kuddelfleck

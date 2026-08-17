@@ -1,0 +1,5 @@
+---
+description: The currency of Australien, named in Luxembourgish.
+locale: lb
+---
+Dollar

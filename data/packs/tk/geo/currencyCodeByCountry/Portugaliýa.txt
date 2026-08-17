@@ -1,0 +1,5 @@
+---
+description: Currency code of Portugaliýa
+locale: tk
+---
+EUR

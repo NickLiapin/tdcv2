@@ -1,0 +1,5 @@
+---
+description: Capital of Mongoliýa
+locale: tk
+---
+Ulan-Bator

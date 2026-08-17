@@ -1,0 +1,39 @@
+---
+description: Music genres. Genre names are international; what is local is the head of the list — Blasmusek, the village brass band, is a real and central Luxembourgish institution, and Chouer, the choir, is the other one.
+locale: lb
+---
+Blasmusek
+Chouer
+Volleksmusek
+Klassesch
+Oper
+Kammermusek
+Jazz
+Blues
+Rock
+Pop
+Folk
+Country
+Metal
+Punk
+Hip-Hop
+Rap
+R&B
+Soul
+Funk
+Reggae
+Ska
+Elektro
+Techno
+House
+Trance
+Drum and Bass
+Ambient
+Chanson
+Schlager
+Latin
+Salsa
+Fado
+Weltmusek
+Gospel
+Filmmusek

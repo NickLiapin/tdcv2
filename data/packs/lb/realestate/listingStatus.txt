@@ -1,0 +1,16 @@
+---
+description: The state of a property listing.
+locale: lb
+---
+Ze verkafen
+Ze verlounen
+Reservéiert
+Ënner Compromis
+Verkaaft
+Verlount
+Zeréckgezunn
+Am Bau
+Op Plang
+Neibau
+Ze renovéieren
+Net disponibel

@@ -1,0 +1,28 @@
+---
+description: Fish in Luxembourgish, and THE CLEAREST DEMONSTRATION IN THIS PACK OF THE FRENCH LAYER THAT GERMAN DOES NOT HAVE. Look at what the LOD gives for the fish a shop sells: salmon is SAUMON where German says Lachs; cod is CABILLAUD where German says Kabeljau; tuna is THON where German says Thunfisch; mackerel is MACKERO where German says Makrele; sardine is SARDINN; lobster is HOMARD where German says Hummer. Six words in a row taken whole from French into a West Germanic language, and every one of them is what a Luxembourger says at the counter. Beside them the river fish keep their Germanic names — FRELL (trout), PICK (pike), PIISCH (perch), ÉIL (eel) — because those were caught locally and named locally, while the sea fish arrived through Brussels and Paris along with their names. That split, in one list, is the shape of the whole vocabulary.
+locale: lb
+---
+Frell
+Pick
+Piisch
+Éil
+Laangfësch
+Héierenk
+Saumon
+Cabillaud
+Thon
+Sardinn
+Mackero
+Hai
+Haifësch
+Wal
+Walfësch
+Delfin
+Krabb
+Homard
+Mull
+Auster
+Oktopus
+Tëntefësch
+Kaarpen
+Fësch

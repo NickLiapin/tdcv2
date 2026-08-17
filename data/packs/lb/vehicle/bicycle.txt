@@ -1,0 +1,21 @@
+---
+description: Kinds of bicycle. Luxembourg has produced four Tour de France winners and the vocabulary is correspondingly detailed.
+locale: lb
+---
+Stroossevëlo
+Course
+Mountainbike
+VTT
+Gravel
+Trekkingvëlo
+Stadvëlo
+Elektrovëlo
+Klappvëlo
+Kannervëlo
+Lastenvëlo
+Tandem
+BMX
+Cyclocross
+Bahnvëlo
+Handbike
+Vel'OH

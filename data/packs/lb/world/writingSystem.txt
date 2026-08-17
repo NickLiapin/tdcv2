@@ -1,0 +1,24 @@
+---
+description: Writing systems, named in Luxembourgish. Luxembourgish itself uses the LATIN alphabet with three diacritics that carry meaning — ë, é, ä — plus ü and ö in words taken from German and the French accents in words taken from French, so a single Luxembourgish sentence can need characters from three national keyboard layouts at once. That is the fact a config cannot infer from "Latin".
+locale: lb
+---
+Laténgesch
+Kyrillesch
+Griichesch
+Arabesch
+Hebräesch
+Chineesesch
+Japanesch
+Koreanesch
+Devanagari
+Thai
+Georgesch
+Armenesch
+Äthiopesch
+Tibetesch
+Cherokee
+Runen
+Hieroglyphen
+Braille
+Morse
+Blannenschrëft

@@ -1,0 +1,23 @@
+---
+description: Film genre (Turkmen)
+locale: tk
+---
+Hereket
+Komediýa
+Drama
+Gorky
+Dartgynly film
+Söýgi filmi
+Ylmy fantastika
+Fentezi
+Resminamalaýyn film
+Multfilm
+Başdan geçirme
+Jenaýat filmi
+Detektiw
+Wester
+Sazly film
+Uruş filmi
+Terjimehal filmi
+Taryhy film
+Maşgala filmi

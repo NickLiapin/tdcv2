@@ -1,0 +1,12 @@
+---
+description: Blood group (Turkmen). Turkmenistan writes blood groups in the post-Soviet Roman numeral form with the ABO letter in brackets — a record reads 'II (A) Rh+', not 'A+'. The ABO letter alone is what a foreign system expects, so a converter has to map I=0, II=A, III=B, IV=AB.
+locale: tk
+---
+I (0) Rh+
+I (0) Rh-
+II (A) Rh+
+II (A) Rh-
+III (B) Rh+
+III (B) Rh-
+IV (AB) Rh+
+IV (AB) Rh-

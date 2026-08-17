@@ -1,0 +1,14 @@
+---
+description: Jobs in the Industrie sector, in Luxembourgish. Where the trade came into the country through French, so did its name.
+locale: lb
+---
+Schmelzaarbechter
+Mecanicien
+Schlässer
+Elektrotechniker
+Schweeser
+Dréier
+Qualitéitskontroller
+Produktiounsleeder
+Ingenieur
+Techniker

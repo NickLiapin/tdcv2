@@ -1,0 +1,12 @@
+---
+description: Turkmen personal pronouns. THIS IS NOT A PRONOUN-SET LIST LIKE THE ENGLISH ONE, and it cannot be: Turkmen has no grammatical gender and exactly ONE third-person pronoun, 'ol', which is he, she and it at once. The he/him - she/her contrast an English list encodes does not exist in the language, so nothing here can express it. What Turkmen does distinguish is number and formality: 'siz' is both the plural you and the polite singular you.
+locale: tk
+---
+men
+sen
+ol
+biz
+siz
+olar
+özüm
+özi

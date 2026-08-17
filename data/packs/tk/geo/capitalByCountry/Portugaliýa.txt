@@ -1,0 +1,5 @@
+---
+description: Capital of Portugaliýa
+locale: tk
+---
+Lissabon

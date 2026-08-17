@@ -1,0 +1,40 @@
+---
+description: Medical specialties, in Luxembourgish. The names are the international Greek-Latin ones as French writes them, because that is what is on the doctor's plate here.
+locale: lb
+---
+Allgemengmedezin
+Kardiologie
+Pneumologie
+Gastroenterologie
+Hepatologie
+Nephrologie
+Urologie
+Endokrinologie
+Diabetologie
+Hämatologie
+Onkologie
+Rheumatologie
+Orthopedie
+Traumatologie
+Neurologie
+Neurochirurgie
+Psychiatrie
+Pedopsychiatrie
+Dermatologie
+Ophtalmologie
+ORL
+Gynäkologie
+Obstetrik
+Pediatrie
+Geriatrie
+Anästhesie
+Intensivmedezin
+Notfallmedezin
+Radiologie
+Nuklearmedezin
+Pathologie
+Laboratoire
+Chirurgie
+Plastesch Chirurgie
+Zänn-medezin
+Kinesitherapie

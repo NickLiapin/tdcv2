@@ -1,0 +1,5 @@
+---
+description: Capital of A' Phòlainn.
+locale: gd
+---
+Warsaw

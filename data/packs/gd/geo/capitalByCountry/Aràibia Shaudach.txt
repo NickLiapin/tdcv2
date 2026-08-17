@@ -1,0 +1,5 @@
+---
+description: Capital of Aràibia Shaudach.
+locale: gd
+---
+Riyadh

@@ -1,0 +1,17 @@
+---
+description: Playing positions in Camanachd.
+locale: gd
+---
+Fear-glèidhidh
+Làn-chùlaiche
+Cùlaiche deas
+Cùlaiche clì
+Leth-chùlaiche
+Meadhan-pàirce
+Sgiathaire deas
+Sgiathaire clì
+Toisiche
+Làn-thoisiche
+Caiptean
+Neach-ionaid
+Rèitire

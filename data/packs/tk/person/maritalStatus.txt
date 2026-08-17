@@ -1,0 +1,18 @@
+---
+description: Marital status (Turkmen). There is NO single word for 'married': a man 'oylenen' (literally 'he has taken a house') and a woman 'durmusa cykan' ('she has gone out into life'), and the same split runs through the unmarried forms. A config that wants a status consistent with a person's sex must choose the matching phrase; the neutral 'nikaly' (in wedlock) is the way round it.
+locale: tk
+---
+Öýlenmedik
+Durmuşa çykmadyk
+Öýlenen
+Durmuşa çykan
+Nikaly
+Nikasyz
+Adaglanan
+Aýrylyşan
+Dul
+Aýry ýaşaýan
+Gaýtadan nikalaşan
+Ýanýoldaşyny ýitiren
+Maşgalaly
+Görkezilmedik

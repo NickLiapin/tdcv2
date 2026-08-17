@@ -1,0 +1,5 @@
+---
+description: Currency of A' Ghrèig.
+locale: gd
+---
+Euro

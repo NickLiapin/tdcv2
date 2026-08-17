@@ -1,0 +1,34 @@
+---
+description: Hashtag word, to be prefixed with # in a template (Turkmen)
+locale: tk
+---
+türkmenistan
+aşgabat
+haly
+ahalteke
+dutar
+bagşy
+gawun
+çöl
+garagum
+hazar
+bahar
+nowruz
+toý
+tebigat
+saglyk
+sport
+syýahat
+nahar
+maşgala
+dostluk
+bagt
+söýgi
+gözellik
+moda
+tehnologiýa
+bilim
+kitap
+aýdym
+surat
+gün

@@ -1,0 +1,28 @@
+---
+description: Character classes, in Luxembourgish where the language has the word.
+locale: lb
+---
+Kricher
+Ritter
+Paladin
+Barbar
+Jäger
+Bogeschéisser
+Déif
+Assassin
+Magier
+Zauberer
+Hexer
+Nekromant
+Priister
+Heeler
+Druid
+Schamane
+Mönch
+Bard
+Alchemist
+Ingenieur
+Techniker
+Pilot
+Scout
+Tank

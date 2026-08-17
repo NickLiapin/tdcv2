@@ -1,0 +1,14 @@
+---
+description: Diagnoses a Dermatologie clinic records, in Luxembourgish.
+locale: lb
+---
+Ekzem
+Psoriasis
+Akne
+Urtikaria
+Hautkriibs
+Melanom
+Rosacea
+Vitiligo
+Fongesinfektioun
+Warzen

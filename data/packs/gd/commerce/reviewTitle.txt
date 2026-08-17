@@ -1,0 +1,30 @@
+---
+description: Headline of a customer review.
+locale: gd
+---
+Sgoinneil
+Fìor mhath
+Math dha-rìribh
+Toilichte leis
+Luach math airson an airgid
+Dìreach mar a bha dùil
+Nas fheàrr na bha dùil
+Lìbhrigeadh luath
+Càileachd àrd
+Molaidh mi e
+Ceart gu leòr
+Meadhanach
+Beagan briseadh-dùil
+Cha b' fhiach e
+Ro dhaor
+Bhris e sa bhad
+Meud ceàrr
+Cha do ràinig e
+Seirbheis mhath
+Bhithinn ga cheannach a-rithist
+Foighidinn a dhìth
+Nach eil cho math ris an dealbh
+Dìreach na bha a dhìth orm
+Cha mholainn e
+Bathar làidir buan
+Fìor thoilichte

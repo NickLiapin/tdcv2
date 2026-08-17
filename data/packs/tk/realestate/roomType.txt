@@ -1,0 +1,20 @@
+---
+description: Room type (Turkmen)
+locale: tk
+---
+Ýatylýan otag
+Myhman otagy
+Nahar otagy
+Aşhana
+Hammam
+Hajathana
+Iş otagy
+Çagalar otagy
+Geýim otagy
+Ammar
+Ýerzemin
+Üçek
+Aýwan
+Balkon
+Howly
+Geçelge

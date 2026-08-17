@@ -1,0 +1,8 @@
+---
+description: Season, with its article. Gaelic has the same four as northern Europe, and the quarter-day names that open them (Bealltainn, Lùnastal, Samhain, Imbolc) are still the month names, which is why date/month.txt and this list share vocabulary. AM FOGHAR is both the autumn and the harvest — one word for the season and the work done in it.
+locale: gd
+---
+An t-Earrach
+An Samhradh
+Am Foghar
+An Geamhradh

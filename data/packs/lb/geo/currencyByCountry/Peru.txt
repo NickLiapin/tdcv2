@@ -1,0 +1,5 @@
+---
+description: The currency of Peru, named in Luxembourgish.
+locale: lb
+---
+Sol

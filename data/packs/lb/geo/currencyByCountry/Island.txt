@@ -1,0 +1,5 @@
+---
+description: The currency of Island, named in Luxembourgish.
+locale: lb
+---
+Kroun

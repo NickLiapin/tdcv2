@@ -1,0 +1,40 @@
+---
+description: Medical specialty (Turkmen)
+locale: tk
+---
+Kardiologiýa
+Newrologiýa
+Onkologiýa
+Dermatologiýa
+Gastroenterologiýa
+Endokrinologiýa
+Pulmonologiýa
+Ortopediýa
+Psihiatriýa
+Nefrologiýa
+Oftalmologiýa
+Otorinolaringologiýa
+Urologiýa
+Akuşerçilik we ginekologiýa
+Pediatriýa
+Newonatologiýa
+Terapiýa
+Maşgala lukmançylygy
+Hirurgiýa
+Trawmatologiýa
+Anesteziologiýa
+Reanimasiýa
+Radiologiýa
+Rentgenologiýa
+Ultrases barlagy
+Laboratoriýa diagnostikasy
+Patanatomiýa
+Gematologiýa
+Immunologiýa
+Allergologiýa
+Rewmatologiýa
+Ýokanç keseller
+Ftiziatriýa
+Fizioterapiýa
+Dikeldiş
+Geriatriýa

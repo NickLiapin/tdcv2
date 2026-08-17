@@ -1,0 +1,30 @@
+---
+description: Book genre. BÀRDACHD (poetry), SEANCHAS (oral lore and tradition) and BEUL-AITHRIS (oral narrative) sit near the top because in Gaelic publishing they are not minority genres — the language's written canon starts with them.
+locale: gd
+---
+Bàrdachd
+Seanchas
+Beul-aithris
+Nobhail
+Sgeulachdan goirid
+Eachdraidh
+Eachdraidh-beatha
+Fèin-eachdraidh
+Ficsean
+Neo-fhicsean
+Ficsean saidheans
+Fantasachd
+Dìomhaireachd
+Dràma
+Leabhar-chloinne
+Leabhar-cànain
+Faclair
+Cruinn-eòlas
+Creideamh
+Feallsanachd
+Poilitigs
+Saidheans
+Còcaireachd
+Siubhal
+Spòrs
+Ealain

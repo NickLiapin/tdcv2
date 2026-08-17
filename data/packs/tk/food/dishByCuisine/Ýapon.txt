@@ -1,0 +1,12 @@
+---
+description: Dishes of Ýapon cuisine
+locale: tk
+---
+Suşi
+Saşimi
+Ramen
+Tempura
+Udon
+Miso çorbasy
+Onigiri
+Ýakitori

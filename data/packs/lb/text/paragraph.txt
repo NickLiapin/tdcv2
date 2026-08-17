@@ -1,0 +1,24 @@
+---
+description: Filler paragraphs in Luxembourgish. Handwritten: Project Gutenberg holds no Luxembourgish book at all. Each paragraph is a run of the sentences in text/sentence.txt, so the same Eifel Rule spellings that file documents are visible here in longer stretches, which is what a paragraph-length filler is usually wanted for. Twenty paragraphs of four to eight sentences each; nothing here is machine translated and nothing is padded with invented vocabulary.
+locale: lb
+---
+D'Sonn schéngt haut. Et reent de ganzen Dag. D'Wieder ass schéin. De Wanter war dëst Joer net kal. Den Hierscht fänkt am September un. Am Fréijoer bléien d'Blummen am Gaart.
+Ech schaffen an der Stad. Mir wunnen zanter zéng Joer hei. Si fiert all Dag mam Zuch op d'Aarbecht. Den Zuch huet zéng Minutten Verspéidung. De Bus fiert all zwanzeg Minutten. D'Strooss ass haut gespaart.
+Mäin Auto steet um Parking. Ech hunn de Schlëssel doheem vergiess. D'Fënster ass op. D'Dier ass zou. D'Kanner spillen am Gaart.
+D'Kanner ginn um aacht an d'Schoul. Hatt liest gär Bicher. Hie schwätzt véier Sproochen. Mir schwätze Lëtzebuergesch, Franséisch an Däitsch. D'Léierin huet eis eng Geschicht virgelies. Ech léiere Lëtzebuergesch. Dat Wuert kennen ech net. Wéi seet een dat op Lëtzebuergesch?
+De Kaffi ass nach waarm. Ech kache haut Kniddelen. D'Bouneschlupp muss laang kachen. De Kachkéis gëtt mat Brout giess. D'Gromperen aus dem Gaart si gutt. De Wäin kënnt vun der Musel.
+De Bäcker huet frëscht Brout. Mir iesse mëttes um zwielef. Den Owend ginn ech an de Restaurant. D'Kaz schléift op der Fënster. Den Hond leeft am Bësch.
+Mir gi Sonndes an de Bësch spadséieren. De Séi ass am Wanter zougefruer. D'Kierch steet um Bierg. Eisen Noper huet en neit Haus gebaut. Mir hunn e Bongert hannert dem Haus. D'Blummen am Gaart brauche Waasser.
+Ech muss nach an d'Apdikt. Hien huet den Dokter ugeruff. D'Post ass haut zou. D'Suen sinn op der Bank. Ech hunn e neie Vëlo gekaf.
+De Präis ass ze héich. Si huet eng nei Aarbecht fonnt. Mir hunn eng Reunioun um zwou Auer. Ech hunn haut kee Congé. D'Vakanz fänkt e Freideg un. Hatt huet de ganzen Dag geschafft.
+De Chef ass net do. Si huet mir gëschter geschriwwen. Ech ruffen dech muer un. Merci fir däi Bréif. Et ass kal, huel de Mantel mat. Si huet de Prabbeli doheem vergiess. Bis muer!
+D'Sonn schéngt haut. Et reent de ganzen Dag. D'Wieder ass schéin. De Wanter war dëst Joer net kal.
+Den Hierscht fänkt am September un. Am Fréijoer bléien d'Blummen am Gaart. Ech schaffen an der Stad. Mir wunnen zanter zéng Joer hei. Si fiert all Dag mam Zuch op d'Aarbecht.
+Den Zuch huet zéng Minutten Verspéidung. De Bus fiert all zwanzeg Minutten. D'Strooss ass haut gespaart. Mäin Auto steet um Parking. Ech hunn de Schlëssel doheem vergiess. D'Fënster ass op.
+D'Dier ass zou. D'Kanner spillen am Gaart. D'Kanner ginn um aacht an d'Schoul. Hatt liest gär Bicher. Hie schwätzt véier Sproochen. Mir schwätze Lëtzebuergesch, Franséisch an Däitsch.
+D'Léierin huet eis eng Geschicht virgelies. Ech léiere Lëtzebuergesch. Dat Wuert kennen ech net. Wéi seet een dat op Lëtzebuergesch? De Kaffi ass nach waarm. Ech kache haut Kniddelen.
+D'Bouneschlupp muss laang kachen. De Kachkéis gëtt mat Brout giess. D'Gromperen aus dem Gaart si gutt. De Wäin kënnt vun der Musel. De Bäcker huet frëscht Brout. Mir iesse mëttes um zwielef. Den Owend ginn ech an de Restaurant.
+D'Kaz schléift op der Fënster. Den Hond leeft am Bësch. Mir gi Sonndes an de Bësch spadséieren. De Séi ass am Wanter zougefruer. D'Kierch steet um Bierg. Eisen Noper huet en neit Haus gebaut.
+Mir hunn e Bongert hannert dem Haus. D'Blummen am Gaart brauche Waasser. Ech muss nach an d'Apdikt. Hien huet den Dokter ugeruff. D'Post ass haut zou. D'Suen sinn op der Bank.
+Ech hunn e neie Vëlo gekaf. De Präis ass ze héich. Si huet eng nei Aarbecht fonnt. Mir hunn eng Reunioun um zwou Auer. Ech hunn haut kee Congé. D'Vakanz fänkt e Freideg un.
+Hatt huet de ganzen Dag geschafft. De Chef ass net do. Si huet mir gëschter geschriwwen. Ech ruffen dech muer un. Merci fir däi Bréif. Et ass kal, huel de Mantel mat.

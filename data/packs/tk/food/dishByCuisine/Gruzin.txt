@@ -1,0 +1,11 @@
+---
+description: Dishes of Gruzin cuisine
+locale: tk
+---
+Haçapuri
+Hinkali
+Sasiwi
+Lobio
+Çahohbili
+Pahali
+Adžika

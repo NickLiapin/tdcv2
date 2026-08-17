@@ -1,0 +1,11 @@
+---
+description: Dishes of Meksikan cuisine
+locale: tk
+---
+Takos
+Burrito
+Kesadilýa
+Guakamole
+Naços
+Ençilada
+Çili kon karne

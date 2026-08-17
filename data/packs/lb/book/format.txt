@@ -1,0 +1,12 @@
+---
+description: Book formats, in Luxembourgish.
+locale: lb
+---
+Härdcover
+Broschéiert
+Taschebuch
+E-Buch
+Audiobuch
+Grousskacht
+Bibliothéiksbindung
+Rees-Editioun

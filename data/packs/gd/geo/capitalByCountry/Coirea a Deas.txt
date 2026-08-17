@@ -1,0 +1,5 @@
+---
+description: Capital of Coirea a Deas.
+locale: gd
+---
+Seoul

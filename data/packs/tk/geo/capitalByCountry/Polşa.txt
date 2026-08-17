@@ -1,0 +1,5 @@
+---
+description: Capital of Polşa
+locale: tk
+---
+Warşawa

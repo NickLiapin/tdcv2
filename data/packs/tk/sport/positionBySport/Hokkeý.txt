@@ -1,0 +1,10 @@
+---
+description: Positions in Hokkeý
+locale: tk
+---
+Derwezeçi
+Sag goragçy
+Çep goragçy
+Merkezi hüjümçi
+Sag hüjümçi
+Çep hüjümçi

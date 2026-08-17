@@ -1,0 +1,5 @@
+---
+description: Currency of Täjigistan
+locale: tk
+---
+Somoni

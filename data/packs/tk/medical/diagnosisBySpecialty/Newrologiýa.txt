@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in Newrologiýa
+locale: tk
+---
+Migren
+Garaguş keseli
+Işemik insult
+Parkinson keseli
+Alsgeýmer keseli
+Köpsanly skleroz
+Radikulit

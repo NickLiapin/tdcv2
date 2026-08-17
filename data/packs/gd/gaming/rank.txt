@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier.
+locale: gd
+---
+Umha
+Airgead
+Òr
+Platanam
+Daoimean
+Maighstir
+Àrd-mhaighstir
+Curaidh
+Neach-tòiseachaidh
+Gun inbhe

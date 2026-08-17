@@ -1,0 +1,23 @@
+---
+description: Film genres. BD — bande dessinée — and the French genre words sit beside the English ones because a Luxembourgish cinema programme is printed in both.
+locale: lb
+---
+Komedie
+Drama
+Action
+Thriller
+Krimi
+Horror
+Science-Fiction
+Fantasy
+Abenteuer
+Animatioun
+Dokumentarfilm
+Biopic
+Western
+Musical
+Kricherfilm
+Léiftesfilm
+Familljefilm
+Kuerzfilm
+Kannerfilm

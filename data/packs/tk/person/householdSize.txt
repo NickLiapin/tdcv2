@@ -1,0 +1,11 @@
+---
+description: Household size (Turkmen). Turkmen households run large: three generations under one roof is ordinary, and the youngest son traditionally stays in the parents' house, so the tail of this distribution is much heavier than a European one.
+locale: tk
+---
+1
+2
+3
+4
+5
+6
+7+

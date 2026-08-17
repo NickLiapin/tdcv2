@@ -1,0 +1,5 @@
+---
+description: Capital of Na Stàitean Aonaichte.
+locale: gd
+---
+Washington

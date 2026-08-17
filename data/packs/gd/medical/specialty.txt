@@ -1,0 +1,40 @@
+---
+description: Medical specialty, the full list. Formed with EÒLAS ("study"), LEIGHEAS ("healing") or LÈIGH-ing compounds; where the specialty has no Gaelic name at all the international one stands, which is the honest treatment.
+locale: gd
+---
+Eòlas-cridhe
+Nearbh-eòlas
+Eòlas-aillse
+Eòlas-craicinn
+Eòlas-caolain
+Eòlas-fàireagan
+Eòlas-sgamhain
+Eòlas-chnàmhan
+Leigheas-inntinn
+Eòlas-àirnean
+Leigheas-chloinne
+Leigheas-teaghlaich
+Leigheas-èiginn
+Lannsaireachd
+Lannsaireachd-cnàmhan
+Lannsaireachd-eanchainn
+Lannsaireachd-cridhe
+Eòlas-fala
+Eòlas-fuadain
+Eòlas-sùla
+Eòlas-cluaise
+Eòlas-boireannaich
+Aiseadaireachd
+Eòlas-aoisean
+Rèididheòlas
+Cadal-leigheas
+Eòlas-bodhaig
+Leigheas-cluiche
+Eòlas-galaran
+Eòlas-gnè-eòlais
+Leigheas-obrach
+Leigheas-fuasglaidh
+Eòlas-inntinn cloinne
+Eòlas-siostam-dìona
+Fiaclaireachd
+Eòlas-cinn-is-amhaich

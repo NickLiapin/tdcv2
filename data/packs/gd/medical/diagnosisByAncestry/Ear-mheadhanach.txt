@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Ear-mheadhanach ancestry. A prevalence signal, not an exclusive one. Eponyms and registered genetic names are kept unchanged; only the descriptive conditions are rendered in Gaelic.
+locale: gd
+---
+Fiabhras Meadhan-thìreach Teaghlaich
+Beta-Thalassemia
+Dìth G6PD
+Galar Behçet
+Dìth Vitimin D
+Comharra nan ceallan-corrain

@@ -1,0 +1,28 @@
+---
+description: Company legal forms. These are NOT translated and must not be: a Luxembourgish company's legal form is fixed by the loi du 10 août 1915 in FRENCH, so S.A., S.à r.l., S.C.A., S.E.C.S. and A.s.b.l. are the legal strings whatever language the rest of the sentence is in. S.à r.l. — société à responsabilité limitée — is the commonest form in the country and its correct spelling has a lowercase à with a grave accent and full stops, which is the detail most datasets get wrong. SICAV, SICAF, SIF, RAIF and SCSp are the fund vehicles that make Luxembourg the second-largest fund domicile in the world; a Luxembourgish company-name generator without them is not modelling this country.
+---
+S.A.
+S.à r.l.
+S.à r.l.-S
+S.C.A.
+S.C.S.
+S.C.Sp.
+S.E.C.S.
+S.N.C.
+S.C.
+S.E.
+S.C.E.
+A.s.b.l.
+Fondation
+G.I.E.
+E.E.I.G.
+SICAV
+SICAF
+SIF
+RAIF
+FCP
+SICAR
+SOPARFI
+Succursale
+Etablissement
+Association momentanée

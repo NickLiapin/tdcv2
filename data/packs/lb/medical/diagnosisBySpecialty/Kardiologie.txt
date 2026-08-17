@@ -1,0 +1,14 @@
+---
+description: Diagnoses a Kardiologie clinic records, in Luxembourgish.
+locale: lb
+---
+Häerzinfarkt
+Blutthéichdrock
+Arrhythmie
+Häerzschwächt
+Arteriosklerose
+Angina pectoris
+Klappefehler
+Myokarditis
+Perikarditis
+Thrombose

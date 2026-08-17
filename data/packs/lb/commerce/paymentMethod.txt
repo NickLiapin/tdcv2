@@ -1,0 +1,18 @@
+---
+description: Ways to pay in Luxembourg. PAYCONIQ and DIGICASH are the local mobile payment systems and a Luxembourgish checkout without them is not modelling the country; the VIREMENT (bank transfer) is still the default for anything large, and cash is Boergeld.
+---
+Boergeld
+Bancomat
+Kreditkaart
+Visa
+Mastercard
+American Express
+Payconiq
+Digicash
+Virement
+Domiciliatioun
+PayPal
+Apple Pay
+Google Pay
+Chèque-repas
+Kaddosbong

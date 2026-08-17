@@ -1,0 +1,24 @@
+---
+description: Kinds of trip.
+locale: lb
+---
+Geschäftsrees
+Vakanz
+Weekend
+Dagesausfluch
+Stadrees
+Stranddvakanz
+Wanterrees
+Skirees
+Wanderrees
+Vëlosrees
+Rondrees
+Kräizfaart
+Camping
+Familljevakanz
+Sproocheopenthalt
+Studiereesen
+Pilgerfaart
+Klassefaart
+Kulturrees
+Kulinaresch Rees

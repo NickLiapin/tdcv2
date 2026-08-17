@@ -1,0 +1,20 @@
+---
+description: Compass direction (Turkmen). Three of the four are transparent sun words: gundogar is 'the sun rises', gunbatar 'the sun sets', gunorta 'sun-middle', that is midday. North is the odd one — demirgazyk, 'the iron peg', the Turkic name for the Pole Star that the tether of the sky was thought to be driven into.
+locale: tk
+---
+Demirgazyk
+Günorta
+Gündogar
+Günbatar
+Demirgazyk-gündogar
+Demirgazyk-günbatar
+Günorta-gündogar
+Günorta-günbatar
+Demirgazyk-demirgazyk-gündogar
+Gündogar-demirgazyk-gündogar
+Gündogar-günorta-gündogar
+Günorta-günorta-gündogar
+Günorta-günorta-günbatar
+Günbatar-günorta-günbatar
+Günbatar-demirgazyk-günbatar
+Demirgazyk-demirgazyk-günbatar

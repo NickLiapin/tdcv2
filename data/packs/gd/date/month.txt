@@ -1,0 +1,16 @@
+---
+description: Month name in Gaelic, WITH ITS ARTICLE, which is the form a calendar prints: Am Faoilleach, An Gearran, An t-Ògmhios. The bare noun is in date/monthAbbr.txt's stem and in DATE_LOCALE.json's monthsInDate. The article's shape is not decoration — AM before F, AN before most consonants, AN T- before a masculine vowel or before S (An t-Ògmhios, An t-Sultain) — so an article stripped or swapped produces a form no Gaelic speaker writes. Inside a date the month goes into the GENITIVE after DEN or DE: 3 den Fhaoilleach, 12 den Ghearran, which lenites the noun. That is why a month drawn from this list cannot be dropped into a sentence unchanged. The names are not the Latin ones: FAOILLEACH is the wolf-month, GEARRAN the gelding, LÙNASTAL the festival of Lugh, SAMHAIN the summer's end, and none of them descend from Ianuarius.
+locale: gd
+---
+Am Faoilleach
+An Gearran
+Am Màrt
+An Giblean
+An Cèitean
+An t-Ògmhios
+An t-Iuchar
+An Lùnastal
+An t-Sultain
+An Dàmhair
+An t-Samhain
+An Dùbhlachd

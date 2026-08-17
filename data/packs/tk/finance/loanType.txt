@@ -1,0 +1,14 @@
+---
+description: Loan type (Turkmen)
+locale: tk
+---
+Ýaşaýyş jaý karzy
+Ipoteka karzy
+Awtoulag karzy
+Sarp ediş karzy
+Bilim karzy
+Işewürlik karzy
+Oba hojalyk karzy
+Gysga möhletli karz
+Uzak möhletli karz
+Karz çägi

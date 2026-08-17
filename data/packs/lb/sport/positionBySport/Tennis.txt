@@ -1,0 +1,11 @@
+---
+description: Playing positions in Tennis as Luxembourg names them — which for basketball, volleyball, cycling and rugby means the FRENCH names, because those sports came into the country through France and Belgium and nobody here says the English ones.
+locale: lb
+---
+Eenzel
+Duebel
+Mixed
+Servis
+Retour
+Grondlinnespiller
+Netzspiller

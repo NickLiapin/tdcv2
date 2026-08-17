@@ -1,0 +1,30 @@
+---
+description: Household budget heading. The currency is the pound sterling. CONNADH is a large heading here and not a small one: island housing is expensive to heat and many households still cut peat, so fuel is both a bill and a labour.
+locale: gd
+---
+Màl
+Morgaids
+Cìs-comhairle
+Connadh
+Dealan
+Gas
+Mòine
+Uisge
+Biadh
+Còmhdhail
+Peatral
+Aiseag
+Àrachas
+Fòn
+Eadar-lìon
+Aodach
+Slàinte
+Foghlam
+Cùram-chloinne
+Cur-seachadan
+Saor-làithean
+Tiodhlacan
+Sàbhaladh
+Fiachan
+Carthannas
+Peataichean

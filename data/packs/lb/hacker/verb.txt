@@ -1,0 +1,33 @@
+---
+description: Computing verbs. The -ÉIEREN ending marks the French route into the language: kompiléieren, konfiguréieren, installéieren — German would write -ieren.
+locale: lb
+---
+kompiléieren
+konfiguréieren
+installéieren
+desinstalléieren
+programméieren
+codéieren
+decodéieren
+kryptéieren
+dekryptéieren
+synchroniséieren
+indexéieren
+filtréieren
+analyséieren
+optiméieren
+debuggéieren
+testéieren
+deployéieren
+migréieren
+sauvegardéieren
+restauréieren
+verbannen
+trennen
+lueden
+eroflueden
+eroplueden
+späicheren
+läschen
+kopéieren
+verschéiben

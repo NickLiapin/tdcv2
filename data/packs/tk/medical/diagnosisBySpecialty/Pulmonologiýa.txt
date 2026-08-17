@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Pulmonologiýa
+locale: tk
+---
+Demgysma
+Öýkeniň dowamly obstruktiw keseli
+Öýken sowuklamasy
+Inçekesel
+Dowamly bronhit
+Ukudaky dem saklanmasy

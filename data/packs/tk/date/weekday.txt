@@ -1,0 +1,11 @@
+---
+description: Weekday name (Turkmen), Monday first, lower case. Six of the seven are Persian numerals — dusenbe is 'day two', sisenbe 'day three' — but FRIDAY IS 'anna', which is also a very common male given name, so Annageldi means 'born on a Friday'. These names were abolished by decree in 2002 (Monday became Basgun, Sunday Dyncgun) and restored in 2008.
+locale: tk
+---
+duşenbe
+sişenbe
+çarşenbe
+penşenbe
+anna
+şenbe
+ýekşenbe

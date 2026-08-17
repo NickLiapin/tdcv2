@@ -1,0 +1,16 @@
+---
+description: Month abbreviation (Turkmen), lower case
+locale: tk
+---
+ýan
+few
+mart
+apr
+maý
+iýn
+iýl
+awg
+sen
+okt
+noý
+dek

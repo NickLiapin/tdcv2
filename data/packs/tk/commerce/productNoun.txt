@@ -1,0 +1,155 @@
+---
+description: Product (noun, Turkmen)
+locale: tk
+---
+Oturgyç
+Kürsi
+Stol
+Ýazuw stoly
+Şkaf
+Tekje
+Krowat
+Düşek
+Ýassyk
+Ýorgan
+Ýapynja
+Halyça
+Haly
+Palas
+Perde
+Zynjyr
+Aýna
+Çyra
+Şem
+Sagat
+Diwar sagady
+Küýze
+Gülgaby
+Sebet
+Halta
+Sumka
+Gapjyk
+Çemodan
+Rukzak
+Saýawan
+Şlýapa
+Telpek
+Tahýa
+Şarf
+Ellik
+Jorap
+Köýnek
+Balak
+Jinsi
+Penjek
+Palto
+Kurtka
+Jempir
+Futbolka
+Ýubka
+Kostýum
+Ädik
+Köwüş
+Krossowka
+Sandal
+Äýnek
+Sagat gaýyşy
+Ýüzük
+Gulakhalka
+Bilezik
+Monjuk
+Gerdanlyk
+Kompýuter
+Noutbuk
+Planşet
+Telefon
+Klawiatura
+Syçanjyk
+Monitor
+Printer
+Skaner
+Nauşnik
+Gürleýji
+Mikrofon
+Kamera
+Fotoapparat
+Zarýad beriji
+Batareýka
+Simsiz zarýadlaýjy
+Fleş ýat
+Kabel
+Rozetka
+Stol çyrasy
+Fen
+Ütük
+Tozan sorujy
+Kir ýuwujy maşyn
+Sowadyjy
+Doňduryjy
+Gaz peji
+Elektrik peji
+Mikrotolkunly peç
+Çäýnek
+Elektrik çäýnegi
+Kofe gaýnadyjy
+Blender
+Mikser
+Et üwejek
+Tost bişiriji
+Ýelejiretgiç
+Kondisioner
+Ýyladyş enjamy
+Suw arassalaýjy
+Gazan
+Tabak
+Käse
+Bulgur
+Çemçe
+Sanjak
+Pyçak
+Kesgiç tagta
+Tabakhana
+Legen
+Bedre
+Sübse
+Şotka
+Sabyn
+Şampun
+Diş pastasy
+Diş çotgasy
+Süpürgiç
+Kagyz süpürgiç
+Welosiped
+Tigir
+Top
+Ganat
+Ýüzüş äýnegi
+Palatka
+Uky haltasy
+Termos
+Suw çüýşesi
+Kitap
+Depder
+Ruçka
+Galam
+Öçürgiç
+Çyzgyç
+Sanawaç
+Papka
+Kagyz
+Konwert
+Oýnawaç
+Gurjak
+Ýumşak oýnawaç
+Konstruktor
+Küşt tagtasy
+Karta oýny
+Pazl
+Çörek
+Peýnir
+Süýt
+Ýumurtga
+Bal
+Çaý
+Kofe
+Şeker

@@ -1,0 +1,5 @@
+---
+description: The currency of Maroc, named in Luxembourgish.
+locale: lb
+---
+Dirham

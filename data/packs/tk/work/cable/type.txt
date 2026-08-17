@@ -1,0 +1,13 @@
+---
+description: Cable type — telecom and networking (Turkmen)
+locale: tk
+---
+Optiki süýüm
+Koaksial kabel
+Towlanan jübüt
+Cat5e
+Cat6
+Cat6a
+Ethernet kabeli
+Howa kabeli
+Ýerasty kabel

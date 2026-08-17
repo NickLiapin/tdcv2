@@ -1,0 +1,26 @@
+---
+description: Property amenity (Turkmen)
+locale: tk
+---
+Howly
+Bag
+Ýüzülýän howuz
+Garaž
+Awtoduralga
+Lift
+Balkon
+Aýwan
+Ýerzemin
+Üçek otagy
+Merkezi ýyladyş
+Kondisioner
+Tebigy gaz
+Yssy suw
+Internet
+Sputnik antennasy
+Howpsuzlyk ulgamy
+Garawulhana
+Kir ýuwulýan otag
+Ammar
+Tamdyr
+Sport otagy

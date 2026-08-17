@@ -1,0 +1,5 @@
+---
+description: The currency of Iran, named in Luxembourgish.
+locale: lb
+---
+Rial

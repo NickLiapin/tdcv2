@@ -1,0 +1,24 @@
+---
+description: Fish. Gaelic fish vocabulary is a fishing vocabulary and separates ages and runs that English lumps together: BRADAN is the salmon and BÀNAG the grilse returning after one winter at sea, SAIDHEAN the full-grown saithe and CUDAIG the young one, which are different fish to anybody who has caught them. SGADAN, the herring, was the economic centre of the Hebrides for a century.
+locale: gd
+---
+Bradan
+Bànag
+Breac
+Sgadan
+Trosg
+Adag
+Cudaig
+Saidhean
+Langa
+Leabag
+Leabag-mhòr
+Rionnach
+Easgann
+Cearban
+Siorc
+Sgait
+Liùgh
+Bodach-ruadh
+Muc-bhiorach
+Iasg-gealaich

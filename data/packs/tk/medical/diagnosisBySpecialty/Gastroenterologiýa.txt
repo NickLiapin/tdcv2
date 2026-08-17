@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in Gastroenterologiýa
+locale: tk
+---
+Gastroezofagal reflýuks keseli
+Aşgazan ýarasy
+Gastrit
+Gyjyndyrylan içege sindromy
+Kron keseli
+Bagryň sirrozy
+Dowamly pankreatit

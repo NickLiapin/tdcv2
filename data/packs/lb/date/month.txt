@@ -1,0 +1,16 @@
+---
+description: The twelve months in Luxembourgish, and the place to look at the alphabet. Measured against the de pack in this repository, NINE OF THE TWELVE are spelled exactly as German spells them and THREE are not: Mäerz against German März, Abrëll against April, Mee against Mai. MÄERZ carries Ä and ABRËLL carries Ë, and those two letters plus É are what a Luxembourgish text has that a German one does not — ë is the schwa-ish vowel that Luxembourgish writes and German simply has no letter for, é is a close long e (Kéis, Séi, méi), ä a fronted long a. If a file claiming to be Luxembourgish contains no ë at all, it is German with the labels changed. The remaining eight months are shared with German, and pretending otherwise would be inventing a language. Forms are the ones moment.js ships in its lb locale, which is the same set the ZLS publishes.
+locale: lb
+---
+Januar
+Februar
+Mäerz
+Abrëll
+Mee
+Juni
+Juli
+August
+September
+Oktober
+November
+Dezember

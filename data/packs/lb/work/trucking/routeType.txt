@@ -1,0 +1,11 @@
+---
+description: Kinds of haulage route. Frontalier haulage — crossing a border twice a day — is ordinary here rather than exceptional.
+locale: lb
+---
+National
+International
+Grenziwwerschreidend
+Regional
+Laangstreck
+Kuerzstreck
+Verdeelung

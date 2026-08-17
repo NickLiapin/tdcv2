@@ -1,0 +1,12 @@
+---
+description: Book format (Turkmen)
+locale: tk
+---
+Gaty jiltli
+Ýumşak jiltli
+Elektron kitap
+Sesli kitap
+Jübi görnüşi
+Suratly neşir
+Ýygyndy
+Kitaphana jildi

@@ -1,0 +1,32 @@
+---
+description: Flower (Turkmen)
+locale: tk
+---
+Bägül
+Gülälek
+Çigildem
+Läle
+Nergis
+Sünbül
+Benewşe
+Papatýa
+Çopantelpek
+Günebakar
+Lilýa
+Orhideýa
+Ýasmyn
+Gyzylgül
+Hrizantema
+Georgin
+Pion
+Gwozdika
+Lawanda
+Nilufer
+Gunça
+Ýandak güli
+Selmelek
+Kelem güli
+Sähra güli
+Kaktus güli
+Mimoza
+Astra

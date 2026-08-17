@@ -1,0 +1,11 @@
+---
+description: Dishes of Hytaý cuisine
+locale: tk
+---
+Pekin ördegi
+Dim sam
+Gowrulan tüwi
+Wonton çorbasy
+Bahar rulony
+Tofu
+Çou meýn

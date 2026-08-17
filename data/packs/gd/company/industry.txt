@@ -1,0 +1,59 @@
+---
+description: Industry a company is in. The list holds what the Gaelic-speaking economy actually contains, so IASGACH (fishing), TUATHANACHAS-ÈISG (aquaculture), CLÒ-DHÈANAMH (tweed weaving), GRÙDAIREACHD (distilling), AISEAGAN (ferries), CROITEARACHD (crofting) and GAOTH-CHUMHACHD (wind power) sit beside the general categories rather than being left out of them.
+locale: gd
+---
+Teicneòlas
+Bathar-bog
+Fiosrachadh
+Cùram-slàinte
+Ionmhas
+Bancaireachd
+Àrachas
+Togail
+Foghlam
+Aoigheachd
+Turasachd
+Saothrachadh
+Reic
+Còmhdhail
+Aiseagan
+Lagh
+Riaghaltas
+Carthannas
+Iasgach
+Tuathanachas-èisg
+Croitearachd
+Tuathanachas
+Coilltearachd
+Clò-dhèanamh
+Grùdaireachd
+Deoch is biadh
+Bìdh-ghiullachd
+Cumhachd
+Cumhachd ath-nuadhachail
+Gaoth-chumhachd
+Ola is gas
+Mèinnearachd
+Cuaraidhean
+Ceàrdachd
+Ealain
+Ceòl
+Craoladh
+Foillseachadh
+Naidheachdas
+Cànan is eadar-theangachadh
+Rannsachadh
+Innleadaireachd
+Ailtireachd
+Cuideachadh-teaghlaich
+Cùram sòisealta
+Glanadh
+Tèarainteachd
+Spòrs
+Fèisean
+Malairt air-loidhne
+Bathar-cruaidh
+Innealan
+Bàtaireachd
+Àiteachas-mara
+Roinn phoblach

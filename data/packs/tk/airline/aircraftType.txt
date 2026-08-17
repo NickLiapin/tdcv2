@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are brand names and keep their international spelling in Turkmen text.
+locale: tk
+---
+Boeing 737
+Boeing 737 MAX
+Boeing 747
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330
+Airbus A340
+Airbus A350
+Airbus A380
+Embraer E175
+Embraer E190
+Bombardier CRJ900
+ATR 72
+Sukhoi Superjet 100
+Tupolev Tu-154
+Antonov An-24
+Antonov An-26
+Yakovlev Yak-40
+Ilyushin Il-76
+Cessna 208 Caravan

@@ -1,0 +1,27 @@
+---
+description: Kind of state body (Turkmen). Turkmen has essentially one country, so these are Turkmenistan's own ministries and services; a reader elsewhere should not assume them. Deliberately absent: identifier formats, provinces, banks and phone plans, which belong to a Turkmenistan country pack that does not exist yet.
+locale: tk
+---
+Bilim ministrligi
+Saglygy goraýyş we derman senagaty ministrligi
+Maliýe we ykdysadyýet ministrligi
+Adalat ministrligi
+Içeri işler ministrligi
+Daşary işler ministrligi
+Goranmak ministrligi
+Medeniýet ministrligi
+Oba hojalyk we daşky gurşawy goramak ministrligi
+Energetika ministrligi
+Senagat we gurluşyk önümçiligi ministrligi
+Gurluşyk we binagärlik ministrligi
+Söwda we daşary ykdysady aragatnaşyklar ministrligi
+Zähmet we ilaty durmuş taýdan goramak ministrligi
+Sport we ýaşlar syýasaty baradaky döwlet komiteti
+Statistika baradaky döwlet komiteti
+Gümrük gullugy
+Migrasiýa gullugy
+Salgyt gullugy
+Arhiw gullugy
+Meteorologiýa gullugy
+Şäher häkimligi
+Etrap häkimligi

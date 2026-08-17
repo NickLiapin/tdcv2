@@ -1,0 +1,19 @@
+---
+description: Weather phenomenon (Turkmen). A Turkmen list is desert-shaped: the sandstorm (gum tupany) and the blazing summer heat (jokrama yssy) are the ordinary extremes here, while hurricanes and monsoons are things read about.
+locale: tk
+---
+Gum tupany
+Tozan tupany
+Jokrama yssy
+Yssy tolkuny
+Aňzak
+Gurakçylyk
+Sil
+Ýyldyrym
+Doly
+Gasyrga
+Buran
+Buz gatlagy
+Ümür
+Serginlik
+Ýer titremesi

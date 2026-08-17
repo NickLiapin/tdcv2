@@ -1,0 +1,12 @@
+---
+description: Dishes of Azerbaýjan cuisine
+locale: tk
+---
+Plow
+Dolma
+Lülä kebap
+Düşbere
+Kutab
+Piti
+Bozbaş
+Şeker çörek

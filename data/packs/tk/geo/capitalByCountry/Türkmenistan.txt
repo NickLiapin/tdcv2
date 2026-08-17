@@ -1,0 +1,5 @@
+---
+description: Capital of Türkmenistan
+locale: tk
+---
+Aşgabat

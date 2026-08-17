@@ -1,0 +1,30 @@
+---
+description: Tree and shrub. Every one of the first fifteen is also a LETTER: the old Gaelic alphabet named its eighteen letters after trees — Ailm the elm, Beith the birch, Coll the hazel, Dair the oak, and so on — which is why the tree words are the oldest stratum of the language and why there are exactly as many native trees with one-word names as there are letters. FRAOCH, CONASG and BEALAIDH are moorland shrubs rather than trees and are here because they are what actually grows.
+locale: gd
+---
+Darach
+Beithe
+Giuthas
+Uinnseann
+Leamhan
+Calltainn
+Feàrna
+Seileach
+Caorann
+Iubhar
+Cuileann
+Droigheann
+Sgitheach
+Critheann
+Faidhbhile
+Learag
+Aiteann
+Giuthas Albannach
+Craobh-ubhail
+Craobh-phlumais
+Craobh-chnò
+Bealaidh
+Conasg
+Fraoch
+Preas
+Eidheann

@@ -1,0 +1,34 @@
+---
+description: Spice and culinary herb. MIONNT, PEIRSILL, SÀISTE, TEIM and RÒS-MÀIRI grow in a Scottish kitchen garden and have settled Gaelic names. The tropical spices do not grow here and never did, so Gaelic adapts their international names to its own spelling rather than translating them — CAINNEAL, SINNSEAR, CUMAIN, CARDAMOM — and that is the honest treatment: a language does not have an old native word for a thing it first saw in a nineteenth-century grocer's shop.
+locale: gd
+---
+Salann
+Piobar-dubh
+Piobar-geal
+Mionnt
+Peirsill
+Sàiste
+Teim
+Ròs-Màiri
+Bileag-labhrais
+Cainneal
+Sinnsear
+Cumain
+Cardamom
+Clòbhan
+Cnò-mheannd
+Curcuma
+Coriandar
+Paprica
+Cayenne
+Chilli
+Mustard
+Sìol-fheunail
+Sofran
+Anise
+Basil
+Oregano
+Dill
+Tìme-fiadhaich
+Gàrlag-phùdair
+Uinnean-pùdair

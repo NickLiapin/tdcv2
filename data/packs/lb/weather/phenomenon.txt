@@ -1,0 +1,19 @@
+---
+description: Weather events and phenomena. Iwwerschwemmung is a flood, Otemnout-weather is not a thing but Héichwaasser is: the Musel, the Sauer and the Our all flood, and Luxembourgish keeps a separate word for high water as against a flood proper. Every value is a lemma of the LOD, the Lëtzebuerger Online Dictionnaire published by the Zenter fir d'Lëtzebuerger Sprooch under the loi du 20 juillet 2018; nothing here was translated by hand.
+locale: lb
+---
+Héichwaasser
+Iwwerschwemmung
+Dréchent
+Hëtztwell
+Keeltwell
+Schnéistuerm
+Äisreen
+Rauhreif
+Tau
+Nordwand
+Wierbelwand
+Donnerwieder
+Knëppelsteen
+Niwwelbank
+Wollekebroch

@@ -1,0 +1,14 @@
+---
+description: Diagnoses a Orthopedie clinic records, in Luxembourgish.
+locale: lb
+---
+Arthrose
+Arthritis
+Fraktur
+Verstauchung
+Zerrung
+Bandscheifvirfall
+Osteoporose
+Meniskusrëss
+Kräizbandrëss
+Skoliose

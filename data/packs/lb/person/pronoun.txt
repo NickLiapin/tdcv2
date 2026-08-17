@@ -1,0 +1,7 @@
+---
+description: Personal pronouns, nominative and dative, as a pronoun field would print them. The thing a config cannot infer: SI IS BOTH "SHE" AND "THEY" in the nominative — one form, two referents, resolved only by the verb — while the datives keep them apart (hir for her, hinnen for them). Luxembourgish has no established neopronoun set, so unlike the English list this one stops at three.
+locale: lb
+---
+hien/him
+si/hir
+si/hinnen

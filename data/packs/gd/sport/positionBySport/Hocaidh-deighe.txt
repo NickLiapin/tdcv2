@@ -1,0 +1,12 @@
+---
+description: Playing positions in Hocaidh-deighe.
+locale: gd
+---
+Fear-glèidhidh
+Cùlaiche deas
+Cùlaiche clì
+Meadhan
+Sgiathaire deas
+Sgiathaire clì
+Neach-ionaid
+Rèitire

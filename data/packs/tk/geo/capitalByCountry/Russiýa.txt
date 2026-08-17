@@ -1,0 +1,5 @@
+---
+description: Capital of Russiýa
+locale: tk
+---
+Moskwa

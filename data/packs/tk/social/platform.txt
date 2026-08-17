@@ -1,0 +1,21 @@
+---
+description: Social platform. Brand names, unchanged in Turkmen text.
+locale: tk
+---
+YouTube
+Facebook
+Instagram
+TikTok
+Telegram
+WhatsApp
+IMO
+Odnoklassniki
+VKontakte
+Twitter
+LinkedIn
+Viber
+Snapchat
+Pinterest
+Reddit
+Discord
+Threads

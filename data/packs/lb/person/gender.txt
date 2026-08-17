@@ -1,0 +1,8 @@
+---
+description: Gender, in Luxembourgish. Männlech and weiblech are the adjectives a Luxembourgish form prints; divers is the third entry Luxembourgish took from German administrative usage; keng Uginn is "no statement" (uginn, "to state", is in the LOD). In practice a Luxembourgish official form asks this question in FRENCH, because the law is drafted in French — this file is what the question looks like when it is asked in the national language.
+locale: lb
+---
+männlech
+weiblech
+divers
+keng Uginn

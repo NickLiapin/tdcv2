@@ -1,0 +1,5 @@
+---
+description: Currency of Eýran
+locale: tk
+---
+Eýran rialy

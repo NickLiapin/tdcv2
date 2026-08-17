@@ -1,0 +1,42 @@
+---
+description: Building type (Turkmen)
+locale: tk
+---
+Jaý
+Kwartira
+Ýaşaýyş jaýy
+Köpgatly jaý
+Kottej
+Villa
+Howly
+Ofis
+Edara binasy
+Ammar
+Dükan
+Söwda merkezi
+Bazar
+Zawod
+Fabrik
+Kärhana
+Hassahana
+Saglyk öýi
+Poliklinika
+Mekdep
+Çagalar bagy
+Institut
+Uniwersitet
+Myhmanhana
+Restoran
+Çaýhana
+Naharhana
+Kitaphana
+Muzeý
+Teatr
+Kinoteatr
+Metjit
+Stadion
+Sport toplumy
+Garaž
+Wokzal
+Howa menzili
+Ussahana

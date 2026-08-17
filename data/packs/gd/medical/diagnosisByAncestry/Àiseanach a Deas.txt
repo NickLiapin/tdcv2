@@ -1,0 +1,12 @@
+---
+description: Conditions markedly more frequent in people of Àiseanach a Deas ancestry. A prevalence signal, not an exclusive one. Eponyms and registered genetic names are kept unchanged; only the descriptive conditions are rendered in Gaelic.
+locale: gd
+---
+An tinneas-siùcair seòrsa 2 tràth
+Galar-artaire corònach tràth
+Reamhrachd mheadhanach aig BMI àbhaisteach
+Dìth Vitimin D
+Comharra Beta-Thalassemia
+Syndrome Metabolach
+Dìth G6PD
+Galar-cridhe reumatach

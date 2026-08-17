@@ -1,0 +1,5 @@
+---
+description: Capital of Gresiýa
+locale: tk
+---
+Afiny

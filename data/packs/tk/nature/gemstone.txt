@@ -1,0 +1,29 @@
+---
+description: Gemstone (Turkmen). Hakyk (carnelian) leads the list because it is the stone set into traditional Turkmen silver jewellery, worn as a protection against harm.
+locale: tk
+---
+Hakyk
+Firuze
+Almaz
+Ýakut
+Sapfir
+Zümerret
+Ametist
+Topaz
+Opal
+Granat
+Akwamarin
+Peridot
+Nefrit
+Oniks
+Dür
+Merjen
+Sitrin
+Turmalin
+Aý daşy
+Sirkon
+Lazurit
+Malahit
+Ýaşma
+Kwars
+Serdolik

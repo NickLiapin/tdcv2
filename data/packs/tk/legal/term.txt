@@ -1,0 +1,23 @@
+---
+description: Legal term (Turkmen)
+locale: tk
+---
+Arzaçy
+Jogap beriji
+Şaýat
+Aklawçy
+Prokuror
+Kazy
+Höküm
+Karar
+Arza
+Şikaýat
+Delil
+Görkezme
+Kepilnama
+Şertnama
+Ylalaşyk
+Jerime
+Ýatyrma
+Kesgitnama
+Ygtyýarlyk

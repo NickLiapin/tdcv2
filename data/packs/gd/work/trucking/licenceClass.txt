@@ -1,0 +1,12 @@
+---
+description: Driving licence category for goods vehicles. These are the UNITED KINGDOM and EU categories, which is what a licence issued in the Gaelic-speaking area shows; they are not the American CDL classes A/B/C, and a config that assumes those will print a licence nobody here holds.
+locale: gd
+---
+B
+C1
+C1+E
+C
+C+E
+D1
+D
+D+E

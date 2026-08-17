@@ -1,0 +1,5 @@
+---
+description: Currency code of Gresiýa
+locale: tk
+---
+EUR

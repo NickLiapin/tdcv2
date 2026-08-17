@@ -1,0 +1,5 @@
+---
+description: Capital of Täjigistan
+locale: tk
+---
+Duşenbe

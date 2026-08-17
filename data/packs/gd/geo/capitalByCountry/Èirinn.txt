@@ -1,0 +1,5 @@
+---
+description: Capital of Èirinn.
+locale: gd
+---
+Baile Àtha Cliath

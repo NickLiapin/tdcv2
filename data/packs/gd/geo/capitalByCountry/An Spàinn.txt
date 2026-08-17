@@ -1,0 +1,5 @@
+---
+description: Capital of An Spàinn.
+locale: gd
+---
+Madrid

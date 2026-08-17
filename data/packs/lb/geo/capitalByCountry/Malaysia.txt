@@ -1,0 +1,5 @@
+---
+description: The capital of Malaysia in Luxembourgish, as the LOD writes it.
+locale: lb
+---
+Kuala Lumpur

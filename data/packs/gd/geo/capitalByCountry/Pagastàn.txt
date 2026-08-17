@@ -1,0 +1,5 @@
+---
+description: Capital of Pagastàn.
+locale: gd
+---
+Islamabad

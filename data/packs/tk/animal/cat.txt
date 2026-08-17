@@ -1,0 +1,22 @@
+---
+description: Cat breed (Turkmen)
+locale: tk
+---
+Pars pişigi
+Meýn kuny
+Siam pişigi
+Ragdoll
+Bengal pişigi
+Sfinks
+Britan gysga tüýlüsi
+Abissin pişigi
+Şotland bukjagulak
+Norweg tokaý pişigi
+Rus gögi
+Birma pişigi
+Amerikan gysga tüýlüsi
+Dewon reksi
+Burma pişigi
+Kurilýan bobteýli
+Türkmen öý pişigi
+Ýabany pişik

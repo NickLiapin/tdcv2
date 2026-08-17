@@ -1,0 +1,53 @@
+---
+description: Pastimes, in Luxembourgish, checked against the LOD. Two are specific to the place rather than to the language: WANDEREN through the Éislek in the north is close to a national pastime in a country you can cross in an hour, and VËLOFUEREN is what four Tour de France winners came out of. Note also the -ÉIEREN verbs — fotograféieren, musizéieren, telefonéieren — which mark a verb borrowed from French where German would end in -ieren. A handful of hobbies were dropped rather than coined: the LOD has no Luxembourgish entry for beekeeping, pottery or birdwatching, and inventing Imkerei and Töpferen out of German would have been exactly the fabrication this pack is written to avoid.
+locale: lb
+---
+Wanderen
+Vëlofueren
+Schwammen
+Lafen
+Kachen
+Baken
+Liesen
+Molen
+Zeechnen
+Fotograféieren
+Musizéieren
+Sangen
+Danzen
+Fëschen
+Juegd
+Schach
+Bowling
+Tennis
+Fussball
+Basketball
+Volleyball
+Handball
+Klammen
+Reiden
+Schi
+Seegelen
+Camping
+Reesen
+Sammelen
+Meditatioun
+Yoga
+Fitness
+Astronomie
+Bitzen
+Programméieren
+Bloggen
+Podcasten
+Grillen
+Theater
+Chouer
+Bicher liesen
+Kaarte spillen
+Filmer kucken
+Museé besichen
+Restaurant goen
+Kaffi drénken
+Nordic Walking
+Modellbau bauen
+Blummen zéien

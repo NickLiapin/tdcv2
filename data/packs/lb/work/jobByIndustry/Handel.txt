@@ -1,0 +1,14 @@
+---
+description: Jobs in the Handel sector, in Luxembourgish. Where the trade came into the country through French, so did its name.
+locale: lb
+---
+Vendeur
+Vendeuse
+Caissier
+Caissière
+Gerant
+Akeefer
+Vertrieder
+Etaleur
+Magaséngjer
+Kommerçant

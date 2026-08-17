@@ -1,0 +1,92 @@
+---
+description: Medical diagnosis that can occur in any patient — no sex or ancestry restriction. Sex-specific conditions live in diagnosisMale/diagnosisFemale, ancestry-linked ones in diagnosisByAncestry. Turkmen clinical vocabulary is a deliberate mixture: native names survive for the long-known diseases (suyji keseli 'the sweet disease' for diabetes, demgysma for asthma, incekesel for tuberculosis) while everything named after the nineteenth century arrives through Russian.
+locale: tk
+---
+Arterial gipertenziýa
+2-nji görnüşli süýji keseli
+1-nji görnüşli süýji keseli
+Demgysma
+Ýiti bronhit
+Dowamly bronhit
+Dümew
+Ýiti respirator ýokançlyk
+Migren
+Aladaly bozulma
+Depressiýa
+Osteoartroz
+Rewmatoid artrit
+Gastroezofagal reflýuks keseli
+Demir ýetmezçilikli ganazlyk
+Ganazlyk
+Gipotireoz
+Gipertireoz
+Peşew ýollarynyň ýokançlygy
+Öýken sowuklamasy
+Böwrekleriň dowamly keseli
+Ýürek täji arteriýasynyň keseli
+Ýürek ritminiň bozulmagy
+Ýürek ýetmezçiligi
+Miokard infarkty
+Işemik insult
+Garaguş keseli
+Parkinson keseli
+Alsgeýmer keseli
+Köpsanly skleroz
+Psoriaz
+Atopiki dermatit
+Ekzema
+Akne
+Allergiki rinit
+Dowamly sinusit
+Orta gulak sowuklamasy
+Konýunktiwit
+Katarakta
+Glaukoma
+Appendisit
+Öt haltasynyň sowuklamasy
+Öt haltasynyň daşlary
+Diwertikulit
+Gyjyndyrylan içege sindromy
+Kron keseli
+Ýaraly kolit
+Dowamly B gepatiti
+Bagryň sirrozy
+Ýiti pankreatit
+Dowamly pankreatit
+Podagra
+Osteoporoz
+Fibromialgiýa
+Radikulit
+Oňurga diskiniň süýşmegi
+Bilek kanaly sindromy
+Tendinit
+Öýkeniň dowamly obstruktiw keseli
+Inçekesel
+Brusellýoz
+Ehinokokkoz
+Talassemiýa
+Leýkoz
+Limfoma
+Melanoma
+Giperlipidemiýa
+Semizlik
+Ukudaky dem saklanmasy
+Ukusyzlyk
+Bipolýar bozulma
+Ünsi jemläp bilmezlik bozulmasy
+Selýakiýa
+Ulgamlaýyn gyzyl wolçanka
+Başaýlanma
+Gulak şaňlamasy
+Gemorroý
+Warikoz damarlar
+Çuň wenalaryň trombozy
+Öýken emboliýasy
+Böwrek daşy keseli
+Aşgazan ýarasy
+Gastrit
+Deriniň ýokançlygy
+Sepsis
+Ýiti gastroenterit
+D witamininiň ýetmezçiligi
+Wenalaryň dowamly ýetmezçiligi

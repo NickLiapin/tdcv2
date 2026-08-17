@@ -1,0 +1,15 @@
+---
+description: Social reaction (Turkmen)
+locale: tk
+---
+Halaýaryn
+Söýgi
+Gülkünç
+Geň galdyryjy
+Gynandyryjy
+Gaharlandyryjy
+Alada
+Gutlaýaryn
+Goldaýaryn
+Peýdaly
+Gyzykly

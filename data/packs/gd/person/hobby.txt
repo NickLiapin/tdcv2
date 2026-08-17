@@ -1,0 +1,82 @@
+---
+description: Pastime. A large part of this list is not leisure imported from elsewhere but the ordinary cultural life of the Gaelic-speaking areas, and several entries have no English name at all: PUIRT-À-BEUL is dance music sung rather than played, CANNTAIREACHD the sung notation pipers learn from, LUADH the communal waulking of tweed, SEANCHAS the telling and keeping of local lore, BUAIN NA MÒNA the cutting of peat, which is work and an outing at once, and SLOINNTEARACHD the reciting of descent, which in a Gaelic community is a practised skill rather than a hobby. The gaming and fitness entries at the foot are the same as anywhere.
+locale: gd
+---
+Seinn
+Seinn còisir
+Puirt-à-beul
+Pìobaireachd
+Canntaireachd
+Fidhleireachd
+Clàrsaireachd
+Bogsa-ciùil
+Ceòl
+Dannsa
+Dannsa-cèilidh
+Dannsa Gàidhealach
+Cèilidh
+Bàrdachd
+Sgeulachdan
+Seanchas
+Sloinntearachd
+Eachdraidh ionadail
+Arc-eòlas
+Leughadh
+Sgrìobhadh
+Eadar-theangachadh
+Ionnsachadh cànain
+Dràma
+Ealain
+Peantadh
+Tarraing dhealbhan
+Dealbhadaireachd
+Grèis
+Fighe
+Snìomh
+Luadh
+Clò-fhighe
+Obair-fiodha
+Snaidheadh
+Ceàrdachd
+Gàirnealaireachd
+Còcaireachd
+Fuine
+Blasad uisge-bheatha
+Iasgach
+Iasgach-slaite
+Iasgach-mara
+Sealg
+Buain na mòna
+Trusadh nan caorach
+Croitearachd
+Coimhead eòin
+Eòlas-nàdair
+Reul-eòlas
+Coiseachd
+Coiseachd-monaidh
+Sreap
+Ruith
+Ruith-monaidh
+Rothaireachd
+Snàmh
+Snàmh fuar
+Seòladh
+Iomramh
+Curach
+Surfadh
+Sgitheadh
+Campachadh
+Camanachd
+Ball-coise
+Golf
+Curladh
+Teanas
+Tàileasg
+Cairtean
+Geamannan-bùird
+Geamannan-bhidio
+Trèanadh
+Ioga
+Meòrachadh
+Cruinneachadh stampaichean
+Cruinneachadh bhonn

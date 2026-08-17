@@ -1,0 +1,24 @@
+---
+description: Titles that go BEFORE a name in Luxembourgish. Two things differ from the European default. First, Luxembourgish has no live Mrs/Miss split: Madamm covers a woman of any marital status and Joffer, which the LOD glosses as "single woman", is dated and now reads as either schoolteacher-address or faintly rude. Second, the academic title goes in FRONT — Dr., Prof., Ing. — which is why person/suffix.txt in this pack is nearly empty where an English one is full. Paschtouer is the parish priest, Meeschter the qualified master of a trade (a real and regulated status here, not a courtesy). The ducal titles are the language's, not the state's: the institutions belong to the Luxembourg country pack.
+locale: lb
+---
+Här
+Madamm
+Joffer
+Dr.
+Dr. med.
+Prof.
+Prof. Dr.
+Ing.
+Dipl.-Ing.
+Meeschter
+Paschtouer
+Bëschof
+Schwëster
+Broder
+Groussherzog
+Groussherzogin
+Prënz
+Prinzessin
+Grof
+Baron

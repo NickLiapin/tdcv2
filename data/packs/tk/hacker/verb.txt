@@ -1,0 +1,32 @@
+---
+description: Technical verb (Turkmen)
+locale: tk
+---
+ätiýaçlyk nusgasyny almak
+aýlanyp geçmek
+ulgama girmek
+sazlamany üýtgetmek
+gysmak
+göçürmek
+ugry kesgitlemek
+indeksirlemek
+birikdirmek
+döretmek
+hasaplamak
+sintezlemek
+geçirmek
+programmirlemek
+gaýtadan işletmek
+seljermek
+şifrlemek
+açmak
+ornaşdyrmak
+barlamak
+täzelemek
+arassalamak
+gözlemek
+tapmak
+ýazmak
+okamak
+saklamak
+ugratmak

@@ -1,0 +1,12 @@
+---
+description: Sport, parent of sport/positionBySport. CAMANACHD heads the list and is not a translation of anything: shinty is the Gaelic game, played with a caman and a hard ball, twelve a side, and its league is centred on Lochaber, Badenoch and Argyll. It shares an ancestor with Irish hurling but has diverged — the rules differ, the stick is different, and the two meet once a year under a compromise code. The rest are the international games as they are played here.
+locale: gd
+---
+Camanachd
+Ball-coise
+Rugbaidh
+Ball-basgaid
+Ball-lìn
+Hocaidh
+Hocaidh-deighe
+Cricead

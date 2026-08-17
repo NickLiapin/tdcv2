@@ -1,0 +1,11 @@
+---
+description: Diagnoses seen in Endokrinologiýa
+locale: tk
+---
+2-nji görnüşli süýji keseli
+1-nji görnüşli süýji keseli
+Gipotireoz
+Gipertireoz
+Semizlik
+Osteoporoz
+D witamininiň ýetmezçiligi

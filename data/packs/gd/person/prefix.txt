@@ -1,0 +1,28 @@
+---
+description: Title placed before a name, WITH ITS ARTICLE ATTACHED, which is how Gaelic uses one: An t-Ollamh Dòmhnall MacAoidh, not *Ollamh Dòmhnall. The article's shape is decided by the following letter and is baked into each entry here — AN T- before a masculine vowel-initial noun (An t-Ollamh, An t-Urramach, An t-Athair), AM before b/f/m/p (Am Ministear, Am Morair), A' plus lenition before a feminine noun (A' Bhean-phòsta from bean, A' Bhaintighearna from baintighearna), plain AN elsewhere. A config that strips the article to look tidier produces something no Gaelic speaker writes. MAIGHSTIR is the one that stands bare, being a direct address form.
+locale: gd
+---
+Maighstir
+A' Bhean-phòsta
+A' Mhaighdeann
+An t-Ollamh
+An t-Àrd-ollamh
+An t-Urramach
+An t-Athair
+An t-Easbaig
+An t-Àrd-easbaig
+Am Ministear
+An Ridire
+A' Bhaintighearna
+Am Morair
+A' Bhan-mhorair
+An Siorram
+An Caiptean
+An Sàirdseant
+An Leifteanant
+An Còirnealair
+An Seanailear
+An Comhairliche
+An Sgiobair
+An Ceannard
+An t-Uachdaran

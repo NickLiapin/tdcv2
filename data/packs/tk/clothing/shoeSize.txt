@@ -1,0 +1,16 @@
+---
+description: Shoe size on the European (post-Soviet) scale, which is what a shoebox in Turkmenistan is printed with. Turkmen is spoken in essentially one country, so naming that country's scale is safe; it is NOT the US or the Japanese centimetre scale.
+locale: tk
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

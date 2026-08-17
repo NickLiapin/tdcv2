@@ -1,0 +1,21 @@
+---
+description: Social platform. Brand names keep their registered spelling.
+locale: gd
+---
+Facebook
+Instagram
+X
+YouTube
+TikTok
+WhatsApp
+LinkedIn
+Snapchat
+Reddit
+Pinterest
+Telegram
+Discord
+Twitch
+Threads
+Mastodon
+Bluesky
+Tumblr

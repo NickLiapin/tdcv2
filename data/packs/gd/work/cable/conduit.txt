@@ -1,0 +1,11 @@
+---
+description: How a cable run is protected or carried. The material names are trade abbreviations and are the same in any language.
+locale: gd
+---
+PVC
+Stàilinn rag
+HDPE
+Adhlacadh dìreach
+Trannsa-càbaill
+Teachdair-adhair
+Pìob-dhìona

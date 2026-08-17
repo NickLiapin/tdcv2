@@ -1,0 +1,18 @@
+---
+description: Order status (Turkmen)
+locale: tk
+---
+Garaşylýar
+Işlenilýär
+Tassyklandy
+Ugradyldy
+Eltip berilýär
+Gowşuryldy
+Ýatyryldy
+Yzyna gaýtaryldy
+Puly gaýtaryldy
+Saklandy
+Ätiýaçda ýok
+Şowsuz
+Töleg garaşylýar
+Barlagda

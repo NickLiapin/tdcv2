@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter. CIAD is "first"; the ordinal is written with the numeral plus the suffix, as an English 1st is.
+locale: gd
+---
+C1
+C2
+C3
+C4

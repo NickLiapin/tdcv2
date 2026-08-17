@@ -1,0 +1,5 @@
+---
+description: Capital of Bhiet-Nam.
+locale: gd
+---
+Hanoi

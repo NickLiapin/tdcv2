@@ -1,0 +1,19 @@
+---
+description: The WORDS Luxembourgish uses for kinds of court, not a list of one country's courthouses — for the actual courts of Luxembourg, of which there are very few, draw luxembourg.government.court from the country pack. The fact worth recording is that Luxembourgish has no independent legal vocabulary of its own: the law is DRAFTED IN FRENCH by the loi du 24 février 1984, so a Luxembourgish speaker talking about a court says the French word inside a Luxembourgish sentence. Geriicht and Riichter are in the LOD and are used in speech; Tribunal, Cour, Justice de paix and Parquet are what appears on the door.
+locale: lb
+---
+Geriicht
+Riichtergeriicht
+Justice de paix
+Friddensgeriicht
+Tribunal d'arrondissement
+Bezierksgeriicht
+Cour d'appel
+Appellatiounsgeriicht
+Cour de cassation
+Kassatiounsgeriicht
+Tribunal administratif
+Cour administrative
+Cour constitutionnelle
+Aarbechtsgeriicht
+Parquet

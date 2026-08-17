@@ -1,0 +1,34 @@
+---
+description: Vegetable (Turkmen)
+locale: tk
+---
+Sogan
+Sarymsak
+Käşir
+Kartoşka
+Ýeralma
+Pomidor
+Hyýar
+Badamjan
+Burç
+Bulgar burçy
+Kelem
+Gülkelem
+Brokkoli
+Şugundyr
+Kädi
+Kabaçok
+Turp
+Şalgam
+Ysmanak
+Salat
+Petruşka
+Şibit
+Noýba
+Nohut
+Merjimek
+Gök nohut
+Mekgejöwen
+Kelem sapagy
+Ýer armydy
+Gök sogan

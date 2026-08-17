@@ -1,0 +1,12 @@
+---
+description: Dishes of Fransuz cuisine
+locale: tk
+---
+Krosan
+Ratatuý
+Kişl
+Býuf burginýon
+Krem-brýule
+Nikuaz salady
+Sogan çorbasy
+Ekler

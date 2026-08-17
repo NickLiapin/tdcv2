@@ -1,0 +1,16 @@
+---
+description: Kind of workplace meeting.
+locale: gd
+---
+Coinneamh sgioba
+Coinneamh aon-ri-aon
+Coinneamh bhliadhnail
+Coinneamh a' bhùird
+Co-labhairt
+Seisean-bheachdan
+Coinneamh-adhartais
+Ath-sgrùdadh
+Coinneamh luchd-cleachdaidh
+Bhidio-choinneamh
+Coinneamh-sheasaimh
+Bùth-obrach

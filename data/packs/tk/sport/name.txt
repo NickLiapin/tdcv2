@@ -1,0 +1,60 @@
+---
+description: Sport (Turkmen). Goresh, the national belt wrestling, and horse racing on Akhal-Teke horses head the list; both carry public holidays.
+locale: tk
+---
+Göreş
+Guşakly göreş
+At çapyşygy
+Futbol
+Basketbol
+Woleýbol
+El topy
+Hokkeý
+Regbi
+Beýsbol
+Suw topy
+Tennis
+Stol tennisi
+Badminton
+Boks
+Kikboksing
+Dzýudo
+Karate
+Taekwondo
+Sambo
+Ju-jitsu
+Uşu
+Erkin göreş
+Grek-Rim göreşi
+Agyr atletika
+Pauerlifting
+Ýeňil atletika
+Ylgaw
+Marafon
+Uzaklygyna bökmek
+Beýiklige bökmek
+Naýza zyňmak
+Disk zyňmak
+Ýüzmek
+Suwa bökmek
+Kürek çekmek
+Ýelkenli sport
+Welosiped sporty
+Awtomobil sporty
+Motosport
+Gimnastika
+Çeper gimnastika
+Akrobatika
+Batut
+Küşt
+Şaşka
+Dartlar
+Bilýard
+Bouling
+Ok atmak
+Ýaýdan atmak
+Alpinizm
+Dagda ýöremek
+Figurali typmak
+Buzda hokkeý
+Konkide typmak

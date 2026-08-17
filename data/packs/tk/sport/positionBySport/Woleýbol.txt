@@ -1,0 +1,10 @@
+---
+description: Positions in Woleýbol
+locale: tk
+---
+Baglaýjy
+Hüjümçi
+Merkezi bloklaýjy
+Diagonal hüjümçi
+Libero
+Kabul ediji

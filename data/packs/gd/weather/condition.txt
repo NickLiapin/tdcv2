@@ -1,0 +1,20 @@
+---
+description: General state of the weather, as an adjective. Gaelic forms most of them from the noun with the suffix -ACH or -EIL: uisge gives frasach, sgòth gives sgòthach, ceò ceòthach, gaoth gaothach, stoirm stoirmeil.
+locale: gd
+---
+Grianach
+Sgòthach
+Fliuch
+Frasach
+Ceòthach
+Gaothach
+Stoirmeil
+Fuar
+Blàth
+Teth
+Reòthte
+Sneachdach
+Tioram
+Soilleir
+Tais
+Fionnar

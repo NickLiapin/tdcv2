@@ -1,0 +1,5 @@
+---
+description: Capital of Günorta Afrika
+locale: tk
+---
+Pretoriýa

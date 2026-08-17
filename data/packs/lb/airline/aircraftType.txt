@@ -1,0 +1,25 @@
+---
+description: Aircraft types. Type designations are international strings and are never translated. The 747-8F heads the list because Cargolux flies them out of Findel and they are the aircraft most associated with the country.
+---
+Boeing 747-8F
+Boeing 747-400F
+Boeing 777-8F
+Boeing 737-700
+Boeing 737-800
+Boeing 737 MAX 8
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A330
+Airbus A350
+Embraer E190
+Embraer E195-E2
+Bombardier Q400
+ATR 42
+ATR 72
+Cessna Citation
+Gulfstream G650
+Dassault Falcon 7X
+Pilatus PC-12
+King Air 350

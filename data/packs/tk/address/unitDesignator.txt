@@ -1,0 +1,27 @@
+---
+description: Turkmen address unit / interior designator, written before its number
+locale: tk
+---
+jaý
+kwartira
+öý
+gat
+girelge
+podýezd
+otag
+blok
+bina
+korpus
+ofis
+bölüm
+garaž
+ammar
+seksiýa
+ýerzemin
+üçek
+meýdança
+duralga
+poçta gutusy
+howly
+derweze
+dükan

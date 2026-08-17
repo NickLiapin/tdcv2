@@ -1,0 +1,59 @@
+{
+  "months": [
+    "Januar",
+    "Februar",
+    "Mäerz",
+    "Abrëll",
+    "Mee",
+    "Juni",
+    "Juli",
+    "August",
+    "September",
+    "Oktober",
+    "November",
+    "Dezember"
+  ],
+  "monthsInDate": [
+    "Januar",
+    "Februar",
+    "Mäerz",
+    "Abrëll",
+    "Mee",
+    "Juni",
+    "Juli",
+    "August",
+    "September",
+    "Oktober",
+    "November",
+    "Dezember"
+  ],
+  "monthsShort": [
+    "Jan.",
+    "Febr.",
+    "Mrz.",
+    "Abr.",
+    "Mee",
+    "Jun.",
+    "Jul.",
+    "Aug.",
+    "Sept.",
+    "Okt.",
+    "Nov.",
+    "Dez."
+  ],
+  "weekdays": [
+    "Sonndeg",
+    "Méindeg",
+    "Dënschdeg",
+    "Mëttwoch",
+    "Donneschdeg",
+    "Freideg",
+    "Samschdeg"
+  ],
+  "weekdaysShort": ["So.", "Mé.", "Dë.", "Më.", "Do.", "Fr.", "Sa."],
+  "formats": {
+    "L": "DD.MM.YYYY",
+    "LL": "D. MMMM YYYY"
+  },
+  "notes": "Values are moment.js's own lb locale, which is the right source here because this project's locale set is a mirror of moment's. Four things. FIRST, monthsInDate is deliberately IDENTICAL to months: Luxembourgish does not inflect the month inside a date, so 5. Abrëll 2026 uses the plain name. SECOND, the date is written 05.04.2026 with FULL STOPS, the German way, and the long form takes an ordinal point after the day — D. MMMM YYYY, '5. Abrëll 2026'. The same country writes 05/04/2026 in French on the form next to it. THIRD, the time is written with a bare hour and the word Auer after it — moment's lb LT is 'H:mm [Auer]', so 14:30 Auer, and no leading zero on the hour. FOURTH and most important for anyone extending this: moment's lb locale contains a function called eifelerRegelAppliesToNumber, which exists because relative time in Luxembourgish changes the SPELLING of the preposition according to the sound that follows it — 'an 10 Deeg' but 'a 5 Deeg', because 'fënnef' begins with f and 'zéng' with z. That is the Eifel Rule (see word/verb.txt), it is the only rule of its kind in moment's whole locale corpus, and any formatter that renders Luxembourgish relative time without it produces text that is wrong in a way a native reader sees instantly. The currency is the euro, written 1.234,56 € with a full stop for thousands and a comma for decimals when the text is in Luxembourgish or German, and 1 234,56 € when the same office writes in French."
+}

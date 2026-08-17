@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Turkmen)
+locale: tk
+---
+Un
+Şeker
+Duz
+Ýag
+Günebakar ýagy
+Pagta ýagy
+Guýrukýag
+Mesge
+Ýumurtga
+Süýt
+Gatyk
+Suzma
+Gaýmak
+Peýnir
+Goýun eti
+Sygyr eti
+Towuk eti
+Düýe eti
+Balyk
+Tüwi
+Bugdaý ýarmasy
+Mekgejöwen uny
+Sogan
+Sarymsak
+Pomidor
+Käşir
+Kartoşka
+Badamjan
+Burç
+Hyýar
+Kelem
+Ysmanak
+Noýba
+Nohut
+Merjimek
+Hoz
+Kişmiş
+Bal
+Hamyrmaýa
+Sirke

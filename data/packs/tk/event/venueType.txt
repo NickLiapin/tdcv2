@@ -1,0 +1,20 @@
+---
+description: Venue type (Turkmen)
+locale: tk
+---
+Toý mekany
+Myhmanhananyň zaly
+Maslahatlar merkezi
+Sergi zaly
+Stadion
+Teatr
+Konsert zaly
+Medeniýet öýi
+Kinoteatr
+Sport toplumy
+Seýilgäh
+Bag
+Kafe
+Restoran
+Çaýhana
+Uçurym meýdançasy

@@ -1,0 +1,34 @@
+---
+description: Units. Luxembourg is fully METRIC — metres, kilos, litres — and there is no imperial layer at all, so a config that offers pounds or inches here is wrong. What IS local is that a Luxembourgish shop still counts eggs and bread rolls by the Dosen and sells wine by the Fläsch and the Kaart, and the Musel wine trade measures a vineyard in Ar and Hektar.
+locale: lb
+---
+Stéck
+Päerchen
+Dosen
+Dutzend
+Gramm
+Kilo
+Tonn
+Milligramm
+Milliliter
+Zentiliter
+Liter
+Hektoliter
+Millimeter
+Zentimeter
+Meter
+Kilometer
+Quadratmeter
+Ar
+Hektar
+Kubikmeter
+Sak
+Këscht
+Kartong
+Fläsch
+Dous
+Pak
+Rull
+Blat
+Bund
+Portioun

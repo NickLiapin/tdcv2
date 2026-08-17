@@ -1,0 +1,14 @@
+---
+description: The state of a payment.
+locale: lb
+---
+Ausstänneg
+A Bearbechtung
+Autoriséiert
+Bezuelt
+Deelweis bezuelt
+Iwwerfälleg
+Refuséiert
+Annuléiert
+Rembourséiert
+Ëmstridden

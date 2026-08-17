@@ -1,0 +1,12 @@
+---
+description: Dishes of Greugach cooking, as Gaelic names them. Where the dish has a Gaelic name it is used (Taigeis for haggis, Iasg is sliseagan for fish and chips, Rìs praighte for fried rice); where it does not, the dish keeps the name it has in its own kitchen, because a pizza is a pizza in every language and translating it would invent a word.
+locale: gd
+---
+Moussaka
+Souvlaki
+Salad Greugach
+Tzatziki
+Baklava
+Dolmades
+Spanakopita
+Gyros

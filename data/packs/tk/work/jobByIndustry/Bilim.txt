@@ -1,0 +1,11 @@
+---
+description: Jobs in Bilim
+locale: tk
+---
+Mugallym
+Başlangyç synp mugallymy
+Professor
+Terbiýeçi
+Kitaphanaçy
+Mekdep müdiri
+Repetitor

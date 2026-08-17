@@ -1,0 +1,14 @@
+---
+description: Industry that has a coherent job list (Turkmen)
+locale: tk
+---
+Tehnologiýa
+Saglygy goraýyş
+Maliýe
+Gurluşyk
+Bilim
+Myhmanhana işi
+Önümçilik
+Söwda
+Ulag
+Hukuk

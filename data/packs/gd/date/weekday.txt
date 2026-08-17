@@ -1,0 +1,11 @@
+---
+description: Day of the week. Every one but Sunday begins DI-, which is the old word for day, and the names record the early Christian fasting week rather than the planets: DICIADAIN is the day of the first fast, DIARDAOIN the day between two fasts, DIHAOINE the fast day itself. English named the same days after Woden, Thor and Frigg; the two systems have nothing in common. Sunday is DIDÒMHNAICH, the Lord's day, and is also called LATHA NA SÀBAID.
+locale: gd
+---
+Didòmhnaich
+Diluain
+Dimàirt
+Diciadain
+Diardaoin
+Dihaoine
+Disathairne

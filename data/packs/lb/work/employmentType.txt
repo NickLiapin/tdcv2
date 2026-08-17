@@ -1,0 +1,14 @@
+---
+description: Kinds of employment contract, in Luxembourgish. The two that matter here are named the French way because Luxembourg labour law is written in French and everyone says the French abbreviations even in a Luxembourgish sentence: CDI is the permanent contract and CDD the fixed-term one. FRONTALIER is the one no neighbouring locale needs: roughly half the people working in Luxembourg live in France, Belgium or Germany and cross the border every day, and their employment status has its own word.
+locale: lb
+---
+CDI
+CDD
+Deelzäit
+Vollzäit
+Intérim
+Stage
+Léierplaz
+Frontalier
+Fräiberuffler
+Saisonnier

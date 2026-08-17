@@ -1,0 +1,17 @@
+---
+description: Kind of social post.
+locale: gd
+---
+Post
+Dealbh
+Bhidio
+Bhidio goirid
+Beò-shruthadh
+Sgeulachd
+Beachd
+Ath-phost
+Sgrùdadh
+Podcast
+Blog
+Sreath dhealbhan
+Cuairt-bheachd

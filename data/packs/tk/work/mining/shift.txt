@@ -1,0 +1,9 @@
+---
+description: Work shift (Turkmen)
+locale: tk
+---
+Gündizki çalşyk
+Gijeki çalşyk
+Agşamky çalşyk
+Aýlanýan çalşyk
+Wahta usuly

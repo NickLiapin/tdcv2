@@ -1,0 +1,58 @@
+---
+description: Product colour (Turkmen)
+locale: tk
+---
+Ak
+Gara
+Gyzyl
+Sary
+Gök
+Ýaşyl
+Goňur
+Çal
+Boz
+Mämişi
+Gülgüne
+Melewşe
+Gyrmyzy
+Nil
+Firuze
+Zeýtun
+Altyn
+Kümüş
+Bürünç
+Mis
+Merjen
+Ýakut
+Zümerret
+Sapfir
+Dür
+Açyk gök
+Goýy gök
+Açyk ýaşyl
+Goýy ýaşyl
+Açyk sary
+Goýy sary
+Açyk goňur
+Goýy goňur
+Açyk çal
+Goýy çal
+Süýt reňki
+Krem reňki
+Bugdaý reňki
+Gum reňki
+Kül reňki
+Gan reňki
+Nar reňki
+Şetdaly reňki
+Erik reňki
+Alma reňki
+Asman reňki
+Deňiz reňki
+Çäge reňki
+Kerpiç reňki
+Şokolad reňki
+Kofe reňki
+Bal reňki
+Ala
+Reňksiz

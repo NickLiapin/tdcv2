@@ -1,0 +1,14 @@
+---
+description: Jobs in the Bau sector, in Luxembourgish. Where the trade came into the country through French, so did its name.
+locale: lb
+---
+Maurer
+Schräiner
+Daachdecker
+Elektriker
+Installateur
+Plätterchersleeër
+Steemetzer
+Zammermann
+Kranfuerer
+Chef de chantier

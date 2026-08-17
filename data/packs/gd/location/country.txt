@@ -1,0 +1,76 @@
+---
+description: Country name in Gaelic, alphabetical. Compare geo/country.txt, which is the same names weighted by population; this list is the flat one. IT IS MUCH SHORTER THAN THE ENGLISH EQUIVALENT AND THAT IS DELIBERATE. Gaelic has settled, attested names for the countries it has had contact with, and for the rest it has none — a language with no colonial administration and no diplomatic service never had to name every state in the world. Respelling the English name with Gaelic letters would produce a word no Gaelic speaker has ever used and no dictionary records, so the list stops where the evidence stops. Note that nearly every name takes the article and that its form is grammatical, not decorative: A' before a lenited feminine (A' Ghearmailt, A' Ghrèig, A' Phòlainn), AN T- before a feminine S or a masculine vowel (An t-Sìn, An t-Suain, An t-Seic), AM before B/F/M/P, plain AN elsewhere. ALBA, ÈIRINN and SASAINN stand without one.
+locale: gd
+---
+A' Bhealaruis
+A' Bheilg
+A' Chuimrigh
+A' Chròthais
+A' Ghearmailt
+A' Ghrèig
+A' Phòlainn
+A' Phortagail
+Afraga a Deas
+Aildiria
+Alba
+Albàinia
+An Argantain
+An Danmhairg
+An Eadailt
+An Eastoin
+An Èipheit
+An Eilbheis
+An Fhionnlann
+An Fhraing
+An Òlaind
+An Ostair
+An Rìoghachd Aonaichte
+An Ruis
+An Spàinn
+An t-Seapan
+An t-Seic
+An t-Sìn
+An t-Slòbhac
+An t-Suain
+An Tuirc
+An Ucràin
+An Ungair
+Aràibia Shaudach
+Astràilia
+Bangladais
+Bhiet-Nam
+Braisil
+Bulgàiria
+Canada
+Ceinia
+Coirea a Deas
+Coirea a Tuath
+Eilean Mhanainn
+Èirinn
+Indonesia
+Innis Tìle
+Ioràc
+Ioran
+Iosrael
+Laitbhia
+Liotuàinia
+Malaidhsia
+Meagsago
+Morogo
+Na h-Innseachan
+Na Stàitean Aonaichte
+Nigèiria
+Nirribhidh
+Pagastàn
+Peru
+Romàinia
+Sasainn
+Sealainn Nuadh
+Singeapòr
+Tàiland
+An t-Sile
+An t-Sèirbia
+An t-Slòbhain
+Na h-Eileanan Filipineach
+An Àetiop
+Coloimbia

@@ -1,0 +1,58 @@
+---
+description: Colour name (Turkmen). Two things a translator gets wrong: 'gok' covers blue and, in older and rural usage, green as well, while 'yasyl' is unambiguously green; and 'gyzyl' means both red and gold.
+locale: tk
+---
+Ak
+Gara
+Gyzyl
+Sary
+Gök
+Ýaşyl
+Goňur
+Çal
+Boz
+Mämişi
+Gülgüne
+Melewşe
+Gyrmyzy
+Nil
+Firuze
+Zeýtun
+Altyn
+Kümüş
+Bürünç
+Mis
+Merjen
+Ýakut
+Zümerret
+Sapfir
+Dür
+Açyk gök
+Goýy gök
+Açyk ýaşyl
+Goýy ýaşyl
+Açyk sary
+Goýy sary
+Açyk goňur
+Goýy goňur
+Açyk çal
+Goýy çal
+Süýt reňki
+Krem reňki
+Bugdaý reňki
+Gum reňki
+Kül reňki
+Gan reňki
+Nar reňki
+Şetdaly reňki
+Erik reňki
+Alma reňki
+Asman reňki
+Deňiz reňki
+Çäge reňki
+Kerpiç reňki
+Şokolad reňki
+Kofe reňki
+Bal reňki
+Zäherli ýaşyl
+Ala

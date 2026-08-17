@@ -1,0 +1,5 @@
+---
+description: Capital of Meagsago.
+locale: gd
+---
+Cathair Mheagsago

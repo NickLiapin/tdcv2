@@ -1,0 +1,10 @@
+---
+description: Credit score band as a UK credit reference agency reports it.
+locale: gd
+---
+Fìor bhochd
+Bochd
+Cothromach
+Math
+Fìor mhath
+Sàr-mhath

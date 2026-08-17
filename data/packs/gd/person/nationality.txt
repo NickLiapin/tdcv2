@@ -1,0 +1,44 @@
+---
+description: Nationality, as a Gaelic adjective/noun in -ACH. The set opens with the four nations Gaelic has always had to tell apart — ALBANNACH (Scottish), SASANNACH (English), CUIMREACH (Welsh), ÈIREANNACH (Irish) — plus MANAINNEACH (Manx) and the umbrella BREATANNACH (British), a distinction the English word Scottish/British blurs and Gaelic does not. A GÀIDHEAL is a Gael, which is a language and kinship term rather than a citizenship, and it is in the list because on a Gaelic form it is what people write.
+locale: gd
+---
+Albannach
+Gàidheal
+Sasannach
+Cuimreach
+Èireannach
+Manainneach
+Breatannach
+Ameireaganach
+Canèidianach
+Astràilianach
+Sealannach Nuadh
+Frangach
+Gearmailteach
+Eadailteach
+Spàinnteach
+Portagaileach
+Duitseach
+Beilgeach
+Eilbheiseach
+Ostaireach
+Suaineach
+Nirribheach
+Danmhairgeach
+Fionnlannach
+Ìoslannach
+Ruiseanach
+Pòlach
+Seiceach
+Ungaireach
+Greugach
+Turcach
+Èipheiteach
+Nigèireach
+Sìneach
+Iapanach
+Coireanach
+Innseanach
+Pacastanach
+Bhrasaileach
+Airgintineach

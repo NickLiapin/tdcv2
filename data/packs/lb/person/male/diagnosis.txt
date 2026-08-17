@@ -1,0 +1,25 @@
+---
+description: The same male-recorded diagnoses, addressed under person/ for configs that build a person record and reach for the sexed list from there.
+locale: lb
+---
+Prostatavergréisserung
+Prostatakriibs
+Prostatitis
+Hodenkriibs
+Erektiounsstéierung
+Phimose
+Varikozele
+Hydrozele
+Gynäkomastie
+Onfruchtbarkeet
+Testosteronmangel
+Leescht-Hernie
+Peyronie
+Balanitis
+Andropaus
+Männlech Kalvitéit
+Hodentorsioun
+Epididymitis
+Urethritis
+Blutthéichdrock
+Häerzinfarkt

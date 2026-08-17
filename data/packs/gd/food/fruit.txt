@@ -1,0 +1,34 @@
+---
+description: Fruit. The first eight grow here and have old native names — UBHAL, PEUR, SÙBH-LÀIR, SÙBH-CRAOBH, BRAOILEAG (the blaeberry of the hill), SMEURAN (brambles), DEARCAG-DHUBH, DEARCAN-CAORAINN (rowan berries). The rest are imported and their names are borrowed with them; ÒR-MHEAS, "gold fruit", for the orange is the one borrowing Gaelic made into a compound of its own instead.
+locale: gd
+---
+Ubhal
+Peur
+Sùbh-làir
+Sùbh-craobh
+Braoileag
+Smeuran
+Dearcag-dhubh
+Dearcan-caorainn
+Òr-mheas
+Liomaid
+Banàna
+Fìon-dhearc
+Peitseag
+Plumas
+Sirist
+Meilbhin
+Pineapal
+Cnò-chòco
+Mango
+Fìogais
+Deit
+Apracot
+Neactairin
+Seadag
+Avocado
+Kiwi
+Pomgranat
+Dearcag-ghorm
+Rubarb
+Sùbh-nan-con

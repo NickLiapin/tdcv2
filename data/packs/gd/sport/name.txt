@@ -1,0 +1,59 @@
+---
+description: Sport. The Highland games events — TILGEIL A' CHABAIR (tossing the caber), TILGEIL NA CLOICHE (putting the stone), TARRAING-RÒPA (tug of war) and DANNSA GÀIDHEALACH — are competitive sports here with governing bodies, not folklore, and CAMANACHD and CURLADH are both games Scotland invented.
+locale: gd
+---
+Camanachd
+Iomain
+Ball-coise
+Rugbaidh
+Golf
+Curladh
+Teanas
+Cricead
+Ball-basgaid
+Ball-lìn
+Ball-làimhe
+Hocaidh
+Hocaidh-deighe
+Snàmh
+Ruith
+Ruith-monaidh
+Trom-lùth
+Lùth-chleasachd
+Marcachd
+Rothaireachd
+Seòladh
+Iomramh
+Rèis-bhàtaichean
+Iasgach-slaite
+Sealg
+Sgitheadh
+Sgitheadh-monaidh
+Sreap
+Coiseachd-monaidh
+Boghadaireachd
+Gleac
+Dòrnaireachd
+Karate
+Judo
+Taekwondo
+Tilgeil a' chabair
+Tilgeil na cloiche
+Tarraing-ròpa
+Dannsa Gàidhealach
+Pìobaireachd-farpais
+Bòbhladh
+Snucar
+Dartan
+Tàileasg
+Bàdmantan
+Ping-pong
+Surfadh
+Bòrd-seòlaidh
+Fo-mhuir-shnàmh
+Sgitheadh-uisge
+Rèis-nan-each
+Cùrsa-cnap
+Sgèiteadh
+Trì-chleas
+Sabaid-claidheimh

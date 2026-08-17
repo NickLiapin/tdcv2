@@ -1,0 +1,15 @@
+---
+description: Stage of a hiring process.
+locale: gd
+---
+Tagradh
+Sgrìonadh
+Agallamh fòn
+Bhidio-agallamh
+Ciad agallamh
+Dàrna agallamh
+Deuchainn-sgil
+Latha-measaidh
+Agallamh deireannach
+Iarrtas-teisteanais
+Tairgse

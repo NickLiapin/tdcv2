@@ -1,0 +1,32 @@
+---
+description: Adjective from technical jargon.
+locale: gd
+---
+Didseatach
+Bìnearaidh
+Dubhaireach
+Sgèileach
+Co-shìnte
+Dinamach
+Statach
+Fèin-obrachail
+Craobhach
+Coitcheann
+Ionadail
+Iomallach
+Tèarainte
+Crioptaichte
+Dì-chriopte
+Neo-shioncronach
+Sioncronach
+Ath-chùrsach
+Sùbailte
+Buan
+Sealach
+Falamh
+Làn
+Luath
+Slaodach
+Tomhaiste
+Dearbhte
+Neo-dhearbhte

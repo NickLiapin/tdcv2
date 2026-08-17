@@ -1,0 +1,28 @@
+---
+description: Gemstone. Only three of these are Gaelic words in their own right: CAIRNGORM is the smoky quartz of the Cairngorm mountains and the Gaelic CÀRN GORM, "blue cairn", is where the English mineral name came from rather than the other way round; NEAMHNAID is the pearl; FINICHE is jet. The rest are the international mineral names adapted to Gaelic spelling, which is what a Gaelic geology text does — a language with no diamond mine does not have a native word for a diamond.
+locale: gd
+---
+Cairngorm
+Neamhnaid
+Finiche
+Daoimean
+Òmar
+Criostal
+Sàphair
+Smàrag
+Rùbaidh
+Aimeatast
+Topàs
+Òpal
+Onaics
+Gàrnat
+Màrmor
+Iasp
+Cuarts
+Cailceadon
+Peiridot
+Turmalin
+Sircon
+Spinel
+Coireal
+Sligean-neamhnaid

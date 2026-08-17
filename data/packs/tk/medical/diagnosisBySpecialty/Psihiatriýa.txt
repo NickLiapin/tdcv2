@@ -1,0 +1,10 @@
+---
+description: Diagnoses seen in Psihiatriýa
+locale: tk
+---
+Depressiýa
+Aladaly bozulma
+Bipolýar bozulma
+Şizofreniýa
+Ukusyzlyk
+Ünsi jemläp bilmezlik bozulmasy

@@ -1,0 +1,18 @@
+---
+description: Kinds of insurance. The word is ASSURANCE, French, and it is the only word; German Versicherung exists in the LOD but is not what a policy is called here.
+locale: lb
+---
+Autoassurance
+Wunnengsassurance
+Haftpflichtassurance
+Liewensassurance
+Gesondheetsassurance
+Zousazassurance
+Reesassurance
+Rechtsschutzassurance
+Invaliditéitsassurance
+Berufsassurance
+Bauassurance
+Déierenassurance
+Ofbezuelungsassurance
+Pensiounsassurance

@@ -1,0 +1,18 @@
+---
+description: Kinds of post.
+locale: lb
+---
+Post
+Kommentar
+Foto
+Video
+Story
+Reel
+Live
+Sondage
+Artikel
+Lien
+Meme
+Zitat
+Ukënnegung
+Erënnerung

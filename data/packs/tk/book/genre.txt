@@ -1,0 +1,30 @@
+---
+description: Book genre (Turkmen). 'Dessan' is a genre with no European equivalent: the classical Turkmen verse-and-prose romance, sung by a bagsy, of which Gorogly, Sasenem-Garyp and Zohre-Tahyr are the best known.
+locale: tk
+---
+Roman
+Powest
+Hekaýa
+Goşgular
+Dessan
+Rowaýat
+Ertekiler
+Nakyllar
+Detektiw
+Fantastika
+Ylmy fantastika
+Fentezi
+Söýgi romany
+Taryhy roman
+Terjimehal
+Ýatlamalar
+Taryh
+Filosofiýa
+Psihologiýa
+Çagalar edebiýaty
+Ýaşlar edebiýaty
+Syýahatnama
+Aşpezlik kitaby
+Okuw kitaby
+Sözlük
+Ensiklopediýa

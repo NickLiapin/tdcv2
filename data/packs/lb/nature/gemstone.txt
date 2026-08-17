@@ -1,0 +1,16 @@
+---
+description: Precious stones, and a SHORT list on purpose. The LOD carries Diamant, Brillant, Pärel, Kristall and Quaarz, and has no entry for ruby, sapphire, emerald, opal, topaz, amethyst or jade at all. Rather than back-form seven Luxembourgish gem names out of German ones — which is exactly the fabrication this project keeps having to undo — the ones the state dictionary does not carry are simply not here. A jeweller's window in Luxembourg is labelled in French.
+locale: lb
+---
+Diamant
+Brillant
+Pärel
+Kristall
+Quaarz
+Bernsteen
+Gold
+Sëlwer
+Platin
+Marber
+Granit
+Jaspis

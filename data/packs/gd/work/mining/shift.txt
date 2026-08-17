@@ -1,0 +1,9 @@
+---
+description: Work shift. Gaelic names the shift by the part of the day it covers; there is no equivalent of the English "graveyard".
+locale: gd
+---
+Latha
+Feasgar
+Oidhche
+Cuairteachail
+Deireadh-seachdain

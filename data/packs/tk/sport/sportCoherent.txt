@@ -1,0 +1,12 @@
+---
+description: Sport that has a coherent position list (Turkmen). Only team sports appear: Turkmenistan's own strongest disciplines — goresh (belt wrestling), weightlifting and Akhal-Teke horse racing — have no playing positions at all, so they are in sport/name.txt and correctly absent here.
+locale: tk
+---
+Futbol
+Basketbol
+Woleýbol
+El topy
+Hokkeý
+Regbi
+Suw topy
+Beýsbol

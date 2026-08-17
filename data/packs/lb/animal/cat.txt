@@ -1,0 +1,21 @@
+---
+description: Cat breeds. Kaz is the Luxembourgish word for a cat (LOD); breed names travel untranslated, as brand and breed names do in every locale in this project.
+locale: lb
+---
+Kaz
+Hauskaz
+Perser
+Siamees
+Maine Coon
+Britesch Kuerzhoer
+Bengal
+Ragdoll
+Sphynx
+Norwegesch Bëschkaz
+Chartreux
+Abessinier
+Birma
+Somali
+Bombay
+Angora
+Kartäiser

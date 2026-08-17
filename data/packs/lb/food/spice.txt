@@ -1,0 +1,34 @@
+---
+description: Spices and herbs. PÉITERSÉILEG is parsley and carries two é; TEIMERJÄNNCHEN is thyme and is a personal name pressed into service as a plant name, the kind of thing a spoken language does and a standardised one edits out; BRATZEL is chives. GINGEMBRE and SAUGE keep the French spelling beside their German alternatives Ingwer and Salbei, and the LOD lists both, which is the honest state of the language. Every value is a lemma of the LOD, the Lëtzebuerger Online Dictionnaire published by the Zenter fir d'Lëtzebuerger Sprooch under the loi du 20 juillet 2018; nothing here was translated by hand.
+locale: lb
+---
+Salz
+Peffer
+Paprika
+Kanéil
+Neelcheskapp
+Muskot
+Muskotnoss
+Geimer
+Gingembre
+Ingwer
+Safran
+Vanill
+Péiterséileg
+Bratzel
+Teimerjännchen
+Thymian
+Rosmarin
+Salbei
+Sauge
+Basilikum
+Peffermënz
+Dëll
+Lorberblat
+Kümmel
+Kuriander
+Kardamom
+Curry
+Chili
+Esseg
+Ueleg

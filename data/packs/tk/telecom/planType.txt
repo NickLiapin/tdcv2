@@ -1,0 +1,16 @@
+---
+description: Mobile plan type (Turkmen)
+locale: tk
+---
+Öňünden töleg
+Soňundan töleg
+Çäksiz
+Maşgala tarify
+Işewürlik tarify
+Ulanyşyňa görä töleg
+Diňe internet
+Gije tarify
+Talyp tarify
+Halkara jaňlar
+Rouming
+Wagtlaýyn tarif

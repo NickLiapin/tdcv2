@@ -1,0 +1,23 @@
+---
+description: Legal vocabulary in Luxembourgish, with the French terms that share the same sentence. Gesetz, Urteel, Zeien and Verfassung are LOD lemmas; Jugement, Recours and Plaidoirie are what the file itself is labelled.
+locale: lb
+---
+Gesetz
+Règlement grand-ducal
+Verfassung
+Urteel
+Jugement
+Arrêt
+Recours
+Appel
+Plainte
+Plaidoirie
+Zeien
+Beweis
+Prozess
+Verhandlung
+Vergläich
+Strof
+Amende
+Verjärung
+Vollmacht

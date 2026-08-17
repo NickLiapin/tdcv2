@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Tùsanach Ameireaganach ancestry. A prevalence signal, not an exclusive one. Eponyms and registered genetic names are kept unchanged; only the descriptive conditions are rendered in Gaelic.
+locale: gd
+---
+An tinneas-siùcair seòrsa 2
+Clach-dhomblais
+Neupropaite bhon tinneas-siùcair
+Airtritis rheumatoid
+Galar-grùthain saillte gun deoch
+Syndrome Metabolach

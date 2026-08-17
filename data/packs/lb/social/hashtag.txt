@@ -1,0 +1,34 @@
+---
+description: Hashtags a Luxembourgish account uses. Several are real and specific: #Lëtzebuerg and #Luxembourg are the same place in two languages and both trend; #Moien is the national greeting; #Schueberfouer is the capital's fair; #Minett and #Éislek are the south and the north; #Nationalfeierdag is 23 June. Hashtags keep the diacritics in Luxembourgish, which is why #Lëtzebuerg and #Letzebuerg are different tags for the same thing.
+locale: lb
+---
+#Lëtzebuerg
+#Luxembourg
+#LuxembourgCity
+#Moien
+#Schueberfouer
+#Nationalfeierdag
+#Minett
+#Éislek
+#Musel
+#Ardennen
+#Gromperekichelcher
+#Bouneschlupp
+#Kachkéis
+#Lëtzebuergesch
+#Made in Luxembourg
+#Visitluxembourg
+#Luxtimes
+#Frontalier
+#Kirchberg
+#Gare
+#Belval
+#Vakanz
+#Weekend
+#Wanderen
+#Vëlo
+#Fussball
+#Concert
+#Chrëschtmaart
+#Merci
+#Fotodaag

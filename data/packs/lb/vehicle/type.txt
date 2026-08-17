@@ -1,0 +1,26 @@
+---
+description: Kinds of vehicle, in Luxembourgish. CAMION is a lorry and is French where German says Lkw; VËLO is a bicycle and is French where German says Fahrrad. Two of the commonest vehicles on a Luxembourgish road carry French names.
+locale: lb
+---
+Auto
+Camion
+Camionnette
+Bus
+Autobus
+Autocar
+Vëlo
+Elektrovëlo
+Trottinett
+Moto
+Roller
+Tracteur
+Bagger
+Kran
+Zuch
+Tram
+Fliger
+Helikopter
+Schëff
+Boot
+Anhänger
+Wunnmobil

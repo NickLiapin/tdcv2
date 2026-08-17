@@ -1,0 +1,11 @@
+---
+description: Blood groups. The ABO and rhesus notation is international and is not translated.
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

@@ -1,0 +1,46 @@
+---
+description: Job skill — technical, trade and soft (Turkmen)
+locale: tk
+---
+Türkmen dili
+Rus dili
+Iňlis dili
+Türk dili
+Hytaý dili
+Kompýuter sowatlylygy
+Python
+JavaScript
+SQL
+Java
+Excel
+1C
+AutoCAD
+3D modelirlemek
+Grafiki dizaýn
+Web sahypa döretmek
+Maglumat seljermesi
+Buhgalterçilik hasaby
+Maliýe meýilnamalaşdyrmasy
+Taslama dolandyryşy
+Kebşirlemek
+Elektrik montažy
+Suw geçiriji işleri
+Agaç ussaçylygy
+Çyzgy okamak
+Tokarlyk işi
+Lehimlemek
+Ýük göteriji sürmek
+Agyr tehnika sürmek
+Awtoulag sürmek
+Haly dokamak
+Keşde çekmek
+Tikinçilik
+Aşpezlik
+Azyk howpsuzlygy
+Ilkinji kömek
+Ýürek-öýken dikeldişi
+Müşderi bilen işleşmek
+Gepleşik geçirmek
+Topara ýolbaşçylyk etmek
+Wagty dolandyrmak
+Mesele çözmek

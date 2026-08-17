@@ -1,0 +1,22 @@
+---
+description: Delivery carrier. These are the operators that actually deliver in the Gaelic-speaking area. The last three are not parcel companies but SHIPPING LINES: to the Western Isles, Skye and the small isles the last leg of almost every delivery is a ferry, which is why Caledonian MacBrayne and NorthLink belong on a carrier list here and would be nonsense on a continental one. Brand names keep their registered spelling.
+locale: gd
+---
+Royal Mail
+Parcelforce
+DPD
+DHL
+UPS
+FedEx
+Evri
+Yodel
+Amazon Logistics
+Menzies Distribution
+Tuffnells
+TNT
+Palletways
+Hermes
+APC Overnight
+Caledonian MacBrayne
+NorthLink Ferries
+Streamline Shipping

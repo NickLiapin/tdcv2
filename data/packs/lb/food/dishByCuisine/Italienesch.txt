@@ -1,0 +1,16 @@
+---
+description: Dishes of the Italienesch kitchen as a menu in Luxembourg names them. Dish names travel untranslated wherever they are already proper names in the cuisine's own language, which is why most of these are not in Luxembourgish and should not be.
+locale: lb
+---
+Pizza
+Pasta
+Lasagne
+Risotto
+Gnocchi
+Tiramisu
+Minestrone
+Carpaccio
+Ossobuco
+Panna cotta
+Bruschetta
+Polenta

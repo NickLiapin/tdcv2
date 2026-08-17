@@ -1,0 +1,29 @@
+---
+description: Dog breeds as Luxembourgish writes them. Most breed names are international and are NOT translated — Beagle, Boxer, Chihuahua are the same string everywhere and translating them would be an error. What IS Luxembourgish is the everyday word for a dog: the LOD gives Hond and MUPP, and Mupp is the word a Luxembourger actually says. The Bouvier des Flandres and the Berger belge are named in French here because that is how the kennel and the vet write them.
+locale: lb
+---
+Schäferhond
+Belsche Schäferhond
+Bouvier des Flandres
+Labrador
+Golden Retriever
+Beagle
+Boxer
+Rottweiler
+Dobermann
+Dackel
+Pudel
+Chihuahua
+Yorkshire Terrier
+Jack Russell
+Cocker Spaniel
+Bernhardiner
+Berner Sennenhond
+Husky
+Malinois
+Mops
+Bulldogg
+Dalmatiner
+Terrier
+Spitz
+Mupp

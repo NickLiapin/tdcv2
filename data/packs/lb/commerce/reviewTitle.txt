@@ -1,0 +1,30 @@
+---
+description: Headlines a customer review carries. Note SUPER and NICKELCHEN — everyday Luxembourgish approval words — beside the French PARFAIT and IMPECCABLE.
+locale: lb
+---
+Super
+Ganz gutt
+Perfekt
+Parfait
+Impeccable
+Nickelchen
+Zefridden
+Ganz zefridden
+Empfehlen
+Gutt Qualitéit
+Gudde Präis
+Séier geliwwert
+Wéi beschriwwen
+Besser wéi erwaart
+Alles gutt
+Kee Problem
+Geet esou
+Mëttelméisseg
+Enttäuschend
+Net wéi erwaart
+Schued
+Ze deier
+Ze kleng
+Ze grouss
+Defekt ukomm
+Géif net méi kafen

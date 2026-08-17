@@ -1,0 +1,37 @@
+---
+description: Vegetables. GROMPER is the potato and is the single most Luxembourgish word in the pack — it is a worn down "Grondbir", ground-pear, it gives the national dish Gromperekichelcher its name, and no German speaker gets it from Kartoffel. Beside it the market vegetables came in from France with their names: CHOUFLEUR, COURGETTE, AUBERGINE, CONCOMBER, PORRETT, POIVRON, NAVET, LAITUE, CHAMPIGNON. Every value is a lemma of the LOD, the Lëtzebuerger Online Dictionnaire published by the Zenter fir d'Lëtzebuerger Sprooch under the loi du 20 juillet 2018; nothing here was translated by hand.
+locale: lb
+---
+Gromper
+Muert
+Wuerzel
+Ënn
+Zwiwwel
+Knuewelek
+Porrett
+Kabes
+Choufleur
+Brokkoli
+Päinetsch
+Spinat
+Heederzalot
+Laitue
+Tomat
+Concomber
+Kornischong
+Kalbass
+Courgette
+Aubergine
+Poivron
+Paprika
+Boun
+Ierbes
+Lëns
+Navet
+Rommel
+Réidech
+Réidchen
+Staangenzelleri
+Spargel
+Champignon
+Mais

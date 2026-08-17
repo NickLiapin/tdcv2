@@ -1,0 +1,5 @@
+---
+description: Capital of Na h-Innseachan.
+locale: gd
+---
+New Delhi

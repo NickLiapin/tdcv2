@@ -1,0 +1,53 @@
+---
+description: Dishes eaten in Luxembourg, in Luxembourgish. JUDD MAT GAARDEBOUNEN — smoked pork collar with broad beans — is the national dish, and the name is worth reading closely: "Judd" is the collar, "mat" is with, "Gaardebounen" are garden beans, and nothing in the phrase is guessable from German. Beside it BOUNESCHLUPP (bean soup), GROMPEREKICHELCHER (potato cakes, from Gromper, the potato), TRÄIPEN (black pudding), KACHKÉIS (a cooked soft cheese), QUETSCHENTAART (plum tart), KNIDDELEN (dumplings), FEIERSTENGSZALOT (a salad of boiled beef), RIESLINGSPASCHTÉIT (a pie made with Riesling from the Musel), HUESEBRODEN, ÉISLEKER HAM (raw ham from the Éislek in the north). Then the second half of the list is the food actually eaten in a country where nearly half the residents are foreign nationals: Bacalhau, Francesinha, Pastel de nata, Pizza, Pasta, Couscous, Kebab. Both halves are the truth about what is on a plate here. The Luxembourgish dish names are as the LOD and the country's own cookbooks write them.
+locale: lb
+---
+Judd mat Gaardebounen
+Bouneschlupp
+Gromperekichelcher
+Träipen
+Kachkéis
+Quetschentaart
+Kniddelen
+Feierstengszalot
+Rieslingspaschtéit
+Huesebroden
+Éisleker Ham
+Mettwurscht
+Grillwurscht
+Bamkuch
+Verwurelter
+Stäerzelen
+Gromperenzopp
+Ierbessenzopp
+Bouneschlupp mat Mettwurscht
+Kuddelfleck
+Fritten
+Gromperesalot
+Zalot
+Schnitzel
+Cordon bleu
+Steak frites
+Bouchée à la reine
+Paschtéit
+Fëschzopp
+Fritür
+Bacalhau
+Francesinha
+Pastel de nata
+Caldo verde
+Pizza
+Pasta
+Lasagne
+Risotto
+Couscous
+Tajine
+Kebab
+Paella
+Sushi
+Curry
+Gulasch
+Choucroute
+Moules-frites
+Waffelen
+Craquelinger

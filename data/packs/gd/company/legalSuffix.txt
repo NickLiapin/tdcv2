@@ -1,0 +1,29 @@
+---
+description: Legal form of a business, as a company registered in the Gaelic-speaking area carries it. These are UNITED KINGDOM and SCOTTISH forms and not international ones: there is no Inc, no GmbH and no SA here, and SCIO (Scottish Charitable Incorporated Organisation) and the community-benefit society exist only under Scottish law. EARRANTA is the Gaelic for "limited", and CO-CHOMANN a co-operative — the Hebridean community land trusts are constituted this way, which is why the mutual forms are not a footnote on this list.
+locale: gd
+---
+Earranta
+Ltd
+Cuideachd Earranta
+PLC
+Companaidh Phoblach Earranta
+LLP
+Com-pàirteachas Earranta
+Com-pàirteachas
+CIC
+Iomairt Choimhearsnachd
+SCIO
+Buidheann Charthannach
+Carthannas Clàraichte
+Urras
+Urras Coimhearsnachd
+Comann
+Co-chomann
+Comann Co-obrachail
+Comann Buannachd Coimhearsnachd
+Buidheann
+Companaidh
+Aonta-obrach
+Fèin-fhastaichte
+Seilbh Aonair
+Buidheann Neo-chorpraichte

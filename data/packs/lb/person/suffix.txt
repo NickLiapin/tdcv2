@@ -1,0 +1,14 @@
+---
+description: What may follow a Luxembourgish name — and there is very little, which is the point. Luxembourgish follows the French and German convention of putting the degree BEFORE the name (Dr. Muller, not Muller PhD), so the whole apparatus an English list carries here — PhD, MD, DDS, Esq, JD — does not exist in this locale, and person/prefix.txt holds it instead. What is genuinely written after a Luxembourgish name is the generation marker and the international business-card degrees that arrived with English. Shipped short rather than padded with translated Americanisms.
+locale: lb
+---
+jr.
+sr.
+I
+II
+III
+IV
+B.Sc.
+M.Sc.
+MBA
+LL.M.

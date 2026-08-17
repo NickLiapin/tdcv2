@@ -1,0 +1,5 @@
+---
+description: Currency of Wýetnam
+locale: tk
+---
+Dong

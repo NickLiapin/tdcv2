@@ -1,0 +1,22 @@
+---
+description: Cat. As with dogs, Gaelic describes the coat rather than the pedigree: CAT RIABHACH is the tabby, CAT BREAC the patched one, CAT BÀN the white. CAT FIADHAICH is the Scottish wildcat, a real and separate animal. The registered breeds at the foot keep their international names.
+locale: gd
+---
+Cat
+Piseag
+Cat fiadhaich
+Cat dubh
+Cat glas
+Cat riabhach
+Cat breac
+Cat bàn
+Cat ruadh
+Cat-taighe
+Cat gun earball
+Siamese
+Persian
+Burmese
+Maine Coon
+Bengal
+Ragdoll
+Sphynx

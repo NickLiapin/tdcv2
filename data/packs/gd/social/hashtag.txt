@@ -1,0 +1,34 @@
+---
+description: Hashtag. A hashtag cannot carry a space, so Gaelic ones run the words together and keep their accents, which is what Gaelic social media actually does.
+locale: gd
+---
+#Gàidhlig
+#GàidhligGuBràth
+#Alba
+#Gàidhealtachd
+#InnseGall
+#EileanSgitheanach
+#Leòdhas
+#NaHearadh
+#Uibhist
+#Barraigh
+#Mòd
+#Fèis
+#Cèilidh
+#Ceòl
+#Bàrdachd
+#Camanachd
+#ClòHearach
+#Croitearachd
+#Iasgach
+#Aiseag
+#Muir
+#Beanntan
+#Fraoch
+#Sneachda
+#Grian
+#Cuan
+#IonnsaichGàidhlig
+#BBCALBA
+#Dualchas
+#Cànan

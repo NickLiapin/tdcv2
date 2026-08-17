@@ -1,0 +1,20 @@
+---
+description: Horse. Gaelic separates the sexes and ages lexically — LÀIR the mare, ÀIGEACH the entire, GEARRAN the gelding, SEARRACH the foal — and GEARRAN is also the name of the month of February, from the time of year the work-horses were at their thinnest. EACH GÀIDHEALACH is the Highland pony, a native breed.
+locale: gd
+---
+Each
+Làir
+Àigeach
+Searrach
+Capall
+Gearran
+Pònaidh
+Pònaidh Shealtainn
+Each Gàidhealach
+Each-obrach
+Each-rèisidh
+Each-dìolaid
+Each-cartach
+Falaire
+Steud
+Marc

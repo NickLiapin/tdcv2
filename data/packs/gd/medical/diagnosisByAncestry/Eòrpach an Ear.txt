@@ -1,0 +1,10 @@
+---
+description: Conditions markedly more frequent in people of Eòrpach an Ear ancestry. A prevalence signal, not an exclusive one. Eponyms and registered genetic names are kept unchanged; only the descriptive conditions are rendered in Gaelic.
+locale: gd
+---
+Haemochromatosis oighreachail
+Phenylketonuria
+Àrd-cholesterol teaghlaich
+Galar-grùthain bhon deoch
+Fibrosis Cistach
+Galar Wilson

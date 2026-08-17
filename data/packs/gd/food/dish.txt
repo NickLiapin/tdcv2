@@ -1,0 +1,44 @@
+---
+description: A prepared dish, drawn from what is actually cooked in a Gaelic-speaking house. BROCHAN is porridge and was the staple; BONNACH a bannock baked on a girdle; STÒBHACH a stew. Several entries are the ingredient plus IS, "and", which is how Gaelic names a plated meal rather than giving it a title: Sgadan is buntàta, Mairtfheòil is buntàta, Càl is buntàta.
+locale: gd
+---
+Brochan
+Bonnach
+Aran-coirce
+Taigeis
+Stòbhach
+Brot
+Brot-eòrna
+Brot glasraich
+Marag-dhubh
+Marag-gheal
+Sgadan is buntàta
+Bradan ceòthaichte
+Iasg is sliseagan
+Buntàta-pronn
+Buntàta ròsta
+Feòil-fèidh
+Uanfheòil ròsta
+Mairtfheòil is buntàta
+Cearc ròsta
+Isbeanan
+Ugh bruich
+Ugh praighte
+Aran is càise
+Ceapaire
+Gruth is bàrr
+Cranachan
+Pàidh ubhail
+Pùdainn rìs
+Aran-milis
+Bonnach-teatha
+Sgonaichean
+Ceann-cropaig
+Guga
+Duileasg
+Càl is buntàta
+Snèapan is buntàta
+Curraidh
+Pizza
+Pasta
+Rìs praighte

@@ -1,0 +1,11 @@
+---
+description: Trucking route type (Turkmen)
+locale: tk
+---
+Halkara ugur
+Uzak aralyk
+Sebitleýin ugur
+Ýerli ugur
+Bellenen ugur
+Iki sürüjili ugur
+Soňky aralyk

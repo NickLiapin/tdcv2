@@ -1,0 +1,15 @@
+---
+description: The state of a shipment.
+locale: lb
+---
+Etikett erstallt
+Ofgeholl
+Am Depot
+Am Transit
+Am Zoll
+An Zoustellung
+Zoustellversuch
+Zougestallt
+Am Point Relais
+Zeréck un den Ofsender
+Verluer

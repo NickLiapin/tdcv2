@@ -1,0 +1,26 @@
+---
+description: Metal. The first nine are native Gaelic words and are old — ÒR, AIRGEAD, IARANN, UMHA, COPAR, PRAIS, LUAIDHE, STAOIN and STÀILINN cover everything a smith worked with before the eighteenth century. The rest are the modern elements, adapted to Gaelic spelling rather than translated, which is what Gaelic scientific writing does.
+locale: gd
+---
+Òr
+Airgead
+Iarann
+Umha
+Copar
+Prais
+Luaidhe
+Staoin
+Stàilinn
+Alùmanum
+Sinc
+Nicil
+Mearcair
+Platanam
+Titàniam
+Cròmiam
+Magnèisiam
+Ùràiniam
+Cobalt
+Mangan
+Tungstan
+Lithium

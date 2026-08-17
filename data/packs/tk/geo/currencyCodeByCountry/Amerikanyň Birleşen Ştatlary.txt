@@ -1,0 +1,5 @@
+---
+description: Currency code of Amerikanyň Birleşen Ştatlary
+locale: tk
+---
+USD

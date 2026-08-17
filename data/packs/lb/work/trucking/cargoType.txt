@@ -1,0 +1,18 @@
+---
+description: Kinds of freight. Luxembourg sits on the road between Belgium, France and Germany and moves far more freight than its size suggests, so this vocabulary is in everyday use.
+locale: lb
+---
+Palette
+Container
+Schüttgutt
+Flëssegkeet
+Gefierlech Wueren
+Kühlwueren
+Liewensmëttel
+Baumaterial
+Stol
+Holz
+Miwwelen
+Autoen
+Post
+Iwwergréisst

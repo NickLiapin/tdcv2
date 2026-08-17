@@ -1,0 +1,11 @@
+---
+description: Annual household income band, labelled in Gaelic. Amounts are POUNDS STERLING: the Gaelic-speaking area is inside the United Kingdom and uses the pound, with a comma for thousands and a full stop for decimals. Every line ends in SA BHLIADHNA, "in the year" — that is how a Gaelic form words it, and it also keeps the value from ending in a comma followed by digits, which data/scripts/check-weighted-headers.mjs would read as an undeclared weight.
+locale: gd
+---
+Nas lugha na £15,000 sa bhliadhna
+£15,000–£25,000 sa bhliadhna
+£25,000–£35,000 sa bhliadhna
+£35,000–£50,000 sa bhliadhna
+£50,000–£75,000 sa bhliadhna
+£75,000–£100,000 sa bhliadhna
+Còrr is £100,000 sa bhliadhna

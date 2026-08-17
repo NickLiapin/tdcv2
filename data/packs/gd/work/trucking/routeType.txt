@@ -1,0 +1,12 @@
+---
+description: Kind of haulage route. AISEAG, the ferry leg, is on this list because on the west coast and the islands a lorry route is not continuous road: the crossing is part of the schedule.
+locale: gd
+---
+Slighe fhada
+Slighe ghoirid
+Roinneil
+Ionadail
+Sònraichte
+Sgioba
+Mìle mu dheireadh
+Aiseag

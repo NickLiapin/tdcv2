@@ -1,0 +1,24 @@
+---
+description: Fish (Turkmen). Most names are Russian loans, as the commercial Caspian fishery was named in Russian; bekre (sturgeon) and sazan (carp) are the native words.
+locale: tk
+---
+Bekre
+Şip
+Sazan
+Lakga
+Kilka
+Kefal
+Sudak
+Çapak
+Karas
+Forel
+Losos
+Tunes
+Treska
+Skumbriýa
+Seld
+Kambala
+Akula
+Altyn balyk
+Ýylan balyk
+Wobla

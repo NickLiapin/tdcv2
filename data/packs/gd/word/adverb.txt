@@ -1,0 +1,36 @@
+---
+description: Gaelic adverb and adverbial phrase. Most are formed with the particle GU on an adjective — gu math, gu luath, gu slaodach — which is why so many entries here are two words; that is one adverb, not two.
+locale: gd
+---
+A-nis
+An-dè
+An-diugh
+A-màireach
+An-còmhnaidh
+A-riamh
+Uaireannan
+Gu tric
+Gu math
+Gu dona
+Gu luath
+Gu slaodach
+A-staigh
+A-muigh
+Shuas
+Shìos
+A-null
+A-nall
+An seo
+An sin
+An sud
+Cuideachd
+Idir
+Fhathast
+Mar-thà
+Gu dearbh
+Glè
+Ro
+Cha mhòr
+Buileach
+Air èiginn
+Gu h-obann
