@@ -1,0 +1,12 @@
+---
+address: azerbaijan.phoneMobilePrefix
+description: The eight three-digit mobile prefixes of Azerbaijan, in the national form with the trunk zero that a subscriber writes and dials. Azercell holds 050, 051 and 010, Bakcell 055 and 099, Nar 070 and 077, and Naxtel 060. THE 060 IS THE INTERESTING ONE: Naxtel operates only in the Nakhchivan Autonomous Republic, the exclave cut off from the rest of Azerbaijan by Armenian territory, so a 060 number is the one piece of Azerbaijani contact data that does place its holder geographically — and the other seven prefixes place nobody anywhere. Number portability has been in force since 2016, so 050 no longer means Azercell in the way it did for twenty years; the prefix survives as a strong hint about which operator originally sold the number and as a reliable statement that the number is mobile rather than fixed. The trunk zero is a dialling prefix and not part of the number: in E.164 these become 10, 50, 51, 55, 60, 70, 77 and 99 after the +994, which is why "0" appears here and does not appear in azerbaijan.phone. Historical note for anyone reading old Azerbaijani records: Azercell's original code was 050 and 051 came later as it filled up, Bakcell used 055 alone before 099, and 077 was issued to Azerfon when it rebranded as Nar, so a dataset with only 050, 055 and 070 predates about 2010.
+---
+010
+050
+051
+055
+060
+070
+077
+099

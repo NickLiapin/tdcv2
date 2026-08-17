@@ -1,0 +1,29 @@
+---
+address: azerbaijan.sport.team
+description: Azerbaijani football clubs — the twelve of the Premyer Liqa, which expanded from ten to twelve for the 2025/26 season, plus the clubs with the deepest history in the league. The abbreviations are not decoration: FK is futbol klubu, PFK peşəkar futbol klubu (professional football club), and İK idman klubu (sports club), so Neftçi is formally Neftçi PFK and Zirə is Zirə FK. Two facts about this list are Azerbaijani and nothing else. QARABAĞ FK HAS NOT PLAYED IN ITS OWN CITY SINCE 1993: the club is from Ağdam, it left when the town was taken in the first war, and it has spent thirty years as a displaced club playing its home matches in Baku — including its Champions League group stage in 2017 — while remaining, by name and by support, the club of a town that was destroyed. ARAZ-NAXÇIVAN is the exclave's club and travels to every away fixture by air or through Iran. Beyond that, Azerbaijani club football is unusually unstable: clubs are corporately owned rather than member-owned, they fold and are refounded, and several of the biggest names of the 2000s no longer exist — Xəzər Lənkəran, champions in 2007, dissolved in 2016; Bakı FK, twice champions, dissolved in 2016; İnter Bakı became Keşlə and then Şamaxı; AZAL became Şüvəlan and then Zirə. So a list of Azerbaijani clubs ages faster than any European equivalent, and the historic names below are included precisely because they appear in older records. NEFTÇİ, founded in 1937 as the oil workers' club, is the one continuous thread: it played in the Soviet top flight, it has the most Azerbaijani titles, and its name simply means "the oil worker". The season runs autumn to spring, unlike the Norwegian and Scandinavian calendar.
+locale: az
+---
+Qarabağ FK
+Neftçi PFK
+Sabah FK
+Zirə FK
+Sumqayıt FK
+Qəbələ FK
+Turan Tovuz FK
+Araz-Naxçıvan PFK
+Kəpəz PFK
+Şamaxı FK
+İmişli FK
+Karvan İK
+Səbail FK
+Şüvəlan FK
+MOİK Bakı
+Keşlə FK
+Xəzər Lənkəran
+Bakı FK
+İnter Bakı
+Simurq PFK
+Ravan Bakı
+AZAL PFK
+Olimpik Bakı
+Şəmkir FK

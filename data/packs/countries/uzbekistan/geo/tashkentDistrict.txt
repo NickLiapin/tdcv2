@@ -1,0 +1,17 @@
+---
+address: uzbekistan.geo.tashkentDistrict
+description: The twelve districts of Toshkent city. They are tumans in law and nothing like tumans in practice: each is a dense urban borough of 100 000 to 400 000 people inside a single 449 km2 city, and the name is what a Tashkent address actually leads with — Yunusobod tumani, Chilonzor tumani. Yangihayot is the new one, split off from Sergeli in 2020, so a city map printed before then has eleven. Several carry a name a foreign dataset will not recognise because the Russian form is what got exported: Shayxontohur is Shaykhantaur, Yashnobod was Hamza until 2018 and is Khamza in old records, Olmazor was Sabir Rakhimov, and Mirzo Ulugʻbek is the astronomer, spelled Mirzo-Ulugbek in Russian sources. Bektemir is the outlier — an industrial enclave on the far bank of the Chirchiq, the smallest of the twelve by a wide margin, and physically detached from the rest of the city. Uzbekistan has no other city divided into districts this way.
+locale: uz-latn
+---
+Bektemir
+Chilonzor
+Mirobod
+Mirzo Ulugʻbek
+Olmazor
+Sergeli
+Shayxontohur
+Uchtepa
+Yakkasaroy
+Yangihayot
+Yashnobod
+Yunusobod

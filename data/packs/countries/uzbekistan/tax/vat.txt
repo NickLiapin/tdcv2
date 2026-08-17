@@ -1,0 +1,8 @@
+---
+address: uzbekistan.tax.vat
+description: What an Uzbek invoice carries where a European invoice carries a VAT number. Uzbekistan levies QQS (qoʻshilgan qiymat soligʻi), value added tax, at 12 per cent since 1 January 2023 — down from 15 and before that 20 — and it does keep a separate register of VAT payers: a business that crosses the threshold applies through my.soliq.uz and is issued a VAT payer registration certificate, which can be suspended and restored independently of its tax registration. But NO PUBLISHED SPECIFICATION OF THAT REGISTRATION NUMBER exists in any source reachable for this pack: the 2019 regulation on VAT registration was consulted and states the certificate is issued without giving the number a format, and the tax service publishes a lookup by STIR rather than a format. So this file does NOT invent a VAT number. It emits the STIR, which is the number an Uzbek counterparty actually quotes as its tax identifier and the key the VAT-payer register itself is searched by. Two consequences worth stating plainly. There is no "UZ" prefix — Uzbekistan is not in the EU VAT system, VIES does not know it, and a validator built for two letters plus digits will reject every genuine Uzbek tax number. And a business being VAT-registered is a STATUS attached to the STIR rather than a second number, so the right shape for an Uzbek record is one tax number and a boolean, not two number columns.
+generator: tdc
+locale: uz-latn
+---
+<sequence name="s"><gen type="template" value="uzbekistan.tax.stir"/></sequence>
+<data>${{s}}</data>

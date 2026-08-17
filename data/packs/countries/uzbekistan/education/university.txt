@@ -1,0 +1,182 @@
+---
+address: uzbekistan.education.university
+description: 177 higher education institutions of Uzbekistan, in Uzbek. The list is worth reading for its shape rather than its length. FILIAL IS THE UNIT: a large share of these entries are named "X institutining Y filiali" — a branch of a Tashkent institute in a provincial city — because Uzbekistan expanded higher education after 2017 by opening branches of existing institutes rather than founding new universities, and a branch has its own admissions, its own building and its own line in the register. So an Uzbek education field of "Toshkent axborot texnologiyalari universiteti" is genuinely ambiguous between the Tashkent campus and its branches in Nukus, Samarqand, Urganch and Fargʻona. The second block is FOREIGN BRANCH CAMPUSES, and there are more than thirty of them, which is unusual anywhere: Westminster, Turin Polytechnic, Inha, Webster, Amity, MISiS, Lomonosov Moscow State, Gubkin, MGIMO and Pisa all run degree-granting campuses in Uzbekistan. Third is the military and security block — the Armed Forces Academy, the Interior Ministry Academy, the State Security Service Academy, the tank command school at Chirchiq — which are higher education institutions in Uzbek law and sit in the same register as the universities. The vocabulary distinguishes universitet, institut, akademiya and oliy harbiy bilim yurti and the words are not interchangeable; an institut is not a lower rank of university but a single-subject one. Names carry the correct U+02BB in oʻ and gʻ and U+02BC in taʼlim; the Russian-era transliterations (Tashkent, Fergana, Bukhara) that Western records use are different strings from these.
+locale: uz-latn
+---
+Andijon davlat universiteti
+Andijon mashinasozlik instituti
+Andijon tibbiyot instituti
+Toshkent davlat stomatologiya institutining Andijon filiali
+Andijon qishloq xoʻjaligi va agrotexnologiyalar instituti
+Andijon iqtisodiyot va qurilish instituti
+Andijon davlat universitetining Pedagogika instituti
+Buxoro davlat universiteti
+Buxoro davlat universitetining Pedagogika instituti
+Buxoro muhandislik-texnologiya instituti
+Buxoro tibbiyot instituti
+Toshkent irrigatsiya va melioratsiya institutining Buxoro filiali
+Toshkent davlat stomatologiya institutining Buxoro filiali
+Zarmed Universiteti
+Fargʻona davlat universiteti
+Fargʻona politexnika instituti
+Toshkent axborot texnologiyalari universitetining Fargʻona filiali
+Oʻzbekiston Davlat sanʼat va madaniyat institutining Fargʻona mintaqaviy filiali
+Fargʻona jamoat salomatligi tibbiyot instituti
+Qoʻqon davlat pedagogika instituti
+Toshkent davlat texnika universitetining Qoʻqon filiali
+Oʻzbekiston davlat jismoniy tarbiya va sport universitetining Fargʻona filiali
+Guliston davlat universiteti
+Toshkent kimyo-texnologiya institutining Yangiyer filiali
+Jizzax davlat pedagogika universiteti
+Jizzax politexnika instituti
+Oʻzbekiston milliy universitetining Jizzax filiali
+Qozon federal universitetining Jizzax filiali
+Sambhram universiteti
+Namangan davlat universiteti
+Namangan muhandislik-texnologiya instituti
+Namangan muhandislik-qurilish instituti
+Namangan davlat pedagogika instituti
+Navoiy davlat konchilik va texnologiyalar universiteti
+Navoiy davlat konchilik institutining Olmaliq fakulteti
+Navoiy davlat konchilik institutining Zarafshon fakulteti
+Navoiy davlat pedagogika instituti
+Nukus davlat pedagogika instituti
+Qoraqalpoq davlat universiteti
+Toshkent axborot texnologiyalari universitetining Nukus filiali
+Toshkent davlat agrar universitetining Nukus filiali
+Qoraqalpogʻiston tibbiyot instituti
+Toshkent tibbiyot pediatriya institutining Nukus filiali
+Toshkent davlat stomatologiya institutining Nukus filiali
+Toshkent kimyo-texnologiya institutining Qoʻngʻirot boʻlimi
+Oʻzbekiston davlat sanʼat va madaniyat institutining Nukus filiali
+Navoiy davlat konchilik institutining Nukus filiali
+Samarqand veterinariya meditsinasi institutining Nukus filiali
+Oʻzbekiston davlat jismoniy tarbiya va sport universitetining Nukus filiali
+Toshkent davlat texnika universitetining Nukus filiali
+Qarshi davlat universiteti
+Qarshi davlat texnika universiteti
+Shahrisabz davlat pedagogika instituti
+Samarqand davlat universiteti
+Samarqand davlat arxitektura-qurilish instituti
+Samarqand davlat chet tillar instituti
+Samarqand davlat tibbiyot instituti
+Samarqand iqtisodiyot va servis instituti
+Samarqand veterinariya meditsinasi instituti
+Toshkent axborot texnologiyalari universitetining Samarqand filiali
+Ipak yoʻli xalqaro turizm universiteti
+Toshkent davlat iqtisodiyot universitetining Samarqand filiali
+Toshkent davlat agrar universitetining Samarqand filiali
+Samarqand davlat universitetining Kattaqoʻrgʻon filiali
+Toshkent davlat transport universitetining Kattaqoʻrgʻon filiali
+Samarqand davlat universitetining Urgut filiali
+Termiz davlat universiteti
+Toshkent davlat pedagogika universitetining Termiz filiali
+Toshkent tibbiyot akademiyasining Termiz filiali
+Toshkent davlat agrar universitetining Termiz filiali
+Toshkent davlat texnika universitetining Termiz filiali
+Samarqand davlat universitetining Denov tadbirkorlik va pedagogika instituti
+Urganch davlat universiteti
+Toshkent tibbiyot akademiyasining Urganch filiali
+Toshkent axborot texnologiyalari universitetining Urganch filiali
+Toshkent farmatsevtika institutining Xazorasp filiali
+Oʻzbekiston davlat xoreografiya akademiyasi Urganch filiali
+Toshkent viloyati Chirchiq davlat pedagogika universiteti
+Toshkent davlat texnika universitetining Olmaliq filiali
+Toshkent davlat agrar universiteti
+Oʻzbekiston davlat jismoniy tarbiya va sport universiteti
+Toshkent viloyat pedagogika instituti
+Abu Rayhon Beruniy universiteti
+PDP University
+Davlat boshqaruvi akademiyasi
+Bank-moliya akademiyasi
+Strategik tahlil va istiqbolni belgilash oliy maktabi
+Toshkent davlat sharqshunoslik universiteti
+Oʻzbekiston davlat konservatoriyasi
+Milliy rassomlik va dizayn instituti
+Oʻzbek milliy musiqa sanʼati instituti
+Oʻzbekiston jahon tillari universiteti
+Oʻzbekiston davlat sanʼat va madaniyat instituti
+Oʻzbekiston jurnalistika va ommaviy kommunikatsiyalar universiteti
+Oʻzbekiston milliy universiteti
+Jahon iqtisodiyoti va diplomatiya universiteti
+Soliq akademiyasi
+Toshkent arxitektura-qurilish universiteti
+Toshkent davlat transport universiteti
+Toshkent avtomobil yoʻllar instituti
+Toshkent axborot texnologiyalari universiteti
+Toshkent davlat iqtisodiyot universiteti
+Milliy raqs va xoreografiya oliy maktabi
+Toshkent davlat oʻzbek tili va adabiyoti universiteti
+Toshkent davlat pedagogika universiteti
+Toshkent davlat stomatologiya instituti
+Toshkent davlat texnika universiteti
+Toshkent davlat yuridik universiteti
+Toshkent davlat yuridik universitetining ixtisoslashtirilgan filiali
+Toshkent farmatsevtika instituti
+Toshkent irrigatsiya va melioratsiya instituti
+Oʻzbekiston xalqaro islom akademiyasi
+Toshkent islom instituti
+Toshkent kimyo-texnologiya instituti
+Toshkent moliya instituti
+Toshkent tibbiyot pediatriya instituti
+Toshkent temir yoʻl muhandislari instituti
+Toshkent tibbiyot akademiyasi
+Toshkent toʻqimachilik va yengil sanoat instituti
+Yangi Oʻzbekiston universiteti
+Farmatsevtika texnik universiteti
+Oʻzbekiston Respublikasi Qurolli Kuchlari Akademiyasi
+Oʻzbekiston Respublikasi Ichki ishlar vazirligi akademiyasi
+Oʻzbekiston Respublikasi Milliy gvardiyasi Jamoat xavfsizligi universiteti
+Oliy harbiy bojxona instituti
+Oʻzbekiston Respublikasi Mudofaa vazirligi axborot-kommunikatsiya texnologiyalari va aloqa harbiy instituti
+Oʻzbekiston Respublikasi Davlat xavfsizlik xizmati akademiyasi
+Toshkent oliy umumqoʻshin qoʻmondonlik bilim yurti
+Oʻzbekiston Respublikasi Favqulodda vaziyatlar vazirligi akademiyasi
+Chirchiq oliy tank komandir-muhandislik bilim yurti
+Jizzax aviatsiya oliy harbiy bilim yurti
+Samarqand avtomobilchi komandir-muhandislar oliy harbiy bilim yurti
+Toshkent Xalqaro Vestminster Universiteti
+Toshkent shahridagi Inha universiteti
+Toshkent shahridagi Singapur menejmentni rivojlantirish instituti
+Toshkent shahridagi Puchon universiteti
+G. V. Plexanov nomidagi Rossiya iqtisodiyot universitetining Toshkent filiali
+M. V. Lomonosov nomidagi Moskva davlat universitetining Toshkent filiali
+I. M. Gubkin nomidagi Rossiya neft va gaz universitetining Toshkent filiali
+Moskva davlat xalqaro aloqalar institutining Toshkent filiali
+Toshkent shahridagi Turin politexnika universiteti
+Toshkent shahridagi Amiti universiteti
+Toshkent shahridagi Aju universiteti
+Toshkent shahridagi Vebster universiteti
+Andijon shahridagi Sharda universiteti
+MISiS Olmaliq filiali
+MMFI Toshkent filiali
+Latviya Axborot tizimlari menejmenti oliy maktabining Fargʻona shahridagi filiali
+Rossiya davlat jismoniy tarbiya, sport, yoshlar va turizm universitetining Samarqand filiali
+Astraxan davlat texnika universitetining Toshkent filiali
+D. I. Mendeleev nomidagi Rossiya kimyo-texnologiya universitetining Toshkent filiali
+Toshkent shahridagi Shinxan universiteti
+Toshkent shahridagi Belarus-Oʻzbekiston qoʻshma tarmoqlararo amaliy texnik kvalifikatsiyalar instituti
+Turkiya iqtisodiyot va texnologiyalar universitetining Toshkent filiali
+Angren shahridagi Kukmin universiteti
+Urganch shahridagi Binary universiteti
+Butunrossiya davlat kinematografiya institutining Toshkent filiali
+Sankt-Peterburg davlat universitetining Toshkent filiali
+Sambhram universitetining Jizzax filiali
+Piza universitetining Toshkent filiali
+Margʻilon shahridagi Shveysariya tibbiyot va axborot texnologiyalari universiteti
+Xalqaro qishloq xoʻjaligi universiteti
+Collegium humanum" Varshava menejment universteti Andijon filiali
+M. Auezov nomidagi Janubiy Qozogʻiston tadqiqot universiteti Chirchiq filiali
+Akfa universiteti
+Termiz shahridagi TEAM universiteti
+Toshkent shahridagi TEAM universiteti
+Qoʻqon universiteti
+Toshkent shahridagi Yodju texnika instituti
+Fargʻona shahridagi Koreya xalqaro universiteti
+Toshkent xalqaro taʼlim universiteti
+Toshkent shahridagi Britaniya menejment universiteti
+Toshkent shahridagi Kembrij xalqaro universiteti
+ISFT Tashkent
+IT-Park University
+Oxus University
+Xalqaro Nordik Universiteti

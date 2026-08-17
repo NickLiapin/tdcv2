@@ -1,0 +1,55 @@
+---
+address: azerbaijan.education.university
+description: Azerbaijan's higher-education institutions — the state universities and academies, the six special-purpose academies run by ministries, and the private universities — under their official Azerbaijani names. Four things about this list are Azerbaijani rather than generic. QARABAĞ UNİVERSİTETİ, founded in 2024 in Xankəndi, is the newest entry and the only university in the territory recovered in 2020-2023; it did not exist when any earlier reference list was written. TWO RUSSIAN UNIVERSITIES OPERATE FULL BRANCHES IN BAKU — Lomonosov Moscow State University since 2008 and Sechenov First Moscow State Medical University since 2016 — and both are counted as Azerbaijani institutions by the Ministry of Science and Education, which is a live Soviet-era arrangement rather than a historical footnote and has no parallel in the Western European packs. THE NAMES CHANGE OFTEN, and three of the changes are the reason an old fixture fails: Azərbaycan Dövlət Neft Akademiyası became Azərbaycan Dövlət Neft və Sənaye Universiteti in 2015, Mingəçevir Politexnik İnstitutu became Mingəçevir Dövlət Universiteti in the same year, and Qafqaz Universiteti — for two decades the country's strongest private university — was closed in 2016 over its association with the Gülen movement and Bakı Mühəndislik Universiteti was created on its campus, so any list still carrying Qafqaz is at least ten years old. And the ministry-run academies are real degree-granting institutions, not training schools: the Polis Akademiyası, the Ədliyyə Akademiyası and the State Security Service's academy award accredited degrees and appear in the same register as the universities. Note the capitalisation convention, which is Azerbaijani and not a mistake: institution names take a capital on each significant word (Bakı Dövlət Universiteti), unlike Norwegian, where only the first word does. ADA Universiteti, Bakı Ali Neft Məktəbi, Azərbaycan Fransız Universiteti and Bakı Mühəndislik Universiteti teach wholly or largely in English or French, which is why their acronyms are Latin rather than Azerbaijani. Source: the Ministry of Science and Education's register of higher-education institutions.
+locale: az
+---
+Bakı Dövlət Universiteti
+Azərbaycan Dövlət Neft və Sənaye Universiteti
+Azərbaycan Dövlət İqtisad Universiteti
+Azərbaycan Texniki Universiteti
+Azərbaycan Tibb Universiteti
+Azərbaycan Dövlət Pedaqoji Universiteti
+Azərbaycan Memarlıq və İnşaat Universiteti
+Azərbaycan Dillər Universiteti
+Bakı Slavyan Universiteti
+Azərbaycan Dövlət Aqrar Universiteti
+Azərbaycan Dövlət Mədəniyyət və İncəsənət Universiteti
+Bakı Musiqi Akademiyası
+Azərbaycan Milli Konservatoriyası
+Azərbaycan Dövlət Rəssamlıq Akademiyası
+Bakı Xoreoqrafiya Akademiyası
+Azərbaycan İdman Akademiyası
+Azərbaycan Dövlət Dəniz Akademiyası
+Milli Aviasiya Akademiyası
+Azərbaycan Respublikasının Prezidenti yanında Dövlət İdarəçilik Akademiyası
+Bakı Ali Neft Məktəbi
+Bakı Mühəndislik Universiteti
+ADA Universiteti
+Azərbaycan Fransız Universiteti
+Azərbaycan Turizm və Menecment Universiteti
+Azərbaycan İlahiyyat İnstitutu
+Sumqayıt Dövlət Universiteti
+Gəncə Dövlət Universiteti
+Azərbaycan Texnologiya Universiteti
+Mingəçevir Dövlət Universiteti
+Lənkəran Dövlət Universiteti
+Naxçıvan Dövlət Universiteti
+Naxçıvan Müəllimlər İnstitutu
+Qarabağ Universiteti
+M.V.Lomonosov adına Moskva Dövlət Universitetinin Bakı filialı
+İ.M.Seçenov adına Birinci Moskva Dövlət Tibb Universitetinin Bakı filialı
+Daxili İşlər Nazirliyinin Polis Akademiyası
+Dövlət Təhlükəsizliyi Xidmətinin Heydər Əliyev adına Akademiyası
+Ədliyyə Nazirliyinin Ədliyyə Akademiyası
+Fövqəladə Hallar Nazirliyinin Akademiyası
+Dövlət Gömrük Komitəsinin Akademiyası
+Milli Müdafiə Universiteti
+Xəzər Universiteti
+Qərbi Kaspi Universiteti
+Azərbaycan Universiteti
+Odlar Yurdu Universiteti
+Bakı Biznes Universiteti
+Bakı Avrasiya Universiteti
+Bakı Qızlar Universiteti
+Azərbaycan Kooperasiya Universiteti
+Azərbaycan Əmək və Sosial Münasibətlər Akademiyası

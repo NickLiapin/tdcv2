@@ -1,0 +1,20 @@
+---
+address: uzbekistan.geo.region
+description: The FOURTEEN first-level units of Uzbekistan, weighted by the preliminary result of the census of 15 January 2026 — the first full census the country has run since 1989. Three of the fourteen are not viloyats and a schema that calls the column "province" is wrong about all three. Qoraqalpogʻiston is a REPUBLIC inside Uzbekistan, with its own constitution, its own flag, its own Jokargy Kenes and a titular language (Karakalpak, a Kipchak Turkic language closer to Kazakh than to Uzbek) that is co-official there and nowhere else; it covers 37 per cent of the national territory and holds 6 per cent of the people, because most of it is the Qizilqum and the dry bed of the Aral Sea. Toshkent shahri is a CITY of republican significance and is administratively separate from Toshkent viloyati, which surrounds it — two different units, two different governors, and the same word at the front, which is the trap: the city holds 3.2 million people on 449 km2 and the region 3.8 million on 15 135 km2. And the region that is NOT here: Uzbekistan has no first-level unit named after the Fergana valley, which is split three ways between Andijon, Namangan and Fargʻona, so a dataset with a "Fergana" row is naming the region around the city of Fargʻona and not the valley. Written in the official Uzbek form with the generic word attached — Andijon viloyati, not Andijon — because the bare name is the CITY in eleven of the fourteen cases. Source: preliminary results of the 2026 census as tabulated by citypopulation.de from the Uzbek statistics agency.
+weighted: true
+locale: uz-latn
+---
+Samarqand viloyati,4404575
+Fargʻona viloyati,4238911
+Toshkent viloyati,3763093
+Qashqadaryo viloyati,3692323
+Andijon viloyati,3531777
+Toshkent shahri,3224838
+Namangan viloyati,3149161
+Surxondaryo viloyati,2984084
+Qoraqalpogʻiston Respublikasi,2149932
+Xorazm viloyati,2140746
+Buxoro viloyati,2104874
+Jizzax viloyati,1524055
+Navoiy viloyati,1184591
+Sirdaryo viloyati,954361

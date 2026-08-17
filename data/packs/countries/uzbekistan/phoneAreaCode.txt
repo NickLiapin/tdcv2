@@ -1,0 +1,17 @@
+---
+address: uzbekistan.phoneAreaCode
+description: The 13 geographic area codes of Uzbekistan, used by fixed lines only. Two digits, following +998, and they do NOT match the territorial numbering used by postal codes and old number plates — Tashkent is 71 on the telephone and 10 in the post, Qoraqalpogʻiston is 61 and 23. Note what is missing: Toshkent viloyati has no code of its own and is carried inside 71 with the city, so a fixed-line number cannot separate the capital from the region around it; 78 is a fixed non-geographic block shared by several operators and is not in this list; 68, 63 and 64 are unassigned. See uzbekistan.phoneAreaCodeWithRegion for which code belongs to which region. Source: the ITU national numbering plan for Uzbekistan.
+---
+61
+62
+65
+66
+67
+69
+71
+72
+73
+74
+75
+76
+79

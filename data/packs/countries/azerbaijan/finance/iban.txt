@@ -1,0 +1,24 @@
+---
+address: azerbaijan.finance.iban
+description: The Azerbaijani IBAN — AZ, two ISO 7064 MOD-97-10 check digits, a FOUR-LETTER bank code and a twenty-character account, twenty-eight characters in all. Its registry format string is AZ2!n4!a20!c, and every letter of that matters. The 4!a says the bank code is ALPHABETIC, so AZ\d{26} — the shape a validator writes if it assumes IBANs are digits after the country code — rejects every Azerbaijani IBAN in existence. The 20!c says the account part is ALPHANUMERIC, not numeric, and this is not a theoretical allowance: the Azerbaijan State Marine Academy publishes its own account as AZ17AIIB380900E9447233006112, with a capital E in the thirteenth character of the account, and a column typed as numeric silently drops it. This generator emits digits in the account part, which is the overwhelmingly common case, but a validator built against this pack must accept letters there. The check digits are computed the real way — move AZ00 to the end, map every letter to 10-35 (A=10 ... Z=35), read the result as one long decimal number, take it modulo 97 and subtract from 98 — and because the bank code is letters, an Azerbaijani IBAN's mod-97 input is 30-odd digits longer than its 28 characters suggest, which is where naive implementations that use 64-bit arithmetic overflow. VERIFIED BOTH WAYS against published numbers. Accepted: AZ21NABZ00000000137010001944, the Azerbaijan entry in the SWIFT IBAN Registry, and AZ37NABZ01350100000000001944 and AZ17AIIB380900E9447233006112, the Central Bank correspondent account and the beneficiary account that the State Marine Academy publishes on its own payment-details page. Rejected: the same three with a single digit altered — AZ21NABZ00000000137010001945, AZ37NABZ01350100000000001945 and AZ17AIIB380900E9447233006113 — each of which fails mod-97. Printed in groups of four for humans (AZ21 NABZ 0000 0000 1370 1000 1944) and unspaced in files, which is the form emitted here. There is no domestic short account number to fall back on: since the Central Bank's 2013 changeover the IBAN IS the Azerbaijani account number, quoted in full on invoices and in bank details, which is why an Azerbaijani "hesab nömrəsi" field is 28 characters wide and not the 16 an older system expects.
+generator: tdc
+---
+<sequence name="bank"><gen type="template" value="azerbaijan.finance.bankCode"/></sequence>
+<sequence name="account"><gen type="regex" value="[0-9]{20}"/></sequence>
+<sequence name="iban"><compute>
+  <!-- ISO 13616: move the country code and "00" to the end, letters become 10..35, take mod 97. -->
+  <let name="bban"><concat><field name="bank"/><field name="account"/></concat></let>
+  <let name="rearranged"><concat><use name="bban"/><str v="AZ"/><str v="00"/></concat></let>
+  <let name="digits"><join><each>
+    <over><use name="rearranged"/></over>
+    <do><encode as="base36"><current/></encode></do>
+  </each></join></let>
+  <let name="rem"><reduce>
+    <over><use name="digits"/></over>
+    <init><int v="0"/></init>
+    <do><mod><add><multiply><acc/><int v="10"/></multiply><current/></add><int v="97"/></mod></do>
+  </reduce></let>
+  <let name="check"><pad width="2" fill="0"><subtract><int v="98"/><use name="rem"/></subtract></pad></let>
+  <result><concat><str v="AZ"/><use name="check"/><use name="bban"/></concat></result>
+</compute></sequence>
+<data>${{iban}}</data>

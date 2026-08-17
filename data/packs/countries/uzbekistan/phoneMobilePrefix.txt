@@ -1,0 +1,21 @@
+---
+address: uzbekistan.phoneMobilePrefix
+description: The 17 non-geographic mobile prefixes of the Uzbek numbering plan, the two digits that follow +998. They are drawn EVENLY here and that is not the real market: Uzmobile, Beeline, Ucell and Mobiuz hold very different subscriber shares, no regulator publishes a prefix-level split, and inventing one would put a made-up distribution into every dataset that used this file. If a config needs realistic operator shares it has to supply them. 55 is deliberately absent — it is a VoIP allocation to Uztelecom rather than a mobile one — and so are the geographic codes, which live in uzbekistan.phoneAreaCode. Source: the ITU national numbering plan for Uzbekistan.
+---
+20
+33
+50
+70
+77
+80
+87
+88
+90
+91
+92
+93
+94
+95
+97
+98
+99

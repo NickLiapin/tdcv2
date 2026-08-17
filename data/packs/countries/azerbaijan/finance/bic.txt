@@ -1,0 +1,33 @@
+---
+address: azerbaijan.finance.bic
+description: The 8-character BIC (SWIFT) codes registered in Azerbaijan — the banks, plus the four state financial institutions that hold their own codes and turn up constantly in Azerbaijani payment records: NABZAZ2X the Central Bank, CTREAZ22 the State Treasury Agency, SOILAZ22 the State Oil Fund (SOFAZ) and ANDCAZ22 the National Depository Centre. Characters 5 and 6 are always AZ, the country. The last two are the location code, and Azerbaijan's split is unusual enough to notice: most banks are 22, four institutions carry 2X (NABZAZ2X, AIIBAZ2X, IBAZAZ2X and the Central Bank's second code NABZAZ2C), and the Central Bank's real-time settlement system has an eleven-character code of its own, NABZAZ2CRTS, which is the one an AZIPS instruction quotes. The first four characters matter far beyond SWIFT here, because an Azerbaijani IBAN embeds them verbatim: AIIB is Kapital Bank, IBAZ is ABB, PAHA is PASHA Bank, NABZ the Central Bank — see azerbaijan.finance.bankCode. Note that the letters are not always an obvious abbreviation of the name: Xalq Bank is HAJC, Yelo Bank is NICB after its former name NIKOIL, Premium Bank is AZAL after its origin in the national airline's bank, and Azerbaijan Industry Bank is CAPN. A code guessed from a bank's current name will be wrong for at least four of the twenty-odd banks in the country. Source: the SWIFT BIC register for Azerbaijan.
+---
+ACABAZ22
+ACJTAZ22
+AIIBAZ2X
+ANDCAZ22
+AVRAAZ22
+AZALAZ22
+AZENAZ22
+AZFIAZ22
+AZPOAZ22
+AZRTAZ22
+BBTBAZ22
+BRESAZ22
+CAPNAZ22
+CTREAZ22
+HAJCAZ22
+IBAZAZ2X
+JBBKAZ22
+KABAAZ22
+NABZAZ2C
+NABZAZ2X
+NAXBAZ22
+NICBAZ22
+PAHAAZ22
+RBTAAZ22
+SOILAZ22
+TCZBAZ22
+TURAAZ22
+UBAZAZ22
+VTBAAZ22

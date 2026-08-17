@@ -1,0 +1,10 @@
+---
+address: uzbekistan.phoneNational
+description: An Uzbek mobile number written the way it is written inside Uzbekistan — the operator prefix in parentheses, then the seven digits in a 3-2-2 group joined by hyphens: (90) 123-45-67. That grouping is the local convention on a business card, a shop sign and a form, and it differs from the international rendering (+998 90 123 45 67) in every separator. Nothing is dropped or added between the two forms, because the plan has no trunk prefix: strip the punctuation from this and put +998 in front and you have the E.164 number in uzbekistan.phone. A parser that expects a leading 0 to remove, as it would for a British or German national form, corrupts every Uzbek number it touches.
+generator: tdc
+---
+<sequence name="prefix"><gen type="template" value="uzbekistan.phoneMobilePrefix"/></sequence>
+<sequence name="a"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="b"><gen type="regex" value="[0-9]{2}"/></sequence>
+<sequence name="c"><gen type="regex" value="[0-9]{2}"/></sequence>
+<data>(${{prefix}}) ${{a}}-${{b}}-${{c}}</data>

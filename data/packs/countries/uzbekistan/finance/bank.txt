@@ -1,0 +1,40 @@
+---
+address: uzbekistan.finance.bank
+description: All 35 commercial banks of Uzbekistan, named exactly as the Central Bank registers them in its own directory of head offices — which is why the legal form is welded on and the brand is in quotation marks. The Uzbek legal forms are the thing to read: AJ (aksiyadorlik jamiyati) is a joint-stock company, ATB (aksiyadorlik tijorat banki) a joint-stock commercial bank, XATB a private joint-stock commercial bank, AITB a joint-stock innovation commercial bank. The shape of this market is unusual and a plausible-looking list of five big names would be wrong about it in both directions. The state still owns the top of it — the National Bank for Foreign Economic Activity, Oʻzsanoatqurilishbank, Asakabank, Agrobank, Xalq banki, Mikrokreditbank, Turonbank, Aloqabank and the Business Development Bank between them held the large majority of banking assets through the 2020s, an unusually state-heavy sector for a country that has been privatising hard — and the bottom of it is a burst of new digital banks that did not exist five years ago: TBC (2020), Anorbank, Uzum Bank, AVO Bank, Apex Bank, Hayot Bank, Open Bank, Poytaxt bank. The foreign entrants are Korean (KDB), Turkish (Ziraat), Iranian (SODEROT), Georgian (TBC) and Kazakh (Tenge, a Halyk subsidiary). Names move: Ravnaq-bank became Octobank, Ipoteka-bank was sold to Hungary's OTP in 2023, and the register still shows the old names on older documents. Source: Markaziy bank, directory of commercial-bank head offices.
+locale: uz-latn
+---
+"ANOR BANK" aksiyadorlik jamiyati
+"APEX BANK" aksiyadorlik jamiyati
+"AVO BANK" aksiyadorlik jamiyati
+"Agrobank" aksiyadorlik tijorat banki
+"Aloqabank" aksiyadorlik tijorat banki
+"Asakabank" aksiyadorlik jamiyati
+"Biznesni rivojlantirish banki" aksiyadorlik tijorat banki
+"Davr-bank" xususiy aksiyadorlik tijorat banki
+"Garant bank" aksiyadorlik jamiyati
+"HAYOT BANK" aksiyadorlik jamiyati
+"Invest Finance Bank" aksiyadorlik jamiyati
+"Ipak Yoʻli" aksiyadorlik innovatsiya tijorat banki
+"Ipoteka-bank" aksiyadorlik tijorat ipoteka banki
+"KDB Bank Oʻzbekiston" aksiyadorlik jamiyati
+"Kapitalbank" aksiyadorlik-tijorat banki
+"Madad Invest Bank" aksiyadorlik tijorat banki
+"Mikrokreditbank" aksiyadorlik tijorat-banki
+"Octobank" aksiyadorlik jamiyati
+"Open bank" aksiyadorlik jamiyati
+"Orient Finans" Xususiy aksiyadorlik tijorat banki
+"Oʻzbekiston Respublikasi Tashqi iqtisodiy faoliyat milliy banki" aksiyadorlik jamiyati
+"Oʻzbekiston Respublikasi aksiyadorlik tijorat Xalqbanki"
+"Oʻzbekiston sanoat-qurilish banki" aksiyadorlik tijorat banki
+"Poytaxt bank" aksiyadorlik jamiyati
+"SODEROT" Bank aksiyadorlik jamiyati
+"TBC Bank" aksiyadorlik tijorat banki
+"Tayanch mikromoliya banki" aksiyadorlik jamiyati
+"Tenge Bank" aksiyadorlik tijorat banki
+"Trastbank" xususiy aksiyadorlik banki
+"Turonbank" aksiyadorlik tijorat banki
+"UZUM BANK" aksiyadorlik jamiyati
+"Ziraat Bank Uzbekistan" aksiyadorlik jamiyati
+Aksiyadorlik tijorat banki "ASIA ALLIANCE BANK"
+Aksiyadorlik tijorat banki "Universal bank"
+Chet el kapitali ishtirokidagi "Hamkorbank" aksiyadorlik tijorat banki

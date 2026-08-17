@@ -1,0 +1,18 @@
+---
+address: azerbaijan.geo.bakuDistrict
+description: The 12 city districts (şəhər rayonları) of Baku, weighted by their population at 1 January 2025. A Baku address names the raion before the street — "Bakı şəhəri, Nəsimi rayonu, Nizami küçəsi 12" — so this is the field a Baku address actually needs, and it is NOT the same list as azerbaijan.geo.district: Nizami and Nəsimi are raions of Baku, while Ağdam and Quba are districts of the country, and the two lists share no name. Three things catch people out. First, PİRALLAHI IS AN ISLAND: it became the twelfth raion only in 2008, its 18 800 people make it a fiftieth the size of Sabunçu, and its territory includes Neft Daşları, the offshore oil town built on trestles in the Caspian in 1949 whose 300 residents are counted here. Second, most of the raions are not continuous built-up city at all — Xəzər, Sabunçu, Qaradağ and Suraxanı between them contain 48 named settlements (qəsəbələr) including Mərdəkan, Buzovna, Lökbatan and Maştağa, villages absorbed by the city that keep their own names in an address, which is why the Baku city total of 2 351 300 is twice the population of the Baku settlement proper (1 187 200). Third, the raion boundaries are not the historic ones: Sabunçu has grown to 331 300 and passed Binəqədi to become the largest, on the back of the informal housing that spread north-east of the city after 1991. Source: State Statistical Committee table 1.19, population at 1 January 2025.
+weighted: true
+locale: az
+---
+Sabunçu,331300
+Binəqədi,308600
+Xətai,277000
+Nəsimi,219500
+Suraxanı,208900
+Xəzər,206200
+Yasamal,194200
+Nizami,185900
+Nərimanov,181200
+Qaradağ,117700
+Səbail,102000
+Pirallahı,18800

@@ -1,0 +1,35 @@
+---
+address: uzbekistan.government.agency
+description: The central bodies of the Uzbek state — ministries, committees, agencies — under the short form used in speech; the full form prefixes "Oʻzbekiston Respublikasi". THE SET IS REBUILT EVERY FEW YEARS AND THAT IS THE POINT OF THIS DESCRIPTION: Uzbekistan reorganised its executive in 2017, 2019, 2022 and again in 2023, merging, splitting and renaming ministries each time, so a name is a DATE STAMP. The Ministry of Finance and the Ministry of Economy merged into Iqtisodiyot va moliya vazirligi; the old Davlat soliq qoʻmitasi and Davlat bojxona qoʻmitasi lost the Davlat from their names; the State Committee on Statistics became an agency and then a committee again; the ITC ministry has been renamed towards Raqamli texnologiyalar. So an Uzbek record naming a ministry can usually be dated to within two years by the name alone, and a join between a 2019 dataset and a 2025 one on ministry name will silently drop most rows. Two bodies here are not ministries and are frequently mistaken for them: Davlat xavfsizlik xizmati is the successor to the Soviet-era SNB and reports to the President, and Milliy gvardiya is a separate armed service under the President rather than a police branch of the Interior Ministry. The Markaziy bank is constitutionally independent of the Cabinet and is included because it is the counterparty in most financial records. 30 entries; this is a snapshot, not a register.
+locale: uz-latn
+---
+Oʻzbekiston Respublikasi Markaziy banki
+Adliya vazirligi
+Ichki ishlar vazirligi
+Tashqi ishlar vazirligi
+Mudofaa vazirligi
+Favqulodda vaziyatlar vazirligi
+Iqtisodiyot va moliya vazirligi
+Investitsiyalar va tashqi savdo vazirligi
+Axborot texnologiyalari va kommunikatsiyalarini rivojlantirish vazirligi
+Sogʻliqni saqlash vazirligi
+Maktabgacha va maktab taʼlimi vazirligi
+Oliy taʼlim, fan va innovatsiyalar vazirligi
+Madaniyat va turizm vazirligi
+Qishloq xoʻjaligi vazirligi
+Suv xoʻjaligi vazirligi
+Energetika vazirligi
+Transport vazirligi
+Qurilish vazirligi
+Togʻ-kon sanoati va geologiya vazirligi
+Ekologiya, atrof-muhitni muhofaza qilish va iqlim oʻzgarishi vazirligi
+Kambagʻallikni qisqartirish va bandlik vazirligi
+Sport vazirligi
+Soliq qoʻmitasi
+Bojxona qoʻmitasi
+Davlat statistika qoʻmitasi
+Din ishlari boʻyicha qoʻmita
+Raqobatni rivojlantirish va isteʼmolchilar huquqlarini himoya qilish qoʻmitasi
+Davlat aktivlarini boshqarish agentligi
+Davlat xavfsizlik xizmati
+Milliy gvardiya

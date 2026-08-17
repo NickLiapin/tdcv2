@@ -1,0 +1,48 @@
+---
+address: azerbaijan.government.court
+description: The named courts of Azerbaijan — the two apex courts, the six courts of appeal, the specialised first-instance ladders and the district and city courts of Baku. This list is the SPECIALISED shape of the Azerbaijani judiciary, which is what distinguishes it from a European system with one civil ladder: alongside the ordinary rayon məhkəmələri there are separate first-instance courts for grave crimes, for military matters, for administrative disputes and, since 2021, for commercial ones. THE COMMERCIAL COURTS ARE THE NEW PART and the reason a pre-2021 list is stale: law 1632-VQD of 9 July 2019 split the old inzibati-iqtisadi məhkəmələr in two, the seven of them were renamed inzibati məhkəmələr, and five new kommersiya məhkəmələri — Bakı, Gəncə, Sumqayıt, Şirvan, Şəki — were stood up alongside them, with matching administrative and commercial chambers created in the appeal courts and the Supreme Court above. So a business dispute that would have gone to an administrative-economic court before 2021 now goes to a commercial court, and any fixture keyed on the old name is naming a court that no longer exists. Two courts sit outside the ordinary ladder and are frequently mistaken for part of it. The KONSTİTUSİYA MƏHKƏMƏSİ is not an appeal court above the Ali Məhkəmə: it rules on the constitutionality of acts and on constitutional complaints only, and its nine judges are appointed by the Milli Məclis on the president's nomination. And the NAXÇIVAN MUXTAR RESPUBLİKASI has its own full parallel set — its own appeal court, grave crimes court, administrative court and military court — because the exclave has its own constitution and its own judiciary, which no other part of the country does. The military courts are placed by geography rather than by garrison and four of the six sit near the former line of contact (Cəlilabad, Füzuli, Tərtər, Gəncə). Rayon and şəhər courts number well over a hundred nationally; the eleven Baku ones are listed here in full and the rest follow the same pattern of district name plus "Rayon Məhkəməsi". Source: the Unified Court Portal (courts.gov.az) and the Judicial-Legal Council.
+locale: az
+---
+Konstitusiya Məhkəməsi
+Ali Məhkəmə
+Bakı Apellyasiya Məhkəməsi
+Gəncə Apellyasiya Məhkəməsi
+Sumqayıt Apellyasiya Məhkəməsi
+Şirvan Apellyasiya Məhkəməsi
+Şəki Apellyasiya Məhkəməsi
+Naxçıvan Muxtar Respublikası Ali Məhkəməsi
+Bakı Ağır Cinayətlər Məhkəməsi
+Gəncə Ağır Cinayətlər Məhkəməsi
+Lənkəran Ağır Cinayətlər Məhkəməsi
+Şəki Ağır Cinayətlər Məhkəməsi
+Naxçıvan Muxtar Respublikası Ağır Cinayətlər Məhkəməsi
+Bakı Hərbi Məhkəməsi
+Gəncə Hərbi Məhkəməsi
+Cəlilabad Hərbi Məhkəməsi
+Füzuli Hərbi Məhkəməsi
+Tərtər Hərbi Məhkəməsi
+Naxçıvan Muxtar Respublikası Hərbi Məhkəməsi
+Bakı 1 saylı İnzibati Məhkəməsi
+Bakı 2 saylı İnzibati Məhkəməsi
+Gəncə İnzibati Məhkəməsi
+Sumqayıt İnzibati Məhkəməsi
+Şirvan İnzibati Məhkəməsi
+Şəki İnzibati Məhkəməsi
+Naxçıvan Muxtar Respublikası İnzibati Məhkəməsi
+Bakı Kommersiya Məhkəməsi
+Gəncə Kommersiya Məhkəməsi
+Sumqayıt Kommersiya Məhkəməsi
+Şirvan Kommersiya Məhkəməsi
+Şəki Kommersiya Məhkəməsi
+Binəqədi Rayon Məhkəməsi
+Xətai Rayon Məhkəməsi
+Xəzər Rayon Məhkəməsi
+Qaradağ Rayon Məhkəməsi
+Nərimanov Rayon Məhkəməsi
+Nəsimi Rayon Məhkəməsi
+Nizami Rayon Məhkəməsi
+Pirallahı Rayon Məhkəməsi
+Sabunçu Rayon Məhkəməsi
+Səbail Rayon Məhkəməsi
+Suraxanı Rayon Məhkəməsi
+Yasamal Rayon Məhkəməsi

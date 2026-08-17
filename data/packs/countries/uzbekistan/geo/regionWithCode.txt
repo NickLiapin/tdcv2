@@ -1,0 +1,19 @@
+---
+address: uzbekistan.geo.regionWithCode
+description: The table behind uzbekistan.geo.region and uzbekistan.geo.regionCode — the two-digit territorial number, a space, then the unit in Uzbek. Drawing the two separately gives a code that belongs to a different region than the name beside it, which is exactly the mismatch this file exists to prevent. The code is also the first two digits of the postal code, so a row here fixes a postcode prefix as well as a name.
+locale: uz-latn
+---
+10 Toshkent shahri
+11 Toshkent viloyati
+12 Sirdaryo viloyati
+13 Jizzax viloyati
+14 Samarqand viloyati
+15 Fargʻona viloyati
+16 Namangan viloyati
+17 Andijon viloyati
+18 Qashqadaryo viloyati
+19 Surxondaryo viloyati
+20 Buxoro viloyati
+21 Navoiy viloyati
+22 Xorazm viloyati
+23 Qoraqalpogʻiston Respublikasi

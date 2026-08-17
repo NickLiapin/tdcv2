@@ -1,0 +1,19 @@
+---
+address: uzbekistan.geo.regionCode
+description: The two-digit territorial number of an Uzbek first-level unit, 10 to 23. Its value is that it is the SAME number in two systems that look unrelated: it is the first two digits of every modern six-digit postal code (Nukus is 230100, Andijon 170100, Buxoro 200114, Guliston 120100), and it was the plate code of the 1998-2007 registration series before plates went over to the wider 01-99 blocks in 2008. So a pre-2008 Uzbek number plate and a present-day postcode carry the same region key, and uzbekistan.vehicle.plateRegionCode — which is the CURRENT plate coding — does NOT. The numbering runs 10 Toshkent shahri, 11 Toshkent viloyati, 12 Sirdaryo, 13 Jizzax, 14 Samarqand, 15 Fargʻona, 16 Namangan, 17 Andijon, 18 Qashqadaryo, 19 Surxondaryo, 20 Buxoro, 21 Navoiy, 22 Xorazm, 23 Qoraqalpogʻiston, which is not alphabetical and not by population — it walks the capital outward and then round the country. See uzbekistan.geo.regionWithCode for the pairing. Note this is NOT the SOATO/MHOBT classification code used by the statistics agency, which is a longer hierarchical number.
+locale: uz-latn
+---
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23

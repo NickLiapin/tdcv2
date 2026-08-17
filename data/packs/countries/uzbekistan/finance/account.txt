@@ -1,0 +1,11 @@
+---
+address: uzbekistan.finance.account
+description: An Uzbek bank account number: TWENTY digits, no letters, no spaces, and no IBAN. UZBEKISTAN IS NOT IN THE IBAN REGISTRY — it does not appear in the SWIFT IBAN structure list at all, alongside Ukraine, the UAE and the UK under U — so there is no "UZ" IBAN, no mod-97, and any generator or validation site offering one is producing a string in a format the country has never issued. Cross-border payments to Uzbekistan are addressed by the 20-digit account plus the beneficiary bank's SWIFT BIC and its MFO. The layout is set by the Central Bank's regulation on interbank settlement: positions 1-5 are the balance account from the national chart of accounts, which is what says WHO the holder is — 20208 is the ordinary settlement account of a legal entity, and an individual, a budget body or a bank each sit on different five-digit prefixes; positions 6-8 are the currency group, 000 on a soʻm account; position 9 is a control key; the rest is the client number. This file models the corporate soʻm settlement account, the one that appears in a company requisites block. POSITION 9 IS DRAWN, NOT COMPUTED: the key is real and the Central Bank has not published its algorithm, and the regulation that defines the layout is itself a repealed 1998 act available only behind a paywall, so nothing here can be verified against a published rule. Inferring the weights from the handful of Uzbek account numbers visible on company web pages would give a formula that looks derived and is not. The published example a real Uzbek company prints, 20208000900600293001 with MFO 00417, has the shape this file emits.
+generator: tdc
+---
+<sequence name="balance"><gen type="text" value="20208"/></sequence>
+<sequence name="currency"><gen type="text" value="000"/></sequence>
+<!-- Position 9 is a control key. Its rule is unpublished, so it is DRAWN. -->
+<sequence name="key"><gen type="number" value="0..9"/></sequence>
+<sequence name="client"><gen type="regex" value="[0-9]{11}"/></sequence>
+<data>${{balance}}${{currency}}${{key}}${{client}}</data>

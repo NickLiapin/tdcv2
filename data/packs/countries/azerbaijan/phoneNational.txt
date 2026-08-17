@@ -1,0 +1,8 @@
+---
+address: azerbaijan.phoneNational
+description: An Azerbaijani mobile number written the way an Azerbaijani writes it — the three-digit prefix with its leading zero, then three digits, then two, then two: 050 123 45 67. The leading zero is the trunk prefix and belongs in the national form and nowhere else, which is the whole reason this address exists separately from azerbaijan.phone: a column meant to look like something a person typed keeps the zero, and a column meant to be dialled by a machine drops it and gains +994. Getting that wrong is the commonest defect in Azerbaijani contact data, because both forms are plausible strings and only one of them connects. The grouping is the same for fixed lines — 012 493 56 00 for a Baku number — so unlike Norway, where mobiles and landlines are spaced differently, Azerbaijan writes every number in the same 3-3-2-2 shape and the prefix alone tells you which kind it is. Use azerbaijan.phone when the value has to be machine-dialable and this one when it has to look native.
+generator: tdc
+---
+<sequence name="prefix"><gen type="template" value="azerbaijan.phoneMobilePrefix"/></sequence>
+<sequence name="block"><gen type="regex" value="[0-9]{3} [0-9]{2} [0-9]{2}"/></sequence>
+<data>${{prefix}} ${{block}}</data>

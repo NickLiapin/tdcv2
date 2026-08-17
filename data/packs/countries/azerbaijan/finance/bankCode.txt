@@ -1,0 +1,32 @@
+---
+address: azerbaijan.finance.bankCode
+description: The four-LETTER bank codes that sit in positions 5-8 of an Azerbaijani IBAN. Azerbaijan is one of the minority of IBAN countries whose bank identifier is alphabetic rather than numeric — the Central Bank's rule is that those four characters are the first four characters of the bank's BIC, so AZ21NABZ... is the Central Bank and AZ17AIIB... is Kapital Bank. Two consequences follow and both bite. A regex written as AZ\d{26} rejects every Azerbaijani IBAN there is, and a schema that stores the "bank code" as an integer cannot hold one at all. There is no separate branch code anywhere in the IBAN: the branch lives inside the twenty-character account part, in a bank-specific layout the Central Bank does not standardise, which is why a Kapital Bank branch quotes a branch code (200123) alongside the IBAN rather than inside it. The codes below are the first four characters of the BICs in azerbaijan.finance.bic, so the list includes the four non-bank state institutions that hold accounts of their own — CTRE the State Treasury, SOIL the State Oil Fund, ANDC the National Depository Centre, ACJT AgrarKredit — because a payment to the Azerbaijani state carries one of those, not a commercial bank's. Withdrawn codes are not listed: Muğanbank and Günay Bank both lost their licences in 2023 and their codes are dead, so an IBAN carrying one is a historical record and not a payable account.
+---
+ACAB
+ACJT
+AIIB
+ANDC
+AVRA
+AZAL
+AZEN
+AZFI
+AZPO
+AZRT
+BBTB
+BRES
+CAPN
+CTRE
+HAJC
+IBAZ
+JBBK
+KABA
+NABZ
+NAXB
+NICB
+PAHA
+RBTA
+SOIL
+TCZB
+TURA
+UBAZ
+VTBA

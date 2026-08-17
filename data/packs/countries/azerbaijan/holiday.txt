@@ -1,0 +1,18 @@
+---
+address: azerbaijan.holiday
+description: Azerbaijan's non-working days, in calendar order, as Article 105 of the Labour Code lists them. Azerbaijan has one of the longest holiday calendars in Europe and the reason is NOVRUZ: the pre-Islamic spring festival occupies FIVE consecutive days, 20 to 24 March, and with the weekends that usually adjoin it the country stops for the best part of a week. Novruz is not Islamic and not Persian-imported in any recent sense — it is the older Zoroastrian new year, it was suppressed for most of the Soviet period and restored in 1990, and its four preceding Tuesdays (Su, Od, Yel and Torpaq çərşənbələri) are observed without being days off. THREE MOVEABLE BLOCKS make a hard-coded Azerbaijani calendar wrong every year. Ramazan and Qurban are each TWO days and follow the lunar calendar, so they drift eleven days earlier annually and can land anywhere, including on top of Novruz — when that happens the Cabinet of Ministers issues compensating days, which is why a real Azerbaijani year has extra non-working dates in March that are in no statute. Novruz itself is fixed to 20-24 March by law even though the astronomical equinox moves. FOUR OF THE FIXED DAYS ARE POLITICAL AND RECENT, and their names change: 8 November is Zəfər Günü, marking the recapture of Şuşa in 2020, and it was 10 November for the single year 2020 before being moved; 28 May was Respublika Günü until 2021, when it was renamed Müstəqillik Günü and 18 October, the 1991 restoration of independence, stopped being the country's independence day while remaining a commemorative working day; 15 June is Milli Qurtuluş Günü, marking Heydər Əliyev's return to power in 1993; and 9 November, State Flag Day, has been non-working since 2010. 20 January is not a celebration at all but Ümumxalq Hüzn Günü, the day of national mourning for the Soviet army's assault on Baku in 1990, and it is a non-working day of a different kind — flags at half mast, no music on television. Note what is NOT here: no Christian holiday, no Sunday-equivalent in the Norwegian sense, and no Islamic new year, because Azerbaijan is a constitutionally secular state and its two religious holidays are the two Eids and nothing else.
+locale: az
+---
+Yeni il bayramı
+Ümumxalq Hüzn Günü
+Qadınlar Günü
+Novruz bayramı
+Faşizm üzərində Qələbə Günü
+Müstəqillik Günü
+Milli Qurtuluş Günü
+Silahlı Qüvvələr Günü
+Zəfər Günü
+Dövlət Bayrağı Günü
+Dünya Azərbaycanlılarının Həmrəyliyi Günü
+Ramazan bayramı
+Qurban bayramı

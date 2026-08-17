@@ -1,0 +1,60 @@
+---
+address: uzbekistan.docs.pinfl
+description: The Uzbek personal identification number (PINFL / JShShIR — jismoniy shaxsning shaxsiy identifikatsiya raqami), fourteen decimal digits, and since 2021 the single key a citizen is known by to the tax office, the pension fund, the banks and every state service. Its layout is fixed by Cabinet of Ministers decree No. 177 of 12 April 2022, point 5, in five groups: X XXXXXX XXX XXX X. Group 1 is sex AND century together in one digit — 1/2 for men/women born 1800-1899, 3/4 for 1900-1999, 5/6 for 2000-2099 — so an Uzbek record needs no separate sex column and no century rule, and a two-digit year in group 2 is never ambiguous. Group 2 is the birth date as DDMMYY, day first, which is the opposite order from the ISO date a parser will hand you. Group 3 (000-999) is the code of the district or city where the number was issued, and group 4 (000-999) is a counter of people born on that day and registered in that district. Group 5 is the check digit, and it is UNUSUAL: modulus 10 over a repeating 7 3 1 weight, and the check digit is the REMAINDER ITSELF, not 10 minus it and not 11 minus it — the pattern every other post-Soviet identity number in this directory uses. There is no unissuable value, so unlike a Norwegian fodselsnummer or a Kazakh IIN nothing here ever has to be redrawn. VERIFIED BOTH WAYS against the two worked examples printed in the decree itself: 3121093204024 sums to 127 and the decree says the check digit is 7; 4020190205001 sums to 90 and the decree says 0. This generator reproduces both, and changing any single digit of either changes the result. The 1996 predecessor (decree No. 200, repealed 13 April 2022) specified the identical arithmetic with the identical worked examples in 1963 and 1940, so a PINFL issued at any date since 1996 checks the same way. Pass sex="m" or sex="f" on the calling gen to pin group 1; the default draws both. Two deliberate narrowings. The birth date is drawn from 1930 to 2025, so group 1 comes out as 3, 4, 5 or 6 and never 1 or 2 — those two are legal values for people born in the 1800s and nobody carrying one is alive. And the district code is DRAWN across 000-999 rather than mapped, because the passport-office code table behind group 3 is not published anywhere reachable; every other group is real. Do not confuse the PINFL with the STIR (uzbekistan.tax.stir), which is nine digits and identifies a taxpayer rather than a person, even though since 1 July 2021 an individual is registered for tax by PINFL and not by STIR.
+generator: tdc
+locale: uz-latn
+---
+<sequence name="dob"><gen type="date" from="1930-01-01" to="2025-12-31" format="YYYYMMDD"/></sequence>
+<sequence name="sex"><gen type="text" value="any"/></sequence>
+<sequence name="sexbit"><gen type="number" value="0..1"/></sequence>
+<sequence name="district"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="serial"><gen type="regex" value="[0-9]{3}"/></sequence>
+<sequence name="body"><compute>
+  <let name="d"><each><over><field name="dob"/></over><do><current/></do></each></let>
+  <!-- The draw arrives as YYYYMMDD; groups 1 and 2 of a PINFL are sex-century then DDMMYY. -->
+  <let name="year"><to_number><concat>
+    <at><in><use name="d"/></in><index><int v="0"/></index></at>
+    <at><in><use name="d"/></in><index><int v="1"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+  </concat></to_number></let>
+  <!-- Group 1: 1/2 = 1800s, 3/4 = 1900s, 5/6 = 2000s; odd male, even female. -->
+  <let name="schars"><each><over><field name="sex"/></over><do><current/></do></each></let>
+  <let name="sexcode"><to_number><encode as="unicode"><at><in><use name="schars"/></in><index><int v="0"/></index></at></encode></to_number></let>
+  <let name="female">
+    <choose>
+      <when><test><equals><use name="sexcode"/><int v="102"/></equals></test><then><int v="1"/></then></when>
+      <when><test><equals><use name="sexcode"/><int v="109"/></equals></test><then><int v="0"/></then></when>
+      <otherwise><field name="sexbit"/></otherwise>
+    </choose>
+  </let>
+  <let name="century">
+    <choose>
+      <when><test><greater_than><use name="year"/><int v="1999"/></greater_than></test><then><int v="5"/></then></when>
+      <otherwise><int v="3"/></otherwise>
+    </choose>
+  </let>
+  <result><concat>
+    <add><use name="century"/><use name="female"/></add>
+    <at><in><use name="d"/></in><index><int v="6"/></index></at>
+    <at><in><use name="d"/></in><index><int v="7"/></index></at>
+    <at><in><use name="d"/></in><index><int v="4"/></index></at>
+    <at><in><use name="d"/></in><index><int v="5"/></index></at>
+    <at><in><use name="d"/></in><index><int v="2"/></index></at>
+    <at><in><use name="d"/></in><index><int v="3"/></index></at>
+    <field name="district"/><field name="serial"/>
+  </concat></result>
+</compute></sequence>
+<sequence name="check"><compute>
+  <!-- Decree 177 group 5: multiply left to right by the repeating weight 7 3 1,
+       sum, divide by 10, the REMAINDER is the check digit. No 11-minus, no fold. -->
+  <let name="sum"><reduce>
+    <over><field name="body"/></over>
+    <init><int v="0"/></init>
+    <do><add><acc/><multiply><current/>
+      <at><in><list v="7,3,1,7,3,1,7,3,1,7,3,1,7"/></in><index><current_index/></index></at>
+    </multiply></add></do>
+  </reduce></let>
+  <result><mod><use name="sum"/><int v="10"/></mod></result>
+</compute></sequence>
+<data>${{body}}${{check}}</data>

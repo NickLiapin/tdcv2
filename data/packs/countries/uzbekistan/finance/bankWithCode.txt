@@ -1,0 +1,19 @@
+---
+address: uzbekistan.finance.bankWithCode
+description: The table behind uzbekistan.finance.bankCode — the five-digit head-office MFO, a space, then the bank it belongs to. Drawing the code and the name independently produces a requisites block that names one bank and routes to another, which is the failure this file prevents. Head offices only; a real Uzbek payment usually names a branch MFO instead, and those number in the thousands.
+locale: uz-latn
+---
+00083 Hamkorbank
+00401 Aloqabank
+00433 Mikrokreditbank
+00440 Oʻzsanoatqurilishbank
+00444 Ipak Yoʻli banki
+00446 Turonbank
+00450 Milliy bank
+00491 Trastbank
+00873 Asakabank
+00950 SODEROT bank
+00973 Universal bank
+00980 Octobank
+00981 Davr-bank
+01088 Kapitalbank

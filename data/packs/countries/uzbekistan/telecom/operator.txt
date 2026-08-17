@@ -1,0 +1,11 @@
+---
+address: uzbekistan.telecom.operator
+description: The mobile operators of Uzbekistan, under the brand a subscriber names. Four carry the great majority of the market and three are marginal. Uzmobile is the state operator, a division of Uztelecom, and holds the 99, 95, 70 and 77 prefixes; Beeline is the VEON subsidiary Unitel on 90, 91 and 92, and OQ is its own second brand on 20; Ucell was Coscom, Swedish-owned until the state bought it in 2018, and holds 93, 94 and 50; Mobiuz is Universal Mobile Systems, formerly the Russian-owned UMS, on 97, 87 and 88. Humans (33) is a small MVNO-style entrant tied to a payment app, and Perfectum (98, 80) is the odd one out, a CDMA operator that became a 5G-standalone one. The market has been rebuilt twice by state action rather than by competition: MTS Uzbekistan was shut down by court order in 2012, its network reopened as the state-owned UMS, and Ucell was nationalised in 2018 — so an Uzbek telecoms dataset older than about 2019 names operators that no longer exist under owners who no longer own them.
+---
+Uzmobile
+Beeline
+Ucell
+Mobiuz
+OQ
+Humans
+Perfectum

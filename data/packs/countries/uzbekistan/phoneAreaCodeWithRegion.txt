@@ -1,0 +1,18 @@
+---
+address: uzbekistan.phoneAreaCodeWithRegion
+description: The table behind uzbekistan.phoneAreaCode — the two-digit fixed-line code, a space, then the region it serves. Drawing them separately gives a Tashkent number labelled Khorezm, which is the mismatch this file prevents. Toshkent shahri and Toshkent viloyati share 71 and only the city is listed, because the plan does not separate them.
+locale: uz-latn
+---
+61 Qoraqalpogʻiston Respublikasi
+62 Xorazm viloyati
+65 Buxoro viloyati
+66 Samarqand viloyati
+67 Sirdaryo viloyati
+69 Namangan viloyati
+71 Toshkent shahri
+72 Jizzax viloyati
+73 Fargʻona viloyati
+74 Andijon viloyati
+75 Qashqadaryo viloyati
+76 Surxondaryo viloyati
+79 Navoiy viloyati

@@ -1,0 +1,7 @@
+---
+address: uzbekistan.finance.currency
+description: The Uzbek money units. The currency is the soʻm (ISO 4217 UZS), introduced on 1 July 1994 to replace the soʻm-kupon that had replaced the rouble in 1993, and divided in law into 100 tiyin. THE TIYIN DOES NOT EXIST IN PRACTICE and this is the single most useful thing to know before modelling Uzbek money: ISO 4217 assigns UZS two minor units and every currency library will therefore hand you two decimals, but no tiyin coin has circulated for decades, no price is ever quoted in them, and the smallest thing in a till is a 100-soʻm coin. Inflation is why — the soʻm was pegged near 25 to the dollar in 1994 and trades past 12 000 today, so the ordinary magnitudes are large: a bus fare is 2 000, a coffee 25 000, a monthly wage in the millions, and a six- or seven-digit amount is completely unremarkable. That has two consequences for a schema. An amount column sized for a European price is too small, and a two-decimal money type wastes its decimals on a unit that is always zero. See uzbekistan.finance.amount for how a figure is written. The word soʻm means "pure" and is cognate with the Kazakh tenge's ancestor rather than with any European coin name; the plural is soʻm, unchanged.
+locale: uz-latn
+---
+soʻm
+tiyin

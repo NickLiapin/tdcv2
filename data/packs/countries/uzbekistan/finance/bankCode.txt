@@ -1,0 +1,18 @@
+---
+address: uzbekistan.finance.bankCode
+description: MFO — the five-digit code the Central Bank assigns to a bank office, and the only field on an Uzbek payment document that identifies where an account is held. THE MFO IS A BRANCH CODE, NOT A BANK CODE, and that is the fact a foreign schema gets wrong: a bank has as many MFOs as it has branches, the published register runs to over a thousand live codes, and Asakabank alone appears under 00873 for its head office and 00417 for its Avtotransport branch in Tashkent. So MFO does not functionally determine the bank name; the bank name does not determine the MFO at all. The 14 codes here are HEAD-OFFICE codes, each read off the published register beside the bank it belongs to, so every one of them is a real office of a bank that still exists — see uzbekistan.finance.bankWithCode for the pairing. Leading zeros are load-bearing: 00450 is the National Bank and 450 is nothing, so store an MFO as text. Because the account number carries no bank identifier of its own (see uzbekistan.finance.account), a payment instruction missing its MFO cannot be routed at all, which is why Uzbek requisites blocks always print the pair. Source: the Central Bank MFO register as published by fmc.uz, cross-checked against the Central Bank's own head-office directory.
+---
+00083
+00401
+00433
+00440
+00444
+00446
+00450
+00491
+00873
+00950
+00973
+00980
+00981
+01088

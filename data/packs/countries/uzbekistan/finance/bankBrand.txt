@@ -1,0 +1,40 @@
+---
+address: uzbekistan.finance.bankBrand
+description: The same 35 banks as uzbekistan.finance.bank, under the short name that is actually on the branch sign, the card and the payment slip. Use this one for a record and the other for a contract. Two names differ enough from the legal form to be worth spelling out: the National Bank for Foreign Economic Activity is universally Milliy bank or NBU and almost never its full title, and Oʻzbekiston sanoat-qurilish banki is Oʻzsanoatqurilishbank in Uzbek and SQB in its own English marketing — three strings for one bank, which is why an Uzbek counterparty list deduplicates badly. Derived from the Central Bank's own directory URLs and the banks' own sites.
+locale: uz-latn
+---
+Agrobank
+Aloqabank
+Anorbank
+Apex Bank
+Asakabank
+Asia Alliance Bank
+AVO Bank
+Biznesni rivojlantirish banki
+Davr-bank
+Garant Bank
+Hamkorbank
+Hayot Bank
+InfinBank
+Ipak Yoʻli banki
+Ipoteka-bank
+Kapitalbank
+KDB Bank Oʻzbekiston
+Madad Invest Bank
+Mikrokreditbank
+Milliy bank
+Octobank
+Open Bank
+Orient Finans Bank
+Oʻzsanoatqurilishbank
+Poytaxt bank
+SODEROT bank
+Tayanch bank
+TBC Bank
+Tenge Bank
+Trastbank
+Turonbank
+Universal bank
+Uzum Bank
+Xalq banki
+Ziraat Bank Uzbekistan

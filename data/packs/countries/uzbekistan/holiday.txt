@@ -1,0 +1,14 @@
+---
+address: uzbekistan.holiday
+description: The NINE non-working public holidays of Uzbekistan, in the order and under the names article 208 of the Labour Code gives them. Two of the nine MOVE, and they move by a lunar calendar rather than by Easter: Roʻza hayit (Eid al-Fitr) and Qurbon hayit (Eid al-Adha) are the first day of each religious festival, they run about eleven days earlier every Gregorian year, and only the FIRST day is the statutory holiday even though the festivals themselves last three and four days. So a hard-coded Uzbek holiday table is wrong about two rows every year, and a table built from a Turkish or Arab calendar is often a day out because the date is fixed by the Muslim Board of Uzbekistan rather than by observation elsewhere. Navroʻz on 21 March is the Persian new year and the equinox — pre-Islamic, Zoroastrian in origin, shared with Iran, Afghanistan and the rest of Central Asia, and the single biggest day in the Uzbek year; a foreign calendar that has no row for it is missing the holiday Uzbeks actually keep. 1 September is Independence Day, from the declaration of 31 August 1991 — the declaration and the holiday are on different dates, which catches people out. 9 May is Xotira va qadrlash kuni, "Memory and Honour", renamed from the Soviet Victory Day in 1999 and deliberately broadened to all war dead. Days that FEEL like holidays and are not: 14 January (Defenders of the Motherland Day), 21 October (Uzbek Language Day), 31 August (Day of Remembrance of the Victims of Repression) and 18 July (Constitution referendum) are commemorated, flagged and reported on, and every one of them is an ordinary working day in law. The Cabinet adds bridging days by decree each December, so the actual number of days off in a given year is larger than nine and is not derivable from this list. Source: Oʻzbekiston Respublikasi Mehnat kodeksi, 208-modda.
+locale: uz-latn
+---
+Yangi yil
+Xotin-qizlar kuni
+Navroʻz bayrami
+Xotira va qadrlash kuni
+Mustaqillik kuni
+Oʻqituvchi va murabbiylar kuni
+Oʻzbekiston Respublikasi Konstitutsiyasi kuni
+Roʻza hayit
+Qurbon hayit

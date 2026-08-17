@@ -1,0 +1,8 @@
+---
+address: uzbekistan.phoneLandline
+description: An Uzbek fixed-line number in E.164 form — +998, a geographic area code from uzbekistan.phoneAreaCode and seven subscriber digits. Fixed lines are a shrinking minority in Uzbekistan: mobile penetration passed one line per person in the 2010s while the copper network stayed largely where the Soviet Union left it, so a dataset in which most Uzbek rows are landlines is describing 1995. The subscriber block excludes numbers beginning 0 and 1, which are reserved for short codes and service numbers within the local plan.
+generator: tdc
+---
+<sequence name="area"><gen type="template" value="uzbekistan.phoneAreaCode"/></sequence>
+<sequence name="rest"><gen type="regex" value="[2-9][0-9]{6}"/></sequence>
+<data>+998${{area}}${{rest}}</data>

@@ -1,0 +1,28 @@
+---
+address: azerbaijan.finance.bank
+description: The banks licensed in Azerbaijan, under the Azerbaijani forms of their names. The count is the first thing to get right and the hardest, because published figures for 2026 range from 21 to 24 and all of them are defensible: the disagreement is over whether to count Bank Melli İran's Baku branch, which is a branch of a foreign bank rather than an Azerbaijani legal entity, and over how quickly a source noticed the closures. TWO BANKS THAT APPEAR ON MOST LISTS ARE GONE. Günay Bank lost its licence in May 2023 and Muğanbank on 19 October 2023, both for capital shortfalls, and neither is in this list — a fixture that still carries them is testing against banks that cannot receive a payment. The market is concentrated in a way a list of names hides: the Central Bank named Kapital Bank, PAŞA Bank, Bank Respublika and Unibank as the systemically important banks for 2026, and Kapital Bank alone runs the Birbank app that a large share of the country banks through. Two of the names here are state-owned — Azərbaycan Beynəlxalq Bankı, universally called ABB, which was the Soviet republic's Vneshtorgbank branch and is still the largest by assets, and Azər Türk Bank — and four are foreign subsidiaries or branches (Bank Melli İran, VTB, Yapı Kredi, Ziraat). Naxçıvanbank is the one bank headquartered outside the mainland, in the Nakhchivan exclave. Azərpoçt, the postal operator, is not a bank but holds a BIC and settles payments, which is why it appears in azerbaijan.finance.bic and not here. Names are given as the banks and the Azerbaijan Banks Association write them, with Azerbaijani spelling — PAŞA not PASHA, Rabitəbank not Rabitabank — because that is the form on an Azerbaijani invoice.
+locale: az
+---
+Azərbaycan Beynəlxalq Bankı
+Kapital Bank
+PAŞA Bank
+Bank Respublika
+Unibank
+AccessBank
+Xalq Bank
+Rabitəbank
+Bank of Baku
+TuranBank
+Expressbank
+Azər Türk Bank
+Bank BTB
+AFB Bank
+Bank Avrasiya
+Premium Bank
+Azərbaycan Sənaye Bankı
+Naxçıvanbank
+Yelo Bank
+Bank VTB (Azərbaycan)
+Yapı Kredi Bank Azərbaycan
+Ziraat Bank Azərbaycan
+Bank Melli İran Bakı filialı

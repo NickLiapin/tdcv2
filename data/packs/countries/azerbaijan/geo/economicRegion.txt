@@ -1,0 +1,19 @@
+---
+address: azerbaijan.geo.economicRegion
+description: The 14 economic regions (iqtisadi rayonlar) of Azerbaijan, as redrawn by presidential decree no. 1386 of 7 July 2021. The number is the story. There were TEN of them from 1991 until that decree, and the redivision was not a tidying-up exercise: it created Şərqi Zəngəzur and Qarabağ out of the territory Azerbaijan took back in the 2020 war, split Aran into three (Mərkəzi Aran, Mil-Muğan, Şirvan-Salyan), pulled Xızı out of Bakı into a new Abşeron-Xızı, and separated Bakı city from its hinterland. So any Azerbaijani dataset keyed on economic region changed key in July 2021, and the old names — Aran, Yuxarı Qarabağ, Kəlbəcər-Laçın, Dağlıq Şirvan's old boundaries — name regions that no longer exist. An economic region is a STATISTICAL and planning unit, not a level of government: it has no governor, no assembly and no budget, it exists so the State Statistical Committee can publish by region and the state can plan by region, and the unit a citizen actually deals with is the rayon (see azerbaijan.geo.district). Two of the fourteen are single administrative units — Bakı is one city and Naxçıvan is the whole autonomous republic — which is why a table with fourteen rows can still have wildly unequal populations, from Naxçıvan's 460 000 to Bakı's 2.35 million. Names as the State Statistical Committee writes them. Sources: presidential decree 1386, 7 July 2021; SSC table 1.19, population at 1 January 2025.
+locale: az
+---
+Bakı
+Abşeron-Xızı
+Dağlıq Şirvan
+Gəncə-Daşkəsən
+Qarabağ
+Qazax-Tovuz
+Quba-Xaçmaz
+Lənkəran-Astara
+Mərkəzi Aran
+Mil-Muğan
+Naxçıvan
+Şəki-Zaqatala
+Şərqi Zəngəzur
+Şirvan-Salyan

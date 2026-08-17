@@ -1,0 +1,21 @@
+---
+address: uzbekistan.sport.team
+description: The 16 clubs of the Oʻzbekiston Superligasi, the top division of Uzbek football, in the 2026 season. The names are almost all COMMON NOUNS rather than places, which is the Soviet inheritance and the reason an Uzbek club list looks like a vocabulary exercise: Paxtakor is "cotton grower", Neftchi "oil worker", Metallurg the steelworks at Bekobod, OKMK the Olmaliq mining and metallurgical combine, Lokomotiv the railway, Navbahor "early spring", Qizilqum the desert, Soʻgʻdiyona ancient Sogdiana, Nasaf the medieval name of Qarshi. Four are named for their region instead (Andijon, Buxoro, Surxon, Xorazm) and Dinamo is the old all-union sports society, here the Samarqand club. Paxtakor is the record champion with 16 titles and the only Uzbek club most foreigners can name; Bunyodkor is the one that briefly bought Rivaldo and chased Messi in 2008. THE DIVISION WAS RENAMED: it was the Oliy liga from 1992 to 2017 and the Superliga from 2018, so a dataset citing "Uzbek Oliy Liga" is pre-2018. Uzbekistan qualified for its first World Cup in 2026. Club names are given bare, without the FK/FC that appears in international listings.
+locale: uz-latn
+---
+Paxtakor
+Bunyodkor
+Lokomotiv
+Nasaf
+Navbahor
+Neftchi
+OKMK
+Andijon
+Buxoro
+Dinamo
+Mashʼal
+Metallurg
+Qizilqum
+Soʻgʻdiyona
+Surxon
+Xorazm

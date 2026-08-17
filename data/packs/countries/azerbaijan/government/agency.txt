@@ -1,0 +1,37 @@
+---
+address: azerbaijan.government.agency
+description: The agencies, services, funds and public legal entities of the Azerbaijani state — the bodies BELOW the ministries, which is what makes this list complementary to the ministry list already in the az language pack (az/government/agency.txt) rather than a duplicate of it. Nothing here repeats a name from there: the ministries, the Milli Məclis, the Cabinet and the Presidential Administration live in the language pack because they are what the Azerbaijani words mean, and these are the operating bodies a record actually names as a counterparty. Two Azerbaijani inventions dominate the citizen's side of it. ASAN XİDMƏT — formally the State Agency for Public Service and Social Innovations — put every document-issuing function of the state into one counter in 2012, so an Azerbaijani renewing a passport, registering a company and paying a fine does all three in one building and one queue, and the model has since been exported as a consultancy product; DOST does the same for social benefits and pensions. Both are agencies under the President rather than under a ministry, which is why they have no ministerial parent in an org chart. The financial bodies are worth knowing before reading any Azerbaijani financial record: DÖVLƏT NEFT FONDU (SOFAZ) holds the oil revenue outside the budget and is larger than the banking system; MƏRKƏZİ BANK runs the manat's dollar peg and, since the 2020 abolition of the separate markets supervisor, also supervises the banks and insurers; DÖVLƏT XƏZİNƏDARLIQ AGENTLİYİ settles every payment the state makes; and SOCAR, the state oil company, is legally a company rather than an agency and is therefore not in this list even though it is the largest employer in the country. The names move: the Ministry of Taxes became the Dövlət Vergi Xidməti under the Ministry of Economy in 2019, the Ministry of Transport, Communications and High Technologies was folded into the Rəqəmsal İnkişaf və Nəqliyyat Nazirliyi in 2021, and the financial markets supervisor Maliyyə Bazarlarına Nəzarət Palatası was abolished in November 2020 — all three appear in records dated before those changes and none is current.
+locale: az
+---
+Mərkəzi Bank
+Dövlət Neft Fondu
+Dövlət Xəzinədarlıq Agentliyi
+Hesablama Palatası
+Mərkəzi Seçki Komissiyası
+Vətəndaşlara Xidmət və Sosial İnnovasiyalar üzrə Dövlət Agentliyi
+DOST Agentliyi
+Dövlət Sosial Müdafiə Fondu yanında Əmək Pensiyaları Şöbəsi
+İcbari Tibbi Sığorta üzrə Dövlət Agentliyi
+Dövlət İmtahan Mərkəzi
+Dövlət Təhlükəsizliyi Xidməti
+Xarici Kəşfiyyat Xidməti
+Dövlət Sərhəd Xidməti
+Dövlət Yol Polisi
+Dövlət Əmlakının İdarə Edilməsi Xidməti
+Antiinhisar və İstehlak Bazarına Nəzarət Dövlət Xidməti
+Qida Təhlükəsizliyi Agentliyi
+Dövlət Şəhərsalma və Arxitektura Komitəsi
+Dövlət Turizm Agentliyi
+Dövlət Dəniz və Liman Agentliyi
+Azərbaycan Hava Nəqliyyatı Agentliyi
+Dövlət Su Ehtiyatları Agentliyi
+İnnovasiya və Rəqəmsal İnkişaf Agentliyi
+Mədəni İrsin Qorunması, İnkişafı və Bərpası üzrə Dövlət Xidməti
+Azərbaycan Milli Elmlər Akademiyası
+İnsan Hüquqları üzrə Müvəkkil
+Milli Arxiv İdarəsi
+Milli Depozit Mərkəzi
+Əmlak Məsələləri Dövlət Xidməti
+Dövlət Reklam Agentliyi
+Bakı Nəqliyyat Agentliyi
+Qarabağ Dirçəliş Fondu

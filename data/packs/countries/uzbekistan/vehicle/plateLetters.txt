@@ -1,0 +1,29 @@
+---
+address: uzbekistan.vehicle.plateLetters
+description: The 25 letters an Uzbek plate can carry. They are LATIN, on a plate issued by a country whose own alphabet was Cyrillic until 1993 and whose road signs still are in places — the plate went Latin so it could be read across borders, and that is why an Uzbek registration transliterates cleanly where a Lao or Armenian one does not. The whole Latin alphabet is used EXCEPT I, dropped because it is unreadable against 1 at speed; O and Q are both kept even though O is easily confused with 0, which is a real source of ANPR error in Uzbekistan and not a mistake in this list. Not drawn here: the reserved letter groups that replace an ordinary series, because they mark a vehicle rather than number it — TTA to TTZ are taxis, VSF/VSB/VSC/VSD and TST/USB are police and security, ZDF the prosecutor, FVV the emergency service, DAV state administration, STY ambulances, and CMD, D and T on a green plate are diplomatic. A plate whose letters fall in one of those groups is not a private car.
+---
+A
+B
+C
+D
+E
+F
+G
+H
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z

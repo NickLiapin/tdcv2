@@ -1,0 +1,22 @@
+---
+address: uzbekistan.vehicle.plate
+description: An ordinary Uzbek civilian number plate. TWO SHAPES ARE CURRENT and both are drawn here: the region code, one letter, three digits and two letters (01 A 123 BC), and the region code, three digits and three letters (01 123 ABC), which was opened as the first series filled. Any Uzbek plate regex that handles only one of the two rejects a large part of the fleet. The letters carry no meaning and no check digit; the geography is entirely in the leading two digits, which unlike Norway's plates really do say where the vehicle was registered — see uzbekistan.vehicle.plateRegionCode, and note the block widths differ by region. THE TWO SHAPES ARE DRAWN EVENLY, and that is an admission rather than a measurement: no published figure splits the fleet between the two series, so the 50/50 here is a placeholder and the ratio in output is not evidence of anything. The digit group runs 001-999 with leading zeros kept, so store a plate as text. Not modelled: the square trailer and motorcycle plates, which stack four digits over two letters and three over two; the yellow H-prefixed plates for foreign citizens and the green M-prefixed ones for foreign companies; transit plates marked T; and the green region window that marks an electric vehicle, which is a colour rather than a character and is therefore lost the moment a plate is written down as a string. Uzbekistan writes the country code UZ and the flag on the right-hand edge of the plate; it is not part of the registration.
+generator: tdc
+---
+<sequence name="region"><gen type="template" value="uzbekistan.vehicle.plateRegionCode"/></sequence>
+<sequence name="a"><gen type="template" value="uzbekistan.vehicle.plateLetters"/></sequence>
+<sequence name="b"><gen type="template" value="uzbekistan.vehicle.plateLetters"/></sequence>
+<sequence name="c"><gen type="template" value="uzbekistan.vehicle.plateLetters"/></sequence>
+<sequence name="digits"><gen type="number" value="1..999" length="3" first_zero="true"/></sequence>
+<!-- Even split between the two current series: no published ratio exists. -->
+<sequence name="shape"><gen type="number" value="1..2"/></sequence>
+<sequence name="plate"><compute>
+  <result><choose>
+    <when><test><equals><field name="shape"/><int v="1"/></equals></test>
+      <then><concat><field name="region"/><str v=" "/><field name="a"/><str v=" "/>
+        <field name="digits"/><str v=" "/><field name="b"/><field name="c"/></concat></then></when>
+    <otherwise><concat><field name="region"/><str v=" "/><field name="digits"/><str v=" "/>
+      <field name="a"/><field name="b"/><field name="c"/></concat></otherwise>
+  </choose></result>
+</compute></sequence>
+<data>${{plate}}</data>

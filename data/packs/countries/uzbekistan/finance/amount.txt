@@ -1,0 +1,24 @@
+---
+address: uzbekistan.finance.amount
+description: A sum of money written the way Uzbekistan writes it: groups of three separated by a NO-BREAK SPACE and the unit after the figure, 1 234 567 soʻm. That is the uz-Latn currency pattern in CLDR, and it disagrees with the English 1,234,567 habit on the separator and with the German habit on the decimal — an Uzbek comma is a DECIMAL point, so reading 1 234,5 as an English number gives 12345. THE SEPARATORS HERE ARE U+00A0, NOT ORDINARY SPACES, invisible in an editor and the reason a naive split on " " gives the wrong field count; the apostrophe in soʻm is U+02BB, not a quote. NO DECIMALS ARE PRINTED, and that is deliberate rather than a simplification: ISO 4217 gives UZS two minor units and CLDR will format two, but the tiyin has not circulated for decades and no Uzbek price, invoice or receipt carries one — a trailing ",00" is a tell that the amount came out of a library rather than out of Uzbekistan. The magnitude is drawn across five decades rather than uniformly, from a hundred soʻm to about ten million, because a uniform draw over a seven-digit range puts almost every value in the millions while a real Uzbek price list runs from a bus fare to a monthly wage. Values come out ROUND, which is not a shortcut: the smallest coin in circulation is 100 soʻm and Uzbek prices are quoted in round hundreds and thousands, so a figure like 24 997 soʻm is the one that would look wrong. This is the PRINTED form and not a number the engine can compute on; for arithmetic, generate a plain number and format it at the point of output.
+generator: tdc
+locale: uz-latn
+---
+<sequence name="decade"><gen type="number" value="0..4"/></sequence>
+<sequence name="mantissa"><gen type="number" value="100..999"/></sequence>
+<sequence name="figure"><compute>
+  <!-- Spread across five decades: 100 soʻm to about ten million, a bus
+       fare at one end and a monthly wage at the other. The product is a
+       round number on purpose: Uzbek prices are always round, because the
+       smallest coin in circulation is 100 soʻm. -->
+  <let name="scale"><choose>
+    <when><test><equals><field name="decade"/><int v="0"/></equals></test><then><int v="1"/></then></when>
+    <when><test><equals><field name="decade"/><int v="1"/></equals></test><then><int v="10"/></then></when>
+    <when><test><equals><field name="decade"/><int v="2"/></equals></test><then><int v="100"/></then></when>
+    <when><test><equals><field name="decade"/><int v="3"/></equals></test><then><int v="1000"/></then></when>
+    <otherwise><int v="10000"/></otherwise>
+  </choose></let>
+  <!-- U+00A0 group separator, per the uz-Latn CLDR currency pattern. -->
+  <result><group size="3" sep=" "><multiply><to_number><field name="mantissa"/></to_number><use name="scale"/></multiply></group></result>
+</compute></sequence>
+<data>${{figure}} soʻm</data>

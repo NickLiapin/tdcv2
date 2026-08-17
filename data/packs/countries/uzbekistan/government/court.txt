@@ -1,0 +1,50 @@
+---
+address: uzbekistan.government.court
+description: The courts of Uzbekistan at the level a case is actually filed and cited. The structure is FOUR PARALLEL LADDERS rather than one, and that is the thing a foreign schema gets wrong: at the level of Qoraqalpogʻiston, each viloyat and Toshkent city there is a general-jurisdiction court, an ECONOMIC court (iqtisodiy sud, commercial disputes between businesses) and an ADMINISTRATIVE court (maʼmuriy sud, disputes with the state), each with its own chair and its own bench, all three feeding the one Oliy sud above them. So "the regional court" is three different courts in Uzbekistan and a case number tells you which. The count moves with the reforms and the names date a record: the Oliy xoʻjalik sudi, a separate supreme commercial court, was abolished in 2017 and folded into the Oliy sud; the region-level courts were then split into separate civil (fuqarolik ishlari boʻyicha) and criminal (jinoyat ishlari boʻyicha) courts, and those two were merged back into the single general-jurisdiction courts listed here — so a filing that names a "viloyat fuqarolik ishlari boʻyicha sudi" is from the window between those two reforms and names a court that no longer exists. Below this level sit the tuman (shahar) courts and the inter-district administrative courts, which are per-district and are not enumerated here; above and beside it, the Konstitutsiyaviy sud reviews legislation and hears no ordinary case at all. Harbiy sud is the military ladder, outside the territorial one. 45 entries. Source: the Law on Courts (OʻRQ-703, 28 July 2021) and the 2017 and 2023 judicial reform decrees.
+locale: uz-latn
+---
+Oʻzbekiston Respublikasi Konstitutsiyaviy sudi
+Oʻzbekiston Respublikasi Oliy sudi
+Qoraqalpogʻiston Respublikasi umumiy yurisdiksiya sudi
+Andijon viloyat umumiy yurisdiksiya sudi
+Buxoro viloyat umumiy yurisdiksiya sudi
+Fargʻona viloyat umumiy yurisdiksiya sudi
+Jizzax viloyat umumiy yurisdiksiya sudi
+Namangan viloyat umumiy yurisdiksiya sudi
+Navoiy viloyat umumiy yurisdiksiya sudi
+Qashqadaryo viloyat umumiy yurisdiksiya sudi
+Samarqand viloyat umumiy yurisdiksiya sudi
+Sirdaryo viloyat umumiy yurisdiksiya sudi
+Surxondaryo viloyat umumiy yurisdiksiya sudi
+Toshkent viloyat umumiy yurisdiksiya sudi
+Xorazm viloyat umumiy yurisdiksiya sudi
+Toshkent shahar umumiy yurisdiksiya sudi
+Qoraqalpogʻiston Respublikasi iqtisodiy sudi
+Andijon viloyat iqtisodiy sudi
+Buxoro viloyat iqtisodiy sudi
+Fargʻona viloyat iqtisodiy sudi
+Jizzax viloyat iqtisodiy sudi
+Namangan viloyat iqtisodiy sudi
+Navoiy viloyat iqtisodiy sudi
+Qashqadaryo viloyat iqtisodiy sudi
+Samarqand viloyat iqtisodiy sudi
+Sirdaryo viloyat iqtisodiy sudi
+Surxondaryo viloyat iqtisodiy sudi
+Toshkent viloyat iqtisodiy sudi
+Xorazm viloyat iqtisodiy sudi
+Toshkent shahar iqtisodiy sudi
+Qoraqalpogʻiston Respublikasi maʼmuriy sudi
+Andijon viloyat maʼmuriy sudi
+Buxoro viloyat maʼmuriy sudi
+Fargʻona viloyat maʼmuriy sudi
+Jizzax viloyat maʼmuriy sudi
+Namangan viloyat maʼmuriy sudi
+Navoiy viloyat maʼmuriy sudi
+Qashqadaryo viloyat maʼmuriy sudi
+Samarqand viloyat maʼmuriy sudi
+Sirdaryo viloyat maʼmuriy sudi
+Surxondaryo viloyat maʼmuriy sudi
+Toshkent viloyat maʼmuriy sudi
+Xorazm viloyat maʼmuriy sudi
+Toshkent shahar maʼmuriy sudi
+Harbiy sud
