@@ -1,0 +1,14 @@
+---
+description: Kind of loan (Maltese).
+locale: mt
+---
+Self tad-dar
+Self għall-karozza
+Self personali
+Self għall-istudju
+Self fuq l-ekwità tad-dar
+Self kummerċjali
+Linja ta' kreditu
+Konsolidazzjoni tad-dejn
+Overdraft
+Self agrikolu

@@ -1,0 +1,5 @@
+---
+description: Capital of Belġju as Maltese names it.
+locale: mt
+---
+Brussell

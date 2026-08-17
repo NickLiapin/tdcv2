@@ -1,0 +1,12 @@
+---
+description: Driving licence category. Malta uses the EU harmonised categories, so these are the letters on a Maltese licence — not the American Class A/B/C.
+locale: mt
+---
+B
+BE
+C1
+C
+CE
+D1
+D
+DE

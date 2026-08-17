@@ -1,0 +1,18 @@
+---
+description: Horse breeds. Trotting, not flat racing, is the Maltese horse sport — the Marsa track runs sulky races and the Standardbred is the breed that matters there; breed names stay international.
+locale: mt
+---
+Standardbred
+Trotter Franċiż
+Għarbi
+Thoroughbred
+Andaluż
+Friesian
+Shire
+Appaloosa
+Quarter Horse
+Palomino
+Pony ta' Shetland
+Haflinger
+Lipizzan
+Żiemel tar-raħal

@@ -1,0 +1,5 @@
+---
+description: Capital of Ċina as Maltese names it.
+locale: mt
+---
+Pekin

@@ -1,0 +1,33 @@
+---
+description: Technical verb, cited in the THIRD PERSON MASCULINE SINGULAR PERFECT, which is how a Semitic verb is quoted: Maltese has no infinitive at all, so ikklikkja is literally 'he clicked' and doubles as the dictionary entry. The English-stem verbs are real Maltese — an English root is taken into the Maltese verb pattern and then conjugates like any other verb (ikklikkja, jikklikkja, ikklikkjajt).
+locale: mt
+---
+ikklikkja
+ipprintja
+issejvja
+iddawnlowdja
+ikkonnettja
+ipprogramma
+ikkalkula
+ikkopja
+ikkompressa
+ikkripta
+iddekripta
+iddeplojja
+innaviga
+indiċja
+iġġenera
+ikkwantifika
+issintetizza
+ittrasmetta
+aċċessa
+ivverifika
+ikkontrolla
+irrestawra
+ħassar
+qabbad
+fetaħ
+għalaq
+bagħat
+rċieva
+waqqaf

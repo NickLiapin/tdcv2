@@ -1,0 +1,11 @@
+---
+description: Dishes of the Franċiża kitchen as Maltese names them.
+locale: mt
+---
+Coq au vin
+Ratatouille
+Quiche Lorraine
+Bouillabaisse
+Kroissant
+Crêpes
+Cassoulet

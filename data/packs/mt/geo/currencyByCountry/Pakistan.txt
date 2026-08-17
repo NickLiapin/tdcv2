@@ -1,0 +1,5 @@
+---
+description: Currency of Pakistan as Maltese names it.
+locale: mt
+---
+Rupija Pakistana

@@ -1,0 +1,14 @@
+---
+description: Conditions whose prevalence is raised in people of Ewropea tat-Tramuntana descent (Maltese).
+locale: mt
+---
+Fibrożi ċistika
+Emokromatożi ereditarja
+Nuqqas ta' alfa-1 antitripsina
+Fenilketonurija
+Marda ċeljaka
+Sklerożi multipla
+Dijabete tat-tip 1
+Kontrattura ta' Dupuytren
+Karċinoma taċ-ċelluli bażali
+Persistenza tal-lattażi

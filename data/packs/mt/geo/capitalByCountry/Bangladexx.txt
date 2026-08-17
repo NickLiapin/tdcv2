@@ -1,0 +1,5 @@
+---
+description: Capital of Bangladexx as Maltese names it.
+locale: mt
+---
+Dhaka

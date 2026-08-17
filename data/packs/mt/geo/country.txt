@@ -1,0 +1,43 @@
+---
+description: The world's countries as MALTESE names them, weighted by population in millions. Translated, not transliterated: Germany is Ġermanja and Egypt is l-Eġittu. Malta closes the list at roughly half a million people and is here because a Maltese speaker naming the world names their own country too; Malta's own localities, regions and postcodes are NOT here — they belong to the Malta country pack.
+locale: mt
+weighted: true
+---
+Ċina,1410
+Indja,1400
+Stati Uniti tal-Amerika,335
+Indoneżja,275
+Pakistan,240
+Niġerja,220
+Brażil,215
+Bangladexx,170
+Russja,144
+Messiku,128
+Ġappun,124
+Eġittu,112
+Filippini,115
+Vjetnam,99
+Etjopja,123
+Turkija,85
+Iran,88
+Ġermanja,84
+Tajlandja,72
+Renju Unit,68
+Franza,68
+Italja,59
+Spanja,48
+Ukrajna,38
+Polonja,37
+Kanada,40
+Marokk,37
+Awstralja,26
+Olanda,18
+Tuneżija,12
+Belġju,12
+Greċja,10
+Portugall,10
+Żvizzera,9
+Svezja,10
+Libja,7
+Norveġja,6
+Malta,1

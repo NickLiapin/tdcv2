@@ -1,0 +1,11 @@
+---
+description: Dishes of the Messikana kitchen as Maltese names them.
+locale: mt
+---
+Tacos
+Burrito
+Enchiladas
+Quesadilla
+Guacamole
+Tamales
+Nachos

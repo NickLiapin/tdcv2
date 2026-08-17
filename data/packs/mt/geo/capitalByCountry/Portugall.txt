@@ -1,0 +1,5 @@
+---
+description: Capital of Portugall as Maltese names it.
+locale: mt
+---
+Lisbona

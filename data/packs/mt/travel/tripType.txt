@@ -1,0 +1,24 @@
+---
+description: Kind of trip (Maltese). The cruise call and the day trip to Gozo or Comino are the two most ordinary Maltese journeys and neither exists in a landlocked pack.
+locale: mt
+---
+Negozju
+Btala
+Btala tal-familja
+Xahar il-għasel
+Avventura
+Vjaġġ bil-karozza
+Kruċiera
+Backpacking
+Btala qasira
+Btala tal-baħar
+Tour bi grupp
+Vjaġġ waħdu
+Ġita ta' ġurnata
+Vjaġġ għal Għawdex
+Vjaġġ ta' studju
+Pellegrinaġġ
+Btala tal-għadis
+Rtir
+Vjaġġ ta' konferenza
+Żjara lill-familja

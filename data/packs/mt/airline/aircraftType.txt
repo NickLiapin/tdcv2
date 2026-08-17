@@ -1,0 +1,30 @@
+---
+description: Aircraft type. Manufacturer designations are international and are NOT translated into Maltese; the ATR 72 and the A320 family are what actually serves Malta International, the archipelago's only airport.
+locale: mt
+---
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330
+Airbus A350
+Airbus A380
+Boeing 737-800
+Boeing 737 MAX 8
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+Embraer E190
+Embraer E195
+ATR 72
+ATR 42
+Bombardier CRJ900
+De Havilland Dash 8
+Cessna 172
+Beechcraft King Air
+Gulfstream G550
+Bombardier Global 6000
+AgustaWestland AW139
+Airbus H145

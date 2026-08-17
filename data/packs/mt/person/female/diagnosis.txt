@@ -1,0 +1,17 @@
+---
+description: Diagnosis recorded against a female patient (Maltese) — the small mixed list the person group draws from.
+locale: mt
+---
+Displasija ċervikali
+Fibrojdi uterini
+Kandidjasi
+Fibroadenoma tas-sider
+Ovarju poliċistiku
+Erożjoni ċervikali
+Pankreatite kronika
+Klamidja
+Artrite kronika
+Ċerviċite
+Emboliżmu tal-arterja tar-retina
+Kanċer tar-rektum
+Talassemija beta

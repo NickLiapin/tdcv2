@@ -1,0 +1,21 @@
+---
+description: Kind of official document (Maltese). The karta tal-identità is compulsory and is also the taxpayer number for Maltese nationals; its number format belongs to the Malta country pack, not here.
+locale: mt
+---
+Karta tal-identità
+Passaport
+Ċertifikat tat-twelid
+Ċertifikat taż-żwieġ
+Ċertifikat tal-mewt
+Liċenzja tas-sewqan
+Dikjarazzjoni tat-taxxa
+Permess tal-bini
+Liċenzja kummerċjali
+Viża
+Permess ta' residenza
+Ċertifikat tal-eżamijiet
+Kuntratt
+Att notarili
+Testment
+Ċertifikat tas-saħħa
+Reġistrazzjoni tal-vettura

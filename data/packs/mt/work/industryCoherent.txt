@@ -1,0 +1,14 @@
+---
+description: The ten industries that carry the coherent job groups (Maltese).
+locale: mt
+---
+Teknoloġija
+Saħħa
+Finanzi
+Kostruzzjoni
+Edukazzjoni
+Ospitalità
+Manifattura
+Bejgħ bl-imnut
+Trasport
+Liġi

@@ -1,0 +1,34 @@
+---
+description: Unit of measure (Maltese). Malta is metric by law; the pound and the ounce survive only in older kitchen talk and are not here. Qasrija and qoffa are Maltese market measures.
+locale: mt
+---
+kull wieħed
+kaxxa
+każ
+pakkett
+tużżana
+par
+sett
+romblu
+qatta
+kilogramm
+gramm
+tunnellata
+litru
+millilitru
+ċentilitru
+metru
+ċentimetru
+millimetru
+kilometru
+metru kwadru
+metru kubu
+kartuna
+trej
+borża
+qoffa
+flixkun
+landa
+bettija
+għaxra
+mitt gramma

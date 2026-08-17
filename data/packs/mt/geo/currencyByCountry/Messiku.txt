@@ -1,0 +1,5 @@
+---
+description: Currency of Messiku as Maltese names it.
+locale: mt
+---
+Peso Messikan

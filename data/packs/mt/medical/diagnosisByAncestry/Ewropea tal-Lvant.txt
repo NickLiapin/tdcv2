@@ -1,0 +1,10 @@
+---
+description: Conditions whose prevalence is raised in people of Ewropea tal-Lvant descent (Maltese).
+locale: mt
+---
+Emokromatożi ereditarja
+Fenilketonurija
+Iperkolesterolemija familjari
+Mard tal-fwied marbut mal-alkoħol
+Fibrożi ċistika
+Marda ta' Wilson

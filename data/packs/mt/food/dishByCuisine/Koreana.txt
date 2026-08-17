@@ -1,0 +1,11 @@
+---
+description: Dishes of the Koreana kitchen as Maltese names them.
+locale: mt
+---
+Bibimbap
+Bulgogi
+Kimchi
+Japchae
+Tteokbokki
+Ċiken moqli Korean
+Galbi

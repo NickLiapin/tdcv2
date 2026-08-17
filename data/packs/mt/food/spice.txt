@@ -1,0 +1,31 @@
+---
+description: Herb and spice (Maltese). Sagħtar — wild thyme — is the herb the Maltese hillsides smell of and the one the island's honey is named for; note the GĦ in sagħtar, żagħfran and nagħniegħ.
+locale: mt
+---
+Kannella
+Kemmun
+Paprika
+Kurkuma
+Ġinġer
+Noċemuskata
+Origanu
+Ħabaq
+Sagħtar
+Klin
+Kardamomu
+Kosbor
+Trab tal-bżar aħmar
+Imsiemer tal-qronfol
+Żagħfran
+Werqa tar-rand
+Xibt
+Salvja
+Tursin
+Nagħniegħ
+Bżar iswed
+Melħ tal-baħar
+Ġulġlien
+Anisi
+Fejġel
+Bużbież
+Marjoram

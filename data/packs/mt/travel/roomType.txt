@@ -1,0 +1,22 @@
+---
+description: Hotel room type (Maltese).
+locale: mt
+---
+Standard
+Deluxe
+Suite
+Singola
+Doppja
+Twin
+Tripla
+Familja
+Studio
+Suite presidenzjali
+Junior suite
+Aċċessibbli
+B'veduta tal-baħar
+B'veduta tal-port
+Bil-balkun
+Bit-terrazzin
+Interkonnessa
+Ekonomika

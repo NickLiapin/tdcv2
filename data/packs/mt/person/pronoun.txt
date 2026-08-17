@@ -1,0 +1,11 @@
+---
+description: Personal pronoun (Maltese). This list CANNOT take the English he/him shape and the reason is grammatical: Maltese has no separate object pronoun at all — the object is a SUFFIX on the verb, so 'he saw him' is one word, rah. There is also no gender-neutral third person singular: hu and hi are the only choices, and huma covers both in the plural. Independent pronouns are what this file holds.
+locale: mt
+---
+jien
+int
+hu
+hi
+aħna
+intom
+huma

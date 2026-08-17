@@ -1,0 +1,10 @@
+---
+description: Diagnoses commonly seen in Newroloġija (Maltese).
+locale: mt
+---
+Emigranja
+Epilessija
+Marda ta' Parkinson
+Sklerożi multipla
+Puplesija iskemika
+Newropatija periferali

@@ -1,0 +1,32 @@
+---
+description: Field of study (Maltese).
+locale: mt
+---
+Xjenza tal-kompjuter
+Amministrazzjoni tan-negozju
+Psikoloġija
+Bijoloġija
+Inġinerija mekkanika
+Inġinerija elettrika
+Inġinerija ċivili
+Ekonomija
+Xjenza politika
+Letteratura Ingliża
+Letteratura Maltija
+Infermerija
+Kimika
+Matematika
+Storja
+Arkeoloġija
+Marketing
+Finanzi
+Komunikazzjoni
+Soċjoloġija
+Fiżika
+Disinn grafiku
+Xjenza tad-data
+Xjenza ambjentali
+Liġi
+Farmaċija
+Arkitettura
+Studji tal-Mediterran

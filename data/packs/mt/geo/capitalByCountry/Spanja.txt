@@ -1,0 +1,5 @@
+---
+description: Capital of Spanja as Maltese names it.
+locale: mt
+---
+Madrid

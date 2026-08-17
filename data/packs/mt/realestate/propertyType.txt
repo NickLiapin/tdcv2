@@ -1,0 +1,23 @@
+---
+description: Property type (Maltese). Maisonette and penthouse are used untranslated and mean something specific in Malta — a maisonette is a self-contained house-level flat with its own street door — and a RAZZETT is a converted stone farmhouse, the most sought-after property in Gozo. Dar tal-karattru is a house of character, an old townhouse kept with its original stonework.
+locale: mt
+---
+Appartament
+Maisonette
+Penthouse
+Dar terrazzata
+Dar tal-karattru
+Villa
+Bungalow
+Razzett
+Palazz
+Studio
+Duplex
+Blokk
+Sit
+Ħanut
+Uffiċċju
+Garaxx
+Maħżen
+Art
+Kantina

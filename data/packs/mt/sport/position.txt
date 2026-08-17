@@ -1,0 +1,39 @@
+---
+description: Playing position (Maltese). MALTESE SPORTS VOCABULARY IS BORROWED, and this file shows how: purtier and terzin came from Italian with the game, gowlkiper and midfielder came from English with the broadcasts, and Maltese has coined almost nothing of its own for either. Writing invented native terms here would have made the list less accurate, not more.
+locale: mt
+---
+Purtier
+Gowlkiper
+Difensur
+Difensur ċentrali
+Terzin
+Nofs il-grawnd
+Midfielder
+Ġenb
+Attakkant
+Ċentru attakkant
+Ċentru difensiv
+Ala
+Driver
+Point
+Point guard
+Shooting guard
+Small forward
+Power forward
+Ċentru
+Setter
+Attakkant tal-barra
+Libero
+Oppost
+Pivot
+Prop
+Hooker
+Lock
+Scrum-half
+Fly-half
+Fullback
+Batsman
+Bowler
+Wicketkeeper
+All-rounder
+Fielder

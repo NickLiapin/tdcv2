@@ -1,0 +1,5 @@
+---
+description: Capital of Renju Unit as Maltese names it.
+locale: mt
+---
+Londra

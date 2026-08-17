@@ -1,0 +1,15 @@
+---
+description: Kind of employment (Maltese). Definit and indefinit are the two Maltese contract categories that matter in law; work in Malta is heavily seasonal because tourism is, so staġjonali is a real and common status.
+locale: mt
+---
+Full-time
+Part-time
+Kuntratt definit
+Kuntratt indefinit
+Temporanju
+Apprendistat
+Traineeship
+Freelance
+Staġjonali
+Xogħol każwali
+Volontarju

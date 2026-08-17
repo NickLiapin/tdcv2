@@ -1,0 +1,5 @@
+---
+description: Capital of Tajlandja as Maltese names it.
+locale: mt
+---
+Bangkok

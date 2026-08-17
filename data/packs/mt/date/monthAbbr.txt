@@ -1,0 +1,16 @@
+---
+description: Month abbreviations (Maltese). Ġun and Diċ carry the dotted Ġ and Ċ — an abbreviation that loses them is not Maltese, and a system that strips diacritics to ASCII will silently produce Gun and Dic.
+locale: mt
+---
+Jan
+Fra
+Mar
+Apr
+Mej
+Ġun
+Lul
+Aww
+Set
+Ott
+Nov
+Diċ

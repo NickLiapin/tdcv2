@@ -1,0 +1,10 @@
+---
+description: Diagnoses commonly seen in Kardjoloġija (Maltese).
+locale: mt
+---
+Pressjoni għolja
+Mard tal-arterji koronarji
+Fibrillazzjoni atrijali
+Insuffiċjenza kardijaka
+Infart mijokardijaku
+Iperlipidemija

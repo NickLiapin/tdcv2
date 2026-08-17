@@ -1,0 +1,9 @@
+---
+description: Credit standing (Maltese).
+locale: mt
+---
+Ħażin
+Dgħajjef
+Tajjeb
+Tajjeb ħafna
+Eċċellenti

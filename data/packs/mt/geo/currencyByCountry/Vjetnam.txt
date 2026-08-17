@@ -1,0 +1,5 @@
+---
+description: Currency of Vjetnam as Maltese names it.
+locale: mt
+---
+Dong Vjetnamiż

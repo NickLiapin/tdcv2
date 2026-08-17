@@ -1,0 +1,30 @@
+---
+description: Garment (Maltese). Qmis, qalziet, żarbun and kappell are the native words; ġeans, hoodie and trakksut came straight from English, which is how Maltese clothing vocabulary actually reads.
+locale: mt
+---
+Flokk
+Qmis
+Ġeans
+Qalziet
+Libsa
+Ġakketta
+Pullover
+Dublett
+Xorts
+Hoodie
+Blouse
+Kowt
+Żarbun
+Bwiez
+Sandlijiet
+Kappell
+Xalpa
+Ingravata
+Kalzetti
+Malja
+Trakksut
+Ħwejjeġ ta' taħt
+Ġlekk
+Maktur
+Ċintorin
+Ingwanti

@@ -1,0 +1,9 @@
+---
+description: Work shift (Maltese).
+locale: mt
+---
+Ġurnata
+Lejl
+Filgħaxija
+Bidla
+Rotazzjoni

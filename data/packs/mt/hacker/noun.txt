@@ -1,0 +1,41 @@
+---
+description: Technical noun (Maltese). Where Maltese has adapted the word it is here in its Maltese shape (sistema, ċirkwit, ħolqa); where it has not, the English word is what a Maltese engineer says, and inventing a Maltese coinage for it would be inventing data.
+locale: mt
+---
+driver
+protokoll
+bandwidth
+panel
+mikroċippa
+programm
+port
+kard
+matriċi
+interface
+sistema
+sensur
+firewall
+hard drive
+pixel
+allarm
+feed
+monitor
+applikazzjoni
+trasmettitur
+bus
+ċirkwit
+kapaċitur
+database
+pipeline
+ħolqa
+kodiċi
+fajl
+kartella
+netwerk
+server
+kompjuter
+tastiera
+skrin
+memorja
+proċessur
+backup

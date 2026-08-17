@@ -1,0 +1,10 @@
+---
+description: Diagnoses commonly seen in Pulmonoloġija (Maltese).
+locale: mt
+---
+Ażma
+Mard pulmonari ostruttiv kroniku
+Pulmonite
+Emboliżmu pulmonari
+Tuberkulożi
+Apnea tal-irqad

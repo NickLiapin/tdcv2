@@ -1,0 +1,5 @@
+---
+description: Currency of Russja as Maltese names it.
+locale: mt
+---
+Rublu Russu

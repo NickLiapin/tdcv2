@@ -1,0 +1,16 @@
+---
+description: Kind of leave (Maltese). Malta has FOURTEEN public holidays, the most in the EU, and since 2020 one falling on a weekend is added to the worker's annual leave instead of being lost — so a Maltese leave balance moves for reasons a European payroll rule will not predict. The holiday list itself is country data and lives in the Malta country pack.
+locale: mt
+---
+Btala annwali
+Liv tal-mard
+Liv tal-maternità
+Liv tal-paternità
+Liv tal-ġenituri
+Liv tal-mewt
+Liv tal-qorti
+Liv mingħajr ħlas
+Sabbatical
+Liv mediku
+Liv għall-eżamijiet
+Liv tal-forzi armati

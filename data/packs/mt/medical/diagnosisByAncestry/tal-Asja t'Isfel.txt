@@ -1,0 +1,12 @@
+---
+description: Conditions whose prevalence is raised in people of tal-Asja t'Isfel descent (Maltese).
+locale: mt
+---
+Dijabete tat-tip 2 bikrija
+Mard koronarju prematur
+Obeżità ċentrali f'piż normali
+Nuqqas ta' vitamina D
+Karattru tat-talassemija beta
+Sindromu metaboliku
+Nuqqas ta' G6PD
+Mard rewmatiku tal-qalb

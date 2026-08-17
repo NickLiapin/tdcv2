@@ -1,0 +1,42 @@
+---
+description: Symptom (Maltese). The body words here are the Semitic layer of the language — ras is head, żaqq belly, sider chest, griżmejn throat — and they are the words a patient uses in a Maltese clinic.
+locale: mt
+---
+Deni
+Uġigħ ta' ras
+Għeja
+Dardir
+Rimettar
+Dijarea
+Stitikezza
+Uġigħ fiż-żaqq
+Uġigħ fis-sider
+Qtugħ ta' nifs
+Sogħla
+Uġigħ fil-griżmejn
+Imnieħer inixxi
+Imnieħer misdud
+Sturdament
+Vista mċajpra
+Uġigħ fil-muskoli
+Uġigħ fil-ġogi
+Uġigħ f'dahar t'isfel
+Raxx fil-ġilda
+Ħakk
+Nefħa
+Tnemnim
+Tingiż
+Taħbit tal-qalb
+Nuqqas ta' aptit
+Telf ta' piż mhux mistenni
+Għaraq bil-lejl
+Tkexkix
+Għatis
+Ħruq ta' stonku
+Nefħa fl-istonku
+Bugħawwieġ
+Dgħufija
+Konfużjoni
+Ħorr fil-widnejn
+Telf ta' smigħ
+Ħalq xott

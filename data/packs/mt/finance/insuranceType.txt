@@ -1,0 +1,18 @@
+---
+description: Kind of insurance (Maltese). Dgħajsa — boat cover — is an ordinary domestic policy on an archipelago where small craft are common household property.
+locale: mt
+---
+Saħħa
+Karozza
+Dar
+Ħajja
+Kerrejja
+Vjaġġi
+Annimali
+Diżabbiltà
+Snien
+Vista
+Responsabbiltà ċivili
+Dgħajsa
+Xogħol
+Kontenut tad-dar

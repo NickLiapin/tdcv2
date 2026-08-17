@@ -1,0 +1,5 @@
+---
+description: Capital of Indoneżja as Maltese names it.
+locale: mt
+---
+Ġakarta

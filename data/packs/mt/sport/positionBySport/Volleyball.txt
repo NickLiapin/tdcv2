@@ -1,0 +1,9 @@
+---
+description: Playing positions in Volleyball as Maltese names them.
+locale: mt
+---
+Setter
+Attakkant tal-barra
+Ċentru
+Libero
+Oppost

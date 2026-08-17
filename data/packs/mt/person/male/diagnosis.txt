@@ -1,0 +1,15 @@
+---
+description: Diagnosis recorded against a male patient (Maltese) — the small mixed list the person group draws from.
+locale: mt
+---
+Variċoċele
+Kriptorkidiżmu
+Fimożi
+Iperplasija beninna tal-prostata
+Prostatite
+Pankreatite kronika
+Klamidja
+Artrite kronika
+Emboliżmu tal-arterja tar-retina
+Kanċer tar-rektum
+Nuqqas ta' G6PD

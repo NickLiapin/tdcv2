@@ -1,0 +1,26 @@
+---
+description: Allergen (Maltese).
+locale: mt
+---
+Peniċillina
+Karawett
+Ġewż tas-siġar
+Frott tal-baħar
+Bajd
+Ħalib
+Sojja
+Qamħ
+Latex
+Trab tal-fjuri
+Dud tat-trab
+Xagħar tal-annimali
+Tingiż tan-naħal
+Aspirina
+Mediċini tas-sulfa
+Jodju
+Ġulġlien
+Mustarda
+Ħut
+Frawli
+Nikil
+Ful

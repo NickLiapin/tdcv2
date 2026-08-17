@@ -1,0 +1,5 @@
+---
+description: Currency of Norveġja as Maltese names it.
+locale: mt
+---
+Krona Norveġiża

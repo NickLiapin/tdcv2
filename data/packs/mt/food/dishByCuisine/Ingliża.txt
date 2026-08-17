@@ -1,0 +1,11 @@
+---
+description: Dishes of the Ingliża kitchen as Maltese names them.
+locale: mt
+---
+Fish and chips
+Sunday roast
+Shepherd's pie
+Full English breakfast
+Bangers and mash
+Trifle
+Scones

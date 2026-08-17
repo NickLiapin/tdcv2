@@ -1,0 +1,5 @@
+---
+description: Capital of Ġermanja as Maltese names it.
+locale: mt
+---
+Berlin

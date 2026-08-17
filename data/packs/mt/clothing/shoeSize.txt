@@ -1,0 +1,16 @@
+---
+description: Shoe size on the CONTINENTAL EUROPEAN (Paris point) scale, which is what a Maltese shoebox shows — Malta is in the EU and most footwear arrives from Italy. UK sizes are printed alongside it often enough to matter, a leftover of the British period, so a Maltese size field may hold either scale; this list is the European one.
+locale: mt
+---
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46

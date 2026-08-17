@@ -1,0 +1,15 @@
+---
+description: Stage of a hiring process (Maltese).
+locale: mt
+---
+Reviżjoni tal-applikazzjoni
+Telefonata tal-għażla
+Intervista teknika
+Intervista fuq il-post
+Intervista bil-bord
+L-aħħar rawnd
+Verifika tar-referenzi
+Offerta
+Miċħud
+Impjegat
+Irtirat

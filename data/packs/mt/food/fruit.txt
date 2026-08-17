@@ -1,0 +1,33 @@
+---
+description: Fruit (Maltese). The bajtar tax-xewk, the prickly pear, grows out of every rubble wall on the islands and is the base of the national liqueur; the nespla, the loquat, ripens in April and is a Maltese spring fixture. Larinġ ta' Malta, the blood orange, was an export the island was known for.
+locale: mt
+---
+Tuffieħa
+Banana
+Larinġa
+Frawla
+Għeneb
+Mango
+Ananas
+Dulliegħa
+Ħawħa
+Lanġasa
+Ċirasa
+Kiwi
+Lumija
+Għanbaqra
+Berquqa
+Rummiena
+Tina
+Papaja
+Ġewż tal-Indi
+Bettieħa
+Bajtar tax-xewk
+Nespla
+Larinġ tad-demm
+Mandolina
+Tut
+Ħarrub
+Passiflora
+Lampun
+Ribes

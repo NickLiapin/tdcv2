@@ -1,0 +1,20 @@
+---
+description: Kind of venue (Maltese). A każin tal-banda — the village band club — hosts more Maltese events than any hall does, and roof terraces and parish squares are ordinary venues on islands where it rarely rains from May to September.
+locale: mt
+---
+Każin tal-banda
+Sala parrokkjali
+Pjazza
+Sala tal-lukanda
+Ċentru tal-konferenzi
+Stadium
+Teatru
+Bitħa
+Bejt
+Maħżen
+Ġnien
+Palazz
+Forti
+Razzett
+Awditorju
+Diskoteka

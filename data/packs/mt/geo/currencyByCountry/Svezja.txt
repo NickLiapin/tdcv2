@@ -1,0 +1,5 @@
+---
+description: Currency of Svezja as Maltese names it.
+locale: mt
+---
+Krona Żvediża

@@ -1,0 +1,54 @@
+---
+description: Airline brand names, kept in their own spelling as the brief requires. KM Malta Airlines is the national carrier, launched in March 2024 when Air Malta — which had flown since 1974 and whose IATA code KM the new airline kept — was wound up; Air Malta stays on the list because it is on decades of Maltese records. The rest is what serves Malta.
+locale: mt
+---
+KM Malta Airlines
+Air Malta
+Ryanair
+Wizz Air
+easyJet
+Lufthansa
+ITA Airways
+Alitalia
+Air France
+KLM
+SWISS
+Austrian Airlines
+Brussels Airlines
+British Airways
+Aegean Airlines
+Vueling
+Volotea
+Transavia
+TUI fly
+Eurowings
+Norwegian
+LOT Polish Airlines
+Iberia
+TAP Air Portugal
+SAS
+Finnair
+Turkish Airlines
+Pegasus Airlines
+Emirates
+Qatar Airways
+Etihad Airways
+EgyptAir
+Tunisair
+Royal Air Maroc
+Air Arabia
+Corendon Airlines
+SunExpress
+Jet2.com
+Aer Lingus
+Luxair
+Air Serbia
+Croatia Airlines
+Smartwings
+Marabu
+Condor
+Discover Airlines
+Air Baltic
+Sky Express
+Play
+Wizz Air Malta

@@ -1,0 +1,10 @@
+---
+description: Dishes of the Vjetnamiża kitchen as Maltese names them.
+locale: mt
+---
+Pho
+Banh mi
+Rombli tar-rebbiegħa
+Bun cha
+Com tam
+Kafè Vjetnamiż

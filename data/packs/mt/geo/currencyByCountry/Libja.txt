@@ -1,0 +1,5 @@
+---
+description: Currency of Libja as Maltese names it.
+locale: mt
+---
+Dinar Libjan

@@ -1,0 +1,19 @@
+---
+description: Reason for a return (Maltese).
+locale: mt
+---
+Wasal bil-ħsara
+Intbagħat l-oġġett żbaljat
+L-oġġett mhux kif deskritt
+Daqs żbaljat
+Biddilt fehmti
+Sibt prezz aħjar band'oħra
+Difettuż mal-wasla
+Nieqsa xi biċċiet
+Konsenja tard
+M'għadnix bżonnu
+Ordnat bi żball
+Kwalità taħt l-aspettattivi
+Kulur differenti minn dak muri
+Wasal doppju
+Ma jaħdimx mat-tagħmir tiegħi

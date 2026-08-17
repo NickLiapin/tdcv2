@@ -1,0 +1,24 @@
+---
+description: Filler paragraphs (Maltese). Handwritten: Project Gutenberg holds no Maltese book at all, so these twenty were written by hand for this pack. Each is three short sentences of everyday register on ordinary Maltese subjects. Handwritten filler is a smaller and plainer sample than a real corpus and is labelled here so that a reader can tell the two apart at a glance.
+locale: mt
+---
+Il-gżira mdawra bil-baħar minn kull naħa. Fis-sajf l-ilma jkun kalm u ċar, u d-dgħajjes joħorġu kmieni filgħodu. Fix-xitwa r-riħ jaqleb u l-mewġ jaħbat mal-blat.
+Ir-raħal jinġabar madwar il-knisja u l-pjazza. Kull filgħaxija n-nies joqogħdu barra jitkellmu. Fis-sajf il-festa ġġib lil kulħadd fit-triq.
+Il-bidwi jqum qabel is-sebħ u jimxi lejn l-għalqa. Jaħdem sakemm tisħon ix-xemx, imbagħad jistrieħ taħt is-siġra. Filgħaxija jerġa' joħroġ isaqqi.
+Id-djar il-qodma nbnew bil-ġebla tal-franka. Il-ġebla ratba meta toħroġ mill-barriera u tibbies bir-riħ. Kull dar għandha ċisterna taħt il-bitħa.
+Il-familja tinġabar madwar il-mejda nhar ta' Ħadd. In-nanna tagħmel ir-ross il-forn u l-fenek. It-tfal jistennew il-ħelu tal-aħħar.
+Is-sajjieda jitilqu bil-lejl u jerġgħu lura ma' sbiħ il-jum. Fil-ħarifa jaqbdu l-lampuki bil-kannizzati. Is-suq jimtela bin-nies qabel nofsinhar.
+L-iskola tibda f'Settembru u tispiċċa f'Ġunju. It-tfal jitgħallmu bil-Malti u bl-Ingliż. L-eżamijiet isiru fl-aħħar tas-sena.
+Il-banda tibda ddoqq fil-għaxija u ddur ir-raħal kollu. Wara l-marċ jibda n-nar tal-ajru. Il-poplu jibqa' fil-pjazza sa tard.
+Ix-xitwa qasira u mhux kiesħa wisq. Tagħmel ix-xita f'Novembru u f'Diċembru, u l-widien jimtlew. Sa Marzu l-ħaxix ikun kollu aħdar.
+Il-vapur jaqsam bejn iż-żewġ gżejjer kull siegħa. Fis-sajf ikun mimli nies u karozzi. Meta jqum il-grigal, il-vjaġġ jieqaf.
+Il-belt għandha toroq dojoq u bibien għoljin. Kull rokna għandha statwa jew kappella. Il-fdalijiet tal-gwerra għadhom jidhru fil-ħitan.
+Il-ħaddiem tal-ġebel jaħdem bl-idejn u bl-għodda. Jaqta', jonqox u jibni bis-sabar. Ix-xogħol tiegħu jibqa' wieqaf għal mijiet ta' snin.
+Fis-sajf kulħadd imur il-baħar. It-tfal jgħumu qrib ix-xatt u l-kbar jistrieħu fid-dell. Filgħaxija l-arja tibred u l-familji jimxu mal-moll.
+Il-kafè tar-raħal jiftaħ kmieni. Ix-xjuħ jilagħbu l-karti u jitkellmu fuq il-passat. Iż-żgħażagħ jgħaddu malajr qabel ix-xogħol.
+Il-Malti jinkiteb bl-ittri Latini imma ġej mill-Għarbi. Ħafna kliem ġie mis-Sqalli u mit-Taljan. L-Ingliż daħal fl-aħħar mitt sena.
+Il-ġnien fih siġar tal-lumi u tal-larinġ. Fir-rebbiegħa jfuħ il-fjur u jidwi n-naħal. Fis-sajf jinqata' l-frott u jitqassam lill-ġirien.
+Ir-regatta ssir fil-port il-kbir darbtejn fis-sena. Kull raħal iħejji d-dgħajjes u l-qaddiefa tiegħu. In-nies jimlew ix-xtut biex jaraw.
+Fil-Milied kull dar tarma l-presepju. It-tfal iħejju l-ġulbiena f'Novembru. Fil-lejl tal-Milied il-knisja timtela bin-nies.
+Il-kaċċaturi u n-nassaba joħorġu fil-ħarifa. Il-liġi tibdel kull sena u l-argument ma jieqaf qatt. L-għasafar jgħaddu minn fuq il-gżira lejn l-Afrika.
+Iż-żmien fuq gżira żgħira jgħaddi bil-mod. Kulħadd jaf lil kulħadd u l-aħbar tasal qabel il-persuna. Imma l-baħar dejjem hemm, u jibdel kollox.

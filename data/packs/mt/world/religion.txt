@@ -1,0 +1,25 @@
+---
+description: Religion (Maltese). Read the order: ROMAN CATHOLICISM IS THE ESTABLISHED RELIGION OF MALTA under Article 2 of the Constitution, which also makes its teaching compulsory in state schools, and the great majority of the population is baptised Catholic. That is not a statistical footnote for a Maltese dataset — the parish, the festa and the patron saint organise the calendar and the map.
+locale: mt
+---
+Kattoliċiżmu
+Kristjaneżmu
+Ortodossija
+Protestantiżmu
+Anglikaniżmu
+Metodiżmu
+Iżlam
+Ġudaiżmu
+Induiżmu
+Buddiżmu
+Sikhiżmu
+Bahá'í
+Ġainiżmu
+Xintoiżmu
+Tawiżmu
+Atejiżmu
+Agnostiċiżmu
+Sekulari
+Ebda
+Ortodossija Kopta
+Xhieda ta' Ġeħova

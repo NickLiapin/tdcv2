@@ -1,0 +1,12 @@
+---
+description: Extraction method (Maltese). Malta has NO metal mines and no coal: the whole extractive industry is limestone quarrying, so barriera miftuħa and qtugħ bis-serrieq are the methods that actually operate, and the underground methods are here as vocabulary rather than as Maltese practice.
+locale: mt
+---
+Barriera miftuħa
+Qtugħ bis-serrieq
+Taħt l-art
+Splussivi
+Tħaffir
+Longwall
+Terrazzament
+Ġbir mill-wiċċ

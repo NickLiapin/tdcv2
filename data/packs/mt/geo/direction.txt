@@ -1,0 +1,20 @@
+---
+description: Compass direction (Maltese). THE MALTESE COMPASS IS A WIND ROSE: the eight principal points are the names of the eight Mediterranean winds, shared with Italian and Sicilian — Tramuntana north, Grigal north-east, Lvant east, Xlokk south-east, Nofsinhar south, Lbiċ south-west, Punent west, Majjistral north-west. Two consequences for data. Nofsinhar literally means 'midday', so a naive translation of the word will give 'noon' and not 'south'. And these are live place words rather than abstractions: Malta's regions are Tramuntana, Punent, Lvant, Nofsinhar and Port, and localities are named after Majjistral and Xlokk.
+locale: mt
+---
+Tramuntana
+Grigal
+Lvant
+Xlokk
+Nofsinhar
+Lbiċ
+Punent
+Majjistral
+Tramuntana-Grigal
+Lvant-Grigal
+Lvant-Xlokk
+Nofsinhar-Xlokk
+Nofsinhar-Lbiċ
+Punent-Lbiċ
+Punent-Majjistral
+Tramuntana-Majjistral

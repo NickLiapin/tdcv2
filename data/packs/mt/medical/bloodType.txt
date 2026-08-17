@@ -1,0 +1,12 @@
+---
+description: Blood group. International notation; not translated.
+locale: mt
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

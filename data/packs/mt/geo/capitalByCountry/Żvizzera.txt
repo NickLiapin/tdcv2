@@ -1,0 +1,5 @@
+---
+description: Capital of Żvizzera as Maltese names it.
+locale: mt
+---
+Berna

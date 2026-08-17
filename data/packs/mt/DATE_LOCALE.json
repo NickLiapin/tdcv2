@@ -1,0 +1,59 @@
+{
+  "months": [
+    "Jannar",
+    "Frar",
+    "Marzu",
+    "April",
+    "Mejju",
+    "Ġunju",
+    "Lulju",
+    "Awwissu",
+    "Settembru",
+    "Ottubru",
+    "Novembru",
+    "Diċembru"
+  ],
+  "monthsInDate": [
+    "ta' Jannar",
+    "ta' Frar",
+    "ta' Marzu",
+    "ta' April",
+    "ta' Mejju",
+    "ta' Ġunju",
+    "ta' Lulju",
+    "ta' Awwissu",
+    "ta' Settembru",
+    "ta' Ottubru",
+    "ta' Novembru",
+    "ta' Diċembru"
+  ],
+  "monthsShort": [
+    "Jan",
+    "Fra",
+    "Mar",
+    "Apr",
+    "Mej",
+    "Ġun",
+    "Lul",
+    "Aww",
+    "Set",
+    "Ott",
+    "Nov",
+    "Diċ"
+  ],
+  "weekdays": [
+    "Il-Ħadd",
+    "It-Tnejn",
+    "It-Tlieta",
+    "L-Erbgħa",
+    "Il-Ħamis",
+    "Il-Ġimgħa",
+    "Is-Sibt"
+  ],
+  "weekdaysShort": ["Ħad", "Tne", "Tli", "Erb", "Ħam", "Ġim", "Sib"],
+  "formats": {
+    "L": "DD/MM/YYYY",
+    "LL": "D MMMM YYYY"
+  },
+  "notes": "monthsInDate is load-bearing and is NOT a case form. Maltese does not decline its months; it inserts the preposition ta' between the day and the month, so the first of January is 1 ta' Jannar and never 1 Jannar. Carrying the ta' inside monthsInDate lets LL stay the plain D MMMM YYYY without the formatter needing an escaped literal. The WEEKDAY NAMES CARRY THE DEFINITE ARTICLE as part of the name — Il-Ħadd, It-Tnejn, L-Erbgħa — and the article assimilates to the following consonant, which is why the seven do not share one prefix; the short forms drop it. Weekdays are listed Sunday-first because the formatter wants them so, while date/weekday.txt in the pack is Monday-first as a Maltese calendar prints it. Malta writes dates DD/MM/YYYY with slashes, the British way, and uses the 24-hour clock in writing with a colon (14:30). The decimal separator is a full stop and the thousands separator a comma (1,234.56), again British rather than continental, which is a trap for a euro-area locale. Month and weekday names are CAPITALISED. Ġun and Diċ carry dotted letters: strip the diacritics and the abbreviation stops being Maltese."
+}

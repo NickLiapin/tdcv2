@@ -1,0 +1,26 @@
+---
+description: Metal (Maltese).
+locale: mt
+---
+Deheb
+Fidda
+Platinu
+Ram
+Ħadid
+Aluminju
+Titanju
+Żingu
+Nikil
+Ċomb
+Landa
+Bronż
+Ottun
+Azzar
+Palladju
+Kobalt
+Kromu
+Tungstenu
+Merkurju
+Manganiż
+Manjeżju
+Uranju

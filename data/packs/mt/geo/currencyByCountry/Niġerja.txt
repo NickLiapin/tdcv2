@@ -1,0 +1,5 @@
+---
+description: Currency of Niġerja as Maltese names it.
+locale: mt
+---
+Naira

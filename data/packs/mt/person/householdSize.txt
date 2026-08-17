@@ -1,0 +1,11 @@
+---
+description: Number of people in the household. Malta is the most densely populated country in the EU and multigenerational households remain common, so the tail of this distribution is heavier than in Northern Europe.
+locale: mt
+---
+1
+2
+3
+4
+5
+6
+7+

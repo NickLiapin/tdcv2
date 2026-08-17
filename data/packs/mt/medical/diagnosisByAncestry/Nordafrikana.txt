@@ -1,0 +1,10 @@
+---
+description: Conditions whose prevalence is raised in people of Nordafrikana descent (Maltese).
+locale: mt
+---
+Nuqqas ta' G6PD
+Karattru tat-talassemija beta
+Deni familjari Mediterranju
+Marda ta' Behçet
+Nuqqas ta' persistenza tal-lattażi
+Xeroderma pigmentosum

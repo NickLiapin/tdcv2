@@ -1,0 +1,17 @@
+---
+description: Kind of social post (Maltese). Stħarriġ — poll — carries the GĦ inside the word rather than at its edge.
+locale: mt
+---
+Post
+Kumment
+Tweġiba
+Story
+Reel
+Stħarriġ
+Live
+Repost
+Thread
+Msemmi
+Messaġġ dirett
+Ritratt
+Vidjo

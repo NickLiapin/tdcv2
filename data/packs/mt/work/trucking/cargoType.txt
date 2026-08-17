@@ -1,0 +1,17 @@
+---
+description: Cargo type (Maltese). Maltese haulage is short-haul by definition — the islands are 27 kilometres end to end — and the container work runs between the Malta Freeport and the Grand Harbour.
+locale: mt
+---
+Vann magħluq
+Refriġerat
+Flatbed
+Tanker
+Bhejjem
+Materjal perikoluż
+Kontejner intermodali
+Ġarr ta' karozzi
+Lowboy
+Step deck
+Dump
+Bulk
+Skart

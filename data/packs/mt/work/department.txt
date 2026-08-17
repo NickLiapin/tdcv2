@@ -1,0 +1,26 @@
+---
+description: Company department (Maltese).
+locale: mt
+---
+Inġinerija
+Prodott
+Disinn
+Bejgħ
+Marketing
+Finanzi
+Kontabilità
+Riżorsi Umani
+Operazzjonijiet
+Legali
+Appoġġ tal-Klijenti
+Teknoloġija tal-Informazzjoni
+Riċerka u Żvilupp
+Xiri
+Assigurazzjoni tal-Kwalità
+Loġistika
+Amministrazzjoni
+Faċilitajiet
+Sigurtà
+Konformità
+Komunikazzjoni
+Manutenzjoni

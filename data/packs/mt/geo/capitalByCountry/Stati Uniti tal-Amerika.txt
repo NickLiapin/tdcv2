@@ -1,0 +1,5 @@
+---
+description: Capital of Stati Uniti tal-Amerika as Maltese names it.
+locale: mt
+---
+Washington

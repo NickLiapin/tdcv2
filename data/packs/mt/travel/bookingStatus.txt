@@ -1,0 +1,15 @@
+---
+description: Booking status (Maltese).
+locale: mt
+---
+Ikkonfermat
+Pendenti
+Ikkanċellat
+Iċċekkjat
+Ħareġ
+Ma deherx
+Modifikat
+Rimborżat
+Fuq lista ta' stennija
+Skadut
+Mibdul

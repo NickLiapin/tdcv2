@@ -1,0 +1,32 @@
+---
+description: Birds (Maltese). Malta's bird names come out of its trapping and hunting tradition, which is why finches carry distinct native names — gardell the goldfinch, verdun the greenfinch, sponsun the chaffinch — where an English list would need two words. The merill, the blue rock thrush, is the national bird; the falkun is the bird the island gave its name to in English. Għasfur is the generic word for bird.
+locale: mt
+---
+Merill
+Falkun
+Ajkla
+Kokka
+Barbaġann
+Gawwija
+Ħamiema
+Gardell
+Verdun
+Sponsun
+Ħuttafa
+Rundun
+Ċawla
+Pappagall
+Pingwin
+Ċikonja
+Fjamingu
+Ċinju
+Pellikan
+Serduq
+Tiġieġa
+Wiżża
+Papra
+Għasfur tal-bejt
+Sponsuna
+Bilbla
+Kurlu
+Ħuttafa tal-blat

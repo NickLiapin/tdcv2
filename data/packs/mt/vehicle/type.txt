@@ -1,0 +1,26 @@
+---
+description: Kind of vehicle (Maltese). Malta DRIVES ON THE LEFT — a British inheritance shared inside the EU only with Ireland and Cyprus — so a Maltese vehicle record is right-hand drive; the plate format belongs to the Malta country pack. The karozzin, the horse-drawn cab, is still licensed and still worked in Valletta and Mdina.
+locale: mt
+---
+Sedan
+Coupé
+Hatchback
+SUV
+Crossover
+Kabriolet
+Minivan
+Station wagon
+Pickup
+Roadster
+Vann
+Off-road
+Karozza sportiva
+Karozza tal-lussu
+Mutur
+Skuter
+Trakk
+Karozza tal-linja
+Minibus
+Taxi
+Karozzin
+Vapur tal-passiġġieri

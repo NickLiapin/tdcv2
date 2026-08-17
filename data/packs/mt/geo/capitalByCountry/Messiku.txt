@@ -1,0 +1,5 @@
+---
+description: Capital of Messiku as Maltese names it.
+locale: mt
+---
+Belt tal-Messiku

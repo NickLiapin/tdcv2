@@ -1,0 +1,46 @@
+---
+description: Workplace skill (Maltese). Two language skills are on this list for a Maltese reason: MALTI and INGLIŻ are both routinely required in a Maltese job advertisement, and Taljan is genuinely useful because a large share of the population understands it from decades of Italian television.
+locale: mt
+---
+Malti
+Ingliż
+Taljan
+Franċiż
+Python
+JavaScript
+SQL
+Java
+C++
+Cloud computing
+Machine learning
+Analiżi tad-data
+Immaniġġjar ta' proġetti
+Agile
+Taħdit pubbliku
+Kitba teknika
+Servizz tal-klijenti
+Bejgħ
+Kontabilità
+Immudellar finanzjarju
+CAD
+Immudellar 3D
+Disinn grafiku
+Kitba tal-kopja
+Wweldjar
+Wajering elettriku
+Plamerija
+Mastrudaxxa
+Qari tal-pjanti
+Makkinar
+Issoldjar
+Tħaddim tal-forklift
+Tħaddim ta' makkinarju tqil
+Liċenzja tas-sewqan
+Ewwel għajnuna
+CPR
+Sigurtà tal-ikel
+Negozjar
+Tmexxija ta' tim
+Immaniġġjar tal-ħin
+Soluzzjoni ta' problemi
+Ħidma f'tim

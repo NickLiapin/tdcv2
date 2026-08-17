@@ -1,0 +1,11 @@
+---
+description: Kind of haulage route (Maltese).
+locale: mt
+---
+Lokali
+Reġjonali
+Port għal port
+Konsenja finali
+Ddedikata
+Bejn il-gżejjer
+Bil-vapur

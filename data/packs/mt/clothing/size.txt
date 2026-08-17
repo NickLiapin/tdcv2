@@ -1,0 +1,12 @@
+---
+description: Clothing size. Malta uses the international letter sizes; Italian and UK numeric sizes are both seen on labels because the shops import from both.
+locale: mt
+---
+XXS
+XS
+S
+M
+L
+XL
+XXL
+XXXL

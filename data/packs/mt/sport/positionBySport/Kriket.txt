@@ -1,0 +1,9 @@
+---
+description: Playing positions in Kriket as Maltese names them.
+locale: mt
+---
+Batsman
+Bowler
+Wicketkeeper
+All-rounder
+Fielder

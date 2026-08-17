@@ -1,0 +1,11 @@
+---
+description: Playing positions in Netball as Maltese names them.
+locale: mt
+---
+Goal Shooter
+Goal Attack
+Wing Attack
+Centre
+Wing Defence
+Goal Defence
+Goal Keeper

@@ -1,0 +1,5 @@
+---
+description: Capital of Russja as Maltese names it.
+locale: mt
+---
+Moska

@@ -1,0 +1,24 @@
+---
+description: Game character class (Maltese).
+locale: mt
+---
+Ġellied
+Saħħar
+Ħalliel
+Paladin
+Kaċċatur
+Qassis
+Saħħar tad-dlam
+Druwidu
+Barbaru
+Nekromanti
+Bard
+Assassin
+Kleriku
+Arċier
+Kavallier
+Alkimista
+Duellant
+Xaman
+Mastru tal-armi
+Spija

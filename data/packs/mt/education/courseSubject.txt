@@ -1,0 +1,30 @@
+---
+description: School subject (Maltese). Malti AND Ingliż are both compulsory core subjects in Malta and both are official languages of the state, so a Maltese school record carries two language subjects where most countries carry one mother tongue and one foreign language.
+locale: mt
+---
+Malti
+Ingliż
+Matematika
+Fiżika
+Kimika
+Bijoloġija
+Xjenza tal-kompjuter
+Storja
+Ġeografija
+Taljan
+Franċiż
+Ġermaniż
+Spanjol
+Arti
+Mużika
+Edukazzjoni Fiżika
+Ekonomija
+Filosofija
+Psikoloġija
+Statistika
+Reliġjon
+Studji Soċjali
+Ekonomija Domestika
+Disinn u Teknoloġija
+Kontabilità
+Studji Ambjentali

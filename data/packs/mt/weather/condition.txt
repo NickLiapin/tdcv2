@@ -1,0 +1,20 @@
+---
+description: Weather (Maltese). Malta's year is a long dry summer and a mild wet winter; the coldest month averages around twelve degrees and IT HAS NEVER SNOWED in recorded observation, so a Maltese weather field will never legitimately hold snow.
+locale: mt
+---
+Xemxi
+Ftit imsaħħab
+Imsaħħab
+Mgħotti
+Xita
+Rxiex
+Maltemp bir-ragħad
+Silġ
+Ċpar
+Riħ qawwi
+Ċar
+Sħana kbira
+Bard
+Umdu
+Bexxa
+Sema mċajpar

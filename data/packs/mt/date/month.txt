@@ -1,0 +1,16 @@
+---
+description: Months (Maltese). All twelve are Romance loans from Sicilian and Italian — the month names are the clearest single place where Maltese vocabulary is NOT Semitic, unlike Arabic which has its own. Awwissu keeps the doubled w that Maltese spelling needs.
+locale: mt
+---
+Jannar
+Frar
+Marzu
+April
+Mejju
+Ġunju
+Lulju
+Awwissu
+Settembru
+Ottubru
+Novembru
+Diċembru

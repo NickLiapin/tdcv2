@@ -1,0 +1,5 @@
+---
+description: Capital of Polonja as Maltese names it.
+locale: mt
+---
+Varsavja

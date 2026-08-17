@@ -1,0 +1,5 @@
+---
+description: Capital of Franza as Maltese names it.
+locale: mt
+---
+Pariġi

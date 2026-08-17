@@ -1,0 +1,19 @@
+---
+description: Directional qualifier on a Maltese address or region name (Reġjun Tramuntana, il-kosta tal-Punent). Maltese names its compass points after the MEDITERRANEAN WINDS, not after abstract directions: Tramuntana is north, Grigal north-east, Lvant east, Xlokk south-east (the sirocco), Nofsinhar south — literally 'midday' — Lbiċ south-west, Punent west, Majjistral north-west. Malta's six regions and several of its localities are named from this wind rose, so these words appear in addresses far more than an English compass point does.
+locale: mt
+---
+Tramuntana
+Grigal
+Lvant
+Xlokk
+Nofsinhar
+Lbiċ
+Punent
+Majjistral
+Fuq
+Isfel
+Ġewwa
+Barra
+Ċentrali
+Ta' Fuq
+T'Isfel

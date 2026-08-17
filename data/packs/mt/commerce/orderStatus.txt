@@ -1,0 +1,18 @@
+---
+description: Order status (Maltese).
+locale: mt
+---
+Pendenti
+Qed jiġi pproċessat
+Ikkonfermat
+Mibgħut
+Barra għall-konsenja
+Ikkunsinnat
+Ikkanċellat
+Ritornat
+Rimborżat
+Miżmum
+Ma hemmx fl-istokk
+Falla
+Jistenna l-ħlas
+Lest għall-ġbir

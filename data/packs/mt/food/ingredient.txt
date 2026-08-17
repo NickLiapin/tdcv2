@@ -1,0 +1,44 @@
+---
+description: Cooking ingredient (Maltese). Irkotta and the ġbejna — the small sheep's-milk cheeselet, fresh, dried or peppered — are the two dairy items Maltese cooking is built on.
+locale: mt
+---
+Dqiq
+Zokkor
+Melħ
+Butir
+Bajd
+Ħalib
+Basla
+Tewm
+Tadam
+Sider tat-tiġieġ
+Ross
+Ġobon
+Żejt taż-żebbuġa
+Bżar iswed
+Karrotta
+Patata
+Bżar aħdar
+Laħam ikkapuljat
+Frak tal-ħobż
+Lumija
+Għasel
+Ħmira
+Krema
+Spinaċi
+Irkotta
+Ġbejna
+Kappar
+Żebbuġ
+Aċtu
+Passata tat-tadam
+Għaġin
+Ħobż
+Tonn
+Sardin
+Fażola
+Ful
+Lewż
+Ġewż
+Ċikkulata
+Inbid aħmar

@@ -1,0 +1,35 @@
+---
+description: Musical instrument (Maltese). Three are Maltese and survive nowhere else: iż-żaqq, the bagpipe made from a whole goat or dog skin; il-flejguta, the shepherd's reed flute; and iż-żummara, the single-reed pipe. The rest are the international instruments in Maltese spelling.
+locale: mt
+---
+Żaqq
+Flejguta
+Żummara
+Tanbur tal-Malti
+Kitarra
+Pjanu
+Vjolin
+Tanbur
+Baxx
+Sassofonu
+Trumbetta
+Flawt
+Ċellu
+Klarinett
+Trombun
+Arpa
+Ukulele
+Banjo
+Akkordjon
+Tastiera
+Obo
+Kontrabaxx
+Armonika
+Ksilofonu
+Orgni
+Ċimbli
+Mandolina
+Kornu
+Tuba
+Marimba
+Kitarra elettrika

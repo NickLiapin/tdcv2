@@ -1,0 +1,29 @@
+---
+description: Dishes of the Maltija kitchen as Maltese names them.
+locale: mt
+---
+Pastizzi
+Ftira
+Ħobż biż-żejt
+Timpana
+Bragjoli
+Stuffat tal-fenek
+Fenek moqli
+Torta tal-lampuki
+Aljotta
+Kusksu
+Soppa tal-armla
+Ross il-forn
+Imqarrun il-forn
+Bigilla
+Ġbejniet
+Qassatat
+Zalzett tal-Malti
+Imqaret
+Kannoli tal-irkotta
+Figolla
+Qagħaq tal-għasel
+Ħelwa tat-Tork
+Kwareżimal
+Prinjolata
+Widnet ix-xiħ

@@ -1,0 +1,10 @@
+---
+description: Jobs in the Liġi sector as Maltese names them.
+locale: mt
+---
+Avukat
+Prokuratur legali
+Imħallef
+Nutar
+Segretarju legali
+Uffiċjal tal-konformità

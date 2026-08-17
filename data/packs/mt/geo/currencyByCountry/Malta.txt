@@ -1,0 +1,5 @@
+---
+description: Currency of Malta as Maltese names it.
+locale: mt
+---
+Ewro

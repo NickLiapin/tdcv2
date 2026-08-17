@@ -1,0 +1,9 @@
+---
+description: Playing positions in Ħandbol as Maltese names them.
+locale: mt
+---
+Purtier
+Ala
+Terzin
+Ċentru
+Pivot

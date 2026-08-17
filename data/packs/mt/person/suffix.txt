@@ -1,0 +1,27 @@
+---
+description: Post-nominal (Maltese usage). LL.D. is the one to know: the Maltese law degree was the Doctor of Laws, so a Maltese lawyer signs LL.D. and is addressed as Dr where an English lawyer would be Mr. B.E.&A. is the Bachelor of Engineering and Architecture behind the title Perit. The British-era honours at the tail are on older records; K.U.O.M. is the Maltese National Order of Merit.
+locale: mt
+---
+Jr
+Sr
+II
+III
+LL.D.
+M.D.
+Ph.D.
+B.A.
+B.Sc.
+M.A.
+M.Sc.
+B.Pharm.
+B.E.&A.
+B.Ed.
+M.B.A.
+F.R.C.S.
+M.R.C.P.
+R.N.
+C.P.A.
+O.B.E.
+M.B.E.
+K.U.O.M.
+K.M.

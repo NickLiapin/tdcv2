@@ -1,0 +1,22 @@
+---
+description: Insects and small crawling creatures (Maltese). Naħla, nemla and dubbiena are Semitic; the naħla matters beyond the list, because Malta's Latin name Melita is usually read as the Greek for honey.
+locale: mt
+---
+Naħla
+Nemla
+Farfett
+Ħanfusa
+Dubbiena
+Nemusa
+Żunżana
+Werżieq
+Brimba
+Wirdiena
+Ġurat
+Dudu
+Farfett il-lejl
+Skorpjun
+Qurdien
+Bergħud
+Ċikala
+Bebbuxu

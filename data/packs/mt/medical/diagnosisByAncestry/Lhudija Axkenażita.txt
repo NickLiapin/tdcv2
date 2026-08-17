@@ -1,0 +1,16 @@
+---
+description: Conditions whose prevalence is raised in people of Lhudija Axkenażita descent (Maltese).
+locale: mt
+---
+Marda ta' Tay-Sachs
+Marda ta' Gaucher tip 1
+Disawtonomija familjari
+Marda ta' Canavan
+Marda ta' Niemann-Pick tip A
+Sindromu ta' Bloom
+Nuqqas tal-Fattur XI
+Mutazzjoni fundatriċi BRCA1
+Mutazzjoni fundatriċi BRCA2
+Mukolipidożi tip IV
+Marda ta' Crohn
+Distonija ta' torsjoni

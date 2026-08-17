@@ -1,0 +1,5 @@
+---
+description: Capital of Niġerja as Maltese names it.
+locale: mt
+---
+Abuja

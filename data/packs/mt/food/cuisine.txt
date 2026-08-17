@@ -1,0 +1,21 @@
+---
+description: Cuisine (Maltese), feminine singular to agree with kċina. Sqallija is listed apart from Taljana on purpose: Sicilian food is a separate and closer neighbour to Maltese cooking than mainland Italian is, and roughly half of Maltese vocabulary came in from Sicilian. Ingliża is here for the same historical reason — Malta was British from 1800 to 1964 and the Sunday roast survived it.
+locale: mt
+---
+Maltija
+Sqallija
+Taljana
+Ingliża
+Franċiża
+Griega
+Torka
+Libaniża
+Ċiniża
+Ġappuniża
+Indjana
+Tajlandiża
+Vjetnamiża
+Koreana
+Messikana
+Spanjola
+Amerikana

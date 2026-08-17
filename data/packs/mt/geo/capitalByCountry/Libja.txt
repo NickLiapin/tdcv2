@@ -1,0 +1,5 @@
+---
+description: Capital of Libja as Maltese names it.
+locale: mt
+---
+Tripli

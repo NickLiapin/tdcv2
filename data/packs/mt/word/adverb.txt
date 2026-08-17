@@ -1,0 +1,36 @@
+---
+description: Common Maltese adverbs. MALTESE HAS NO ADVERBIAL SUFFIX — no equivalent of English -ly or Italian -mente — so most adverbs are PREPOSITIONAL PHRASES built on bi- plus the definite article plus a noun: bil-mod is 'with slowness', bir-reqqa 'with care', bil-ferħ 'with joy'. That is why so many values here are two words, and why an adverb cannot be derived from an adjective by suffixing anything.
+locale: mt
+---
+malajr
+bil-mod
+bir-reqqa
+faċilment
+bil-kwiet
+b'leħen għoli
+dejjem
+qatt
+spiss
+kultant
+rari
+f'daqqa
+bil-ħlewwa
+ċar
+sempliċement
+kważi
+bilkemm
+l-aktar
+tassew
+fil-fond
+liberament
+bil-kuraġġ
+bil-galbu
+bil-ħerqa
+sod
+bil-ferħ
+bil-qalb
+għal kollox
+bil-lest
+flimkien
+waħdu
+hemm

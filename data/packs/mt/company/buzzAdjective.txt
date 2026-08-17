@@ -1,0 +1,59 @@
+---
+description: Corporate buzz adjective. Read the mixture: Maltese business speech CODE-SWITCHES into English constantly, so a Maltese board paper really does read 'soluzzjoni scalable' — the values kept in English here are the ones a Maltese speaker would not translate, and translating them would make the list less Maltese, not more.
+locale: mt
+---
+Skalabbli
+Aġli
+Bla xkiel
+Robust
+Integrat
+Simplifikat
+Distribwit
+Cloud-native
+Immexxi mid-data
+Iċċentrat fuq il-klijent
+Minn tarf sa tarf
+Tal-ġenerazzjoni li jmiss
+F'ħin reali
+Cross-platform
+Ta' livell intrapriża
+Modulari
+Bla frizzjoni
+Turnkey
+Fost l-aħjar
+Reżistenti għall-futur
+Olistiku
+Dinamiku
+Proattiv
+Adattiv
+Ottimizzat
+Sigur
+Intelliġenti
+Awtomatizzat
+Unifikat
+Kollaborattiv
+Innovattiv
+Distruttiv
+Lean
+Magħmul apposta
+Componibbli
+Reżiljenti
+Elastiku
+Estensibbli
+Azzjonabbli
+B'valur miżjud
+Trasparenti
+Sostenibbli
+Effiċjenti
+Konformi
+Verifikabbli
+Iċċertifikat
+Bla waqfien
+Immirat
+Miftuħ
+Interoperabbli
+Miżjud
+Awtonomu
+Personalizzabbli
+Mobbli
+Globali

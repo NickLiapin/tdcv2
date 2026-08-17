@@ -1,0 +1,10 @@
+---
+description: Jobs in the Manifattura sector as Maltese names them.
+locale: mt
+---
+Makkinist
+Welder
+Spettur tal-kwalità
+Superviżur tal-produzzjoni
+Assemblatur
+Tekniku tal-manutenzjoni

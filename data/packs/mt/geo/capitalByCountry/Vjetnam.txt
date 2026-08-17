@@ -1,0 +1,5 @@
+---
+description: Capital of Vjetnam as Maltese names it.
+locale: mt
+---
+Hanoi

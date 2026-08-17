@@ -1,0 +1,10 @@
+---
+description: Jobs in the Saħħa sector as Maltese names them.
+locale: mt
+---
+Infermier
+Tabib
+Spiżjar
+Fiżjoterapista
+Assistent mediku
+Radjografu

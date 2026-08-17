@@ -1,0 +1,10 @@
+---
+description: Jobs in the Bejgħ bl-imnut sector as Maltese names them.
+locale: mt
+---
+Maniġer tal-ħanut
+Kaxxier
+Assistent tal-bejgħ
+Merċendiżer
+Uffiċjal tas-sigurtà
+Xerrej

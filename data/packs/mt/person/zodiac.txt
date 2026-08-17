@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (Maltese). The names came in from Italian, like the months.
+locale: mt
+---
+Arjete
+Toru
+Ġemelli
+Kankru
+Leone
+Verġni
+Bilanċa
+Skorpjun
+Sagittarju
+Kaprikornu
+Akkwarju
+Ħut

@@ -1,0 +1,16 @@
+---
+description: Streaming service. Brand names keep their real spelling.
+locale: mt
+---
+Netflix
+Disney+
+Amazon Prime Video
+Apple TV+
+Max
+Paramount+
+YouTube
+Spotify
+Twitch
+Crunchyroll
+TVMi
+GO Stream

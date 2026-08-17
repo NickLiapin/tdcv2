@@ -1,0 +1,58 @@
+---
+description: Colour (Maltese), masculine singular. Maltese colour words INFLECT — aħmar is masculine, ħamra feminine, ħomor plural, and the feminine is not the masculine plus a suffix but a different vowel pattern inside the same root, which is the Semitic grammar showing through. A config that appends a feminine ending to these values will produce nothing Maltese.
+locale: mt
+---
+Aħmar
+Aħdar
+Blu
+Isfar
+Oranġjo
+Vjola
+Roża
+Kannella
+Iswed
+Abjad
+Griż
+Ċjan
+Maġenta
+Lajm
+Marrun
+Blu tal-baħħara
+Żebbuġi
+Teal
+Fidda
+Deheb
+Beige
+Qroll
+Kremżi
+Indigo
+Avorju
+Kaki
+Lavanda
+Turkważ
+Vjolett
+Salamun
+Faħam
+Nagħniegħ
+Ħawħ
+Għanbaqra
+Rubin
+Żaffir
+Smerald
+Ambra
+Bronż
+Ram
+Skarlat
+Ċikkulata
+Mustarda
+Borgonja
+Fuksja
+Blu tas-sema
+Isfar tal-lumi
+Aħdar tal-ħaxix
+Aħmar tan-nar
+Blu tal-baħar
+Griż tal-ħadid
+Abjad tal-ġir
+Iswed tal-lejl
+Aħmar tad-demm

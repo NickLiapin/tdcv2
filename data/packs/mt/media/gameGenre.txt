@@ -1,0 +1,21 @@
+---
+description: Video-game genre (Maltese, with the English terms that have no Maltese equivalent).
+locale: mt
+---
+Azzjoni
+Avventura
+Logħob tar-rwoli
+Strateġija
+Simulazzjoni
+Sport
+Puzzle
+Sparar
+Platformer
+Tiġrijiet
+Ġlied
+Sopravivenza
+Sandbox
+MMORPG
+Roguelike
+Edukattiv
+Mużikali

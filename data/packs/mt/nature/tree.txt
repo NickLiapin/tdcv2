@@ -1,0 +1,28 @@
+---
+description: Tree (Maltese). L-Għargħar, the sandarac gum tree, is the NATIONAL TREE of Malta and its name carries the digraph GĦ twice; the ballut, the holm oak, is what is left of the woodland the islands once had, and the ħarrub and the żebbuġa are the trees the countryside is actually made of.
+locale: mt
+---
+Għargħar
+Ballut
+Żebbuġa
+Ħarrub
+Tin
+Rummiena
+Larinġ
+Lumija
+Palma
+Arżnu
+Prinjol
+Ċipress
+Ewkaliptu
+Bruka
+Lewża
+Ġewż
+Ċawsla
+Fikus
+Akaċja
+Siġra tat-tuffieħ
+Siġra tal-lanġas
+Siġra tal-ħawħ
+Siġra tal-berquq
+Siġra tan-nespli

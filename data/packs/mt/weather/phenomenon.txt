@@ -1,0 +1,19 @@
+---
+description: Extreme weather (Maltese). This list is Maltese and not a translation of an American one: the phenomena that actually happen here are the XLOKK, the sirocco that carries Saharan dust and coats the islands in red grit; the GRIGALATA, the north-easterly gale that closes the Gozo ferry; the TRUMBA TAL-ILMA, the waterspout, which is a common autumn sight off the coast; and flash flooding in the valleys. Hurricanes, blizzards, tornadoes and monsoons are NOT Maltese weather and are deliberately absent.
+locale: mt
+---
+Xlokk
+Grigalata
+Maltempata
+Trumba tal-ilma
+Għargħar f'daqqa
+Trab tas-Saħara
+Nixfa
+Mewġ qawwi
+Sajjetta
+Beraq u ragħad
+Silġ
+Sħana qawwija
+Riħ tal-Majjistral
+Medicane
+Nar tal-kampanja

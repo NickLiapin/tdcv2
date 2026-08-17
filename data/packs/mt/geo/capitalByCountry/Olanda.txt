@@ -1,0 +1,5 @@
+---
+description: Capital of Olanda as Maltese names it.
+locale: mt
+---
+Amsterdam

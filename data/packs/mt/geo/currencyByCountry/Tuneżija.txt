@@ -1,0 +1,5 @@
+---
+description: Currency of Tuneżija as Maltese names it.
+locale: mt
+---
+Dinar Tuneżin

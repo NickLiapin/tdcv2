@@ -1,0 +1,8 @@
+---
+description: Gender (Maltese). Raġel and mara are the everyday words; maskil and femminil are the grammatical and form-filling terms. Maltese grammar has only two genders and no neuter at all, so every noun, adjective and verb in this pack is either masculine or feminine.
+locale: mt
+---
+Raġel
+Mara
+Ieħor
+Ma jixtieqx jgħid

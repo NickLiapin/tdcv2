@@ -1,0 +1,25 @@
+---
+description: Fish (Maltese). The lampuka, the dorado, is the fish of the Maltese year — it runs from late August to December and the lampuki season and its pie are a national fixture — and Maltese has one-word names for the Mediterranean catch where English needs two. These are market names as a fishmonger in Marsaxlokk writes them; the last three are the shellfish and cephalopods a Maltese fish stall sells beside the fish.
+locale: mt
+---
+Lampuka
+Tonn
+Pixxispad
+Ċerna
+Awrata
+Spnotta
+Sargu
+Merluzz
+Salmun
+Trota
+Sawrell
+Kavall
+Sardin
+Bakkaljaw
+Dott
+Mazzola
+Vopi
+Fanfru
+Klamar
+Qarnita
+Bebbux tal-baħar

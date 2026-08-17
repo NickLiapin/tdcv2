@@ -1,0 +1,26 @@
+---
+description: Property feature (Maltese). Two are Maltese and worth reading: IL-BALKUN MALTI, the closed painted wooden balcony that hangs over the street and is the single most recognisable thing about Maltese architecture, and IĊ-ĊISTERNA TAL-ILMA, the rainwater cistern cut into the rock under the house — compulsory under building rules on islands with no rivers and no lakes, and a genuine selling point.
+locale: mt
+---
+Pixxina
+Garaxx
+Bejt
+Bitħa
+Balkun Malti
+Ċisterna tal-ilma
+Arja kkundizzjonata
+Ġnien
+Terrazzin
+Veduta tal-baħar
+Veduta tal-kampanja
+Lift
+Parkeġġ
+Magna tal-ħasil
+Pannelli solari
+Sistema tas-sigurtà
+Kantina
+Kamin
+Art tal-injam
+Gwardarobba mgħammra
+Kċina mgħammra
+Aċċess għad-diżabbiltà

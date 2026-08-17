@@ -1,0 +1,30 @@
+---
+description: Customer review headline (Maltese).
+locale: mt
+---
+Prodott tal-affari!
+Nirrikkmandah ħafna
+Ma jiswiex il-flus
+Aqbeż l-aspettattivi
+Tajjeb biżżejjed
+Nerġa' nixtrih
+Diżappuntat
+Kwalità eċċellenti
+Inkiser malajr
+Perfett għall-prezz
+Aħjar milli stennejt
+Ma nirrikkmandahx
+Għoġobni ħafna!
+Ftit għali
+Eżattament kif deskritt
+Wasal malajr
+Ippakkjat tajjeb
+Servizz tal-ewwel
+Ma jiswiex għal xejn
+Kwalità medjokri
+Jagħmel xogħlu
+Sempliċi u effettiv
+Ftit iżgħar milli ħsibt
+Jixraqlu l-flus
+Nixtrih mill-ġdid
+Diżappuntanti ħafna

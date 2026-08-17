@@ -1,0 +1,10 @@
+---
+description: Conditions whose prevalence is raised in people of tal-Gżejjer tal-Paċifiku descent (Maltese).
+locale: mt
+---
+Dijabete tat-tip 2
+Pressjoni għolja marbuta mal-obeżità
+Gotta
+Mard rewmatiku tal-qalb
+Mard kroniku tal-kliewi
+Iperuriċemija

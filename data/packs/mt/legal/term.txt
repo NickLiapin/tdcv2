@@ -1,0 +1,26 @@
+---
+description: Legal term (Maltese). Attur and konvenut are plaintiff and defendant; a prokuratur legali and an avukat are two distinct branches of the Maltese profession, and the nutar draws up the deeds that transfer property, so a Maltese property record names one.
+locale: mt
+---
+Attur
+Konvenut
+Taħrika
+Ċitazzjoni
+Affidavit
+Mandat ta' inibizzjoni
+Xhieda
+Sentenza
+Ftehim bonarju
+Kawża
+Ġurisdizzjoni
+Appell
+Rikors
+Nota ta' eċċezzjonijiet
+Ġurija
+Maġistrat
+Imħallef
+Avukat
+Prokuratur Legali
+Nutar
+Att pubbliku
+Prova

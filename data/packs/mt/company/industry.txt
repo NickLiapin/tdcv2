@@ -1,0 +1,59 @@
+---
+description: Industry sector (Maltese). Turiżmu, xogħol marittimu, logħob onlajn and servizzi finanzjarji are the sectors that actually carry the Maltese economy; iGaming is left in English because that is the word used in Malta.
+locale: mt
+---
+Agrikoltura
+Sajd
+Kostruzzjoni
+Manifattura
+Bejgħ bl-imnut
+Bejgħ bl-ingrossa
+Trasport
+Teknoloġija tal-informazzjoni
+Finanzi
+Assigurazzjoni
+Proprjetà immobbli
+Saħħa
+Edukazzjoni
+Ospitalità
+Turiżmu
+Divertiment
+Enerġija
+Telekomunikazzjoni
+Karozzi
+Ajruspazju
+Farmaċewtika
+Bijoteknoloġija
+Loġistika
+Midja
+Konsulenza
+Organizzazzjoni bla profitt
+iGaming
+Servizzi marittimi
+Tarzna
+Avjazzjoni
+Bankarju
+Servizzi legali
+Kontabilità
+Riċerka
+Ambjent
+Immaniġġjar tal-iskart
+Ilma
+Sigurtà
+Tisjir
+Ħwienet tal-ikel
+Barrieri
+Ħjata
+Stampar
+Arti
+Sport
+Films
+Servizzi pubbliċi
+Difiża
+Riċiklaġġ
+Kimika
+Elettronika
+Xogħol tal-ġebel
+Manutenzjoni tal-ajruplani
+Servizzi tal-ivvjaġġar
+Immaniġġjar tal-fondi

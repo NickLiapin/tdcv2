@@ -1,0 +1,5 @@
+---
+description: Capital of Ukrajna as Maltese names it.
+locale: mt
+---
+Kiev

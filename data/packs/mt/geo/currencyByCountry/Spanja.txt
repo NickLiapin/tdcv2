@@ -1,0 +1,5 @@
+---
+description: Currency of Spanja as Maltese names it.
+locale: mt
+---
+Ewro

@@ -1,0 +1,10 @@
+---
+description: Playing positions in Futbol as Maltese names them.
+locale: mt
+---
+Purtier
+Difensur ċentrali
+Terzin
+Nofs il-grawnd
+Ġenb
+Attakkant

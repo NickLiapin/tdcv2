@@ -1,0 +1,10 @@
+---
+description: Jobs in the Edukazzjoni sector as Maltese names them.
+locale: mt
+---
+Għalliem
+Professur
+Kunsillier tal-iskola
+Bibljotekarju
+Assistent tal-għalliem
+Kap tal-iskola

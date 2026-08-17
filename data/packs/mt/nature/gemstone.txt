@@ -1,0 +1,29 @@
+---
+description: Gemstone (Maltese).
+locale: mt
+---
+Djamant
+Rubin
+Żaffir
+Smerald
+Ametista
+Topazju
+Opal
+Granat
+Akkwamarina
+Peridot
+Turkważ
+Ġada
+Oniċi
+Perla
+Ċitrin
+Tanżanit
+Turmalina
+Ħaġra tal-qamar
+Żirkonju
+Lapislazzuli
+Qroll
+Ambra
+Malakite
+Kwarz
+Kalċedonju

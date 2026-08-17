@@ -1,0 +1,62 @@
+---
+description: Product material (Maltese). Ġebla tal-franka, the globigerina limestone the islands are built of, is a Maltese material in a way none of the others are.
+locale: mt
+---
+Azzar
+Injam
+Konkrit
+Plastik
+Qoton
+Granit
+Lastku
+Metall
+Ċeramika
+Ġilda
+Bambu
+Ħġieġ
+Aluminju
+Silikon
+Għażel
+Suf
+Ram
+Bronż
+Irħam
+Fibra tal-karbonju
+Azzar inossidabbli
+Ballut
+Ġewż
+Kanvas
+Ġebla tal-franka
+Ġibs
+Karta
+Kartun
+Sufra
+Ħarir
+Kittien
+Denim
+Velur
+Feltru
+Neoprene
+Titanju
+Żingu
+Ċomb
+Nikil
+Fidda
+Deheb
+Platinu
+Perli
+Qroll
+Alabastru
+Terrakotta
+Porċellana
+Kristall
+Lattiċe
+Poliester
+Najlon
+Viskosa
+Kaxxmir
+Ħalfa
+Tafal
+Ġebel tal-baħar
+Injam tar-rovere
+Injam taż-żnuber

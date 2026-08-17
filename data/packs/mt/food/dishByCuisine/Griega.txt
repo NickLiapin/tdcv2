@@ -1,0 +1,11 @@
+---
+description: Dishes of the Griega kitchen as Maltese names them.
+locale: mt
+---
+Musaka
+Suvlaki
+Ġiro
+Insalata Griega
+Spanakopita
+Baklava
+Tzatziki

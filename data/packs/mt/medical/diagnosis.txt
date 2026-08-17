@@ -1,0 +1,83 @@
+---
+description: Diagnosis (Maltese). Clinical Maltese is Romance-built (pressjoni għolja, dijabete, pulmonite) while the everyday body words underneath stay Semitic — kliewi are kidneys, fwied the liver, qalb the heart — so a Maltese chart mixes the two registers in one line.
+locale: mt
+---
+Pressjoni għolja
+Dijabete tat-tip 2
+Ażma
+Bronkite akuta
+Influwenza
+Emigranja
+Disturb ta' ansjetà ġeneralizzata
+Depressjoni maġġuri
+Osteoartrite
+Artrite rewmatojde
+Rifluss gastroesofagew
+Anemija minn nuqqas ta' ħadid
+Ipotirojdiżmu
+Infezzjoni fl-apparat urinarju
+Pulmonite
+Mard kroniku tal-kliewi
+Mard tal-arterji koronarji
+Fibrillazzjoni atrijali
+Insuffiċjenza kardijaka
+Puplesija iskemika
+Epilessija
+Marda ta' Parkinson
+Marda ta' Alzheimer
+Sklerożi multipla
+Psorjasi
+Dermatite atopika
+Rinite allerġika
+Sinusite kronika
+Otite medja
+Konġuntivite
+Katarretta
+Glawkoma
+Appendiċite
+Kolelitjasi
+Divertikulite
+Sindromu tal-imsaren irritabbli
+Marda ta' Crohn
+Kolite ulċerattiva
+Epatite B kronika
+Ċirrożi tal-fwied
+Pankreatite akuta
+Gotta
+Osteoporożi
+Fibromijalġija
+Xjatika
+Diska erniata
+Sindromu tal-mina karpali
+Tendinite
+Mard pulmonari ostruttiv kroniku
+Tuberkulożi
+Lewkimja
+Limfoma
+Melanoma
+Iperlipidemija
+Obeżità
+Apnea ostruttiva tal-irqad
+Nuqqas ta' rqad
+Disturb bipolari
+Disturb ta' defiċit tal-attenzjoni
+Marda ċeljaka
+Lupus eritematuż sistemiku
+Sturdament
+Żanżin fil-widnejn
+Murliti
+Vini varikużi
+Trombożi fil-vini fondi
+Emboliżmu pulmonari
+Ġebel fil-kliewi
+Anemija
+Ipertirojdiżmu
+Ulċera peptika
+Gastrite
+Ċellulite
+Sepsi
+Kanċer tas-sider
+Gastroenterite akuta
+Nuqqas ta' vitamina D
+Nuqqas ta' G6PD
+Talassemija beta

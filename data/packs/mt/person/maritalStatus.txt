@@ -1,0 +1,18 @@
+---
+description: Marital status (Maltese), both gendered forms where Maltese has them — għażeb is an unmarried man and għażba an unmarried woman, armel a widower and armla a widow, and no single form covers both. Two dates matter for any Maltese dataset: DIVORCE WAS ONLY INTRODUCED IN 2011, by referendum, Malta being the last state in the EU to allow it, so divorzjat cannot legitimately appear in a Maltese record dated before then; and same-sex marriage has been available since 2017.
+locale: mt
+---
+Għażeb
+Għażba
+Miżżewweġ
+Miżżewġa
+Divorzjat
+Divorzjata
+Armel
+Armla
+Separat
+Separata
+Għarus
+Għarusa
+Sħubija ċivili
+Annullat

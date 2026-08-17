@@ -1,0 +1,15 @@
+---
+description: Shipping status (Maltese). Malta is an island: nothing arrives except by sea or air, so 'fil-Malta Freeport' and customs clearance are ordinary steps in a Maltese tracking history rather than exceptions.
+locale: mt
+---
+Tikketta maħluqa
+Fi tranżitu
+Barra għall-konsenja
+Ikkunsinnat
+Eċċezzjoni
+Ritornat lil min bagħtu
+Jistenna l-ġbir
+Imdewwem
+Għand id-dwana
+Ħalla l-pajjiż tal-oriġini
+Wasal Malta

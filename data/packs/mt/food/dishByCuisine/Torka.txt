@@ -1,0 +1,11 @@
+---
+description: Dishes of the Torka kitchen as Maltese names them.
+locale: mt
+---
+Kebab
+Lahmacun
+Meze
+Dolma
+Köfte
+Pide
+Baklava Torka

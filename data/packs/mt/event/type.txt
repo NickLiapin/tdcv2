@@ -1,0 +1,22 @@
+---
+description: Kind of event (Maltese). The festa is the axis of the Maltese year — every parish keeps its patron saint's week with a band march, ground and aerial fireworks and a procession — and the ġostra, the greasy pole at St Julian's, and the regatta rowed in the Grand Harbour are national events with no translation.
+locale: mt
+---
+Festa
+Marċ tal-banda
+Purċissjoni
+Ġostra
+Regatta
+Konferenza
+Tieġ
+Kunċert
+Festival
+Workshop
+Webinar
+Wirja kummerċjali
+Ġbir ta' fondi
+Netwerking
+Tnedija ta' prodott
+Seminar
+Serata ta' gala
+Wirja tal-arti

@@ -1,0 +1,32 @@
+---
+description: Government body — MALTA's, named because Maltese is the language of one state and these are the names its speakers actually use. Identità is the identity and residency agency, Jobsplus the employment service, and the Kunsill Lokali is the ONLY elected body below national level, since Malta has no province or county tier. The identity-card and tax number formats these bodies issue live in the Malta country pack.
+locale: mt
+---
+Ministeru għas-Saħħa
+Ministeru għall-Edukazzjoni
+Ministeru għall-Finanzi
+Ministeru għall-Intern
+Ministeru għall-Affarijiet Barranin
+Ministeru għat-Turiżmu
+Ministeru għat-Trasport
+Ministeru għall-Ġustizzja
+Ministeru għall-Ambjent
+Ministeru għall-Agrikoltura
+Identità
+Transport Malta
+Jobsplus
+Awtorità tal-Ippjanar
+Awtorità għall-Ambjent u r-Riżorsi
+Kummissarju tat-Taxxi
+Dipartiment tas-Sigurtà Soċjali
+Korp tal-Pulizija ta' Malta
+Forzi Armati ta' Malta
+Uffiċċju Nazzjonali tal-Istatistika
+Kunsill Lokali
+Dipartiment tal-Informazzjoni
+Kummissjoni Elettorali
+Awtorità Maltija għas-Servizzi Finanzjarji
+Awtorità Maltija tal-Logħob
+Dwana
+Reġistru Pubbliku
+Uffiċċju tal-Ombudsman

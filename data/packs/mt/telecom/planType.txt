@@ -1,0 +1,16 @@
+---
+description: Kind of mobile plan (Maltese).
+locale: mt
+---
+Prepaid
+Postpaid
+Bla limitu
+Familja
+Negozju
+Data biss
+Roaming
+Kuntratt sena
+Kuntratt sentejn
+Bundle tad-dar
+SIM biss
+Turist

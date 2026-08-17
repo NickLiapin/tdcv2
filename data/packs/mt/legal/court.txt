@@ -1,0 +1,18 @@
+---
+description: Court (Maltese). These are MALTA's courts, and naming them is not a country-pack trespass but a language fact: the Constitution makes Maltese the language of the courts, so these Maltese names are the official ones and no other country's judiciary uses them. Gozo keeps its own Court of Magistrates, and the Small Claims Tribunal hears the low-value civil cases.
+locale: mt
+---
+Qorti Kostituzzjonali
+Qorti tal-Appell
+Qorti tal-Appell Kriminali
+Qorti Kriminali
+Prim'Awla tal-Qorti Ċivili
+Qorti Ċivili
+Qorti Ċivili (Sezzjoni tal-Familja)
+Qorti tal-Maġistrati
+Qorti tal-Maġistrati (Għawdex)
+Qorti tal-Minorenni
+Tribunal għal Talbiet Żgħar
+Tribunal ta' Reviżjoni Amministrattiva
+Qorti tal-Ġurati
+Tribunal Industrijali

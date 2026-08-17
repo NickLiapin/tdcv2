@@ -1,0 +1,173 @@
+---
+description: Job title (Maltese), masculine singular — Maltese job titles agree with the holder, so an għalliema is a woman teacher and an infermiera a woman nurse, and a config that prints these unchanged beside a female given name is writing the masculine form. PERIT is the protected title of an architect and civil engineer and is used before the name like a doctorate. Several titles stay in English because that is what the Maltese labour market calls them (accountant, welder, chef).
+locale: mt
+---
+Inġinier tas-softwer
+Inġinier anzjan tas-softwer
+Analist tad-data
+Xjenzat tad-data
+Inġinier DevOps
+Inġinier tal-kwalità
+Maniġer tal-prodott
+Disinjatur UX
+Amministratur tas-sistemi
+Inġinier tan-netwerks
+Amministratur tad-databases
+Analist tas-sigurtà
+Arkitett tal-cloud
+Żviluppatur tal-mobajl
+Żviluppatur frontend
+Żviluppatur backend
+Speċjalista tal-IT
+Infermier
+Tabib
+Kirurgu
+Anestesista
+Pedjatra
+Spiżjar
+Paramediku
+Fiżjoterapista
+Terapista okkupazzjonali
+Igjenista dentali
+Dentista
+Radjografu
+Assistent mediku
+Flebotomista
+Terapista respiratorju
+Optometrista
+Veterinarju
+Ħaddiem tal-kura fid-dar
+Elettriċista
+Plamer
+Welder
+Mastrudaxxa
+Tekniku tal-arja kkundizzjonata
+Makkinist
+Bennej
+Kaħħal
+Pittur
+Bajjad
+Tekniku tal-karozzi
+Mekkanik tad-diesel
+Mekkanik tal-ajruplani
+Ħaddiem tal-barriera
+Qattiegħ tal-ġebel
+Operatur tal-krejn
+Operatur tal-eskavatur
+Tekniku tal-isplussivi
+Sewwieq tat-trakk
+Sewwieq tal-konsenji
+Sewwieq tal-karozza tal-linja
+Operatur tal-forklift
+Ħaddiem tal-maħżen
+Koordinatur tal-loġistika
+Dispaċċer
+Kontrollur tat-traffiku tal-ajru
+Pilota kummerċjali
+Assistent tal-ajru
+Kaptan tal-vapur
+Baħri
+Pilota tal-port
+Kurrier
+Tekniku tat-telekomunikazzjoni
+Tekniku tal-fibra ottika
+Operatur tal-impjant tal-enerġija
+Operatur tat-trattament tal-ilma
+Tekniku tal-pannelli solari
+Ħaddiem tal-gass
+Accountant
+Kontabilista
+Analist finanzjarju
+Awditur
+Attwarju
+Konsulent tat-taxxa
+Rappreżentant tal-bejgħ
+Eżekuttiv tal-kontijiet
+Maniġer tal-marketing
+Speċjalista tal-marketing
+Maniġer tal-marka
+Speċjalista tar-riżorsi umani
+Reklutatur
+Maniġer tal-operazzjonijiet
+Maniġer tal-proġetti
+Analist tan-negozju
+Assistent eżekuttiv
+Maniġer tal-uffiċċju
+Riċevitur
+Skrivan
+Speċjalista tax-xiri
+Kok
+Sous chef
+Kok tal-linja
+Furnar
+Barman
+Barista
+Wejter
+Host
+Maniġer tal-lukanda
+Kamriera
+Konċerġ
+Assistent tal-bejgħ
+Maniġer tal-ħanut
+Kaxxier
+Rappreżentant tas-servizz tal-klijenti
+Aġent taċ-ċentru tat-telefonati
+Gwardjan tas-sigurtà
+Ġanitur
+Ġardinar
+Għalliem tal-primarja
+Għalliem tas-sekondarja
+Għalliem tal-edukazzjoni speċjali
+Professur
+Lettur
+Assistent tal-għalliem
+Kunsillier tal-iskola
+Bibljotekarju
+Kap tal-iskola
+Tutur
+Pulizija
+Suldat
+Ħaddiem tal-Protezzjoni Ċivili
+Spettur
+Uffiċjal tal-ħabs
+Uffiċjal tad-dwana
+Ħaddiem soċjali
+Maniġer tal-każi
+Ħaddiem tal-posta
+Pustier
+Ħaddiem tat-tindif
+Disinjatur grafiku
+Fotografu
+Vidjografu
+Kittieb tal-kopja
+Kittieb tal-kontenut
+Ġurnalist
+Editur
+Perit
+Disinjatur ta' ġewwa
+Inġinier ċivili
+Inġinier mekkaniku
+Inġinier elettriku
+Avukat
+Prokuratur legali
+Imħallef
+Segretarju legali
+Nutar
+Bidwi
+Raħħal
+Ħaddiem tar-razzett
+Ġardinar tal-pajsaġġ
+Arboristu
+Sajjied
+Naħħal
+Ħaddiem tal-bini
+Furman tal-bini
+Sorveljant
+Spettur tal-bini
+Ħaddiem tad-demolizzjoni
+Krupier
+Uffiċjal tal-konformità tal-logħob
+Aġent tal-proprjetà
+Gwida turistika
+Tekniku tal-mediċina tal-laboratorju
+Uffiċjal tal-immigrazzjoni

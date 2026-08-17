@@ -1,0 +1,10 @@
+---
+description: Jobs in the Trasport sector as Maltese names them.
+locale: mt
+---
+Sewwieq tat-trakk
+Koordinatur tal-loġistika
+Kontrollur tat-traffiku tal-ajru
+Dispaċċer
+Pilota kummerċjali
+Ħaddiem tal-maħżen

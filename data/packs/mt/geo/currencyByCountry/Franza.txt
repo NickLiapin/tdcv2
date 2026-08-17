@@ -1,0 +1,5 @@
+---
+description: Currency of Franza as Maltese names it.
+locale: mt
+---
+Ewro

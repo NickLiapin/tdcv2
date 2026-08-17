@@ -1,0 +1,5 @@
+---
+description: Currency of Marokk as Maltese names it.
+locale: mt
+---
+Dirham Marokkin

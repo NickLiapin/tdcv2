@@ -1,0 +1,112 @@
+---
+description: The name part of a Maltese street, to follow a streetSuffix (Triq il-Kbira, Vjal l-Indipendenza). These values CARRY the definite article, and that is deliberate: a Maltese street name is a genitive phrase in which the article is obligatory — Triq ix-Xemx, never Triq Xemx — and its form is dictated by the first consonant of the name. Maltese fuses the definite article onto the following word and ASSIMILATES it to that word's first consonant: il- by default, but ix-Xemx, is-Sajf, id-Dar, it-Torri, in-Nar, ir-Repubblika, iz-Zija, ic-Cavetta (ic with a dot), ig-Gnien (ig with a dot), iz-Zebbug (z with a dot), and l- before a vowel. A config that glues a bare il- onto every value will be wrong on most of them. Saints, clergy and named people take NO article at all (Triq San Pawl, Triq Dun Karm). Real Maltese street names, not invented ones; the streets of one named locality belong in a country pack.
+locale: mt
+---
+il-Kbira
+ir-Repubblika
+il-Merkanti
+l-Indipendenza
+il-Ħelsien
+ir-Rebħa
+il-Vitorja
+ix-Xemx
+il-Qamar
+il-Kwiekeb
+il-Baħar
+ix-Xatt
+il-Wied
+il-Blata
+il-Ġebla
+il-Għajn
+il-Ġnien
+il-Fjuri
+il-Ward
+iż-Żebbuġ
+il-Ħarrub
+it-Tin
+il-Lewż
+il-Palma
+il-Ballut
+l-Għargħar
+il-Ħuttafa
+il-Merill
+il-Gawwija
+il-Lampuka
+it-Tonn
+il-Qroll
+il-Bebbux
+il-Fenek
+il-Ħamiem
+in-Naħla
+il-Kappella
+il-Knisja
+il-Kunvent
+is-Salib
+il-Madonna
+il-Milied
+l-Għid
+is-Sajf
+ix-Xitwa
+ir-Rebbiegħa
+il-Ħarifa
+il-Ħaddiem
+is-Sengħa
+il-Ħaddieda
+in-Nassab
+is-Sajjied
+il-Bdiewa
+il-Baħħara
+is-Suldati
+il-Kavallieri
+l-Assedju
+il-Kanun
+it-Torri
+is-Sur
+il-Forn
+il-Mitħna
+il-Bir
+l-Iskola
+l-Isptar
+is-Suq
+il-Banda
+il-Festa
+il-Ġostra
+id-Dielja
+id-Dwana
+il-Belt
+l-Imdina
+il-Katidral
+il-Kbira San Ġużepp
+l-Erwieħ
+il-Providenza
+il-Karità
+il-Paċi
+il-Ħbiberija
+l-Imħabba
+it-Tama
+il-Ferħ
+is-Sliem
+id-Dawl
+il-Ġustizzja
+il-Ħelu
+il-Qattus
+iċ-Ċawsli
+iż-Żerniq
+in-Nofsinhar
+il-Punent
+il-Lvant
+it-Tramuntana
+San Pawl
+San Ġwann
+San Ġużepp
+Santa Marija
+Santa Luċija
+San Bastjan
+San Girgor
+San Duminku
+San Franġisk
+Santu Rokku
+Dun Karm
+Mikiel Anton Vassalli
+Manwel Dimech
+Ġan Franġisk Abela

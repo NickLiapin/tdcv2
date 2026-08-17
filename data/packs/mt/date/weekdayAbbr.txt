@@ -1,0 +1,11 @@
+---
+description: Weekday abbreviations (Maltese), Monday first. The article is dropped in the short form.
+locale: mt
+---
+Tne
+Tli
+Erb
+Ħam
+Ġim
+Sib
+Ħad

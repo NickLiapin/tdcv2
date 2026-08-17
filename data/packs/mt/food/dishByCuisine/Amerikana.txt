@@ -1,0 +1,11 @@
+---
+description: Dishes of the Amerikana kitchen as Maltese names them.
+locale: mt
+---
+Ċiżburger
+Kustilji BBQ
+Mac and cheese
+Buffalo wings
+Soppa tal-arzell
+Torta tat-tuffieħ
+Ħobż tal-qamħirrum

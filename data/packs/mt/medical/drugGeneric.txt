@@ -1,0 +1,45 @@
+---
+description: Generic drug name (Maltese spelling). INN generic names are international by design; Maltese adapts only the spelling to its own orthography, so the substance is always recognisable.
+locale: mt
+---
+Paraċetamol
+Ibuprofen
+Aspirina
+Amoksiċillina
+Ażitromiċina
+Lisinopril
+Metformina
+Atorvastatina
+Amlodipina
+Omeprażol
+Levotirossina
+Salbutamol
+Metoprolol
+Losartan
+Gabapentin
+Idroklorotijażid
+Sertralina
+Prednisolon
+Warfarin
+Furosemid
+Ċiprofloksaċina
+Doksiċiklina
+Fluwossetina
+Ċitalopram
+Pantoprażol
+Simvastatina
+Montelukast
+Tramadol
+Naprossen
+Insulina glarġina
+Eskitalopram
+Duloksetina
+Klopidogrel
+Ranitidina
+Diklofenak
+Kodeina
+Morfina
+Penicillina
+Ċetirizina
+Loratadina
+Kolekalċiferol

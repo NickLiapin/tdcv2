@@ -1,0 +1,5 @@
+---
+description: Currency of Filippini as Maltese names it.
+locale: mt
+---
+Peso Filippin

@@ -1,0 +1,49 @@
+---
+description: Dish (Maltese). The Maltese ones lead: pastizzi (the ricotta or pea pastry sold at every corner), ftira (the ringed sourdough loaf, UNESCO-listed in 2020), fenek — rabbit — which is the national meat, and the lampuki pie made in the autumn dorado season.
+locale: mt
+---
+Pastizzi
+Ftira
+Ħobż biż-żejt
+Timpana
+Bragjoli
+Stuffat tal-fenek
+Fenek moqli
+Torta tal-lampuki
+Aljotta
+Kusksu
+Soppa tal-armla
+Ross il-forn
+Imqarrun il-forn
+Bigilla
+Ġbejniet
+Qassatat
+Zalzett tal-Malti
+Imqaret
+Kannoli tal-irkotta
+Figolla
+Qagħaq tal-għasel
+Ħelwa tat-Tork
+Kwareżimal
+Prinjolata
+Pizza Margherita
+Spaghetti alla carbonara
+Lasanja
+Risotto
+Sushi
+Ramen
+Kebab
+Ħummus
+Falafel
+Tacos
+Burrito
+Paella
+Fish and chips
+Ċiżburger
+Insalata Ċesare
+Ross moqli
+Kari tat-tiġieġ
+Musaka
+Suvlaki
+Njokki
+Soppa tal-ħaxix

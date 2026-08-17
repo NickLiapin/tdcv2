@@ -1,0 +1,5 @@
+---
+description: Capital of Norveġja as Maltese names it.
+locale: mt
+---
+Oslo

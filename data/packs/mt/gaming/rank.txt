@@ -1,0 +1,14 @@
+---
+description: Competitive rank (Maltese). Gran Mastru is not a translation of Grandmaster so much as a borrowing back: it is the title of the head of the Order of St John, who ruled Malta from 1530 to 1798.
+locale: mt
+---
+Ħadid
+Bronż
+Fidda
+Deheb
+Platinu
+Djamant
+Mastru
+Gran Mastru
+Kampjun
+Sfidant

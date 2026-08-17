@@ -1,0 +1,158 @@
+---
+description: Countries as MALTESE names them. This list is deliberately SHORTER than the 233 of the en pack: a country is here only where Maltese has an established name for it, because inventing a Maltese spelling for a state that Maltese writing has never had to name would be inventing data. Note the shape of the adaptations — /sh/ is written x (Bangladexx), /k/ before a front vowel is k not c (Marokk), and several names take the definite article in running text (l-Italja, ir-Renju Unit) which is stripped here as a list value.
+locale: mt
+---
+Afganistan
+Albanija
+Alġerija
+Andorra
+Angola
+Arġentina
+Armenja
+Awstralja
+Awstrija
+Ażerbajġan
+Bangladexx
+Barbados
+Belġju
+Benin
+Bolivja
+Bosnja u Ħerzegovina
+Botswana
+Brażil
+Brunei
+Bulgarija
+Burkina Faso
+Burundi
+Kambodja
+Kamerun
+Kanada
+Ċad
+Ċili
+Ċina
+Kolombja
+Kosta Rika
+Kroazja
+Kuba
+Ċipru
+Repubblika Ċeka
+Danimarka
+Repubblika Dominikana
+Ekwador
+Eġittu
+El Salvador
+Emirati Għarab Magħquda
+Eritrea
+Estonja
+Etjopja
+Fiġi
+Filippini
+Finlandja
+Franza
+Gabon
+Gambja
+Ġamajka
+Ġappun
+Ġeorġja
+Ġermanja
+Gana
+Għarabja Sawdija
+Ġibuti
+Ġordan
+Greċja
+Gwatemala
+Gwinea
+Indja
+Indoneżja
+Iran
+Iraq
+Irlanda
+Islanda
+Italja
+Iżrael
+Każakistan
+Kenja
+Korea t'Isfel
+Korea ta' Fuq
+Kuwajt
+Latvja
+Lesoto
+Libanu
+Liberja
+Libja
+Liechtenstein
+Litwanja
+Lussemburgu
+Maċedonja ta' Fuq
+Madagaskar
+Malasja
+Malawi
+Maldivi
+Mali
+Malta
+Marokk
+Mawritanja
+Messiku
+Mjanmar
+Moldova
+Monako
+Mongolja
+Montenegro
+Możambik
+Namibja
+Nepal
+New Zealand
+Nikaragwa
+Niġer
+Niġerja
+Norveġja
+Olanda
+Oman
+Pakistan
+Panama
+Paragwaj
+Perù
+Polonja
+Portugall
+Qatar
+Renju Unit
+Rumanija
+Russja
+Rwanda
+San Marino
+Senegal
+Serbja
+Sirja
+Singapor
+Sjerra Leone
+Slovakkja
+Slovenja
+Somalja
+Spanja
+Sri Lanka
+Stati Uniti tal-Amerika
+Sudan
+Surinam
+Svezja
+Taġikistan
+Tajlandja
+Tajwan
+Tanzanija
+Togo
+Trinidad u Tobago
+Tuneżija
+Turkija
+Turkmenistan
+Uganda
+Ukrajna
+Ungerija
+Urugwaj
+Użbekistan
+Vatikan
+Venezwela
+Vjetnam
+Jemen
+Żambja
+Żimbabwe
+Afrika t'Isfel
+Żvizzera

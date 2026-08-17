@@ -1,0 +1,5 @@
+---
+description: Capital of Awstralja as Maltese names it.
+locale: mt
+---
+Canberra

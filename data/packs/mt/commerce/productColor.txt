@@ -1,0 +1,58 @@
+---
+description: Product colour (Maltese), masculine singular — the same inflection warning as color/name applies.
+locale: mt
+---
+Aħmar
+Aħdar
+Blu
+Isfar
+Oranġjo
+Vjola
+Roża
+Kannella
+Iswed
+Abjad
+Griż
+Fidda
+Deheb
+Beige
+Turkważ
+Kremżi
+Indigo
+Avorju
+Kaki
+Lavanda
+Salamun
+Faħam
+Nagħniegħ
+Ħawħ
+Rubin
+Żaffir
+Smerald
+Ambra
+Bronż
+Ram
+Skarlat
+Ċikkulata
+Mustarda
+Borgonja
+Fuksja
+Blu tas-sema
+Aħdar żebbuġi
+Aħmar tan-nar
+Blu skur
+Blu ċar
+Aħdar skur
+Aħdar ċar
+Griż ċar
+Griż skur
+Abjad tal-ġir
+Iswed matt
+Trasparenti
+Multikulur
+Kannella ċar
+Kannella skur
+Roża ċar
+Vjola skur
+Isfar tal-lumi
+Oranġjo tal-larinġ

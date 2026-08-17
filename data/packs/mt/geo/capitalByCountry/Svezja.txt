@@ -1,0 +1,5 @@
+---
+description: Capital of Svezja as Maltese names it.
+locale: mt
+---
+Stokkolma

@@ -1,0 +1,21 @@
+---
+description: Kind of bicycle (Maltese).
+locale: mt
+---
+Rota tat-triq
+Rota tal-muntanji
+Rota ibrida
+Rota tal-belt
+Rota tal-gravel
+BMX
+Rota elettrika
+Rota li tintewa
+Rota tal-vjaġġi
+Ciclocross
+Fat bike
+Rota rikumbenti
+Rota tat-tfal
+Rota tal-karozzin
+Monociklu
+Triċiklu
+Rota tal-kiri

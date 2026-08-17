@@ -1,0 +1,54 @@
+---
+description: Sport (Maltese). Read the order: FUTBOL and WATERPOLO are the two national sports and water polo genuinely rivals football every summer, which is why it heads the list where an American or Northern European pack would put baseball or ice hockey. BOĊĊI is the Maltese bowls game, played on gravel pitches in every village, and IR-REGATTA is the harbour rowing race held on 8 September and 31 March. NO WINTER SPORTS: it has never snowed in Malta and there is no ice rink, so skiing and ice hockey are absent by fact, not by oversight.
+locale: mt
+---
+Futbol
+Waterpolo
+Baskitbol
+Volleyball
+Ħandbol
+Rugby
+Kriket
+Netball
+Tennis
+Golf
+Għawm
+Qdif
+Tbaħħir
+Ġiri
+Ċikliżmu
+Boċċi
+Regatta
+Tiġrija taż-żwiemel
+Boxing
+Karate
+Ġudo
+Atletika
+Tennis tal-mejda
+Badminton
+Squash
+Sparar
+Għadis
+Windsurfing
+Kitesurfing
+Ġinnastika
+Sollevament tal-piżijiet
+Snooker
+Darts
+Motociklismu
+Triathlon
+Maratona
+Ski tal-ilma
+Kajakking
+Padel
+Skateboarding
+Ċess
+Bowling
+Futsal
+Lotta
+Sajd sportiv
+Tiġrijiet tal-karozzi
+Kickboxing
+Tir bil-vleġġa
+Skerma
+Parasailing

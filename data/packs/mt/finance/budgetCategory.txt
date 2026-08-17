@@ -1,0 +1,24 @@
+---
+description: Household budget line (Maltese). Amounts are in EURO — Malta joined the euro on 1 January 2008.
+locale: mt
+---
+Kera
+Self tad-dar
+Merċa
+Kontijiet tad-dawl u l-ilma
+Trasport
+Divertiment
+Saħħa
+Assigurazzjoni
+Ikel barra
+Tfaddil
+Abbonamenti
+Vjaġġi
+Edukazzjoni
+Ħwejjeġ
+Rigali
+Kura tat-tfal
+Ħlas tad-dejn
+Karozza
+Telefon u internet
+Manutenzjoni tad-dar

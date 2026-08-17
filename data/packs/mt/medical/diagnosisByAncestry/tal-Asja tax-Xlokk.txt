@@ -1,0 +1,11 @@
+---
+description: Conditions whose prevalence is raised in people of tal-Asja tax-Xlokk descent (Maltese).
+locale: mt
+---
+Marda tal-emoglobina E
+Talassemija alfa
+Nuqqas ta' G6PD
+Karċinoma nażofarinġea
+Talassemija beta
+Sindromu ta' Brugada
+Nuqqas ta' persistenza tal-lattażi

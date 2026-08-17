@@ -1,0 +1,11 @@
+---
+description: Conditions whose prevalence is raised in people of Mediterranean descent (Maltese). This one is close to home: Malta has among the highest beta-thalassaemia carrier rates in Europe and G6PD deficiency is common enough on the islands that faviżmu — the reaction to broad beans, which Maltese cooking is full of — is a recognised local hazard.
+locale: mt
+---
+Talassemija beta
+Karattru tat-talassemija beta
+Nuqqas ta' G6PD
+Deni familjari Mediterranju
+Marda ta' Behçet
+Talassemija alfa
+Faviżmu

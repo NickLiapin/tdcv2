@@ -1,0 +1,5 @@
+---
+description: Capital of Etjopja as Maltese names it.
+locale: mt
+---
+Addis Ababa

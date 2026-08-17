@@ -1,0 +1,5 @@
+---
+description: Capital of Italja as Maltese names it.
+locale: mt
+---
+Ruma

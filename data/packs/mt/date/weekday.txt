@@ -1,0 +1,11 @@
+---
+description: Weekdays (Maltese), Monday first as a Maltese calendar prints them. The DEFINITE ARTICLE IS PART OF THE NAME and it assimilates: It-Tnejn, It-Tlieta, L-Erbgħa, Il-Ħamis, Il-Ġimgħa, Is-Sibt, Il-Ħadd. Stripping it leaves a bare numeral — Tnejn is simply 'two', because Maltese counts its weekdays as Arabic does, from Sunday. Il-Ġimgħa is Friday and also the word for week; is-Sibt is the Sabbath.
+locale: mt
+---
+It-Tnejn
+It-Tlieta
+L-Erbgħa
+Il-Ħamis
+Il-Ġimgħa
+Is-Sibt
+Il-Ħadd

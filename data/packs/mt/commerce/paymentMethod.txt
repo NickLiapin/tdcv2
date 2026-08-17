@@ -1,0 +1,19 @@
+---
+description: Payment method (Maltese). Malta has used the EURO since 1 January 2008; the Maltese lira is gone and no amount in this pack is denominated in it. Revolut is listed because it holds a Maltese banking licence and is unusually widely used on the islands.
+locale: mt
+---
+Karta ta' kreditu
+Karta ta' debitu
+Flus kontanti
+Trasferiment bankarju
+SEPA Direct Debit
+PayPal
+Apple Pay
+Google Pay
+Revolut
+Ħlas mal-konsenja
+Karta rigal
+Ċekk
+Kriptomunita
+Ixtri issa ħallas wara
+Vawċer

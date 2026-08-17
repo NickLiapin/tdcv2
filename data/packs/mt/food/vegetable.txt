@@ -1,0 +1,36 @@
+---
+description: Vegetable (Maltese). Qargħabagħli — marrow — carries the digraph GĦ twice and is a fair test of whether a system has kept Maltese orthography intact; ful, broad beans, is the base of bigilla, and the kappar that grows wild on the bastion walls goes into everything.
+locale: mt
+---
+Karrotta
+Brokkoli
+Spinaċi
+Patata
+Ħjara
+Ħass
+Basla
+Bżar aħdar
+Zukkina
+Pastard
+Fażola ħadra
+Piżelli
+Qamħirrum
+Sparaġ
+Brunġiel
+Kaboċċa
+Krafes
+Faqqiegħ
+Patata ħelwa
+Pitravi
+Ravanell
+Ful
+Qargħa
+Qargħabagħli
+Tewm
+Tadam
+Kappar
+Bżar aħmar
+Kaboċċa ħamra
+Selq
+Basal aħdar
+Kurrat

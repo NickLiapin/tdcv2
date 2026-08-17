@@ -1,0 +1,8 @@
+---
+description: Seasons (Maltese). Four, but not the northern European four: Malta's summer runs May to October and its winter is a mild wet season rather than a frozen one — it has never snowed on the islands in recorded observation. Note the għ in Rebbiegħa.
+locale: mt
+---
+Rebbiegħa
+Sajf
+Ħarifa
+Xitwa

@@ -1,0 +1,40 @@
+---
+description: Medical specialty (Maltese).
+locale: mt
+---
+Kardjoloġija
+Dermatoloġija
+Endokrinoloġija
+Gastroenteroloġija
+Newroloġija
+Onkoloġija
+Oftalmoloġija
+Ortopedija
+Pedjatrija
+Psikjatrija
+Pulmonoloġija
+Radjoloġija
+Rewmatoloġija
+Uroloġija
+Nefroloġija
+Ematoloġija
+Immunoloġija
+Anestesija
+Mediċina tal-emerġenza
+Mediċina tal-familja
+Mediċina interna
+Ostetrija u ġinekoloġija
+Otorinolaringoloġija
+Patoloġija
+Kirurġija plastika
+Kirurġija ġenerali
+Kirurġija vaskulari
+Mard infettiv
+Ġerjatrija
+Neonatoloġija
+Mediċina fiżika u rijabilitazzjoni
+Mediċina tax-xogħol
+Saħħa pubblika
+Ġenetika klinika
+Mediċina palljattiva
+Mediċina tal-isport

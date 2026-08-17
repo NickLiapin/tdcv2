@@ -1,0 +1,18 @@
+---
+description: Unit designator inside a Maltese address. Read this before parsing one: a Maltese house usually has a NAME rather than a number (Dar il-Ħolm, Triq il-Kbira, Ħal Lija), so a numeric house field is often empty. Flats carry English abbreviations by convention even in an otherwise Maltese address, because the property market runs in English.
+locale: mt
+---
+Fl.
+Flat
+Blokk
+Blk.
+Sular
+Nru.
+Kamra
+Uffiċċju
+Garaxx
+Maisonette
+Penthouse
+Bieb
+Daħla
+Sit

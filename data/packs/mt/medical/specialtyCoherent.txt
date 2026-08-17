@@ -1,0 +1,14 @@
+---
+description: Medical specialty, the ten that carry the coherent diagnosis groups (Maltese).
+locale: mt
+---
+Kardjoloġija
+Newroloġija
+Onkoloġija
+Dermatoloġija
+Gastroenteroloġija
+Endokrinoloġija
+Pulmonoloġija
+Ortopedija
+Psikjatrija
+Nefroloġija

@@ -1,0 +1,10 @@
+---
+description: Diagnoses commonly seen in Dermatoloġija (Maltese).
+locale: mt
+---
+Psorjasi
+Dermatite atopika
+Akne
+Melanoma
+Rosaċea
+Dermatite tal-kuntatt

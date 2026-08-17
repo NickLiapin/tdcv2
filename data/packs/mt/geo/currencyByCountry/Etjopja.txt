@@ -1,0 +1,5 @@
+---
+description: Currency of Etjopja as Maltese names it.
+locale: mt
+---
+Birr Etjopjan

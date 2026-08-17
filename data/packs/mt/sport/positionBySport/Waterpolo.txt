@@ -1,0 +1,10 @@
+---
+description: Playing positions in Waterpolo as Maltese names them.
+locale: mt
+---
+Purtier
+Ċentru attakkant
+Ċentru difensiv
+Ala
+Driver
+Point

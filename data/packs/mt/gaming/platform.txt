@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Hardware brand names keep their real spelling in any locale.
+locale: mt
+---
+PlayStation 5
+Xbox Series X
+Nintendo Switch
+PC
+Steam Deck
+Mobajl
+PlayStation 4
+Xbox One
+Meta Quest
+Nintendo Switch 2
+Browser

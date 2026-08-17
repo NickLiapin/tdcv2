@@ -1,0 +1,16 @@
+---
+description: Listing status (Maltese). TAĦT KONVENJU is the stage a foreign reader will not have: the konvenju is the binding promise-of-sale agreement signed months before the final deed, and a Maltese property spends most of its sale under it. SHELL and FINISHED are the other Maltese habit — property is routinely sold as a bare concrete shell for the buyer to finish, and the listing says so in English even in a Maltese advertisement.
+locale: mt
+---
+Għall-bejgħ
+Għall-kiri
+Taħt konvenju
+Pendenti
+Mibjugħ
+Mikri
+Barra mis-suq
+Dalwaqt fis-suq
+Bini ġdid
+Prezz imnaqqas
+Shell
+Finished

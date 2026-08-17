@@ -1,0 +1,15 @@
+---
+description: Reaction (Maltese, as the Maltese interface of the platforms words them). Jogħġobni is literally 'it pleases me' — a whole clause, not a one-word Like, because Maltese has no verb 'to like' that takes the liker as subject.
+locale: mt
+---
+Jogħġobni
+Inħobbu
+Ħaħa
+Wow
+Imdejjaq
+Irrabjat
+Nieħu ħsieb
+Nifraħ
+Nappoġġja
+Interessanti
+Kurjuż

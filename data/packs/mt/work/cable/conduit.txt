@@ -1,0 +1,11 @@
+---
+description: Cable conduit (Maltese, with the trade terms kept in English).
+locale: mt
+---
+PVC
+Azzar riġidu
+HDPE
+Midfun dirett
+Innerduct
+Trej tal-kejbils
+Sospiż

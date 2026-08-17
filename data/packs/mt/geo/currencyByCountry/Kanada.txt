@@ -1,0 +1,5 @@
+---
+description: Currency of Kanada as Maltese names it.
+locale: mt
+---
+Dollaru Kanadiż

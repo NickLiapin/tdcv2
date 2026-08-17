@@ -1,0 +1,11 @@
+---
+description: Age classification. These are MALTA's, set by the Film Board under the Malta Council for the Creative Industries and modelled on the British system rather than the American one — a Maltese record will hold 12A or 15, never PG-13 or TV-MA.
+locale: mt
+---
+U
+PG
+12A
+12
+15
+16
+18

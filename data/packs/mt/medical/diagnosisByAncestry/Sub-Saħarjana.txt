@@ -1,0 +1,16 @@
+---
+description: Conditions whose prevalence is raised in people of Sub-Saharan African descent (Maltese). This is a PREVALENCE SIGNAL, not an exclusive list: every condition here occurs in every population, and ancestry never diagnoses anyone on its own.
+locale: mt
+---
+Marda taċ-ċelluli tal-minġel
+Karattru taċ-ċelluli tal-minġel
+Nuqqas ta' G6PD
+Nefropatija assoċjata mal-APOL1
+Ċikatriċi keloide
+Sarkojdożi
+Nefrosklerożi ipertensiva
+Fibrojdi uterini
+Newtropenija beninna etnika
+Nuqqas ta' persistenza tal-lattażi
+Psewdofollikulite tal-leħja
+Vitiligni

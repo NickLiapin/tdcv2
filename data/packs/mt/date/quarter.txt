@@ -1,0 +1,8 @@
+---
+description: Financial quarter. Maltese business and government reporting writes the English Q1-Q4; the Maltese phrase is l-ewwel kwart tas-sena and is spoken rather than tabulated, so the shorthand here is what appears in a field.
+locale: mt
+---
+Q1
+Q2
+Q3
+Q4

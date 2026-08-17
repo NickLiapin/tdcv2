@@ -1,0 +1,14 @@
+---
+description: Fuel (Maltese).
+locale: mt
+---
+Petrol
+Diesel
+Elettriku
+Ibridu
+Ibridu li jiċċarġja
+Idroġenu
+Etanol
+Gass naturali
+LPG
+Bijodiesel

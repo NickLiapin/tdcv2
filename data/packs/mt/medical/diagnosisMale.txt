@@ -1,0 +1,24 @@
+---
+description: Diagnosis specific to male anatomy (Maltese).
+locale: mt
+---
+Iperplasija beninna tal-prostata
+Prostatite
+Kanċer tal-prostata
+Kanċer tat-testikoli
+Tortjoni testikulari
+Variċoċele
+Idroċele
+Epididimite
+Kriptorkidiżmu
+Fimożi
+Balanite
+Disfunzjoni erettili
+Marda ta' Peyronie
+Infertilità maskili
+Ġinekomastija
+Ipogonadiżmu maskili
+Prijapiżmu
+Spermatoċele
+Qerdien tax-xagħar maskili
+Ernja skrotali

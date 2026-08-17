@@ -1,0 +1,10 @@
+---
+description: Diagnoses commonly seen in Psikjatrija (Maltese).
+locale: mt
+---
+Depressjoni maġġuri
+Disturb ta' ansjetà ġeneralizzata
+Disturb bipolari
+Skizofrenija
+Disturb ta' stress wara trawma
+Disturb ta' defiċit tal-attenzjoni

@@ -1,0 +1,16 @@
+---
+description: Maltese thoroughfare word — it goes BEFORE the name, as in Italian: Triq ir-Repubblika, Misraħ San Ġorġ, Sqaq id-Dejma. Triq is street and covers most addresses; sqaq is an alley, misraħ and pjazza a square, xatt a waterfront, telgħa a climb, dawret a bypass.
+locale: mt
+---
+Triq
+Vjal
+Sqaq
+Misraħ
+Pjazza
+Xatt
+Telgħa
+Trejqa
+Ġnien
+Wesgħa
+Dawret
+Passaġġ

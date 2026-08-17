@@ -1,0 +1,10 @@
+---
+description: Jobs in the Kostruzzjoni sector as Maltese names them.
+locale: mt
+---
+Elettriċista
+Plamer
+Mastrudaxxa
+Furman tal-bini
+Operatur ta' makkinarju tqil
+Perit

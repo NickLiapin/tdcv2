@@ -1,0 +1,14 @@
+---
+description: Payment status (Maltese).
+locale: mt
+---
+Pendenti
+Awtorizzat
+Imħallas
+Falla
+Rimborżat
+Rimborżat parzjalment
+Chargeback
+Annullat
+Miċħud
+Qed jiġi vverifikat

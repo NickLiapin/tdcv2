@@ -1,0 +1,5 @@
+---
+description: Currency of Polonja as Maltese names it.
+locale: mt
+---
+Zloty Pollakk

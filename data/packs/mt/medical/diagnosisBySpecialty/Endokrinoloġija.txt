@@ -1,0 +1,10 @@
+---
+description: Diagnoses commonly seen in Endokrinoloġija (Maltese).
+locale: mt
+---
+Dijabete tat-tip 2
+Ipotirojdiżmu
+Ipertirojdiżmu
+Osteoporożi
+Sindromu ta' Cushing
+Sindromu tal-ovarji poliċistiċi

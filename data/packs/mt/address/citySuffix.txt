@@ -1,0 +1,41 @@
+---
+description: Trailing qualifier of a Maltese place name (San Pawl il-Baħar, Wied il-Għajn, Ħal Għargħur ta' Fuq). Maltese does NOT build place names with a suffix in the Germanic sense: the name is a prefix plus a noun, and what trails is a second noun in the genitive or a direction word — so these values carry their own article. Combine with a real toponym; the pieces do not by themselves name a real place.
+locale: mt
+---
+il-Baħar
+il-Għajn
+il-Wied
+il-Ġebel
+il-Ħarrub
+iż-Żebbuġ
+il-Blata
+il-Bajda
+il-Ħamra
+is-Sultan
+il-Qadim
+il-Ġdid
+il-Kbir
+iż-Żgħir
+ta' Fuq
+t'Isfel
+ta' Ġewwa
+ta' Barra
+tal-Baħar
+tal-Għolja
+tal-Wied
+tal-Ġebel
+tal-Milied
+tal-Providenza
+tas-Sliem
+tax-Xemx
+taż-Żwieġ
+tan-Nofsinhar
+tal-Franċiżi
+tal-Kavallieri
+tal-Fenek
+tal-Gawwija
+tal-Ħaddiem
+tal-Isqof
+tal-Papa
+tal-Grazzja
+tal-Ħerba

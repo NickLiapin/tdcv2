@@ -1,0 +1,5 @@
+---
+description: Capital of Turkija as Maltese names it.
+locale: mt
+---
+Ankara

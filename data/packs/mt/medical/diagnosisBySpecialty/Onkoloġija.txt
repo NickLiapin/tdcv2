@@ -1,0 +1,10 @@
+---
+description: Diagnoses commonly seen in Onkoloġija (Maltese).
+locale: mt
+---
+Kanċer tas-sider
+Kanċer tal-pulmun
+Kanċer kolorettali
+Lewkimja
+Limfoma
+Melanoma

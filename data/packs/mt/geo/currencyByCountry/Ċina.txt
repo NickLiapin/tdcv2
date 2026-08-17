@@ -1,0 +1,5 @@
+---
+description: Currency of Ċina as Maltese names it.
+locale: mt
+---
+Yuan Ċiniż

@@ -1,0 +1,5 @@
+---
+description: Currency of Bangladexx as Maltese names it.
+locale: mt
+---
+Taka

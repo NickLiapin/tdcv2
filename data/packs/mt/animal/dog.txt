@@ -1,0 +1,29 @@
+---
+description: Dog breeds. Two are Maltese and keep their Maltese names: the Kelb tal-Fenek, the rabbit dog, is the national breed and the island's hunting hound, and the Kelb tal-But, the pocket dog, is the small white breed the rest of the world simply calls the Maltese. The remaining names are international and are not translated.
+locale: mt
+---
+Kelb tal-Fenek
+Kelb tal-But
+Labrador Retriever
+German Shepherd
+Golden Retriever
+French Bulldog
+Bulldog
+Pudlu
+Beagle
+Rottweiler
+Dachshund
+Boxer
+Husky Siberjan
+Great Dane
+Doberman
+Border Collie
+Chihuahua
+Shih Tzu
+Pomeranian
+Corgi
+Jack Russell Terrier
+Cocker Spaniel
+Kelb tar-raħal
+Bracco Taljan
+Pitbull

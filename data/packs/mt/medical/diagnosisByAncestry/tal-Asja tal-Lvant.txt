@@ -1,0 +1,14 @@
+---
+description: Conditions whose prevalence is raised in people of tal-Asja tal-Lvant descent (Maltese).
+locale: mt
+---
+Talassemija alfa
+Nuqqas tal-aldeide deidroġenażi 2
+Nuqqas ta' persistenza tal-lattażi
+Karċinoma nażofarinġea
+Kanċer gastriku
+Glawkoma b'angolu magħluq
+Marda ta' Kawasaki
+Marda ta' Moyamoya
+Ipersensittività għall-karbamażepina
+Mijopija patoloġika

@@ -1,0 +1,11 @@
+---
+description: Dishes of the Spanjola kitchen as Maltese names them.
+locale: mt
+---
+Paella
+Tapas
+Gazpacho
+Tortilla Spanjola
+Churros
+Patatas bravas
+Jamón serrano

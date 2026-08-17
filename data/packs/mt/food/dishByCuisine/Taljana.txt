@@ -1,0 +1,12 @@
+---
+description: Dishes of the Taljana kitchen as Maltese names them.
+locale: mt
+---
+Pizza Margherita
+Spaghetti alla carbonara
+Lasanja
+Risotto
+Osso buco
+Tiramisù
+Njokki
+Minestrun

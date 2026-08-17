@@ -1,0 +1,9 @@
+---
+description: Diagnoses commonly seen in Nefroloġija (Maltese).
+locale: mt
+---
+Mard kroniku tal-kliewi
+Ġebel fil-kliewi
+Glomerulonefrite
+Ħsara akuta fil-kliewi
+Marda poliċistika tal-kliewi

@@ -1,0 +1,12 @@
+---
+description: Book format (Maltese).
+locale: mt
+---
+Qoxra iebsa
+Qoxra ratba
+Ktieb elettroniku
+Awdjoktieb
+Edizzjoni tal-but
+Legatura tal-librerija
+Edizzjoni illustrata
+Edizzjoni limitata

@@ -1,0 +1,10 @@
+---
+description: Conditions whose prevalence is raised in people of Indiġena Amerikana descent (Maltese).
+locale: mt
+---
+Dijabete tat-tip 2
+Ġebel fil-marrara
+Nefropatija dijabetika
+Artrite rewmatojde
+Marda tal-fwied xaħmi mhux alkoħoliku
+Sindromu metaboliku

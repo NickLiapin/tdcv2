@@ -1,0 +1,23 @@
+---
+description: Mineral (Maltese). The first four are what Malta actually extracts — ĠEBLA TAL-FRANKA is the soft globigerina limestone the whole country is built from and the reason Maltese towns are the colour they are, ĠEBLA TAL-QAWWI the hard coralline limestone, tafal the blue clay, and sea salt is still panned on the Gozo coast. The rest are the international mineral names in Maltese spelling.
+locale: mt
+---
+Ġebla tal-franka
+Ġebla tal-qawwi
+Tafal
+Melħ tal-baħar
+Ġibs
+Ġir
+Faħam
+Ram
+Deheb
+Fidda
+Ħadid
+Żingu
+Ċomb
+Bawksite
+Nikil
+Uranju
+Fosfat
+Litju
+Kobalt

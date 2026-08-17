@@ -1,0 +1,30 @@
+---
+description: Mobile operator. GO, Melita and Epic are the THREE operators licensed in Malta — Epic was Vodafone Malta until 2019 — and they are named here for the same reason the reference en pack names Verizon and AT&T: a carrier list is only useful if it holds the carriers the locale's speakers are actually billed by. The international brands follow.
+locale: mt
+---
+GO
+Melita
+Epic
+Vodafone
+Wind Tre
+TIM
+Orange
+O2
+EE
+Telefonica
+Deutsche Telekom
+Three
+Free Mobile
+A1
+Telekom Romania
+Play
+Swisscom
+Telenor
+Telia
+Proximus
+KPN
+Bouygues Telecom
+SFR
+Iliad
+Cosmote
+Turkcell

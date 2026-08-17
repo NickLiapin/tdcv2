@@ -1,0 +1,5 @@
+---
+description: Currency of Żvizzera as Maltese names it.
+locale: mt
+---
+Frank Żvizzeru

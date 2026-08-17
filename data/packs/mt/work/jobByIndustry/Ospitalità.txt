@@ -1,0 +1,10 @@
+---
+description: Jobs in the Ospitalità sector as Maltese names them.
+locale: mt
+---
+Kok
+Maniġer tal-lukanda
+Barman
+Konċerġ
+Sous chef
+Koordinatur tal-avvenimenti

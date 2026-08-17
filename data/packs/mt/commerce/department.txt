@@ -1,0 +1,54 @@
+---
+description: Shop department (Maltese).
+locale: mt
+---
+Kotba
+Films
+Mużika
+Logħob
+Elettronika
+Kompjuters
+Dar
+Ġnien
+Għodda
+Merċa
+Saħħa
+Sbuħija
+Ġugarelli
+Tfal
+Trabi
+Ħwejjeġ
+Żraben
+Ġojjellerija
+Sport
+Barra
+Karozzi
+Industrijali
+Uffiċċju
+Annimali
+Għamara
+Apparat
+Kartolerija
+Ferramenta
+Xorb
+Ħaxix u frott
+Ħut
+Laħam
+Ħobż
+Ħelu
+Prodotti tat-tindif
+Kosmetiċi
+Farmaċija
+Tiswija
+Xemgħat
+Tessuti
+Bini
+Dawl
+Ilma
+Bijċikletti
+Mużew tal-ħanut
+Rigali
+Karti
+Fjuri
+Antikitajiet
+Tapizzerija

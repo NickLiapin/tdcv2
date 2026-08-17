@@ -1,0 +1,12 @@
+---
+description: Annual gross income band in EURO — Malta's currency since 1 January 2008, when it replaced the Maltese lira at 0.4293 lira to the euro. The bands are set around Maltese earnings, not European ones: the national minimum wage is a little over 200 euro a week and median gross pay sits in the low twenties of thousands, so a bracket table copied from a German or American pack will put most of the population in its bottom row. Every value ends in fis-sena — per year — deliberately: Malta writes thousands with a COMMA in the British way (€18,000), and a bare band would end in a comma followed by digits, which is exactly the shape the pack's weighted-list detector reads as a count. The trailing words keep the band a band.
+locale: mt
+---
+Taħt €12,000 fis-sena
+€12,000 sa €18,000 fis-sena
+€18,000 sa €25,000 fis-sena
+€25,000 sa €35,000 fis-sena
+€35,000 sa €50,000 fis-sena
+€50,000 sa €75,000 fis-sena
+€75,000 sa €120,000 fis-sena
+Fuq €120,000 fis-sena

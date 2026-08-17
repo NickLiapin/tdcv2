@@ -1,0 +1,5 @@
+---
+description: Capital of Tuneżija as Maltese names it.
+locale: mt
+---
+Tuneż

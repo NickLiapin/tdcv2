@@ -1,0 +1,45 @@
+---
+description: Legal form appended to a company name. These are ENGLISH BY STATUTE in Malta: the Companies Act writes the forms as Limited / Ltd and public limited company / p.l.c., so a wholly Maltese company registered in Maltese still carries an English suffix. That is why this list is not translated — translating it would produce names no Maltese registry holds.
+locale: mt
+---
+Ltd
+Limited
+p.l.c.
+Co. Ltd
+& Sons Ltd
+Holdings Ltd
+Group
+Group Ltd
+Partners
+Associates
+Enterprises Ltd
+Industries Ltd
+International Ltd
+Solutions Ltd
+Systems Ltd
+Technologies Ltd
+Ventures Ltd
+Trading Ltd
+Services Ltd
+Investments Ltd
+Properties Ltd
+Marine Ltd
+Shipping Ltd
+Consultants Ltd
+Contractors Ltd
+Insurance Ltd
+Finance Ltd
+Gaming Ltd
+Foundation
+Cooperative
+Kooperattiva
+Fondazzjoni
+Għaqda
+Soċjetà
+Kumpanija
+Banking Ltd
+Capital Ltd
+Estates Ltd
+Logistics Ltd
+Developments Ltd
+Aviation Ltd

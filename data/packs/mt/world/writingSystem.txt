@@ -1,0 +1,24 @@
+---
+description: Writing system (Maltese). The first entry is the one that matters here: Maltese is written in the LATIN alphabet although the language is Semitic — the only Semitic language that is, and the reason this pack looks European on the page and is not.
+locale: mt
+---
+Latin
+Ċirilliku
+Għarbi
+Ċiniż
+Devanagari
+Hangul
+Grieg
+Ebrajk
+Tajlandiż
+Ġorġjan
+Armen
+Hiragana
+Katakana
+Tamil
+Sirjaku
+Ġeez
+Bengali
+Tibetan
+Kmer
+Sinhala

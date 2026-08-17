@@ -1,0 +1,32 @@
+---
+description: Technical verb in the progressive. Maltese HAS NO GERUND and no -ing form: an ongoing action is the particle qed plus the imperfect, so every value here is two words and cannot be produced by suffixing anything. A config that expects a single -ing token will need to keep the space.
+locale: mt
+---
+qed jikklikkja
+qed jipprintja
+qed jissejvja
+qed jiddawnlowdja
+qed jikkonnettja
+qed jipprogramma
+qed jikkalkula
+qed jikkopja
+qed jikkompressa
+qed jikkripta
+qed jiddekripta
+qed jiddeplojja
+qed jinnaviga
+qed jindiċja
+qed jiġġenera
+qed jikkwantifika
+qed jissintetizza
+qed jittrasmetti
+qed jaċċessa
+qed jivverifika
+qed jikkontrolla
+qed iħassar
+qed jaqbad
+qed jiftaħ
+qed jagħlaq
+qed jibgħat
+qed jirċievi
+qed jistenna

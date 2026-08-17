@@ -1,0 +1,11 @@
+---
+description: Dishes of the Indjana kitchen as Maltese names them.
+locale: mt
+---
+Butter chicken
+Biryani
+Tikka masala
+Samosa
+Dal makhani
+Naan
+Palak paneer

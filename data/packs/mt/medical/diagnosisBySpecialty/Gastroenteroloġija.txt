@@ -1,0 +1,10 @@
+---
+description: Diagnoses commonly seen in Gastroenteroloġija (Maltese).
+locale: mt
+---
+Rifluss gastroesofagew
+Marda ta' Crohn
+Kolite ulċerattiva
+Ulċera peptika
+Sindromu tal-imsaren irritabbli
+Ċirrożi tal-fwied

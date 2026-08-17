@@ -1,0 +1,12 @@
+---
+description: Dishes of the Ċiniża kitchen as Maltese names them.
+locale: mt
+---
+Ross moqli
+Dumplings
+Chow mein
+Majjal ħelu u qares
+Papra ta' Pekin
+Soppa tal-wonton
+Ċiken Kung Pao
+Mapo tofu

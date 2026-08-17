@@ -1,0 +1,10 @@
+---
+description: Diagnoses commonly seen in Ortopedija (Maltese).
+locale: mt
+---
+Osteoartrite
+Artrite rewmatojde
+Diska erniata
+Sindromu tal-mina karpali
+Xjatika
+Tiċrit tal-koff tar-rotatorji

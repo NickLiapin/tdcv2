@@ -1,0 +1,10 @@
+---
+description: Jobs in the Finanzi sector as Maltese names them.
+locale: mt
+---
+Analist finanzjarju
+Accountant
+Bankier tal-investiment
+Awditur
+Attwarju
+Uffiċjal tas-self

@@ -1,0 +1,32 @@
+---
+description: Technical adjective (Maltese), masculine singular.
+locale: mt
+---
+awżiljarju
+primarju
+back-end
+diġitali
+b'sors miftuħ
+virtwali
+cross-platform
+ridondanti
+onlajn
+aptiku
+multi-byte
+bluetooth
+bla wajers
+newrali
+ottiku
+solid-state
+mobbli
+1080p
+8-bit
+kriptat
+distribwit
+moħbi
+sinkronizzat
+awtomatiku
+remot
+lokali
+ċentralizzat
+modulari

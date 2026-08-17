@@ -1,0 +1,34 @@
+---
+description: Hotel amenity (Maltese). Wi-Fi keeps its brand spelling in any locale.
+locale: mt
+---
+Wi-Fi b'xejn
+Pixxina
+Pixxina fuq il-bejt
+Spa
+Gym
+Ristorant
+Bar
+Servizz fil-kamra
+Trasport mill-ajruport
+Kolazzjon inkluż
+Parkeġġ
+Jaċċettaw l-annimali
+Ċentru tan-negozju
+Konċerġ
+Servizz tal-ħasil
+Jacuzzi
+Terrazzin
+Bajja privata
+Ċentru tal-għadis
+Arja kkundizzjonata
+Lift
+Kaxxa tas-sigurtà
+Kċina fil-kamra
+Veduta tal-baħar
+Veduta tal-port
+Aċċess għad-diżabbiltà
+Trasferiment bil-vapur
+Kiri tad-dgħajjes
+Bar tal-pixxina
+Sala tal-konferenzi

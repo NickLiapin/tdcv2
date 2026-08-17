@@ -1,0 +1,5 @@
+---
+description: Currency of Brażil as Maltese names it.
+locale: mt
+---
+Real Brażiljan

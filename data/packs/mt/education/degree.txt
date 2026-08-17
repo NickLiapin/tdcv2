@@ -1,0 +1,22 @@
+---
+description: Qualification (Maltese). Malta's ladder is British-modelled: the SEC certificate ends compulsory schooling at sixteen, the Matriculation Certificate ends sixth form, and only then does a degree begin. Which institution awards them is country data and lives in the Malta country pack, not here.
+locale: mt
+---
+Ċertifikat SEC
+Ċertifikat tal-Matrikola
+Ċertifikat VET
+Diploma
+Diploma Ogħla
+Baċellerat fl-Arti
+Baċellerat fix-Xjenza
+Baċellerat fl-Inġinerija
+Baċellerat fil-Liġi
+Baċellerat fl-Edukazzjoni
+Baċellerat fil-Kummerċ
+Master fl-Arti
+Master fix-Xjenza
+Master fl-Amministrazzjoni tan-Negozju
+Master fil-Liġi
+Dottorat fil-Filosofija
+Dottorat fil-Mediċina
+Dottorat fil-Liġi

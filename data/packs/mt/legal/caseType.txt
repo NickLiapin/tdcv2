@@ -1,0 +1,17 @@
+---
+description: Kind of legal case (Maltese). Malta's law is a MIXED system — the private law is codified on the Napoleonic-Italian model while public law, criminal procedure and trial by jury came from the British period — so the vocabulary of a Maltese case file draws on both traditions.
+locale: mt
+---
+Ċivili
+Kriminali
+Familja
+Falliment
+Danni personali
+Impjieg
+Tilwima kuntrattwali
+Proprjetà intellettwali
+Proprjetà immobbli
+Immigrazzjoni
+Taxxa
+Kostituzzjonali
+Kummerċjali

@@ -1,0 +1,10 @@
+---
+description: Conditions whose prevalence is raised in people of tal-Lvant Nofsani descent (Maltese).
+locale: mt
+---
+Deni familjari Mediterranju
+Talassemija beta
+Nuqqas ta' G6PD
+Marda ta' Behçet
+Nuqqas ta' vitamina D
+Karattru taċ-ċelluli tal-minġel

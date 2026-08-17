@@ -1,0 +1,23 @@
+---
+description: Film genre (Maltese).
+locale: mt
+---
+Azzjoni
+Kummiedja
+Drama
+Orrur
+Thriller
+Rumanz
+Xjenza finzjoni
+Fantasija
+Dokumentarju
+Animazzjoni
+Avventura
+Kriminalità
+Misteru
+Western
+Mużikal
+Gwerra
+Bijografija
+Storiku
+Familja

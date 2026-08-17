@@ -1,0 +1,68 @@
+---
+description: Filler sentences (Maltese). Handwritten: Project Gutenberg holds no Maltese book at all, so these sixty were written by hand for this pack. They are short declarative sentences of everyday register, and they are deliberately plain: a handwritten sample is honest filler, not a literary corpus, and nothing here should be quoted as a source. The article assimilation, the verb-initial word order and the GĦ and Ħ letters are visible throughout, so the file doubles as a check that a pipeline has not mangled Maltese orthography.
+locale: mt
+---
+Il-baħar illum kien kalm ħafna.
+It-tfal marru l-iskola filgħodu.
+Ommi għamlet il-ħobż fil-forn.
+Missieri jaħdem fil-port kull filgħodu.
+Ix-xemx taħraq fuq il-gżira fis-sajf.
+Ħadd ma jaf x'se jiġri għada.
+Il-knisja tar-raħal għandha koppla kbira.
+Wara l-quddiesa n-nies inġabru fil-pjazza.
+Il-festa tibda nhar is-Sibt filgħaxija.
+Il-banda daqqet marċ twil mat-triq.
+Iż-żiemel niżel it-telgħa bil-mod.
+Kilna l-pastizzi sħan mal-kafè.
+Ir-riħ tal-majjistral qawwi wisq illum.
+Il-baħar imqalleb u d-dgħajjes baqgħu fil-port.
+Sajjied xiħ qagħad fuq il-moll bis-sunnara.
+Qbadna erba' lampuki fl-għodwa kollha.
+Il-ktieb li tajtni kien interessanti ħafna.
+Qrajt l-istorja tal-gżira f'lejla waħda.
+Ma nafx fejn ħallejt iċ-ċavetta tad-dar.
+Il-bieb tal-ġnien baqa' miftuħ il-lejl kollu.
+Il-qattus raqad taħt is-siġra tal-ħarrub.
+Il-kelb ġera mal-ħajt tal-ġebel.
+Fis-sajf kważi qatt ma tagħmel ix-xita.
+Fix-xitwa l-widien jimtlew bl-ilma.
+Missirijietna bnew id-djar bil-ġebla tal-franka.
+Ir-raħal għandu każin tal-banda u żewġ knejjes.
+In-nanna tgħid li ż-żmien ta' qabel kien iebes.
+It-tifel tgħallem jaqra qabel ma daħal l-iskola.
+L-għalliema qasmet il-klassi f'żewġ gruppi.
+Ix-xogħol spiċċa tard u morna d-dar bil-lejl.
+Xtrajna l-ħaxix frisk mis-suq filgħodu kmieni.
+Il-prezzijiet tal-ikel telgħu ħafna din is-sena.
+Il-bidwi ħadem l-għalqa mis-sebħ sa filgħaxija.
+Iż-żebbuġ jinqata' fl-aħħar tas-sajf.
+Il-ġbejniet jinxfu fix-xemx fuq il-bejt.
+Wenzu qal li se jibni girna ġdida.
+Il-mara tiegħu ħadmet il-bizzilla għal xhur sħaħ.
+It-tabib qal li għandu jistrieħ ġimgħa sħiħa.
+L-isptar jinsab qrib il-belt il-ġdida.
+Ħadna lil ommi għand it-tabib filgħodu.
+Il-vapur għal Għawdex jitlaq kull siegħa.
+Qsamna l-fliegu u wasalna f'nofs siegħa.
+Il-baħar bejn iż-żewġ gżejjer kien imqalleb.
+L-għada tal-festa r-raħal kien kwiet ħafna.
+Ix-xogħol tal-ġebel jitlob sabar u saħħa.
+Il-qassis bierek in-nies fi tmiem il-quddiesa.
+Il-kantant għanna versi qodma fuq il-kitarra.
+L-għana Malti jinstema' anqas milli kien.
+Kulħadd jaf lil kulħadd f'raħal żgħir.
+Il-ħajja fuq gżira żgħira għandha r-regoli tagħha.
+Ix-xemx tinżel wara l-blat lejn il-punent.
+Il-lejl waqa' u l-fanali nxtegħlu fit-triq.
+Il-kwiekeb dehru wara li waqaf ir-riħ.
+Il-ħut kien frisk u l-prezz kien tajjeb.
+Aħna ngħixu ħdejn il-baħar minn dejjem.
+Il-flus ma jixtrux iż-żmien li għadda.
+Min jaħdem bil-galbu jasal fejn irid.
+Kull bidu huwa iebes, imma jgħaddi.
+Il-verità toħroġ dejjem, kmieni jew tard.
+Meta l-baħar jikkalma, id-dgħajjes joħorġu mill-ġdid.
+Il-ħobż jinħema kuljum fil-forn tar-raħal.
+In-nar tal-festa deher minn kullimkien.
+It-toroq imtlew bin-nies wara nofsinhar.
+Il-ġurnata bdiet bix-xemx u spiċċat bix-xita.

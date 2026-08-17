@@ -1,0 +1,58 @@
+---
+description: Marketing adjective (Maltese), masculine singular. Maltese adjectives agree with the noun in gender and number, so these change shape in a real sentence — żgħir becomes żgħira before a feminine noun.
+locale: mt
+---
+Żgħir
+Kbir
+Ergonomiku
+Rustiku
+Intelliġenti
+Sabiħ
+Inkredibbli
+Fantastiku
+Prattiku
+Eleganti
+Maħdum bl-idejn
+Liċenzjat
+Raffinat
+Mingħajr marka
+Modern
+Vintage
+Premium
+Lussuż
+Kompatt
+Portabbli
+Dejjiemi
+Ħafif
+Bla wajers
+Rikarikabbli
+Aġġustabbli
+Jintewa
+Reżistenti għall-ilma
+Iżolat
+Riċiklat
+Klassiku
+Sempliċi
+Sod
+Sigur
+Nadif
+Frisk
+Naturali
+Organiku
+Tradizzjonali
+Innovattiv
+Affidabbli
+Ekonomiku
+Professjonali
+Universali
+Kompatibbli
+Silenzjuż
+Veloċi
+Qawwi
+Delikat
+Komdu
+Robust
+Personalizzat
+Multifunzjonali
+Trasparenti
+Kkuluriti

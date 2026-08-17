@@ -1,0 +1,22 @@
+---
+description: Employment benefit (Maltese). Malta's is a mixed system: the state health service is free at the point of use, so private health cover is a perk rather than a necessity, and the second-pillar pension does not exist — there is no Maltese equivalent of a 401(k) match, which is why none is listed.
+locale: mt
+---
+Assigurazzjoni tas-saħħa
+Assigurazzjoni dentali
+Kura tal-għajnejn
+Btala mħallsa
+Xogħol mid-dar
+Sigħat flessibbli
+Opzjonijiet fuq l-ishma
+Assigurazzjoni tal-ħajja
+Liv tal-ġenituri
+Sħubija fil-gym
+Rimbors tal-istudji
+Karozza tal-kumpanija
+Programm ta' benesseri
+Bonus tal-Milied
+Ċedola tal-ikel
+Parkeġġ
+Telefon tax-xogħol
+Kura tat-tfal

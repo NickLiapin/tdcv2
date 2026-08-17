@@ -1,0 +1,10 @@
+---
+description: Playing positions in Rugby as Maltese names them.
+locale: mt
+---
+Prop
+Hooker
+Lock
+Scrum-half
+Fly-half
+Fullback

@@ -1,0 +1,16 @@
+---
+description: Kind of meeting (Maltese, with the English terms Maltese offices keep).
+locale: mt
+---
+Standup
+Wieħed ma' wieħed
+Laqgħa ġenerali
+Retrospettiva
+Ippjanar tal-isprint
+Kickoff
+Sync
+Reviżjoni
+Workshop
+Brainstorm
+Check-in
+Postmortem

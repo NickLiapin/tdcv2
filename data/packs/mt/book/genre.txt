@@ -1,0 +1,30 @@
+---
+description: Book genre (Maltese).
+locale: mt
+---
+Finzjoni
+Mhux finzjoni
+Misteru
+Thriller
+Rumanz
+Xjenza finzjoni
+Fantasija
+Orrur
+Bijografija
+Awtobijografija
+Storja
+Awtogħajnuna
+Poeżija
+Teatru
+Letteratura għaż-żgħażagħ
+Finzjoni storika
+Kriminalità
+Avventura
+Memorji
+Filosofija
+Reliġjon
+Vjaġġi
+Ktieb tar-riċetti
+Rumanz grafiku
+Distopija
+Letteratura Maltija

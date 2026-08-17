@@ -1,0 +1,31 @@
+---
+description: Flower (Maltese). Widnet il-baħar — literally 'ear of the sea' — is the Maltese Rock-Centaury, the national plant, and grows on the cliffs of the western coast and nowhere else on earth.
+locale: mt
+---
+Warda
+Widnet il-baħar
+Tulipan
+Margerita
+Ġirasol
+Ġilju
+Orkidea
+Narċis
+Lavanda
+Iris
+Peonja
+Qronfla
+Krisantemu
+Pepprin
+Vjola
+Ġiżimin
+Ibiskus
+Lotus
+Dalja
+Beġonja
+Ġeranju
+Bugainvillea
+Oleandru
+Kamomilla
+Ġilju ta' San Ġwann
+Fjura tal-lumi
+Ġelsomin tal-lejl

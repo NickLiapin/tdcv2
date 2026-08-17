@@ -1,0 +1,9 @@
+---
+description: Playing positions in Baskitbol as Maltese names them.
+locale: mt
+---
+Point guard
+Shooting guard
+Small forward
+Power forward
+Ċentru

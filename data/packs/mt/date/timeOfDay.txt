@@ -1,0 +1,12 @@
+---
+description: Time of day (Maltese). Filgħodu and filgħaxija are the preposition fi- plus the definite article fused onto the noun — the article assimilation that runs through the whole language, visible inside a single word.
+locale: mt
+---
+Filgħodu
+Nofsinhar
+Wara nofsinhar
+Filgħaxija
+Bil-lejl
+Sbiħ il-jum
+Nżul ix-xemx
+Nofsillejl

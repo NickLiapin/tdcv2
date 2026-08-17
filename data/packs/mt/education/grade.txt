@@ -1,0 +1,18 @@
+---
+description: Grade. Malta uses TWO scales and both turn up in records: the university marks with letters, while the SEC secondary certificate grades with the DIGITS 1 to 7, grade 1 the best, and U for unclassified — so a Maltese school result may hold a number where a European one holds a letter. Both are listed.
+locale: mt
+---
+A
+B
+C
+D
+E
+F
+1
+2
+3
+4
+5
+6
+7
+U

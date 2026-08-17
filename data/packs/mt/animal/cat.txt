@@ -1,0 +1,22 @@
+---
+description: Cat breeds. Breed names are international and are NOT translated — a Maltese vet's record carries them exactly as here. The everyday Maltese word for a cat is qattus; there is no Maltese cat breed.
+locale: mt
+---
+Persjan
+Siamese
+Maine Coon
+Ragdoll
+Bengal
+Sphynx
+British Shorthair
+Abissin
+Scottish Fold
+Norwegian Forest
+Russian Blue
+Birman
+Devon Rex
+Burmese
+Chartreux
+Somali
+Bombay
+Qattus komuni

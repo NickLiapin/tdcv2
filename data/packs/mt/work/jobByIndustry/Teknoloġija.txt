@@ -1,0 +1,10 @@
+---
+description: Jobs in the Teknoloġija sector as Maltese names them.
+locale: mt
+---
+Inġinier tas-softwer
+Xjenzat tad-data
+Inġinier DevOps
+Maniġer tal-prodott
+Disinjatur UX
+Inġinier tal-kwalità

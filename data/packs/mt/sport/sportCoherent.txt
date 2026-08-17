@@ -1,0 +1,12 @@
+---
+description: The eight sports that carry the coherent position groups (Maltese). Water polo and netball take the places an American list gives to baseball and ice hockey, because those are the sports Malta actually fields.
+locale: mt
+---
+Futbol
+Waterpolo
+Baskitbol
+Volleyball
+Ħandbol
+Rugby
+Kriket
+Netball

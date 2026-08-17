@@ -1,0 +1,59 @@
+---
+description: Corporate buzz verb, cited in the third person masculine singular perfect — Maltese has NO infinitive, so this is the dictionary form of a Maltese verb (ottimizza is literally 'he optimised'). The Semitic verb is quoted by its perfect, not by a to-form.
+locale: mt
+---
+uża l-lieva
+issimplifika
+ottimizza
+sinerġizza
+orkestra
+saħħaħ
+ippermetta
+skala
+ittrasforma
+fixkel is-suq
+innova
+irrepeta
+integra
+iddeplojja
+ħatef
+feraħ
+aċċellera
+amplifika
+iddisinja
+ikkumpara
+ikkultiva
+mexxa
+evolva
+ħaffef
+iffaċilita
+iġġenera
+inċentiva
+immonetizza
+opera
+ipprodotta
+iddefinixxa mill-ġdid
+immaġina mill-ġdid
+irrivoluzzjona
+mexxa l-quddiem
+standardizza
+għadda
+għaqqad
+utilizza
+ippjana
+eżegwixxa
+kejjel
+irrapporta
+ivverifika
+iċċertifika
+iddelega
+ikkoordina
+ikkomunika
+innegozja
+iffinanzja
+investa
+espanda
+konsolida
+irristruttura
+immodernizza
+diġitalizza

@@ -1,0 +1,11 @@
+---
+description: Dishes of the Tajlandiża kitchen as Maltese names them.
+locale: mt
+---
+Pad Thai
+Kari aħdar
+Tom yum
+Kari massaman
+Insalata tal-papaja
+Satay
+Ross ħelu bil-mango

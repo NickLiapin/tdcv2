@@ -1,0 +1,40 @@
+---
+description: Kinds of building (Maltese). Razzett (farmhouse), girna (the corbelled drystone field hut, found nowhere else), palazz and kazin tal-banda (the village band club, the centre of Maltese social life) have no European equivalent; maisonette and penthouse are English words that Maltese property language uses untranslated.
+locale: mt
+---
+Dar
+Dar terrazzata
+Dar tal-karattru
+Appartament
+Maisonette
+Penthouse
+Villa
+Bungalow
+Razzett
+Girna
+Palazz
+Blokk ta' appartamenti
+Uffiċċju
+Maħżen
+Ħanut
+Fabbrika
+Sptar
+Klinika
+Skola
+Università
+Lukanda
+Ristorant
+Ċentru kummerċjali
+Stadium
+Librerija
+Knisja
+Kappella
+Kunvent
+Każin tal-banda
+Torri
+Forti
+Mitħna tar-riħ
+Garaxx
+Mużew
+Teatru
+Suq

@@ -1,0 +1,64 @@
+---
+description: Corporate buzz noun (Maltese, with the English terms Maltese speakers keep untranslated).
+locale: mt
+---
+sinerġija
+paradigma
+ekosistema
+qafas
+pipeline
+workflow
+arkitettura
+infrastruttura
+pjattaforma
+soluzzjoni
+strateġija
+roadmap
+inizjattiva
+metodoloġija
+bandwidth
+allinjament
+lieva
+throughput
+valur miżjud
+riżultat
+touchpoint
+punt ta' riferiment
+stadju
+involviment
+orkestrazzjoni
+integrazzjoni
+migrazzjoni
+trasformazzjoni
+ottimizzazzjoni
+skalabbiltà
+interoperabbiltà
+governanza
+konformità
+reżiljenza
+osservabbiltà
+telemetrija
+kadenza
+sehem tas-suq
+settur
+runway
+viżjoni
+missjoni
+kultura
+sħubija
+impenn
+riżorsi
+kapaċità
+produttività
+innovazzjoni
+tkabbir
+profitt
+dħul
+baġit
+portafoll
+proġett
+programm
+proċess
+sistema
+servizz
+prodott

@@ -1,0 +1,21 @@
+---
+description: Social platform. Brand names keep their real spelling.
+locale: mt
+---
+Facebook
+Instagram
+TikTok
+LinkedIn
+X
+Reddit
+YouTube
+Snapchat
+Pinterest
+Threads
+Mastodon
+Discord
+Tumblr
+WhatsApp
+Telegram
+Viber
+Messenger

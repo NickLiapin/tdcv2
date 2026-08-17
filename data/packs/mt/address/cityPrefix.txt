@@ -1,0 +1,35 @@
+---
+description: Leading element of a Maltese place name. Ħal and Ħaż are worn-down forms of raħal, village, and are written joined to the name (Ħal Lija, Ħaż-Żebbuġ, Ħ'Attard); Ta' and Tal- are the genitive 'of'; Marsa is Arabic for harbour and Bir for well, which is why so many Maltese toponyms open with them. Combine with a real toponym — a prefix plus a suffix does not by itself name a real place.
+locale: mt
+---
+Ħal
+Ħaż
+Ħ'
+Ta'
+Tal-
+Tas-
+Tat-
+Tad-
+Tan-
+Tar-
+Taż-
+Marsa
+Bir
+Wied
+San
+Santa
+Santu
+Il-
+L-
+Ix-
+Iż-
+Is-
+Ir-
+In-
+Id-
+It-
+Iċ-
+Iġ-
+Ħaż-
+Ħad-
+Ħas-

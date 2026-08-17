@@ -1,0 +1,11 @@
+---
+description: Dishes of the Libaniża kitchen as Maltese names them.
+locale: mt
+---
+Ħummus
+Falafel
+Shawarma
+Tabbouleh
+Kibbeh
+Fattoush
+Manakish

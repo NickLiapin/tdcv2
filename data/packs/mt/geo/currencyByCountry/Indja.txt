@@ -1,0 +1,5 @@
+---
+description: Currency of Indja as Maltese names it.
+locale: mt
+---
+Rupija Indjana

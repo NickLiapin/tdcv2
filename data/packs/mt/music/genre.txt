@@ -1,0 +1,39 @@
+---
+description: Music genre (Maltese). GĦANA is the Maltese one and belongs at the head of the list: it is the islands' improvised folk song, sung as a duel between two singers over guitars, and its name opens with the digraph GĦ. Banda is the band-club march repertoire that every village keeps.
+locale: mt
+---
+Għana
+Banda
+Rock
+Pop
+Jazz
+Klassika
+Hip hop
+Country
+Elettronika
+Blues
+Reggae
+Heavy metal
+Folk
+R&B
+Soul
+Funk
+Punk
+Disco
+House
+Techno
+Indie
+Gospel
+Ambient
+Ska
+Latin
+Innu
+Opra
+Mużika sagra
+Rap
+Trap
+Drum and bass
+Kunċert tal-banda
+Kant Gregorjan
+Mużika tal-films
+Mużika tal-festa

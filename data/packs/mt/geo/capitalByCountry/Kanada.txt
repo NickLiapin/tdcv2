@@ -1,0 +1,5 @@
+---
+description: Capital of Kanada as Maltese names it.
+locale: mt
+---
+Ottawa

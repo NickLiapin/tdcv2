@@ -1,0 +1,36 @@
+---
+description: Title before a name (Maltese). Two are Maltese habits a European list would miss: PERIT, the title of an architect and civil engineer, is used before the name exactly as Dr is, and DUN is the title of a secular priest — Malta's best-known poet is Dun Karm. Onor. marks a member of Parliament, and Avukat and Nutar are used as address titles rather than as job descriptions.
+locale: mt
+---
+Sur
+Sinjura
+Sinjorina
+Dr
+Prof.
+Perit
+Inġ.
+Avukat
+Nutar
+Dun
+Patri
+Fra
+Mons.
+Isqof
+Arċisqof
+Kappillan
+Kav.
+Onor.
+Kaptan
+Surġent
+Kurunell
+Ġeneral
+Kummissarju
+Spettur
+Direttur
+Sinjur
+Imħallef
+Maġistrat
+Kanonku
+Sorella
+Madre
+Chev.

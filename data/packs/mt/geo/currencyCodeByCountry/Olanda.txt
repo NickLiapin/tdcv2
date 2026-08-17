@@ -1,0 +1,5 @@
+---
+description: ISO currency code of Olanda.
+locale: mt
+---
+EUR
