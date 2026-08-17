@@ -1,0 +1,12 @@
+---
+description: Garment size. Ready-made clothing in Punjab is labelled with the international letter sizes, kept in Latin as they are printed; ਫ੍ਰੀ ਸਾਈਜ਼ is the Indian one-size label and is genuinely common on kurtas and dupattas.
+locale: pa-in
+---
+XS
+S
+M
+L
+XL
+XXL
+XXXL
+ਫ੍ਰੀ ਸਾਈਜ਼

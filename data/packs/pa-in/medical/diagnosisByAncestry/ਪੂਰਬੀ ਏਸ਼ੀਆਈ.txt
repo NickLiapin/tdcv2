@@ -1,0 +1,12 @@
+---
+description: Conditions with raised prevalence in people of ਪੂਰਬੀ ਏਸ਼ੀਆਈ descent, in Punjabi.
+locale: pa-in
+---
+ਅਲਫ਼ਾ ਥੈਲੇਸੀਮੀਆ
+ਲੈਕਟੋਜ਼ ਅਸਹਿਣਸ਼ੀਲਤਾ
+ਸ਼ਰਾਬ ਦਾ ਫਲੱਸ਼ ਪ੍ਰਤੀਕਰਮ
+ਪੇਟ ਦਾ ਕੈਂਸਰ
+ਨੱਕ-ਗਲੇ ਦਾ ਕੈਂਸਰ
+ਹੈਪੇਟਾਈਟਿਸ ਬੀ
+ਗਲੂਕੋਮਾ
+ਮੋਈਆਮੋਈਆ ਰੋਗ

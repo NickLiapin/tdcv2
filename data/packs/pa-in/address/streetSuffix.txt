@@ -1,0 +1,34 @@
+---
+description: Punjabi thoroughfare type. Unlike Polish or French, it goes AFTER the name (ਮਾਲ ਰੋਡ, ਗੁਰੂ ਨਾਨਕ ਮਾਰਗ, ਹਾਲ ਬਾਜ਼ਾਰ), so compose name-then-suffix. ਕਟੜਾ and ਕੂਚਾ are old walled-city block types, ਅੱਡਾ is a transport stop that becomes a place name, and ਪੱਤੀ is a village quarter.
+locale: pa-in
+---
+ਰੋਡ
+ਸੜਕ
+ਮਾਰਗ
+ਗਲੀ
+ਬਾਜ਼ਾਰ
+ਚੌਕ
+ਮੁਹੱਲਾ
+ਨਗਰ
+ਕਲੋਨੀ
+ਵਿਹਾਰ
+ਐਨਕਲੇਵ
+ਪਾਰਕ
+ਬਾਗ਼
+ਪੱਤੀ
+ਬਾਈਪਾਸ
+ਹਾਈਵੇ
+ਲਿੰਕ ਰੋਡ
+ਮੇਨ ਰੋਡ
+ਚੁੰਗੀ
+ਅੱਡਾ
+ਫਾਟਕ
+ਦਰਵਾਜ਼ਾ
+ਕੂਚਾ
+ਕਟੜਾ
+ਅਹਾਤਾ
+ਬਸਤੀ
+ਮੰਡੀ
+ਪੁਲ
+ਮੋੜ
+ਸਟਰੀਟ

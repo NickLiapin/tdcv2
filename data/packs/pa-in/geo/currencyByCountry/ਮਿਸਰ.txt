@@ -1,0 +1,5 @@
+---
+description: Currency of ਮਿਸਰ, in Punjabi
+locale: pa-in
+---
+ਮਿਸਰੀ ਪਾਊਂਡ

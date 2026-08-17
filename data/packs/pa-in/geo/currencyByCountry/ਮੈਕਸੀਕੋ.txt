@@ -1,0 +1,5 @@
+---
+description: Currency of ਮੈਕਸੀਕੋ, in Punjabi
+locale: pa-in
+---
+ਮੈਕਸੀਕਨ ਪੇਸੋ

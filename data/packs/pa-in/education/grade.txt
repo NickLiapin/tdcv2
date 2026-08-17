@@ -1,0 +1,16 @@
+---
+description: Grade as printed on an Indian school or university result. Boards in Punjab give the letter bands A1 to E2 rather than A+ to F, and university results are still reported as ਦਰਜਾ (division) with a percentage; both systems are listed because both are in use.
+locale: pa-in
+---
+A1
+A2
+B1
+B2
+C1
+C2
+D
+E1
+E2
+ਪਹਿਲਾ ਦਰਜਾ
+ਦੂਜਾ ਦਰਜਾ
+ਤੀਜਾ ਦਰਜਾ

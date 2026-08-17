@@ -1,0 +1,5 @@
+---
+description: Currency of ਸਾਊਦੀ ਅਰਬ, in Punjabi
+locale: pa-in
+---
+ਸਾਊਦੀ ਰਿਆਲ

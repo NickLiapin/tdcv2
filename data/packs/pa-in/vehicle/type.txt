@@ -1,0 +1,30 @@
+---
+description: Vehicle type in Punjabi. ਟਰੈਕਟਰ-ਟਰਾਲੀ is the workhorse of rural Punjab and doubles as a passenger vehicle; ਜੁਗਾੜ is the locally assembled vehicle built from a diesel pumping engine on a cart frame, a real category on Punjab's roads with no factory model behind it; ਆਟੋ ਰਿਕਸ਼ਾ, ਟੈਂਪੂ and ਰੇਹੜਾ are the everyday load and passenger vehicles.
+locale: pa-in
+---
+ਕਾਰ
+ਹੈਚਬੈਕ
+ਸੇਡਾਨ
+ਐਸ.ਯੂ.ਵੀ.
+ਜੀਪ
+ਵੈਨ
+ਪਿਕਅੱਪ
+ਟਰੱਕ
+ਕੈਂਟਰ
+ਬੱਸ
+ਮਿੰਨੀ ਬੱਸ
+ਟੈਂਪੂ
+ਆਟੋ ਰਿਕਸ਼ਾ
+ਈ-ਰਿਕਸ਼ਾ
+ਸਕੂਟਰ
+ਸਕੂਟੀ
+ਮੋਟਰਸਾਈਕਲ
+ਬੁਲੇਟ
+ਟਰੈਕਟਰ
+ਟਰੈਕਟਰ-ਟਰਾਲੀ
+ਹਾਰਵੈਸਟਰ
+ਜੁਗਾੜ
+ਰੇਹੜਾ
+ਬੈਲ ਗੱਡੀ
+ਐਂਬੂਲੈਂਸ
+ਟੈਂਕਰ

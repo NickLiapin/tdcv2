@@ -1,0 +1,5 @@
+---
+description: Currency of ਨੀਦਰਲੈਂਡ, in Punjabi
+locale: pa-in
+---
+ਯੂਰੋ

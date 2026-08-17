@@ -1,0 +1,5 @@
+---
+description: Currency of ਇਟਲੀ, in Punjabi
+locale: pa-in
+---
+ਯੂਰੋ

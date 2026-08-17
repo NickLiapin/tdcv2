@@ -1,0 +1,5 @@
+---
+description: Currency code of ਕੈਨੇਡਾ
+locale: pa-in
+---
+CAD

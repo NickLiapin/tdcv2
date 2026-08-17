@@ -1,0 +1,15 @@
+---
+description: Reaction to a post, in Punjabi
+locale: pa-in
+---
+ਪਸੰਦ
+ਪਿਆਰ
+ਹਾਸਾ
+ਹੈਰਾਨੀ
+ਉਦਾਸੀ
+ਗੁੱਸਾ
+ਸ਼ਾਬਾਸ਼
+ਵਧਾਈਆਂ
+ਸਹਿਯੋਗ
+ਸ਼ੁਕਰਾਨਾ
+ਵਾਹ

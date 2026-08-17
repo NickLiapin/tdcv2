@@ -1,0 +1,11 @@
+---
+description: Trucking route type in Punjabi
+locale: pa-in
+---
+ਲੰਮਾ ਰੂਟ
+ਖੇਤਰੀ ਰੂਟ
+ਸਥਾਨਕ ਰੂਟ
+ਸ਼ਹਿਰੀ ਢੋਆ-ਢੁਆਈ
+ਤੈਅ ਰੂਟ
+ਦੋ ਡਰਾਈਵਰ ਵਾਲਾ
+ਆਖ਼ਰੀ ਮੀਲ

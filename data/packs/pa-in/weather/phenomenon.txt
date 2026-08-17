@@ -1,0 +1,19 @@
+---
+description: Severe weather event in Punjabi. ਲੂ is the dry scorching wind of May and June and is a named killer with no English word; ਕੋਹਰਾ, the dense December fog, closes Punjab's roads and railways every winter; ਗੜੇਮਾਰੀ flattens standing wheat; ਪਰਾਲੀ ਦਾ ਧੂੰਆਂ is the autumn smoke from burning rice stubble. Hurricanes and blizzards do not happen here and are not listed.
+locale: pa-in
+---
+ਮਾਨਸੂਨ
+ਲੂ
+ਕੋਹਰਾ
+ਗੜੇਮਾਰੀ
+ਹਨੇਰੀ
+ਹੜ੍ਹ
+ਸੋਕਾ
+ਗਰਮੀ ਦੀ ਲਹਿਰ
+ਸੀਤ ਲਹਿਰ
+ਪਾਲਾ
+ਬੱਦਲ ਫਟਣਾ
+ਬਿਜਲੀ ਡਿੱਗਣੀ
+ਪਰਾਲੀ ਦਾ ਧੂੰਆਂ
+ਭੂਚਾਲ
+ਢਿੱਗਾਂ ਡਿੱਗਣੀਆਂ

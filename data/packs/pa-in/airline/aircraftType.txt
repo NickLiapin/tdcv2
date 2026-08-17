@@ -1,0 +1,26 @@
+---
+description: Aircraft type. Manufacturer and model designations are brand names and keep their Latin spelling in Punjabi text too, exactly as they are painted on the aircraft.
+locale: pa-in
+---
+Boeing 737
+Boeing 737 MAX
+Boeing 747
+Boeing 757
+Boeing 767
+Boeing 777
+Boeing 787 Dreamliner
+Airbus A319
+Airbus A320
+Airbus A320neo
+Airbus A321
+Airbus A321neo
+Airbus A330
+Airbus A350
+Airbus A380
+ATR 42
+ATR 72
+Bombardier Q400
+Embraer E175
+Embraer E190
+Boeing 777X
+Airbus A220

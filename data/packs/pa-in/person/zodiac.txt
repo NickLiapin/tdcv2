@@ -1,0 +1,16 @@
+---
+description: Zodiac sign (ਰਾਸ਼ੀ) in Punjabi, the Indian sidereal names rather than the Latin ones. Note that Leo is ਸਿੰਘ — the same word as the Sikh religious name Singh, which literally means lion; a config joining a zodiac sign to a name can therefore print ਸਿੰਘ twice, and that is the language, not a bug.
+locale: pa-in
+---
+ਮੇਖ
+ਬ੍ਰਿਖ
+ਮਿਥੁਨ
+ਕਰਕ
+ਸਿੰਘ
+ਕੰਨਿਆ
+ਤੁਲਾ
+ਬ੍ਰਿਸ਼ਚਕ
+ਧਨੁ
+ਮਕਰ
+ਕੁੰਭ
+ਮੀਨ

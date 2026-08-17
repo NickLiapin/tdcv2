@@ -1,0 +1,5 @@
+---
+description: Capital of ਫ਼ਰਾਂਸ, in Punjabi
+locale: pa-in
+---
+ਪੈਰਿਸ

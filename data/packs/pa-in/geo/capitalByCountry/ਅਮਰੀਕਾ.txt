@@ -1,0 +1,5 @@
+---
+description: Capital of ਅਮਰੀਕਾ, in Punjabi
+locale: pa-in
+---
+ਵਾਸ਼ਿੰਗਟਨ ਡੀ.ਸੀ.

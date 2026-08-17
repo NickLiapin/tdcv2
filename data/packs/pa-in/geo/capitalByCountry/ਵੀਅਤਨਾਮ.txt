@@ -1,0 +1,5 @@
+---
+description: Capital of ਵੀਅਤਨਾਮ, in Punjabi
+locale: pa-in
+---
+ਹਨੋਈ

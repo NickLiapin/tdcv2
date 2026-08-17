@@ -1,0 +1,5 @@
+---
+description: Currency of ਆਸਟ੍ਰੇਲੀਆ, in Punjabi
+locale: pa-in
+---
+ਆਸਟ੍ਰੇਲੀਅਨ ਡਾਲਰ

@@ -1,0 +1,48 @@
+---
+description: Cooking ingredient in Punjabi. ਦੇਸੀ ਘਿਓ (clarified butter made at home) and ਸਰ੍ਹੋਂ ਦਾ ਤੇਲ (mustard oil) are the two cooking fats of Punjab; ਗੁੜ and ਸ਼ੱਕਰ are unrefined cane sugar in two forms and are not interchangeable with ਖੰਡ.
+locale: pa-in
+---
+ਆਟਾ
+ਮੈਦਾ
+ਸੂਜੀ
+ਬੇਸਨ
+ਮੱਕੀ ਦਾ ਆਟਾ
+ਬਾਜਰੇ ਦਾ ਆਟਾ
+ਚੌਲ
+ਬਾਸਮਤੀ ਚੌਲ
+ਮਾਂਹ ਦੀ ਦਾਲ
+ਛੋਲੇ
+ਕਾਲੇ ਛੋਲੇ
+ਰਾਜਮਾਂਹ
+ਮਸਰ
+ਮੂੰਗੀ
+ਅਰਹਰ
+ਘਿਓ
+ਦੇਸੀ ਘਿਓ
+ਮੱਖਣ
+ਸਰ੍ਹੋਂ ਦਾ ਤੇਲ
+ਰਿਫਾਇੰਡ ਤੇਲ
+ਦੁੱਧ
+ਦਹੀਂ
+ਲੱਸੀ
+ਪਨੀਰ
+ਖੋਆ
+ਮਲਾਈ
+ਕਰੀਮ
+ਅੰਡਾ
+ਚਿਕਨ
+ਮਟਨ
+ਮੱਛੀ
+ਖੰਡ
+ਗੁੜ
+ਸ਼ੱਕਰ
+ਸ਼ਹਿਦ
+ਨਮਕ
+ਸਿਰਕਾ
+ਖਮੀਰ
+ਬੇਕਿੰਗ ਸੋਡਾ
+ਬਾਦਾਮ
+ਕਾਜੂ
+ਕਿਸ਼ਮਿਸ਼
+ਪਿਸਤਾ
+ਨਾਰੀਅਲ

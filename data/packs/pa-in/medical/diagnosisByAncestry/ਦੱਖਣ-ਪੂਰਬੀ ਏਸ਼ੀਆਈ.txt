@@ -1,0 +1,11 @@
+---
+description: Conditions with raised prevalence in people of ਦੱਖਣ-ਪੂਰਬੀ ਏਸ਼ੀਆਈ descent, in Punjabi.
+locale: pa-in
+---
+ਹੀਮੋਗਲੋਬਿਨ ਈ ਰੋਗ
+ਬੀਟਾ ਥੈਲੇਸੀਮੀਆ
+ਜੀ6ਪੀਡੀ ਦੀ ਕਮੀ
+ਲੈਕਟੋਜ਼ ਅਸਹਿਣਸ਼ੀਲਤਾ
+ਹੈਪੇਟਾਈਟਿਸ ਬੀ
+ਨੱਕ-ਗਲੇ ਦਾ ਕੈਂਸਰ
+ਬ੍ਰੂਗਾਡਾ ਸਿੰਡਰੋਮ

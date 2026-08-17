@@ -1,0 +1,30 @@
+---
+description: Household budget category in Punjabi. ਬਿਜਲੀ ਦਾ ਬਿੱਲ and ਪਾਣੀ ਦਾ ਬਿੱਲ are separate lines on a Punjab household budget, and ਵਿਆਹ ਦੀ ਬਚਤ (saving for a wedding) is a real standing category that a European list has no equivalent for.
+locale: pa-in
+---
+ਕਿਰਾਇਆ
+ਘਰ ਦੀ ਕਿਸ਼ਤ
+ਕਰਿਆਨਾ
+ਸਬਜ਼ੀ
+ਦੁੱਧ
+ਬਿਜਲੀ ਦਾ ਬਿੱਲ
+ਪਾਣੀ ਦਾ ਬਿੱਲ
+ਗੈਸ
+ਮੋਬਾਈਲ ਤੇ ਇੰਟਰਨੈੱਟ
+ਆਵਾਜਾਈ
+ਪੈਟਰੋਲ
+ਸਿਹਤ
+ਦਵਾਈਆਂ
+ਬੀਮਾ
+ਬੱਚਿਆਂ ਦੀ ਪੜ੍ਹਾਈ
+ਟਿਊਸ਼ਨ
+ਕੱਪੜੇ
+ਬਾਹਰ ਖਾਣਾ
+ਮਨੋਰੰਜਨ
+ਯਾਤਰਾ
+ਤੋਹਫ਼ੇ ਤੇ ਸ਼ਗਨ
+ਵਿਆਹ ਦੀ ਬਚਤ
+ਬਚਤ
+ਕਰਜ਼ੇ ਦੀ ਕਿਸ਼ਤ
+ਦਾਨ
+ਖੇਤੀ ਖ਼ਰਚ

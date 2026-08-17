@@ -1,0 +1,11 @@
+---
+description: Weekday in Punjabi, Sunday first. Two differ from Hindi and are the ordinary Punjabi words: Thursday is ਵੀਰਵਾਰ (not ਗੁਰੂਵਾਰ) and Saturday is ਸ਼ਨਿੱਚਰਵਾਰ (not ਸ਼ਨਿਵਾਰ). A pack that merely transliterated Hindi would get both wrong.
+locale: pa-in
+---
+ਐਤਵਾਰ
+ਸੋਮਵਾਰ
+ਮੰਗਲਵਾਰ
+ਬੁੱਧਵਾਰ
+ਵੀਰਵਾਰ
+ਸ਼ੁੱਕਰਵਾਰ
+ਸ਼ਨਿੱਚਰਵਾਰ

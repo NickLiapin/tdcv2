@@ -1,0 +1,34 @@
+---
+description: Unit of measure in Punjabi. India is metric, so kilogram and litre lead; ਤੋਲਾ (11.66 g, used for gold) and ਕਿੱਲਾ / ਮਰਲਾ / ਕਨਾਲ (land measures still used everywhere in Punjab) are traditional units with no metric substitute in speech.
+locale: pa-in
+---
+ਨਗ
+ਡੱਬਾ
+ਪੇਟੀ
+ਪੈਕਟ
+ਦਰਜਨ
+ਜੋੜਾ
+ਸੈੱਟ
+ਰੋਲ
+ਗੱਠ
+ਬੋਰੀ
+ਕਿਲੋਗ੍ਰਾਮ
+ਗ੍ਰਾਮ
+ਕੁਇੰਟਲ
+ਟਨ
+ਲੀਟਰ
+ਮਿਲੀਲੀਟਰ
+ਮੀਟਰ
+ਸੈਂਟੀਮੀਟਰ
+ਕਿਲੋਮੀਟਰ
+ਫੁੱਟ
+ਇੰਚ
+ਗਜ਼
+ਤੋਲਾ
+ਕਿੱਲਾ
+ਮਰਲਾ
+ਕਨਾਲ
+ਏਕੜ
+ਸੇਰ
+ਮਣ
+ਗੁੱਟ

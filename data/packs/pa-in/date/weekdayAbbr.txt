@@ -1,0 +1,11 @@
+---
+description: Abbreviated weekday in Punjabi, Sunday first
+locale: pa-in
+---
+ਐਤ
+ਸੋਮ
+ਮੰਗਲ
+ਬੁੱਧ
+ਵੀਰ
+ਸ਼ੁੱਕਰ
+ਸ਼ਨਿੱਚਰ

@@ -1,0 +1,5 @@
+---
+description: Currency code of ਤੁਰਕੀ
+locale: pa-in
+---
+TRY

@@ -1,0 +1,5 @@
+---
+description: Currency code of ਸਪੇਨ
+locale: pa-in
+---
+EUR

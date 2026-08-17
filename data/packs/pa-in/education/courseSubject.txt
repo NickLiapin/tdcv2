@@ -1,0 +1,24 @@
+---
+description: School subject in Punjabi as it appears on a Punjab school timetable. ਪੰਜਾਬੀ is the compulsory first language in Punjab's schools, so it heads the list where an English pack would put English.
+locale: pa-in
+---
+ਪੰਜਾਬੀ
+ਹਿੰਦੀ
+ਅੰਗਰੇਜ਼ੀ
+ਗਣਿਤ
+ਵਿਗਿਆਨ
+ਭੌਤਿਕ ਵਿਗਿਆਨ
+ਰਸਾਇਣ ਵਿਗਿਆਨ
+ਜੀਵ ਵਿਗਿਆਨ
+ਕੰਪਿਊਟਰ ਵਿਗਿਆਨ
+ਸਮਾਜਿਕ ਸਿੱਖਿਆ
+ਇਤਿਹਾਸ
+ਭੂਗੋਲ
+ਅਰਥ ਸ਼ਾਸਤਰ
+ਰਾਜਨੀਤੀ ਸ਼ਾਸਤਰ
+ਸਰੀਰਕ ਸਿੱਖਿਆ
+ਕਲਾ
+ਸੰਗੀਤ
+ਖੇਤੀਬਾੜੀ
+ਗ੍ਰਹਿ ਵਿਗਿਆਨ
+ਧਾਰਮਿਕ ਸਿੱਖਿਆ

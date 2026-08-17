@@ -1,0 +1,5 @@
+---
+description: Currency code of ਭਾਰਤ
+locale: pa-in
+---
+INR

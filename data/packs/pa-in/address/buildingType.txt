@@ -1,0 +1,40 @@
+---
+description: Kind of building in Punjabi. ਕੋਠੀ (a detached brick house) and ਹਵੇਲੀ (a walled courtyard house, in villages usually the cattle yard) have no single English equivalent, and ਢਾਬਾ is a roadside eating house, not a restaurant.
+locale: pa-in
+---
+ਘਰ
+ਕੋਠੀ
+ਹਵੇਲੀ
+ਫਲੈਟ
+ਅਪਾਰਟਮੈਂਟ
+ਦਫ਼ਤਰ
+ਦੁਕਾਨ
+ਸ਼ੋਅਰੂਮ
+ਗੋਦਾਮ
+ਫੈਕਟਰੀ
+ਹਸਪਤਾਲ
+ਡਿਸਪੈਂਸਰੀ
+ਸਕੂਲ
+ਕਾਲਜ
+ਯੂਨੀਵਰਸਿਟੀ
+ਹੋਟਲ
+ਢਾਬਾ
+ਰੈਸਟੋਰੈਂਟ
+ਮਾਲ
+ਬਾਜ਼ਾਰ
+ਮੰਡੀ
+ਸਟੇਡੀਅਮ
+ਲਾਇਬ੍ਰੇਰੀ
+ਗੁਰਦੁਆਰਾ
+ਮੰਦਰ
+ਮਸਜਿਦ
+ਗਿਰਜਾਘਰ
+ਬੈਂਕ
+ਥਾਣਾ
+ਡਾਕਖਾਨਾ
+ਪੈਟਰੋਲ ਪੰਪ
+ਬੱਸ ਅੱਡਾ
+ਰੇਲਵੇ ਸਟੇਸ਼ਨ
+ਡੇਅਰੀ
+ਸ਼ੈੱਡ
+ਪਲਾਟ

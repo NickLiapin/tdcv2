@@ -1,0 +1,5 @@
+---
+description: Capital of ਸਾਊਦੀ ਅਰਬ, in Punjabi
+locale: pa-in
+---
+ਰਿਆਧ

@@ -1,0 +1,11 @@
+---
+description: Conditions with raised prevalence in people of ਪ੍ਰਸ਼ਾਂਤ ਟਾਪੂ ਵਾਸੀ descent, in Punjabi.
+locale: pa-in
+---
+ਟਾਈਪ 2 ਸ਼ੂਗਰ
+ਮੋਟਾਪਾ
+ਗਾਊਟ
+ਗੁਰਦੇ ਦੀ ਪੁਰਾਣੀ ਬਿਮਾਰੀ
+ਗਠੀਏ ਵਾਲਾ ਦਿਲ ਰੋਗ
+ਹੈਪੇਟਾਈਟਿਸ ਬੀ
+ਹਾਈ ਬਲੱਡ ਪ੍ਰੈਸ਼ਰ

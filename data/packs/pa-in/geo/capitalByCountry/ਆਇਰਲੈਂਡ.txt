@@ -1,0 +1,5 @@
+---
+description: Capital of ਆਇਰਲੈਂਡ, in Punjabi
+locale: pa-in
+---
+ਡਬਲਿਨ

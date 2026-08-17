@@ -1,0 +1,5 @@
+---
+description: Currency code of ਬ੍ਰਾਜ਼ੀਲ
+locale: pa-in
+---
+BRL

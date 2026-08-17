@@ -1,0 +1,17 @@
+---
+description: Truck cargo or trailer type in Punjabi. ਅਨਾਜ ਦੀ ਢੋਆ-ਢੁਆਈ and ਪਸ਼ੂ ਢੋਣ ਵਾਲਾ are the loads that fill Punjab's trucks after harvest.
+locale: pa-in
+---
+ਬੰਦ ਬਾਡੀ
+ਖੁੱਲ੍ਹੀ ਬਾਡੀ
+ਠੰਢੀ ਗੱਡੀ
+ਫਲੈਟਬੈੱਡ
+ਟੈਂਕਰ
+ਅਨਾਜ ਦੀ ਢੋਆ-ਢੁਆਈ
+ਪਸ਼ੂ ਢੋਣ ਵਾਲਾ
+ਖ਼ਤਰਨਾਕ ਮਾਲ
+ਕੰਟੇਨਰ
+ਗੱਡੀਆਂ ਢੋਣ ਵਾਲਾ
+ਟਿੱਪਰ
+ਖੁੱਲ੍ਹਾ ਮਾਲ
+ਲੱਕੜ ਢੋਣ ਵਾਲਾ

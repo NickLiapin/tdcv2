@@ -1,0 +1,22 @@
+---
+description: Diagnosis that requires male anatomy and cannot occur in a female patient, in Punjabi. Draw only for male rows; general conditions are in medical/diagnosis.
+locale: pa-in
+---
+ਪ੍ਰੋਸਟੇਟ ਦਾ ਵਧਣਾ
+ਪ੍ਰੋਸਟੇਟਾਈਟਿਸ
+ਪ੍ਰੋਸਟੇਟ ਦਾ ਕੈਂਸਰ
+ਅੰਡਕੋਸ਼ ਦਾ ਕੈਂਸਰ
+ਅੰਡਕੋਸ਼ ਦਾ ਮਰੋੜ
+ਵੈਰੀਕੋਸੀਲ
+ਹਾਈਡ੍ਰੋਸੀਲ
+ਐਪੀਡਿਡਾਈਮਾਈਟਿਸ
+ਅਣਉੱਤਰਿਆ ਅੰਡਕੋਸ਼
+ਫਿਮੋਸਿਸ
+ਬੈਲੇਨਾਈਟਿਸ
+ਨਾਮਰਦੀ
+ਪਾਇਰੋਨੀ ਰੋਗ
+ਮਰਦਾਨਾ ਬਾਂਝਪਨ
+ਗਾਇਨੀਕੋਮੈਸਟੀਆ
+ਮਰਦਾਨਾ ਹਾਰਮੋਨ ਦੀ ਕਮੀ
+ਮਰਦਾਨਾ ਗੰਜਾਪਨ
+ਅੰਡਕੋਸ਼ ਦਾ ਹਰਨੀਆ

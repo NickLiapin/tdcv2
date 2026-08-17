@@ -1,0 +1,34 @@
+---
+description: Bird in Punjabi. ਕੂੰਜ (the demoiselle crane) is a stock figure of Punjabi folk poetry, standing for a woman far from home, and ਕੋਇਲ, ਘੁੱਗੀ and ਟਟੀਹਰੀ appear in folk songs the same way.
+locale: pa-in
+---
+ਕਾਂ
+ਚਿੜੀ
+ਕਬੂਤਰ
+ਘੁੱਗੀ
+ਮੋਰ
+ਤੋਤਾ
+ਬਾਜ਼
+ਸ਼ਿਕਰਾ
+ਉੱਲੂ
+ਕੋਇਲ
+ਬਗਲਾ
+ਸਾਰਸ
+ਕੂੰਜ
+ਬਟੇਰ
+ਤਿੱਤਰ
+ਚਕੋਰ
+ਮੁਰਗਾ
+ਮੁਰਗੀ
+ਬੱਤਖ
+ਮੁਰਗਾਬੀ
+ਹੰਸ
+ਗਿਰਝ
+ਇੱਲ੍ਹ
+ਮੈਨਾ
+ਬੁਲਬੁਲ
+ਕਠਫੋੜਾ
+ਨੀਲਕੰਠ
+ਹੁਦਹੁਦ
+ਟਟੀਹਰੀ
+ਸ਼ੁਤਰਮੁਰਗ

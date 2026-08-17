@@ -1,0 +1,11 @@
+---
+description: Conduit or installation method for a cable run, in Punjabi
+locale: pa-in
+---
+ਪੀ.ਵੀ.ਸੀ. ਪਾਈਪ
+ਜੀ.ਆਈ. ਪਾਈਪ
+ਐਚ.ਡੀ.ਪੀ.ਈ. ਡਕਟ
+ਸਿੱਧੀ ਦੱਬਾਈ
+ਇਨਰਡਕਟ
+ਕੇਬਲ ਟਰੇ
+ਖੰਭੇ ਉੱਤੇ

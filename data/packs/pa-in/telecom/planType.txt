@@ -1,0 +1,16 @@
+---
+description: Mobile plan type in Punjabi. Prepaid dominates in India, and plans are sold by validity in days with a daily data cap, which is why ਰੋਜ਼ਾਨਾ ਡਾਟਾ ਪਲਾਨ and ਸਲਾਨਾ ਪਲਾਨ are named types here.
+locale: pa-in
+---
+ਪ੍ਰੀਪੇਡ
+ਪੋਸਟਪੇਡ
+ਅਸੀਮਤ
+ਰੋਜ਼ਾਨਾ ਡਾਟਾ ਪਲਾਨ
+ਸਲਾਨਾ ਪਲਾਨ
+ਪਰਿਵਾਰਕ ਪਲਾਨ
+ਕਾਰੋਬਾਰੀ ਪਲਾਨ
+ਸਿਰਫ਼ ਡਾਟਾ
+ਟੌਪ-ਅੱਪ
+ਰੋਮਿੰਗ ਪੈਕ
+ਬ੍ਰਾਡਬੈਂਡ
+ਡੀ.ਟੀ.ਐਚ.

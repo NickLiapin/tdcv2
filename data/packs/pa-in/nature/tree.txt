@@ -1,0 +1,32 @@
+---
+description: Tree in Punjabi. ਟਾਹਲੀ (shisham) is the tree of Punjabi folk song and the timber every village carpenter works; ਬੋਹੜ and ਪਿੱਪਲ are the village meeting trees; ਕਿੱਕਰ, ਸਫ਼ੈਦਾ, ਸ਼ਹਿਤੂਤ and ਬੇਰੀ line the fields and canals.
+locale: pa-in
+---
+ਟਾਹਲੀ
+ਬੋਹੜ
+ਪਿੱਪਲ
+ਨਿੰਮ
+ਕਿੱਕਰ
+ਸਫ਼ੈਦਾ
+ਸ਼ਹਿਤੂਤ
+ਬੇਰੀ
+ਅੰਬ
+ਜਾਮਣ
+ਅਮਲਤਾਸ
+ਗੁਲਮੋਹਰ
+ਕਚਨਾਰ
+ਅਸ਼ੋਕ
+ਅਰਜੁਨ
+ਸਿਰਸ
+ਢੱਕ
+ਸਰੂ
+ਦੇਵਦਾਰ
+ਚੀਲ
+ਬਾਂਸ
+ਖਜੂਰ
+ਨਾਰੀਅਲ
+ਅਖਰੋਟ
+ਚਿਨਾਰ
+ਓਕ
+ਮੈਪਲ
+ਬਿਰਚ

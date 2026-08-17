@@ -1,0 +1,28 @@
+---
+description: Hotel amenity in Punjabi. ਸ਼ਾਕਾਹਾਰੀ ਰਸੋਈ (a purely vegetarian kitchen) and ਜੈਨ ਖਾਣਾ are advertised amenities in India; ਪਾਵਰ ਬੈਕਅੱਪ and ਗਰਮ ਪਾਣੀ are listed because neither can be assumed.
+locale: pa-in
+---
+ਮੁਫ਼ਤ ਵਾਈ-ਫਾਈ
+ਪਾਵਰ ਬੈਕਅੱਪ
+ਗਰਮ ਪਾਣੀ
+ਏ.ਸੀ.
+ਸਵੀਮਿੰਗ ਪੂਲ
+ਸਪਾ
+ਜਿਮ
+ਰੈਸਟੋਰੈਂਟ
+ਸ਼ਾਕਾਹਾਰੀ ਰਸੋਈ
+ਜੈਨ ਖਾਣਾ
+ਬਾਰ
+ਰੂਮ ਸਰਵਿਸ
+ਏਅਰਪੋਰਟ ਸ਼ਟਲ
+ਮੁਫ਼ਤ ਨਾਸ਼ਤਾ
+ਪਾਰਕਿੰਗ
+ਪਾਲਤੂ ਜਾਨਵਰ ਮਨਜ਼ੂਰ
+ਬਿਜ਼ਨਸ ਸੈਂਟਰ
+ਕਾਨਫਰੰਸ ਹਾਲ
+ਲਾਂਡਰੀ
+ਡਾਕਟਰ ਦੀ ਸਹੂਲਤ
+ਲਿਫ਼ਟ
+ਛੱਤ ਵਾਲਾ ਰੈਸਟੋਰੈਂਟ
+ਬੱਚਿਆਂ ਲਈ ਖੇਡ ਖੇਤਰ
+ਸੀ.ਸੀ.ਟੀ.ਵੀ.

@@ -1,0 +1,5 @@
+---
+description: Capital of ਇੰਡੋਨੇਸ਼ੀਆ, in Punjabi
+locale: pa-in
+---
+ਜਕਾਰਤਾ

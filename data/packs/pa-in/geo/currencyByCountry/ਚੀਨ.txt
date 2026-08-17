@@ -1,0 +1,5 @@
+---
+description: Currency of ਚੀਨ, in Punjabi
+locale: pa-in
+---
+ਚੀਨੀ ਯੁਆਨ

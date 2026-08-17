@@ -1,0 +1,29 @@
+---
+description: Dog breed. Includes the Indian breeds a Punjabi speaker would name — ਗੱਦੀ (the Himalayan shepherd dog of the hills above Punjab), ਬਕਰਵਾਲ, ਰਾਮਪੁਰ ਹਾਊਂਡ — alongside ਦੇਸੀ ਕੁੱਤਾ, the ordinary Indian pariah dog.
+locale: pa-in
+---
+ਦੇਸੀ ਕੁੱਤਾ
+ਲੈਬਰਾਡੋਰ
+ਜਰਮਨ ਸ਼ੈਫਰਡ
+ਗੋਲਡਨ ਰਿਟਰੀਵਰ
+ਪੱਗ
+ਬੀਗਲ
+ਰੌਟਵੀਲਰ
+ਡੌਬਰਮੈਨ
+ਬੌਕਸਰ
+ਪੌਮੇਰੇਨੀਅਨ
+ਡਾਲਮੇਸ਼ਨ
+ਗ੍ਰੇਟ ਡੇਨ
+ਸਾਈਬੇਰੀਅਨ ਹਸਕੀ
+ਸ਼ੀਹ ਜ਼ੂ
+ਕੌਕਰ ਸਪੈਨੀਅਲ
+ਬੁੱਲ ਟੈਰੀਅਰ
+ਗੱਦੀ
+ਬਕਰਵਾਲ
+ਰਾਮਪੁਰ ਹਾਊਂਡ
+ਰਾਜਪਾਲਯਮ
+ਮੁਧੋਲ ਹਾਊਂਡ
+ਕੰਨੀ
+ਚਿਪੀਪਰਾਈ
+ਬੁੱਲਡੌਗ
+ਸੇਂਟ ਬਰਨਾਰਡ

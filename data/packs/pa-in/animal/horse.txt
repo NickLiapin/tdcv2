@@ -1,0 +1,20 @@
+---
+description: Horse breed. ਨੁਕਰਾ is the pure-white horse Punjab prizes and rides at weddings and at Hola Mohalla; ਮਾਰਵਾੜੀ and ਕਾਠੀਆਵਾੜੀ are the other Indian riding breeds a Punjabi speaker names.
+locale: pa-in
+---
+ਨੁਕਰਾ
+ਮਾਰਵਾੜੀ
+ਕਾਠੀਆਵਾੜੀ
+ਸਿੰਧੀ
+ਮਣੀਪੁਰੀ
+ਸਪਿਤੀ
+ਜ਼ੰਸਕਾਰੀ
+ਭੁਟੀਆ
+ਟੱਟੂ
+ਅਰਬੀ
+ਥਰੋਬਰੈੱਡ
+ਮੁਸਟੈਂਗ
+ਅਪਲੂਸਾ
+ਪਰਚੇਰੋਨ
+ਕਲਾਈਡਸਡੇਲ
+ਸ਼ੈਟਲੈਂਡ ਪੋਨੀ

@@ -1,0 +1,58 @@
+---
+description: Adjective used in a product listing, in Punjabi. Punjabi adjectives inflect for gender and number, so these are given in the masculine singular; a config joining one to a feminine noun will produce agreement that is grammatically wrong, and the pack has no way to fix that on its own.
+locale: pa-in
+---
+ਛੋਟਾ
+ਵੱਡਾ
+ਹਲਕਾ
+ਭਾਰੀ
+ਮਜ਼ਬੂਤ
+ਨਰਮ
+ਸਖ਼ਤ
+ਸੋਹਣਾ
+ਸ਼ਾਨਦਾਰ
+ਵਧੀਆ
+ਲਾਜਵਾਬ
+ਕਮਾਲ ਦਾ
+ਆਧੁਨਿਕ
+ਪੁਰਾਤਨ
+ਦੇਸੀ
+ਵਿਦੇਸ਼ੀ
+ਹੱਥ ਨਾਲ ਬਣਿਆ
+ਮਸ਼ੀਨ ਨਾਲ ਬਣਿਆ
+ਟਿਕਾਊ
+ਸਸਤਾ
+ਮਹਿੰਗਾ
+ਕੀਮਤੀ
+ਆਰਾਮਦਾਇਕ
+ਸੁਵਿਧਾਜਨਕ
+ਹੱਥ-ਵਸ
+ਤਹਿ ਹੋਣ ਵਾਲਾ
+ਪਾਣੀ-ਰੋਧਕ
+ਗਰਮੀ-ਰੋਧਕ
+ਜੰਗਾਲ-ਰੋਧਕ
+ਬਿਜਲੀ ਵਾਲਾ
+ਬੈਟਰੀ ਵਾਲਾ
+ਤਾਰ ਰਹਿਤ
+ਮੁੜ ਚਾਰਜ ਹੋਣ ਵਾਲਾ
+ਵਿਵਸਥਿਤ
+ਬਹੁ-ਮੰਤਵੀ
+ਸਾਦਾ
+ਰੰਗ-ਬਿਰੰਗਾ
+ਚਮਕੀਲਾ
+ਫਿੱਕਾ
+ਗੂੜ੍ਹਾ
+ਨਵਾਂ
+ਪੁਰਾਣਾ
+ਸਾਫ਼
+ਸ਼ੁੱਧ
+ਜੈਵਿਕ
+ਮੁੜ-ਵਰਤੋਂ ਯੋਗ
+ਵਾਤਾਵਰਨ-ਪੱਖੀ
+ਸੁਰੱਖਿਅਤ
+ਭਰੋਸੇਯੋਗ
+ਤੇਜ਼
+ਚੁੱਪ
+ਖ਼ੁਸ਼ਬੂਦਾਰ
+ਸੁਆਦੀ
+ਤਾਜ਼ਾ

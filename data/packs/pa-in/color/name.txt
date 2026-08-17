@@ -1,0 +1,58 @@
+---
+description: Colour name in Punjabi. Several are culture-specific rather than translations: ਕੇਸਰੀ is the saffron of the Sikh flag, ਬਸੰਤੀ the mustard-flower yellow worn at Basant, ਧਾਨੀ the green of standing paddy, ਸੁਰਮਈ the grey of kohl, ਮਹਿੰਦੀ the green-brown of henna paste and ਗੇਰੂਆ the ochre of an ascetic's robe.
+locale: pa-in
+---
+ਲਾਲ
+ਨੀਲਾ
+ਹਰਾ
+ਪੀਲਾ
+ਕਾਲਾ
+ਚਿੱਟਾ
+ਸਲੇਟੀ
+ਭੂਰਾ
+ਸੰਤਰੀ
+ਗੁਲਾਬੀ
+ਜਾਮਨੀ
+ਬੈਂਗਣੀ
+ਸੁਨਹਿਰੀ
+ਚਾਂਦੀ ਰੰਗਾ
+ਕੇਸਰੀ
+ਬਸੰਤੀ
+ਫਿਰੋਜ਼ੀ
+ਆਸਮਾਨੀ
+ਧਾਨੀ
+ਮਹਿੰਦੀ
+ਕਾਸ਼ਨੀ
+ਸੁਰਮਈ
+ਗੇਰੂਆ
+ਸੰਧੂਰੀ
+ਮੋਤੀਆ
+ਦੁਧੀਆ
+ਬਦਾਮੀ
+ਤਾਂਬਈ
+ਪਿੱਤਲੀ
+ਖਾਕੀ
+ਮਰੂਨ
+ਕਰੀਮ
+ਬੇਜ
+ਜੈਤੂਨੀ
+ਗੂੜ੍ਹਾ ਨੀਲਾ
+ਹਲਕਾ ਨੀਲਾ
+ਗੂੜ੍ਹਾ ਹਰਾ
+ਹਲਕਾ ਹਰਾ
+ਗੂੜ੍ਹਾ ਲਾਲ
+ਹਲਕਾ ਗੁਲਾਬੀ
+ਸਮੁੰਦਰੀ ਹਰਾ
+ਲੈਵੇਂਡਰ
+ਸਰ੍ਹੋਂ ਰੰਗਾ
+ਅੰਬੀ ਰੰਗਾ
+ਗੰਧਕੀ
+ਕਾਲਾ-ਸਲੇਟੀ
+ਦਗ਼ਦਾ ਲਾਲ
+ਫ਼ਿੱਕਾ ਪੀਲਾ
+ਗਾਜਰੀ
+ਬੈਂਗਣੀ-ਨੀਲਾ
+ਕੱਥਈ
+ਚੰਦਨੀ
+ਸ਼ਰਬਤੀ
+ਲਾਖੀ

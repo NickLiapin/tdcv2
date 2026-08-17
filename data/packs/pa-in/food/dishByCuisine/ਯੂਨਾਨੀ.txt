@@ -1,0 +1,12 @@
+---
+description: Dishes of ਯੂਨਾਨੀ cuisine, in Punjabi
+locale: pa-in
+---
+ਸੂਵਲਾਕੀ
+ਗਾਇਰੋ
+ਮੂਸਾਕਾ
+ਯੂਨਾਨੀ ਸਲਾਦ
+ਸਪਾਨਾਕੋਪੀਟਾ
+ਤਜ਼ਾਤਜ਼ੀਕੀ
+ਡੋਲਮਾ
+ਬਕਲਾਵਾ

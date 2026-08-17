@@ -1,0 +1,5 @@
+---
+description: Capital of ਦੱਖਣੀ ਅਫ਼ਰੀਕਾ, in Punjabi
+locale: pa-in
+---
+ਪ੍ਰਿਟੋਰੀਆ

@@ -1,0 +1,12 @@
+---
+description: Dishes of ਥਾਈ cuisine, in Punjabi
+locale: pa-in
+---
+ਪੈਡ ਥਾਈ
+ਟੌਮ ਯਮ
+ਹਰੀ ਕਰੀ
+ਲਾਲ ਕਰੀ
+ਸੋਮ ਟਮ
+ਮੈਂਗੋ ਸਟਿੱਕੀ ਰਾਈਸ
+ਥਾਈ ਫ੍ਰਾਈਡ ਰਾਈਸ
+ਸਾਟੇ

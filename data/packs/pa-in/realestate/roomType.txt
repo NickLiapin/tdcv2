@@ -1,0 +1,20 @@
+---
+description: Room in a Punjabi house. ਵਿਹੜਾ (the open inner courtyard the house is built around) and ਚੁਬਾਰਾ (the single room on the roof, reached by an outside stair) are structural to a Punjabi house and have no English name; ਬੈਠਕ is the front room kept for guests.
+locale: pa-in
+---
+ਬੈੱਡਰੂਮ
+ਬੈਠਕ
+ਡਰਾਇੰਗ ਰੂਮ
+ਰਸੋਈ
+ਗੁਸਲਖ਼ਾਨਾ
+ਬਾਥਰੂਮ
+ਵਿਹੜਾ
+ਚੁਬਾਰਾ
+ਬਰਾਂਡਾ
+ਛੱਤ
+ਸਟੋਰ
+ਪੂਜਾ ਕਮਰਾ
+ਪੜ੍ਹਾਈ ਦਾ ਕਮਰਾ
+ਗੈਰਾਜ
+ਬੇਸਮੈਂਟ
+ਪ੍ਰਾਹੁਣਿਆਂ ਦਾ ਕਮਰਾ

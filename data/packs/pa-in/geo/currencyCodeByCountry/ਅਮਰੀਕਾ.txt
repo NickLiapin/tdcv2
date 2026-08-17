@@ -1,0 +1,5 @@
+---
+description: Currency code of ਅਮਰੀਕਾ
+locale: pa-in
+---
+USD

@@ -1,0 +1,5 @@
+---
+description: Currency of ਪੋਲੈਂਡ, in Punjabi
+locale: pa-in
+---
+ਜ਼ਲੋਟੀ

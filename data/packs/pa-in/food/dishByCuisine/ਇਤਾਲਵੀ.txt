@@ -1,0 +1,12 @@
+---
+description: Dishes of ਇਤਾਲਵੀ cuisine, in Punjabi
+locale: pa-in
+---
+ਪੀਜ਼ਾ
+ਪਾਸਤਾ
+ਲਸਾਨੀਆ
+ਰਿਸੋਤੋ
+ਬ੍ਰੂਸ਼ੈਟਾ
+ਗਨੌਕੀ
+ਟਿਰਾਮਿਸੂ
+ਮਿਨੇਸਟ੍ਰੋਨੇ

@@ -1,0 +1,9 @@
+---
+description: Hotel star rating in Punjabi
+locale: pa-in
+---
+1 ਸਿਤਾਰਾ
+2 ਸਿਤਾਰੇ
+3 ਸਿਤਾਰੇ
+4 ਸਿਤਾਰੇ
+5 ਸਿਤਾਰੇ

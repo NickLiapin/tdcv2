@@ -1,0 +1,14 @@
+---
+description: Fuel type in Punjabi. ਸੀ.ਐਨ.ਜੀ. and ਐਲ.ਪੀ.ਜੀ. are ordinary road fuels in India in a way they are not in Europe.
+locale: pa-in
+---
+ਪੈਟਰੋਲ
+ਡੀਜ਼ਲ
+ਸੀ.ਐਨ.ਜੀ.
+ਐਲ.ਪੀ.ਜੀ.
+ਬਿਜਲੀ
+ਹਾਈਬ੍ਰਿਡ
+ਪਲੱਗ-ਇਨ ਹਾਈਬ੍ਰਿਡ
+ਹਾਈਡ੍ਰੋਜਨ
+ਈਥਾਨੋਲ
+ਬਾਇਓਡੀਜ਼ਲ

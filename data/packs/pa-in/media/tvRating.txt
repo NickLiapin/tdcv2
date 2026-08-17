@@ -1,0 +1,10 @@
+---
+description: Film and television certificate as India issues it. India does NOT use the American G / PG / R scale: the Central Board of Film Certification grants U (unrestricted), U/A with an age (parental guidance), A (adults only) and S (restricted to a specialised audience such as doctors). The list is short because that is the whole scale.
+locale: pa-in
+---
+U
+U/A 7+
+U/A 13+
+U/A 16+
+A
+S

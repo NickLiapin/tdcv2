@@ -1,0 +1,31 @@
+---
+description: Writing system in Punjabi. THE FACT THIS PACK TURNS ON: Punjabi is written in TWO scripts that share no letters. In India it is written in ਗੁਰਮੁਖੀ (Gurmukhi, U+0A00-U+0A7F), the script Guru Angad standardised and the Guru Granth Sahib is written in; in Pakistan the same spoken language is written in ਸ਼ਾਹਮੁਖੀ (Shahmukhi), a Perso-Arabic script read right to left. This pack is pa-in, so every value in it is Gurmukhi; a Shahmukhi pack would be a SEPARATE locale, because the two never string-match — the same word, the same language, and not one shared codepoint. Gurmukhi also looks superficially like ਦੇਵਨਾਗਰੀ to an untrained eye and is a different script with different letters; there is no Devanagari anywhere in this pack. Gurmukhi additionally marks TONE, which most Indian scripts do not: the letters ਘ ਝ ਢ ਧ ਭ and ਹ signal a low or high tone on the syllable rather than the aspirated voiced consonant their shapes descend from, so ਘੋੜਾ 'horse' is said with a falling tone and no /gh/ at all. The six nukta letters ਸ਼ ਖ਼ ਗ਼ ਜ਼ ਫ਼ ਲ਼ carry sounds Punjabi took from Persian and Arabic and are used throughout this pack.
+locale: pa-in
+---
+ਗੁਰਮੁਖੀ
+ਸ਼ਾਹਮੁਖੀ
+ਦੇਵਨਾਗਰੀ
+ਰੋਮਨ
+ਅਰਬੀ
+ਫ਼ਾਰਸੀ
+ਸਿਰਿਲਿਕ
+ਬੰਗਾਲੀ
+ਗੁਜਰਾਤੀ
+ਓੜੀਆ
+ਤਮਿਲ
+ਤੇਲਗੂ
+ਕੰਨੜ
+ਮਲਿਆਲਮ
+ਸਿੰਹਲੀ
+ਤਿੱਬਤੀ
+ਚੀਨੀ
+ਹੀਰਾਗਾਨਾ
+ਕਾਤਾਕਾਨਾ
+ਹਾਂਗੁਲ
+ਯੂਨਾਨੀ
+ਇਬਰਾਨੀ
+ਥਾਈ
+ਜਾਰਜੀਆਈ
+ਅਰਮੀਨੀਆਈ
+ਲੰਡਾ
+ਟਾਕਰੀ

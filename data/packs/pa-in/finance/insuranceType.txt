@@ -1,0 +1,18 @@
+---
+description: Insurance type in Punjabi. ਫ਼ਸਲ ਬੀਮਾ (crop insurance) and ਪਸ਼ੂ ਬੀਮਾ (livestock insurance) are ordinary products in Punjab and would not appear on a European list at all.
+locale: pa-in
+---
+ਸਿਹਤ ਬੀਮਾ
+ਜੀਵਨ ਬੀਮਾ
+ਵਾਹਨ ਬੀਮਾ
+ਦੋ-ਪਹੀਆ ਬੀਮਾ
+ਘਰ ਦਾ ਬੀਮਾ
+ਫ਼ਸਲ ਬੀਮਾ
+ਪਸ਼ੂ ਬੀਮਾ
+ਯਾਤਰਾ ਬੀਮਾ
+ਦੁਰਘਟਨਾ ਬੀਮਾ
+ਅਪੰਗਤਾ ਬੀਮਾ
+ਦੰਦਾਂ ਦਾ ਬੀਮਾ
+ਅੱਖਾਂ ਦਾ ਬੀਮਾ
+ਦੇਣਦਾਰੀ ਬੀਮਾ
+ਦੁਕਾਨ ਦਾ ਬੀਮਾ

@@ -1,0 +1,16 @@
+---
+description: Conditions with raised prevalence in people of ਅਸ਼ਕੇਨਾਜ਼ੀ ਯਹੂਦੀ descent, in Punjabi.
+locale: pa-in
+---
+ਟੇ-ਸੈਕਸ ਰੋਗ
+ਗੌਸ਼ੇ ਰੋਗ
+ਕੈਨਾਵਨ ਰੋਗ
+ਪਰਿਵਾਰਕ ਡਿਸਆਟੋਨੋਮੀਆ
+ਨੀਮਨ-ਪਿਕ ਰੋਗ
+ਬਲੂਮ ਸਿੰਡਰੋਮ
+ਫ਼ੈਨਕੋਨੀ ਅਨੀਮੀਆ
+BRCA1 ਪਰਿਵਰਤਨ
+BRCA2 ਪਰਿਵਰਤਨ
+ਕਰੋਨ ਰੋਗ
+ਪਰਿਵਾਰਕ ਹਾਈਪਰਕੋਲੈਸਟ੍ਰੋਲੀਮੀਆ
+ਮਿਊਕੋਲਿਪੀਡੋਸਿਸ IV

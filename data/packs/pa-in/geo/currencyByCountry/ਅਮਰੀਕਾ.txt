@@ -1,0 +1,5 @@
+---
+description: Currency of ਅਮਰੀਕਾ, in Punjabi
+locale: pa-in
+---
+ਅਮਰੀਕੀ ਡਾਲਰ

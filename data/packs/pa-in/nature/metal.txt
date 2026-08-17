@@ -1,0 +1,26 @@
+---
+description: Metal in Punjabi. ਸਰਬ ਲੋਹ ('all-iron') is the Sikh term for unalloyed iron, the metal a kara is made of and the only one permitted for the utensils used in some Sikh kitchens — a metal name that carries a religious meaning as well as a chemical one.
+locale: pa-in
+---
+ਸੋਨਾ
+ਚਾਂਦੀ
+ਲੋਹਾ
+ਸਰਬ ਲੋਹ
+ਤਾਂਬਾ
+ਪਿੱਤਲ
+ਕਾਂਸੀ
+ਐਲੂਮੀਨੀਅਮ
+ਸਟੀਲ
+ਸਟੇਨਲੈੱਸ ਸਟੀਲ
+ਜਸਤਾ
+ਸਿੱਕਾ
+ਟੀਨ
+ਪਲੈਟੀਨਮ
+ਟਾਈਟੇਨੀਅਮ
+ਨਿੱਕਲ
+ਪਾਰਾ
+ਕੋਬਾਲਟ
+ਕ੍ਰੋਮੀਅਮ
+ਟੰਗਸਟਨ
+ਪੈਲੇਡੀਅਮ
+ਮੈਗਨੀਸ਼ੀਅਮ

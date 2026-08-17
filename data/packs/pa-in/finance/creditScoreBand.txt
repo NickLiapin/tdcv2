@@ -1,0 +1,9 @@
+---
+description: Credit score band in Punjabi. India's consumer scores run 300-900 (CIBIL), not the 300-850 of the US, so the band names below sit on a different scale.
+locale: pa-in
+---
+ਬਹੁਤ ਮਾੜਾ
+ਮਾੜਾ
+ਠੀਕ
+ਚੰਗਾ
+ਬਹੁਤ ਵਧੀਆ

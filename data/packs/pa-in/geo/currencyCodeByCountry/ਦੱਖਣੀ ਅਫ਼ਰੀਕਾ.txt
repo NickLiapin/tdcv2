@@ -1,0 +1,5 @@
+---
+description: Currency code of ਦੱਖਣੀ ਅਫ਼ਰੀਕਾ
+locale: pa-in
+---
+ZAR

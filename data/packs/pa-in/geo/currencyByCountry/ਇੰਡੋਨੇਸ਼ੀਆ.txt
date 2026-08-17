@@ -1,0 +1,5 @@
+---
+description: Currency of ਇੰਡੋਨੇਸ਼ੀਆ, in Punjabi
+locale: pa-in
+---
+ਇੰਡੋਨੇਸ਼ੀਆਈ ਰੁਪੀਆ

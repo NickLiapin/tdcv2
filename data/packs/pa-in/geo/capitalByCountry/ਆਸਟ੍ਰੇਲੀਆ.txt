@@ -1,0 +1,5 @@
+---
+description: Capital of ਆਸਟ੍ਰੇਲੀਆ, in Punjabi
+locale: pa-in
+---
+ਕੈਨਬਰਾ

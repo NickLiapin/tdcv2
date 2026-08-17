@@ -1,0 +1,10 @@
+---
+description: Conditions with raised prevalence in people of ਪੂਰਬੀ ਯੂਰਪੀ descent, in Punjabi.
+locale: pa-in
+---
+ਖ਼ਾਨਦਾਨੀ ਹੀਮੋਕ੍ਰੋਮੈਟੋਸਿਸ
+ਫ਼ੈਕਟਰ V ਲਾਈਡਨ
+ਸਿਸਟਿਕ ਫ਼ਾਈਬਰੋਸਿਸ
+ਵਿਲਸਨ ਰੋਗ
+ਸੀਲੀਐਕ ਰੋਗ
+ਟਾਈਪ 1 ਸ਼ੂਗਰ

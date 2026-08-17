@@ -1,0 +1,5 @@
+---
+description: Capital of ਪਾਕਿਸਤਾਨ, in Punjabi
+locale: pa-in
+---
+ਇਸਲਾਮਾਬਾਦ

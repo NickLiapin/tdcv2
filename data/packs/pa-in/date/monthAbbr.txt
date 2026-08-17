@@ -1,0 +1,16 @@
+---
+description: Abbreviated Gregorian month name in Punjabi
+locale: pa-in
+---
+ਜਨ
+ਫ਼ਰ
+ਮਾਰ
+ਅਪ੍ਰੈ
+ਮਈ
+ਜੂਨ
+ਜੁਲਾ
+ਅਗ
+ਸਤੰ
+ਅਕਤੂ
+ਨਵੰ
+ਦਸੰ

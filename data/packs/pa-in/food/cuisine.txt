@@ -1,0 +1,21 @@
+---
+description: Cuisine as a Punjabi menu names it. ਪੰਜਾਬੀ heads the list, and the Indian regional cuisines below it (ਦੱਖਣ ਭਾਰਤੀ, ਬੰਗਾਲੀ, ਗੁਜਰਾਤੀ, ਰਾਜਸਥਾਨੀ, ਕਸ਼ਮੀਰੀ) are distinct cuisines to a Punjabi speaker where an English list would collapse them all into 'Indian'. ਚੀਨੀ here means the Indian-Chinese cooking sold in every Punjabi town, not the cooking of China.
+locale: pa-in
+---
+ਪੰਜਾਬੀ
+ਮੁਗ਼ਲਈ
+ਦੱਖਣ ਭਾਰਤੀ
+ਬੰਗਾਲੀ
+ਗੁਜਰਾਤੀ
+ਰਾਜਸਥਾਨੀ
+ਕਸ਼ਮੀਰੀ
+ਤਿੱਬਤੀ
+ਚੀਨੀ
+ਇਤਾਲਵੀ
+ਥਾਈ
+ਜਾਪਾਨੀ
+ਕੋਰੀਆਈ
+ਮੈਕਸੀਕਨ
+ਲਬਨਾਨੀ
+ਯੂਨਾਨੀ
+ਅਮਰੀਕੀ

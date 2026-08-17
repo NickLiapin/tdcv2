@@ -1,0 +1,5 @@
+---
+description: Currency of ਯੂਨਾਈਟਿਡ ਕਿੰਗਡਮ, in Punjabi
+locale: pa-in
+---
+ਪਾਊਂਡ ਸਟਰਲਿੰਗ

@@ -1,0 +1,41 @@
+---
+description: Country as Punjabi names it, weighted by population in millions. The names are TRANSLATED, not respelled: Greece is ਯੂਨਾਨ, Egypt is ਮਿਸਰ, Japan is ਜਪਾਨ and the United States is ਅਮਰੀਕਾ, which is what a Punjabi speaker says and writes.
+locale: pa-in
+weighted: true
+---
+ਚੀਨ,1410
+ਭਾਰਤ,1400
+ਅਮਰੀਕਾ,335
+ਇੰਡੋਨੇਸ਼ੀਆ,275
+ਪਾਕਿਸਤਾਨ,240
+ਨਾਈਜੀਰੀਆ,220
+ਬ੍ਰਾਜ਼ੀਲ,215
+ਬੰਗਲਾਦੇਸ਼,170
+ਰੂਸ,144
+ਮੈਕਸੀਕੋ,128
+ਜਪਾਨ,125
+ਮਿਸਰ,110
+ਵੀਅਤਨਾਮ,98
+ਤੁਰਕੀ,85
+ਜਰਮਨੀ,84
+ਥਾਈਲੈਂਡ,72
+ਫ਼ਰਾਂਸ,68
+ਯੂਨਾਈਟਿਡ ਕਿੰਗਡਮ,67
+ਦੱਖਣੀ ਅਫ਼ਰੀਕਾ,60
+ਇਟਲੀ,59
+ਦੱਖਣੀ ਕੋਰੀਆ,52
+ਸਪੇਨ,47
+ਅਰਜਨਟੀਨਾ,46
+ਕੈਨੇਡਾ,39
+ਪੋਲੈਂਡ,38
+ਸਾਊਦੀ ਅਰਬ,36
+ਆਸਟ੍ਰੇਲੀਆ,26
+ਨੀਦਰਲੈਂਡ,18
+ਸਵੀਡਨ,10
+ਯੂਨਾਨ,10
+ਪੁਰਤਗਾਲ,10
+ਸਵਿਟਜ਼ਰਲੈਂਡ,9
+ਸਿੰਗਾਪੁਰ,6
+ਨਾਰਵੇ,5
+ਆਇਰਲੈਂਡ,5
+ਨਿਊਜ਼ੀਲੈਂਡ,5

@@ -1,0 +1,5 @@
+---
+description: Currency code of ਜਪਾਨ
+locale: pa-in
+---
+JPY

@@ -1,0 +1,16 @@
+---
+description: Leave type in Punjabi. ਆਕਸਮਿਕ ਛੁੱਟੀ (casual leave) and ਅਰਜਿਤ ਛੁੱਟੀ (earned leave) are separate statutory entitlements in Indian service rules, counted and carried forward differently, and both translate loosely as 'vacation'.
+locale: pa-in
+---
+ਆਕਸਮਿਕ ਛੁੱਟੀ
+ਅਰਜਿਤ ਛੁੱਟੀ
+ਬਿਮਾਰੀ ਦੀ ਛੁੱਟੀ
+ਜਣੇਪਾ ਛੁੱਟੀ
+ਪਿਤ੍ਰਤਵ ਛੁੱਟੀ
+ਮੌਤ ਦੀ ਛੁੱਟੀ
+ਬਿਨਾਂ ਤਨਖ਼ਾਹ ਛੁੱਟੀ
+ਅਧਿਐਨ ਛੁੱਟੀ
+ਨਿੱਜੀ ਛੁੱਟੀ
+ਡਾਕਟਰੀ ਛੁੱਟੀ
+ਤਿਉਹਾਰ ਦੀ ਛੁੱਟੀ
+ਵਿਆਹ ਦੀ ਛੁੱਟੀ

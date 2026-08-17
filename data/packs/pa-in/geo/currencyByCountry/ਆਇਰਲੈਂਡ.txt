@@ -1,0 +1,5 @@
+---
+description: Currency of ਆਇਰਲੈਂਡ, in Punjabi
+locale: pa-in
+---
+ਯੂਰੋ

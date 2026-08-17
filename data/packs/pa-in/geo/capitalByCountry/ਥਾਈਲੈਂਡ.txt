@@ -1,0 +1,5 @@
+---
+description: Capital of ਥਾਈਲੈਂਡ, in Punjabi
+locale: pa-in
+---
+ਬੈਂਕਾਕ

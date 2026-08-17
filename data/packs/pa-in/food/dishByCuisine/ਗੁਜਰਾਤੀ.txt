@@ -1,0 +1,12 @@
+---
+description: Dishes of ਗੁਜਰਾਤੀ cuisine, in Punjabi
+locale: pa-in
+---
+ਢੋਕਲਾ
+ਥੇਪਲਾ
+ਖਾਂਡਵੀ
+ਉਂਧੀਉ
+ਫਾਫੜਾ
+ਹਾਂਡਵੋ
+ਖਿਚੜੀ
+ਸ਼੍ਰੀਖੰਡ

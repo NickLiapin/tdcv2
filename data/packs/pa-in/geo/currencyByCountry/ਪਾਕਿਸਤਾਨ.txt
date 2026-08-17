@@ -1,0 +1,5 @@
+---
+description: Currency of ਪਾਕਿਸਤਾਨ, in Punjabi
+locale: pa-in
+---
+ਪਾਕਿਸਤਾਨੀ ਰੁਪਇਆ

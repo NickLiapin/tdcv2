@@ -1,0 +1,10 @@
+---
+description: Playing positions in ਵਾਲੀਬਾਲ, in Punjabi
+locale: pa-in
+---
+ਸੈਟਰ
+ਆਊਟਸਾਈਡ ਹਿੱਟਰ
+ਓਪੋਜ਼ਿਟ ਹਿੱਟਰ
+ਮਿਡਲ ਬਲੌਕਰ
+ਲਿਬਰੋ
+ਸਰਵਰ

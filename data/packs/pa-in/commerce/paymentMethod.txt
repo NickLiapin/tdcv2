@@ -1,0 +1,19 @@
+---
+description: Payment method in Punjabi. UPI is how most everyday payments in Punjab are actually made and is kept in its Latin brand form; ਡਿਲੀਵਰੀ ਤੇ ਨਕਦ (cash on delivery) is still a leading method and would be an odd entry on a European list.
+locale: pa-in
+---
+UPI
+ਕ੍ਰੈਡਿਟ ਕਾਰਡ
+ਡੈਬਿਟ ਕਾਰਡ
+ਨੈੱਟ ਬੈਂਕਿੰਗ
+ਡਿਲੀਵਰੀ ਤੇ ਨਕਦ
+ਨਕਦ
+ਬੈਂਕ ਟ੍ਰਾਂਸਫ਼ਰ
+NEFT
+RTGS
+IMPS
+ਚੈੱਕ
+ਡਰਾਫਟ
+ਵਾਲਿਟ
+ਗਿਫਟ ਕਾਰਡ
+EMI

@@ -1,0 +1,39 @@
+---
+description: Garment in Punjabi. Several have no English equivalent and are not translated: ਪੱਗ / ਦਸਤਾਰ is the Sikh turban, an article of faith rather than a hat; ਕਛਹਿਰਾ is one of the five articles a baptised Sikh wears; ਪਟਿਆਲਾ ਸਲਵਾਰ is the pleated salwar named after Patiala; ਜੁੱਤੀ is the embroidered Punjabi slipper; ਚਾਦਰਾ is the men's wrap worn in villages; ਫੁਲਕਾਰੀ is the embroidered shawl a bride is given.
+locale: pa-in
+---
+ਕੁੜਤਾ
+ਕੁੜਤੀ
+ਪਜਾਮਾ
+ਸਲਵਾਰ
+ਪਟਿਆਲਾ ਸਲਵਾਰ
+ਕਮੀਜ਼
+ਚੂੜੀਦਾਰ
+ਦੁਪੱਟਾ
+ਚੁੰਨੀ
+ਪੱਗ
+ਦਸਤਾਰ
+ਪਟਕਾ
+ਕਛਹਿਰਾ
+ਚਾਦਰਾ
+ਲੁੰਗੀ
+ਖੇਸ
+ਫੁਲਕਾਰੀ
+ਸ਼ਾਲ
+ਸਾੜ੍ਹੀ
+ਲਹਿੰਗਾ
+ਸ਼ੇਰਵਾਨੀ
+ਅਚਕਨ
+ਜੈਕਟ
+ਸਵੈਟਰ
+ਕੋਟ
+ਜੀਨਸ
+ਟੀ-ਸ਼ਰਟ
+ਪੈਂਟ
+ਸਕਰਟ
+ਜੁੱਤੀ
+ਖੁੱਸਾ
+ਚੱਪਲ
+ਬੂਟ
+ਟੋਪੀ
+ਮਫ਼ਲਰ

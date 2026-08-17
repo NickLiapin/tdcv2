@@ -1,0 +1,28 @@
+---
+description: Fish in Punjabi. ਰੋਹੂ, ਕਤਲਾ, ਮ੍ਰਿਗਲ and ਸੌਲ are the fish of Punjab's rivers and ponds and the ones sold in its markets; the sea fish below are known but not local.
+locale: pa-in
+---
+ਰੋਹੂ
+ਕਤਲਾ
+ਮ੍ਰਿਗਲ
+ਸੌਲ
+ਮੱਲੀ
+ਸਿੰਘਾੜਾ ਮੱਛੀ
+ਕਾਮਨ ਕਾਰਪ
+ਸਿਲਵਰ ਕਾਰਪ
+ਗ੍ਰਾਸ ਕਾਰਪ
+ਟ੍ਰਾਊਟ
+ਗੋਲਡਫਿਸ਼
+ਹਿਲਸਾ
+ਪੌਮਫ੍ਰੇਟ
+ਸੁਰਮਈ
+ਟੂਨਾ
+ਸਾਲਮਨ
+ਸਾਰਡੀਨ
+ਈਲ
+ਝੀਂਗਾ
+ਕੇਕੜਾ
+ਸ਼ਾਰਕ
+ਟਿਲਾਪੀਆ
+ਬਾਮ
+ਸਿੰਘੀ

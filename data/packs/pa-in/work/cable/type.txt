@@ -1,0 +1,14 @@
+---
+description: Cable type in Punjabi
+locale: pa-in
+---
+ਫ਼ਾਈਬਰ ਆਪਟਿਕ
+ਕੋਐਕਸ਼ੀਅਲ
+ਟਵਿਸਟਿਡ ਪੇਅਰ
+Cat5e
+Cat6
+Cat6a
+ਈਥਰਨੈੱਟ
+ਹਵਾਈ ਤਾਰ
+ਜ਼ਮੀਨਦੋਜ਼ ਤਾਰ
+ਆਰਮਰਡ ਕੇਬਲ

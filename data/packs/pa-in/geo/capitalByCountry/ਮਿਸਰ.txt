@@ -1,0 +1,5 @@
+---
+description: Capital of ਮਿਸਰ, in Punjabi
+locale: pa-in
+---
+ਕਾਹਿਰਾ

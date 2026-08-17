@@ -1,0 +1,5 @@
+---
+description: Currency of ਪੁਰਤਗਾਲ, in Punjabi
+locale: pa-in
+---
+ਯੂਰੋ

@@ -1,0 +1,5 @@
+---
+description: Capital of ਤੁਰਕੀ, in Punjabi
+locale: pa-in
+---
+ਅੰਕਾਰਾ

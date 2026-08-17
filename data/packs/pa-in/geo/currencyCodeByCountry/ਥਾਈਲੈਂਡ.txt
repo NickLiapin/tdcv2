@@ -1,0 +1,5 @@
+---
+description: Currency code of ਥਾਈਲੈਂਡ
+locale: pa-in
+---
+THB

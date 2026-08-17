@@ -1,0 +1,12 @@
+---
+description: Conditions with raised prevalence in people of ਦੱਖਣੀ ਏਸ਼ੀਆਈ descent, in Punjabi.
+locale: pa-in
+---
+ਥੈਲੇਸੀਮੀਆ
+ਸਿਕਲ ਸੈੱਲ ਰੋਗ
+ਜੀ6ਪੀਡੀ ਦੀ ਕਮੀ
+ਟਾਈਪ 2 ਸ਼ੂਗਰ
+ਦਿਲ ਦੀਆਂ ਨਾੜੀਆਂ ਦਾ ਛੇਤੀ ਰੋਗ
+ਵਿਟਾਮਿਨ ਡੀ ਦੀ ਕਮੀ
+ਤਪਦਿਕ
+ਲੈਕਟੋਜ਼ ਅਸਹਿਣਸ਼ੀਲਤਾ

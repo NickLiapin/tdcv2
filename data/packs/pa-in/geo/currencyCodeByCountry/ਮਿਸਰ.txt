@@ -1,0 +1,5 @@
+---
+description: Currency code of ਮਿਸਰ
+locale: pa-in
+---
+EGP

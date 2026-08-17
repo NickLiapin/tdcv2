@@ -1,0 +1,5 @@
+---
+description: Currency code of ਬੰਗਲਾਦੇਸ਼
+locale: pa-in
+---
+BDT

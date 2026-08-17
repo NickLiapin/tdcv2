@@ -1,0 +1,29 @@
+---
+description: Gemstone in Punjabi. The first nine are the ਨੌਰਤਨ — the nine stones of Indian astrology, each tied to a planet and worn in a ring on an astrologer's advice, which is why a Punjabi jeweller stocks them by these names and not by the mineral.
+locale: pa-in
+---
+ਹੀਰਾ
+ਮੋਤੀ
+ਮਾਣਿਕ
+ਨੀਲਮ
+ਪੰਨਾ
+ਪੁਖਰਾਜ
+ਮੂੰਗਾ
+ਲਹਿਸੁਨੀਆ
+ਗੋਮੇਦ
+ਫਿਰੋਜ਼ਾ
+ਲਾਜਵਰਦ
+ਸੁਲੇਮਾਨੀ
+ਓਪਲ
+ਗਾਰਨੇਟ
+ਐਮਥਿਸਟ
+ਟੋਪਾਜ਼
+ਜੇਡ
+ਚੰਦਰਕਾਂਤ
+ਟੂਰਮਲੀਨ
+ਐਕੁਆਮਰੀਨ
+ਸਿਟਰੀਨ
+ਜ਼ਿਰਕੋਨ
+ਓਨਿਕਸ
+ਪੈਰੀਡੌਟ
+ਅੰਬਰ

@@ -1,0 +1,19 @@
+---
+description: Social platform used in Punjab and the Punjabi diaspora. Platform names are brands and keep their Latin spelling. WhatsApp leads any Indian list; ShareChat and Moj carry Indian-language content specifically.
+locale: pa-in
+---
+WhatsApp
+Instagram
+Facebook
+YouTube
+Snapchat
+X
+Telegram
+ShareChat
+Moj
+LinkedIn
+Reddit
+Pinterest
+Threads
+Discord
+Josh

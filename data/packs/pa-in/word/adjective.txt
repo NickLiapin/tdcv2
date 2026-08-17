@@ -1,0 +1,48 @@
+---
+description: Common Punjabi adjective, in the masculine singular. Punjabi adjectives divide into those that inflect (-ਾ / -ੀ / -ੇ, like ਵੱਡਾ, ਛੋਟਾ, ਸੋਹਣਾ) and those that never change (ਸਾਫ਼, ਤੇਜ਼, ਗ਼ਰੀਬ); a config joining any of the first kind to a feminine noun will read wrong.
+locale: pa-in
+---
+ਵੱਡਾ
+ਛੋਟਾ
+ਸੋਹਣਾ
+ਚੰਗਾ
+ਮਾੜਾ
+ਨਵਾਂ
+ਪੁਰਾਣਾ
+ਲੰਮਾ
+ਛੋਟਾ ਜਿਹਾ
+ਚੌੜਾ
+ਤੰਗ
+ਡੂੰਘਾ
+ਉੱਚਾ
+ਨੀਵਾਂ
+ਭਾਰੀ
+ਹਲਕਾ
+ਗਰਮ
+ਠੰਢਾ
+ਸੁੱਕਾ
+ਗਿੱਲਾ
+ਸਾਫ਼
+ਗੰਦਾ
+ਤੇਜ਼
+ਹੌਲੀ
+ਮਿੱਠਾ
+ਕੌੜਾ
+ਖੱਟਾ
+ਤਿੱਖਾ
+ਨਰਮ
+ਸਖ਼ਤ
+ਅਮੀਰ
+ਗ਼ਰੀਬ
+ਖ਼ੁਸ਼
+ਉਦਾਸ
+ਸਿਆਣਾ
+ਮੂਰਖ
+ਬਹਾਦਰ
+ਡਰਪੋਕ
+ਸ਼ਾਂਤ
+ਰੌਲੇ ਵਾਲਾ
+ਸੌਖਾ
+ਔਖਾ
+ਜਵਾਨ
+ਬੁੱਢਾ

@@ -1,0 +1,24 @@
+---
+description: Kind of trip in Punjabi. ਯਾਤਰਾ (a pilgrimage) is a distinct trip type — to Hemkunt Sahib, Nanded, Patna Sahib or Kartarpur — and ਪਿੰਡ ਜਾਣਾ (going back to the village) and ਵਿਦੇਸ਼ ਜਾਣਾ (going abroad) are journeys Punjabi families name in their own right.
+locale: pa-in
+---
+ਕਾਰੋਬਾਰੀ
+ਸੈਰ-ਸਪਾਟਾ
+ਪਰਿਵਾਰਕ ਛੁੱਟੀਆਂ
+ਹਨੀਮੂਨ
+ਯਾਤਰਾ
+ਪਿੰਡ ਜਾਣਾ
+ਵਿਦੇਸ਼ ਜਾਣਾ
+ਸਾਹਸੀ ਸਫ਼ਰ
+ਸੜਕੀ ਸਫ਼ਰ
+ਕਰੂਜ਼
+ਬੈਕਪੈਕਿੰਗ
+ਸ਼ਹਿਰੀ ਗੇੜਾ
+ਪਹਾੜੀ ਸਫ਼ਰ
+ਸਮੁੰਦਰੀ ਕੰਢੇ ਦੀ ਛੁੱਟੀ
+ਗਰੁੱਪ ਟੂਰ
+ਇਕੱਲੇ ਸਫ਼ਰ
+ਵਿਆਹ ਲਈ ਸਫ਼ਰ
+ਪੜ੍ਹਾਈ ਲਈ ਸਫ਼ਰ
+ਇਲਾਜ ਲਈ ਸਫ਼ਰ
+ਖੇਡ ਟੂਰਨਾਮੈਂਟ

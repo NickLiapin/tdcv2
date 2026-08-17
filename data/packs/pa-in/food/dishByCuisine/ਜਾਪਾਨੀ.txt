@@ -1,0 +1,12 @@
+---
+description: Dishes of ਜਾਪਾਨੀ cuisine, in Punjabi
+locale: pa-in
+---
+ਸੁਸ਼ੀ
+ਰਾਮੇਨ
+ਟੈਂਪੁਰਾ
+ਮਿਸੋ ਸੂਪ
+ਸਾਸ਼ਿਮੀ
+ਉਡੋਨ
+ਯਾਕਿਤੋਰੀ
+ਓਨੀਗਿਰੀ

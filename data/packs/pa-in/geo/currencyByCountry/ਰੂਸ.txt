@@ -1,0 +1,5 @@
+---
+description: Currency of ਰੂਸ, in Punjabi
+locale: pa-in
+---
+ਰੂਸੀ ਰੂਬਲ

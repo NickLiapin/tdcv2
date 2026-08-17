@@ -1,0 +1,5 @@
+---
+description: Currency code of ਅਰਜਨਟੀਨਾ
+locale: pa-in
+---
+ARS

@@ -1,0 +1,5 @@
+---
+description: Currency code of ਇੰਡੋਨੇਸ਼ੀਆ
+locale: pa-in
+---
+IDR

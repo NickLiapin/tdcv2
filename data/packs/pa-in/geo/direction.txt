@@ -1,0 +1,20 @@
+---
+description: Compass direction in Punjabi, the full 16-point rose. These are the nouns; the adjectival forms used inside an address are in address/direction.
+locale: pa-in
+---
+ਉੱਤਰ
+ਦੱਖਣ
+ਪੂਰਬ
+ਪੱਛਮ
+ਉੱਤਰ-ਪੂਰਬ
+ਉੱਤਰ-ਪੱਛਮ
+ਦੱਖਣ-ਪੂਰਬ
+ਦੱਖਣ-ਪੱਛਮ
+ਉੱਤਰ-ਉੱਤਰ-ਪੂਰਬ
+ਪੂਰਬ-ਉੱਤਰ-ਪੂਰਬ
+ਪੂਰਬ-ਦੱਖਣ-ਪੂਰਬ
+ਦੱਖਣ-ਦੱਖਣ-ਪੂਰਬ
+ਦੱਖਣ-ਦੱਖਣ-ਪੱਛਮ
+ਪੱਛਮ-ਦੱਖਣ-ਪੱਛਮ
+ਪੱਛਮ-ਉੱਤਰ-ਪੱਛਮ
+ਉੱਤਰ-ਉੱਤਰ-ਪੱਛਮ

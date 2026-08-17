@@ -1,0 +1,23 @@
+---
+description: Mined mineral in Punjabi. Punjab's own extraction is ਰੇਤ, ਬਜਰੀ and ਮਿੱਟੀ; the metals below are named in Punjabi but mined elsewhere in India.
+locale: pa-in
+---
+ਰੇਤ
+ਬਜਰੀ
+ਮਿੱਟੀ
+ਪੱਥਰ
+ਚੂਨਾ ਪੱਥਰ
+ਜਿਪਸਮ
+ਲੂਣ
+ਕੋਲਾ
+ਲੋਹਾ
+ਤਾਂਬਾ
+ਸੋਨਾ
+ਚਾਂਦੀ
+ਜਸਤਾ
+ਸਿੱਕਾ
+ਬਾਕਸਾਈਟ
+ਨਿੱਕਲ
+ਯੂਰੇਨੀਅਮ
+ਫਾਸਫੇਟ
+ਲਿਥੀਅਮ

@@ -1,0 +1,17 @@
+---
+description: Social media content type in Punjabi
+locale: pa-in
+---
+ਪੋਸਟ
+ਟਿੱਪਣੀ
+ਜਵਾਬ
+ਸਟੋਰੀ
+ਰੀਲ
+ਪੋਲ
+ਲਾਈਵ
+ਮੁੜ-ਪੋਸਟ
+ਥਰਿੱਡ
+ਜ਼ਿਕਰ
+ਸਿੱਧਾ ਸੁਨੇਹਾ
+ਵੀਡੀਓ
+ਤਸਵੀਰ

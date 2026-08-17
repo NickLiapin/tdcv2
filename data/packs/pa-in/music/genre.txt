@@ -1,0 +1,39 @@
+---
+description: Music genre in Punjabi. The first block is Punjabi's own: ਭੰਗੜਾ and ਗਿੱਧਾ (the men's and women's dances), ਟੱਪੇ and ਬੋਲੀਆਂ (short sung couplets), ਢਾਡੀ ਵਾਰ (the Sikh martial ballad sung with a sarangi), ਕੀਰਤਨ and ਸ਼ਬਦ (gurbani sung in a gurdwara), ਕਵਾਲੀ and ਸੂਫ਼ੀ (the shared Punjabi devotional tradition), ਹੀਰ and ਕਲੀ (verse forms sung to fixed tunes).
+locale: pa-in
+---
+ਭੰਗੜਾ
+ਗਿੱਧਾ
+ਲੋਕ ਗੀਤ
+ਟੱਪੇ
+ਬੋਲੀਆਂ
+ਹੀਰ
+ਕਲੀ
+ਢਾਡੀ ਵਾਰ
+ਕੀਰਤਨ
+ਸ਼ਬਦ
+ਭਜਨ
+ਕਵਾਲੀ
+ਸੂਫ਼ੀ
+ਗ਼ਜ਼ਲ
+ਕਿੱਸਾ ਗਾਇਨ
+ਸ਼ਾਸਤਰੀ ਸੰਗੀਤ
+ਫਿਲਮੀ
+ਪੌਪ
+ਰੌਕ
+ਹਿੱਪ ਹੌਪ
+ਰੈਪ
+ਜੈਜ਼
+ਬਲੂਜ਼
+ਰੈਗੇ
+ਹੈਵੀ ਮੈਟਲ
+ਇਲੈਕਟ੍ਰਾਨਿਕ
+ਹਾਊਸ
+ਟੈਕਨੋ
+ਇੰਡੀ
+ਦੇਸੀ ਹਿੱਪ ਹੌਪ
+ਲੋਕ-ਰੌਕ
+ਗ਼ੈਰ-ਫ਼ਿਲਮੀ
+ਦੇਸ਼ਭਗਤੀ ਗੀਤ
+ਬਾਲ ਗੀਤ
+ਵਿਆਹ ਦੇ ਗੀਤ

@@ -1,0 +1,20 @@
+---
+description: Bicycle type in Punjabi. Ludhiana makes most of India's bicycles, and the plain ਰੋਡਸਟਰ — a heavy single-speed with a carrier — is still the commonest bicycle in Punjab, which is why it heads the list rather than a road bike.
+locale: pa-in
+---
+ਰੋਡਸਟਰ
+ਸ਼ਹਿਰੀ ਸਾਈਕਲ
+ਰੋਡ ਸਾਈਕਲ
+ਪਹਾੜੀ ਸਾਈਕਲ
+ਹਾਈਬ੍ਰਿਡ ਸਾਈਕਲ
+ਗੇਅਰ ਵਾਲਾ ਸਾਈਕਲ
+ਬਿਜਲੀ ਵਾਲਾ ਸਾਈਕਲ
+ਤਹਿ ਹੋਣ ਵਾਲਾ ਸਾਈਕਲ
+ਬੱਚਿਆਂ ਦਾ ਸਾਈਕਲ
+ਬੀ.ਐਮ.ਐਕਸ.
+ਗਰੈਵਲ ਸਾਈਕਲ
+ਟੂਰਿੰਗ ਸਾਈਕਲ
+ਮਾਲ ਢੋਣ ਵਾਲਾ ਸਾਈਕਲ
+ਤਿੰਨ-ਪਹੀਆ ਸਾਈਕਲ
+ਰਿਕਸ਼ਾ
+ਫੈਟ ਬਾਈਕ

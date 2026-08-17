@@ -1,0 +1,16 @@
+---
+description: Loan type in Punjabi. ਫ਼ਸਲੀ ਕਰਜ਼ਾ (crop loan) and ਟਰੈਕਟਰ ਕਰਜ਼ਾ are the loans a Punjab bank branch writes most of; ਆੜ੍ਹਤੀਏ ਦਾ ਕਰਜ਼ਾ is the informal credit a farmer takes from the grain-market commission agent, which no formal list records but everyone names.
+locale: pa-in
+---
+ਘਰ ਦਾ ਕਰਜ਼ਾ
+ਵਾਹਨ ਕਰਜ਼ਾ
+ਟਰੈਕਟਰ ਕਰਜ਼ਾ
+ਫ਼ਸਲੀ ਕਰਜ਼ਾ
+ਨਿੱਜੀ ਕਰਜ਼ਾ
+ਪੜ੍ਹਾਈ ਦਾ ਕਰਜ਼ਾ
+ਕਾਰੋਬਾਰੀ ਕਰਜ਼ਾ
+ਸੋਨੇ ਦਾ ਕਰਜ਼ਾ
+ਗਹਿਣੇ ਰੱਖ ਕੇ ਕਰਜ਼ਾ
+ਆੜ੍ਹਤੀਏ ਦਾ ਕਰਜ਼ਾ
+ਕਰਜ਼ਾ ਇਕੱਠਾ ਕਰਨਾ
+ਓਵਰਡਰਾਫਟ

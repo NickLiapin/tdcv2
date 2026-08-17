@@ -1,0 +1,22 @@
+---
+description: Kind of venue in Punjabi. ਮੈਰਿਜ ਪੈਲੇਸ is the standard Punjabi wedding venue and the term is used in Punjabi English too; ਗੁਰਦੁਆਰੇ ਦਾ ਦੀਵਾਨ ਹਾਲ and ਧਰਮਸ਼ਾਲਾ host community events that a European list would put in a hall.
+locale: pa-in
+---
+ਮੈਰਿਜ ਪੈਲੇਸ
+ਬੈਂਕੁਇਟ ਹਾਲ
+ਗੁਰਦੁਆਰੇ ਦਾ ਦੀਵਾਨ ਹਾਲ
+ਧਰਮਸ਼ਾਲਾ
+ਹੋਟਲ
+ਰਿਜ਼ੌਰਟ
+ਫਾਰਮ ਹਾਊਸ
+ਕਮਿਊਨਿਟੀ ਸੈਂਟਰ
+ਸਟੇਡੀਅਮ
+ਆਡੀਟੋਰੀਅਮ
+ਥੀਏਟਰ
+ਕਾਨਫਰੰਸ ਹਾਲ
+ਪ੍ਰਦਰਸ਼ਨੀ ਗਰਾਊਂਡ
+ਬਾਗ਼
+ਛੱਤ
+ਸਕੂਲ ਦਾ ਮੈਦਾਨ
+ਪਿੰਡ ਦੀ ਸੱਥ
+ਕਾਲਜ ਹਾਲ

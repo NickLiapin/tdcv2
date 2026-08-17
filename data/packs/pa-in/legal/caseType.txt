@@ -1,0 +1,20 @@
+---
+description: Kind of legal case in Punjabi. ਮਾਲ ਕੇਸ (a revenue case over land records) and ਪੰਚਾਇਤੀ ਜ਼ਮੀਨ ਦਾ ਕੇਸ (village common-land disputes) are the ordinary litigation of rural Punjab and have no European counterpart.
+locale: pa-in
+---
+ਦੀਵਾਨੀ
+ਫੌਜਦਾਰੀ
+ਪਰਿਵਾਰਕ
+ਤਲਾਕ
+ਜ਼ਮੀਨ ਦਾ ਝਗੜਾ
+ਮਾਲ ਕੇਸ
+ਪੰਚਾਇਤੀ ਜ਼ਮੀਨ ਦਾ ਕੇਸ
+ਵਿਰਾਸਤ
+ਦੀਵਾਲੀਆਪਨ
+ਸੱਟ-ਫੇਟ ਦਾ ਦਾਅਵਾ
+ਕਿਰਤ ਵਿਵਾਦ
+ਠੇਕੇ ਦਾ ਝਗੜਾ
+ਬੌਧਿਕ ਸੰਪਤੀ
+ਖ਼ਪਤਕਾਰ ਸ਼ਿਕਾਇਤ
+ਟੈਕਸ
+ਪਰਵਾਸ

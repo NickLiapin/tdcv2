@@ -1,0 +1,5 @@
+---
+description: Capital of ਸਿੰਗਾਪੁਰ, in Punjabi
+locale: pa-in
+---
+ਸਿੰਗਾਪੁਰ

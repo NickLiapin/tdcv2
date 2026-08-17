@@ -1,0 +1,9 @@
+---
+description: Season in Punjabi. Punjab has FIVE seasons that people actually name, not four: the monsoon ਬਰਸਾਤ is a season in its own right, arriving late June, and ਬਸੰਤ (spring) is short and is marked by its own festival. There is no equal four-way split to translate.
+locale: pa-in
+---
+ਬਸੰਤ
+ਗਰਮੀ
+ਬਰਸਾਤ
+ਪੱਤਝੜ
+ਸਰਦੀ

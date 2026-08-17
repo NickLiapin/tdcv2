@@ -1,0 +1,23 @@
+---
+description: Punjabi post-nominal. Punjabi has NO generational suffix — there is no Jr / Sr / III, a son is never named after his father in that way, so those entries are deliberately absent. The one productive suffix is the honorific ਜੀ, appended to a name to show respect; everything else here is an academic or professional post-nominal as it is written in Punjab.
+locale: pa-in
+---
+ਜੀ
+ਬੀ.ਏ.
+ਐਮ.ਏ.
+ਬੀ.ਐਸ.ਸੀ.
+ਐਮ.ਐਸ.ਸੀ.
+ਬੀ.ਕਾਮ.
+ਐਮ.ਕਾਮ.
+ਬੀ.ਐਡ.
+ਐਮ.ਐਡ.
+ਬੀ.ਟੈਕ
+ਐਮ.ਟੈਕ
+ਪੀ-ਐਚ.ਡੀ.
+ਐਮ.ਬੀ.ਬੀ.ਐਸ.
+ਐਮ.ਡੀ.
+ਬੀ.ਡੀ.ਐਸ.
+ਐਲ-ਐਲ.ਬੀ.
+ਸੀ.ਏ.
+ਐਮ.ਬੀ.ਏ.
+ਰਿਟਾ.

@@ -1,0 +1,5 @@
+---
+description: Currency code of ਆਸਟ੍ਰੇਲੀਆ
+locale: pa-in
+---
+AUD

@@ -1,0 +1,30 @@
+---
+description: Mobile and broadband carrier serving Punjab, plus international brands. Operator names are brands and keep their Latin spelling. Jio, Airtel, Vi and BSNL are the four networks that actually cover the state.
+locale: pa-in
+---
+Jio
+Airtel
+Vi
+BSNL
+MTNL
+Tata Play
+Airtel Xstream
+JioFiber
+ACT Fibernet
+Excitel
+Hathway
+Connect Broadband
+Vodafone
+Orange
+T-Mobile
+Verizon
+AT&T
+EE
+O2
+Rogers
+Telus
+Bell
+Etisalat
+STC
+Zain
+China Mobile

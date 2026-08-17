@@ -1,0 +1,41 @@
+---
+description: Technical noun in Punjabi. Punjabi computing vocabulary is largely English borrowed into Gurmukhi script, which is how it is genuinely written and spoken; where a native word is in real use (ਸੰਦੇਸ਼, ਸੂਚੀ, ਤਾਰ) it is used.
+locale: pa-in
+---
+ਡਰਾਈਵਰ
+ਪ੍ਰੋਟੋਕੋਲ
+ਬੈਂਡਵਿਡਥ
+ਪੈਨਲ
+ਮਾਈਕ੍ਰੋਚਿੱਪ
+ਪ੍ਰੋਗਰਾਮ
+ਪੋਰਟ
+ਕਾਰਡ
+ਐਰੇ
+ਇੰਟਰਫ਼ੇਸ
+ਸਿਸਟਮ
+ਸੈਂਸਰ
+ਫਾਇਰਵਾਲ
+ਹਾਰਡ ਡਰਾਈਵ
+ਪਿਕਸਲ
+ਅਲਾਰਮ
+ਫੀਡ
+ਮਾਨੀਟਰ
+ਐਪਲੀਕੇਸ਼ਨ
+ਟ੍ਰਾਂਸਮੀਟਰ
+ਬੱਸ
+ਸਰਕਟ
+ਕੈਪੇਸੀਟਰ
+ਮੈਟ੍ਰਿਕਸ
+ਡਾਟਾਬੇਸ
+ਪਾਈਪਲਾਈਨ
+ਸਰਵਰ
+ਕਲਾਇੰਟ
+ਪੈਕਟ
+ਥਰਿੱਡ
+ਕਰਨਲ
+ਕੈਸ਼
+ਸੰਦੇਸ਼
+ਸੂਚੀ
+ਤਾਰ
+ਕੁੰਜੀ
+ਲੌਗ

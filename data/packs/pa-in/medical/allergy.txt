@@ -1,0 +1,26 @@
+---
+description: Allergen in Punjabi. ਸਰ੍ਹੋਂ and ਛੋਲੇ (mustard and chickpea) matter in a Punjabi diet where they would not on a European list, and ਧੂੜ and ਪਰਾਲੀ ਦਾ ਧੂੰਆਂ (stubble-burning smoke) are the seasonal triggers in Punjab.
+locale: pa-in
+---
+ਪੈਨਿਸਿਲਿਨ
+ਮੂੰਗਫਲੀ
+ਬਦਾਮ ਤੇ ਗਿਰੀਆਂ
+ਝੀਂਗਾ ਤੇ ਸਮੁੰਦਰੀ ਭੋਜਨ
+ਅੰਡਾ
+ਦੁੱਧ
+ਸੋਇਆ
+ਕਣਕ
+ਛੋਲੇ
+ਸਰ੍ਹੋਂ
+ਤਿਲ
+ਬੈਂਗਣ
+ਲੈਟੈਕਸ
+ਪਰਾਗ
+ਧੂੜ
+ਧੂੜ ਦੇ ਕੀੜੇ
+ਪਰਾਲੀ ਦਾ ਧੂੰਆਂ
+ਜਾਨਵਰਾਂ ਦੇ ਵਾਲ
+ਮੱਖੀ ਦਾ ਡੰਗ
+ਐਸਪਰੀਨ
+ਸਲਫ਼ਾ ਦਵਾਈਆਂ
+ਆਇਓਡੀਨ

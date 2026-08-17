@@ -1,0 +1,8 @@
+---
+description: Gender label as an Indian form prints it in Punjabi
+locale: pa-in
+---
+ਪੁਰਸ਼
+ਇਸਤਰੀ
+ਹੋਰ
+ਦੱਸਣਾ ਨਹੀਂ ਚਾਹੁੰਦੇ

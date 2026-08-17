@@ -1,0 +1,11 @@
+---
+description: Conditions with raised prevalence in people of ਭੂ-ਮੱਧ ਸਾਗਰੀ descent, in Punjabi.
+locale: pa-in
+---
+ਬੀਟਾ ਥੈਲੇਸੀਮੀਆ
+ਜੀ6ਪੀਡੀ ਦੀ ਕਮੀ
+ਪਰਿਵਾਰਕ ਭੂ-ਮੱਧ ਬੁਖ਼ਾਰ
+ਸਿਕਲ ਸੈੱਲ ਲੱਛਣ
+ਬੇਹਸੈੱਟ ਰੋਗ
+ਵਿਲਸਨ ਰੋਗ
+ਗਾਊਟ

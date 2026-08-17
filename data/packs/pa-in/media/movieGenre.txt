@@ -1,0 +1,24 @@
+---
+description: Film genre in Punjabi. Punjabi cinema's own staples sit alongside the international genres: ਦੇਸ਼ਭਗਤੀ (patriotic films about the Punjab regiments and the freedom struggle), ਧਾਰਮਿਕ (films on Sikh history) and ਪਰਵਾਸ (the emigration film, about going abroad) are recognised categories in Punjab.
+locale: pa-in
+---
+ਐਕਸ਼ਨ
+ਕਾਮੇਡੀ
+ਡਰਾਮਾ
+ਡਰਾਉਣੀ
+ਥ੍ਰਿਲਰ
+ਰੋਮਾਂਸ
+ਵਿਗਿਆਨ ਗਲਪ
+ਕਲਪਨਾ
+ਦਸਤਾਵੇਜ਼ੀ
+ਐਨੀਮੇਸ਼ਨ
+ਸਾਹਸ
+ਅਪਰਾਧ
+ਰਹੱਸ
+ਸੰਗੀਤਕ
+ਜੰਗ
+ਜੀਵਨੀ
+ਪਰਿਵਾਰਕ
+ਦੇਸ਼ਭਗਤੀ
+ਧਾਰਮਿਕ
+ਪਰਵਾਸ

@@ -1,0 +1,34 @@
+---
+description: Hashtag in Gurmukhi. Punjabi users tag in both Gurmukhi and romanised Punjabi; this list is the Gurmukhi form. Hashtags carry no spaces, so multi-word tags are written closed up.
+locale: pa-in
+---
+ਪੰਜਾਬ
+ਪੰਜਾਬੀ
+ਭੰਗੜਾ
+ਗਿੱਧਾ
+ਪਿੰਡ
+ਕਿਸਾਨ
+ਖੇਤੀ
+ਵਾਹਿਗੁਰੂ
+ਗੁਰਬਾਣੀ
+ਕੀਰਤਨ
+ਸੇਵਾ
+ਲੰਗਰ
+ਦੋਸਤੀ
+ਪਿਆਰ
+ਯਾਰੀ
+ਸਰਦਾਰੀ
+ਵਿਰਸਾ
+ਮਾਂਬੋਲੀ
+ਸਤਲੁਜ
+ਅੰਮ੍ਰਿਤਸਰ
+ਸੁਨੇਹਾ
+ਸ਼ਾਇਰੀ
+ਗੀਤ
+ਖ਼ੁਸ਼ੀ
+ਸ਼ੁਕਰਾਨਾ
+ਚੜ੍ਹਦੀਕਲਾ
+ਪਰਿਵਾਰ
+ਯਾਦਾਂ
+ਸਫ਼ਰ
+ਕੁਦਰਤ

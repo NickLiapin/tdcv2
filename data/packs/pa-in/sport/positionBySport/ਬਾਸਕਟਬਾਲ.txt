@@ -1,0 +1,9 @@
+---
+description: Playing positions in ਬਾਸਕਟਬਾਲ, in Punjabi
+locale: pa-in
+---
+ਪੁਆਇੰਟ ਗਾਰਡ
+ਸ਼ੂਟਿੰਗ ਗਾਰਡ
+ਸਮਾਲ ਫਾਰਵਰਡ
+ਪਾਵਰ ਫਾਰਵਰਡ
+ਸੈਂਟਰ

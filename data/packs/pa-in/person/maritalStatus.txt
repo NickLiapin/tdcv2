@@ -1,0 +1,18 @@
+---
+description: Marital status in Punjabi. Punjabi adjectives inflect for gender, so the everyday words come in pairs — ਕੁਆਰਾ / ਕੁਆਰੀ, ਵਿਆਹਿਆ / ਵਿਆਹੀ, ਤਲਾਕਸ਼ੁਦਾ is common to both — and BOTH forms are listed, because a form printed for a woman must not read as masculine. A config that knows the row's gender should pick the matching form rather than draw blind.
+locale: pa-in
+---
+ਕੁਆਰਾ
+ਕੁਆਰੀ
+ਵਿਆਹਿਆ
+ਵਿਆਹੀ
+ਵਿਧਵਾ
+ਵਿਧੁਰ
+ਤਲਾਕਸ਼ੁਦਾ
+ਵੱਖ ਰਹਿ ਰਿਹਾ
+ਵੱਖ ਰਹਿ ਰਹੀ
+ਮੰਗਣੀ ਹੋਈ
+ਦੁਬਾਰਾ ਵਿਆਹਿਆ
+ਦੁਬਾਰਾ ਵਿਆਹੀ
+ਅਣਵਿਆਹਿਆ
+ਅਣਵਿਆਹੀ

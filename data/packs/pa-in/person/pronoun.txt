@@ -1,0 +1,12 @@
+---
+description: Punjabi personal pronouns. There is NO he/she split to translate: the third-person pronoun ਉਹ is gender-neutral, and grammatical gender is carried by the verb and adjective instead. An English-style pronoun set (he/him, she/her) has no Punjabi equivalent, so this list holds the actual pronouns of the language rather than an invented rendering of one.
+locale: pa-in
+---
+ਮੈਂ
+ਅਸੀਂ
+ਤੂੰ
+ਤੁਸੀਂ
+ਆਪ
+ਉਹ
+ਇਹ
+ਉਸ

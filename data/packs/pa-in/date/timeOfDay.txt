@@ -1,0 +1,12 @@
+---
+description: Time of day in Punjabi. ਅੰਮ੍ਰਿਤ ਵੇਲਾ is the pre-dawn hour set aside for prayer in Sikh practice and is a named part of the day, not poetry; ਲੌਢਾ ਵੇਲਾ (late afternoon) and ਤਰਕਾਲਾਂ (dusk) are everyday Punjabi words with no single English equivalent.
+locale: pa-in
+---
+ਅੰਮ੍ਰਿਤ ਵੇਲਾ
+ਸਵੇਰ
+ਦੁਪਹਿਰ
+ਲੌਢਾ ਵੇਲਾ
+ਤਰਕਾਲਾਂ
+ਸ਼ਾਮ
+ਰਾਤ
+ਅੱਧੀ ਰਾਤ

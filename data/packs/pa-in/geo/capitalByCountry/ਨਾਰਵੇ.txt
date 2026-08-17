@@ -1,0 +1,5 @@
+---
+description: Capital of ਨਾਰਵੇ, in Punjabi
+locale: pa-in
+---
+ਓਸਲੋ

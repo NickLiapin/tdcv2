@@ -1,0 +1,5 @@
+---
+description: Capital of ਨੀਦਰਲੈਂਡ, in Punjabi
+locale: pa-in
+---
+ਐਮਸਟਰਡਮ

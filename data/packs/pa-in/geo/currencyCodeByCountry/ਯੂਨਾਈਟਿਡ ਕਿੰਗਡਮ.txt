@@ -1,0 +1,5 @@
+---
+description: Currency code of ਯੂਨਾਈਟਿਡ ਕਿੰਗਡਮ
+locale: pa-in
+---
+GBP

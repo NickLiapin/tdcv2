@@ -1,0 +1,35 @@
+---
+description: Musical instrument in Punjabi. ਤੂੰਬੀ (a single-string plucked instrument), ਅਲਗੋਜ਼ੇ (paired flutes played with circular breathing), ਚਿਮਟਾ (fire tongs fitted with jingles) and ਢੋਲ are the Punjabi folk set; ਰਬਾਬ, ਤਾਊਸ, ਦਿਲਰੁਬਾ and ਸਰੰਦਾ are the Sikh kirtan instruments, the rabab associated with Bhai Mardana and the taus and dilruba with the tenth Guru's court.
+locale: pa-in
+---
+ਤੂੰਬੀ
+ਅਲਗੋਜ਼ੇ
+ਚਿਮਟਾ
+ਢੋਲ
+ਢੋਲਕੀ
+ਬੁਗਚੂ
+ਖੜਤਾਲ
+ਘੜਾ
+ਸਾਰੰਗੀ
+ਰਬਾਬ
+ਤਾਊਸ
+ਦਿਲਰੁਬਾ
+ਸਰੰਦਾ
+ਨਗਾਰਾ
+ਸ਼ਹਿਨਾਈ
+ਬੀਨ
+ਬੰਸਰੀ
+ਹਾਰਮੋਨੀਅਮ
+ਵਾਜਾ
+ਤਬਲਾ
+ਸਿਤਾਰ
+ਸੰਤੂਰ
+ਗਿਟਾਰ
+ਪਿਆਨੋ
+ਵਾਇਲਨ
+ਡਰੱਮ
+ਬੈਂਜੋ
+ਕੀਬੋਰਡ
+ਸੈਕਸੋਫ਼ੋਨ
+ਤੁਰ੍ਹੀ
+ਮੂੰਹ-ਵਾਜਾ

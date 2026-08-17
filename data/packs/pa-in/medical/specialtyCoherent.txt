@@ -1,0 +1,14 @@
+---
+description: Medical specialty used as the parent of diagnosisBySpecialty. A subset of medical/specialty, kept to the ten that carry a clean diagnosis list.
+locale: pa-in
+---
+ਦਿਲ ਰੋਗ ਵਿਗਿਆਨ
+ਦਿਮਾਗ਼ੀ ਰੋਗ ਵਿਗਿਆਨ
+ਕੈਂਸਰ ਵਿਗਿਆਨ
+ਚਮੜੀ ਰੋਗ ਵਿਗਿਆਨ
+ਪੇਟ ਰੋਗ ਵਿਗਿਆਨ
+ਹਾਰਮੋਨ ਰੋਗ ਵਿਗਿਆਨ
+ਫੇਫੜਾ ਰੋਗ ਵਿਗਿਆਨ
+ਹੱਡੀ ਰੋਗ ਵਿਗਿਆਨ
+ਮਾਨਸਿਕ ਰੋਗ ਵਿਗਿਆਨ
+ਗੁਰਦਾ ਰੋਗ ਵਿਗਿਆਨ

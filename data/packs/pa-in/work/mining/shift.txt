@@ -1,0 +1,9 @@
+---
+description: Work shift in Punjabi
+locale: pa-in
+---
+ਦਿਨ ਦੀ ਸ਼ਿਫਟ
+ਰਾਤ ਦੀ ਸ਼ਿਫਟ
+ਸ਼ਾਮ ਦੀ ਸ਼ਿਫਟ
+ਜਨਰਲ ਸ਼ਿਫਟ
+ਬਦਲਵੀਂ ਸ਼ਿਫਟ

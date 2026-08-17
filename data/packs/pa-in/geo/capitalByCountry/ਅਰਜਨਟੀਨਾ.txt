@@ -1,0 +1,5 @@
+---
+description: Capital of ਅਰਜਨਟੀਨਾ, in Punjabi
+locale: pa-in
+---
+ਬਿਊਨਸ ਆਇਰਸ

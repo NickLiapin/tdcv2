@@ -1,0 +1,5 @@
+---
+description: Currency code of ਪੋਲੈਂਡ
+locale: pa-in
+---
+PLN

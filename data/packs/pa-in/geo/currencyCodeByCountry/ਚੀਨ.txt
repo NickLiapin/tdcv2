@@ -1,0 +1,5 @@
+---
+description: Currency code of ਚੀਨ
+locale: pa-in
+---
+CNY

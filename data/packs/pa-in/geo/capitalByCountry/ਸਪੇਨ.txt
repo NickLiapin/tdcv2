@@ -1,0 +1,5 @@
+---
+description: Capital of ਸਪੇਨ, in Punjabi
+locale: pa-in
+---
+ਮੈਡ੍ਰਿਡ

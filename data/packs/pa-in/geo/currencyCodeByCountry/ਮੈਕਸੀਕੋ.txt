@@ -1,0 +1,5 @@
+---
+description: Currency code of ਮੈਕਸੀਕੋ
+locale: pa-in
+---
+MXN

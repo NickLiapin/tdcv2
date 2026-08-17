@@ -1,0 +1,12 @@
+---
+description: Mining method in Punjabi. Punjab has no metal mines; what is extracted here is river sand and gravel, so ਦਰਿਆਈ ਖੁਦਾਈ and ਰੇਤ ਖੱਡ head the list, and the deep-mine methods below are named but not practised in the state.
+locale: pa-in
+---
+ਦਰਿਆਈ ਖੁਦਾਈ
+ਰੇਤ ਖੱਡ
+ਖੁੱਲ੍ਹੀ ਖਾਣ
+ਭੂਮੀਗਤ ਖਾਣ
+ਪੱਟੀਦਾਰ ਖੁਦਾਈ
+ਧੋ ਕੇ ਕੱਢਣਾ
+ਖੂਹ ਵਿਧੀ
+ਲੌਂਗਵਾਲ

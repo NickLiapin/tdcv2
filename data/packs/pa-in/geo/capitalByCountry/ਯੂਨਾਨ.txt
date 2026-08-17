@@ -1,0 +1,5 @@
+---
+description: Capital of ਯੂਨਾਨ, in Punjabi
+locale: pa-in
+---
+ਏਥਨਜ਼

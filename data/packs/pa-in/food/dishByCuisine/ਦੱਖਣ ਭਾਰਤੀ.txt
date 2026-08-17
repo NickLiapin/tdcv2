@@ -1,0 +1,13 @@
+---
+description: Dishes of ਦੱਖਣ ਭਾਰਤੀ cuisine, in Punjabi
+locale: pa-in
+---
+ਦੋਸਾ
+ਇਡਲੀ
+ਵੜਾ
+ਸਾਂਬਰ
+ਊਤਪਮ
+ਰਸਮ
+ਪੋਂਗਲ
+ਅੱਪਮ
+ਨਾਰੀਅਲ ਚਟਨੀ

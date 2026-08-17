@@ -1,0 +1,10 @@
+---
+description: Playing positions in ਖੋ-ਖੋ, in Punjabi
+locale: pa-in
+---
+ਚੇਜ਼ਰ
+ਸਰਗਰਮ ਚੇਜ਼ਰ
+ਬੈਠਾ ਚੇਜ਼ਰ
+ਦੌੜਾਕ
+ਪੋਲ ਡਾਈਵਰ
+ਕਪਤਾਨ

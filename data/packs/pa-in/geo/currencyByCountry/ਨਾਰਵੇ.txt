@@ -1,0 +1,5 @@
+---
+description: Currency of ਨਾਰਵੇ, in Punjabi
+locale: pa-in
+---
+ਨਾਰਵੇਜੀਅਨ ਕਰੋਨ

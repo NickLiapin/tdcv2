@@ -1,0 +1,5 @@
+---
+description: Currency of ਸਪੇਨ, in Punjabi
+locale: pa-in
+---
+ਯੂਰੋ

@@ -1,0 +1,28 @@
+---
+description: Technical action in progress. Punjabi has no gerund that matches the English -ing, so the progressive verb form (ਕਰ ਰਿਹਾ ਹੈ) is used — which means these read as full clauses, not as noun phrases, and cannot be dropped into a sentence the way 'compressing' can.
+locale: pa-in
+---
+ਬੈਕਅੱਪ ਲੈ ਰਿਹਾ ਹੈ
+ਬਾਈਪਾਸ ਕਰ ਰਿਹਾ ਹੈ
+ਹੈਕ ਕਰ ਰਿਹਾ ਹੈ
+ਓਵਰਰਾਈਡ ਕਰ ਰਿਹਾ ਹੈ
+ਸੰਕੁਚਿਤ ਕਰ ਰਿਹਾ ਹੈ
+ਨਕਲ ਕਰ ਰਿਹਾ ਹੈ
+ਨੈਵੀਗੇਟ ਕਰ ਰਿਹਾ ਹੈ
+ਸੂਚੀਬੱਧ ਕਰ ਰਿਹਾ ਹੈ
+ਜੁੜ ਰਿਹਾ ਹੈ
+ਪੈਦਾ ਕਰ ਰਿਹਾ ਹੈ
+ਮਾਪ ਰਿਹਾ ਹੈ
+ਗਿਣ ਰਿਹਾ ਹੈ
+ਸੰਸ਼ਲੇਸ਼ਣ ਕਰ ਰਿਹਾ ਹੈ
+ਭੇਜ ਰਿਹਾ ਹੈ
+ਪ੍ਰੋਗਰਾਮ ਕਰ ਰਿਹਾ ਹੈ
+ਮੁੜ ਚਾਲੂ ਹੋ ਰਿਹਾ ਹੈ
+ਪਾਰਸ ਕਰ ਰਿਹਾ ਹੈ
+ਏਨਕ੍ਰਿਪਟ ਕਰ ਰਿਹਾ ਹੈ
+ਤੈਨਾਤ ਕਰ ਰਿਹਾ ਹੈ
+ਸਕੈਨ ਕਰ ਰਿਹਾ ਹੈ
+ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ
+ਸਿੰਕ ਹੋ ਰਿਹਾ ਹੈ
+ਸੰਭਾਲ ਰਿਹਾ ਹੈ
+ਮਿਟਾ ਰਿਹਾ ਹੈ

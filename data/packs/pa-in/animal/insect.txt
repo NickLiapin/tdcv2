@@ -1,0 +1,24 @@
+---
+description: Insect and other small crawling creature in Punjabi. ਸਿਉਂਕ (termite) and ਟਿੱਡੀ (locust) are farm pests a Punjabi farmer names first; the list follows everyday usage, which groups spiders and scorpions in with insects.
+locale: pa-in
+---
+ਮੱਖੀ
+ਮੱਛਰ
+ਕੀੜੀ
+ਸਿਉਂਕ
+ਤਿੱਤਲੀ
+ਭੌਰਾ
+ਸ਼ਹਿਦ ਦੀ ਮੱਖੀ
+ਭਰਿੰਡ
+ਟਿੱਡੀ
+ਟਿੱਡਾ
+ਝੀਂਗਰ
+ਮੱਕੜੀ
+ਬਿੱਛੂ
+ਜੂੰ
+ਪਿੱਸੂ
+ਖਟਮਲ
+ਗੁਬਰੈਲਾ
+ਜੁਗਨੂੰ
+ਕਾਕਰੋਚ
+ਸੁੰਡੀ

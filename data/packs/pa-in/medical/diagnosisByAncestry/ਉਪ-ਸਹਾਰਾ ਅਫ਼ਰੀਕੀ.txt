@@ -1,0 +1,16 @@
+---
+description: Conditions with raised prevalence in people of ਉਪ-ਸਹਾਰਾ ਅਫ਼ਰੀਕੀ descent, in Punjabi. This list is a prevalence signal, not an exclusive one: every condition here also occurs in people of other ancestries, and ancestry alone never makes a diagnosis.
+locale: pa-in
+---
+ਸਿਕਲ ਸੈੱਲ ਰੋਗ
+ਸਿਕਲ ਸੈੱਲ ਲੱਛਣ
+ਜੀ6ਪੀਡੀ ਦੀ ਕਮੀ
+ਅਲਫ਼ਾ ਥੈਲੇਸੀਮੀਆ
+ਲੈਕਟੋਜ਼ ਅਸਹਿਣਸ਼ੀਲਤਾ
+ਹਾਈ ਬਲੱਡ ਪ੍ਰੈਸ਼ਰ
+ਗੁਰਦੇ ਦੀ ਪੁਰਾਣੀ ਬਿਮਾਰੀ
+ਸਾਰਕੋਇਡੋਸਿਸ
+ਬੱਚੇਦਾਨੀ ਦੀ ਰਸੌਲੀ
+ਪ੍ਰੋਸਟੇਟ ਦਾ ਕੈਂਸਰ
+ਗਲੂਕੋਮਾ
+ਡਿਊਫ਼ੀ-ਨੈਗੇਟਿਵ ਨਿਊਟ੍ਰੋਪੀਨੀਆ

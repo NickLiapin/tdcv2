@@ -1,0 +1,13 @@
+---
+description: Playing positions in ਕਬੱਡੀ, in Punjabi
+locale: pa-in
+---
+ਰੇਡਰ
+ਜਾਫ਼ੀ
+ਸਟਾਪਰ
+ਖੱਬਾ ਕੌਰਨਰ
+ਸੱਜਾ ਕੌਰਨਰ
+ਖੱਬਾ ਕਵਰ
+ਸੱਜਾ ਕਵਰ
+ਆਲ-ਰਾਊਂਡਰ
+ਕਪਤਾਨ

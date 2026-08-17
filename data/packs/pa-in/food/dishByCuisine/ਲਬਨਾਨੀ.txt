@@ -1,0 +1,12 @@
+---
+description: Dishes of ਲਬਨਾਨੀ cuisine, in Punjabi
+locale: pa-in
+---
+ਹੁੰਮਸ
+ਫ਼ਲਾਫ਼ਲ
+ਸ਼ਵਰਮਾ
+ਤੱਬੂਲੇ
+ਬਾਬਾ ਗ਼ਨੂਸ਼
+ਕਿੱਬੇ
+ਪੀਟਾ
+ਬਕਲਾਵਾ

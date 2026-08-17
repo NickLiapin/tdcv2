@@ -1,0 +1,5 @@
+---
+description: Currency of ਥਾਈਲੈਂਡ, in Punjabi
+locale: pa-in
+---
+ਬਾਟ

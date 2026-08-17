@@ -1,0 +1,5 @@
+---
+description: Capital of ਇਟਲੀ, in Punjabi
+locale: pa-in
+---
+ਰੋਮ

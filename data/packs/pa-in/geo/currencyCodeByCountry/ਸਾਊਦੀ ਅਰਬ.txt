@@ -1,0 +1,5 @@
+---
+description: Currency code of ਸਾਊਦੀ ਅਰਬ
+locale: pa-in
+---
+SAR

@@ -1,0 +1,16 @@
+---
+description: Genetic ancestry group in Punjabi, used as the parent of diagnosisByAncestry. These are ancestry populations as clinical genetics defines them — geographic descent, not social race categories. ਦੱਖਣੀ ਏਸ਼ੀਆਈ is the group most Punjabi patients belong to and is listed first for that reason.
+locale: pa-in
+---
+ਦੱਖਣੀ ਏਸ਼ੀਆਈ
+ਪੂਰਬੀ ਏਸ਼ੀਆਈ
+ਦੱਖਣ-ਪੂਰਬੀ ਏਸ਼ੀਆਈ
+ਭੂ-ਮੱਧ ਸਾਗਰੀ
+ਮੱਧ ਪੂਰਬੀ
+ਉੱਤਰੀ ਅਫ਼ਰੀਕੀ
+ਉਪ-ਸਹਾਰਾ ਅਫ਼ਰੀਕੀ
+ਉੱਤਰੀ ਯੂਰਪੀ
+ਪੂਰਬੀ ਯੂਰਪੀ
+ਅਸ਼ਕੇਨਾਜ਼ੀ ਯਹੂਦੀ
+ਮੂਲ ਅਮਰੀਕੀ
+ਪ੍ਰਸ਼ਾਂਤ ਟਾਪੂ ਵਾਸੀ

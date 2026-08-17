@@ -1,0 +1,22 @@
+---
+description: Property type in Punjabi. ਕੋਠੀ is the detached brick house of a Punjabi town, ਹਵੇਲੀ the old walled courtyard house, ਬਿਲਡਰ ਫਲੋਰ one storey of a house sold separately (an Indian form of ownership), ਪੀ.ਜੀ. a paying-guest room, and ਖੇਤ / ਜ਼ਮੀਨ agricultural land, which is the commonest property traded in rural Punjab.
+locale: pa-in
+---
+ਕੋਠੀ
+ਹਵੇਲੀ
+ਫਲੈਟ
+ਬਿਲਡਰ ਫਲੋਰ
+ਅਪਾਰਟਮੈਂਟ
+ਪਲਾਟ
+ਖੇਤ
+ਜ਼ਮੀਨ
+ਵਿਲਾ
+ਬੰਗਲਾ
+ਸਟੂਡੀਓ
+ਪੀ.ਜੀ.
+ਦੁਕਾਨ
+ਸ਼ੋਅਰੂਮ
+ਦਫ਼ਤਰ
+ਗੋਦਾਮ
+ਫਾਰਮ ਹਾਊਸ
+ਪੈਂਟਹਾਊਸ

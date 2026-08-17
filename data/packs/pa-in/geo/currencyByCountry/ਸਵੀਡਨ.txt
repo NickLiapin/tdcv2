@@ -1,0 +1,5 @@
+---
+description: Currency of ਸਵੀਡਨ, in Punjabi
+locale: pa-in
+---
+ਸਵੀਡਿਸ਼ ਕਰੋਨਾ

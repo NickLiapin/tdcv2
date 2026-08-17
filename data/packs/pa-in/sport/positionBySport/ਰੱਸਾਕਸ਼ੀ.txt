@@ -1,0 +1,8 @@
+---
+description: Playing positions in ਰੱਸਾਕਸ਼ੀ, in Punjabi
+locale: pa-in
+---
+ਅਗਲਾ ਖਿਡਾਰੀ
+ਵਿਚਕਾਰਲਾ ਖਿਡਾਰੀ
+ਐਂਕਰ
+ਕੋਚ

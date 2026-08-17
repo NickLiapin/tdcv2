@@ -1,0 +1,42 @@
+---
+description: Sport in Punjabi. ਕਬੱਡੀ is the state game and its circle-style version is played at village tournaments across Punjab; ਗੱਤਕਾ is the Sikh martial art with stick and shield; ਨੇਜ਼ਾਬਾਜ਼ੀ (tent pegging on horseback), ਰੱਸਾਕਸ਼ੀ and ਬੈਲ ਗੱਡੀ ਦੌੜ are the events of the Kila Raipur rural games.
+locale: pa-in
+---
+ਕਬੱਡੀ
+ਹਾਕੀ
+ਕ੍ਰਿਕਟ
+ਕੁਸ਼ਤੀ
+ਗੱਤਕਾ
+ਨੇਜ਼ਾਬਾਜ਼ੀ
+ਰੱਸਾਕਸ਼ੀ
+ਬੈਲ ਗੱਡੀ ਦੌੜ
+ਖੋ-ਖੋ
+ਫੁੱਟਬਾਲ
+ਵਾਲੀਬਾਲ
+ਬਾਸਕਟਬਾਲ
+ਟੈਨਿਸ
+ਬੈਡਮਿੰਟਨ
+ਟੇਬਲ ਟੈਨਿਸ
+ਗੋਲਫ਼
+ਤੈਰਾਕੀ
+ਮੁੱਕੇਬਾਜ਼ੀ
+ਸਾਈਕਲਿੰਗ
+ਦੌੜ
+ਲੰਬੀ ਛਾਲ
+ਉੱਚੀ ਛਾਲ
+ਗੋਲਾ ਸੁੱਟਣਾ
+ਨੇਜ਼ਾ ਸੁੱਟਣਾ
+ਭਾਰ ਚੁੱਕਣਾ
+ਜਿਮਨਾਸਟਿਕ
+ਤੀਰਅੰਦਾਜ਼ੀ
+ਨਿਸ਼ਾਨੇਬਾਜ਼ੀ
+ਘੋੜਸਵਾਰੀ
+ਪੋਲੋ
+ਬਾਕਸਿੰਗ
+ਜੂਡੋ
+ਕਰਾਟੇ
+ਸ਼ਤਰੰਜ
+ਪਤੰਗਬਾਜ਼ੀ
+ਕਿਸ਼ਤੀ ਦੌੜ
+ਸਕੇਟਿੰਗ
+ਪਹਾੜ ਚੜ੍ਹਾਈ

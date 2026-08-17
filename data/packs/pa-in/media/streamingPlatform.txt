@@ -1,0 +1,18 @@
+---
+description: Streaming platform available in India. Service names are brands and keep their Latin spelling; Chaupal is the Punjabi-language service.
+locale: pa-in
+---
+Netflix
+Amazon Prime Video
+Disney+ Hotstar
+SonyLIV
+ZEE5
+JioCinema
+Chaupal
+YouTube
+Apple TV+
+MX Player
+Spotify
+JioSaavn
+Gaana
+Twitch

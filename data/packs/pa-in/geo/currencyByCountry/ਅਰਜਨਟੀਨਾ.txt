@@ -1,0 +1,5 @@
+---
+description: Currency of ਅਰਜਨਟੀਨਾ, in Punjabi
+locale: pa-in
+---
+ਅਰਜਨਟੀਨੀ ਪੇਸੋ

@@ -1,0 +1,42 @@
+---
+description: Animal in Punjabi. ਮੱਝ (water buffalo) heads any Punjabi list of livestock — it is the ordinary dairy animal of Punjab, more common than the cow, and English has no everyday single word for it.
+locale: pa-in
+---
+ਕੁੱਤਾ
+ਬਿੱਲੀ
+ਮੱਝ
+ਗਾਂ
+ਬਲਦ
+ਵੱਛਾ
+ਘੋੜਾ
+ਗਧਾ
+ਖੱਚਰ
+ਊਠ
+ਬੱਕਰੀ
+ਭੇਡ
+ਸੂਰ
+ਹਾਥੀ
+ਸ਼ੇਰ
+ਬਾਘ
+ਚੀਤਾ
+ਰਿੱਛ
+ਬਘਿਆੜ
+ਲੂੰਬੜੀ
+ਗਿੱਦੜ
+ਹਿਰਨ
+ਖ਼ਰਗੋਸ਼
+ਬਾਂਦਰ
+ਜਿਰਾਫ਼
+ਜ਼ੈਬਰਾ
+ਗੈਂਡਾ
+ਦਰਿਆਈ ਘੋੜਾ
+ਨਿਓਲਾ
+ਗਿਲਹਰੀ
+ਚੂਹਾ
+ਚਮਗਿੱਦੜ
+ਸੱਪ
+ਮਗਰਮੱਛ
+ਕੱਛੂ
+ਡੱਡੂ
+ਡਾਲਫਿਨ
+ਵ੍ਹੇਲ

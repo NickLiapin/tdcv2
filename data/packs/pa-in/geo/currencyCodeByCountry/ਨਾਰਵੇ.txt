@@ -1,0 +1,5 @@
+---
+description: Currency code of ਨਾਰਵੇ
+locale: pa-in
+---
+NOK

@@ -1,0 +1,22 @@
+---
+description: Employee benefit in Punjabi. ਈ.ਪੀ.ਐਫ. (the provident fund) and ਈ.ਐਸ.ਆਈ. (state health insurance) are statutory in India and are what an Indian job advert lists where an American one lists a 401(k); ਗ੍ਰੈਚੁਟੀ is a lump sum payable after five years' service.
+locale: pa-in
+---
+ਈ.ਪੀ.ਐਫ.
+ਈ.ਐਸ.ਆਈ.
+ਗ੍ਰੈਚੁਟੀ
+ਸਿਹਤ ਬੀਮਾ
+ਜੀਵਨ ਬੀਮਾ
+ਦੁਰਘਟਨਾ ਬੀਮਾ
+ਤਨਖ਼ਾਹ ਸਮੇਤ ਛੁੱਟੀ
+ਬੋਨਸ
+ਤਿਉਹਾਰ ਬੋਨਸ
+ਘਰੋਂ ਕੰਮ
+ਲਚਕਦਾਰ ਸਮਾਂ
+ਕੰਪਨੀ ਦੀ ਗੱਡੀ
+ਕੰਟੀਨ
+ਟਰਾਂਸਪੋਰਟ ਸਹੂਲਤ
+ਰਿਹਾਇਸ਼
+ਬੱਚਿਆਂ ਦੀ ਪੜ੍ਹਾਈ ਦਾ ਭੱਤਾ
+ਜਣੇਪਾ ਛੁੱਟੀ
+ਪੈਨਸ਼ਨ

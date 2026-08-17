@@ -1,0 +1,32 @@
+---
+description: Kind of event in Punjabi. ਜਾਗੋ, ਮਹਿੰਦੀ and ਸੰਗੀਤ are named nights of a Punjabi wedding rather than one event; ਅਖੰਡ ਪਾਠ and ਭੋਗ are Sikh religious observances that a household hosts; ਕਵੀ ਦਰਬਾਰ is a poets' gathering.
+locale: pa-in
+---
+ਵਿਆਹ
+ਮੰਗਣੀ
+ਰੋਕਾ
+ਜਾਗੋ
+ਮਹਿੰਦੀ
+ਸੰਗੀਤ
+ਅਖੰਡ ਪਾਠ
+ਭੋਗ
+ਕੀਰਤਨ ਦਰਬਾਰ
+ਲੰਗਰ
+ਜਨਮ ਦਿਨ
+ਸਾਲਗਿਰ੍ਹਾ
+ਗ੍ਰਹਿ ਪ੍ਰਵੇਸ਼
+ਮੇਲਾ
+ਤਿਉਹਾਰ
+ਕਾਨਫਰੰਸ
+ਸੈਮੀਨਾਰ
+ਵਰਕਸ਼ਾਪ
+ਵੈਬੀਨਾਰ
+ਪ੍ਰਦਰਸ਼ਨੀ
+ਵਪਾਰ ਮੇਲਾ
+ਸੰਗੀਤ ਸਮਾਰੋਹ
+ਕਵੀ ਦਰਬਾਰ
+ਖੇਡ ਮੁਕਾਬਲਾ
+ਦੌੜ
+ਉਤਪਾਦ ਲਾਂਚ
+ਦਾਨ ਸਮਾਗਮ
+ਸਨਮਾਨ ਸਮਾਰੋਹ

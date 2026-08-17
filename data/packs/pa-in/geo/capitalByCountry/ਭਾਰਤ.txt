@@ -1,0 +1,5 @@
+---
+description: Capital of ਭਾਰਤ, in Punjabi
+locale: pa-in
+---
+ਨਵੀਂ ਦਿੱਲੀ

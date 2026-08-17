@@ -1,0 +1,5 @@
+---
+description: Currency of ਦੱਖਣੀ ਕੋਰੀਆ, in Punjabi
+locale: pa-in
+---
+ਦੱਖਣੀ ਕੋਰੀਆਈ ਵੌਨ

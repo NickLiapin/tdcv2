@@ -1,0 +1,30 @@
+---
+description: KIND of government body, as Punjabi names it. These are the words for types of office (ਵਿਭਾਗ = department, ਮੰਤਰਾਲਾ = ministry, ਨਿਗਮ = corporation), covering the Indian structure because Punjabi's India is the state this pack is for. Named agencies, their identifiers and their jurisdictions belong in the India country pack, not here.
+locale: pa-in
+---
+ਸਿਹਤ ਵਿਭਾਗ
+ਸਿੱਖਿਆ ਵਿਭਾਗ
+ਟਰਾਂਸਪੋਰਟ ਵਿਭਾਗ
+ਆਮਦਨ ਕਰ ਵਿਭਾਗ
+ਮਾਲ ਵਿਭਾਗ
+ਖੇਤੀਬਾੜੀ ਵਿਭਾਗ
+ਪੁਲਿਸ ਵਿਭਾਗ
+ਬਿਜਲੀ ਬੋਰਡ
+ਜਲ ਸਪਲਾਈ ਵਿਭਾਗ
+ਨਗਰ ਨਿਗਮ
+ਨਗਰ ਕੌਂਸਲ
+ਗ੍ਰਾਮ ਪੰਚਾਇਤ
+ਜ਼ਿਲ੍ਹਾ ਪ੍ਰਸ਼ਾਸਨ
+ਚੋਣ ਕਮਿਸ਼ਨ
+ਲੋਕ ਨਿਰਮਾਣ ਵਿਭਾਗ
+ਜੰਗਲਾਤ ਵਿਭਾਗ
+ਕਿਰਤ ਵਿਭਾਗ
+ਸਮਾਜ ਭਲਾਈ ਵਿਭਾਗ
+ਰੱਖਿਆ ਮੰਤਰਾਲਾ
+ਵਿਦੇਸ਼ ਮੰਤਰਾਲਾ
+ਗ੍ਰਹਿ ਮੰਤਰਾਲਾ
+ਵਿੱਤ ਮੰਤਰਾਲਾ
+ਰੇਲਵੇ
+ਡਾਕ ਵਿਭਾਗ
+ਸਹਿਕਾਰਤਾ ਵਿਭਾਗ
+ਖੁਰਾਕ ਤੇ ਸਪਲਾਈ ਵਿਭਾਗ

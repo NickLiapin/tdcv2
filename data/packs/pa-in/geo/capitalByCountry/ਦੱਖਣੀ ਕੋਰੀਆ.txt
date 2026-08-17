@@ -1,0 +1,5 @@
+---
+description: Capital of ਦੱਖਣੀ ਕੋਰੀਆ, in Punjabi
+locale: pa-in
+---
+ਸਿਓਲ

@@ -1,0 +1,5 @@
+---
+description: Capital of ਨਾਈਜੀਰੀਆ, in Punjabi
+locale: pa-in
+---
+ਅਬੂਜਾ

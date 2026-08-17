@@ -1,0 +1,10 @@
+---
+description: Conditions with raised prevalence in people of ਮੱਧ ਪੂਰਬੀ descent, in Punjabi.
+locale: pa-in
+---
+ਪਰਿਵਾਰਕ ਭੂ-ਮੱਧ ਬੁਖ਼ਾਰ
+ਬੀਟਾ ਥੈਲੇਸੀਮੀਆ
+ਜੀ6ਪੀਡੀ ਦੀ ਕਮੀ
+ਸਿਕਲ ਸੈੱਲ ਰੋਗ
+ਬੇਹਸੈੱਟ ਰੋਗ
+ਟਾਈਪ 2 ਸ਼ੂਗਰ

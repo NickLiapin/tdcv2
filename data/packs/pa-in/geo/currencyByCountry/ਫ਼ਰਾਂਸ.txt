@@ -1,0 +1,5 @@
+---
+description: Currency of ਫ਼ਰਾਂਸ, in Punjabi
+locale: pa-in
+---
+ਯੂਰੋ

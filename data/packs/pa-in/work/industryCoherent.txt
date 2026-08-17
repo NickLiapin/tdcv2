@@ -1,0 +1,14 @@
+---
+description: Industry used as the parent of jobByIndustry. ਖੇਤੀਬਾੜੀ leads and is present at all — Punjab's largest employer by far — where an English list starts at Technology.
+locale: pa-in
+---
+ਖੇਤੀਬਾੜੀ
+ਤਕਨਾਲੋਜੀ
+ਸਿਹਤ ਸੰਭਾਲ
+ਵਿੱਤ
+ਉਸਾਰੀ
+ਸਿੱਖਿਆ
+ਪ੍ਰਾਹੁਣਚਾਰੀ
+ਨਿਰਮਾਣ
+ਪ੍ਰਚੂਨ
+ਆਵਾਜਾਈ

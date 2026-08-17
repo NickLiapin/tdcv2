@@ -1,0 +1,16 @@
+---
+description: Employment type in Punjabi. ਠੇਕੇ ਤੇ (contract labour engaged through a contractor) and ਦਿਹਾੜੀਦਾਰ (day-wage worker, paid at the end of each day) are the commonest forms of employment in Punjab and have no European equivalent; ਪੱਕਾ (permanent, especially a government post) is the aspiration those two are measured against.
+locale: pa-in
+---
+ਪੱਕਾ
+ਕੱਚਾ
+ਪੂਰਾ ਸਮਾਂ
+ਅੱਧਾ ਸਮਾਂ
+ਠੇਕੇ ਤੇ
+ਦਿਹਾੜੀਦਾਰ
+ਆਰਜ਼ੀ
+ਇੰਟਰਨਸ਼ਿਪ
+ਫ੍ਰੀਲਾਂਸ
+ਮੌਸਮੀ
+ਸਿਖਾਂਦਰੂ
+ਆਪਣਾ ਕੰਮ

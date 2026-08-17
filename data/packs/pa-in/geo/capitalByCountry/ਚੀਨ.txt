@@ -1,0 +1,5 @@
+---
+description: Capital of ਚੀਨ, in Punjabi
+locale: pa-in
+---
+ਬੀਜਿੰਗ

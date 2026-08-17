@@ -1,0 +1,16 @@
+---
+description: Gregorian month name in Punjabi — these are the months of the official calendar and are transliterations of the English names. Punjabi's OWN months are the Bikrami / Nanakshahi ones (ਚੇਤ, ਵੈਸਾਖ, ਜੇਠ, ਹਾੜ, ਸਾਵਣ, ਭਾਦੋਂ, ਅੱਸੂ, ਕੱਤਕ, ਮੱਘਰ, ਪੋਹ, ਮਾਘ, ਫੱਗਣ), which start in mid-March and are what folk songs, festivals and the Sikh calendar count by; they are not listed here because the engine formats Gregorian dates.
+locale: pa-in
+---
+ਜਨਵਰੀ
+ਫ਼ਰਵਰੀ
+ਮਾਰਚ
+ਅਪ੍ਰੈਲ
+ਮਈ
+ਜੂਨ
+ਜੁਲਾਈ
+ਅਗਸਤ
+ਸਤੰਬਰ
+ਅਕਤੂਬਰ
+ਨਵੰਬਰ
+ਦਸੰਬਰ

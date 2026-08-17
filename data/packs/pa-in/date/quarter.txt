@@ -1,0 +1,8 @@
+---
+description: Fiscal quarter in Punjabi. India's financial year runs 1 April to 31 March, so the first quarter is April-June, not January-March; a config that maps quarter to calendar months must shift by one quarter.
+locale: pa-in
+---
+ਪਹਿਲੀ ਤਿਮਾਹੀ
+ਦੂਜੀ ਤਿਮਾਹੀ
+ਤੀਜੀ ਤਿਮਾਹੀ
+ਚੌਥੀ ਤਿਮਾਹੀ

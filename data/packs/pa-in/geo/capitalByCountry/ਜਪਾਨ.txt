@@ -1,0 +1,5 @@
+---
+description: Capital of ਜਪਾਨ, in Punjabi
+locale: pa-in
+---
+ਟੋਕੀਓ

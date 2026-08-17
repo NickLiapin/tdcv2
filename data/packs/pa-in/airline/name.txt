@@ -1,0 +1,44 @@
+---
+description: Airline serving Punjab and the Punjabi diaspora, plus the major international carriers. Airline names are brands and stay in their registered Latin spelling.
+locale: pa-in
+---
+Air India
+Air India Express
+IndiGo
+SpiceJet
+Akasa Air
+Alliance Air
+Vistara
+Emirates
+Qatar Airways
+Etihad Airways
+Air Canada
+WestJet
+British Airways
+Virgin Atlantic
+Lufthansa
+Air France
+KLM
+Turkish Airlines
+Singapore Airlines
+Malaysia Airlines
+Thai Airways
+Cathay Pacific
+Qantas
+United Airlines
+American Airlines
+Delta Air Lines
+Saudia
+Oman Air
+Kuwait Airways
+Gulf Air
+flydubai
+Air Arabia
+SriLankan Airlines
+Nepal Airlines
+Biman Bangladesh
+Uzbekistan Airways
+Aeroflot
+Swiss International Air Lines
+Austrian Airlines
+Finnair

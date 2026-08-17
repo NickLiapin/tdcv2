@@ -1,0 +1,5 @@
+---
+description: Currency of ਸਵਿਟਜ਼ਰਲੈਂਡ, in Punjabi
+locale: pa-in
+---
+ਸਵਿਸ ਫ੍ਰੈਂਕ

@@ -1,0 +1,5 @@
+---
+description: Currency of ਨਿਊਜ਼ੀਲੈਂਡ, in Punjabi
+locale: pa-in
+---
+ਨਿਊਜ਼ੀਲੈਂਡ ਡਾਲਰ

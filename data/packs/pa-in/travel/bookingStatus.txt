@@ -1,0 +1,15 @@
+---
+description: Booking status in Punjabi. ਵੇਟਿੰਗ ਲਿਸਟ and ਆਰ.ਏ.ਸੀ. are Indian Railways ticket states — a waitlisted ticket that may or may not confirm, and a shared-berth allocation — and travellers in Punjab use both words for any booking.
+locale: pa-in
+---
+ਪੁਸ਼ਟੀ ਹੋਈ
+ਬਕਾਇਆ
+ਵੇਟਿੰਗ ਲਿਸਟ
+ਆਰ.ਏ.ਸੀ.
+ਰੱਦ
+ਚੈੱਕ-ਇਨ ਹੋਇਆ
+ਚੈੱਕ-ਆਊਟ ਹੋਇਆ
+ਨਹੀਂ ਆਇਆ
+ਬਦਲਿਆ
+ਪੈਸੇ ਵਾਪਸ
+ਮਿਆਦ ਪੁੱਗੀ

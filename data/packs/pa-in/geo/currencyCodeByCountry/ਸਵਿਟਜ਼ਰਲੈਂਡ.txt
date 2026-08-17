@@ -1,0 +1,5 @@
+---
+description: Currency code of ਸਵਿਟਜ਼ਰਲੈਂਡ
+locale: pa-in
+---
+CHF

@@ -1,0 +1,5 @@
+---
+description: Currency code of ਨਾਈਜੀਰੀਆ
+locale: pa-in
+---
+NGN

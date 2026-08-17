@@ -1,0 +1,24 @@
+---
+description: Legal term in Punjabi. ਐਫ.ਆਈ.ਆਰ. (first information report) is how every criminal matter in India begins and the initialism is used in Punjabi speech unchanged; ਦਫ਼ਾ is the section of a statute a charge is laid under.
+locale: pa-in
+---
+ਮੁਦਈ
+ਮੁਦਾਲਾ
+ਗਵਾਹ
+ਗਵਾਹੀ
+ਸੰਮਨ
+ਵਾਰੰਟ
+ਹਲਫ਼ਨਾਮਾ
+ਐਫ.ਆਈ.ਆਰ.
+ਚਲਾਨ
+ਦਫ਼ਾ
+ਜ਼ਮਾਨਤ
+ਫ਼ੈਸਲਾ
+ਹੁਕਮ
+ਸਟੇਅ
+ਅਪੀਲ
+ਸਮਝੌਤਾ
+ਮੁਕੱਦਮਾ
+ਅਧਿਕਾਰ ਖੇਤਰ
+ਵਕਾਲਤਨਾਮਾ
+ਪੇਸ਼ੀ

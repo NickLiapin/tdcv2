@@ -1,0 +1,5 @@
+---
+description: Currency code of ਵੀਅਤਨਾਮ
+locale: pa-in
+---
+VND

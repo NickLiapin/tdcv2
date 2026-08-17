@@ -1,0 +1,5 @@
+---
+description: Capital of ਨਿਊਜ਼ੀਲੈਂਡ, in Punjabi
+locale: pa-in
+---
+ਵੈਲਿੰਗਟਨ

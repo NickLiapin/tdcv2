@@ -1,0 +1,5 @@
+---
+description: Currency code of ਨੀਦਰਲੈਂਡ
+locale: pa-in
+---
+EUR

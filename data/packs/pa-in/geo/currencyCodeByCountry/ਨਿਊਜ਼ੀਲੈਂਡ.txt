@@ -1,0 +1,5 @@
+---
+description: Currency code of ਨਿਊਜ਼ੀਲੈਂਡ
+locale: pa-in
+---
+NZD

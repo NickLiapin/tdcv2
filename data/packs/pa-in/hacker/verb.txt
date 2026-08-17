@@ -1,0 +1,32 @@
+---
+description: Technical verb in Punjabi, in the infinitive. Punjabi builds most of these as noun + ਕਰਨਾ ('to do'), which is why the borrowed English stem stays visible.
+locale: pa-in
+---
+ਬੈਕਅੱਪ ਲੈਣਾ
+ਬਾਈਪਾਸ ਕਰਨਾ
+ਹੈਕ ਕਰਨਾ
+ਓਵਰਰਾਈਡ ਕਰਨਾ
+ਸੰਕੁਚਿਤ ਕਰਨਾ
+ਨਕਲ ਕਰਨਾ
+ਨੈਵੀਗੇਟ ਕਰਨਾ
+ਸੂਚੀਬੱਧ ਕਰਨਾ
+ਜੋੜਨਾ
+ਪੈਦਾ ਕਰਨਾ
+ਮਾਪਣਾ
+ਗਿਣਨਾ
+ਸੰਸ਼ਲੇਸ਼ਣ ਕਰਨਾ
+ਭੇਜਣਾ
+ਪ੍ਰੋਗਰਾਮ ਕਰਨਾ
+ਮੁੜ ਚਾਲੂ ਕਰਨਾ
+ਪਾਰਸ ਕਰਨਾ
+ਏਨਕ੍ਰਿਪਟ ਕਰਨਾ
+ਡਿਕ੍ਰਿਪਟ ਕਰਨਾ
+ਤੈਨਾਤ ਕਰਨਾ
+ਦਾਖ਼ਲ ਕਰਨਾ
+ਮਿਟਾਉਣਾ
+ਸੰਭਾਲਣਾ
+ਲੋਡ ਕਰਨਾ
+ਸਕੈਨ ਕਰਨਾ
+ਜਾਂਚਣਾ
+ਸੰਰਚਿਤ ਕਰਨਾ
+ਸਿੰਕ ਕਰਨਾ

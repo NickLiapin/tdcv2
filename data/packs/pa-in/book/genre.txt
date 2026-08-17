@@ -1,0 +1,32 @@
+---
+description: Book genre in Punjabi. ਕਿੱਸਾ (a long verse romance — Heer Ranjha, Mirza Sahiban) and ਵਾਰ (a heroic ballad) are Punjabi literary forms with no English genre to translate them into, and ਗੁਰਬਾਣੀ ਵਿਆਖਿਆ (scriptural exegesis) is a large publishing category in Punjab.
+locale: pa-in
+---
+ਗਲਪ
+ਗ਼ੈਰ-ਗਲਪ
+ਨਾਵਲ
+ਕਹਾਣੀ ਸੰਗ੍ਰਹਿ
+ਕਵਿਤਾ
+ਕਿੱਸਾ
+ਵਾਰ
+ਨਾਟਕ
+ਵਾਰਤਕ
+ਸਵੈ-ਜੀਵਨੀ
+ਜੀਵਨੀ
+ਇਤਿਹਾਸ
+ਸਫ਼ਰਨਾਮਾ
+ਆਲੋਚਨਾ
+ਵਿਅੰਗ
+ਜਾਸੂਸੀ
+ਰਹੱਸ
+ਰੋਮਾਂਸ
+ਵਿਗਿਆਨ ਗਲਪ
+ਕਲਪਨਾ
+ਡਰਾਉਣਾ
+ਬਾਲ ਸਾਹਿਤ
+ਧਾਰਮਿਕ
+ਗੁਰਬਾਣੀ ਵਿਆਖਿਆ
+ਦਰਸ਼ਨ
+ਸਵੈ-ਸਹਾਇਤਾ
+ਰਸੋਈ
+ਲੋਕ ਸਾਹਿਤ

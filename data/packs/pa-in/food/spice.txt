@@ -1,0 +1,34 @@
+---
+description: Spice in Punjabi. ਕਸੂਰੀ ਮੇਥੀ is dried fenugreek leaf named after Kasur, now across the border in Pakistani Punjab, and is what gives Punjabi gravies their smell; ਅਨਾਰਦਾਨਾ, ਅਮਚੂਰ, ਹੀਂਗ and ਕਾਲਾ ਨਮਕ are staples of a Punjabi spice box with no English kitchen equivalent.
+locale: pa-in
+---
+ਹਲਦੀ
+ਲਾਲ ਮਿਰਚ
+ਕਾਲੀ ਮਿਰਚ
+ਜੀਰਾ
+ਧਨੀਆ
+ਸੌਂਫ
+ਮੇਥੀ ਦਾਣਾ
+ਅਜਵਾਇਣ
+ਹੀਂਗ
+ਛੋਟੀ ਇਲਾਇਚੀ
+ਵੱਡੀ ਇਲਾਇਚੀ
+ਲੌਂਗ
+ਦਾਲਚੀਨੀ
+ਤੇਜ ਪੱਤਾ
+ਜਾਇਫਲ
+ਜਾਵਿਤਰੀ
+ਕੇਸਰ
+ਕਸੂਰੀ ਮੇਥੀ
+ਗਰਮ ਮਸਾਲਾ
+ਚਾਟ ਮਸਾਲਾ
+ਅਮਚੂਰ
+ਅਨਾਰਦਾਨਾ
+ਕਾਲਾ ਨਮਕ
+ਨਮਕ
+ਰਾਈ
+ਖਸਖਸ
+ਤਿਲ
+ਕਲੌਂਜੀ
+ਸੁੱਕਾ ਧਨੀਆ
+ਕਬਾਬ ਚੀਨੀ

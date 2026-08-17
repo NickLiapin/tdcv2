@@ -1,0 +1,22 @@
+---
+description: Cat breed. Breed names are international; ਦੇਸੀ ਬਿੱਲੀ is the ordinary Indian house cat of no breed, which is what most Punjabi households actually keep.
+locale: pa-in
+---
+ਦੇਸੀ ਬਿੱਲੀ
+ਪਰਸ਼ੀਅਨ
+ਸਿਆਮੀ
+ਬੰਗਾਲ
+ਮੇਨ ਕੂਨ
+ਰੈਗਡੌਲ
+ਬ੍ਰਿਟਿਸ਼ ਸ਼ਾਰਟਹੇਅਰ
+ਅਮਰੀਕਨ ਸ਼ਾਰਟਹੇਅਰ
+ਸਪਿੰਕਸ
+ਐਬੀਸੀਨੀਅਨ
+ਬਰਮੀ
+ਰਸ਼ੀਅਨ ਬਲੂ
+ਸਕਾਟਿਸ਼ ਫੋਲਡ
+ਹਿਮਾਲਿਅਨ
+ਬੌਂਬੇ
+ਤੁਰਕੀ ਐਂਗੋਰਾ
+ਨਾਰਵੇਜੀਅਨ ਫੋਰੈਸਟ
+ਮੰਚਕਿਨ

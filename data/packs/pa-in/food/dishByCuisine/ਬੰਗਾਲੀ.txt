@@ -1,0 +1,12 @@
+---
+description: Dishes of ਬੰਗਾਲੀ cuisine, in Punjabi
+locale: pa-in
+---
+ਮੱਛੀ ਭਾਤ
+ਰੋਸ਼ੋਗੁੱਲਾ
+ਸੰਦੇਸ਼
+ਮਿਸ਼ਟੀ ਦੋਈ
+ਸ਼ੁਕਤੋ
+ਲੁਚੀ
+ਚੋਮਚੋਮ
+ਪਾਇਸ਼

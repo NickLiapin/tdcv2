@@ -1,0 +1,23 @@
+---
+description: NAME of a kind of official document, in Punjabi. This list holds the words only — no Aadhaar, PAN or licence numbers, which are identifiers and belong to the India country pack. ਫਰਦ (a copy of the land record) and ਇੰਤਕਾਲ (a mutation entry transferring land) are Punjab revenue-office documents that structure rural life and have no English name.
+locale: pa-in
+---
+ਪਾਸਪੋਰਟ
+ਜਨਮ ਸਰਟੀਫਿਕੇਟ
+ਮੌਤ ਸਰਟੀਫਿਕੇਟ
+ਵਿਆਹ ਸਰਟੀਫਿਕੇਟ
+ਡਰਾਈਵਿੰਗ ਲਾਇਸੰਸ
+ਵੋਟਰ ਕਾਰਡ
+ਰਾਸ਼ਨ ਕਾਰਡ
+ਜਾਤੀ ਸਰਟੀਫਿਕੇਟ
+ਰਿਹਾਇਸ਼ੀ ਸਰਟੀਫਿਕੇਟ
+ਆਮਦਨ ਸਰਟੀਫਿਕੇਟ
+ਚਰਿੱਤਰ ਸਰਟੀਫਿਕੇਟ
+ਫਰਦ
+ਇੰਤਕਾਲ
+ਰਜਿਸਟਰੀ
+ਹਲਫ਼ਨਾਮਾ
+ਵਸੀਅਤ
+ਵੀਜ਼ਾ
+ਬੀਮਾ ਪਾਲਿਸੀ
+ਪੈਨਸ਼ਨ ਕਾਗ਼ਜ਼

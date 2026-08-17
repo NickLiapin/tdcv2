@@ -1,0 +1,19 @@
+---
+description: Kind of court, in Punjabi. This is India's judiciary, which is the one Punjabi's speakers in this pack live under — said out loud because a language spoken in several countries could not name a single system. ਲੋਕ ਅਦਾਲਤ is a settlement forum with no European equivalent, and ਪੰਚਾਇਤ still hears village disputes.
+locale: pa-in
+---
+ਸੁਪਰੀਮ ਕੋਰਟ
+ਹਾਈ ਕੋਰਟ
+ਜ਼ਿਲ੍ਹਾ ਅਦਾਲਤ
+ਸੈਸ਼ਨ ਅਦਾਲਤ
+ਸਿਵਲ ਅਦਾਲਤ
+ਫੌਜਦਾਰੀ ਅਦਾਲਤ
+ਮੈਜਿਸਟਰੇਟ ਦੀ ਅਦਾਲਤ
+ਪਰਿਵਾਰਕ ਅਦਾਲਤ
+ਖ਼ਪਤਕਾਰ ਅਦਾਲਤ
+ਲੋਕ ਅਦਾਲਤ
+ਕਿਰਤ ਅਦਾਲਤ
+ਮਾਲ ਅਦਾਲਤ
+ਟ੍ਰਿਬਿਊਨਲ
+ਪੰਚਾਇਤ
+ਫ਼ੌਜੀ ਅਦਾਲਤ

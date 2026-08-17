@@ -1,0 +1,15 @@
+---
+description: Gaming platform. Console and store names are brands and stay in their Latin spelling.
+locale: pa-in
+---
+PlayStation 5
+PlayStation 4
+Xbox Series X
+Xbox One
+Nintendo Switch
+PC
+Steam Deck
+ਮੋਬਾਈਲ
+Meta Quest
+ਬ੍ਰਾਊਜ਼ਰ
+ਆਰਕੇਡ

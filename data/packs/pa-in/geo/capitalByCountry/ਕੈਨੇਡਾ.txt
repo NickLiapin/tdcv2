@@ -1,0 +1,5 @@
+---
+description: Capital of ਕੈਨੇਡਾ, in Punjabi
+locale: pa-in
+---
+ਓਟਾਵਾ

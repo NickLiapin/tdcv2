@@ -1,0 +1,5 @@
+---
+description: Capital of ਬੰਗਲਾਦੇਸ਼, in Punjabi
+locale: pa-in
+---
+ਢਾਕਾ

@@ -1,0 +1,12 @@
+---
+description: Dishes of ਮੈਕਸੀਕਨ cuisine, in Punjabi
+locale: pa-in
+---
+ਟਾਕੋ
+ਬੁਰੀਟੋ
+ਕਿਊਸਾਡੀਆ
+ਨਾਚੋਜ਼
+ਐਨਚਿਲਾਡਾ
+ਗੁਆਕਾਮੋਲੇ
+ਸਾਲਸਾ
+ਚੁਰੋਸ

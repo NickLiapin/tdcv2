@@ -1,0 +1,5 @@
+---
+description: Currency code of ਰੂਸ
+locale: pa-in
+---
+RUB

@@ -1,0 +1,5 @@
+---
+description: Capital of ਜਰਮਨੀ, in Punjabi
+locale: pa-in
+---
+ਬਰਲਿਨ

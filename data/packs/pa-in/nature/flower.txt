@@ -1,0 +1,32 @@
+---
+description: Flower in Punjabi. ਸਰ੍ਹੋਂ ਦਾ ਫੁੱਲ (the mustard blossom that turns Punjab yellow in February and gives Basant its colour) and ਅਮਲਤਾਸ, ਗੁਲਮੋਹਰ, ਕਚਨਾਰ and ਰਾਤ ਦੀ ਰਾਣੀ are the flowers actually named in Punjab.
+locale: pa-in
+---
+ਗੁਲਾਬ
+ਗੇਂਦਾ
+ਚਮੇਲੀ
+ਮੋਤੀਆ
+ਕਮਲ
+ਸੂਰਜਮੁਖੀ
+ਸਰ੍ਹੋਂ ਦਾ ਫੁੱਲ
+ਗੁਲਦਾਊਦੀ
+ਰਾਤ ਦੀ ਰਾਣੀ
+ਹਰਸਿੰਗਾਰ
+ਚੰਪਾ
+ਕਨੇਰ
+ਗੁੜਹਲ
+ਬੇਲਾ
+ਕਚਨਾਰ
+ਅਮਲਤਾਸ
+ਗੁਲਮੋਹਰ
+ਸਦਾਬਹਾਰ
+ਬਨਫਸ਼ਾ
+ਟਿਊਲਿਪ
+ਲਿੱਲੀ
+ਆਰਕਿਡ
+ਡੈਫ਼ੋਡਿਲ
+ਲੈਵੇਂਡਰ
+ਪੌਪੀ
+ਡੇਜ਼ੀ
+ਗਲੈਡੀਓਲਸ
+ਡੇਹਲੀਆ

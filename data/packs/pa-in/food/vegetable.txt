@@ -1,0 +1,36 @@
+---
+description: Vegetable in Punjabi. ਸਰ੍ਹੋਂ ਦਾ ਸਾਗ (mustard greens) and ਬਾਥੂ are winter greens Punjab eats as a main dish, not a garnish; ਟੀਂਡਾ, ਘੀਆ, ਤੋਰੀ and ਅਰਬੀ have no ordinary English names.
+locale: pa-in
+---
+ਆਲੂ
+ਪਿਆਜ਼
+ਟਮਾਟਰ
+ਫੁੱਲ ਗੋਭੀ
+ਬੰਦ ਗੋਭੀ
+ਗਾਜਰ
+ਮੂਲੀ
+ਸ਼ਲਗਮ
+ਮਟਰ
+ਭਿੰਡੀ
+ਬੈਂਗਣ
+ਕਰੇਲਾ
+ਘੀਆ
+ਤੋਰੀ
+ਟੀਂਡਾ
+ਪੇਠਾ
+ਕੱਦੂ
+ਖੀਰਾ
+ਸਰ੍ਹੋਂ ਦਾ ਸਾਗ
+ਪਾਲਕ
+ਮੇਥੀ
+ਬਾਥੂ
+ਧਨੀਆ
+ਪੁਦੀਨਾ
+ਹਰੀ ਮਿਰਚ
+ਸ਼ਿਮਲਾ ਮਿਰਚ
+ਲਸਣ
+ਅਦਰਕ
+ਅਰਬੀ
+ਸ਼ਕਰਕੰਦੀ
+ਮੱਕੀ
+ਕਚਾਲੂ

@@ -1,0 +1,11 @@
+---
+description: Driving licence class as India issues it, in Punjabi. India does NOT use the American Class A/B/C scheme: licences are endorsed by vehicle category — LMV for a light motor vehicle, HMV/HTV for heavy goods, MCWG for a geared motorcycle — and a commercial endorsement is separate.
+locale: pa-in
+---
+MCWOG
+MCWG
+LMV
+LMV-TR
+HMV
+HTV
+HPMV

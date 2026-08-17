@@ -1,0 +1,12 @@
+---
+description: Sport used as the parent of positionBySport. Only sports with named playing positions are here, which is why ਗੱਤਕਾ and ਕੁਸ਼ਤੀ — both major in Punjab — are deliberately absent: they have masters and pupils, not a lineup.
+locale: pa-in
+---
+ਕਬੱਡੀ
+ਹਾਕੀ
+ਕ੍ਰਿਕਟ
+ਫੁੱਟਬਾਲ
+ਵਾਲੀਬਾਲ
+ਬਾਸਕਟਬਾਲ
+ਖੋ-ਖੋ
+ਰੱਸਾਕਸ਼ੀ

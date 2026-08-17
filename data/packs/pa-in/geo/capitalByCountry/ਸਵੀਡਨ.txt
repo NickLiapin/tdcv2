@@ -1,0 +1,5 @@
+---
+description: Capital of ਸਵੀਡਨ, in Punjabi
+locale: pa-in
+---
+ਸਟਾਕਹੋਮ

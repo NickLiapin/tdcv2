@@ -1,0 +1,36 @@
+---
+description: Punjabi name title / prefix. ਸ. (ਸਰਦਾਰ) and ਸਰਦਾਰਨੀ are the Sikh honorifics and pair with Singh / Kaur; ਭਾਈ, ਬੀਬੀ, ਗਿਆਨੀ, ਗ੍ਰੰਥੀ and ਜਥੇਦਾਰ are religious titles; ਸ੍ਰੀ / ਸ੍ਰੀਮਤੀ / ਕੁਮਾਰੀ are the general Indian set and ਜਨਾਬ / ਮੁਹਤਰਮਾ the Muslim one.
+locale: pa-in
+---
+ਸ੍ਰੀ
+ਸ੍ਰੀਮਤੀ
+ਕੁਮਾਰੀ
+ਸਰਦਾਰ
+ਸ.
+ਸਰਦਾਰਨੀ
+ਬੀਬੀ
+ਭਾਈ
+ਗਿਆਨੀ
+ਬਾਬਾ
+ਸੰਤ
+ਮਹੰਤ
+ਗ੍ਰੰਥੀ
+ਜਥੇਦਾਰ
+ਪੰਡਿਤ
+ਡਾ.
+ਪ੍ਰੋ.
+ਮਾਸਟਰ
+ਮਾਸਟਰਨੀ
+ਪ੍ਰਿੰਸੀਪਲ
+ਇੰਜ.
+ਐਡਵੋਕੇਟ
+ਜਨਾਬ
+ਮੁਹਤਰਮਾ
+ਚੌਧਰੀ
+ਲਾਲਾ
+ਸੇਠ
+ਕੈਪਟਨ
+ਮੇਜਰ
+ਕਰਨਲ
+ਸੂਬੇਦਾਰ
+ਹਵਲਦਾਰ

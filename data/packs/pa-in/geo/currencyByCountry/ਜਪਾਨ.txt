@@ -1,0 +1,5 @@
+---
+description: Currency of ਜਪਾਨ, in Punjabi
+locale: pa-in
+---
+ਜਪਾਨੀ ਯੇਨ

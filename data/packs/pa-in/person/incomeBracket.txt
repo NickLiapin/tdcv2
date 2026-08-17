@@ -1,0 +1,12 @@
+---
+description: Annual household income bracket in Indian rupees (₹), written on the Indian ਲੱਖ / ਕਰੋੜ scale that every form and payslip in Punjab uses: 1 ਲੱਖ = 100,000 and 1 ਕਰੋੜ = 10,000,000. Thousands and millions are not how the amounts are grouped here.
+locale: pa-in
+---
+₹2 ਲੱਖ ਤੋਂ ਘੱਟ
+₹2-5 ਲੱਖ
+₹5-10 ਲੱਖ
+₹10-15 ਲੱਖ
+₹15-25 ਲੱਖ
+₹25-50 ਲੱਖ
+₹50 ਲੱਖ - ₹1 ਕਰੋੜ
+₹1 ਕਰੋੜ ਤੋਂ ਵੱਧ

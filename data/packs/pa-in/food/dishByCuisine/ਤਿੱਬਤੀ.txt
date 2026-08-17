@@ -1,0 +1,11 @@
+---
+description: Dishes of ਤਿੱਬਤੀ cuisine, in Punjabi
+locale: pa-in
+---
+ਮੋਮੋ
+ਥੁੱਕਪਾ
+ਸ਼ਾਪਾਲੇ
+ਤਿੰਗਮੋ
+ਲਾਫ਼ਿੰਗ
+ਬਟਰ ਟੀ
+ਥੇਂਥੁਕ

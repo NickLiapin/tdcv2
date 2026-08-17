@@ -1,0 +1,5 @@
+---
+description: Currency of ਦੱਖਣੀ ਅਫ਼ਰੀਕਾ, in Punjabi
+locale: pa-in
+---
+ਰੈਂਡ

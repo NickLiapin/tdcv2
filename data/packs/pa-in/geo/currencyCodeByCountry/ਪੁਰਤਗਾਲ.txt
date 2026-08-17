@@ -1,0 +1,5 @@
+---
+description: Currency code of ਪੁਰਤਗਾਲ
+locale: pa-in
+---
+EUR

@@ -1,0 +1,26 @@
+---
+description: Academic degree as awarded in India and written in Punjabi. The Indian ladder is 10+2 then a three-year B.A./B.Sc. or a four-year B.Tech; there is no associate degree, so none is listed.
+locale: pa-in
+---
+ਦਸਵੀਂ
+ਬਾਰ੍ਹਵੀਂ
+ਬੀ.ਏ.
+ਬੀ.ਐਸ.ਸੀ.
+ਬੀ.ਕਾਮ.
+ਬੀ.ਟੈਕ
+ਬੀ.ਈ.
+ਬੀ.ਐਡ.
+ਐਲ-ਐਲ.ਬੀ.
+ਐਮ.ਬੀ.ਬੀ.ਐਸ.
+ਬੀ.ਡੀ.ਐਸ.
+ਬੀ.ਏ.ਐਮ.ਐਸ.
+ਐਮ.ਏ.
+ਐਮ.ਐਸ.ਸੀ.
+ਐਮ.ਕਾਮ.
+ਐਮ.ਟੈਕ
+ਐਮ.ਬੀ.ਏ.
+ਐਮ.ਐਡ.
+ਐਮ.ਡੀ.
+ਪੀ-ਐਚ.ਡੀ.
+ਡਿਪਲੋਮਾ
+ਆਈ.ਟੀ.ਆਈ. ਸਰਟੀਫਿਕੇਟ

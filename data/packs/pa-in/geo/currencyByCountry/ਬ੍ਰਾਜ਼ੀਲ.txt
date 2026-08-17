@@ -1,0 +1,5 @@
+---
+description: Currency of ਬ੍ਰਾਜ਼ੀਲ, in Punjabi
+locale: pa-in
+---
+ਬ੍ਰਾਜ਼ੀਲੀ ਰਿਆਲ

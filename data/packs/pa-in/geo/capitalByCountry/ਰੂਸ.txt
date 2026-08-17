@@ -1,0 +1,5 @@
+---
+description: Capital of ਰੂਸ, in Punjabi
+locale: pa-in
+---
+ਮਾਸਕੋ

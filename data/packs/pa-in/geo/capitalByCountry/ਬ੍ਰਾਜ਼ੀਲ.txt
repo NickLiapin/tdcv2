@@ -1,0 +1,5 @@
+---
+description: Capital of ਬ੍ਰਾਜ਼ੀਲ, in Punjabi
+locale: pa-in
+---
+ਬ੍ਰਾਸੀਲੀਆ

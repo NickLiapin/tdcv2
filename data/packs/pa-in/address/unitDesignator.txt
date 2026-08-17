@@ -1,0 +1,24 @@
+---
+description: Unit designator as it is written on a Punjab address. ਸੈਕਟਰ and ਫੇਜ਼ are how planned towns in Punjab and Chandigarh are addressed, and ਗਲੀ ਨੰ. (lane number) is the ordinary way an old-town address is written, none of which have a US equivalent.
+locale: pa-in
+---
+ਮਕਾਨ ਨੰ.
+ਫਲੈਟ ਨੰ.
+ਦੁਕਾਨ ਨੰ.
+ਕਮਰਾ ਨੰ.
+ਪਲਾਟ ਨੰ.
+ਗਲੀ ਨੰ.
+ਬਲਾਕ
+ਸੈਕਟਰ
+ਫੇਜ਼
+ਮੰਜ਼ਿਲ
+ਪਹਿਲੀ ਮੰਜ਼ਿਲ
+ਦੂਜੀ ਮੰਜ਼ਿਲ
+ਬੇਸਮੈਂਟ
+ਵਿੰਗ
+ਟਾਵਰ
+ਖਾਨਾ
+ਕੋਠੀ ਨੰ.
+ਯੂਨਿਟ
+ਗੋਦਾਮ ਨੰ.
+ਕੈਬਿਨ

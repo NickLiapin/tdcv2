@@ -1,0 +1,24 @@
+---
+description: Parcel carrier used in India. Courier company names are brands and keep their registered Latin spelling; ਭਾਰਤੀ ਡਾਕ (India Post) is written in Punjabi because that is how the department signs itself in the state.
+locale: pa-in
+---
+ਭਾਰਤੀ ਡਾਕ
+Blue Dart
+DTDC
+Delhivery
+Ecom Express
+XpressBees
+Gati
+Safexpress
+Shadowfax
+Professional Couriers
+Trackon
+Amazon Shipping
+Flipkart Ekart
+FedEx
+DHL
+UPS
+Aramex
+TCI Express
+Overnite Express
+Speed Post

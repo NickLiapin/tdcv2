@@ -1,0 +1,14 @@
+---
+description: Competitive rank tier in Punjabi
+locale: pa-in
+---
+ਲੋਹਾ
+ਕਾਂਸੀ
+ਚਾਂਦੀ
+ਸੋਨਾ
+ਪਲੈਟੀਨਮ
+ਹੀਰਾ
+ਉਸਤਾਦ
+ਮਹਾਂ-ਉਸਤਾਦ
+ਚੈਲੇਂਜਰ
+ਸ਼ੁਰੂਆਤੀ

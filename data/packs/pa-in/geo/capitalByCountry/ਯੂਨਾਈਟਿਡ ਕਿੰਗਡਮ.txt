@@ -1,0 +1,5 @@
+---
+description: Capital of ਯੂਨਾਈਟਿਡ ਕਿੰਗਡਮ, in Punjabi
+locale: pa-in
+---
+ਲੰਡਨ

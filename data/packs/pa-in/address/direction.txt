@@ -1,0 +1,19 @@
+---
+description: Directional word used inside a Punjab address or locality name (ਦੱਖਣੀ ਵਿਹਾਰ, ਪੂਰਬੀ ਮੁਹੱਲਾ). These are the adjectival forms; the full 16-point compass is geo/direction.
+locale: pa-in
+---
+ਉੱਤਰੀ
+ਦੱਖਣੀ
+ਪੂਰਬੀ
+ਪੱਛਮੀ
+ਉੱਤਰ-ਪੂਰਬੀ
+ਉੱਤਰ-ਪੱਛਮੀ
+ਦੱਖਣ-ਪੂਰਬੀ
+ਦੱਖਣ-ਪੱਛਮੀ
+ਉਪਰਲਾ
+ਹੇਠਲਾ
+ਵਿਚਕਾਰਲਾ
+ਅੰਦਰਲਾ
+ਬਾਹਰਲਾ
+ਸੱਜੇ
+ਖੱਬੇ

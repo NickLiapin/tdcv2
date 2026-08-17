@@ -1,0 +1,12 @@
+---
+description: Blood group. Written with Latin letters and signs in Punjabi records too, exactly as on a donor card.
+locale: pa-in
+---
+A+
+A-
+B+
+B-
+AB+
+AB-
+O+
+O-

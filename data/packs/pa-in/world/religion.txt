@@ -1,0 +1,25 @@
+---
+description: World religion in Punjabi. ਸਿੱਖ ਧਰਮ is first because Sikhs are the majority in Punjab, the only Indian state where that is so, and the religion was founded in the Punjabi language. ਰਵਿਦਾਸੀਆ, ਨਾਮਧਾਰੀ, ਨਿਰੰਕਾਰੀ and ਰਾਧਾ ਸੁਆਮੀ are distinct Punjabi religious communities with their own scripture, dress or lineage, and each has millions of followers; a list translated from English would collapse all four into Sikhism, which is exactly what they dispute.
+locale: pa-in
+---
+ਸਿੱਖ ਧਰਮ
+ਹਿੰਦੂ ਧਰਮ
+ਇਸਲਾਮ
+ਈਸਾਈ ਧਰਮ
+ਬੁੱਧ ਧਰਮ
+ਜੈਨ ਧਰਮ
+ਯਹੂਦੀ ਧਰਮ
+ਬਹਾਈ
+ਪਾਰਸੀ
+ਰਵਿਦਾਸੀਆ
+ਨਾਮਧਾਰੀ
+ਨਿਰੰਕਾਰੀ
+ਰਾਧਾ ਸੁਆਮੀ
+ਆਰੀਆ ਸਮਾਜ
+ਸਨਾਤਨ ਧਰਮ
+ਸ਼ਿੰਟੋ
+ਤਾਓ ਧਰਮ
+ਕਨਫਿਊਸ਼ਸਵਾਦ
+ਨਾਸਤਿਕਤਾ
+ਅਗਿਆਨਵਾਦ
+ਧਰਮ-ਨਿਰਪੱਖ
